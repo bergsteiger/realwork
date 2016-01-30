@@ -1,0 +1,56 @@
+// Утилиты 481F03780379 UseCases Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_481F03780379
+
+: ME_481F041C02D9
+ CONST UID '481F041C02D9'
+ CONST Name 'Утилита импорта списка пользователей'
+ CONST Class class_Class
+ : Stereotype st_UseCase ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Утилита предназначеная для создания в системе ГАРАНТ Платформа F1 списка пользователей из CSV-файла, передаваемого ей в качестве параметра' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_481F03780379 // Утилиты
+ ;
+ CONST "UseNewGen" 'undefined'
+ CONST dfm:PathOnly '\garant6x\implementation\Garant'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant'
+
+ref; // ME_481F041C02D9 Утилита импорта списка пользователей
+
+: ME_481F03780379
+ CONST UID '481F03780379'
+ CONST Name 'Утилиты'
+ CONST Class class_Category
+ : Stereotype st_UseCases ;
+ %SUMMARY 'Различные вспомогательные программы, облегчающие выполнение пакетных операций или обслуживание Банка данных' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent WL 'ME_4E312E2502AE' '4E312E2502AE.pas.ms.script' // Требования
+ ;
+ : Children
+   Seq: ( ME_481F041C02D9 // Утилита импорта списка пользователей
+ )
+ ; // Children
+ CONST "UseNewGen" 'undefined'
+ : Generators
+ Seq: (
+ gen_pas.script
+ gen_pas.script.runner
+ )
+ ; // Generators
+ CONST dfm:PathOnly '\garant6x\implementation\Garant'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant'
+ CONST pas.script:Path 'shared\models\NewSchool\Scripts\481F03780379.pas.ms.script'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\481F03780379.pas.ms.script.runner'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant'
+
+ref; // ME_481F03780379 Утилиты

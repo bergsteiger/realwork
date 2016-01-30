@@ -42,10 +42,16 @@ ref; // ME_49804E8701E1 ns_ontmCurrentRedactionOp
  : Parent ME_49804E310263 // PresentationInterfaces
  ;
  : Attributes
-   @ ( ME_49804E81039D // ns_ontmDateOp
+   Seq: ( ME_49804E81039D // ns_ontmDateOp
  ME_49804E8701E1 // ns_ontmCurrentRedactionOp
- ) .SequenceCode.It
+ )
  ; // Attributes
+ CONST dfm:PathOnly '\common\components\gui\Garant\VCM\View'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\VCM\View'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\common\components\gui\View'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_49804E6D0363 TnsTurnOnTimeMachineOperation
 
@@ -60,9 +66,14 @@ ref; // ME_49804E6D0363 TnsTurnOnTimeMachineOperation
  : Parent ME_49804E310263 // PresentationInterfaces
  ;
  : Inherits
-   @ ( ME_49804E6D0363 // TnsTurnOnTimeMachineOperation
- ) .SequenceCode.It
+   Seq: ( ME_49804E6D0363 // TnsTurnOnTimeMachineOperation
+ )
  ; // Inherits
+ CONST dfm:PathOnly '\common\components\gui\Garant\VCM\View'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\VCM\View'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\common\components\gui\View'
 
 ref; // ME_49804E940321 TnsTurnOnTimeMachineOperations
 
@@ -105,8 +116,8 @@ ref; // ME_4A76E3C50280 aDate
  : Parent ME_49804EA70373 // InsTurnOnTimeMachine
  ;
  : Parameters
-   @ ( ME_4A76E3C50280 // aDate
- ) .SequenceCode.It
+   Seq: ( ME_4A76E3C50280 // aDate
+ )
  ; // Parameters
 
 ref; // ME_49804EB60303 OnDate
@@ -136,14 +147,21 @@ ref; // ME_49804ED003A8 OnCurrentRedaction
  : Parent ME_49804E310263 // PresentationInterfaces
  ;
  : Attributes
-   @ ( ME_49805F2C0082 // DisableOps
- ) .SequenceCode.It
+   Seq: ( ME_49805F2C0082 // DisableOps
+ )
  ; // Attributes
  : Operations
-   @ ( ME_49804EB60303 // OnDate
+   Seq: ( ME_49804EB60303 // OnDate
  ME_49804ED003A8 // OnCurrentRedaction
- ) .SequenceCode.It
+ )
  ; // Operations
+ CONST dfm:PathOnly '\common\components\gui\Garant\VCM\View'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\VCM\View'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\common\components\gui\View'
+ CONST extprop:rc:SelfName 'TurnOnTimeMachine'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_49804EA70373 InsTurnOnTimeMachine
 
@@ -197,11 +215,17 @@ ref; // ME_49805EB101F5 ns_offtmChangeDate
  : Parent ME_49804E310263 // PresentationInterfaces
  ;
  : Attributes
-   @ ( ME_49805EA301FB // ns_offtmGotoActualRedaction
+   Seq: ( ME_49805EA301FB // ns_offtmGotoActualRedaction
  ME_49805EAB02C5 // ns_offtmStayInCurrentRedaction
  ME_49805EB101F5 // ns_offtmChangeDate
- ) .SequenceCode.It
+ )
  ; // Attributes
+ CONST dfm:PathOnly '\common\components\gui\Garant\VCM\View'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\VCM\View'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\common\components\gui\View'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_49805E8F00F1 TnsTurnOffTimeMachineOperation
 
@@ -216,9 +240,14 @@ ref; // ME_49805E8F00F1 TnsTurnOffTimeMachineOperation
  : Parent ME_49804E310263 // PresentationInterfaces
  ;
  : Inherits
-   @ ( ME_49805E8F00F1 // TnsTurnOffTimeMachineOperation
- ) .SequenceCode.It
+   Seq: ( ME_49805E8F00F1 // TnsTurnOffTimeMachineOperation
+ )
  ; // Inherits
+ CONST dfm:PathOnly '\common\components\gui\Garant\VCM\View'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\VCM\View'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\common\components\gui\View'
 
 ref; // ME_49805EBE036E TnsTurnOffTimeMachineOperations
 
@@ -285,8 +314,8 @@ ref; // ME_49805F170081 aDate
  : Parent ME_49805ECD020F // InsTurnOffTimeMachine
  ;
  : Parameters
-   @ ( ME_49805F170081 // aDate
- ) .SequenceCode.It
+   Seq: ( ME_49805F170081 // aDate
+ )
  ; // Parameters
 
 ref; // ME_49805F0D0221 ChangeDate
@@ -304,15 +333,22 @@ ref; // ME_49805F0D0221 ChangeDate
  : Parent ME_49804E310263 // PresentationInterfaces
  ;
  : Attributes
-   @ ( ME_49805F190314 // DisableOps
- ) .SequenceCode.It
+   Seq: ( ME_49805F190314 // DisableOps
+ )
  ; // Attributes
  : Operations
-   @ ( ME_49805EED0054 // GotoActualRedaction
+   Seq: ( ME_49805EED0054 // GotoActualRedaction
  ME_49805EFF013C // StayInCurrentRedaction
  ME_49805F0D0221 // ChangeDate
- ) .SequenceCode.It
+ )
  ; // Operations
+ CONST dfm:PathOnly '\common\components\gui\Garant\VCM\View'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\VCM\View'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\common\components\gui\View'
+ CONST extprop:rc:SelfName 'TurnOffTimeMachine'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_49805ECD020F InsTurnOffTimeMachine
 
@@ -382,12 +418,18 @@ ref; // ME_49903735020E ns_sdkListInternal
  : Parent ME_49804E310263 // PresentationInterfaces
  ;
  : Attributes
-   @ ( ME_49903718025B // ns_sdkSimple
+   Seq: ( ME_49903718025B // ns_sdkSimple
  ME_4990372300D3 // ns_sdkDocument
  ME_4990372C01D2 // ns_sdkList
  ME_49903735020E // ns_sdkListInternal
- ) .SequenceCode.It
+ )
  ; // Attributes
+ CONST dfm:PathOnly '\common\components\gui\Garant\VCM\View'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\VCM\View'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\common\components\gui\View'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_496B58F900AA TnsSaveDialogKind
 
@@ -444,11 +486,17 @@ ref; // ME_49903763029A ns_sdlkIdentifiers
  : Parent ME_49804E310263 // PresentationInterfaces
  ;
  : Attributes
-   @ ( ME_499037520133 // ns_sdlkTitles
+   Seq: ( ME_499037520133 // ns_sdlkTitles
  ME_4990375B0040 // ns_sdlkContents
  ME_49903763029A // ns_sdlkIdentifiers
- ) .SequenceCode.It
+ )
  ; // Attributes
+ CONST dfm:PathOnly '\common\components\gui\Garant\VCM\View'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\VCM\View'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\common\components\gui\View'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_4990374602FC TnsSaveDialogListTarget
 
@@ -474,8 +522,8 @@ ref; // ME_4990378703C7 aHeight
  : Parent ME_499037730242 // InsMainFormChildZoneManager
  ;
  : Parameters
-   @ ( ME_4990378703C7 // aHeight
- ) .SequenceCode.It
+   Seq: ( ME_4990378703C7 // aHeight
+ )
  ; // Parameters
 
 ref; // ME_499037820017 CorrectHeight
@@ -493,9 +541,16 @@ ref; // ME_499037820017 CorrectHeight
  : Parent ME_49804E310263 // PresentationInterfaces
  ;
  : Operations
-   @ ( ME_499037820017 // CorrectHeight
- ) .SequenceCode.It
+   Seq: ( ME_499037820017 // CorrectHeight
+ )
  ; // Operations
+ CONST dfm:PathOnly '\common\components\gui\Garant\VCM\View'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\VCM\View'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\common\components\gui\View'
+ CONST extprop:rc:SelfName 'MainFormChildZoneManager'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_499037730242 InsMainFormChildZoneManager
 
@@ -510,7 +565,7 @@ ref; // ME_499037730242 InsMainFormChildZoneManager
  : Parent WL 'ME_4F6B660100D5' '4F6B660100D5.pas.ms.script' // View
  ;
  : Children
-   @ ( ME_49804E6D0363 // TnsTurnOnTimeMachineOperation
+   Seq: ( ME_49804E6D0363 // TnsTurnOnTimeMachineOperation
  ME_49804E940321 // TnsTurnOnTimeMachineOperations
  ME_49804EA70373 // InsTurnOnTimeMachine
  ME_49805E8F00F1 // TnsTurnOffTimeMachineOperation
@@ -519,27 +574,32 @@ ref; // ME_499037730242 InsMainFormChildZoneManager
  ME_496B58F900AA // TnsSaveDialogKind
  ME_4990374602FC // TnsSaveDialogListTarget
  ME_499037730242 // InsMainFormChildZoneManager
- ) .SequenceCode.It
+ )
  ; // Children
  : Depends
-   @ ( WL 'ME_4683F37902CF' '4683F37902CF.pas.ms.script' // vcmInterfaces
+   Seq: ( WL 'ME_4683F37902CF' '4683F37902CF.pas.ms.script' // vcmInterfaces
  WL 'ME_46A5E026007E' '46A5E026007E.pas.ms.script' // l3Core
  WL 'ME_4AB0C3C60310' '4AB0C3C60310.pas.ms.script' // Sys
- ) .SequenceCode.It
+ )
  ; // Depends
  CONST "author" 'Ëþëèí À.Â.'
  CONST "is namespace" true
  CONST "no hands" true
  CONST "started" '28.01.2009 15:34'
  : Generators
- @ (
+ Seq: (
  gen_intf.pas
  gen_pas.script
  gen_pas.script.runner
- ) .SequenceCode.It
+ )
  ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\VCM\View'
  CONST intf.pas:Path 'common\components\gui\Garant\VCM\View\PresentationInterfaces.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\VCM\View'
  CONST pas.script:Path 'shared\models\NewSchool\Scripts\49804E310263.pas.ms.script'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
  CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\49804E310263.pas.ms.script.runner'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\common\components\gui\View'
 
 ref; // ME_49804E310263 PresentationInterfaces

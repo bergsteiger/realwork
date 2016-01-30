@@ -1,0 +1,53 @@
+// Требования к отображению атрибутов 535F53B70206 UseCases Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_535F53B70206
+
+: ME_535F53F8021B
+ CONST UID '535F53F8021B'
+ CONST Name 'Возможность отображать атрибуты из EVD на саб панели'
+ CONST Class class_Class
+ : Stereotype st_UseCase ;
+ CONST Kind kind_NormalClass
+ %SUMMARY '{RequestLink:263291073}' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_535F53B70206 // Требования к отображению атрибутов
+ ;
+ CONST dfm:PathOnly '\archi\source\projects\Archi'
+ CONST intf.pas:PathOnly '\archi\source\projects\Archi'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\archi\source\projects\Archi'
+
+ref; // ME_535F53F8021B Возможность отображать атрибуты из EVD на саб панели
+
+: ME_535F53B70206
+ CONST UID '535F53B70206'
+ CONST Name 'Требования к отображению атрибутов'
+ CONST Class class_Category
+ : Stereotype st_UseCases ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent WL 'ME_4E3130EB007F' '4E3130EB007F.pas.ms.script' // Требования к Архивариусу
+ ;
+ : Children
+   Seq: ( ME_535F53F8021B // Возможность отображать атрибуты из EVD на саб панели
+ )
+ ; // Children
+ : Generators
+ Seq: (
+ gen_pas.script
+ gen_pas.script.runner
+ )
+ ; // Generators
+ CONST dfm:PathOnly '\archi\source\projects\Archi'
+ CONST intf.pas:PathOnly '\archi\source\projects\Archi'
+ CONST pas.script:Path 'shared\models\NewSchool\Scripts\535F53B70206.pas.ms.script'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\535F53B70206.pas.ms.script.runner'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\archi\source\projects\Archi'
+
+ref; // ME_535F53B70206 Требования к отображению атрибутов

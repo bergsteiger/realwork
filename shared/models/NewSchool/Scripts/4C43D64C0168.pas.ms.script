@@ -9,6 +9,7 @@ FORWARD ME_4C43D65C0204
 : ME_5C9AFC39E2BE
  CONST UID '5C9AFC39E2BE'
  CONST Name 'Ini_Reg_Class'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Регистрация TvtSpeedButton' ;
@@ -22,6 +23,7 @@ ref; // ME_5C9AFC39E2BE Ini_Reg_Class
 
 : ME_E68E47251A70
  CONST UID 'E68E47251A70'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_4C43D65C0204 // TvtSpeedButton
@@ -42,28 +44,30 @@ ref; // ME_E68E47251A70
  : Parent ME_4C43D64C0168 // Buttons
  ;
  : Inherits
-   @ ( WL 'ME_4C43E8A60084' '4C43E8750153.pas.ms.script' // TToolbarButton97
- ) .SequenceCode.It
+   Seq: ( WL 'ME_4C43E8A60084' '4C43E8750153.pas.ms.script' // TToolbarButton97
+ )
  ; // Inherits
  : Operations
-   @ ( ME_5C9AFC39E2BE // Ini_Reg_Class
- ) .SequenceCode.It
+   Seq: ( ME_5C9AFC39E2BE // Ini_Reg_Class
+ )
  ; // Operations
  : Dependencies
-   @ ( ME_E68E47251A70 // 
- ) .SequenceCode.It
+   Seq: ( ME_E68E47251A70 // 
+ )
  ; // Dependencies
  CONST "base wnd class" 'CWnd'
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\VT'
  CONST intf.pas:Path 'common\components\gui\Garant\VT\vtSpeedButton.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\VT'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'SpeedButton'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'vtSpeedButton'
 
 ref; // ME_4C43D65C0204 TvtSpeedButton
 
@@ -85,6 +89,12 @@ FORWARD ME_4DD0F321010A
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
+ CONST dfm:PathOnly '\common\components\gui\Garant\VT'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\VT'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'eeRadioButton'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_4C52BE8601C9 TeeRadioButton
 
@@ -99,8 +109,8 @@ ref; // ME_4C52BE8601C9 TeeRadioButton
  : Parent ME_4C43D64C0168 // Buttons
  ;
  : Children
-   @ ( ME_4C52BE8601C9 // TeeRadioButton
- ) .SequenceCode.It
+   Seq: ( ME_4C52BE8601C9 // TeeRadioButton
+ )
  ; // Children
  CONST "base wnd class" 'CWnd'
  CONST "finished" false
@@ -108,12 +118,14 @@ ref; // ME_4C52BE8601C9 TeeRadioButton
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\VT'
  CONST intf.pas:Path 'common\components\gui\Garant\VT\NOT_FINISHED_eeButton.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\VT'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'eeButton'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'eeButton'
 
 ref; // ME_4DD0F321010A TeeButton
 
@@ -132,13 +144,13 @@ ref; // ME_4DD0F321010A TeeButton
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\VT'
  CONST intf.pas:Path 'common\components\gui\Garant\VT\NOT_FINISHED_vtUnicodeButtonControl.imp.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\VT'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
  CONST extprop:pas:TypeName '_vtUnicodeButtonControl_'
+ CONST extprop:pas:UnitName 'vtUnicodeButtonControl.imp'
 
 ref; // ME_5179415C0005 vtUnicodeButtonControl
 
@@ -153,9 +165,9 @@ ref; // ME_5179415C0005 vtUnicodeButtonControl
  : Parent ME_4C43D64C0168 // Buttons
  ;
  : Inherits
-   @ ( ME_4DD0F321010A // TeeButton
+   Seq: ( ME_4DD0F321010A // TeeButton
  ME_5179415C0005 // vtUnicodeButtonControl
- ) .SequenceCode.It
+ )
  ; // Inherits
  CONST "base wnd class" 'CWnd'
  CONST "finished" false
@@ -163,12 +175,14 @@ ref; // ME_5179415C0005 vtUnicodeButtonControl
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\VT'
  CONST intf.pas:Path 'common\components\gui\Garant\VT\NOT_FINISHED_vtButton.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\VT'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'Button'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'vtButton'
 
 ref; // ME_517941310082 TvtButton
 
@@ -188,12 +202,14 @@ ref; // ME_517941310082 TvtButton
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\VT'
  CONST intf.pas:Path 'common\components\gui\Garant\VT\NOT_FINISHED_eeCheckBox.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\VT'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'eeCheckBox'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'eeCheckBox'
 
 ref; // ME_4AC5E484002C TeeCheckBox
 
@@ -208,9 +224,9 @@ ref; // ME_4AC5E484002C TeeCheckBox
  : Parent ME_4C43D64C0168 // Buttons
  ;
  : Inherits
-   @ ( ME_4AC5E484002C // TeeCheckBox
+   Seq: ( ME_4AC5E484002C // TeeCheckBox
  ME_5179415C0005 // vtUnicodeButtonControl
- ) .SequenceCode.It
+ )
  ; // Inherits
  CONST "base wnd class" 'CWnd'
  CONST "finished" false
@@ -218,12 +234,14 @@ ref; // ME_4AC5E484002C TeeCheckBox
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\VT'
  CONST intf.pas:Path 'common\components\gui\Garant\VT\NOT_FINISHED_vtCheckBox.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\VT'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'CheckBox'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'vtCheckBox'
 
 ref; // ME_5179419B01DA TvtCheckBox
 
@@ -232,6 +250,7 @@ FORWARD ME_517941E500BF
 : ME_4D9C16DA868C
  CONST UID '4D9C16DA868C'
  CONST Name 'Ini_Reg_Class'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Регистрация TvtRadioButton' ;
@@ -245,6 +264,7 @@ ref; // ME_4D9C16DA868C Ini_Reg_Class
 
 : ME_6E42C971921F
  CONST UID '6E42C971921F'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_517941E500BF // TvtRadioButton
@@ -265,17 +285,17 @@ ref; // ME_6E42C971921F
  : Parent ME_4C43D64C0168 // Buttons
  ;
  : Inherits
-   @ ( WL 'ME_4F69BC9C014A' '4799D29F033F.pas.ms.script' // TRadioButton
+   Seq: ( WL 'ME_4F69BC9C014A' '4799D29F033F.pas.ms.script' // TRadioButton
  ME_5179415C0005 // vtUnicodeButtonControl
- ) .SequenceCode.It
+ )
  ; // Inherits
  : Operations
-   @ ( ME_4D9C16DA868C // Ini_Reg_Class
- ) .SequenceCode.It
+   Seq: ( ME_4D9C16DA868C // Ini_Reg_Class
+ )
  ; // Operations
  : Dependencies
-   @ ( ME_6E42C971921F // 
- ) .SequenceCode.It
+   Seq: ( ME_6E42C971921F // 
+ )
  ; // Dependencies
  CONST "base wnd class" 'CWnd'
  CONST "finished" false
@@ -283,12 +303,14 @@ ref; // ME_6E42C971921F
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\VT'
  CONST intf.pas:Path 'common\components\gui\Garant\VT\NOT_FINISHED_vtRadioButton.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\VT'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'RadioButton'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'vtRadioButton'
 
 ref; // ME_517941E500BF TvtRadioButton
 
@@ -315,6 +337,7 @@ ref; // ME_552511AE0342 ActivateWindowOnClick
 : ME_48B047A3390A
  CONST UID '48B047A3390A'
  CONST Name 'f_ActivateWindowOnClick'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY 'Поле для свойства ActivateWindowOnClick' ;
  CONST Visibility PrivateAccess
@@ -324,12 +347,14 @@ ref; // ME_552511AE0342 ActivateWindowOnClick
  ;
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
+ CONST extprop:clearViaProperty 'ActivateWindowOnClick'
 
 ref; // ME_48B047A3390A f_ActivateWindowOnClick
 
 : ME_ADF4F2F4A6DD
  CONST UID 'ADF4F2F4A6DD'
  CONST Name 'Ini_Reg_Class'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Регистрация TvtSpeedButtonForVGScene' ;
@@ -354,6 +379,7 @@ ref; // ME_5525119B0196
 
 : ME_9D83E1ECD101
  CONST UID '9D83E1ECD101'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_55250990030E // TvtSpeedButtonForVGScene
@@ -370,6 +396,7 @@ ref; // ME_9D83E1ECD101
  ;
  : Implementor ME_55250990030E // TvtSpeedButtonForVGScene
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_47D1602000C6_ME_55250990030E Create
 
 : ME_4F88473B03CD_ME_55250990030E
@@ -379,6 +406,7 @@ ref; // ME_47D1602000C6_ME_55250990030E Create
  ;
  : Implementor ME_55250990030E // TvtSpeedButtonForVGScene
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4F88473B03CD_ME_55250990030E MouseDown
 
 : ME_55250990030E
@@ -392,39 +420,41 @@ ref; // ME_4F88473B03CD_ME_55250990030E MouseDown
  : Parent ME_4C43D64C0168 // Buttons
  ;
  : Inherits
-   @ ( ME_4C43D65C0204 // TvtSpeedButton
- ) .SequenceCode.It
+   Seq: ( ME_4C43D65C0204 // TvtSpeedButton
+ )
  ; // Inherits
  : Attributes
-   @ ( ME_552511AE0342 // ActivateWindowOnClick
+   Seq: ( ME_552511AE0342 // ActivateWindowOnClick
  ME_48B047A3390A // f_ActivateWindowOnClick
- ) .SequenceCode.It
+ )
  ; // Attributes
  : Operations
-   @ ( ME_ADF4F2F4A6DD // Ini_Reg_Class
- ) .SequenceCode.It
+   Seq: ( ME_ADF4F2F4A6DD // Ini_Reg_Class
+ )
  ; // Operations
  : Overridden
-   @ ( ME_47D1602000C6_ME_55250990030E // Create
+   Seq: ( ME_47D1602000C6_ME_55250990030E // Create
  ME_4F88473B03CD_ME_55250990030E // MouseDown
- ) .SequenceCode.It
+ )
  ; // Overridden
  : Dependencies
-   @ ( ME_5525119B0196 // 
+   Seq: ( ME_5525119B0196 // 
  ME_9D83E1ECD101 // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  CONST "base wnd class" 'CWnd'
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\VT'
  CONST intf.pas:Path 'common\components\gui\Garant\VT\vtSpeedButtonForVGScene.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\VT'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'SpeedButtonForVGScene'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'vtSpeedButtonForVGScene'
 
 ref; // ME_55250990030E TvtSpeedButtonForVGScene
 
@@ -438,7 +468,7 @@ ref; // ME_55250990030E TvtSpeedButtonForVGScene
  : Parent WL 'ME_467A75D90346' '467A75D90346.pas.ms.script' // VT
  ;
  : Children
-   @ ( ME_4C43D65C0204 // TvtSpeedButton
+   Seq: ( ME_4C43D65C0204 // TvtSpeedButton
  ME_4DD0F321010A // TeeButton
  ME_5179415C0005 // vtUnicodeButtonControl
  ME_517941310082 // TvtButton
@@ -446,23 +476,21 @@ ref; // ME_55250990030E TvtSpeedButtonForVGScene
  ME_5179419B01DA // TvtCheckBox
  ME_517941E500BF // TvtRadioButton
  ME_55250990030E // TvtSpeedButtonForVGScene
- ) .SequenceCode.It
+ )
  ; // Children
  : Depends
-   @ ( WL 'ME_4799D29F033F' '4799D29F033F.pas.ms.script' // Implementation
+   Seq: ( WL 'ME_4799D29F033F' '4799D29F033F.pas.ms.script' // Implementation
  WL 'ME_4AB0C3C60310' '4AB0C3C60310.pas.ms.script' // Sys
  WL 'ME_4AB0C3F60375' '4AB0C3F60375.pas.ms.script' // Win
  WL 'ME_4C43E8750153' '4C43E8750153.pas.ms.script' // Buttons
  WL 'ME_561F9F7D02A7' '561F9F7D02A7.pas.ms.script' // ScriptEngine
- ) .SequenceCode.It
+ )
  ; // Depends
- : Generators
- @ (
- gen_pas.script
- gen_pas.script.runner
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\VT'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\VT'
  CONST pas.script:Path 'shared\models\NewSchool\Scripts\4C43D64C0168.pas.ms.script'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
  CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\4C43D64C0168.pas.ms.script.runner'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_4C43D64C0168 Buttons

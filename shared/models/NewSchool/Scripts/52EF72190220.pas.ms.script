@@ -30,8 +30,8 @@ ref; // ME_52EF734C019B DoIt
  : Parent ME_52EF723E02D9 // ItfwParser
  ;
  : Operations
-   @ ( ME_52EF734C019B // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_52EF734C019B // DoIt
+ )
  ; // Operations
 
 ref; // ME_52EF733F022F NextToken
@@ -62,8 +62,8 @@ ref; // ME_52EF736700E1 DoIt
  : Parent ME_52EF723E02D9 // ItfwParser
  ;
  : Operations
-   @ ( ME_52EF736700E1 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_52EF736700E1 // DoIt
+ )
  ; // Operations
 
 ref; // ME_52EF735A02FF TokenLongString
@@ -94,8 +94,8 @@ ref; // ME_52EF739C0151 DoIt
  : Parent ME_52EF723E02D9 // ItfwParser
  ;
  : Operations
-   @ ( ME_52EF739C0151 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_52EF739C0151 // DoIt
+ )
  ; // Operations
 
 ref; // ME_52EF739503A9 TokenInt
@@ -126,9 +126,10 @@ ref; // ME_52EF73B100D9 DoIt
  : Parent ME_52EF723E02D9 // ItfwParser
  ;
  : Operations
-   @ ( ME_52EF73B100D9 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_52EF73B100D9 // DoIt
+ )
  ; // Operations
+ CONST extprop:rc:SelfName 'File'
 
 ref; // ME_52EF73A9014A FileName
 
@@ -158,8 +159,8 @@ ref; // ME_52EF742B0230 DoIt
  : Parent ME_52EF723E02D9 // ItfwParser
  ;
  : Operations
-   @ ( ME_52EF742B0230 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_52EF742B0230 // DoIt
+ )
  ; // Operations
 
 ref; // ME_52EF73DE037D TokenType
@@ -190,8 +191,8 @@ ref; // ME_52EF7C960169 DoIt
  : Parent ME_52EF723E02D9 // ItfwParser
  ;
  : Operations
-   @ ( ME_52EF7C960169 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_52EF7C960169 // DoIt
+ )
  ; // Operations
 
 ref; // ME_52EF7C8E027A SourceLine
@@ -208,18 +209,24 @@ ref; // ME_52EF7C8E027A SourceLine
  : Parent ME_52EF72190220 // tfwParserInterfaces
  ;
  : Operations
-   @ ( ME_52EF733F022F // NextToken
+   Seq: ( ME_52EF733F022F // NextToken
  ME_52EF735A02FF // TokenLongString
  ME_52EF739503A9 // TokenInt
  ME_52EF73A9014A // FileName
  ME_52EF73DE037D // TokenType
  ME_52EF7C8E027A // SourceLine
- ) .SequenceCode.It
+ )
  ; // Operations
  : Injected
-   @ ( WL 'ME_F70F3EC7E8F2' '4F43A0A401E6.pas.ms.script' // 
- ) .SequenceCode.It
+   Seq: ( WL 'ME_F70F3EC7E8F2' '4F43A0A401E6.pas.ms.script' // 
+ )
  ; // Injected
+ CONST dfm:PathOnly '\common\components\rtl\Garant\ScriptEngine'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\ScriptEngine'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'Parser'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_52EF723E02D9 ItfwParser
 
@@ -246,8 +253,8 @@ ref; // ME_5576DB5403A7 aString
  : Parent ME_5576DB400397 // PushString
  ;
  : Parameters
-   @ ( ME_5576DB5403A7 // aString
- ) .SequenceCode.It
+   Seq: ( ME_5576DB5403A7 // aString
+ )
  ; // Parameters
 
 ref; // ME_5576DB4A0182 DoIt
@@ -263,8 +270,8 @@ ref; // ME_5576DB4A0182 DoIt
  : Parent ME_5576DB30036A // ItfwParserEx
  ;
  : Operations
-   @ ( ME_5576DB4A0182 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_5576DB4A0182 // DoIt
+ )
  ; // Operations
 
 ref; // ME_5576DB400397 PushString
@@ -290,8 +297,8 @@ ref; // ME_5576DB6401C6 aString
  : Parent ME_5576DB580131 // PushSymbol
  ;
  : Parameters
-   @ ( ME_5576DB6401C6 // aString
- ) .SequenceCode.It
+   Seq: ( ME_5576DB6401C6 // aString
+ )
  ; // Parameters
 
 ref; // ME_5576DB6200F3 DoIt
@@ -307,8 +314,8 @@ ref; // ME_5576DB6200F3 DoIt
  : Parent ME_5576DB30036A // ItfwParserEx
  ;
  : Operations
-   @ ( ME_5576DB6200F3 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_5576DB6200F3 // DoIt
+ )
  ; // Operations
 
 ref; // ME_5576DB580131 PushSymbol
@@ -334,8 +341,8 @@ ref; // ME_5576DB8101C6 aValue
  : Parent ME_5576DB6D02FE // PushInt
  ;
  : Parameters
-   @ ( ME_5576DB8101C6 // aValue
- ) .SequenceCode.It
+   Seq: ( ME_5576DB8101C6 // aValue
+ )
  ; // Parameters
 
 ref; // ME_5576DB7A0041 DoIt
@@ -351,8 +358,8 @@ ref; // ME_5576DB7A0041 DoIt
  : Parent ME_5576DB30036A // ItfwParserEx
  ;
  : Operations
-   @ ( ME_5576DB7A0041 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_5576DB7A0041 // DoIt
+ )
  ; // Operations
 
 ref; // ME_5576DB6D02FE PushInt
@@ -429,28 +436,34 @@ ref; // ME_52EF7C8E027A_ME_5576DB30036A SourceLine
  : Parent ME_52EF72190220 // tfwParserInterfaces
  ;
  : Inherits
-   @ ( ME_52EF723E02D9 // ItfwParser
- ) .SequenceCode.It
+   Seq: ( ME_52EF723E02D9 // ItfwParser
+ )
  ; // Inherits
  : Operations
-   @ ( ME_5576DB400397 // PushString
+   Seq: ( ME_5576DB400397 // PushString
  ME_5576DB580131 // PushSymbol
  ME_5576DB6D02FE // PushInt
- ) .SequenceCode.It
+ )
  ; // Operations
  : Implemented
-   @ ( ME_52EF733F022F_ME_5576DB30036A // NextToken
+   Seq: ( ME_52EF733F022F_ME_5576DB30036A // NextToken
  ME_52EF735A02FF_ME_5576DB30036A // TokenLongString
  ME_52EF739503A9_ME_5576DB30036A // TokenInt
  ME_52EF73A9014A_ME_5576DB30036A // FileName
  ME_52EF73DE037D_ME_5576DB30036A // TokenType
  ME_52EF7C8E027A_ME_5576DB30036A // SourceLine
- ) .SequenceCode.It
+ )
  ; // Implemented
  : Injected
-   @ ( WL 'ME_1C73FF865D09' '4F43A0A401E6.pas.ms.script' // 
- ) .SequenceCode.It
+   Seq: ( WL 'ME_1C73FF865D09' '4F43A0A401E6.pas.ms.script' // 
+ )
  ; // Injected
+ CONST dfm:PathOnly '\common\components\rtl\Garant\ScriptEngine'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\ScriptEngine'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'ParserEx'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_5576DB30036A ItfwParserEx
 
@@ -464,27 +477,24 @@ ref; // ME_5576DB30036A ItfwParserEx
  : Parent WL 'ME_55C1EE2F01B7' '55C1EE2F01B7.pas.ms.script' // ScriptEngine$Parsing
  ;
  : Children
-   @ ( ME_52EF723E02D9 // ItfwParser
+   Seq: ( ME_52EF723E02D9 // ItfwParser
  ME_5576DB30036A // ItfwParserEx
- ) .SequenceCode.It
+ )
  ; // Children
  : Depends
-   @ ( WL 'ME_4677FBA70343' '4677FBA70343.pas.ms.script' // l3Interfaces
+   Seq: ( WL 'ME_4677FBA70343' '4677FBA70343.pas.ms.script' // l3Interfaces
  WL 'ME_47913B47006E' '47913B47006E.pas.ms.script' // l3CoreObjects
  WL 'ME_4C1B474600AD' '4C1B474600AD.pas.ms.script' // Parser
- ) .SequenceCode.It
+ )
  ; // Depends
  CONST "is namespace" true
  CONST "no hands" false
- : Generators
- @ (
- gen_intf.pas
- gen_pas.script
- gen_pas.script.runner
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\ScriptEngine'
  CONST intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\tfwParserInterfaces.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\ScriptEngine'
  CONST pas.script:Path 'shared\models\NewSchool\Scripts\52EF72190220.pas.ms.script'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
  CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\52EF72190220.pas.ms.script.runner'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_52EF72190220 tfwParserInterfaces

@@ -45,10 +45,10 @@ ref; // ME_4A267FCF0357 theInfo
  : Parent ME_4A267FA903BA // TevHotSpot
  ;
  : Parameters
-   @ ( ME_4D5A4BDF0249 // aView
+   Seq: ( ME_4D5A4BDF0249 // aView
  ME_4A267FCF033A // aState
  ME_4A267FCF0357 // theInfo
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_4A267FC6016B DoHitTest
@@ -60,6 +60,7 @@ ref; // ME_4A267FC6016B DoHitTest
  ;
  : Implementor ME_4A267FA903BA // TevHotSpot
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_48E2622A03C4_ME_4A267FA903BA HitTest
 
 : ME_4A267FA903BA
@@ -73,20 +74,20 @@ ref; // ME_48E2622A03C4_ME_4A267FA903BA HitTest
  : Parent ME_4A267EE3017B // HotSpots
  ;
  : Inherits
-   @ ( WL 'ME_467C18BF0367' '467C182A01BE.pas.ms.script' // Tk2ProcTagTool
- ) .SequenceCode.It
+   Seq: ( WL 'ME_467C18BF0367' '467C182A01BE.pas.ms.script' // Tk2ProcTagTool
+ )
  ; // Inherits
  : Implements
-   @ ( WL 'ME_4E6E466E031D' '4A1FCBA0014C.pas.ms.script' // MnevHotSpotHint
- ) .SequenceCode.It
+   Seq: ( WL 'ME_4E6E466E031D' '4A1FCBA0014C.pas.ms.script' // MnevHotSpotHint
+ )
  ; // Implements
  : Operations
-   @ ( ME_4A267FC6016B // DoHitTest
- ) .SequenceCode.It
+   Seq: ( ME_4A267FC6016B // DoHitTest
+ )
  ; // Operations
  : Implemented
-   @ ( ME_48E2622A03C4_ME_4A267FA903BA // HitTest
- ) .SequenceCode.It
+   Seq: ( ME_48E2622A03C4_ME_4A267FA903BA // HitTest
+ )
  ; // Implemented
  CONST "author" 'Люлин А.В.'
  CONST "needs InstanceR" 'undefined'
@@ -94,12 +95,14 @@ ref; // ME_48E2622A03C4_ME_4A267FA903BA HitTest
  CONST "no hands" true
  CONST "register in scripts" 'undefined'
  CONST "started" '19.10.2006 15:29'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest'
  CONST intf.pas:Path 'common\components\gui\Garant\Everest\evHotSpot.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'HotSpot'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'evHotSpot'
 
 ref; // ME_4A267FA903BA TevHotSpot
 
@@ -167,12 +170,17 @@ ref; // ME_4A2691E70188 ev_spRight
  : Parent ME_4A268E590029 // TevSegmentHotSpot
  ;
  : Attributes
-   @ ( ME_4A2691BD02DD // ev_spNone
+   Seq: ( ME_4A2691BD02DD // ev_spNone
  ME_4A2691C2028C // ev_spLeft
  ME_4A2691CF02DE // ev_spBody
  ME_4A2691E70188 // ev_spRight
- ) .SequenceCode.It
+ )
  ; // Attributes
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_4A2691AE03DB TevSegmentPlacement
 
@@ -202,14 +210,18 @@ ref; // ME_4A26A0020217
  : Parent ME_4A268E590029 // TevSegmentHotSpot
  ;
  : Inherits
-   @ ( WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
- ) .SequenceCode.It
+   Seq: ( WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ )
  ; // Inherits
  : Attributes
-   @ ( ME_4A26A0020217 // 
- ) .SequenceCode.It
+   Seq: ( ME_4A26A0020217 // 
+ )
  ; // Attributes
  CONST "array type" 'dynamic'
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_4A269FCC0206 TEffectMap
 
@@ -232,6 +244,7 @@ FORWARD ME_4A26A02A02AF
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value '([], [afw_jteRequestNewWindow])'
 
 ref; // ME_4A26A047012A cEffectMap
 
@@ -246,10 +259,14 @@ ref; // ME_4A26A047012A cEffectMap
  : Parent ME_4A268E590029 // TevSegmentHotSpot
  ;
  : Attributes
-   @ ( ME_4A26A047012A // cEffectMap
- ) .SequenceCode.It
+   Seq: ( ME_4A26A047012A // cEffectMap
+ )
  ; // Attributes
  CONST "spell names" false
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_4A26A02A02AF Internal Constants
 
@@ -344,9 +361,9 @@ ref; // ME_4A2694AE0034 anEffects
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
  : Parameters
-   @ ( ME_4A2694AE0013 // aView
+   Seq: ( ME_4A2694AE0013 // aView
  ME_4A2694AE0034 // anEffects
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_4A26949C013B DoIt
@@ -373,16 +390,16 @@ ref; // ME_4A2694E9000D
  : Parent ME_4A268E590029 // TevSegmentHotSpot
  ;
  : Attributes
-   @ ( ME_4A2694DA01CE // MonikerSink
- ) .SequenceCode.It
+   Seq: ( ME_4A2694DA01CE // MonikerSink
+ )
  ; // Attributes
  : Operations
-   @ ( ME_4A26949C013B // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_4A26949C013B // DoIt
+ )
  ; // Operations
  : Dependencies
-   @ ( ME_4A2694E9000D // 
- ) .SequenceCode.It
+   Seq: ( ME_4A2694E9000D // 
+ )
  ; // Dependencies
 
 ref; // ME_4A269489009C TryDoHyperlink
@@ -435,13 +452,13 @@ ref; // ME_4A26959702E9
  : Parent ME_4A268E590029 // TevSegmentHotSpot
  ;
  : Operations
-   @ ( ME_4A2695130045 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_4A2695130045 // DoIt
+ )
  ; // Operations
  : Dependencies
-   @ ( ME_4A26957202DE // 
+   Seq: ( ME_4A26957202DE // 
  ME_4A26959702E9 // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
 
 ref; // ME_4A269501015E IsHyperlink
@@ -507,6 +524,7 @@ FORWARD ME_4BB226CA0326
 : ME_237944169256
  CONST UID '237944169256'
  CONST Name 'anItem'
+ CONST IsSummoned true
  CONST Class class_Parameter
  : Stereotype st_in ;
  : Target WL 'ME_532031160122' '47913B47006E.pas.ms.script' // Tl3Variant
@@ -517,6 +535,7 @@ ref; // ME_237944169256 anItem
 : ME_237944169257
  CONST UID '237944169257'
  CONST Name 'anIndex'
+ CONST IsSummoned true
  CONST Class class_Parameter
  : Stereotype st_in ;
  : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
@@ -527,6 +546,7 @@ ref; // ME_237944169257 anIndex
 : ME_8DA7C750B719
  CONST UID '8DA7C750B719'
  CONST Name 'DoIt'
+ CONST IsSummoned true
  CONST Class class_Operation
  CONST Visibility PublicAccess
  CONST Abstraction at_final
@@ -535,9 +555,9 @@ ref; // ME_237944169257 anIndex
  : Target WL 'ME_3DBFFE100240' '3DBFDB23006E.pas.ms.script' // boolean
  ;
  : Parameters
-   @ ( ME_237944169256 // anItem
+   Seq: ( ME_237944169256 // anItem
  ME_237944169257 // anIndex
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_8DA7C750B719 DoIt
@@ -576,13 +596,13 @@ ref; // ME_4BB226EC03CF
  : Parent ME_4BB22F6C00B4 // IterateSegments
  ;
  : Operations
-   @ ( ME_8DA7C750B719 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_8DA7C750B719 // DoIt
+ )
  ; // Operations
  : Dependencies
-   @ ( ME_4BB226E703AF // 
+   Seq: ( ME_4BB226E703AF // 
  ME_4BB226EC03CF // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
 
 ref; // ME_4BB226CA0326 DoIt
@@ -613,6 +633,7 @@ ref; // ME_4BB22F800295
 
 : ME_932ED2C124BB
  CONST UID '932ED2C124BB'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_4BB22F6C00B4 // IterateSegments
@@ -634,14 +655,14 @@ ref; // ME_932ED2C124BB
  : Parent ME_4BB22649001E // DoIt
  ;
  : Operations
-   @ ( ME_4BB226CA0326 // DoIt
+   Seq: ( ME_4BB226CA0326 // DoIt
  ME_4BB22F7A01B6 // DoIt
- ) .SequenceCode.It
+ )
  ; // Operations
  : Dependencies
-   @ ( ME_4BB22F800295 // 
+   Seq: ( ME_4BB22F800295 // 
  ME_932ED2C124BB // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
 
 ref; // ME_4BB22F6C00B4 IterateSegments
@@ -649,6 +670,7 @@ ref; // ME_4BB22F6C00B4 IterateSegments
 : ME_D455E8024BC8
  CONST UID 'D455E8024BC8'
  CONST Name 'anItem'
+ CONST IsSummoned true
  CONST Class class_Parameter
  : Stereotype st_in ;
  : Target WL 'ME_532031160122' '47913B47006E.pas.ms.script' // Tl3Variant
@@ -659,6 +681,7 @@ ref; // ME_D455E8024BC8 anItem
 : ME_D455E8024BC9
  CONST UID 'D455E8024BC9'
  CONST Name 'anIndex'
+ CONST IsSummoned true
  CONST Class class_Parameter
  : Stereotype st_in ;
  : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
@@ -669,6 +692,7 @@ ref; // ME_D455E8024BC9 anIndex
 : ME_5F02A996E13B
  CONST UID '5F02A996E13B'
  CONST Name 'DoIt'
+ CONST IsSummoned true
  CONST Class class_Operation
  CONST Visibility PublicAccess
  CONST Abstraction at_final
@@ -677,9 +701,9 @@ ref; // ME_D455E8024BC9 anIndex
  : Target WL 'ME_3DBFFE100240' '3DBFDB23006E.pas.ms.script' // boolean
  ;
  : Parameters
-   @ ( ME_D455E8024BC8 // anItem
+   Seq: ( ME_D455E8024BC8 // anItem
  ME_D455E8024BC9 // anIndex
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_5F02A996E13B DoIt
@@ -707,17 +731,17 @@ ref; // ME_4BB234FC0135
  : Parent ME_4BB225E103A4 // IterateLayers
  ;
  : Attributes
-   @ ( ME_4BB2267E00D3 // Handle
- ) .SequenceCode.It
+   Seq: ( ME_4BB2267E00D3 // Handle
+ )
  ; // Attributes
  : Operations
-   @ ( ME_4BB22F6C00B4 // IterateSegments
+   Seq: ( ME_4BB22F6C00B4 // IterateSegments
  ME_5F02A996E13B // DoIt
- ) .SequenceCode.It
+ )
  ; // Operations
  : Dependencies
-   @ ( ME_4BB234FC0135 // 
- ) .SequenceCode.It
+   Seq: ( ME_4BB234FC0135 // 
+ )
  ; // Dependencies
 
 ref; // ME_4BB22649001E DoIt
@@ -759,6 +783,7 @@ ref; // ME_4BB232DA0181
 
 : ME_BF338D0394F2
  CONST UID 'BF338D0394F2'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_4BB225E103A4 // IterateLayers
@@ -780,15 +805,15 @@ ref; // ME_BF338D0394F2
  : Parent ME_4A269526011E // GetHyperLink
  ;
  : Operations
-   @ ( ME_4BB22649001E // DoIt
+   Seq: ( ME_4BB22649001E // DoIt
  ME_4BB2262D0244 // DoIt
- ) .SequenceCode.It
+ )
  ; // Operations
  : Dependencies
-   @ ( ME_4BB226050191 // 
+   Seq: ( ME_4BB226050191 // 
  ME_4BB232DA0181 // 
  ME_BF338D0394F2 // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
 
 ref; // ME_4BB225E103A4 IterateLayers
@@ -829,18 +854,18 @@ ref; // ME_4A2697220033
  : Parent ME_4A268E590029 // TevSegmentHotSpot
  ;
  : Attributes
-   @ ( ME_4A2695CB013C // Para
+   Seq: ( ME_4A2695CB013C // Para
  ME_4A26965D030B // Segment
- ) .SequenceCode.It
+ )
  ; // Attributes
  : Operations
-   @ ( ME_4BB225E103A4 // IterateLayers
+   Seq: ( ME_4BB225E103A4 // IterateLayers
  ME_4A26952D0243 // DoIt
- ) .SequenceCode.It
+ )
  ; // Operations
  : Dependencies
-   @ ( ME_4A2697220033 // 
- ) .SequenceCode.It
+   Seq: ( ME_4A2697220033 // 
+ )
  ; // Dependencies
 
 ref; // ME_4A269526011E GetHyperLink
@@ -887,12 +912,12 @@ ref; // ME_4A26A1F2011B DoIt
  : Parent ME_4A268E590029 // TevSegmentHotSpot
  ;
  : Attributes
-   @ ( ME_4A26A41B03CB // CursorPos
- ) .SequenceCode.It
+   Seq: ( ME_4A26A41B03CB // CursorPos
+ )
  ; // Attributes
  : Operations
-   @ ( ME_4A26A1F2011B // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_4A26A1F2011B // DoIt
+ )
  ; // Operations
  CONST "ifdef" 'evChangeSegmentByMouse'
 
@@ -971,10 +996,10 @@ ref; // ME_4A26A22E0046 aPack
  : Parent ME_4A26A2020328 // ChangeBorder
  ;
  : Parameters
-   @ ( ME_4A26A22E0000 // aTag
+   Seq: ( ME_4A26A22E0000 // aTag
  ME_4A26A22E0023 // aPosition
  ME_4A26A22E0046 // aPack
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_4A26A213015C DoIt
@@ -990,13 +1015,13 @@ ref; // ME_4A26A213015C DoIt
  : Parent ME_4A268E590029 // TevSegmentHotSpot
  ;
  : Attributes
-   @ ( ME_4A26A4A70132 // Placement
+   Seq: ( ME_4A26A4A70132 // Placement
  ME_4A26A4BB016B // Segments
- ) .SequenceCode.It
+ )
  ; // Attributes
  : Operations
-   @ ( ME_4A26A213015C // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_4A26A213015C // DoIt
+ )
  ; // Operations
  CONST "ifdef" 'evChangeSegmentByMouse'
 
@@ -1071,9 +1096,9 @@ ref; // ME_4A26A31F012A Index
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
  : Parameters
-   @ ( ME_4A26A31F010D // S
+   Seq: ( ME_4A26A31F010D // S
  ME_4A26A31F012A // Index
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_4A26A30F01F7 DoIt
@@ -1089,8 +1114,8 @@ ref; // ME_4A26A30F01F7 DoIt
  : Parent ME_4A26A2D40030 // HasSegment
  ;
  : Operations
-   @ ( ME_4A26A30F01F7 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_4A26A30F01F7 // DoIt
+ )
  ; // Operations
 
 ref; // ME_4A26A3010265 thereIsSegment
@@ -1126,9 +1151,9 @@ ref; // ME_4A26A2EF03A7 aFinish
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
  : Parameters
-   @ ( ME_4A26A2EF0389 // aStart
+   Seq: ( ME_4A26A2EF0389 // aStart
  ME_4A26A2EF03A7 // aFinish
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_4A26A2DE03E5 DoIt
@@ -1144,9 +1169,9 @@ ref; // ME_4A26A2DE03E5 DoIt
  : Parent ME_4A26A2600221 // CanChangeBorderPrim
  ;
  : Operations
-   @ ( ME_4A26A3010265 // thereIsSegment
+   Seq: ( ME_4A26A3010265 // thereIsSegment
  ME_4A26A2DE03E5 // DoIt
- ) .SequenceCode.It
+ )
  ; // Operations
 
 ref; // ME_4A26A2D40030 HasSegment
@@ -1202,11 +1227,11 @@ ref; // ME_4A26A2B80311 aPlacement
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
  : Parameters
-   @ ( ME_4A26A2B802A2 // aPara
+   Seq: ( ME_4A26A2B802A2 // aPara
  ME_4A26A2B802C6 // aSegments
  ME_4A26A2B802E9 // aPosition
  ME_4A26A2B80311 // aPlacement
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_4A26A2990127 DoIt
@@ -1222,14 +1247,14 @@ ref; // ME_4A26A2990127 DoIt
  : Parent ME_4A268E590029 // TevSegmentHotSpot
  ;
  : Attributes
-   @ ( ME_4A26A5210129 // Start
+   Seq: ( ME_4A26A5210129 // Start
  ME_4A26A5270250 // Finish
- ) .SequenceCode.It
+ )
  ; // Attributes
  : Operations
-   @ ( ME_4A26A2D40030 // HasSegment
+   Seq: ( ME_4A26A2D40030 // HasSegment
  ME_4A26A2990127 // DoIt
- ) .SequenceCode.It
+ )
  ; // Operations
  CONST "ifdef" 'evChangeSegmentByMouse'
 
@@ -1326,10 +1351,10 @@ ref; // ME_4A26A347023D aPlacement
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
  : Parameters
-   @ ( ME_4A26A34701F3 // aView
+   Seq: ( ME_4A26A34701F3 // aView
  ME_4A26A3470216 // aPt
  ME_4A26A347023D // aPlacement
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_4A26A33A007C DoIt
@@ -1345,14 +1370,14 @@ ref; // ME_4A26A33A007C DoIt
  : Parent ME_4A268E590029 // TevSegmentHotSpot
  ;
  : Attributes
-   @ ( ME_4A26A565017E // Tag
+   Seq: ( ME_4A26A565017E // Tag
  ME_4A26A5700156 // Map
  ME_4A26A580026E // Point
- ) .SequenceCode.It
+ )
  ; // Attributes
  : Operations
-   @ ( ME_4A26A33A007C // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_4A26A33A007C // DoIt
+ )
  ; // Operations
  CONST "ifdef" 'evChangeSegmentByMouse'
 
@@ -1379,8 +1404,8 @@ ref; // ME_50580EE3036B aView
  : Parent ME_50580EBC032C // TryToSelectHypelink
  ;
  : Parameters
-   @ ( ME_50580EE3036B // aView
- ) .SequenceCode.It
+   Seq: ( ME_50580EE3036B // aView
+ )
  ; // Parameters
 
 ref; // ME_50580ED40141 DoIt
@@ -1396,8 +1421,8 @@ ref; // ME_50580ED40141 DoIt
  : Parent ME_4A268E590029 // TevSegmentHotSpot
  ;
  : Operations
-   @ ( ME_50580ED40141 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_50580ED40141 // DoIt
+ )
  ; // Operations
 
 ref; // ME_50580EBC032C TryToSelectHypelink
@@ -1428,8 +1453,8 @@ ref; // ME_5530CB150204 DoIt
  : Parent ME_4A268E590029 // TevSegmentHotSpot
  ;
  : Operations
-   @ ( ME_5530CB150204 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_5530CB150204 // DoIt
+ )
  ; // Operations
 
 ref; // ME_5530CAEC03B8 GetDownPointPara
@@ -1484,11 +1509,11 @@ ref; // ME_4A268FB7037D aProcessor
  : Parent ME_4A268E590029 // TevSegmentHotSpot
  ;
  : Parameters
-   @ ( ME_4A268FB702F2 // aDownPoint
+   Seq: ( ME_4A268FB702F2 // aDownPoint
  ME_4A268FB70320 // aTarget
  ME_4A268FB70350 // aLayerHandle
  ME_4A268FB7037D // aProcessor
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_4A268F9002C7 Create
@@ -1546,11 +1571,11 @@ ref; // ME_4A268FF40154 aProcessor
  : Target WL 'ME_48E2665A0259' '4A1FCBA0014C.pas.ms.script' // IevHotSpot
  ;
  : Parameters
-   @ ( ME_4A268FF400B7 // aDownPoint
+   Seq: ( ME_4A268FF400B7 // aDownPoint
  ME_4A268FF400EA // aTarget
  ME_4A268FF40120 // aLayerHandle
  ME_4A268FF40154 // aProcessor
- ) .SequenceCode.It
+ )
  ; // Parameters
  CONST "check nil" false
  CONST "need AfterCreate" 'undefined'
@@ -1715,6 +1740,7 @@ ref; // ME_55CB1DA80238
  ;
  : Implementor ME_4A268E590029 // TevSegmentHotSpot
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_48E2638F0358_ME_4A268E590029 TransMouseMove
 
 : ME_48E266730188_ME_4A268E590029
@@ -1724,6 +1750,7 @@ ref; // ME_48E2638F0358_ME_4A268E590029 TransMouseMove
  ;
  : Implementor ME_4A268E590029 // TevSegmentHotSpot
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_48E266730188_ME_4A268E590029 MouseMove
 
 : ME_48E266AA00A4_ME_4A268E590029
@@ -1733,6 +1760,7 @@ ref; // ME_48E266730188_ME_4A268E590029 MouseMove
  ;
  : Implementor ME_4A268E590029 // TevSegmentHotSpot
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_48E266AA00A4_ME_4A268E590029 LButtonDown
 
 : ME_48E266C70128_ME_4A268E590029
@@ -1742,6 +1770,7 @@ ref; // ME_48E266AA00A4_ME_4A268E590029 LButtonDown
  ;
  : Implementor ME_4A268E590029 // TevSegmentHotSpot
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_48E266C70128_ME_4A268E590029 LButtonUp
 
 : ME_48E266DE026B_ME_4A268E590029
@@ -1751,6 +1780,7 @@ ref; // ME_48E266C70128_ME_4A268E590029 LButtonUp
  ;
  : Implementor ME_4A268E590029 // TevSegmentHotSpot
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_48E266DE026B_ME_4A268E590029 LButtonDoubleClick
 
 : ME_48E266FB01FC_ME_4A268E590029
@@ -1760,6 +1790,7 @@ ref; // ME_48E266DE026B_ME_4A268E590029 LButtonDoubleClick
  ;
  : Implementor ME_4A268E590029 // TevSegmentHotSpot
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_48E266FB01FC_ME_4A268E590029 RButtonDown
 
 : ME_48E267150266_ME_4A268E590029
@@ -1769,6 +1800,7 @@ ref; // ME_48E266FB01FC_ME_4A268E590029 RButtonDown
  ;
  : Implementor ME_4A268E590029 // TevSegmentHotSpot
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_48E267150266_ME_4A268E590029 RButtonUp
 
 : ME_49DB4675025E_ME_4A268E590029
@@ -1778,6 +1810,7 @@ ref; // ME_48E267150266_ME_4A268E590029 RButtonUp
  ;
  : Implementor ME_4A268E590029 // TevSegmentHotSpot
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_49DB4675025E_ME_4A268E590029 MButtonDown
 
 : ME_49DB468302A5_ME_4A268E590029
@@ -1787,6 +1820,7 @@ ref; // ME_49DB4675025E_ME_4A268E590029 MButtonDown
  ;
  : Implementor ME_4A268E590029 // TevSegmentHotSpot
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_49DB468302A5_ME_4A268E590029 MButtonUp
 
 : ME_4ECCD6840014_ME_4A268E590029
@@ -1796,6 +1830,7 @@ ref; // ME_49DB468302A5_ME_4A268E590029 MButtonUp
  ;
  : Implementor ME_4A268E590029 // TevSegmentHotSpot
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_4ECCD6840014_ME_4A268E590029 CanDrag
 
 : ME_479731C50290_ME_4A268E590029
@@ -1805,6 +1840,7 @@ ref; // ME_4ECCD6840014_ME_4A268E590029 CanDrag
  ;
  : Implementor ME_4A268E590029 // TevSegmentHotSpot
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_479731C50290_ME_4A268E590029 Cleanup
 
 : ME_4A267FC6016B_ME_4A268E590029
@@ -1814,6 +1850,7 @@ ref; // ME_479731C50290_ME_4A268E590029 Cleanup
  ;
  : Implementor ME_4A268E590029 // TevSegmentHotSpot
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4A267FC6016B_ME_4A268E590029 DoHitTest
 
 : ME_4A60B23E00C3_ME_4A268E590029
@@ -1823,6 +1860,7 @@ ref; // ME_4A267FC6016B_ME_4A268E590029 DoHitTest
  ;
  : Implementor ME_4A268E590029 // TevSegmentHotSpot
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4A60B23E00C3_ME_4A268E590029 COMQueryInterface
 
 : ME_4A268E590029
@@ -1837,23 +1875,23 @@ ref; // ME_4A60B23E00C3_ME_4A268E590029 COMQueryInterface
  : Parent ME_4A267EE3017B // HotSpots
  ;
  : Inherits
-   @ ( ME_4A267FA903BA // TevHotSpot
- ) .SequenceCode.It
+   Seq: ( ME_4A267FA903BA // TevHotSpot
+ )
  ; // Inherits
  : Implements
-   @ ( WL 'ME_47C5BD35000A' '4A23935A0282.pas.ms.script' // IevMoniker
+   Seq: ( WL 'ME_47C5BD35000A' '4A23935A0282.pas.ms.script' // IevMoniker
  WL 'ME_48E2637D0296' '4A1FCBA0014C.pas.ms.script' // IevMouseMoveHandler
  WL 'ME_48E2665A0259' '4A1FCBA0014C.pas.ms.script' // IevHotSpot
- ) .SequenceCode.It
+ )
  ; // Implements
  : Attributes
-   @ ( ME_4A268EA7001E // fl_LayerHandle
+   Seq: ( ME_4A268EA7001E // fl_LayerHandle
  ME_4A268EDD00D2 // f_Cursor
  ME_4A268EF001B1 // f_DownPoint
- ) .SequenceCode.It
+ )
  ; // Attributes
  : Operations
-   @ ( ME_4A269489009C // TryDoHyperlink
+   Seq: ( ME_4A269489009C // TryDoHyperlink
  ME_4A269501015E // IsHyperlink
  ME_4A269526011E // GetHyperLink
  ME_4A26A1E303A6 // GetPlacement
@@ -1864,10 +1902,10 @@ ref; // ME_4A60B23E00C3_ME_4A268E590029 COMQueryInterface
  ME_5530CAEC03B8 // GetDownPointPara
  ME_4A268F9002C7 // Create
  ME_4A268FD7035F // Make
- ) .SequenceCode.It
+ )
  ; // Operations
  : Implemented
-   @ ( ME_48E2638F0358_ME_4A268E590029 // TransMouseMove
+   Seq: ( ME_48E2638F0358_ME_4A268E590029 // TransMouseMove
  ME_48E266730188_ME_4A268E590029 // MouseMove
  ME_48E266AA00A4_ME_4A268E590029 // LButtonDown
  ME_48E266C70128_ME_4A268E590029 // LButtonUp
@@ -1877,25 +1915,25 @@ ref; // ME_4A60B23E00C3_ME_4A268E590029 COMQueryInterface
  ME_49DB4675025E_ME_4A268E590029 // MButtonDown
  ME_49DB468302A5_ME_4A268E590029 // MButtonUp
  ME_4ECCD6840014_ME_4A268E590029 // CanDrag
- ) .SequenceCode.It
+ )
  ; // Implemented
  : Overridden
-   @ ( ME_479731C50290_ME_4A268E590029 // Cleanup
+   Seq: ( ME_479731C50290_ME_4A268E590029 // Cleanup
  ME_4A267FC6016B_ME_4A268E590029 // DoHitTest
  ME_4A60B23E00C3_ME_4A268E590029 // COMQueryInterface
- ) .SequenceCode.It
+ )
  ; // Overridden
  : Children
-   @ ( ME_4A2691AE03DB // TevSegmentPlacement
+   Seq: ( ME_4A2691AE03DB // TevSegmentPlacement
  ME_4A269FCC0206 // TEffectMap
- ) .SequenceCode.It
+ )
  ; // Children
  : Constants
-   @ ( ME_4A26A02A02AF // Internal Constants
- ) .SequenceCode.It
+   Seq: ( ME_4A26A02A02AF // Internal Constants
+ )
  ; // Constants
  : Dependencies
-   @ ( ME_4A26929802E8 // 
+   Seq: ( ME_4A26929802E8 // 
  ME_4A2693A000CF // 
  ME_4A2694660269 // 
  ME_4A269B510285 // 
@@ -1908,7 +1946,7 @@ ref; // ME_4A60B23E00C3_ME_4A268E590029 COMQueryInterface
  ME_4A27CAB60158 // 
  ME_55C1CC3D0179 // 
  ME_55CB1DA80238 // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  CONST "author" 'Люлин А.В.'
  CONST "needs InstanceR" 'undefined'
@@ -1916,12 +1954,14 @@ ref; // ME_4A60B23E00C3_ME_4A268E590029 COMQueryInterface
  CONST "no hands" true
  CONST "register in scripts" 'undefined'
  CONST "started" '28.01.2000 20:26'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest'
  CONST intf.pas:Path 'common\components\gui\Garant\Everest\evSegmentHotSpot.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'SegmentHotSpot'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'evSegmentHotSpot'
 
 ref; // ME_4A268E590029 TevSegmentHotSpot
 
@@ -1986,9 +2026,9 @@ ref; // ME_4D66247B00E4 aView
  : Parent ME_4D66245B02FA // Create
  ;
  : Parameters
-   @ ( ME_4D66247B00C3 // aHotSpot
+   Seq: ( ME_4D66247B00C3 // aHotSpot
  ME_4D66247B00E4 // aView
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_4D662463009E DoIt
@@ -2015,12 +2055,12 @@ ref; // ME_4D6624C90242
  : Parent ME_4A43869A02C2 // TevHotSpotWrap
  ;
  : Operations
-   @ ( ME_4D662463009E // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_4D662463009E // DoIt
+ )
  ; // Operations
  : Dependencies
-   @ ( ME_4D6624C90242 // 
- ) .SequenceCode.It
+   Seq: ( ME_4D6624C90242 // 
+ )
  ; // Dependencies
 
 ref; // ME_4D66245B02FA Create
@@ -2030,6 +2070,7 @@ FORWARD ME_4D662494003E
 : ME_645B583166F9
  CONST UID '645B583166F9'
  CONST Name 'aHotSpot'
+ CONST IsSummoned true
  CONST Class class_Parameter
  : Stereotype st_in ;
  : Target WL 'ME_48E263B60071' '4A1FCBA0014C.pas.ms.script' // IevAdvancedHotSpot
@@ -2040,6 +2081,7 @@ ref; // ME_645B583166F9 aHotSpot
 : ME_BC82C93B279C
  CONST UID 'BC82C93B279C'
  CONST Name 'aView'
+ CONST IsSummoned true
  CONST Class class_Parameter
  : Stereotype st_in ;
  : Target WL 'ME_47C5C1AC02CA' '47C5207602D1.pas.ms.script' // InevControlView
@@ -2050,6 +2092,7 @@ ref; // ME_BC82C93B279C aView
 : ME_79A6268D5BFF
  CONST UID '79A6268D5BFF'
  CONST Name 'DoIt'
+ CONST IsSummoned true
  CONST Class class_Operation
  %SUMMARY 'Сигнатура фабрики TevHotSpotWrap.Make' ;
  CONST Visibility PrivateAccess
@@ -2059,9 +2102,9 @@ ref; // ME_BC82C93B279C aView
  : Target WL 'ME_48E2665A0259' '4A1FCBA0014C.pas.ms.script' // IevHotSpot
  ;
  : Parameters
-   @ ( ME_645B583166F9 // aHotSpot
+   Seq: ( ME_645B583166F9 // aHotSpot
  ME_BC82C93B279C // aView
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_79A6268D5BFF DoIt
@@ -2077,16 +2120,16 @@ ref; // ME_79A6268D5BFF DoIt
  : Parent ME_4A43869A02C2 // TevHotSpotWrap
  ;
  : Inherits
-   @ ( ME_4D66245B02FA // Create
- ) .SequenceCode.It
+   Seq: ( ME_4D66245B02FA // Create
+ )
  ; // Inherits
  : Implements
-   @ ( WL 'ME_48E2665A0259' '4A1FCBA0014C.pas.ms.script' // IevHotSpot
- ) .SequenceCode.It
+   Seq: ( WL 'ME_48E2665A0259' '4A1FCBA0014C.pas.ms.script' // IevHotSpot
+ )
  ; // Implements
  : Operations
-   @ ( ME_79A6268D5BFF // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_79A6268D5BFF // DoIt
+ )
  ; // Operations
  CONST "check nil" false
  CONST "need AfterCreate" 'undefined'
@@ -2125,9 +2168,9 @@ ref; // ME_4A438710034C aHotSpotSink
  : Parent ME_4A43869A02C2 // TevHotSpotWrap
  ;
  : Parameters
-   @ ( ME_4A438710032C // aHotSpot
+   Seq: ( ME_4A438710032C // aHotSpot
  ME_4A438710034C // aHotSpotSink
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_4A4387070198 Create
@@ -2152,6 +2195,7 @@ ref; // ME_4A43872000F4 aHotSpot
  CONST Value 'nil'
  : ValueType WL 'ME_4A23CC4D02F6' '4A1FCBA0014C.pas.ms.script' // IevHotSpotSink
  ;
+ CONST extprop:pas:Value 'nil'
 
 ref; // ME_4A438720011A aHotSpotSink
 
@@ -2167,9 +2211,9 @@ ref; // ME_4A438720011A aHotSpotSink
  : Target WL 'ME_48E2665A0259' '4A1FCBA0014C.pas.ms.script' // IevHotSpot
  ;
  : Parameters
-   @ ( ME_4A43872000F4 // aHotSpot
+   Seq: ( ME_4A43872000F4 // aHotSpot
  ME_4A438720011A // aHotSpotSink
- ) .SequenceCode.It
+ )
  ; // Parameters
  CONST "check nil" false
  CONST "need AfterCreate" 'undefined'
@@ -2218,6 +2262,7 @@ ref; // ME_4DD252AB0375
  ;
  : Implementor ME_4A43869A02C2 // TevHotSpotWrap
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_48E2622A03C4_ME_4A43869A02C2 HitTest
 
 : ME_48E263CD01BD_ME_4A43869A02C2
@@ -2227,6 +2272,7 @@ ref; // ME_48E2622A03C4_ME_4A43869A02C2 HitTest
  ;
  : Implementor ME_4A43869A02C2 // TevHotSpotWrap
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_48E263CD01BD_ME_4A43869A02C2 MouseAction
 
 : ME_48E266730188_ME_4A43869A02C2
@@ -2236,6 +2282,7 @@ ref; // ME_48E263CD01BD_ME_4A43869A02C2 MouseAction
  ;
  : Implementor ME_4A43869A02C2 // TevHotSpotWrap
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_48E266730188_ME_4A43869A02C2 MouseMove
 
 : ME_48E266AA00A4_ME_4A43869A02C2
@@ -2245,6 +2292,7 @@ ref; // ME_48E266730188_ME_4A43869A02C2 MouseMove
  ;
  : Implementor ME_4A43869A02C2 // TevHotSpotWrap
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_48E266AA00A4_ME_4A43869A02C2 LButtonDown
 
 : ME_48E266C70128_ME_4A43869A02C2
@@ -2254,6 +2302,7 @@ ref; // ME_48E266AA00A4_ME_4A43869A02C2 LButtonDown
  ;
  : Implementor ME_4A43869A02C2 // TevHotSpotWrap
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_48E266C70128_ME_4A43869A02C2 LButtonUp
 
 : ME_48E266DE026B_ME_4A43869A02C2
@@ -2263,6 +2312,7 @@ ref; // ME_48E266C70128_ME_4A43869A02C2 LButtonUp
  ;
  : Implementor ME_4A43869A02C2 // TevHotSpotWrap
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_48E266DE026B_ME_4A43869A02C2 LButtonDoubleClick
 
 : ME_48E266FB01FC_ME_4A43869A02C2
@@ -2272,6 +2322,7 @@ ref; // ME_48E266DE026B_ME_4A43869A02C2 LButtonDoubleClick
  ;
  : Implementor ME_4A43869A02C2 // TevHotSpotWrap
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_48E266FB01FC_ME_4A43869A02C2 RButtonDown
 
 : ME_48E267150266_ME_4A43869A02C2
@@ -2281,6 +2332,7 @@ ref; // ME_48E266FB01FC_ME_4A43869A02C2 RButtonDown
  ;
  : Implementor ME_4A43869A02C2 // TevHotSpotWrap
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_48E267150266_ME_4A43869A02C2 RButtonUp
 
 : ME_49DB4675025E_ME_4A43869A02C2
@@ -2290,6 +2342,7 @@ ref; // ME_48E267150266_ME_4A43869A02C2 RButtonUp
  ;
  : Implementor ME_4A43869A02C2 // TevHotSpotWrap
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_49DB4675025E_ME_4A43869A02C2 MButtonDown
 
 : ME_49DB468302A5_ME_4A43869A02C2
@@ -2299,6 +2352,7 @@ ref; // ME_49DB4675025E_ME_4A43869A02C2 MButtonDown
  ;
  : Implementor ME_4A43869A02C2 // TevHotSpotWrap
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_49DB468302A5_ME_4A43869A02C2 MButtonUp
 
 : ME_4ECCD6840014_ME_4A43869A02C2
@@ -2308,6 +2362,7 @@ ref; // ME_49DB468302A5_ME_4A43869A02C2 MButtonUp
  ;
  : Implementor ME_4A43869A02C2 // TevHotSpotWrap
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_4ECCD6840014_ME_4A43869A02C2 CanDrag
 
 : ME_479731C50290_ME_4A43869A02C2
@@ -2317,6 +2372,7 @@ ref; // ME_4ECCD6840014_ME_4A43869A02C2 CanDrag
  ;
  : Implementor ME_4A43869A02C2 // TevHotSpotWrap
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_479731C50290_ME_4A43869A02C2 Cleanup
 
 : ME_47A0AD3A01F7_ME_4A43869A02C2
@@ -2326,6 +2382,7 @@ ref; // ME_479731C50290_ME_4A43869A02C2 Cleanup
  ;
  : Implementor ME_4A43869A02C2 // TevHotSpotWrap
  ;
+ CONST OpKind opkind_Overridden
  CONST "calling conventions" 'stdcall'
 ref; // ME_47A0AD3A01F7_ME_4A43869A02C2 QueryInterface
 
@@ -2340,28 +2397,28 @@ ref; // ME_47A0AD3A01F7_ME_4A43869A02C2 QueryInterface
  : Parent ME_4A269456002A // evHotSpotMisc
  ;
  : Inherits
-   @ ( WL 'ME_49E7754802A9' '47913B47006E.pas.ms.script' // Tl3ProtoObject
- ) .SequenceCode.It
+   Seq: ( WL 'ME_49E7754802A9' '47913B47006E.pas.ms.script' // Tl3ProtoObject
+ )
  ; // Inherits
  : Implements
-   @ ( WL 'ME_48E263B60071' '4A1FCBA0014C.pas.ms.script' // IevAdvancedHotSpot
+   Seq: ( WL 'ME_48E263B60071' '4A1FCBA0014C.pas.ms.script' // IevAdvancedHotSpot
  WL 'ME_48E2665A0259' '4A1FCBA0014C.pas.ms.script' // IevHotSpot
- ) .SequenceCode.It
+ )
  ; // Implements
  : Attributes
-   @ ( ME_4A4387650266 // f_HotSpot
+   Seq: ( ME_4A4387650266 // f_HotSpot
  ME_4A4387710204 // f_HotSpotSink
- ) .SequenceCode.It
+ )
  ; // Attributes
  : Operations
-   @ ( ME_4D66245B02FA // Create
+   Seq: ( ME_4D66245B02FA // Create
  ME_4D662494003E // Make
  ME_4A4387070198 // Create
  ME_4A4387180094 // Make
- ) .SequenceCode.It
+ )
  ; // Operations
  : Implemented
-   @ ( ME_48E2622A03C4_ME_4A43869A02C2 // HitTest
+   Seq: ( ME_48E2622A03C4_ME_4A43869A02C2 // HitTest
  ME_48E263CD01BD_ME_4A43869A02C2 // MouseAction
  ME_48E266730188_ME_4A43869A02C2 // MouseMove
  ME_48E266AA00A4_ME_4A43869A02C2 // LButtonDown
@@ -2372,18 +2429,18 @@ ref; // ME_47A0AD3A01F7_ME_4A43869A02C2 QueryInterface
  ME_49DB4675025E_ME_4A43869A02C2 // MButtonDown
  ME_49DB468302A5_ME_4A43869A02C2 // MButtonUp
  ME_4ECCD6840014_ME_4A43869A02C2 // CanDrag
- ) .SequenceCode.It
+ )
  ; // Implemented
  : Overridden
-   @ ( ME_479731C50290_ME_4A43869A02C2 // Cleanup
+   Seq: ( ME_479731C50290_ME_4A43869A02C2 // Cleanup
  ME_47A0AD3A01F7_ME_4A43869A02C2 // QueryInterface
- ) .SequenceCode.It
+ )
  ; // Overridden
  : Dependencies
-   @ ( ME_4A4387490102 // 
+   Seq: ( ME_4A4387490102 // 
  ME_4A4389670250 // 
  ME_4DD252AB0375 // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  CONST "author" 'Люлин А.В.'
  CONST "needs InstanceR" 'undefined'
@@ -2391,6 +2448,12 @@ ref; // ME_47A0AD3A01F7_ME_4A43869A02C2 QueryInterface
  CONST "no hands" true
  CONST "register in scripts" 'undefined'
  CONST "started" '09.10.2000 11:37'
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'HotSpotWrap'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_4A43869A02C2 TevHotSpotWrap
 
@@ -2483,13 +2546,13 @@ ref; // ME_4A43851E0018 Effect
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
  : Parameters
-   @ ( ME_4A43851D029D // aView
+   Seq: ( ME_4A43851D029D // aView
  ME_4A43851D02C2 // aHotSpot
  ME_4A43851D02E3 // aButton
  ME_4A43851D0319 // anAction
  ME_4A43851D0388 // Keys
  ME_4A43851E0018 // Effect
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_4A4384FB02FC DoIt
@@ -2516,17 +2579,18 @@ ref; // ME_4A43854E0260
  : Parent ME_4A269456002A // evHotSpotMisc
  ;
  : Attributes
-   @ ( ME_4A43857F0104 // HotSpotSink
- ) .SequenceCode.It
+   Seq: ( ME_4A43857F0104 // HotSpotSink
+ )
  ; // Attributes
  : Operations
-   @ ( ME_4A4384FB02FC // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_4A4384FB02FC // DoIt
+ )
  ; // Operations
  : Dependencies
-   @ ( ME_4A43854E0260 // 
- ) .SequenceCode.It
+   Seq: ( ME_4A43854E0260 // 
+ )
  ; // Dependencies
+ CONST extprop:rc:SelfName 'TranslateMouseAction'
 
 ref; // ME_4A4384E70140 evTranslateMouseAction
 
@@ -2542,22 +2606,22 @@ ref; // ME_4A4384E70140 evTranslateMouseAction
  : Parent ME_4A267EE3017B // HotSpots
  ;
  : Operations
-   @ ( ME_4A4384E70140 // evTranslateMouseAction
- ) .SequenceCode.It
+   Seq: ( ME_4A4384E70140 // evTranslateMouseAction
+ )
  ; // Operations
  : Children
-   @ ( ME_4A43869A02C2 // TevHotSpotWrap
- ) .SequenceCode.It
+   Seq: ( ME_4A43869A02C2 // TevHotSpotWrap
+ )
  ; // Children
  CONST "author" 'Люлин А.В.'
  CONST "no hands" true
  CONST "started" '09.10.2000 11:37'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest'
  CONST intf.pas:Path 'common\components\gui\Garant\Everest\evHotSpotMisc.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'HotSpotMisc'
 
 ref; // ME_4A269456002A evHotSpotMisc
 
@@ -2568,6 +2632,7 @@ ref; // ME_4A269456002A evHotSpotMisc
  ;
  : Implementor ME_4A269BB40125 // TevHyperlink
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_49E5FCF403BB_ME_4A269BB40125 Exists
 
 : ME_49E5FD13001E_ME_4A269BB40125
@@ -2577,6 +2642,7 @@ ref; // ME_49E5FCF403BB_ME_4A269BB40125 Exists
  ;
  : Implementor ME_4A269BB40125 // TevHyperlink
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_49E5FD13001E_ME_4A269BB40125 Insert
 
 : ME_49E5FD1D0339_ME_4A269BB40125
@@ -2586,6 +2652,7 @@ ref; // ME_49E5FD13001E_ME_4A269BB40125 Insert
  ;
  : Implementor ME_4A269BB40125 // TevHyperlink
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_49E5FD1D0339_ME_4A269BB40125 Delete
 
 : ME_49E5FD3C021B_ME_4A269BB40125
@@ -2595,6 +2662,7 @@ ref; // ME_49E5FD1D0339_ME_4A269BB40125 Delete
  ;
  : Implementor ME_4A269BB40125 // TevHyperlink
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" false
 ref; // ME_49E5FD3C021B_ME_4A269BB40125 ID
 
@@ -2605,6 +2673,7 @@ ref; // ME_49E5FD3C021B_ME_4A269BB40125 ID
  ;
  : Implementor ME_4A269BB40125 // TevHyperlink
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" true
 ref; // ME_49E6095100C3_ME_4A269BB40125 Para
 
@@ -2615,6 +2684,7 @@ ref; // ME_49E6095100C3_ME_4A269BB40125 Para
  ;
  : Implementor ME_4A269BB40125 // TevHyperlink
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" true
 ref; // ME_49E609B701E8_ME_4A269BB40125 AddressList
 
@@ -2625,6 +2695,7 @@ ref; // ME_49E609B701E8_ME_4A269BB40125 AddressList
  ;
  : Implementor ME_4A269BB40125 // TevHyperlink
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" true
 ref; // ME_49E609D303A4_ME_4A269BB40125 Address
 
@@ -2635,6 +2706,7 @@ ref; // ME_49E609D303A4_ME_4A269BB40125 Address
  ;
  : Implementor ME_4A269BB40125 // TevHyperlink
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" true
 ref; // ME_49E609FD0318_ME_4A269BB40125 URL
 
@@ -2645,6 +2717,7 @@ ref; // ME_49E609FD0318_ME_4A269BB40125 URL
  ;
  : Implementor ME_4A269BB40125 // TevHyperlink
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" true
 ref; // ME_49E60A1B02C4_ME_4A269BB40125 Hint
 
@@ -2655,6 +2728,7 @@ ref; // ME_49E60A1B02C4_ME_4A269BB40125 Hint
  ;
  : Implementor ME_4A269BB40125 // TevHyperlink
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" true
 ref; // ME_49E60A650155_ME_4A269BB40125 Kind
 
@@ -2665,6 +2739,7 @@ ref; // ME_49E60A650155_ME_4A269BB40125 Kind
  ;
  : Implementor ME_4A269BB40125 // TevHyperlink
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" false
 ref; // ME_4A72AAF50077_ME_4A269BB40125 FromDocumentExternalHandle
 
@@ -2675,6 +2750,7 @@ ref; // ME_4A72AAF50077_ME_4A269BB40125 FromDocumentExternalHandle
  ;
  : Implementor ME_4A269BB40125 // TevHyperlink
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" false
 ref; // ME_4A72ABEF02AE_ME_4A269BB40125 TargetDocumentID
 
@@ -2685,6 +2761,7 @@ ref; // ME_4A72ABEF02AE_ME_4A269BB40125 TargetDocumentID
  ;
  : Implementor ME_4A269BB40125 // TevHyperlink
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" false
 ref; // ME_4A72B4140281_ME_4A269BB40125 Name
 
@@ -2695,6 +2772,7 @@ ref; // ME_4A72B4140281_ME_4A269BB40125 Name
  ;
  : Implementor ME_4A269BB40125 // TevHyperlink
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_5063FF170259_ME_4A269BB40125 GetHyperlink
 
 : ME_4A269BB40125
@@ -2708,11 +2786,11 @@ ref; // ME_5063FF170259_ME_4A269BB40125 GetHyperlink
  : Parent ME_4A267EE3017B // HotSpots
  ;
  : Implements
-   @ ( WL 'ME_49E5FCDB02E9' '4A251D6E00BD.pas.ms.script' // IevHyperlink
- ) .SequenceCode.It
+   Seq: ( WL 'ME_49E5FCDB02E9' '4A251D6E00BD.pas.ms.script' // IevHyperlink
+ )
  ; // Implements
  : Implemented
-   @ ( ME_49E5FCF403BB_ME_4A269BB40125 // Exists
+   Seq: ( ME_49E5FCF403BB_ME_4A269BB40125 // Exists
  ME_49E5FD13001E_ME_4A269BB40125 // Insert
  ME_49E5FD1D0339_ME_4A269BB40125 // Delete
  ME_49E5FD3C021B_ME_4A269BB40125 // ID
@@ -2726,19 +2804,21 @@ ref; // ME_5063FF170259_ME_4A269BB40125 GetHyperlink
  ME_4A72ABEF02AE_ME_4A269BB40125 // TargetDocumentID
  ME_4A72B4140281_ME_4A269BB40125 // Name
  ME_5063FF170259_ME_4A269BB40125 // GetHyperlink
- ) .SequenceCode.It
+ )
  ; // Implemented
  CONST "finished" false
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest'
  CONST intf.pas:Path 'common\components\gui\Garant\Everest\NOT_FINISHED_evHyperlink.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'Hyperlink'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'evHyperlink'
 
 ref; // ME_4A269BB40125 TevHyperlink
 
@@ -2903,12 +2983,12 @@ ref; // ME_4E6F1E3A027C theSpot
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
  : Parameters
-   @ ( ME_4E6F1E3A016C // aType
+   Seq: ( ME_4E6F1E3A016C // aType
  ME_4E6F1E3A0190 // aView
  ME_4E6F1E3A01B9 // aState
  ME_4E6F1E3A01F6 // aMap
  ME_4E6F1E3A027C // theSpot
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_4E6F1DE902B7 DoIt
@@ -2924,17 +3004,17 @@ ref; // ME_4E6F1DE902B7 DoIt
  : Parent ME_4E6F1D860184 // evDecorHotSpotTester
  ;
  : Attributes
-   @ ( ME_4E6F1E5601D3 // Decor
+   Seq: ( ME_4E6F1E5601D3 // Decor
  ME_4E6F1E6D0065 // T
  ME_4E6F1E800024 // O
  ME_4E6F1E910299 // Map
  ME_4E6F1EB000C2 // Pt
  ME_4E6F1EC20339 // P
- ) .SequenceCode.It
+ )
  ; // Attributes
  : Operations
-   @ ( ME_4E6F1DE902B7 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_4E6F1DE902B7 // DoIt
+ )
  ; // Operations
 
 ref; // ME_4E6F1DD701FA GetDecorHotSpot
@@ -2950,8 +3030,8 @@ ref; // ME_4E6F1DD701FA GetDecorHotSpot
  : Parent ME_4A267EE3017B // HotSpots
  ;
  : Operations
-   @ ( ME_4E6F1DD701FA // GetDecorHotSpot
- ) .SequenceCode.It
+   Seq: ( ME_4E6F1DD701FA // GetDecorHotSpot
+ )
  ; // Operations
  CONST "author" 'Люлин А.В.'
  CONST "needs InstanceR" 'undefined'
@@ -2959,13 +3039,13 @@ ref; // ME_4E6F1DD701FA GetDecorHotSpot
  CONST "no hands" true
  CONST "register in scripts" 'undefined'
  CONST "started" '13.09.2011 13:08'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest'
  CONST intf.pas:Path 'common\components\gui\Garant\Everest\evDecorHotSpotTester.imp.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
  CONST extprop:pas:TypeName '_evDecorHotSpotTester_'
+ CONST extprop:pas:UnitName 'evDecorHotSpotTester.imp'
 
 ref; // ME_4E6F1D860184 evDecorHotSpotTester
 
@@ -2978,6 +3058,7 @@ FORWARD ME_4A27A44403BE
  ;
  : Implementor ME_4A27A44403BE // TevControlSegmentHotSpot
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4A267FC6016B_ME_4A27A44403BE DoHitTest
 
 : ME_4A27A44403BE
@@ -2991,12 +3072,12 @@ ref; // ME_4A267FC6016B_ME_4A27A44403BE DoHitTest
  : Parent ME_4A267EE3017B // HotSpots
  ;
  : Inherits
-   @ ( ME_4A268E590029 // TevSegmentHotSpot
- ) .SequenceCode.It
+   Seq: ( ME_4A268E590029 // TevSegmentHotSpot
+ )
  ; // Inherits
  : Overridden
-   @ ( ME_4A267FC6016B_ME_4A27A44403BE // DoHitTest
- ) .SequenceCode.It
+   Seq: ( ME_4A267FC6016B_ME_4A27A44403BE // DoHitTest
+ )
  ; // Overridden
  CONST "author" 'Люлин А.В.'
  CONST "needs InstanceR" 'undefined'
@@ -3004,12 +3085,14 @@ ref; // ME_4A267FC6016B_ME_4A27A44403BE DoHitTest
  CONST "no hands" true
  CONST "register in scripts" 'undefined'
  CONST "started" '12.11.2004 15:46'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest'
  CONST intf.pas:Path 'common\components\gui\Garant\Everest\evControlSegmentHotSpot.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'ControlSegmentHotSpot'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'evControlSegmentHotSpot'
 
 ref; // ME_4A27A44403BE TevControlSegmentHotSpot
 
@@ -3096,6 +3179,7 @@ ref; // ME_4A48AAB903DA X
 : ME_17EECB9CAA77
  CONST UID '17EECB9CAA77'
  CONST Name 'f_ControlFriend'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY 'Поле для свойства ControlFriend' ;
  CONST Visibility PrivateAccess
@@ -3131,8 +3215,8 @@ ref; // ME_4A27AD8A0015 aPt
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
  : Parameters
-   @ ( ME_4A27AD8A0015 // aPt
- ) .SequenceCode.It
+   Seq: ( ME_4A27AD8A0015 // aPt
+ )
  ; // Parameters
 
 ref; // ME_4A27AD840022 DoIt
@@ -3160,12 +3244,12 @@ ref; // ME_4A27B174030E
  : Parent ME_4A27A7D5019E // TevControlParaHotSpot
  ;
  : Operations
-   @ ( ME_4A27AD840022 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_4A27AD840022 // DoIt
+ )
  ; // Operations
  : Dependencies
-   @ ( ME_4A27B174030E // 
- ) .SequenceCode.It
+   Seq: ( ME_4A27B174030E // 
+ )
  ; // Dependencies
 
 ref; // ME_4A27AD7103E7 PtInButton
@@ -3193,8 +3277,8 @@ ref; // ME_4A27ADB200AB aPt
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
  : Parameters
-   @ ( ME_4A27ADB200AB // aPt
- ) .SequenceCode.It
+   Seq: ( ME_4A27ADB200AB // aPt
+ )
  ; // Parameters
 
 ref; // ME_4A27ADAA0030 DoIt
@@ -3211,8 +3295,8 @@ ref; // ME_4A27ADAA0030 DoIt
  : Parent ME_4A27A7D5019E // TevControlParaHotSpot
  ;
  : Operations
-   @ ( ME_4A27ADAA0030 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_4A27ADAA0030 // DoIt
+ )
  ; // Operations
 
 ref; // ME_4A27AD97018A PtInCtrButton
@@ -3240,8 +3324,8 @@ ref; // ME_4A27ADC8036A aPt
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
  : Parameters
-   @ ( ME_4A27ADC8036A // aPt
- ) .SequenceCode.It
+   Seq: ( ME_4A27ADC8036A // aPt
+ )
  ; // Parameters
 
 ref; // ME_4A27ADC50132 DoIt
@@ -3268,12 +3352,12 @@ ref; // ME_4A27B19F038B
  : Parent ME_4A27A7D5019E // TevControlParaHotSpot
  ;
  : Operations
-   @ ( ME_4A27ADC50132 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_4A27ADC50132 // DoIt
+ )
  ; // Operations
  : Dependencies
-   @ ( ME_4A27B19F038B // 
- ) .SequenceCode.It
+   Seq: ( ME_4A27B19F038B // 
+ )
  ; // Dependencies
 
 ref; // ME_4A27ADBA0100 PtInPara
@@ -3301,8 +3385,8 @@ ref; // ME_4A27ADE20284 aPt
  : Target WL 'ME_4727456300E7' '472745450206.pas.ms.script' // Tl3Point
  ;
  : Parameters
-   @ ( ME_4A27ADE20284 // aPt
- ) .SequenceCode.It
+   Seq: ( ME_4A27ADE20284 // aPt
+ )
  ; // Parameters
 
 ref; // ME_4A27ADDD029F DoIt
@@ -3319,8 +3403,8 @@ ref; // ME_4A27ADDD029F DoIt
  : Parent ME_4A27A7D5019E // TevControlParaHotSpot
  ;
  : Operations
-   @ ( ME_4A27ADDD029F // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_4A27ADDD029F // DoIt
+ )
  ; // Operations
 
 ref; // ME_4A27ADCF011E PtToPara
@@ -3378,8 +3462,8 @@ ref; // ME_4A27ADFD0073 aTag
  : Parent ME_4A27ADED0094 // TrySendToGroup
  ;
  : Parameters
-   @ ( ME_4A27ADFD0073 // aTag
- ) .SequenceCode.It
+   Seq: ( ME_4A27ADFD0073 // aTag
+ )
  ; // Parameters
 
 ref; // ME_4A27ADF703D0 DoIt
@@ -3417,18 +3501,18 @@ ref; // ME_4A27B25A00D9
  : Parent ME_4A27A7D5019E // TevControlParaHotSpot
  ;
  : Attributes
-   @ ( ME_4A27B1DA0238 // Tag
+   Seq: ( ME_4A27B1DA0238 // Tag
  ME_4A27B20B03C4 // Group
- ) .SequenceCode.It
+ )
  ; // Attributes
  : Operations
-   @ ( ME_4A27ADF703D0 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_4A27ADF703D0 // DoIt
+ )
  ; // Operations
  : Dependencies
-   @ ( ME_4A27B22E024A // 
+   Seq: ( ME_4A27B22E024A // 
  ME_4A27B25A00D9 // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
 
 ref; // ME_4A27ADED0094 TrySendToGroup
@@ -3454,8 +3538,8 @@ ref; // ME_52FC8CA20023 aView
  : Parent ME_52FC8C800193 // CheckMapValid
  ;
  : Parameters
-   @ ( ME_52FC8CA20023 // aView
- ) .SequenceCode.It
+   Seq: ( ME_52FC8CA20023 // aView
+ )
  ; // Parameters
 
 ref; // ME_52FC8C9D02C6 DoIt
@@ -3471,8 +3555,8 @@ ref; // ME_52FC8C9D02C6 DoIt
  : Parent ME_4A27A7D5019E // TevControlParaHotSpot
  ;
  : Operations
-   @ ( ME_52FC8C9D02C6 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_52FC8C9D02C6 // DoIt
+ )
  ; // Operations
 
 ref; // ME_52FC8C800193 CheckMapValid
@@ -3507,9 +3591,9 @@ ref; // ME_4A27AE1D036D aTagWrap
  : Parent ME_4A27A7D5019E // TevControlParaHotSpot
  ;
  : Parameters
-   @ ( ME_4A27AE1D0313 // aMap
+   Seq: ( ME_4A27AE1D0313 // aMap
  ME_4A27AE1D036D // aTagWrap
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_4A27AE0B0219 Create
@@ -3547,9 +3631,9 @@ ref; // ME_4A27AE3A0289 aTagWrap
  : Target WL 'ME_48E2665A0259' '4A1FCBA0014C.pas.ms.script' // IevHotSpot
  ;
  : Parameters
-   @ ( ME_4A27AE3A0253 // aMap
+   Seq: ( ME_4A27AE3A0253 // aMap
  ME_4A27AE3A0289 // aTagWrap
- ) .SequenceCode.It
+ )
  ; // Parameters
  CONST "check nil" false
  CONST "need AfterCreate" 'undefined'
@@ -3620,6 +3704,7 @@ ref; // ME_4A27B4600314
  ;
  : Implementor ME_4A27A7D5019E // TevControlParaHotSpot
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_48E2622A03C4_ME_4A27A7D5019E HitTest
 
 : ME_48E2638F0358_ME_4A27A7D5019E
@@ -3629,6 +3714,7 @@ ref; // ME_48E2622A03C4_ME_4A27A7D5019E HitTest
  ;
  : Implementor ME_4A27A7D5019E // TevControlParaHotSpot
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_48E2638F0358_ME_4A27A7D5019E TransMouseMove
 
 : ME_48E266730188_ME_4A27A7D5019E
@@ -3638,6 +3724,7 @@ ref; // ME_48E2638F0358_ME_4A27A7D5019E TransMouseMove
  ;
  : Implementor ME_4A27A7D5019E // TevControlParaHotSpot
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_48E266730188_ME_4A27A7D5019E MouseMove
 
 : ME_48E266AA00A4_ME_4A27A7D5019E
@@ -3647,6 +3734,7 @@ ref; // ME_48E266730188_ME_4A27A7D5019E MouseMove
  ;
  : Implementor ME_4A27A7D5019E // TevControlParaHotSpot
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_48E266AA00A4_ME_4A27A7D5019E LButtonDown
 
 : ME_48E266C70128_ME_4A27A7D5019E
@@ -3656,6 +3744,7 @@ ref; // ME_48E266AA00A4_ME_4A27A7D5019E LButtonDown
  ;
  : Implementor ME_4A27A7D5019E // TevControlParaHotSpot
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_48E266C70128_ME_4A27A7D5019E LButtonUp
 
 : ME_48E266DE026B_ME_4A27A7D5019E
@@ -3665,6 +3754,7 @@ ref; // ME_48E266C70128_ME_4A27A7D5019E LButtonUp
  ;
  : Implementor ME_4A27A7D5019E // TevControlParaHotSpot
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_48E266DE026B_ME_4A27A7D5019E LButtonDoubleClick
 
 : ME_48E266FB01FC_ME_4A27A7D5019E
@@ -3674,6 +3764,7 @@ ref; // ME_48E266DE026B_ME_4A27A7D5019E LButtonDoubleClick
  ;
  : Implementor ME_4A27A7D5019E // TevControlParaHotSpot
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_48E266FB01FC_ME_4A27A7D5019E RButtonDown
 
 : ME_48E267150266_ME_4A27A7D5019E
@@ -3683,6 +3774,7 @@ ref; // ME_48E266FB01FC_ME_4A27A7D5019E RButtonDown
  ;
  : Implementor ME_4A27A7D5019E // TevControlParaHotSpot
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_48E267150266_ME_4A27A7D5019E RButtonUp
 
 : ME_49DB4675025E_ME_4A27A7D5019E
@@ -3692,6 +3784,7 @@ ref; // ME_48E267150266_ME_4A27A7D5019E RButtonUp
  ;
  : Implementor ME_4A27A7D5019E // TevControlParaHotSpot
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_49DB4675025E_ME_4A27A7D5019E MButtonDown
 
 : ME_49DB468302A5_ME_4A27A7D5019E
@@ -3701,6 +3794,7 @@ ref; // ME_49DB4675025E_ME_4A27A7D5019E MButtonDown
  ;
  : Implementor ME_4A27A7D5019E // TevControlParaHotSpot
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_49DB468302A5_ME_4A27A7D5019E MButtonUp
 
 : ME_4ECCD6840014_ME_4A27A7D5019E
@@ -3710,6 +3804,7 @@ ref; // ME_49DB468302A5_ME_4A27A7D5019E MButtonUp
  ;
  : Implementor ME_4A27A7D5019E // TevControlParaHotSpot
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_4ECCD6840014_ME_4A27A7D5019E CanDrag
 
 : ME_479731C50290_ME_4A27A7D5019E
@@ -3719,6 +3814,7 @@ ref; // ME_4ECCD6840014_ME_4A27A7D5019E CanDrag
  ;
  : Implementor ME_4A27A7D5019E // TevControlParaHotSpot
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_479731C50290_ME_4A27A7D5019E Cleanup
 
 : ME_5000565C019C_ME_4A27A7D5019E
@@ -3728,6 +3824,7 @@ ref; // ME_479731C50290_ME_4A27A7D5019E Cleanup
  ;
  : Implementor ME_4A27A7D5019E // TevControlParaHotSpot
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_5000565C019C_ME_4A27A7D5019E ClearFields
 
 : ME_4A27A7D5019E
@@ -3742,26 +3839,26 @@ ref; // ME_5000565C019C_ME_4A27A7D5019E ClearFields
  : Parent ME_4A267EE3017B // HotSpots
  ;
  : Inherits
-   @ ( WL 'ME_467C18A303CB' '467C182A01BE.pas.ms.script' // Tk2TagTool
+   Seq: ( WL 'ME_467C18A303CB' '467C182A01BE.pas.ms.script' // Tk2TagTool
  WL 'ME_480F48F301B9' '47C52679006D.pas.ms.script' // nevParaXTool
- ) .SequenceCode.It
+ )
  ; // Inherits
  : Implements
-   @ ( WL 'ME_48E2637D0296' '4A1FCBA0014C.pas.ms.script' // IevMouseMoveHandler
+   Seq: ( WL 'ME_48E2637D0296' '4A1FCBA0014C.pas.ms.script' // IevMouseMoveHandler
  WL 'ME_48E2665A0259' '4A1FCBA0014C.pas.ms.script' // IevHotSpot
- ) .SequenceCode.It
+ )
  ; // Implements
  : Attributes
-   @ ( ME_4A27ABD602A9 // thisMap
+   Seq: ( ME_4A27ABD602A9 // thisMap
  ME_4A27ABEE012B // f_OldChecked
  ME_4A27AC32013C // ControlFriend
  ME_4A27AC74011B // Visible
  ME_4A48AAB903DA // X
  ME_17EECB9CAA77 // f_ControlFriend
- ) .SequenceCode.It
+ )
  ; // Attributes
  : Operations
-   @ ( ME_4A27AD7103E7 // PtInButton
+   Seq: ( ME_4A27AD7103E7 // PtInButton
  ME_4A27AD97018A // PtInCtrButton
  ME_4A27ADBA0100 // PtInPara
  ME_4A27ADCF011E // PtToPara
@@ -3769,10 +3866,10 @@ ref; // ME_5000565C019C_ME_4A27A7D5019E ClearFields
  ME_52FC8C800193 // CheckMapValid
  ME_4A27AE0B0219 // Create
  ME_4A27AE280234 // Make
- ) .SequenceCode.It
+ )
  ; // Operations
  : Implemented
-   @ ( ME_48E2622A03C4_ME_4A27A7D5019E // HitTest
+   Seq: ( ME_48E2622A03C4_ME_4A27A7D5019E // HitTest
  ME_48E2638F0358_ME_4A27A7D5019E // TransMouseMove
  ME_48E266730188_ME_4A27A7D5019E // MouseMove
  ME_48E266AA00A4_ME_4A27A7D5019E // LButtonDown
@@ -3783,20 +3880,20 @@ ref; // ME_5000565C019C_ME_4A27A7D5019E ClearFields
  ME_49DB4675025E_ME_4A27A7D5019E // MButtonDown
  ME_49DB468302A5_ME_4A27A7D5019E // MButtonUp
  ME_4ECCD6840014_ME_4A27A7D5019E // CanDrag
- ) .SequenceCode.It
+ )
  ; // Implemented
  : Overridden
-   @ ( ME_479731C50290_ME_4A27A7D5019E // Cleanup
+   Seq: ( ME_479731C50290_ME_4A27A7D5019E // Cleanup
  ME_5000565C019C_ME_4A27A7D5019E // ClearFields
- ) .SequenceCode.It
+ )
  ; // Overridden
  : Dependencies
-   @ ( ME_4A27ACDE03D8 // 
+   Seq: ( ME_4A27ACDE03D8 // 
  ME_4A27AD5F0305 // 
  ME_4A27B286010E // 
  ME_4A27B40D01DC // 
  ME_4A27B4600314 // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  CONST "author" 'Люлин А.В.'
  CONST "needs InstanceR" 'undefined'
@@ -3804,12 +3901,14 @@ ref; // ME_5000565C019C_ME_4A27A7D5019E ClearFields
  CONST "no hands" true
  CONST "register in scripts" 'undefined'
  CONST "started" '12.11.2004 15:46'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest'
  CONST intf.pas:Path 'common\components\gui\Garant\Everest\evControlParaHotSpot.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'ControlParaHotSpot'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'evControlParaHotSpot'
 
 ref; // ME_4A27A7D5019E TevControlParaHotSpot
 
@@ -3826,10 +3925,15 @@ FORWARD ME_4A26AF690296
  : Parent ME_4A26AF690296 // TevTextParaHotSpotTester
  ;
  : Inherits
-   @ ( ME_4A268E590029 // TevSegmentHotSpot
- ) .SequenceCode.It
+   Seq: ( ME_4A268E590029 // TevSegmentHotSpot
+ )
  ; // Inherits
  CONST "isClassRef" true
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_4A26AFDB0097 RevSegmentClass
 
@@ -3866,8 +3970,8 @@ ref; // ME_4A26B07700EE aTag
  : Parent ME_4A26AF690296 // TevTextParaHotSpotTester
  ;
  : Parameters
-   @ ( ME_4A26B07700EE // aTag
- ) .SequenceCode.It
+   Seq: ( ME_4A26B07700EE // aTag
+ )
  ; // Parameters
  CONST "check nil" false
  CONST "need AfterCreate" 'undefined'
@@ -3937,12 +4041,12 @@ ref; // ME_4A26B5030281 theSpot
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
  : Parameters
-   @ ( ME_4A26B50301A4 // aView
+   Seq: ( ME_4A26B50301A4 // aView
  ME_4A26B50301D8 // aState
  ME_4A26B503020E // aPt
  ME_4A26B5030247 // aMap
  ME_4A26B5030281 // theSpot
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_4A26B4EB02EB DoGetAdvancedHotSpot
@@ -4164,6 +4268,7 @@ ref; // ME_55CB204B013B
  ;
  : Implementor ME_4A26AF690296 // TevTextParaHotSpotTester
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_4A250DD6037C_ME_4A26AF690296 GetAdvancedHotSpot
 
 : ME_4A26AF690296
@@ -4177,30 +4282,30 @@ ref; // ME_4A250DD6037C_ME_4A26AF690296 GetAdvancedHotSpot
  : Parent ME_4A267EE3017B // HotSpots
  ;
  : Inherits
-   @ ( WL 'ME_467C18A303CB' '467C182A01BE.pas.ms.script' // Tk2TagTool
- ) .SequenceCode.It
+   Seq: ( WL 'ME_467C18A303CB' '467C182A01BE.pas.ms.script' // Tk2TagTool
+ )
  ; // Inherits
  : Implements
-   @ ( WL 'ME_4A250DB2035E' '4A1FCBA0014C.pas.ms.script' // InevHotSpotTester2
+   Seq: ( WL 'ME_4A250DB2035E' '4A1FCBA0014C.pas.ms.script' // InevHotSpotTester2
  ME_4E6F1D860184 // evDecorHotSpotTester
- ) .SequenceCode.It
+ )
  ; // Implements
  : Operations
-   @ ( ME_4A26B035006A // GetSegmentClass
+   Seq: ( ME_4A26B035006A // GetSegmentClass
  ME_4A26B06403B3 // Make
  ME_4A26B4EB02EB // DoGetAdvancedHotSpot
- ) .SequenceCode.It
+ )
  ; // Operations
  : Implemented
-   @ ( ME_4A250DD6037C_ME_4A26AF690296 // GetAdvancedHotSpot
- ) .SequenceCode.It
+   Seq: ( ME_4A250DD6037C_ME_4A26AF690296 // GetAdvancedHotSpot
+ )
  ; // Implemented
  : Children
-   @ ( ME_4A26AFDB0097 // RevSegmentClass
- ) .SequenceCode.It
+   Seq: ( ME_4A26AFDB0097 // RevSegmentClass
+ )
  ; // Children
  : Dependencies
-   @ ( ME_4A26B08E036D // 
+   Seq: ( ME_4A26B08E036D // 
  ME_4A26B0E60165 // 
  ME_4A26B1030379 // 
  ME_4A26B1190114 // 
@@ -4218,7 +4323,7 @@ ref; // ME_4A250DD6037C_ME_4A26AF690296 GetAdvancedHotSpot
  ME_552FB0070063 // 
  ME_5530BE650307 // 
  ME_55CB204B013B // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  CONST "author" 'Люлин А.В.'
  CONST "needs InstanceR" 'undefined'
@@ -4226,12 +4331,14 @@ ref; // ME_4A250DD6037C_ME_4A26AF690296 GetAdvancedHotSpot
  CONST "no hands" true
  CONST "register in scripts" 'undefined'
  CONST "started" '28.01.2000 20:26'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest'
  CONST intf.pas:Path 'common\components\gui\Garant\Everest\evTextParaHotSpotTester.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'TextParaHotSpotTester'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'evTextParaHotSpotTester'
 
 ref; // ME_4A26AF690296 TevTextParaHotSpotTester
 
@@ -4310,13 +4417,13 @@ ref; // ME_4D64073A01C9 theSpot
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
  : Parameters
-   @ ( ME_4D64073A0043 // aView
+   Seq: ( ME_4D64073A0043 // aView
  ME_4D64073A008F // aState
  ME_4D64073A00C9 // aPt
  ME_4D64073A00FB // aMap
  ME_4D64073A0153 // aChild
  ME_4D64073A01C9 // theSpot
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_4D6406FE03A0 DoIt
@@ -4332,8 +4439,8 @@ ref; // ME_4D6406FE03A0 DoIt
  : Parent ME_4E6E373A03A3 // TevParaListHotSpotTesterPrim
  ;
  : Operations
-   @ ( ME_4D6406FE03A0 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_4D6406FE03A0 // DoIt
+ )
  ; // Operations
 
 ref; // ME_4D6406EE0228 GetChildHotSpot
@@ -4369,9 +4476,9 @@ ref; // ME_4E6E4DBD037C aProcessor
  : Parent ME_4E6E4DA50023 // Create
  ;
  : Parameters
-   @ ( ME_4E6E4DBD0358 // aTag
+   Seq: ( ME_4E6E4DBD0358 // aTag
  ME_4E6E4DBD037C // aProcessor
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_4E6E4DAC038A DoIt
@@ -4387,8 +4494,8 @@ ref; // ME_4E6E4DAC038A DoIt
  : Parent ME_4E6E373A03A3 // TevParaListHotSpotTesterPrim
  ;
  : Operations
-   @ ( ME_4E6E4DAC038A // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_4E6E4DAC038A // DoIt
+ )
  ; // Operations
 
 ref; // ME_4E6E4DA50023 Create
@@ -4398,6 +4505,7 @@ FORWARD ME_4E6E4DC4003B
 : ME_DB74BDE54B14
  CONST UID 'DB74BDE54B14'
  CONST Name 'aTag'
+ CONST IsSummoned true
  CONST Class class_Parameter
  : Stereotype st_in ;
  : Target WL 'ME_532031160122' '47913B47006E.pas.ms.script' // Tl3Variant
@@ -4408,6 +4516,7 @@ ref; // ME_DB74BDE54B14 aTag
 : ME_98386775A37E
  CONST UID '98386775A37E'
  CONST Name 'aProcessor'
+ CONST IsSummoned true
  CONST Class class_Parameter
  : Stereotype st_in ;
  : Target WL 'ME_476BEF270278' '4678209200A6.pas.ms.script' // InevProcessor
@@ -4418,6 +4527,7 @@ ref; // ME_98386775A37E aProcessor
 : ME_9E0E060886B5
  CONST UID '9E0E060886B5'
  CONST Name 'DoIt'
+ CONST IsSummoned true
  CONST Class class_Operation
  %SUMMARY 'Сигнатура фабрики TevParaListHotSpotTesterPrim.Make' ;
  CONST Visibility PrivateAccess
@@ -4427,9 +4537,9 @@ ref; // ME_98386775A37E aProcessor
  : Target WL 'ME_4A250DB2035E' '4A1FCBA0014C.pas.ms.script' // InevHotSpotTester2
  ;
  : Parameters
-   @ ( ME_DB74BDE54B14 // aTag
+   Seq: ( ME_DB74BDE54B14 // aTag
  ME_98386775A37E // aProcessor
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_9E0E060886B5 DoIt
@@ -4445,16 +4555,16 @@ ref; // ME_9E0E060886B5 DoIt
  : Parent ME_4E6E373A03A3 // TevParaListHotSpotTesterPrim
  ;
  : Inherits
-   @ ( ME_4E6E4DA50023 // Create
- ) .SequenceCode.It
+   Seq: ( ME_4E6E4DA50023 // Create
+ )
  ; // Inherits
  : Implements
-   @ ( WL 'ME_4A250DB2035E' '4A1FCBA0014C.pas.ms.script' // InevHotSpotTester2
- ) .SequenceCode.It
+   Seq: ( WL 'ME_4A250DB2035E' '4A1FCBA0014C.pas.ms.script' // InevHotSpotTester2
+ )
  ; // Implements
  : Operations
-   @ ( ME_9E0E060886B5 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_9E0E060886B5 // DoIt
+ )
  ; // Operations
  CONST "check nil" false
  CONST "need AfterCreate" 'undefined'
@@ -4526,12 +4636,12 @@ ref; // ME_4E6E4FC1038A theSpot
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
  : Parameters
-   @ ( ME_4E6E4FC102E6 // aView
+   Seq: ( ME_4E6E4FC102E6 // aView
  ME_4E6E4FC10312 // aState
  ME_4E6E4FC10339 // aPt
  ME_4E6E4FC10362 // aMap
  ME_4E6E4FC1038A // theSpot
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_4E6E4F9A01FC DoIt
@@ -4547,8 +4657,8 @@ ref; // ME_4E6E4F9A01FC DoIt
  : Parent ME_4E6E373A03A3 // TevParaListHotSpotTesterPrim
  ;
  : Operations
-   @ ( ME_4E6E4F9A01FC // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_4E6E4F9A01FC // DoIt
+ )
  ; // Operations
 
 ref; // ME_4E6E4F91001A DoGetAdvancedHotSpot
@@ -4582,6 +4692,7 @@ ref; // ME_4E6F2EBF01F9
  ;
  : Implementor ME_4E6E373A03A3 // TevParaListHotSpotTesterPrim
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_4A250DD6037C_ME_4E6E373A03A3 GetAdvancedHotSpot
 
 : ME_4E6E373A03A3
@@ -4595,30 +4706,30 @@ ref; // ME_4A250DD6037C_ME_4E6E373A03A3 GetAdvancedHotSpot
  : Parent ME_4A267EE3017B // HotSpots
  ;
  : Inherits
-   @ ( WL 'ME_480F4E9301DE' '47C52679006D.pas.ms.script' // nevParaListTool
+   Seq: ( WL 'ME_480F4E9301DE' '47C52679006D.pas.ms.script' // nevParaListTool
  ME_4A267FA903BA // TevHotSpot
- ) .SequenceCode.It
+ )
  ; // Inherits
  : Implements
-   @ ( WL 'ME_4A250DB2035E' '4A1FCBA0014C.pas.ms.script' // InevHotSpotTester2
+   Seq: ( WL 'ME_4A250DB2035E' '4A1FCBA0014C.pas.ms.script' // InevHotSpotTester2
  ME_4E6F1D860184 // evDecorHotSpotTester
- ) .SequenceCode.It
+ )
  ; // Implements
  : Operations
-   @ ( ME_4D6406EE0228 // GetChildHotSpot
+   Seq: ( ME_4D6406EE0228 // GetChildHotSpot
  ME_4E6E4DA50023 // Create
  ME_4E6E4DC4003B // Make
  ME_4E6E4F91001A // DoGetAdvancedHotSpot
- ) .SequenceCode.It
+ )
  ; // Operations
  : Implemented
-   @ ( ME_4A250DD6037C_ME_4E6E373A03A3 // GetAdvancedHotSpot
- ) .SequenceCode.It
+   Seq: ( ME_4A250DD6037C_ME_4E6E373A03A3 // GetAdvancedHotSpot
+ )
  ; // Implemented
  : Dependencies
-   @ ( ME_4E6F21AA0322 // 
+   Seq: ( ME_4E6F21AA0322 // 
  ME_4E6F2EBF01F9 // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  CONST "author" 'Люлин А.В.'
  CONST "needs InstanceR" 'undefined'
@@ -4626,12 +4737,14 @@ ref; // ME_4A250DD6037C_ME_4E6E373A03A3 GetAdvancedHotSpot
  CONST "no hands" true
  CONST "register in scripts" 'undefined'
  CONST "started" '12.09.2011 20:45'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest'
  CONST intf.pas:Path 'common\components\gui\Garant\Everest\evParaListHotSpotTesterPrim.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'ParaListHotSpotTesterPrim'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'evParaListHotSpotTesterPrim'
 
 ref; // ME_4E6E373A03A3 TevParaListHotSpotTesterPrim
 
@@ -4683,14 +4796,14 @@ ref; // ME_53D7807A009A
  : Parent ME_4A267EE3017B // HotSpots
  ;
  : Inherits
-   @ ( ME_4E6E373A03A3 // TevParaListHotSpotTesterPrim
- ) .SequenceCode.It
+   Seq: ( ME_4E6E373A03A3 // TevParaListHotSpotTesterPrim
+ )
  ; // Inherits
  : Dependencies
-   @ ( ME_4E14240E017A // 
+   Seq: ( ME_4E14240E017A // 
  ME_53D78060021A // 
  ME_53D7807A009A // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  CONST "author" 'Люлин А.В.'
  CONST "needs InstanceR" 'undefined'
@@ -4698,12 +4811,14 @@ ref; // ME_53D7807A009A
  CONST "no hands" true
  CONST "register in scripts" 'undefined'
  CONST "started" '2005/06/02 12:33:08'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest'
  CONST intf.pas:Path 'common\components\gui\Garant\Everest\evParaListHotSpotTester.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'ParaListHotSpotTester'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'evParaListHotSpotTester'
 
 ref; // ME_4A27B7300174 TevParaListHotSpotTester
 
@@ -4728,6 +4843,7 @@ FORWARD ME_4FB3ACF1036C
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value '(ev_ocBottomRight, ev_ocTopLeft)'
 
 ref; // ME_4FB3ACFE016C cnInitOperation
 
@@ -4742,10 +4858,14 @@ ref; // ME_4FB3ACFE016C cnInitOperation
  : Parent ME_4A27B5510171 // TevDocumentPartHotSpotTester
  ;
  : Attributes
-   @ ( ME_4FB3ACFE016C // cnInitOperation
- ) .SequenceCode.It
+   Seq: ( ME_4FB3ACFE016C // cnInitOperation
+ )
  ; // Attributes
  CONST "spell names" false
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_4FB3ACF1036C InternalConst
 
@@ -4856,6 +4976,7 @@ ref; // ME_4F968F94014D thisMap
 : ME_2941848B5B53
  CONST UID '2941848B5B53'
  CONST Name 'f_Area'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY 'Поле для свойства Area' ;
  CONST Visibility PrivateAccess
@@ -4903,12 +5024,12 @@ ref; // ME_4F96603D00A6
  : Parent ME_4A27B5510171 // TevDocumentPartHotSpotTester
  ;
  : Operations
-   @ ( ME_4F9655F3038E // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_4F9655F3038E // DoIt
+ )
  ; // Operations
  : Dependencies
-   @ ( ME_4F96603D00A6 // 
- ) .SequenceCode.It
+   Seq: ( ME_4F96603D00A6 // 
+ )
  ; // Dependencies
 
 ref; // ME_4F9655E60184 CheckSub
@@ -4961,13 +5082,13 @@ ref; // ME_4F9661EA02F9
  : Parent ME_4A27B5510171 // TevDocumentPartHotSpotTester
  ;
  : Operations
-   @ ( ME_4F96560E012B // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_4F96560E012B // DoIt
+ )
  ; // Operations
  : Dependencies
-   @ ( ME_4F96606A0387 // 
+   Seq: ( ME_4F96606A0387 // 
  ME_4F9661EA02F9 // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
 
 ref; // ME_4F96560203C8 GetName
@@ -4995,8 +5116,8 @@ ref; // ME_4F96564500E0 aState
  : Target WL 'ME_46780DA40383' '4677FBA70343.pas.ms.script' // Il3CString
  ;
  : Parameters
-   @ ( ME_4F96564500E0 // aState
- ) .SequenceCode.It
+   Seq: ( ME_4F96564500E0 // aState
+ )
  ; // Parameters
 
 ref; // ME_4F96563703C0 DoIt
@@ -5056,15 +5177,15 @@ ref; // ME_4F9667DC0066
  : Parent ME_4A27B5510171 // TevDocumentPartHotSpotTester
  ;
  : Operations
-   @ ( ME_4F96563703C0 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_4F96563703C0 // DoIt
+ )
  ; // Operations
  : Dependencies
-   @ ( ME_4F9660DF0143 // 
+   Seq: ( ME_4F9660DF0143 // 
  ME_4F96617A0066 // 
  ME_4F966770037D // 
  ME_4F9667DC0066 // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
 
 ref; // ME_4F96562802A7 GetHintPrefix
@@ -5102,9 +5223,9 @@ ref; // ME_4F96568402F3 aPt
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
  : Parameters
-   @ ( ME_4F96568402D0 // aView
+   Seq: ( ME_4F96568402D0 // aView
  ME_4F96568402F3 // aPt
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_4F96566A0075 DoIt
@@ -5121,8 +5242,8 @@ ref; // ME_4F96566A0075 DoIt
  : Parent ME_4A27B5510171 // TevDocumentPartHotSpotTester
  ;
  : Operations
-   @ ( ME_4F96566A0075 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_4F96566A0075 // DoIt
+ )
  ; // Operations
 
 ref; // ME_4F96565C038E DoDrop
@@ -5160,9 +5281,9 @@ ref; // ME_4F9657C20123 aPt
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
  : Parameters
-   @ ( ME_4F9657C200E4 // aView
+   Seq: ( ME_4F9657C200E4 // aView
  ME_4F9657C20123 // aPt
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_4F9657A700A3 DoIt
@@ -5201,13 +5322,13 @@ ref; // ME_4F96688D0347
  : Parent ME_4A27B5510171 // TevDocumentPartHotSpotTester
  ;
  : Operations
-   @ ( ME_4F9657A700A3 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_4F9657A700A3 // DoIt
+ )
  ; // Operations
  : Dependencies
-   @ ( ME_4F9661A601E5 // 
+   Seq: ( ME_4F9661A601E5 // 
  ME_4F96688D0347 // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
 
 ref; // ME_4F96578503B9 CanChangeBorder
@@ -5243,9 +5364,9 @@ ref; // ME_4F9657FE021B aPt
  : Parent ME_4F9657D00104 // ChangeBorder
  ;
  : Parameters
-   @ ( ME_4F9657FE01F8 // aView
+   Seq: ( ME_4F9657FE01F8 // aView
  ME_4F9657FE021B // aPt
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_4F9657E50276 DoIt
@@ -5394,11 +5515,11 @@ ref; // ME_4F97D2AF021C
  : Parent ME_4A27B5510171 // TevDocumentPartHotSpotTester
  ;
  : Operations
-   @ ( ME_4F9657E50276 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_4F9657E50276 // DoIt
+ )
  ; // Operations
  : Dependencies
-   @ ( ME_4F96622E0182 // 
+   Seq: ( ME_4F96622E0182 // 
  ME_4F9662520056 // 
  ME_4F96626601BB // 
  ME_4F96629E0139 // 
@@ -5410,7 +5531,7 @@ ref; // ME_4F97D2AF021C
  ME_4F9666140190 // 
  ME_4F96665602F5 // 
  ME_4F97D2AF021C // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
 
 ref; // ME_4F9657D00104 ChangeBorder
@@ -5438,8 +5559,8 @@ ref; // ME_4F9658390387 aView
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
  : Parameters
-   @ ( ME_4F9658390387 // aView
- ) .SequenceCode.It
+   Seq: ( ME_4F9658390387 // aView
+ )
  ; // Parameters
 
 ref; // ME_4F96582B0011 DoIt
@@ -5455,8 +5576,8 @@ ref; // ME_4F96582B0011 DoIt
  : Parent ME_4A27B5510171 // TevDocumentPartHotSpotTester
  ;
  : Operations
-   @ ( ME_4F96582B0011 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_4F96582B0011 // DoIt
+ )
  ; // Operations
 
 ref; // ME_4F965819031F ShowParts
@@ -5524,12 +5645,12 @@ ref; // ME_4F96588A03D1 Effect
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
  : Parameters
-   @ ( ME_4F96588A033A // aView
+   Seq: ( ME_4F96588A033A // aView
  ME_4F96588A0368 // aButton
  ME_4F96588A0377 // anAction
  ME_4F96588A039A // Keys
  ME_4F96588A03D1 // Effect
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_4F96585602A7 DoIt
@@ -5545,8 +5666,8 @@ ref; // ME_4F96585602A7 DoIt
  : Parent ME_4A27B5510171 // TevDocumentPartHotSpotTester
  ;
  : Operations
-   @ ( ME_4F96585602A7 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_4F96585602A7 // DoIt
+ )
  ; // Operations
 
 ref; // ME_4F96584801B7 DoMouseAction
@@ -5584,9 +5705,9 @@ ref; // ME_4F969FB003C8 aTop
  : Target WL 'ME_47C5B57E0390' '47C5207602D1.pas.ms.script' // InevBasePoint
  ;
  : Parameters
-   @ ( ME_4F969FB003A8 // aView
+   Seq: ( ME_4F969FB003A8 // aView
  ME_4F969FB003C8 // aTop
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_4F969EBB01BF DoIt
@@ -5602,8 +5723,8 @@ ref; // ME_4F969EBB01BF DoIt
  : Parent ME_4A27B5510171 // TevDocumentPartHotSpotTester
  ;
  : Operations
-   @ ( ME_4F969EBB01BF // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_4F969EBB01BF // DoIt
+ )
  ; // Operations
 
 ref; // ME_4F969E7001AD GetEdge
@@ -5661,6 +5782,7 @@ ref; // ME_551BBC32011F
  ;
  : Implementor ME_4A27B5510171 // TevDocumentPartHotSpotTester
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_48E263CD01BD_ME_4A27B5510171 MouseAction
 
 : ME_4ECCD6840014_ME_4A27B5510171
@@ -5670,6 +5792,7 @@ ref; // ME_48E263CD01BD_ME_4A27B5510171 MouseAction
  ;
  : Implementor ME_4A27B5510171 // TevDocumentPartHotSpotTester
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_4ECCD6840014_ME_4A27B5510171 CanDrag
 
 : ME_479731C50290_ME_4A27B5510171
@@ -5679,6 +5802,7 @@ ref; // ME_4ECCD6840014_ME_4A27B5510171 CanDrag
  ;
  : Implementor ME_4A27B5510171 // TevDocumentPartHotSpotTester
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_479731C50290_ME_4A27B5510171 Cleanup
 
 : ME_4A267FC6016B_ME_4A27B5510171
@@ -5688,6 +5812,7 @@ ref; // ME_479731C50290_ME_4A27B5510171 Cleanup
  ;
  : Implementor ME_4A27B5510171 // TevDocumentPartHotSpotTester
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4A267FC6016B_ME_4A27B5510171 DoHitTest
 
 : ME_4A60B23E00C3_ME_4A27B5510171
@@ -5697,6 +5822,7 @@ ref; // ME_4A267FC6016B_ME_4A27B5510171 DoHitTest
  ;
  : Implementor ME_4A27B5510171 // TevDocumentPartHotSpotTester
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4A60B23E00C3_ME_4A27B5510171 COMQueryInterface
 
 : ME_4E6E4F91001A_ME_4A27B5510171
@@ -5706,6 +5832,7 @@ ref; // ME_4A60B23E00C3_ME_4A27B5510171 COMQueryInterface
  ;
  : Implementor ME_4A27B5510171 // TevDocumentPartHotSpotTester
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4E6E4F91001A_ME_4A27B5510171 DoGetAdvancedHotSpot
 
 : ME_4A27B5510171
@@ -5720,15 +5847,15 @@ ref; // ME_4E6E4F91001A_ME_4A27B5510171 DoGetAdvancedHotSpot
  : Parent ME_4A267EE3017B // HotSpots
  ;
  : Inherits
-   @ ( ME_4A27B7300174 // TevParaListHotSpotTester
- ) .SequenceCode.It
+   Seq: ( ME_4A27B7300174 // TevParaListHotSpotTester
+ )
  ; // Inherits
  : Implements
-   @ ( WL 'ME_48E263B60071' '4A1FCBA0014C.pas.ms.script' // IevAdvancedHotSpot
- ) .SequenceCode.It
+   Seq: ( WL 'ME_48E263B60071' '4A1FCBA0014C.pas.ms.script' // IevAdvancedHotSpot
+ )
  ; // Implements
  : Attributes
-   @ ( ME_4F96545B0022 // f_DragArea
+   Seq: ( ME_4F96545B0022 // f_DragArea
  ME_4F96547B01F3 // Area
  ME_4F96555E01E1 // f_Name
  ME_4F96558F0384 // f_Sub
@@ -5736,10 +5863,10 @@ ref; // ME_4E6E4F91001A_ME_4A27B5510171 DoGetAdvancedHotSpot
  ME_4F968DE703AF // f_BottomEdge
  ME_4F968F94014D // thisMap
  ME_2941848B5B53 // f_Area
- ) .SequenceCode.It
+ )
  ; // Attributes
  : Operations
-   @ ( ME_4F9655E60184 // CheckSub
+   Seq: ( ME_4F9655E60184 // CheckSub
  ME_4F96560203C8 // GetName
  ME_4F96562802A7 // GetHintPrefix
  ME_4F96565C038E // DoDrop
@@ -5748,41 +5875,43 @@ ref; // ME_4E6E4F91001A_ME_4A27B5510171 DoGetAdvancedHotSpot
  ME_4F965819031F // ShowParts
  ME_4F96584801B7 // DoMouseAction
  ME_4F969E7001AD // GetEdge
- ) .SequenceCode.It
+ )
  ; // Operations
  : Implemented
-   @ ( ME_48E263CD01BD_ME_4A27B5510171 // MouseAction
+   Seq: ( ME_48E263CD01BD_ME_4A27B5510171 // MouseAction
  ME_4ECCD6840014_ME_4A27B5510171 // CanDrag
- ) .SequenceCode.It
+ )
  ; // Implemented
  : Overridden
-   @ ( ME_479731C50290_ME_4A27B5510171 // Cleanup
+   Seq: ( ME_479731C50290_ME_4A27B5510171 // Cleanup
  ME_4A267FC6016B_ME_4A27B5510171 // DoHitTest
  ME_4A60B23E00C3_ME_4A27B5510171 // COMQueryInterface
  ME_4E6E4F91001A_ME_4A27B5510171 // DoGetAdvancedHotSpot
- ) .SequenceCode.It
+ )
  ; // Overridden
  : Constants
-   @ ( ME_4FB3ACF1036C // InternalConst
- ) .SequenceCode.It
+   Seq: ( ME_4FB3ACF1036C // InternalConst
+ )
  ; // Constants
  : Dependencies
-   @ ( ME_4E1423F30055 // 
+   Seq: ( ME_4E1423F30055 // 
  ME_53D66A3C026A // 
  ME_551A8AC40155 // 
  ME_551BBC32011F // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" true
  CONST "register in scripts" 'undefined'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest'
  CONST intf.pas:Path 'common\components\gui\Garant\Everest\evDocumentPartHotSpotTester.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'DocumentPartHotSpotTester'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'evDocumentPartHotSpotTester'
 
 ref; // ME_4A27B5510171 TevDocumentPartHotSpotTester
 
@@ -5837,11 +5966,16 @@ ref; // ME_4A27B5F801F2 ev_cbButton
  : Parent ME_4A27B51303A7 // TevControlsBlockHotSpotTesterPrim
  ;
  : Attributes
-   @ ( ME_4A27B5EC02E7 // ev_cbNoAction
+   Seq: ( ME_4A27B5EC02E7 // ev_cbNoAction
  ME_4A27B5F203AD // ev_cbMainSurface
  ME_4A27B5F801F2 // ev_cbButton
- ) .SequenceCode.It
+ )
  ; // Attributes
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_4A27B5E3017E TContrBlockActFlags
 
@@ -5865,6 +5999,7 @@ ref; // ME_4A27B7B10328 CommonControl
 : ME_C4FD38E35673
  CONST UID 'C4FD38E35673'
  CONST Name 'f_CommonControl'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY 'Поле для свойства CommonControl' ;
  CONST Visibility PrivateAccess
@@ -5903,8 +6038,8 @@ ref; // ME_4A27B5A80388 DoIt
  : Parent ME_4A27B51303A7 // TevControlsBlockHotSpotTesterPrim
  ;
  : Operations
-   @ ( ME_4A27B5A80388 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_4A27B5A80388 // DoIt
+ )
  ; // Operations
 
 ref; // ME_4A27B59E000D GetControl
@@ -5932,8 +6067,8 @@ ref; // ME_4A27B67001CB aPt
  : Target WL 'ME_4727456300E7' '472745450206.pas.ms.script' // Tl3Point
  ;
  : Parameters
-   @ ( ME_4A27B67001CB // aPt
- ) .SequenceCode.It
+   Seq: ( ME_4A27B67001CB // aPt
+ )
  ; // Parameters
 
 ref; // ME_4A27B66C0238 DoIt
@@ -5949,8 +6084,8 @@ ref; // ME_4A27B66C0238 DoIt
  : Parent ME_4A27B51303A7 // TevControlsBlockHotSpotTesterPrim
  ;
  : Operations
-   @ ( ME_4A27B66C0238 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_4A27B66C0238 // DoIt
+ )
  ; // Operations
 
 ref; // ME_4A27B66101A0 PtToPara
@@ -5978,8 +6113,8 @@ ref; // ME_4A27B6A102FC aPt
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
  : Parameters
-   @ ( ME_4A27B6A102FC // aPt
- ) .SequenceCode.It
+   Seq: ( ME_4A27B6A102FC // aPt
+ )
  ; // Parameters
 
 ref; // ME_4A27B6990004 DoIt
@@ -6006,12 +6141,12 @@ ref; // ME_4A27B6CB02DC
  : Parent ME_4A27B51303A7 // TevControlsBlockHotSpotTesterPrim
  ;
  : Operations
-   @ ( ME_4A27B6990004 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_4A27B6990004 // DoIt
+ )
  ; // Operations
  : Dependencies
-   @ ( ME_4A27B6CB02DC // 
- ) .SequenceCode.It
+   Seq: ( ME_4A27B6CB02DC // 
+ )
  ; // Dependencies
 
 ref; // ME_4A27B6890151 MouseInBtn
@@ -6056,6 +6191,7 @@ ref; // ME_4A27BA6C01A0
  ;
  : Implementor ME_4A27B51303A7 // TevControlsBlockHotSpotTesterPrim
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_48E2638F0358_ME_4A27B51303A7 TransMouseMove
 
 : ME_479731C50290_ME_4A27B51303A7
@@ -6065,6 +6201,7 @@ ref; // ME_48E2638F0358_ME_4A27B51303A7 TransMouseMove
  ;
  : Implementor ME_4A27B51303A7 // TevControlsBlockHotSpotTesterPrim
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_479731C50290_ME_4A27B51303A7 Cleanup
 
 : ME_5000565C019C_ME_4A27B51303A7
@@ -6074,6 +6211,7 @@ ref; // ME_479731C50290_ME_4A27B51303A7 Cleanup
  ;
  : Implementor ME_4A27B51303A7 // TevControlsBlockHotSpotTesterPrim
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_5000565C019C_ME_4A27B51303A7 ClearFields
 
 : ME_4A27B51303A7
@@ -6087,42 +6225,42 @@ ref; // ME_5000565C019C_ME_4A27B51303A7 ClearFields
  : Parent ME_4A267EE3017B // HotSpots
  ;
  : Inherits
-   @ ( ME_4A27B5510171 // TevDocumentPartHotSpotTester
- ) .SequenceCode.It
+   Seq: ( ME_4A27B5510171 // TevDocumentPartHotSpotTester
+ )
  ; // Inherits
  : Implements
-   @ ( WL 'ME_48E2637D0296' '4A1FCBA0014C.pas.ms.script' // IevMouseMoveHandler
- ) .SequenceCode.It
+   Seq: ( WL 'ME_48E2637D0296' '4A1FCBA0014C.pas.ms.script' // IevMouseMoveHandler
+ )
  ; // Implements
  : Attributes
-   @ ( ME_4A27B7B10328 // CommonControl
+   Seq: ( ME_4A27B7B10328 // CommonControl
  ME_C4FD38E35673 // f_CommonControl
- ) .SequenceCode.It
+ )
  ; // Attributes
  : Operations
-   @ ( ME_4A27B59E000D // GetControl
+   Seq: ( ME_4A27B59E000D // GetControl
  ME_4A27B66101A0 // PtToPara
  ME_4A27B6890151 // MouseInBtn
- ) .SequenceCode.It
+ )
  ; // Operations
  : Implemented
-   @ ( ME_48E2638F0358_ME_4A27B51303A7 // TransMouseMove
- ) .SequenceCode.It
+   Seq: ( ME_48E2638F0358_ME_4A27B51303A7 // TransMouseMove
+ )
  ; // Implemented
  : Overridden
-   @ ( ME_479731C50290_ME_4A27B51303A7 // Cleanup
+   Seq: ( ME_479731C50290_ME_4A27B51303A7 // Cleanup
  ME_5000565C019C_ME_4A27B51303A7 // ClearFields
- ) .SequenceCode.It
+ )
  ; // Overridden
  : Children
-   @ ( ME_4A27B5E3017E // TContrBlockActFlags
- ) .SequenceCode.It
+   Seq: ( ME_4A27B5E3017E // TContrBlockActFlags
+ )
  ; // Children
  : Dependencies
-   @ ( ME_4A27B61C03A7 // 
+   Seq: ( ME_4A27B61C03A7 // 
  ME_4A27B638016C // 
  ME_4A27BA6C01A0 // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  CONST "author" 'Люлин А.В.'
  CONST "needs InstanceR" 'undefined'
@@ -6130,12 +6268,14 @@ ref; // ME_5000565C019C_ME_4A27B51303A7 ClearFields
  CONST "no hands" true
  CONST "register in scripts" 'undefined'
  CONST "started" '04.06.2009 15:51'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest'
  CONST intf.pas:Path 'common\components\gui\Garant\Everest\evControlsBlockHotSpotTesterPrim.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'ControlsBlockHotSpotTesterPrim'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'evControlsBlockHotSpotTesterPrim'
 
 ref; // ME_4A27B51303A7 TevControlsBlockHotSpotTesterPrim
 
@@ -6164,6 +6304,7 @@ ref; // ME_4A27C5C600AC Hyperlink
  ;
  : Implementor ME_4A27C5A7004E // InevActiveHyperlink
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_4A27C48E017F_ME_4A27C5A7004E IsSame
 
 : ME_4A27C5CD001C_ME_4A27C5A7004E
@@ -6173,6 +6314,7 @@ ref; // ME_4A27C48E017F_ME_4A27C5A7004E IsSame
  ;
  : Implementor ME_4A27C5A7004E // InevActiveHyperlink
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" false
 ref; // ME_4A27C5CD001C_ME_4A27C5A7004E Para
 
@@ -6183,6 +6325,7 @@ ref; // ME_4A27C5CD001C_ME_4A27C5A7004E Para
  ;
  : Implementor ME_4A27C5A7004E // InevActiveHyperlink
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_4FBF5595010C_ME_4A27C5A7004E Invalidate
 
 : ME_4A27C5A7004E
@@ -6197,19 +6340,25 @@ ref; // ME_4FBF5595010C_ME_4A27C5A7004E Invalidate
  : Parent ME_4A27C4D20100 // TnevActiveHyperlink
  ;
  : Inherits
-   @ ( WL 'ME_4A27C46801A9' '47C5207602D1.pas.ms.script' // InevActiveElement
- ) .SequenceCode.It
+   Seq: ( WL 'ME_4A27C46801A9' '47C5207602D1.pas.ms.script' // InevActiveElement
+ )
  ; // Inherits
  : Attributes
-   @ ( ME_4A27C5C600AC // Hyperlink
- ) .SequenceCode.It
+   Seq: ( ME_4A27C5C600AC // Hyperlink
+ )
  ; // Attributes
  : Implemented
-   @ ( ME_4A27C48E017F_ME_4A27C5A7004E // IsSame
+   Seq: ( ME_4A27C48E017F_ME_4A27C5A7004E // IsSame
  ME_4A27C5CD001C_ME_4A27C5A7004E // Para
  ME_4FBF5595010C_ME_4A27C5A7004E // Invalidate
- ) .SequenceCode.It
+ )
  ; // Implemented
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'ActiveHyperlink'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_4A27C5A7004E InevActiveHyperlink
 
@@ -6271,9 +6420,9 @@ ref; // ME_4A27C543021C aHyperlink
  : Parent ME_4A27C4D20100 // TnevActiveHyperlink
  ;
  : Parameters
-   @ ( ME_4A27C54301F6 // aPara
+   Seq: ( ME_4A27C54301F6 // aPara
  ME_4A27C543021C // aHyperlink
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_4A27C50D027C Create
@@ -6310,9 +6459,9 @@ ref; // ME_4A27C54C0103 aHyperlink
  : Target ME_4A27C5A7004E // InevActiveHyperlink
  ;
  : Parameters
-   @ ( ME_4A27C54C00DC // aPara
+   Seq: ( ME_4A27C54C00DC // aPara
  ME_4A27C54C0103 // aHyperlink
- ) .SequenceCode.It
+ )
  ; // Parameters
  CONST "check nil" false
  CONST "need AfterCreate" 'undefined'
@@ -6372,6 +6521,7 @@ ref; // ME_5346A5F00078
  ;
  : Implementor ME_4A27C4D20100 // TnevActiveHyperlink
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_4A27C48E017F_ME_4A27C4D20100 IsSame
 
 : ME_4A27C5C600AC_ME_4A27C4D20100
@@ -6381,6 +6531,7 @@ ref; // ME_4A27C48E017F_ME_4A27C4D20100 IsSame
  ;
  : Implementor ME_4A27C4D20100 // TnevActiveHyperlink
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" false
 ref; // ME_4A27C5C600AC_ME_4A27C4D20100 Hyperlink
 
@@ -6391,6 +6542,7 @@ ref; // ME_4A27C5C600AC_ME_4A27C4D20100 Hyperlink
  ;
  : Implementor ME_4A27C4D20100 // TnevActiveHyperlink
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" false
 ref; // ME_4A27C5CD001C_ME_4A27C4D20100 Para
 
@@ -6401,6 +6553,7 @@ ref; // ME_4A27C5CD001C_ME_4A27C4D20100 Para
  ;
  : Implementor ME_4A27C4D20100 // TnevActiveHyperlink
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_4FBF5595010C_ME_4A27C4D20100 Invalidate
 
 : ME_479731C50290_ME_4A27C4D20100
@@ -6410,6 +6563,7 @@ ref; // ME_4FBF5595010C_ME_4A27C4D20100 Invalidate
  ;
  : Implementor ME_4A27C4D20100 // TnevActiveHyperlink
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_479731C50290_ME_4A27C4D20100 Cleanup
 
 : ME_47A6FEE600FC_ME_4A27C4D20100
@@ -6419,6 +6573,7 @@ ref; // ME_479731C50290_ME_4A27C4D20100 Cleanup
  ;
  : Implementor ME_4A27C4D20100 // TnevActiveHyperlink
  ;
+ CONST OpKind opkind_Overridden
  CONST "ifndef" 'DesignTimeLibrary'
 ref; // ME_47A6FEE600FC_ME_4A27C4D20100 IsCacheable
 
@@ -6434,45 +6589,45 @@ ref; // ME_47A6FEE600FC_ME_4A27C4D20100 IsCacheable
  : Parent ME_4A267EE3017B // HotSpots
  ;
  : Inherits
-   @ ( WL 'ME_4AE5CA2D0034' '47913B47006E.pas.ms.script' // Tl3CProtoObject
- ) .SequenceCode.It
+   Seq: ( WL 'ME_4AE5CA2D0034' '47913B47006E.pas.ms.script' // Tl3CProtoObject
+ )
  ; // Inherits
  : Implements
-   @ ( ME_4A27C5A7004E // InevActiveHyperlink
- ) .SequenceCode.It
+   Seq: ( ME_4A27C5A7004E // InevActiveHyperlink
+ )
  ; // Implements
  : Attributes
-   @ ( ME_4A27C58A0376 // f_Para
+   Seq: ( ME_4A27C58A0376 // f_Para
  ME_4A27C59D027C // f_Hyperlink
- ) .SequenceCode.It
+ )
  ; // Attributes
  : Operations
-   @ ( ME_4A27C50D027C // Create
+   Seq: ( ME_4A27C50D027C // Create
  ME_4A27C5470260 // Make
- ) .SequenceCode.It
+ )
  ; // Operations
  : Implemented
-   @ ( ME_4A27C48E017F_ME_4A27C4D20100 // IsSame
+   Seq: ( ME_4A27C48E017F_ME_4A27C4D20100 // IsSame
  ME_4A27C5C600AC_ME_4A27C4D20100 // Hyperlink
  ME_4A27C5CD001C_ME_4A27C4D20100 // Para
  ME_4FBF5595010C_ME_4A27C4D20100 // Invalidate
- ) .SequenceCode.It
+ )
  ; // Implemented
  : Overridden
-   @ ( ME_479731C50290_ME_4A27C4D20100 // Cleanup
+   Seq: ( ME_479731C50290_ME_4A27C4D20100 // Cleanup
  ME_47A6FEE600FC_ME_4A27C4D20100 // IsCacheable
- ) .SequenceCode.It
+ )
  ; // Overridden
  : Children
-   @ ( ME_4A27C5A7004E // InevActiveHyperlink
- ) .SequenceCode.It
+   Seq: ( ME_4A27C5A7004E // InevActiveHyperlink
+ )
  ; // Children
  : Dependencies
-   @ ( ME_4A27C56F0324 // 
+   Seq: ( ME_4A27C56F0324 // 
  ME_4A27E91B02FF // 
  ME_4F7C823F030A // 
  ME_5346A5F00078 // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  CONST "author" 'Люлин А.В.'
  CONST "needs InstanceR" 'undefined'
@@ -6480,12 +6635,14 @@ ref; // ME_47A6FEE600FC_ME_4A27C4D20100 IsCacheable
  CONST "no hands" true
  CONST "register in scripts" 'undefined'
  CONST "started" '04.06.2009 17:29'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest'
  CONST intf.pas:Path 'common\components\gui\Garant\Everest\nevActiveHyperlink.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'ActiveHyperlink'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'nevActiveHyperlink'
 
 ref; // ME_4A27C4D20100 TnevActiveHyperlink
 
@@ -6504,6 +6661,7 @@ FORWARD ME_4D5951820043
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value '''Показать информацию об изменениях'''
 
 ref; // ME_4D5951F7005F ShowVersionInfo
 
@@ -6520,6 +6678,7 @@ ref; // ME_4D5951F7005F ShowVersionInfo
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value '''Скрыть информацию об изменениях'''
 
 ref; // ME_4D5952180271 HideVersionInfo
 
@@ -6534,14 +6693,18 @@ ref; // ME_4D5952180271 HideVersionInfo
  : Parent ME_4D594C39031B // TevTextParaHeaderHotSpot
  ;
  : Attributes
-   @ ( ME_4D5951F7005F // ShowVersionInfo
+   Seq: ( ME_4D5951F7005F // ShowVersionInfo
  ME_4D5952180271 // HideVersionInfo
- ) .SequenceCode.It
+ )
  ; // Attributes
  CONST "Need map interface" false
  CONST "Need mapping support" false
  CONST "children prefix" 'tphhs'
  CONST "spell names" false
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
  CONST extprop:pas:ElementPrefix 'tphhs'
 
 ref; // ME_4D5951820043 Local
@@ -6551,6 +6714,7 @@ FORWARD ME_730F71ECBE08
 : ME_A9FAE27F3768
  CONST UID 'A9FAE27F3768'
  CONST Name 'ShowVersionInfo'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY '''Показать информацию об изменениях''' ;
  CONST Visibility PublicAccess
@@ -6566,12 +6730,14 @@ FORWARD ME_730F71ECBE08
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''tphhsShowVersionInfo''; rValue : ''Показать информацию об изменениях'')'
 
 ref; // ME_A9FAE27F3768 ShowVersionInfo
 
 : ME_6340EFBF02FF
  CONST UID '6340EFBF02FF'
  CONST Name 'HideVersionInfo'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY '''Скрыть информацию об изменениях''' ;
  CONST Visibility PublicAccess
@@ -6587,12 +6753,14 @@ ref; // ME_A9FAE27F3768 ShowVersionInfo
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''tphhsHideVersionInfo''; rValue : ''Скрыть информацию об изменениях'')'
 
 ref; // ME_6340EFBF02FF HideVersionInfo
 
 : ME_730F71ECBE08
  CONST UID '730F71ECBE08'
  CONST Name 'LCImplLocal'
+ CONST IsSummoned true
  CONST Class class_Class
  : Stereotype st_Constants ;
  CONST Kind kind_NormalClass
@@ -6602,13 +6770,17 @@ ref; // ME_6340EFBF02FF HideVersionInfo
  : Parent ME_4D594C39031B // TevTextParaHeaderHotSpot
  ;
  : Attributes
-   @ ( ME_A9FAE27F3768 // ShowVersionInfo
+   Seq: ( ME_A9FAE27F3768 // ShowVersionInfo
  ME_6340EFBF02FF // HideVersionInfo
- ) .SequenceCode.It
+ )
  ; // Attributes
  CONST "children prefix" 'tphhs'
  CONST "elements prefix" 'str'
  CONST "spell names" false
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
  CONST extprop:pas:ElementPrefixBase 'str'
  CONST extprop:pas:ElementPrefix 'str_tphhs'
 
@@ -6659,9 +6831,9 @@ ref; // ME_4D594FBC038A aProcessor
  : Parent ME_4D594C980253 // Create
  ;
  : Parameters
-   @ ( ME_4D594CC00193 // aPara
+   Seq: ( ME_4D594CC00193 // aPara
  ME_4D594FBC038A // aProcessor
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_4D594CB6038E DoIt
@@ -6677,8 +6849,8 @@ ref; // ME_4D594CB6038E DoIt
  : Parent ME_4D594C39031B // TevTextParaHeaderHotSpot
  ;
  : Operations
-   @ ( ME_4D594CB6038E // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_4D594CB6038E // DoIt
+ )
  ; // Operations
 
 ref; // ME_4D594C980253 Create
@@ -6688,6 +6860,7 @@ FORWARD ME_4D594CAA009C
 : ME_DAEC839206A8
  CONST UID 'DAEC839206A8'
  CONST Name 'aPara'
+ CONST IsSummoned true
  CONST Class class_Parameter
  : Stereotype st_in ;
  : Target WL 'ME_47C520D80305' '47C5207602D1.pas.ms.script' // InevPara
@@ -6698,6 +6871,7 @@ ref; // ME_DAEC839206A8 aPara
 : ME_686ADA076CD9
  CONST UID '686ADA076CD9'
  CONST Name 'aProcessor'
+ CONST IsSummoned true
  CONST Class class_Parameter
  : Stereotype st_in ;
  : Target WL 'ME_476BEF270278' '4678209200A6.pas.ms.script' // InevProcessor
@@ -6708,6 +6882,7 @@ ref; // ME_686ADA076CD9 aProcessor
 : ME_00F049BF96A3
  CONST UID '00F049BF96A3'
  CONST Name 'DoIt'
+ CONST IsSummoned true
  CONST Class class_Operation
  %SUMMARY 'Сигнатура фабрики TevTextParaHeaderHotSpot.Make' ;
  CONST Visibility PrivateAccess
@@ -6717,9 +6892,9 @@ ref; // ME_686ADA076CD9 aProcessor
  : Target WL 'ME_48E2665A0259' '4A1FCBA0014C.pas.ms.script' // IevHotSpot
  ;
  : Parameters
-   @ ( ME_DAEC839206A8 // aPara
+   Seq: ( ME_DAEC839206A8 // aPara
  ME_686ADA076CD9 // aProcessor
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_00F049BF96A3 DoIt
@@ -6735,16 +6910,16 @@ ref; // ME_00F049BF96A3 DoIt
  : Parent ME_4D594C39031B // TevTextParaHeaderHotSpot
  ;
  : Inherits
-   @ ( ME_4D594C980253 // Create
- ) .SequenceCode.It
+   Seq: ( ME_4D594C980253 // Create
+ )
  ; // Inherits
  : Implements
-   @ ( WL 'ME_48E2665A0259' '4A1FCBA0014C.pas.ms.script' // IevHotSpot
- ) .SequenceCode.It
+   Seq: ( WL 'ME_48E2665A0259' '4A1FCBA0014C.pas.ms.script' // IevHotSpot
+ )
  ; // Implements
  : Operations
-   @ ( ME_00F049BF96A3 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_00F049BF96A3 // DoIt
+ )
  ; // Operations
  CONST "check nil" false
  CONST "need AfterCreate" 'undefined'
@@ -6774,8 +6949,8 @@ ref; // ME_4D59517903CE aView
  : Parent ME_4D59515E0255 // DoCollapse
  ;
  : Parameters
-   @ ( ME_4D59517903CE // aView
- ) .SequenceCode.It
+   Seq: ( ME_4D59517903CE // aView
+ )
  ; // Parameters
 
 ref; // ME_4D59517501A4 DoIt
@@ -6824,21 +6999,22 @@ ref; // ME_4D5977BF02B4
  : Parent ME_4D594C39031B // TevTextParaHeaderHotSpot
  ;
  : Operations
-   @ ( ME_4D59517501A4 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_4D59517501A4 // DoIt
+ )
  ; // Operations
  : Dependencies
-   @ ( ME_4D5953D70202 // 
+   Seq: ( ME_4D5953D70202 // 
  ME_4D5955710222 // 
  ME_4D5977BF02B4 // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
 
 ref; // ME_4D59515E0255 DoCollapse
 
 : ME_3BBB56F4AA3F
  CONST UID '3BBB56F4AA3F'
- CONST Name 'Init_ShowVersionInfo'
+ CONST Name 'Init_Str_ShowVersionInfo'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Инициализация str_tphhsShowVersionInfo' ;
@@ -6846,12 +7022,17 @@ ref; // ME_4D59515E0255 DoCollapse
  CONST Abstraction at_final
  : Parent ME_4D594C39031B // TevTextParaHeaderHotSpot
  ;
+ : Speller ME_4D5951F7005F // ShowVersionInfo
+ ;
+ : SpelledFor ME_A9FAE27F3768 // ShowVersionInfo
+ ;
 
-ref; // ME_3BBB56F4AA3F Init_ShowVersionInfo
+ref; // ME_3BBB56F4AA3F Init_Str_ShowVersionInfo
 
 : ME_DD9A49DAAFB1
  CONST UID 'DD9A49DAAFB1'
- CONST Name 'Init_HideVersionInfo'
+ CONST Name 'Init_Str_HideVersionInfo'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Инициализация str_tphhsHideVersionInfo' ;
@@ -6859,11 +7040,16 @@ ref; // ME_3BBB56F4AA3F Init_ShowVersionInfo
  CONST Abstraction at_final
  : Parent ME_4D594C39031B // TevTextParaHeaderHotSpot
  ;
+ : Speller ME_4D5952180271 // HideVersionInfo
+ ;
+ : SpelledFor ME_6340EFBF02FF // HideVersionInfo
+ ;
 
-ref; // ME_DD9A49DAAFB1 Init_HideVersionInfo
+ref; // ME_DD9A49DAAFB1 Init_Str_HideVersionInfo
 
 : ME_521E29D6058E
  CONST UID '521E29D6058E'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_4D594C39031B // TevTextParaHeaderHotSpot
@@ -6875,6 +7061,7 @@ ref; // ME_521E29D6058E
 
 : ME_30329DF918B9
  CONST UID '30329DF918B9'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_4D594C39031B // TevTextParaHeaderHotSpot
@@ -6891,6 +7078,7 @@ ref; // ME_30329DF918B9
  ;
  : Implementor ME_4D594C39031B // TevTextParaHeaderHotSpot
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_48E266730188_ME_4D594C39031B MouseMove
 
 : ME_48E266AA00A4_ME_4D594C39031B
@@ -6900,6 +7088,7 @@ ref; // ME_48E266730188_ME_4D594C39031B MouseMove
  ;
  : Implementor ME_4D594C39031B // TevTextParaHeaderHotSpot
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_48E266AA00A4_ME_4D594C39031B LButtonDown
 
 : ME_48E266C70128_ME_4D594C39031B
@@ -6909,6 +7098,7 @@ ref; // ME_48E266AA00A4_ME_4D594C39031B LButtonDown
  ;
  : Implementor ME_4D594C39031B // TevTextParaHeaderHotSpot
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_48E266C70128_ME_4D594C39031B LButtonUp
 
 : ME_48E266DE026B_ME_4D594C39031B
@@ -6918,6 +7108,7 @@ ref; // ME_48E266C70128_ME_4D594C39031B LButtonUp
  ;
  : Implementor ME_4D594C39031B // TevTextParaHeaderHotSpot
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_48E266DE026B_ME_4D594C39031B LButtonDoubleClick
 
 : ME_48E266FB01FC_ME_4D594C39031B
@@ -6927,6 +7118,7 @@ ref; // ME_48E266DE026B_ME_4D594C39031B LButtonDoubleClick
  ;
  : Implementor ME_4D594C39031B // TevTextParaHeaderHotSpot
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_48E266FB01FC_ME_4D594C39031B RButtonDown
 
 : ME_48E267150266_ME_4D594C39031B
@@ -6936,6 +7128,7 @@ ref; // ME_48E266FB01FC_ME_4D594C39031B RButtonDown
  ;
  : Implementor ME_4D594C39031B // TevTextParaHeaderHotSpot
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_48E267150266_ME_4D594C39031B RButtonUp
 
 : ME_49DB4675025E_ME_4D594C39031B
@@ -6945,6 +7138,7 @@ ref; // ME_48E267150266_ME_4D594C39031B RButtonUp
  ;
  : Implementor ME_4D594C39031B // TevTextParaHeaderHotSpot
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_49DB4675025E_ME_4D594C39031B MButtonDown
 
 : ME_49DB468302A5_ME_4D594C39031B
@@ -6954,6 +7148,7 @@ ref; // ME_49DB4675025E_ME_4D594C39031B MButtonDown
  ;
  : Implementor ME_4D594C39031B // TevTextParaHeaderHotSpot
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_49DB468302A5_ME_4D594C39031B MButtonUp
 
 : ME_4ECCD6840014_ME_4D594C39031B
@@ -6963,6 +7158,7 @@ ref; // ME_49DB468302A5_ME_4D594C39031B MButtonUp
  ;
  : Implementor ME_4D594C39031B // TevTextParaHeaderHotSpot
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_4ECCD6840014_ME_4D594C39031B CanDrag
 
 : ME_4A267FC6016B_ME_4D594C39031B
@@ -6972,6 +7168,7 @@ ref; // ME_4ECCD6840014_ME_4D594C39031B CanDrag
  ;
  : Implementor ME_4D594C39031B // TevTextParaHeaderHotSpot
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4A267FC6016B_ME_4D594C39031B DoHitTest
 
 : ME_5000565C019C_ME_4D594C39031B
@@ -6981,6 +7178,7 @@ ref; // ME_4A267FC6016B_ME_4D594C39031B DoHitTest
  ;
  : Implementor ME_4D594C39031B // TevTextParaHeaderHotSpot
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_5000565C019C_ME_4D594C39031B ClearFields
 
 : ME_4D594C39031B
@@ -6995,27 +7193,27 @@ ref; // ME_5000565C019C_ME_4D594C39031B ClearFields
  : Parent ME_4A267EE3017B // HotSpots
  ;
  : Inherits
-   @ ( ME_4A267FA903BA // TevHotSpot
- ) .SequenceCode.It
+   Seq: ( ME_4A267FA903BA // TevHotSpot
+ )
  ; // Inherits
  : Implements
-   @ ( WL 'ME_48E2665A0259' '4A1FCBA0014C.pas.ms.script' // IevHotSpot
- ) .SequenceCode.It
+   Seq: ( WL 'ME_48E2665A0259' '4A1FCBA0014C.pas.ms.script' // IevHotSpot
+ )
  ; // Implements
  : Attributes
-   @ ( ME_4D594D0B02F6 // f_Para
- ) .SequenceCode.It
+   Seq: ( ME_4D594D0B02F6 // f_Para
+ )
  ; // Attributes
  : Operations
-   @ ( ME_4D594C980253 // Create
+   Seq: ( ME_4D594C980253 // Create
  ME_4D594CAA009C // Make
  ME_4D59515E0255 // DoCollapse
- ME_3BBB56F4AA3F // Init_ShowVersionInfo
- ME_DD9A49DAAFB1 // Init_HideVersionInfo
- ) .SequenceCode.It
+ ME_3BBB56F4AA3F // Init_Str_ShowVersionInfo
+ ME_DD9A49DAAFB1 // Init_Str_HideVersionInfo
+ )
  ; // Operations
  : Implemented
-   @ ( ME_48E266730188_ME_4D594C39031B // MouseMove
+   Seq: ( ME_48E266730188_ME_4D594C39031B // MouseMove
  ME_48E266AA00A4_ME_4D594C39031B // LButtonDown
  ME_48E266C70128_ME_4D594C39031B // LButtonUp
  ME_48E266DE026B_ME_4D594C39031B // LButtonDoubleClick
@@ -7024,33 +7222,35 @@ ref; // ME_5000565C019C_ME_4D594C39031B ClearFields
  ME_49DB4675025E_ME_4D594C39031B // MButtonDown
  ME_49DB468302A5_ME_4D594C39031B // MButtonUp
  ME_4ECCD6840014_ME_4D594C39031B // CanDrag
- ) .SequenceCode.It
+ )
  ; // Implemented
  : Overridden
-   @ ( ME_4A267FC6016B_ME_4D594C39031B // DoHitTest
+   Seq: ( ME_4A267FC6016B_ME_4D594C39031B // DoHitTest
  ME_5000565C019C_ME_4D594C39031B // ClearFields
- ) .SequenceCode.It
+ )
  ; // Overridden
  : Constants
-   @ ( ME_4D5951820043 // Local
+   Seq: ( ME_4D5951820043 // Local
  ME_730F71ECBE08 // LCImplLocal
- ) .SequenceCode.It
+ )
  ; // Constants
  : Dependencies
-   @ ( ME_521E29D6058E // 
+   Seq: ( ME_521E29D6058E // 
  ME_30329DF918B9 // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest'
  CONST intf.pas:Path 'common\components\gui\Garant\Everest\evTextParaHeaderHotSpot.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'TextParaHeaderHotSpot'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'evTextParaHeaderHotSpot'
 
 ref; // ME_4D594C39031B TevTextParaHeaderHotSpot
 
@@ -7063,6 +7263,7 @@ FORWARD ME_4D6406160297
  ;
  : Implementor ME_4D6406160297 // TevSelectingHotSpot
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_48E263CD01BD_ME_4D6406160297 MouseAction
 
 : ME_4ECCD6840014_ME_4D6406160297
@@ -7072,6 +7273,7 @@ ref; // ME_48E263CD01BD_ME_4D6406160297 MouseAction
  ;
  : Implementor ME_4D6406160297 // TevSelectingHotSpot
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_4ECCD6840014_ME_4D6406160297 CanDrag
 
 : ME_4D6406160297
@@ -7085,30 +7287,32 @@ ref; // ME_4ECCD6840014_ME_4D6406160297 CanDrag
  : Parent ME_4A267EE3017B // HotSpots
  ;
  : Inherits
-   @ ( WL 'ME_480F4E9301DE' '47C52679006D.pas.ms.script' // nevParaListTool
+   Seq: ( WL 'ME_480F4E9301DE' '47C52679006D.pas.ms.script' // nevParaListTool
  ME_4A267FA903BA // TevHotSpot
- ) .SequenceCode.It
+ )
  ; // Inherits
  : Implements
-   @ ( WL 'ME_48E263B60071' '4A1FCBA0014C.pas.ms.script' // IevAdvancedHotSpot
- ) .SequenceCode.It
+   Seq: ( WL 'ME_48E263B60071' '4A1FCBA0014C.pas.ms.script' // IevAdvancedHotSpot
+ )
  ; // Implements
  : Implemented
-   @ ( ME_48E263CD01BD_ME_4D6406160297 // MouseAction
+   Seq: ( ME_48E263CD01BD_ME_4D6406160297 // MouseAction
  ME_4ECCD6840014_ME_4D6406160297 // CanDrag
- ) .SequenceCode.It
+ )
  ; // Implemented
  CONST "finished" false
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest'
  CONST intf.pas:Path 'common\components\gui\Garant\Everest\NOT_FINISHED_evSelectingHotSpot.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'SelectingHotSpot'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'evSelectingHotSpot'
 
 ref; // ME_4D6406160297 TevSelectingHotSpot
 
@@ -7151,19 +7355,25 @@ ref; // ME_53D674030209
  : Parent ME_4D640655011C // TevTableHotSpot
  ;
  : Inherits
-   @ ( ME_4A27B7300174 // TevParaListHotSpotTester
- ) .SequenceCode.It
+   Seq: ( ME_4A27B7300174 // TevParaListHotSpotTester
+ )
  ; // Inherits
  : Dependencies
-   @ ( ME_53D673E103CF // 
+   Seq: ( ME_53D673E103CF // 
  ME_53D674030209 // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  CONST "finished" false
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'TableHotSpotTester'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_4D6406760152 TevTableHotSpotTester
 
@@ -7189,28 +7399,30 @@ ref; // ME_4E142444022D
  : Parent ME_4A267EE3017B // HotSpots
  ;
  : Inherits
-   @ ( ME_4D6406160297 // TevSelectingHotSpot
- ) .SequenceCode.It
+   Seq: ( ME_4D6406160297 // TevSelectingHotSpot
+ )
  ; // Inherits
  : Children
-   @ ( ME_4D6406760152 // TevTableHotSpotTester
- ) .SequenceCode.It
+   Seq: ( ME_4D6406760152 // TevTableHotSpotTester
+ )
  ; // Children
  : Dependencies
-   @ ( ME_4E142444022D // 
- ) .SequenceCode.It
+   Seq: ( ME_4E142444022D // 
+ )
  ; // Dependencies
  CONST "finished" false
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest'
  CONST intf.pas:Path 'common\components\gui\Garant\Everest\NOT_FINISHED_evTableHotSpot.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'TableHotSpot'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'evTableHotSpot'
 
 ref; // ME_4D640655011C TevTableHotSpot
 
@@ -7223,6 +7435,7 @@ FORWARD ME_4D66225602D8
 : ME_42ECE8E3F5F3
  CONST UID '42ECE8E3F5F3'
  CONST Name 'aTag'
+ CONST IsSummoned true
  CONST Class class_Parameter
  : Stereotype st_in ;
  : Target WL 'ME_532031160122' '47913B47006E.pas.ms.script' // Tl3Variant
@@ -7233,6 +7446,7 @@ ref; // ME_42ECE8E3F5F3 aTag
 : ME_725F7C223A32
  CONST UID '725F7C223A32'
  CONST Name 'aProcessor'
+ CONST IsSummoned true
  CONST Class class_Parameter
  : Stereotype st_in ;
  : Target WL 'ME_4A51D59703DF' '4678137501EA.pas.ms.script' // Ik2Processor
@@ -7243,6 +7457,7 @@ ref; // ME_725F7C223A32 aProcessor
 : ME_B5A4EF3FC7E0
  CONST UID 'B5A4EF3FC7E0'
  CONST Name 'DoIt'
+ CONST IsSummoned true
  CONST Class class_Operation
  %SUMMARY 'Сигнатура фабрики TevReqGroupHotSpot.Make' ;
  CONST Visibility PrivateAccess
@@ -7252,9 +7467,9 @@ ref; // ME_725F7C223A32 aProcessor
  : Target WL 'ME_48E263B60071' '4A1FCBA0014C.pas.ms.script' // IevAdvancedHotSpot
  ;
  : Parameters
-   @ ( ME_42ECE8E3F5F3 // aTag
+   Seq: ( ME_42ECE8E3F5F3 // aTag
  ME_725F7C223A32 // aProcessor
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_B5A4EF3FC7E0 DoIt
@@ -7270,16 +7485,16 @@ ref; // ME_B5A4EF3FC7E0 DoIt
  : Parent ME_4D64077A0131 // TevReqGroupHotSpot
  ;
  : Inherits
-   @ ( WL 'ME_4BBF40C603BD' '467C182A01BE.pas.ms.script' // Create
- ) .SequenceCode.It
+   Seq: ( WL 'ME_4BBF40C603BD' '467C182A01BE.pas.ms.script' // Create
+ )
  ; // Inherits
  : Implements
-   @ ( WL 'ME_48E263B60071' '4A1FCBA0014C.pas.ms.script' // IevAdvancedHotSpot
- ) .SequenceCode.It
+   Seq: ( WL 'ME_48E263B60071' '4A1FCBA0014C.pas.ms.script' // IevAdvancedHotSpot
+ )
  ; // Implements
  : Operations
-   @ ( ME_B5A4EF3FC7E0 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_B5A4EF3FC7E0 // DoIt
+ )
  ; // Operations
  CONST "check nil" false
  CONST "need AfterCreate" 'undefined'
@@ -7306,6 +7521,7 @@ ref; // ME_4D66322903B0
  ;
  : Implementor ME_4D64077A0131 // TevReqGroupHotSpot
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_48E263CD01BD_ME_4D64077A0131 MouseAction
 
 : ME_4ECCD6840014_ME_4D64077A0131
@@ -7315,6 +7531,7 @@ ref; // ME_48E263CD01BD_ME_4D64077A0131 MouseAction
  ;
  : Implementor ME_4D64077A0131 // TevReqGroupHotSpot
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_4ECCD6840014_ME_4D64077A0131 CanDrag
 
 : ME_4A267FC6016B_ME_4D64077A0131
@@ -7324,6 +7541,7 @@ ref; // ME_4ECCD6840014_ME_4D64077A0131 CanDrag
  ;
  : Implementor ME_4D64077A0131 // TevReqGroupHotSpot
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4A267FC6016B_ME_4D64077A0131 DoHitTest
 
 : ME_4D64077A0131
@@ -7337,30 +7555,30 @@ ref; // ME_4A267FC6016B_ME_4D64077A0131 DoHitTest
  : Parent ME_4D64068D027B // TevReqGroupHotSpotTester
  ;
  : Inherits
-   @ ( ME_4A267FA903BA // TevHotSpot
- ) .SequenceCode.It
+   Seq: ( ME_4A267FA903BA // TevHotSpot
+ )
  ; // Inherits
  : Implements
-   @ ( WL 'ME_480F4E9301DE' '47C52679006D.pas.ms.script' // nevParaListTool
+   Seq: ( WL 'ME_480F4E9301DE' '47C52679006D.pas.ms.script' // nevParaListTool
  WL 'ME_48E263B60071' '4A1FCBA0014C.pas.ms.script' // IevAdvancedHotSpot
- ) .SequenceCode.It
+ )
  ; // Implements
  : Operations
-   @ ( ME_4D66225602D8 // Make
- ) .SequenceCode.It
+   Seq: ( ME_4D66225602D8 // Make
+ )
  ; // Operations
  : Implemented
-   @ ( ME_48E263CD01BD_ME_4D64077A0131 // MouseAction
+   Seq: ( ME_48E263CD01BD_ME_4D64077A0131 // MouseAction
  ME_4ECCD6840014_ME_4D64077A0131 // CanDrag
- ) .SequenceCode.It
+ )
  ; // Implemented
  : Overridden
-   @ ( ME_4A267FC6016B_ME_4D64077A0131 // DoHitTest
- ) .SequenceCode.It
+   Seq: ( ME_4A267FC6016B_ME_4D64077A0131 // DoHitTest
+ )
  ; // Overridden
  : Dependencies
-   @ ( ME_4D66322903B0 // 
- ) .SequenceCode.It
+   Seq: ( ME_4D66322903B0 // 
+ )
  ; // Dependencies
  CONST "author" 'Люлин А.В.'
  CONST "needs InstanceR" 'undefined'
@@ -7368,6 +7586,12 @@ ref; // ME_4A267FC6016B_ME_4D64077A0131 DoHitTest
  CONST "no hands" true
  CONST "register in scripts" 'undefined'
  CONST "started" '22.02.2011 21:59'
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'ReqGroupHotSpot'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_4D64077A0131 TevReqGroupHotSpot
 
@@ -7468,6 +7692,7 @@ ref; // ME_53CE5EF70269
  ;
  : Implementor ME_4D64068D027B // TevReqGroupHotSpotTester
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4D6406EE0228_ME_4D64068D027B GetChildHotSpot
 
 : ME_4D64068D027B
@@ -7481,19 +7706,19 @@ ref; // ME_4D6406EE0228_ME_4D64068D027B GetChildHotSpot
  : Parent ME_4A267EE3017B // HotSpots
  ;
  : Inherits
-   @ ( ME_4D6406760152 // TevTableHotSpotTester
- ) .SequenceCode.It
+   Seq: ( ME_4D6406760152 // TevTableHotSpotTester
+ )
  ; // Inherits
  : Overridden
-   @ ( ME_4D6406EE0228_ME_4D64068D027B // GetChildHotSpot
- ) .SequenceCode.It
+   Seq: ( ME_4D6406EE0228_ME_4D64068D027B // GetChildHotSpot
+ )
  ; // Overridden
  : Children
-   @ ( ME_4D64077A0131 // TevReqGroupHotSpot
- ) .SequenceCode.It
+   Seq: ( ME_4D64077A0131 // TevReqGroupHotSpot
+ )
  ; // Children
  : Dependencies
-   @ ( ME_4D64083E01DA // 
+   Seq: ( ME_4D64083E01DA // 
  ME_4D66281702A2 // 
  ME_4D662CF4012A // 
  ME_4D662D6B0117 // 
@@ -7501,7 +7726,7 @@ ref; // ME_4D6406EE0228_ME_4D64068D027B GetChildHotSpot
  ME_4E14242900FE // 
  ME_53CE5EEC03CB // 
  ME_53CE5EF70269 // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  CONST "author" 'Люлин А.В.'
  CONST "ifdef" 'evReqGroupNeedsRadio'
@@ -7510,12 +7735,14 @@ ref; // ME_4D6406EE0228_ME_4D64068D027B GetChildHotSpot
  CONST "no hands" true
  CONST "register in scripts" 'undefined'
  CONST "started" '22.02.2011 21:55'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest'
  CONST intf.pas:Path 'common\components\gui\Garant\Everest\evReqGroupHotSpotTester.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'ReqGroupHotSpotTester'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'evReqGroupHotSpotTester'
 
 ref; // ME_4D64068D027B TevReqGroupHotSpotTester
 
@@ -7556,8 +7783,8 @@ ref; // ME_4E1D77D8034C aHotSpot
  : Parent ME_4E1D77B700A5 // Create
  ;
  : Parameters
-   @ ( ME_4E1D77D8034C // aHotSpot
- ) .SequenceCode.It
+   Seq: ( ME_4E1D77D8034C // aHotSpot
+ )
  ; // Parameters
 
 ref; // ME_4E1D77CB03E0 DoIt
@@ -7573,8 +7800,8 @@ ref; // ME_4E1D77CB03E0 DoIt
  : Parent ME_4E1D76D101D0 // TevHotSpotProxy
  ;
  : Operations
-   @ ( ME_4E1D77CB03E0 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_4E1D77CB03E0 // DoIt
+ )
  ; // Operations
 
 ref; // ME_4E1D77B700A5 Create
@@ -7584,6 +7811,7 @@ FORWARD ME_4E1D780F011F
 : ME_7091754A0C94
  CONST UID '7091754A0C94'
  CONST Name 'aHotSpot'
+ CONST IsSummoned true
  CONST Class class_Parameter
  : Stereotype st_in ;
  : Target WL 'ME_48E2665A0259' '4A1FCBA0014C.pas.ms.script' // IevHotSpot
@@ -7594,6 +7822,7 @@ ref; // ME_7091754A0C94 aHotSpot
 : ME_0687E0F1EBE0
  CONST UID '0687E0F1EBE0'
  CONST Name 'DoIt'
+ CONST IsSummoned true
  CONST Class class_Operation
  %SUMMARY 'Сигнатура фабрики TevHotSpotProxy.Make' ;
  CONST Visibility PrivateAccess
@@ -7603,8 +7832,8 @@ ref; // ME_7091754A0C94 aHotSpot
  : Target WL 'ME_48E2665A0259' '4A1FCBA0014C.pas.ms.script' // IevHotSpot
  ;
  : Parameters
-   @ ( ME_7091754A0C94 // aHotSpot
- ) .SequenceCode.It
+   Seq: ( ME_7091754A0C94 // aHotSpot
+ )
  ; // Parameters
 
 ref; // ME_0687E0F1EBE0 DoIt
@@ -7620,16 +7849,16 @@ ref; // ME_0687E0F1EBE0 DoIt
  : Parent ME_4E1D76D101D0 // TevHotSpotProxy
  ;
  : Inherits
-   @ ( ME_4E1D77B700A5 // Create
- ) .SequenceCode.It
+   Seq: ( ME_4E1D77B700A5 // Create
+ )
  ; // Inherits
  : Implements
-   @ ( WL 'ME_48E2665A0259' '4A1FCBA0014C.pas.ms.script' // IevHotSpot
- ) .SequenceCode.It
+   Seq: ( WL 'ME_48E2665A0259' '4A1FCBA0014C.pas.ms.script' // IevHotSpot
+ )
  ; // Implements
  : Operations
-   @ ( ME_0687E0F1EBE0 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_0687E0F1EBE0 // DoIt
+ )
  ; // Operations
  CONST "check nil" false
  CONST "need AfterCreate" 'undefined'
@@ -7671,9 +7900,9 @@ ref; // ME_4E1D7C1201C4 Keys
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
  : Parameters
-   @ ( ME_4E1D7C1201A0 // aView
+   Seq: ( ME_4E1D7C1201A0 // aView
  ME_4E1D7C1201C4 // Keys
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_4E1D7BFE000F DoIt
@@ -7689,8 +7918,8 @@ ref; // ME_4E1D7BFE000F DoIt
  : Parent ME_4E1D76D101D0 // TevHotSpotProxy
  ;
  : Operations
-   @ ( ME_4E1D7BFE000F // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_4E1D7BFE000F // DoIt
+ )
  ; // Operations
 
 ref; // ME_4E1D7BDF01C4 DoLButtonUp
@@ -7738,10 +7967,10 @@ ref; // ME_4E1D7C3E016F Effect
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
  : Parameters
-   @ ( ME_4E1D7C3E0118 // aView
+   Seq: ( ME_4E1D7C3E0118 // aView
  ME_4E1D7C3E0144 // Keys
  ME_4E1D7C3E016F // Effect
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_4E1D7C2F014D DoIt
@@ -7757,8 +7986,8 @@ ref; // ME_4E1D7C2F014D DoIt
  : Parent ME_4E1D76D101D0 // TevHotSpotProxy
  ;
  : Operations
-   @ ( ME_4E1D7C2F014D // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_4E1D7C2F014D // DoIt
+ )
  ; // Operations
 
 ref; // ME_4E1D7C16028B DoLButtonDoubleClick
@@ -7806,10 +8035,10 @@ ref; // ME_4E1D95200050 theActiveElement
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
  : Parameters
-   @ ( ME_4E1D951F03CC // aView
+   Seq: ( ME_4E1D951F03CC // aView
  ME_4E1D95200016 // aKeys
  ME_4E1D95200050 // theActiveElement
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_4E1D95060144 DoIt
@@ -7836,12 +8065,12 @@ ref; // ME_4E1D95380059
  : Parent ME_4E1D76D101D0 // TevHotSpotProxy
  ;
  : Operations
-   @ ( ME_4E1D95060144 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_4E1D95060144 // DoIt
+ )
  ; // Operations
  : Dependencies
-   @ ( ME_4E1D95380059 // 
- ) .SequenceCode.It
+   Seq: ( ME_4E1D95380059 // 
+ )
  ; // Dependencies
 
 ref; // ME_4E1D94EF002C DoTransMouseMove
@@ -7889,10 +8118,10 @@ ref; // ME_4E1DC34A001A Effect
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
  : Parameters
-   @ ( ME_4E1DC349038F // aView
+   Seq: ( ME_4E1DC349038F // aView
  ME_4E1DC34903C6 // Keys
  ME_4E1DC34A001A // Effect
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_4E1DC33103CF DoIt
@@ -7908,8 +8137,8 @@ ref; // ME_4E1DC33103CF DoIt
  : Parent ME_4E1D76D101D0 // TevHotSpotProxy
  ;
  : Operations
-   @ ( ME_4E1DC33103CF // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_4E1DC33103CF // DoIt
+ )
  ; // Operations
 
 ref; // ME_4E1DC2FF02BB DoLButtonDown
@@ -7919,6 +8148,7 @@ FORWARD ME_548B10B4010F
 : ME_04094AD9EE9E
  CONST UID '04094AD9EE9E'
  CONST Name 'aView'
+ CONST IsSummoned true
  CONST Class class_Parameter
  : Stereotype st_in ;
  : Target WL 'ME_47C5C1AC02CA' '47C5207602D1.pas.ms.script' // InevControlView
@@ -7929,6 +8159,7 @@ ref; // ME_04094AD9EE9E aView
 : ME_3E58C6CAE19E
  CONST UID '3E58C6CAE19E'
  CONST Name 'Keys'
+ CONST IsSummoned true
  CONST Class class_Parameter
  : Stereotype st_in ;
  : Target WL 'ME_47C5ABD80282' '47C5207602D1.pas.ms.script' // TevMouseState
@@ -7939,6 +8170,7 @@ ref; // ME_3E58C6CAE19E Keys
 : ME_5CFFF2EA95EC
  CONST UID '5CFFF2EA95EC'
  CONST Name 'DoIt'
+ CONST IsSummoned true
  CONST Class class_Operation
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
@@ -7947,9 +8179,9 @@ ref; // ME_3E58C6CAE19E Keys
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
  : Parameters
-   @ ( ME_04094AD9EE9E // aView
+   Seq: ( ME_04094AD9EE9E // aView
  ME_3E58C6CAE19E // Keys
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_5CFFF2EA95EC DoIt
@@ -7965,12 +8197,12 @@ ref; // ME_5CFFF2EA95EC DoIt
  : Parent ME_4E1D76D101D0 // TevHotSpotProxy
  ;
  : Inherits
-   @ ( ME_4E1D7BDF01C4 // DoLButtonUp
- ) .SequenceCode.It
+   Seq: ( ME_4E1D7BDF01C4 // DoLButtonUp
+ )
  ; // Inherits
  : Operations
-   @ ( ME_5CFFF2EA95EC // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_5CFFF2EA95EC // DoIt
+ )
  ; // Operations
 
 ref; // ME_548B10B4010F DoMButtonUp
@@ -7993,6 +8225,7 @@ ref; // ME_4E1D7BB0001B
  ;
  : Implementor ME_4E1D76D101D0 // TevHotSpotProxy
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_48E2622A03C4_ME_4E1D76D101D0 HitTest
 
 : ME_48E2638F0358_ME_4E1D76D101D0
@@ -8002,6 +8235,7 @@ ref; // ME_48E2622A03C4_ME_4E1D76D101D0 HitTest
  ;
  : Implementor ME_4E1D76D101D0 // TevHotSpotProxy
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_48E2638F0358_ME_4E1D76D101D0 TransMouseMove
 
 : ME_48E266730188_ME_4E1D76D101D0
@@ -8011,6 +8245,7 @@ ref; // ME_48E2638F0358_ME_4E1D76D101D0 TransMouseMove
  ;
  : Implementor ME_4E1D76D101D0 // TevHotSpotProxy
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_48E266730188_ME_4E1D76D101D0 MouseMove
 
 : ME_48E266AA00A4_ME_4E1D76D101D0
@@ -8020,6 +8255,7 @@ ref; // ME_48E266730188_ME_4E1D76D101D0 MouseMove
  ;
  : Implementor ME_4E1D76D101D0 // TevHotSpotProxy
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_48E266AA00A4_ME_4E1D76D101D0 LButtonDown
 
 : ME_48E266C70128_ME_4E1D76D101D0
@@ -8029,6 +8265,7 @@ ref; // ME_48E266AA00A4_ME_4E1D76D101D0 LButtonDown
  ;
  : Implementor ME_4E1D76D101D0 // TevHotSpotProxy
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_48E266C70128_ME_4E1D76D101D0 LButtonUp
 
 : ME_48E266DE026B_ME_4E1D76D101D0
@@ -8038,6 +8275,7 @@ ref; // ME_48E266C70128_ME_4E1D76D101D0 LButtonUp
  ;
  : Implementor ME_4E1D76D101D0 // TevHotSpotProxy
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_48E266DE026B_ME_4E1D76D101D0 LButtonDoubleClick
 
 : ME_48E266FB01FC_ME_4E1D76D101D0
@@ -8047,6 +8285,7 @@ ref; // ME_48E266DE026B_ME_4E1D76D101D0 LButtonDoubleClick
  ;
  : Implementor ME_4E1D76D101D0 // TevHotSpotProxy
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_48E266FB01FC_ME_4E1D76D101D0 RButtonDown
 
 : ME_48E267150266_ME_4E1D76D101D0
@@ -8056,6 +8295,7 @@ ref; // ME_48E266FB01FC_ME_4E1D76D101D0 RButtonDown
  ;
  : Implementor ME_4E1D76D101D0 // TevHotSpotProxy
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_48E267150266_ME_4E1D76D101D0 RButtonUp
 
 : ME_49DB4675025E_ME_4E1D76D101D0
@@ -8065,6 +8305,7 @@ ref; // ME_48E267150266_ME_4E1D76D101D0 RButtonUp
  ;
  : Implementor ME_4E1D76D101D0 // TevHotSpotProxy
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_49DB4675025E_ME_4E1D76D101D0 MButtonDown
 
 : ME_49DB468302A5_ME_4E1D76D101D0
@@ -8074,6 +8315,7 @@ ref; // ME_49DB4675025E_ME_4E1D76D101D0 MButtonDown
  ;
  : Implementor ME_4E1D76D101D0 // TevHotSpotProxy
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_49DB468302A5_ME_4E1D76D101D0 MButtonUp
 
 : ME_4ECCD6840014_ME_4E1D76D101D0
@@ -8083,6 +8325,7 @@ ref; // ME_49DB468302A5_ME_4E1D76D101D0 MButtonUp
  ;
  : Implementor ME_4E1D76D101D0 // TevHotSpotProxy
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_4ECCD6840014_ME_4E1D76D101D0 CanDrag
 
 : ME_47A0AD3A01F7_ME_4E1D76D101D0
@@ -8092,6 +8335,7 @@ ref; // ME_4ECCD6840014_ME_4E1D76D101D0 CanDrag
  ;
  : Implementor ME_4E1D76D101D0 // TevHotSpotProxy
  ;
+ CONST OpKind opkind_Overridden
  CONST "calling conventions" 'stdcall'
 ref; // ME_47A0AD3A01F7_ME_4E1D76D101D0 QueryInterface
 
@@ -8102,6 +8346,7 @@ ref; // ME_47A0AD3A01F7_ME_4E1D76D101D0 QueryInterface
  ;
  : Implementor ME_4E1D76D101D0 // TevHotSpotProxy
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_5000565C019C_ME_4E1D76D101D0 ClearFields
 
 : ME_4E1D76D101D0
@@ -8115,30 +8360,30 @@ ref; // ME_5000565C019C_ME_4E1D76D101D0 ClearFields
  : Parent ME_4A267EE3017B // HotSpots
  ;
  : Inherits
-   @ ( WL 'ME_4AE5CA2D0034' '47913B47006E.pas.ms.script' // Tl3CProtoObject
- ) .SequenceCode.It
+   Seq: ( WL 'ME_4AE5CA2D0034' '47913B47006E.pas.ms.script' // Tl3CProtoObject
+ )
  ; // Inherits
  : Implements
-   @ ( WL 'ME_48E2637D0296' '4A1FCBA0014C.pas.ms.script' // IevMouseMoveHandler
+   Seq: ( WL 'ME_48E2637D0296' '4A1FCBA0014C.pas.ms.script' // IevMouseMoveHandler
  WL 'ME_48E2665A0259' '4A1FCBA0014C.pas.ms.script' // IevHotSpot
- ) .SequenceCode.It
+ )
  ; // Implements
  : Attributes
-   @ ( ME_4E1D77A703A6 // f_HotSpot
- ) .SequenceCode.It
+   Seq: ( ME_4E1D77A703A6 // f_HotSpot
+ )
  ; // Attributes
  : Operations
-   @ ( ME_4E1D77B700A5 // Create
+   Seq: ( ME_4E1D77B700A5 // Create
  ME_4E1D780F011F // Make
  ME_4E1D7BDF01C4 // DoLButtonUp
  ME_4E1D7C16028B // DoLButtonDoubleClick
  ME_4E1D94EF002C // DoTransMouseMove
  ME_4E1DC2FF02BB // DoLButtonDown
  ME_548B10B4010F // DoMButtonUp
- ) .SequenceCode.It
+ )
  ; // Operations
  : Implemented
-   @ ( ME_48E2622A03C4_ME_4E1D76D101D0 // HitTest
+   Seq: ( ME_48E2622A03C4_ME_4E1D76D101D0 // HitTest
  ME_48E2638F0358_ME_4E1D76D101D0 // TransMouseMove
  ME_48E266730188_ME_4E1D76D101D0 // MouseMove
  ME_48E266AA00A4_ME_4E1D76D101D0 // LButtonDown
@@ -8149,16 +8394,16 @@ ref; // ME_5000565C019C_ME_4E1D76D101D0 ClearFields
  ME_49DB4675025E_ME_4E1D76D101D0 // MButtonDown
  ME_49DB468302A5_ME_4E1D76D101D0 // MButtonUp
  ME_4ECCD6840014_ME_4E1D76D101D0 // CanDrag
- ) .SequenceCode.It
+ )
  ; // Implemented
  : Overridden
-   @ ( ME_47A0AD3A01F7_ME_4E1D76D101D0 // QueryInterface
+   Seq: ( ME_47A0AD3A01F7_ME_4E1D76D101D0 // QueryInterface
  ME_5000565C019C_ME_4E1D76D101D0 // ClearFields
- ) .SequenceCode.It
+ )
  ; // Overridden
  : Dependencies
-   @ ( ME_4E1D7BB0001B // 
- ) .SequenceCode.It
+   Seq: ( ME_4E1D7BB0001B // 
+ )
  ; // Dependencies
  CONST "author" 'Люлин А.В.'
  CONST "needs InstanceR" 'undefined'
@@ -8166,12 +8411,14 @@ ref; // ME_5000565C019C_ME_4E1D76D101D0 ClearFields
  CONST "no hands" true
  CONST "register in scripts" 'undefined'
  CONST "started" '13.07.2011 14:44'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest'
  CONST intf.pas:Path 'common\components\gui\Garant\Everest\evHotSpotProxy.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'HotSpotProxy'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'evHotSpotProxy'
 
 ref; // ME_4E1D76D101D0 TevHotSpotProxy
 
@@ -8212,8 +8459,8 @@ ref; // ME_4E1D95DB02DF anActive
  : Parent ME_4E1D95CA035F // Create
  ;
  : Parameters
-   @ ( ME_4E1D95DB02DF // anActive
- ) .SequenceCode.It
+   Seq: ( ME_4E1D95DB02DF // anActive
+ )
  ; // Parameters
 
 ref; // ME_4E1D95D3026B DoIt
@@ -8229,8 +8476,8 @@ ref; // ME_4E1D95D3026B DoIt
  : Parent ME_4E1D95610271 // TnevActiveHyperlinkProxy
  ;
  : Operations
-   @ ( ME_4E1D95D3026B // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_4E1D95D3026B // DoIt
+ )
  ; // Operations
 
 ref; // ME_4E1D95CA035F Create
@@ -8240,6 +8487,7 @@ FORWARD ME_4E1D95E7019D
 : ME_26C42FBA64C5
  CONST UID '26C42FBA64C5'
  CONST Name 'anActive'
+ CONST IsSummoned true
  CONST Class class_Parameter
  : Stereotype st_in ;
  : Target WL 'ME_4A27C46801A9' '47C5207602D1.pas.ms.script' // InevActiveElement
@@ -8250,6 +8498,7 @@ ref; // ME_26C42FBA64C5 anActive
 : ME_D4EE3A47BFB0
  CONST UID 'D4EE3A47BFB0'
  CONST Name 'DoIt'
+ CONST IsSummoned true
  CONST Class class_Operation
  %SUMMARY 'Сигнатура фабрики TnevActiveHyperlinkProxy.Make' ;
  CONST Visibility PrivateAccess
@@ -8259,8 +8508,8 @@ ref; // ME_26C42FBA64C5 anActive
  : Target WL 'ME_4A27C46801A9' '47C5207602D1.pas.ms.script' // InevActiveElement
  ;
  : Parameters
-   @ ( ME_26C42FBA64C5 // anActive
- ) .SequenceCode.It
+   Seq: ( ME_26C42FBA64C5 // anActive
+ )
  ; // Parameters
 
 ref; // ME_D4EE3A47BFB0 DoIt
@@ -8276,16 +8525,16 @@ ref; // ME_D4EE3A47BFB0 DoIt
  : Parent ME_4E1D95610271 // TnevActiveHyperlinkProxy
  ;
  : Inherits
-   @ ( ME_4E1D95CA035F // Create
- ) .SequenceCode.It
+   Seq: ( ME_4E1D95CA035F // Create
+ )
  ; // Inherits
  : Implements
-   @ ( WL 'ME_4A27C46801A9' '47C5207602D1.pas.ms.script' // InevActiveElement
- ) .SequenceCode.It
+   Seq: ( WL 'ME_4A27C46801A9' '47C5207602D1.pas.ms.script' // InevActiveElement
+ )
  ; // Implements
  : Operations
-   @ ( ME_D4EE3A47BFB0 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_D4EE3A47BFB0 // DoIt
+ )
  ; // Operations
  CONST "check nil" false
  CONST "need AfterCreate" 'undefined'
@@ -8317,8 +8566,8 @@ ref; // ME_4E1DB95303BE anElement
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
  : Parameters
-   @ ( ME_4E1DB95303BE // anElement
- ) .SequenceCode.It
+   Seq: ( ME_4E1DB95303BE // anElement
+ )
  ; // Parameters
 
 ref; // ME_4E1DB94D03A3 DoIt
@@ -8334,8 +8583,8 @@ ref; // ME_4E1DB94D03A3 DoIt
  : Parent ME_4E1D95610271 // TnevActiveHyperlinkProxy
  ;
  : Operations
-   @ ( ME_4E1DB94D03A3 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_4E1DB94D03A3 // DoIt
+ )
  ; // Operations
 
 ref; // ME_4E1DB93401C4 DoIsSame
@@ -8364,8 +8613,8 @@ ref; // ME_4FBF5D09023E DoIt
  : Parent ME_4E1D95610271 // TnevActiveHyperlinkProxy
  ;
  : Operations
-   @ ( ME_4FBF5D09023E // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_4FBF5D09023E // DoIt
+ )
  ; // Operations
 
 ref; // ME_4FBF5D0203DC DoInvalidate
@@ -8388,6 +8637,7 @@ ref; // ME_4E1D97650007
  ;
  : Implementor ME_4E1D95610271 // TnevActiveHyperlinkProxy
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_4A27C48E017F_ME_4E1D95610271 IsSame
 
 : ME_4A27C5CD001C_ME_4E1D95610271
@@ -8397,6 +8647,7 @@ ref; // ME_4A27C48E017F_ME_4E1D95610271 IsSame
  ;
  : Implementor ME_4E1D95610271 // TnevActiveHyperlinkProxy
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" false
 ref; // ME_4A27C5CD001C_ME_4E1D95610271 Para
 
@@ -8407,6 +8658,7 @@ ref; // ME_4A27C5CD001C_ME_4E1D95610271 Para
  ;
  : Implementor ME_4E1D95610271 // TnevActiveHyperlinkProxy
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_4FBF5595010C_ME_4E1D95610271 Invalidate
 
 : ME_47A0AD3A01F7_ME_4E1D95610271
@@ -8416,6 +8668,7 @@ ref; // ME_4FBF5595010C_ME_4E1D95610271 Invalidate
  ;
  : Implementor ME_4E1D95610271 // TnevActiveHyperlinkProxy
  ;
+ CONST OpKind opkind_Overridden
  CONST "calling conventions" 'stdcall'
 ref; // ME_47A0AD3A01F7_ME_4E1D95610271 QueryInterface
 
@@ -8426,6 +8679,7 @@ ref; // ME_47A0AD3A01F7_ME_4E1D95610271 QueryInterface
  ;
  : Implementor ME_4E1D95610271 // TnevActiveHyperlinkProxy
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_5000565C019C_ME_4E1D95610271 ClearFields
 
 : ME_4E1D95610271
@@ -8439,38 +8693,38 @@ ref; // ME_5000565C019C_ME_4E1D95610271 ClearFields
  : Parent ME_4A267EE3017B // HotSpots
  ;
  : Inherits
-   @ ( WL 'ME_4AE5CA2D0034' '47913B47006E.pas.ms.script' // Tl3CProtoObject
- ) .SequenceCode.It
+   Seq: ( WL 'ME_4AE5CA2D0034' '47913B47006E.pas.ms.script' // Tl3CProtoObject
+ )
  ; // Inherits
  : Implements
-   @ ( WL 'ME_4A27C46801A9' '47C5207602D1.pas.ms.script' // InevActiveElement
- ) .SequenceCode.It
+   Seq: ( WL 'ME_4A27C46801A9' '47C5207602D1.pas.ms.script' // InevActiveElement
+ )
  ; // Implements
  : Attributes
-   @ ( ME_4E1D95B90012 // f_Active
- ) .SequenceCode.It
+   Seq: ( ME_4E1D95B90012 // f_Active
+ )
  ; // Attributes
  : Operations
-   @ ( ME_4E1D95CA035F // Create
+   Seq: ( ME_4E1D95CA035F // Create
  ME_4E1D95E7019D // Make
  ME_4E1DB93401C4 // DoIsSame
  ME_4FBF5D0203DC // DoInvalidate
- ) .SequenceCode.It
+ )
  ; // Operations
  : Implemented
-   @ ( ME_4A27C48E017F_ME_4E1D95610271 // IsSame
+   Seq: ( ME_4A27C48E017F_ME_4E1D95610271 // IsSame
  ME_4A27C5CD001C_ME_4E1D95610271 // Para
  ME_4FBF5595010C_ME_4E1D95610271 // Invalidate
- ) .SequenceCode.It
+ )
  ; // Implemented
  : Overridden
-   @ ( ME_47A0AD3A01F7_ME_4E1D95610271 // QueryInterface
+   Seq: ( ME_47A0AD3A01F7_ME_4E1D95610271 // QueryInterface
  ME_5000565C019C_ME_4E1D95610271 // ClearFields
- ) .SequenceCode.It
+ )
  ; // Overridden
  : Dependencies
-   @ ( ME_4E1D97650007 // 
- ) .SequenceCode.It
+   Seq: ( ME_4E1D97650007 // 
+ )
  ; // Dependencies
  CONST "author" 'Люлин А.В.'
  CONST "needs InstanceR" 'undefined'
@@ -8478,12 +8732,14 @@ ref; // ME_5000565C019C_ME_4E1D95610271 ClearFields
  CONST "no hands" true
  CONST "register in scripts" 'undefined'
  CONST "started" '13.07.2011 16:54'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest'
  CONST intf.pas:Path 'common\components\gui\Garant\Everest\nevActiveHyperlinkProxy.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'ActiveHyperlinkProxy'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'nevActiveHyperlinkProxy'
 
 ref; // ME_4E1D95610271 TnevActiveHyperlinkProxy
 
@@ -8519,9 +8775,15 @@ ref; // ME_4E1DB90E005B Obj
  : Parent ME_4E1D96B8035A // TnevDecorActiveHyperlink
  ;
  : Attributes
-   @ ( ME_4E1DB90E005B // Obj
- ) .SequenceCode.It
+   Seq: ( ME_4E1DB90E005B // Obj
+ )
  ; // Attributes
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'DecorActiveHyperlink'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_4E1DB9020151 InevDecorActiveHyperlink
 
@@ -8536,10 +8798,15 @@ ref; // ME_4E1DB9020151 InevDecorActiveHyperlink
  : Parent ME_4E1D96B8035A // TnevDecorActiveHyperlink
  ;
  : Inherits
-   @ ( ME_4E1D96B8035A // TnevDecorActiveHyperlink
- ) .SequenceCode.It
+   Seq: ( ME_4E1D96B8035A // TnevDecorActiveHyperlink
+ )
  ; // Inherits
  CONST "isClassRef" true
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_55F7C6E0039F RnevDecorActiveHyperlinkClass
 
@@ -8588,9 +8855,9 @@ ref; // ME_4E1D971B0339 anActive
  : Parent ME_4E1D97080355 // Create
  ;
  : Parameters
-   @ ( ME_4E1D971B0307 // aPara
+   Seq: ( ME_4E1D971B0307 // aPara
  ME_4E1D971B0339 // anActive
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_4E1D97100095 DoIt
@@ -8606,8 +8873,8 @@ ref; // ME_4E1D97100095 DoIt
  : Parent ME_4E1D96B8035A // TnevDecorActiveHyperlink
  ;
  : Operations
-   @ ( ME_4E1D97100095 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_4E1D97100095 // DoIt
+ )
  ; // Operations
 
 ref; // ME_4E1D97080355 Create
@@ -8617,6 +8884,7 @@ FORWARD ME_4E1D972D0277
 : ME_F5F48C818111
  CONST UID 'F5F48C818111'
  CONST Name 'aPara'
+ CONST IsSummoned true
  CONST Class class_Parameter
  : Stereotype st_in ;
  : Target WL 'ME_49D0E657022F' '4678209200A6.pas.ms.script' // InevObjectPrim
@@ -8627,6 +8895,7 @@ ref; // ME_F5F48C818111 aPara
 : ME_6311AEB70C3E
  CONST UID '6311AEB70C3E'
  CONST Name 'anActive'
+ CONST IsSummoned true
  CONST Class class_Parameter
  : Stereotype st_in ;
  : Target WL 'ME_4A27C46801A9' '47C5207602D1.pas.ms.script' // InevActiveElement
@@ -8637,6 +8906,7 @@ ref; // ME_6311AEB70C3E anActive
 : ME_DB5DB5815A1C
  CONST UID 'DB5DB5815A1C'
  CONST Name 'DoIt'
+ CONST IsSummoned true
  CONST Class class_Operation
  %SUMMARY 'Сигнатура фабрики TnevDecorActiveHyperlink.Make' ;
  CONST Visibility PrivateAccess
@@ -8646,9 +8916,9 @@ ref; // ME_6311AEB70C3E anActive
  : Target WL 'ME_4A27C46801A9' '47C5207602D1.pas.ms.script' // InevActiveElement
  ;
  : Parameters
-   @ ( ME_F5F48C818111 // aPara
+   Seq: ( ME_F5F48C818111 // aPara
  ME_6311AEB70C3E // anActive
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_DB5DB5815A1C DoIt
@@ -8664,16 +8934,16 @@ ref; // ME_DB5DB5815A1C DoIt
  : Parent ME_4E1D96B8035A // TnevDecorActiveHyperlink
  ;
  : Inherits
-   @ ( ME_4E1D97080355 // Create
- ) .SequenceCode.It
+   Seq: ( ME_4E1D97080355 // Create
+ )
  ; // Inherits
  : Implements
-   @ ( WL 'ME_4A27C46801A9' '47C5207602D1.pas.ms.script' // InevActiveElement
- ) .SequenceCode.It
+   Seq: ( WL 'ME_4A27C46801A9' '47C5207602D1.pas.ms.script' // InevActiveElement
+ )
  ; // Implements
  : Operations
-   @ ( ME_DB5DB5815A1C // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_DB5DB5815A1C // DoIt
+ )
  ; // Operations
  CONST "check nil" false
  CONST "need AfterCreate" 'undefined'
@@ -8700,6 +8970,7 @@ ref; // ME_4E1DB8F60179
  ;
  : Implementor ME_4E1D96B8035A // TnevDecorActiveHyperlink
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" false
 ref; // ME_4E1DB90E005B_ME_4E1D96B8035A Obj
 
@@ -8710,6 +8981,7 @@ ref; // ME_4E1DB90E005B_ME_4E1D96B8035A Obj
  ;
  : Implementor ME_4E1D96B8035A // TnevDecorActiveHyperlink
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4E1DB93401C4_ME_4E1D96B8035A DoIsSame
 
 : ME_4FBF5D0203DC_ME_4E1D96B8035A
@@ -8719,6 +8991,7 @@ ref; // ME_4E1DB93401C4_ME_4E1D96B8035A DoIsSame
  ;
  : Implementor ME_4E1D96B8035A // TnevDecorActiveHyperlink
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4FBF5D0203DC_ME_4E1D96B8035A DoInvalidate
 
 : ME_5000565C019C_ME_4E1D96B8035A
@@ -8728,6 +9001,7 @@ ref; // ME_4FBF5D0203DC_ME_4E1D96B8035A DoInvalidate
  ;
  : Implementor ME_4E1D96B8035A // TnevDecorActiveHyperlink
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_5000565C019C_ME_4E1D96B8035A ClearFields
 
 : ME_4E1D96B8035A
@@ -8741,40 +9015,40 @@ ref; // ME_5000565C019C_ME_4E1D96B8035A ClearFields
  : Parent ME_4A267EE3017B // HotSpots
  ;
  : Inherits
-   @ ( ME_4E1D95610271 // TnevActiveHyperlinkProxy
- ) .SequenceCode.It
+   Seq: ( ME_4E1D95610271 // TnevActiveHyperlinkProxy
+ )
  ; // Inherits
  : Implements
-   @ ( ME_4E1DB9020151 // InevDecorActiveHyperlink
- ) .SequenceCode.It
+   Seq: ( ME_4E1DB9020151 // InevDecorActiveHyperlink
+ )
  ; // Implements
  : Attributes
-   @ ( ME_4E1D96EF0011 // f_Para
- ) .SequenceCode.It
+   Seq: ( ME_4E1D96EF0011 // f_Para
+ )
  ; // Attributes
  : Operations
-   @ ( ME_4E1D97080355 // Create
+   Seq: ( ME_4E1D97080355 // Create
  ME_4E1D972D0277 // Make
- ) .SequenceCode.It
+ )
  ; // Operations
  : Implemented
-   @ ( ME_4E1DB90E005B_ME_4E1D96B8035A // Obj
- ) .SequenceCode.It
+   Seq: ( ME_4E1DB90E005B_ME_4E1D96B8035A // Obj
+ )
  ; // Implemented
  : Overridden
-   @ ( ME_4E1DB93401C4_ME_4E1D96B8035A // DoIsSame
+   Seq: ( ME_4E1DB93401C4_ME_4E1D96B8035A // DoIsSame
  ME_4FBF5D0203DC_ME_4E1D96B8035A // DoInvalidate
  ME_5000565C019C_ME_4E1D96B8035A // ClearFields
- ) .SequenceCode.It
+ )
  ; // Overridden
  : Children
-   @ ( ME_4E1DB9020151 // InevDecorActiveHyperlink
+   Seq: ( ME_4E1DB9020151 // InevDecorActiveHyperlink
  ME_55F7C6E0039F // RnevDecorActiveHyperlinkClass
- ) .SequenceCode.It
+ )
  ; // Children
  : Dependencies
-   @ ( ME_4E1DB8F60179 // 
- ) .SequenceCode.It
+   Seq: ( ME_4E1DB8F60179 // 
+ )
  ; // Dependencies
  CONST "author" 'Люлин А.В.'
  CONST "needs InstanceR" 'undefined'
@@ -8782,12 +9056,14 @@ ref; // ME_5000565C019C_ME_4E1D96B8035A ClearFields
  CONST "no hands" true
  CONST "register in scripts" 'undefined'
  CONST "started" '13.07.2011 16:59'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest'
  CONST intf.pas:Path 'common\components\gui\Garant\Everest\nevDecorActiveHyperlink.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'DecorActiveHyperlink'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'nevDecorActiveHyperlink'
 
 ref; // ME_4E1D96B8035A TnevDecorActiveHyperlink
 
@@ -8828,8 +9104,8 @@ ref; // ME_4E1DD80F0397 aLink
  : Parent ME_4E1DD7FE016D // Create
  ;
  : Parameters
-   @ ( ME_4E1DD80F0397 // aLink
- ) .SequenceCode.It
+   Seq: ( ME_4E1DD80F0397 // aLink
+ )
  ; // Parameters
 
 ref; // ME_4E1DD80503D4 DoIt
@@ -8845,8 +9121,8 @@ ref; // ME_4E1DD80503D4 DoIt
  : Parent ME_4E1DD7720136 // TevHyperlinkProxy
  ;
  : Operations
-   @ ( ME_4E1DD80503D4 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_4E1DD80503D4 // DoIt
+ )
  ; // Operations
 
 ref; // ME_4E1DD7FE016D Create
@@ -8856,6 +9132,7 @@ FORWARD ME_4E1DD8160276
 : ME_0FA99FBD9FDD
  CONST UID '0FA99FBD9FDD'
  CONST Name 'aLink'
+ CONST IsSummoned true
  CONST Class class_Parameter
  : Stereotype st_in ;
  : Target WL 'ME_49E5FCDB02E9' '4A251D6E00BD.pas.ms.script' // IevHyperlink
@@ -8866,6 +9143,7 @@ ref; // ME_0FA99FBD9FDD aLink
 : ME_7F5D81A9F2C8
  CONST UID '7F5D81A9F2C8'
  CONST Name 'DoIt'
+ CONST IsSummoned true
  CONST Class class_Operation
  %SUMMARY 'Сигнатура фабрики TevHyperlinkProxy.Make' ;
  CONST Visibility PrivateAccess
@@ -8875,8 +9153,8 @@ ref; // ME_0FA99FBD9FDD aLink
  : Target WL 'ME_49E5FCDB02E9' '4A251D6E00BD.pas.ms.script' // IevHyperlink
  ;
  : Parameters
-   @ ( ME_0FA99FBD9FDD // aLink
- ) .SequenceCode.It
+   Seq: ( ME_0FA99FBD9FDD // aLink
+ )
  ; // Parameters
 
 ref; // ME_7F5D81A9F2C8 DoIt
@@ -8892,16 +9170,16 @@ ref; // ME_7F5D81A9F2C8 DoIt
  : Parent ME_4E1DD7720136 // TevHyperlinkProxy
  ;
  : Inherits
-   @ ( ME_4E1DD7FE016D // Create
- ) .SequenceCode.It
+   Seq: ( ME_4E1DD7FE016D // Create
+ )
  ; // Inherits
  : Implements
-   @ ( WL 'ME_49E5FCDB02E9' '4A251D6E00BD.pas.ms.script' // IevHyperlink
- ) .SequenceCode.It
+   Seq: ( WL 'ME_49E5FCDB02E9' '4A251D6E00BD.pas.ms.script' // IevHyperlink
+ )
  ; // Implements
  : Operations
-   @ ( ME_7F5D81A9F2C8 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_7F5D81A9F2C8 // DoIt
+ )
  ; // Operations
  CONST "check nil" false
  CONST "need AfterCreate" 'undefined'
@@ -8936,8 +9214,8 @@ ref; // ME_4E1DDB880385 DoIt
  : Parent ME_4E1DD7720136 // TevHyperlinkProxy
  ;
  : Operations
-   @ ( ME_4E1DDB880385 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_4E1DDB880385 // DoIt
+ )
  ; // Operations
 
 ref; // ME_4E1DDB7D0368 DoFromDocumentExternalHandle
@@ -8968,8 +9246,8 @@ ref; // ME_55F6CA710222 DoIt
  : Parent ME_4E1DD7720136 // TevHyperlinkProxy
  ;
  : Operations
-   @ ( ME_55F6CA710222 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_55F6CA710222 // DoIt
+ )
  ; // Operations
 
 ref; // ME_55F6C6DC018B DoGetKind
@@ -8992,6 +9270,7 @@ ref; // ME_4E1DD7B803AC
  ;
  : Implementor ME_4E1DD7720136 // TevHyperlinkProxy
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_49E5FCF403BB_ME_4E1DD7720136 Exists
 
 : ME_49E5FD13001E_ME_4E1DD7720136
@@ -9001,6 +9280,7 @@ ref; // ME_49E5FCF403BB_ME_4E1DD7720136 Exists
  ;
  : Implementor ME_4E1DD7720136 // TevHyperlinkProxy
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_49E5FD13001E_ME_4E1DD7720136 Insert
 
 : ME_49E5FD1D0339_ME_4E1DD7720136
@@ -9010,6 +9290,7 @@ ref; // ME_49E5FD13001E_ME_4E1DD7720136 Insert
  ;
  : Implementor ME_4E1DD7720136 // TevHyperlinkProxy
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_49E5FD1D0339_ME_4E1DD7720136 Delete
 
 : ME_49E5FD3C021B_ME_4E1DD7720136
@@ -9019,6 +9300,7 @@ ref; // ME_49E5FD1D0339_ME_4E1DD7720136 Delete
  ;
  : Implementor ME_4E1DD7720136 // TevHyperlinkProxy
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" false
 ref; // ME_49E5FD3C021B_ME_4E1DD7720136 ID
 
@@ -9029,6 +9311,7 @@ ref; // ME_49E5FD3C021B_ME_4E1DD7720136 ID
  ;
  : Implementor ME_4E1DD7720136 // TevHyperlinkProxy
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" true
 ref; // ME_49E6095100C3_ME_4E1DD7720136 Para
 
@@ -9039,6 +9322,7 @@ ref; // ME_49E6095100C3_ME_4E1DD7720136 Para
  ;
  : Implementor ME_4E1DD7720136 // TevHyperlinkProxy
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" true
 ref; // ME_49E609B701E8_ME_4E1DD7720136 AddressList
 
@@ -9049,6 +9333,7 @@ ref; // ME_49E609B701E8_ME_4E1DD7720136 AddressList
  ;
  : Implementor ME_4E1DD7720136 // TevHyperlinkProxy
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" true
 ref; // ME_49E609D303A4_ME_4E1DD7720136 Address
 
@@ -9059,6 +9344,7 @@ ref; // ME_49E609D303A4_ME_4E1DD7720136 Address
  ;
  : Implementor ME_4E1DD7720136 // TevHyperlinkProxy
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" true
 ref; // ME_49E609FD0318_ME_4E1DD7720136 URL
 
@@ -9069,6 +9355,7 @@ ref; // ME_49E609FD0318_ME_4E1DD7720136 URL
  ;
  : Implementor ME_4E1DD7720136 // TevHyperlinkProxy
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" true
 ref; // ME_49E60A1B02C4_ME_4E1DD7720136 Hint
 
@@ -9079,6 +9366,7 @@ ref; // ME_49E60A1B02C4_ME_4E1DD7720136 Hint
  ;
  : Implementor ME_4E1DD7720136 // TevHyperlinkProxy
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" true
 ref; // ME_49E60A650155_ME_4E1DD7720136 Kind
 
@@ -9089,6 +9377,7 @@ ref; // ME_49E60A650155_ME_4E1DD7720136 Kind
  ;
  : Implementor ME_4E1DD7720136 // TevHyperlinkProxy
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" false
 ref; // ME_4A72AAF50077_ME_4E1DD7720136 FromDocumentExternalHandle
 
@@ -9099,6 +9388,7 @@ ref; // ME_4A72AAF50077_ME_4E1DD7720136 FromDocumentExternalHandle
  ;
  : Implementor ME_4E1DD7720136 // TevHyperlinkProxy
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" false
 ref; // ME_4A72ABEF02AE_ME_4E1DD7720136 TargetDocumentID
 
@@ -9109,6 +9399,7 @@ ref; // ME_4A72ABEF02AE_ME_4E1DD7720136 TargetDocumentID
  ;
  : Implementor ME_4E1DD7720136 // TevHyperlinkProxy
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" false
 ref; // ME_4A72B4140281_ME_4E1DD7720136 Name
 
@@ -9119,6 +9410,7 @@ ref; // ME_4A72B4140281_ME_4E1DD7720136 Name
  ;
  : Implementor ME_4E1DD7720136 // TevHyperlinkProxy
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_5063FF170259_ME_4E1DD7720136 GetHyperlink
 
 : ME_47A0AD3A01F7_ME_4E1DD7720136
@@ -9128,6 +9420,7 @@ ref; // ME_5063FF170259_ME_4E1DD7720136 GetHyperlink
  ;
  : Implementor ME_4E1DD7720136 // TevHyperlinkProxy
  ;
+ CONST OpKind opkind_Overridden
  CONST "calling conventions" 'stdcall'
 ref; // ME_47A0AD3A01F7_ME_4E1DD7720136 QueryInterface
 
@@ -9138,6 +9431,7 @@ ref; // ME_47A0AD3A01F7_ME_4E1DD7720136 QueryInterface
  ;
  : Implementor ME_4E1DD7720136 // TevHyperlinkProxy
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_5000565C019C_ME_4E1DD7720136 ClearFields
 
 : ME_4E1DD7720136
@@ -9151,26 +9445,26 @@ ref; // ME_5000565C019C_ME_4E1DD7720136 ClearFields
  : Parent ME_4A267EE3017B // HotSpots
  ;
  : Inherits
-   @ ( WL 'ME_4AE5CA2D0034' '47913B47006E.pas.ms.script' // Tl3CProtoObject
- ) .SequenceCode.It
+   Seq: ( WL 'ME_4AE5CA2D0034' '47913B47006E.pas.ms.script' // Tl3CProtoObject
+ )
  ; // Inherits
  : Implements
-   @ ( WL 'ME_49E5FCDB02E9' '4A251D6E00BD.pas.ms.script' // IevHyperlink
- ) .SequenceCode.It
+   Seq: ( WL 'ME_49E5FCDB02E9' '4A251D6E00BD.pas.ms.script' // IevHyperlink
+ )
  ; // Implements
  : Attributes
-   @ ( ME_4E1DD7E50119 // f_Link
- ) .SequenceCode.It
+   Seq: ( ME_4E1DD7E50119 // f_Link
+ )
  ; // Attributes
  : Operations
-   @ ( ME_4E1DD7FE016D // Create
+   Seq: ( ME_4E1DD7FE016D // Create
  ME_4E1DD8160276 // Make
  ME_4E1DDB7D0368 // DoFromDocumentExternalHandle
  ME_55F6C6DC018B // DoGetKind
- ) .SequenceCode.It
+ )
  ; // Operations
  : Implemented
-   @ ( ME_49E5FCF403BB_ME_4E1DD7720136 // Exists
+   Seq: ( ME_49E5FCF403BB_ME_4E1DD7720136 // Exists
  ME_49E5FD13001E_ME_4E1DD7720136 // Insert
  ME_49E5FD1D0339_ME_4E1DD7720136 // Delete
  ME_49E5FD3C021B_ME_4E1DD7720136 // ID
@@ -9184,16 +9478,16 @@ ref; // ME_5000565C019C_ME_4E1DD7720136 ClearFields
  ME_4A72ABEF02AE_ME_4E1DD7720136 // TargetDocumentID
  ME_4A72B4140281_ME_4E1DD7720136 // Name
  ME_5063FF170259_ME_4E1DD7720136 // GetHyperlink
- ) .SequenceCode.It
+ )
  ; // Implemented
  : Overridden
-   @ ( ME_47A0AD3A01F7_ME_4E1DD7720136 // QueryInterface
+   Seq: ( ME_47A0AD3A01F7_ME_4E1DD7720136 // QueryInterface
  ME_5000565C019C_ME_4E1DD7720136 // ClearFields
- ) .SequenceCode.It
+ )
  ; // Overridden
  : Dependencies
-   @ ( ME_4E1DD7B803AC // 
- ) .SequenceCode.It
+   Seq: ( ME_4E1DD7B803AC // 
+ )
  ; // Dependencies
  CONST "author" 'Люлин А.В.'
  CONST "needs InstanceR" 'undefined'
@@ -9201,12 +9495,14 @@ ref; // ME_5000565C019C_ME_4E1DD7720136 ClearFields
  CONST "no hands" true
  CONST "register in scripts" 'undefined'
  CONST "started" '13.07.2011 21:36'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest'
  CONST intf.pas:Path 'common\components\gui\Garant\Everest\evHyperlinkProxy.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'HyperlinkProxy'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'evHyperlinkProxy'
 
 ref; // ME_4E1DD7720136 TevHyperlinkProxy
 
@@ -9223,10 +9519,15 @@ FORWARD ME_4E1DD8400344
  : Parent ME_4E1DD8400344 // TevDecorHyperlink
  ;
  : Inherits
-   @ ( ME_4E1DD8400344 // TevDecorHyperlink
- ) .SequenceCode.It
+   Seq: ( ME_4E1DD8400344 // TevDecorHyperlink
+ )
  ; // Inherits
  CONST "isClassRef" true
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_55F6CFF70320 RevDecorHyperlink
 
@@ -9275,9 +9576,9 @@ ref; // ME_4E1DD8A00386 aLink
  : Parent ME_4E1DD88E02EE // Create
  ;
  : Parameters
-   @ ( ME_4E1DD8A00357 // aPara
+   Seq: ( ME_4E1DD8A00357 // aPara
  ME_4E1DD8A00386 // aLink
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_4E1DD89603A2 DoIt
@@ -9293,8 +9594,8 @@ ref; // ME_4E1DD89603A2 DoIt
  : Parent ME_4E1DD8400344 // TevDecorHyperlink
  ;
  : Operations
-   @ ( ME_4E1DD89603A2 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_4E1DD89603A2 // DoIt
+ )
  ; // Operations
 
 ref; // ME_4E1DD88E02EE Create
@@ -9304,6 +9605,7 @@ FORWARD ME_4E1DD8B50181
 : ME_1E400210574B
  CONST UID '1E400210574B'
  CONST Name 'aPara'
+ CONST IsSummoned true
  CONST Class class_Parameter
  : Stereotype st_in ;
  : Target WL 'ME_47C520D80305' '47C5207602D1.pas.ms.script' // InevPara
@@ -9314,6 +9616,7 @@ ref; // ME_1E400210574B aPara
 : ME_BFA1CA021908
  CONST UID 'BFA1CA021908'
  CONST Name 'aLink'
+ CONST IsSummoned true
  CONST Class class_Parameter
  : Stereotype st_in ;
  : Target WL 'ME_49E5FCDB02E9' '4A251D6E00BD.pas.ms.script' // IevHyperlink
@@ -9324,6 +9627,7 @@ ref; // ME_BFA1CA021908 aLink
 : ME_DAD4285581AC
  CONST UID 'DAD4285581AC'
  CONST Name 'DoIt'
+ CONST IsSummoned true
  CONST Class class_Operation
  %SUMMARY 'Сигнатура фабрики TevDecorHyperlink.Make' ;
  CONST Visibility PrivateAccess
@@ -9333,9 +9637,9 @@ ref; // ME_BFA1CA021908 aLink
  : Target WL 'ME_49E5FCDB02E9' '4A251D6E00BD.pas.ms.script' // IevHyperlink
  ;
  : Parameters
-   @ ( ME_1E400210574B // aPara
+   Seq: ( ME_1E400210574B // aPara
  ME_BFA1CA021908 // aLink
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_DAD4285581AC DoIt
@@ -9351,16 +9655,16 @@ ref; // ME_DAD4285581AC DoIt
  : Parent ME_4E1DD8400344 // TevDecorHyperlink
  ;
  : Inherits
-   @ ( ME_4E1DD88E02EE // Create
- ) .SequenceCode.It
+   Seq: ( ME_4E1DD88E02EE // Create
+ )
  ; // Inherits
  : Implements
-   @ ( WL 'ME_49E5FCDB02E9' '4A251D6E00BD.pas.ms.script' // IevHyperlink
- ) .SequenceCode.It
+   Seq: ( WL 'ME_49E5FCDB02E9' '4A251D6E00BD.pas.ms.script' // IevHyperlink
+ )
  ; // Implements
  : Operations
-   @ ( ME_DAD4285581AC // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_DAD4285581AC // DoIt
+ )
  ; // Operations
  CONST "check nil" false
  CONST "need AfterCreate" 'undefined'
@@ -9420,6 +9724,7 @@ ref; // ME_5346A6210258
  ;
  : Implementor ME_4E1DD8400344 // TevDecorHyperlink
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4E1DDB7D0368_ME_4E1DD8400344 DoFromDocumentExternalHandle
 
 : ME_5000565C019C_ME_4E1DD8400344
@@ -9429,6 +9734,7 @@ ref; // ME_4E1DDB7D0368_ME_4E1DD8400344 DoFromDocumentExternalHandle
  ;
  : Implementor ME_4E1DD8400344 // TevDecorHyperlink
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_5000565C019C_ME_4E1DD8400344 ClearFields
 
 : ME_4E1DD8400344
@@ -9442,33 +9748,33 @@ ref; // ME_5000565C019C_ME_4E1DD8400344 ClearFields
  : Parent ME_4A267EE3017B // HotSpots
  ;
  : Inherits
-   @ ( ME_4E1DD7720136 // TevHyperlinkProxy
- ) .SequenceCode.It
+   Seq: ( ME_4E1DD7720136 // TevHyperlinkProxy
+ )
  ; // Inherits
  : Attributes
-   @ ( ME_4E1DD8700139 // f_Para
- ) .SequenceCode.It
+   Seq: ( ME_4E1DD8700139 // f_Para
+ )
  ; // Attributes
  : Operations
-   @ ( ME_4E1DD88E02EE // Create
+   Seq: ( ME_4E1DD88E02EE // Create
  ME_4E1DD8B50181 // Make
- ) .SequenceCode.It
+ )
  ; // Operations
  : Overridden
-   @ ( ME_4E1DDB7D0368_ME_4E1DD8400344 // DoFromDocumentExternalHandle
+   Seq: ( ME_4E1DDB7D0368_ME_4E1DD8400344 // DoFromDocumentExternalHandle
  ME_5000565C019C_ME_4E1DD8400344 // ClearFields
- ) .SequenceCode.It
+ )
  ; // Overridden
  : Children
-   @ ( ME_55F6CFF70320 // RevDecorHyperlink
- ) .SequenceCode.It
+   Seq: ( ME_55F6CFF70320 // RevDecorHyperlink
+ )
  ; // Children
  : Dependencies
-   @ ( ME_4E1DDBCE03A7 // 
+   Seq: ( ME_4E1DDBCE03A7 // 
  ME_4E1DDBDB026E // 
  ME_4E25CE6901B5 // 
  ME_5346A6210258 // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  CONST "author" 'Люлин А.В.'
  CONST "needs InstanceR" 'undefined'
@@ -9476,12 +9782,14 @@ ref; // ME_5000565C019C_ME_4E1DD8400344 ClearFields
  CONST "no hands" true
  CONST "register in scripts" 'undefined'
  CONST "started" '13.07.2011 21:39'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest'
  CONST intf.pas:Path 'common\components\gui\Garant\Everest\evDecorHyperlink.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'DecorHyperlink'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'evDecorHyperlink'
 
 ref; // ME_4E1DD8400344 TevDecorHyperlink
 
@@ -9530,9 +9838,9 @@ ref; // ME_4E1D7A110169 aHotSpot
  : Parent ME_4E1D79FC01E9 // Create
  ;
  : Parameters
-   @ ( ME_4E1D7A110140 // aPara
+   Seq: ( ME_4E1D7A110140 // aPara
  ME_4E1D7A110169 // aHotSpot
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_4E1D7A070074 DoIt
@@ -9548,8 +9856,8 @@ ref; // ME_4E1D7A070074 DoIt
  : Parent ME_4E1D961D02D6 // TevDecorHotSpot
  ;
  : Operations
-   @ ( ME_4E1D7A070074 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_4E1D7A070074 // DoIt
+ )
  ; // Operations
 
 ref; // ME_4E1D79FC01E9 Create
@@ -9559,6 +9867,7 @@ FORWARD ME_4E1D7A1F0027
 : ME_553156DC23B0
  CONST UID '553156DC23B0'
  CONST Name 'aPara'
+ CONST IsSummoned true
  CONST Class class_Parameter
  : Stereotype st_in ;
  : Target WL 'ME_47C520D80305' '47C5207602D1.pas.ms.script' // InevPara
@@ -9569,6 +9878,7 @@ ref; // ME_553156DC23B0 aPara
 : ME_60367BA76486
  CONST UID '60367BA76486'
  CONST Name 'aHotSpot'
+ CONST IsSummoned true
  CONST Class class_Parameter
  : Stereotype st_in ;
  : Target WL 'ME_48E2665A0259' '4A1FCBA0014C.pas.ms.script' // IevHotSpot
@@ -9579,6 +9889,7 @@ ref; // ME_60367BA76486 aHotSpot
 : ME_56CBFC8CC20D
  CONST UID '56CBFC8CC20D'
  CONST Name 'DoIt'
+ CONST IsSummoned true
  CONST Class class_Operation
  %SUMMARY 'Сигнатура фабрики TevDecorHotSpot.Make' ;
  CONST Visibility PrivateAccess
@@ -9588,9 +9899,9 @@ ref; // ME_60367BA76486 aHotSpot
  : Target WL 'ME_48E2665A0259' '4A1FCBA0014C.pas.ms.script' // IevHotSpot
  ;
  : Parameters
-   @ ( ME_553156DC23B0 // aPara
+   Seq: ( ME_553156DC23B0 // aPara
  ME_60367BA76486 // aHotSpot
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_56CBFC8CC20D DoIt
@@ -9606,16 +9917,16 @@ ref; // ME_56CBFC8CC20D DoIt
  : Parent ME_4E1D961D02D6 // TevDecorHotSpot
  ;
  : Inherits
-   @ ( ME_4E1D79FC01E9 // Create
- ) .SequenceCode.It
+   Seq: ( ME_4E1D79FC01E9 // Create
+ )
  ; // Inherits
  : Implements
-   @ ( WL 'ME_48E2665A0259' '4A1FCBA0014C.pas.ms.script' // IevHotSpot
- ) .SequenceCode.It
+   Seq: ( WL 'ME_48E2665A0259' '4A1FCBA0014C.pas.ms.script' // IevHotSpot
+ )
  ; // Implements
  : Operations
-   @ ( ME_56CBFC8CC20D // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_56CBFC8CC20D // DoIt
+ )
  ; // Operations
  CONST "check nil" false
  CONST "need AfterCreate" 'undefined'
@@ -9650,8 +9961,8 @@ ref; // ME_552FAB52027A DoIt
  : Parent ME_4E1D961D02D6 // TevDecorHotSpot
  ;
  : Operations
-   @ ( ME_552FAB52027A // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_552FAB52027A // DoIt
+ )
  ; // Operations
 
 ref; // ME_552FAB2002BB NeedProxyHyperlink
@@ -9682,8 +9993,8 @@ ref; // ME_55F6D04703C9 DoIt
  : Parent ME_4E1D961D02D6 // TevDecorHotSpot
  ;
  : Operations
-   @ ( ME_55F6D04703C9 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_55F6D04703C9 // DoIt
+ )
  ; // Operations
 
 ref; // ME_55F6D02B0013 GetDecorHyperlinkClass
@@ -9714,8 +10025,8 @@ ref; // ME_55F7C7230222 DoIt
  : Parent ME_4E1D961D02D6 // TevDecorHotSpot
  ;
  : Operations
-   @ ( ME_55F7C7230222 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_55F7C7230222 // DoIt
+ )
  ; // Operations
 
 ref; // ME_55F7C7110022 GetDecorActiveHyperlinkClass
@@ -9782,6 +10093,7 @@ ref; // ME_4E1DDDA4015C
  ;
  : Implementor ME_4E1D961D02D6 // TevDecorHotSpot
  ;
+ CONST OpKind opkind_Overridden
  CONST "calling conventions" 'stdcall'
 ref; // ME_47A0AD3A01F7_ME_4E1D961D02D6 QueryInterface
 
@@ -9792,6 +10104,7 @@ ref; // ME_47A0AD3A01F7_ME_4E1D961D02D6 QueryInterface
  ;
  : Implementor ME_4E1D961D02D6 // TevDecorHotSpot
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4E1D94EF002C_ME_4E1D961D02D6 DoTransMouseMove
 
 : ME_5000565C019C_ME_4E1D961D02D6
@@ -9801,6 +10114,7 @@ ref; // ME_4E1D94EF002C_ME_4E1D961D02D6 DoTransMouseMove
  ;
  : Implementor ME_4E1D961D02D6 // TevDecorHotSpot
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_5000565C019C_ME_4E1D961D02D6 ClearFields
 
 : ME_4E1D961D02D6
@@ -9814,34 +10128,34 @@ ref; // ME_5000565C019C_ME_4E1D961D02D6 ClearFields
  : Parent ME_4A267EE3017B // HotSpots
  ;
  : Inherits
-   @ ( ME_4E1D76D101D0 // TevHotSpotProxy
- ) .SequenceCode.It
+   Seq: ( ME_4E1D76D101D0 // TevHotSpotProxy
+ )
  ; // Inherits
  : Attributes
-   @ ( ME_4E1DB8A102D8 // f_Para
- ) .SequenceCode.It
+   Seq: ( ME_4E1DB8A102D8 // f_Para
+ )
  ; // Attributes
  : Operations
-   @ ( ME_4E1D79FC01E9 // Create
+   Seq: ( ME_4E1D79FC01E9 // Create
  ME_4E1D7A1F0027 // Make
  ME_552FAB2002BB // NeedProxyHyperlink
  ME_55F6D02B0013 // GetDecorHyperlinkClass
  ME_55F7C7110022 // GetDecorActiveHyperlinkClass
- ) .SequenceCode.It
+ )
  ; // Operations
  : Overridden
-   @ ( ME_47A0AD3A01F7_ME_4E1D961D02D6 // QueryInterface
+   Seq: ( ME_47A0AD3A01F7_ME_4E1D961D02D6 // QueryInterface
  ME_4E1D94EF002C_ME_4E1D961D02D6 // DoTransMouseMove
  ME_5000565C019C_ME_4E1D961D02D6 // ClearFields
- ) .SequenceCode.It
+ )
  ; // Overridden
  : Dependencies
-   @ ( ME_4E1D97420301 // 
+   Seq: ( ME_4E1D97420301 // 
  ME_4E1DD7600109 // 
  ME_4E1DD85E039A // 
  ME_4E1DDD84039F // 
  ME_4E1DDDA4015C // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  CONST "author" 'Люлин А.В.'
  CONST "needs InstanceR" 'undefined'
@@ -9849,12 +10163,14 @@ ref; // ME_5000565C019C_ME_4E1D961D02D6 ClearFields
  CONST "no hands" true
  CONST "register in scripts" 'undefined'
  CONST "started" '13.07.2011 16:57'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest'
  CONST intf.pas:Path 'common\components\gui\Garant\Everest\evDecorHotSpot.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'DecorHotSpot'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'evDecorHotSpot'
 
 ref; // ME_4E1D961D02D6 TevDecorHotSpot
 
@@ -9881,8 +10197,8 @@ ref; // ME_4E1D877A035E aView
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
  : Parameters
-   @ ( ME_4E1D877A035E // aView
- ) .SequenceCode.It
+   Seq: ( ME_4E1D877A035E // aView
+ )
  ; // Parameters
 
 ref; // ME_4E1D877300CA DoIt
@@ -9920,13 +10236,13 @@ ref; // ME_4E1D87B60075
  : Parent ME_4E1D776103C6 // TevParaCollapser
  ;
  : Operations
-   @ ( ME_4E1D877300CA // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_4E1D877300CA // DoIt
+ )
  ; // Operations
  : Dependencies
-   @ ( ME_4E1D879F019E // 
+   Seq: ( ME_4E1D879F019E // 
  ME_4E1D87B60075 // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
 
 ref; // ME_4E1D87640086 DoCollapse
@@ -9962,6 +10278,7 @@ ref; // ME_55F6C81A0342
  ;
  : Implementor ME_4E1D776103C6 // TevParaCollapser
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4E1D7BDF01C4_ME_4E1D776103C6 DoLButtonUp
 
 : ME_4E1D7C16028B_ME_4E1D776103C6
@@ -9971,6 +10288,7 @@ ref; // ME_4E1D7BDF01C4_ME_4E1D776103C6 DoLButtonUp
  ;
  : Implementor ME_4E1D776103C6 // TevParaCollapser
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4E1D7C16028B_ME_4E1D776103C6 DoLButtonDoubleClick
 
 : ME_4E1DC2FF02BB_ME_4E1D776103C6
@@ -9980,6 +10298,7 @@ ref; // ME_4E1D7C16028B_ME_4E1D776103C6 DoLButtonDoubleClick
  ;
  : Implementor ME_4E1D776103C6 // TevParaCollapser
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4E1DC2FF02BB_ME_4E1D776103C6 DoLButtonDown
 
 : ME_548B10B4010F_ME_4E1D776103C6
@@ -9989,6 +10308,7 @@ ref; // ME_4E1DC2FF02BB_ME_4E1D776103C6 DoLButtonDown
  ;
  : Implementor ME_4E1D776103C6 // TevParaCollapser
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_548B10B4010F_ME_4E1D776103C6 DoMButtonUp
 
 : ME_55F6D02B0013_ME_4E1D776103C6
@@ -9998,6 +10318,7 @@ ref; // ME_548B10B4010F_ME_4E1D776103C6 DoMButtonUp
  ;
  : Implementor ME_4E1D776103C6 // TevParaCollapser
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_55F6D02B0013_ME_4E1D776103C6 GetDecorHyperlinkClass
 
 : ME_4E1D776103C6
@@ -10011,25 +10332,25 @@ ref; // ME_55F6D02B0013_ME_4E1D776103C6 GetDecorHyperlinkClass
  : Parent ME_4A267EE3017B // HotSpots
  ;
  : Inherits
-   @ ( ME_4E1D961D02D6 // TevDecorHotSpot
- ) .SequenceCode.It
+   Seq: ( ME_4E1D961D02D6 // TevDecorHotSpot
+ )
  ; // Inherits
  : Operations
-   @ ( ME_4E1D87640086 // DoCollapse
- ) .SequenceCode.It
+   Seq: ( ME_4E1D87640086 // DoCollapse
+ )
  ; // Operations
  : Overridden
-   @ ( ME_4E1D7BDF01C4_ME_4E1D776103C6 // DoLButtonUp
+   Seq: ( ME_4E1D7BDF01C4_ME_4E1D776103C6 // DoLButtonUp
  ME_4E1D7C16028B_ME_4E1D776103C6 // DoLButtonDoubleClick
  ME_4E1DC2FF02BB_ME_4E1D776103C6 // DoLButtonDown
  ME_548B10B4010F_ME_4E1D776103C6 // DoMButtonUp
  ME_55F6D02B0013_ME_4E1D776103C6 // GetDecorHyperlinkClass
- ) .SequenceCode.It
+ )
  ; // Overridden
  : Dependencies
-   @ ( ME_4E1DB0FA019A // 
+   Seq: ( ME_4E1DB0FA019A // 
  ME_55F6C81A0342 // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  CONST "author" 'Люлин А.В.'
  CONST "needs InstanceR" 'undefined'
@@ -10037,12 +10358,14 @@ ref; // ME_55F6D02B0013_ME_4E1D776103C6 GetDecorHyperlinkClass
  CONST "no hands" true
  CONST "register in scripts" 'undefined'
  CONST "started" '13.07.2011 14:46'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest'
  CONST intf.pas:Path 'common\components\gui\Garant\Everest\evParaCollapser.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'ParaCollapser'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'evParaCollapser'
 
 ref; // ME_4E1D776103C6 TevParaCollapser
 
@@ -10094,14 +10417,14 @@ ref; // ME_53D6344501AA
  : Parent ME_4A267EE3017B // HotSpots
  ;
  : Inherits
-   @ ( ME_4A27B51303A7 // TevControlsBlockHotSpotTesterPrim
- ) .SequenceCode.It
+   Seq: ( ME_4A27B51303A7 // TevControlsBlockHotSpotTesterPrim
+ )
  ; // Inherits
  : Dependencies
-   @ ( ME_4E1423BF0044 // 
+   Seq: ( ME_4E1423BF0044 // 
  ME_4E6E385C0084 // 
  ME_53D6344501AA // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  CONST "finished" false
  CONST "ifndef" 'evCanEditControlsAsText'
@@ -10109,12 +10432,14 @@ ref; // ME_53D6344501AA
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest'
  CONST intf.pas:Path 'common\components\gui\Garant\Everest\NOT_FINISHED_evControlsBlockHotSpotTester.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'ControlsBlockHotSpotTester'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'evControlsBlockHotSpotTester'
 
 ref; // ME_4A27B53100B6 TevControlsBlockHotSpotTester
 
@@ -10155,13 +10480,13 @@ ref; // ME_53D26E4703DA
  : Parent ME_4A267EE3017B // HotSpots
  ;
  : Inherits
-   @ ( ME_4A27B7300174 // TevParaListHotSpotTester
- ) .SequenceCode.It
+   Seq: ( ME_4A27B7300174 // TevParaListHotSpotTester
+ )
  ; // Inherits
  : Dependencies
-   @ ( ME_4E6E381F03A3 // 
+   Seq: ( ME_4E6E381F03A3 // 
  ME_53D26E4703DA // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  CONST "author" 'Люлин А.В.'
  CONST "needs InstanceR" 'undefined'
@@ -10169,12 +10494,14 @@ ref; // ME_53D26E4703DA
  CONST "no hands" true
  CONST "register in scripts" 'undefined'
  CONST "started" '12.09.2011 20:48'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest'
  CONST intf.pas:Path 'common\components\gui\Garant\Everest\evDocumentHotSpotTester.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'DocumentHotSpotTester'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'evDocumentHotSpotTester'
 
 ref; // ME_4E6E37D90203 TevDocumentHotSpotTester
 
@@ -10233,6 +10560,7 @@ ref; // ME_53D64C3C0170
  ;
  : Implementor ME_4A27A8C70359 // TevControlParaHotSpotTester
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4A26B035006A_ME_4A27A8C70359 GetSegmentClass
 
 : ME_4A26B4EB02EB_ME_4A27A8C70359
@@ -10242,6 +10570,7 @@ ref; // ME_4A26B035006A_ME_4A27A8C70359 GetSegmentClass
  ;
  : Implementor ME_4A27A8C70359 // TevControlParaHotSpotTester
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4A26B4EB02EB_ME_4A27A8C70359 DoGetAdvancedHotSpot
 
 : ME_4A27A8C70359
@@ -10256,20 +10585,20 @@ ref; // ME_4A26B4EB02EB_ME_4A27A8C70359 DoGetAdvancedHotSpot
  : Parent ME_4A267EE3017B // HotSpots
  ;
  : Inherits
-   @ ( ME_4A26AF690296 // TevTextParaHotSpotTester
- ) .SequenceCode.It
+   Seq: ( ME_4A26AF690296 // TevTextParaHotSpotTester
+ )
  ; // Inherits
  : Overridden
-   @ ( ME_4A26B035006A_ME_4A27A8C70359 // GetSegmentClass
+   Seq: ( ME_4A26B035006A_ME_4A27A8C70359 // GetSegmentClass
  ME_4A26B4EB02EB_ME_4A27A8C70359 // DoGetAdvancedHotSpot
- ) .SequenceCode.It
+ )
  ; // Overridden
  : Dependencies
-   @ ( ME_4A27A8EA027F // 
+   Seq: ( ME_4A27A8EA027F // 
  ME_4A27A998000F // 
  ME_53D64C2400A7 // 
  ME_53D64C3C0170 // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  CONST "author" 'Люлин А.В.'
  CONST "ifndef" 'evCanEditControlsAsText'
@@ -10278,12 +10607,14 @@ ref; // ME_4A26B4EB02EB_ME_4A27A8C70359 DoGetAdvancedHotSpot
  CONST "no hands" true
  CONST "register in scripts" 'undefined'
  CONST "started" '12.11.2004 15:46'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest'
  CONST intf.pas:Path 'common\components\gui\Garant\Everest\evControlParaHotSpotTester.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'ControlParaHotSpotTester'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'evControlParaHotSpotTester'
 
 ref; // ME_4A27A8C70359 TevControlParaHotSpotTester
 
@@ -10326,18 +10657,24 @@ ref; // ME_53D0B1290397
  : Parent ME_53D0B0A10259 // evSectionBreakHotSpot
  ;
  : Inherits
-   @ ( ME_4A267FA903BA // TevHotSpot
- ) .SequenceCode.It
+   Seq: ( ME_4A267FA903BA // TevHotSpot
+ )
  ; // Inherits
  : Dependencies
-   @ ( ME_53D0B0F1024F // 
+   Seq: ( ME_53D0B0F1024F // 
  ME_53D0B1290397 // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'SectionBreakHotSpotTester'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_53D0B0B7034E TevSectionBreakHotSpotTester
 
@@ -10352,17 +10689,17 @@ ref; // ME_53D0B0B7034E TevSectionBreakHotSpotTester
  : Parent ME_4A267EE3017B // HotSpots
  ;
  : Children
-   @ ( ME_53D0B0B7034E // TevSectionBreakHotSpotTester
- ) .SequenceCode.It
+   Seq: ( ME_53D0B0B7034E // TevSectionBreakHotSpotTester
+ )
  ; // Children
  CONST "finished" false
  CONST "no hands" false
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest'
  CONST intf.pas:Path 'common\components\gui\Garant\Everest\NOT_FINISHED_evSectionBreakHotSpot.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'SectionBreakHotSpot'
 
 ref; // ME_53D0B0A10259 evSectionBreakHotSpot
 
@@ -10405,18 +10742,24 @@ ref; // ME_53D2435401A0
  : Parent ME_53D0C0DD0037 // evTableCellHotSpot
  ;
  : Inherits
-   @ ( ME_4A27B7300174 // TevParaListHotSpotTester
- ) .SequenceCode.It
+   Seq: ( ME_4A27B7300174 // TevParaListHotSpotTester
+ )
  ; // Inherits
  : Dependencies
-   @ ( ME_53D243390241 // 
+   Seq: ( ME_53D243390241 // 
  ME_53D2435401A0 // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'TableCellHotSpotTester'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_53D0C0F701B2 TevTableCellHotSpotTester
 
@@ -10431,17 +10774,17 @@ ref; // ME_53D0C0F701B2 TevTableCellHotSpotTester
  : Parent ME_4A267EE3017B // HotSpots
  ;
  : Children
-   @ ( ME_53D0C0F701B2 // TevTableCellHotSpotTester
- ) .SequenceCode.It
+   Seq: ( ME_53D0C0F701B2 // TevTableCellHotSpotTester
+ )
  ; // Children
  CONST "finished" false
  CONST "no hands" false
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest'
  CONST intf.pas:Path 'common\components\gui\Garant\Everest\NOT_FINISHED_evTableCellHotSpot.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'TableCellHotSpot'
 
 ref; // ME_53D0C0DD0037 evTableCellHotSpot
 
@@ -10484,19 +10827,25 @@ ref; // ME_53D0C18202E1
  : Parent ME_53D0C11D034F // evReqCellHotSpot
  ;
  : Inherits
-   @ ( ME_53D0C0F701B2 // TevTableCellHotSpotTester
- ) .SequenceCode.It
+   Seq: ( ME_53D0C0F701B2 // TevTableCellHotSpotTester
+ )
  ; // Inherits
  : Dependencies
-   @ ( ME_53D0C16103A9 // 
+   Seq: ( ME_53D0C16103A9 // 
  ME_53D0C18202E1 // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  CONST "ifndef" 'evCanEditControlsAsText'
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'ReqCellHotSpotTester'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_53D0C1380262 TevReqCellHotSpotTester
 
@@ -10511,17 +10860,17 @@ ref; // ME_53D0C1380262 TevReqCellHotSpotTester
  : Parent ME_4A267EE3017B // HotSpots
  ;
  : Children
-   @ ( ME_53D0C1380262 // TevReqCellHotSpotTester
- ) .SequenceCode.It
+   Seq: ( ME_53D0C1380262 // TevReqCellHotSpotTester
+ )
  ; // Children
  CONST "finished" false
  CONST "no hands" false
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest'
  CONST intf.pas:Path 'common\components\gui\Garant\Everest\NOT_FINISHED_evReqCellHotSpot.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'ReqCellHotSpot'
 
 ref; // ME_53D0C11D034F evReqCellHotSpot
 
@@ -10564,18 +10913,24 @@ ref; // ME_53D23D3A035B
  : Parent ME_53D0FC9901A6 // evTableRowHotSpot
  ;
  : Inherits
-   @ ( ME_4A27B7300174 // TevParaListHotSpotTester
- ) .SequenceCode.It
+   Seq: ( ME_4A27B7300174 // TevParaListHotSpotTester
+ )
  ; // Inherits
  : Dependencies
-   @ ( ME_53D0FD4100CA // 
+   Seq: ( ME_53D0FD4100CA // 
  ME_53D23D3A035B // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'TableRowHotSpotTester'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_53D0FCB60027 TevTableRowHotSpotTester
 
@@ -10590,17 +10945,17 @@ ref; // ME_53D0FCB60027 TevTableRowHotSpotTester
  : Parent ME_4A267EE3017B // HotSpots
  ;
  : Children
-   @ ( ME_53D0FCB60027 // TevTableRowHotSpotTester
- ) .SequenceCode.It
+   Seq: ( ME_53D0FCB60027 // TevTableRowHotSpotTester
+ )
  ; // Children
  CONST "finished" false
  CONST "no hands" false
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest'
  CONST intf.pas:Path 'common\components\gui\Garant\Everest\NOT_FINISHED_evTableRowHotSpot.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'TableRowHotSpot'
 
 ref; // ME_53D0FC9901A6 evTableRowHotSpot
 
@@ -10641,25 +10996,27 @@ ref; // ME_53D23D2301D4
  : Parent ME_4A267EE3017B // HotSpots
  ;
  : Inherits
-   @ ( ME_53D0FCB60027 // TevTableRowHotSpotTester
- ) .SequenceCode.It
+   Seq: ( ME_53D0FCB60027 // TevTableRowHotSpotTester
+ )
  ; // Inherits
  : Dependencies
-   @ ( ME_53D0FD230146 // 
+   Seq: ( ME_53D0FD230146 // 
  ME_53D23D2301D4 // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  CONST "finished" false
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest'
  CONST intf.pas:Path 'common\components\gui\Garant\Everest\NOT_FINISHED_evSBSRowHotSpotTester.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'SBSRowHotSpotTester'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'evSBSRowHotSpotTester'
 
 ref; // ME_53D0FD000009 TevSBSRowHotSpotTester
 
@@ -10700,25 +11057,27 @@ ref; // ME_53D2478D0091
  : Parent ME_4A267EE3017B // HotSpots
  ;
  : Inherits
-   @ ( ME_4A27B5510171 // TevDocumentPartHotSpotTester
- ) .SequenceCode.It
+   Seq: ( ME_4A27B5510171 // TevDocumentPartHotSpotTester
+ )
  ; // Inherits
  : Dependencies
-   @ ( ME_53D247720141 // 
+   Seq: ( ME_53D247720141 // 
  ME_53D2478D0091 // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  CONST "finished" false
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest'
  CONST intf.pas:Path 'common\components\gui\Garant\Everest\NOT_FINISHED_evCommentParaHotSpotTester.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'CommentParaHotSpotTester'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'evCommentParaHotSpotTester'
 
 ref; // ME_53D247570237 TevCommentParaHotSpotTester
 
@@ -10759,13 +11118,13 @@ ref; // ME_53D6689B01B3
  : Parent ME_4A267EE3017B // HotSpots
  ;
  : Inherits
-   @ ( ME_53D0FCB60027 // TevTableRowHotSpotTester
- ) .SequenceCode.It
+   Seq: ( ME_53D0FCB60027 // TevTableRowHotSpotTester
+ )
  ; // Inherits
  : Dependencies
-   @ ( ME_53D6687F003B // 
+   Seq: ( ME_53D6687F003B // 
  ME_53D6689B01B3 // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  CONST "finished" false
  CONST "ifndef" 'evCanEditControlsAsText'
@@ -10773,12 +11132,14 @@ ref; // ME_53D6689B01B3
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest'
  CONST intf.pas:Path 'common\components\gui\Garant\Everest\NOT_FINISHED_evReqRowHotSpotTester.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'ReqRowHotSpotTester'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'evReqRowHotSpotTester'
 
 ref; // ME_53D668610126 TevReqRowHotSpotTester
 
@@ -10813,6 +11174,7 @@ ref; // ME_55F7C76100A5
  ;
  : Implementor ME_552FAA38015B // TevExpandedTextCollapser
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4E1D87640086_ME_552FAA38015B DoCollapse
 
 : ME_55F7C7110022_ME_552FAA38015B
@@ -10822,6 +11184,7 @@ ref; // ME_4E1D87640086_ME_552FAA38015B DoCollapse
  ;
  : Implementor ME_552FAA38015B // TevExpandedTextCollapser
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_55F7C7110022_ME_552FAA38015B GetDecorActiveHyperlinkClass
 
 : ME_552FAA38015B
@@ -10835,29 +11198,31 @@ ref; // ME_55F7C7110022_ME_552FAA38015B GetDecorActiveHyperlinkClass
  : Parent ME_4A267EE3017B // HotSpots
  ;
  : Inherits
-   @ ( ME_4E1D776103C6 // TevParaCollapser
- ) .SequenceCode.It
+   Seq: ( ME_4E1D776103C6 // TevParaCollapser
+ )
  ; // Inherits
  : Overridden
-   @ ( ME_4E1D87640086_ME_552FAA38015B // DoCollapse
+   Seq: ( ME_4E1D87640086_ME_552FAA38015B // DoCollapse
  ME_55F7C7110022_ME_552FAA38015B // GetDecorActiveHyperlinkClass
- ) .SequenceCode.It
+ )
  ; // Overridden
  : Dependencies
-   @ ( ME_552FB41E01D9 // 
+   Seq: ( ME_552FB41E01D9 // 
  ME_55F7C76100A5 // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest'
  CONST intf.pas:Path 'common\components\gui\Garant\Everest\evExpandedTextCollapser.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'ExpandedTextCollapser'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'evExpandedTextCollapser'
 
 ref; // ME_552FAA38015B TevExpandedTextCollapser
 
@@ -10879,6 +11244,7 @@ ref; // ME_5530CDD302A9
  ;
  : Implementor ME_5530B9E90041 // TevArchiCollapser
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4A269489009C_ME_5530B9E90041 TryDoHyperlink
 
 : ME_5530B9E90041
@@ -10892,27 +11258,29 @@ ref; // ME_4A269489009C_ME_5530B9E90041 TryDoHyperlink
  : Parent ME_4A267EE3017B // HotSpots
  ;
  : Inherits
-   @ ( ME_4A268E590029 // TevSegmentHotSpot
- ) .SequenceCode.It
+   Seq: ( ME_4A268E590029 // TevSegmentHotSpot
+ )
  ; // Inherits
  : Overridden
-   @ ( ME_4A269489009C_ME_5530B9E90041 // TryDoHyperlink
- ) .SequenceCode.It
+   Seq: ( ME_4A269489009C_ME_5530B9E90041 // TryDoHyperlink
+ )
  ; // Overridden
  : Dependencies
-   @ ( ME_5530CDD302A9 // 
- ) .SequenceCode.It
+   Seq: ( ME_5530CDD302A9 // 
+ )
  ; // Dependencies
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest'
  CONST intf.pas:Path 'common\components\gui\Garant\Everest\evArchiCollapser.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'ArchiCollapser'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'evArchiCollapser'
 
 ref; // ME_5530B9E90041 TevArchiCollapser
 
@@ -10923,6 +11291,7 @@ ref; // ME_5530B9E90041 TevArchiCollapser
  ;
  : Implementor ME_55F6C74B033E // TevCollapserHyperlink
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_55F6C6DC018B_ME_55F6C74B033E DoGetKind
 
 : ME_55F6C74B033E
@@ -10937,23 +11306,25 @@ ref; // ME_55F6C6DC018B_ME_55F6C74B033E DoGetKind
  : Parent ME_4A267EE3017B // HotSpots
  ;
  : Inherits
-   @ ( ME_4E1DD8400344 // TevDecorHyperlink
- ) .SequenceCode.It
+   Seq: ( ME_4E1DD8400344 // TevDecorHyperlink
+ )
  ; // Inherits
  : Overridden
-   @ ( ME_55F6C6DC018B_ME_55F6C74B033E // DoGetKind
- ) .SequenceCode.It
+   Seq: ( ME_55F6C6DC018B_ME_55F6C74B033E // DoGetKind
+ )
  ; // Overridden
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest'
  CONST intf.pas:Path 'common\components\gui\Garant\Everest\evCollapserHyperlink.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'CollapserHyperlink'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'evCollapserHyperlink'
 
 ref; // ME_55F6C74B033E TevCollapserHyperlink
 
@@ -10964,6 +11335,7 @@ ref; // ME_55F6C74B033E TevCollapserHyperlink
  ;
  : Implementor ME_55F7C7400251 // TevExpandedTextActiveHyperlink
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4E1DB93401C4_ME_55F7C7400251 DoIsSame
 
 : ME_55F7C7400251
@@ -10977,23 +11349,25 @@ ref; // ME_4E1DB93401C4_ME_55F7C7400251 DoIsSame
  : Parent ME_4A267EE3017B // HotSpots
  ;
  : Inherits
-   @ ( ME_4E1D96B8035A // TnevDecorActiveHyperlink
- ) .SequenceCode.It
+   Seq: ( ME_4E1D96B8035A // TnevDecorActiveHyperlink
+ )
  ; // Inherits
  : Overridden
-   @ ( ME_4E1DB93401C4_ME_55F7C7400251 // DoIsSame
- ) .SequenceCode.It
+   Seq: ( ME_4E1DB93401C4_ME_55F7C7400251 // DoIsSame
+ )
  ; // Overridden
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest'
  CONST intf.pas:Path 'common\components\gui\Garant\Everest\evExpandedTextActiveHyperlink.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'ExpandedTextActiveHyperlink'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'evExpandedTextActiveHyperlink'
 
 ref; // ME_55F7C7400251 TevExpandedTextActiveHyperlink
 
@@ -11008,7 +11382,7 @@ ref; // ME_55F7C7400251 TevExpandedTextActiveHyperlink
  : Parent WL 'ME_4797632D0273' '4797632D0273.pas.ms.script' // Everest
  ;
  : Children
-   @ ( ME_4A267FA903BA // TevHotSpot
+   Seq: ( ME_4A267FA903BA // TevHotSpot
  ME_4A268E590029 // TevSegmentHotSpot
  ME_4A269456002A // evHotSpotMisc
  ME_4A269BB40125 // TevHyperlink
@@ -11046,10 +11420,10 @@ ref; // ME_55F7C7400251 TevExpandedTextActiveHyperlink
  ME_5530B9E90041 // TevArchiCollapser
  ME_55F6C74B033E // TevCollapserHyperlink
  ME_55F7C7400251 // TevExpandedTextActiveHyperlink
- ) .SequenceCode.It
+ )
  ; // Children
  : Depends
-   @ ( WL 'ME_4677FBA70343' '4677FBA70343.pas.ms.script' // l3Interfaces
+   Seq: ( WL 'ME_4677FBA70343' '4677FBA70343.pas.ms.script' // l3Interfaces
  WL 'ME_4678137501EA' '4678137501EA.pas.ms.script' // k2Interfaces
  WL 'ME_4678193C009C' '4678193C009C.pas.ms.script' // l3Types
  WL 'ME_4678209200A6' '4678209200A6.pas.ms.script' // nevBase
@@ -11086,16 +11460,14 @@ ref; // ME_55F7C7400251 TevExpandedTextActiveHyperlink
  WL 'ME_537B83AD01F0' '537B83AD01F0.pas.ms.script' // l3Math
  WL 'ME_53D258F1004F' '53D258F1004F.pas.ms.script' // InterfaceFactories
  WL 'ME_54B90AC6014B' '54B90AC6014B.pas.ms.script' // StringUtils
- ) .SequenceCode.It
+ )
  ; // Depends
  CONST "ifdef" 'evNeedHotSpot'
- : Generators
- @ (
- gen_pas.script
- gen_pas.script.runner
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest'
  CONST pas.script:Path 'shared\models\NewSchool\Scripts\4A267EE3017B.pas.ms.script'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
  CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\4A267EE3017B.pas.ms.script.runner'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_4A267EE3017B HotSpots

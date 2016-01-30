@@ -89,14 +89,19 @@ ref; // ME_548180F00041 ee_dRight
  : Parent ME_4912DD020283 // eeInterfaces
  ;
  : Attributes
-   @ ( ME_548180D90112 // ee_dUp
+   Seq: ( ME_548180D90112 // ee_dUp
  ME_548180DE0118 // ee_dUpMax
  ME_548180E30097 // ee_dDown
  ME_548180E70117 // ee_dDownMax
  ME_548180EB0203 // ee_dLeft
  ME_548180F00041 // ee_dRight
- ) .SequenceCode.It
+ )
  ; // Attributes
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest_Engine'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest_Engine'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_4F82F5FE0348 TeeDirection
 
@@ -109,6 +114,7 @@ FORWARD ME_5319FF1403D3
  ;
  : Implementor ME_5319FF1403D3 // IeeBase
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_467813E40207_ME_5319FF1403D3 CheckStamp
 
 : ME_5319FF1403D3
@@ -124,13 +130,19 @@ ref; // ME_467813E40207_ME_5319FF1403D3 CheckStamp
  : Parent ME_4912DD020283 // eeInterfaces
  ;
  : Inherits
-   @ ( WL 'ME_467813B3024D' '4677FBA70343.pas.ms.script' // Il3Base
- ) .SequenceCode.It
+   Seq: ( WL 'ME_467813B3024D' '4677FBA70343.pas.ms.script' // Il3Base
+ )
  ; // Inherits
  : Implemented
-   @ ( ME_467813E40207_ME_5319FF1403D3 // CheckStamp
- ) .SequenceCode.It
+   Seq: ( ME_467813E40207_ME_5319FF1403D3 // CheckStamp
+ )
  ; // Implemented
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest_Engine'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest_Engine'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'eeBase'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_5319FF1403D3 IeeBase
 
@@ -159,8 +171,8 @@ ref; // ME_531A08C00309 anIntf
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
  : Parameters
-   @ ( ME_531A08C00309 // anIntf
- ) .SequenceCode.It
+   Seq: ( ME_531A08C00309 // anIntf
+ )
  ; // Parameters
 
 ref; // ME_531A08BD03A5 DoIt
@@ -176,14 +188,18 @@ ref; // ME_531A08BD03A5 DoIt
  : Parent ME_4912DD020283 // eeInterfaces
  ;
  : Operations
-   @ ( ME_531A08BD03A5 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_531A08BD03A5 // DoIt
+ )
  ; // Operations
  : Forwarded
-   @ ( ME_4912DD2C0082 // IeeNode
- ) .SequenceCode.It
+   Seq: ( ME_4912DD2C0082 // IeeNode
+ )
  ; // Forwarded
  CONST "of object" false
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest_Engine'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest_Engine'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_531A08B201A1 TeeNodeAction
 
@@ -394,8 +410,8 @@ ref; // ME_54819B870154 aType
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
  : Parameters
-   @ ( ME_54819B870154 // aType
- ) .SequenceCode.It
+   Seq: ( ME_54819B870154 // aType
+ )
  ; // Parameters
 
 ref; // ME_54819B8002F6 DoIt
@@ -411,8 +427,8 @@ ref; // ME_54819B8002F6 DoIt
  : Parent ME_495239F201D9 // IeePara
  ;
  : Operations
-   @ ( ME_54819B8002F6 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_54819B8002F6 // DoIt
+ )
  ; // Operations
 
 ref; // ME_54819B7C00EC IsKindOf
@@ -440,8 +456,8 @@ ref; // ME_54819B9A011A aPara
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
  : Parameters
-   @ ( ME_54819B9A011A // aPara
- ) .SequenceCode.It
+   Seq: ( ME_54819B9A011A // aPara
+ )
  ; // Parameters
 
 ref; // ME_54819B980030 DoIt
@@ -457,8 +473,8 @@ ref; // ME_54819B980030 DoIt
  : Parent ME_495239F201D9 // IeePara
  ;
  : Operations
-   @ ( ME_54819B980030 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_54819B980030 // DoIt
+ )
  ; // Operations
 
 ref; // ME_54819B9003B8 IsSame
@@ -489,8 +505,8 @@ ref; // ME_54819BA8021C DoIt
  : Parent ME_495239F201D9 // IeePara
  ;
  : Operations
-   @ ( ME_54819BA8021C // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_54819BA8021C // DoIt
+ )
  ; // Operations
 
 ref; // ME_54819BA30185 Delete
@@ -521,8 +537,8 @@ ref; // ME_54819BC102DA DoIt
  : Parent ME_495239F201D9 // IeePara
  ;
  : Operations
-   @ ( ME_54819BC102DA // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_54819BC102DA // DoIt
+ )
  ; // Operations
 
 ref; // ME_54819BB50350 IsUserComment
@@ -553,8 +569,8 @@ ref; // ME_54819BD6013C DoIt
  : Parent ME_495239F201D9 // IeePara
  ;
  : Operations
-   @ ( ME_54819BD6013C // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_54819BD6013C // DoIt
+ )
  ; // Operations
 
 ref; // ME_54819BCF02EB AsObject
@@ -566,6 +582,7 @@ ref; // ME_54819BCF02EB AsObject
  ;
  : Implementor ME_495239F201D9 // IeePara
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_467813E40207_ME_495239F201D9 CheckStamp
 
 : ME_495239F201D9
@@ -580,11 +597,11 @@ ref; // ME_467813E40207_ME_495239F201D9 CheckStamp
  : Parent ME_4912DD020283 // eeInterfaces
  ;
  : Inherits
-   @ ( ME_5319FF1403D3 // IeeBase
- ) .SequenceCode.It
+   Seq: ( ME_5319FF1403D3 // IeeBase
+ )
  ; // Inherits
  : Attributes
-   @ ( ME_54819A560264 // Document
+   Seq: ( ME_54819A560264 // Document
  ME_54819A630153 // Parent
  ME_54819A6D038B // Block
  ME_54819A760069 // Subs
@@ -595,26 +612,32 @@ ref; // ME_467813E40207_ME_495239F201D9 CheckStamp
  ME_54819ABD01B8 // IndexInParent
  ME_54819AD20366 // Prev
  ME_54819B120216 // Next
- ) .SequenceCode.It
+ )
  ; // Attributes
  : Operations
-   @ ( ME_54819B7C00EC // IsKindOf
+   Seq: ( ME_54819B7C00EC // IsKindOf
  ME_54819B9003B8 // IsSame
  ME_54819BA30185 // Delete
  ME_54819BB50350 // IsUserComment
  ME_54819BCF02EB // AsObject
- ) .SequenceCode.It
+ )
  ; // Operations
  : Implemented
-   @ ( ME_467813E40207_ME_495239F201D9 // CheckStamp
- ) .SequenceCode.It
+   Seq: ( ME_467813E40207_ME_495239F201D9 // CheckStamp
+ )
  ; // Implemented
  : Forwarded
-   @ ( ME_4C0691A400A6 // IeeSubList
+   Seq: ( ME_4C0691A400A6 // IeeSubList
  ME_5481957B01D4 // IeeBlock
  ME_548195EF0017 // IeeDocument
- ) .SequenceCode.It
+ )
  ; // Forwarded
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest_Engine'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest_Engine'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'eePara'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_495239F201D9 IeePara
 
@@ -627,6 +650,7 @@ FORWARD ME_4A7FC9C9008F
  ;
  : Implementor ME_4A7FC9C9008F // IeeLeafPara
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_467813E40207_ME_4A7FC9C9008F CheckStamp
 
 : ME_54819A560264_ME_4A7FC9C9008F
@@ -636,6 +660,7 @@ ref; // ME_467813E40207_ME_4A7FC9C9008F CheckStamp
  ;
  : Implementor ME_4A7FC9C9008F // IeeLeafPara
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" false
 ref; // ME_54819A560264_ME_4A7FC9C9008F Document
 
@@ -646,6 +671,7 @@ ref; // ME_54819A560264_ME_4A7FC9C9008F Document
  ;
  : Implementor ME_4A7FC9C9008F // IeeLeafPara
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" false
 ref; // ME_54819A630153_ME_4A7FC9C9008F Parent
 
@@ -656,6 +682,7 @@ ref; // ME_54819A630153_ME_4A7FC9C9008F Parent
  ;
  : Implementor ME_4A7FC9C9008F // IeeLeafPara
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" false
 ref; // ME_54819A6D038B_ME_4A7FC9C9008F Block
 
@@ -666,6 +693,7 @@ ref; // ME_54819A6D038B_ME_4A7FC9C9008F Block
  ;
  : Implementor ME_4A7FC9C9008F // IeeLeafPara
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" false
 ref; // ME_54819A760069_ME_4A7FC9C9008F Subs
 
@@ -676,6 +704,7 @@ ref; // ME_54819A760069_ME_4A7FC9C9008F Subs
  ;
  : Implementor ME_4A7FC9C9008F // IeeLeafPara
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" false
 ref; // ME_54819A830391_ME_4A7FC9C9008F Markers
 
@@ -686,6 +715,7 @@ ref; // ME_54819A830391_ME_4A7FC9C9008F Markers
  ;
  : Implementor ME_4A7FC9C9008F // IeeLeafPara
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" false
 ref; // ME_54819A9600F5_ME_4A7FC9C9008F Bookmarks
 
@@ -696,6 +726,7 @@ ref; // ME_54819A9600F5_ME_4A7FC9C9008F Bookmarks
  ;
  : Implementor ME_4A7FC9C9008F // IeeLeafPara
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" false
 ref; // ME_54819AA3019D_ME_4A7FC9C9008F Marks
 
@@ -706,6 +737,7 @@ ref; // ME_54819AA3019D_ME_4A7FC9C9008F Marks
  ;
  : Implementor ME_4A7FC9C9008F // IeeLeafPara
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" false
 ref; // ME_54819AB403BD_ME_4A7FC9C9008F ID
 
@@ -716,6 +748,7 @@ ref; // ME_54819AB403BD_ME_4A7FC9C9008F ID
  ;
  : Implementor ME_4A7FC9C9008F // IeeLeafPara
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" false
 ref; // ME_54819ABD01B8_ME_4A7FC9C9008F IndexInParent
 
@@ -726,6 +759,7 @@ ref; // ME_54819ABD01B8_ME_4A7FC9C9008F IndexInParent
  ;
  : Implementor ME_4A7FC9C9008F // IeeLeafPara
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" false
 ref; // ME_54819AD20366_ME_4A7FC9C9008F Prev
 
@@ -736,6 +770,7 @@ ref; // ME_54819AD20366_ME_4A7FC9C9008F Prev
  ;
  : Implementor ME_4A7FC9C9008F // IeeLeafPara
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" false
 ref; // ME_54819B120216_ME_4A7FC9C9008F Next
 
@@ -746,6 +781,7 @@ ref; // ME_54819B120216_ME_4A7FC9C9008F Next
  ;
  : Implementor ME_4A7FC9C9008F // IeeLeafPara
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_54819B7C00EC_ME_4A7FC9C9008F IsKindOf
 
 : ME_54819B9003B8_ME_4A7FC9C9008F
@@ -755,6 +791,7 @@ ref; // ME_54819B7C00EC_ME_4A7FC9C9008F IsKindOf
  ;
  : Implementor ME_4A7FC9C9008F // IeeLeafPara
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_54819B9003B8_ME_4A7FC9C9008F IsSame
 
 : ME_54819BA30185_ME_4A7FC9C9008F
@@ -764,6 +801,7 @@ ref; // ME_54819B9003B8_ME_4A7FC9C9008F IsSame
  ;
  : Implementor ME_4A7FC9C9008F // IeeLeafPara
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_54819BA30185_ME_4A7FC9C9008F Delete
 
 : ME_54819BB50350_ME_4A7FC9C9008F
@@ -773,6 +811,7 @@ ref; // ME_54819BA30185_ME_4A7FC9C9008F Delete
  ;
  : Implementor ME_4A7FC9C9008F // IeeLeafPara
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_54819BB50350_ME_4A7FC9C9008F IsUserComment
 
 : ME_54819BCF02EB_ME_4A7FC9C9008F
@@ -782,6 +821,7 @@ ref; // ME_54819BB50350_ME_4A7FC9C9008F IsUserComment
  ;
  : Implementor ME_4A7FC9C9008F // IeeLeafPara
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_54819BCF02EB_ME_4A7FC9C9008F AsObject
 
 : ME_4A7FC9C9008F
@@ -796,11 +836,11 @@ ref; // ME_54819BCF02EB_ME_4A7FC9C9008F AsObject
  : Parent ME_4912DD020283 // eeInterfaces
  ;
  : Inherits
-   @ ( ME_495239F201D9 // IeePara
- ) .SequenceCode.It
+   Seq: ( ME_495239F201D9 // IeePara
+ )
  ; // Inherits
  : Implemented
-   @ ( ME_467813E40207_ME_4A7FC9C9008F // CheckStamp
+   Seq: ( ME_467813E40207_ME_4A7FC9C9008F // CheckStamp
  ME_54819A560264_ME_4A7FC9C9008F // Document
  ME_54819A630153_ME_4A7FC9C9008F // Parent
  ME_54819A6D038B_ME_4A7FC9C9008F // Block
@@ -817,8 +857,14 @@ ref; // ME_54819BCF02EB_ME_4A7FC9C9008F AsObject
  ME_54819BA30185_ME_4A7FC9C9008F // Delete
  ME_54819BB50350_ME_4A7FC9C9008F // IsUserComment
  ME_54819BCF02EB_ME_4A7FC9C9008F // AsObject
- ) .SequenceCode.It
+ )
  ; // Implemented
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest_Engine'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest_Engine'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'eeLeafPara'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_4A7FC9C9008F IeeLeafPara
 
@@ -997,8 +1043,8 @@ ref; // ME_548188D8033F DoIt
  : Parent ME_4AE9DFBF0327 // IeeSub
  ;
  : Operations
-   @ ( ME_548188D8033F // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_548188D8033F // DoIt
+ )
  ; // Operations
 
 ref; // ME_548188CE0291 Delete
@@ -1029,8 +1075,8 @@ ref; // ME_548188ED02B3 DoIt
  : Parent ME_4AE9DFBF0327 // IeeSub
  ;
  : Operations
-   @ ( ME_548188ED02B3 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_548188ED02B3 // DoIt
+ )
  ; // Operations
 
 ref; // ME_548188E50006 Exists
@@ -1061,8 +1107,8 @@ ref; // ME_548189000162 DoIt
  : Parent ME_4AE9DFBF0327 // IeeSub
  ;
  : Operations
-   @ ( ME_548189000162 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_548189000162 // DoIt
+ )
  ; // Operations
 
 ref; // ME_548188FC0305 Select
@@ -1090,8 +1136,8 @@ ref; // ME_54818925002A aSub
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
  : Parameters
-   @ ( ME_54818925002A // aSub
- ) .SequenceCode.It
+   Seq: ( ME_54818925002A // aSub
+ )
  ; // Parameters
 
 ref; // ME_5481891E007D DoIt
@@ -1107,8 +1153,8 @@ ref; // ME_5481891E007D DoIt
  : Parent ME_4AE9DFBF0327 // IeeSub
  ;
  : Operations
-   @ ( ME_5481891E007D // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_5481891E007D // DoIt
+ )
  ; // Operations
 
 ref; // ME_5481891302A1 IsSame
@@ -1120,6 +1166,7 @@ ref; // ME_5481891302A1 IsSame
  ;
  : Implementor ME_4AE9DFBF0327 // IeeSub
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_467813E40207_ME_4AE9DFBF0327 CheckStamp
 
 : ME_4AE9DFBF0327
@@ -1134,11 +1181,11 @@ ref; // ME_467813E40207_ME_4AE9DFBF0327 CheckStamp
  : Parent ME_4912DD020283 // eeInterfaces
  ;
  : Inherits
-   @ ( ME_5319FF1403D3 // IeeBase
- ) .SequenceCode.It
+   Seq: ( ME_5319FF1403D3 // IeeBase
+ )
  ; // Inherits
  : Attributes
-   @ ( ME_548189A0022F // SubPlace
+   Seq: ( ME_548189A0022F // SubPlace
  ME_548189BC01DF // ID
  ME_548189D0014C // LayerID
  ME_548189EE0355 // Flag
@@ -1147,19 +1194,25 @@ ref; // ME_467813E40207_ME_4AE9DFBF0327 CheckStamp
  ME_54818A7B0210 // Next
  ME_54818A9700C3 // LeafPara
  ME_54818AA901FF // Para
- ) .SequenceCode.It
+ )
  ; // Attributes
  : Operations
-   @ ( ME_548188CE0291 // Delete
+   Seq: ( ME_548188CE0291 // Delete
  ME_548188E50006 // Exists
  ME_548188FC0305 // Select
  ME_5481891302A1 // IsSame
- ) .SequenceCode.It
+ )
  ; // Operations
  : Implemented
-   @ ( ME_467813E40207_ME_4AE9DFBF0327 // CheckStamp
- ) .SequenceCode.It
+   Seq: ( ME_467813E40207_ME_4AE9DFBF0327 // CheckStamp
+ )
  ; // Implemented
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest_Engine'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest_Engine'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'eeSub'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_4AE9DFBF0327 IeeSub
 
@@ -1208,8 +1261,8 @@ ref; // ME_5481994F00AA anIndex
  : Target ME_4AE9DFBF0327 // IeeSub
  ;
  : Attributes
-   @ ( ME_5481994F00AA // anIndex
- ) .SequenceCode.It
+   Seq: ( ME_5481994F00AA // anIndex
+ )
  ; // Attributes
  CONST "pm" false
 
@@ -1244,8 +1297,8 @@ ref; // ME_5481996501FC anID
  : Target ME_4AE9DFBF0327 // IeeSub
  ;
  : Attributes
-   @ ( ME_5481996501FC // anID
- ) .SequenceCode.It
+   Seq: ( ME_5481996501FC // anID
+ )
  ; // Attributes
  CONST "pm" false
 
@@ -1263,6 +1316,7 @@ FORWARD ME_5481997C03DD
  CONST Value 'ee_SubAutoID'
  : ValueType WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
  ;
+ CONST extprop:pas:Value 'ee_SubAutoID'
 
 ref; // ME_5481999C0203 anID
 
@@ -1276,6 +1330,7 @@ ref; // ME_5481999C0203 anID
  CONST Value 'nil'
  : ValueType WL 'ME_46780DA40383' '4677FBA70343.pas.ms.script' // Il3CString
  ;
+ CONST extprop:pas:Value 'nil'
 
 ref; // ME_5481999C021E aName
 
@@ -1290,9 +1345,9 @@ ref; // ME_5481999C021E aName
  : Target ME_4AE9DFBF0327 // IeeSub
  ;
  : Parameters
-   @ ( ME_5481999C0203 // anID
+   Seq: ( ME_5481999C0203 // anID
  ME_5481999C021E // aName
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_5481998B01F7 DoIt
@@ -1308,8 +1363,8 @@ ref; // ME_5481998B01F7 DoIt
  : Parent ME_4C0691A400A6 // IeeSubList
  ;
  : Operations
-   @ ( ME_5481998B01F7 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_5481998B01F7 // DoIt
+ )
  ; // Operations
 
 ref; // ME_5481997C03DD Add
@@ -1321,6 +1376,7 @@ ref; // ME_5481997C03DD Add
  ;
  : Implementor ME_4C0691A400A6 // IeeSubList
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_467813E40207_ME_4C0691A400A6 CheckStamp
 
 : ME_4C0691A400A6
@@ -1335,23 +1391,29 @@ ref; // ME_467813E40207_ME_4C0691A400A6 CheckStamp
  : Parent ME_4912DD020283 // eeInterfaces
  ;
  : Inherits
-   @ ( ME_5319FF1403D3 // IeeBase
- ) .SequenceCode.It
+   Seq: ( ME_5319FF1403D3 // IeeBase
+ )
  ; // Inherits
  : Attributes
-   @ ( ME_5481993E00BB // Count
+   Seq: ( ME_5481993E00BB // Count
  ME_5481994701A7 // Subs
  ME_54819961006C // SubsByID
- ) .SequenceCode.It
+ )
  ; // Attributes
  : Operations
-   @ ( ME_5481997C03DD // Add
- ) .SequenceCode.It
+   Seq: ( ME_5481997C03DD // Add
+ )
  ; // Operations
  : Implemented
-   @ ( ME_467813E40207_ME_4C0691A400A6 // CheckStamp
- ) .SequenceCode.It
+   Seq: ( ME_467813E40207_ME_4C0691A400A6 // CheckStamp
+ )
  ; // Implemented
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest_Engine'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest_Engine'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'eeSubList'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_4C0691A400A6 IeeSubList
 
@@ -1410,8 +1472,8 @@ ref; // ME_548196390059 aType
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
  : Parameters
-   @ ( ME_548196390059 // aType
- ) .SequenceCode.It
+   Seq: ( ME_548196390059 // aType
+ )
  ; // Parameters
 
 ref; // ME_548196330048 DoIt
@@ -1427,8 +1489,8 @@ ref; // ME_548196330048 DoIt
  : Parent ME_5481957B01D4 // IeeBlock
  ;
  : Operations
-   @ ( ME_548196330048 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_548196330048 // DoIt
+ )
  ; // Operations
 
 ref; // ME_5481962D00FB IsKindOf
@@ -1440,6 +1502,7 @@ ref; // ME_5481962D00FB IsKindOf
  ;
  : Implementor ME_5481957B01D4 // IeeBlock
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_467813E40207_ME_5481957B01D4 CheckStamp
 
 : ME_548188CE0291_ME_5481957B01D4
@@ -1449,6 +1512,7 @@ ref; // ME_467813E40207_ME_5481957B01D4 CheckStamp
  ;
  : Implementor ME_5481957B01D4 // IeeBlock
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_548188CE0291_ME_5481957B01D4 Delete
 
 : ME_548188E50006_ME_5481957B01D4
@@ -1458,6 +1522,7 @@ ref; // ME_548188CE0291_ME_5481957B01D4 Delete
  ;
  : Implementor ME_5481957B01D4 // IeeBlock
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_548188E50006_ME_5481957B01D4 Exists
 
 : ME_548188FC0305_ME_5481957B01D4
@@ -1467,6 +1532,7 @@ ref; // ME_548188E50006_ME_5481957B01D4 Exists
  ;
  : Implementor ME_5481957B01D4 // IeeBlock
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_548188FC0305_ME_5481957B01D4 Select
 
 : ME_5481891302A1_ME_5481957B01D4
@@ -1476,6 +1542,7 @@ ref; // ME_548188FC0305_ME_5481957B01D4 Select
  ;
  : Implementor ME_5481957B01D4 // IeeBlock
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_5481891302A1_ME_5481957B01D4 IsSame
 
 : ME_548189A0022F_ME_5481957B01D4
@@ -1485,6 +1552,7 @@ ref; // ME_5481891302A1_ME_5481957B01D4 IsSame
  ;
  : Implementor ME_5481957B01D4 // IeeBlock
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" false
 ref; // ME_548189A0022F_ME_5481957B01D4 SubPlace
 
@@ -1495,6 +1563,7 @@ ref; // ME_548189A0022F_ME_5481957B01D4 SubPlace
  ;
  : Implementor ME_5481957B01D4 // IeeBlock
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" false
 ref; // ME_548189BC01DF_ME_5481957B01D4 ID
 
@@ -1505,6 +1574,7 @@ ref; // ME_548189BC01DF_ME_5481957B01D4 ID
  ;
  : Implementor ME_5481957B01D4 // IeeBlock
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" false
 ref; // ME_548189D0014C_ME_5481957B01D4 LayerID
 
@@ -1515,6 +1585,7 @@ ref; // ME_548189D0014C_ME_5481957B01D4 LayerID
  ;
  : Implementor ME_5481957B01D4 // IeeBlock
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" false
 ref; // ME_548189EE0355_ME_5481957B01D4 Flag
 
@@ -1525,6 +1596,7 @@ ref; // ME_548189EE0355_ME_5481957B01D4 Flag
  ;
  : Implementor ME_5481957B01D4 // IeeBlock
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" false
 ref; // ME_548189F9001A_ME_5481957B01D4 Flags
 
@@ -1535,6 +1607,7 @@ ref; // ME_548189F9001A_ME_5481957B01D4 Flags
  ;
  : Implementor ME_5481957B01D4 // IeeBlock
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" false
 ref; // ME_54818A59008A_ME_5481957B01D4 Name
 
@@ -1545,6 +1618,7 @@ ref; // ME_54818A59008A_ME_5481957B01D4 Name
  ;
  : Implementor ME_5481957B01D4 // IeeBlock
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" false
 ref; // ME_54818A7B0210_ME_5481957B01D4 Next
 
@@ -1555,6 +1629,7 @@ ref; // ME_54818A7B0210_ME_5481957B01D4 Next
  ;
  : Implementor ME_5481957B01D4 // IeeBlock
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" false
 ref; // ME_54818A9700C3_ME_5481957B01D4 LeafPara
 
@@ -1565,6 +1640,7 @@ ref; // ME_54818A9700C3_ME_5481957B01D4 LeafPara
  ;
  : Implementor ME_5481957B01D4 // IeeBlock
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" false
 ref; // ME_54818AA901FF_ME_5481957B01D4 Para
 
@@ -1580,20 +1656,20 @@ ref; // ME_54818AA901FF_ME_5481957B01D4 Para
  : Parent ME_4912DD020283 // eeInterfaces
  ;
  : Inherits
-   @ ( ME_4AE9DFBF0327 // IeeSub
- ) .SequenceCode.It
+   Seq: ( ME_4AE9DFBF0327 // IeeSub
+ )
  ; // Inherits
  : Attributes
-   @ ( ME_5481960900A7 // Document
+   Seq: ( ME_5481960900A7 // Document
  ME_548196150340 // ParentBlock
- ) .SequenceCode.It
+ )
  ; // Attributes
  : Operations
-   @ ( ME_5481962D00FB // IsKindOf
- ) .SequenceCode.It
+   Seq: ( ME_5481962D00FB // IsKindOf
+ )
  ; // Operations
  : Implemented
-   @ ( ME_467813E40207_ME_5481957B01D4 // CheckStamp
+   Seq: ( ME_467813E40207_ME_5481957B01D4 // CheckStamp
  ME_548188CE0291_ME_5481957B01D4 // Delete
  ME_548188E50006_ME_5481957B01D4 // Exists
  ME_548188FC0305_ME_5481957B01D4 // Select
@@ -1607,8 +1683,14 @@ ref; // ME_54818AA901FF_ME_5481957B01D4 Para
  ME_54818A7B0210_ME_5481957B01D4 // Next
  ME_54818A9700C3_ME_5481957B01D4 // LeafPara
  ME_54818AA901FF_ME_5481957B01D4 // Para
- ) .SequenceCode.It
+ )
  ; // Implemented
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest_Engine'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest_Engine'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'eeBlock'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_5481957B01D4 IeeBlock
 
@@ -1661,11 +1743,16 @@ ref; // ME_548187880165 ee_sbInvert
  : Parent ME_4912DD020283 // eeInterfaces
  ;
  : Attributes
-   @ ( ME_5481877F017E // ee_sbSelect
+   Seq: ( ME_5481877F017E // ee_sbSelect
  ME_548187840107 // ee_sbDeselect
  ME_548187880165 // ee_sbInvert
- ) .SequenceCode.It
+ )
  ; // Attributes
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest_Engine'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest_Engine'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_5319F9030194 TeeSetBitType
 
@@ -1718,11 +1805,16 @@ ref; // ME_5481804201D2 ee_mbRight
  : Parent ME_4912DD020283 // eeInterfaces
  ;
  : Attributes
-   @ ( ME_548180380006 // ee_mbLeft
+   Seq: ( ME_548180380006 // ee_mbLeft
  ME_5481803D0185 // ee_mbMiddle
  ME_5481804201D2 // ee_mbRight
- ) .SequenceCode.It
+ )
  ; // Attributes
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest_Engine'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest_Engine'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_4F82F5DD00CA TeeMouseButton
 
@@ -1787,12 +1879,17 @@ ref; // ME_5481805F02C9 ee_maMove
  : Parent ME_4912DD020283 // eeInterfaces
  ;
  : Attributes
-   @ ( ME_5481805202A5 // ee_maDown
+   Seq: ( ME_5481805202A5 // ee_maDown
  ME_5481805702A8 // ee_maUp
  ME_5481805B027B // ee_maDouble
  ME_5481805F02C9 // ee_maMove
- ) .SequenceCode.It
+ )
  ; // Attributes
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest_Engine'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest_Engine'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_4F82F5E703B6 TeeMouseAction
 
@@ -1893,15 +1990,20 @@ ref; // ME_548180C402DC ee_ssDouble
  : Parent ME_4912DD020283 // eeInterfaces
  ;
  : Attributes
-   @ ( ME_548180A5012F // ee_ssShift
+   Seq: ( ME_548180A5012F // ee_ssShift
  ME_548180AA02A2 // ee_ssAlt
  ME_548180AF0260 // ee_ssCtrl
  ME_548180B503C3 // ee_ssLeft
  ME_548180BB016A // ee_ssRight
  ME_548180C001AE // ee_ssMiddle
  ME_548180C402DC // ee_ssDouble
- ) .SequenceCode.It
+ )
  ; // Attributes
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest_Engine'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest_Engine'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_54818086024C TeeSS
 
@@ -2103,6 +2205,7 @@ ref; // ME_5481A3A902D5 anAction
  CONST Value 0
  : ValueType WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
  ;
+ CONST extprop:pas:Value 0
 
 ref; // ME_5481A3A90310 anIterMode
 
@@ -2116,6 +2219,7 @@ ref; // ME_5481A3A90310 anIterMode
  CONST Value 'nil'
  : ValueType ME_4912DD2C0082 // IeeNode
  ;
+ CONST extprop:pas:Value 'nil'
 
 ref; // ME_5481A3A90362 aFromNode
 
@@ -2130,10 +2234,10 @@ ref; // ME_5481A3A90362 aFromNode
  : Target ME_4912DD2C0082 // IeeNode
  ;
  : Parameters
-   @ ( ME_5481A3A902D5 // anAction
+   Seq: ( ME_5481A3A902D5 // anAction
  ME_5481A3A90310 // anIterMode
  ME_5481A3A90362 // aFromNode
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_5481A396038A DoIt
@@ -2150,8 +2254,8 @@ ref; // ME_5481A396038A DoIt
  : Parent ME_4912DD2C0082 // IeeNode
  ;
  : Operations
-   @ ( ME_5481A396038A // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_5481A396038A // DoIt
+ )
  ; // Operations
 
 ref; // ME_5481A3900306 Iterate
@@ -2189,9 +2293,9 @@ ref; // ME_5481A2CE0038 aChild
  : Target ME_4912DD2C0082 // IeeNode
  ;
  : Parameters
-   @ ( ME_5481A2CE0017 // aNextChild
+   Seq: ( ME_5481A2CE0017 // aNextChild
  ME_5481A2CE0038 // aChild
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_5481A2C9001C DoIt
@@ -2207,8 +2311,8 @@ ref; // ME_5481A2C9001C DoIt
  : Parent ME_4912DD2C0082 // IeeNode
  ;
  : Operations
-   @ ( ME_5481A2C9001C // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_5481A2C9001C // DoIt
+ )
  ; // Operations
 
 ref; // ME_5481A2C20167 InsertChildBefore
@@ -2218,6 +2322,7 @@ FORWARD ME_5481A2D702C7
 : ME_88AE6165299F
  CONST UID '88AE6165299F'
  CONST Name 'DoIt'
+ CONST IsSummoned true
  CONST Class class_Operation
  %SUMMARY 'Сигнатура метода Changing' ;
  CONST Visibility PublicAccess
@@ -2238,8 +2343,8 @@ ref; // ME_88AE6165299F DoIt
  : Parent ME_4912DD2C0082 // IeeNode
  ;
  : Operations
-   @ ( ME_88AE6165299F // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_88AE6165299F // DoIt
+ )
  ; // Operations
 
 ref; // ME_5481A2D702C7 Changing
@@ -2249,6 +2354,7 @@ FORWARD ME_5481A2DF0031
 : ME_2EC8E2DC413E
  CONST UID '2EC8E2DC413E'
  CONST Name 'DoIt'
+ CONST IsSummoned true
  CONST Class class_Operation
  %SUMMARY 'Сигнатура метода Changed' ;
  CONST Visibility PublicAccess
@@ -2269,8 +2375,8 @@ ref; // ME_2EC8E2DC413E DoIt
  : Parent ME_4912DD2C0082 // IeeNode
  ;
  : Operations
-   @ ( ME_2EC8E2DC413E // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_2EC8E2DC413E // DoIt
+ )
  ; // Operations
 
 ref; // ME_5481A2DF0031 Changed
@@ -2280,6 +2386,7 @@ FORWARD ME_5481A2E8004B
 : ME_2C597DA09651
  CONST UID '2C597DA09651'
  CONST Name 'DoIt'
+ CONST IsSummoned true
  CONST Class class_Operation
  %SUMMARY 'Сигнатура метода Remove' ;
  CONST Visibility PublicAccess
@@ -2300,8 +2407,8 @@ ref; // ME_2C597DA09651 DoIt
  : Parent ME_4912DD2C0082 // IeeNode
  ;
  : Operations
-   @ ( ME_2C597DA09651 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_2C597DA09651 // DoIt
+ )
  ; // Operations
 
 ref; // ME_5481A2E8004B Remove
@@ -2311,6 +2418,7 @@ FORWARD ME_5481A2F3014C
 : ME_1BBE0F07A9B7
  CONST UID '1BBE0F07A9B7'
  CONST Name 'DoIt'
+ CONST IsSummoned true
  CONST Class class_Operation
  %SUMMARY 'Сигнатура метода Delete' ;
  CONST Visibility PublicAccess
@@ -2331,8 +2439,8 @@ ref; // ME_1BBE0F07A9B7 DoIt
  : Parent ME_4912DD2C0082 // IeeNode
  ;
  : Operations
-   @ ( ME_1BBE0F07A9B7 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_1BBE0F07A9B7 // DoIt
+ )
  ; // Operations
 
 ref; // ME_5481A2F3014C Delete
@@ -2342,6 +2450,7 @@ FORWARD ME_5481A2FC0099
 : ME_B0F834F7A4B0
  CONST UID 'B0F834F7A4B0'
  CONST Name 'DoIt'
+ CONST IsSummoned true
  CONST Class class_Operation
  %SUMMARY 'Сигнатура метода RemoveChildren' ;
  CONST Visibility PublicAccess
@@ -2362,8 +2471,8 @@ ref; // ME_B0F834F7A4B0 DoIt
  : Parent ME_4912DD2C0082 // IeeNode
  ;
  : Operations
-   @ ( ME_B0F834F7A4B0 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_B0F834F7A4B0 // DoIt
+ )
  ; // Operations
 
 ref; // ME_5481A2FC0099 RemoveChildren
@@ -2391,8 +2500,8 @@ ref; // ME_5481A30E0269 aDirection
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
  : Parameters
-   @ ( ME_5481A30E0269 // aDirection
- ) .SequenceCode.It
+   Seq: ( ME_5481A30E0269 // aDirection
+ )
  ; // Parameters
 
 ref; // ME_5481A30C00D7 DoIt
@@ -2408,8 +2517,8 @@ ref; // ME_5481A30C00D7 DoIt
  : Parent ME_4912DD2C0082 // IeeNode
  ;
  : Operations
-   @ ( ME_5481A30C00D7 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_5481A30C00D7 // DoIt
+ )
  ; // Operations
 
 ref; // ME_5481A30602F5 Move
@@ -2435,8 +2544,8 @@ ref; // ME_5481A32102E0 aChild
  : Parent ME_5481A3190230 // RelocateChild
  ;
  : Parameters
-   @ ( ME_5481A32102E0 // aChild
- ) .SequenceCode.It
+   Seq: ( ME_5481A32102E0 // aChild
+ )
  ; // Parameters
 
 ref; // ME_5481A31F0361 DoIt
@@ -2453,8 +2562,8 @@ ref; // ME_5481A31F0361 DoIt
  : Parent ME_4912DD2C0082 // IeeNode
  ;
  : Operations
-   @ ( ME_5481A31F0361 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_5481A31F0361 // DoIt
+ )
  ; // Operations
 
 ref; // ME_5481A3190230 RelocateChild
@@ -2464,6 +2573,7 @@ FORWARD ME_5481A34602C4
 : ME_ACF605848447
  CONST UID 'ACF605848447'
  CONST Name 'DoIt'
+ CONST IsSummoned true
  CONST Class class_Operation
  %SUMMARY 'Сигнатура метода SortChilds' ;
  CONST Visibility PublicAccess
@@ -2484,8 +2594,8 @@ ref; // ME_ACF605848447 DoIt
  : Parent ME_4912DD2C0082 // IeeNode
  ;
  : Operations
-   @ ( ME_ACF605848447 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_ACF605848447 // DoIt
+ )
  ; // Operations
 
 ref; // ME_5481A34602C4 SortChilds
@@ -2513,8 +2623,8 @@ ref; // ME_5481A367013A aParent
  : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
  ;
  : Parameters
-   @ ( ME_5481A367013A // aParent
- ) .SequenceCode.It
+   Seq: ( ME_5481A367013A // aParent
+ )
  ; // Parameters
 
 ref; // ME_5481A3650061 DoIt
@@ -2531,8 +2641,8 @@ ref; // ME_5481A3650061 DoIt
  : Parent ME_4912DD2C0082 // IeeNode
  ;
  : Operations
-   @ ( ME_5481A3650061 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_5481A3650061 // DoIt
+ )
  ; // Operations
 
 ref; // ME_5481A3590043 GetLevelForParent
@@ -2560,8 +2670,8 @@ ref; // ME_5481A2B7016C aNode
  : Target ME_4912DD2C0082 // IeeNode
  ;
  : Parameters
-   @ ( ME_5481A2B7016C // aNode
- ) .SequenceCode.It
+   Seq: ( ME_5481A2B7016C // aNode
+ )
  ; // Parameters
 
 ref; // ME_5481A2B50019 DoIt
@@ -2577,8 +2687,8 @@ ref; // ME_5481A2B50019 DoIt
  : Parent ME_4912DD2C0082 // IeeNode
  ;
  : Operations
-   @ ( ME_5481A2B50019 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_5481A2B50019 // DoIt
+ )
  ; // Operations
 
 ref; // ME_5481A2AF0022 InsertChild
@@ -2588,6 +2698,7 @@ FORWARD ME_5481A3D0039F
 : ME_D75942C0D20C
  CONST UID 'D75942C0D20C'
  CONST Name 'anAction'
+ CONST IsSummoned true
  CONST Class class_Parameter
  : Stereotype st_in ;
  : Target ME_531A08B201A1 // TeeNodeAction
@@ -2598,6 +2709,7 @@ ref; // ME_D75942C0D20C anAction
 : ME_DDCC7BA43D46
  CONST UID 'DDCC7BA43D46'
  CONST Name 'anIterMode'
+ CONST IsSummoned true
  CONST Class class_Parameter
  : Stereotype st_in ;
  : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
@@ -2605,12 +2717,14 @@ ref; // ME_D75942C0D20C anAction
  CONST Value 0
  : ValueType WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
  ;
+ CONST extprop:pas:Value 0
 
 ref; // ME_DDCC7BA43D46 anIterMode
 
 : ME_5C25B31BE371
  CONST UID '5C25B31BE371'
  CONST Name 'aFromNode'
+ CONST IsSummoned true
  CONST Class class_Parameter
  : Stereotype st_in ;
  : Target ME_4912DD2C0082 // IeeNode
@@ -2618,12 +2732,14 @@ ref; // ME_DDCC7BA43D46 anIterMode
  CONST Value 'nil'
  : ValueType ME_4912DD2C0082 // IeeNode
  ;
+ CONST extprop:pas:Value 'nil'
 
 ref; // ME_5C25B31BE371 aFromNode
 
 : ME_071C99F78479
  CONST UID '071C99F78479'
  CONST Name 'DoIt'
+ CONST IsSummoned true
  CONST Class class_Operation
  %SUMMARY 'перебрать все дочерние узлы. IterMode см. imExpandOnly etc.' ;
  CONST Visibility PrivateAccess
@@ -2633,10 +2749,10 @@ ref; // ME_5C25B31BE371 aFromNode
  : Target ME_4912DD2C0082 // IeeNode
  ;
  : Parameters
-   @ ( ME_D75942C0D20C // anAction
+   Seq: ( ME_D75942C0D20C // anAction
  ME_DDCC7BA43D46 // anIterMode
  ME_5C25B31BE371 // aFromNode
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_071C99F78479 DoIt
@@ -2653,12 +2769,12 @@ ref; // ME_071C99F78479 DoIt
  : Parent ME_4912DD2C0082 // IeeNode
  ;
  : Inherits
-   @ ( ME_5481A3900306 // Iterate
- ) .SequenceCode.It
+   Seq: ( ME_5481A3900306 // Iterate
+ )
  ; // Inherits
  : Operations
-   @ ( ME_071C99F78479 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_071C99F78479 // DoIt
+ )
  ; // Operations
 
 ref; // ME_5481A3D0039F IterateF
@@ -2686,8 +2802,8 @@ ref; // ME_5481B03B02FC aNode
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
  : Parameters
-   @ ( ME_5481B03B02FC // aNode
- ) .SequenceCode.It
+   Seq: ( ME_5481B03B02FC // aNode
+ )
  ; // Parameters
 
 ref; // ME_5481B03300B6 DoIt
@@ -2703,8 +2819,8 @@ ref; // ME_5481B03300B6 DoIt
  : Parent ME_4912DD2C0082 // IeeNode
  ;
  : Operations
-   @ ( ME_5481B03300B6 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_5481B03300B6 // DoIt
+ )
  ; // Operations
 
 ref; // ME_5481B02B03C1 IsSameNode
@@ -2716,6 +2832,7 @@ ref; // ME_5481B02B03C1 IsSameNode
  ;
  : Implementor ME_4912DD2C0082 // IeeNode
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_467813E40207_ME_4912DD2C0082 CheckStamp
 
 : ME_4912DD2C0082
@@ -2730,11 +2847,11 @@ ref; // ME_467813E40207_ME_4912DD2C0082 CheckStamp
  : Parent ME_4912DD020283 // eeInterfaces
  ;
  : Inherits
-   @ ( ME_5319FF1403D3 // IeeBase
- ) .SequenceCode.It
+   Seq: ( ME_5319FF1403D3 // IeeBase
+ )
  ; // Inherits
  : Attributes
-   @ ( ME_5481A1AD011A // Text
+   Seq: ( ME_5481A1AD011A // Text
  ME_5481A1C0038D // ID
  ME_5481A1D103AF // HasChild
  ME_5481A1DD0225 // IsFirst
@@ -2745,10 +2862,10 @@ ref; // ME_467813E40207_ME_4912DD2C0082 CheckStamp
  ME_5481A26001CF // PrevNode
  ME_5481A29002A5 // AllChildrenCount
  ME_5481A2990264 // ThisChildrenCount
- ) .SequenceCode.It
+ )
  ; // Attributes
  : Operations
-   @ ( ME_5481A3900306 // Iterate
+   Seq: ( ME_5481A3900306 // Iterate
  ME_5481A2C20167 // InsertChildBefore
  ME_5481A2D702C7 // Changing
  ME_5481A2DF0031 // Changed
@@ -2762,12 +2879,18 @@ ref; // ME_467813E40207_ME_4912DD2C0082 CheckStamp
  ME_5481A2AF0022 // InsertChild
  ME_5481A3D0039F // IterateF
  ME_5481B02B03C1 // IsSameNode
- ) .SequenceCode.It
+ )
  ; // Operations
  : Implemented
-   @ ( ME_467813E40207_ME_4912DD2C0082 // CheckStamp
- ) .SequenceCode.It
+   Seq: ( ME_467813E40207_ME_4912DD2C0082 // CheckStamp
+ )
  ; // Implemented
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest_Engine'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest_Engine'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'eeNode'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_4912DD2C0082 IeeNode
 
@@ -2800,8 +2923,8 @@ ref; // ME_548196FF030E anID
  : Target ME_5481957B01D4 // IeeBlock
  ;
  : Attributes
-   @ ( ME_548196FF030E // anID
- ) .SequenceCode.It
+   Seq: ( ME_548196FF030E // anID
+ )
  ; // Attributes
  CONST "pm" false
 
@@ -2850,9 +2973,9 @@ ref; // ME_5481974B02AE aLayerID
  : Target ME_5481957B01D4 // IeeBlock
  ;
  : Attributes
-   @ ( ME_548197470067 // anID
+   Seq: ( ME_548197470067 // anID
  ME_5481974B02AE // aLayerID
- ) .SequenceCode.It
+ )
  ; // Attributes
  CONST "pm" false
 
@@ -2949,6 +3072,7 @@ ref; // ME_548197F202C4 ExternalHandle
  ;
  : Implementor ME_548195EF0017 // IeeDocument
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_467813E40207_ME_548195EF0017 CheckStamp
 
 : ME_548195EF0017
@@ -2963,23 +3087,29 @@ ref; // ME_467813E40207_ME_548195EF0017 CheckStamp
  : Parent ME_4912DD020283 // eeInterfaces
  ;
  : Inherits
-   @ ( ME_5319FF1403D3 // IeeBase
- ) .SequenceCode.It
+   Seq: ( ME_5319FF1403D3 // IeeBase
+ )
  ; // Inherits
  : Attributes
-   @ ( ME_548196F902DF // Block
+   Seq: ( ME_548196F902DF // Block
  ME_5481973F00EA // BlockEx
  ME_548197920363 // Subs
  ME_548197A50084 // Markers
  ME_548197AE02B9 // Bookmarks
  ME_548197B8028C // Marks
  ME_548197F202C4 // ExternalHandle
- ) .SequenceCode.It
+ )
  ; // Attributes
  : Implemented
-   @ ( ME_467813E40207_ME_548195EF0017 // CheckStamp
- ) .SequenceCode.It
+   Seq: ( ME_467813E40207_ME_548195EF0017 // CheckStamp
+ )
  ; // Implemented
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest_Engine'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest_Engine'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'eeDocument'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_548195EF0017 IeeDocument
 
@@ -3046,8 +3176,8 @@ ref; // ME_531A005B02E7 aNode
  : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
  ;
  : Attributes
-   @ ( ME_531A005B02E7 // aNode
- ) .SequenceCode.It
+   Seq: ( ME_531A005B02E7 // aNode
+ )
  ; // Attributes
  CONST "pm" false
 
@@ -3082,8 +3212,8 @@ ref; // ME_531A00800040 anAbsIndex
  : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
  ;
  : Attributes
-   @ ( ME_531A00800040 // anAbsIndex
- ) .SequenceCode.It
+   Seq: ( ME_531A00800040 // anAbsIndex
+ )
  ; // Attributes
  CONST "pm" false
 
@@ -3122,9 +3252,9 @@ ref; // ME_531A00D30151 aFlagMask
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
  : Parameters
-   @ ( ME_531A00D3011A // aAbsIndex
+   Seq: ( ME_531A00D3011A // aAbsIndex
  ME_531A00D30151 // aFlagMask
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_531A00CF02F5 DoIt
@@ -3140,8 +3270,8 @@ ref; // ME_531A00CF02F5 DoIt
  : Parent ME_4912DD1102D3 // IeeTree
  ;
  : Operations
-   @ ( ME_531A00CF02F5 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_531A00CF02F5 // DoIt
+ )
  ; // Operations
 
 ref; // ME_531A00CA0043 TestFlagMask
@@ -3187,10 +3317,10 @@ ref; // ME_531A011A032C aMode
  : Parent ME_531A010F00A5 // SetFlagMask
  ;
  : Parameters
-   @ ( ME_531A011A02AD // aAbsIndex
+   Seq: ( ME_531A011A02AD // aAbsIndex
  ME_531A011A02ED // aFlagMask
  ME_531A011A032C // aMode
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_531A01150129 DoIt
@@ -3206,8 +3336,8 @@ ref; // ME_531A01150129 DoIt
  : Parent ME_4912DD1102D3 // IeeTree
  ;
  : Operations
-   @ ( ME_531A01150129 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_531A01150129 // DoIt
+ )
  ; // Operations
 
 ref; // ME_531A010F00A5 SetFlagMask
@@ -3253,10 +3383,10 @@ ref; // ME_531A01F50362 aMode
  : Parent ME_531A01E70176 // SetFlagMask$1
  ;
  : Parameters
-   @ ( ME_531A01F50328 // aRNode
+   Seq: ( ME_531A01F50328 // aRNode
  ME_531A01F50344 // aFlagMask
  ME_531A01F50362 // aMode
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_531A01EF03E5 DoIt
@@ -3272,8 +3402,8 @@ ref; // ME_531A01EF03E5 DoIt
  : Parent ME_4912DD1102D3 // IeeTree
  ;
  : Operations
-   @ ( ME_531A01EF03E5 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_531A01EF03E5 // DoIt
+ )
  ; // Operations
 
 ref; // ME_531A01E70176 SetFlagMask$1
@@ -3290,6 +3420,7 @@ FORWARD ME_531A022A023F
  CONST Value 'nil'
  : ValueType ME_4912DD2C0082 // IeeNode
  ;
+ CONST extprop:pas:Value 'nil'
 
 ref; // ME_531A023900EB RNode
 
@@ -3303,6 +3434,7 @@ ref; // ME_531A023900EB RNode
  CONST Value true
  : ValueType WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
+ CONST extprop:pas:Value true
 
 ref; // ME_531A02390125 Expand
 
@@ -3316,6 +3448,7 @@ ref; // ME_531A02390125 Expand
  CONST Value 0
  : ValueType WL 'ME_476130E5023C' '4AB0C3C60310.pas.ms.script' // Byte
  ;
+ CONST extprop:pas:Value 0
 
 ref; // ME_531A02390174 DeepLevel
 
@@ -3328,10 +3461,10 @@ ref; // ME_531A02390174 DeepLevel
  : Parent ME_531A022A023F // ExpandSubDir
  ;
  : Parameters
-   @ ( ME_531A023900EB // RNode
+   Seq: ( ME_531A023900EB // RNode
  ME_531A02390125 // Expand
  ME_531A02390174 // DeepLevel
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_531A0230020B DoIt
@@ -3348,8 +3481,8 @@ ref; // ME_531A0230020B DoIt
  : Parent ME_4912DD1102D3 // IeeTree
  ;
  : Operations
-   @ ( ME_531A0230020B // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_531A0230020B // DoIt
+ )
  ; // Operations
 
 ref; // ME_531A022A023F ExpandSubDir
@@ -3386,6 +3519,7 @@ ref; // ME_531A034B00AA Mode
  CONST Value false
  : ValueType WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
+ CONST extprop:pas:Value false
 
 ref; // ME_531A034B00C7 aForceMode
 
@@ -3400,10 +3534,10 @@ ref; // ME_531A034B00C7 aForceMode
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
  : Parameters
-   @ ( ME_531A034B008E // RNode
+   Seq: ( ME_531A034B008E // RNode
  ME_531A034B00AA // Mode
  ME_531A034B00C7 // aForceMode
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_531A034401C1 DoIt
@@ -3419,8 +3553,8 @@ ref; // ME_531A034401C1 DoIt
  : Parent ME_4912DD1102D3 // IeeTree
  ;
  : Operations
-   @ ( ME_531A034401C1 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_531A034401C1 // DoIt
+ )
  ; // Operations
 
 ref; // ME_531A033D028D ChangeExpand
@@ -3452,8 +3586,8 @@ ref; // ME_531A04C801F6 DoIt
  : Parent ME_4912DD1102D3 // IeeTree
  ;
  : Operations
-   @ ( ME_531A04C801F6 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_531A04C801F6 // DoIt
+ )
  ; // Operations
 
 ref; // ME_531A04C30010 IsChanging
@@ -3463,6 +3597,7 @@ FORWARD ME_531A04DD0289
 : ME_9E54294C5B8B
  CONST UID '9E54294C5B8B'
  CONST Name 'DoIt'
+ CONST IsSummoned true
  CONST Class class_Operation
  %SUMMARY 'Сигнатура метода Changing' ;
  CONST Visibility PublicAccess
@@ -3483,8 +3618,8 @@ ref; // ME_9E54294C5B8B DoIt
  : Parent ME_4912DD1102D3 // IeeTree
  ;
  : Operations
-   @ ( ME_9E54294C5B8B // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_9E54294C5B8B // DoIt
+ )
  ; // Operations
 
 ref; // ME_531A04DD0289 Changing
@@ -3494,6 +3629,7 @@ FORWARD ME_531A04E70208
 : ME_1072C4A1D1CD
  CONST UID '1072C4A1D1CD'
  CONST Name 'DoIt'
+ CONST IsSummoned true
  CONST Class class_Operation
  %SUMMARY 'Сигнатура метода Changed' ;
  CONST Visibility PublicAccess
@@ -3514,8 +3650,8 @@ ref; // ME_1072C4A1D1CD DoIt
  : Parent ME_4912DD1102D3 // IeeTree
  ;
  : Operations
-   @ ( ME_1072C4A1D1CD // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_1072C4A1D1CD // DoIt
+ )
  ; // Operations
 
 ref; // ME_531A04E70208 Changed
@@ -3543,8 +3679,8 @@ ref; // ME_531A050800DA aNode
  : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
  ;
  : Parameters
-   @ ( ME_531A050800DA // aNode
- ) .SequenceCode.It
+   Seq: ( ME_531A050800DA // aNode
+ )
  ; // Parameters
 
 ref; // ME_531A0505024E DoIt
@@ -3560,8 +3696,8 @@ ref; // ME_531A0505024E DoIt
  : Parent ME_4912DD1102D3 // IeeTree
  ;
  : Operations
-   @ ( ME_531A0505024E // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_531A0505024E // DoIt
+ )
  ; // Operations
 
 ref; // ME_531A04F802C1 GetAbsIndex
@@ -3589,8 +3725,8 @@ ref; // ME_531A051D02FB anIndex
  : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
  ;
  : Parameters
-   @ ( ME_531A051D02FB // anIndex
- ) .SequenceCode.It
+   Seq: ( ME_531A051D02FB // anIndex
+ )
  ; // Parameters
 
 ref; // ME_531A051B00CD DoIt
@@ -3606,8 +3742,8 @@ ref; // ME_531A051B00CD DoIt
  : Parent ME_4912DD1102D3 // IeeTree
  ;
  : Operations
-   @ ( ME_531A051B00CD // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_531A051B00CD // DoIt
+ )
  ; // Operations
 
 ref; // ME_531A05120121 GetAbsIndex$1
@@ -3634,6 +3770,7 @@ ref; // ME_531A0613000F Action
  CONST Value 0
  : ValueType WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
  ;
+ CONST extprop:pas:Value 0
 
 ref; // ME_531A06130052 IterMode
 
@@ -3647,6 +3784,7 @@ ref; // ME_531A06130052 IterMode
  CONST Value 'nil'
  : ValueType ME_4912DD2C0082 // IeeNode
  ;
+ CONST extprop:pas:Value 'nil'
 
 ref; // ME_531A061300A1 aSubRootNode
 
@@ -3660,6 +3798,7 @@ ref; // ME_531A061300A1 aSubRootNode
  CONST Value 'nil'
  : ValueType ME_4912DD2C0082 // IeeNode
  ;
+ CONST extprop:pas:Value 'nil'
 
 ref; // ME_531A061300EF aFromNode
 
@@ -3674,11 +3813,11 @@ ref; // ME_531A061300EF aFromNode
  : Target ME_4912DD2C0082 // IeeNode
  ;
  : Parameters
-   @ ( ME_531A0613000F // Action
+   Seq: ( ME_531A0613000F // Action
  ME_531A06130052 // IterMode
  ME_531A061300A1 // aSubRootNode
  ME_531A061300EF // aFromNode
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_531A0609009C DoIt
@@ -3695,8 +3834,8 @@ ref; // ME_531A0609009C DoIt
  : Parent ME_4912DD1102D3 // IeeTree
  ;
  : Operations
-   @ ( ME_531A0609009C // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_531A0609009C // DoIt
+ )
  ; // Operations
 
 ref; // ME_531A060301BA Iterate
@@ -3723,6 +3862,7 @@ ref; // ME_531A064E021C Action
  CONST Value 0
  : ValueType WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
  ;
+ CONST extprop:pas:Value 0
 
 ref; // ME_531A064E0238 IterMode
 
@@ -3736,6 +3876,7 @@ ref; // ME_531A064E0238 IterMode
  CONST Value 'nil'
  : ValueType ME_4912DD2C0082 // IeeNode
  ;
+ CONST extprop:pas:Value 'nil'
 
 ref; // ME_531A064E0254 aSubRootNode
 
@@ -3749,6 +3890,7 @@ ref; // ME_531A064E0254 aSubRootNode
  CONST Value 'nil'
  : ValueType ME_4912DD2C0082 // IeeNode
  ;
+ CONST extprop:pas:Value 'nil'
 
 ref; // ME_531A064E0270 aFromNode
 
@@ -3763,11 +3905,11 @@ ref; // ME_531A064E0270 aFromNode
  : Target ME_4912DD2C0082 // IeeNode
  ;
  : Parameters
-   @ ( ME_531A064E021C // Action
+   Seq: ( ME_531A064E021C // Action
  ME_531A064E0238 // IterMode
  ME_531A064E0254 // aSubRootNode
  ME_531A064E0270 // aFromNode
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_531A0645012E DoIt
@@ -3784,8 +3926,8 @@ ref; // ME_531A0645012E DoIt
  : Parent ME_4912DD1102D3 // IeeTree
  ;
  : Operations
-   @ ( ME_531A0645012E // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_531A0645012E // DoIt
+ )
  ; // Operations
 
 ref; // ME_531A064001BF IterateF
@@ -3813,8 +3955,8 @@ ref; // ME_531A068C0209 aCurNode
  : Target ME_4912DD2C0082 // IeeNode
  ;
  : Parameters
-   @ ( ME_531A068C0209 // aCurNode
- ) .SequenceCode.It
+   Seq: ( ME_531A068C0209 // aCurNode
+ )
  ; // Parameters
 
 ref; // ME_531A068802A5 DoIt
@@ -3830,8 +3972,8 @@ ref; // ME_531A068802A5 DoIt
  : Parent ME_4912DD1102D3 // IeeTree
  ;
  : Operations
-   @ ( ME_531A068802A5 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_531A068802A5 // DoIt
+ )
  ; // Operations
 
 ref; // ME_531A068302C5 GetNextSelected
@@ -3841,6 +3983,7 @@ FORWARD ME_531A06AC0398
 : ME_F69D0EBDD0A3
  CONST UID 'F69D0EBDD0A3'
  CONST Name 'DoIt'
+ CONST IsSummoned true
  CONST Class class_Operation
  %SUMMARY 'Сигнатура метода ClearSelected' ;
  CONST Visibility PublicAccess
@@ -3861,8 +4004,8 @@ ref; // ME_F69D0EBDD0A3 DoIt
  : Parent ME_4912DD1102D3 // IeeTree
  ;
  : Operations
-   @ ( ME_F69D0EBDD0A3 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_F69D0EBDD0A3 // DoIt
+ )
  ; // Operations
 
 ref; // ME_531A06AC0398 ClearSelected
@@ -3898,9 +4041,9 @@ ref; // ME_531A06C0029F aFlags
  : Parent ME_531A06B90062 // SetAllFlags
  ;
  : Parameters
-   @ ( ME_531A06C00282 // aMode
+   Seq: ( ME_531A06C00282 // aMode
  ME_531A06C0029F // aFlags
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_531A06BD0361 DoIt
@@ -3916,8 +4059,8 @@ ref; // ME_531A06BD0361 DoIt
  : Parent ME_4912DD1102D3 // IeeTree
  ;
  : Operations
-   @ ( ME_531A06BD0361 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_531A06BD0361 // DoIt
+ )
  ; // Operations
 
 ref; // ME_531A06B90062 SetAllFlags
@@ -3945,8 +4088,8 @@ ref; // ME_531A06D2009B anIndex
  : Target ME_4912DD2C0082 // IeeNode
  ;
  : Parameters
-   @ ( ME_531A06D2009B // anIndex
- ) .SequenceCode.It
+   Seq: ( ME_531A06D2009B // anIndex
+ )
  ; // Parameters
 
 ref; // ME_531A06CF0349 DoIt
@@ -3962,8 +4105,8 @@ ref; // ME_531A06CF0349 DoIt
  : Parent ME_4912DD1102D3 // IeeTree
  ;
  : Operations
-   @ ( ME_531A06CF0349 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_531A06CF0349 // DoIt
+ )
  ; // Operations
 
 ref; // ME_531A06CB00A1 GetNode
@@ -3991,8 +4134,8 @@ ref; // ME_531A06E3019E anAbsIndex
  : Target ME_4912DD2C0082 // IeeNode
  ;
  : Parameters
-   @ ( ME_531A06E3019E // anAbsIndex
- ) .SequenceCode.It
+   Seq: ( ME_531A06E3019E // anAbsIndex
+ )
  ; // Parameters
 
 ref; // ME_531A06E100C9 DoIt
@@ -4008,8 +4151,8 @@ ref; // ME_531A06E100C9 DoIt
  : Parent ME_4912DD1102D3 // IeeTree
  ;
  : Operations
-   @ ( ME_531A06E100C9 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_531A06E100C9 // DoIt
+ )
  ; // Operations
 
 ref; // ME_531A06DC0206 GetNodeByAbsIndex
@@ -4040,8 +4183,8 @@ ref; // ME_531A06F20032 DoIt
  : Parent ME_4912DD1102D3 // IeeTree
  ;
  : Operations
-   @ ( ME_531A06F20032 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_531A06F20032 // DoIt
+ )
  ; // Operations
 
 ref; // ME_531A06EE0061 Wake
@@ -4069,8 +4212,8 @@ ref; // ME_531A07090282 aNode
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
  : Parameters
-   @ ( ME_531A07090282 // aNode
- ) .SequenceCode.It
+   Seq: ( ME_531A07090282 // aNode
+ )
  ; // Parameters
 
 ref; // ME_531A070503A2 DoIt
@@ -4086,8 +4229,8 @@ ref; // ME_531A070503A2 DoIt
  : Parent ME_4912DD1102D3 // IeeTree
  ;
  : Operations
-   @ ( ME_531A070503A2 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_531A070503A2 // DoIt
+ )
  ; // Operations
 
 ref; // ME_531A0701038A IsExpanded
@@ -4099,6 +4242,7 @@ ref; // ME_531A0701038A IsExpanded
  ;
  : Implementor ME_4912DD1102D3 // IeeTree
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_467813E40207_ME_4912DD1102D3 CheckStamp
 
 : ME_4912DD1102D3
@@ -4113,18 +4257,18 @@ ref; // ME_467813E40207_ME_4912DD1102D3 CheckStamp
  : Parent ME_4912DD020283 // eeInterfaces
  ;
  : Inherits
-   @ ( ME_5319FF1403D3 // IeeBase
- ) .SequenceCode.It
+   Seq: ( ME_5319FF1403D3 // IeeBase
+ )
  ; // Inherits
  : Attributes
-   @ ( ME_5319FFC90029 // Root
+   Seq: ( ME_5319FFC90029 // Root
  ME_531A003602A7 // SelectedCount
  ME_531A005002E3 // NodeFlags
  ME_531A007501D2 // FlagsByAbsIndex
- ) .SequenceCode.It
+ )
  ; // Attributes
  : Operations
-   @ ( ME_531A00CA0043 // TestFlagMask
+   Seq: ( ME_531A00CA0043 // TestFlagMask
  ME_531A010F00A5 // SetFlagMask
  ME_531A01E70176 // SetFlagMask$1
  ME_531A022A023F // ExpandSubDir
@@ -4143,12 +4287,18 @@ ref; // ME_467813E40207_ME_4912DD1102D3 CheckStamp
  ME_531A06DC0206 // GetNodeByAbsIndex
  ME_531A06EE0061 // Wake
  ME_531A0701038A // IsExpanded
- ) .SequenceCode.It
+ )
  ; // Operations
  : Implemented
-   @ ( ME_467813E40207_ME_4912DD1102D3 // CheckStamp
- ) .SequenceCode.It
+   Seq: ( ME_467813E40207_ME_4912DD1102D3 // CheckStamp
+ )
  ; // Implemented
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest_Engine'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest_Engine'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'eeTree'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_4912DD1102D3 IeeTree
 
@@ -4225,6 +4375,7 @@ ref; // ME_54819EBD00AD Sub
  ;
  : Implementor ME_4F82F62D03BE // IeeHotSpot
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_467813E40207_ME_4F82F62D03BE CheckStamp
 
 : ME_4F82F62D03BE
@@ -4239,20 +4390,26 @@ ref; // ME_467813E40207_ME_4F82F62D03BE CheckStamp
  : Parent ME_4912DD020283 // eeInterfaces
  ;
  : Inherits
-   @ ( ME_5319FF1403D3 // IeeBase
- ) .SequenceCode.It
+   Seq: ( ME_5319FF1403D3 // IeeBase
+ )
  ; // Inherits
  : Attributes
-   @ ( ME_54819EA50228 // Para
+   Seq: ( ME_54819EA50228 // Para
  ME_54819EA90089 // Hyperlink
  ME_54819EB40253 // InSelection
  ME_54819EBD00AD // Sub
- ) .SequenceCode.It
+ )
  ; // Attributes
  : Implemented
-   @ ( ME_467813E40207_ME_4F82F62D03BE // CheckStamp
- ) .SequenceCode.It
+   Seq: ( ME_467813E40207_ME_4F82F62D03BE // CheckStamp
+ )
  ; // Implemented
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest_Engine'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest_Engine'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'eeHotSpot'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_4F82F62D03BE IeeHotSpot
 
@@ -4335,8 +4492,8 @@ ref; // ME_531A07FD012F aNode
  : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
  ;
  : Attributes
-   @ ( ME_531A07FD012F // aNode
- ) .SequenceCode.It
+   Seq: ( ME_531A07FD012F // aNode
+ )
  ; // Attributes
  CONST "pm" false
 
@@ -4381,8 +4538,8 @@ ref; // ME_531A082D0029 anIndex
  : Target ME_4912DD2C0082 // IeeNode
  ;
  : Parameters
-   @ ( ME_531A082D0029 // anIndex
- ) .SequenceCode.It
+   Seq: ( ME_531A082D0029 // anIndex
+ )
  ; // Parameters
 
 ref; // ME_531A0828026F DoIt
@@ -4398,8 +4555,8 @@ ref; // ME_531A0828026F DoIt
  : Parent ME_4912DD200333 // IeeTreeView
  ;
  : Operations
-   @ ( ME_531A0828026F // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_531A0828026F // DoIt
+ )
  ; // Operations
 
 ref; // ME_531A0824032F GetNode
@@ -4427,8 +4584,8 @@ ref; // ME_531A08420266 aNode
  : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
  ;
  : Parameters
-   @ ( ME_531A08420266 // aNode
- ) .SequenceCode.It
+   Seq: ( ME_531A08420266 // aNode
+ )
  ; // Parameters
 
 ref; // ME_531A083E0168 DoIt
@@ -4444,8 +4601,8 @@ ref; // ME_531A083E0168 DoIt
  : Parent ME_4912DD200333 // IeeTreeView
  ;
  : Operations
-   @ ( ME_531A083E0168 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_531A083E0168 // DoIt
+ )
  ; // Operations
 
 ref; // ME_531A08350016 GetNodeIndex
@@ -4473,8 +4630,8 @@ ref; // ME_531A08580219 aNode
  : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
  ;
  : Parameters
-   @ ( ME_531A08580219 // aNode
- ) .SequenceCode.It
+   Seq: ( ME_531A08580219 // aNode
+ )
  ; // Parameters
 
 ref; // ME_531A08550142 DoIt
@@ -4490,8 +4647,8 @@ ref; // ME_531A08550142 DoIt
  : Parent ME_4912DD200333 // IeeTreeView
  ;
  : Operations
-   @ ( ME_531A08550142 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_531A08550142 // DoIt
+ )
  ; // Operations
 
 ref; // ME_531A084E02CC GetNodeAbsIndex
@@ -4501,6 +4658,7 @@ FORWARD ME_531A08620054
 : ME_3AC0CCA79FE5
  CONST UID '3AC0CCA79FE5'
  CONST Name 'DoIt'
+ CONST IsSummoned true
  CONST Class class_Operation
  %SUMMARY 'Сигнатура метода ExpandAll' ;
  CONST Visibility PublicAccess
@@ -4521,8 +4679,8 @@ ref; // ME_3AC0CCA79FE5 DoIt
  : Parent ME_4912DD200333 // IeeTreeView
  ;
  : Operations
-   @ ( ME_3AC0CCA79FE5 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_3AC0CCA79FE5 // DoIt
+ )
  ; // Operations
 
 ref; // ME_531A08620054 ExpandAll
@@ -4532,6 +4690,7 @@ FORWARD ME_531A08680334
 : ME_3D4F3A887E42
  CONST UID '3D4F3A887E42'
  CONST Name 'DoIt'
+ CONST IsSummoned true
  CONST Class class_Operation
  %SUMMARY 'Сигнатура метода CollapseAll' ;
  CONST Visibility PublicAccess
@@ -4552,8 +4711,8 @@ ref; // ME_3D4F3A887E42 DoIt
  : Parent ME_4912DD200333 // IeeTreeView
  ;
  : Operations
-   @ ( ME_3D4F3A887E42 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_3D4F3A887E42 // DoIt
+ )
  ; // Operations
 
 ref; // ME_531A08680334 CollapseAll
@@ -4581,8 +4740,8 @@ ref; // ME_531A087C02F5 aNode
  : Target WL 'ME_4DE60F5E00A6' '4AB0C3C60310.pas.ms.script' // LongInt
  ;
  : Parameters
-   @ ( ME_531A087C02F5 // aNode
- ) .SequenceCode.It
+   Seq: ( ME_531A087C02F5 // aNode
+ )
  ; // Parameters
 
 ref; // ME_531A08760102 DoIt
@@ -4598,8 +4757,8 @@ ref; // ME_531A08760102 DoIt
  : Parent ME_4912DD200333 // IeeTreeView
  ;
  : Operations
-   @ ( ME_531A08760102 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_531A08760102 // DoIt
+ )
  ; // Operations
 
 ref; // ME_531A087102D4 GoToNode
@@ -4611,6 +4770,7 @@ ref; // ME_531A087102D4 GoToNode
  ;
  : Implementor ME_4912DD200333 // IeeTreeView
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_467813E40207_ME_4912DD200333 CheckStamp
 
 : ME_4912DD200333
@@ -4626,30 +4786,36 @@ ref; // ME_467813E40207_ME_4912DD200333 CheckStamp
  : Parent ME_4912DD020283 // eeInterfaces
  ;
  : Inherits
-   @ ( ME_5319FF1403D3 // IeeBase
- ) .SequenceCode.It
+   Seq: ( ME_5319FF1403D3 // IeeBase
+ )
  ; // Inherits
  : Attributes
-   @ ( ME_531A07C3001B // Tree
+   Seq: ( ME_531A07C3001B // Tree
  ME_531A07D200DD // Current
  ME_531A07DB00DB // AbsCurrent
  ME_531A07F50025 // NodeFlags
  ME_531A080B0384 // CurrentNode
- ) .SequenceCode.It
+ )
  ; // Attributes
  : Operations
-   @ ( ME_531A0824032F // GetNode
+   Seq: ( ME_531A0824032F // GetNode
  ME_531A08350016 // GetNodeIndex
  ME_531A084E02CC // GetNodeAbsIndex
  ME_531A08620054 // ExpandAll
  ME_531A08680334 // CollapseAll
  ME_531A087102D4 // GoToNode
- ) .SequenceCode.It
+ )
  ; // Operations
  : Implemented
-   @ ( ME_467813E40207_ME_4912DD200333 // CheckStamp
- ) .SequenceCode.It
+   Seq: ( ME_467813E40207_ME_4912DD200333 // CheckStamp
+ )
  ; // Implemented
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest_Engine'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest_Engine'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'eeTreeView'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_4912DD200333 IeeTreeView
 
@@ -4715,12 +4881,17 @@ ref; // ME_54817F7E0317 ee_ssBoth
  : Parent ME_4912DD020283 // eeInterfaces
  ;
  : Attributes
-   @ ( ME_54817F6F0234 // ee_ssNone
+   Seq: ( ME_54817F6F0234 // ee_ssNone
  ME_54817F7502A1 // ee_ssHorizontal
  ME_54817F7A0147 // ee_ssVertical
  ME_54817F7E0317 // ee_ssBoth
- ) .SequenceCode.It
+ )
  ; // Attributes
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest_Engine'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest_Engine'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_54817F5002AA TeeScrollStyle
 
@@ -4846,7 +5017,7 @@ ref; // ME_54817FF70269 scEndScroll
  : Parent ME_4912DD020283 // eeInterfaces
  ;
  : Attributes
-   @ ( ME_54817FAF0375 // scLineUp
+   Seq: ( ME_54817FAF0375 // scLineUp
  ME_54817FB50313 // scLineDown
  ME_54817FBA03BF // scPageUp
  ME_54817FC80248 // scPageDown
@@ -4855,8 +5026,13 @@ ref; // ME_54817FF70269 scEndScroll
  ME_54817FF10076 // scTop
  ME_54817FF40093 // scBottom
  ME_54817FF70269 // scEndScroll
- ) .SequenceCode.It
+ )
  ; // Attributes
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest_Engine'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest_Engine'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_54817F9D0347 TeeScrollCode
 
@@ -4871,9 +5047,13 @@ ref; // ME_54817F9D0347 TeeScrollCode
  : Parent ME_4912DD020283 // eeInterfaces
  ;
  : Inherits
-   @ ( ME_54818086024C // TeeSS
- ) .SequenceCode.It
+   Seq: ( ME_54818086024C // TeeSS
+ )
  ; // Inherits
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest_Engine'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest_Engine'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_4F82F5F402A5 TeeShiftState
 
@@ -4926,11 +5106,16 @@ ref; // ME_548187AA0139 ee_ctVersion
  : Parent ME_4912DD020283 // eeInterfaces
  ;
  : Attributes
-   @ ( ME_548187A10250 // ee_ctUsual
+   Seq: ( ME_548187A10250 // ee_ctUsual
  ME_548187A601A2 // ee_ctUser
  ME_548187AA0139 // ee_ctVersion
- ) .SequenceCode.It
+ )
  ; // Attributes
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest_Engine'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest_Engine'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_5481879701EC TeeCommentType
 
@@ -4959,6 +5144,7 @@ ref; // ME_5481988203C9 Document
  ;
  : Implementor ME_5481986D03D1 // IeeData
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_467813E40207_ME_5481986D03D1 CheckStamp
 
 : ME_5481986D03D1
@@ -4974,17 +5160,23 @@ ref; // ME_467813E40207_ME_5481986D03D1 CheckStamp
  : Parent ME_4912DD020283 // eeInterfaces
  ;
  : Inherits
-   @ ( ME_5319FF1403D3 // IeeBase
- ) .SequenceCode.It
+   Seq: ( ME_5319FF1403D3 // IeeBase
+ )
  ; // Inherits
  : Attributes
-   @ ( ME_5481988203C9 // Document
- ) .SequenceCode.It
+   Seq: ( ME_5481988203C9 // Document
+ )
  ; // Attributes
  : Implemented
-   @ ( ME_467813E40207_ME_5481986D03D1 // CheckStamp
- ) .SequenceCode.It
+   Seq: ( ME_467813E40207_ME_5481986D03D1 // CheckStamp
+ )
  ; // Implemented
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest_Engine'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest_Engine'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'eeData'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_5481986D03D1 IeeData
 
@@ -5027,8 +5219,8 @@ ref; // ME_54819D1E025E aStream
  : Parent ME_54819D1601EF // SaveToStream
  ;
  : Parameters
-   @ ( ME_54819D1E025E // aStream
- ) .SequenceCode.It
+   Seq: ( ME_54819D1E025E // aStream
+ )
  ; // Parameters
 
 ref; // ME_54819D1C0197 DoIt
@@ -5044,8 +5236,8 @@ ref; // ME_54819D1C0197 DoIt
  : Parent ME_4F671C7C024B // IeePicture
  ;
  : Operations
-   @ ( ME_54819D1C0197 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_54819D1C0197 // DoIt
+ )
  ; // Operations
 
 ref; // ME_54819D1601EF SaveToStream
@@ -5057,6 +5249,7 @@ ref; // ME_54819D1601EF SaveToStream
  ;
  : Implementor ME_4F671C7C024B // IeePicture
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_467813E40207_ME_4F671C7C024B CheckStamp
 
 : ME_54819A560264_ME_4F671C7C024B
@@ -5066,6 +5259,7 @@ ref; // ME_467813E40207_ME_4F671C7C024B CheckStamp
  ;
  : Implementor ME_4F671C7C024B // IeePicture
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" false
 ref; // ME_54819A560264_ME_4F671C7C024B Document
 
@@ -5076,6 +5270,7 @@ ref; // ME_54819A560264_ME_4F671C7C024B Document
  ;
  : Implementor ME_4F671C7C024B // IeePicture
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" false
 ref; // ME_54819A630153_ME_4F671C7C024B Parent
 
@@ -5086,6 +5281,7 @@ ref; // ME_54819A630153_ME_4F671C7C024B Parent
  ;
  : Implementor ME_4F671C7C024B // IeePicture
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" false
 ref; // ME_54819A6D038B_ME_4F671C7C024B Block
 
@@ -5096,6 +5292,7 @@ ref; // ME_54819A6D038B_ME_4F671C7C024B Block
  ;
  : Implementor ME_4F671C7C024B // IeePicture
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" false
 ref; // ME_54819A760069_ME_4F671C7C024B Subs
 
@@ -5106,6 +5303,7 @@ ref; // ME_54819A760069_ME_4F671C7C024B Subs
  ;
  : Implementor ME_4F671C7C024B // IeePicture
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" false
 ref; // ME_54819A830391_ME_4F671C7C024B Markers
 
@@ -5116,6 +5314,7 @@ ref; // ME_54819A830391_ME_4F671C7C024B Markers
  ;
  : Implementor ME_4F671C7C024B // IeePicture
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" false
 ref; // ME_54819A9600F5_ME_4F671C7C024B Bookmarks
 
@@ -5126,6 +5325,7 @@ ref; // ME_54819A9600F5_ME_4F671C7C024B Bookmarks
  ;
  : Implementor ME_4F671C7C024B // IeePicture
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" false
 ref; // ME_54819AA3019D_ME_4F671C7C024B Marks
 
@@ -5136,6 +5336,7 @@ ref; // ME_54819AA3019D_ME_4F671C7C024B Marks
  ;
  : Implementor ME_4F671C7C024B // IeePicture
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" false
 ref; // ME_54819AB403BD_ME_4F671C7C024B ID
 
@@ -5146,6 +5347,7 @@ ref; // ME_54819AB403BD_ME_4F671C7C024B ID
  ;
  : Implementor ME_4F671C7C024B // IeePicture
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" false
 ref; // ME_54819ABD01B8_ME_4F671C7C024B IndexInParent
 
@@ -5156,6 +5358,7 @@ ref; // ME_54819ABD01B8_ME_4F671C7C024B IndexInParent
  ;
  : Implementor ME_4F671C7C024B // IeePicture
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" false
 ref; // ME_54819AD20366_ME_4F671C7C024B Prev
 
@@ -5166,6 +5369,7 @@ ref; // ME_54819AD20366_ME_4F671C7C024B Prev
  ;
  : Implementor ME_4F671C7C024B // IeePicture
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" false
 ref; // ME_54819B120216_ME_4F671C7C024B Next
 
@@ -5176,6 +5380,7 @@ ref; // ME_54819B120216_ME_4F671C7C024B Next
  ;
  : Implementor ME_4F671C7C024B // IeePicture
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_54819B7C00EC_ME_4F671C7C024B IsKindOf
 
 : ME_54819B9003B8_ME_4F671C7C024B
@@ -5185,6 +5390,7 @@ ref; // ME_54819B7C00EC_ME_4F671C7C024B IsKindOf
  ;
  : Implementor ME_4F671C7C024B // IeePicture
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_54819B9003B8_ME_4F671C7C024B IsSame
 
 : ME_54819BA30185_ME_4F671C7C024B
@@ -5194,6 +5400,7 @@ ref; // ME_54819B9003B8_ME_4F671C7C024B IsSame
  ;
  : Implementor ME_4F671C7C024B // IeePicture
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_54819BA30185_ME_4F671C7C024B Delete
 
 : ME_54819BB50350_ME_4F671C7C024B
@@ -5203,6 +5410,7 @@ ref; // ME_54819BA30185_ME_4F671C7C024B Delete
  ;
  : Implementor ME_4F671C7C024B // IeePicture
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_54819BB50350_ME_4F671C7C024B IsUserComment
 
 : ME_54819BCF02EB_ME_4F671C7C024B
@@ -5212,6 +5420,7 @@ ref; // ME_54819BB50350_ME_4F671C7C024B IsUserComment
  ;
  : Implementor ME_4F671C7C024B // IeePicture
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_54819BCF02EB_ME_4F671C7C024B AsObject
 
 : ME_4F671C7C024B
@@ -5226,19 +5435,19 @@ ref; // ME_54819BCF02EB_ME_4F671C7C024B AsObject
  : Parent ME_4912DD020283 // eeInterfaces
  ;
  : Inherits
-   @ ( ME_495239F201D9 // IeePara
- ) .SequenceCode.It
+   Seq: ( ME_495239F201D9 // IeePara
+ )
  ; // Inherits
  : Attributes
-   @ ( ME_54819CB60119 // Name
- ) .SequenceCode.It
+   Seq: ( ME_54819CB60119 // Name
+ )
  ; // Attributes
  : Operations
-   @ ( ME_54819D1601EF // SaveToStream
- ) .SequenceCode.It
+   Seq: ( ME_54819D1601EF // SaveToStream
+ )
  ; // Operations
  : Implemented
-   @ ( ME_467813E40207_ME_4F671C7C024B // CheckStamp
+   Seq: ( ME_467813E40207_ME_4F671C7C024B // CheckStamp
  ME_54819A560264_ME_4F671C7C024B // Document
  ME_54819A630153_ME_4F671C7C024B // Parent
  ME_54819A6D038B_ME_4F671C7C024B // Block
@@ -5255,8 +5464,14 @@ ref; // ME_54819BCF02EB_ME_4F671C7C024B AsObject
  ME_54819BA30185_ME_4F671C7C024B // Delete
  ME_54819BB50350_ME_4F671C7C024B // IsUserComment
  ME_54819BCF02EB_ME_4F671C7C024B // AsObject
- ) .SequenceCode.It
+ )
  ; // Implemented
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest_Engine'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest_Engine'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'eePicture'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_4F671C7C024B IeePicture
 
@@ -5267,6 +5482,7 @@ FORWARD ME_548198C00194
 : ME_F7EDC753F9A7
  CONST UID 'F7EDC753F9A7'
  CONST Name 'DoIt'
+ CONST IsSummoned true
  CONST Class class_Operation
  %SUMMARY 'Сигнатура метода Cut' ;
  CONST Visibility PublicAccess
@@ -5287,8 +5503,8 @@ ref; // ME_F7EDC753F9A7 DoIt
  : Parent ME_548198AA02EF // IeeCommands
  ;
  : Operations
-   @ ( ME_F7EDC753F9A7 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_F7EDC753F9A7 // DoIt
+ )
  ; // Operations
 
 ref; // ME_548198C00194 Cut
@@ -5298,6 +5514,7 @@ FORWARD ME_548198CA0185
 : ME_60E42971A698
  CONST UID '60E42971A698'
  CONST Name 'DoIt'
+ CONST IsSummoned true
  CONST Class class_Operation
  %SUMMARY 'Сигнатура метода Copy' ;
  CONST Visibility PublicAccess
@@ -5318,8 +5535,8 @@ ref; // ME_60E42971A698 DoIt
  : Parent ME_548198AA02EF // IeeCommands
  ;
  : Operations
-   @ ( ME_60E42971A698 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_60E42971A698 // DoIt
+ )
  ; // Operations
 
 ref; // ME_548198CA0185 Copy
@@ -5329,6 +5546,7 @@ FORWARD ME_548198D20380
 : ME_24E89FB701FB
  CONST UID '24E89FB701FB'
  CONST Name 'DoIt'
+ CONST IsSummoned true
  CONST Class class_Operation
  %SUMMARY 'Сигнатура метода Delete' ;
  CONST Visibility PublicAccess
@@ -5349,8 +5567,8 @@ ref; // ME_24E89FB701FB DoIt
  : Parent ME_548198AA02EF // IeeCommands
  ;
  : Operations
-   @ ( ME_24E89FB701FB // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_24E89FB701FB // DoIt
+ )
  ; // Operations
 
 ref; // ME_548198D20380 Delete
@@ -5381,8 +5599,8 @@ ref; // ME_548198DE03B0 DoIt
  : Parent ME_548198AA02EF // IeeCommands
  ;
  : Operations
-   @ ( ME_548198DE03B0 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_548198DE03B0 // DoIt
+ )
  ; // Operations
 
 ref; // ME_548198D902BA Paste
@@ -5392,6 +5610,7 @@ FORWARD ME_548198ED0189
 : ME_AF21915EF2E8
  CONST UID 'AF21915EF2E8'
  CONST Name 'DoIt'
+ CONST IsSummoned true
  CONST Class class_Operation
  %SUMMARY 'Сигнатура метода SelectAll' ;
  CONST Visibility PublicAccess
@@ -5412,8 +5631,8 @@ ref; // ME_AF21915EF2E8 DoIt
  : Parent ME_548198AA02EF // IeeCommands
  ;
  : Operations
-   @ ( ME_AF21915EF2E8 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_AF21915EF2E8 // DoIt
+ )
  ; // Operations
 
 ref; // ME_548198ED0189 SelectAll
@@ -5423,6 +5642,7 @@ FORWARD ME_548198F403CE
 : ME_B2C05235AB4F
  CONST UID 'B2C05235AB4F'
  CONST Name 'DoIt'
+ CONST IsSummoned true
  CONST Class class_Operation
  %SUMMARY 'Сигнатура метода HideSelection' ;
  CONST Visibility PublicAccess
@@ -5443,8 +5663,8 @@ ref; // ME_B2C05235AB4F DoIt
  : Parent ME_548198AA02EF // IeeCommands
  ;
  : Operations
-   @ ( ME_B2C05235AB4F // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_B2C05235AB4F // DoIt
+ )
  ; // Operations
 
 ref; // ME_548198F403CE HideSelection
@@ -5456,6 +5676,7 @@ ref; // ME_548198F403CE HideSelection
  ;
  : Implementor ME_548198AA02EF // IeeCommands
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_467813E40207_ME_548198AA02EF CheckStamp
 
 : ME_548198AA02EF
@@ -5470,22 +5691,28 @@ ref; // ME_467813E40207_ME_548198AA02EF CheckStamp
  : Parent ME_4912DD020283 // eeInterfaces
  ;
  : Inherits
-   @ ( ME_5319FF1403D3 // IeeBase
- ) .SequenceCode.It
+   Seq: ( ME_5319FF1403D3 // IeeBase
+ )
  ; // Inherits
  : Operations
-   @ ( ME_548198C00194 // Cut
+   Seq: ( ME_548198C00194 // Cut
  ME_548198CA0185 // Copy
  ME_548198D20380 // Delete
  ME_548198D902BA // Paste
  ME_548198ED0189 // SelectAll
  ME_548198F403CE // HideSelection
- ) .SequenceCode.It
+ )
  ; // Operations
  : Implemented
-   @ ( ME_467813E40207_ME_548198AA02EF // CheckStamp
- ) .SequenceCode.It
+   Seq: ( ME_467813E40207_ME_548198AA02EF // CheckStamp
+ )
  ; // Implemented
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest_Engine'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest_Engine'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'eeCommands'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_548198AA02EF IeeCommands
 
@@ -5556,9 +5783,9 @@ ref; // ME_54819F9600EA theHotSpot
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
  : Parameters
-   @ ( ME_54819F9600CE // aPt
+   Seq: ( ME_54819F9600CE // aPt
  ME_54819F9600EA // theHotSpot
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_54819F8E02B7 DoIt
@@ -5574,8 +5801,8 @@ ref; // ME_54819F8E02B7 DoIt
  : Parent ME_4A8C09B70219 // IeeEditor
  ;
  : Operations
-   @ ( ME_54819F8E02B7 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_54819F8E02B7 // DoIt
+ )
  ; // Operations
 
 ref; // ME_54819F7C006B GetHotspotOnPoint
@@ -5603,8 +5830,8 @@ ref; // ME_54819FB00274 aPara
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
  : Parameters
-   @ ( ME_54819FB00274 // aPara
- ) .SequenceCode.It
+   Seq: ( ME_54819FB00274 // aPara
+ )
  ; // Parameters
 
 ref; // ME_54819FAA01FF DoIt
@@ -5620,8 +5847,8 @@ ref; // ME_54819FAA01FF DoIt
  : Parent ME_4A8C09B70219 // IeeEditor
  ;
  : Operations
-   @ ( ME_54819FAA01FF // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_54819FAA01FF // DoIt
+ )
  ; // Operations
 
 ref; // ME_54819FA40295 CanSplitPara
@@ -5633,6 +5860,7 @@ ref; // ME_54819FA40295 CanSplitPara
  ;
  : Implementor ME_4A8C09B70219 // IeeEditor
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_4A8C083300C3_ME_4A8C09B70219 CanInsertParaOnMove
 
 : ME_4A8C24130193_ME_4A8C09B70219
@@ -5642,6 +5870,7 @@ ref; // ME_4A8C083300C3_ME_4A8C09B70219 CanInsertParaOnMove
  ;
  : Implementor ME_4A8C09B70219 // IeeEditor
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_4A8C24130193_ME_4A8C09B70219 IsInReadOnlyPara
 
 : ME_4A8C09B70219
@@ -5657,24 +5886,30 @@ ref; // ME_4A8C24130193_ME_4A8C09B70219 IsInReadOnlyPara
  : Parent ME_4912DD020283 // eeInterfaces
  ;
  : Inherits
-   @ ( WL 'ME_4A8C065802BD' '47F088300159.pas.ms.script' // IevF1LikeEditor
- ) .SequenceCode.It
+   Seq: ( WL 'ME_4A8C065802BD' '47F088300159.pas.ms.script' // IevF1LikeEditor
+ )
  ; // Inherits
  : Attributes
-   @ ( ME_54819FB9026A // Commands
+   Seq: ( ME_54819FB9026A // Commands
  ME_54819FC5013E // Data
- ) .SequenceCode.It
+ )
  ; // Attributes
  : Operations
-   @ ( ME_54819F7C006B // GetHotspotOnPoint
+   Seq: ( ME_54819F7C006B // GetHotspotOnPoint
  ME_54819FA40295 // CanSplitPara
- ) .SequenceCode.It
+ )
  ; // Operations
  : Implemented
-   @ ( ME_4A8C083300C3_ME_4A8C09B70219 // CanInsertParaOnMove
+   Seq: ( ME_4A8C083300C3_ME_4A8C09B70219 // CanInsertParaOnMove
  ME_4A8C24130193_ME_4A8C09B70219 // IsInReadOnlyPara
- ) .SequenceCode.It
+ )
  ; // Implemented
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest_Engine'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest_Engine'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'eeEditor'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_4A8C09B70219 IeeEditor
 
@@ -5706,8 +5941,8 @@ ref; // ME_54819C3600BA DoIt
  : Parent ME_54819C14032B // IeeStyledLeafPara
  ;
  : Operations
-   @ ( ME_54819C3600BA // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_54819C3600BA // DoIt
+ )
  ; // Operations
 
 ref; // ME_54819C2E029C IsComment
@@ -5735,8 +5970,8 @@ ref; // ME_54819C4F01C8 aType
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
  : Parameters
-   @ ( ME_54819C4F01C8 // aType
- ) .SequenceCode.It
+   Seq: ( ME_54819C4F01C8 // aType
+ )
  ; // Parameters
 
 ref; // ME_54819C4C0384 DoIt
@@ -5752,8 +5987,8 @@ ref; // ME_54819C4C0384 DoIt
  : Parent ME_54819C14032B // IeeStyledLeafPara
  ;
  : Operations
-   @ ( ME_54819C4C0384 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_54819C4C0384 // DoIt
+ )
  ; // Operations
 
 ref; // ME_54819C4503A8 IsComment$1
@@ -5765,6 +6000,7 @@ ref; // ME_54819C4503A8 IsComment$1
  ;
  : Implementor ME_54819C14032B // IeeStyledLeafPara
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_467813E40207_ME_54819C14032B CheckStamp
 
 : ME_54819A560264_ME_54819C14032B
@@ -5774,6 +6010,7 @@ ref; // ME_467813E40207_ME_54819C14032B CheckStamp
  ;
  : Implementor ME_54819C14032B // IeeStyledLeafPara
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" false
 ref; // ME_54819A560264_ME_54819C14032B Document
 
@@ -5784,6 +6021,7 @@ ref; // ME_54819A560264_ME_54819C14032B Document
  ;
  : Implementor ME_54819C14032B // IeeStyledLeafPara
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" false
 ref; // ME_54819A630153_ME_54819C14032B Parent
 
@@ -5794,6 +6032,7 @@ ref; // ME_54819A630153_ME_54819C14032B Parent
  ;
  : Implementor ME_54819C14032B // IeeStyledLeafPara
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" false
 ref; // ME_54819A6D038B_ME_54819C14032B Block
 
@@ -5804,6 +6043,7 @@ ref; // ME_54819A6D038B_ME_54819C14032B Block
  ;
  : Implementor ME_54819C14032B // IeeStyledLeafPara
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" false
 ref; // ME_54819A760069_ME_54819C14032B Subs
 
@@ -5814,6 +6054,7 @@ ref; // ME_54819A760069_ME_54819C14032B Subs
  ;
  : Implementor ME_54819C14032B // IeeStyledLeafPara
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" false
 ref; // ME_54819A830391_ME_54819C14032B Markers
 
@@ -5824,6 +6065,7 @@ ref; // ME_54819A830391_ME_54819C14032B Markers
  ;
  : Implementor ME_54819C14032B // IeeStyledLeafPara
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" false
 ref; // ME_54819A9600F5_ME_54819C14032B Bookmarks
 
@@ -5834,6 +6076,7 @@ ref; // ME_54819A9600F5_ME_54819C14032B Bookmarks
  ;
  : Implementor ME_54819C14032B // IeeStyledLeafPara
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" false
 ref; // ME_54819AA3019D_ME_54819C14032B Marks
 
@@ -5844,6 +6087,7 @@ ref; // ME_54819AA3019D_ME_54819C14032B Marks
  ;
  : Implementor ME_54819C14032B // IeeStyledLeafPara
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" false
 ref; // ME_54819AB403BD_ME_54819C14032B ID
 
@@ -5854,6 +6098,7 @@ ref; // ME_54819AB403BD_ME_54819C14032B ID
  ;
  : Implementor ME_54819C14032B // IeeStyledLeafPara
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" false
 ref; // ME_54819ABD01B8_ME_54819C14032B IndexInParent
 
@@ -5864,6 +6109,7 @@ ref; // ME_54819ABD01B8_ME_54819C14032B IndexInParent
  ;
  : Implementor ME_54819C14032B // IeeStyledLeafPara
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" false
 ref; // ME_54819AD20366_ME_54819C14032B Prev
 
@@ -5874,6 +6120,7 @@ ref; // ME_54819AD20366_ME_54819C14032B Prev
  ;
  : Implementor ME_54819C14032B // IeeStyledLeafPara
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" false
 ref; // ME_54819B120216_ME_54819C14032B Next
 
@@ -5884,6 +6131,7 @@ ref; // ME_54819B120216_ME_54819C14032B Next
  ;
  : Implementor ME_54819C14032B // IeeStyledLeafPara
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_54819B7C00EC_ME_54819C14032B IsKindOf
 
 : ME_54819B9003B8_ME_54819C14032B
@@ -5893,6 +6141,7 @@ ref; // ME_54819B7C00EC_ME_54819C14032B IsKindOf
  ;
  : Implementor ME_54819C14032B // IeeStyledLeafPara
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_54819B9003B8_ME_54819C14032B IsSame
 
 : ME_54819BA30185_ME_54819C14032B
@@ -5902,6 +6151,7 @@ ref; // ME_54819B9003B8_ME_54819C14032B IsSame
  ;
  : Implementor ME_54819C14032B // IeeStyledLeafPara
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_54819BA30185_ME_54819C14032B Delete
 
 : ME_54819BB50350_ME_54819C14032B
@@ -5911,6 +6161,7 @@ ref; // ME_54819BA30185_ME_54819C14032B Delete
  ;
  : Implementor ME_54819C14032B // IeeStyledLeafPara
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_54819BB50350_ME_54819C14032B IsUserComment
 
 : ME_54819BCF02EB_ME_54819C14032B
@@ -5920,6 +6171,7 @@ ref; // ME_54819BB50350_ME_54819C14032B IsUserComment
  ;
  : Implementor ME_54819C14032B // IeeStyledLeafPara
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_54819BCF02EB_ME_54819C14032B AsObject
 
 : ME_54819C14032B
@@ -5934,16 +6186,16 @@ ref; // ME_54819BCF02EB_ME_54819C14032B AsObject
  : Parent ME_4912DD020283 // eeInterfaces
  ;
  : Inherits
-   @ ( ME_4A7FC9C9008F // IeeLeafPara
- ) .SequenceCode.It
+   Seq: ( ME_4A7FC9C9008F // IeeLeafPara
+ )
  ; // Inherits
  : Operations
-   @ ( ME_54819C2E029C // IsComment
+   Seq: ( ME_54819C2E029C // IsComment
  ME_54819C4503A8 // IsComment$1
- ) .SequenceCode.It
+ )
  ; // Operations
  : Implemented
-   @ ( ME_467813E40207_ME_54819C14032B // CheckStamp
+   Seq: ( ME_467813E40207_ME_54819C14032B // CheckStamp
  ME_54819A560264_ME_54819C14032B // Document
  ME_54819A630153_ME_54819C14032B // Parent
  ME_54819A6D038B_ME_54819C14032B // Block
@@ -5960,8 +6212,14 @@ ref; // ME_54819BCF02EB_ME_54819C14032B AsObject
  ME_54819BA30185_ME_54819C14032B // Delete
  ME_54819BB50350_ME_54819C14032B // IsUserComment
  ME_54819BCF02EB_ME_54819C14032B // AsObject
- ) .SequenceCode.It
+ )
  ; // Implemented
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest_Engine'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest_Engine'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'eeStyledLeafPara'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_54819C14032B IeeStyledLeafPara
 
@@ -5990,6 +6248,7 @@ ref; // ME_54819C8702E6 Text
  ;
  : Implementor ME_54819C6101EE // IeeTextPara
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_467813E40207_ME_54819C6101EE CheckStamp
 
 : ME_54819A560264_ME_54819C6101EE
@@ -5999,6 +6258,7 @@ ref; // ME_467813E40207_ME_54819C6101EE CheckStamp
  ;
  : Implementor ME_54819C6101EE // IeeTextPara
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" false
 ref; // ME_54819A560264_ME_54819C6101EE Document
 
@@ -6009,6 +6269,7 @@ ref; // ME_54819A560264_ME_54819C6101EE Document
  ;
  : Implementor ME_54819C6101EE // IeeTextPara
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" false
 ref; // ME_54819A630153_ME_54819C6101EE Parent
 
@@ -6019,6 +6280,7 @@ ref; // ME_54819A630153_ME_54819C6101EE Parent
  ;
  : Implementor ME_54819C6101EE // IeeTextPara
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" false
 ref; // ME_54819A6D038B_ME_54819C6101EE Block
 
@@ -6029,6 +6291,7 @@ ref; // ME_54819A6D038B_ME_54819C6101EE Block
  ;
  : Implementor ME_54819C6101EE // IeeTextPara
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" false
 ref; // ME_54819A760069_ME_54819C6101EE Subs
 
@@ -6039,6 +6302,7 @@ ref; // ME_54819A760069_ME_54819C6101EE Subs
  ;
  : Implementor ME_54819C6101EE // IeeTextPara
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" false
 ref; // ME_54819A830391_ME_54819C6101EE Markers
 
@@ -6049,6 +6313,7 @@ ref; // ME_54819A830391_ME_54819C6101EE Markers
  ;
  : Implementor ME_54819C6101EE // IeeTextPara
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" false
 ref; // ME_54819A9600F5_ME_54819C6101EE Bookmarks
 
@@ -6059,6 +6324,7 @@ ref; // ME_54819A9600F5_ME_54819C6101EE Bookmarks
  ;
  : Implementor ME_54819C6101EE // IeeTextPara
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" false
 ref; // ME_54819AA3019D_ME_54819C6101EE Marks
 
@@ -6069,6 +6335,7 @@ ref; // ME_54819AA3019D_ME_54819C6101EE Marks
  ;
  : Implementor ME_54819C6101EE // IeeTextPara
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" false
 ref; // ME_54819AB403BD_ME_54819C6101EE ID
 
@@ -6079,6 +6346,7 @@ ref; // ME_54819AB403BD_ME_54819C6101EE ID
  ;
  : Implementor ME_54819C6101EE // IeeTextPara
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" false
 ref; // ME_54819ABD01B8_ME_54819C6101EE IndexInParent
 
@@ -6089,6 +6357,7 @@ ref; // ME_54819ABD01B8_ME_54819C6101EE IndexInParent
  ;
  : Implementor ME_54819C6101EE // IeeTextPara
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" false
 ref; // ME_54819AD20366_ME_54819C6101EE Prev
 
@@ -6099,6 +6368,7 @@ ref; // ME_54819AD20366_ME_54819C6101EE Prev
  ;
  : Implementor ME_54819C6101EE // IeeTextPara
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" false
 ref; // ME_54819B120216_ME_54819C6101EE Next
 
@@ -6109,6 +6379,7 @@ ref; // ME_54819B120216_ME_54819C6101EE Next
  ;
  : Implementor ME_54819C6101EE // IeeTextPara
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_54819B7C00EC_ME_54819C6101EE IsKindOf
 
 : ME_54819B9003B8_ME_54819C6101EE
@@ -6118,6 +6389,7 @@ ref; // ME_54819B7C00EC_ME_54819C6101EE IsKindOf
  ;
  : Implementor ME_54819C6101EE // IeeTextPara
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_54819B9003B8_ME_54819C6101EE IsSame
 
 : ME_54819BA30185_ME_54819C6101EE
@@ -6127,6 +6399,7 @@ ref; // ME_54819B9003B8_ME_54819C6101EE IsSame
  ;
  : Implementor ME_54819C6101EE // IeeTextPara
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_54819BA30185_ME_54819C6101EE Delete
 
 : ME_54819BB50350_ME_54819C6101EE
@@ -6136,6 +6409,7 @@ ref; // ME_54819BA30185_ME_54819C6101EE Delete
  ;
  : Implementor ME_54819C6101EE // IeeTextPara
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_54819BB50350_ME_54819C6101EE IsUserComment
 
 : ME_54819BCF02EB_ME_54819C6101EE
@@ -6145,6 +6419,7 @@ ref; // ME_54819BB50350_ME_54819C6101EE IsUserComment
  ;
  : Implementor ME_54819C6101EE // IeeTextPara
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_54819BCF02EB_ME_54819C6101EE AsObject
 
 : ME_54819C2E029C_ME_54819C6101EE
@@ -6154,6 +6429,7 @@ ref; // ME_54819BCF02EB_ME_54819C6101EE AsObject
  ;
  : Implementor ME_54819C6101EE // IeeTextPara
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_54819C2E029C_ME_54819C6101EE IsComment
 
 : ME_54819C4503A8_ME_54819C6101EE
@@ -6163,6 +6439,7 @@ ref; // ME_54819C2E029C_ME_54819C6101EE IsComment
  ;
  : Implementor ME_54819C6101EE // IeeTextPara
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_54819C4503A8_ME_54819C6101EE IsComment$1
 
 : ME_54819C6101EE
@@ -6177,15 +6454,15 @@ ref; // ME_54819C4503A8_ME_54819C6101EE IsComment$1
  : Parent ME_4912DD020283 // eeInterfaces
  ;
  : Inherits
-   @ ( ME_54819C14032B // IeeStyledLeafPara
- ) .SequenceCode.It
+   Seq: ( ME_54819C14032B // IeeStyledLeafPara
+ )
  ; // Inherits
  : Attributes
-   @ ( ME_54819C8702E6 // Text
- ) .SequenceCode.It
+   Seq: ( ME_54819C8702E6 // Text
+ )
  ; // Attributes
  : Implemented
-   @ ( ME_467813E40207_ME_54819C6101EE // CheckStamp
+   Seq: ( ME_467813E40207_ME_54819C6101EE // CheckStamp
  ME_54819A560264_ME_54819C6101EE // Document
  ME_54819A630153_ME_54819C6101EE // Parent
  ME_54819A6D038B_ME_54819C6101EE // Block
@@ -6204,8 +6481,14 @@ ref; // ME_54819C4503A8_ME_54819C6101EE IsComment$1
  ME_54819BCF02EB_ME_54819C6101EE // AsObject
  ME_54819C2E029C_ME_54819C6101EE // IsComment
  ME_54819C4503A8_ME_54819C6101EE // IsComment$1
- ) .SequenceCode.It
+ )
  ; // Implemented
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest_Engine'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest_Engine'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'eeTextPara'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_54819C6101EE IeeTextPara
 
@@ -6264,12 +6547,16 @@ ref; // ME_54819F0603BE rLargeChange
  : Parent ME_4912DD020283 // eeInterfaces
  ;
  : Attributes
-   @ ( ME_54819EF200FE // rScrollInfo
+   Seq: ( ME_54819EF200FE // rScrollInfo
  ME_54819EF90146 // rSmallChange
  ME_54819F0603BE // rLargeChange
- ) .SequenceCode.It
+ )
  ; // Attributes
  CONST "packed" true
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest_Engine'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest_Engine'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_54819EDA0024 TeeScrollInfo
 
@@ -6298,6 +6585,7 @@ ref; // ME_54819FF50172 Visible
  ;
  : Implementor ME_54819FDB0116 // IeeSubViewDescriptor
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_467813E40207_ME_54819FDB0116 CheckStamp
 
 : ME_54819FDB0116
@@ -6313,17 +6601,23 @@ ref; // ME_467813E40207_ME_54819FDB0116 CheckStamp
  : Parent ME_4912DD020283 // eeInterfaces
  ;
  : Inherits
-   @ ( ME_5319FF1403D3 // IeeBase
- ) .SequenceCode.It
+   Seq: ( ME_5319FF1403D3 // IeeBase
+ )
  ; // Inherits
  : Attributes
-   @ ( ME_54819FF50172 // Visible
- ) .SequenceCode.It
+   Seq: ( ME_54819FF50172 // Visible
+ )
  ; // Attributes
  : Implemented
-   @ ( ME_467813E40207_ME_54819FDB0116 // CheckStamp
- ) .SequenceCode.It
+   Seq: ( ME_467813E40207_ME_54819FDB0116 // CheckStamp
+ )
  ; // Implemented
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest_Engine'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest_Engine'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'eeSubViewDescriptor'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_54819FDB0116 IeeSubViewDescriptor
 
@@ -6384,6 +6678,7 @@ ref; // ME_5481A043035B Bookmarks
  ;
  : Implementor ME_5481A0160157 // IeeSubViewDescriptors
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_467813E40207_ME_5481A0160157 CheckStamp
 
 : ME_5481A0160157
@@ -6398,19 +6693,25 @@ ref; // ME_467813E40207_ME_5481A0160157 CheckStamp
  : Parent ME_4912DD020283 // eeInterfaces
  ;
  : Inherits
-   @ ( ME_5319FF1403D3 // IeeBase
- ) .SequenceCode.It
+   Seq: ( ME_5319FF1403D3 // IeeBase
+ )
  ; // Inherits
  : Attributes
-   @ ( ME_5481A0350122 // Subs
+   Seq: ( ME_5481A0350122 // Subs
  ME_5481A03B01F9 // Markers
  ME_5481A043035B // Bookmarks
- ) .SequenceCode.It
+ )
  ; // Attributes
  : Implemented
-   @ ( ME_467813E40207_ME_5481A0160157 // CheckStamp
- ) .SequenceCode.It
+   Seq: ( ME_467813E40207_ME_5481A0160157 // CheckStamp
+ )
  ; // Implemented
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest_Engine'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest_Engine'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'eeSubViewDescriptors'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_5481A0160157 IeeSubViewDescriptors
 
@@ -6439,6 +6740,7 @@ ref; // ME_5481A0B20112 SubViewDescriptors
  ;
  : Implementor ME_5481A06803E5 // IeeSubPanel
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_467813E40207_ME_5481A06803E5 CheckStamp
 
 : ME_5481A06803E5
@@ -6453,17 +6755,23 @@ ref; // ME_467813E40207_ME_5481A06803E5 CheckStamp
  : Parent ME_4912DD020283 // eeInterfaces
  ;
  : Inherits
-   @ ( ME_5319FF1403D3 // IeeBase
- ) .SequenceCode.It
+   Seq: ( ME_5319FF1403D3 // IeeBase
+ )
  ; // Inherits
  : Attributes
-   @ ( ME_5481A0B20112 // SubViewDescriptors
- ) .SequenceCode.It
+   Seq: ( ME_5481A0B20112 // SubViewDescriptors
+ )
  ; // Attributes
  : Implemented
-   @ ( ME_467813E40207_ME_5481A06803E5 // CheckStamp
- ) .SequenceCode.It
+   Seq: ( ME_467813E40207_ME_5481A06803E5 // CheckStamp
+ )
  ; // Implemented
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest_Engine'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest_Engine'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'eeSubPanel'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_5481A06803E5 IeeSubPanel
 
@@ -6477,7 +6785,7 @@ ref; // ME_5481A06803E5 IeeSubPanel
  : Parent WL 'ME_4680E7D50168' '4680E7D50168.pas.ms.script' // Everest Engine
  ;
  : Children
-   @ ( ME_4F82F5FE0348 // TeeDirection
+   Seq: ( ME_4F82F5FE0348 // TeeDirection
  ME_5319FF1403D3 // IeeBase
  ME_531A08B201A1 // TeeNodeAction
  ME_495239F201D9 // IeePara
@@ -6508,10 +6816,10 @@ ref; // ME_5481A06803E5 IeeSubPanel
  ME_54819FDB0116 // IeeSubViewDescriptor
  ME_5481A0160157 // IeeSubViewDescriptors
  ME_5481A06803E5 // IeeSubPanel
- ) .SequenceCode.It
+ )
  ; // Children
  : Depends
-   @ ( WL 'ME_4677FBA70343' '4677FBA70343.pas.ms.script' // l3Interfaces
+   Seq: ( WL 'ME_4677FBA70343' '4677FBA70343.pas.ms.script' // l3Interfaces
  WL 'ME_469D0AC7005E' '469D0AC7005E.pas.ms.script' // Types
  WL 'ME_46A0E6C5023A' '46A0E6C5023A.pas.ms.script' // ActiveX
  WL 'ME_47913B47006E' '47913B47006E.pas.ms.script' // l3CoreObjects
@@ -6521,22 +6829,19 @@ ref; // ME_5481A06803E5 IeeSubPanel
  WL 'ME_4AB0C3C60310' '4AB0C3C60310.pas.ms.script' // Sys
  WL 'ME_4AB0C3F60375' '4AB0C3F60375.pas.ms.script' // Win
  WL 'ME_5481B6C40012' '5481B6C40012.pas.ms.script' // eeConst
- ) .SequenceCode.It
+ )
  ; // Depends
  CONST "defines" 'eeDefine.inc'
  CONST "is namespace" true
  CONST "need UC" true
  CONST "no hands" false
  CONST "weak" true
- : Generators
- @ (
- gen_intf.pas
- gen_pas.script
- gen_pas.script.runner
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest_Engine'
  CONST intf.pas:Path 'common\components\gui\Garant\Everest_Engine\eeInterfaces.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest_Engine'
  CONST pas.script:Path 'shared\models\NewSchool\Scripts\4912DD020283.pas.ms.script'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
  CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\4912DD020283.pas.ms.script.runner'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_4912DD020283 eeInterfaces

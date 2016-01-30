@@ -1,0 +1,171 @@
+// Printing 4ABB68530117 Unit Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4ABB68530117
+
+FORWARD ME_4ABB686202B1
+
+: ME_4AD5AEF20160
+ CONST UID '4AD5AEF20160'
+ CONST Name 'f_Metrics'
+ CONST Class class_Attribute
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_4ABB686202B1 // TnsPageSetup
+ ;
+ : Target WL 'ME_499166CF011C' '499164F501ED.pas.ms.script' // TnsMetrics
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_4AD5AEF20160 f_Metrics
+
+: ME_4ABB686202B1
+ CONST UID '4ABB686202B1'
+ CONST Name 'TnsPageSetup'
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4ABB68530117 // Printing
+ ;
+ : Attributes
+   Seq: ( ME_4AD5AEF20160 // f_Metrics
+ )
+ ; // Attributes
+ CONST "UseNewGen" 'undefined'
+ CONST "finished" false
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ : Generators
+ Seq: (
+ gen_intf.pas
+ )
+ ; // Generators
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View'
+ CONST intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\NOT_FINISHED_nsPageSetup.pas'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\View'
+ CONST extprop:pas:UnitName 'nsPageSetup'
+
+ref; // ME_4ABB686202B1 TnsPageSetup
+
+FORWARD ME_4951292D01DA
+
+: ME_4952602D0225
+ CONST UID '4952602D0225'
+ CONST Name 'aParams'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_4683E07E004B' '467BAB7F021E.pas.ms.script' // IvcmTestParamsPrim
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_4952602D0225 aParams
+
+: ME_495260290250
+ CONST UID '495260290250'
+ CONST Name 'nsDisableOperationInTrialMode'
+ CONST Class class_Operation
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_4951292D01DA // nsTrialSupport
+ ;
+ : Parameters
+   Seq: ( ME_4952602D0225 // aParams
+ )
+ ; // Parameters
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_495260290250 nsDisableOperationInTrialMode
+
+: ME_49526055015E
+ CONST UID '49526055015E'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4951292D01DA // nsTrialSupport
+ ;
+ : Target WL 'ME_48FF556602BA' '48F747EC0073.pas.ms.script' // DataAdapter
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_49526055015E 
+
+: ME_4951292D01DA
+ CONST UID '4951292D01DA'
+ CONST Name 'nsTrialSupport'
+ CONST Class class_Class
+ : Stereotype st_UtilityPack ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_4ABB68530117 // Printing
+ ;
+ : Operations
+   Seq: ( ME_495260290250 // nsDisableOperationInTrialMode
+ )
+ ; // Operations
+ : Dependencies
+   Seq: ( ME_49526055015E // 
+ )
+ ; // Dependencies
+ CONST "UseNewGen" 'undefined'
+ CONST "no hands" true
+ : Generators
+ Seq: (
+ gen_intf.pas
+ )
+ ; // Generators
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View'
+ CONST intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\nsTrialSupport.pas'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\View'
+
+ref; // ME_4951292D01DA nsTrialSupport
+
+: ME_4ABB68530117
+ CONST UID '4ABB68530117'
+ CONST Name 'Printing'
+ CONST Class class_Category
+ : Stereotype st_Unit ;
+ %SUMMARY 'Печать' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent WL 'ME_5257E836001C' '5257E836001C.pas.ms.script' // View$Strange
+ ;
+ : Children
+   Seq: ( ME_4ABB686202B1 // TnsPageSetup
+ ME_4951292D01DA // nsTrialSupport
+ )
+ ; // Children
+ : Depends
+   Seq: ( WL 'ME_467BAB7F021E' '467BAB7F021E.pas.ms.script' // vcmExternalInterfaces
+ WL 'ME_4683F37902CF' '4683F37902CF.pas.ms.script' // vcmInterfaces
+ WL 'ME_48F747EC0073' '48F747EC0073.pas.ms.script' // Common
+ WL 'ME_499164F501ED' '499164F501ED.pas.ms.script' // ConfigInterfaces
+ )
+ ; // Depends
+ CONST "UseNewGen" 'undefined'
+ : Generators
+ Seq: (
+ gen_pas.script
+ gen_pas.script.runner
+ )
+ ; // Generators
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View'
+ CONST pas.script:Path 'shared\models\NewSchool\Scripts\4ABB68530117.pas.ms.script'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\4ABB68530117.pas.ms.script.runner'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\View'
+
+ref; // ME_4ABB68530117 Printing

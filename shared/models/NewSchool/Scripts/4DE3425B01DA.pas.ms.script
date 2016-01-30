@@ -1,0 +1,358 @@
+// ArchiScriptSupport 4DE3425B01DA Unit Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4DE3425B01DA
+
+FORWARD ME_4DE342FA0300
+
+: ME_4DE368140094
+ CONST UID '4DE368140094'
+ CONST Name 'Register'
+ CONST Class class_Operation
+ : Stereotype st_static::Operation ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_4DE342FA0300 // TArchiAutoTestSuite
+ ;
+
+ref; // ME_4DE368140094 Register
+
+FORWARD ME_4DE482A503AB
+
+: ME_4DE482E8004D
+ CONST UID '4DE482E8004D'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4DE342FA0300 // TArchiAutoTestSuite
+ ;
+ : Target ME_4DE482A503AB // TArchiAutoTest
+ ;
+
+ref; // ME_4DE482E8004D 
+
+: ME_4EA7C744008D
+ CONST UID '4EA7C744008D'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4DE342FA0300 // TArchiAutoTestSuite
+ ;
+ : Target WL 'ME_4EA66E6C038E' '4B2A0D6A0077.pas.ms.script' // RegisterTest
+ ;
+
+ref; // ME_4EA7C744008D 
+
+: ME_513082350309
+ CONST UID '513082350309'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4DE342FA0300 // TArchiAutoTestSuite
+ ;
+ : Target WL 'ME_51304A1F02AD' '51304A0E0192.pas.ms.script' // kwKeyWordsPack
+ ;
+
+ref; // ME_513082350309 
+
+: ME_5167F00803BC
+ CONST UID '5167F00803BC'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4DE342FA0300 // TArchiAutoTestSuite
+ ;
+ : Target WL 'ME_5166AFC5017A' '5166AF3800B5.pas.ms.script' // kwArchiEverestWordsPack
+ ;
+
+ref; // ME_5167F00803BC 
+
+: ME_51FB96620044
+ CONST UID '51FB96620044'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4DE342FA0300 // TArchiAutoTestSuite
+ ;
+ : Target WL 'ME_4F72CAA90045' '528E3DE20137.pas.ms.script' // Tl3ComponentInfoHelper
+ ;
+
+ref; // ME_51FB96620044 
+
+: ME_5040A3CE0118_ME_4DE342FA0300
+ CONST UID '5040A3CE0118'
+ CONST Name 'DoReReadAbstractTests'
+ : Original WL 'ME_5040A3CE0118' '4B2A0D6A0077.pas.ms.script' // DoReReadAbstractTests
+ ;
+ : Implementor ME_4DE342FA0300 // TArchiAutoTestSuite
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_5040A3CE0118_ME_4DE342FA0300 DoReReadAbstractTests
+
+: ME_4DE342FA0300
+ CONST UID '4DE342FA0300'
+ CONST Name 'TArchiAutoTestSuite'
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4DE3425B01DA // ArchiScriptSupport
+ ;
+ : Inherits
+   Seq: ( WL 'ME_4DC40A7E00C8' '4DC246E40002.pas.ms.script' // TCustomAutoTestSuite
+ )
+ ; // Inherits
+ : Operations
+   Seq: ( ME_4DE368140094 // Register
+ )
+ ; // Operations
+ : Overridden
+   Seq: ( ME_5040A3CE0118_ME_4DE342FA0300 // DoReReadAbstractTests
+ )
+ ; // Overridden
+ : Dependencies
+   Seq: ( ME_4DE482E8004D // 
+ ME_4EA7C744008D // 
+ ME_513082350309 // 
+ ME_5167F00803BC // 
+ ME_51FB96620044 // 
+ )
+ ; // Dependencies
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ : Generators
+ Seq: (
+ gen_intf.pas
+ )
+ ; // Generators
+ CONST dfm:PathOnly '\archi\source\projects\Archi\Archi_Insider_Test_Support'
+ CONST intf.pas:Path 'archi\source\projects\Archi\Archi_Insider_Test_Support\ArchiAutoTestSuite.pas'
+ CONST intf.pas:PathOnly '\archi\source\projects\Archi\Archi_Insider_Test_Support'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\archi\source\projects\Archi\Archi_Insider_Test_Support'
+ CONST extprop:rc:SelfName 'ArchiAutoTestSuite'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'ArchiAutoTestSuite'
+
+ref; // ME_4DE342FA0300 TArchiAutoTestSuite
+
+FORWARD ME_4DE4827600CA
+
+: ME_4DC3D2E00153_ME_4DE4827600CA
+ CONST UID '4DC3D2E00153'
+ CONST Name 'Run'
+ : Original WL 'ME_4DC3D2E00153' '4DC3D21E006E.pas.ms.script' // Run
+ ;
+ : Implementor ME_4DE4827600CA // TArchiInsiderTest
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_4DC3D2E00153_ME_4DE4827600CA Run
+
+: ME_4DC3DE630030_ME_4DE4827600CA
+ CONST UID '4DC3DE630030'
+ CONST Name 'Prepare'
+ : Original WL 'ME_4DC3DE630030' '4DC3D21E006E.pas.ms.script' // Prepare
+ ;
+ : Implementor ME_4DE4827600CA // TArchiInsiderTest
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_4DC3DE630030_ME_4DE4827600CA Prepare
+
+: ME_4DE4827600CA
+ CONST UID '4DE4827600CA'
+ CONST Name 'TArchiInsiderTest'
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Скрипты "знакомые" со внутренними особенностями Арчи.' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4DE3425B01DA // ArchiScriptSupport
+ ;
+ : Inherits
+   Seq: ( WL 'ME_4DC3D2590217' '4DC3D21E006E.pas.ms.script' // TCustomInsiderScripter
+ )
+ ; // Inherits
+ : Implemented
+   Seq: ( ME_4DC3D2E00153_ME_4DE4827600CA // Run
+ ME_4DC3DE630030_ME_4DE4827600CA // Prepare
+ )
+ ; // Implemented
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ : Generators
+ Seq: (
+ gen_intf.pas
+ )
+ ; // Generators
+ CONST dfm:PathOnly '\archi\source\projects\Archi\Archi_Insider_Test_Support'
+ CONST intf.pas:Path 'archi\source\projects\Archi\Archi_Insider_Test_Support\ArchiInsiderTest.pas'
+ CONST intf.pas:PathOnly '\archi\source\projects\Archi\Archi_Insider_Test_Support'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\archi\source\projects\Archi\Archi_Insider_Test_Support'
+ CONST extprop:rc:SelfName 'ArchiInsiderTest'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'ArchiInsiderTest'
+
+ref; // ME_4DE4827600CA TArchiInsiderTest
+
+: ME_4DE4834502E8
+ CONST UID '4DE4834502E8'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4DE482A503AB // TArchiAutoTest
+ ;
+ : Target WL 'ME_4DDA4CFE00E8' '4AB0C3C60310.pas.ms.script' // ExtractFilePath
+ ;
+
+ref; // ME_4DE4834502E8 
+
+: ME_52F88C9A0206
+ CONST UID '52F88C9A0206'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4DE482A503AB // TArchiAutoTest
+ ;
+ : Target WL 'ME_4BB3609E0331' '4AB0997B00A2.pas.ms.script' // AnsiStartsText
+ ;
+
+ref; // ME_52F88C9A0206 
+
+: ME_4C937013031D_ME_4DE482A503AB
+ CONST UID '4C937013031D'
+ CONST Name 'GetFolder'
+ : Original WL 'ME_4C937013031D' '4B2A0D6A0077.pas.ms.script' // GetFolder
+ ;
+ : Implementor ME_4DE482A503AB // TArchiAutoTest
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_4C937013031D_ME_4DE482A503AB GetFolder
+
+: ME_4DB03121022B_ME_4DE482A503AB
+ CONST UID '4DB03121022B'
+ CONST Name 'ResolveScriptFilePath'
+ : Original WL 'ME_4DB03121022B' '4DAEEA14018A.pas.ms.script' // ResolveScriptFilePath
+ ;
+ : Implementor ME_4DE482A503AB // TArchiAutoTest
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_4DB03121022B_ME_4DE482A503AB ResolveScriptFilePath
+
+: ME_4DC395670274_ME_4DE482A503AB
+ CONST UID '4DC395670274'
+ CONST Name 'IsScript'
+ : Original WL 'ME_4DC395670274' '4B2A0D6A0077.pas.ms.script' // IsScript
+ ;
+ : Implementor ME_4DE482A503AB // TArchiAutoTest
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_4DC395670274_ME_4DE482A503AB IsScript
+
+: ME_4DC399CA00BC_ME_4DE482A503AB
+ CONST UID '4DC399CA00BC'
+ CONST Name 'Create'
+ : Original WL 'ME_4DC399CA00BC' '4B2A0D6A0077.pas.ms.script' // Create
+ ;
+ : Implementor ME_4DE482A503AB // TArchiAutoTest
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_4DC399CA00BC_ME_4DE482A503AB Create
+
+: ME_4DE482A503AB
+ CONST UID '4DE482A503AB'
+ CONST Name 'TArchiAutoTest'
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Поддержка автоскриптов в Арчи.' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4DE3425B01DA // ArchiScriptSupport
+ ;
+ : Inherits
+   Seq: ( ME_4DE4827600CA // TArchiInsiderTest
+ )
+ ; // Inherits
+ : Overridden
+   Seq: ( ME_4C937013031D_ME_4DE482A503AB // GetFolder
+ ME_4DB03121022B_ME_4DE482A503AB // ResolveScriptFilePath
+ ME_4DC395670274_ME_4DE482A503AB // IsScript
+ ME_4DC399CA00BC_ME_4DE482A503AB // Create
+ )
+ ; // Overridden
+ : Dependencies
+   Seq: ( ME_4DE4834502E8 // 
+ ME_52F88C9A0206 // 
+ )
+ ; // Dependencies
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ : Generators
+ Seq: (
+ gen_intf.pas
+ )
+ ; // Generators
+ CONST dfm:PathOnly '\archi\source\projects\Archi\Archi_Insider_Test_Support'
+ CONST intf.pas:Path 'archi\source\projects\Archi\Archi_Insider_Test_Support\ArchiAutoTest.pas'
+ CONST intf.pas:PathOnly '\archi\source\projects\Archi\Archi_Insider_Test_Support'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\archi\source\projects\Archi\Archi_Insider_Test_Support'
+ CONST extprop:rc:SelfName 'ArchiAutoTest'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'ArchiAutoTest'
+
+ref; // ME_4DE482A503AB TArchiAutoTest
+
+: ME_4DE3425B01DA
+ CONST UID '4DE3425B01DA'
+ CONST Name 'ArchiScriptSupport'
+ CONST Class class_Category
+ : Stereotype st_Unit ;
+ %SUMMARY 'Поддержка скриптов в тестах Арчи' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent WL 'ME_4DE7653F03E5' '4DE7653F03E5.pas.ms.script' // Archi Insider Test Support
+ ;
+ : Children
+   Seq: ( ME_4DE342FA0300 // TArchiAutoTestSuite
+ ME_4DE4827600CA // TArchiInsiderTest
+ ME_4DE482A503AB // TArchiAutoTest
+ )
+ ; // Children
+ : Depends
+   Seq: ( WL 'ME_4AB0997B00A2' '4AB0997B00A2.pas.ms.script' // Common
+ WL 'ME_4AB0C3C60310' '4AB0C3C60310.pas.ms.script' // Sys
+ WL 'ME_4B2A0D6A0077' '4B2A0D6A0077.pas.ms.script' // Source
+ WL 'ME_4DAEEA14018A' '4DAEEA14018A.pas.ms.script' // Scripting Axiomatics
+ WL 'ME_4DAF19F600C5' '4DAF19F600C5.pas.ms.script' // tfwScriptingInterfaces
+ WL 'ME_4DC246E40002' '4DC246E40002.pas.ms.script' // AutoTests
+ WL 'ME_4DC3D21E006E' '4DC3D21E006E.pas.ms.script' // ScriptTestUnit
+ WL 'ME_4DE629810132' '4DE629810132.pas.ms.script' // Scripting
+ WL 'ME_4DEF302C0007' '4DEF302C0007.pas.ms.script' // ScriptEngine
+ WL 'ME_4E4B99A60349' '4E4B99A60349.pas.ms.script' // Tools
+ WL 'ME_51304A0E0192' '51304A0E0192.pas.ms.script' // DUnit Keywords
+ WL 'ME_5166AF3800B5' '5166AF3800B5.pas.ms.script' // EverestArchiWords
+ WL 'ME_528E3DE20137' '528E3DE20137.pas.ms.script' // Component Info
+ )
+ ; // Depends
+ : Generators
+ Seq: (
+ gen_pas.script
+ gen_pas.script.runner
+ )
+ ; // Generators
+ CONST dfm:PathOnly '\archi\source\projects\Archi\Archi_Insider_Test_Support'
+ CONST intf.pas:PathOnly '\archi\source\projects\Archi\Archi_Insider_Test_Support'
+ CONST pas.script:Path 'shared\models\NewSchool\Scripts\4DE3425B01DA.pas.ms.script'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\4DE3425B01DA.pas.ms.script.runner'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\archi\source\projects\Archi\Archi_Insider_Test_Support'
+
+ref; // ME_4DE3425B01DA ArchiScriptSupport

@@ -1,0 +1,268 @@
+// DocumentNotifications 4EAAE5A1005E VCMControls Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4EAAE5A1005E
+
+FORWARD ME_4EAAE5B2005F
+
+: ME_4EAAE5C40089
+ CONST UID '4EAAE5C40089'
+ CONST Name 'Changed'
+ CONST Class class_Operation
+ : Stereotype st_InternalOperation::Operation ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_4EAAE5B2005F // Comment
+ ;
+ CONST "AutoFocus" false
+ CONST "AutoLock" false
+ CONST "LongProcess" false
+ CONST "Needs Broadcast" true
+ CONST "has states" false
+ CONST "is FormActivate" false
+ CONST "is query" true
+ CONST "no prefix" false
+
+ref; // ME_4EAAE5C40089 Changed
+
+: ME_4EAAE5B2005F
+ CONST UID '4EAAE5B2005F'
+ CONST Name 'Comment'
+ CONST Class class_Class
+ : Stereotype st_VCMFacet ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4EAAE5A1005E // DocumentNotifications
+ ;
+ : Operations
+   Seq: ( ME_4EAAE5C40089 // Changed
+ )
+ ; // Operations
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\View'
+
+ref; // ME_4EAAE5B2005F Comment
+
+FORWARD ME_4CF941D32C80
+
+: ME_97DAA8FB7D50
+ CONST UID '97DAA8FB7D50'
+ CONST Name 'aTarget'
+ CONST IsSummoned true
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_4991AD08005B' '4683F37902CF.pas.ms.script' // IvcmEntity
+ ;
+
+ref; // ME_97DAA8FB7D50 aTarget
+
+: ME_17D827C515B4
+ CONST UID '17D827C515B4'
+ CONST Name 'Call'
+ CONST IsSummoned true
+ CONST Class class_Operation
+ : Stereotype st_static::Operation ;
+ %SUMMARY 'Вызов операции Comment.Changed у сущности' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_4CF941D32C80 // Op_Comment_Changed
+ ;
+ : Target WL 'ME_3DBFFE100240' '3DBFDB23006E.pas.ms.script' // boolean
+ ;
+ : Parameters
+   Seq: ( ME_97DAA8FB7D50 // aTarget
+ )
+ ; // Parameters
+ CONST extprop:pas:Value false
+
+ref; // ME_17D827C515B4 Call
+
+: ME_2280BCF8DB4C
+ CONST UID '2280BCF8DB4C'
+ CONST Name 'aTarget'
+ CONST IsSummoned true
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_49930CC501C9' '4683F37902CF.pas.ms.script' // IvcmAggregate
+ ;
+
+ref; // ME_2280BCF8DB4C aTarget
+
+: ME_4817E7B4A004
+ CONST UID '4817E7B4A004'
+ CONST Name 'Call'
+ CONST IsSummoned true
+ CONST Class class_Operation
+ : Stereotype st_static::Operation ;
+ %SUMMARY 'Вызов операции Comment.Changed у агрегации' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_4CF941D32C80 // Op_Comment_Changed
+ ;
+ : Target WL 'ME_3DBFFE100240' '3DBFDB23006E.pas.ms.script' // boolean
+ ;
+ : Parameters
+   Seq: ( ME_2280BCF8DB4C // aTarget
+ )
+ ; // Parameters
+ CONST extprop:pas:Value false
+
+ref; // ME_4817E7B4A004 Call
+
+: ME_514265416D09
+ CONST UID '514265416D09'
+ CONST Name 'aTarget'
+ CONST IsSummoned true
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_4914746C019E' '4683F37902CF.pas.ms.script' // IvcmEntityForm
+ ;
+
+ref; // ME_514265416D09 aTarget
+
+: ME_4ADAC3E354AB
+ CONST UID '4ADAC3E354AB'
+ CONST Name 'Call'
+ CONST IsSummoned true
+ CONST Class class_Operation
+ : Stereotype st_static::Operation ;
+ %SUMMARY 'Вызов операции Comment.Changed у формы' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_4CF941D32C80 // Op_Comment_Changed
+ ;
+ : Target WL 'ME_3DBFFE100240' '3DBFDB23006E.pas.ms.script' // boolean
+ ;
+ : Parameters
+   Seq: ( ME_514265416D09 // aTarget
+ )
+ ; // Parameters
+ CONST extprop:pas:Value false
+
+ref; // ME_4ADAC3E354AB Call
+
+: ME_F779109F0278
+ CONST UID 'F779109F0278'
+ CONST Name 'aTarget'
+ CONST IsSummoned true
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_49525C400141' '4683F37902CF.pas.ms.script' // IvcmContainer
+ ;
+
+ref; // ME_F779109F0278 aTarget
+
+: ME_FEB78DFB4BFA
+ CONST UID 'FEB78DFB4BFA'
+ CONST Name 'Call'
+ CONST IsSummoned true
+ CONST Class class_Operation
+ : Stereotype st_static::Operation ;
+ %SUMMARY 'Вызов операции Comment.Changed у контейнера' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_4CF941D32C80 // Op_Comment_Changed
+ ;
+ : Target WL 'ME_3DBFFE100240' '3DBFDB23006E.pas.ms.script' // boolean
+ ;
+ : Parameters
+   Seq: ( ME_F779109F0278 // aTarget
+ )
+ ; // Parameters
+ CONST extprop:pas:Value false
+
+ref; // ME_FEB78DFB4BFA Call
+
+: ME_F8509C861974
+ CONST UID 'F8509C861974'
+ CONST Name 'Broadcast'
+ CONST IsSummoned true
+ CONST Class class_Operation
+ : Stereotype st_static::Operation ;
+ %SUMMARY 'Вызов операции Comment.Changed у всех зарегистрированных сущностей' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_4CF941D32C80 // Op_Comment_Changed
+ ;
+
+ref; // ME_F8509C861974 Broadcast
+
+: ME_4CF941D32C80
+ CONST UID '4CF941D32C80'
+ CONST Name 'Op_Comment_Changed'
+ CONST IsSummoned true
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Класс для вызова операции Comment.Changed' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4EAAE5A1005E // DocumentNotifications
+ ;
+ : Operations
+   Seq: ( ME_17D827C515B4 // Call
+ ME_4817E7B4A004 // Call
+ ME_4ADAC3E354AB // Call
+ ME_FEB78DFB4BFA // Call
+ ME_F8509C861974 // Broadcast
+ )
+ ; // Operations
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\View'
+ CONST extprop:rc:isAcceptableForScripts true
+
+ref; // ME_4CF941D32C80 Op_Comment_Changed
+
+: ME_4EAAE5A1005E
+ CONST UID '4EAAE5A1005E'
+ CONST Name 'DocumentNotifications'
+ CONST Class class_Category
+ : Stereotype st_VCMControls ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent WL 'ME_4EAAE543007F' '4EAAE543007F.pas.ms.script' // View
+ ;
+ : Children
+   Seq: ( ME_4EAAE5B2005F // Comment
+ ME_4CF941D32C80 // Op_Comment_Changed
+ )
+ ; // Children
+ : Depends
+   Seq: ( WL 'ME_4914746C019E' '4683F37902CF.pas.ms.script' // IvcmEntityForm
+ WL 'ME_49525C400141' '4683F37902CF.pas.ms.script' // IvcmContainer
+ WL 'ME_4991AD08005B' '4683F37902CF.pas.ms.script' // IvcmEntity
+ WL 'ME_49930CC501C9' '4683F37902CF.pas.ms.script' // IvcmAggregate
+ )
+ ; // Depends
+ CONST "is namespace" true
+ CONST "no hands" false
+ : Generators
+ Seq: (
+ gen_intf.pas
+ gen_pas.script
+ gen_pas.script.runner
+ )
+ ; // Generators
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View'
+ CONST intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\LegalDomain_DocumentNotifications_Controls.pas'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View'
+ CONST pas.script:Path 'shared\models\NewSchool\Scripts\4EAAE5A1005E.pas.ms.script'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\4EAAE5A1005E.pas.ms.script.runner'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\View'
+ CONST extprop:pas:UnitName 'LegalDomain_DocumentNotifications_Controls'
+
+ref; // ME_4EAAE5A1005E DocumentNotifications

@@ -1,0 +1,689 @@
+// LoggingWords 55B75D820337 ScriptKeywords Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_55B75D820337
+
+FORWARD ME_55B75D980276
+
+FORWARD ME_66D69322DA0D
+
+: ME_BEA3EEE5146A
+ CONST UID 'BEA3EEE5146A'
+ CONST Name 'Ini_Reg'
+ CONST IsSummoned true
+ CONST Class class_Operation
+ : Stereotype st_ini::Operation ;
+ %SUMMARY 'Регистрация logging_StartListening' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_66D69322DA0D // logging_StartListening
+ ;
+
+ref; // ME_BEA3EEE5146A Ini_Reg
+
+: ME_F46E58770BC7
+ CONST UID 'F46E58770BC7'
+ CONST IsSummoned true
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_66D69322DA0D // logging_StartListening
+ ;
+ : Target WL 'ME_4DB0091E033E' '4DAF19F600C5.pas.ms.script' // TtfwContext
+ ;
+
+ref; // ME_F46E58770BC7 
+
+: ME_41E3004C10FC
+ CONST UID '41E3004C10FC'
+ CONST IsSummoned true
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_66D69322DA0D // logging_StartListening
+ ;
+ : Target WL 'ME_4767748503B5' '4767743E00E5.pas.ms.script' // TTypeInfo
+ ;
+
+ref; // ME_41E3004C10FC 
+
+: ME_218BE94724A8
+ CONST UID '218BE94724A8'
+ CONST IsSummoned true
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_66D69322DA0D // logging_StartListening
+ ;
+ : Target WL 'ME_47877EB202FB' '4AB0C3C60310.pas.ms.script' // SysUtils
+ ;
+
+ref; // ME_218BE94724A8 
+
+: ME_4DAEEDE10285_ME_66D69322DA0D
+ CONST UID '4DAEEDE10285'
+ CONST Name 'DoDoIt'
+ : Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.pas.ms.script' // DoDoIt
+ ;
+ : Implementor ME_66D69322DA0D // logging_StartListening
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_4DAEEDE10285_ME_66D69322DA0D DoDoIt
+
+: ME_4DB0614603C8_ME_66D69322DA0D
+ CONST UID '4DB0614603C8'
+ CONST Name 'GetWordNameForRegister'
+ : Original WL 'ME_4DB0614603C8' '4F3E3F5F0160.pas.ms.script' // GetWordNameForRegister
+ ;
+ : Implementor ME_66D69322DA0D // logging_StartListening
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_4DB0614603C8_ME_66D69322DA0D GetWordNameForRegister
+
+: ME_551544E2001A_ME_66D69322DA0D
+ CONST UID '551544E2001A'
+ CONST Name 'GetResultTypeInfo'
+ : Original WL 'ME_551544E2001A' '4DAF19F600C5.pas.ms.script' // GetResultTypeInfo
+ ;
+ : Implementor ME_66D69322DA0D // logging_StartListening
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_551544E2001A_ME_66D69322DA0D GetResultTypeInfo
+
+: ME_559687E6025A_ME_66D69322DA0D
+ CONST UID '559687E6025A'
+ CONST Name 'GetAllParamsCount'
+ : Original WL 'ME_559687E6025A' '4DAF19F600C5.pas.ms.script' // GetAllParamsCount
+ ;
+ : Implementor ME_66D69322DA0D // logging_StartListening
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_559687E6025A_ME_66D69322DA0D GetAllParamsCount
+
+: ME_66D69322DA0D
+ CONST UID '66D69322DA0D'
+ CONST Name 'logging_StartListening'
+ CONST IsSummoned true
+ CONST Class class_Class
+ : Stereotype st_ScriptKeyword ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Слово скрипта logging:StartListening'#13#10'*Пример:*'#13#10'{code}'#13#10' logging:StartListening'#13#10'{code} ' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_55B75D980276 // LoggingWordsPack
+ ;
+ : Inherits
+   Seq: ( WL 'ME_561BAC4B0005' '55CCADD2013D.pas.ms.script' // TtfwGlobalKeyWord
+ )
+ ; // Inherits
+ : Operations
+   Seq: ( ME_BEA3EEE5146A // Ini_Reg
+ )
+ ; // Operations
+ : Implemented
+   Seq: ( ME_4DAEEDE10285_ME_66D69322DA0D // DoDoIt
+ )
+ ; // Implemented
+ : Overridden
+   Seq: ( ME_4DB0614603C8_ME_66D69322DA0D // GetWordNameForRegister
+ ME_551544E2001A_ME_66D69322DA0D // GetResultTypeInfo
+ ME_559687E6025A_ME_66D69322DA0D // GetAllParamsCount
+ )
+ ; // Overridden
+ : Dependencies
+   Seq: ( ME_F46E58770BC7 // 
+ ME_41E3004C10FC // 
+ ME_218BE94724A8 // 
+ )
+ ; // Dependencies
+ CONST "NameForScript" 'logging:StartListening'
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Logging'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Logging'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\Logging'
+ CONST extprop:pas:TypeName 'TkwLoggingStartListening'
+ CONST extprop:rc:SelfName 'LoggingStartListening'
+ CONST extprop:rc:isAcceptableForScripts true
+
+ref; // ME_66D69322DA0D logging_StartListening
+
+FORWARD ME_961A18770456
+
+: ME_3C979AD66A04
+ CONST UID '3C979AD66A04'
+ CONST Name 'Ini_Reg'
+ CONST IsSummoned true
+ CONST Class class_Operation
+ : Stereotype st_ini::Operation ;
+ %SUMMARY 'Регистрация logging_FinishListening' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_961A18770456 // logging_FinishListening
+ ;
+
+ref; // ME_3C979AD66A04 Ini_Reg
+
+: ME_5347FB57266C
+ CONST UID '5347FB57266C'
+ CONST IsSummoned true
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_961A18770456 // logging_FinishListening
+ ;
+ : Target WL 'ME_4DB0091E033E' '4DAF19F600C5.pas.ms.script' // TtfwContext
+ ;
+
+ref; // ME_5347FB57266C 
+
+: ME_98FDCAA99FE6
+ CONST UID '98FDCAA99FE6'
+ CONST IsSummoned true
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_961A18770456 // logging_FinishListening
+ ;
+ : Target WL 'ME_4767748503B5' '4767743E00E5.pas.ms.script' // TTypeInfo
+ ;
+
+ref; // ME_98FDCAA99FE6 
+
+: ME_1DCAC9AEC59C
+ CONST UID '1DCAC9AEC59C'
+ CONST IsSummoned true
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_961A18770456 // logging_FinishListening
+ ;
+ : Target WL 'ME_47877EB202FB' '4AB0C3C60310.pas.ms.script' // SysUtils
+ ;
+
+ref; // ME_1DCAC9AEC59C 
+
+: ME_4DAEEDE10285_ME_961A18770456
+ CONST UID '4DAEEDE10285'
+ CONST Name 'DoDoIt'
+ : Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.pas.ms.script' // DoDoIt
+ ;
+ : Implementor ME_961A18770456 // logging_FinishListening
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_4DAEEDE10285_ME_961A18770456 DoDoIt
+
+: ME_4DB0614603C8_ME_961A18770456
+ CONST UID '4DB0614603C8'
+ CONST Name 'GetWordNameForRegister'
+ : Original WL 'ME_4DB0614603C8' '4F3E3F5F0160.pas.ms.script' // GetWordNameForRegister
+ ;
+ : Implementor ME_961A18770456 // logging_FinishListening
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_4DB0614603C8_ME_961A18770456 GetWordNameForRegister
+
+: ME_551544E2001A_ME_961A18770456
+ CONST UID '551544E2001A'
+ CONST Name 'GetResultTypeInfo'
+ : Original WL 'ME_551544E2001A' '4DAF19F600C5.pas.ms.script' // GetResultTypeInfo
+ ;
+ : Implementor ME_961A18770456 // logging_FinishListening
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_551544E2001A_ME_961A18770456 GetResultTypeInfo
+
+: ME_559687E6025A_ME_961A18770456
+ CONST UID '559687E6025A'
+ CONST Name 'GetAllParamsCount'
+ : Original WL 'ME_559687E6025A' '4DAF19F600C5.pas.ms.script' // GetAllParamsCount
+ ;
+ : Implementor ME_961A18770456 // logging_FinishListening
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_559687E6025A_ME_961A18770456 GetAllParamsCount
+
+: ME_961A18770456
+ CONST UID '961A18770456'
+ CONST Name 'logging_FinishListening'
+ CONST IsSummoned true
+ CONST Class class_Class
+ : Stereotype st_ScriptKeyword ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Слово скрипта logging:FinishListening'#13#10'*Пример:*'#13#10'{code}'#13#10' logging:FinishListening'#13#10'{code} ' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_55B75D980276 // LoggingWordsPack
+ ;
+ : Inherits
+   Seq: ( WL 'ME_561BAC4B0005' '55CCADD2013D.pas.ms.script' // TtfwGlobalKeyWord
+ )
+ ; // Inherits
+ : Operations
+   Seq: ( ME_3C979AD66A04 // Ini_Reg
+ )
+ ; // Operations
+ : Implemented
+   Seq: ( ME_4DAEEDE10285_ME_961A18770456 // DoDoIt
+ )
+ ; // Implemented
+ : Overridden
+   Seq: ( ME_4DB0614603C8_ME_961A18770456 // GetWordNameForRegister
+ ME_551544E2001A_ME_961A18770456 // GetResultTypeInfo
+ ME_559687E6025A_ME_961A18770456 // GetAllParamsCount
+ )
+ ; // Overridden
+ : Dependencies
+   Seq: ( ME_5347FB57266C // 
+ ME_98FDCAA99FE6 // 
+ ME_1DCAC9AEC59C // 
+ )
+ ; // Dependencies
+ CONST "NameForScript" 'logging:FinishListening'
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Logging'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Logging'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\Logging'
+ CONST extprop:pas:TypeName 'TkwLoggingFinishListening'
+ CONST extprop:rc:SelfName 'LoggingFinishListening'
+ CONST extprop:rc:isAcceptableForScripts true
+
+ref; // ME_961A18770456 logging_FinishListening
+
+FORWARD ME_4FDD3D4A4771
+
+: ME_5F69D7060AED
+ CONST UID '5F69D7060AED'
+ CONST Name 'aCtx'
+ CONST IsSummoned true
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_4DB0091E033E' '4DAF19F600C5.pas.ms.script' // TtfwContext
+ ;
+
+ref; // ME_5F69D7060AED aCtx
+
+: ME_E7318C288828
+ CONST UID 'E7318C288828'
+ CONST Name 'logging_GetLogRecords'
+ CONST IsSummoned true
+ CONST Class class_Operation
+ %SUMMARY 'Реализация слова скрипта logging:GetLogRecords' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_4FDD3D4A4771 // logging_GetLogRecords
+ ;
+ : Target WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
+ ;
+ : Parameters
+   Seq: ( ME_5F69D7060AED // aCtx
+ )
+ ; // Parameters
+
+ref; // ME_E7318C288828 logging_GetLogRecords
+
+: ME_37AF56FCC9C0
+ CONST UID '37AF56FCC9C0'
+ CONST Name 'Ini_Reg'
+ CONST IsSummoned true
+ CONST Class class_Operation
+ : Stereotype st_ini::Operation ;
+ %SUMMARY 'Регистрация logging_GetLogRecords' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_4FDD3D4A4771 // logging_GetLogRecords
+ ;
+
+ref; // ME_37AF56FCC9C0 Ini_Reg
+
+: ME_33FAF4134BFD
+ CONST UID '33FAF4134BFD'
+ CONST IsSummoned true
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4FDD3D4A4771 // logging_GetLogRecords
+ ;
+ : Target WL 'ME_4DB0091E033E' '4DAF19F600C5.pas.ms.script' // TtfwContext
+ ;
+
+ref; // ME_33FAF4134BFD 
+
+: ME_B05276724B8F
+ CONST UID 'B05276724B8F'
+ CONST IsSummoned true
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4FDD3D4A4771 // logging_GetLogRecords
+ ;
+ : Target WL 'ME_4767748503B5' '4767743E00E5.pas.ms.script' // TTypeInfo
+ ;
+
+ref; // ME_B05276724B8F 
+
+: ME_BCFF64EE7EE6
+ CONST UID 'BCFF64EE7EE6'
+ CONST IsSummoned true
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4FDD3D4A4771 // logging_GetLogRecords
+ ;
+ : Target WL 'ME_47877EB202FB' '4AB0C3C60310.pas.ms.script' // SysUtils
+ ;
+
+ref; // ME_BCFF64EE7EE6 
+
+: ME_4DAEEDE10285_ME_4FDD3D4A4771
+ CONST UID '4DAEEDE10285'
+ CONST Name 'DoDoIt'
+ : Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.pas.ms.script' // DoDoIt
+ ;
+ : Implementor ME_4FDD3D4A4771 // logging_GetLogRecords
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_4DAEEDE10285_ME_4FDD3D4A4771 DoDoIt
+
+: ME_4DB0614603C8_ME_4FDD3D4A4771
+ CONST UID '4DB0614603C8'
+ CONST Name 'GetWordNameForRegister'
+ : Original WL 'ME_4DB0614603C8' '4F3E3F5F0160.pas.ms.script' // GetWordNameForRegister
+ ;
+ : Implementor ME_4FDD3D4A4771 // logging_GetLogRecords
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_4DB0614603C8_ME_4FDD3D4A4771 GetWordNameForRegister
+
+: ME_551544E2001A_ME_4FDD3D4A4771
+ CONST UID '551544E2001A'
+ CONST Name 'GetResultTypeInfo'
+ : Original WL 'ME_551544E2001A' '4DAF19F600C5.pas.ms.script' // GetResultTypeInfo
+ ;
+ : Implementor ME_4FDD3D4A4771 // logging_GetLogRecords
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_551544E2001A_ME_4FDD3D4A4771 GetResultTypeInfo
+
+: ME_559687E6025A_ME_4FDD3D4A4771
+ CONST UID '559687E6025A'
+ CONST Name 'GetAllParamsCount'
+ : Original WL 'ME_559687E6025A' '4DAF19F600C5.pas.ms.script' // GetAllParamsCount
+ ;
+ : Implementor ME_4FDD3D4A4771 // logging_GetLogRecords
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_559687E6025A_ME_4FDD3D4A4771 GetAllParamsCount
+
+: ME_5617F4D00243_ME_4FDD3D4A4771
+ CONST UID '5617F4D00243'
+ CONST Name 'ParamsTypes'
+ : Original WL 'ME_5617F4D00243' '4DAF19F600C5.pas.ms.script' // ParamsTypes
+ ;
+ : Implementor ME_4FDD3D4A4771 // logging_GetLogRecords
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_5617F4D00243_ME_4FDD3D4A4771 ParamsTypes
+
+: ME_4FDD3D4A4771
+ CONST UID '4FDD3D4A4771'
+ CONST Name 'logging_GetLogRecords'
+ CONST IsSummoned true
+ CONST Class class_Class
+ : Stereotype st_ScriptKeyword ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Слово скрипта logging:GetLogRecords'#13#10'*Тип результата:* String'#13#10'*Пример:*'#13#10'{code}'#13#10'STRING VAR l_String'#13#10' logging:GetLogRecords >>> l_String'#13#10'{code} ' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_55B75D980276 // LoggingWordsPack
+ ;
+ : Inherits
+   Seq: ( WL 'ME_561BAC4B0005' '55CCADD2013D.pas.ms.script' // TtfwGlobalKeyWord
+ )
+ ; // Inherits
+ : Operations
+   Seq: ( ME_E7318C288828 // logging_GetLogRecords
+ ME_37AF56FCC9C0 // Ini_Reg
+ )
+ ; // Operations
+ : Implemented
+   Seq: ( ME_4DAEEDE10285_ME_4FDD3D4A4771 // DoDoIt
+ )
+ ; // Implemented
+ : Overridden
+   Seq: ( ME_4DB0614603C8_ME_4FDD3D4A4771 // GetWordNameForRegister
+ ME_551544E2001A_ME_4FDD3D4A4771 // GetResultTypeInfo
+ ME_559687E6025A_ME_4FDD3D4A4771 // GetAllParamsCount
+ ME_5617F4D00243_ME_4FDD3D4A4771 // ParamsTypes
+ )
+ ; // Overridden
+ : Dependencies
+   Seq: ( ME_33FAF4134BFD // 
+ ME_B05276724B8F // 
+ ME_BCFF64EE7EE6 // 
+ )
+ ; // Dependencies
+ CONST "NameForScript" 'logging:GetLogRecords'
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Logging'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Logging'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\Logging'
+ CONST extprop:pas:TypeName 'TkwLoggingGetLogRecords'
+ CONST extprop:rc:SelfName 'LoggingGetLogRecords'
+ CONST extprop:rc:isAcceptableForScripts true
+
+ref; // ME_4FDD3D4A4771 logging_GetLogRecords
+
+: ME_55B75DC003BF
+ CONST UID '55B75DC003BF'
+ CONST Name 'logging_StartListening'
+ CONST Class class_Operation
+ : Stereotype st_globalkeyword::Operation ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_55B75D980276 // LoggingWordsPack
+ ;
+
+ref; // ME_55B75DC003BF logging_StartListening
+
+: ME_55B75DD7013D
+ CONST UID '55B75DD7013D'
+ CONST Name 'logging_FinishListening'
+ CONST Class class_Operation
+ : Stereotype st_globalkeyword::Operation ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_55B75D980276 // LoggingWordsPack
+ ;
+
+ref; // ME_55B75DD7013D logging_FinishListening
+
+: ME_55B75E0E039F
+ CONST UID '55B75E0E039F'
+ CONST Name 'logging_GetLogRecords'
+ CONST Class class_Operation
+ : Stereotype st_globalkeyword::Operation ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_55B75D980276 // LoggingWordsPack
+ ;
+ : Target WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
+ ;
+
+ref; // ME_55B75E0E039F logging_GetLogRecords
+
+: ME_ED0C5EEBDCF9
+ CONST UID 'ED0C5EEBDCF9'
+ CONST Name 'Reg_Type_TtfwContext'
+ CONST IsSummoned true
+ CONST Class class_Operation
+ : Stereotype st_ini::Operation ;
+ %SUMMARY 'Регистрация типа TtfwContext' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_55B75D980276 // LoggingWordsPack
+ ;
+ : SpelledFor WL 'ME_4DB0091E033E' '4DAF19F600C5.pas.ms.script' // TtfwContext
+ ;
+
+ref; // ME_ED0C5EEBDCF9 Reg_Type_TtfwContext
+
+: ME_27D13676FA49
+ CONST UID '27D13676FA49'
+ CONST Name 'Reg_Type_String'
+ CONST IsSummoned true
+ CONST Class class_Operation
+ : Stereotype st_ini::Operation ;
+ %SUMMARY 'Регистрация типа String' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_55B75D980276 // LoggingWordsPack
+ ;
+ : SpelledFor WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
+ ;
+
+ref; // ME_27D13676FA49 Reg_Type_String
+
+: ME_55BA026201A4
+ CONST UID '55BA026201A4'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_55B75D980276 // LoggingWordsPack
+ ;
+ : Target WL 'ME_55B9FFCB020F' '55B9FF5B03CB.pas.ms.script' // TnsLoggingTestService
+ ;
+
+ref; // ME_55BA026201A4 
+
+: ME_55BA0271031A
+ CONST UID '55BA0271031A'
+ CONST Class class_Dependency
+ : Stereotype st_injects::Dependency ;
+ : Parent ME_55B75D980276 // LoggingWordsPack
+ ;
+ : Target WL 'ME_55B9FFCB020F' '55B9FF5B03CB.pas.ms.script' // TnsLoggingTestService
+ ;
+
+ref; // ME_55BA0271031A 
+
+: ME_3610CEC90F91
+ CONST UID '3610CEC90F91'
+ CONST IsSummoned true
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_55B75D980276 // LoggingWordsPack
+ ;
+ : Target WL 'ME_55153C2C036F' '55BA28CE0290.pas.ms.script' // TypeInfoExt
+ ;
+
+ref; // ME_3610CEC90F91 
+
+: ME_AEDD7F920897
+ CONST UID 'AEDD7F920897'
+ CONST IsSummoned true
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_55B75D980276 // LoggingWordsPack
+ ;
+ : Target WL 'ME_5527F8330362' '5527F81C020E.pas.ms.script' // TtfwTypeRegistrator
+ ;
+
+ref; // ME_AEDD7F920897 
+
+: ME_55B75D980276
+ CONST UID '55B75D980276'
+ CONST Name 'LoggingWordsPack'
+ CONST Class class_Class
+ : Stereotype st_ScriptKeywordsPack ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_55B75D820337 // LoggingWords
+ ;
+ : Operations
+   Seq: ( ME_55B75DC003BF // logging_StartListening
+ ME_55B75DD7013D // logging_FinishListening
+ ME_55B75E0E039F // logging_GetLogRecords
+ ME_ED0C5EEBDCF9 // Reg_Type_TtfwContext
+ ME_27D13676FA49 // Reg_Type_String
+ )
+ ; // Operations
+ : Children
+   Seq: ( ME_66D69322DA0D // logging_StartListening
+ ME_961A18770456 // logging_FinishListening
+ ME_4FDD3D4A4771 // logging_GetLogRecords
+ )
+ ; // Children
+ : Dependencies
+   Seq: ( ME_55BA026201A4 // 
+ ME_55BA0271031A // 
+ ME_3610CEC90F91 // 
+ ME_AEDD7F920897 // 
+ )
+ ; // Dependencies
+ CONST "author" 'Костицын'
+ CONST "ifndef" 'NoScripts'
+ CONST "needs script" 'undefined'
+ CONST "no class name" 'undefined'
+ CONST "no hands" false
+ CONST "no_pop" 'undefined'
+ : Generators
+ Seq: (
+ gen_intf.pas
+ )
+ ; // Generators
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Logging'
+ CONST intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\Logging\LoggingWordsPack.pas'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Logging'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\Logging'
+
+ref; // ME_55B75D980276 LoggingWordsPack
+
+: ME_55B75D820337
+ CONST UID '55B75D820337'
+ CONST Name 'LoggingWords'
+ CONST Class class_Category
+ : Stereotype st_ScriptKeywords ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent WL 'ME_55B62380030A' '55B62380030A.pas.ms.script' // Logging
+ ;
+ : Children
+   Seq: ( ME_55B75D980276 // LoggingWordsPack
+ )
+ ; // Children
+ : Depends
+   Seq: ( WL 'ME_4767743E00E5' '4767743E00E5.pas.ms.script' // TypInfo
+ WL 'ME_4AB0C3C60310' '4AB0C3C60310.pas.ms.script' // Sys
+ WL 'ME_4B0A60DF01F2' '4B0A60DF01F2.pas.ms.script' // Logging
+ WL 'ME_4DAF19F600C5' '4DAF19F600C5.pas.ms.script' // tfwScriptingInterfaces
+ WL 'ME_5527F81C020E' '5527F81C020E.pas.ms.script' // TypesRegistration
+ WL 'ME_55B9FF5B03CB' '55B9FF5B03CB.pas.ms.script' // LoggingTestService
+ WL 'ME_55BA28CE0290' '55BA28CE0290.pas.ms.script' // tfwScriptingTypes
+ WL 'ME_55CCADD2013D' '55CCADD2013D.pas.ms.script' // ClassLikeMapping
+ )
+ ; // Depends
+ CONST "ifndef" 'NoScripts'
+ : Generators
+ Seq: (
+ gen_pas.script
+ gen_pas.script.runner
+ )
+ ; // Generators
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Logging'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Logging'
+ CONST pas.script:Path 'shared\models\NewSchool\Scripts\55B75D820337.pas.ms.script'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\55B75D820337.pas.ms.script.runner'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\Logging'
+
+ref; // ME_55B75D820337 LoggingWords

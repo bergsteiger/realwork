@@ -31,12 +31,12 @@ ref; // ME_53A967A10314
  : Parent ME_47ECA80B000D // Generators
  ;
  : Inherits
-   @ ( ME_47ECAA5B0394 // Tk2TagGenerator
- ) .SequenceCode.It
+   Seq: ( ME_47ECAA5B0394 // Tk2TagGenerator
+ )
  ; // Inherits
  : Dependencies
-   @ ( ME_53A967A10314 // 
- ) .SequenceCode.It
+   Seq: ( ME_53A967A10314 // 
+ )
  ; // Dependencies
  CONST "author" 'Ëþëèí À.Â.'
  CONST "finished" false
@@ -45,12 +45,14 @@ ref; // ME_53A967A10314
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
  CONST "started" '18.09.2002 10:17'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\K2'
  CONST intf.pas:Path 'common\components\rtl\Garant\K2\NOT_FINISHED_k2BaseStackGenerator.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\K2'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'BaseStackGenerator'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'k2BaseStackGenerator'
 
 ref; // ME_4836B2EC01DE Tk2BaseStackGenerator
 
@@ -67,6 +69,12 @@ FORWARD ME_47ECAA270135
  CONST Abstraction at_regular
  : Parent ME_47ECAA270135 // k2TagGen
  ;
+ CONST dfm:PathOnly '\common\components\rtl\Garant\K2'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\K2'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'TagGeneratorWrap'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_4A3A35D30362 Ik2TagGeneratorWrap
 
@@ -84,6 +92,12 @@ ref; // ME_4A3A35D30362 Ik2TagGeneratorWrap
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
+ CONST dfm:PathOnly '\common\components\rtl\Garant\K2'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\K2'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'TagGeneratorOwner'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_538C21C10077 Tk2TagGeneratorOwner
 
@@ -98,6 +112,12 @@ ref; // ME_538C21C10077 Tk2TagGeneratorOwner
  CONST Abstraction at_regular
  : Parent ME_47ECAA270135 // k2TagGen
  ;
+ CONST dfm:PathOnly '\common\components\rtl\Garant\K2'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\K2'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'TagGeneratorChainEnd'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_53C3C92502CE Ik2TagGeneratorChainEnd
 
@@ -130,9 +150,9 @@ ref; // ME_530DFF330329 aValue
  : Parent ME_47ECAA5B0394 // Tk2TagGenerator
  ;
  : Parameters
-   @ ( ME_4836D27F004B // AtomIndex
+   Seq: ( ME_4836D27F004B // AtomIndex
  ME_530DFF330329 // aValue
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_4836D26F0055 AddAtom
@@ -156,8 +176,8 @@ ref; // ME_4836D46F0370 TypeID
  : Parent ME_47ECAA5B0394 // Tk2TagGenerator
  ;
  : Parameters
-   @ ( ME_4836D46F0370 // TypeID
- ) .SequenceCode.It
+   Seq: ( ME_4836D46F0370 // TypeID
+ )
  ; // Parameters
 
 ref; // ME_4836D4650177 StartChild
@@ -181,8 +201,8 @@ ref; // ME_4836D47D025F TagID
  : Parent ME_47ECAA5B0394 // Tk2TagGenerator
  ;
  : Parameters
-   @ ( ME_4836D47D025F // TagID
- ) .SequenceCode.It
+   Seq: ( ME_4836D47D025F // TagID
+ )
  ; // Parameters
 
 ref; // ME_4836D477022A StartTag
@@ -219,8 +239,8 @@ ref; // ME_4836D4BA025D NeedUndo
  : Parent ME_47ECAA5B0394 // Tk2TagGenerator
  ;
  : Parameters
-   @ ( ME_4836D4BA025D // NeedUndo
- ) .SequenceCode.It
+   Seq: ( ME_4836D4BA025D // NeedUndo
+ )
  ; // Parameters
 
 ref; // ME_4836D4B003DC CloseStream
@@ -245,8 +265,8 @@ ref; // ME_4836D4CF0372 NeedUndo
  : Parent ME_47ECAA5B0394 // Tk2TagGenerator
  ;
  : Parameters
-   @ ( ME_4836D4CF0372 // NeedUndo
- ) .SequenceCode.It
+   Seq: ( ME_4836D4CF0372 // NeedUndo
+ )
  ; // Parameters
 
 ref; // ME_4836D4C20059 CloseStructure
@@ -294,9 +314,9 @@ ref; // ME_4836D50300B0 Child
  : Target WL 'ME_3DBFFD7002C2' '3DBFDB23006E.pas.ms.script' // long
  ;
  : Parameters
-   @ ( ME_4836D503006D // Name
+   Seq: ( ME_4836D503006D // Name
  ME_4836D50300B0 // Child
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_4836D4F5021B GetObjectID
@@ -330,9 +350,9 @@ ref; // ME_4836D52B0336 Value
  : Parent ME_47ECAA5B0394 // Tk2TagGenerator
  ;
  : Parameters
-   @ ( ME_4836D52B02F2 // AtomIndex
+   Seq: ( ME_4836D52B02F2 // AtomIndex
  ME_4836D52B0336 // Value
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_4836D52400D9 AddAtomEx
@@ -368,6 +388,7 @@ ref; // ME_4836D54C0385 Message
  CONST Value true
  : ValueType WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
+ CONST extprop:pas:Value true
 
 ref; // ME_4836D54C03D2 NeedException
 
@@ -380,9 +401,9 @@ ref; // ME_4836D54C03D2 NeedException
  : Parent ME_47ECAA5B0394 // Tk2TagGenerator
  ;
  : Parameters
-   @ ( ME_4836D54C0385 // Message
+   Seq: ( ME_4836D54C0385 // Message
  ME_4836D54C03D2 // NeedException
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_4836D5440159 Error
@@ -397,6 +418,7 @@ ref; // ME_4836D5440159 Error
  CONST Value 'nil'
  : ValueType ME_538C21C10077 // Tk2TagGeneratorOwner
  ;
+ CONST extprop:pas:Value 'nil'
 
 ref; // ME_538C1FC20338 anOwner
 
@@ -410,8 +432,8 @@ ref; // ME_538C1FC20338 anOwner
  : Parent ME_47ECAA5B0394 // Tk2TagGenerator
  ;
  : Parameters
-   @ ( ME_538C1FC20338 // anOwner
- ) .SequenceCode.It
+   Seq: ( ME_538C1FC20338 // anOwner
+ )
  ; // Parameters
 
 ref; // ME_538C1F9A00C7 Create
@@ -434,6 +456,7 @@ ref; // ME_530F1E1103E5
  ;
  : Implementor ME_47ECAA5B0394 // Tk2TagGenerator
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_469F83C300B2_ME_47ECAA5B0394 AddStringAtom
 
 : ME_469F84BB0023_ME_47ECAA5B0394
@@ -443,6 +466,7 @@ ref; // ME_469F83C300B2_ME_47ECAA5B0394 AddStringAtom
  ;
  : Implementor ME_47ECAA5B0394 // Tk2TagGenerator
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_469F84BB0023_ME_47ECAA5B0394 AddStringAtom
 
 : ME_469F870C01B6_ME_47ECAA5B0394
@@ -452,6 +476,7 @@ ref; // ME_469F84BB0023_ME_47ECAA5B0394 AddStringAtom
  ;
  : Implementor ME_47ECAA5B0394 // Tk2TagGenerator
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_469F870C01B6_ME_47ECAA5B0394 AddStreamAtom
 
 : ME_469F872B0124_ME_47ECAA5B0394
@@ -461,6 +486,7 @@ ref; // ME_469F870C01B6_ME_47ECAA5B0394 AddStreamAtom
  ;
  : Implementor ME_47ECAA5B0394 // Tk2TagGenerator
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_469F872B0124_ME_47ECAA5B0394 AddTransparentAtom
 
 : ME_469F87470084_ME_47ECAA5B0394
@@ -470,6 +496,7 @@ ref; // ME_469F872B0124_ME_47ECAA5B0394 AddTransparentAtom
  ;
  : Implementor ME_47ECAA5B0394 // Tk2TagGenerator
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_469F87470084_ME_47ECAA5B0394 AddIntegerAtom
 
 : ME_469F87D4002D_ME_47ECAA5B0394
@@ -479,6 +506,7 @@ ref; // ME_469F87470084_ME_47ECAA5B0394 AddIntegerAtom
  ;
  : Implementor ME_47ECAA5B0394 // Tk2TagGenerator
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_469F87D4002D_ME_47ECAA5B0394 AddBoolAtom
 
 : ME_469F8818037E_ME_47ECAA5B0394
@@ -488,6 +516,7 @@ ref; // ME_469F87D4002D_ME_47ECAA5B0394 AddBoolAtom
  ;
  : Implementor ME_47ECAA5B0394 // Tk2TagGenerator
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_469F8818037E_ME_47ECAA5B0394 AddAtom
 
 : ME_469F8B580244_ME_47ECAA5B0394
@@ -497,6 +526,7 @@ ref; // ME_469F8818037E_ME_47ECAA5B0394 AddAtom
  ;
  : Implementor ME_47ECAA5B0394 // Tk2TagGenerator
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_469F8B580244_ME_47ECAA5B0394 AddAtomEx
 
 : ME_469F8B9E02C7_ME_47ECAA5B0394
@@ -506,6 +536,7 @@ ref; // ME_469F8B580244_ME_47ECAA5B0394 AddAtomEx
  ;
  : Implementor ME_47ECAA5B0394 // Tk2TagGenerator
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_469F8B9E02C7_ME_47ECAA5B0394 Start
 
 : ME_469F8BBA01EB_ME_47ECAA5B0394
@@ -515,6 +546,7 @@ ref; // ME_469F8B9E02C7_ME_47ECAA5B0394 Start
  ;
  : Implementor ME_47ECAA5B0394 // Tk2TagGenerator
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_469F8BBA01EB_ME_47ECAA5B0394 StartChild
 
 : ME_469F8BCC02D7_ME_47ECAA5B0394
@@ -524,6 +556,7 @@ ref; // ME_469F8BBA01EB_ME_47ECAA5B0394 StartChild
  ;
  : Implementor ME_47ECAA5B0394 // Tk2TagGenerator
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_469F8BCC02D7_ME_47ECAA5B0394 StartDefaultChild
 
 : ME_469F8BF00166_ME_47ECAA5B0394
@@ -533,6 +566,7 @@ ref; // ME_469F8BCC02D7_ME_47ECAA5B0394 StartDefaultChild
  ;
  : Implementor ME_47ECAA5B0394 // Tk2TagGenerator
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_469F8BF00166_ME_47ECAA5B0394 StartTag
 
 : ME_469F8C0A031C_ME_47ECAA5B0394
@@ -542,6 +576,7 @@ ref; // ME_469F8BF00166_ME_47ECAA5B0394 StartTag
  ;
  : Implementor ME_47ECAA5B0394 // Tk2TagGenerator
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_469F8C0A031C_ME_47ECAA5B0394 Finish
 
 : ME_469F8C450231_ME_47ECAA5B0394
@@ -551,6 +586,7 @@ ref; // ME_469F8C0A031C_ME_47ECAA5B0394 Finish
  ;
  : Implementor ME_47ECAA5B0394 // Tk2TagGenerator
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" true
 ref; // ME_469F8C450231_ME_47ECAA5B0394 CharsInLine
 
@@ -561,6 +597,7 @@ ref; // ME_469F8C450231_ME_47ECAA5B0394 CharsInLine
  ;
  : Implementor ME_47ECAA5B0394 // Tk2TagGenerator
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" true
 ref; // ME_469F8C6D01B6_ME_47ECAA5B0394 NextGenerator
 
@@ -571,6 +608,7 @@ ref; // ME_469F8C6D01B6_ME_47ECAA5B0394 NextGenerator
  ;
  : Implementor ME_47ECAA5B0394 // Tk2TagGenerator
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" true
 ref; // ME_469F8C8C02FB_ME_47ECAA5B0394 CurrentStartLevel
 
@@ -581,6 +619,7 @@ ref; // ME_469F8C8C02FB_ME_47ECAA5B0394 CurrentStartLevel
  ;
  : Implementor ME_47ECAA5B0394 // Tk2TagGenerator
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_469F956E01A6_ME_47ECAA5B0394 Rollback
 
 : ME_469F9589032C_ME_47ECAA5B0394
@@ -590,6 +629,7 @@ ref; // ME_469F956E01A6_ME_47ECAA5B0394 Rollback
  ;
  : Implementor ME_47ECAA5B0394 // Tk2TagGenerator
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_469F9589032C_ME_47ECAA5B0394 Pixel2Char
 
 : ME_4C1B7F810123_ME_47ECAA5B0394
@@ -599,6 +639,7 @@ ref; // ME_469F9589032C_ME_47ECAA5B0394 Pixel2Char
  ;
  : Implementor ME_47ECAA5B0394 // Tk2TagGenerator
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" false
 ref; // ME_4C1B7F810123_ME_47ECAA5B0394 CurrentVersion
 
@@ -609,6 +650,7 @@ ref; // ME_4C1B7F810123_ME_47ECAA5B0394 CurrentVersion
  ;
  : Implementor ME_47ECAA5B0394 // Tk2TagGenerator
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_4E31464A0116_ME_47ECAA5B0394 AddInt64Atom
 
 : ME_532AD07903C5_ME_47ECAA5B0394
@@ -618,6 +660,7 @@ ref; // ME_4E31464A0116_ME_47ECAA5B0394 AddInt64Atom
  ;
  : Implementor ME_47ECAA5B0394 // Tk2TagGenerator
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_532AD07903C5_ME_47ECAA5B0394 Char2Pixel
 
 : ME_533C0C71011C_ME_47ECAA5B0394
@@ -627,6 +670,7 @@ ref; // ME_532AD07903C5_ME_47ECAA5B0394 Char2Pixel
  ;
  : Implementor ME_47ECAA5B0394 // Tk2TagGenerator
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" true
 ref; // ME_533C0C71011C_ME_47ECAA5B0394 Context
 
@@ -642,17 +686,17 @@ ref; // ME_533C0C71011C_ME_47ECAA5B0394 Context
  : Parent ME_47ECAA270135 // k2TagGen
  ;
  : Inherits
-   @ ( WL 'ME_47879856035F' '47913B47006E.pas.ms.script' // Tl3_Base
- ) .SequenceCode.It
+   Seq: ( WL 'ME_47879856035F' '47913B47006E.pas.ms.script' // Tl3_Base
+ )
  ; // Inherits
  : Implements
-   @ ( WL 'ME_4678160E01BE' '47913B47006E.pas.ms.script' // Ik2TagGenerator
+   Seq: ( WL 'ME_4678160E01BE' '47913B47006E.pas.ms.script' // Ik2TagGenerator
  ME_4A3A35D30362 // Ik2TagGeneratorWrap
  ME_53C3C92502CE // Ik2TagGeneratorChainEnd
- ) .SequenceCode.It
+ )
  ; // Implements
  : Operations
-   @ ( ME_4836D26F0055 // AddAtom
+   Seq: ( ME_4836D26F0055 // AddAtom
  ME_4836D4650177 // StartChild
  ME_4836D477022A // StartTag
  ME_4836D49800CA // OpenStream
@@ -664,10 +708,10 @@ ref; // ME_533C0C71011C_ME_47ECAA5B0394 Context
  ME_4836D534009A // AfterStreamOpened
  ME_4836D5440159 // Error
  ME_538C1F9A00C7 // Create
- ) .SequenceCode.It
+ )
  ; // Operations
  : Implemented
-   @ ( ME_469F83C300B2_ME_47ECAA5B0394 // AddStringAtom
+   Seq: ( ME_469F83C300B2_ME_47ECAA5B0394 // AddStringAtom
  ME_469F84BB0023_ME_47ECAA5B0394 // AddStringAtom
  ME_469F870C01B6_ME_47ECAA5B0394 // AddStreamAtom
  ME_469F872B0124_ME_47ECAA5B0394 // AddTransparentAtom
@@ -689,15 +733,15 @@ ref; // ME_533C0C71011C_ME_47ECAA5B0394 Context
  ME_4E31464A0116_ME_47ECAA5B0394 // AddInt64Atom
  ME_532AD07903C5_ME_47ECAA5B0394 // Char2Pixel
  ME_533C0C71011C_ME_47ECAA5B0394 // Context
- ) .SequenceCode.It
+ )
  ; // Implemented
  : Dependencies
-   @ ( ME_530F1E1103E5 // 
- ) .SequenceCode.It
+   Seq: ( ME_530F1E1103E5 // 
+ )
  ; // Dependencies
  : Injected
-   @ ( WL 'ME_552BE8F800BE' '505AD9C20338.pas.ms.script' // 
- ) .SequenceCode.It
+   Seq: ( WL 'ME_552BE8F800BE' '505AD9C20338.pas.ms.script' // 
+ )
  ; // Injected
  CONST "author" 'Ëþëèí À.Â.'
  CONST "needs InstanceR" 'undefined'
@@ -705,6 +749,12 @@ ref; // ME_533C0C71011C_ME_47ECAA5B0394 Context
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
  CONST "started" '01.12.1998 18:48'
+ CONST dfm:PathOnly '\common\components\rtl\Garant\K2'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\K2'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'TagGenerator'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_47ECAA5B0394 Tk2TagGenerator
 
@@ -720,22 +770,22 @@ ref; // ME_47ECAA5B0394 Tk2TagGenerator
  : Parent ME_47ECA80B000D // Generators
  ;
  : Children
-   @ ( ME_4A3A35D30362 // Ik2TagGeneratorWrap
+   Seq: ( ME_4A3A35D30362 // Ik2TagGeneratorWrap
  ME_538C21C10077 // Tk2TagGeneratorOwner
  ME_53C3C92502CE // Ik2TagGeneratorChainEnd
  ME_47ECAA5B0394 // Tk2TagGenerator
- ) .SequenceCode.It
+ )
  ; // Children
  CONST "author" 'Ëþëèí À.Â.'
  CONST "finished" false
  CONST "no hands" false
  CONST "started" '01.12.1998 18:48'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\K2'
  CONST intf.pas:Path 'common\components\rtl\Garant\K2\NOT_FINISHED_k2TagGen.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\K2'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'TagGen'
 
 ref; // ME_47ECAA270135 k2TagGen
 
@@ -751,6 +801,10 @@ FORWARD ME_47F226C7001F
  CONST Abstraction at_regular
  : Parent ME_47F226C7001F // Tk2DocumentGenerator
  ;
+ CONST dfm:PathOnly '\common\components\rtl\Garant\K2'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\K2'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_47F2272B0394 Tk2StackAtom
 
@@ -773,8 +827,8 @@ ref; // ME_4836B39F025A Atom
  : Parent ME_47F226C7001F // Tk2DocumentGenerator
  ;
  : Parameters
-   @ ( ME_4836B39F025A // Atom
- ) .SequenceCode.It
+   Seq: ( ME_4836B39F025A // Atom
+ )
  ; // Parameters
 
 ref; // ME_4836B39C025E DoStartAtom
@@ -798,8 +852,8 @@ ref; // ME_4836B3A90172 anAtom
  : Parent ME_47F226C7001F // Tk2DocumentGenerator
  ;
  : Parameters
-   @ ( ME_4836B3A90172 // anAtom
- ) .SequenceCode.It
+   Seq: ( ME_4836B3A90172 // anAtom
+ )
  ; // Parameters
 
 ref; // ME_4836B3A70291 DoFinishAtom
@@ -825,8 +879,8 @@ ref; // ME_4836B3BC009B Atom
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
  : Parameters
-   @ ( ME_4836B3BC009B // Atom
- ) .SequenceCode.It
+   Seq: ( ME_4836B3BC009B // Atom
+ )
  ; // Parameters
 
 ref; // ME_4836B3B80074 DoBeforeFinishAtom
@@ -870,10 +924,10 @@ ref; // ME_530E010C0141 aSource
  : Parent ME_47F226C7001F // Tk2DocumentGenerator
  ;
  : Parameters
-   @ ( ME_4836B3F40284 // Atom
+   Seq: ( ME_4836B3F40284 // Atom
  ME_4836B3F402AB // Prop
  ME_530E010C0141 // aSource
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_4836B3DB01C9 DoAddAtom
@@ -899,8 +953,8 @@ ref; // ME_4836B40103BA aChild
  : Target WL 'ME_3DBFFD7002C2' '3DBFDB23006E.pas.ms.script' // long
  ;
  : Parameters
-   @ ( ME_4836B40103BA // aChild
- ) .SequenceCode.It
+   Seq: ( ME_4836B40103BA // aChild
+ )
  ; // Parameters
 
 ref; // ME_4836B3FC032A AddChild
@@ -926,8 +980,8 @@ ref; // ME_4836B40E02EF aChild
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
  : Parameters
-   @ ( ME_4836B40E02EF // aChild
- ) .SequenceCode.It
+   Seq: ( ME_4836B40E02EF // aChild
+ )
  ; // Parameters
 
 ref; // ME_4836B4080275 DeleteChild
@@ -953,8 +1007,8 @@ ref; // ME_4836B42B0330 aChild
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
  : Parameters
-   @ ( ME_4836B42B0330 // aChild
- ) .SequenceCode.It
+   Seq: ( ME_4836B42B0330 // aChild
+ )
  ; // Parameters
 
 ref; // ME_4836B42200AF NeedPreAddChild
@@ -971,22 +1025,22 @@ ref; // ME_4836B42200AF NeedPreAddChild
  : Parent ME_47ECA80B000D // Generators
  ;
  : Inherits
-   @ ( ME_4836B2EC01DE // Tk2BaseStackGenerator
- ) .SequenceCode.It
+   Seq: ( ME_4836B2EC01DE // Tk2BaseStackGenerator
+ )
  ; // Inherits
  : Operations
-   @ ( ME_4836B39C025E // DoStartAtom
+   Seq: ( ME_4836B39C025E // DoStartAtom
  ME_4836B3A70291 // DoFinishAtom
  ME_4836B3B80074 // DoBeforeFinishAtom
  ME_4836B3DB01C9 // DoAddAtom
  ME_4836B3FC032A // AddChild
  ME_4836B4080275 // DeleteChild
  ME_4836B42200AF // NeedPreAddChild
- ) .SequenceCode.It
+ )
  ; // Operations
  : Children
-   @ ( ME_47F2272B0394 // Tk2StackAtom
- ) .SequenceCode.It
+   Seq: ( ME_47F2272B0394 // Tk2StackAtom
+ )
  ; // Children
  CONST "author" 'Ëþëèí À.Â.'
  CONST "finished" false
@@ -995,12 +1049,14 @@ ref; // ME_4836B42200AF NeedPreAddChild
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
  CONST "started" '18.05.98 15:19'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\K2'
  CONST intf.pas:Path 'common\components\rtl\Garant\K2\NOT_FINISHED_k2DocumentGenerator.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\K2'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'DocumentGenerator'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'k2DocumentGenerator'
 
 ref; // ME_47F226C7001F Tk2DocumentGenerator
 
@@ -1015,8 +1071,8 @@ ref; // ME_47F226C7001F Tk2DocumentGenerator
  : Parent ME_47ECA80B000D // Generators
  ;
  : Inherits
-   @ ( ME_4836B2EC01DE // Tk2BaseStackGenerator
- ) .SequenceCode.It
+   Seq: ( ME_4836B2EC01DE // Tk2BaseStackGenerator
+ )
  ; // Inherits
  CONST "author" 'Ëþëèí À.Â.'
  CONST "finished" false
@@ -1025,12 +1081,14 @@ ref; // ME_47F226C7001F Tk2DocumentGenerator
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
  CONST "started" '18.09.2002 10:17'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\K2'
  CONST intf.pas:Path 'common\components\rtl\Garant\K2\NOT_FINISHED_k2CustomStackGenerator.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\K2'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'StackGenerator'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'k2CustomStackGenerator'
 
 ref; // ME_482D6F380205 Tk2CustomStackGenerator
 
@@ -1045,8 +1103,8 @@ ref; // ME_482D6F380205 Tk2CustomStackGenerator
  : Parent ME_47ECA80B000D // Generators
  ;
  : Inherits
-   @ ( ME_47F226C7001F // Tk2DocumentGenerator
- ) .SequenceCode.It
+   Seq: ( ME_47F226C7001F // Tk2DocumentGenerator
+ )
  ; // Inherits
  CONST "author" 'Ëþëèí À.Â.'
  CONST "finished" false
@@ -1055,12 +1113,14 @@ ref; // ME_482D6F380205 Tk2CustomStackGenerator
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
  CONST "started" '16.03.2004 17:53'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\K2'
  CONST intf.pas:Path 'common\components\rtl\Garant\K2\NOT_FINISHED_k2DocumentBuffer.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\K2'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'DocumentBuffer'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'k2DocumentBuffer'
 
 ref; // ME_47ECA82403AC Tk2DocumentBuffer
 
@@ -1076,8 +1136,8 @@ ref; // ME_47ECA82403AC Tk2DocumentBuffer
  : Parent ME_47ECA80B000D // Generators
  ;
  : Inherits
-   @ ( ME_482D6F380205 // Tk2CustomStackGenerator
- ) .SequenceCode.It
+   Seq: ( ME_482D6F380205 // Tk2CustomStackGenerator
+ )
  ; // Inherits
  CONST "author" 'Ëþëèí À.Â.'
  CONST "finished" false
@@ -1086,12 +1146,14 @@ ref; // ME_47ECA82403AC Tk2DocumentBuffer
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
  CONST "started" '18.09.2002 10:17'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\K2'
  CONST intf.pas:Path 'common\components\rtl\Garant\K2\NOT_FINISHED_k2CustomStackGeneratorEx.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\K2'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'StackGeneratorEx'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'k2CustomStackGeneratorEx'
 
 ref; // ME_4836BFF2026B Tk2CustomStackGeneratorEx
 
@@ -1121,12 +1183,12 @@ ref; // ME_483A6DE30208 OutEOL
  : Parent ME_47ECA80B000D // Generators
  ;
  : Inherits
-   @ ( ME_4836BFF2026B // Tk2CustomStackGeneratorEx
- ) .SequenceCode.It
+   Seq: ( ME_4836BFF2026B // Tk2CustomStackGeneratorEx
+ )
  ; // Inherits
  : Operations
-   @ ( ME_483A6DE30208 // OutEOL
- ) .SequenceCode.It
+   Seq: ( ME_483A6DE30208 // OutEOL
+ )
  ; // Operations
  CONST "author" 'Ëþëèí À.Â.'
  CONST "finished" false
@@ -1135,12 +1197,14 @@ ref; // ME_483A6DE30208 OutEOL
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
  CONST "started" '21.02.2005 18:55'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\K2'
  CONST intf.pas:Path 'common\components\rtl\Garant\K2\NOT_FINISHED_k2CustomFileGenerator.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\K2'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'FileGenerator'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'k2CustomFileGenerator'
 
 ref; // ME_4836BFC9011E Tk2CustomFileGenerator
 
@@ -1155,20 +1219,22 @@ ref; // ME_4836BFC9011E Tk2CustomFileGenerator
  : Parent ME_47ECA80B000D // Generators
  ;
  : Inherits
-   @ ( ME_4836BFF2026B // Tk2CustomStackGeneratorEx
- ) .SequenceCode.It
+   Seq: ( ME_4836BFF2026B // Tk2CustomStackGeneratorEx
+ )
  ; // Inherits
  CONST "finished" false
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\K2'
  CONST intf.pas:Path 'common\components\rtl\Garant\K2\NOT_FINISHED_k2TagTerminator.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\K2'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'TagTerminator'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'k2TagTerminator'
 
 ref; // ME_49E487BD025D Tk2TagTerminator
 
@@ -1184,6 +1250,11 @@ FORWARD ME_49E487A70144
  CONST Abstraction at_regular
  : Parent ME_49E487A70144 // Tk2TagFilter
  ;
+ CONST dfm:PathOnly '\common\components\rtl\Garant\K2'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\K2'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_4E15CBC600AA Tk2TagFilterOpenMode
 
@@ -1210,8 +1281,8 @@ ref; // ME_4E15CC0300FE anOpenMode
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
  : Parameters
-   @ ( ME_4E15CC0300FE // anOpenMode
- ) .SequenceCode.It
+   Seq: ( ME_4E15CC0300FE // anOpenMode
+ )
  ; // Parameters
 
 ref; // ME_4E15CBF802C7 DoIt
@@ -1227,8 +1298,8 @@ ref; // ME_4E15CBF802C7 DoIt
  : Parent ME_49E487A70144 // Tk2TagFilter
  ;
  : Operations
-   @ ( ME_4E15CBF802C7 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_4E15CBF802C7 // DoIt
+ )
  ; // Operations
 
 ref; // ME_4E15CBD5018B NeedTranslateChildToNextPrim
@@ -1254,8 +1325,8 @@ ref; // ME_4E451682003F NeedUndo
  : Parent ME_4E45166B0156 // DoCloseStructure
  ;
  : Parameters
-   @ ( ME_4E451682003F // NeedUndo
- ) .SequenceCode.It
+   Seq: ( ME_4E451682003F // NeedUndo
+ )
  ; // Parameters
 
 ref; // ME_4E451678032C DoIt
@@ -1271,8 +1342,8 @@ ref; // ME_4E451678032C DoIt
  : Parent ME_49E487A70144 // Tk2TagFilter
  ;
  : Operations
-   @ ( ME_4E451678032C // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_4E451678032C // DoIt
+ )
  ; // Operations
 
 ref; // ME_4E45166B0156 DoCloseStructure
@@ -1296,8 +1367,8 @@ ref; // ME_4A2D121F0179 TypeID
  : Parent ME_49E487A70144 // Tk2TagFilter
  ;
  : Parameters
-   @ ( ME_4A2D121F0179 // TypeID
- ) .SequenceCode.It
+   Seq: ( ME_4A2D121F0179 // TypeID
+ )
  ; // Parameters
 
 ref; // ME_4A2D1217037A DoStartChild
@@ -1331,9 +1402,9 @@ ref; // ME_4A2D163E001F Value
  : Parent ME_49E487A70144 // Tk2TagFilter
  ;
  : Parameters
-   @ ( ME_4A2D163D03AE // AtomIndex
+   Seq: ( ME_4A2D163D03AE // AtomIndex
  ME_4A2D163E001F // Value
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_4A2D1634025B DoAddAtomEx
@@ -1362,32 +1433,34 @@ ref; // ME_4CA3006302BC NeedTranslateChildToNext
  : Parent ME_47ECA80B000D // Generators
  ;
  : Inherits
-   @ ( ME_49E487BD025D // Tk2TagTerminator
- ) .SequenceCode.It
+   Seq: ( ME_49E487BD025D // Tk2TagTerminator
+ )
  ; // Inherits
  : Operations
-   @ ( ME_4E15CBD5018B // NeedTranslateChildToNextPrim
+   Seq: ( ME_4E15CBD5018B // NeedTranslateChildToNextPrim
  ME_4E45166B0156 // DoCloseStructure
  ME_4A2D1217037A // DoStartChild
  ME_4A2D1634025B // DoAddAtomEx
  ME_4CA3006302BC // NeedTranslateChildToNext
- ) .SequenceCode.It
+ )
  ; // Operations
  : Children
-   @ ( ME_4E15CBC600AA // Tk2TagFilterOpenMode
- ) .SequenceCode.It
+   Seq: ( ME_4E15CBC600AA // Tk2TagFilterOpenMode
+ )
  ; // Children
  CONST "finished" false
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\K2'
  CONST intf.pas:Path 'common\components\rtl\Garant\K2\NOT_FINISHED_k2TagFilter.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\K2'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'TagFilter'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'k2TagFilter'
 
 ref; // ME_49E487A70144 Tk2TagFilter
 
@@ -1402,20 +1475,22 @@ ref; // ME_49E487A70144 Tk2TagFilter
  : Parent ME_47ECA80B000D // Generators
  ;
  : Inherits
-   @ ( ME_47F226C7001F // Tk2DocumentGenerator
- ) .SequenceCode.It
+   Seq: ( ME_47F226C7001F // Tk2DocumentGenerator
+ )
  ; // Inherits
  CONST "finished" false
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\K2'
  CONST intf.pas:Path 'common\components\rtl\Garant\K2\NOT_FINISHED_k2InPlaceGenerator.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\K2'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'InPlaceGenerator'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'k2InPlaceGenerator'
 
 ref; // ME_4C6D285C0052 Tk2InPlaceGenerator
 
@@ -1430,20 +1505,22 @@ ref; // ME_4C6D285C0052 Tk2InPlaceGenerator
  : Parent ME_47ECA80B000D // Generators
  ;
  : Inherits
-   @ ( ME_47ECAA5B0394 // Tk2TagGenerator
- ) .SequenceCode.It
+   Seq: ( ME_47ECAA5B0394 // Tk2TagGenerator
+ )
  ; // Inherits
  CONST "finished" false
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\K2'
  CONST intf.pas:Path 'common\components\rtl\Garant\K2\NOT_FINISHED_k2TagTranslator.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\K2'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'TagTranslator'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'k2TagTranslator'
 
 ref; // ME_53BBFCB00241 Tk2TagTranslator
 
@@ -1458,20 +1535,22 @@ ref; // ME_53BBFCB00241 Tk2TagTranslator
  : Parent ME_47ECA80B000D // Generators
  ;
  : Inherits
-   @ ( ME_53BBFCB00241 // Tk2TagTranslator
- ) .SequenceCode.It
+   Seq: ( ME_53BBFCB00241 // Tk2TagTranslator
+ )
  ; // Inherits
  CONST "finished" false
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\K2'
  CONST intf.pas:Path 'common\components\rtl\Garant\K2\NOT_FINISHED_k2ForkGenerator.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\K2'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'ForkGenerator'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'k2ForkGenerator'
 
 ref; // ME_53BBFCA20372 Tk2ForkGenerator
 
@@ -1486,7 +1565,7 @@ ref; // ME_53BBFCA20372 Tk2ForkGenerator
  : Parent WL 'ME_4677E16A022A' '4677E16A022A.pas.ms.script' // K2
  ;
  : Children
-   @ ( ME_4836B2EC01DE // Tk2BaseStackGenerator
+   Seq: ( ME_4836B2EC01DE // Tk2BaseStackGenerator
  ME_47ECAA270135 // k2TagGen
  ME_47F226C7001F // Tk2DocumentGenerator
  ME_482D6F380205 // Tk2CustomStackGenerator
@@ -1498,10 +1577,10 @@ ref; // ME_53BBFCA20372 Tk2ForkGenerator
  ME_4C6D285C0052 // Tk2InPlaceGenerator
  ME_53BBFCB00241 // Tk2TagTranslator
  ME_53BBFCA20372 // Tk2ForkGenerator
- ) .SequenceCode.It
+ )
  ; // Children
  : Depends
-   @ ( WL 'ME_4678137501EA' '4678137501EA.pas.ms.script' // k2Interfaces
+   Seq: ( WL 'ME_4678137501EA' '4678137501EA.pas.ms.script' // k2Interfaces
  WL 'ME_467FC43F01F9' '467FC43F01F9.pas.ms.script' // k2CoreObjects
  WL 'ME_469F886F010C' '469F886F010C.pas.ms.script' // k2Types
  WL 'ME_47913B47006E' '47913B47006E.pas.ms.script' // l3CoreObjects
@@ -1509,15 +1588,13 @@ ref; // ME_53BBFCA20372 Tk2ForkGenerator
  WL 'ME_4A4DE16302A2' '4A4DE16302A2.pas.ms.script' // k2Core
  WL 'ME_4AB0C3C60310' '4AB0C3C60310.pas.ms.script' // Sys
  WL 'ME_53A963DD0356' '53A963DD0356.pas.ms.script' // TagAttributes
- ) .SequenceCode.It
+ )
  ; // Depends
- : Generators
- @ (
- gen_pas.script
- gen_pas.script.runner
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\K2'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\K2'
  CONST pas.script:Path 'shared\models\NewSchool\Scripts\47ECA80B000D.pas.ms.script'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
  CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\47ECA80B000D.pas.ms.script.runner'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_47ECA80B000D Generators

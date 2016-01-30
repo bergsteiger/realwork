@@ -1,0 +1,438 @@
+// Dialogs 4ECB871B0028 Unit Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4ECB871B0028
+
+FORWARD ME_4ECB874E0247
+
+: ME_4ECB8780011A
+ CONST UID '4ECB8780011A'
+ CONST Name 'TContentsEditDlg'
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4ECB874E0247 // d_GetContents
+ ;
+ : Inherits
+   Seq: ( WL 'ME_4E4B62A40251' '4E202BD501B7.pas.ms.script' // TBottomBtnDlg
+ )
+ ; // Inherits
+ CONST "finished" false
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ CONST dfm:PathOnly '\archi\source\projects\Archi\Dlg'
+ CONST intf.pas:PathOnly '\archi\source\projects\Archi\Dlg'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\archi\source\projects\Archi\Dlg'
+ CONST extprop:rc:SelfName 'ContentsEditDlg'
+ CONST extprop:rc:isAcceptableForScripts true
+
+ref; // ME_4ECB8780011A TContentsEditDlg
+
+FORWARD ME_4ECB87E20367
+
+: ME_E50C4DBEC7FB
+ CONST UID 'E50C4DBEC7FB'
+ CONST Name 'DoIt'
+ CONST IsSummoned true
+ CONST Class class_Operation
+ %SUMMARY 'Сигнатура метода RequestContents' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_4ECB87E20367 // RequestContents
+ ;
+
+ref; // ME_E50C4DBEC7FB DoIt
+
+: ME_4ECB87E20367
+ CONST UID '4ECB87E20367'
+ CONST Name 'RequestContents'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_4ECB874E0247 // d_GetContents
+ ;
+ : Operations
+   Seq: ( ME_E50C4DBEC7FB // DoIt
+ )
+ ; // Operations
+ CONST "finished" false
+
+ref; // ME_4ECB87E20367 RequestContents
+
+: ME_4ECB874E0247
+ CONST UID '4ECB874E0247'
+ CONST Name 'd_GetContents'
+ CONST Class class_Class
+ : Stereotype st_UtilityPack ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_4ECB871B0028 // Dialogs
+ ;
+ : Operations
+   Seq: ( ME_4ECB87E20367 // RequestContents
+ )
+ ; // Operations
+ : Children
+   Seq: ( ME_4ECB8780011A // TContentsEditDlg
+ )
+ ; // Children
+ CONST "finished" false
+ CONST "no hands" false
+ : Generators
+ Seq: (
+ gen_intf.pas
+ )
+ ; // Generators
+ CONST dfm:PathOnly '\archi\source\projects\Archi\Dlg'
+ CONST intf.pas:Path 'archi\source\projects\Archi\Dlg\NOT_FINISHED_d_GetContents.pas'
+ CONST intf.pas:PathOnly '\archi\source\projects\Archi\Dlg'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\archi\source\projects\Archi\Dlg'
+
+ref; // ME_4ECB874E0247 d_GetContents
+
+FORWARD ME_4F8D26D303CB
+
+FORWARD ME_4F8D26E9004F
+
+FORWARD ME_4F8D273401A2
+
+: ME_AA57ECFCD11D
+ CONST UID 'AA57ECFCD11D'
+ CONST Name 'DoIt'
+ CONST IsSummoned true
+ CONST Class class_Operation
+ %SUMMARY 'Сигнатура метода Execute' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_4F8D273401A2 // Execute
+ ;
+
+ref; // ME_AA57ECFCD11D DoIt
+
+: ME_4F8D273401A2
+ CONST UID '4F8D273401A2'
+ CONST Name 'Execute'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_4F8D26E9004F // TDocSearchDlg
+ ;
+ : Operations
+   Seq: ( ME_AA57ECFCD11D // DoIt
+ )
+ ; // Operations
+
+ref; // ME_4F8D273401A2 Execute
+
+: ME_4F8D26E9004F
+ CONST UID '4F8D26E9004F'
+ CONST Name 'TDocSearchDlg'
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4F8D26D303CB // D_Srch
+ ;
+ : Inherits
+   Seq: ( WL 'ME_4E4B62A40251' '4E202BD501B7.pas.ms.script' // TBottomBtnDlg
+ )
+ ; // Inherits
+ : Operations
+   Seq: ( ME_4F8D273401A2 // Execute
+ )
+ ; // Operations
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ CONST dfm:PathOnly '\archi\source\projects\Archi\Dlg'
+ CONST intf.pas:PathOnly '\archi\source\projects\Archi\Dlg'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\archi\source\projects\Archi\Dlg'
+ CONST extprop:rc:SelfName 'DocSearchDlg'
+ CONST extprop:rc:isAcceptableForScripts true
+
+ref; // ME_4F8D26E9004F TDocSearchDlg
+
+: ME_4F8D26D303CB
+ CONST UID '4F8D26D303CB'
+ CONST Name 'D_Srch'
+ CONST Class class_Class
+ : Stereotype st_UtilityPack ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_4ECB871B0028 // Dialogs
+ ;
+ : Children
+   Seq: ( ME_4F8D26E9004F // TDocSearchDlg
+ )
+ ; // Children
+ CONST "finished" false
+ CONST "no hands" false
+ : Generators
+ Seq: (
+ gen_intf.pas
+ )
+ ; // Generators
+ CONST dfm:PathOnly '\archi\source\projects\Archi\Dlg'
+ CONST intf.pas:Path 'archi\source\projects\Archi\Dlg\NOT_FINISHED_D_Srch.pas'
+ CONST intf.pas:PathOnly '\archi\source\projects\Archi\Dlg'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\archi\source\projects\Archi\Dlg'
+
+ref; // ME_4F8D26D303CB D_Srch
+
+FORWARD ME_4F8D5C7802F6
+
+: ME_4F8D5C85024B
+ CONST UID '4F8D5C85024B'
+ CONST Name 'TSearchResultDlg'
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4F8D5C7802F6 // D_SchRes
+ ;
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ CONST dfm:PathOnly '\archi\source\projects\Archi\Dlg'
+ CONST intf.pas:PathOnly '\archi\source\projects\Archi\Dlg'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\archi\source\projects\Archi\Dlg'
+ CONST extprop:rc:SelfName 'SearchResultDlg'
+ CONST extprop:rc:isAcceptableForScripts true
+
+ref; // ME_4F8D5C85024B TSearchResultDlg
+
+: ME_4F8D5C7802F6
+ CONST UID '4F8D5C7802F6'
+ CONST Name 'D_SchRes'
+ CONST Class class_Class
+ : Stereotype st_UtilityPack ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_4ECB871B0028 // Dialogs
+ ;
+ : Children
+   Seq: ( ME_4F8D5C85024B // TSearchResultDlg
+ )
+ ; // Children
+ CONST "finished" false
+ CONST "no hands" false
+ : Generators
+ Seq: (
+ gen_intf.pas
+ )
+ ; // Generators
+ CONST dfm:PathOnly '\archi\source\projects\Archi\Dlg'
+ CONST intf.pas:Path 'archi\source\projects\Archi\Dlg\NOT_FINISHED_D_SchRes.pas'
+ CONST intf.pas:PathOnly '\archi\source\projects\Archi\Dlg'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\archi\source\projects\Archi\Dlg'
+
+ref; // ME_4F8D5C7802F6 D_SchRes
+
+FORWARD ME_4F910CF600C9
+
+: ME_4F910D0303E7
+ CONST UID '4F910D0303E7'
+ CONST Name 'TGetNumberDlg'
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4F910CF600C9 // D_GetNum
+ ;
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ CONST dfm:PathOnly '\archi\source\projects\Archi\Dlg'
+ CONST intf.pas:PathOnly '\archi\source\projects\Archi\Dlg'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\archi\source\projects\Archi\Dlg'
+ CONST extprop:rc:SelfName 'GetNumberDlg'
+ CONST extprop:rc:isAcceptableForScripts true
+
+ref; // ME_4F910D0303E7 TGetNumberDlg
+
+: ME_4F910CF600C9
+ CONST UID '4F910CF600C9'
+ CONST Name 'D_GetNum'
+ CONST Class class_Class
+ : Stereotype st_UtilityPack ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_4ECB871B0028 // Dialogs
+ ;
+ : Children
+   Seq: ( ME_4F910D0303E7 // TGetNumberDlg
+ )
+ ; // Children
+ CONST "finished" false
+ CONST "no hands" false
+ : Generators
+ Seq: (
+ gen_intf.pas
+ )
+ ; // Generators
+ CONST dfm:PathOnly '\archi\source\projects\Archi\Dlg'
+ CONST intf.pas:Path 'archi\source\projects\Archi\Dlg\NOT_FINISHED_D_GetNum.pas'
+ CONST intf.pas:PathOnly '\archi\source\projects\Archi\Dlg'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\archi\source\projects\Archi\Dlg'
+
+ref; // ME_4F910CF600C9 D_GetNum
+
+FORWARD ME_50163EBB0377
+
+: ME_50163ED103BF
+ CONST UID '50163ED103BF'
+ CONST Name 'TNameEditDlg'
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_50163EBB0377 // D_NameEd
+ ;
+ : Inherits
+   Seq: ( WL 'ME_4E4B62A40251' '4E202BD501B7.pas.ms.script' // TBottomBtnDlg
+ )
+ ; // Inherits
+ CONST "finished" false
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ CONST dfm:PathOnly '\archi\source\projects\Archi\Dlg'
+ CONST intf.pas:PathOnly '\archi\source\projects\Archi\Dlg'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\archi\source\projects\Archi\Dlg'
+ CONST extprop:rc:SelfName 'NameEditDlg'
+ CONST extprop:rc:isAcceptableForScripts true
+
+ref; // ME_50163ED103BF TNameEditDlg
+
+: ME_50163EBB0377
+ CONST UID '50163EBB0377'
+ CONST Name 'D_NameEd'
+ CONST Class class_Class
+ : Stereotype st_UtilityPack ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_4ECB871B0028 // Dialogs
+ ;
+ : Children
+   Seq: ( ME_50163ED103BF // TNameEditDlg
+ )
+ ; // Children
+ CONST "finished" false
+ CONST "no hands" false
+ : Generators
+ Seq: (
+ gen_intf.pas
+ )
+ ; // Generators
+ CONST dfm:PathOnly '\archi\source\projects\Archi\Dlg'
+ CONST intf.pas:Path 'archi\source\projects\Archi\Dlg\NOT_FINISHED_D_NameEd.pas'
+ CONST intf.pas:PathOnly '\archi\source\projects\Archi\Dlg'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\archi\source\projects\Archi\Dlg'
+
+ref; // ME_50163EBB0377 D_NameEd
+
+: ME_53EC88D6039A
+ CONST UID '53EC88D6039A'
+ CONST Name 'D_ShowInfo'
+ CONST Class class_Class
+ : Stereotype st_UtilityPack ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_4ECB871B0028 // Dialogs
+ ;
+ CONST "finished" false
+ CONST "no hands" false
+ : Generators
+ Seq: (
+ gen_intf.pas
+ )
+ ; // Generators
+ CONST dfm:PathOnly '\archi\source\projects\Archi\Dlg'
+ CONST intf.pas:Path 'archi\source\projects\Archi\Dlg\NOT_FINISHED_D_ShowInfo.pas'
+ CONST intf.pas:PathOnly '\archi\source\projects\Archi\Dlg'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\archi\source\projects\Archi\Dlg'
+
+ref; // ME_53EC88D6039A D_ShowInfo
+
+: ME_4ECB871B0028
+ CONST UID '4ECB871B0028'
+ CONST Name 'Dialogs'
+ CONST Class class_Category
+ : Stereotype st_Unit ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent WL 'ME_4DE803840174' '4DE803840174.pas.ms.script' // Dlg
+ ;
+ : Children
+   Seq: ( ME_4ECB874E0247 // d_GetContents
+ ME_4F8D26D303CB // D_Srch
+ ME_4F8D5C7802F6 // D_SchRes
+ ME_4F910CF600C9 // D_GetNum
+ ME_50163EBB0377 // D_NameEd
+ ME_53EC88D6039A // D_ShowInfo
+ )
+ ; // Children
+ : Depends
+   Seq: ( WL 'ME_4E202BD501B7' '4E202BD501B7.pas.ms.script' // BaseForms
+ )
+ ; // Depends
+ : Generators
+ Seq: (
+ gen_pas.script
+ gen_pas.script.runner
+ )
+ ; // Generators
+ CONST dfm:PathOnly '\archi\source\projects\Archi\Dlg'
+ CONST intf.pas:PathOnly '\archi\source\projects\Archi\Dlg'
+ CONST pas.script:Path 'shared\models\NewSchool\Scripts\4ECB871B0028.pas.ms.script'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\4ECB871B0028.pas.ms.script.runner'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\archi\source\projects\Archi\Dlg'
+
+ref; // ME_4ECB871B0028 Dialogs

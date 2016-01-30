@@ -52,10 +52,10 @@ ref; // ME_51B1BD640320
  : Parent ME_51B1ADF20017 // TCheckingFilesInFolderTest
  ;
  : Dependencies
-   @ ( ME_51B1B82602D1 // 
+   Seq: ( ME_51B1B82602D1 // 
  ME_51B1B84602EC // 
  ME_51B1BD640320 // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
 
 ref; // ME_51B1AEC2015B DoIt
@@ -84,14 +84,15 @@ ref; // ME_51B1C5970199 DoIt
  : Parent ME_51B1ADF20017 // TCheckingFilesInFolderTest
  ;
  : Operations
-   @ ( ME_51B1C5970199 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_51B1C5970199 // DoIt
+ )
  ; // Operations
 
 ref; // ME_51B1C57B014C DoDoit
 
 : ME_917D4B35E6BB
  CONST UID '917D4B35E6BB'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_51B1ADF20017 // TCheckingFilesInFolderTest
@@ -108,6 +109,7 @@ ref; // ME_917D4B35E6BB
  ;
  : Implementor ME_51B1ADF20017 // TCheckingFilesInFolderTest
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4C937013031D_ME_51B1ADF20017 GetFolder
 
 : ME_4DAED6F60146_ME_51B1ADF20017
@@ -117,6 +119,7 @@ ref; // ME_4C937013031D_ME_51B1ADF20017 GetFolder
  ;
  : Implementor ME_51B1ADF20017 // TCheckingFilesInFolderTest
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4DAED6F60146_ME_51B1ADF20017 GetModelElementGUID
 
 : ME_51B1A75D0367_ME_51B1ADF20017
@@ -126,6 +129,7 @@ ref; // ME_4DAED6F60146_ME_51B1ADF20017 GetModelElementGUID
  ;
  : Implementor ME_51B1ADF20017 // TCheckingFilesInFolderTest
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_51B1A75D0367_ME_51B1ADF20017 OutputFolderName
 
 : ME_51B1ADF20017
@@ -139,34 +143,42 @@ ref; // ME_51B1A75D0367_ME_51B1ADF20017 OutputFolderName
  : Parent ME_51B1ADB40318 // CheckFilesInFolderTest
  ;
  : Inherits
-   @ ( WL 'ME_4B2A11BC0255' '4B2A112B011A.pas.ms.script' // TBaseTest
- ) .SequenceCode.It
+   Seq: ( WL 'ME_4B2A11BC0255' '4B2A112B011A.pas.ms.script' // TBaseTest
+ )
  ; // Inherits
  : Operations
-   @ ( ME_51B1AEC2015B // DoIt
+   Seq: ( ME_51B1AEC2015B // DoIt
  ME_51B1C57B014C // DoDoit
- ) .SequenceCode.It
+ )
  ; // Operations
  : Overridden
-   @ ( ME_4C937013031D_ME_51B1ADF20017 // GetFolder
+   Seq: ( ME_4C937013031D_ME_51B1ADF20017 // GetFolder
  ME_4DAED6F60146_ME_51B1ADF20017 // GetModelElementGUID
  ME_51B1A75D0367_ME_51B1ADF20017 // OutputFolderName
- ) .SequenceCode.It
+ )
  ; // Overridden
  : Dependencies
-   @ ( ME_917D4B35E6BB // 
- ) .SequenceCode.It
+   Seq: ( ME_917D4B35E6BB // 
+ )
  ; // Dependencies
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
  : Generators
- @ (
+ Seq: (
  gen_intf.pas
- ) .SequenceCode.It
+ )
  ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\Abstract_Tests'
  CONST intf.pas:Path 'common\components\rtl\Garant\Abstract_Tests\CheckingFilesInFolderTest.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\Abstract_Tests'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\common\components\rtl\Garant\Abstract_Tests'
+ CONST extprop:rc:SelfName 'CheckingFilesInFolderTest'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'CheckingFilesInFolderTest'
 
 ref; // ME_51B1ADF20017 TCheckingFilesInFolderTest
 
@@ -180,24 +192,29 @@ ref; // ME_51B1ADF20017 TCheckingFilesInFolderTest
  : Parent WL 'ME_4D02561D01C8' '4D02561D01C8.pas.ms.script' // Abstract Tests
  ;
  : Children
-   @ ( ME_51B1ADF20017 // TCheckingFilesInFolderTest
- ) .SequenceCode.It
+   Seq: ( ME_51B1ADF20017 // TCheckingFilesInFolderTest
+ )
  ; // Children
  : Depends
-   @ ( WL 'ME_47913B47006E' '47913B47006E.pas.ms.script' // l3CoreObjects
+   Seq: ( WL 'ME_47913B47006E' '47913B47006E.pas.ms.script' // l3CoreObjects
  WL 'ME_47D0290B016D' '47D0290B016D.pas.ms.script' // l3Utils
  WL 'ME_4AB0C3C60310' '4AB0C3C60310.pas.ms.script' // Sys
  WL 'ME_4B2A0D6A0077' '4B2A0D6A0077.pas.ms.script' // Source
  WL 'ME_4B2A112B011A' '4B2A112B011A.pas.ms.script' // Source
- ) .SequenceCode.It
+ )
  ; // Depends
  : Generators
- @ (
+ Seq: (
  gen_pas.script
  gen_pas.script.runner
- ) .SequenceCode.It
+ )
  ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\Abstract_Tests'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\Abstract_Tests'
  CONST pas.script:Path 'shared\models\NewSchool\Scripts\51B1ADB40318.pas.ms.script'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
  CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\51B1ADB40318.pas.ms.script.runner'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\common\components\rtl\Garant\Abstract_Tests'
 
 ref; // ME_51B1ADB40318 CheckFilesInFolderTest

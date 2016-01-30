@@ -1,0 +1,347 @@
+// DictionInterfacesPrim 4AC238AF03B8 ControllerInterfaces Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4AC238AF03B8
+
+FORWARD ME_491D5824017E
+
+: ME_491D58890177
+ CONST UID '491D58890177'
+ CONST Name 'IsMainDiction'
+ CONST Class class_Attribute
+ : Stereotype st_readonly::Attribute ;
+ %SUMMARY 'толкование является основным, для языка по умолчанию' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_lnk
+ : Parent ME_491D5824017E // IdsDictionDocument
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+ CONST "pm" true
+
+ref; // ME_491D58890177 IsMainDiction
+
+: ME_491D58670154
+ CONST UID '491D58670154'
+ CONST Name 'OpenLiteratureList'
+ CONST Class class_Operation
+ %SUMMARY 'открыть список литературы для толкового словаря' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_491D5824017E // IdsDictionDocument
+ ;
+
+ref; // ME_491D58670154 OpenLiteratureList
+
+: ME_47EA04080292_ME_491D5824017E
+ CONST UID '47EA04080292'
+ CONST Name 'HasDoc'
+ : Original WL 'ME_47EA04080292' '491B305A0096.pas.ms.script' // HasDoc
+ ;
+ : Implementor ME_491D5824017E // IdsDictionDocument
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "pm" true
+ref; // ME_47EA04080292_ME_491D5824017E HasDoc
+
+: ME_47EA042601D9_ME_491D5824017E
+ CONST UID '47EA042601D9'
+ CONST Name 'CanWorkWithRedactions'
+ : Original WL 'ME_47EA042601D9' '491B305A0096.pas.ms.script' // CanWorkWithRedactions
+ ;
+ : Implementor ME_491D5824017E // IdsDictionDocument
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "pm" true
+ref; // ME_47EA042601D9_ME_491D5824017E CanWorkWithRedactions
+
+: ME_47EA04970339_ME_491D5824017E
+ CONST UID '47EA04970339'
+ CONST Name 'HasPrevRedaction'
+ : Original WL 'ME_47EA04970339' '491B305A0096.pas.ms.script' // HasPrevRedaction
+ ;
+ : Implementor ME_491D5824017E // IdsDictionDocument
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "pm" true
+ref; // ME_47EA04970339_ME_491D5824017E HasPrevRedaction
+
+: ME_47EA04B400A1_ME_491D5824017E
+ CONST UID '47EA04B400A1'
+ CONST Name 'HasNextRedaction'
+ : Original WL 'ME_47EA04B400A1' '491B305A0096.pas.ms.script' // HasNextRedaction
+ ;
+ : Implementor ME_491D5824017E // IdsDictionDocument
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "pm" true
+ref; // ME_47EA04B400A1_ME_491D5824017E HasNextRedaction
+
+: ME_47EA08690258_ME_491D5824017E
+ CONST UID '47EA08690258'
+ CONST Name 'IsReadOnly'
+ : Original WL 'ME_47EA08690258' '491B305A0096.pas.ms.script' // IsReadOnly
+ ;
+ : Implementor ME_491D5824017E // IdsDictionDocument
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "pm" true
+ref; // ME_47EA08690258_ME_491D5824017E IsReadOnly
+
+: ME_47EA087C02BC_ME_491D5824017E
+ CONST UID '47EA087C02BC'
+ CONST Name 'TimeMachineOff'
+ : Original WL 'ME_47EA087C02BC' '491B305A0096.pas.ms.script' // TimeMachineOff
+ ;
+ : Implementor ME_491D5824017E // IdsDictionDocument
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "pm" true
+ref; // ME_47EA087C02BC_ME_491D5824017E TimeMachineOff
+
+: ME_491B2D5A0200_ME_491D5824017E
+ CONST UID '491B2D5A0200'
+ CONST Name 'Container'
+ : Original WL 'ME_491B2D5A0200' '491B305A0096.pas.ms.script' // Container
+ ;
+ : Implementor ME_491D5824017E // IdsDictionDocument
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "pm" true
+ref; // ME_491B2D5A0200_ME_491D5824017E Container
+
+: ME_491B2DB200CE_ME_491D5824017E
+ CONST UID '491B2DB200CE'
+ CONST Name 'DocInfo'
+ : Original WL 'ME_491B2DB200CE' '491B305A0096.pas.ms.script' // DocInfo
+ ;
+ : Implementor ME_491D5824017E // IdsDictionDocument
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "pm" true
+ref; // ME_491B2DB200CE_ME_491D5824017E DocInfo
+
+: ME_491B2E63002B_ME_491D5824017E
+ CONST UID '491B2E63002B'
+ CONST Name 'Language'
+ : Original WL 'ME_491B2E63002B' '491B305A0096.pas.ms.script' // Language
+ ;
+ : Implementor ME_491D5824017E // IdsDictionDocument
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "pm" true
+ref; // ME_491B2E63002B_ME_491D5824017E Language
+
+: ME_491B2E87000D_ME_491D5824017E
+ CONST UID '491B2E87000D'
+ CONST Name 'IsDateCurrentRedationEmpty'
+ : Original WL 'ME_491B2E87000D' '491B305A0096.pas.ms.script' // IsDateCurrentRedationEmpty
+ ;
+ : Implementor ME_491D5824017E // IdsDictionDocument
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "pm" true
+ref; // ME_491B2E87000D_ME_491D5824017E IsDateCurrentRedationEmpty
+
+: ME_491B2F1601B0_ME_491D5824017E
+ CONST UID '491B2F1601B0'
+ CONST Name 'IsActualRedation'
+ : Original WL 'ME_491B2F1601B0' '491B305A0096.pas.ms.script' // IsActualRedation
+ ;
+ : Implementor ME_491D5824017E // IdsDictionDocument
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "pm" true
+ref; // ME_491B2F1601B0_ME_491D5824017E IsActualRedation
+
+: ME_491B2F63002D_ME_491D5824017E
+ CONST UID '491B2F63002D'
+ CONST Name 'MakeGotoPointData'
+ : Original WL 'ME_491B2F63002D' '491B305A0096.pas.ms.script' // MakeGotoPointData
+ ;
+ : Implementor ME_491D5824017E // IdsDictionDocument
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_491B2F63002D_ME_491D5824017E MakeGotoPointData
+
+: ME_491B2FE20181_ME_491D5824017E
+ CONST UID '491B2FE20181'
+ CONST Name 'NewDocInfo'
+ : Original WL 'ME_491B2FE20181' '491B305A0096.pas.ms.script' // NewDocInfo
+ ;
+ : Implementor ME_491D5824017E // IdsDictionDocument
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_491B2FE20181_ME_491D5824017E NewDocInfo
+
+: ME_495894020347_ME_491D5824017E
+ CONST UID '495894020347'
+ CONST Name 'PreviewCaleeArea'
+ : Original WL 'ME_495894020347' '491B305A0096.pas.ms.script' // PreviewCaleeArea
+ ;
+ : Implementor ME_491D5824017E // IdsDictionDocument
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "pm" false
+ref; // ME_495894020347_ME_491D5824017E PreviewCaleeArea
+
+: ME_4AE56DE80093_ME_491D5824017E
+ CONST UID '4AE56DE80093'
+ CONST Name 'MakeHAFMacroReplacer'
+ : Original WL 'ME_4AE56DE80093' '491B305A0096.pas.ms.script' // MakeHAFMacroReplacer
+ ;
+ : Implementor ME_491D5824017E // IdsDictionDocument
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_4AE56DE80093_ME_491D5824017E MakeHAFMacroReplacer
+
+: ME_4AE575FA030B_ME_491D5824017E
+ CONST UID '4AE575FA030B'
+ CONST Name 'MakeFilterInfo'
+ : Original WL 'ME_4AE575FA030B' '491B305A0096.pas.ms.script' // MakeFilterInfo
+ ;
+ : Implementor ME_491D5824017E // IdsDictionDocument
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_4AE575FA030B_ME_491D5824017E MakeFilterInfo
+
+: ME_500E5D3B02AF_ME_491D5824017E
+ CONST UID '500E5D3B02AF'
+ CONST Name 'LikeState'
+ : Original WL 'ME_500E5D3B02AF' '491B305A0096.pas.ms.script' // LikeState
+ ;
+ : Implementor ME_491D5824017E // IdsDictionDocument
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "pm" false
+ref; // ME_500E5D3B02AF_ME_491D5824017E LikeState
+
+: ME_500E5D5D0268_ME_491D5824017E
+ CONST UID '500E5D5D0268'
+ CONST Name 'AsLikeable'
+ : Original WL 'ME_500E5D5D0268' '491B305A0096.pas.ms.script' // AsLikeable
+ ;
+ : Implementor ME_491D5824017E // IdsDictionDocument
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_500E5D5D0268_ME_491D5824017E AsLikeable
+
+: ME_53D8C6EA038C_ME_491D5824017E
+ CONST UID '53D8C6EA038C'
+ CONST Name 'GetDocumentShortName'
+ : Original WL 'ME_53D8C6EA038C' '491B305A0096.pas.ms.script' // GetDocumentShortName
+ ;
+ : Implementor ME_491D5824017E // IdsDictionDocument
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_53D8C6EA038C_ME_491D5824017E GetDocumentShortName
+
+: ME_54B3A7C7038F_ME_491D5824017E
+ CONST UID '54B3A7C7038F'
+ CONST Name 'GetDocumentName'
+ : Original WL 'ME_54B3A7C7038F' '491B305A0096.pas.ms.script' // GetDocumentName
+ ;
+ : Implementor ME_491D5824017E // IdsDictionDocument
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_54B3A7C7038F_ME_491D5824017E GetDocumentName
+
+: ME_491D5824017E
+ CONST UID '491D5824017E'
+ CONST GUID 'CED6AA8A-309F-467B-9C4C-D6444BBAF67D'
+ CONST Name 'IdsDictionDocument'
+ CONST Class class_Class
+ : Stereotype st_ViewAreaController ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Документ толкового словаря' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4AC238AF03B8 // DictionInterfacesPrim
+ ;
+ : Inherits
+   Seq: ( WL 'ME_47EA0356011B' '491B305A0096.pas.ms.script' // IdsBaseDocument
+ )
+ ; // Inherits
+ : Attributes
+   Seq: ( ME_491D58890177 // IsMainDiction
+ )
+ ; // Attributes
+ : Operations
+   Seq: ( ME_491D58670154 // OpenLiteratureList
+ )
+ ; // Operations
+ : Implemented
+   Seq: ( ME_47EA04080292_ME_491D5824017E // HasDoc
+ ME_47EA042601D9_ME_491D5824017E // CanWorkWithRedactions
+ ME_47EA04970339_ME_491D5824017E // HasPrevRedaction
+ ME_47EA04B400A1_ME_491D5824017E // HasNextRedaction
+ ME_47EA08690258_ME_491D5824017E // IsReadOnly
+ ME_47EA087C02BC_ME_491D5824017E // TimeMachineOff
+ ME_491B2D5A0200_ME_491D5824017E // Container
+ ME_491B2DB200CE_ME_491D5824017E // DocInfo
+ ME_491B2E63002B_ME_491D5824017E // Language
+ ME_491B2E87000D_ME_491D5824017E // IsDateCurrentRedationEmpty
+ ME_491B2F1601B0_ME_491D5824017E // IsActualRedation
+ ME_491B2F63002D_ME_491D5824017E // MakeGotoPointData
+ ME_491B2FE20181_ME_491D5824017E // NewDocInfo
+ ME_495894020347_ME_491D5824017E // PreviewCaleeArea
+ ME_4AE56DE80093_ME_491D5824017E // MakeHAFMacroReplacer
+ ME_4AE575FA030B_ME_491D5824017E // MakeFilterInfo
+ ME_500E5D3B02AF_ME_491D5824017E // LikeState
+ ME_500E5D5D0268_ME_491D5824017E // AsLikeable
+ ME_53D8C6EA038C_ME_491D5824017E // GetDocumentShortName
+ ME_54B3A7C7038F_ME_491D5824017E // GetDocumentName
+ )
+ ; // Implemented
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\CommonDiction'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\CommonDiction'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\CommonDiction'
+ CONST extprop:rc:SelfName 'dsDictionDocument'
+ CONST extprop:rc:isAcceptableForScripts true
+
+ref; // ME_491D5824017E IdsDictionDocument
+
+: ME_4AC238AF03B8
+ CONST UID '4AC238AF03B8'
+ CONST Name 'DictionInterfacesPrim'
+ CONST Class class_Category
+ : Stereotype st_ControllerInterfaces ;
+ %SUMMARY 'Базовые интерфейсы для работы с Толковым словарём' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent WL 'ME_494104850236' '494104850236.pas.ms.script' // CommonDiction
+ ;
+ : Children
+   Seq: ( ME_491D5824017E // IdsDictionDocument
+ )
+ ; // Children
+ : Depends
+   Seq: ( WL 'ME_491B305A0096' '491B305A0096.pas.ms.script' // DocumentAndListInterfaces
+ WL 'ME_4AB0C3C60310' '4AB0C3C60310.pas.ms.script' // Sys
+ )
+ ; // Depends
+ CONST "author" 'Люлин А.В.'
+ CONST "is namespace" true
+ CONST "no hands" true
+ CONST "started" '29.09.2009 20:41'
+ : Generators
+ Seq: (
+ gen_intf.pas
+ gen_pas.script
+ gen_pas.script.runner
+ )
+ ; // Generators
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\CommonDiction'
+ CONST intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\CommonDiction\DictionInterfacesPrim.pas'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\CommonDiction'
+ CONST pas.script:Path 'shared\models\NewSchool\Scripts\4AC238AF03B8.pas.ms.script'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\4AC238AF03B8.pas.ms.script.runner'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\CommonDiction'
+
+ref; // ME_4AC238AF03B8 DictionInterfacesPrim

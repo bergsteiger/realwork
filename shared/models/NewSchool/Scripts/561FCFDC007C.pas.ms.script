@@ -10,19 +10,15 @@ INCLUDE 'ElementsRTTI.ms.dict'
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
  : Children
-   @ ( WL 'ME_4B63155B0328' '4B63155B0328.pas.ms.script' // MDProcess$ForDelphi
+   Seq: ( WL 'ME_4B63155B0328' '4B63155B0328.pas.ms.script' // MDProcess$ForDelphi
  WL 'ME_562E251101C2' '562E251101C2.pas.ms.script' // Shared Delphi Rtl
- ) .SequenceCode.It
+ )
  ; // Children
- : Generators
- @ (
- gen_forth_structure
- gen_pas.script
- gen_pas.script.runner
- ) .SequenceCode.It
- ; // Generators
- CONST forth_structure:Path 'shared\models\NewSchool\Templates.root.model.script'
+ CONST mda.inc:PathOnly '\Templates'
  CONST pas.script:Path 'shared\models\NewSchool\Scripts\561FCFDC007C.pas.ms.script'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
  CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\561FCFDC007C.pas.ms.script.runner'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST tpi.script:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_561FCFDC007C Templates

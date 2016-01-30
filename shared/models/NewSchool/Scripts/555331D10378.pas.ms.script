@@ -17,6 +17,10 @@ FORWARD ME_5553320F016B
  : Parent ME_5553320F016B // HT_Const
  ;
  CONST "finished" false
+ CONST dfm:PathOnly '\common\components\rtl\Garant\DT'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\DT'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_5553322F03C9 SAB
 
@@ -31,6 +35,10 @@ ref; // ME_5553322F03C9 SAB
  : Parent ME_5553320F016B // HT_Const
  ;
  CONST "finished" false
+ CONST dfm:PathOnly '\common\components\rtl\Garant\DT'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\DT'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_555C84FC0026 ThtTblHandle
 
@@ -45,6 +53,10 @@ ref; // ME_555C84FC0026 ThtTblHandle
  : Parent ME_5553320F016B // HT_Const
  ;
  CONST "finished" false
+ CONST dfm:PathOnly '\common\components\rtl\Garant\DT'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\DT'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_559FA10A0133 OPEL
 
@@ -59,10 +71,14 @@ ref; // ME_559FA10A0133 OPEL
  : Parent ME_5553320F016B // HT_Const
  ;
  : Inherits
-   @ ( ME_559FA10A0133 // OPEL
- ) .SequenceCode.It
+   Seq: ( ME_559FA10A0133 // OPEL
+ )
  ; // Inherits
  CONST "isPointer" true
+ CONST dfm:PathOnly '\common\components\rtl\Garant\DT'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\DT'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_559FA11803DC LPOPEL
 
@@ -77,20 +93,19 @@ ref; // ME_559FA11803DC LPOPEL
  : Parent ME_555331D10378 // Core
  ;
  : Children
-   @ ( ME_5553322F03C9 // SAB
+   Seq: ( ME_5553322F03C9 // SAB
  ME_555C84FC0026 // ThtTblHandle
  ME_559FA10A0133 // OPEL
  ME_559FA11803DC // LPOPEL
- ) .SequenceCode.It
+ )
  ; // Children
  CONST "finished" false
  CONST "no hands" false
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\DT'
  CONST intf.pas:Path 'common\components\rtl\Garant\DT\NOT_FINISHED_HT_Const.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\DT'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_5553320F016B HT_Const
 
@@ -101,6 +116,7 @@ FORWARD ME_55533C9001BE
 : ME_E0819084F536
  CONST UID 'E0819084F536'
  CONST Name 'DoIt'
+ CONST IsSummoned true
  CONST Class class_Operation
  %SUMMARY 'Сигнатура метода htClearResults' ;
  CONST Visibility PublicAccess
@@ -121,8 +137,8 @@ ref; // ME_E0819084F536 DoIt
  : Parent ME_55533C7600A0 // HT_DLL
  ;
  : Operations
-   @ ( ME_E0819084F536 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_E0819084F536 // DoIt
+ )
  ; // Operations
  CONST "finished" false
 
@@ -139,17 +155,16 @@ ref; // ME_55533C9001BE htClearResults
  : Parent ME_555331D10378 // Core
  ;
  : Operations
-   @ ( ME_55533C9001BE // htClearResults
- ) .SequenceCode.It
+   Seq: ( ME_55533C9001BE // htClearResults
+ )
  ; // Operations
  CONST "finished" false
  CONST "no hands" false
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\DT'
  CONST intf.pas:Path 'common\components\rtl\Garant\DT\NOT_FINISHED_HT_DLL.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\DT'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_55533C7600A0 HT_DLL
 
@@ -166,6 +181,10 @@ FORWARD ME_555F034A01B6
  : Parent ME_555F034A01B6 // dt_Err
  ;
  CONST "finished" false
+ CONST dfm:PathOnly '\common\components\rtl\Garant\DT'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\DT'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_55D47A1500CB EHtErrors
 
@@ -174,6 +193,7 @@ FORWARD ME_555F035A031E
 : ME_11590E1AD349
  CONST UID '11590E1AD349'
  CONST Name 'DoIt'
+ CONST IsSummoned true
  CONST Class class_Operation
  %SUMMARY 'Сигнатура метода HT' ;
  CONST Visibility PublicAccess
@@ -194,8 +214,8 @@ ref; // ME_11590E1AD349 DoIt
  : Parent ME_555F034A01B6 // dt_Err
  ;
  : Operations
-   @ ( ME_11590E1AD349 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_11590E1AD349 // DoIt
+ )
  ; // Operations
 
 ref; // ME_555F035A031E HT
@@ -211,21 +231,20 @@ ref; // ME_555F035A031E HT
  : Parent ME_555331D10378 // Core
  ;
  : Operations
-   @ ( ME_555F035A031E // HT
- ) .SequenceCode.It
+   Seq: ( ME_555F035A031E // HT
+ )
  ; // Operations
  : Children
-   @ ( ME_55D47A1500CB // EHtErrors
- ) .SequenceCode.It
+   Seq: ( ME_55D47A1500CB // EHtErrors
+ )
  ; // Children
  CONST "finished" false
  CONST "no hands" false
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\DT'
  CONST intf.pas:Path 'common\components\rtl\Garant\DT\NOT_FINISHED_dt_Err.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\DT'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_555F034A01B6 dt_Err
 
@@ -239,18 +258,16 @@ ref; // ME_555F034A01B6 dt_Err
  : Parent WL 'ME_47BC4FCB0115' '47BC4FCB0115.pas.ms.script' // DT
  ;
  : Children
-   @ ( ME_5553320F016B // HT_Const
+   Seq: ( ME_5553320F016B // HT_Const
  ME_55533C7600A0 // HT_DLL
  ME_555F034A01B6 // dt_Err
- ) .SequenceCode.It
+ )
  ; // Children
- : Generators
- @ (
- gen_pas.script
- gen_pas.script.runner
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\DT'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\DT'
  CONST pas.script:Path 'shared\models\NewSchool\Scripts\555331D10378.pas.ms.script'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
  CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\555331D10378.pas.ms.script.runner'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_555331D10378 Core

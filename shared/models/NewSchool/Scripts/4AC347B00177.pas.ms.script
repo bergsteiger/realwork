@@ -1,0 +1,487 @@
+// Runner 4AC347B00177 Unit Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4AC347B00177
+
+FORWARD ME_4AC347FD023D
+
+FORWARD ME_4AC34A32013D
+
+: ME_4AC34A3C014C
+ CONST UID '4AC34A3C014C'
+ CONST Name 'CLP_LOGIN'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_4AC34A32013D // CLP
+ ;
+ CONST Value '''login'''
+ CONST "AutoInc" false
+ CONST "forced type" 'none'
+ CONST "is define" false
+ CONST extprop:pas:Value '''login'''
+
+ref; // ME_4AC34A3C014C CLP_LOGIN
+
+: ME_4AC34A47014C
+ CONST UID '4AC34A47014C'
+ CONST Name 'CLP_PASSWORD'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_4AC34A32013D // CLP
+ ;
+ CONST Value '''password'''
+ CONST "AutoInc" false
+ CONST "forced type" 'none'
+ CONST "is define" false
+ CONST extprop:pas:Value '''password'''
+
+ref; // ME_4AC34A47014C CLP_PASSWORD
+
+: ME_4AC34A570044
+ CONST UID '4AC34A570044'
+ CONST Name 'CLP_LOGFILENAME'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_4AC34A32013D // CLP
+ ;
+ CONST Value '''log_file'''
+ CONST "AutoInc" false
+ CONST "forced type" 'none'
+ CONST "is define" false
+ CONST extprop:pas:Value '''log_file'''
+
+ref; // ME_4AC34A570044 CLP_LOGFILENAME
+
+: ME_4AC34A630040
+ CONST UID '4AC34A630040'
+ CONST Name 'CLP_SCENARIOFILENAME'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_4AC34A32013D // CLP
+ ;
+ CONST Value '''scenario_file'''
+ CONST "AutoInc" false
+ CONST "forced type" 'none'
+ CONST "is define" false
+ CONST extprop:pas:Value '''scenario_file'''
+
+ref; // ME_4AC34A630040 CLP_SCENARIOFILENAME
+
+: ME_4AC34A32013D
+ CONST UID '4AC34A32013D'
+ CONST Name 'CLP'
+ CONST Class class_Class
+ : Stereotype st_Constants ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4AC347FD023D // TatAdapterTestCommandLine
+ ;
+ : Attributes
+   Seq: ( ME_4AC34A3C014C // CLP_LOGIN
+ ME_4AC34A47014C // CLP_PASSWORD
+ ME_4AC34A570044 // CLP_LOGFILENAME
+ ME_4AC34A630040 // CLP_SCENARIOFILENAME
+ )
+ ; // Attributes
+ CONST "spell names" false
+ CONST dfm:PathOnly '\quality\test\garant6x\AdapterTest\Runner'
+ CONST intf.pas:PathOnly '\quality\test\garant6x\AdapterTest\Runner'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\quality\test\garant6x\AdapterTest\Runner'
+
+ref; // ME_4AC34A32013D CLP
+
+: ME_4AC3513A02A0
+ CONST UID '4AC3513A02A0'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4AC347FD023D // TatAdapterTestCommandLine
+ ;
+ : Target WL 'ME_480893AD00F5' '48076E7F0260.pas.ms.script' // TCLPType
+ ;
+
+ref; // ME_4AC3513A02A0 
+
+: ME_4808976C00AF_ME_4AC347FD023D
+ CONST UID '4808976C00AF'
+ CONST Name 'InitParamList'
+ : Original WL 'ME_4808976C00AF' '48076E7F0260.pas.ms.script' // InitParamList
+ ;
+ : Implementor ME_4AC347FD023D // TatAdapterTestCommandLine
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_4808976C00AF_ME_4AC347FD023D InitParamList
+
+: ME_4AC347FD023D
+ CONST UID '4AC347FD023D'
+ CONST Name 'TatAdapterTestCommandLine'
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Для  разбора командной строки тестов' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4AC347B00177 // Runner
+ ;
+ : Inherits
+   Seq: ( WL 'ME_4808971F0196' '48076E7F0260.pas.ms.script' // TatCommandLine
+ )
+ ; // Inherits
+ : Implemented
+   Seq: ( ME_4808976C00AF_ME_4AC347FD023D // InitParamList
+ )
+ ; // Implemented
+ : Constants
+   Seq: ( ME_4AC34A32013D // CLP
+ )
+ ; // Constants
+ : Dependencies
+   Seq: ( ME_4AC3513A02A0 // 
+ )
+ ; // Dependencies
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ : Generators
+ Seq: (
+ gen_intf.pas
+ )
+ ; // Generators
+ CONST dfm:PathOnly '\quality\test\garant6x\AdapterTest\Runner'
+ CONST intf.pas:Path 'quality\test\garant6x\AdapterTest\Runner\atAdapterTestCommandLine.pas'
+ CONST intf.pas:PathOnly '\quality\test\garant6x\AdapterTest\Runner'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\quality\test\garant6x\AdapterTest\Runner'
+ CONST extprop:rc:SelfName 'atAdapterTestCommandLine'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'atAdapterTestCommandLine'
+
+ref; // ME_4AC347FD023D TatAdapterTestCommandLine
+
+FORWARD ME_4AC3488802F7
+
+: ME_4AC3496C017D
+ CONST UID '4AC3496C017D'
+ CONST Name 'ECantCreateScenario'
+ CONST Class class_Class
+ : Stereotype st_Exception ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4AC3488802F7 // TatAdapterTest
+ ;
+ : Inherits
+   Seq: ( WL 'ME_4787A405013D' '4AB0C3C60310.pas.ms.script' // Exception
+ )
+ ; // Inherits
+ CONST dfm:PathOnly '\quality\test\garant6x\AdapterTest\Runner'
+ CONST intf.pas:PathOnly '\quality\test\garant6x\AdapterTest\Runner'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\quality\test\garant6x\AdapterTest\Runner'
+
+ref; // ME_4AC3496C017D ECantCreateScenario
+
+: ME_4AC3490A03B0
+ CONST UID '4AC3490A03B0'
+ CONST Name 'f_UserName'
+ CONST Class class_Attribute
+ %SUMMARY 'имя пользователя' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_4AC3488802F7 // TatAdapterTest
+ ;
+ : Target WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
+ ;
+
+ref; // ME_4AC3490A03B0 f_UserName
+
+: ME_4AC349140120
+ CONST UID '4AC349140120'
+ CONST Name 'f_Password'
+ CONST Class class_Attribute
+ %SUMMARY 'пароль пользователя' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_4AC3488802F7 // TatAdapterTest
+ ;
+ : Target WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
+ ;
+
+ref; // ME_4AC349140120 f_Password
+
+: ME_4AC348CF02E7
+ CONST UID '4AC348CF02E7'
+ CONST Name 'f_CommandLine'
+ CONST Class class_Attribute
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_4AC3488802F7 // TatAdapterTest
+ ;
+ : Target ME_4AC347FD023D // TatAdapterTestCommandLine
+ ;
+
+ref; // ME_4AC348CF02E7 f_CommandLine
+
+: ME_4AC348F50102
+ CONST UID '4AC348F50102'
+ CONST Name 'f_Scenario'
+ CONST Class class_Attribute
+ %SUMMARY 'выполняемый сценарий (последовательность операций)' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_4AC3488802F7 // TatAdapterTest
+ ;
+ : Target WL 'ME_4808A3EC021F' '480865840083.pas.ms.script' // TatScenario
+ ;
+
+ref; // ME_4AC348F50102 f_Scenario
+
+: ME_4AC3492402F9
+ CONST UID '4AC3492402F9'
+ CONST Name 'Init'
+ CONST Class class_Operation
+ : Stereotype st_chg::Operation ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ : Parent ME_4AC3488802F7 // TatAdapterTest
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+
+ref; // ME_4AC3492402F9 Init
+
+: ME_4AC349310110
+ CONST UID '4AC349310110'
+ CONST Name 'CreateScenario'
+ CONST Class class_Operation
+ : Stereotype st_chg::Operation ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ : Parent ME_4AC3488802F7 // TatAdapterTest
+ ;
+
+ref; // ME_4AC349310110 CreateScenario
+
+: ME_4AC3494000AA
+ CONST UID '4AC3494000AA'
+ CONST Name 'PlayScenario'
+ CONST Class class_Operation
+ : Stereotype st_chg::Operation ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ : Parent ME_4AC3488802F7 // TatAdapterTest
+ ;
+
+ref; // ME_4AC3494000AA PlayScenario
+
+: ME_4AC3494903C7
+ CONST UID '4AC3494903C7'
+ CONST Name 'Start'
+ CONST Class class_Operation
+ : Stereotype st_chg::Operation ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4AC3488802F7 // TatAdapterTest
+ ;
+
+ref; // ME_4AC3494903C7 Start
+
+: ME_4AC3495102C1
+ CONST UID '4AC3495102C1'
+ CONST Name 'Create'
+ CONST Class class_Operation
+ : Stereotype st_ctor::Operation ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_4AC3488802F7 // TatAdapterTest
+ ;
+
+ref; // ME_4AC3495102C1 Create
+
+: ME_4AC349E00380
+ CONST UID '4AC349E00380'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4AC3488802F7 // TatAdapterTest
+ ;
+ : Target WL 'ME_4808B6A20344' '48076E7F0260.pas.ms.script' // atLogger
+ ;
+
+ref; // ME_4AC349E00380 
+
+: ME_4AC34A7D03AF
+ CONST UID '4AC34A7D03AF'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4AC3488802F7 // TatAdapterTest
+ ;
+ : Target ME_4AC34A32013D // CLP
+ ;
+
+ref; // ME_4AC34A7D03AF 
+
+: ME_4AC34AA002F2
+ CONST UID '4AC34AA002F2'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4AC3488802F7 // TatAdapterTest
+ ;
+ : Target WL 'ME_47877EB202FB' '4AB0C3C60310.pas.ms.script' // SysUtils
+ ;
+
+ref; // ME_4AC34AA002F2 
+
+: ME_4AC351D70222
+ CONST UID '4AC351D70222'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4AC3488802F7 // TatAdapterTest
+ ;
+ : Target WL 'ME_483EC52400C9' '480865840083.pas.ms.script' // TatXMLScenarioGenerator
+ ;
+
+ref; // ME_4AC351D70222 
+
+: ME_4AC351F20032
+ CONST UID '4AC351F20032'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4AC3488802F7 // TatAdapterTest
+ ;
+ : Target WL 'ME_4808A6A50028' '480865840083.pas.ms.script' // TatScenarioPlayer
+ ;
+
+ref; // ME_4AC351F20032 
+
+: ME_48077504027E_ME_4AC3488802F7
+ CONST UID '48077504027E'
+ CONST Name 'Destroy'
+ : Original WL 'ME_48077504027E' '4AB0C3C60310.pas.ms.script' // Destroy
+ ;
+ : Implementor ME_4AC3488802F7 // TatAdapterTest
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_48077504027E_ME_4AC3488802F7 Destroy
+
+: ME_4AC3488802F7
+ CONST UID '4AC3488802F7'
+ CONST Name 'TatAdapterTest'
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Класс, через который пускается приложение' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4AC347B00177 // Runner
+ ;
+ : Inherits
+   Seq: ( WL 'ME_4807745602C8' '4AB0C3C60310.pas.ms.script' // TObject
+ )
+ ; // Inherits
+ : Attributes
+   Seq: ( ME_4AC3490A03B0 // f_UserName
+ ME_4AC349140120 // f_Password
+ ME_4AC348CF02E7 // f_CommandLine
+ ME_4AC348F50102 // f_Scenario
+ )
+ ; // Attributes
+ : Operations
+   Seq: ( ME_4AC3492402F9 // Init
+ ME_4AC349310110 // CreateScenario
+ ME_4AC3494000AA // PlayScenario
+ ME_4AC3494903C7 // Start
+ ME_4AC3495102C1 // Create
+ )
+ ; // Operations
+ : Overridden
+   Seq: ( ME_48077504027E_ME_4AC3488802F7 // Destroy
+ )
+ ; // Overridden
+ : Children
+   Seq: ( ME_4AC3496C017D // ECantCreateScenario
+ )
+ ; // Children
+ : Dependencies
+   Seq: ( ME_4AC349E00380 // 
+ ME_4AC34A7D03AF // 
+ ME_4AC34AA002F2 // 
+ ME_4AC351D70222 // 
+ ME_4AC351F20032 // 
+ )
+ ; // Dependencies
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ : Generators
+ Seq: (
+ gen_intf.pas
+ )
+ ; // Generators
+ CONST dfm:PathOnly '\quality\test\garant6x\AdapterTest\Runner'
+ CONST intf.pas:Path 'quality\test\garant6x\AdapterTest\Runner\atAdapterTest.pas'
+ CONST intf.pas:PathOnly '\quality\test\garant6x\AdapterTest\Runner'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\quality\test\garant6x\AdapterTest\Runner'
+ CONST extprop:rc:SelfName 'atAdapterTest'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'atAdapterTest'
+
+ref; // ME_4AC3488802F7 TatAdapterTest
+
+: ME_4AC347B00177
+ CONST UID '4AC347B00177'
+ CONST Name 'Runner'
+ CONST Class class_Category
+ : Stereotype st_Unit ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent WL 'ME_48075C0E02DE' '48075C0E02DE.pas.ms.script' // AdapterTest
+ ;
+ : Children
+   Seq: ( ME_4AC347FD023D // TatAdapterTestCommandLine
+ ME_4AC3488802F7 // TatAdapterTest
+ )
+ ; // Children
+ : Depends
+   Seq: ( WL 'ME_469F3E37025A' '469F3E37025A.pas.ms.script' // Rtl
+ WL 'ME_48076E7F0260' '48076E7F0260.pas.ms.script' // CoreObjects
+ WL 'ME_480865840083' '480865840083.pas.ms.script' // OperationsFramework
+ WL 'ME_4AB0C3C60310' '4AB0C3C60310.pas.ms.script' // Sys
+ )
+ ; // Depends
+ CONST "path prefix" '/Runner'
+ : Generators
+ Seq: (
+ gen_pas.script
+ gen_pas.script.runner
+ )
+ ; // Generators
+ CONST dfm:PathOnly '\quality\test\garant6x\AdapterTest\Runner'
+ CONST intf.pas:PathOnly '\quality\test\garant6x\AdapterTest\Runner'
+ CONST pas.script:Path 'shared\models\NewSchool\Scripts\4AC347B00177.pas.ms.script'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\4AC347B00177.pas.ms.script.runner'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\quality\test\garant6x\AdapterTest\Runner'
+
+ref; // ME_4AC347B00177 Runner

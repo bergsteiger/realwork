@@ -1,0 +1,162 @@
+// Wizards 4E4B61B000D4 Unit Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4E4B61B000D4
+
+FORWARD ME_4E4B61CC0291
+
+: ME_4E4B61E40216
+ CONST UID '4E4B61E40216'
+ CONST Name 'TChangeDocWizardDlg'
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4E4B61CC0291 // D_WizChangeDoc
+ ;
+ : Inherits
+   Seq: ( WL 'ME_4E4B62A40251' '4E202BD501B7.pas.ms.script' // TBottomBtnDlg
+ )
+ ; // Inherits
+ CONST "finished" false
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ CONST dfm:PathOnly '\archi\source\projects\Archi\Dlg'
+ CONST intf.pas:PathOnly '\archi\source\projects\Archi\Dlg'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\archi\source\projects\Archi\Dlg'
+ CONST extprop:rc:SelfName 'ChangeDocWizardDlg'
+ CONST extprop:rc:isAcceptableForScripts true
+
+ref; // ME_4E4B61E40216 TChangeDocWizardDlg
+
+: ME_4E4B61CC0291
+ CONST UID '4E4B61CC0291'
+ CONST Name 'D_WizChangeDoc'
+ CONST Class class_Class
+ : Stereotype st_UtilityPack ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_4E4B61B000D4 // Wizards
+ ;
+ : Children
+   Seq: ( ME_4E4B61E40216 // TChangeDocWizardDlg
+ )
+ ; // Children
+ CONST "finished" false
+ CONST "no hands" false
+ : Generators
+ Seq: (
+ gen_intf.pas
+ )
+ ; // Generators
+ CONST dfm:PathOnly '\archi\source\projects\Archi\Dlg'
+ CONST intf.pas:Path 'archi\source\projects\Archi\Dlg\NOT_FINISHED_D_WizChangeDoc.pas'
+ CONST intf.pas:PathOnly '\archi\source\projects\Archi\Dlg'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\archi\source\projects\Archi\Dlg'
+
+ref; // ME_4E4B61CC0291 D_WizChangeDoc
+
+FORWARD ME_4E4B61FC00CF
+
+: ME_4E4B6214019B
+ CONST UID '4E4B6214019B'
+ CONST Name 'TIzmWizardDlg'
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4E4B61FC00CF // D_WizIzm
+ ;
+ : Inherits
+   Seq: ( WL 'ME_4E4B6244039A' '4E202BD501B7.pas.ms.script' // TTabBBtnDlg
+ )
+ ; // Inherits
+ CONST "finished" false
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ CONST dfm:PathOnly '\archi\source\projects\Archi\Dlg'
+ CONST intf.pas:PathOnly '\archi\source\projects\Archi\Dlg'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\archi\source\projects\Archi\Dlg'
+ CONST extprop:rc:SelfName 'IzmWizardDlg'
+ CONST extprop:rc:isAcceptableForScripts true
+
+ref; // ME_4E4B6214019B TIzmWizardDlg
+
+: ME_4E4B61FC00CF
+ CONST UID '4E4B61FC00CF'
+ CONST Name 'D_WizIzm'
+ CONST Class class_Class
+ : Stereotype st_UtilityPack ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_4E4B61B000D4 // Wizards
+ ;
+ : Children
+   Seq: ( ME_4E4B6214019B // TIzmWizardDlg
+ )
+ ; // Children
+ CONST "finished" false
+ CONST "no hands" false
+ : Generators
+ Seq: (
+ gen_intf.pas
+ )
+ ; // Generators
+ CONST dfm:PathOnly '\archi\source\projects\Archi\Dlg'
+ CONST intf.pas:Path 'archi\source\projects\Archi\Dlg\NOT_FINISHED_D_WizIzm.pas'
+ CONST intf.pas:PathOnly '\archi\source\projects\Archi\Dlg'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\archi\source\projects\Archi\Dlg'
+
+ref; // ME_4E4B61FC00CF D_WizIzm
+
+: ME_4E4B61B000D4
+ CONST UID '4E4B61B000D4'
+ CONST Name 'Wizards'
+ CONST Class class_Category
+ : Stereotype st_Unit ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent WL 'ME_4DE803840174' '4DE803840174.pas.ms.script' // Dlg
+ ;
+ : Children
+   Seq: ( ME_4E4B61CC0291 // D_WizChangeDoc
+ ME_4E4B61FC00CF // D_WizIzm
+ )
+ ; // Children
+ : Depends
+   Seq: ( WL 'ME_4E202BD501B7' '4E202BD501B7.pas.ms.script' // BaseForms
+ )
+ ; // Depends
+ CONST "finished" false
+ : Generators
+ Seq: (
+ gen_pas.script
+ gen_pas.script.runner
+ )
+ ; // Generators
+ CONST dfm:PathOnly '\archi\source\projects\Archi\Dlg'
+ CONST intf.pas:PathOnly '\archi\source\projects\Archi\Dlg'
+ CONST pas.script:Path 'shared\models\NewSchool\Scripts\4E4B61B000D4.pas.ms.script'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\4E4B61B000D4.pas.ms.script.runner'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\archi\source\projects\Archi\Dlg'
+
+ref; // ME_4E4B61B000D4 Wizards

@@ -19,12 +19,14 @@ FORWARD ME_48EA3D1F0232
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\dd'
  CONST intf.pas:Path 'common\components\rtl\Garant\dd\NOT_FINISHED_ddHTMLReader.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\dd'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'ddHTMLReader'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'ddHTMLReader'
 
 ref; // ME_48EA3D2E0054 TddHTMLReader
 
@@ -37,6 +39,7 @@ FORWARD ME_4C971BD4031B
  ;
  : Implementor ME_4C971BD4031B // TddRTFReader
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_534F8F4D0317_ME_4C971BD4031B BeforeClosePara
 
 : ME_5624D5E80387_ME_4C971BD4031B
@@ -46,6 +49,7 @@ ref; // ME_534F8F4D0317_ME_4C971BD4031B BeforeClosePara
  ;
  : Implementor ME_4C971BD4031B // TddRTFReader
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_5624D5E80387_ME_4C971BD4031B AddFooterHyperlink
 
 : ME_562616AD01DF_ME_4C971BD4031B
@@ -55,6 +59,7 @@ ref; // ME_5624D5E80387_ME_4C971BD4031B AddFooterHyperlink
  ;
  : Implementor ME_4C971BD4031B // TddRTFReader
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_562616AD01DF_ME_4C971BD4031B FootNoteSymbol
 
 : ME_4C971BD4031B
@@ -68,26 +73,28 @@ ref; // ME_562616AD01DF_ME_4C971BD4031B FootNoteSymbol
  : Parent ME_48EA3D1F0232 // Readers
  ;
  : Inherits
-   @ ( WL 'ME_51E7BF4200C0' '5190A3470397.pas.ms.script' // TddCustomRTFReader
- ) .SequenceCode.It
+   Seq: ( WL 'ME_51E7BF4200C0' '5190A3470397.pas.ms.script' // TddCustomRTFReader
+ )
  ; // Inherits
  : Implemented
-   @ ( ME_534F8F4D0317_ME_4C971BD4031B // BeforeClosePara
+   Seq: ( ME_534F8F4D0317_ME_4C971BD4031B // BeforeClosePara
  ME_5624D5E80387_ME_4C971BD4031B // AddFooterHyperlink
  ME_562616AD01DF_ME_4C971BD4031B // FootNoteSymbol
- ) .SequenceCode.It
+ )
  ; // Implemented
  CONST "finished" false
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\dd'
  CONST intf.pas:Path 'common\components\rtl\Garant\dd\NOT_FINISHED_ddRTFReader.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\dd'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'ddRTFReader'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'ddRTFReader'
 
 ref; // ME_4C971BD4031B TddRTFReader
 
@@ -181,23 +188,22 @@ ref; // ME_55DF02000346
  : Parent ME_48EA3D1F0232 // Readers
  ;
  : Dependencies
-   @ ( ME_4C9CD12A0116 // 
+   Seq: ( ME_4C9CD12A0116 // 
  ME_55DC6B43007E // 
  ME_55DEE585032F // 
  ME_55DEE58902CE // 
  ME_55DEF44201A9 // 
  ME_55DEF45200C9 // 
  ME_55DF02000346 // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  CONST "finished" false
  CONST "no hands" false
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\dd'
  CONST intf.pas:Path 'common\components\rtl\Garant\dd\NOT_FINISHED_ddNSRC_r.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\dd'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_4C9CD11901BD ddNSRC_r
 
@@ -211,25 +217,23 @@ ref; // ME_4C9CD11901BD ddNSRC_r
  : Parent WL 'ME_4677E18600C2' '4677E18600C2.pas.ms.script' // dd
  ;
  : Children
-   @ ( ME_48EA3D2E0054 // TddHTMLReader
+   Seq: ( ME_48EA3D2E0054 // TddHTMLReader
  ME_4C971BD4031B // TddRTFReader
  ME_4C9CD11901BD // ddNSRC_r
- ) .SequenceCode.It
+ )
  ; // Children
  : Depends
-   @ ( WL 'ME_47BC51FE018B' '47BC51FE018B.pas.ms.script' // dt_Types
+   Seq: ( WL 'ME_47BC51FE018B' '47BC51FE018B.pas.ms.script' // dt_Types
  WL 'ME_4C9CD07701E6' '4C9CD07701E6.pas.ms.script' // AttrSchema
  WL 'ME_5190A3470397' '5190A3470397.pas.ms.script' // RTFSupport
  WL 'ME_55DC6B0D020D' '55DC6B0D020D.pas.ms.script' // NSRCReaderCore
- ) .SequenceCode.It
+ )
  ; // Depends
- : Generators
- @ (
- gen_pas.script
- gen_pas.script.runner
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\dd'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\dd'
  CONST pas.script:Path 'shared\models\NewSchool\Scripts\48EA3D1F0232.pas.ms.script'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
  CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\48EA3D1F0232.pas.ms.script.runner'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_48EA3D1F0232 Readers

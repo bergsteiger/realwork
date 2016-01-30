@@ -44,8 +44,8 @@ ref; // ME_4CC8473A0287 DoIt
  : Parent ME_4CC81FB7008B // RegionableControl
  ;
  : Operations
-   @ ( ME_4CC8473A0287 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_4CC8473A0287 // DoIt
+ )
  ; // Operations
 
 ref; // ME_4CC8471A035A UpdateRegion
@@ -74,8 +74,8 @@ ref; // ME_4CC847740314 DoIt
  : Parent ME_4CC81FB7008B // RegionableControl
  ;
  : Operations
-   @ ( ME_4CC847740314 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_4CC847740314 // DoIt
+ )
  ; // Operations
 
 ref; // ME_4CC84762022A ClearRegion
@@ -101,8 +101,8 @@ ref; // ME_4CC847B70104 aRegion
  : Parent ME_4CC847800383 // TuneRegion
  ;
  : Parameters
-   @ ( ME_4CC847B70104 // aRegion
- ) .SequenceCode.It
+   Seq: ( ME_4CC847B70104 // aRegion
+ )
  ; // Parameters
 
 ref; // ME_4CC8479C01A2 DoIt
@@ -118,8 +118,8 @@ ref; // ME_4CC8479C01A2 DoIt
  : Parent ME_4CC81FB7008B // RegionableControl
  ;
  : Operations
-   @ ( ME_4CC8479C01A2 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_4CC8479C01A2 // DoIt
+ )
  ; // Operations
 
 ref; // ME_4CC847800383 TuneRegion
@@ -144,8 +144,8 @@ ref; // ME_4CC8680702D5 Message
  : Parent ME_4CC81FB7008B // RegionableControl
  ;
  : Parameters
-   @ ( ME_4CC8680702D5 // Message
- ) .SequenceCode.It
+   Seq: ( ME_4CC8680702D5 // Message
+ )
  ; // Parameters
  CONST "Message ID" 'CM_VISIBLECHANGED'
 
@@ -191,6 +191,7 @@ ref; // ME_4CC84EF601E2
  ;
  : Implementor ME_4CC81FB7008B // RegionableControl
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_479731C50290_ME_4CC81FB7008B Cleanup
 
 : ME_4CC8414403B8_ME_4CC81FB7008B
@@ -200,6 +201,7 @@ ref; // ME_479731C50290_ME_4CC81FB7008B Cleanup
  ;
  : Implementor ME_4CC81FB7008B // RegionableControl
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4CC8414403B8_ME_4CC81FB7008B CreateWnd
 
 : ME_4CC841540158_ME_4CC81FB7008B
@@ -209,6 +211,7 @@ ref; // ME_4CC8414403B8_ME_4CC81FB7008B CreateWnd
  ;
  : Implementor ME_4CC81FB7008B // RegionableControl
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4CC841540158_ME_4CC81FB7008B DestroyWnd
 
 : ME_4CC8417A0288_ME_4CC81FB7008B
@@ -218,6 +221,7 @@ ref; // ME_4CC841540158_ME_4CC81FB7008B DestroyWnd
  ;
  : Implementor ME_4CC81FB7008B // RegionableControl
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4CC8417A0288_ME_4CC81FB7008B Resize
 
 : ME_4CC8658C017B_ME_4CC81FB7008B
@@ -227,6 +231,7 @@ ref; // ME_4CC8417A0288_ME_4CC81FB7008B Resize
  ;
  : Implementor ME_4CC81FB7008B // RegionableControl
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4CC8658C017B_ME_4CC81FB7008B VisibleChanging
 
 : ME_4CC81FB7008B
@@ -241,34 +246,34 @@ ref; // ME_4CC8658C017B_ME_4CC81FB7008B VisibleChanging
  : Parent ME_4CC81FAC02D6 // Core
  ;
  : Implements
-   @ ( WL 'ME_4A5CB93700CF' '47913B47006E.pas.ms.script' // Ml3Unknown
+   Seq: ( WL 'ME_4A5CB93700CF' '47913B47006E.pas.ms.script' // Ml3Unknown
  WL 'ME_4CC81DE8030F' '4799D29F033F.pas.ms.script' // MWinControl
- ) .SequenceCode.It
+ )
  ; // Implements
  : Attributes
-   @ ( ME_4CC82BBE0358 // f_Reg
- ) .SequenceCode.It
+   Seq: ( ME_4CC82BBE0358 // f_Reg
+ )
  ; // Attributes
  : Operations
-   @ ( ME_4CC8471A035A // UpdateRegion
+   Seq: ( ME_4CC8471A035A // UpdateRegion
  ME_4CC84762022A // ClearRegion
  ME_4CC847800383 // TuneRegion
  ME_4CC867FC01B3 // CMVisibleChanged
- ) .SequenceCode.It
+ )
  ; // Operations
  : Overridden
-   @ ( ME_479731C50290_ME_4CC81FB7008B // Cleanup
+   Seq: ( ME_479731C50290_ME_4CC81FB7008B // Cleanup
  ME_4CC8414403B8_ME_4CC81FB7008B // CreateWnd
  ME_4CC841540158_ME_4CC81FB7008B // DestroyWnd
  ME_4CC8417A0288_ME_4CC81FB7008B // Resize
  ME_4CC8658C017B_ME_4CC81FB7008B // VisibleChanging
- ) .SequenceCode.It
+ )
  ; // Overridden
  : Dependencies
-   @ ( ME_4CC833D5027F // 
+   Seq: ( ME_4CC833D5027F // 
  ME_4CC842480257 // 
  ME_4CC84EF601E2 // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  CONST "author" 'Ëþëèí À.Â.'
  CONST "needs InstanceR" 'undefined'
@@ -276,13 +281,13 @@ ref; // ME_4CC8658C017B_ME_4CC81FB7008B VisibleChanging
  CONST "no hands" true
  CONST "register in scripts" 'undefined'
  CONST "started" '27.10.2010 16:49'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\SkinnedControls'
  CONST intf.pas:Path 'common\components\gui\Garant\SkinnedControls\RegionableControl.imp.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\SkinnedControls'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
  CONST extprop:pas:TypeName '_RegionableControl_'
+ CONST extprop:pas:UnitName 'RegionableControl.imp'
 
 ref; // ME_4CC81FB7008B RegionableControl
 
@@ -296,25 +301,23 @@ ref; // ME_4CC81FB7008B RegionableControl
  : Parent WL 'ME_4CC81F680162' '4CC81F680162.pas.ms.script' // SkinnedControls
  ;
  : Children
-   @ ( ME_4CC81FB7008B // RegionableControl
- ) .SequenceCode.It
+   Seq: ( ME_4CC81FB7008B // RegionableControl
+ )
  ; // Children
  : Depends
-   @ ( WL 'ME_473C3BEE0334' '473C3BEE0334.pas.ms.script' // l3Canvas
+   Seq: ( WL 'ME_473C3BEE0334' '473C3BEE0334.pas.ms.script' // l3Canvas
  WL 'ME_476F78840219' '476F78840219.pas.ms.script' // Messages
  WL 'ME_47913B47006E' '47913B47006E.pas.ms.script' // l3CoreObjects
  WL 'ME_4799D29F033F' '4799D29F033F.pas.ms.script' // Implementation
  WL 'ME_4AB0C3C60310' '4AB0C3C60310.pas.ms.script' // Sys
  WL 'ME_4AB0C3F60375' '4AB0C3F60375.pas.ms.script' // Win
- ) .SequenceCode.It
+ )
  ; // Depends
- : Generators
- @ (
- gen_pas.script
- gen_pas.script.runner
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\SkinnedControls'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\SkinnedControls'
  CONST pas.script:Path 'shared\models\NewSchool\Scripts\4CC81FAC02D6.pas.ms.script'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
  CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\4CC81FAC02D6.pas.ms.script.runner'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_4CC81FAC02D6 Core

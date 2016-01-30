@@ -43,10 +43,15 @@ ref; // ME_5110D719014A hfoHyperlink
  : Parent ME_4E732D7F0082 // TvtHideField
  ;
  : Attributes
-   @ ( ME_5110D711023B // hfoCanHide
+   Seq: ( ME_5110D711023B // hfoCanHide
  ME_5110D719014A // hfoHyperlink
- ) .SequenceCode.It
+ )
  ; // Attributes
+ CONST dfm:PathOnly '\common\components\gui\Garant\VT'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\VT'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_4E733DD801B0 ThfOption
 
@@ -87,10 +92,15 @@ ref; // ME_5110D70102C2 hfsShow
  : Parent ME_4E732D7F0082 // TvtHideField
  ;
  : Attributes
-   @ ( ME_5110D6F602CF // hfsHide
+   Seq: ( ME_5110D6F602CF // hfsHide
  ME_5110D70102C2 // hfsShow
- ) .SequenceCode.It
+ )
  ; // Attributes
+ CONST dfm:PathOnly '\common\components\gui\Garant\VT'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\VT'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_4E733DE40275 ThfState
 
@@ -105,9 +115,13 @@ ref; // ME_4E733DE40275 ThfState
  : Parent ME_4E732D7F0082 // TvtHideField
  ;
  : Inherits
-   @ ( ME_4E733DD801B0 // ThfOption
- ) .SequenceCode.It
+   Seq: ( ME_4E733DD801B0 // ThfOption
+ )
  ; // Inherits
+ CONST dfm:PathOnly '\common\components\gui\Garant\VT'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\VT'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_5110D73500ED ThfOptions
 
@@ -142,9 +156,9 @@ ref; // ME_5110D80701C2 theState
  : Parent ME_5110D7EB0086 // ThfValidateStateEvent
  ;
  : Parameters
-   @ ( ME_5110D80701AA // aSender
+   Seq: ( ME_5110D80701AA // aSender
  ME_5110D80701C2 // theState
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_5110D8010190 DoIt
@@ -160,10 +174,14 @@ ref; // ME_5110D8010190 DoIt
  : Parent ME_4E732D7F0082 // TvtHideField
  ;
  : Operations
-   @ ( ME_5110D8010190 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_5110D8010190 // DoIt
+ )
  ; // Operations
  CONST "of object" true
+ CONST dfm:PathOnly '\common\components\gui\Garant\VT'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\VT'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_5110D7EB0086 ThfValidateStateEvent
 
@@ -183,6 +201,7 @@ FORWARD ME_5110D74F0284
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value 5
 
 ref; // ME_5110D7760085 c_hfTopImageIndent
 
@@ -200,6 +219,7 @@ ref; // ME_5110D7760085 c_hfTopImageIndent
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value 150
 
 ref; // ME_5110D7950218 c_hfWidth
 
@@ -217,6 +237,7 @@ ref; // ME_5110D7950218 c_hfWidth
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value 100
 
 ref; // ME_5110D7A403D1 c_hfHeight
 
@@ -234,6 +255,7 @@ ref; // ME_5110D7A403D1 c_hfHeight
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value 'clNavy'
 
 ref; // ME_5110D7BE0197 c_hfHeaderColor
 
@@ -248,13 +270,18 @@ ref; // ME_5110D7BE0197 c_hfHeaderColor
  : Parent ME_4E732D7F0082 // TvtHideField
  ;
  : Attributes
-   @ ( ME_5110D7760085 // c_hfTopImageIndent
+   Seq: ( ME_5110D7760085 // c_hfTopImageIndent
  ME_5110D7950218 // c_hfWidth
  ME_5110D7A403D1 // c_hfHeight
  ME_5110D7BE0197 // c_hfHeaderColor
- ) .SequenceCode.It
+ )
  ; // Attributes
  CONST "spell names" false
+ CONST dfm:PathOnly '\common\components\gui\Garant\VT'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\VT'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'HideFields Constants'
 
 ref; // ME_5110D74F0284 vtHideFields Constants
 
@@ -291,9 +318,9 @@ ref; // ME_5110D84002BD aOperation
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
  : Parameters
-   @ ( ME_5110D84002A6 // aSender
+   Seq: ( ME_5110D84002A6 // aSender
  ME_5110D84002BD // aOperation
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_5110D83203D3 DoIt
@@ -309,10 +336,14 @@ ref; // ME_5110D83203D3 DoIt
  : Parent ME_4E732D7F0082 // TvtHideField
  ;
  : Operations
-   @ ( ME_5110D83203D3 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_5110D83203D3 // DoIt
+ )
  ; // Operations
  CONST "of object" true
+ CONST dfm:PathOnly '\common\components\gui\Garant\VT'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\VT'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_5110D81C0041 ThfCommandEvent
 
@@ -822,6 +853,7 @@ ref; // ME_511130540308 f_DownPoint
 : ME_F4E0C07EAAE4
  CONST UID 'F4E0C07EAAE4'
  CONST Name 'f_OnNeedProcessCommand'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY 'Поле для свойства OnNeedProcessCommand' ;
  CONST Visibility PrivateAccess
@@ -831,12 +863,14 @@ ref; // ME_511130540308 f_DownPoint
  ;
  : Target ME_5110D81C0041 // ThfCommandEvent
  ;
+ CONST extprop:clearViaProperty 'OnNeedProcessCommand'
 
 ref; // ME_F4E0C07EAAE4 f_OnNeedProcessCommand
 
 : ME_2C8015372176
  CONST UID '2C8015372176'
  CONST Name 'f_StyleId'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY 'Поле для свойства StyleId' ;
  CONST Visibility PrivateAccess
@@ -846,12 +880,14 @@ ref; // ME_F4E0C07EAAE4 f_OnNeedProcessCommand
  ;
  : Target WL 'ME_5110DBDD0004' '47C695A10172.pas.ms.script' // TevStyleId
  ;
+ CONST extprop:clearViaProperty 'StyleId'
 
 ref; // ME_2C8015372176 f_StyleId
 
 : ME_80D4F6885059
  CONST UID '80D4F6885059'
  CONST Name 'f_OnValidateStateChanged'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY 'Поле для свойства OnValidateStateChanged' ;
  CONST Visibility PrivateAccess
@@ -861,12 +897,14 @@ ref; // ME_2C8015372176 f_StyleId
  ;
  : Target ME_5110D7EB0086 // ThfValidateStateEvent
  ;
+ CONST extprop:clearViaProperty 'OnValidateStateChanged'
 
 ref; // ME_80D4F6885059 f_OnValidateStateChanged
 
 : ME_4A7BC2C2E4AD
  CONST UID '4A7BC2C2E4AD'
  CONST Name 'f_OnStateChanged'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY 'Поле для свойства OnStateChanged' ;
  CONST Visibility PrivateAccess
@@ -876,12 +914,14 @@ ref; // ME_80D4F6885059 f_OnValidateStateChanged
  ;
  : Target WL 'ME_47881B22005A' '4AB0997B00A2.pas.ms.script' // TNotifyEvent
  ;
+ CONST extprop:clearViaProperty 'OnStateChanged'
 
 ref; // ME_4A7BC2C2E4AD f_OnStateChanged
 
 : ME_A048B76E5A45
  CONST UID 'A048B76E5A45'
  CONST Name 'f_ShowHeight'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY 'Поле для свойства ShowHeight' ;
  CONST Visibility PrivateAccess
@@ -891,12 +931,14 @@ ref; // ME_4A7BC2C2E4AD f_OnStateChanged
  ;
  : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
  ;
+ CONST extprop:clearViaProperty 'ShowHeight'
 
 ref; // ME_A048B76E5A45 f_ShowHeight
 
 : ME_351FB295260A
  CONST UID '351FB295260A'
  CONST Name 'f_TopHeaderIndent'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY 'Поле для свойства TopHeaderIndent' ;
  CONST Visibility PrivateAccess
@@ -906,12 +948,14 @@ ref; // ME_A048B76E5A45 f_ShowHeight
  ;
  : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
  ;
+ CONST extprop:clearViaProperty 'TopHeaderIndent'
 
 ref; // ME_351FB295260A f_TopHeaderIndent
 
 : ME_24674C459B0A
  CONST UID '24674C459B0A'
  CONST Name 'f_AfterClientSpace'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY 'Поле для свойства AfterClientSpace' ;
  CONST Visibility PrivateAccess
@@ -921,12 +965,14 @@ ref; // ME_351FB295260A f_TopHeaderIndent
  ;
  : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
  ;
+ CONST extprop:clearViaProperty 'AfterClientSpace'
 
 ref; // ME_24674C459B0A f_AfterClientSpace
 
 : ME_D10E3B577EBE
  CONST UID 'D10E3B577EBE'
  CONST Name 'f_BeforeClientSpace'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY 'Поле для свойства BeforeClientSpace' ;
  CONST Visibility PrivateAccess
@@ -936,12 +982,14 @@ ref; // ME_24674C459B0A f_AfterClientSpace
  ;
  : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
  ;
+ CONST extprop:clearViaProperty 'BeforeClientSpace'
 
 ref; // ME_D10E3B577EBE f_BeforeClientSpace
 
 : ME_CE9065F4AABC
  CONST UID 'CE9065F4AABC'
  CONST Name 'f_OnHyperlinkClick'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY 'Поле для свойства OnHyperlinkClick' ;
  CONST Visibility PrivateAccess
@@ -951,12 +999,14 @@ ref; // ME_D10E3B577EBE f_BeforeClientSpace
  ;
  : Target WL 'ME_47881B22005A' '4AB0997B00A2.pas.ms.script' // TNotifyEvent
  ;
+ CONST extprop:clearViaProperty 'OnHyperlinkClick'
 
 ref; // ME_CE9065F4AABC f_OnHyperlinkClick
 
 : ME_0E6E420C5B83
  CONST UID '0E6E420C5B83'
  CONST Name 'f_Options'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY 'Поле для свойства Options' ;
  CONST Visibility PrivateAccess
@@ -966,12 +1016,14 @@ ref; // ME_CE9065F4AABC f_OnHyperlinkClick
  ;
  : Target ME_5110D73500ED // ThfOptions
  ;
+ CONST extprop:clearViaProperty 'Options'
 
 ref; // ME_0E6E420C5B83 f_Options
 
 : ME_4141E0ED4C72
  CONST UID '4141E0ED4C72'
  CONST Name 'f_ClientIndent'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY 'Поле для свойства ClientIndent' ;
  CONST Visibility PrivateAccess
@@ -981,12 +1033,14 @@ ref; // ME_0E6E420C5B83 f_Options
  ;
  : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
  ;
+ CONST extprop:clearViaProperty 'ClientIndent'
 
 ref; // ME_4141E0ED4C72 f_ClientIndent
 
 : ME_794E9A72E59D
  CONST UID '794E9A72E59D'
  CONST Name 'f_HeaderColor'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY 'Поле для свойства HeaderColor' ;
  CONST Visibility PrivateAccess
@@ -996,12 +1050,14 @@ ref; // ME_4141E0ED4C72 f_ClientIndent
  ;
  : Target WL 'ME_46A44A2F01C7' '55C4AEC801CA.pas.ms.script' // TColor
  ;
+ CONST extprop:clearViaProperty 'HeaderColor'
 
 ref; // ME_794E9A72E59D f_HeaderColor
 
 : ME_E78F440E4C0C
  CONST UID 'E78F440E4C0C'
  CONST Name 'f_ButtonImageList'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY 'Поле для свойства ButtonImageList' ;
  CONST Visibility PrivateAccess
@@ -1011,12 +1067,14 @@ ref; // ME_794E9A72E59D f_HeaderColor
  ;
  : Target WL 'ME_473DA2AF0168' '4799D29F033F.pas.ms.script' // TCustomImageList
  ;
+ CONST extprop:clearViaProperty 'ButtonImageList'
 
 ref; // ME_E78F440E4C0C f_ButtonImageList
 
 : ME_EEA75802F336
  CONST UID 'EEA75802F336'
  CONST Name 'f_ButtonOpenImage'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY 'Поле для свойства ButtonOpenImage' ;
  CONST Visibility PrivateAccess
@@ -1026,12 +1084,14 @@ ref; // ME_E78F440E4C0C f_ButtonImageList
  ;
  : Target WL 'ME_4788207F0056' '4799D29F033F.pas.ms.script' // TImageIndex
  ;
+ CONST extprop:clearViaProperty 'ButtonOpenImage'
 
 ref; // ME_EEA75802F336 f_ButtonOpenImage
 
 : ME_05D2D0E9F716
  CONST UID '05D2D0E9F716'
  CONST Name 'f_ButtonCloseImage'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY 'Поле для свойства ButtonCloseImage' ;
  CONST Visibility PrivateAccess
@@ -1041,12 +1101,14 @@ ref; // ME_EEA75802F336 f_ButtonOpenImage
  ;
  : Target WL 'ME_4788207F0056' '4799D29F033F.pas.ms.script' // TImageIndex
  ;
+ CONST extprop:clearViaProperty 'ButtonCloseImage'
 
 ref; // ME_05D2D0E9F716 f_ButtonCloseImage
 
 : ME_8FED36B168FD
  CONST UID '8FED36B168FD'
  CONST Name 'f_HeaderImage'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY 'Поле для свойства HeaderImage' ;
  CONST Visibility PrivateAccess
@@ -1056,12 +1118,14 @@ ref; // ME_05D2D0E9F716 f_ButtonCloseImage
  ;
  : Target WL 'ME_4788207F0056' '4799D29F033F.pas.ms.script' // TImageIndex
  ;
+ CONST extprop:clearViaProperty 'HeaderImage'
 
 ref; // ME_8FED36B168FD f_HeaderImage
 
 : ME_F0308B460F69
  CONST UID 'F0308B460F69'
  CONST Name 'f_CaptionIndent'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY 'Поле для свойства CaptionIndent' ;
  CONST Visibility PrivateAccess
@@ -1071,12 +1135,14 @@ ref; // ME_8FED36B168FD f_HeaderImage
  ;
  : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
  ;
+ CONST extprop:clearViaProperty 'CaptionIndent'
 
 ref; // ME_F0308B460F69 f_CaptionIndent
 
 : ME_9983D0D9F164
  CONST UID '9983D0D9F164'
  CONST Name 'f_LeftImageIndent'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY 'Поле для свойства LeftImageIndent' ;
  CONST Visibility PrivateAccess
@@ -1086,12 +1152,14 @@ ref; // ME_F0308B460F69 f_CaptionIndent
  ;
  : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
  ;
+ CONST extprop:clearViaProperty 'LeftImageIndent'
 
 ref; // ME_9983D0D9F164 f_LeftImageIndent
 
 : ME_5F4AFE29F4FE
  CONST UID '5F4AFE29F4FE'
  CONST Name 'f_TopImageIndent'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY 'Поле для свойства TopImageIndent' ;
  CONST Visibility PrivateAccess
@@ -1101,12 +1169,14 @@ ref; // ME_9983D0D9F164 f_LeftImageIndent
  ;
  : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
  ;
+ CONST extprop:clearViaProperty 'TopImageIndent'
 
 ref; // ME_5F4AFE29F4FE f_TopImageIndent
 
 : ME_00C57E484008
  CONST UID '00C57E484008'
  CONST Name 'f_LeftHeaderIndent'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY 'Поле для свойства LeftHeaderIndent' ;
  CONST Visibility PrivateAccess
@@ -1116,12 +1186,14 @@ ref; // ME_5F4AFE29F4FE f_TopImageIndent
  ;
  : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
  ;
+ CONST extprop:clearViaProperty 'LeftHeaderIndent'
 
 ref; // ME_00C57E484008 f_LeftHeaderIndent
 
 : ME_74E25DBDF1BA
  CONST UID '74E25DBDF1BA'
  CONST Name 'f_Images'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY 'Поле для свойства Images' ;
  CONST Visibility PrivateAccess
@@ -1131,12 +1203,14 @@ ref; // ME_00C57E484008 f_LeftHeaderIndent
  ;
  : Target WL 'ME_473DA2AF0168' '4799D29F033F.pas.ms.script' // TCustomImageList
  ;
+ CONST extprop:clearViaProperty 'Images'
 
 ref; // ME_74E25DBDF1BA f_Images
 
 : ME_2F123B7E7826
  CONST UID '2F123B7E7826'
  CONST Name 'f_ClientControl'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY 'Поле для свойства ClientControl' ;
  CONST Visibility PrivateAccess
@@ -1146,12 +1220,14 @@ ref; // ME_74E25DBDF1BA f_Images
  ;
  : Target WL 'ME_47E124E90272' '4799D29F033F.pas.ms.script' // TWinControl
  ;
+ CONST extprop:clearViaProperty 'ClientControl'
 
 ref; // ME_2F123B7E7826 f_ClientControl
 
 : ME_080EBD65F3D1
  CONST UID '080EBD65F3D1'
  CONST Name 'f_State'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY 'Поле для свойства State' ;
  CONST Visibility PrivateAccess
@@ -1161,6 +1237,7 @@ ref; // ME_2F123B7E7826 f_ClientControl
  ;
  : Target ME_4E733DE40275 // ThfState
  ;
+ CONST extprop:clearViaProperty 'State'
 
 ref; // ME_080EBD65F3D1 f_State
 
@@ -1169,6 +1246,7 @@ FORWARD ME_508F96700139
 : ME_544EEA6E940A
  CONST UID '544EEA6E940A'
  CONST Name 'DoIt'
+ CONST IsSummoned true
  CONST Class class_Operation
  %SUMMARY 'Сигнатура метода DoStateChanged' ;
  CONST Visibility PublicAccess
@@ -1189,8 +1267,8 @@ ref; // ME_544EEA6E940A DoIt
  : Parent ME_4E732D8B0291 // TvtCustomHideField
  ;
  : Operations
-   @ ( ME_544EEA6E940A // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_544EEA6E940A // DoIt
+ )
  ; // Operations
 
 ref; // ME_508F96700139 DoStateChanged
@@ -1228,9 +1306,9 @@ ref; // ME_5110E89402DA aImageIndex
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
  : Parameters
-   @ ( ME_5110E89402B9 // aImages
+   Seq: ( ME_5110E89402B9 // aImages
  ME_5110E89402DA // aImageIndex
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_5110E880019B DoIt
@@ -1247,8 +1325,8 @@ ref; // ME_5110E880019B DoIt
  : Parent ME_4E732D8B0291 // TvtCustomHideField
  ;
  : Operations
-   @ ( ME_5110E880019B // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_5110E880019B // DoIt
+ )
  ; // Operations
 
 ref; // ME_5110E8730017 CheckImage
@@ -1258,6 +1336,7 @@ FORWARD ME_5110E8D4004F
 : ME_1F4F6615A7A8
  CONST UID '1F4F6615A7A8'
  CONST Name 'DoIt'
+ CONST IsSummoned true
  CONST Class class_Operation
  %SUMMARY 'Сигнатура метода DoHyperlink' ;
  CONST Visibility PublicAccess
@@ -1278,8 +1357,8 @@ ref; // ME_1F4F6615A7A8 DoIt
  : Parent ME_4E732D8B0291 // TvtCustomHideField
  ;
  : Operations
-   @ ( ME_1F4F6615A7A8 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_1F4F6615A7A8 // DoIt
+ )
  ; // Operations
 
 ref; // ME_5110E8D4004F DoHyperlink
@@ -1305,8 +1384,8 @@ ref; // ME_5110E97B01D3 Sender
  : Parent ME_5110E94B0295 // OnImageListChange
  ;
  : Parameters
-   @ ( ME_5110E97B01D3 // Sender
- ) .SequenceCode.It
+   Seq: ( ME_5110E97B01D3 // Sender
+ )
  ; // Parameters
 
 ref; // ME_5110E966036B DoIt
@@ -1322,8 +1401,8 @@ ref; // ME_5110E966036B DoIt
  : Parent ME_4E732D8B0291 // TvtCustomHideField
  ;
  : Operations
-   @ ( ME_5110E966036B // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_5110E966036B // DoIt
+ )
  ; // Operations
 
 ref; // ME_5110E94B0295 OnImageListChange
@@ -1333,6 +1412,7 @@ FORWARD ME_5110E98600A4
 : ME_5ED75F02368B
  CONST UID '5ED75F02368B'
  CONST Name 'DoIt'
+ CONST IsSummoned true
  CONST Class class_Operation
  %SUMMARY 'Сигнатура метода ExchangeState' ;
  CONST Visibility PublicAccess
@@ -1354,8 +1434,8 @@ ref; // ME_5ED75F02368B DoIt
  : Parent ME_4E732D8B0291 // TvtCustomHideField
  ;
  : Operations
-   @ ( ME_5ED75F02368B // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_5ED75F02368B // DoIt
+ )
  ; // Operations
 
 ref; // ME_5110E98600A4 ExchangeState
@@ -1387,8 +1467,8 @@ ref; // ME_5110E9C80265 DoIt
  : Parent ME_4E732D8B0291 // TvtCustomHideField
  ;
  : Operations
-   @ ( ME_5110E9C80265 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_5110E9C80265 // DoIt
+ )
  ; // Operations
 
 ref; // ME_5110E9B3001D GetHeaderLineRect
@@ -1420,8 +1500,8 @@ ref; // ME_5110E9EE02DD DoIt
  : Parent ME_4E732D8B0291 // TvtCustomHideField
  ;
  : Operations
-   @ ( ME_5110E9EE02DD // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_5110E9EE02DD // DoIt
+ )
  ; // Operations
 
 ref; // ME_5110E9DF0198 GetHeaderLineHeight
@@ -1453,8 +1533,8 @@ ref; // ME_5110EA1400B2 DoIt
  : Parent ME_4E732D8B0291 // TvtCustomHideField
  ;
  : Operations
-   @ ( ME_5110EA1400B2 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_5110EA1400B2 // DoIt
+ )
  ; // Operations
 
 ref; // ME_5110EA09030A GetImageRect
@@ -1486,8 +1566,8 @@ ref; // ME_5110EAF60226 DoIt
  : Parent ME_4E732D8B0291 // TvtCustomHideField
  ;
  : Operations
-   @ ( ME_5110EAF60226 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_5110EAF60226 // DoIt
+ )
  ; // Operations
 
 ref; // ME_5110EAD80111 GetImageTop
@@ -1497,6 +1577,7 @@ FORWARD ME_5110EB070102
 : ME_8E95A60A5371
  CONST UID '8E95A60A5371'
  CONST Name 'DoIt'
+ CONST IsSummoned true
  CONST Class class_Operation
  %SUMMARY 'Сигнатура метода Rebuild' ;
  CONST Visibility PublicAccess
@@ -1518,8 +1599,8 @@ ref; // ME_8E95A60A5371 DoIt
  : Parent ME_4E732D8B0291 // TvtCustomHideField
  ;
  : Operations
-   @ ( ME_8E95A60A5371 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_8E95A60A5371 // DoIt
+ )
  ; // Operations
 
 ref; // ME_5110EB070102 Rebuild
@@ -1529,6 +1610,7 @@ FORWARD ME_5110EB2F030B
 : ME_589E2483F36C
  CONST UID '589E2483F36C'
  CONST Name 'DoIt'
+ CONST IsSummoned true
  CONST Class class_Operation
  %SUMMARY 'Сигнатура метода MakeHideHeight' ;
  CONST Visibility PublicAccess
@@ -1550,8 +1632,8 @@ ref; // ME_589E2483F36C DoIt
  : Parent ME_4E732D8B0291 // TvtCustomHideField
  ;
  : Operations
-   @ ( ME_589E2483F36C // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_589E2483F36C // DoIt
+ )
  ; // Operations
 
 ref; // ME_5110EB2F030B MakeHideHeight
@@ -1579,8 +1661,8 @@ ref; // ME_5110EB8E0085 Msg
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
  : Parameters
-   @ ( ME_5110EB8E0085 // Msg
- ) .SequenceCode.It
+   Seq: ( ME_5110EB8E0085 // Msg
+ )
  ; // Parameters
 
 ref; // ME_5110EB850238 DoIt
@@ -1596,8 +1678,8 @@ ref; // ME_5110EB850238 DoIt
  : Parent ME_4E732D8B0291 // TvtCustomHideField
  ;
  : Operations
-   @ ( ME_5110EB850238 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_5110EB850238 // DoIt
+ )
  ; // Operations
  CONST "ifndef" 'DesignTimeLibrary'
 
@@ -1608,6 +1690,7 @@ FORWARD ME_51124356016F
 : ME_3B5813075FD5
  CONST UID '3B5813075FD5'
  CONST Name 'DoIt'
+ CONST IsSummoned true
  CONST Class class_Operation
  %SUMMARY 'Сигнатура метода DoStyleTableChanged' ;
  CONST Visibility PublicAccess
@@ -1628,8 +1711,8 @@ ref; // ME_3B5813075FD5 DoIt
  : Parent ME_4E732D8B0291 // TvtCustomHideField
  ;
  : Operations
-   @ ( ME_3B5813075FD5 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_3B5813075FD5 // DoIt
+ )
  ; // Operations
 
 ref; // ME_51124356016F DoStyleTableChanged
@@ -1639,6 +1722,7 @@ FORWARD ME_5295F76F02C5
 : ME_DCF9ADC1ACE3
  CONST UID 'DCF9ADC1ACE3'
  CONST Name 'DoIt'
+ CONST IsSummoned true
  CONST Class class_Operation
  %SUMMARY 'Сигнатура метода HideControl' ;
  CONST Visibility PublicAccess
@@ -1659,8 +1743,8 @@ ref; // ME_DCF9ADC1ACE3 DoIt
  : Parent ME_4E732D8B0291 // TvtCustomHideField
  ;
  : Operations
-   @ ( ME_DCF9ADC1ACE3 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_DCF9ADC1ACE3 // DoIt
+ )
  ; // Operations
 
 ref; // ME_5295F76F02C5 HideControl
@@ -1685,8 +1769,8 @@ ref; // ME_5110EBFB0324 Message
  : Parent ME_4E732D8B0291 // TvtCustomHideField
  ;
  : Parameters
-   @ ( ME_5110EBFB0324 // Message
- ) .SequenceCode.It
+   Seq: ( ME_5110EBFB0324 // Message
+ )
  ; // Parameters
  CONST "Message ID" 'CM_CONTROLCHANGE'
 
@@ -1712,8 +1796,8 @@ ref; // ME_5110EC0D01C9 Message
  : Parent ME_4E732D8B0291 // TvtCustomHideField
  ;
  : Parameters
-   @ ( ME_5110EC0D01C9 // Message
- ) .SequenceCode.It
+   Seq: ( ME_5110EC0D01C9 // Message
+ )
  ; // Parameters
  CONST "Message ID" 'WM_ERASEBKGND'
 
@@ -1739,8 +1823,8 @@ ref; // ME_5110EC260250 Message
  : Parent ME_4E732D8B0291 // TvtCustomHideField
  ;
  : Parameters
-   @ ( ME_5110EC260250 // Message
- ) .SequenceCode.It
+   Seq: ( ME_5110EC260250 // Message
+ )
  ; // Parameters
  CONST "Message ID" 'CM_TEXTCHANGED'
 
@@ -1766,8 +1850,8 @@ ref; // ME_5110EC4A000D Message
  : Parent ME_4E732D8B0291 // TvtCustomHideField
  ;
  : Parameters
-   @ ( ME_5110EC4A000D // Message
- ) .SequenceCode.It
+   Seq: ( ME_5110EC4A000D // Message
+ )
  ; // Parameters
  CONST "Message ID" 'CM_FONTCHANGED'
 
@@ -1793,8 +1877,8 @@ ref; // ME_5110EC600375 Message
  : Parent ME_4E732D8B0291 // TvtCustomHideField
  ;
  : Parameters
-   @ ( ME_5110EC600375 // Message
- ) .SequenceCode.It
+   Seq: ( ME_5110EC600375 // Message
+ )
  ; // Parameters
  CONST "Message ID" 'WM_KILLFOCUS'
 
@@ -1820,8 +1904,8 @@ ref; // ME_5110EC79016C Message
  : Parent ME_4E732D8B0291 // TvtCustomHideField
  ;
  : Parameters
-   @ ( ME_5110EC79016C // Message
- ) .SequenceCode.It
+   Seq: ( ME_5110EC79016C // Message
+ )
  ; // Parameters
  CONST "Message ID" 'WM_SETFOCUS'
 
@@ -1847,8 +1931,8 @@ ref; // ME_5110EC98026F Msg
  : Parent ME_4E732D8B0291 // TvtCustomHideField
  ;
  : Parameters
-   @ ( ME_5110EC98026F // Msg
- ) .SequenceCode.It
+   Seq: ( ME_5110EC98026F // Msg
+ )
  ; // Parameters
  CONST "Message ID" 'WM_SYSKEYDOWN'
  CONST "ifndef" 'DesignTimeLibrary'
@@ -1875,8 +1959,8 @@ ref; // ME_5110ECB30085 Msg
  : Parent ME_4E732D8B0291 // TvtCustomHideField
  ;
  : Parameters
-   @ ( ME_5110ECB30085 // Msg
- ) .SequenceCode.It
+   Seq: ( ME_5110ECB30085 // Msg
+ )
  ; // Parameters
  CONST "Message ID" 'CN_KEYDOWN'
  CONST "ifndef" 'DesignTimeLibrary'
@@ -1886,6 +1970,7 @@ ref; // ME_5110ECA600E4 CNKeyDown
 : ME_B7BEA46A4838
  CONST UID 'B7BEA46A4838'
  CONST Name 'OptionsStored'
+ CONST IsSummoned true
  CONST Class class_Operation
  %SUMMARY '"Функция определяющая, что свойство Options сохраняется"' ;
  CONST Visibility ProtectedAccess
@@ -1900,6 +1985,7 @@ ref; // ME_B7BEA46A4838 OptionsStored
 : ME_392B150C4B09
  CONST UID '392B150C4B09'
  CONST Name 'Ini_Reg_Class'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Регистрация TvtCustomHideField' ;
@@ -1913,6 +1999,7 @@ ref; // ME_392B150C4B09 Ini_Reg_Class
 
 : ME_5A03565E27F1
  CONST UID '5A03565E27F1'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_4E732D8B0291 // TvtCustomHideField
@@ -1929,6 +2016,7 @@ ref; // ME_5A03565E27F1
  ;
  : Implementor ME_4E732D8B0291 // TvtCustomHideField
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_467D2CB10135_ME_4E732D8B0291 StyleTableChanged
 
 : ME_479731C50290_ME_4E732D8B0291
@@ -1938,6 +2026,7 @@ ref; // ME_467D2CB10135_ME_4E732D8B0291 StyleTableChanged
  ;
  : Implementor ME_4E732D8B0291 // TvtCustomHideField
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_479731C50290_ME_4E732D8B0291 Cleanup
 
 : ME_47D1602000C6_ME_4E732D8B0291
@@ -1947,6 +2036,7 @@ ref; // ME_479731C50290_ME_4E732D8B0291 Cleanup
  ;
  : Implementor ME_4E732D8B0291 // TvtCustomHideField
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_47D1602000C6_ME_4E732D8B0291 Create
 
 : ME_48BD1E3C03B5_ME_4E732D8B0291
@@ -1956,6 +2046,7 @@ ref; // ME_47D1602000C6_ME_4E732D8B0291 Create
  ;
  : Implementor ME_4E732D8B0291 // TvtCustomHideField
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_48BD1E3C03B5_ME_4E732D8B0291 GetCommands
 
 : ME_48BD22E601F2_ME_4E732D8B0291
@@ -1965,6 +2056,7 @@ ref; // ME_48BD1E3C03B5_ME_4E732D8B0291 GetCommands
  ;
  : Implementor ME_4E732D8B0291 // TvtCustomHideField
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_48BD22E601F2_ME_4E732D8B0291 DoProcessCommand
 
 : ME_48C6C044025E_ME_4E732D8B0291
@@ -1974,6 +2066,7 @@ ref; // ME_48BD22E601F2_ME_4E732D8B0291 DoProcessCommand
  ;
  : Implementor ME_4E732D8B0291 // TvtCustomHideField
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_48C6C044025E_ME_4E732D8B0291 Paint
 
 : ME_48E22B250241_ME_4E732D8B0291
@@ -1983,6 +2076,7 @@ ref; // ME_48C6C044025E_ME_4E732D8B0291 Paint
  ;
  : Implementor ME_4E732D8B0291 // TvtCustomHideField
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_48E22B250241_ME_4E732D8B0291 MouseMove
 
 : ME_4E7896270076_ME_4E732D8B0291
@@ -1992,6 +2086,7 @@ ref; // ME_48E22B250241_ME_4E732D8B0291 MouseMove
  ;
  : Implementor ME_4E732D8B0291 // TvtCustomHideField
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4E7896270076_ME_4E732D8B0291 MouseUp
 
 : ME_4F88473B03CD_ME_4E732D8B0291
@@ -2001,6 +2096,7 @@ ref; // ME_4E7896270076_ME_4E732D8B0291 MouseUp
  ;
  : Implementor ME_4E732D8B0291 // TvtCustomHideField
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4F88473B03CD_ME_4E732D8B0291 MouseDown
 
 : ME_508F957E0283_ME_4E732D8B0291
@@ -2010,6 +2106,7 @@ ref; // ME_4F88473B03CD_ME_4E732D8B0291 MouseDown
  ;
  : Implementor ME_4E732D8B0291 // TvtCustomHideField
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_508F957E0283_ME_4E732D8B0291 AdjustClientRect
 
 : ME_4E732D8B0291
@@ -2023,15 +2120,15 @@ ref; // ME_508F957E0283_ME_4E732D8B0291 AdjustClientRect
  : Parent ME_4E732D7F0082 // TvtHideField
  ;
  : Inherits
-   @ ( WL 'ME_48BBF1470238' '467BA8C8017E.pas.ms.script' // TafwTextControl
- ) .SequenceCode.It
+   Seq: ( WL 'ME_48BBF1470238' '467BA8C8017E.pas.ms.script' // TafwTextControl
+ )
  ; // Inherits
  : Implements
-   @ ( WL 'ME_467D2C8F0172' '467823B7002C.pas.ms.script' // IafwStyleTableSpy
- ) .SequenceCode.It
+   Seq: ( WL 'ME_467D2C8F0172' '467823B7002C.pas.ms.script' // IafwStyleTableSpy
+ )
  ; // Implements
  : Attributes
-   @ ( ME_5110DAC901D8 // OnNeedProcessCommand
+   Seq: ( ME_5110DAC901D8 // OnNeedProcessCommand
  ME_5110DC1F02C4 // StyleId
  ME_5110DC91001F // OnValidateStateChanged
  ME_5110DD110127 // OnStateChanged
@@ -2083,10 +2180,10 @@ ref; // ME_508F957E0283_ME_4E732D8B0291 AdjustClientRect
  ME_74E25DBDF1BA // f_Images
  ME_2F123B7E7826 // f_ClientControl
  ME_080EBD65F3D1 // f_State
- ) .SequenceCode.It
+ )
  ; // Attributes
  : Operations
-   @ ( ME_508F96700139 // DoStateChanged
+   Seq: ( ME_508F96700139 // DoStateChanged
  ME_5110E8730017 // CheckImage
  ME_5110E8D4004F // DoHyperlink
  ME_5110E94B0295 // OnImageListChange
@@ -2110,14 +2207,14 @@ ref; // ME_508F957E0283_ME_4E732D8B0291 AdjustClientRect
  ME_5110ECA600E4 // CNKeyDown
  ME_B7BEA46A4838 // OptionsStored
  ME_392B150C4B09 // Ini_Reg_Class
- ) .SequenceCode.It
+ )
  ; // Operations
  : Implemented
-   @ ( ME_467D2CB10135_ME_4E732D8B0291 // StyleTableChanged
- ) .SequenceCode.It
+   Seq: ( ME_467D2CB10135_ME_4E732D8B0291 // StyleTableChanged
+ )
  ; // Implemented
  : Overridden
-   @ ( ME_479731C50290_ME_4E732D8B0291 // Cleanup
+   Seq: ( ME_479731C50290_ME_4E732D8B0291 // Cleanup
  ME_47D1602000C6_ME_4E732D8B0291 // Create
  ME_48BD1E3C03B5_ME_4E732D8B0291 // GetCommands
  ME_48BD22E601F2_ME_4E732D8B0291 // DoProcessCommand
@@ -2126,21 +2223,27 @@ ref; // ME_508F957E0283_ME_4E732D8B0291 AdjustClientRect
  ME_4E7896270076_ME_4E732D8B0291 // MouseUp
  ME_4F88473B03CD_ME_4E732D8B0291 // MouseDown
  ME_508F957E0283_ME_4E732D8B0291 // AdjustClientRect
- ) .SequenceCode.It
+ )
  ; // Overridden
  : Dependencies
-   @ ( ME_5A03565E27F1 // 
- ) .SequenceCode.It
+   Seq: ( ME_5A03565E27F1 // 
+ )
  ; // Dependencies
  : Injected
-   @ ( WL 'ME_0ECF0561A8DE' '54EC6430005C.pas.ms.script' // 
- ) .SequenceCode.It
+   Seq: ( WL 'ME_0ECF0561A8DE' '54EC6430005C.pas.ms.script' // 
+ )
  ; // Injected
  CONST "base wnd class" 'CWnd'
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" true
+ CONST dfm:PathOnly '\common\components\gui\Garant\VT'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\VT'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'HideField'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_4E732D8B0291 TvtCustomHideField
 
@@ -2159,6 +2262,7 @@ FORWARD ME_5110EF0600E4
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value 20
 
 ref; // ME_5110EF6D032D cDefaultHeight
 
@@ -2175,6 +2279,7 @@ ref; // ME_5110EF6D032D cDefaultHeight
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value '[hfoCanHide, hfoHyperlink]'
 
 ref; // ME_5110EF79027C cDefaultOptions
 
@@ -2189,11 +2294,16 @@ ref; // ME_5110EF79027C cDefaultOptions
  : Parent ME_4E732D7F0082 // TvtHideField
  ;
  : Attributes
-   @ ( ME_5110EF6D032D // cDefaultHeight
+   Seq: ( ME_5110EF6D032D // cDefaultHeight
  ME_5110EF79027C // cDefaultOptions
- ) .SequenceCode.It
+ )
  ; // Attributes
  CONST "spell names" false
+ CONST dfm:PathOnly '\common\components\gui\Garant\VT'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\VT'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'HideFields Private Constants'
 
 ref; // ME_5110EF0600E4 vtHideFields Private Constants
 
@@ -2213,6 +2323,7 @@ FORWARD ME_51126C220257
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value '''State'''
 
 ref; // ME_51126C35039C cstidState
 
@@ -2227,16 +2338,22 @@ ref; // ME_51126C35039C cstidState
  : Parent ME_4E732D7F0082 // TvtHideField
  ;
  : Attributes
-   @ ( ME_51126C35039C // cstidState
- ) .SequenceCode.It
+   Seq: ( ME_51126C35039C // cstidState
+ )
  ; // Attributes
  CONST "spell names" false
+ CONST dfm:PathOnly '\common\components\gui\Garant\VT'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\VT'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'HideFieldConsts'
 
 ref; // ME_51126C220257 nscHideFieldConsts
 
 : ME_D849F2C9B0BB
  CONST UID 'D849F2C9B0BB'
  CONST Name 'Ini_Reg_Class'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Регистрация TvtHideField' ;
@@ -2428,6 +2545,7 @@ ref; // ME_511134DF01E9
 
 : ME_296B667B99D9
  CONST UID '296B667B99D9'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_4E732D7F0082 // TvtHideField
@@ -2448,30 +2566,30 @@ ref; // ME_296B667B99D9
  : Parent ME_4E732D5D02FE // HideFields
  ;
  : Inherits
-   @ ( ME_4E732D8B0291 // TvtCustomHideField
- ) .SequenceCode.It
+   Seq: ( ME_4E732D8B0291 // TvtCustomHideField
+ )
  ; // Inherits
  : Operations
-   @ ( ME_D849F2C9B0BB // Ini_Reg_Class
- ) .SequenceCode.It
+   Seq: ( ME_D849F2C9B0BB // Ini_Reg_Class
+ )
  ; // Operations
  : Children
-   @ ( ME_4E733DD801B0 // ThfOption
+   Seq: ( ME_4E733DD801B0 // ThfOption
  ME_4E733DE40275 // ThfState
  ME_5110D73500ED // ThfOptions
  ME_5110D7EB0086 // ThfValidateStateEvent
  ME_5110D81C0041 // ThfCommandEvent
  ME_4E732D8B0291 // TvtCustomHideField
- ) .SequenceCode.It
+ )
  ; // Children
  : Constants
-   @ ( ME_5110D74F0284 // vtHideFields Constants
+   Seq: ( ME_5110D74F0284 // vtHideFields Constants
  ME_5110EF0600E4 // vtHideFields Private Constants
  ME_51126C220257 // nscHideFieldConsts
- ) .SequenceCode.It
+ )
  ; // Constants
  : Dependencies
-   @ ( ME_5110D98B0247 // 
+   Seq: ( ME_5110D98B0247 // 
  ME_5110EDDB015F // 
  ME_5111249B0163 // 
  ME_511126CA03DF // 
@@ -2488,7 +2606,7 @@ ref; // ME_296B667B99D9
  ME_51113412033A // 
  ME_511134DF01E9 // 
  ME_296B667B99D9 // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  CONST "base wnd class" 'CWnd'
  CONST "need UC" true
@@ -2496,12 +2614,14 @@ ref; // ME_296B667B99D9
  CONST "needs script" 'undefined'
  CONST "no hands" true
  CONST "register in scripts" 'undefined'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\VT'
  CONST intf.pas:Path 'common\components\gui\Garant\VT\vtHideField.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\VT'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'HideField'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'vtHideField'
 
 ref; // ME_4E732D7F0082 TvtHideField
 
@@ -2543,8 +2663,8 @@ ref; // ME_5110EE0B0228 aName
  : Target WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
  ;
  : Parameters
-   @ ( ME_5110EE0B0228 // aName
- ) .SequenceCode.It
+   Seq: ( ME_5110EE0B0228 // aName
+ )
  ; // Parameters
 
 ref; // ME_5110EE0801B0 DoIt
@@ -2560,8 +2680,8 @@ ref; // ME_5110EE0801B0 DoIt
  : Parent ME_5110ED94010E // vtHideFieldUtils
  ;
  : Operations
-   @ ( ME_5110EE0801B0 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_5110EE0801B0 // DoIt
+ )
  ; // Operations
 
 ref; // ME_5110EDE70381 MakeName
@@ -2588,24 +2708,24 @@ ref; // ME_5111175C03A9
  : Parent ME_4E732D5D02FE // HideFields
  ;
  : Attributes
-   @ ( ME_5110EE260146 // g_HideFieldCount
- ) .SequenceCode.It
+   Seq: ( ME_5110EE260146 // g_HideFieldCount
+ )
  ; // Attributes
  : Operations
-   @ ( ME_5110EDE70381 // MakeName
- ) .SequenceCode.It
+   Seq: ( ME_5110EDE70381 // MakeName
+ )
  ; // Operations
  : Dependencies
-   @ ( ME_5111175C03A9 // 
- ) .SequenceCode.It
+   Seq: ( ME_5111175C03A9 // 
+ )
  ; // Dependencies
  CONST "no hands" false
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\VT'
  CONST intf.pas:Path 'common\components\gui\Garant\VT\vtHideFieldUtils.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\VT'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'HideFieldUtils'
 
 ref; // ME_5110ED94010E vtHideFieldUtils
 
@@ -2619,12 +2739,12 @@ ref; // ME_5110ED94010E vtHideFieldUtils
  : Parent WL 'ME_467A75D90346' '467A75D90346.pas.ms.script' // VT
  ;
  : Children
-   @ ( ME_4E732D7F0082 // TvtHideField
+   Seq: ( ME_4E732D7F0082 // TvtHideField
  ME_5110ED94010E // vtHideFieldUtils
- ) .SequenceCode.It
+ )
  ; // Children
  : Depends
-   @ ( WL 'ME_4677FBA70343' '4677FBA70343.pas.ms.script' // l3Interfaces
+   Seq: ( WL 'ME_4677FBA70343' '4677FBA70343.pas.ms.script' // l3Interfaces
  WL 'ME_467823B7002C' '467823B7002C.pas.ms.script' // afwInterfaces
  WL 'ME_467BA8C8017E' '467BA8C8017E.pas.ms.script' // afwControl
  WL 'ME_472745450206' '472745450206.pas.ms.script' // l3Units
@@ -2647,15 +2767,13 @@ ref; // ME_5110ED94010E vtHideFieldUtils
  WL 'ME_54B90AC6014B' '54B90AC6014B.pas.ms.script' // StringUtils
  WL 'ME_55C4AEC801CA' '55C4AEC801CA.pas.ms.script' // Graphics
  WL 'ME_561F9F7D02A7' '561F9F7D02A7.pas.ms.script' // ScriptEngine
- ) .SequenceCode.It
+ )
  ; // Depends
- : Generators
- @ (
- gen_pas.script
- gen_pas.script.runner
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\VT'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\VT'
  CONST pas.script:Path 'shared\models\NewSchool\Scripts\4E732D5D02FE.pas.ms.script'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
  CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\4E732D5D02FE.pas.ms.script.runner'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_4E732D5D02FE HideFields

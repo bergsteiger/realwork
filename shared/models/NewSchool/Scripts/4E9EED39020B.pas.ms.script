@@ -1,0 +1,55 @@
+// Автоматическое тестирование 4E9EED39020B UseCases Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4E9EED39020B
+
+: ME_4E9EED4F0171
+ CONST UID '4E9EED4F0171'
+ CONST Name 'Обеспечение стабильности процесса разработки'
+ CONST Class class_Class
+ : Stereotype st_UseCase ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'К данному прецеденту привязываются ошибки по результатам разбора ежедневных тестов' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4E9EED39020B // Автоматическое тестирование
+ ;
+ CONST "UseNewGen" 'undefined'
+ CONST dfm:PathOnly '\garant6x\implementation\Garant'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant'
+
+ref; // ME_4E9EED4F0171 Обеспечение стабильности процесса разработки
+
+: ME_4E9EED39020B
+ CONST UID '4E9EED39020B'
+ CONST Name 'Автоматическое тестирование'
+ CONST Class class_Category
+ : Stereotype st_UseCases ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent WL 'ME_481EF5C4020D' '481EF5C4020D.pas.ms.script' // Оболочка
+ ;
+ : Children
+   Seq: ( ME_4E9EED4F0171 // Обеспечение стабильности процесса разработки
+ )
+ ; // Children
+ CONST "UseNewGen" 'undefined'
+ : Generators
+ Seq: (
+ gen_pas.script
+ gen_pas.script.runner
+ )
+ ; // Generators
+ CONST dfm:PathOnly '\garant6x\implementation\Garant'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant'
+ CONST pas.script:Path 'shared\models\NewSchool\Scripts\4E9EED39020B.pas.ms.script'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\4E9EED39020B.pas.ms.script.runner'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant'
+
+ref; // ME_4E9EED39020B Автоматическое тестирование

@@ -65,9 +65,9 @@ ref; // ME_537F6E1A00F4 aHiNum
  : Parent ME_537F6E030167 // Create
  ;
  : Parameters
-   @ ( ME_537F6E1A00CB // aLowNum
+   Seq: ( ME_537F6E1A00CB // aLowNum
  ME_537F6E1A00F4 // aHiNum
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_537F6E0E02D6 DoIt
@@ -83,8 +83,8 @@ ref; // ME_537F6E0E02D6 DoIt
  : Parent ME_537F6DA00036 // TdtNumRange
  ;
  : Operations
-   @ ( ME_537F6E0E02D6 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_537F6E0E02D6 // DoIt
+ )
  ; // Operations
 
 ref; // ME_537F6E030167 Create
@@ -112,8 +112,8 @@ ref; // ME_537F6E40029C aRange
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
  : Parameters
-   @ ( ME_537F6E40029C // aRange
- ) .SequenceCode.It
+   Seq: ( ME_537F6E40029C // aRange
+ )
  ; // Parameters
 
 ref; // ME_537F6E380119 DoIt
@@ -129,8 +129,8 @@ ref; // ME_537F6E380119 DoIt
  : Parent ME_537F6DA00036 // TdtNumRange
  ;
  : Operations
-   @ ( ME_537F6E380119 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_537F6E380119 // DoIt
+ )
  ; // Operations
 
 ref; // ME_537F6E2A0377 HasIntersectionWith
@@ -156,8 +156,8 @@ ref; // ME_537F6E6702D3 aRange
  : Parent ME_537F6E4E0207 // JoinWith
  ;
  : Parameters
-   @ ( ME_537F6E6702D3 // aRange
- ) .SequenceCode.It
+   Seq: ( ME_537F6E6702D3 // aRange
+ )
  ; // Parameters
 
 ref; // ME_537F6E610259 DoIt
@@ -173,8 +173,8 @@ ref; // ME_537F6E610259 DoIt
  : Parent ME_537F6DA00036 // TdtNumRange
  ;
  : Operations
-   @ ( ME_537F6E610259 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_537F6E610259 // DoIt
+ )
  ; // Operations
 
 ref; // ME_537F6E4E0207 JoinWith
@@ -205,8 +205,8 @@ ref; // ME_537F6EDE002E DoIt
  : Parent ME_537F6DA00036 // TdtNumRange
  ;
  : Operations
-   @ ( ME_537F6EDE002E // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_537F6EDE002E // DoIt
+ )
  ; // Operations
 
 ref; // ME_537F6ED601AE Amount
@@ -245,36 +245,38 @@ ref; // ME_537F72EF00A3
  : Parent ME_537F6D320018 // Containers
  ;
  : Inherits
-   @ ( WL 'ME_49E7754802A9' '47913B47006E.pas.ms.script' // Tl3ProtoObject
- ) .SequenceCode.It
+   Seq: ( WL 'ME_49E7754802A9' '47913B47006E.pas.ms.script' // Tl3ProtoObject
+ )
  ; // Inherits
  : Attributes
-   @ ( ME_537F6DE8030B // LowNum
+   Seq: ( ME_537F6DE8030B // LowNum
  ME_537F6DF302D4 // HiNum
- ) .SequenceCode.It
+ )
  ; // Attributes
  : Operations
-   @ ( ME_537F6E030167 // Create
+   Seq: ( ME_537F6E030167 // Create
  ME_537F6E2A0377 // HasIntersectionWith
  ME_537F6E4E0207 // JoinWith
  ME_537F6ED601AE // Amount
- ) .SequenceCode.It
+ )
  ; // Operations
  : Dependencies
-   @ ( ME_537F72D60064 // 
+   Seq: ( ME_537F72D60064 // 
  ME_537F72EF00A3 // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\DT'
  CONST intf.pas:Path 'common\components\rtl\Garant\DT\dtNumRange.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\DT'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'dtNumRange'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'dtNumRange'
 
 ref; // ME_537F6DA00036 TdtNumRange
 
@@ -302,6 +304,7 @@ ref; // ME_537F6F040072 ItemType
  ;
  : Implementor ME_537F6EED0090 // TdtNumRangeList
  ;
+ CONST OpKind opkind_Implemented
  CONST "ifdef" 'l3Items_NeedsAssignItem'
  CONST "ifndef" 'l3Items_NoSort'
 ref; // ME_47B2C42A0163_ME_537F6EED0090 AssignItem
@@ -313,6 +316,7 @@ ref; // ME_47B2C42A0163_ME_537F6EED0090 AssignItem
  ;
  : Implementor ME_537F6EED0090 // TdtNumRangeList
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_47B99D4503A2_ME_537F6EED0090 CompareExistingItems
 
 : ME_537F6EED0090
@@ -326,29 +330,31 @@ ref; // ME_47B99D4503A2_ME_537F6EED0090 CompareExistingItems
  : Parent ME_537F6D320018 // Containers
  ;
  : Inherits
-   @ ( WL 'ME_47B99E920196' '47913B47006E.pas.ms.script' // l3UncomparabeObjectRefList
+   Seq: ( WL 'ME_47B99E920196' '47913B47006E.pas.ms.script' // l3UncomparabeObjectRefList
  WL 'ME_4A54DD4E036F' '47913B47006E.pas.ms.script' // Tl3ProtoDataContainer
- ) .SequenceCode.It
+ )
  ; // Inherits
  : Attributes
-   @ ( ME_537F6F040072 // ItemType
- ) .SequenceCode.It
+   Seq: ( ME_537F6F040072 // ItemType
+ )
  ; // Attributes
  : Implemented
-   @ ( ME_47B2C42A0163_ME_537F6EED0090 // AssignItem
+   Seq: ( ME_47B2C42A0163_ME_537F6EED0090 // AssignItem
  ME_47B99D4503A2_ME_537F6EED0090 // CompareExistingItems
- ) .SequenceCode.It
+ )
  ; // Implemented
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\DT'
  CONST intf.pas:Path 'common\components\rtl\Garant\DT\dtNumRangeList.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\DT'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'dtNumRangeList'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'dtNumRangeList'
 
 ref; // ME_537F6EED0090 TdtNumRangeList
 
@@ -381,17 +387,23 @@ ref; // ME_537F6F740241 f_Ranges
  : Parent ME_537F6D3F0319 // Dt_containers
  ;
  : Inherits
-   @ ( WL 'ME_49E7754802A9' '47913B47006E.pas.ms.script' // Tl3ProtoObject
- ) .SequenceCode.It
+   Seq: ( WL 'ME_49E7754802A9' '47913B47006E.pas.ms.script' // Tl3ProtoObject
+ )
  ; // Inherits
  : Attributes
-   @ ( ME_537F6F740241 // f_Ranges
- ) .SequenceCode.It
+   Seq: ( ME_537F6F740241 // f_Ranges
+ )
  ; // Attributes
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
+ CONST dfm:PathOnly '\common\components\rtl\Garant\DT'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\DT'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'NumSet'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_537F6D5E0136 TNumSet
 
@@ -406,17 +418,16 @@ ref; // ME_537F6D5E0136 TNumSet
  : Parent ME_537F6D320018 // Containers
  ;
  : Children
-   @ ( ME_537F6D5E0136 // TNumSet
- ) .SequenceCode.It
+   Seq: ( ME_537F6D5E0136 // TNumSet
+ )
  ; // Children
  CONST "finished" false
  CONST "no hands" false
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\DT'
  CONST intf.pas:Path 'common\components\rtl\Garant\DT\NOT_FINISHED_Dt_containers.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\DT'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_537F6D3F0319 Dt_containers
 
@@ -430,24 +441,22 @@ ref; // ME_537F6D3F0319 Dt_containers
  : Parent WL 'ME_47BC4FCB0115' '47BC4FCB0115.pas.ms.script' // DT
  ;
  : Children
-   @ ( ME_537F6DA00036 // TdtNumRange
+   Seq: ( ME_537F6DA00036 // TdtNumRange
  ME_537F6EED0090 // TdtNumRangeList
  ME_537F6D3F0319 // Dt_containers
- ) .SequenceCode.It
+ )
  ; // Children
  : Depends
-   @ ( WL 'ME_47913B47006E' '47913B47006E.pas.ms.script' // l3CoreObjects
+   Seq: ( WL 'ME_47913B47006E' '47913B47006E.pas.ms.script' // l3CoreObjects
  WL 'ME_4AB0C3C60310' '4AB0C3C60310.pas.ms.script' // Sys
  WL 'ME_537B83AD01F0' '537B83AD01F0.pas.ms.script' // l3Math
- ) .SequenceCode.It
+ )
  ; // Depends
- : Generators
- @ (
- gen_pas.script
- gen_pas.script.runner
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\DT'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\DT'
  CONST pas.script:Path 'shared\models\NewSchool\Scripts\537F6D320018.pas.ms.script'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
  CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\537F6D320018.pas.ms.script.runner'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_537F6D320018 Containers

@@ -1,0 +1,565 @@
+// DocIntf 4E0072500208 Unit Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4E0072500208
+
+FORWARD ME_4E0072E100DB
+
+: ME_4E007ECC01EC
+ CONST UID '4E007ECC01EC'
+ CONST Name 'RarTextOfDocument'
+ CONST Class class_Class
+ : Stereotype st_Typedef ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4E0072E100DB // TarTextOfDocument
+ ;
+ : Inherits
+   Seq: ( ME_4E0072E100DB // TarTextOfDocument
+ )
+ ; // Inherits
+ CONST dfm:PathOnly '\archi\source\projects\Archi\Editor'
+ CONST intf.pas:PathOnly '\archi\source\projects\Archi\Editor'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\archi\source\projects\Archi\Editor'
+ CONST extprop:rc:isAcceptableForScripts true
+
+ref; // ME_4E007ECC01EC RarTextOfDocument
+
+: ME_4E007D4A02E9
+ CONST UID '4E007D4A02E9'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4E0072E100DB // TarTextOfDocument
+ ;
+ : Target WL 'ME_4E007C3803DC' '4E004D460329.pas.ms.script' // TarDocumentContainer
+ ;
+
+ref; // ME_4E007D4A02E9 
+
+: ME_482D9A030221_ME_4E0072E100DB
+ CONST UID '482D9A030221'
+ CONST Name 'DoMakeDocumentContainer'
+ : Original WL 'ME_482D9A030221' '482BFB50007B.pas.ms.script' // DoMakeDocumentContainer
+ ;
+ : Implementor ME_4E0072E100DB // TarTextOfDocument
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_482D9A030221_ME_4E0072E100DB DoMakeDocumentContainer
+
+: ME_4E0072E100DB
+ CONST UID '4E0072E100DB'
+ CONST Name 'TarTextOfDocument'
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4E0072500208 // DocIntf
+ ;
+ : Inherits
+   Seq: ( WL 'ME_482D98DE00A9' '482BFB50007B.pas.ms.script' // TevTextSource
+ )
+ ; // Inherits
+ : Overridden
+   Seq: ( ME_482D9A030221_ME_4E0072E100DB // DoMakeDocumentContainer
+ )
+ ; // Overridden
+ : Children
+   Seq: ( ME_4E007ECC01EC // RarTextOfDocument
+ )
+ ; // Children
+ : Dependencies
+   Seq: ( ME_4E007D4A02E9 // 
+ )
+ ; // Dependencies
+ CONST "finished" false
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ : Generators
+ Seq: (
+ gen_intf.pas
+ )
+ ; // Generators
+ CONST dfm:PathOnly '\archi\source\projects\Archi\Editor'
+ CONST intf.pas:Path 'archi\source\projects\Archi\Editor\NOT_FINISHED_arTextOfDocument.pas'
+ CONST intf.pas:PathOnly '\archi\source\projects\Archi\Editor'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\archi\source\projects\Archi\Editor'
+ CONST extprop:rc:SelfName 'arTextOfDocument'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'arTextOfDocument'
+
+ref; // ME_4E0072E100DB TarTextOfDocument
+
+FORWARD ME_4E0072C40154
+
+FORWARD ME_4E007419002D
+
+: ME_4E007EF703CE
+ CONST UID '4E007EF703CE'
+ CONST Name 'GetTextOfDocumentClass'
+ CONST Class class_Operation
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_abstract
+ : Parent ME_4E007419002D // TarCustomDocument
+ ;
+ : Target ME_4E007ECC01EC // RarTextOfDocument
+ ;
+
+ref; // ME_4E007EF703CE GetTextOfDocumentClass
+
+: ME_4F7D45950280
+ CONST UID '4F7D45950280'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4E007419002D // TarCustomDocument
+ ;
+ : Target WL 'ME_4F7D3EB4039D' '47ECACA70141.pas.ms.script' // TevOutTextParaEliminator
+ ;
+
+ref; // ME_4F7D45950280 
+
+: ME_4E007419002D
+ CONST UID '4E007419002D'
+ CONST Name 'TarCustomDocument'
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4E0072C40154 // DocIntf
+ ;
+ : Operations
+   Seq: ( ME_4E007EF703CE // GetTextOfDocumentClass
+ )
+ ; // Operations
+ : Dependencies
+   Seq: ( ME_4F7D45950280 // 
+ )
+ ; // Dependencies
+ CONST "finished" false
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ CONST dfm:PathOnly '\archi\source\projects\Archi\Editor'
+ CONST intf.pas:PathOnly '\archi\source\projects\Archi\Editor'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\archi\source\projects\Archi\Editor'
+ CONST extprop:rc:SelfName 'arCustomDocument'
+ CONST extprop:rc:isAcceptableForScripts true
+
+ref; // ME_4E007419002D TarCustomDocument
+
+FORWARD ME_4E00742A00F5
+
+FORWARD ME_4F9502130133
+
+: ME_4F9502DD02C5
+ CONST UID '4F9502DD02C5'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4E00742A00F5 // TarSprDocument
+ ;
+ : Target ME_4F9502130133 // TarSpravkaTextOfDocument
+ ;
+
+ref; // ME_4F9502DD02C5 
+
+: ME_4E007EF703CE_ME_4E00742A00F5
+ CONST UID '4E007EF703CE'
+ CONST Name 'GetTextOfDocumentClass'
+ : Original ME_4E007EF703CE // GetTextOfDocumentClass
+ ;
+ : Implementor ME_4E00742A00F5 // TarSprDocument
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_4E007EF703CE_ME_4E00742A00F5 GetTextOfDocumentClass
+
+: ME_4E00742A00F5
+ CONST UID '4E00742A00F5'
+ CONST Name 'TarSprDocument'
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4E0072C40154 // DocIntf
+ ;
+ : Inherits
+   Seq: ( ME_4E007419002D // TarCustomDocument
+ )
+ ; // Inherits
+ : Implemented
+   Seq: ( ME_4E007EF703CE_ME_4E00742A00F5 // GetTextOfDocumentClass
+ )
+ ; // Implemented
+ : Dependencies
+   Seq: ( ME_4F9502DD02C5 // 
+ )
+ ; // Dependencies
+ CONST "finished" false
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ CONST dfm:PathOnly '\archi\source\projects\Archi\Editor'
+ CONST intf.pas:PathOnly '\archi\source\projects\Archi\Editor'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\archi\source\projects\Archi\Editor'
+ CONST extprop:rc:SelfName 'arSprDocument'
+ CONST extprop:rc:isAcceptableForScripts true
+
+ref; // ME_4E00742A00F5 TarSprDocument
+
+FORWARD ME_4E00743901FC
+
+: ME_4E007EF703CE_ME_4E00743901FC
+ CONST UID '4E007EF703CE'
+ CONST Name 'GetTextOfDocumentClass'
+ : Original ME_4E007EF703CE // GetTextOfDocumentClass
+ ;
+ : Implementor ME_4E00743901FC // TarDocument
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_4E007EF703CE_ME_4E00743901FC GetTextOfDocumentClass
+
+: ME_4E00743901FC
+ CONST UID '4E00743901FC'
+ CONST Name 'TarDocument'
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4E0072C40154 // DocIntf
+ ;
+ : Inherits
+   Seq: ( ME_4E007419002D // TarCustomDocument
+ )
+ ; // Inherits
+ : Implemented
+   Seq: ( ME_4E007EF703CE_ME_4E00743901FC // GetTextOfDocumentClass
+ )
+ ; // Implemented
+ CONST "finished" false
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ CONST dfm:PathOnly '\archi\source\projects\Archi\Editor'
+ CONST intf.pas:PathOnly '\archi\source\projects\Archi\Editor'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\archi\source\projects\Archi\Editor'
+ CONST extprop:rc:SelfName 'arDocument'
+ CONST extprop:rc:isAcceptableForScripts true
+
+ref; // ME_4E00743901FC TarDocument
+
+FORWARD ME_4E0ACE9A02C2
+
+: ME_4E0ACEBA0188
+ CONST UID '4E0ACEBA0188'
+ CONST Name 'FamID'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_agr
+ : Parent ME_4E0ACE9A02C2 // TDocAddr
+ ;
+ : Target WL 'ME_4E0ACF45025C' '47BC51FE018B.pas.ms.script' // TFamilyID
+ ;
+
+ref; // ME_4E0ACEBA0188 FamID
+
+: ME_4E0ACECB0235
+ CONST UID '4E0ACECB0235'
+ CONST Name 'DocID'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_agr
+ : Parent ME_4E0ACE9A02C2 // TDocAddr
+ ;
+ : Target WL 'ME_4DE60AE303AD' '47BC51FE018B.pas.ms.script' // TDocID
+ ;
+
+ref; // ME_4E0ACECB0235 DocID
+
+: ME_4E0ACE9A02C2
+ CONST UID '4E0ACE9A02C2'
+ CONST Name 'TDocAddr'
+ CONST Class class_Class
+ : Stereotype st_Struct ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4E0072C40154 // DocIntf
+ ;
+ : Attributes
+   Seq: ( ME_4E0ACEBA0188 // FamID
+ ME_4E0ACECB0235 // DocID
+ )
+ ; // Attributes
+ CONST dfm:PathOnly '\archi\source\projects\Archi\Editor'
+ CONST intf.pas:PathOnly '\archi\source\projects\Archi\Editor'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\archi\source\projects\Archi\Editor'
+
+ref; // ME_4E0ACE9A02C2 TDocAddr
+
+: ME_4E007EEC0321
+ CONST UID '4E007EEC0321'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4E0072C40154 // DocIntf
+ ;
+ : Target ME_4E0072E100DB // TarTextOfDocument
+ ;
+
+ref; // ME_4E007EEC0321 
+
+: ME_4E0072C40154
+ CONST UID '4E0072C40154'
+ CONST Name 'DocIntf'
+ CONST Class class_Class
+ : Stereotype st_UtilityPack ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_4E0072500208 // DocIntf
+ ;
+ : Children
+   Seq: ( ME_4E007419002D // TarCustomDocument
+ ME_4E00742A00F5 // TarSprDocument
+ ME_4E00743901FC // TarDocument
+ ME_4E0ACE9A02C2 // TDocAddr
+ )
+ ; // Children
+ : Dependencies
+   Seq: ( ME_4E007EEC0321 // 
+ )
+ ; // Dependencies
+ CONST "finished" false
+ CONST "no hands" false
+ : Generators
+ Seq: (
+ gen_intf.pas
+ )
+ ; // Generators
+ CONST dfm:PathOnly '\archi\source\projects\Archi\Editor'
+ CONST intf.pas:Path 'archi\source\projects\Archi\Editor\NOT_FINISHED_DocIntf.pas'
+ CONST intf.pas:PathOnly '\archi\source\projects\Archi\Editor'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\archi\source\projects\Archi\Editor'
+
+ref; // ME_4E0072C40154 DocIntf
+
+: ME_4E0073BD0223
+ CONST UID '4E0073BD0223'
+ CONST Name 'TarTextOfAnnoDocument'
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4E0072500208 // DocIntf
+ ;
+ : Inherits
+   Seq: ( ME_4E0072E100DB // TarTextOfDocument
+ )
+ ; // Inherits
+ CONST "finished" false
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ : Generators
+ Seq: (
+ gen_intf.pas
+ )
+ ; // Generators
+ CONST dfm:PathOnly '\archi\source\projects\Archi\Editor'
+ CONST intf.pas:Path 'archi\source\projects\Archi\Editor\NOT_FINISHED_arTextOfAnnoDocument.pas'
+ CONST intf.pas:PathOnly '\archi\source\projects\Archi\Editor'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\archi\source\projects\Archi\Editor'
+ CONST extprop:rc:SelfName 'arTextOfAnnoDocument'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'arTextOfAnnoDocument'
+
+ref; // ME_4E0073BD0223 TarTextOfAnnoDocument
+
+FORWARD ME_4E007CE303AC
+
+: ME_4E007D6001F0
+ CONST UID '4E007D6001F0'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4E007CE303AC // TarTextOfDocumentWithContentsTree
+ ;
+ : Target WL 'ME_4E004D900171' '4E004D460329.pas.ms.script' // TarDocumentContainerWithContentsTree
+ ;
+
+ref; // ME_4E007D6001F0 
+
+: ME_4E007CE303AC
+ CONST UID '4E007CE303AC'
+ CONST Name 'TarTextOfDocumentWithContentsTree'
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4E0072500208 // DocIntf
+ ;
+ : Inherits
+   Seq: ( ME_4E0072E100DB // TarTextOfDocument
+ )
+ ; // Inherits
+ : Dependencies
+   Seq: ( ME_4E007D6001F0 // 
+ )
+ ; // Dependencies
+ CONST "finished" false
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ : Generators
+ Seq: (
+ gen_intf.pas
+ )
+ ; // Generators
+ CONST dfm:PathOnly '\archi\source\projects\Archi\Editor'
+ CONST intf.pas:Path 'archi\source\projects\Archi\Editor\NOT_FINISHED_arTextOfDocumentWithContentsTree.pas'
+ CONST intf.pas:PathOnly '\archi\source\projects\Archi\Editor'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\archi\source\projects\Archi\Editor'
+ CONST extprop:rc:SelfName 'arTextOfDocumentWithContentsTree'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'arTextOfDocumentWithContentsTree'
+
+ref; // ME_4E007CE303AC TarTextOfDocumentWithContentsTree
+
+: ME_4F9502670074
+ CONST UID '4F9502670074'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4F9502130133 // TarSpravkaTextOfDocument
+ ;
+ : Target WL 'ME_4F9501970235' '4E004D460329.pas.ms.script' // TarSpravkaDocumentContainer
+ ;
+
+ref; // ME_4F9502670074 
+
+: ME_482D9A030221_ME_4F9502130133
+ CONST UID '482D9A030221'
+ CONST Name 'DoMakeDocumentContainer'
+ : Original WL 'ME_482D9A030221' '482BFB50007B.pas.ms.script' // DoMakeDocumentContainer
+ ;
+ : Implementor ME_4F9502130133 // TarSpravkaTextOfDocument
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_482D9A030221_ME_4F9502130133 DoMakeDocumentContainer
+
+: ME_4F9502130133
+ CONST UID '4F9502130133'
+ CONST Name 'TarSpravkaTextOfDocument'
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'ТextSource для справки.' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4E0072500208 // DocIntf
+ ;
+ : Inherits
+   Seq: ( ME_4E0072E100DB // TarTextOfDocument
+ )
+ ; // Inherits
+ : Overridden
+   Seq: ( ME_482D9A030221_ME_4F9502130133 // DoMakeDocumentContainer
+ )
+ ; // Overridden
+ : Dependencies
+   Seq: ( ME_4F9502670074 // 
+ )
+ ; // Dependencies
+ CONST "finished" false
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ : Generators
+ Seq: (
+ gen_intf.pas
+ )
+ ; // Generators
+ CONST dfm:PathOnly '\archi\source\projects\Archi\Editor'
+ CONST intf.pas:Path 'archi\source\projects\Archi\Editor\NOT_FINISHED_arSpravkaTextOfDocument.pas'
+ CONST intf.pas:PathOnly '\archi\source\projects\Archi\Editor'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\archi\source\projects\Archi\Editor'
+ CONST extprop:rc:SelfName 'arSpravkaTextOfDocument'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'arSpravkaTextOfDocument'
+
+ref; // ME_4F9502130133 TarSpravkaTextOfDocument
+
+: ME_4E0072500208
+ CONST UID '4E0072500208'
+ CONST Name 'DocIntf'
+ CONST Class class_Category
+ : Stereotype st_Unit ;
+ %SUMMARY 'Один из исторически сложившихся модулей.' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent WL 'ME_4E004D0B033A' '4E004D0B033A.pas.ms.script' // Editor
+ ;
+ : Children
+   Seq: ( ME_4E0072E100DB // TarTextOfDocument
+ ME_4E0072C40154 // DocIntf
+ ME_4E0073BD0223 // TarTextOfAnnoDocument
+ ME_4E007CE303AC // TarTextOfDocumentWithContentsTree
+ ME_4F9502130133 // TarSpravkaTextOfDocument
+ )
+ ; // Children
+ : Depends
+   Seq: ( WL 'ME_47BC51FE018B' '47BC51FE018B.pas.ms.script' // dt_Types
+ WL 'ME_47ECACA70141' '47ECACA70141.pas.ms.script' // Generators
+ WL 'ME_482BFB50007B' '482BFB50007B.pas.ms.script' // TextSources
+ WL 'ME_4E004D460329' '4E004D460329.pas.ms.script' // DocumentContainer
+ )
+ ; // Depends
+ CONST "finished" false
+ : Generators
+ Seq: (
+ gen_pas.script
+ gen_pas.script.runner
+ )
+ ; // Generators
+ CONST dfm:PathOnly '\archi\source\projects\Archi\Editor'
+ CONST intf.pas:PathOnly '\archi\source\projects\Archi\Editor'
+ CONST pas.script:Path 'shared\models\NewSchool\Scripts\4E0072500208.pas.ms.script'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\4E0072500208.pas.ms.script.runner'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\archi\source\projects\Archi\Editor'
+
+ref; // ME_4E0072500208 DocIntf

@@ -1,0 +1,584 @@
+// PreviewInterfaces 4991B06602DA Interfaces Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4991B06602DA
+
+FORWARD ME_4991B0AF009B
+
+: ME_4991B0B7020E
+ CONST UID '4991B0B7020E'
+ CONST Name 'ns_spkDocumentTitles'
+ CONST Class class_Attribute
+ %SUMMARY 'Названия документов' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_4991B0AF009B // TnsSuperPreviewKind
+ ;
+
+ref; // ME_4991B0B7020E ns_spkDocumentTitles
+
+: ME_4991B0BF021F
+ CONST UID '4991B0BF021F'
+ CONST Name 'ns_spkDocumentTexts'
+ CONST Class class_Attribute
+ %SUMMARY 'Тексты документов' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_4991B0AF009B // TnsSuperPreviewKind
+ ;
+
+ref; // ME_4991B0BF021F ns_spkDocumentTexts
+
+: ME_4991B0AF009B
+ CONST UID '4991B0AF009B'
+ CONST Name 'TnsSuperPreviewKind'
+ CONST Class class_Class
+ : Stereotype st_Enum ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4991B06602DA // PreviewInterfaces
+ ;
+ : Attributes
+   Seq: ( ME_4991B0B7020E // ns_spkDocumentTitles
+ ME_4991B0BF021F // ns_spkDocumentTexts
+ )
+ ; // Attributes
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Model'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Model'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\Model'
+ CONST extprop:rc:isAcceptableForScripts true
+
+ref; // ME_4991B0AF009B TnsSuperPreviewKind
+
+FORWARD ME_4890158A0251
+
+: ME_4991B10702DF
+ CONST UID '4991B10702DF'
+ CONST Name 'SuperContentKind'
+ CONST Class class_Attribute
+ : Stereotype st_property::Attribute ;
+ %SUMMARY 'Тип отображаемого элемента документа' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_lnk
+ : Parent ME_4890158A0251 // InsSuperComplexDocumentPreview
+ ;
+ : Target ME_4991B0AF009B // TnsSuperPreviewKind
+ ;
+ CONST "pm" true
+
+ref; // ME_4991B10702DF SuperContentKind
+
+: ME_4991B13301A1
+ CONST UID '4991B13301A1'
+ CONST Name 'SuperCurrent'
+ CONST Class class_Attribute
+ : Stereotype st_readonly::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_lnk
+ : Parent ME_4890158A0251 // InsSuperComplexDocumentPreview
+ ;
+ : Target WL 'ME_473D8DF50230' '467823B7002C.pas.ms.script' // IafwComplexDocumentPreview
+ ;
+ CONST "pm" false
+
+ref; // ME_4991B13301A1 SuperCurrent
+
+: ME_4991B14D010E
+ CONST UID '4991B14D010E'
+ CONST Name 'DocumentTitles'
+ CONST Class class_Attribute
+ : Stereotype st_property::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_lnk
+ : Parent ME_4890158A0251 // InsSuperComplexDocumentPreview
+ ;
+ : Target WL 'ME_473D8DF50230' '467823B7002C.pas.ms.script' // IafwComplexDocumentPreview
+ ;
+ CONST "pm" false
+
+ref; // ME_4991B14D010E DocumentTitles
+
+: ME_4991B15F0189
+ CONST UID '4991B15F0189'
+ CONST Name 'DocumentTexts'
+ CONST Class class_Attribute
+ : Stereotype st_property::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_lnk
+ : Parent ME_4890158A0251 // InsSuperComplexDocumentPreview
+ ;
+ : Target WL 'ME_473D8DF50230' '467823B7002C.pas.ms.script' // IafwComplexDocumentPreview
+ ;
+ CONST "pm" false
+
+ref; // ME_4991B15F0189 DocumentTexts
+
+: ME_473D8C450198_ME_4890158A0251
+ CONST UID '473D8C450198'
+ CONST Name 'DocumentName'
+ : Original WL 'ME_473D8C450198' '467823B7002C.pas.ms.script' // DocumentName
+ ;
+ : Implementor ME_4890158A0251 // InsSuperComplexDocumentPreview
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_473D8C450198_ME_4890158A0251 DocumentName
+
+: ME_473D8C5C0187_ME_4890158A0251
+ CONST UID '473D8C5C0187'
+ CONST Name 'InProcess'
+ : Original WL 'ME_473D8C5C0187' '467823B7002C.pas.ms.script' // InProcess
+ ;
+ : Implementor ME_4890158A0251 // InsSuperComplexDocumentPreview
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_473D8C5C0187_ME_4890158A0251 InProcess
+
+: ME_473D8C6C0266_ME_4890158A0251
+ CONST UID '473D8C6C0266'
+ CONST Name 'InPagesCounting'
+ : Original WL 'ME_473D8C6C0266' '467823B7002C.pas.ms.script' // InPagesCounting
+ ;
+ : Implementor ME_4890158A0251 // InsSuperComplexDocumentPreview
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_473D8C6C0266_ME_4890158A0251 InPagesCounting
+
+: ME_473D8C7C01B5_ME_4890158A0251
+ CONST UID '473D8C7C01B5'
+ CONST Name 'InUpdate'
+ : Original WL 'ME_473D8C7C01B5' '467823B7002C.pas.ms.script' // InUpdate
+ ;
+ : Implementor ME_4890158A0251 // InsSuperComplexDocumentPreview
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_473D8C7C01B5_ME_4890158A0251 InUpdate
+
+: ME_473D8C90022C_ME_4890158A0251
+ CONST UID '473D8C90022C'
+ CONST Name 'InPrinting'
+ : Original WL 'ME_473D8C90022C' '467823B7002C.pas.ms.script' // InPrinting
+ ;
+ : Implementor ME_4890158A0251 // InsSuperComplexDocumentPreview
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_473D8C90022C_ME_4890158A0251 InPrinting
+
+: ME_473D8CA002D9_ME_4890158A0251
+ CONST UID '473D8CA002D9'
+ CONST Name 'Update'
+ : Original WL 'ME_473D8CA002D9' '467823B7002C.pas.ms.script' // Update
+ ;
+ : Implementor ME_4890158A0251 // InsSuperComplexDocumentPreview
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_473D8CA002D9_ME_4890158A0251 Update
+
+: ME_473D8CAF028B_ME_4890158A0251
+ CONST UID '473D8CAF028B'
+ CONST Name 'Print'
+ : Original WL 'ME_473D8CAF028B' '467823B7002C.pas.ms.script' // Print
+ ;
+ : Implementor ME_4890158A0251 // InsSuperComplexDocumentPreview
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_473D8CAF028B_ME_4890158A0251 Print
+
+: ME_473D8CE9007C_ME_4890158A0251
+ CONST UID '473D8CE9007C'
+ CONST Name 'Stop'
+ : Original WL 'ME_473D8CE9007C' '467823B7002C.pas.ms.script' // Stop
+ ;
+ : Implementor ME_4890158A0251 // InsSuperComplexDocumentPreview
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_473D8CE9007C_ME_4890158A0251 Stop
+
+: ME_473D8CF80037_ME_4890158A0251
+ CONST UID '473D8CF80037'
+ CONST Name 'Stopped'
+ : Original WL 'ME_473D8CF80037' '467823B7002C.pas.ms.script' // Stopped
+ ;
+ : Implementor ME_4890158A0251 // InsSuperComplexDocumentPreview
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_473D8CF80037_ME_4890158A0251 Stopped
+
+: ME_473D8D0A01D7_ME_4890158A0251
+ CONST UID '473D8D0A01D7'
+ CONST Name 'CloseRequested'
+ : Original WL 'ME_473D8D0A01D7' '467823B7002C.pas.ms.script' // CloseRequested
+ ;
+ : Implementor ME_4890158A0251 // InsSuperComplexDocumentPreview
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_473D8D0A01D7_ME_4890158A0251 CloseRequested
+
+: ME_473D8D1E01B8_ME_4890158A0251
+ CONST UID '473D8D1E01B8'
+ CONST Name 'PreviewResetting'
+ : Original WL 'ME_473D8D1E01B8' '467823B7002C.pas.ms.script' // PreviewResetting
+ ;
+ : Implementor ME_4890158A0251 // InsSuperComplexDocumentPreview
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_473D8D1E01B8_ME_4890158A0251 PreviewResetting
+
+: ME_473D8D3800B1_ME_4890158A0251
+ CONST UID '473D8D3800B1'
+ CONST Name 'SetCurrentPage'
+ : Original WL 'ME_473D8D3800B1' '467823B7002C.pas.ms.script' // SetCurrentPage
+ ;
+ : Implementor ME_4890158A0251 // InsSuperComplexDocumentPreview
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_473D8D3800B1_ME_4890158A0251 SetCurrentPage
+
+: ME_473D8D4A019D_ME_4890158A0251
+ CONST UID '473D8D4A019D'
+ CONST Name 'SetCurrentPagePara'
+ : Original WL 'ME_473D8D4A019D' '467823B7002C.pas.ms.script' // SetCurrentPagePara
+ ;
+ : Implementor ME_4890158A0251 // InsSuperComplexDocumentPreview
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_473D8D4A019D_ME_4890158A0251 SetCurrentPagePara
+
+: ME_473D8D5D032B_ME_4890158A0251
+ CONST UID '473D8D5D032B'
+ CONST Name 'SetCurrentPageNumber'
+ : Original WL 'ME_473D8D5D032B' '467823B7002C.pas.ms.script' // SetCurrentPageNumber
+ ;
+ : Implementor ME_4890158A0251 // InsSuperComplexDocumentPreview
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_473D8D5D032B_ME_4890158A0251 SetCurrentPageNumber
+
+: ME_473D8D72010F_ME_4890158A0251
+ CONST UID '473D8D72010F'
+ CONST Name 'CurrentPage'
+ : Original WL 'ME_473D8D72010F' '467823B7002C.pas.ms.script' // CurrentPage
+ ;
+ : Implementor ME_4890158A0251 // InsSuperComplexDocumentPreview
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_473D8D72010F_ME_4890158A0251 CurrentPage
+
+: ME_473D8D830163_ME_4890158A0251
+ CONST UID '473D8D830163'
+ CONST Name 'HasCurrentPage'
+ : Original WL 'ME_473D8D830163' '467823B7002C.pas.ms.script' // HasCurrentPage
+ ;
+ : Implementor ME_4890158A0251 // InsSuperComplexDocumentPreview
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_473D8D830163_ME_4890158A0251 HasCurrentPage
+
+: ME_473D8D9500C9_ME_4890158A0251
+ CONST UID '473D8D9500C9'
+ CONST Name 'Printer'
+ : Original WL 'ME_473D8D9500C9' '467823B7002C.pas.ms.script' // Printer
+ ;
+ : Implementor ME_4890158A0251 // InsSuperComplexDocumentPreview
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "pm" true
+ref; // ME_473D8D9500C9_ME_4890158A0251 Printer
+
+: ME_473D8DB10141_ME_4890158A0251
+ CONST UID '473D8DB10141'
+ CONST Name 'HasText'
+ : Original WL 'ME_473D8DB10141' '467823B7002C.pas.ms.script' // HasText
+ ;
+ : Implementor ME_4890158A0251 // InsSuperComplexDocumentPreview
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "pm" true
+ref; // ME_473D8DB10141_ME_4890158A0251 HasText
+
+: ME_473D8E0C01B0_ME_4890158A0251
+ CONST UID '473D8E0C01B0'
+ CONST Name 'ContentKind'
+ : Original WL 'ME_473D8E0C01B0' '467823B7002C.pas.ms.script' // ContentKind
+ ;
+ : Implementor ME_4890158A0251 // InsSuperComplexDocumentPreview
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "pm" true
+ref; // ME_473D8E0C01B0_ME_4890158A0251 ContentKind
+
+: ME_473D8E3003B1_ME_4890158A0251
+ CONST UID '473D8E3003B1'
+ CONST Name 'Current'
+ : Original WL 'ME_473D8E3003B1' '467823B7002C.pas.ms.script' // Current
+ ;
+ : Implementor ME_4890158A0251 // InsSuperComplexDocumentPreview
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_473D8E3003B1_ME_4890158A0251 Current
+
+: ME_473D8E3D007A_ME_4890158A0251
+ CONST UID '473D8E3D007A'
+ CONST Name 'Document'
+ : Original WL 'ME_473D8E3D007A' '467823B7002C.pas.ms.script' // Document
+ ;
+ : Implementor ME_4890158A0251 // InsSuperComplexDocumentPreview
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_473D8E3D007A_ME_4890158A0251 Document
+
+: ME_473D8E480102_ME_4890158A0251
+ CONST UID '473D8E480102'
+ CONST Name 'SetDocument'
+ : Original WL 'ME_473D8E480102' '467823B7002C.pas.ms.script' // SetDocument
+ ;
+ : Implementor ME_4890158A0251 // InsSuperComplexDocumentPreview
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_473D8E480102_ME_4890158A0251 SetDocument
+
+: ME_473D8E540132_ME_4890158A0251
+ CONST UID '473D8E540132'
+ CONST Name 'Selection'
+ : Original WL 'ME_473D8E540132' '467823B7002C.pas.ms.script' // Selection
+ ;
+ : Implementor ME_4890158A0251 // InsSuperComplexDocumentPreview
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_473D8E540132_ME_4890158A0251 Selection
+
+: ME_473D8E5F03B8_ME_4890158A0251
+ CONST UID '473D8E5F03B8'
+ CONST Name 'SetSelection'
+ : Original WL 'ME_473D8E5F03B8' '467823B7002C.pas.ms.script' // SetSelection
+ ;
+ : Implementor ME_4890158A0251 // InsSuperComplexDocumentPreview
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_473D8E5F03B8_ME_4890158A0251 SetSelection
+
+: ME_473D8E6A0314_ME_4890158A0251
+ CONST UID '473D8E6A0314'
+ CONST Name 'Info'
+ : Original WL 'ME_473D8E6A0314' '467823B7002C.pas.ms.script' // Info
+ ;
+ : Implementor ME_4890158A0251 // InsSuperComplexDocumentPreview
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_473D8E6A0314_ME_4890158A0251 Info
+
+: ME_473D8E750356_ME_4890158A0251
+ CONST UID '473D8E750356'
+ CONST Name 'SetInfo'
+ : Original WL 'ME_473D8E750356' '467823B7002C.pas.ms.script' // SetInfo
+ ;
+ : Implementor ME_4890158A0251 // InsSuperComplexDocumentPreview
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_473D8E750356_ME_4890158A0251 SetInfo
+
+: ME_4CC6A6FF0362_ME_4890158A0251
+ CONST UID '4CC6A6FF0362'
+ CONST Name 'PagesInfo'
+ : Original WL 'ME_4CC6A6FF0362' '467823B7002C.pas.ms.script' // PagesInfo
+ ;
+ : Implementor ME_4890158A0251 // InsSuperComplexDocumentPreview
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "pm" true
+ref; // ME_4CC6A6FF0362_ME_4890158A0251 PagesInfo
+
+: ME_4890158A0251
+ CONST UID '4890158A0251'
+ CONST GUID '56B10B20-9903-4541-842C-3918B413AA0C'
+ CONST Name 'InsSuperComplexDocumentPreview'
+ CONST Class class_Class
+ : Stereotype st_Facet ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Суперкомлпексное превью для списка (текст списка и тексты документов)' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4991B06602DA // PreviewInterfaces
+ ;
+ : Inherits
+   Seq: ( WL 'ME_473D8DF50230' '467823B7002C.pas.ms.script' // IafwComplexDocumentPreview
+ )
+ ; // Inherits
+ : Attributes
+   Seq: ( ME_4991B10702DF // SuperContentKind
+ ME_4991B13301A1 // SuperCurrent
+ ME_4991B14D010E // DocumentTitles
+ ME_4991B15F0189 // DocumentTexts
+ )
+ ; // Attributes
+ : Implemented
+   Seq: ( ME_473D8C450198_ME_4890158A0251 // DocumentName
+ ME_473D8C5C0187_ME_4890158A0251 // InProcess
+ ME_473D8C6C0266_ME_4890158A0251 // InPagesCounting
+ ME_473D8C7C01B5_ME_4890158A0251 // InUpdate
+ ME_473D8C90022C_ME_4890158A0251 // InPrinting
+ ME_473D8CA002D9_ME_4890158A0251 // Update
+ ME_473D8CAF028B_ME_4890158A0251 // Print
+ ME_473D8CE9007C_ME_4890158A0251 // Stop
+ ME_473D8CF80037_ME_4890158A0251 // Stopped
+ ME_473D8D0A01D7_ME_4890158A0251 // CloseRequested
+ ME_473D8D1E01B8_ME_4890158A0251 // PreviewResetting
+ ME_473D8D3800B1_ME_4890158A0251 // SetCurrentPage
+ ME_473D8D4A019D_ME_4890158A0251 // SetCurrentPagePara
+ ME_473D8D5D032B_ME_4890158A0251 // SetCurrentPageNumber
+ ME_473D8D72010F_ME_4890158A0251 // CurrentPage
+ ME_473D8D830163_ME_4890158A0251 // HasCurrentPage
+ ME_473D8D9500C9_ME_4890158A0251 // Printer
+ ME_473D8DB10141_ME_4890158A0251 // HasText
+ ME_473D8E0C01B0_ME_4890158A0251 // ContentKind
+ ME_473D8E3003B1_ME_4890158A0251 // Current
+ ME_473D8E3D007A_ME_4890158A0251 // Document
+ ME_473D8E480102_ME_4890158A0251 // SetDocument
+ ME_473D8E540132_ME_4890158A0251 // Selection
+ ME_473D8E5F03B8_ME_4890158A0251 // SetSelection
+ ME_473D8E6A0314_ME_4890158A0251 // Info
+ ME_473D8E750356_ME_4890158A0251 // SetInfo
+ ME_4CC6A6FF0362_ME_4890158A0251 // PagesInfo
+ )
+ ; // Implemented
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Model'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Model'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\Model'
+ CONST extprop:rc:SelfName 'SuperComplexDocumentPreview'
+ CONST extprop:rc:isAcceptableForScripts true
+
+ref; // ME_4890158A0251 InsSuperComplexDocumentPreview
+
+FORWARD ME_4991B170012C
+
+: ME_4991B17F004B
+ CONST UID '4991B17F004B'
+ CONST Name 'ApproxDocCount'
+ CONST Class class_Attribute
+ : Stereotype st_readonly::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_lnk
+ : Parent ME_4991B170012C // InsTreeMultiDocumentPreviewContainer
+ ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+ CONST "pm" false
+
+ref; // ME_4991B17F004B ApproxDocCount
+
+: ME_4991B1850249
+ CONST UID '4991B1850249'
+ CONST Name 'Prepare'
+ CONST Class class_Operation
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_4991B170012C // InsTreeMultiDocumentPreviewContainer
+ ;
+
+ref; // ME_4991B1850249 Prepare
+
+: ME_4991B170012C
+ CONST UID '4991B170012C'
+ CONST GUID 'BB02FDBA-2578-468E-84D4-B86944A6BBD1'
+ CONST Name 'InsTreeMultiDocumentPreviewContainer'
+ CONST Class class_Class
+ : Stereotype st_Facet ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4991B06602DA // PreviewInterfaces
+ ;
+ : Attributes
+   Seq: ( ME_4991B17F004B // ApproxDocCount
+ )
+ ; // Attributes
+ : Operations
+   Seq: ( ME_4991B1850249 // Prepare
+ )
+ ; // Operations
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Model'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Model'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\Model'
+ CONST extprop:rc:SelfName 'TreeMultiDocumentPreviewContainer'
+ CONST extprop:rc:isAcceptableForScripts true
+
+ref; // ME_4991B170012C InsTreeMultiDocumentPreviewContainer
+
+: ME_4991B18E00F4
+ CONST UID '4991B18E00F4'
+ CONST GUID '61EB5F1D-5DAC-4E88-BF48-476104E0EC6B'
+ CONST Name 'InsTinyPreview'
+ CONST Class class_Class
+ : Stereotype st_Facet ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4991B06602DA // PreviewInterfaces
+ ;
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Model'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Model'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\Model'
+ CONST extprop:rc:SelfName 'TinyPreview'
+ CONST extprop:rc:isAcceptableForScripts true
+
+ref; // ME_4991B18E00F4 InsTinyPreview
+
+: ME_4991B06602DA
+ CONST UID '4991B06602DA'
+ CONST Name 'PreviewInterfaces'
+ CONST Class class_Category
+ : Stereotype st_Interfaces ;
+ %SUMMARY 'Интерфейсы Preview' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent WL 'ME_47E9EEC60260' '47E9EEC60260.pas.ms.script' // Model
+ ;
+ : Children
+   Seq: ( ME_4991B0AF009B // TnsSuperPreviewKind
+ ME_4890158A0251 // InsSuperComplexDocumentPreview
+ ME_4991B170012C // InsTreeMultiDocumentPreviewContainer
+ ME_4991B18E00F4 // InsTinyPreview
+ )
+ ; // Children
+ : Depends
+   Seq: ( WL 'ME_467823B7002C' '467823B7002C.pas.ms.script' // afwInterfaces
+ WL 'ME_4AB0C3C60310' '4AB0C3C60310.pas.ms.script' // Sys
+ )
+ ; // Depends
+ CONST "author" 'Люлин А.В.'
+ CONST "is namespace" true
+ CONST "no hands" true
+ CONST "started" '10.02.2009 19:51'
+ : Generators
+ Seq: (
+ gen_intf.pas
+ gen_pas.script
+ gen_pas.script.runner
+ )
+ ; // Generators
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Model'
+ CONST intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\Model\PreviewInterfaces.pas'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Model'
+ CONST pas.script:Path 'shared\models\NewSchool\Scripts\4991B06602DA.pas.ms.script'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\4991B06602DA.pas.ms.script.runner'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\Model'
+
+ref; // ME_4991B06602DA PreviewInterfaces

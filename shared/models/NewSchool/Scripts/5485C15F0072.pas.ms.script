@@ -25,6 +25,7 @@ FORWARD ME_53FF08370075
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value 'm3Const.Cm3BasClaDefHeaderSize'
 
 ref; // ME_53FF29CA0197 cHeaderFullSize
 
@@ -39,10 +40,14 @@ ref; // ME_53FF29CA0197 cHeaderFullSize
  : Parent ME_53FF134A03BA // Tm3BaseHeaderStream
  ;
  : Attributes
-   @ ( ME_53FF29CA0197 // cHeaderFullSize
- ) .SequenceCode.It
+   Seq: ( ME_53FF29CA0197 // cHeaderFullSize
+ )
  ; // Attributes
  CONST "spell names" false
+ CONST dfm:PathOnly '\common\components\rtl\Garant\m3'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\m3'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_53FF29BD01B3 Defaults
 
@@ -93,6 +98,7 @@ FORWARD ME_53FDFE220358
 : ME_2658F5BF783E
  CONST UID '2658F5BF783E'
  CONST Name 'DoIt'
+ CONST IsSummoned true
  CONST Class class_Operation
  %SUMMARY 'Сигнатура метода LockHeader' ;
  CONST Visibility PublicAccess
@@ -114,8 +120,8 @@ ref; // ME_2658F5BF783E DoIt
  : Parent ME_53FF134A03BA // Tm3BaseHeaderStream
  ;
  : Operations
-   @ ( ME_2658F5BF783E // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_2658F5BF783E // DoIt
+ )
  ; // Operations
 
 ref; // ME_53FDFE220358 LockHeader
@@ -125,6 +131,7 @@ FORWARD ME_53FDFE3802D0
 : ME_83D63A1EFE2B
  CONST UID '83D63A1EFE2B'
  CONST Name 'DoIt'
+ CONST IsSummoned true
  CONST Class class_Operation
  %SUMMARY 'Сигнатура метода UnlockHeader' ;
  CONST Visibility PublicAccess
@@ -146,8 +153,8 @@ ref; // ME_83D63A1EFE2B DoIt
  : Parent ME_53FF134A03BA // Tm3BaseHeaderStream
  ;
  : Operations
-   @ ( ME_83D63A1EFE2B // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_83D63A1EFE2B // DoIt
+ )
  ; // Operations
 
 ref; // ME_53FDFE3802D0 UnlockHeader
@@ -173,8 +180,8 @@ ref; // ME_53FDFE15039B aForceSave
  : Parent ME_53FDFDF503CE // DoSaveHeader
  ;
  : Parameters
-   @ ( ME_53FDFE15039B // aForceSave
- ) .SequenceCode.It
+   Seq: ( ME_53FDFE15039B // aForceSave
+ )
  ; // Parameters
 
 ref; // ME_53FDFE05015C DoIt
@@ -191,8 +198,8 @@ ref; // ME_53FDFE05015C DoIt
  : Parent ME_53FF134A03BA // Tm3BaseHeaderStream
  ;
  : Operations
-   @ ( ME_53FDFE05015C // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_53FDFE05015C // DoIt
+ )
  ; // Operations
 
 ref; // ME_53FDFDF503CE DoSaveHeader
@@ -202,6 +209,7 @@ FORWARD ME_53FDFDD90071
 : ME_C7BF4C4FFD7C
  CONST UID 'C7BF4C4FFD7C'
  CONST Name 'DoIt'
+ CONST IsSummoned true
  CONST Class class_Operation
  %SUMMARY 'Сигнатура метода DoLoadHeader' ;
  CONST Visibility PublicAccess
@@ -223,8 +231,8 @@ ref; // ME_C7BF4C4FFD7C DoIt
  : Parent ME_53FF134A03BA // Tm3BaseHeaderStream
  ;
  : Operations
-   @ ( ME_C7BF4C4FFD7C // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_C7BF4C4FFD7C // DoIt
+ )
  ; // Operations
 
 ref; // ME_53FDFDD90071 DoLoadHeader
@@ -234,6 +242,7 @@ FORWARD ME_53FF1F6901C5
 : ME_B657CD97F2AA
  CONST UID 'B657CD97F2AA'
  CONST Name 'DoIt'
+ CONST IsSummoned true
  CONST Class class_Operation
  %SUMMARY 'Сигнатура метода LoadHeader' ;
  CONST Visibility PublicAccess
@@ -254,8 +263,8 @@ ref; // ME_B657CD97F2AA DoIt
  : Parent ME_53FF134A03BA // Tm3BaseHeaderStream
  ;
  : Operations
-   @ ( ME_B657CD97F2AA // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_B657CD97F2AA // DoIt
+ )
  ; // Operations
 
 ref; // ME_53FF1F6901C5 LoadHeader
@@ -272,6 +281,7 @@ FORWARD ME_53FF1F90030A
  CONST Value false
  : ValueType WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
+ CONST extprop:pas:Value false
 
 ref; // ME_53FF1FA50259 aForceSave
 
@@ -284,8 +294,8 @@ ref; // ME_53FF1FA50259 aForceSave
  : Parent ME_53FF1F90030A // SaveHeader
  ;
  : Parameters
-   @ ( ME_53FF1FA50259 // aForceSave
- ) .SequenceCode.It
+   Seq: ( ME_53FF1FA50259 // aForceSave
+ )
  ; // Parameters
 
 ref; // ME_53FF1FA20235 DoIt
@@ -301,8 +311,8 @@ ref; // ME_53FF1FA20235 DoIt
  : Parent ME_53FF134A03BA // Tm3BaseHeaderStream
  ;
  : Operations
-   @ ( ME_53FF1FA20235 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_53FF1FA20235 // DoIt
+ )
  ; // Operations
 
 ref; // ME_53FF1F90030A SaveHeader
@@ -331,8 +341,8 @@ ref; // ME_53FDFD230321 DoIt
  : Parent ME_53FF134A03BA // Tm3BaseHeaderStream
  ;
  : Operations
-   @ ( ME_53FDFD230321 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_53FDFD230321 // DoIt
+ )
  ; // Operations
 
 ref; // ME_53FDFD1D0164 DefaultInitAction
@@ -361,8 +371,8 @@ ref; // ME_53FDFD3B02ED DoIt
  : Parent ME_53FF134A03BA // Tm3BaseHeaderStream
  ;
  : Operations
-   @ ( ME_53FDFD3B02ED // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_53FDFD3B02ED // DoIt
+ )
  ; // Operations
 
 ref; // ME_53FDFD34034B DefaultDoneAction
@@ -393,8 +403,8 @@ ref; // ME_5410259E0201 DoIt
  : Parent ME_53FF134A03BA // Tm3BaseHeaderStream
  ;
  : Operations
-   @ ( ME_5410259E0201 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_5410259E0201 // DoIt
+ )
  ; // Operations
 
 ref; // ME_540F07260255 DoLockHeader
@@ -425,8 +435,8 @@ ref; // ME_541025A900AA DoIt
  : Parent ME_53FF134A03BA // Tm3BaseHeaderStream
  ;
  : Operations
-   @ ( ME_541025A900AA // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_541025A900AA // DoIt
+ )
  ; // Operations
 
 ref; // ME_540F072F02B4 DoUnlockHeader
@@ -493,6 +503,7 @@ ref; // ME_54B8F8CA032A
  ;
  : Implementor ME_53FF134A03BA // Tm3BaseHeaderStream
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_479731C50290_ME_53FF134A03BA Cleanup
 
 : ME_4FA27D5302C5_ME_53FF134A03BA
@@ -502,6 +513,7 @@ ref; // ME_479731C50290_ME_53FF134A03BA Cleanup
  ;
  : Implementor ME_53FF134A03BA // Tm3BaseHeaderStream
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4FA27D5302C5_ME_53FF134A03BA DoSeek
 
 : ME_4FA27DCD02B4_ME_53FF134A03BA
@@ -511,6 +523,7 @@ ref; // ME_4FA27D5302C5_ME_53FF134A03BA DoSeek
  ;
  : Implementor ME_53FF134A03BA // Tm3BaseHeaderStream
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4FA27DCD02B4_ME_53FF134A03BA DoSetSize
 
 : ME_4FA27E100218_ME_53FF134A03BA
@@ -520,6 +533,7 @@ ref; // ME_4FA27DCD02B4_ME_53FF134A03BA DoSetSize
  ;
  : Implementor ME_53FF134A03BA // Tm3BaseHeaderStream
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4FA27E100218_ME_53FF134A03BA LockRegion
 
 : ME_4FA27E4C0342_ME_53FF134A03BA
@@ -529,6 +543,7 @@ ref; // ME_4FA27E100218_ME_53FF134A03BA LockRegion
  ;
  : Implementor ME_53FF134A03BA // Tm3BaseHeaderStream
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4FA27E4C0342_ME_53FF134A03BA UnlockRegion
 
 : ME_4FA2802E0231_ME_53FF134A03BA
@@ -538,6 +553,7 @@ ref; // ME_4FA27E4C0342_ME_53FF134A03BA UnlockRegion
  ;
  : Implementor ME_53FF134A03BA // Tm3BaseHeaderStream
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4FA2802E0231_ME_53FF134A03BA DoGetSize
 
 : ME_53FF134A03BA
@@ -551,17 +567,17 @@ ref; // ME_4FA2802E0231_ME_53FF134A03BA DoGetSize
  : Parent ME_5485C15F0072 // HeaderStream
  ;
  : Inherits
-   @ ( WL 'ME_53FF125B01D4' '5485B0D1026C.pas.ms.script' // Tm3LinkedStream
- ) .SequenceCode.It
+   Seq: ( WL 'ME_53FF125B01D4' '5485B0D1026C.pas.ms.script' // Tm3LinkedStream
+ )
  ; // Inherits
  : Attributes
-   @ ( ME_53FF1391017E // FHeaderSize
+   Seq: ( ME_53FF1391017E // FHeaderSize
  ME_53FF13B703B6 // FHeaderLocked
  ME_53FF1FE30251 // FHeaderLoaded
- ) .SequenceCode.It
+ )
  ; // Attributes
  : Operations
-   @ ( ME_53FDFE220358 // LockHeader
+   Seq: ( ME_53FDFE220358 // LockHeader
  ME_53FDFE3802D0 // UnlockHeader
  ME_53FDFDF503CE // DoSaveHeader
  ME_53FDFDD90071 // DoLoadHeader
@@ -571,39 +587,41 @@ ref; // ME_4FA2802E0231_ME_53FF134A03BA DoGetSize
  ME_53FDFD34034B // DefaultDoneAction
  ME_540F07260255 // DoLockHeader
  ME_540F072F02B4 // DoUnlockHeader
- ) .SequenceCode.It
+ )
  ; // Operations
  : Overridden
-   @ ( ME_479731C50290_ME_53FF134A03BA // Cleanup
+   Seq: ( ME_479731C50290_ME_53FF134A03BA // Cleanup
  ME_4FA27D5302C5_ME_53FF134A03BA // DoSeek
  ME_4FA27DCD02B4_ME_53FF134A03BA // DoSetSize
  ME_4FA27E100218_ME_53FF134A03BA // LockRegion
  ME_4FA27E4C0342_ME_53FF134A03BA // UnlockRegion
  ME_4FA2802E0231_ME_53FF134A03BA // DoGetSize
- ) .SequenceCode.It
+ )
  ; // Overridden
  : Constants
-   @ ( ME_53FF29BD01B3 // Defaults
- ) .SequenceCode.It
+   Seq: ( ME_53FF29BD01B3 // Defaults
+ )
  ; // Constants
  : Dependencies
-   @ ( ME_53FF136E015E // 
+   Seq: ( ME_53FF136E015E // 
  ME_53FF13720046 // 
  ME_53FF19D201DB // 
  ME_54198FD6025A // 
  ME_54B8F8CA032A // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\m3'
  CONST intf.pas:Path 'common\components\rtl\Garant\m3\m3BaseHeaderStream.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\m3'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'm3BaseHeaderStream'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'm3BaseHeaderStream'
 
 ref; // ME_53FF134A03BA Tm3BaseHeaderStream
 
@@ -635,10 +653,14 @@ ref; // ME_53FF084500F3 Cm3BasClaDefHeaderSize
  : Parent ME_54217680017C // m3Const
  ;
  : Attributes
-   @ ( ME_53FF084500F3 // Cm3BasClaDefHeaderSize
- ) .SequenceCode.It
+   Seq: ( ME_53FF084500F3 // Cm3BasClaDefHeaderSize
+ )
  ; // Attributes
  CONST "spell names" false
+ CONST dfm:PathOnly '\common\components\rtl\Garant\m3'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\m3'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_53FF08370075 BasClaDefaults
 
@@ -653,17 +675,16 @@ ref; // ME_53FF08370075 BasClaDefaults
  : Parent ME_5485C15F0072 // HeaderStream
  ;
  : Constants
-   @ ( ME_53FF08370075 // BasClaDefaults
- ) .SequenceCode.It
+   Seq: ( ME_53FF08370075 // BasClaDefaults
+ )
  ; // Constants
  CONST "finished" false
  CONST "no hands" false
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\m3'
  CONST intf.pas:Path 'common\components\rtl\Garant\m3\NOT_FINISHED_m3Const.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\m3'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_54217680017C m3Const
 
@@ -695,8 +716,8 @@ ref; // ME_53FDFB070246 DoIt
  : Parent ME_53FDFADD027F // m3HeaderIDSupplier
  ;
  : Operations
-   @ ( ME_53FDFB070246 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_53FDFB070246 // DoIt
+ )
  ; // Operations
  CONST "is static" true
 
@@ -713,20 +734,20 @@ ref; // ME_53FDFAF900ED HeaderID
  : Parent ME_5485C15F0072 // HeaderStream
  ;
  : Operations
-   @ ( ME_53FDFAF900ED // HeaderID
- ) .SequenceCode.It
+   Seq: ( ME_53FDFAF900ED // HeaderID
+ )
  ; // Operations
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\m3'
  CONST intf.pas:Path 'common\components\rtl\Garant\m3\m3HeaderIDSupplier.imp.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\m3'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
  CONST extprop:pas:TypeName '_m3HeaderIDSupplier_'
+ CONST extprop:pas:UnitName 'm3HeaderIDSupplier.imp'
 
 ref; // ME_53FDFADD027F m3HeaderIDSupplier
 
@@ -742,6 +763,10 @@ FORWARD ME_53FDCEC40006
  CONST Abstraction at_abstract
  : Parent ME_53FDCEC40006 // m3CustomHeaderStream
  ;
+ CONST dfm:PathOnly '\common\components\rtl\Garant\m3'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\m3'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
  CONST extprop:pas:TypeName '_HeaderType_'
 
 ref; // ME_53FF379A00E4 HeaderType
@@ -805,9 +830,9 @@ ref; // ME_53FF235B03DB aAccess
  : Parent ME_53FF2351033E // Create
  ;
  : Parameters
-   @ ( ME_53FF235B03B1 // aStream
+   Seq: ( ME_53FF235B03B1 // aStream
  ME_53FF235B03DB // aAccess
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_53FF235902F1 DoIt
@@ -823,8 +848,8 @@ ref; // ME_53FF235902F1 DoIt
  : Parent ME_53FDCEC40006 // m3CustomHeaderStream
  ;
  : Operations
-   @ ( ME_53FF235902F1 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_53FF235902F1 // DoIt
+ )
  ; // Operations
 
 ref; // ME_53FF2351033E Create
@@ -855,8 +880,8 @@ ref; // ME_53FF37F6037B DoIt
  : Parent ME_53FDCEC40006 // m3CustomHeaderStream
  ;
  : Operations
-   @ ( ME_53FF37F6037B // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_53FF37F6037B // DoIt
+ )
  ; // Operations
  CONST "is static" true
 
@@ -888,8 +913,8 @@ ref; // ME_5408828B01B3 DoIt
  : Parent ME_53FDCEC40006 // m3CustomHeaderStream
  ;
  : Operations
-   @ ( ME_5408828B01B3 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_5408828B01B3 // DoIt
+ )
  ; // Operations
  CONST "is static" true
 
@@ -979,6 +1004,7 @@ ref; // ME_54859D3F017A
  ;
  : Implementor ME_53FDCEC40006 // m3CustomHeaderStream
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_53FDFDD90071_ME_53FDCEC40006 DoLoadHeader
 
 : ME_53FDFDF503CE_ME_53FDCEC40006
@@ -988,6 +1014,7 @@ ref; // ME_53FDFDD90071_ME_53FDCEC40006 DoLoadHeader
  ;
  : Implementor ME_53FDCEC40006 // m3CustomHeaderStream
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_53FDFDF503CE_ME_53FDCEC40006 DoSaveHeader
 
 : ME_479731C50290_ME_53FDCEC40006
@@ -997,6 +1024,7 @@ ref; // ME_53FDFDF503CE_ME_53FDCEC40006 DoSaveHeader
  ;
  : Implementor ME_53FDCEC40006 // m3CustomHeaderStream
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_479731C50290_ME_53FDCEC40006 Cleanup
 
 : ME_53FDCEC40006
@@ -1011,58 +1039,58 @@ ref; // ME_479731C50290_ME_53FDCEC40006 Cleanup
  : Parent ME_5485C15F0072 // HeaderStream
  ;
  : Inherits
-   @ ( ME_53FF134A03BA // Tm3BaseHeaderStream
- ) .SequenceCode.It
+   Seq: ( ME_53FF134A03BA // Tm3BaseHeaderStream
+ )
  ; // Inherits
  : Implements
-   @ ( ME_53FDFADD027F // m3HeaderIDSupplier
- ) .SequenceCode.It
+   Seq: ( ME_53FDFADD027F // m3HeaderIDSupplier
+ )
  ; // Implements
  : Attributes
-   @ ( ME_53FF37A80145 // HeaderData
+   Seq: ( ME_53FF37A80145 // HeaderData
  ME_53FF37CA03D8 // HeaderDataCompare
- ) .SequenceCode.It
+ )
  ; // Attributes
  : Operations
-   @ ( ME_53FF2351033E // Create
+   Seq: ( ME_53FF2351033E // Create
  ME_53FF37DC003A // DefaultHeaderValue
  ME_5408826C0072 // NeedHeaderAlignment
- ) .SequenceCode.It
+ )
  ; // Operations
  : Implemented
-   @ ( ME_53FDFDD90071_ME_53FDCEC40006 // DoLoadHeader
+   Seq: ( ME_53FDFDD90071_ME_53FDCEC40006 // DoLoadHeader
  ME_53FDFDF503CE_ME_53FDCEC40006 // DoSaveHeader
- ) .SequenceCode.It
+ )
  ; // Implemented
  : Overridden
-   @ ( ME_479731C50290_ME_53FDCEC40006 // Cleanup
- ) .SequenceCode.It
+   Seq: ( ME_479731C50290_ME_53FDCEC40006 // Cleanup
+ )
  ; // Overridden
  : Children
-   @ ( ME_53FF379A00E4 // HeaderType
- ) .SequenceCode.It
+   Seq: ( ME_53FF379A00E4 // HeaderType
+ )
  ; // Children
  : Dependencies
-   @ ( ME_53FEF1A90353 // 
+   Seq: ( ME_53FEF1A90353 // 
  ME_53FEF1AF0173 // 
  ME_53FEF1B3001B // 
  ME_53FEF1B70073 // 
  ME_53FEF1BA01BC // 
  ME_53FEF4A90396 // 
  ME_54859D3F017A // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\m3'
  CONST intf.pas:Path 'common\components\rtl\Garant\m3\m3CustomHeaderStream.imp.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\m3'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
  CONST extprop:pas:TypeName '_m3CustomHeaderStream_'
+ CONST extprop:pas:UnitName 'm3CustomHeaderStream.imp'
 
 ref; // ME_53FDCEC40006 m3CustomHeaderStream
 
@@ -1076,29 +1104,27 @@ ref; // ME_53FDCEC40006 m3CustomHeaderStream
  : Parent WL 'ME_472082480337' '472082480337.pas.ms.script' // m3
  ;
  : Children
-   @ ( ME_53FF134A03BA // Tm3BaseHeaderStream
+   Seq: ( ME_53FF134A03BA // Tm3BaseHeaderStream
  ME_54217680017C // m3Const
  ME_53FDFADD027F // m3HeaderIDSupplier
  ME_53FDCEC40006 // m3CustomHeaderStream
- ) .SequenceCode.It
+ )
  ; // Children
  : Depends
-   @ ( WL 'ME_46A0E6C5023A' '46A0E6C5023A.pas.ms.script' // ActiveX
+   Seq: ( WL 'ME_46A0E6C5023A' '46A0E6C5023A.pas.ms.script' // ActiveX
  WL 'ME_47913B47006E' '47913B47006E.pas.ms.script' // l3CoreObjects
  WL 'ME_47BF042D029B' '47BF042D029B.pas.ms.script' // m2
  WL 'ME_4AB0997B00A2' '4AB0997B00A2.pas.ms.script' // Common
  WL 'ME_4AB0C3C60310' '4AB0C3C60310.pas.ms.script' // Sys
  WL 'ME_537B83AD01F0' '537B83AD01F0.pas.ms.script' // l3Math
  WL 'ME_5485B0D1026C' '5485B0D1026C.pas.ms.script' // Streams
- ) .SequenceCode.It
+ )
  ; // Depends
- : Generators
- @ (
- gen_pas.script
- gen_pas.script.runner
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\m3'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\m3'
  CONST pas.script:Path 'shared\models\NewSchool\Scripts\5485C15F0072.pas.ms.script'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
  CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\5485C15F0072.pas.ms.script.runner'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_5485C15F0072 HeaderStream

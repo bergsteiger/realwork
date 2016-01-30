@@ -13,6 +13,7 @@ FORWARD ME_4678159D03E2
  ;
  : Implementor ME_4678159D03E2 // Ik2Base
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_467813E40207_ME_4678159D03E2 CheckStamp
 
 : ME_4678159D03E2
@@ -28,14 +29,20 @@ ref; // ME_467813E40207_ME_4678159D03E2 CheckStamp
  : Parent ME_4678137501EA // k2Interfaces
  ;
  : Inherits
-   @ ( WL 'ME_467813B3024D' '4677FBA70343.pas.ms.script' // Il3Base
- ) .SequenceCode.It
+   Seq: ( WL 'ME_467813B3024D' '4677FBA70343.pas.ms.script' // Il3Base
+ )
  ; // Inherits
  : Implemented
-   @ ( ME_467813E40207_ME_4678159D03E2 // CheckStamp
- ) .SequenceCode.It
+   Seq: ( ME_467813E40207_ME_4678159D03E2 // CheckStamp
+ )
  ; // Implemented
  CONST "is default ancestor" true
+ CONST dfm:PathOnly '\common\components\rtl\Garant\K2'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\K2'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'Base'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_4678159D03E2 Ik2Base
 
@@ -50,9 +57,15 @@ ref; // ME_4678159D03E2 Ik2Base
  : Parent ME_4678137501EA // k2Interfaces
  ;
  : Inherits
-   @ ( WL 'ME_469F7AFD0224' '4A4DE16302A2.pas.ms.script' // Ik2Op
- ) .SequenceCode.It
+   Seq: ( WL 'ME_469F7AFD0224' '4A4DE16302A2.pas.ms.script' // Ik2Op
+ )
  ; // Inherits
+ CONST dfm:PathOnly '\common\components\rtl\Garant\K2'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\K2'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'Op'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_4A51CF380145 Ik2Op
 
@@ -148,14 +161,19 @@ ref; // ME_4767A16F03B5 k2_eidChildrenDeleted
  : Parent ME_4678137501EA // k2Interfaces
  ;
  : Attributes
-   @ ( ME_4767A11B0208 // k2_eidNull
+   Seq: ( ME_4767A11B0208 // k2_eidNull
  ME_4767A1270321 // k2_eidChildrenInserted
  ME_4767A14402FF // k2_eidTypeTableWillBeDestroyed
  ME_4767A1550216 // k2_eidAttrChanged
  ME_4767A1630090 // k2_eidChildrenAdded
  ME_4767A16F03B5 // k2_eidChildrenDeleted
- ) .SequenceCode.It
+ )
  ; // Attributes
+ CONST dfm:PathOnly '\common\components\rtl\Garant\K2'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\K2'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_4767A10001F7 Tk2EventID
 
@@ -170,10 +188,14 @@ ref; // ME_4767A10001F7 Tk2EventID
  : Parent ME_4678137501EA // k2Interfaces
  ;
  : Inherits
-   @ ( ME_4767A10001F7 // Tk2EventID
- ) .SequenceCode.It
+   Seq: ( ME_4767A10001F7 // Tk2EventID
+ )
  ; // Inherits
  CONST "force usage" true
+ CONST dfm:PathOnly '\common\components\rtl\Garant\K2'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\K2'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_469F9ED501CC Tk2EventIDs
 
@@ -246,13 +268,17 @@ ref; // ME_469F9F4C03CC Total
  : Parent ME_4678137501EA // k2Interfaces
  ;
  : Attributes
-   @ ( ME_469F9F2500CD // ID
+   Seq: ( ME_469F9F2500CD // ID
  ME_469F9F3200D6 // Point
  ME_469F9F3F0111 // Len
  ME_469F9F4C03CC // Total
- ) .SequenceCode.It
+ )
  ; // Attributes
  CONST "force usage" true
+ CONST dfm:PathOnly '\common\components\rtl\Garant\K2'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\K2'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_469F9F0B01D4 Tk2Event
 
@@ -288,9 +314,9 @@ ref; // ME_4761449401BA anOp
  : Parent ME_467818280149 // Ik2TagListener
  ;
  : Parameters
-   @ ( ME_47614494018E // anEvent
+   Seq: ( ME_47614494018E // anEvent
  ME_4761449401BA // anOp
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_4761446F0081 Fire
@@ -316,6 +342,7 @@ ref; // ME_476144C702AA ExcludeEvents
  ;
  : Implementor ME_467818280149 // Ik2TagListener
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_47612ACF0081_ME_467818280149 Box
 
 : ME_476133660285_ME_467818280149
@@ -325,6 +352,7 @@ ref; // ME_47612ACF0081_ME_467818280149 Box
  ;
  : Implementor ME_467818280149 // Ik2TagListener
  ;
+ CONST OpKind opkind_Implemented
  CONST "is default" true
  CONST "pm" true
 ref; // ME_476133660285_ME_467818280149 Attr
@@ -336,6 +364,7 @@ ref; // ME_476133660285_ME_467818280149 Attr
  ;
  : Implementor ME_467818280149 // Ik2TagListener
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" true
 ref; // ME_4761365402FF_ME_467818280149 BoolA
 
@@ -346,6 +375,7 @@ ref; // ME_4761365402FF_ME_467818280149 BoolA
  ;
  : Implementor ME_467818280149 // Ik2TagListener
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" true
 ref; // ME_4761368701AB_ME_467818280149 IntA
 
@@ -356,6 +386,7 @@ ref; // ME_4761368701AB_ME_467818280149 IntA
  ;
  : Implementor ME_467818280149 // Ik2TagListener
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" true
 ref; // ME_4761370F0048_ME_467818280149 StrA
 
@@ -366,6 +397,7 @@ ref; // ME_4761370F0048_ME_467818280149 StrA
  ;
  : Implementor ME_467818280149 // Ik2TagListener
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" true
 ref; // ME_47613B8303CC_ME_467818280149 Child
 
@@ -376,6 +408,7 @@ ref; // ME_47613B8303CC_ME_467818280149 Child
  ;
  : Implementor ME_467818280149 // Ik2TagListener
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" true
 ref; // ME_47613C0F02F4_ME_467818280149 BoolW
 
@@ -386,6 +419,7 @@ ref; // ME_47613C0F02F4_ME_467818280149 BoolW
  ;
  : Implementor ME_467818280149 // Ik2TagListener
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" true
 ref; // ME_47613C6A001F_ME_467818280149 IntW
 
@@ -396,6 +430,7 @@ ref; // ME_47613C6A001F_ME_467818280149 IntW
  ;
  : Implementor ME_467818280149 // Ik2TagListener
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" true
 ref; // ME_47613D4E02B3_ME_467818280149 StrW
 
@@ -406,6 +441,7 @@ ref; // ME_47613D4E02B3_ME_467818280149 StrW
  ;
  : Implementor ME_467818280149 // Ik2TagListener
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" true
 ref; // ME_47613DB001A3_ME_467818280149 PCharLenA
 
@@ -416,6 +452,7 @@ ref; // ME_47613DB001A3_ME_467818280149 PCharLenA
  ;
  : Implementor ME_467818280149 // Ik2TagListener
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" true
 ref; // ME_47613E120125_ME_467818280149 PCharLenW
 
@@ -426,6 +463,7 @@ ref; // ME_47613E120125_ME_467818280149 PCharLenW
  ;
  : Implementor ME_467818280149 // Ik2TagListener
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" true
 ref; // ME_4A42149A01FE_ME_467818280149 AsString
 
@@ -436,6 +474,7 @@ ref; // ME_4A42149A01FE_ME_467818280149 AsString
  ;
  : Implementor ME_467818280149 // Ik2TagListener
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" true
 ref; // ME_4A4216790331_ME_467818280149 AsWStr
 
@@ -446,6 +485,7 @@ ref; // ME_4A4216790331_ME_467818280149 AsWStr
  ;
  : Implementor ME_467818280149 // Ik2TagListener
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_4A42195A0244_ME_467818280149 AsBool
 
 : ME_4A42196201B8_ME_467818280149
@@ -455,6 +495,7 @@ ref; // ME_4A42195A0244_ME_467818280149 AsBool
  ;
  : Implementor ME_467818280149 // Ik2TagListener
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_4A42196201B8_ME_467818280149 AsLong
 
 : ME_4A42196C01CE_ME_467818280149
@@ -464,6 +505,7 @@ ref; // ME_4A42196201B8_ME_467818280149 AsLong
  ;
  : Implementor ME_467818280149 // Ik2TagListener
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_4A42196C01CE_ME_467818280149 AsObject
 
 : ME_4A421BE201A9_ME_467818280149
@@ -473,6 +515,7 @@ ref; // ME_4A42196C01CE_ME_467818280149 AsObject
  ;
  : Implementor ME_467818280149 // Ik2TagListener
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_4A421BE201A9_ME_467818280149 IsOrd
 
 : ME_4A421BED00FF_ME_467818280149
@@ -482,6 +525,7 @@ ref; // ME_4A421BE201A9_ME_467818280149 IsOrd
  ;
  : Implementor ME_467818280149 // Ik2TagListener
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_4A421BED00FF_ME_467818280149 IsKindOf
 
 : ME_4A421BF200BF_ME_467818280149
@@ -491,6 +535,7 @@ ref; // ME_4A421BED00FF_ME_467818280149 IsKindOf
  ;
  : Implementor ME_467818280149 // Ik2TagListener
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_4A421BF200BF_ME_467818280149 IsKindOf
 
 : ME_4A421C12034A_ME_467818280149
@@ -500,6 +545,7 @@ ref; // ME_4A421BF200BF_ME_467818280149 IsKindOf
  ;
  : Implementor ME_467818280149 // Ik2TagListener
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_4A421C12034A_ME_467818280149 IsKindOf
 
 : ME_4A422C1D00FE_ME_467818280149
@@ -509,6 +555,7 @@ ref; // ME_4A421C12034A_ME_467818280149 IsKindOf
  ;
  : Implementor ME_467818280149 // Ik2TagListener
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_4A422C1D00FE_ME_467818280149 AddChild
 
 : ME_4A42356B0022_ME_467818280149
@@ -518,6 +565,7 @@ ref; // ME_4A422C1D00FE_ME_467818280149 AddChild
  ;
  : Implementor ME_467818280149 // Ik2TagListener
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" false
 ref; // ME_4A42356B0022_ME_467818280149 ChildrenCount
 
@@ -528,6 +576,7 @@ ref; // ME_4A42356B0022_ME_467818280149 ChildrenCount
  ;
  : Implementor ME_467818280149 // Ik2TagListener
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_4A423C670156_ME_467818280149 SetRef
 
 : ME_4A423EC900C2_ME_467818280149
@@ -537,6 +586,7 @@ ref; // ME_4A423C670156_ME_467818280149 SetRef
  ;
  : Implementor ME_467818280149 // Ik2TagListener
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_4A423EC900C2_ME_467818280149 DeleteChild
 
 : ME_4A423ECE03A6_ME_467818280149
@@ -546,6 +596,7 @@ ref; // ME_4A423EC900C2_ME_467818280149 DeleteChild
  ;
  : Implementor ME_467818280149 // Ik2TagListener
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_4A423ECE03A6_ME_467818280149 DeleteChild
 
 : ME_4A423F0002E2_ME_467818280149
@@ -555,6 +606,7 @@ ref; // ME_4A423ECE03A6_ME_467818280149 DeleteChild
  ;
  : Implementor ME_467818280149 // Ik2TagListener
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_4A423F0002E2_ME_467818280149 DeleteChild
 
 : ME_4A42489800D0_ME_467818280149
@@ -564,6 +616,7 @@ ref; // ME_4A423F0002E2_ME_467818280149 DeleteChild
  ;
  : Implementor ME_467818280149 // Ik2TagListener
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_4A42489800D0_ME_467818280149 DoLoad
 
 : ME_4A4248A501C8_ME_467818280149
@@ -573,6 +626,7 @@ ref; // ME_4A42489800D0_ME_467818280149 DoLoad
  ;
  : Implementor ME_467818280149 // Ik2TagListener
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_4A4248A501C8_ME_467818280149 ForceStore
 
 : ME_4A4248C902F1_ME_467818280149
@@ -582,6 +636,7 @@ ref; // ME_4A4248A501C8_ME_467818280149 ForceStore
  ;
  : Implementor ME_467818280149 // Ik2TagListener
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_4A4248C902F1_ME_467818280149 MarkModified
 
 : ME_4A6039AA0172_ME_467818280149
@@ -591,6 +646,7 @@ ref; // ME_4A4248C902F1_ME_467818280149 MarkModified
  ;
  : Implementor ME_467818280149 // Ik2TagListener
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" false
 ref; // ME_4A6039AA0172_ME_467818280149 ChildrenCapacity
 
@@ -601,6 +657,7 @@ ref; // ME_4A6039AA0172_ME_467818280149 ChildrenCapacity
  ;
  : Implementor ME_467818280149 // Ik2TagListener
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" false
 ref; // ME_4A6475C4026D_ME_467818280149 Owner
 
@@ -611,6 +668,7 @@ ref; // ME_4A6475C4026D_ME_467818280149 Owner
  ;
  : Implementor ME_467818280149 // Ik2TagListener
  ;
+ CONST OpKind opkind_Implemented
  CONST "needs index" true
  CONST "needs result" true
 ref; // ME_4BB21F9D022F_ME_467818280149 IterateChildrenF
@@ -622,6 +680,7 @@ ref; // ME_4BB21F9D022F_ME_467818280149 IterateChildrenF
  ;
  : Implementor ME_467818280149 // Ik2TagListener
  ;
+ CONST OpKind opkind_Implemented
  CONST "needs index" true
  CONST "needs result" true
 ref; // ME_4BBF49EB0260_ME_467818280149 IterateChildrenBack
@@ -633,6 +692,7 @@ ref; // ME_4BBF49EB0260_ME_467818280149 IterateChildrenBack
  ;
  : Implementor ME_467818280149 // Ik2TagListener
  ;
+ CONST OpKind opkind_Implemented
  CONST "needs index" true
  CONST "needs result" false
 ref; // ME_4BC31A730293_ME_467818280149 IterateProperties
@@ -644,6 +704,7 @@ ref; // ME_4BC31A730293_ME_467818280149 IterateProperties
  ;
  : Implementor ME_467818280149 // Ik2TagListener
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_4BC71B0A028C_ME_467818280149 rLong
 
 : ME_4BC843A5011F_ME_467818280149
@@ -653,6 +714,7 @@ ref; // ME_4BC71B0A028C_ME_467818280149 rLong
  ;
  : Implementor ME_467818280149 // Ik2TagListener
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_4BC843A5011F_ME_467818280149 rAtomEx
 
 : ME_4BC843C80301_ME_467818280149
@@ -662,6 +724,7 @@ ref; // ME_4BC843A5011F_ME_467818280149 rAtomEx
  ;
  : Implementor ME_467818280149 // Ik2TagListener
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_4BC843C80301_ME_467818280149 cAtom
 
 : ME_4BC843CE00EF_ME_467818280149
@@ -671,6 +734,7 @@ ref; // ME_4BC843C80301_ME_467818280149 cAtom
  ;
  : Implementor ME_467818280149 // Ik2TagListener
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_4BC843CE00EF_ME_467818280149 cAtomEx
 
 : ME_4BC8441500B7_ME_467818280149
@@ -680,6 +744,7 @@ ref; // ME_4BC843CE00EF_ME_467818280149 cAtomEx
  ;
  : Implementor ME_467818280149 // Ik2TagListener
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_4BC8441500B7_ME_467818280149 HasSubAtom
 
 : ME_4BC8446D010E_ME_467818280149
@@ -689,6 +754,7 @@ ref; // ME_4BC8441500B7_ME_467818280149 HasSubAtom
  ;
  : Implementor ME_467818280149 // Ik2TagListener
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_4BC8446D010E_ME_467818280149 IsNull
 
 : ME_4BC8447200B0_ME_467818280149
@@ -698,6 +764,7 @@ ref; // ME_4BC8446D010E_ME_467818280149 IsNull
  ;
  : Implementor ME_467818280149 // Ik2TagListener
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_4BC8447200B0_ME_467818280149 IsValid
 
 : ME_4BC8447501CB_ME_467818280149
@@ -707,6 +774,7 @@ ref; // ME_4BC8447200B0_ME_467818280149 IsValid
  ;
  : Implementor ME_467818280149 // Ik2TagListener
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_4BC8447501CB_ME_467818280149 IsTransparent
 
 : ME_4BC8447A0046_ME_467818280149
@@ -716,6 +784,7 @@ ref; // ME_4BC8447501CB_ME_467818280149 IsTransparent
  ;
  : Implementor ME_467818280149 // Ik2TagListener
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_4BC8447A0046_ME_467818280149 IsStream
 
 : ME_4BC84CA1035B_ME_467818280149
@@ -725,6 +794,7 @@ ref; // ME_4BC8447A0046_ME_467818280149 IsStream
  ;
  : Implementor ME_467818280149 // Ik2TagListener
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_4BC84CA1035B_ME_467818280149 QT
 
 : ME_4BC84CEE0329_ME_467818280149
@@ -734,6 +804,7 @@ ref; // ME_4BC84CA1035B_ME_467818280149 QT
  ;
  : Implementor ME_467818280149 // Ik2TagListener
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_4BC84CEE0329_ME_467818280149 GetOwnInterface
 
 : ME_4E2EA8B10353_ME_467818280149
@@ -743,6 +814,7 @@ ref; // ME_4BC84CEE0329_ME_467818280149 GetOwnInterface
  ;
  : Implementor ME_467818280149 // Ik2TagListener
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" false
 ref; // ME_4E2EA8B10353_ME_467818280149 Int64A
 
@@ -753,6 +825,7 @@ ref; // ME_4E2EA8B10353_ME_467818280149 Int64A
  ;
  : Implementor ME_467818280149 // Ik2TagListener
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" false
 ref; // ME_4E2EA93E029A_ME_467818280149 Int64W
 
@@ -763,6 +836,7 @@ ref; // ME_4E2EA93E029A_ME_467818280149 Int64W
  ;
  : Implementor ME_467818280149 // Ik2TagListener
  ;
+ CONST OpKind opkind_Implemented
  CONST "force overload" true
 ref; // ME_532C4B8E00CC_ME_467818280149 IsSame
 
@@ -773,6 +847,7 @@ ref; // ME_532C4B8E00CC_ME_467818280149 IsSame
  ;
  : Implementor ME_467818280149 // Ik2TagListener
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" true
 ref; // ME_533195830003_ME_467818280149 AttrW
 
@@ -783,6 +858,7 @@ ref; // ME_533195830003_ME_467818280149 AttrW
  ;
  : Implementor ME_467818280149 // Ik2TagListener
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" true
 ref; // ME_533413FC02FC_ME_467818280149 TagType
 
@@ -793,6 +869,7 @@ ref; // ME_533413FC02FC_ME_467818280149 TagType
  ;
  : Implementor ME_467818280149 // Ik2TagListener
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" false
 ref; // ME_53B444D80378_ME_467818280149 DateTimeA
 
@@ -803,6 +880,7 @@ ref; // ME_53B444D80378_ME_467818280149 DateTimeA
  ;
  : Implementor ME_467818280149 // Ik2TagListener
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" false
 ref; // ME_53B52B130172_ME_467818280149 DateTimeW
 
@@ -819,16 +897,16 @@ ref; // ME_53B52B130172_ME_467818280149 DateTimeW
  : Parent ME_4678137501EA // k2Interfaces
  ;
  : Inherits
-   @ ( WL 'ME_467817DD0200' '47913B47006E.pas.ms.script' // Ik2Tag
- ) .SequenceCode.It
+   Seq: ( WL 'ME_467817DD0200' '47913B47006E.pas.ms.script' // Ik2Tag
+ )
  ; // Inherits
  : Operations
-   @ ( ME_4761446F0081 // Fire
+   Seq: ( ME_4761446F0081 // Fire
  ME_476144C702AA // ExcludeEvents
- ) .SequenceCode.It
+ )
  ; // Operations
  : Implemented
-   @ ( ME_47612ACF0081_ME_467818280149 // Box
+   Seq: ( ME_47612ACF0081_ME_467818280149 // Box
  ME_476133660285_ME_467818280149 // Attr
  ME_4761365402FF_ME_467818280149 // BoolA
  ME_4761368701AB_ME_467818280149 // IntA
@@ -880,8 +958,14 @@ ref; // ME_53B52B130172_ME_467818280149 DateTimeW
  ME_533413FC02FC_ME_467818280149 // TagType
  ME_53B444D80378_ME_467818280149 // DateTimeA
  ME_53B52B130172_ME_467818280149 // DateTimeW
- ) .SequenceCode.It
+ )
  ; // Implemented
+ CONST dfm:PathOnly '\common\components\rtl\Garant\K2'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\K2'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'TagListener'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_467818280149 Ik2TagListener
 
@@ -917,9 +1001,9 @@ ref; // ME_4761450E006F anOp
  : Parent ME_4678180D0371 // Ik2Listener
  ;
  : Parameters
-   @ ( ME_4761450E0048 // anEvent
+   Seq: ( ME_4761450E0048 // anEvent
  ME_4761450E006F // anOp
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_476144F90102 Fire
@@ -937,9 +1021,15 @@ ref; // ME_476144F90102 Fire
  : Parent ME_4678137501EA // k2Interfaces
  ;
  : Operations
-   @ ( ME_476144F90102 // Fire
- ) .SequenceCode.It
+   Seq: ( ME_476144F90102 // Fire
+ )
  ; // Operations
+ CONST dfm:PathOnly '\common\components\rtl\Garant\K2'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\K2'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'Listener'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_4678180D0371 Ik2Listener
 
@@ -964,8 +1054,8 @@ ref; // ME_4767B46003B4 aTag
  : Parent ME_469F9FCC00E1 // Ik2TagBoxContainer
  ;
  : Parameters
-   @ ( ME_4767B46003B4 // aTag
- ) .SequenceCode.It
+   Seq: ( ME_4767B46003B4 // aTag
+ )
  ; // Parameters
 
 ref; // ME_469F9FD9025D SetTag
@@ -982,9 +1072,15 @@ ref; // ME_469F9FD9025D SetTag
  : Parent ME_4678137501EA // k2Interfaces
  ;
  : Operations
-   @ ( ME_469F9FD9025D // SetTag
- ) .SequenceCode.It
+   Seq: ( ME_469F9FD9025D // SetTag
+ )
  ; // Operations
+ CONST dfm:PathOnly '\common\components\rtl\Garant\K2'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\K2'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'TagBoxContainer'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_469F9FCC00E1 Ik2TagBoxContainer
 
@@ -1000,6 +1096,12 @@ ref; // ME_469F9FCC00E1 Ik2TagBoxContainer
  CONST Abstraction at_regular
  : Parent ME_4678137501EA // k2Interfaces
  ;
+ CONST dfm:PathOnly '\common\components\rtl\Garant\K2'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\K2'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'GeneratorTarget'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_47678AD30259 Ik2GeneratorTarget
 
@@ -1044,10 +1146,14 @@ ref; // ME_47678B7E0095 rValue
  : Parent ME_4678137501EA // k2Interfaces
  ;
  : Attributes
-   @ ( ME_47678B730010 // rIsSet
+   Seq: ( ME_47678B730010 // rIsSet
  ME_47678B7E0095 // rValue
- ) .SequenceCode.It
+ )
  ; // Attributes
+ CONST dfm:PathOnly '\common\components\rtl\Garant\K2'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\K2'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_47678B5F0280 Tk2Integer
 
@@ -1077,6 +1183,7 @@ ref; // ME_476145AF00A8 ParentTool
  ;
  : Implementor ME_467818430333 // Ik2TagTool
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_47612ACF0081_ME_467818430333 Box
 
 : ME_476133660285_ME_467818430333
@@ -1086,6 +1193,7 @@ ref; // ME_47612ACF0081_ME_467818430333 Box
  ;
  : Implementor ME_467818430333 // Ik2TagTool
  ;
+ CONST OpKind opkind_Implemented
  CONST "is default" true
  CONST "pm" true
 ref; // ME_476133660285_ME_467818430333 Attr
@@ -1097,6 +1205,7 @@ ref; // ME_476133660285_ME_467818430333 Attr
  ;
  : Implementor ME_467818430333 // Ik2TagTool
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" true
 ref; // ME_4761365402FF_ME_467818430333 BoolA
 
@@ -1107,6 +1216,7 @@ ref; // ME_4761365402FF_ME_467818430333 BoolA
  ;
  : Implementor ME_467818430333 // Ik2TagTool
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" true
 ref; // ME_4761368701AB_ME_467818430333 IntA
 
@@ -1117,6 +1227,7 @@ ref; // ME_4761368701AB_ME_467818430333 IntA
  ;
  : Implementor ME_467818430333 // Ik2TagTool
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" true
 ref; // ME_4761370F0048_ME_467818430333 StrA
 
@@ -1127,6 +1238,7 @@ ref; // ME_4761370F0048_ME_467818430333 StrA
  ;
  : Implementor ME_467818430333 // Ik2TagTool
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" true
 ref; // ME_47613B8303CC_ME_467818430333 Child
 
@@ -1137,6 +1249,7 @@ ref; // ME_47613B8303CC_ME_467818430333 Child
  ;
  : Implementor ME_467818430333 // Ik2TagTool
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" true
 ref; // ME_47613C0F02F4_ME_467818430333 BoolW
 
@@ -1147,6 +1260,7 @@ ref; // ME_47613C0F02F4_ME_467818430333 BoolW
  ;
  : Implementor ME_467818430333 // Ik2TagTool
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" true
 ref; // ME_47613C6A001F_ME_467818430333 IntW
 
@@ -1157,6 +1271,7 @@ ref; // ME_47613C6A001F_ME_467818430333 IntW
  ;
  : Implementor ME_467818430333 // Ik2TagTool
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" true
 ref; // ME_47613D4E02B3_ME_467818430333 StrW
 
@@ -1167,6 +1282,7 @@ ref; // ME_47613D4E02B3_ME_467818430333 StrW
  ;
  : Implementor ME_467818430333 // Ik2TagTool
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" true
 ref; // ME_47613DB001A3_ME_467818430333 PCharLenA
 
@@ -1177,6 +1293,7 @@ ref; // ME_47613DB001A3_ME_467818430333 PCharLenA
  ;
  : Implementor ME_467818430333 // Ik2TagTool
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" true
 ref; // ME_47613E120125_ME_467818430333 PCharLenW
 
@@ -1187,6 +1304,7 @@ ref; // ME_47613E120125_ME_467818430333 PCharLenW
  ;
  : Implementor ME_467818430333 // Ik2TagTool
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_4761446F0081_ME_467818430333 Fire
 
 : ME_476144C702AA_ME_467818430333
@@ -1196,6 +1314,7 @@ ref; // ME_4761446F0081_ME_467818430333 Fire
  ;
  : Implementor ME_467818430333 // Ik2TagTool
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_476144C702AA_ME_467818430333 ExcludeEvents
 
 : ME_4A42149A01FE_ME_467818430333
@@ -1205,6 +1324,7 @@ ref; // ME_476144C702AA_ME_467818430333 ExcludeEvents
  ;
  : Implementor ME_467818430333 // Ik2TagTool
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" true
 ref; // ME_4A42149A01FE_ME_467818430333 AsString
 
@@ -1215,6 +1335,7 @@ ref; // ME_4A42149A01FE_ME_467818430333 AsString
  ;
  : Implementor ME_467818430333 // Ik2TagTool
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" true
 ref; // ME_4A4216790331_ME_467818430333 AsWStr
 
@@ -1225,6 +1346,7 @@ ref; // ME_4A4216790331_ME_467818430333 AsWStr
  ;
  : Implementor ME_467818430333 // Ik2TagTool
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_4A42195A0244_ME_467818430333 AsBool
 
 : ME_4A42196201B8_ME_467818430333
@@ -1234,6 +1356,7 @@ ref; // ME_4A42195A0244_ME_467818430333 AsBool
  ;
  : Implementor ME_467818430333 // Ik2TagTool
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_4A42196201B8_ME_467818430333 AsLong
 
 : ME_4A42196C01CE_ME_467818430333
@@ -1243,6 +1366,7 @@ ref; // ME_4A42196201B8_ME_467818430333 AsLong
  ;
  : Implementor ME_467818430333 // Ik2TagTool
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_4A42196C01CE_ME_467818430333 AsObject
 
 : ME_4A421BE201A9_ME_467818430333
@@ -1252,6 +1376,7 @@ ref; // ME_4A42196C01CE_ME_467818430333 AsObject
  ;
  : Implementor ME_467818430333 // Ik2TagTool
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_4A421BE201A9_ME_467818430333 IsOrd
 
 : ME_4A421BED00FF_ME_467818430333
@@ -1261,6 +1386,7 @@ ref; // ME_4A421BE201A9_ME_467818430333 IsOrd
  ;
  : Implementor ME_467818430333 // Ik2TagTool
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_4A421BED00FF_ME_467818430333 IsKindOf
 
 : ME_4A421BF200BF_ME_467818430333
@@ -1270,6 +1396,7 @@ ref; // ME_4A421BED00FF_ME_467818430333 IsKindOf
  ;
  : Implementor ME_467818430333 // Ik2TagTool
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_4A421BF200BF_ME_467818430333 IsKindOf
 
 : ME_4A421C12034A_ME_467818430333
@@ -1279,6 +1406,7 @@ ref; // ME_4A421BF200BF_ME_467818430333 IsKindOf
  ;
  : Implementor ME_467818430333 // Ik2TagTool
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_4A421C12034A_ME_467818430333 IsKindOf
 
 : ME_4A422C1D00FE_ME_467818430333
@@ -1288,6 +1416,7 @@ ref; // ME_4A421C12034A_ME_467818430333 IsKindOf
  ;
  : Implementor ME_467818430333 // Ik2TagTool
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_4A422C1D00FE_ME_467818430333 AddChild
 
 : ME_4A42356B0022_ME_467818430333
@@ -1297,6 +1426,7 @@ ref; // ME_4A422C1D00FE_ME_467818430333 AddChild
  ;
  : Implementor ME_467818430333 // Ik2TagTool
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" false
 ref; // ME_4A42356B0022_ME_467818430333 ChildrenCount
 
@@ -1307,6 +1437,7 @@ ref; // ME_4A42356B0022_ME_467818430333 ChildrenCount
  ;
  : Implementor ME_467818430333 // Ik2TagTool
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_4A423C670156_ME_467818430333 SetRef
 
 : ME_4A423EC900C2_ME_467818430333
@@ -1316,6 +1447,7 @@ ref; // ME_4A423C670156_ME_467818430333 SetRef
  ;
  : Implementor ME_467818430333 // Ik2TagTool
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_4A423EC900C2_ME_467818430333 DeleteChild
 
 : ME_4A423ECE03A6_ME_467818430333
@@ -1325,6 +1457,7 @@ ref; // ME_4A423EC900C2_ME_467818430333 DeleteChild
  ;
  : Implementor ME_467818430333 // Ik2TagTool
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_4A423ECE03A6_ME_467818430333 DeleteChild
 
 : ME_4A423F0002E2_ME_467818430333
@@ -1334,6 +1467,7 @@ ref; // ME_4A423ECE03A6_ME_467818430333 DeleteChild
  ;
  : Implementor ME_467818430333 // Ik2TagTool
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_4A423F0002E2_ME_467818430333 DeleteChild
 
 : ME_4A42489800D0_ME_467818430333
@@ -1343,6 +1477,7 @@ ref; // ME_4A423F0002E2_ME_467818430333 DeleteChild
  ;
  : Implementor ME_467818430333 // Ik2TagTool
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_4A42489800D0_ME_467818430333 DoLoad
 
 : ME_4A4248A501C8_ME_467818430333
@@ -1352,6 +1487,7 @@ ref; // ME_4A42489800D0_ME_467818430333 DoLoad
  ;
  : Implementor ME_467818430333 // Ik2TagTool
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_4A4248A501C8_ME_467818430333 ForceStore
 
 : ME_4A4248C902F1_ME_467818430333
@@ -1361,6 +1497,7 @@ ref; // ME_4A4248A501C8_ME_467818430333 ForceStore
  ;
  : Implementor ME_467818430333 // Ik2TagTool
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_4A4248C902F1_ME_467818430333 MarkModified
 
 : ME_4A6039AA0172_ME_467818430333
@@ -1370,6 +1507,7 @@ ref; // ME_4A4248C902F1_ME_467818430333 MarkModified
  ;
  : Implementor ME_467818430333 // Ik2TagTool
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" false
 ref; // ME_4A6039AA0172_ME_467818430333 ChildrenCapacity
 
@@ -1380,6 +1518,7 @@ ref; // ME_4A6039AA0172_ME_467818430333 ChildrenCapacity
  ;
  : Implementor ME_467818430333 // Ik2TagTool
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" false
 ref; // ME_4A6475C4026D_ME_467818430333 Owner
 
@@ -1390,6 +1529,7 @@ ref; // ME_4A6475C4026D_ME_467818430333 Owner
  ;
  : Implementor ME_467818430333 // Ik2TagTool
  ;
+ CONST OpKind opkind_Implemented
  CONST "needs index" true
  CONST "needs result" true
 ref; // ME_4BB21F9D022F_ME_467818430333 IterateChildrenF
@@ -1401,6 +1541,7 @@ ref; // ME_4BB21F9D022F_ME_467818430333 IterateChildrenF
  ;
  : Implementor ME_467818430333 // Ik2TagTool
  ;
+ CONST OpKind opkind_Implemented
  CONST "needs index" true
  CONST "needs result" true
 ref; // ME_4BBF49EB0260_ME_467818430333 IterateChildrenBack
@@ -1412,6 +1553,7 @@ ref; // ME_4BBF49EB0260_ME_467818430333 IterateChildrenBack
  ;
  : Implementor ME_467818430333 // Ik2TagTool
  ;
+ CONST OpKind opkind_Implemented
  CONST "needs index" true
  CONST "needs result" false
 ref; // ME_4BC31A730293_ME_467818430333 IterateProperties
@@ -1423,6 +1565,7 @@ ref; // ME_4BC31A730293_ME_467818430333 IterateProperties
  ;
  : Implementor ME_467818430333 // Ik2TagTool
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_4BC71B0A028C_ME_467818430333 rLong
 
 : ME_4BC843A5011F_ME_467818430333
@@ -1432,6 +1575,7 @@ ref; // ME_4BC71B0A028C_ME_467818430333 rLong
  ;
  : Implementor ME_467818430333 // Ik2TagTool
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_4BC843A5011F_ME_467818430333 rAtomEx
 
 : ME_4BC843C80301_ME_467818430333
@@ -1441,6 +1585,7 @@ ref; // ME_4BC843A5011F_ME_467818430333 rAtomEx
  ;
  : Implementor ME_467818430333 // Ik2TagTool
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_4BC843C80301_ME_467818430333 cAtom
 
 : ME_4BC843CE00EF_ME_467818430333
@@ -1450,6 +1595,7 @@ ref; // ME_4BC843C80301_ME_467818430333 cAtom
  ;
  : Implementor ME_467818430333 // Ik2TagTool
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_4BC843CE00EF_ME_467818430333 cAtomEx
 
 : ME_4BC8441500B7_ME_467818430333
@@ -1459,6 +1605,7 @@ ref; // ME_4BC843CE00EF_ME_467818430333 cAtomEx
  ;
  : Implementor ME_467818430333 // Ik2TagTool
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_4BC8441500B7_ME_467818430333 HasSubAtom
 
 : ME_4BC8446D010E_ME_467818430333
@@ -1468,6 +1615,7 @@ ref; // ME_4BC8441500B7_ME_467818430333 HasSubAtom
  ;
  : Implementor ME_467818430333 // Ik2TagTool
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_4BC8446D010E_ME_467818430333 IsNull
 
 : ME_4BC8447200B0_ME_467818430333
@@ -1477,6 +1625,7 @@ ref; // ME_4BC8446D010E_ME_467818430333 IsNull
  ;
  : Implementor ME_467818430333 // Ik2TagTool
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_4BC8447200B0_ME_467818430333 IsValid
 
 : ME_4BC8447501CB_ME_467818430333
@@ -1486,6 +1635,7 @@ ref; // ME_4BC8447200B0_ME_467818430333 IsValid
  ;
  : Implementor ME_467818430333 // Ik2TagTool
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_4BC8447501CB_ME_467818430333 IsTransparent
 
 : ME_4BC8447A0046_ME_467818430333
@@ -1495,6 +1645,7 @@ ref; // ME_4BC8447501CB_ME_467818430333 IsTransparent
  ;
  : Implementor ME_467818430333 // Ik2TagTool
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_4BC8447A0046_ME_467818430333 IsStream
 
 : ME_4BC84CA1035B_ME_467818430333
@@ -1504,6 +1655,7 @@ ref; // ME_4BC8447A0046_ME_467818430333 IsStream
  ;
  : Implementor ME_467818430333 // Ik2TagTool
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_4BC84CA1035B_ME_467818430333 QT
 
 : ME_4BC84CEE0329_ME_467818430333
@@ -1513,6 +1665,7 @@ ref; // ME_4BC84CA1035B_ME_467818430333 QT
  ;
  : Implementor ME_467818430333 // Ik2TagTool
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_4BC84CEE0329_ME_467818430333 GetOwnInterface
 
 : ME_4E2EA8B10353_ME_467818430333
@@ -1522,6 +1675,7 @@ ref; // ME_4BC84CEE0329_ME_467818430333 GetOwnInterface
  ;
  : Implementor ME_467818430333 // Ik2TagTool
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" false
 ref; // ME_4E2EA8B10353_ME_467818430333 Int64A
 
@@ -1532,6 +1686,7 @@ ref; // ME_4E2EA8B10353_ME_467818430333 Int64A
  ;
  : Implementor ME_467818430333 // Ik2TagTool
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" false
 ref; // ME_4E2EA93E029A_ME_467818430333 Int64W
 
@@ -1542,6 +1697,7 @@ ref; // ME_4E2EA93E029A_ME_467818430333 Int64W
  ;
  : Implementor ME_467818430333 // Ik2TagTool
  ;
+ CONST OpKind opkind_Implemented
  CONST "force overload" true
 ref; // ME_532C4B8E00CC_ME_467818430333 IsSame
 
@@ -1552,6 +1708,7 @@ ref; // ME_532C4B8E00CC_ME_467818430333 IsSame
  ;
  : Implementor ME_467818430333 // Ik2TagTool
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" true
 ref; // ME_533195830003_ME_467818430333 AttrW
 
@@ -1562,6 +1719,7 @@ ref; // ME_533195830003_ME_467818430333 AttrW
  ;
  : Implementor ME_467818430333 // Ik2TagTool
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" true
 ref; // ME_533413FC02FC_ME_467818430333 TagType
 
@@ -1572,6 +1730,7 @@ ref; // ME_533413FC02FC_ME_467818430333 TagType
  ;
  : Implementor ME_467818430333 // Ik2TagTool
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" false
 ref; // ME_53B444D80378_ME_467818430333 DateTimeA
 
@@ -1582,6 +1741,7 @@ ref; // ME_53B444D80378_ME_467818430333 DateTimeA
  ;
  : Implementor ME_467818430333 // Ik2TagTool
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" false
 ref; // ME_53B52B130172_ME_467818430333 DateTimeW
 
@@ -1598,15 +1758,15 @@ ref; // ME_53B52B130172_ME_467818430333 DateTimeW
  : Parent ME_4678137501EA // k2Interfaces
  ;
  : Inherits
-   @ ( ME_467818280149 // Ik2TagListener
- ) .SequenceCode.It
+   Seq: ( ME_467818280149 // Ik2TagListener
+ )
  ; // Inherits
  : Attributes
-   @ ( ME_476145AF00A8 // ParentTool
- ) .SequenceCode.It
+   Seq: ( ME_476145AF00A8 // ParentTool
+ )
  ; // Attributes
  : Implemented
-   @ ( ME_47612ACF0081_ME_467818430333 // Box
+   Seq: ( ME_47612ACF0081_ME_467818430333 // Box
  ME_476133660285_ME_467818430333 // Attr
  ME_4761365402FF_ME_467818430333 // BoolA
  ME_4761368701AB_ME_467818430333 // IntA
@@ -1660,8 +1820,14 @@ ref; // ME_53B52B130172_ME_467818430333 DateTimeW
  ME_533413FC02FC_ME_467818430333 // TagType
  ME_53B444D80378_ME_467818430333 // DateTimeA
  ME_53B52B130172_ME_467818430333 // DateTimeW
- ) .SequenceCode.It
+ )
  ; // Implemented
+ CONST dfm:PathOnly '\common\components\rtl\Garant\K2'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\K2'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'TagTool'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_467818430333 Ik2TagTool
 
@@ -1695,9 +1861,15 @@ ref; // ME_49A67D980375 IsModified
  : Parent ME_4678137501EA // k2Interfaces
  ;
  : Attributes
-   @ ( ME_49A67D980375 // IsModified
- ) .SequenceCode.It
+   Seq: ( ME_49A67D980375 // IsModified
+ )
  ; // Attributes
+ CONST dfm:PathOnly '\common\components\rtl\Garant\K2'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\K2'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'RawData'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_49A67D880011 Ik2RawData
 
@@ -1730,6 +1902,7 @@ ref; // ME_469F981B03D2 Context
  CONST Value false
  : ValueType WL 'ME_3DBFFE100240' '3DBFDB23006E.pas.ms.script' // boolean
  ;
+ CONST extprop:pas:Value false
 
 ref; // ME_469F97EA02D7 CheckBrackets
 
@@ -1742,8 +1915,8 @@ ref; // ME_469F97EA02D7 CheckBrackets
  : Parent ME_467816AD0194 // Ik2TagReader
  ;
  : Parameters
-   @ ( ME_469F97EA02D7 // CheckBrackets
- ) .SequenceCode.It
+   Seq: ( ME_469F97EA02D7 // CheckBrackets
+ )
  ; // Parameters
 
 ref; // ME_469F97DE0294 Rollback
@@ -1767,8 +1940,8 @@ ref; // ME_4767B6110370 G
  : Parent ME_467816AD0194 // Ik2TagReader
  ;
  : Parameters
-   @ ( ME_4767B6110370 // G
- ) .SequenceCode.It
+   Seq: ( ME_4767B6110370 // G
+ )
  ; // Parameters
 
 ref; // ME_469F9801035D Link
@@ -1792,8 +1965,8 @@ ref; // ME_4767B60900E4 G
  : Parent ME_467816AD0194 // Ik2TagReader
  ;
  : Parameters
-   @ ( ME_4767B60900E4 // G
- ) .SequenceCode.It
+   Seq: ( ME_4767B60900E4 // G
+ )
  ; // Parameters
 
 ref; // ME_469F981102DD UnLink
@@ -1805,6 +1978,7 @@ ref; // ME_469F981102DD UnLink
  ;
  : Implementor ME_467816AD0194 // Ik2TagReader
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_467816770147_ME_467816AD0194 execute
 
 : ME_467816AD0194
@@ -1819,23 +1993,29 @@ ref; // ME_467816770147_ME_467816AD0194 execute
  : Parent ME_4678137501EA // k2Interfaces
  ;
  : Inherits
-   @ ( WL 'ME_46781657008C' '4677FBA70343.pas.ms.script' // Il3Reader
- ) .SequenceCode.It
+   Seq: ( WL 'ME_46781657008C' '4677FBA70343.pas.ms.script' // Il3Reader
+ )
  ; // Inherits
  : Attributes
-   @ ( ME_469F981B03D2 // Context
- ) .SequenceCode.It
+   Seq: ( ME_469F981B03D2 // Context
+ )
  ; // Attributes
  : Operations
-   @ ( ME_469F97DE0294 // Rollback
+   Seq: ( ME_469F97DE0294 // Rollback
  ME_469F9801035D // Link
  ME_469F981102DD // UnLink
- ) .SequenceCode.It
+ )
  ; // Operations
  : Implemented
-   @ ( ME_467816770147_ME_467816AD0194 // execute
- ) .SequenceCode.It
+   Seq: ( ME_467816770147_ME_467816AD0194 // execute
+ )
  ; // Implemented
+ CONST dfm:PathOnly '\common\components\rtl\Garant\K2'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\K2'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'TagReader'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_467816AD0194 Ik2TagReader
 
@@ -1850,9 +2030,15 @@ ref; // ME_467816AD0194 Ik2TagReader
  : Parent ME_4678137501EA // k2Interfaces
  ;
  : Inherits
-   @ ( WL 'ME_469F6BF0009D' '47913B47006E.pas.ms.script' // Ik2Processor
- ) .SequenceCode.It
+   Seq: ( WL 'ME_469F6BF0009D' '47913B47006E.pas.ms.script' // Ik2Processor
+ )
  ; // Inherits
+ CONST dfm:PathOnly '\common\components\rtl\Garant\K2'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\K2'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'Processor'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_4A51D59703DF Ik2Processor
 
@@ -1867,9 +2053,15 @@ ref; // ME_4A51D59703DF Ik2Processor
  : Parent ME_4678137501EA // k2Interfaces
  ;
  : Inherits
-   @ ( WL 'ME_4A4DE5000202' '4A4DE16302A2.pas.ms.script' // Tk2TypePrim
- ) .SequenceCode.It
+   Seq: ( WL 'ME_4A4DE5000202' '4A4DE16302A2.pas.ms.script' // Tk2TypePrim
+ )
  ; // Inherits
+ CONST dfm:PathOnly '\common\components\rtl\Garant\K2'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\K2'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'TypePrim'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_4A51E91101D1 Tk2TypePrim
 
@@ -1884,9 +2076,15 @@ ref; // ME_4A51E91101D1 Tk2TypePrim
  : Parent ME_4678137501EA // k2Interfaces
  ;
  : Inherits
-   @ ( WL 'ME_4A4DE5850182' '4A4DE16302A2.pas.ms.script' // Tk2CustomPropertyPrim
- ) .SequenceCode.It
+   Seq: ( WL 'ME_4A4DE5850182' '4A4DE16302A2.pas.ms.script' // Tk2CustomPropertyPrim
+ )
  ; // Inherits
+ CONST dfm:PathOnly '\common\components\rtl\Garant\K2'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\K2'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'PropertyPrim'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_4A51E94101E3 Tk2CustomPropertyPrim
 
@@ -1901,9 +2099,15 @@ ref; // ME_4A51E94101E3 Tk2CustomPropertyPrim
  : Parent ME_4678137501EA // k2Interfaces
  ;
  : Inherits
-   @ ( WL 'ME_4A52FBA90049' '4A4DE16302A2.pas.ms.script' // Tk2ArrayPropertyPrim
- ) .SequenceCode.It
+   Seq: ( WL 'ME_4A52FBA90049' '4A4DE16302A2.pas.ms.script' // Tk2ArrayPropertyPrim
+ )
  ; // Inherits
+ CONST dfm:PathOnly '\common\components\rtl\Garant\K2'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\K2'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'ArrayPropertyPrim'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_4A52FBFA00A0 Tk2ArrayPropertyPrim
 
@@ -1918,9 +2122,15 @@ ref; // ME_4A52FBFA00A0 Tk2ArrayPropertyPrim
  : Parent ME_4678137501EA // k2Interfaces
  ;
  : Inherits
-   @ ( WL 'ME_4678160E01BE' '47913B47006E.pas.ms.script' // Ik2TagGenerator
- ) .SequenceCode.It
+   Seq: ( WL 'ME_4678160E01BE' '47913B47006E.pas.ms.script' // Ik2TagGenerator
+ )
  ; // Inherits
+ CONST dfm:PathOnly '\common\components\rtl\Garant\K2'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\K2'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'TagGenerator'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_4A5359BD03BE Ik2TagGenerator
 
@@ -1997,13 +2207,18 @@ ref; // ME_469F88E301BD k2_tkStream
  : Parent ME_4678137501EA // k2Interfaces
  ;
  : Attributes
-   @ ( ME_469F88BF0107 // k2_tkInteger
+   Seq: ( ME_469F88BF0107 // k2_tkInteger
  ME_469F88C80327 // k2_tkBool
  ME_469F88D10316 // k2_tkObject
  ME_469F88DB03C4 // k2_tkTransparent
  ME_469F88E301BD // k2_tkStream
- ) .SequenceCode.It
+ )
  ; // Attributes
+ CONST dfm:PathOnly '\common\components\rtl\Garant\K2'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\K2'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_469F88B30381 Tk2TypeKind
 
@@ -2018,10 +2233,15 @@ ref; // ME_469F88B30381 Tk2TypeKind
  : Parent ME_4678137501EA // k2Interfaces
  ;
  : Inherits
-   @ ( WL 'ME_530F1ADF03E1' '47913B47006E.pas.ms.script' // Ik2Variant
- ) .SequenceCode.It
+   Seq: ( WL 'ME_530F1ADF03E1' '47913B47006E.pas.ms.script' // Ik2Variant
+ )
  ; // Inherits
  CONST "force usage" true
+ CONST dfm:PathOnly '\common\components\rtl\Garant\K2'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\K2'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_469F893F01AB Tk2Variant
 
@@ -2032,6 +2252,7 @@ FORWARD ME_40B6BB79A03A
 : ME_88E1CFFF6E07
  CONST UID '88E1CFFF6E07'
  CONST Name 'anItem'
+ CONST IsSummoned true
  CONST Class class_Parameter
  : Stereotype st_in ;
  : Target WL 'ME_46A608F00301' '4AB0C3C60310.pas.ms.script' // Pointer
@@ -2042,6 +2263,7 @@ ref; // ME_88E1CFFF6E07 anItem
 : ME_88E1CFFF6E08
  CONST UID '88E1CFFF6E08'
  CONST Name 'anIndex'
+ CONST IsSummoned true
  CONST Class class_Parameter
  : Stereotype st_in ;
  : Target WL 'ME_3DBFFD7002C2' '3DBFDB23006E.pas.ms.script' // long
@@ -2052,6 +2274,7 @@ ref; // ME_88E1CFFF6E08 anIndex
 : ME_C4761D1A4387
  CONST UID 'C4761D1A4387'
  CONST Name 'DoIt'
+ CONST IsSummoned true
  CONST Class class_Operation
  %SUMMARY 'Тип подитеративной функции для Mk2InterfaceFactory.IterateCursors' ;
  CONST Visibility PublicAccess
@@ -2061,9 +2284,9 @@ ref; // ME_88E1CFFF6E08 anIndex
  : Target WL 'ME_3DBFFE100240' '3DBFDB23006E.pas.ms.script' // boolean
  ;
  : Parameters
-   @ ( ME_88E1CFFF6E07 // anItem
+   Seq: ( ME_88E1CFFF6E07 // anItem
  ME_88E1CFFF6E08 // anIndex
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_C4761D1A4387 DoIt
@@ -2071,6 +2294,7 @@ ref; // ME_C4761D1A4387 DoIt
 : ME_40B6BB79A03A
  CONST UID '40B6BB79A03A'
  CONST Name 'Mk2InterfaceFactory_IterateCursors_Action'
+ CONST IsSummoned true
  CONST Class class_Class
  : Stereotype st_Function ;
  CONST Kind kind_NormalClass
@@ -2080,10 +2304,14 @@ ref; // ME_C4761D1A4387 DoIt
  : Parent ME_531F0A600173 // Mk2InterfaceFactory
  ;
  : Operations
-   @ ( ME_C4761D1A4387 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_C4761D1A4387 // DoIt
+ )
  ; // Operations
  CONST "of object" false
+ CONST dfm:PathOnly '\common\components\rtl\Garant\K2'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\K2'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_40B6BB79A03A Mk2InterfaceFactory_IterateCursors_Action
 
@@ -2105,6 +2333,7 @@ ref; // ME_4BCC45BE0137
 
 : ME_7805A241A87C
  CONST UID '7805A241A87C'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_4BCC45AA02CE // IterateCursors
@@ -2125,12 +2354,12 @@ ref; // ME_7805A241A87C
  : Parent ME_531F0A600173 // Mk2InterfaceFactory
  ;
  : Attributes
-   @ ( ME_4BCC45BE0137 // 
- ) .SequenceCode.It
+   Seq: ( ME_4BCC45BE0137 // 
+ )
  ; // Attributes
  : Dependencies
-   @ ( ME_7805A241A87C // 
- ) .SequenceCode.It
+   Seq: ( ME_7805A241A87C // 
+ )
  ; // Dependencies
  CONST "needs index" true
  CONST "needs result" false
@@ -2141,6 +2370,7 @@ ref; // ME_4BCC45AA02CE IterateCursors
 : ME_8302C0F13388
  CONST UID '8302C0F13388'
  CONST Name 'anAction'
+ CONST IsSummoned true
  CONST Class class_Parameter
  : Stereotype st_in ;
  : Target WL 'ME_3ECB343C024C' '3DBFDB23006E.pas.ms.script' // pointer
@@ -2151,6 +2381,7 @@ ref; // ME_8302C0F13388 anAction
 : ME_951123C1569A
  CONST UID '951123C1569A'
  CONST Name 'L2_Mk2InterfaceFactory_IterateCursors_Action'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_static::Operation ;
  %SUMMARY 'Функция формирования заглушки для ЛОКАЛЬНОЙ подитеративной функции для Mk2InterfaceFactory.IterateCursors' ;
@@ -2161,9 +2392,12 @@ ref; // ME_8302C0F13388 anAction
  : Target ME_40B6BB79A03A // Mk2InterfaceFactory_IterateCursors_Action
  ;
  : Parameters
-   @ ( ME_8302C0F13388 // anAction
- ) .SequenceCode.It
+   Seq: ( ME_8302C0F13388 // anAction
+ )
  ; // Parameters
+ CONST extprop:isGlobal true
+ CONST extprop:isAsm true
+ CONST extprop:pas:Value 'nil'
 
 ref; // ME_951123C1569A L2_Mk2InterfaceFactory_IterateCursors_Action
 
@@ -2178,14 +2412,18 @@ ref; // ME_951123C1569A L2_Mk2InterfaceFactory_IterateCursors_Action
  : Parent ME_4678137501EA // k2Interfaces
  ;
  : Operations
-   @ ( ME_4BCC45AA02CE // IterateCursors
+   Seq: ( ME_4BCC45AA02CE // IterateCursors
  ME_951123C1569A // L2_Mk2InterfaceFactory_IterateCursors_Action
- ) .SequenceCode.It
+ )
  ; // Operations
  : Children
-   @ ( ME_40B6BB79A03A // Mk2InterfaceFactory_IterateCursors_Action
- ) .SequenceCode.It
+   Seq: ( ME_40B6BB79A03A // Mk2InterfaceFactory_IterateCursors_Action
+ )
  ; // Children
+ CONST dfm:PathOnly '\common\components\rtl\Garant\K2'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\K2'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_531F0A600173 Mk2InterfaceFactory
 
@@ -2200,9 +2438,15 @@ ref; // ME_531F0A600173 Mk2InterfaceFactory
  : Parent ME_4678137501EA // k2Interfaces
  ;
  : Inherits
-   @ ( WL 'ME_5334230E0043' '47913B47006E.pas.ms.script' // Tl3Type
- ) .SequenceCode.It
+   Seq: ( WL 'ME_5334230E0043' '47913B47006E.pas.ms.script' // Tl3Type
+ )
  ; // Inherits
+ CONST dfm:PathOnly '\common\components\rtl\Garant\K2'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\K2'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'Type'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_5334233E0375 Tl3Type
 
@@ -2217,9 +2461,14 @@ ref; // ME_5334233E0375 Tl3Type
  : Parent ME_4678137501EA // k2Interfaces
  ;
  : Inherits
-   @ ( WL 'ME_469F88FC00E7' '47913B47006E.pas.ms.script' // Tk2VarKind
- ) .SequenceCode.It
+   Seq: ( WL 'ME_469F88FC00E7' '47913B47006E.pas.ms.script' // Tk2VarKind
+ )
  ; // Inherits
+ CONST dfm:PathOnly '\common\components\rtl\Garant\K2'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\K2'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_533BFA7F0182 Tk2VarKind
 
@@ -2234,9 +2483,15 @@ ref; // ME_533BFA7F0182 Tk2VarKind
  : Parent ME_4678137501EA // k2Interfaces
  ;
  : Inherits
-   @ ( WL 'ME_530F1ADF03E1' '47913B47006E.pas.ms.script' // Ik2Variant
- ) .SequenceCode.It
+   Seq: ( WL 'ME_530F1ADF03E1' '47913B47006E.pas.ms.script' // Ik2Variant
+ )
  ; // Inherits
+ CONST dfm:PathOnly '\common\components\rtl\Garant\K2'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\K2'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'Variant'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_533BFA8E0340 Ik2Variant
 
@@ -2251,9 +2506,15 @@ ref; // ME_533BFA8E0340 Ik2Variant
  : Parent ME_4678137501EA // k2Interfaces
  ;
  : Inherits
-   @ ( WL 'ME_467817DD0200' '47913B47006E.pas.ms.script' // Ik2Tag
- ) .SequenceCode.It
+   Seq: ( WL 'ME_467817DD0200' '47913B47006E.pas.ms.script' // Ik2Tag
+ )
  ; // Inherits
+ CONST dfm:PathOnly '\common\components\rtl\Garant\K2'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\K2'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'Tag'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_533C138F0003 Ik2Tag
 
@@ -2268,9 +2529,15 @@ ref; // ME_533C138F0003 Ik2Tag
  : Parent ME_4678137501EA // k2Interfaces
  ;
  : Inherits
-   @ ( WL 'ME_532031160122' '47913B47006E.pas.ms.script' // Tl3Variant
- ) .SequenceCode.It
+   Seq: ( WL 'ME_532031160122' '47913B47006E.pas.ms.script' // Tl3Variant
+ )
  ; // Inherits
+ CONST dfm:PathOnly '\common\components\rtl\Garant\K2'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\K2'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'Variant'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_533D316E00BF Tl3Variant
 
@@ -2285,7 +2552,7 @@ ref; // ME_533D316E00BF Tl3Variant
  : Parent WL 'ME_4677E16A022A' '4677E16A022A.pas.ms.script' // K2
  ;
  : Children
-   @ ( ME_4678159D03E2 // Ik2Base
+   Seq: ( ME_4678159D03E2 // Ik2Base
  ME_4A51CF380145 // Ik2Op
  ME_4767A10001F7 // Tk2EventID
  ME_469F9ED501CC // Tk2EventIDs
@@ -2311,10 +2578,10 @@ ref; // ME_533D316E00BF Tl3Variant
  ME_533BFA8E0340 // Ik2Variant
  ME_533C138F0003 // Ik2Tag
  ME_533D316E00BF // Tl3Variant
- ) .SequenceCode.It
+ )
  ; // Children
  : Depends
-   @ ( WL 'ME_4677FBA70343' '4677FBA70343.pas.ms.script' // l3Interfaces
+   Seq: ( WL 'ME_4677FBA70343' '4677FBA70343.pas.ms.script' // l3Interfaces
  WL 'ME_4678193C009C' '4678193C009C.pas.ms.script' // l3Types
  WL 'ME_4767743E00E5' '4767743E00E5.pas.ms.script' // TypInfo
  WL 'ME_478CF8070260' '478CF8070260.pas.ms.script' // l3IID
@@ -2324,21 +2591,18 @@ ref; // ME_533D316E00BF Tl3Variant
  WL 'ME_4AB0C3C60310' '4AB0C3C60310.pas.ms.script' // Sys
  WL 'ME_4BC83B8301E5' '4BC83B8301E5.pas.ms.script' // k2PureMixIns
  WL 'ME_5326D70401F3' '5326D70401F3.pas.ms.script' // l3Variants
- ) .SequenceCode.It
+ )
  ; // Depends
  CONST "author" 'Люлин А.В.'
  CONST "is namespace" true
  CONST "no hands" true
  CONST "started" '28.02.2001 13:34'
- : Generators
- @ (
- gen_intf.pas
- gen_pas.script
- gen_pas.script.runner
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\K2'
  CONST intf.pas:Path 'common\components\rtl\Garant\K2\k2Interfaces.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\K2'
  CONST pas.script:Path 'shared\models\NewSchool\Scripts\4678137501EA.pas.ms.script'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
  CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\4678137501EA.pas.ms.script.runner'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_4678137501EA k2Interfaces

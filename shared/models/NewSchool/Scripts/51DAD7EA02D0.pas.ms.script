@@ -17,9 +17,13 @@ FORWARD ME_51DAD8180236
  : Parent ME_51DAD8180236 // l3MemorySizeUtils
  ;
  : Inherits
-   @ ( WL 'ME_51DAD86D0324' '4AB0C3C60310.pas.ms.script' // PANSIChar
- ) .SequenceCode.It
+   Seq: ( WL 'ME_51DAD86D0324' '4AB0C3C60310.pas.ms.script' // PANSIChar
+ )
  ; // Inherits
+ CONST dfm:PathOnly '\common\components\rtl\Garant\L3'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\L3'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_51DAD88F0359 PMem
 
@@ -70,21 +74,21 @@ ref; // ME_51DAE51F02E1 l3MemorySize$XE
  : Parent ME_51DAD7EA02D0 // MemoryUtils
  ;
  : Attributes
-   @ ( ME_51DADCD1010E // l3MemorySize$Delphi7
+   Seq: ( ME_51DADCD1010E // l3MemorySize$Delphi7
  ME_51DAE51F02E1 // l3MemorySize$XE
- ) .SequenceCode.It
+ )
  ; // Attributes
  : Children
-   @ ( ME_51DAD88F0359 // PMem
- ) .SequenceCode.It
+   Seq: ( ME_51DAD88F0359 // PMem
+ )
  ; // Children
  CONST "no hands" false
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\L3'
  CONST intf.pas:Path 'common\components\rtl\Garant\L3\l3MemorySizeUtils.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\L3'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'MemorySizeUtils'
 
 ref; // ME_51DAD8180236 l3MemorySizeUtils
 
@@ -113,8 +117,8 @@ ref; // ME_51DAD8CB00E0 aPtr
  : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
  ;
  : Parameters
-   @ ( ME_51DAD8CB00E0 // aPtr
- ) .SequenceCode.It
+   Seq: ( ME_51DAD8CB00E0 // aPtr
+ )
  ; // Parameters
 
 ref; // ME_51DAD8B40203 DoIt
@@ -131,16 +135,21 @@ ref; // ME_51DAD8B40203 DoIt
  : Parent ME_51DADE55035E // l3MemorySizeUtilsPrim
  ;
  : Operations
-   @ ( ME_51DAD8B40203 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_51DAD8B40203 // DoIt
+ )
  ; // Operations
  CONST "of object" false
+ CONST dfm:PathOnly '\common\components\rtl\Garant\L3'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\L3'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_51DAD83E03B7 Tl3MemorySizeFunc
 
 : ME_45FA8D11DEB5
  CONST UID '45FA8D11DEB5'
  CONST Name 'aPtr'
+ CONST IsSummoned true
  CONST Class class_Parameter
  : Stereotype st_in ;
  : Target WL 'ME_46A608F00301' '4AB0C3C60310.pas.ms.script' // Pointer
@@ -151,6 +160,7 @@ ref; // ME_45FA8D11DEB5 aPtr
 : ME_88EBB8A52099
  CONST UID '88EBB8A52099'
  CONST Name 'DoIt'
+ CONST IsSummoned true
  CONST Class class_Operation
  %SUMMARY 'прототип функции для получения размера куска памяти' ;
  CONST Visibility PrivateAccess
@@ -160,8 +170,8 @@ ref; // ME_45FA8D11DEB5 aPtr
  : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
  ;
  : Parameters
-   @ ( ME_45FA8D11DEB5 // aPtr
- ) .SequenceCode.It
+   Seq: ( ME_45FA8D11DEB5 // aPtr
+ )
  ; // Parameters
 
 ref; // ME_88EBB8A52099 DoIt
@@ -189,24 +199,26 @@ ref; // ME_51DAE3FC00A8
  : Parent ME_51DADE55035E // l3MemorySizeUtilsPrim
  ;
  : Inherits
-   @ ( ME_51DAD83E03B7 // Tl3MemorySizeFunc
- ) .SequenceCode.It
+   Seq: ( ME_51DAD83E03B7 // Tl3MemorySizeFunc
+ )
  ; // Inherits
  : Operations
-   @ ( ME_88EBB8A52099 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_88EBB8A52099 // DoIt
+ )
  ; // Operations
  : Dependencies
-   @ ( ME_51DAE3FC00A8 // 
- ) .SequenceCode.It
+   Seq: ( ME_51DAE3FC00A8 // 
+ )
  ; // Dependencies
  CONST "ifndef" 'XE'
+ CONST extprop:rc:SelfName 'MemorySizeDelphi7'
 
 ref; // ME_51DAD8DC00B2 l3MemorySizeDelphi7
 
 : ME_22E083F6A478
  CONST UID '22E083F6A478'
  CONST Name 'aPtr'
+ CONST IsSummoned true
  CONST Class class_Parameter
  : Stereotype st_in ;
  : Target WL 'ME_46A608F00301' '4AB0C3C60310.pas.ms.script' // Pointer
@@ -217,6 +229,7 @@ ref; // ME_22E083F6A478 aPtr
 : ME_D48D593C8966
  CONST UID 'D48D593C8966'
  CONST Name 'DoIt'
+ CONST IsSummoned true
  CONST Class class_Operation
  %SUMMARY 'прототип функции для получения размера куска памяти' ;
  CONST Visibility PrivateAccess
@@ -226,8 +239,8 @@ ref; // ME_22E083F6A478 aPtr
  : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
  ;
  : Parameters
-   @ ( ME_22E083F6A478 // aPtr
- ) .SequenceCode.It
+   Seq: ( ME_22E083F6A478 // aPtr
+ )
  ; // Parameters
 
 ref; // ME_D48D593C8966 DoIt
@@ -255,18 +268,19 @@ ref; // ME_51DAE40302B8
  : Parent ME_51DADE55035E // l3MemorySizeUtilsPrim
  ;
  : Inherits
-   @ ( ME_51DAD83E03B7 // Tl3MemorySizeFunc
- ) .SequenceCode.It
+   Seq: ( ME_51DAD83E03B7 // Tl3MemorySizeFunc
+ )
  ; // Inherits
  : Operations
-   @ ( ME_D48D593C8966 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_D48D593C8966 // DoIt
+ )
  ; // Operations
  : Dependencies
-   @ ( ME_51DAE40302B8 // 
- ) .SequenceCode.It
+   Seq: ( ME_51DAE40302B8 // 
+ )
  ; // Dependencies
  CONST "ifdef" 'XE'
+ CONST extprop:rc:SelfName 'MemorySizeXE'
 
 ref; // ME_51DADA9600F9 l3MemorySizeXE
 
@@ -281,21 +295,21 @@ ref; // ME_51DADA9600F9 l3MemorySizeXE
  : Parent ME_51DAD7EA02D0 // MemoryUtils
  ;
  : Operations
-   @ ( ME_51DAD8DC00B2 // l3MemorySizeDelphi7
+   Seq: ( ME_51DAD8DC00B2 // l3MemorySizeDelphi7
  ME_51DADA9600F9 // l3MemorySizeXE
- ) .SequenceCode.It
+ )
  ; // Operations
  : Children
-   @ ( ME_51DAD83E03B7 // Tl3MemorySizeFunc
- ) .SequenceCode.It
+   Seq: ( ME_51DAD83E03B7 // Tl3MemorySizeFunc
+ )
  ; // Children
  CONST "no hands" false
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\L3'
  CONST intf.pas:Path 'common\components\rtl\Garant\L3\l3MemorySizeUtilsPrim.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\L3'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'MemorySizeUtilsPrim'
 
 ref; // ME_51DADE55035E l3MemorySizeUtilsPrim
 
@@ -312,10 +326,15 @@ FORWARD ME_51DD554C0205
  : Parent ME_51DD554C0205 // Tl3MemUtils
  ;
  : Inherits
-   @ ( ME_51DD554C0205 // Tl3MemUtils
- ) .SequenceCode.It
+   Seq: ( ME_51DD554C0205 // Tl3MemUtils
+ )
  ; // Inherits
  CONST "isClassRef" true
+ CONST dfm:PathOnly '\common\components\rtl\Garant\L3'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\L3'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_51DD5597022E Rl3MemUtils
 
@@ -334,6 +353,7 @@ ref; // ME_51DD5597022E Rl3MemUtils
  CONST Value 'Tl3MemUtils'
  : ValueType ME_51DD5597022E // Rl3MemUtils
  ;
+ CONST extprop:pas:Value 'Tl3MemUtils'
 
 ref; // ME_51DD55CB01B0 l3MemU
 
@@ -352,6 +372,7 @@ ref; // ME_51DD55CB01B0 l3MemU
  CONST Value false
  : ValueType WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
+ CONST extprop:pas:Value false
 
 ref; // ME_545CF20000ED g_IsDown
 
@@ -367,6 +388,7 @@ ref; // ME_545CF20000ED g_IsDown
  ;
  : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
  ;
+ CONST extprop:pas:Value 0
 
 ref; // ME_51DD682500F5 f_LocalMemUsed
 
@@ -382,6 +404,7 @@ ref; // ME_51DD682500F5 f_LocalMemUsed
  ;
  : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
  ;
+ CONST extprop:pas:Value 0
 
 ref; // ME_54B929BE00CC f_GlobalMemUsed
 
@@ -414,9 +437,9 @@ ref; // ME_51DD565401E7 NewSize
  : Parent ME_51DD561502D9 // ReallocLocalMem
  ;
  : Parameters
-   @ ( ME_51DD565401C4 // P
+   Seq: ( ME_51DD565401C4 // P
  ME_51DD565401E7 // NewSize
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_51DD563F008D DoIt
@@ -433,8 +456,8 @@ ref; // ME_51DD563F008D DoIt
  : Parent ME_51DD554C0205 // Tl3MemUtils
  ;
  : Operations
-   @ ( ME_51DD563F008D // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_51DD563F008D // DoIt
+ )
  ; // Operations
  CONST "is static" true
 
@@ -459,8 +482,8 @@ ref; // ME_51DD62260314 P
  : Parent ME_51DD62110253 // FreeLocalMem
  ;
  : Parameters
-   @ ( ME_51DD62260314 // P
- ) .SequenceCode.It
+   Seq: ( ME_51DD62260314 // P
+ )
  ; // Parameters
 
 ref; // ME_51DD621A01B3 DoIt
@@ -477,8 +500,8 @@ ref; // ME_51DD621A01B3 DoIt
  : Parent ME_51DD554C0205 // Tl3MemUtils
  ;
  : Operations
-   @ ( ME_51DD621A01B3 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_51DD621A01B3 // DoIt
+ )
  ; // Operations
  CONST "is static" true
 
@@ -489,6 +512,7 @@ FORWARD ME_51DD686A03A3
 : ME_FE6E34907D5B
  CONST UID 'FE6E34907D5B'
  CONST Name 'DoIt'
+ CONST IsSummoned true
  CONST Class class_Operation
  %SUMMARY 'Сигнатура метода CheckMaxes' ;
  CONST Visibility PublicAccess
@@ -509,8 +533,8 @@ ref; // ME_FE6E34907D5B DoIt
  : Parent ME_51DD554C0205 // Tl3MemUtils
  ;
  : Operations
-   @ ( ME_FE6E34907D5B // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_FE6E34907D5B // DoIt
+ )
  ; // Operations
  CONST "is static" true
 
@@ -547,9 +571,9 @@ ref; // ME_51DD6DF00081 aL3
  : Parent ME_51DD6DCE00DF // StatMemAlloc
  ;
  : Parameters
-   @ ( ME_51DD6DF00051 // aSize
+   Seq: ( ME_51DD6DF00051 // aSize
  ME_51DD6DF00081 // aL3
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_51DD6DE60382 DoIt
@@ -565,8 +589,8 @@ ref; // ME_51DD6DE60382 DoIt
  : Parent ME_51DD554C0205 // Tl3MemUtils
  ;
  : Operations
-   @ ( ME_51DD6DE60382 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_51DD6DE60382 // DoIt
+ )
  ; // Operations
  CONST "is static" true
 
@@ -598,8 +622,8 @@ ref; // ME_545CF2370251 DoIt
  : Parent ME_51DD554C0205 // Tl3MemUtils
  ;
  : Operations
-   @ ( ME_545CF2370251 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_545CF2370251 // DoIt
+ )
  ; // Operations
  CONST "is static" true
 
@@ -629,8 +653,8 @@ ref; // ME_545CF25F022B DoIt
  : Parent ME_51DD554C0205 // Tl3MemUtils
  ;
  : Operations
-   @ ( ME_545CF25F022B // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_545CF25F022B // DoIt
+ )
  ; // Operations
  CONST "is static" true
 
@@ -665,9 +689,9 @@ ref; // ME_54B6A7F3006E Size
  : Parent ME_54B6A7D401EA // GetLocalMem
  ;
  : Parameters
-   @ ( ME_54B6A7F30040 // P
+   Seq: ( ME_54B6A7F30040 // P
  ME_54B6A7F3006E // Size
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_54B6A7E602A5 DoIt
@@ -683,8 +707,8 @@ ref; // ME_54B6A7E602A5 DoIt
  : Parent ME_51DD554C0205 // Tl3MemUtils
  ;
  : Operations
-   @ ( ME_54B6A7E602A5 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_54B6A7E602A5 // DoIt
+ )
  ; // Operations
  CONST "is static" true
 
@@ -719,9 +743,9 @@ ref; // ME_54B6A81B00F9 Size
  : Parent ME_54B6A7FE02E7 // GetLocalMemZ
  ;
  : Parameters
-   @ ( ME_54B6A81B00D9 // P
+   Seq: ( ME_54B6A81B00D9 // P
  ME_54B6A81B00F9 // Size
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_54B6A8120076 DoIt
@@ -737,8 +761,8 @@ ref; // ME_54B6A8120076 DoIt
  : Parent ME_51DD554C0205 // Tl3MemUtils
  ;
  : Operations
-   @ ( ME_54B6A8120076 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_54B6A8120076 // DoIt
+ )
  ; // Operations
  CONST "is static" true
 
@@ -767,8 +791,8 @@ ref; // ME_54B92933029A aMem
  : Target WL 'ME_46A618AF0053' '4AB0C3C60310.pas.ms.script' // Cardinal
  ;
  : Parameters
-   @ ( ME_54B92933029A // aMem
- ) .SequenceCode.It
+   Seq: ( ME_54B92933029A // aMem
+ )
  ; // Parameters
 
 ref; // ME_54B9292E012C DoIt
@@ -784,8 +808,8 @@ ref; // ME_54B9292E012C DoIt
  : Parent ME_51DD554C0205 // Tl3MemUtils
  ;
  : Operations
-   @ ( ME_54B9292E012C // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_54B9292E012C // DoIt
+ )
  ; // Operations
  CONST "is static" true
 
@@ -814,8 +838,8 @@ ref; // ME_54B92956006E aMem
  : Target WL 'ME_46A618AF0053' '4AB0C3C60310.pas.ms.script' // Cardinal
  ;
  : Parameters
-   @ ( ME_54B92956006E // aMem
- ) .SequenceCode.It
+   Seq: ( ME_54B92956006E // aMem
+ )
  ; // Parameters
 
 ref; // ME_54B92952022C DoIt
@@ -831,8 +855,8 @@ ref; // ME_54B92952022C DoIt
  : Parent ME_51DD554C0205 // Tl3MemUtils
  ;
  : Operations
-   @ ( ME_54B92952022C // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_54B92952022C // DoIt
+ )
  ; // Operations
  CONST "is static" true
 
@@ -861,8 +885,8 @@ ref; // ME_54B929A50178 Mem
  : Target WL 'ME_46A465F9028C' '4AB0C3F60375.pas.ms.script' // THandle
  ;
  : Parameters
-   @ ( ME_54B929A50178 // Mem
- ) .SequenceCode.It
+   Seq: ( ME_54B929A50178 // Mem
+ )
  ; // Parameters
 
 ref; // ME_54B929A000B1 DoIt
@@ -878,8 +902,8 @@ ref; // ME_54B929A000B1 DoIt
  : Parent ME_51DD554C0205 // Tl3MemUtils
  ;
  : Operations
-   @ ( ME_54B929A000B1 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_54B929A000B1 // DoIt
+ )
  ; // Operations
  CONST "is static" true
 
@@ -908,8 +932,8 @@ ref; // ME_54B92A1B03BC Bytes
  : Target WL 'ME_46A608F00301' '4AB0C3C60310.pas.ms.script' // Pointer
  ;
  : Parameters
-   @ ( ME_54B92A1B03BC // Bytes
- ) .SequenceCode.It
+   Seq: ( ME_54B92A1B03BC // Bytes
+ )
  ; // Parameters
 
 ref; // ME_54B929F6032C DoIt
@@ -925,8 +949,8 @@ ref; // ME_54B929F6032C DoIt
  : Parent ME_51DD554C0205 // Tl3MemUtils
  ;
  : Operations
-   @ ( ME_54B929F6032C // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_54B929F6032C // DoIt
+ )
  ; // Operations
  CONST "is static" true
 
@@ -976,18 +1000,18 @@ ref; // ME_54B92795011E
  : Parent ME_51DAD7EA02D0 // MemoryUtils
  ;
  : Inherits
-   @ ( WL 'ME_516137AD0362' '51612EBB02F5.pas.ms.script' // TRefcounted
- ) .SequenceCode.It
+   Seq: ( WL 'ME_516137AD0362' '51612EBB02F5.pas.ms.script' // TRefcounted
+ )
  ; // Inherits
  : Attributes
-   @ ( ME_51DD55CB01B0 // l3MemU
+   Seq: ( ME_51DD55CB01B0 // l3MemU
  ME_545CF20000ED // g_IsDown
  ME_51DD682500F5 // f_LocalMemUsed
  ME_54B929BE00CC // f_GlobalMemUsed
- ) .SequenceCode.It
+ )
  ; // Attributes
  : Operations
-   @ ( ME_51DD561502D9 // ReallocLocalMem
+   Seq: ( ME_51DD561502D9 // ReallocLocalMem
  ME_51DD62110253 // FreeLocalMem
  ME_51DD686A03A3 // CheckMaxes
  ME_51DD6DCE00DF // StatMemAlloc
@@ -999,28 +1023,30 @@ ref; // ME_54B92795011E
  ME_54B9293E006D // GlobalSize$P
  ME_54B929840238 // GlobalFreePtr
  ME_54B929E501F5 // GlobalAllocPtr
- ) .SequenceCode.It
+ )
  ; // Operations
  : Children
-   @ ( ME_51DD5597022E // Rl3MemUtils
- ) .SequenceCode.It
+   Seq: ( ME_51DD5597022E // Rl3MemUtils
+ )
  ; // Children
  : Dependencies
-   @ ( ME_51DD6A3100F9 // 
+   Seq: ( ME_51DD6A3100F9 // 
  ME_54B7B5F101A1 // 
  ME_54B92795011E // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\L3'
  CONST intf.pas:Path 'common\components\rtl\Garant\L3\l3MemUtils.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\L3'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'MemUtils'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'l3MemUtils'
 
 ref; // ME_51DD554C0205 Tl3MemUtils
 
@@ -1082,8 +1108,8 @@ ref; // ME_51DD5D320370 aSize
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
  : Parameters
-   @ ( ME_51DD5D320370 // aSize
- ) .SequenceCode.It
+   Seq: ( ME_51DD5D320370 // aSize
+ )
  ; // Parameters
 
 ref; // ME_51DD5D240340 DoIt
@@ -1099,8 +1125,8 @@ ref; // ME_51DD5D240340 DoIt
  : Parent ME_51DD567A01B5 // Tl3PtrLoc
  ;
  : Operations
-   @ ( ME_51DD5D240340 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_51DD5D240340 // DoIt
+ )
  ; // Operations
 
 ref; // ME_51DD5D1903C3 Init
@@ -1131,8 +1157,8 @@ ref; // ME_51DD5D410380 DoIt
  : Parent ME_51DD567A01B5 // Tl3PtrLoc
  ;
  : Operations
-   @ ( ME_51DD5D410380 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_51DD5D410380 // DoIt
+ )
  ; // Operations
 
 ref; // ME_51DD5D3800F3 GetSize
@@ -1158,8 +1184,8 @@ ref; // ME_51DD5D6202D7 aSize
  : Parent ME_51DD5D4F004A // SetSize
  ;
  : Parameters
-   @ ( ME_51DD5D6202D7 // aSize
- ) .SequenceCode.It
+   Seq: ( ME_51DD5D6202D7 // aSize
+ )
  ; // Parameters
 
 ref; // ME_51DD5D5600A1 DoIt
@@ -1175,8 +1201,8 @@ ref; // ME_51DD5D5600A1 DoIt
  : Parent ME_51DD567A01B5 // Tl3PtrLoc
  ;
  : Operations
-   @ ( ME_51DD5D5600A1 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_51DD5D5600A1 // DoIt
+ )
  ; // Operations
 
 ref; // ME_51DD5D4F004A SetSize
@@ -1205,8 +1231,8 @@ ref; // ME_51DD5D7A0213 DoIt
  : Parent ME_51DD567A01B5 // Tl3PtrLoc
  ;
  : Operations
-   @ ( ME_51DD5D7A0213 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_51DD5D7A0213 // DoIt
+ )
  ; // Operations
 
 ref; // ME_51DD5D6F0304 Clear
@@ -1254,10 +1280,10 @@ ref; // ME_51DD5E5A0299 aBufSize
  : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
  ;
  : Parameters
-   @ ( ME_51DD5E5A025D // anOfs
+   Seq: ( ME_51DD5E5A025D // anOfs
  ME_51DD5E5A027B // aBuf
  ME_51DD5E5A0299 // aBufSize
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_51DD5E310231 DoIt
@@ -1273,8 +1299,8 @@ ref; // ME_51DD5E310231 DoIt
  : Parent ME_51DD567A01B5 // Tl3PtrLoc
  ;
  : Operations
-   @ ( ME_51DD5E310231 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_51DD5E310231 // DoIt
+ )
  ; // Operations
 
 ref; // ME_51DD5E2203B0 Read
@@ -1322,10 +1348,10 @@ ref; // ME_51DD5E6C0261 aBufSize
  : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
  ;
  : Parameters
-   @ ( ME_51DD5E6C0225 // anOfs
+   Seq: ( ME_51DD5E6C0225 // anOfs
  ME_51DD5E6C0242 // aBuf
  ME_51DD5E6C0261 // aBufSize
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_51DD5E6702F6 DoIt
@@ -1341,8 +1367,8 @@ ref; // ME_51DD5E6702F6 DoIt
  : Parent ME_51DD567A01B5 // Tl3PtrLoc
  ;
  : Operations
-   @ ( ME_51DD5E6702F6 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_51DD5E6702F6 // DoIt
+ )
  ; // Operations
 
 ref; // ME_51DD5E5F02E1 Write
@@ -1369,24 +1395,29 @@ ref; // ME_51DD568601FD
  : Parent ME_51DD56680275 // l3PtrLoc
  ;
  : Attributes
-   @ ( ME_51DD5D93005B // AsPointer
+   Seq: ( ME_51DD5D93005B // AsPointer
  ME_51DD5FDA027A // f_AsPointer
- ) .SequenceCode.It
+ )
  ; // Attributes
  : Operations
-   @ ( ME_51DD5D1903C3 // Init
+   Seq: ( ME_51DD5D1903C3 // Init
  ME_51DD5D3800F3 // GetSize
  ME_51DD5D4F004A // SetSize
  ME_51DD5D6F0304 // Clear
  ME_51DD5E2203B0 // Read
  ME_51DD5E5F02E1 // Write
- ) .SequenceCode.It
+ )
  ; // Operations
  : Dependencies
-   @ ( ME_51DD568601FD // 
- ) .SequenceCode.It
+   Seq: ( ME_51DD568601FD // 
+ )
  ; // Dependencies
  CONST "not treat as record for XE4" 'undefined'
+ CONST dfm:PathOnly '\common\components\rtl\Garant\L3'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\L3'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'PtrLoc'
 
 ref; // ME_51DD567A01B5 Tl3PtrLoc
 
@@ -1401,16 +1432,16 @@ ref; // ME_51DD567A01B5 Tl3PtrLoc
  : Parent ME_51DAD7EA02D0 // MemoryUtils
  ;
  : Children
-   @ ( ME_51DD567A01B5 // Tl3PtrLoc
- ) .SequenceCode.It
+   Seq: ( ME_51DD567A01B5 // Tl3PtrLoc
+ )
  ; // Children
  CONST "no hands" false
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\L3'
  CONST intf.pas:Path 'common\components\rtl\Garant\L3\l3PtrLoc.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\L3'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'PtrLoc'
 
 ref; // ME_51DD56680275 l3PtrLoc
 
@@ -1425,23 +1456,21 @@ ref; // ME_51DD56680275 l3PtrLoc
  : Parent WL 'ME_515AC89F01E1' '515AC89F01E1.pas.ms.script' // L3$Basic Concepts
  ;
  : Children
-   @ ( ME_51DAD8180236 // l3MemorySizeUtils
+   Seq: ( ME_51DAD8180236 // l3MemorySizeUtils
  ME_51DADE55035E // l3MemorySizeUtilsPrim
  ME_51DD554C0205 // Tl3MemUtils
  ME_51DD56680275 // l3PtrLoc
- ) .SequenceCode.It
+ )
  ; // Children
  : Depends
-   @ ( WL 'ME_51612EBB02F5' '51612EBB02F5.pas.ms.script' // Ref Counting
- ) .SequenceCode.It
+   Seq: ( WL 'ME_51612EBB02F5' '51612EBB02F5.pas.ms.script' // Ref Counting
+ )
  ; // Depends
- : Generators
- @ (
- gen_pas.script
- gen_pas.script.runner
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\L3'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\L3'
  CONST pas.script:Path 'shared\models\NewSchool\Scripts\51DAD7EA02D0.pas.ms.script'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
  CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\51DAD7EA02D0.pas.ms.script.runner'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_51DAD7EA02D0 MemoryUtils

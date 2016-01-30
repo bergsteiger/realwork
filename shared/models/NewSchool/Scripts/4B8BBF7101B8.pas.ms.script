@@ -16,6 +16,11 @@ FORWARD ME_4B8BBFF302E1
  CONST Abstraction at_final
  : Parent ME_4B8BBFF302E1 // Tl3StringMapPrim
  ;
+ CONST dfm:PathOnly '\common\components\gui\Garant\VCM\Implementation'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\VCM\Implementation'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'Items_NeedsBeforeFreeItem'
 
 ref; // ME_4B8BC02E0031 l3Items_NeedsBeforeFreeItem
 
@@ -29,6 +34,11 @@ ref; // ME_4B8BC02E0031 l3Items_NeedsBeforeFreeItem
  CONST Abstraction at_final
  : Parent ME_4B8BBFF302E1 // Tl3StringMapPrim
  ;
+ CONST dfm:PathOnly '\common\components\gui\Garant\VCM\Implementation'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\VCM\Implementation'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'Items_NoSort'
 
 ref; // ME_4B8BC0380287 l3Items_NoSort
 
@@ -43,14 +53,14 @@ ref; // ME_4B8BC0380287 l3Items_NoSort
  : Parent ME_4B8BBF7101B8 // L3 for VCM
  ;
  : Inherits
-   @ ( WL 'ME_4A54DD4E036F' '47913B47006E.pas.ms.script' // Tl3ProtoDataContainer
+   Seq: ( WL 'ME_4A54DD4E036F' '47913B47006E.pas.ms.script' // Tl3ProtoDataContainer
  WL 'ME_4B88F8D6025A' '47913B47006E.pas.ms.script' // l3StringList
- ) .SequenceCode.It
+ )
  ; // Inherits
  : Children
-   @ ( ME_4B8BC02E0031 // l3Items_NeedsBeforeFreeItem
+   Seq: ( ME_4B8BC02E0031 // l3Items_NeedsBeforeFreeItem
  ME_4B8BC0380287 // l3Items_NoSort
- ) .SequenceCode.It
+ )
  ; // Children
  CONST "author" 'Люлин А.В.'
  CONST "needs InstanceR" 'undefined'
@@ -58,12 +68,14 @@ ref; // ME_4B8BC0380287 l3Items_NoSort
  CONST "no hands" true
  CONST "register in scripts" 'undefined'
  CONST "started" '01.03.2010 16:24'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\VCM\Implementation'
  CONST intf.pas:Path 'common\components\gui\Garant\VCM\Implementation\l3StringMapPrim.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\VCM\Implementation'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'StringMapPrim'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'l3StringMapPrim'
 
 ref; // ME_4B8BBFF302E1 Tl3StringMapPrim
 
@@ -79,6 +91,11 @@ FORWARD ME_4B8BC059018C
  CONST Abstraction at_final
  : Parent ME_4B8BC059018C // Tl3StringMap
  ;
+ CONST dfm:PathOnly '\common\components\gui\Garant\VCM\Implementation'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\VCM\Implementation'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'Items_NeedsBeforeFreeItem'
 
 ref; // ME_4B8BC08B0006 l3Items_NeedsBeforeFreeItem
 
@@ -92,6 +109,11 @@ ref; // ME_4B8BC08B0006 l3Items_NeedsBeforeFreeItem
  CONST Abstraction at_final
  : Parent ME_4B8BC059018C // Tl3StringMap
  ;
+ CONST dfm:PathOnly '\common\components\gui\Garant\VCM\Implementation'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\VCM\Implementation'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'Items_NoSort'
 
 ref; // ME_4B8BC095003F l3Items_NoSort
 
@@ -148,8 +170,8 @@ ref; // ME_4B8BC0F90271 aString
  : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
  ;
  : Parameters
-   @ ( ME_4B8BC0F90271 // aString
- ) .SequenceCode.It
+   Seq: ( ME_4B8BC0F90271 // aString
+ )
  ; // Parameters
 
 ref; // ME_4B8BC0EE03D0 DoIt
@@ -177,16 +199,16 @@ ref; // ME_4B8BC166016E
  : Parent ME_4B8BC059018C // Tl3StringMap
  ;
  : Attributes
-   @ ( ME_4B8BC25903CB // Item
- ) .SequenceCode.It
+   Seq: ( ME_4B8BC25903CB // Item
+ )
  ; // Attributes
  : Operations
-   @ ( ME_4B8BC0EE03D0 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_4B8BC0EE03D0 // DoIt
+ )
  ; // Operations
  : Dependencies
-   @ ( ME_4B8BC166016E // 
- ) .SequenceCode.It
+   Seq: ( ME_4B8BC166016E // 
+ )
  ; // Dependencies
 
 ref; // ME_4B8BC0D40179 ResolveString
@@ -202,22 +224,22 @@ ref; // ME_4B8BC0D40179 ResolveString
  : Parent ME_4B8BBF7101B8 // L3 for VCM
  ;
  : Inherits
-   @ ( ME_4B8BBFF302E1 // Tl3StringMapPrim
+   Seq: ( ME_4B8BBFF302E1 // Tl3StringMapPrim
  WL 'ME_53036F2101D3' '47913B47006E.pas.ms.script' // l3Dictionary
- ) .SequenceCode.It
+ )
  ; // Inherits
  : Attributes
-   @ ( ME_4B8BC0C70029 // f_Hi
- ) .SequenceCode.It
+   Seq: ( ME_4B8BC0C70029 // f_Hi
+ )
  ; // Attributes
  : Operations
-   @ ( ME_4B8BC0D40179 // ResolveString
- ) .SequenceCode.It
+   Seq: ( ME_4B8BC0D40179 // ResolveString
+ )
  ; // Operations
  : Children
-   @ ( ME_4B8BC08B0006 // l3Items_NeedsBeforeFreeItem
+   Seq: ( ME_4B8BC08B0006 // l3Items_NeedsBeforeFreeItem
  ME_4B8BC095003F // l3Items_NoSort
- ) .SequenceCode.It
+ )
  ; // Children
  CONST "author" 'Люлин А.В.'
  CONST "needs InstanceR" 'undefined'
@@ -225,12 +247,14 @@ ref; // ME_4B8BC0D40179 ResolveString
  CONST "no hands" true
  CONST "register in scripts" 'undefined'
  CONST "started" '01.03.2010 16:25'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\VCM\Implementation'
  CONST intf.pas:Path 'common\components\gui\Garant\VCM\Implementation\l3StringMap.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\VCM\Implementation'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'StringMap'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'l3StringMap'
 
 ref; // ME_4B8BC059018C Tl3StringMap
 
@@ -244,25 +268,23 @@ ref; // ME_4B8BC059018C Tl3StringMap
  : Parent WL 'ME_4790C3B8021E' '4790C3B8021E.pas.ms.script' // VCM
  ;
  : Children
-   @ ( ME_4B8BBFF302E1 // Tl3StringMapPrim
+   Seq: ( ME_4B8BBFF302E1 // Tl3StringMapPrim
  ME_4B8BC059018C // Tl3StringMap
- ) .SequenceCode.It
+ )
  ; // Children
  : Depends
-   @ ( WL 'ME_47913B47006E' '47913B47006E.pas.ms.script' // l3CoreObjects
+   Seq: ( WL 'ME_47913B47006E' '47913B47006E.pas.ms.script' // l3CoreObjects
  WL 'ME_47BB24D30205' '47BB24D30205.pas.ms.script' // Стандартные примеси
  WL 'ME_4AB0C3C60310' '4AB0C3C60310.pas.ms.script' // Sys
  WL 'ME_4B893514021E' '4B893514021E.pas.ms.script' // Pretty Things
- ) .SequenceCode.It
+ )
  ; // Depends
  CONST "path prefix" '/Implementation'
- : Generators
- @ (
- gen_pas.script
- gen_pas.script.runner
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\VCM\Implementation'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\VCM\Implementation'
  CONST pas.script:Path 'shared\models\NewSchool\Scripts\4B8BBF7101B8.pas.ms.script'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
  CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\4B8BBF7101B8.pas.ms.script.runner'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_4B8BBF7101B8 L3 for VCM

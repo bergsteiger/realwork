@@ -1,0 +1,100 @@
+// Настройки 484E55E103C5 UseCases Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_484E55E103C5
+
+FORWARD ME_484E586F03CD
+
+: ME_484E586F03CD
+ CONST UID '484E586F03CD'
+ CONST Name 'Настройка системы'
+ CONST Class class_Class
+ : Stereotype st_UseCase ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Конфигурирование поведения и внешнего вида системы пользователем для максимального удовлетворения его индивидуальных потребностей и вкусов.' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_484E55E103C5 // Настройки
+ ;
+ CONST "UseNewGen" 'undefined'
+ CONST dfm:PathOnly '\garant6x\implementation\Garant'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant'
+
+ref; // ME_484E586F03CD Настройка системы
+
+: ME_484E58A00295
+ CONST UID '484E58A00295'
+ CONST Name 'Настройка панелей инструментов'
+ CONST Class class_Class
+ : Stereotype st_UseCase ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Прецедент описывает процесс настройки расположения и состава панелей инструментов системы.' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_484E55E103C5 // Настройки
+ ;
+ CONST "UseNewGen" 'undefined'
+ CONST dfm:PathOnly '\garant6x\implementation\Garant'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant'
+
+ref; // ME_484E58A00295 Настройка панелей инструментов
+
+: ME_48904D0900EF
+ CONST UID '48904D0900EF'
+ CONST Name 'Настройка шрифтов'
+ CONST Class class_Class
+ : Stereotype st_UseCase ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Настройка стилей отображения текстов документов' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_484E55E103C5 // Настройки
+ ;
+ CONST "UseNewGen" 'undefined'
+ CONST dfm:PathOnly '\garant6x\implementation\Garant'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant'
+
+ref; // ME_48904D0900EF Настройка шрифтов
+
+: ME_484E55E103C5
+ CONST UID '484E55E103C5'
+ CONST Name 'Настройки'
+ CONST Class class_Category
+ : Stereotype st_UseCases ;
+ %SUMMARY 'Изменение внешнего вида системы под нужды конкретного пользователя' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent WL 'ME_481EF5C4020D' '481EF5C4020D.pas.ms.script' // Оболочка
+ ;
+ : Children
+   Seq: ( ME_484E586F03CD // Настройка системы
+ ME_484E58A00295 // Настройка панелей инструментов
+ ME_48904D0900EF // Настройка шрифтов
+ )
+ ; // Children
+ CONST "UseNewGen" 'undefined'
+ : Generators
+ Seq: (
+ gen_pas.script
+ gen_pas.script.runner
+ )
+ ; // Generators
+ CONST dfm:PathOnly '\garant6x\implementation\Garant'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant'
+ CONST pas.script:Path 'shared\models\NewSchool\Scripts\484E55E103C5.pas.ms.script'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\484E55E103C5.pas.ms.script.runner'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant'
+
+ref; // ME_484E55E103C5 Настройки

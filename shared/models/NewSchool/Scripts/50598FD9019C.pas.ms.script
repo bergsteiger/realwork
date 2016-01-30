@@ -21,6 +21,12 @@ FORWARD ME_50598FF6003B
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
+ CONST dfm:PathOnly '\common\components\rtl\Garant\dd\PipeOut'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\dd\PipeOut'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'SewerPipe'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_5059903E037D TSewerPipe
 
@@ -35,17 +41,16 @@ ref; // ME_5059903E037D TSewerPipe
  : Parent ME_50598FD9019C // PipeOut
  ;
  : Children
-   @ ( ME_5059903E037D // TSewerPipe
- ) .SequenceCode.It
+   Seq: ( ME_5059903E037D // TSewerPipe
+ )
  ; // Children
  CONST "finished" false
  CONST "no hands" false
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\dd\PipeOut'
  CONST intf.pas:Path 'common\components\rtl\Garant\dd\PipeOut\NOT_FINISHED_SewerPipe.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\dd\PipeOut'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_50598FF6003B SewerPipe
 
@@ -65,6 +70,12 @@ FORWARD ME_519B8D8D00E7
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
+ CONST dfm:PathOnly '\common\components\rtl\Garant\dd\PipeOut'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\dd\PipeOut'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'ExportPipe'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_519B8DB20186 TExportPipe
 
@@ -79,17 +90,16 @@ ref; // ME_519B8DB20186 TExportPipe
  : Parent ME_50598FD9019C // PipeOut
  ;
  : Children
-   @ ( ME_519B8DB20186 // TExportPipe
- ) .SequenceCode.It
+   Seq: ( ME_519B8DB20186 // TExportPipe
+ )
  ; // Children
  CONST "finished" false
  CONST "no hands" false
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\dd\PipeOut'
  CONST intf.pas:Path 'common\components\rtl\Garant\dd\PipeOut\NOT_FINISHED_ExportPipe.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\dd\PipeOut'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_519B8D8D00E7 ExportPipe
 
@@ -143,6 +153,7 @@ ref; // ME_560A468C0223
  ;
  : Implementor ME_560A38A50349 // TddExportFilerMap
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_5609091B00C0_ME_560A38A50349 CompareKeys
 
 : ME_560A38A50349
@@ -156,32 +167,34 @@ ref; // ME_5609091B00C0_ME_560A38A50349 CompareKeys
  : Parent ME_50598FD9019C // PipeOut
  ;
  : Inherits
-   @ ( WL 'ME_5609096C03BE' '4A6D65B9022A.pas.ms.script' // l3Map
- ) .SequenceCode.It
+   Seq: ( WL 'ME_5609096C03BE' '4A6D65B9022A.pas.ms.script' // l3Map
+ )
  ; // Inherits
  : Attributes
-   @ ( ME_560A38E3038B // KeyType
+   Seq: ( ME_560A38E3038B // KeyType
  ME_560A38F202B4 // ValueType
- ) .SequenceCode.It
+ )
  ; // Attributes
  : Implemented
-   @ ( ME_5609091B00C0_ME_560A38A50349 // CompareKeys
- ) .SequenceCode.It
+   Seq: ( ME_5609091B00C0_ME_560A38A50349 // CompareKeys
+ )
  ; // Implemented
  : Dependencies
-   @ ( ME_560A468C0223 // 
- ) .SequenceCode.It
+   Seq: ( ME_560A468C0223 // 
+ )
  ; // Dependencies
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\dd\PipeOut'
  CONST intf.pas:Path 'common\components\rtl\Garant\dd\PipeOut\ddExportFilerMap.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\dd\PipeOut'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'ddExportFilerMap'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'ddExportFilerMap'
 
 ref; // ME_560A38A50349 TddExportFilerMap
 
@@ -213,14 +226,18 @@ ref; // ME_5604054C0338
  : Parent ME_5603F0890069 // TddExportFilerDispatcher
  ;
  : Inherits
-   @ ( WL 'ME_5603EDF40264' '5603ED3D011B.pas.ms.script' // TddExportDocPart
- ) .SequenceCode.It
+   Seq: ( WL 'ME_5603EDF40264' '5603ED3D011B.pas.ms.script' // TddExportDocPart
+ )
  ; // Inherits
  : Attributes
-   @ ( ME_5604054C0338 // 
- ) .SequenceCode.It
+   Seq: ( ME_5604054C0338 // 
+ )
  ; // Attributes
  CONST "array type" 'dynamic'
+ CONST dfm:PathOnly '\common\components\rtl\Garant\dd\PipeOut'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\dd\PipeOut'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_5604052B03E1 TddFileMaskArray
 
@@ -250,14 +267,18 @@ ref; // ME_560A502A001C
  : Parent ME_5603F0890069 // TddExportFilerDispatcher
  ;
  : Inherits
-   @ ( WL 'ME_5603EDF40264' '5603ED3D011B.pas.ms.script' // TddExportDocPart
- ) .SequenceCode.It
+   Seq: ( WL 'ME_5603EDF40264' '5603ED3D011B.pas.ms.script' // TddExportDocPart
+ )
  ; // Inherits
  : Attributes
-   @ ( ME_560A502A001C // 
- ) .SequenceCode.It
+   Seq: ( ME_560A502A001C // 
+ )
  ; // Attributes
  CONST "array type" 'dynamic'
+ CONST dfm:PathOnly '\common\components\rtl\Garant\dd\PipeOut'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\dd\PipeOut'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_560A4FD001C3 TddExportDivideByArray
 
@@ -287,14 +308,18 @@ ref; // ME_5616664603AC
  : Parent ME_5603F0890069 // TddExportFilerDispatcher
  ;
  : Inherits
-   @ ( WL 'ME_5603EDF40264' '5603ED3D011B.pas.ms.script' // TddExportDocPart
- ) .SequenceCode.It
+   Seq: ( WL 'ME_5603EDF40264' '5603ED3D011B.pas.ms.script' // TddExportDocPart
+ )
  ; // Inherits
  : Attributes
-   @ ( ME_5616664603AC // 
- ) .SequenceCode.It
+   Seq: ( ME_5616664603AC // 
+ )
  ; // Attributes
  CONST "array type" 'dynamic'
+ CONST dfm:PathOnly '\common\components\rtl\Garant\dd\PipeOut'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\dd\PipeOut'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_561665AD007D TddCurrentFilesArray
 
@@ -346,8 +371,8 @@ ref; // ME_5603FC1702DB aPart
  : Target WL 'ME_46780DA40383' '4677FBA70343.pas.ms.script' // Il3CString
  ;
  : Attributes
-   @ ( ME_5603FC1702DB // aPart
- ) .SequenceCode.It
+   Seq: ( ME_5603FC1702DB // aPart
+ )
  ; // Attributes
  CONST "pm" true
 
@@ -410,8 +435,8 @@ ref; // ME_560A4F520327 aPart
  : Target WL 'ME_560A4DCA0199' '5603ED3D011B.pas.ms.script' // TddExportDivideBySet
  ;
  : Attributes
-   @ ( ME_560A4F520327 // aPart
- ) .SequenceCode.It
+   Seq: ( ME_560A4F520327 // aPart
+ )
  ; // Attributes
  CONST "pm" true
 
@@ -608,6 +633,7 @@ ref; // ME_561BB8A501FC UpdateFiles
 : ME_57ACCF375D83
  CONST UID '57ACCF375D83'
  CONST Name 'f_CodePage'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY 'Поле для свойства CodePage' ;
  CONST Visibility PrivateAccess
@@ -617,12 +643,14 @@ ref; // ME_561BB8A501FC UpdateFiles
  ;
  : Target WL 'ME_4DE60F5E00A6' '4AB0C3C60310.pas.ms.script' // LongInt
  ;
+ CONST extprop:clearViaProperty 'CodePage'
 
 ref; // ME_57ACCF375D83 f_CodePage
 
 : ME_CC2B69A763AF
  CONST UID 'CC2B69A763AF'
  CONST Name 'f_ExportDate'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY 'Поле для свойства ExportDate' ;
  CONST Visibility PrivateAccess
@@ -632,12 +660,14 @@ ref; // ME_57ACCF375D83 f_CodePage
  ;
  : Target WL 'ME_47272C8B0128' '4AB0C3C60310.pas.ms.script' // TDateTime
  ;
+ CONST extprop:clearViaProperty 'ExportDate'
 
 ref; // ME_CC2B69A763AF f_ExportDate
 
 : ME_E55D3B83578E
  CONST UID 'E55D3B83578E'
  CONST Name 'f_FilePartSize'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY 'Поле для свойства FilePartSize' ;
  CONST Visibility PrivateAccess
@@ -647,12 +677,14 @@ ref; // ME_CC2B69A763AF f_ExportDate
  ;
  : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
  ;
+ CONST extprop:clearViaProperty 'FilePartSize'
 
 ref; // ME_E55D3B83578E f_FilePartSize
 
 : ME_8E19D18B215F
  CONST UID '8E19D18B215F'
  CONST Name 'f_TargetFolder'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY 'Поле для свойства TargetFolder' ;
  CONST Visibility PrivateAccess
@@ -662,12 +694,14 @@ ref; // ME_E55D3B83578E f_FilePartSize
  ;
  : Target WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
  ;
+ CONST extprop:clearViaProperty 'TargetFolder'
 
 ref; // ME_8E19D18B215F f_TargetFolder
 
 : ME_BA119526A584
  CONST UID 'BA119526A584'
  CONST Name 'f_FileExt'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY 'Поле для свойства FileExt' ;
  CONST Visibility PrivateAccess
@@ -677,12 +711,14 @@ ref; // ME_8E19D18B215F f_TargetFolder
  ;
  : Target WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
  ;
+ CONST extprop:clearViaProperty 'FileExt'
 
 ref; // ME_BA119526A584 f_FileExt
 
 : ME_F4C91872203F
  CONST UID 'F4C91872203F'
  CONST Name 'f_LowcaseFilenames'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY 'Поле для свойства LowcaseFilenames' ;
  CONST Visibility PrivateAccess
@@ -692,12 +728,14 @@ ref; // ME_BA119526A584 f_FileExt
  ;
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
+ CONST extprop:clearViaProperty 'LowcaseFilenames'
 
 ref; // ME_F4C91872203F f_LowcaseFilenames
 
 : ME_3FBBF3CF0BFD
  CONST UID '3FBBF3CF0BFD'
  CONST Name 'f_IsDirByMain'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY 'Поле для свойства IsDirByMain' ;
  CONST Visibility PrivateAccess
@@ -713,6 +751,7 @@ ref; // ME_3FBBF3CF0BFD f_IsDirByMain
 : ME_632587F45B77
  CONST UID '632587F45B77'
  CONST Name 'f_UpdateFiles'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY 'Поле для свойства UpdateFiles' ;
  CONST Visibility PrivateAccess
@@ -722,6 +761,7 @@ ref; // ME_3FBBF3CF0BFD f_IsDirByMain
  ;
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
+ CONST extprop:clearViaProperty 'UpdateFiles'
 
 ref; // ME_632587F45B77 f_UpdateFiles
 
@@ -730,6 +770,7 @@ FORWARD ME_560A4BA903C9
 : ME_A8AB9C3D7C05
  CONST UID 'A8AB9C3D7C05'
  CONST Name 'DoIt'
+ CONST IsSummoned true
  CONST Class class_Operation
  %SUMMARY 'Сигнатура метода Create' ;
  CONST Visibility PublicAccess
@@ -750,8 +791,8 @@ ref; // ME_A8AB9C3D7C05 DoIt
  : Parent ME_5603F0890069 // TddExportFilerDispatcher
  ;
  : Operations
-   @ ( ME_A8AB9C3D7C05 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_A8AB9C3D7C05 // DoIt
+ )
  ; // Operations
 
 ref; // ME_560A4BA903C9 Create
@@ -799,10 +840,10 @@ ref; // ME_560A4C64031B aAccGroup
  : Target WL 'ME_47A0679D00E4' '47913B47006E.pas.ms.script' // Tl3CustomFiler
  ;
  : Parameters
-   @ ( ME_56126C7100DE // aTopic
+   Seq: ( ME_56126C7100DE // aTopic
  ME_560A4C6402FC // aPart
  ME_560A4C64031B // aAccGroup
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_560A4C26003E DoIt
@@ -864,15 +905,15 @@ ref; // ME_561393C5021D
  : Parent ME_5603F0890069 // TddExportFilerDispatcher
  ;
  : Operations
-   @ ( ME_560A4C26003E // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_560A4C26003E // DoIt
+ )
  ; // Operations
  : Dependencies
-   @ ( ME_560A62B50069 // 
+   Seq: ( ME_560A62B50069 // 
  ME_56138D6A02B2 // 
  ME_56138FD70097 // 
  ME_561393C5021D // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
 
 ref; // ME_560A4C0F00CA GetFiler
@@ -882,6 +923,7 @@ FORWARD ME_560A5979037E
 : ME_127586402B10
  CONST UID '127586402B10'
  CONST Name 'DoIt'
+ CONST IsSummoned true
  CONST Class class_Operation
  %SUMMARY 'Сигнатура метода Start' ;
  CONST Visibility PublicAccess
@@ -936,14 +978,14 @@ ref; // ME_560BDD7900EE
  : Parent ME_5603F0890069 // TddExportFilerDispatcher
  ;
  : Operations
-   @ ( ME_127586402B10 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_127586402B10 // DoIt
+ )
  ; // Operations
  : Dependencies
-   @ ( ME_560BCBB50395 // 
+   Seq: ( ME_560BCBB50395 // 
  ME_560BCE28022F // 
  ME_560BDD7900EE // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
 
 ref; // ME_560A5979037E Start
@@ -953,6 +995,7 @@ FORWARD ME_560BA6EA03BC
 : ME_AF549C0FA5DF
  CONST UID 'AF549C0FA5DF'
  CONST Name 'DoIt'
+ CONST IsSummoned true
  CONST Class class_Operation
  %SUMMARY 'Сигнатура метода Finish' ;
  CONST Visibility PublicAccess
@@ -974,8 +1017,8 @@ ref; // ME_AF549C0FA5DF DoIt
  : Parent ME_5603F0890069 // TddExportFilerDispatcher
  ;
  : Operations
-   @ ( ME_AF549C0FA5DF // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_AF549C0FA5DF // DoIt
+ )
  ; // Operations
 
 ref; // ME_560BA6EA03BC Finish
@@ -985,6 +1028,7 @@ FORWARD ME_5617725803A8
 : ME_6FD8516A2C79
  CONST UID '6FD8516A2C79'
  CONST Name 'DoIt'
+ CONST IsSummoned true
  CONST Class class_Operation
  %SUMMARY 'Сигнатура метода RollBack' ;
  CONST Visibility PublicAccess
@@ -1017,12 +1061,12 @@ ref; // ME_56179EFE00A6
  : Parent ME_5603F0890069 // TddExportFilerDispatcher
  ;
  : Operations
-   @ ( ME_6FD8516A2C79 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_6FD8516A2C79 // DoIt
+ )
  ; // Operations
  : Dependencies
-   @ ( ME_56179EFE00A6 // 
- ) .SequenceCode.It
+   Seq: ( ME_56179EFE00A6 // 
+ )
  ; // Dependencies
 
 ref; // ME_5617725803A8 RollBack
@@ -1032,6 +1076,7 @@ FORWARD ME_5617897D0210
 : ME_071B08547C11
  CONST UID '071B08547C11'
  CONST Name 'DoIt'
+ CONST IsSummoned true
  CONST Class class_Operation
  %SUMMARY 'Сигнатура метода DropCurrentFilesData' ;
  CONST Visibility PublicAccess
@@ -1052,8 +1097,8 @@ ref; // ME_071B08547C11 DoIt
  : Parent ME_5603F0890069 // TddExportFilerDispatcher
  ;
  : Operations
-   @ ( ME_071B08547C11 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_071B08547C11 // DoIt
+ )
  ; // Operations
 
 ref; // ME_5617897D0210 DropCurrentFilesData
@@ -1081,8 +1126,8 @@ ref; // ME_561BA46302F1 aMain
  : Target WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
  ;
  : Parameters
-   @ ( ME_561BA46302F1 // aMain
- ) .SequenceCode.It
+   Seq: ( ME_561BA46302F1 // aMain
+ )
  ; // Parameters
 
 ref; // ME_561BA444012C DoIt
@@ -1098,8 +1143,8 @@ ref; // ME_561BA444012C DoIt
  : Parent ME_5603F0890069 // TddExportFilerDispatcher
  ;
  : Operations
-   @ ( ME_561BA444012C // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_561BA444012C // DoIt
+ )
  ; // Operations
 
 ref; // ME_561BA41E0388 GetActualDir
@@ -1133,6 +1178,7 @@ ref; // ME_56151D5B0144
  ;
  : Implementor ME_5603F0890069 // TddExportFilerDispatcher
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_479731C50290_ME_5603F0890069 Cleanup
 
 : ME_5603F0890069
@@ -1146,11 +1192,11 @@ ref; // ME_479731C50290_ME_5603F0890069 Cleanup
  : Parent ME_50598FD9019C // PipeOut
  ;
  : Inherits
-   @ ( WL 'ME_49E7754802A9' '47913B47006E.pas.ms.script' // Tl3ProtoObject
- ) .SequenceCode.It
+   Seq: ( WL 'ME_49E7754802A9' '47913B47006E.pas.ms.script' // Tl3ProtoObject
+ )
  ; // Inherits
  : Attributes
-   @ ( ME_56150E520125 // CodePage
+   Seq: ( ME_56150E520125 // CodePage
  ME_5603FBF902CB // FileMask
  ME_560405630079 // f_FileMask
  ME_560A390D03A5 // f_Map
@@ -1174,43 +1220,45 @@ ref; // ME_479731C50290_ME_5603F0890069 Cleanup
  ME_F4C91872203F // f_LowcaseFilenames
  ME_3FBBF3CF0BFD // f_IsDirByMain
  ME_632587F45B77 // f_UpdateFiles
- ) .SequenceCode.It
+ )
  ; // Attributes
  : Operations
-   @ ( ME_560A4BA903C9 // Create
+   Seq: ( ME_560A4BA903C9 // Create
  ME_560A4C0F00CA // GetFiler
  ME_560A5979037E // Start
  ME_560BA6EA03BC // Finish
  ME_5617725803A8 // RollBack
  ME_5617897D0210 // DropCurrentFilesData
  ME_561BA41E0388 // GetActualDir
- ) .SequenceCode.It
+ )
  ; // Operations
  : Overridden
-   @ ( ME_479731C50290_ME_5603F0890069 // Cleanup
- ) .SequenceCode.It
+   Seq: ( ME_479731C50290_ME_5603F0890069 // Cleanup
+ )
  ; // Overridden
  : Children
-   @ ( ME_5604052B03E1 // TddFileMaskArray
+   Seq: ( ME_5604052B03E1 // TddFileMaskArray
  ME_560A4FD001C3 // TddExportDivideByArray
  ME_561665AD007D // TddCurrentFilesArray
- ) .SequenceCode.It
+ )
  ; // Children
  : Dependencies
-   @ ( ME_560A586C0350 // 
+   Seq: ( ME_560A586C0350 // 
  ME_56151D5B0144 // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\dd\PipeOut'
  CONST intf.pas:Path 'common\components\rtl\Garant\dd\PipeOut\ddExportFilerDispatcher.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\dd\PipeOut'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'ddExportFilerDispatcher'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'ddExportFilerDispatcher'
 
 ref; // ME_5603F0890069 TddExportFilerDispatcher
 
@@ -1363,11 +1411,11 @@ ref; // ME_561BB8E900BD aUpdateFiles
  : Parent ME_560A5C2D0282 // Create
  ;
  : Parameters
-   @ ( ME_560A5D1D0113 // aFileMask
+   Seq: ( ME_560A5D1D0113 // aFileMask
  ME_56150771016A // aCodePage
  ME_560A5D1D0138 // aPartSize
  ME_561BB8E900BD // aUpdateFiles
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_560A5C4A0333 DoIt
@@ -1383,8 +1431,8 @@ ref; // ME_560A5C4A0333 DoIt
  : Parent ME_560A5BC502D5 // TddExportFilerDispatcherElem
  ;
  : Operations
-   @ ( ME_560A5C4A0333 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_560A5C4A0333 // DoIt
+ )
  ; // Operations
 
 ref; // ME_560A5C2D0282 Create
@@ -1394,6 +1442,7 @@ FORWARD ME_560A5D31009D
 : ME_15595252D62F
  CONST UID '15595252D62F'
  CONST Name 'aFileMask'
+ CONST IsSummoned true
  CONST Class class_Parameter
  : Stereotype st_in ;
  : Target WL 'ME_46780DA40383' '4677FBA70343.pas.ms.script' // Il3CString
@@ -1404,6 +1453,7 @@ ref; // ME_15595252D62F aFileMask
 : ME_30E0C5570BC4
  CONST UID '30E0C5570BC4'
  CONST Name 'aCodePage'
+ CONST IsSummoned true
  CONST Class class_Parameter
  : Stereotype st_in ;
  : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
@@ -1414,6 +1464,7 @@ ref; // ME_30E0C5570BC4 aCodePage
 : ME_35566F794B18
  CONST UID '35566F794B18'
  CONST Name 'aPartSize'
+ CONST IsSummoned true
  CONST Class class_Parameter
  : Stereotype st_in ;
  : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
@@ -1424,6 +1475,7 @@ ref; // ME_35566F794B18 aPartSize
 : ME_2D62D8C439EE
  CONST UID '2D62D8C439EE'
  CONST Name 'aUpdateFiles'
+ CONST IsSummoned true
  CONST Class class_Parameter
  : Stereotype st_in ;
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
@@ -1434,6 +1486,7 @@ ref; // ME_2D62D8C439EE aUpdateFiles
 : ME_0F5FE4B2D407
  CONST UID '0F5FE4B2D407'
  CONST Name 'DoIt'
+ CONST IsSummoned true
  CONST Class class_Operation
  %SUMMARY 'Сигнатура фабрики TddExportFilerDispatcherElem.Make' ;
  CONST Visibility PrivateAccess
@@ -1443,11 +1496,11 @@ ref; // ME_2D62D8C439EE aUpdateFiles
  : Target WL 'ME_5603EF2E01F9' '5603ED3D011B.pas.ms.script' // IddExportFilerDispatcherElem
  ;
  : Parameters
-   @ ( ME_15595252D62F // aFileMask
+   Seq: ( ME_15595252D62F // aFileMask
  ME_30E0C5570BC4 // aCodePage
  ME_35566F794B18 // aPartSize
  ME_2D62D8C439EE // aUpdateFiles
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_0F5FE4B2D407 DoIt
@@ -1463,16 +1516,16 @@ ref; // ME_0F5FE4B2D407 DoIt
  : Parent ME_560A5BC502D5 // TddExportFilerDispatcherElem
  ;
  : Inherits
-   @ ( ME_560A5C2D0282 // Create
- ) .SequenceCode.It
+   Seq: ( ME_560A5C2D0282 // Create
+ )
  ; // Inherits
  : Implements
-   @ ( WL 'ME_5603EF2E01F9' '5603ED3D011B.pas.ms.script' // IddExportFilerDispatcherElem
- ) .SequenceCode.It
+   Seq: ( WL 'ME_5603EF2E01F9' '5603ED3D011B.pas.ms.script' // IddExportFilerDispatcherElem
+ )
  ; // Implements
  : Operations
-   @ ( ME_0F5FE4B2D407 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_0F5FE4B2D407 // DoIt
+ )
  ; // Operations
  CONST "check nil" false
  CONST "need AfterCreate" 'undefined'
@@ -1543,6 +1596,7 @@ ref; // ME_561DEA0B02EB
  ;
  : Implementor ME_560A5BC502D5 // TddExportFilerDispatcherElem
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" false
 ref; // ME_5603F0260334_ME_560A5BC502D5 Filer
 
@@ -1553,6 +1607,7 @@ ref; // ME_5603F0260334_ME_560A5BC502D5 Filer
  ;
  : Implementor ME_560A5BC502D5 // TddExportFilerDispatcherElem
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_5616668C01A8_ME_560A5BC502D5 RollBack
 
 : ME_479731C50290_ME_560A5BC502D5
@@ -1562,6 +1617,7 @@ ref; // ME_5616668C01A8_ME_560A5BC502D5 RollBack
  ;
  : Implementor ME_560A5BC502D5 // TddExportFilerDispatcherElem
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_479731C50290_ME_560A5BC502D5 Cleanup
 
 : ME_560A5BC502D5
@@ -1575,55 +1631,57 @@ ref; // ME_479731C50290_ME_560A5BC502D5 Cleanup
  : Parent ME_50598FD9019C // PipeOut
  ;
  : Inherits
-   @ ( WL 'ME_49E7754802A9' '47913B47006E.pas.ms.script' // Tl3ProtoObject
- ) .SequenceCode.It
+   Seq: ( WL 'ME_49E7754802A9' '47913B47006E.pas.ms.script' // Tl3ProtoObject
+ )
  ; // Inherits
  : Implements
-   @ ( WL 'ME_5603EF2E01F9' '5603ED3D011B.pas.ms.script' // IddExportFilerDispatcherElem
- ) .SequenceCode.It
+   Seq: ( WL 'ME_5603EF2E01F9' '5603ED3D011B.pas.ms.script' // IddExportFilerDispatcherElem
+ )
  ; // Implements
  : Attributes
-   @ ( ME_560A5D8E0069 // f_FileMask
+   Seq: ( ME_560A5D8E0069 // f_FileMask
  ME_560A5DDF027C // f_PartSize
  ME_560A6A510195 // f_PartNum
  ME_5615078801BB // f_CodePage
  ME_5617722B011A // f_RollBackPos
  ME_561BB8FE0300 // f_UpdateFiles
  ME_561CB17D0362 // f_Filer
- ) .SequenceCode.It
+ )
  ; // Attributes
  : Operations
-   @ ( ME_560A5C2D0282 // Create
+   Seq: ( ME_560A5C2D0282 // Create
  ME_560A5D31009D // Make
- ) .SequenceCode.It
+ )
  ; // Operations
  : Implemented
-   @ ( ME_5603F0260334_ME_560A5BC502D5 // Filer
+   Seq: ( ME_5603F0260334_ME_560A5BC502D5 // Filer
  ME_5616668C01A8_ME_560A5BC502D5 // RollBack
- ) .SequenceCode.It
+ )
  ; // Implemented
  : Overridden
-   @ ( ME_479731C50290_ME_560A5BC502D5 // Cleanup
- ) .SequenceCode.It
+   Seq: ( ME_479731C50290_ME_560A5BC502D5 // Cleanup
+ )
  ; // Overridden
  : Dependencies
-   @ ( ME_560A69E7039F // 
+   Seq: ( ME_560A69E7039F // 
  ME_560A89690359 // 
  ME_560BC3AC02E5 // 
  ME_561B91CD0085 // 
  ME_561DEA0B02EB // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\dd\PipeOut'
  CONST intf.pas:Path 'common\components\rtl\Garant\dd\PipeOut\ddExportFilerDispatcherElem.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\dd\PipeOut'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'ddExportFilerDispatcherElem'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'ddExportFilerDispatcherElem'
 
 ref; // ME_560A5BC502D5 TddExportFilerDispatcherElem
 
@@ -1702,9 +1760,9 @@ ref; // ME_564DA0B5004D aID
  : Parent ME_564C630F00A3 // Create
  ;
  : Parameters
-   @ ( ME_564C6339022B // aName
+   Seq: ( ME_564C6339022B // aName
  ME_564DA0B5004D // aID
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_564C631F001B DoIt
@@ -1720,8 +1778,8 @@ ref; // ME_564C631F001B DoIt
  : Parent ME_564C627A03D0 // TddAnnoKindSortItem
  ;
  : Operations
-   @ ( ME_564C631F001B // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_564C631F001B // DoIt
+ )
  ; // Operations
 
 ref; // ME_564C630F00A3 Create
@@ -1731,6 +1789,7 @@ FORWARD ME_564C634801A5
 : ME_F7A181B37AB0
  CONST UID 'F7A181B37AB0'
  CONST Name 'aName'
+ CONST IsSummoned true
  CONST Class class_Parameter
  : Stereotype st_in ;
  : Target WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
@@ -1741,6 +1800,7 @@ ref; // ME_F7A181B37AB0 aName
 : ME_09D1C1922001
  CONST UID '09D1C1922001'
  CONST Name 'aID'
+ CONST IsSummoned true
  CONST Class class_Parameter
  : Stereotype st_in ;
  : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
@@ -1751,6 +1811,7 @@ ref; // ME_09D1C1922001 aID
 : ME_4CA0399B3EF0
  CONST UID '4CA0399B3EF0'
  CONST Name 'DoIt'
+ CONST IsSummoned true
  CONST Class class_Operation
  %SUMMARY 'Сигнатура фабрики TddAnnoKindSortItem.Make' ;
  CONST Visibility PrivateAccess
@@ -1760,9 +1821,9 @@ ref; // ME_09D1C1922001 aID
  : Target WL 'ME_564C602B0373' '5603ED3D011B.pas.ms.script' // IddAnnoKindSortItem
  ;
  : Parameters
-   @ ( ME_F7A181B37AB0 // aName
+   Seq: ( ME_F7A181B37AB0 // aName
  ME_09D1C1922001 // aID
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_4CA0399B3EF0 DoIt
@@ -1778,16 +1839,16 @@ ref; // ME_4CA0399B3EF0 DoIt
  : Parent ME_564C627A03D0 // TddAnnoKindSortItem
  ;
  : Inherits
-   @ ( ME_564C630F00A3 // Create
- ) .SequenceCode.It
+   Seq: ( ME_564C630F00A3 // Create
+ )
  ; // Inherits
  : Implements
-   @ ( WL 'ME_564C602B0373' '5603ED3D011B.pas.ms.script' // IddAnnoKindSortItem
- ) .SequenceCode.It
+   Seq: ( WL 'ME_564C602B0373' '5603ED3D011B.pas.ms.script' // IddAnnoKindSortItem
+ )
  ; // Implements
  : Operations
-   @ ( ME_4CA0399B3EF0 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_4CA0399B3EF0 // DoIt
+ )
  ; // Operations
  CONST "check nil" false
  CONST "need AfterCreate" 'undefined'
@@ -1825,6 +1886,7 @@ ref; // ME_564D7447034D
  ;
  : Implementor ME_564C627A03D0 // TddAnnoKindSortItem
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" false
 ref; // ME_564C606E003D_ME_564C627A03D0 Name
 
@@ -1835,6 +1897,7 @@ ref; // ME_564C606E003D_ME_564C627A03D0 Name
  ;
  : Implementor ME_564C627A03D0 // TddAnnoKindSortItem
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_564C60D40342_ME_564C627A03D0 Add
 
 : ME_564C611801BD_ME_564C627A03D0
@@ -1844,6 +1907,7 @@ ref; // ME_564C60D40342_ME_564C627A03D0 Add
  ;
  : Implementor ME_564C627A03D0 // TddAnnoKindSortItem
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" false
 ref; // ME_564C611801BD_ME_564C627A03D0 Count
 
@@ -1854,6 +1918,7 @@ ref; // ME_564C611801BD_ME_564C627A03D0 Count
  ;
  : Implementor ME_564C627A03D0 // TddAnnoKindSortItem
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" false
 ref; // ME_564C61F80097_ME_564C627A03D0 Topics
 
@@ -1864,6 +1929,7 @@ ref; // ME_564C61F80097_ME_564C627A03D0 Topics
  ;
  : Implementor ME_564C627A03D0 // TddAnnoKindSortItem
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" false
 ref; // ME_564DA034027A_ME_564C627A03D0 ID
 
@@ -1874,6 +1940,7 @@ ref; // ME_564DA034027A_ME_564C627A03D0 ID
  ;
  : Implementor ME_564C627A03D0 // TddAnnoKindSortItem
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_479731C50290_ME_564C627A03D0 Cleanup
 
 : ME_564C627A03D0
@@ -1887,51 +1954,53 @@ ref; // ME_479731C50290_ME_564C627A03D0 Cleanup
  : Parent ME_50598FD9019C // PipeOut
  ;
  : Inherits
-   @ ( WL 'ME_49E7754802A9' '47913B47006E.pas.ms.script' // Tl3ProtoObject
- ) .SequenceCode.It
+   Seq: ( WL 'ME_49E7754802A9' '47913B47006E.pas.ms.script' // Tl3ProtoObject
+ )
  ; // Inherits
  : Implements
-   @ ( WL 'ME_564C602B0373' '5603ED3D011B.pas.ms.script' // IddAnnoKindSortItem
- ) .SequenceCode.It
+   Seq: ( WL 'ME_564C602B0373' '5603ED3D011B.pas.ms.script' // IddAnnoKindSortItem
+ )
  ; // Implements
  : Attributes
-   @ ( ME_564C643B0166 // f_Name
+   Seq: ( ME_564C643B0166 // f_Name
  ME_564C649801A0 // f_TopicList
  ME_564DA0C80389 // f_ID
- ) .SequenceCode.It
+ )
  ; // Attributes
  : Operations
-   @ ( ME_564C630F00A3 // Create
+   Seq: ( ME_564C630F00A3 // Create
  ME_564C634801A5 // Make
- ) .SequenceCode.It
+ )
  ; // Operations
  : Implemented
-   @ ( ME_564C606E003D_ME_564C627A03D0 // Name
+   Seq: ( ME_564C606E003D_ME_564C627A03D0 // Name
  ME_564C60D40342_ME_564C627A03D0 // Add
  ME_564C611801BD_ME_564C627A03D0 // Count
  ME_564C61F80097_ME_564C627A03D0 // Topics
  ME_564DA034027A_ME_564C627A03D0 // ID
- ) .SequenceCode.It
+ )
  ; // Implemented
  : Overridden
-   @ ( ME_479731C50290_ME_564C627A03D0 // Cleanup
- ) .SequenceCode.It
+   Seq: ( ME_479731C50290_ME_564C627A03D0 // Cleanup
+ )
  ; // Overridden
  : Dependencies
-   @ ( ME_564D742A0266 // 
+   Seq: ( ME_564D742A0266 // 
  ME_564D7447034D // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\dd\PipeOut'
  CONST intf.pas:Path 'common\components\rtl\Garant\dd\PipeOut\ddAnnoKindSortItem.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\dd\PipeOut'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'ddAnnoKindSortItem'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'ddAnnoKindSortItem'
 
 ref; // ME_564C627A03D0 TddAnnoKindSortItem
 
@@ -1947,6 +2016,11 @@ FORWARD ME_564C65EC0136
  CONST Abstraction at_final
  : Parent ME_564C65EC0136 // TddAnnoKindStatisticListPrim
  ;
+ CONST dfm:PathOnly '\common\components\rtl\Garant\dd\PipeOut'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\dd\PipeOut'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'Items_HasCustomSort'
 
 ref; // ME_564DB35001BA l3Items_HasCustomSort
 
@@ -1965,6 +2039,7 @@ FORWARD ME_564DB76D0301
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value 1
 
 ref; // ME_564DB79A037A dd_siByName
 
@@ -1979,10 +2054,14 @@ ref; // ME_564DB79A037A dd_siByName
  : Parent ME_564C65EC0136 // TddAnnoKindStatisticListPrim
  ;
  : Attributes
-   @ ( ME_564DB79A037A // dd_siByName
- ) .SequenceCode.It
+   Seq: ( ME_564DB79A037A // dd_siByName
+ )
  ; // Attributes
  CONST "spell names" false
+ CONST dfm:PathOnly '\common\components\rtl\Garant\dd\PipeOut'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\dd\PipeOut'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_564DB76D0301 Constants
 
@@ -2019,6 +2098,7 @@ ref; // ME_564F1F74010F
  ;
  : Implementor ME_564C65EC0136 // TddAnnoKindStatisticListPrim
  ;
+ CONST OpKind opkind_Implemented
  CONST "ifndef" 'l3Items_IsAtomic'
 ref; // ME_47B07CF403D0_ME_564C65EC0136 IsSameItems
 
@@ -2029,6 +2109,7 @@ ref; // ME_47B07CF403D0_ME_564C65EC0136 IsSameItems
  ;
  : Implementor ME_564C65EC0136 // TddAnnoKindStatisticListPrim
  ;
+ CONST OpKind opkind_Implemented
  CONST "ifdef" 'l3Items_NeedsAssignItem'
  CONST "ifndef" 'l3Items_NoSort'
 ref; // ME_47B2C42A0163_ME_564C65EC0136 AssignItem
@@ -2040,6 +2121,7 @@ ref; // ME_47B2C42A0163_ME_564C65EC0136 AssignItem
  ;
  : Implementor ME_564C65EC0136 // TddAnnoKindStatisticListPrim
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_47B99D4503A2_ME_564C65EC0136 CompareExistingItems
 
 : ME_564C65EC0136
@@ -2053,45 +2135,47 @@ ref; // ME_47B99D4503A2_ME_564C65EC0136 CompareExistingItems
  : Parent ME_50598FD9019C // PipeOut
  ;
  : Inherits
-   @ ( WL 'ME_4A54DD4E036F' '47913B47006E.pas.ms.script' // Tl3ProtoDataContainer
- ) .SequenceCode.It
+   Seq: ( WL 'ME_4A54DD4E036F' '47913B47006E.pas.ms.script' // Tl3ProtoDataContainer
+ )
  ; // Inherits
  : Implements
-   @ ( WL 'ME_47B9AF6E0228' '47913B47006E.pas.ms.script' // l3InterfaceRefListPrim
- ) .SequenceCode.It
+   Seq: ( WL 'ME_47B9AF6E0228' '47913B47006E.pas.ms.script' // l3InterfaceRefListPrim
+ )
  ; // Implements
  : Attributes
-   @ ( ME_564C66C1007F // ItemType
- ) .SequenceCode.It
+   Seq: ( ME_564C66C1007F // ItemType
+ )
  ; // Attributes
  : Implemented
-   @ ( ME_47B07CF403D0_ME_564C65EC0136 // IsSameItems
+   Seq: ( ME_47B07CF403D0_ME_564C65EC0136 // IsSameItems
  ME_47B2C42A0163_ME_564C65EC0136 // AssignItem
  ME_47B99D4503A2_ME_564C65EC0136 // CompareExistingItems
- ) .SequenceCode.It
+ )
  ; // Implemented
  : Children
-   @ ( ME_564DB35001BA // l3Items_HasCustomSort
- ) .SequenceCode.It
+   Seq: ( ME_564DB35001BA // l3Items_HasCustomSort
+ )
  ; // Children
  : Constants
-   @ ( ME_564DB76D0301 // Constants
- ) .SequenceCode.It
+   Seq: ( ME_564DB76D0301 // Constants
+ )
  ; // Constants
  : Dependencies
-   @ ( ME_564F1F74010F // 
- ) .SequenceCode.It
+   Seq: ( ME_564F1F74010F // 
+ )
  ; // Dependencies
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\dd\PipeOut'
  CONST intf.pas:Path 'common\components\rtl\Garant\dd\PipeOut\ddAnnoKindStatisticListPrim.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\dd\PipeOut'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'ddAnnoKindStatisticListPrim'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'ddAnnoKindStatisticListPrim'
 
 ref; // ME_564C65EC0136 TddAnnoKindStatisticListPrim
 
@@ -2142,6 +2226,7 @@ ref; // ME_564D712B0334
  ;
  : Implementor ME_564C6BCB02EF // TddAnnoKindStatisticList
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_47B9BAFD01F4_ME_564C6BCB02EF CompareItemWithData
 
 : ME_564C6BCB02EF
@@ -2155,39 +2240,41 @@ ref; // ME_47B9BAFD01F4_ME_564C6BCB02EF CompareItemWithData
  : Parent ME_50598FD9019C // PipeOut
  ;
  : Inherits
-   @ ( ME_564C65EC0136 // TddAnnoKindStatisticListPrim
- ) .SequenceCode.It
+   Seq: ( ME_564C65EC0136 // TddAnnoKindStatisticListPrim
+ )
  ; // Inherits
  : Implements
-   @ ( WL 'ME_47B47E230134' '47BB24D30205.pas.ms.script' // l3Searcher
- ) .SequenceCode.It
+   Seq: ( WL 'ME_47B47E230134' '47BB24D30205.pas.ms.script' // l3Searcher
+ )
  ; // Implements
  : Attributes
-   @ ( ME_564DA07E01F5 // FindDataType
- ) .SequenceCode.It
+   Seq: ( ME_564DA07E01F5 // FindDataType
+ )
  ; // Attributes
  : Overridden
-   @ ( ME_47B9BAFD01F4_ME_564C6BCB02EF // CompareItemWithData
- ) .SequenceCode.It
+   Seq: ( ME_47B9BAFD01F4_ME_564C6BCB02EF // CompareItemWithData
+ )
  ; // Overridden
  : Parameters
-   @ ( ME_564DB1D30274 // T
- ) .SequenceCode.It
+   Seq: ( ME_564DB1D30274 // T
+ )
  ; // Parameters
  : Dependencies
-   @ ( ME_564D712B0334 // 
- ) .SequenceCode.It
+   Seq: ( ME_564D712B0334 // 
+ )
  ; // Dependencies
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\dd\PipeOut'
  CONST intf.pas:Path 'common\components\rtl\Garant\dd\PipeOut\ddAnnoKindStatisticList.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\dd\PipeOut'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'ddAnnoKindStatisticList'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'ddAnnoKindStatisticList'
 
 ref; // ME_564C6BCB02EF TddAnnoKindStatisticList
 
@@ -2201,7 +2288,7 @@ ref; // ME_564C6BCB02EF TddAnnoKindStatisticList
  : Parent WL 'ME_4677E18600C2' '4677E18600C2.pas.ms.script' // dd
  ;
  : Children
-   @ ( ME_50598FF6003B // SewerPipe
+   Seq: ( ME_50598FF6003B // SewerPipe
  ME_519B8D8D00E7 // ExportPipe
  ME_560A38A50349 // TddExportFilerMap
  ME_5603F0890069 // TddExportFilerDispatcher
@@ -2209,10 +2296,10 @@ ref; // ME_564C6BCB02EF TddAnnoKindStatisticList
  ME_564C627A03D0 // TddAnnoKindSortItem
  ME_564C65EC0136 // TddAnnoKindStatisticListPrim
  ME_564C6BCB02EF // TddAnnoKindStatisticList
- ) .SequenceCode.It
+ )
  ; // Children
  : Depends
-   @ ( WL 'ME_4677FBA70343' '4677FBA70343.pas.ms.script' // l3Interfaces
+   Seq: ( WL 'ME_4677FBA70343' '4677FBA70343.pas.ms.script' // l3Interfaces
  WL 'ME_4678193C009C' '4678193C009C.pas.ms.script' // l3Types
  WL 'ME_476BE98C01B8' '476BE98C01B8.pas.ms.script' // l3Chars
  WL 'ME_47913B47006E' '47913B47006E.pas.ms.script' // l3CoreObjects
@@ -2226,16 +2313,14 @@ ref; // ME_564C6BCB02EF TddAnnoKindStatisticList
  WL 'ME_4F6843C101D1' '4F6843C101D1.pas.ms.script' // ddCommon
  WL 'ME_54B90AC6014B' '54B90AC6014B.pas.ms.script' // StringUtils
  WL 'ME_5603ED3D011B' '5603ED3D011B.pas.ms.script' // ddPipeOutInterfaces
- ) .SequenceCode.It
+ )
  ; // Depends
  CONST "path prefix" '/PipeOut'
- : Generators
- @ (
- gen_pas.script
- gen_pas.script.runner
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\dd\PipeOut'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\dd\PipeOut'
  CONST pas.script:Path 'shared\models\NewSchool\Scripts\50598FD9019C.pas.ms.script'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
  CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\50598FD9019C.pas.ms.script.runner'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_50598FD9019C PipeOut

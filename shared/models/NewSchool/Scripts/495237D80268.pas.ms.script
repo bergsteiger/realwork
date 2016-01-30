@@ -1,0 +1,199 @@
+// F1Specific 495237D80268 VCMControls Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_495237D80268
+
+FORWARD ME_4952380301A6
+
+: ME_495238EB0160
+ CONST UID '495238EB0160'
+ CONST Name 'ToMSWord'
+ CONST Class class_Operation
+ %SUMMARY 'Экспорт в Word' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_4952380301A6 // File
+ ;
+ CONST "AutoFocus" false
+ CONST "AutoLock" false
+ CONST "LongProcess" false
+ CONST "ShowInContextMenu" 'undefined'
+ CONST "ShowInToolbar" 'undefined'
+ CONST "has states" false
+ CONST "is FormActivate" false
+ CONST "is query" false
+ CONST "no prefix" false
+
+ref; // ME_495238EB0160 ToMSWord
+
+: ME_495253870002
+ CONST UID '495253870002'
+ CONST Name 'SendMailAsAttachment'
+ CONST Class class_Operation
+ %SUMMARY 'Послать по e-mail' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_4952380301A6 // File
+ ;
+ CONST "AutoFocus" false
+ CONST "AutoLock" false
+ CONST "LongProcess" false
+ CONST "ShowInContextMenu" 'undefined'
+ CONST "ShowInToolbar" 'undefined'
+ CONST "has states" false
+ CONST "is FormActivate" false
+ CONST "is query" false
+ CONST "no prefix" true
+
+ref; // ME_495253870002 SendMailAsAttachment
+
+: ME_49521D8E0295_ME_4952380301A6
+ CONST UID '49521D8E0295'
+ CONST Name 'Print'
+ : Original WL 'ME_49521D8E0295' '494F898C013E.pas.ms.script' // Print
+ ;
+ : Implementor ME_4952380301A6 // File
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "AutoFocus" false
+ CONST "AutoLock" false
+ CONST "LongProcess" false
+ CONST "ShowInContextMenu" 'undefined'
+ CONST "ShowInToolbar" 'undefined'
+ CONST "has states" false
+ CONST "is FormActivate" false
+ CONST "is query" false
+ CONST "no prefix" false
+ref; // ME_49521D8E0295_ME_4952380301A6 Print
+
+: ME_495220DE0298_ME_4952380301A6
+ CONST UID '495220DE0298'
+ CONST Name 'PrintDialog'
+ : Original WL 'ME_495220DE0298' '494F898C013E.pas.ms.script' // PrintDialog
+ ;
+ : Implementor ME_4952380301A6 // File
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "AutoFocus" false
+ CONST "AutoLock" false
+ CONST "LongProcess" false
+ CONST "ShowInContextMenu" 'undefined'
+ CONST "ShowInToolbar" 'undefined'
+ CONST "has states" false
+ CONST "is FormActivate" false
+ CONST "is query" false
+ CONST "no prefix" false
+ref; // ME_495220DE0298_ME_4952380301A6 PrintDialog
+
+: ME_495220F2033A_ME_4952380301A6
+ CONST UID '495220F2033A'
+ CONST Name 'PrintPreview'
+ : Original WL 'ME_495220F2033A' '494F898C013E.pas.ms.script' // PrintPreview
+ ;
+ : Implementor ME_4952380301A6 // File
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "AutoFocus" false
+ CONST "AutoLock" false
+ CONST "LongProcess" false
+ CONST "ShowInContextMenu" 'undefined'
+ CONST "ShowInToolbar" 'undefined'
+ CONST "has states" false
+ CONST "is FormActivate" false
+ CONST "is query" false
+ CONST "no prefix" false
+ref; // ME_495220F2033A_ME_4952380301A6 PrintPreview
+
+: ME_495235F401C0_ME_4952380301A6
+ CONST UID '495235F401C0'
+ CONST Name 'Save'
+ : Original WL 'ME_495235F401C0' '494F898C013E.pas.ms.script' // Save
+ ;
+ : Implementor ME_4952380301A6 // File
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "AutoFocus" false
+ CONST "AutoLock" false
+ CONST "LongProcess" false
+ CONST "ShowInContextMenu" 'undefined'
+ CONST "ShowInToolbar" 'undefined'
+ CONST "has states" false
+ CONST "is FormActivate" false
+ CONST "is query" false
+ CONST "no prefix" false
+ref; // ME_495235F401C0_ME_4952380301A6 Save
+
+: ME_4952380301A6
+ CONST UID '4952380301A6'
+ CONST Name 'File'
+ CONST Class class_Class
+ : Stereotype st_VCMOperations ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Файл' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_495237D80268 // F1Specific
+ ;
+ : Inherits
+   Seq: ( WL 'ME_49521D8203A0' '494F898C013E.pas.ms.script' // File
+ )
+ ; // Inherits
+ : Operations
+   Seq: ( ME_495238EB0160 // ToMSWord
+ ME_495253870002 // SendMailAsAttachment
+ )
+ ; // Operations
+ : Implemented
+   Seq: ( ME_49521D8E0295_ME_4952380301A6 // Print
+ ME_495220DE0298_ME_4952380301A6 // PrintDialog
+ ME_495220F2033A_ME_4952380301A6 // PrintPreview
+ ME_495235F401C0_ME_4952380301A6 // Save
+ )
+ ; // Implemented
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\View'
+
+ref; // ME_4952380301A6 File
+
+: ME_495237D80268
+ CONST UID '495237D80268'
+ CONST Name 'F1Specific'
+ CONST Class class_Category
+ : Stereotype st_VCMControls ;
+ %SUMMARY 'Операции, специфичные для F1' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent WL 'ME_4A7C099B004F' '4A7C099B004F.pas.ms.script' // View
+ ;
+ : Children
+   Seq: ( ME_4952380301A6 // File
+ )
+ ; // Children
+ : Depends
+   Seq: ( WL 'ME_494F898C013E' '494F898C013E.pas.ms.script' // Usual
+ )
+ ; // Depends
+ CONST "is namespace" true
+ CONST "no hands" false
+ : Generators
+ Seq: (
+ gen_intf.pas
+ gen_pas.script
+ gen_pas.script.runner
+ )
+ ; // Generators
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View'
+ CONST intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\Base_Operations_F1Specific_Controls.pas'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View'
+ CONST pas.script:Path 'shared\models\NewSchool\Scripts\495237D80268.pas.ms.script'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\495237D80268.pas.ms.script.runner'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\View'
+ CONST extprop:pas:UnitName 'Base_Operations_F1Specific_Controls'
+
+ref; // ME_495237D80268 F1Specific

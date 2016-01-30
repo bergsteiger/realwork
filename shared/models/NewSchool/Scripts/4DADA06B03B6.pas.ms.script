@@ -10,12 +10,12 @@ INCLUDE 'ElementsRTTI.ms.dict'
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
  : Children
-   @ ( WL 'ME_4B30C4D400DF' '4B30C4D400DF.pas.ms.script' // TestForms
+   Seq: ( WL 'ME_4B30C4D400DF' '4B30C4D400DF.pas.ms.script' // TestForms
  WL 'ME_4B30C5FF0172' '4B30C5FF0172.pas.ms.script' // TestFormsTest
- ) .SequenceCode.It
+ )
  ; // Children
  : Depends
-   @ ( WL 'ME_4677DDBD0193' '4677DDBD0193.pas.ms.script' // Shared Delphi
+   Seq: ( WL 'ME_4677DDBD0193' '4677DDBD0193.pas.ms.script' // Shared Delphi
  WL 'ME_49B1511700CA' '49B1511700CA.pas.ms.script' // Shared Delphi Core
  WL 'ME_4AB1071F01B0' '4AB1071F01B0.pas.ms.script' // Shared Delphi For F1
  WL 'ME_4ABCC25A0322' '4ABCC25A0322.pas.ms.script' // Shared Delphi Low Level
@@ -23,7 +23,7 @@ INCLUDE 'ElementsRTTI.ms.dict'
  WL 'ME_4B63155B0328' '4B63155B0328.pas.ms.script' // MDProcess$ForDelphi
  WL 'ME_4E5BC50E02E1' '4E5BC50E02E1.pas.ms.script' // Shared Delphi Требования к низкоуровневым библиотекам
  WL 'ME_562E251101C2' '562E251101C2.pas.ms.script' // Shared Delphi Rtl
- ) .SequenceCode.It
+ )
  ; // Depends
  CONST "Full MDP" false
  CONST "create project" true
@@ -40,16 +40,17 @@ INCLUDE 'ElementsRTTI.ms.dict'
  CONST "space key" 'SHD'
  CONST "space name" 'Shared (delphi)'
  : Generators
- @ (
- gen_forth_structure
- gen_intf.pas
+ Seq: (
  gen_pas.script
  gen_pas.script.runner
- ) .SequenceCode.It
+ )
  ; // Generators
- CONST forth_structure:Path 'shared\models\NewSchool\Shared Delphi Operations For Tests\Shared Delphi Operations For Tests.model.script'
- CONST intf.pas:Path 'common\components\gui\common Operations For Tests_prj.info'
+ CONST dfm:PathOnly '\common\components\gui'
+ CONST intf.pas:PathOnly '\common\components\gui'
  CONST pas.script:Path 'shared\models\NewSchool\Scripts\4DADA06B03B6.pas.ms.script'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
  CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\4DADA06B03B6.pas.ms.script.runner'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\common\components\gui'
 
 ref; // ME_4DADA06B03B6 Shared Delphi Operations For Tests

@@ -1,0 +1,495 @@
+// View 4A7C0A8202A9 VCMControls Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4A7C0A8202A9
+
+FORWARD ME_4A7C0AD001C5
+
+FORWARD ME_4C7BAA4800A7
+
+: ME_4C7BAA540289
+ CONST UID '4C7BAA540289'
+ CONST Name 'Hide'
+ CONST Class class_Class
+ : Stereotype st_VCMOperationState ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Скрыть комментарии ГАРАНТа' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_4C7BAA4800A7 // ShowJurorComments
+ ;
+ CONST "Checked" true
+ CONST "Enabled" 'undefined'
+ CONST "Visible" 'undefined'
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\View'
+
+ref; // ME_4C7BAA540289 Hide
+
+: ME_4C7BAA6E02D6
+ CONST UID '4C7BAA6E02D6'
+ CONST Name 'Show'
+ CONST Class class_Class
+ : Stereotype st_VCMOperationState ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Показать комментарии ГАРАНТа' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_4C7BAA4800A7 // ShowJurorComments
+ ;
+ CONST "Checked" 'undefined'
+ CONST "Enabled" 'undefined'
+ CONST "Visible" 'undefined'
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\View'
+
+ref; // ME_4C7BAA6E02D6 Show
+
+: ME_4C7BAA4800A7
+ CONST UID '4C7BAA4800A7'
+ CONST Name 'ShowJurorComments'
+ CONST Class class_Class
+ : Stereotype st_VCMOperation ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Показать/скрыть комментарии ГАРАНТа' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_4A7C0AD001C5 // Document
+ ;
+ : Children
+   Seq: ( ME_4C7BAA540289 // Hide
+ ME_4C7BAA6E02D6 // Show
+ )
+ ; // Children
+ CONST "AutoFocus" false
+ CONST "AutoLock" false
+ CONST "LongProcess" false
+ CONST "ShowInContextMenu" 'undefined'
+ CONST "ShowInToolbar" 'undefined'
+ CONST "has states" true
+ CONST "is FormActivate" false
+ CONST "is query" false
+ CONST "no prefix" false
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\View'
+
+ref; // ME_4C7BAA4800A7 ShowJurorComments
+
+FORWARD ME_4C7BAA9102F7
+
+: ME_4C7BAAA602FF
+ CONST UID '4C7BAAA602FF'
+ CONST Name 'Hide'
+ CONST Class class_Class
+ : Stereotype st_VCMOperationState ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Скрыть мои комментарии' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_4C7BAA9102F7 // ShowUserComments
+ ;
+ CONST "Checked" true
+ CONST "Enabled" 'undefined'
+ CONST "Visible" 'undefined'
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\View'
+
+ref; // ME_4C7BAAA602FF Hide
+
+: ME_4C7BAAB9025B
+ CONST UID '4C7BAAB9025B'
+ CONST Name 'Show'
+ CONST Class class_Class
+ : Stereotype st_VCMOperationState ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Показать мои комментарии' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_4C7BAA9102F7 // ShowUserComments
+ ;
+ CONST "Checked" 'undefined'
+ CONST "Enabled" 'undefined'
+ CONST "Visible" 'undefined'
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\View'
+
+ref; // ME_4C7BAAB9025B Show
+
+: ME_4C7BAA9102F7
+ CONST UID '4C7BAA9102F7'
+ CONST Name 'ShowUserComments'
+ CONST Class class_Class
+ : Stereotype st_VCMOperation ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Показать/скрыть мои комментарии' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_4A7C0AD001C5 // Document
+ ;
+ : Children
+   Seq: ( ME_4C7BAAA602FF // Hide
+ ME_4C7BAAB9025B // Show
+ )
+ ; // Children
+ CONST "AutoFocus" false
+ CONST "AutoLock" false
+ CONST "LongProcess" false
+ CONST "ShowInContextMenu" 'undefined'
+ CONST "ShowInToolbar" 'undefined'
+ CONST "has states" true
+ CONST "is FormActivate" false
+ CONST "is query" false
+ CONST "no prefix" false
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\View'
+
+ref; // ME_4C7BAA9102F7 ShowUserComments
+
+FORWARD ME_4C7BAADA039E
+
+: ME_4C7BAAFE0264
+ CONST UID '4C7BAAFE0264'
+ CONST Name 'Hide'
+ CONST Class class_Class
+ : Stereotype st_VCMOperationState ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_4C7BAADA039E // ShowTechComments
+ ;
+ CONST "Checked" true
+ CONST "Enabled" 'undefined'
+ CONST "Visible" 'undefined'
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\View'
+
+ref; // ME_4C7BAAFE0264 Hide
+
+: ME_4C7BAB0D003C
+ CONST UID '4C7BAB0D003C'
+ CONST Name 'Show'
+ CONST Class class_Class
+ : Stereotype st_VCMOperationState ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_4C7BAADA039E // ShowTechComments
+ ;
+ CONST "Checked" 'undefined'
+ CONST "Enabled" 'undefined'
+ CONST "Visible" 'undefined'
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\View'
+
+ref; // ME_4C7BAB0D003C Show
+
+: ME_4C7BAADA039E
+ CONST UID '4C7BAADA039E'
+ CONST Name 'ShowTechComments'
+ CONST Class class_Class
+ : Stereotype st_VCMOperation ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Показывать технические комментарии' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_4A7C0AD001C5 // Document
+ ;
+ : Children
+   Seq: ( ME_4C7BAAFE0264 // Hide
+ ME_4C7BAB0D003C // Show
+ )
+ ; // Children
+ CONST "AutoFocus" false
+ CONST "AutoLock" false
+ CONST "LongProcess" false
+ CONST "ShowInContextMenu" 'undefined'
+ CONST "ShowInToolbar" 'undefined'
+ CONST "has states" true
+ CONST "is FormActivate" false
+ CONST "is query" false
+ CONST "no prefix" false
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\View'
+
+ref; // ME_4C7BAADA039E ShowTechComments
+
+FORWARD ME_4C7BAC9C0105
+
+: ME_4C7BACDF0325
+ CONST UID '4C7BACDF0325'
+ CONST Name 'Hide'
+ CONST Class class_Class
+ : Stereotype st_VCMOperationState ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Выключить информацию об изменениях документа' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_4C7BAC9C0105 // ShowVersionComments
+ ;
+ CONST "Checked" true
+ CONST "Enabled" 'undefined'
+ CONST "Visible" 'undefined'
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\View'
+
+ref; // ME_4C7BACDF0325 Hide
+
+: ME_4C7BACF80144
+ CONST UID '4C7BACF80144'
+ CONST Name 'Show'
+ CONST Class class_Class
+ : Stereotype st_VCMOperationState ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Включить информацию об изменениях документа' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_4C7BAC9C0105 // ShowVersionComments
+ ;
+ CONST "Checked" 'undefined'
+ CONST "Enabled" 'undefined'
+ CONST "Visible" 'undefined'
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\View'
+
+ref; // ME_4C7BACF80144 Show
+
+: ME_4C7BAC9C0105
+ CONST UID '4C7BAC9C0105'
+ CONST Name 'ShowVersionComments'
+ CONST Class class_Class
+ : Stereotype st_VCMOperation ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Включить/выключить информацию об изменениях документа' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_4A7C0AD001C5 // Document
+ ;
+ : Children
+   Seq: ( ME_4C7BACDF0325 // Hide
+ ME_4C7BACF80144 // Show
+ )
+ ; // Children
+ CONST "AutoFocus" false
+ CONST "AutoLock" false
+ CONST "LongProcess" false
+ CONST "ShowInContextMenu" 'undefined'
+ CONST "ShowInToolbar" 'undefined'
+ CONST "has states" true
+ CONST "is FormActivate" false
+ CONST "is query" false
+ CONST "no prefix" false
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\View'
+
+ref; // ME_4C7BAC9C0105 ShowVersionComments
+
+: ME_4A7C0AFD02BA
+ CONST UID '4A7C0AFD02BA'
+ CONST Name 'ShowJurorComments'
+ CONST Class class_Operation
+ %SUMMARY 'Показать юридические комментарии' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_4A7C0AD001C5 // Document
+ ;
+ CONST "AutoFocus" false
+ CONST "AutoLock" false
+ CONST "LongProcess" false
+ CONST "ShowInContextMenu" 'undefined'
+ CONST "ShowInToolbar" 'undefined'
+ CONST "has states" true
+ CONST "is FormActivate" false
+ CONST "is query" false
+ CONST "no prefix" false
+
+ref; // ME_4A7C0AFD02BA ShowJurorComments
+
+: ME_4A7C0B1D0319
+ CONST UID '4A7C0B1D0319'
+ CONST Name 'ShowUserComments'
+ CONST Class class_Operation
+ %SUMMARY 'Показать комментарии пользователя' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_4A7C0AD001C5 // Document
+ ;
+ CONST "AutoFocus" false
+ CONST "AutoLock" false
+ CONST "LongProcess" false
+ CONST "ShowInContextMenu" 'undefined'
+ CONST "ShowInToolbar" 'undefined'
+ CONST "has states" true
+ CONST "is FormActivate" false
+ CONST "is query" false
+ CONST "no prefix" false
+
+ref; // ME_4A7C0B1D0319 ShowUserComments
+
+: ME_4A7C0B4503AB
+ CONST UID '4A7C0B4503AB'
+ CONST Name 'ShowVersionComments'
+ CONST Class class_Operation
+ %SUMMARY 'Показать информацию о версии' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_4A7C0AD001C5 // Document
+ ;
+ CONST "AutoFocus" false
+ CONST "AutoLock" false
+ CONST "LongProcess" false
+ CONST "ShowInContextMenu" 'undefined'
+ CONST "ShowInToolbar" 'undefined'
+ CONST "has states" true
+ CONST "is FormActivate" false
+ CONST "is query" false
+ CONST "no prefix" false
+
+ref; // ME_4A7C0B4503AB ShowVersionComments
+
+: ME_4A7C14810289
+ CONST UID '4A7C14810289'
+ CONST Name 'ShowCommentsGroup'
+ CONST Class class_Operation
+ %SUMMARY 'Комментарии' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_4A7C0AD001C5 // Document
+ ;
+ CONST "AutoFocus" false
+ CONST "AutoLock" false
+ CONST "LongProcess" false
+ CONST "ShowInContextMenu" 'undefined'
+ CONST "ShowInToolbar" 'undefined'
+ CONST "has states" false
+ CONST "is FormActivate" false
+ CONST "is query" false
+ CONST "no prefix" false
+
+ref; // ME_4A7C14810289 ShowCommentsGroup
+
+: ME_4A82C33A0105
+ CONST UID '4A82C33A0105'
+ CONST Name 'ShowTechComments'
+ CONST Class class_Operation
+ %SUMMARY 'Показать технические комментарии' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_4A7C0AD001C5 // Document
+ ;
+ CONST "AutoFocus" false
+ CONST "AutoLock" false
+ CONST "LongProcess" false
+ CONST "ShowInContextMenu" 'undefined'
+ CONST "ShowInToolbar" 'undefined'
+ CONST "has states" true
+ CONST "is FormActivate" false
+ CONST "is query" false
+ CONST "no prefix" false
+
+ref; // ME_4A82C33A0105 ShowTechComments
+
+: ME_4A7C0AD001C5
+ CONST UID '4A7C0AD001C5'
+ CONST Name 'Document'
+ CONST Class class_Class
+ : Stereotype st_VCMOperations ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Документ' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4A7C0A8202A9 // View
+ ;
+ : Operations
+   Seq: ( ME_4A7C0AFD02BA // ShowJurorComments
+ ME_4A7C0B1D0319 // ShowUserComments
+ ME_4A7C0B4503AB // ShowVersionComments
+ ME_4A7C14810289 // ShowCommentsGroup
+ ME_4A82C33A0105 // ShowTechComments
+ )
+ ; // Operations
+ : Children
+   Seq: ( ME_4C7BAA4800A7 // ShowJurorComments
+ ME_4C7BAA9102F7 // ShowUserComments
+ ME_4C7BAADA039E // ShowTechComments
+ ME_4C7BAC9C0105 // ShowVersionComments
+ )
+ ; // Children
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\View'
+
+ref; // ME_4A7C0AD001C5 Document
+
+: ME_4A7C0A8202A9
+ CONST UID '4A7C0A8202A9'
+ CONST Name 'View'
+ CONST Class class_Category
+ : Stereotype st_VCMControls ;
+ %SUMMARY 'Операции влияющие на визальное представление объектов системы' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent WL 'ME_4A7C099B004F' '4A7C099B004F.pas.ms.script' // View
+ ;
+ : Children
+   Seq: ( ME_4A7C0AD001C5 // Document
+ )
+ ; // Children
+ CONST "is namespace" true
+ CONST "no hands" false
+ : Generators
+ Seq: (
+ gen_intf.pas
+ gen_pas.script
+ gen_pas.script.runner
+ )
+ ; // Generators
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View'
+ CONST intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\Base_Operations_View_Controls.pas'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View'
+ CONST pas.script:Path 'shared\models\NewSchool\Scripts\4A7C0A8202A9.pas.ms.script'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\4A7C0A8202A9.pas.ms.script.runner'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\View'
+ CONST extprop:pas:UnitName 'Base_Operations_View_Controls'
+
+ref; // ME_4A7C0A8202A9 View

@@ -15,6 +15,12 @@ FORWARD ME_4CA1C4660358
  CONST Abstraction at_regular
  : Parent ME_4CA1C4660358 // orb_int
  ;
+ CONST dfm:PathOnly '\common\components\rtl\external\MTDOrb'
+ CONST intf.pas:PathOnly '\common\components\rtl\external\MTDOrb\src\orbint'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'ORB'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_4CA1C4840186 IORB
 
@@ -30,6 +36,12 @@ ref; // ME_4CA1C4840186 IORB
  : Parent ME_4CA1C4660358 // orb_int
  ;
  CONST "finished" false
+ CONST dfm:PathOnly '\common\components\rtl\external\MTDOrb'
+ CONST intf.pas:PathOnly '\common\components\rtl\external\MTDOrb\src\orbint'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'ORBObject'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_4CA1C5650080 IORBObject
 
@@ -43,23 +55,20 @@ ref; // ME_4CA1C5650080 IORBObject
  : Parent WL 'ME_4CA0BEBC011E' '4CA0BEBC011E.pas.ms.script' // MTDOrb
  ;
  : Children
-   @ ( ME_4CA1C4840186 // IORB
+   Seq: ( ME_4CA1C4840186 // IORB
  ME_4CA1C5650080 // IORBObject
- ) .SequenceCode.It
+ )
  ; // Children
  CONST "finished" false
  CONST "is namespace" true
  CONST "no hands" false
  CONST "path prefix" '/src/orbint'
- : Generators
- @ (
- gen_intf.pas
- gen_pas.script
- gen_pas.script.runner
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\external\MTDOrb'
  CONST intf.pas:Path 'common\components\rtl\external\MTDOrb\src\orbint\NOT_FINISHED_orb_int.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\external\MTDOrb\src\orbint'
  CONST pas.script:Path 'shared\models\NewSchool\Scripts\4CA1C4660358.pas.ms.script'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
  CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\4CA1C4660358.pas.ms.script.runner'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_4CA1C4660358 orb_int

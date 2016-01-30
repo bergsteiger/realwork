@@ -16,9 +16,15 @@ FORWARD ME_556F09AA036E
  : Parent ME_556F09AA036E // l3PrinterInterfaces
  ;
  : Inherits
-   @ ( WL 'ME_515581580039' '55C4AEC801CA.pas.ms.script' // TCanvas
- ) .SequenceCode.It
+   Seq: ( WL 'ME_515581580039' '55C4AEC801CA.pas.ms.script' // TCanvas
+ )
  ; // Inherits
+ CONST dfm:PathOnly '\common\components\rtl\Garant\L3'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\L3'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'Canvas'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_46A46A030333 TCanvas
 
@@ -285,8 +291,8 @@ ref; // ME_4F3691210250 DoIt
  : Parent ME_46A4657201E7 // Il3Printer
  ;
  : Operations
-   @ ( ME_4F3691210250 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_4F3691210250 // DoIt
+ )
  ; // Operations
 
 ref; // ME_4F36910C00F8 Refresh
@@ -355,11 +361,11 @@ ref; // ME_46A467690399 ADeviceMode
  : Parent ME_46A4657201E7 // Il3Printer
  ;
  : Parameters
-   @ ( ME_46A467610351 // ADevice
+   Seq: ( ME_46A467610351 // ADevice
  ME_46A46761038E // ADriver
  ME_46A4676103C0 // APort
  ME_46A467690399 // ADeviceMode
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_46A466120219 GetPrinter
@@ -414,11 +420,11 @@ ref; // ME_46A4674B006B ADeviceMode
  : Parent ME_46A4657201E7 // Il3Printer
  ;
  : Parameters
-   @ ( ME_46A4674A03A9 // ADevice
+   Seq: ( ME_46A4674A03A9 // ADevice
  ME_46A4674A03DB // ADriver
  ME_46A4674B002F // APort
  ME_46A4674B006B // ADeviceMode
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_46A4672E0127 SetPrinter
@@ -486,7 +492,7 @@ ref; // ME_49BAA14602EC Clone
  : Parent ME_556F09AA036E // l3PrinterInterfaces
  ;
  : Attributes
-   @ ( ME_46A4692C01C1 // PrinterIndex
+   Seq: ( ME_46A4692C01C1 // PrinterIndex
  ME_46A4696D021E // Title
  ME_46A469970084 // FileName
  ME_46A46C000399 // Printing
@@ -500,10 +506,10 @@ ref; // ME_49BAA14602EC Clone
  ME_46A46AF00379 // Printers
  ME_46A46B9E02CF // Orientation
  ME_4799B438008C // PaperExtent
- ) .SequenceCode.It
+ )
  ; // Attributes
  : Operations
-   @ ( ME_4F36910C00F8 // Refresh
+   Seq: ( ME_4F36910C00F8 // Refresh
  ME_46A465CD021A // HasPrinter
  ME_46A466120219 // GetPrinter
  ME_46A4672E0127 // SetPrinter
@@ -511,8 +517,14 @@ ref; // ME_49BAA14602EC Clone
  ME_46A467D703D3 // EndDoc
  ME_46A468010301 // NewPage
  ME_49BAA14602EC // Clone
- ) .SequenceCode.It
+ )
  ; // Operations
+ CONST dfm:PathOnly '\common\components\rtl\Garant\L3'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\L3'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'Printer'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_46A4657201E7 Il3Printer
 
@@ -526,26 +538,23 @@ ref; // ME_46A4657201E7 Il3Printer
  : Parent WL 'ME_4E2F0E1B03BB' '4E2F0E1B03BB.pas.ms.script' // L3$Domain
  ;
  : Children
-   @ ( ME_46A46A030333 // TCanvas
+   Seq: ( ME_46A46A030333 // TCanvas
  ME_46A4657201E7 // Il3Printer
- ) .SequenceCode.It
+ )
  ; // Children
  : Depends
-   @ ( WL 'ME_4677FBA70343' '4677FBA70343.pas.ms.script' // l3Interfaces
+   Seq: ( WL 'ME_4677FBA70343' '4677FBA70343.pas.ms.script' // l3Interfaces
  WL 'ME_46A5E026007E' '46A5E026007E.pas.ms.script' // l3Core
- ) .SequenceCode.It
+ )
  ; // Depends
  CONST "is namespace" true
  CONST "no hands" false
- : Generators
- @ (
- gen_intf.pas
- gen_pas.script
- gen_pas.script.runner
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\L3'
  CONST intf.pas:Path 'common\components\rtl\Garant\L3\l3PrinterInterfaces.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\L3'
  CONST pas.script:Path 'shared\models\NewSchool\Scripts\556F09AA036E.pas.ms.script'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
  CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\556F09AA036E.pas.ms.script.runner'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_556F09AA036E l3PrinterInterfaces

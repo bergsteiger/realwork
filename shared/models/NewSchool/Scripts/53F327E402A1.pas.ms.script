@@ -1,0 +1,1489 @@
+// Требования к созданию и редактированию документа 53F327E402A1 UseCases Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_53F327E402A1
+
+FORWARD ME_53F328B0007F
+
+FORWARD ME_53F32AF20252
+
+FORWARD ME_53F32B410247
+
+: ME_540FFE770326
+ CONST UID '540FFE770326'
+ CONST Name 'Импорт текста в кодировке MS DOS (CP-866)'
+ CONST Class class_Class
+ : Stereotype st_UseCaseRequirement ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Текст в DOS (Code Page 866) должен читаться в Архивариусе корректно.' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_53F32B410247 // Создание документа на основе файла txt
+ ;
+ CONST dfm:PathOnly '\archi\source\projects\Archi'
+ CONST intf.pas:PathOnly '\archi\source\projects\Archi'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\archi\source\projects\Archi'
+
+ref; // ME_540FFE770326 Импорт текста в кодировке MS DOS (CP-866)
+
+: ME_540FFEBE0065
+ CONST UID '540FFEBE0065'
+ CONST Name 'Импорт текста в кодировке Windows (CP-1251)'
+ CONST Class class_Class
+ : Stereotype st_UseCaseRequirement ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Текст в Windows (Code Page 1251) должен читаться в Архивариусе корректно.' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_53F32B410247 // Создание документа на основе файла txt
+ ;
+ CONST dfm:PathOnly '\archi\source\projects\Archi'
+ CONST intf.pas:PathOnly '\archi\source\projects\Archi'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\archi\source\projects\Archi'
+
+ref; // ME_540FFEBE0065 Импорт текста в кодировке Windows (CP-1251)
+
+: ME_540FFEDE03C0
+ CONST UID '540FFEDE03C0'
+ CONST Name 'Импорт текстовых таблиц в MS DOS кодировке (CP-866)'
+ CONST Class class_Class
+ : Stereotype st_UseCaseRequirement ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Текствые таблицы в DOS (Code Page 866) должен читаться в Архивариусе корректно.' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_53F32B410247 // Создание документа на основе файла txt
+ ;
+ CONST dfm:PathOnly '\archi\source\projects\Archi'
+ CONST intf.pas:PathOnly '\archi\source\projects\Archi'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\archi\source\projects\Archi'
+
+ref; // ME_540FFEDE03C0 Импорт текстовых таблиц в MS DOS кодировке (CP-866)
+
+: ME_53F32B410247
+ CONST UID '53F32B410247'
+ CONST Name 'Создание документа на основе файла txt'
+ CONST Class class_Class
+ : Stereotype st_UseCaseRequirement ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_53F32AF20252 // Создание текстовых документов
+ ;
+ : Children
+   Seq: ( ME_540FFE770326 // Импорт текста в кодировке MS DOS (CP-866)
+ ME_540FFEBE0065 // Импорт текста в кодировке Windows (CP-1251)
+ ME_540FFEDE03C0 // Импорт текстовых таблиц в MS DOS кодировке (CP-866)
+ )
+ ; // Children
+ CONST dfm:PathOnly '\archi\source\projects\Archi'
+ CONST intf.pas:PathOnly '\archi\source\projects\Archi'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\archi\source\projects\Archi'
+
+ref; // ME_53F32B410247 Создание документа на основе файла txt
+
+FORWARD ME_53F32B620174
+
+: ME_54112A5603C8
+ CONST UID '54112A5603C8'
+ CONST Name 'Чтение заголовков'
+ CONST Class class_Class
+ : Stereotype st_UseCaseRequirement ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Стиль заголовков не читается из RTF. http://mdp.garant.ru/pages/viewpage.action?pageId=149784104&focusedCommentId=155027765#comment-155027765' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_53F32B620174 // Создание документа на основе файла rtf
+ ;
+ CONST dfm:PathOnly '\archi\source\projects\Archi'
+ CONST intf.pas:PathOnly '\archi\source\projects\Archi'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\archi\source\projects\Archi'
+
+ref; // ME_54112A5603C8 Чтение заголовков
+
+: ME_54112AE5031C
+ CONST UID '54112AE5031C'
+ CONST Name 'Чтение стилей'
+ CONST Class class_Class
+ : Stereotype st_UseCaseRequirement ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Все стили игнорирются' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_53F32B620174 // Создание документа на основе файла rtf
+ ;
+ CONST dfm:PathOnly '\archi\source\projects\Archi'
+ CONST intf.pas:PathOnly '\archi\source\projects\Archi'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\archi\source\projects\Archi'
+
+ref; // ME_54112AE5031C Чтение стилей
+
+: ME_54112B1E009E
+ CONST UID '54112B1E009E'
+ CONST Name 'Чтение шрифтового оформления текста'
+ CONST Class class_Class
+ : Stereotype st_UseCaseRequirement ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Выделение жирным, подчеркивание, курсив, размер и имя шрифта, зачеркивание, цвет шрифта, цвет фона игнорируются при чтении файла из RTF' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_53F32B620174 // Создание документа на основе файла rtf
+ ;
+ CONST dfm:PathOnly '\archi\source\projects\Archi'
+ CONST intf.pas:PathOnly '\archi\source\projects\Archi'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\archi\source\projects\Archi'
+
+ref; // ME_54112B1E009E Чтение шрифтового оформления текста
+
+: ME_5411312301FB
+ CONST UID '5411312301FB'
+ CONST Name 'Чтение RTF с картинками PNG'
+ CONST Class class_Class
+ : Stereotype st_UseCaseRequirement ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Чтение файлов RTF с картинками PNG внутри' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_53F32B620174 // Создание документа на основе файла rtf
+ ;
+ CONST dfm:PathOnly '\archi\source\projects\Archi'
+ CONST intf.pas:PathOnly '\archi\source\projects\Archi'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\archi\source\projects\Archi'
+
+ref; // ME_5411312301FB Чтение RTF с картинками PNG
+
+: ME_541131D20320
+ CONST UID '541131D20320'
+ CONST Name 'Чтение RTF с JPEG'
+ CONST Class class_Class
+ : Stereotype st_UseCaseRequirement ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Чтение файла RTF с картинкой JPEG внутри.' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_53F32B620174 // Создание документа на основе файла rtf
+ ;
+ CONST dfm:PathOnly '\archi\source\projects\Archi'
+ CONST intf.pas:PathOnly '\archi\source\projects\Archi'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\archi\source\projects\Archi'
+
+ref; // ME_541131D20320 Чтение RTF с JPEG
+
+: ME_5411321D0168
+ CONST UID '5411321D0168'
+ CONST Name 'Чтение RTF с BMP'
+ CONST Class class_Class
+ : Stereotype st_UseCaseRequirement ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Чтение файлов RTF с картинками PNG внутри' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_53F32B620174 // Создание документа на основе файла rtf
+ ;
+ CONST dfm:PathOnly '\archi\source\projects\Archi'
+ CONST intf.pas:PathOnly '\archi\source\projects\Archi'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\archi\source\projects\Archi'
+
+ref; // ME_5411321D0168 Чтение RTF с BMP
+
+FORWARD ME_541A76730230
+
+: ME_541A76AB0193
+ CONST UID '541A76AB0193'
+ CONST Name 'Чтение простых таблиц'
+ CONST Class class_Class
+ : Stereotype st_UseCaseRequirement ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_541A76730230 // Чтение таблиц
+ ;
+ CONST dfm:PathOnly '\archi\source\projects\Archi'
+ CONST intf.pas:PathOnly '\archi\source\projects\Archi'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\archi\source\projects\Archi'
+
+ref; // ME_541A76AB0193 Чтение простых таблиц
+
+: ME_541A76BA0078
+ CONST UID '541A76BA0078'
+ CONST Name 'Чтение таблиц с объедиенными ячейками'
+ CONST Class class_Class
+ : Stereotype st_UseCaseRequirement ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Возможность читать ячейки, объединенные по вертикали и горизонтали.' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_541A76730230 // Чтение таблиц
+ ;
+ CONST dfm:PathOnly '\archi\source\projects\Archi'
+ CONST intf.pas:PathOnly '\archi\source\projects\Archi'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\archi\source\projects\Archi'
+
+ref; // ME_541A76BA0078 Чтение таблиц с объедиенными ячейками
+
+: ME_541A76DF02AD
+ CONST UID '541A76DF02AD'
+ CONST Name 'Чтение вложенных таблиц'
+ CONST Class class_Class
+ : Stereotype st_UseCaseRequirement ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_541A76730230 // Чтение таблиц
+ ;
+ CONST dfm:PathOnly '\archi\source\projects\Archi'
+ CONST intf.pas:PathOnly '\archi\source\projects\Archi'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\archi\source\projects\Archi'
+
+ref; // ME_541A76DF02AD Чтение вложенных таблиц
+
+: ME_541A775402EA
+ CONST UID '541A775402EA'
+ CONST Name 'Чтение рамок таблиц'
+ CONST Class class_Class
+ : Stereotype st_UseCaseRequirement ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_541A76730230 // Чтение таблиц
+ ;
+ CONST dfm:PathOnly '\archi\source\projects\Archi'
+ CONST intf.pas:PathOnly '\archi\source\projects\Archi'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\archi\source\projects\Archi'
+
+ref; // ME_541A775402EA Чтение рамок таблиц
+
+: ME_541A792B0344
+ CONST UID '541A792B0344'
+ CONST Name 'Чтение выравнивания текста в таблице'
+ CONST Class class_Class
+ : Stereotype st_UseCaseRequirement ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_541A76730230 // Чтение таблиц
+ ;
+ CONST dfm:PathOnly '\archi\source\projects\Archi'
+ CONST intf.pas:PathOnly '\archi\source\projects\Archi'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\archi\source\projects\Archi'
+
+ref; // ME_541A792B0344 Чтение выравнивания текста в таблице
+
+: ME_541A7A3B0054
+ CONST UID '541A7A3B0054'
+ CONST Name 'Чтения выравнивания по точке'
+ CONST Class class_Class
+ : Stereotype st_UseCaseRequirement ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Из RTF импортируется выравнивание по точке' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_541A76730230 // Чтение таблиц
+ ;
+ CONST dfm:PathOnly '\archi\source\projects\Archi'
+ CONST intf.pas:PathOnly '\archi\source\projects\Archi'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\archi\source\projects\Archi'
+
+ref; // ME_541A7A3B0054 Чтения выравнивания по точке
+
+: ME_541A76730230
+ CONST UID '541A76730230'
+ CONST Name 'Чтение таблиц'
+ CONST Class class_Class
+ : Stereotype st_UseCaseRequirement ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Возможность чтения таблиц из RTF' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_53F32B620174 // Создание документа на основе файла rtf
+ ;
+ : Children
+   Seq: ( ME_541A76AB0193 // Чтение простых таблиц
+ ME_541A76BA0078 // Чтение таблиц с объедиенными ячейками
+ ME_541A76DF02AD // Чтение вложенных таблиц
+ ME_541A775402EA // Чтение рамок таблиц
+ ME_541A792B0344 // Чтение выравнивания текста в таблице
+ ME_541A7A3B0054 // Чтения выравнивания по точке
+ )
+ ; // Children
+ CONST dfm:PathOnly '\archi\source\projects\Archi'
+ CONST intf.pas:PathOnly '\archi\source\projects\Archi'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\archi\source\projects\Archi'
+
+ref; // ME_541A76730230 Чтение таблиц
+
+: ME_541A7B1002EE
+ CONST UID '541A7B1002EE'
+ CONST Name 'Разрывы разделов'
+ CONST Class class_Class
+ : Stereotype st_UseCaseRequirement ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'При импорте из RTF разрывы разделов игнорируются' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_53F32B620174 // Создание документа на основе файла rtf
+ ;
+ CONST dfm:PathOnly '\archi\source\projects\Archi'
+ CONST intf.pas:PathOnly '\archi\source\projects\Archi'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\archi\source\projects\Archi'
+
+ref; // ME_541A7B1002EE Разрывы разделов
+
+: ME_542414E903CD
+ CONST UID '542414E903CD'
+ CONST Name 'Импорт списков из RTF'
+ CONST Class class_Class
+ : Stereotype st_UseCaseRequirement ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Возможность читать списки с маркерами и номерами из файла RTF'#13#10'{Requestlink:88082837} и {Requestlink:89106434}' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_53F32B620174 // Создание документа на основе файла rtf
+ ;
+ CONST dfm:PathOnly '\archi\source\projects\Archi'
+ CONST intf.pas:PathOnly '\archi\source\projects\Archi'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\archi\source\projects\Archi'
+
+ref; // ME_542414E903CD Импорт списков из RTF
+
+: ME_542415090051
+ CONST UID '542415090051'
+ CONST Name 'Импорт многоуровневых списков из RTF'
+ CONST Class class_Class
+ : Stereotype st_UseCaseRequirement ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Возможность читать многоуровневые списки из файла RTF'#13#10'{Requestlink:88082837} и {Requestlink:89106434}' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_53F32B620174 // Создание документа на основе файла rtf
+ ;
+ CONST dfm:PathOnly '\archi\source\projects\Archi'
+ CONST intf.pas:PathOnly '\archi\source\projects\Archi'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\archi\source\projects\Archi'
+
+ref; // ME_542415090051 Импорт многоуровневых списков из RTF
+
+: ME_5424157C016E
+ CONST UID '5424157C016E'
+ CONST Name 'Импорт сносок из RTF'
+ CONST Class class_Class
+ : Stereotype st_UseCaseRequirement ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Возможность читать сноски из RTF. {Requestlink:88082837} и {Requestlink:89106434}' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_53F32B620174 // Создание документа на основе файла rtf
+ ;
+ CONST dfm:PathOnly '\archi\source\projects\Archi'
+ CONST intf.pas:PathOnly '\archi\source\projects\Archi'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\archi\source\projects\Archi'
+
+ref; // ME_5424157C016E Импорт сносок из RTF
+
+: ME_54241759019E
+ CONST UID '54241759019E'
+ CONST Name 'Импорт гиперссылок из RTF'
+ CONST Class class_Class
+ : Stereotype st_UseCaseRequirement ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Импорт гиперссылок при чтении файла RTF' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_53F32B620174 // Создание документа на основе файла rtf
+ ;
+ CONST dfm:PathOnly '\archi\source\projects\Archi'
+ CONST intf.pas:PathOnly '\archi\source\projects\Archi'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\archi\source\projects\Archi'
+
+ref; // ME_54241759019E Импорт гиперссылок из RTF
+
+: ME_542E8F57009E
+ CONST UID '542E8F57009E'
+ CONST Name 'Импорт стилей Гаранта'
+ CONST Class class_Class
+ : Stereotype st_UseCaseRequirement ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Архивариус читает стили вылитые в RTF с помощью F1 (или самого себя).' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_53F32B620174 // Создание документа на основе файла rtf
+ ;
+ CONST dfm:PathOnly '\archi\source\projects\Archi'
+ CONST intf.pas:PathOnly '\archi\source\projects\Archi'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\archi\source\projects\Archi'
+
+ref; // ME_542E8F57009E Импорт стилей Гаранта
+
+: ME_54113176000F
+ CONST UID '54113176000F'
+ CONST Name 'Чтение RTF с WMF'
+ CONST Class class_Class
+ : Stereotype st_UseCaseRequirement ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Воможность читать файлы RTF с WMF-картинкой внутри.' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_53F32B620174 // Создание документа на основе файла rtf
+ ;
+ CONST dfm:PathOnly '\archi\source\projects\Archi'
+ CONST intf.pas:PathOnly '\archi\source\projects\Archi'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\archi\source\projects\Archi'
+
+ref; // ME_54113176000F Чтение RTF с WMF
+
+: ME_5411319D000A
+ CONST UID '5411319D000A'
+ CONST Name 'Чтение RTF с EMF'
+ CONST Class class_Class
+ : Stereotype st_UseCaseRequirement ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Воможность читать файлы RTF с картинкой формата EMF' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_53F32B620174 // Создание документа на основе файла rtf
+ ;
+ CONST dfm:PathOnly '\archi\source\projects\Archi'
+ CONST intf.pas:PathOnly '\archi\source\projects\Archi'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\archi\source\projects\Archi'
+
+ref; // ME_5411319D000A Чтение RTF с EMF
+
+: ME_53F32B620174
+ CONST UID '53F32B620174'
+ CONST Name 'Создание документа на основе файла rtf'
+ CONST Class class_Class
+ : Stereotype st_UseCaseRequirement ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_53F32AF20252 // Создание текстовых документов
+ ;
+ : Children
+   Seq: ( ME_54112A5603C8 // Чтение заголовков
+ ME_54112AE5031C // Чтение стилей
+ ME_54112B1E009E // Чтение шрифтового оформления текста
+ ME_5411312301FB // Чтение RTF с картинками PNG
+ ME_541131D20320 // Чтение RTF с JPEG
+ ME_5411321D0168 // Чтение RTF с BMP
+ ME_541A76730230 // Чтение таблиц
+ ME_541A7B1002EE // Разрывы разделов
+ ME_542414E903CD // Импорт списков из RTF
+ ME_542415090051 // Импорт многоуровневых списков из RTF
+ ME_5424157C016E // Импорт сносок из RTF
+ ME_54241759019E // Импорт гиперссылок из RTF
+ ME_542E8F57009E // Импорт стилей Гаранта
+ ME_54113176000F // Чтение RTF с WMF
+ ME_5411319D000A // Чтение RTF с EMF
+ )
+ ; // Children
+ CONST dfm:PathOnly '\archi\source\projects\Archi'
+ CONST intf.pas:PathOnly '\archi\source\projects\Archi'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\archi\source\projects\Archi'
+
+ref; // ME_53F32B620174 Создание документа на основе файла rtf
+
+: ME_53F32B7800C8
+ CONST UID '53F32B7800C8'
+ CONST Name 'Создание файла на основе doc'
+ CONST Class class_Class
+ : Stereotype st_UseCaseRequirement ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_53F32AF20252 // Создание текстовых документов
+ ;
+ CONST dfm:PathOnly '\archi\source\projects\Archi'
+ CONST intf.pas:PathOnly '\archi\source\projects\Archi'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\archi\source\projects\Archi'
+
+ref; // ME_53F32B7800C8 Создание файла на основе doc
+
+: ME_53F32BC2022D
+ CONST UID '53F32BC2022D'
+ CONST Name 'Создание файла на основе evd'
+ CONST Class class_Class
+ : Stereotype st_UseCaseRequirement ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_53F32AF20252 // Создание текстовых документов
+ ;
+ CONST dfm:PathOnly '\archi\source\projects\Archi'
+ CONST intf.pas:PathOnly '\archi\source\projects\Archi'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\archi\source\projects\Archi'
+
+ref; // ME_53F32BC2022D Создание файла на основе evd
+
+: ME_53F32BD70067
+ CONST UID '53F32BD70067'
+ CONST Name 'Создание файла на осное nsrc'
+ CONST Class class_Class
+ : Stereotype st_UseCaseRequirement ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_53F32AF20252 // Создание текстовых документов
+ ;
+ CONST dfm:PathOnly '\archi\source\projects\Archi'
+ CONST intf.pas:PathOnly '\archi\source\projects\Archi'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\archi\source\projects\Archi'
+
+ref; // ME_53F32BD70067 Создание файла на осное nsrc
+
+: ME_53F32C4E0379
+ CONST UID '53F32C4E0379'
+ CONST Name 'Создание документа на основе docx'
+ CONST Class class_Class
+ : Stereotype st_UseCaseRequirement ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'В документации не упоминается, но есть "прецендент" - {Requestlink:437125222}' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_53F32AF20252 // Создание текстовых документов
+ ;
+ CONST dfm:PathOnly '\archi\source\projects\Archi'
+ CONST intf.pas:PathOnly '\archi\source\projects\Archi'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\archi\source\projects\Archi'
+
+ref; // ME_53F32C4E0379 Создание документа на основе docx
+
+: ME_53F32AF20252
+ CONST UID '53F32AF20252'
+ CONST Name 'Создание текстовых документов'
+ CONST Class class_Class
+ : Stereotype st_UseCase ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_53F328B0007F // Создание нового документа
+ ;
+ : Children
+   Seq: ( ME_53F32B410247 // Создание документа на основе файла txt
+ ME_53F32B620174 // Создание документа на основе файла rtf
+ ME_53F32B7800C8 // Создание файла на основе doc
+ ME_53F32BC2022D // Создание файла на основе evd
+ ME_53F32BD70067 // Создание файла на осное nsrc
+ ME_53F32C4E0379 // Создание документа на основе docx
+ )
+ ; // Children
+ CONST dfm:PathOnly '\archi\source\projects\Archi'
+ CONST intf.pas:PathOnly '\archi\source\projects\Archi'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\archi\source\projects\Archi'
+
+ref; // ME_53F32AF20252 Создание текстовых документов
+
+FORWARD ME_53F32B070049
+
+: ME_53F32C2B0360
+ CONST UID '53F32C2B0360'
+ CONST Name 'Создание документа-объекта на основе BMP'
+ CONST Class class_Class
+ : Stereotype st_UseCaseRequirement ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_53F32B070049 // Создание документов-объектов
+ ;
+ CONST dfm:PathOnly '\archi\source\projects\Archi'
+ CONST intf.pas:PathOnly '\archi\source\projects\Archi'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\archi\source\projects\Archi'
+
+ref; // ME_53F32C2B0360 Создание документа-объекта на основе BMP
+
+: ME_53F330B3028B
+ CONST UID '53F330B3028B'
+ CONST Name 'Создание документа-объекта на основе jpg'
+ CONST Class class_Class
+ : Stereotype st_UseCaseRequirement ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_53F32B070049 // Создание документов-объектов
+ ;
+ CONST dfm:PathOnly '\archi\source\projects\Archi'
+ CONST intf.pas:PathOnly '\archi\source\projects\Archi'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\archi\source\projects\Archi'
+
+ref; // ME_53F330B3028B Создание документа-объекта на основе jpg
+
+: ME_53F330D20290
+ CONST UID '53F330D20290'
+ CONST Name 'Создание документа-объекта на основе txt'
+ CONST Class class_Class
+ : Stereotype st_UseCaseRequirement ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_53F32B070049 // Создание документов-объектов
+ ;
+ CONST dfm:PathOnly '\archi\source\projects\Archi'
+ CONST intf.pas:PathOnly '\archi\source\projects\Archi'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\archi\source\projects\Archi'
+
+ref; // ME_53F330D20290 Создание документа-объекта на основе txt
+
+: ME_53F330ED0068
+ CONST UID '53F330ED0068'
+ CONST Name 'Создание документа-обекта на основе rtf'
+ CONST Class class_Class
+ : Stereotype st_UseCaseRequirement ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_53F32B070049 // Создание документов-объектов
+ ;
+ CONST dfm:PathOnly '\archi\source\projects\Archi'
+ CONST intf.pas:PathOnly '\archi\source\projects\Archi'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\archi\source\projects\Archi'
+
+ref; // ME_53F330ED0068 Создание документа-обекта на основе rtf
+
+: ME_53F331070085
+ CONST UID '53F331070085'
+ CONST Name 'Создание документа-объекта на основе doc'
+ CONST Class class_Class
+ : Stereotype st_UseCaseRequirement ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_53F32B070049 // Создание документов-объектов
+ ;
+ CONST dfm:PathOnly '\archi\source\projects\Archi'
+ CONST intf.pas:PathOnly '\archi\source\projects\Archi'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\archi\source\projects\Archi'
+
+ref; // ME_53F331070085 Создание документа-объекта на основе doc
+
+: ME_53F332AE03DB
+ CONST UID '53F332AE03DB'
+ CONST Name 'Создание документа-объекта на основе pdf'
+ CONST Class class_Class
+ : Stereotype st_UseCaseRequirement ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'В документации не упоминается, но есть запрос: {Requestlink:401515832}' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_53F32B070049 // Создание документов-объектов
+ ;
+ CONST dfm:PathOnly '\archi\source\projects\Archi'
+ CONST intf.pas:PathOnly '\archi\source\projects\Archi'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\archi\source\projects\Archi'
+
+ref; // ME_53F332AE03DB Создание документа-объекта на основе pdf
+
+: ME_53F3362701E2
+ CONST UID '53F3362701E2'
+ CONST Name 'Создание документа-объекта на основе tiff'
+ CONST Class class_Class
+ : Stereotype st_UseCaseRequirement ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'В документации не упоминается, но есть запрос: {Requestlink:516165596}' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_53F32B070049 // Создание документов-объектов
+ ;
+ CONST dfm:PathOnly '\archi\source\projects\Archi'
+ CONST intf.pas:PathOnly '\archi\source\projects\Archi'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\archi\source\projects\Archi'
+
+ref; // ME_53F3362701E2 Создание документа-объекта на основе tiff
+
+: ME_53F338B50231
+ CONST UID '53F338B50231'
+ CONST Name 'Создание документа-объкта из PNG'
+ CONST Class class_Class
+ : Stereotype st_UseCaseRequirement ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'В документации не упоминается, но есть запрос: {Requestlink:224788955} и {Requestlink:85721219}' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_53F32B070049 // Создание документов-объектов
+ ;
+ CONST dfm:PathOnly '\archi\source\projects\Archi'
+ CONST intf.pas:PathOnly '\archi\source\projects\Archi'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\archi\source\projects\Archi'
+
+ref; // ME_53F338B50231 Создание документа-объкта из PNG
+
+: ME_53F32B070049
+ CONST UID '53F32B070049'
+ CONST Name 'Создание документов-объектов'
+ CONST Class class_Class
+ : Stereotype st_UseCase ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_53F328B0007F // Создание нового документа
+ ;
+ : Children
+   Seq: ( ME_53F32C2B0360 // Создание документа-объекта на основе BMP
+ ME_53F330B3028B // Создание документа-объекта на основе jpg
+ ME_53F330D20290 // Создание документа-объекта на основе txt
+ ME_53F330ED0068 // Создание документа-обекта на основе rtf
+ ME_53F331070085 // Создание документа-объекта на основе doc
+ ME_53F332AE03DB // Создание документа-объекта на основе pdf
+ ME_53F3362701E2 // Создание документа-объекта на основе tiff
+ ME_53F338B50231 // Создание документа-объкта из PNG
+ )
+ ; // Children
+ CONST dfm:PathOnly '\archi\source\projects\Archi'
+ CONST intf.pas:PathOnly '\archi\source\projects\Archi'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\archi\source\projects\Archi'
+
+ref; // ME_53F32B070049 Создание документов-объектов
+
+: ME_53F33C7A0062
+ CONST UID '53F33C7A0062'
+ CONST Name 'Возможность задания номера документа при его создании'
+ CONST Class class_Class
+ : Stereotype st_UseCaseRequirement ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_53F328B0007F // Создание нового документа
+ ;
+ CONST dfm:PathOnly '\archi\source\projects\Archi'
+ CONST intf.pas:PathOnly '\archi\source\projects\Archi'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\archi\source\projects\Archi'
+
+ref; // ME_53F33C7A0062 Возможность задания номера документа при его создании
+
+: ME_53F33CBD00F0
+ CONST UID '53F33CBD00F0'
+ CONST Name 'Возможность создания документа без номера'
+ CONST Class class_Class
+ : Stereotype st_UseCaseRequirement ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_53F328B0007F // Создание нового документа
+ ;
+ CONST dfm:PathOnly '\archi\source\projects\Archi'
+ CONST intf.pas:PathOnly '\archi\source\projects\Archi'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\archi\source\projects\Archi'
+
+ref; // ME_53F33CBD00F0 Возможность создания документа без номера
+
+: ME_53F33CCE0386
+ CONST UID '53F33CCE0386'
+ CONST Name 'Возможность задания названия документа'
+ CONST Class class_Class
+ : Stereotype st_UseCaseRequirement ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_53F328B0007F // Создание нового документа
+ ;
+ CONST dfm:PathOnly '\archi\source\projects\Archi'
+ CONST intf.pas:PathOnly '\archi\source\projects\Archi'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\archi\source\projects\Archi'
+
+ref; // ME_53F33CCE0386 Возможность задания названия документа
+
+: ME_53F33D00019B
+ CONST UID '53F33D00019B'
+ CONST Name 'Возможность создания документа без названия'
+ CONST Class class_Class
+ : Stereotype st_UseCaseRequirement ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_53F328B0007F // Создание нового документа
+ ;
+ CONST dfm:PathOnly '\archi\source\projects\Archi'
+ CONST intf.pas:PathOnly '\archi\source\projects\Archi'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\archi\source\projects\Archi'
+
+ref; // ME_53F33D00019B Возможность создания документа без названия
+
+: ME_53F33D9E025F
+ CONST UID '53F33D9E025F'
+ CONST Name 'Автоматический анализ заголовка'
+ CONST Class class_Class
+ : Stereotype st_UseCase ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_53F328B0007F // Создание нового документа
+ ;
+ CONST dfm:PathOnly '\archi\source\projects\Archi'
+ CONST intf.pas:PathOnly '\archi\source\projects\Archi'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\archi\source\projects\Archi'
+
+ref; // ME_53F33D9E025F Автоматический анализ заголовка
+
+: ME_53F33DB801B6
+ CONST UID '53F33DB801B6'
+ CONST Name 'Создание словарной статьи'
+ CONST Class class_Class
+ : Stereotype st_UseCase ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_53F328B0007F // Создание нового документа
+ ;
+ CONST dfm:PathOnly '\archi\source\projects\Archi'
+ CONST intf.pas:PathOnly '\archi\source\projects\Archi'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\archi\source\projects\Archi'
+
+ref; // ME_53F33DB801B6 Создание словарной статьи
+
+: ME_53F33DFF033B
+ CONST UID '53F33DFF033B'
+ CONST Name 'Импорт документов'
+ CONST Class class_Class
+ : Stereotype st_UseCase ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_53F328B0007F // Создание нового документа
+ ;
+ CONST dfm:PathOnly '\archi\source\projects\Archi'
+ CONST intf.pas:PathOnly '\archi\source\projects\Archi'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\archi\source\projects\Archi'
+
+ref; // ME_53F33DFF033B Импорт документов
+
+: ME_53F328B0007F
+ CONST UID '53F328B0007F'
+ CONST Name 'Создание нового документа'
+ CONST Class class_Class
+ : Stereotype st_UseCase ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_53F327E402A1 // Требования к созданию и редактированию документа
+ ;
+ : Children
+   Seq: ( ME_53F32AF20252 // Создание текстовых документов
+ ME_53F32B070049 // Создание документов-объектов
+ ME_53F33C7A0062 // Возможность задания номера документа при его создании
+ ME_53F33CBD00F0 // Возможность создания документа без номера
+ ME_53F33CCE0386 // Возможность задания названия документа
+ ME_53F33D00019B // Возможность создания документа без названия
+ ME_53F33D9E025F // Автоматический анализ заголовка
+ ME_53F33DB801B6 // Создание словарной статьи
+ ME_53F33DFF033B // Импорт документов
+ )
+ ; // Children
+ CONST dfm:PathOnly '\archi\source\projects\Archi'
+ CONST intf.pas:PathOnly '\archi\source\projects\Archi'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\archi\source\projects\Archi'
+
+ref; // ME_53F328B0007F Создание нового документа
+
+FORWARD ME_551121E4029E
+
+FORWARD ME_551122A90004
+
+FORWARD ME_551123420171
+
+: ME_5511235903E4
+ CONST UID '5511235903E4'
+ CONST Name 'Преобразование текста в верхний регистр'
+ CONST Class class_Class
+ : Stereotype st_UseCaseRequirement ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_551123420171 // Дополнительные преобразования
+ ;
+ CONST dfm:PathOnly '\archi\source\projects\Archi'
+ CONST intf.pas:PathOnly '\archi\source\projects\Archi'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\archi\source\projects\Archi'
+
+ref; // ME_5511235903E4 Преобразование текста в верхний регистр
+
+FORWARD ME_5511236801FE
+
+: ME_5511245D0018
+ CONST UID '5511245D0018'
+ CONST Name 'Преобразование всего текста'
+ CONST Class class_Class
+ : Stereotype st_UseCaseRequirement ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_5511236801FE // Преобразование текста в нижний регистр
+ ;
+ CONST dfm:PathOnly '\archi\source\projects\Archi'
+ CONST intf.pas:PathOnly '\archi\source\projects\Archi'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\archi\source\projects\Archi'
+
+ref; // ME_5511245D0018 Преобразование всего текста
+
+: ME_5511246D0083
+ CONST UID '5511246D0083'
+ CONST Name 'Оставлять первую букву заглваной'
+ CONST Class class_Class
+ : Stereotype st_UseCaseRequirement ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_5511236801FE // Преобразование текста в нижний регистр
+ ;
+ CONST dfm:PathOnly '\archi\source\projects\Archi'
+ CONST intf.pas:PathOnly '\archi\source\projects\Archi'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\archi\source\projects\Archi'
+
+ref; // ME_5511246D0083 Оставлять первую букву заглваной
+
+: ME_5511236801FE
+ CONST UID '5511236801FE'
+ CONST Name 'Преобразование текста в нижний регистр'
+ CONST Class class_Class
+ : Stereotype st_UseCaseRequirement ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_551123420171 // Дополнительные преобразования
+ ;
+ : Children
+   Seq: ( ME_5511245D0018 // Преобразование всего текста
+ ME_5511246D0083 // Оставлять первую букву заглваной
+ )
+ ; // Children
+ CONST dfm:PathOnly '\archi\source\projects\Archi'
+ CONST intf.pas:PathOnly '\archi\source\projects\Archi'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\archi\source\projects\Archi'
+
+ref; // ME_5511236801FE Преобразование текста в нижний регистр
+
+: ME_5511237602FC
+ CONST UID '5511237602FC'
+ CONST Name 'Русская раскладка'
+ CONST Class class_Class
+ : Stereotype st_UseCaseRequirement ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_551123420171 // Дополнительные преобразования
+ ;
+ CONST dfm:PathOnly '\archi\source\projects\Archi'
+ CONST intf.pas:PathOnly '\archi\source\projects\Archi'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\archi\source\projects\Archi'
+
+ref; // ME_5511237602FC Русская раскладка
+
+: ME_551123960070
+ CONST UID '551123960070'
+ CONST Name 'Английская раскладка'
+ CONST Class class_Class
+ : Stereotype st_UseCaseRequirement ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_551123420171 // Дополнительные преобразования
+ ;
+ CONST dfm:PathOnly '\archi\source\projects\Archi'
+ CONST intf.pas:PathOnly '\archi\source\projects\Archi'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\archi\source\projects\Archi'
+
+ref; // ME_551123960070 Английская раскладка
+
+: ME_551123A30343
+ CONST UID '551123A30343'
+ CONST Name 'Преобразование даты в текст'
+ CONST Class class_Class
+ : Stereotype st_UseCaseRequirement ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_551123420171 // Дополнительные преобразования
+ ;
+ CONST dfm:PathOnly '\archi\source\projects\Archi'
+ CONST intf.pas:PathOnly '\archi\source\projects\Archi'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\archi\source\projects\Archi'
+
+ref; // ME_551123A30343 Преобразование даты в текст
+
+: ME_551123B602CD
+ CONST UID '551123B602CD'
+ CONST Name 'Смена кодировки ОЕМ в ANSI'
+ CONST Class class_Class
+ : Stereotype st_UseCaseRequirement ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_551123420171 // Дополнительные преобразования
+ ;
+ CONST dfm:PathOnly '\archi\source\projects\Archi'
+ CONST intf.pas:PathOnly '\archi\source\projects\Archi'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\archi\source\projects\Archi'
+
+ref; // ME_551123B602CD Смена кодировки ОЕМ в ANSI
+
+: ME_551123CA029B
+ CONST UID '551123CA029B'
+ CONST Name 'Смена кодировки ANSI в ОЕМ'
+ CONST Class class_Class
+ : Stereotype st_UseCaseRequirement ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_551123420171 // Дополнительные преобразования
+ ;
+ CONST dfm:PathOnly '\archi\source\projects\Archi'
+ CONST intf.pas:PathOnly '\archi\source\projects\Archi'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\archi\source\projects\Archi'
+
+ref; // ME_551123CA029B Смена кодировки ANSI в ОЕМ
+
+: ME_551123E2014A
+ CONST UID '551123E2014A'
+ CONST Name 'Объединение абзацев'
+ CONST Class class_Class
+ : Stereotype st_UseCaseRequirement ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_551123420171 // Дополнительные преобразования
+ ;
+ CONST dfm:PathOnly '\archi\source\projects\Archi'
+ CONST intf.pas:PathOnly '\archi\source\projects\Archi'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\archi\source\projects\Archi'
+
+ref; // ME_551123E2014A Объединение абзацев
+
+: ME_5511248F039E
+ CONST UID '5511248F039E'
+ CONST Name 'Инвертировать регистр'
+ CONST Class class_Class
+ : Stereotype st_UseCaseRequirement ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_551123420171 // Дополнительные преобразования
+ ;
+ CONST dfm:PathOnly '\archi\source\projects\Archi'
+ CONST intf.pas:PathOnly '\archi\source\projects\Archi'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\archi\source\projects\Archi'
+
+ref; // ME_5511248F039E Инвертировать регистр
+
+: ME_551123420171
+ CONST UID '551123420171'
+ CONST Name 'Дополнительные преобразования'
+ CONST Class class_Class
+ : Stereotype st_UseCase ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Функции из меню "Сервис\Преобразовать"' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_551122A90004 // Изменение текста документа
+ ;
+ : Children
+   Seq: ( ME_5511235903E4 // Преобразование текста в верхний регистр
+ ME_5511236801FE // Преобразование текста в нижний регистр
+ ME_5511237602FC // Русская раскладка
+ ME_551123960070 // Английская раскладка
+ ME_551123A30343 // Преобразование даты в текст
+ ME_551123B602CD // Смена кодировки ОЕМ в ANSI
+ ME_551123CA029B // Смена кодировки ANSI в ОЕМ
+ ME_551123E2014A // Объединение абзацев
+ ME_5511248F039E // Инвертировать регистр
+ )
+ ; // Children
+ CONST dfm:PathOnly '\archi\source\projects\Archi'
+ CONST intf.pas:PathOnly '\archi\source\projects\Archi'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\archi\source\projects\Archi'
+
+ref; // ME_551123420171 Дополнительные преобразования
+
+: ME_551122A90004
+ CONST UID '551122A90004'
+ CONST Name 'Изменение текста документа'
+ CONST Class class_Class
+ : Stereotype st_UseCase ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_551121E4029E // Редактирование документа
+ ;
+ : Children
+   Seq: ( ME_551123420171 // Дополнительные преобразования
+ )
+ ; // Children
+ CONST dfm:PathOnly '\archi\source\projects\Archi'
+ CONST intf.pas:PathOnly '\archi\source\projects\Archi'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\archi\source\projects\Archi'
+
+ref; // ME_551122A90004 Изменение текста документа
+
+: ME_551122C1020D
+ CONST UID '551122C1020D'
+ CONST Name 'Работа с буфером обмена'
+ CONST Class class_Class
+ : Stereotype st_UseCase ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_551121E4029E // Редактирование документа
+ ;
+ CONST dfm:PathOnly '\archi\source\projects\Archi'
+ CONST intf.pas:PathOnly '\archi\source\projects\Archi'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\archi\source\projects\Archi'
+
+ref; // ME_551122C1020D Работа с буфером обмена
+
+FORWARD ME_551122D603B9
+
+: ME_551125330170
+ CONST UID '551125330170'
+ CONST Name 'Изменение стиля текста'
+ CONST Class class_Class
+ : Stereotype st_UseCaseRequirement ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Возможность изменить стиль текста на котором стоит курсор, так и выделенного текста.' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_551122D603B9 // Изменение оформления
+ ;
+ CONST dfm:PathOnly '\archi\source\projects\Archi'
+ CONST intf.pas:PathOnly '\archi\source\projects\Archi'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\archi\source\projects\Archi'
+
+ref; // ME_551125330170 Изменение стиля текста
+
+: ME_55112554000C
+ CONST UID '55112554000C'
+ CONST Name 'Изменение шрифта'
+ CONST Class class_Class
+ : Stereotype st_UseCaseRequirement ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Возможность изменить шрифт текста на котором стоит курсор, так и выделенного текста.' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_551122D603B9 // Изменение оформления
+ ;
+ CONST dfm:PathOnly '\archi\source\projects\Archi'
+ CONST intf.pas:PathOnly '\archi\source\projects\Archi'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\archi\source\projects\Archi'
+
+ref; // ME_55112554000C Изменение шрифта
+
+: ME_551125650353
+ CONST UID '551125650353'
+ CONST Name 'Изменение размер шрифта текста'
+ CONST Class class_Class
+ : Stereotype st_UseCaseRequirement ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Возможность изменить размер шрифта текста на котором стоит курсор, так и выделенного текста.' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_551122D603B9 // Изменение оформления
+ ;
+ CONST dfm:PathOnly '\archi\source\projects\Archi'
+ CONST intf.pas:PathOnly '\archi\source\projects\Archi'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\archi\source\projects\Archi'
+
+ref; // ME_551125650353 Изменение размер шрифта текста
+
+: ME_551125720398
+ CONST UID '551125720398'
+ CONST Name 'Изменение цвета текста'
+ CONST Class class_Class
+ : Stereotype st_UseCaseRequirement ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Возможность изменить цвет текста на котором стоит курсор, так и выделенного текста.' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_551122D603B9 // Изменение оформления
+ ;
+ CONST dfm:PathOnly '\archi\source\projects\Archi'
+ CONST intf.pas:PathOnly '\archi\source\projects\Archi'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\archi\source\projects\Archi'
+
+ref; // ME_551125720398 Изменение цвета текста
+
+: ME_5511261B02BC
+ CONST UID '5511261B02BC'
+ CONST Name 'Оформление текста жирным шрифтом'
+ CONST Class class_Class
+ : Stereotype st_UseCaseRequirement ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Возможность задать тексту под курсором, так и выделенном тексту признак ''Жирный''.' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_551122D603B9 // Изменение оформления
+ ;
+ CONST dfm:PathOnly '\archi\source\projects\Archi'
+ CONST intf.pas:PathOnly '\archi\source\projects\Archi'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\archi\source\projects\Archi'
+
+ref; // ME_5511261B02BC Оформление текста жирным шрифтом
+
+: ME_551126A00241
+ CONST UID '551126A00241'
+ CONST Name 'Оформление текста курсивом'
+ CONST Class class_Class
+ : Stereotype st_UseCaseRequirement ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Возможность задать тексту под курсором, так и выделенном тексту признак ''Курсив''.' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_551122D603B9 // Изменение оформления
+ ;
+ CONST dfm:PathOnly '\archi\source\projects\Archi'
+ CONST intf.pas:PathOnly '\archi\source\projects\Archi'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\archi\source\projects\Archi'
+
+ref; // ME_551126A00241 Оформление текста курсивом
+
+: ME_551126BC0233
+ CONST UID '551126BC0233'
+ CONST Name 'Оформление текста подчеркиванием'
+ CONST Class class_Class
+ : Stereotype st_UseCaseRequirement ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Возможность задать тексту под курсором, так и выделенном тексту признак ''Подчеркнутый''.' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_551122D603B9 // Изменение оформления
+ ;
+ CONST dfm:PathOnly '\archi\source\projects\Archi'
+ CONST intf.pas:PathOnly '\archi\source\projects\Archi'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\archi\source\projects\Archi'
+
+ref; // ME_551126BC0233 Оформление текста подчеркиванием
+
+: ME_551126DB0270
+ CONST UID '551126DB0270'
+ CONST Name 'Изменение видимости текста'
+ CONST Class class_Class
+ : Stereotype st_UseCaseRequirement ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Возможность задать тексту под курсором, так и выделенном тексту признак ''Невидимый''.' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_551122D603B9 // Изменение оформления
+ ;
+ CONST dfm:PathOnly '\archi\source\projects\Archi'
+ CONST intf.pas:PathOnly '\archi\source\projects\Archi'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\archi\source\projects\Archi'
+
+ref; // ME_551126DB0270 Изменение видимости текста
+
+: ME_551122D603B9
+ CONST UID '551122D603B9'
+ CONST Name 'Изменение оформления'
+ CONST Class class_Class
+ : Stereotype st_UseCase ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_551121E4029E // Редактирование документа
+ ;
+ : Children
+   Seq: ( ME_551125330170 // Изменение стиля текста
+ ME_55112554000C // Изменение шрифта
+ ME_551125650353 // Изменение размер шрифта текста
+ ME_551125720398 // Изменение цвета текста
+ ME_5511261B02BC // Оформление текста жирным шрифтом
+ ME_551126A00241 // Оформление текста курсивом
+ ME_551126BC0233 // Оформление текста подчеркиванием
+ ME_551126DB0270 // Изменение видимости текста
+ )
+ ; // Children
+ CONST dfm:PathOnly '\archi\source\projects\Archi'
+ CONST intf.pas:PathOnly '\archi\source\projects\Archi'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\archi\source\projects\Archi'
+
+ref; // ME_551122D603B9 Изменение оформления
+
+: ME_551121E4029E
+ CONST UID '551121E4029E'
+ CONST Name 'Редактирование документа'
+ CONST Class class_Class
+ : Stereotype st_UseCase ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_53F327E402A1 // Требования к созданию и редактированию документа
+ ;
+ : Children
+   Seq: ( ME_551122A90004 // Изменение текста документа
+ ME_551122C1020D // Работа с буфером обмена
+ ME_551122D603B9 // Изменение оформления
+ )
+ ; // Children
+ CONST dfm:PathOnly '\archi\source\projects\Archi'
+ CONST intf.pas:PathOnly '\archi\source\projects\Archi'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\archi\source\projects\Archi'
+
+ref; // ME_551121E4029E Редактирование документа
+
+: ME_53F327E402A1
+ CONST UID '53F327E402A1'
+ CONST Name 'Требования к созданию и редактированию документа'
+ CONST Class class_Category
+ : Stereotype st_UseCases ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent WL 'ME_4E3130EB007F' '4E3130EB007F.pas.ms.script' // Требования к Архивариусу
+ ;
+ : Children
+   Seq: ( ME_53F328B0007F // Создание нового документа
+ ME_551121E4029E // Редактирование документа
+ )
+ ; // Children
+ : Generators
+ Seq: (
+ gen_pas.script
+ gen_pas.script.runner
+ )
+ ; // Generators
+ CONST dfm:PathOnly '\archi\source\projects\Archi'
+ CONST intf.pas:PathOnly '\archi\source\projects\Archi'
+ CONST pas.script:Path 'shared\models\NewSchool\Scripts\53F327E402A1.pas.ms.script'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\53F327E402A1.pas.ms.script.runner'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\archi\source\projects\Archi'
+
+ref; // ME_53F327E402A1 Требования к созданию и редактированию документа

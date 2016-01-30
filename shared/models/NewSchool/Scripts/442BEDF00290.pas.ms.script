@@ -1,0 +1,70 @@
+// garant6x 442BEDF00290 Project Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+: ME_442BEDF00290
+ CONST UID '442BEDF00290'
+ CONST Name 'garant6x'
+ CONST Class class_Category
+ : Stereotype st_Project ;
+ %SUMMARY 'ГАРАНТ' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Children
+   Seq: ( WL 'ME_45E43D74036B' '45E43D74036B.pas.ms.script' // HCAdapterLib
+ WL 'ME_456EA3D2031C' '456EA3D2031C.pas.ms.script' // GblAdapterLib
+ WL 'ME_47397F650051' '47397F650051.pas.ms.script' // GblAdapterServer
+ WL 'ME_4785DFB00230' '4785DFB00230.pas.ms.script' // GblAdapterClient
+ WL 'ME_47397FF900B6' '47397FF900B6.pas.ms.script' // GblAdapter
+ )
+ ; // Children
+ : Depends
+   Seq: ( WL 'ME_45ED6F0303D2' '45ED6F0303D2.pas.ms.script' // shared
+ WL 'ME_4677DDBD0193' '4677DDBD0193.pas.ms.script' // Shared Delphi
+ WL 'ME_4E5BC2810343' '4E5BC2810343.pas.ms.script' // Shared Delphi Требования для F1
+ WL 'ME_4E78C3EC018D' '4E78C3EC018D.pas.ms.script' // Shared Delphi Требования
+ WL 'ME_561FCFDC007C' '561FCFDC007C.pas.ms.script' // Templates
+ )
+ ; // Depends
+ CONST "Full MDP" false
+ CONST "create project" true
+ CONST "defines" 'nsDefine.inc'
+ CONST "fix version" 0
+ CONST "full constraint" false
+ CONST "major version" 7
+ CONST "minor version" 12
+ CONST "need UC" true
+ CONST "package prefix" 'ru.garant'
+ CONST "root path suffix" '/implementation/Garant'
+ CONST "space key" 'NMS'
+ CONST "space name" 'Nemesis'
+ : Generators
+ Seq: (
+ gen_pas.script
+ gen_pas.script.runner
+ )
+ ; // Generators
+ CONST cpp:PathOnly '\garant6x\implementation\Garant'
+ CONST dfm:PathOnly '\garant6x\implementation\Garant'
+ CONST dll.cpp:PathOnly '\garant6x\implementation\Garant'
+ CONST dll.h:PathOnly '\garant6x\implementation\Garant'
+ CONST fctr.cpp:PathOnly '\garant6x\implementation\Garant'
+ CONST fctr.h:PathOnly '\garant6x\implementation\Garant'
+ CONST h:PathOnly '\garant6x\implementation\Garant'
+ CONST i.h:PathOnly '\garant6x\implementation\Garant'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant'
+ CONST mpc:PathOnly '\garant6x\implementation\Garant\project'
+ CONST mpc2:PathOnly '\garant6x\implementation\Garant\project'
+ CONST pas:PathOnly '\garant6x\implementation\Garant'
+ CONST pas.script:Path 'shared\models\NewSchool\Scripts\442BEDF00290.pas.ms.script'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\442BEDF00290.pas.ms.script.runner'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc:PathOnly '\garant6x\implementation\Garant'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant'
+ CONST s.ini:PathOnly '\garant6x\implementation\Garant\project'
+ CONST s.reg:PathOnly '\garant6x\implementation\Garant\project'
+ CONST vi.rc:PathOnly '\garant6x\implementation\Garant'
+ CONST vi.rch:PathOnly '\garant6x\implementation\Garant'
+
+ref; // ME_442BEDF00290 garant6x

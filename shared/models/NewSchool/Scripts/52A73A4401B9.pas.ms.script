@@ -39,9 +39,9 @@ ref; // ME_52A73C7D020D anOp
  : Parent ME_52A73C7103C7 // Register
  ;
  : Parameters
-   @ ( ME_52A73C7D01F5 // anEn
+   Seq: ( ME_52A73C7D01F5 // anEn
  ME_52A73C7D020D // anOp
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_52A73C7B0327 DoIt
@@ -57,8 +57,8 @@ ref; // ME_52A73C7B0327 DoIt
  : Parent ME_52A73AE40326 // IvcmOperationsRegistrar
  ;
  : Operations
-   @ ( ME_52A73C7B0327 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_52A73C7B0327 // DoIt
+ )
  ; // Operations
 
 ref; // ME_52A73C7103C7 Register
@@ -75,9 +75,15 @@ ref; // ME_52A73C7103C7 Register
  : Parent ME_52A73A5900E2 // TvcmOperationsManager
  ;
  : Operations
-   @ ( ME_52A73C7103C7 // Register
- ) .SequenceCode.It
+   Seq: ( ME_52A73C7103C7 // Register
+ )
  ; // Operations
+ CONST dfm:PathOnly '\common\components\gui\Garant\VCM'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\VCM'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'OperationsRegistrar'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_52A73AE40326 IvcmOperationsRegistrar
 
@@ -102,6 +108,7 @@ ref; // ME_52A73BF00215 Registrar
 : ME_9ADC046262FE
  CONST UID '9ADC046262FE'
  CONST Name 'f_Registrar'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY 'Поле для свойства Registrar' ;
  CONST Visibility PrivateAccess
@@ -111,6 +118,7 @@ ref; // ME_52A73BF00215 Registrar
  ;
  : Target ME_52A73AE40326 // IvcmOperationsRegistrar
  ;
+ CONST extprop:clearViaProperty 'Registrar'
 
 ref; // ME_9ADC046262FE f_Registrar
 
@@ -145,9 +153,9 @@ ref; // ME_52A73AC4002B anOp
  : Parent ME_52A73ABA0304 // Register
  ;
  : Parameters
-   @ ( ME_52A73AC40013 // anEn
+   Seq: ( ME_52A73AC40013 // anEn
  ME_52A73AC4002B // anOp
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_52A73AC1001D DoIt
@@ -163,8 +171,8 @@ ref; // ME_52A73AC1001D DoIt
  : Parent ME_52A73A5900E2 // TvcmOperationsManager
  ;
  : Operations
-   @ ( ME_52A73AC1001D // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_52A73AC1001D // DoIt
+ )
  ; // Operations
 
 ref; // ME_52A73ABA0304 Register
@@ -172,6 +180,7 @@ ref; // ME_52A73ABA0304 Register
 : ME_BF7D6918D11C
  CONST UID 'BF7D6918D11C'
  CONST Name 'Exists'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_static::Operation ;
  %SUMMARY 'Проверяет создан экземпляр синглетона или нет' ;
@@ -181,6 +190,7 @@ ref; // ME_52A73ABA0304 Register
  ;
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
+ CONST extprop:pas:Value false
 
 ref; // ME_BF7D6918D11C Exists
 
@@ -195,30 +205,32 @@ ref; // ME_BF7D6918D11C Exists
  : Parent ME_52A73A4401B9 // Operations
  ;
  : Attributes
-   @ ( ME_52A73BF00215 // Registrar
+   Seq: ( ME_52A73BF00215 // Registrar
  ME_9ADC046262FE // f_Registrar
- ) .SequenceCode.It
+ )
  ; // Attributes
  : Operations
-   @ ( ME_52A73ABA0304 // Register
+   Seq: ( ME_52A73ABA0304 // Register
  ME_BF7D6918D11C // Exists
- ) .SequenceCode.It
+ )
  ; // Operations
  : Children
-   @ ( ME_52A73AE40326 // IvcmOperationsRegistrar
- ) .SequenceCode.It
+   Seq: ( ME_52A73AE40326 // IvcmOperationsRegistrar
+ )
  ; // Children
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
  CONST "singleton" true
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\VCM'
  CONST intf.pas:Path 'common\components\gui\Garant\VCM\vcmOperationsManager.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\VCM'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'OperationsManager'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'vcmOperationsManager'
 
 ref; // ME_52A73A5900E2 TvcmOperationsManager
 
@@ -232,21 +244,19 @@ ref; // ME_52A73A5900E2 TvcmOperationsManager
  : Parent WL 'ME_4E13416D0227' '4E13416D0227.pas.ms.script' // VCM$Visual
  ;
  : Children
-   @ ( ME_52A73A5900E2 // TvcmOperationsManager
- ) .SequenceCode.It
+   Seq: ( ME_52A73A5900E2 // TvcmOperationsManager
+ )
  ; // Children
  : Depends
-   @ ( WL 'ME_4AB0C3C60310' '4AB0C3C60310.pas.ms.script' // Sys
+   Seq: ( WL 'ME_4AB0C3C60310' '4AB0C3C60310.pas.ms.script' // Sys
  WL 'ME_4AB34028023E' '4AB34028023E.pas.ms.script' // Components
- ) .SequenceCode.It
+ )
  ; // Depends
- : Generators
- @ (
- gen_pas.script
- gen_pas.script.runner
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\VCM'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\VCM'
  CONST pas.script:Path 'shared\models\NewSchool\Scripts\52A73A4401B9.pas.ms.script'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
  CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\52A73A4401B9.pas.ms.script.runner'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_52A73A4401B9 Operations

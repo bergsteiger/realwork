@@ -19,6 +19,7 @@ FORWARD ME_47F245BD01E1
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value 'ssVertical'
 
 ref; // ME_4845503B0261 def_MemoScrollStyle
 
@@ -35,6 +36,7 @@ ref; // ME_4845503B0261 def_MemoScrollStyle
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value 'ssNone'
 
 ref; // ME_484654DC0040 def_EditScrollStyle
 
@@ -53,6 +55,7 @@ ref; // ME_484654DC0040 def_EditScrollStyle
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value 'l3Defaults.def_Zoom'
 
 ref; // ME_4D3985890011 def_Zoom
 
@@ -67,12 +70,16 @@ ref; // ME_4D3985890011 def_Zoom
  : Parent ME_47F2458300E4 // evDef
  ;
  : Attributes
-   @ ( ME_4845503B0261 // def_MemoScrollStyle
+   Seq: ( ME_4845503B0261 // def_MemoScrollStyle
  ME_484654DC0040 // def_EditScrollStyle
  ME_4D3985890011 // def_Zoom
- ) .SequenceCode.It
+ )
  ; // Attributes
  CONST "spell names" false
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_47F245BD01E1 Defaults
 
@@ -87,27 +94,24 @@ ref; // ME_47F245BD01E1 Defaults
  : Parent WL 'ME_4797632D0273' '4797632D0273.pas.ms.script' // Everest
  ;
  : Constants
-   @ ( ME_47F245BD01E1 // Defaults
- ) .SequenceCode.It
+   Seq: ( ME_47F245BD01E1 // Defaults
+ )
  ; // Constants
  : Depends
-   @ ( WL 'ME_4799EC9300AF' '4799EC9300AF.pas.ms.script' // l3Defaults
- ) .SequenceCode.It
+   Seq: ( WL 'ME_4799EC9300AF' '4799EC9300AF.pas.ms.script' // l3Defaults
+ )
  ; // Depends
  CONST "author" 'Ëþëèí À.Â.'
  CONST "finished" false
  CONST "is namespace" true
  CONST "no hands" false
  CONST "started" '18.03.1997 10:41'
- : Generators
- @ (
- gen_intf.pas
- gen_pas.script
- gen_pas.script.runner
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest'
  CONST intf.pas:Path 'common\components\gui\Garant\Everest\NOT_FINISHED_evDef.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest'
  CONST pas.script:Path 'shared\models\NewSchool\Scripts\47F2458300E4.pas.ms.script'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
  CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\47F2458300E4.pas.ms.script.runner'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_47F2458300E4 evDef

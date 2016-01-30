@@ -1,0 +1,478 @@
+// ComplectInfo 490873CD01B9 Unit Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_490873CD01B9
+
+FORWARD ME_468368FC017F
+
+: ME_490872B30390
+ CONST UID '490872B30390'
+ CONST Name 'Create'
+ CONST Class class_Operation
+ : Stereotype st_ctor::Operation ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_468368FC017F // TnsComplectInfoTreeStruct
+ ;
+
+ref; // ME_490872B30390 Create
+
+: ME_490872C60321
+ CONST UID '490872C60321'
+ CONST Name 'Make'
+ CONST Class class_Operation
+ : Stereotype st_factory::Operation ;
+ %SUMMARY 'Создаёт экземляр дерева' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_468368FC017F // TnsComplectInfoTreeStruct
+ ;
+ : Target WL 'ME_46825CC00249' '4682595B0268.pas.ms.script' // Il3SimpleTree
+ ;
+ CONST "check nil" false
+ CONST "need AfterCreate" 'undefined'
+ CONST "need Aggregate" 'undefined'
+ CONST "need As" false
+
+ref; // ME_490872C60321 Make
+
+: ME_490872E30161
+ CONST UID '490872E30161'
+ CONST Name 'GetComplectInfoTree'
+ CONST Class class_Operation
+ : Stereotype st_static::Operation ;
+ %SUMMARY 'Получает корневую ноду с адаптера' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_468368FC017F // TnsComplectInfoTreeStruct
+ ;
+ : Target WL 'ME_45EEB95901C5' '457450470167.pas.ms.script' // NodeBase
+ ;
+
+ref; // ME_490872E30161 GetComplectInfoTree
+
+: ME_490873110195
+ CONST UID '490873110195'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_468368FC017F // TnsComplectInfoTreeStruct
+ ;
+ : Target WL 'ME_48FF556602BA' '48F747EC0073.pas.ms.script' // DataAdapter
+ ;
+
+ref; // ME_490873110195 
+
+: ME_49087499006F
+ CONST UID '49087499006F'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_468368FC017F // TnsComplectInfoTreeStruct
+ ;
+ : Target WL 'ME_45744F5A030D' '45744F4302BF.pas.ms.script' // ComplectInfo
+ ;
+
+ref; // ME_49087499006F 
+
+: ME_49087612021C
+ CONST UID '49087612021C'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_468368FC017F // TnsComplectInfoTreeStruct
+ ;
+ : Target WL 'ME_48FF63BC0129' '47F2170002B2.pas.ms.script' // TnsResetTreeStatus
+ ;
+
+ref; // ME_49087612021C 
+
+FORWARD ME_468276240241
+
+: ME_4909827503D6
+ CONST UID '4909827503D6'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_468368FC017F // TnsComplectInfoTreeStruct
+ ;
+ : Target ME_468276240241 // TnsComplectInfoRootNode
+ ;
+
+ref; // ME_4909827503D6 
+
+: ME_48FF64F60078_ME_468368FC017F
+ CONST UID '48FF64F60078'
+ CONST Name 'ReAqurieUnfilteredRoot'
+ : Original WL 'ME_48FF64F60078' '48FD8B2702F6.pas.ms.script' // ReAqurieUnfilteredRoot
+ ;
+ : Implementor ME_468368FC017F // TnsComplectInfoTreeStruct
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_48FF64F60078_ME_468368FC017F ReAqurieUnfilteredRoot
+
+: ME_48FEE3640227_ME_468368FC017F
+ CONST UID '48FEE3640227'
+ CONST Name 'RootNodeClass'
+ : Original WL 'ME_48FEE3640227' '48FD8B2702F6.pas.ms.script' // RootNodeClass
+ ;
+ : Implementor ME_468368FC017F // TnsComplectInfoTreeStruct
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_48FEE3640227_ME_468368FC017F RootNodeClass
+
+: ME_468368FC017F
+ CONST UID '468368FC017F'
+ CONST Name 'TnsComplectInfoTreeStruct'
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Дерево информации о комплекте' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_490873CD01B9 // ComplectInfo
+ ;
+ : Inherits
+   Seq: ( WL 'ME_468361010204' '48FD8B2702F6.pas.ms.script' // TnsDataResetTreeStruct
+ )
+ ; // Inherits
+ : Operations
+   Seq: ( ME_490872B30390 // Create
+ ME_490872C60321 // Make
+ ME_490872E30161 // GetComplectInfoTree
+ )
+ ; // Operations
+ : Implemented
+   Seq: ( ME_48FF64F60078_ME_468368FC017F // ReAqurieUnfilteredRoot
+ )
+ ; // Implemented
+ : Overridden
+   Seq: ( ME_48FEE3640227_ME_468368FC017F // RootNodeClass
+ )
+ ; // Overridden
+ : Dependencies
+   Seq: ( ME_490873110195 // 
+ ME_49087499006F // 
+ ME_49087612021C // 
+ ME_4909827503D6 // 
+ )
+ ; // Dependencies
+ CONST "author" 'Люлин А.В.'
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" true
+ CONST "register in scripts" 'undefined'
+ CONST "started" '2005/11/22 17:48:07'
+ : Generators
+ Seq: (
+ gen_intf.pas
+ )
+ ; // Generators
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Common'
+ CONST intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\Common\nsComplectInfoTreeStruct.pas'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Common'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\Common'
+ CONST extprop:rc:SelfName 'ComplectInfoTreeStruct'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'nsComplectInfoTreeStruct'
+
+ref; // ME_468368FC017F TnsComplectInfoTreeStruct
+
+FORWARD ME_4682778E0223
+
+: ME_490981EE009B
+ CONST UID '490981EE009B'
+ CONST Name 'fValue'
+ CONST Class class_Attribute
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_4682778E0223 // TnsComplectInfoNode
+ ;
+ : Target WL 'ME_46780DA40383' '4677FBA70343.pas.ms.script' // Il3CString
+ ;
+
+ref; // ME_490981EE009B fValue
+
+: ME_49098292000F
+ CONST UID '49098292000F'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4682778E0223 // TnsComplectInfoNode
+ ;
+ : Target WL 'ME_47877EB202FB' '4AB0C3C60310.pas.ms.script' // SysUtils
+ ;
+
+ref; // ME_49098292000F 
+
+: ME_490982A5030D
+ CONST UID '490982A5030D'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4682778E0223 // TnsComplectInfoNode
+ ;
+ : Target WL 'ME_4574514C030D' '45744F4302BF.pas.ms.script' // ComplectInfoNode
+ ;
+
+ref; // ME_490982A5030D 
+
+: ME_49098311009F
+ CONST UID '49098311009F'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4682778E0223 // TnsComplectInfoNode
+ ;
+ : Target WL 'ME_47878E0E0191' '54B90AC6014B.pas.ms.script' // l3String
+ ;
+
+ref; // ME_49098311009F 
+
+: ME_49098337021D
+ CONST UID '49098337021D'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4682778E0223 // TnsComplectInfoNode
+ ;
+ : Target WL 'ME_48FF569700F6' '47F2170002B2.pas.ms.script' // StringRoutines
+ ;
+
+ref; // ME_49098337021D 
+
+: ME_4909854A0182
+ CONST UID '4909854A0182'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4682778E0223 // TnsComplectInfoNode
+ ;
+ : Target WL 'ME_431841610361' '4423F94903C8.pas.ms.script' // String
+ ;
+
+ref; // ME_4909854A0182 
+
+: ME_46A6199402FB_ME_4682778E0223
+ CONST UID '46A6199402FB'
+ CONST Name 'GetTextPart'
+ : Original WL 'ME_46A6199402FB' '4677FBA70343.pas.ms.script' // GetTextPart
+ ;
+ : Implementor ME_4682778E0223 // TnsComplectInfoNode
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_46A6199402FB_ME_4682778E0223 GetTextPart
+
+: ME_479731C50290_ME_4682778E0223
+ CONST UID '479731C50290'
+ CONST Name 'Cleanup'
+ : Original WL 'ME_479731C50290' '51612EBB02F5.pas.ms.script' // Cleanup
+ ;
+ : Implementor ME_4682778E0223 // TnsComplectInfoNode
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_479731C50290_ME_4682778E0223 Cleanup
+
+: ME_490982310145_ME_4682778E0223
+ CONST UID '490982310145'
+ CONST Name 'Create'
+ : Original WL 'ME_490982310145' '48FD8B2702F6.pas.ms.script' // Create
+ ;
+ : Implementor ME_4682778E0223 // TnsComplectInfoNode
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_490982310145_ME_4682778E0223 Create
+
+: ME_4682778E0223
+ CONST UID '4682778E0223'
+ CONST Name 'TnsComplectInfoNode'
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Узел дерева с информацией о комплекте' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_490873CD01B9 // ComplectInfo
+ ;
+ : Inherits
+   Seq: ( WL 'ME_4682732A02F9' '48FD8B2702F6.pas.ms.script' // TnsINodeWrapBase
+ )
+ ; // Inherits
+ : Implements
+   Seq: ( WL 'ME_468277FE0383' '4677FBA70343.pas.ms.script' // Il3MultipartText
+ )
+ ; // Implements
+ : Attributes
+   Seq: ( ME_490981EE009B // fValue
+ )
+ ; // Attributes
+ : Implemented
+   Seq: ( ME_46A6199402FB_ME_4682778E0223 // GetTextPart
+ )
+ ; // Implemented
+ : Overridden
+   Seq: ( ME_479731C50290_ME_4682778E0223 // Cleanup
+ ME_490982310145_ME_4682778E0223 // Create
+ )
+ ; // Overridden
+ : Dependencies
+   Seq: ( ME_49098292000F // 
+ ME_490982A5030D // 
+ ME_49098311009F // 
+ ME_49098337021D // 
+ ME_4909854A0182 // 
+ )
+ ; // Dependencies
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ : Generators
+ Seq: (
+ gen_intf.pas
+ )
+ ; // Generators
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Common'
+ CONST intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\Common\nsComplectInfoNode.pas'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Common'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\Common'
+ CONST extprop:rc:SelfName 'ComplectInfoNode'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'nsComplectInfoNode'
+
+ref; // ME_4682778E0223 TnsComplectInfoNode
+
+: ME_4909885C02F8
+ CONST UID '4909885C02F8'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_468276240241 // TnsComplectInfoRootNode
+ ;
+ : Target ME_4682778E0223 // TnsComplectInfoNode
+ ;
+
+ref; // ME_4909885C02F8 
+
+: ME_490989330020_ME_468276240241
+ CONST UID '490989330020'
+ CONST Name 'GetChildNodeClass'
+ : Original WL 'ME_490989330020' '48FD8B2702F6.pas.ms.script' // GetChildNodeClass
+ ;
+ : Implementor ME_468276240241 // TnsComplectInfoRootNode
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_490989330020_ME_468276240241 GetChildNodeClass
+
+: ME_468276240241
+ CONST UID '468276240241'
+ CONST Name 'TnsComplectInfoRootNode'
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Корневой узел дерева с информацией о комплекте' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_490873CD01B9 // ComplectInfo
+ ;
+ : Inherits
+   Seq: ( WL 'ME_468275200341' '48FD8B2702F6.pas.ms.script' // TnsINodeRootWrap
+ )
+ ; // Inherits
+ : Overridden
+   Seq: ( ME_490989330020_ME_468276240241 // GetChildNodeClass
+ )
+ ; // Overridden
+ : Dependencies
+   Seq: ( ME_4909885C02F8 // 
+ )
+ ; // Dependencies
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ : Generators
+ Seq: (
+ gen_intf.pas
+ )
+ ; // Generators
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Common'
+ CONST intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\Common\nsComplectInfoRootNode.pas'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Common'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\Common'
+ CONST extprop:rc:SelfName 'ComplectInfoRootNode'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'nsComplectInfoRootNode'
+
+ref; // ME_468276240241 TnsComplectInfoRootNode
+
+: ME_516FCA8C03CE
+ CONST UID '516FCA8C03CE'
+ CONST Name 'ComplectInfoRes'
+ CONST Class class_Class
+ : Stereotype st_UtilityPack ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_490873CD01B9 // ComplectInfo
+ ;
+ CONST "finished" false
+ CONST "no hands" false
+ : Generators
+ Seq: (
+ gen_intf.pas
+ )
+ ; // Generators
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Common'
+ CONST intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\Common\NOT_FINISHED_ComplectInfoRes.pas'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Common'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\Common'
+
+ref; // ME_516FCA8C03CE ComplectInfoRes
+
+: ME_490873CD01B9
+ CONST UID '490873CD01B9'
+ CONST Name 'ComplectInfo'
+ CONST Class class_Category
+ : Stereotype st_Unit ;
+ %SUMMARY 'Структуры данных для работы с информацией о комплекте' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent WL 'ME_4ABB680E0218' '4ABB680E0218.pas.ms.script' // Common$Lib
+ ;
+ : Children
+   Seq: ( ME_468368FC017F // TnsComplectInfoTreeStruct
+ ME_4682778E0223 // TnsComplectInfoNode
+ ME_468276240241 // TnsComplectInfoRootNode
+ ME_516FCA8C03CE // ComplectInfoRes
+ )
+ ; // Children
+ : Depends
+   Seq: ( WL 'ME_4423F94903C8' '4423F94903C8.pas.ms.script' // IO
+ WL 'ME_45744F4302BF' '45744F4302BF.pas.ms.script' // Complect
+ WL 'ME_457450470167' '457450470167.pas.ms.script' // DynamicTree
+ WL 'ME_4677FBA70343' '4677FBA70343.pas.ms.script' // l3Interfaces
+ WL 'ME_4682595B0268' '4682595B0268.pas.ms.script' // l3TreeInterfaces
+ WL 'ME_47913B47006E' '47913B47006E.pas.ms.script' // l3CoreObjects
+ WL 'ME_47F2170002B2' '47F2170002B2.pas.ms.script' // nsTypes
+ WL 'ME_48F747EC0073' '48F747EC0073.pas.ms.script' // Common
+ WL 'ME_48FD8B2702F6' '48FD8B2702F6.pas.ms.script' // Tree
+ WL 'ME_4AB0C3C60310' '4AB0C3C60310.pas.ms.script' // Sys
+ WL 'ME_54B90AC6014B' '54B90AC6014B.pas.ms.script' // StringUtils
+ )
+ ; // Depends
+ : Generators
+ Seq: (
+ gen_pas.script
+ gen_pas.script.runner
+ )
+ ; // Generators
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Common'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Common'
+ CONST pas.script:Path 'shared\models\NewSchool\Scripts\490873CD01B9.pas.ms.script'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\490873CD01B9.pas.ms.script.runner'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\Common'
+
+ref; // ME_490873CD01B9 ComplectInfo

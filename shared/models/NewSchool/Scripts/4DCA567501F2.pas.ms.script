@@ -1,0 +1,73 @@
+// F1 Shell Words 4DCA567501F2 Library Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+: ME_4DCA567501F2
+ CONST UID '4DCA567501F2'
+ CONST Name 'F1 Shell Words'
+ CONST Class class_Category
+ : Stereotype st_Library ;
+ %SUMMARY 'Слова словаря специфичные именно для оболочки F1' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent WL 'ME_4DB0572601B7' '4DB0572601B7.pas.ms.script' // F1 Поддержка тестов
+ ;
+ : Children
+   Seq: ( WL 'ME_4DCA5495025F' '4DCA5495025F.pas.ms.script' // F1 Shell Words
+ WL 'ME_5130BE6E037B' '5130BE6E037B.pas.ms.script' // TreeViewWords
+ )
+ ; // Children
+ : Depends
+   Seq: ( WL 'ME_447878770121' '447878770121.pas.ms.script' // GCI
+ WL 'ME_456EA3D2031C' '456EA3D2031C.pas.ms.script' // GblAdapterLib
+ WL 'ME_4677FF4B0036' '4677FF4B0036.pas.ms.script' // Data
+ WL 'ME_467A75D90346' '467A75D90346.pas.ms.script' // VT
+ WL 'ME_4684F91300DD' '4684F91300DD.pas.ms.script' // Vcl
+ WL 'ME_4790B4F00236' '4790B4F00236.pas.ms.script' // AFW
+ WL 'ME_4790D09A0378' '4790D09A0378.pas.ms.script' // L3
+ WL 'ME_4797632D0273' '4797632D0273.pas.ms.script' // Everest
+ WL 'ME_47E9EEC60260' '47E9EEC60260.pas.ms.script' // Model
+ WL 'ME_481EF5C4020D' '481EF5C4020D.pas.ms.script' // Оболочка
+ WL 'ME_490838AA02D0' '490838AA02D0.pas.ms.script' // Nemesis
+ WL 'ME_4A6D566201F3' '4A6D566201F3.pas.ms.script' // CompareEditions
+ WL 'ME_4A6D59C9005C' '4A6D59C9005C.pas.ms.script' // View
+ WL 'ME_4A78013D01CD' '4A78013D01CD.pas.ms.script' // View$For F1 and Monitorings
+ WL 'ME_4A92D5D30100' '4A92D5D30100.pas.ms.script' // View
+ WL 'ME_4A9BEFA00301' '4A9BEFA00301.pas.ms.script' // View
+ WL 'ME_4A9F769C0277' '4A9F769C0277.pas.ms.script' // Document
+ WL 'ME_4A9F76D70283' '4A9F76D70283.pas.ms.script' // View
+ WL 'ME_4AA79EE503D2' '4AA79EE503D2.pas.ms.script' // Settings
+ WL 'ME_4ABA136E0047' '4ABA136E0047.pas.ms.script' // Config
+ WL 'ME_4B2A10C40309' '4B2A10C40309.pas.ms.script' // DUnitTuning
+ WL 'ME_4DB057A602EB' '4DB057A602EB.pas.ms.script' // F1 Words
+ WL 'ME_4E13416D0227' '4E13416D0227.pas.ms.script' // VCM$Visual
+ WL 'ME_4E1F0EB100C4' '4E1F0EB100C4.pas.ms.script' // ScriptEngine
+ WL 'ME_4E2F0E1B03BB' '4E2F0E1B03BB.pas.ms.script' // L3$Domain
+ WL 'ME_4F4B8F830023' '4F4B8F830023.pas.ms.script' // ExternalObjects
+ WL 'ME_4F7D7B980383' '4F7D7B980383.pas.ms.script' // View
+ WL 'ME_54CF97B10370' '54CF97B10370.pas.ms.script' // ScriptEngine$Core
+ WL 'ME_54DB92A80279' '54DB92A80279.pas.ms.script' // ScriptEngine$RTLandVCL
+ WL 'ME_54ECA252008F' '54ECA252008F.pas.ms.script' // ScriptEngine$Everest
+ WL 'ME_562E251101C2' '562E251101C2.pas.ms.script' // Shared Delphi Rtl
+ )
+ ; // Depends
+ CONST "exec mode" 'concluded'
+ CONST "gui" 'prj'
+ CONST "ifndef" 'NoScripts'
+ CONST "is namespace" true
+ CONST "vendor" 'none'
+ : Generators
+ Seq: (
+ gen_pas.script
+ gen_pas.script.runner
+ )
+ ; // Generators
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\F1_Shell_Words'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\F1_Shell_Words'
+ CONST pas.script:Path 'shared\models\NewSchool\Scripts\4DCA567501F2.pas.ms.script'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\4DCA567501F2.pas.ms.script.runner'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\F1_Shell_Words'
+
+ref; // ME_4DCA567501F2 F1 Shell Words

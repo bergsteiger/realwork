@@ -50,8 +50,8 @@ ref; // ME_51E80E1B0036 DoIt
  : Parent ME_51E80DD30125 // ListTest
  ;
  : Operations
-   @ ( ME_51E80E1B0036 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_51E80E1B0036 // DoIt
+ )
  ; // Operations
 
 ref; // ME_51E80E0D030D CreateList
@@ -69,6 +69,7 @@ ref; // ME_51E810C90005
 
 : ME_DCF4C41FE2F3
  CONST UID 'DCF4C41FE2F3'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_51E80DD30125 // ListTest
@@ -89,33 +90,40 @@ ref; // ME_DCF4C41FE2F3
  : Parent ME_51DEB2C70024 // FinalContainersTests
  ;
  : Inherits
-   @ ( WL 'ME_4B2A0DDE028B' '4B2A0D6A0077.pas.ms.script' // TTestCase
- ) .SequenceCode.It
+   Seq: ( WL 'ME_4B2A0DDE028B' '4B2A0D6A0077.pas.ms.script' // TTestCase
+ )
  ; // Inherits
  : Attributes
-   @ ( ME_51E03FFB0289 // ListType
- ) .SequenceCode.It
+   Seq: ( ME_51E03FFB0289 // ListType
+ )
  ; // Attributes
  : Operations
-   @ ( ME_51E80E0D030D // CreateList
- ) .SequenceCode.It
+   Seq: ( ME_51E80E0D030D // CreateList
+ )
  ; // Operations
  : Dependencies
-   @ ( ME_51E810C90005 // 
+   Seq: ( ME_51E810C90005 // 
  ME_DCF4C41FE2F3 // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
  : Generators
- @ (
+ Seq: (
  gen_intf.pas
- ) .SequenceCode.It
+ )
  ; // Generators
+ CONST dfm:PathOnly '\common\components\SandBox'
  CONST intf.pas:Path 'common\components\SandBox\ListTest.imp.pas'
+ CONST intf.pas:PathOnly '\common\components\SandBox'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\common\components\SandBox'
  CONST extprop:pas:TypeName '_ListTest_'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'ListTest.imp'
 
 ref; // ME_51E80DD30125 ListTest
 
@@ -131,6 +139,11 @@ FORWARD ME_51E03FC80111
  CONST Abstraction at_abstract
  : Parent ME_51E03FC80111 // AtomicListTest
  ;
+ CONST dfm:PathOnly '\common\components\SandBox'
+ CONST intf.pas:PathOnly '\common\components\SandBox'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\common\components\SandBox'
  CONST extprop:pas:TypeName '_ListType_'
 
 ref; // ME_51E03FE602DF ListType
@@ -200,8 +213,8 @@ ref; // ME_51E6ADED001F DoIt
  : Parent ME_51E03FC80111 // AtomicListTest
  ;
  : Operations
-   @ ( ME_51E6ADED001F // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_51E6ADED001F // DoIt
+ )
  ; // Operations
 
 ref; // ME_51E6ADE0016E RandomItem
@@ -274,6 +287,7 @@ ref; // ME_51DEB33D01CF
 
 : ME_6B20F79B7683
  CONST UID '6B20F79B7683'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_51E03FC80111 // AtomicListTest
@@ -294,12 +308,12 @@ ref; // ME_6B20F79B7683
  : Parent ME_51DEB2C70024 // FinalContainersTests
  ;
  : Inherits
-   @ ( WL 'ME_4B2A0DDE028B' '4B2A0D6A0077.pas.ms.script' // TTestCase
+   Seq: ( WL 'ME_4B2A0DDE028B' '4B2A0D6A0077.pas.ms.script' // TTestCase
  ME_51E80DD30125 // ListTest
- ) .SequenceCode.It
+ )
  ; // Inherits
  : Operations
-   @ ( ME_51DEB319037C // DoIt
+   Seq: ( ME_51DEB319037C // DoIt
  ME_51DED6FC03C1 // TestTwoLists
  ME_51E6AC74038B // TestInsert
  ME_51E6ADE0016E // RandomItem
@@ -307,28 +321,35 @@ ref; // ME_6B20F79B7683
  ME_51E7F6EF0285 // DeleteTest
  ME_51E80DC50154 // AddTest
  ME_51E8127802AF // RemoveTest
- ) .SequenceCode.It
+ )
  ; // Operations
  : Children
-   @ ( ME_51E03FE602DF // ListType
- ) .SequenceCode.It
+   Seq: ( ME_51E03FE602DF // ListType
+ )
  ; // Children
  : Dependencies
-   @ ( ME_51DEB33D01CF // 
+   Seq: ( ME_51DEB33D01CF // 
  ME_6B20F79B7683 // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  CONST "needs InstanceR" false
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
  : Generators
- @ (
+ Seq: (
  gen_intf.pas
- ) .SequenceCode.It
+ )
  ; // Generators
+ CONST dfm:PathOnly '\common\components\SandBox'
  CONST intf.pas:Path 'common\components\SandBox\AtomicListTest.imp.pas'
+ CONST intf.pas:PathOnly '\common\components\SandBox'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\common\components\SandBox'
  CONST extprop:pas:TypeName '_AtomicListTest_'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'AtomicListTest.imp'
 
 ref; // ME_51E03FC80111 AtomicListTest
 
@@ -351,6 +372,7 @@ ref; // ME_51E0403E02B9 ListType
 
 : ME_913ABF76AABB
  CONST UID '913ABF76AABB'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_51DEE8E9025A // Int64ListTest
@@ -371,29 +393,36 @@ ref; // ME_913ABF76AABB
  : Parent ME_51DEB2C70024 // FinalContainersTests
  ;
  : Inherits
-   @ ( WL 'ME_4B2A0DDE028B' '4B2A0D6A0077.pas.ms.script' // TTestCase
+   Seq: ( WL 'ME_4B2A0DDE028B' '4B2A0D6A0077.pas.ms.script' // TTestCase
  ME_51E03FC80111 // AtomicListTest
- ) .SequenceCode.It
+ )
  ; // Inherits
  : Attributes
-   @ ( ME_51E0403E02B9 // ListType
- ) .SequenceCode.It
+   Seq: ( ME_51E0403E02B9 // ListType
+ )
  ; // Attributes
  : Dependencies
-   @ ( ME_913ABF76AABB // 
- ) .SequenceCode.It
+   Seq: ( ME_913ABF76AABB // 
+ )
  ; // Dependencies
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
  : Generators
- @ (
+ Seq: (
  gen_intf.pas
- ) .SequenceCode.It
+ )
  ; // Generators
+ CONST dfm:PathOnly '\common\components\SandBox'
  CONST intf.pas:Path 'common\components\SandBox\Int64ListTest.pas'
+ CONST intf.pas:PathOnly '\common\components\SandBox'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\common\components\SandBox'
  CONST extprop:pas:TypeName 'TInt64ListTest'
+ CONST extprop:rc:SelfName 'Int64ListTest'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_51DEE8E9025A Int64ListTest
 
@@ -416,6 +445,7 @@ ref; // ME_51E040210339 ListType
 
 : ME_09767302DBF8
  CONST UID '09767302DBF8'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_51DEB2FA00B0 // IntegerListTest
@@ -436,29 +466,36 @@ ref; // ME_09767302DBF8
  : Parent ME_51DEB2C70024 // FinalContainersTests
  ;
  : Inherits
-   @ ( WL 'ME_4B2A0DDE028B' '4B2A0D6A0077.pas.ms.script' // TTestCase
+   Seq: ( WL 'ME_4B2A0DDE028B' '4B2A0D6A0077.pas.ms.script' // TTestCase
  ME_51E03FC80111 // AtomicListTest
- ) .SequenceCode.It
+ )
  ; // Inherits
  : Attributes
-   @ ( ME_51E040210339 // ListType
- ) .SequenceCode.It
+   Seq: ( ME_51E040210339 // ListType
+ )
  ; // Attributes
  : Dependencies
-   @ ( ME_09767302DBF8 // 
- ) .SequenceCode.It
+   Seq: ( ME_09767302DBF8 // 
+ )
  ; // Dependencies
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
  : Generators
- @ (
+ Seq: (
  gen_intf.pas
- ) .SequenceCode.It
+ )
  ; // Generators
+ CONST dfm:PathOnly '\common\components\SandBox'
  CONST intf.pas:Path 'common\components\SandBox\IntegerListTest.pas'
+ CONST intf.pas:PathOnly '\common\components\SandBox'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\common\components\SandBox'
  CONST extprop:pas:TypeName 'TIntegerListTest'
+ CONST extprop:rc:SelfName 'IntegerListTest'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_51DEB2FA00B0 IntegerListTest
 
@@ -494,6 +531,7 @@ ref; // ME_51E80B2F02CF DoIt
 
 : ME_6A3768B452CC
  CONST UID '6A3768B452CC'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_51E80B08039E // IUnknownRefListTest
@@ -514,33 +552,40 @@ ref; // ME_6A3768B452CC
  : Parent ME_51DEB2C70024 // FinalContainersTests
  ;
  : Inherits
-   @ ( WL 'ME_4B2A0DDE028B' '4B2A0D6A0077.pas.ms.script' // TTestCase
+   Seq: ( WL 'ME_4B2A0DDE028B' '4B2A0D6A0077.pas.ms.script' // TTestCase
  ME_51E80DD30125 // ListTest
- ) .SequenceCode.It
+ )
  ; // Inherits
  : Attributes
-   @ ( ME_51E80DF20117 // ListType
- ) .SequenceCode.It
+   Seq: ( ME_51E80DF20117 // ListType
+ )
  ; // Attributes
  : Operations
-   @ ( ME_51E80B2F02CF // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_51E80B2F02CF // DoIt
+ )
  ; // Operations
  : Dependencies
-   @ ( ME_6A3768B452CC // 
- ) .SequenceCode.It
+   Seq: ( ME_6A3768B452CC // 
+ )
  ; // Dependencies
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
  : Generators
- @ (
+ Seq: (
  gen_intf.pas
- ) .SequenceCode.It
+ )
  ; // Generators
+ CONST dfm:PathOnly '\common\components\SandBox'
  CONST intf.pas:Path 'common\components\SandBox\IUnknownRefListTest.pas'
+ CONST intf.pas:PathOnly '\common\components\SandBox'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\common\components\SandBox'
  CONST extprop:pas:TypeName 'TIUnknownRefListTest'
+ CONST extprop:rc:SelfName 'IUnknownRefListTest'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_51E80B08039E IUnknownRefListTest
 
@@ -563,6 +608,7 @@ ref; // ME_51E040300369 ListType
 
 : ME_95057C180634
  CONST UID '95057C180634'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_51DEE67C003A // ByteListTest
@@ -583,29 +629,36 @@ ref; // ME_95057C180634
  : Parent ME_51DEB2C70024 // FinalContainersTests
  ;
  : Inherits
-   @ ( WL 'ME_4B2A0DDE028B' '4B2A0D6A0077.pas.ms.script' // TTestCase
+   Seq: ( WL 'ME_4B2A0DDE028B' '4B2A0D6A0077.pas.ms.script' // TTestCase
  ME_51E03FC80111 // AtomicListTest
- ) .SequenceCode.It
+ )
  ; // Inherits
  : Attributes
-   @ ( ME_51E040300369 // ListType
- ) .SequenceCode.It
+   Seq: ( ME_51E040300369 // ListType
+ )
  ; // Attributes
  : Dependencies
-   @ ( ME_95057C180634 // 
- ) .SequenceCode.It
+   Seq: ( ME_95057C180634 // 
+ )
  ; // Dependencies
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
  : Generators
- @ (
+ Seq: (
  gen_intf.pas
- ) .SequenceCode.It
+ )
  ; // Generators
+ CONST dfm:PathOnly '\common\components\SandBox'
  CONST intf.pas:Path 'common\components\SandBox\ByteListTest.pas'
+ CONST intf.pas:PathOnly '\common\components\SandBox'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\common\components\SandBox'
  CONST extprop:pas:TypeName 'TByteListTest'
+ CONST extprop:rc:SelfName 'ByteListTest'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_51DEE67C003A ByteListTest
 
@@ -619,28 +672,33 @@ ref; // ME_51DEE67C003A ByteListTest
  : Parent WL 'ME_5155865B01B6' '5155865B01B6.pas.ms.script' // SandBoxTest
  ;
  : Children
-   @ ( ME_51E80DD30125 // ListTest
+   Seq: ( ME_51E80DD30125 // ListTest
  ME_51E03FC80111 // AtomicListTest
  ME_51DEE8E9025A // Int64ListTest
  ME_51DEB2FA00B0 // IntegerListTest
  ME_51E80B08039E // IUnknownRefListTest
  ME_51DEE67C003A // ByteListTest
- ) .SequenceCode.It
+ )
  ; // Children
  : Depends
-   @ ( WL 'ME_4AB0C3C60310' '4AB0C3C60310.pas.ms.script' // Sys
+   Seq: ( WL 'ME_4AB0C3C60310' '4AB0C3C60310.pas.ms.script' // Sys
  WL 'ME_4B2A0D6A0077' '4B2A0D6A0077.pas.ms.script' // Source
  WL 'ME_51DEB06A03CB' '51DEB06A03CB.pas.ms.script' // STLLike
  WL 'ME_51DEB22001AC' '51DEB22001AC.pas.ms.script' // FinalContainers
- ) .SequenceCode.It
+ )
  ; // Depends
  : Generators
- @ (
+ Seq: (
  gen_pas.script
  gen_pas.script.runner
- ) .SequenceCode.It
+ )
  ; // Generators
+ CONST dfm:PathOnly '\common\components\SandBox'
+ CONST intf.pas:PathOnly '\common\components\SandBox'
  CONST pas.script:Path 'shared\models\NewSchool\Scripts\51DEB2C70024.pas.ms.script'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
  CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\51DEB2C70024.pas.ms.script.runner'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\common\components\SandBox'
 
 ref; // ME_51DEB2C70024 FinalContainersTests

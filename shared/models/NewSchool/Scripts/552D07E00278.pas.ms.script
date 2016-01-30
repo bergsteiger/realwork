@@ -6,11 +6,14 @@ FORWARD ME_552D07E00278
 
 FORWARD ME_552CF9C50052
 
+FORWARD ME_552BE03C03E2
+
 FORWARD ME_115E7EFB89B4
 
 : ME_6C2D99FB7DB6
  CONST UID '6C2D99FB7DB6'
  CONST Name 'aCtx'
+ CONST IsSummoned true
  CONST Class class_Parameter
  : Stereotype st_in ;
  : Target WL 'ME_4DB0091E033E' '4DAF19F600C5.pas.ms.script' // TtfwContext
@@ -21,6 +24,7 @@ ref; // ME_6C2D99FB7DB6 aCtx
 : ME_F9D10A107F51
  CONST UID 'F9D10A107F51'
  CONST Name 'filter_AutolinkFilter'
+ CONST IsSummoned true
  CONST Class class_Operation
  %SUMMARY 'Реализация слова скрипта filter:AutolinkFilter' ;
  CONST Visibility PrivateAccess
@@ -30,8 +34,8 @@ ref; // ME_6C2D99FB7DB6 aCtx
  : Target WL 'ME_4678160E01BE' '47913B47006E.pas.ms.script' // Ik2TagGenerator
  ;
  : Parameters
-   @ ( ME_6C2D99FB7DB6 // aCtx
- ) .SequenceCode.It
+   Seq: ( ME_6C2D99FB7DB6 // aCtx
+ )
  ; // Parameters
 
 ref; // ME_F9D10A107F51 filter_AutolinkFilter
@@ -39,6 +43,7 @@ ref; // ME_F9D10A107F51 filter_AutolinkFilter
 : ME_F7B200A5E725
  CONST UID 'F7B200A5E725'
  CONST Name 'Ini_Reg'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Регистрация filter_AutolinkFilter' ;
@@ -51,6 +56,7 @@ ref; // ME_F7B200A5E725 Ini_Reg
 
 : ME_8AF39112B488
  CONST UID '8AF39112B488'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_115E7EFB89B4 // filter_AutolinkFilter
@@ -62,6 +68,7 @@ ref; // ME_8AF39112B488
 
 : ME_E21A0D95749E
  CONST UID 'E21A0D95749E'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_115E7EFB89B4 // filter_AutolinkFilter
@@ -73,6 +80,7 @@ ref; // ME_E21A0D95749E
 
 : ME_83F184C378A8
  CONST UID '83F184C378A8'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_115E7EFB89B4 // filter_AutolinkFilter
@@ -135,6 +143,7 @@ ref; // ME_5617F4D00243_ME_115E7EFB89B4 ParamsTypes
 : ME_115E7EFB89B4
  CONST UID '115E7EFB89B4'
  CONST Name 'filter_AutolinkFilter'
+ CONST IsSummoned true
  CONST Class class_Class
  : Stereotype st_ScriptKeyword ;
  CONST Kind kind_NormalClass
@@ -144,30 +153,30 @@ ref; // ME_5617F4D00243_ME_115E7EFB89B4 ParamsTypes
  : Parent ME_552CF9C50052 // AutolinkFilterWordsPack
  ;
  : Inherits
-   @ ( WL 'ME_561BAC4B0005' '55CCADD2013D.pas.ms.script' // TtfwGlobalKeyWord
- ) .SequenceCode.It
+   Seq: ( WL 'ME_561BAC4B0005' '55CCADD2013D.pas.ms.script' // TtfwGlobalKeyWord
+ )
  ; // Inherits
  : Operations
-   @ ( ME_F9D10A107F51 // filter_AutolinkFilter
+   Seq: ( ME_F9D10A107F51 // filter_AutolinkFilter
  ME_F7B200A5E725 // Ini_Reg
- ) .SequenceCode.It
+ )
  ; // Operations
  : Implemented
-   @ ( ME_4DAEEDE10285_ME_115E7EFB89B4 // DoDoIt
- ) .SequenceCode.It
+   Seq: ( ME_4DAEEDE10285_ME_115E7EFB89B4 // DoDoIt
+ )
  ; // Implemented
  : Overridden
-   @ ( ME_4DB0614603C8_ME_115E7EFB89B4 // GetWordNameForRegister
+   Seq: ( ME_4DB0614603C8_ME_115E7EFB89B4 // GetWordNameForRegister
  ME_551544E2001A_ME_115E7EFB89B4 // GetResultTypeInfo
  ME_559687E6025A_ME_115E7EFB89B4 // GetAllParamsCount
  ME_5617F4D00243_ME_115E7EFB89B4 // ParamsTypes
- ) .SequenceCode.It
+ )
  ; // Overridden
  : Dependencies
-   @ ( ME_8AF39112B488 // 
+   Seq: ( ME_8AF39112B488 // 
  ME_E21A0D95749E // 
  ME_83F184C378A8 // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  CONST "NameForScript" 'filter:AutolinkFilter'
  CONST "ifdef" 'Archi'
@@ -175,15 +184,26 @@ ref; // ME_5617F4D00243_ME_115E7EFB89B4 ParamsTypes
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
+ CONST dfm:PathOnly '\common\components\rtl\Garant\ScriptEngine'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\ScriptEngine'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
  CONST extprop:pas:TypeName 'TkwFilterAutolinkFilter'
+ CONST extprop:rc:SelfName 'FilterAutolinkFilter'
+ CONST extprop:rc:isAcceptableForScripts true
+ : SpelledFor ME_552BE03C03E2 // filter_AutolinkFilter
+ ;
 
 ref; // ME_115E7EFB89B4 filter_AutolinkFilter
+
+FORWARD ME_552BE009014C
 
 FORWARD ME_30FF429786F9
 
 : ME_E917442F3C92
  CONST UID 'E917442F3C92'
  CONST Name 'Ini_Reg'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Регистрация filter_CleanAutolinkFilter' ;
@@ -196,6 +216,7 @@ ref; // ME_E917442F3C92 Ini_Reg
 
 : ME_A9E74B85097A
  CONST UID 'A9E74B85097A'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_30FF429786F9 // filter_CleanAutolinkFilter
@@ -207,6 +228,7 @@ ref; // ME_A9E74B85097A
 
 : ME_8A710273B1FE
  CONST UID '8A710273B1FE'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_30FF429786F9 // filter_CleanAutolinkFilter
@@ -218,6 +240,7 @@ ref; // ME_8A710273B1FE
 
 : ME_EC6E89B4DABD
  CONST UID 'EC6E89B4DABD'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_30FF429786F9 // filter_CleanAutolinkFilter
@@ -270,6 +293,7 @@ ref; // ME_559687E6025A_ME_30FF429786F9 GetAllParamsCount
 : ME_30FF429786F9
  CONST UID '30FF429786F9'
  CONST Name 'filter_CleanAutolinkFilter'
+ CONST IsSummoned true
  CONST Class class_Class
  : Stereotype st_ScriptKeyword ;
  CONST Kind kind_NormalClass
@@ -279,28 +303,28 @@ ref; // ME_559687E6025A_ME_30FF429786F9 GetAllParamsCount
  : Parent ME_552CF9C50052 // AutolinkFilterWordsPack
  ;
  : Inherits
-   @ ( WL 'ME_561BAC4B0005' '55CCADD2013D.pas.ms.script' // TtfwGlobalKeyWord
- ) .SequenceCode.It
+   Seq: ( WL 'ME_561BAC4B0005' '55CCADD2013D.pas.ms.script' // TtfwGlobalKeyWord
+ )
  ; // Inherits
  : Operations
-   @ ( ME_E917442F3C92 // Ini_Reg
- ) .SequenceCode.It
+   Seq: ( ME_E917442F3C92 // Ini_Reg
+ )
  ; // Operations
  : Implemented
-   @ ( ME_4DAEEDE10285_ME_30FF429786F9 // DoDoIt
- ) .SequenceCode.It
+   Seq: ( ME_4DAEEDE10285_ME_30FF429786F9 // DoDoIt
+ )
  ; // Implemented
  : Overridden
-   @ ( ME_4DB0614603C8_ME_30FF429786F9 // GetWordNameForRegister
+   Seq: ( ME_4DB0614603C8_ME_30FF429786F9 // GetWordNameForRegister
  ME_551544E2001A_ME_30FF429786F9 // GetResultTypeInfo
  ME_559687E6025A_ME_30FF429786F9 // GetAllParamsCount
- ) .SequenceCode.It
+ )
  ; // Overridden
  : Dependencies
-   @ ( ME_A9E74B85097A // 
+   Seq: ( ME_A9E74B85097A // 
  ME_8A710273B1FE // 
  ME_EC6E89B4DABD // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  CONST "NameForScript" 'filter:CleanAutolinkFilter'
  CONST "ifdef" 'Archi'
@@ -308,7 +332,15 @@ ref; // ME_559687E6025A_ME_30FF429786F9 GetAllParamsCount
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
+ CONST dfm:PathOnly '\common\components\rtl\Garant\ScriptEngine'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\ScriptEngine'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
  CONST extprop:pas:TypeName 'TkwFilterCleanAutolinkFilter'
+ CONST extprop:rc:SelfName 'FilterCleanAutolinkFilter'
+ CONST extprop:rc:isAcceptableForScripts true
+ : SpelledFor ME_552BE009014C // filter_CleanAutolinkFilter
+ ;
 
 ref; // ME_30FF429786F9 filter_CleanAutolinkFilter
 
@@ -325,6 +357,8 @@ ref; // ME_30FF429786F9 filter_CleanAutolinkFilter
  : Target WL 'ME_4678160E01BE' '47913B47006E.pas.ms.script' // Ik2TagGenerator
  ;
  CONST "ifdef" 'Archi'
+ : Speller ME_115E7EFB89B4 // filter_AutolinkFilter
+ ;
 
 ref; // ME_552BE03C03E2 filter_AutolinkFilter
 
@@ -339,12 +373,15 @@ ref; // ME_552BE03C03E2 filter_AutolinkFilter
  : Parent ME_552CF9C50052 // AutolinkFilterWordsPack
  ;
  CONST "ifdef" 'Archi'
+ : Speller ME_30FF429786F9 // filter_CleanAutolinkFilter
+ ;
 
 ref; // ME_552BE009014C filter_CleanAutolinkFilter
 
 : ME_F7C39F10FC99
  CONST UID 'F7C39F10FC99'
- CONST Name 'Reg_TtfwContext'
+ CONST Name 'Reg_Type_TtfwContext'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Регистрация типа TtfwContext' ;
@@ -352,12 +389,15 @@ ref; // ME_552BE009014C filter_CleanAutolinkFilter
  CONST Abstraction at_final
  : Parent ME_552CF9C50052 // AutolinkFilterWordsPack
  ;
+ : SpelledFor WL 'ME_4DB0091E033E' '4DAF19F600C5.pas.ms.script' // TtfwContext
+ ;
 
-ref; // ME_F7C39F10FC99 Reg_TtfwContext
+ref; // ME_F7C39F10FC99 Reg_Type_TtfwContext
 
 : ME_CBDC0324AA0C
  CONST UID 'CBDC0324AA0C'
- CONST Name 'Reg_Ik2TagGenerator'
+ CONST Name 'Reg_Type_Ik2TagGenerator'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Регистрация типа Ik2TagGenerator' ;
@@ -365,8 +405,10 @@ ref; // ME_F7C39F10FC99 Reg_TtfwContext
  CONST Abstraction at_final
  : Parent ME_552CF9C50052 // AutolinkFilterWordsPack
  ;
+ : SpelledFor WL 'ME_4678160E01BE' '47913B47006E.pas.ms.script' // Ik2TagGenerator
+ ;
 
-ref; // ME_CBDC0324AA0C Reg_Ik2TagGenerator
+ref; // ME_CBDC0324AA0C Reg_Type_Ik2TagGenerator
 
 : ME_552CFA0300CA
  CONST UID '552CFA0300CA'
@@ -392,6 +434,7 @@ ref; // ME_552CFA080079
 
 : ME_3F23FB154113
  CONST UID '3F23FB154113'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_552CF9C50052 // AutolinkFilterWordsPack
@@ -403,6 +446,7 @@ ref; // ME_3F23FB154113
 
 : ME_81594EA1DF6A
  CONST UID '81594EA1DF6A'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_552CF9C50052 // AutolinkFilterWordsPack
@@ -423,35 +467,34 @@ ref; // ME_81594EA1DF6A
  : Parent ME_552D07E00278 // Autolink
  ;
  : Operations
-   @ ( ME_552BE03C03E2 // filter_AutolinkFilter
+   Seq: ( ME_552BE03C03E2 // filter_AutolinkFilter
  ME_552BE009014C // filter_CleanAutolinkFilter
- ME_F7C39F10FC99 // Reg_TtfwContext
- ME_CBDC0324AA0C // Reg_Ik2TagGenerator
- ) .SequenceCode.It
+ ME_F7C39F10FC99 // Reg_Type_TtfwContext
+ ME_CBDC0324AA0C // Reg_Type_Ik2TagGenerator
+ )
  ; // Operations
  : Children
-   @ ( ME_115E7EFB89B4 // filter_AutolinkFilter
+   Seq: ( ME_115E7EFB89B4 // filter_AutolinkFilter
  ME_30FF429786F9 // filter_CleanAutolinkFilter
- ) .SequenceCode.It
+ )
  ; // Children
  : Dependencies
-   @ ( ME_552CFA0300CA // 
+   Seq: ( ME_552CFA0300CA // 
  ME_552CFA080079 // 
  ME_3F23FB154113 // 
  ME_81594EA1DF6A // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  CONST "ifndef" 'NoScripts'
  CONST "needs script" 'undefined'
  CONST "no class name" 'undefined'
  CONST "no hands" false
  CONST "no_pop" 'undefined'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\ScriptEngine'
  CONST intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\AutolinkFilterWordsPack.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\ScriptEngine'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_552CF9C50052 AutolinkFilterWordsPack
 
@@ -465,11 +508,11 @@ ref; // ME_552CF9C50052 AutolinkFilterWordsPack
  : Parent WL 'ME_54EF440B0244' '54EF440B0244.pas.ms.script' // ScriptEngine$L3
  ;
  : Children
-   @ ( ME_552CF9C50052 // AutolinkFilterWordsPack
- ) .SequenceCode.It
+   Seq: ( ME_552CF9C50052 // AutolinkFilterWordsPack
+ )
  ; // Children
  : Depends
-   @ ( WL 'ME_4767743E00E5' '4767743E00E5.pas.ms.script' // TypInfo
+   Seq: ( WL 'ME_4767743E00E5' '4767743E00E5.pas.ms.script' // TypInfo
  WL 'ME_47913B47006E' '47913B47006E.pas.ms.script' // l3CoreObjects
  WL 'ME_4AB0C3C60310' '4AB0C3C60310.pas.ms.script' // Sys
  WL 'ME_4DAF19F600C5' '4DAF19F600C5.pas.ms.script' // tfwScriptingInterfaces
@@ -477,16 +520,14 @@ ref; // ME_552CF9C50052 AutolinkFilterWordsPack
  WL 'ME_552BF68E0188' '552BF68E0188.pas.ms.script' // AutoLink
  WL 'ME_55BA28CE0290' '55BA28CE0290.pas.ms.script' // tfwScriptingTypes
  WL 'ME_55CCADD2013D' '55CCADD2013D.pas.ms.script' // ClassLikeMapping
- ) .SequenceCode.It
+ )
  ; // Depends
  CONST "ifndef" 'NoScripts'
- : Generators
- @ (
- gen_pas.script
- gen_pas.script.runner
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\ScriptEngine'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\ScriptEngine'
  CONST pas.script:Path 'shared\models\NewSchool\Scripts\552D07E00278.pas.ms.script'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
  CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\552D07E00278.pas.ms.script.runner'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_552D07E00278 Autolink

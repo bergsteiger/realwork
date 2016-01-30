@@ -102,6 +102,7 @@ ref; // ME_543FBC830019 f_RootStreamManager
 : ME_1A45496CD57E
  CONST UID '1A45496CD57E'
  CONST Name 'f_Access'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY 'Поле для свойства Access' ;
  CONST Visibility PrivateAccess
@@ -117,6 +118,7 @@ ref; // ME_1A45496CD57E f_Access
 : ME_7D72493722CE
  CONST UID '7D72493722CE'
  CONST Name 'f_FileName'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY 'Поле для свойства FileName' ;
  CONST Visibility PrivateAccess
@@ -132,6 +134,7 @@ ref; // ME_7D72493722CE f_FileName
 : ME_A3E652F9DB9B
  CONST UID 'A3E652F9DB9B'
  CONST Name 'f_SharedMode'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY 'Поле для свойства SharedMode' ;
  CONST Visibility PrivateAccess
@@ -185,10 +188,10 @@ ref; // ME_542E5E8D034A aStream
  : Parent ME_542E5E1A037B // Create
  ;
  : Parameters
-   @ ( ME_542E5E8D02E9 // aStorageClass
+   Seq: ( ME_542E5E8D02E9 // aStorageClass
  ME_542E5E8D031D // anAccess
  ME_542E5E8D034A // aStream
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_542E5E4200B5 DoIt
@@ -204,8 +207,8 @@ ref; // ME_542E5E4200B5 DoIt
  : Parent ME_542E5D79018F // Tm3StorageHolder
  ;
  : Operations
-   @ ( ME_542E5E4200B5 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_542E5E4200B5 // DoIt
+ )
  ; // Operations
 
 ref; // ME_542E5E1A037B Create
@@ -215,6 +218,7 @@ FORWARD ME_542E5E2F020B
 : ME_E63B22178EC6
  CONST UID 'E63B22178EC6'
  CONST Name 'aStorageClass'
+ CONST IsSummoned true
  CONST Class class_Parameter
  : Stereotype st_in ;
  : Target WL 'ME_5422B2A502EB' '48294AA903A6.pas.ms.script' // Rm3CommonStorage
@@ -225,6 +229,7 @@ ref; // ME_E63B22178EC6 aStorageClass
 : ME_6F57AB49BC7E
  CONST UID '6F57AB49BC7E'
  CONST Name 'anAccess'
+ CONST IsSummoned true
  CONST Class class_Parameter
  : Stereotype st_in ;
  : Target WL 'ME_47208653003B' '4720862F0238.pas.ms.script' // Tm3StoreAccess
@@ -235,6 +240,7 @@ ref; // ME_6F57AB49BC7E anAccess
 : ME_2F2A2463C167
  CONST UID '2F2A2463C167'
  CONST Name 'aStream'
+ CONST IsSummoned true
  CONST Class class_Parameter
  : Stereotype st_in ;
  : Target WL 'ME_46A5AFF103CA' '46A0E6C5023A.pas.ms.script' // IStream
@@ -245,6 +251,7 @@ ref; // ME_2F2A2463C167 aStream
 : ME_B2ED1285DF00
  CONST UID 'B2ED1285DF00'
  CONST Name 'DoIt'
+ CONST IsSummoned true
  CONST Class class_Operation
  %SUMMARY 'Сигнатура фабрики Tm3StorageHolder.Make' ;
  CONST Visibility PrivateAccess
@@ -254,10 +261,10 @@ ref; // ME_2F2A2463C167 aStream
  : Target WL 'ME_542E5D380067' '4720862F0238.pas.ms.script' // Im3StorageHolder
  ;
  : Parameters
-   @ ( ME_E63B22178EC6 // aStorageClass
+   Seq: ( ME_E63B22178EC6 // aStorageClass
  ME_6F57AB49BC7E // anAccess
  ME_2F2A2463C167 // aStream
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_B2ED1285DF00 DoIt
@@ -273,16 +280,16 @@ ref; // ME_B2ED1285DF00 DoIt
  : Parent ME_542E5D79018F // Tm3StorageHolder
  ;
  : Inherits
-   @ ( ME_542E5E1A037B // Create
- ) .SequenceCode.It
+   Seq: ( ME_542E5E1A037B // Create
+ )
  ; // Inherits
  : Implements
-   @ ( WL 'ME_542E5D380067' '4720862F0238.pas.ms.script' // Im3StorageHolder
- ) .SequenceCode.It
+   Seq: ( WL 'ME_542E5D380067' '4720862F0238.pas.ms.script' // Im3StorageHolder
+ )
  ; // Implements
  : Operations
-   @ ( ME_B2ED1285DF00 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_B2ED1285DF00 // DoIt
+ )
  ; // Operations
  CONST "check nil" false
  CONST "need AfterCreate" 'undefined'
@@ -354,12 +361,12 @@ ref; // ME_542E6EC5021F theStorage
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
  : Parameters
-   @ ( ME_542E6EC50125 // aFileName
+   Seq: ( ME_542E6EC50125 // aFileName
  ME_542E6EC5015B // anAccess
  ME_542E6EC50183 // aType
  ME_542E6EC501C3 // aSharedMode
  ME_542E6EC5021F // theStorage
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_542E6E6E0151 DoIt
@@ -375,8 +382,8 @@ ref; // ME_542E6E6E0151 DoIt
  : Parent ME_542E5D79018F // Tm3StorageHolder
  ;
  : Operations
-   @ ( ME_542E6E6E0151 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_542E6E6E0151 // DoIt
+ )
  ; // Operations
  CONST "is static" true
 
@@ -405,8 +412,8 @@ ref; // ME_542E96860046 anAccess
  : Target WL 'ME_4720937500A4' '4720862F0238.pas.ms.script' // Im3IndexedStorage
  ;
  : Parameters
-   @ ( ME_542E96860046 // anAccess
- ) .SequenceCode.It
+   Seq: ( ME_542E96860046 // anAccess
+ )
  ; // Parameters
 
 ref; // ME_542E966E00C9 DoIt
@@ -422,8 +429,8 @@ ref; // ME_542E966E00C9 DoIt
  : Parent ME_542E5D79018F // Tm3StorageHolder
  ;
  : Operations
-   @ ( ME_542E966E00C9 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_542E966E00C9 // DoIt
+ )
  ; // Operations
 
 ref; // ME_542E95A901B7 ReopenStorage
@@ -470,6 +477,7 @@ ref; // ME_542EA4AB000E
  ;
  : Implementor ME_542E5D79018F // Tm3StorageHolder
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" false
 ref; // ME_542E5D4E01DD_ME_542E5D79018F Storage
 
@@ -480,6 +488,7 @@ ref; // ME_542E5D4E01DD_ME_542E5D79018F Storage
  ;
  : Implementor ME_542E5D79018F // Tm3StorageHolder
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_542E736E0204_ME_542E5D79018F StoreToCache
 
 : ME_479731C50290_ME_542E5D79018F
@@ -489,6 +498,7 @@ ref; // ME_542E736E0204_ME_542E5D79018F StoreToCache
  ;
  : Implementor ME_542E5D79018F // Tm3StorageHolder
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_479731C50290_ME_542E5D79018F Cleanup
 
 : ME_5000565C019C_ME_542E5D79018F
@@ -498,6 +508,7 @@ ref; // ME_479731C50290_ME_542E5D79018F Cleanup
  ;
  : Implementor ME_542E5D79018F // Tm3StorageHolder
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_5000565C019C_ME_542E5D79018F ClearFields
 
 : ME_542E5D79018F
@@ -511,15 +522,15 @@ ref; // ME_5000565C019C_ME_542E5D79018F ClearFields
  : Parent ME_5486E32B0191 // StorageHolder
  ;
  : Inherits
-   @ ( WL 'ME_4AE5CA2D0034' '47913B47006E.pas.ms.script' // Tl3CProtoObject
- ) .SequenceCode.It
+   Seq: ( WL 'ME_4AE5CA2D0034' '47913B47006E.pas.ms.script' // Tl3CProtoObject
+ )
  ; // Inherits
  : Implements
-   @ ( WL 'ME_542E5D380067' '4720862F0238.pas.ms.script' // Im3StorageHolder
- ) .SequenceCode.It
+   Seq: ( WL 'ME_542E5D380067' '4720862F0238.pas.ms.script' // Im3StorageHolder
+ )
  ; // Implements
  : Attributes
-   @ ( ME_542E5DA401CB // f_Storage
+   Seq: ( ME_542E5DA401CB // f_Storage
  ME_542E5DD80163 // f_StorageClass
  ME_542E66010214 // Access
  ME_542E82C10111 // FileName
@@ -528,41 +539,43 @@ ref; // ME_5000565C019C_ME_542E5D79018F ClearFields
  ME_1A45496CD57E // f_Access
  ME_7D72493722CE // f_FileName
  ME_A3E652F9DB9B // f_SharedMode
- ) .SequenceCode.It
+ )
  ; // Attributes
  : Operations
-   @ ( ME_542E5E1A037B // Create
+   Seq: ( ME_542E5E1A037B // Create
  ME_542E5E2F020B // Make
  ME_542E6E450028 // GetFromCache
  ME_542E95A901B7 // ReopenStorage
- ) .SequenceCode.It
+ )
  ; // Operations
  : Implemented
-   @ ( ME_542E5D4E01DD_ME_542E5D79018F // Storage
+   Seq: ( ME_542E5D4E01DD_ME_542E5D79018F // Storage
  ME_542E736E0204_ME_542E5D79018F // StoreToCache
- ) .SequenceCode.It
+ )
  ; // Implemented
  : Overridden
-   @ ( ME_479731C50290_ME_542E5D79018F // Cleanup
+   Seq: ( ME_479731C50290_ME_542E5D79018F // Cleanup
  ME_5000565C019C_ME_542E5D79018F // ClearFields
- ) .SequenceCode.It
+ )
  ; // Overridden
  : Dependencies
-   @ ( ME_542E6587008D // 
+   Seq: ( ME_542E6587008D // 
  ME_542E7B040200 // 
  ME_542EA4AB000E // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\m3'
  CONST intf.pas:Path 'common\components\rtl\Garant\m3\m3StorageHolder.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\m3'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'm3StorageHolder'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'm3StorageHolder'
 
 ref; // ME_542E5D79018F Tm3StorageHolder
 
@@ -612,6 +625,7 @@ ref; // ME_542E827A0058
  ;
  : Implementor ME_542E7AB80220 // Tm3StorageHolderListPrim
  ;
+ CONST OpKind opkind_Implemented
  CONST "ifdef" 'l3Items_NeedsAssignItem'
  CONST "ifndef" 'l3Items_NoSort'
 ref; // ME_47B2C42A0163_ME_542E7AB80220 AssignItem
@@ -623,6 +637,7 @@ ref; // ME_47B2C42A0163_ME_542E7AB80220 AssignItem
  ;
  : Implementor ME_542E7AB80220 // Tm3StorageHolderListPrim
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_47B99D4503A2_ME_542E7AB80220 CompareExistingItems
 
 : ME_542E7AB80220
@@ -636,34 +651,36 @@ ref; // ME_47B99D4503A2_ME_542E7AB80220 CompareExistingItems
  : Parent ME_5486E32B0191 // StorageHolder
  ;
  : Inherits
-   @ ( WL 'ME_47B99E920196' '47913B47006E.pas.ms.script' // l3UncomparabeObjectRefList
+   Seq: ( WL 'ME_47B99E920196' '47913B47006E.pas.ms.script' // l3UncomparabeObjectRefList
  WL 'ME_4A54DD4E036F' '47913B47006E.pas.ms.script' // Tl3ProtoDataContainer
- ) .SequenceCode.It
+ )
  ; // Inherits
  : Attributes
-   @ ( ME_542E7AF70226 // ItemType
- ) .SequenceCode.It
+   Seq: ( ME_542E7AF70226 // ItemType
+ )
  ; // Attributes
  : Implemented
-   @ ( ME_47B2C42A0163_ME_542E7AB80220 // AssignItem
+   Seq: ( ME_47B2C42A0163_ME_542E7AB80220 // AssignItem
  ME_47B99D4503A2_ME_542E7AB80220 // CompareExistingItems
- ) .SequenceCode.It
+ )
  ; // Implemented
  : Dependencies
-   @ ( ME_542E826102E9 // 
+   Seq: ( ME_542E826102E9 // 
  ME_542E827A0058 // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\m3'
  CONST intf.pas:Path 'common\components\rtl\Garant\m3\m3StorageHolderListPrim.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\m3'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'm3StorageHolderListPrim'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'm3StorageHolderListPrim'
 
 ref; // ME_542E7AB80220 Tm3StorageHolderListPrim
 
@@ -713,6 +730,7 @@ ref; // ME_542E8DEC03E4
  ;
  : Implementor ME_542E8D2902F1 // Tm3StorageHolderListPrim1
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_47B9BAFD01F4_ME_542E8D2902F1 CompareItemWithData
 
 : ME_542E8D2902F1
@@ -726,33 +744,35 @@ ref; // ME_47B9BAFD01F4_ME_542E8D2902F1 CompareItemWithData
  : Parent ME_5486E32B0191 // StorageHolder
  ;
  : Inherits
-   @ ( WL 'ME_47B47E230134' '47BB24D30205.pas.ms.script' // l3Searcher
+   Seq: ( WL 'ME_47B47E230134' '47BB24D30205.pas.ms.script' // l3Searcher
  ME_542E7AB80220 // Tm3StorageHolderListPrim
- ) .SequenceCode.It
+ )
  ; // Inherits
  : Attributes
-   @ ( ME_542E8DAB027E // FindDataType
- ) .SequenceCode.It
+   Seq: ( ME_542E8DAB027E // FindDataType
+ )
  ; // Attributes
  : Overridden
-   @ ( ME_47B9BAFD01F4_ME_542E8D2902F1 // CompareItemWithData
- ) .SequenceCode.It
+   Seq: ( ME_47B9BAFD01F4_ME_542E8D2902F1 // CompareItemWithData
+ )
  ; // Overridden
  : Dependencies
-   @ ( ME_542E8DD7027C // 
+   Seq: ( ME_542E8DD7027C // 
  ME_542E8DEC03E4 // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\m3'
  CONST intf.pas:Path 'common\components\rtl\Garant\m3\m3StorageHolderListPrim1.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\m3'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'm3StorageHolderListPrim1'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'm3StorageHolderListPrim1'
 
 ref; // ME_542E8D2902F1 Tm3StorageHolderListPrim1
 
@@ -782,8 +802,8 @@ ref; // ME_542E9D2B008F DoIt
  : Parent ME_542E7AD00050 // Tm3StorageHolderList
  ;
  : Operations
-   @ ( ME_542E9D2B008F // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_542E9D2B008F // DoIt
+ )
  ; // Operations
  CONST "is static" true
 
@@ -810,8 +830,8 @@ ref; // ME_55547E7602B0 aFileName
  : Parent ME_542EA0C5023C // Drop
  ;
  : Parameters
-   @ ( ME_55547E7602B0 // aFileName
- ) .SequenceCode.It
+   Seq: ( ME_55547E7602B0 // aFileName
+ )
  ; // Parameters
 
 ref; // ME_542EA0D4038A DoIt
@@ -827,8 +847,8 @@ ref; // ME_542EA0D4038A DoIt
  : Parent ME_542E7AD00050 // Tm3StorageHolderList
  ;
  : Operations
-   @ ( ME_542EA0D4038A // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_542EA0D4038A // DoIt
+ )
  ; // Operations
  CONST "is static" true
 
@@ -839,6 +859,7 @@ FORWARD ME_555481D1035F
 : ME_8DA5EB01A0DD
  CONST UID '8DA5EB01A0DD'
  CONST Name 'DoIt'
+ CONST IsSummoned true
  CONST Class class_Operation
  %SUMMARY 'Сигнатура метода DropAll' ;
  CONST Visibility PublicAccess
@@ -859,8 +880,8 @@ ref; // ME_8DA5EB01A0DD DoIt
  : Parent ME_542E7AD00050 // Tm3StorageHolderList
  ;
  : Operations
-   @ ( ME_8DA5EB01A0DD // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_8DA5EB01A0DD // DoIt
+ )
  ; // Operations
  CONST "is static" true
 
@@ -884,6 +905,7 @@ ref; // ME_542E829502B2
  ;
  : Implementor ME_542E7AD00050 // Tm3StorageHolderList
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_47A042E100E2_ME_542E7AD00050 InitFields
 
 : ME_542E7AD00050
@@ -897,35 +919,37 @@ ref; // ME_47A042E100E2_ME_542E7AD00050 InitFields
  : Parent ME_5486E32B0191 // StorageHolder
  ;
  : Inherits
-   @ ( WL 'ME_53A03846011C' '53A038340371.pas.ms.script' // l3CriticalSectionHolder
+   Seq: ( WL 'ME_53A03846011C' '53A038340371.pas.ms.script' // l3CriticalSectionHolder
  ME_542E8D2902F1 // Tm3StorageHolderListPrim1
- ) .SequenceCode.It
+ )
  ; // Inherits
  : Operations
-   @ ( ME_542E9D1B0264 // Exists
+   Seq: ( ME_542E9D1B0264 // Exists
  ME_542EA0C5023C // Drop
  ME_555481D1035F // DropAll
- ) .SequenceCode.It
+ )
  ; // Operations
  : Overridden
-   @ ( ME_47A042E100E2_ME_542E7AD00050 // InitFields
- ) .SequenceCode.It
+   Seq: ( ME_47A042E100E2_ME_542E7AD00050 // InitFields
+ )
  ; // Overridden
  : Dependencies
-   @ ( ME_542E829502B2 // 
- ) .SequenceCode.It
+   Seq: ( ME_542E829502B2 // 
+ )
  ; // Dependencies
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
  CONST "singleton" true
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\m3'
  CONST intf.pas:Path 'common\components\rtl\Garant\m3\m3StorageHolderList.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\m3'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'm3StorageHolderList'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'm3StorageHolderList'
 
 ref; // ME_542E7AD00050 Tm3StorageHolderList
 
@@ -939,14 +963,14 @@ ref; // ME_542E7AD00050 Tm3StorageHolderList
  : Parent WL 'ME_472082480337' '472082480337.pas.ms.script' // m3
  ;
  : Children
-   @ ( ME_542E5D79018F // Tm3StorageHolder
+   Seq: ( ME_542E5D79018F // Tm3StorageHolder
  ME_542E7AB80220 // Tm3StorageHolderListPrim
  ME_542E8D2902F1 // Tm3StorageHolderListPrim1
  ME_542E7AD00050 // Tm3StorageHolderList
- ) .SequenceCode.It
+ )
  ; // Children
  : Depends
-   @ ( WL 'ME_4678193C009C' '4678193C009C.pas.ms.script' // l3Types
+   Seq: ( WL 'ME_4678193C009C' '4678193C009C.pas.ms.script' // l3Types
  WL 'ME_46A0E6C5023A' '46A0E6C5023A.pas.ms.script' // ActiveX
  WL 'ME_4720862F0238' '4720862F0238.pas.ms.script' // m3StorageInterfaces
  WL 'ME_47913B47006E' '47913B47006E.pas.ms.script' // l3CoreObjects
@@ -956,15 +980,13 @@ ref; // ME_542E7AD00050 Tm3StorageHolderList
  WL 'ME_4AB0C3F60375' '4AB0C3F60375.pas.ms.script' // Win
  WL 'ME_53A038340371' '53A038340371.pas.ms.script' // MultiThread
  WL 'ME_54B90AC6014B' '54B90AC6014B.pas.ms.script' // StringUtils
- ) .SequenceCode.It
+ )
  ; // Depends
- : Generators
- @ (
- gen_pas.script
- gen_pas.script.runner
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\m3'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\m3'
  CONST pas.script:Path 'shared\models\NewSchool\Scripts\5486E32B0191.pas.ms.script'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
  CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\5486E32B0191.pas.ms.script.runner'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_5486E32B0191 StorageHolder

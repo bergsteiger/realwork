@@ -35,6 +35,7 @@ ref; // ME_48FF6B7802F0
  ;
  : Implementor ME_47EA4BEF0140 // afwApplicationDataUpdate
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_4768DD730235_ME_47EA4BEF0140 UpdateFinished
 
 : ME_479731C50290_ME_47EA4BEF0140
@@ -44,6 +45,7 @@ ref; // ME_4768DD730235_ME_47EA4BEF0140 UpdateFinished
  ;
  : Implementor ME_47EA4BEF0140 // afwApplicationDataUpdate
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_479731C50290_ME_47EA4BEF0140 Cleanup
 
 : ME_47A042E100E2_ME_47EA4BEF0140
@@ -53,6 +55,7 @@ ref; // ME_479731C50290_ME_47EA4BEF0140 Cleanup
  ;
  : Implementor ME_47EA4BEF0140 // afwApplicationDataUpdate
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_47A042E100E2_ME_47EA4BEF0140 InitFields
 
 : ME_47EA4BEF0140
@@ -67,26 +70,26 @@ ref; // ME_47A042E100E2_ME_47EA4BEF0140 InitFields
  : Parent ME_47EA4BB502F9 // afwMixIns
  ;
  : Implements
-   @ ( WL 'ME_4768DD490068' '467823B7002C.pas.ms.script' // IafwApplicationDataListener
+   Seq: ( WL 'ME_4768DD490068' '467823B7002C.pas.ms.script' // IafwApplicationDataListener
  WL 'ME_4A5CB93700CF' '47913B47006E.pas.ms.script' // Ml3Unknown
- ) .SequenceCode.It
+ )
  ; // Implements
  : Operations
-   @ ( ME_47EA4E9002C6 // FinishDataUpdate
- ) .SequenceCode.It
+   Seq: ( ME_47EA4E9002C6 // FinishDataUpdate
+ )
  ; // Operations
  : Implemented
-   @ ( ME_4768DD730235_ME_47EA4BEF0140 // UpdateFinished
- ) .SequenceCode.It
+   Seq: ( ME_4768DD730235_ME_47EA4BEF0140 // UpdateFinished
+ )
  ; // Implemented
  : Overridden
-   @ ( ME_479731C50290_ME_47EA4BEF0140 // Cleanup
+   Seq: ( ME_479731C50290_ME_47EA4BEF0140 // Cleanup
  ME_47A042E100E2_ME_47EA4BEF0140 // InitFields
- ) .SequenceCode.It
+ )
  ; // Overridden
  : Dependencies
-   @ ( ME_48FF6B7802F0 // 
- ) .SequenceCode.It
+   Seq: ( ME_48FF6B7802F0 // 
+ )
  ; // Dependencies
  CONST "author" 'Морозов М.А.'
  CONST "needs InstanceR" 'undefined'
@@ -94,13 +97,13 @@ ref; // ME_47A042E100E2_ME_47EA4BEF0140 InitFields
  CONST "no hands" true
  CONST "register in scripts" 'undefined'
  CONST "started" '18.12.2007'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\AFW\implementation'
  CONST intf.pas:Path 'common\components\gui\Garant\AFW\implementation\afwApplicationDataUpdate.imp.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\AFW\implementation'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
  CONST extprop:pas:TypeName '_afwApplicationDataUpdate_'
+ CONST extprop:pas:UnitName 'afwApplicationDataUpdate.imp'
 
 ref; // ME_47EA4BEF0140 afwApplicationDataUpdate
 
@@ -128,8 +131,8 @@ ref; // ME_47EA864402EB aSettingId
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
  : Parameters
-   @ ( ME_47EA864402EB // aSettingId
- ) .SequenceCode.It
+   Seq: ( ME_47EA864402EB // aSettingId
+ )
  ; // Parameters
 
 ref; // ME_47EA863A035C DoSettingChanged
@@ -163,6 +166,7 @@ ref; // ME_5242FEB20013
  ;
  : Implementor ME_47EA85E7005B // afwSettingChanged
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_475E8C33036C_ME_47EA85E7005B SettingChanged
 
 : ME_479731C50290_ME_47EA85E7005B
@@ -172,6 +176,7 @@ ref; // ME_475E8C33036C_ME_47EA85E7005B SettingChanged
  ;
  : Implementor ME_47EA85E7005B // afwSettingChanged
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_479731C50290_ME_47EA85E7005B Cleanup
 
 : ME_47A042E100E2_ME_47EA85E7005B
@@ -181,6 +186,7 @@ ref; // ME_479731C50290_ME_47EA85E7005B Cleanup
  ;
  : Implementor ME_47EA85E7005B // afwSettingChanged
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_47A042E100E2_ME_47EA85E7005B InitFields
 
 : ME_47EA85E7005B
@@ -195,27 +201,27 @@ ref; // ME_47A042E100E2_ME_47EA85E7005B InitFields
  : Parent ME_47EA4BB502F9 // afwMixIns
  ;
  : Implements
-   @ ( WL 'ME_475E8C230253' '467823B7002C.pas.ms.script' // IafwSettingListener
+   Seq: ( WL 'ME_475E8C230253' '467823B7002C.pas.ms.script' // IafwSettingListener
  WL 'ME_4A5CB93700CF' '47913B47006E.pas.ms.script' // Ml3Unknown
- ) .SequenceCode.It
+ )
  ; // Implements
  : Operations
-   @ ( ME_47EA863A035C // DoSettingChanged
- ) .SequenceCode.It
+   Seq: ( ME_47EA863A035C // DoSettingChanged
+ )
  ; // Operations
  : Implemented
-   @ ( ME_475E8C33036C_ME_47EA85E7005B // SettingChanged
- ) .SequenceCode.It
+   Seq: ( ME_475E8C33036C_ME_47EA85E7005B // SettingChanged
+ )
  ; // Implemented
  : Overridden
-   @ ( ME_479731C50290_ME_47EA85E7005B // Cleanup
+   Seq: ( ME_479731C50290_ME_47EA85E7005B // Cleanup
  ME_47A042E100E2_ME_47EA85E7005B // InitFields
- ) .SequenceCode.It
+ )
  ; // Overridden
  : Dependencies
-   @ ( ME_47ECA5DC02AC // 
+   Seq: ( ME_47ECA5DC02AC // 
  ME_5242FEB20013 // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  CONST "author" 'Морозов М.А.'
  CONST "needs InstanceR" 'undefined'
@@ -223,13 +229,13 @@ ref; // ME_47A042E100E2_ME_47EA85E7005B InitFields
  CONST "no hands" true
  CONST "register in scripts" 'undefined'
  CONST "started" '06.12.2007'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\AFW\implementation'
  CONST intf.pas:Path 'common\components\gui\Garant\AFW\implementation\afwSettingChanged.imp.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\AFW\implementation'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
  CONST extprop:pas:TypeName '_afwSettingChanged_'
+ CONST extprop:pas:UnitName 'afwSettingChanged.imp'
 
 ref; // ME_47EA85E7005B afwSettingChanged
 
@@ -286,6 +292,7 @@ ref; // ME_5242FEB50263
  ;
  : Implementor ME_47EA8AEF0077 // afwSettingsReplace
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_475E8D96021D_ME_47EA8AEF0077 Start
 
 : ME_475E8DA60031_ME_47EA8AEF0077
@@ -295,6 +302,7 @@ ref; // ME_475E8D96021D_ME_47EA8AEF0077 Start
  ;
  : Implementor ME_47EA8AEF0077 // afwSettingsReplace
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_475E8DA60031_ME_47EA8AEF0077 Finish
 
 : ME_479731C50290_ME_47EA8AEF0077
@@ -304,6 +312,7 @@ ref; // ME_475E8DA60031_ME_47EA8AEF0077 Finish
  ;
  : Implementor ME_47EA8AEF0077 // afwSettingsReplace
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_479731C50290_ME_47EA8AEF0077 Cleanup
 
 : ME_47A042E100E2_ME_47EA8AEF0077
@@ -313,6 +322,7 @@ ref; // ME_479731C50290_ME_47EA8AEF0077 Cleanup
  ;
  : Implementor ME_47EA8AEF0077 // afwSettingsReplace
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_47A042E100E2_ME_47EA8AEF0077 InitFields
 
 : ME_47EA8AEF0077
@@ -327,29 +337,29 @@ ref; // ME_47A042E100E2_ME_47EA8AEF0077 InitFields
  : Parent ME_47EA4BB502F9 // afwMixIns
  ;
  : Implements
-   @ ( WL 'ME_475E8CFA0204' '467823B7002C.pas.ms.script' // IafwSettingsReplaceListener
+   Seq: ( WL 'ME_475E8CFA0204' '467823B7002C.pas.ms.script' // IafwSettingsReplaceListener
  WL 'ME_4A5CB93700CF' '47913B47006E.pas.ms.script' // Ml3Unknown
- ) .SequenceCode.It
+ )
  ; // Implements
  : Operations
-   @ ( ME_47EA8B8C03CB // SettingsReplaceStart
+   Seq: ( ME_47EA8B8C03CB // SettingsReplaceStart
  ME_47EA8B9601FE // SettingsReplaceFinish
- ) .SequenceCode.It
+ )
  ; // Operations
  : Implemented
-   @ ( ME_475E8D96021D_ME_47EA8AEF0077 // Start
+   Seq: ( ME_475E8D96021D_ME_47EA8AEF0077 // Start
  ME_475E8DA60031_ME_47EA8AEF0077 // Finish
- ) .SequenceCode.It
+ )
  ; // Implemented
  : Overridden
-   @ ( ME_479731C50290_ME_47EA8AEF0077 // Cleanup
+   Seq: ( ME_479731C50290_ME_47EA8AEF0077 // Cleanup
  ME_47A042E100E2_ME_47EA8AEF0077 // InitFields
- ) .SequenceCode.It
+ )
  ; // Overridden
  : Dependencies
-   @ ( ME_497820D6036D // 
+   Seq: ( ME_497820D6036D // 
  ME_5242FEB50263 // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  CONST "author" 'Морозов М.А.'
  CONST "needs InstanceR" 'undefined'
@@ -357,13 +367,13 @@ ref; // ME_47A042E100E2_ME_47EA8AEF0077 InitFields
  CONST "no hands" true
  CONST "register in scripts" 'undefined'
  CONST "started" '06.12.2007'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\AFW\implementation'
  CONST intf.pas:Path 'common\components\gui\Garant\AFW\implementation\afwSettingsReplace.imp.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\AFW\implementation'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
  CONST extprop:pas:TypeName '_afwSettingsReplace_'
+ CONST extprop:pas:UnitName 'afwSettingsReplace.imp'
 
 ref; // ME_47EA8AEF0077 afwSettingsReplace
 
@@ -391,6 +401,7 @@ ref; // ME_49CCA30E00E0 Status
 : ME_79F1086B8963
  CONST UID '79F1086B8963'
  CONST Name 'f_Status'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY 'Поле для свойства Status' ;
  CONST Visibility PrivateAccess
@@ -433,9 +444,9 @@ ref; // ME_49CCA28A00FC theNeedProgress
  : Parent ME_49CCA20A0092 // afwStatusElement
  ;
  : Parameters
-   @ ( ME_49CCA28A00D5 // theString
+   Seq: ( ME_49CCA28A00D5 // theString
  ME_49CCA28A00FC // theNeedProgress
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_49CCA2480360 DoGetStatusInfo
@@ -497,6 +508,7 @@ ref; // ME_49CCA22F01CD
  ;
  : Implementor ME_49CCA20A0092 // afwStatusElement
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_475E9466022A_ME_49CCA20A0092 GetStatusInfo
 
 : ME_479731C50290_ME_49CCA20A0092
@@ -506,6 +518,7 @@ ref; // ME_475E9466022A_ME_49CCA20A0092 GetStatusInfo
  ;
  : Implementor ME_49CCA20A0092 // afwStatusElement
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_479731C50290_ME_49CCA20A0092 Cleanup
 
 : ME_5000565C019C_ME_49CCA20A0092
@@ -515,6 +528,7 @@ ref; // ME_479731C50290_ME_49CCA20A0092 Cleanup
  ;
  : Implementor ME_49CCA20A0092 // afwStatusElement
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_5000565C019C_ME_49CCA20A0092 ClearFields
 
 : ME_49CCA20A0092
@@ -529,46 +543,46 @@ ref; // ME_5000565C019C_ME_49CCA20A0092 ClearFields
  : Parent ME_47EA4BB502F9 // afwMixIns
  ;
  : Implements
-   @ ( WL 'ME_473D96390341' '467823B7002C.pas.ms.script' // IafwStatusElement
+   Seq: ( WL 'ME_473D96390341' '467823B7002C.pas.ms.script' // IafwStatusElement
  WL 'ME_4A5CB93700CF' '47913B47006E.pas.ms.script' // Ml3Unknown
- ) .SequenceCode.It
+ )
  ; // Implements
  : Attributes
-   @ ( ME_49CCA30E00E0 // Status
+   Seq: ( ME_49CCA30E00E0 // Status
  ME_79F1086B8963 // f_Status
- ) .SequenceCode.It
+ )
  ; // Attributes
  : Operations
-   @ ( ME_49CCA2480360 // DoGetStatusInfo
+   Seq: ( ME_49CCA2480360 // DoGetStatusInfo
  ME_49CCA29A000E // DoSubscribe
  ME_49CCA2C80106 // DoUnsubscribe
  ME_49CCA4C90343 // NeedUpdateOnUnsubscribe
- ) .SequenceCode.It
+ )
  ; // Operations
  : Implemented
-   @ ( ME_475E9466022A_ME_49CCA20A0092 // GetStatusInfo
- ) .SequenceCode.It
+   Seq: ( ME_475E9466022A_ME_49CCA20A0092 // GetStatusInfo
+ )
  ; // Implemented
  : Overridden
-   @ ( ME_479731C50290_ME_49CCA20A0092 // Cleanup
+   Seq: ( ME_479731C50290_ME_49CCA20A0092 // Cleanup
  ME_5000565C019C_ME_49CCA20A0092 // ClearFields
- ) .SequenceCode.It
+ )
  ; // Overridden
  : Dependencies
-   @ ( ME_49CCA22F01CD // 
- ) .SequenceCode.It
+   Seq: ( ME_49CCA22F01CD // 
+ )
  ; // Dependencies
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\AFW\implementation'
  CONST intf.pas:Path 'common\components\gui\Garant\AFW\implementation\afwStatusElement.imp.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\AFW\implementation'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
  CONST extprop:pas:TypeName '_afwStatusElement_'
+ CONST extprop:pas:UnitName 'afwStatusElement.imp'
 
 ref; // ME_49CCA20A0092 afwStatusElement
 
@@ -592,6 +606,7 @@ ref; // ME_4DA7238600B1
  ;
  : Implementor ME_4DA7235700F3 // afwVGSceneUpdater
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_47E136A80191_ME_4DA7235700F3 WndProc
 
 : ME_4DA7235700F3
@@ -605,16 +620,16 @@ ref; // ME_47E136A80191_ME_4DA7235700F3 WndProc
  : Parent ME_47EA4BB502F9 // afwMixIns
  ;
  : Implements
-   @ ( WL 'ME_4CC81DE8030F' '4799D29F033F.pas.ms.script' // MWinControl
- ) .SequenceCode.It
+   Seq: ( WL 'ME_4CC81DE8030F' '4799D29F033F.pas.ms.script' // MWinControl
+ )
  ; // Implements
  : Overridden
-   @ ( ME_47E136A80191_ME_4DA7235700F3 // WndProc
- ) .SequenceCode.It
+   Seq: ( ME_47E136A80191_ME_4DA7235700F3 // WndProc
+ )
  ; // Overridden
  : Dependencies
-   @ ( ME_4DA7238600B1 // 
- ) .SequenceCode.It
+   Seq: ( ME_4DA7238600B1 // 
+ )
  ; // Dependencies
  CONST "author" 'Люлин А.В.'
  CONST "needs InstanceR" 'undefined'
@@ -622,13 +637,13 @@ ref; // ME_47E136A80191_ME_4DA7235700F3 WndProc
  CONST "no hands" true
  CONST "register in scripts" 'undefined'
  CONST "started" '14.04.2011 20:40'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\AFW\implementation'
  CONST intf.pas:Path 'common\components\gui\Garant\AFW\implementation\afwVGSceneUpdater.imp.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\AFW\implementation'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
  CONST extprop:pas:TypeName '_afwVGSceneUpdater_'
+ CONST extprop:pas:UnitName 'afwVGSceneUpdater.imp'
 
 ref; // ME_4DA7235700F3 afwVGSceneUpdater
 
@@ -643,30 +658,28 @@ ref; // ME_4DA7235700F3 afwVGSceneUpdater
  : Parent WL 'ME_4790B4F00236' '4790B4F00236.pas.ms.script' // AFW
  ;
  : Children
-   @ ( ME_47EA4BEF0140 // afwApplicationDataUpdate
+   Seq: ( ME_47EA4BEF0140 // afwApplicationDataUpdate
  ME_47EA85E7005B // afwSettingChanged
  ME_47EA8AEF0077 // afwSettingsReplace
  ME_49CCA20A0092 // afwStatusElement
  ME_4DA7235700F3 // afwVGSceneUpdater
- ) .SequenceCode.It
+ )
  ; // Children
  : Depends
-   @ ( WL 'ME_467823B7002C' '467823B7002C.pas.ms.script' // afwInterfaces
+   Seq: ( WL 'ME_467823B7002C' '467823B7002C.pas.ms.script' // afwInterfaces
  WL 'ME_47750CE700D0' '47750CE700D0.pas.ms.script' // afwFacade
  WL 'ME_47913B47006E' '47913B47006E.pas.ms.script' // l3CoreObjects
  WL 'ME_4799D29F033F' '4799D29F033F.pas.ms.script' // Implementation
  WL 'ME_4AB0C3C60310' '4AB0C3C60310.pas.ms.script' // Sys
  WL 'ME_4F6C5511015F' '4F6C5511015F.pas.ms.script' // afwSettings
- ) .SequenceCode.It
+ )
  ; // Depends
  CONST "path prefix" '/implementation'
- : Generators
- @ (
- gen_pas.script
- gen_pas.script.runner
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\AFW\implementation'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\AFW\implementation'
  CONST pas.script:Path 'shared\models\NewSchool\Scripts\47EA4BB502F9.pas.ms.script'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
  CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\47EA4BB502F9.pas.ms.script.runner'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_47EA4BB502F9 afwMixIns

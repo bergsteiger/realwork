@@ -27,6 +27,7 @@ ref; // ME_5006A52C0211 CanHaveToolbars
 : ME_BD1FEBA754C0
  CONST UID 'BD1FEBA754C0'
  CONST Name 'f_CanHaveToolbars'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY 'Поле для свойства CanHaveToolbars' ;
  CONST Visibility PrivateAccess
@@ -36,12 +37,14 @@ ref; // ME_5006A52C0211 CanHaveToolbars
  ;
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
+ CONST extprop:clearViaProperty 'CanHaveToolbars'
 
 ref; // ME_BD1FEBA754C0 f_CanHaveToolbars
 
 : ME_1D94637FAE1A
  CONST UID '1D94637FAE1A'
  CONST Name 'Ini_Reg_Class'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Регистрация TvcmUserTypesCollectionItemPrim' ;
@@ -55,6 +58,7 @@ ref; // ME_1D94637FAE1A Ini_Reg_Class
 
 : ME_2818542FBC8C
  CONST UID '2818542FBC8C'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_5006A4A6003D // TvcmUserTypesCollectionItemPrim
@@ -71,6 +75,7 @@ ref; // ME_2818542FBC8C
  ;
  : Implementor ME_5006A4A6003D // TvcmUserTypesCollectionItemPrim
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_47A042E100E2_ME_5006A4A6003D InitFields
 
 : ME_5006A4A6003D
@@ -84,36 +89,38 @@ ref; // ME_47A042E100E2_ME_5006A4A6003D InitFields
  : Parent ME_5006A46B015B // UserTypes
  ;
  : Inherits
-   @ ( WL 'ME_4FFC3347011F' '4FFC33380166.pas.ms.script' // TvcmBaseCollectionItem
- ) .SequenceCode.It
+   Seq: ( WL 'ME_4FFC3347011F' '4FFC33380166.pas.ms.script' // TvcmBaseCollectionItem
+ )
  ; // Inherits
  : Attributes
-   @ ( ME_5006A52C0211 // CanHaveToolbars
+   Seq: ( ME_5006A52C0211 // CanHaveToolbars
  ME_BD1FEBA754C0 // f_CanHaveToolbars
- ) .SequenceCode.It
+ )
  ; // Attributes
  : Operations
-   @ ( ME_1D94637FAE1A // Ini_Reg_Class
- ) .SequenceCode.It
+   Seq: ( ME_1D94637FAE1A // Ini_Reg_Class
+ )
  ; // Operations
  : Overridden
-   @ ( ME_47A042E100E2_ME_5006A4A6003D // InitFields
- ) .SequenceCode.It
+   Seq: ( ME_47A042E100E2_ME_5006A4A6003D // InitFields
+ )
  ; // Overridden
  : Dependencies
-   @ ( ME_2818542FBC8C // 
- ) .SequenceCode.It
+   Seq: ( ME_2818542FBC8C // 
+ )
  ; // Dependencies
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\VCM\implementation\Components'
  CONST intf.pas:Path 'common\components\gui\Garant\VCM\implementation\Components\vcmUserTypesCollectionItemPrim.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\VCM\implementation\Components'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'UserTypesCollectionItemPrim'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'vcmUserTypesCollectionItemPrim'
 
 ref; // ME_5006A4A6003D TvcmUserTypesCollectionItemPrim
 
@@ -122,6 +129,7 @@ FORWARD ME_5006A4C80386
 : ME_89D5C515B069
  CONST UID '89D5C515B069'
  CONST Name 'Ini_Reg_Class'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Регистрация TvcmBaseUserTypesCollectionItem' ;
@@ -135,6 +143,7 @@ ref; // ME_89D5C515B069 Ini_Reg_Class
 
 : ME_24322C53F639
  CONST UID '24322C53F639'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_5006A4C80386 // TvcmBaseUserTypesCollectionItem
@@ -155,28 +164,30 @@ ref; // ME_24322C53F639
  : Parent ME_5006A46B015B // UserTypes
  ;
  : Inherits
-   @ ( ME_5006A4A6003D // TvcmUserTypesCollectionItemPrim
- ) .SequenceCode.It
+   Seq: ( ME_5006A4A6003D // TvcmUserTypesCollectionItemPrim
+ )
  ; // Inherits
  : Operations
-   @ ( ME_89D5C515B069 // Ini_Reg_Class
- ) .SequenceCode.It
+   Seq: ( ME_89D5C515B069 // Ini_Reg_Class
+ )
  ; // Operations
  : Dependencies
-   @ ( ME_24322C53F639 // 
- ) .SequenceCode.It
+   Seq: ( ME_24322C53F639 // 
+ )
  ; // Dependencies
  CONST "finished" false
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\VCM\implementation\Components'
  CONST intf.pas:Path 'common\components\gui\Garant\VCM\implementation\Components\NOT_FINISHED_vcmBaseUserTypesCollectionItem.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\VCM\implementation\Components'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'UserTypesCollectionItem'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'vcmBaseUserTypesCollectionItem'
 
 ref; // ME_5006A4C80386 TvcmBaseUserTypesCollectionItem
 
@@ -185,6 +196,7 @@ FORWARD ME_5006A4E003AB
 : ME_CF94F939EAA3
  CONST UID 'CF94F939EAA3'
  CONST Name 'Ini_Reg_Class'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Регистрация TvcmUserTypesCollectionItem' ;
@@ -198,6 +210,7 @@ ref; // ME_CF94F939EAA3 Ini_Reg_Class
 
 : ME_4AC4E4C79259
  CONST UID '4AC4E4C79259'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_5006A4E003AB // TvcmUserTypesCollectionItem
@@ -218,28 +231,30 @@ ref; // ME_4AC4E4C79259
  : Parent ME_5006A46B015B // UserTypes
  ;
  : Inherits
-   @ ( ME_5006A4C80386 // TvcmBaseUserTypesCollectionItem
- ) .SequenceCode.It
+   Seq: ( ME_5006A4C80386 // TvcmBaseUserTypesCollectionItem
+ )
  ; // Inherits
  : Operations
-   @ ( ME_CF94F939EAA3 // Ini_Reg_Class
- ) .SequenceCode.It
+   Seq: ( ME_CF94F939EAA3 // Ini_Reg_Class
+ )
  ; // Operations
  : Dependencies
-   @ ( ME_4AC4E4C79259 // 
- ) .SequenceCode.It
+   Seq: ( ME_4AC4E4C79259 // 
+ )
  ; // Dependencies
  CONST "finished" false
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\VCM\implementation\Components'
  CONST intf.pas:Path 'common\components\gui\Garant\VCM\implementation\Components\NOT_FINISHED_vcmUserTypesCollectionItem.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\VCM\implementation\Components'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'UserTypesCollectionItem'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'vcmUserTypesCollectionItem'
 
 ref; // ME_5006A4E003AB TvcmUserTypesCollectionItem
 
@@ -253,25 +268,23 @@ ref; // ME_5006A4E003AB TvcmUserTypesCollectionItem
  : Parent WL 'ME_4E13416D0227' '4E13416D0227.pas.ms.script' // VCM$Visual
  ;
  : Children
-   @ ( ME_5006A4A6003D // TvcmUserTypesCollectionItemPrim
+   Seq: ( ME_5006A4A6003D // TvcmUserTypesCollectionItemPrim
  ME_5006A4C80386 // TvcmBaseUserTypesCollectionItem
  ME_5006A4E003AB // TvcmUserTypesCollectionItem
- ) .SequenceCode.It
+ )
  ; // Children
  : Depends
-   @ ( WL 'ME_4AB0C3C60310' '4AB0C3C60310.pas.ms.script' // Sys
+   Seq: ( WL 'ME_4AB0C3C60310' '4AB0C3C60310.pas.ms.script' // Sys
  WL 'ME_4FFC33380166' '4FFC33380166.pas.ms.script' // Collections
  WL 'ME_561F9F7D02A7' '561F9F7D02A7.pas.ms.script' // ScriptEngine
- ) .SequenceCode.It
+ )
  ; // Depends
  CONST "path prefix" '/implementation/Components'
- : Generators
- @ (
- gen_pas.script
- gen_pas.script.runner
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\VCM\implementation\Components'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\VCM\implementation\Components'
  CONST pas.script:Path 'shared\models\NewSchool\Scripts\5006A46B015B.pas.ms.script'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
  CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\5006A46B015B.pas.ms.script.runner'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_5006A46B015B UserTypes

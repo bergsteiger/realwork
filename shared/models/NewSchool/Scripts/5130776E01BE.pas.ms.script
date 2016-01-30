@@ -28,23 +28,25 @@ ref; // ME_5130789403E4
  : Parent ME_5130776E01BE // DUnitKeyWordsSupport
  ;
  : Inherits
-   @ ( WL 'ME_4DC40A7E00C8' '4DC246E40002.pas.ms.script' // TCustomAutoTestSuite
- ) .SequenceCode.It
+   Seq: ( WL 'ME_4DC40A7E00C8' '4DC246E40002.pas.ms.script' // TCustomAutoTestSuite
+ )
  ; // Inherits
  : Dependencies
-   @ ( ME_5130789403E4 // 
- ) .SequenceCode.It
+   Seq: ( ME_5130789403E4 // 
+ )
  ; // Dependencies
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\DUnit_Script_Support'
  CONST intf.pas:Path 'common\components\rtl\Garant\DUnit_Script_Support\AutoTestSuiteWithDUnitSupport.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\DUnit_Script_Support'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'AutoTestSuiteWithDUnitSupport'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'AutoTestSuiteWithDUnitSupport'
 
 ref; // ME_51307830007E TAutoTestSuiteWithDUnitSupport
 
@@ -93,6 +95,7 @@ ref; // ME_4EA66EA40392
  ;
  : Implementor ME_4DC24756009A // TAutoTestsSuite
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4F9A4FD70148_ME_4DC24756009A DoGetSubFolder
 
 : ME_4DC24756009A
@@ -107,32 +110,34 @@ ref; // ME_4F9A4FD70148_ME_4DC24756009A DoGetSubFolder
  : Parent ME_5130776E01BE // DUnitKeyWordsSupport
  ;
  : Inherits
-   @ ( ME_51307830007E // TAutoTestSuiteWithDUnitSupport
- ) .SequenceCode.It
+   Seq: ( ME_51307830007E // TAutoTestSuiteWithDUnitSupport
+ )
  ; // Inherits
  : Operations
-   @ ( ME_4DC40BF302B4 // Register
- ) .SequenceCode.It
+   Seq: ( ME_4DC40BF302B4 // Register
+ )
  ; // Operations
  : Overridden
-   @ ( ME_4F9A4FD70148_ME_4DC24756009A // DoGetSubFolder
- ) .SequenceCode.It
+   Seq: ( ME_4F9A4FD70148_ME_4DC24756009A // DoGetSubFolder
+ )
  ; // Overridden
  : Dependencies
-   @ ( ME_4E297BDC02DD // 
+   Seq: ( ME_4E297BDC02DD // 
  ME_4EA66EA40392 // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\DUnit_Script_Support'
  CONST intf.pas:Path 'common\components\rtl\Garant\DUnit_Script_Support\AutoTestsSuite.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\DUnit_Script_Support'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'AutoTestsSuite'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'AutoTestsSuite'
 
 ref; // ME_4DC24756009A TAutoTestsSuite
 
@@ -154,6 +159,7 @@ ref; // ME_4E36909200B9
  ;
  : Implementor ME_4E297BC401BE // TDailyAutoTest
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4C937013031D_ME_4E297BC401BE GetFolder
 
 : ME_4DB03121022B_ME_4E297BC401BE
@@ -163,6 +169,7 @@ ref; // ME_4C937013031D_ME_4E297BC401BE GetFolder
  ;
  : Implementor ME_4E297BC401BE // TDailyAutoTest
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4DB03121022B_ME_4E297BC401BE ResolveScriptFilePath
 
 : ME_4DC395670274_ME_4E297BC401BE
@@ -172,6 +179,7 @@ ref; // ME_4DB03121022B_ME_4E297BC401BE ResolveScriptFilePath
  ;
  : Implementor ME_4E297BC401BE // TDailyAutoTest
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4DC395670274_ME_4E297BC401BE IsScript
 
 : ME_4DC399CA00BC_ME_4E297BC401BE
@@ -181,6 +189,7 @@ ref; // ME_4DC395670274_ME_4E297BC401BE IsScript
  ;
  : Implementor ME_4E297BC401BE // TDailyAutoTest
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4DC399CA00BC_ME_4E297BC401BE Create
 
 : ME_4E297BC401BE
@@ -195,30 +204,32 @@ ref; // ME_4DC399CA00BC_ME_4E297BC401BE Create
  : Parent ME_5130776E01BE // DUnitKeyWordsSupport
  ;
  : Inherits
-   @ ( WL 'ME_4DC247C80356' '4DC246E40002.pas.ms.script' // TAutoTest
- ) .SequenceCode.It
+   Seq: ( WL 'ME_4DC247C80356' '4DC246E40002.pas.ms.script' // TAutoTest
+ )
  ; // Inherits
  : Overridden
-   @ ( ME_4C937013031D_ME_4E297BC401BE // GetFolder
+   Seq: ( ME_4C937013031D_ME_4E297BC401BE // GetFolder
  ME_4DB03121022B_ME_4E297BC401BE // ResolveScriptFilePath
  ME_4DC395670274_ME_4E297BC401BE // IsScript
  ME_4DC399CA00BC_ME_4E297BC401BE // Create
- ) .SequenceCode.It
+ )
  ; // Overridden
  : Dependencies
-   @ ( ME_4E36909200B9 // 
- ) .SequenceCode.It
+   Seq: ( ME_4E36909200B9 // 
+ )
  ; // Dependencies
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\DUnit_Script_Support'
  CONST intf.pas:Path 'common\components\rtl\Garant\DUnit_Script_Support\DailyAutoTest.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\DUnit_Script_Support'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'DailyAutoTest'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'DailyAutoTest'
 
 ref; // ME_4E297BC401BE TDailyAutoTest
 
@@ -232,25 +243,23 @@ ref; // ME_4E297BC401BE TDailyAutoTest
  : Parent WL 'ME_5130499D0080' '5130499D0080.pas.ms.script' // DUnit Script Support
  ;
  : Children
-   @ ( ME_51307830007E // TAutoTestSuiteWithDUnitSupport
+   Seq: ( ME_51307830007E // TAutoTestSuiteWithDUnitSupport
  ME_4DC24756009A // TAutoTestsSuite
  ME_4E297BC401BE // TDailyAutoTest
- ) .SequenceCode.It
+ )
  ; // Children
  : Depends
-   @ ( WL 'ME_4AB0C3C60310' '4AB0C3C60310.pas.ms.script' // Sys
+   Seq: ( WL 'ME_4AB0C3C60310' '4AB0C3C60310.pas.ms.script' // Sys
  WL 'ME_4B2A0D6A0077' '4B2A0D6A0077.pas.ms.script' // Source
  WL 'ME_4DC246E40002' '4DC246E40002.pas.ms.script' // AutoTests
  WL 'ME_51304A0E0192' '51304A0E0192.pas.ms.script' // DUnit Keywords
- ) .SequenceCode.It
+ )
  ; // Depends
- : Generators
- @ (
- gen_pas.script
- gen_pas.script.runner
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\DUnit_Script_Support'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\DUnit_Script_Support'
  CONST pas.script:Path 'shared\models\NewSchool\Scripts\5130776E01BE.pas.ms.script'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
  CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\5130776E01BE.pas.ms.script.runner'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_5130776E01BE DUnitKeyWordsSupport

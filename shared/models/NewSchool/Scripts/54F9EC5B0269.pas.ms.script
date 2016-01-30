@@ -1,0 +1,831 @@
+// ContextHistory 54F9EC5B0269 Unit Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_54F9EC5B0269
+
+FORWARD ME_4AD8570C01CC
+
+: ME_4AD8574203B7
+ CONST UID '4AD8574203B7'
+ CONST Name 'aKind'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_4AD825C703D8' '54F9F6FB0143.pas.ms.script' // TnsContextHistoryKind
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_4AD8574203B7 aKind
+
+: ME_4AD85724035A
+ CONST UID '4AD85724035A'
+ CONST Name 'nsGetContextHistory'
+ CONST Class class_Operation
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_4AD8570C01CC // nsContextHistory
+ ;
+ : Target WL 'ME_496B53D10104' '54F9F6FB0143.pas.ms.script' // InsContextSearchHistory
+ ;
+ : Parameters
+   Seq: ( ME_4AD8574203B7 // aKind
+ )
+ ; // Parameters
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_4AD85724035A nsGetContextHistory
+
+FORWARD ME_4AD8469402FA
+
+: ME_54F9F5C7017A
+ CONST UID '54F9F5C7017A'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4AD8570C01CC // nsContextHistory
+ ;
+ : Target ME_4AD8469402FA // TnsInpharmContextHistory
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_54F9F5C7017A 
+
+FORWARD ME_4AD8466301A3
+
+: ME_54F9F5CB02CF
+ CONST UID '54F9F5CB02CF'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4AD8570C01CC // nsContextHistory
+ ;
+ : Target ME_4AD8466301A3 // TnsDocumentContextHistory
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_54F9F5CB02CF 
+
+: ME_4AD8570C01CC
+ CONST UID '4AD8570C01CC'
+ CONST Name 'nsContextHistory'
+ CONST Class class_Class
+ : Stereotype st_UtilityPack ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_54F9EC5B0269 // ContextHistory
+ ;
+ : Operations
+   Seq: ( ME_4AD85724035A // nsGetContextHistory
+ )
+ ; // Operations
+ : Dependencies
+   Seq: ( ME_54F9F5C7017A // 
+ ME_54F9F5CB02CF // 
+ )
+ ; // Dependencies
+ CONST "UseNewGen" 'undefined'
+ CONST "no hands" false
+ : Generators
+ Seq: (
+ gen_intf.pas
+ )
+ ; // Generators
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\rtl\Garant\ContextHistory'
+ CONST intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\rtl\Garant\ContextHistory\nsContextHistory.pas'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\rtl\Garant\ContextHistory'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\rtl\Garant\ContextHistory'
+
+ref; // ME_4AD8570C01CC nsContextHistory
+
+FORWARD ME_4AD83627037B
+
+: ME_4AD8366B0041
+ CONST UID '4AD8366B0041'
+ CONST Name 'ItemType'
+ CONST Class class_Attribute
+ : Stereotype st_impurity_value::Attribute ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_agr
+ : Parent ME_4AD83627037B // TInsContextSearchHistoryNotifierList
+ ;
+ : Target WL 'ME_496B539D02D5' '54F9F6FB0143.pas.ms.script' // InsContextSearchHistoryNotifier
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_4AD8366B0041 ItemType
+
+: ME_4AD83627037B
+ CONST UID '4AD83627037B'
+ CONST Name 'TInsContextSearchHistoryNotifierList'
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_54F9EC5B0269 // ContextHistory
+ ;
+ : Inherits
+   Seq: ( WL 'ME_47B57D630029' '47913B47006E.pas.ms.script' // l3InterfacePtrList
+ WL 'ME_47BC3A07027F' '47913B47006E.pas.ms.script' // Tl3SimpleDataContainer
+ )
+ ; // Inherits
+ : Attributes
+   Seq: ( ME_4AD8366B0041 // ItemType
+ )
+ ; // Attributes
+ CONST "UseNewGen" 'undefined'
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ : Generators
+ Seq: (
+ gen_intf.pas
+ )
+ ; // Generators
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\rtl\Garant\ContextHistory'
+ CONST intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\rtl\Garant\ContextHistory\InsContextSearchHistoryNotifierList.pas'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\rtl\Garant\ContextHistory'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\rtl\Garant\ContextHistory'
+ CONST extprop:pas:UnitName 'InsContextSearchHistoryNotifierList'
+
+ref; // ME_4AD83627037B TInsContextSearchHistoryNotifierList
+
+FORWARD ME_4AD843F802B4
+
+: ME_4AD8446801B3
+ CONST UID '4AD8446801B3'
+ CONST Name 'f_Subscribers'
+ CONST Class class_Attribute
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_4AD843F802B4 // nsContextHistoryPrim
+ ;
+ : Target ME_4AD83627037B // TInsContextSearchHistoryNotifierList
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_4AD8446801B3 f_Subscribers
+
+: ME_4AD8447B002D
+ CONST UID '4AD8447B002D'
+ CONST Name 'f_Kind'
+ CONST Class class_Attribute
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_4AD843F802B4 // nsContextHistoryPrim
+ ;
+ : Target WL 'ME_4AD825C703D8' '54F9F6FB0143.pas.ms.script' // TnsContextHistoryKind
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_4AD8447B002D f_Kind
+
+: ME_4AD8449A0327
+ CONST UID '4AD8449A0327'
+ CONST Name 'aKind'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_4AD825C703D8' '54F9F6FB0143.pas.ms.script' // TnsContextHistoryKind
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_4AD8449A0327 aKind
+
+: ME_4AD8449003C3
+ CONST UID '4AD8449003C3'
+ CONST Name 'Create'
+ CONST Class class_Operation
+ : Stereotype st_ctor::Operation ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_4AD843F802B4 // nsContextHistoryPrim
+ ;
+ : Parameters
+   Seq: ( ME_4AD8449A0327 // aKind
+ )
+ ; // Parameters
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_4AD8449003C3 Create
+
+: ME_4AD84519029A
+ CONST UID '4AD84519029A'
+ CONST Name 'aNewHistory'
+ CONST Class class_Parameter
+ : Stereotype st_const ;
+ : Target WL 'ME_4683CF0601DB' '467BAB7F021E.pas.ms.script' // IvcmStrings
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_4AD84519029A aNewHistory
+
+: ME_4AD844B6000D
+ CONST UID '4AD844B6000D'
+ CONST Name 'NotifySubscribers'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_4AD843F802B4 // nsContextHistoryPrim
+ ;
+ : Parameters
+   Seq: ( ME_4AD84519029A // aNewHistory
+ )
+ ; // Parameters
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_4AD844B6000D NotifySubscribers
+
+: ME_4AD845ED01C4
+ CONST UID '4AD845ED01C4'
+ CONST Name 'SettingsName'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_4AD843F802B4 // nsContextHistoryPrim
+ ;
+ : Target WL 'ME_473D9E950032' '467823B7002C.pas.ms.script' // TafwSettingId
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_4AD845ED01C4 SettingsName
+
+: ME_4AD857760029
+ CONST UID '4AD857760029'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4AD843F802B4 // nsContextHistoryPrim
+ ;
+ : Target ME_4AD83627037B // TInsContextSearchHistoryNotifierList
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_4AD857760029 
+
+: ME_4AD857A303E6
+ CONST UID '4AD857A303E6'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4AD843F802B4 // nsContextHistoryPrim
+ ;
+ : Target WL 'ME_47752AF90375' '47750CE700D0.pas.ms.script' // afwFacade
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_4AD857A303E6 
+
+: ME_4AD85EC20280
+ CONST UID '4AD85EC20280'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4AD843F802B4 // nsContextHistoryPrim
+ ;
+ : Target WL 'ME_47FB50E4008E' '48F747EC0073.pas.ms.script' // nsConst
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_4AD85EC20280 
+
+: ME_4AD85EE0008C
+ CONST UID '4AD85EE0008C'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4AD843F802B4 // nsContextHistoryPrim
+ ;
+ : Target WL 'ME_4AB8CB630173' '47D0E1500033.pas.ms.script' // TvcmStringList
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_4AD85EE0008C 
+
+: ME_4AD85F070137
+ CONST UID '4AD85F070137'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4AD843F802B4 // nsContextHistoryPrim
+ ;
+ : Target WL 'ME_47877EB202FB' '4AB0C3C60310.pas.ms.script' // SysUtils
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_4AD85F070137 
+
+: ME_4AD86320015D
+ CONST UID '4AD86320015D'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4AD843F802B4 // nsContextHistoryPrim
+ ;
+ : Target WL 'ME_476F958501F2' '4678193C009C.pas.ms.script' // Tl3SortIndex
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_4AD86320015D 
+
+: ME_4AD864BF0154
+ CONST UID '4AD864BF0154'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4AD843F802B4 // nsContextHistoryPrim
+ ;
+ : Target WL 'ME_4ACF4D6E03B5' '54B90AC6014B.pas.ms.script' // l3Str
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_4AD864BF0154 
+
+: ME_4AD849C4011B_ME_4AD843F802B4
+ CONST UID '4AD849C4011B'
+ CONST Name 'AddNotifier'
+ : Original WL 'ME_4AD849C4011B' '54F9F6FB0143.pas.ms.script' // AddNotifier
+ ;
+ : Implementor ME_4AD843F802B4 // nsContextHistoryPrim
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "UseNewGen" 'undefined'
+ref; // ME_4AD849C4011B_ME_4AD843F802B4 AddNotifier
+
+: ME_4AD849CA03CF_ME_4AD843F802B4
+ CONST UID '4AD849CA03CF'
+ CONST Name 'History'
+ : Original WL 'ME_4AD849CA03CF' '54F9F6FB0143.pas.ms.script' // History
+ ;
+ : Implementor ME_4AD843F802B4 // nsContextHistoryPrim
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "UseNewGen" 'undefined'
+ref; // ME_4AD849CA03CF_ME_4AD843F802B4 History
+
+: ME_4AD849CF0148_ME_4AD843F802B4
+ CONST UID '4AD849CF0148'
+ CONST Name 'RemoveNotifier'
+ : Original WL 'ME_4AD849CF0148' '54F9F6FB0143.pas.ms.script' // RemoveNotifier
+ ;
+ : Implementor ME_4AD843F802B4 // nsContextHistoryPrim
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "UseNewGen" 'undefined'
+ref; // ME_4AD849CF0148_ME_4AD843F802B4 RemoveNotifier
+
+: ME_4AD849D20384_ME_4AD843F802B4
+ CONST UID '4AD849D20384'
+ CONST Name 'Searched'
+ : Original WL 'ME_4AD849D20384' '54F9F6FB0143.pas.ms.script' // Searched
+ ;
+ : Implementor ME_4AD843F802B4 // nsContextHistoryPrim
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "UseNewGen" 'undefined'
+ref; // ME_4AD849D20384_ME_4AD843F802B4 Searched
+
+: ME_53B12CA900B8_ME_4AD843F802B4
+ CONST UID '53B12CA900B8'
+ CONST Name 'Clear'
+ : Original WL 'ME_53B12CA900B8' '54F9F6FB0143.pas.ms.script' // Clear
+ ;
+ : Implementor ME_4AD843F802B4 // nsContextHistoryPrim
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "UseNewGen" 'undefined'
+ref; // ME_53B12CA900B8_ME_4AD843F802B4 Clear
+
+: ME_479731C50290_ME_4AD843F802B4
+ CONST UID '479731C50290'
+ CONST Name 'Cleanup'
+ : Original WL 'ME_479731C50290' '51612EBB02F5.pas.ms.script' // Cleanup
+ ;
+ : Implementor ME_4AD843F802B4 // nsContextHistoryPrim
+ ;
+ CONST OpKind opkind_Overridden
+ CONST "UseNewGen" 'undefined'
+ref; // ME_479731C50290_ME_4AD843F802B4 Cleanup
+
+: ME_4AD843F802B4
+ CONST UID '4AD843F802B4'
+ CONST Name 'nsContextHistoryPrim'
+ CONST Class class_Class
+ : Stereotype st_Impurity ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_54F9EC5B0269 // ContextHistory
+ ;
+ : Implements
+   Seq: ( WL 'ME_4A5CB93700CF' '47913B47006E.pas.ms.script' // Ml3Unknown
+ WL 'ME_4AD849940213' '54F9F6FB0143.pas.ms.script' // MnsContextSearchHistory
+ )
+ ; // Implements
+ : Attributes
+   Seq: ( ME_4AD8446801B3 // f_Subscribers
+ ME_4AD8447B002D // f_Kind
+ )
+ ; // Attributes
+ : Operations
+   Seq: ( ME_4AD8449003C3 // Create
+ ME_4AD844B6000D // NotifySubscribers
+ ME_4AD845ED01C4 // SettingsName
+ )
+ ; // Operations
+ : Implemented
+   Seq: ( ME_4AD849C4011B_ME_4AD843F802B4 // AddNotifier
+ ME_4AD849CA03CF_ME_4AD843F802B4 // History
+ ME_4AD849CF0148_ME_4AD843F802B4 // RemoveNotifier
+ ME_4AD849D20384_ME_4AD843F802B4 // Searched
+ ME_53B12CA900B8_ME_4AD843F802B4 // Clear
+ )
+ ; // Implemented
+ : Overridden
+   Seq: ( ME_479731C50290_ME_4AD843F802B4 // Cleanup
+ )
+ ; // Overridden
+ : Dependencies
+   Seq: ( ME_4AD857760029 // 
+ ME_4AD857A303E6 // 
+ ME_4AD85EC20280 // 
+ ME_4AD85EE0008C // 
+ ME_4AD85F070137 // 
+ ME_4AD86320015D // 
+ ME_4AD864BF0154 // 
+ )
+ ; // Dependencies
+ CONST "UseNewGen" 'undefined'
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ : Generators
+ Seq: (
+ gen_intf.pas
+ )
+ ; // Generators
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\rtl\Garant\ContextHistory'
+ CONST intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\rtl\Garant\ContextHistory\nsContextHistoryPrim.imp.pas'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\rtl\Garant\ContextHistory'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\rtl\Garant\ContextHistory'
+ CONST extprop:pas:TypeName '_nsContextHistoryPrim_'
+ CONST extprop:pas:UnitName 'nsContextHistoryPrim.imp'
+
+ref; // ME_4AD843F802B4 nsContextHistoryPrim
+
+FORWARD ME_4AD846290145
+
+: ME_4AD846560013
+ CONST UID '4AD846560013'
+ CONST Name 'Create'
+ CONST Class class_Operation
+ : Stereotype st_ctor::Operation ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_4AD846290145 // TnsInpharmContextHistoryPrim
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_4AD846560013 Create
+
+: ME_4AD848D1006E
+ CONST UID '4AD848D1006E'
+ CONST Name 'Make'
+ CONST Class class_Operation
+ : Stereotype st_factory::Operation ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_4AD846290145 // TnsInpharmContextHistoryPrim
+ ;
+ CONST "UseNewGen" 'undefined'
+ CONST "check nil" false
+ CONST "need AfterCreate" 'undefined'
+ CONST "need Aggregate" 'undefined'
+ CONST "need As" false
+
+ref; // ME_4AD848D1006E Make
+
+: ME_4AD846290145
+ CONST UID '4AD846290145'
+ CONST Name 'TnsInpharmContextHistoryPrim'
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_54F9EC5B0269 // ContextHistory
+ ;
+ : Inherits
+   Seq: ( WL 'ME_47BC391D0259' '47913B47006E.pas.ms.script' // Tl3SimpleObject
+ ME_4AD843F802B4 // nsContextHistoryPrim
+ )
+ ; // Inherits
+ : Implements
+   Seq: ( WL 'ME_496B53D10104' '54F9F6FB0143.pas.ms.script' // InsContextSearchHistory
+ )
+ ; // Implements
+ : Operations
+   Seq: ( ME_4AD846560013 // Create
+ ME_4AD848D1006E // Make
+ )
+ ; // Operations
+ CONST "UseNewGen" 'undefined'
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ : Generators
+ Seq: (
+ gen_intf.pas
+ )
+ ; // Generators
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\rtl\Garant\ContextHistory'
+ CONST intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\rtl\Garant\ContextHistory\nsInpharmContextHistoryPrim.pas'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\rtl\Garant\ContextHistory'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\rtl\Garant\ContextHistory'
+ CONST extprop:pas:UnitName 'nsInpharmContextHistoryPrim'
+
+ref; // ME_4AD846290145 TnsInpharmContextHistoryPrim
+
+FORWARD ME_4AD8457200F3
+
+: ME_4AD8461A0275
+ CONST UID '4AD8461A0275'
+ CONST Name 'Create'
+ CONST Class class_Operation
+ : Stereotype st_ctor::Operation ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_4AD8457200F3 // TnsDocumentContextHistoryPrim
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_4AD8461A0275 Create
+
+: ME_4AD848C60199
+ CONST UID '4AD848C60199'
+ CONST Name 'Make'
+ CONST Class class_Operation
+ : Stereotype st_factory::Operation ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_4AD8457200F3 // TnsDocumentContextHistoryPrim
+ ;
+ CONST "UseNewGen" 'undefined'
+ CONST "check nil" false
+ CONST "need AfterCreate" 'undefined'
+ CONST "need Aggregate" 'undefined'
+ CONST "need As" false
+
+ref; // ME_4AD848C60199 Make
+
+: ME_4AD8457200F3
+ CONST UID '4AD8457200F3'
+ CONST Name 'TnsDocumentContextHistoryPrim'
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_54F9EC5B0269 // ContextHistory
+ ;
+ : Inherits
+   Seq: ( WL 'ME_47BC391D0259' '47913B47006E.pas.ms.script' // Tl3SimpleObject
+ ME_4AD843F802B4 // nsContextHistoryPrim
+ )
+ ; // Inherits
+ : Implements
+   Seq: ( WL 'ME_496B53D10104' '54F9F6FB0143.pas.ms.script' // InsContextSearchHistory
+ )
+ ; // Implements
+ : Operations
+   Seq: ( ME_4AD8461A0275 // Create
+ ME_4AD848C60199 // Make
+ )
+ ; // Operations
+ CONST "UseNewGen" 'undefined'
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ : Generators
+ Seq: (
+ gen_intf.pas
+ )
+ ; // Generators
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\rtl\Garant\ContextHistory'
+ CONST intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\rtl\Garant\ContextHistory\nsDocumentContextHistoryPrim.pas'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\rtl\Garant\ContextHistory'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\rtl\Garant\ContextHistory'
+ CONST extprop:pas:UnitName 'nsDocumentContextHistoryPrim'
+
+ref; // ME_4AD8457200F3 TnsDocumentContextHistoryPrim
+
+: ME_4AD8468503CD
+ CONST UID '4AD8468503CD'
+ CONST Name 'Make'
+ CONST Class class_Operation
+ : Stereotype st_factory::Operation ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_4AD8466301A3 // TnsDocumentContextHistory
+ ;
+ : Target WL 'ME_496B53D10104' '54F9F6FB0143.pas.ms.script' // InsContextSearchHistory
+ ;
+ CONST "UseNewGen" 'undefined'
+ CONST "check nil" false
+ CONST "need AfterCreate" 'undefined'
+ CONST "need Aggregate" 'undefined'
+ CONST "need As" false
+
+ref; // ME_4AD8468503CD Make
+
+: ME_6D51E7853563
+ CONST UID '6D51E7853563'
+ CONST Name 'Exists'
+ CONST IsSummoned true
+ CONST Class class_Operation
+ : Stereotype st_static::Operation ;
+ %SUMMARY 'Проверяет создан экземпляр синглетона или нет' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_4AD8466301A3 // TnsDocumentContextHistory
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+ CONST "UseNewGen" 'undefined'
+ CONST extprop:pas:Value false
+
+ref; // ME_6D51E7853563 Exists
+
+: ME_4AD8466301A3
+ CONST UID '4AD8466301A3'
+ CONST Name 'TnsDocumentContextHistory'
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_54F9EC5B0269 // ContextHistory
+ ;
+ : Inherits
+   Seq: ( ME_4AD8457200F3 // TnsDocumentContextHistoryPrim
+ )
+ ; // Inherits
+ : Operations
+   Seq: ( ME_4AD8468503CD // Make
+ ME_6D51E7853563 // Exists
+ )
+ ; // Operations
+ CONST "UseNewGen" 'undefined'
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ CONST "singleton" true
+ : Generators
+ Seq: (
+ gen_intf.pas
+ )
+ ; // Generators
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\rtl\Garant\ContextHistory'
+ CONST intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\rtl\Garant\ContextHistory\nsDocumentContextHistory.pas'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\rtl\Garant\ContextHistory'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\rtl\Garant\ContextHistory'
+ CONST extprop:pas:UnitName 'nsDocumentContextHistory'
+
+ref; // ME_4AD8466301A3 TnsDocumentContextHistory
+
+: ME_4AD846C10235
+ CONST UID '4AD846C10235'
+ CONST Name 'Make'
+ CONST Class class_Operation
+ : Stereotype st_factory::Operation ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_4AD8469402FA // TnsInpharmContextHistory
+ ;
+ : Target WL 'ME_496B53D10104' '54F9F6FB0143.pas.ms.script' // InsContextSearchHistory
+ ;
+ CONST "UseNewGen" 'undefined'
+ CONST "check nil" false
+ CONST "need AfterCreate" 'undefined'
+ CONST "need Aggregate" 'undefined'
+ CONST "need As" false
+
+ref; // ME_4AD846C10235 Make
+
+: ME_8A2B7CFA30B9
+ CONST UID '8A2B7CFA30B9'
+ CONST Name 'Exists'
+ CONST IsSummoned true
+ CONST Class class_Operation
+ : Stereotype st_static::Operation ;
+ %SUMMARY 'Проверяет создан экземпляр синглетона или нет' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_4AD8469402FA // TnsInpharmContextHistory
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+ CONST "UseNewGen" 'undefined'
+ CONST extprop:pas:Value false
+
+ref; // ME_8A2B7CFA30B9 Exists
+
+: ME_4AD8469402FA
+ CONST UID '4AD8469402FA'
+ CONST Name 'TnsInpharmContextHistory'
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_54F9EC5B0269 // ContextHistory
+ ;
+ : Inherits
+   Seq: ( ME_4AD846290145 // TnsInpharmContextHistoryPrim
+ )
+ ; // Inherits
+ : Operations
+   Seq: ( ME_4AD846C10235 // Make
+ ME_8A2B7CFA30B9 // Exists
+ )
+ ; // Operations
+ CONST "UseNewGen" 'undefined'
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ CONST "singleton" true
+ : Generators
+ Seq: (
+ gen_intf.pas
+ )
+ ; // Generators
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\rtl\Garant\ContextHistory'
+ CONST intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\rtl\Garant\ContextHistory\nsInpharmContextHistory.pas'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\rtl\Garant\ContextHistory'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\rtl\Garant\ContextHistory'
+ CONST extprop:pas:UnitName 'nsInpharmContextHistory'
+
+ref; // ME_4AD8469402FA TnsInpharmContextHistory
+
+: ME_54F9EC5B0269
+ CONST UID '54F9EC5B0269'
+ CONST Name 'ContextHistory'
+ CONST Class class_Category
+ : Stereotype st_Unit ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent WL 'ME_54F9EC3900D6' '54F9EC3900D6.pas.ms.script' // ContextHistory
+ ;
+ : Children
+   Seq: ( ME_4AD8570C01CC // nsContextHistory
+ ME_4AD83627037B // TInsContextSearchHistoryNotifierList
+ ME_4AD843F802B4 // nsContextHistoryPrim
+ ME_4AD846290145 // TnsInpharmContextHistoryPrim
+ ME_4AD8457200F3 // TnsDocumentContextHistoryPrim
+ ME_4AD8466301A3 // TnsDocumentContextHistory
+ ME_4AD8469402FA // TnsInpharmContextHistory
+ )
+ ; // Children
+ : Depends
+   Seq: ( WL 'ME_4678193C009C' '4678193C009C.pas.ms.script' // l3Types
+ WL 'ME_467823B7002C' '467823B7002C.pas.ms.script' // afwInterfaces
+ WL 'ME_467BAB7F021E' '467BAB7F021E.pas.ms.script' // vcmExternalInterfaces
+ WL 'ME_47750CE700D0' '47750CE700D0.pas.ms.script' // afwFacade
+ WL 'ME_47913B47006E' '47913B47006E.pas.ms.script' // l3CoreObjects
+ WL 'ME_47D0E1500033' '47D0E1500033.pas.ms.script' // Implementation
+ WL 'ME_48F747EC0073' '48F747EC0073.pas.ms.script' // Common
+ WL 'ME_4AB0C3C60310' '4AB0C3C60310.pas.ms.script' // Sys
+ WL 'ME_54B90AC6014B' '54B90AC6014B.pas.ms.script' // StringUtils
+ WL 'ME_54F9F6FB0143' '54F9F6FB0143.pas.ms.script' // ContextHistoryInterfaces
+ )
+ ; // Depends
+ CONST "UseNewGen" 'undefined'
+ : Generators
+ Seq: (
+ gen_pas.script
+ gen_pas.script.runner
+ )
+ ; // Generators
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\rtl\Garant\ContextHistory'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\rtl\Garant\ContextHistory'
+ CONST pas.script:Path 'shared\models\NewSchool\Scripts\54F9EC5B0269.pas.ms.script'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\54F9EC5B0269.pas.ms.script.runner'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\rtl\Garant\ContextHistory'
+
+ref; // ME_54F9EC5B0269 ContextHistory

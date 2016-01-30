@@ -12,7 +12,7 @@ INCLUDE 'ElementsRTTI.ms.dict'
  : Parent WL 'ME_4ABCC25A0322' '4ABCC25A0322.pas.ms.script' // Shared Delphi Low Level
  ;
  : Children
-   @ ( WL 'ME_54DC9ACA0156' '54DC9ACA0156.pas.ms.script' // RTL bindings
+   Seq: ( WL 'ME_54DC9ACA0156' '54DC9ACA0156.pas.ms.script' // RTL bindings
  WL 'ME_54DB92D203C9' '54DB92D203C9.pas.ms.script' // VCL bindings
  WL 'ME_5076977D0064' '5076977D0064.pas.ms.script' // Object Info
  WL 'ME_512F475600DF' '512F475600DF.pas.ms.script' // TreeViewWords
@@ -24,14 +24,14 @@ INCLUDE 'ElementsRTTI.ms.dict'
  WL 'ME_54F5C45E00B2' '54F5C45E00B2.pas.ms.script' // WinControlsProcessing
  WL 'ME_4F69DF560034' '4F69DF560034.pas.ms.script' // ControlsProcessing
  WL 'ME_4F85480A00D9' '4F85480A00D9.pas.ms.script' // WinUtils
- ) .SequenceCode.It
+ )
  ; // Children
  : Depends
-   @ ( WL 'ME_4790D09A0378' '4790D09A0378.pas.ms.script' // L3
+   Seq: ( WL 'ME_4790D09A0378' '4790D09A0378.pas.ms.script' // L3
  WL 'ME_4E2F0E1B03BB' '4E2F0E1B03BB.pas.ms.script' // L3$Domain
  WL 'ME_54CF97B10370' '54CF97B10370.pas.ms.script' // ScriptEngine$Core
  WL 'ME_550012C403C4' '550012C403C4.pas.ms.script' // L3$AFW
- ) .SequenceCode.It
+ )
  ; // Depends
  CONST "defines" 'seDefine.inc'
  CONST "exec mode" 'concluded'
@@ -39,17 +39,11 @@ INCLUDE 'ElementsRTTI.ms.dict'
  CONST "ifndef" 'NoScripts'
  CONST "is namespace" true
  CONST "vendor" '/Garant'
- : Generators
- @ (
- gen_forth_structure
- gen_intf.pas
- gen_pas.script
- gen_pas.script.runner
- ) .SequenceCode.It
- ; // Generators
- CONST forth_structure:Path 'shared\models\NewSchool\Shared Delphi Low Level\ScriptEngine$RTLandVCL\ScriptEngine$RTLandVCL.model.script'
- CONST intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\ScriptEngine$RTLandVCL_lib.info'
+ CONST dfm:PathOnly '\common\components\rtl\Garant\ScriptEngine'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\ScriptEngine'
  CONST pas.script:Path 'shared\models\NewSchool\Scripts\54DB92A80279.pas.ms.script'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
  CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\54DB92A80279.pas.ms.script.runner'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_54DB92A80279 ScriptEngine$RTLandVCL

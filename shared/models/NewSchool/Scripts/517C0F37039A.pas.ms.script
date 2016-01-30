@@ -13,6 +13,7 @@ FORWARD ME_517C0F4B027C
  ;
  : Implementor ME_517C0F4B027C // RoundedControl
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4CC847800383_ME_517C0F4B027C TuneRegion
 
 : ME_517C0F4B027C
@@ -26,24 +27,30 @@ ref; // ME_4CC847800383_ME_517C0F4B027C TuneRegion
  : Parent ME_517C0F37039A // Rounded
  ;
  : Inherits
-   @ ( WL 'ME_4CC81FB7008B' '4CC81FAC02D6.pas.ms.script' // RegionableControl
- ) .SequenceCode.It
+   Seq: ( WL 'ME_4CC81FB7008B' '4CC81FAC02D6.pas.ms.script' // RegionableControl
+ )
  ; // Inherits
  : Overridden
-   @ ( ME_4CC847800383_ME_517C0F4B027C // TuneRegion
- ) .SequenceCode.It
+   Seq: ( ME_4CC847800383_ME_517C0F4B027C // TuneRegion
+ )
  ; // Overridden
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
  : Generators
- @ (
+ Seq: (
  gen_intf.pas
- ) .SequenceCode.It
+ )
  ; // Generators
+ CONST dfm:PathOnly '\common\components\SandBox'
  CONST intf.pas:Path 'common\components\SandBox\RoundedControl.imp.pas'
+ CONST intf.pas:PathOnly '\common\components\SandBox'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\common\components\SandBox'
  CONST extprop:pas:TypeName '_RoundedControl_'
+ CONST extprop:pas:UnitName 'RoundedControl.imp'
 
 ref; // ME_517C0F4B027C RoundedControl
 
@@ -58,10 +65,10 @@ ref; // ME_517C0F4B027C RoundedControl
  : Parent ME_517C0F37039A // Rounded
  ;
  : Inherits
-   @ ( WL 'ME_4D5E5A3A0186' '4799D29F033F.pas.ms.script' // TButton
+   Seq: ( WL 'ME_4D5E5A3A0186' '4799D29F033F.pas.ms.script' // TButton
  WL 'ME_51614065019A' '51612EBB02F5.pas.ms.script' // RefCounted
  ME_517C0F4B027C // RoundedControl
- ) .SequenceCode.It
+ )
  ; // Inherits
  CONST "base wnd class" 'CWnd'
  CONST "needs InstanceR" 'undefined'
@@ -69,11 +76,19 @@ ref; // ME_517C0F4B027C RoundedControl
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
  : Generators
- @ (
+ Seq: (
  gen_intf.pas
- ) .SequenceCode.It
+ )
  ; // Generators
+ CONST dfm:PathOnly '\common\components\SandBox'
  CONST intf.pas:Path 'common\components\SandBox\RoundedButton.pas'
+ CONST intf.pas:PathOnly '\common\components\SandBox'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\common\components\SandBox'
+ CONST extprop:rc:SelfName 'RoundedButton'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'RoundedButton'
 
 ref; // ME_517C0F9C03C3 TRoundedButton
 
@@ -82,6 +97,7 @@ FORWARD ME_517C102F03B5
 : ME_5F5599376D75
  CONST UID '5F5599376D75'
  CONST Name 'Ini_Reg_Class'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Регистрация TRoundedEdit' ;
@@ -95,6 +111,7 @@ ref; // ME_5F5599376D75 Ini_Reg_Class
 
 : ME_43A716C3A09A
  CONST UID '43A716C3A09A'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_517C102F03B5 // TRoundedEdit
@@ -115,18 +132,18 @@ ref; // ME_43A716C3A09A
  : Parent ME_517C0F37039A // Rounded
  ;
  : Inherits
-   @ ( WL 'ME_51614065019A' '51612EBB02F5.pas.ms.script' // RefCounted
+   Seq: ( WL 'ME_51614065019A' '51612EBB02F5.pas.ms.script' // RefCounted
  ME_517C0F4B027C // RoundedControl
  WL 'ME_517C0FF50380' '4799D29F033F.pas.ms.script' // TEdit
- ) .SequenceCode.It
+ )
  ; // Inherits
  : Operations
-   @ ( ME_5F5599376D75 // Ini_Reg_Class
- ) .SequenceCode.It
+   Seq: ( ME_5F5599376D75 // Ini_Reg_Class
+ )
  ; // Operations
  : Dependencies
-   @ ( ME_43A716C3A09A // 
- ) .SequenceCode.It
+   Seq: ( ME_43A716C3A09A // 
+ )
  ; // Dependencies
  CONST "base wnd class" 'CWnd'
  CONST "needs InstanceR" 'undefined'
@@ -134,11 +151,19 @@ ref; // ME_43A716C3A09A
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
  : Generators
- @ (
+ Seq: (
  gen_intf.pas
- ) .SequenceCode.It
+ )
  ; // Generators
+ CONST dfm:PathOnly '\common\components\SandBox'
  CONST intf.pas:Path 'common\components\SandBox\RoundedEdit.pas'
+ CONST intf.pas:PathOnly '\common\components\SandBox'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\common\components\SandBox'
+ CONST extprop:rc:SelfName 'RoundedEdit'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'RoundedEdit'
 
 ref; // ME_517C102F03B5 TRoundedEdit
 
@@ -152,25 +177,30 @@ ref; // ME_517C102F03B5 TRoundedEdit
  : Parent WL 'ME_4861FFCA02CE' '4861FFCA02CE.pas.ms.script' // SandBox
  ;
  : Children
-   @ ( ME_517C0F4B027C // RoundedControl
+   Seq: ( ME_517C0F4B027C // RoundedControl
  ME_517C0F9C03C3 // TRoundedButton
  ME_517C102F03B5 // TRoundedEdit
- ) .SequenceCode.It
+ )
  ; // Children
  : Depends
-   @ ( WL 'ME_4799D29F033F' '4799D29F033F.pas.ms.script' // Implementation
+   Seq: ( WL 'ME_4799D29F033F' '4799D29F033F.pas.ms.script' // Implementation
  WL 'ME_4CC81FAC02D6' '4CC81FAC02D6.pas.ms.script' // Core
  WL 'ME_51612EBB02F5' '51612EBB02F5.pas.ms.script' // Ref Counting
  WL 'ME_561F9F7D02A7' '561F9F7D02A7.pas.ms.script' // ScriptEngine
- ) .SequenceCode.It
+ )
  ; // Depends
  : Generators
- @ (
+ Seq: (
  gen_pas.script
  gen_pas.script.runner
- ) .SequenceCode.It
+ )
  ; // Generators
+ CONST dfm:PathOnly '\common\components\SandBox'
+ CONST intf.pas:PathOnly '\common\components\SandBox'
  CONST pas.script:Path 'shared\models\NewSchool\Scripts\517C0F37039A.pas.ms.script'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
  CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\517C0F37039A.pas.ms.script.runner'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\common\components\SandBox'
 
 ref; // ME_517C0F37039A Rounded

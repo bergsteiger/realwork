@@ -13,7 +13,7 @@ INCLUDE 'ElementsRTTI.ms.dict'
  : Parent WL 'ME_4E5BC50E02E1' '4E5BC50E02E1.pas.ms.script' // Shared Delphi Требования к низкоуровневым библиотекам
  ;
  : Children
-   @ ( WL 'ME_46A5E026007E' '46A5E026007E.pas.ms.script' // l3Core
+   Seq: ( WL 'ME_46A5E026007E' '46A5E026007E.pas.ms.script' // l3Core
  WL 'ME_478CF8070260' '478CF8070260.pas.ms.script' // l3IID
  WL 'ME_47D810610398' '47D810610398.pas.ms.script' // l3PureMixIns
  WL 'ME_537B83AD01F0' '537B83AD01F0.pas.ms.script' // l3Math
@@ -23,24 +23,18 @@ INCLUDE 'ElementsRTTI.ms.dict'
  WL 'ME_472745450206' '472745450206.pas.ms.script' // l3Units
  WL 'ME_4682595B0268' '4682595B0268.pas.ms.script' // l3TreeInterfaces
  WL 'ME_556F09AA036E' '556F09AA036E.pas.ms.script' // l3PrinterInterfaces
- ) .SequenceCode.It
+ )
  ; // Children
  CONST "defines" 'l3Define.inc'
  CONST "exec mode" 'concluded'
  CONST "gui" 'rtl'
  CONST "is namespace" true
  CONST "vendor" '/Garant'
- : Generators
- @ (
- gen_forth_structure
- gen_intf.pas
- gen_pas.script
- gen_pas.script.runner
- ) .SequenceCode.It
- ; // Generators
- CONST forth_structure:Path 'shared\models\NewSchool\Shared Delphi Требования к низкоуровневым библиотекам\L3$Domain\L3$Domain.model.script'
- CONST intf.pas:Path 'common\components\rtl\Garant\L3\L3$Domain_lib.info'
+ CONST dfm:PathOnly '\common\components\rtl\Garant\L3'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\L3'
  CONST pas.script:Path 'shared\models\NewSchool\Scripts\4E2F0E1B03BB.pas.ms.script'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
  CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\4E2F0E1B03BB.pas.ms.script.runner'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_4E2F0E1B03BB L3$Domain

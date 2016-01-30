@@ -11,14 +11,15 @@ INCLUDE 'ElementsRTTI.ms.dict'
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
  : Children
-   @ ( WL 'ME_4E2F0E1B03BB' '4E2F0E1B03BB.pas.ms.script' // L3$Domain
+   Seq: ( WL 'ME_4E2F0E1B03BB' '4E2F0E1B03BB.pas.ms.script' // L3$Domain
+ WL 'ME_4E5BBA78010E' '4E5BBA78010E.pas.ms.script' // Отображение объектов
  WL 'ME_515AC89F01E1' '515AC89F01E1.pas.ms.script' // L3$Basic Concepts
- ) .SequenceCode.It
+ )
  ; // Children
  : Depends
-   @ ( WL 'ME_49B1511700CA' '49B1511700CA.pas.ms.script' // Shared Delphi Core
+   Seq: ( WL 'ME_49B1511700CA' '49B1511700CA.pas.ms.script' // Shared Delphi Core
  WL 'ME_4E78C3EC018D' '4E78C3EC018D.pas.ms.script' // Shared Delphi Требования
- ) .SequenceCode.It
+ )
  ; // Depends
  CONST "Full MDP" false
  CONST "create project" true
@@ -31,17 +32,11 @@ INCLUDE 'ElementsRTTI.ms.dict'
  CONST "root path suffix" '/components'
  CONST "space key" 'SHD'
  CONST "space name" 'Shared (delphi)'
- : Generators
- @ (
- gen_forth_structure
- gen_intf.pas
- gen_pas.script
- gen_pas.script.runner
- ) .SequenceCode.It
- ; // Generators
- CONST forth_structure:Path 'shared\models\NewSchool\Shared Delphi Требования к низкоуровневым библиотекам\Shared Delphi Требования к низкоуровневым библиотекам.model.script'
- CONST intf.pas:Path 'common\components\common Требования к низкоуровневым библиотекам_prj.info'
+ CONST dfm:PathOnly '\common\components'
+ CONST intf.pas:PathOnly '\common\components'
  CONST pas.script:Path 'shared\models\NewSchool\Scripts\4E5BC50E02E1.pas.ms.script'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
  CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\4E5BC50E02E1.pas.ms.script.runner'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_4E5BC50E02E1 Shared Delphi Требования к низкоуровневым библиотекам

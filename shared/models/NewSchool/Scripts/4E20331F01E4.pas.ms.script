@@ -1,0 +1,46 @@
+// F1 Shell Tests Core 4E20331F01E4 TestLibrary Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+: ME_4E20331F01E4
+ CONST UID '4E20331F01E4'
+ CONST Name 'F1 Shell Tests Core'
+ CONST Class class_Category
+ : Stereotype st_TestLibrary ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent WL 'ME_4DB0572601B7' '4DB0572601B7.pas.ms.script' // F1 Поддержка тестов
+ ;
+ : Children
+   Seq: ( WL 'ME_4DB01C7F03C7' '4DB01C7F03C7.pas.ms.script' // Core
+ )
+ ; // Children
+ : Depends
+   Seq: ( WL 'ME_4797632D0273' '4797632D0273.pas.ms.script' // Everest
+ WL 'ME_4B2A0D4A006F' '4B2A0D4A006F.pas.ms.script' // DUnit
+ WL 'ME_4B2A10C40309' '4B2A10C40309.pas.ms.script' // DUnitTuning
+ WL 'ME_4DB057A602EB' '4DB057A602EB.pas.ms.script' // F1 Words
+ WL 'ME_4DC3D1BC0060' '4DC3D1BC0060.pas.ms.script' // ScriptTestLibrary
+ WL 'ME_562E251101C2' '562E251101C2.pas.ms.script' // Shared Delphi Rtl
+ )
+ ; // Depends
+ CONST "exec mode" 'concluded'
+ CONST "gui" 'prj'
+ CONST "ifdef" 'nsTest'
+ CONST "is namespace" true
+ CONST "vendor" 'none'
+ : Generators
+ Seq: (
+ gen_pas.script
+ gen_pas.script.runner
+ )
+ ; // Generators
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis'
+ CONST pas.script:Path 'shared\models\NewSchool\Scripts\4E20331F01E4.pas.ms.script'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\4E20331F01E4.pas.ms.script.runner'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis'
+
+ref; // ME_4E20331F01E4 F1 Shell Tests Core

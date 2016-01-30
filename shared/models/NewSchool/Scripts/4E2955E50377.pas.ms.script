@@ -72,24 +72,30 @@ ref; // ME_509A445B0038
  : Parent ME_4E2955E50377 // AutoTestSupport
  ;
  : Dependencies
-   @ ( ME_509A443703A4 // 
+   Seq: ( ME_509A443703A4 // 
  ME_509A443F002D // 
  ME_509A444203DF // 
  ME_509A444700B1 // 
  ME_509A445B0038 // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
  : Generators
- @ (
+ Seq: (
  gen_intf.pas
- ) .SequenceCode.It
+ )
  ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\Daily'
  CONST intf.pas:Path 'common\components\gui\Garant\Daily\FormUnits.imp.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Daily'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\common\components\gui\Garant\Daily'
  CONST extprop:pas:TypeName '_FormUnits_'
+ CONST extprop:pas:UnitName 'FormUnits.imp'
 
 ref; // ME_509A43E800C8 FormUnits
 
@@ -128,21 +134,27 @@ ref; // ME_509B506A0297
  : Parent ME_4E2955E50377 // AutoTestSupport
  ;
  : Dependencies
-   @ ( ME_509B4D0502BE // 
+   Seq: ( ME_509B4D0502BE // 
  ME_509B506A0297 // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
  : Generators
- @ (
+ Seq: (
  gen_intf.pas
- ) .SequenceCode.It
+ )
  ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\Daily'
  CONST intf.pas:Path 'common\components\gui\Garant\Daily\LoadUnits.imp.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Daily'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\common\components\gui\Garant\Daily'
  CONST extprop:pas:TypeName '_LoadUnits_'
+ CONST extprop:pas:UnitName 'LoadUnits.imp'
 
 ref; // ME_509B4CC20221 LoadUnits
 
@@ -157,12 +169,12 @@ ref; // ME_509B4CC20221 LoadUnits
  : Parent WL 'ME_4B30C5FF0172' '4B30C5FF0172.pas.ms.script' // TestFormsTest
  ;
  : Children
-   @ ( ME_509A43E800C8 // FormUnits
+   Seq: ( ME_509A43E800C8 // FormUnits
  ME_509B4CC20221 // LoadUnits
- ) .SequenceCode.It
+ )
  ; // Children
  : Depends
-   @ ( WL 'ME_47913B47006E' '47913B47006E.pas.ms.script' // l3CoreObjects
+   Seq: ( WL 'ME_47913B47006E' '47913B47006E.pas.ms.script' // l3CoreObjects
  WL 'ME_47D0E1500033' '47D0E1500033.pas.ms.script' // Implementation
  WL 'ME_48492FC0029D' '48492FC0029D.pas.ms.script' // Standard
  WL 'ME_4AADF9450143' '4AADF9450143.pas.ms.script' // Visual
@@ -170,17 +182,22 @@ ref; // ME_509B4CC20221 LoadUnits
  WL 'ME_4B30C72000B3' '4B30C72000B3.pas.ms.script' // Everest
  WL 'ME_4B30FC850092' '4B30FC850092.pas.ms.script' // VCM_TFW
  WL 'ME_4D469729019F' '4D469729019F.pas.ms.script' // Outliner
- ) .SequenceCode.It
+ )
  ; // Depends
  CONST "ifdef" 'nsTest'
  CONST "ifndef" 'InsiderTest'
  : Generators
- @ (
+ Seq: (
  gen_pas.script
  gen_pas.script.runner
- ) .SequenceCode.It
+ )
  ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\Daily'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Daily'
  CONST pas.script:Path 'shared\models\NewSchool\Scripts\4E2955E50377.pas.ms.script'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
  CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\4E2955E50377.pas.ms.script.runner'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\common\components\gui\Garant\Daily'
 
 ref; // ME_4E2955E50377 AutoTestSupport

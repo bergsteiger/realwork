@@ -23,6 +23,10 @@ FORWARD ME_4C762D9B0224
  CONST "Enabled" 'undefined'
  CONST "Hint" 'Провести поиск по выбранным параметрам'
  CONST "Visible" 'undefined'
+ CONST dfm:PathOnly '\common\components\gui\Garant\VCM\UserInteraction'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\VCM\UserInteraction'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_4C7BB92503A9 Search
 
@@ -41,6 +45,10 @@ ref; // ME_4C7BB92503A9 Search
  CONST "Enabled" 'undefined'
  CONST "Hint" 'Сохранить'
  CONST "Visible" 'undefined'
+ CONST dfm:PathOnly '\common\components\gui\Garant\VCM\UserInteraction'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\VCM\UserInteraction'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_4C7BB944001B Save
 
@@ -57,6 +65,10 @@ ref; // ME_4C7BB944001B Save
  CONST "Checked" 'undefined'
  CONST "Enabled" 'undefined'
  CONST "Visible" 'undefined'
+ CONST dfm:PathOnly '\common\components\gui\Garant\VCM\UserInteraction'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\VCM\UserInteraction'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_4C7BB95D0276 AttributesSelect
 
@@ -75,6 +87,10 @@ ref; // ME_4C7BB95D0276 AttributesSelect
  CONST "Enabled" 'undefined'
  CONST "ImageIndex" 154
  CONST "Visible" 'undefined'
+ CONST dfm:PathOnly '\common\components\gui\Garant\VCM\UserInteraction'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\VCM\UserInteraction'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_4C7BB9690030 Consult
 
@@ -92,6 +108,10 @@ ref; // ME_4C7BB9690030 Consult
  CONST "Checked" 'undefined'
  CONST "Enabled" 'undefined'
  CONST "Visible" 'undefined'
+ CONST dfm:PathOnly '\common\components\gui\Garant\VCM\UserInteraction'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\VCM\UserInteraction'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_4C7BB98001BC Chat
 
@@ -111,6 +131,10 @@ ref; // ME_4C7BB98001BC Chat
  CONST "Hint" 'Сохранить и отправить'
  CONST "Visible" 'undefined'
  CONST "ifndef" 'Monitorings'
+ CONST dfm:PathOnly '\common\components\gui\Garant\VCM\UserInteraction'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\VCM\UserInteraction'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_54255CEB0383 SaveAndSend
 
@@ -126,13 +150,13 @@ ref; // ME_54255CEB0383 SaveAndSend
  : Parent ME_4A8AD4260126 // Result
  ;
  : Children
-   @ ( ME_4C7BB92503A9 // Search
+   Seq: ( ME_4C7BB92503A9 // Search
  ME_4C7BB944001B // Save
  ME_4C7BB95D0276 // AttributesSelect
  ME_4C7BB9690030 // Consult
  ME_4C7BB98001BC // Chat
  ME_54255CEB0383 // SaveAndSend
- ) .SequenceCode.It
+ )
  ; // Children
  CONST "AutoFocus" false
  CONST "AutoLock" false
@@ -143,6 +167,10 @@ ref; // ME_54255CEB0383 SaveAndSend
  CONST "is FormActivate" false
  CONST "is query" false
  CONST "no prefix" false
+ CONST dfm:PathOnly '\common\components\gui\Garant\VCM\UserInteraction'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\VCM\UserInteraction'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_4C762D9B0224 OkExt
 
@@ -174,6 +202,7 @@ ref; // ME_4A8AD47D0357 OkExt
  ;
  : Implementor ME_4A8AD4260126 // Result
  ;
+ CONST OpKind opkind_Implemented
  CONST "AutoFocus" false
  CONST "AutoLock" false
  CONST "LongProcess" false
@@ -192,6 +221,7 @@ ref; // ME_4AC5D61E0284_ME_4A8AD4260126 Cancel
  ;
  : Implementor ME_4A8AD4260126 // Result
  ;
+ CONST OpKind opkind_Implemented
  CONST "AutoFocus" false
  CONST "AutoLock" false
  CONST "LongProcess" false
@@ -215,22 +245,26 @@ ref; // ME_4C762C910358_ME_4A8AD4260126 Cancel
  : Parent ME_4A8AD3DE0008 // ResultEx
  ;
  : Inherits
-   @ ( WL 'ME_4AC5D5FB0293' '4A8AD3C70195.pas.ms.script' // Result$CancelWithState
- ) .SequenceCode.It
+   Seq: ( WL 'ME_4AC5D5FB0293' '4A8AD3C70195.pas.ms.script' // Result$CancelWithState
+ )
  ; // Inherits
  : Operations
-   @ ( ME_4A8AD47D0357 // OkExt
- ) .SequenceCode.It
+   Seq: ( ME_4A8AD47D0357 // OkExt
+ )
  ; // Operations
  : Implemented
-   @ ( ME_4AC5D61E0284_ME_4A8AD4260126 // Cancel
+   Seq: ( ME_4AC5D61E0284_ME_4A8AD4260126 // Cancel
  ME_4C762C910358_ME_4A8AD4260126 // Cancel
- ) .SequenceCode.It
+ )
  ; // Implemented
  : Children
-   @ ( ME_4C762D9B0224 // OkExt
- ) .SequenceCode.It
+   Seq: ( ME_4C762D9B0224 // OkExt
+ )
  ; // Children
+ CONST dfm:PathOnly '\common\components\gui\Garant\VCM\UserInteraction'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\VCM\UserInteraction'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_4A8AD4260126 Result
 
@@ -245,24 +279,22 @@ ref; // ME_4A8AD4260126 Result
  : Parent WL 'ME_4954C0500033' '4954C0500033.pas.ms.script' // UserInteraction
  ;
  : Children
-   @ ( ME_4A8AD4260126 // Result
- ) .SequenceCode.It
+   Seq: ( ME_4A8AD4260126 // Result
+ )
  ; // Children
  : Depends
-   @ ( WL 'ME_4A8AD3C70195' '4A8AD3C70195.pas.ms.script' // Result
- ) .SequenceCode.It
+   Seq: ( WL 'ME_4A8AD3C70195' '4A8AD3C70195.pas.ms.script' // Result
+ )
  ; // Depends
  CONST "is namespace" true
  CONST "no hands" false
- : Generators
- @ (
- gen_intf.pas
- gen_pas.script
- gen_pas.script.runner
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\VCM\UserInteraction'
  CONST intf.pas:Path 'common\components\gui\Garant\VCM\UserInteraction\OfficeLike_ResultEx_Controls.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\VCM\UserInteraction'
  CONST pas.script:Path 'shared\models\NewSchool\Scripts\4A8AD3DE0008.pas.ms.script'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
  CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\4A8AD3DE0008.pas.ms.script.runner'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:pas:UnitName 'OfficeLike_ResultEx_Controls'
 
 ref; // ME_4A8AD3DE0008 ResultEx

@@ -9,6 +9,7 @@ FORWARD ME_50288ABF02F4
 : ME_A7F58AE0060E
  CONST UID 'A7F58AE0060E'
  CONST Name 'Ini_Reg_Class'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Регистрация Ttb97Control' ;
@@ -22,6 +23,7 @@ ref; // ME_A7F58AE0060E Ini_Reg_Class
 
 : ME_FCE6EA0B7872
  CONST UID 'FCE6EA0B7872'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_50288ABF02F4 // Ttb97Control
@@ -42,27 +44,29 @@ ref; // ME_FCE6EA0B7872
  : Parent ME_5028898902A2 // tb97utils
  ;
  : Inherits
-   @ ( WL 'ME_48BBE37E00A2' '467BA8C8017E.pas.ms.script' // TafwCustomCommonControl
- ) .SequenceCode.It
+   Seq: ( WL 'ME_48BBE37E00A2' '467BA8C8017E.pas.ms.script' // TafwCustomCommonControl
+ )
  ; // Inherits
  : Operations
-   @ ( ME_A7F58AE0060E // Ini_Reg_Class
- ) .SequenceCode.It
+   Seq: ( ME_A7F58AE0060E // Ini_Reg_Class
+ )
  ; // Operations
  : Dependencies
-   @ ( ME_FCE6EA0B7872 // 
- ) .SequenceCode.It
+   Seq: ( ME_FCE6EA0B7872 // 
+ )
  ; // Dependencies
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\external\tb97'
  CONST intf.pas:Path 'common\components\rtl\external\tb97\tb97Control.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\external\tb97'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'tb97Control'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'tb97Control'
 
 ref; // ME_50288ABF02F4 Ttb97Control
 
@@ -82,6 +86,7 @@ FORWARD ME_5028A1220383
  CONST Value true
  : ValueType WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
+ CONST extprop:pas:Value true
 
 ref; // ME_5028A13A02FB aUpdateVisibility
 
@@ -94,8 +99,8 @@ ref; // ME_5028A13A02FB aUpdateVisibility
  : Parent ME_5028A1220383 // UpdateEmpty
  ;
  : Parameters
-   @ ( ME_5028A13A02FB // aUpdateVisibility
- ) .SequenceCode.It
+   Seq: ( ME_5028A13A02FB // aUpdateVisibility
+ )
  ; // Parameters
 
 ref; // ME_5028A1370341 DoIt
@@ -111,8 +116,8 @@ ref; // ME_5028A1370341 DoIt
  : Parent ME_50288A3D023C // TCustomToolWindow97
  ;
  : Operations
-   @ ( ME_5028A1370341 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_5028A1370341 // DoIt
+ )
  ; // Operations
 
 ref; // ME_5028A1220383 UpdateEmpty
@@ -122,6 +127,7 @@ FORWARD ME_5028A78000B6
 : ME_233919BBCD7A
  CONST UID '233919BBCD7A'
  CONST Name 'DoIt'
+ CONST IsSummoned true
  CONST Class class_Operation
  %SUMMARY 'Сигнатура метода BeginUpdate' ;
  CONST Visibility PublicAccess
@@ -142,8 +148,8 @@ ref; // ME_233919BBCD7A DoIt
  : Parent ME_50288A3D023C // TCustomToolWindow97
  ;
  : Operations
-   @ ( ME_233919BBCD7A // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_233919BBCD7A // DoIt
+ )
  ; // Operations
 
 ref; // ME_5028A78000B6 BeginUpdate
@@ -153,6 +159,7 @@ FORWARD ME_5028A78B015A
 : ME_295D21D61A97
  CONST UID '295D21D61A97'
  CONST Name 'DoIt'
+ CONST IsSummoned true
  CONST Class class_Operation
  %SUMMARY 'Сигнатура метода EndUpdate' ;
  CONST Visibility PublicAccess
@@ -173,8 +180,8 @@ ref; // ME_295D21D61A97 DoIt
  : Parent ME_50288A3D023C // TCustomToolWindow97
  ;
  : Operations
-   @ ( ME_295D21D61A97 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_295D21D61A97 // DoIt
+ )
  ; // Operations
 
 ref; // ME_5028A78B015A EndUpdate
@@ -205,8 +212,8 @@ ref; // ME_552E0FEF020E DoIt
  : Parent ME_50288A3D023C // TCustomToolWindow97
  ;
  : Operations
-   @ ( ME_552E0FEF020E // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_552E0FEF020E // DoIt
+ )
  ; // Operations
 
 ref; // ME_552E0FD5016D NeedActivateMainForm
@@ -216,6 +223,7 @@ FORWARD ME_552E10010067
 : ME_EE072599FA78
  CONST UID 'EE072599FA78'
  CONST Name 'DoIt'
+ CONST IsSummoned true
  CONST Class class_Operation
  %SUMMARY 'Сигнатура метода ActivateMainForm' ;
  CONST Visibility PublicAccess
@@ -236,8 +244,8 @@ ref; // ME_EE072599FA78 DoIt
  : Parent ME_50288A3D023C // TCustomToolWindow97
  ;
  : Operations
-   @ ( ME_EE072599FA78 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_EE072599FA78 // DoIt
+ )
  ; // Operations
 
 ref; // ME_552E10010067 ActivateMainForm
@@ -245,6 +253,7 @@ ref; // ME_552E10010067 ActivateMainForm
 : ME_1843EB8E78EA
  CONST UID '1843EB8E78EA'
  CONST Name 'Ini_Reg_Class'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Регистрация TCustomToolWindow97' ;
@@ -269,6 +278,7 @@ ref; // ME_552E106A02E8
 
 : ME_ACEEB45EA9C4
  CONST UID 'ACEEB45EA9C4'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_50288A3D023C // TCustomToolWindow97
@@ -289,27 +299,33 @@ ref; // ME_ACEEB45EA9C4
  : Parent ME_502889FF0054 // TB97
  ;
  : Inherits
-   @ ( ME_50288ABF02F4 // Ttb97Control
- ) .SequenceCode.It
+   Seq: ( ME_50288ABF02F4 // Ttb97Control
+ )
  ; // Inherits
  : Operations
-   @ ( ME_5028A1220383 // UpdateEmpty
+   Seq: ( ME_5028A1220383 // UpdateEmpty
  ME_5028A78000B6 // BeginUpdate
  ME_5028A78B015A // EndUpdate
  ME_552E0FD5016D // NeedActivateMainForm
  ME_552E10010067 // ActivateMainForm
  ME_1843EB8E78EA // Ini_Reg_Class
- ) .SequenceCode.It
+ )
  ; // Operations
  : Dependencies
-   @ ( ME_552E106A02E8 // 
+   Seq: ( ME_552E106A02E8 // 
  ME_ACEEB45EA9C4 // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
+ CONST dfm:PathOnly '\common\components\rtl\external\tb97'
+ CONST intf.pas:PathOnly '\common\components\rtl\external\tb97'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'ToolWindow97'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_50288A3D023C TCustomToolWindow97
 
@@ -341,8 +357,8 @@ ref; // ME_5028DD4800CC DoIt
  : Parent ME_5028DD12007F // TDock97
  ;
  : Operations
-   @ ( ME_5028DD4800CC // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_5028DD4800CC // DoIt
+ )
  ; // Operations
 
 ref; // ME_5028DD25024B SizeGripWidth
@@ -350,6 +366,7 @@ ref; // ME_5028DD25024B SizeGripWidth
 : ME_B41AB14DF939
  CONST UID 'B41AB14DF939'
  CONST Name 'Ini_Reg_Class'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Регистрация TDock97' ;
@@ -363,6 +380,7 @@ ref; // ME_B41AB14DF939 Ini_Reg_Class
 
 : ME_54A2600909E1
  CONST UID '54A2600909E1'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_5028DD12007F // TDock97
@@ -383,22 +401,28 @@ ref; // ME_54A2600909E1
  : Parent ME_502889FF0054 // TB97
  ;
  : Inherits
-   @ ( ME_50288ABF02F4 // Ttb97Control
- ) .SequenceCode.It
+   Seq: ( ME_50288ABF02F4 // Ttb97Control
+ )
  ; // Inherits
  : Operations
-   @ ( ME_5028DD25024B // SizeGripWidth
+   Seq: ( ME_5028DD25024B // SizeGripWidth
  ME_B41AB14DF939 // Ini_Reg_Class
- ) .SequenceCode.It
+ )
  ; // Operations
  : Dependencies
-   @ ( ME_54A2600909E1 // 
- ) .SequenceCode.It
+   Seq: ( ME_54A2600909E1 // 
+ )
  ; // Dependencies
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
+ CONST dfm:PathOnly '\common\components\rtl\external\tb97'
+ CONST intf.pas:PathOnly '\common\components\rtl\external\tb97'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'Dock97'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_5028DD12007F TDock97
 
@@ -413,18 +437,17 @@ ref; // ME_5028DD12007F TDock97
  : Parent ME_5028898902A2 // tb97utils
  ;
  : Children
-   @ ( ME_50288A3D023C // TCustomToolWindow97
+   Seq: ( ME_50288A3D023C // TCustomToolWindow97
  ME_5028DD12007F // TDock97
- ) .SequenceCode.It
+ )
  ; // Children
  CONST "finished" false
  CONST "no hands" false
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\external\tb97'
  CONST intf.pas:Path 'common\components\rtl\external\tb97\NOT_FINISHED_TB97.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\external\tb97'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_502889FF0054 TB97
 
@@ -435,6 +458,7 @@ FORWARD ME_502CD936004A
 : ME_A3785EB1DA66
  CONST UID 'A3785EB1DA66'
  CONST Name 'Ini_Reg_Class'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Регистрация Ttb97CustomGraphicControl' ;
@@ -448,6 +472,7 @@ ref; // ME_A3785EB1DA66 Ini_Reg_Class
 
 : ME_3E0BAB3449C8
  CONST UID '3E0BAB3449C8'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_502CD936004A // Ttb97CustomGraphicControl
@@ -468,25 +493,31 @@ ref; // ME_3E0BAB3449C8
  : Parent ME_502CD8FA02E1 // Ttb97GraphicControl
  ;
  : Inherits
-   @ ( WL 'ME_4F2A5AA1012C' '4799D29F033F.pas.ms.script' // TGraphicControl
- ) .SequenceCode.It
+   Seq: ( WL 'ME_4F2A5AA1012C' '4799D29F033F.pas.ms.script' // TGraphicControl
+ )
  ; // Inherits
  : Implements
-   @ ( WL 'ME_47913F970159' '47913B47006E.pas.ms.script' // l3Unknown
- ) .SequenceCode.It
+   Seq: ( WL 'ME_47913F970159' '47913B47006E.pas.ms.script' // l3Unknown
+ )
  ; // Implements
  : Operations
-   @ ( ME_A3785EB1DA66 // Ini_Reg_Class
- ) .SequenceCode.It
+   Seq: ( ME_A3785EB1DA66 // Ini_Reg_Class
+ )
  ; // Operations
  : Dependencies
-   @ ( ME_3E0BAB3449C8 // 
- ) .SequenceCode.It
+   Seq: ( ME_3E0BAB3449C8 // 
+ )
  ; // Dependencies
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
+ CONST dfm:PathOnly '\common\components\rtl\external\tb97'
+ CONST intf.pas:PathOnly '\common\components\rtl\external\tb97'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'tb97CustomGraphicControl'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_502CD936004A Ttb97CustomGraphicControl
 
@@ -495,6 +526,7 @@ FORWARD ME_502CD89E0200
 : ME_A52232776F00
  CONST UID 'A52232776F00'
  CONST Name 'Ini_Reg_Class'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Регистрация Ttb97GraphicTextControl' ;
@@ -508,6 +540,7 @@ ref; // ME_A52232776F00 Ini_Reg_Class
 
 : ME_93A26C7D09E4
  CONST UID '93A26C7D09E4'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_502CD89E0200 // Ttb97GraphicTextControl
@@ -528,27 +561,34 @@ ref; // ME_93A26C7D09E4
  : Parent ME_502CD8FA02E1 // Ttb97GraphicControl
  ;
  : Inherits
-   @ ( ME_502CD8FA02E1 // Ttb97GraphicControl
- ) .SequenceCode.It
+   Seq: ( ME_502CD8FA02E1 // Ttb97GraphicControl
+ )
  ; // Inherits
  : Operations
-   @ ( ME_A52232776F00 // Ini_Reg_Class
- ) .SequenceCode.It
+   Seq: ( ME_A52232776F00 // Ini_Reg_Class
+ )
  ; // Operations
  : Dependencies
-   @ ( ME_93A26C7D09E4 // 
- ) .SequenceCode.It
+   Seq: ( ME_93A26C7D09E4 // 
+ )
  ; // Dependencies
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
+ CONST dfm:PathOnly '\common\components\rtl\external\tb97'
+ CONST intf.pas:PathOnly '\common\components\rtl\external\tb97'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'tb97GraphicTextControl'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_502CD89E0200 Ttb97GraphicTextControl
 
 : ME_269F37F2142F
  CONST UID '269F37F2142F'
  CONST Name 'Ini_Reg_Class'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Регистрация Ttb97GraphicControl' ;
@@ -562,6 +602,7 @@ ref; // ME_269F37F2142F Ini_Reg_Class
 
 : ME_FD6CFEE92176
  CONST UID 'FD6CFEE92176'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_502CD8FA02E1 // Ttb97GraphicControl
@@ -582,33 +623,35 @@ ref; // ME_FD6CFEE92176
  : Parent ME_5028898902A2 // tb97utils
  ;
  : Inherits
-   @ ( ME_502CD936004A // Ttb97CustomGraphicControl
- ) .SequenceCode.It
+   Seq: ( ME_502CD936004A // Ttb97CustomGraphicControl
+ )
  ; // Inherits
  : Operations
-   @ ( ME_269F37F2142F // Ini_Reg_Class
- ) .SequenceCode.It
+   Seq: ( ME_269F37F2142F // Ini_Reg_Class
+ )
  ; // Operations
  : Children
-   @ ( ME_502CD936004A // Ttb97CustomGraphicControl
+   Seq: ( ME_502CD936004A // Ttb97CustomGraphicControl
  ME_502CD89E0200 // Ttb97GraphicTextControl
- ) .SequenceCode.It
+ )
  ; // Children
  : Dependencies
-   @ ( ME_FD6CFEE92176 // 
- ) .SequenceCode.It
+   Seq: ( ME_FD6CFEE92176 // 
+ )
  ; // Dependencies
  CONST "finished" false
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\external\tb97'
  CONST intf.pas:Path 'common\components\rtl\external\tb97\NOT_FINISHED_tb97GraphicControl.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\external\tb97'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'tb97GraphicControl'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'tb97GraphicControl'
 
 ref; // ME_502CD8FA02E1 Ttb97GraphicControl
 
@@ -622,26 +665,24 @@ ref; // ME_502CD8FA02E1 Ttb97GraphicControl
  : Parent WL 'ME_4C43E84F0304' '4C43E84F0304.pas.ms.script' // tb97
  ;
  : Children
-   @ ( ME_50288ABF02F4 // Ttb97Control
+   Seq: ( ME_50288ABF02F4 // Ttb97Control
  ME_502889FF0054 // TB97
  ME_502CD8FA02E1 // Ttb97GraphicControl
- ) .SequenceCode.It
+ )
  ; // Children
  : Depends
-   @ ( WL 'ME_467BA8C8017E' '467BA8C8017E.pas.ms.script' // afwControl
+   Seq: ( WL 'ME_467BA8C8017E' '467BA8C8017E.pas.ms.script' // afwControl
  WL 'ME_47913B47006E' '47913B47006E.pas.ms.script' // l3CoreObjects
  WL 'ME_4799D29F033F' '4799D29F033F.pas.ms.script' // Implementation
  WL 'ME_4AB0C3C60310' '4AB0C3C60310.pas.ms.script' // Sys
  WL 'ME_561F9F7D02A7' '561F9F7D02A7.pas.ms.script' // ScriptEngine
- ) .SequenceCode.It
+ )
  ; // Depends
- : Generators
- @ (
- gen_pas.script
- gen_pas.script.runner
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\external\tb97'
+ CONST intf.pas:PathOnly '\common\components\rtl\external\tb97'
  CONST pas.script:Path 'shared\models\NewSchool\Scripts\5028898902A2.pas.ms.script'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
  CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\5028898902A2.pas.ms.script.runner'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_5028898902A2 tb97utils

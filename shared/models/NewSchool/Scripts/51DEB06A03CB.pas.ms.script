@@ -14,6 +14,11 @@ FORWARD ME_51DEB06A03CB
  CONST Abstraction at_abstract
  : Parent ME_51DEB06A03CB // STLLike
  ;
+ CONST dfm:PathOnly '\common\components\SandBox'
+ CONST intf.pas:PathOnly '\common\components\SandBox'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\common\components\SandBox'
  CONST extprop:pas:TypeName '_ItemType_'
 
 ref; // ME_51DEB1B30171 ItemType
@@ -31,10 +36,15 @@ FORWARD ME_51DEB07E03E4
  : Parent ME_51DEB07E03E4 // List
  ;
  : Inherits
-   @ ( ME_51DEB1B30171 // ItemType
- ) .SequenceCode.It
+   Seq: ( ME_51DEB1B30171 // ItemType
+ )
  ; // Inherits
  CONST "isPointer" true
+ CONST dfm:PathOnly '\common\components\SandBox'
+ CONST intf.pas:PathOnly '\common\components\SandBox'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\common\components\SandBox'
 
 ref; // ME_51DEB77702EC PItemType
 
@@ -53,6 +63,7 @@ FORWARD ME_51DEB7990159
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value 'SizeOf(_ItemType_)'
 
 ref; // ME_51DEB7B40343 cItemSize
 
@@ -67,10 +78,15 @@ ref; // ME_51DEB7B40343 cItemSize
  : Parent ME_51DEB07E03E4 // List
  ;
  : Attributes
-   @ ( ME_51DEB7B40343 // cItemSize
- ) .SequenceCode.It
+   Seq: ( ME_51DEB7B40343 // cItemSize
+ )
  ; // Attributes
  CONST "spell names" false
+ CONST dfm:PathOnly '\common\components\SandBox'
+ CONST intf.pas:PathOnly '\common\components\SandBox'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\common\components\SandBox'
 
 ref; // ME_51DEB7990159 Sizes
 
@@ -85,9 +101,15 @@ ref; // ME_51DEB7990159 Sizes
  : Parent ME_51DEB07E03E4 // List
  ;
  : Inherits
-   @ ( WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
- ) .SequenceCode.It
+   Seq: ( WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ )
  ; // Inherits
+ CONST dfm:PathOnly '\common\components\SandBox'
+ CONST intf.pas:PathOnly '\common\components\SandBox'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\common\components\SandBox'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_51DEB8CB0127 IndexType
 
@@ -134,6 +156,10 @@ ref; // ME_51DEB1BB0350 ItemType
  ;
  : Target ME_51DEB8CB0127 // IndexType
  ;
+ : CanRaiseInSet
+   Seq: ( WL 'ME_479F1C5600EA' '4AB0997B00A2.pas.ms.script' // EListError
+ )
+ ; // CanRaiseInSet
  CONST "pm" true
  CONST "reads field" true
 
@@ -152,6 +178,10 @@ ref; // ME_51DEB1ED0017 Count
  ;
  : Target ME_51DEB8CB0127 // IndexType
  ;
+ : CanRaiseInSet
+   Seq: ( WL 'ME_479F1C5600EA' '4AB0997B00A2.pas.ms.script' // EListError
+ )
+ ; // CanRaiseInSet
  CONST "pm" true
 
 ref; // ME_51DEB20E0130 Capacity
@@ -186,8 +216,8 @@ ref; // ME_51DECA350154 anIndex
  : Target ME_51DEB1B30171 // ItemType
  ;
  : Attributes
-   @ ( ME_51DECA350154 // anIndex
- ) .SequenceCode.It
+   Seq: ( ME_51DECA350154 // anIndex
+ )
  ; // Attributes
  CONST "is default" true
  CONST "pm" true
@@ -224,6 +254,10 @@ ref; // ME_51E7FDAC023D Empty
  ;
  : Target ME_51DEB1B30171 // ItemType
  ;
+ : CanRaise
+   Seq: ( WL 'ME_479F1C5600EA' '4AB0997B00A2.pas.ms.script' // EListError
+ )
+ ; // CanRaise
  CONST "pm" true
 
 ref; // ME_51E8070603AC First
@@ -241,6 +275,10 @@ ref; // ME_51E8070603AC First
  ;
  : Target ME_51DEB1B30171 // ItemType
  ;
+ : CanRaise
+   Seq: ( WL 'ME_479F1C5600EA' '4AB0997B00A2.pas.ms.script' // EListError
+ )
+ ; // CanRaise
  CONST "pm" true
 
 ref; // ME_51E8074101B5 Last
@@ -248,6 +286,7 @@ ref; // ME_51E8074101B5 Last
 : ME_E5C8F5D2D7BC
  CONST UID 'E5C8F5D2D7BC'
  CONST Name 'f_Count'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY 'Поле для свойства Count' ;
  CONST Visibility PrivateAccess
@@ -257,6 +296,7 @@ ref; // ME_51E8074101B5 Last
  ;
  : Target ME_51DEB8CB0127 // IndexType
  ;
+ CONST extprop:clearViaProperty 'Count'
 
 ref; // ME_E5C8F5D2D7BC f_Count
 
@@ -281,8 +321,8 @@ ref; // ME_51DEB8930015 aNewCapacity
  : Parent ME_51DEB8770017 // ReAllocList
  ;
  : Parameters
-   @ ( ME_51DEB8930015 // aNewCapacity
- ) .SequenceCode.It
+   Seq: ( ME_51DEB8930015 // aNewCapacity
+ )
  ; // Parameters
 
 ref; // ME_51DEB88500A7 DoIt
@@ -298,8 +338,8 @@ ref; // ME_51DEB88500A7 DoIt
  : Parent ME_51DEB07E03E4 // List
  ;
  : Operations
-   @ ( ME_51DEB88500A7 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_51DEB88500A7 // DoIt
+ )
  ; // Operations
 
 ref; // ME_51DEB8770017 ReAllocList
@@ -324,9 +364,13 @@ ref; // ME_51DEB999034B anIndex
  CONST Abstraction at_final
  : Parent ME_51DEB95E00BD // CheckIndex
  ;
+ : CanRaise
+   Seq: ( WL 'ME_479F1C5600EA' '4AB0997B00A2.pas.ms.script' // EListError
+ )
+ ; // CanRaise
  : Parameters
-   @ ( ME_51DEB999034B // anIndex
- ) .SequenceCode.It
+   Seq: ( ME_51DEB999034B // anIndex
+ )
  ; // Parameters
 
 ref; // ME_51DEB97B0238 DoIt
@@ -343,8 +387,8 @@ ref; // ME_51DEB97B0238 DoIt
  : Parent ME_51DEB07E03E4 // List
  ;
  : Operations
-   @ ( ME_51DEB97B0238 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_51DEB97B0238 // DoIt
+ )
  ; // Operations
 
 ref; // ME_51DEB95E00BD CheckIndex
@@ -372,8 +416,8 @@ ref; // ME_51DEBE4F0272 anIndex
  : Target ME_51DEB77702EC // PItemType
  ;
  : Parameters
-   @ ( ME_51DEBE4F0272 // anIndex
- ) .SequenceCode.It
+   Seq: ( ME_51DEBE4F0272 // anIndex
+ )
  ; // Parameters
 
 ref; // ME_51DEBE3C008D DoIt
@@ -389,8 +433,8 @@ ref; // ME_51DEBE3C008D DoIt
  : Parent ME_51DEB07E03E4 // List
  ;
  : Operations
-   @ ( ME_51DEBE3C008D // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_51DEBE3C008D // DoIt
+ )
  ; // Operations
 
 ref; // ME_51DEBE2D008A ItemSlot
@@ -418,8 +462,8 @@ ref; // ME_51DEC18501A0 aTargetSize
  : Target WL 'ME_46A618AF0053' '4AB0C3C60310.pas.ms.script' // Cardinal
  ;
  : Parameters
-   @ ( ME_51DEC18501A0 // aTargetSize
- ) .SequenceCode.It
+   Seq: ( ME_51DEC18501A0 // aTargetSize
+ )
  ; // Parameters
 
 ref; // ME_51DEC16501B0 DoIt
@@ -435,8 +479,8 @@ ref; // ME_51DEC16501B0 DoIt
  : Parent ME_51DEB07E03E4 // List
  ;
  : Operations
-   @ ( ME_51DEC16501B0 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_51DEC16501B0 // DoIt
+ )
  ; // Operations
 
 ref; // ME_51DEC11F0058 ExpandSize
@@ -461,9 +505,13 @@ ref; // ME_51DECAD90253 anIndex
  CONST Abstraction at_final
  : Parent ME_51DECAA8035E // CheckSetItem
  ;
+ : CanRaise
+   Seq: ( WL 'ME_479F1C5600EA' '4AB0997B00A2.pas.ms.script' // EListError
+ )
+ ; // CanRaise
  : Parameters
-   @ ( ME_51DECAD90253 // anIndex
- ) .SequenceCode.It
+   Seq: ( ME_51DECAD90253 // anIndex
+ )
  ; // Parameters
 
 ref; // ME_51DECAD7026F DoIt
@@ -480,8 +528,8 @@ ref; // ME_51DECAD7026F DoIt
  : Parent ME_51DEB07E03E4 // List
  ;
  : Operations
-   @ ( ME_51DECAD7026F // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_51DECAD7026F // DoIt
+ )
  ; // Operations
 
 ref; // ME_51DECAA8035E CheckSetItem
@@ -506,9 +554,13 @@ ref; // ME_51E6A28B03C0 anIndex
  CONST Abstraction at_final
  : Parent ME_51E6A2660270 // Delete
  ;
+ : CanRaise
+   Seq: ( WL 'ME_479F1C5600EA' '4AB0997B00A2.pas.ms.script' // EListError
+ )
+ ; // CanRaise
  : Parameters
-   @ ( ME_51E6A28B03C0 // anIndex
- ) .SequenceCode.It
+   Seq: ( ME_51E6A28B03C0 // anIndex
+ )
  ; // Parameters
 
 ref; // ME_51E6A280028E DoIt
@@ -525,8 +577,8 @@ ref; // ME_51E6A280028E DoIt
  : Parent ME_51DEB07E03E4 // List
  ;
  : Operations
-   @ ( ME_51E6A280028E // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_51E6A280028E // DoIt
+ )
  ; // Operations
 
 ref; // ME_51E6A2660270 Delete
@@ -562,9 +614,9 @@ ref; // ME_51E6A30003BF anItem
  : Parent ME_51E6A2AA02E4 // DirectInsert
  ;
  : Parameters
-   @ ( ME_51E6A300039F // anIndex
+   Seq: ( ME_51E6A300039F // anIndex
  ME_51E6A30003BF // anItem
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_51E6A2CA0230 DoIt
@@ -581,8 +633,8 @@ ref; // ME_51E6A2CA0230 DoIt
  : Parent ME_51DEB07E03E4 // List
  ;
  : Operations
-   @ ( ME_51E6A2CA0230 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_51E6A2CA0230 // DoIt
+ )
  ; // Operations
 
 ref; // ME_51E6A2AA02E4 DirectInsert
@@ -617,10 +669,14 @@ ref; // ME_51E6A329015A anItem
  CONST Abstraction at_final
  : Parent ME_51E6A3140016 // Insert
  ;
+ : CanRaise
+   Seq: ( WL 'ME_479F1C5600EA' '4AB0997B00A2.pas.ms.script' // EListError
+ )
+ ; // CanRaise
  : Parameters
-   @ ( ME_51E6A329013F // anIndex
+   Seq: ( ME_51E6A329013F // anIndex
  ME_51E6A329015A // anItem
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_51E6A31F0310 DoIt
@@ -637,8 +693,8 @@ ref; // ME_51E6A31F0310 DoIt
  : Parent ME_51DEB07E03E4 // List
  ;
  : Operations
-   @ ( ME_51E6A31F0310 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_51E6A31F0310 // DoIt
+ )
  ; // Operations
 
 ref; // ME_51E6A3140016 Insert
@@ -684,10 +740,10 @@ ref; // ME_51E6A83D0158 aSize
  : Parent ME_51E6A8190252 // MoveItems
  ;
  : Parameters
-   @ ( ME_51E6A83D0117 // aDst
+   Seq: ( ME_51E6A83D0117 // aDst
  ME_51E6A83D013C // aSrc
  ME_51E6A83D0158 // aSize
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_51E6A821031E DoIt
@@ -703,8 +759,8 @@ ref; // ME_51E6A821031E DoIt
  : Parent ME_51DEB07E03E4 // List
  ;
  : Operations
-   @ ( ME_51E6A821031E // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_51E6A821031E // DoIt
+ )
  ; // Operations
 
 ref; // ME_51E6A8190252 MoveItems
@@ -730,8 +786,8 @@ ref; // ME_51E801B2036E anItem
  : Parent ME_51E80192036C // Add
  ;
  : Parameters
-   @ ( ME_51E801B2036E // anItem
- ) .SequenceCode.It
+   Seq: ( ME_51E801B2036E // anItem
+ )
  ; // Parameters
 
 ref; // ME_51E801A800E9 DoIt
@@ -748,8 +804,8 @@ ref; // ME_51E801A800E9 DoIt
  : Parent ME_51DEB07E03E4 // List
  ;
  : Operations
-   @ ( ME_51E801A800E9 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_51E801A800E9 // DoIt
+ )
  ; // Operations
 
 ref; // ME_51E80192036C Add
@@ -777,8 +833,8 @@ ref; // ME_51E8020603A5 anItem
  : Target ME_51DEB8CB0127 // IndexType
  ;
  : Parameters
-   @ ( ME_51E8020603A5 // anItem
- ) .SequenceCode.It
+   Seq: ( ME_51E8020603A5 // anItem
+ )
  ; // Parameters
 
 ref; // ME_51E801F402F6 DoIt
@@ -795,8 +851,8 @@ ref; // ME_51E801F402F6 DoIt
  : Parent ME_51DEB07E03E4 // List
  ;
  : Operations
-   @ ( ME_51E801F402F6 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_51E801F402F6 // DoIt
+ )
  ; // Operations
 
 ref; // ME_51E801D503C5 IndexOf
@@ -822,8 +878,8 @@ ref; // ME_51E8024B01FD anIndex
  : Parent ME_51E802290167 // Remove
  ;
  : Parameters
-   @ ( ME_51E8024B01FD // anIndex
- ) .SequenceCode.It
+   Seq: ( ME_51E8024B01FD // anIndex
+ )
  ; // Parameters
 
 ref; // ME_51E80242014A DoIt
@@ -840,8 +896,8 @@ ref; // ME_51E80242014A DoIt
  : Parent ME_51DEB07E03E4 // List
  ;
  : Operations
-   @ ( ME_51E80242014A // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_51E80242014A // DoIt
+ )
  ; // Operations
 
 ref; // ME_51E802290167 Remove
@@ -851,6 +907,7 @@ FORWARD ME_51E8026302B4
 : ME_143FADC47A8C
  CONST UID '143FADC47A8C'
  CONST Name 'DoIt'
+ CONST IsSummoned true
  CONST Class class_Operation
  %SUMMARY 'Сигнатура метода Clear' ;
  CONST Visibility PublicAccess
@@ -872,8 +929,8 @@ ref; // ME_143FADC47A8C DoIt
  : Parent ME_51DEB07E03E4 // List
  ;
  : Operations
-   @ ( ME_143FADC47A8C // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_143FADC47A8C // DoIt
+ )
  ; // Operations
 
 ref; // ME_51E8026302B4 Clear
@@ -898,8 +955,8 @@ ref; // ME_51DECB6B02C4 thePlace
  : Parent ME_51DEB07E03E4 // List
  ;
  : Parameters
-   @ ( ME_51DECB6B02C4 // thePlace
- ) .SequenceCode.It
+   Seq: ( ME_51DECB6B02C4 // thePlace
+ )
  ; // Parameters
 
 ref; // ME_51DEC20B01D7 FreeItem
@@ -934,9 +991,9 @@ ref; // ME_51DECB65011A aFrom
  : Parent ME_51DEB07E03E4 // List
  ;
  : Parameters
-   @ ( ME_51DECB6500DA // thePlace
+   Seq: ( ME_51DECB6500DA // thePlace
  ME_51DECB65011A // aFrom
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_51DECB440087 FillItem
@@ -973,9 +1030,9 @@ ref; // ME_51DECB9C01A7 B
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
  : Parameters
-   @ ( ME_51DECB9C0161 // A
+   Seq: ( ME_51DECB9C0161 // A
  ME_51DECB9C01A7 // B
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_51DECB820261 IsSame
@@ -1009,6 +1066,7 @@ ref; // ME_51DEC5570076
  ;
  : Implementor ME_51DEB07E03E4 // List
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_479731C50290_ME_51DEB07E03E4 Cleanup
 
 : ME_51DEB07E03E4
@@ -1023,11 +1081,11 @@ ref; // ME_479731C50290_ME_51DEB07E03E4 Cleanup
  : Parent ME_51DEB06A03CB // STLLike
  ;
  : Implements
-   @ ( WL 'ME_51DEB13301ED' '51612EBB02F5.pas.ms.script' // MRefCounted
- ) .SequenceCode.It
+   Seq: ( WL 'ME_51DEB13301ED' '51612EBB02F5.pas.ms.script' // MRefCounted
+ )
  ; // Implements
  : Attributes
-   @ ( ME_51DEB0F20281 // f_Data
+   Seq: ( ME_51DEB0F20281 // f_Data
  ME_51DEB1BB0350 // ItemType
  ME_51DEB1ED0017 // Count
  ME_51DEB20E0130 // Capacity
@@ -1036,10 +1094,10 @@ ref; // ME_479731C50290_ME_51DEB07E03E4 Cleanup
  ME_51E8070603AC // First
  ME_51E8074101B5 // Last
  ME_E5C8F5D2D7BC // f_Count
- ) .SequenceCode.It
+ )
  ; // Attributes
  : Operations
-   @ ( ME_51DEB8770017 // ReAllocList
+   Seq: ( ME_51DEB8770017 // ReAllocList
  ME_51DEB95E00BD // CheckIndex
  ME_51DEBE2D008A // ItemSlot
  ME_51DEC11F0058 // ExpandSize
@@ -1055,37 +1113,43 @@ ref; // ME_479731C50290_ME_51DEB07E03E4 Cleanup
  ME_51DEC20B01D7 // FreeItem
  ME_51DECB440087 // FillItem
  ME_51DECB820261 // IsSame
- ) .SequenceCode.It
+ )
  ; // Operations
  : Overridden
-   @ ( ME_479731C50290_ME_51DEB07E03E4 // Cleanup
- ) .SequenceCode.It
+   Seq: ( ME_479731C50290_ME_51DEB07E03E4 // Cleanup
+ )
  ; // Overridden
  : Children
-   @ ( ME_51DEB77702EC // PItemType
+   Seq: ( ME_51DEB77702EC // PItemType
  ME_51DEB8CB0127 // IndexType
- ) .SequenceCode.It
+ )
  ; // Children
  : Constants
-   @ ( ME_51DEB7990159 // Sizes
- ) .SequenceCode.It
+   Seq: ( ME_51DEB7990159 // Sizes
+ )
  ; // Constants
  : Dependencies
-   @ ( ME_51DEB8280035 // 
+   Seq: ( ME_51DEB8280035 // 
  ME_51DEC5570076 // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  CONST "needs InstanceR" false
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
  : Generators
- @ (
+ Seq: (
  gen_intf.pas
- ) .SequenceCode.It
+ )
  ; // Generators
+ CONST dfm:PathOnly '\common\components\SandBox'
  CONST intf.pas:Path 'common\components\SandBox\List.imp.pas'
+ CONST intf.pas:PathOnly '\common\components\SandBox'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\common\components\SandBox'
  CONST extprop:pas:TypeName '_List_'
+ CONST extprop:pas:UnitName 'List.imp'
 
 ref; // ME_51DEB07E03E4 List
 
@@ -1101,6 +1165,12 @@ FORWARD ME_51DED02E0163
  CONST Abstraction at_final
  : Parent ME_51DED02E0163 // UnrefcountedListPrim
  ;
+ CONST dfm:PathOnly '\common\components\SandBox'
+ CONST intf.pas:PathOnly '\common\components\SandBox'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\common\components\SandBox'
+ CONST extprop:rc:SelfName 'Items_IsUnrefcounted'
 
 ref; // ME_51DED062003D l3Items_IsUnrefcounted
 
@@ -1111,6 +1181,7 @@ ref; // ME_51DED062003D l3Items_IsUnrefcounted
  ;
  : Implementor ME_51DED02E0163 // UnrefcountedListPrim
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_51DECB820261_ME_51DED02E0163 IsSame
 
 : ME_51DED02E0163
@@ -1125,28 +1196,34 @@ ref; // ME_51DECB820261_ME_51DED02E0163 IsSame
  : Parent ME_51DEB06A03CB // STLLike
  ;
  : Inherits
-   @ ( ME_51DEB07E03E4 // List
- ) .SequenceCode.It
+   Seq: ( ME_51DEB07E03E4 // List
+ )
  ; // Inherits
  : Implemented
-   @ ( ME_51DECB820261_ME_51DED02E0163 // IsSame
- ) .SequenceCode.It
+   Seq: ( ME_51DECB820261_ME_51DED02E0163 // IsSame
+ )
  ; // Implemented
  : Children
-   @ ( ME_51DED062003D // l3Items_IsUnrefcounted
- ) .SequenceCode.It
+   Seq: ( ME_51DED062003D // l3Items_IsUnrefcounted
+ )
  ; // Children
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
  : Generators
- @ (
+ Seq: (
  gen_intf.pas
- ) .SequenceCode.It
+ )
  ; // Generators
+ CONST dfm:PathOnly '\common\components\SandBox'
  CONST intf.pas:Path 'common\components\SandBox\UnrefcountedListPrim.imp.pas'
+ CONST intf.pas:PathOnly '\common\components\SandBox'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\common\components\SandBox'
  CONST extprop:pas:TypeName '_UnrefcountedListPrim_'
+ CONST extprop:pas:UnitName 'UnrefcountedListPrim.imp'
 
 ref; // ME_51DED02E0163 UnrefcountedListPrim
 
@@ -1162,6 +1239,12 @@ FORWARD ME_51DED48301D9
  CONST Abstraction at_final
  : Parent ME_51DED48301D9 // AtomicList
  ;
+ CONST dfm:PathOnly '\common\components\SandBox'
+ CONST intf.pas:PathOnly '\common\components\SandBox'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\common\components\SandBox'
+ CONST extprop:rc:SelfName 'Items_IsAtomic'
 
 ref; // ME_51DED49F0220 l3Items_IsAtomic
 
@@ -1172,6 +1255,7 @@ ref; // ME_51DED49F0220 l3Items_IsAtomic
  ;
  : Implementor ME_51DED48301D9 // AtomicList
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_51DEC20B01D7_ME_51DED48301D9 FreeItem
 
 : ME_51DECB440087_ME_51DED48301D9
@@ -1181,6 +1265,7 @@ ref; // ME_51DEC20B01D7_ME_51DED48301D9 FreeItem
  ;
  : Implementor ME_51DED48301D9 // AtomicList
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_51DECB440087_ME_51DED48301D9 FillItem
 
 : ME_51DED48301D9
@@ -1195,29 +1280,35 @@ ref; // ME_51DECB440087_ME_51DED48301D9 FillItem
  : Parent ME_51DEB06A03CB // STLLike
  ;
  : Inherits
-   @ ( ME_51DED02E0163 // UnrefcountedListPrim
- ) .SequenceCode.It
+   Seq: ( ME_51DED02E0163 // UnrefcountedListPrim
+ )
  ; // Inherits
  : Implemented
-   @ ( ME_51DEC20B01D7_ME_51DED48301D9 // FreeItem
+   Seq: ( ME_51DEC20B01D7_ME_51DED48301D9 // FreeItem
  ME_51DECB440087_ME_51DED48301D9 // FillItem
- ) .SequenceCode.It
+ )
  ; // Implemented
  : Children
-   @ ( ME_51DED49F0220 // l3Items_IsAtomic
- ) .SequenceCode.It
+   Seq: ( ME_51DED49F0220 // l3Items_IsAtomic
+ )
  ; // Children
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
  : Generators
- @ (
+ Seq: (
  gen_intf.pas
- ) .SequenceCode.It
+ )
  ; // Generators
+ CONST dfm:PathOnly '\common\components\SandBox'
  CONST intf.pas:Path 'common\components\SandBox\AtomicList.imp.pas'
+ CONST intf.pas:PathOnly '\common\components\SandBox'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\common\components\SandBox'
  CONST extprop:pas:TypeName '_AtomicList_'
+ CONST extprop:pas:UnitName 'AtomicList.imp'
 
 ref; // ME_51DED48301D9 AtomicList
 
@@ -1230,6 +1321,7 @@ FORWARD ME_51E81D74001D
  ;
  : Implementor ME_51E81D74001D // InterfaceList
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_51DECB820261_ME_51E81D74001D IsSame
 
 : ME_51E81D74001D
@@ -1243,24 +1335,30 @@ ref; // ME_51DECB820261_ME_51E81D74001D IsSame
  : Parent ME_51DEB06A03CB // STLLike
  ;
  : Inherits
-   @ ( ME_51DEB07E03E4 // List
- ) .SequenceCode.It
+   Seq: ( ME_51DEB07E03E4 // List
+ )
  ; // Inherits
  : Implemented
-   @ ( ME_51DECB820261_ME_51E81D74001D // IsSame
- ) .SequenceCode.It
+   Seq: ( ME_51DECB820261_ME_51E81D74001D // IsSame
+ )
  ; // Implemented
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
  : Generators
- @ (
+ Seq: (
  gen_intf.pas
- ) .SequenceCode.It
+ )
  ; // Generators
+ CONST dfm:PathOnly '\common\components\SandBox'
  CONST intf.pas:Path 'common\components\SandBox\InterfaceList.imp.pas'
+ CONST intf.pas:PathOnly '\common\components\SandBox'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\common\components\SandBox'
  CONST extprop:pas:TypeName '_InterfaceList_'
+ CONST extprop:pas:UnitName 'InterfaceList.imp'
 
 ref; // ME_51E81D74001D InterfaceList
 
@@ -1273,6 +1371,7 @@ FORWARD ME_51E809AD001D
  ;
  : Implementor ME_51E809AD001D // InterfaceRefList
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_51DEC20B01D7_ME_51E809AD001D FreeItem
 
 : ME_51DECB440087_ME_51E809AD001D
@@ -1282,6 +1381,7 @@ ref; // ME_51DEC20B01D7_ME_51E809AD001D FreeItem
  ;
  : Implementor ME_51E809AD001D // InterfaceRefList
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_51DECB440087_ME_51E809AD001D FillItem
 
 : ME_51E809AD001D
@@ -1296,25 +1396,31 @@ ref; // ME_51DECB440087_ME_51E809AD001D FillItem
  : Parent ME_51DEB06A03CB // STLLike
  ;
  : Inherits
-   @ ( ME_51E81D74001D // InterfaceList
- ) .SequenceCode.It
+   Seq: ( ME_51E81D74001D // InterfaceList
+ )
  ; // Inherits
  : Implemented
-   @ ( ME_51DEC20B01D7_ME_51E809AD001D // FreeItem
+   Seq: ( ME_51DEC20B01D7_ME_51E809AD001D // FreeItem
  ME_51DECB440087_ME_51E809AD001D // FillItem
- ) .SequenceCode.It
+ )
  ; // Implemented
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
  : Generators
- @ (
+ Seq: (
  gen_intf.pas
- ) .SequenceCode.It
+ )
  ; // Generators
+ CONST dfm:PathOnly '\common\components\SandBox'
  CONST intf.pas:Path 'common\components\SandBox\InterfaceRefList.imp.pas'
+ CONST intf.pas:PathOnly '\common\components\SandBox'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\common\components\SandBox'
  CONST extprop:pas:TypeName '_InterfaceRefList_'
+ CONST extprop:pas:UnitName 'InterfaceRefList.imp'
 
 ref; // ME_51E809AD001D InterfaceRefList
 
@@ -1327,6 +1433,7 @@ FORWARD ME_51E8098001DC
  ;
  : Implementor ME_51E8098001DC // InterfacePtrList
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_51DEC20B01D7_ME_51E8098001DC FreeItem
 
 : ME_51DECB440087_ME_51E8098001DC
@@ -1336,6 +1443,7 @@ ref; // ME_51DEC20B01D7_ME_51E8098001DC FreeItem
  ;
  : Implementor ME_51E8098001DC // InterfacePtrList
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_51DECB440087_ME_51E8098001DC FillItem
 
 : ME_51E8098001DC
@@ -1350,25 +1458,31 @@ ref; // ME_51DECB440087_ME_51E8098001DC FillItem
  : Parent ME_51DEB06A03CB // STLLike
  ;
  : Inherits
-   @ ( ME_51E81D74001D // InterfaceList
- ) .SequenceCode.It
+   Seq: ( ME_51E81D74001D // InterfaceList
+ )
  ; // Inherits
  : Implemented
-   @ ( ME_51DEC20B01D7_ME_51E8098001DC // FreeItem
+   Seq: ( ME_51DEC20B01D7_ME_51E8098001DC // FreeItem
  ME_51DECB440087_ME_51E8098001DC // FillItem
- ) .SequenceCode.It
+ )
  ; // Implemented
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
  : Generators
- @ (
+ Seq: (
  gen_intf.pas
- ) .SequenceCode.It
+ )
  ; // Generators
+ CONST dfm:PathOnly '\common\components\SandBox'
  CONST intf.pas:Path 'common\components\SandBox\InterfacePtrList.imp.pas'
+ CONST intf.pas:PathOnly '\common\components\SandBox'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\common\components\SandBox'
  CONST extprop:pas:TypeName '_InterfacePtrList_'
+ CONST extprop:pas:UnitName 'InterfacePtrList.imp'
 
 ref; // ME_51E8098001DC InterfacePtrList
 
@@ -1382,30 +1496,35 @@ ref; // ME_51E8098001DC InterfacePtrList
  : Parent WL 'ME_4861FFCA02CE' '4861FFCA02CE.pas.ms.script' // SandBox
  ;
  : Children
-   @ ( ME_51DEB1B30171 // ItemType
+   Seq: ( ME_51DEB1B30171 // ItemType
  ME_51DEB07E03E4 // List
  ME_51DED02E0163 // UnrefcountedListPrim
  ME_51DED48301D9 // AtomicList
  ME_51E81D74001D // InterfaceList
  ME_51E809AD001D // InterfaceRefList
  ME_51E8098001DC // InterfacePtrList
- ) .SequenceCode.It
+ )
  ; // Children
  : Depends
-   @ ( WL 'ME_479F1DEA0057' '479F1DEA0057.pas.ms.script' // RTLConsts
+   Seq: ( WL 'ME_479F1DEA0057' '479F1DEA0057.pas.ms.script' // RTLConsts
  WL 'ME_4AB0997B00A2' '4AB0997B00A2.pas.ms.script' // Common
  WL 'ME_4AB0C3C60310' '4AB0C3C60310.pas.ms.script' // Sys
  WL 'ME_51612EBB02F5' '51612EBB02F5.pas.ms.script' // Ref Counting
  WL 'ME_51DAD7EA02D0' '51DAD7EA02D0.pas.ms.script' // MemoryUtils
- ) .SequenceCode.It
+ )
  ; // Depends
  : Generators
- @ (
+ Seq: (
  gen_pas.script
  gen_pas.script.runner
- ) .SequenceCode.It
+ )
  ; // Generators
+ CONST dfm:PathOnly '\common\components\SandBox'
+ CONST intf.pas:PathOnly '\common\components\SandBox'
  CONST pas.script:Path 'shared\models\NewSchool\Scripts\51DEB06A03CB.pas.ms.script'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
  CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\51DEB06A03CB.pas.ms.script.runner'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\common\components\SandBox'
 
 ref; // ME_51DEB06A03CB STLLike

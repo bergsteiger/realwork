@@ -16,6 +16,12 @@ FORWARD ME_4682595B0268
  CONST Abstraction at_regular
  : Parent ME_4682595B0268 // l3TreeInterfaces
  ;
+ CONST dfm:PathOnly '\common\components\rtl\Garant\L3'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\L3'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'Nodes'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_47AAFE470329 Il3Nodes
 
@@ -54,14 +60,20 @@ ref; // ME_46A44FFE0143_ME_46825C5A01B6 Unsubscribe
  : Parent ME_4682595B0268 // l3TreeInterfaces
  ;
  : Inherits
-   @ ( WL 'ME_46782E7F0307' '4677FBA70343.pas.ms.script' // Il3ChangeNotifier
- ) .SequenceCode.It
+   Seq: ( WL 'ME_46782E7F0307' '4677FBA70343.pas.ms.script' // Il3ChangeNotifier
+ )
  ; // Inherits
  : Implemented
-   @ ( ME_46A44F6B035E_ME_46825C5A01B6 // Subscribe
+   Seq: ( ME_46A44F6B035E_ME_46825C5A01B6 // Subscribe
  ME_46A44FFE0143_ME_46825C5A01B6 // Unsubscribe
- ) .SequenceCode.It
+ )
  ; // Implemented
+ CONST dfm:PathOnly '\common\components\rtl\Garant\L3'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\L3'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'NotifySource'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_46825C5A01B6 Il3NotifySource
 
@@ -126,15 +138,19 @@ ref; // ME_47AB0ABF0342 rNodes
  : Parent ME_4682595B0268 // l3TreeInterfaces
  ;
  : Attributes
-   @ ( ME_47AB08460041 // rMultiSelection
+   Seq: ( ME_47AB08460041 // rMultiSelection
  ME_47AB0AA60186 // rNode
  ME_47AB0ABF0342 // rNodes
- ) .SequenceCode.It
+ )
  ; // Attributes
  : Forwarded
-   @ ( ME_468259900322 // Il3SimpleNode
- ) .SequenceCode.It
+   Seq: ( ME_468259900322 // Il3SimpleNode
+ )
  ; // Forwarded
+ CONST dfm:PathOnly '\common\components\rtl\Garant\L3'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\L3'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_4772530401CA Tl3TreeData
 
@@ -285,8 +301,8 @@ ref; // ME_4772424200A7 anIndex
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
  : Attributes
-   @ ( ME_4772424200A7 // anIndex
- ) .SequenceCode.It
+   Seq: ( ME_4772424200A7 // anIndex
+ )
  ; // Attributes
  CONST "pm" false
 
@@ -399,8 +415,8 @@ ref; // ME_47723D4103D3 aNode
  : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
  ;
  : Parameters
-   @ ( ME_47723D4103D3 // aNode
- ) .SequenceCode.It
+   Seq: ( ME_47723D4103D3 // aNode
+ )
  ; // Parameters
 
 ref; // ME_47723D3B0058 GetLevelFor
@@ -427,8 +443,8 @@ ref; // ME_47723D590146 aNode
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
  : Parameters
-   @ ( ME_47723D590146 // aNode
- ) .SequenceCode.It
+   Seq: ( ME_47723D590146 // aNode
+ )
  ; // Parameters
 
 ref; // ME_47723D4C0360 IsSame
@@ -467,8 +483,8 @@ ref; // ME_47723DD802A8 aUserParam
  : Parent ME_468259900322 // Il3SimpleNode
  ;
  : Parameters
-   @ ( ME_47723DD802A8 // aUserParam
- ) .SequenceCode.It
+   Seq: ( ME_47723DD802A8 // aUserParam
+ )
  ; // Parameters
 
 ref; // ME_47723DD1008F BeginMove
@@ -493,8 +509,8 @@ ref; // ME_47723DE50370 aUserParam
  : Parent ME_468259900322 // Il3SimpleNode
  ;
  : Parameters
-   @ ( ME_47723DE50370 // aUserParam
- ) .SequenceCode.It
+   Seq: ( ME_47723DE50370 // aUserParam
+ )
  ; // Parameters
 
 ref; // ME_47723DE0009F EndMove
@@ -533,8 +549,8 @@ ref; // ME_4A68012202AE aData
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
  : Parameters
-   @ ( ME_4A68012202AE // aData
- ) .SequenceCode.It
+   Seq: ( ME_4A68012202AE // aData
+ )
  ; // Parameters
 
 ref; // ME_47A86F070101 CanAcceptData
@@ -561,8 +577,8 @@ ref; // ME_4A6801290282 aData
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
  : Parameters
-   @ ( ME_4A6801290282 // aData
- ) .SequenceCode.It
+   Seq: ( ME_4A6801290282 // aData
+ )
  ; // Parameters
 
 ref; // ME_47A86F1C016B DropData
@@ -594,7 +610,7 @@ ref; // ME_47ADA09C019B CanMove
  : Parent ME_4682595B0268 // l3TreeInterfaces
  ;
  : Attributes
-   @ ( ME_477242700004 // Flags
+   Seq: ( ME_477242700004 // Flags
  ME_4772429202E4 // ThisChildrenCount
  ME_477242A40219 // IndexInParent
  ME_47723E8C0086 // Text
@@ -603,10 +619,10 @@ ref; // ME_47ADA09C019B CanMove
  ME_477241AC00B9 // Next
  ME_4772423302AF // Flag
  ME_47B5759A03C0 // Prev
- ) .SequenceCode.It
+ )
  ; // Attributes
  : Operations
-   @ ( ME_47723CDB00A4 // IsFirst
+   Seq: ( ME_47723CDB00A4 // IsFirst
  ME_47723CFF0148 // IsLast
  ME_47723D0F0392 // HasChild
  ME_47723D1D03D6 // MaybeChild
@@ -620,12 +636,18 @@ ref; // ME_47ADA09C019B CanMove
  ME_47A86F070101 // CanAcceptData
  ME_47A86F1C016B // DropData
  ME_47ADA09C019B // CanMove
- ) .SequenceCode.It
+ )
  ; // Operations
  : Injected
-   @ ( WL 'ME_3D9666E90F19' '54EF44350184.pas.ms.script' // 
- ) .SequenceCode.It
+   Seq: ( WL 'ME_3D9666E90F19' '54EF44350184.pas.ms.script' // 
+ )
  ; // Injected
+ CONST dfm:PathOnly '\common\components\rtl\Garant\L3'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\L3'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'Node'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_468259900322 Il3SimpleNode
 
@@ -663,8 +685,8 @@ ref; // ME_4772434B01BB anExpand
  : Parent ME_468274930190 // Il3SimpleRootNode
  ;
  : Parameters
-   @ ( ME_4772434B01BB // anExpand
- ) .SequenceCode.It
+   Seq: ( ME_4772434B01BB // anExpand
+ )
  ; // Parameters
 
 ref; // ME_47724349030A ExpandCollapseAll
@@ -920,16 +942,16 @@ ref; // ME_47B5759A03C0_ME_468274930190 Prev
  : Parent ME_4682595B0268 // l3TreeInterfaces
  ;
  : Inherits
-   @ ( ME_468259900322 // Il3SimpleNode
- ) .SequenceCode.It
+   Seq: ( ME_468259900322 // Il3SimpleNode
+ )
  ; // Inherits
  : Operations
-   @ ( ME_4772433F0008 // CanExpandCollapseAll
+   Seq: ( ME_4772433F0008 // CanExpandCollapseAll
  ME_47724349030A // ExpandCollapseAll
- ) .SequenceCode.It
+ )
  ; // Operations
  : Implemented
-   @ ( ME_47723CDB00A4_ME_468274930190 // IsFirst
+   Seq: ( ME_47723CDB00A4_ME_468274930190 // IsFirst
  ME_47723CFF0148_ME_468274930190 // IsLast
  ME_47723D0F0392_ME_468274930190 // HasChild
  ME_47723D1D03D6_ME_468274930190 // MaybeChild
@@ -952,8 +974,14 @@ ref; // ME_47B5759A03C0_ME_468274930190 Prev
  ME_47A86F1C016B_ME_468274930190 // DropData
  ME_47ADA09C019B_ME_468274930190 // CanMove
  ME_47B5759A03C0_ME_468274930190 // Prev
- ) .SequenceCode.It
+ )
  ; // Implemented
+ CONST dfm:PathOnly '\common\components\rtl\Garant\L3'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\L3'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'SimpleRootNode'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_468274930190 Il3SimpleRootNode
 
@@ -980,8 +1008,8 @@ ref; // ME_47723C20027A Intf
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
  : Parameters
-   @ ( ME_47723C20027A // Intf
- ) .SequenceCode.It
+   Seq: ( ME_47723C20027A // Intf
+ )
  ; // Parameters
 
 ref; // ME_47723C1901BA DoIt
@@ -998,10 +1026,14 @@ ref; // ME_47723C1901BA DoIt
  : Parent ME_4682595B0268 // l3TreeInterfaces
  ;
  : Operations
-   @ ( ME_47723C1901BA // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_47723C1901BA // DoIt
+ )
  ; // Operations
  CONST "of object" false
+ CONST dfm:PathOnly '\common\components\rtl\Garant\L3'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\L3'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_47723C090340 Tl3SimpleNodeAction
 
@@ -1057,18 +1089,24 @@ ref; // ME_46A44FFE0143_ME_46825C710250 Unsubscribe
  : Parent ME_4682595B0268 // l3TreeInterfaces
  ;
  : Inherits
-   @ ( ME_46825C5A01B6 // Il3NotifySource
- ) .SequenceCode.It
+   Seq: ( ME_46825C5A01B6 // Il3NotifySource
+ )
  ; // Inherits
  : Attributes
-   @ ( ME_46825CAA0125 // RootNode
- ) .SequenceCode.It
+   Seq: ( ME_46825CAA0125 // RootNode
+ )
  ; // Attributes
  : Implemented
-   @ ( ME_46A44F6B035E_ME_46825C710250 // Subscribe
+   Seq: ( ME_46A44F6B035E_ME_46825C710250 // Subscribe
  ME_46A44FFE0143_ME_46825C710250 // Unsubscribe
- ) .SequenceCode.It
+ )
  ; // Implemented
+ CONST dfm:PathOnly '\common\components\rtl\Garant\L3'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\L3'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'RootSource'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_46825C710250 Il3RootSource
 
@@ -1104,9 +1142,15 @@ ref; // ME_46827CAF03CD Handle
  : Parent ME_4682595B0268 // l3TreeInterfaces
  ;
  : Attributes
-   @ ( ME_46827CAF03CD // Handle
- ) .SequenceCode.It
+   Seq: ( ME_46827CAF03CD // Handle
+ )
  ; // Attributes
+ CONST dfm:PathOnly '\common\components\rtl\Garant\L3'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\L3'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'HandleNode'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_46827C88016E Il3HandleNode
 
@@ -1149,8 +1193,8 @@ ref; // ME_47724B7F0260 aValue
  : Target ME_47724B6500F6 // Il3TreeFilters
  ;
  : Parameters
-   @ ( ME_47724B7F0260 // aValue
- ) .SequenceCode.It
+   Seq: ( ME_47724B7F0260 // aValue
+ )
  ; // Parameters
 
 ref; // ME_47724B790382 SetContext
@@ -1181,14 +1225,20 @@ ref; // ME_47724B87036B Clone
  : Parent ME_4682595B0268 // l3TreeInterfaces
  ;
  : Attributes
-   @ ( ME_47724B9402ED // Context
- ) .SequenceCode.It
+   Seq: ( ME_47724B9402ED // Context
+ )
  ; // Attributes
  : Operations
-   @ ( ME_47724B790382 // SetContext
+   Seq: ( ME_47724B790382 // SetContext
  ME_47724B87036B // Clone
- ) .SequenceCode.It
+ )
  ; // Operations
+ CONST dfm:PathOnly '\common\components\rtl\Garant\L3'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\L3'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'TreeFilters'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_47724B6500F6 Il3TreeFilters
 
@@ -1218,9 +1268,15 @@ ref; // ME_47724EF80325 ParamsChanged
  : Parent ME_4682595B0268 // l3TreeInterfaces
  ;
  : Operations
-   @ ( ME_47724EF80325 // ParamsChanged
- ) .SequenceCode.It
+   Seq: ( ME_47724EF80325 // ParamsChanged
+ )
  ; // Operations
+ CONST dfm:PathOnly '\common\components\rtl\Garant\L3'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\L3'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'ContextFilterParamsNotifier'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_46835C350296 Il3ContextFilterParamsNotifier
 
@@ -1257,9 +1313,9 @@ ref; // ME_486343A002B1 DiffStart
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
  : Parameters
-   @ ( ME_486343A00282 // aContext
+   Seq: ( ME_486343A00282 // aContext
  ME_486343A002B1 // DiffStart
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_4772521703E3 IsSameContext
@@ -1277,9 +1333,15 @@ ref; // ME_4772521703E3 IsSameContext
  : Parent ME_4682595B0268 // l3TreeInterfaces
  ;
  : Operations
-   @ ( ME_4772521703E3 // IsSameContext
- ) .SequenceCode.It
+   Seq: ( ME_4772521703E3 // IsSameContext
+ )
  ; // Operations
+ CONST dfm:PathOnly '\common\components\rtl\Garant\L3'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\L3'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'ContextFilterTarget'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_46835C6F02E0 Il3ContextFilterTarget
 
@@ -1304,8 +1366,8 @@ ref; // ME_47724F150104 aSubscriber
  : Parent ME_46835CB60115 // Il3ContextFilterParamsNotifySource
  ;
  : Parameters
-   @ ( ME_47724F150104 // aSubscriber
- ) .SequenceCode.It
+   Seq: ( ME_47724F150104 // aSubscriber
+ )
  ; // Parameters
 
 ref; // ME_47724F120028 Subscribe
@@ -1329,8 +1391,8 @@ ref; // ME_47724F210207 aSubscriber
  : Parent ME_46835CB60115 // Il3ContextFilterParamsNotifySource
  ;
  : Parameters
-   @ ( ME_47724F210207 // aSubscriber
- ) .SequenceCode.It
+   Seq: ( ME_47724F210207 // aSubscriber
+ )
  ; // Parameters
 
 ref; // ME_47724F1E0180 UnSubscribe
@@ -1348,10 +1410,16 @@ ref; // ME_47724F1E0180 UnSubscribe
  : Parent ME_4682595B0268 // l3TreeInterfaces
  ;
  : Operations
-   @ ( ME_47724F120028 // Subscribe
+   Seq: ( ME_47724F120028 // Subscribe
  ME_47724F1E0180 // UnSubscribe
- ) .SequenceCode.It
+ )
  ; // Operations
+ CONST dfm:PathOnly '\common\components\rtl\Garant\L3'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\L3'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'ContextFilterParamsNotifySource'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_46835CB60115 Il3ContextFilterParamsNotifySource
 
@@ -1367,10 +1435,16 @@ ref; // ME_46835CB60115 Il3ContextFilterParamsNotifySource
  : Parent ME_4682595B0268 // l3TreeInterfaces
  ;
  : Inherits
-   @ ( WL 'ME_467813B3024D' '4677FBA70343.pas.ms.script' // Il3Base
- ) .SequenceCode.It
+   Seq: ( WL 'ME_467813B3024D' '4677FBA70343.pas.ms.script' // Il3Base
+ )
  ; // Inherits
  CONST "is default ancestor" true
+ CONST dfm:PathOnly '\common\components\rtl\Garant\L3'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\L3'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'Base'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_4770F6E2015F Il3Base
 
@@ -1390,6 +1464,7 @@ FORWARD ME_47723A1001D6
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value '$01'
 
 ref; // ME_47723A1E0342 imExpandOnly
 
@@ -1407,6 +1482,7 @@ ref; // ME_47723A1E0342 imExpandOnly
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value '$02'
 
 ref; // ME_47723A2A0369 imCheckResult
 
@@ -1424,6 +1500,7 @@ ref; // ME_47723A2A0369 imCheckResult
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value '$04'
 
 ref; // ME_47723A390254 imOneLevel
 
@@ -1441,6 +1518,7 @@ ref; // ME_47723A390254 imOneLevel
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value '$08'
 
 ref; // ME_47723A470090 imParentNeed
 
@@ -1458,6 +1536,7 @@ ref; // ME_47723A470090 imParentNeed
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value '$10'
 
 ref; // ME_47723A5402C7 imNoSubRoot
 
@@ -1475,6 +1554,7 @@ ref; // ME_47723A5402C7 imNoSubRoot
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value '$20'
 
 ref; // ME_47723A6403A2 imChildsBefore
 
@@ -1492,6 +1572,7 @@ ref; // ME_47723A6403A2 imChildsBefore
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value '$40'
 
 ref; // ME_47723A7402AD imNoChilds
 
@@ -1509,6 +1590,7 @@ ref; // ME_47723A7402AD imNoChilds
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value '$80'
 
 ref; // ME_47723A8401B6 imNoHidden
 
@@ -1526,6 +1608,7 @@ ref; // ME_47723A8401B6 imNoHidden
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value '$100'
 
 ref; // ME_480C6E2B031F imLeavesOnly
 
@@ -1540,7 +1623,7 @@ ref; // ME_480C6E2B031F imLeavesOnly
  : Parent ME_4682595B0268 // l3TreeInterfaces
  ;
  : Attributes
-   @ ( ME_47723A1E0342 // imExpandOnly
+   Seq: ( ME_47723A1E0342 // imExpandOnly
  ME_47723A2A0369 // imCheckResult
  ME_47723A390254 // imOneLevel
  ME_47723A470090 // imParentNeed
@@ -1549,9 +1632,13 @@ ref; // ME_480C6E2B031F imLeavesOnly
  ME_47723A7402AD // imNoChilds
  ME_47723A8401B6 // imNoHidden
  ME_480C6E2B031F // imLeavesOnly
- ) .SequenceCode.It
+ )
  ; // Attributes
  CONST "spell names" false
+ CONST dfm:PathOnly '\common\components\rtl\Garant\L3'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\L3'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_47723A1001D6 IterMode
 
@@ -1571,6 +1658,7 @@ FORWARD ME_47723AA10142
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value '$0001'
 
 ref; // ME_47723AB200E1 nfSelected
 
@@ -1588,6 +1676,7 @@ ref; // ME_47723AB200E1 nfSelected
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value '$0002'
 
 ref; // ME_47723ABE000F nfSelModified
 
@@ -1605,6 +1694,7 @@ ref; // ME_47723ABE000F nfSelModified
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value '$0004'
 
 ref; // ME_47723ACA03E5 nfChildSelected
 
@@ -1622,6 +1712,7 @@ ref; // ME_47723ACA03E5 nfChildSelected
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value '$0008'
 
 ref; // ME_47723AD80230 nfExpanded
 
@@ -1639,6 +1730,7 @@ ref; // ME_47723AD80230 nfExpanded
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value '$0010'
 
 ref; // ME_47723AE60017 nfReadOnly
 
@@ -1656,6 +1748,7 @@ ref; // ME_47723AE60017 nfReadOnly
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value '$0020'
 
 ref; // ME_47723AFF0182 nfHidden
 
@@ -1673,6 +1766,7 @@ ref; // ME_47723AFF0182 nfHidden
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value '$00010000'
 
 ref; // ME_47723B810257 nfItemModified
 
@@ -1690,6 +1784,7 @@ ref; // ME_47723B810257 nfItemModified
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value '$00020000'
 
 ref; // ME_47723B8E036D nfHasChild
 
@@ -1707,6 +1802,7 @@ ref; // ME_47723B8E036D nfHasChild
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value '$00040000'
 
 ref; // ME_47723B9F005B nfWasDisappear
 
@@ -1724,6 +1820,7 @@ ref; // ME_47723B9F005B nfWasDisappear
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value '$20000000'
 
 ref; // ME_47723BAC0286 nfUserDefined2
 
@@ -1741,6 +1838,7 @@ ref; // ME_47723BAC0286 nfUserDefined2
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value '$40000000'
 
 ref; // ME_47723BBC02BC nfUserDefined1
 
@@ -1756,7 +1854,7 @@ ref; // ME_47723BBC02BC nfUserDefined1
  : Parent ME_4682595B0268 // l3TreeInterfaces
  ;
  : Attributes
-   @ ( ME_47723AB200E1 // nfSelected
+   Seq: ( ME_47723AB200E1 // nfSelected
  ME_47723ABE000F // nfSelModified
  ME_47723ACA03E5 // nfChildSelected
  ME_47723AD80230 // nfExpanded
@@ -1767,9 +1865,13 @@ ref; // ME_47723BBC02BC nfUserDefined1
  ME_47723B9F005B // nfWasDisappear
  ME_47723BAC0286 // nfUserDefined2
  ME_47723BBC02BC // nfUserDefined1
- ) .SequenceCode.It
+ )
  ; // Attributes
  CONST "spell names" false
+ CONST dfm:PathOnly '\common\components\rtl\Garant\L3'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\L3'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_47723AA10142 flags in tree
 
@@ -1788,6 +1890,7 @@ FORWARD ME_47723BD702D6
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value '-1'
 
 ref; // ME_47723BE70257 l3_NeedCountView
 
@@ -1804,6 +1907,7 @@ ref; // ME_47723BE70257 l3_NeedCountView
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value '-2'
 
 ref; // ME_47723BF00233 l3_DelayedCountView
 
@@ -1820,6 +1924,7 @@ ref; // ME_47723BF00233 l3_DelayedCountView
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value '-3'
 
 ref; // ME_47723BF700EE l3_NotChangeCountView
 
@@ -1834,12 +1939,16 @@ ref; // ME_47723BF700EE l3_NotChangeCountView
  : Parent ME_4682595B0268 // l3TreeInterfaces
  ;
  : Attributes
-   @ ( ME_47723BE70257 // l3_NeedCountView
+   Seq: ( ME_47723BE70257 // l3_NeedCountView
  ME_47723BF00233 // l3_DelayedCountView
  ME_47723BF700EE // l3_NotChangeCountView
- ) .SequenceCode.It
+ )
  ; // Attributes
  CONST "spell names" false
+ CONST dfm:PathOnly '\common\components\rtl\Garant\L3'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\L3'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_47723BD702D6 CountView
 
@@ -1926,8 +2035,8 @@ ref; // ME_47724966015C anIndex
  : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
  ;
  : Attributes
-   @ ( ME_47724966015C // anIndex
- ) .SequenceCode.It
+   Seq: ( ME_47724966015C // anIndex
+ )
  ; // Attributes
  CONST "pm" false
 
@@ -1963,8 +2072,8 @@ ref; // ME_477249BC0154 anIndex
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
  : Attributes
-   @ ( ME_477249BC0154 // anIndex
- ) .SequenceCode.It
+   Seq: ( ME_477249BC0154 // anIndex
+ )
  ; // Attributes
  CONST "pm" false
 
@@ -2000,8 +2109,8 @@ ref; // ME_477249FF0029 anIndex
  : Target ME_468259900322 // Il3SimpleNode
  ;
  : Attributes
-   @ ( ME_477249FF0029 // anIndex
- ) .SequenceCode.It
+   Seq: ( ME_477249FF0029 // anIndex
+ )
  ; // Attributes
  CONST "pm" false
 
@@ -2039,6 +2148,7 @@ ref; // ME_477244AD00BC aNode
  CONST Value 'nil'
  : ValueType ME_468259900322 // Il3SimpleNode
  ;
+ CONST extprop:pas:Value 'nil'
 
 ref; // ME_477244AD00E7 aSubRootNode
 
@@ -2054,9 +2164,9 @@ ref; // ME_477244AD00E7 aSubRootNode
  : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
  ;
  : Parameters
-   @ ( ME_477244AD00BC // aNode
+   Seq: ( ME_477244AD00BC // aNode
  ME_477244AD00E7 // aSubRootNode
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_4772449B00A1 GetIndex
@@ -2083,8 +2193,8 @@ ref; // ME_477244C5025E aNode
  : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
  ;
  : Parameters
-   @ ( ME_477244C5025E // aNode
- ) .SequenceCode.It
+   Seq: ( ME_477244C5025E // aNode
+ )
  ; // Parameters
 
 ref; // ME_477244BA0074 GetLevel
@@ -2109,8 +2219,8 @@ ref; // ME_477244D4030B aMode
  : Parent ME_46825CC00249 // Il3SimpleTree
  ;
  : Parameters
-   @ ( ME_477244D4030B // aMode
- ) .SequenceCode.It
+   Seq: ( ME_477244D4030B // aMode
+ )
  ; // Parameters
 
 ref; // ME_477244CE02AE SelectAllNodes
@@ -2165,11 +2275,11 @@ ref; // ME_477245000142 aCleanOther
  : Parent ME_46825CC00249 // Il3SimpleTree
  ;
  : Parameters
-   @ ( ME_4772450000A9 // aFirstIndex
+   Seq: ( ME_4772450000A9 // aFirstIndex
  ME_4772450000DB // aLastIndex
  ME_47724500010F // aMode
  ME_477245000142 // aCleanOther
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_477244DD0292 SelectInterval
@@ -2204,6 +2314,7 @@ ref; // ME_47724524019A aMode
  CONST Value false
  : ValueType WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
+ CONST extprop:pas:Value false
 
 ref; // ME_4772452401D0 aForceMode
 
@@ -2219,10 +2330,10 @@ ref; // ME_4772452401D0 aForceMode
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
  : Parameters
-   @ ( ME_477245240160 // aNode
+   Seq: ( ME_477245240160 // aNode
  ME_47724524019A // aMode
  ME_4772452401D0 // aForceMode
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_47724512002D ChangeExpand
@@ -2237,6 +2348,7 @@ ref; // ME_47724512002D ChangeExpand
  CONST Value 'nil'
  : ValueType ME_468259900322 // Il3SimpleNode
  ;
+ CONST extprop:pas:Value 'nil'
 
 ref; // ME_4772453E0124 aNode
 
@@ -2250,6 +2362,7 @@ ref; // ME_4772453E0124 aNode
  CONST Value true
  : ValueType WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
+ CONST extprop:pas:Value true
 
 ref; // ME_4772453E015F anExpand
 
@@ -2263,6 +2376,7 @@ ref; // ME_4772453E015F anExpand
  CONST Value 0
  : ValueType WL 'ME_476130E5023C' '4AB0C3C60310.pas.ms.script' // Byte
  ;
+ CONST extprop:pas:Value 0
 
 ref; // ME_4772453E019B aDeepLevel
 
@@ -2276,10 +2390,10 @@ ref; // ME_4772453E019B aDeepLevel
  : Parent ME_46825CC00249 // Il3SimpleTree
  ;
  : Parameters
-   @ ( ME_4772453E0124 // aNode
+   Seq: ( ME_4772453E0124 // aNode
  ME_4772453E015F // anExpand
  ME_4772453E019B // aDeepLevel
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_4772452E002D ExpandSubDir
@@ -2334,11 +2448,11 @@ ref; // ME_477245670223 anIterMode
  : Parent ME_46825CC00249 // Il3SimpleTree
  ;
  : Parameters
-   @ ( ME_477245670164 // aParentNode
+   Seq: ( ME_477245670164 // aParentNode
  ME_4772456701A3 // aMode
  ME_4772456701E2 // aFlagsMask
  ME_477245670223 // anIterMode
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_477245520298 SetBranchFlag
@@ -2365,8 +2479,8 @@ ref; // ME_477245870163 aNode
  : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
  ;
  : Parameters
-   @ ( ME_477245870163 // aNode
- ) .SequenceCode.It
+   Seq: ( ME_477245870163 // aNode
+ )
  ; // Parameters
 
 ref; // ME_4772457D032A CountViewItemsInSubDir
@@ -2393,8 +2507,8 @@ ref; // ME_477245AB0379 aNode
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
  : Parameters
-   @ ( ME_477245AB0379 // aNode
- ) .SequenceCode.It
+   Seq: ( ME_477245AB0379 // aNode
+ )
  ; // Parameters
 
 ref; // ME_477245A20228 IsRoot
@@ -2421,8 +2535,8 @@ ref; // ME_477245BC010D aNode
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
  : Parameters
-   @ ( ME_477245BC010D // aNode
- ) .SequenceCode.It
+   Seq: ( ME_477245BC010D // aNode
+ )
  ; // Parameters
 
 ref; // ME_477245B301DE IsExpanded
@@ -2449,8 +2563,8 @@ ref; // ME_477245CE02D9 aNode
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
  : Parameters
-   @ ( ME_477245CE02D9 // aNode
- ) .SequenceCode.It
+   Seq: ( ME_477245CE02D9 // aNode
+ )
  ; // Parameters
 
 ref; // ME_477245C40171 IsFirstVis
@@ -2477,8 +2591,8 @@ ref; // ME_477245E4014B aNode
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
  : Parameters
-   @ ( ME_477245E4014B // aNode
- ) .SequenceCode.It
+   Seq: ( ME_477245E4014B // aNode
+ )
  ; // Parameters
 
 ref; // ME_477245D9031B IsLastVis
@@ -2505,8 +2619,8 @@ ref; // ME_477245FD0098 aNode
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
  : Parameters
-   @ ( ME_477245FD0098 // aNode
- ) .SequenceCode.It
+   Seq: ( ME_477245FD0098 // aNode
+ )
  ; // Parameters
 
 ref; // ME_477245F301AE HasVisibleChildren
@@ -2533,8 +2647,8 @@ ref; // ME_4772460E0015 aNode
  : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
  ;
  : Parameters
-   @ ( ME_4772460E0015 // aNode
- ) .SequenceCode.It
+   Seq: ( ME_4772460E0015 // aNode
+ )
  ; // Parameters
 
 ref; // ME_477246040221 GetLines
@@ -2585,9 +2699,9 @@ ref; // ME_477246350051 aDirection
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
  : Parameters
-   @ ( ME_4772463403E0 // aNode
+   Seq: ( ME_4772463403E0 // aNode
  ME_477246350051 // aDirection
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_477246270133 MoveNode
@@ -2634,10 +2748,10 @@ ref; // ME_4772465700C9 aIterMode
  : Target ME_468259900322 // Il3SimpleNode
  ;
  : Parameters
-   @ ( ME_477246570010 // aFirstNode
+   Seq: ( ME_477246570010 // aFirstNode
  ME_47724657006C // aSrchStr
  ME_4772465700C9 // aIterMode
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_477246440037 SearchNameBegin
@@ -2684,10 +2798,10 @@ ref; // ME_4772467A034D aIterMode
  : Target ME_468259900322 // Il3SimpleNode
  ;
  : Parameters
-   @ ( ME_4772467A028D // aFirstNode
+   Seq: ( ME_4772467A028D // aFirstNode
  ME_4772467A02ED // aSrchStr
  ME_4772467A034D // aIterMode
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_4772465F0276 SearchNameOccur
@@ -2714,8 +2828,8 @@ ref; // ME_477246970127 aNode
  : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
  ;
  : Parameters
-   @ ( ME_477246970127 // aNode
- ) .SequenceCode.It
+   Seq: ( ME_477246970127 // aNode
+ )
  ; // Parameters
 
 ref; // ME_477246860169 MakeNodeVisible
@@ -2742,8 +2856,8 @@ ref; // ME_477246AE0302 aNode
  : Target ME_468259900322 // Il3SimpleNode
  ;
  : Parameters
-   @ ( ME_477246AE0302 // aNode
- ) .SequenceCode.It
+   Seq: ( ME_477246AE0302 // aNode
+ )
  ; // Parameters
 
 ref; // ME_477246A40174 GetPrev
@@ -2768,6 +2882,7 @@ ref; // ME_477246DA0352 Action
  CONST Value 0
  : ValueType WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
  ;
+ CONST extprop:pas:Value 0
 
 ref; // ME_477246DA03BB IterMode
 
@@ -2781,6 +2896,7 @@ ref; // ME_477246DA03BB IterMode
  CONST Value 'nil'
  : ValueType ME_468259900322 // Il3SimpleNode
  ;
+ CONST extprop:pas:Value 'nil'
 
 ref; // ME_477246DB003D aSubRootNode
 
@@ -2796,10 +2912,10 @@ ref; // ME_477246DB003D aSubRootNode
  : Target ME_468259900322 // Il3SimpleNode
  ;
  : Parameters
-   @ ( ME_477246DA0352 // Action
+   Seq: ( ME_477246DA0352 // Action
  ME_477246DA03BB // IterMode
  ME_477246DB003D // aSubRootNode
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_477246C70141 SimpleIterateF
@@ -2872,9 +2988,9 @@ ref; // ME_48F8DB2700AD aBitmap
  : Target WL 'ME_4680F4790135' '4677FBA70343.pas.ms.script' // IDataObject
  ;
  : Parameters
-   @ ( ME_48F8DB270010 // aNode
+   Seq: ( ME_48F8DB270010 // aNode
  ME_48F8DB2700AD // aBitmap
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_47A86EA80292 MakeDataObject
@@ -2910,9 +3026,9 @@ ref; // ME_47BAD3180029 aData
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
  : Parameters
-   @ ( ME_47BAD3170384 // aTargetNode
+   Seq: ( ME_47BAD3170384 // aTargetNode
  ME_47BAD3180029 // aData
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_47BAD3080349 CanAcceptData
@@ -2948,9 +3064,9 @@ ref; // ME_47BAD32F003D aData
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
  : Parameters
-   @ ( ME_47BAD32E0397 // aTargetNode
+   Seq: ( ME_47BAD32E0397 // aTargetNode
  ME_47BAD32F003D // aData
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_47BAD32501E2 DropData
@@ -2999,20 +3115,20 @@ ref; // ME_46A44FFE0143_ME_46825CC00249 Unsubscribe
  : Parent ME_4682595B0268 // l3TreeInterfaces
  ;
  : Inherits
-   @ ( ME_46825C710250 // Il3RootSource
- ) .SequenceCode.It
+   Seq: ( ME_46825C710250 // Il3RootSource
+ )
  ; // Inherits
  : Attributes
-   @ ( ME_477248FE005A // ShowRoot
+   Seq: ( ME_477248FE005A // ShowRoot
  ME_4772490E02F7 // CountView
  ME_4772491C01C5 // SelectCount
  ME_4772495902EE // Flags
  ME_477249AB0057 // Select
  ME_477249EB02D9 // Nodes
- ) .SequenceCode.It
+ )
  ; // Attributes
  : Operations
-   @ ( ME_4772448C01D2 // CursorTop
+   Seq: ( ME_4772448C01D2 // CursorTop
  ME_4772449B00A1 // GetIndex
  ME_477244BA0074 // GetLevel
  ME_477244CE02AE // SelectAllNodes
@@ -3040,14 +3156,20 @@ ref; // ME_46A44FFE0143_ME_46825CC00249 Unsubscribe
  ME_47A86EA80292 // MakeDataObject
  ME_47BAD3080349 // CanAcceptData
  ME_47BAD32501E2 // DropData
- ) .SequenceCode.It
+ )
  ; // Operations
  : Implemented
-   @ ( ME_46825CAA0125_ME_46825CC00249 // RootNode
+   Seq: ( ME_46825CAA0125_ME_46825CC00249 // RootNode
  ME_46A44F6B035E_ME_46825CC00249 // Subscribe
  ME_46A44FFE0143_ME_46825CC00249 // Unsubscribe
- ) .SequenceCode.It
+ )
  ; // Implemented
+ CONST dfm:PathOnly '\common\components\rtl\Garant\L3'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\L3'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'Tree'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_46825CC00249 Il3SimpleTree
 
@@ -3082,9 +3204,9 @@ ref; // ME_4772439803DD aNewRoot
  : Parent ME_47724373032C // Il3RootSpy
  ;
  : Parameters
-   @ ( ME_4772439803BF // anOldRoot
+   Seq: ( ME_4772439803BF // anOldRoot
  ME_4772439803DD // aNewRoot
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_477243870072 RootChanged
@@ -3102,13 +3224,19 @@ ref; // ME_477243870072 RootChanged
  : Parent ME_4682595B0268 // l3TreeInterfaces
  ;
  : Inherits
-   @ ( WL 'ME_4680CF330338' '4677FBA70343.pas.ms.script' // Il3Notify
- ) .SequenceCode.It
+   Seq: ( WL 'ME_4680CF330338' '4677FBA70343.pas.ms.script' // Il3Notify
+ )
  ; // Inherits
  : Operations
-   @ ( ME_477243870072 // RootChanged
- ) .SequenceCode.It
+   Seq: ( ME_477243870072 // RootChanged
+ )
  ; // Operations
+ CONST dfm:PathOnly '\common\components\rtl\Garant\L3'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\L3'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'RootSpy'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_47724373032C Il3RootSpy
 
@@ -3144,9 +3272,9 @@ ref; // ME_4772442200B1 aNode
  : Parent ME_477243CF0296 // Il3NodeNotifyRecipient
  ;
  : Parameters
-   @ ( ME_47724422008F // aOperation
+   Seq: ( ME_47724422008F // aOperation
  ME_4772442200B1 // aNode
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_477244190062 Notify
@@ -3164,13 +3292,19 @@ ref; // ME_477244190062 Notify
  : Parent ME_4682595B0268 // l3TreeInterfaces
  ;
  : Inherits
-   @ ( WL 'ME_4680CF330338' '4677FBA70343.pas.ms.script' // Il3Notify
- ) .SequenceCode.It
+   Seq: ( WL 'ME_4680CF330338' '4677FBA70343.pas.ms.script' // Il3Notify
+ )
  ; // Inherits
  : Operations
-   @ ( ME_477244190062 // Notify
- ) .SequenceCode.It
+   Seq: ( ME_477244190062 // Notify
+ )
  ; // Operations
+ CONST dfm:PathOnly '\common\components\rtl\Garant\L3'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\L3'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'NodeNotifyRecipient'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_477243CF0296 Il3NodeNotifyRecipient
 
@@ -3231,6 +3365,7 @@ ref; // ME_47724C08030C aSyncIndex
  CONST Value true
  : ValueType WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
+ CONST extprop:pas:Value true
 
 ref; // ME_47724C080334 aAutoOpen
 
@@ -3245,6 +3380,7 @@ ref; // ME_47724C080334 aAutoOpen
  CONST Value false
  : ValueType WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
+ CONST extprop:pas:Value false
 
 ref; // ME_47724C08035D CalcPartialContext
 
@@ -3259,12 +3395,12 @@ ref; // ME_47724C08035D CalcPartialContext
  : Target ME_46825CC00249 // Il3SimpleTree
  ;
  : Parameters
-   @ ( ME_47724C0802C0 // aFilters
+   Seq: ( ME_47724C0802C0 // aFilters
  ME_47724C0802E6 // aCurrentNode
  ME_47724C08030C // aSyncIndex
  ME_47724C080334 // aAutoOpen
  ME_47724C08035D // CalcPartialContext
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_47724BE60202 MakeFiltered
@@ -3282,10 +3418,16 @@ ref; // ME_47724BE60202 MakeFiltered
  : Parent ME_4682595B0268 // l3TreeInterfaces
  ;
  : Operations
-   @ ( ME_47724BB000A5 // CloneFilters
+   Seq: ( ME_47724BB000A5 // CloneFilters
  ME_47724BE60202 // MakeFiltered
- ) .SequenceCode.It
+ )
  ; // Operations
+ CONST dfm:PathOnly '\common\components\rtl\Garant\L3'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\L3'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'FilterableTree'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_46835C050374 Il3FilterableTree
 
@@ -3343,11 +3485,17 @@ ref; // ME_47724EA70354 TreeLevelDist
  : Parent ME_4682595B0268 // l3TreeInterfaces
  ;
  : Operations
-   @ ( ME_47724E930100 // WordPosition
+   Seq: ( ME_47724E930100 // WordPosition
  ME_47724E9D014D // WordOrder
  ME_47724EA70354 // TreeLevelDist
- ) .SequenceCode.It
+ )
  ; // Operations
+ CONST dfm:PathOnly '\common\components\rtl\Garant\L3'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\L3'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'ContextFilterParams'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_47724E7F0261 Il3ContextFilterParams
 
@@ -3402,11 +3550,17 @@ ref; // ME_4772511D0316 RequestCheckValid
  : Parent ME_4682595B0268 // l3TreeInterfaces
  ;
  : Operations
-   @ ( ME_477250FC0040 // RequestReapply
+   Seq: ( ME_477250FC0040 // RequestReapply
  ME_4772510D0043 // RequestClearAndTurnOff
  ME_4772511D0316 // RequestCheckValid
- ) .SequenceCode.It
+ )
  ; // Operations
+ CONST dfm:PathOnly '\common\components\rtl\Garant\L3'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\L3'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'ContextFilterNotifier'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_477250E7033C Il3ContextFilterNotifier
 
@@ -3431,8 +3585,8 @@ ref; // ME_477251D200E3 aSubscriber
  : Parent ME_477251BA00B2 // Il3ContextFilterNotifySource
  ;
  : Parameters
-   @ ( ME_477251D200E3 // aSubscriber
- ) .SequenceCode.It
+   Seq: ( ME_477251D200E3 // aSubscriber
+ )
  ; // Parameters
 
 ref; // ME_477251CC02BD SubscribeToContextFilter
@@ -3456,8 +3610,8 @@ ref; // ME_477251E7013B aSubscriber
  : Parent ME_477251BA00B2 // Il3ContextFilterNotifySource
  ;
  : Parameters
-   @ ( ME_477251E7013B // aSubscriber
- ) .SequenceCode.It
+   Seq: ( ME_477251E7013B // aSubscriber
+ )
  ; // Parameters
 
 ref; // ME_477251E203DD UnSubscribeFromContextFilter
@@ -3475,10 +3629,16 @@ ref; // ME_477251E203DD UnSubscribeFromContextFilter
  : Parent ME_4682595B0268 // l3TreeInterfaces
  ;
  : Operations
-   @ ( ME_477251CC02BD // SubscribeToContextFilter
+   Seq: ( ME_477251CC02BD // SubscribeToContextFilter
  ME_477251E203DD // UnSubscribeFromContextFilter
- ) .SequenceCode.It
+ )
  ; // Operations
+ CONST dfm:PathOnly '\common\components\rtl\Garant\L3'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\L3'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'ContextFilterNotifySource'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_477251BA00B2 Il3ContextFilterNotifySource
 
@@ -3510,9 +3670,15 @@ ref; // ME_4772524F0087 Unfold
  : Parent ME_4682595B0268 // l3TreeInterfaces
  ;
  : Operations
-   @ ( ME_4772524F0087 // Unfold
- ) .SequenceCode.It
+   Seq: ( ME_4772524F0087 // Unfold
+ )
  ; // Operations
+ CONST dfm:PathOnly '\common\components\rtl\Garant\L3'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\L3'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'ContextFilterTargetContainer'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_4772523A0047 Il3ContextFilterTargetContainer
 
@@ -3559,13 +3725,19 @@ ref; // ME_477252760154 Wake
  : Parent ME_4682595B0268 // l3TreeInterfaces
  ;
  : Attributes
-   @ ( ME_4772528102DF // IsSleep
- ) .SequenceCode.It
+   Seq: ( ME_4772528102DF // IsSleep
+ )
  ; // Attributes
  : Operations
-   @ ( ME_477252760154 // Wake
- ) .SequenceCode.It
+   Seq: ( ME_477252760154 // Wake
+ )
  ; // Operations
+ CONST dfm:PathOnly '\common\components\rtl\Garant\L3'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\L3'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'Wake'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_477252690111 Il3Wake
 
@@ -3599,9 +3771,15 @@ ref; // ME_477252C801B5 Tree
  : Parent ME_4682595B0268 // l3TreeInterfaces
  ;
  : Attributes
-   @ ( ME_477252C801B5 // Tree
- ) .SequenceCode.It
+   Seq: ( ME_477252C801B5 // Tree
+ )
  ; // Attributes
+ CONST dfm:PathOnly '\common\components\rtl\Garant\L3'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\L3'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'SimpleTreeSource'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_477252BF0380 Il3SimpleTreeSource
 
@@ -3627,8 +3805,8 @@ ref; // ME_477252F2025A aCountView
  : Parent ME_477252DD00C1 // Il3CountViewChangeRecipient
  ;
  : Parameters
-   @ ( ME_477252F2025A // aCountView
- ) .SequenceCode.It
+   Seq: ( ME_477252F2025A // aCountView
+ )
  ; // Parameters
 
 ref; // ME_477252EB01CD CountViewChanged
@@ -3646,9 +3824,15 @@ ref; // ME_477252EB01CD CountViewChanged
  : Parent ME_4682595B0268 // l3TreeInterfaces
  ;
  : Operations
-   @ ( ME_477252EB01CD // CountViewChanged
- ) .SequenceCode.It
+   Seq: ( ME_477252EB01CD // CountViewChanged
+ )
  ; // Operations
+ CONST dfm:PathOnly '\common\components\rtl\Garant\L3'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\L3'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'CountViewChangeRecipient'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_477252DD00C1 Il3CountViewChangeRecipient
 
@@ -3683,9 +3867,15 @@ ref; // ME_4682742C0340 Parent
  : Parent ME_4682595B0268 // l3TreeInterfaces
  ;
  : Attributes
-   @ ( ME_4682742C0340 // Parent
- ) .SequenceCode.It
+   Seq: ( ME_4682742C0340 // Parent
+ )
  ; // Attributes
+ CONST dfm:PathOnly '\common\components\rtl\Garant\L3'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\L3'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'SimpleInternalNode'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_4682740E0167 Il3SimpleInternalNode
 
@@ -3701,10 +3891,14 @@ ref; // ME_4682740E0167 Il3SimpleInternalNode
  : Parent ME_4682595B0268 // l3TreeInterfaces
  ;
  : Inherits
-   @ ( ME_4772530401CA // Tl3TreeData
- ) .SequenceCode.It
+   Seq: ( ME_4772530401CA // Tl3TreeData
+ )
  ; // Inherits
  CONST "isPointer" true
+ CONST dfm:PathOnly '\common\components\rtl\Garant\L3'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\L3'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_47725360003C Pl3TreeData
 
@@ -3730,6 +3924,7 @@ ref; // ME_47724ACC023A Action
  CONST Value 0
  : ValueType WL 'ME_476F71A701AB' '4AB0C3C60310.pas.ms.script' // Word
  ;
+ CONST extprop:pas:Value 0
 
 ref; // ME_47724ACC025F FlagMask
 
@@ -3743,6 +3938,7 @@ ref; // ME_47724ACC025F FlagMask
  CONST Value 0
  : ValueType WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
  ;
+ CONST extprop:pas:Value 0
 
 ref; // ME_47724ACC0284 IterMode
 
@@ -3756,6 +3952,7 @@ ref; // ME_47724ACC0284 IterMode
  CONST Value 'nil'
  : ValueType ME_468259900322 // Il3SimpleNode
  ;
+ CONST extprop:pas:Value 'nil'
 
 ref; // ME_47724ACC02AB aSubRootNode
 
@@ -3769,6 +3966,7 @@ ref; // ME_47724ACC02AB aSubRootNode
  CONST Value false
  : ValueType WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
+ CONST extprop:pas:Value false
 
 ref; // ME_53170C4502BE aCheckResult
 
@@ -3784,12 +3982,12 @@ ref; // ME_53170C4502BE aCheckResult
  : Target ME_468259900322 // Il3SimpleNode
  ;
  : Parameters
-   @ ( ME_47724ACC023A // Action
+   Seq: ( ME_47724ACC023A // Action
  ME_47724ACC025F // FlagMask
  ME_47724ACC0284 // IterMode
  ME_47724ACC02AB // aSubRootNode
  ME_53170C4502BE // aCheckResult
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_47724AB70207 FlagIterateF
@@ -4184,15 +4382,15 @@ ref; // ME_47BAD32501E2_ME_46825CE0014B DropData
  : Parent ME_4682595B0268 // l3TreeInterfaces
  ;
  : Inherits
-   @ ( ME_46825CC00249 // Il3SimpleTree
- ) .SequenceCode.It
+   Seq: ( ME_46825CC00249 // Il3SimpleTree
+ )
  ; // Inherits
  : Operations
-   @ ( ME_47724AB70207 // FlagIterateF
- ) .SequenceCode.It
+   Seq: ( ME_47724AB70207 // FlagIterateF
+ )
  ; // Operations
  : Implemented
-   @ ( ME_46825CAA0125_ME_46825CE0014B // RootNode
+   Seq: ( ME_46825CAA0125_ME_46825CE0014B // RootNode
  ME_46A44F6B035E_ME_46825CE0014B // Subscribe
  ME_46A44FFE0143_ME_46825CE0014B // Unsubscribe
  ME_4772448C01D2_ME_46825CE0014B // CursorTop
@@ -4229,8 +4427,14 @@ ref; // ME_47BAD32501E2_ME_46825CE0014B DropData
  ME_47A86EA80292_ME_46825CE0014B // MakeDataObject
  ME_47BAD3080349_ME_46825CE0014B // CanAcceptData
  ME_47BAD32501E2_ME_46825CE0014B // DropData
- ) .SequenceCode.It
+ )
  ; // Implemented
+ CONST dfm:PathOnly '\common\components\rtl\Garant\L3'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\L3'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'ExpandedSimpleTree'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_46825CE0014B Il3ExpandedSimpleTree
 
@@ -4281,10 +4485,16 @@ ref; // ME_49F719C20251 DataSize
  : Parent ME_4682595B0268 // l3TreeInterfaces
  ;
  : Attributes
-   @ ( ME_49F719AD02E3 // Data
+   Seq: ( ME_49F719AD02E3 // Data
  ME_49F719C20251 // DataSize
- ) .SequenceCode.It
+ )
  ; // Attributes
+ CONST dfm:PathOnly '\common\components\rtl\Garant\L3'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\L3'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'ExtItemNode'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_49F719740145 Il3ExtItemNode
 
@@ -4299,7 +4509,7 @@ ref; // ME_49F719740145 Il3ExtItemNode
  : Parent WL 'ME_4E2F0E1B03BB' '4E2F0E1B03BB.pas.ms.script' // L3$Domain
  ;
  : Children
-   @ ( ME_47AAFE470329 // Il3Nodes
+   Seq: ( ME_47AAFE470329 // Il3Nodes
  ME_46825C5A01B6 // Il3NotifySource
  ME_4772530401CA // Tl3TreeData
  ME_468259900322 // Il3SimpleNode
@@ -4327,32 +4537,29 @@ ref; // ME_49F719740145 Il3ExtItemNode
  ME_47725360003C // Pl3TreeData
  ME_46825CE0014B // Il3ExpandedSimpleTree
  ME_49F719740145 // Il3ExtItemNode
- ) .SequenceCode.It
+ )
  ; // Children
  : Constants
-   @ ( ME_47723A1001D6 // IterMode
+   Seq: ( ME_47723A1001D6 // IterMode
  ME_47723AA10142 // flags in tree
  ME_47723BD702D6 // CountView
- ) .SequenceCode.It
+ )
  ; // Constants
  : Depends
-   @ ( WL 'ME_4677FBA70343' '4677FBA70343.pas.ms.script' // l3Interfaces
- ) .SequenceCode.It
+   Seq: ( WL 'ME_4677FBA70343' '4677FBA70343.pas.ms.script' // l3Interfaces
+ )
  ; // Depends
  CONST "author" 'Ëþëèí À.Â.'
  CONST "is namespace" true
  CONST "no hands" true
  CONST "started" '22.04.2004 11:27'
  CONST "weak" true
- : Generators
- @ (
- gen_intf.pas
- gen_pas.script
- gen_pas.script.runner
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\L3'
  CONST intf.pas:Path 'common\components\rtl\Garant\L3\l3TreeInterfaces.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\L3'
  CONST pas.script:Path 'shared\models\NewSchool\Scripts\4682595B0268.pas.ms.script'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
  CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\4682595B0268.pas.ms.script.runner'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_4682595B0268 l3TreeInterfaces

@@ -10,19 +10,19 @@ INCLUDE 'ElementsRTTI.ms.dict'
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
  : Children
-   @ ( WL 'ME_499AF0880116' '499AF0880116.pas.ms.script' // AFWTest
+   Seq: ( WL 'ME_499AF0880116' '499AF0880116.pas.ms.script' // AFWTest
  WL 'ME_49997AF300BA' '49997AF300BA.pas.ms.script' // EverestTest
  WL 'ME_499A86490253' '499A86490253.pas.ms.script' // VTTest
  WL 'ME_499AA43A012F' '499AA43A012F.pas.ms.script' // VCMTest
  WL 'ME_536B6A5E0136' '536B6A5E0136.pas.ms.script' // VGSceneTest
- ) .SequenceCode.It
+ )
  ; // Children
  : Depends
-   @ ( WL 'ME_4677DDBD0193' '4677DDBD0193.pas.ms.script' // Shared Delphi
+   Seq: ( WL 'ME_4677DDBD0193' '4677DDBD0193.pas.ms.script' // Shared Delphi
  WL 'ME_49B1511700CA' '49B1511700CA.pas.ms.script' // Shared Delphi Core
  WL 'ME_4ABCC25A0322' '4ABCC25A0322.pas.ms.script' // Shared Delphi Low Level
  WL 'ME_562E251101C2' '562E251101C2.pas.ms.script' // Shared Delphi Rtl
- ) .SequenceCode.It
+ )
  ; // Depends
  CONST "Full MDP" false
  CONST "create project" true
@@ -37,17 +37,11 @@ INCLUDE 'ElementsRTTI.ms.dict'
  CONST "root path suffix" '/components'
  CONST "space key" 'SHD'
  CONST "space name" 'Shared (delphi)'
- : Generators
- @ (
- gen_forth_structure
- gen_intf.pas
- gen_pas.script
- gen_pas.script.runner
- ) .SequenceCode.It
- ; // Generators
- CONST forth_structure:Path 'shared\models\NewSchool\Shared Delphi TestComplete Wrappers\Shared Delphi TestComplete Wrappers.model.script'
- CONST intf.pas:Path 'common\components\common TestComplete Wrappers_prj.info'
+ CONST dfm:PathOnly '\common\components'
+ CONST intf.pas:PathOnly '\common\components'
  CONST pas.script:Path 'shared\models\NewSchool\Scripts\4E256A300117.pas.ms.script'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
  CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\4E256A300117.pas.ms.script.runner'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_4E256A300117 Shared Delphi TestComplete Wrappers

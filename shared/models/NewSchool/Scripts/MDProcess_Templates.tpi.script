@@ -33,98 +33,105 @@ EXPORTS MDProcess_CoreTemplates.tpi.script
 
 : st_generator::Operation
  CONST UID '46E3DB9001C5'
- CONST Name 'generator'
+ CONST Name 'generator::Operation'
  CONST Stereotype 'MDAOperation'
  @SELF
 ; // st_generator::Operation
 
+: st_function::Operation
+ CONST UID '46E3DB3B001F'
+ CONST Name 'function::Operation'
+ CONST Stereotype 'MDAOperation'
+ @SELF
+; // st_function::Operation
+
 : st_transformator::Operation
  CONST UID '46E3F93A0128'
- CONST Name 'transformator'
+ CONST Name 'transformator::Operation'
  CONST Stereotype 'MDAOperation'
  @SELF
 ; // st_transformator::Operation
 
 : st_UserProperty::Attribute
  CONST UID '46EFD6DC0192'
- CONST Name 'UserProperty'
+ CONST Name 'UserProperty::Attribute'
  CONST Stereotype 'MDAAttribute'
  @SELF
 ; // st_UserProperty::Attribute
 
 : st_bool::Attribute Inherits ( st_UserProperty::Attribute )
  CONST UID '46E6B9A10135'
- CONST Name 'bool'
+ CONST Name 'bool::Attribute'
  CONST Stereotype 'MDAAttribute'
  @SELF
 ; // st_bool::Attribute
 
 : st_string::Attribute Inherits ( st_UserProperty::Attribute )
  CONST UID '46E6B9AC02FA'
- CONST Name 'string'
+ CONST Name 'string::Attribute'
  CONST Stereotype 'MDAAttribute'
  @SELF
 ; // st_string::Attribute
 
 : st_include::Dependency
  CONST UID '46E6CB280164'
- CONST Name 'include'
+ CONST Name 'include::Dependency'
  CONST Stereotype 'MDADependency'
  @SELF
 ; // st_include::Dependency
 
 : st_group::Dependency
  CONST UID '46E7DE3F03A6'
- CONST Name 'group'
+ CONST Name 'group::Dependency'
  CONST Stereotype 'MDADependency'
  @SELF
 ; // st_group::Dependency
 
 : st_list::Attribute Inherits ( st_UserProperty::Attribute )
  CONST UID '46E6B6890396'
- CONST Name 'list'
+ CONST Name 'list::Attribute'
  CONST Stereotype 'MDAAttribute'
  @SELF
 ; // st_list::Attribute
 
 : st_file::Attribute Inherits ( st_UserProperty::Attribute )
  CONST UID '46FE5AA001E5'
- CONST Name 'file'
+ CONST Name 'file::Attribute'
  CONST Stereotype 'MDAAttribute'
  @SELF
 ; // st_file::Attribute
 
 : st_color::Attribute Inherits ( st_UserProperty::Attribute )
  CONST UID '46FE5AED032D'
- CONST Name 'color'
+ CONST Name 'color::Attribute'
  CONST Stereotype 'MDAAttribute'
  @SELF
 ; // st_color::Attribute
 
 : st_tribool::Attribute Inherits ( st_UserProperty::Attribute )
  CONST UID '470E033101F4'
- CONST Name 'tribool'
+ CONST Name 'tribool::Attribute'
  CONST Stereotype 'MDAAttribute'
  @SELF
 ; // st_tribool::Attribute
 
 : st_main_hierarchy::Dependency
  CONST UID '49F847A30327'
- CONST Name 'main_hierarchy'
+ CONST Name 'main_hierarchy::Dependency'
  CONST Stereotype 'MDADependency'
  @SELF
 ; // st_main_hierarchy::Dependency
 
 : st_exclude_auto_copy::Dependency
  CONST UID '4AE5844A0278'
- CONST Name 'exclude_auto_copy'
+ CONST Name 'exclude_auto_copy::Dependency'
  CONST Stereotype 'MDADependency'
  @SELF
 ; // st_exclude_auto_copy::Dependency
 
 : st_text::Attribute Inherits ( st_UserProperty::Attribute )
  CONST UID '4D6CD5FA03E7'
- CONST Name 'text'
+ CONST Name 'text::Attribute'
  CONST Stereotype 'MDAAttribute'
  @SELF
 ; // st_text::Attribute
@@ -171,9 +178,16 @@ EXPORTS MDProcess_CoreTemplates.tpi.script
  @SELF
 ; // st_MDAUtilityPack
 
+REDEFINITION : st_function::Operation
+ CONST UID '46E6CEE102CB'
+ CONST Name 'function::Operation'
+ CONST Stereotype 'MDAOperation'
+ @SELF
+; // st_function::Operation
+
 REDEFINITION : st_transformator::Operation
  CONST UID '46E81A760106'
- CONST Name 'transformator'
+ CONST Name 'transformator::Operation'
  CONST Stereotype 'MDAOperation'
  @SELF
 ; // st_transformator::Operation
@@ -278,14 +292,14 @@ REDEFINITION : st_transformator::Operation
 
 : st_report::Operation
  CONST UID '4725C6630128'
- CONST Name 'report'
+ CONST Name 'report::Operation'
  CONST Stereotype 'MDAOperation'
  @SELF
 ; // st_report::Operation
 
 REDEFINITION : st_group::Dependency
  CONST UID '4725C75E002E'
- CONST Name 'group'
+ CONST Name 'group::Dependency'
  CONST Stereotype 'MDADependency'
  @SELF
 ; // st_group::Dependency
@@ -535,27 +549,6 @@ REDEFINITION : st_group::Dependency
  @SELF
 ; // gen_dfm
 
-: gen_rc.pas
- CONST UID '55B8D28B0157'
- CONST Name 'rc.pas'
- CONST Stereotype 'generator'
- @SELF
-; // gen_rc.pas
-
-: gen_rc.script.pas
- CONST UID '55B8D2F80145'
- CONST Name 'rc.script.pas'
- CONST Stereotype 'generator'
- @SELF
-; // gen_rc.script.pas
-
-: gen_res.cmd.pas
- CONST UID '55B8DD9C0301'
- CONST Name 'res.cmd.pas'
- CONST Stereotype 'generator'
- @SELF
-; // gen_res.cmd.pas
-
 : gen_pas.script
  CONST UID '563244E50325'
  CONST Name 'pas.script'
@@ -598,6 +591,20 @@ REDEFINITION : st_group::Dependency
  @SELF
 ; // st_Settings
 
+: st_Parameters::Attribute
+ CONST UID '48A27E7F0092'
+ CONST Name 'Parameters::Attribute'
+ CONST Stereotype 'MDAAttribute'
+ @SELF
+; // st_Parameters::Attribute
+
+: st_Annotate
+ CONST UID '4A55CDF90044'
+ CONST Name 'Annotate'
+ CONST Stereotype 'MDAAbstractClass'
+ @SELF
+; // st_Annotate
+
 : st_UsesContainer
  CONST UID '4B2A2ADB0305'
  CONST Name 'UsesContainer'
@@ -607,7 +614,7 @@ REDEFINITION : st_group::Dependency
 
 : st_uses::Dependency
  CONST UID '47049B5902FD'
- CONST Name 'uses'
+ CONST Name 'uses::Dependency'
  CONST Stereotype 'MDADependency'
  @SELF
 ; // st_uses::Dependency
@@ -626,114 +633,135 @@ REDEFINITION : st_group::Dependency
  @SELF
 ; // st_ClassBase
 
+: st_Attr::Attribute
+ CONST UID '47049A0701B5'
+ CONST Name 'Attr::Attribute'
+ CONST Stereotype 'MDAAttribute'
+ @SELF
+; // st_Attr::Attribute
+
 : st_template::Attribute
  CONST UID '47049B3F008C'
- CONST Name 'template'
+ CONST Name 'template::Attribute'
  CONST Stereotype 'MDAAttribute'
  @SELF
 ; // st_template::Attribute
 
-: st_chg::Operation
+: st_Operation::Operation Inherits ( st_Annotate st_CallingConventionsHolder )
+ CONST UID '47049A220138'
+ CONST Name 'Operation::Operation'
+ CONST Stereotype 'MDAOperation'
+ @SELF
+; // st_Operation::Operation
+
+: st_chg::Operation Inherits ( st_Operation::Operation )
  CONST UID '47049A480157'
- CONST Name 'chg'
+ CONST Name 'chg::Operation'
  CONST Stereotype 'MDAOperation'
  @SELF
 ; // st_chg::Operation
 
-: st_ctor::Operation
+: st_ctor::Operation Inherits ( st_Operation::Operation )
  CONST UID '47049AA3038A'
- CONST Name 'ctor'
+ CONST Name 'ctor::Operation'
  CONST Stereotype 'MDAOperation'
  @SELF
 ; // st_ctor::Operation
 
-: st_oneway::Operation
+: st_oneway::Operation Inherits ( st_Operation::Operation )
  CONST UID '47049A720399'
- CONST Name 'oneway'
+ CONST Name 'oneway::Operation'
  CONST Stereotype 'MDAOperation'
  @SELF
 ; // st_oneway::Operation
 
 : st_oneway,chg::Operation Inherits ( st_oneway::Operation )
  CONST UID '47049A880271'
- CONST Name 'oneway,chg'
+ CONST Name 'oneway,chg::Operation'
  CONST Stereotype 'MDAOperation'
  @SELF
 ; // st_oneway,chg::Operation
 
-: st_static::Operation
+: st_static::Operation Inherits ( st_Operation::Operation )
  CONST UID '47049ADD02FD'
- CONST Name 'static'
+ CONST Name 'static::Operation'
  CONST Stereotype 'MDAOperation'
  @SELF
 ; // st_static::Operation
 
-: st_static::Attribute
+: st_static::Attribute Inherits ( st_Attr::Attribute )
  CONST UID '4705C24F008C'
- CONST Name 'static'
+ CONST Name 'static::Attribute'
  CONST Stereotype 'MDAAttribute'
  @SELF
 ; // st_static::Attribute
 
 : st_friend::Dependency
  CONST UID '4705E460003E'
- CONST Name 'friend'
+ CONST Name 'friend::Dependency'
  CONST Stereotype 'MDADependency'
  @SELF
 ; // st_friend::Dependency
 
-: st_property::Attribute Inherits ( st_CallingConventionsHolder )
+: st_property::Attribute Inherits ( st_Attr::Attribute st_Annotate st_CallingConventionsHolder )
  CONST UID '4773ED2300A0'
- CONST Name 'property'
+ CONST Name 'property::Attribute'
  CONST Stereotype 'MDAAttribute'
  @SELF
 ; // st_property::Attribute
 
+: st_key::Attribute
+ CONST UID '479EF1F303A6'
+ CONST Name 'key::Attribute'
+ CONST Stereotype 'MDAAttribute'
+ @SELF
+; // st_key::Attribute
+
 : st_readonly::Attribute Inherits ( st_property::Attribute )
  CONST UID '4773ED64017E'
- CONST Name 'readonly'
+ CONST Name 'readonly::Attribute'
  CONST Stereotype 'MDAAttribute'
  @SELF
 ; // st_readonly::Attribute
 
 : st_writeonly::Attribute Inherits ( st_property::Attribute )
  CONST UID '4773ED880366'
- CONST Name 'writeonly'
+ CONST Name 'writeonly::Attribute'
  CONST Stereotype 'MDAAttribute'
  @SELF
 ; // st_writeonly::Attribute
 
 : st_static_property::Attribute Inherits ( st_property::Attribute )
  CONST UID '47CE829D00F6'
- CONST Name 'static_property'
+ CONST Name 'static_property::Attribute'
  CONST Stereotype 'MDAAttribute'
  @SELF
 ; // st_static_property::Attribute
 
 : st_static_readonly::Attribute Inherits ( st_static_property::Attribute )
  CONST UID '47CE82CB018D'
- CONST Name 'static_readonly'
+ CONST Name 'static_readonly::Attribute'
  CONST Stereotype 'MDAAttribute'
  @SELF
 ; // st_static_readonly::Attribute
 
 : st_static_writeonly::Attribute Inherits ( st_static_property::Attribute )
  CONST UID '47CE842F03CC'
- CONST Name 'static_writeonly'
+ CONST Name 'static_writeonly::Attribute'
  CONST Stereotype 'MDAAttribute'
  @SELF
 ; // st_static_writeonly::Attribute
 
 : st_consume::Dependency
  CONST UID '47FC942F02A9'
- CONST Name 'consume'
+ CONST Name 'consume::Dependency'
  CONST Stereotype 'MDADependency'
  @SELF
 ; // st_consume::Dependency
 
 : st_supply::Dependency
  CONST UID '47FC94300102'
- CONST Name 'supply'
+ CONST Name 'supply::Dependency'
  CONST Stereotype 'MDADependency'
  @SELF
 ; // st_supply::Dependency
@@ -747,28 +775,28 @@ REDEFINITION : st_group::Dependency
 
 : st_element_type::Attribute
  CONST UID '4BAA2F1D02EA'
- CONST Name 'element_type'
+ CONST Name 'element_type::Attribute'
  CONST Stereotype 'MDAAttribute'
  @SELF
 ; // st_element_type::Attribute
 
 : st_in::Attribute
  CONST UID '4BAA436D03BD'
- CONST Name 'in'
+ CONST Name 'in::Attribute'
  CONST Stereotype 'MDAAttribute'
  @SELF
 ; // st_in::Attribute
 
 : st_index_type::Attribute
  CONST UID '4BC3191F03A1'
- CONST Name 'index_type'
+ CONST Name 'index_type::Attribute'
  CONST Stereotype 'MDAAttribute'
  @SELF
 ; // st_index_type::Attribute
 
 : st_result_type::Attribute
  CONST UID '546C958701E5'
- CONST Name 'result_type'
+ CONST Name 'result_type::Attribute'
  CONST Stereotype 'MDAAttribute'
  @SELF
 ; // st_result_type::Attribute
@@ -852,7 +880,7 @@ REDEFINITION : st_group::Dependency
 
 : st_export::Dependency
  CONST UID '4F0F71EF03C8'
- CONST Name 'export'
+ CONST Name 'export::Dependency'
  CONST Stereotype 'MDADependency'
  @SELF
 ; // st_export::Dependency
@@ -878,6 +906,13 @@ REDEFINITION : st_group::Dependency
  @SELF
 ; // st_BaseContainer
 
+: st_attr::Attribute
+ CONST UID '470F0883001F'
+ CONST Name 'attr::Attribute'
+ CONST Stereotype 'MDAAttribute'
+ @SELF
+; // st_attr::Attribute
+
 : st_BaseMap Inherits ( st_BaseContainer )
  CONST UID '470F01FA031C'
  CONST Name 'BaseMap'
@@ -887,10 +922,24 @@ REDEFINITION : st_group::Dependency
 
 : st_allocator::Attribute
  CONST UID '470F02CE005D'
- CONST Name 'allocator'
+ CONST Name 'allocator::Attribute'
  CONST Stereotype 'MDAAttribute'
  @SELF
 ; // st_allocator::Attribute
+
+REDEFINITION : st_attr::Attribute Inherits ( st_attr::Attribute )
+ CONST UID '4BFA518A001D'
+ CONST Name 'attr::Attribute'
+ CONST Stereotype 'MDAAttribute'
+ @SELF
+; // st_attr::Attribute
+
+REDEFINITION : st_key::Attribute
+ CONST UID '470F0428034B'
+ CONST Name 'key::Attribute'
+ CONST Stereotype 'MDAAttribute'
+ @SELF
+; // st_key::Attribute
 
 : st_Map Inherits ( st_BaseMap )
  CONST UID '470F05F10399'
@@ -901,7 +950,7 @@ REDEFINITION : st_group::Dependency
 
 : st_compare::Attribute
  CONST UID '470F030E00BB'
- CONST Name 'compare'
+ CONST Name 'compare::Attribute'
  CONST Stereotype 'MDAAttribute'
  @SELF
 ; // st_compare::Attribute
@@ -915,7 +964,7 @@ REDEFINITION : st_group::Dependency
 
 : st_hasher::Attribute
  CONST UID '470F06C102EE'
- CONST Name 'hasher'
+ CONST Name 'hasher::Attribute'
  CONST Stereotype 'MDAAttribute'
  @SELF
 ; // st_hasher::Attribute
@@ -936,7 +985,7 @@ REDEFINITION : st_group::Dependency
 
 REDEFINITION : st_allocator::Attribute Inherits ( st_allocator::Attribute )
  CONST UID '470F0B1202FD'
- CONST Name 'allocator'
+ CONST Name 'allocator::Attribute'
  CONST Stereotype 'MDAAttribute'
  @SELF
 ; // st_allocator::Attribute
@@ -950,21 +999,21 @@ REDEFINITION : st_allocator::Attribute Inherits ( st_allocator::Attribute )
 
 REDEFINITION : st_allocator::Attribute Inherits ( st_allocator::Attribute )
  CONST UID '470F0ADC006D'
- CONST Name 'allocator'
+ CONST Name 'allocator::Attribute'
  CONST Stereotype 'MDAAttribute'
  @SELF
 ; // st_allocator::Attribute
 
 REDEFINITION : st_compare::Attribute Inherits ( st_compare::Attribute )
  CONST UID '494636A40261'
- CONST Name 'compare'
+ CONST Name 'compare::Attribute'
  CONST Stereotype 'MDAAttribute'
  @SELF
 ; // st_compare::Attribute
 
 REDEFINITION : st_hasher::Attribute Inherits ( st_hasher::Attribute )
  CONST UID '494636C30135'
- CONST Name 'hasher'
+ CONST Name 'hasher::Attribute'
  CONST Stereotype 'MDAAttribute'
  @SELF
 ; // st_hasher::Attribute
@@ -978,7 +1027,7 @@ REDEFINITION : st_hasher::Attribute Inherits ( st_hasher::Attribute )
 
 REDEFINITION : st_compare::Attribute Inherits ( st_compare::Attribute )
  CONST UID '470F090503B9'
- CONST Name 'compare'
+ CONST Name 'compare::Attribute'
  CONST Stereotype 'MDAAttribute'
  @SELF
 ; // st_compare::Attribute
@@ -1018,6 +1067,27 @@ REDEFINITION : st_compare::Attribute Inherits ( st_compare::Attribute )
  @SELF
 ; // st_FixedArray
 
+REDEFINITION : st_attr::Attribute Inherits ( st_attr::Attribute )
+ CONST UID '4A10F404034B'
+ CONST Name 'attr::Attribute'
+ CONST Stereotype 'MDAAttribute'
+ @SELF
+; // st_attr::Attribute
+
+: st_size::Attribute
+ CONST UID '4A10FE01039E'
+ CONST Name 'size::Attribute'
+ CONST Stereotype 'MDAAttribute'
+ @SELF
+; // st_size::Attribute
+
+: st_AllContainerInclude
+ CONST UID '4A10F7610180'
+ CONST Name 'AllContainerInclude'
+ CONST Stereotype 'MDAAbstractClass'
+ @SELF
+; // st_AllContainerInclude
+
 : st_Deque Inherits ( st_BaseContainer )
  CONST UID '5086903001FE'
  CONST Name 'Deque'
@@ -1039,9 +1109,16 @@ REDEFINITION : st_compare::Attribute Inherits ( st_compare::Attribute )
  @SELF
 ; // st_Constants
 
+REDEFINITION : st_attr::Attribute
+ CONST UID '470F17590109'
+ CONST Name 'attr::Attribute'
+ CONST Stereotype 'MDAAttribute'
+ @SELF
+; // st_attr::Attribute
+
 : st_injects::Dependency
  CONST UID '55BF20350026'
- CONST Name 'injects'
+ CONST Name 'injects::Dependency'
  CONST Stereotype 'MDADependency'
  @SELF
 ; // st_injects::Dependency
@@ -1053,6 +1130,13 @@ REDEFINITION : st_compare::Attribute Inherits ( st_compare::Attribute )
  @SELF
 ; // st_Enum
 
+REDEFINITION : st_attr::Attribute
+ CONST UID '470F1A0100DA'
+ CONST Name 'attr::Attribute'
+ CONST Stereotype 'MDAAttribute'
+ @SELF
+; // st_attr::Attribute
+
 : st_Exception Inherits ( st_WikiImplClass )
  CONST UID '470F1AB702CE'
  CONST Name 'Exception'
@@ -1062,35 +1146,42 @@ REDEFINITION : st_compare::Attribute Inherits ( st_compare::Attribute )
 
 REDEFINITION : st_ctor::Operation
  CONST UID '470F1B49030D'
- CONST Name 'ctor'
+ CONST Name 'ctor::Operation'
  CONST Stereotype 'MDAOperation'
  @SELF
 ; // st_ctor::Operation
 
-: st_sequence::Attribute
+REDEFINITION : st_attr::Attribute Inherits ( st_Attr::Attribute )
+ CONST UID '470F1B890000'
+ CONST Name 'attr::Attribute'
+ CONST Stereotype 'MDAAttribute'
+ @SELF
+; // st_attr::Attribute
+
+: st_sequence::Attribute Inherits ( st_attr::Attribute )
  CONST UID '470F1BD700CB'
- CONST Name 'sequence'
+ CONST Name 'sequence::Attribute'
  CONST Stereotype 'MDAAttribute'
  @SELF
 ; // st_sequence::Attribute
 
 REDEFINITION : st_property::Attribute Inherits ( st_property::Attribute )
  CONST UID '4787A55D00FD'
- CONST Name 'property'
+ CONST Name 'property::Attribute'
  CONST Stereotype 'MDAAttribute'
  @SELF
 ; // st_property::Attribute
 
 REDEFINITION : st_readonly::Attribute Inherits ( st_readonly::Attribute )
  CONST UID '4787A67F030D'
- CONST Name 'readonly'
+ CONST Name 'readonly::Attribute'
  CONST Stereotype 'MDAAttribute'
  @SELF
 ; // st_readonly::Attribute
 
 REDEFINITION : st_writeonly::Attribute Inherits ( st_writeonly::Attribute )
  CONST UID '4787A6A0002B'
- CONST Name 'writeonly'
+ CONST Name 'writeonly::Attribute'
  CONST Stereotype 'MDAAttribute'
  @SELF
 ; // st_writeonly::Attribute
@@ -1102,16 +1193,23 @@ REDEFINITION : st_writeonly::Attribute Inherits ( st_writeonly::Attribute )
  @SELF
 ; // st_Struct
 
+REDEFINITION : st_attr::Attribute
+ CONST UID '470F3680003E'
+ CONST Name 'attr::Attribute'
+ CONST Stereotype 'MDAAttribute'
+ @SELF
+; // st_attr::Attribute
+
 REDEFINITION : st_ctor::Operation
  CONST UID '470F36C70128'
- CONST Name 'ctor'
+ CONST Name 'ctor::Operation'
  CONST Stereotype 'MDAOperation'
  @SELF
 ; // st_ctor::Operation
 
-REDEFINITION : st_sequence::Attribute
+REDEFINITION : st_sequence::Attribute Inherits ( st_attr::Attribute )
  CONST UID '470F36E20261'
- CONST Name 'sequence'
+ CONST Name 'sequence::Attribute'
  CONST Stereotype 'MDAAttribute'
  @SELF
 ; // st_sequence::Attribute
@@ -1123,9 +1221,16 @@ REDEFINITION : st_sequence::Attribute
  @SELF
 ; // st_Union
 
+REDEFINITION : st_attr::Attribute
+ CONST UID '470F38E001D4'
+ CONST Name 'attr::Attribute'
+ CONST Stereotype 'MDAAttribute'
+ @SELF
+; // st_attr::Attribute
+
 : st_switch::Attribute
  CONST UID '470F3908000F'
- CONST Name 'switch'
+ CONST Name 'switch::Attribute'
  CONST Stereotype 'MDAAttribute'
  @SELF
 ; // st_switch::Attribute
@@ -1137,6 +1242,13 @@ REDEFINITION : st_sequence::Attribute
  @SELF
 ; // st_BitMask
 
+REDEFINITION : st_attr::Attribute
+ CONST UID '470F3A1C038A'
+ CONST Name 'attr::Attribute'
+ CONST Stereotype 'MDAAttribute'
+ @SELF
+; // st_attr::Attribute
+
 : st_InstanceDef
  CONST UID '47134EBE030D'
  CONST Name 'InstanceDef'
@@ -1144,9 +1256,16 @@ REDEFINITION : st_sequence::Attribute
  @SELF
 ; // st_InstanceDef
 
+REDEFINITION : st_attr::Attribute
+ CONST UID '47134F7702BF'
+ CONST Name 'attr::Attribute'
+ CONST Stereotype 'MDAAttribute'
+ @SELF
+; // st_attr::Attribute
+
 REDEFINITION : st_uses::Dependency
  CONST UID '47134F91007D'
- CONST Name 'uses'
+ CONST Name 'uses::Dependency'
  CONST Stereotype 'MDADependency'
  @SELF
 ; // st_uses::Dependency
@@ -1172,6 +1291,13 @@ REDEFINITION : st_uses::Dependency
  @SELF
 ; // st_ConstantArray
 
+: st_array_element::Attribute
+ CONST UID '47FDE8AF00BE'
+ CONST Name 'array_element::Attribute'
+ CONST Stereotype 'MDAAttribute'
+ @SELF
+; // st_array_element::Attribute
+
 : st_FunctorBase
  CONST UID '4713197703A9'
  CONST Name 'FunctorBase'
@@ -1179,16 +1305,23 @@ REDEFINITION : st_uses::Dependency
  @SELF
 ; // st_FunctorBase
 
+REDEFINITION : st_attr::Attribute
+ CONST UID '4713261D0109'
+ CONST Name 'attr::Attribute'
+ CONST Stereotype 'MDAAttribute'
+ @SELF
+; // st_attr::Attribute
+
 REDEFINITION : st_uses::Dependency
  CONST UID '471326540280'
- CONST Name 'uses'
+ CONST Name 'uses::Dependency'
  CONST Stereotype 'MDADependency'
  @SELF
 ; // st_uses::Dependency
 
 REDEFINITION : st_ctor::Operation Inherits ( st_ctor::Operation )
  CONST UID '482BD31C000D'
- CONST Name 'ctor'
+ CONST Name 'ctor::Operation'
  CONST Stereotype 'MDAOperation'
  @SELF
 ; // st_ctor::Operation
@@ -1202,14 +1335,14 @@ REDEFINITION : st_ctor::Operation Inherits ( st_ctor::Operation )
 
 : st_result::Attribute
  CONST UID '471327120119'
- CONST Name 'result'
+ CONST Name 'result::Attribute'
  CONST Stereotype 'MDAAttribute'
  @SELF
 ; // st_result::Attribute
 
 : st_param::Attribute
  CONST UID '4713275603C8'
- CONST Name 'param'
+ CONST Name 'param::Attribute'
  CONST Stereotype 'MDAAttribute'
  @SELF
 ; // st_param::Attribute
@@ -1223,7 +1356,7 @@ REDEFINITION : st_ctor::Operation Inherits ( st_ctor::Operation )
 
 REDEFINITION : st_param::Attribute
  CONST UID '471327AE037A'
- CONST Name 'param'
+ CONST Name 'param::Attribute'
  CONST Stereotype 'MDAAttribute'
  @SELF
 ; // st_param::Attribute
@@ -1237,21 +1370,21 @@ REDEFINITION : st_param::Attribute
 
 REDEFINITION : st_result::Attribute
  CONST UID '471327F701F4'
- CONST Name 'result'
+ CONST Name 'result::Attribute'
  CONST Stereotype 'MDAAttribute'
  @SELF
 ; // st_result::Attribute
 
 : st_first_param::Attribute
  CONST UID '4713280A0000'
- CONST Name 'first_param'
+ CONST Name 'first_param::Attribute'
  CONST Stereotype 'MDAAttribute'
  @SELF
 ; // st_first_param::Attribute
 
 : st_second_param::Attribute
  CONST UID '4713282601D4'
- CONST Name 'second_param'
+ CONST Name 'second_param::Attribute'
  CONST Stereotype 'MDAAttribute'
  @SELF
 ; // st_second_param::Attribute
@@ -1265,14 +1398,14 @@ REDEFINITION : st_result::Attribute
 
 REDEFINITION : st_first_param::Attribute
  CONST UID '4713288E0128'
- CONST Name 'first_param'
+ CONST Name 'first_param::Attribute'
  CONST Stereotype 'MDAAttribute'
  @SELF
 ; // st_first_param::Attribute
 
 REDEFINITION : st_second_param::Attribute
  CONST UID '4713289D02AF'
- CONST Name 'second_param'
+ CONST Name 'second_param::Attribute'
  CONST Stereotype 'MDAAttribute'
  @SELF
 ; // st_second_param::Attribute
@@ -1284,6 +1417,13 @@ REDEFINITION : st_second_param::Attribute
  @SELF
 ; // st_Function
 
+REDEFINITION : st_Operation::Operation
+ CONST UID '47679E8A0154'
+ CONST Name 'Operation::Operation'
+ CONST Stereotype 'MDAOperation'
+ @SELF
+; // st_Operation::Operation
+
 : st_FactoryMemory
  CONST UID '4753C0BC029E'
  CONST Name 'FactoryMemory'
@@ -1293,14 +1433,14 @@ REDEFINITION : st_second_param::Attribute
 
 : st_common_key::Attribute
  CONST UID '4753C0D40361'
- CONST Name 'common_key'
+ CONST Name 'common_key::Attribute'
  CONST Stereotype 'MDAAttribute'
  @SELF
 ; // st_common_key::Attribute
 
 REDEFINITION : st_uses::Dependency
  CONST UID '47577B900144'
- CONST Name 'uses'
+ CONST Name 'uses::Dependency'
  CONST Stereotype 'MDADependency'
  @SELF
 ; // st_uses::Dependency
@@ -1314,7 +1454,7 @@ REDEFINITION : st_uses::Dependency
 
 : st_factory::Operation
  CONST UID '497483770297'
- CONST Name 'factory'
+ CONST Name 'factory::Operation'
  CONST Stereotype 'MDAOperation'
  @SELF
 ; // st_factory::Operation
@@ -1328,70 +1468,98 @@ REDEFINITION : st_uses::Dependency
 
 REDEFINITION : st_property::Attribute Inherits ( st_CallingConventionsHolder )
  CONST UID '470F544503C8'
- CONST Name 'property'
+ CONST Name 'property::Attribute'
  CONST Stereotype 'MDAAttribute'
  @SELF
 ; // st_property::Attribute
 
+REDEFINITION : st_key::Attribute
+ CONST UID '470F55370280'
+ CONST Name 'key::Attribute'
+ CONST Stereotype 'MDAAttribute'
+ @SELF
+; // st_key::Attribute
+
 REDEFINITION : st_readonly::Attribute Inherits ( st_property::Attribute )
  CONST UID '470F549D033C'
- CONST Name 'readonly'
+ CONST Name 'readonly::Attribute'
  CONST Stereotype 'MDAAttribute'
  @SELF
 ; // st_readonly::Attribute
 
+REDEFINITION : st_key::Attribute Inherits ( st_key::Attribute )
+ CONST UID '49794A25023E'
+ CONST Name 'key::Attribute'
+ CONST Stereotype 'MDAAttribute'
+ @SELF
+; // st_key::Attribute
+
 REDEFINITION : st_writeonly::Attribute Inherits ( st_property::Attribute )
  CONST UID '470F54C402CE'
- CONST Name 'writeonly'
+ CONST Name 'writeonly::Attribute'
  CONST Stereotype 'MDAAttribute'
  @SELF
 ; // st_writeonly::Attribute
 
+REDEFINITION : st_key::Attribute Inherits ( st_key::Attribute )
+ CONST UID '49794A40013F'
+ CONST Name 'key::Attribute'
+ CONST Stereotype 'MDAAttribute'
+ @SELF
+; // st_key::Attribute
+
 REDEFINITION : st_friend::Dependency
  CONST UID '470F659B001F'
- CONST Name 'friend'
+ CONST Name 'friend::Dependency'
  CONST Stereotype 'MDADependency'
  @SELF
 ; // st_friend::Dependency
 
-REDEFINITION : st_oneway::Operation
+: st_op::Operation Inherits ( st_CallingConventionsHolder )
+ CONST UID '470F556F0196'
+ CONST Name 'op::Operation'
+ CONST Stereotype 'MDAOperation'
+ @SELF
+; // st_op::Operation
+
+REDEFINITION : st_oneway::Operation Inherits ( st_op::Operation )
  CONST UID '470F56670000'
- CONST Name 'oneway'
+ CONST Name 'oneway::Operation'
  CONST Stereotype 'MDAOperation'
  @SELF
 ; // st_oneway::Operation
 
 REDEFINITION : st_oneway,chg::Operation Inherits ( st_oneway::Operation )
  CONST UID '470F56EA0000'
- CONST Name 'oneway,chg'
+ CONST Name 'oneway,chg::Operation'
  CONST Stereotype 'MDAOperation'
  @SELF
 ; // st_oneway,chg::Operation
 
-REDEFINITION : st_chg::Operation
+REDEFINITION : st_chg::Operation Inherits ( st_op::Operation )
  CONST UID '470F5718031C'
- CONST Name 'chg'
+ CONST Name 'chg::Operation'
  CONST Stereotype 'MDAOperation'
  @SELF
 ; // st_chg::Operation
 
 REDEFINITION : st_consume::Dependency
  CONST UID '47FCA95F01DC'
- CONST Name 'consume'
+ CONST Name 'consume::Dependency'
  CONST Stereotype 'MDADependency'
  @SELF
 ; // st_consume::Dependency
 
 REDEFINITION : st_supply::Dependency
  CONST UID '47FCA95F0314'
- CONST Name 'supply'
+ CONST Name 'supply::Dependency'
  CONST Stereotype 'MDADependency'
  @SELF
 ; // st_supply::Dependency
 
-REDEFINITION : st_static::Operation
+REDEFINITION : st_static::Operation Inherits ( st_op::Operation )
  CONST UID '4BA7AADE00D2'
- CONST Name 'static'
+ CONST Name 'static::Operation'
  CONST Stereotype 'MDAOperation'
  @SELF
 ; // st_static::Operation
@@ -1405,42 +1573,42 @@ REDEFINITION : st_static::Operation
 
 : st_factory_op::Operation Inherits ( st_factory::Operation )
  CONST UID '4B793D19026F'
- CONST Name 'factory_op'
+ CONST Name 'factory_op::Operation'
  CONST Stereotype 'MDAOperation'
  @SELF
 ; // st_factory_op::Operation
 
 REDEFINITION : st_factory::Operation Inherits ( st_factory_op::Operation )
  CONST UID '470F576D0203'
- CONST Name 'factory'
+ CONST Name 'factory::Operation'
  CONST Stereotype 'MDAOperation'
  @SELF
 ; // st_factory::Operation
 
-: st_remover::Operation
+: st_remover::Operation Inherits ( st_op::Operation )
  CONST UID '470F5814038A'
- CONST Name 'remover'
+ CONST Name 'remover::Operation'
  CONST Stereotype 'MDAOperation'
  @SELF
 ; // st_remover::Operation
 
 : st_factory_switch::Attribute
  CONST UID '47B13201031D'
- CONST Name 'factory_switch'
+ CONST Name 'factory_switch::Attribute'
  CONST Stereotype 'MDAAttribute'
  @SELF
 ; // st_factory_switch::Attribute
 
 : st_multi_factory::Operation Inherits ( st_factory::Operation )
  CONST UID '470F57A80119'
- CONST Name 'multi_factory'
+ CONST Name 'multi_factory::Operation'
  CONST Stereotype 'MDAOperation'
  @SELF
 ; // st_multi_factory::Operation
 
 : st_finder::Operation Inherits ( st_factory_op::Operation )
  CONST UID '4B793D9001F1'
- CONST Name 'finder'
+ CONST Name 'finder::Operation'
  CONST Stereotype 'MDAOperation'
  @SELF
 ; // st_finder::Operation
@@ -1461,14 +1629,14 @@ REDEFINITION : st_factory::Operation Inherits ( st_factory_op::Operation )
 
 : st_impurity_value::Attribute
  CONST UID '47D80D1E0359'
- CONST Name 'impurity_value'
+ CONST Name 'impurity_value::Attribute'
  CONST Stereotype 'MDAAttribute'
  @SELF
 ; // st_impurity_value::Attribute
 
 REDEFINITION : st_injects::Dependency
  CONST UID '55BF3FB50305'
- CONST Name 'injects'
+ CONST Name 'injects::Dependency'
  CONST Stereotype 'MDADependency'
  @SELF
 ; // st_injects::Dependency
@@ -1489,7 +1657,7 @@ REDEFINITION : st_injects::Dependency
 
 : st_impurity_param::Attribute
  CONST UID '47D809DF007B'
- CONST Name 'impurity_param'
+ CONST Name 'impurity_param::Attribute'
  CONST Stereotype 'MDAAttribute'
  @SELF
 ; // st_impurity_param::Attribute
@@ -1503,35 +1671,35 @@ REDEFINITION : st_injects::Dependency
 
 REDEFINITION : st_uses::Dependency
  CONST UID '4713412100BB'
- CONST Name 'uses'
+ CONST Name 'uses::Dependency'
  CONST Stereotype 'MDADependency'
  @SELF
 ; // st_uses::Dependency
 
 : st_Type1::Attribute
  CONST UID '4713415B002E'
- CONST Name 'Type1'
+ CONST Name 'Type1::Attribute'
  CONST Stereotype 'MDAAttribute'
  @SELF
 ; // st_Type1::Attribute
 
 : st_Type2::Attribute Inherits ( st_Type1::Attribute )
  CONST UID '4713417E0109'
- CONST Name 'Type2'
+ CONST Name 'Type2::Attribute'
  CONST Stereotype 'MDAAttribute'
  @SELF
 ; // st_Type2::Attribute
 
 : st_Functor2::Attribute
  CONST UID '471342FC030D'
- CONST Name 'Functor2'
+ CONST Name 'Functor2::Attribute'
  CONST Stereotype 'MDAAttribute'
  @SELF
 ; // st_Functor2::Attribute
 
 : st_Functor1::Attribute Inherits ( st_Functor2::Attribute )
  CONST UID '471342D401C5'
- CONST Name 'Functor1'
+ CONST Name 'Functor1::Attribute'
  CONST Stereotype 'MDAAttribute'
  @SELF
 ; // st_Functor1::Attribute
@@ -1545,12 +1713,12 @@ REDEFINITION : st_uses::Dependency
 
 REDEFINITION : st_uses::Dependency
  CONST UID '4713517E037A'
- CONST Name 'uses'
+ CONST Name 'uses::Dependency'
  CONST Stereotype 'MDADependency'
  @SELF
 ; // st_uses::Dependency
 
-: st_AbstractImplInclude
+: st_AbstractImplInclude Inherits ( st_AllContainerInclude )
  CONST UID '47170ED00213'
  CONST Name 'AbstractImplInclude'
  CONST Stereotype 'MDAClass'
@@ -1564,23 +1732,44 @@ REDEFINITION : st_uses::Dependency
  @SELF
 ; // st_UtilityPack
 
+REDEFINITION : st_attr::Attribute Inherits ( st_Attr::Attribute )
+ CONST UID '471354E9009C'
+ CONST Name 'attr::Attribute'
+ CONST Stereotype 'MDAAttribute'
+ @SELF
+; // st_attr::Attribute
+
 REDEFINITION : st_uses::Dependency Inherits ( st_uses::Dependency )
  CONST UID '4713552800CB'
- CONST Name 'uses'
+ CONST Name 'uses::Dependency'
  CONST Stereotype 'MDADependency'
  @SELF
 ; // st_uses::Dependency
 
-: st_ini::Operation
+: st_dependency::Dependency Inherits ( st_uses::Dependency )
+ CONST UID '471354F90148'
+ CONST Name 'dependency::Dependency'
+ CONST Stereotype 'MDADependency'
+ @SELF
+; // st_dependency::Dependency
+
+REDEFINITION : st_op::Operation Inherits ( st_Operation::Operation )
+ CONST UID '471355720222'
+ CONST Name 'op::Operation'
+ CONST Stereotype 'MDAOperation'
+ @SELF
+; // st_op::Operation
+
+: st_ini::Operation Inherits ( st_op::Operation )
  CONST UID '478668780062'
- CONST Name 'ini'
+ CONST Name 'ini::Operation'
  CONST Stereotype 'MDAOperation'
  @SELF
 ; // st_ini::Operation
 
-: st_fini::Operation
+: st_fini::Operation Inherits ( st_op::Operation )
  CONST UID '478668A902B5'
- CONST Name 'fini'
+ CONST Name 'fini::Operation'
  CONST Stereotype 'MDAOperation'
  @SELF
 ; // st_fini::Operation
@@ -1594,7 +1783,7 @@ REDEFINITION : st_uses::Dependency Inherits ( st_uses::Dependency )
 
 REDEFINITION : st_switch::Attribute
  CONST UID '47B1884300A7'
- CONST Name 'switch'
+ CONST Name 'switch::Attribute'
  CONST Stereotype 'MDAAttribute'
  @SELF
 ; // st_switch::Attribute
@@ -1615,7 +1804,7 @@ REDEFINITION : st_switch::Attribute
 
 : st_deallocator::Attribute
  CONST UID '471468EC031C'
- CONST Name 'deallocator'
+ CONST Name 'deallocator::Attribute'
  CONST Stereotype 'MDAAttribute'
  @SELF
 ; // st_deallocator::Attribute
@@ -1627,30 +1816,37 @@ REDEFINITION : st_switch::Attribute
  @SELF
 ; // st_TemplateFunctions
 
+REDEFINITION : st_Operation::Operation Inherits ( st_Operation::Operation )
+ CONST UID '471490940138'
+ CONST Name 'Operation::Operation'
+ CONST Stereotype 'MDAOperation'
+ @SELF
+; // st_Operation::Operation
+
 REDEFINITION : st_chg::Operation Inherits ( st_chg::Operation )
  CONST UID '4714912A00FA'
- CONST Name 'chg'
+ CONST Name 'chg::Operation'
  CONST Stereotype 'MDAOperation'
  @SELF
 ; // st_chg::Operation
 
 REDEFINITION : st_oneway::Operation Inherits ( st_oneway::Operation )
  CONST UID '4714913A003E'
- CONST Name 'oneway'
+ CONST Name 'oneway::Operation'
  CONST Stereotype 'MDAOperation'
  @SELF
 ; // st_oneway::Operation
 
 REDEFINITION : st_oneway,chg::Operation Inherits ( st_oneway,chg::Operation )
  CONST UID '471491410186'
- CONST Name 'oneway,chg'
+ CONST Name 'oneway,chg::Operation'
  CONST Stereotype 'MDAOperation'
  @SELF
 ; // st_oneway,chg::Operation
 
 REDEFINITION : st_static::Operation Inherits ( st_static::Operation )
  CONST UID '471491500261'
- CONST Name 'static'
+ CONST Name 'static::Operation'
  CONST Stereotype 'MDAOperation'
  @SELF
 ; // st_static::Operation
@@ -1662,16 +1858,30 @@ REDEFINITION : st_static::Operation Inherits ( st_static::Operation )
  @SELF
 ; // st_UtilityClass
 
+REDEFINITION : st_attr::Attribute Inherits ( st_static::Attribute )
+ CONST UID '47172C4C00CB'
+ CONST Name 'attr::Attribute'
+ CONST Stereotype 'MDAAttribute'
+ @SELF
+; // st_attr::Attribute
+
+REDEFINITION : st_op::Operation Inherits ( st_static::Operation )
+ CONST UID '47172C8D035B'
+ CONST Name 'op::Operation'
+ CONST Stereotype 'MDAOperation'
+ @SELF
+; // st_op::Operation
+
 REDEFINITION : st_uses::Dependency Inherits ( st_uses::Dependency )
  CONST UID '478328E60019'
- CONST Name 'uses'
+ CONST Name 'uses::Dependency'
  CONST Stereotype 'MDADependency'
  @SELF
 ; // st_uses::Dependency
 
 REDEFINITION : st_friend::Dependency Inherits ( st_friend::Dependency )
  CONST UID '478328E8015D'
- CONST Name 'friend'
+ CONST Name 'friend::Dependency'
  CONST Stereotype 'MDADependency'
  @SELF
 ; // st_friend::Dependency
@@ -1685,24 +1895,31 @@ REDEFINITION : st_friend::Dependency Inherits ( st_friend::Dependency )
 
 REDEFINITION : st_impurity_value::Attribute
  CONST UID '47A1B60702B1'
- CONST Name 'impurity_value'
+ CONST Name 'impurity_value::Attribute'
  CONST Stereotype 'MDAAttribute'
  @SELF
 ; // st_impurity_value::Attribute
 
 REDEFINITION : st_ini::Operation Inherits ( st_static::Operation )
  CONST UID '4B3881150067'
- CONST Name 'ini'
+ CONST Name 'ini::Operation'
  CONST Stereotype 'MDAOperation'
  @SELF
 ; // st_ini::Operation
 
 REDEFINITION : st_fini::Operation Inherits ( st_static::Operation )
  CONST UID '4B38812400E4'
- CONST Name 'fini'
+ CONST Name 'fini::Operation'
  CONST Stereotype 'MDAOperation'
  @SELF
 ; // st_fini::Operation
+
+REDEFINITION : st_attr::Attribute Inherits ( st_Attr::Attribute )
+ CONST UID '4BFA6E530221'
+ CONST Name 'attr::Attribute'
+ CONST Stereotype 'MDAAttribute'
+ @SELF
+; // st_attr::Attribute
 
 : st_Deallocator Inherits ( st_WikiImplClass )
  CONST UID '471DE4B30222'
@@ -1718,6 +1935,13 @@ REDEFINITION : st_fini::Operation Inherits ( st_static::Operation )
  @SELF
 ; // st_Environment
 
+: st_enviroment_variable::Attribute Inherits ( st_Attr::Attribute )
+ CONST UID '471DE6F2009C'
+ CONST Name 'enviroment_variable::Attribute'
+ CONST Stereotype 'MDAAttribute'
+ @SELF
+; // st_enviroment_variable::Attribute
+
 : st_Impurity Inherits ( st_SimpleClass )
  CONST UID '479136C103CF'
  CONST Name 'Impurity'
@@ -1727,21 +1951,21 @@ REDEFINITION : st_fini::Operation Inherits ( st_static::Operation )
 
 REDEFINITION : st_impurity_param::Attribute
  CONST UID '47A1AE090224'
- CONST Name 'impurity_param'
+ CONST Name 'impurity_param::Attribute'
  CONST Stereotype 'MDAAttribute'
  @SELF
 ; // st_impurity_param::Attribute
 
-: st_inline::Operation
+: st_inline::Operation Inherits ( st_Operation::Operation )
  CONST UID '47B078C20056'
- CONST Name 'inline'
+ CONST Name 'inline::Operation'
  CONST Stereotype 'MDAOperation'
  @SELF
 ; // st_inline::Operation
 
-: st_override::Operation
+: st_override::Operation Inherits ( st_Operation::Operation )
  CONST UID '47B09B8D034D'
- CONST Name 'override'
+ CONST Name 'override::Operation'
  CONST Stereotype 'MDAOperation'
  @SELF
 ; // st_override::Operation
@@ -1760,23 +1984,30 @@ REDEFINITION : st_impurity_param::Attribute
  @SELF
 ; // st_method
 
+: st_operation::Operation Inherits ( st_CallingConventionsHolder )
+ CONST UID '49CB473A0201'
+ CONST Name 'operation::Operation'
+ CONST Stereotype 'MDAOperation'
+ @SELF
+; // st_operation::Operation
+
 : st_var::Attribute
  CONST UID '49CB56A601B9'
- CONST Name 'var'
+ CONST Name 'var::Attribute'
  CONST Stereotype 'MDAAttribute'
  @SELF
 ; // st_var::Attribute
 
 : st_globalvar::Attribute Inherits ( st_var::Attribute )
  CONST UID '4B72F4DD0345'
- CONST Name 'globalvar'
+ CONST Name 'globalvar::Attribute'
  CONST Stereotype 'MDAAttribute'
  @SELF
 ; // st_globalvar::Attribute
 
 : st_call::Dependency Inherits ( st_uses::Dependency )
  CONST UID '4BB0B8710126'
- CONST Name 'call'
+ CONST Name 'call::Dependency'
  CONST Stereotype 'MDADependency'
  @SELF
 ; // st_call::Dependency
@@ -1825,7 +2056,7 @@ REDEFINITION : st_impurity_param::Attribute
 
 REDEFINITION : st_ctor::Operation Inherits ( st_ctor::Operation )
  CONST UID '4BFB75D502BD'
- CONST Name 'ctor'
+ CONST Name 'ctor::Operation'
  CONST Stereotype 'MDAOperation'
  @SELF
 ; // st_ctor::Operation
@@ -1853,7 +2084,7 @@ REDEFINITION : st_ctor::Operation Inherits ( st_ctor::Operation )
 
 : st_define::Attribute
  CONST UID '4714430C004E'
- CONST Name 'define'
+ CONST Name 'define::Attribute'
  CONST Stereotype 'MDAAttribute'
  @SELF
 ; // st_define::Attribute
@@ -1867,35 +2098,42 @@ REDEFINITION : st_ctor::Operation Inherits ( st_ctor::Operation )
 
 REDEFINITION : st_property::Attribute Inherits ( st_property::Attribute )
  CONST UID '470F75EC03C8'
- CONST Name 'property'
+ CONST Name 'property::Attribute'
  CONST Stereotype 'MDAAttribute'
  @SELF
 ; // st_property::Attribute
 
 REDEFINITION : st_readonly::Attribute Inherits ( st_readonly::Attribute )
  CONST UID '470F761D0280'
- CONST Name 'readonly'
+ CONST Name 'readonly::Attribute'
  CONST Stereotype 'MDAAttribute'
  @SELF
 ; // st_readonly::Attribute
 
 REDEFINITION : st_writeonly::Attribute Inherits ( st_writeonly::Attribute )
  CONST UID '470F7634000F'
- CONST Name 'writeonly'
+ CONST Name 'writeonly::Attribute'
  CONST Stereotype 'MDAAttribute'
  @SELF
 ; // st_writeonly::Attribute
 
+REDEFINITION : st_op::Operation Inherits ( st_op::Operation )
+ CONST UID '470F76520109'
+ CONST Name 'op::Operation'
+ CONST Stereotype 'MDAOperation'
+ @SELF
+; // st_op::Operation
+
 REDEFINITION : st_friend::Dependency Inherits ( st_friend::Dependency )
  CONST UID '470F7665005D'
- CONST Name 'friend'
+ CONST Name 'friend::Dependency'
  CONST Stereotype 'MDADependency'
  @SELF
 ; // st_friend::Dependency
 
 REDEFINITION : st_chg::Operation Inherits ( st_chg::Operation )
  CONST UID '470F7681002E'
- CONST Name 'chg'
+ CONST Name 'chg::Operation'
  CONST Stereotype 'MDAOperation'
  @SELF
 ; // st_chg::Operation
@@ -1907,7 +2145,7 @@ REDEFINITION : st_chg::Operation Inherits ( st_chg::Operation )
  @SELF
 ; // st_ComServant
 
-: st_CommonPackageInclude Inherits ( st_WikiPackageImpl )
+: st_CommonPackageInclude Inherits ( st_WikiPackageImpl st_AllContainerInclude )
  CONST UID '4714A311037A'
  CONST Name 'CommonPackageInclude'
  CONST Stereotype 'MDACategory'
@@ -1984,9 +2222,23 @@ REDEFINITION : st_chg::Operation Inherits ( st_chg::Operation )
  @SELF
 ; // st_LibExecutor
 
+REDEFINITION : st_attr::Attribute Inherits ( st_Attr::Attribute )
+ CONST UID '471348310138'
+ CONST Name 'attr::Attribute'
+ CONST Stereotype 'MDAAttribute'
+ @SELF
+; // st_attr::Attribute
+
+REDEFINITION : st_op::Operation Inherits ( st_Operation::Operation )
+ CONST UID '4713484C007D'
+ CONST Name 'op::Operation'
+ CONST Stereotype 'MDAOperation'
+ @SELF
+; // st_op::Operation
+
 REDEFINITION : st_uses::Dependency Inherits ( st_uses::Dependency )
  CONST UID '4713487C033C'
- CONST Name 'uses'
+ CONST Name 'uses::Dependency'
  CONST Stereotype 'MDADependency'
  @SELF
 ; // st_uses::Dependency
@@ -2005,16 +2257,30 @@ REDEFINITION : st_uses::Dependency Inherits ( st_uses::Dependency )
  @SELF
 ; // st_ClientInterceptor
 
+REDEFINITION : st_attr::Attribute Inherits ( st_Attr::Attribute )
+ CONST UID '47134A6500AB'
+ CONST Name 'attr::Attribute'
+ CONST Stereotype 'MDAAttribute'
+ @SELF
+; // st_attr::Attribute
+
+REDEFINITION : st_op::Operation Inherits ( st_Operation::Operation )
+ CONST UID '47134A7602EE'
+ CONST Name 'op::Operation'
+ CONST Stereotype 'MDAOperation'
+ @SELF
+; // st_op::Operation
+
 REDEFINITION : st_uses::Dependency
  CONST UID '47134AA601A5'
- CONST Name 'uses'
+ CONST Name 'uses::Dependency'
  CONST Stereotype 'MDADependency'
  @SELF
 ; // st_uses::Dependency
 
 : st_connect::Dependency
  CONST UID '47134AB3003E'
- CONST Name 'connect'
+ CONST Name 'connect::Dependency'
  CONST Stereotype 'MDADependency'
  @SELF
 ; // st_connect::Dependency
@@ -2040,12 +2306,26 @@ REDEFINITION : st_uses::Dependency
  @SELF
 ; // st_Valuetype
 
-REDEFINITION : st_factory::Operation
+REDEFINITION : st_Operation::Operation
+ CONST UID '470EFF4F02BF'
+ CONST Name 'Operation::Operation'
+ CONST Stereotype 'MDAOperation'
+ @SELF
+; // st_Operation::Operation
+
+REDEFINITION : st_factory::Operation Inherits ( st_Operation::Operation )
  CONST UID '470EFFAD0119'
- CONST Name 'factory'
+ CONST Name 'factory::Operation'
  CONST Stereotype 'MDAOperation'
  @SELF
 ; // st_factory::Operation
+
+: st_Attribute::Attribute
+ CONST UID '470EFFEB0242'
+ CONST Name 'Attribute::Attribute'
+ CONST Stereotype 'MDAAttribute'
+ @SELF
+; // st_Attribute::Attribute
 
 : st_ServerFacet Inherits ( st_WikiImplClass )
  CONST UID '470F7348002E'
@@ -2056,66 +2336,87 @@ REDEFINITION : st_factory::Operation
 
 REDEFINITION : st_property::Attribute
  CONST UID '471F1A6501A5'
- CONST Name 'property'
+ CONST Name 'property::Attribute'
  CONST Stereotype 'MDAAttribute'
  @SELF
 ; // st_property::Attribute
 
+REDEFINITION : st_key::Attribute
+ CONST UID '471F1C250167'
+ CONST Name 'key::Attribute'
+ CONST Stereotype 'MDAAttribute'
+ @SELF
+; // st_key::Attribute
+
 REDEFINITION : st_readonly::Attribute Inherits ( st_property::Attribute )
  CONST UID '471F1C480232'
- CONST Name 'readonly'
+ CONST Name 'readonly::Attribute'
  CONST Stereotype 'MDAAttribute'
  @SELF
 ; // st_readonly::Attribute
 
 REDEFINITION : st_writeonly::Attribute Inherits ( st_property::Attribute )
  CONST UID '471F1C7903D8'
- CONST Name 'writeonly'
+ CONST Name 'writeonly::Attribute'
  CONST Stereotype 'MDAAttribute'
  @SELF
 ; // st_writeonly::Attribute
 
+REDEFINITION : st_operation::Operation
+ CONST UID '471F1CC2035B'
+ CONST Name 'operation::Operation'
+ CONST Stereotype 'MDAOperation'
+ @SELF
+; // st_operation::Operation
+
 REDEFINITION : st_friend::Dependency
  CONST UID '471F1FEC0109'
- CONST Name 'friend'
+ CONST Name 'friend::Dependency'
  CONST Stereotype 'MDADependency'
  @SELF
 ; // st_friend::Dependency
 
-REDEFINITION : st_oneway::Operation
+REDEFINITION : st_oneway::Operation Inherits ( st_operation::Operation )
  CONST UID '471F202802EE'
- CONST Name 'oneway'
+ CONST Name 'oneway::Operation'
  CONST Stereotype 'MDAOperation'
  @SELF
 ; // st_oneway::Operation
 
 REDEFINITION : st_oneway,chg::Operation Inherits ( st_oneway::Operation )
  CONST UID '471F2F9801D4'
- CONST Name 'oneway,chg'
+ CONST Name 'oneway,chg::Operation'
  CONST Stereotype 'MDAOperation'
  @SELF
 ; // st_oneway,chg::Operation
 
-REDEFINITION : st_chg::Operation
+REDEFINITION : st_chg::Operation Inherits ( st_operation::Operation )
  CONST UID '47BABD2E01C1'
- CONST Name 'chg'
+ CONST Name 'chg::Operation'
  CONST Stereotype 'MDAOperation'
  @SELF
 ; // st_chg::Operation
 
 REDEFINITION : st_supply::Dependency
  CONST UID '47FC905C012A'
- CONST Name 'supply'
+ CONST Name 'supply::Dependency'
  CONST Stereotype 'MDADependency'
  @SELF
 ; // st_supply::Dependency
 
 REDEFINITION : st_consume::Dependency
  CONST UID '47FC910001F7'
- CONST Name 'consume'
+ CONST Name 'consume::Dependency'
  CONST Stereotype 'MDADependency'
  @SELF
 ; // st_consume::Dependency
+
+: st_ServerFactoryOperationInternal
+ CONST UID '4AE7EA60000B'
+ CONST Name 'ServerFactoryOperationInternal'
+ CONST Stereotype 'MDAAbstractClass'
+ @SELF
+; // st_ServerFactoryOperationInternal
 
 : st_ServerEvent Inherits ( st_Struct )
  CONST UID '47FC8DC20143'
@@ -2131,30 +2432,30 @@ REDEFINITION : st_consume::Dependency
  @SELF
 ; // st_ServerInterface
 
-REDEFINITION : st_remover::Operation
+REDEFINITION : st_remover::Operation Inherits ( st_ServerFactoryOperationInternal )
  CONST UID '471F1823007D'
- CONST Name 'remover'
+ CONST Name 'remover::Operation'
  CONST Stereotype 'MDAOperation'
  @SELF
 ; // st_remover::Operation
 
-REDEFINITION : st_factory::Operation Inherits ( st_factory::Operation )
+REDEFINITION : st_factory::Operation Inherits ( st_factory::Operation st_ServerFactoryOperationInternal )
  CONST UID '471F1E100186'
- CONST Name 'factory'
+ CONST Name 'factory::Operation'
  CONST Stereotype 'MDAOperation'
  @SELF
 ; // st_factory::Operation
 
-REDEFINITION : st_multi_factory::Operation Inherits ( st_multi_factory::Operation )
+REDEFINITION : st_multi_factory::Operation Inherits ( st_multi_factory::Operation st_ServerFactoryOperationInternal )
  CONST UID '471F1E81034B'
- CONST Name 'multi_factory'
+ CONST Name 'multi_factory::Operation'
  CONST Stereotype 'MDAOperation'
  @SELF
 ; // st_multi_factory::Operation
 
 REDEFINITION : st_factory_switch::Attribute Inherits ( st_factory_switch::Attribute )
  CONST UID '47B133E102FA'
- CONST Name 'factory_switch'
+ CONST Name 'factory_switch::Attribute'
  CONST Stereotype 'MDAAttribute'
  @SELF
 ; // st_factory_switch::Attribute
@@ -2189,14 +2490,14 @@ REDEFINITION : st_LibSupport Inherits ( st_LibSupport )
 
 : st_macro::Operation
  CONST UID '4772795A0375'
- CONST Name 'macro'
+ CONST Name 'macro::Operation'
  CONST Stereotype 'MDAOperation'
  @SELF
 ; // st_macro::Operation
 
 REDEFINITION : st_include::Dependency
  CONST UID '4773ACE201C0'
- CONST Name 'include'
+ CONST Name 'include::Dependency'
  CONST Stereotype 'MDADependency'
  @SELF
 ; // st_include::Dependency
@@ -2238,31 +2539,59 @@ REDEFINITION : st_include::Dependency
 
 REDEFINITION : st_property::Attribute
  CONST UID '4999824C0371'
- CONST Name 'property'
+ CONST Name 'property::Attribute'
  CONST Stereotype 'MDAAttribute'
  @SELF
 ; // st_property::Attribute
 
+REDEFINITION : st_key::Attribute
+ CONST UID '499AA23100C9'
+ CONST Name 'key::Attribute'
+ CONST Stereotype 'MDAAttribute'
+ @SELF
+; // st_key::Attribute
+
 REDEFINITION : st_readonly::Attribute Inherits ( st_property::Attribute )
  CONST UID '499982880154'
- CONST Name 'readonly'
+ CONST Name 'readonly::Attribute'
  CONST Stereotype 'MDAAttribute'
  @SELF
 ; // st_readonly::Attribute
 
+REDEFINITION : st_key::Attribute Inherits ( st_key::Attribute )
+ CONST UID '499AA86B0322'
+ CONST Name 'key::Attribute'
+ CONST Stereotype 'MDAAttribute'
+ @SELF
+; // st_key::Attribute
+
 REDEFINITION : st_writeonly::Attribute Inherits ( st_property::Attribute )
  CONST UID '499982B000C6'
- CONST Name 'writeonly'
+ CONST Name 'writeonly::Attribute'
  CONST Stereotype 'MDAAttribute'
  @SELF
 ; // st_writeonly::Attribute
 
+REDEFINITION : st_key::Attribute Inherits ( st_key::Attribute )
+ CONST UID '499AA881023B'
+ CONST Name 'key::Attribute'
+ CONST Stereotype 'MDAAttribute'
+ @SELF
+; // st_key::Attribute
+
 REDEFINITION : st_uses::Dependency
  CONST UID '49998E19015C'
- CONST Name 'uses'
+ CONST Name 'uses::Dependency'
  CONST Stereotype 'MDADependency'
  @SELF
 ; // st_uses::Dependency
+
+REDEFINITION : st_operation::Operation
+ CONST UID '499AD56602D7'
+ CONST Name 'operation::Operation'
+ CONST Stereotype 'MDAOperation'
+ @SELF
+; // st_operation::Operation
 
 : st_TestCase Inherits ( st_SimpleClass )
  CONST UID '4B2A19080274'
@@ -2287,14 +2616,14 @@ REDEFINITION : st_uses::Dependency
 
 REDEFINITION : st_impurity_param::Attribute Inherits ( st_impurity_param::Attribute )
  CONST UID '51E034BD007A'
- CONST Name 'impurity_param'
+ CONST Name 'impurity_param::Attribute'
  CONST Stereotype 'MDAAttribute'
  @SELF
 ; // st_impurity_param::Attribute
 
 REDEFINITION : st_inline::Operation Inherits ( st_inline::Operation )
  CONST UID '51E034D30202'
- CONST Name 'inline'
+ CONST Name 'inline::Operation'
  CONST Stereotype 'MDAOperation'
  @SELF
 ; // st_inline::Operation

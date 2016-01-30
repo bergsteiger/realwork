@@ -5,6 +5,7 @@ INCLUDE 'ElementsRTTI.ms.dict'
 : ME_36C7C32193CF
  CONST UID '36C7C32193CF'
  CONST Name 'ReleaseImportExport'
+ CONST IsSummoned true
  CONST Class class_Category
  : Stereotype st_TestTarget ;
  %SUMMARY ' (релизный вариант)' ;
@@ -13,7 +14,7 @@ INCLUDE 'ElementsRTTI.ms.dict'
  : Parent WL 'ME_51945CDA0027' '51945CDA0027.pas.ms.script' // archi$ImportExprortTest
  ;
  : Depends
-   @ ( WL 'ME_4773D64E036C' '47913B47006E.pas.ms.script' // l3Base
+   Seq: ( WL 'ME_4773D64E036C' '47913B47006E.pas.ms.script' // l3Base
  WL 'ME_4787A405013D' '4AB0C3C60310.pas.ms.script' // Exception
  WL 'ME_4B2A0D8A03A0' '4B2A0D6A0077.pas.ms.script' // TextTestRunner
  WL 'ME_4B2A0D9401CC' '4B2A0D6A0077.pas.ms.script' // GUITestRunner
@@ -24,7 +25,7 @@ INCLUDE 'ElementsRTTI.ms.dict'
  WL 'ME_4DEF306102FF' '4DEF302C0007.pas.ms.script' // TtfwScriptEngineEX
  WL 'ME_519465D90095' '519465D90095.pas.ms.script' // ImportExportTestLibrary
  WL 'ME_55ED4FE10372' '55ED4FE10372.pas.ms.script' // SimpleTests
- ) .SequenceCode.It
+ )
  ; // Depends
  CONST "CONFIG_UC" false
  CONST "console" false
@@ -33,14 +34,20 @@ INCLUDE 'ElementsRTTI.ms.dict'
  CONST "no scripts" 'undefined'
  CONST "old format" false
  : Generators
- @ (
+ Seq: (
  gen_intf.pas
  gen_pas.script
  gen_pas.script.runner
- ) .SequenceCode.It
+ )
  ; // Generators
+ CONST dfm:PathOnly '\archi\source\projects'
  CONST intf.pas:Path 'archi\source\projects\ImportExportTest\ReleaseImportExportTest.dpr'
+ CONST intf.pas:PathOnly '\archi\source\projects\ImportExportTest'
  CONST pas.script:Path 'shared\models\NewSchool\Scripts\36C7C32193CF.pas.ms.script'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
  CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\36C7C32193CF.pas.ms.script.runner'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\archi\source\projects'
+ CONST extprop:pas:UnitName 'ReleaseImportExportTest'
 
 ref; // ME_36C7C32193CF ReleaseImportExport

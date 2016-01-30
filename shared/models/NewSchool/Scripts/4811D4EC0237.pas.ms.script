@@ -16,6 +16,11 @@ FORWARD ME_4B8693630365
  CONST Abstraction at_final
  : Parent ME_4B8693630365 // TnevShapePrim
  ;
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest\new'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest\new'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'Items_NoChanging'
 
 ref; // ME_4B87B08E03AE l3Items_NoChanging
 
@@ -29,6 +34,11 @@ ref; // ME_4B87B08E03AE l3Items_NoChanging
  CONST Abstraction at_final
  : Parent ME_4B8693630365 // TnevShapePrim
  ;
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest\new'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest\new'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'Items_NoSort'
 
 ref; // ME_4E6E23C001B6 l3Items_NoSort
 
@@ -72,8 +82,8 @@ ref; // ME_4E6E239103B1 DoIt
  : Parent ME_4B8693630365 // TnevShapePrim
  ;
  : Operations
-   @ ( ME_4E6E239103B1 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_4E6E239103B1 // DoIt
+ )
  ; // Operations
 
 ref; // ME_4E6E23810369 CleanupRefs
@@ -98,6 +108,7 @@ ref; // ME_4B87994C0299
  ;
  : Implementor ME_4B8693630365 // TnevShapePrim
  ;
+ CONST OpKind opkind_Implemented
  CONST "ifdef" 'l3Items_NeedsAssignItem'
  CONST "ifndef" 'l3Items_NoSort'
 ref; // ME_47B2C42A0163_ME_4B8693630365 AssignItem
@@ -109,6 +120,7 @@ ref; // ME_47B2C42A0163_ME_4B8693630365 AssignItem
  ;
  : Implementor ME_4B8693630365 // TnevShapePrim
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_47B935AF0066_ME_4B8693630365 FillItem
 
 : ME_47B94A5C006E_ME_4B8693630365
@@ -118,6 +130,7 @@ ref; // ME_47B935AF0066_ME_4B8693630365 FillItem
  ;
  : Implementor ME_4B8693630365 // TnevShapePrim
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_47B94A5C006E_ME_4B8693630365 FreeItem
 
 : ME_47B99D4503A2_ME_4B8693630365
@@ -127,6 +140,7 @@ ref; // ME_47B94A5C006E_ME_4B8693630365 FreeItem
  ;
  : Implementor ME_4B8693630365 // TnevShapePrim
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_47B99D4503A2_ME_4B8693630365 CompareExistingItems
 
 : ME_47A6FEE600FC_ME_4B8693630365
@@ -136,6 +150,7 @@ ref; // ME_47B99D4503A2_ME_4B8693630365 CompareExistingItems
  ;
  : Implementor ME_4B8693630365 // TnevShapePrim
  ;
+ CONST OpKind opkind_Overridden
  CONST "ifndef" 'DesignTimeLibrary'
 ref; // ME_47A6FEE600FC_ME_4B8693630365 IsCacheable
 
@@ -151,38 +166,38 @@ ref; // ME_47A6FEE600FC_ME_4B8693630365 IsCacheable
  : Parent ME_4811D4EC0237 // Views
  ;
  : Inherits
-   @ ( WL 'ME_47B5A0AE03CC' '47913B47006E.pas.ms.script' // l3ObjectRefListPrim
+   Seq: ( WL 'ME_47B5A0AE03CC' '47913B47006E.pas.ms.script' // l3ObjectRefListPrim
  WL 'ME_4A54DD4E036F' '47913B47006E.pas.ms.script' // Tl3ProtoDataContainer
  WL 'ME_4B86890E0307' '47913B47006E.pas.ms.script' // l3OpenArray
- ) .SequenceCode.It
+ )
  ; // Inherits
  : Attributes
-   @ ( ME_4B86942F0286 // ItemType
- ) .SequenceCode.It
+   Seq: ( ME_4B86942F0286 // ItemType
+ )
  ; // Attributes
  : Operations
-   @ ( ME_4E6E23810369 // CleanupRefs
- ) .SequenceCode.It
+   Seq: ( ME_4E6E23810369 // CleanupRefs
+ )
  ; // Operations
  : Implemented
-   @ ( ME_47B2C42A0163_ME_4B8693630365 // AssignItem
+   Seq: ( ME_47B2C42A0163_ME_4B8693630365 // AssignItem
  ME_47B935AF0066_ME_4B8693630365 // FillItem
  ME_47B94A5C006E_ME_4B8693630365 // FreeItem
  ME_47B99D4503A2_ME_4B8693630365 // CompareExistingItems
- ) .SequenceCode.It
+ )
  ; // Implemented
  : Overridden
-   @ ( ME_47A6FEE600FC_ME_4B8693630365 // IsCacheable
- ) .SequenceCode.It
+   Seq: ( ME_47A6FEE600FC_ME_4B8693630365 // IsCacheable
+ )
  ; // Overridden
  : Children
-   @ ( ME_4B87B08E03AE // l3Items_NoChanging
+   Seq: ( ME_4B87B08E03AE // l3Items_NoChanging
  ME_4E6E23C001B6 // l3Items_NoSort
- ) .SequenceCode.It
+ )
  ; // Children
  : Dependencies
-   @ ( ME_4B87994C0299 // 
- ) .SequenceCode.It
+   Seq: ( ME_4B87994C0299 // 
+ )
  ; // Dependencies
  CONST "author" 'Люлин А.В.'
  CONST "needs InstanceR" 'undefined'
@@ -190,12 +205,14 @@ ref; // ME_47A6FEE600FC_ME_4B8693630365 IsCacheable
  CONST "no hands" true
  CONST "register in scripts" 'undefined'
  CONST "started" '25.02.2010 18:12'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest\new'
  CONST intf.pas:Path 'common\components\gui\Garant\Everest\new\nevShapePrim.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest\new'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'ShapePrim'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'nevShapePrim'
 
 ref; // ME_4B8693630365 TnevShapePrim
 
@@ -211,6 +228,11 @@ FORWARD ME_4E6E1EB1013F
  CONST Abstraction at_final
  : Parent ME_4E6E1EB1013F // TnevShapePrimRefList
  ;
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest\new'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest\new'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'Items_NoSort'
 
 ref; // ME_4E6E1FE50136 l3Items_NoSort
 
@@ -224,6 +246,11 @@ ref; // ME_4E6E1FE50136 l3Items_NoSort
  CONST Abstraction at_final
  : Parent ME_4E6E1EB1013F // TnevShapePrimRefList
  ;
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest\new'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest\new'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'Items_NoChanging'
 
 ref; // ME_4E6E23AD0311 l3Items_NoChanging
 
@@ -249,6 +276,7 @@ ref; // ME_4E6E1F0403C9 ItemType
  ;
  : Implementor ME_4E6E1EB1013F // TnevShapePrimRefList
  ;
+ CONST OpKind opkind_Implemented
  CONST "ifdef" 'l3Items_NeedsAssignItem'
  CONST "ifndef" 'l3Items_NoSort'
 ref; // ME_47B2C42A0163_ME_4E6E1EB1013F AssignItem
@@ -260,6 +288,7 @@ ref; // ME_47B2C42A0163_ME_4E6E1EB1013F AssignItem
  ;
  : Implementor ME_4E6E1EB1013F // TnevShapePrimRefList
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_47B935AF0066_ME_4E6E1EB1013F FillItem
 
 : ME_47B94A5C006E_ME_4E6E1EB1013F
@@ -269,6 +298,7 @@ ref; // ME_47B935AF0066_ME_4E6E1EB1013F FillItem
  ;
  : Implementor ME_4E6E1EB1013F // TnevShapePrimRefList
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_47B94A5C006E_ME_4E6E1EB1013F FreeItem
 
 : ME_47B99D4503A2_ME_4E6E1EB1013F
@@ -278,6 +308,7 @@ ref; // ME_47B94A5C006E_ME_4E6E1EB1013F FreeItem
  ;
  : Implementor ME_4E6E1EB1013F // TnevShapePrimRefList
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_47B99D4503A2_ME_4E6E1EB1013F CompareExistingItems
 
 : ME_4E6E1EB1013F
@@ -291,25 +322,25 @@ ref; // ME_47B99D4503A2_ME_4E6E1EB1013F CompareExistingItems
  : Parent ME_4811D4EC0237 // Views
  ;
  : Inherits
-   @ ( WL 'ME_47B5A0AE03CC' '47913B47006E.pas.ms.script' // l3ObjectRefListPrim
+   Seq: ( WL 'ME_47B5A0AE03CC' '47913B47006E.pas.ms.script' // l3ObjectRefListPrim
  WL 'ME_4A54DD4E036F' '47913B47006E.pas.ms.script' // Tl3ProtoDataContainer
- ) .SequenceCode.It
+ )
  ; // Inherits
  : Attributes
-   @ ( ME_4E6E1F0403C9 // ItemType
- ) .SequenceCode.It
+   Seq: ( ME_4E6E1F0403C9 // ItemType
+ )
  ; // Attributes
  : Implemented
-   @ ( ME_47B2C42A0163_ME_4E6E1EB1013F // AssignItem
+   Seq: ( ME_47B2C42A0163_ME_4E6E1EB1013F // AssignItem
  ME_47B935AF0066_ME_4E6E1EB1013F // FillItem
  ME_47B94A5C006E_ME_4E6E1EB1013F // FreeItem
  ME_47B99D4503A2_ME_4E6E1EB1013F // CompareExistingItems
- ) .SequenceCode.It
+ )
  ; // Implemented
  : Children
-   @ ( ME_4E6E1FE50136 // l3Items_NoSort
+   Seq: ( ME_4E6E1FE50136 // l3Items_NoSort
  ME_4E6E23AD0311 // l3Items_NoChanging
- ) .SequenceCode.It
+ )
  ; // Children
  CONST "author" 'Люлин А.В.'
  CONST "needs InstanceR" 'undefined'
@@ -317,12 +348,14 @@ ref; // ME_47B99D4503A2_ME_4E6E1EB1013F CompareExistingItems
  CONST "no hands" true
  CONST "register in scripts" 'undefined'
  CONST "started" '12.09.2011 19:01'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest\new'
  CONST intf.pas:Path 'common\components\gui\Garant\Everest\new\nevShapePrimRefList.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest\new'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'ShapePrimRefList'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'nevShapePrimRefList'
 
 ref; // ME_4E6E1EB1013F TnevShapePrimRefList
 
@@ -381,11 +414,11 @@ ref; // ME_4E6E1B31023E aHacker
  : Target ME_4B8682720286 // TnevShape
  ;
  : Parameters
-   @ ( ME_4E6E1B3101A1 // aShape
+   Seq: ( ME_4E6E1B3101A1 // aShape
  ME_4E6E1B3101D5 // aTopLeft
  ME_4E6E1B310219 // MakeVisible
  ME_4E6E1B31023E // aHacker
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_4E6E1B1701D2 DoIt
@@ -401,8 +434,8 @@ ref; // ME_4E6E1B1701D2 DoIt
  : Parent ME_4B8682720286 // TnevShape
  ;
  : Operations
-   @ ( ME_4E6E1B1701D2 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_4E6E1B1701D2 // DoIt
+ )
  ; // Operations
 
 ref; // ME_4E6E1AFF0229 AddShape
@@ -414,6 +447,7 @@ ref; // ME_4E6E1AFF0229 AddShape
  ;
  : Implementor ME_4B8682720286 // TnevShape
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" true
 ref; // ME_473DA7280074_ME_4B8682720286 Bounds
 
@@ -424,6 +458,7 @@ ref; // ME_473DA7280074_ME_4B8682720286 Bounds
  ;
  : Implementor ME_4B8682720286 // TnevShape
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" true
 ref; // ME_473DA73100A9_ME_4B8682720286 Outer
 
@@ -434,6 +469,7 @@ ref; // ME_473DA73100A9_ME_4B8682720286 Outer
  ;
  : Implementor ME_4B8682720286 // TnevShape
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_47C5B88F0025_ME_4B8682720286 rVisible
 
 : ME_47C5B91302DA_ME_4B8682720286
@@ -443,6 +479,7 @@ ref; // ME_47C5B88F0025_ME_4B8682720286 rVisible
  ;
  : Implementor ME_4B8682720286 // TnevShape
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_47C5B91302DA_ME_4B8682720286 SetDrawnBottom
 
 : ME_47C5B9400335_ME_4B8682720286
@@ -452,6 +489,7 @@ ref; // ME_47C5B91302DA_ME_4B8682720286 SetDrawnBottom
  ;
  : Implementor ME_4B8682720286 // TnevShape
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_47C5B9400335_ME_4B8682720286 ReserveMap
 
 : ME_47C5B9560375_ME_4B8682720286
@@ -461,6 +499,7 @@ ref; // ME_47C5B9400335_ME_4B8682720286 ReserveMap
  ;
  : Implementor ME_4B8682720286 // TnevShape
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_47C5B9560375_ME_4B8682720286 IsLinked
 
 : ME_47C5B9620340_ME_4B8682720286
@@ -470,6 +509,7 @@ ref; // ME_47C5B9560375_ME_4B8682720286 IsLinked
  ;
  : Implementor ME_4B8682720286 // TnevShape
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_47C5B9620340_ME_4B8682720286 AdjustTopByAnchor
 
 : ME_4810CE6103D1_ME_4B8682720286
@@ -479,6 +519,7 @@ ref; // ME_47C5B9620340_ME_4B8682720286 AdjustTopByAnchor
  ;
  : Implementor ME_4B8682720286 // TnevShape
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_4810CE6103D1_ME_4B8682720286 CheckFormatInfo
 
 : ME_48174E4500E6_ME_4B8682720286
@@ -488,6 +529,7 @@ ref; // ME_4810CE6103D1_ME_4B8682720286 CheckFormatInfo
  ;
  : Implementor ME_4B8682720286 // TnevShape
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_48174E4500E6_ME_4B8682720286 ClearBounds
 
 : ME_4A5B2B6C038C_ME_4B8682720286
@@ -497,6 +539,7 @@ ref; // ME_48174E4500E6_ME_4B8682720286 ClearBounds
  ;
  : Implementor ME_4B8682720286 // TnevShape
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" false
 ref; // ME_4A5B2B6C038C_ME_4B8682720286 FI
 
@@ -507,6 +550,7 @@ ref; // ME_4A5B2B6C038C_ME_4B8682720286 FI
  ;
  : Implementor ME_4B8682720286 // TnevShape
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_4CF78985037E_ME_4B8682720286 GetMaxTop
 
 : ME_4E6E23810369_ME_4B8682720286
@@ -516,6 +560,7 @@ ref; // ME_4CF78985037E_ME_4B8682720286 GetMaxTop
  ;
  : Implementor ME_4B8682720286 // TnevShape
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_4E6E23810369_ME_4B8682720286 CleanupRefs
 
 : ME_4FF57E82039F_ME_4B8682720286
@@ -525,6 +570,7 @@ ref; // ME_4E6E23810369_ME_4B8682720286 CleanupRefs
  ;
  : Implementor ME_4B8682720286 // TnevShape
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_4FF57E82039F_ME_4B8682720286 GetChildMap
 
 : ME_50CEEE740139_ME_4B8682720286
@@ -534,6 +580,7 @@ ref; // ME_4FF57E82039F_ME_4B8682720286 GetChildMap
  ;
  : Implementor ME_4B8682720286 // TnevShape
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_50CEEE740139_ME_4B8682720286 SetDrawnTop
 
 : ME_52AA973C0380_ME_4B8682720286
@@ -543,6 +590,7 @@ ref; // ME_50CEEE740139_ME_4B8682720286 SetDrawnTop
  ;
  : Implementor ME_4B8682720286 // TnevShape
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_52AA973C0380_ME_4B8682720286 GetChildenRight4Fill
 
 : ME_52FC8C1C00D9_ME_4B8682720286
@@ -552,6 +600,7 @@ ref; // ME_52AA973C0380_ME_4B8682720286 GetChildenRight4Fill
  ;
  : Implementor ME_4B8682720286 // TnevShape
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_52FC8C1C00D9_ME_4B8682720286 IsMapValid
 
 : ME_4B8682720286
@@ -565,19 +614,19 @@ ref; // ME_52FC8C1C00D9_ME_4B8682720286 IsMapValid
  : Parent ME_4811DA3100E6 // TnevShapesPainted
  ;
  : Inherits
-   @ ( ME_4B8693630365 // TnevShapePrim
- ) .SequenceCode.It
+   Seq: ( ME_4B8693630365 // TnevShapePrim
+ )
  ; // Inherits
  : Implements
-   @ ( WL 'ME_47C5B63D033A' '47C5207602D1.pas.ms.script' // InevMap
- ) .SequenceCode.It
+   Seq: ( WL 'ME_47C5B63D033A' '47C5207602D1.pas.ms.script' // InevMap
+ )
  ; // Implements
  : Operations
-   @ ( ME_4E6E1AFF0229 // AddShape
- ) .SequenceCode.It
+   Seq: ( ME_4E6E1AFF0229 // AddShape
+ )
  ; // Operations
  : Implemented
-   @ ( ME_473DA7280074_ME_4B8682720286 // Bounds
+   Seq: ( ME_473DA7280074_ME_4B8682720286 // Bounds
  ME_473DA73100A9_ME_4B8682720286 // Outer
  ME_47C5B88F0025_ME_4B8682720286 // rVisible
  ME_47C5B91302DA_ME_4B8682720286 // SetDrawnBottom
@@ -593,12 +642,18 @@ ref; // ME_52FC8C1C00D9_ME_4B8682720286 IsMapValid
  ME_50CEEE740139_ME_4B8682720286 // SetDrawnTop
  ME_52AA973C0380_ME_4B8682720286 // GetChildenRight4Fill
  ME_52FC8C1C00D9_ME_4B8682720286 // IsMapValid
- ) .SequenceCode.It
+ )
  ; // Implemented
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest\new'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest\new'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'Shape'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_4B8682720286 TnevShape
 
@@ -611,6 +666,7 @@ FORWARD ME_4B8682990059
  ;
  : Implementor ME_4B8682990059 // TnevLeafShape
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_4E6E1AFF0229_ME_4B8682990059 AddShape
 
 : ME_4B8682990059
@@ -624,17 +680,23 @@ ref; // ME_4E6E1AFF0229_ME_4B8682990059 AddShape
  : Parent ME_4811DA3100E6 // TnevShapesPainted
  ;
  : Inherits
-   @ ( ME_4B8682720286 // TnevShape
- ) .SequenceCode.It
+   Seq: ( ME_4B8682720286 // TnevShape
+ )
  ; // Inherits
  : Implemented
-   @ ( ME_4E6E1AFF0229_ME_4B8682990059 // AddShape
- ) .SequenceCode.It
+   Seq: ( ME_4E6E1AFF0229_ME_4B8682990059 // AddShape
+ )
  ; // Implemented
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest\new'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest\new'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'LeafShape'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_4B8682990059 TnevLeafShape
 
@@ -649,13 +711,19 @@ ref; // ME_4B8682990059 TnevLeafShape
  : Parent ME_4811DA3100E6 // TnevShapesPainted
  ;
  : Inherits
-   @ ( ME_4B8682990059 // TnevLeafShape
- ) .SequenceCode.It
+   Seq: ( ME_4B8682990059 // TnevLeafShape
+ )
  ; // Inherits
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest\new'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest\new'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'TextParaShape'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_4B8682A400EA TnevTextParaShape
 
@@ -668,6 +736,7 @@ FORWARD ME_4B8682B00020
  ;
  : Implementor ME_4B8682B00020 // TnevBaseTopShape
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_4E6E1AFF0229_ME_4B8682B00020 AddShape
 
 : ME_4B8682B00020
@@ -681,17 +750,23 @@ ref; // ME_4E6E1AFF0229_ME_4B8682B00020 AddShape
  : Parent ME_4811DA3100E6 // TnevShapesPainted
  ;
  : Inherits
-   @ ( ME_4B8682720286 // TnevShape
- ) .SequenceCode.It
+   Seq: ( ME_4B8682720286 // TnevShape
+ )
  ; // Inherits
  : Implemented
-   @ ( ME_4E6E1AFF0229_ME_4B8682B00020 // AddShape
- ) .SequenceCode.It
+   Seq: ( ME_4E6E1AFF0229_ME_4B8682B00020 // AddShape
+ )
  ; // Implemented
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest\new'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest\new'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'BaseTopShape'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_4B8682B00020 TnevBaseTopShape
 
@@ -706,13 +781,19 @@ ref; // ME_4B8682B00020 TnevBaseTopShape
  : Parent ME_4811DA3100E6 // TnevShapesPainted
  ;
  : Inherits
-   @ ( ME_4B8682B00020 // TnevBaseTopShape
- ) .SequenceCode.It
+   Seq: ( ME_4B8682B00020 // TnevBaseTopShape
+ )
  ; // Inherits
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest\new'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest\new'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'ListShape'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_4B8682BC023B TnevListShape
 
@@ -727,13 +808,19 @@ ref; // ME_4B8682BC023B TnevListShape
  : Parent ME_4811DA3100E6 // TnevShapesPainted
  ;
  : Inherits
-   @ ( ME_4B8682BC023B // TnevListShape
- ) .SequenceCode.It
+   Seq: ( ME_4B8682BC023B // TnevListShape
+ )
  ; // Inherits
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest\new'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest\new'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'LinesStoredListShape'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_4B8682CD006F TnevLinesStoredListShape
 
@@ -748,13 +835,19 @@ ref; // ME_4B8682CD006F TnevLinesStoredListShape
  : Parent ME_4811DA3100E6 // TnevShapesPainted
  ;
  : Inherits
-   @ ( ME_4B8682BC023B // TnevListShape
- ) .SequenceCode.It
+   Seq: ( ME_4B8682BC023B // TnevListShape
+ )
  ; // Inherits
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest\new'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest\new'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'HorzListShape'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_4B8682D80337 TnevHorzListShape
 
@@ -769,13 +862,19 @@ ref; // ME_4B8682D80337 TnevHorzListShape
  : Parent ME_4811DA3100E6 // TnevShapesPainted
  ;
  : Inherits
-   @ ( ME_4B8682D80337 // TnevHorzListShape
- ) .SequenceCode.It
+   Seq: ( ME_4B8682D80337 // TnevHorzListShape
+ )
  ; // Inherits
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest\new'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest\new'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'RowShape'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_4B8682E7031A TnevRowShape
 
@@ -806,17 +905,23 @@ ref; // ME_4E6E1EEE0208 f_DecorShapes
  : Parent ME_4811DA3100E6 // TnevShapesPainted
  ;
  : Inherits
-   @ ( ME_4B8682BC023B // TnevListShape
- ) .SequenceCode.It
+   Seq: ( ME_4B8682BC023B // TnevListShape
+ )
  ; // Inherits
  : Attributes
-   @ ( ME_4E6E1EEE0208 // f_DecorShapes
- ) .SequenceCode.It
+   Seq: ( ME_4E6E1EEE0208 // f_DecorShapes
+ )
  ; // Attributes
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest\new'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest\new'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'DocumentShape'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_4E6E1B64005B TnevDocumentShape
 
@@ -831,13 +936,19 @@ ref; // ME_4E6E1B64005B TnevDocumentShape
  : Parent ME_4811DA3100E6 // TnevShapesPainted
  ;
  : Inherits
-   @ ( ME_4E6E1B64005B // TnevDocumentShape
- ) .SequenceCode.It
+   Seq: ( ME_4E6E1B64005B // TnevDocumentShape
+ )
  ; // Inherits
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest\new'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest\new'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'TopShape'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_4B8682F7027C TnevTopShape
 
@@ -852,13 +963,19 @@ ref; // ME_4B8682F7027C TnevTopShape
  : Parent ME_4811DA3100E6 // TnevShapesPainted
  ;
  : Inherits
-   @ ( ME_4B8682F7027C // TnevTopShape
- ) .SequenceCode.It
+   Seq: ( ME_4B8682F7027C // TnevTopShape
+ )
  ; // Inherits
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest\new'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest\new'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'HorzTopShape'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_4B8683050322 TnevHorzTopShape
 
@@ -882,6 +999,7 @@ ref; // ME_4CA5CC88004B
  ;
  : Implementor ME_4811DA3100E6 // TnevShapesPainted
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_47C7D2480162_ME_4811DA3100E6 Root
 
 : ME_47C7D34701A6_ME_4811DA3100E6
@@ -891,6 +1009,7 @@ ref; // ME_47C7D2480162_ME_4811DA3100E6 Root
  ;
  : Implementor ME_4811DA3100E6 // TnevShapesPainted
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_47C7D34701A6_ME_4811DA3100E6 PointByPt
 
 : ME_47C7D36502E0_ME_4811DA3100E6
@@ -900,6 +1019,7 @@ ref; // ME_47C7D34701A6_ME_4811DA3100E6 PointByPt
  ;
  : Implementor ME_4811DA3100E6 // TnevShapesPainted
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_47C7D36502E0_ME_4811DA3100E6 MapByPoint
 
 : ME_47C7D373009C_ME_4811DA3100E6
@@ -909,6 +1029,7 @@ ref; // ME_47C7D36502E0_ME_4811DA3100E6 MapByPoint
  ;
  : Implementor ME_4811DA3100E6 // TnevShapesPainted
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_47C7D373009C_ME_4811DA3100E6 Empty
 
 : ME_47C7D37F0287_ME_4811DA3100E6
@@ -918,6 +1039,7 @@ ref; // ME_47C7D373009C_ME_4811DA3100E6 Empty
  ;
  : Implementor ME_4811DA3100E6 // TnevShapesPainted
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_47C7D37F0287_ME_4811DA3100E6 SubShapesCount
 
 : ME_47C7D38B00E5_ME_4811DA3100E6
@@ -927,6 +1049,7 @@ ref; // ME_47C7D37F0287_ME_4811DA3100E6 SubShapesCount
  ;
  : Implementor ME_4811DA3100E6 // TnevShapesPainted
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_47C7D38B00E5_ME_4811DA3100E6 SetSingle
 
 : ME_47C7D3CC02CA_ME_4811DA3100E6
@@ -936,6 +1059,7 @@ ref; // ME_47C7D38B00E5_ME_4811DA3100E6 SetSingle
  ;
  : Implementor ME_4811DA3100E6 // TnevShapesPainted
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_47C7D3CC02CA_ME_4811DA3100E6 Clear
 
 : ME_47C7D3DB013C_ME_4811DA3100E6
@@ -945,6 +1069,7 @@ ref; // ME_47C7D3CC02CA_ME_4811DA3100E6 Clear
  ;
  : Implementor ME_4811DA3100E6 // TnevShapesPainted
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_47C7D3DB013C_ME_4811DA3100E6 ClearEx
 
 : ME_47C7D3FC031E_ME_4811DA3100E6
@@ -954,6 +1079,7 @@ ref; // ME_47C7D3DB013C_ME_4811DA3100E6 ClearEx
  ;
  : Implementor ME_4811DA3100E6 // TnevShapesPainted
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_47C7D3FC031E_ME_4811DA3100E6 BeginDraw
 
 : ME_47C7D418021D_ME_4811DA3100E6
@@ -963,6 +1089,7 @@ ref; // ME_47C7D3FC031E_ME_4811DA3100E6 BeginDraw
  ;
  : Implementor ME_4811DA3100E6 // TnevShapesPainted
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_47C7D418021D_ME_4811DA3100E6 EndDraw
 
 : ME_47C7D425024C_ME_4811DA3100E6
@@ -972,6 +1099,7 @@ ref; // ME_47C7D418021D_ME_4811DA3100E6 EndDraw
  ;
  : Implementor ME_4811DA3100E6 // TnevShapesPainted
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_47C7D425024C_ME_4811DA3100E6 MaxWidth
 
 : ME_47C7D87400C8_ME_4811DA3100E6
@@ -981,6 +1109,7 @@ ref; // ME_47C7D425024C_ME_4811DA3100E6 MaxWidth
  ;
  : Implementor ME_4811DA3100E6 // TnevShapesPainted
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_47C7D87400C8_ME_4811DA3100E6 VertScroll
 
 : ME_47C7D8910243_ME_4811DA3100E6
@@ -990,6 +1119,7 @@ ref; // ME_47C7D87400C8_ME_4811DA3100E6 VertScroll
  ;
  : Implementor ME_4811DA3100E6 // TnevShapesPainted
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_47C7D8910243_ME_4811DA3100E6 HorzScroll
 
 : ME_4811DA3100E6
@@ -1004,15 +1134,15 @@ ref; // ME_47C7D8910243_ME_4811DA3100E6 HorzScroll
  : Parent ME_4811D4EC0237 // Views
  ;
  : Inherits
-   @ ( WL 'ME_46780E690001' '47913B47006E.pas.ms.script' // Tl3CacheableBase
- ) .SequenceCode.It
+   Seq: ( WL 'ME_46780E690001' '47913B47006E.pas.ms.script' // Tl3CacheableBase
+ )
  ; // Inherits
  : Implements
-   @ ( WL 'ME_47C7D20C0128' '47C5207602D1.pas.ms.script' // InevShapesPainted
- ) .SequenceCode.It
+   Seq: ( WL 'ME_47C7D20C0128' '47C5207602D1.pas.ms.script' // InevShapesPainted
+ )
  ; // Implements
  : Implemented
-   @ ( ME_47C7D2480162_ME_4811DA3100E6 // Root
+   Seq: ( ME_47C7D2480162_ME_4811DA3100E6 // Root
  ME_47C7D34701A6_ME_4811DA3100E6 // PointByPt
  ME_47C7D36502E0_ME_4811DA3100E6 // MapByPoint
  ME_47C7D373009C_ME_4811DA3100E6 // Empty
@@ -1025,10 +1155,10 @@ ref; // ME_47C7D8910243_ME_4811DA3100E6 HorzScroll
  ME_47C7D425024C_ME_4811DA3100E6 // MaxWidth
  ME_47C7D87400C8_ME_4811DA3100E6 // VertScroll
  ME_47C7D8910243_ME_4811DA3100E6 // HorzScroll
- ) .SequenceCode.It
+ )
  ; // Implemented
  : Children
-   @ ( ME_4B8682720286 // TnevShape
+   Seq: ( ME_4B8682720286 // TnevShape
  ME_4B8682990059 // TnevLeafShape
  ME_4B8682A400EA // TnevTextParaShape
  ME_4B8682B00020 // TnevBaseTopShape
@@ -1039,11 +1169,11 @@ ref; // ME_47C7D8910243_ME_4811DA3100E6 HorzScroll
  ME_4E6E1B64005B // TnevDocumentShape
  ME_4B8682F7027C // TnevTopShape
  ME_4B8683050322 // TnevHorzTopShape
- ) .SequenceCode.It
+ )
  ; // Children
  : Dependencies
-   @ ( ME_4CA5CC88004B // 
- ) .SequenceCode.It
+   Seq: ( ME_4CA5CC88004B // 
+ )
  ; // Dependencies
  CONST "author" 'Морозов М.А.'
  CONST "finished" false
@@ -1052,12 +1182,14 @@ ref; // ME_47C7D8910243_ME_4811DA3100E6 HorzScroll
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
  CONST "started" '29.06.2005 16:51'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest\new'
  CONST intf.pas:Path 'common\components\gui\Garant\Everest\new\NOT_FINISHED_nevShapesPainted.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest\new'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'ShapesPainted'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'nevShapesPainted'
 
 ref; // ME_4811DA3100E6 TnevShapesPainted
 
@@ -1193,8 +1325,8 @@ ref; // ME_4D5A46D202CE anObject
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
  : Attributes
-   @ ( ME_4D5A46D202CE // anObject
- ) .SequenceCode.It
+   Seq: ( ME_4D5A46D202CE // anObject
+ )
  ; // Attributes
  CONST "needs field" false
  CONST "pm" true
@@ -1204,6 +1336,7 @@ ref; // ME_4D5A46930182 IsObjectCollapsed
 : ME_0E750AF9FAA8
  CONST UID '0E750AF9FAA8'
  CONST Name 'f_Level'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY 'Поле для свойства Level' ;
  CONST Visibility PrivateAccess
@@ -1219,6 +1352,7 @@ ref; // ME_0E750AF9FAA8 f_Level
 : ME_4AA15370B4F4
  CONST UID '4AA15370B4F4'
  CONST Name 'f_ShapesPainted'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY 'Поле для свойства ShapesPainted' ;
  CONST Visibility PrivateAccess
@@ -1252,8 +1386,8 @@ ref; // ME_4D5A472803B1 aValue
  : Parent ME_4D5A4707033B // DoVersionInfoVisabilityChanged
  ;
  : Parameters
-   @ ( ME_4D5A472803B1 // aValue
- ) .SequenceCode.It
+   Seq: ( ME_4D5A472803B1 // aValue
+ )
  ; // Parameters
 
 ref; // ME_4D5A4719023B DoIt
@@ -1269,8 +1403,8 @@ ref; // ME_4D5A4719023B DoIt
  : Parent ME_4811D544006F // TnevBaseView
  ;
  : Operations
-   @ ( ME_4D5A4719023B // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_4D5A4719023B // DoIt
+ )
  ; // Operations
  CONST "ifdef" 'evNeedCollapsedVersionComments'
 
@@ -1305,9 +1439,9 @@ ref; // ME_4821E96E022E aParts
  : Parent ME_4811D544006F // TnevBaseView
  ;
  : Parameters
-   @ ( ME_4821E96E01F0 // aShape
+   Seq: ( ME_4821E96E01F0 // aShape
  ME_4821E96E022E // aParts
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_4811D78A01A1 DoInvalidateShape
@@ -1381,8 +1515,8 @@ ref; // ME_4811DAB00256 aNeedClearMax
  : Parent ME_4811D544006F // TnevBaseView
  ;
  : Parameters
-   @ ( ME_4811DAB00256 // aNeedClearMax
- ) .SequenceCode.It
+   Seq: ( ME_4811DAB00256 // aNeedClearMax
+ )
  ; // Parameters
 
 ref; // ME_4811DAA70258 DoClearShapes
@@ -1456,13 +1590,13 @@ ref; // ME_4CAF44F10012 aHacker
  : Parent ME_4811D544006F // TnevBaseView
  ;
  : Parameters
-   @ ( ME_4AEC305F01FB // aShape
+   Seq: ( ME_4AEC305F01FB // aShape
  ME_4AEC305F0244 // anAnchor
  ME_4AEC305F028E // anOrg
  ME_4AEC305F0324 // theMap
  ME_4AEC305F0372 // aFake
  ME_4CAF44F10012 // aHacker
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_4811DB8A0323 DoBeginDrawShape
@@ -1520,6 +1654,7 @@ ref; // ME_4D5A4C110120
  ;
  : Implementor ME_4811D544006F // TnevBaseView
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" true
 ref; // ME_47C5B99001C4_ME_4811D544006F Metrics
 
@@ -1530,6 +1665,7 @@ ref; // ME_47C5B99001C4_ME_4811D544006F Metrics
  ;
  : Implementor ME_4811D544006F // TnevBaseView
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_47C5B9A30018_ME_4811D544006F Data
 
 : ME_47C5B9AA03E1_ME_4811D544006F
@@ -1539,6 +1675,7 @@ ref; // ME_47C5B9A30018_ME_4811D544006F Data
  ;
  : Implementor ME_4811D544006F // TnevBaseView
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_47C5B9AA03E1_ME_4811D544006F RootMap
 
 : ME_47C5B9B202F0_ME_4811D544006F
@@ -1548,6 +1685,7 @@ ref; // ME_47C5B9AA03E1_ME_4811D544006F RootMap
  ;
  : Implementor ME_4811D544006F // TnevBaseView
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_47C5B9B202F0_ME_4811D544006F Processor
 
 : ME_47C5B9C301B9_ME_4811D544006F
@@ -1557,6 +1695,7 @@ ref; // ME_47C5B9B202F0_ME_4811D544006F Processor
  ;
  : Implementor ME_4811D544006F // TnevBaseView
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_47C5B9C301B9_ME_4811D544006F ClearShapes
 
 : ME_47C5B9DB0136_ME_4811D544006F
@@ -1566,6 +1705,7 @@ ref; // ME_47C5B9C301B9_ME_4811D544006F ClearShapes
  ;
  : Implementor ME_4811D544006F // TnevBaseView
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_47C5B9DB0136_ME_4811D544006F BeginDrawShape
 
 : ME_47C5B9FB03D1_ME_4811D544006F
@@ -1575,6 +1715,7 @@ ref; // ME_47C5B9DB0136_ME_4811D544006F BeginDrawShape
  ;
  : Implementor ME_4811D544006F // TnevBaseView
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_47C5B9FB03D1_ME_4811D544006F EndDrawShape
 
 : ME_47C5BA240004_ME_4811D544006F
@@ -1584,6 +1725,7 @@ ref; // ME_47C5B9FB03D1_ME_4811D544006F EndDrawShape
  ;
  : Implementor ME_4811D544006F // TnevBaseView
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_47C5BA240004_ME_4811D544006F MapByPoint
 
 : ME_481078F302DD_ME_4811D544006F
@@ -1593,6 +1735,7 @@ ref; // ME_47C5BA240004_ME_4811D544006F MapByPoint
  ;
  : Implementor ME_4811D544006F // TnevBaseView
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_481078F302DD_ME_4811D544006F FormatInfoByPoint
 
 : ME_4811BA6C005A_ME_4811D544006F
@@ -1602,6 +1745,7 @@ ref; // ME_481078F302DD_ME_4811D544006F FormatInfoByPoint
  ;
  : Implementor ME_4811D544006F // TnevBaseView
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_4811BA6C005A_ME_4811D544006F RootFormatInfo
 
 : ME_4816E2B2004E_ME_4811D544006F
@@ -1611,6 +1755,7 @@ ref; // ME_4811BA6C005A_ME_4811D544006F RootFormatInfo
  ;
  : Implementor ME_4811D544006F // TnevBaseView
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_4816E2B2004E_ME_4811D544006F InvalidateShape
 
 : ME_4A27CEB10364_ME_4811D544006F
@@ -1620,6 +1765,7 @@ ref; // ME_4816E2B2004E_ME_4811D544006F InvalidateShape
  ;
  : Implementor ME_4811D544006F // TnevBaseView
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" false
 ref; // ME_4A27CEB10364_ME_4811D544006F ActiveElement
 
@@ -1630,6 +1776,7 @@ ref; // ME_4A27CEB10364_ME_4811D544006F ActiveElement
  ;
  : Implementor ME_4811D544006F // TnevBaseView
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" false
 ref; // ME_4B59A96702D9_ME_4811D544006F ForceDrawFocusRect
 
@@ -1640,6 +1787,7 @@ ref; // ME_4B59A96702D9_ME_4811D544006F ForceDrawFocusRect
  ;
  : Implementor ME_4811D544006F // TnevBaseView
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" false
 ref; // ME_4D5A3DD60219_ME_4811D544006F IsObjectCollapsed
 
@@ -1650,6 +1798,7 @@ ref; // ME_4D5A3DD60219_ME_4811D544006F IsObjectCollapsed
  ;
  : Implementor ME_4811D544006F // TnevBaseView
  ;
+ CONST OpKind opkind_Implemented
  CONST "ifdef" 'evNeedCollapsedVersionComments'
 ref; // ME_4D5A3E3E01B7_ME_4811D544006F VersionInfoVisabilityChanged
 
@@ -1660,6 +1809,7 @@ ref; // ME_4D5A3E3E01B7_ME_4811D544006F VersionInfoVisabilityChanged
  ;
  : Implementor ME_4811D544006F // TnevBaseView
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_4E6F8ED402EF_ME_4811D544006F FormatInfoByPara
 
 : ME_4E6F8EF302A4_ME_4811D544006F
@@ -1669,6 +1819,7 @@ ref; // ME_4E6F8ED402EF_ME_4811D544006F FormatInfoByPara
  ;
  : Implementor ME_4811D544006F // TnevBaseView
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_4E6F8EF302A4_ME_4811D544006F FormatInfoByObj
 
 : ME_4E6F98080175_ME_4811D544006F
@@ -1678,6 +1829,7 @@ ref; // ME_4E6F8EF302A4_ME_4811D544006F FormatInfoByObj
  ;
  : Implementor ME_4811D544006F // TnevBaseView
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_4E6F98080175_ME_4811D544006F FormatInfoByPara
 
 : ME_479731C50290_ME_4811D544006F
@@ -1687,6 +1839,7 @@ ref; // ME_4E6F98080175_ME_4811D544006F FormatInfoByPara
  ;
  : Implementor ME_4811D544006F // TnevBaseView
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_479731C50290_ME_4811D544006F Cleanup
 
 : ME_47A6FEE600FC_ME_4811D544006F
@@ -1696,6 +1849,7 @@ ref; // ME_479731C50290_ME_4811D544006F Cleanup
  ;
  : Implementor ME_4811D544006F // TnevBaseView
  ;
+ CONST OpKind opkind_Overridden
  CONST "ifndef" 'DesignTimeLibrary'
 ref; // ME_47A6FEE600FC_ME_4811D544006F IsCacheable
 
@@ -1711,15 +1865,15 @@ ref; // ME_47A6FEE600FC_ME_4811D544006F IsCacheable
  : Parent ME_4811D4EC0237 // Views
  ;
  : Inherits
-   @ ( WL 'ME_49E7754802A9' '47913B47006E.pas.ms.script' // Tl3ProtoObject
- ) .SequenceCode.It
+   Seq: ( WL 'ME_49E7754802A9' '47913B47006E.pas.ms.script' // Tl3ProtoObject
+ )
  ; // Inherits
  : Implements
-   @ ( WL 'ME_47C5B97302B2' '47C5207602D1.pas.ms.script' // InevView
- ) .SequenceCode.It
+   Seq: ( WL 'ME_47C5B97302B2' '47C5207602D1.pas.ms.script' // InevView
+ )
  ; // Implements
  : Attributes
-   @ ( ME_4811D630014B // Level
+   Seq: ( ME_4811D630014B // Level
  ME_4811D5D50379 // ShapesPainted
  ME_4811D60B0043 // Shape
  ME_4A27CFD20374 // ActiveElementPrim
@@ -1728,10 +1882,10 @@ ref; // ME_47A6FEE600FC_ME_4811D544006F IsCacheable
  ME_4D5A46930182 // IsObjectCollapsed
  ME_0E750AF9FAA8 // f_Level
  ME_4AA15370B4F4 // f_ShapesPainted
- ) .SequenceCode.It
+ )
  ; // Attributes
  : Operations
-   @ ( ME_4D5A4707033B // DoVersionInfoVisabilityChanged
+   Seq: ( ME_4D5A4707033B // DoVersionInfoVisabilityChanged
  ME_4811D78A01A1 // DoInvalidateShape
  ME_4811D7AF02B6 // Create
  ME_4811D7DC0254 // DoGetMetrics
@@ -1740,10 +1894,10 @@ ref; // ME_47A6FEE600FC_ME_4811D544006F IsCacheable
  ME_4811DAA70258 // DoClearShapes
  ME_4811DB8A0323 // DoBeginDrawShape
  ME_481DA04D0324 // GetRootFormatInfo
- ) .SequenceCode.It
+ )
  ; // Operations
  : Implemented
-   @ ( ME_47C5B99001C4_ME_4811D544006F // Metrics
+   Seq: ( ME_47C5B99001C4_ME_4811D544006F // Metrics
  ME_47C5B9A30018_ME_4811D544006F // Data
  ME_47C5B9AA03E1_ME_4811D544006F // RootMap
  ME_47C5B9B202F0_ME_4811D544006F // Processor
@@ -1761,18 +1915,18 @@ ref; // ME_47A6FEE600FC_ME_4811D544006F IsCacheable
  ME_4E6F8ED402EF_ME_4811D544006F // FormatInfoByPara
  ME_4E6F8EF302A4_ME_4811D544006F // FormatInfoByObj
  ME_4E6F98080175_ME_4811D544006F // FormatInfoByPara
- ) .SequenceCode.It
+ )
  ; // Implemented
  : Overridden
-   @ ( ME_479731C50290_ME_4811D544006F // Cleanup
+   Seq: ( ME_479731C50290_ME_4811D544006F // Cleanup
  ME_47A6FEE600FC_ME_4811D544006F // IsCacheable
- ) .SequenceCode.It
+ )
  ; // Overridden
  : Dependencies
-   @ ( ME_4811DA5B03CD // 
+   Seq: ( ME_4811DA5B03CD // 
  ME_4A4B4E8602E5 // 
  ME_4D5A4C110120 // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  CONST "author" 'Люлин А.В.'
  CONST "needs InstanceR" 'undefined'
@@ -1780,12 +1934,14 @@ ref; // ME_47A6FEE600FC_ME_4811D544006F IsCacheable
  CONST "no hands" true
  CONST "register in scripts" 'undefined'
  CONST "started" '25.10.2005 16:05'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest\new'
  CONST intf.pas:Path 'common\components\gui\Garant\Everest\new\nevBaseView.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest\new'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'BaseView'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'nevBaseView'
 
 ref; // ME_4811D544006F TnevBaseView
 
@@ -1813,6 +1969,7 @@ ref; // ME_4D5A481E015E ItemType
  ;
  : Implementor ME_4D5A47B80258 // TnevObjectList
  ;
+ CONST OpKind opkind_Implemented
  CONST "ifndef" 'l3Items_IsAtomic'
 ref; // ME_47B07CF403D0_ME_4D5A47B80258 IsSameItems
 
@@ -1823,6 +1980,7 @@ ref; // ME_47B07CF403D0_ME_4D5A47B80258 IsSameItems
  ;
  : Implementor ME_4D5A47B80258 // TnevObjectList
  ;
+ CONST OpKind opkind_Implemented
  CONST "ifdef" 'l3Items_NeedsAssignItem'
  CONST "ifndef" 'l3Items_NoSort'
 ref; // ME_47B2C42A0163_ME_4D5A47B80258 AssignItem
@@ -1834,6 +1992,7 @@ ref; // ME_47B2C42A0163_ME_4D5A47B80258 AssignItem
  ;
  : Implementor ME_4D5A47B80258 // TnevObjectList
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_47B99D4503A2_ME_4D5A47B80258 CompareExistingItems
 
 : ME_4D5A47B80258
@@ -1847,19 +2006,19 @@ ref; // ME_47B99D4503A2_ME_4D5A47B80258 CompareExistingItems
  : Parent ME_4811D4EC0237 // Views
  ;
  : Inherits
-   @ ( WL 'ME_47B9AF6E0228' '47913B47006E.pas.ms.script' // l3InterfaceRefListPrim
+   Seq: ( WL 'ME_47B9AF6E0228' '47913B47006E.pas.ms.script' // l3InterfaceRefListPrim
  WL 'ME_4A54DD4E036F' '47913B47006E.pas.ms.script' // Tl3ProtoDataContainer
- ) .SequenceCode.It
+ )
  ; // Inherits
  : Attributes
-   @ ( ME_4D5A481E015E // ItemType
- ) .SequenceCode.It
+   Seq: ( ME_4D5A481E015E // ItemType
+ )
  ; // Attributes
  : Implemented
-   @ ( ME_47B07CF403D0_ME_4D5A47B80258 // IsSameItems
+   Seq: ( ME_47B07CF403D0_ME_4D5A47B80258 // IsSameItems
  ME_47B2C42A0163_ME_4D5A47B80258 // AssignItem
  ME_47B99D4503A2_ME_4D5A47B80258 // CompareExistingItems
- ) .SequenceCode.It
+ )
  ; // Implemented
  CONST "author" 'Люлин А.В.'
  CONST "needs InstanceR" 'undefined'
@@ -1867,12 +2026,14 @@ ref; // ME_47B99D4503A2_ME_4D5A47B80258 CompareExistingItems
  CONST "no hands" true
  CONST "register in scripts" 'undefined'
  CONST "started" '15.02.2011 12:30'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest\new'
  CONST intf.pas:Path 'common\components\gui\Garant\Everest\new\nevObjectList.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest\new'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'ObjectList'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'nevObjectList'
 
 ref; // ME_4D5A47B80258 TnevObjectList
 
@@ -1927,6 +2088,7 @@ ref; // ME_48120C7D0266 Canvas
 : ME_A08285C03865
  CONST UID 'A08285C03865'
  CONST Name 'f_Canvas'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY 'Поле для свойства Canvas' ;
  CONST Visibility PrivateAccess
@@ -1970,9 +2132,9 @@ ref; // ME_4CB5BE000034 aCanvas
  : Parent ME_4CB5BDF6031A // Create
  ;
  : Parameters
-   @ ( ME_4CB5BDFF03B3 // aText
+   Seq: ( ME_4CB5BDFF03B3 // aText
  ME_4CB5BE000034 // aCanvas
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_4CB5BDFD01BC Create
@@ -1988,8 +2150,8 @@ ref; // ME_4CB5BDFD01BC Create
  : Parent ME_48120C1C0060 // TnevBaseDetachedView
  ;
  : Operations
-   @ ( ME_4CB5BDFD01BC // Create
- ) .SequenceCode.It
+   Seq: ( ME_4CB5BDFD01BC // Create
+ )
  ; // Operations
 
 ref; // ME_4CB5BDF6031A Create
@@ -1999,6 +2161,7 @@ FORWARD ME_4CB5BE5903D2
 : ME_9BF1945D936E
  CONST UID '9BF1945D936E'
  CONST Name 'aText'
+ CONST IsSummoned true
  CONST Class class_Parameter
  : Stereotype st_in ;
  : Target WL 'ME_47C520EE007C' '47C5207602D1.pas.ms.script' // InevObject
@@ -2009,6 +2172,7 @@ ref; // ME_9BF1945D936E aText
 : ME_0DBE496AAF8A
  CONST UID '0DBE496AAF8A'
  CONST Name 'aCanvas'
+ CONST IsSummoned true
  CONST Class class_Parameter
  : Stereotype st_in ;
  : Target WL 'ME_476BF9230071' '4678209200A6.pas.ms.script' // InevCanvas
@@ -2019,6 +2183,7 @@ ref; // ME_0DBE496AAF8A aCanvas
 : ME_A1DD278045C7
  CONST UID 'A1DD278045C7'
  CONST Name 'Create'
+ CONST IsSummoned true
  CONST Class class_Operation
  %SUMMARY 'Сигнатура фабрики TnevBaseDetachedView.Make' ;
  CONST Visibility PrivateAccess
@@ -2028,9 +2193,9 @@ ref; // ME_0DBE496AAF8A aCanvas
  : Target WL 'ME_47C5B97302B2' '47C5207602D1.pas.ms.script' // InevView
  ;
  : Parameters
-   @ ( ME_9BF1945D936E // aText
+   Seq: ( ME_9BF1945D936E // aText
  ME_0DBE496AAF8A // aCanvas
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_A1DD278045C7 Create
@@ -2046,16 +2211,16 @@ ref; // ME_A1DD278045C7 Create
  : Parent ME_48120C1C0060 // TnevBaseDetachedView
  ;
  : Inherits
-   @ ( ME_4CB5BDF6031A // Create
- ) .SequenceCode.It
+   Seq: ( ME_4CB5BDF6031A // Create
+ )
  ; // Inherits
  : Implements
-   @ ( WL 'ME_47C5B97302B2' '47C5207602D1.pas.ms.script' // InevView
- ) .SequenceCode.It
+   Seq: ( WL 'ME_47C5B97302B2' '47C5207602D1.pas.ms.script' // InevView
+ )
  ; // Implements
  : Operations
-   @ ( ME_A1DD278045C7 // Create
- ) .SequenceCode.It
+   Seq: ( ME_A1DD278045C7 // Create
+ )
  ; // Operations
  CONST "check nil" false
  CONST "need AfterCreate" 'undefined'
@@ -2090,8 +2255,8 @@ ref; // ME_4F66FDC902AE DoIt
  : Parent ME_48120C1C0060 // TnevBaseDetachedView
  ;
  : Operations
-   @ ( ME_4F66FDC902AE // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_4F66FDC902AE // DoIt
+ )
  ; // Operations
 
 ref; // ME_4F66FDB60040 DoGetExcludeSuper
@@ -2122,8 +2287,8 @@ ref; // ME_565F049B030B DoIt
  : Parent ME_48120C1C0060 // TnevBaseDetachedView
  ;
  : Operations
-   @ ( ME_565F049B030B // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_565F049B030B // DoIt
+ )
  ; // Operations
 
 ref; // ME_565F0492012D GetNeedTotalRecalc
@@ -2268,6 +2433,7 @@ ref; // ME_4D67AF9D0380
  ;
  : Implementor ME_48120C1C0060 // TnevBaseDetachedView
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" true
 ref; // ME_476BFB3C007A_ME_48120C1C0060 LimitWidth
 
@@ -2278,6 +2444,7 @@ ref; // ME_476BFB3C007A_ME_48120C1C0060 LimitWidth
  ;
  : Implementor ME_48120C1C0060 // TnevBaseDetachedView
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" true
 ref; // ME_476BFBE10164_ME_48120C1C0060 InfoCanvas
 
@@ -2288,6 +2455,7 @@ ref; // ME_476BFBE10164_ME_48120C1C0060 InfoCanvas
  ;
  : Implementor ME_48120C1C0060 // TnevBaseDetachedView
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" true
 ref; // ME_476BFC120188_ME_48120C1C0060 IsWebStyle
 
@@ -2298,6 +2466,7 @@ ref; // ME_476BFC120188_ME_48120C1C0060 IsWebStyle
  ;
  : Implementor ME_48120C1C0060 // TnevBaseDetachedView
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" true
 ref; // ME_476BFC2101FB_ME_48120C1C0060 ShowDocumentParts
 
@@ -2308,6 +2477,7 @@ ref; // ME_476BFC2101FB_ME_48120C1C0060 ShowDocumentParts
  ;
  : Implementor ME_48120C1C0060 // TnevBaseDetachedView
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" true
 ref; // ME_476BFC34010B_ME_48120C1C0060 ShowSpecial
 
@@ -2318,6 +2488,7 @@ ref; // ME_476BFC34010B_ME_48120C1C0060 ShowSpecial
  ;
  : Implementor ME_48120C1C0060 // TnevBaseDetachedView
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" true
 ref; // ME_476BFC420000_ME_48120C1C0060 HiddenStyles
 
@@ -2328,6 +2499,7 @@ ref; // ME_476BFC420000_ME_48120C1C0060 HiddenStyles
  ;
  : Implementor ME_48120C1C0060 // TnevBaseDetachedView
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" true
 ref; // ME_486D2C6702FA_ME_48120C1C0060 Extent
 
@@ -2338,6 +2510,7 @@ ref; // ME_486D2C6702FA_ME_48120C1C0060 Extent
  ;
  : Implementor ME_48120C1C0060 // TnevBaseDetachedView
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" false
 ref; // ME_4AEAE49B024D_ME_48120C1C0060 ExcludeSuper
 
@@ -2348,6 +2521,7 @@ ref; // ME_4AEAE49B024D_ME_48120C1C0060 ExcludeSuper
  ;
  : Implementor ME_48120C1C0060 // TnevBaseDetachedView
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" false
 ref; // ME_4B7E744702C0_ME_48120C1C0060 FormatCanvas
 
@@ -2358,6 +2532,7 @@ ref; // ME_4B7E744702C0_ME_48120C1C0060 FormatCanvas
  ;
  : Implementor ME_48120C1C0060 // TnevBaseDetachedView
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" false
 ref; // ME_4BED6E9300FD_ME_48120C1C0060 AllowRubberTables
 
@@ -2368,6 +2543,7 @@ ref; // ME_4BED6E9300FD_ME_48120C1C0060 AllowRubberTables
  ;
  : Implementor ME_48120C1C0060 // TnevBaseDetachedView
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_4D5A80DC029D_ME_48120C1C0060 IsTagCollapsed
 
 : ME_4E5E285C0166_ME_48120C1C0060
@@ -2377,6 +2553,7 @@ ref; // ME_4D5A80DC029D_ME_48120C1C0060 IsTagCollapsed
  ;
  : Implementor ME_48120C1C0060 // TnevBaseDetachedView
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" false
 ref; // ME_4E5E285C0166_ME_48120C1C0060 Data
 
@@ -2387,6 +2564,7 @@ ref; // ME_4E5E285C0166_ME_48120C1C0060 Data
  ;
  : Implementor ME_48120C1C0060 // TnevBaseDetachedView
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" false
 ref; // ME_501F96A80050_ME_48120C1C0060 AACLike
 
@@ -2397,6 +2575,7 @@ ref; // ME_501F96A80050_ME_48120C1C0060 AACLike
  ;
  : Implementor ME_48120C1C0060 // TnevBaseDetachedView
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_565F03C80029_ME_48120C1C0060 NeedTotalRecalc
 
 : ME_479731C50290_ME_48120C1C0060
@@ -2406,6 +2585,7 @@ ref; // ME_565F03C80029_ME_48120C1C0060 NeedTotalRecalc
  ;
  : Implementor ME_48120C1C0060 // TnevBaseDetachedView
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_479731C50290_ME_48120C1C0060 Cleanup
 
 : ME_4811D60B0043_ME_48120C1C0060
@@ -2415,6 +2595,7 @@ ref; // ME_479731C50290_ME_48120C1C0060 Cleanup
  ;
  : Implementor ME_48120C1C0060 // TnevBaseDetachedView
  ;
+ CONST OpKind opkind_Overridden
  CONST "needs field" false
  CONST "pm" true
 ref; // ME_4811D60B0043_ME_48120C1C0060 Shape
@@ -2426,6 +2607,7 @@ ref; // ME_4811D60B0043_ME_48120C1C0060 Shape
  ;
  : Implementor ME_48120C1C0060 // TnevBaseDetachedView
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4811D7DC0254_ME_48120C1C0060 DoGetMetrics
 
 : ME_4D5A46930182_ME_48120C1C0060
@@ -2435,6 +2617,7 @@ ref; // ME_4811D7DC0254_ME_48120C1C0060 DoGetMetrics
  ;
  : Implementor ME_48120C1C0060 // TnevBaseDetachedView
  ;
+ CONST OpKind opkind_Overridden
  CONST "needs field" false
  CONST "pm" true
 ref; // ME_4D5A46930182_ME_48120C1C0060 IsObjectCollapsed
@@ -2446,6 +2629,7 @@ ref; // ME_4D5A46930182_ME_48120C1C0060 IsObjectCollapsed
  ;
  : Implementor ME_48120C1C0060 // TnevBaseDetachedView
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_5000565C019C_ME_48120C1C0060 ClearFields
 
 : ME_48120C1C0060
@@ -2459,23 +2643,23 @@ ref; // ME_5000565C019C_ME_48120C1C0060 ClearFields
  : Parent ME_4811D4EC0237 // Views
  ;
  : Inherits
-   @ ( ME_4811D544006F // TnevBaseView
- ) .SequenceCode.It
+   Seq: ( ME_4811D544006F // TnevBaseView
+ )
  ; // Inherits
  : Implements
-   @ ( WL 'ME_4811D9740382' '47C5207602D1.pas.ms.script' // InevViewMetrics
+   Seq: ( WL 'ME_4811D9740382' '47C5207602D1.pas.ms.script' // InevViewMetrics
  WL 'ME_4F33E5FD009E' '4F4B48E5029E.pas.ms.script' // nevDocumentContainerDecorationRules
- ) .SequenceCode.It
+ )
  ; // Implements
  : Attributes
-   @ ( ME_48120C6202B8 // f_Text
+   Seq: ( ME_48120C6202B8 // f_Text
  ME_48120CC20355 // f_LimitWidth
  ME_48120C7D0266 // Canvas
  ME_A08285C03865 // f_Canvas
- ) .SequenceCode.It
+ )
  ; // Attributes
  : Operations
-   @ ( ME_4CB5BDF6031A // Create
+   Seq: ( ME_4CB5BDF6031A // Create
  ME_4CB5BE5903D2 // Make
  ME_4F66FDB60040 // DoGetExcludeSuper
  ME_565F0492012D // GetNeedTotalRecalc
@@ -2485,10 +2669,10 @@ ref; // ME_5000565C019C_ME_48120C1C0060 ClearFields
  ME_48120D32035F // GetHiddenStyles
  ME_48121CB0013E // GetLimitWidth
  ME_4BED6EF003DD // GetAllowRubberTables
- ) .SequenceCode.It
+ )
  ; // Operations
  : Implemented
-   @ ( ME_476BFB3C007A_ME_48120C1C0060 // LimitWidth
+   Seq: ( ME_476BFB3C007A_ME_48120C1C0060 // LimitWidth
  ME_476BFBE10164_ME_48120C1C0060 // InfoCanvas
  ME_476BFC120188_ME_48120C1C0060 // IsWebStyle
  ME_476BFC2101FB_ME_48120C1C0060 // ShowDocumentParts
@@ -2502,23 +2686,23 @@ ref; // ME_5000565C019C_ME_48120C1C0060 ClearFields
  ME_4E5E285C0166_ME_48120C1C0060 // Data
  ME_501F96A80050_ME_48120C1C0060 // AACLike
  ME_565F03C80029_ME_48120C1C0060 // NeedTotalRecalc
- ) .SequenceCode.It
+ )
  ; // Implemented
  : Overridden
-   @ ( ME_479731C50290_ME_48120C1C0060 // Cleanup
+   Seq: ( ME_479731C50290_ME_48120C1C0060 // Cleanup
  ME_4811D60B0043_ME_48120C1C0060 // Shape
  ME_4811D7DC0254_ME_48120C1C0060 // DoGetMetrics
  ME_4D5A46930182_ME_48120C1C0060 // IsObjectCollapsed
  ME_5000565C019C_ME_48120C1C0060 // ClearFields
- ) .SequenceCode.It
+ )
  ; // Overridden
  : Dependencies
-   @ ( ME_48120EB201E9 // 
+   Seq: ( ME_48120EB201E9 // 
  ME_48120F910021 // 
  ME_481210070326 // 
  ME_49AD836C02E8 // 
  ME_4D67AF9D0380 // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  CONST "author" 'Лукьянец Р.В.'
  CONST "needs InstanceR" 'undefined'
@@ -2526,12 +2710,14 @@ ref; // ME_5000565C019C_ME_48120C1C0060 ClearFields
  CONST "no hands" true
  CONST "register in scripts" 'undefined'
  CONST "started" '22.10.2007 14:23'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest\new'
  CONST intf.pas:Path 'common\components\gui\Garant\Everest\new\nevBaseDetachedView.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest\new'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'BaseDetachedView'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'nevBaseDetachedView'
 
 ref; // ME_48120C1C0060 TnevBaseDetachedView
 
@@ -2659,6 +2845,7 @@ ref; // ME_4D5A47DF00B9 f_CollapsedObjects
 : ME_A420B6A80268
  CONST UID 'A420B6A80268'
  CONST Name 'f_PrevTop'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY 'Поле для свойства PrevTop' ;
  CONST Visibility PrivateAccess
@@ -2674,6 +2861,7 @@ ref; // ME_A420B6A80268 f_PrevTop
 : ME_ACE4EE9890BC
  CONST UID 'ACE4EE9890BC'
  CONST Name 'f_Top'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY 'Поле для свойства Top' ;
  CONST Visibility PrivateAccess
@@ -2683,12 +2871,14 @@ ref; // ME_A420B6A80268 f_PrevTop
  ;
  : Target WL 'ME_47C5B5BE009D' '47C5207602D1.pas.ms.script' // InevAnchor
  ;
+ CONST extprop:clearViaProperty 'Top'
 
 ref; // ME_ACE4EE9890BC f_Top
 
 : ME_011424C1FE76
  CONST UID '011424C1FE76'
  CONST Name 'f_Canvas'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY 'Поле для свойства Canvas' ;
  CONST Visibility PrivateAccess
@@ -2704,6 +2894,7 @@ ref; // ME_011424C1FE76 f_Canvas
 : ME_D9CC4C947A07
  CONST UID 'D9CC4C947A07'
  CONST Name 'f_ControlLMargin'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY 'Поле для свойства ControlLMargin' ;
  CONST Visibility PrivateAccess
@@ -2749,9 +2940,9 @@ ref; // ME_50112F2A00DE aMode
  : Target WL 'ME_47C5B57E0390' '47C5207602D1.pas.ms.script' // InevBasePoint
  ;
  : Parameters
-   @ ( ME_50112F2A00BF // aPoint
+   Seq: ( ME_50112F2A00BF // aPoint
  ME_50112F2A00DE // aMode
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_50112DFD00C9 DoIt
@@ -2767,8 +2958,8 @@ ref; // ME_50112DFD00C9 DoIt
  : Parent ME_4811E4BA020A // TnevBaseDrawView
  ;
  : Operations
-   @ ( ME_50112DFD00C9 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_50112DFD00C9 // DoIt
+ )
  ; // Operations
 
 ref; // ME_5011297D01AA CorrectFoundPoint
@@ -2816,10 +3007,10 @@ ref; // ME_5011318601D6 aMode
  : Target WL 'ME_47C5B57E0390' '47C5207602D1.pas.ms.script' // InevBasePoint
  ;
  : Parameters
-   @ ( ME_5011318601A8 // aPoint
+   Seq: ( ME_5011318601A8 // aPoint
  ME_5011318601B7 // aLine
  ME_5011318601D6 // aMode
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_501131250000 DoIt
@@ -2835,8 +3026,8 @@ ref; // ME_501131250000 DoIt
  : Parent ME_4811E4BA020A // TnevBaseDrawView
  ;
  : Operations
-   @ ( ME_501131250000 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_501131250000 // DoIt
+ )
  ; // Operations
 
 ref; // ME_501131010369 MoveCursor
@@ -2883,9 +3074,9 @@ ref; // ME_4811EAF801A2 aDeltaY
  : Parent ME_4811E4BA020A // TnevBaseDrawView
  ;
  : Parameters
-   @ ( ME_4811EAF8017A // aTopDiff
+   Seq: ( ME_4811EAF8017A // aTopDiff
  ME_4811EAF801A2 // aDeltaY
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_4811EAEB030F DoSignalScroll
@@ -2922,9 +3113,9 @@ ref; // ME_4E43AB3B006E aMode
  : Target WL 'ME_47C5B57E0390' '47C5207602D1.pas.ms.script' // InevBasePoint
  ;
  : Parameters
-   @ ( ME_4E43AB3B0020 // aPt
+   Seq: ( ME_4E43AB3B0020 // aPt
  ME_4E43AB3B006E // aMode
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_4811EEA90061 PointByPtPrim
@@ -2950,8 +3141,8 @@ ref; // ME_4812049301AC aPt
  : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
  ;
  : Parameters
-   @ ( ME_4812049301AC // aPt
- ) .SequenceCode.It
+   Seq: ( ME_4812049301AC // aPt
+ )
  ; // Parameters
 
 ref; // ME_4811EED60141 DiffToLine
@@ -2977,8 +3168,8 @@ ref; // ME_481204A60167 anExtent
  : Target WL 'ME_476BF9230071' '4678209200A6.pas.ms.script' // InevCanvas
  ;
  : Parameters
-   @ ( ME_481204A60167 // anExtent
- ) .SequenceCode.It
+   Seq: ( ME_481204A60167 // anExtent
+ )
  ; // Parameters
 
 ref; // ME_4811F0AC0140 GetCanvas
@@ -3040,9 +3231,9 @@ ref; // ME_4811F3AA03DD theMap
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
  : Parameters
-   @ ( ME_4811F3AA039A // aBlock
+   Seq: ( ME_4811F3AA039A // aBlock
  ME_4811F3AA03DD // theMap
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_4811F3980250 DoDraw
@@ -3066,8 +3257,8 @@ ref; // ME_4811F4AD036C aControl
  : Parent ME_4811E4BA020A // TnevBaseDrawView
  ;
  : Parameters
-   @ ( ME_4811F4AD036C // aControl
- ) .SequenceCode.It
+   Seq: ( ME_4811F4AD036C // aControl
+ )
  ; // Parameters
 
 ref; // ME_4811F4A502F6 LinkControl
@@ -3091,8 +3282,8 @@ ref; // ME_4811F4BE0300 aControl
  : Parent ME_4811E4BA020A // TnevBaseDrawView
  ;
  : Parameters
-   @ ( ME_4811F4BE0300 // aControl
- ) .SequenceCode.It
+   Seq: ( ME_4811F4BE0300 // aControl
+ )
  ; // Parameters
 
 ref; // ME_4811F4B801DC DoUnlinkControl
@@ -3214,6 +3405,7 @@ ref; // ME_5523B651022F
  ;
  : Implementor ME_4811E4BA020A // TnevBaseDrawView
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_467FAE0C02F3_ME_4811E4BA020A Signal
 
 : ME_476BFB3C007A_ME_4811E4BA020A
@@ -3223,6 +3415,7 @@ ref; // ME_467FAE0C02F3_ME_4811E4BA020A Signal
  ;
  : Implementor ME_4811E4BA020A // TnevBaseDrawView
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" true
 ref; // ME_476BFB3C007A_ME_4811E4BA020A LimitWidth
 
@@ -3233,6 +3426,7 @@ ref; // ME_476BFB3C007A_ME_4811E4BA020A LimitWidth
  ;
  : Implementor ME_4811E4BA020A // TnevBaseDrawView
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" true
 ref; // ME_476BFBE10164_ME_4811E4BA020A InfoCanvas
 
@@ -3243,6 +3437,7 @@ ref; // ME_476BFBE10164_ME_4811E4BA020A InfoCanvas
  ;
  : Implementor ME_4811E4BA020A // TnevBaseDrawView
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" true
 ref; // ME_476BFC120188_ME_4811E4BA020A IsWebStyle
 
@@ -3253,6 +3448,7 @@ ref; // ME_476BFC120188_ME_4811E4BA020A IsWebStyle
  ;
  : Implementor ME_4811E4BA020A // TnevBaseDrawView
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" true
 ref; // ME_476BFC2101FB_ME_4811E4BA020A ShowDocumentParts
 
@@ -3263,6 +3459,7 @@ ref; // ME_476BFC2101FB_ME_4811E4BA020A ShowDocumentParts
  ;
  : Implementor ME_4811E4BA020A // TnevBaseDrawView
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" true
 ref; // ME_476BFC34010B_ME_4811E4BA020A ShowSpecial
 
@@ -3273,6 +3470,7 @@ ref; // ME_476BFC34010B_ME_4811E4BA020A ShowSpecial
  ;
  : Implementor ME_4811E4BA020A // TnevBaseDrawView
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" true
 ref; // ME_476BFC420000_ME_4811E4BA020A HiddenStyles
 
@@ -3283,6 +3481,7 @@ ref; // ME_476BFC420000_ME_4811E4BA020A HiddenStyles
  ;
  : Implementor ME_4811E4BA020A // TnevBaseDrawView
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" true
 ref; // ME_47C5C1C501D9_ME_4811E4BA020A Control
 
@@ -3293,6 +3492,7 @@ ref; // ME_47C5C1C501D9_ME_4811E4BA020A Control
  ;
  : Implementor ME_4811E4BA020A // TnevBaseDrawView
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_47C5C1F300FC_ME_4811E4BA020A UnlinkControl
 
 : ME_47C5C3C2019E_ME_4811E4BA020A
@@ -3302,6 +3502,7 @@ ref; // ME_47C5C1F300FC_ME_4811E4BA020A UnlinkControl
  ;
  : Implementor ME_4811E4BA020A // TnevBaseDrawView
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_47C5C3C2019E_ME_4811E4BA020A IsDocumentTailVisible
 
 : ME_47C5C3DC0361_ME_4811E4BA020A
@@ -3311,6 +3512,7 @@ ref; // ME_47C5C3C2019E_ME_4811E4BA020A IsDocumentTailVisible
  ;
  : Implementor ME_4811E4BA020A // TnevBaseDrawView
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_47C5C3DC0361_ME_4811E4BA020A Draw
 
 : ME_47C5C40002AD_ME_4811E4BA020A
@@ -3320,6 +3522,7 @@ ref; // ME_47C5C3DC0361_ME_4811E4BA020A Draw
  ;
  : Implementor ME_4811E4BA020A // TnevBaseDrawView
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" true
 ref; // ME_47C5C40002AD_ME_4811E4BA020A TopAnchor
 
@@ -3330,6 +3533,7 @@ ref; // ME_47C5C40002AD_ME_4811E4BA020A TopAnchor
  ;
  : Implementor ME_4811E4BA020A // TnevBaseDrawView
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_47F64B1F03AD_ME_4811E4BA020A PointByPt
 
 : ME_486D2C6702FA_ME_4811E4BA020A
@@ -3339,6 +3543,7 @@ ref; // ME_47F64B1F03AD_ME_4811E4BA020A PointByPt
  ;
  : Implementor ME_4811E4BA020A // TnevBaseDrawView
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" true
 ref; // ME_486D2C6702FA_ME_4811E4BA020A Extent
 
@@ -3349,6 +3554,7 @@ ref; // ME_486D2C6702FA_ME_4811E4BA020A Extent
  ;
  : Implementor ME_4811E4BA020A // TnevBaseDrawView
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" false
 ref; // ME_4AEAE49B024D_ME_4811E4BA020A ExcludeSuper
 
@@ -3359,6 +3565,7 @@ ref; // ME_4AEAE49B024D_ME_4811E4BA020A ExcludeSuper
  ;
  : Implementor ME_4811E4BA020A // TnevBaseDrawView
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" false
 ref; // ME_4B7E744702C0_ME_4811E4BA020A FormatCanvas
 
@@ -3369,6 +3576,7 @@ ref; // ME_4B7E744702C0_ME_4811E4BA020A FormatCanvas
  ;
  : Implementor ME_4811E4BA020A // TnevBaseDrawView
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" false
 ref; // ME_4BED6E9300FD_ME_4811E4BA020A AllowRubberTables
 
@@ -3379,6 +3587,7 @@ ref; // ME_4BED6E9300FD_ME_4811E4BA020A AllowRubberTables
  ;
  : Implementor ME_4811E4BA020A // TnevBaseDrawView
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_4D5A80DC029D_ME_4811E4BA020A IsTagCollapsed
 
 : ME_4E5E285C0166_ME_4811E4BA020A
@@ -3388,6 +3597,7 @@ ref; // ME_4D5A80DC029D_ME_4811E4BA020A IsTagCollapsed
  ;
  : Implementor ME_4811E4BA020A // TnevBaseDrawView
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" false
 ref; // ME_4E5E285C0166_ME_4811E4BA020A Data
 
@@ -3398,6 +3608,7 @@ ref; // ME_4E5E285C0166_ME_4811E4BA020A Data
  ;
  : Implementor ME_4811E4BA020A // TnevBaseDrawView
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_50123B01029B_ME_4811E4BA020A BottomAnchor
 
 : ME_501F96A80050_ME_4811E4BA020A
@@ -3407,6 +3618,7 @@ ref; // ME_50123B01029B_ME_4811E4BA020A BottomAnchor
  ;
  : Implementor ME_4811E4BA020A // TnevBaseDrawView
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" false
 ref; // ME_501F96A80050_ME_4811E4BA020A AACLike
 
@@ -3417,6 +3629,7 @@ ref; // ME_501F96A80050_ME_4811E4BA020A AACLike
  ;
  : Implementor ME_4811E4BA020A // TnevBaseDrawView
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_565F03C80029_ME_4811E4BA020A NeedTotalRecalc
 
 : ME_479731C50290_ME_4811E4BA020A
@@ -3426,6 +3639,7 @@ ref; // ME_565F03C80029_ME_4811E4BA020A NeedTotalRecalc
  ;
  : Implementor ME_4811E4BA020A // TnevBaseDrawView
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_479731C50290_ME_4811E4BA020A Cleanup
 
 : ME_4811D60B0043_ME_4811E4BA020A
@@ -3435,6 +3649,7 @@ ref; // ME_479731C50290_ME_4811E4BA020A Cleanup
  ;
  : Implementor ME_4811E4BA020A // TnevBaseDrawView
  ;
+ CONST OpKind opkind_Overridden
  CONST "needs field" false
  CONST "pm" true
 ref; // ME_4811D60B0043_ME_4811E4BA020A Shape
@@ -3446,6 +3661,7 @@ ref; // ME_4811D60B0043_ME_4811E4BA020A Shape
  ;
  : Implementor ME_4811E4BA020A // TnevBaseDrawView
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4811D7DC0254_ME_4811E4BA020A DoGetMetrics
 
 : ME_4811D8210302_ME_4811E4BA020A
@@ -3455,6 +3671,7 @@ ref; // ME_4811D7DC0254_ME_4811E4BA020A DoGetMetrics
  ;
  : Implementor ME_4811E4BA020A // TnevBaseDrawView
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4811D8210302_ME_4811E4BA020A DoGetProcessor
 
 : ME_481DA04D0324_ME_4811E4BA020A
@@ -3464,6 +3681,7 @@ ref; // ME_4811D8210302_ME_4811E4BA020A DoGetProcessor
  ;
  : Implementor ME_4811E4BA020A // TnevBaseDrawView
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_481DA04D0324_ME_4811E4BA020A GetRootFormatInfo
 
 : ME_4A27CFD20374_ME_4811E4BA020A
@@ -3473,6 +3691,7 @@ ref; // ME_481DA04D0324_ME_4811E4BA020A GetRootFormatInfo
  ;
  : Implementor ME_4811E4BA020A // TnevBaseDrawView
  ;
+ CONST OpKind opkind_Overridden
  CONST "needs field" false
  CONST "pm" true
 ref; // ME_4A27CFD20374_ME_4811E4BA020A ActiveElementPrim
@@ -3484,6 +3703,7 @@ ref; // ME_4A27CFD20374_ME_4811E4BA020A ActiveElementPrim
  ;
  : Implementor ME_4811E4BA020A // TnevBaseDrawView
  ;
+ CONST OpKind opkind_Overridden
  CONST "needs field" false
  CONST "pm" true
 ref; // ME_4B59AC930100_ME_4811E4BA020A ForceDrawFocusRectPrim
@@ -3495,6 +3715,7 @@ ref; // ME_4B59AC930100_ME_4811E4BA020A ForceDrawFocusRectPrim
  ;
  : Implementor ME_4811E4BA020A // TnevBaseDrawView
  ;
+ CONST OpKind opkind_Overridden
  CONST "needs field" false
  CONST "pm" true
 ref; // ME_4D5A46930182_ME_4811E4BA020A IsObjectCollapsed
@@ -3506,6 +3727,7 @@ ref; // ME_4D5A46930182_ME_4811E4BA020A IsObjectCollapsed
  ;
  : Implementor ME_4811E4BA020A // TnevBaseDrawView
  ;
+ CONST OpKind opkind_Overridden
  CONST "ifdef" 'evNeedCollapsedVersionComments'
 ref; // ME_4D5A4707033B_ME_4811E4BA020A DoVersionInfoVisabilityChanged
 
@@ -3516,6 +3738,7 @@ ref; // ME_4D5A4707033B_ME_4811E4BA020A DoVersionInfoVisabilityChanged
  ;
  : Implementor ME_4811E4BA020A // TnevBaseDrawView
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_5000565C019C_ME_4811E4BA020A ClearFields
 
 : ME_4811E4BA020A
@@ -3529,19 +3752,19 @@ ref; // ME_5000565C019C_ME_4811E4BA020A ClearFields
  : Parent ME_4811D4EC0237 // Views
  ;
  : Inherits
-   @ ( ME_4811D544006F // TnevBaseView
- ) .SequenceCode.It
+   Seq: ( ME_4811D544006F // TnevBaseView
+ )
  ; // Inherits
  : Implements
-   @ ( WL 'ME_47C5AC8903A9' '47C5207602D1.pas.ms.script' // InevScrollListener
+   Seq: ( WL 'ME_47C5AC8903A9' '47C5207602D1.pas.ms.script' // InevScrollListener
  WL 'ME_47C5C1AC02CA' '47C5207602D1.pas.ms.script' // InevControlView
  WL 'ME_47C5C3A9034B' '47C5207602D1.pas.ms.script' // InevDrawView
  WL 'ME_4811D9740382' '47C5207602D1.pas.ms.script' // InevViewMetrics
  WL 'ME_4F33E5FD009E' '4F4B48E5029E.pas.ms.script' // nevDocumentContainerDecorationRules
- ) .SequenceCode.It
+ )
  ; // Implements
  : Attributes
-   @ ( ME_4811E7C50048 // f_Control
+   Seq: ( ME_4811E7C50048 // f_Control
  ME_48C7F58C03E0 // ViewExtent
  ME_4811E86B03CB // PrevTop
  ME_4811E8DB0135 // Top
@@ -3552,10 +3775,10 @@ ref; // ME_5000565C019C_ME_4811E4BA020A ClearFields
  ME_ACE4EE9890BC // f_Top
  ME_011424C1FE76 // f_Canvas
  ME_D9CC4C947A07 // f_ControlLMargin
- ) .SequenceCode.It
+ )
  ; // Attributes
  : Operations
-   @ ( ME_5011297D01AA // CorrectFoundPoint
+   Seq: ( ME_5011297D01AA // CorrectFoundPoint
  ME_501131010369 // MoveCursor
  ME_4811E93C0182 // NeedScrollShapes
  ME_4811EAEB030F // DoSignalScroll
@@ -3567,10 +3790,10 @@ ref; // ME_5000565C019C_ME_4811E4BA020A ClearFields
  ME_4811F3980250 // DoDraw
  ME_4811F4A502F6 // LinkControl
  ME_4811F4B801DC // DoUnlinkControl
- ) .SequenceCode.It
+ )
  ; // Operations
  : Implemented
-   @ ( ME_467FAE0C02F3_ME_4811E4BA020A // Signal
+   Seq: ( ME_467FAE0C02F3_ME_4811E4BA020A // Signal
  ME_476BFB3C007A_ME_4811E4BA020A // LimitWidth
  ME_476BFBE10164_ME_4811E4BA020A // InfoCanvas
  ME_476BFC120188_ME_4811E4BA020A // IsWebStyle
@@ -3592,10 +3815,10 @@ ref; // ME_5000565C019C_ME_4811E4BA020A ClearFields
  ME_50123B01029B_ME_4811E4BA020A // BottomAnchor
  ME_501F96A80050_ME_4811E4BA020A // AACLike
  ME_565F03C80029_ME_4811E4BA020A // NeedTotalRecalc
- ) .SequenceCode.It
+ )
  ; // Implemented
  : Overridden
-   @ ( ME_479731C50290_ME_4811E4BA020A // Cleanup
+   Seq: ( ME_479731C50290_ME_4811E4BA020A // Cleanup
  ME_4811D60B0043_ME_4811E4BA020A // Shape
  ME_4811D7DC0254_ME_4811E4BA020A // DoGetMetrics
  ME_4811D8210302_ME_4811E4BA020A // DoGetProcessor
@@ -3605,10 +3828,10 @@ ref; // ME_5000565C019C_ME_4811E4BA020A ClearFields
  ME_4D5A46930182_ME_4811E4BA020A // IsObjectCollapsed
  ME_4D5A4707033B_ME_4811E4BA020A // DoVersionInfoVisabilityChanged
  ME_5000565C019C_ME_4811E4BA020A // ClearFields
- ) .SequenceCode.It
+ )
  ; // Overridden
  : Dependencies
-   @ ( ME_4811EBE90213 // 
+   Seq: ( ME_4811EBE90213 // 
  ME_4811EC790109 // 
  ME_4811ECFB01E0 // 
  ME_4811F0250317 // 
@@ -3618,7 +3841,7 @@ ref; // ME_5000565C019C_ME_4811E4BA020A ClearFields
  ME_4C07761600D7 // 
  ME_4D5A504403CE // 
  ME_5523B651022F // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  CONST "author" 'Люлин А.В.'
  CONST "needs InstanceR" 'undefined'
@@ -3626,12 +3849,14 @@ ref; // ME_5000565C019C_ME_4811E4BA020A ClearFields
  CONST "no hands" true
  CONST "register in scripts" 'undefined'
  CONST "started" '17.02.2006 17:42'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest\new'
  CONST intf.pas:Path 'common\components\gui\Garant\Everest\new\nevBaseDrawView.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest\new'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'BaseDrawView'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'nevBaseDrawView'
 
 ref; // ME_4811E4BA020A TnevBaseDrawView
 
@@ -3772,11 +3997,11 @@ ref; // ME_4CB5BEA2020B aViewMetrics
  : Parent ME_4CB5BE9803DF // Create
  ;
  : Parameters
-   @ ( ME_4CB5BEA20159 // aText
+   Seq: ( ME_4CB5BEA20159 // aText
  ME_4CB5BEA20178 // aParentFI
  ME_4CB5BEA201BA // aCanvas
  ME_4CB5BEA2020B // aViewMetrics
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_4CB5BEA0037D Create
@@ -3792,8 +4017,8 @@ ref; // ME_4CB5BEA0037D Create
  : Parent ME_481213C903A2 // TnevVirtualDrawView
  ;
  : Operations
-   @ ( ME_4CB5BEA0037D // Create
- ) .SequenceCode.It
+   Seq: ( ME_4CB5BEA0037D // Create
+ )
  ; // Operations
 
 ref; // ME_4CB5BE9803DF Create
@@ -3803,6 +4028,7 @@ FORWARD ME_4CB5BEB4010A
 : ME_B59446AF0F5E
  CONST UID 'B59446AF0F5E'
  CONST Name 'aText'
+ CONST IsSummoned true
  CONST Class class_Parameter
  : Stereotype st_in ;
  : Target WL 'ME_47C520EE007C' '47C5207602D1.pas.ms.script' // InevObject
@@ -3813,6 +4039,7 @@ ref; // ME_B59446AF0F5E aText
 : ME_B29870D43F09
  CONST UID 'B29870D43F09'
  CONST Name 'aParentFI'
+ CONST IsSummoned true
  CONST Class class_Parameter
  : Stereotype st_in ;
  : Target WL 'ME_480F377B0271' '4678209200A6.pas.ms.script' // TnevFormatInfoPrim
@@ -3823,6 +4050,7 @@ ref; // ME_B29870D43F09 aParentFI
 : ME_6A6C8059B836
  CONST UID '6A6C8059B836'
  CONST Name 'aCanvas'
+ CONST IsSummoned true
  CONST Class class_Parameter
  : Stereotype st_in ;
  : Target WL 'ME_476BF9230071' '4678209200A6.pas.ms.script' // InevCanvas
@@ -3833,6 +4061,7 @@ ref; // ME_6A6C8059B836 aCanvas
 : ME_BE1B27E17219
  CONST UID 'BE1B27E17219'
  CONST Name 'aViewMetrics'
+ CONST IsSummoned true
  CONST Class class_Parameter
  : Stereotype st_in ;
  : Target WL 'ME_467821CA019F' '4678209200A6.pas.ms.script' // InevViewMetrics
@@ -3843,6 +4072,7 @@ ref; // ME_BE1B27E17219 aViewMetrics
 : ME_9C40DDD1E12B
  CONST UID '9C40DDD1E12B'
  CONST Name 'Create'
+ CONST IsSummoned true
  CONST Class class_Operation
  %SUMMARY 'Сигнатура фабрики TnevVirtualDrawView.Make' ;
  CONST Visibility PrivateAccess
@@ -3852,11 +4082,11 @@ ref; // ME_BE1B27E17219 aViewMetrics
  : Target WL 'ME_47C5B97302B2' '47C5207602D1.pas.ms.script' // InevView
  ;
  : Parameters
-   @ ( ME_B59446AF0F5E // aText
+   Seq: ( ME_B59446AF0F5E // aText
  ME_B29870D43F09 // aParentFI
  ME_6A6C8059B836 // aCanvas
  ME_BE1B27E17219 // aViewMetrics
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_9C40DDD1E12B Create
@@ -3872,16 +4102,16 @@ ref; // ME_9C40DDD1E12B Create
  : Parent ME_481213C903A2 // TnevVirtualDrawView
  ;
  : Inherits
-   @ ( ME_4CB5BE9803DF // Create
- ) .SequenceCode.It
+   Seq: ( ME_4CB5BE9803DF // Create
+ )
  ; // Inherits
  : Implements
-   @ ( WL 'ME_47C5B97302B2' '47C5207602D1.pas.ms.script' // InevView
- ) .SequenceCode.It
+   Seq: ( WL 'ME_47C5B97302B2' '47C5207602D1.pas.ms.script' // InevView
+ )
  ; // Implements
  : Operations
-   @ ( ME_9C40DDD1E12B // Create
- ) .SequenceCode.It
+   Seq: ( ME_9C40DDD1E12B // Create
+ )
  ; // Operations
  CONST "check nil" false
  CONST "need AfterCreate" 'undefined'
@@ -3897,6 +4127,7 @@ ref; // ME_4CB5BEB4010A Make
  ;
  : Implementor ME_481213C903A2 // TnevVirtualDrawView
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_479731C50290_ME_481213C903A2 Cleanup
 
 : ME_48120CED0107_ME_481213C903A2
@@ -3906,6 +4137,7 @@ ref; // ME_479731C50290_ME_481213C903A2 Cleanup
  ;
  : Implementor ME_481213C903A2 // TnevVirtualDrawView
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_48120CED0107_ME_481213C903A2 GetIsWebStyle
 
 : ME_48120D0300D4_ME_481213C903A2
@@ -3915,6 +4147,7 @@ ref; // ME_48120CED0107_ME_481213C903A2 GetIsWebStyle
  ;
  : Implementor ME_481213C903A2 // TnevVirtualDrawView
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_48120D0300D4_ME_481213C903A2 GetShowDocumentParts
 
 : ME_48120D270114_ME_481213C903A2
@@ -3924,6 +4157,7 @@ ref; // ME_48120D0300D4_ME_481213C903A2 GetShowDocumentParts
  ;
  : Implementor ME_481213C903A2 // TnevVirtualDrawView
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_48120D270114_ME_481213C903A2 GetShowSpecial
 
 : ME_48120D32035F_ME_481213C903A2
@@ -3933,6 +4167,7 @@ ref; // ME_48120D270114_ME_481213C903A2 GetShowSpecial
  ;
  : Implementor ME_481213C903A2 // TnevVirtualDrawView
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_48120D32035F_ME_481213C903A2 GetHiddenStyles
 
 : ME_481DA04D0324_ME_481213C903A2
@@ -3942,6 +4177,7 @@ ref; // ME_48120D32035F_ME_481213C903A2 GetHiddenStyles
  ;
  : Implementor ME_481213C903A2 // TnevVirtualDrawView
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_481DA04D0324_ME_481213C903A2 GetRootFormatInfo
 
 : ME_4BED6EF003DD_ME_481213C903A2
@@ -3951,6 +4187,7 @@ ref; // ME_481DA04D0324_ME_481213C903A2 GetRootFormatInfo
  ;
  : Implementor ME_481213C903A2 // TnevVirtualDrawView
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4BED6EF003DD_ME_481213C903A2 GetAllowRubberTables
 
 : ME_481213C903A2
@@ -3964,32 +4201,32 @@ ref; // ME_4BED6EF003DD_ME_481213C903A2 GetAllowRubberTables
  : Parent ME_4811D4EC0237 // Views
  ;
  : Inherits
-   @ ( ME_48120C1C0060 // TnevBaseDetachedView
- ) .SequenceCode.It
+   Seq: ( ME_48120C1C0060 // TnevBaseDetachedView
+ )
  ; // Inherits
  : Attributes
-   @ ( ME_4812145503B6 // f_IsWebStyle
+   Seq: ( ME_4812145503B6 // f_IsWebStyle
  ME_4812146F01FE // f_ShowDocumentParts
  ME_481214770293 // f_ShowSpecial
  ME_4812147D03D7 // f_HiddenStyles
  ME_481DA18A00D3 // f_ParentFI
  ME_4BED6F3E0253 // f_AllowRubberTables
- ) .SequenceCode.It
+ )
  ; // Attributes
  : Operations
-   @ ( ME_4CB5BE9803DF // Create
+   Seq: ( ME_4CB5BE9803DF // Create
  ME_4CB5BEB4010A // Make
- ) .SequenceCode.It
+ )
  ; // Operations
  : Overridden
-   @ ( ME_479731C50290_ME_481213C903A2 // Cleanup
+   Seq: ( ME_479731C50290_ME_481213C903A2 // Cleanup
  ME_48120CED0107_ME_481213C903A2 // GetIsWebStyle
  ME_48120D0300D4_ME_481213C903A2 // GetShowDocumentParts
  ME_48120D270114_ME_481213C903A2 // GetShowSpecial
  ME_48120D32035F_ME_481213C903A2 // GetHiddenStyles
  ME_481DA04D0324_ME_481213C903A2 // GetRootFormatInfo
  ME_4BED6EF003DD_ME_481213C903A2 // GetAllowRubberTables
- ) .SequenceCode.It
+ )
  ; // Overridden
  CONST "author" 'Лукьянец Р.В.'
  CONST "needs InstanceR" 'undefined'
@@ -3997,12 +4234,14 @@ ref; // ME_4BED6EF003DD_ME_481213C903A2 GetAllowRubberTables
  CONST "no hands" true
  CONST "register in scripts" 'undefined'
  CONST "started" '22.10.2007 14:23'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest\new'
  CONST intf.pas:Path 'common\components\gui\Garant\Everest\new\nevVirtualDrawView.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest\new'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'VirtualDrawView'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'nevVirtualDrawView'
 
 ref; // ME_481213C903A2 TnevVirtualDrawView
 
@@ -4067,9 +4306,9 @@ ref; // ME_4CB5BF3D0272 aCanvas
  : Parent ME_4CB5BF260122 // Create
  ;
  : Parameters
-   @ ( ME_4CB5BF3D0239 // aText
+   Seq: ( ME_4CB5BF3D0239 // aText
  ME_4CB5BF3D0272 // aCanvas
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_4CB5BF3C01E9 Create
@@ -4085,8 +4324,8 @@ ref; // ME_4CB5BF3C01E9 Create
  : Parent ME_481DB3AA03CD // TnevHAFPainterView
  ;
  : Operations
-   @ ( ME_4CB5BF3C01E9 // Create
- ) .SequenceCode.It
+   Seq: ( ME_4CB5BF3C01E9 // Create
+ )
  ; // Operations
 
 ref; // ME_4CB5BF260122 Create
@@ -4096,6 +4335,7 @@ FORWARD ME_4CB5BF43015E
 : ME_3BCBF7BABA82
  CONST UID '3BCBF7BABA82'
  CONST Name 'aText'
+ CONST IsSummoned true
  CONST Class class_Parameter
  : Stereotype st_in ;
  : Target WL 'ME_47C699120129' '47C5207602D1.pas.ms.script' // InevObjectList
@@ -4106,6 +4346,7 @@ ref; // ME_3BCBF7BABA82 aText
 : ME_3393A4D79561
  CONST UID '3393A4D79561'
  CONST Name 'aCanvas'
+ CONST IsSummoned true
  CONST Class class_Parameter
  : Stereotype st_in ;
  : Target WL 'ME_476BF9230071' '4678209200A6.pas.ms.script' // InevCanvas
@@ -4116,6 +4357,7 @@ ref; // ME_3393A4D79561 aCanvas
 : ME_AB21052137E8
  CONST UID 'AB21052137E8'
  CONST Name 'Create'
+ CONST IsSummoned true
  CONST Class class_Operation
  %SUMMARY 'Сигнатура фабрики TnevHAFPainterView.Make' ;
  CONST Visibility PrivateAccess
@@ -4125,9 +4367,9 @@ ref; // ME_3393A4D79561 aCanvas
  : Target WL 'ME_47C5B97302B2' '47C5207602D1.pas.ms.script' // InevView
  ;
  : Parameters
-   @ ( ME_3BCBF7BABA82 // aText
+   Seq: ( ME_3BCBF7BABA82 // aText
  ME_3393A4D79561 // aCanvas
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_AB21052137E8 Create
@@ -4143,16 +4385,16 @@ ref; // ME_AB21052137E8 Create
  : Parent ME_481DB3AA03CD // TnevHAFPainterView
  ;
  : Inherits
-   @ ( ME_4CB5BF260122 // Create
- ) .SequenceCode.It
+   Seq: ( ME_4CB5BF260122 // Create
+ )
  ; // Inherits
  : Implements
-   @ ( WL 'ME_47C5B97302B2' '47C5207602D1.pas.ms.script' // InevView
- ) .SequenceCode.It
+   Seq: ( WL 'ME_47C5B97302B2' '47C5207602D1.pas.ms.script' // InevView
+ )
  ; // Implements
  : Operations
-   @ ( ME_AB21052137E8 // Create
- ) .SequenceCode.It
+   Seq: ( ME_AB21052137E8 // Create
+ )
  ; // Operations
  CONST "check nil" false
  CONST "need AfterCreate" 'undefined'
@@ -4190,6 +4432,7 @@ ref; // ME_481DBCA202EF
  ;
  : Implementor ME_481DB3AA03CD // TnevHAFPainterView
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_479731C50290_ME_481DB3AA03CD Cleanup
 
 : ME_481DB3AA03CD
@@ -4203,27 +4446,27 @@ ref; // ME_479731C50290_ME_481DB3AA03CD Cleanup
  : Parent ME_4811D4EC0237 // Views
  ;
  : Inherits
-   @ ( ME_481213C903A2 // TnevVirtualDrawView
- ) .SequenceCode.It
+   Seq: ( ME_481213C903A2 // TnevVirtualDrawView
+ )
  ; // Inherits
  : Attributes
-   @ ( ME_481DB4050297 // f_DocView
+   Seq: ( ME_481DB4050297 // f_DocView
  ME_481DBC1202C6 // f_Holder
- ) .SequenceCode.It
+ )
  ; // Attributes
  : Operations
-   @ ( ME_4CB5BF260122 // Create
+   Seq: ( ME_4CB5BF260122 // Create
  ME_4CB5BF43015E // Make
- ) .SequenceCode.It
+ )
  ; // Operations
  : Overridden
-   @ ( ME_479731C50290_ME_481DB3AA03CD // Cleanup
- ) .SequenceCode.It
+   Seq: ( ME_479731C50290_ME_481DB3AA03CD // Cleanup
+ )
  ; // Overridden
  : Dependencies
-   @ ( ME_481DB56C00F6 // 
+   Seq: ( ME_481DB56C00F6 // 
  ME_481DBCA202EF // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  CONST "author" 'Люлин А.В.'
  CONST "needs InstanceR" 'undefined'
@@ -4231,12 +4474,14 @@ ref; // ME_479731C50290_ME_481DB3AA03CD Cleanup
  CONST "no hands" true
  CONST "register in scripts" 'undefined'
  CONST "started" '14.09.2001 17:33'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest\new'
  CONST intf.pas:Path 'common\components\gui\Garant\Everest\new\nevHAFPainterView.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest\new'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'HAFPainterView'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'nevHAFPainterView'
 
 ref; // ME_481DB3AA03CD TnevHAFPainterView
 
@@ -4260,6 +4505,7 @@ ref; // ME_4811FDFD01A9
  ;
  : Implementor ME_4811FD87039D // TnevVirtualView
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4811F0AC0140_ME_4811FD87039D GetCanvas
 
 : ME_4811FD87039D
@@ -4274,16 +4520,16 @@ ref; // ME_4811F0AC0140_ME_4811FD87039D GetCanvas
  : Parent ME_4811D4EC0237 // Views
  ;
  : Inherits
-   @ ( ME_4811E4BA020A // TnevBaseDrawView
- ) .SequenceCode.It
+   Seq: ( ME_4811E4BA020A // TnevBaseDrawView
+ )
  ; // Inherits
  : Overridden
-   @ ( ME_4811F0AC0140_ME_4811FD87039D // GetCanvas
- ) .SequenceCode.It
+   Seq: ( ME_4811F0AC0140_ME_4811FD87039D // GetCanvas
+ )
  ; // Overridden
  : Dependencies
-   @ ( ME_4811FDFD01A9 // 
- ) .SequenceCode.It
+   Seq: ( ME_4811FDFD01A9 // 
+ )
  ; // Dependencies
  CONST "author" 'Люлин А.В.'
  CONST "needs InstanceR" 'undefined'
@@ -4291,12 +4537,14 @@ ref; // ME_4811F0AC0140_ME_4811FD87039D GetCanvas
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
  CONST "started" '17.02.2006 21:23'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest\new'
  CONST intf.pas:Path 'common\components\gui\Garant\Everest\new\nevVirtualView.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest\new'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'VirtualView'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'nevVirtualView'
 
 ref; // ME_4811FD87039D TnevVirtualView
 
@@ -4351,8 +4599,8 @@ ref; // ME_4CB5C0840148 aControl
  : Parent ME_4CB5C07B03E3 // Create
  ;
  : Parameters
-   @ ( ME_4CB5C0840148 // aControl
- ) .SequenceCode.It
+   Seq: ( ME_4CB5C0840148 // aControl
+ )
  ; // Parameters
 
 ref; // ME_4CB5C0820355 Create
@@ -4368,8 +4616,8 @@ ref; // ME_4CB5C0820355 Create
  : Parent ME_481201700007 // TnevMeasureView
  ;
  : Operations
-   @ ( ME_4CB5C0820355 // Create
- ) .SequenceCode.It
+   Seq: ( ME_4CB5C0820355 // Create
+ )
  ; // Operations
 
 ref; // ME_4CB5C07B03E3 Create
@@ -4379,6 +4627,7 @@ FORWARD ME_4CB5C0C90376
 : ME_F392A1AD5709
  CONST UID 'F392A1AD5709'
  CONST Name 'aControl'
+ CONST IsSummoned true
  CONST Class class_Parameter
  : Stereotype st_in ;
  : Target WL 'ME_47C5BD7C0329' '47C5207602D1.pas.ms.script' // InevControl
@@ -4389,6 +4638,7 @@ ref; // ME_F392A1AD5709 aControl
 : ME_8B39B2B7482E
  CONST UID '8B39B2B7482E'
  CONST Name 'Create'
+ CONST IsSummoned true
  CONST Class class_Operation
  %SUMMARY 'Сигнатура фабрики TnevMeasureView.Make' ;
  CONST Visibility PrivateAccess
@@ -4398,8 +4648,8 @@ ref; // ME_F392A1AD5709 aControl
  : Target WL 'ME_47C7D08301E2' '47C5207602D1.pas.ms.script' // InevMeasureView
  ;
  : Parameters
-   @ ( ME_F392A1AD5709 // aControl
- ) .SequenceCode.It
+   Seq: ( ME_F392A1AD5709 // aControl
+ )
  ; // Parameters
 
 ref; // ME_8B39B2B7482E Create
@@ -4415,16 +4665,16 @@ ref; // ME_8B39B2B7482E Create
  : Parent ME_481201700007 // TnevMeasureView
  ;
  : Inherits
-   @ ( ME_4CB5C07B03E3 // Create
- ) .SequenceCode.It
+   Seq: ( ME_4CB5C07B03E3 // Create
+ )
  ; // Inherits
  : Implements
-   @ ( WL 'ME_47C7D08301E2' '47C5207602D1.pas.ms.script' // InevMeasureView
- ) .SequenceCode.It
+   Seq: ( WL 'ME_47C7D08301E2' '47C5207602D1.pas.ms.script' // InevMeasureView
+ )
  ; // Implements
  : Operations
-   @ ( ME_8B39B2B7482E // Create
- ) .SequenceCode.It
+   Seq: ( ME_8B39B2B7482E // Create
+ )
  ; // Operations
  CONST "check nil" false
  CONST "need AfterCreate" 'undefined'
@@ -4543,6 +4793,7 @@ ref; // ME_481208220345
  ;
  : Implementor ME_481201700007 // TnevMeasureView
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_47C7D0950051_ME_481201700007 MakePointVisible
 
 : ME_479731C50290_ME_481201700007
@@ -4552,6 +4803,7 @@ ref; // ME_47C7D0950051_ME_481201700007 MakePointVisible
  ;
  : Implementor ME_481201700007 // TnevMeasureView
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_479731C50290_ME_481201700007 Cleanup
 
 : ME_4811EAEB030F_ME_481201700007
@@ -4561,6 +4813,7 @@ ref; // ME_479731C50290_ME_481201700007 Cleanup
  ;
  : Implementor ME_481201700007 // TnevMeasureView
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4811EAEB030F_ME_481201700007 DoSignalScroll
 
 : ME_4811F0AC0140_ME_481201700007
@@ -4570,6 +4823,7 @@ ref; // ME_4811EAEB030F_ME_481201700007 DoSignalScroll
  ;
  : Implementor ME_481201700007 // TnevMeasureView
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4811F0AC0140_ME_481201700007 GetCanvas
 
 : ME_4811F158015E_ME_481201700007
@@ -4579,6 +4833,7 @@ ref; // ME_4811F0AC0140_ME_481201700007 GetCanvas
  ;
  : Implementor ME_481201700007 // TnevMeasureView
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4811F158015E_ME_481201700007 CaretCursor
 
 : ME_4811F4A502F6_ME_481201700007
@@ -4588,6 +4843,7 @@ ref; // ME_4811F158015E_ME_481201700007 CaretCursor
  ;
  : Implementor ME_481201700007 // TnevMeasureView
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4811F4A502F6_ME_481201700007 LinkControl
 
 : ME_4811F4B801DC_ME_481201700007
@@ -4597,6 +4853,7 @@ ref; // ME_4811F4A502F6_ME_481201700007 LinkControl
  ;
  : Implementor ME_481201700007 // TnevMeasureView
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4811F4B801DC_ME_481201700007 DoUnlinkControl
 
 : ME_481201700007
@@ -4611,47 +4868,47 @@ ref; // ME_4811F4B801DC_ME_481201700007 DoUnlinkControl
  : Parent ME_4811D4EC0237 // Views
  ;
  : Inherits
-   @ ( ME_4811FD87039D // TnevVirtualView
- ) .SequenceCode.It
+   Seq: ( ME_4811FD87039D // TnevVirtualView
+ )
  ; // Inherits
  : Implements
-   @ ( WL 'ME_47C7D08301E2' '47C5207602D1.pas.ms.script' // InevMeasureView
- ) .SequenceCode.It
+   Seq: ( WL 'ME_47C7D08301E2' '47C5207602D1.pas.ms.script' // InevMeasureView
+ )
  ; // Implements
  : Attributes
-   @ ( ME_481202360261 // f_CaretPoint
+   Seq: ( ME_481202360261 // f_CaretPoint
  ME_4812033C0383 // f_Caret
- ) .SequenceCode.It
+ )
  ; // Attributes
  : Operations
-   @ ( ME_4CB5C07B03E3 // Create
+   Seq: ( ME_4CB5C07B03E3 // Create
  ME_4CB5C0C90376 // Make
  ME_481203AD0062 // IsCaretInited
  ME_481203CD0044 // IsCaretVisible
  ME_481203E001FE // CheckShapes
- ) .SequenceCode.It
+ )
  ; // Operations
  : Implemented
-   @ ( ME_47C7D0950051_ME_481201700007 // MakePointVisible
- ) .SequenceCode.It
+   Seq: ( ME_47C7D0950051_ME_481201700007 // MakePointVisible
+ )
  ; // Implemented
  : Overridden
-   @ ( ME_479731C50290_ME_481201700007 // Cleanup
+   Seq: ( ME_479731C50290_ME_481201700007 // Cleanup
  ME_4811EAEB030F_ME_481201700007 // DoSignalScroll
  ME_4811F0AC0140_ME_481201700007 // GetCanvas
  ME_4811F158015E_ME_481201700007 // CaretCursor
  ME_4811F4A502F6_ME_481201700007 // LinkControl
  ME_4811F4B801DC_ME_481201700007 // DoUnlinkControl
- ) .SequenceCode.It
+ )
  ; // Overridden
  : Dependencies
-   @ ( ME_4812036D01CD // 
+   Seq: ( ME_4812036D01CD // 
  ME_48120593012E // 
  ME_481206B00382 // 
  ME_481206DE0396 // 
  ME_481206FB0223 // 
  ME_481208220345 // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  CONST "author" 'Люлин А.В.'
  CONST "needs InstanceR" 'undefined'
@@ -4659,12 +4916,14 @@ ref; // ME_4811F4B801DC_ME_481201700007 DoUnlinkControl
  CONST "no hands" true
  CONST "register in scripts" 'undefined'
  CONST "started" '20.02.2006 19:33'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest\new'
  CONST intf.pas:Path 'common\components\gui\Garant\Everest\new\nevMeasureView.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest\new'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'MeasureView'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'nevMeasureView'
 
 ref; // ME_481201700007 TnevMeasureView
 
@@ -4691,8 +4950,8 @@ ref; // ME_4CB32FAA0128 aView
  : Target WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
  ;
  : Parameters
-   @ ( ME_4CB32FAA0128 // aView
- ) .SequenceCode.It
+   Seq: ( ME_4CB32FAA0128 // aView
+ )
  ; // Parameters
 
 ref; // ME_4CA5D0430096 OpenLog
@@ -4716,8 +4975,8 @@ ref; // ME_4CA5D05E0357 aLogName
  : Parent ME_4CA5CD47037B // InevShapesLogger
  ;
  : Parameters
-   @ ( ME_4CA5D05E0357 // aLogName
- ) .SequenceCode.It
+   Seq: ( ME_4CA5D05E0357 // aLogName
+ )
  ; // Parameters
 
 ref; // ME_4CA5D0540033 CloseLog
@@ -4743,8 +5002,8 @@ ref; // ME_4CADE8E70088 aView
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
  : Parameters
-   @ ( ME_4CADE8E70088 // aView
- ) .SequenceCode.It
+   Seq: ( ME_4CADE8E70088 // aView
+ )
  ; // Parameters
 
 ref; // ME_4CACAF4F008D LogScreen
@@ -4762,11 +5021,17 @@ ref; // ME_4CACAF4F008D LogScreen
  : Parent ME_4CA5CC2C03CF // TnevShapesPaintedSpy
  ;
  : Operations
-   @ ( ME_4CA5D0430096 // OpenLog
+   Seq: ( ME_4CA5D0430096 // OpenLog
  ME_4CA5D0540033 // CloseLog
  ME_4CACAF4F008D // LogScreen
- ) .SequenceCode.It
+ )
  ; // Operations
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest\new'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest\new'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'ShapesLogger'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_4CA5CD47037B InevShapesLogger
 
@@ -4829,9 +5094,9 @@ ref; // ME_4CA5CD3B02C7 aShapes
  : Parent ME_4CA5CCF900D5 // LogShapes
  ;
  : Parameters
-   @ ( ME_4CB32FC600A5 // aView
+   Seq: ( ME_4CB32FC600A5 // aView
  ME_4CA5CD3B02C7 // aShapes
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_4CA5CD350274 DoIt
@@ -4848,8 +5113,8 @@ ref; // ME_4CA5CD350274 DoIt
  : Parent ME_4CA5CC2C03CF // TnevShapesPaintedSpy
  ;
  : Operations
-   @ ( ME_4CA5CD350274 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_4CA5CD350274 // DoIt
+ )
  ; // Operations
 
 ref; // ME_4CA5CCF900D5 LogShapes
@@ -4875,8 +5140,8 @@ ref; // ME_4CA5CD84035B aLogger
  : Parent ME_4CA5CD6801F6 // SetLogger
  ;
  : Parameters
-   @ ( ME_4CA5CD84035B // aLogger
- ) .SequenceCode.It
+   Seq: ( ME_4CA5CD84035B // aLogger
+ )
  ; // Parameters
 
 ref; // ME_4CA5CD79008C DoIt
@@ -4892,8 +5157,8 @@ ref; // ME_4CA5CD79008C DoIt
  : Parent ME_4CA5CC2C03CF // TnevShapesPaintedSpy
  ;
  : Operations
-   @ ( ME_4CA5CD79008C // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_4CA5CD79008C // DoIt
+ )
  ; // Operations
 
 ref; // ME_4CA5CD6801F6 SetLogger
@@ -4919,8 +5184,8 @@ ref; // ME_4CA5CDA100AA aLogger
  : Parent ME_4CA5CD92028D // RemoveLogger
  ;
  : Parameters
-   @ ( ME_4CA5CDA100AA // aLogger
- ) .SequenceCode.It
+   Seq: ( ME_4CA5CDA100AA // aLogger
+ )
  ; // Parameters
 
 ref; // ME_4CA5CD9E03D9 DoIt
@@ -4936,8 +5201,8 @@ ref; // ME_4CA5CD9E03D9 DoIt
  : Parent ME_4CA5CC2C03CF // TnevShapesPaintedSpy
  ;
  : Operations
-   @ ( ME_4CA5CD9E03D9 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_4CA5CD9E03D9 // DoIt
+ )
  ; // Operations
 
 ref; // ME_4CA5CD92028D RemoveLogger
@@ -4968,8 +5233,8 @@ ref; // ME_4CA5D029023F DoIt
  : Parent ME_4CA5CC2C03CF // TnevShapesPaintedSpy
  ;
  : Operations
-   @ ( ME_4CA5D029023F // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_4CA5D029023F // DoIt
+ )
  ; // Operations
  CONST "is static" true
 
@@ -4998,8 +5263,8 @@ ref; // ME_4CADEB8602A5 aView
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
  : Parameters
-   @ ( ME_4CADEB8602A5 // aView
- ) .SequenceCode.It
+   Seq: ( ME_4CADEB8602A5 // aView
+ )
  ; // Parameters
 
 ref; // ME_4CACAF99003F DoIt
@@ -5015,8 +5280,8 @@ ref; // ME_4CACAF99003F DoIt
  : Parent ME_4CA5CC2C03CF // TnevShapesPaintedSpy
  ;
  : Operations
-   @ ( ME_4CACAF99003F // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_4CACAF99003F // DoIt
+ )
  ; // Operations
 
 ref; // ME_4CACAF8A0297 LogScreen
@@ -5105,6 +5370,7 @@ ref; // ME_516D44E701B7
  ;
  : Implementor ME_4CA5CC2C03CF // TnevShapesPaintedSpy
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_479731C50290_ME_4CA5CC2C03CF Cleanup
 
 : ME_5000565C019C_ME_4CA5CC2C03CF
@@ -5114,6 +5380,7 @@ ref; // ME_479731C50290_ME_4CA5CC2C03CF Cleanup
  ;
  : Implementor ME_4CA5CC2C03CF // TnevShapesPaintedSpy
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_5000565C019C_ME_4CA5CC2C03CF ClearFields
 
 : ME_4CA5CC2C03CF
@@ -5128,40 +5395,40 @@ ref; // ME_5000565C019C_ME_4CA5CC2C03CF ClearFields
  : Parent ME_4811D4EC0237 // Views
  ;
  : Inherits
-   @ ( WL 'ME_49E7754802A9' '47913B47006E.pas.ms.script' // Tl3ProtoObject
- ) .SequenceCode.It
+   Seq: ( WL 'ME_49E7754802A9' '47913B47006E.pas.ms.script' // Tl3ProtoObject
+ )
  ; // Inherits
  : Attributes
-   @ ( ME_4CA5CDF5004C // f_Logger
+   Seq: ( ME_4CA5CDF5004C // f_Logger
  ME_4CA5D08701FD // f_Filer
- ) .SequenceCode.It
+ )
  ; // Attributes
  : Operations
-   @ ( ME_4CA5CCF900D5 // LogShapes
+   Seq: ( ME_4CA5CCF900D5 // LogShapes
  ME_4CA5CD6801F6 // SetLogger
  ME_4CA5CD92028D // RemoveLogger
  ME_4CA5D01A0152 // Exists
  ME_4CACAF8A0297 // LogScreen
- ) .SequenceCode.It
+ )
  ; // Operations
  : Overridden
-   @ ( ME_479731C50290_ME_4CA5CC2C03CF // Cleanup
+   Seq: ( ME_479731C50290_ME_4CA5CC2C03CF // Cleanup
  ME_5000565C019C_ME_4CA5CC2C03CF // ClearFields
- ) .SequenceCode.It
+ )
  ; // Overridden
  : Children
-   @ ( ME_4CA5CD47037B // InevShapesLogger
- ) .SequenceCode.It
+   Seq: ( ME_4CA5CD47037B // InevShapesLogger
+ )
  ; // Children
  : Dependencies
-   @ ( ME_4CA5D0BB002B // 
+   Seq: ( ME_4CA5D0BB002B // 
  ME_4CA5D0CE0339 // 
  ME_4CA5EE3C0138 // 
  ME_4CAB13CC02C3 // 
  ME_4FF185050316 // 
  ME_4FF185DE006E // 
  ME_516D44E701B7 // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  CONST "author" 'Люлин А.В.'
  CONST "needs InstanceR" 'undefined'
@@ -5170,12 +5437,14 @@ ref; // ME_5000565C019C_ME_4CA5CC2C03CF ClearFields
  CONST "register in scripts" 'undefined'
  CONST "singleton" true
  CONST "started" '01.10.2010 15:56'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest\new'
  CONST intf.pas:Path 'common\components\gui\Garant\Everest\new\nevShapesPaintedSpy.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest\new'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'ShapesPaintedSpy'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'nevShapesPaintedSpy'
 
 ref; // ME_4CA5CC2C03CF TnevShapesPaintedSpy
 
@@ -5190,20 +5459,22 @@ ref; // ME_4CA5CC2C03CF TnevShapesPaintedSpy
  : Parent ME_4811D4EC0237 // Views
  ;
  : Inherits
-   @ ( ME_4811E4BA020A // TnevBaseDrawView
- ) .SequenceCode.It
+   Seq: ( ME_4811E4BA020A // TnevBaseDrawView
+ )
  ; // Inherits
  CONST "finished" false
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest\new'
  CONST intf.pas:Path 'common\components\gui\Garant\Everest\new\NOT_FINISHED_nevView.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest\new'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'View'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'nevView'
 
 ref; // ME_4B1667DA015C TnevView
 
@@ -5218,20 +5489,22 @@ ref; // ME_4B1667DA015C TnevView
  : Parent ME_4811D4EC0237 // Views
  ;
  : Inherits
-   @ ( WL 'ME_46780E690001' '47913B47006E.pas.ms.script' // Tl3CacheableBase
- ) .SequenceCode.It
+   Seq: ( WL 'ME_46780E690001' '47913B47006E.pas.ms.script' // Tl3CacheableBase
+ )
  ; // Inherits
  CONST "finished" false
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest\new'
  CONST intf.pas:Path 'common\components\gui\Garant\Everest\new\NOT_FINISHED_nevViewControl.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest\new'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'ViewControl'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'nevViewControl'
 
 ref; // ME_4DAEAE770253 TnevViewControl
 
@@ -5244,6 +5517,7 @@ FORWARD ME_4DAEAF42022E
  ;
  : Implementor ME_4DAEAF42022E // TnevScroller
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_47C5C2E003A5_ME_4DAEAF42022E Top
 
 : ME_47C5C2E60286_ME_4DAEAF42022E
@@ -5253,6 +5527,7 @@ ref; // ME_47C5C2E003A5_ME_4DAEAF42022E Top
  ;
  : Implementor ME_4DAEAF42022E // TnevScroller
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_47C5C2E60286_ME_4DAEAF42022E Bottom
 
 : ME_47C5C2EC023D_ME_4DAEAF42022E
@@ -5262,6 +5537,7 @@ ref; // ME_47C5C2E60286_ME_4DAEAF42022E Bottom
  ;
  : Implementor ME_4DAEAF42022E // TnevScroller
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_47C5C2EC023D_ME_4DAEAF42022E PageUp
 
 : ME_47C5C2F203CF_ME_4DAEAF42022E
@@ -5271,6 +5547,7 @@ ref; // ME_47C5C2EC023D_ME_4DAEAF42022E PageUp
  ;
  : Implementor ME_4DAEAF42022E // TnevScroller
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_47C5C2F203CF_ME_4DAEAF42022E PageDown
 
 : ME_47C5C2FC027D_ME_4DAEAF42022E
@@ -5280,6 +5557,7 @@ ref; // ME_47C5C2F203CF_ME_4DAEAF42022E PageDown
  ;
  : Implementor ME_4DAEAF42022E // TnevScroller
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_47C5C2FC027D_ME_4DAEAF42022E LineUp
 
 : ME_47C5C304021F_ME_4DAEAF42022E
@@ -5289,6 +5567,7 @@ ref; // ME_47C5C2FC027D_ME_4DAEAF42022E LineUp
  ;
  : Implementor ME_4DAEAF42022E // TnevScroller
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_47C5C304021F_ME_4DAEAF42022E LineDown
 
 : ME_47C5C35200B1_ME_4DAEAF42022E
@@ -5298,6 +5577,7 @@ ref; // ME_47C5C304021F_ME_4DAEAF42022E LineDown
  ;
  : Implementor ME_4DAEAF42022E // TnevScroller
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_47C5C35200B1_ME_4DAEAF42022E Min
 
 : ME_47C5C35A002F_ME_4DAEAF42022E
@@ -5307,6 +5587,7 @@ ref; // ME_47C5C35200B1_ME_4DAEAF42022E Min
  ;
  : Implementor ME_4DAEAF42022E // TnevScroller
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_47C5C35A002F_ME_4DAEAF42022E Max
 
 : ME_47C5C3610307_ME_4DAEAF42022E
@@ -5316,6 +5597,7 @@ ref; // ME_47C5C35A002F_ME_4DAEAF42022E Max
  ;
  : Implementor ME_4DAEAF42022E // TnevScroller
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_47C5C3610307_ME_4DAEAF42022E Page
 
 : ME_47C5C369036E_ME_4DAEAF42022E
@@ -5325,6 +5607,7 @@ ref; // ME_47C5C3610307_ME_4DAEAF42022E Page
  ;
  : Implementor ME_4DAEAF42022E // TnevScroller
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_47C5C369036E_ME_4DAEAF42022E Pos
 
 : ME_47C5C3790232_ME_4DAEAF42022E
@@ -5334,6 +5617,7 @@ ref; // ME_47C5C369036E_ME_4DAEAF42022E Pos
  ;
  : Implementor ME_4DAEAF42022E // TnevScroller
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_47C5C3790232_ME_4DAEAF42022E ScrollTo
 
 : ME_47C5C37F03D3_ME_4DAEAF42022E
@@ -5343,6 +5627,7 @@ ref; // ME_47C5C3790232_ME_4DAEAF42022E ScrollTo
  ;
  : Implementor ME_4DAEAF42022E // TnevScroller
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_47C5C37F03D3_ME_4DAEAF42022E WheelUp
 
 : ME_47C5C385018F_ME_4DAEAF42022E
@@ -5352,6 +5637,7 @@ ref; // ME_47C5C37F03D3_ME_4DAEAF42022E WheelUp
  ;
  : Implementor ME_4DAEAF42022E // TnevScroller
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_47C5C385018F_ME_4DAEAF42022E WheelDown
 
 : ME_47C5C38B0229_ME_4DAEAF42022E
@@ -5361,6 +5647,7 @@ ref; // ME_47C5C385018F_ME_4DAEAF42022E WheelDown
  ;
  : Implementor ME_4DAEAF42022E // TnevScroller
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_47C5C38B0229_ME_4DAEAF42022E EndScroll
 
 : ME_4DAEAF42022E
@@ -5374,15 +5661,15 @@ ref; // ME_47C5C38B0229_ME_4DAEAF42022E EndScroll
  : Parent ME_4811D4EC0237 // Views
  ;
  : Inherits
-   @ ( ME_4DAEAE770253 // TnevViewControl
- ) .SequenceCode.It
+   Seq: ( ME_4DAEAE770253 // TnevViewControl
+ )
  ; // Inherits
  : Implements
-   @ ( WL 'ME_47C5C33E0258' '47C5207602D1.pas.ms.script' // InevScroller
- ) .SequenceCode.It
+   Seq: ( WL 'ME_47C5C33E0258' '47C5207602D1.pas.ms.script' // InevScroller
+ )
  ; // Implements
  : Implemented
-   @ ( ME_47C5C2E003A5_ME_4DAEAF42022E // Top
+   Seq: ( ME_47C5C2E003A5_ME_4DAEAF42022E // Top
  ME_47C5C2E60286_ME_4DAEAF42022E // Bottom
  ME_47C5C2EC023D_ME_4DAEAF42022E // PageUp
  ME_47C5C2F203CF_ME_4DAEAF42022E // PageDown
@@ -5396,19 +5683,21 @@ ref; // ME_47C5C38B0229_ME_4DAEAF42022E EndScroll
  ME_47C5C37F03D3_ME_4DAEAF42022E // WheelUp
  ME_47C5C385018F_ME_4DAEAF42022E // WheelDown
  ME_47C5C38B0229_ME_4DAEAF42022E // EndScroll
- ) .SequenceCode.It
+ )
  ; // Implemented
  CONST "finished" false
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest\new'
  CONST intf.pas:Path 'common\components\gui\Garant\Everest\new\NOT_FINISHED_nevScroller.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest\new'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'Scroller'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'nevScroller'
 
 ref; // ME_4DAEAF42022E TnevScroller
 
@@ -5438,24 +5727,26 @@ ref; // ME_4DAEB0B20110
  : Parent ME_4811D4EC0237 // Views
  ;
  : Inherits
-   @ ( ME_4DAEAF42022E // TnevScroller
- ) .SequenceCode.It
+   Seq: ( ME_4DAEAF42022E // TnevScroller
+ )
  ; // Inherits
  : Dependencies
-   @ ( ME_4DAEB0B20110 // 
- ) .SequenceCode.It
+   Seq: ( ME_4DAEB0B20110 // 
+ )
  ; // Dependencies
  CONST "finished" false
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest\new'
  CONST intf.pas:Path 'common\components\gui\Garant\Everest\new\NOT_FINISHED_nevVScroller.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest\new'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'VScroller'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'nevVScroller'
 
 ref; // ME_4DAEAF680256 TnevVScroller
 
@@ -5493,8 +5784,8 @@ ref; // ME_4DAEB0FD03C5 aLogName
  : Parent ME_4DAEB0CB0134 // InevVScrollerPosLogger
  ;
  : Parameters
-   @ ( ME_4DAEB0FD03C5 // aLogName
- ) .SequenceCode.It
+   Seq: ( ME_4DAEB0FD03C5 // aLogName
+ )
  ; // Parameters
 
 ref; // ME_4DAEB0F30186 CloseLog
@@ -5511,10 +5802,16 @@ ref; // ME_4DAEB0F30186 CloseLog
  : Parent ME_4DAEB03E0034 // TnevVScrollerSpy
  ;
  : Operations
-   @ ( ME_4DAEB0DE00D1 // OpenLog
+   Seq: ( ME_4DAEB0DE00D1 // OpenLog
  ME_4DAEB0F30186 // CloseLog
- ) .SequenceCode.It
+ )
  ; // Operations
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest\new'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest\new'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'VScrollerPosLogger'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_4DAEB0CB0134 InevVScrollerPosLogger
 
@@ -5581,8 +5878,8 @@ ref; // ME_4DAEBDE8037E aLogger
  : Parent ME_4DAEBD9D0238 // SetLogger
  ;
  : Parameters
-   @ ( ME_4DAEBDE8037E // aLogger
- ) .SequenceCode.It
+   Seq: ( ME_4DAEBDE8037E // aLogger
+ )
  ; // Parameters
 
 ref; // ME_4DAEBDAD014F DoIt
@@ -5598,8 +5895,8 @@ ref; // ME_4DAEBDAD014F DoIt
  : Parent ME_4DAEB03E0034 // TnevVScrollerSpy
  ;
  : Operations
-   @ ( ME_4DAEBDAD014F // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_4DAEBDAD014F // DoIt
+ )
  ; // Operations
 
 ref; // ME_4DAEBD9D0238 SetLogger
@@ -5625,8 +5922,8 @@ ref; // ME_4DAEBE1101DD aLogger
  : Parent ME_4DAEBDF20386 // RemoveLogger
  ;
  : Parameters
-   @ ( ME_4DAEBE1101DD // aLogger
- ) .SequenceCode.It
+   Seq: ( ME_4DAEBE1101DD // aLogger
+ )
  ; // Parameters
 
 ref; // ME_4DAEBE0101D1 DoIt
@@ -5642,8 +5939,8 @@ ref; // ME_4DAEBE0101D1 DoIt
  : Parent ME_4DAEB03E0034 // TnevVScrollerSpy
  ;
  : Operations
-   @ ( ME_4DAEBE0101D1 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_4DAEBE0101D1 // DoIt
+ )
  ; // Operations
 
 ref; // ME_4DAEBDF20386 RemoveLogger
@@ -5669,8 +5966,8 @@ ref; // ME_4DAEBE7803B2 aPos
  : Parent ME_4DAEBE61037F // LogPos
  ;
  : Parameters
-   @ ( ME_4DAEBE7803B2 // aPos
- ) .SequenceCode.It
+   Seq: ( ME_4DAEBE7803B2 // aPos
+ )
  ; // Parameters
 
 ref; // ME_4DAEBE700058 DoIt
@@ -5686,8 +5983,8 @@ ref; // ME_4DAEBE700058 DoIt
  : Parent ME_4DAEB03E0034 // TnevVScrollerSpy
  ;
  : Operations
-   @ ( ME_4DAEBE700058 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_4DAEBE700058 // DoIt
+ )
  ; // Operations
 
 ref; // ME_4DAEBE61037F LogPos
@@ -5718,8 +6015,8 @@ ref; // ME_4DAEBEB000D3 DoIt
  : Parent ME_4DAEB03E0034 // TnevVScrollerSpy
  ;
  : Operations
-   @ ( ME_4DAEBEB000D3 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_4DAEBEB000D3 // DoIt
+ )
  ; // Operations
 
 ref; // ME_4DAEBE840395 StartLog
@@ -5748,8 +6045,8 @@ ref; // ME_4DAEBEC800E3 DoIt
  : Parent ME_4DAEB03E0034 // TnevVScrollerSpy
  ;
  : Operations
-   @ ( ME_4DAEBEC800E3 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_4DAEBEC800E3 // DoIt
+ )
  ; // Operations
 
 ref; // ME_4DAEBEBC016B FinishLog
@@ -5780,8 +6077,8 @@ ref; // ME_4DAECAAE0107 DoIt
  : Parent ME_4DAEB03E0034 // TnevVScrollerSpy
  ;
  : Operations
-   @ ( ME_4DAECAAE0107 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_4DAECAAE0107 // DoIt
+ )
  ; // Operations
  CONST "is static" true
 
@@ -5816,6 +6113,7 @@ ref; // ME_4DAEC7500387
  ;
  : Implementor ME_4DAEB03E0034 // TnevVScrollerSpy
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_479731C50290_ME_4DAEB03E0034 Cleanup
 
 : ME_5000565C019C_ME_4DAEB03E0034
@@ -5825,6 +6123,7 @@ ref; // ME_479731C50290_ME_4DAEB03E0034 Cleanup
  ;
  : Implementor ME_4DAEB03E0034 // TnevVScrollerSpy
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_5000565C019C_ME_4DAEB03E0034 ClearFields
 
 : ME_4DAEB03E0034
@@ -5838,49 +6137,51 @@ ref; // ME_5000565C019C_ME_4DAEB03E0034 ClearFields
  : Parent ME_4811D4EC0237 // Views
  ;
  : Inherits
-   @ ( WL 'ME_49E7754802A9' '47913B47006E.pas.ms.script' // Tl3ProtoObject
- ) .SequenceCode.It
+   Seq: ( WL 'ME_49E7754802A9' '47913B47006E.pas.ms.script' // Tl3ProtoObject
+ )
  ; // Inherits
  : Attributes
-   @ ( ME_4DAEC2B701FD // f_LogName
+   Seq: ( ME_4DAEC2B701FD // f_LogName
  ME_4DAEB1D50288 // f_Logger
  ME_4DAEB2040024 // f_Filer
- ) .SequenceCode.It
+ )
  ; // Attributes
  : Operations
-   @ ( ME_4DAEBD9D0238 // SetLogger
+   Seq: ( ME_4DAEBD9D0238 // SetLogger
  ME_4DAEBDF20386 // RemoveLogger
  ME_4DAEBE61037F // LogPos
  ME_4DAEBE840395 // StartLog
  ME_4DAEBEBC016B // FinishLog
  ME_4DAECA8C027C // Exists
- ) .SequenceCode.It
+ )
  ; // Operations
  : Overridden
-   @ ( ME_479731C50290_ME_4DAEB03E0034 // Cleanup
+   Seq: ( ME_479731C50290_ME_4DAEB03E0034 // Cleanup
  ME_5000565C019C_ME_4DAEB03E0034 // ClearFields
- ) .SequenceCode.It
+ )
  ; // Overridden
  : Children
-   @ ( ME_4DAEB0CB0134 // InevVScrollerPosLogger
- ) .SequenceCode.It
+   Seq: ( ME_4DAEB0CB0134 // InevVScrollerPosLogger
+ )
  ; // Children
  : Dependencies
-   @ ( ME_4DAEB2720250 // 
+   Seq: ( ME_4DAEB2720250 // 
  ME_4DAEC7500387 // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
  CONST "singleton" true
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest\new'
  CONST intf.pas:Path 'common\components\gui\Garant\Everest\new\nevVScrollerSpy.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest\new'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'VScrollerSpy'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'nevVScrollerSpy'
 
 ref; // ME_4DAEB03E0034 TnevVScrollerSpy
 
@@ -5955,10 +6256,10 @@ ref; // ME_4CB5BF0C037E aHiddenStyles
  : Parent ME_4CB5BEE50148 // Create
  ;
  : Parameters
-   @ ( ME_4CB5BF0C0328 // aText
+   Seq: ( ME_4CB5BF0C0328 // aText
  ME_4CB5BF0C035A // aCanvas
  ME_4CB5BF0C037E // aHiddenStyles
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_4CB5BEFB02BC Create
@@ -5974,8 +6275,8 @@ ref; // ME_4CB5BEFB02BC Create
  : Parent ME_4812119C00C1 // TnevPrintView
  ;
  : Operations
-   @ ( ME_4CB5BEFB02BC // Create
- ) .SequenceCode.It
+   Seq: ( ME_4CB5BEFB02BC // Create
+ )
  ; // Operations
 
 ref; // ME_4CB5BEE50148 Create
@@ -5985,6 +6286,7 @@ FORWARD ME_4CB5BE0E00FA
 : ME_21043ACA5277
  CONST UID '21043ACA5277'
  CONST Name 'aText'
+ CONST IsSummoned true
  CONST Class class_Parameter
  : Stereotype st_in ;
  : Target WL 'ME_47C520EE007C' '47C5207602D1.pas.ms.script' // InevObject
@@ -5995,6 +6297,7 @@ ref; // ME_21043ACA5277 aText
 : ME_1ACC48C228AF
  CONST UID '1ACC48C228AF'
  CONST Name 'aCanvas'
+ CONST IsSummoned true
  CONST Class class_Parameter
  : Stereotype st_in ;
  : Target WL 'ME_476BF9230071' '4678209200A6.pas.ms.script' // InevCanvas
@@ -6005,6 +6308,7 @@ ref; // ME_1ACC48C228AF aCanvas
 : ME_BDF3CD29CAC2
  CONST UID 'BDF3CD29CAC2'
  CONST Name 'aHiddenStyles'
+ CONST IsSummoned true
  CONST Class class_Parameter
  : Stereotype st_in ;
  : Target WL 'ME_476BE38D01B0' '476BE0350329.pas.ms.script' // StandardStyles
@@ -6015,6 +6319,7 @@ ref; // ME_BDF3CD29CAC2 aHiddenStyles
 : ME_00B1765162AA
  CONST UID '00B1765162AA'
  CONST Name 'Create'
+ CONST IsSummoned true
  CONST Class class_Operation
  %SUMMARY 'Сигнатура фабрики TnevPrintView.Make' ;
  CONST Visibility PrivateAccess
@@ -6024,10 +6329,10 @@ ref; // ME_BDF3CD29CAC2 aHiddenStyles
  : Target WL 'ME_47F65717034D' '47C5207602D1.pas.ms.script' // InevPrintView
  ;
  : Parameters
-   @ ( ME_21043ACA5277 // aText
+   Seq: ( ME_21043ACA5277 // aText
  ME_1ACC48C228AF // aCanvas
  ME_BDF3CD29CAC2 // aHiddenStyles
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_00B1765162AA Create
@@ -6043,16 +6348,16 @@ ref; // ME_00B1765162AA Create
  : Parent ME_4812119C00C1 // TnevPrintView
  ;
  : Inherits
-   @ ( ME_4CB5BEE50148 // Create
- ) .SequenceCode.It
+   Seq: ( ME_4CB5BEE50148 // Create
+ )
  ; // Inherits
  : Implements
-   @ ( WL 'ME_47F65717034D' '47C5207602D1.pas.ms.script' // InevPrintView
- ) .SequenceCode.It
+   Seq: ( WL 'ME_47F65717034D' '47C5207602D1.pas.ms.script' // InevPrintView
+ )
  ; // Implements
  : Operations
-   @ ( ME_00B1765162AA // Create
- ) .SequenceCode.It
+   Seq: ( ME_00B1765162AA // Create
+ )
  ; // Operations
  CONST "check nil" false
  CONST "need AfterCreate" 'undefined'
@@ -6090,6 +6395,7 @@ ref; // ME_4F66FDFF00B8
  ;
  : Implementor ME_4812119C00C1 // TnevPrintView
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4811DB8A0323_ME_4812119C00C1 DoBeginDrawShape
 
 : ME_48120D32035F_ME_4812119C00C1
@@ -6099,6 +6405,7 @@ ref; // ME_4811DB8A0323_ME_4812119C00C1 DoBeginDrawShape
  ;
  : Implementor ME_4812119C00C1 // TnevPrintView
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_48120D32035F_ME_4812119C00C1 GetHiddenStyles
 
 : ME_48121CB0013E_ME_4812119C00C1
@@ -6108,6 +6415,7 @@ ref; // ME_48120D32035F_ME_4812119C00C1 GetHiddenStyles
  ;
  : Implementor ME_4812119C00C1 // TnevPrintView
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_48121CB0013E_ME_4812119C00C1 GetLimitWidth
 
 : ME_4F66FDB60040_ME_4812119C00C1
@@ -6117,6 +6425,7 @@ ref; // ME_48121CB0013E_ME_4812119C00C1 GetLimitWidth
  ;
  : Implementor ME_4812119C00C1 // TnevPrintView
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4F66FDB60040_ME_4812119C00C1 DoGetExcludeSuper
 
 : ME_5000565C019C_ME_4812119C00C1
@@ -6126,6 +6435,7 @@ ref; // ME_4F66FDB60040_ME_4812119C00C1 DoGetExcludeSuper
  ;
  : Implementor ME_4812119C00C1 // TnevPrintView
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_5000565C019C_ME_4812119C00C1 ClearFields
 
 : ME_4812119C00C1
@@ -6140,36 +6450,36 @@ ref; // ME_5000565C019C_ME_4812119C00C1 ClearFields
  : Parent ME_4811D4EC0237 // Views
  ;
  : Inherits
-   @ ( ME_48120C1C0060 // TnevBaseDetachedView
- ) .SequenceCode.It
+   Seq: ( ME_48120C1C0060 // TnevBaseDetachedView
+ )
  ; // Inherits
  : Implements
-   @ ( WL 'ME_47F65717034D' '47C5207602D1.pas.ms.script' // InevPrintView
+   Seq: ( WL 'ME_47F65717034D' '47C5207602D1.pas.ms.script' // InevPrintView
  WL 'ME_4F4B4B10001B' '4F4B48E5029E.pas.ms.script' // PrintViewDecorationRules
- ) .SequenceCode.It
+ )
  ; // Implements
  : Attributes
-   @ ( ME_4CB5BDC80042 // f_HiddenStyles
+   Seq: ( ME_4CB5BDC80042 // f_HiddenStyles
  ME_51B5800500D2 // f_HoldedText
- ) .SequenceCode.It
+ )
  ; // Attributes
  : Operations
-   @ ( ME_4CB5BEE50148 // Create
+   Seq: ( ME_4CB5BEE50148 // Create
  ME_4CB5BE0E00FA // Make
- ) .SequenceCode.It
+ )
  ; // Operations
  : Overridden
-   @ ( ME_4811DB8A0323_ME_4812119C00C1 // DoBeginDrawShape
+   Seq: ( ME_4811DB8A0323_ME_4812119C00C1 // DoBeginDrawShape
  ME_48120D32035F_ME_4812119C00C1 // GetHiddenStyles
  ME_48121CB0013E_ME_4812119C00C1 // GetLimitWidth
  ME_4F66FDB60040_ME_4812119C00C1 // DoGetExcludeSuper
  ME_5000565C019C_ME_4812119C00C1 // ClearFields
- ) .SequenceCode.It
+ )
  ; // Overridden
  : Dependencies
-   @ ( ME_482080E302D3 // 
+   Seq: ( ME_482080E302D3 // 
  ME_4F66FDFF00B8 // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  CONST "author" 'Люлин А.В.'
  CONST "needs InstanceR" 'undefined'
@@ -6177,12 +6487,14 @@ ref; // ME_5000565C019C_ME_4812119C00C1 ClearFields
  CONST "no hands" true
  CONST "register in scripts" 'undefined'
  CONST "started" '23.06.2005 14:31'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest\new'
  CONST intf.pas:Path 'common\components\gui\Garant\Everest\new\nevPrintView.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest\new'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'PrintView'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'nevPrintView'
 
 ref; // ME_4812119C00C1 TnevPrintView
 
@@ -6197,7 +6509,7 @@ ref; // ME_4812119C00C1 TnevPrintView
  : Parent WL 'ME_4797632D0273' '4797632D0273.pas.ms.script' // Everest
  ;
  : Children
-   @ ( ME_4B8693630365 // TnevShapePrim
+   Seq: ( ME_4B8693630365 // TnevShapePrim
  ME_4E6E1EB1013F // TnevShapePrimRefList
  ME_4811DA3100E6 // TnevShapesPainted
  ME_4811D544006F // TnevBaseView
@@ -6215,10 +6527,10 @@ ref; // ME_4812119C00C1 TnevPrintView
  ME_4DAEAF680256 // TnevVScroller
  ME_4DAEB03E0034 // TnevVScrollerSpy
  ME_4812119C00C1 // TnevPrintView
- ) .SequenceCode.It
+ )
  ; // Children
  : Depends
-   @ ( WL 'ME_4678193C009C' '4678193C009C.pas.ms.script' // l3Types
+   Seq: ( WL 'ME_4678193C009C' '4678193C009C.pas.ms.script' // l3Types
  WL 'ME_4678209200A6' '4678209200A6.pas.ms.script' // nevBase
  WL 'ME_467823B7002C' '467823B7002C.pas.ms.script' // afwInterfaces
  WL 'ME_467FC43F01F9' '467FC43F01F9.pas.ms.script' // k2CoreObjects
@@ -6243,16 +6555,14 @@ ref; // ME_4812119C00C1 TnevPrintView
  WL 'ME_4F4B48E5029E' '4F4B48E5029E.pas.ms.script' // Aspects
  WL 'ME_537B83AD01F0' '537B83AD01F0.pas.ms.script' // l3Math
  WL 'ME_54B90AC6014B' '54B90AC6014B.pas.ms.script' // StringUtils
- ) .SequenceCode.It
+ )
  ; // Depends
  CONST "path prefix" '/new'
- : Generators
- @ (
- gen_pas.script
- gen_pas.script.runner
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest\new'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest\new'
  CONST pas.script:Path 'shared\models\NewSchool\Scripts\4811D4EC0237.pas.ms.script'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
  CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\4811D4EC0237.pas.ms.script.runner'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_4811D4EC0237 Views

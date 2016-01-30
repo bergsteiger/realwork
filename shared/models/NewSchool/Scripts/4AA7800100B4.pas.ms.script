@@ -1,0 +1,1944 @@
+// Rubricator 4AA7800100B4 VCMControls Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4AA7800100B4
+
+FORWARD ME_4AA7803101E2
+
+: ME_4AA7805301DC
+ CONST UID '4AA7805301DC'
+ CONST Name 'SetListRoot'
+ CONST Class class_Operation
+ : Stereotype st_InternalOperation::Operation ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_4AA7803101E2 // Rubricator
+ ;
+ CONST "AutoFocus" false
+ CONST "AutoLock" false
+ CONST "LongProcess" false
+ CONST "Needs Broadcast" false
+ CONST "has states" false
+ CONST "is FormActivate" false
+ CONST "is query" true
+ CONST "no prefix" false
+
+ref; // ME_4AA7805301DC SetListRoot
+
+: ME_4AA7806601AE
+ CONST UID '4AA7806601AE'
+ CONST Name 'InitListRoot'
+ CONST Class class_Operation
+ : Stereotype st_InternalOperation::Operation ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_4AA7803101E2 // Rubricator
+ ;
+ CONST "AutoFocus" false
+ CONST "AutoLock" false
+ CONST "LongProcess" false
+ CONST "Needs Broadcast" false
+ CONST "has states" false
+ CONST "is FormActivate" false
+ CONST "is query" true
+ CONST "no prefix" false
+
+ref; // ME_4AA7806601AE InitListRoot
+
+: ME_4AA7809901AE
+ CONST UID '4AA7809901AE'
+ CONST Name 'Synchronize'
+ CONST Class class_Operation
+ : Stereotype st_InternalOperation::Operation ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_4AA7803101E2 // Rubricator
+ ;
+ CONST "AutoFocus" false
+ CONST "AutoLock" false
+ CONST "LongProcess" false
+ CONST "Needs Broadcast" false
+ CONST "has states" false
+ CONST "is FormActivate" false
+ CONST "is query" true
+ CONST "no prefix" false
+
+ref; // ME_4AA7809901AE Synchronize
+
+: ME_4B02CFA303DA
+ CONST UID '4B02CFA303DA'
+ CONST Name 'GetRoot'
+ CONST Class class_Operation
+ : Stereotype st_InternalOperation::Operation ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_4AA7803101E2 // Rubricator
+ ;
+ : Target WL 'ME_468259900322' '4682595B0268.pas.ms.script' // Il3SimpleNode
+ ;
+ CONST "AutoFocus" false
+ CONST "AutoLock" false
+ CONST "LongProcess" false
+ CONST "Needs Broadcast" false
+ CONST "has states" false
+ CONST "is FormActivate" false
+ CONST "is query" true
+ CONST "no prefix" false
+
+ref; // ME_4B02CFA303DA GetRoot
+
+: ME_4AA7803101E2
+ CONST UID '4AA7803101E2'
+ CONST Name 'Rubricator'
+ CONST Class class_Class
+ : Stereotype st_VCMFacet ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4AA7800100B4 // Rubricator
+ ;
+ : Operations
+   Seq: ( ME_4AA7805301DC // SetListRoot
+ ME_4AA7806601AE // InitListRoot
+ ME_4AA7809901AE // Synchronize
+ ME_4B02CFA303DA // GetRoot
+ )
+ ; // Operations
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\View'
+
+ref; // ME_4AA7803101E2 Rubricator
+
+FORWARD ME_2B0EA43CE3BF
+
+: ME_FF658FE3F542
+ CONST UID 'FF658FE3F542'
+ CONST Name 'Node'
+ CONST IsSummoned true
+ CONST Class class_Attribute
+ : Stereotype st_readonly::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_agr
+ : Parent ME_2B0EA43CE3BF // IRubricator_SetListRoot_Params
+ ;
+ : Target WL 'ME_468259900322' '4682595B0268.pas.ms.script' // Il3SimpleNode
+ ;
+ CONST "pm" false
+
+ref; // ME_FF658FE3F542 Node
+
+: ME_BDF6495DCDAE
+ CONST UID 'BDF6495DCDAE'
+ CONST Name 'RootToKeep'
+ CONST IsSummoned true
+ CONST Class class_Attribute
+ : Stereotype st_readonly::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_agr
+ : Parent ME_2B0EA43CE3BF // IRubricator_SetListRoot_Params
+ ;
+ : Target WL 'ME_45EEB95901C5' '457450470167.pas.ms.script' // NodeBase
+ ;
+ CONST "pm" false
+
+ref; // ME_BDF6495DCDAE RootToKeep
+
+: ME_7642365480E3
+ CONST UID '7642365480E3'
+ CONST Name 'MenuSectionItemToKeep'
+ CONST IsSummoned true
+ CONST Class class_Attribute
+ : Stereotype st_readonly::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_agr
+ : Parent ME_2B0EA43CE3BF // IRubricator_SetListRoot_Params
+ ;
+ : Target WL 'ME_4E36C7D80396' '4DD24BD40021.pas.ms.script' // SectionItem
+ ;
+ CONST "pm" false
+
+ref; // ME_7642365480E3 MenuSectionItemToKeep
+
+: ME_2B0EA43CE3BF
+ CONST UID '2B0EA43CE3BF'
+ CONST GUID '08AEB6DA-F51C-4D30-871E-FF19E1935A99'
+ CONST Name 'IRubricator_SetListRoot_Params'
+ CONST IsSummoned true
+ CONST Class class_Class
+ : Stereotype st_Facet ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Параметры для операции Rubricator.SetListRoot' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4AA7800100B4 // Rubricator
+ ;
+ : Attributes
+   Seq: ( ME_FF658FE3F542 // Node
+ ME_BDF6495DCDAE // RootToKeep
+ ME_7642365480E3 // MenuSectionItemToKeep
+ )
+ ; // Attributes
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\View'
+ CONST extprop:rc:SelfName 'Rubricator_SetListRoot_Params'
+ CONST extprop:rc:isAcceptableForScripts true
+
+ref; // ME_2B0EA43CE3BF IRubricator_SetListRoot_Params
+
+FORWARD ME_A7ACC8300BF9
+
+: ME_6A2B09ED2B76
+ CONST UID '6A2B09ED2B76'
+ CONST Name 'f_Node'
+ CONST IsSummoned true
+ CONST Class class_Attribute
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_ref
+ : Parent ME_A7ACC8300BF9 // TRubricator_SetListRoot_Params
+ ;
+ : Target WL 'ME_468259900322' '4682595B0268.pas.ms.script' // Il3SimpleNode
+ ;
+
+ref; // ME_6A2B09ED2B76 f_Node
+
+: ME_C391E8C5B33F
+ CONST UID 'C391E8C5B33F'
+ CONST Name 'f_RootToKeep'
+ CONST IsSummoned true
+ CONST Class class_Attribute
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_ref
+ : Parent ME_A7ACC8300BF9 // TRubricator_SetListRoot_Params
+ ;
+ : Target WL 'ME_45EEB95901C5' '457450470167.pas.ms.script' // NodeBase
+ ;
+
+ref; // ME_C391E8C5B33F f_RootToKeep
+
+: ME_8CA3817A0878
+ CONST UID '8CA3817A0878'
+ CONST Name 'f_MenuSectionItemToKeep'
+ CONST IsSummoned true
+ CONST Class class_Attribute
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_ref
+ : Parent ME_A7ACC8300BF9 // TRubricator_SetListRoot_Params
+ ;
+ : Target WL 'ME_4E36C7D80396' '4DD24BD40021.pas.ms.script' // SectionItem
+ ;
+
+ref; // ME_8CA3817A0878 f_MenuSectionItemToKeep
+
+: ME_2B8A02134BEA
+ CONST UID '2B8A02134BEA'
+ CONST Name 'aNode'
+ CONST IsSummoned true
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_468259900322' '4682595B0268.pas.ms.script' // Il3SimpleNode
+ ;
+
+ref; // ME_2B8A02134BEA aNode
+
+: ME_2B8A02134BEB
+ CONST UID '2B8A02134BEB'
+ CONST Name 'aRootToKeep'
+ CONST IsSummoned true
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_45EEB95901C5' '457450470167.pas.ms.script' // NodeBase
+ ;
+
+ref; // ME_2B8A02134BEB aRootToKeep
+
+: ME_2B8A02134BEC
+ CONST UID '2B8A02134BEC'
+ CONST Name 'aMenuSectionItemToKeep'
+ CONST IsSummoned true
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_4E36C7D80396' '4DD24BD40021.pas.ms.script' // SectionItem
+ ;
+
+ref; // ME_2B8A02134BEC aMenuSectionItemToKeep
+
+: ME_FE5ABE7677C2
+ CONST UID 'FE5ABE7677C2'
+ CONST Name 'Create'
+ CONST IsSummoned true
+ CONST Class class_Operation
+ : Stereotype st_ctor::Operation ;
+ %SUMMARY 'Конструктор TRubricator_SetListRoot_Params' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_A7ACC8300BF9 // TRubricator_SetListRoot_Params
+ ;
+ : Parameters
+   Seq: ( ME_2B8A02134BEA // aNode
+ ME_2B8A02134BEB // aRootToKeep
+ ME_2B8A02134BEC // aMenuSectionItemToKeep
+ )
+ ; // Parameters
+
+ref; // ME_FE5ABE7677C2 Create
+
+: ME_AD123B45FE48
+ CONST UID 'AD123B45FE48'
+ CONST Name 'aNode'
+ CONST IsSummoned true
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_468259900322' '4682595B0268.pas.ms.script' // Il3SimpleNode
+ ;
+
+ref; // ME_AD123B45FE48 aNode
+
+: ME_AD123B45FE49
+ CONST UID 'AD123B45FE49'
+ CONST Name 'aRootToKeep'
+ CONST IsSummoned true
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_45EEB95901C5' '457450470167.pas.ms.script' // NodeBase
+ ;
+
+ref; // ME_AD123B45FE49 aRootToKeep
+
+: ME_AD123B45FE4A
+ CONST UID 'AD123B45FE4A'
+ CONST Name 'aMenuSectionItemToKeep'
+ CONST IsSummoned true
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_4E36C7D80396' '4DD24BD40021.pas.ms.script' // SectionItem
+ ;
+
+ref; // ME_AD123B45FE4A aMenuSectionItemToKeep
+
+: ME_1EA4F1601C39
+ CONST UID '1EA4F1601C39'
+ CONST Name 'Make'
+ CONST IsSummoned true
+ CONST Class class_Operation
+ : Stereotype st_factory::Operation ;
+ %SUMMARY 'Фабрика TRubricator_SetListRoot_Params' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_A7ACC8300BF9 // TRubricator_SetListRoot_Params
+ ;
+ : Parameters
+   Seq: ( ME_AD123B45FE48 // aNode
+ ME_AD123B45FE49 // aRootToKeep
+ ME_AD123B45FE4A // aMenuSectionItemToKeep
+ )
+ ; // Parameters
+ CONST "check nil" false
+ CONST "need AfterCreate" 'undefined'
+ CONST "need Aggregate" 'undefined'
+ CONST "need As" false
+
+ref; // ME_1EA4F1601C39 Make
+
+: ME_7642365480E3_ME_A7ACC8300BF9
+ CONST UID '7642365480E3'
+ CONST Name 'MenuSectionItemToKeep'
+ : Original ME_7642365480E3 // MenuSectionItemToKeep
+ ;
+ : Implementor ME_A7ACC8300BF9 // TRubricator_SetListRoot_Params
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "pm" false
+ref; // ME_7642365480E3_ME_A7ACC8300BF9 MenuSectionItemToKeep
+
+: ME_BDF6495DCDAE_ME_A7ACC8300BF9
+ CONST UID 'BDF6495DCDAE'
+ CONST Name 'RootToKeep'
+ : Original ME_BDF6495DCDAE // RootToKeep
+ ;
+ : Implementor ME_A7ACC8300BF9 // TRubricator_SetListRoot_Params
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "pm" false
+ref; // ME_BDF6495DCDAE_ME_A7ACC8300BF9 RootToKeep
+
+: ME_FF658FE3F542_ME_A7ACC8300BF9
+ CONST UID 'FF658FE3F542'
+ CONST Name 'Node'
+ : Original ME_FF658FE3F542 // Node
+ ;
+ : Implementor ME_A7ACC8300BF9 // TRubricator_SetListRoot_Params
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "pm" false
+ref; // ME_FF658FE3F542_ME_A7ACC8300BF9 Node
+
+: ME_5000565C019C_ME_A7ACC8300BF9
+ CONST UID '5000565C019C'
+ CONST Name 'ClearFields'
+ : Original WL 'ME_5000565C019C' '47913B47006E.pas.ms.script' // ClearFields
+ ;
+ : Implementor ME_A7ACC8300BF9 // TRubricator_SetListRoot_Params
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_5000565C019C_ME_A7ACC8300BF9 ClearFields
+
+: ME_A7ACC8300BF9
+ CONST UID 'A7ACC8300BF9'
+ CONST Name 'TRubricator_SetListRoot_Params'
+ CONST IsSummoned true
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Реализация IRubricator_SetListRoot_Params' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ : Parent ME_4AA7800100B4 // Rubricator
+ ;
+ : Inherits
+   Seq: ( WL 'ME_4AE5CA2D0034' '47913B47006E.pas.ms.script' // Tl3CProtoObject
+ )
+ ; // Inherits
+ : Implements
+   Seq: ( ME_2B0EA43CE3BF // IRubricator_SetListRoot_Params
+ )
+ ; // Implements
+ : Attributes
+   Seq: ( ME_6A2B09ED2B76 // f_Node
+ ME_C391E8C5B33F // f_RootToKeep
+ ME_8CA3817A0878 // f_MenuSectionItemToKeep
+ )
+ ; // Attributes
+ : Operations
+   Seq: ( ME_FE5ABE7677C2 // Create
+ ME_1EA4F1601C39 // Make
+ )
+ ; // Operations
+ : Implemented
+   Seq: ( ME_7642365480E3_ME_A7ACC8300BF9 // MenuSectionItemToKeep
+ ME_BDF6495DCDAE_ME_A7ACC8300BF9 // RootToKeep
+ ME_FF658FE3F542_ME_A7ACC8300BF9 // Node
+ )
+ ; // Implemented
+ : Overridden
+   Seq: ( ME_5000565C019C_ME_A7ACC8300BF9 // ClearFields
+ )
+ ; // Overridden
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\View'
+ CONST extprop:rc:SelfName 'Rubricator_SetListRoot_Params'
+ CONST extprop:rc:isAcceptableForScripts true
+
+ref; // ME_A7ACC8300BF9 TRubricator_SetListRoot_Params
+
+FORWARD ME_3266791D2583
+
+: ME_05CFDE346FDC
+ CONST UID '05CFDE346FDC'
+ CONST Name 'aTarget'
+ CONST IsSummoned true
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_4991AD08005B' '4683F37902CF.pas.ms.script' // IvcmEntity
+ ;
+
+ref; // ME_05CFDE346FDC aTarget
+
+: ME_05CFDE346FDD
+ CONST UID '05CFDE346FDD'
+ CONST Name 'aNode'
+ CONST IsSummoned true
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_468259900322' '4682595B0268.pas.ms.script' // Il3SimpleNode
+ ;
+
+ref; // ME_05CFDE346FDD aNode
+
+: ME_05CFDE346FDE
+ CONST UID '05CFDE346FDE'
+ CONST Name 'aRootToKeep'
+ CONST IsSummoned true
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_45EEB95901C5' '457450470167.pas.ms.script' // NodeBase
+ ;
+
+ref; // ME_05CFDE346FDE aRootToKeep
+
+: ME_05CFDE346FDF
+ CONST UID '05CFDE346FDF'
+ CONST Name 'aMenuSectionItemToKeep'
+ CONST IsSummoned true
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_4E36C7D80396' '4DD24BD40021.pas.ms.script' // SectionItem
+ ;
+
+ref; // ME_05CFDE346FDF aMenuSectionItemToKeep
+
+: ME_48AC881B1007
+ CONST UID '48AC881B1007'
+ CONST Name 'Call'
+ CONST IsSummoned true
+ CONST Class class_Operation
+ : Stereotype st_static::Operation ;
+ %SUMMARY 'Вызов операции Rubricator.SetListRoot у сущности' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_3266791D2583 // Op_Rubricator_SetListRoot
+ ;
+ : Target WL 'ME_3DBFFE100240' '3DBFDB23006E.pas.ms.script' // boolean
+ ;
+ : Parameters
+   Seq: ( ME_05CFDE346FDC // aTarget
+ ME_05CFDE346FDD // aNode
+ ME_05CFDE346FDE // aRootToKeep
+ ME_05CFDE346FDF // aMenuSectionItemToKeep
+ )
+ ; // Parameters
+ CONST extprop:pas:Value false
+
+ref; // ME_48AC881B1007 Call
+
+: ME_FDF584E83D09
+ CONST UID 'FDF584E83D09'
+ CONST Name 'aTarget'
+ CONST IsSummoned true
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_49930CC501C9' '4683F37902CF.pas.ms.script' // IvcmAggregate
+ ;
+
+ref; // ME_FDF584E83D09 aTarget
+
+: ME_FDF584E83D0A
+ CONST UID 'FDF584E83D0A'
+ CONST Name 'aNode'
+ CONST IsSummoned true
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_468259900322' '4682595B0268.pas.ms.script' // Il3SimpleNode
+ ;
+
+ref; // ME_FDF584E83D0A aNode
+
+: ME_FDF584E83D0B
+ CONST UID 'FDF584E83D0B'
+ CONST Name 'aRootToKeep'
+ CONST IsSummoned true
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_45EEB95901C5' '457450470167.pas.ms.script' // NodeBase
+ ;
+
+ref; // ME_FDF584E83D0B aRootToKeep
+
+: ME_FDF584E83D0C
+ CONST UID 'FDF584E83D0C'
+ CONST Name 'aMenuSectionItemToKeep'
+ CONST IsSummoned true
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_4E36C7D80396' '4DD24BD40021.pas.ms.script' // SectionItem
+ ;
+
+ref; // ME_FDF584E83D0C aMenuSectionItemToKeep
+
+: ME_78EC48099A57
+ CONST UID '78EC48099A57'
+ CONST Name 'Call'
+ CONST IsSummoned true
+ CONST Class class_Operation
+ : Stereotype st_static::Operation ;
+ %SUMMARY 'Вызов операции Rubricator.SetListRoot у агрегации' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_3266791D2583 // Op_Rubricator_SetListRoot
+ ;
+ : Target WL 'ME_3DBFFE100240' '3DBFDB23006E.pas.ms.script' // boolean
+ ;
+ : Parameters
+   Seq: ( ME_FDF584E83D09 // aTarget
+ ME_FDF584E83D0A // aNode
+ ME_FDF584E83D0B // aRootToKeep
+ ME_FDF584E83D0C // aMenuSectionItemToKeep
+ )
+ ; // Parameters
+ CONST extprop:pas:Value false
+
+ref; // ME_78EC48099A57 Call
+
+: ME_FDC3057BA579
+ CONST UID 'FDC3057BA579'
+ CONST Name 'aTarget'
+ CONST IsSummoned true
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_4914746C019E' '4683F37902CF.pas.ms.script' // IvcmEntityForm
+ ;
+
+ref; // ME_FDC3057BA579 aTarget
+
+: ME_FDC3057BA57A
+ CONST UID 'FDC3057BA57A'
+ CONST Name 'aNode'
+ CONST IsSummoned true
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_468259900322' '4682595B0268.pas.ms.script' // Il3SimpleNode
+ ;
+
+ref; // ME_FDC3057BA57A aNode
+
+: ME_FDC3057BA57B
+ CONST UID 'FDC3057BA57B'
+ CONST Name 'aRootToKeep'
+ CONST IsSummoned true
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_45EEB95901C5' '457450470167.pas.ms.script' // NodeBase
+ ;
+
+ref; // ME_FDC3057BA57B aRootToKeep
+
+: ME_FDC3057BA57C
+ CONST UID 'FDC3057BA57C'
+ CONST Name 'aMenuSectionItemToKeep'
+ CONST IsSummoned true
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_4E36C7D80396' '4DD24BD40021.pas.ms.script' // SectionItem
+ ;
+
+ref; // ME_FDC3057BA57C aMenuSectionItemToKeep
+
+: ME_C75C9E1570AD
+ CONST UID 'C75C9E1570AD'
+ CONST Name 'Call'
+ CONST IsSummoned true
+ CONST Class class_Operation
+ : Stereotype st_static::Operation ;
+ %SUMMARY 'Вызов операции Rubricator.SetListRoot у формы' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_3266791D2583 // Op_Rubricator_SetListRoot
+ ;
+ : Target WL 'ME_3DBFFE100240' '3DBFDB23006E.pas.ms.script' // boolean
+ ;
+ : Parameters
+   Seq: ( ME_FDC3057BA579 // aTarget
+ ME_FDC3057BA57A // aNode
+ ME_FDC3057BA57B // aRootToKeep
+ ME_FDC3057BA57C // aMenuSectionItemToKeep
+ )
+ ; // Parameters
+ CONST extprop:pas:Value false
+
+ref; // ME_C75C9E1570AD Call
+
+: ME_75D14CBEA794
+ CONST UID '75D14CBEA794'
+ CONST Name 'aTarget'
+ CONST IsSummoned true
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_49525C400141' '4683F37902CF.pas.ms.script' // IvcmContainer
+ ;
+
+ref; // ME_75D14CBEA794 aTarget
+
+: ME_75D14CBEA795
+ CONST UID '75D14CBEA795'
+ CONST Name 'aNode'
+ CONST IsSummoned true
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_468259900322' '4682595B0268.pas.ms.script' // Il3SimpleNode
+ ;
+
+ref; // ME_75D14CBEA795 aNode
+
+: ME_75D14CBEA796
+ CONST UID '75D14CBEA796'
+ CONST Name 'aRootToKeep'
+ CONST IsSummoned true
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_45EEB95901C5' '457450470167.pas.ms.script' // NodeBase
+ ;
+
+ref; // ME_75D14CBEA796 aRootToKeep
+
+: ME_75D14CBEA797
+ CONST UID '75D14CBEA797'
+ CONST Name 'aMenuSectionItemToKeep'
+ CONST IsSummoned true
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_4E36C7D80396' '4DD24BD40021.pas.ms.script' // SectionItem
+ ;
+
+ref; // ME_75D14CBEA797 aMenuSectionItemToKeep
+
+: ME_E192AE0A4E35
+ CONST UID 'E192AE0A4E35'
+ CONST Name 'Call'
+ CONST IsSummoned true
+ CONST Class class_Operation
+ : Stereotype st_static::Operation ;
+ %SUMMARY 'Вызов операции Rubricator.SetListRoot у контейнера' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_3266791D2583 // Op_Rubricator_SetListRoot
+ ;
+ : Target WL 'ME_3DBFFE100240' '3DBFDB23006E.pas.ms.script' // boolean
+ ;
+ : Parameters
+   Seq: ( ME_75D14CBEA794 // aTarget
+ ME_75D14CBEA795 // aNode
+ ME_75D14CBEA796 // aRootToKeep
+ ME_75D14CBEA797 // aMenuSectionItemToKeep
+ )
+ ; // Parameters
+ CONST extprop:pas:Value false
+
+ref; // ME_E192AE0A4E35 Call
+
+: ME_3266791D2583
+ CONST UID '3266791D2583'
+ CONST Name 'Op_Rubricator_SetListRoot'
+ CONST IsSummoned true
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Класс для вызова операции Rubricator.SetListRoot' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4AA7800100B4 // Rubricator
+ ;
+ : Operations
+   Seq: ( ME_48AC881B1007 // Call
+ ME_78EC48099A57 // Call
+ ME_C75C9E1570AD // Call
+ ME_E192AE0A4E35 // Call
+ )
+ ; // Operations
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\View'
+ CONST extprop:rc:isAcceptableForScripts true
+
+ref; // ME_3266791D2583 Op_Rubricator_SetListRoot
+
+FORWARD ME_DB4A578A5736
+
+: ME_E86249C3E69F
+ CONST UID 'E86249C3E69F'
+ CONST Name 'Node'
+ CONST IsSummoned true
+ CONST Class class_Attribute
+ : Stereotype st_readonly::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_agr
+ : Parent ME_DB4A578A5736 // IRubricator_InitListRoot_Params
+ ;
+ : Target WL 'ME_468259900322' '4682595B0268.pas.ms.script' // Il3SimpleNode
+ ;
+ CONST "pm" false
+
+ref; // ME_E86249C3E69F Node
+
+: ME_27E61DE967EE
+ CONST UID '27E61DE967EE'
+ CONST Name 'RootToKeep'
+ CONST IsSummoned true
+ CONST Class class_Attribute
+ : Stereotype st_readonly::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_agr
+ : Parent ME_DB4A578A5736 // IRubricator_InitListRoot_Params
+ ;
+ : Target WL 'ME_45EEB95901C5' '457450470167.pas.ms.script' // NodeBase
+ ;
+ CONST "pm" false
+
+ref; // ME_27E61DE967EE RootToKeep
+
+: ME_7177F3DE7453
+ CONST UID '7177F3DE7453'
+ CONST Name 'MenuSectionItemToKeep'
+ CONST IsSummoned true
+ CONST Class class_Attribute
+ : Stereotype st_readonly::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_agr
+ : Parent ME_DB4A578A5736 // IRubricator_InitListRoot_Params
+ ;
+ : Target WL 'ME_4E36C7D80396' '4DD24BD40021.pas.ms.script' // SectionItem
+ ;
+ CONST "pm" false
+
+ref; // ME_7177F3DE7453 MenuSectionItemToKeep
+
+: ME_DB4A578A5736
+ CONST UID 'DB4A578A5736'
+ CONST GUID 'A4493419-E50F-4EFC-9B58-CA180C218275'
+ CONST Name 'IRubricator_InitListRoot_Params'
+ CONST IsSummoned true
+ CONST Class class_Class
+ : Stereotype st_Facet ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Параметры для операции Rubricator.InitListRoot' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4AA7800100B4 // Rubricator
+ ;
+ : Attributes
+   Seq: ( ME_E86249C3E69F // Node
+ ME_27E61DE967EE // RootToKeep
+ ME_7177F3DE7453 // MenuSectionItemToKeep
+ )
+ ; // Attributes
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\View'
+ CONST extprop:rc:SelfName 'Rubricator_InitListRoot_Params'
+ CONST extprop:rc:isAcceptableForScripts true
+
+ref; // ME_DB4A578A5736 IRubricator_InitListRoot_Params
+
+FORWARD ME_4FD3A4102DB6
+
+: ME_1AA7F331D9A9
+ CONST UID '1AA7F331D9A9'
+ CONST Name 'f_Node'
+ CONST IsSummoned true
+ CONST Class class_Attribute
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_ref
+ : Parent ME_4FD3A4102DB6 // TRubricator_InitListRoot_Params
+ ;
+ : Target WL 'ME_468259900322' '4682595B0268.pas.ms.script' // Il3SimpleNode
+ ;
+
+ref; // ME_1AA7F331D9A9 f_Node
+
+: ME_5E3718C186B1
+ CONST UID '5E3718C186B1'
+ CONST Name 'f_RootToKeep'
+ CONST IsSummoned true
+ CONST Class class_Attribute
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_ref
+ : Parent ME_4FD3A4102DB6 // TRubricator_InitListRoot_Params
+ ;
+ : Target WL 'ME_45EEB95901C5' '457450470167.pas.ms.script' // NodeBase
+ ;
+
+ref; // ME_5E3718C186B1 f_RootToKeep
+
+: ME_5EA16812E7EF
+ CONST UID '5EA16812E7EF'
+ CONST Name 'f_MenuSectionItemToKeep'
+ CONST IsSummoned true
+ CONST Class class_Attribute
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_ref
+ : Parent ME_4FD3A4102DB6 // TRubricator_InitListRoot_Params
+ ;
+ : Target WL 'ME_4E36C7D80396' '4DD24BD40021.pas.ms.script' // SectionItem
+ ;
+
+ref; // ME_5EA16812E7EF f_MenuSectionItemToKeep
+
+: ME_A436847C2875
+ CONST UID 'A436847C2875'
+ CONST Name 'aNode'
+ CONST IsSummoned true
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_468259900322' '4682595B0268.pas.ms.script' // Il3SimpleNode
+ ;
+
+ref; // ME_A436847C2875 aNode
+
+: ME_A436847C2876
+ CONST UID 'A436847C2876'
+ CONST Name 'aRootToKeep'
+ CONST IsSummoned true
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_45EEB95901C5' '457450470167.pas.ms.script' // NodeBase
+ ;
+
+ref; // ME_A436847C2876 aRootToKeep
+
+: ME_A436847C2877
+ CONST UID 'A436847C2877'
+ CONST Name 'aMenuSectionItemToKeep'
+ CONST IsSummoned true
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_4E36C7D80396' '4DD24BD40021.pas.ms.script' // SectionItem
+ ;
+
+ref; // ME_A436847C2877 aMenuSectionItemToKeep
+
+: ME_17E12CFCA1E2
+ CONST UID '17E12CFCA1E2'
+ CONST Name 'Create'
+ CONST IsSummoned true
+ CONST Class class_Operation
+ : Stereotype st_ctor::Operation ;
+ %SUMMARY 'Конструктор TRubricator_InitListRoot_Params' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_4FD3A4102DB6 // TRubricator_InitListRoot_Params
+ ;
+ : Parameters
+   Seq: ( ME_A436847C2875 // aNode
+ ME_A436847C2876 // aRootToKeep
+ ME_A436847C2877 // aMenuSectionItemToKeep
+ )
+ ; // Parameters
+
+ref; // ME_17E12CFCA1E2 Create
+
+: ME_608C7918F246
+ CONST UID '608C7918F246'
+ CONST Name 'aNode'
+ CONST IsSummoned true
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_468259900322' '4682595B0268.pas.ms.script' // Il3SimpleNode
+ ;
+
+ref; // ME_608C7918F246 aNode
+
+: ME_608C7918F247
+ CONST UID '608C7918F247'
+ CONST Name 'aRootToKeep'
+ CONST IsSummoned true
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_45EEB95901C5' '457450470167.pas.ms.script' // NodeBase
+ ;
+
+ref; // ME_608C7918F247 aRootToKeep
+
+: ME_608C7918F248
+ CONST UID '608C7918F248'
+ CONST Name 'aMenuSectionItemToKeep'
+ CONST IsSummoned true
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_4E36C7D80396' '4DD24BD40021.pas.ms.script' // SectionItem
+ ;
+
+ref; // ME_608C7918F248 aMenuSectionItemToKeep
+
+: ME_2623315A6D9D
+ CONST UID '2623315A6D9D'
+ CONST Name 'Make'
+ CONST IsSummoned true
+ CONST Class class_Operation
+ : Stereotype st_factory::Operation ;
+ %SUMMARY 'Фабрика TRubricator_InitListRoot_Params' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_4FD3A4102DB6 // TRubricator_InitListRoot_Params
+ ;
+ : Parameters
+   Seq: ( ME_608C7918F246 // aNode
+ ME_608C7918F247 // aRootToKeep
+ ME_608C7918F248 // aMenuSectionItemToKeep
+ )
+ ; // Parameters
+ CONST "check nil" false
+ CONST "need AfterCreate" 'undefined'
+ CONST "need Aggregate" 'undefined'
+ CONST "need As" false
+
+ref; // ME_2623315A6D9D Make
+
+: ME_27E61DE967EE_ME_4FD3A4102DB6
+ CONST UID '27E61DE967EE'
+ CONST Name 'RootToKeep'
+ : Original ME_27E61DE967EE // RootToKeep
+ ;
+ : Implementor ME_4FD3A4102DB6 // TRubricator_InitListRoot_Params
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "pm" false
+ref; // ME_27E61DE967EE_ME_4FD3A4102DB6 RootToKeep
+
+: ME_7177F3DE7453_ME_4FD3A4102DB6
+ CONST UID '7177F3DE7453'
+ CONST Name 'MenuSectionItemToKeep'
+ : Original ME_7177F3DE7453 // MenuSectionItemToKeep
+ ;
+ : Implementor ME_4FD3A4102DB6 // TRubricator_InitListRoot_Params
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "pm" false
+ref; // ME_7177F3DE7453_ME_4FD3A4102DB6 MenuSectionItemToKeep
+
+: ME_E86249C3E69F_ME_4FD3A4102DB6
+ CONST UID 'E86249C3E69F'
+ CONST Name 'Node'
+ : Original ME_E86249C3E69F // Node
+ ;
+ : Implementor ME_4FD3A4102DB6 // TRubricator_InitListRoot_Params
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "pm" false
+ref; // ME_E86249C3E69F_ME_4FD3A4102DB6 Node
+
+: ME_5000565C019C_ME_4FD3A4102DB6
+ CONST UID '5000565C019C'
+ CONST Name 'ClearFields'
+ : Original WL 'ME_5000565C019C' '47913B47006E.pas.ms.script' // ClearFields
+ ;
+ : Implementor ME_4FD3A4102DB6 // TRubricator_InitListRoot_Params
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_5000565C019C_ME_4FD3A4102DB6 ClearFields
+
+: ME_4FD3A4102DB6
+ CONST UID '4FD3A4102DB6'
+ CONST Name 'TRubricator_InitListRoot_Params'
+ CONST IsSummoned true
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Реализация IRubricator_InitListRoot_Params' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ : Parent ME_4AA7800100B4 // Rubricator
+ ;
+ : Inherits
+   Seq: ( WL 'ME_4AE5CA2D0034' '47913B47006E.pas.ms.script' // Tl3CProtoObject
+ )
+ ; // Inherits
+ : Implements
+   Seq: ( ME_DB4A578A5736 // IRubricator_InitListRoot_Params
+ )
+ ; // Implements
+ : Attributes
+   Seq: ( ME_1AA7F331D9A9 // f_Node
+ ME_5E3718C186B1 // f_RootToKeep
+ ME_5EA16812E7EF // f_MenuSectionItemToKeep
+ )
+ ; // Attributes
+ : Operations
+   Seq: ( ME_17E12CFCA1E2 // Create
+ ME_2623315A6D9D // Make
+ )
+ ; // Operations
+ : Implemented
+   Seq: ( ME_27E61DE967EE_ME_4FD3A4102DB6 // RootToKeep
+ ME_7177F3DE7453_ME_4FD3A4102DB6 // MenuSectionItemToKeep
+ ME_E86249C3E69F_ME_4FD3A4102DB6 // Node
+ )
+ ; // Implemented
+ : Overridden
+   Seq: ( ME_5000565C019C_ME_4FD3A4102DB6 // ClearFields
+ )
+ ; // Overridden
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\View'
+ CONST extprop:rc:SelfName 'Rubricator_InitListRoot_Params'
+ CONST extprop:rc:isAcceptableForScripts true
+
+ref; // ME_4FD3A4102DB6 TRubricator_InitListRoot_Params
+
+FORWARD ME_A043500A3603
+
+: ME_A3319D687528
+ CONST UID 'A3319D687528'
+ CONST Name 'aTarget'
+ CONST IsSummoned true
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_4991AD08005B' '4683F37902CF.pas.ms.script' // IvcmEntity
+ ;
+
+ref; // ME_A3319D687528 aTarget
+
+: ME_A3319D687529
+ CONST UID 'A3319D687529'
+ CONST Name 'aNode'
+ CONST IsSummoned true
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_468259900322' '4682595B0268.pas.ms.script' // Il3SimpleNode
+ ;
+
+ref; // ME_A3319D687529 aNode
+
+: ME_A3319D68752A
+ CONST UID 'A3319D68752A'
+ CONST Name 'aRootToKeep'
+ CONST IsSummoned true
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_45EEB95901C5' '457450470167.pas.ms.script' // NodeBase
+ ;
+
+ref; // ME_A3319D68752A aRootToKeep
+
+: ME_A3319D68752B
+ CONST UID 'A3319D68752B'
+ CONST Name 'aMenuSectionItemToKeep'
+ CONST IsSummoned true
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_4E36C7D80396' '4DD24BD40021.pas.ms.script' // SectionItem
+ ;
+
+ref; // ME_A3319D68752B aMenuSectionItemToKeep
+
+: ME_64F3B69EBA84
+ CONST UID '64F3B69EBA84'
+ CONST Name 'Call'
+ CONST IsSummoned true
+ CONST Class class_Operation
+ : Stereotype st_static::Operation ;
+ %SUMMARY 'Вызов операции Rubricator.InitListRoot у сущности' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_A043500A3603 // Op_Rubricator_InitListRoot
+ ;
+ : Target WL 'ME_3DBFFE100240' '3DBFDB23006E.pas.ms.script' // boolean
+ ;
+ : Parameters
+   Seq: ( ME_A3319D687528 // aTarget
+ ME_A3319D687529 // aNode
+ ME_A3319D68752A // aRootToKeep
+ ME_A3319D68752B // aMenuSectionItemToKeep
+ )
+ ; // Parameters
+ CONST extprop:pas:Value false
+
+ref; // ME_64F3B69EBA84 Call
+
+: ME_66A1B8B94F88
+ CONST UID '66A1B8B94F88'
+ CONST Name 'aTarget'
+ CONST IsSummoned true
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_49930CC501C9' '4683F37902CF.pas.ms.script' // IvcmAggregate
+ ;
+
+ref; // ME_66A1B8B94F88 aTarget
+
+: ME_66A1B8B94F89
+ CONST UID '66A1B8B94F89'
+ CONST Name 'aNode'
+ CONST IsSummoned true
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_468259900322' '4682595B0268.pas.ms.script' // Il3SimpleNode
+ ;
+
+ref; // ME_66A1B8B94F89 aNode
+
+: ME_66A1B8B94F8A
+ CONST UID '66A1B8B94F8A'
+ CONST Name 'aRootToKeep'
+ CONST IsSummoned true
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_45EEB95901C5' '457450470167.pas.ms.script' // NodeBase
+ ;
+
+ref; // ME_66A1B8B94F8A aRootToKeep
+
+: ME_66A1B8B94F8B
+ CONST UID '66A1B8B94F8B'
+ CONST Name 'aMenuSectionItemToKeep'
+ CONST IsSummoned true
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_4E36C7D80396' '4DD24BD40021.pas.ms.script' // SectionItem
+ ;
+
+ref; // ME_66A1B8B94F8B aMenuSectionItemToKeep
+
+: ME_47F7738244D5
+ CONST UID '47F7738244D5'
+ CONST Name 'Call'
+ CONST IsSummoned true
+ CONST Class class_Operation
+ : Stereotype st_static::Operation ;
+ %SUMMARY 'Вызов операции Rubricator.InitListRoot у агрегации' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_A043500A3603 // Op_Rubricator_InitListRoot
+ ;
+ : Target WL 'ME_3DBFFE100240' '3DBFDB23006E.pas.ms.script' // boolean
+ ;
+ : Parameters
+   Seq: ( ME_66A1B8B94F88 // aTarget
+ ME_66A1B8B94F89 // aNode
+ ME_66A1B8B94F8A // aRootToKeep
+ ME_66A1B8B94F8B // aMenuSectionItemToKeep
+ )
+ ; // Parameters
+ CONST extprop:pas:Value false
+
+ref; // ME_47F7738244D5 Call
+
+: ME_AE2EFA19CFA2
+ CONST UID 'AE2EFA19CFA2'
+ CONST Name 'aTarget'
+ CONST IsSummoned true
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_4914746C019E' '4683F37902CF.pas.ms.script' // IvcmEntityForm
+ ;
+
+ref; // ME_AE2EFA19CFA2 aTarget
+
+: ME_AE2EFA19CFA3
+ CONST UID 'AE2EFA19CFA3'
+ CONST Name 'aNode'
+ CONST IsSummoned true
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_468259900322' '4682595B0268.pas.ms.script' // Il3SimpleNode
+ ;
+
+ref; // ME_AE2EFA19CFA3 aNode
+
+: ME_AE2EFA19CFA4
+ CONST UID 'AE2EFA19CFA4'
+ CONST Name 'aRootToKeep'
+ CONST IsSummoned true
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_45EEB95901C5' '457450470167.pas.ms.script' // NodeBase
+ ;
+
+ref; // ME_AE2EFA19CFA4 aRootToKeep
+
+: ME_AE2EFA19CFA5
+ CONST UID 'AE2EFA19CFA5'
+ CONST Name 'aMenuSectionItemToKeep'
+ CONST IsSummoned true
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_4E36C7D80396' '4DD24BD40021.pas.ms.script' // SectionItem
+ ;
+
+ref; // ME_AE2EFA19CFA5 aMenuSectionItemToKeep
+
+: ME_E9BEF4197897
+ CONST UID 'E9BEF4197897'
+ CONST Name 'Call'
+ CONST IsSummoned true
+ CONST Class class_Operation
+ : Stereotype st_static::Operation ;
+ %SUMMARY 'Вызов операции Rubricator.InitListRoot у формы' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_A043500A3603 // Op_Rubricator_InitListRoot
+ ;
+ : Target WL 'ME_3DBFFE100240' '3DBFDB23006E.pas.ms.script' // boolean
+ ;
+ : Parameters
+   Seq: ( ME_AE2EFA19CFA2 // aTarget
+ ME_AE2EFA19CFA3 // aNode
+ ME_AE2EFA19CFA4 // aRootToKeep
+ ME_AE2EFA19CFA5 // aMenuSectionItemToKeep
+ )
+ ; // Parameters
+ CONST extprop:pas:Value false
+
+ref; // ME_E9BEF4197897 Call
+
+: ME_1F8358FBBA9D
+ CONST UID '1F8358FBBA9D'
+ CONST Name 'aTarget'
+ CONST IsSummoned true
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_49525C400141' '4683F37902CF.pas.ms.script' // IvcmContainer
+ ;
+
+ref; // ME_1F8358FBBA9D aTarget
+
+: ME_1F8358FBBA9E
+ CONST UID '1F8358FBBA9E'
+ CONST Name 'aNode'
+ CONST IsSummoned true
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_468259900322' '4682595B0268.pas.ms.script' // Il3SimpleNode
+ ;
+
+ref; // ME_1F8358FBBA9E aNode
+
+: ME_1F8358FBBA9F
+ CONST UID '1F8358FBBA9F'
+ CONST Name 'aRootToKeep'
+ CONST IsSummoned true
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_45EEB95901C5' '457450470167.pas.ms.script' // NodeBase
+ ;
+
+ref; // ME_1F8358FBBA9F aRootToKeep
+
+: ME_1F8358FBBAA0
+ CONST UID '1F8358FBBAA0'
+ CONST Name 'aMenuSectionItemToKeep'
+ CONST IsSummoned true
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_4E36C7D80396' '4DD24BD40021.pas.ms.script' // SectionItem
+ ;
+
+ref; // ME_1F8358FBBAA0 aMenuSectionItemToKeep
+
+: ME_2FC19F16AEA1
+ CONST UID '2FC19F16AEA1'
+ CONST Name 'Call'
+ CONST IsSummoned true
+ CONST Class class_Operation
+ : Stereotype st_static::Operation ;
+ %SUMMARY 'Вызов операции Rubricator.InitListRoot у контейнера' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_A043500A3603 // Op_Rubricator_InitListRoot
+ ;
+ : Target WL 'ME_3DBFFE100240' '3DBFDB23006E.pas.ms.script' // boolean
+ ;
+ : Parameters
+   Seq: ( ME_1F8358FBBA9D // aTarget
+ ME_1F8358FBBA9E // aNode
+ ME_1F8358FBBA9F // aRootToKeep
+ ME_1F8358FBBAA0 // aMenuSectionItemToKeep
+ )
+ ; // Parameters
+ CONST extprop:pas:Value false
+
+ref; // ME_2FC19F16AEA1 Call
+
+: ME_A043500A3603
+ CONST UID 'A043500A3603'
+ CONST Name 'Op_Rubricator_InitListRoot'
+ CONST IsSummoned true
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Класс для вызова операции Rubricator.InitListRoot' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4AA7800100B4 // Rubricator
+ ;
+ : Operations
+   Seq: ( ME_64F3B69EBA84 // Call
+ ME_47F7738244D5 // Call
+ ME_E9BEF4197897 // Call
+ ME_2FC19F16AEA1 // Call
+ )
+ ; // Operations
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\View'
+ CONST extprop:rc:isAcceptableForScripts true
+
+ref; // ME_A043500A3603 Op_Rubricator_InitListRoot
+
+FORWARD ME_32C843315381
+
+: ME_2F963B3041D9
+ CONST UID '2F963B3041D9'
+ CONST Name 'aTarget'
+ CONST IsSummoned true
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_4991AD08005B' '4683F37902CF.pas.ms.script' // IvcmEntity
+ ;
+
+ref; // ME_2F963B3041D9 aTarget
+
+: ME_8AE25AEF3C2C
+ CONST UID '8AE25AEF3C2C'
+ CONST Name 'Call'
+ CONST IsSummoned true
+ CONST Class class_Operation
+ : Stereotype st_static::Operation ;
+ %SUMMARY 'Вызов операции Rubricator.Synchronize у сущности' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_32C843315381 // Op_Rubricator_Synchronize
+ ;
+ : Target WL 'ME_3DBFFE100240' '3DBFDB23006E.pas.ms.script' // boolean
+ ;
+ : Parameters
+   Seq: ( ME_2F963B3041D9 // aTarget
+ )
+ ; // Parameters
+ CONST extprop:pas:Value false
+
+ref; // ME_8AE25AEF3C2C Call
+
+: ME_C4CE051DA245
+ CONST UID 'C4CE051DA245'
+ CONST Name 'aTarget'
+ CONST IsSummoned true
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_49930CC501C9' '4683F37902CF.pas.ms.script' // IvcmAggregate
+ ;
+
+ref; // ME_C4CE051DA245 aTarget
+
+: ME_BB221ADEC67C
+ CONST UID 'BB221ADEC67C'
+ CONST Name 'Call'
+ CONST IsSummoned true
+ CONST Class class_Operation
+ : Stereotype st_static::Operation ;
+ %SUMMARY 'Вызов операции Rubricator.Synchronize у агрегации' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_32C843315381 // Op_Rubricator_Synchronize
+ ;
+ : Target WL 'ME_3DBFFE100240' '3DBFDB23006E.pas.ms.script' // boolean
+ ;
+ : Parameters
+   Seq: ( ME_C4CE051DA245 // aTarget
+ )
+ ; // Parameters
+ CONST extprop:pas:Value false
+
+ref; // ME_BB221ADEC67C Call
+
+: ME_28CB13F79E5A
+ CONST UID '28CB13F79E5A'
+ CONST Name 'aTarget'
+ CONST IsSummoned true
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_4914746C019E' '4683F37902CF.pas.ms.script' // IvcmEntityForm
+ ;
+
+ref; // ME_28CB13F79E5A aTarget
+
+: ME_7525D8C21A16
+ CONST UID '7525D8C21A16'
+ CONST Name 'Call'
+ CONST IsSummoned true
+ CONST Class class_Operation
+ : Stereotype st_static::Operation ;
+ %SUMMARY 'Вызов операции Rubricator.Synchronize у формы' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_32C843315381 // Op_Rubricator_Synchronize
+ ;
+ : Target WL 'ME_3DBFFE100240' '3DBFDB23006E.pas.ms.script' // boolean
+ ;
+ : Parameters
+   Seq: ( ME_28CB13F79E5A // aTarget
+ )
+ ; // Parameters
+ CONST extprop:pas:Value false
+
+ref; // ME_7525D8C21A16 Call
+
+: ME_3777F09920BA
+ CONST UID '3777F09920BA'
+ CONST Name 'aTarget'
+ CONST IsSummoned true
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_49525C400141' '4683F37902CF.pas.ms.script' // IvcmContainer
+ ;
+
+ref; // ME_3777F09920BA aTarget
+
+: ME_1A8909936035
+ CONST UID '1A8909936035'
+ CONST Name 'Call'
+ CONST IsSummoned true
+ CONST Class class_Operation
+ : Stereotype st_static::Operation ;
+ %SUMMARY 'Вызов операции Rubricator.Synchronize у контейнера' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_32C843315381 // Op_Rubricator_Synchronize
+ ;
+ : Target WL 'ME_3DBFFE100240' '3DBFDB23006E.pas.ms.script' // boolean
+ ;
+ : Parameters
+   Seq: ( ME_3777F09920BA // aTarget
+ )
+ ; // Parameters
+ CONST extprop:pas:Value false
+
+ref; // ME_1A8909936035 Call
+
+: ME_32C843315381
+ CONST UID '32C843315381'
+ CONST Name 'Op_Rubricator_Synchronize'
+ CONST IsSummoned true
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Класс для вызова операции Rubricator.Synchronize' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4AA7800100B4 // Rubricator
+ ;
+ : Operations
+   Seq: ( ME_8AE25AEF3C2C // Call
+ ME_BB221ADEC67C // Call
+ ME_7525D8C21A16 // Call
+ ME_1A8909936035 // Call
+ )
+ ; // Operations
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\View'
+ CONST extprop:rc:isAcceptableForScripts true
+
+ref; // ME_32C843315381 Op_Rubricator_Synchronize
+
+FORWARD ME_E2F7B2A23D0A
+
+: ME_2FC37EEDF50A
+ CONST UID '2FC37EEDF50A'
+ CONST Name 'ResultValue'
+ CONST IsSummoned true
+ CONST Class class_Attribute
+ : Stereotype st_property::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_agr
+ : Parent ME_E2F7B2A23D0A // IRubricator_GetRoot_Params
+ ;
+ : Target WL 'ME_468259900322' '4682595B0268.pas.ms.script' // Il3SimpleNode
+ ;
+ CONST "pm" false
+
+ref; // ME_2FC37EEDF50A ResultValue
+
+: ME_E2F7B2A23D0A
+ CONST UID 'E2F7B2A23D0A'
+ CONST GUID 'E6D245F3-C0B0-41E0-AAD9-9913FA991580'
+ CONST Name 'IRubricator_GetRoot_Params'
+ CONST IsSummoned true
+ CONST Class class_Class
+ : Stereotype st_Facet ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Параметры для операции Rubricator.GetRoot' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4AA7800100B4 // Rubricator
+ ;
+ : Attributes
+   Seq: ( ME_2FC37EEDF50A // ResultValue
+ )
+ ; // Attributes
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\View'
+ CONST extprop:rc:SelfName 'Rubricator_GetRoot_Params'
+ CONST extprop:rc:isAcceptableForScripts true
+
+ref; // ME_E2F7B2A23D0A IRubricator_GetRoot_Params
+
+FORWARD ME_5F95D6966545
+
+: ME_583214D26A02
+ CONST UID '583214D26A02'
+ CONST Name 'f_ResultValue'
+ CONST IsSummoned true
+ CONST Class class_Attribute
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_ref
+ : Parent ME_5F95D6966545 // TRubricator_GetRoot_Params
+ ;
+ : Target WL 'ME_468259900322' '4682595B0268.pas.ms.script' // Il3SimpleNode
+ ;
+
+ref; // ME_583214D26A02 f_ResultValue
+
+: ME_16908252C187
+ CONST UID '16908252C187'
+ CONST Name 'Create'
+ CONST IsSummoned true
+ CONST Class class_Operation
+ : Stereotype st_ctor::Operation ;
+ %SUMMARY 'Конструктор TRubricator_GetRoot_Params' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_5F95D6966545 // TRubricator_GetRoot_Params
+ ;
+
+ref; // ME_16908252C187 Create
+
+: ME_A1BEFF76955B
+ CONST UID 'A1BEFF76955B'
+ CONST Name 'Make'
+ CONST IsSummoned true
+ CONST Class class_Operation
+ : Stereotype st_factory::Operation ;
+ %SUMMARY 'Фабрика TRubricator_GetRoot_Params' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_5F95D6966545 // TRubricator_GetRoot_Params
+ ;
+ CONST "check nil" false
+ CONST "need AfterCreate" 'undefined'
+ CONST "need Aggregate" 'undefined'
+ CONST "need As" false
+
+ref; // ME_A1BEFF76955B Make
+
+: ME_2FC37EEDF50A_ME_5F95D6966545
+ CONST UID '2FC37EEDF50A'
+ CONST Name 'ResultValue'
+ : Original ME_2FC37EEDF50A // ResultValue
+ ;
+ : Implementor ME_5F95D6966545 // TRubricator_GetRoot_Params
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "pm" false
+ref; // ME_2FC37EEDF50A_ME_5F95D6966545 ResultValue
+
+: ME_5000565C019C_ME_5F95D6966545
+ CONST UID '5000565C019C'
+ CONST Name 'ClearFields'
+ : Original WL 'ME_5000565C019C' '47913B47006E.pas.ms.script' // ClearFields
+ ;
+ : Implementor ME_5F95D6966545 // TRubricator_GetRoot_Params
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_5000565C019C_ME_5F95D6966545 ClearFields
+
+: ME_5F95D6966545
+ CONST UID '5F95D6966545'
+ CONST Name 'TRubricator_GetRoot_Params'
+ CONST IsSummoned true
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Реализация IRubricator_GetRoot_Params' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ : Parent ME_4AA7800100B4 // Rubricator
+ ;
+ : Inherits
+   Seq: ( WL 'ME_4AE5CA2D0034' '47913B47006E.pas.ms.script' // Tl3CProtoObject
+ )
+ ; // Inherits
+ : Implements
+   Seq: ( ME_E2F7B2A23D0A // IRubricator_GetRoot_Params
+ )
+ ; // Implements
+ : Attributes
+   Seq: ( ME_583214D26A02 // f_ResultValue
+ )
+ ; // Attributes
+ : Operations
+   Seq: ( ME_16908252C187 // Create
+ ME_A1BEFF76955B // Make
+ )
+ ; // Operations
+ : Implemented
+   Seq: ( ME_2FC37EEDF50A_ME_5F95D6966545 // ResultValue
+ )
+ ; // Implemented
+ : Overridden
+   Seq: ( ME_5000565C019C_ME_5F95D6966545 // ClearFields
+ )
+ ; // Overridden
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\View'
+ CONST extprop:rc:SelfName 'Rubricator_GetRoot_Params'
+ CONST extprop:rc:isAcceptableForScripts true
+
+ref; // ME_5F95D6966545 TRubricator_GetRoot_Params
+
+FORWARD ME_B82060518628
+
+: ME_173041CDD4B0
+ CONST UID '173041CDD4B0'
+ CONST Name 'aTarget'
+ CONST IsSummoned true
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_4991AD08005B' '4683F37902CF.pas.ms.script' // IvcmEntity
+ ;
+
+ref; // ME_173041CDD4B0 aTarget
+
+: ME_563B1DF53759
+ CONST UID '563B1DF53759'
+ CONST Name 'Call'
+ CONST IsSummoned true
+ CONST Class class_Operation
+ : Stereotype st_static::Operation ;
+ %SUMMARY 'Вызов операции Rubricator.GetRoot у сущности' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_B82060518628 // Op_Rubricator_GetRoot
+ ;
+ : Target WL 'ME_468259900322' '4682595B0268.pas.ms.script' // Il3SimpleNode
+ ;
+ : Parameters
+   Seq: ( ME_173041CDD4B0 // aTarget
+ )
+ ; // Parameters
+
+ref; // ME_563B1DF53759 Call
+
+: ME_6323ACA1A7B8
+ CONST UID '6323ACA1A7B8'
+ CONST Name 'aTarget'
+ CONST IsSummoned true
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_49930CC501C9' '4683F37902CF.pas.ms.script' // IvcmAggregate
+ ;
+
+ref; // ME_6323ACA1A7B8 aTarget
+
+: ME_867ADDE3C1A9
+ CONST UID '867ADDE3C1A9'
+ CONST Name 'Call'
+ CONST IsSummoned true
+ CONST Class class_Operation
+ : Stereotype st_static::Operation ;
+ %SUMMARY 'Вызов операции Rubricator.GetRoot у агрегации' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_B82060518628 // Op_Rubricator_GetRoot
+ ;
+ : Target WL 'ME_468259900322' '4682595B0268.pas.ms.script' // Il3SimpleNode
+ ;
+ : Parameters
+   Seq: ( ME_6323ACA1A7B8 // aTarget
+ )
+ ; // Parameters
+
+ref; // ME_867ADDE3C1A9 Call
+
+: ME_532FD3B5E282
+ CONST UID '532FD3B5E282'
+ CONST Name 'aTarget'
+ CONST IsSummoned true
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_4914746C019E' '4683F37902CF.pas.ms.script' // IvcmEntityForm
+ ;
+
+ref; // ME_532FD3B5E282 aTarget
+
+: ME_40233499B40B
+ CONST UID '40233499B40B'
+ CONST Name 'Call'
+ CONST IsSummoned true
+ CONST Class class_Operation
+ : Stereotype st_static::Operation ;
+ %SUMMARY 'Вызов операции Rubricator.GetRoot у формы' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_B82060518628 // Op_Rubricator_GetRoot
+ ;
+ : Target WL 'ME_468259900322' '4682595B0268.pas.ms.script' // Il3SimpleNode
+ ;
+ : Parameters
+   Seq: ( ME_532FD3B5E282 // aTarget
+ )
+ ; // Parameters
+
+ref; // ME_40233499B40B Call
+
+: ME_804570F35939
+ CONST UID '804570F35939'
+ CONST Name 'aTarget'
+ CONST IsSummoned true
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_49525C400141' '4683F37902CF.pas.ms.script' // IvcmContainer
+ ;
+
+ref; // ME_804570F35939 aTarget
+
+: ME_19FE5D7DF53B
+ CONST UID '19FE5D7DF53B'
+ CONST Name 'Call'
+ CONST IsSummoned true
+ CONST Class class_Operation
+ : Stereotype st_static::Operation ;
+ %SUMMARY 'Вызов операции Rubricator.GetRoot у контейнера' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_B82060518628 // Op_Rubricator_GetRoot
+ ;
+ : Target WL 'ME_468259900322' '4682595B0268.pas.ms.script' // Il3SimpleNode
+ ;
+ : Parameters
+   Seq: ( ME_804570F35939 // aTarget
+ )
+ ; // Parameters
+
+ref; // ME_19FE5D7DF53B Call
+
+: ME_B82060518628
+ CONST UID 'B82060518628'
+ CONST Name 'Op_Rubricator_GetRoot'
+ CONST IsSummoned true
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Класс для вызова операции Rubricator.GetRoot' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4AA7800100B4 // Rubricator
+ ;
+ : Operations
+   Seq: ( ME_563B1DF53759 // Call
+ ME_867ADDE3C1A9 // Call
+ ME_40233499B40B // Call
+ ME_19FE5D7DF53B // Call
+ )
+ ; // Operations
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\View'
+ CONST extprop:rc:isAcceptableForScripts true
+
+ref; // ME_B82060518628 Op_Rubricator_GetRoot
+
+: ME_4AA7800100B4
+ CONST UID '4AA7800100B4'
+ CONST Name 'Rubricator'
+ CONST Class class_Category
+ : Stereotype st_VCMControls ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent WL 'ME_4A92C59801C7' '4A92C59801C7.pas.ms.script' // View
+ ;
+ : Children
+   Seq: ( ME_4AA7803101E2 // Rubricator
+ ME_2B0EA43CE3BF // IRubricator_SetListRoot_Params
+ ME_A7ACC8300BF9 // TRubricator_SetListRoot_Params
+ ME_3266791D2583 // Op_Rubricator_SetListRoot
+ ME_DB4A578A5736 // IRubricator_InitListRoot_Params
+ ME_4FD3A4102DB6 // TRubricator_InitListRoot_Params
+ ME_A043500A3603 // Op_Rubricator_InitListRoot
+ ME_32C843315381 // Op_Rubricator_Synchronize
+ ME_E2F7B2A23D0A // IRubricator_GetRoot_Params
+ ME_5F95D6966545 // TRubricator_GetRoot_Params
+ ME_B82060518628 // Op_Rubricator_GetRoot
+ )
+ ; // Children
+ : Depends
+   Seq: ( WL 'ME_457450470167' '457450470167.pas.ms.script' // DynamicTree
+ WL 'ME_4682595B0268' '4682595B0268.pas.ms.script' // l3TreeInterfaces
+ WL 'ME_4914746C019E' '4683F37902CF.pas.ms.script' // IvcmEntityForm
+ WL 'ME_49525C400141' '4683F37902CF.pas.ms.script' // IvcmContainer
+ WL 'ME_4991AD08005B' '4683F37902CF.pas.ms.script' // IvcmEntity
+ WL 'ME_49930CC501C9' '4683F37902CF.pas.ms.script' // IvcmAggregate
+ WL 'ME_4AE5CA2D0034' '47913B47006E.pas.ms.script' // Tl3CProtoObject
+ WL 'ME_4DD24BD40021' '4DD24BD40021.pas.ms.script' // MainMenu
+ )
+ ; // Depends
+ CONST "author" 'Люлин А.В.'
+ CONST "is namespace" true
+ CONST "no hands" true
+ CONST "started" '09.09.2009 14:14'
+ : Generators
+ Seq: (
+ gen_intf.pas
+ gen_pas.script
+ gen_pas.script.runner
+ )
+ ; // Generators
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View'
+ CONST intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\Common_Rubricator_Controls.pas'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View'
+ CONST pas.script:Path 'shared\models\NewSchool\Scripts\4AA7800100B4.pas.ms.script'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\4AA7800100B4.pas.ms.script.runner'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\View'
+ CONST extprop:pas:UnitName 'Common_Rubricator_Controls'
+
+ref; // ME_4AA7800100B4 Rubricator

@@ -1,0 +1,325 @@
+// Rubricator 4907236C0171 Unit Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4907236C0171
+
+FORWARD ME_490723DC0096
+
+: ME_4907242100D7
+ CONST UID '4907242100D7'
+ CONST Name 'Make'
+ CONST Class class_Operation
+ : Stereotype st_static::Operation ;
+ %SUMMARY 'Создаёт экземпляр дерева навигатора (которое в оболочке справа)' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_490723DC0096 // TnsNavigatorTreeStruct
+ ;
+ : Target WL 'ME_46825CC00249' '4682595B0268.pas.ms.script' // Il3SimpleTree
+ ;
+
+ref; // ME_4907242100D7 Make
+
+: ME_4907245403BE
+ CONST UID '4907245403BE'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_490723DC0096 // TnsNavigatorTreeStruct
+ ;
+ : Target WL 'ME_47FB50E4008E' '48F747EC0073.pas.ms.script' // nsConst
+ ;
+
+ref; // ME_4907245403BE 
+
+: ME_490727C1004A
+ CONST UID '490727C1004A'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_490723DC0096 // TnsNavigatorTreeStruct
+ ;
+ : Target WL 'ME_48FF63BC0129' '47F2170002B2.pas.ms.script' // TnsResetTreeStatus
+ ;
+
+ref; // ME_490727C1004A 
+
+FORWARD ME_490724F202F5
+
+: ME_4908805E0198
+ CONST UID '4908805E0198'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_490723DC0096 // TnsNavigatorTreeStruct
+ ;
+ : Target ME_490724F202F5 // TnsRubricatorCache
+ ;
+
+ref; // ME_4908805E0198 
+
+: ME_48FF64F60078_ME_490723DC0096
+ CONST UID '48FF64F60078'
+ CONST Name 'ReAqurieUnfilteredRoot'
+ : Original WL 'ME_48FF64F60078' '48FD8B2702F6.pas.ms.script' // ReAqurieUnfilteredRoot
+ ;
+ : Implementor ME_490723DC0096 // TnsNavigatorTreeStruct
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_48FF64F60078_ME_490723DC0096 ReAqurieUnfilteredRoot
+
+: ME_48FF56D003E6_ME_490723DC0096
+ CONST UID '48FF56D003E6'
+ CONST Name 'SettingsID'
+ : Original WL 'ME_48FF56D003E6' '48FD8B2702F6.pas.ms.script' // SettingsID
+ ;
+ : Implementor ME_490723DC0096 // TnsNavigatorTreeStruct
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_48FF56D003E6_ME_490723DC0096 SettingsID
+
+: ME_490723DC0096
+ CONST UID '490723DC0096'
+ CONST Name 'TnsNavigatorTreeStruct'
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Дерево навигатора с поддержкой сброса кэшированных данных' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4907236C0171 // Rubricator
+ ;
+ : Inherits
+   Seq: ( WL 'ME_468361010204' '48FD8B2702F6.pas.ms.script' // TnsDataResetTreeStruct
+ )
+ ; // Inherits
+ : Operations
+   Seq: ( ME_4907242100D7 // Make
+ )
+ ; // Operations
+ : Implemented
+   Seq: ( ME_48FF64F60078_ME_490723DC0096 // ReAqurieUnfilteredRoot
+ )
+ ; // Implemented
+ : Overridden
+   Seq: ( ME_48FF56D003E6_ME_490723DC0096 // SettingsID
+ )
+ ; // Overridden
+ : Dependencies
+   Seq: ( ME_4907245403BE // 
+ ME_490727C1004A // 
+ ME_4908805E0198 // 
+ )
+ ; // Dependencies
+ CONST "author" 'Тучнин Д.А.'
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" true
+ CONST "register in scripts" 'undefined'
+ CONST "started" '2004/03/01 08:52:40 '
+ : Generators
+ Seq: (
+ gen_intf.pas
+ )
+ ; // Generators
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Common'
+ CONST intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\Common\nsNavigatorTreeStruct.pas'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Common'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\Common'
+ CONST extprop:rc:SelfName 'NavigatorTreeStruct'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'nsNavigatorTreeStruct'
+
+ref; // ME_490723DC0096 TnsNavigatorTreeStruct
+
+: ME_4908807B02FD
+ CONST UID '4908807B02FD'
+ CONST Name 'RubricatorRoot'
+ CONST Class class_Attribute
+ : Stereotype st_readonly::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_agr
+ : Parent ME_490724F202F5 // TnsRubricatorCache
+ ;
+ : Target WL 'ME_45EEB95901C5' '457450470167.pas.ms.script' // NodeBase
+ ;
+ CONST "needs field" false
+ CONST "pm" true
+
+ref; // ME_4908807B02FD RubricatorRoot
+
+: ME_0F6E17962329
+ CONST UID '0F6E17962329'
+ CONST Name 'Exists'
+ CONST IsSummoned true
+ CONST Class class_Operation
+ : Stereotype st_static::Operation ;
+ %SUMMARY 'Проверяет создан экземпляр синглетона или нет' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_490724F202F5 // TnsRubricatorCache
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+ CONST extprop:pas:Value false
+
+ref; // ME_0F6E17962329 Exists
+
+: ME_490880BB0087
+ CONST UID '490880BB0087'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_490724F202F5 // TnsRubricatorCache
+ ;
+ : Target WL 'ME_48FF556602BA' '48F747EC0073.pas.ms.script' // DataAdapter
+ ;
+
+ref; // ME_490880BB0087 
+
+: ME_490880E3033F
+ CONST UID '490880E3033F'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_490724F202F5 // TnsRubricatorCache
+ ;
+ : Target WL 'ME_456EB454018E' '456EA56002BF.pas.ms.script' // CanNotFindData
+ ;
+
+ref; // ME_490880E3033F 
+
+: ME_4908825E0325
+ CONST UID '4908825E0325'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_490724F202F5 // TnsRubricatorCache
+ ;
+ : Target WL 'ME_48FF569700F6' '47F2170002B2.pas.ms.script' // StringRoutines
+ ;
+
+ref; // ME_4908825E0325 
+
+: ME_490724F202F5
+ CONST UID '490724F202F5'
+ CONST Name 'TnsRubricatorCache'
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Какой-то кеш, который на самом деле ничего не кеширует, а напрямую ходит к адаптеру' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4907236C0171 // Rubricator
+ ;
+ : Inherits
+   Seq: ( WL 'ME_46780E690001' '47913B47006E.pas.ms.script' // Tl3CacheableBase
+ )
+ ; // Inherits
+ : Attributes
+   Seq: ( ME_4908807B02FD // RubricatorRoot
+ )
+ ; // Attributes
+ : Operations
+   Seq: ( ME_0F6E17962329 // Exists
+ )
+ ; // Operations
+ : Dependencies
+   Seq: ( ME_490880BB0087 // 
+ ME_490880E3033F // 
+ ME_4908825E0325 // 
+ )
+ ; // Dependencies
+ CONST "author" 'Люлин А.В.'
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" true
+ CONST "register in scripts" 'undefined'
+ CONST "singleton" true
+ CONST "started" '2003/06/10 12:57:53'
+ : Generators
+ Seq: (
+ gen_intf.pas
+ )
+ ; // Generators
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Common'
+ CONST intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\Common\nsRubricatorCache.pas'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Common'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\Common'
+ CONST extprop:rc:SelfName 'RubricatorCache'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'nsRubricatorCache'
+
+ref; // ME_490724F202F5 TnsRubricatorCache
+
+: ME_52402E6C002E
+ CONST UID '52402E6C002E'
+ CONST Name 'NavigatorRes'
+ CONST Class class_Class
+ : Stereotype st_UtilityPack ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_4907236C0171 // Rubricator
+ ;
+ CONST "finished" false
+ CONST "no hands" false
+ : Generators
+ Seq: (
+ gen_intf.pas
+ )
+ ; // Generators
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Common'
+ CONST intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\Common\NOT_FINISHED_NavigatorRes.pas'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Common'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\Common'
+
+ref; // ME_52402E6C002E NavigatorRes
+
+: ME_4907236C0171
+ CONST UID '4907236C0171'
+ CONST Name 'Rubricator'
+ CONST Class class_Category
+ : Stereotype st_Unit ;
+ %SUMMARY 'Структуры данных для рубрикатора' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent WL 'ME_4ABB680E0218' '4ABB680E0218.pas.ms.script' // Common$Lib
+ ;
+ : Children
+   Seq: ( ME_490723DC0096 // TnsNavigatorTreeStruct
+ ME_490724F202F5 // TnsRubricatorCache
+ ME_52402E6C002E // NavigatorRes
+ )
+ ; // Children
+ : Depends
+   Seq: ( WL 'ME_456EA56002BF' '456EA56002BF.pas.ms.script' // BaseTypes
+ WL 'ME_457450470167' '457450470167.pas.ms.script' // DynamicTree
+ WL 'ME_4682595B0268' '4682595B0268.pas.ms.script' // l3TreeInterfaces
+ WL 'ME_476BF10A0280' '476BF10A0280.pas.ms.script' // l3Tree_TLB
+ WL 'ME_47913B47006E' '47913B47006E.pas.ms.script' // l3CoreObjects
+ WL 'ME_47D0E1500033' '47D0E1500033.pas.ms.script' // Implementation
+ WL 'ME_47F2170002B2' '47F2170002B2.pas.ms.script' // nsTypes
+ WL 'ME_48F747EC0073' '48F747EC0073.pas.ms.script' // Common
+ WL 'ME_48FD8B2702F6' '48FD8B2702F6.pas.ms.script' // Tree
+ WL 'ME_4908A8A20107' '4908A8A20107.pas.ms.script' // OldTree
+ WL 'ME_4AB0C3C60310' '4AB0C3C60310.pas.ms.script' // Sys
+ )
+ ; // Depends
+ : Generators
+ Seq: (
+ gen_pas.script
+ gen_pas.script.runner
+ )
+ ; // Generators
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Common'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Common'
+ CONST pas.script:Path 'shared\models\NewSchool\Scripts\4907236C0171.pas.ms.script'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\4907236C0171.pas.ms.script.runner'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\Common'
+
+ref; // ME_4907236C0171 Rubricator

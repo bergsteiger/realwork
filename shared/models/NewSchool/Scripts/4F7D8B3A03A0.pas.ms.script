@@ -1,0 +1,289 @@
+// SettingsUtils 4F7D8B3A03A0 Unit Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4F7D8B3A03A0
+
+FORWARD ME_4AD5BB450335
+
+FORWARD ME_4E32B50601F3
+
+: ME_4E32B5130231
+ CONST UID '4E32B5130231'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_4E32B50601F3 // InitialLoadStyleTableFromSettings
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_4E32B5130231 DoIt
+
+: ME_4E32B50601F3
+ CONST UID '4E32B50601F3'
+ CONST Name 'InitialLoadStyleTableFromSettings'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_4AD5BB450335 // nsSettingsUtils
+ ;
+ : Operations
+   Seq: ( ME_4E32B5130231 // DoIt
+ )
+ ; // Operations
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_4E32B50601F3 InitialLoadStyleTableFromSettings
+
+: ME_4AD5BB7002A2
+ CONST UID '4AD5BB7002A2'
+ CONST Name 'LoadStyleTableFromSettings'
+ CONST Class class_Operation
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_4AD5BB450335 // nsSettingsUtils
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_4AD5BB7002A2 LoadStyleTableFromSettings
+
+: ME_4AD5BB7F00E5
+ CONST UID '4AD5BB7F00E5'
+ CONST Name 'SaveStyleTableToSettings'
+ CONST Class class_Operation
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_4AD5BB450335 // nsSettingsUtils
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_4AD5BB7F00E5 SaveStyleTableToSettings
+
+: ME_4AD5BC670387
+ CONST UID '4AD5BC670387'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4AD5BB450335 // nsSettingsUtils
+ ;
+ : Target WL 'ME_4991656C024F' '499164F501ED.pas.ms.script' // InsEditSettingsInfo
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_4AD5BC670387 
+
+FORWARD ME_4ABA139D014D
+
+: ME_4AD5BECA02D1
+ CONST UID '4AD5BECA02D1'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4AD5BB450335 // nsSettingsUtils
+ ;
+ : Target ME_4ABA139D014D // TnsStyleTableSettingsInfo
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_4AD5BECA02D1 
+
+: ME_4E32B4A20220
+ CONST UID '4E32B4A20220'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4AD5BB450335 // nsSettingsUtils
+ ;
+ : Target WL 'ME_4E31743D01F8' '47ECB2870309.pas.ms.script' // TevDefaultStylesFontSizes
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_4E32B4A20220 
+
+: ME_4AD5BB450335
+ CONST UID '4AD5BB450335'
+ CONST Name 'nsSettingsUtils'
+ CONST Class class_Class
+ : Stereotype st_UtilityPack ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_4F7D8B3A03A0 // SettingsUtils
+ ;
+ : Operations
+   Seq: ( ME_4E32B50601F3 // InitialLoadStyleTableFromSettings
+ ME_4AD5BB7002A2 // LoadStyleTableFromSettings
+ ME_4AD5BB7F00E5 // SaveStyleTableToSettings
+ )
+ ; // Operations
+ : Dependencies
+   Seq: ( ME_4AD5BC670387 // 
+ ME_4AD5BECA02D1 // 
+ ME_4E32B4A20220 // 
+ )
+ ; // Dependencies
+ CONST "UseNewGen" 'undefined'
+ CONST "no hands" false
+ : Generators
+ Seq: (
+ gen_intf.pas
+ )
+ ; // Generators
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View'
+ CONST intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\nsSettingsUtils.pas'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\View'
+
+ref; // ME_4AD5BB450335 nsSettingsUtils
+
+FORWARD ME_4ABA13880316
+
+: ME_4ABA139D014D
+ CONST UID '4ABA139D014D'
+ CONST Name 'TnsStyleTableSettingsInfo'
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4ABA13880316 // nsStyleEditor
+ ;
+ CONST "UseNewGen" 'undefined'
+ CONST "finished" false
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\View'
+
+ref; // ME_4ABA139D014D TnsStyleTableSettingsInfo
+
+: ME_4ABA13880316
+ CONST UID '4ABA13880316'
+ CONST Name 'nsStyleEditor'
+ CONST Class class_Class
+ : Stereotype st_UtilityPack ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_4F7D8B3A03A0 // SettingsUtils
+ ;
+ : Children
+   Seq: ( ME_4ABA139D014D // TnsStyleTableSettingsInfo
+ )
+ ; // Children
+ CONST "UseNewGen" 'undefined'
+ CONST "finished" false
+ CONST "no hands" false
+ : Generators
+ Seq: (
+ gen_intf.pas
+ )
+ ; // Generators
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View'
+ CONST intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\NOT_FINISHED_nsStyleEditor.pas'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\View'
+
+ref; // ME_4ABA13880316 nsStyleEditor
+
+FORWARD ME_4F8BF9B20239
+
+: ME_5231862D00E6
+ CONST UID '5231862D00E6'
+ CONST Name 'TnsEditSettingsInfo'
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4F8BF9B20239 // nsConfiguration
+ ;
+ CONST "UseNewGen" 'undefined'
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\View'
+
+ref; // ME_5231862D00E6 TnsEditSettingsInfo
+
+: ME_4F8BF9B20239
+ CONST UID '4F8BF9B20239'
+ CONST Name 'nsConfiguration'
+ CONST Class class_Class
+ : Stereotype st_UtilityPack ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_4F7D8B3A03A0 // SettingsUtils
+ ;
+ : Children
+   Seq: ( ME_5231862D00E6 // TnsEditSettingsInfo
+ )
+ ; // Children
+ CONST "UseNewGen" 'undefined'
+ CONST "finished" false
+ CONST "no hands" false
+ : Generators
+ Seq: (
+ gen_intf.pas
+ )
+ ; // Generators
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View'
+ CONST intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\NOT_FINISHED_nsConfiguration.pas'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\View'
+
+ref; // ME_4F8BF9B20239 nsConfiguration
+
+: ME_4F7D8B3A03A0
+ CONST UID '4F7D8B3A03A0'
+ CONST Name 'SettingsUtils'
+ CONST Class class_Category
+ : Stereotype st_Unit ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent WL 'ME_4F7D7B980383' '4F7D7B980383.pas.ms.script' // View
+ ;
+ : Children
+   Seq: ( ME_4AD5BB450335 // nsSettingsUtils
+ ME_4ABA13880316 // nsStyleEditor
+ ME_4F8BF9B20239 // nsConfiguration
+ )
+ ; // Children
+ : Depends
+   Seq: ( WL 'ME_47ECB2870309' '47ECB2870309.pas.ms.script' // StyleTable
+ WL 'ME_499164F501ED' '499164F501ED.pas.ms.script' // ConfigInterfaces
+ )
+ ; // Depends
+ CONST "UseNewGen" 'undefined'
+ : Generators
+ Seq: (
+ gen_pas.script
+ gen_pas.script.runner
+ )
+ ; // Generators
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View'
+ CONST pas.script:Path 'shared\models\NewSchool\Scripts\4F7D8B3A03A0.pas.ms.script'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\4F7D8B3A03A0.pas.ms.script.runner'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\View'
+
+ref; // ME_4F7D8B3A03A0 SettingsUtils

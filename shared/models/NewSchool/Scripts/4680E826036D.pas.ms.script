@@ -61,6 +61,7 @@ ref; // ME_4D93613B01E1
  ;
  : Implementor ME_4D9357060196 // TeeDocumentContainerPrim
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_47F27721012A_ME_4D9357060196 DoGetSubEx
 
 : ME_47F35245009A_ME_4D9357060196
@@ -70,6 +71,7 @@ ref; // ME_47F27721012A_ME_4D9357060196 DoGetSubEx
  ;
  : Implementor ME_4D9357060196 // TeeDocumentContainerPrim
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_47F35245009A_ME_4D9357060196 MakeProcessor
 
 : ME_48033300004D_ME_4D9357060196
@@ -79,6 +81,7 @@ ref; // ME_47F35245009A_ME_4D9357060196 MakeProcessor
  ;
  : Implementor ME_4D9357060196 // TeeDocumentContainerPrim
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_48033300004D_ME_4D9357060196 PartGeneratorClass
 
 : ME_4D9357060196
@@ -92,21 +95,21 @@ ref; // ME_48033300004D_ME_4D9357060196 PartGeneratorClass
  : Parent ME_4680E826036D // eeDocumentContainer
  ;
  : Inherits
-   @ ( WL 'ME_47F34F00021C' '47F086170200.pas.ms.script' // TnevPrintableDocumentContainer
- ) .SequenceCode.It
+   Seq: ( WL 'ME_47F34F00021C' '47F086170200.pas.ms.script' // TnevPrintableDocumentContainer
+ )
  ; // Inherits
  : Overridden
-   @ ( ME_47F27721012A_ME_4D9357060196 // DoGetSubEx
+   Seq: ( ME_47F27721012A_ME_4D9357060196 // DoGetSubEx
  ME_47F35245009A_ME_4D9357060196 // MakeProcessor
  ME_48033300004D_ME_4D9357060196 // PartGeneratorClass
- ) .SequenceCode.It
+ )
  ; // Overridden
  : Dependencies
-   @ ( ME_4D9357A90354 // 
+   Seq: ( ME_4D9357A90354 // 
  ME_4D93585201BB // 
  ME_4D9358B50084 // 
  ME_4D93613B01E1 // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  CONST "author" 'Ëþëèí À.Â.'
  CONST "needs InstanceR" 'undefined'
@@ -114,12 +117,14 @@ ref; // ME_48033300004D_ME_4D9357060196 PartGeneratorClass
  CONST "no hands" true
  CONST "register in scripts" 'undefined'
  CONST "started" '30.03.2011 20:15'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest_Engine'
  CONST intf.pas:Path 'common\components\gui\Garant\Everest_Engine\eeDocumentContainerPrim.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest_Engine'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'eeDocumentContainerPrim'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'eeDocumentContainerPrim'
 
 ref; // ME_4D9357060196 TeeDocumentContainerPrim
 
@@ -134,20 +139,22 @@ ref; // ME_4D9357060196 TeeDocumentContainerPrim
  : Parent ME_4680E826036D // eeDocumentContainer
  ;
  : Inherits
-   @ ( WL 'ME_47F35EA70305' '47ECB04A01F8.pas.ms.script' // TevEditorWindowProcessor
- ) .SequenceCode.It
+   Seq: ( WL 'ME_47F35EA70305' '47ECB04A01F8.pas.ms.script' // TevEditorWindowProcessor
+ )
  ; // Inherits
  CONST "finished" false
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest_Engine'
  CONST intf.pas:Path 'common\components\gui\Garant\Everest_Engine\NOT_FINISHED_eeProcessor.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest_Engine'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'eeProcessor'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'eeProcessor'
 
 ref; // ME_4B13C45500E8 TeeProcessor
 
@@ -424,6 +431,7 @@ ref; // ME_53BE3432033D
  ;
  : Implementor ME_4680E83D00C8 // TeeDocumentContainer
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_47F217080359_ME_4680E83D00C8 GetGeneratorPrim
 
 : ME_483E6C150277_ME_4680E83D00C8
@@ -433,6 +441,7 @@ ref; // ME_47F217080359_ME_4680E83D00C8 GetGeneratorPrim
  ;
  : Implementor ME_4680E83D00C8 // TeeDocumentContainer
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_483E6C150277_ME_4680E83D00C8 DoGetWriter
 
 : ME_4680E83D00C8
@@ -447,16 +456,16 @@ ref; // ME_483E6C150277_ME_4680E83D00C8 DoGetWriter
  : Parent ME_4680E826036D // eeDocumentContainer
  ;
  : Inherits
-   @ ( ME_4D9357060196 // TeeDocumentContainerPrim
- ) .SequenceCode.It
+   Seq: ( ME_4D9357060196 // TeeDocumentContainerPrim
+ )
  ; // Inherits
  : Overridden
-   @ ( ME_47F217080359_ME_4680E83D00C8 // GetGeneratorPrim
+   Seq: ( ME_47F217080359_ME_4680E83D00C8 // GetGeneratorPrim
  ME_483E6C150277_ME_4680E83D00C8 // DoGetWriter
- ) .SequenceCode.It
+ )
  ; // Overridden
  : Dependencies
-   @ ( ME_49E48AF50246 // 
+   Seq: ( ME_49E48AF50246 // 
  ME_4D14A9A902D8 // 
  ME_4D93448E032C // 
  ME_4D934C53016A // 
@@ -480,7 +489,7 @@ ref; // ME_483E6C150277_ME_4680E83D00C8 DoGetWriter
  ME_4D936AD30016 // 
  ME_4D9EE9A40305 // 
  ME_53BE3432033D // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  CONST "author" 'Ëþëèí À.Â.'
  CONST "needs InstanceR" 'undefined'
@@ -488,12 +497,14 @@ ref; // ME_483E6C150277_ME_4680E83D00C8 DoGetWriter
  CONST "no hands" true
  CONST "register in scripts" 'undefined'
  CONST "started" '02.07.2003 22:40'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest_Engine'
  CONST intf.pas:Path 'common\components\gui\Garant\Everest_Engine\eeDocumentContainer.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest_Engine'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'eeDocumentContainer'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'eeDocumentContainer'
 
 ref; // ME_4680E83D00C8 TeeDocumentContainer
 
@@ -537,6 +548,7 @@ ref; // ME_4D935F2600F6
  ;
  : Implementor ME_4D93589403E2 // TeeDocumentPartGenerator
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4D9359AA01A2_ME_4D93589403E2 SetInsertionPoint
 
 : ME_4D93589403E2
@@ -550,18 +562,18 @@ ref; // ME_4D9359AA01A2_ME_4D93589403E2 SetInsertionPoint
  : Parent ME_4680E826036D // eeDocumentContainer
  ;
  : Inherits
-   @ ( WL 'ME_48030DE6002F' '47ECACA70141.pas.ms.script' // TevDocumentPartGenerator
- ) .SequenceCode.It
+   Seq: ( WL 'ME_48030DE6002F' '47ECACA70141.pas.ms.script' // TevDocumentPartGenerator
+ )
  ; // Inherits
  : Overridden
-   @ ( ME_4D9359AA01A2_ME_4D93589403E2 // SetInsertionPoint
- ) .SequenceCode.It
+   Seq: ( ME_4D9359AA01A2_ME_4D93589403E2 // SetInsertionPoint
+ )
  ; // Overridden
  : Dependencies
-   @ ( ME_4D935A700350 // 
+   Seq: ( ME_4D935A700350 // 
  ME_4D935EFB0380 // 
  ME_4D935F2600F6 // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  CONST "author" 'Ëþëèí À.Â.'
  CONST "needs InstanceR" 'undefined'
@@ -569,12 +581,14 @@ ref; // ME_4D9359AA01A2_ME_4D93589403E2 SetInsertionPoint
  CONST "no hands" true
  CONST "register in scripts" 'undefined'
  CONST "started" '30.03.2011 20:21'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest_Engine'
  CONST intf.pas:Path 'common\components\gui\Garant\Everest_Engine\eeDocumentPartGenerator.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest_Engine'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'eeDocumentPartGenerator'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'eeDocumentPartGenerator'
 
 ref; // ME_4D93589403E2 TeeDocumentPartGenerator
 
@@ -589,14 +603,14 @@ ref; // ME_4D93589403E2 TeeDocumentPartGenerator
  : Parent WL 'ME_4680E7D50168' '4680E7D50168.pas.ms.script' // Everest Engine
  ;
  : Children
-   @ ( ME_4D9357060196 // TeeDocumentContainerPrim
+   Seq: ( ME_4D9357060196 // TeeDocumentContainerPrim
  ME_4B13C45500E8 // TeeProcessor
  ME_4680E83D00C8 // TeeDocumentContainer
  ME_4D93589403E2 // TeeDocumentPartGenerator
- ) .SequenceCode.It
+ )
  ; // Children
  : Depends
-   @ ( WL 'ME_4677FBA70343' '4677FBA70343.pas.ms.script' // l3Interfaces
+   Seq: ( WL 'ME_4677FBA70343' '4677FBA70343.pas.ms.script' // l3Interfaces
  WL 'ME_46834DB20230' '46834DB20230.pas.ms.script' // eeSubExport
  WL 'ME_47750CE700D0' '47750CE700D0.pas.ms.script' // afwFacade
  WL 'ME_47AC75550330' '47AC75550330.pas.ms.script' // k2Tags
@@ -611,16 +625,14 @@ ref; // ME_4D93589403E2 TeeDocumentPartGenerator
  WL 'ME_484A470100DD' '484A470100DD.pas.ms.script' // Standard
  WL 'ME_4AB0C3C60310' '4AB0C3C60310.pas.ms.script' // Sys
  WL 'ME_4C407B410029' '4C407B410029.pas.ms.script' // Generators
- ) .SequenceCode.It
+ )
  ; // Depends
  CONST "ifdef" 'Nemesis'
- : Generators
- @ (
- gen_pas.script
- gen_pas.script.runner
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest_Engine'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest_Engine'
  CONST pas.script:Path 'shared\models\NewSchool\Scripts\4680E826036D.pas.ms.script'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
  CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\4680E826036D.pas.ms.script.runner'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_4680E826036D eeDocumentContainer

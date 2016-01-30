@@ -6,11 +6,14 @@ FORWARD ME_512F475600DF
 
 FORWARD ME_512F47C80388
 
+FORWARD ME_55C9CBCD0127
+
 FORWARD ME_F4C36DEF11AB
 
 : ME_5EB2A8313CF0
  CONST UID '5EB2A8313CF0'
  CONST Name 'aCtx'
+ CONST IsSummoned true
  CONST Class class_Parameter
  : Stereotype st_in ;
  : Target WL 'ME_4DB0091E033E' '4DAF19F600C5.pas.ms.script' // TtfwContext
@@ -21,6 +24,7 @@ ref; // ME_5EB2A8313CF0 aCtx
 : ME_5EB2A8313CF1
  CONST UID '5EB2A8313CF1'
  CONST Name 'aTreeView'
+ CONST IsSummoned true
  CONST Class class_Parameter
  : Stereotype st_in ;
  : Target WL 'ME_512F402F01BA' '4799D29F033F.pas.ms.script' // TTreeView
@@ -31,6 +35,7 @@ ref; // ME_5EB2A8313CF1 aTreeView
 : ME_5EB2A8313CF2
  CONST UID '5EB2A8313CF2'
  CONST Name 'anIndex'
+ CONST IsSummoned true
  CONST Class class_Parameter
  : Stereotype st_in ;
  : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
@@ -41,6 +46,7 @@ ref; // ME_5EB2A8313CF2 anIndex
 : ME_76ED4B50CB4A
  CONST UID '76ED4B50CB4A'
  CONST Name 'GetItem'
+ CONST IsSummoned true
  CONST Class class_Operation
  %SUMMARY 'Реализация слова скрипта pop:TreeView:GetItem' ;
  CONST Visibility PrivateAccess
@@ -50,10 +56,10 @@ ref; // ME_5EB2A8313CF2 anIndex
  : Target WL 'ME_512F3FCB02F3' '4799D29F033F.pas.ms.script' // TTreeNode
  ;
  : Parameters
-   @ ( ME_5EB2A8313CF0 // aCtx
+   Seq: ( ME_5EB2A8313CF0 // aCtx
  ME_5EB2A8313CF1 // aTreeView
  ME_5EB2A8313CF2 // anIndex
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_76ED4B50CB4A GetItem
@@ -61,6 +67,7 @@ ref; // ME_76ED4B50CB4A GetItem
 : ME_FD7E4207A0AB
  CONST UID 'FD7E4207A0AB'
  CONST Name 'Ini_Reg'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Регистрация pop_TreeView_GetItem' ;
@@ -73,6 +80,7 @@ ref; // ME_FD7E4207A0AB Ini_Reg
 
 : ME_00FF622CEDDB
  CONST UID '00FF622CEDDB'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_F4C36DEF11AB // pop_TreeView_GetItem
@@ -84,6 +92,7 @@ ref; // ME_00FF622CEDDB
 
 : ME_ADADE3CAA339
  CONST UID 'ADADE3CAA339'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_F4C36DEF11AB // pop_TreeView_GetItem
@@ -95,6 +104,7 @@ ref; // ME_ADADE3CAA339
 
 : ME_EA12D2044C4D
  CONST UID 'EA12D2044C4D'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_F4C36DEF11AB // pop_TreeView_GetItem
@@ -157,6 +167,7 @@ ref; // ME_5617F4D00243_ME_F4C36DEF11AB ParamsTypes
 : ME_F4C36DEF11AB
  CONST UID 'F4C36DEF11AB'
  CONST Name 'pop_TreeView_GetItem'
+ CONST IsSummoned true
  CONST Class class_Class
  : Stereotype st_ScriptKeyword ;
  CONST Kind kind_NormalClass
@@ -166,37 +177,45 @@ ref; // ME_5617F4D00243_ME_F4C36DEF11AB ParamsTypes
  : Parent ME_512F47C80388 // TreeViewWordsPack
  ;
  : Inherits
-   @ ( WL 'ME_55CCAE000335' '55CCADD2013D.pas.ms.script' // TtfwClassLike
- ) .SequenceCode.It
+   Seq: ( WL 'ME_55CCAE000335' '55CCADD2013D.pas.ms.script' // TtfwClassLike
+ )
  ; // Inherits
  : Operations
-   @ ( ME_76ED4B50CB4A // GetItem
+   Seq: ( ME_76ED4B50CB4A // GetItem
  ME_FD7E4207A0AB // Ini_Reg
- ) .SequenceCode.It
+ )
  ; // Operations
  : Implemented
-   @ ( ME_4DAEEDE10285_ME_F4C36DEF11AB // DoDoIt
- ) .SequenceCode.It
+   Seq: ( ME_4DAEEDE10285_ME_F4C36DEF11AB // DoDoIt
+ )
  ; // Implemented
  : Overridden
-   @ ( ME_4DB0614603C8_ME_F4C36DEF11AB // GetWordNameForRegister
+   Seq: ( ME_4DB0614603C8_ME_F4C36DEF11AB // GetWordNameForRegister
  ME_551544E2001A_ME_F4C36DEF11AB // GetResultTypeInfo
  ME_559687E6025A_ME_F4C36DEF11AB // GetAllParamsCount
  ME_5617F4D00243_ME_F4C36DEF11AB // ParamsTypes
- ) .SequenceCode.It
+ )
  ; // Overridden
  : Dependencies
-   @ ( ME_00FF622CEDDB // 
+   Seq: ( ME_00FF622CEDDB // 
  ME_ADADE3CAA339 // 
  ME_EA12D2044C4D // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  CONST "NameForScript" 'pop:TreeView:GetItem'
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
+ CONST dfm:PathOnly '\common\components\rtl\Garant\ScriptEngine'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\ScriptEngine'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
  CONST extprop:pas:TypeName 'TkwPopTreeViewGetItem'
+ CONST extprop:rc:SelfName 'PopTreeViewGetItem'
+ CONST extprop:rc:isAcceptableForScripts true
+ : SpelledFor ME_55C9CBCD0127 // GetItem
+ ;
 
 ref; // ME_F4C36DEF11AB pop_TreeView_GetItem
 
@@ -222,18 +241,21 @@ ref; // ME_55C9CBDA0295 anIndex
  : Target WL 'ME_512F3FCB02F3' '4799D29F033F.pas.ms.script' // TTreeNode
  ;
  : Parameters
-   @ ( ME_55C9CBDA0295 // anIndex
- ) .SequenceCode.It
+   Seq: ( ME_55C9CBDA0295 // anIndex
+ )
  ; // Parameters
  CONST "bind params" 'undefined'
  CONST "lvalue" 'undefined'
  CONST "mapped" 'undefined'
+ : Speller ME_F4C36DEF11AB // pop_TreeView_GetItem
+ ;
 
 ref; // ME_55C9CBCD0127 GetItem
 
 : ME_0C262DF4A524
  CONST UID '0C262DF4A524'
- CONST Name 'Reg_TtfwContext'
+ CONST Name 'Reg_Type_TtfwContext'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Регистрация типа TtfwContext' ;
@@ -241,12 +263,15 @@ ref; // ME_55C9CBCD0127 GetItem
  CONST Abstraction at_final
  : Parent ME_512F47C80388 // TreeViewWordsPack
  ;
+ : SpelledFor WL 'ME_4DB0091E033E' '4DAF19F600C5.pas.ms.script' // TtfwContext
+ ;
 
-ref; // ME_0C262DF4A524 Reg_TtfwContext
+ref; // ME_0C262DF4A524 Reg_Type_TtfwContext
 
 : ME_AACFB1BCAD1A
  CONST UID 'AACFB1BCAD1A'
- CONST Name 'Reg_TTreeView'
+ CONST Name 'Reg_Type_TTreeView'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Регистрация типа TTreeView' ;
@@ -254,12 +279,15 @@ ref; // ME_0C262DF4A524 Reg_TtfwContext
  CONST Abstraction at_final
  : Parent ME_512F47C80388 // TreeViewWordsPack
  ;
+ : SpelledFor WL 'ME_512F402F01BA' '4799D29F033F.pas.ms.script' // TTreeView
+ ;
 
-ref; // ME_AACFB1BCAD1A Reg_TTreeView
+ref; // ME_AACFB1BCAD1A Reg_Type_TTreeView
 
 : ME_5B530F7FF0AC
  CONST UID '5B530F7FF0AC'
- CONST Name 'Reg_Integer'
+ CONST Name 'Reg_Type_Integer'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Регистрация типа Integer' ;
@@ -267,12 +295,15 @@ ref; // ME_AACFB1BCAD1A Reg_TTreeView
  CONST Abstraction at_final
  : Parent ME_512F47C80388 // TreeViewWordsPack
  ;
+ : SpelledFor WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
 
-ref; // ME_5B530F7FF0AC Reg_Integer
+ref; // ME_5B530F7FF0AC Reg_Type_Integer
 
 : ME_2F4DE7B86AFE
  CONST UID '2F4DE7B86AFE'
- CONST Name 'Reg_TTreeNode'
+ CONST Name 'Reg_Type_TTreeNode'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Регистрация типа TTreeNode' ;
@@ -280,8 +311,10 @@ ref; // ME_5B530F7FF0AC Reg_Integer
  CONST Abstraction at_final
  : Parent ME_512F47C80388 // TreeViewWordsPack
  ;
+ : SpelledFor WL 'ME_512F3FCB02F3' '4799D29F033F.pas.ms.script' // TTreeNode
+ ;
 
-ref; // ME_2F4DE7B86AFE Reg_TTreeNode
+ref; // ME_2F4DE7B86AFE Reg_Type_TTreeNode
 
 FORWARD ME_55C9CBB10045
 
@@ -298,6 +331,7 @@ ref; // ME_55C9CBBD028C
 
 : ME_7EC20CE050D5
  CONST UID '7EC20CE050D5'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_512F47C80388 // TreeViewWordsPack
@@ -309,6 +343,7 @@ ref; // ME_7EC20CE050D5
 
 : ME_F3AD6951FB42
  CONST UID 'F3AD6951FB42'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_injects::Dependency ;
  : Parent ME_512F47C80388 // TreeViewWordsPack
@@ -320,6 +355,7 @@ ref; // ME_F3AD6951FB42
 
 : ME_78D05BAD2C75
  CONST UID '78D05BAD2C75'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_512F47C80388 // TreeViewWordsPack
@@ -340,47 +376,49 @@ ref; // ME_78D05BAD2C75
  : Parent ME_512F475600DF // TreeViewWords
  ;
  : Inherits
-   @ ( WL 'ME_512F402F01BA' '4799D29F033F.pas.ms.script' // TTreeView
- ) .SequenceCode.It
+   Seq: ( WL 'ME_512F402F01BA' '4799D29F033F.pas.ms.script' // TTreeView
+ )
  ; // Inherits
  : Operations
-   @ ( ME_55C9CBCD0127 // GetItem
- ME_0C262DF4A524 // Reg_TtfwContext
- ME_AACFB1BCAD1A // Reg_TTreeView
- ME_5B530F7FF0AC // Reg_Integer
- ME_2F4DE7B86AFE // Reg_TTreeNode
- ) .SequenceCode.It
+   Seq: ( ME_55C9CBCD0127 // GetItem
+ ME_0C262DF4A524 // Reg_Type_TtfwContext
+ ME_AACFB1BCAD1A // Reg_Type_TTreeView
+ ME_5B530F7FF0AC // Reg_Type_Integer
+ ME_2F4DE7B86AFE // Reg_Type_TTreeNode
+ )
  ; // Operations
  : Children
-   @ ( ME_F4C36DEF11AB // pop_TreeView_GetItem
- ) .SequenceCode.It
+   Seq: ( ME_F4C36DEF11AB // pop_TreeView_GetItem
+ )
  ; // Children
  : Dependencies
-   @ ( ME_55C9CBBD028C // 
+   Seq: ( ME_55C9CBBD028C // 
  ME_7EC20CE050D5 // 
  ME_F3AD6951FB42 // 
  ME_78D05BAD2C75 // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  CONST "ifndef" 'NoScripts'
  CONST "needs script" 'undefined'
  CONST "no class name" 'undefined'
  CONST "no hands" false
  CONST "no_pop" 'undefined'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\ScriptEngine'
  CONST intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\TreeViewWordsPack.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\ScriptEngine'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_512F47C80388 TreeViewWordsPack
+
+FORWARD ME_55C9CBEB0063
 
 FORWARD ME_A78303612230
 
 : ME_A9177B2901DA
  CONST UID 'A9177B2901DA'
  CONST Name 'aCtx'
+ CONST IsSummoned true
  CONST Class class_Parameter
  : Stereotype st_in ;
  : Target WL 'ME_4DB0091E033E' '4DAF19F600C5.pas.ms.script' // TtfwContext
@@ -391,6 +429,7 @@ ref; // ME_A9177B2901DA aCtx
 : ME_A9177B2901DB
  CONST UID 'A9177B2901DB'
  CONST Name 'aTreeNode'
+ CONST IsSummoned true
  CONST Class class_Parameter
  : Stereotype st_in ;
  : Target WL 'ME_512F3FCB02F3' '4799D29F033F.pas.ms.script' // TTreeNode
@@ -401,6 +440,7 @@ ref; // ME_A9177B2901DB aTreeNode
 : ME_F036C8335C15
  CONST UID 'F036C8335C15'
  CONST Name 'GetNext'
+ CONST IsSummoned true
  CONST Class class_Operation
  %SUMMARY 'Реализация слова скрипта pop:TreeNode:GetNext' ;
  CONST Visibility PrivateAccess
@@ -410,9 +450,9 @@ ref; // ME_A9177B2901DB aTreeNode
  : Target WL 'ME_512F3FCB02F3' '4799D29F033F.pas.ms.script' // TTreeNode
  ;
  : Parameters
-   @ ( ME_A9177B2901DA // aCtx
+   Seq: ( ME_A9177B2901DA // aCtx
  ME_A9177B2901DB // aTreeNode
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_F036C8335C15 GetNext
@@ -420,6 +460,7 @@ ref; // ME_F036C8335C15 GetNext
 : ME_C0C5C05B443D
  CONST UID 'C0C5C05B443D'
  CONST Name 'Ini_Reg'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Регистрация pop_TreeNode_GetNext' ;
@@ -432,6 +473,7 @@ ref; // ME_C0C5C05B443D Ini_Reg
 
 : ME_4BA2B94C6674
  CONST UID '4BA2B94C6674'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_A78303612230 // pop_TreeNode_GetNext
@@ -443,6 +485,7 @@ ref; // ME_4BA2B94C6674
 
 : ME_526DB4ECB888
  CONST UID '526DB4ECB888'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_A78303612230 // pop_TreeNode_GetNext
@@ -454,6 +497,7 @@ ref; // ME_526DB4ECB888
 
 : ME_796847EEEE79
  CONST UID '796847EEEE79'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_A78303612230 // pop_TreeNode_GetNext
@@ -516,6 +560,7 @@ ref; // ME_5617F4D00243_ME_A78303612230 ParamsTypes
 : ME_A78303612230
  CONST UID 'A78303612230'
  CONST Name 'pop_TreeNode_GetNext'
+ CONST IsSummoned true
  CONST Class class_Class
  : Stereotype st_ScriptKeyword ;
  CONST Kind kind_NormalClass
@@ -525,45 +570,56 @@ ref; // ME_5617F4D00243_ME_A78303612230 ParamsTypes
  : Parent ME_55C9CBB10045 // TreeNodeWordsPack
  ;
  : Inherits
-   @ ( WL 'ME_55CCAE000335' '55CCADD2013D.pas.ms.script' // TtfwClassLike
- ) .SequenceCode.It
+   Seq: ( WL 'ME_55CCAE000335' '55CCADD2013D.pas.ms.script' // TtfwClassLike
+ )
  ; // Inherits
  : Operations
-   @ ( ME_F036C8335C15 // GetNext
+   Seq: ( ME_F036C8335C15 // GetNext
  ME_C0C5C05B443D // Ini_Reg
- ) .SequenceCode.It
+ )
  ; // Operations
  : Implemented
-   @ ( ME_4DAEEDE10285_ME_A78303612230 // DoDoIt
- ) .SequenceCode.It
+   Seq: ( ME_4DAEEDE10285_ME_A78303612230 // DoDoIt
+ )
  ; // Implemented
  : Overridden
-   @ ( ME_4DB0614603C8_ME_A78303612230 // GetWordNameForRegister
+   Seq: ( ME_4DB0614603C8_ME_A78303612230 // GetWordNameForRegister
  ME_551544E2001A_ME_A78303612230 // GetResultTypeInfo
  ME_559687E6025A_ME_A78303612230 // GetAllParamsCount
  ME_5617F4D00243_ME_A78303612230 // ParamsTypes
- ) .SequenceCode.It
+ )
  ; // Overridden
  : Dependencies
-   @ ( ME_4BA2B94C6674 // 
+   Seq: ( ME_4BA2B94C6674 // 
  ME_526DB4ECB888 // 
  ME_796847EEEE79 // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  CONST "NameForScript" 'pop:TreeNode:GetNext'
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
+ CONST dfm:PathOnly '\common\components\rtl\Garant\ScriptEngine'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\ScriptEngine'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
  CONST extprop:pas:TypeName 'TkwPopTreeNodeGetNext'
+ CONST extprop:rc:SelfName 'PopTreeNodeGetNext'
+ CONST extprop:rc:isAcceptableForScripts true
+ : SpelledFor ME_55C9CBEB0063 // GetNext
+ ;
 
 ref; // ME_A78303612230 pop_TreeNode_GetNext
+
+FORWARD ME_55C9CBF80354
 
 FORWARD ME_5E7363490ED0
 
 : ME_EFF0963C81D9
  CONST UID 'EFF0963C81D9'
  CONST Name 'aCtx'
+ CONST IsSummoned true
  CONST Class class_Parameter
  : Stereotype st_in ;
  : Target WL 'ME_4DB0091E033E' '4DAF19F600C5.pas.ms.script' // TtfwContext
@@ -574,6 +630,7 @@ ref; // ME_EFF0963C81D9 aCtx
 : ME_EFF0963C81DA
  CONST UID 'EFF0963C81DA'
  CONST Name 'aTreeNode'
+ CONST IsSummoned true
  CONST Class class_Parameter
  : Stereotype st_in ;
  : Target WL 'ME_512F3FCB02F3' '4799D29F033F.pas.ms.script' // TTreeNode
@@ -584,6 +641,7 @@ ref; // ME_EFF0963C81DA aTreeNode
 : ME_A5D06F0C77D0
  CONST UID 'A5D06F0C77D0'
  CONST Name 'HasChildren'
+ CONST IsSummoned true
  CONST Class class_Operation
  %SUMMARY 'Реализация слова скрипта pop:TreeNode:HasChildren' ;
  CONST Visibility PrivateAccess
@@ -593,9 +651,9 @@ ref; // ME_EFF0963C81DA aTreeNode
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
  : Parameters
-   @ ( ME_EFF0963C81D9 // aCtx
+   Seq: ( ME_EFF0963C81D9 // aCtx
  ME_EFF0963C81DA // aTreeNode
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_A5D06F0C77D0 HasChildren
@@ -603,6 +661,7 @@ ref; // ME_A5D06F0C77D0 HasChildren
 : ME_00D69C1D220A
  CONST UID '00D69C1D220A'
  CONST Name 'Ini_Reg'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Регистрация pop_TreeNode_HasChildren' ;
@@ -615,6 +674,7 @@ ref; // ME_00D69C1D220A Ini_Reg
 
 : ME_DC83DD8B0767
  CONST UID 'DC83DD8B0767'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_5E7363490ED0 // pop_TreeNode_HasChildren
@@ -626,6 +686,7 @@ ref; // ME_DC83DD8B0767
 
 : ME_C47A3345B696
  CONST UID 'C47A3345B696'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_5E7363490ED0 // pop_TreeNode_HasChildren
@@ -637,6 +698,7 @@ ref; // ME_C47A3345B696
 
 : ME_7C3E4F9C1BEA
  CONST UID '7C3E4F9C1BEA'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_5E7363490ED0 // pop_TreeNode_HasChildren
@@ -699,6 +761,7 @@ ref; // ME_5617F4D00243_ME_5E7363490ED0 ParamsTypes
 : ME_5E7363490ED0
  CONST UID '5E7363490ED0'
  CONST Name 'pop_TreeNode_HasChildren'
+ CONST IsSummoned true
  CONST Class class_Class
  : Stereotype st_ScriptKeyword ;
  CONST Kind kind_NormalClass
@@ -708,45 +771,56 @@ ref; // ME_5617F4D00243_ME_5E7363490ED0 ParamsTypes
  : Parent ME_55C9CBB10045 // TreeNodeWordsPack
  ;
  : Inherits
-   @ ( WL 'ME_55CCAE000335' '55CCADD2013D.pas.ms.script' // TtfwClassLike
- ) .SequenceCode.It
+   Seq: ( WL 'ME_55CCAE000335' '55CCADD2013D.pas.ms.script' // TtfwClassLike
+ )
  ; // Inherits
  : Operations
-   @ ( ME_A5D06F0C77D0 // HasChildren
+   Seq: ( ME_A5D06F0C77D0 // HasChildren
  ME_00D69C1D220A // Ini_Reg
- ) .SequenceCode.It
+ )
  ; // Operations
  : Implemented
-   @ ( ME_4DAEEDE10285_ME_5E7363490ED0 // DoDoIt
- ) .SequenceCode.It
+   Seq: ( ME_4DAEEDE10285_ME_5E7363490ED0 // DoDoIt
+ )
  ; // Implemented
  : Overridden
-   @ ( ME_4DB0614603C8_ME_5E7363490ED0 // GetWordNameForRegister
+   Seq: ( ME_4DB0614603C8_ME_5E7363490ED0 // GetWordNameForRegister
  ME_551544E2001A_ME_5E7363490ED0 // GetResultTypeInfo
  ME_559687E6025A_ME_5E7363490ED0 // GetAllParamsCount
  ME_5617F4D00243_ME_5E7363490ED0 // ParamsTypes
- ) .SequenceCode.It
+ )
  ; // Overridden
  : Dependencies
-   @ ( ME_DC83DD8B0767 // 
+   Seq: ( ME_DC83DD8B0767 // 
  ME_C47A3345B696 // 
  ME_7C3E4F9C1BEA // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  CONST "NameForScript" 'pop:TreeNode:HasChildren'
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
+ CONST dfm:PathOnly '\common\components\rtl\Garant\ScriptEngine'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\ScriptEngine'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
  CONST extprop:pas:TypeName 'TkwPopTreeNodeHasChildren'
+ CONST extprop:rc:SelfName 'PopTreeNodeHasChildren'
+ CONST extprop:rc:isAcceptableForScripts true
+ : SpelledFor ME_55C9CBF80354 // HasChildren
+ ;
 
 ref; // ME_5E7363490ED0 pop_TreeNode_HasChildren
+
+FORWARD ME_55C9D4D302CC
 
 FORWARD ME_55B024C23EBF
 
 : ME_83D4A136D12E
  CONST UID '83D4A136D12E'
  CONST Name 'aCtx'
+ CONST IsSummoned true
  CONST Class class_Parameter
  : Stereotype st_in ;
  : Target WL 'ME_4DB0091E033E' '4DAF19F600C5.pas.ms.script' // TtfwContext
@@ -757,6 +831,7 @@ ref; // ME_83D4A136D12E aCtx
 : ME_83D4A136D12F
  CONST UID '83D4A136D12F'
  CONST Name 'aTreeNode'
+ CONST IsSummoned true
  CONST Class class_Parameter
  : Stereotype st_in ;
  : Target WL 'ME_512F3FCB02F3' '4799D29F033F.pas.ms.script' // TTreeNode
@@ -767,6 +842,7 @@ ref; // ME_83D4A136D12F aTreeNode
 : ME_AB6849BAAE6B
  CONST UID 'AB6849BAAE6B'
  CONST Name 'GetPrev'
+ CONST IsSummoned true
  CONST Class class_Operation
  %SUMMARY 'Реализация слова скрипта pop:TreeNode:GetPrev' ;
  CONST Visibility PrivateAccess
@@ -776,9 +852,9 @@ ref; // ME_83D4A136D12F aTreeNode
  : Target WL 'ME_512F3FCB02F3' '4799D29F033F.pas.ms.script' // TTreeNode
  ;
  : Parameters
-   @ ( ME_83D4A136D12E // aCtx
+   Seq: ( ME_83D4A136D12E // aCtx
  ME_83D4A136D12F // aTreeNode
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_AB6849BAAE6B GetPrev
@@ -786,6 +862,7 @@ ref; // ME_AB6849BAAE6B GetPrev
 : ME_49D3D5B68851
  CONST UID '49D3D5B68851'
  CONST Name 'Ini_Reg'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Регистрация pop_TreeNode_GetPrev' ;
@@ -798,6 +875,7 @@ ref; // ME_49D3D5B68851 Ini_Reg
 
 : ME_7DDC2C4D9D9F
  CONST UID '7DDC2C4D9D9F'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_55B024C23EBF // pop_TreeNode_GetPrev
@@ -809,6 +887,7 @@ ref; // ME_7DDC2C4D9D9F
 
 : ME_0FF9EFE6345F
  CONST UID '0FF9EFE6345F'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_55B024C23EBF // pop_TreeNode_GetPrev
@@ -820,6 +899,7 @@ ref; // ME_0FF9EFE6345F
 
 : ME_CE6A280072A8
  CONST UID 'CE6A280072A8'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_55B024C23EBF // pop_TreeNode_GetPrev
@@ -882,6 +962,7 @@ ref; // ME_5617F4D00243_ME_55B024C23EBF ParamsTypes
 : ME_55B024C23EBF
  CONST UID '55B024C23EBF'
  CONST Name 'pop_TreeNode_GetPrev'
+ CONST IsSummoned true
  CONST Class class_Class
  : Stereotype st_ScriptKeyword ;
  CONST Kind kind_NormalClass
@@ -891,45 +972,56 @@ ref; // ME_5617F4D00243_ME_55B024C23EBF ParamsTypes
  : Parent ME_55C9CBB10045 // TreeNodeWordsPack
  ;
  : Inherits
-   @ ( WL 'ME_55CCAE000335' '55CCADD2013D.pas.ms.script' // TtfwClassLike
- ) .SequenceCode.It
+   Seq: ( WL 'ME_55CCAE000335' '55CCADD2013D.pas.ms.script' // TtfwClassLike
+ )
  ; // Inherits
  : Operations
-   @ ( ME_AB6849BAAE6B // GetPrev
+   Seq: ( ME_AB6849BAAE6B // GetPrev
  ME_49D3D5B68851 // Ini_Reg
- ) .SequenceCode.It
+ )
  ; // Operations
  : Implemented
-   @ ( ME_4DAEEDE10285_ME_55B024C23EBF // DoDoIt
- ) .SequenceCode.It
+   Seq: ( ME_4DAEEDE10285_ME_55B024C23EBF // DoDoIt
+ )
  ; // Implemented
  : Overridden
-   @ ( ME_4DB0614603C8_ME_55B024C23EBF // GetWordNameForRegister
+   Seq: ( ME_4DB0614603C8_ME_55B024C23EBF // GetWordNameForRegister
  ME_551544E2001A_ME_55B024C23EBF // GetResultTypeInfo
  ME_559687E6025A_ME_55B024C23EBF // GetAllParamsCount
  ME_5617F4D00243_ME_55B024C23EBF // ParamsTypes
- ) .SequenceCode.It
+ )
  ; // Overridden
  : Dependencies
-   @ ( ME_7DDC2C4D9D9F // 
+   Seq: ( ME_7DDC2C4D9D9F // 
  ME_0FF9EFE6345F // 
  ME_CE6A280072A8 // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  CONST "NameForScript" 'pop:TreeNode:GetPrev'
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
+ CONST dfm:PathOnly '\common\components\rtl\Garant\ScriptEngine'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\ScriptEngine'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
  CONST extprop:pas:TypeName 'TkwPopTreeNodeGetPrev'
+ CONST extprop:rc:SelfName 'PopTreeNodeGetPrev'
+ CONST extprop:rc:isAcceptableForScripts true
+ : SpelledFor ME_55C9D4D302CC // GetPrev
+ ;
 
 ref; // ME_55B024C23EBF pop_TreeNode_GetPrev
+
+FORWARD ME_55C9D4EA0111
 
 FORWARD ME_5EA990C4D795
 
 : ME_78D48713A2DC
  CONST UID '78D48713A2DC'
  CONST Name 'aCtx'
+ CONST IsSummoned true
  CONST Class class_Parameter
  : Stereotype st_in ;
  : Target WL 'ME_4DB0091E033E' '4DAF19F600C5.pas.ms.script' // TtfwContext
@@ -940,6 +1032,7 @@ ref; // ME_78D48713A2DC aCtx
 : ME_78D48713A2DD
  CONST UID '78D48713A2DD'
  CONST Name 'aTreeNode'
+ CONST IsSummoned true
  CONST Class class_Parameter
  : Stereotype st_in ;
  : Target WL 'ME_512F3FCB02F3' '4799D29F033F.pas.ms.script' // TTreeNode
@@ -950,6 +1043,7 @@ ref; // ME_78D48713A2DD aTreeNode
 : ME_200474EC25F0
  CONST UID '200474EC25F0'
  CONST Name 'GetFirstChild'
+ CONST IsSummoned true
  CONST Class class_Operation
  %SUMMARY 'Реализация слова скрипта pop:TreeNode:GetFirstChild' ;
  CONST Visibility PrivateAccess
@@ -959,9 +1053,9 @@ ref; // ME_78D48713A2DD aTreeNode
  : Target WL 'ME_512F3FCB02F3' '4799D29F033F.pas.ms.script' // TTreeNode
  ;
  : Parameters
-   @ ( ME_78D48713A2DC // aCtx
+   Seq: ( ME_78D48713A2DC // aCtx
  ME_78D48713A2DD // aTreeNode
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_200474EC25F0 GetFirstChild
@@ -969,6 +1063,7 @@ ref; // ME_200474EC25F0 GetFirstChild
 : ME_98215A728036
  CONST UID '98215A728036'
  CONST Name 'Ini_Reg'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Регистрация pop_TreeNode_GetFirstChild' ;
@@ -981,6 +1076,7 @@ ref; // ME_98215A728036 Ini_Reg
 
 : ME_3F450A571309
  CONST UID '3F450A571309'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_5EA990C4D795 // pop_TreeNode_GetFirstChild
@@ -992,6 +1088,7 @@ ref; // ME_3F450A571309
 
 : ME_DD1E382BF201
  CONST UID 'DD1E382BF201'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_5EA990C4D795 // pop_TreeNode_GetFirstChild
@@ -1003,6 +1100,7 @@ ref; // ME_DD1E382BF201
 
 : ME_C435C8DAB845
  CONST UID 'C435C8DAB845'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_5EA990C4D795 // pop_TreeNode_GetFirstChild
@@ -1065,6 +1163,7 @@ ref; // ME_5617F4D00243_ME_5EA990C4D795 ParamsTypes
 : ME_5EA990C4D795
  CONST UID '5EA990C4D795'
  CONST Name 'pop_TreeNode_GetFirstChild'
+ CONST IsSummoned true
  CONST Class class_Class
  : Stereotype st_ScriptKeyword ;
  CONST Kind kind_NormalClass
@@ -1074,45 +1173,56 @@ ref; // ME_5617F4D00243_ME_5EA990C4D795 ParamsTypes
  : Parent ME_55C9CBB10045 // TreeNodeWordsPack
  ;
  : Inherits
-   @ ( WL 'ME_55CCAE000335' '55CCADD2013D.pas.ms.script' // TtfwClassLike
- ) .SequenceCode.It
+   Seq: ( WL 'ME_55CCAE000335' '55CCADD2013D.pas.ms.script' // TtfwClassLike
+ )
  ; // Inherits
  : Operations
-   @ ( ME_200474EC25F0 // GetFirstChild
+   Seq: ( ME_200474EC25F0 // GetFirstChild
  ME_98215A728036 // Ini_Reg
- ) .SequenceCode.It
+ )
  ; // Operations
  : Implemented
-   @ ( ME_4DAEEDE10285_ME_5EA990C4D795 // DoDoIt
- ) .SequenceCode.It
+   Seq: ( ME_4DAEEDE10285_ME_5EA990C4D795 // DoDoIt
+ )
  ; // Implemented
  : Overridden
-   @ ( ME_4DB0614603C8_ME_5EA990C4D795 // GetWordNameForRegister
+   Seq: ( ME_4DB0614603C8_ME_5EA990C4D795 // GetWordNameForRegister
  ME_551544E2001A_ME_5EA990C4D795 // GetResultTypeInfo
  ME_559687E6025A_ME_5EA990C4D795 // GetAllParamsCount
  ME_5617F4D00243_ME_5EA990C4D795 // ParamsTypes
- ) .SequenceCode.It
+ )
  ; // Overridden
  : Dependencies
-   @ ( ME_3F450A571309 // 
+   Seq: ( ME_3F450A571309 // 
  ME_DD1E382BF201 // 
  ME_C435C8DAB845 // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  CONST "NameForScript" 'pop:TreeNode:GetFirstChild'
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
+ CONST dfm:PathOnly '\common\components\rtl\Garant\ScriptEngine'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\ScriptEngine'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
  CONST extprop:pas:TypeName 'TkwPopTreeNodeGetFirstChild'
+ CONST extprop:rc:SelfName 'PopTreeNodeGetFirstChild'
+ CONST extprop:rc:isAcceptableForScripts true
+ : SpelledFor ME_55C9D4EA0111 // GetFirstChild
+ ;
 
 ref; // ME_5EA990C4D795 pop_TreeNode_GetFirstChild
+
+FORWARD ME_55C9D4FD035F
 
 FORWARD ME_C6C1AF6914F1
 
 : ME_C6F50A93B566
  CONST UID 'C6F50A93B566'
  CONST Name 'aCtx'
+ CONST IsSummoned true
  CONST Class class_Parameter
  : Stereotype st_in ;
  : Target WL 'ME_4DB0091E033E' '4DAF19F600C5.pas.ms.script' // TtfwContext
@@ -1123,6 +1233,7 @@ ref; // ME_C6F50A93B566 aCtx
 : ME_C6F50A93B567
  CONST UID 'C6F50A93B567'
  CONST Name 'aTreeNode'
+ CONST IsSummoned true
  CONST Class class_Parameter
  : Stereotype st_in ;
  : Target WL 'ME_512F3FCB02F3' '4799D29F033F.pas.ms.script' // TTreeNode
@@ -1133,6 +1244,7 @@ ref; // ME_C6F50A93B567 aTreeNode
 : ME_E2F8A6090E56
  CONST UID 'E2F8A6090E56'
  CONST Name 'GetLastChild'
+ CONST IsSummoned true
  CONST Class class_Operation
  %SUMMARY 'Реализация слова скрипта pop:TreeNode:GetLastChild' ;
  CONST Visibility PrivateAccess
@@ -1142,9 +1254,9 @@ ref; // ME_C6F50A93B567 aTreeNode
  : Target WL 'ME_512F3FCB02F3' '4799D29F033F.pas.ms.script' // TTreeNode
  ;
  : Parameters
-   @ ( ME_C6F50A93B566 // aCtx
+   Seq: ( ME_C6F50A93B566 // aCtx
  ME_C6F50A93B567 // aTreeNode
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_E2F8A6090E56 GetLastChild
@@ -1152,6 +1264,7 @@ ref; // ME_E2F8A6090E56 GetLastChild
 : ME_B2E2C55F228C
  CONST UID 'B2E2C55F228C'
  CONST Name 'Ini_Reg'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Регистрация pop_TreeNode_GetLastChild' ;
@@ -1164,6 +1277,7 @@ ref; // ME_B2E2C55F228C Ini_Reg
 
 : ME_056752A8A4FF
  CONST UID '056752A8A4FF'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_C6C1AF6914F1 // pop_TreeNode_GetLastChild
@@ -1175,6 +1289,7 @@ ref; // ME_056752A8A4FF
 
 : ME_62951A3E5158
  CONST UID '62951A3E5158'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_C6C1AF6914F1 // pop_TreeNode_GetLastChild
@@ -1186,6 +1301,7 @@ ref; // ME_62951A3E5158
 
 : ME_65C3B5071279
  CONST UID '65C3B5071279'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_C6C1AF6914F1 // pop_TreeNode_GetLastChild
@@ -1248,6 +1364,7 @@ ref; // ME_5617F4D00243_ME_C6C1AF6914F1 ParamsTypes
 : ME_C6C1AF6914F1
  CONST UID 'C6C1AF6914F1'
  CONST Name 'pop_TreeNode_GetLastChild'
+ CONST IsSummoned true
  CONST Class class_Class
  : Stereotype st_ScriptKeyword ;
  CONST Kind kind_NormalClass
@@ -1257,45 +1374,56 @@ ref; // ME_5617F4D00243_ME_C6C1AF6914F1 ParamsTypes
  : Parent ME_55C9CBB10045 // TreeNodeWordsPack
  ;
  : Inherits
-   @ ( WL 'ME_55CCAE000335' '55CCADD2013D.pas.ms.script' // TtfwClassLike
- ) .SequenceCode.It
+   Seq: ( WL 'ME_55CCAE000335' '55CCADD2013D.pas.ms.script' // TtfwClassLike
+ )
  ; // Inherits
  : Operations
-   @ ( ME_E2F8A6090E56 // GetLastChild
+   Seq: ( ME_E2F8A6090E56 // GetLastChild
  ME_B2E2C55F228C // Ini_Reg
- ) .SequenceCode.It
+ )
  ; // Operations
  : Implemented
-   @ ( ME_4DAEEDE10285_ME_C6C1AF6914F1 // DoDoIt
- ) .SequenceCode.It
+   Seq: ( ME_4DAEEDE10285_ME_C6C1AF6914F1 // DoDoIt
+ )
  ; // Implemented
  : Overridden
-   @ ( ME_4DB0614603C8_ME_C6C1AF6914F1 // GetWordNameForRegister
+   Seq: ( ME_4DB0614603C8_ME_C6C1AF6914F1 // GetWordNameForRegister
  ME_551544E2001A_ME_C6C1AF6914F1 // GetResultTypeInfo
  ME_559687E6025A_ME_C6C1AF6914F1 // GetAllParamsCount
  ME_5617F4D00243_ME_C6C1AF6914F1 // ParamsTypes
- ) .SequenceCode.It
+ )
  ; // Overridden
  : Dependencies
-   @ ( ME_056752A8A4FF // 
+   Seq: ( ME_056752A8A4FF // 
  ME_62951A3E5158 // 
  ME_65C3B5071279 // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  CONST "NameForScript" 'pop:TreeNode:GetLastChild'
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
+ CONST dfm:PathOnly '\common\components\rtl\Garant\ScriptEngine'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\ScriptEngine'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
  CONST extprop:pas:TypeName 'TkwPopTreeNodeGetLastChild'
+ CONST extprop:rc:SelfName 'PopTreeNodeGetLastChild'
+ CONST extprop:rc:isAcceptableForScripts true
+ : SpelledFor ME_55C9D4FD035F // GetLastChild
+ ;
 
 ref; // ME_C6C1AF6914F1 pop_TreeNode_GetLastChild
+
+FORWARD ME_55C9D5BB0220
 
 FORWARD ME_D75C1EAFB29F
 
 : ME_80F55C2450A2
  CONST UID '80F55C2450A2'
  CONST Name 'aCtx'
+ CONST IsSummoned true
  CONST Class class_Parameter
  : Stereotype st_in ;
  : Target WL 'ME_4DB0091E033E' '4DAF19F600C5.pas.ms.script' // TtfwContext
@@ -1306,6 +1434,7 @@ ref; // ME_80F55C2450A2 aCtx
 : ME_80F55C2450A3
  CONST UID '80F55C2450A3'
  CONST Name 'aTreeNode'
+ CONST IsSummoned true
  CONST Class class_Parameter
  : Stereotype st_in ;
  : Target WL 'ME_512F3FCB02F3' '4799D29F033F.pas.ms.script' // TTreeNode
@@ -1316,6 +1445,7 @@ ref; // ME_80F55C2450A3 aTreeNode
 : ME_B86DC202F7D8
  CONST UID 'B86DC202F7D8'
  CONST Name 'GetNextSibling'
+ CONST IsSummoned true
  CONST Class class_Operation
  %SUMMARY 'Реализация слова скрипта pop:TreeNode:GetNextSibling' ;
  CONST Visibility PrivateAccess
@@ -1325,9 +1455,9 @@ ref; // ME_80F55C2450A3 aTreeNode
  : Target WL 'ME_512F3FCB02F3' '4799D29F033F.pas.ms.script' // TTreeNode
  ;
  : Parameters
-   @ ( ME_80F55C2450A2 // aCtx
+   Seq: ( ME_80F55C2450A2 // aCtx
  ME_80F55C2450A3 // aTreeNode
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_B86DC202F7D8 GetNextSibling
@@ -1335,6 +1465,7 @@ ref; // ME_B86DC202F7D8 GetNextSibling
 : ME_C16E1E2CCF34
  CONST UID 'C16E1E2CCF34'
  CONST Name 'Ini_Reg'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Регистрация pop_TreeNode_GetNextSibling' ;
@@ -1347,6 +1478,7 @@ ref; // ME_C16E1E2CCF34 Ini_Reg
 
 : ME_8BC1F3C31775
  CONST UID '8BC1F3C31775'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_D75C1EAFB29F // pop_TreeNode_GetNextSibling
@@ -1358,6 +1490,7 @@ ref; // ME_8BC1F3C31775
 
 : ME_A6A1BBA51173
  CONST UID 'A6A1BBA51173'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_D75C1EAFB29F // pop_TreeNode_GetNextSibling
@@ -1369,6 +1502,7 @@ ref; // ME_A6A1BBA51173
 
 : ME_0E066FB2F062
  CONST UID '0E066FB2F062'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_D75C1EAFB29F // pop_TreeNode_GetNextSibling
@@ -1431,6 +1565,7 @@ ref; // ME_5617F4D00243_ME_D75C1EAFB29F ParamsTypes
 : ME_D75C1EAFB29F
  CONST UID 'D75C1EAFB29F'
  CONST Name 'pop_TreeNode_GetNextSibling'
+ CONST IsSummoned true
  CONST Class class_Class
  : Stereotype st_ScriptKeyword ;
  CONST Kind kind_NormalClass
@@ -1440,45 +1575,56 @@ ref; // ME_5617F4D00243_ME_D75C1EAFB29F ParamsTypes
  : Parent ME_55C9CBB10045 // TreeNodeWordsPack
  ;
  : Inherits
-   @ ( WL 'ME_55CCAE000335' '55CCADD2013D.pas.ms.script' // TtfwClassLike
- ) .SequenceCode.It
+   Seq: ( WL 'ME_55CCAE000335' '55CCADD2013D.pas.ms.script' // TtfwClassLike
+ )
  ; // Inherits
  : Operations
-   @ ( ME_B86DC202F7D8 // GetNextSibling
+   Seq: ( ME_B86DC202F7D8 // GetNextSibling
  ME_C16E1E2CCF34 // Ini_Reg
- ) .SequenceCode.It
+ )
  ; // Operations
  : Implemented
-   @ ( ME_4DAEEDE10285_ME_D75C1EAFB29F // DoDoIt
- ) .SequenceCode.It
+   Seq: ( ME_4DAEEDE10285_ME_D75C1EAFB29F // DoDoIt
+ )
  ; // Implemented
  : Overridden
-   @ ( ME_4DB0614603C8_ME_D75C1EAFB29F // GetWordNameForRegister
+   Seq: ( ME_4DB0614603C8_ME_D75C1EAFB29F // GetWordNameForRegister
  ME_551544E2001A_ME_D75C1EAFB29F // GetResultTypeInfo
  ME_559687E6025A_ME_D75C1EAFB29F // GetAllParamsCount
  ME_5617F4D00243_ME_D75C1EAFB29F // ParamsTypes
- ) .SequenceCode.It
+ )
  ; // Overridden
  : Dependencies
-   @ ( ME_8BC1F3C31775 // 
+   Seq: ( ME_8BC1F3C31775 // 
  ME_A6A1BBA51173 // 
  ME_0E066FB2F062 // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  CONST "NameForScript" 'pop:TreeNode:GetNextSibling'
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
+ CONST dfm:PathOnly '\common\components\rtl\Garant\ScriptEngine'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\ScriptEngine'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
  CONST extprop:pas:TypeName 'TkwPopTreeNodeGetNextSibling'
+ CONST extprop:rc:SelfName 'PopTreeNodeGetNextSibling'
+ CONST extprop:rc:isAcceptableForScripts true
+ : SpelledFor ME_55C9D5BB0220 // GetNextSibling
+ ;
 
 ref; // ME_D75C1EAFB29F pop_TreeNode_GetNextSibling
+
+FORWARD ME_55C9D5D00259
 
 FORWARD ME_35C934477819
 
 : ME_872A8934A574
  CONST UID '872A8934A574'
  CONST Name 'aCtx'
+ CONST IsSummoned true
  CONST Class class_Parameter
  : Stereotype st_in ;
  : Target WL 'ME_4DB0091E033E' '4DAF19F600C5.pas.ms.script' // TtfwContext
@@ -1489,6 +1635,7 @@ ref; // ME_872A8934A574 aCtx
 : ME_872A8934A575
  CONST UID '872A8934A575'
  CONST Name 'aTreeNode'
+ CONST IsSummoned true
  CONST Class class_Parameter
  : Stereotype st_in ;
  : Target WL 'ME_512F3FCB02F3' '4799D29F033F.pas.ms.script' // TTreeNode
@@ -1499,6 +1646,7 @@ ref; // ME_872A8934A575 aTreeNode
 : ME_CBAF62383CA2
  CONST UID 'CBAF62383CA2'
  CONST Name 'GetPrevSibling'
+ CONST IsSummoned true
  CONST Class class_Operation
  %SUMMARY 'Реализация слова скрипта pop:TreeNode:GetPrevSibling' ;
  CONST Visibility PrivateAccess
@@ -1508,9 +1656,9 @@ ref; // ME_872A8934A575 aTreeNode
  : Target WL 'ME_512F3FCB02F3' '4799D29F033F.pas.ms.script' // TTreeNode
  ;
  : Parameters
-   @ ( ME_872A8934A574 // aCtx
+   Seq: ( ME_872A8934A574 // aCtx
  ME_872A8934A575 // aTreeNode
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_CBAF62383CA2 GetPrevSibling
@@ -1518,6 +1666,7 @@ ref; // ME_CBAF62383CA2 GetPrevSibling
 : ME_39EAF0559009
  CONST UID '39EAF0559009'
  CONST Name 'Ini_Reg'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Регистрация pop_TreeNode_GetPrevSibling' ;
@@ -1530,6 +1679,7 @@ ref; // ME_39EAF0559009 Ini_Reg
 
 : ME_C59D1970D8F1
  CONST UID 'C59D1970D8F1'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_35C934477819 // pop_TreeNode_GetPrevSibling
@@ -1541,6 +1691,7 @@ ref; // ME_C59D1970D8F1
 
 : ME_3DFA0D878F27
  CONST UID '3DFA0D878F27'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_35C934477819 // pop_TreeNode_GetPrevSibling
@@ -1552,6 +1703,7 @@ ref; // ME_3DFA0D878F27
 
 : ME_CA6806354662
  CONST UID 'CA6806354662'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_35C934477819 // pop_TreeNode_GetPrevSibling
@@ -1614,6 +1766,7 @@ ref; // ME_5617F4D00243_ME_35C934477819 ParamsTypes
 : ME_35C934477819
  CONST UID '35C934477819'
  CONST Name 'pop_TreeNode_GetPrevSibling'
+ CONST IsSummoned true
  CONST Class class_Class
  : Stereotype st_ScriptKeyword ;
  CONST Kind kind_NormalClass
@@ -1623,45 +1776,56 @@ ref; // ME_5617F4D00243_ME_35C934477819 ParamsTypes
  : Parent ME_55C9CBB10045 // TreeNodeWordsPack
  ;
  : Inherits
-   @ ( WL 'ME_55CCAE000335' '55CCADD2013D.pas.ms.script' // TtfwClassLike
- ) .SequenceCode.It
+   Seq: ( WL 'ME_55CCAE000335' '55CCADD2013D.pas.ms.script' // TtfwClassLike
+ )
  ; // Inherits
  : Operations
-   @ ( ME_CBAF62383CA2 // GetPrevSibling
+   Seq: ( ME_CBAF62383CA2 // GetPrevSibling
  ME_39EAF0559009 // Ini_Reg
- ) .SequenceCode.It
+ )
  ; // Operations
  : Implemented
-   @ ( ME_4DAEEDE10285_ME_35C934477819 // DoDoIt
- ) .SequenceCode.It
+   Seq: ( ME_4DAEEDE10285_ME_35C934477819 // DoDoIt
+ )
  ; // Implemented
  : Overridden
-   @ ( ME_4DB0614603C8_ME_35C934477819 // GetWordNameForRegister
+   Seq: ( ME_4DB0614603C8_ME_35C934477819 // GetWordNameForRegister
  ME_551544E2001A_ME_35C934477819 // GetResultTypeInfo
  ME_559687E6025A_ME_35C934477819 // GetAllParamsCount
  ME_5617F4D00243_ME_35C934477819 // ParamsTypes
- ) .SequenceCode.It
+ )
  ; // Overridden
  : Dependencies
-   @ ( ME_C59D1970D8F1 // 
+   Seq: ( ME_C59D1970D8F1 // 
  ME_3DFA0D878F27 // 
  ME_CA6806354662 // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  CONST "NameForScript" 'pop:TreeNode:GetPrevSibling'
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
+ CONST dfm:PathOnly '\common\components\rtl\Garant\ScriptEngine'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\ScriptEngine'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
  CONST extprop:pas:TypeName 'TkwPopTreeNodeGetPrevSibling'
+ CONST extprop:rc:SelfName 'PopTreeNodeGetPrevSibling'
+ CONST extprop:rc:isAcceptableForScripts true
+ : SpelledFor ME_55C9D5D00259 // GetPrevSibling
+ ;
 
 ref; // ME_35C934477819 pop_TreeNode_GetPrevSibling
+
+FORWARD ME_55C9D5F401A4
 
 FORWARD ME_4D009DB53D61
 
 : ME_92CAA369AC36
  CONST UID '92CAA369AC36'
  CONST Name 'aCtx'
+ CONST IsSummoned true
  CONST Class class_Parameter
  : Stereotype st_in ;
  : Target WL 'ME_4DB0091E033E' '4DAF19F600C5.pas.ms.script' // TtfwContext
@@ -1672,6 +1836,7 @@ ref; // ME_92CAA369AC36 aCtx
 : ME_92CAA369AC37
  CONST UID '92CAA369AC37'
  CONST Name 'aTreeNode'
+ CONST IsSummoned true
  CONST Class class_Parameter
  : Stereotype st_in ;
  : Target WL 'ME_512F3FCB02F3' '4799D29F033F.pas.ms.script' // TTreeNode
@@ -1682,6 +1847,7 @@ ref; // ME_92CAA369AC37 aTreeNode
 : ME_8DB4489FF36F
  CONST UID '8DB4489FF36F'
  CONST Name 'GetNextVisible'
+ CONST IsSummoned true
  CONST Class class_Operation
  %SUMMARY 'Реализация слова скрипта pop:TreeNode:GetNextVisible' ;
  CONST Visibility PrivateAccess
@@ -1691,9 +1857,9 @@ ref; // ME_92CAA369AC37 aTreeNode
  : Target WL 'ME_512F3FCB02F3' '4799D29F033F.pas.ms.script' // TTreeNode
  ;
  : Parameters
-   @ ( ME_92CAA369AC36 // aCtx
+   Seq: ( ME_92CAA369AC36 // aCtx
  ME_92CAA369AC37 // aTreeNode
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_8DB4489FF36F GetNextVisible
@@ -1701,6 +1867,7 @@ ref; // ME_8DB4489FF36F GetNextVisible
 : ME_DA005915F432
  CONST UID 'DA005915F432'
  CONST Name 'Ini_Reg'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Регистрация pop_TreeNode_GetNextVisible' ;
@@ -1713,6 +1880,7 @@ ref; // ME_DA005915F432 Ini_Reg
 
 : ME_32BAB7D004C5
  CONST UID '32BAB7D004C5'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_4D009DB53D61 // pop_TreeNode_GetNextVisible
@@ -1724,6 +1892,7 @@ ref; // ME_32BAB7D004C5
 
 : ME_8E165F81A55D
  CONST UID '8E165F81A55D'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_4D009DB53D61 // pop_TreeNode_GetNextVisible
@@ -1735,6 +1904,7 @@ ref; // ME_8E165F81A55D
 
 : ME_4D27CA7963EE
  CONST UID '4D27CA7963EE'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_4D009DB53D61 // pop_TreeNode_GetNextVisible
@@ -1797,6 +1967,7 @@ ref; // ME_5617F4D00243_ME_4D009DB53D61 ParamsTypes
 : ME_4D009DB53D61
  CONST UID '4D009DB53D61'
  CONST Name 'pop_TreeNode_GetNextVisible'
+ CONST IsSummoned true
  CONST Class class_Class
  : Stereotype st_ScriptKeyword ;
  CONST Kind kind_NormalClass
@@ -1806,45 +1977,56 @@ ref; // ME_5617F4D00243_ME_4D009DB53D61 ParamsTypes
  : Parent ME_55C9CBB10045 // TreeNodeWordsPack
  ;
  : Inherits
-   @ ( WL 'ME_55CCAE000335' '55CCADD2013D.pas.ms.script' // TtfwClassLike
- ) .SequenceCode.It
+   Seq: ( WL 'ME_55CCAE000335' '55CCADD2013D.pas.ms.script' // TtfwClassLike
+ )
  ; // Inherits
  : Operations
-   @ ( ME_8DB4489FF36F // GetNextVisible
+   Seq: ( ME_8DB4489FF36F // GetNextVisible
  ME_DA005915F432 // Ini_Reg
- ) .SequenceCode.It
+ )
  ; // Operations
  : Implemented
-   @ ( ME_4DAEEDE10285_ME_4D009DB53D61 // DoDoIt
- ) .SequenceCode.It
+   Seq: ( ME_4DAEEDE10285_ME_4D009DB53D61 // DoDoIt
+ )
  ; // Implemented
  : Overridden
-   @ ( ME_4DB0614603C8_ME_4D009DB53D61 // GetWordNameForRegister
+   Seq: ( ME_4DB0614603C8_ME_4D009DB53D61 // GetWordNameForRegister
  ME_551544E2001A_ME_4D009DB53D61 // GetResultTypeInfo
  ME_559687E6025A_ME_4D009DB53D61 // GetAllParamsCount
  ME_5617F4D00243_ME_4D009DB53D61 // ParamsTypes
- ) .SequenceCode.It
+ )
  ; // Overridden
  : Dependencies
-   @ ( ME_32BAB7D004C5 // 
+   Seq: ( ME_32BAB7D004C5 // 
  ME_8E165F81A55D // 
  ME_4D27CA7963EE // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  CONST "NameForScript" 'pop:TreeNode:GetNextVisible'
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
+ CONST dfm:PathOnly '\common\components\rtl\Garant\ScriptEngine'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\ScriptEngine'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
  CONST extprop:pas:TypeName 'TkwPopTreeNodeGetNextVisible'
+ CONST extprop:rc:SelfName 'PopTreeNodeGetNextVisible'
+ CONST extprop:rc:isAcceptableForScripts true
+ : SpelledFor ME_55C9D5F401A4 // GetNextVisible
+ ;
 
 ref; // ME_4D009DB53D61 pop_TreeNode_GetNextVisible
+
+FORWARD ME_55C9D6120364
 
 FORWARD ME_CA039569FA58
 
 : ME_D9B7A299D6FD
  CONST UID 'D9B7A299D6FD'
  CONST Name 'aCtx'
+ CONST IsSummoned true
  CONST Class class_Parameter
  : Stereotype st_in ;
  : Target WL 'ME_4DB0091E033E' '4DAF19F600C5.pas.ms.script' // TtfwContext
@@ -1855,6 +2037,7 @@ ref; // ME_D9B7A299D6FD aCtx
 : ME_D9B7A299D6FE
  CONST UID 'D9B7A299D6FE'
  CONST Name 'aTreeNode'
+ CONST IsSummoned true
  CONST Class class_Parameter
  : Stereotype st_in ;
  : Target WL 'ME_512F3FCB02F3' '4799D29F033F.pas.ms.script' // TTreeNode
@@ -1865,6 +2048,7 @@ ref; // ME_D9B7A299D6FE aTreeNode
 : ME_4529C267C83B
  CONST UID '4529C267C83B'
  CONST Name 'GetPrevVisible'
+ CONST IsSummoned true
  CONST Class class_Operation
  %SUMMARY 'Реализация слова скрипта pop:TreeNode:GetPrevVisible' ;
  CONST Visibility PrivateAccess
@@ -1874,9 +2058,9 @@ ref; // ME_D9B7A299D6FE aTreeNode
  : Target WL 'ME_512F3FCB02F3' '4799D29F033F.pas.ms.script' // TTreeNode
  ;
  : Parameters
-   @ ( ME_D9B7A299D6FD // aCtx
+   Seq: ( ME_D9B7A299D6FD // aCtx
  ME_D9B7A299D6FE // aTreeNode
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_4529C267C83B GetPrevVisible
@@ -1884,6 +2068,7 @@ ref; // ME_4529C267C83B GetPrevVisible
 : ME_F36DAA3E6E48
  CONST UID 'F36DAA3E6E48'
  CONST Name 'Ini_Reg'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Регистрация pop_TreeNode_GetPrevVisible' ;
@@ -1896,6 +2081,7 @@ ref; // ME_F36DAA3E6E48 Ini_Reg
 
 : ME_EB112FAEA3C9
  CONST UID 'EB112FAEA3C9'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_CA039569FA58 // pop_TreeNode_GetPrevVisible
@@ -1907,6 +2093,7 @@ ref; // ME_EB112FAEA3C9
 
 : ME_5FE17238780F
  CONST UID '5FE17238780F'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_CA039569FA58 // pop_TreeNode_GetPrevVisible
@@ -1918,6 +2105,7 @@ ref; // ME_5FE17238780F
 
 : ME_5AA90EE5A1BB
  CONST UID '5AA90EE5A1BB'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_CA039569FA58 // pop_TreeNode_GetPrevVisible
@@ -1980,6 +2168,7 @@ ref; // ME_5617F4D00243_ME_CA039569FA58 ParamsTypes
 : ME_CA039569FA58
  CONST UID 'CA039569FA58'
  CONST Name 'pop_TreeNode_GetPrevVisible'
+ CONST IsSummoned true
  CONST Class class_Class
  : Stereotype st_ScriptKeyword ;
  CONST Kind kind_NormalClass
@@ -1989,45 +2178,56 @@ ref; // ME_5617F4D00243_ME_CA039569FA58 ParamsTypes
  : Parent ME_55C9CBB10045 // TreeNodeWordsPack
  ;
  : Inherits
-   @ ( WL 'ME_55CCAE000335' '55CCADD2013D.pas.ms.script' // TtfwClassLike
- ) .SequenceCode.It
+   Seq: ( WL 'ME_55CCAE000335' '55CCADD2013D.pas.ms.script' // TtfwClassLike
+ )
  ; // Inherits
  : Operations
-   @ ( ME_4529C267C83B // GetPrevVisible
+   Seq: ( ME_4529C267C83B // GetPrevVisible
  ME_F36DAA3E6E48 // Ini_Reg
- ) .SequenceCode.It
+ )
  ; // Operations
  : Implemented
-   @ ( ME_4DAEEDE10285_ME_CA039569FA58 // DoDoIt
- ) .SequenceCode.It
+   Seq: ( ME_4DAEEDE10285_ME_CA039569FA58 // DoDoIt
+ )
  ; // Implemented
  : Overridden
-   @ ( ME_4DB0614603C8_ME_CA039569FA58 // GetWordNameForRegister
+   Seq: ( ME_4DB0614603C8_ME_CA039569FA58 // GetWordNameForRegister
  ME_551544E2001A_ME_CA039569FA58 // GetResultTypeInfo
  ME_559687E6025A_ME_CA039569FA58 // GetAllParamsCount
  ME_5617F4D00243_ME_CA039569FA58 // ParamsTypes
- ) .SequenceCode.It
+ )
  ; // Overridden
  : Dependencies
-   @ ( ME_EB112FAEA3C9 // 
+   Seq: ( ME_EB112FAEA3C9 // 
  ME_5FE17238780F // 
  ME_5AA90EE5A1BB // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  CONST "NameForScript" 'pop:TreeNode:GetPrevVisible'
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
+ CONST dfm:PathOnly '\common\components\rtl\Garant\ScriptEngine'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\ScriptEngine'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
  CONST extprop:pas:TypeName 'TkwPopTreeNodeGetPrevVisible'
+ CONST extprop:rc:SelfName 'PopTreeNodeGetPrevVisible'
+ CONST extprop:rc:isAcceptableForScripts true
+ : SpelledFor ME_55C9D6120364 // GetPrevVisible
+ ;
 
 ref; // ME_CA039569FA58 pop_TreeNode_GetPrevVisible
+
+FORWARD ME_55C9D632015E
 
 FORWARD ME_53AEF2794BFD
 
 : ME_C14BCE515805
  CONST UID 'C14BCE515805'
  CONST Name 'aCtx'
+ CONST IsSummoned true
  CONST Class class_Parameter
  : Stereotype st_in ;
  : Target WL 'ME_4DB0091E033E' '4DAF19F600C5.pas.ms.script' // TtfwContext
@@ -2038,6 +2238,7 @@ ref; // ME_C14BCE515805 aCtx
 : ME_C14BCE515806
  CONST UID 'C14BCE515806'
  CONST Name 'aTreeNode'
+ CONST IsSummoned true
  CONST Class class_Parameter
  : Stereotype st_in ;
  : Target WL 'ME_512F3FCB02F3' '4799D29F033F.pas.ms.script' // TTreeNode
@@ -2048,6 +2249,7 @@ ref; // ME_C14BCE515806 aTreeNode
 : ME_C14BCE515807
  CONST UID 'C14BCE515807'
  CONST Name 'aRecurse'
+ CONST IsSummoned true
  CONST Class class_Parameter
  : Stereotype st_in ;
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
@@ -2058,6 +2260,7 @@ ref; // ME_C14BCE515807 aRecurse
 : ME_64F2C36D9582
  CONST UID '64F2C36D9582'
  CONST Name 'Expand'
+ CONST IsSummoned true
  CONST Class class_Operation
  %SUMMARY 'Реализация слова скрипта pop:TreeNode:Expand' ;
  CONST Visibility PrivateAccess
@@ -2065,10 +2268,10 @@ ref; // ME_C14BCE515807 aRecurse
  : Parent ME_53AEF2794BFD // pop_TreeNode_Expand
  ;
  : Parameters
-   @ ( ME_C14BCE515805 // aCtx
+   Seq: ( ME_C14BCE515805 // aCtx
  ME_C14BCE515806 // aTreeNode
  ME_C14BCE515807 // aRecurse
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_64F2C36D9582 Expand
@@ -2076,6 +2279,7 @@ ref; // ME_64F2C36D9582 Expand
 : ME_CE1672FBEA5E
  CONST UID 'CE1672FBEA5E'
  CONST Name 'Ini_Reg'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Регистрация pop_TreeNode_Expand' ;
@@ -2088,6 +2292,7 @@ ref; // ME_CE1672FBEA5E Ini_Reg
 
 : ME_3EB06C5263C9
  CONST UID '3EB06C5263C9'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_53AEF2794BFD // pop_TreeNode_Expand
@@ -2099,6 +2304,7 @@ ref; // ME_3EB06C5263C9
 
 : ME_90A3741894E3
  CONST UID '90A3741894E3'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_53AEF2794BFD // pop_TreeNode_Expand
@@ -2110,6 +2316,7 @@ ref; // ME_90A3741894E3
 
 : ME_6B3247A8F179
  CONST UID '6B3247A8F179'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_53AEF2794BFD // pop_TreeNode_Expand
@@ -2172,6 +2379,7 @@ ref; // ME_5617F4D00243_ME_53AEF2794BFD ParamsTypes
 : ME_53AEF2794BFD
  CONST UID '53AEF2794BFD'
  CONST Name 'pop_TreeNode_Expand'
+ CONST IsSummoned true
  CONST Class class_Class
  : Stereotype st_ScriptKeyword ;
  CONST Kind kind_NormalClass
@@ -2181,37 +2389,45 @@ ref; // ME_5617F4D00243_ME_53AEF2794BFD ParamsTypes
  : Parent ME_55C9CBB10045 // TreeNodeWordsPack
  ;
  : Inherits
-   @ ( WL 'ME_55CCAE000335' '55CCADD2013D.pas.ms.script' // TtfwClassLike
- ) .SequenceCode.It
+   Seq: ( WL 'ME_55CCAE000335' '55CCADD2013D.pas.ms.script' // TtfwClassLike
+ )
  ; // Inherits
  : Operations
-   @ ( ME_64F2C36D9582 // Expand
+   Seq: ( ME_64F2C36D9582 // Expand
  ME_CE1672FBEA5E // Ini_Reg
- ) .SequenceCode.It
+ )
  ; // Operations
  : Implemented
-   @ ( ME_4DAEEDE10285_ME_53AEF2794BFD // DoDoIt
- ) .SequenceCode.It
+   Seq: ( ME_4DAEEDE10285_ME_53AEF2794BFD // DoDoIt
+ )
  ; // Implemented
  : Overridden
-   @ ( ME_4DB0614603C8_ME_53AEF2794BFD // GetWordNameForRegister
+   Seq: ( ME_4DB0614603C8_ME_53AEF2794BFD // GetWordNameForRegister
  ME_551544E2001A_ME_53AEF2794BFD // GetResultTypeInfo
  ME_559687E6025A_ME_53AEF2794BFD // GetAllParamsCount
  ME_5617F4D00243_ME_53AEF2794BFD // ParamsTypes
- ) .SequenceCode.It
+ )
  ; // Overridden
  : Dependencies
-   @ ( ME_3EB06C5263C9 // 
+   Seq: ( ME_3EB06C5263C9 // 
  ME_90A3741894E3 // 
  ME_6B3247A8F179 // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  CONST "NameForScript" 'pop:TreeNode:Expand'
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
+ CONST dfm:PathOnly '\common\components\rtl\Garant\ScriptEngine'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\ScriptEngine'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
  CONST extprop:pas:TypeName 'TkwPopTreeNodeExpand'
+ CONST extprop:rc:SelfName 'PopTreeNodeExpand'
+ CONST extprop:rc:isAcceptableForScripts true
+ : SpelledFor ME_55C9D632015E // Expand
+ ;
 
 ref; // ME_53AEF2794BFD pop_TreeNode_Expand
 
@@ -2229,6 +2445,8 @@ ref; // ME_53AEF2794BFD pop_TreeNode_Expand
  CONST "bind params" 'undefined'
  CONST "lvalue" 'undefined'
  CONST "mapped" 'undefined'
+ : Speller ME_A78303612230 // pop_TreeNode_GetNext
+ ;
 
 ref; // ME_55C9CBEB0063 GetNext
 
@@ -2246,6 +2464,8 @@ ref; // ME_55C9CBEB0063 GetNext
  CONST "bind params" 'undefined'
  CONST "lvalue" 'undefined'
  CONST "mapped" 'undefined'
+ : Speller ME_5E7363490ED0 // pop_TreeNode_HasChildren
+ ;
 
 ref; // ME_55C9CBF80354 HasChildren
 
@@ -2263,6 +2483,8 @@ ref; // ME_55C9CBF80354 HasChildren
  CONST "bind params" 'undefined'
  CONST "lvalue" 'undefined'
  CONST "mapped" 'undefined'
+ : Speller ME_55B024C23EBF // pop_TreeNode_GetPrev
+ ;
 
 ref; // ME_55C9D4D302CC GetPrev
 
@@ -2280,6 +2502,8 @@ ref; // ME_55C9D4D302CC GetPrev
  CONST "bind params" 'undefined'
  CONST "lvalue" 'undefined'
  CONST "mapped" 'undefined'
+ : Speller ME_5EA990C4D795 // pop_TreeNode_GetFirstChild
+ ;
 
 ref; // ME_55C9D4EA0111 GetFirstChild
 
@@ -2297,6 +2521,8 @@ ref; // ME_55C9D4EA0111 GetFirstChild
  CONST "bind params" 'undefined'
  CONST "lvalue" 'undefined'
  CONST "mapped" 'undefined'
+ : Speller ME_C6C1AF6914F1 // pop_TreeNode_GetLastChild
+ ;
 
 ref; // ME_55C9D4FD035F GetLastChild
 
@@ -2314,6 +2540,8 @@ ref; // ME_55C9D4FD035F GetLastChild
  CONST "bind params" 'undefined'
  CONST "lvalue" 'undefined'
  CONST "mapped" 'undefined'
+ : Speller ME_D75C1EAFB29F // pop_TreeNode_GetNextSibling
+ ;
 
 ref; // ME_55C9D5BB0220 GetNextSibling
 
@@ -2331,6 +2559,8 @@ ref; // ME_55C9D5BB0220 GetNextSibling
  CONST "bind params" 'undefined'
  CONST "lvalue" 'undefined'
  CONST "mapped" 'undefined'
+ : Speller ME_35C934477819 // pop_TreeNode_GetPrevSibling
+ ;
 
 ref; // ME_55C9D5D00259 GetPrevSibling
 
@@ -2348,6 +2578,8 @@ ref; // ME_55C9D5D00259 GetPrevSibling
  CONST "bind params" 'undefined'
  CONST "lvalue" 'undefined'
  CONST "mapped" 'undefined'
+ : Speller ME_4D009DB53D61 // pop_TreeNode_GetNextVisible
+ ;
 
 ref; // ME_55C9D5F401A4 GetNextVisible
 
@@ -2365,6 +2597,8 @@ ref; // ME_55C9D5F401A4 GetNextVisible
  CONST "bind params" 'undefined'
  CONST "lvalue" 'undefined'
  CONST "mapped" 'undefined'
+ : Speller ME_CA039569FA58 // pop_TreeNode_GetPrevVisible
+ ;
 
 ref; // ME_55C9D6120364 GetPrevVisible
 
@@ -2388,18 +2622,21 @@ ref; // ME_55C9D6390245 aRecurse
  : Parent ME_55C9CBB10045 // TreeNodeWordsPack
  ;
  : Parameters
-   @ ( ME_55C9D6390245 // aRecurse
- ) .SequenceCode.It
+   Seq: ( ME_55C9D6390245 // aRecurse
+ )
  ; // Parameters
  CONST "bind params" 'undefined'
  CONST "lvalue" 'undefined'
  CONST "mapped" 'undefined'
+ : Speller ME_53AEF2794BFD // pop_TreeNode_Expand
+ ;
 
 ref; // ME_55C9D632015E Expand
 
 : ME_F26A1E795F1E
  CONST UID 'F26A1E795F1E'
- CONST Name 'Reg_TtfwContext'
+ CONST Name 'Reg_Type_TtfwContext'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Регистрация типа TtfwContext' ;
@@ -2407,12 +2644,15 @@ ref; // ME_55C9D632015E Expand
  CONST Abstraction at_final
  : Parent ME_55C9CBB10045 // TreeNodeWordsPack
  ;
+ : SpelledFor WL 'ME_4DB0091E033E' '4DAF19F600C5.pas.ms.script' // TtfwContext
+ ;
 
-ref; // ME_F26A1E795F1E Reg_TtfwContext
+ref; // ME_F26A1E795F1E Reg_Type_TtfwContext
 
 : ME_26493207DE51
  CONST UID '26493207DE51'
- CONST Name 'Reg_TTreeNode'
+ CONST Name 'Reg_Type_TTreeNode'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Регистрация типа TTreeNode' ;
@@ -2420,12 +2660,15 @@ ref; // ME_F26A1E795F1E Reg_TtfwContext
  CONST Abstraction at_final
  : Parent ME_55C9CBB10045 // TreeNodeWordsPack
  ;
+ : SpelledFor WL 'ME_512F3FCB02F3' '4799D29F033F.pas.ms.script' // TTreeNode
+ ;
 
-ref; // ME_26493207DE51 Reg_TTreeNode
+ref; // ME_26493207DE51 Reg_Type_TTreeNode
 
 : ME_DE431BAEEC71
  CONST UID 'DE431BAEEC71'
- CONST Name 'Reg_Boolean'
+ CONST Name 'Reg_Type_Boolean'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Регистрация типа Boolean' ;
@@ -2433,11 +2676,14 @@ ref; // ME_26493207DE51 Reg_TTreeNode
  CONST Abstraction at_final
  : Parent ME_55C9CBB10045 // TreeNodeWordsPack
  ;
+ : SpelledFor WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
 
-ref; // ME_DE431BAEEC71 Reg_Boolean
+ref; // ME_DE431BAEEC71 Reg_Type_Boolean
 
 : ME_26CA5956C0E7
  CONST UID '26CA5956C0E7'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_55C9CBB10045 // TreeNodeWordsPack
@@ -2449,6 +2695,7 @@ ref; // ME_26CA5956C0E7
 
 : ME_E8F21365B79C
  CONST UID 'E8F21365B79C'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_injects::Dependency ;
  : Parent ME_55C9CBB10045 // TreeNodeWordsPack
@@ -2460,6 +2707,7 @@ ref; // ME_E8F21365B79C
 
 : ME_B06B926980E2
  CONST UID 'B06B926980E2'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_55C9CBB10045 // TreeNodeWordsPack
@@ -2480,11 +2728,11 @@ ref; // ME_B06B926980E2
  : Parent ME_512F475600DF // TreeViewWords
  ;
  : Inherits
-   @ ( WL 'ME_512F3FCB02F3' '4799D29F033F.pas.ms.script' // TTreeNode
- ) .SequenceCode.It
+   Seq: ( WL 'ME_512F3FCB02F3' '4799D29F033F.pas.ms.script' // TTreeNode
+ )
  ; // Inherits
  : Operations
-   @ ( ME_55C9CBEB0063 // GetNext
+   Seq: ( ME_55C9CBEB0063 // GetNext
  ME_55C9CBF80354 // HasChildren
  ME_55C9D4D302CC // GetPrev
  ME_55C9D4EA0111 // GetFirstChild
@@ -2494,13 +2742,13 @@ ref; // ME_B06B926980E2
  ME_55C9D5F401A4 // GetNextVisible
  ME_55C9D6120364 // GetPrevVisible
  ME_55C9D632015E // Expand
- ME_F26A1E795F1E // Reg_TtfwContext
- ME_26493207DE51 // Reg_TTreeNode
- ME_DE431BAEEC71 // Reg_Boolean
- ) .SequenceCode.It
+ ME_F26A1E795F1E // Reg_Type_TtfwContext
+ ME_26493207DE51 // Reg_Type_TTreeNode
+ ME_DE431BAEEC71 // Reg_Type_Boolean
+ )
  ; // Operations
  : Children
-   @ ( ME_A78303612230 // pop_TreeNode_GetNext
+   Seq: ( ME_A78303612230 // pop_TreeNode_GetNext
  ME_5E7363490ED0 // pop_TreeNode_HasChildren
  ME_55B024C23EBF // pop_TreeNode_GetPrev
  ME_5EA990C4D795 // pop_TreeNode_GetFirstChild
@@ -2510,25 +2758,24 @@ ref; // ME_B06B926980E2
  ME_4D009DB53D61 // pop_TreeNode_GetNextVisible
  ME_CA039569FA58 // pop_TreeNode_GetPrevVisible
  ME_53AEF2794BFD // pop_TreeNode_Expand
- ) .SequenceCode.It
+ )
  ; // Children
  : Dependencies
-   @ ( ME_26CA5956C0E7 // 
+   Seq: ( ME_26CA5956C0E7 // 
  ME_E8F21365B79C // 
  ME_B06B926980E2 // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  CONST "ifndef" 'NoScripts'
  CONST "needs script" 'undefined'
  CONST "no class name" 'undefined'
  CONST "no hands" false
  CONST "no_pop" 'undefined'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\ScriptEngine'
  CONST intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\TreeNodeWordsPack.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\ScriptEngine'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_55C9CBB10045 TreeNodeWordsPack
 
@@ -2542,22 +2789,20 @@ ref; // ME_55C9CBB10045 TreeNodeWordsPack
  : Parent WL 'ME_54DB92A80279' '54DB92A80279.pas.ms.script' // ScriptEngine$RTLandVCL
  ;
  : Children
-   @ ( ME_512F47C80388 // TreeViewWordsPack
+   Seq: ( ME_512F47C80388 // TreeViewWordsPack
  ME_55C9CBB10045 // TreeNodeWordsPack
- ) .SequenceCode.It
+ )
  ; // Children
  : Depends
-   @ ( WL 'ME_4DAF19F600C5' '4DAF19F600C5.pas.ms.script' // tfwScriptingInterfaces
- ) .SequenceCode.It
+   Seq: ( WL 'ME_4DAF19F600C5' '4DAF19F600C5.pas.ms.script' // tfwScriptingInterfaces
+ )
  ; // Depends
  CONST "ifndef" 'NoScripts,NoVCL'
- : Generators
- @ (
- gen_pas.script
- gen_pas.script.runner
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\ScriptEngine'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\ScriptEngine'
  CONST pas.script:Path 'shared\models\NewSchool\Scripts\512F475600DF.pas.ms.script'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
  CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\512F475600DF.pas.ms.script.runner'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_512F475600DF TreeViewWords

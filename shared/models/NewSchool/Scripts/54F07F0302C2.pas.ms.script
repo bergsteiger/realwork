@@ -54,18 +54,18 @@ ref; // ME_47B99D4503A2_ME_4DB6CAC402B4 CompareExistingItems
  : Parent ME_54F07F0302C2 // WordsList
  ;
  : Inherits
-   @ ( WL 'ME_47B99E920196' '47913B47006E.pas.ms.script' // l3UncomparabeObjectRefList
+   Seq: ( WL 'ME_47B99E920196' '47913B47006E.pas.ms.script' // l3UncomparabeObjectRefList
  WL 'ME_4A54DD4E036F' '47913B47006E.pas.ms.script' // Tl3ProtoDataContainer
- ) .SequenceCode.It
+ )
  ; // Inherits
  : Attributes
-   @ ( ME_4DB6CB050109 // ItemType
- ) .SequenceCode.It
+   Seq: ( ME_4DB6CB050109 // ItemType
+ )
  ; // Attributes
  : Implemented
-   @ ( ME_47B2C42A0163_ME_4DB6CAC402B4 // AssignItem
+   Seq: ( ME_47B2C42A0163_ME_4DB6CAC402B4 // AssignItem
  ME_47B99D4503A2_ME_4DB6CAC402B4 // CompareExistingItems
- ) .SequenceCode.It
+ )
  ; // Implemented
  CONST "author" 'Ëþëèí À.Â.'
  CONST "needs InstanceR" 'undefined'
@@ -73,12 +73,14 @@ ref; // ME_47B99D4503A2_ME_4DB6CAC402B4 CompareExistingItems
  CONST "no hands" true
  CONST "register in scripts" 'undefined'
  CONST "started" '26.04.2011 17:38'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\ScriptEngine'
  CONST intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\tfwWordRefList.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\ScriptEngine'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'WordRefList'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'tfwWordRefList'
 
 ref; // ME_4DB6CAC402B4 TtfwWordRefList
 
@@ -92,21 +94,19 @@ ref; // ME_4DB6CAC402B4 TtfwWordRefList
  : Parent WL 'ME_54CF97B10370' '54CF97B10370.pas.ms.script' // ScriptEngine$Core
  ;
  : Children
-   @ ( ME_4DB6CAC402B4 // TtfwWordRefList
- ) .SequenceCode.It
+   Seq: ( ME_4DB6CAC402B4 // TtfwWordRefList
+ )
  ; // Children
  : Depends
-   @ ( WL 'ME_47913B47006E' '47913B47006E.pas.ms.script' // l3CoreObjects
+   Seq: ( WL 'ME_47913B47006E' '47913B47006E.pas.ms.script' // l3CoreObjects
  WL 'ME_4DAF19F600C5' '4DAF19F600C5.pas.ms.script' // tfwScriptingInterfaces
- ) .SequenceCode.It
+ )
  ; // Depends
- : Generators
- @ (
- gen_pas.script
- gen_pas.script.runner
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\ScriptEngine'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\ScriptEngine'
  CONST pas.script:Path 'shared\models\NewSchool\Scripts\54F07F0302C2.pas.ms.script'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
  CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\54F07F0302C2.pas.ms.script.runner'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_54F07F0302C2 WordsList

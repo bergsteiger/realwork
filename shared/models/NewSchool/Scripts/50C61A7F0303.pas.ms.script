@@ -68,6 +68,7 @@ ref; // ME_50C61ECB00FF f_NCMousePoint
 : ME_8C4131D8DEE2
  CONST UID '8C4131D8DEE2'
  CONST Name 'f_LastHint'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY 'Поле для свойства LastHint' ;
  CONST Visibility PrivateAccess
@@ -111,9 +112,9 @@ ref; // ME_50C61CA8032A AHint
  : Parent ME_50C61C8E015D // ActivateHintEx
  ;
  : Parameters
-   @ ( ME_50C644FC021D // Rect
+   Seq: ( ME_50C644FC021D // Rect
  ME_50C61CA8032A // AHint
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_50C61C9D0019 DoIt
@@ -129,8 +130,8 @@ ref; // ME_50C61C9D0019 DoIt
  : Parent ME_50C61AAC00BF // TvtMultilineHint
  ;
  : Operations
-   @ ( ME_50C61C9D0019 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_50C61C9D0019 // DoIt
+ )
  ; // Operations
 
 ref; // ME_50C61C8E015D ActivateHintEx
@@ -176,10 +177,10 @@ ref; // ME_50C61F33038A AHint
  : Parent ME_50C61F0B0392 // vtActivateHint
  ;
  : Parameters
-   @ ( ME_50C61F33035D // aWindow
+   Seq: ( ME_50C61F33035D // aWindow
  ME_50C61F330374 // Rect
  ME_50C61F33038A // AHint
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_50C61F2C019F DoIt
@@ -195,10 +196,11 @@ ref; // ME_50C61F2C019F DoIt
  : Parent ME_50C61AAC00BF // TvtMultilineHint
  ;
  : Operations
-   @ ( ME_50C61F2C019F // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_50C61F2C019F // DoIt
+ )
  ; // Operations
  CONST "is static" true
+ CONST extprop:rc:SelfName 'ActivateHint'
 
 ref; // ME_50C61F0B0392 vtActivateHint
 
@@ -217,6 +219,7 @@ ref; // ME_50C61F7E02BE DoIt
 : ME_65F41C106169
  CONST UID '65F41C106169'
  CONST Name 'Ini_Reg_Class'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Регистрация TvtMultilineHint' ;
@@ -331,6 +334,7 @@ ref; // ME_50C6461D0259
 
 : ME_4D96C4D5D0E3
  CONST UID '4D96C4D5D0E3'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_50C61AAC00BF // TvtMultilineHint
@@ -347,6 +351,7 @@ ref; // ME_4D96C4D5D0E3
  ;
  : Implementor ME_50C61AAC00BF // TvtMultilineHint
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_47D1602000C6_ME_50C61AAC00BF Create
 
 : ME_48077504027E_ME_50C61AAC00BF
@@ -356,6 +361,7 @@ ref; // ME_47D1602000C6_ME_50C61AAC00BF Create
  ;
  : Implementor ME_50C61AAC00BF // TvtMultilineHint
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_48077504027E_ME_50C61AAC00BF Destroy
 
 : ME_48C7925A02E5_ME_50C61AAC00BF
@@ -365,6 +371,7 @@ ref; // ME_48077504027E_ME_50C61AAC00BF Destroy
  ;
  : Implementor ME_50C61AAC00BF // TvtMultilineHint
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_48C7925A02E5_ME_50C61AAC00BF CreateParams
 
 : ME_5028A60300AD_ME_50C61AAC00BF
@@ -374,6 +381,7 @@ ref; // ME_48C7925A02E5_ME_50C61AAC00BF CreateParams
  ;
  : Implementor ME_50C61AAC00BF // TvtMultilineHint
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_5028A60300AD_ME_50C61AAC00BF Paint
 
 : ME_50C61BA40123_ME_50C61AAC00BF
@@ -383,6 +391,7 @@ ref; // ME_5028A60300AD_ME_50C61AAC00BF Paint
  ;
  : Implementor ME_50C61AAC00BF // TvtMultilineHint
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_50C61BA40123_ME_50C61AAC00BF ActivateHint
 
 : ME_50C61BD700BF_ME_50C61AAC00BF
@@ -392,6 +401,7 @@ ref; // ME_50C61BA40123_ME_50C61AAC00BF ActivateHint
  ;
  : Implementor ME_50C61AAC00BF // TvtMultilineHint
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_50C61BD700BF_ME_50C61AAC00BF IsHintMsg
 
 : ME_50C61AAC00BF
@@ -405,35 +415,35 @@ ref; // ME_50C61BD700BF_ME_50C61AAC00BF IsHintMsg
  : Parent ME_50C61A7F0303 // Hints
  ;
  : Inherits
-   @ ( WL 'ME_50C61B670302' '4799D29F033F.pas.ms.script' // THintWindow
- ) .SequenceCode.It
+   Seq: ( WL 'ME_50C61B670302' '4799D29F033F.pas.ms.script' // THintWindow
+ )
  ; // Inherits
  : Attributes
-   @ ( ME_50C61D2C029B // LastHint
+   Seq: ( ME_50C61D2C029B // LastHint
  ME_50C61D4C02FA // f_Canvas
  ME_50C61E01021E // f_FL
  ME_50C61ECB00FF // f_NCMousePoint
  ME_8C4131D8DEE2 // f_LastHint
- ) .SequenceCode.It
+ )
  ; // Attributes
  : Operations
-   @ ( ME_50C61C8E015D // ActivateHintEx
+   Seq: ( ME_50C61C8E015D // ActivateHintEx
  ME_50C61F0B0392 // vtActivateHint
  ME_50C61F7E02BE // DoIt
  ME_65F41C106169 // Ini_Reg_Class
- ) .SequenceCode.It
+ )
  ; // Operations
  : Overridden
-   @ ( ME_47D1602000C6_ME_50C61AAC00BF // Create
+   Seq: ( ME_47D1602000C6_ME_50C61AAC00BF // Create
  ME_48077504027E_ME_50C61AAC00BF // Destroy
  ME_48C7925A02E5_ME_50C61AAC00BF // CreateParams
  ME_5028A60300AD_ME_50C61AAC00BF // Paint
  ME_50C61BA40123_ME_50C61AAC00BF // ActivateHint
  ME_50C61BD700BF_ME_50C61AAC00BF // IsHintMsg
- ) .SequenceCode.It
+ )
  ; // Overridden
  : Dependencies
-   @ ( ME_50C6248D0368 // 
+   Seq: ( ME_50C6248D0368 // 
  ME_50C6416D020C // 
  ME_50C641C80214 // 
  ME_50C642000215 // 
@@ -443,18 +453,20 @@ ref; // ME_50C61BD700BF_ME_50C61AAC00BF IsHintMsg
  ME_50C645B70280 // 
  ME_50C6461D0259 // 
  ME_4D96C4D5D0E3 // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\VT'
  CONST intf.pas:Path 'common\components\gui\Garant\VT\vtMultilineHint.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\VT'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'MultilineHint'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'vtMultilineHint'
 
 ref; // ME_50C61AAC00BF TvtMultilineHint
 
@@ -501,8 +513,8 @@ ref; // ME_50C734EF02EC anIndex
  : Target ME_50C61AAC00BF // TvtMultilineHint
  ;
  : Attributes
-   @ ( ME_50C734EF02EC // anIndex
- ) .SequenceCode.It
+   Seq: ( ME_50C734EF02EC // anIndex
+ )
  ; // Attributes
  CONST "pm" true
 
@@ -545,8 +557,8 @@ ref; // ME_50C624EE03D3 aHint
  : Parent ME_50C624A002CF // Add
  ;
  : Parameters
-   @ ( ME_50C624EE03D3 // aHint
- ) .SequenceCode.It
+   Seq: ( ME_50C624EE03D3 // aHint
+ )
  ; // Parameters
 
 ref; // ME_50C624EB0318 DoIt
@@ -562,8 +574,8 @@ ref; // ME_50C624EB0318 DoIt
  : Parent ME_50C6241B0355 // TvtHintManager
  ;
  : Operations
-   @ ( ME_50C624EB0318 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_50C624EB0318 // DoIt
+ )
  ; // Operations
 
 ref; // ME_50C624A002CF Add
@@ -589,8 +601,8 @@ ref; // ME_50C624E00140 aHint
  : Parent ME_50C624D30325 // Remove
  ;
  : Parameters
-   @ ( ME_50C624E00140 // aHint
- ) .SequenceCode.It
+   Seq: ( ME_50C624E00140 // aHint
+ )
  ; // Parameters
 
 ref; // ME_50C624DC03CC DoIt
@@ -606,8 +618,8 @@ ref; // ME_50C624DC03CC DoIt
  : Parent ME_50C6241B0355 // TvtHintManager
  ;
  : Operations
-   @ ( ME_50C624DC03CC // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_50C624DC03CC // DoIt
+ )
  ; // Operations
 
 ref; // ME_50C624D30325 Remove
@@ -638,8 +650,8 @@ ref; // ME_52F9C5470125 DoIt
  : Parent ME_50C6241B0355 // TvtHintManager
  ;
  : Operations
-   @ ( ME_52F9C5470125 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_52F9C5470125 // DoIt
+ )
  ; // Operations
  CONST "is static" true
 
@@ -648,6 +660,7 @@ ref; // ME_52F9C53B0374 Exists
 : ME_4A59C6D85E2E
  CONST UID '4A59C6D85E2E'
  CONST Name 'Ini_Reg_Class'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Регистрация TvtHintManager' ;
@@ -661,6 +674,7 @@ ref; // ME_4A59C6D85E2E Ini_Reg_Class
 
 : ME_404E99C94F51
  CONST UID '404E99C94F51'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_50C6241B0355 // TvtHintManager
@@ -677,6 +691,7 @@ ref; // ME_404E99C94F51
  ;
  : Implementor ME_50C6241B0355 // TvtHintManager
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_479731C50290_ME_50C6241B0355 Cleanup
 
 : ME_47A042E100E2_ME_50C6241B0355
@@ -686,6 +701,7 @@ ref; // ME_479731C50290_ME_50C6241B0355 Cleanup
  ;
  : Implementor ME_50C6241B0355 // TvtHintManager
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_47A042E100E2_ME_50C6241B0355 InitFields
 
 : ME_50C6241B0355
@@ -699,46 +715,48 @@ ref; // ME_47A042E100E2_ME_50C6241B0355 InitFields
  : Parent ME_50C61A7F0303 // Hints
  ;
  : Inherits
-   @ ( WL 'ME_49E7754802A9' '47913B47006E.pas.ms.script' // Tl3ProtoObject
- ) .SequenceCode.It
+   Seq: ( WL 'ME_49E7754802A9' '47913B47006E.pas.ms.script' // Tl3ProtoObject
+ )
  ; // Inherits
  : Attributes
-   @ ( ME_50C7347A0192 // f_Hints
+   Seq: ( ME_50C7347A0192 // f_Hints
  ME_50C734B60190 // Item
  ME_50C7352402AD // Count
- ) .SequenceCode.It
+ )
  ; // Attributes
  : Operations
-   @ ( ME_50C624A002CF // Add
+   Seq: ( ME_50C624A002CF // Add
  ME_50C624D30325 // Remove
  ME_52F9C53B0374 // Exists
  ME_4A59C6D85E2E // Ini_Reg_Class
- ) .SequenceCode.It
+ )
  ; // Operations
  : Overridden
-   @ ( ME_479731C50290_ME_50C6241B0355 // Cleanup
+   Seq: ( ME_479731C50290_ME_50C6241B0355 // Cleanup
  ME_47A042E100E2_ME_50C6241B0355 // InitFields
- ) .SequenceCode.It
+ )
  ; // Overridden
  : Dependencies
-   @ ( ME_404E99C94F51 // 
- ) .SequenceCode.It
+   Seq: ( ME_404E99C94F51 // 
+ )
  ; // Dependencies
  : Injected
-   @ ( WL 'ME_54EC8AD103D2' '54EC8A3E0397.pas.ms.script' // 
- ) .SequenceCode.It
+   Seq: ( WL 'ME_54EC8AD103D2' '54EC8A3E0397.pas.ms.script' // 
+ )
  ; // Injected
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" true
  CONST "singleton" true
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\VT'
  CONST intf.pas:Path 'common\components\gui\Garant\VT\vtHintManager.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\VT'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'HintManager'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'vtHintManager'
 
 ref; // ME_50C6241B0355 TvtHintManager
 
@@ -752,12 +770,12 @@ ref; // ME_50C6241B0355 TvtHintManager
  : Parent WL 'ME_467A75D90346' '467A75D90346.pas.ms.script' // VT
  ;
  : Children
-   @ ( ME_50C61AAC00BF // TvtMultilineHint
+   Seq: ( ME_50C61AAC00BF // TvtMultilineHint
  ME_50C6241B0355 // TvtHintManager
- ) .SequenceCode.It
+ )
  ; // Children
  : Depends
-   @ ( WL 'ME_4677FBA70343' '4677FBA70343.pas.ms.script' // l3Interfaces
+   Seq: ( WL 'ME_4677FBA70343' '4677FBA70343.pas.ms.script' // l3Interfaces
  WL 'ME_467C0CAA02AB' '467C0CAA02AB.pas.ms.script' // l3InternalInterfaces
  WL 'ME_4728A7020026' '4728A7020026.pas.ms.script' // Types
  WL 'ME_473C3BEE0334' '473C3BEE0334.pas.ms.script' // l3Canvas
@@ -768,15 +786,13 @@ ref; // ME_50C6241B0355 TvtHintManager
  WL 'ME_4AB0C3C60310' '4AB0C3C60310.pas.ms.script' // Sys
  WL 'ME_54B90AC6014B' '54B90AC6014B.pas.ms.script' // StringUtils
  WL 'ME_561F9F7D02A7' '561F9F7D02A7.pas.ms.script' // ScriptEngine
- ) .SequenceCode.It
+ )
  ; // Depends
- : Generators
- @ (
- gen_pas.script
- gen_pas.script.runner
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\VT'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\VT'
  CONST pas.script:Path 'shared\models\NewSchool\Scripts\50C61A7F0303.pas.ms.script'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
  CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\50C61A7F0303.pas.ms.script.runner'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_50C61A7F0303 Hints

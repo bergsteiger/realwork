@@ -31,8 +31,8 @@ ref; // ME_533EBCB601A7 aCell
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
  : Parameters
-   @ ( ME_533EBCB601A7 // aCell
- ) .SequenceCode.It
+   Seq: ( ME_533EBCB601A7 // aCell
+ )
  ; // Parameters
 
 ref; // ME_5075301A038E DoIt
@@ -48,8 +48,8 @@ ref; // ME_5075301A038E DoIt
  : Parent ME_50751AB90061 // TevTableTextSearcher
  ;
  : Operations
-   @ ( ME_5075301A038E // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_5075301A038E // DoIt
+ )
  ; // Operations
 
 ref; // ME_5075300802E0 CheckCellType
@@ -94,6 +94,7 @@ ref; // ME_50753DDB01CF
  ;
  : Implementor ME_50751AB90061 // TevTableTextSearcher
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_50751B680376_ME_50751AB90061 DoCheckText
 
 : ME_50751AB90061
@@ -107,27 +108,33 @@ ref; // ME_50751B680376_ME_50751AB90061 DoCheckText
  : Parent ME_50751A0A0164 // evTableSearch
  ;
  : Inherits
-   @ ( WL 'ME_50751A9F02EB' '47F1F90A0391.pas.ms.script' // TevAnyParagraphSearcher
- ) .SequenceCode.It
+   Seq: ( WL 'ME_50751A9F02EB' '47F1F90A0391.pas.ms.script' // TevAnyParagraphSearcher
+ )
  ; // Inherits
  : Operations
-   @ ( ME_5075300802E0 // CheckCellType
- ) .SequenceCode.It
+   Seq: ( ME_5075300802E0 // CheckCellType
+ )
  ; // Operations
  : Overridden
-   @ ( ME_50751B680376_ME_50751AB90061 // DoCheckText
- ) .SequenceCode.It
+   Seq: ( ME_50751B680376_ME_50751AB90061 // DoCheckText
+ )
  ; // Overridden
  : Dependencies
-   @ ( ME_50753D8E02C4 // 
+   Seq: ( ME_50753D8E02C4 // 
  ME_50753DD70204 // 
  ME_50753DDB01CF // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
+ CONST dfm:PathOnly '\common\components\gui\Garant\EverestCommon'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\EverestCommon'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'TableTextSearcher'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_50751AB90061 TevTableTextSearcher
 
@@ -140,6 +147,7 @@ FORWARD ME_50751AEF02A9
  ;
  : Implementor ME_50751AEF02A9 // TevFirstTableCellSearcher
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_50751B680376_ME_50751AEF02A9 DoCheckText
 
 : ME_50751AEF02A9
@@ -153,17 +161,23 @@ ref; // ME_50751B680376_ME_50751AEF02A9 DoCheckText
  : Parent ME_50751A0A0164 // evTableSearch
  ;
  : Inherits
-   @ ( ME_50751AB90061 // TevTableTextSearcher
- ) .SequenceCode.It
+   Seq: ( ME_50751AB90061 // TevTableTextSearcher
+ )
  ; // Inherits
  : Overridden
-   @ ( ME_50751B680376_ME_50751AEF02A9 // DoCheckText
- ) .SequenceCode.It
+   Seq: ( ME_50751B680376_ME_50751AEF02A9 // DoCheckText
+ )
  ; // Overridden
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
+ CONST dfm:PathOnly '\common\components\gui\Garant\EverestCommon'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\EverestCommon'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'FirstTableCellSearcher'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_50751AEF02A9 TevFirstTableCellSearcher
 
@@ -209,6 +223,7 @@ FORWARD ME_507530F8022A
  CONST Value '[]'
  : ValueType WL 'ME_47C6CB5C0032' '47C695A10172.pas.ms.script' // TevSearchOptionSet
  ;
+ CONST extprop:pas:Value 'evTypes.[]'
 
 ref; // ME_5075312102A4 anOptions
 
@@ -223,8 +238,8 @@ ref; // ME_5075312102A4 anOptions
  : Target WL 'ME_47C693BF0118' '47C5207602D1.pas.ms.script' // IevReplacer
  ;
  : Parameters
-   @ ( ME_5075312102A4 // anOptions
- ) .SequenceCode.It
+   Seq: ( ME_5075312102A4 // anOptions
+ )
  ; // Parameters
 
 ref; // ME_5075311101A5 DoIt
@@ -240,8 +255,8 @@ ref; // ME_5075311101A5 DoIt
  : Parent ME_50751B080168 // TevOldNSRCFlagReplacer
  ;
  : Operations
-   @ ( ME_5075311101A5 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_5075311101A5 // DoIt
+ )
  ; // Operations
  CONST "is static" true
 
@@ -298,6 +313,7 @@ ref; // ME_50753E5E0130
  ;
  : Implementor ME_50751B080168 // TevOldNSRCFlagReplacer
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_4D553AC103A3_ME_50751B080168 ReplaceFunc
 
 : ME_50751B080168
@@ -311,33 +327,39 @@ ref; // ME_4D553AC103A3_ME_50751B080168 ReplaceFunc
  : Parent ME_50751A0A0164 // evTableSearch
  ;
  : Inherits
-   @ ( WL 'ME_4D553A4A005D' '47F1F90A0391.pas.ms.script' // TevBaseReplacer
- ) .SequenceCode.It
+   Seq: ( WL 'ME_4D553A4A005D' '47F1F90A0391.pas.ms.script' // TevBaseReplacer
+ )
  ; // Inherits
  : Attributes
-   @ ( ME_507530CE03D5 // f_FlagInit
+   Seq: ( ME_507530CE03D5 // f_FlagInit
  ME_507530E1004C // f_FlagValue
- ) .SequenceCode.It
+ )
  ; // Attributes
  : Operations
-   @ ( ME_507530F8022A // Make
- ) .SequenceCode.It
+   Seq: ( ME_507530F8022A // Make
+ )
  ; // Operations
  : Implemented
-   @ ( ME_4D553AC103A3_ME_50751B080168 // ReplaceFunc
- ) .SequenceCode.It
+   Seq: ( ME_4D553AC103A3_ME_50751B080168 // ReplaceFunc
+ )
  ; // Implemented
  : Dependencies
-   @ ( ME_50753E110188 // 
+   Seq: ( ME_50753E110188 // 
  ME_50753E2D036E // 
  ME_50753E39030D // 
  ME_50753E5E0130 // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
+ CONST dfm:PathOnly '\common\components\gui\Garant\EverestCommon'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\EverestCommon'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'OldNSRCFlagReplacer'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_50751B080168 TevOldNSRCFlagReplacer
 
@@ -379,6 +401,7 @@ ref; // ME_507532020288 aFrame
  CONST Value '[]'
  : ValueType WL 'ME_47C6CB5C0032' '47C695A10172.pas.ms.script' // TevSearchOptionSet
  ;
+ CONST extprop:pas:Value 'evTypes.[]'
 
 ref; // ME_5075320202A8 anOptions
 
@@ -393,9 +416,9 @@ ref; // ME_5075320202A8 anOptions
  : Target WL 'ME_47C693BF0118' '47C5207602D1.pas.ms.script' // IevReplacer
  ;
  : Parameters
-   @ ( ME_507532020288 // aFrame
+   Seq: ( ME_507532020288 // aFrame
  ME_5075320202A8 // anOptions
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_507531EE01FD DoIt
@@ -411,8 +434,8 @@ ref; // ME_507531EE01FD DoIt
  : Parent ME_50751B12004F // TevTableCellFrameReplacer
  ;
  : Operations
-   @ ( ME_507531EE01FD // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_507531EE01FD // DoIt
+ )
  ; // Operations
  CONST "is static" true
 
@@ -425,6 +448,7 @@ ref; // ME_507531E0006E Make
  ;
  : Implementor ME_50751B12004F // TevTableCellFrameReplacer
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_4D553AC103A3_ME_50751B12004F ReplaceFunc
 
 : ME_50751B12004F
@@ -438,25 +462,31 @@ ref; // ME_4D553AC103A3_ME_50751B12004F ReplaceFunc
  : Parent ME_50751A0A0164 // evTableSearch
  ;
  : Inherits
-   @ ( WL 'ME_4D553A4A005D' '47F1F90A0391.pas.ms.script' // TevBaseReplacer
- ) .SequenceCode.It
+   Seq: ( WL 'ME_4D553A4A005D' '47F1F90A0391.pas.ms.script' // TevBaseReplacer
+ )
  ; // Inherits
  : Attributes
-   @ ( ME_5075380C0091 // f_Frame
- ) .SequenceCode.It
+   Seq: ( ME_5075380C0091 // f_Frame
+ )
  ; // Attributes
  : Operations
-   @ ( ME_507531E0006E // Make
- ) .SequenceCode.It
+   Seq: ( ME_507531E0006E // Make
+ )
  ; // Operations
  : Implemented
-   @ ( ME_4D553AC103A3_ME_50751B12004F // ReplaceFunc
- ) .SequenceCode.It
+   Seq: ( ME_4D553AC103A3_ME_50751B12004F // ReplaceFunc
+ )
  ; // Implemented
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
+ CONST dfm:PathOnly '\common\components\gui\Garant\EverestCommon'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\EverestCommon'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'TableCellFrameReplacer'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_50751B12004F TevTableCellFrameReplacer
 
@@ -480,6 +510,7 @@ ref; // ME_50753E940264
  ;
  : Implementor ME_50751F2001E9 // TevTextInContinueCellSearcher
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_5075300802E0_ME_50751F2001E9 CheckCellType
 
 : ME_50751F2001E9
@@ -493,21 +524,27 @@ ref; // ME_5075300802E0_ME_50751F2001E9 CheckCellType
  : Parent ME_50751A0A0164 // evTableSearch
  ;
  : Inherits
-   @ ( ME_50751AB90061 // TevTableTextSearcher
- ) .SequenceCode.It
+   Seq: ( ME_50751AB90061 // TevTableTextSearcher
+ )
  ; // Inherits
  : Overridden
-   @ ( ME_5075300802E0_ME_50751F2001E9 // CheckCellType
- ) .SequenceCode.It
+   Seq: ( ME_5075300802E0_ME_50751F2001E9 // CheckCellType
+ )
  ; // Overridden
  : Dependencies
-   @ ( ME_50753E940264 // 
- ) .SequenceCode.It
+   Seq: ( ME_50753E940264 // 
+ )
  ; // Dependencies
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
+ CONST dfm:PathOnly '\common\components\gui\Garant\EverestCommon'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\EverestCommon'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'TextInContinueCellSearcher'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_50751F2001E9 TevTextInContinueCellSearcher
 
@@ -522,20 +559,20 @@ ref; // ME_50751F2001E9 TevTextInContinueCellSearcher
  : Parent ME_5075275701AF // Searchers
  ;
  : Children
-   @ ( ME_50751AB90061 // TevTableTextSearcher
+   Seq: ( ME_50751AB90061 // TevTableTextSearcher
  ME_50751AEF02A9 // TevFirstTableCellSearcher
  ME_50751B080168 // TevOldNSRCFlagReplacer
  ME_50751B12004F // TevTableCellFrameReplacer
  ME_50751F2001E9 // TevTextInContinueCellSearcher
- ) .SequenceCode.It
+ )
  ; // Children
  CONST "no hands" false
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\EverestCommon'
  CONST intf.pas:Path 'common\components\gui\Garant\EverestCommon\evTableSearch.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\EverestCommon'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'TableSearch'
 
 ref; // ME_50751A0A0164 evTableSearch
 
@@ -549,11 +586,11 @@ ref; // ME_50751A0A0164 evTableSearch
  : Parent WL 'ME_48EEE54C0072' '48EEE54C0072.pas.ms.script' // EverestCommon
  ;
  : Children
-   @ ( ME_50751A0A0164 // evTableSearch
- ) .SequenceCode.It
+   Seq: ( ME_50751A0A0164 // evTableSearch
+ )
  ; // Children
  : Depends
-   @ ( WL 'ME_4678209200A6' '4678209200A6.pas.ms.script' // nevBase
+   Seq: ( WL 'ME_4678209200A6' '4678209200A6.pas.ms.script' // nevBase
  WL 'ME_469D0AC7005E' '469D0AC7005E.pas.ms.script' // Types
  WL 'ME_47AC75550330' '47AC75550330.pas.ms.script' // k2Tags
  WL 'ME_47C5207602D1' '47C5207602D1.pas.ms.script' // nevTools
@@ -562,15 +599,13 @@ ref; // ME_50751A0A0164 evTableSearch
  WL 'ME_47F1F90A0391' '47F1F90A0391.pas.ms.script' // Searchers
  WL 'ME_48492FC0029D' '48492FC0029D.pas.ms.script' // Standard
  WL 'ME_4AB0C3C60310' '4AB0C3C60310.pas.ms.script' // Sys
- ) .SequenceCode.It
+ )
  ; // Depends
- : Generators
- @ (
- gen_pas.script
- gen_pas.script.runner
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\EverestCommon'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\EverestCommon'
  CONST pas.script:Path 'shared\models\NewSchool\Scripts\5075275701AF.pas.ms.script'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
  CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\5075275701AF.pas.ms.script.runner'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_5075275701AF Searchers

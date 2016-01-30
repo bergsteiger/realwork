@@ -17,10 +17,15 @@ FORWARD ME_4AB34044026A
  : Parent ME_4AB34044026A // TvcmModulesCollection
  ;
  : Inherits
-   @ ( ME_4AB34044026A // TvcmModulesCollection
- ) .SequenceCode.It
+   Seq: ( ME_4AB34044026A // TvcmModulesCollection
+ )
  ; // Inherits
  CONST "isClassRef" true
+ CONST dfm:PathOnly '\common\components\gui\Garant\VCM\implementation\Components'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\VCM\implementation\Components'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_52A1FB5C0299 RvcmModulesCollection
 
@@ -35,20 +40,22 @@ ref; // ME_52A1FB5C0299 RvcmModulesCollection
  : Parent ME_4AB34028023E // Components
  ;
  : Children
-   @ ( ME_52A1FB5C0299 // RvcmModulesCollection
- ) .SequenceCode.It
+   Seq: ( ME_52A1FB5C0299 // RvcmModulesCollection
+ )
  ; // Children
  CONST "finished" false
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\VCM\implementation\Components'
  CONST intf.pas:Path 'common\components\gui\Garant\VCM\implementation\Components\NOT_FINISHED_vcmModulesCollection.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\VCM\implementation\Components'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'ModulesCollection'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'vcmModulesCollection'
 
 ref; // ME_4AB34044026A TvcmModulesCollection
 
@@ -67,12 +74,14 @@ ref; // ME_4AB34044026A TvcmModulesCollection
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\VCM\implementation\Components'
  CONST intf.pas:Path 'common\components\gui\Garant\VCM\implementation\Components\NOT_FINISHED_vcmRepEntitiesCollection.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\VCM\implementation\Components'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'RepEntitiesCollection'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'vcmRepEntitiesCollection'
 
 ref; // ME_4AB3405E0326 TvcmRepEntitiesCollection
 
@@ -91,12 +100,14 @@ ref; // ME_4AB3405E0326 TvcmRepEntitiesCollection
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\VCM\implementation\Components'
  CONST intf.pas:Path 'common\components\gui\Garant\VCM\implementation\Components\NOT_FINISHED_vcmBaseOperationState.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\VCM\implementation\Components'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'OperationState'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'vcmBaseOperationState'
 
 ref; // ME_4C77C99500F6 TvcmBaseOperationState
 
@@ -105,6 +116,7 @@ FORWARD ME_5620D0B90294
 : ME_4E3FF56A4BF9
  CONST UID '4E3FF56A4BF9'
  CONST Name 'Ini_Reg_Class'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Регистрация TvcmOperationParams' ;
@@ -118,6 +130,7 @@ ref; // ME_4E3FF56A4BF9 Ini_Reg_Class
 
 : ME_36CB5C385164
  CONST UID '36CB5C385164'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_5620D0B90294 // TvcmOperationParams
@@ -138,28 +151,30 @@ ref; // ME_36CB5C385164
  : Parent ME_4AB34028023E // Components
  ;
  : Inherits
-   @ ( WL 'ME_4FFC3347011F' '4FFC33380166.pas.ms.script' // TvcmBaseCollectionItem
- ) .SequenceCode.It
+   Seq: ( WL 'ME_4FFC3347011F' '4FFC33380166.pas.ms.script' // TvcmBaseCollectionItem
+ )
  ; // Inherits
  : Operations
-   @ ( ME_4E3FF56A4BF9 // Ini_Reg_Class
- ) .SequenceCode.It
+   Seq: ( ME_4E3FF56A4BF9 // Ini_Reg_Class
+ )
  ; // Operations
  : Dependencies
-   @ ( ME_36CB5C385164 // 
- ) .SequenceCode.It
+   Seq: ( ME_36CB5C385164 // 
+ )
  ; // Dependencies
  CONST "finished" false
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\VCM\implementation\Components'
  CONST intf.pas:Path 'common\components\gui\Garant\VCM\implementation\Components\NOT_FINISHED_vcmOperationParams.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\VCM\implementation\Components'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'OperationParams'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'vcmOperationParams'
 
 ref; // ME_5620D0B90294 TvcmOperationParams
 
@@ -191,8 +206,8 @@ ref; // ME_56116D5303C0 DoIt
  : Parent ME_55D30E6601A8 // TvcmBaseOperationsCollection
  ;
  : Operations
-   @ ( ME_56116D5303C0 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_56116D5303C0 // DoIt
+ )
  ; // Operations
 
 ref; // ME_56116D4D02C6 NeedToBeStored
@@ -258,12 +273,12 @@ ref; // ME_56116D8D038B aParams
  : Parent ME_56116D7B0216 // Operation
  ;
  : Parameters
-   @ ( ME_56116D8D02F9 // aControl
+   Seq: ( ME_56116D8D02F9 // aControl
  ME_56116D8D030E // aTarget
  ME_56116D8D0323 // anOperationID
  ME_56116D8D0349 // aMode
  ME_56116D8D038B // aParams
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_56116D810142 DoIt
@@ -280,8 +295,8 @@ ref; // ME_56116D810142 DoIt
  : Parent ME_55D30E6601A8 // TvcmBaseOperationsCollection
  ;
  : Operations
-   @ ( ME_56116D810142 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_56116D810142 // DoIt
+ )
  ; // Operations
 
 ref; // ME_56116D7B0216 Operation
@@ -307,8 +322,8 @@ ref; // ME_56116DAD0147 anOperations
  : Parent ME_56116DA502E0 // GetOperations
  ;
  : Parameters
-   @ ( ME_56116DAD0147 // anOperations
- ) .SequenceCode.It
+   Seq: ( ME_56116DAD0147 // anOperations
+ )
  ; // Parameters
 
 ref; // ME_56116DAB014C DoIt
@@ -325,8 +340,8 @@ ref; // ME_56116DAB014C DoIt
  : Parent ME_55D30E6601A8 // TvcmBaseOperationsCollection
  ;
  : Operations
-   @ ( ME_56116DAB014C // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_56116DAB014C // DoIt
+ )
  ; // Operations
 
 ref; // ME_56116DA502E0 GetOperations
@@ -336,6 +351,7 @@ FORWARD ME_56116DBA001A
 : ME_4BE1B1CC66D4
  CONST UID '4BE1B1CC66D4'
  CONST Name 'DoIt'
+ CONST IsSummoned true
  CONST Class class_Operation
  %SUMMARY 'Сигнатура метода RegisterInRep' ;
  CONST Visibility PublicAccess
@@ -356,8 +372,8 @@ ref; // ME_4BE1B1CC66D4 DoIt
  : Parent ME_55D30E6601A8 // TvcmBaseOperationsCollection
  ;
  : Operations
-   @ ( ME_4BE1B1CC66D4 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_4BE1B1CC66D4 // DoIt
+ )
  ; // Operations
 
 ref; // ME_56116DBA001A RegisterInRep
@@ -423,12 +439,12 @@ ref; // ME_56116DE10108 aGetState
  : Parent ME_56116DD0036F // PublishOp
  ;
  : Parameters
-   @ ( ME_56116DE100AE // aControl
+   Seq: ( ME_56116DE100AE // aControl
  ME_56116DE100C2 // anOperation
  ME_56116DE100D6 // anExecute
  ME_56116DE100EA // aTest
  ME_56116DE10108 // aGetState
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_56116DD60284 DoIt
@@ -445,8 +461,8 @@ ref; // ME_56116DD60284 DoIt
  : Parent ME_55D30E6601A8 // TvcmBaseOperationsCollection
  ;
  : Operations
-   @ ( ME_56116DD60284 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_56116DD60284 // DoIt
+ )
  ; // Operations
 
 ref; // ME_56116DD0036F PublishOp
@@ -512,12 +528,12 @@ ref; // ME_56116E1902DE aGetState
  : Parent ME_56116E0A026F // PublishOpWithResult
  ;
  : Parameters
-   @ ( ME_56116E19028C // aControl
+   Seq: ( ME_56116E19028C // aControl
  ME_56116E1902A0 // anOperation
  ME_56116E1902B5 // anExecute
  ME_56116E1902C9 // aTest
  ME_56116E1902DE // aGetState
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_56116E100319 DoIt
@@ -534,8 +550,8 @@ ref; // ME_56116E100319 DoIt
  : Parent ME_55D30E6601A8 // TvcmBaseOperationsCollection
  ;
  : Operations
-   @ ( ME_56116E100319 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_56116E100319 // DoIt
+ )
  ; // Operations
 
 ref; // ME_56116E0A026F PublishOpWithResult
@@ -561,8 +577,8 @@ ref; // ME_56116DFC00FA aControl
  : Parent ME_56116E2E0246 // UnlinkControl
  ;
  : Parameters
-   @ ( ME_56116DFC00FA // aControl
- ) .SequenceCode.It
+   Seq: ( ME_56116DFC00FA // aControl
+ )
  ; // Parameters
 
 ref; // ME_56116E350052 DoIt
@@ -579,8 +595,8 @@ ref; // ME_56116E350052 DoIt
  : Parent ME_55D30E6601A8 // TvcmBaseOperationsCollection
  ;
  : Operations
-   @ ( ME_56116E350052 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_56116E350052 // DoIt
+ )
  ; // Operations
 
 ref; // ME_56116E2E0246 UnlinkControl
@@ -588,6 +604,7 @@ ref; // ME_56116E2E0246 UnlinkControl
 : ME_624F4F200C8B
  CONST UID '624F4F200C8B'
  CONST Name 'Ini_Reg_Class'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Регистрация TvcmBaseOperationsCollection' ;
@@ -671,6 +688,7 @@ ref; // ME_5611807D017B
 
 : ME_4B078E67A152
  CONST UID '4B078E67A152'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_55D30E6601A8 // TvcmBaseOperationsCollection
@@ -687,6 +705,7 @@ ref; // ME_4B078E67A152
  ;
  : Implementor ME_55D30E6601A8 // TvcmBaseOperationsCollection
  ;
+ CONST OpKind opkind_Overridden
  CONST "is static" true
 ref; // ME_5607EE71032D_ME_55D30E6601A8 GetItemClass
 
@@ -697,6 +716,7 @@ ref; // ME_5607EE71032D_ME_55D30E6601A8 GetItemClass
  ;
  : Implementor ME_55D30E6601A8 // TvcmBaseOperationsCollection
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_560A9DA80335_ME_55D30E6601A8 GetAttrCount
 
 : ME_560A9DCD009D_ME_55D30E6601A8
@@ -706,6 +726,7 @@ ref; // ME_560A9DA80335_ME_55D30E6601A8 GetAttrCount
  ;
  : Implementor ME_55D30E6601A8 // TvcmBaseOperationsCollection
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_560A9DCD009D_ME_55D30E6601A8 GetAttr
 
 : ME_560A9DEB0155_ME_55D30E6601A8
@@ -715,6 +736,7 @@ ref; // ME_560A9DCD009D_ME_55D30E6601A8 GetAttr
  ;
  : Implementor ME_55D30E6601A8 // TvcmBaseOperationsCollection
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_560A9DEB0155_ME_55D30E6601A8 GetItemAttr
 
 : ME_55D30E6601A8
@@ -729,11 +751,11 @@ ref; // ME_560A9DEB0155_ME_55D30E6601A8 GetItemAttr
  : Parent ME_4AB34028023E // Components
  ;
  : Inherits
-   @ ( WL 'ME_4FFC4C800030' '4FFC33380166.pas.ms.script' // TvcmBaseCollection
- ) .SequenceCode.It
+   Seq: ( WL 'ME_4FFC4C800030' '4FFC33380166.pas.ms.script' // TvcmBaseCollection
+ )
  ; // Inherits
  : Operations
-   @ ( ME_56116D4D02C6 // NeedToBeStored
+   Seq: ( ME_56116D4D02C6 // NeedToBeStored
  ME_56116D7B0216 // Operation
  ME_56116DA502E0 // GetOperations
  ME_56116DBA001A // RegisterInRep
@@ -741,35 +763,37 @@ ref; // ME_560A9DEB0155_ME_55D30E6601A8 GetItemAttr
  ME_56116E0A026F // PublishOpWithResult
  ME_56116E2E0246 // UnlinkControl
  ME_624F4F200C8B // Ini_Reg_Class
- ) .SequenceCode.It
+ )
  ; // Operations
  : Overridden
-   @ ( ME_5607EE71032D_ME_55D30E6601A8 // GetItemClass
+   Seq: ( ME_5607EE71032D_ME_55D30E6601A8 // GetItemClass
  ME_560A9DA80335_ME_55D30E6601A8 // GetAttrCount
  ME_560A9DCD009D_ME_55D30E6601A8 // GetAttr
  ME_560A9DEB0155_ME_55D30E6601A8 // GetItemAttr
- ) .SequenceCode.It
+ )
  ; // Overridden
  : Dependencies
-   @ ( ME_56116EB201D8 // 
+   Seq: ( ME_56116EB201D8 // 
  ME_56116EBC00CA // 
  ME_56116ECE020F // 
  ME_56116EF001B4 // 
  ME_56116F5A01EF // 
  ME_5611807D017B // 
  ME_4B078E67A152 // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\VCM\implementation\Components'
  CONST intf.pas:Path 'common\components\gui\Garant\VCM\implementation\Components\vcmBaseOperationsCollection.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\VCM\implementation\Components'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'OperationsCollection'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'vcmBaseOperationsCollection'
 
 ref; // ME_55D30E6601A8 TvcmBaseOperationsCollection
 
@@ -788,12 +812,14 @@ ref; // ME_55D30E6601A8 TvcmBaseOperationsCollection
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\VCM\implementation\Components'
  CONST intf.pas:Path 'common\components\gui\Garant\VCM\implementation\Components\NOT_FINISHED_vcmMessagesCollectionItem.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\VCM\implementation\Components'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'MessagesCollectionItem'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'vcmMessagesCollectionItem'
 
 ref; // ME_4E01E6DF003A TvcmMessagesCollectionItem
 
@@ -810,10 +836,15 @@ FORWARD ME_5620D2420197
  : Parent ME_5620D2420197 // TvcmBaseOperationStates
  ;
  : Inherits
-   @ ( ME_5620D2420197 // TvcmBaseOperationStates
- ) .SequenceCode.It
+   Seq: ( ME_5620D2420197 // TvcmBaseOperationStates
+ )
  ; // Inherits
  CONST "isClassRef" true
+ CONST dfm:PathOnly '\common\components\gui\Garant\VCM\implementation\Components'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\VCM\implementation\Components'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_5621097F0137 RvcmBaseOperationStates
 
@@ -828,20 +859,22 @@ ref; // ME_5621097F0137 RvcmBaseOperationStates
  : Parent ME_4AB34028023E // Components
  ;
  : Children
-   @ ( ME_5621097F0137 // RvcmBaseOperationStates
- ) .SequenceCode.It
+   Seq: ( ME_5621097F0137 // RvcmBaseOperationStates
+ )
  ; // Children
  CONST "finished" false
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\VCM\implementation\Components'
  CONST intf.pas:Path 'common\components\gui\Garant\VCM\implementation\Components\NOT_FINISHED_vcmBaseOperationStates.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\VCM\implementation\Components'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'OperationStates'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'vcmBaseOperationStates'
 
 ref; // ME_5620D2420197 TvcmBaseOperationStates
 
@@ -911,8 +944,8 @@ ref; // ME_51D12A73021A anIter
  : Parent ME_51D12A5F02EE // Create
  ;
  : Parameters
-   @ ( ME_51D12A73021A // anIter
- ) .SequenceCode.It
+   Seq: ( ME_51D12A73021A // anIter
+ )
  ; // Parameters
 
 ref; // ME_51D12A6B00E4 DoIt
@@ -928,8 +961,8 @@ ref; // ME_51D12A6B00E4 DoIt
  : Parent ME_51D128930090 // TvcmEntitiesDefIteratorForContextMenu
  ;
  : Operations
-   @ ( ME_51D12A6B00E4 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_51D12A6B00E4 // DoIt
+ )
  ; // Operations
 
 ref; // ME_51D12A5F02EE Create
@@ -939,6 +972,7 @@ FORWARD ME_51D12A7C0049
 : ME_C278BC52931E
  CONST UID 'C278BC52931E'
  CONST Name 'anIter'
+ CONST IsSummoned true
  CONST Class class_Parameter
  : Stereotype st_in ;
  : Target WL 'ME_49956DA70152' '4683F37902CF.pas.ms.script' // IvcmEntitiesDefIterator
@@ -949,6 +983,7 @@ ref; // ME_C278BC52931E anIter
 : ME_C2BA1D4F7631
  CONST UID 'C2BA1D4F7631'
  CONST Name 'DoIt'
+ CONST IsSummoned true
  CONST Class class_Operation
  %SUMMARY 'Сигнатура фабрики TvcmEntitiesDefIteratorForContextMenu.Make' ;
  CONST Visibility PrivateAccess
@@ -958,8 +993,8 @@ ref; // ME_C278BC52931E anIter
  : Target WL 'ME_49956DA70152' '4683F37902CF.pas.ms.script' // IvcmEntitiesDefIterator
  ;
  : Parameters
-   @ ( ME_C278BC52931E // anIter
- ) .SequenceCode.It
+   Seq: ( ME_C278BC52931E // anIter
+ )
  ; // Parameters
 
 ref; // ME_C2BA1D4F7631 DoIt
@@ -975,16 +1010,16 @@ ref; // ME_C2BA1D4F7631 DoIt
  : Parent ME_51D128930090 // TvcmEntitiesDefIteratorForContextMenu
  ;
  : Inherits
-   @ ( ME_51D12A5F02EE // Create
- ) .SequenceCode.It
+   Seq: ( ME_51D12A5F02EE // Create
+ )
  ; // Inherits
  : Implements
-   @ ( WL 'ME_49956DA70152' '4683F37902CF.pas.ms.script' // IvcmEntitiesDefIterator
- ) .SequenceCode.It
+   Seq: ( WL 'ME_49956DA70152' '4683F37902CF.pas.ms.script' // IvcmEntitiesDefIterator
+ )
  ; // Implements
  : Operations
-   @ ( ME_C2BA1D4F7631 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_C2BA1D4F7631 // DoIt
+ )
  ; // Operations
  CONST "check nil" true
  CONST "need AfterCreate" 'undefined'
@@ -1013,6 +1048,7 @@ ref; // ME_51D1489F01EB
  ;
  : Implementor ME_51D128930090 // TvcmEntitiesDefIteratorForContextMenu
  ;
+ CONST OpKind opkind_Implemented
  CONST "ifndef" 'l3Items_IsAtomic'
 ref; // ME_47B07CF403D0_ME_51D128930090 IsSameItems
 
@@ -1023,6 +1059,7 @@ ref; // ME_47B07CF403D0_ME_51D128930090 IsSameItems
  ;
  : Implementor ME_51D128930090 // TvcmEntitiesDefIteratorForContextMenu
  ;
+ CONST OpKind opkind_Implemented
  CONST "ifdef" 'l3Items_NeedsAssignItem'
  CONST "ifndef" 'l3Items_NoSort'
 ref; // ME_47B2C42A0163_ME_51D128930090 AssignItem
@@ -1034,6 +1071,7 @@ ref; // ME_47B2C42A0163_ME_51D128930090 AssignItem
  ;
  : Implementor ME_51D128930090 // TvcmEntitiesDefIteratorForContextMenu
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_47B99D4503A2_ME_51D128930090 CompareExistingItems
 
 : ME_49956DB300D6_ME_51D128930090
@@ -1043,6 +1081,7 @@ ref; // ME_47B99D4503A2_ME_51D128930090 CompareExistingItems
  ;
  : Implementor ME_51D128930090 // TvcmEntitiesDefIteratorForContextMenu
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" false
 ref; // ME_49956DB300D6_ME_51D128930090 Next
 
@@ -1053,6 +1092,7 @@ ref; // ME_49956DB300D6_ME_51D128930090 Next
  ;
  : Implementor ME_51D128930090 // TvcmEntitiesDefIteratorForContextMenu
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_5000565C019C_ME_51D128930090 ClearFields
 
 : ME_51D128930090
@@ -1066,50 +1106,52 @@ ref; // ME_5000565C019C_ME_51D128930090 ClearFields
  : Parent ME_4AB34028023E // Components
  ;
  : Inherits
-   @ ( WL 'ME_47B9AF6E0228' '47913B47006E.pas.ms.script' // l3InterfaceRefListPrim
+   Seq: ( WL 'ME_47B9AF6E0228' '47913B47006E.pas.ms.script' // l3InterfaceRefListPrim
  WL 'ME_4A54DD4E036F' '47913B47006E.pas.ms.script' // Tl3ProtoDataContainer
- ) .SequenceCode.It
+ )
  ; // Inherits
  : Implements
-   @ ( WL 'ME_49956DA70152' '4683F37902CF.pas.ms.script' // IvcmEntitiesDefIterator
- ) .SequenceCode.It
+   Seq: ( WL 'ME_49956DA70152' '4683F37902CF.pas.ms.script' // IvcmEntitiesDefIterator
+ )
  ; // Implements
  : Attributes
-   @ ( ME_51D12A260102 // ItemType
+   Seq: ( ME_51D12A260102 // ItemType
  ME_51D12A3D034C // f_Iter
  ME_51D12AEE023B // f_Index
- ) .SequenceCode.It
+ )
  ; // Attributes
  : Operations
-   @ ( ME_51D12A5F02EE // Create
+   Seq: ( ME_51D12A5F02EE // Create
  ME_51D12A7C0049 // Make
- ) .SequenceCode.It
+ )
  ; // Operations
  : Implemented
-   @ ( ME_47B07CF403D0_ME_51D128930090 // IsSameItems
+   Seq: ( ME_47B07CF403D0_ME_51D128930090 // IsSameItems
  ME_47B2C42A0163_ME_51D128930090 // AssignItem
  ME_47B99D4503A2_ME_51D128930090 // CompareExistingItems
  ME_49956DB300D6_ME_51D128930090 // Next
- ) .SequenceCode.It
+ )
  ; // Implemented
  : Overridden
-   @ ( ME_5000565C019C_ME_51D128930090 // ClearFields
- ) .SequenceCode.It
+   Seq: ( ME_5000565C019C_ME_51D128930090 // ClearFields
+ )
  ; // Overridden
  : Dependencies
-   @ ( ME_51D1489F01EB // 
- ) .SequenceCode.It
+   Seq: ( ME_51D1489F01EB // 
+ )
  ; // Dependencies
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\VCM\implementation\Components'
  CONST intf.pas:Path 'common\components\gui\Garant\VCM\implementation\Components\vcmEntitiesDefIteratorForContextMenu.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\VCM\implementation\Components'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'EntitiesDefIteratorForContextMenu'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'vcmEntitiesDefIteratorForContextMenu'
 
 ref; // ME_51D128930090 TvcmEntitiesDefIteratorForContextMenu
 
@@ -1148,8 +1190,8 @@ ref; // ME_51D148E3011A anEn
  : Parent ME_51D148D100C2 // Create
  ;
  : Parameters
-   @ ( ME_51D148E3011A // anEn
- ) .SequenceCode.It
+   Seq: ( ME_51D148E3011A // anEn
+ )
  ; // Parameters
 
 ref; // ME_51D148DA01EF DoIt
@@ -1165,8 +1207,8 @@ ref; // ME_51D148DA01EF DoIt
  : Parent ME_51D148890323 // TvcmEntityDefForContextMenu
  ;
  : Operations
-   @ ( ME_51D148DA01EF // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_51D148DA01EF // DoIt
+ )
  ; // Operations
 
 ref; // ME_51D148D100C2 Create
@@ -1176,6 +1218,7 @@ FORWARD ME_51D148E7019F
 : ME_536F59DCBE4E
  CONST UID '536F59DCBE4E'
  CONST Name 'anEn'
+ CONST IsSummoned true
  CONST Class class_Parameter
  : Stereotype st_in ;
  : Target WL 'ME_49956D4A00C6' '4683F37902CF.pas.ms.script' // IvcmEntityDef
@@ -1186,6 +1229,7 @@ ref; // ME_536F59DCBE4E anEn
 : ME_9EC3877F59A2
  CONST UID '9EC3877F59A2'
  CONST Name 'DoIt'
+ CONST IsSummoned true
  CONST Class class_Operation
  %SUMMARY 'Сигнатура фабрики TvcmEntityDefForContextMenu.Make' ;
  CONST Visibility PrivateAccess
@@ -1195,8 +1239,8 @@ ref; // ME_536F59DCBE4E anEn
  : Target WL 'ME_49956D4A00C6' '4683F37902CF.pas.ms.script' // IvcmEntityDef
  ;
  : Parameters
-   @ ( ME_536F59DCBE4E // anEn
- ) .SequenceCode.It
+   Seq: ( ME_536F59DCBE4E // anEn
+ )
  ; // Parameters
 
 ref; // ME_9EC3877F59A2 DoIt
@@ -1212,16 +1256,16 @@ ref; // ME_9EC3877F59A2 DoIt
  : Parent ME_51D148890323 // TvcmEntityDefForContextMenu
  ;
  : Inherits
-   @ ( ME_51D148D100C2 // Create
- ) .SequenceCode.It
+   Seq: ( ME_51D148D100C2 // Create
+ )
  ; // Inherits
  : Implements
-   @ ( WL 'ME_49956D4A00C6' '4683F37902CF.pas.ms.script' // IvcmEntityDef
- ) .SequenceCode.It
+   Seq: ( WL 'ME_49956D4A00C6' '4683F37902CF.pas.ms.script' // IvcmEntityDef
+ )
  ; // Implements
  : Operations
-   @ ( ME_9EC3877F59A2 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_9EC3877F59A2 // DoIt
+ )
  ; // Operations
  CONST "check nil" false
  CONST "need AfterCreate" 'undefined'
@@ -1250,6 +1294,7 @@ ref; // ME_51D1492D02B3
  ;
  : Implementor ME_51D148890323 // TvcmEntityDefForContextMenu
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" false
 ref; // ME_4995616701BB_ME_51D148890323 Hint
 
@@ -1260,6 +1305,7 @@ ref; // ME_4995616701BB_ME_51D148890323 Hint
  ;
  : Implementor ME_51D148890323 // TvcmEntityDefForContextMenu
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" false
 ref; // ME_4995617802E8_ME_51D148890323 LongHint
 
@@ -1270,6 +1316,7 @@ ref; // ME_4995617802E8_ME_51D148890323 LongHint
  ;
  : Implementor ME_51D148890323 // TvcmEntityDefForContextMenu
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" false
 ref; // ME_499561850334_ME_51D148890323 ImageIndex
 
@@ -1280,6 +1327,7 @@ ref; // ME_499561850334_ME_51D148890323 ImageIndex
  ;
  : Implementor ME_51D148890323 // TvcmEntityDefForContextMenu
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" false
 ref; // ME_499561F90285_ME_51D148890323 ID
 
@@ -1290,6 +1338,7 @@ ref; // ME_499561F90285_ME_51D148890323 ID
  ;
  : Implementor ME_51D148890323 // TvcmEntityDefForContextMenu
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" false
 ref; // ME_499566FA0159_ME_51D148890323 OperationsDefIterator
 
@@ -1300,6 +1349,7 @@ ref; // ME_499566FA0159_ME_51D148890323 OperationsDefIterator
  ;
  : Implementor ME_51D148890323 // TvcmEntityDefForContextMenu
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" false
 ref; // ME_4995671E031A_ME_51D148890323 ToolbarPos
 
@@ -1310,6 +1360,7 @@ ref; // ME_4995671E031A_ME_51D148890323 ToolbarPos
  ;
  : Implementor ME_51D148890323 // TvcmEntityDefForContextMenu
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" true
 ref; // ME_49956D95016A_ME_51D148890323 Options
 
@@ -1320,6 +1371,7 @@ ref; // ME_49956D95016A_ME_51D148890323 Options
  ;
  : Implementor ME_51D148890323 // TvcmEntityDefForContextMenu
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" false
 ref; // ME_499E958E03B0_ME_51D148890323 Caption
 
@@ -1330,6 +1382,7 @@ ref; // ME_499E958E03B0_ME_51D148890323 Caption
  ;
  : Implementor ME_51D148890323 // TvcmEntityDefForContextMenu
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" false
 ref; // ME_499E95A60064_ME_51D148890323 Name
 
@@ -1340,6 +1393,7 @@ ref; // ME_499E95A60064_ME_51D148890323 Name
  ;
  : Implementor ME_51D148890323 // TvcmEntityDefForContextMenu
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" false
 ref; // ME_51D12DBB014B_ME_51D148890323 ContextMenuWeight
 
@@ -1350,6 +1404,7 @@ ref; // ME_51D12DBB014B_ME_51D148890323 ContextMenuWeight
  ;
  : Implementor ME_51D148890323 // TvcmEntityDefForContextMenu
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_5000565C019C_ME_51D148890323 ClearFields
 
 : ME_51D148890323
@@ -1363,24 +1418,24 @@ ref; // ME_5000565C019C_ME_51D148890323 ClearFields
  : Parent ME_4AB34028023E // Components
  ;
  : Inherits
-   @ ( WL 'ME_4AE5CA2D0034' '47913B47006E.pas.ms.script' // Tl3CProtoObject
- ) .SequenceCode.It
+   Seq: ( WL 'ME_4AE5CA2D0034' '47913B47006E.pas.ms.script' // Tl3CProtoObject
+ )
  ; // Inherits
  : Implements
-   @ ( WL 'ME_49956D4A00C6' '4683F37902CF.pas.ms.script' // IvcmEntityDef
- ) .SequenceCode.It
+   Seq: ( WL 'ME_49956D4A00C6' '4683F37902CF.pas.ms.script' // IvcmEntityDef
+ )
  ; // Implements
  : Attributes
-   @ ( ME_51D148AA0323 // f_En
- ) .SequenceCode.It
+   Seq: ( ME_51D148AA0323 // f_En
+ )
  ; // Attributes
  : Operations
-   @ ( ME_51D148D100C2 // Create
+   Seq: ( ME_51D148D100C2 // Create
  ME_51D148E7019F // Make
- ) .SequenceCode.It
+ )
  ; // Operations
  : Implemented
-   @ ( ME_4995616701BB_ME_51D148890323 // Hint
+   Seq: ( ME_4995616701BB_ME_51D148890323 // Hint
  ME_4995617802E8_ME_51D148890323 // LongHint
  ME_499561850334_ME_51D148890323 // ImageIndex
  ME_499561F90285_ME_51D148890323 // ID
@@ -1390,26 +1445,28 @@ ref; // ME_5000565C019C_ME_51D148890323 ClearFields
  ME_499E958E03B0_ME_51D148890323 // Caption
  ME_499E95A60064_ME_51D148890323 // Name
  ME_51D12DBB014B_ME_51D148890323 // ContextMenuWeight
- ) .SequenceCode.It
+ )
  ; // Implemented
  : Overridden
-   @ ( ME_5000565C019C_ME_51D148890323 // ClearFields
- ) .SequenceCode.It
+   Seq: ( ME_5000565C019C_ME_51D148890323 // ClearFields
+ )
  ; // Overridden
  : Dependencies
-   @ ( ME_51D1492D02B3 // 
- ) .SequenceCode.It
+   Seq: ( ME_51D1492D02B3 // 
+ )
  ; // Dependencies
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\VCM\implementation\Components'
  CONST intf.pas:Path 'common\components\gui\Garant\VCM\implementation\Components\vcmEntityDefForContextMenu.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\VCM\implementation\Components'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'EntityDefForContextMenu'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'vcmEntityDefForContextMenu'
 
 ref; // ME_51D148890323 TvcmEntityDefForContextMenu
 
@@ -1477,8 +1534,8 @@ ref; // ME_51D149C70193 anIter
  : Parent ME_51D149B9038D // Create
  ;
  : Parameters
-   @ ( ME_51D149C70193 // anIter
- ) .SequenceCode.It
+   Seq: ( ME_51D149C70193 // anIter
+ )
  ; // Parameters
 
 ref; // ME_51D149C10000 DoIt
@@ -1494,8 +1551,8 @@ ref; // ME_51D149C10000 DoIt
  : Parent ME_51D14918034E // TvcmOperationsDefIteratorForContextMenu
  ;
  : Operations
-   @ ( ME_51D149C10000 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_51D149C10000 // DoIt
+ )
  ; // Operations
 
 ref; // ME_51D149B9038D Create
@@ -1505,6 +1562,7 @@ FORWARD ME_51D149CE0372
 : ME_642DACE0B7A7
  CONST UID '642DACE0B7A7'
  CONST Name 'anIter'
+ CONST IsSummoned true
  CONST Class class_Parameter
  : Stereotype st_in ;
  : Target WL 'ME_4995644E03A9' '499EAAE502A8.pas.ms.script' // IvcmOperationsDefIterator
@@ -1515,6 +1573,7 @@ ref; // ME_642DACE0B7A7 anIter
 : ME_8B9E5D0E7593
  CONST UID '8B9E5D0E7593'
  CONST Name 'DoIt'
+ CONST IsSummoned true
  CONST Class class_Operation
  %SUMMARY 'Сигнатура фабрики TvcmOperationsDefIteratorForContextMenu.Make' ;
  CONST Visibility PrivateAccess
@@ -1524,8 +1583,8 @@ ref; // ME_642DACE0B7A7 anIter
  : Target WL 'ME_4995644E03A9' '499EAAE502A8.pas.ms.script' // IvcmOperationsDefIterator
  ;
  : Parameters
-   @ ( ME_642DACE0B7A7 // anIter
- ) .SequenceCode.It
+   Seq: ( ME_642DACE0B7A7 // anIter
+ )
  ; // Parameters
 
 ref; // ME_8B9E5D0E7593 DoIt
@@ -1541,16 +1600,16 @@ ref; // ME_8B9E5D0E7593 DoIt
  : Parent ME_51D14918034E // TvcmOperationsDefIteratorForContextMenu
  ;
  : Inherits
-   @ ( ME_51D149B9038D // Create
- ) .SequenceCode.It
+   Seq: ( ME_51D149B9038D // Create
+ )
  ; // Inherits
  : Implements
-   @ ( WL 'ME_4995644E03A9' '499EAAE502A8.pas.ms.script' // IvcmOperationsDefIterator
- ) .SequenceCode.It
+   Seq: ( WL 'ME_4995644E03A9' '499EAAE502A8.pas.ms.script' // IvcmOperationsDefIterator
+ )
  ; // Implements
  : Operations
-   @ ( ME_8B9E5D0E7593 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_8B9E5D0E7593 // DoIt
+ )
  ; // Operations
  CONST "check nil" true
  CONST "need AfterCreate" 'undefined'
@@ -1566,6 +1625,7 @@ ref; // ME_51D149CE0372 Make
  ;
  : Implementor ME_51D14918034E // TvcmOperationsDefIteratorForContextMenu
  ;
+ CONST OpKind opkind_Implemented
  CONST "ifndef" 'l3Items_IsAtomic'
 ref; // ME_47B07CF403D0_ME_51D14918034E IsSameItems
 
@@ -1576,6 +1636,7 @@ ref; // ME_47B07CF403D0_ME_51D14918034E IsSameItems
  ;
  : Implementor ME_51D14918034E // TvcmOperationsDefIteratorForContextMenu
  ;
+ CONST OpKind opkind_Implemented
  CONST "ifdef" 'l3Items_NeedsAssignItem'
  CONST "ifndef" 'l3Items_NoSort'
 ref; // ME_47B2C42A0163_ME_51D14918034E AssignItem
@@ -1587,6 +1648,7 @@ ref; // ME_47B2C42A0163_ME_51D14918034E AssignItem
  ;
  : Implementor ME_51D14918034E // TvcmOperationsDefIteratorForContextMenu
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_47B99D4503A2_ME_51D14918034E CompareExistingItems
 
 : ME_4995645B02C7_ME_51D14918034E
@@ -1596,6 +1658,7 @@ ref; // ME_47B99D4503A2_ME_51D14918034E CompareExistingItems
  ;
  : Implementor ME_51D14918034E // TvcmOperationsDefIteratorForContextMenu
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" false
 ref; // ME_4995645B02C7_ME_51D14918034E Next
 
@@ -1606,6 +1669,7 @@ ref; // ME_4995645B02C7_ME_51D14918034E Next
  ;
  : Implementor ME_51D14918034E // TvcmOperationsDefIteratorForContextMenu
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_5000565C019C_ME_51D14918034E ClearFields
 
 : ME_51D14918034E
@@ -1619,46 +1683,48 @@ ref; // ME_5000565C019C_ME_51D14918034E ClearFields
  : Parent ME_4AB34028023E // Components
  ;
  : Inherits
-   @ ( WL 'ME_47B9AF6E0228' '47913B47006E.pas.ms.script' // l3InterfaceRefListPrim
+   Seq: ( WL 'ME_47B9AF6E0228' '47913B47006E.pas.ms.script' // l3InterfaceRefListPrim
  WL 'ME_4A54DD4E036F' '47913B47006E.pas.ms.script' // Tl3ProtoDataContainer
- ) .SequenceCode.It
+ )
  ; // Inherits
  : Implements
-   @ ( WL 'ME_4995644E03A9' '499EAAE502A8.pas.ms.script' // IvcmOperationsDefIterator
- ) .SequenceCode.It
+   Seq: ( WL 'ME_4995644E03A9' '499EAAE502A8.pas.ms.script' // IvcmOperationsDefIterator
+ )
  ; // Implements
  : Attributes
-   @ ( ME_51D14988013B // ItemType
+   Seq: ( ME_51D14988013B // ItemType
  ME_51D149AA03A4 // f_Iter
  ME_51D149F40273 // f_Index
- ) .SequenceCode.It
+ )
  ; // Attributes
  : Operations
-   @ ( ME_51D149B9038D // Create
+   Seq: ( ME_51D149B9038D // Create
  ME_51D149CE0372 // Make
- ) .SequenceCode.It
+ )
  ; // Operations
  : Implemented
-   @ ( ME_47B07CF403D0_ME_51D14918034E // IsSameItems
+   Seq: ( ME_47B07CF403D0_ME_51D14918034E // IsSameItems
  ME_47B2C42A0163_ME_51D14918034E // AssignItem
  ME_47B99D4503A2_ME_51D14918034E // CompareExistingItems
  ME_4995645B02C7_ME_51D14918034E // Next
- ) .SequenceCode.It
+ )
  ; // Implemented
  : Overridden
-   @ ( ME_5000565C019C_ME_51D14918034E // ClearFields
- ) .SequenceCode.It
+   Seq: ( ME_5000565C019C_ME_51D14918034E // ClearFields
+ )
  ; // Overridden
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\VCM\implementation\Components'
  CONST intf.pas:Path 'common\components\gui\Garant\VCM\implementation\Components\vcmOperationsDefIteratorForContextMenu.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\VCM\implementation\Components'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'OperationsDefIteratorForContextMenu'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'vcmOperationsDefIteratorForContextMenu'
 
 ref; // ME_51D14918034E TvcmOperationsDefIteratorForContextMenu
 
@@ -1677,12 +1743,14 @@ ref; // ME_51D14918034E TvcmOperationsDefIteratorForContextMenu
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\VCM\implementation\Components'
  CONST intf.pas:Path 'common\components\gui\Garant\VCM\implementation\Components\NOT_FINISHED_vcmModulesCollectionItem.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\VCM\implementation\Components'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'ModulesCollectionItem'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'vcmModulesCollectionItem'
 
 ref; // ME_52A08E6701A1 TvcmModulesCollectionItem
 
@@ -1697,20 +1765,22 @@ ref; // ME_52A08E6701A1 TvcmModulesCollectionItem
  : Parent ME_4AB34028023E // Components
  ;
  : Inherits
-   @ ( WL 'ME_47541E17024E' '47913B47006E.pas.ms.script' // Tl3InterfacedComponent
- ) .SequenceCode.It
+   Seq: ( WL 'ME_47541E17024E' '47913B47006E.pas.ms.script' // Tl3InterfacedComponent
+ )
  ; // Inherits
  CONST "finished" false
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\VCM\implementation\Components'
  CONST intf.pas:Path 'common\components\gui\Garant\VCM\implementation\Components\NOT_FINISHED_vcmComponent.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\VCM\implementation\Components'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'Component'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'vcmComponent'
 
 ref; // ME_52A1EA6801B0 TvcmComponent
 
@@ -1729,12 +1799,14 @@ ref; // ME_52A1EA6801B0 TvcmComponent
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\VCM\implementation\Components'
  CONST intf.pas:Path 'common\components\gui\Garant\VCM\implementation\Components\NOT_FINISHED_vcmTargetedControlsCollection.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\VCM\implementation\Components'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'TargetedControlsCollection'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'vcmTargetedControlsCollection'
 
 ref; // ME_55D30F7D02AA TvcmTargetedControlsCollection
 
@@ -1753,12 +1825,14 @@ ref; // ME_55D30F7D02AA TvcmTargetedControlsCollection
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\VCM\implementation\Components'
  CONST intf.pas:Path 'common\components\gui\Garant\VCM\implementation\Components\NOT_FINISHED_vcmStringCollection.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\VCM\implementation\Components'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'StringCollection'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'vcmStringCollection'
 
 ref; // ME_52A1F31601D0 TvcmStringCollection
 
@@ -1777,12 +1851,14 @@ ref; // ME_52A1F31601D0 TvcmStringCollection
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\VCM\implementation\Components'
  CONST intf.pas:Path 'common\components\gui\Garant\VCM\implementation\Components\NOT_FINISHED_vcmFormsCollection.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\VCM\implementation\Components'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'FormsCollection'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'vcmFormsCollection'
 
 ref; // ME_52A1F6C102E8 TvcmFormsCollection
 
@@ -1801,12 +1877,14 @@ ref; // ME_52A1F6C102E8 TvcmFormsCollection
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\VCM\implementation\Components'
  CONST intf.pas:Path 'common\components\gui\Garant\VCM\implementation\Components\NOT_FINISHED_vcmMessagesCollection.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\VCM\implementation\Components'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'MessagesCollection'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'vcmMessagesCollection'
 
 ref; // ME_52A1F7AE03B2 TvcmMessagesCollection
 
@@ -1825,12 +1903,14 @@ ref; // ME_52A1F7AE03B2 TvcmMessagesCollection
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\VCM\implementation\Components'
  CONST intf.pas:Path 'common\components\gui\Garant\VCM\implementation\Components\NOT_FINISHED_vcmRepEntitiesCollectionItem.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\VCM\implementation\Components'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'RepEntitiesCollectionItem'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'vcmRepEntitiesCollectionItem'
 
 ref; // ME_52A5714300FB TvcmRepEntitiesCollectionItem
 
@@ -1889,11 +1969,11 @@ ref; // ME_55D30CE30124 theTarget
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
  : Parameters
-   @ ( ME_55D30CE300DE // aControl
+   Seq: ( ME_55D30CE300DE // aControl
  ME_55D30CE300F2 // aX
  ME_55D30CE30106 // aY
  ME_55D30CE30124 // theTarget
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_55D30CDA0108 DoIt
@@ -1909,10 +1989,14 @@ ref; // ME_55D30CDA0108 DoIt
  : Parent ME_4DDBBD1103C3 // TvcmBaseEntitiesCollectionItem
  ;
  : Operations
-   @ ( ME_55D30CDA0108 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_55D30CDA0108 // DoIt
+ )
  ; // Operations
  CONST "of object" true
+ CONST dfm:PathOnly '\common\components\gui\Garant\VCM\implementation\Components'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\VCM\implementation\Components'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_55D30CC30066 TvcmGetTargetEvent
 
@@ -2089,8 +2173,8 @@ ref; // ME_55D3128601A0 aControl
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
  : Attributes
-   @ ( ME_55D3128601A0 // aControl
- ) .SequenceCode.It
+   Seq: ( ME_55D3128601A0 // aControl
+ )
  ; // Attributes
  CONST "pm" true
 
@@ -2099,6 +2183,7 @@ ref; // ME_55D3127F038A SupportedBy
 : ME_3B3033332D45
  CONST UID '3B3033332D45'
  CONST Name 'f_Operations'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY 'Поле для свойства Operations' ;
  CONST Visibility PrivateAccess
@@ -2108,12 +2193,14 @@ ref; // ME_55D3127F038A SupportedBy
  ;
  : Target ME_55D30E6601A8 // TvcmBaseOperationsCollection
  ;
+ CONST extprop:clearViaProperty 'Operations'
 
 ref; // ME_3B3033332D45 f_Operations
 
 : ME_5CEF6FC1F629
  CONST UID '5CEF6FC1F629'
  CONST Name 'f_ToolbarPos'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY 'Поле для свойства ToolbarPos' ;
  CONST Visibility PrivateAccess
@@ -2123,12 +2210,14 @@ ref; // ME_3B3033332D45 f_Operations
  ;
  : Target WL 'ME_4992F80B015F' '499EAAE502A8.pas.ms.script' // TvcmToolBarPos
  ;
+ CONST extprop:clearViaProperty 'ToolbarPos'
 
 ref; // ME_5CEF6FC1F629 f_ToolbarPos
 
 : ME_F3CB43033746
  CONST UID 'F3CB43033746'
  CONST Name 'f_Controls'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY 'Поле для свойства Controls' ;
  CONST Visibility PrivateAccess
@@ -2138,12 +2227,14 @@ ref; // ME_5CEF6FC1F629 f_ToolbarPos
  ;
  : Target ME_55D30F7D02AA // TvcmTargetedControlsCollection
  ;
+ CONST extprop:clearViaProperty 'Controls'
 
 ref; // ME_F3CB43033746 f_Controls
 
 : ME_592EA9FDE849
  CONST UID '592EA9FDE849'
  CONST Name 'f_OnGetTarget'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY 'Поле для свойства OnGetTarget' ;
  CONST Visibility PrivateAccess
@@ -2153,12 +2244,14 @@ ref; // ME_F3CB43033746 f_Controls
  ;
  : Target ME_55D30CC30066 // TvcmGetTargetEvent
  ;
+ CONST extprop:clearViaProperty 'OnGetTarget'
 
 ref; // ME_592EA9FDE849 f_OnGetTarget
 
 : ME_91F57E8FB777
  CONST UID '91F57E8FB777'
  CONST Name 'f_EntityDef'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY 'Поле для свойства EntityDef' ;
  CONST Visibility PrivateAccess
@@ -2174,6 +2267,7 @@ ref; // ME_91F57E8FB777 f_EntityDef
 : ME_8C352886ABA0
  CONST UID '8C352886ABA0'
  CONST Name 'f_Options'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY 'Поле для свойства Options' ;
  CONST Visibility PrivateAccess
@@ -2183,12 +2277,14 @@ ref; // ME_91F57E8FB777 f_EntityDef
  ;
  : Target WL 'ME_4992FA3601A9' '4683F37902CF.pas.ms.script' // TvcmEntityOperationsOptions
  ;
+ CONST extprop:clearViaProperty 'Options'
 
 ref; // ME_8C352886ABA0 f_Options
 
 : ME_DB62CA3D2033
  CONST UID 'DB62CA3D2033'
  CONST Name 'f_ContextMenuWeight'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY 'Поле для свойства ContextMenuWeight' ;
  CONST Visibility PrivateAccess
@@ -2198,12 +2294,14 @@ ref; // ME_8C352886ABA0 f_Options
  ;
  : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
  ;
+ CONST extprop:clearViaProperty 'ContextMenuWeight'
 
 ref; // ME_DB62CA3D2033 f_ContextMenuWeight
 
 : ME_F1A25B10E924
  CONST UID 'F1A25B10E924'
  CONST Name 'f_EntityID'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY 'Поле для свойства EntityID' ;
  CONST Visibility PrivateAccess
@@ -2242,8 +2340,8 @@ ref; // ME_55D30ED800C4 DoIt
  : Parent ME_55D30D410267 // TvcmBaseEntitiesCollectionItemPrim
  ;
  : Operations
-   @ ( ME_55D30ED800C4 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_55D30ED800C4 // DoIt
+ )
  ; // Operations
 
 ref; // ME_55D30ECE00AD GetOperationsStored
@@ -2274,8 +2372,8 @@ ref; // ME_55D315700344 DoIt
  : Parent ME_55D30D410267 // TvcmBaseEntitiesCollectionItemPrim
  ;
  : Operations
-   @ ( ME_55D315700344 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_55D315700344 // DoIt
+ )
  ; // Operations
 
 ref; // ME_55D3156703C9 IDRep
@@ -2306,8 +2404,8 @@ ref; // ME_55D31598027C DoIt
  : Parent ME_55D30D410267 // TvcmBaseEntitiesCollectionItemPrim
  ;
  : Operations
-   @ ( ME_55D31598027C // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_55D31598027C // DoIt
+ )
  ; // Operations
  CONST "is static" true
 
@@ -2356,10 +2454,10 @@ ref; // ME_55D315C40041 aY
  : Target WL 'ME_4991AD08005B' '4683F37902CF.pas.ms.script' // IvcmEntity
  ;
  : Parameters
-   @ ( ME_55D315C40005 // aControl
+   Seq: ( ME_55D315C40005 // aControl
  ME_55D315C40023 // aX
  ME_55D315C40041 // aY
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_55D315BD0023 DoIt
@@ -2375,8 +2473,8 @@ ref; // ME_55D315BD0023 DoIt
  : Parent ME_55D30D410267 // TvcmBaseEntitiesCollectionItemPrim
  ;
  : Operations
-   @ ( ME_55D315BD0023 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_55D315BD0023 // DoIt
+ )
  ; // Operations
 
 ref; // ME_55D315AF00FF GetEntityForControl
@@ -2442,12 +2540,12 @@ ref; // ME_55D315EF009A aParams
  : Parent ME_55D315DD021A // Operation
  ;
  : Parameters
-   @ ( ME_55D315EF0018 // aControl
+   Seq: ( ME_55D315EF0018 // aControl
  ME_55D315EF0036 // aTarget
  ME_55D315EF004A // anOperationID
  ME_55D315EF0068 // aMode
  ME_55D315EF009A // aParams
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_55D315E300DA DoIt
@@ -2463,8 +2561,8 @@ ref; // ME_55D315E300DA DoIt
  : Parent ME_55D30D410267 // TvcmBaseEntitiesCollectionItemPrim
  ;
  : Operations
-   @ ( ME_55D315E300DA // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_55D315E300DA // DoIt
+ )
  ; // Operations
 
 ref; // ME_55D315DD021A Operation
@@ -2495,8 +2593,8 @@ ref; // ME_55D316110180 DoIt
  : Parent ME_55D30D410267 // TvcmBaseEntitiesCollectionItemPrim
  ;
  : Operations
-   @ ( ME_55D316110180 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_55D316110180 // DoIt
+ )
  ; // Operations
 
 ref; // ME_55D3160A0358 IsFormItem
@@ -2524,8 +2622,8 @@ ref; // ME_55D316710223 aControl
  : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
  ;
  : Parameters
-   @ ( ME_55D316710223 // aControl
- ) .SequenceCode.It
+   Seq: ( ME_55D316710223 // aControl
+ )
  ; // Parameters
 
 ref; // ME_55D3166E02A5 DoIt
@@ -2541,8 +2639,8 @@ ref; // ME_55D3166E02A5 DoIt
  : Parent ME_55D30D410267 // TvcmBaseEntitiesCollectionItemPrim
  ;
  : Operations
-   @ ( ME_55D3166E02A5 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_55D3166E02A5 // DoIt
+ )
  ; // Operations
 
 ref; // ME_55D3166700B9 SupportedExBy
@@ -2573,8 +2671,8 @@ ref; // ME_55D3169C00AD DoIt
  : Parent ME_55D30D410267 // TvcmBaseEntitiesCollectionItemPrim
  ;
  : Operations
-   @ ( ME_55D3169C00AD // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_55D3169C00AD // DoIt
+ )
  ; // Operations
  CONST "ifdef" 'DesignTimeLibrary'
 
@@ -2585,6 +2683,7 @@ FORWARD ME_55D316B201E7
 : ME_FEDDA5D3824F
  CONST UID 'FEDDA5D3824F'
  CONST Name 'DoIt'
+ CONST IsSummoned true
  CONST Class class_Operation
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
@@ -2606,12 +2705,12 @@ ref; // ME_FEDDA5D3824F DoIt
  : Parent ME_55D30D410267 // TvcmBaseEntitiesCollectionItemPrim
  ;
  : Inherits
-   @ ( ME_55D31692032D // HasInternalOperations
- ) .SequenceCode.It
+   Seq: ( ME_55D31692032D // HasInternalOperations
+ )
  ; // Inherits
  : Operations
-   @ ( ME_FEDDA5D3824F // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_FEDDA5D3824F // DoIt
+ )
  ; // Operations
  CONST "ifdef" 'DesignTimeLibrary'
 
@@ -2622,6 +2721,7 @@ FORWARD ME_55D316CE0191
 : ME_7641D2E5E0A8
  CONST UID '7641D2E5E0A8'
  CONST Name 'DoIt'
+ CONST IsSummoned true
  CONST Class class_Operation
  %SUMMARY 'Сигнатура метода RegisterInRep' ;
  CONST Visibility PublicAccess
@@ -2642,8 +2742,8 @@ ref; // ME_7641D2E5E0A8 DoIt
  : Parent ME_55D30D410267 // TvcmBaseEntitiesCollectionItemPrim
  ;
  : Operations
-   @ ( ME_7641D2E5E0A8 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_7641D2E5E0A8 // DoIt
+ )
  ; // Operations
 
 ref; // ME_55D316CE0191 RegisterInRep
@@ -2679,9 +2779,9 @@ ref; // ME_55D316EB0392 aGetTarget
  : Parent ME_55D316E10142 // PublishEntity
  ;
  : Parameters
-   @ ( ME_55D316EB0374 // aControl
+   Seq: ( ME_55D316EB0374 // aControl
  ME_55D316EB0392 // aGetTarget
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_55D316E702A0 DoIt
@@ -2697,8 +2797,8 @@ ref; // ME_55D316E702A0 DoIt
  : Parent ME_55D30D410267 // TvcmBaseEntitiesCollectionItemPrim
  ;
  : Operations
-   @ ( ME_55D316E702A0 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_55D316E702A0 // DoIt
+ )
  ; // Operations
 
 ref; // ME_55D316E10142 PublishEntity
@@ -2724,8 +2824,8 @@ ref; // ME_55D3170B0254 aGetTarget
  : Parent ME_55D317030302 // PublishFormEntity
  ;
  : Parameters
-   @ ( ME_55D3170B0254 // aGetTarget
- ) .SequenceCode.It
+   Seq: ( ME_55D3170B0254 // aGetTarget
+ )
  ; // Parameters
 
 ref; // ME_55D31709025E DoIt
@@ -2741,8 +2841,8 @@ ref; // ME_55D31709025E DoIt
  : Parent ME_55D30D410267 // TvcmBaseEntitiesCollectionItemPrim
  ;
  : Operations
-   @ ( ME_55D31709025E // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_55D31709025E // DoIt
+ )
  ; // Operations
 
 ref; // ME_55D317030302 PublishFormEntity
@@ -2808,12 +2908,12 @@ ref; // ME_55D317540271 aGetState
  : Parent ME_55D317480019 // PublishOp$1
  ;
  : Parameters
-   @ ( ME_55D31761010B // aControl
+   Seq: ( ME_55D31761010B // aControl
  ME_55D317610147 // anOperation
  ME_55D31754023F // anExecute
  ME_55D317540253 // aTest
  ME_55D317540271 // aGetState
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_55D317510217 DoIt
@@ -2829,8 +2929,8 @@ ref; // ME_55D317510217 DoIt
  : Parent ME_55D30D410267 // TvcmBaseEntitiesCollectionItemPrim
  ;
  : Operations
-   @ ( ME_55D317510217 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_55D317510217 // DoIt
+ )
  ; // Operations
 
 ref; // ME_55D317480019 PublishOp$1
@@ -2896,12 +2996,12 @@ ref; // ME_55D317830096 aGetState
  : Parent ME_55D317760220 // PublishOp$2
  ;
  : Parameters
-   @ ( ME_55D31783000A // aControl
+   Seq: ( ME_55D31783000A // aControl
  ME_55D317830028 // anOperation
  ME_55D317830046 // anExecute
  ME_55D317830064 // aTest
  ME_55D317830096 // aGetState
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_55D3177D0388 DoIt
@@ -2917,8 +3017,8 @@ ref; // ME_55D3177D0388 DoIt
  : Parent ME_55D30D410267 // TvcmBaseEntitiesCollectionItemPrim
  ;
  : Operations
-   @ ( ME_55D3177D0388 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_55D3177D0388 // DoIt
+ )
  ; // Operations
 
 ref; // ME_55D317760220 PublishOp$2
@@ -2946,8 +3046,8 @@ ref; // ME_55D317C6003F aItem
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
  : Parameters
-   @ ( ME_55D317C6003F // aItem
- ) .SequenceCode.It
+   Seq: ( ME_55D317C6003F // aItem
+ )
  ; // Parameters
 
 ref; // ME_55D317C10252 DoIt
@@ -2963,8 +3063,8 @@ ref; // ME_55D317C10252 DoIt
  : Parent ME_55D30D410267 // TvcmBaseEntitiesCollectionItemPrim
  ;
  : Operations
-   @ ( ME_55D317C10252 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_55D317C10252 // DoIt
+ )
  ; // Operations
 
 ref; // ME_55D317B50256 IsItemCaptionUnique
@@ -2972,6 +3072,7 @@ ref; // ME_55D317B50256 IsItemCaptionUnique
 : ME_78B8116FEB76
  CONST UID '78B8116FEB76'
  CONST Name 'OperationsStored'
+ CONST IsSummoned true
  CONST Class class_Operation
  %SUMMARY '"Функция определяющая, что свойство Operations сохраняется"' ;
  CONST Visibility ProtectedAccess
@@ -2986,6 +3087,7 @@ ref; // ME_78B8116FEB76 OperationsStored
 : ME_EC3EC97ADA92
  CONST UID 'EC3EC97ADA92'
  CONST Name 'ControlsStored'
+ CONST IsSummoned true
  CONST Class class_Operation
  %SUMMARY '"Функция определяющая, что свойство Controls сохраняется"' ;
  CONST Visibility ProtectedAccess
@@ -3000,6 +3102,7 @@ ref; // ME_EC3EC97ADA92 ControlsStored
 : ME_92C0F0D119F0
  CONST UID '92C0F0D119F0'
  CONST Name 'Ini_Reg_Class'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Регистрация TvcmBaseEntitiesCollectionItemPrim' ;
@@ -3013,6 +3116,7 @@ ref; // ME_92C0F0D119F0 Ini_Reg_Class
 
 : ME_F70A14A80EC9
  CONST UID 'F70A14A80EC9'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_55D30D410267 // TvcmBaseEntitiesCollectionItemPrim
@@ -3029,6 +3133,7 @@ ref; // ME_F70A14A80EC9
  ;
  : Implementor ME_55D30D410267 // TvcmBaseEntitiesCollectionItemPrim
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_478CF34E02CE_ME_55D30D410267 Assign
 
 : ME_479731C50290_ME_55D30D410267
@@ -3038,6 +3143,7 @@ ref; // ME_478CF34E02CE_ME_55D30D410267 Assign
  ;
  : Implementor ME_55D30D410267 // TvcmBaseEntitiesCollectionItemPrim
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_479731C50290_ME_55D30D410267 Cleanup
 
 : ME_479F2B3302C1_ME_55D30D410267
@@ -3047,6 +3153,7 @@ ref; // ME_479731C50290_ME_55D30D410267 Cleanup
  ;
  : Implementor ME_55D30D410267 // TvcmBaseEntitiesCollectionItemPrim
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_479F2B3302C1_ME_55D30D410267 BeforeAddToCache
 
 : ME_4D555CF50027_ME_55D30D410267
@@ -3056,6 +3163,7 @@ ref; // ME_479F2B3302C1_ME_55D30D410267 BeforeAddToCache
  ;
  : Implementor ME_55D30D410267 // TvcmBaseEntitiesCollectionItemPrim
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4D555CF50027_ME_55D30D410267 Create
 
 : ME_5000565C019C_ME_55D30D410267
@@ -3065,6 +3173,7 @@ ref; // ME_4D555CF50027_ME_55D30D410267 Create
  ;
  : Implementor ME_55D30D410267 // TvcmBaseEntitiesCollectionItemPrim
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_5000565C019C_ME_55D30D410267 ClearFields
 
 : ME_55CCBA3C0190_ME_55D30D410267
@@ -3074,6 +3183,7 @@ ref; // ME_5000565C019C_ME_55D30D410267 ClearFields
  ;
  : Implementor ME_55D30D410267 // TvcmBaseEntitiesCollectionItemPrim
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_55CCBA3C0190_ME_55D30D410267 ChangeName
 
 : ME_55CCBA8003C7_ME_55D30D410267
@@ -3083,6 +3193,7 @@ ref; // ME_55CCBA3C0190_ME_55D30D410267 ChangeName
  ;
  : Implementor ME_55D30D410267 // TvcmBaseEntitiesCollectionItemPrim
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_55CCBA8003C7_ME_55D30D410267 ChangeCaption
 
 : ME_55CCBAAB00F4_ME_55D30D410267
@@ -3092,6 +3203,7 @@ ref; // ME_55CCBA8003C7_ME_55D30D410267 ChangeCaption
  ;
  : Implementor ME_55D30D410267 // TvcmBaseEntitiesCollectionItemPrim
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_55CCBAAB00F4_ME_55D30D410267 MakeID
 
 : ME_55CCBAC800F0_ME_55D30D410267
@@ -3101,6 +3213,7 @@ ref; // ME_55CCBAAB00F4_ME_55D30D410267 MakeID
  ;
  : Implementor ME_55D30D410267 // TvcmBaseEntitiesCollectionItemPrim
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_55CCBAC800F0_ME_55D30D410267 GetID
 
 : ME_561145D802BB_ME_55D30D410267
@@ -3110,6 +3223,7 @@ ref; // ME_55CCBAC800F0_ME_55D30D410267 GetID
  ;
  : Implementor ME_55D30D410267 // TvcmBaseEntitiesCollectionItemPrim
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_561145D802BB_ME_55D30D410267 QueryInterface
 
 : ME_55D30D410267
@@ -3123,11 +3237,11 @@ ref; // ME_561145D802BB_ME_55D30D410267 QueryInterface
  : Parent ME_4DDBBD1103C3 // TvcmBaseEntitiesCollectionItem
  ;
  : Inherits
-   @ ( WL 'ME_4FFC3347011F' '4FFC33380166.pas.ms.script' // TvcmBaseCollectionItem
- ) .SequenceCode.It
+   Seq: ( WL 'ME_4FFC3347011F' '4FFC33380166.pas.ms.script' // TvcmBaseCollectionItem
+ )
  ; // Inherits
  : Attributes
-   @ ( ME_55D30E8A0376 // Operations
+   Seq: ( ME_55D30E8A0376 // Operations
  ME_55D30F1A0385 // ToolbarPos
  ME_55D30FB2030A // Controls
  ME_55D30FF20196 // OnGetTarget
@@ -3144,10 +3258,10 @@ ref; // ME_561145D802BB_ME_55D30D410267 QueryInterface
  ME_8C352886ABA0 // f_Options
  ME_DB62CA3D2033 // f_ContextMenuWeight
  ME_F1A25B10E924 // f_EntityID
- ) .SequenceCode.It
+ )
  ; // Attributes
  : Operations
-   @ ( ME_55D30ECE00AD // GetOperationsStored
+   Seq: ( ME_55D30ECE00AD // GetOperationsStored
  ME_55D3156703C9 // IDRep
  ME_55D3158D0030 // GetOperationsCollectionClass
  ME_55D315AF00FF // GetEntityForControl
@@ -3165,10 +3279,10 @@ ref; // ME_561145D802BB_ME_55D30D410267 QueryInterface
  ME_78B8116FEB76 // OperationsStored
  ME_EC3EC97ADA92 // ControlsStored
  ME_92C0F0D119F0 // Ini_Reg_Class
- ) .SequenceCode.It
+ )
  ; // Operations
  : Overridden
-   @ ( ME_478CF34E02CE_ME_55D30D410267 // Assign
+   Seq: ( ME_478CF34E02CE_ME_55D30D410267 // Assign
  ME_479731C50290_ME_55D30D410267 // Cleanup
  ME_479F2B3302C1_ME_55D30D410267 // BeforeAddToCache
  ME_4D555CF50027_ME_55D30D410267 // Create
@@ -3178,22 +3292,29 @@ ref; // ME_561145D802BB_ME_55D30D410267 QueryInterface
  ME_55CCBAAB00F4_ME_55D30D410267 // MakeID
  ME_55CCBAC800F0_ME_55D30D410267 // GetID
  ME_561145D802BB_ME_55D30D410267 // QueryInterface
- ) .SequenceCode.It
+ )
  ; // Overridden
  : Dependencies
-   @ ( ME_F70A14A80EC9 // 
- ) .SequenceCode.It
+   Seq: ( ME_F70A14A80EC9 // 
+ )
  ; // Dependencies
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
+ CONST dfm:PathOnly '\common\components\gui\Garant\VCM\implementation\Components'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\VCM\implementation\Components'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'EntitiesCollectionItemPrim'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_55D30D410267 TvcmBaseEntitiesCollectionItemPrim
 
 : ME_AB2CDAE8245F
  CONST UID 'AB2CDAE8245F'
  CONST Name 'Ini_Reg_Class'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Регистрация TvcmBaseEntitiesCollectionItem' ;
@@ -3266,6 +3387,7 @@ ref; // ME_56113B7600D5
 
 : ME_CAF8C8DCC3BC
  CONST UID 'CAF8C8DCC3BC'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_4DDBBD1103C3 // TvcmBaseEntitiesCollectionItem
@@ -3287,38 +3409,40 @@ ref; // ME_CAF8C8DCC3BC
  : Parent ME_4AB34028023E // Components
  ;
  : Inherits
-   @ ( ME_55D30D410267 // TvcmBaseEntitiesCollectionItemPrim
- ) .SequenceCode.It
+   Seq: ( ME_55D30D410267 // TvcmBaseEntitiesCollectionItemPrim
+ )
  ; // Inherits
  : Operations
-   @ ( ME_AB2CDAE8245F // Ini_Reg_Class
- ) .SequenceCode.It
+   Seq: ( ME_AB2CDAE8245F // Ini_Reg_Class
+ )
  ; // Operations
  : Children
-   @ ( ME_55D30CC30066 // TvcmGetTargetEvent
+   Seq: ( ME_55D30CC30066 // TvcmGetTargetEvent
  ME_55D30D410267 // TvcmBaseEntitiesCollectionItemPrim
- ) .SequenceCode.It
+ )
  ; // Children
  : Dependencies
-   @ ( ME_55D33F0A00AC // 
+   Seq: ( ME_55D33F0A00AC // 
  ME_55D3529C01AC // 
  ME_56112E5F0122 // 
  ME_56113B2F0070 // 
  ME_56113B7600D5 // 
  ME_CAF8C8DCC3BC // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  CONST "need UC" true
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\VCM\implementation\Components'
  CONST intf.pas:Path 'common\components\gui\Garant\VCM\implementation\Components\vcmBaseEntitiesCollectionItem.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\VCM\implementation\Components'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'EntitiesCollectionItem'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'vcmBaseEntitiesCollectionItem'
 
 ref; // ME_4DDBBD1103C3 TvcmBaseEntitiesCollectionItem
 
@@ -3337,12 +3461,14 @@ ref; // ME_4DDBBD1103C3 TvcmBaseEntitiesCollectionItem
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\VCM\implementation\Components'
  CONST intf.pas:Path 'common\components\gui\Garant\VCM\implementation\Components\NOT_FINISHED_vcmModuleDef.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\VCM\implementation\Components'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'ModuleDef'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'vcmModuleDef'
 
 ref; // ME_52A72EB701C5 TvcmModuleDef
 
@@ -3361,12 +3487,14 @@ ref; // ME_52A72EB701C5 TvcmModuleDef
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\VCM\implementation\Components'
  CONST intf.pas:Path 'common\components\gui\Garant\VCM\implementation\Components\NOT_FINISHED_vcmFormsCollectionItem.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\VCM\implementation\Components'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'FormsCollectionItem'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'vcmFormsCollectionItem'
 
 ref; // ME_52A72F6A0171 TvcmFormsCollectionItem
 
@@ -3385,12 +3513,14 @@ ref; // ME_52A72F6A0171 TvcmFormsCollectionItem
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\VCM\implementation\Components'
  CONST intf.pas:Path 'common\components\gui\Garant\VCM\implementation\Components\NOT_FINISHED_vcmMenuItemsCollection.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\VCM\implementation\Components'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'MenuItemsCollection'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'vcmMenuItemsCollection'
 
 ref; // ME_52A824420357 TvcmMenuItemsCollection
 
@@ -3409,12 +3539,14 @@ ref; // ME_52A824420357 TvcmMenuItemsCollection
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\VCM\implementation\Components'
  CONST intf.pas:Path 'common\components\gui\Garant\VCM\implementation\Components\NOT_FINISHED_vcmMenuItemsCollectionItem.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\VCM\implementation\Components'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'MenuItemsCollectionItem'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'vcmMenuItemsCollectionItem'
 
 ref; // ME_52AB1CF803B2 TvcmMenuItemsCollectionItem
 
@@ -3446,27 +3578,29 @@ ref; // ME_559E5F32026E ItemType
  : Parent ME_4AB34028023E // Components
  ;
  : Inherits
-   @ ( WL 'ME_4A54DD4E036F' '47913B47006E.pas.ms.script' // Tl3ProtoDataContainer
- ) .SequenceCode.It
+   Seq: ( WL 'ME_4A54DD4E036F' '47913B47006E.pas.ms.script' // Tl3ProtoDataContainer
+ )
  ; // Inherits
  : Implements
-   @ ( WL 'ME_47B57D830369' '47913B47006E.pas.ms.script' // l3InterfaceRefList
- ) .SequenceCode.It
+   Seq: ( WL 'ME_47B57D830369' '47913B47006E.pas.ms.script' // l3InterfaceRefList
+ )
  ; // Implements
  : Attributes
-   @ ( ME_559E5F32026E // ItemType
- ) .SequenceCode.It
+   Seq: ( ME_559E5F32026E // ItemType
+ )
  ; // Attributes
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\VCM\implementation\Components'
  CONST intf.pas:Path 'common\components\gui\Garant\VCM\implementation\Components\vcmUserFriendlyControlList.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\VCM\implementation\Components'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'UserFriendlyControlList'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'vcmUserFriendlyControlList'
 
 ref; // ME_559E5F080019 TvcmUserFriendlyControlList
 
@@ -3485,12 +3619,14 @@ ref; // ME_559E5F080019 TvcmUserFriendlyControlList
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\VCM\implementation\Components'
  CONST intf.pas:Path 'common\components\gui\Garant\VCM\implementation\Components\NOT_FINISHED_vcmActiveControlsCollection.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\VCM\implementation\Components'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'ActiveControlsCollection'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'vcmActiveControlsCollection'
 
 ref; // ME_5620D3930294 TvcmActiveControlsCollection
 
@@ -3510,6 +3646,7 @@ FORWARD ME_5620C9B40399
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value '[vcm_ooShowInMainToolbar, vcm_ooShowInChildToolbar, vcm_ooShowInContextMenu, vcm_ooShowInMainMenu, vcm_ooShowInChildMenu]'
 
 ref; // ME_5620C9CA01E4 vcm_DefaultOperationOptions
 
@@ -3524,10 +3661,15 @@ ref; // ME_5620C9CA01E4 vcm_DefaultOperationOptions
  : Parent ME_4D7A109601C2 // TvcmBaseOperationsCollectionItem
  ;
  : Attributes
-   @ ( ME_5620C9CA01E4 // vcm_DefaultOperationOptions
- ) .SequenceCode.It
+   Seq: ( ME_5620C9CA01E4 // vcm_DefaultOperationOptions
+ )
  ; // Attributes
  CONST "spell names" false
+ CONST dfm:PathOnly '\common\components\gui\Garant\VCM\implementation\Components'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\VCM\implementation\Components'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName '_DefaultOperationOptions'
 
 ref; // ME_5620C9B40399 vcm_DefaultOperationOptions
 
@@ -3552,8 +3694,8 @@ ref; // ME_5620CA56012A State
  : Parent ME_5620CA450068 // TvcmGetStateEvent
  ;
  : Parameters
-   @ ( ME_5620CA56012A // State
- ) .SequenceCode.It
+   Seq: ( ME_5620CA56012A // State
+ )
  ; // Parameters
 
 ref; // ME_5620CA5300C6 DoIt
@@ -3569,10 +3711,14 @@ ref; // ME_5620CA5300C6 DoIt
  : Parent ME_4D7A109601C2 // TvcmBaseOperationsCollectionItem
  ;
  : Operations
-   @ ( ME_5620CA5300C6 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_5620CA5300C6 // DoIt
+ )
  ; // Operations
  CONST "of object" true
+ CONST dfm:PathOnly '\common\components\gui\Garant\VCM\implementation\Components'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\VCM\implementation\Components'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_5620CA450068 TvcmGetStateEvent
 
@@ -3588,9 +3734,13 @@ ref; // ME_5620CA450068 TvcmGetStateEvent
  : Parent ME_4D7A109601C2 // TvcmBaseOperationsCollectionItem
  ;
  : Inherits
-   @ ( WL 'ME_47E765A20100' '4683F37902CF.pas.ms.script' // TvcmTestEvent
- ) .SequenceCode.It
+   Seq: ( WL 'ME_47E765A20100' '4683F37902CF.pas.ms.script' // TvcmTestEvent
+ )
  ; // Inherits
+ CONST dfm:PathOnly '\common\components\gui\Garant\VCM\implementation\Components'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\VCM\implementation\Components'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_5620CABB02F5 TvcmContextTestEvent
 
@@ -3606,9 +3756,13 @@ ref; // ME_5620CABB02F5 TvcmContextTestEvent
  : Parent ME_4D7A109601C2 // TvcmBaseOperationsCollectionItem
  ;
  : Inherits
-   @ ( WL 'ME_52A1D97A009E' '47D0E1500033.pas.ms.script' // TvcmExecuteEvent
- ) .SequenceCode.It
+   Seq: ( WL 'ME_52A1D97A009E' '47D0E1500033.pas.ms.script' // TvcmExecuteEvent
+ )
  ; // Inherits
+ CONST dfm:PathOnly '\common\components\gui\Garant\VCM\implementation\Components'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\VCM\implementation\Components'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_5620CB260263 TvcmContextExecuteEvent
 
@@ -3661,11 +3815,16 @@ ref; // ME_5620CB6D0372 vcm_htControl
  : Parent ME_4D7A109601C2 // TvcmBaseOperationsCollectionItem
  ;
  : Attributes
-   @ ( ME_5620CB620264 // vcm_htContext
+   Seq: ( ME_5620CB620264 // vcm_htContext
  ME_5620CB6802BE // vcm_htGlobal
  ME_5620CB6D0372 // vcm_htControl
- ) .SequenceCode.It
+ )
  ; // Attributes
+ CONST dfm:PathOnly '\common\components\gui\Garant\VCM\implementation\Components'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\VCM\implementation\Components'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_5620CB5800A0 TvcmHandleType
 
@@ -3680,9 +3839,13 @@ ref; // ME_5620CB5800A0 TvcmHandleType
  : Parent ME_4D7A109601C2 // TvcmBaseOperationsCollectionItem
  ;
  : Inherits
-   @ ( ME_5620CB5800A0 // TvcmHandleType
- ) .SequenceCode.It
+   Seq: ( ME_5620CB5800A0 // TvcmHandleType
+ )
  ; // Inherits
+ CONST dfm:PathOnly '\common\components\gui\Garant\VCM\implementation\Components'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\VCM\implementation\Components'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_5620CB7B03DE TvcmHandleTypes
 
@@ -4258,6 +4421,7 @@ ref; // ME_5624C3E003C7 f_Options
 : ME_3E9B9346E545
  CONST UID '3E9B9346E545'
  CONST Name 'f_OperationType'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY 'Поле для свойства OperationType' ;
  CONST Visibility PrivateAccess
@@ -4267,12 +4431,14 @@ ref; // ME_5624C3E003C7 f_Options
  ;
  : Target WL 'ME_4683CC350070' '467BAB7F021E.pas.ms.script' // TvcmOperationType
  ;
+ CONST extprop:clearViaProperty 'OperationType'
 
 ref; // ME_3E9B9346E545 f_OperationType
 
 : ME_3EC442E5BBBB
  CONST UID '3EC442E5BBBB'
  CONST Name 'f_ContextMenuWeight'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY 'Поле для свойства ContextMenuWeight' ;
  CONST Visibility PrivateAccess
@@ -4282,12 +4448,14 @@ ref; // ME_3E9B9346E545 f_OperationType
  ;
  : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
  ;
+ CONST extprop:clearViaProperty 'ContextMenuWeight'
 
 ref; // ME_3EC442E5BBBB f_ContextMenuWeight
 
 : ME_FE39ACD20F73
  CONST UID 'FE39ACD20F73'
  CONST Name 'f_OperationID'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY 'Поле для свойства OperationID' ;
  CONST Visibility PrivateAccess
@@ -4303,6 +4471,7 @@ ref; // ME_FE39ACD20F73 f_OperationID
 : ME_224371F9D102
  CONST UID '224371F9D102'
  CONST Name 'f_AutoLock'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY 'Поле для свойства AutoLock' ;
  CONST Visibility PrivateAccess
@@ -4312,12 +4481,14 @@ ref; // ME_FE39ACD20F73 f_OperationID
  ;
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
+ CONST extprop:clearViaProperty 'AutoLock'
 
 ref; // ME_224371F9D102 f_AutoLock
 
 : ME_F552F1CB5EE0
  CONST UID 'F552F1CB5EE0'
  CONST Name 'f_AutoFocus'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY 'Поле для свойства AutoFocus' ;
  CONST Visibility PrivateAccess
@@ -4327,12 +4498,14 @@ ref; // ME_224371F9D102 f_AutoLock
  ;
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
+ CONST extprop:clearViaProperty 'AutoFocus'
 
 ref; // ME_F552F1CB5EE0 f_AutoFocus
 
 : ME_A391F7FC2B17
  CONST UID 'A391F7FC2B17'
  CONST Name 'f_LongProcess'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY 'Поле для свойства LongProcess' ;
  CONST Visibility PrivateAccess
@@ -4342,12 +4515,14 @@ ref; // ME_F552F1CB5EE0 f_AutoFocus
  ;
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
+ CONST extprop:clearViaProperty 'LongProcess'
 
 ref; // ME_A391F7FC2B17 f_LongProcess
 
 : ME_880409226FCA
  CONST UID '880409226FCA'
  CONST Name 'f_States'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY 'Поле для свойства States' ;
  CONST Visibility PrivateAccess
@@ -4357,12 +4532,14 @@ ref; // ME_A391F7FC2B17 f_LongProcess
  ;
  : Target ME_5620D2420197 // TvcmBaseOperationStates
  ;
+ CONST extprop:clearViaProperty 'States'
 
 ref; // ME_880409226FCA f_States
 
 : ME_20EA47343849
  CONST UID '20EA47343849'
  CONST Name 'f_State'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY 'Поле для свойства State' ;
  CONST Visibility PrivateAccess
@@ -4372,12 +4549,14 @@ ref; // ME_880409226FCA f_States
  ;
  : Target WL 'ME_4683F4D501E9' '467BAB7F021E.pas.ms.script' // TvcmOperationStateIndex
  ;
+ CONST extprop:clearViaProperty 'State'
 
 ref; // ME_20EA47343849 f_State
 
 : ME_6345F32C5B8A
  CONST UID '6345F32C5B8A'
  CONST Name 'f_Controls'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY 'Поле для свойства Controls' ;
  CONST Visibility PrivateAccess
@@ -4393,6 +4572,7 @@ ref; // ME_6345F32C5B8A f_Controls
 : ME_CB3C6D9E3C0D
  CONST UID 'CB3C6D9E3C0D'
  CONST Name 'f_OnGetState'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY 'Поле для свойства OnGetState' ;
  CONST Visibility PrivateAccess
@@ -4402,12 +4582,14 @@ ref; // ME_6345F32C5B8A f_Controls
  ;
  : Target ME_5620CA450068 // TvcmGetStateEvent
  ;
+ CONST extprop:clearViaProperty 'OnGetState'
 
 ref; // ME_CB3C6D9E3C0D f_OnGetState
 
 : ME_0F5AF7FA689F
  CONST UID '0F5AF7FA689F'
  CONST Name 'f_OnTest'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY 'Поле для свойства OnTest' ;
  CONST Visibility PrivateAccess
@@ -4417,12 +4599,14 @@ ref; // ME_CB3C6D9E3C0D f_OnGetState
  ;
  : Target WL 'ME_47E765A20100' '4683F37902CF.pas.ms.script' // TvcmTestEvent
  ;
+ CONST extprop:clearViaProperty 'OnTest'
 
 ref; // ME_0F5AF7FA689F f_OnTest
 
 : ME_2EA573A0FEFB
  CONST UID '2EA573A0FEFB'
  CONST Name 'f_OnExecute'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY 'Поле для свойства OnExecute' ;
  CONST Visibility PrivateAccess
@@ -4432,12 +4616,14 @@ ref; // ME_0F5AF7FA689F f_OnTest
  ;
  : Target WL 'ME_52A1D97A009E' '47D0E1500033.pas.ms.script' // TvcmExecuteEvent
  ;
+ CONST extprop:clearViaProperty 'OnExecute'
 
 ref; // ME_2EA573A0FEFB f_OnExecute
 
 : ME_5DB887AA8C0E
  CONST UID '5DB887AA8C0E'
  CONST Name 'f_OnContextTest'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY 'Поле для свойства OnContextTest' ;
  CONST Visibility PrivateAccess
@@ -4447,12 +4633,14 @@ ref; // ME_2EA573A0FEFB f_OnExecute
  ;
  : Target ME_5620CABB02F5 // TvcmContextTestEvent
  ;
+ CONST extprop:clearViaProperty 'OnContextTest'
 
 ref; // ME_5DB887AA8C0E f_OnContextTest
 
 : ME_E06C050C113A
  CONST UID 'E06C050C113A'
  CONST Name 'f_OnContextExecute'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY 'Поле для свойства OnContextExecute' ;
  CONST Visibility PrivateAccess
@@ -4462,12 +4650,14 @@ ref; // ME_5DB887AA8C0E f_OnContextTest
  ;
  : Target ME_5620CB260263 // TvcmContextExecuteEvent
  ;
+ CONST extprop:clearViaProperty 'OnContextExecute'
 
 ref; // ME_E06C050C113A f_OnContextExecute
 
 : ME_FFEBB3F4DFE6
  CONST UID 'FFEBB3F4DFE6'
  CONST Name 'f_IsCaptionUnique'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY 'Поле для свойства IsCaptionUnique' ;
  CONST Visibility PrivateAccess
@@ -4477,12 +4667,14 @@ ref; // ME_E06C050C113A f_OnContextExecute
  ;
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
+ CONST extprop:clearViaProperty 'IsCaptionUnique'
 
 ref; // ME_FFEBB3F4DFE6 f_IsCaptionUnique
 
 : ME_C764F19ED731
  CONST UID 'C764F19ED731'
  CONST Name 'f_SaveShortcut'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY 'Поле для свойства SaveShortcut' ;
  CONST Visibility PrivateAccess
@@ -4498,6 +4690,7 @@ ref; // ME_C764F19ED731 f_SaveShortcut
 : ME_ABBBCCAEC08D
  CONST UID 'ABBBCCAEC08D'
  CONST Name 'f_SaveSecondaryShortcuts'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY 'Поле для свойства SaveSecondaryShortcuts' ;
  CONST Visibility PrivateAccess
@@ -4513,6 +4706,7 @@ ref; // ME_ABBBCCAEC08D f_SaveSecondaryShortcuts
 : ME_62B6B1199537
  CONST UID '62B6B1199537'
  CONST Name 'f_IsDefault'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY 'Поле для свойства IsDefault' ;
  CONST Visibility PrivateAccess
@@ -4522,6 +4716,7 @@ ref; // ME_ABBBCCAEC08D f_SaveSecondaryShortcuts
  ;
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
+ CONST extprop:clearViaProperty 'IsDefault'
 
 ref; // ME_62B6B1199537 f_IsDefault
 
@@ -4551,8 +4746,8 @@ ref; // ME_5620E12F0055 DoIt
  : Parent ME_5620CFFC0045 // TvcmBaseOperationsCollectionItemPrim
  ;
  : Operations
-   @ ( ME_5620E12F0055 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_5620E12F0055 // DoIt
+ )
  ; // Operations
 
 ref; // ME_5620E1270164 GetDefaultOptions
@@ -4583,8 +4778,8 @@ ref; // ME_5620E2CC03A3 DoIt
  : Parent ME_5620CFFC0045 // TvcmBaseOperationsCollectionItemPrim
  ;
  : Operations
-   @ ( ME_5620E2CC03A3 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_5620E2CC03A3 // DoIt
+ )
  ; // Operations
 
 ref; // ME_5620E2C30048 GetGroupIDStored
@@ -4615,8 +4810,8 @@ ref; // ME_5620E37300D8 DoIt
  : Parent ME_5620CFFC0045 // TvcmBaseOperationsCollectionItemPrim
  ;
  : Operations
-   @ ( ME_5620E37300D8 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_5620E37300D8 // DoIt
+ )
  ; // Operations
 
 ref; // ME_5620E36701EE GetOperationTypeStored
@@ -4647,8 +4842,8 @@ ref; // ME_5620E5D00238 DoIt
  : Parent ME_5620CFFC0045 // TvcmBaseOperationsCollectionItemPrim
  ;
  : Operations
-   @ ( ME_5620E5D00238 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_5620E5D00238 // DoIt
+ )
  ; // Operations
 
 ref; // ME_5620E5C101B2 GetIsDefaultStored
@@ -4658,6 +4853,7 @@ FORWARD ME_5620E5FF00DA
 : ME_8CA7A629A3FE
  CONST UID '8CA7A629A3FE'
  CONST Name 'Sender'
+ CONST IsSummoned true
  CONST Class class_Parameter
  : Stereotype st_in ;
  : Target WL 'ME_4807745602C8' '4AB0C3C60310.pas.ms.script' // TObject
@@ -4668,6 +4864,7 @@ ref; // ME_8CA7A629A3FE Sender
 : ME_6DECACA8D923
  CONST UID '6DECACA8D923'
  CONST Name 'DoIt'
+ CONST IsSummoned true
  CONST Class class_Operation
  %SUMMARY 'TNotifyEvent is used for events that do not require parameters.' ;
  CONST Visibility PrivateAccess
@@ -4675,8 +4872,8 @@ ref; // ME_8CA7A629A3FE Sender
  : Parent ME_5620E5FF00DA // OnSecondaryShortCutsChange
  ;
  : Parameters
-   @ ( ME_8CA7A629A3FE // Sender
- ) .SequenceCode.It
+   Seq: ( ME_8CA7A629A3FE // Sender
+ )
  ; // Parameters
 
 ref; // ME_6DECACA8D923 DoIt
@@ -4692,12 +4889,12 @@ ref; // ME_6DECACA8D923 DoIt
  : Parent ME_5620CFFC0045 // TvcmBaseOperationsCollectionItemPrim
  ;
  : Inherits
-   @ ( WL 'ME_47881B22005A' '4AB0997B00A2.pas.ms.script' // TNotifyEvent
- ) .SequenceCode.It
+   Seq: ( WL 'ME_47881B22005A' '4AB0997B00A2.pas.ms.script' // TNotifyEvent
+ )
  ; // Inherits
  : Operations
-   @ ( ME_6DECACA8D923 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_6DECACA8D923 // DoIt
+ )
  ; // Operations
 
 ref; // ME_5620E5FF00DA OnSecondaryShortCutsChange
@@ -4729,8 +4926,8 @@ ref; // ME_5620E72F012B DoIt
  : Parent ME_5620CFFC0045 // TvcmBaseOperationsCollectionItemPrim
  ;
  : Operations
-   @ ( ME_5620E72F012B // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_5620E72F012B // DoIt
+ )
  ; // Operations
 
 ref; // ME_5620E72703A2 IsHandledToControl
@@ -4762,8 +4959,8 @@ ref; // ME_5620E69A03C0 DoIt
  : Parent ME_5620CFFC0045 // TvcmBaseOperationsCollectionItemPrim
  ;
  : Operations
-   @ ( ME_5620E69A03C0 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_5620E69A03C0 // DoIt
+ )
  ; // Operations
 
 ref; // ME_5620E6910372 GetLinkedAction
@@ -4795,8 +4992,8 @@ ref; // ME_5620E6760335 DoIt
  : Parent ME_5620CFFC0045 // TvcmBaseOperationsCollectionItemPrim
  ;
  : Operations
-   @ ( ME_5620E6760335 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_5620E6760335 // DoIt
+ )
  ; // Operations
 
 ref; // ME_5620E66E0367 ControllerCommand
@@ -4827,8 +5024,8 @@ ref; // ME_5620E6600155 DoIt
  : Parent ME_5620CFFC0045 // TvcmBaseOperationsCollectionItemPrim
  ;
  : Operations
-   @ ( ME_5620E6600155 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_5620E6600155 // DoIt
+ )
  ; // Operations
 
 ref; // ME_5620E65A00D3 ParentID
@@ -4859,8 +5056,8 @@ ref; // ME_5620E64901F7 DoIt
  : Parent ME_5620CFFC0045 // TvcmBaseOperationsCollectionItemPrim
  ;
  : Operations
-   @ ( ME_5620E64901F7 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_5620E64901F7 // DoIt
+ )
  ; // Operations
 
 ref; // ME_5620E643039B IsLinkedToModule
@@ -4887,6 +5084,7 @@ ref; // ME_5620E63102EA aValue
  CONST Value 0
  : ValueType WL 'ME_476F71A701AB' '4AB0C3C60310.pas.ms.script' // Word
  ;
+ CONST extprop:pas:Value 0
 
 ref; // ME_5620E6310312 aCommandID
 
@@ -4899,9 +5097,9 @@ ref; // ME_5620E6310312 aCommandID
  : Parent ME_5620E6250019 // ResetShortCutHandler
  ;
  : Parameters
-   @ ( ME_5620E63102EA // aValue
+   Seq: ( ME_5620E63102EA // aValue
  ME_5620E6310312 // aCommandID
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_5620E62F00C4 DoIt
@@ -4917,8 +5115,8 @@ ref; // ME_5620E62F00C4 DoIt
  : Parent ME_5620CFFC0045 // TvcmBaseOperationsCollectionItemPrim
  ;
  : Operations
-   @ ( ME_5620E62F00C4 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_5620E62F00C4 // DoIt
+ )
  ; // Operations
  CONST "is static" true
 
@@ -4945,8 +5143,8 @@ ref; // ME_5620E7BC02BA State
  : Parent ME_5620E7B10292 // DoFormGetState
  ;
  : Parameters
-   @ ( ME_5620E7BC02BA // State
- ) .SequenceCode.It
+   Seq: ( ME_5620E7BC02BA // State
+ )
  ; // Parameters
 
 ref; // ME_5620E7BA01C0 DoIt
@@ -4962,8 +5160,8 @@ ref; // ME_5620E7BA01C0 DoIt
  : Parent ME_5620CFFC0045 // TvcmBaseOperationsCollectionItemPrim
  ;
  : Operations
-   @ ( ME_5620E7BA01C0 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_5620E7BA01C0 // DoIt
+ )
  ; // Operations
 
 ref; // ME_5620E7B10292 DoFormGetState
@@ -4989,8 +5187,8 @@ ref; // ME_5620E7D50242 aParams
  : Parent ME_5620E7CC00CF // DoFormTest
  ;
  : Parameters
-   @ ( ME_5620E7D50242 // aParams
- ) .SequenceCode.It
+   Seq: ( ME_5620E7D50242 // aParams
+ )
  ; // Parameters
 
 ref; // ME_5620E7D20242 DoIt
@@ -5006,8 +5204,8 @@ ref; // ME_5620E7D20242 DoIt
  : Parent ME_5620CFFC0045 // TvcmBaseOperationsCollectionItemPrim
  ;
  : Operations
-   @ ( ME_5620E7D20242 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_5620E7D20242 // DoIt
+ )
  ; // Operations
 
 ref; // ME_5620E7CC00CF DoFormTest
@@ -5033,8 +5231,8 @@ ref; // ME_5620E7F20274 aParams
  : Parent ME_5620E7E70331 // DoFormExecute
  ;
  : Parameters
-   @ ( ME_5620E7F20274 // aParams
- ) .SequenceCode.It
+   Seq: ( ME_5620E7F20274 // aParams
+ )
  ; // Parameters
 
 ref; // ME_5620E7EF008A DoIt
@@ -5050,8 +5248,8 @@ ref; // ME_5620E7EF008A DoIt
  : Parent ME_5620CFFC0045 // TvcmBaseOperationsCollectionItemPrim
  ;
  : Operations
-   @ ( ME_5620E7EF008A // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_5620E7EF008A // DoIt
+ )
  ; // Operations
 
 ref; // ME_5620E7E70331 DoFormExecute
@@ -5077,8 +5275,8 @@ ref; // ME_5620E81200D9 aParams
  : Parent ME_5620E802035A // FakeControlTest
  ;
  : Parameters
-   @ ( ME_5620E81200D9 // aParams
- ) .SequenceCode.It
+   Seq: ( ME_5620E81200D9 // aParams
+ )
  ; // Parameters
 
 ref; // ME_5620E80B03DB DoIt
@@ -5094,8 +5292,8 @@ ref; // ME_5620E80B03DB DoIt
  : Parent ME_5620CFFC0045 // TvcmBaseOperationsCollectionItemPrim
  ;
  : Operations
-   @ ( ME_5620E80B03DB // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_5620E80B03DB // DoIt
+ )
  ; // Operations
 
 ref; // ME_5620E802035A FakeControlTest
@@ -5105,6 +5303,7 @@ FORWARD ME_5620E8DC016C
 : ME_2FECB370C71E
  CONST UID '2FECB370C71E'
  CONST Name 'DoIt'
+ CONST IsSummoned true
  CONST Class class_Operation
  %SUMMARY 'Сигнатура метода ClearOp' ;
  CONST Visibility PublicAccess
@@ -5125,8 +5324,8 @@ ref; // ME_2FECB370C71E DoIt
  : Parent ME_5620CFFC0045 // TvcmBaseOperationsCollectionItemPrim
  ;
  : Operations
-   @ ( ME_2FECB370C71E // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_2FECB370C71E // DoIt
+ )
  ; // Operations
 
 ref; // ME_5620E8DC016C ClearOp
@@ -5162,9 +5361,9 @@ ref; // ME_5620E8C703CF aSecondaryShortCuts
  : Parent ME_5620E8B900F5 // SetShortCuts
  ;
  : Parameters
-   @ ( ME_5620E8C703A7 // aShortCut
+   Seq: ( ME_5620E8C703A7 // aShortCut
  ME_5620E8C703CF // aSecondaryShortCuts
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_5620E8C4034D DoIt
@@ -5180,8 +5379,8 @@ ref; // ME_5620E8C4034D DoIt
  : Parent ME_5620CFFC0045 // TvcmBaseOperationsCollectionItemPrim
  ;
  : Operations
-   @ ( ME_5620E8C4034D // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_5620E8C4034D // DoIt
+ )
  ; // Operations
 
 ref; // ME_5620E8B900F5 SetShortCuts
@@ -5212,8 +5411,8 @@ ref; // ME_5620E883019F DoIt
  : Parent ME_5620CFFC0045 // TvcmBaseOperationsCollectionItemPrim
  ;
  : Operations
-   @ ( ME_5620E883019F // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_5620E883019F // DoIt
+ )
  ; // Operations
  CONST "is static" true
 
@@ -5246,8 +5445,8 @@ ref; // ME_5620E83702EB DoIt
  : Parent ME_5620CFFC0045 // TvcmBaseOperationsCollectionItemPrim
  ;
  : Operations
-   @ ( ME_5620E83702EB // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_5620E83702EB // DoIt
+ )
  ; // Operations
 
 ref; // ME_5620E8300061 OwnerUserType
@@ -5279,8 +5478,8 @@ ref; // ME_5620EEDB0322 DoIt
  : Parent ME_5620CFFC0045 // TvcmBaseOperationsCollectionItemPrim
  ;
  : Operations
-   @ ( ME_5620EEDB0322 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_5620EEDB0322 // DoIt
+ )
  ; // Operations
 
 ref; // ME_5620EED40232 OwnerForm
@@ -5316,9 +5515,9 @@ ref; // ME_5620EF6F02A3 aSecondaryShortCuts
  : Parent ME_5620EF040199 // ReplaceShortCuts$1
  ;
  : Parameters
-   @ ( ME_5620EF6F0285 // aShortCut
+   Seq: ( ME_5620EF6F0285 // aShortCut
  ME_5620EF6F02A3 // aSecondaryShortCuts
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_5620EF450284 DoIt
@@ -5334,8 +5533,8 @@ ref; // ME_5620EF450284 DoIt
  : Parent ME_5620CFFC0045 // TvcmBaseOperationsCollectionItemPrim
  ;
  : Operations
-   @ ( ME_5620EF450284 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_5620EF450284 // DoIt
+ )
  ; // Operations
  CONST "ifdef" 'XE'
 
@@ -5372,9 +5571,9 @@ ref; // ME_5620EFDE0394 aSecondaryShortCuts
  : Parent ME_5620EF9D02F1 // ReplaceShortCuts$2
  ;
  : Parameters
-   @ ( ME_5620EFDE036C // aShortCut
+   Seq: ( ME_5620EFDE036C // aShortCut
  ME_5620EFDE0394 // aSecondaryShortCuts
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_5620EFDC0236 DoIt
@@ -5390,8 +5589,8 @@ ref; // ME_5620EFDC0236 DoIt
  : Parent ME_5620CFFC0045 // TvcmBaseOperationsCollectionItemPrim
  ;
  : Operations
-   @ ( ME_5620EFDC0236 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_5620EFDC0236 // DoIt
+ )
  ; // Operations
  CONST "ifndef" 'XE'
 
@@ -5402,6 +5601,7 @@ FORWARD ME_5620F0050158
 : ME_1BFCB7BC7884
  CONST UID '1BFCB7BC7884'
  CONST Name 'DoIt'
+ CONST IsSummoned true
  CONST Class class_Operation
  %SUMMARY 'Сигнатура метода StoreDesignTimeShortcuts' ;
  CONST Visibility PublicAccess
@@ -5422,8 +5622,8 @@ ref; // ME_1BFCB7BC7884 DoIt
  : Parent ME_5620CFFC0045 // TvcmBaseOperationsCollectionItemPrim
  ;
  : Operations
-   @ ( ME_1BFCB7BC7884 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_1BFCB7BC7884 // DoIt
+ )
  ; // Operations
 
 ref; // ME_5620F0050158 StoreDesignTimeShortcuts
@@ -5454,8 +5654,8 @@ ref; // ME_5620F0A20328 DoIt
  : Parent ME_5620CFFC0045 // TvcmBaseOperationsCollectionItemPrim
  ;
  : Operations
-   @ ( ME_5620F0A20328 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_5620F0A20328 // DoIt
+ )
  ; // Operations
 
 ref; // ME_5620F09B013E SomePropStored
@@ -5481,8 +5681,8 @@ ref; // ME_5620F1700008 aShortCut
  : Parent ME_5620F16701DD // RemoveShortCut
  ;
  : Parameters
-   @ ( ME_5620F1700008 // aShortCut
- ) .SequenceCode.It
+   Seq: ( ME_5620F1700008 // aShortCut
+ )
  ; // Parameters
 
 ref; // ME_5620F16E004E DoIt
@@ -5498,8 +5698,8 @@ ref; // ME_5620F16E004E DoIt
  : Parent ME_5620CFFC0045 // TvcmBaseOperationsCollectionItemPrim
  ;
  : Operations
-   @ ( ME_5620F16E004E // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_5620F16E004E // DoIt
+ )
  ; // Operations
 
 ref; // ME_5620F16701DD RemoveShortCut
@@ -5525,8 +5725,8 @@ ref; // ME_5620F29102FA aControl
  : Parent ME_5620F28501E2 // UnlinkControl
  ;
  : Parameters
-   @ ( ME_5620F29102FA // aControl
- ) .SequenceCode.It
+   Seq: ( ME_5620F29102FA // aControl
+ )
  ; // Parameters
 
 ref; // ME_5620F28F00E8 DoIt
@@ -5542,8 +5742,8 @@ ref; // ME_5620F28F00E8 DoIt
  : Parent ME_5620CFFC0045 // TvcmBaseOperationsCollectionItemPrim
  ;
  : Operations
-   @ ( ME_5620F28F00E8 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_5620F28F00E8 // DoIt
+ )
  ; // Operations
 
 ref; // ME_5620F28501E2 UnlinkControl
@@ -5571,8 +5771,8 @@ ref; // ME_5620F2BF01A8 aTypes
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
  : Parameters
-   @ ( ME_5620F2BF01A8 // aTypes
- ) .SequenceCode.It
+   Seq: ( ME_5620F2BF01A8 // aTypes
+ )
  ; // Parameters
 
 ref; // ME_5620F2BD00C2 DoIt
@@ -5588,8 +5788,8 @@ ref; // ME_5620F2BD00C2 DoIt
  : Parent ME_5620CFFC0045 // TvcmBaseOperationsCollectionItemPrim
  ;
  : Operations
-   @ ( ME_5620F2BD00C2 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_5620F2BD00C2 // DoIt
+ )
  ; // Operations
 
 ref; // ME_5620F2B50162 Handled
@@ -5655,12 +5855,12 @@ ref; // ME_5620F12000F6 aForce
  : Parent ME_5620F10C0381 // Operation
  ;
  : Parameters
-   @ ( ME_5620F1200060 // aControl
+   Seq: ( ME_5620F1200060 // aControl
  ME_5620F1200088 // aTarget
  ME_5620F12000A6 // aMode
  ME_5620F12000CE // aParams
  ME_5620F12000F6 // aForce
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_5620F11503AF DoIt
@@ -5677,8 +5877,8 @@ ref; // ME_5620F11503AF DoIt
  : Parent ME_5620CFFC0045 // TvcmBaseOperationsCollectionItemPrim
  ;
  : Operations
-   @ ( ME_5620F11503AF // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_5620F11503AF // DoIt
+ )
  ; // Operations
 
 ref; // ME_5620F10C0381 Operation
@@ -5734,11 +5934,11 @@ ref; // ME_5620F1A8026C aGetState
  : Parent ME_5620F19403B6 // PublishOp$1
  ;
  : Parameters
-   @ ( ME_5620F1A801FE // aControl
+   Seq: ( ME_5620F1A801FE // aControl
  ME_5620F1A80226 // anExecute
  ME_5620F1A80244 // aTest
  ME_5620F1A8026C // aGetState
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_5620F1A20366 DoIt
@@ -5755,8 +5955,8 @@ ref; // ME_5620F1A20366 DoIt
  : Parent ME_5620CFFC0045 // TvcmBaseOperationsCollectionItemPrim
  ;
  : Operations
-   @ ( ME_5620F1A20366 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_5620F1A20366 // DoIt
+ )
  ; // Operations
 
 ref; // ME_5620F19403B6 PublishOp$1
@@ -5812,11 +6012,11 @@ ref; // ME_5620F1F50147 aGetState
  : Parent ME_5620F1DF01BF // PublishOp$2
  ;
  : Parameters
-   @ ( ME_5620F1F500D9 // aControl
+   Seq: ( ME_5620F1F500D9 // aControl
  ME_5620F1F50101 // anExecute
  ME_5620F1F50129 // aTest
  ME_5620F1F50147 // aGetState
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_5620F1EE033B DoIt
@@ -5833,8 +6033,8 @@ ref; // ME_5620F1EE033B DoIt
  : Parent ME_5620CFFC0045 // TvcmBaseOperationsCollectionItemPrim
  ;
  : Operations
-   @ ( ME_5620F1EE033B // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_5620F1EE033B // DoIt
+ )
  ; // Operations
 
 ref; // ME_5620F1DF01BF PublishOp$2
@@ -5842,6 +6042,7 @@ ref; // ME_5620F1DF01BF PublishOp$2
 : ME_7C0E36AF141A
  CONST UID '7C0E36AF141A'
  CONST Name 'OperationTypeStored'
+ CONST IsSummoned true
  CONST Class class_Operation
  %SUMMARY '"Функция определяющая, что свойство OperationType сохраняется"' ;
  CONST Visibility ProtectedAccess
@@ -5856,6 +6057,7 @@ ref; // ME_7C0E36AF141A OperationTypeStored
 : ME_EBDB5C8A01C4
  CONST UID 'EBDB5C8A01C4'
  CONST Name 'IsDefaultStored'
+ CONST IsSummoned true
  CONST Class class_Operation
  %SUMMARY '"Функция определяющая, что свойство IsDefault сохраняется"' ;
  CONST Visibility ProtectedAccess
@@ -5870,6 +6072,7 @@ ref; // ME_EBDB5C8A01C4 IsDefaultStored
 : ME_C79988A52B31
  CONST UID 'C79988A52B31'
  CONST Name 'GroupIDStored'
+ CONST IsSummoned true
  CONST Class class_Operation
  %SUMMARY '"Функция определяющая, что свойство GroupID сохраняется"' ;
  CONST Visibility ProtectedAccess
@@ -5884,6 +6087,7 @@ ref; // ME_C79988A52B31 GroupIDStored
 : ME_1E19DC38F44C
  CONST UID '1E19DC38F44C'
  CONST Name 'Ini_Reg_Class'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Регистрация TvcmBaseOperationsCollectionItemPrim' ;
@@ -5897,6 +6101,7 @@ ref; // ME_1E19DC38F44C Ini_Reg_Class
 
 : ME_C0A6A33D8722
  CONST UID 'C0A6A33D8722'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_5620CFFC0045 // TvcmBaseOperationsCollectionItemPrim
@@ -5913,6 +6118,7 @@ ref; // ME_C0A6A33D8722
  ;
  : Implementor ME_5620CFFC0045 // TvcmBaseOperationsCollectionItemPrim
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_478CF34E02CE_ME_5620CFFC0045 Assign
 
 : ME_479731C50290_ME_5620CFFC0045
@@ -5922,6 +6128,7 @@ ref; // ME_478CF34E02CE_ME_5620CFFC0045 Assign
  ;
  : Implementor ME_5620CFFC0045 // TvcmBaseOperationsCollectionItemPrim
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_479731C50290_ME_5620CFFC0045 Cleanup
 
 : ME_479F2B3302C1_ME_5620CFFC0045
@@ -5931,6 +6138,7 @@ ref; // ME_479731C50290_ME_5620CFFC0045 Cleanup
  ;
  : Implementor ME_5620CFFC0045 // TvcmBaseOperationsCollectionItemPrim
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_479F2B3302C1_ME_5620CFFC0045 BeforeAddToCache
 
 : ME_4D555CF50027_ME_5620CFFC0045
@@ -5940,6 +6148,7 @@ ref; // ME_479F2B3302C1_ME_5620CFFC0045 BeforeAddToCache
  ;
  : Implementor ME_5620CFFC0045 // TvcmBaseOperationsCollectionItemPrim
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4D555CF50027_ME_5620CFFC0045 Create
 
 : ME_5000565C019C_ME_5620CFFC0045
@@ -5949,6 +6158,7 @@ ref; // ME_4D555CF50027_ME_5620CFFC0045 Create
  ;
  : Implementor ME_5620CFFC0045 // TvcmBaseOperationsCollectionItemPrim
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_5000565C019C_ME_5620CFFC0045 ClearFields
 
 : ME_55CCBA3C0190_ME_5620CFFC0045
@@ -5958,6 +6168,7 @@ ref; // ME_5000565C019C_ME_5620CFFC0045 ClearFields
  ;
  : Implementor ME_5620CFFC0045 // TvcmBaseOperationsCollectionItemPrim
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_55CCBA3C0190_ME_5620CFFC0045 ChangeName
 
 : ME_55CCBA8003C7_ME_5620CFFC0045
@@ -5967,6 +6178,7 @@ ref; // ME_55CCBA3C0190_ME_5620CFFC0045 ChangeName
  ;
  : Implementor ME_5620CFFC0045 // TvcmBaseOperationsCollectionItemPrim
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_55CCBA8003C7_ME_5620CFFC0045 ChangeCaption
 
 : ME_55CCBAAB00F4_ME_5620CFFC0045
@@ -5976,6 +6188,7 @@ ref; // ME_55CCBA8003C7_ME_5620CFFC0045 ChangeCaption
  ;
  : Implementor ME_5620CFFC0045 // TvcmBaseOperationsCollectionItemPrim
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_55CCBAAB00F4_ME_5620CFFC0045 MakeID
 
 : ME_55CCBAC800F0_ME_5620CFFC0045
@@ -5985,6 +6198,7 @@ ref; // ME_55CCBAAB00F4_ME_5620CFFC0045 MakeID
  ;
  : Implementor ME_5620CFFC0045 // TvcmBaseOperationsCollectionItemPrim
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_55CCBAC800F0_ME_5620CFFC0045 GetID
 
 : ME_561145D802BB_ME_5620CFFC0045
@@ -5994,6 +6208,7 @@ ref; // ME_55CCBAC800F0_ME_5620CFFC0045 GetID
  ;
  : Implementor ME_5620CFFC0045 // TvcmBaseOperationsCollectionItemPrim
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_561145D802BB_ME_5620CFFC0045 QueryInterface
 
 : ME_5620CFFC0045
@@ -6007,11 +6222,11 @@ ref; // ME_561145D802BB_ME_5620CFFC0045 QueryInterface
  : Parent ME_4D7A109601C2 // TvcmBaseOperationsCollectionItem
  ;
  : Inherits
-   @ ( ME_5620D0B90294 // TvcmOperationParams
- ) .SequenceCode.It
+   Seq: ( ME_5620D0B90294 // TvcmOperationParams
+ )
  ; // Inherits
  : Attributes
-   @ ( ME_5620CEB201FB // OperationType
+   Seq: ( ME_5620CEB201FB // OperationType
  ME_5620CF2802E3 // Options
  ME_5620CF82017C // ContextMenuWeight
  ME_5620CFC10224 // OperationID
@@ -6063,10 +6278,10 @@ ref; // ME_561145D802BB_ME_5620CFFC0045 QueryInterface
  ME_C764F19ED731 // f_SaveShortcut
  ME_ABBBCCAEC08D // f_SaveSecondaryShortcuts
  ME_62B6B1199537 // f_IsDefault
- ) .SequenceCode.It
+ )
  ; // Attributes
  : Operations
-   @ ( ME_5620E1270164 // GetDefaultOptions
+   Seq: ( ME_5620E1270164 // GetDefaultOptions
  ME_5620E2C30048 // GetGroupIDStored
  ME_5620E36701EE // GetOperationTypeStored
  ME_5620E5C101B2 // GetIsDefaultStored
@@ -6100,10 +6315,10 @@ ref; // ME_561145D802BB_ME_5620CFFC0045 QueryInterface
  ME_EBDB5C8A01C4 // IsDefaultStored
  ME_C79988A52B31 // GroupIDStored
  ME_1E19DC38F44C // Ini_Reg_Class
- ) .SequenceCode.It
+ )
  ; // Operations
  : Overridden
-   @ ( ME_478CF34E02CE_ME_5620CFFC0045 // Assign
+   Seq: ( ME_478CF34E02CE_ME_5620CFFC0045 // Assign
  ME_479731C50290_ME_5620CFFC0045 // Cleanup
  ME_479F2B3302C1_ME_5620CFFC0045 // BeforeAddToCache
  ME_4D555CF50027_ME_5620CFFC0045 // Create
@@ -6113,22 +6328,29 @@ ref; // ME_561145D802BB_ME_5620CFFC0045 QueryInterface
  ME_55CCBAAB00F4_ME_5620CFFC0045 // MakeID
  ME_55CCBAC800F0_ME_5620CFFC0045 // GetID
  ME_561145D802BB_ME_5620CFFC0045 // QueryInterface
- ) .SequenceCode.It
+ )
  ; // Overridden
  : Dependencies
-   @ ( ME_C0A6A33D8722 // 
- ) .SequenceCode.It
+   Seq: ( ME_C0A6A33D8722 // 
+ )
  ; // Dependencies
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
+ CONST dfm:PathOnly '\common\components\gui\Garant\VCM\implementation\Components'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\VCM\implementation\Components'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'OperationsCollectionItemPrim'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_5620CFFC0045 TvcmBaseOperationsCollectionItemPrim
 
 : ME_CB875291828E
  CONST UID 'CB875291828E'
  CONST Name 'Ini_Reg_Class'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Регистрация TvcmBaseOperationsCollectionItem' ;
@@ -6366,6 +6588,7 @@ ref; // ME_5624CA16034F
 
 : ME_462DDCD2827B
  CONST UID '462DDCD2827B'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_4D7A109601C2 // TvcmBaseOperationsCollectionItem
@@ -6386,28 +6609,28 @@ ref; // ME_462DDCD2827B
  : Parent ME_4AB34028023E // Components
  ;
  : Inherits
-   @ ( ME_5620CFFC0045 // TvcmBaseOperationsCollectionItemPrim
- ) .SequenceCode.It
+   Seq: ( ME_5620CFFC0045 // TvcmBaseOperationsCollectionItemPrim
+ )
  ; // Inherits
  : Operations
-   @ ( ME_CB875291828E // Ini_Reg_Class
- ) .SequenceCode.It
+   Seq: ( ME_CB875291828E // Ini_Reg_Class
+ )
  ; // Operations
  : Children
-   @ ( ME_5620CA450068 // TvcmGetStateEvent
+   Seq: ( ME_5620CA450068 // TvcmGetStateEvent
  ME_5620CABB02F5 // TvcmContextTestEvent
  ME_5620CB260263 // TvcmContextExecuteEvent
  ME_5620CB5800A0 // TvcmHandleType
  ME_5620CB7B03DE // TvcmHandleTypes
  ME_5620CFFC0045 // TvcmBaseOperationsCollectionItemPrim
- ) .SequenceCode.It
+ )
  ; // Children
  : Constants
-   @ ( ME_5620C9B40399 // vcm_DefaultOperationOptions
- ) .SequenceCode.It
+   Seq: ( ME_5620C9B40399 // vcm_DefaultOperationOptions
+ )
  ; // Constants
  : Dependencies
-   @ ( ME_5624C4B001B0 // 
+   Seq: ( ME_5624C4B001B0 // 
  ME_5624C4E503B8 // 
  ME_5624C5170081 // 
  ME_5624C51903B5 // 
@@ -6428,7 +6651,7 @@ ref; // ME_462DDCD2827B
  ME_5624CA0F038B // 
  ME_5624CA16034F // 
  ME_462DDCD2827B // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  CONST "finished" false
  CONST "need UC" true
@@ -6436,12 +6659,14 @@ ref; // ME_462DDCD2827B
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\VCM\implementation\Components'
  CONST intf.pas:Path 'common\components\gui\Garant\VCM\implementation\Components\NOT_FINISHED_vcmBaseOperationsCollectionItem.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\VCM\implementation\Components'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'OperationsCollectionItem'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'vcmBaseOperationsCollectionItem'
 
 ref; // ME_4D7A109601C2 TvcmBaseOperationsCollectionItem
 
@@ -6460,12 +6685,14 @@ ref; // ME_4D7A109601C2 TvcmBaseOperationsCollectionItem
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\VCM\implementation\Components'
  CONST intf.pas:Path 'common\components\gui\Garant\VCM\implementation\Components\NOT_FINISHED_vcmEntitiesCollectionItemEntity.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\VCM\implementation\Components'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'EntitiesCollectionItemEntity'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'vcmEntitiesCollectionItemEntity'
 
 ref; // ME_55D33EF20068 TvcmEntitiesCollectionItemEntity
 
@@ -6484,12 +6711,14 @@ ref; // ME_55D33EF20068 TvcmEntitiesCollectionItemEntity
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\VCM\implementation\Components'
  CONST intf.pas:Path 'common\components\gui\Garant\VCM\implementation\Components\NOT_FINISHED_vcmControlsCollectionItem.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\VCM\implementation\Components'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'ControlsCollectionItem'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'vcmControlsCollectionItem'
 
 ref; // ME_55D3528A022B TvcmControlsCollectionItem
 
@@ -6508,12 +6737,14 @@ ref; // ME_55D3528A022B TvcmControlsCollectionItem
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\VCM\implementation\Components'
  CONST intf.pas:Path 'common\components\gui\Garant\VCM\implementation\Components\NOT_FINISHED_vcmOperationsCollectionItem.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\VCM\implementation\Components'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'OperationsCollectionItem'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'vcmOperationsCollectionItem'
 
 ref; // ME_5603F60C018E TvcmOperationsCollectionItem
 
@@ -6545,27 +6776,29 @@ ref; // ME_5603F6AF0121 ItemType
  : Parent ME_4AB34028023E // Components
  ;
  : Inherits
-   @ ( WL 'ME_4A54DD4E036F' '47913B47006E.pas.ms.script' // Tl3ProtoDataContainer
- ) .SequenceCode.It
+   Seq: ( WL 'ME_4A54DD4E036F' '47913B47006E.pas.ms.script' // Tl3ProtoDataContainer
+ )
  ; // Inherits
  : Implements
-   @ ( WL 'ME_47B57B7800A7' '47913B47006E.pas.ms.script' // l3ObjectPtrList
- ) .SequenceCode.It
+   Seq: ( WL 'ME_47B57B7800A7' '47913B47006E.pas.ms.script' // l3ObjectPtrList
+ )
  ; // Implements
  : Attributes
-   @ ( ME_5603F6AF0121 // ItemType
- ) .SequenceCode.It
+   Seq: ( ME_5603F6AF0121 // ItemType
+ )
  ; // Attributes
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\VCM\implementation\Components'
  CONST intf.pas:Path 'common\components\gui\Garant\VCM\implementation\Components\vcmOperationsCollectionItemList.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\VCM\implementation\Components'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'OperationsCollectionItemList'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'vcmOperationsCollectionItemList'
 
 ref; // ME_5603F69F0035 TvcmOperationsCollectionItemList
 
@@ -6584,12 +6817,14 @@ ref; // ME_5603F69F0035 TvcmOperationsCollectionItemList
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\VCM\implementation\Components'
  CONST intf.pas:Path 'common\components\gui\Garant\VCM\implementation\Components\NOT_FINISHED_vcmEntitiesCollectionItem.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\VCM\implementation\Components'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'EntitiesCollectionItem'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'vcmEntitiesCollectionItem'
 
 ref; // ME_560419D10368 TvcmEntitiesCollectionItem
 
@@ -6621,27 +6856,29 @@ ref; // ME_56040A8B036C ItemType
  : Parent ME_4AB34028023E // Components
  ;
  : Inherits
-   @ ( WL 'ME_4A54DD4E036F' '47913B47006E.pas.ms.script' // Tl3ProtoDataContainer
- ) .SequenceCode.It
+   Seq: ( WL 'ME_4A54DD4E036F' '47913B47006E.pas.ms.script' // Tl3ProtoDataContainer
+ )
  ; // Inherits
  : Implements
-   @ ( WL 'ME_47B57B7800A7' '47913B47006E.pas.ms.script' // l3ObjectPtrList
- ) .SequenceCode.It
+   Seq: ( WL 'ME_47B57B7800A7' '47913B47006E.pas.ms.script' // l3ObjectPtrList
+ )
  ; // Implements
  : Attributes
-   @ ( ME_56040A8B036C // ItemType
- ) .SequenceCode.It
+   Seq: ( ME_56040A8B036C // ItemType
+ )
  ; // Attributes
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\VCM\implementation\Components'
  CONST intf.pas:Path 'common\components\gui\Garant\VCM\implementation\Components\vcmEntitiesCollectionItemList.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\VCM\implementation\Components'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'EntitiesCollectionItemList'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'vcmEntitiesCollectionItemList'
 
 ref; // ME_56040A5B022E TvcmEntitiesCollectionItemList
 
@@ -6660,12 +6897,14 @@ ref; // ME_56040A5B022E TvcmEntitiesCollectionItemList
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\VCM\implementation\Components'
  CONST intf.pas:Path 'common\components\gui\Garant\VCM\implementation\Components\NOT_FINISHED_vcmEntities.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\VCM\implementation\Components'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'Entities'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'vcmEntities'
 
 ref; // ME_560AC98C026A TvcmEntities
 
@@ -6704,9 +6943,9 @@ ref; // ME_560A9E4801BD aGetTarget
  : Target ME_4DDBBD1103C3 // TvcmBaseEntitiesCollectionItem
  ;
  : Parameters
-   @ ( ME_560A9E48019F // anEntity
+   Seq: ( ME_560A9E48019F // anEntity
  ME_560A9E4801BD // aGetTarget
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_560A9E41022F DoIt
@@ -6723,8 +6962,8 @@ ref; // ME_560A9E41022F DoIt
  : Parent ME_52A72E6B00B1 // TvcmBaseEntitiesCollection
  ;
  : Operations
-   @ ( ME_560A9E41022F // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_560A9E41022F // DoIt
+ )
  ; // Operations
 
 ref; // ME_560A9E3700DF PublishFormEntity
@@ -6750,8 +6989,8 @@ ref; // ME_560A9E6E00A8 anEntity
  : Parent ME_560A9E5C0285 // GroupItemsInContextMenu
  ;
  : Parameters
-   @ ( ME_560A9E6E00A8 // anEntity
- ) .SequenceCode.It
+   Seq: ( ME_560A9E6E00A8 // anEntity
+ )
  ; // Parameters
 
 ref; // ME_560A9E6A00D7 DoIt
@@ -6767,8 +7006,8 @@ ref; // ME_560A9E6A00D7 DoIt
  : Parent ME_52A72E6B00B1 // TvcmBaseEntitiesCollection
  ;
  : Operations
-   @ ( ME_560A9E6A00D7 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_560A9E6A00D7 // DoIt
+ )
  ; // Operations
 
 ref; // ME_560A9E5C0285 GroupItemsInContextMenu
@@ -6794,8 +7033,8 @@ ref; // ME_560A9E880343 anEntity
  : Parent ME_560A9E7F00B4 // ToolbarAtBottom
  ;
  : Parameters
-   @ ( ME_560A9E880343 // anEntity
- ) .SequenceCode.It
+   Seq: ( ME_560A9E880343 // anEntity
+ )
  ; // Parameters
 
 ref; // ME_560A9E85033D DoIt
@@ -6811,8 +7050,8 @@ ref; // ME_560A9E85033D DoIt
  : Parent ME_52A72E6B00B1 // TvcmBaseEntitiesCollection
  ;
  : Operations
-   @ ( ME_560A9E85033D // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_560A9E85033D // DoIt
+ )
  ; // Operations
 
 ref; // ME_560A9E7F00B4 ToolbarAtBottom
@@ -6848,9 +7087,9 @@ ref; // ME_560A9EAB0067 aWeight
  : Parent ME_560A9E9E005D // ContextMenuWeight$1
  ;
  : Parameters
-   @ ( ME_560A9EAB0053 // anEntity
+   Seq: ( ME_560A9EAB0053 // anEntity
  ME_560A9EAB0067 // aWeight
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_560A9EA602A2 DoIt
@@ -6867,8 +7106,8 @@ ref; // ME_560A9EA602A2 DoIt
  : Parent ME_52A72E6B00B1 // TvcmBaseEntitiesCollection
  ;
  : Operations
-   @ ( ME_560A9EA602A2 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_560A9EA602A2 // DoIt
+ )
  ; // Operations
 
 ref; // ME_560A9E9E005D ContextMenuWeight$1
@@ -6915,6 +7154,7 @@ ref; // ME_560A9ED300FB aWeight
  CONST Value false
  : ValueType WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
+ CONST extprop:pas:Value false
 
 ref; // ME_560A9ED30141 aNoPrefix
 
@@ -6927,11 +7167,11 @@ ref; // ME_560A9ED30141 aNoPrefix
  : Parent ME_560A9EC5026F // ContextMenuWeight$2
  ;
  : Parameters
-   @ ( ME_560A9ED300AB // anEntity
+   Seq: ( ME_560A9ED300AB // anEntity
  ME_560A9ED300C9 // anOperation
  ME_560A9ED300FB // aWeight
  ME_560A9ED30141 // aNoPrefix
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_560A9ECC03AD DoIt
@@ -6948,8 +7188,8 @@ ref; // ME_560A9ECC03AD DoIt
  : Parent ME_52A72E6B00B1 // TvcmBaseEntitiesCollection
  ;
  : Operations
-   @ ( ME_560A9ECC03AD // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_560A9ECC03AD // DoIt
+ )
  ; // Operations
 
 ref; // ME_560A9EC5026F ContextMenuWeight$2
@@ -7016,6 +7256,7 @@ ref; // ME_560A9F650001 aGetState
  CONST Value false
  : ValueType WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
+ CONST extprop:pas:Value false
 
 ref; // ME_560A9F65003F aNoPrefix
 
@@ -7028,13 +7269,13 @@ ref; // ME_560A9F65003F aNoPrefix
  : Parent ME_560A9F53006F // PublishOpWithResult
  ;
  : Parameters
-   @ ( ME_560A9F640349 // anEntity
+   Seq: ( ME_560A9F640349 // anEntity
  ME_560A9F640367 // anOperation
  ME_560A9F64037B // anExecute
  ME_560A9F6403A3 // aTest
  ME_560A9F650001 // aGetState
  ME_560A9F65003F // aNoPrefix
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_560A9F5A0180 DoIt
@@ -7051,8 +7292,8 @@ ref; // ME_560A9F5A0180 DoIt
  : Parent ME_52A72E6B00B1 // TvcmBaseEntitiesCollection
  ;
  : Operations
-   @ ( ME_560A9F5A0180 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_560A9F5A0180 // DoIt
+ )
  ; // Operations
 
 ref; // ME_560A9F53006F PublishOpWithResult
@@ -7089,6 +7330,7 @@ ref; // ME_560A9F96009B anOperation
  CONST Value false
  : ValueType WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
+ CONST extprop:pas:Value false
 
 ref; // ME_560A9F9600AF aNoPrefix
 
@@ -7103,10 +7345,10 @@ ref; // ME_560A9F9600AF aNoPrefix
  : Target ME_4D7A109601C2 // TvcmBaseOperationsCollectionItem
  ;
  : Parameters
-   @ ( ME_560A9F960087 // anEntity
+   Seq: ( ME_560A9F960087 // anEntity
  ME_560A9F96009B // anOperation
  ME_560A9F9600AF // aNoPrefix
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_560A9F8D00B6 DoIt
@@ -7122,8 +7364,8 @@ ref; // ME_560A9F8D00B6 DoIt
  : Parent ME_52A72E6B00B1 // TvcmBaseEntitiesCollection
  ;
  : Operations
-   @ ( ME_560A9F8D00B6 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_560A9F8D00B6 // DoIt
+ )
  ; // Operations
 
 ref; // ME_560A9F87021C GetOperationByName
@@ -7170,6 +7412,7 @@ ref; // ME_560A9FE301EE aValue
  CONST Value false
  : ValueType WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
+ CONST extprop:pas:Value false
 
 ref; // ME_560A9FE30202 aNoPrefix
 
@@ -7182,11 +7425,11 @@ ref; // ME_560A9FE30202 aNoPrefix
  : Parent ME_560A9FD5004C // ShowInContextMenu
  ;
  : Parameters
-   @ ( ME_560A9FE301C6 // anEntity
+   Seq: ( ME_560A9FE301C6 // anEntity
  ME_560A9FE301DA // anOperation
  ME_560A9FE301EE // aValue
  ME_560A9FE30202 // aNoPrefix
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_560A9FDA03E0 DoIt
@@ -7202,8 +7445,8 @@ ref; // ME_560A9FDA03E0 DoIt
  : Parent ME_52A72E6B00B1 // TvcmBaseEntitiesCollection
  ;
  : Operations
-   @ ( ME_560A9FDA03E0 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_560A9FDA03E0 // DoIt
+ )
  ; // Operations
 
 ref; // ME_560A9FD5004C ShowInContextMenu
@@ -7250,6 +7493,7 @@ ref; // ME_560AA010028B aValue
  CONST Value false
  : ValueType WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
+ CONST extprop:pas:Value false
 
 ref; // ME_560AA01002A9 aNoPrefix
 
@@ -7262,11 +7506,11 @@ ref; // ME_560AA01002A9 aNoPrefix
  : Parent ME_560AA00103A8 // ShowInToolbar
  ;
  : Parameters
-   @ ( ME_560AA0100263 // anEntity
+   Seq: ( ME_560AA0100263 // anEntity
  ME_560AA0100277 // anOperation
  ME_560AA010028B // aValue
  ME_560AA01002A9 // aNoPrefix
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_560AA0080042 DoIt
@@ -7282,8 +7526,8 @@ ref; // ME_560AA0080042 DoIt
  : Parent ME_52A72E6B00B1 // TvcmBaseEntitiesCollection
  ;
  : Operations
-   @ ( ME_560AA0080042 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_560AA0080042 // DoIt
+ )
  ; // Operations
 
 ref; // ME_560AA00103A8 ShowInToolbar
@@ -7311,8 +7555,8 @@ ref; // ME_560AA03B0347 anEntity
  : Target ME_4DDBBD1103C3 // TvcmBaseEntitiesCollectionItem
  ;
  : Parameters
-   @ ( ME_560AA03B0347 // anEntity
- ) .SequenceCode.It
+   Seq: ( ME_560AA03B0347 // anEntity
+ )
  ; // Parameters
 
 ref; // ME_560AA03800B4 DoIt
@@ -7328,8 +7572,8 @@ ref; // ME_560AA03800B4 DoIt
  : Parent ME_52A72E6B00B1 // TvcmBaseEntitiesCollection
  ;
  : Operations
-   @ ( ME_560AA03800B4 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_560AA03800B4 // DoIt
+ )
  ; // Operations
 
 ref; // ME_560AA031026A CheckEntityForControl
@@ -7355,8 +7599,8 @@ ref; // ME_560AA06D0277 aList
  : Parent ME_560AA05F01E7 // GetEntitiesDef
  ;
  : Parameters
-   @ ( ME_560AA06D0277 // aList
- ) .SequenceCode.It
+   Seq: ( ME_560AA06D0277 // aList
+ )
  ; // Parameters
 
 ref; // ME_560AA06A030B DoIt
@@ -7373,8 +7617,8 @@ ref; // ME_560AA06A030B DoIt
  : Parent ME_52A72E6B00B1 // TvcmBaseEntitiesCollection
  ;
  : Operations
-   @ ( ME_560AA06A030B // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_560AA06A030B // DoIt
+ )
  ; // Operations
 
 ref; // ME_560AA05F01E7 GetEntitiesDef
@@ -7400,8 +7644,8 @@ ref; // ME_560AA09C0312 aControl
  : Parent ME_560AA09401E0 // LinkControl
  ;
  : Parameters
-   @ ( ME_560AA09C0312 // aControl
- ) .SequenceCode.It
+   Seq: ( ME_560AA09C0312 // aControl
+ )
  ; // Parameters
 
 ref; // ME_560AA09A03A8 DoIt
@@ -7417,8 +7661,8 @@ ref; // ME_560AA09A03A8 DoIt
  : Parent ME_52A72E6B00B1 // TvcmBaseEntitiesCollection
  ;
  : Operations
-   @ ( ME_560AA09A03A8 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_560AA09A03A8 // DoIt
+ )
  ; // Operations
 
 ref; // ME_560AA09401E0 LinkControl
@@ -7428,6 +7672,7 @@ FORWARD ME_560AA0B60313
 : ME_E06784506859
  CONST UID 'E06784506859'
  CONST Name 'aControl'
+ CONST IsSummoned true
  CONST Class class_Parameter
  : Stereotype st_in ;
  : Target WL 'ME_479878FA0103' '4AB0997B00A2.pas.ms.script' // TComponent
@@ -7438,14 +7683,15 @@ ref; // ME_E06784506859 aControl
 : ME_E61BE25E8E91
  CONST UID 'E61BE25E8E91'
  CONST Name 'DoIt'
+ CONST IsSummoned true
  CONST Class class_Operation
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
  : Parent ME_560AA0B60313 // UnlinkControl
  ;
  : Parameters
-   @ ( ME_E06784506859 // aControl
- ) .SequenceCode.It
+   Seq: ( ME_E06784506859 // aControl
+ )
  ; // Parameters
 
 ref; // ME_E61BE25E8E91 DoIt
@@ -7461,12 +7707,12 @@ ref; // ME_E61BE25E8E91 DoIt
  : Parent ME_52A72E6B00B1 // TvcmBaseEntitiesCollection
  ;
  : Inherits
-   @ ( ME_560AA09401E0 // LinkControl
- ) .SequenceCode.It
+   Seq: ( ME_560AA09401E0 // LinkControl
+ )
  ; // Inherits
  : Operations
-   @ ( ME_E61BE25E8E91 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_E61BE25E8E91 // DoIt
+ )
  ; // Operations
 
 ref; // ME_560AA0B60313 UnlinkControl
@@ -7476,6 +7722,7 @@ FORWARD ME_560AA0C50016
 : ME_82EDB4627A10
  CONST UID '82EDB4627A10'
  CONST Name 'DoIt'
+ CONST IsSummoned true
  CONST Class class_Operation
  %SUMMARY 'Сигнатура метода RegisterInRep' ;
  CONST Visibility PublicAccess
@@ -7496,8 +7743,8 @@ ref; // ME_82EDB4627A10 DoIt
  : Parent ME_52A72E6B00B1 // TvcmBaseEntitiesCollection
  ;
  : Operations
-   @ ( ME_82EDB4627A10 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_82EDB4627A10 // DoIt
+ )
  ; // Operations
 
 ref; // ME_560AA0C50016 RegisterInRep
@@ -7525,8 +7772,8 @@ ref; // ME_560AA0EC0206 aItem
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
  : Parameters
-   @ ( ME_560AA0EC0206 // aItem
- ) .SequenceCode.It
+   Seq: ( ME_560AA0EC0206 // aItem
+ )
  ; // Parameters
 
 ref; // ME_560AA0E7038C DoIt
@@ -7543,8 +7790,8 @@ ref; // ME_560AA0E7038C DoIt
  : Parent ME_52A72E6B00B1 // TvcmBaseEntitiesCollection
  ;
  : Operations
-   @ ( ME_560AA0E7038C // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_560AA0E7038C // DoIt
+ )
  ; // Operations
 
 ref; // ME_560AA0E20102 IsItemCaptionUnique
@@ -7552,6 +7799,7 @@ ref; // ME_560AA0E20102 IsItemCaptionUnique
 : ME_28E2EF11F713
  CONST UID '28E2EF11F713'
  CONST Name 'Ini_Reg_Class'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Регистрация TvcmBaseEntitiesCollection' ;
@@ -7609,6 +7857,7 @@ ref; // ME_560ADC4E0249
 
 : ME_1FEDD033DA71
  CONST UID '1FEDD033DA71'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_52A72E6B00B1 // TvcmBaseEntitiesCollection
@@ -7625,6 +7874,7 @@ ref; // ME_1FEDD033DA71
  ;
  : Implementor ME_52A72E6B00B1 // TvcmBaseEntitiesCollection
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_476954790060_ME_52A72E6B00B1 PublishEntity
 
 : ME_5607EE71032D_ME_52A72E6B00B1
@@ -7634,6 +7884,7 @@ ref; // ME_476954790060_ME_52A72E6B00B1 PublishEntity
  ;
  : Implementor ME_52A72E6B00B1 // TvcmBaseEntitiesCollection
  ;
+ CONST OpKind opkind_Overridden
  CONST "is static" true
 ref; // ME_5607EE71032D_ME_52A72E6B00B1 GetItemClass
 
@@ -7644,6 +7895,7 @@ ref; // ME_5607EE71032D_ME_52A72E6B00B1 GetItemClass
  ;
  : Implementor ME_52A72E6B00B1 // TvcmBaseEntitiesCollection
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_560A9DA80335_ME_52A72E6B00B1 GetAttrCount
 
 : ME_560A9DCD009D_ME_52A72E6B00B1
@@ -7653,6 +7905,7 @@ ref; // ME_560A9DA80335_ME_52A72E6B00B1 GetAttrCount
  ;
  : Implementor ME_52A72E6B00B1 // TvcmBaseEntitiesCollection
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_560A9DCD009D_ME_52A72E6B00B1 GetAttr
 
 : ME_560A9DEB0155_ME_52A72E6B00B1
@@ -7662,6 +7915,7 @@ ref; // ME_560A9DCD009D_ME_52A72E6B00B1 GetAttr
  ;
  : Implementor ME_52A72E6B00B1 // TvcmBaseEntitiesCollection
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_560A9DEB0155_ME_52A72E6B00B1 GetItemAttr
 
 : ME_52A72E6B00B1
@@ -7675,15 +7929,15 @@ ref; // ME_560A9DEB0155_ME_52A72E6B00B1 GetItemAttr
  : Parent ME_4AB34028023E // Components
  ;
  : Inherits
-   @ ( WL 'ME_4FFC4C800030' '4FFC33380166.pas.ms.script' // TvcmBaseCollection
- ) .SequenceCode.It
+   Seq: ( WL 'ME_4FFC4C800030' '4FFC33380166.pas.ms.script' // TvcmBaseCollection
+ )
  ; // Inherits
  : Implements
-   @ ( WL 'ME_467BABDA0020' '467BAB7F021E.pas.ms.script' // IvcmOperationsPublisher
- ) .SequenceCode.It
+   Seq: ( WL 'ME_467BABDA0020' '467BAB7F021E.pas.ms.script' // IvcmOperationsPublisher
+ )
  ; // Implements
  : Operations
-   @ ( ME_560A9E3700DF // PublishFormEntity
+   Seq: ( ME_560A9E3700DF // PublishFormEntity
  ME_560A9E5C0285 // GroupItemsInContextMenu
  ME_560A9E7F00B4 // ToolbarAtBottom
  ME_560A9E9E005D // ContextMenuWeight$1
@@ -7699,38 +7953,40 @@ ref; // ME_560A9DEB0155_ME_52A72E6B00B1 GetItemAttr
  ME_560AA0C50016 // RegisterInRep
  ME_560AA0E20102 // IsItemCaptionUnique
  ME_28E2EF11F713 // Ini_Reg_Class
- ) .SequenceCode.It
+ )
  ; // Operations
  : Implemented
-   @ ( ME_476954790060_ME_52A72E6B00B1 // PublishEntity
- ) .SequenceCode.It
+   Seq: ( ME_476954790060_ME_52A72E6B00B1 // PublishEntity
+ )
  ; // Implemented
  : Overridden
-   @ ( ME_5607EE71032D_ME_52A72E6B00B1 // GetItemClass
+   Seq: ( ME_5607EE71032D_ME_52A72E6B00B1 // GetItemClass
  ME_560A9DA80335_ME_52A72E6B00B1 // GetAttrCount
  ME_560A9DCD009D_ME_52A72E6B00B1 // GetAttr
  ME_560A9DEB0155_ME_52A72E6B00B1 // GetItemAttr
- ) .SequenceCode.It
+ )
  ; // Overridden
  : Dependencies
-   @ ( ME_560AC8C202CB // 
+   Seq: ( ME_560AC8C202CB // 
  ME_560AC9260166 // 
  ME_560AC9940195 // 
  ME_560ADC4E0249 // 
  ME_1FEDD033DA71 // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  CONST "need UC" true
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\VCM\implementation\Components'
  CONST intf.pas:Path 'common\components\gui\Garant\VCM\implementation\Components\vcmBaseEntitiesCollection.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\VCM\implementation\Components'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'EntitiesCollection'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'vcmBaseEntitiesCollection'
 
 ref; // ME_52A72E6B00B1 TvcmBaseEntitiesCollection
 
@@ -7771,6 +8027,7 @@ ref; // ME_560815340395 Entities
 : ME_CC2629305952
  CONST UID 'CC2629305952'
  CONST Name 'f_Entities'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY 'Поле для свойства Entities' ;
  CONST Visibility PrivateAccess
@@ -7780,6 +8037,7 @@ ref; // ME_560815340395 Entities
  ;
  : Target ME_52A72E6B00B1 // TvcmBaseEntitiesCollection
  ;
+ CONST extprop:clearViaProperty 'Entities'
 
 ref; // ME_CC2629305952 f_Entities
 
@@ -7809,8 +8067,8 @@ ref; // ME_52A1ED9A0104 DoIt
  : Parent ME_52A1EA2A0184 // TvcmBaseEntities
  ;
  : Operations
-   @ ( ME_52A1ED9A0104 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_52A1ED9A0104 // DoIt
+ )
  ; // Operations
  CONST "is static" true
 
@@ -7839,8 +8097,8 @@ ref; // ME_5608159E0273 aName
  : Target ME_4DDBBD1103C3 // TvcmBaseEntitiesCollectionItem
  ;
  : Parameters
-   @ ( ME_5608159E0273 // aName
- ) .SequenceCode.It
+   Seq: ( ME_5608159E0273 // aName
+ )
  ; // Parameters
 
 ref; // ME_5608159C0077 DoIt
@@ -7856,8 +8114,8 @@ ref; // ME_5608159C0077 DoIt
  : Parent ME_52A1EA2A0184 // TvcmBaseEntities
  ;
  : Operations
-   @ ( ME_5608159C0077 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_5608159C0077 // DoIt
+ )
  ; // Operations
 
 ref; // ME_560815920320 GetItemByName
@@ -7867,6 +8125,7 @@ FORWARD ME_560815A70133
 : ME_C79484DB655A
  CONST UID 'C79484DB655A'
  CONST Name 'DoIt'
+ CONST IsSummoned true
  CONST Class class_Operation
  %SUMMARY 'Сигнатура метода LinkControls' ;
  CONST Visibility PublicAccess
@@ -7887,8 +8146,8 @@ ref; // ME_C79484DB655A DoIt
  : Parent ME_52A1EA2A0184 // TvcmBaseEntities
  ;
  : Operations
-   @ ( ME_C79484DB655A // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_C79484DB655A // DoIt
+ )
  ; // Operations
 
 ref; // ME_560815A70133 LinkControls
@@ -7898,6 +8157,7 @@ FORWARD ME_560815B2001B
 : ME_4618F4897B97
  CONST UID '4618F4897B97'
  CONST Name 'DoIt'
+ CONST IsSummoned true
  CONST Class class_Operation
  %SUMMARY 'Сигнатура метода UnlinkControls' ;
  CONST Visibility PublicAccess
@@ -7918,8 +8178,8 @@ ref; // ME_4618F4897B97 DoIt
  : Parent ME_52A1EA2A0184 // TvcmBaseEntities
  ;
  : Operations
-   @ ( ME_4618F4897B97 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_4618F4897B97 // DoIt
+ )
  ; // Operations
 
 ref; // ME_560815B2001B UnlinkControls
@@ -7945,8 +8205,8 @@ ref; // ME_560815C602D6 aList
  : Parent ME_560815BD02F4 // GetEntitiesDef
  ;
  : Parameters
-   @ ( ME_560815C602D6 // aList
- ) .SequenceCode.It
+   Seq: ( ME_560815C602D6 // aList
+ )
  ; // Parameters
 
 ref; // ME_560815C40312 DoIt
@@ -7962,8 +8222,8 @@ ref; // ME_560815C40312 DoIt
  : Parent ME_52A1EA2A0184 // TvcmBaseEntities
  ;
  : Operations
-   @ ( ME_560815C40312 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_560815C40312 // DoIt
+ )
  ; // Operations
 
 ref; // ME_560815BD02F4 GetEntitiesDef
@@ -8001,9 +8261,9 @@ ref; // ME_560815E7002F anOperation
  : Target ME_4D7A109601C2 // TvcmBaseOperationsCollectionItem
  ;
  : Parameters
-   @ ( ME_560815E70011 // anEntity
+   Seq: ( ME_560815E70011 // anEntity
  ME_560815E7002F // anOperation
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_560815E003C7 DoIt
@@ -8019,8 +8279,8 @@ ref; // ME_560815E003C7 DoIt
  : Parent ME_52A1EA2A0184 // TvcmBaseEntities
  ;
  : Operations
-   @ ( ME_560815E003C7 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_560815E003C7 // DoIt
+ )
  ; // Operations
 
 ref; // ME_560815DA00A6 GetOperationByName
@@ -8056,9 +8316,9 @@ ref; // ME_560815FE01A9 anEvent
  : Parent ME_560815F40305 // SetTargetGetter
  ;
  : Parameters
-   @ ( ME_560815FE016D // anEntity
+   Seq: ( ME_560815FE016D // anEntity
  ME_560815FE01A9 // anEvent
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_560815FB01B3 DoIt
@@ -8074,8 +8334,8 @@ ref; // ME_560815FB01B3 DoIt
  : Parent ME_52A1EA2A0184 // TvcmBaseEntities
  ;
  : Operations
-   @ ( ME_560815FB01B3 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_560815FB01B3 // DoIt
+ )
  ; // Operations
 
 ref; // ME_560815F40305 SetTargetGetter
@@ -8111,9 +8371,9 @@ ref; // ME_560816190131 aControl
  : Parent ME_5608160F00E1 // MakeSupportedByControl
  ;
  : Parameters
-   @ ( ME_5608161900F5 // anEntity
+   Seq: ( ME_5608161900F5 // anEntity
  ME_560816190131 // aControl
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_5608161500E9 DoIt
@@ -8129,8 +8389,8 @@ ref; // ME_5608161500E9 DoIt
  : Parent ME_52A1EA2A0184 // TvcmBaseEntities
  ;
  : Operations
-   @ ( ME_5608161500E9 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_5608161500E9 // DoIt
+ )
  ; // Operations
 
 ref; // ME_5608160F00E1 MakeSupportedByControl
@@ -8138,6 +8398,7 @@ ref; // ME_5608160F00E1 MakeSupportedByControl
 : ME_56A6B7F8E5B9
  CONST UID '56A6B7F8E5B9'
  CONST Name 'EntitiesStored'
+ CONST IsSummoned true
  CONST Class class_Operation
  %SUMMARY '"Функция определяющая, что свойство Entities сохраняется"' ;
  CONST Visibility ProtectedAccess
@@ -8178,6 +8439,7 @@ ref; // ME_5608262D021F
  ;
  : Implementor ME_52A1EA2A0184 // TvcmBaseEntities
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_479731C50290_ME_52A1EA2A0184 Cleanup
 
 : ME_47D1602000C6_ME_52A1EA2A0184
@@ -8187,6 +8449,7 @@ ref; // ME_479731C50290_ME_52A1EA2A0184 Cleanup
  ;
  : Implementor ME_52A1EA2A0184 // TvcmBaseEntities
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_47D1602000C6_ME_52A1EA2A0184 Create
 
 : ME_4F884378016A_ME_52A1EA2A0184
@@ -8196,6 +8459,7 @@ ref; // ME_47D1602000C6_ME_52A1EA2A0184 Create
  ;
  : Implementor ME_52A1EA2A0184 // TvcmBaseEntities
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4F884378016A_ME_52A1EA2A0184 Notification
 
 : ME_52A1EA2A0184
@@ -8210,17 +8474,17 @@ ref; // ME_4F884378016A_ME_52A1EA2A0184 Notification
  : Parent ME_4AB34028023E // Components
  ;
  : Inherits
-   @ ( ME_52A1EA6801B0 // TvcmComponent
- ) .SequenceCode.It
+   Seq: ( ME_52A1EA6801B0 // TvcmComponent
+ )
  ; // Inherits
  : Attributes
-   @ ( ME_5608151A02D6 // f_Linked
+   Seq: ( ME_5608151A02D6 // f_Linked
  ME_560815340395 // Entities
  ME_CC2629305952 // f_Entities
- ) .SequenceCode.It
+ )
  ; // Attributes
  : Operations
-   @ ( ME_52A1ED12039D // GetEntitiesCollectionClass
+   Seq: ( ME_52A1ED12039D // GetEntitiesCollectionClass
  ME_560815920320 // GetItemByName
  ME_560815A70133 // LinkControls
  ME_560815B2001B // UnlinkControls
@@ -8229,29 +8493,31 @@ ref; // ME_4F884378016A_ME_52A1EA2A0184 Notification
  ME_560815F40305 // SetTargetGetter
  ME_5608160F00E1 // MakeSupportedByControl
  ME_56A6B7F8E5B9 // EntitiesStored
- ) .SequenceCode.It
+ )
  ; // Operations
  : Overridden
-   @ ( ME_479731C50290_ME_52A1EA2A0184 // Cleanup
+   Seq: ( ME_479731C50290_ME_52A1EA2A0184 // Cleanup
  ME_47D1602000C6_ME_52A1EA2A0184 // Create
  ME_4F884378016A_ME_52A1EA2A0184 // Notification
- ) .SequenceCode.It
+ )
  ; // Overridden
  : Dependencies
-   @ ( ME_5608262A01D0 // 
+   Seq: ( ME_5608262A01D0 // 
  ME_5608262D021F // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\VCM\implementation\Components'
  CONST intf.pas:Path 'common\components\gui\Garant\VCM\implementation\Components\vcmBaseEntities.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\VCM\implementation\Components'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'Entities'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'vcmBaseEntities'
 
 ref; // ME_52A1EA2A0184 TvcmBaseEntities
 
@@ -8271,12 +8537,19 @@ FORWARD ME_4E3012700155
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
+ CONST dfm:PathOnly '\common\components\gui\Garant\VCM\implementation\Components'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\VCM\implementation\Components'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'FormActivate'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_52A1D70F0135 TvcmFormActivate
 
 : ME_3040B3F2243E
  CONST UID '3040B3F2243E'
  CONST Name 'Ini_Reg_Class'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Регистрация TvcmRepOperationsCollectionItem' ;
@@ -8290,6 +8563,7 @@ ref; // ME_3040B3F2243E Ini_Reg_Class
 
 : ME_8E95020AC76B
  CONST UID '8E95020AC76B'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_4E3012700155 // TvcmRepOperationsCollectionItem
@@ -8310,32 +8584,34 @@ ref; // ME_8E95020AC76B
  : Parent ME_4AB34028023E // Components
  ;
  : Inherits
-   @ ( ME_4D7A109601C2 // TvcmBaseOperationsCollectionItem
- ) .SequenceCode.It
+   Seq: ( ME_4D7A109601C2 // TvcmBaseOperationsCollectionItem
+ )
  ; // Inherits
  : Operations
-   @ ( ME_3040B3F2243E // Ini_Reg_Class
- ) .SequenceCode.It
+   Seq: ( ME_3040B3F2243E // Ini_Reg_Class
+ )
  ; // Operations
  : Children
-   @ ( ME_52A1D70F0135 // TvcmFormActivate
- ) .SequenceCode.It
+   Seq: ( ME_52A1D70F0135 // TvcmFormActivate
+ )
  ; // Children
  : Dependencies
-   @ ( ME_8E95020AC76B // 
- ) .SequenceCode.It
+   Seq: ( ME_8E95020AC76B // 
+ )
  ; // Dependencies
  CONST "finished" false
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\VCM\implementation\Components'
  CONST intf.pas:Path 'common\components\gui\Garant\VCM\implementation\Components\NOT_FINISHED_vcmRepOperationsCollectionItem.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\VCM\implementation\Components'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'RepOperationsCollectionItem'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'vcmRepOperationsCollectionItem'
 
 ref; // ME_4E3012700155 TvcmRepOperationsCollectionItem
 
@@ -8354,12 +8630,14 @@ ref; // ME_4E3012700155 TvcmRepOperationsCollectionItem
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\VCM\implementation\Components'
  CONST intf.pas:Path 'common\components\gui\Garant\VCM\implementation\Components\NOT_FINISHED_vcmActiveControlsCollectionItem.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\VCM\implementation\Components'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'ActiveControlsCollectionItem'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'vcmActiveControlsCollectionItem'
 
 ref; // ME_5624C95902C8 TvcmActiveControlsCollectionItem
 
@@ -8373,7 +8651,7 @@ ref; // ME_5624C95902C8 TvcmActiveControlsCollectionItem
  : Parent WL 'ME_4790C3B8021E' '4790C3B8021E.pas.ms.script' // VCM
  ;
  : Children
-   @ ( ME_4AB34044026A // TvcmModulesCollection
+   Seq: ( ME_4AB34044026A // TvcmModulesCollection
  ME_4AB3405E0326 // TvcmRepEntitiesCollection
  ME_4C77C99500F6 // TvcmBaseOperationState
  ME_5620D0B90294 // TvcmOperationParams
@@ -8409,10 +8687,10 @@ ref; // ME_5624C95902C8 TvcmActiveControlsCollectionItem
  ME_52A1EA2A0184 // TvcmBaseEntities
  ME_4E3012700155 // TvcmRepOperationsCollectionItem
  ME_5624C95902C8 // TvcmActiveControlsCollectionItem
- ) .SequenceCode.It
+ )
  ; // Children
  : Depends
-   @ ( WL 'ME_4678193C009C' '4678193C009C.pas.ms.script' // l3Types
+   Seq: ( WL 'ME_4678193C009C' '4678193C009C.pas.ms.script' // l3Types
  WL 'ME_467BAB7F021E' '467BAB7F021E.pas.ms.script' // vcmExternalInterfaces
  WL 'ME_4683F37902CF' '4683F37902CF.pas.ms.script' // vcmInterfaces
  WL 'ME_474144E20301' '474144E20301.pas.ms.script' // Draw
@@ -8434,16 +8712,14 @@ ref; // ME_5624C95902C8 TvcmActiveControlsCollectionItem
  WL 'ME_5028898902A2' '5028898902A2.pas.ms.script' // tb97utils
  WL 'ME_52A0859B00E2' '52A0859B00E2.pas.ms.script' // Buttons
  WL 'ME_561F9F7D02A7' '561F9F7D02A7.pas.ms.script' // ScriptEngine
- ) .SequenceCode.It
+ )
  ; // Depends
  CONST "path prefix" '/implementation/Components'
- : Generators
- @ (
- gen_pas.script
- gen_pas.script.runner
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\VCM\implementation\Components'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\VCM\implementation\Components'
  CONST pas.script:Path 'shared\models\NewSchool\Scripts\4AB34028023E.pas.ms.script'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
  CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\4AB34028023E.pas.ms.script.runner'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_4AB34028023E Components

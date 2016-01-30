@@ -6,11 +6,14 @@ FORWARD ME_54F5915202B8
 
 FORWARD ME_54F591820236
 
+FORWARD ME_E4C21D0E4E3C
+
 FORWARD ME_C746DA0CF72F
 
 : ME_ED29CC7FDCF7
  CONST UID 'ED29CC7FDCF7'
  CONST Name 'aCtx'
+ CONST IsSummoned true
  CONST Class class_Parameter
  : Stereotype st_in ;
  : Target WL 'ME_4DB0091E033E' '4DAF19F600C5.pas.ms.script' // TtfwContext
@@ -21,6 +24,7 @@ ref; // ME_ED29CC7FDCF7 aCtx
 : ME_ED29CC7FDCF8
  CONST UID 'ED29CC7FDCF8'
  CONST Name 'aTB97Button'
+ CONST IsSummoned true
  CONST Class class_Parameter
  : Stereotype st_in ;
  : Target WL 'ME_4F69EF8C027C' '4C43E8750153.pas.ms.script' // TCustomToolbarButton97
@@ -31,6 +35,7 @@ ref; // ME_ED29CC7FDCF8 aTB97Button
 : ME_5E37302039D5
  CONST UID '5E37302039D5'
  CONST Name 'Down'
+ CONST IsSummoned true
  CONST Class class_Operation
  %SUMMARY 'Реализация слова скрипта pop:TB97Button:Down' ;
  CONST Visibility PrivateAccess
@@ -40,9 +45,9 @@ ref; // ME_ED29CC7FDCF8 aTB97Button
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
  : Parameters
-   @ ( ME_ED29CC7FDCF7 // aCtx
+   Seq: ( ME_ED29CC7FDCF7 // aCtx
  ME_ED29CC7FDCF8 // aTB97Button
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_5E37302039D5 Down
@@ -50,6 +55,7 @@ ref; // ME_5E37302039D5 Down
 : ME_C1CA80A45137
  CONST UID 'C1CA80A45137'
  CONST Name 'Ini_Reg'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Регистрация pop_TB97Button_Down' ;
@@ -62,6 +68,7 @@ ref; // ME_C1CA80A45137 Ini_Reg
 
 : ME_3DAC3C1E5ECB
  CONST UID '3DAC3C1E5ECB'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_C746DA0CF72F // pop_TB97Button_Down
@@ -73,6 +80,7 @@ ref; // ME_3DAC3C1E5ECB
 
 : ME_BCBCD1EA415B
  CONST UID 'BCBCD1EA415B'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_C746DA0CF72F // pop_TB97Button_Down
@@ -84,6 +92,7 @@ ref; // ME_BCBCD1EA415B
 
 : ME_BC295C669A4B
  CONST UID 'BC295C669A4B'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_C746DA0CF72F // pop_TB97Button_Down
@@ -100,6 +109,7 @@ ref; // ME_BC295C669A4B
  ;
  : Implementor ME_C746DA0CF72F // pop_TB97Button_Down
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_4DAEEDE10285_ME_C746DA0CF72F DoDoIt
 
 : ME_4DB0614603C8_ME_C746DA0CF72F
@@ -109,6 +119,7 @@ ref; // ME_4DAEEDE10285_ME_C746DA0CF72F DoDoIt
  ;
  : Implementor ME_C746DA0CF72F // pop_TB97Button_Down
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4DB0614603C8_ME_C746DA0CF72F GetWordNameForRegister
 
 : ME_52D00B00031A_ME_C746DA0CF72F
@@ -118,6 +129,7 @@ ref; // ME_4DB0614603C8_ME_C746DA0CF72F GetWordNameForRegister
  ;
  : Implementor ME_C746DA0CF72F // pop_TB97Button_Down
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_52D00B00031A_ME_C746DA0CF72F SetValuePrim
 
 : ME_551544E2001A_ME_C746DA0CF72F
@@ -127,6 +139,7 @@ ref; // ME_52D00B00031A_ME_C746DA0CF72F SetValuePrim
  ;
  : Implementor ME_C746DA0CF72F // pop_TB97Button_Down
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_551544E2001A_ME_C746DA0CF72F GetResultTypeInfo
 
 : ME_559687E6025A_ME_C746DA0CF72F
@@ -136,6 +149,7 @@ ref; // ME_551544E2001A_ME_C746DA0CF72F GetResultTypeInfo
  ;
  : Implementor ME_C746DA0CF72F // pop_TB97Button_Down
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_559687E6025A_ME_C746DA0CF72F GetAllParamsCount
 
 : ME_5617F4D00243_ME_C746DA0CF72F
@@ -145,11 +159,13 @@ ref; // ME_559687E6025A_ME_C746DA0CF72F GetAllParamsCount
  ;
  : Implementor ME_C746DA0CF72F // pop_TB97Button_Down
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_5617F4D00243_ME_C746DA0CF72F ParamsTypes
 
 : ME_C746DA0CF72F
  CONST UID 'C746DA0CF72F'
  CONST Name 'pop_TB97Button_Down'
+ CONST IsSummoned true
  CONST Class class_Class
  : Stereotype st_ScriptKeyword ;
  CONST Kind kind_NormalClass
@@ -159,38 +175,46 @@ ref; // ME_5617F4D00243_ME_C746DA0CF72F ParamsTypes
  : Parent ME_54F591820236 // tb97WordsPack
  ;
  : Inherits
-   @ ( WL 'ME_5619169603BE' '55CCADD2013D.pas.ms.script' // TtfwPropertyLike
- ) .SequenceCode.It
+   Seq: ( WL 'ME_5619169603BE' '55CCADD2013D.pas.ms.script' // TtfwPropertyLike
+ )
  ; // Inherits
  : Operations
-   @ ( ME_5E37302039D5 // Down
+   Seq: ( ME_5E37302039D5 // Down
  ME_C1CA80A45137 // Ini_Reg
- ) .SequenceCode.It
+ )
  ; // Operations
  : Implemented
-   @ ( ME_4DAEEDE10285_ME_C746DA0CF72F // DoDoIt
- ) .SequenceCode.It
+   Seq: ( ME_4DAEEDE10285_ME_C746DA0CF72F // DoDoIt
+ )
  ; // Implemented
  : Overridden
-   @ ( ME_4DB0614603C8_ME_C746DA0CF72F // GetWordNameForRegister
+   Seq: ( ME_4DB0614603C8_ME_C746DA0CF72F // GetWordNameForRegister
  ME_52D00B00031A_ME_C746DA0CF72F // SetValuePrim
  ME_551544E2001A_ME_C746DA0CF72F // GetResultTypeInfo
  ME_559687E6025A_ME_C746DA0CF72F // GetAllParamsCount
  ME_5617F4D00243_ME_C746DA0CF72F // ParamsTypes
- ) .SequenceCode.It
+ )
  ; // Overridden
  : Dependencies
-   @ ( ME_3DAC3C1E5ECB // 
+   Seq: ( ME_3DAC3C1E5ECB // 
  ME_BCBCD1EA415B // 
  ME_BC295C669A4B // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  CONST "NameForScript" 'pop:TB97Button:Down'
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
+ CONST dfm:PathOnly '\common\components\rtl\Garant\ScriptEngine'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\ScriptEngine'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
  CONST extprop:pas:TypeName 'TkwPopTB97ButtonDown'
+ CONST extprop:rc:SelfName 'PopTB97ButtonDown'
+ CONST extprop:rc:isAcceptableForScripts true
+ : SpelledFor ME_E4C21D0E4E3C // Down
+ ;
 
 ref; // ME_C746DA0CF72F pop_TB97Button_Down
 
@@ -213,6 +237,7 @@ ref; // ME_55DB2781018F Down
 : ME_E4C21D0E4E3C
  CONST UID 'E4C21D0E4E3C'
  CONST Name 'Down'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_keyword::Operation ;
  CONST Visibility PublicAccess
@@ -224,12 +249,15 @@ ref; // ME_55DB2781018F Down
  CONST "bind params" 'undefined'
  CONST "lvalue" 'undefined'
  CONST "mapped" true
+ : Speller ME_C746DA0CF72F // pop_TB97Button_Down
+ ;
 
 ref; // ME_E4C21D0E4E3C Down
 
 : ME_8A12DB130B5E
  CONST UID '8A12DB130B5E'
- CONST Name 'Reg_TtfwContext'
+ CONST Name 'Reg_Type_TtfwContext'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Регистрация типа TtfwContext' ;
@@ -237,12 +265,15 @@ ref; // ME_E4C21D0E4E3C Down
  CONST Abstraction at_final
  : Parent ME_54F591820236 // tb97WordsPack
  ;
+ : SpelledFor WL 'ME_4DB0091E033E' '4DAF19F600C5.pas.ms.script' // TtfwContext
+ ;
 
-ref; // ME_8A12DB130B5E Reg_TtfwContext
+ref; // ME_8A12DB130B5E Reg_Type_TtfwContext
 
 : ME_2D1D437EB679
  CONST UID '2D1D437EB679'
- CONST Name 'Reg_TCustomToolbarButton97'
+ CONST Name 'Reg_Type_TCustomToolbarButton97'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Регистрация типа TCustomToolbarButton97' ;
@@ -250,12 +281,15 @@ ref; // ME_8A12DB130B5E Reg_TtfwContext
  CONST Abstraction at_final
  : Parent ME_54F591820236 // tb97WordsPack
  ;
+ : SpelledFor WL 'ME_4F69EF8C027C' '4C43E8750153.pas.ms.script' // TCustomToolbarButton97
+ ;
 
-ref; // ME_2D1D437EB679 Reg_TCustomToolbarButton97
+ref; // ME_2D1D437EB679 Reg_Type_TCustomToolbarButton97
 
 : ME_8AAC0900783C
  CONST UID '8AAC0900783C'
- CONST Name 'Reg_Boolean'
+ CONST Name 'Reg_Type_Boolean'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Регистрация типа Boolean' ;
@@ -263,11 +297,14 @@ ref; // ME_2D1D437EB679 Reg_TCustomToolbarButton97
  CONST Abstraction at_final
  : Parent ME_54F591820236 // tb97WordsPack
  ;
+ : SpelledFor WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
 
-ref; // ME_8AAC0900783C Reg_Boolean
+ref; // ME_8AAC0900783C Reg_Type_Boolean
 
 : ME_D4130F9ED4DD
  CONST UID 'D4130F9ED4DD'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_54F591820236 // tb97WordsPack
@@ -279,6 +316,7 @@ ref; // ME_D4130F9ED4DD
 
 : ME_DAA7456BE524
  CONST UID 'DAA7456BE524'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_injects::Dependency ;
  : Parent ME_54F591820236 // tb97WordsPack
@@ -290,6 +328,7 @@ ref; // ME_DAA7456BE524
 
 : ME_C8D124248A83
  CONST UID 'C8D124248A83'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_54F591820236 // tb97WordsPack
@@ -310,41 +349,40 @@ ref; // ME_C8D124248A83
  : Parent ME_54F5915202B8 // tb97Words
  ;
  : Inherits
-   @ ( WL 'ME_4F69EF8C027C' '4C43E8750153.pas.ms.script' // TCustomToolbarButton97
- ) .SequenceCode.It
+   Seq: ( WL 'ME_4F69EF8C027C' '4C43E8750153.pas.ms.script' // TCustomToolbarButton97
+ )
  ; // Inherits
  : Attributes
-   @ ( ME_55DB2781018F // Down
- ) .SequenceCode.It
+   Seq: ( ME_55DB2781018F // Down
+ )
  ; // Attributes
  : Operations
-   @ ( ME_E4C21D0E4E3C // Down
- ME_8A12DB130B5E // Reg_TtfwContext
- ME_2D1D437EB679 // Reg_TCustomToolbarButton97
- ME_8AAC0900783C // Reg_Boolean
- ) .SequenceCode.It
+   Seq: ( ME_E4C21D0E4E3C // Down
+ ME_8A12DB130B5E // Reg_Type_TtfwContext
+ ME_2D1D437EB679 // Reg_Type_TCustomToolbarButton97
+ ME_8AAC0900783C // Reg_Type_Boolean
+ )
  ; // Operations
  : Children
-   @ ( ME_C746DA0CF72F // pop_TB97Button_Down
- ) .SequenceCode.It
+   Seq: ( ME_C746DA0CF72F // pop_TB97Button_Down
+ )
  ; // Children
  : Dependencies
-   @ ( ME_D4130F9ED4DD // 
+   Seq: ( ME_D4130F9ED4DD // 
  ME_DAA7456BE524 // 
  ME_C8D124248A83 // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  CONST "ifndef" 'NoScripts'
  CONST "needs script" 'undefined'
  CONST "no class name" 'undefined'
  CONST "no hands" false
  CONST "no_pop" 'undefined'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\ScriptEngine'
  CONST intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\tb97WordsPack.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\ScriptEngine'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_54F591820236 tb97WordsPack
 
@@ -358,11 +396,11 @@ ref; // ME_54F591820236 tb97WordsPack
  : Parent WL 'ME_54F5911700DB' '54F5911700DB.pas.ms.script' // ScriptEngine$tb97
  ;
  : Children
-   @ ( ME_54F591820236 // tb97WordsPack
- ) .SequenceCode.It
+   Seq: ( ME_54F591820236 // tb97WordsPack
+ )
  ; // Children
  : Depends
-   @ ( WL 'ME_4767743E00E5' '4767743E00E5.pas.ms.script' // TypInfo
+   Seq: ( WL 'ME_4767743E00E5' '4767743E00E5.pas.ms.script' // TypInfo
  WL 'ME_4AB0C3C60310' '4AB0C3C60310.pas.ms.script' // Sys
  WL 'ME_4C43E8750153' '4C43E8750153.pas.ms.script' // Buttons
  WL 'ME_4DAF19F600C5' '4DAF19F600C5.pas.ms.script' // tfwScriptingInterfaces
@@ -370,16 +408,14 @@ ref; // ME_54F591820236 tb97WordsPack
  WL 'ME_5527F81C020E' '5527F81C020E.pas.ms.script' // TypesRegistration
  WL 'ME_55BA28CE0290' '55BA28CE0290.pas.ms.script' // tfwScriptingTypes
  WL 'ME_55CCADD2013D' '55CCADD2013D.pas.ms.script' // ClassLikeMapping
- ) .SequenceCode.It
+ )
  ; // Depends
  CONST "ifndef" 'NoScripts'
- : Generators
- @ (
- gen_pas.script
- gen_pas.script.runner
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\ScriptEngine'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\ScriptEngine'
  CONST pas.script:Path 'shared\models\NewSchool\Scripts\54F5915202B8.pas.ms.script'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
  CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\54F5915202B8.pas.ms.script.runner'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_54F5915202B8 tb97Words

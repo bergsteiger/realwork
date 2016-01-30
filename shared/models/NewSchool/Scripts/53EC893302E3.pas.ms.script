@@ -1,0 +1,185 @@
+// arInterfaces 53EC893302E3 Interfaces Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_53EC893302E3
+
+FORWARD ME_53EC895B0384
+
+: ME_53EC898D028D
+ CONST UID '53EC898D028D'
+ CONST Name 'aStr'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
+ ;
+
+ref; // ME_53EC898D028D aStr
+
+: ME_53EC898D029C
+ CONST UID '53EC898D029C'
+ CONST Name 'aFormat'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46A449A301E3' '4677FBA70343.pas.ms.script' // Tl3ClipboardFormat
+ ;
+ CONST Value 'cf_Text'
+ : ValueType WL 'ME_46A449A301E3' '4677FBA70343.pas.ms.script' // Tl3ClipboardFormat
+ ;
+ CONST extprop:pas:Value 'cf_Text'
+
+ref; // ME_53EC898D029C aFormat
+
+: ME_53EC896701E5
+ CONST UID '53EC896701E5'
+ CONST Name 'AddString'
+ CONST Class class_Operation
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_53EC895B0384 // IInfoOut
+ ;
+ : Parameters
+   Seq: ( ME_53EC898D028D // aStr
+ ME_53EC898D029C // aFormat
+ )
+ ; // Parameters
+
+ref; // ME_53EC896701E5 AddString
+
+: ME_53EC89920323
+ CONST UID '53EC89920323'
+ CONST Name 'StartData'
+ CONST Class class_Operation
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_53EC895B0384 // IInfoOut
+ ;
+
+ref; // ME_53EC89920323 StartData
+
+: ME_53EC899E0103
+ CONST UID '53EC899E0103'
+ CONST Name 'EndData'
+ CONST Class class_Operation
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_53EC895B0384 // IInfoOut
+ ;
+
+ref; // ME_53EC899E0103 EndData
+
+: ME_53EC895B0384
+ CONST UID '53EC895B0384'
+ CONST GUID '6F7B46BD-A994-43D8-B879-BACC11B55687'
+ CONST Name 'IInfoOut'
+ CONST Class class_Class
+ : Stereotype st_Facet ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_53EC893302E3 // arInterfaces
+ ;
+ : Operations
+   Seq: ( ME_53EC896701E5 // AddString
+ ME_53EC89920323 // StartData
+ ME_53EC899E0103 // EndData
+ )
+ ; // Operations
+ CONST dfm:PathOnly '\archi\source\projects\Archi\Editor'
+ CONST intf.pas:PathOnly '\archi\source\projects\Archi\Editor'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\archi\source\projects\Archi\Editor'
+ CONST extprop:rc:SelfName 'InfoOut'
+ CONST extprop:rc:isAcceptableForScripts true
+
+ref; // ME_53EC895B0384 IInfoOut
+
+FORWARD ME_53EC89AF0157
+
+: ME_53EC89DA00E0
+ CONST UID '53EC89DA00E0'
+ CONST Name 'lInfoOut'
+ CONST Class class_Parameter
+ : Stereotype st_const ;
+ : Target ME_53EC895B0384 // IInfoOut
+ ;
+
+ref; // ME_53EC89DA00E0 lInfoOut
+
+: ME_53EC89CB0048
+ CONST UID '53EC89CB0048'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_53EC89AF0157 // TarFillDocInfo
+ ;
+ : Parameters
+   Seq: ( ME_53EC89DA00E0 // lInfoOut
+ )
+ ; // Parameters
+
+ref; // ME_53EC89CB0048 DoIt
+
+: ME_53EC89AF0157
+ CONST UID '53EC89AF0157'
+ CONST Name 'TarFillDocInfo'
+ CONST Class class_Class
+ : Stereotype st_Function ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_53EC893302E3 // arInterfaces
+ ;
+ : Operations
+   Seq: ( ME_53EC89CB0048 // DoIt
+ )
+ ; // Operations
+ CONST "of object" true
+ CONST dfm:PathOnly '\archi\source\projects\Archi\Editor'
+ CONST intf.pas:PathOnly '\archi\source\projects\Archi\Editor'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\archi\source\projects\Archi\Editor'
+
+ref; // ME_53EC89AF0157 TarFillDocInfo
+
+: ME_53EC893302E3
+ CONST UID '53EC893302E3'
+ CONST Name 'arInterfaces'
+ CONST Class class_Category
+ : Stereotype st_Interfaces ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent WL 'ME_4E004D0B033A' '4E004D0B033A.pas.ms.script' // Editor
+ ;
+ : Children
+   Seq: ( ME_53EC895B0384 // IInfoOut
+ ME_53EC89AF0157 // TarFillDocInfo
+ )
+ ; // Children
+ : Depends
+   Seq: ( WL 'ME_4677FBA70343' '4677FBA70343.pas.ms.script' // l3Interfaces
+ WL 'ME_4AB0C3C60310' '4AB0C3C60310.pas.ms.script' // Sys
+ )
+ ; // Depends
+ CONST "is namespace" true
+ CONST "no hands" false
+ : Generators
+ Seq: (
+ gen_intf.pas
+ gen_pas.script
+ gen_pas.script.runner
+ )
+ ; // Generators
+ CONST dfm:PathOnly '\archi\source\projects\Archi\Editor'
+ CONST intf.pas:Path 'archi\source\projects\Archi\Editor\arInterfaces.pas'
+ CONST intf.pas:PathOnly '\archi\source\projects\Archi\Editor'
+ CONST pas.script:Path 'shared\models\NewSchool\Scripts\53EC893302E3.pas.ms.script'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\53EC893302E3.pas.ms.script.runner'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\archi\source\projects\Archi\Editor'
+
+ref; // ME_53EC893302E3 arInterfaces

@@ -17,10 +17,16 @@ FORWARD ME_52FBB30A01C6
  : Parent ME_52FBB30A01C6 // TCsObject
  ;
  : Inherits
-   @ ( ME_52FBB30A01C6 // TCsObject
- ) .SequenceCode.It
+   Seq: ( ME_52FBB30A01C6 // TCsObject
+ )
  ; // Inherits
  CONST "isClassRef" true
+ CONST dfm:PathOnly '\common\components\rtl\Garant\cs'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\cs'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'CsObjectClass'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_52FBB3450067 TCsObjectClass
 
@@ -35,23 +41,25 @@ ref; // ME_52FBB3450067 TCsObjectClass
  : Parent ME_52FBB2FC0386 // Core
  ;
  : Inherits
-   @ ( WL 'ME_49E7754802A9' '47913B47006E.pas.ms.script' // Tl3ProtoObject
- ) .SequenceCode.It
+   Seq: ( WL 'ME_49E7754802A9' '47913B47006E.pas.ms.script' // Tl3ProtoObject
+ )
  ; // Inherits
  : Children
-   @ ( ME_52FBB3450067 // TCsObjectClass
- ) .SequenceCode.It
+   Seq: ( ME_52FBB3450067 // TCsObjectClass
+ )
  ; // Children
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\cs'
  CONST intf.pas:Path 'common\components\rtl\Garant\cs\CsObject.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\cs'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'CsObject'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'CsObject'
 
 ref; // ME_52FBB30A01C6 TCsObject
 
@@ -68,9 +76,13 @@ FORWARD ME_537F49C801FE
  : Parent ME_537F49C801FE // CsCommon
  ;
  : Inherits
-   @ ( WL 'ME_537F46A40077' '537F464A0198.pas.ms.script' // TIdPort
- ) .SequenceCode.It
+   Seq: ( WL 'ME_537F46A40077' '537F464A0198.pas.ms.script' // TIdPort
+ )
  ; // Inherits
+ CONST dfm:PathOnly '\common\components\rtl\Garant\cs'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\cs'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_537F49E4025E TCsPort
 
@@ -85,9 +97,14 @@ ref; // ME_537F49E4025E TCsPort
  : Parent ME_537F49C801FE // CsCommon
  ;
  : Inherits
-   @ ( WL 'ME_543244A30197' '5432448401BC.pas.ms.script' // TdaUserID
- ) .SequenceCode.It
+   Seq: ( WL 'ME_543244A30197' '5432448401BC.pas.ms.script' // TdaUserID
+ )
  ; // Inherits
+ CONST dfm:PathOnly '\common\components\rtl\Garant\cs'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\cs'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_537F4A04037C TCsClientId
 
@@ -103,9 +120,14 @@ ref; // ME_537F4A04037C TCsClientId
  : Parent ME_537F49C801FE // CsCommon
  ;
  : Inherits
-   @ ( WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
- ) .SequenceCode.It
+   Seq: ( WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
+ )
  ; // Inherits
+ CONST dfm:PathOnly '\common\components\rtl\Garant\cs'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\cs'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_537F4A3A024C TCsIp
 
@@ -120,9 +142,14 @@ ref; // ME_537F4A3A024C TCsIp
  : Parent ME_537F49C801FE // CsCommon
  ;
  : Inherits
-   @ ( WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
- ) .SequenceCode.It
+   Seq: ( WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ )
  ; // Inherits
+ CONST dfm:PathOnly '\common\components\rtl\Garant\cs'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\cs'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_537F4A5A02DA TcsError
 
@@ -157,9 +184,9 @@ ref; // ME_551270540221 TheFlags
  : Parent ME_537F4A6C0162 // TcsLoginExDataEvent
  ;
  : Parameters
-   @ ( ME_550BFE72017E // aDataParams
+   Seq: ( ME_550BFE72017E // aDataParams
  ME_551270540221 // TheFlags
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_537F4A760356 DoIt
@@ -175,10 +202,14 @@ ref; // ME_537F4A760356 DoIt
  : Parent ME_537F49C801FE // CsCommon
  ;
  : Operations
-   @ ( ME_537F4A760356 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_537F4A760356 // DoIt
+ )
  ; // Operations
  CONST "of object" true
+ CONST dfm:PathOnly '\common\components\rtl\Garant\cs'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\cs'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_537F4A6C0162 TcsLoginExDataEvent
 
@@ -233,11 +264,16 @@ ref; // ME_541BD192007E cs_uckRequireAdminRights
  : Parent ME_537F49C801FE // CsCommon
  ;
  : Attributes
-   @ ( ME_5412C8A4036E // cs_uckRegular
+   Seq: ( ME_5412C8A4036E // cs_uckRegular
  ME_5412C8D700CB // cs_uckDeveloper
  ME_541BD192007E // cs_uckRequireAdminRights
- ) .SequenceCode.It
+ )
  ; // Attributes
+ CONST dfm:PathOnly '\common\components\rtl\Garant\cs'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\cs'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_5412C88C0365 TcsUserConnectKind
 
@@ -338,15 +374,20 @@ ref; // ME_541BD0F003D0 cs_crInsufficientRights
  : Parent ME_537F49C801FE // CsCommon
  ;
  : Attributes
-   @ ( ME_5412CC8B03A6 // cs_crOk
+   Seq: ( ME_5412CC8B03A6 // cs_crOk
  ME_5412CCB200F5 // cs_crNetworkError
  ME_5412CCE20078 // cs_crUserParamsWrong
  ME_5412CCF20127 // cs_crDuplicateClient
  ME_5412CD04014C // cs_crDeadClient
  ME_5412CD14035C // cs_crBaseLocked
  ME_541BD0F003D0 // cs_crInsufficientRights
- ) .SequenceCode.It
+ )
  ; // Attributes
+ CONST dfm:PathOnly '\common\components\rtl\Garant\cs'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\cs'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_5412CC6F0226 TcsConnectResult
 
@@ -371,8 +412,8 @@ ref; // ME_5412D7F3035B theIsLocked
  : Parent ME_5412D7C102A2 // TcsGetIsBaseLockedEvent
  ;
  : Parameters
-   @ ( ME_5412D7F3035B // theIsLocked
- ) .SequenceCode.It
+   Seq: ( ME_5412D7F3035B // theIsLocked
+ )
  ; // Parameters
 
 ref; // ME_5412D7DC0081 DoIt
@@ -388,10 +429,14 @@ ref; // ME_5412D7DC0081 DoIt
  : Parent ME_537F49C801FE // CsCommon
  ;
  : Operations
-   @ ( ME_5412D7DC0081 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_5412D7DC0081 // DoIt
+ )
  ; // Operations
  CONST "of object" true
+ CONST dfm:PathOnly '\common\components\rtl\Garant\cs'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\cs'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_5412D7C102A2 TcsGetIsBaseLockedEvent
 
@@ -406,7 +451,7 @@ ref; // ME_5412D7C102A2 TcsGetIsBaseLockedEvent
  : Parent ME_52FBB2FC0386 // Core
  ;
  : Children
-   @ ( ME_537F49E4025E // TCsPort
+   Seq: ( ME_537F49E4025E // TCsPort
  ME_537F4A04037C // TCsClientId
  ME_537F4A3A024C // TCsIp
  ME_537F4A5A02DA // TcsError
@@ -414,15 +459,14 @@ ref; // ME_5412D7C102A2 TcsGetIsBaseLockedEvent
  ME_5412C88C0365 // TcsUserConnectKind
  ME_5412CC6F0226 // TcsConnectResult
  ME_5412D7C102A2 // TcsGetIsBaseLockedEvent
- ) .SequenceCode.It
+ )
  ; // Children
  CONST "no hands" false
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\cs'
  CONST intf.pas:Path 'common\components\rtl\Garant\cs\CsCommon.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\cs'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_537F49C801FE CsCommon
 
@@ -452,8 +496,8 @@ ref; // ME_538DB5D2010E DoIt
  : Parent ME_538DB4F00335 // TcsIdIOHandlerAbstractAdapterPrim
  ;
  : Operations
-   @ ( ME_538DB5D2010E // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_538DB5D2010E // DoIt
+ )
  ; // Operations
 
 ref; // ME_538DB5C7002E WriteBufferFlush
@@ -484,8 +528,8 @@ ref; // ME_538DB5F50159 DoIt
  : Parent ME_538DB4F00335 // TcsIdIOHandlerAbstractAdapterPrim
  ;
  : Operations
-   @ ( ME_538DB5F50159 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_538DB5F50159 // DoIt
+ )
  ; // Operations
 
 ref; // ME_538DB5E90386 ReadChar
@@ -516,8 +560,8 @@ ref; // ME_538DB61A0285 DoIt
  : Parent ME_538DB4F00335 // TcsIdIOHandlerAbstractAdapterPrim
  ;
  : Operations
-   @ ( ME_538DB61A0285 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_538DB61A0285 // DoIt
+ )
  ; // Operations
 
 ref; // ME_538DB61100CA ReadCardinal
@@ -548,8 +592,8 @@ ref; // ME_538DB63603C8 DoIt
  : Parent ME_538DB4F00335 // TcsIdIOHandlerAbstractAdapterPrim
  ;
  : Operations
-   @ ( ME_538DB63603C8 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_538DB63603C8 // DoIt
+ )
  ; // Operations
 
 ref; // ME_538DB62D02C7 ReadDateTime
@@ -580,8 +624,8 @@ ref; // ME_538DB65B037B DoIt
  : Parent ME_538DB4F00335 // TcsIdIOHandlerAbstractAdapterPrim
  ;
  : Operations
-   @ ( ME_538DB65B037B // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_538DB65B037B // DoIt
+ )
  ; // Operations
 
 ref; // ME_538DB6520024 ReadLn
@@ -612,8 +656,8 @@ ref; // ME_538DB679014B DoIt
  : Parent ME_538DB4F00335 // TcsIdIOHandlerAbstractAdapterPrim
  ;
  : Operations
-   @ ( ME_538DB679014B // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_538DB679014B // DoIt
+ )
  ; // Operations
 
 ref; // ME_538DB66D02EB ReadInt64
@@ -640,6 +684,7 @@ ref; // ME_538DB76A01E5 aStream
  CONST Value '-1'
  : ValueType WL 'ME_47208C70028B' '4AB0C3C60310.pas.ms.script' // Int64
  ;
+ CONST extprop:pas:Value '-1'
 
 ref; // ME_538DB76A01FC aSize
 
@@ -652,9 +697,9 @@ ref; // ME_538DB76A01FC aSize
  : Parent ME_538DB69000E7 // ReadStream
  ;
  : Parameters
-   @ ( ME_538DB76A01E5 // aStream
+   Seq: ( ME_538DB76A01E5 // aStream
  ME_538DB76A01FC // aSize
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_538DB7580291 DoIt
@@ -670,8 +715,8 @@ ref; // ME_538DB7580291 DoIt
  : Parent ME_538DB4F00335 // TcsIdIOHandlerAbstractAdapterPrim
  ;
  : Operations
-   @ ( ME_538DB7580291 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_538DB7580291 // DoIt
+ )
  ; // Operations
 
 ref; // ME_538DB69000E7 ReadStream
@@ -702,8 +747,8 @@ ref; // ME_538DB79600D3 DoIt
  : Parent ME_538DB4F00335 // TcsIdIOHandlerAbstractAdapterPrim
  ;
  : Operations
-   @ ( ME_538DB79600D3 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_538DB79600D3 // DoIt
+ )
  ; // Operations
 
 ref; // ME_538DB78C01B0 ReadInteger
@@ -734,8 +779,8 @@ ref; // ME_538DB7AB0079 DoIt
  : Parent ME_538DB4F00335 // TcsIdIOHandlerAbstractAdapterPrim
  ;
  : Operations
-   @ ( ME_538DB7AB0079 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_538DB7AB0079 // DoIt
+ )
  ; // Operations
 
 ref; // ME_538DB7A4016D ReadSmallInt
@@ -761,8 +806,8 @@ ref; // ME_538DB7F50145 aString
  : Parent ME_538DB7E00144 // WriteLn
  ;
  : Parameters
-   @ ( ME_538DB7F50145 // aString
- ) .SequenceCode.It
+   Seq: ( ME_538DB7F50145 // aString
+ )
  ; // Parameters
 
 ref; // ME_538DB7ED023B DoIt
@@ -778,8 +823,8 @@ ref; // ME_538DB7ED023B DoIt
  : Parent ME_538DB4F00335 // TcsIdIOHandlerAbstractAdapterPrim
  ;
  : Operations
-   @ ( ME_538DB7ED023B // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_538DB7ED023B // DoIt
+ )
  ; // Operations
 
 ref; // ME_538DB7E00144 WriteLn
@@ -805,8 +850,8 @@ ref; // ME_538DB8300365 aValue
  : Parent ME_538DB804015E // WriteCardinal
  ;
  : Parameters
-   @ ( ME_538DB8300365 // aValue
- ) .SequenceCode.It
+   Seq: ( ME_538DB8300365 // aValue
+ )
  ; // Parameters
 
 ref; // ME_538DB8260364 DoIt
@@ -822,8 +867,8 @@ ref; // ME_538DB8260364 DoIt
  : Parent ME_538DB4F00335 // TcsIdIOHandlerAbstractAdapterPrim
  ;
  : Operations
-   @ ( ME_538DB8260364 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_538DB8260364 // DoIt
+ )
  ; // Operations
 
 ref; // ME_538DB804015E WriteCardinal
@@ -849,8 +894,8 @@ ref; // ME_538DB856036D aValue
  : Parent ME_538DB83B021B // WriteInt64
  ;
  : Parameters
-   @ ( ME_538DB856036D // aValue
- ) .SequenceCode.It
+   Seq: ( ME_538DB856036D // aValue
+ )
  ; // Parameters
 
 ref; // ME_538DB84D0389 DoIt
@@ -866,8 +911,8 @@ ref; // ME_538DB84D0389 DoIt
  : Parent ME_538DB4F00335 // TcsIdIOHandlerAbstractAdapterPrim
  ;
  : Operations
-   @ ( ME_538DB84D0389 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_538DB84D0389 // DoIt
+ )
  ; // Operations
 
 ref; // ME_538DB83B021B WriteInt64
@@ -894,6 +939,7 @@ ref; // ME_538DB88701DD aStream
  CONST Value 0
  : ValueType WL 'ME_47208C70028B' '4AB0C3C60310.pas.ms.script' // Int64
  ;
+ CONST extprop:pas:Value 0
 
 ref; // ME_538DB887020B aByteCount
 
@@ -906,9 +952,9 @@ ref; // ME_538DB887020B aByteCount
  : Parent ME_538DB86700DB // WriteStream
  ;
  : Parameters
-   @ ( ME_538DB88701DD // aStream
+   Seq: ( ME_538DB88701DD // aStream
  ME_538DB887020B // aByteCount
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_538DB8830090 DoIt
@@ -924,8 +970,8 @@ ref; // ME_538DB8830090 DoIt
  : Parent ME_538DB4F00335 // TcsIdIOHandlerAbstractAdapterPrim
  ;
  : Operations
-   @ ( ME_538DB8830090 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_538DB8830090 // DoIt
+ )
  ; // Operations
 
 ref; // ME_538DB86700DB WriteStream
@@ -951,8 +997,8 @@ ref; // ME_538DB8AD01F5 aValue
  : Parent ME_538DB8970317 // WriteChar
  ;
  : Parameters
-   @ ( ME_538DB8AD01F5 // aValue
- ) .SequenceCode.It
+   Seq: ( ME_538DB8AD01F5 // aValue
+ )
  ; // Parameters
 
 ref; // ME_538DB8A3031B DoIt
@@ -968,8 +1014,8 @@ ref; // ME_538DB8A3031B DoIt
  : Parent ME_538DB4F00335 // TcsIdIOHandlerAbstractAdapterPrim
  ;
  : Operations
-   @ ( ME_538DB8A3031B // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_538DB8A3031B // DoIt
+ )
  ; // Operations
 
 ref; // ME_538DB8970317 WriteChar
@@ -995,8 +1041,8 @@ ref; // ME_538DB8D40025 aValue
  : Parent ME_538DB8BA00D1 // WriteSmallInt
  ;
  : Parameters
-   @ ( ME_538DB8D40025 // aValue
- ) .SequenceCode.It
+   Seq: ( ME_538DB8D40025 // aValue
+ )
  ; // Parameters
 
 ref; // ME_538DB8D00230 DoIt
@@ -1012,8 +1058,8 @@ ref; // ME_538DB8D00230 DoIt
  : Parent ME_538DB4F00335 // TcsIdIOHandlerAbstractAdapterPrim
  ;
  : Operations
-   @ ( ME_538DB8D00230 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_538DB8D00230 // DoIt
+ )
  ; // Operations
 
 ref; // ME_538DB8BA00D1 WriteSmallInt
@@ -1039,8 +1085,8 @@ ref; // ME_538DB8F90295 aValue
  : Parent ME_538DB8DF029E // WriteInteger
  ;
  : Parameters
-   @ ( ME_538DB8F90295 // aValue
- ) .SequenceCode.It
+   Seq: ( ME_538DB8F90295 // aValue
+ )
  ; // Parameters
 
 ref; // ME_538DB8F40200 DoIt
@@ -1056,8 +1102,8 @@ ref; // ME_538DB8F40200 DoIt
  : Parent ME_538DB4F00335 // TcsIdIOHandlerAbstractAdapterPrim
  ;
  : Operations
-   @ ( ME_538DB8F40200 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_538DB8F40200 // DoIt
+ )
  ; // Operations
 
 ref; // ME_538DB8DF029E WriteInteger
@@ -1083,8 +1129,8 @@ ref; // ME_538DB91D009D aValue
  : Parent ME_538DB9070097 // WriteDateTime
  ;
  : Parameters
-   @ ( ME_538DB91D009D // aValue
- ) .SequenceCode.It
+   Seq: ( ME_538DB91D009D // aValue
+ )
  ; // Parameters
 
 ref; // ME_538DB9190328 DoIt
@@ -1100,8 +1146,8 @@ ref; // ME_538DB9190328 DoIt
  : Parent ME_538DB4F00335 // TcsIdIOHandlerAbstractAdapterPrim
  ;
  : Operations
-   @ ( ME_538DB9190328 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_538DB9190328 // DoIt
+ )
  ; // Operations
 
 ref; // ME_538DB9070097 WriteDateTime
@@ -1129,8 +1175,8 @@ ref; // ME_54536CDC01E9 aTimeout
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
  : Parameters
-   @ ( ME_54536CDC01E9 // aTimeout
- ) .SequenceCode.It
+   Seq: ( ME_54536CDC01E9 // aTimeout
+ )
  ; // Parameters
 
 ref; // ME_54536CC7027A DoIt
@@ -1146,8 +1192,8 @@ ref; // ME_54536CC7027A DoIt
  : Parent ME_538DB4F00335 // TcsIdIOHandlerAbstractAdapterPrim
  ;
  : Operations
-   @ ( ME_54536CC7027A // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_54536CC7027A // DoIt
+ )
  ; // Operations
 
 ref; // ME_54536C8F036B WaitForReadData
@@ -1173,8 +1219,8 @@ ref; // ME_54F5C0C70399 aString
  : Parent ME_54F5C07302CC // WriteLargeStr
  ;
  : Parameters
-   @ ( ME_54F5C0C70399 // aString
- ) .SequenceCode.It
+   Seq: ( ME_54F5C0C70399 // aString
+ )
  ; // Parameters
 
 ref; // ME_54F5C0B1010D DoIt
@@ -1190,8 +1236,8 @@ ref; // ME_54F5C0B1010D DoIt
  : Parent ME_538DB4F00335 // TcsIdIOHandlerAbstractAdapterPrim
  ;
  : Operations
-   @ ( ME_54F5C0B1010D // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_54F5C0B1010D // DoIt
+ )
  ; // Operations
 
 ref; // ME_54F5C07302CC WriteLargeStr
@@ -1222,8 +1268,8 @@ ref; // ME_54F5C0D40394 DoIt
  : Parent ME_538DB4F00335 // TcsIdIOHandlerAbstractAdapterPrim
  ;
  : Operations
-   @ ( ME_54F5C0D40394 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_54F5C0D40394 // DoIt
+ )
  ; // Operations
 
 ref; // ME_54F5C09C0302 ReadLargeStr
@@ -1250,11 +1296,11 @@ ref; // ME_538DB5AA0036
  : Parent ME_52FBB2FC0386 // Core
  ;
  : Inherits
-   @ ( ME_52FBB30A01C6 // TCsObject
- ) .SequenceCode.It
+   Seq: ( ME_52FBB30A01C6 // TCsObject
+ )
  ; // Inherits
  : Operations
-   @ ( ME_538DB5C7002E // WriteBufferFlush
+   Seq: ( ME_538DB5C7002E // WriteBufferFlush
  ME_538DB5E90386 // ReadChar
  ME_538DB61100CA // ReadCardinal
  ME_538DB62D02C7 // ReadDateTime
@@ -1274,22 +1320,24 @@ ref; // ME_538DB5AA0036
  ME_54536C8F036B // WaitForReadData
  ME_54F5C07302CC // WriteLargeStr
  ME_54F5C09C0302 // ReadLargeStr
- ) .SequenceCode.It
+ )
  ; // Operations
  : Dependencies
-   @ ( ME_538DB5AA0036 // 
- ) .SequenceCode.It
+   Seq: ( ME_538DB5AA0036 // 
+ )
  ; // Dependencies
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\cs'
  CONST intf.pas:Path 'common\components\rtl\Garant\cs\csIdIOHandlerAbstractAdapterPrim.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\cs'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'csIdIOHandlerAbstractAdapterPrim'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'csIdIOHandlerAbstractAdapterPrim'
 
 ref; // ME_538DB4F00335 TcsIdIOHandlerAbstractAdapterPrim
 
@@ -1305,6 +1353,11 @@ FORWARD ME_537F63590169
  CONST Abstraction at_regular
  : Parent ME_537F63590169 // CsQueryTypes
  ;
+ CONST dfm:PathOnly '\common\components\rtl\Garant\cs'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\cs'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_537F63760334 TCsQueryId
 
@@ -1319,17 +1372,16 @@ ref; // ME_537F63760334 TCsQueryId
  : Parent ME_52FBB2FC0386 // Core
  ;
  : Children
-   @ ( ME_537F63760334 // TCsQueryId
- ) .SequenceCode.It
+   Seq: ( ME_537F63760334 // TCsQueryId
+ )
  ; // Children
  CONST "finished" false
  CONST "no hands" false
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\cs'
  CONST intf.pas:Path 'common\components\rtl\Garant\cs\NOT_FINISHED_CsQueryTypes.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\cs'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_537F63590169 CsQueryTypes
 
@@ -1350,6 +1402,7 @@ FORWARD ME_545C9ADE01F3
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value 25
 
 ref; // ME_545C9AED03B0 c_CsVersion
 
@@ -1364,10 +1417,14 @@ ref; // ME_545C9AED03B0 c_CsVersion
  : Parent ME_538DA49902A4 // CsConst
  ;
  : Attributes
-   @ ( ME_545C9AED03B0 // c_CsVersion
- ) .SequenceCode.It
+   Seq: ( ME_545C9AED03B0 // c_CsVersion
+ )
  ; // Attributes
  CONST "spell names" false
+ CONST dfm:PathOnly '\common\components\rtl\Garant\cs'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\cs'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_545C9ADE01F3 cProtocolVersion
 
@@ -1387,6 +1444,7 @@ FORWARD ME_545C9E920331
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value '''*'''
 
 ref; // ME_545C9EA801E6 c_AllStations
 
@@ -1406,6 +1464,7 @@ ref; // ME_545C9EA801E6 c_AllStations
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value 'daInterfaces.usWrongClient'
 
 ref; // ME_545C9EC303AE c_WrongClientId
 
@@ -1425,6 +1484,7 @@ ref; // ME_545C9EC303AE c_WrongClientId
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value 'daInterfaces.usDuplicateClient'
 
 ref; // ME_545C9EE003B3 c_DuplicateClient
 
@@ -1444,6 +1504,7 @@ ref; // ME_545C9EE003B3 c_DuplicateClient
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value 'daInterfaces.usDeadClient'
 
 ref; // ME_545C9EFC03D5 c_DeadClient
 
@@ -1458,13 +1519,17 @@ ref; // ME_545C9EFC03D5 c_DeadClient
  : Parent ME_538DA49902A4 // CsConst
  ;
  : Attributes
-   @ ( ME_545C9EA801E6 // c_AllStations
+   Seq: ( ME_545C9EA801E6 // c_AllStations
  ME_545C9EC303AE // c_WrongClientId
  ME_545C9EE003B3 // c_DuplicateClient
  ME_545C9EFC03D5 // c_DeadClient
- ) .SequenceCode.It
+ )
  ; // Attributes
  CONST "spell names" false
+ CONST dfm:PathOnly '\common\components\rtl\Garant\cs'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\cs'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_545C9E920331 cPredefinedClients
 
@@ -1483,6 +1548,7 @@ FORWARD ME_545C9F2A010C
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value 0
 
 ref; // ME_545C9F430374 cs_errOk
 
@@ -1499,6 +1565,7 @@ ref; // ME_545C9F430374 cs_errOk
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value 1
 
 ref; // ME_545C9F55004C cs_errError
 
@@ -1515,6 +1582,7 @@ ref; // ME_545C9F55004C cs_errError
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value 2
 
 ref; // ME_545C9F630313 cs_errConnClosedGracefully
 
@@ -1531,6 +1599,7 @@ ref; // ME_545C9F630313 cs_errConnClosedGracefully
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value 3
 
 ref; // ME_545C9F8B02B4 cs_errConnectTimeout
 
@@ -1547,6 +1616,7 @@ ref; // ME_545C9F8B02B4 cs_errConnectTimeout
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value 4
 
 ref; // ME_545C9F9E0296 cs_errSocketError
 
@@ -1563,6 +1633,7 @@ ref; // ME_545C9F9E0296 cs_errSocketError
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value 5
 
 ref; // ME_545C9FAF025C cs_errConnAborted
 
@@ -1579,6 +1650,7 @@ ref; // ME_545C9FAF025C cs_errConnAborted
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value 6
 
 ref; // ME_545C9FC6015D cs_errConnRefused
 
@@ -1595,6 +1667,7 @@ ref; // ME_545C9FC6015D cs_errConnRefused
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value 7
 
 ref; // ME_545C9FD20070 cs_errWrongServerVersion
 
@@ -1610,7 +1683,7 @@ ref; // ME_545C9FD20070 cs_errWrongServerVersion
  : Parent ME_538DA49902A4 // CsConst
  ;
  : Attributes
-   @ ( ME_545C9F430374 // cs_errOk
+   Seq: ( ME_545C9F430374 // cs_errOk
  ME_545C9F55004C // cs_errError
  ME_545C9F630313 // cs_errConnClosedGracefully
  ME_545C9F8B02B4 // cs_errConnectTimeout
@@ -1618,9 +1691,13 @@ ref; // ME_545C9FD20070 cs_errWrongServerVersion
  ME_545C9FAF025C // cs_errConnAborted
  ME_545C9FC6015D // cs_errConnRefused
  ME_545C9FD20070 // cs_errWrongServerVersion
- ) .SequenceCode.It
+ )
  ; // Attributes
  CONST "spell names" false
+ CONST dfm:PathOnly '\common\components\rtl\Garant\cs'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\cs'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_545C9F2A010C cErrorCodes
 
@@ -1635,19 +1712,18 @@ ref; // ME_545C9F2A010C cErrorCodes
  : Parent ME_52FBB2FC0386 // Core
  ;
  : Constants
-   @ ( ME_545C9ADE01F3 // cProtocolVersion
+   Seq: ( ME_545C9ADE01F3 // cProtocolVersion
  ME_545C9E920331 // cPredefinedClients
  ME_545C9F2A010C // cErrorCodes
- ) .SequenceCode.It
+ )
  ; // Constants
  CONST "need UC" true
  CONST "no hands" false
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\cs'
  CONST intf.pas:Path 'common\components\rtl\Garant\cs\CsConst.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\cs'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_538DA49902A4 CsConst
 
@@ -1674,8 +1750,8 @@ ref; // ME_538DB9DE021D AThreshhold
  : Parent ME_538DB9C40271 // WriteBufferOpen
  ;
  : Parameters
-   @ ( ME_538DB9DE021D // AThreshhold
- ) .SequenceCode.It
+   Seq: ( ME_538DB9DE021D // AThreshhold
+ )
  ; // Parameters
 
 ref; // ME_538DB9DA00AA DoIt
@@ -1691,8 +1767,8 @@ ref; // ME_538DB9DA00AA DoIt
  : Parent ME_538DDC890328 // TcsIdIOHandlerAbstractAdapter
  ;
  : Operations
-   @ ( ME_538DB9DA00AA // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_538DB9DA00AA // DoIt
+ )
  ; // Operations
 
 ref; // ME_538DB9C40271 WriteBufferOpen
@@ -1721,8 +1797,8 @@ ref; // ME_538DB9FB002B DoIt
  : Parent ME_538DDC890328 // TcsIdIOHandlerAbstractAdapter
  ;
  : Operations
-   @ ( ME_538DB9FB002B // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_538DB9FB002B // DoIt
+ )
  ; // Operations
 
 ref; // ME_538DB9F30058 WriteBufferClose
@@ -1751,8 +1827,8 @@ ref; // ME_538DBA130368 DoIt
  : Parent ME_538DDC890328 // TcsIdIOHandlerAbstractAdapter
  ;
  : Operations
-   @ ( ME_538DBA130368 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_538DBA130368 // DoIt
+ )
  ; // Operations
 
 ref; // ME_538DBA0B009F WriteBufferClear
@@ -1783,8 +1859,8 @@ ref; // ME_538DB9390207 DoIt
  : Parent ME_538DDC890328 // TcsIdIOHandlerAbstractAdapter
  ;
  : Operations
-   @ ( ME_538DB9390207 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_538DB9390207 // DoIt
+ )
  ; // Operations
 
 ref; // ME_538DB93002B5 Connected
@@ -1810,8 +1886,8 @@ ref; // ME_538DB99B014D aFile
  : Parent ME_538DB9810192 // WriteFile
  ;
  : Parameters
-   @ ( ME_538DB99B014D // aFile
- ) .SequenceCode.It
+   Seq: ( ME_538DB99B014D // aFile
+ )
  ; // Parameters
 
 ref; // ME_538DB993038E DoIt
@@ -1827,8 +1903,8 @@ ref; // ME_538DB993038E DoIt
  : Parent ME_538DDC890328 // TcsIdIOHandlerAbstractAdapter
  ;
  : Operations
-   @ ( ME_538DB993038E // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_538DB993038E // DoIt
+ )
  ; // Operations
 
 ref; // ME_538DB9810192 WriteFile
@@ -1857,8 +1933,8 @@ ref; // ME_5476EDFD017F DoIt
  : Parent ME_538DDC890328 // TcsIdIOHandlerAbstractAdapter
  ;
  : Operations
-   @ ( ME_5476EDFD017F // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_5476EDFD017F // DoIt
+ )
  ; // Operations
 
 ref; // ME_5476EDF200B5 InputBufferClear
@@ -1874,28 +1950,30 @@ ref; // ME_5476EDF200B5 InputBufferClear
  : Parent ME_52FBB2FC0386 // Core
  ;
  : Inherits
-   @ ( ME_538DB4F00335 // TcsIdIOHandlerAbstractAdapterPrim
- ) .SequenceCode.It
+   Seq: ( ME_538DB4F00335 // TcsIdIOHandlerAbstractAdapterPrim
+ )
  ; // Inherits
  : Operations
-   @ ( ME_538DB9C40271 // WriteBufferOpen
+   Seq: ( ME_538DB9C40271 // WriteBufferOpen
  ME_538DB9F30058 // WriteBufferClose
  ME_538DBA0B009F // WriteBufferClear
  ME_538DB93002B5 // Connected
  ME_538DB9810192 // WriteFile
  ME_5476EDF200B5 // InputBufferClear
- ) .SequenceCode.It
+ )
  ; // Operations
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\cs'
  CONST intf.pas:Path 'common\components\rtl\Garant\cs\csIdIOHandlerAbstractAdapter.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\cs'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'csIdIOHandlerAbstractAdapter'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'csIdIOHandlerAbstractAdapter'
 
 ref; // ME_538DDC890328 TcsIdIOHandlerAbstractAdapter
 
@@ -1916,6 +1994,7 @@ FORWARD ME_538DCE7102AD
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value '4 * 1024'
 
 ref; // ME_538DCE8002AC c_MaxDataStringLength
 
@@ -1932,6 +2011,7 @@ ref; // ME_538DCE8002AC c_MaxDataStringLength
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value '''<>'''
 
 ref; // ME_538DCE9C02B7 c_NoMoreFiles
 
@@ -1946,11 +2026,15 @@ ref; // ME_538DCE9C02B7 c_NoMoreFiles
  : Parent ME_538DC31F03A5 // TCsDataPipePrim
  ;
  : Attributes
-   @ ( ME_538DCE8002AC // c_MaxDataStringLength
+   Seq: ( ME_538DCE8002AC // c_MaxDataStringLength
  ME_538DCE9C02B7 // c_NoMoreFiles
- ) .SequenceCode.It
+ )
  ; // Attributes
  CONST "spell names" false
+ CONST dfm:PathOnly '\common\components\rtl\Garant\cs'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\cs'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_538DCE7102AD Constants
 
@@ -1993,6 +2077,7 @@ ref; // ME_538DB550025A IOHandler
 : ME_90824DB982B2
  CONST UID '90824DB982B2'
  CONST Name 'f_ClientID'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY 'Поле для свойства ClientID' ;
  CONST Visibility PrivateAccess
@@ -2002,12 +2087,14 @@ ref; // ME_538DB550025A IOHandler
  ;
  : Target ME_537F4A04037C // TCsClientId
  ;
+ CONST extprop:clearViaProperty 'ClientID'
 
 ref; // ME_90824DB982B2 f_ClientID
 
 : ME_DD3BE46C2A3B
  CONST UID 'DD3BE46C2A3B'
  CONST Name 'f_IOHandler'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY 'Поле для свойства IOHandler' ;
  CONST Visibility PrivateAccess
@@ -2041,8 +2128,8 @@ ref; // ME_538DC4AE0146 aIOHandler
  : Parent ME_538DC49700E1 // Create
  ;
  : Parameters
-   @ ( ME_538DC4AE0146 // aIOHandler
- ) .SequenceCode.It
+   Seq: ( ME_538DC4AE0146 // aIOHandler
+ )
  ; // Parameters
 
 ref; // ME_538DC4A00082 DoIt
@@ -2058,8 +2145,8 @@ ref; // ME_538DC4A00082 DoIt
  : Parent ME_538DC31F03A5 // TCsDataPipePrim
  ;
  : Operations
-   @ ( ME_538DC4A00082 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_538DC4A00082 // DoIt
+ )
  ; // Operations
 
 ref; // ME_538DC49700E1 Create
@@ -2085,8 +2172,8 @@ ref; // ME_538DC50802D5 aIOHandler
  : Parent ME_538DC4BB019F // Create$1
  ;
  : Parameters
-   @ ( ME_538DC50802D5 // aIOHandler
- ) .SequenceCode.It
+   Seq: ( ME_538DC50802D5 // aIOHandler
+ )
  ; // Parameters
 
 ref; // ME_538DC50302F2 DoIt
@@ -2102,8 +2189,8 @@ ref; // ME_538DC50302F2 DoIt
  : Parent ME_538DC31F03A5 // TCsDataPipePrim
  ;
  : Operations
-   @ ( ME_538DC50302F2 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_538DC50302F2 // DoIt
+ )
  ; // Operations
 
 ref; // ME_538DC4BB019F Create$1
@@ -2150,6 +2237,7 @@ ref; // ME_538DCB6A027D
  ;
  : Implementor ME_538DC31F03A5 // TCsDataPipePrim
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_538DB5C7002E_ME_538DC31F03A5 WriteBufferFlush
 
 : ME_538DB5E90386_ME_538DC31F03A5
@@ -2159,6 +2247,7 @@ ref; // ME_538DB5C7002E_ME_538DC31F03A5 WriteBufferFlush
  ;
  : Implementor ME_538DC31F03A5 // TCsDataPipePrim
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_538DB5E90386_ME_538DC31F03A5 ReadChar
 
 : ME_538DB61100CA_ME_538DC31F03A5
@@ -2168,6 +2257,7 @@ ref; // ME_538DB5E90386_ME_538DC31F03A5 ReadChar
  ;
  : Implementor ME_538DC31F03A5 // TCsDataPipePrim
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_538DB61100CA_ME_538DC31F03A5 ReadCardinal
 
 : ME_538DB62D02C7_ME_538DC31F03A5
@@ -2177,6 +2267,7 @@ ref; // ME_538DB61100CA_ME_538DC31F03A5 ReadCardinal
  ;
  : Implementor ME_538DC31F03A5 // TCsDataPipePrim
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_538DB62D02C7_ME_538DC31F03A5 ReadDateTime
 
 : ME_538DB6520024_ME_538DC31F03A5
@@ -2186,6 +2277,7 @@ ref; // ME_538DB62D02C7_ME_538DC31F03A5 ReadDateTime
  ;
  : Implementor ME_538DC31F03A5 // TCsDataPipePrim
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_538DB6520024_ME_538DC31F03A5 ReadLn
 
 : ME_538DB66D02EB_ME_538DC31F03A5
@@ -2195,6 +2287,7 @@ ref; // ME_538DB6520024_ME_538DC31F03A5 ReadLn
  ;
  : Implementor ME_538DC31F03A5 // TCsDataPipePrim
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_538DB66D02EB_ME_538DC31F03A5 ReadInt64
 
 : ME_538DB69000E7_ME_538DC31F03A5
@@ -2204,6 +2297,7 @@ ref; // ME_538DB66D02EB_ME_538DC31F03A5 ReadInt64
  ;
  : Implementor ME_538DC31F03A5 // TCsDataPipePrim
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_538DB69000E7_ME_538DC31F03A5 ReadStream
 
 : ME_538DB78C01B0_ME_538DC31F03A5
@@ -2213,6 +2307,7 @@ ref; // ME_538DB69000E7_ME_538DC31F03A5 ReadStream
  ;
  : Implementor ME_538DC31F03A5 // TCsDataPipePrim
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_538DB78C01B0_ME_538DC31F03A5 ReadInteger
 
 : ME_538DB7A4016D_ME_538DC31F03A5
@@ -2222,6 +2317,7 @@ ref; // ME_538DB78C01B0_ME_538DC31F03A5 ReadInteger
  ;
  : Implementor ME_538DC31F03A5 // TCsDataPipePrim
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_538DB7A4016D_ME_538DC31F03A5 ReadSmallInt
 
 : ME_538DB7E00144_ME_538DC31F03A5
@@ -2231,6 +2327,7 @@ ref; // ME_538DB7A4016D_ME_538DC31F03A5 ReadSmallInt
  ;
  : Implementor ME_538DC31F03A5 // TCsDataPipePrim
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_538DB7E00144_ME_538DC31F03A5 WriteLn
 
 : ME_538DB804015E_ME_538DC31F03A5
@@ -2240,6 +2337,7 @@ ref; // ME_538DB7E00144_ME_538DC31F03A5 WriteLn
  ;
  : Implementor ME_538DC31F03A5 // TCsDataPipePrim
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_538DB804015E_ME_538DC31F03A5 WriteCardinal
 
 : ME_538DB83B021B_ME_538DC31F03A5
@@ -2249,6 +2347,7 @@ ref; // ME_538DB804015E_ME_538DC31F03A5 WriteCardinal
  ;
  : Implementor ME_538DC31F03A5 // TCsDataPipePrim
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_538DB83B021B_ME_538DC31F03A5 WriteInt64
 
 : ME_538DB86700DB_ME_538DC31F03A5
@@ -2258,6 +2357,7 @@ ref; // ME_538DB83B021B_ME_538DC31F03A5 WriteInt64
  ;
  : Implementor ME_538DC31F03A5 // TCsDataPipePrim
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_538DB86700DB_ME_538DC31F03A5 WriteStream
 
 : ME_538DB8970317_ME_538DC31F03A5
@@ -2267,6 +2367,7 @@ ref; // ME_538DB86700DB_ME_538DC31F03A5 WriteStream
  ;
  : Implementor ME_538DC31F03A5 // TCsDataPipePrim
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_538DB8970317_ME_538DC31F03A5 WriteChar
 
 : ME_538DB8BA00D1_ME_538DC31F03A5
@@ -2276,6 +2377,7 @@ ref; // ME_538DB8970317_ME_538DC31F03A5 WriteChar
  ;
  : Implementor ME_538DC31F03A5 // TCsDataPipePrim
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_538DB8BA00D1_ME_538DC31F03A5 WriteSmallInt
 
 : ME_538DB8DF029E_ME_538DC31F03A5
@@ -2285,6 +2387,7 @@ ref; // ME_538DB8BA00D1_ME_538DC31F03A5 WriteSmallInt
  ;
  : Implementor ME_538DC31F03A5 // TCsDataPipePrim
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_538DB8DF029E_ME_538DC31F03A5 WriteInteger
 
 : ME_538DB9070097_ME_538DC31F03A5
@@ -2294,6 +2397,7 @@ ref; // ME_538DB8DF029E_ME_538DC31F03A5 WriteInteger
  ;
  : Implementor ME_538DC31F03A5 // TCsDataPipePrim
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_538DB9070097_ME_538DC31F03A5 WriteDateTime
 
 : ME_54536C8F036B_ME_538DC31F03A5
@@ -2303,6 +2407,7 @@ ref; // ME_538DB9070097_ME_538DC31F03A5 WriteDateTime
  ;
  : Implementor ME_538DC31F03A5 // TCsDataPipePrim
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_54536C8F036B_ME_538DC31F03A5 WaitForReadData
 
 : ME_54F5C07302CC_ME_538DC31F03A5
@@ -2312,6 +2417,7 @@ ref; // ME_54536C8F036B_ME_538DC31F03A5 WaitForReadData
  ;
  : Implementor ME_538DC31F03A5 // TCsDataPipePrim
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_54F5C07302CC_ME_538DC31F03A5 WriteLargeStr
 
 : ME_54F5C09C0302_ME_538DC31F03A5
@@ -2321,6 +2427,7 @@ ref; // ME_54F5C07302CC_ME_538DC31F03A5 WriteLargeStr
  ;
  : Implementor ME_538DC31F03A5 // TCsDataPipePrim
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_54F5C09C0302_ME_538DC31F03A5 ReadLargeStr
 
 : ME_479731C50290_ME_538DC31F03A5
@@ -2330,6 +2437,7 @@ ref; // ME_54F5C09C0302_ME_538DC31F03A5 ReadLargeStr
  ;
  : Implementor ME_538DC31F03A5 // TCsDataPipePrim
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_479731C50290_ME_538DC31F03A5 Cleanup
 
 : ME_538DC31F03A5
@@ -2343,23 +2451,23 @@ ref; // ME_479731C50290_ME_538DC31F03A5 Cleanup
  : Parent ME_52FBB2FC0386 // Core
  ;
  : Inherits
-   @ ( ME_538DB4F00335 // TcsIdIOHandlerAbstractAdapterPrim
- ) .SequenceCode.It
+   Seq: ( ME_538DB4F00335 // TcsIdIOHandlerAbstractAdapterPrim
+ )
  ; // Inherits
  : Attributes
-   @ ( ME_548EECCB01DC // ClientID
+   Seq: ( ME_548EECCB01DC // ClientID
  ME_538DB550025A // IOHandler
  ME_90824DB982B2 // f_ClientID
  ME_DD3BE46C2A3B // f_IOHandler
- ) .SequenceCode.It
+ )
  ; // Attributes
  : Operations
-   @ ( ME_538DC49700E1 // Create
+   Seq: ( ME_538DC49700E1 // Create
  ME_538DC4BB019F // Create$1
- ) .SequenceCode.It
+ )
  ; // Operations
  : Implemented
-   @ ( ME_538DB5C7002E_ME_538DC31F03A5 // WriteBufferFlush
+   Seq: ( ME_538DB5C7002E_ME_538DC31F03A5 // WriteBufferFlush
  ME_538DB5E90386_ME_538DC31F03A5 // ReadChar
  ME_538DB61100CA_ME_538DC31F03A5 // ReadCardinal
  ME_538DB62D02C7_ME_538DC31F03A5 // ReadDateTime
@@ -2379,32 +2487,34 @@ ref; // ME_479731C50290_ME_538DC31F03A5 Cleanup
  ME_54536C8F036B_ME_538DC31F03A5 // WaitForReadData
  ME_54F5C07302CC_ME_538DC31F03A5 // WriteLargeStr
  ME_54F5C09C0302_ME_538DC31F03A5 // ReadLargeStr
- ) .SequenceCode.It
+ )
  ; // Implemented
  : Overridden
-   @ ( ME_479731C50290_ME_538DC31F03A5 // Cleanup
- ) .SequenceCode.It
+   Seq: ( ME_479731C50290_ME_538DC31F03A5 // Cleanup
+ )
  ; // Overridden
  : Constants
-   @ ( ME_538DCE7102AD // Constants
- ) .SequenceCode.It
+   Seq: ( ME_538DCE7102AD // Constants
+ )
  ; // Constants
  : Dependencies
-   @ ( ME_538DB53C03B6 // 
+   Seq: ( ME_538DB53C03B6 // 
  ME_538DC52D02F7 // 
  ME_538DCB6A027D // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\cs'
  CONST intf.pas:Path 'common\components\rtl\Garant\cs\CsDataPipePrim.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\cs'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'CsDataPipePrim'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'CsDataPipePrim'
 
 ref; // ME_538DC31F03A5 TCsDataPipePrim
 
@@ -2433,8 +2543,8 @@ ref; // ME_538DE0F20306 aToPath
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
  : Parameters
-   @ ( ME_538DE0F20306 // aToPath
- ) .SequenceCode.It
+   Seq: ( ME_538DE0F20306 // aToPath
+ )
  ; // Parameters
 
 ref; // ME_538DE0EC0268 DoIt
@@ -2450,8 +2560,8 @@ ref; // ME_538DE0EC0268 DoIt
  : Parent ME_537F62DD009F // TCsDataPipe
  ;
  : Operations
-   @ ( ME_538DE0EC0268 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_538DE0EC0268 // DoIt
+ )
  ; // Operations
 
 ref; // ME_538DE0DC02BD ReadFolder
@@ -2477,8 +2587,8 @@ ref; // ME_538DE111032D aFolderName
  : Parent ME_538DE100010F // WriteFolder
  ;
  : Parameters
-   @ ( ME_538DE111032D // aFolderName
- ) .SequenceCode.It
+   Seq: ( ME_538DE111032D // aFolderName
+ )
  ; // Parameters
 
 ref; // ME_538DE10D02BE DoIt
@@ -2494,8 +2604,8 @@ ref; // ME_538DE10D02BE DoIt
  : Parent ME_537F62DD009F // TCsDataPipe
  ;
  : Operations
-   @ ( ME_538DE10D02BE // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_538DE10D02BE // DoIt
+ )
  ; // Operations
 
 ref; // ME_538DE100010F WriteFolder
@@ -2621,16 +2731,16 @@ ref; // ME_5463656100A7
  : Parent ME_52FBB2FC0386 // Core
  ;
  : Inherits
-   @ ( ME_538DC31F03A5 // TCsDataPipePrim
- ) .SequenceCode.It
+   Seq: ( ME_538DC31F03A5 // TCsDataPipePrim
+ )
  ; // Inherits
  : Operations
-   @ ( ME_538DE0DC02BD // ReadFolder
+   Seq: ( ME_538DE0DC02BD // ReadFolder
  ME_538DE100010F // WriteFolder
- ) .SequenceCode.It
+ )
  ; // Operations
  : Dependencies
-   @ ( ME_538DE16F0099 // 
+   Seq: ( ME_538DE16F0099 // 
  ME_538DE17400B6 // 
  ME_538DE1A10045 // 
  ME_538DE1E201A0 // 
@@ -2640,18 +2750,20 @@ ref; // ME_5463656100A7
  ME_538DE574006D // 
  ME_538DE5970020 // 
  ME_5463656100A7 // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\cs'
  CONST intf.pas:Path 'common\components\rtl\Garant\cs\CsDataPipe.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\cs'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'CsDataPipe'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'CsDataPipe'
 
 ref; // ME_537F62DD009F TCsDataPipe
 
@@ -2690,8 +2802,8 @@ ref; // ME_538DB5780375 aIOHandler
  : Parent ME_538DB5610283 // Create
  ;
  : Parameters
-   @ ( ME_538DB5780375 // aIOHandler
- ) .SequenceCode.It
+   Seq: ( ME_538DB5780375 // aIOHandler
+ )
  ; // Parameters
 
 ref; // ME_538DB5740231 DoIt
@@ -2707,8 +2819,8 @@ ref; // ME_538DB5740231 DoIt
  : Parent ME_538DB527006C // TcsIdIOHandlerAdapter
  ;
  : Operations
-   @ ( ME_538DB5740231 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_538DB5740231 // DoIt
+ )
  ; // Operations
 
 ref; // ME_538DB5610283 Create
@@ -2775,6 +2887,7 @@ ref; // ME_54F5D20D0388
  ;
  : Implementor ME_538DB527006C // TcsIdIOHandlerAdapter
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_538DB5C7002E_ME_538DB527006C WriteBufferFlush
 
 : ME_538DB5E90386_ME_538DB527006C
@@ -2784,6 +2897,7 @@ ref; // ME_538DB5C7002E_ME_538DB527006C WriteBufferFlush
  ;
  : Implementor ME_538DB527006C // TcsIdIOHandlerAdapter
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_538DB5E90386_ME_538DB527006C ReadChar
 
 : ME_538DB61100CA_ME_538DB527006C
@@ -2793,6 +2907,7 @@ ref; // ME_538DB5E90386_ME_538DB527006C ReadChar
  ;
  : Implementor ME_538DB527006C // TcsIdIOHandlerAdapter
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_538DB61100CA_ME_538DB527006C ReadCardinal
 
 : ME_538DB62D02C7_ME_538DB527006C
@@ -2802,6 +2917,7 @@ ref; // ME_538DB61100CA_ME_538DB527006C ReadCardinal
  ;
  : Implementor ME_538DB527006C // TcsIdIOHandlerAdapter
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_538DB62D02C7_ME_538DB527006C ReadDateTime
 
 : ME_538DB6520024_ME_538DB527006C
@@ -2811,6 +2927,7 @@ ref; // ME_538DB62D02C7_ME_538DB527006C ReadDateTime
  ;
  : Implementor ME_538DB527006C // TcsIdIOHandlerAdapter
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_538DB6520024_ME_538DB527006C ReadLn
 
 : ME_538DB66D02EB_ME_538DB527006C
@@ -2820,6 +2937,7 @@ ref; // ME_538DB6520024_ME_538DB527006C ReadLn
  ;
  : Implementor ME_538DB527006C // TcsIdIOHandlerAdapter
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_538DB66D02EB_ME_538DB527006C ReadInt64
 
 : ME_538DB69000E7_ME_538DB527006C
@@ -2829,6 +2947,7 @@ ref; // ME_538DB66D02EB_ME_538DB527006C ReadInt64
  ;
  : Implementor ME_538DB527006C // TcsIdIOHandlerAdapter
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_538DB69000E7_ME_538DB527006C ReadStream
 
 : ME_538DB78C01B0_ME_538DB527006C
@@ -2838,6 +2957,7 @@ ref; // ME_538DB69000E7_ME_538DB527006C ReadStream
  ;
  : Implementor ME_538DB527006C // TcsIdIOHandlerAdapter
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_538DB78C01B0_ME_538DB527006C ReadInteger
 
 : ME_538DB7A4016D_ME_538DB527006C
@@ -2847,6 +2967,7 @@ ref; // ME_538DB78C01B0_ME_538DB527006C ReadInteger
  ;
  : Implementor ME_538DB527006C // TcsIdIOHandlerAdapter
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_538DB7A4016D_ME_538DB527006C ReadSmallInt
 
 : ME_538DB7E00144_ME_538DB527006C
@@ -2856,6 +2977,7 @@ ref; // ME_538DB7A4016D_ME_538DB527006C ReadSmallInt
  ;
  : Implementor ME_538DB527006C // TcsIdIOHandlerAdapter
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_538DB7E00144_ME_538DB527006C WriteLn
 
 : ME_538DB804015E_ME_538DB527006C
@@ -2865,6 +2987,7 @@ ref; // ME_538DB7E00144_ME_538DB527006C WriteLn
  ;
  : Implementor ME_538DB527006C // TcsIdIOHandlerAdapter
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_538DB804015E_ME_538DB527006C WriteCardinal
 
 : ME_538DB83B021B_ME_538DB527006C
@@ -2874,6 +2997,7 @@ ref; // ME_538DB804015E_ME_538DB527006C WriteCardinal
  ;
  : Implementor ME_538DB527006C // TcsIdIOHandlerAdapter
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_538DB83B021B_ME_538DB527006C WriteInt64
 
 : ME_538DB86700DB_ME_538DB527006C
@@ -2883,6 +3007,7 @@ ref; // ME_538DB83B021B_ME_538DB527006C WriteInt64
  ;
  : Implementor ME_538DB527006C // TcsIdIOHandlerAdapter
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_538DB86700DB_ME_538DB527006C WriteStream
 
 : ME_538DB8970317_ME_538DB527006C
@@ -2892,6 +3017,7 @@ ref; // ME_538DB86700DB_ME_538DB527006C WriteStream
  ;
  : Implementor ME_538DB527006C // TcsIdIOHandlerAdapter
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_538DB8970317_ME_538DB527006C WriteChar
 
 : ME_538DB8BA00D1_ME_538DB527006C
@@ -2901,6 +3027,7 @@ ref; // ME_538DB8970317_ME_538DB527006C WriteChar
  ;
  : Implementor ME_538DB527006C // TcsIdIOHandlerAdapter
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_538DB8BA00D1_ME_538DB527006C WriteSmallInt
 
 : ME_538DB8DF029E_ME_538DB527006C
@@ -2910,6 +3037,7 @@ ref; // ME_538DB8BA00D1_ME_538DB527006C WriteSmallInt
  ;
  : Implementor ME_538DB527006C // TcsIdIOHandlerAdapter
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_538DB8DF029E_ME_538DB527006C WriteInteger
 
 : ME_538DB9070097_ME_538DB527006C
@@ -2919,6 +3047,7 @@ ref; // ME_538DB8DF029E_ME_538DB527006C WriteInteger
  ;
  : Implementor ME_538DB527006C // TcsIdIOHandlerAdapter
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_538DB9070097_ME_538DB527006C WriteDateTime
 
 : ME_538DB93002B5_ME_538DB527006C
@@ -2928,6 +3057,7 @@ ref; // ME_538DB9070097_ME_538DB527006C WriteDateTime
  ;
  : Implementor ME_538DB527006C // TcsIdIOHandlerAdapter
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_538DB93002B5_ME_538DB527006C Connected
 
 : ME_538DB9810192_ME_538DB527006C
@@ -2937,6 +3067,7 @@ ref; // ME_538DB93002B5_ME_538DB527006C Connected
  ;
  : Implementor ME_538DB527006C // TcsIdIOHandlerAdapter
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_538DB9810192_ME_538DB527006C WriteFile
 
 : ME_538DB9C40271_ME_538DB527006C
@@ -2946,6 +3077,7 @@ ref; // ME_538DB9810192_ME_538DB527006C WriteFile
  ;
  : Implementor ME_538DB527006C // TcsIdIOHandlerAdapter
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_538DB9C40271_ME_538DB527006C WriteBufferOpen
 
 : ME_538DB9F30058_ME_538DB527006C
@@ -2955,6 +3087,7 @@ ref; // ME_538DB9C40271_ME_538DB527006C WriteBufferOpen
  ;
  : Implementor ME_538DB527006C // TcsIdIOHandlerAdapter
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_538DB9F30058_ME_538DB527006C WriteBufferClose
 
 : ME_538DBA0B009F_ME_538DB527006C
@@ -2964,6 +3097,7 @@ ref; // ME_538DB9F30058_ME_538DB527006C WriteBufferClose
  ;
  : Implementor ME_538DB527006C // TcsIdIOHandlerAdapter
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_538DBA0B009F_ME_538DB527006C WriteBufferClear
 
 : ME_54536C8F036B_ME_538DB527006C
@@ -2973,6 +3107,7 @@ ref; // ME_538DBA0B009F_ME_538DB527006C WriteBufferClear
  ;
  : Implementor ME_538DB527006C // TcsIdIOHandlerAdapter
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_54536C8F036B_ME_538DB527006C WaitForReadData
 
 : ME_5476EDF200B5_ME_538DB527006C
@@ -2982,6 +3117,7 @@ ref; // ME_54536C8F036B_ME_538DB527006C WaitForReadData
  ;
  : Implementor ME_538DB527006C // TcsIdIOHandlerAdapter
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_5476EDF200B5_ME_538DB527006C InputBufferClear
 
 : ME_54F5C07302CC_ME_538DB527006C
@@ -2991,6 +3127,7 @@ ref; // ME_5476EDF200B5_ME_538DB527006C InputBufferClear
  ;
  : Implementor ME_538DB527006C // TcsIdIOHandlerAdapter
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_54F5C07302CC_ME_538DB527006C WriteLargeStr
 
 : ME_54F5C09C0302_ME_538DB527006C
@@ -3000,6 +3137,7 @@ ref; // ME_54F5C07302CC_ME_538DB527006C WriteLargeStr
  ;
  : Implementor ME_538DB527006C // TcsIdIOHandlerAdapter
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_54F5C09C0302_ME_538DB527006C ReadLargeStr
 
 : ME_479731C50290_ME_538DB527006C
@@ -3009,6 +3147,7 @@ ref; // ME_54F5C09C0302_ME_538DB527006C ReadLargeStr
  ;
  : Implementor ME_538DB527006C // TcsIdIOHandlerAdapter
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_479731C50290_ME_538DB527006C Cleanup
 
 : ME_538DB527006C
@@ -3022,19 +3161,19 @@ ref; // ME_479731C50290_ME_538DB527006C Cleanup
  : Parent ME_52FBB2FC0386 // Core
  ;
  : Inherits
-   @ ( ME_538DDC890328 // TcsIdIOHandlerAbstractAdapter
- ) .SequenceCode.It
+   Seq: ( ME_538DDC890328 // TcsIdIOHandlerAbstractAdapter
+ )
  ; // Inherits
  : Attributes
-   @ ( ME_538DB5180011 // f_IOHandler
- ) .SequenceCode.It
+   Seq: ( ME_538DB5180011 // f_IOHandler
+ )
  ; // Attributes
  : Operations
-   @ ( ME_538DB5610283 // Create
- ) .SequenceCode.It
+   Seq: ( ME_538DB5610283 // Create
+ )
  ; // Operations
  : Implemented
-   @ ( ME_538DB5C7002E_ME_538DB527006C // WriteBufferFlush
+   Seq: ( ME_538DB5C7002E_ME_538DB527006C // WriteBufferFlush
  ME_538DB5E90386_ME_538DB527006C // ReadChar
  ME_538DB61100CA_ME_538DB527006C // ReadCardinal
  ME_538DB62D02C7_ME_538DB527006C // ReadDateTime
@@ -3060,30 +3199,32 @@ ref; // ME_479731C50290_ME_538DB527006C Cleanup
  ME_5476EDF200B5_ME_538DB527006C // InputBufferClear
  ME_54F5C07302CC_ME_538DB527006C // WriteLargeStr
  ME_54F5C09C0302_ME_538DB527006C // ReadLargeStr
- ) .SequenceCode.It
+ )
  ; // Implemented
  : Overridden
-   @ ( ME_479731C50290_ME_538DB527006C // Cleanup
- ) .SequenceCode.It
+   Seq: ( ME_479731C50290_ME_538DB527006C // Cleanup
+ )
  ; // Overridden
  : Dependencies
-   @ ( ME_538DBE130279 // 
+   Seq: ( ME_538DBE130279 // 
  ME_538DBE180163 // 
  ME_54F5CDE200F4 // 
  ME_54F5CE27023C // 
  ME_54F5D20D0388 // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\cs'
  CONST intf.pas:Path 'common\components\rtl\Garant\cs\csIdIOHandlerAdapter.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\cs'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'csIdIOHandlerAdapter'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'csIdIOHandlerAdapter'
 
 ref; // ME_538DB527006C TcsIdIOHandlerAdapter
 
@@ -3099,12 +3240,11 @@ ref; // ME_538DB527006C TcsIdIOHandlerAdapter
  ;
  CONST "finished" false
  CONST "no hands" false
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\cs'
  CONST intf.pas:Path 'common\components\rtl\Garant\cs\NOT_FINISHED_CsErrors.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\cs'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_538DED5F0011 CsErrors
 
@@ -3121,9 +3261,15 @@ FORWARD ME_545229E7037D
  : Parent ME_545229E7037D // ncsTCPClient
  ;
  : Inherits
-   @ ( WL 'ME_544A218703D0' '538DAE950337.pas.ms.script' // TidTCPClient
- ) .SequenceCode.It
+   Seq: ( WL 'ME_544A218703D0' '538DAE950337.pas.ms.script' // TidTCPClient
+ )
  ; // Inherits
+ CONST dfm:PathOnly '\common\components\rtl\Garant\cs'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\cs'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'ncsTCPClient'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_54522A0E031D TncsTCPClient
 
@@ -3138,16 +3284,15 @@ ref; // ME_54522A0E031D TncsTCPClient
  : Parent ME_52FBB2FC0386 // Core
  ;
  : Children
-   @ ( ME_54522A0E031D // TncsTCPClient
- ) .SequenceCode.It
+   Seq: ( ME_54522A0E031D // TncsTCPClient
+ )
  ; // Children
  CONST "no hands" false
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\cs'
  CONST intf.pas:Path 'common\components\rtl\Garant\cs\ncsTCPClient.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\cs'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_545229E7037D ncsTCPClient
 
@@ -3161,7 +3306,7 @@ ref; // ME_545229E7037D ncsTCPClient
  : Parent WL 'ME_52F8C27F01AB' '52F8C27F01AB.pas.ms.script' // cs
  ;
  : Children
-   @ ( ME_52FBB30A01C6 // TCsObject
+   Seq: ( ME_52FBB30A01C6 // TCsObject
  ME_537F49C801FE // CsCommon
  ME_538DB4F00335 // TcsIdIOHandlerAbstractAdapterPrim
  ME_537F63590169 // CsQueryTypes
@@ -3172,10 +3317,10 @@ ref; // ME_545229E7037D ncsTCPClient
  ME_538DB527006C // TcsIdIOHandlerAdapter
  ME_538DED5F0011 // CsErrors
  ME_545229E7037D // ncsTCPClient
- ) .SequenceCode.It
+ )
  ; // Children
  : Depends
-   @ ( WL 'ME_4678193C009C' '4678193C009C.pas.ms.script' // l3Types
+   Seq: ( WL 'ME_4678193C009C' '4678193C009C.pas.ms.script' // l3Types
  WL 'ME_47913B47006E' '47913B47006E.pas.ms.script' // l3CoreObjects
  WL 'ME_47D0290B016D' '47D0290B016D.pas.ms.script' // l3Utils
  WL 'ME_4AB0997B00A2' '4AB0997B00A2.pas.ms.script' // Common
@@ -3186,15 +3331,13 @@ ref; // ME_545229E7037D ncsTCPClient
  WL 'ME_5432448401BC' '5432448401BC.pas.ms.script' // daTypes
  WL 'ME_5432518A0316' '5432518A0316.pas.ms.script' // daInterfaces
  WL 'ME_54F85B2500FB' '54F85B2500FB.pas.ms.script' // Provider
- ) .SequenceCode.It
+ )
  ; // Depends
- : Generators
- @ (
- gen_pas.script
- gen_pas.script.runner
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\cs'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\cs'
  CONST pas.script:Path 'shared\models\NewSchool\Scripts\52FBB2FC0386.pas.ms.script'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
  CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\52FBB2FC0386.pas.ms.script.runner'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_52FBB2FC0386 Core

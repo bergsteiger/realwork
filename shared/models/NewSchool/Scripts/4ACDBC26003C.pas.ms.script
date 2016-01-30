@@ -11,6 +11,7 @@ FORWARD ME_4ACDBC6101A6
 : ME_ED06A9EFC4C7
  CONST UID 'ED06A9EFC4C7'
  CONST Name 'Ini_Reg_Class'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Регистрация TImageEnView' ;
@@ -24,6 +25,7 @@ ref; // ME_ED06A9EFC4C7 Ini_Reg_Class
 
 : ME_003D26D1450D
  CONST UID '003D26D1450D'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_4ACDBC6101A6 // TImageEnView
@@ -44,22 +46,28 @@ ref; // ME_003D26D1450D
  : Parent ME_4ACDBC4A0003 // imageenview
  ;
  : Operations
-   @ ( ME_ED06A9EFC4C7 // Ini_Reg_Class
- ) .SequenceCode.It
+   Seq: ( ME_ED06A9EFC4C7 // Ini_Reg_Class
+ )
  ; // Operations
  : Dependencies
-   @ ( ME_003D26D1450D // 
- ) .SequenceCode.It
+   Seq: ( ME_003D26D1450D // 
+ )
  ; // Dependencies
  : Injected
-   @ ( WL 'ME_54F4642100D0' '52E20E0E0059.pas.ms.script' // 
- ) .SequenceCode.It
+   Seq: ( WL 'ME_54F4642100D0' '52E20E0E0059.pas.ms.script' // 
+ )
  ; // Injected
  CONST "finished" false
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" true
+ CONST dfm:PathOnly '\common\components\rtl\external\ImageEn\src'
+ CONST intf.pas:PathOnly '\common\components\rtl\external\ImageEn\src'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'ImageEnView'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_4ACDBC6101A6 TImageEnView
 
@@ -74,17 +82,16 @@ ref; // ME_4ACDBC6101A6 TImageEnView
  : Parent ME_4ACDBC26003C // Source
  ;
  : Children
-   @ ( ME_4ACDBC6101A6 // TImageEnView
- ) .SequenceCode.It
+   Seq: ( ME_4ACDBC6101A6 // TImageEnView
+ )
  ; // Children
  CONST "finished" false
  CONST "no hands" false
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\external\ImageEn\src'
  CONST intf.pas:Path 'common\components\rtl\external\ImageEn\src\NOT_FINISHED_imageenview.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\external\ImageEn\src'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_4ACDBC4A0003 imageenview
 
@@ -105,6 +112,12 @@ FORWARD ME_4ACDBE7800FD
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
+ CONST dfm:PathOnly '\common\components\rtl\external\ImageEn\src'
+ CONST intf.pas:PathOnly '\common\components\rtl\external\ImageEn\src'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'ImageEnIO'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_4ACDBE8801BE TImageEnIO
 
@@ -113,6 +126,7 @@ FORWARD ME_53733D6C036D
 : ME_0C9ADE2797D7
  CONST UID '0C9ADE2797D7'
  CONST Name 'DoIt'
+ CONST IsSummoned true
  CONST Class class_Operation
  %SUMMARY 'Сигнатура метода FindStreamFormat' ;
  CONST Visibility PublicAccess
@@ -133,8 +147,8 @@ ref; // ME_0C9ADE2797D7 DoIt
  : Parent ME_4ACDBE7800FD // imageenio
  ;
  : Operations
-   @ ( ME_0C9ADE2797D7 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_0C9ADE2797D7 // DoIt
+ )
  ; // Operations
 
 ref; // ME_53733D6C036D FindStreamFormat
@@ -150,21 +164,20 @@ ref; // ME_53733D6C036D FindStreamFormat
  : Parent ME_4ACDBC26003C // Source
  ;
  : Operations
-   @ ( ME_53733D6C036D // FindStreamFormat
- ) .SequenceCode.It
+   Seq: ( ME_53733D6C036D // FindStreamFormat
+ )
  ; // Operations
  : Children
-   @ ( ME_4ACDBE8801BE // TImageEnIO
- ) .SequenceCode.It
+   Seq: ( ME_4ACDBE8801BE // TImageEnIO
+ )
  ; // Children
  CONST "finished" false
  CONST "no hands" false
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\external\ImageEn\src'
  CONST intf.pas:Path 'common\components\rtl\external\ImageEn\src\NOT_FINISHED_imageenio.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\external\ImageEn\src'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_4ACDBE7800FD imageenio
 
@@ -180,6 +193,11 @@ FORWARD ME_4ACDC3F80345
  CONST Abstraction at_regular
  : Parent ME_4ACDC3F80345 // iemview
  ;
+ CONST dfm:PathOnly '\common\components\rtl\external\ImageEn\src'
+ CONST intf.pas:PathOnly '\common\components\rtl\external\ImageEn\src'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_4ACDC40F0227 TIEMMouseInteractItems
 
@@ -194,17 +212,16 @@ ref; // ME_4ACDC40F0227 TIEMMouseInteractItems
  : Parent ME_4ACDBC26003C // Source
  ;
  : Children
-   @ ( ME_4ACDC40F0227 // TIEMMouseInteractItems
- ) .SequenceCode.It
+   Seq: ( ME_4ACDC40F0227 // TIEMMouseInteractItems
+ )
  ; // Children
  CONST "finished" false
  CONST "no hands" false
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\external\ImageEn\src'
  CONST intf.pas:Path 'common\components\rtl\external\ImageEn\src\NOT_FINISHED_iemview.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\external\ImageEn\src'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_4ACDC3F80345 iemview
 
@@ -220,6 +237,11 @@ FORWARD ME_4ACDC4220115
  CONST Abstraction at_regular
  : Parent ME_4ACDC4220115 // hyiedefs
  ;
+ CONST dfm:PathOnly '\common\components\rtl\external\ImageEn\src'
+ CONST intf.pas:PathOnly '\common\components\rtl\external\ImageEn\src'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_4ACDC43503CA TResampleFilter
 
@@ -234,17 +256,16 @@ ref; // ME_4ACDC43503CA TResampleFilter
  : Parent ME_4ACDBC26003C // Source
  ;
  : Children
-   @ ( ME_4ACDC43503CA // TResampleFilter
- ) .SequenceCode.It
+   Seq: ( ME_4ACDC43503CA // TResampleFilter
+ )
  ; // Children
  CONST "finished" false
  CONST "no hands" false
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\external\ImageEn\src'
  CONST intf.pas:Path 'common\components\rtl\external\ImageEn\src\NOT_FINISHED_hyiedefs.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\external\ImageEn\src'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_4ACDC4220115 hyiedefs
 
@@ -260,6 +281,11 @@ FORWARD ME_4B0FFBFC0188
  CONST Abstraction at_regular
  : Parent ME_4B0FFBFC0188 // hyieutils
  ;
+ CONST dfm:PathOnly '\common\components\rtl\external\ImageEn\src'
+ CONST intf.pas:PathOnly '\common\components\rtl\external\ImageEn\src'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_4B0FFC0A03CA TIEMouseWheelParamsAction
 
@@ -277,6 +303,12 @@ ref; // ME_4B0FFC0A03CA TIEMouseWheelParamsAction
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
+ CONST dfm:PathOnly '\common\components\rtl\external\ImageEn\src'
+ CONST intf.pas:PathOnly '\common\components\rtl\external\ImageEn\src'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'IEBitmap'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_4FD0890501F9 TIEBitmap
 
@@ -291,18 +323,17 @@ ref; // ME_4FD0890501F9 TIEBitmap
  : Parent ME_4ACDBC26003C // Source
  ;
  : Children
-   @ ( ME_4B0FFC0A03CA // TIEMouseWheelParamsAction
+   Seq: ( ME_4B0FFC0A03CA // TIEMouseWheelParamsAction
  ME_4FD0890501F9 // TIEBitmap
- ) .SequenceCode.It
+ )
  ; // Children
  CONST "finished" false
  CONST "no hands" false
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\external\ImageEn\src'
  CONST intf.pas:Path 'common\components\rtl\external\ImageEn\src\NOT_FINISHED_hyieutils.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\external\ImageEn\src'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_4B0FFBFC0188 hyieutils
 
@@ -323,6 +354,12 @@ FORWARD ME_4C8778C80111
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
+ CONST dfm:PathOnly '\common\components\rtl\external\ImageEn\src'
+ CONST intf.pas:PathOnly '\common\components\rtl\external\ImageEn\src'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'ImageEnProc'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_4C8778D802F6 TImageEnProc
 
@@ -337,17 +374,16 @@ ref; // ME_4C8778D802F6 TImageEnProc
  : Parent ME_4ACDBC26003C // Source
  ;
  : Children
-   @ ( ME_4C8778D802F6 // TImageEnProc
- ) .SequenceCode.It
+   Seq: ( ME_4C8778D802F6 // TImageEnProc
+ )
  ; // Children
  CONST "finished" false
  CONST "no hands" false
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\external\ImageEn\src'
  CONST intf.pas:Path 'common\components\rtl\external\ImageEn\src\NOT_FINISHED_imageenproc.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\external\ImageEn\src'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_4C8778C80111 imageenproc
 
@@ -363,12 +399,11 @@ ref; // ME_4C8778C80111 imageenproc
  ;
  CONST "finished" false
  CONST "no hands" false
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\external\ImageEn\src'
  CONST intf.pas:Path 'common\components\rtl\external\ImageEn\src\NOT_FINISHED_giflzw.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\external\ImageEn\src'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_524970860109 giflzw
 
@@ -382,27 +417,25 @@ ref; // ME_524970860109 giflzw
  : Parent WL 'ME_4ACDBBED0241' '4ACDBBED0241.pas.ms.script' // ImageEn
  ;
  : Children
-   @ ( ME_4ACDBC4A0003 // imageenview
+   Seq: ( ME_4ACDBC4A0003 // imageenview
  ME_4ACDBE7800FD // imageenio
  ME_4ACDC3F80345 // iemview
  ME_4ACDC4220115 // hyiedefs
  ME_4B0FFBFC0188 // hyieutils
  ME_4C8778C80111 // imageenproc
  ME_524970860109 // giflzw
- ) .SequenceCode.It
+ )
  ; // Children
  : Depends
-   @ ( WL 'ME_561F9F7D02A7' '561F9F7D02A7.pas.ms.script' // ScriptEngine
- ) .SequenceCode.It
+   Seq: ( WL 'ME_561F9F7D02A7' '561F9F7D02A7.pas.ms.script' // ScriptEngine
+ )
  ; // Depends
  CONST "path prefix" '/src'
- : Generators
- @ (
- gen_pas.script
- gen_pas.script.runner
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\external\ImageEn\src'
+ CONST intf.pas:PathOnly '\common\components\rtl\external\ImageEn\src'
  CONST pas.script:Path 'shared\models\NewSchool\Scripts\4ACDBC26003C.pas.ms.script'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
  CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\4ACDBC26003C.pas.ms.script.runner'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_4ACDBC26003C Source

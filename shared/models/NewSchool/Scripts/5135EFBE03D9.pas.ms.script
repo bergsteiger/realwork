@@ -1,0 +1,213 @@
+// Integration 5135EFBE03D9 ScriptKeywords Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_5135EFBE03D9
+
+FORWARD ME_5135EFD80062
+
+FORWARD ME_5135F0090070
+
+: ME_5135F02401D6
+ CONST UID '5135F02401D6'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_5135EFD80062 // Integration
+ ;
+ : Target ME_5135F0090070 // integration_OpenLink
+ ;
+
+ref; // ME_5135F02401D6 
+
+: ME_DFC02ECFD153
+ CONST UID 'DFC02ECFD153'
+ CONST IsSummoned true
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_5135EFD80062 // Integration
+ ;
+ : Target WL 'ME_55153C2C036F' '55BA28CE0290.pas.ms.script' // TypeInfoExt
+ ;
+
+ref; // ME_DFC02ECFD153 
+
+: ME_5135EFD80062
+ CONST UID '5135EFD80062'
+ CONST Name 'Integration'
+ CONST Class class_Class
+ : Stereotype st_ScriptKeywordsPack ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_5135EFBE03D9 // Integration
+ ;
+ : Dependencies
+   Seq: ( ME_5135F02401D6 // 
+ ME_DFC02ECFD153 // 
+ )
+ ; // Dependencies
+ CONST "ifndef" 'NoScripts'
+ CONST "needs script" 'undefined'
+ CONST "no class name" 'undefined'
+ CONST "no hands" false
+ CONST "no_pop" 'undefined'
+ : Generators
+ Seq: (
+ gen_intf.pas
+ )
+ ; // Generators
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\F1_Words'
+ CONST intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\F1_Words\Integration.pas'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\F1_Words'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\F1_Words'
+
+ref; // ME_5135EFD80062 Integration
+
+: ME_A5C15305E574
+ CONST UID 'A5C15305E574'
+ CONST Name 'Ini_Reg'
+ CONST IsSummoned true
+ CONST Class class_Operation
+ : Stereotype st_ini::Operation ;
+ %SUMMARY 'Регистрация integration_OpenLink' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_5135F0090070 // integration_OpenLink
+ ;
+
+ref; // ME_A5C15305E574 Ini_Reg
+
+: ME_5135F029035E
+ CONST UID '5135F029035E'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_5135F0090070 // integration_OpenLink
+ ;
+ : Target WL 'ME_5135ECC0016B' '4F86C008009E.pas.ms.script' // TIntegrationData
+ ;
+
+ref; // ME_5135F029035E 
+
+: ME_51371E4800F0
+ CONST UID '51371E4800F0'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_5135F0090070 // integration_OpenLink
+ ;
+ : Target WL 'ME_51371A9402FA' '51360760006C.pas.ms.script' // nsIntegrationModelPart
+ ;
+
+ref; // ME_51371E4800F0 
+
+: ME_4DAEEDE10285_ME_5135F0090070
+ CONST UID '4DAEEDE10285'
+ CONST Name 'DoDoIt'
+ : Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.pas.ms.script' // DoDoIt
+ ;
+ : Implementor ME_5135F0090070 // integration_OpenLink
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_4DAEEDE10285_ME_5135F0090070 DoDoIt
+
+: ME_4DB0614603C8_ME_5135F0090070
+ CONST UID '4DB0614603C8'
+ CONST Name 'GetWordNameForRegister'
+ : Original WL 'ME_4DB0614603C8' '4F3E3F5F0160.pas.ms.script' // GetWordNameForRegister
+ ;
+ : Implementor ME_5135F0090070 // integration_OpenLink
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_4DB0614603C8_ME_5135F0090070 GetWordNameForRegister
+
+: ME_5135F0090070
+ CONST UID '5135F0090070'
+ CONST Name 'integration_OpenLink'
+ CONST Class class_Class
+ : Stereotype st_ScriptKeyword ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_5135EFBE03D9 // Integration
+ ;
+ : Inherits
+   Seq: ( WL 'ME_53EDC0E701BC' '4F3E3F5F0160.pas.ms.script' // TtfwRegisterableWord
+ )
+ ; // Inherits
+ : Operations
+   Seq: ( ME_A5C15305E574 // Ini_Reg
+ )
+ ; // Operations
+ : Implemented
+   Seq: ( ME_4DAEEDE10285_ME_5135F0090070 // DoDoIt
+ )
+ ; // Implemented
+ : Overridden
+   Seq: ( ME_4DB0614603C8_ME_5135F0090070 // GetWordNameForRegister
+ )
+ ; // Overridden
+ : Dependencies
+   Seq: ( ME_5135F029035E // 
+ ME_51371E4800F0 // 
+ )
+ ; // Dependencies
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ : Generators
+ Seq: (
+ gen_intf.pas
+ )
+ ; // Generators
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\F1_Words'
+ CONST intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\F1_Words\kwIntegrationOpenLink.pas'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\F1_Words'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\F1_Words'
+ CONST extprop:pas:TypeName 'TkwIntegrationOpenLink'
+ CONST extprop:rc:SelfName 'IntegrationOpenLink'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'kwIntegrationOpenLink'
+
+ref; // ME_5135F0090070 integration_OpenLink
+
+: ME_5135EFBE03D9
+ CONST UID '5135EFBE03D9'
+ CONST Name 'Integration'
+ CONST Class class_Category
+ : Stereotype st_ScriptKeywords ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent WL 'ME_4DB057A602EB' '4DB057A602EB.pas.ms.script' // F1 Words
+ ;
+ : Children
+   Seq: ( ME_5135EFD80062 // Integration
+ ME_5135F0090070 // integration_OpenLink
+ )
+ ; // Children
+ : Depends
+   Seq: ( WL 'ME_4F3E3F5F0160' '4F3E3F5F0160.pas.ms.script' // PrimitiveWords
+ WL 'ME_4F86C008009E' '4F86C008009E.pas.ms.script' // Integration
+ WL 'ME_51360760006C' '51360760006C.pas.ms.script' // Implementation
+ WL 'ME_55BA28CE0290' '55BA28CE0290.pas.ms.script' // tfwScriptingTypes
+ )
+ ; // Depends
+ CONST "ifndef" 'NoScripts'
+ : Generators
+ Seq: (
+ gen_pas.script
+ gen_pas.script.runner
+ )
+ ; // Generators
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\F1_Words'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\F1_Words'
+ CONST pas.script:Path 'shared\models\NewSchool\Scripts\5135EFBE03D9.pas.ms.script'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\5135EFBE03D9.pas.ms.script.runner'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\F1_Words'
+
+ref; // ME_5135EFBE03D9 Integration

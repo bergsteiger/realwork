@@ -13,11 +13,11 @@ INCLUDE 'ElementsRTTI.ms.dict'
  : Parent WL 'ME_4A82FE48010A' '4A82FE48010A.pas.ms.script' // Shared Delphi Operations
  ;
  : Children
-   @ ( WL 'ME_4954C0500033' '4954C0500033.pas.ms.script' // UserInteraction
- ) .SequenceCode.It
+   Seq: ( WL 'ME_4954C0500033' '4954C0500033.pas.ms.script' // UserInteraction
+ )
  ; // Children
  : Depends
-   @ ( WL 'ME_469F3E37025A' '469F3E37025A.pas.ms.script' // Rtl
+   Seq: ( WL 'ME_469F3E37025A' '469F3E37025A.pas.ms.script' // Rtl
  WL 'ME_4790C3B8021E' '4790C3B8021E.pas.ms.script' // VCM
  WL 'ME_4790D09A0378' '4790D09A0378.pas.ms.script' // L3
  WL 'ME_4C8DD86C03C8' '4C8DD86C03C8.pas.ms.script' // VCMCustomization
@@ -25,18 +25,14 @@ INCLUDE 'ElementsRTTI.ms.dict'
  WL 'ME_4E2F0E1B03BB' '4E2F0E1B03BB.pas.ms.script' // L3$Domain
  WL 'ME_4E5BC50E02E1' '4E5BC50E02E1.pas.ms.script' // Shared Delphi Требования к низкоуровневым библиотекам
  WL 'ME_561F9F7D02A7' '561F9F7D02A7.pas.ms.script' // ScriptEngine
- ) .SequenceCode.It
+ )
  ; // Depends
  CONST "vendor" '/Garant/VCM'
- : Generators
- @ (
- gen_forth_structure
- gen_pas.script
- gen_pas.script.runner
- ) .SequenceCode.It
- ; // Generators
- CONST forth_structure:Path 'shared\models\NewSchool\Shared Delphi Operations\OfficeLike\OfficeLike.model.script'
+ CONST dfm:PathOnly '\common\components\gui\Garant\VCM'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\VCM'
  CONST pas.script:Path 'shared\models\NewSchool\Scripts\4954C00703D0.pas.ms.script'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
  CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\4954C00703D0.pas.ms.script.runner'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_4954C00703D0 OfficeLike

@@ -15,10 +15,15 @@ FORWARD ME_47F088300159
  : Parent ME_47F088300159 // evInternalInterfaces
  ;
  : Inherits
-   @ ( WL 'ME_47C68C4500D2' '48F4E61C0060.pas.ms.script' // DataObject
- ) .SequenceCode.It
+   Seq: ( WL 'ME_47C68C4500D2' '48F4E61C0060.pas.ms.script' // DataObject
+ )
  ; // Inherits
  CONST "isPointer" true
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_47F1F4C90171 PIevDataObject
 
@@ -48,6 +53,7 @@ ref; // ME_4A2625D4012E ColumnID
  ;
  : Implementor ME_4A2625B60015 // IevColumnBorderMarker
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_47C688720388_ME_4A2625B60015 MakeCopy
 
 : ME_47C688850028_ME_4A2625B60015
@@ -57,6 +63,7 @@ ref; // ME_47C688720388_ME_4A2625B60015 MakeCopy
  ;
  : Implementor ME_4A2625B60015 // IevColumnBorderMarker
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_47C688850028_ME_4A2625B60015 SetValue
 
 : ME_47C68895037D_ME_4A2625B60015
@@ -66,6 +73,7 @@ ref; // ME_47C688850028_ME_4A2625B60015 SetValue
  ;
  : Implementor ME_4A2625B60015 // IevColumnBorderMarker
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_47C68895037D_ME_4A2625B60015 CompareLevel
 
 : ME_47C688A60250_ME_4A2625B60015
@@ -75,6 +83,7 @@ ref; // ME_47C68895037D_ME_4A2625B60015 CompareLevel
  ;
  : Implementor ME_4A2625B60015 // IevColumnBorderMarker
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_47C688A60250_ME_4A2625B60015 Compare
 
 : ME_47C688BC0372_ME_4A2625B60015
@@ -84,6 +93,7 @@ ref; // ME_47C688A60250_ME_4A2625B60015 Compare
  ;
  : Implementor ME_4A2625B60015 // IevColumnBorderMarker
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" true
 ref; // ME_47C688BC0372_ME_4A2625B60015 Value
 
@@ -94,6 +104,7 @@ ref; // ME_47C688BC0372_ME_4A2625B60015 Value
  ;
  : Implementor ME_4A2625B60015 // IevColumnBorderMarker
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" true
 ref; // ME_47C688D40338_ME_4A2625B60015 ClientValue
 
@@ -104,6 +115,7 @@ ref; // ME_47C688D40338_ME_4A2625B60015 ClientValue
  ;
  : Implementor ME_4A2625B60015 // IevColumnBorderMarker
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" true
 ref; // ME_47C688E50309_ME_4A2625B60015 Level
 
@@ -114,6 +126,7 @@ ref; // ME_47C688E50309_ME_4A2625B60015 Level
  ;
  : Implementor ME_4A2625B60015 // IevColumnBorderMarker
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" true
 ref; // ME_47C6892E0289_ME_4A2625B60015 Para
 
@@ -124,6 +137,7 @@ ref; // ME_47C6892E0289_ME_4A2625B60015 Para
  ;
  : Implementor ME_4A2625B60015 // IevColumnBorderMarker
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" false
 ref; // ME_47C6894703C9_ME_4A2625B60015 TagIndex
 
@@ -134,6 +148,7 @@ ref; // ME_47C6894703C9_ME_4A2625B60015 TagIndex
  ;
  : Implementor ME_4A2625B60015 // IevColumnBorderMarker
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" false
 ref; // ME_47C68956021B_ME_4A2625B60015 Acc
 
@@ -144,6 +159,7 @@ ref; // ME_47C68956021B_ME_4A2625B60015 Acc
  ;
  : Implementor ME_4A2625B60015 // IevColumnBorderMarker
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" false
 ref; // ME_47C689630094_ME_4A2625B60015 Style
 
@@ -154,6 +170,7 @@ ref; // ME_47C689630094_ME_4A2625B60015 Style
  ;
  : Implementor ME_4A2625B60015 // IevColumnBorderMarker
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" false
 ref; // ME_47C689700040_ME_4A2625B60015 Hint
 
@@ -164,6 +181,7 @@ ref; // ME_47C689700040_ME_4A2625B60015 Hint
  ;
  : Implementor ME_4A2625B60015 // IevColumnBorderMarker
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" false
 ref; // ME_4821A3A90370_ME_4A2625B60015 View
 
@@ -180,15 +198,15 @@ ref; // ME_4821A3A90370_ME_4A2625B60015 View
  : Parent ME_47F088300159 // evInternalInterfaces
  ;
  : Inherits
-   @ ( WL 'ME_47C6885E01DF' '47C5207602D1.pas.ms.script' // IevMarker
- ) .SequenceCode.It
+   Seq: ( WL 'ME_47C6885E01DF' '47C5207602D1.pas.ms.script' // IevMarker
+ )
  ; // Inherits
  : Attributes
-   @ ( ME_4A2625D4012E // ColumnID
- ) .SequenceCode.It
+   Seq: ( ME_4A2625D4012E // ColumnID
+ )
  ; // Attributes
  : Implemented
-   @ ( ME_47C688720388_ME_4A2625B60015 // MakeCopy
+   Seq: ( ME_47C688720388_ME_4A2625B60015 // MakeCopy
  ME_47C688850028_ME_4A2625B60015 // SetValue
  ME_47C68895037D_ME_4A2625B60015 // CompareLevel
  ME_47C688A60250_ME_4A2625B60015 // Compare
@@ -201,8 +219,14 @@ ref; // ME_4821A3A90370_ME_4A2625B60015 View
  ME_47C689630094_ME_4A2625B60015 // Style
  ME_47C689700040_ME_4A2625B60015 // Hint
  ME_4821A3A90370_ME_4A2625B60015 // View
- ) .SequenceCode.It
+ )
  ; // Implemented
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'ColumnBorderMarker'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_4A2625B60015 IevColumnBorderMarker
 
@@ -248,6 +272,7 @@ ref; // ME_4A262636034C anOpPack
  CONST Value false
  : ValueType WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
+ CONST extprop:pas:Value false
 
 ref; // ME_4A262636036A SeeByLevel
 
@@ -261,6 +286,7 @@ ref; // ME_4A262636036A SeeByLevel
  CONST Value 'l3MinIndex'
  : ValueType WL 'ME_476F9605006B' '4678193C009C.pas.ms.script' // Indexes
  ;
+ CONST extprop:pas:Value 'l3Types.l3MinIndex'
 
 ref; // ME_4A262636039A aMinIndex
 
@@ -274,6 +300,7 @@ ref; // ME_4A262636039A aMinIndex
  CONST Value 'l3MaxIndex'
  : ValueType WL 'ME_476F9605006B' '4678193C009C.pas.ms.script' // Indexes
  ;
+ CONST extprop:pas:Value 'l3Types.l3MaxIndex'
 
 ref; // ME_4A2626370008 aMaxIndex
 
@@ -289,13 +316,13 @@ ref; // ME_4A2626370008 aMaxIndex
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
  : Parameters
-   @ ( ME_4A2626360311 // aMarker
+   Seq: ( ME_4A2626360311 // aMarker
  ME_4A262636032D // aValue
  ME_4A262636034C // anOpPack
  ME_4A262636036A // SeeByLevel
  ME_4A262636039A // aMinIndex
  ME_4A2626370008 // aMaxIndex
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_4A26260A00E6 ChangeParam
@@ -313,10 +340,16 @@ ref; // ME_4A26260A00E6 ChangeParam
  : Parent ME_47F088300159 // evInternalInterfaces
  ;
  : Operations
-   @ ( ME_4A26260A00E6 // ChangeParam
- ) .SequenceCode.It
+   Seq: ( ME_4A26260A00E6 // ChangeParam
+ )
  ; // Operations
  CONST "ifdef" 'evNeedHotSpot'
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'ChangeParamTool'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_4A2625FB03C2 IevChangeParamTool
 
@@ -347,9 +380,15 @@ ref; // ME_4A26265500EB ObjectXOffset
  : Parent ME_47F088300159 // evInternalInterfaces
  ;
  : Operations
-   @ ( ME_4A26265500EB // ObjectXOffset
- ) .SequenceCode.It
+   Seq: ( ME_4A26265500EB // ObjectXOffset
+ )
  ; // Operations
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'ObjectFrame'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_4A26264B005E IevObjectFrame
 
@@ -364,9 +403,14 @@ ref; // ME_4A26264B005E IevObjectFrame
  : Parent ME_47F088300159 // evInternalInterfaces
  ;
  : Inherits
-   @ ( WL 'ME_4774F12803A9' '46A5E026007E.pas.ms.script' // TShiftState
- ) .SequenceCode.It
+   Seq: ( WL 'ME_4774F12803A9' '46A5E026007E.pas.ms.script' // TShiftState
+ )
  ; // Inherits
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_4A26267601F3 TShiftState
 
@@ -382,9 +426,14 @@ ref; // ME_4A26267601F3 TShiftState
  : Parent ME_47F088300159 // evInternalInterfaces
  ;
  : Inherits
-   @ ( WL 'ME_4728CDD0000B' '4677FBA70343.pas.ms.script' // Tl3MouseButton
- ) .SequenceCode.It
+   Seq: ( WL 'ME_4728CDD0000B' '4677FBA70343.pas.ms.script' // Tl3MouseButton
+ )
  ; // Inherits
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_4A26276401B0 TevMouseButton
 
@@ -400,9 +449,14 @@ ref; // ME_4A26276401B0 TevMouseButton
  : Parent ME_47F088300159 // evInternalInterfaces
  ;
  : Inherits
-   @ ( WL 'ME_4728CDEF038A' '4677FBA70343.pas.ms.script' // Tl3MouseAction
- ) .SequenceCode.It
+   Seq: ( WL 'ME_4728CDEF038A' '4677FBA70343.pas.ms.script' // Tl3MouseAction
+ )
  ; // Inherits
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_4A2627750007 TevMouseAction
 
@@ -428,8 +482,8 @@ ref; // ME_4A2627A2005B aSub
  : Parent ME_4A26278703E1 // IevSubFlagsSpy
  ;
  : Parameters
-   @ ( ME_4A2627A2005B // aSub
- ) .SequenceCode.It
+   Seq: ( ME_4A2627A2005B // aSub
+ )
  ; // Parameters
 
 ref; // ME_4A2627980257 NotifyFlagsChange
@@ -447,9 +501,15 @@ ref; // ME_4A2627980257 NotifyFlagsChange
  : Parent ME_47F088300159 // evInternalInterfaces
  ;
  : Operations
-   @ ( ME_4A2627980257 // NotifyFlagsChange
- ) .SequenceCode.It
+   Seq: ( ME_4A2627980257 // NotifyFlagsChange
+ )
  ; // Operations
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'SubFlagsSpy'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_4A26278703E1 IevSubFlagsSpy
 
@@ -480,9 +540,15 @@ ref; // ME_4A2627BA00B2 NotifyMarkerChange
  : Parent ME_47F088300159 // evInternalInterfaces
  ;
  : Operations
-   @ ( ME_4A2627BA00B2 // NotifyMarkerChange
- ) .SequenceCode.It
+   Seq: ( ME_4A2627BA00B2 // NotifyMarkerChange
+ )
  ; // Operations
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'MarkerSpy'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_4A2627AC0260 IevMarkerSpy
 
@@ -524,10 +590,16 @@ ref; // ME_5022248A02C4 InitAACLikeCursor
  : Parent ME_47F088300159 // evInternalInterfaces
  ;
  : Operations
-   @ ( ME_4A2627D70332 // MakeCursor
+   Seq: ( ME_4A2627D70332 // MakeCursor
  ME_5022248A02C4 // InitAACLikeCursor
- ) .SequenceCode.It
+ )
  ; // Operations
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'CursorSource'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_4A2627C902A1 IevCursorSource
 
@@ -568,8 +640,8 @@ ref; // ME_4ECA564003B9 aNode
  : Parent ME_4A2627EA0145 // InevContentsNodeFilter
  ;
  : Parameters
-   @ ( ME_4ECA564003B9 // aNode
- ) .SequenceCode.It
+   Seq: ( ME_4ECA564003B9 // aNode
+ )
  ; // Parameters
 
 ref; // ME_4A2628130085 ColorNode
@@ -604,8 +676,8 @@ ref; // ME_5343A6C40379 aTag
  : Parent ME_4A2627EA0145 // InevContentsNodeFilter
  ;
  : Parameters
-   @ ( ME_5343A6C40379 // aTag
- ) .SequenceCode.It
+   Seq: ( ME_5343A6C40379 // aTag
+ )
  ; // Parameters
 
 ref; // ME_4E09BCEA0004 AddFilterTag
@@ -629,8 +701,8 @@ ref; // ME_5343A6CE00B0 aDocument
  : Parent ME_4A2627EA0145 // InevContentsNodeFilter
  ;
  : Parameters
-   @ ( ME_5343A6CE00B0 // aDocument
- ) .SequenceCode.It
+   Seq: ( ME_5343A6CE00B0 // aDocument
+ )
  ; // Parameters
 
 ref; // ME_4EAE94530363 ChangeDocument
@@ -656,8 +728,8 @@ ref; // ME_5343A6D8009D aTag
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
  : Parameters
-   @ ( ME_5343A6D8009D // aTag
- ) .SequenceCode.It
+   Seq: ( ME_5343A6D8009D // aTag
+ )
  ; // Parameters
 
 ref; // ME_4ECA564903B7 NeedCreate
@@ -674,17 +746,23 @@ ref; // ME_4ECA564903B7 NeedCreate
  : Parent ME_47F088300159 // evInternalInterfaces
  ;
  : Attributes
-   @ ( ME_4A26284D0339 // FilteredNodeFlag
- ) .SequenceCode.It
+   Seq: ( ME_4A26284D0339 // FilteredNodeFlag
+ )
  ; // Attributes
  : Operations
-   @ ( ME_4A2628130085 // ColorNode
+   Seq: ( ME_4A2628130085 // ColorNode
  ME_4E09B99A0384 // CheckTagList
  ME_4E09BCEA0004 // AddFilterTag
  ME_4EAE94530363 // ChangeDocument
  ME_4ECA564903B7 // NeedCreate
- ) .SequenceCode.It
+ )
  ; // Operations
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'ContentsNodeFilter'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_4A2627EA0145 InevContentsNodeFilter
 
@@ -703,6 +781,7 @@ FORWARD ME_4A26286002CF
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value 'l3_mbLeft'
 
 ref; // ME_4A2628790345 ev_mbLeft
 
@@ -719,6 +798,7 @@ ref; // ME_4A2628790345 ev_mbLeft
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value 'l3_mbMiddle'
 
 ref; // ME_4A26288D02CC ev_mbMiddle
 
@@ -735,6 +815,7 @@ ref; // ME_4A26288D02CC ev_mbMiddle
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value 'l3_mbRight'
 
 ref; // ME_4A2628950024 ev_mbRight
 
@@ -751,6 +832,7 @@ ref; // ME_4A2628950024 ev_mbRight
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value 'l3_maDown'
 
 ref; // ME_4A26289E012E ev_maDown
 
@@ -767,6 +849,7 @@ ref; // ME_4A26289E012E ev_maDown
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value 'l3_maUp'
 
 ref; // ME_4A2628A501C2 ev_maUp
 
@@ -783,6 +866,7 @@ ref; // ME_4A2628A501C2 ev_maUp
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value 'l3_maDouble'
 
 ref; // ME_4A2628AC0078 ev_maDouble
 
@@ -799,6 +883,7 @@ ref; // ME_4A2628AC0078 ev_maDouble
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value 'l3_maMove'
 
 ref; // ME_4A2628B30135 ev_maMove
 
@@ -815,6 +900,7 @@ ref; // ME_4A2628B30135 ev_maMove
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value 'l3_maCtlMove'
 
 ref; // ME_4A2628BB01C0 ev_maCtlMove
 
@@ -829,7 +915,7 @@ ref; // ME_4A2628BB01C0 ev_maCtlMove
  : Parent ME_47F088300159 // evInternalInterfaces
  ;
  : Attributes
-   @ ( ME_4A2628790345 // ev_mbLeft
+   Seq: ( ME_4A2628790345 // ev_mbLeft
  ME_4A26288D02CC // ev_mbMiddle
  ME_4A2628950024 // ev_mbRight
  ME_4A26289E012E // ev_maDown
@@ -837,9 +923,13 @@ ref; // ME_4A2628BB01C0 ev_maCtlMove
  ME_4A2628AC0078 // ev_maDouble
  ME_4A2628B30135 // ev_maMove
  ME_4A2628BB01C0 // ev_maCtlMove
- ) .SequenceCode.It
+ )
  ; // Attributes
  CONST "spell names" false
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_4A26286002CF Mouse Constants
 
@@ -891,9 +981,9 @@ ref; // ME_4A8C2EA8008B NeedDeleteIfReadOnly
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
  : Parameters
-   @ ( ME_4A8C244D031E // aPara
+   Seq: ( ME_4A8C244D031E // aPara
  ME_4A8C2EA8008B // NeedDeleteIfReadOnly
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_4A8C24130193 IsInReadOnlyPara
@@ -910,10 +1000,16 @@ ref; // ME_4A8C24130193 IsInReadOnlyPara
  : Parent ME_47F088300159 // evInternalInterfaces
  ;
  : Operations
-   @ ( ME_4A8C083300C3 // CanInsertParaOnMove
+   Seq: ( ME_4A8C083300C3 // CanInsertParaOnMove
  ME_4A8C24130193 // IsInReadOnlyPara
- ) .SequenceCode.It
+ )
  ; // Operations
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'F1LikeEditor'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_4A8C065802BD IevF1LikeEditor
 
@@ -966,11 +1062,16 @@ ref; // ME_4F6AE5D600DF ev_mtlCells
  : Parent ME_47F088300159 // evInternalInterfaces
  ;
  : Attributes
-   @ ( ME_4F6AE42E00AD // ev_mltBlocks
+   Seq: ( ME_4F6AE42E00AD // ev_mltBlocks
  ME_4F6AE43B0391 // ev_mtlTables
  ME_4F6AE5D600DF // ev_mtlCells
- ) .SequenceCode.It
+ )
  ; // Attributes
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_4F6AE3270251 TevMergeParaListType
 
@@ -985,7 +1086,7 @@ ref; // ME_4F6AE3270251 TevMergeParaListType
  : Parent WL 'ME_4797632D0273' '4797632D0273.pas.ms.script' // Everest
  ;
  : Children
-   @ ( ME_47F1F4C90171 // PIevDataObject
+   Seq: ( ME_47F1F4C90171 // PIevDataObject
  ME_4A2625B60015 // IevColumnBorderMarker
  ME_4A2625FB03C2 // IevChangeParamTool
  ME_4A26264B005E // IevObjectFrame
@@ -998,35 +1099,32 @@ ref; // ME_4F6AE3270251 TevMergeParaListType
  ME_4A2627EA0145 // InevContentsNodeFilter
  ME_4A8C065802BD // IevF1LikeEditor
  ME_4F6AE3270251 // TevMergeParaListType
- ) .SequenceCode.It
+ )
  ; // Children
  : Constants
-   @ ( ME_4A26286002CF // Mouse Constants
- ) .SequenceCode.It
+   Seq: ( ME_4A26286002CF // Mouse Constants
+ )
  ; // Constants
  : Depends
-   @ ( WL 'ME_4677FBA70343' '4677FBA70343.pas.ms.script' // l3Interfaces
+   Seq: ( WL 'ME_4677FBA70343' '4677FBA70343.pas.ms.script' // l3Interfaces
  WL 'ME_4678193C009C' '4678193C009C.pas.ms.script' // l3Types
  WL 'ME_4678209200A6' '4678209200A6.pas.ms.script' // nevBase
  WL 'ME_46A5E026007E' '46A5E026007E.pas.ms.script' // l3Core
  WL 'ME_47C5207602D1' '47C5207602D1.pas.ms.script' // nevTools
  WL 'ME_48F4E61C0060' '48F4E61C0060.pas.ms.script' // Interfaces
  WL 'ME_4AB0C3C60310' '4AB0C3C60310.pas.ms.script' // Sys
- ) .SequenceCode.It
+ )
  ; // Depends
  CONST "author" 'Ëþëèí À.Â.'
  CONST "is namespace" true
  CONST "no hands" true
  CONST "started" '28.09.1999 10:18'
- : Generators
- @ (
- gen_intf.pas
- gen_pas.script
- gen_pas.script.runner
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest'
  CONST intf.pas:Path 'common\components\gui\Garant\Everest\evInternalInterfaces.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest'
  CONST pas.script:Path 'shared\models\NewSchool\Scripts\47F088300159.pas.ms.script'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
  CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\47F088300159.pas.ms.script.runner'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_47F088300159 evInternalInterfaces

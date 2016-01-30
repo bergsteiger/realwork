@@ -1,0 +1,1612 @@
+// CommonDiction 492543E30278 ControllerUnit Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_492543E30278
+
+FORWARD ME_4925449A0296
+
+: ME_492545A5017B
+ CONST UID '492545A5017B'
+ CONST Name 'Current'
+ CONST Class class_Attribute
+ : Stereotype st_property::Attribute ;
+ %SUMMARY 'текущий язык списка толкований' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_agr
+ : Parent ME_4925449A0296 // dsCommonDiction
+ ;
+ : Target WL 'ME_45EEB95901C5' '457450470167.pas.ms.script' // NodeBase
+ ;
+ CONST "needs field" true
+ CONST "pm" true
+ CONST "reads field" true
+ CONST "writes field" true
+
+ref; // ME_492545A5017B Current
+
+: ME_4978A1E40101
+ CONST UID '4978A1E40101'
+ CONST Name 'BaseDocument'
+ CONST Class class_Attribute
+ : Stereotype st_UseCase::Attribute ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_lnk
+ : Parent ME_4925449A0296 // dsCommonDiction
+ ;
+ : Target WL 'ME_47EA0F8D010D' '491B305A0096.pas.ms.script' // IsdsBaseDocument
+ ;
+
+ref; // ME_4978A1E40101 BaseDocument
+
+: ME_4B0EAE8A0062
+ CONST UID '4B0EAE8A0062'
+ CONST Name 'CommonDiction'
+ CONST Class class_Attribute
+ : Stereotype st_UseCase::Attribute ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_lnk
+ : Parent ME_4925449A0296 // dsCommonDiction
+ ;
+ : Target WL 'ME_4936823400AE' '492540AF02CD.pas.ms.script' // IsdsCommonDiction
+ ;
+
+ref; // ME_4B0EAE8A0062 CommonDiction
+
+: ME_52F4E5E80283
+ CONST UID '52F4E5E80283'
+ CONST Name 'f_ContextFilterState'
+ CONST Class class_Attribute
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_ref
+ : Parent ME_4925449A0296 // dsCommonDiction
+ ;
+ : Target WL 'ME_4908393001C5' '490838E10313.pas.ms.script' // InscContextFilterState
+ ;
+
+ref; // ME_52F4E5E80283 f_ContextFilterState
+
+: ME_5571EB84007F
+ CONST UID '5571EB84007F'
+ CONST Name 'DictionKind'
+ CONST Class class_Attribute
+ : Stereotype st_readonly::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_agr
+ : Parent ME_4925449A0296 // dsCommonDiction
+ ;
+ : Target WL 'ME_556C2C0602F8' '492540AF02CD.pas.ms.script' // TnsDictionKind
+ ;
+ CONST "pm" true
+
+ref; // ME_5571EB84007F DictionKind
+
+: ME_A1BC786FA3EB
+ CONST UID 'A1BC786FA3EB'
+ CONST Name 'f_Current'
+ CONST IsSummoned true
+ CONST Class class_Attribute
+ %SUMMARY 'Поле для свойства Current' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_ref
+ : Parent ME_4925449A0296 // dsCommonDiction
+ ;
+ : Target WL 'ME_45EEB95901C5' '457450470167.pas.ms.script' // NodeBase
+ ;
+ CONST extprop:clearViaProperty 'Current'
+
+ref; // ME_A1BC786FA3EB f_Current
+
+: ME_4925451B02E7
+ CONST UID '4925451B02E7'
+ CONST Name 'aDoc'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_45EEB6520191' '4570511E038A.pas.ms.script' // Document
+ ;
+
+ref; // ME_4925451B02E7 aDoc
+
+: ME_49254515003C
+ CONST UID '49254515003C'
+ CONST Name 'MakeDocInfoForCurrentChanged'
+ CONST Class class_Operation
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_abstract
+ : Parent ME_4925449A0296 // dsCommonDiction
+ ;
+ : Target WL 'ME_47EA0784000D' '4B1FC2FF03CD.pas.ms.script' // IdeDocInfo
+ ;
+ : Parameters
+   Seq: ( ME_4925451B02E7 // aDoc
+ )
+ ; // Parameters
+
+ref; // ME_49254515003C MakeDocInfoForCurrentChanged
+
+: ME_4925454602E4
+ CONST UID '4925454602E4'
+ CONST Name 'aNotifier'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_492547040121' '492540AF02CD.pas.ms.script' // IbsCommonDictionListener
+ ;
+
+ref; // ME_4925454602E4 aNotifier
+
+: ME_492545420326
+ CONST UID '492545420326'
+ CONST Name 'DictionNotify'
+ CONST Class class_Operation
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_final
+ : Parent ME_4925449A0296 // dsCommonDiction
+ ;
+ : Parameters
+   Seq: ( ME_4925454602E4 // aNotifier
+ )
+ ; // Parameters
+
+ref; // ME_492545420326 DictionNotify
+
+: ME_492546330316
+ CONST UID '492546330316'
+ CONST Name 'AfterChangeCurrent'
+ CONST Class class_Operation
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_regular
+ : Parent ME_4925449A0296 // dsCommonDiction
+ ;
+
+ref; // ME_492546330316 AfterChangeCurrent
+
+: ME_492547310144
+ CONST UID '492547310144'
+ CONST Name 'aNode'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_468259900322' '4682595B0268.pas.ms.script' // Il3SimpleNode
+ ;
+
+ref; // ME_492547310144 aNode
+
+: ME_4925465102FB
+ CONST UID '4925465102FB'
+ CONST Name 'ChangeCurrent'
+ CONST Class class_Operation
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_final
+ : Parent ME_4925449A0296 // dsCommonDiction
+ ;
+ : Parameters
+   Seq: ( ME_492547310144 // aNode
+ )
+ ; // Parameters
+
+ref; // ME_4925465102FB ChangeCurrent
+
+: ME_4A9E6599035A
+ CONST UID '4A9E6599035A'
+ CONST Name 'ForceChangeInCurrentChanged'
+ CONST Class class_Operation
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_regular
+ : Parent ME_4925449A0296 // dsCommonDiction
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+
+ref; // ME_4A9E6599035A ForceChangeInCurrentChanged
+
+: ME_492549500192
+ CONST UID '492549500192'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4925449A0296 // dsCommonDiction
+ ;
+ : Target WL 'ME_456EB3E10177' '456EA56002BF.pas.ms.script' // EntityBase
+ ;
+
+ref; // ME_492549500192 
+
+: ME_4978A282025E
+ CONST UID '4978A282025E'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4925449A0296 // dsCommonDiction
+ ;
+ : Target WL 'ME_4807744200AA' '4AB0C3C60310.pas.ms.script' // System
+ ;
+
+ref; // ME_4978A282025E 
+
+: ME_492541AB020E_ME_4925449A0296
+ CONST UID '492541AB020E'
+ CONST Name 'Context'
+ : Original WL 'ME_492541AB020E' '492540AF02CD.pas.ms.script' // Context
+ ;
+ : Implementor ME_4925449A0296 // dsCommonDiction
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "pm" true
+ref; // ME_492541AB020E_ME_4925449A0296 Context
+
+: ME_492541BD01F3_ME_4925449A0296
+ CONST UID '492541BD01F3'
+ CONST Name 'MakeCurrentIndex'
+ : Original WL 'ME_492541BD01F3' '492540AF02CD.pas.ms.script' // MakeCurrentIndex
+ ;
+ : Implementor ME_4925449A0296 // dsCommonDiction
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_492541BD01F3_ME_4925449A0296 MakeCurrentIndex
+
+: ME_52F4E72400C2_ME_4925449A0296
+ CONST UID '52F4E72400C2'
+ CONST Name 'ContextFilterState'
+ : Original WL 'ME_52F4E72400C2' '492540AF02CD.pas.ms.script' // ContextFilterState
+ ;
+ : Implementor ME_4925449A0296 // dsCommonDiction
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "pm" false
+ref; // ME_52F4E72400C2_ME_4925449A0296 ContextFilterState
+
+: ME_5571E60901BC_ME_4925449A0296
+ CONST UID '5571E60901BC'
+ CONST Name 'DictionKind'
+ : Original WL 'ME_5571E60901BC' '492540AF02CD.pas.ms.script' // DictionKind
+ ;
+ : Implementor ME_4925449A0296 // dsCommonDiction
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "pm" false
+ref; // ME_5571E60901BC_ME_4925449A0296 DictionKind
+
+: ME_47F0C1BF0314_ME_4925449A0296
+ CONST UID '47F0C1BF0314'
+ CONST Name 'DoCurrentChanged'
+ : Original WL 'ME_47F0C1BF0314' '47F282AE0082.pas.ms.script' // DoCurrentChanged
+ ;
+ : Implementor ME_4925449A0296 // dsCommonDiction
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_47F0C1BF0314_ME_4925449A0296 DoCurrentChanged
+
+: ME_491482DC0216_ME_4925449A0296
+ CONST UID '491482DC0216'
+ CONST Name 'FormSetDataChanged'
+ : Original WL 'ME_491482DC0216' '47D0E1500033.pas.ms.script' // FormSetDataChanged
+ ;
+ : Implementor ME_4925449A0296 // dsCommonDiction
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_491482DC0216_ME_4925449A0296 FormSetDataChanged
+
+: ME_5000565C019C_ME_4925449A0296
+ CONST UID '5000565C019C'
+ CONST Name 'ClearFields'
+ : Original WL 'ME_5000565C019C' '47913B47006E.pas.ms.script' // ClearFields
+ ;
+ : Implementor ME_4925449A0296 // dsCommonDiction
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_5000565C019C_ME_4925449A0296 ClearFields
+
+: ME_4925449A0296
+ CONST UID '4925449A0296'
+ CONST Name 'dsCommonDiction'
+ CONST Class class_Class
+ : Stereotype st_ViewAreaControllerImp ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Обобщенный словарь' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_492543E30278 // CommonDiction
+ ;
+ : Inherits
+   Seq: ( WL 'ME_47F0C1410011' '47F282AE0082.pas.ms.script' // dsSimpleTree
+ )
+ ; // Inherits
+ : Implements
+   Seq: ( WL 'ME_4925416003BC' '492540AF02CD.pas.ms.script' // IdsCommonDiction
+ )
+ ; // Implements
+ : Attributes
+   Seq: ( ME_492545A5017B // Current
+ ME_4978A1E40101 // BaseDocument
+ ME_4B0EAE8A0062 // CommonDiction
+ ME_52F4E5E80283 // f_ContextFilterState
+ ME_5571EB84007F // DictionKind
+ ME_A1BC786FA3EB // f_Current
+ )
+ ; // Attributes
+ : Operations
+   Seq: ( ME_49254515003C // MakeDocInfoForCurrentChanged
+ ME_492545420326 // DictionNotify
+ ME_492546330316 // AfterChangeCurrent
+ ME_4925465102FB // ChangeCurrent
+ ME_4A9E6599035A // ForceChangeInCurrentChanged
+ )
+ ; // Operations
+ : Implemented
+   Seq: ( ME_492541AB020E_ME_4925449A0296 // Context
+ ME_492541BD01F3_ME_4925449A0296 // MakeCurrentIndex
+ ME_52F4E72400C2_ME_4925449A0296 // ContextFilterState
+ ME_5571E60901BC_ME_4925449A0296 // DictionKind
+ )
+ ; // Implemented
+ : Overridden
+   Seq: ( ME_47F0C1BF0314_ME_4925449A0296 // DoCurrentChanged
+ ME_491482DC0216_ME_4925449A0296 // FormSetDataChanged
+ ME_5000565C019C_ME_4925449A0296 // ClearFields
+ )
+ ; // Overridden
+ : Dependencies
+   Seq: ( ME_492549500192 // 
+ ME_4978A282025E // 
+ )
+ ; // Dependencies
+ CONST "author" 'Лукьянец Р.В.'
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" true
+ CONST "register in scripts" 'undefined'
+ CONST "started" '2008/03/05 08:04:14'
+ : Generators
+ Seq: (
+ gen_intf.pas
+ )
+ ; // Generators
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\CommonDiction'
+ CONST intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\CommonDiction\dsCommonDiction.imp.pas'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\CommonDiction'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\CommonDiction'
+ CONST extprop:pas:TypeName '_dsCommonDiction_'
+ CONST extprop:pas:UnitName 'dsCommonDiction.imp'
+
+ref; // ME_4925449A0296 dsCommonDiction
+
+FORWARD ME_4936B666032A
+
+: ME_4947AD90005D
+ CONST UID '4947AD90005D'
+ CONST Name 'InitDataType'
+ CONST Class class_Attribute
+ : Stereotype st_impurity_value::Attribute ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_agr
+ : Parent ME_4936B666032A // sdsCommonDiction
+ ;
+ : Target WL 'ME_47EA0784000D' '4B1FC2FF03CD.pas.ms.script' // IdeDocInfo
+ ;
+
+ref; // ME_4947AD90005D InitDataType
+
+: ME_D838130E671C
+ CONST UID 'D838130E671C'
+ CONST Name 'f_dsSaveLoad'
+ CONST IsSummoned true
+ CONST Class class_Attribute
+ %SUMMARY 'Поле для области вывода dsSaveLoad' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_ref
+ : Parent ME_4936B666032A // sdsCommonDiction
+ ;
+ : Target WL 'ME_4982B4D00032' '4982BE090383.pas.ms.script' // IvcmViewAreaControllerRef
+ ;
+
+ref; // ME_D838130E671C f_dsSaveLoad
+
+: ME_8C313831D36C
+ CONST UID '8C313831D36C'
+ CONST Name 'f_dsChild'
+ CONST IsSummoned true
+ CONST Class class_Attribute
+ %SUMMARY 'Поле для области вывода dsChild' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_ref
+ : Parent ME_4936B666032A // sdsCommonDiction
+ ;
+ : Target WL 'ME_4982B4D00032' '4982BE090383.pas.ms.script' // IvcmViewAreaControllerRef
+ ;
+
+ref; // ME_8C313831D36C f_dsChild
+
+: ME_4936B8AC00A7
+ CONST UID '4936B8AC00A7'
+ CONST Name 'aSource'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_47EA0784000D' '4B1FC2FF03CD.pas.ms.script' // IdeDocInfo
+ ;
+
+ref; // ME_4936B8AC00A7 aSource
+
+: ME_4936B89C037F
+ CONST UID '4936B89C037F'
+ CONST Name 'MakeDocInfo'
+ CONST Class class_Operation
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_abstract
+ : Parent ME_4936B666032A // sdsCommonDiction
+ ;
+ : Target WL 'ME_4947AD8201F6' '492540AF02CD.pas.ms.script' // IdeCommonDiction
+ ;
+ : Parameters
+   Seq: ( ME_4936B8AC00A7 // aSource
+ )
+ ; // Parameters
+
+ref; // ME_4936B89C037F MakeDocInfo
+
+: ME_4936B8BC00E9
+ CONST UID '4936B8BC00E9'
+ CONST Name 'aDoc'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_47EA0784000D' '4B1FC2FF03CD.pas.ms.script' // IdeDocInfo
+ ;
+
+ref; // ME_4936B8BC00E9 aDoc
+
+: ME_4936B8B600F2
+ CONST UID '4936B8B600F2'
+ CONST Name 'BeforeAssignDocument'
+ CONST Class class_Operation
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_regular
+ : Parent ME_4936B666032A // sdsCommonDiction
+ ;
+ : Parameters
+   Seq: ( ME_4936B8BC00E9 // aDoc
+ )
+ ; // Parameters
+
+ref; // ME_4936B8B600F2 BeforeAssignDocument
+
+: ME_4936B8C20119
+ CONST UID '4936B8C20119'
+ CONST Name 'AfterAssignDocument'
+ CONST Class class_Operation
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_regular
+ : Parent ME_4936B666032A // sdsCommonDiction
+ ;
+
+ref; // ME_4936B8C20119 AfterAssignDocument
+
+: ME_4936BA0D0286
+ CONST UID '4936BA0D0286'
+ CONST Name 'MakeContents'
+ CONST Class class_Operation
+ %SUMMARY 'Создаёт область оглавления' ;
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_abstract
+ : Parent ME_4936B666032A // sdsCommonDiction
+ ;
+ : Target WL 'ME_4925416003BC' '492540AF02CD.pas.ms.script' // IdsCommonDiction
+ ;
+
+ref; // ME_4936BA0D0286 MakeContents
+
+: ME_4936B73F0319
+ CONST UID '4936B73F0319'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4936B666032A // sdsCommonDiction
+ ;
+ : Target WL 'ME_47877EB202FB' '4AB0C3C60310.pas.ms.script' // SysUtils
+ ;
+
+ref; // ME_4936B73F0319 
+
+: ME_4936B76801B0
+ CONST UID '4936B76801B0'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4936B666032A // sdsCommonDiction
+ ;
+ : Target WL 'ME_49312C5F0078' '47D0E1500033.pas.ms.script' // vcmFormSetRefreshParams
+ ;
+
+ref; // ME_4936B76801B0 
+
+FORWARD ME_4936B78E0024
+
+: ME_4936B7A002D6
+ CONST UID '4936B7A002D6'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4936B666032A // sdsCommonDiction
+ ;
+ : Target ME_4936B78E0024 // dCommonDiction
+ ;
+
+ref; // ME_4936B7A002D6 
+
+: ME_4936B7B702D7
+ CONST UID '4936B7B702D7'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4936B666032A // sdsCommonDiction
+ ;
+ : Target WL 'ME_47752AF90375' '47750CE700D0.pas.ms.script' // afwFacade
+ ;
+
+ref; // ME_4936B7B702D7 
+
+: ME_4936B7DA0343
+ CONST UID '4936B7DA0343'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4936B666032A // sdsCommonDiction
+ ;
+ : Target WL 'ME_492545F700BF' '492540AF02CD.pas.ms.script' // IdCommonDiction
+ ;
+
+ref; // ME_4936B7DA0343 
+
+: ME_4936B7FD01DF
+ CONST UID '4936B7FD01DF'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4936B666032A // sdsCommonDiction
+ ;
+ : Target WL 'ME_45EEB6520191' '4570511E038A.pas.ms.script' // Document
+ ;
+
+ref; // ME_4936B7FD01DF 
+
+: ME_4936BC2F0177
+ CONST UID '4936BC2F0177'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4936B666032A // sdsCommonDiction
+ ;
+ : Target WL 'ME_4773D64E036C' '47913B47006E.pas.ms.script' // l3Base
+ ;
+
+ref; // ME_4936BC2F0177 
+
+FORWARD ME_4B220E9B0348
+
+: ME_4B220EC30017
+ CONST UID '4B220EC30017'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4936B666032A // sdsCommonDiction
+ ;
+ : Target ME_4B220E9B0348 // TdCommonDiction
+ ;
+
+ref; // ME_4B220EC30017 
+
+: ME_4D81DFD70116
+ CONST UID '4D81DFD70116'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4936B666032A // sdsCommonDiction
+ ;
+ : Target WL 'ME_4923F66E0262' '491DCA2C00A9.pas.ms.script' // TdsSaveLoad
+ ;
+
+ref; // ME_4D81DFD70116 
+
+FORWARD ME_4D7A7ADE0122
+
+: ME_4D81FC950354
+ CONST UID '4D81FC950354'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4936B666032A // sdsCommonDiction
+ ;
+ : Target ME_4D7A7ADE0122 // TdsChild
+ ;
+
+ref; // ME_4D81FC950354 
+
+: ME_4B0EB10C02A3_ME_4936B666032A
+ CONST UID '4B0EB10C02A3'
+ CONST Name 'CurrentNode'
+ : Original WL 'ME_4B0EB10C02A3' '492540AF02CD.pas.ms.script' // CurrentNode
+ ;
+ : Implementor ME_4936B666032A // sdsCommonDiction
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "pm" false
+ CONST "reflectable" 'undefined'
+ref; // ME_4B0EB10C02A3_ME_4936B666032A CurrentNode
+
+: ME_4B0EB7B10270_ME_4936B666032A
+ CONST UID '4B0EB7B10270'
+ CONST Name 'deCommonDiction'
+ : Original WL 'ME_4B0EB7B10270' '492540AF02CD.pas.ms.script' // deCommonDiction
+ ;
+ : Implementor ME_4936B666032A // sdsCommonDiction
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "pm" false
+ CONST "reflectable" 'undefined'
+ref; // ME_4B0EB7B10270_ME_4936B666032A deCommonDiction
+
+: ME_4D78AFC702D5_ME_4936B666032A
+ CONST UID '4D78AFC702D5'
+ CONST Name 'dsSaveLoad'
+ : Original WL 'ME_4D78AFC702D5' '492540AF02CD.pas.ms.script' // dsSaveLoad
+ ;
+ : Implementor ME_4936B666032A // sdsCommonDiction
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "Need Has" 'undefined'
+ CONST "is reference" 'undefined'
+ CONST "pm" true
+ CONST "required" 'undefined'
+ref; // ME_4D78AFC702D5_ME_4936B666032A dsSaveLoad
+
+: ME_4D7A7A9D016D_ME_4936B666032A
+ CONST UID '4D7A7A9D016D'
+ CONST Name 'dsChild'
+ : Original WL 'ME_4D7A7A9D016D' '492540AF02CD.pas.ms.script' // dsChild
+ ;
+ : Implementor ME_4936B666032A // sdsCommonDiction
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "Need Has" 'undefined'
+ CONST "is reference" 'undefined'
+ CONST "pm" true
+ CONST "required" 'undefined'
+ref; // ME_4D7A7A9D016D_ME_4936B666032A dsChild
+
+: ME_500D34960277_ME_4936B666032A
+ CONST UID '500D34960277'
+ CONST Name 'dsContents'
+ : Original WL 'ME_500D34960277' '492540AF02CD.pas.ms.script' // dsContents
+ ;
+ : Implementor ME_4936B666032A // sdsCommonDiction
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "Need Has" false
+ CONST "is reference" true
+ CONST "pm" true
+ CONST "required" 'undefined'
+ref; // ME_500D34960277_ME_4936B666032A dsContents
+
+: ME_47F37DF001FE_ME_4936B666032A
+ CONST UID '47F37DF001FE'
+ CONST Name 'DataExchange'
+ : Original WL 'ME_47F37DF001FE' '47D0E1500033.pas.ms.script' // DataExchange
+ ;
+ : Implementor ME_4936B666032A // sdsCommonDiction
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_47F37DF001FE_ME_4936B666032A DataExchange
+
+: ME_4925B9370022_ME_4936B666032A
+ CONST UID '4925B9370022'
+ CONST Name 'DoChangeDocument'
+ : Original WL 'ME_4925B9370022' '47EA50050263.pas.ms.script' // DoChangeDocument
+ ;
+ : Implementor ME_4936B666032A // sdsCommonDiction
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_4925B9370022_ME_4936B666032A DoChangeDocument
+
+: ME_49352CEF0222_ME_4936B666032A
+ CONST UID '49352CEF0222'
+ CONST Name 'GetHasAttributes'
+ : Original WL 'ME_49352CEF0222' '47EA50050263.pas.ms.script' // GetHasAttributes
+ ;
+ : Implementor ME_4936B666032A // sdsCommonDiction
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_49352CEF0222_ME_4936B666032A GetHasAttributes
+
+: ME_4938F7E702B7_ME_4936B666032A
+ CONST UID '4938F7E702B7'
+ CONST Name 'ClearAreas'
+ : Original WL 'ME_4938F7E702B7' '47D0E1500033.pas.ms.script' // ClearAreas
+ ;
+ : Implementor ME_4936B666032A // sdsCommonDiction
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_4938F7E702B7_ME_4936B666032A ClearAreas
+
+: ME_4A60B23E00C3_ME_4936B666032A
+ CONST UID '4A60B23E00C3'
+ CONST Name 'COMQueryInterface'
+ : Original WL 'ME_4A60B23E00C3' '47BB24D30205.pas.ms.script' // COMQueryInterface
+ ;
+ : Implementor ME_4936B666032A // sdsCommonDiction
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_4A60B23E00C3_ME_4936B666032A COMQueryInterface
+
+: ME_55C1DD070354_ME_4936B666032A
+ CONST UID '55C1DD070354'
+ CONST Name 'GetDataForClone'
+ : Original WL 'ME_55C1DD070354' '47D0E1500033.pas.ms.script' // GetDataForClone
+ ;
+ : Implementor ME_4936B666032A // sdsCommonDiction
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_55C1DD070354_ME_4936B666032A GetDataForClone
+
+: ME_4936B666032A
+ CONST UID '4936B666032A'
+ CONST Name 'sdsCommonDiction'
+ CONST Class class_Class
+ : Stereotype st_UseCaseControllerImp ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Бизнес объект сборки "Обобщенный словарь"' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_492543E30278 // CommonDiction
+ ;
+ : Inherits
+   Seq: ( WL 'ME_47F0849400D0' '47EA50050263.pas.ms.script' // sdsBaseDocumentWithAttributes
+ )
+ ; // Inherits
+ : Implements
+   Seq: ( WL 'ME_4936823400AE' '492540AF02CD.pas.ms.script' // IsdsCommonDiction
+ )
+ ; // Implements
+ : Attributes
+   Seq: ( ME_4947AD90005D // InitDataType
+ ME_D838130E671C // f_dsSaveLoad
+ ME_8C313831D36C // f_dsChild
+ )
+ ; // Attributes
+ : Operations
+   Seq: ( ME_4936B89C037F // MakeDocInfo
+ ME_4936B8B600F2 // BeforeAssignDocument
+ ME_4936B8C20119 // AfterAssignDocument
+ ME_4936BA0D0286 // MakeContents
+ )
+ ; // Operations
+ : Implemented
+   Seq: ( ME_4B0EB10C02A3_ME_4936B666032A // CurrentNode
+ ME_4B0EB7B10270_ME_4936B666032A // deCommonDiction
+ ME_4D78AFC702D5_ME_4936B666032A // dsSaveLoad
+ ME_4D7A7A9D016D_ME_4936B666032A // dsChild
+ ME_500D34960277_ME_4936B666032A // dsContents
+ )
+ ; // Implemented
+ : Overridden
+   Seq: ( ME_47F37DF001FE_ME_4936B666032A // DataExchange
+ ME_4925B9370022_ME_4936B666032A // DoChangeDocument
+ ME_49352CEF0222_ME_4936B666032A // GetHasAttributes
+ ME_4938F7E702B7_ME_4936B666032A // ClearAreas
+ ME_4A60B23E00C3_ME_4936B666032A // COMQueryInterface
+ ME_55C1DD070354_ME_4936B666032A // GetDataForClone
+ )
+ ; // Overridden
+ : Dependencies
+   Seq: ( ME_4936B73F0319 // 
+ ME_4936B76801B0 // 
+ ME_4936B7A002D6 // 
+ ME_4936B7B702D7 // 
+ ME_4936B7DA0343 // 
+ ME_4936B7FD01DF // 
+ ME_4936BC2F0177 // 
+ ME_4B220EC30017 // 
+ ME_4D81DFD70116 // 
+ ME_4D81FC950354 // 
+ )
+ ; // Dependencies
+ CONST "author" 'Лукьянец Р.В.'
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" true
+ CONST "register in scripts" 'undefined'
+ CONST "started" '2008/03/05 09:35:14'
+ : Generators
+ Seq: (
+ gen_intf.pas
+ )
+ ; // Generators
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\CommonDiction'
+ CONST intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\CommonDiction\sdsCommonDiction.imp.pas'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\CommonDiction'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\CommonDiction'
+ CONST extprop:pas:TypeName '_sdsCommonDiction_'
+ CONST extprop:pas:UnitName 'sdsCommonDiction.imp'
+
+ref; // ME_4936B666032A sdsCommonDiction
+
+FORWARD ME_4941654603E7
+
+: ME_4941657B03CE
+ CONST UID '4941657B03CE'
+ CONST Name 'SetDataType'
+ CONST Class class_Attribute
+ : Stereotype st_impurity_value::Attribute ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_agr
+ : Parent ME_4941654603E7 // TsdsCommonDiction
+ ;
+ : Target WL 'ME_492545F700BF' '492540AF02CD.pas.ms.script' // IdCommonDiction
+ ;
+
+ref; // ME_4941657B03CE SetDataType
+
+: ME_420C7FDB61F7
+ CONST UID '420C7FDB61F7'
+ CONST Name 'SetType'
+ CONST IsSummoned true
+ CONST Class class_Attribute
+ : Stereotype st_impurity_value::Attribute ;
+ %SUMMARY 'Реальный интерфейс контроллера прецедента для TsdsCommonDiction' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_lnk
+ : Parent ME_4941654603E7 // TsdsCommonDiction
+ ;
+ : Target WL 'ME_4936823400AE' '492540AF02CD.pas.ms.script' // IsdsCommonDiction
+ ;
+
+ref; // ME_420C7FDB61F7 SetType
+
+: ME_4D81DFB400BD
+ CONST UID '4D81DFB400BD'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4941654603E7 // TsdsCommonDiction
+ ;
+ : Target WL 'ME_4923F66E0262' '491DCA2C00A9.pas.ms.script' // TdsSaveLoad
+ ;
+
+ref; // ME_4D81DFB400BD 
+
+: ME_47F3778403D9_ME_4941654603E7
+ CONST UID '47F3778403D9'
+ CONST Name 'MakeData'
+ : Original WL 'ME_47F3778403D9' '47D0E1500033.pas.ms.script' // MakeData
+ ;
+ : Implementor ME_4941654603E7 // TsdsCommonDiction
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_47F3778403D9_ME_4941654603E7 MakeData
+
+: ME_4941654603E7
+ CONST UID '4941654603E7'
+ CONST Name 'TsdsCommonDiction'
+ CONST Class class_Class
+ : Stereotype st_UseCaseControllerImp ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Обобщённый словарь' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_492543E30278 // CommonDiction
+ ;
+ : Inherits
+   Seq: ( ME_4936B666032A // sdsCommonDiction
+ )
+ ; // Inherits
+ : Attributes
+   Seq: ( ME_4941657B03CE // SetDataType
+ ME_420C7FDB61F7 // SetType
+ )
+ ; // Attributes
+ : Implemented
+   Seq: ( ME_47F3778403D9_ME_4941654603E7 // MakeData
+ )
+ ; // Implemented
+ : Dependencies
+   Seq: ( ME_4D81DFB400BD // 
+ )
+ ; // Dependencies
+ CONST "author" 'Люлин А.В.'
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" true
+ CONST "register in scripts" 'undefined'
+ CONST "started" '11.12.2008 22:09'
+ : Generators
+ Seq: (
+ gen_intf.pas
+ )
+ ; // Generators
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\CommonDiction'
+ CONST intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\CommonDiction\sdsCommonDiction.pas'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\CommonDiction'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\CommonDiction'
+ CONST extprop:rc:SelfName 'sdsCommonDiction'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'sdsCommonDiction'
+
+ref; // ME_4941654603E7 TsdsCommonDiction
+
+: ME_4B191DB40260
+ CONST UID '4B191DB40260'
+ CONST Name 'f_CurrentNode'
+ CONST Class class_Attribute
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_ref
+ : Parent ME_4936B78E0024 // dCommonDiction
+ ;
+ : Target WL 'ME_45EEB95901C5' '457450470167.pas.ms.script' // NodeBase
+ ;
+
+ref; // ME_4B191DB40260 f_CurrentNode
+
+: ME_B32F861D7ACE
+ CONST UID 'B32F861D7ACE'
+ CONST Name 'f_dsContentsRef'
+ CONST IsSummoned true
+ CONST Class class_Attribute
+ %SUMMARY 'Поле для свойства dsContentsRef' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_ref
+ : Parent ME_4936B78E0024 // dCommonDiction
+ ;
+ : Target WL 'ME_47EB514C0336' '4982BE090383.pas.ms.script' // IvcmFormDataSourceRef
+ ;
+
+ref; // ME_B32F861D7ACE f_dsContentsRef
+
+FORWARD ME_4B191CC700CE
+
+: ME_4B191CCF033B
+ CONST UID '4B191CCF033B'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_4B191CC700CE // Make
+ ;
+
+ref; // ME_4B191CCF033B DoIt
+
+: ME_4B191CC700CE
+ CONST UID '4B191CC700CE'
+ CONST Name 'Make'
+ CONST Class class_Class
+ : Stereotype st_Factory ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_4936B78E0024 // dCommonDiction
+ ;
+ : Operations
+   Seq: ( ME_4B191CCF033B // DoIt
+ )
+ ; // Operations
+ CONST "check nil" false
+ CONST "need AfterCreate" 'undefined'
+ CONST "need Aggregate" 'undefined'
+ CONST "need As" false
+
+ref; // ME_4B191CC700CE Make
+
+: ME_4B191DD4020C
+ CONST UID '4B191DD4020C'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4936B78E0024 // dCommonDiction
+ ;
+ : Target WL 'ME_4ADEE49C02DF' '4AB0C3C60310.pas.ms.script' // Supports
+ ;
+
+ref; // ME_4B191DD4020C 
+
+: ME_4B19210D0288
+ CONST UID '4B19210D0288'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4936B78E0024 // dCommonDiction
+ ;
+ : Target WL 'ME_4982B6510327' '47D0E1500033.pas.ms.script' // vcmFormDataSourceRef
+ ;
+
+ref; // ME_4B19210D0288 
+
+: ME_49527BB50018_ME_4936B78E0024
+ CONST UID '49527BB50018'
+ CONST Name 'CurrentNode'
+ : Original WL 'ME_49527BB50018' '492540AF02CD.pas.ms.script' // CurrentNode
+ ;
+ : Implementor ME_4936B78E0024 // dCommonDiction
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "pm" true
+ref; // ME_49527BB50018_ME_4936B78E0024 CurrentNode
+
+: ME_AB0AA05AFA56_ME_4936B78E0024
+ CONST UID 'AB0AA05AFA56'
+ CONST Name 'dsContentsRef'
+ : Original WL 'ME_AB0AA05AFA56' '492540AF02CD.pas.ms.script' // dsContentsRef
+ ;
+ : Implementor ME_4936B78E0024 // dCommonDiction
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "pm" true
+ref; // ME_AB0AA05AFA56_ME_4936B78E0024 dsContentsRef
+
+: ME_479731C50290_ME_4936B78E0024
+ CONST UID '479731C50290'
+ CONST Name 'Cleanup'
+ : Original WL 'ME_479731C50290' '51612EBB02F5.pas.ms.script' // Cleanup
+ ;
+ : Implementor ME_4936B78E0024 // dCommonDiction
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_479731C50290_ME_4936B78E0024 Cleanup
+
+: ME_4B16B8CF0307_ME_4936B78E0024
+ CONST UID '4B16B8CF0307'
+ CONST Name 'AssignData'
+ : Original WL 'ME_4B16B8CF0307' '47D0E1500033.pas.ms.script' // AssignData
+ ;
+ : Implementor ME_4936B78E0024 // dCommonDiction
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_4B16B8CF0307_ME_4936B78E0024 AssignData
+
+: ME_5000565C019C_ME_4936B78E0024
+ CONST UID '5000565C019C'
+ CONST Name 'ClearFields'
+ : Original WL 'ME_5000565C019C' '47913B47006E.pas.ms.script' // ClearFields
+ ;
+ : Implementor ME_4936B78E0024 // dCommonDiction
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_5000565C019C_ME_4936B78E0024 ClearFields
+
+: ME_4936B78E0024
+ CONST UID '4936B78E0024'
+ CONST Name 'dCommonDiction'
+ CONST Class class_Class
+ : Stereotype st_Impurity ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_492543E30278 // CommonDiction
+ ;
+ : Inherits
+   Seq: ( WL 'ME_47F085A9004C' '47EA50050263.pas.ms.script' // dBaseDocumentWithAttributes
+ )
+ ; // Inherits
+ : Implements
+   Seq: ( WL 'ME_492545F700BF' '492540AF02CD.pas.ms.script' // IdCommonDiction
+ )
+ ; // Implements
+ : Attributes
+   Seq: ( ME_4B191DB40260 // f_CurrentNode
+ ME_B32F861D7ACE // f_dsContentsRef
+ )
+ ; // Attributes
+ : Operations
+   Seq: ( ME_4B191CC700CE // Make
+ )
+ ; // Operations
+ : Implemented
+   Seq: ( ME_49527BB50018_ME_4936B78E0024 // CurrentNode
+ ME_AB0AA05AFA56_ME_4936B78E0024 // dsContentsRef
+ )
+ ; // Implemented
+ : Overridden
+   Seq: ( ME_479731C50290_ME_4936B78E0024 // Cleanup
+ ME_4B16B8CF0307_ME_4936B78E0024 // AssignData
+ ME_5000565C019C_ME_4936B78E0024 // ClearFields
+ )
+ ; // Overridden
+ : Dependencies
+   Seq: ( ME_4B191DD4020C // 
+ ME_4B19210D0288 // 
+ )
+ ; // Dependencies
+ CONST "author" 'Морозов М.А.'
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" true
+ CONST "register in scripts" 'undefined'
+ CONST "started" '12.07.2006'
+ : Generators
+ Seq: (
+ gen_intf.pas
+ )
+ ; // Generators
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\CommonDiction'
+ CONST intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\CommonDiction\dCommonDiction.imp.pas'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\CommonDiction'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\CommonDiction'
+ CONST extprop:pas:TypeName '_dCommonDiction_'
+ CONST extprop:pas:UnitName 'dCommonDiction.imp'
+
+ref; // ME_4936B78E0024 dCommonDiction
+
+FORWARD ME_4B1E70D20312
+
+: ME_4B1E7E9B035D
+ CONST UID '4B1E7E9B035D'
+ CONST Name 'f_Context'
+ CONST Class class_Attribute
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_ref
+ : Parent ME_4B1E70D20312 // TdeCommonDiction
+ ;
+ : Target WL 'ME_46780DA40383' '4677FBA70343.pas.ms.script' // Il3CString
+ ;
+
+ref; // ME_4B1E7E9B035D f_Context
+
+FORWARD ME_4B1E7EC0026F
+
+: ME_4B1E7ED80017
+ CONST UID '4B1E7ED80017'
+ CONST Name 'aDocInfo'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_47EA0784000D' '4B1FC2FF03CD.pas.ms.script' // IdeDocInfo
+ ;
+
+ref; // ME_4B1E7ED80017 aDocInfo
+
+: ME_4B1E7ECF008D
+ CONST UID '4B1E7ECF008D'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_4B1E7EC0026F // Convert
+ ;
+ : Target WL 'ME_4947AD8201F6' '492540AF02CD.pas.ms.script' // IdeCommonDiction
+ ;
+ : Parameters
+   Seq: ( ME_4B1E7ED80017 // aDocInfo
+ )
+ ; // Parameters
+
+ref; // ME_4B1E7ECF008D DoIt
+
+: ME_4B1E95860270
+ CONST UID '4B1E95860270'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4B1E7EC0026F // Convert
+ ;
+ : Target WL 'ME_4ADC58F703CF' '4AB0C3C60310.pas.ms.script' // FreeAndNil
+ ;
+
+ref; // ME_4B1E95860270 
+
+: ME_4BA752B800E2
+ CONST UID '4BA752B800E2'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4B1E7EC0026F // Convert
+ ;
+ : Target WL 'ME_456EB2F1034B' '456EA56002BF.pas.ms.script' // Languages
+ ;
+
+ref; // ME_4BA752B800E2 
+
+: ME_4BA752FF0363
+ CONST UID '4BA752FF0363'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4B1E7EC0026F // Convert
+ ;
+ : Target WL 'ME_491B32C1015D' '47F2170002B2.pas.ms.script' // TDocumentPositionType
+ ;
+
+ref; // ME_4BA752FF0363 
+
+: ME_4B1E7EC0026F
+ CONST UID '4B1E7EC0026F'
+ CONST Name 'Convert'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_4B1E70D20312 // TdeCommonDiction
+ ;
+ : Operations
+   Seq: ( ME_4B1E7ECF008D // DoIt
+ )
+ ; // Operations
+ : Dependencies
+   Seq: ( ME_4B1E95860270 // 
+ ME_4BA752B800E2 // 
+ ME_4BA752FF0363 // 
+ )
+ ; // Dependencies
+ CONST "is static" true
+
+ref; // ME_4B1E7EC0026F Convert
+
+FORWARD ME_4B1E7EF1015B
+
+: ME_4B1E7F3C02E6
+ CONST UID '4B1E7F3C02E6'
+ CONST Name 'aDocument'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_45EEB6520191' '4570511E038A.pas.ms.script' // Document
+ ;
+
+ref; // ME_4B1E7F3C02E6 aDocument
+
+: ME_4B1E7F3C0308
+ CONST UID '4B1E7F3C0308'
+ CONST Name 'aContext'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46780DA40383' '4677FBA70343.pas.ms.script' // Il3CString
+ ;
+ CONST Value 'nil'
+ : ValueType WL 'ME_46780DA40383' '4677FBA70343.pas.ms.script' // Il3CString
+ ;
+ CONST extprop:pas:Value 'nil'
+
+ref; // ME_4B1E7F3C0308 aContext
+
+: ME_4B1E7F00000F
+ CONST UID '4B1E7F00000F'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_4B1E7EF1015B // Make
+ ;
+ : Target WL 'ME_47EA0784000D' '4B1FC2FF03CD.pas.ms.script' // IdeDocInfo
+ ;
+ : Parameters
+   Seq: ( ME_4B1E7F3C02E6 // aDocument
+ ME_4B1E7F3C0308 // aContext
+ )
+ ; // Parameters
+
+ref; // ME_4B1E7F00000F DoIt
+
+: ME_4B1E95A801C8
+ CONST UID '4B1E95A801C8'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4B1E7EF1015B // Make
+ ;
+ : Target WL 'ME_4ADC58F703CF' '4AB0C3C60310.pas.ms.script' // FreeAndNil
+ ;
+
+ref; // ME_4B1E95A801C8 
+
+: ME_4B1E95C8006A
+ CONST UID '4B1E95C8006A'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4B1E7EF1015B // Make
+ ;
+ : Target WL 'ME_4B1E84EF03CC' '4C6ABB3201AC.pas.ms.script' // TbsDocumentContainer
+ ;
+
+ref; // ME_4B1E95C8006A 
+
+: ME_4B1E7EF1015B
+ CONST UID '4B1E7EF1015B'
+ CONST Name 'Make'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_4B1E70D20312 // TdeCommonDiction
+ ;
+ : Operations
+   Seq: ( ME_4B1E7F00000F // DoIt
+ )
+ ; // Operations
+ : Dependencies
+   Seq: ( ME_4B1E95A801C8 // 
+ ME_4B1E95C8006A // 
+ )
+ ; // Dependencies
+ CONST "is static" true
+
+ref; // ME_4B1E7EF1015B Make
+
+: ME_4B1E960E030B
+ CONST UID '4B1E960E030B'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4B1E70D20312 // TdeCommonDiction
+ ;
+ : Target WL 'ME_4ADEE49C02DF' '4AB0C3C60310.pas.ms.script' // Supports
+ ;
+
+ref; // ME_4B1E960E030B 
+
+: ME_4B1D15350358_ME_4B1E70D20312
+ CONST UID '4B1D15350358'
+ CONST Name 'Context'
+ : Original WL 'ME_4B1D15350358' '492540AF02CD.pas.ms.script' // Context
+ ;
+ : Implementor ME_4B1E70D20312 // TdeCommonDiction
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "pm" true
+ref; // ME_4B1D15350358_ME_4B1E70D20312 Context
+
+: ME_479731C50290_ME_4B1E70D20312
+ CONST UID '479731C50290'
+ CONST Name 'Cleanup'
+ : Original WL 'ME_479731C50290' '51612EBB02F5.pas.ms.script' // Cleanup
+ ;
+ : Implementor ME_4B1E70D20312 // TdeCommonDiction
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_479731C50290_ME_4B1E70D20312 Cleanup
+
+: ME_4B1E714A0125_ME_4B1E70D20312
+ CONST UID '4B1E714A0125'
+ CONST Name 'DefaultDocType'
+ : Original WL 'ME_4B1E714A0125' '4C6ABB3201AC.pas.ms.script' // DefaultDocType
+ ;
+ : Implementor ME_4B1E70D20312 // TdeCommonDiction
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_4B1E714A0125_ME_4B1E70D20312 DefaultDocType
+
+: ME_4B1E749D033C_ME_4B1E70D20312
+ CONST UID '4B1E749D033C'
+ CONST Name 'AssignFromClone'
+ : Original WL 'ME_4B1E749D033C' '4C6ABB3201AC.pas.ms.script' // AssignFromClone
+ ;
+ : Implementor ME_4B1E70D20312 // TdeCommonDiction
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_4B1E749D033C_ME_4B1E70D20312 AssignFromClone
+
+: ME_5000565C019C_ME_4B1E70D20312
+ CONST UID '5000565C019C'
+ CONST Name 'ClearFields'
+ : Original WL 'ME_5000565C019C' '47913B47006E.pas.ms.script' // ClearFields
+ ;
+ : Implementor ME_4B1E70D20312 // TdeCommonDiction
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_5000565C019C_ME_4B1E70D20312 ClearFields
+
+: ME_4B1E70D20312
+ CONST UID '4B1E70D20312'
+ CONST Name 'TdeCommonDiction'
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_492543E30278 // CommonDiction
+ ;
+ : Inherits
+   Seq: ( WL 'ME_491C0BE302FF' '4C6ABB3201AC.pas.ms.script' // TdeDocInfo
+ )
+ ; // Inherits
+ : Implements
+   Seq: ( WL 'ME_4947AD8201F6' '492540AF02CD.pas.ms.script' // IdeCommonDiction
+ )
+ ; // Implements
+ : Attributes
+   Seq: ( ME_4B1E7E9B035D // f_Context
+ )
+ ; // Attributes
+ : Operations
+   Seq: ( ME_4B1E7EC0026F // Convert
+ ME_4B1E7EF1015B // Make
+ )
+ ; // Operations
+ : Implemented
+   Seq: ( ME_4B1D15350358_ME_4B1E70D20312 // Context
+ )
+ ; // Implemented
+ : Overridden
+   Seq: ( ME_479731C50290_ME_4B1E70D20312 // Cleanup
+ ME_4B1E714A0125_ME_4B1E70D20312 // DefaultDocType
+ ME_4B1E749D033C_ME_4B1E70D20312 // AssignFromClone
+ ME_5000565C019C_ME_4B1E70D20312 // ClearFields
+ )
+ ; // Overridden
+ : Dependencies
+   Seq: ( ME_4B1E960E030B // 
+ )
+ ; // Dependencies
+ CONST "author" 'Люлин А.В.'
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" true
+ CONST "register in scripts" 'undefined'
+ CONST "started" '08.12.2009 18:29'
+ : Generators
+ Seq: (
+ gen_intf.pas
+ )
+ ; // Generators
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\CommonDiction'
+ CONST intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\CommonDiction\deCommonDiction.pas'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\CommonDiction'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\CommonDiction'
+ CONST extprop:rc:SelfName 'deCommonDiction'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'deCommonDiction'
+
+ref; // ME_4B1E70D20312 TdeCommonDiction
+
+: ME_4B220EB4017C
+ CONST UID '4B220EB4017C'
+ CONST Name 'IvcmRealData'
+ CONST Class class_Attribute
+ : Stereotype st_impurity_value::Attribute ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_agr
+ : Parent ME_4B220E9B0348 // TdCommonDiction
+ ;
+ : Target WL 'ME_492545F700BF' '492540AF02CD.pas.ms.script' // IdCommonDiction
+ ;
+
+ref; // ME_4B220EB4017C IvcmRealData
+
+: ME_4B220E9B0348
+ CONST UID '4B220E9B0348'
+ CONST Name 'TdCommonDiction'
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_492543E30278 // CommonDiction
+ ;
+ : Inherits
+   Seq: ( ME_4936B78E0024 // dCommonDiction
+ )
+ ; // Inherits
+ : Attributes
+   Seq: ( ME_4B220EB4017C // IvcmRealData
+ )
+ ; // Attributes
+ CONST "author" 'Люлин А.В.'
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" true
+ CONST "register in scripts" 'undefined'
+ CONST "started" '11.12.2009 12:19'
+ : Generators
+ Seq: (
+ gen_intf.pas
+ )
+ ; // Generators
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\CommonDiction'
+ CONST intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\CommonDiction\dCommonDiction.pas'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\CommonDiction'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\CommonDiction'
+ CONST extprop:rc:SelfName 'dCommonDiction'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'dCommonDiction'
+
+ref; // ME_4B220E9B0348 TdCommonDiction
+
+: ME_4D7A7ADE0122
+ CONST UID '4D7A7ADE0122'
+ CONST Name 'TdsChild'
+ CONST Class class_Class
+ : Stereotype st_ViewAreaControllerImp ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_492543E30278 // CommonDiction
+ ;
+ : Inherits
+   Seq: ( WL 'ME_47ECE94D03D4' '47D0E1500033.pas.ms.script' // vcmFormDataSourcePrim
+ )
+ ; // Inherits
+ : Implements
+   Seq: ( WL 'ME_4D7A7A890101' '492540AF02CD.pas.ms.script' // IdsChild
+ )
+ ; // Implements
+ CONST "author" 'Люлин А.В.'
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" true
+ CONST "register in scripts" 'undefined'
+ CONST "started" '11.03.2011 22:41'
+ : Generators
+ Seq: (
+ gen_intf.pas
+ )
+ ; // Generators
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\CommonDiction'
+ CONST intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\CommonDiction\dsChild.pas'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\CommonDiction'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\CommonDiction'
+ CONST extprop:rc:SelfName 'dsChild'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'dsChild'
+
+ref; // ME_4D7A7ADE0122 TdsChild
+
+: ME_492543E30278
+ CONST UID '492543E30278'
+ CONST Name 'CommonDiction'
+ CONST Class class_Category
+ : Stereotype st_ControllerUnit ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent WL 'ME_494104850236' '494104850236.pas.ms.script' // CommonDiction
+ ;
+ : Children
+   Seq: ( ME_4925449A0296 // dsCommonDiction
+ ME_4936B666032A // sdsCommonDiction
+ ME_4941654603E7 // TsdsCommonDiction
+ ME_4936B78E0024 // dCommonDiction
+ ME_4B1E70D20312 // TdeCommonDiction
+ ME_4B220E9B0348 // TdCommonDiction
+ ME_4D7A7ADE0122 // TdsChild
+ )
+ ; // Children
+ : Depends
+   Seq: ( WL 'ME_456EA56002BF' '456EA56002BF.pas.ms.script' // BaseTypes
+ WL 'ME_4570511E038A' '4570511E038A.pas.ms.script' // Document
+ WL 'ME_457450470167' '457450470167.pas.ms.script' // DynamicTree
+ WL 'ME_4677FBA70343' '4677FBA70343.pas.ms.script' // l3Interfaces
+ WL 'ME_4682595B0268' '4682595B0268.pas.ms.script' // l3TreeInterfaces
+ WL 'ME_47750CE700D0' '47750CE700D0.pas.ms.script' // afwFacade
+ WL 'ME_47913B47006E' '47913B47006E.pas.ms.script' // l3CoreObjects
+ WL 'ME_47D0E1500033' '47D0E1500033.pas.ms.script' // Implementation
+ WL 'ME_47EA07FA02CE' '47EA07FA02CE.pas.ms.script' // bsTypes
+ WL 'ME_47EA50050263' '47EA50050263.pas.ms.script' // BaseDocument
+ WL 'ME_47F2170002B2' '47F2170002B2.pas.ms.script' // nsTypes
+ WL 'ME_47F260DC003F' '47F260DC003F.pas.ms.script' // ns
+ WL 'ME_47F282AE0082' '47F282AE0082.pas.ms.script' // Tree
+ WL 'ME_490838E10313' '490838E10313.pas.ms.script' // nscNewInterfaces
+ WL 'ME_4908545802CA' '4908545802CA.pas.ms.script' // DocumentContainers
+ WL 'ME_491B305A0096' '491B305A0096.pas.ms.script' // DocumentAndListInterfaces
+ WL 'ME_491DCA2C00A9' '491DCA2C00A9.pas.ms.script' // Search
+ WL 'ME_492540AF02CD' '492540AF02CD.pas.ms.script' // CommonDictionInterfaces
+ WL 'ME_4982BE090383' '4982BE090383.pas.ms.script' // vcmControllers
+ WL 'ME_4AB0C3C60310' '4AB0C3C60310.pas.ms.script' // Sys
+ WL 'ME_4B1FC2FF03CD' '4B1FC2FF03CD.pas.ms.script' // DocumentInterfaces
+ WL 'ME_4C6ABB3201AC' '4C6ABB3201AC.pas.ms.script' // DocInfo
+ )
+ ; // Depends
+ : Generators
+ Seq: (
+ gen_pas.script
+ gen_pas.script.runner
+ )
+ ; // Generators
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\CommonDiction'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\CommonDiction'
+ CONST pas.script:Path 'shared\models\NewSchool\Scripts\492543E30278.pas.ms.script'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\492543E30278.pas.ms.script.runner'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\CommonDiction'
+
+ref; // ME_492543E30278 CommonDiction

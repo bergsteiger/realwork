@@ -54,6 +54,7 @@ ref; // ME_515D7C0201EB
 
 : ME_4B58B1337EE3
  CONST UID '4B58B1337EE3'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_515D7BB10393 // TLongintListTest
@@ -70,6 +71,7 @@ ref; // ME_4B58B1337EE3
  ;
  : Implementor ME_515D7BB10393 // TLongintListTest
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4C937013031D_ME_515D7BB10393 GetFolder
 
 : ME_4DAED6F60146_ME_515D7BB10393
@@ -79,6 +81,7 @@ ref; // ME_4C937013031D_ME_515D7BB10393 GetFolder
  ;
  : Implementor ME_515D7BB10393 // TLongintListTest
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4DAED6F60146_ME_515D7BB10393 GetModelElementGUID
 
 : ME_515D7BB10393
@@ -92,35 +95,43 @@ ref; // ME_4DAED6F60146_ME_515D7BB10393 GetModelElementGUID
  : Parent ME_515D7B440115 // Lists
  ;
  : Inherits
-   @ ( WL 'ME_4B2A11BC0255' '4B2A112B011A.pas.ms.script' // TBaseTest
- ) .SequenceCode.It
+   Seq: ( WL 'ME_4B2A11BC0255' '4B2A112B011A.pas.ms.script' // TBaseTest
+ )
  ; // Inherits
  : Operations
-   @ ( ME_515D7BE60141 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_515D7BE60141 // DoIt
+ )
  ; // Operations
  : Overridden
-   @ ( ME_4C937013031D_ME_515D7BB10393 // GetFolder
+   Seq: ( ME_4C937013031D_ME_515D7BB10393 // GetFolder
  ME_4DAED6F60146_ME_515D7BB10393 // GetModelElementGUID
- ) .SequenceCode.It
+ )
  ; // Overridden
  : Dependencies
-   @ ( ME_515D7BC3013B // 
+   Seq: ( ME_515D7BC3013B // 
  ME_515D7BDB018B // 
  ME_515D7C0201EB // 
  ME_4B58B1337EE3 // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
  : Generators
- @ (
+ Seq: (
  gen_intf.pas
- ) .SequenceCode.It
+ )
  ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\Containers'
  CONST intf.pas:Path 'common\components\rtl\Garant\Containers\LongintListTest.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\Containers'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\common\components\rtl\Garant\Containers'
+ CONST extprop:rc:SelfName 'LongintListTest'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'LongintListTest'
 
 ref; // ME_515D7BB10393 TLongintListTest
 
@@ -134,23 +145,28 @@ ref; // ME_515D7BB10393 TLongintListTest
  : Parent WL 'ME_515D7B0B006F' '515D7B0B006F.pas.ms.script' // Containers
  ;
  : Children
-   @ ( ME_515D7BB10393 // TLongintListTest
- ) .SequenceCode.It
+   Seq: ( ME_515D7BB10393 // TLongintListTest
+ )
  ; // Children
  : Depends
-   @ ( WL 'ME_47913B47006E' '47913B47006E.pas.ms.script' // l3CoreObjects
+   Seq: ( WL 'ME_47913B47006E' '47913B47006E.pas.ms.script' // l3CoreObjects
  WL 'ME_4AB0C3C60310' '4AB0C3C60310.pas.ms.script' // Sys
  WL 'ME_4B2A0D6A0077' '4B2A0D6A0077.pas.ms.script' // Source
  WL 'ME_4B2A112B011A' '4B2A112B011A.pas.ms.script' // Source
- ) .SequenceCode.It
+ )
  ; // Depends
  : Generators
- @ (
+ Seq: (
  gen_pas.script
  gen_pas.script.runner
- ) .SequenceCode.It
+ )
  ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\Containers'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\Containers'
  CONST pas.script:Path 'shared\models\NewSchool\Scripts\515D7B440115.pas.ms.script'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
  CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\515D7B440115.pas.ms.script.runner'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\common\components\rtl\Garant\Containers'
 
 ref; // ME_515D7B440115 Lists

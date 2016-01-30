@@ -1,0 +1,51 @@
+// UnderControl$Resetter 4BA08E8D00CD VCMControllers Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+: ME_4BA08E8D00CD
+ CONST UID '4BA08E8D00CD'
+ CONST Name 'UnderControl'
+ CONST Class class_Category
+ : Stereotype st_VCMControllers ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent WL 'ME_4A92C561015D' '4A92C561015D.pas.ms.script' // Common
+ ;
+ : Children
+   Seq: ( WL 'ME_4B9A1E7F0036' '4B9A1E7F0036.pas.ms.script' // UnderControlInterfaces
+ WL 'ME_4B9A347B0217' '4B9A347B0217.pas.ms.script' // UnderControlImpl
+ )
+ ; // Children
+ : Depends
+   Seq: ( WL 'ME_456EA3D2031C' '456EA3D2031C.pas.ms.script' // GblAdapterLib
+ WL 'ME_4677FBA70343' '4677FBA70343.pas.ms.script' // l3Interfaces
+ WL 'ME_4677FF4B0036' '4677FF4B0036.pas.ms.script' // Data
+ WL 'ME_469F3E37025A' '469F3E37025A.pas.ms.script' // Rtl
+ WL 'ME_4790B4F00236' '4790B4F00236.pas.ms.script' // AFW
+ WL 'ME_4790C3B8021E' '4790C3B8021E.pas.ms.script' // VCM
+ WL 'ME_4790D09A0378' '4790D09A0378.pas.ms.script' // L3
+ WL 'ME_4799D29F033F' '4799D29F033F.pas.ms.script' // Implementation
+ WL 'ME_48561E5A01F7' '48561E5A01F7.pas.ms.script' // Специальные версии и возможности
+ WL 'ME_521C9DA50125' '521C9DA50125.pas.ms.script' // Application Resources
+ WL 'ME_54B90AC6014B' '54B90AC6014B.pas.ms.script' // StringUtils
+ )
+ ; // Depends
+ CONST "exec mode" 'concluded'
+ CONST "gui" 'prj'
+ CONST "is namespace" true
+ CONST "vendor" 'none'
+ : Generators
+ Seq: (
+ gen_pas.script
+ gen_pas.script.runner
+ )
+ ; // Generators
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\UnderControl'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\UnderControl'
+ CONST pas.script:Path 'shared\models\NewSchool\Scripts\4BA08E8D00CD.pas.ms.script'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\4BA08E8D00CD.pas.ms.script.runner'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\UnderControl'
+
+ref; // ME_4BA08E8D00CD UnderControl$Resetter

@@ -40,6 +40,7 @@ ref; // ME_55FFFFB201C7 f_IsNSRC
 : ME_62F7F5BCC979
  CONST UID '62F7F5BCC979'
  CONST Name 'f_Pipe'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY 'Поле для свойства Pipe' ;
  CONST Visibility PrivateAccess
@@ -57,6 +58,7 @@ FORWARD ME_55ED5FF503B2
 : ME_95C9AEAF0D9B
  CONST UID '95C9AEAF0D9B'
  CONST Name 'DoIt'
+ CONST IsSummoned true
  CONST Class class_Operation
  %SUMMARY 'Сигнатура метода FillDocSub' ;
  CONST Visibility PublicAccess
@@ -122,15 +124,15 @@ ref; // ME_55ED862B03D2
  : Parent ME_55ED52510115 // ExportPipeTestPrim
  ;
  : Operations
-   @ ( ME_95C9AEAF0D9B // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_95C9AEAF0D9B // DoIt
+ )
  ; // Operations
  : Dependencies
-   @ ( ME_55ED604A016B // 
+   Seq: ( ME_55ED604A016B // 
  ME_55ED607802D6 // 
  ME_55ED858C002B // 
  ME_55ED862B03D2 // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
 
 ref; // ME_55ED5FF503B2 FillDocSub
@@ -140,6 +142,7 @@ FORWARD ME_55EEA16603AE
 : ME_561EFAA7DB2C
  CONST UID '561EFAA7DB2C'
  CONST Name 'DoIt'
+ CONST IsSummoned true
  CONST Class class_Operation
  %SUMMARY 'Сигнатура метода TuneExportPipe' ;
  CONST Visibility PublicAccess
@@ -161,8 +164,8 @@ ref; // ME_561EFAA7DB2C DoIt
  : Parent ME_55ED52510115 // ExportPipeTestPrim
  ;
  : Operations
-   @ ( ME_561EFAA7DB2C // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_561EFAA7DB2C // DoIt
+ )
  ; // Operations
 
 ref; // ME_55EEA16603AE TuneExportPipe
@@ -216,12 +219,12 @@ ref; // ME_55F2F8C401A1
  : Parent ME_55ED52510115 // ExportPipeTestPrim
  ;
  : Operations
-   @ ( ME_55F2E20C00DB // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_55F2E20C00DB // DoIt
+ )
  ; // Operations
  : Dependencies
-   @ ( ME_55F2F8C401A1 // 
- ) .SequenceCode.It
+   Seq: ( ME_55F2F8C401A1 // 
+ )
  ; // Dependencies
 
 ref; // ME_55F2E1EE014B InternalExport
@@ -272,13 +275,13 @@ ref; // ME_55FC02E702D9
  : Parent ME_55ED52510115 // ExportPipeTestPrim
  ;
  : Operations
-   @ ( ME_55F2E23403DD // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_55F2E23403DD // DoIt
+ )
  ; // Operations
  : Dependencies
-   @ ( ME_55F2F58A012F // 
+   Seq: ( ME_55F2F58A012F // 
  ME_55FC02E702D9 // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
 
 ref; // ME_55F2E21F02A5 CompareResults
@@ -309,8 +312,8 @@ ref; // ME_55F8070E0180 DoIt
  : Parent ME_55ED52510115 // ExportPipeTestPrim
  ;
  : Operations
-   @ ( ME_55F8070E0180 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_55F8070E0180 // DoIt
+ )
  ; // Operations
 
 ref; // ME_55F806E500B6 GetResultHeaderStartingChar
@@ -372,14 +375,14 @@ ref; // ME_5601048D01A0
  : Parent ME_55ED52510115 // ExportPipeTestPrim
  ;
  : Operations
-   @ ( ME_55FFFF7400DE // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_55FFFF7400DE // DoIt
+ )
  ; // Operations
  : Dependencies
-   @ ( ME_560103D50177 // 
+   Seq: ( ME_560103D50177 // 
  ME_5601043602CC // 
  ME_5601048D01A0 // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
 
 ref; // ME_55FFFF57037B CheckNumberOfTopicsInResult
@@ -463,6 +466,7 @@ ref; // ME_55F2D4B40377
 
 : ME_726E6CBEADF5
  CONST UID '726E6CBEADF5'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_55ED52510115 // ExportPipeTestPrim
@@ -479,6 +483,7 @@ ref; // ME_726E6CBEADF5
  ;
  : Implementor ME_55ED52510115 // ExportPipeTestPrim
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4B2F40FD0088_ME_55ED52510115 Cleanup
 
 : ME_4C937013031D_ME_55ED52510115
@@ -488,6 +493,7 @@ ref; // ME_4B2F40FD0088_ME_55ED52510115 Cleanup
  ;
  : Implementor ME_55ED52510115 // ExportPipeTestPrim
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4C937013031D_ME_55ED52510115 GetFolder
 
 : ME_4DAED6F60146_ME_55ED52510115
@@ -497,6 +503,7 @@ ref; // ME_4C937013031D_ME_55ED52510115 GetFolder
  ;
  : Implementor ME_55ED52510115 // ExportPipeTestPrim
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4DAED6F60146_ME_55ED52510115 GetModelElementGUID
 
 : ME_51B1A75D0367_ME_55ED52510115
@@ -506,6 +513,7 @@ ref; // ME_4DAED6F60146_ME_55ED52510115 GetModelElementGUID
  ;
  : Implementor ME_55ED52510115 // ExportPipeTestPrim
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_51B1A75D0367_ME_55ED52510115 OutputFolderName
 
 : ME_55ED52510115
@@ -519,38 +527,38 @@ ref; // ME_51B1A75D0367_ME_55ED52510115 OutputFolderName
  : Parent ME_55ED516B0072 // ExportPipeTests
  ;
  : Inherits
-   @ ( WL 'ME_55F29BD60218' '55F29BB0025D.pas.ms.script' // TarchiDBTest
- ) .SequenceCode.It
+   Seq: ( WL 'ME_55F29BD60218' '55F29BB0025D.pas.ms.script' // TarchiDBTest
+ )
  ; // Inherits
  : Implements
-   @ ( WL 'ME_55FFC24301D0' '55FFC20F00A6.pas.ms.script' // DTTypesUser
- ) .SequenceCode.It
+   Seq: ( WL 'ME_55FFC24301D0' '55FFC20F00A6.pas.ms.script' // DTTypesUser
+ )
  ; // Implements
  : Attributes
-   @ ( ME_55ED54F10251 // Pipe
+   Seq: ( ME_55ED54F10251 // Pipe
  ME_55FFFFB201C7 // f_IsNSRC
  ME_62F7F5BCC979 // f_Pipe
- ) .SequenceCode.It
+ )
  ; // Attributes
  : Operations
-   @ ( ME_55ED5FF503B2 // FillDocSub
+   Seq: ( ME_55ED5FF503B2 // FillDocSub
  ME_55EEA16603AE // TuneExportPipe
  ME_55EEA1AC0299 // DoExport
  ME_55F2E1EE014B // InternalExport
  ME_55F2E21F02A5 // CompareResults
  ME_55F806E500B6 // GetResultHeaderStartingChar
  ME_55FFFF57037B // CheckNumberOfTopicsInResult
- ) .SequenceCode.It
+ )
  ; // Operations
  : Overridden
-   @ ( ME_4B2F40FD0088_ME_55ED52510115 // Cleanup
+   Seq: ( ME_4B2F40FD0088_ME_55ED52510115 // Cleanup
  ME_4C937013031D_ME_55ED52510115 // GetFolder
  ME_4DAED6F60146_ME_55ED52510115 // GetModelElementGUID
  ME_51B1A75D0367_ME_55ED52510115 // OutputFolderName
- ) .SequenceCode.It
+ )
  ; // Overridden
  : Dependencies
-   @ ( ME_55ED580801C1 // 
+   Seq: ( ME_55ED580801C1 // 
  ME_55ED62BF02A5 // 
  ME_55ED859D0194 // 
  ME_55ED867D02CE // 
@@ -558,19 +566,26 @@ ref; // ME_51B1A75D0367_ME_55ED52510115 OutputFolderName
  ME_55ED86DE0212 // 
  ME_55F2D4B40377 // 
  ME_726E6CBEADF5 // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
  : Generators
- @ (
+ Seq: (
  gen_intf.pas
- ) .SequenceCode.It
+ )
  ; // Generators
+ CONST dfm:PathOnly '\archi\source\projects\ImportExportTest'
  CONST intf.pas:Path 'archi\source\projects\ImportExportTest\ExportPipeTestPrim.pas'
+ CONST intf.pas:PathOnly '\archi\source\projects\ImportExportTest'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\archi\source\projects\ImportExportTest'
  CONST extprop:pas:TypeName 'TExportPipeTestPrim'
+ CONST extprop:rc:SelfName 'ExportPipeTestPrim'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_55ED52510115 ExportPipeTestPrim
 
@@ -578,6 +593,7 @@ FORWARD ME_55F28FE60235
 
 : ME_9FB9734D6256
  CONST UID '9FB9734D6256'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_55F28FE60235 // ExportToSeparateNSRTest
@@ -594,6 +610,7 @@ ref; // ME_9FB9734D6256
  ;
  : Implementor ME_55F28FE60235 // ExportToSeparateNSRTest
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_55EEA16603AE_ME_55F28FE60235 TuneExportPipe
 
 : ME_4C937013031D_ME_55F28FE60235
@@ -603,6 +620,7 @@ ref; // ME_55EEA16603AE_ME_55F28FE60235 TuneExportPipe
  ;
  : Implementor ME_55F28FE60235 // ExportToSeparateNSRTest
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4C937013031D_ME_55F28FE60235 GetFolder
 
 : ME_4DAED6F60146_ME_55F28FE60235
@@ -612,6 +630,7 @@ ref; // ME_4C937013031D_ME_55F28FE60235 GetFolder
  ;
  : Implementor ME_55F28FE60235 // ExportToSeparateNSRTest
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4DAED6F60146_ME_55F28FE60235 GetModelElementGUID
 
 : ME_55F28FE60235
@@ -626,33 +645,40 @@ ref; // ME_4DAED6F60146_ME_55F28FE60235 GetModelElementGUID
  : Parent ME_55ED516B0072 // ExportPipeTests
  ;
  : Inherits
-   @ ( ME_55ED52510115 // ExportPipeTestPrim
- ) .SequenceCode.It
+   Seq: ( ME_55ED52510115 // ExportPipeTestPrim
+ )
  ; // Inherits
  : Implemented
-   @ ( ME_55EEA16603AE_ME_55F28FE60235 // TuneExportPipe
- ) .SequenceCode.It
+   Seq: ( ME_55EEA16603AE_ME_55F28FE60235 // TuneExportPipe
+ )
  ; // Implemented
  : Overridden
-   @ ( ME_4C937013031D_ME_55F28FE60235 // GetFolder
+   Seq: ( ME_4C937013031D_ME_55F28FE60235 // GetFolder
  ME_4DAED6F60146_ME_55F28FE60235 // GetModelElementGUID
- ) .SequenceCode.It
+ )
  ; // Overridden
  : Dependencies
-   @ ( ME_9FB9734D6256 // 
- ) .SequenceCode.It
+   Seq: ( ME_9FB9734D6256 // 
+ )
  ; // Dependencies
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
  : Generators
- @ (
+ Seq: (
  gen_intf.pas
- ) .SequenceCode.It
+ )
  ; // Generators
+ CONST dfm:PathOnly '\archi\source\projects\ImportExportTest'
  CONST intf.pas:Path 'archi\source\projects\ImportExportTest\ExportToSeparateNSRTest.pas'
+ CONST intf.pas:PathOnly '\archi\source\projects\ImportExportTest'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\archi\source\projects\ImportExportTest'
  CONST extprop:pas:TypeName 'TExportToSeparateNSRTest'
+ CONST extprop:rc:SelfName 'ExportToSeparateNSRTest'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_55F28FE60235 ExportToSeparateNSRTest
 
@@ -660,6 +686,7 @@ FORWARD ME_55FF9F1102C9
 
 : ME_D5339A402E66
  CONST UID 'D5339A402E66'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_55FF9F1102C9 // ExportToSingleNSRTest
@@ -676,6 +703,7 @@ ref; // ME_D5339A402E66
  ;
  : Implementor ME_55FF9F1102C9 // ExportToSingleNSRTest
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_55EEA16603AE_ME_55FF9F1102C9 TuneExportPipe
 
 : ME_4C937013031D_ME_55FF9F1102C9
@@ -685,6 +713,7 @@ ref; // ME_55EEA16603AE_ME_55FF9F1102C9 TuneExportPipe
  ;
  : Implementor ME_55FF9F1102C9 // ExportToSingleNSRTest
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4C937013031D_ME_55FF9F1102C9 GetFolder
 
 : ME_4DAED6F60146_ME_55FF9F1102C9
@@ -694,6 +723,7 @@ ref; // ME_4C937013031D_ME_55FF9F1102C9 GetFolder
  ;
  : Implementor ME_55FF9F1102C9 // ExportToSingleNSRTest
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4DAED6F60146_ME_55FF9F1102C9 GetModelElementGUID
 
 : ME_55FF9F1102C9
@@ -708,33 +738,40 @@ ref; // ME_4DAED6F60146_ME_55FF9F1102C9 GetModelElementGUID
  : Parent ME_55ED516B0072 // ExportPipeTests
  ;
  : Inherits
-   @ ( ME_55ED52510115 // ExportPipeTestPrim
- ) .SequenceCode.It
+   Seq: ( ME_55ED52510115 // ExportPipeTestPrim
+ )
  ; // Inherits
  : Implemented
-   @ ( ME_55EEA16603AE_ME_55FF9F1102C9 // TuneExportPipe
- ) .SequenceCode.It
+   Seq: ( ME_55EEA16603AE_ME_55FF9F1102C9 // TuneExportPipe
+ )
  ; // Implemented
  : Overridden
-   @ ( ME_4C937013031D_ME_55FF9F1102C9 // GetFolder
+   Seq: ( ME_4C937013031D_ME_55FF9F1102C9 // GetFolder
  ME_4DAED6F60146_ME_55FF9F1102C9 // GetModelElementGUID
- ) .SequenceCode.It
+ )
  ; // Overridden
  : Dependencies
-   @ ( ME_D5339A402E66 // 
- ) .SequenceCode.It
+   Seq: ( ME_D5339A402E66 // 
+ )
  ; // Dependencies
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
  : Generators
- @ (
+ Seq: (
  gen_intf.pas
- ) .SequenceCode.It
+ )
  ; // Generators
+ CONST dfm:PathOnly '\archi\source\projects\ImportExportTest'
  CONST intf.pas:Path 'archi\source\projects\ImportExportTest\ExportToSingleNSRTest.pas'
+ CONST intf.pas:PathOnly '\archi\source\projects\ImportExportTest'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\archi\source\projects\ImportExportTest'
  CONST extprop:pas:TypeName 'TExportToSingleNSRTest'
+ CONST extprop:rc:SelfName 'ExportToSingleNSRTest'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_55FF9F1102C9 ExportToSingleNSRTest
 
@@ -742,6 +779,7 @@ FORWARD ME_55FFA0290014
 
 : ME_1B98FE979A1B
  CONST UID '1B98FE979A1B'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_55FFA0290014 // ExportSeparatedByMainTest
@@ -758,6 +796,7 @@ ref; // ME_1B98FE979A1B
  ;
  : Implementor ME_55FFA0290014 // ExportSeparatedByMainTest
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_55EEA16603AE_ME_55FFA0290014 TuneExportPipe
 
 : ME_4C937013031D_ME_55FFA0290014
@@ -767,6 +806,7 @@ ref; // ME_55EEA16603AE_ME_55FFA0290014 TuneExportPipe
  ;
  : Implementor ME_55FFA0290014 // ExportSeparatedByMainTest
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4C937013031D_ME_55FFA0290014 GetFolder
 
 : ME_4DAED6F60146_ME_55FFA0290014
@@ -776,6 +816,7 @@ ref; // ME_4C937013031D_ME_55FFA0290014 GetFolder
  ;
  : Implementor ME_55FFA0290014 // ExportSeparatedByMainTest
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4DAED6F60146_ME_55FFA0290014 GetModelElementGUID
 
 : ME_55FFA0290014
@@ -790,33 +831,40 @@ ref; // ME_4DAED6F60146_ME_55FFA0290014 GetModelElementGUID
  : Parent ME_55ED516B0072 // ExportPipeTests
  ;
  : Inherits
-   @ ( ME_55ED52510115 // ExportPipeTestPrim
- ) .SequenceCode.It
+   Seq: ( ME_55ED52510115 // ExportPipeTestPrim
+ )
  ; // Inherits
  : Implemented
-   @ ( ME_55EEA16603AE_ME_55FFA0290014 // TuneExportPipe
- ) .SequenceCode.It
+   Seq: ( ME_55EEA16603AE_ME_55FFA0290014 // TuneExportPipe
+ )
  ; // Implemented
  : Overridden
-   @ ( ME_4C937013031D_ME_55FFA0290014 // GetFolder
+   Seq: ( ME_4C937013031D_ME_55FFA0290014 // GetFolder
  ME_4DAED6F60146_ME_55FFA0290014 // GetModelElementGUID
- ) .SequenceCode.It
+ )
  ; // Overridden
  : Dependencies
-   @ ( ME_1B98FE979A1B // 
- ) .SequenceCode.It
+   Seq: ( ME_1B98FE979A1B // 
+ )
  ; // Dependencies
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
  : Generators
- @ (
+ Seq: (
  gen_intf.pas
- ) .SequenceCode.It
+ )
  ; // Generators
+ CONST dfm:PathOnly '\archi\source\projects\ImportExportTest'
  CONST intf.pas:Path 'archi\source\projects\ImportExportTest\ExportSeparatedByMainTest.pas'
+ CONST intf.pas:PathOnly '\archi\source\projects\ImportExportTest'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\archi\source\projects\ImportExportTest'
  CONST extprop:pas:TypeName 'TExportSeparatedByMainTest'
+ CONST extprop:rc:SelfName 'ExportSeparatedByMainTest'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_55FFA0290014 ExportSeparatedByMainTest
 
@@ -824,6 +872,7 @@ FORWARD ME_55FFA0650118
 
 : ME_1E71717F0F55
  CONST UID '1E71717F0F55'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_55FFA0650118 // ExportSeparatedBySizeTest
@@ -840,6 +889,7 @@ ref; // ME_1E71717F0F55
  ;
  : Implementor ME_55FFA0650118 // ExportSeparatedBySizeTest
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_55EEA16603AE_ME_55FFA0650118 TuneExportPipe
 
 : ME_4C937013031D_ME_55FFA0650118
@@ -849,6 +899,7 @@ ref; // ME_55EEA16603AE_ME_55FFA0650118 TuneExportPipe
  ;
  : Implementor ME_55FFA0650118 // ExportSeparatedBySizeTest
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4C937013031D_ME_55FFA0650118 GetFolder
 
 : ME_4DAED6F60146_ME_55FFA0650118
@@ -858,6 +909,7 @@ ref; // ME_4C937013031D_ME_55FFA0650118 GetFolder
  ;
  : Implementor ME_55FFA0650118 // ExportSeparatedBySizeTest
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4DAED6F60146_ME_55FFA0650118 GetModelElementGUID
 
 : ME_55FFA0650118
@@ -872,33 +924,40 @@ ref; // ME_4DAED6F60146_ME_55FFA0650118 GetModelElementGUID
  : Parent ME_55ED516B0072 // ExportPipeTests
  ;
  : Inherits
-   @ ( ME_55ED52510115 // ExportPipeTestPrim
- ) .SequenceCode.It
+   Seq: ( ME_55ED52510115 // ExportPipeTestPrim
+ )
  ; // Inherits
  : Implemented
-   @ ( ME_55EEA16603AE_ME_55FFA0650118 // TuneExportPipe
- ) .SequenceCode.It
+   Seq: ( ME_55EEA16603AE_ME_55FFA0650118 // TuneExportPipe
+ )
  ; // Implemented
  : Overridden
-   @ ( ME_4C937013031D_ME_55FFA0650118 // GetFolder
+   Seq: ( ME_4C937013031D_ME_55FFA0650118 // GetFolder
  ME_4DAED6F60146_ME_55FFA0650118 // GetModelElementGUID
- ) .SequenceCode.It
+ )
  ; // Overridden
  : Dependencies
-   @ ( ME_1E71717F0F55 // 
- ) .SequenceCode.It
+   Seq: ( ME_1E71717F0F55 // 
+ )
  ; // Dependencies
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
  : Generators
- @ (
+ Seq: (
  gen_intf.pas
- ) .SequenceCode.It
+ )
  ; // Generators
+ CONST dfm:PathOnly '\archi\source\projects\ImportExportTest'
  CONST intf.pas:Path 'archi\source\projects\ImportExportTest\ExportSeparatedBySizeTest.pas'
+ CONST intf.pas:PathOnly '\archi\source\projects\ImportExportTest'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\archi\source\projects\ImportExportTest'
  CONST extprop:pas:TypeName 'TExportSeparatedBySizeTest'
+ CONST extprop:rc:SelfName 'ExportSeparatedBySizeTest'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_55FFA0650118 ExportSeparatedBySizeTest
 
@@ -906,6 +965,7 @@ FORWARD ME_55FFA1DB00DB
 
 : ME_1A29D38599D2
  CONST UID '1A29D38599D2'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_55FFA1DB00DB // ExportByMainRelNamedTest
@@ -922,6 +982,7 @@ ref; // ME_1A29D38599D2
  ;
  : Implementor ME_55FFA1DB00DB // ExportByMainRelNamedTest
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_55EEA16603AE_ME_55FFA1DB00DB TuneExportPipe
 
 : ME_4C937013031D_ME_55FFA1DB00DB
@@ -931,6 +992,7 @@ ref; // ME_55EEA16603AE_ME_55FFA1DB00DB TuneExportPipe
  ;
  : Implementor ME_55FFA1DB00DB // ExportByMainRelNamedTest
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4C937013031D_ME_55FFA1DB00DB GetFolder
 
 : ME_4DAED6F60146_ME_55FFA1DB00DB
@@ -940,6 +1002,7 @@ ref; // ME_4C937013031D_ME_55FFA1DB00DB GetFolder
  ;
  : Implementor ME_55FFA1DB00DB // ExportByMainRelNamedTest
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4DAED6F60146_ME_55FFA1DB00DB GetModelElementGUID
 
 : ME_55FFA1DB00DB
@@ -954,33 +1017,40 @@ ref; // ME_4DAED6F60146_ME_55FFA1DB00DB GetModelElementGUID
  : Parent ME_55ED516B0072 // ExportPipeTests
  ;
  : Inherits
-   @ ( ME_55ED52510115 // ExportPipeTestPrim
- ) .SequenceCode.It
+   Seq: ( ME_55ED52510115 // ExportPipeTestPrim
+ )
  ; // Inherits
  : Implemented
-   @ ( ME_55EEA16603AE_ME_55FFA1DB00DB // TuneExportPipe
- ) .SequenceCode.It
+   Seq: ( ME_55EEA16603AE_ME_55FFA1DB00DB // TuneExportPipe
+ )
  ; // Implemented
  : Overridden
-   @ ( ME_4C937013031D_ME_55FFA1DB00DB // GetFolder
+   Seq: ( ME_4C937013031D_ME_55FFA1DB00DB // GetFolder
  ME_4DAED6F60146_ME_55FFA1DB00DB // GetModelElementGUID
- ) .SequenceCode.It
+ )
  ; // Overridden
  : Dependencies
-   @ ( ME_1A29D38599D2 // 
- ) .SequenceCode.It
+   Seq: ( ME_1A29D38599D2 // 
+ )
  ; // Dependencies
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
  : Generators
- @ (
+ Seq: (
  gen_intf.pas
- ) .SequenceCode.It
+ )
  ; // Generators
+ CONST dfm:PathOnly '\archi\source\projects\ImportExportTest'
  CONST intf.pas:Path 'archi\source\projects\ImportExportTest\ExportByMainRelNamedTest.pas'
+ CONST intf.pas:PathOnly '\archi\source\projects\ImportExportTest'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\archi\source\projects\ImportExportTest'
  CONST extprop:pas:TypeName 'TExportByMainRelNamedTest'
+ CONST extprop:rc:SelfName 'ExportByMainRelNamedTest'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_55FFA1DB00DB ExportByMainRelNamedTest
 
@@ -988,6 +1058,7 @@ FORWARD ME_55FFF13302B8
 
 : ME_51E79A35081C
  CONST UID '51E79A35081C'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_55FFF13302B8 // ExportBySizeAndMain
@@ -1004,6 +1075,7 @@ ref; // ME_51E79A35081C
  ;
  : Implementor ME_55FFF13302B8 // ExportBySizeAndMain
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_55EEA16603AE_ME_55FFF13302B8 TuneExportPipe
 
 : ME_4C937013031D_ME_55FFF13302B8
@@ -1013,6 +1085,7 @@ ref; // ME_55EEA16603AE_ME_55FFF13302B8 TuneExportPipe
  ;
  : Implementor ME_55FFF13302B8 // ExportBySizeAndMain
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4C937013031D_ME_55FFF13302B8 GetFolder
 
 : ME_4DAED6F60146_ME_55FFF13302B8
@@ -1022,6 +1095,7 @@ ref; // ME_4C937013031D_ME_55FFF13302B8 GetFolder
  ;
  : Implementor ME_55FFF13302B8 // ExportBySizeAndMain
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4DAED6F60146_ME_55FFF13302B8 GetModelElementGUID
 
 : ME_55FFF13302B8
@@ -1036,33 +1110,40 @@ ref; // ME_4DAED6F60146_ME_55FFF13302B8 GetModelElementGUID
  : Parent ME_55ED516B0072 // ExportPipeTests
  ;
  : Inherits
-   @ ( ME_55ED52510115 // ExportPipeTestPrim
- ) .SequenceCode.It
+   Seq: ( ME_55ED52510115 // ExportPipeTestPrim
+ )
  ; // Inherits
  : Implemented
-   @ ( ME_55EEA16603AE_ME_55FFF13302B8 // TuneExportPipe
- ) .SequenceCode.It
+   Seq: ( ME_55EEA16603AE_ME_55FFF13302B8 // TuneExportPipe
+ )
  ; // Implemented
  : Overridden
-   @ ( ME_4C937013031D_ME_55FFF13302B8 // GetFolder
+   Seq: ( ME_4C937013031D_ME_55FFF13302B8 // GetFolder
  ME_4DAED6F60146_ME_55FFF13302B8 // GetModelElementGUID
- ) .SequenceCode.It
+ )
  ; // Overridden
  : Dependencies
-   @ ( ME_51E79A35081C // 
- ) .SequenceCode.It
+   Seq: ( ME_51E79A35081C // 
+ )
  ; // Dependencies
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
  : Generators
- @ (
+ Seq: (
  gen_intf.pas
- ) .SequenceCode.It
+ )
  ; // Generators
+ CONST dfm:PathOnly '\archi\source\projects\ImportExportTest'
  CONST intf.pas:Path 'archi\source\projects\ImportExportTest\ExportBySizeAndMain.pas'
+ CONST intf.pas:PathOnly '\archi\source\projects\ImportExportTest'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\archi\source\projects\ImportExportTest'
  CONST extprop:pas:TypeName 'TExportBySizeAndMain'
+ CONST extprop:rc:SelfName 'ExportBySizeAndMain'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_55FFF13302B8 ExportBySizeAndMain
 
@@ -1076,27 +1157,23 @@ ref; // ME_55FFF13302B8 ExportBySizeAndMain
  : Parent WL 'ME_55ED4FE10372' '55ED4FE10372.pas.ms.script' // SimpleTests
  ;
  : Children
-   @ ( ME_55ED52510115 // ExportPipeTestPrim
+   Seq: ( ME_55ED52510115 // ExportPipeTestPrim
  ME_55F28FE60235 // ExportToSeparateNSRTest
  ME_55FF9F1102C9 // ExportToSingleNSRTest
  ME_55FFA0290014 // ExportSeparatedByMainTest
  ME_55FFA0650118 // ExportSeparatedBySizeTest
  ME_55FFA1DB00DB // ExportByMainRelNamedTest
  ME_55FFF13302B8 // ExportBySizeAndMain
- ) .SequenceCode.It
+ )
  ; // Children
  : Depends
-   @ ( WL 'ME_4677FBA70343' '4677FBA70343.pas.ms.script' // l3Interfaces
- WL 'ME_469F3E37025A' '469F3E37025A.pas.ms.script' // Rtl
- WL 'ME_4790D09A0378' '4790D09A0378.pas.ms.script' // L3
+   Seq: ( WL 'ME_4677FBA70343' '4677FBA70343.pas.ms.script' // l3Interfaces
  WL 'ME_47913B47006E' '47913B47006E.pas.ms.script' // l3CoreObjects
  WL 'ME_47BC51FE018B' '47BC51FE018B.pas.ms.script' // dt_Types
  WL 'ME_47D0290B016D' '47D0290B016D.pas.ms.script' // l3Utils
  WL 'ME_4AB0C3C60310' '4AB0C3C60310.pas.ms.script' // Sys
- WL 'ME_4B2A0D4A006F' '4B2A0D4A006F.pas.ms.script' // DUnit
  WL 'ME_4B2A0D6A0077' '4B2A0D6A0077.pas.ms.script' // Source
  WL 'ME_4B2A112B011A' '4B2A112B011A.pas.ms.script' // Source
- WL 'ME_4E2F0E1B03BB' '4E2F0E1B03BB.pas.ms.script' // L3$Domain
  WL 'ME_50598FD9019C' '50598FD9019C.pas.ms.script' // PipeOut
  WL 'ME_519A10AF03DE' '519A10AF03DE.pas.ms.script' // dt_Const
  WL 'ME_519B70FC02AB' '519B70FC02AB.pas.ms.script' // DataAccess
@@ -1107,15 +1184,20 @@ ref; // ME_55FFF13302B8 ExportBySizeAndMain
  WL 'ME_559D0BE101B4' '559D0BE101B4.pas.ms.script' // dtIntf
  WL 'ME_55F29BB0025D' '55F29BB0025D.pas.ms.script' // ArchiDBTests
  WL 'ME_55FFC20F00A6' '55FFC20F00A6.pas.ms.script' // ExportPipeTestsSupport
- ) .SequenceCode.It
+ )
  ; // Depends
  : Generators
- @ (
+ Seq: (
  gen_pas.script
  gen_pas.script.runner
- ) .SequenceCode.It
+ )
  ; // Generators
+ CONST dfm:PathOnly '\archi\source\projects\ImportExportTest'
+ CONST intf.pas:PathOnly '\archi\source\projects\ImportExportTest'
  CONST pas.script:Path 'shared\models\NewSchool\Scripts\55ED516B0072.pas.ms.script'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
  CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\55ED516B0072.pas.ms.script.runner'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\archi\source\projects\ImportExportTest'
 
 ref; // ME_55ED516B0072 ExportPipeTests

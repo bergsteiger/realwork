@@ -1,0 +1,2031 @@
+// Dialogs 55C8CD14003A ScriptKeywords Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_55C8CD14003A
+
+FORWARD ME_55C8CD3401D2
+
+FORWARD ME_2975C5F7A803
+
+: ME_75C2AC4E2D67
+ CONST UID '75C2AC4E2D67'
+ CONST Name 'aCtx'
+ CONST IsSummoned true
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_4DB0091E033E' '4DAF19F600C5.pas.ms.script' // TtfwContext
+ ;
+
+ref; // ME_75C2AC4E2D67 aCtx
+
+: ME_75C2AC4E2D68
+ CONST UID '75C2AC4E2D68'
+ CONST Name 'aTextSearchDlg'
+ CONST IsSummoned true
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_4F8D61A100A6' '4DFB501A00F4.pas.ms.script' // TTextSearchDlg
+ ;
+
+ref; // ME_75C2AC4E2D68 aTextSearchDlg
+
+: ME_29B068DE5F56
+ CONST UID '29B068DE5F56'
+ CONST Name 'Fake'
+ CONST IsSummoned true
+ CONST Class class_Operation
+ %SUMMARY 'Реализация слова скрипта pop:TextSearchDlg:Fake' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_2975C5F7A803 // pop_TextSearchDlg_Fake
+ ;
+ : Parameters
+   Seq: ( ME_75C2AC4E2D67 // aCtx
+ ME_75C2AC4E2D68 // aTextSearchDlg
+ )
+ ; // Parameters
+
+ref; // ME_29B068DE5F56 Fake
+
+: ME_FB913414B78E
+ CONST UID 'FB913414B78E'
+ CONST Name 'Ini_Reg'
+ CONST IsSummoned true
+ CONST Class class_Operation
+ : Stereotype st_ini::Operation ;
+ %SUMMARY 'Регистрация pop_TextSearchDlg_Fake' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_2975C5F7A803 // pop_TextSearchDlg_Fake
+ ;
+
+ref; // ME_FB913414B78E Ini_Reg
+
+: ME_F584261DC7E3
+ CONST UID 'F584261DC7E3'
+ CONST IsSummoned true
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_2975C5F7A803 // pop_TextSearchDlg_Fake
+ ;
+ : Target WL 'ME_4DB0091E033E' '4DAF19F600C5.pas.ms.script' // TtfwContext
+ ;
+
+ref; // ME_F584261DC7E3 
+
+: ME_171B75256B40
+ CONST UID '171B75256B40'
+ CONST IsSummoned true
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_2975C5F7A803 // pop_TextSearchDlg_Fake
+ ;
+ : Target WL 'ME_4767748503B5' '4767743E00E5.pas.ms.script' // TTypeInfo
+ ;
+
+ref; // ME_171B75256B40 
+
+: ME_D935DD254B17
+ CONST UID 'D935DD254B17'
+ CONST IsSummoned true
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_2975C5F7A803 // pop_TextSearchDlg_Fake
+ ;
+ : Target WL 'ME_47877EB202FB' '4AB0C3C60310.pas.ms.script' // SysUtils
+ ;
+
+ref; // ME_D935DD254B17 
+
+: ME_4DAEEDE10285_ME_2975C5F7A803
+ CONST UID '4DAEEDE10285'
+ CONST Name 'DoDoIt'
+ : Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.pas.ms.script' // DoDoIt
+ ;
+ : Implementor ME_2975C5F7A803 // pop_TextSearchDlg_Fake
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_4DAEEDE10285_ME_2975C5F7A803 DoDoIt
+
+: ME_4DB0614603C8_ME_2975C5F7A803
+ CONST UID '4DB0614603C8'
+ CONST Name 'GetWordNameForRegister'
+ : Original WL 'ME_4DB0614603C8' '4F3E3F5F0160.pas.ms.script' // GetWordNameForRegister
+ ;
+ : Implementor ME_2975C5F7A803 // pop_TextSearchDlg_Fake
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_4DB0614603C8_ME_2975C5F7A803 GetWordNameForRegister
+
+: ME_551544E2001A_ME_2975C5F7A803
+ CONST UID '551544E2001A'
+ CONST Name 'GetResultTypeInfo'
+ : Original WL 'ME_551544E2001A' '4DAF19F600C5.pas.ms.script' // GetResultTypeInfo
+ ;
+ : Implementor ME_2975C5F7A803 // pop_TextSearchDlg_Fake
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_551544E2001A_ME_2975C5F7A803 GetResultTypeInfo
+
+: ME_559687E6025A_ME_2975C5F7A803
+ CONST UID '559687E6025A'
+ CONST Name 'GetAllParamsCount'
+ : Original WL 'ME_559687E6025A' '4DAF19F600C5.pas.ms.script' // GetAllParamsCount
+ ;
+ : Implementor ME_2975C5F7A803 // pop_TextSearchDlg_Fake
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_559687E6025A_ME_2975C5F7A803 GetAllParamsCount
+
+: ME_5617F4D00243_ME_2975C5F7A803
+ CONST UID '5617F4D00243'
+ CONST Name 'ParamsTypes'
+ : Original WL 'ME_5617F4D00243' '4DAF19F600C5.pas.ms.script' // ParamsTypes
+ ;
+ : Implementor ME_2975C5F7A803 // pop_TextSearchDlg_Fake
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_5617F4D00243_ME_2975C5F7A803 ParamsTypes
+
+: ME_2975C5F7A803
+ CONST UID '2975C5F7A803'
+ CONST Name 'pop_TextSearchDlg_Fake'
+ CONST IsSummoned true
+ CONST Class class_Class
+ : Stereotype st_ScriptKeyword ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Слово скрипта pop:TextSearchDlg:Fake'#13#10'{panel}Этот метод нужен лишь для того, чтобы зарегистировать диалог в скриптовой машине.{panel}'#13#10'*Пример:*'#13#10'{code}'#13#10' aTextSearchDlg pop:TextSearchDlg:Fake'#13#10'{code} ' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_55C8CD3401D2 // TTextSearchDlgWordsPack
+ ;
+ : Inherits
+   Seq: ( WL 'ME_55CCAE000335' '55CCADD2013D.pas.ms.script' // TtfwClassLike
+ )
+ ; // Inherits
+ : Operations
+   Seq: ( ME_29B068DE5F56 // Fake
+ ME_FB913414B78E // Ini_Reg
+ )
+ ; // Operations
+ : Implemented
+   Seq: ( ME_4DAEEDE10285_ME_2975C5F7A803 // DoDoIt
+ )
+ ; // Implemented
+ : Overridden
+   Seq: ( ME_4DB0614603C8_ME_2975C5F7A803 // GetWordNameForRegister
+ ME_551544E2001A_ME_2975C5F7A803 // GetResultTypeInfo
+ ME_559687E6025A_ME_2975C5F7A803 // GetAllParamsCount
+ ME_5617F4D00243_ME_2975C5F7A803 // ParamsTypes
+ )
+ ; // Overridden
+ : Dependencies
+   Seq: ( ME_F584261DC7E3 // 
+ ME_171B75256B40 // 
+ ME_D935DD254B17 // 
+ )
+ ; // Dependencies
+ CONST "NameForScript" 'pop:TextSearchDlg:Fake'
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ CONST dfm:PathOnly '\archi\source\projects\Common\Dialogs'
+ CONST intf.pas:PathOnly '\archi\source\projects\Common\Dialogs'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\archi\source\projects\Common\Dialogs'
+ CONST extprop:pas:TypeName 'TkwPopTextSearchDlgFake'
+ CONST extprop:rc:SelfName 'PopTextSearchDlgFake'
+ CONST extprop:rc:isAcceptableForScripts true
+
+ref; // ME_2975C5F7A803 pop_TextSearchDlg_Fake
+
+: ME_55C8CD470049
+ CONST UID '55C8CD470049'
+ CONST Name 'Fake'
+ CONST Class class_Operation
+ : Stereotype st_keyword::Operation ;
+ %SUMMARY 'Этот метод нужен лишь для того, чтобы зарегистировать диалог в скриптовой машине.' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_55C8CD3401D2 // TTextSearchDlgWordsPack
+ ;
+ CONST "bind params" 'undefined'
+ CONST "lvalue" 'undefined'
+ CONST "mapped" 'undefined'
+
+ref; // ME_55C8CD470049 Fake
+
+: ME_BA75BC7D6A12
+ CONST UID 'BA75BC7D6A12'
+ CONST Name 'Reg_Type_TtfwContext'
+ CONST IsSummoned true
+ CONST Class class_Operation
+ : Stereotype st_ini::Operation ;
+ %SUMMARY 'Регистрация типа TtfwContext' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_55C8CD3401D2 // TTextSearchDlgWordsPack
+ ;
+ : SpelledFor WL 'ME_4DB0091E033E' '4DAF19F600C5.pas.ms.script' // TtfwContext
+ ;
+
+ref; // ME_BA75BC7D6A12 Reg_Type_TtfwContext
+
+: ME_68F09BD88C06
+ CONST UID '68F09BD88C06'
+ CONST Name 'Reg_Type_TTextSearchDlg'
+ CONST IsSummoned true
+ CONST Class class_Operation
+ : Stereotype st_ini::Operation ;
+ %SUMMARY 'Регистрация типа TTextSearchDlg' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_55C8CD3401D2 // TTextSearchDlgWordsPack
+ ;
+ : SpelledFor WL 'ME_4F8D61A100A6' '4DFB501A00F4.pas.ms.script' // TTextSearchDlg
+ ;
+
+ref; // ME_68F09BD88C06 Reg_Type_TTextSearchDlg
+
+: ME_9F166CED046C
+ CONST UID '9F166CED046C'
+ CONST IsSummoned true
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_55C8CD3401D2 // TTextSearchDlgWordsPack
+ ;
+ : Target WL 'ME_55153C2C036F' '55BA28CE0290.pas.ms.script' // TypeInfoExt
+ ;
+
+ref; // ME_9F166CED046C 
+
+: ME_B635813BC831
+ CONST UID 'B635813BC831'
+ CONST IsSummoned true
+ CONST Class class_Dependency
+ : Stereotype st_injects::Dependency ;
+ : Parent ME_55C8CD3401D2 // TTextSearchDlgWordsPack
+ ;
+ : Target WL 'ME_4F8D61A100A6' '4DFB501A00F4.pas.ms.script' // TTextSearchDlg
+ ;
+
+ref; // ME_B635813BC831 
+
+: ME_EE53F03AF0B6
+ CONST UID 'EE53F03AF0B6'
+ CONST IsSummoned true
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_55C8CD3401D2 // TTextSearchDlgWordsPack
+ ;
+ : Target WL 'ME_5527F8330362' '5527F81C020E.pas.ms.script' // TtfwTypeRegistrator
+ ;
+
+ref; // ME_EE53F03AF0B6 
+
+: ME_55C8CD3401D2
+ CONST UID '55C8CD3401D2'
+ CONST Name 'TTextSearchDlgWordsPack'
+ CONST Class class_Class
+ : Stereotype st_ScriptKeywordsPack ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_55C8CD14003A // Dialogs
+ ;
+ : Inherits
+   Seq: ( WL 'ME_4F8D61A100A6' '4DFB501A00F4.pas.ms.script' // TTextSearchDlg
+ )
+ ; // Inherits
+ : Operations
+   Seq: ( ME_55C8CD470049 // Fake
+ ME_BA75BC7D6A12 // Reg_Type_TtfwContext
+ ME_68F09BD88C06 // Reg_Type_TTextSearchDlg
+ )
+ ; // Operations
+ : Children
+   Seq: ( ME_2975C5F7A803 // pop_TextSearchDlg_Fake
+ )
+ ; // Children
+ : Dependencies
+   Seq: ( ME_9F166CED046C // 
+ ME_B635813BC831 // 
+ ME_EE53F03AF0B6 // 
+ )
+ ; // Dependencies
+ CONST "ifndef" 'NoScripts'
+ CONST "needs script" 'undefined'
+ CONST "no class name" 'undefined'
+ CONST "no hands" false
+ CONST "no_pop" 'undefined'
+ : Generators
+ Seq: (
+ gen_intf.pas
+ )
+ ; // Generators
+ CONST dfm:PathOnly '\archi\source\projects\Common\Dialogs'
+ CONST intf.pas:Path 'archi\source\projects\Common\Dialogs\TTextSearchDlgWordsPack.pas'
+ CONST intf.pas:PathOnly '\archi\source\projects\Common\Dialogs'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\archi\source\projects\Common\Dialogs'
+
+ref; // ME_55C8CD3401D2 TTextSearchDlgWordsPack
+
+FORWARD ME_55C8CD820269
+
+FORWARD ME_0BE0E0D34519
+
+: ME_CCEF7C600E68
+ CONST UID 'CCEF7C600E68'
+ CONST Name 'aCtx'
+ CONST IsSummoned true
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_4DB0091E033E' '4DAF19F600C5.pas.ms.script' // TtfwContext
+ ;
+
+ref; // ME_CCEF7C600E68 aCtx
+
+: ME_CCEF7C600E69
+ CONST UID 'CCEF7C600E69'
+ CONST Name 'aTableConvParamDialog'
+ CONST IsSummoned true
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_4F683ACF03C5' '4DFB501A00F4.pas.ms.script' // TTableConvParamDialog
+ ;
+
+ref; // ME_CCEF7C600E69 aTableConvParamDialog
+
+: ME_C4A5B2BD74DF
+ CONST UID 'C4A5B2BD74DF'
+ CONST Name 'Fake'
+ CONST IsSummoned true
+ CONST Class class_Operation
+ %SUMMARY 'Реализация слова скрипта pop:TableConvParamDialog:Fake' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_0BE0E0D34519 // pop_TableConvParamDialog_Fake
+ ;
+ : Parameters
+   Seq: ( ME_CCEF7C600E68 // aCtx
+ ME_CCEF7C600E69 // aTableConvParamDialog
+ )
+ ; // Parameters
+
+ref; // ME_C4A5B2BD74DF Fake
+
+: ME_1F83E8DD9210
+ CONST UID '1F83E8DD9210'
+ CONST Name 'Ini_Reg'
+ CONST IsSummoned true
+ CONST Class class_Operation
+ : Stereotype st_ini::Operation ;
+ %SUMMARY 'Регистрация pop_TableConvParamDialog_Fake' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_0BE0E0D34519 // pop_TableConvParamDialog_Fake
+ ;
+
+ref; // ME_1F83E8DD9210 Ini_Reg
+
+: ME_846BCC05FAD1
+ CONST UID '846BCC05FAD1'
+ CONST IsSummoned true
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_0BE0E0D34519 // pop_TableConvParamDialog_Fake
+ ;
+ : Target WL 'ME_4DB0091E033E' '4DAF19F600C5.pas.ms.script' // TtfwContext
+ ;
+
+ref; // ME_846BCC05FAD1 
+
+: ME_FDACA3F26325
+ CONST UID 'FDACA3F26325'
+ CONST IsSummoned true
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_0BE0E0D34519 // pop_TableConvParamDialog_Fake
+ ;
+ : Target WL 'ME_4767748503B5' '4767743E00E5.pas.ms.script' // TTypeInfo
+ ;
+
+ref; // ME_FDACA3F26325 
+
+: ME_8DF3885AE5EE
+ CONST UID '8DF3885AE5EE'
+ CONST IsSummoned true
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_0BE0E0D34519 // pop_TableConvParamDialog_Fake
+ ;
+ : Target WL 'ME_47877EB202FB' '4AB0C3C60310.pas.ms.script' // SysUtils
+ ;
+
+ref; // ME_8DF3885AE5EE 
+
+: ME_4DAEEDE10285_ME_0BE0E0D34519
+ CONST UID '4DAEEDE10285'
+ CONST Name 'DoDoIt'
+ : Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.pas.ms.script' // DoDoIt
+ ;
+ : Implementor ME_0BE0E0D34519 // pop_TableConvParamDialog_Fake
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_4DAEEDE10285_ME_0BE0E0D34519 DoDoIt
+
+: ME_4DB0614603C8_ME_0BE0E0D34519
+ CONST UID '4DB0614603C8'
+ CONST Name 'GetWordNameForRegister'
+ : Original WL 'ME_4DB0614603C8' '4F3E3F5F0160.pas.ms.script' // GetWordNameForRegister
+ ;
+ : Implementor ME_0BE0E0D34519 // pop_TableConvParamDialog_Fake
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_4DB0614603C8_ME_0BE0E0D34519 GetWordNameForRegister
+
+: ME_551544E2001A_ME_0BE0E0D34519
+ CONST UID '551544E2001A'
+ CONST Name 'GetResultTypeInfo'
+ : Original WL 'ME_551544E2001A' '4DAF19F600C5.pas.ms.script' // GetResultTypeInfo
+ ;
+ : Implementor ME_0BE0E0D34519 // pop_TableConvParamDialog_Fake
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_551544E2001A_ME_0BE0E0D34519 GetResultTypeInfo
+
+: ME_559687E6025A_ME_0BE0E0D34519
+ CONST UID '559687E6025A'
+ CONST Name 'GetAllParamsCount'
+ : Original WL 'ME_559687E6025A' '4DAF19F600C5.pas.ms.script' // GetAllParamsCount
+ ;
+ : Implementor ME_0BE0E0D34519 // pop_TableConvParamDialog_Fake
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_559687E6025A_ME_0BE0E0D34519 GetAllParamsCount
+
+: ME_5617F4D00243_ME_0BE0E0D34519
+ CONST UID '5617F4D00243'
+ CONST Name 'ParamsTypes'
+ : Original WL 'ME_5617F4D00243' '4DAF19F600C5.pas.ms.script' // ParamsTypes
+ ;
+ : Implementor ME_0BE0E0D34519 // pop_TableConvParamDialog_Fake
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_5617F4D00243_ME_0BE0E0D34519 ParamsTypes
+
+: ME_0BE0E0D34519
+ CONST UID '0BE0E0D34519'
+ CONST Name 'pop_TableConvParamDialog_Fake'
+ CONST IsSummoned true
+ CONST Class class_Class
+ : Stereotype st_ScriptKeyword ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Слово скрипта pop:TableConvParamDialog:Fake'#13#10'*Пример:*'#13#10'{code}'#13#10' aTableConvParamDialog pop:TableConvParamDialog:Fake'#13#10'{code} ' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_55C8CD820269 // TTableConvParamDialogWordsPack
+ ;
+ : Inherits
+   Seq: ( WL 'ME_55CCAE000335' '55CCADD2013D.pas.ms.script' // TtfwClassLike
+ )
+ ; // Inherits
+ : Operations
+   Seq: ( ME_C4A5B2BD74DF // Fake
+ ME_1F83E8DD9210 // Ini_Reg
+ )
+ ; // Operations
+ : Implemented
+   Seq: ( ME_4DAEEDE10285_ME_0BE0E0D34519 // DoDoIt
+ )
+ ; // Implemented
+ : Overridden
+   Seq: ( ME_4DB0614603C8_ME_0BE0E0D34519 // GetWordNameForRegister
+ ME_551544E2001A_ME_0BE0E0D34519 // GetResultTypeInfo
+ ME_559687E6025A_ME_0BE0E0D34519 // GetAllParamsCount
+ ME_5617F4D00243_ME_0BE0E0D34519 // ParamsTypes
+ )
+ ; // Overridden
+ : Dependencies
+   Seq: ( ME_846BCC05FAD1 // 
+ ME_FDACA3F26325 // 
+ ME_8DF3885AE5EE // 
+ )
+ ; // Dependencies
+ CONST "NameForScript" 'pop:TableConvParamDialog:Fake'
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ CONST dfm:PathOnly '\archi\source\projects\Common\Dialogs'
+ CONST intf.pas:PathOnly '\archi\source\projects\Common\Dialogs'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\archi\source\projects\Common\Dialogs'
+ CONST extprop:pas:TypeName 'TkwPopTableConvParamDialogFake'
+ CONST extprop:rc:SelfName 'PopTableConvParamDialogFake'
+ CONST extprop:rc:isAcceptableForScripts true
+
+ref; // ME_0BE0E0D34519 pop_TableConvParamDialog_Fake
+
+: ME_55C8CE120197
+ CONST UID '55C8CE120197'
+ CONST Name 'Fake'
+ CONST Class class_Operation
+ : Stereotype st_keyword::Operation ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_55C8CD820269 // TTableConvParamDialogWordsPack
+ ;
+ CONST "bind params" 'undefined'
+ CONST "lvalue" 'undefined'
+ CONST "mapped" 'undefined'
+
+ref; // ME_55C8CE120197 Fake
+
+: ME_50B9DA9A1A76
+ CONST UID '50B9DA9A1A76'
+ CONST Name 'Reg_Type_TtfwContext'
+ CONST IsSummoned true
+ CONST Class class_Operation
+ : Stereotype st_ini::Operation ;
+ %SUMMARY 'Регистрация типа TtfwContext' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_55C8CD820269 // TTableConvParamDialogWordsPack
+ ;
+ : SpelledFor WL 'ME_4DB0091E033E' '4DAF19F600C5.pas.ms.script' // TtfwContext
+ ;
+
+ref; // ME_50B9DA9A1A76 Reg_Type_TtfwContext
+
+: ME_97F812200F63
+ CONST UID '97F812200F63'
+ CONST Name 'Reg_Type_TTableConvParamDialog'
+ CONST IsSummoned true
+ CONST Class class_Operation
+ : Stereotype st_ini::Operation ;
+ %SUMMARY 'Регистрация типа TTableConvParamDialog' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_55C8CD820269 // TTableConvParamDialogWordsPack
+ ;
+ : SpelledFor WL 'ME_4F683ACF03C5' '4DFB501A00F4.pas.ms.script' // TTableConvParamDialog
+ ;
+
+ref; // ME_97F812200F63 Reg_Type_TTableConvParamDialog
+
+: ME_337E1E974B8E
+ CONST UID '337E1E974B8E'
+ CONST IsSummoned true
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_55C8CD820269 // TTableConvParamDialogWordsPack
+ ;
+ : Target WL 'ME_55153C2C036F' '55BA28CE0290.pas.ms.script' // TypeInfoExt
+ ;
+
+ref; // ME_337E1E974B8E 
+
+: ME_5AA0F37EE8AF
+ CONST UID '5AA0F37EE8AF'
+ CONST IsSummoned true
+ CONST Class class_Dependency
+ : Stereotype st_injects::Dependency ;
+ : Parent ME_55C8CD820269 // TTableConvParamDialogWordsPack
+ ;
+ : Target WL 'ME_4F683ACF03C5' '4DFB501A00F4.pas.ms.script' // TTableConvParamDialog
+ ;
+
+ref; // ME_5AA0F37EE8AF 
+
+: ME_407C5D680710
+ CONST UID '407C5D680710'
+ CONST IsSummoned true
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_55C8CD820269 // TTableConvParamDialogWordsPack
+ ;
+ : Target WL 'ME_5527F8330362' '5527F81C020E.pas.ms.script' // TtfwTypeRegistrator
+ ;
+
+ref; // ME_407C5D680710 
+
+: ME_55C8CD820269
+ CONST UID '55C8CD820269'
+ CONST Name 'TTableConvParamDialogWordsPack'
+ CONST Class class_Class
+ : Stereotype st_ScriptKeywordsPack ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_55C8CD14003A // Dialogs
+ ;
+ : Inherits
+   Seq: ( WL 'ME_4F683ACF03C5' '4DFB501A00F4.pas.ms.script' // TTableConvParamDialog
+ )
+ ; // Inherits
+ : Operations
+   Seq: ( ME_55C8CE120197 // Fake
+ ME_50B9DA9A1A76 // Reg_Type_TtfwContext
+ ME_97F812200F63 // Reg_Type_TTableConvParamDialog
+ )
+ ; // Operations
+ : Children
+   Seq: ( ME_0BE0E0D34519 // pop_TableConvParamDialog_Fake
+ )
+ ; // Children
+ : Dependencies
+   Seq: ( ME_337E1E974B8E // 
+ ME_5AA0F37EE8AF // 
+ ME_407C5D680710 // 
+ )
+ ; // Dependencies
+ CONST "ifndef" 'NoScripts'
+ CONST "needs script" 'undefined'
+ CONST "no class name" 'undefined'
+ CONST "no hands" false
+ CONST "no_pop" 'undefined'
+ : Generators
+ Seq: (
+ gen_intf.pas
+ )
+ ; // Generators
+ CONST dfm:PathOnly '\archi\source\projects\Common\Dialogs'
+ CONST intf.pas:Path 'archi\source\projects\Common\Dialogs\TTableConvParamDialogWordsPack.pas'
+ CONST intf.pas:PathOnly '\archi\source\projects\Common\Dialogs'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\archi\source\projects\Common\Dialogs'
+
+ref; // ME_55C8CD820269 TTableConvParamDialogWordsPack
+
+FORWARD ME_55C8CD9D0010
+
+FORWARD ME_744BF601F735
+
+: ME_06CFCAE9B9B3
+ CONST UID '06CFCAE9B9B3'
+ CONST Name 'aCtx'
+ CONST IsSummoned true
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_4DB0091E033E' '4DAF19F600C5.pas.ms.script' // TtfwContext
+ ;
+
+ref; // ME_06CFCAE9B9B3 aCtx
+
+: ME_06CFCAE9B9B4
+ CONST UID '06CFCAE9B9B4'
+ CONST Name 'aNewSubDlg'
+ CONST IsSummoned true
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_4DFB50A6024F' '4DFB501A00F4.pas.ms.script' // TNewSubDlg
+ ;
+
+ref; // ME_06CFCAE9B9B4 aNewSubDlg
+
+: ME_BEDAA2A137B4
+ CONST UID 'BEDAA2A137B4'
+ CONST Name 'Fake'
+ CONST IsSummoned true
+ CONST Class class_Operation
+ %SUMMARY 'Реализация слова скрипта pop:NewSubDlg:Fake' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_744BF601F735 // pop_NewSubDlg_Fake
+ ;
+ : Parameters
+   Seq: ( ME_06CFCAE9B9B3 // aCtx
+ ME_06CFCAE9B9B4 // aNewSubDlg
+ )
+ ; // Parameters
+
+ref; // ME_BEDAA2A137B4 Fake
+
+: ME_D052A56471BC
+ CONST UID 'D052A56471BC'
+ CONST Name 'Ini_Reg'
+ CONST IsSummoned true
+ CONST Class class_Operation
+ : Stereotype st_ini::Operation ;
+ %SUMMARY 'Регистрация pop_NewSubDlg_Fake' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_744BF601F735 // pop_NewSubDlg_Fake
+ ;
+
+ref; // ME_D052A56471BC Ini_Reg
+
+: ME_F6F6F3D6524C
+ CONST UID 'F6F6F3D6524C'
+ CONST IsSummoned true
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_744BF601F735 // pop_NewSubDlg_Fake
+ ;
+ : Target WL 'ME_4DB0091E033E' '4DAF19F600C5.pas.ms.script' // TtfwContext
+ ;
+
+ref; // ME_F6F6F3D6524C 
+
+: ME_702F9B137E3E
+ CONST UID '702F9B137E3E'
+ CONST IsSummoned true
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_744BF601F735 // pop_NewSubDlg_Fake
+ ;
+ : Target WL 'ME_4767748503B5' '4767743E00E5.pas.ms.script' // TTypeInfo
+ ;
+
+ref; // ME_702F9B137E3E 
+
+: ME_F010C67ACBA8
+ CONST UID 'F010C67ACBA8'
+ CONST IsSummoned true
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_744BF601F735 // pop_NewSubDlg_Fake
+ ;
+ : Target WL 'ME_47877EB202FB' '4AB0C3C60310.pas.ms.script' // SysUtils
+ ;
+
+ref; // ME_F010C67ACBA8 
+
+: ME_4DAEEDE10285_ME_744BF601F735
+ CONST UID '4DAEEDE10285'
+ CONST Name 'DoDoIt'
+ : Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.pas.ms.script' // DoDoIt
+ ;
+ : Implementor ME_744BF601F735 // pop_NewSubDlg_Fake
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_4DAEEDE10285_ME_744BF601F735 DoDoIt
+
+: ME_4DB0614603C8_ME_744BF601F735
+ CONST UID '4DB0614603C8'
+ CONST Name 'GetWordNameForRegister'
+ : Original WL 'ME_4DB0614603C8' '4F3E3F5F0160.pas.ms.script' // GetWordNameForRegister
+ ;
+ : Implementor ME_744BF601F735 // pop_NewSubDlg_Fake
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_4DB0614603C8_ME_744BF601F735 GetWordNameForRegister
+
+: ME_551544E2001A_ME_744BF601F735
+ CONST UID '551544E2001A'
+ CONST Name 'GetResultTypeInfo'
+ : Original WL 'ME_551544E2001A' '4DAF19F600C5.pas.ms.script' // GetResultTypeInfo
+ ;
+ : Implementor ME_744BF601F735 // pop_NewSubDlg_Fake
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_551544E2001A_ME_744BF601F735 GetResultTypeInfo
+
+: ME_559687E6025A_ME_744BF601F735
+ CONST UID '559687E6025A'
+ CONST Name 'GetAllParamsCount'
+ : Original WL 'ME_559687E6025A' '4DAF19F600C5.pas.ms.script' // GetAllParamsCount
+ ;
+ : Implementor ME_744BF601F735 // pop_NewSubDlg_Fake
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_559687E6025A_ME_744BF601F735 GetAllParamsCount
+
+: ME_5617F4D00243_ME_744BF601F735
+ CONST UID '5617F4D00243'
+ CONST Name 'ParamsTypes'
+ : Original WL 'ME_5617F4D00243' '4DAF19F600C5.pas.ms.script' // ParamsTypes
+ ;
+ : Implementor ME_744BF601F735 // pop_NewSubDlg_Fake
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_5617F4D00243_ME_744BF601F735 ParamsTypes
+
+: ME_744BF601F735
+ CONST UID '744BF601F735'
+ CONST Name 'pop_NewSubDlg_Fake'
+ CONST IsSummoned true
+ CONST Class class_Class
+ : Stereotype st_ScriptKeyword ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Слово скрипта pop:NewSubDlg:Fake'#13#10'*Пример:*'#13#10'{code}'#13#10' aNewSubDlg pop:NewSubDlg:Fake'#13#10'{code} ' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_55C8CD9D0010 // TNewSubDlgWordsPack
+ ;
+ : Inherits
+   Seq: ( WL 'ME_55CCAE000335' '55CCADD2013D.pas.ms.script' // TtfwClassLike
+ )
+ ; // Inherits
+ : Operations
+   Seq: ( ME_BEDAA2A137B4 // Fake
+ ME_D052A56471BC // Ini_Reg
+ )
+ ; // Operations
+ : Implemented
+   Seq: ( ME_4DAEEDE10285_ME_744BF601F735 // DoDoIt
+ )
+ ; // Implemented
+ : Overridden
+   Seq: ( ME_4DB0614603C8_ME_744BF601F735 // GetWordNameForRegister
+ ME_551544E2001A_ME_744BF601F735 // GetResultTypeInfo
+ ME_559687E6025A_ME_744BF601F735 // GetAllParamsCount
+ ME_5617F4D00243_ME_744BF601F735 // ParamsTypes
+ )
+ ; // Overridden
+ : Dependencies
+   Seq: ( ME_F6F6F3D6524C // 
+ ME_702F9B137E3E // 
+ ME_F010C67ACBA8 // 
+ )
+ ; // Dependencies
+ CONST "NameForScript" 'pop:NewSubDlg:Fake'
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ CONST dfm:PathOnly '\archi\source\projects\Common\Dialogs'
+ CONST intf.pas:PathOnly '\archi\source\projects\Common\Dialogs'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\archi\source\projects\Common\Dialogs'
+ CONST extprop:pas:TypeName 'TkwPopNewSubDlgFake'
+ CONST extprop:rc:SelfName 'PopNewSubDlgFake'
+ CONST extprop:rc:isAcceptableForScripts true
+
+ref; // ME_744BF601F735 pop_NewSubDlg_Fake
+
+: ME_55C8CE1E0042
+ CONST UID '55C8CE1E0042'
+ CONST Name 'Fake'
+ CONST Class class_Operation
+ : Stereotype st_keyword::Operation ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_55C8CD9D0010 // TNewSubDlgWordsPack
+ ;
+ CONST "bind params" 'undefined'
+ CONST "lvalue" 'undefined'
+ CONST "mapped" 'undefined'
+
+ref; // ME_55C8CE1E0042 Fake
+
+: ME_A53F3BDA9BD9
+ CONST UID 'A53F3BDA9BD9'
+ CONST Name 'Reg_Type_TtfwContext'
+ CONST IsSummoned true
+ CONST Class class_Operation
+ : Stereotype st_ini::Operation ;
+ %SUMMARY 'Регистрация типа TtfwContext' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_55C8CD9D0010 // TNewSubDlgWordsPack
+ ;
+ : SpelledFor WL 'ME_4DB0091E033E' '4DAF19F600C5.pas.ms.script' // TtfwContext
+ ;
+
+ref; // ME_A53F3BDA9BD9 Reg_Type_TtfwContext
+
+: ME_BAF9632D7120
+ CONST UID 'BAF9632D7120'
+ CONST Name 'Reg_Type_TNewSubDlg'
+ CONST IsSummoned true
+ CONST Class class_Operation
+ : Stereotype st_ini::Operation ;
+ %SUMMARY 'Регистрация типа TNewSubDlg' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_55C8CD9D0010 // TNewSubDlgWordsPack
+ ;
+ : SpelledFor WL 'ME_4DFB50A6024F' '4DFB501A00F4.pas.ms.script' // TNewSubDlg
+ ;
+
+ref; // ME_BAF9632D7120 Reg_Type_TNewSubDlg
+
+: ME_229D8015476E
+ CONST UID '229D8015476E'
+ CONST IsSummoned true
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_55C8CD9D0010 // TNewSubDlgWordsPack
+ ;
+ : Target WL 'ME_55153C2C036F' '55BA28CE0290.pas.ms.script' // TypeInfoExt
+ ;
+
+ref; // ME_229D8015476E 
+
+: ME_5F59C5A74A6C
+ CONST UID '5F59C5A74A6C'
+ CONST IsSummoned true
+ CONST Class class_Dependency
+ : Stereotype st_injects::Dependency ;
+ : Parent ME_55C8CD9D0010 // TNewSubDlgWordsPack
+ ;
+ : Target WL 'ME_4DFB50A6024F' '4DFB501A00F4.pas.ms.script' // TNewSubDlg
+ ;
+
+ref; // ME_5F59C5A74A6C 
+
+: ME_61EB911ADB98
+ CONST UID '61EB911ADB98'
+ CONST IsSummoned true
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_55C8CD9D0010 // TNewSubDlgWordsPack
+ ;
+ : Target WL 'ME_5527F8330362' '5527F81C020E.pas.ms.script' // TtfwTypeRegistrator
+ ;
+
+ref; // ME_61EB911ADB98 
+
+: ME_55C8CD9D0010
+ CONST UID '55C8CD9D0010'
+ CONST Name 'TNewSubDlgWordsPack'
+ CONST Class class_Class
+ : Stereotype st_ScriptKeywordsPack ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_55C8CD14003A // Dialogs
+ ;
+ : Inherits
+   Seq: ( WL 'ME_4DFB50A6024F' '4DFB501A00F4.pas.ms.script' // TNewSubDlg
+ )
+ ; // Inherits
+ : Operations
+   Seq: ( ME_55C8CE1E0042 // Fake
+ ME_A53F3BDA9BD9 // Reg_Type_TtfwContext
+ ME_BAF9632D7120 // Reg_Type_TNewSubDlg
+ )
+ ; // Operations
+ : Children
+   Seq: ( ME_744BF601F735 // pop_NewSubDlg_Fake
+ )
+ ; // Children
+ : Dependencies
+   Seq: ( ME_229D8015476E // 
+ ME_5F59C5A74A6C // 
+ ME_61EB911ADB98 // 
+ )
+ ; // Dependencies
+ CONST "ifndef" 'NoScripts'
+ CONST "needs script" 'undefined'
+ CONST "no class name" 'undefined'
+ CONST "no hands" false
+ CONST "no_pop" 'undefined'
+ : Generators
+ Seq: (
+ gen_intf.pas
+ )
+ ; // Generators
+ CONST dfm:PathOnly '\archi\source\projects\Common\Dialogs'
+ CONST intf.pas:Path 'archi\source\projects\Common\Dialogs\TNewSubDlgWordsPack.pas'
+ CONST intf.pas:PathOnly '\archi\source\projects\Common\Dialogs'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\archi\source\projects\Common\Dialogs'
+
+ref; // ME_55C8CD9D0010 TNewSubDlgWordsPack
+
+FORWARD ME_55C8CDB30208
+
+FORWARD ME_B3D7A1E7CA69
+
+: ME_4CEE1CC6C5E2
+ CONST UID '4CEE1CC6C5E2'
+ CONST Name 'aCtx'
+ CONST IsSummoned true
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_4DB0091E033E' '4DAF19F600C5.pas.ms.script' // TtfwContext
+ ;
+
+ref; // ME_4CEE1CC6C5E2 aCtx
+
+: ME_4CEE1CC6C5E3
+ CONST UID '4CEE1CC6C5E3'
+ CONST Name 'aSpellCheckDlg'
+ CONST IsSummoned true
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_4F22A92D007F' '4DFB501A00F4.pas.ms.script' // TSpellCheckDlg
+ ;
+
+ref; // ME_4CEE1CC6C5E3 aSpellCheckDlg
+
+: ME_66B7B716E7E4
+ CONST UID '66B7B716E7E4'
+ CONST Name 'Fake'
+ CONST IsSummoned true
+ CONST Class class_Operation
+ %SUMMARY 'Реализация слова скрипта pop:SpellCheckDlg:Fake' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_B3D7A1E7CA69 // pop_SpellCheckDlg_Fake
+ ;
+ : Parameters
+   Seq: ( ME_4CEE1CC6C5E2 // aCtx
+ ME_4CEE1CC6C5E3 // aSpellCheckDlg
+ )
+ ; // Parameters
+
+ref; // ME_66B7B716E7E4 Fake
+
+: ME_11E28D549ED1
+ CONST UID '11E28D549ED1'
+ CONST Name 'Ini_Reg'
+ CONST IsSummoned true
+ CONST Class class_Operation
+ : Stereotype st_ini::Operation ;
+ %SUMMARY 'Регистрация pop_SpellCheckDlg_Fake' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_B3D7A1E7CA69 // pop_SpellCheckDlg_Fake
+ ;
+
+ref; // ME_11E28D549ED1 Ini_Reg
+
+: ME_4B36E80FFD46
+ CONST UID '4B36E80FFD46'
+ CONST IsSummoned true
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_B3D7A1E7CA69 // pop_SpellCheckDlg_Fake
+ ;
+ : Target WL 'ME_4DB0091E033E' '4DAF19F600C5.pas.ms.script' // TtfwContext
+ ;
+
+ref; // ME_4B36E80FFD46 
+
+: ME_1250E486A51B
+ CONST UID '1250E486A51B'
+ CONST IsSummoned true
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_B3D7A1E7CA69 // pop_SpellCheckDlg_Fake
+ ;
+ : Target WL 'ME_4767748503B5' '4767743E00E5.pas.ms.script' // TTypeInfo
+ ;
+
+ref; // ME_1250E486A51B 
+
+: ME_6833E33E99F1
+ CONST UID '6833E33E99F1'
+ CONST IsSummoned true
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_B3D7A1E7CA69 // pop_SpellCheckDlg_Fake
+ ;
+ : Target WL 'ME_47877EB202FB' '4AB0C3C60310.pas.ms.script' // SysUtils
+ ;
+
+ref; // ME_6833E33E99F1 
+
+: ME_4DAEEDE10285_ME_B3D7A1E7CA69
+ CONST UID '4DAEEDE10285'
+ CONST Name 'DoDoIt'
+ : Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.pas.ms.script' // DoDoIt
+ ;
+ : Implementor ME_B3D7A1E7CA69 // pop_SpellCheckDlg_Fake
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_4DAEEDE10285_ME_B3D7A1E7CA69 DoDoIt
+
+: ME_4DB0614603C8_ME_B3D7A1E7CA69
+ CONST UID '4DB0614603C8'
+ CONST Name 'GetWordNameForRegister'
+ : Original WL 'ME_4DB0614603C8' '4F3E3F5F0160.pas.ms.script' // GetWordNameForRegister
+ ;
+ : Implementor ME_B3D7A1E7CA69 // pop_SpellCheckDlg_Fake
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_4DB0614603C8_ME_B3D7A1E7CA69 GetWordNameForRegister
+
+: ME_551544E2001A_ME_B3D7A1E7CA69
+ CONST UID '551544E2001A'
+ CONST Name 'GetResultTypeInfo'
+ : Original WL 'ME_551544E2001A' '4DAF19F600C5.pas.ms.script' // GetResultTypeInfo
+ ;
+ : Implementor ME_B3D7A1E7CA69 // pop_SpellCheckDlg_Fake
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_551544E2001A_ME_B3D7A1E7CA69 GetResultTypeInfo
+
+: ME_559687E6025A_ME_B3D7A1E7CA69
+ CONST UID '559687E6025A'
+ CONST Name 'GetAllParamsCount'
+ : Original WL 'ME_559687E6025A' '4DAF19F600C5.pas.ms.script' // GetAllParamsCount
+ ;
+ : Implementor ME_B3D7A1E7CA69 // pop_SpellCheckDlg_Fake
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_559687E6025A_ME_B3D7A1E7CA69 GetAllParamsCount
+
+: ME_5617F4D00243_ME_B3D7A1E7CA69
+ CONST UID '5617F4D00243'
+ CONST Name 'ParamsTypes'
+ : Original WL 'ME_5617F4D00243' '4DAF19F600C5.pas.ms.script' // ParamsTypes
+ ;
+ : Implementor ME_B3D7A1E7CA69 // pop_SpellCheckDlg_Fake
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_5617F4D00243_ME_B3D7A1E7CA69 ParamsTypes
+
+: ME_B3D7A1E7CA69
+ CONST UID 'B3D7A1E7CA69'
+ CONST Name 'pop_SpellCheckDlg_Fake'
+ CONST IsSummoned true
+ CONST Class class_Class
+ : Stereotype st_ScriptKeyword ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Слово скрипта pop:SpellCheckDlg:Fake'#13#10'*Пример:*'#13#10'{code}'#13#10' aSpellCheckDlg pop:SpellCheckDlg:Fake'#13#10'{code} ' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_55C8CDB30208 // TSpellCheckDlgWordsPack
+ ;
+ : Inherits
+   Seq: ( WL 'ME_55CCAE000335' '55CCADD2013D.pas.ms.script' // TtfwClassLike
+ )
+ ; // Inherits
+ : Operations
+   Seq: ( ME_66B7B716E7E4 // Fake
+ ME_11E28D549ED1 // Ini_Reg
+ )
+ ; // Operations
+ : Implemented
+   Seq: ( ME_4DAEEDE10285_ME_B3D7A1E7CA69 // DoDoIt
+ )
+ ; // Implemented
+ : Overridden
+   Seq: ( ME_4DB0614603C8_ME_B3D7A1E7CA69 // GetWordNameForRegister
+ ME_551544E2001A_ME_B3D7A1E7CA69 // GetResultTypeInfo
+ ME_559687E6025A_ME_B3D7A1E7CA69 // GetAllParamsCount
+ ME_5617F4D00243_ME_B3D7A1E7CA69 // ParamsTypes
+ )
+ ; // Overridden
+ : Dependencies
+   Seq: ( ME_4B36E80FFD46 // 
+ ME_1250E486A51B // 
+ ME_6833E33E99F1 // 
+ )
+ ; // Dependencies
+ CONST "NameForScript" 'pop:SpellCheckDlg:Fake'
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ CONST dfm:PathOnly '\archi\source\projects\Common\Dialogs'
+ CONST intf.pas:PathOnly '\archi\source\projects\Common\Dialogs'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\archi\source\projects\Common\Dialogs'
+ CONST extprop:pas:TypeName 'TkwPopSpellCheckDlgFake'
+ CONST extprop:rc:SelfName 'PopSpellCheckDlgFake'
+ CONST extprop:rc:isAcceptableForScripts true
+
+ref; // ME_B3D7A1E7CA69 pop_SpellCheckDlg_Fake
+
+: ME_55C8CE2102C9
+ CONST UID '55C8CE2102C9'
+ CONST Name 'Fake'
+ CONST Class class_Operation
+ : Stereotype st_keyword::Operation ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_55C8CDB30208 // TSpellCheckDlgWordsPack
+ ;
+ CONST "bind params" 'undefined'
+ CONST "lvalue" 'undefined'
+ CONST "mapped" 'undefined'
+
+ref; // ME_55C8CE2102C9 Fake
+
+: ME_8752D0A7346B
+ CONST UID '8752D0A7346B'
+ CONST Name 'Reg_Type_TtfwContext'
+ CONST IsSummoned true
+ CONST Class class_Operation
+ : Stereotype st_ini::Operation ;
+ %SUMMARY 'Регистрация типа TtfwContext' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_55C8CDB30208 // TSpellCheckDlgWordsPack
+ ;
+ : SpelledFor WL 'ME_4DB0091E033E' '4DAF19F600C5.pas.ms.script' // TtfwContext
+ ;
+
+ref; // ME_8752D0A7346B Reg_Type_TtfwContext
+
+: ME_2C8151C474D9
+ CONST UID '2C8151C474D9'
+ CONST Name 'Reg_Type_TSpellCheckDlg'
+ CONST IsSummoned true
+ CONST Class class_Operation
+ : Stereotype st_ini::Operation ;
+ %SUMMARY 'Регистрация типа TSpellCheckDlg' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_55C8CDB30208 // TSpellCheckDlgWordsPack
+ ;
+ : SpelledFor WL 'ME_4F22A92D007F' '4DFB501A00F4.pas.ms.script' // TSpellCheckDlg
+ ;
+
+ref; // ME_2C8151C474D9 Reg_Type_TSpellCheckDlg
+
+: ME_308872E7E5AF
+ CONST UID '308872E7E5AF'
+ CONST IsSummoned true
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_55C8CDB30208 // TSpellCheckDlgWordsPack
+ ;
+ : Target WL 'ME_55153C2C036F' '55BA28CE0290.pas.ms.script' // TypeInfoExt
+ ;
+
+ref; // ME_308872E7E5AF 
+
+: ME_4105AC7A06B5
+ CONST UID '4105AC7A06B5'
+ CONST IsSummoned true
+ CONST Class class_Dependency
+ : Stereotype st_injects::Dependency ;
+ : Parent ME_55C8CDB30208 // TSpellCheckDlgWordsPack
+ ;
+ : Target WL 'ME_4F22A92D007F' '4DFB501A00F4.pas.ms.script' // TSpellCheckDlg
+ ;
+
+ref; // ME_4105AC7A06B5 
+
+: ME_50B276CB3549
+ CONST UID '50B276CB3549'
+ CONST IsSummoned true
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_55C8CDB30208 // TSpellCheckDlgWordsPack
+ ;
+ : Target WL 'ME_5527F8330362' '5527F81C020E.pas.ms.script' // TtfwTypeRegistrator
+ ;
+
+ref; // ME_50B276CB3549 
+
+: ME_55C8CDB30208
+ CONST UID '55C8CDB30208'
+ CONST Name 'TSpellCheckDlgWordsPack'
+ CONST Class class_Class
+ : Stereotype st_ScriptKeywordsPack ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_55C8CD14003A // Dialogs
+ ;
+ : Inherits
+   Seq: ( WL 'ME_4F22A92D007F' '4DFB501A00F4.pas.ms.script' // TSpellCheckDlg
+ )
+ ; // Inherits
+ : Operations
+   Seq: ( ME_55C8CE2102C9 // Fake
+ ME_8752D0A7346B // Reg_Type_TtfwContext
+ ME_2C8151C474D9 // Reg_Type_TSpellCheckDlg
+ )
+ ; // Operations
+ : Children
+   Seq: ( ME_B3D7A1E7CA69 // pop_SpellCheckDlg_Fake
+ )
+ ; // Children
+ : Dependencies
+   Seq: ( ME_308872E7E5AF // 
+ ME_4105AC7A06B5 // 
+ ME_50B276CB3549 // 
+ )
+ ; // Dependencies
+ CONST "ifndef" 'NoScripts'
+ CONST "needs script" 'undefined'
+ CONST "no class name" 'undefined'
+ CONST "no hands" false
+ CONST "no_pop" 'undefined'
+ : Generators
+ Seq: (
+ gen_intf.pas
+ )
+ ; // Generators
+ CONST dfm:PathOnly '\archi\source\projects\Common\Dialogs'
+ CONST intf.pas:Path 'archi\source\projects\Common\Dialogs\TSpellCheckDlgWordsPack.pas'
+ CONST intf.pas:PathOnly '\archi\source\projects\Common\Dialogs'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\archi\source\projects\Common\Dialogs'
+
+ref; // ME_55C8CDB30208 TSpellCheckDlgWordsPack
+
+FORWARD ME_55C8CDD703B3
+
+FORWARD ME_DF6A0ECD8244
+
+: ME_C8EC8DA88259
+ CONST UID 'C8EC8DA88259'
+ CONST Name 'aCtx'
+ CONST IsSummoned true
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_4DB0091E033E' '4DAF19F600C5.pas.ms.script' // TtfwContext
+ ;
+
+ref; // ME_C8EC8DA88259 aCtx
+
+: ME_C8EC8DA8825A
+ CONST UID 'C8EC8DA8825A'
+ CONST Name 'aPicSizeEditDlg'
+ CONST IsSummoned true
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_4F5760C202E6' '4DFB501A00F4.pas.ms.script' // TPicSizeEditDlg
+ ;
+
+ref; // ME_C8EC8DA8825A aPicSizeEditDlg
+
+: ME_CD007FA5CC23
+ CONST UID 'CD007FA5CC23'
+ CONST Name 'Fake'
+ CONST IsSummoned true
+ CONST Class class_Operation
+ %SUMMARY 'Реализация слова скрипта pop:PicSizeEditDlg:Fake' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_DF6A0ECD8244 // pop_PicSizeEditDlg_Fake
+ ;
+ : Parameters
+   Seq: ( ME_C8EC8DA88259 // aCtx
+ ME_C8EC8DA8825A // aPicSizeEditDlg
+ )
+ ; // Parameters
+
+ref; // ME_CD007FA5CC23 Fake
+
+: ME_6A20A0F9D313
+ CONST UID '6A20A0F9D313'
+ CONST Name 'Ini_Reg'
+ CONST IsSummoned true
+ CONST Class class_Operation
+ : Stereotype st_ini::Operation ;
+ %SUMMARY 'Регистрация pop_PicSizeEditDlg_Fake' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_DF6A0ECD8244 // pop_PicSizeEditDlg_Fake
+ ;
+
+ref; // ME_6A20A0F9D313 Ini_Reg
+
+: ME_D029B40A4236
+ CONST UID 'D029B40A4236'
+ CONST IsSummoned true
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_DF6A0ECD8244 // pop_PicSizeEditDlg_Fake
+ ;
+ : Target WL 'ME_4DB0091E033E' '4DAF19F600C5.pas.ms.script' // TtfwContext
+ ;
+
+ref; // ME_D029B40A4236 
+
+: ME_B56CECC468CE
+ CONST UID 'B56CECC468CE'
+ CONST IsSummoned true
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_DF6A0ECD8244 // pop_PicSizeEditDlg_Fake
+ ;
+ : Target WL 'ME_4767748503B5' '4767743E00E5.pas.ms.script' // TTypeInfo
+ ;
+
+ref; // ME_B56CECC468CE 
+
+: ME_42138E1ADD82
+ CONST UID '42138E1ADD82'
+ CONST IsSummoned true
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_DF6A0ECD8244 // pop_PicSizeEditDlg_Fake
+ ;
+ : Target WL 'ME_47877EB202FB' '4AB0C3C60310.pas.ms.script' // SysUtils
+ ;
+
+ref; // ME_42138E1ADD82 
+
+: ME_4DAEEDE10285_ME_DF6A0ECD8244
+ CONST UID '4DAEEDE10285'
+ CONST Name 'DoDoIt'
+ : Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.pas.ms.script' // DoDoIt
+ ;
+ : Implementor ME_DF6A0ECD8244 // pop_PicSizeEditDlg_Fake
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_4DAEEDE10285_ME_DF6A0ECD8244 DoDoIt
+
+: ME_4DB0614603C8_ME_DF6A0ECD8244
+ CONST UID '4DB0614603C8'
+ CONST Name 'GetWordNameForRegister'
+ : Original WL 'ME_4DB0614603C8' '4F3E3F5F0160.pas.ms.script' // GetWordNameForRegister
+ ;
+ : Implementor ME_DF6A0ECD8244 // pop_PicSizeEditDlg_Fake
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_4DB0614603C8_ME_DF6A0ECD8244 GetWordNameForRegister
+
+: ME_551544E2001A_ME_DF6A0ECD8244
+ CONST UID '551544E2001A'
+ CONST Name 'GetResultTypeInfo'
+ : Original WL 'ME_551544E2001A' '4DAF19F600C5.pas.ms.script' // GetResultTypeInfo
+ ;
+ : Implementor ME_DF6A0ECD8244 // pop_PicSizeEditDlg_Fake
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_551544E2001A_ME_DF6A0ECD8244 GetResultTypeInfo
+
+: ME_559687E6025A_ME_DF6A0ECD8244
+ CONST UID '559687E6025A'
+ CONST Name 'GetAllParamsCount'
+ : Original WL 'ME_559687E6025A' '4DAF19F600C5.pas.ms.script' // GetAllParamsCount
+ ;
+ : Implementor ME_DF6A0ECD8244 // pop_PicSizeEditDlg_Fake
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_559687E6025A_ME_DF6A0ECD8244 GetAllParamsCount
+
+: ME_5617F4D00243_ME_DF6A0ECD8244
+ CONST UID '5617F4D00243'
+ CONST Name 'ParamsTypes'
+ : Original WL 'ME_5617F4D00243' '4DAF19F600C5.pas.ms.script' // ParamsTypes
+ ;
+ : Implementor ME_DF6A0ECD8244 // pop_PicSizeEditDlg_Fake
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_5617F4D00243_ME_DF6A0ECD8244 ParamsTypes
+
+: ME_DF6A0ECD8244
+ CONST UID 'DF6A0ECD8244'
+ CONST Name 'pop_PicSizeEditDlg_Fake'
+ CONST IsSummoned true
+ CONST Class class_Class
+ : Stereotype st_ScriptKeyword ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Слово скрипта pop:PicSizeEditDlg:Fake'#13#10'*Пример:*'#13#10'{code}'#13#10' aPicSizeEditDlg pop:PicSizeEditDlg:Fake'#13#10'{code} ' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_55C8CDD703B3 // TPicSizeEditDlgWordsPack
+ ;
+ : Inherits
+   Seq: ( WL 'ME_55CCAE000335' '55CCADD2013D.pas.ms.script' // TtfwClassLike
+ )
+ ; // Inherits
+ : Operations
+   Seq: ( ME_CD007FA5CC23 // Fake
+ ME_6A20A0F9D313 // Ini_Reg
+ )
+ ; // Operations
+ : Implemented
+   Seq: ( ME_4DAEEDE10285_ME_DF6A0ECD8244 // DoDoIt
+ )
+ ; // Implemented
+ : Overridden
+   Seq: ( ME_4DB0614603C8_ME_DF6A0ECD8244 // GetWordNameForRegister
+ ME_551544E2001A_ME_DF6A0ECD8244 // GetResultTypeInfo
+ ME_559687E6025A_ME_DF6A0ECD8244 // GetAllParamsCount
+ ME_5617F4D00243_ME_DF6A0ECD8244 // ParamsTypes
+ )
+ ; // Overridden
+ : Dependencies
+   Seq: ( ME_D029B40A4236 // 
+ ME_B56CECC468CE // 
+ ME_42138E1ADD82 // 
+ )
+ ; // Dependencies
+ CONST "NameForScript" 'pop:PicSizeEditDlg:Fake'
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ CONST dfm:PathOnly '\archi\source\projects\Common\Dialogs'
+ CONST intf.pas:PathOnly '\archi\source\projects\Common\Dialogs'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\archi\source\projects\Common\Dialogs'
+ CONST extprop:pas:TypeName 'TkwPopPicSizeEditDlgFake'
+ CONST extprop:rc:SelfName 'PopPicSizeEditDlgFake'
+ CONST extprop:rc:isAcceptableForScripts true
+
+ref; // ME_DF6A0ECD8244 pop_PicSizeEditDlg_Fake
+
+: ME_55C8CE2502B9
+ CONST UID '55C8CE2502B9'
+ CONST Name 'Fake'
+ CONST Class class_Operation
+ : Stereotype st_keyword::Operation ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_55C8CDD703B3 // TPicSizeEditDlgWordsPack
+ ;
+ CONST "bind params" 'undefined'
+ CONST "lvalue" 'undefined'
+ CONST "mapped" 'undefined'
+
+ref; // ME_55C8CE2502B9 Fake
+
+: ME_42F3A015821C
+ CONST UID '42F3A015821C'
+ CONST Name 'Reg_Type_TtfwContext'
+ CONST IsSummoned true
+ CONST Class class_Operation
+ : Stereotype st_ini::Operation ;
+ %SUMMARY 'Регистрация типа TtfwContext' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_55C8CDD703B3 // TPicSizeEditDlgWordsPack
+ ;
+ : SpelledFor WL 'ME_4DB0091E033E' '4DAF19F600C5.pas.ms.script' // TtfwContext
+ ;
+
+ref; // ME_42F3A015821C Reg_Type_TtfwContext
+
+: ME_ECF06C3449EC
+ CONST UID 'ECF06C3449EC'
+ CONST Name 'Reg_Type_TPicSizeEditDlg'
+ CONST IsSummoned true
+ CONST Class class_Operation
+ : Stereotype st_ini::Operation ;
+ %SUMMARY 'Регистрация типа TPicSizeEditDlg' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_55C8CDD703B3 // TPicSizeEditDlgWordsPack
+ ;
+ : SpelledFor WL 'ME_4F5760C202E6' '4DFB501A00F4.pas.ms.script' // TPicSizeEditDlg
+ ;
+
+ref; // ME_ECF06C3449EC Reg_Type_TPicSizeEditDlg
+
+: ME_C5B2AB1E4B3A
+ CONST UID 'C5B2AB1E4B3A'
+ CONST IsSummoned true
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_55C8CDD703B3 // TPicSizeEditDlgWordsPack
+ ;
+ : Target WL 'ME_55153C2C036F' '55BA28CE0290.pas.ms.script' // TypeInfoExt
+ ;
+
+ref; // ME_C5B2AB1E4B3A 
+
+: ME_0174C6E9DBC9
+ CONST UID '0174C6E9DBC9'
+ CONST IsSummoned true
+ CONST Class class_Dependency
+ : Stereotype st_injects::Dependency ;
+ : Parent ME_55C8CDD703B3 // TPicSizeEditDlgWordsPack
+ ;
+ : Target WL 'ME_4F5760C202E6' '4DFB501A00F4.pas.ms.script' // TPicSizeEditDlg
+ ;
+
+ref; // ME_0174C6E9DBC9 
+
+: ME_32416ED5187D
+ CONST UID '32416ED5187D'
+ CONST IsSummoned true
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_55C8CDD703B3 // TPicSizeEditDlgWordsPack
+ ;
+ : Target WL 'ME_5527F8330362' '5527F81C020E.pas.ms.script' // TtfwTypeRegistrator
+ ;
+
+ref; // ME_32416ED5187D 
+
+: ME_55C8CDD703B3
+ CONST UID '55C8CDD703B3'
+ CONST Name 'TPicSizeEditDlgWordsPack'
+ CONST Class class_Class
+ : Stereotype st_ScriptKeywordsPack ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_55C8CD14003A // Dialogs
+ ;
+ : Inherits
+   Seq: ( WL 'ME_4F5760C202E6' '4DFB501A00F4.pas.ms.script' // TPicSizeEditDlg
+ )
+ ; // Inherits
+ : Operations
+   Seq: ( ME_55C8CE2502B9 // Fake
+ ME_42F3A015821C // Reg_Type_TtfwContext
+ ME_ECF06C3449EC // Reg_Type_TPicSizeEditDlg
+ )
+ ; // Operations
+ : Children
+   Seq: ( ME_DF6A0ECD8244 // pop_PicSizeEditDlg_Fake
+ )
+ ; // Children
+ : Dependencies
+   Seq: ( ME_C5B2AB1E4B3A // 
+ ME_0174C6E9DBC9 // 
+ ME_32416ED5187D // 
+ )
+ ; // Dependencies
+ CONST "ifndef" 'NoScripts'
+ CONST "needs script" 'undefined'
+ CONST "no class name" 'undefined'
+ CONST "no hands" false
+ CONST "no_pop" 'undefined'
+ : Generators
+ Seq: (
+ gen_intf.pas
+ )
+ ; // Generators
+ CONST dfm:PathOnly '\archi\source\projects\Common\Dialogs'
+ CONST intf.pas:Path 'archi\source\projects\Common\Dialogs\TPicSizeEditDlgWordsPack.pas'
+ CONST intf.pas:PathOnly '\archi\source\projects\Common\Dialogs'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\archi\source\projects\Common\Dialogs'
+
+ref; // ME_55C8CDD703B3 TPicSizeEditDlgWordsPack
+
+FORWARD ME_55C8CDFC039B
+
+FORWARD ME_1C9135EF778B
+
+: ME_3D92261C98AF
+ CONST UID '3D92261C98AF'
+ CONST Name 'aCtx'
+ CONST IsSummoned true
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_4DB0091E033E' '4DAF19F600C5.pas.ms.script' // TtfwContext
+ ;
+
+ref; // ME_3D92261C98AF aCtx
+
+: ME_3D92261C98B0
+ CONST UID '3D92261C98B0'
+ CONST Name 'aExprEditor'
+ CONST IsSummoned true
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_4F57640C0241' '4DFB501A00F4.pas.ms.script' // TExprEditor
+ ;
+
+ref; // ME_3D92261C98B0 aExprEditor
+
+: ME_F9F482E814E0
+ CONST UID 'F9F482E814E0'
+ CONST Name 'Fake'
+ CONST IsSummoned true
+ CONST Class class_Operation
+ %SUMMARY 'Реализация слова скрипта pop:ExprEditor:Fake' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_1C9135EF778B // pop_ExprEditor_Fake
+ ;
+ : Parameters
+   Seq: ( ME_3D92261C98AF // aCtx
+ ME_3D92261C98B0 // aExprEditor
+ )
+ ; // Parameters
+
+ref; // ME_F9F482E814E0 Fake
+
+: ME_4812A4FDC886
+ CONST UID '4812A4FDC886'
+ CONST Name 'Ini_Reg'
+ CONST IsSummoned true
+ CONST Class class_Operation
+ : Stereotype st_ini::Operation ;
+ %SUMMARY 'Регистрация pop_ExprEditor_Fake' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_1C9135EF778B // pop_ExprEditor_Fake
+ ;
+
+ref; // ME_4812A4FDC886 Ini_Reg
+
+: ME_EFDC19704488
+ CONST UID 'EFDC19704488'
+ CONST IsSummoned true
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_1C9135EF778B // pop_ExprEditor_Fake
+ ;
+ : Target WL 'ME_4DB0091E033E' '4DAF19F600C5.pas.ms.script' // TtfwContext
+ ;
+
+ref; // ME_EFDC19704488 
+
+: ME_9B17CF9B1FE7
+ CONST UID '9B17CF9B1FE7'
+ CONST IsSummoned true
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_1C9135EF778B // pop_ExprEditor_Fake
+ ;
+ : Target WL 'ME_4767748503B5' '4767743E00E5.pas.ms.script' // TTypeInfo
+ ;
+
+ref; // ME_9B17CF9B1FE7 
+
+: ME_8731DB020895
+ CONST UID '8731DB020895'
+ CONST IsSummoned true
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_1C9135EF778B // pop_ExprEditor_Fake
+ ;
+ : Target WL 'ME_47877EB202FB' '4AB0C3C60310.pas.ms.script' // SysUtils
+ ;
+
+ref; // ME_8731DB020895 
+
+: ME_4DAEEDE10285_ME_1C9135EF778B
+ CONST UID '4DAEEDE10285'
+ CONST Name 'DoDoIt'
+ : Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.pas.ms.script' // DoDoIt
+ ;
+ : Implementor ME_1C9135EF778B // pop_ExprEditor_Fake
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_4DAEEDE10285_ME_1C9135EF778B DoDoIt
+
+: ME_4DB0614603C8_ME_1C9135EF778B
+ CONST UID '4DB0614603C8'
+ CONST Name 'GetWordNameForRegister'
+ : Original WL 'ME_4DB0614603C8' '4F3E3F5F0160.pas.ms.script' // GetWordNameForRegister
+ ;
+ : Implementor ME_1C9135EF778B // pop_ExprEditor_Fake
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_4DB0614603C8_ME_1C9135EF778B GetWordNameForRegister
+
+: ME_551544E2001A_ME_1C9135EF778B
+ CONST UID '551544E2001A'
+ CONST Name 'GetResultTypeInfo'
+ : Original WL 'ME_551544E2001A' '4DAF19F600C5.pas.ms.script' // GetResultTypeInfo
+ ;
+ : Implementor ME_1C9135EF778B // pop_ExprEditor_Fake
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_551544E2001A_ME_1C9135EF778B GetResultTypeInfo
+
+: ME_559687E6025A_ME_1C9135EF778B
+ CONST UID '559687E6025A'
+ CONST Name 'GetAllParamsCount'
+ : Original WL 'ME_559687E6025A' '4DAF19F600C5.pas.ms.script' // GetAllParamsCount
+ ;
+ : Implementor ME_1C9135EF778B // pop_ExprEditor_Fake
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_559687E6025A_ME_1C9135EF778B GetAllParamsCount
+
+: ME_5617F4D00243_ME_1C9135EF778B
+ CONST UID '5617F4D00243'
+ CONST Name 'ParamsTypes'
+ : Original WL 'ME_5617F4D00243' '4DAF19F600C5.pas.ms.script' // ParamsTypes
+ ;
+ : Implementor ME_1C9135EF778B // pop_ExprEditor_Fake
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_5617F4D00243_ME_1C9135EF778B ParamsTypes
+
+: ME_1C9135EF778B
+ CONST UID '1C9135EF778B'
+ CONST Name 'pop_ExprEditor_Fake'
+ CONST IsSummoned true
+ CONST Class class_Class
+ : Stereotype st_ScriptKeyword ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Слово скрипта pop:ExprEditor:Fake'#13#10'*Пример:*'#13#10'{code}'#13#10' aExprEditor pop:ExprEditor:Fake'#13#10'{code} ' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_55C8CDFC039B // TExprEditorWordsPack
+ ;
+ : Inherits
+   Seq: ( WL 'ME_55CCAE000335' '55CCADD2013D.pas.ms.script' // TtfwClassLike
+ )
+ ; // Inherits
+ : Operations
+   Seq: ( ME_F9F482E814E0 // Fake
+ ME_4812A4FDC886 // Ini_Reg
+ )
+ ; // Operations
+ : Implemented
+   Seq: ( ME_4DAEEDE10285_ME_1C9135EF778B // DoDoIt
+ )
+ ; // Implemented
+ : Overridden
+   Seq: ( ME_4DB0614603C8_ME_1C9135EF778B // GetWordNameForRegister
+ ME_551544E2001A_ME_1C9135EF778B // GetResultTypeInfo
+ ME_559687E6025A_ME_1C9135EF778B // GetAllParamsCount
+ ME_5617F4D00243_ME_1C9135EF778B // ParamsTypes
+ )
+ ; // Overridden
+ : Dependencies
+   Seq: ( ME_EFDC19704488 // 
+ ME_9B17CF9B1FE7 // 
+ ME_8731DB020895 // 
+ )
+ ; // Dependencies
+ CONST "NameForScript" 'pop:ExprEditor:Fake'
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ CONST dfm:PathOnly '\archi\source\projects\Common\Dialogs'
+ CONST intf.pas:PathOnly '\archi\source\projects\Common\Dialogs'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\archi\source\projects\Common\Dialogs'
+ CONST extprop:pas:TypeName 'TkwPopExprEditorFake'
+ CONST extprop:rc:SelfName 'PopExprEditorFake'
+ CONST extprop:rc:isAcceptableForScripts true
+
+ref; // ME_1C9135EF778B pop_ExprEditor_Fake
+
+: ME_55C8CE280375
+ CONST UID '55C8CE280375'
+ CONST Name 'Fake'
+ CONST Class class_Operation
+ : Stereotype st_keyword::Operation ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_55C8CDFC039B // TExprEditorWordsPack
+ ;
+ CONST "bind params" 'undefined'
+ CONST "lvalue" 'undefined'
+ CONST "mapped" 'undefined'
+
+ref; // ME_55C8CE280375 Fake
+
+: ME_CFA3EB53C7A6
+ CONST UID 'CFA3EB53C7A6'
+ CONST Name 'Reg_Type_TtfwContext'
+ CONST IsSummoned true
+ CONST Class class_Operation
+ : Stereotype st_ini::Operation ;
+ %SUMMARY 'Регистрация типа TtfwContext' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_55C8CDFC039B // TExprEditorWordsPack
+ ;
+ : SpelledFor WL 'ME_4DB0091E033E' '4DAF19F600C5.pas.ms.script' // TtfwContext
+ ;
+
+ref; // ME_CFA3EB53C7A6 Reg_Type_TtfwContext
+
+: ME_8C9F98DEC8B9
+ CONST UID '8C9F98DEC8B9'
+ CONST Name 'Reg_Type_TExprEditor'
+ CONST IsSummoned true
+ CONST Class class_Operation
+ : Stereotype st_ini::Operation ;
+ %SUMMARY 'Регистрация типа TExprEditor' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_55C8CDFC039B // TExprEditorWordsPack
+ ;
+ : SpelledFor WL 'ME_4F57640C0241' '4DFB501A00F4.pas.ms.script' // TExprEditor
+ ;
+
+ref; // ME_8C9F98DEC8B9 Reg_Type_TExprEditor
+
+: ME_A957E67DBCA2
+ CONST UID 'A957E67DBCA2'
+ CONST IsSummoned true
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_55C8CDFC039B // TExprEditorWordsPack
+ ;
+ : Target WL 'ME_55153C2C036F' '55BA28CE0290.pas.ms.script' // TypeInfoExt
+ ;
+
+ref; // ME_A957E67DBCA2 
+
+: ME_A0ABE8C2982C
+ CONST UID 'A0ABE8C2982C'
+ CONST IsSummoned true
+ CONST Class class_Dependency
+ : Stereotype st_injects::Dependency ;
+ : Parent ME_55C8CDFC039B // TExprEditorWordsPack
+ ;
+ : Target WL 'ME_4F57640C0241' '4DFB501A00F4.pas.ms.script' // TExprEditor
+ ;
+
+ref; // ME_A0ABE8C2982C 
+
+: ME_6ED825316A0A
+ CONST UID '6ED825316A0A'
+ CONST IsSummoned true
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_55C8CDFC039B // TExprEditorWordsPack
+ ;
+ : Target WL 'ME_5527F8330362' '5527F81C020E.pas.ms.script' // TtfwTypeRegistrator
+ ;
+
+ref; // ME_6ED825316A0A 
+
+: ME_55C8CDFC039B
+ CONST UID '55C8CDFC039B'
+ CONST Name 'TExprEditorWordsPack'
+ CONST Class class_Class
+ : Stereotype st_ScriptKeywordsPack ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_55C8CD14003A // Dialogs
+ ;
+ : Inherits
+   Seq: ( WL 'ME_4F57640C0241' '4DFB501A00F4.pas.ms.script' // TExprEditor
+ )
+ ; // Inherits
+ : Operations
+   Seq: ( ME_55C8CE280375 // Fake
+ ME_CFA3EB53C7A6 // Reg_Type_TtfwContext
+ ME_8C9F98DEC8B9 // Reg_Type_TExprEditor
+ )
+ ; // Operations
+ : Children
+   Seq: ( ME_1C9135EF778B // pop_ExprEditor_Fake
+ )
+ ; // Children
+ : Dependencies
+   Seq: ( ME_A957E67DBCA2 // 
+ ME_A0ABE8C2982C // 
+ ME_6ED825316A0A // 
+ )
+ ; // Dependencies
+ CONST "ifndef" 'NoScripts'
+ CONST "needs script" 'undefined'
+ CONST "no class name" 'undefined'
+ CONST "no hands" false
+ CONST "no_pop" 'undefined'
+ : Generators
+ Seq: (
+ gen_intf.pas
+ )
+ ; // Generators
+ CONST dfm:PathOnly '\archi\source\projects\Common\Dialogs'
+ CONST intf.pas:Path 'archi\source\projects\Common\Dialogs\TExprEditorWordsPack.pas'
+ CONST intf.pas:PathOnly '\archi\source\projects\Common\Dialogs'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\archi\source\projects\Common\Dialogs'
+
+ref; // ME_55C8CDFC039B TExprEditorWordsPack
+
+: ME_55C8CD14003A
+ CONST UID '55C8CD14003A'
+ CONST Name 'Dialogs'
+ CONST Class class_Category
+ : Stereotype st_ScriptKeywords ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent WL 'ME_4DECDBE201FB' '4DECDBE201FB.pas.ms.script' // Dialogs
+ ;
+ : Children
+   Seq: ( ME_55C8CD3401D2 // TTextSearchDlgWordsPack
+ ME_55C8CD820269 // TTableConvParamDialogWordsPack
+ ME_55C8CD9D0010 // TNewSubDlgWordsPack
+ ME_55C8CDB30208 // TSpellCheckDlgWordsPack
+ ME_55C8CDD703B3 // TPicSizeEditDlgWordsPack
+ ME_55C8CDFC039B // TExprEditorWordsPack
+ )
+ ; // Children
+ : Depends
+   Seq: ( WL 'ME_4767743E00E5' '4767743E00E5.pas.ms.script' // TypInfo
+ WL 'ME_4AB0C3C60310' '4AB0C3C60310.pas.ms.script' // Sys
+ WL 'ME_4DAF19F600C5' '4DAF19F600C5.pas.ms.script' // tfwScriptingInterfaces
+ WL 'ME_4DFB501A00F4' '4DFB501A00F4.pas.ms.script' // CommonDialogs
+ WL 'ME_5527F81C020E' '5527F81C020E.pas.ms.script' // TypesRegistration
+ WL 'ME_55BA28CE0290' '55BA28CE0290.pas.ms.script' // tfwScriptingTypes
+ WL 'ME_55CCADD2013D' '55CCADD2013D.pas.ms.script' // ClassLikeMapping
+ )
+ ; // Depends
+ CONST "ifndef" 'NoScripts'
+ : Generators
+ Seq: (
+ gen_pas.script
+ gen_pas.script.runner
+ )
+ ; // Generators
+ CONST dfm:PathOnly '\archi\source\projects\Common\Dialogs'
+ CONST intf.pas:PathOnly '\archi\source\projects\Common\Dialogs'
+ CONST pas.script:Path 'shared\models\NewSchool\Scripts\55C8CD14003A.pas.ms.script'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\55C8CD14003A.pas.ms.script.runner'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\archi\source\projects\Common\Dialogs'
+
+ref; // ME_55C8CD14003A Dialogs

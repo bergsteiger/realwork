@@ -39,9 +39,9 @@ ref; // ME_4DF080C303B1 aNeedPop
  : Target WL 'ME_4DB00A510300' '55BF153300A4.pas.ms.script' // TtfwStackValue
  ;
  : Parameters
-   @ ( ME_55F0288E028B // aDelta
+   Seq: ( ME_55F0288E028B // aDelta
  ME_4DF080C303B1 // aNeedPop
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_4DF06A0E038A DoIt
@@ -58,8 +58,8 @@ ref; // ME_4DF06A0E038A DoIt
  : Parent ME_4DB009CF0103 // TtfwValueStack
  ;
  : Operations
-   @ ( ME_4DF06A0E038A // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_4DF06A0E038A // DoIt
+ )
  ; // Operations
 
 ref; // ME_4DF069C60159 PrevTop
@@ -90,8 +90,8 @@ ref; // ME_55EFF7D90029 DoIt
  : Parent ME_4DB009CF0103 // TtfwValueStack
  ;
  : Operations
-   @ ( ME_55EFF7D90029 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_55EFF7D90029 // DoIt
+ )
  ; // Operations
 
 ref; // ME_55EFF78F01D7 pLast
@@ -742,20 +742,20 @@ ref; // ME_5613FA08013C_ME_4DB009CF0103 PushIntf
  : Parent ME_4F7338A800A7 // ScriptEngineCore
  ;
  : Inherits
-   @ ( WL 'ME_4DCC11A10187' '54F0A4A302FF.pas.ms.script' // TtfwValueList
- ) .SequenceCode.It
+   Seq: ( WL 'ME_4DCC11A10187' '54F0A4A302FF.pas.ms.script' // TtfwValueList
+ )
  ; // Inherits
  : Implements
-   @ ( WL 'ME_4DB048620395' '4DAF19F600C5.pas.ms.script' // ValueStack
- ) .SequenceCode.It
+   Seq: ( WL 'ME_4DB048620395' '4DAF19F600C5.pas.ms.script' // ValueStack
+ )
  ; // Implements
  : Operations
-   @ ( ME_4DF069C60159 // PrevTop
+   Seq: ( ME_4DF069C60159 // PrevTop
  ME_55EFF78F01D7 // pLast
- ) .SequenceCode.It
+ )
  ; // Operations
  : Implemented
-   @ ( ME_4DB008F503BE_ME_4DB009CF0103 // PushInt
+   Seq: ( ME_4DB008F503BE_ME_4DB009CF0103 // PushInt
  ME_4DB0090A0000_ME_4DB009CF0103 // PopInt
  ME_4DB013A10166_ME_4DB009CF0103 // PushBool
  ME_4DB013AF01C9_ME_4DB009CF0103 // PopBool
@@ -815,24 +815,26 @@ ref; // ME_5613FA08013C_ME_4DB009CF0103 PushIntf
  ME_55E84904001E_ME_4DB009CF0103 // DropN
  ME_5601534A0012_ME_4DB009CF0103 // Top
  ME_5613FA08013C_ME_4DB009CF0103 // PushIntf
- ) .SequenceCode.It
+ )
  ; // Implemented
  : Dependencies
-   @ ( ME_4DB048CA0024 // 
+   Seq: ( ME_4DB048CA0024 // 
  ME_4DB048E70022 // 
  ME_54F9C30302C0 // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\ScriptEngine'
  CONST intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\tfwValueStack.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\ScriptEngine'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'ValueStack'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'tfwValueStack'
 
 ref; // ME_4DB009CF0103 TtfwValueStack
 
@@ -897,30 +899,32 @@ ref; // ME_47B99D4503A2_ME_55648E420189 CompareExistingItems
  : Parent ME_4F7338A800A7 // ScriptEngineCore
  ;
  : Inherits
-   @ ( WL 'ME_4A54DD4E036F' '47913B47006E.pas.ms.script' // Tl3ProtoDataContainer
+   Seq: ( WL 'ME_4A54DD4E036F' '47913B47006E.pas.ms.script' // Tl3ProtoDataContainer
  WL 'ME_4B223ADC02BF' '47913B47006E.pas.ms.script' // l3RecordListPrim
- ) .SequenceCode.It
+ )
  ; // Inherits
  : Attributes
-   @ ( ME_55648E520349 // ItemType
- ) .SequenceCode.It
+   Seq: ( ME_55648E520349 // ItemType
+ )
  ; // Attributes
  : Implemented
-   @ ( ME_47B07CF403D0_ME_55648E420189 // IsSameItems
+   Seq: ( ME_47B07CF403D0_ME_55648E420189 // IsSameItems
  ME_47B2C42A0163_ME_55648E420189 // AssignItem
  ME_47B99D4503A2_ME_55648E420189 // CompareExistingItems
- ) .SequenceCode.It
+ )
  ; // Implemented
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\ScriptEngine'
  CONST intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\tfwSourcePointList.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\ScriptEngine'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'SourcePointList'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'tfwSourcePointList'
 
 ref; // ME_55648E420189 TtfwSourcePointList
 
@@ -965,8 +969,8 @@ ref; // ME_4F494399005B DoIt
  : Parent ME_4F49416600CB // TtfwStoredValuesStack
  ;
  : Operations
-   @ ( ME_4F494399005B // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_4F494399005B // DoIt
+ )
  ; // Operations
 
 ref; // ME_4F49438E0354 Create
@@ -976,6 +980,7 @@ FORWARD ME_4F4943A902C5
 : ME_CC3D59D8B233
  CONST UID 'CC3D59D8B233'
  CONST Name 'DoIt'
+ CONST IsSummoned true
  CONST Class class_Operation
  %SUMMARY 'Сигнатура фабрики TtfwStoredValuesStack.Make' ;
  CONST Visibility PrivateAccess
@@ -998,16 +1003,16 @@ ref; // ME_CC3D59D8B233 DoIt
  : Parent ME_4F49416600CB // TtfwStoredValuesStack
  ;
  : Inherits
-   @ ( ME_4F49438E0354 // Create
- ) .SequenceCode.It
+   Seq: ( ME_4F49438E0354 // Create
+ )
  ; // Inherits
  : Implements
-   @ ( WL 'ME_4F4940D4029A' '4DAF19F600C5.pas.ms.script' // ItfwStoredValuesStack
- ) .SequenceCode.It
+   Seq: ( WL 'ME_4F4940D4029A' '4DAF19F600C5.pas.ms.script' // ItfwStoredValuesStack
+ )
  ; // Implements
  : Operations
-   @ ( ME_CC3D59D8B233 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_CC3D59D8B233 // DoIt
+ )
  ; // Operations
  CONST "check nil" false
  CONST "need AfterCreate" 'undefined'
@@ -1146,53 +1151,55 @@ ref; // ME_47A6FEE600FC_ME_4F49416600CB IsCacheable
  : Parent ME_4F7338A800A7 // ScriptEngineCore
  ;
  : Inherits
-   @ ( WL 'ME_47B9AF6E0228' '47913B47006E.pas.ms.script' // l3InterfaceRefListPrim
+   Seq: ( WL 'ME_47B9AF6E0228' '47913B47006E.pas.ms.script' // l3InterfaceRefListPrim
  WL 'ME_4A54DD4E036F' '47913B47006E.pas.ms.script' // Tl3ProtoDataContainer
- ) .SequenceCode.It
+ )
  ; // Inherits
  : Implements
-   @ ( WL 'ME_4F4940D4029A' '4DAF19F600C5.pas.ms.script' // ItfwStoredValuesStack
- ) .SequenceCode.It
+   Seq: ( WL 'ME_4F4940D4029A' '4DAF19F600C5.pas.ms.script' // ItfwStoredValuesStack
+ )
  ; // Implements
  : Attributes
-   @ ( ME_4F494230039E // ItemType
- ) .SequenceCode.It
+   Seq: ( ME_4F494230039E // ItemType
+ )
  ; // Attributes
  : Operations
-   @ ( ME_4F49438E0354 // Create
+   Seq: ( ME_4F49438E0354 // Create
  ME_4F4943A902C5 // Make
- ) .SequenceCode.It
+ )
  ; // Operations
  : Implemented
-   @ ( ME_47B07CF403D0_ME_4F49416600CB // IsSameItems
+   Seq: ( ME_47B07CF403D0_ME_4F49416600CB // IsSameItems
  ME_47B2C42A0163_ME_4F49416600CB // AssignItem
  ME_47B99D4503A2_ME_4F49416600CB // CompareExistingItems
  ME_4BB08B8902F2_ME_4F49416600CB // Count
  ME_4F494C2C0049_ME_4F49416600CB // Restore
  ME_55A52ACE0238_ME_4F49416600CB // StoreDictionary
- ) .SequenceCode.It
+ )
  ; // Implemented
  : Overridden
-   @ ( ME_47A6FEE600FC_ME_4F49416600CB // IsCacheable
- ) .SequenceCode.It
+   Seq: ( ME_47A6FEE600FC_ME_4F49416600CB // IsCacheable
+ )
  ; // Overridden
  : Dependencies
-   @ ( ME_55A52B220169 // 
+   Seq: ( ME_55A52B220169 // 
  ME_55A52B4C02B8 // 
  ME_55A52B8A0352 // 
  ME_55A530FF00F8 // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\ScriptEngine'
  CONST intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\tfwStoredValuesStack.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\ScriptEngine'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'StoredValuesStack'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'tfwStoredValuesStack'
 
 ref; // ME_4F49416600CB TtfwStoredValuesStack
 
@@ -1231,9 +1238,9 @@ ref; // ME_53E1072301A6 aWord
  : Target WL 'ME_46780DA40383' '4677FBA70343.pas.ms.script' // Il3CString
  ;
  : Parameters
-   @ ( ME_53E1110901E2 // aCtx
+   Seq: ( ME_53E1110901E2 // aCtx
  ME_53E1072301A6 // aWord
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_53E1071F00CC DoIt
@@ -1260,12 +1267,12 @@ ref; // ME_53E10CE00323
  : Parent ME_53E107920007 // seWordsInfo
  ;
  : Operations
-   @ ( ME_53E1071F00CC // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_53E1071F00CC // DoIt
+ )
  ; // Operations
  : Dependencies
-   @ ( ME_53E10CE00323 // 
- ) .SequenceCode.It
+   Seq: ( ME_53E10CE00323 // 
+ )
  ; // Dependencies
  CONST "is static" false
 
@@ -1282,16 +1289,15 @@ ref; // ME_53E10704024E GetWordDirectives
  : Parent ME_4F7338A800A7 // ScriptEngineCore
  ;
  : Operations
-   @ ( ME_53E10704024E // GetWordDirectives
- ) .SequenceCode.It
+   Seq: ( ME_53E10704024E // GetWordDirectives
+ )
  ; // Operations
  CONST "no hands" false
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\ScriptEngine'
  CONST intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\seWordsInfo.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\ScriptEngine'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_53E107920007 seWordsInfo
 
@@ -1302,6 +1308,7 @@ FORWARD ME_EC920DB7EE66
 : ME_97F121633B1B
  CONST UID '97F121633B1B'
  CONST Name 'EnterScript'
+ CONST IsSummoned true
  CONST Class class_Operation
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
@@ -1313,6 +1320,7 @@ ref; // ME_97F121633B1B EnterScript
 : ME_BA3808340B4E
  CONST UID 'BA3808340B4E'
  CONST Name 'LeaveScript'
+ CONST IsSummoned true
  CONST Class class_Operation
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
@@ -1324,6 +1332,7 @@ ref; // ME_BA3808340B4E LeaveScript
 : ME_EC920DB7EE66
  CONST UID 'EC920DB7EE66'
  CONST Name 'Ml3ScriptService'
+ CONST IsSummoned true
  CONST Class class_Class
  : Stereotype st_PureMixIn ;
  CONST Kind kind_NormalClass
@@ -1333,10 +1342,14 @@ ref; // ME_BA3808340B4E LeaveScript
  : Parent ME_5509AA5400EA // Tl3ScriptService
  ;
  : Operations
-   @ ( ME_97F121633B1B // EnterScript
+   Seq: ( ME_97F121633B1B // EnterScript
  ME_BA3808340B4E // LeaveScript
- ) .SequenceCode.It
+ )
  ; // Operations
+ CONST dfm:PathOnly '\common\components\rtl\Garant\ScriptEngine'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\ScriptEngine'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_EC920DB7EE66 Ml3ScriptService
 
@@ -1366,6 +1379,7 @@ ref; // ME_BA3808340B4E_ME_DAC1F2DB132D LeaveScript
  CONST UID 'DAC1F2DB132D'
  CONST GUID '79BCFA6B-F105-4BC6-93DB-DE19B787DEE3'
  CONST Name 'Il3ScriptService'
+ CONST IsSummoned true
  CONST Class class_Class
  : Stereotype st_Facet ;
  CONST Kind kind_NormalClass
@@ -1375,20 +1389,27 @@ ref; // ME_BA3808340B4E_ME_DAC1F2DB132D LeaveScript
  : Parent ME_5509AA5400EA // Tl3ScriptService
  ;
  : Implements
-   @ ( ME_EC920DB7EE66 // Ml3ScriptService
- ) .SequenceCode.It
+   Seq: ( ME_EC920DB7EE66 // Ml3ScriptService
+ )
  ; // Implements
  : Implemented
-   @ ( ME_97F121633B1B_ME_DAC1F2DB132D // EnterScript
+   Seq: ( ME_97F121633B1B_ME_DAC1F2DB132D // EnterScript
  ME_BA3808340B4E_ME_DAC1F2DB132D // LeaveScript
- ) .SequenceCode.It
+ )
  ; // Implemented
+ CONST dfm:PathOnly '\common\components\rtl\Garant\ScriptEngine'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\ScriptEngine'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'ScriptService'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_DAC1F2DB132D Il3ScriptService
 
 : ME_6BE52CB3FAAA
  CONST UID '6BE52CB3FAAA'
  CONST Name 'Alien'
+ CONST IsSummoned true
  CONST Class class_Attribute
  : Stereotype st_writeonly::Attribute ;
  %SUMMARY 'Внешняя реализация сервиса Il3ScriptService' ;
@@ -1407,6 +1428,7 @@ ref; // ME_6BE52CB3FAAA Alien
 : ME_9C233F68363D
  CONST UID '9C233F68363D'
  CONST Name 'f_Alien'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY 'Поле для свойства Alien' ;
  CONST Visibility PrivateAccess
@@ -1416,6 +1438,7 @@ ref; // ME_6BE52CB3FAAA Alien
  ;
  : Target ME_DAC1F2DB132D // Il3ScriptService
  ;
+ CONST extprop:clearViaProperty 'Alien'
 
 ref; // ME_9C233F68363D f_Alien
 
@@ -1446,6 +1469,7 @@ ref; // ME_5509AA7D0270 LeaveScript
 : ME_CCCC37E2A99B
  CONST UID 'CCCC37E2A99B'
  CONST Name 'Exists'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_static::Operation ;
  %SUMMARY 'Проверяет создан экземпляр синглетона или нет' ;
@@ -1455,6 +1479,7 @@ ref; // ME_5509AA7D0270 LeaveScript
  ;
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
+ CONST extprop:pas:Value false
 
 ref; // ME_CCCC37E2A99B Exists
 
@@ -1499,49 +1524,51 @@ ref; // ME_5000565C019C_ME_5509AA5400EA ClearFields
  : Parent ME_4F7338A800A7 // ScriptEngineCore
  ;
  : Inherits
-   @ ( WL 'ME_49E7754802A9' '47913B47006E.pas.ms.script' // Tl3ProtoObject
- ) .SequenceCode.It
+   Seq: ( WL 'ME_49E7754802A9' '47913B47006E.pas.ms.script' // Tl3ProtoObject
+ )
  ; // Inherits
  : Implements
-   @ ( ME_EC920DB7EE66 // Ml3ScriptService
- ) .SequenceCode.It
+   Seq: ( ME_EC920DB7EE66 // Ml3ScriptService
+ )
  ; // Implements
  : Attributes
-   @ ( ME_6BE52CB3FAAA // Alien
+   Seq: ( ME_6BE52CB3FAAA // Alien
  ME_9C233F68363D // f_Alien
- ) .SequenceCode.It
+ )
  ; // Attributes
  : Operations
-   @ ( ME_5509AA71018F // EnterScript
+   Seq: ( ME_5509AA71018F // EnterScript
  ME_5509AA7D0270 // LeaveScript
  ME_CCCC37E2A99B // Exists
- ) .SequenceCode.It
+ )
  ; // Operations
  : Implemented
-   @ ( ME_97F121633B1B_ME_5509AA5400EA // EnterScript
+   Seq: ( ME_97F121633B1B_ME_5509AA5400EA // EnterScript
  ME_BA3808340B4E_ME_5509AA5400EA // LeaveScript
- ) .SequenceCode.It
+ )
  ; // Implemented
  : Overridden
-   @ ( ME_5000565C019C_ME_5509AA5400EA // ClearFields
- ) .SequenceCode.It
+   Seq: ( ME_5000565C019C_ME_5509AA5400EA // ClearFields
+ )
  ; // Overridden
  : Children
-   @ ( ME_EC920DB7EE66 // Ml3ScriptService
+   Seq: ( ME_EC920DB7EE66 // Ml3ScriptService
  ME_DAC1F2DB132D // Il3ScriptService
- ) .SequenceCode.It
+ )
  ; // Children
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
  CONST "singleton" true
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\ScriptEngine'
  CONST intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\l3ScriptService.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\ScriptEngine'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'ScriptService'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'l3ScriptService'
 
 ref; // ME_5509AA5400EA Tl3ScriptService
 
@@ -1675,20 +1702,6 @@ ref; // ME_55A4E8800332 MainDictionary
 
 ref; // ME_55A53B06011E f_InitedDictionaries
 
-: ME_55AF814F0290
- CONST UID '55AF814F0290'
- CONST Name 'f_CascadeDict'
- CONST Class class_Attribute
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_agr
- : Parent ME_4F733A0701F0 // TtfwScriptEnginePrim
- ;
- : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
- ;
-
-ref; // ME_55AF814F0290 f_CascadeDict
-
 : ME_55AFBB210081
  CONST UID '55AFBB210081'
  CONST Name 'f_DisabledForHelp'
@@ -1706,6 +1719,7 @@ ref; // ME_55AFBB210081 f_DisabledForHelp
 : ME_9D70F200F25F
  CONST UID '9D70F200F25F'
  CONST Name 'f_ValueStack'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY 'Поле для свойства ValueStack' ;
  CONST Visibility PrivateAccess
@@ -1721,6 +1735,7 @@ ref; // ME_9D70F200F25F f_ValueStack
 : ME_0E35F4A13373
  CONST UID '0E35F4A13373'
  CONST Name 'f_MainDictionary'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY 'Поле для свойства MainDictionary' ;
  CONST Visibility PrivateAccess
@@ -1764,9 +1779,9 @@ ref; // ME_4F733BC6020A aCaller
  : Parent ME_4F733B9C0064 // Script
  ;
  : Parameters
-   @ ( ME_4F733BC601C0 // aStream
+   Seq: ( ME_4F733BC601C0 // aStream
  ME_4F733BC6020A // aCaller
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_4F733BB4018F DoIt
@@ -1782,8 +1797,8 @@ ref; // ME_4F733BB4018F DoIt
  : Parent ME_4F733A0701F0 // TtfwScriptEnginePrim
  ;
  : Operations
-   @ ( ME_4F733BB4018F // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_4F733BB4018F // DoIt
+ )
  ; // Operations
 
 ref; // ME_4F733B9C0064 Script
@@ -1809,8 +1824,8 @@ ref; // ME_55A3BFBE01EE aCtx
  : Parent ME_55A3BFB102D7 // RunInitCode
  ;
  : Parameters
-   @ ( ME_55A3BFBE01EE // aCtx
- ) .SequenceCode.It
+   Seq: ( ME_55A3BFBE01EE // aCtx
+ )
  ; // Parameters
 
 ref; // ME_55A3BFBC00F9 DoIt
@@ -1826,8 +1841,8 @@ ref; // ME_55A3BFBC00F9 DoIt
  : Parent ME_4F733A0701F0 // TtfwScriptEnginePrim
  ;
  : Operations
-   @ ( ME_55A3BFBC00F9 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_55A3BFBC00F9 // DoIt
+ )
  ; // Operations
 
 ref; // ME_55A3BFB102D7 RunInitCode
@@ -1853,8 +1868,8 @@ ref; // ME_55A5291300B7 aCtx
  : Parent ME_55A5290003B5 // EnterCode
  ;
  : Parameters
-   @ ( ME_55A5291300B7 // aCtx
- ) .SequenceCode.It
+   Seq: ( ME_55A5291300B7 // aCtx
+ )
  ; // Parameters
 
 ref; // ME_55A5290A01D6 DoIt
@@ -1870,8 +1885,8 @@ ref; // ME_55A5290A01D6 DoIt
  : Parent ME_4F733A0701F0 // TtfwScriptEnginePrim
  ;
  : Operations
-   @ ( ME_55A5290A01D6 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_55A5290A01D6 // DoIt
+ )
  ; // Operations
 
 ref; // ME_55A5290003B5 EnterCode
@@ -1897,8 +1912,8 @@ ref; // ME_55A5292B02EA aCtx
  : Parent ME_55A5291701A8 // LeaveCode
  ;
  : Parameters
-   @ ( ME_55A5292B02EA // aCtx
- ) .SequenceCode.It
+   Seq: ( ME_55A5292B02EA // aCtx
+ )
  ; // Parameters
 
 ref; // ME_55A529280100 DoIt
@@ -1914,8 +1929,8 @@ ref; // ME_55A529280100 DoIt
  : Parent ME_4F733A0701F0 // TtfwScriptEnginePrim
  ;
  : Operations
-   @ ( ME_55A529280100 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_55A529280100 // DoIt
+ )
  ; // Operations
 
 ref; // ME_55A5291701A8 LeaveCode
@@ -1941,8 +1956,8 @@ ref; // ME_4DC90A9901FF aContext
  : Parent ME_4DC90A79006D // RunCompiled
  ;
  : Parameters
-   @ ( ME_4DC90A9901FF // aContext
- ) .SequenceCode.It
+   Seq: ( ME_4DC90A9901FF // aContext
+ )
  ; // Parameters
 
 ref; // ME_4DC90A8B0036 DoIt
@@ -1958,8 +1973,8 @@ ref; // ME_4DC90A8B0036 DoIt
  : Parent ME_4F733A0701F0 // TtfwScriptEnginePrim
  ;
  : Operations
-   @ ( ME_4DC90A8B0036 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_4DC90A8B0036 // DoIt
+ )
  ; // Operations
 
 ref; // ME_4DC90A79006D RunCompiled
@@ -1990,8 +2005,8 @@ ref; // ME_55AF8AA700F2 DoIt
  : Parent ME_4F733A0701F0 // TtfwScriptEnginePrim
  ;
  : Operations
-   @ ( ME_55AF8AA700F2 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_55AF8AA700F2 // DoIt
+ )
  ; // Operations
 
 ref; // ME_55AF8A9D03A2 CacheDict
@@ -2019,8 +2034,8 @@ ref; // ME_55E9C2880317 anIndent
  : Target WL 'ME_46780DA40383' '4677FBA70343.pas.ms.script' // Il3CString
  ;
  : Parameters
-   @ ( ME_55E9C2880317 // anIndent
- ) .SequenceCode.It
+   Seq: ( ME_55E9C2880317 // anIndent
+ )
  ; // Parameters
 
 ref; // ME_55E9C27101E4 DoIt
@@ -2036,8 +2051,8 @@ ref; // ME_55E9C27101E4 DoIt
  : Parent ME_4F733A0701F0 // TtfwScriptEnginePrim
  ;
  : Operations
-   @ ( ME_55E9C27101E4 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_55E9C27101E4 // DoIt
+ )
  ; // Operations
  CONST "is static" true
 
@@ -2046,6 +2061,7 @@ ref; // ME_55E9C2600353 Shift
 : ME_1232EFF702C0
  CONST UID '1232EFF702C0'
  CONST Name 'Ini_Reg_Class'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Регистрация TtfwScriptEnginePrim' ;
@@ -3016,17 +3032,6 @@ ref; // ME_559E77B00246_ME_4F733A0701F0 AddInitialization
  CONST OpKind opkind_Implemented
 ref; // ME_55AE59EC022F_ME_4F733A0701F0 CurrentCompilingDictionary
 
-: ME_55AF7BE601CF_ME_4F733A0701F0
- CONST UID '55AF7BE601CF'
- CONST Name 'CascadeDict'
- : Original WL 'ME_55AF7BE601CF' '4DAF19F600C5.pas.ms.script' // CascadeDict
- ;
- : Implementor ME_4F733A0701F0 // TtfwScriptEnginePrim
- ;
- CONST OpKind opkind_Implemented
- CONST "pm" false
-ref; // ME_55AF7BE601CF_ME_4F733A0701F0 CascadeDict
-
 : ME_55AFBAA10337_ME_4F733A0701F0
  CONST UID '55AFBAA10337'
  CONST Name 'DisableForHelp'
@@ -3222,17 +3227,17 @@ ref; // ME_55ACF0F5025D_ME_4F733A0701F0 GetParentFinder
  : Parent ME_4F7338A800A7 // ScriptEngineCore
  ;
  : Inherits
-   @ ( WL 'ME_4DB6C8F30161' '54F079B5035C.pas.ms.script' // TtfwCompilingWord
- ) .SequenceCode.It
+   Seq: ( WL 'ME_4DB6C8F30161' '54F079B5035C.pas.ms.script' // TtfwCompilingWord
+ )
  ; // Inherits
  : Implements
-   @ ( WL 'ME_4A5CB93700CF' '47913B47006E.pas.ms.script' // Ml3Unknown
+   Seq: ( WL 'ME_4A5CB93700CF' '47913B47006E.pas.ms.script' // Ml3Unknown
  WL 'ME_4DB008DD01BD' '4DAF19F600C5.pas.ms.script' // ItfwScriptEngine
  ME_55E9A8DB03A4 // ItfwScriptEngineEx
- ) .SequenceCode.It
+ )
  ; // Implements
  : Attributes
-   @ ( ME_4F733A1B0370 // f_UserDictionary
+   Seq: ( ME_4F733A1B0370 // f_UserDictionary
  ME_4F733A2502BF // ValueStack
  ME_52612C1B02A5 // f_ScriptFileName
  ME_55648E5E03A1 // f_ExceptionStack
@@ -3240,14 +3245,13 @@ ref; // ME_55ACF0F5025D_ME_4F733A0701F0 GetParentFinder
  ME_559E7FED00E8 // f_DictionariesStack
  ME_55A4E8800332 // MainDictionary
  ME_55A53B06011E // f_InitedDictionaries
- ME_55AF814F0290 // f_CascadeDict
  ME_55AFBB210081 // f_DisabledForHelp
  ME_9D70F200F25F // f_ValueStack
  ME_0E35F4A13373 // f_MainDictionary
- ) .SequenceCode.It
+ )
  ; // Attributes
  : Operations
-   @ ( ME_4F733B9C0064 // Script
+   Seq: ( ME_4F733B9C0064 // Script
  ME_55A3BFB102D7 // RunInitCode
  ME_55A5290003B5 // EnterCode
  ME_55A5291701A8 // LeaveCode
@@ -3255,10 +3259,10 @@ ref; // ME_55ACF0F5025D_ME_4F733A0701F0 GetParentFinder
  ME_55AF8A9D03A2 // CacheDict
  ME_55E9C2600353 // Shift
  ME_1232EFF702C0 // Ini_Reg_Class
- ) .SequenceCode.It
+ )
  ; // Operations
  : Implemented
-   @ ( ME_4DB008F503BE_ME_4F733A0701F0 // PushInt
+   Seq: ( ME_4DB008F503BE_ME_4F733A0701F0 // PushInt
  ME_4DB0090A0000_ME_4F733A0701F0 // PopInt
  ME_4DB013A10166_ME_4F733A0701F0 // PushBool
  ME_4DB013AF01C9_ME_4F733A0701F0 // PopBool
@@ -3325,7 +3329,6 @@ ref; // ME_55ACF0F5025D_ME_4F733A0701F0 GetParentFinder
  ME_559E77840265_ME_4F733A0701F0 // CloseDictionary
  ME_559E77B00246_ME_4F733A0701F0 // AddInitialization
  ME_55AE59EC022F_ME_4F733A0701F0 // CurrentCompilingDictionary
- ME_55AF7BE601CF_ME_4F733A0701F0 // CascadeDict
  ME_55AFBAA10337_ME_4F733A0701F0 // DisableForHelp
  ME_55E848EA003D_ME_4F733A0701F0 // DupN
  ME_55E84904001E_ME_4F733A0701F0 // DropN
@@ -3335,10 +3338,10 @@ ref; // ME_55ACF0F5025D_ME_4F733A0701F0 GetParentFinder
  ME_55ED597602F4_ME_4F733A0701F0 // DisabledForHelp
  ME_5601534A0012_ME_4F733A0701F0 // Top
  ME_5613FA08013C_ME_4F733A0701F0 // PushIntf
- ) .SequenceCode.It
+ )
  ; // Implemented
  : Overridden
-   @ ( ME_479731C50290_ME_4F733A0701F0 // Cleanup
+   Seq: ( ME_479731C50290_ME_4F733A0701F0 // Cleanup
  ME_4DB6CB1703AD_ME_4F733A0701F0 // DoAddCodePart
  ME_4DB6CE2302C9_ME_4F733A0701F0 // AfterCompile
  ME_52D523A40118_ME_4F733A0701F0 // GetCompiler
@@ -3347,10 +3350,10 @@ ref; // ME_55ACF0F5025D_ME_4F733A0701F0 GetParentFinder
  ME_55A7D34102A0_ME_4F733A0701F0 // DoCheckWord
  ME_55ACE5210310_ME_4F733A0701F0 // GetKeywordByName
  ME_55ACF0F5025D_ME_4F733A0701F0 // GetParentFinder
- ) .SequenceCode.It
+ )
  ; // Overridden
  : Dependencies
-   @ ( ME_4F733B2301B8 // 
+   Seq: ( ME_4F733B2301B8 // 
  ME_4F733B290360 // 
  ME_4F733B3900B7 // 
  ME_4F733B91016A // 
@@ -3376,18 +3379,20 @@ ref; // ME_55ACF0F5025D_ME_4F733A0701F0 GetParentFinder
  ME_55A66C30003F // 
  ME_55B1EC1E011F // 
  ME_55E9A8B703A1 // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  CONST "needs InstanceR" true
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\ScriptEngine'
  CONST intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\tfwScriptEnginePrim.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\ScriptEngine'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'ScriptEnginePrim'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'tfwScriptEnginePrim'
 
 ref; // ME_4F733A0701F0 TtfwScriptEnginePrim
 
@@ -3467,12 +3472,18 @@ ref; // ME_55ED597602F4 DisabledForHelp
  : Parent ME_55E9A8990116 // tfwScriptEngineExInterfaces
  ;
  : Attributes
-   @ ( ME_55E9A95F027B // Dictionaries
+   Seq: ( ME_55E9A95F027B // Dictionaries
  ME_55E9A993038B // InitedDictionaries
  ME_55E9A9BA02AD // MainDictionary
  ME_55ED597602F4 // DisabledForHelp
- ) .SequenceCode.It
+ )
  ; // Attributes
+ CONST dfm:PathOnly '\common\components\rtl\Garant\ScriptEngine'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\ScriptEngine'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'ScriptEngineEx'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_55E9A8DB03A4 ItfwScriptEngineEx
 
@@ -3487,16 +3498,16 @@ ref; // ME_55E9A8DB03A4 ItfwScriptEngineEx
  : Parent ME_4F7338A800A7 // ScriptEngineCore
  ;
  : Children
-   @ ( ME_55E9A8DB03A4 // ItfwScriptEngineEx
- ) .SequenceCode.It
+   Seq: ( ME_55E9A8DB03A4 // ItfwScriptEngineEx
+ )
  ; // Children
  CONST "no hands" false
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\ScriptEngine'
  CONST intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\tfwScriptEngineExInterfaces.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\ScriptEngine'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'ScriptEngineExInterfaces'
 
 ref; // ME_55E9A8990116 tfwScriptEngineExInterfaces
 
@@ -3510,17 +3521,17 @@ ref; // ME_55E9A8990116 tfwScriptEngineExInterfaces
  : Parent WL 'ME_54CF97B10370' '54CF97B10370.pas.ms.script' // ScriptEngine$Core
  ;
  : Children
-   @ ( ME_4DB009CF0103 // TtfwValueStack
+   Seq: ( ME_4DB009CF0103 // TtfwValueStack
  ME_55648E420189 // TtfwSourcePointList
  ME_4F49416600CB // TtfwStoredValuesStack
  ME_53E107920007 // seWordsInfo
  ME_5509AA5400EA // Tl3ScriptService
  ME_4F733A0701F0 // TtfwScriptEnginePrim
  ME_55E9A8990116 // tfwScriptEngineExInterfaces
- ) .SequenceCode.It
+ )
  ; // Children
  : Depends
-   @ ( WL 'ME_4677FBA70343' '4677FBA70343.pas.ms.script' // l3Interfaces
+   Seq: ( WL 'ME_4677FBA70343' '4677FBA70343.pas.ms.script' // l3Interfaces
  WL 'ME_4678193C009C' '4678193C009C.pas.ms.script' // l3Types
  WL 'ME_476BE98C01B8' '476BE98C01B8.pas.ms.script' // l3Chars
  WL 'ME_47913B47006E' '47913B47006E.pas.ms.script' // l3CoreObjects
@@ -3535,15 +3546,13 @@ ref; // ME_55E9A8990116 tfwScriptEngineExInterfaces
  WL 'ME_54F07F0302C2' '54F07F0302C2.pas.ms.script' // WordsList
  WL 'ME_54F0A4A302FF' '54F0A4A302FF.pas.ms.script' // Array
  WL 'ME_55C481E00003' '55C481E00003.pas.ms.script' // ScriptCallers
- ) .SequenceCode.It
+ )
  ; // Depends
- : Generators
- @ (
- gen_pas.script
- gen_pas.script.runner
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\ScriptEngine'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\ScriptEngine'
  CONST pas.script:Path 'shared\models\NewSchool\Scripts\4F7338A800A7.pas.ms.script'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
  CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\4F7338A800A7.pas.ms.script.runner'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_4F7338A800A7 ScriptEngineCore

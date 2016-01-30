@@ -113,11 +113,11 @@ ref; // ME_5518E089033D aCloseButtonHotImageIndex
  : Parent ME_5518DC3B0065 // C
  ;
  : Parameters
-   @ ( ME_5518E08902B1 // aTabImages
+   Seq: ( ME_5518E08902B1 // aTabImages
  ME_5518E08902E0 // aCloseButtonImages
  ME_5518E089030F // aCloseButtonImageIndex
  ME_5518E089033D // aCloseButtonHotImageIndex
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_5518DC8500BD DoIt
@@ -133,8 +133,8 @@ ref; // ME_5518DC8500BD DoIt
  : Parent ME_551552FA002B // TChromeLikeTabSetParams
  ;
  : Operations
-   @ ( ME_5518DC8500BD // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_5518DC8500BD // DoIt
+ )
  ; // Operations
 
 ref; // ME_5518DC3B0065 C
@@ -150,16 +150,20 @@ ref; // ME_5518DC3B0065 C
  : Parent ME_53F2D7B00186 // ChromeLikeInterfaces
  ;
  : Attributes
-   @ ( ME_5515545B0391 // rCloseButtonImages
+   Seq: ( ME_5515545B0391 // rCloseButtonImages
  ME_551554740201 // rTabImages
  ME_5515549A0051 // rCloseButtonImageIndex
  ME_551554A203A1 // rCloseButtonHotImageIndex
- ) .SequenceCode.It
+ )
  ; // Attributes
  : Operations
-   @ ( ME_5518DC3B0065 // C
- ) .SequenceCode.It
+   Seq: ( ME_5518DC3B0065 // C
+ )
  ; // Operations
+ CONST dfm:PathOnly '\common\components\gui\Garant\ChromeLikeControls'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\ChromeLikeControls'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_551552FA002B TChromeLikeTabSetParams
 
@@ -218,11 +222,16 @@ ref; // ME_551CF3EB03D8 cl_cmkNone
  : Parent ME_551CF39201BE // IChromeLikeCaptionControl
  ;
  : Attributes
-   @ ( ME_551CF3D6036C // cl_cmkSystem
+   Seq: ( ME_551CF3D6036C // cl_cmkSystem
  ME_551CF3E101E1 // cl_cmkCustom
  ME_551CF3EB03D8 // cl_cmkNone
- ) .SequenceCode.It
+ )
  ; // Attributes
+ CONST dfm:PathOnly '\common\components\gui\Garant\ChromeLikeControls'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\ChromeLikeControls'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_551CF3CE0322 TChromeLikeCaptionMenuKind
 
@@ -265,8 +274,8 @@ ref; // ME_551CF5790002 aPoint
  : Target ME_551CF3CE0322 // TChromeLikeCaptionMenuKind
  ;
  : Parameters
-   @ ( ME_551CF5790002 // aPoint
- ) .SequenceCode.It
+   Seq: ( ME_551CF5790002 // aPoint
+ )
  ; // Parameters
 
 ref; // ME_551CF56901EB DoIt
@@ -282,8 +291,8 @@ ref; // ME_551CF56901EB DoIt
  : Parent ME_551CF39201BE // IChromeLikeCaptionControl
  ;
  : Operations
-   @ ( ME_551CF56901EB // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_551CF56901EB // DoIt
+ )
  ; // Operations
 
 ref; // ME_551CF43B027E GetMenuKindAtPoint
@@ -309,8 +318,8 @@ ref; // ME_553E655700B7 aPoint
  : Parent ME_553E5CB602FF // ShowContextMenu
  ;
  : Parameters
-   @ ( ME_553E655700B7 // aPoint
- ) .SequenceCode.It
+   Seq: ( ME_553E655700B7 // aPoint
+ )
  ; // Parameters
 
 ref; // ME_553E65540053 DoIt
@@ -326,8 +335,8 @@ ref; // ME_553E65540053 DoIt
  : Parent ME_551CF39201BE // IChromeLikeCaptionControl
  ;
  : Operations
-   @ ( ME_553E65540053 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_553E65540053 // DoIt
+ )
  ; // Operations
 
 ref; // ME_553E5CB602FF ShowContextMenu
@@ -344,18 +353,24 @@ ref; // ME_553E5CB602FF ShowContextMenu
  : Parent ME_53F2D7B00186 // ChromeLikeInterfaces
  ;
  : Attributes
-   @ ( ME_551CFF5B003E // VCLWinControl
- ) .SequenceCode.It
+   Seq: ( ME_551CFF5B003E // VCLWinControl
+ )
  ; // Attributes
  : Operations
-   @ ( ME_551CF43B027E // GetMenuKindAtPoint
+   Seq: ( ME_551CF43B027E // GetMenuKindAtPoint
  ME_553E5CB602FF // ShowContextMenu
- ) .SequenceCode.It
+ )
  ; // Operations
  : Children
-   @ ( ME_551CF3CE0322 // TChromeLikeCaptionMenuKind
- ) .SequenceCode.It
+   Seq: ( ME_551CF3CE0322 // TChromeLikeCaptionMenuKind
+ )
  ; // Children
+ CONST dfm:PathOnly '\common\components\gui\Garant\ChromeLikeControls'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\ChromeLikeControls'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'ChromeLikeCaptionControl'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_551CF39201BE IChromeLikeCaptionControl
 
@@ -369,27 +384,24 @@ ref; // ME_551CF39201BE IChromeLikeCaptionControl
  : Parent WL 'ME_533D017702F1' '533D017702F1.pas.ms.script' // ChromeLikeControls
  ;
  : Children
-   @ ( ME_551552FA002B // TChromeLikeTabSetParams
+   Seq: ( ME_551552FA002B // TChromeLikeTabSetParams
  ME_551CF39201BE // IChromeLikeCaptionControl
- ) .SequenceCode.It
+ )
  ; // Children
  : Depends
-   @ ( WL 'ME_4728A7020026' '4728A7020026.pas.ms.script' // Types
+   Seq: ( WL 'ME_4728A7020026' '4728A7020026.pas.ms.script' // Types
  WL 'ME_4799D29F033F' '4799D29F033F.pas.ms.script' // Implementation
- ) .SequenceCode.It
+ )
  ; // Depends
  CONST "ifndef" 'NoVGScene, NoVCM'
  CONST "is namespace" true
  CONST "no hands" false
- : Generators
- @ (
- gen_intf.pas
- gen_pas.script
- gen_pas.script.runner
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\ChromeLikeControls'
  CONST intf.pas:Path 'common\components\gui\Garant\ChromeLikeControls\ChromeLikeInterfaces.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\ChromeLikeControls'
  CONST pas.script:Path 'shared\models\NewSchool\Scripts\53F2D7B00186.pas.ms.script'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
  CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\53F2D7B00186.pas.ms.script.runner'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_53F2D7B00186 ChromeLikeInterfaces

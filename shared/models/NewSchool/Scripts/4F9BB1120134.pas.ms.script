@@ -1,0 +1,5269 @@
+// Сюда вынес все сообщения из StdRes с Choices 4F9BB1120134 Unit Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4F9BB1120134
+
+FORWARD ME_4F9BB14900E7
+
+FORWARD ME_4F9BB17D03CD
+
+FORWARD ME_4F9BB19A0173
+
+FORWARD ME_4F9BB1C40283
+
+: ME_4F9BB1D70321
+ CONST UID '4F9BB1D70321'
+ CONST Name 'Open'
+ CONST Class class_Class
+ : Stereotype st_Choice ;
+ CONST Kind kind_NormalClass
+ %SUMMARY '''Открыть текст документа''' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4F9BB1C40283 // Choices
+ ;
+ CONST "AutoInc" false
+ CONST "forced type" 'none'
+ CONST "is define" false
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Data'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Data'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\Data'
+
+ref; // ME_4F9BB1D70321 Open
+
+: ME_4F9BB1E60328
+ CONST UID '4F9BB1E60328'
+ CONST Name 'Compare'
+ CONST Class class_Class
+ : Stereotype st_Choice ;
+ CONST Kind kind_NormalClass
+ %SUMMARY '''Сравнить с предыдущей редакцией''' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4F9BB1C40283 // Choices
+ ;
+ : Inherits
+   Seq: ( ME_4F9BB1D70321 // Open
+ )
+ ; // Inherits
+ CONST "AutoInc" false
+ CONST "forced type" 'none'
+ CONST "is define" false
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Data'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Data'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\Data'
+
+ref; // ME_4F9BB1E60328 Compare
+
+: ME_4F9BB1C40283
+ CONST UID '4F9BB1C40283'
+ CONST Name 'Choices'
+ CONST Class class_Class
+ : Stereotype st_Choices ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_4F9BB19A0173 // ChangedDocumentOnControl
+ ;
+ : Children
+   Seq: ( ME_4F9BB1D70321 // Open
+ ME_4F9BB1E60328 // Compare
+ )
+ ; // Children
+ CONST "Need map interface" false
+ CONST "Need mapping support" false
+ CONST "spell names" false
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Data'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Data'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\Data'
+
+ref; // ME_4F9BB1C40283 Choices
+
+: ME_4F9BB19A0173
+ CONST UID '4F9BB19A0173'
+ CONST Name 'ChangedDocumentOnControl'
+ CONST Class class_Class
+ : Stereotype st_Message ;
+ CONST Kind kind_NormalClass
+ %SUMMARY '''В документ на контроле внесены изменения. Выберите действие:''' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4F9BB17D03CD // Questions
+ ;
+ : Children
+   Seq: ( ME_4F9BB1C40283 // Choices
+ )
+ ; // Children
+ CONST "AutoInc" false
+ CONST "DlgType" 'Confirmation'
+ CONST "NeedCheck" false
+ CONST "SettingsCaption" 'Действие при выборе измененного документа на контроле'
+ CONST "forced type" 'none'
+ CONST "is define" false
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Data'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Data'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\Data'
+
+ref; // ME_4F9BB19A0173 ChangedDocumentOnControl
+
+FORWARD ME_4F9BB2080194
+
+FORWARD ME_4F9BB23E021F
+
+: ME_4F9BB24E0368
+ CONST UID '4F9BB24E0368'
+ CONST Name 'Back'
+ CONST Class class_Class
+ : Stereotype st_Choice ;
+ CONST Kind kind_NormalClass
+ %SUMMARY '''Вернуться в карточку и отредактировать запрос''' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4F9BB23E021F // Choices
+ ;
+ CONST "AutoInc" false
+ CONST "forced type" 'none'
+ CONST "is define" false
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Data'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Data'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\Data'
+
+ref; // ME_4F9BB24E0368 Back
+
+: ME_4F9BB262030D
+ CONST UID '4F9BB262030D'
+ CONST Name 'Continue'
+ CONST Class class_Class
+ : Stereotype st_Choice ;
+ CONST Kind kind_NormalClass
+ %SUMMARY '''Продолжить поиск''' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4F9BB23E021F // Choices
+ ;
+ : Inherits
+   Seq: ( ME_4F9BB24E0368 // Back
+ )
+ ; // Inherits
+ CONST "AutoInc" false
+ CONST "forced type" 'none'
+ CONST "is define" false
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Data'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Data'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\Data'
+
+ref; // ME_4F9BB262030D Continue
+
+: ME_4F9BB23E021F
+ CONST UID '4F9BB23E021F'
+ CONST Name 'Choices'
+ CONST Class class_Class
+ : Stereotype st_Choices ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_4F9BB2080194 // SearchUnresolvedContext
+ ;
+ : Children
+   Seq: ( ME_4F9BB24E0368 // Back
+ ME_4F9BB262030D // Continue
+ )
+ ; // Children
+ CONST "Need map interface" false
+ CONST "Need mapping support" false
+ CONST "spell names" false
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Data'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Data'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\Data'
+
+ref; // ME_4F9BB23E021F Choices
+
+: ME_4F9BB2080194
+ CONST UID '4F9BB2080194'
+ CONST Name 'SearchUnresolvedContext'
+ CONST Class class_Class
+ : Stereotype st_Message ;
+ CONST Kind kind_NormalClass
+ %SUMMARY '''В запросе есть слова, поиск по которым может не дать корректного результата: {color:Red}{italic:true}%s{italic}{color}.''' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4F9BB17D03CD // Questions
+ ;
+ : Children
+   Seq: ( ME_4F9BB23E021F // Choices
+ )
+ ; // Children
+ CONST "AutoInc" false
+ CONST "DlgType" 'Confirmation'
+ CONST "NeedCheck" false
+ CONST "forced type" 'none'
+ CONST "is define" false
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Data'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Data'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\Data'
+
+ref; // ME_4F9BB2080194 SearchUnresolvedContext
+
+FORWARD ME_4F9BB2940338
+
+FORWARD ME_4F9BB2AE02FE
+
+: ME_4F9BB2C2022E
+ CONST UID '4F9BB2C2022E'
+ CONST Name 'Append'
+ CONST Class class_Class
+ : Stereotype st_Choice ;
+ CONST Kind kind_NormalClass
+ %SUMMARY '''Добавить в существующий список''' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4F9BB2AE02FE // Choices
+ ;
+ CONST "AutoInc" false
+ CONST "forced type" 'none'
+ CONST "is define" false
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Data'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Data'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\Data'
+
+ref; // ME_4F9BB2C2022E Append
+
+: ME_4F9BB2D2035A
+ CONST UID '4F9BB2D2035A'
+ CONST Name 'Copy'
+ CONST Class class_Class
+ : Stereotype st_Choice ;
+ CONST Kind kind_NormalClass
+ %SUMMARY '''Копировать в новый список''' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4F9BB2AE02FE // Choices
+ ;
+ : Inherits
+   Seq: ( ME_4F9BB2C2022E // Append
+ )
+ ; // Inherits
+ CONST "AutoInc" false
+ CONST "forced type" 'none'
+ CONST "is define" false
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Data'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Data'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\Data'
+
+ref; // ME_4F9BB2D2035A Copy
+
+: ME_4F9BB2AE02FE
+ CONST UID '4F9BB2AE02FE'
+ CONST Name 'Choices'
+ CONST Class class_Class
+ : Stereotype st_Choices ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_4F9BB2940338 // DropListToList
+ ;
+ : Children
+   Seq: ( ME_4F9BB2C2022E // Append
+ ME_4F9BB2D2035A // Copy
+ )
+ ; // Children
+ CONST "Need map interface" false
+ CONST "Need mapping support" false
+ CONST "spell names" false
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Data'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Data'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\Data'
+
+ref; // ME_4F9BB2AE02FE Choices
+
+: ME_4F9BB2940338
+ CONST UID '4F9BB2940338'
+ CONST Name 'DropListToList'
+ CONST Class class_Class
+ : Stereotype st_Message ;
+ CONST Kind kind_NormalClass
+ %SUMMARY '''Выделенные элементы:''' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4F9BB17D03CD // Questions
+ ;
+ : Children
+   Seq: ( ME_4F9BB2AE02FE // Choices
+ )
+ ; // Children
+ CONST "AutoInc" false
+ CONST "DlgType" 'Confirmation'
+ CONST "NeedCheck" false
+ CONST "forced type" 'none'
+ CONST "is define" false
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Data'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Data'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\Data'
+
+ref; // ME_4F9BB2940338 DropListToList
+
+FORWARD ME_4F9BB2FF0281
+
+FORWARD ME_4F9BB3100261
+
+: ME_4F9BB3290284
+ CONST UID '4F9BB3290284'
+ CONST Name 'Open'
+ CONST Class class_Class
+ : Stereotype st_Choice ;
+ CONST Kind kind_NormalClass
+ %SUMMARY '''Перейти, открыв во внешнем браузере ''' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4F9BB3100261 // Choices
+ ;
+ CONST "AutoInc" false
+ CONST "forced type" 'none'
+ CONST "is define" false
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Data'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Data'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\Data'
+
+ref; // ME_4F9BB3290284 Open
+
+: ME_4F9BB33600F7
+ CONST UID '4F9BB33600F7'
+ CONST Name 'Stay'
+ CONST Class class_Class
+ : Stereotype st_Choice ;
+ CONST Kind kind_NormalClass
+ %SUMMARY '''Не переходить''' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4F9BB3100261 // Choices
+ ;
+ : Inherits
+   Seq: ( ME_4F9BB3290284 // Open
+ )
+ ; // Inherits
+ CONST "AutoInc" false
+ CONST "forced type" 'none'
+ CONST "is define" false
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Data'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Data'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\Data'
+
+ref; // ME_4F9BB33600F7 Stay
+
+: ME_4F9BB3100261
+ CONST UID '4F9BB3100261'
+ CONST Name 'Choices'
+ CONST Class class_Class
+ : Stereotype st_Choices ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_4F9BB2FF0281 // mtNotGarantDomain
+ ;
+ : Children
+   Seq: ( ME_4F9BB3290284 // Open
+ ME_4F9BB33600F7 // Stay
+ )
+ ; // Children
+ CONST "Need map interface" false
+ CONST "Need mapping support" false
+ CONST "spell names" false
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Data'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Data'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\Data'
+
+ref; // ME_4F9BB3100261 Choices
+
+: ME_4F9BB2FF0281
+ CONST UID '4F9BB2FF0281'
+ CONST Name 'mtNotGarantDomain'
+ CONST Class class_Class
+ : Stereotype st_Message ;
+ CONST Kind kind_NormalClass
+ %SUMMARY '''Переход по внешней ссылке''' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4F9BB17D03CD // Questions
+ ;
+ : Children
+   Seq: ( ME_4F9BB3100261 // Choices
+ )
+ ; // Children
+ CONST "AutoInc" false
+ CONST "DlgType" 'Confirmation'
+ CONST "NeedCheck" false
+ CONST "forced type" 'none'
+ CONST "is define" false
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Data'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Data'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\Data'
+
+ref; // ME_4F9BB2FF0281 mtNotGarantDomain
+
+FORWARD ME_4F9BB36100E0
+
+FORWARD ME_4F9BB39401CF
+
+: ME_4F9BB3A5034E
+ CONST UID '4F9BB3A5034E'
+ CONST Name 'Expand'
+ CONST Class class_Class
+ : Stereotype st_Choice ;
+ CONST Kind kind_NormalClass
+ %SUMMARY '''расширить базовый список до полного и произвести поиск в нем''' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4F9BB39401CF // Choices
+ ;
+ CONST "AutoInc" false
+ CONST "forced type" 'none'
+ CONST "is define" false
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Data'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Data'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\Data'
+
+ref; // ME_4F9BB3A5034E Expand
+
+: ME_4F9BB3B60352
+ CONST UID '4F9BB3B60352'
+ CONST Name 'AllBase'
+ CONST Class class_Class
+ : Stereotype st_Choice ;
+ CONST Kind kind_NormalClass
+ %SUMMARY '''произвести поиск по всему информационному банку''' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4F9BB39401CF // Choices
+ ;
+ : Inherits
+   Seq: ( ME_4F9BB3A5034E // Expand
+ )
+ ; // Inherits
+ CONST "AutoInc" false
+ CONST "forced type" 'none'
+ CONST "is define" false
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Data'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Data'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\Data'
+
+ref; // ME_4F9BB3B60352 AllBase
+
+: ME_4F9BB39401CF
+ CONST UID '4F9BB39401CF'
+ CONST Name 'Choices'
+ CONST Class class_Class
+ : Stereotype st_Choices ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_4F9BB36100E0 // EmptySearchResultInBaseList
+ ;
+ : Children
+   Seq: ( ME_4F9BB3A5034E // Expand
+ ME_4F9BB3B60352 // AllBase
+ )
+ ; // Children
+ CONST "Need map interface" false
+ CONST "Need mapping support" false
+ CONST "spell names" false
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Data'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Data'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\Data'
+
+ref; // ME_4F9BB39401CF Choices
+
+: ME_4F9BB36100E0
+ CONST UID '4F9BB36100E0'
+ CONST Name 'EmptySearchResultInBaseList'
+ CONST Class class_Class
+ : Stereotype st_Message ;
+ CONST Kind kind_NormalClass
+ %SUMMARY '''Поиск в базовом (сокращенном) списке не дал результатов по заданному Вами запросу. Выберите варианты для продолжения работы:''' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4F9BB17D03CD // Questions
+ ;
+ : Children
+   Seq: ( ME_4F9BB39401CF // Choices
+ )
+ ; // Children
+ CONST "AutoInc" false
+ CONST "DlgType" 'Confirmation'
+ CONST "NeedCheck" false
+ CONST "forced type" 'none'
+ CONST "is define" false
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Data'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Data'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\Data'
+
+ref; // ME_4F9BB36100E0 EmptySearchResultInBaseList
+
+FORWARD ME_4F9BB3E101D8
+
+FORWARD ME_4F9BB3F7014C
+
+: ME_4F9BB40F02B4
+ CONST UID '4F9BB40F02B4'
+ CONST Name 'Back'
+ CONST Class class_Class
+ : Stereotype st_Choice ;
+ CONST Kind kind_NormalClass
+ %SUMMARY '''вернуться к регистрации нового пользователя, изменив регистрационные данные''' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4F9BB3F7014C // Choices
+ ;
+ CONST "AutoInc" false
+ CONST "forced type" 'none'
+ CONST "is define" false
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Data'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Data'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\Data'
+
+ref; // ME_4F9BB40F02B4 Back
+
+: ME_4F9BB4290314
+ CONST UID '4F9BB4290314'
+ CONST Name 'Login'
+ CONST Class class_Class
+ : Stereotype st_Choice ;
+ CONST Kind kind_NormalClass
+ %SUMMARY '''войти в систему с указанными регистрационными данными, использовав введенное имя пользователя''' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4F9BB3F7014C // Choices
+ ;
+ : Inherits
+   Seq: ( ME_4F9BB40F02B4 // Back
+ )
+ ; // Inherits
+ CONST "AutoInc" false
+ CONST "forced type" 'none'
+ CONST "is define" false
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Data'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Data'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\Data'
+
+ref; // ME_4F9BB4290314 Login
+
+: ME_4F9BB3F7014C
+ CONST UID '4F9BB3F7014C'
+ CONST Name 'Choices'
+ CONST Class class_Class
+ : Stereotype st_Choices ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_4F9BB3E101D8 // AutologinDuplicate
+ ;
+ : Children
+   Seq: ( ME_4F9BB40F02B4 // Back
+ ME_4F9BB4290314 // Login
+ )
+ ; // Children
+ CONST "Need map interface" false
+ CONST "Need mapping support" false
+ CONST "spell names" false
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Data'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Data'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\Data'
+
+ref; // ME_4F9BB3F7014C Choices
+
+: ME_4F9BB3E101D8
+ CONST UID '4F9BB3E101D8'
+ CONST Name 'AutologinDuplicate'
+ CONST Class class_Class
+ : Stereotype st_Message ;
+ CONST Kind kind_NormalClass
+ %SUMMARY '''Пользователь с таким именем уже существует. Сделайте выбор:''' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4F9BB17D03CD // Questions
+ ;
+ : Children
+   Seq: ( ME_4F9BB3F7014C // Choices
+ )
+ ; // Children
+ CONST "AutoInc" false
+ CONST "DlgType" 'Warning'
+ CONST "NeedCheck" false
+ CONST "forced type" 'none'
+ CONST "is define" false
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Data'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Data'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\Data'
+
+ref; // ME_4F9BB3E101D8 AutologinDuplicate
+
+: ME_62493EE5E5E0
+ CONST UID '62493EE5E5E0'
+ CONST Name 'ChangedDocumentOnControl_SettingsCaption'
+ CONST IsSummoned true
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_4F9BB17D03CD // Questions
+ ;
+ CONST Value '''Действие при выборе измененного документа на контроле'''
+ CONST "AutoInc" false
+ CONST "forced type" 'none'
+ CONST "is define" false
+ CONST extprop:pas:Value '''Действие при выборе измененного документа на контроле'''
+
+ref; // ME_62493EE5E5E0 ChangedDocumentOnControl_SettingsCaption
+
+: ME_4F9BB17D03CD
+ CONST UID '4F9BB17D03CD'
+ CONST Name 'Questions'
+ CONST Class class_Class
+ : Stereotype st_LocalConst ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_4F9BB14900E7 // nsQuestionsWithChoices
+ ;
+ : Attributes
+   Seq: ( ME_62493EE5E5E0 // ChangedDocumentOnControl_SettingsCaption
+ )
+ ; // Attributes
+ : Children
+   Seq: ( ME_4F9BB19A0173 // ChangedDocumentOnControl
+ ME_4F9BB2080194 // SearchUnresolvedContext
+ ME_4F9BB2940338 // DropListToList
+ ME_4F9BB2FF0281 // mtNotGarantDomain
+ ME_4F9BB36100E0 // EmptySearchResultInBaseList
+ ME_4F9BB3E101D8 // AutologinDuplicate
+ )
+ ; // Children
+ CONST "Need map interface" false
+ CONST "Need mapping support" false
+ CONST "spell names" false
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Data'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Data'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\Data'
+
+ref; // ME_4F9BB17D03CD Questions
+
+FORWARD ME_4566A7D963E6
+
+: ME_1F7ED63DE1C2
+ CONST UID '1F7ED63DE1C2'
+ CONST Name 'ChangedDocumentOnControl_Choice_Open'
+ CONST IsSummoned true
+ CONST Class class_Attribute
+ %SUMMARY '''Открыть текст документа''' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_4566A7D963E6 // LCImpl_ChangedDocumentOnControl_Choices
+ ;
+ : Target WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
+ ;
+ CONST Value '(rS : -1; rLocalized : false; rKey : ''ChangedDocumentOnControl_Choice_Open''; rValue : ''Открыть текст документа'')'
+ : ValueType WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
+ ;
+ CONST "AutoInc" false
+ CONST "forced type" 'none'
+ CONST "is define" false
+ CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''ChangedDocumentOnControl_Choice_Open''; rValue : ''Открыть текст документа'')'
+
+ref; // ME_1F7ED63DE1C2 ChangedDocumentOnControl_Choice_Open
+
+: ME_936DD2920E2E
+ CONST UID '936DD2920E2E'
+ CONST Name 'ChangedDocumentOnControl_Choice_Compare'
+ CONST IsSummoned true
+ CONST Class class_Attribute
+ %SUMMARY '''Сравнить с предыдущей редакцией''' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_4566A7D963E6 // LCImpl_ChangedDocumentOnControl_Choices
+ ;
+ : Target WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
+ ;
+ CONST Value '(rS : -1; rLocalized : false; rKey : ''ChangedDocumentOnControl_Choice_Compare''; rValue : ''Сравнить с предыдущей редакцией'')'
+ : ValueType WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
+ ;
+ CONST "AutoInc" false
+ CONST "forced type" 'none'
+ CONST "is define" false
+ CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''ChangedDocumentOnControl_Choice_Compare''; rValue : ''Сравнить с предыдущей редакцией'')'
+
+ref; // ME_936DD2920E2E ChangedDocumentOnControl_Choice_Compare
+
+: ME_4566A7D963E6
+ CONST UID '4566A7D963E6'
+ CONST Name 'LCImpl_ChangedDocumentOnControl_Choices'
+ CONST IsSummoned true
+ CONST Class class_Class
+ : Stereotype st_Constants ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Варианты выбора для диалога ChangedDocumentOnControl' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ : Parent ME_4F9BB14900E7 // nsQuestionsWithChoices
+ ;
+ : Attributes
+   Seq: ( ME_1F7ED63DE1C2 // ChangedDocumentOnControl_Choice_Open
+ ME_936DD2920E2E // ChangedDocumentOnControl_Choice_Compare
+ )
+ ; // Attributes
+ CONST "elements prefix" 'str'
+ CONST "spell names" false
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Data'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Data'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\Data'
+ CONST extprop:pas:ElementPrefixBase 'str'
+ CONST extprop:pas:ElementPrefix 'str_'
+
+ref; // ME_4566A7D963E6 LCImpl_ChangedDocumentOnControl_Choices
+
+FORWARD ME_6E8D04DC84C2
+
+: ME_A029F4968C96
+ CONST UID 'A029F4968C96'
+ CONST Name 'SearchUnresolvedContext_Choice_Back'
+ CONST IsSummoned true
+ CONST Class class_Attribute
+ %SUMMARY '''Вернуться в карточку и отредактировать запрос''' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_6E8D04DC84C2 // LCImpl_SearchUnresolvedContext_Choices
+ ;
+ : Target WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
+ ;
+ CONST Value '(rS : -1; rLocalized : false; rKey : ''SearchUnresolvedContext_Choice_Back''; rValue : ''Вернуться в карточку и отредактировать запрос'')'
+ : ValueType WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
+ ;
+ CONST "AutoInc" false
+ CONST "forced type" 'none'
+ CONST "is define" false
+ CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''SearchUnresolvedContext_Choice_Back''; rValue : ''Вернуться в карточку и отредактировать запрос'')'
+
+ref; // ME_A029F4968C96 SearchUnresolvedContext_Choice_Back
+
+: ME_3B2472B436FE
+ CONST UID '3B2472B436FE'
+ CONST Name 'SearchUnresolvedContext_Choice_Continue'
+ CONST IsSummoned true
+ CONST Class class_Attribute
+ %SUMMARY '''Продолжить поиск''' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_6E8D04DC84C2 // LCImpl_SearchUnresolvedContext_Choices
+ ;
+ : Target WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
+ ;
+ CONST Value '(rS : -1; rLocalized : false; rKey : ''SearchUnresolvedContext_Choice_Continue''; rValue : ''Продолжить поиск'')'
+ : ValueType WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
+ ;
+ CONST "AutoInc" false
+ CONST "forced type" 'none'
+ CONST "is define" false
+ CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''SearchUnresolvedContext_Choice_Continue''; rValue : ''Продолжить поиск'')'
+
+ref; // ME_3B2472B436FE SearchUnresolvedContext_Choice_Continue
+
+: ME_6E8D04DC84C2
+ CONST UID '6E8D04DC84C2'
+ CONST Name 'LCImpl_SearchUnresolvedContext_Choices'
+ CONST IsSummoned true
+ CONST Class class_Class
+ : Stereotype st_Constants ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Варианты выбора для диалога SearchUnresolvedContext' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ : Parent ME_4F9BB14900E7 // nsQuestionsWithChoices
+ ;
+ : Attributes
+   Seq: ( ME_A029F4968C96 // SearchUnresolvedContext_Choice_Back
+ ME_3B2472B436FE // SearchUnresolvedContext_Choice_Continue
+ )
+ ; // Attributes
+ CONST "elements prefix" 'str'
+ CONST "spell names" false
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Data'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Data'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\Data'
+ CONST extprop:pas:ElementPrefixBase 'str'
+ CONST extprop:pas:ElementPrefix 'str_'
+
+ref; // ME_6E8D04DC84C2 LCImpl_SearchUnresolvedContext_Choices
+
+FORWARD ME_3640157D9A87
+
+: ME_ACA9AD2E8093
+ CONST UID 'ACA9AD2E8093'
+ CONST Name 'DropListToList_Choice_Append'
+ CONST IsSummoned true
+ CONST Class class_Attribute
+ %SUMMARY '''Добавить в существующий список''' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_3640157D9A87 // LCImpl_DropListToList_Choices
+ ;
+ : Target WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
+ ;
+ CONST Value '(rS : -1; rLocalized : false; rKey : ''DropListToList_Choice_Append''; rValue : ''Добавить в существующий список'')'
+ : ValueType WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
+ ;
+ CONST "AutoInc" false
+ CONST "forced type" 'none'
+ CONST "is define" false
+ CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''DropListToList_Choice_Append''; rValue : ''Добавить в существующий список'')'
+
+ref; // ME_ACA9AD2E8093 DropListToList_Choice_Append
+
+: ME_E29265CD1505
+ CONST UID 'E29265CD1505'
+ CONST Name 'DropListToList_Choice_Copy'
+ CONST IsSummoned true
+ CONST Class class_Attribute
+ %SUMMARY '''Копировать в новый список''' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_3640157D9A87 // LCImpl_DropListToList_Choices
+ ;
+ : Target WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
+ ;
+ CONST Value '(rS : -1; rLocalized : false; rKey : ''DropListToList_Choice_Copy''; rValue : ''Копировать в новый список'')'
+ : ValueType WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
+ ;
+ CONST "AutoInc" false
+ CONST "forced type" 'none'
+ CONST "is define" false
+ CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''DropListToList_Choice_Copy''; rValue : ''Копировать в новый список'')'
+
+ref; // ME_E29265CD1505 DropListToList_Choice_Copy
+
+: ME_3640157D9A87
+ CONST UID '3640157D9A87'
+ CONST Name 'LCImpl_DropListToList_Choices'
+ CONST IsSummoned true
+ CONST Class class_Class
+ : Stereotype st_Constants ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Варианты выбора для диалога DropListToList' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ : Parent ME_4F9BB14900E7 // nsQuestionsWithChoices
+ ;
+ : Attributes
+   Seq: ( ME_ACA9AD2E8093 // DropListToList_Choice_Append
+ ME_E29265CD1505 // DropListToList_Choice_Copy
+ )
+ ; // Attributes
+ CONST "elements prefix" 'str'
+ CONST "spell names" false
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Data'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Data'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\Data'
+ CONST extprop:pas:ElementPrefixBase 'str'
+ CONST extprop:pas:ElementPrefix 'str_'
+
+ref; // ME_3640157D9A87 LCImpl_DropListToList_Choices
+
+FORWARD ME_7D74460CC6DB
+
+: ME_5FD7591402E7
+ CONST UID '5FD7591402E7'
+ CONST Name 'mtNotGarantDomain_Choice_Open'
+ CONST IsSummoned true
+ CONST Class class_Attribute
+ %SUMMARY '''Перейти, открыв во внешнем браузере ''' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_7D74460CC6DB // LCImpl_mtNotGarantDomain_Choices
+ ;
+ : Target WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
+ ;
+ CONST Value '(rS : -1; rLocalized : false; rKey : ''mtNotGarantDomain_Choice_Open''; rValue : ''Перейти, открыв во внешнем браузере '')'
+ : ValueType WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
+ ;
+ CONST "AutoInc" false
+ CONST "forced type" 'none'
+ CONST "is define" false
+ CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''mtNotGarantDomain_Choice_Open''; rValue : ''Перейти, открыв во внешнем браузере '')'
+
+ref; // ME_5FD7591402E7 mtNotGarantDomain_Choice_Open
+
+: ME_423F30D55A5E
+ CONST UID '423F30D55A5E'
+ CONST Name 'mtNotGarantDomain_Choice_Stay'
+ CONST IsSummoned true
+ CONST Class class_Attribute
+ %SUMMARY '''Не переходить''' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_7D74460CC6DB // LCImpl_mtNotGarantDomain_Choices
+ ;
+ : Target WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
+ ;
+ CONST Value '(rS : -1; rLocalized : false; rKey : ''mtNotGarantDomain_Choice_Stay''; rValue : ''Не переходить'')'
+ : ValueType WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
+ ;
+ CONST "AutoInc" false
+ CONST "forced type" 'none'
+ CONST "is define" false
+ CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''mtNotGarantDomain_Choice_Stay''; rValue : ''Не переходить'')'
+
+ref; // ME_423F30D55A5E mtNotGarantDomain_Choice_Stay
+
+: ME_7D74460CC6DB
+ CONST UID '7D74460CC6DB'
+ CONST Name 'LCImpl_mtNotGarantDomain_Choices'
+ CONST IsSummoned true
+ CONST Class class_Class
+ : Stereotype st_Constants ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Варианты выбора для диалога mtNotGarantDomain' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ : Parent ME_4F9BB14900E7 // nsQuestionsWithChoices
+ ;
+ : Attributes
+   Seq: ( ME_5FD7591402E7 // mtNotGarantDomain_Choice_Open
+ ME_423F30D55A5E // mtNotGarantDomain_Choice_Stay
+ )
+ ; // Attributes
+ CONST "elements prefix" 'str'
+ CONST "spell names" false
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Data'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Data'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\Data'
+ CONST extprop:pas:ElementPrefixBase 'str'
+ CONST extprop:pas:ElementPrefix 'str_'
+
+ref; // ME_7D74460CC6DB LCImpl_mtNotGarantDomain_Choices
+
+FORWARD ME_673D00390A68
+
+: ME_3A40DD24A8A0
+ CONST UID '3A40DD24A8A0'
+ CONST Name 'EmptySearchResultInBaseList_Choice_Expand'
+ CONST IsSummoned true
+ CONST Class class_Attribute
+ %SUMMARY '''расширить базовый список до полного и произвести поиск в нем''' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_673D00390A68 // LCImpl_EmptySearchResultInBaseList_Choices
+ ;
+ : Target WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
+ ;
+ CONST Value '(rS : -1; rLocalized : false; rKey : ''EmptySearchResultInBaseList_Choice_Expand''; rValue : ''расширить базовый список до полного и произвести поиск в нем'')'
+ : ValueType WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
+ ;
+ CONST "AutoInc" false
+ CONST "forced type" 'none'
+ CONST "is define" false
+ CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''EmptySearchResultInBaseList_Choice_Expand''; rValue : ''расширить базовый список до полного и произвести поиск в нем'')'
+
+ref; // ME_3A40DD24A8A0 EmptySearchResultInBaseList_Choice_Expand
+
+: ME_068F9E24256C
+ CONST UID '068F9E24256C'
+ CONST Name 'EmptySearchResultInBaseList_Choice_AllBase'
+ CONST IsSummoned true
+ CONST Class class_Attribute
+ %SUMMARY '''произвести поиск по всему информационному банку''' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_673D00390A68 // LCImpl_EmptySearchResultInBaseList_Choices
+ ;
+ : Target WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
+ ;
+ CONST Value '(rS : -1; rLocalized : false; rKey : ''EmptySearchResultInBaseList_Choice_AllBase''; rValue : ''произвести поиск по всему информационному банку'')'
+ : ValueType WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
+ ;
+ CONST "AutoInc" false
+ CONST "forced type" 'none'
+ CONST "is define" false
+ CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''EmptySearchResultInBaseList_Choice_AllBase''; rValue : ''произвести поиск по всему информационному банку'')'
+
+ref; // ME_068F9E24256C EmptySearchResultInBaseList_Choice_AllBase
+
+: ME_673D00390A68
+ CONST UID '673D00390A68'
+ CONST Name 'LCImpl_EmptySearchResultInBaseList_Choices'
+ CONST IsSummoned true
+ CONST Class class_Class
+ : Stereotype st_Constants ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Варианты выбора для диалога EmptySearchResultInBaseList' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ : Parent ME_4F9BB14900E7 // nsQuestionsWithChoices
+ ;
+ : Attributes
+   Seq: ( ME_3A40DD24A8A0 // EmptySearchResultInBaseList_Choice_Expand
+ ME_068F9E24256C // EmptySearchResultInBaseList_Choice_AllBase
+ )
+ ; // Attributes
+ CONST "elements prefix" 'str'
+ CONST "spell names" false
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Data'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Data'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\Data'
+ CONST extprop:pas:ElementPrefixBase 'str'
+ CONST extprop:pas:ElementPrefix 'str_'
+
+ref; // ME_673D00390A68 LCImpl_EmptySearchResultInBaseList_Choices
+
+FORWARD ME_A3EA595F0C4B
+
+: ME_4B822294594A
+ CONST UID '4B822294594A'
+ CONST Name 'AutologinDuplicate_Choice_Back'
+ CONST IsSummoned true
+ CONST Class class_Attribute
+ %SUMMARY '''вернуться к регистрации нового пользователя, изменив регистрационные данные''' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_A3EA595F0C4B // LCImpl_AutologinDuplicate_Choices
+ ;
+ : Target WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
+ ;
+ CONST Value '(rS : -1; rLocalized : false; rKey : ''AutologinDuplicate_Choice_Back''; rValue : ''вернуться к регистрации нового пользователя, изменив регистрационные данные'')'
+ : ValueType WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
+ ;
+ CONST "AutoInc" false
+ CONST "forced type" 'none'
+ CONST "is define" false
+ CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''AutologinDuplicate_Choice_Back''; rValue : ''вернуться к регистрации нового пользователя, изменив регистрационные данные'')'
+
+ref; // ME_4B822294594A AutologinDuplicate_Choice_Back
+
+: ME_C6B366E89F0E
+ CONST UID 'C6B366E89F0E'
+ CONST Name 'AutologinDuplicate_Choice_Login'
+ CONST IsSummoned true
+ CONST Class class_Attribute
+ %SUMMARY '''войти в систему с указанными регистрационными данными, использовав введенное имя пользователя''' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_A3EA595F0C4B // LCImpl_AutologinDuplicate_Choices
+ ;
+ : Target WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
+ ;
+ CONST Value '(rS : -1; rLocalized : false; rKey : ''AutologinDuplicate_Choice_Login''; rValue : ''войти в систему с указанными регистрационными данными, использовав введенное имя пользователя'')'
+ : ValueType WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
+ ;
+ CONST "AutoInc" false
+ CONST "forced type" 'none'
+ CONST "is define" false
+ CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''AutologinDuplicate_Choice_Login''; rValue : ''войти в систему с указанными регистрационными данными, использовав введенное имя пользователя'')'
+
+ref; // ME_C6B366E89F0E AutologinDuplicate_Choice_Login
+
+: ME_A3EA595F0C4B
+ CONST UID 'A3EA595F0C4B'
+ CONST Name 'LCImpl_AutologinDuplicate_Choices'
+ CONST IsSummoned true
+ CONST Class class_Class
+ : Stereotype st_Constants ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Варианты выбора для диалога AutologinDuplicate' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ : Parent ME_4F9BB14900E7 // nsQuestionsWithChoices
+ ;
+ : Attributes
+   Seq: ( ME_4B822294594A // AutologinDuplicate_Choice_Back
+ ME_C6B366E89F0E // AutologinDuplicate_Choice_Login
+ )
+ ; // Attributes
+ CONST "elements prefix" 'str'
+ CONST "spell names" false
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Data'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Data'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\Data'
+ CONST extprop:pas:ElementPrefixBase 'str'
+ CONST extprop:pas:ElementPrefix 'str_'
+
+ref; // ME_A3EA595F0C4B LCImpl_AutologinDuplicate_Choices
+
+FORWARD ME_D7567E636730
+
+: ME_F227F652D591
+ CONST UID 'F227F652D591'
+ CONST Name 'ChangedDocumentOnControl'
+ CONST IsSummoned true
+ CONST Class class_Attribute
+ %SUMMARY '''В документ на контроле внесены изменения. Выберите действие:''' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_D7567E636730 // LCImplQuestions
+ ;
+ : Target WL 'ME_4E01D1E002AE' '4F9BDEEE01BC.pas.ms.script' // Tl3MessageID
+ ;
+ CONST Value '(rS : -1; rLocalized : false; rKey : ''ChangedDocumentOnControl''; rValue : ''В документ на контроле внесены изменения. Выберите действие:'')'
+ : ValueType WL 'ME_4E01D1E002AE' '4F9BDEEE01BC.pas.ms.script' // Tl3MessageID
+ ;
+ CONST "AutoInc" false
+ CONST "forced type" 'none'
+ CONST "is define" false
+ CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''ChangedDocumentOnControl''; rValue : ''В документ на контроле внесены изменения. Выберите действие:'')'
+
+ref; // ME_F227F652D591 ChangedDocumentOnControl
+
+: ME_DDD655D8B854
+ CONST UID 'DDD655D8B854'
+ CONST Name 'SearchUnresolvedContext'
+ CONST IsSummoned true
+ CONST Class class_Attribute
+ %SUMMARY '''В запросе есть слова, поиск по которым может не дать корректного результата: {color:Red}{italic:true}%s{italic}{color}.''' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_D7567E636730 // LCImplQuestions
+ ;
+ : Target WL 'ME_4E01D1E002AE' '4F9BDEEE01BC.pas.ms.script' // Tl3MessageID
+ ;
+ CONST Value '(rS : -1; rLocalized : false; rKey : ''SearchUnresolvedContext''; rValue : ''В запросе есть слова, поиск по которым может не дать корректного результата: {color:Red}{italic:true}%s{italic}{color}.'')'
+ : ValueType WL 'ME_4E01D1E002AE' '4F9BDEEE01BC.pas.ms.script' // Tl3MessageID
+ ;
+ CONST "AutoInc" false
+ CONST "forced type" 'none'
+ CONST "is define" false
+ CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''SearchUnresolvedContext''; rValue : ''В запросе есть слова, поиск по которым может не дать корректного результата: {color:Red}{italic:true}%s{italic}{color}.'')'
+
+ref; // ME_DDD655D8B854 SearchUnresolvedContext
+
+: ME_DBC753A908B4
+ CONST UID 'DBC753A908B4'
+ CONST Name 'DropListToList'
+ CONST IsSummoned true
+ CONST Class class_Attribute
+ %SUMMARY '''Выделенные элементы:''' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_D7567E636730 // LCImplQuestions
+ ;
+ : Target WL 'ME_4E01D1E002AE' '4F9BDEEE01BC.pas.ms.script' // Tl3MessageID
+ ;
+ CONST Value '(rS : -1; rLocalized : false; rKey : ''DropListToList''; rValue : ''Выделенные элементы:'')'
+ : ValueType WL 'ME_4E01D1E002AE' '4F9BDEEE01BC.pas.ms.script' // Tl3MessageID
+ ;
+ CONST "AutoInc" false
+ CONST "forced type" 'none'
+ CONST "is define" false
+ CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''DropListToList''; rValue : ''Выделенные элементы:'')'
+
+ref; // ME_DBC753A908B4 DropListToList
+
+: ME_C6D4A2053C93
+ CONST UID 'C6D4A2053C93'
+ CONST Name 'mtNotGarantDomain'
+ CONST IsSummoned true
+ CONST Class class_Attribute
+ %SUMMARY '''Переход по внешней ссылке''' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_D7567E636730 // LCImplQuestions
+ ;
+ : Target WL 'ME_4E01D1E002AE' '4F9BDEEE01BC.pas.ms.script' // Tl3MessageID
+ ;
+ CONST Value '(rS : -1; rLocalized : false; rKey : ''mtNotGarantDomain''; rValue : ''Переход по внешней ссылке'')'
+ : ValueType WL 'ME_4E01D1E002AE' '4F9BDEEE01BC.pas.ms.script' // Tl3MessageID
+ ;
+ CONST "AutoInc" false
+ CONST "forced type" 'none'
+ CONST "is define" false
+ CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''mtNotGarantDomain''; rValue : ''Переход по внешней ссылке'')'
+
+ref; // ME_C6D4A2053C93 mtNotGarantDomain
+
+: ME_ED37D08D9A1B
+ CONST UID 'ED37D08D9A1B'
+ CONST Name 'EmptySearchResultInBaseList'
+ CONST IsSummoned true
+ CONST Class class_Attribute
+ %SUMMARY '''Поиск в базовом (сокращенном) списке не дал результатов по заданному Вами запросу. Выберите варианты для продолжения работы:''' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_D7567E636730 // LCImplQuestions
+ ;
+ : Target WL 'ME_4E01D1E002AE' '4F9BDEEE01BC.pas.ms.script' // Tl3MessageID
+ ;
+ CONST Value '(rS : -1; rLocalized : false; rKey : ''EmptySearchResultInBaseList''; rValue : ''Поиск в базовом (сокращенном) списке не дал результатов по заданному Вами запросу. Выберите варианты для продолжения работы:'')'
+ : ValueType WL 'ME_4E01D1E002AE' '4F9BDEEE01BC.pas.ms.script' // Tl3MessageID
+ ;
+ CONST "AutoInc" false
+ CONST "forced type" 'none'
+ CONST "is define" false
+ CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''EmptySearchResultInBaseList''; rValue : ''Поиск в базовом (сокращенном) списке не дал результатов по заданному Вами запросу. Выберите варианты для продолжения работы:'')'
+
+ref; // ME_ED37D08D9A1B EmptySearchResultInBaseList
+
+: ME_858E85F153A5
+ CONST UID '858E85F153A5'
+ CONST Name 'AutologinDuplicate'
+ CONST IsSummoned true
+ CONST Class class_Attribute
+ %SUMMARY '''Пользователь с таким именем уже существует. Сделайте выбор:''' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_D7567E636730 // LCImplQuestions
+ ;
+ : Target WL 'ME_4E01D1E002AE' '4F9BDEEE01BC.pas.ms.script' // Tl3MessageID
+ ;
+ CONST Value '(rS : -1; rLocalized : false; rKey : ''AutologinDuplicate''; rValue : ''Пользователь с таким именем уже существует. Сделайте выбор:'')'
+ : ValueType WL 'ME_4E01D1E002AE' '4F9BDEEE01BC.pas.ms.script' // Tl3MessageID
+ ;
+ CONST "AutoInc" false
+ CONST "forced type" 'none'
+ CONST "is define" false
+ CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''AutologinDuplicate''; rValue : ''Пользователь с таким именем уже существует. Сделайте выбор:'')'
+
+ref; // ME_858E85F153A5 AutologinDuplicate
+
+: ME_490A66FC060E
+ CONST UID '490A66FC060E'
+ CONST Name 'ChangedDocumentOnControl_SettingsCaption'
+ CONST IsSummoned true
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_D7567E636730 // LCImplQuestions
+ ;
+ : Target WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
+ ;
+ CONST Value '(rS : -1; rLocalized : false; rKey : ''ChangedDocumentOnControl_SettingsCaption''; rValue : ''Действие при выборе измененного документа на контроле'')'
+ : ValueType WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
+ ;
+ CONST "AutoInc" false
+ CONST "forced type" 'none'
+ CONST "is define" false
+ CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''ChangedDocumentOnControl_SettingsCaption''; rValue : ''Действие при выборе измененного документа на контроле'')'
+
+ref; // ME_490A66FC060E ChangedDocumentOnControl_SettingsCaption
+
+: ME_D7567E636730
+ CONST UID 'D7567E636730'
+ CONST Name 'LCImplQuestions'
+ CONST IsSummoned true
+ CONST Class class_Class
+ : Stereotype st_Constants ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Локализуемые строки Questions' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4F9BB14900E7 // nsQuestionsWithChoices
+ ;
+ : Attributes
+   Seq: ( ME_F227F652D591 // ChangedDocumentOnControl
+ ME_DDD655D8B854 // SearchUnresolvedContext
+ ME_DBC753A908B4 // DropListToList
+ ME_C6D4A2053C93 // mtNotGarantDomain
+ ME_ED37D08D9A1B // EmptySearchResultInBaseList
+ ME_858E85F153A5 // AutologinDuplicate
+ ME_490A66FC060E // ChangedDocumentOnControl_SettingsCaption
+ )
+ ; // Attributes
+ CONST "elements prefix" 'str'
+ CONST "spell names" false
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Data'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Data'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\Data'
+ CONST extprop:pas:ElementPrefixBase 'str'
+ CONST extprop:pas:ElementPrefix 'str_'
+
+ref; // ME_D7567E636730 LCImplQuestions
+
+: ME_7A7895D62C00
+ CONST UID '7A7895D62C00'
+ CONST Name 'Init_Str_ChangedDocumentOnControl_Choice_Open'
+ CONST IsSummoned true
+ CONST Class class_Operation
+ : Stereotype st_ini::Operation ;
+ %SUMMARY 'Инициализация str_ChangedDocumentOnControl_Choice_Open' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_4F9BB14900E7 // nsQuestionsWithChoices
+ ;
+ : Speller ME_4F9BB1D70321 // Open
+ ;
+ : SpelledFor ME_1F7ED63DE1C2 // ChangedDocumentOnControl_Choice_Open
+ ;
+
+ref; // ME_7A7895D62C00 Init_Str_ChangedDocumentOnControl_Choice_Open
+
+: ME_CA3887790B9D
+ CONST UID 'CA3887790B9D'
+ CONST Name 'Init_Str_ChangedDocumentOnControl_Choice_Compare'
+ CONST IsSummoned true
+ CONST Class class_Operation
+ : Stereotype st_ini::Operation ;
+ %SUMMARY 'Инициализация str_ChangedDocumentOnControl_Choice_Compare' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_4F9BB14900E7 // nsQuestionsWithChoices
+ ;
+ : Speller ME_4F9BB1E60328 // Compare
+ ;
+ : SpelledFor ME_936DD2920E2E // ChangedDocumentOnControl_Choice_Compare
+ ;
+
+ref; // ME_CA3887790B9D Init_Str_ChangedDocumentOnControl_Choice_Compare
+
+: ME_990A9F5CFE75
+ CONST UID '990A9F5CFE75'
+ CONST Name 'Init_Str_SearchUnresolvedContext_Choice_Back'
+ CONST IsSummoned true
+ CONST Class class_Operation
+ : Stereotype st_ini::Operation ;
+ %SUMMARY 'Инициализация str_SearchUnresolvedContext_Choice_Back' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_4F9BB14900E7 // nsQuestionsWithChoices
+ ;
+ : Speller ME_4F9BB24E0368 // Back
+ ;
+ : SpelledFor ME_A029F4968C96 // SearchUnresolvedContext_Choice_Back
+ ;
+
+ref; // ME_990A9F5CFE75 Init_Str_SearchUnresolvedContext_Choice_Back
+
+: ME_5529DE28BA2E
+ CONST UID '5529DE28BA2E'
+ CONST Name 'Init_Str_SearchUnresolvedContext_Choice_Continue'
+ CONST IsSummoned true
+ CONST Class class_Operation
+ : Stereotype st_ini::Operation ;
+ %SUMMARY 'Инициализация str_SearchUnresolvedContext_Choice_Continue' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_4F9BB14900E7 // nsQuestionsWithChoices
+ ;
+ : Speller ME_4F9BB262030D // Continue
+ ;
+ : SpelledFor ME_3B2472B436FE // SearchUnresolvedContext_Choice_Continue
+ ;
+
+ref; // ME_5529DE28BA2E Init_Str_SearchUnresolvedContext_Choice_Continue
+
+: ME_9CB93E793BD5
+ CONST UID '9CB93E793BD5'
+ CONST Name 'Init_Str_DropListToList_Choice_Append'
+ CONST IsSummoned true
+ CONST Class class_Operation
+ : Stereotype st_ini::Operation ;
+ %SUMMARY 'Инициализация str_DropListToList_Choice_Append' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_4F9BB14900E7 // nsQuestionsWithChoices
+ ;
+ : Speller ME_4F9BB2C2022E // Append
+ ;
+ : SpelledFor ME_ACA9AD2E8093 // DropListToList_Choice_Append
+ ;
+
+ref; // ME_9CB93E793BD5 Init_Str_DropListToList_Choice_Append
+
+: ME_3AE6AE25FF43
+ CONST UID '3AE6AE25FF43'
+ CONST Name 'Init_Str_DropListToList_Choice_Copy'
+ CONST IsSummoned true
+ CONST Class class_Operation
+ : Stereotype st_ini::Operation ;
+ %SUMMARY 'Инициализация str_DropListToList_Choice_Copy' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_4F9BB14900E7 // nsQuestionsWithChoices
+ ;
+ : Speller ME_4F9BB2D2035A // Copy
+ ;
+ : SpelledFor ME_E29265CD1505 // DropListToList_Choice_Copy
+ ;
+
+ref; // ME_3AE6AE25FF43 Init_Str_DropListToList_Choice_Copy
+
+: ME_023CCA25E59F
+ CONST UID '023CCA25E59F'
+ CONST Name 'Init_Str_mtNotGarantDomain_Choice_Open'
+ CONST IsSummoned true
+ CONST Class class_Operation
+ : Stereotype st_ini::Operation ;
+ %SUMMARY 'Инициализация str_mtNotGarantDomain_Choice_Open' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_4F9BB14900E7 // nsQuestionsWithChoices
+ ;
+ : Speller ME_4F9BB3290284 // Open
+ ;
+ : SpelledFor ME_5FD7591402E7 // mtNotGarantDomain_Choice_Open
+ ;
+
+ref; // ME_023CCA25E59F Init_Str_mtNotGarantDomain_Choice_Open
+
+: ME_B7913C3FF128
+ CONST UID 'B7913C3FF128'
+ CONST Name 'Init_Str_mtNotGarantDomain_Choice_Stay'
+ CONST IsSummoned true
+ CONST Class class_Operation
+ : Stereotype st_ini::Operation ;
+ %SUMMARY 'Инициализация str_mtNotGarantDomain_Choice_Stay' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_4F9BB14900E7 // nsQuestionsWithChoices
+ ;
+ : Speller ME_4F9BB33600F7 // Stay
+ ;
+ : SpelledFor ME_423F30D55A5E // mtNotGarantDomain_Choice_Stay
+ ;
+
+ref; // ME_B7913C3FF128 Init_Str_mtNotGarantDomain_Choice_Stay
+
+: ME_0C787E1B7176
+ CONST UID '0C787E1B7176'
+ CONST Name 'Init_Str_EmptySearchResultInBaseList_Choice_Expand'
+ CONST IsSummoned true
+ CONST Class class_Operation
+ : Stereotype st_ini::Operation ;
+ %SUMMARY 'Инициализация str_EmptySearchResultInBaseList_Choice_Expand' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_4F9BB14900E7 // nsQuestionsWithChoices
+ ;
+ : Speller ME_4F9BB3A5034E // Expand
+ ;
+ : SpelledFor ME_3A40DD24A8A0 // EmptySearchResultInBaseList_Choice_Expand
+ ;
+
+ref; // ME_0C787E1B7176 Init_Str_EmptySearchResultInBaseList_Choice_Expand
+
+: ME_C1B35EFE9D6F
+ CONST UID 'C1B35EFE9D6F'
+ CONST Name 'Init_Str_EmptySearchResultInBaseList_Choice_AllBase'
+ CONST IsSummoned true
+ CONST Class class_Operation
+ : Stereotype st_ini::Operation ;
+ %SUMMARY 'Инициализация str_EmptySearchResultInBaseList_Choice_AllBase' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_4F9BB14900E7 // nsQuestionsWithChoices
+ ;
+ : Speller ME_4F9BB3B60352 // AllBase
+ ;
+ : SpelledFor ME_068F9E24256C // EmptySearchResultInBaseList_Choice_AllBase
+ ;
+
+ref; // ME_C1B35EFE9D6F Init_Str_EmptySearchResultInBaseList_Choice_AllBase
+
+: ME_B75CB6126B9F
+ CONST UID 'B75CB6126B9F'
+ CONST Name 'Init_Str_AutologinDuplicate_Choice_Back'
+ CONST IsSummoned true
+ CONST Class class_Operation
+ : Stereotype st_ini::Operation ;
+ %SUMMARY 'Инициализация str_AutologinDuplicate_Choice_Back' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_4F9BB14900E7 // nsQuestionsWithChoices
+ ;
+ : Speller ME_4F9BB40F02B4 // Back
+ ;
+ : SpelledFor ME_4B822294594A // AutologinDuplicate_Choice_Back
+ ;
+
+ref; // ME_B75CB6126B9F Init_Str_AutologinDuplicate_Choice_Back
+
+: ME_421C73712CC6
+ CONST UID '421C73712CC6'
+ CONST Name 'Init_Str_AutologinDuplicate_Choice_Login'
+ CONST IsSummoned true
+ CONST Class class_Operation
+ : Stereotype st_ini::Operation ;
+ %SUMMARY 'Инициализация str_AutologinDuplicate_Choice_Login' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_4F9BB14900E7 // nsQuestionsWithChoices
+ ;
+ : Speller ME_4F9BB4290314 // Login
+ ;
+ : SpelledFor ME_C6B366E89F0E // AutologinDuplicate_Choice_Login
+ ;
+
+ref; // ME_421C73712CC6 Init_Str_AutologinDuplicate_Choice_Login
+
+: ME_0950B6CA1240
+ CONST UID '0950B6CA1240'
+ CONST Name 'Init_Str_ChangedDocumentOnControl'
+ CONST IsSummoned true
+ CONST Class class_Operation
+ : Stereotype st_ini::Operation ;
+ %SUMMARY 'Инициализация str_ChangedDocumentOnControl' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_4F9BB14900E7 // nsQuestionsWithChoices
+ ;
+ : Speller ME_4F9BB19A0173 // ChangedDocumentOnControl
+ ;
+ : SpelledFor ME_F227F652D591 // ChangedDocumentOnControl
+ ;
+
+ref; // ME_0950B6CA1240 Init_Str_ChangedDocumentOnControl
+
+: ME_709832274CE4
+ CONST UID '709832274CE4'
+ CONST Name 'Init_Str_SearchUnresolvedContext'
+ CONST IsSummoned true
+ CONST Class class_Operation
+ : Stereotype st_ini::Operation ;
+ %SUMMARY 'Инициализация str_SearchUnresolvedContext' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_4F9BB14900E7 // nsQuestionsWithChoices
+ ;
+ : Speller ME_4F9BB2080194 // SearchUnresolvedContext
+ ;
+ : SpelledFor ME_DDD655D8B854 // SearchUnresolvedContext
+ ;
+
+ref; // ME_709832274CE4 Init_Str_SearchUnresolvedContext
+
+: ME_3F50CEE0CFAC
+ CONST UID '3F50CEE0CFAC'
+ CONST Name 'Init_Str_DropListToList'
+ CONST IsSummoned true
+ CONST Class class_Operation
+ : Stereotype st_ini::Operation ;
+ %SUMMARY 'Инициализация str_DropListToList' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_4F9BB14900E7 // nsQuestionsWithChoices
+ ;
+ : Speller ME_4F9BB2940338 // DropListToList
+ ;
+ : SpelledFor ME_DBC753A908B4 // DropListToList
+ ;
+
+ref; // ME_3F50CEE0CFAC Init_Str_DropListToList
+
+: ME_C53A29948856
+ CONST UID 'C53A29948856'
+ CONST Name 'Init_Str_mtNotGarantDomain'
+ CONST IsSummoned true
+ CONST Class class_Operation
+ : Stereotype st_ini::Operation ;
+ %SUMMARY 'Инициализация str_mtNotGarantDomain' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_4F9BB14900E7 // nsQuestionsWithChoices
+ ;
+ : Speller ME_4F9BB2FF0281 // mtNotGarantDomain
+ ;
+ : SpelledFor ME_C6D4A2053C93 // mtNotGarantDomain
+ ;
+
+ref; // ME_C53A29948856 Init_Str_mtNotGarantDomain
+
+: ME_7F946D6C28DF
+ CONST UID '7F946D6C28DF'
+ CONST Name 'Init_Str_EmptySearchResultInBaseList'
+ CONST IsSummoned true
+ CONST Class class_Operation
+ : Stereotype st_ini::Operation ;
+ %SUMMARY 'Инициализация str_EmptySearchResultInBaseList' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_4F9BB14900E7 // nsQuestionsWithChoices
+ ;
+ : Speller ME_4F9BB36100E0 // EmptySearchResultInBaseList
+ ;
+ : SpelledFor ME_ED37D08D9A1B // EmptySearchResultInBaseList
+ ;
+
+ref; // ME_7F946D6C28DF Init_Str_EmptySearchResultInBaseList
+
+: ME_E34047198C08
+ CONST UID 'E34047198C08'
+ CONST Name 'Init_Str_AutologinDuplicate'
+ CONST IsSummoned true
+ CONST Class class_Operation
+ : Stereotype st_ini::Operation ;
+ %SUMMARY 'Инициализация str_AutologinDuplicate' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_4F9BB14900E7 // nsQuestionsWithChoices
+ ;
+ : Speller ME_4F9BB3E101D8 // AutologinDuplicate
+ ;
+ : SpelledFor ME_858E85F153A5 // AutologinDuplicate
+ ;
+
+ref; // ME_E34047198C08 Init_Str_AutologinDuplicate
+
+: ME_8A80B40A85ED
+ CONST UID '8A80B40A85ED'
+ CONST Name 'Init_Str_ChangedDocumentOnControl_SettingsCaption'
+ CONST IsSummoned true
+ CONST Class class_Operation
+ : Stereotype st_ini::Operation ;
+ %SUMMARY 'Инициализация str_ChangedDocumentOnControl_SettingsCaption' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_4F9BB14900E7 // nsQuestionsWithChoices
+ ;
+ : Speller ME_62493EE5E5E0 // ChangedDocumentOnControl_SettingsCaption
+ ;
+ : SpelledFor ME_490A66FC060E // ChangedDocumentOnControl_SettingsCaption
+ ;
+
+ref; // ME_8A80B40A85ED Init_Str_ChangedDocumentOnControl_SettingsCaption
+
+: ME_F566326BE103
+ CONST UID 'F566326BE103'
+ CONST IsSummoned true
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4F9BB14900E7 // nsQuestionsWithChoices
+ ;
+ : Target WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
+ ;
+
+ref; // ME_F566326BE103 
+
+: ME_E92D493B15D0
+ CONST UID 'E92D493B15D0'
+ CONST IsSummoned true
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4F9BB14900E7 // nsQuestionsWithChoices
+ ;
+ : Target WL 'ME_4E01D1E002AE' '4F9BDEEE01BC.pas.ms.script' // Tl3MessageID
+ ;
+
+ref; // ME_E92D493B15D0 
+
+: ME_4828813D1538
+ CONST UID '4828813D1538'
+ CONST IsSummoned true
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4F9BB14900E7 // nsQuestionsWithChoices
+ ;
+ : Target WL 'ME_4AB0EE02004E' '4799D29F033F.pas.ms.script' // Dialogs
+ ;
+
+ref; // ME_4828813D1538 
+
+: ME_4F9BB14900E7
+ CONST UID '4F9BB14900E7'
+ CONST Name 'nsQuestionsWithChoices'
+ CONST Class class_Class
+ : Stereotype st_UtilityPack ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_4F9BB1120134 // Сюда вынес все сообщения из StdRes с Choices
+ ;
+ : Operations
+   Seq: ( ME_7A7895D62C00 // Init_Str_ChangedDocumentOnControl_Choice_Open
+ ME_CA3887790B9D // Init_Str_ChangedDocumentOnControl_Choice_Compare
+ ME_990A9F5CFE75 // Init_Str_SearchUnresolvedContext_Choice_Back
+ ME_5529DE28BA2E // Init_Str_SearchUnresolvedContext_Choice_Continue
+ ME_9CB93E793BD5 // Init_Str_DropListToList_Choice_Append
+ ME_3AE6AE25FF43 // Init_Str_DropListToList_Choice_Copy
+ ME_023CCA25E59F // Init_Str_mtNotGarantDomain_Choice_Open
+ ME_B7913C3FF128 // Init_Str_mtNotGarantDomain_Choice_Stay
+ ME_0C787E1B7176 // Init_Str_EmptySearchResultInBaseList_Choice_Expand
+ ME_C1B35EFE9D6F // Init_Str_EmptySearchResultInBaseList_Choice_AllBase
+ ME_B75CB6126B9F // Init_Str_AutologinDuplicate_Choice_Back
+ ME_421C73712CC6 // Init_Str_AutologinDuplicate_Choice_Login
+ ME_0950B6CA1240 // Init_Str_ChangedDocumentOnControl
+ ME_709832274CE4 // Init_Str_SearchUnresolvedContext
+ ME_3F50CEE0CFAC // Init_Str_DropListToList
+ ME_C53A29948856 // Init_Str_mtNotGarantDomain
+ ME_7F946D6C28DF // Init_Str_EmptySearchResultInBaseList
+ ME_E34047198C08 // Init_Str_AutologinDuplicate
+ ME_8A80B40A85ED // Init_Str_ChangedDocumentOnControl_SettingsCaption
+ )
+ ; // Operations
+ : Constants
+   Seq: ( ME_4F9BB17D03CD // Questions
+ ME_4566A7D963E6 // LCImpl_ChangedDocumentOnControl_Choices
+ ME_6E8D04DC84C2 // LCImpl_SearchUnresolvedContext_Choices
+ ME_3640157D9A87 // LCImpl_DropListToList_Choices
+ ME_7D74460CC6DB // LCImpl_mtNotGarantDomain_Choices
+ ME_673D00390A68 // LCImpl_EmptySearchResultInBaseList_Choices
+ ME_A3EA595F0C4B // LCImpl_AutologinDuplicate_Choices
+ ME_D7567E636730 // LCImplQuestions
+ )
+ ; // Constants
+ : Dependencies
+   Seq: ( ME_F566326BE103 // 
+ ME_E92D493B15D0 // 
+ ME_4828813D1538 // 
+ )
+ ; // Dependencies
+ CONST "no hands" false
+ : Generators
+ Seq: (
+ gen_intf.pas
+ )
+ ; // Generators
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Data'
+ CONST intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\Data\nsQuestionsWithChoices.pas'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Data'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\Data'
+ CONST extprop:rc:SelfName 'QuestionsWithChoices'
+
+ref; // ME_4F9BB14900E7 nsQuestionsWithChoices
+
+FORWARD ME_4F9A9C6803D4
+
+FORWARD ME_4F9A978A01B8
+
+FORWARD ME_4F9A97A000B5
+
+FORWARD ME_4F9A97F90047
+
+: ME_4F9A980E032F
+ CONST UID '4F9A980E032F'
+ CONST Name 'Selection'
+ CONST Class class_Class
+ : Stereotype st_Choice ;
+ CONST Kind kind_NormalClass
+ %SUMMARY '''Выделенный фрагмент''' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4F9A97F90047 // Choices
+ ;
+ CONST "AutoInc" false
+ CONST "forced type" 'none'
+ CONST "is define" false
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Data'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Data'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\Data'
+
+ref; // ME_4F9A980E032F Selection
+
+: ME_4F9A981F0126
+ CONST UID '4F9A981F0126'
+ CONST Name 'WholeDocument'
+ CONST Class class_Class
+ : Stereotype st_Choice ;
+ CONST Kind kind_NormalClass
+ %SUMMARY '''Документ целиком''' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4F9A97F90047 // Choices
+ ;
+ : Inherits
+   Seq: ( ME_4F9A980E032F // Selection
+ )
+ ; // Inherits
+ CONST "AutoInc" false
+ CONST "forced type" 'none'
+ CONST "is define" false
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Data'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Data'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\Data'
+
+ref; // ME_4F9A981F0126 WholeDocument
+
+: ME_4F9A97F90047
+ CONST UID '4F9A97F90047'
+ CONST Name 'Choices'
+ CONST Class class_Class
+ : Stereotype st_Choices ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_4F9A97A000B5 // DocumentEMailSelection
+ ;
+ : Children
+   Seq: ( ME_4F9A980E032F // Selection
+ ME_4F9A981F0126 // WholeDocument
+ )
+ ; // Children
+ CONST "Need map interface" false
+ CONST "Need mapping support" false
+ CONST "spell names" false
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Data'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Data'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\Data'
+
+ref; // ME_4F9A97F90047 Choices
+
+: ME_4F9A9A81020A
+ CONST UID '4F9A9A81020A'
+ CONST Class class_Attribute
+ : Stereotype st_DefaultChoice::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_ref
+ : Parent ME_4F9A97A000B5 // DocumentEMailSelection
+ ;
+ : Target ME_4F9A980E032F // Selection
+ ;
+
+ref; // ME_4F9A9A81020A 
+
+: ME_4F9A97A000B5
+ CONST UID '4F9A97A000B5'
+ CONST Name 'DocumentEMailSelection'
+ CONST Class class_Class
+ : Stereotype st_Message ;
+ CONST Kind kind_NormalClass
+ %SUMMARY '''Переслать по E-mail:''' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4F9A978A01B8 // Asks
+ ;
+ : Attributes
+   Seq: ( ME_4F9A9A81020A // 
+ )
+ ; // Attributes
+ : Children
+   Seq: ( ME_4F9A97F90047 // Choices
+ )
+ ; // Children
+ CONST "AutoInc" false
+ CONST "CheckCaption" 'Всегда пересылать выделенный фрагмент'
+ CONST "DlgType" 'Confirmation'
+ CONST "LongHint" 'Подтверждение при пересылке выделенного фрагмента'
+ CONST "NeedCheck" true
+ CONST "SettingsCaption" 'Пересылка по EMail'
+ CONST "forced type" 'none'
+ CONST "is define" false
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Data'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Data'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\Data'
+
+ref; // ME_4F9A97A000B5 DocumentEMailSelection
+
+FORWARD ME_4F9A9CE80132
+
+FORWARD ME_4F9A9D3200E9
+
+: ME_4F9A9D470071
+ CONST UID '4F9A9D470071'
+ CONST Name 'Selected'
+ CONST Class class_Class
+ : Stereotype st_Choice ;
+ CONST Kind kind_NormalClass
+ %SUMMARY '''Выделенные элементы''' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4F9A9D3200E9 // Choices
+ ;
+ CONST "AutoInc" false
+ CONST "forced type" 'none'
+ CONST "is define" false
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Data'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Data'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\Data'
+
+ref; // ME_4F9A9D470071 Selected
+
+: ME_4F9A9D5602BE
+ CONST UID '4F9A9D5602BE'
+ CONST Name 'WholeList'
+ CONST Class class_Class
+ : Stereotype st_Choice ;
+ CONST Kind kind_NormalClass
+ %SUMMARY '''Список целиком''' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4F9A9D3200E9 // Choices
+ ;
+ : Inherits
+   Seq: ( ME_4F9A9D470071 // Selected
+ )
+ ; // Inherits
+ CONST "AutoInc" false
+ CONST "forced type" 'none'
+ CONST "is define" false
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Data'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Data'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\Data'
+
+ref; // ME_4F9A9D5602BE WholeList
+
+: ME_4F9A9D3200E9
+ CONST UID '4F9A9D3200E9'
+ CONST Name 'Choices'
+ CONST Class class_Class
+ : Stereotype st_Choices ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_4F9A9CE80132 // ListEMailSelection
+ ;
+ : Children
+   Seq: ( ME_4F9A9D470071 // Selected
+ ME_4F9A9D5602BE // WholeList
+ )
+ ; // Children
+ CONST "Need map interface" false
+ CONST "Need mapping support" false
+ CONST "spell names" false
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Data'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Data'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\Data'
+
+ref; // ME_4F9A9D3200E9 Choices
+
+: ME_4F9A9D6A0226
+ CONST UID '4F9A9D6A0226'
+ CONST Class class_Attribute
+ : Stereotype st_DefaultChoice::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_ref
+ : Parent ME_4F9A9CE80132 // ListEMailSelection
+ ;
+ : Target ME_4F9A9D470071 // Selected
+ ;
+
+ref; // ME_4F9A9D6A0226 
+
+: ME_4F9A9CE80132
+ CONST UID '4F9A9CE80132'
+ CONST Name 'ListEMailSelection'
+ CONST Class class_Class
+ : Stereotype st_Message ;
+ CONST Kind kind_NormalClass
+ %SUMMARY '''Пересылка по EMail''' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4F9A978A01B8 // Asks
+ ;
+ : Attributes
+   Seq: ( ME_4F9A9D6A0226 // 
+ )
+ ; // Attributes
+ : Children
+   Seq: ( ME_4F9A9D3200E9 // Choices
+ )
+ ; // Children
+ CONST "AutoInc" false
+ CONST "CheckCaption" 'Всегда пересылать выделенные элементы '
+ CONST "DlgType" 'Confirmation'
+ CONST "LongHint" 'Подтверждение при пересылке выделенных элементов'
+ CONST "NeedCheck" true
+ CONST "SettingsCaption" 'Пересылка по EMail'
+ CONST "forced type" 'none'
+ CONST "is define" false
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Data'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Data'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\Data'
+
+ref; // ME_4F9A9CE80132 ListEMailSelection
+
+FORWARD ME_4F9A9D8400FB
+
+FORWARD ME_4F9A9DB901E8
+
+: ME_4F9A9DD0022C
+ CONST UID '4F9A9DD0022C'
+ CONST Name 'Selected'
+ CONST Class class_Class
+ : Stereotype st_Choice ;
+ CONST Kind kind_NormalClass
+ %SUMMARY '''Выделенные элементы''' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4F9A9DB901E8 // Choices
+ ;
+ CONST "AutoInc" false
+ CONST "forced type" 'none'
+ CONST "is define" false
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Data'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Data'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\Data'
+
+ref; // ME_4F9A9DD0022C Selected
+
+: ME_4F9A9DE00280
+ CONST UID '4F9A9DE00280'
+ CONST Name 'WholeList'
+ CONST Class class_Class
+ : Stereotype st_Choice ;
+ CONST Kind kind_NormalClass
+ %SUMMARY '''Список целиком''' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4F9A9DB901E8 // Choices
+ ;
+ : Inherits
+   Seq: ( ME_4F9A9DD0022C // Selected
+ )
+ ; // Inherits
+ CONST "AutoInc" false
+ CONST "forced type" 'none'
+ CONST "is define" false
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Data'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Data'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\Data'
+
+ref; // ME_4F9A9DE00280 WholeList
+
+: ME_4F9A9DB901E8
+ CONST UID '4F9A9DB901E8'
+ CONST Name 'Choices'
+ CONST Class class_Class
+ : Stereotype st_Choices ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_4F9A9D8400FB // ListPrintSelectedConfirmation
+ ;
+ : Children
+   Seq: ( ME_4F9A9DD0022C // Selected
+ ME_4F9A9DE00280 // WholeList
+ )
+ ; // Children
+ CONST "Need map interface" false
+ CONST "Need mapping support" false
+ CONST "spell names" false
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Data'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Data'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\Data'
+
+ref; // ME_4F9A9DB901E8 Choices
+
+: ME_4F9A9DF5013E
+ CONST UID '4F9A9DF5013E'
+ CONST Class class_Attribute
+ : Stereotype st_DefaultChoice::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_ref
+ : Parent ME_4F9A9D8400FB // ListPrintSelectedConfirmation
+ ;
+ : Target ME_4F9A9DD0022C // Selected
+ ;
+
+ref; // ME_4F9A9DF5013E 
+
+: ME_4F9A9D8400FB
+ CONST UID '4F9A9D8400FB'
+ CONST Name 'ListPrintSelectedConfirmation'
+ CONST Class class_Class
+ : Stereotype st_Message ;
+ CONST Kind kind_NormalClass
+ %SUMMARY '''Печатать:''' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4F9A978A01B8 // Asks
+ ;
+ : Attributes
+   Seq: ( ME_4F9A9DF5013E // 
+ )
+ ; // Attributes
+ : Children
+   Seq: ( ME_4F9A9DB901E8 // Choices
+ )
+ ; // Children
+ CONST "AutoInc" false
+ CONST "CheckCaption" 'Всегда печатать выделенные элементы'
+ CONST "DlgType" 'Confirmation'
+ CONST "LongHint" 'Подтверждение при печати выделенных элементов'
+ CONST "NeedCheck" true
+ CONST "SettingsCaption" 'Печать'
+ CONST "forced type" 'none'
+ CONST "is define" false
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Data'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Data'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\Data'
+
+ref; // ME_4F9A9D8400FB ListPrintSelectedConfirmation
+
+FORWARD ME_4F9A9EA50070
+
+FORWARD ME_4F9A9ED4006F
+
+: ME_4F9A9EDE028B
+ CONST UID '4F9A9EDE028B'
+ CONST Name 'Selected'
+ CONST Class class_Class
+ : Stereotype st_Choice ;
+ CONST Kind kind_NormalClass
+ %SUMMARY '''Выделенный фрагмент''' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4F9A9ED4006F // Choices
+ ;
+ CONST "AutoInc" false
+ CONST "forced type" 'none'
+ CONST "is define" false
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Data'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Data'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\Data'
+
+ref; // ME_4F9A9EDE028B Selected
+
+: ME_4F9A9EF30089
+ CONST UID '4F9A9EF30089'
+ CONST Name 'WholeDocument'
+ CONST Class class_Class
+ : Stereotype st_Choice ;
+ CONST Kind kind_NormalClass
+ %SUMMARY '''Документ целиком''' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4F9A9ED4006F // Choices
+ ;
+ : Inherits
+   Seq: ( ME_4F9A9EDE028B // Selected
+ )
+ ; // Inherits
+ CONST "AutoInc" false
+ CONST "forced type" 'none'
+ CONST "is define" false
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Data'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Data'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\Data'
+
+ref; // ME_4F9A9EF30089 WholeDocument
+
+: ME_4F9A9ED4006F
+ CONST UID '4F9A9ED4006F'
+ CONST Name 'Choices'
+ CONST Class class_Class
+ : Stereotype st_Choices ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_4F9A9EA50070 // PrintSelectedConfirmation
+ ;
+ : Children
+   Seq: ( ME_4F9A9EDE028B // Selected
+ ME_4F9A9EF30089 // WholeDocument
+ )
+ ; // Children
+ CONST "Need map interface" false
+ CONST "Need mapping support" false
+ CONST "spell names" false
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Data'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Data'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\Data'
+
+ref; // ME_4F9A9ED4006F Choices
+
+: ME_4F9A9F09016E
+ CONST UID '4F9A9F09016E'
+ CONST Class class_Attribute
+ : Stereotype st_DefaultChoice::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_ref
+ : Parent ME_4F9A9EA50070 // PrintSelectedConfirmation
+ ;
+ : Target ME_4F9A9EDE028B // Selected
+ ;
+
+ref; // ME_4F9A9F09016E 
+
+: ME_4F9A9EA50070
+ CONST UID '4F9A9EA50070'
+ CONST Name 'PrintSelectedConfirmation'
+ CONST Class class_Class
+ : Stereotype st_Message ;
+ CONST Kind kind_NormalClass
+ %SUMMARY '''Печатать:''' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4F9A978A01B8 // Asks
+ ;
+ : Attributes
+   Seq: ( ME_4F9A9F09016E // 
+ )
+ ; // Attributes
+ : Children
+   Seq: ( ME_4F9A9ED4006F // Choices
+ )
+ ; // Children
+ CONST "AutoInc" false
+ CONST "CheckCaption" 'Всегда печатать выделенный фрагмент'
+ CONST "DlgType" 'Confirmation'
+ CONST "LongHint" 'Подтверждение при печати выделенного фрагмента'
+ CONST "NeedCheck" true
+ CONST "SettingsCaption" 'Печать'
+ CONST "forced type" 'none'
+ CONST "is define" false
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Data'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Data'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\Data'
+
+ref; // ME_4F9A9EA50070 PrintSelectedConfirmation
+
+FORWARD ME_4F9A9F2201B2
+
+FORWARD ME_4F9A9F5600E7
+
+: ME_4F9A9F670013
+ CONST UID '4F9A9F670013'
+ CONST Name 'Selected'
+ CONST Class class_Class
+ : Stereotype st_Choice ;
+ CONST Kind kind_NormalClass
+ %SUMMARY '''Выделенный фрагмент''' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4F9A9F5600E7 // Choices
+ ;
+ CONST "AutoInc" false
+ CONST "forced type" 'none'
+ CONST "is define" false
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Data'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Data'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\Data'
+
+ref; // ME_4F9A9F670013 Selected
+
+: ME_4F9A9F7502CB
+ CONST UID '4F9A9F7502CB'
+ CONST Name 'WholeDocument'
+ CONST Class class_Class
+ : Stereotype st_Choice ;
+ CONST Kind kind_NormalClass
+ %SUMMARY '''Документ целиком''' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4F9A9F5600E7 // Choices
+ ;
+ : Inherits
+   Seq: ( ME_4F9A9F670013 // Selected
+ )
+ ; // Inherits
+ CONST "AutoInc" false
+ CONST "forced type" 'none'
+ CONST "is define" false
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Data'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Data'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\Data'
+
+ref; // ME_4F9A9F7502CB WholeDocument
+
+: ME_4F9A9F5600E7
+ CONST UID '4F9A9F5600E7'
+ CONST Name 'Choices'
+ CONST Class class_Class
+ : Stereotype st_Choices ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_4F9A9F2201B2 // ExportSelectionToWord
+ ;
+ : Children
+   Seq: ( ME_4F9A9F670013 // Selected
+ ME_4F9A9F7502CB // WholeDocument
+ )
+ ; // Children
+ CONST "Need map interface" false
+ CONST "Need mapping support" false
+ CONST "spell names" false
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Data'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Data'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\Data'
+
+ref; // ME_4F9A9F5600E7 Choices
+
+: ME_4F9A9F8C03B6
+ CONST UID '4F9A9F8C03B6'
+ CONST Class class_Attribute
+ : Stereotype st_DefaultChoice::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_ref
+ : Parent ME_4F9A9F2201B2 // ExportSelectionToWord
+ ;
+ : Target ME_4F9A9F670013 // Selected
+ ;
+
+ref; // ME_4F9A9F8C03B6 
+
+: ME_4F9A9F2201B2
+ CONST UID '4F9A9F2201B2'
+ CONST Name 'ExportSelectionToWord'
+ CONST Class class_Class
+ : Stereotype st_Message ;
+ CONST Kind kind_NormalClass
+ %SUMMARY '''Экспортировать в MS-Word''' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4F9A978A01B8 // Asks
+ ;
+ : Attributes
+   Seq: ( ME_4F9A9F8C03B6 // 
+ )
+ ; // Attributes
+ : Children
+   Seq: ( ME_4F9A9F5600E7 // Choices
+ )
+ ; // Children
+ CONST "AutoInc" false
+ CONST "CheckCaption" 'Всегда экспортировать выделенный фрагмент'
+ CONST "DlgType" 'Confirmation'
+ CONST "LongHint" 'Подтверждение при открытии в MS-Word выделенного фрагмента'
+ CONST "NeedCheck" true
+ CONST "SettingsCaption" 'Экспорт в MS-Word'
+ CONST "forced type" 'none'
+ CONST "is define" false
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Data'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Data'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\Data'
+
+ref; // ME_4F9A9F2201B2 ExportSelectionToWord
+
+FORWARD ME_4F9A9FA3007C
+
+FORWARD ME_4F9AA00C012C
+
+: ME_4F9AA01E0031
+ CONST UID '4F9AA01E0031'
+ CONST Name 'Selected'
+ CONST Class class_Class
+ : Stereotype st_Choice ;
+ CONST Kind kind_NormalClass
+ %SUMMARY '''Выделенные элементы''' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4F9AA00C012C // Choices
+ ;
+ CONST "AutoInc" false
+ CONST "forced type" 'none'
+ CONST "is define" false
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Data'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Data'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\Data'
+
+ref; // ME_4F9AA01E0031 Selected
+
+: ME_4F9AA0300173
+ CONST UID '4F9AA0300173'
+ CONST Name 'WholeList'
+ CONST Class class_Class
+ : Stereotype st_Choice ;
+ CONST Kind kind_NormalClass
+ %SUMMARY '''Список целиком''' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4F9AA00C012C // Choices
+ ;
+ : Inherits
+   Seq: ( ME_4F9AA01E0031 // Selected
+ )
+ ; // Inherits
+ CONST "AutoInc" false
+ CONST "forced type" 'none'
+ CONST "is define" false
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Data'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Data'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\Data'
+
+ref; // ME_4F9AA0300173 WholeList
+
+: ME_4F9AA00C012C
+ CONST UID '4F9AA00C012C'
+ CONST Name 'Choices'
+ CONST Class class_Class
+ : Stereotype st_Choices ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_4F9A9FA3007C // ListExportSelectionToWord
+ ;
+ : Children
+   Seq: ( ME_4F9AA01E0031 // Selected
+ ME_4F9AA0300173 // WholeList
+ )
+ ; // Children
+ CONST "Need map interface" false
+ CONST "Need mapping support" false
+ CONST "spell names" false
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Data'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Data'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\Data'
+
+ref; // ME_4F9AA00C012C Choices
+
+: ME_4F9AA0430254
+ CONST UID '4F9AA0430254'
+ CONST Class class_Attribute
+ : Stereotype st_DefaultChoice::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_ref
+ : Parent ME_4F9A9FA3007C // ListExportSelectionToWord
+ ;
+ : Target ME_4F9AA01E0031 // Selected
+ ;
+
+ref; // ME_4F9AA0430254 
+
+: ME_4F9A9FA3007C
+ CONST UID '4F9A9FA3007C'
+ CONST Name 'ListExportSelectionToWord'
+ CONST Class class_Class
+ : Stereotype st_Message ;
+ CONST Kind kind_NormalClass
+ %SUMMARY '''Экспортировать в MS-Word:''' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4F9A978A01B8 // Asks
+ ;
+ : Attributes
+   Seq: ( ME_4F9AA0430254 // 
+ )
+ ; // Attributes
+ : Children
+   Seq: ( ME_4F9AA00C012C // Choices
+ )
+ ; // Children
+ CONST "AutoInc" false
+ CONST "CheckCaption" 'Всегда экспортировать выделенные элементы'
+ CONST "DlgType" 'Confirmation'
+ CONST "LongHint" 'Подтверждение при открытии в MS-Word выделенных элементов'
+ CONST "NeedCheck" true
+ CONST "SettingsCaption" 'Экспорт в MS-Word'
+ CONST "forced type" 'none'
+ CONST "is define" false
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Data'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Data'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\Data'
+
+ref; // ME_4F9A9FA3007C ListExportSelectionToWord
+
+FORWARD ME_4F9ABD110202
+
+FORWARD ME_4F9ABD2F003C
+
+: ME_4F9ABD4202DA
+ CONST UID '4F9ABD4202DA'
+ CONST Name 'Spec'
+ CONST Class class_Class
+ : Stereotype st_Choice ;
+ CONST Kind kind_NormalClass
+ %SUMMARY '''Обратиться к специалистам Правовой поддержки онлайн''' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4F9ABD2F003C // Choices
+ ;
+ CONST "AutoInc" false
+ CONST "forced type" 'none'
+ CONST "is define" false
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Data'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Data'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\Data'
+
+ref; // ME_4F9ABD4202DA Spec
+
+: ME_4F9ABD54028B
+ CONST UID '4F9ABD54028B'
+ CONST Name 'Back'
+ CONST Class class_Class
+ : Stereotype st_Choice ;
+ CONST Kind kind_NormalClass
+ %SUMMARY '''Вернуться в карточку и изменить условия запроса''' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4F9ABD2F003C // Choices
+ ;
+ : Inherits
+   Seq: ( ME_4F9ABD4202DA // Spec
+ )
+ ; // Inherits
+ CONST "AutoInc" false
+ CONST "forced type" 'none'
+ CONST "is define" false
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Data'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Data'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\Data'
+
+ref; // ME_4F9ABD54028B Back
+
+: ME_4F9ABD2F003C
+ CONST UID '4F9ABD2F003C'
+ CONST Name 'Choices'
+ CONST Class class_Class
+ : Stereotype st_Choices ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_4F9ABD110202 // ConsultDocumentsNotFound
+ ;
+ : Children
+   Seq: ( ME_4F9ABD4202DA // Spec
+ ME_4F9ABD54028B // Back
+ )
+ ; // Children
+ CONST "Need map interface" false
+ CONST "Need mapping support" false
+ CONST "spell names" false
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Data'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Data'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\Data'
+
+ref; // ME_4F9ABD2F003C Choices
+
+: ME_4F9ABD780351
+ CONST UID '4F9ABD780351'
+ CONST Class class_Attribute
+ : Stereotype st_CustomChoice::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_ref
+ : Parent ME_4F9ABD110202 // ConsultDocumentsNotFound
+ ;
+ : Target ME_4F9ABD4202DA // Spec
+ ;
+
+ref; // ME_4F9ABD780351 
+
+: ME_4F9ABD110202
+ CONST UID '4F9ABD110202'
+ CONST Name 'ConsultDocumentsNotFound'
+ CONST Class class_Class
+ : Stereotype st_Message ;
+ CONST Kind kind_NormalClass
+ %SUMMARY '''Информация по данному запросу отсутствует в установленном у Вас комплекте.''' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4F9A978A01B8 // Asks
+ ;
+ : Attributes
+   Seq: ( ME_4F9ABD780351 // 
+ )
+ ; // Attributes
+ : Children
+   Seq: ( ME_4F9ABD2F003C // Choices
+ )
+ ; // Children
+ CONST "AutoInc" false
+ CONST "DlgType" 'Warning'
+ CONST "NeedCheck" false
+ CONST "forced type" 'none'
+ CONST "is define" false
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Data'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Data'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\Data'
+
+ref; // ME_4F9ABD110202 ConsultDocumentsNotFound
+
+FORWARD ME_5273829D012E
+
+FORWARD ME_527382CB0366
+
+: ME_527382EB03A9
+ CONST UID '527382EB03A9'
+ CONST Name 'Back'
+ CONST Class class_Class
+ : Stereotype st_Choice ;
+ CONST Kind kind_NormalClass
+ %SUMMARY '''Вернуться в карточку и изменить условия запроса''' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_527382CB0366 // Choices
+ ;
+ CONST "AutoInc" false
+ CONST "forced type" 'none'
+ CONST "is define" false
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Data'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Data'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\Data'
+
+ref; // ME_527382EB03A9 Back
+
+: ME_527382CB0366
+ CONST UID '527382CB0366'
+ CONST Name 'Choices'
+ CONST Class class_Class
+ : Stereotype st_Choices ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_5273829D012E // ConsultDocumentsNotFoundNoSpec
+ ;
+ : Children
+   Seq: ( ME_527382EB03A9 // Back
+ )
+ ; // Children
+ CONST "Need map interface" false
+ CONST "Need mapping support" false
+ CONST "spell names" false
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Data'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Data'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\Data'
+
+ref; // ME_527382CB0366 Choices
+
+: ME_5273829D012E
+ CONST UID '5273829D012E'
+ CONST Name 'ConsultDocumentsNotFoundNoSpec'
+ CONST Class class_Class
+ : Stereotype st_Message ;
+ CONST Kind kind_NormalClass
+ %SUMMARY '''Информация по данному запросу отсутствует в установленном у Вас комплекте.''' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4F9A978A01B8 // Asks
+ ;
+ : Children
+   Seq: ( ME_527382CB0366 // Choices
+ )
+ ; // Children
+ CONST "AutoInc" false
+ CONST "DlgType" 'Warning'
+ CONST "NeedCheck" false
+ CONST "forced type" 'none'
+ CONST "is define" false
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Data'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Data'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\Data'
+
+ref; // ME_5273829D012E ConsultDocumentsNotFoundNoSpec
+
+: ME_A11CF2ABA866
+ CONST UID 'A11CF2ABA866'
+ CONST Name 'DocumentEMailSelection_CheckCaption'
+ CONST IsSummoned true
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_4F9A978A01B8 // Asks
+ ;
+ CONST Value '''Всегда пересылать выделенный фрагмент'''
+ CONST "AutoInc" false
+ CONST "forced type" 'none'
+ CONST "is define" false
+ CONST extprop:pas:Value '''Всегда пересылать выделенный фрагмент'''
+
+ref; // ME_A11CF2ABA866 DocumentEMailSelection_CheckCaption
+
+: ME_05B687D0717C
+ CONST UID '05B687D0717C'
+ CONST Name 'DocumentEMailSelection_SettingsCaption'
+ CONST IsSummoned true
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_4F9A978A01B8 // Asks
+ ;
+ CONST Value '''Пересылка по EMail'''
+ CONST "AutoInc" false
+ CONST "forced type" 'none'
+ CONST "is define" false
+ CONST extprop:pas:Value '''Пересылка по EMail'''
+
+ref; // ME_05B687D0717C DocumentEMailSelection_SettingsCaption
+
+: ME_C00CB26D1597
+ CONST UID 'C00CB26D1597'
+ CONST Name 'DocumentEMailSelection_LongHint'
+ CONST IsSummoned true
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_4F9A978A01B8 // Asks
+ ;
+ CONST Value '''Подтверждение при пересылке выделенного фрагмента'''
+ CONST "AutoInc" false
+ CONST "forced type" 'none'
+ CONST "is define" false
+ CONST extprop:pas:Value '''Подтверждение при пересылке выделенного фрагмента'''
+
+ref; // ME_C00CB26D1597 DocumentEMailSelection_LongHint
+
+: ME_7FAC13D5FCE0
+ CONST UID '7FAC13D5FCE0'
+ CONST Name 'ListEMailSelection_CheckCaption'
+ CONST IsSummoned true
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_4F9A978A01B8 // Asks
+ ;
+ CONST Value '''Всегда пересылать выделенные элементы '''
+ CONST "AutoInc" false
+ CONST "forced type" 'none'
+ CONST "is define" false
+ CONST extprop:pas:Value '''Всегда пересылать выделенные элементы '''
+
+ref; // ME_7FAC13D5FCE0 ListEMailSelection_CheckCaption
+
+: ME_6230D8B6C1E9
+ CONST UID '6230D8B6C1E9'
+ CONST Name 'ListEMailSelection_SettingsCaption'
+ CONST IsSummoned true
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_4F9A978A01B8 // Asks
+ ;
+ CONST Value '''Пересылка по EMail'''
+ CONST "AutoInc" false
+ CONST "forced type" 'none'
+ CONST "is define" false
+ CONST extprop:pas:Value '''Пересылка по EMail'''
+
+ref; // ME_6230D8B6C1E9 ListEMailSelection_SettingsCaption
+
+: ME_5FD7955D6772
+ CONST UID '5FD7955D6772'
+ CONST Name 'ListEMailSelection_LongHint'
+ CONST IsSummoned true
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_4F9A978A01B8 // Asks
+ ;
+ CONST Value '''Подтверждение при пересылке выделенных элементов'''
+ CONST "AutoInc" false
+ CONST "forced type" 'none'
+ CONST "is define" false
+ CONST extprop:pas:Value '''Подтверждение при пересылке выделенных элементов'''
+
+ref; // ME_5FD7955D6772 ListEMailSelection_LongHint
+
+: ME_B3C08296F672
+ CONST UID 'B3C08296F672'
+ CONST Name 'ListPrintSelectedConfirmation_CheckCaption'
+ CONST IsSummoned true
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_4F9A978A01B8 // Asks
+ ;
+ CONST Value '''Всегда печатать выделенные элементы'''
+ CONST "AutoInc" false
+ CONST "forced type" 'none'
+ CONST "is define" false
+ CONST extprop:pas:Value '''Всегда печатать выделенные элементы'''
+
+ref; // ME_B3C08296F672 ListPrintSelectedConfirmation_CheckCaption
+
+: ME_D65A435E2B4B
+ CONST UID 'D65A435E2B4B'
+ CONST Name 'ListPrintSelectedConfirmation_SettingsCaption'
+ CONST IsSummoned true
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_4F9A978A01B8 // Asks
+ ;
+ CONST Value '''Печать'''
+ CONST "AutoInc" false
+ CONST "forced type" 'none'
+ CONST "is define" false
+ CONST extprop:pas:Value '''Печать'''
+
+ref; // ME_D65A435E2B4B ListPrintSelectedConfirmation_SettingsCaption
+
+: ME_37B771881FD3
+ CONST UID '37B771881FD3'
+ CONST Name 'ListPrintSelectedConfirmation_LongHint'
+ CONST IsSummoned true
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_4F9A978A01B8 // Asks
+ ;
+ CONST Value '''Подтверждение при печати выделенных элементов'''
+ CONST "AutoInc" false
+ CONST "forced type" 'none'
+ CONST "is define" false
+ CONST extprop:pas:Value '''Подтверждение при печати выделенных элементов'''
+
+ref; // ME_37B771881FD3 ListPrintSelectedConfirmation_LongHint
+
+: ME_9E56D232515D
+ CONST UID '9E56D232515D'
+ CONST Name 'PrintSelectedConfirmation_CheckCaption'
+ CONST IsSummoned true
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_4F9A978A01B8 // Asks
+ ;
+ CONST Value '''Всегда печатать выделенный фрагмент'''
+ CONST "AutoInc" false
+ CONST "forced type" 'none'
+ CONST "is define" false
+ CONST extprop:pas:Value '''Всегда печатать выделенный фрагмент'''
+
+ref; // ME_9E56D232515D PrintSelectedConfirmation_CheckCaption
+
+: ME_08BEC8A9A38F
+ CONST UID '08BEC8A9A38F'
+ CONST Name 'PrintSelectedConfirmation_SettingsCaption'
+ CONST IsSummoned true
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_4F9A978A01B8 // Asks
+ ;
+ CONST Value '''Печать'''
+ CONST "AutoInc" false
+ CONST "forced type" 'none'
+ CONST "is define" false
+ CONST extprop:pas:Value '''Печать'''
+
+ref; // ME_08BEC8A9A38F PrintSelectedConfirmation_SettingsCaption
+
+: ME_E3DE32BC5DD7
+ CONST UID 'E3DE32BC5DD7'
+ CONST Name 'PrintSelectedConfirmation_LongHint'
+ CONST IsSummoned true
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_4F9A978A01B8 // Asks
+ ;
+ CONST Value '''Подтверждение при печати выделенного фрагмента'''
+ CONST "AutoInc" false
+ CONST "forced type" 'none'
+ CONST "is define" false
+ CONST extprop:pas:Value '''Подтверждение при печати выделенного фрагмента'''
+
+ref; // ME_E3DE32BC5DD7 PrintSelectedConfirmation_LongHint
+
+: ME_ADB17A353755
+ CONST UID 'ADB17A353755'
+ CONST Name 'ExportSelectionToWord_CheckCaption'
+ CONST IsSummoned true
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_4F9A978A01B8 // Asks
+ ;
+ CONST Value '''Всегда экспортировать выделенный фрагмент'''
+ CONST "AutoInc" false
+ CONST "forced type" 'none'
+ CONST "is define" false
+ CONST extprop:pas:Value '''Всегда экспортировать выделенный фрагмент'''
+
+ref; // ME_ADB17A353755 ExportSelectionToWord_CheckCaption
+
+: ME_36181C8C91CC
+ CONST UID '36181C8C91CC'
+ CONST Name 'ExportSelectionToWord_SettingsCaption'
+ CONST IsSummoned true
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_4F9A978A01B8 // Asks
+ ;
+ CONST Value '''Экспорт в MS-Word'''
+ CONST "AutoInc" false
+ CONST "forced type" 'none'
+ CONST "is define" false
+ CONST extprop:pas:Value '''Экспорт в MS-Word'''
+
+ref; // ME_36181C8C91CC ExportSelectionToWord_SettingsCaption
+
+: ME_E3BE167C85D7
+ CONST UID 'E3BE167C85D7'
+ CONST Name 'ExportSelectionToWord_LongHint'
+ CONST IsSummoned true
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_4F9A978A01B8 // Asks
+ ;
+ CONST Value '''Подтверждение при открытии в MS-Word выделенного фрагмента'''
+ CONST "AutoInc" false
+ CONST "forced type" 'none'
+ CONST "is define" false
+ CONST extprop:pas:Value '''Подтверждение при открытии в MS-Word выделенного фрагмента'''
+
+ref; // ME_E3BE167C85D7 ExportSelectionToWord_LongHint
+
+: ME_CBE5D3988148
+ CONST UID 'CBE5D3988148'
+ CONST Name 'ListExportSelectionToWord_CheckCaption'
+ CONST IsSummoned true
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_4F9A978A01B8 // Asks
+ ;
+ CONST Value '''Всегда экспортировать выделенные элементы'''
+ CONST "AutoInc" false
+ CONST "forced type" 'none'
+ CONST "is define" false
+ CONST extprop:pas:Value '''Всегда экспортировать выделенные элементы'''
+
+ref; // ME_CBE5D3988148 ListExportSelectionToWord_CheckCaption
+
+: ME_CF57709EF2A4
+ CONST UID 'CF57709EF2A4'
+ CONST Name 'ListExportSelectionToWord_SettingsCaption'
+ CONST IsSummoned true
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_4F9A978A01B8 // Asks
+ ;
+ CONST Value '''Экспорт в MS-Word'''
+ CONST "AutoInc" false
+ CONST "forced type" 'none'
+ CONST "is define" false
+ CONST extprop:pas:Value '''Экспорт в MS-Word'''
+
+ref; // ME_CF57709EF2A4 ListExportSelectionToWord_SettingsCaption
+
+: ME_1A86C3981ADD
+ CONST UID '1A86C3981ADD'
+ CONST Name 'ListExportSelectionToWord_LongHint'
+ CONST IsSummoned true
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_4F9A978A01B8 // Asks
+ ;
+ CONST Value '''Подтверждение при открытии в MS-Word выделенных элементов'''
+ CONST "AutoInc" false
+ CONST "forced type" 'none'
+ CONST "is define" false
+ CONST extprop:pas:Value '''Подтверждение при открытии в MS-Word выделенных элементов'''
+
+ref; // ME_1A86C3981ADD ListExportSelectionToWord_LongHint
+
+: ME_4F9A978A01B8
+ CONST UID '4F9A978A01B8'
+ CONST Name 'Asks'
+ CONST Class class_Class
+ : Stereotype st_LocalConst ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_4F9A9C6803D4 // nsQuestions
+ ;
+ : Attributes
+   Seq: ( ME_A11CF2ABA866 // DocumentEMailSelection_CheckCaption
+ ME_05B687D0717C // DocumentEMailSelection_SettingsCaption
+ ME_C00CB26D1597 // DocumentEMailSelection_LongHint
+ ME_7FAC13D5FCE0 // ListEMailSelection_CheckCaption
+ ME_6230D8B6C1E9 // ListEMailSelection_SettingsCaption
+ ME_5FD7955D6772 // ListEMailSelection_LongHint
+ ME_B3C08296F672 // ListPrintSelectedConfirmation_CheckCaption
+ ME_D65A435E2B4B // ListPrintSelectedConfirmation_SettingsCaption
+ ME_37B771881FD3 // ListPrintSelectedConfirmation_LongHint
+ ME_9E56D232515D // PrintSelectedConfirmation_CheckCaption
+ ME_08BEC8A9A38F // PrintSelectedConfirmation_SettingsCaption
+ ME_E3DE32BC5DD7 // PrintSelectedConfirmation_LongHint
+ ME_ADB17A353755 // ExportSelectionToWord_CheckCaption
+ ME_36181C8C91CC // ExportSelectionToWord_SettingsCaption
+ ME_E3BE167C85D7 // ExportSelectionToWord_LongHint
+ ME_CBE5D3988148 // ListExportSelectionToWord_CheckCaption
+ ME_CF57709EF2A4 // ListExportSelectionToWord_SettingsCaption
+ ME_1A86C3981ADD // ListExportSelectionToWord_LongHint
+ )
+ ; // Attributes
+ : Children
+   Seq: ( ME_4F9A97A000B5 // DocumentEMailSelection
+ ME_4F9A9CE80132 // ListEMailSelection
+ ME_4F9A9D8400FB // ListPrintSelectedConfirmation
+ ME_4F9A9EA50070 // PrintSelectedConfirmation
+ ME_4F9A9F2201B2 // ExportSelectionToWord
+ ME_4F9A9FA3007C // ListExportSelectionToWord
+ ME_4F9ABD110202 // ConsultDocumentsNotFound
+ ME_5273829D012E // ConsultDocumentsNotFoundNoSpec
+ )
+ ; // Children
+ CONST "Need map interface" false
+ CONST "Need mapping support" false
+ CONST "spell names" false
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Data'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Data'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\Data'
+
+ref; // ME_4F9A978A01B8 Asks
+
+FORWARD ME_133EA42C3D0E
+
+: ME_2550AF876D56
+ CONST UID '2550AF876D56'
+ CONST Name 'DocumentEMailSelection_Choice_Selection'
+ CONST IsSummoned true
+ CONST Class class_Attribute
+ %SUMMARY '''Выделенный фрагмент''' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_133EA42C3D0E // LCImpl_DocumentEMailSelection_Choices
+ ;
+ : Target WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
+ ;
+ CONST Value '(rS : -1; rLocalized : false; rKey : ''DocumentEMailSelection_Choice_Selection''; rValue : ''Выделенный фрагмент'')'
+ : ValueType WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
+ ;
+ CONST "AutoInc" false
+ CONST "forced type" 'none'
+ CONST "is define" false
+ CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''DocumentEMailSelection_Choice_Selection''; rValue : ''Выделенный фрагмент'')'
+
+ref; // ME_2550AF876D56 DocumentEMailSelection_Choice_Selection
+
+: ME_817F4CEAD54C
+ CONST UID '817F4CEAD54C'
+ CONST Name 'DocumentEMailSelection_Choice_WholeDocument'
+ CONST IsSummoned true
+ CONST Class class_Attribute
+ %SUMMARY '''Документ целиком''' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_133EA42C3D0E // LCImpl_DocumentEMailSelection_Choices
+ ;
+ : Target WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
+ ;
+ CONST Value '(rS : -1; rLocalized : false; rKey : ''DocumentEMailSelection_Choice_WholeDocument''; rValue : ''Документ целиком'')'
+ : ValueType WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
+ ;
+ CONST "AutoInc" false
+ CONST "forced type" 'none'
+ CONST "is define" false
+ CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''DocumentEMailSelection_Choice_WholeDocument''; rValue : ''Документ целиком'')'
+
+ref; // ME_817F4CEAD54C DocumentEMailSelection_Choice_WholeDocument
+
+: ME_133EA42C3D0E
+ CONST UID '133EA42C3D0E'
+ CONST Name 'LCImpl_DocumentEMailSelection_Choices'
+ CONST IsSummoned true
+ CONST Class class_Class
+ : Stereotype st_Constants ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Варианты выбора для диалога DocumentEMailSelection' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ : Parent ME_4F9A9C6803D4 // nsQuestions
+ ;
+ : Attributes
+   Seq: ( ME_2550AF876D56 // DocumentEMailSelection_Choice_Selection
+ ME_817F4CEAD54C // DocumentEMailSelection_Choice_WholeDocument
+ )
+ ; // Attributes
+ CONST "elements prefix" 'str'
+ CONST "spell names" false
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Data'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Data'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\Data'
+ CONST extprop:pas:ElementPrefixBase 'str'
+ CONST extprop:pas:ElementPrefix 'str_'
+
+ref; // ME_133EA42C3D0E LCImpl_DocumentEMailSelection_Choices
+
+FORWARD ME_E717941FB90E
+
+: ME_0692F4DB06E2
+ CONST UID '0692F4DB06E2'
+ CONST Name 'ListEMailSelection_Choice_Selected'
+ CONST IsSummoned true
+ CONST Class class_Attribute
+ %SUMMARY '''Выделенные элементы''' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_E717941FB90E // LCImpl_ListEMailSelection_Choices
+ ;
+ : Target WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
+ ;
+ CONST Value '(rS : -1; rLocalized : false; rKey : ''ListEMailSelection_Choice_Selected''; rValue : ''Выделенные элементы'')'
+ : ValueType WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
+ ;
+ CONST "AutoInc" false
+ CONST "forced type" 'none'
+ CONST "is define" false
+ CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''ListEMailSelection_Choice_Selected''; rValue : ''Выделенные элементы'')'
+
+ref; // ME_0692F4DB06E2 ListEMailSelection_Choice_Selected
+
+: ME_672A20D7C88F
+ CONST UID '672A20D7C88F'
+ CONST Name 'ListEMailSelection_Choice_WholeList'
+ CONST IsSummoned true
+ CONST Class class_Attribute
+ %SUMMARY '''Список целиком''' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_E717941FB90E // LCImpl_ListEMailSelection_Choices
+ ;
+ : Target WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
+ ;
+ CONST Value '(rS : -1; rLocalized : false; rKey : ''ListEMailSelection_Choice_WholeList''; rValue : ''Список целиком'')'
+ : ValueType WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
+ ;
+ CONST "AutoInc" false
+ CONST "forced type" 'none'
+ CONST "is define" false
+ CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''ListEMailSelection_Choice_WholeList''; rValue : ''Список целиком'')'
+
+ref; // ME_672A20D7C88F ListEMailSelection_Choice_WholeList
+
+: ME_E717941FB90E
+ CONST UID 'E717941FB90E'
+ CONST Name 'LCImpl_ListEMailSelection_Choices'
+ CONST IsSummoned true
+ CONST Class class_Class
+ : Stereotype st_Constants ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Варианты выбора для диалога ListEMailSelection' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ : Parent ME_4F9A9C6803D4 // nsQuestions
+ ;
+ : Attributes
+   Seq: ( ME_0692F4DB06E2 // ListEMailSelection_Choice_Selected
+ ME_672A20D7C88F // ListEMailSelection_Choice_WholeList
+ )
+ ; // Attributes
+ CONST "elements prefix" 'str'
+ CONST "spell names" false
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Data'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Data'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\Data'
+ CONST extprop:pas:ElementPrefixBase 'str'
+ CONST extprop:pas:ElementPrefix 'str_'
+
+ref; // ME_E717941FB90E LCImpl_ListEMailSelection_Choices
+
+FORWARD ME_0DDBC24CAF72
+
+: ME_1EBF4D455E1E
+ CONST UID '1EBF4D455E1E'
+ CONST Name 'ListPrintSelectedConfirmation_Choice_Selected'
+ CONST IsSummoned true
+ CONST Class class_Attribute
+ %SUMMARY '''Выделенные элементы''' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_0DDBC24CAF72 // LCImpl_ListPrintSelectedConfirmation_Choices
+ ;
+ : Target WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
+ ;
+ CONST Value '(rS : -1; rLocalized : false; rKey : ''ListPrintSelectedConfirmation_Choice_Selected''; rValue : ''Выделенные элементы'')'
+ : ValueType WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
+ ;
+ CONST "AutoInc" false
+ CONST "forced type" 'none'
+ CONST "is define" false
+ CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''ListPrintSelectedConfirmation_Choice_Selected''; rValue : ''Выделенные элементы'')'
+
+ref; // ME_1EBF4D455E1E ListPrintSelectedConfirmation_Choice_Selected
+
+: ME_304381F8030F
+ CONST UID '304381F8030F'
+ CONST Name 'ListPrintSelectedConfirmation_Choice_WholeList'
+ CONST IsSummoned true
+ CONST Class class_Attribute
+ %SUMMARY '''Список целиком''' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_0DDBC24CAF72 // LCImpl_ListPrintSelectedConfirmation_Choices
+ ;
+ : Target WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
+ ;
+ CONST Value '(rS : -1; rLocalized : false; rKey : ''ListPrintSelectedConfirmation_Choice_WholeList''; rValue : ''Список целиком'')'
+ : ValueType WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
+ ;
+ CONST "AutoInc" false
+ CONST "forced type" 'none'
+ CONST "is define" false
+ CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''ListPrintSelectedConfirmation_Choice_WholeList''; rValue : ''Список целиком'')'
+
+ref; // ME_304381F8030F ListPrintSelectedConfirmation_Choice_WholeList
+
+: ME_0DDBC24CAF72
+ CONST UID '0DDBC24CAF72'
+ CONST Name 'LCImpl_ListPrintSelectedConfirmation_Choices'
+ CONST IsSummoned true
+ CONST Class class_Class
+ : Stereotype st_Constants ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Варианты выбора для диалога ListPrintSelectedConfirmation' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ : Parent ME_4F9A9C6803D4 // nsQuestions
+ ;
+ : Attributes
+   Seq: ( ME_1EBF4D455E1E // ListPrintSelectedConfirmation_Choice_Selected
+ ME_304381F8030F // ListPrintSelectedConfirmation_Choice_WholeList
+ )
+ ; // Attributes
+ CONST "elements prefix" 'str'
+ CONST "spell names" false
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Data'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Data'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\Data'
+ CONST extprop:pas:ElementPrefixBase 'str'
+ CONST extprop:pas:ElementPrefix 'str_'
+
+ref; // ME_0DDBC24CAF72 LCImpl_ListPrintSelectedConfirmation_Choices
+
+FORWARD ME_43C7CCB167A0
+
+: ME_55B19A2CB6C0
+ CONST UID '55B19A2CB6C0'
+ CONST Name 'PrintSelectedConfirmation_Choice_Selected'
+ CONST IsSummoned true
+ CONST Class class_Attribute
+ %SUMMARY '''Выделенный фрагмент''' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_43C7CCB167A0 // LCImpl_PrintSelectedConfirmation_Choices
+ ;
+ : Target WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
+ ;
+ CONST Value '(rS : -1; rLocalized : false; rKey : ''PrintSelectedConfirmation_Choice_Selected''; rValue : ''Выделенный фрагмент'')'
+ : ValueType WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
+ ;
+ CONST "AutoInc" false
+ CONST "forced type" 'none'
+ CONST "is define" false
+ CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''PrintSelectedConfirmation_Choice_Selected''; rValue : ''Выделенный фрагмент'')'
+
+ref; // ME_55B19A2CB6C0 PrintSelectedConfirmation_Choice_Selected
+
+: ME_A815B1D1B27B
+ CONST UID 'A815B1D1B27B'
+ CONST Name 'PrintSelectedConfirmation_Choice_WholeDocument'
+ CONST IsSummoned true
+ CONST Class class_Attribute
+ %SUMMARY '''Документ целиком''' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_43C7CCB167A0 // LCImpl_PrintSelectedConfirmation_Choices
+ ;
+ : Target WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
+ ;
+ CONST Value '(rS : -1; rLocalized : false; rKey : ''PrintSelectedConfirmation_Choice_WholeDocument''; rValue : ''Документ целиком'')'
+ : ValueType WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
+ ;
+ CONST "AutoInc" false
+ CONST "forced type" 'none'
+ CONST "is define" false
+ CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''PrintSelectedConfirmation_Choice_WholeDocument''; rValue : ''Документ целиком'')'
+
+ref; // ME_A815B1D1B27B PrintSelectedConfirmation_Choice_WholeDocument
+
+: ME_43C7CCB167A0
+ CONST UID '43C7CCB167A0'
+ CONST Name 'LCImpl_PrintSelectedConfirmation_Choices'
+ CONST IsSummoned true
+ CONST Class class_Class
+ : Stereotype st_Constants ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Варианты выбора для диалога PrintSelectedConfirmation' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ : Parent ME_4F9A9C6803D4 // nsQuestions
+ ;
+ : Attributes
+   Seq: ( ME_55B19A2CB6C0 // PrintSelectedConfirmation_Choice_Selected
+ ME_A815B1D1B27B // PrintSelectedConfirmation_Choice_WholeDocument
+ )
+ ; // Attributes
+ CONST "elements prefix" 'str'
+ CONST "spell names" false
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Data'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Data'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\Data'
+ CONST extprop:pas:ElementPrefixBase 'str'
+ CONST extprop:pas:ElementPrefix 'str_'
+
+ref; // ME_43C7CCB167A0 LCImpl_PrintSelectedConfirmation_Choices
+
+FORWARD ME_AF0BDCE8C386
+
+: ME_5B6A5C2AE4E1
+ CONST UID '5B6A5C2AE4E1'
+ CONST Name 'ExportSelectionToWord_Choice_Selected'
+ CONST IsSummoned true
+ CONST Class class_Attribute
+ %SUMMARY '''Выделенный фрагмент''' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_AF0BDCE8C386 // LCImpl_ExportSelectionToWord_Choices
+ ;
+ : Target WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
+ ;
+ CONST Value '(rS : -1; rLocalized : false; rKey : ''ExportSelectionToWord_Choice_Selected''; rValue : ''Выделенный фрагмент'')'
+ : ValueType WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
+ ;
+ CONST "AutoInc" false
+ CONST "forced type" 'none'
+ CONST "is define" false
+ CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''ExportSelectionToWord_Choice_Selected''; rValue : ''Выделенный фрагмент'')'
+
+ref; // ME_5B6A5C2AE4E1 ExportSelectionToWord_Choice_Selected
+
+: ME_CCEB1A7F426D
+ CONST UID 'CCEB1A7F426D'
+ CONST Name 'ExportSelectionToWord_Choice_WholeDocument'
+ CONST IsSummoned true
+ CONST Class class_Attribute
+ %SUMMARY '''Документ целиком''' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_AF0BDCE8C386 // LCImpl_ExportSelectionToWord_Choices
+ ;
+ : Target WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
+ ;
+ CONST Value '(rS : -1; rLocalized : false; rKey : ''ExportSelectionToWord_Choice_WholeDocument''; rValue : ''Документ целиком'')'
+ : ValueType WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
+ ;
+ CONST "AutoInc" false
+ CONST "forced type" 'none'
+ CONST "is define" false
+ CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''ExportSelectionToWord_Choice_WholeDocument''; rValue : ''Документ целиком'')'
+
+ref; // ME_CCEB1A7F426D ExportSelectionToWord_Choice_WholeDocument
+
+: ME_AF0BDCE8C386
+ CONST UID 'AF0BDCE8C386'
+ CONST Name 'LCImpl_ExportSelectionToWord_Choices'
+ CONST IsSummoned true
+ CONST Class class_Class
+ : Stereotype st_Constants ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Варианты выбора для диалога ExportSelectionToWord' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ : Parent ME_4F9A9C6803D4 // nsQuestions
+ ;
+ : Attributes
+   Seq: ( ME_5B6A5C2AE4E1 // ExportSelectionToWord_Choice_Selected
+ ME_CCEB1A7F426D // ExportSelectionToWord_Choice_WholeDocument
+ )
+ ; // Attributes
+ CONST "elements prefix" 'str'
+ CONST "spell names" false
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Data'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Data'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\Data'
+ CONST extprop:pas:ElementPrefixBase 'str'
+ CONST extprop:pas:ElementPrefix 'str_'
+
+ref; // ME_AF0BDCE8C386 LCImpl_ExportSelectionToWord_Choices
+
+FORWARD ME_CB2A2E37A56C
+
+: ME_FD1D8C02A25D
+ CONST UID 'FD1D8C02A25D'
+ CONST Name 'ListExportSelectionToWord_Choice_Selected'
+ CONST IsSummoned true
+ CONST Class class_Attribute
+ %SUMMARY '''Выделенные элементы''' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_CB2A2E37A56C // LCImpl_ListExportSelectionToWord_Choices
+ ;
+ : Target WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
+ ;
+ CONST Value '(rS : -1; rLocalized : false; rKey : ''ListExportSelectionToWord_Choice_Selected''; rValue : ''Выделенные элементы'')'
+ : ValueType WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
+ ;
+ CONST "AutoInc" false
+ CONST "forced type" 'none'
+ CONST "is define" false
+ CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''ListExportSelectionToWord_Choice_Selected''; rValue : ''Выделенные элементы'')'
+
+ref; // ME_FD1D8C02A25D ListExportSelectionToWord_Choice_Selected
+
+: ME_97BBFBEB37EB
+ CONST UID '97BBFBEB37EB'
+ CONST Name 'ListExportSelectionToWord_Choice_WholeList'
+ CONST IsSummoned true
+ CONST Class class_Attribute
+ %SUMMARY '''Список целиком''' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_CB2A2E37A56C // LCImpl_ListExportSelectionToWord_Choices
+ ;
+ : Target WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
+ ;
+ CONST Value '(rS : -1; rLocalized : false; rKey : ''ListExportSelectionToWord_Choice_WholeList''; rValue : ''Список целиком'')'
+ : ValueType WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
+ ;
+ CONST "AutoInc" false
+ CONST "forced type" 'none'
+ CONST "is define" false
+ CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''ListExportSelectionToWord_Choice_WholeList''; rValue : ''Список целиком'')'
+
+ref; // ME_97BBFBEB37EB ListExportSelectionToWord_Choice_WholeList
+
+: ME_CB2A2E37A56C
+ CONST UID 'CB2A2E37A56C'
+ CONST Name 'LCImpl_ListExportSelectionToWord_Choices'
+ CONST IsSummoned true
+ CONST Class class_Class
+ : Stereotype st_Constants ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Варианты выбора для диалога ListExportSelectionToWord' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ : Parent ME_4F9A9C6803D4 // nsQuestions
+ ;
+ : Attributes
+   Seq: ( ME_FD1D8C02A25D // ListExportSelectionToWord_Choice_Selected
+ ME_97BBFBEB37EB // ListExportSelectionToWord_Choice_WholeList
+ )
+ ; // Attributes
+ CONST "elements prefix" 'str'
+ CONST "spell names" false
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Data'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Data'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\Data'
+ CONST extprop:pas:ElementPrefixBase 'str'
+ CONST extprop:pas:ElementPrefix 'str_'
+
+ref; // ME_CB2A2E37A56C LCImpl_ListExportSelectionToWord_Choices
+
+FORWARD ME_A3FF1C976F1C
+
+: ME_95EF818C0469
+ CONST UID '95EF818C0469'
+ CONST Name 'ConsultDocumentsNotFound_Choice_Spec'
+ CONST IsSummoned true
+ CONST Class class_Attribute
+ %SUMMARY '''Обратиться к специалистам Правовой поддержки онлайн''' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_A3FF1C976F1C // LCImpl_ConsultDocumentsNotFound_Choices
+ ;
+ : Target WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
+ ;
+ CONST Value '(rS : -1; rLocalized : false; rKey : ''ConsultDocumentsNotFound_Choice_Spec''; rValue : ''Обратиться к специалистам Правовой поддержки онлайн'')'
+ : ValueType WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
+ ;
+ CONST "AutoInc" false
+ CONST "forced type" 'none'
+ CONST "is define" false
+ CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''ConsultDocumentsNotFound_Choice_Spec''; rValue : ''Обратиться к специалистам Правовой поддержки онлайн'')'
+
+ref; // ME_95EF818C0469 ConsultDocumentsNotFound_Choice_Spec
+
+: ME_085B95DAA3A6
+ CONST UID '085B95DAA3A6'
+ CONST Name 'ConsultDocumentsNotFound_Choice_Back'
+ CONST IsSummoned true
+ CONST Class class_Attribute
+ %SUMMARY '''Вернуться в карточку и изменить условия запроса''' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_A3FF1C976F1C // LCImpl_ConsultDocumentsNotFound_Choices
+ ;
+ : Target WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
+ ;
+ CONST Value '(rS : -1; rLocalized : false; rKey : ''ConsultDocumentsNotFound_Choice_Back''; rValue : ''Вернуться в карточку и изменить условия запроса'')'
+ : ValueType WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
+ ;
+ CONST "AutoInc" false
+ CONST "forced type" 'none'
+ CONST "is define" false
+ CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''ConsultDocumentsNotFound_Choice_Back''; rValue : ''Вернуться в карточку и изменить условия запроса'')'
+
+ref; // ME_085B95DAA3A6 ConsultDocumentsNotFound_Choice_Back
+
+: ME_A3FF1C976F1C
+ CONST UID 'A3FF1C976F1C'
+ CONST Name 'LCImpl_ConsultDocumentsNotFound_Choices'
+ CONST IsSummoned true
+ CONST Class class_Class
+ : Stereotype st_Constants ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Варианты выбора для диалога ConsultDocumentsNotFound' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ : Parent ME_4F9A9C6803D4 // nsQuestions
+ ;
+ : Attributes
+   Seq: ( ME_95EF818C0469 // ConsultDocumentsNotFound_Choice_Spec
+ ME_085B95DAA3A6 // ConsultDocumentsNotFound_Choice_Back
+ )
+ ; // Attributes
+ CONST "elements prefix" 'str'
+ CONST "spell names" false
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Data'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Data'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\Data'
+ CONST extprop:pas:ElementPrefixBase 'str'
+ CONST extprop:pas:ElementPrefix 'str_'
+
+ref; // ME_A3FF1C976F1C LCImpl_ConsultDocumentsNotFound_Choices
+
+FORWARD ME_668058777597
+
+: ME_A03254C603EE
+ CONST UID 'A03254C603EE'
+ CONST Name 'ConsultDocumentsNotFoundNoSpec_Choice_Back'
+ CONST IsSummoned true
+ CONST Class class_Attribute
+ %SUMMARY '''Вернуться в карточку и изменить условия запроса''' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_668058777597 // LCImpl_ConsultDocumentsNotFoundNoSpec_Choices
+ ;
+ : Target WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
+ ;
+ CONST Value '(rS : -1; rLocalized : false; rKey : ''ConsultDocumentsNotFoundNoSpec_Choice_Back''; rValue : ''Вернуться в карточку и изменить условия запроса'')'
+ : ValueType WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
+ ;
+ CONST "AutoInc" false
+ CONST "forced type" 'none'
+ CONST "is define" false
+ CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''ConsultDocumentsNotFoundNoSpec_Choice_Back''; rValue : ''Вернуться в карточку и изменить условия запроса'')'
+
+ref; // ME_A03254C603EE ConsultDocumentsNotFoundNoSpec_Choice_Back
+
+: ME_668058777597
+ CONST UID '668058777597'
+ CONST Name 'LCImpl_ConsultDocumentsNotFoundNoSpec_Choices'
+ CONST IsSummoned true
+ CONST Class class_Class
+ : Stereotype st_Constants ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Варианты выбора для диалога ConsultDocumentsNotFoundNoSpec' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ : Parent ME_4F9A9C6803D4 // nsQuestions
+ ;
+ : Attributes
+   Seq: ( ME_A03254C603EE // ConsultDocumentsNotFoundNoSpec_Choice_Back
+ )
+ ; // Attributes
+ CONST "elements prefix" 'str'
+ CONST "spell names" false
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Data'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Data'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\Data'
+ CONST extprop:pas:ElementPrefixBase 'str'
+ CONST extprop:pas:ElementPrefix 'str_'
+
+ref; // ME_668058777597 LCImpl_ConsultDocumentsNotFoundNoSpec_Choices
+
+FORWARD ME_F46813F4C158
+
+: ME_6AC0D65B7F7E
+ CONST UID '6AC0D65B7F7E'
+ CONST Name 'DocumentEMailSelection'
+ CONST IsSummoned true
+ CONST Class class_Attribute
+ %SUMMARY '''Переслать по E-mail:''' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_F46813F4C158 // LCImplAsks
+ ;
+ : Target WL 'ME_4E01D1E002AE' '4F9BDEEE01BC.pas.ms.script' // Tl3MessageID
+ ;
+ CONST Value '(rS : -1; rLocalized : false; rKey : ''DocumentEMailSelection''; rValue : ''Переслать по E-mail:'')'
+ : ValueType WL 'ME_4E01D1E002AE' '4F9BDEEE01BC.pas.ms.script' // Tl3MessageID
+ ;
+ CONST "AutoInc" false
+ CONST "forced type" 'none'
+ CONST "is define" false
+ CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''DocumentEMailSelection''; rValue : ''Переслать по E-mail:'')'
+
+ref; // ME_6AC0D65B7F7E DocumentEMailSelection
+
+: ME_E73EA8BE3715
+ CONST UID 'E73EA8BE3715'
+ CONST Name 'ListEMailSelection'
+ CONST IsSummoned true
+ CONST Class class_Attribute
+ %SUMMARY '''Пересылка по EMail''' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_F46813F4C158 // LCImplAsks
+ ;
+ : Target WL 'ME_4E01D1E002AE' '4F9BDEEE01BC.pas.ms.script' // Tl3MessageID
+ ;
+ CONST Value '(rS : -1; rLocalized : false; rKey : ''ListEMailSelection''; rValue : ''Пересылка по EMail'')'
+ : ValueType WL 'ME_4E01D1E002AE' '4F9BDEEE01BC.pas.ms.script' // Tl3MessageID
+ ;
+ CONST "AutoInc" false
+ CONST "forced type" 'none'
+ CONST "is define" false
+ CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''ListEMailSelection''; rValue : ''Пересылка по EMail'')'
+
+ref; // ME_E73EA8BE3715 ListEMailSelection
+
+: ME_336A7DF9F896
+ CONST UID '336A7DF9F896'
+ CONST Name 'ListPrintSelectedConfirmation'
+ CONST IsSummoned true
+ CONST Class class_Attribute
+ %SUMMARY '''Печатать:''' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_F46813F4C158 // LCImplAsks
+ ;
+ : Target WL 'ME_4E01D1E002AE' '4F9BDEEE01BC.pas.ms.script' // Tl3MessageID
+ ;
+ CONST Value '(rS : -1; rLocalized : false; rKey : ''ListPrintSelectedConfirmation''; rValue : ''Печатать:'')'
+ : ValueType WL 'ME_4E01D1E002AE' '4F9BDEEE01BC.pas.ms.script' // Tl3MessageID
+ ;
+ CONST "AutoInc" false
+ CONST "forced type" 'none'
+ CONST "is define" false
+ CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''ListPrintSelectedConfirmation''; rValue : ''Печатать:'')'
+
+ref; // ME_336A7DF9F896 ListPrintSelectedConfirmation
+
+: ME_5BD8DC2DEA2A
+ CONST UID '5BD8DC2DEA2A'
+ CONST Name 'PrintSelectedConfirmation'
+ CONST IsSummoned true
+ CONST Class class_Attribute
+ %SUMMARY '''Печатать:''' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_F46813F4C158 // LCImplAsks
+ ;
+ : Target WL 'ME_4E01D1E002AE' '4F9BDEEE01BC.pas.ms.script' // Tl3MessageID
+ ;
+ CONST Value '(rS : -1; rLocalized : false; rKey : ''PrintSelectedConfirmation''; rValue : ''Печатать:'')'
+ : ValueType WL 'ME_4E01D1E002AE' '4F9BDEEE01BC.pas.ms.script' // Tl3MessageID
+ ;
+ CONST "AutoInc" false
+ CONST "forced type" 'none'
+ CONST "is define" false
+ CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''PrintSelectedConfirmation''; rValue : ''Печатать:'')'
+
+ref; // ME_5BD8DC2DEA2A PrintSelectedConfirmation
+
+: ME_F790A2D39CB4
+ CONST UID 'F790A2D39CB4'
+ CONST Name 'ExportSelectionToWord'
+ CONST IsSummoned true
+ CONST Class class_Attribute
+ %SUMMARY '''Экспортировать в MS-Word''' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_F46813F4C158 // LCImplAsks
+ ;
+ : Target WL 'ME_4E01D1E002AE' '4F9BDEEE01BC.pas.ms.script' // Tl3MessageID
+ ;
+ CONST Value '(rS : -1; rLocalized : false; rKey : ''ExportSelectionToWord''; rValue : ''Экспортировать в MS-Word'')'
+ : ValueType WL 'ME_4E01D1E002AE' '4F9BDEEE01BC.pas.ms.script' // Tl3MessageID
+ ;
+ CONST "AutoInc" false
+ CONST "forced type" 'none'
+ CONST "is define" false
+ CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''ExportSelectionToWord''; rValue : ''Экспортировать в MS-Word'')'
+
+ref; // ME_F790A2D39CB4 ExportSelectionToWord
+
+: ME_047DE089DBCE
+ CONST UID '047DE089DBCE'
+ CONST Name 'ListExportSelectionToWord'
+ CONST IsSummoned true
+ CONST Class class_Attribute
+ %SUMMARY '''Экспортировать в MS-Word:''' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_F46813F4C158 // LCImplAsks
+ ;
+ : Target WL 'ME_4E01D1E002AE' '4F9BDEEE01BC.pas.ms.script' // Tl3MessageID
+ ;
+ CONST Value '(rS : -1; rLocalized : false; rKey : ''ListExportSelectionToWord''; rValue : ''Экспортировать в MS-Word:'')'
+ : ValueType WL 'ME_4E01D1E002AE' '4F9BDEEE01BC.pas.ms.script' // Tl3MessageID
+ ;
+ CONST "AutoInc" false
+ CONST "forced type" 'none'
+ CONST "is define" false
+ CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''ListExportSelectionToWord''; rValue : ''Экспортировать в MS-Word:'')'
+
+ref; // ME_047DE089DBCE ListExportSelectionToWord
+
+: ME_8D0EFC103C0E
+ CONST UID '8D0EFC103C0E'
+ CONST Name 'ConsultDocumentsNotFound'
+ CONST IsSummoned true
+ CONST Class class_Attribute
+ %SUMMARY '''Информация по данному запросу отсутствует в установленном у Вас комплекте.''' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_F46813F4C158 // LCImplAsks
+ ;
+ : Target WL 'ME_4E01D1E002AE' '4F9BDEEE01BC.pas.ms.script' // Tl3MessageID
+ ;
+ CONST Value '(rS : -1; rLocalized : false; rKey : ''ConsultDocumentsNotFound''; rValue : ''Информация по данному запросу отсутствует в установленном у Вас комплекте.'')'
+ : ValueType WL 'ME_4E01D1E002AE' '4F9BDEEE01BC.pas.ms.script' // Tl3MessageID
+ ;
+ CONST "AutoInc" false
+ CONST "forced type" 'none'
+ CONST "is define" false
+ CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''ConsultDocumentsNotFound''; rValue : ''Информация по данному запросу отсутствует в установленном у Вас комплекте.'')'
+
+ref; // ME_8D0EFC103C0E ConsultDocumentsNotFound
+
+: ME_17661BAA16A4
+ CONST UID '17661BAA16A4'
+ CONST Name 'ConsultDocumentsNotFoundNoSpec'
+ CONST IsSummoned true
+ CONST Class class_Attribute
+ %SUMMARY '''Информация по данному запросу отсутствует в установленном у Вас комплекте.''' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_F46813F4C158 // LCImplAsks
+ ;
+ : Target WL 'ME_4E01D1E002AE' '4F9BDEEE01BC.pas.ms.script' // Tl3MessageID
+ ;
+ CONST Value '(rS : -1; rLocalized : false; rKey : ''ConsultDocumentsNotFoundNoSpec''; rValue : ''Информация по данному запросу отсутствует в установленном у Вас комплекте.'')'
+ : ValueType WL 'ME_4E01D1E002AE' '4F9BDEEE01BC.pas.ms.script' // Tl3MessageID
+ ;
+ CONST "AutoInc" false
+ CONST "forced type" 'none'
+ CONST "is define" false
+ CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''ConsultDocumentsNotFoundNoSpec''; rValue : ''Информация по данному запросу отсутствует в установленном у Вас комплекте.'')'
+
+ref; // ME_17661BAA16A4 ConsultDocumentsNotFoundNoSpec
+
+: ME_5B9CDBEE4841
+ CONST UID '5B9CDBEE4841'
+ CONST Name 'DocumentEMailSelection_CheckCaption'
+ CONST IsSummoned true
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_F46813F4C158 // LCImplAsks
+ ;
+ : Target WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
+ ;
+ CONST Value '(rS : -1; rLocalized : false; rKey : ''DocumentEMailSelection_CheckCaption''; rValue : ''Всегда пересылать выделенный фрагмент'')'
+ : ValueType WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
+ ;
+ CONST "AutoInc" false
+ CONST "forced type" 'none'
+ CONST "is define" false
+ CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''DocumentEMailSelection_CheckCaption''; rValue : ''Всегда пересылать выделенный фрагмент'')'
+
+ref; // ME_5B9CDBEE4841 DocumentEMailSelection_CheckCaption
+
+: ME_3436BE96D939
+ CONST UID '3436BE96D939'
+ CONST Name 'DocumentEMailSelection_SettingsCaption'
+ CONST IsSummoned true
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_F46813F4C158 // LCImplAsks
+ ;
+ : Target WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
+ ;
+ CONST Value '(rS : -1; rLocalized : false; rKey : ''DocumentEMailSelection_SettingsCaption''; rValue : ''Пересылка по EMail'')'
+ : ValueType WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
+ ;
+ CONST "AutoInc" false
+ CONST "forced type" 'none'
+ CONST "is define" false
+ CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''DocumentEMailSelection_SettingsCaption''; rValue : ''Пересылка по EMail'')'
+
+ref; // ME_3436BE96D939 DocumentEMailSelection_SettingsCaption
+
+: ME_276ACD67CE3B
+ CONST UID '276ACD67CE3B'
+ CONST Name 'DocumentEMailSelection_LongHint'
+ CONST IsSummoned true
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_F46813F4C158 // LCImplAsks
+ ;
+ : Target WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
+ ;
+ CONST Value '(rS : -1; rLocalized : false; rKey : ''DocumentEMailSelection_LongHint''; rValue : ''Подтверждение при пересылке выделенного фрагмента'')'
+ : ValueType WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
+ ;
+ CONST "AutoInc" false
+ CONST "forced type" 'none'
+ CONST "is define" false
+ CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''DocumentEMailSelection_LongHint''; rValue : ''Подтверждение при пересылке выделенного фрагмента'')'
+
+ref; // ME_276ACD67CE3B DocumentEMailSelection_LongHint
+
+: ME_1B9265629666
+ CONST UID '1B9265629666'
+ CONST Name 'ListEMailSelection_CheckCaption'
+ CONST IsSummoned true
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_F46813F4C158 // LCImplAsks
+ ;
+ : Target WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
+ ;
+ CONST Value '(rS : -1; rLocalized : false; rKey : ''ListEMailSelection_CheckCaption''; rValue : ''Всегда пересылать выделенные элементы '')'
+ : ValueType WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
+ ;
+ CONST "AutoInc" false
+ CONST "forced type" 'none'
+ CONST "is define" false
+ CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''ListEMailSelection_CheckCaption''; rValue : ''Всегда пересылать выделенные элементы '')'
+
+ref; // ME_1B9265629666 ListEMailSelection_CheckCaption
+
+: ME_1F25B63E6327
+ CONST UID '1F25B63E6327'
+ CONST Name 'ListEMailSelection_SettingsCaption'
+ CONST IsSummoned true
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_F46813F4C158 // LCImplAsks
+ ;
+ : Target WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
+ ;
+ CONST Value '(rS : -1; rLocalized : false; rKey : ''ListEMailSelection_SettingsCaption''; rValue : ''Пересылка по EMail'')'
+ : ValueType WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
+ ;
+ CONST "AutoInc" false
+ CONST "forced type" 'none'
+ CONST "is define" false
+ CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''ListEMailSelection_SettingsCaption''; rValue : ''Пересылка по EMail'')'
+
+ref; // ME_1F25B63E6327 ListEMailSelection_SettingsCaption
+
+: ME_015D8546116A
+ CONST UID '015D8546116A'
+ CONST Name 'ListEMailSelection_LongHint'
+ CONST IsSummoned true
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_F46813F4C158 // LCImplAsks
+ ;
+ : Target WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
+ ;
+ CONST Value '(rS : -1; rLocalized : false; rKey : ''ListEMailSelection_LongHint''; rValue : ''Подтверждение при пересылке выделенных элементов'')'
+ : ValueType WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
+ ;
+ CONST "AutoInc" false
+ CONST "forced type" 'none'
+ CONST "is define" false
+ CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''ListEMailSelection_LongHint''; rValue : ''Подтверждение при пересылке выделенных элементов'')'
+
+ref; // ME_015D8546116A ListEMailSelection_LongHint
+
+: ME_767D3239D2D3
+ CONST UID '767D3239D2D3'
+ CONST Name 'ListPrintSelectedConfirmation_CheckCaption'
+ CONST IsSummoned true
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_F46813F4C158 // LCImplAsks
+ ;
+ : Target WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
+ ;
+ CONST Value '(rS : -1; rLocalized : false; rKey : ''ListPrintSelectedConfirmation_CheckCaption''; rValue : ''Всегда печатать выделенные элементы'')'
+ : ValueType WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
+ ;
+ CONST "AutoInc" false
+ CONST "forced type" 'none'
+ CONST "is define" false
+ CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''ListPrintSelectedConfirmation_CheckCaption''; rValue : ''Всегда печатать выделенные элементы'')'
+
+ref; // ME_767D3239D2D3 ListPrintSelectedConfirmation_CheckCaption
+
+: ME_9862C0D1880F
+ CONST UID '9862C0D1880F'
+ CONST Name 'ListPrintSelectedConfirmation_SettingsCaption'
+ CONST IsSummoned true
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_F46813F4C158 // LCImplAsks
+ ;
+ : Target WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
+ ;
+ CONST Value '(rS : -1; rLocalized : false; rKey : ''ListPrintSelectedConfirmation_SettingsCaption''; rValue : ''Печать'')'
+ : ValueType WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
+ ;
+ CONST "AutoInc" false
+ CONST "forced type" 'none'
+ CONST "is define" false
+ CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''ListPrintSelectedConfirmation_SettingsCaption''; rValue : ''Печать'')'
+
+ref; // ME_9862C0D1880F ListPrintSelectedConfirmation_SettingsCaption
+
+: ME_10306FE2104C
+ CONST UID '10306FE2104C'
+ CONST Name 'ListPrintSelectedConfirmation_LongHint'
+ CONST IsSummoned true
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_F46813F4C158 // LCImplAsks
+ ;
+ : Target WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
+ ;
+ CONST Value '(rS : -1; rLocalized : false; rKey : ''ListPrintSelectedConfirmation_LongHint''; rValue : ''Подтверждение при печати выделенных элементов'')'
+ : ValueType WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
+ ;
+ CONST "AutoInc" false
+ CONST "forced type" 'none'
+ CONST "is define" false
+ CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''ListPrintSelectedConfirmation_LongHint''; rValue : ''Подтверждение при печати выделенных элементов'')'
+
+ref; // ME_10306FE2104C ListPrintSelectedConfirmation_LongHint
+
+: ME_3639BD63AD20
+ CONST UID '3639BD63AD20'
+ CONST Name 'PrintSelectedConfirmation_CheckCaption'
+ CONST IsSummoned true
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_F46813F4C158 // LCImplAsks
+ ;
+ : Target WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
+ ;
+ CONST Value '(rS : -1; rLocalized : false; rKey : ''PrintSelectedConfirmation_CheckCaption''; rValue : ''Всегда печатать выделенный фрагмент'')'
+ : ValueType WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
+ ;
+ CONST "AutoInc" false
+ CONST "forced type" 'none'
+ CONST "is define" false
+ CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''PrintSelectedConfirmation_CheckCaption''; rValue : ''Всегда печатать выделенный фрагмент'')'
+
+ref; // ME_3639BD63AD20 PrintSelectedConfirmation_CheckCaption
+
+: ME_F5BB68FB5DA6
+ CONST UID 'F5BB68FB5DA6'
+ CONST Name 'PrintSelectedConfirmation_SettingsCaption'
+ CONST IsSummoned true
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_F46813F4C158 // LCImplAsks
+ ;
+ : Target WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
+ ;
+ CONST Value '(rS : -1; rLocalized : false; rKey : ''PrintSelectedConfirmation_SettingsCaption''; rValue : ''Печать'')'
+ : ValueType WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
+ ;
+ CONST "AutoInc" false
+ CONST "forced type" 'none'
+ CONST "is define" false
+ CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''PrintSelectedConfirmation_SettingsCaption''; rValue : ''Печать'')'
+
+ref; // ME_F5BB68FB5DA6 PrintSelectedConfirmation_SettingsCaption
+
+: ME_794D4C2DB458
+ CONST UID '794D4C2DB458'
+ CONST Name 'PrintSelectedConfirmation_LongHint'
+ CONST IsSummoned true
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_F46813F4C158 // LCImplAsks
+ ;
+ : Target WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
+ ;
+ CONST Value '(rS : -1; rLocalized : false; rKey : ''PrintSelectedConfirmation_LongHint''; rValue : ''Подтверждение при печати выделенного фрагмента'')'
+ : ValueType WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
+ ;
+ CONST "AutoInc" false
+ CONST "forced type" 'none'
+ CONST "is define" false
+ CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''PrintSelectedConfirmation_LongHint''; rValue : ''Подтверждение при печати выделенного фрагмента'')'
+
+ref; // ME_794D4C2DB458 PrintSelectedConfirmation_LongHint
+
+: ME_A6B07485EA0A
+ CONST UID 'A6B07485EA0A'
+ CONST Name 'ExportSelectionToWord_CheckCaption'
+ CONST IsSummoned true
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_F46813F4C158 // LCImplAsks
+ ;
+ : Target WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
+ ;
+ CONST Value '(rS : -1; rLocalized : false; rKey : ''ExportSelectionToWord_CheckCaption''; rValue : ''Всегда экспортировать выделенный фрагмент'')'
+ : ValueType WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
+ ;
+ CONST "AutoInc" false
+ CONST "forced type" 'none'
+ CONST "is define" false
+ CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''ExportSelectionToWord_CheckCaption''; rValue : ''Всегда экспортировать выделенный фрагмент'')'
+
+ref; // ME_A6B07485EA0A ExportSelectionToWord_CheckCaption
+
+: ME_E72228376A80
+ CONST UID 'E72228376A80'
+ CONST Name 'ExportSelectionToWord_SettingsCaption'
+ CONST IsSummoned true
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_F46813F4C158 // LCImplAsks
+ ;
+ : Target WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
+ ;
+ CONST Value '(rS : -1; rLocalized : false; rKey : ''ExportSelectionToWord_SettingsCaption''; rValue : ''Экспорт в MS-Word'')'
+ : ValueType WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
+ ;
+ CONST "AutoInc" false
+ CONST "forced type" 'none'
+ CONST "is define" false
+ CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''ExportSelectionToWord_SettingsCaption''; rValue : ''Экспорт в MS-Word'')'
+
+ref; // ME_E72228376A80 ExportSelectionToWord_SettingsCaption
+
+: ME_582892E4EB03
+ CONST UID '582892E4EB03'
+ CONST Name 'ExportSelectionToWord_LongHint'
+ CONST IsSummoned true
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_F46813F4C158 // LCImplAsks
+ ;
+ : Target WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
+ ;
+ CONST Value '(rS : -1; rLocalized : false; rKey : ''ExportSelectionToWord_LongHint''; rValue : ''Подтверждение при открытии в MS-Word выделенного фрагмента'')'
+ : ValueType WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
+ ;
+ CONST "AutoInc" false
+ CONST "forced type" 'none'
+ CONST "is define" false
+ CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''ExportSelectionToWord_LongHint''; rValue : ''Подтверждение при открытии в MS-Word выделенного фрагмента'')'
+
+ref; // ME_582892E4EB03 ExportSelectionToWord_LongHint
+
+: ME_0D357ED73082
+ CONST UID '0D357ED73082'
+ CONST Name 'ListExportSelectionToWord_CheckCaption'
+ CONST IsSummoned true
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_F46813F4C158 // LCImplAsks
+ ;
+ : Target WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
+ ;
+ CONST Value '(rS : -1; rLocalized : false; rKey : ''ListExportSelectionToWord_CheckCaption''; rValue : ''Всегда экспортировать выделенные элементы'')'
+ : ValueType WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
+ ;
+ CONST "AutoInc" false
+ CONST "forced type" 'none'
+ CONST "is define" false
+ CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''ListExportSelectionToWord_CheckCaption''; rValue : ''Всегда экспортировать выделенные элементы'')'
+
+ref; // ME_0D357ED73082 ListExportSelectionToWord_CheckCaption
+
+: ME_4F63CF72DC42
+ CONST UID '4F63CF72DC42'
+ CONST Name 'ListExportSelectionToWord_SettingsCaption'
+ CONST IsSummoned true
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_F46813F4C158 // LCImplAsks
+ ;
+ : Target WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
+ ;
+ CONST Value '(rS : -1; rLocalized : false; rKey : ''ListExportSelectionToWord_SettingsCaption''; rValue : ''Экспорт в MS-Word'')'
+ : ValueType WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
+ ;
+ CONST "AutoInc" false
+ CONST "forced type" 'none'
+ CONST "is define" false
+ CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''ListExportSelectionToWord_SettingsCaption''; rValue : ''Экспорт в MS-Word'')'
+
+ref; // ME_4F63CF72DC42 ListExportSelectionToWord_SettingsCaption
+
+: ME_26B0E0469708
+ CONST UID '26B0E0469708'
+ CONST Name 'ListExportSelectionToWord_LongHint'
+ CONST IsSummoned true
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_F46813F4C158 // LCImplAsks
+ ;
+ : Target WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
+ ;
+ CONST Value '(rS : -1; rLocalized : false; rKey : ''ListExportSelectionToWord_LongHint''; rValue : ''Подтверждение при открытии в MS-Word выделенных элементов'')'
+ : ValueType WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
+ ;
+ CONST "AutoInc" false
+ CONST "forced type" 'none'
+ CONST "is define" false
+ CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''ListExportSelectionToWord_LongHint''; rValue : ''Подтверждение при открытии в MS-Word выделенных элементов'')'
+
+ref; // ME_26B0E0469708 ListExportSelectionToWord_LongHint
+
+: ME_F46813F4C158
+ CONST UID 'F46813F4C158'
+ CONST Name 'LCImplAsks'
+ CONST IsSummoned true
+ CONST Class class_Class
+ : Stereotype st_Constants ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Локализуемые строки Asks' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4F9A9C6803D4 // nsQuestions
+ ;
+ : Attributes
+   Seq: ( ME_6AC0D65B7F7E // DocumentEMailSelection
+ ME_E73EA8BE3715 // ListEMailSelection
+ ME_336A7DF9F896 // ListPrintSelectedConfirmation
+ ME_5BD8DC2DEA2A // PrintSelectedConfirmation
+ ME_F790A2D39CB4 // ExportSelectionToWord
+ ME_047DE089DBCE // ListExportSelectionToWord
+ ME_8D0EFC103C0E // ConsultDocumentsNotFound
+ ME_17661BAA16A4 // ConsultDocumentsNotFoundNoSpec
+ ME_5B9CDBEE4841 // DocumentEMailSelection_CheckCaption
+ ME_3436BE96D939 // DocumentEMailSelection_SettingsCaption
+ ME_276ACD67CE3B // DocumentEMailSelection_LongHint
+ ME_1B9265629666 // ListEMailSelection_CheckCaption
+ ME_1F25B63E6327 // ListEMailSelection_SettingsCaption
+ ME_015D8546116A // ListEMailSelection_LongHint
+ ME_767D3239D2D3 // ListPrintSelectedConfirmation_CheckCaption
+ ME_9862C0D1880F // ListPrintSelectedConfirmation_SettingsCaption
+ ME_10306FE2104C // ListPrintSelectedConfirmation_LongHint
+ ME_3639BD63AD20 // PrintSelectedConfirmation_CheckCaption
+ ME_F5BB68FB5DA6 // PrintSelectedConfirmation_SettingsCaption
+ ME_794D4C2DB458 // PrintSelectedConfirmation_LongHint
+ ME_A6B07485EA0A // ExportSelectionToWord_CheckCaption
+ ME_E72228376A80 // ExportSelectionToWord_SettingsCaption
+ ME_582892E4EB03 // ExportSelectionToWord_LongHint
+ ME_0D357ED73082 // ListExportSelectionToWord_CheckCaption
+ ME_4F63CF72DC42 // ListExportSelectionToWord_SettingsCaption
+ ME_26B0E0469708 // ListExportSelectionToWord_LongHint
+ )
+ ; // Attributes
+ CONST "elements prefix" 'str'
+ CONST "spell names" false
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Data'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Data'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\Data'
+ CONST extprop:pas:ElementPrefixBase 'str'
+ CONST extprop:pas:ElementPrefix 'str_'
+
+ref; // ME_F46813F4C158 LCImplAsks
+
+: ME_D08C4CD12D8B
+ CONST UID 'D08C4CD12D8B'
+ CONST Name 'Init_Str_DocumentEMailSelection_Choice_Selection'
+ CONST IsSummoned true
+ CONST Class class_Operation
+ : Stereotype st_ini::Operation ;
+ %SUMMARY 'Инициализация str_DocumentEMailSelection_Choice_Selection' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_4F9A9C6803D4 // nsQuestions
+ ;
+ : Speller ME_4F9A980E032F // Selection
+ ;
+ : SpelledFor ME_2550AF876D56 // DocumentEMailSelection_Choice_Selection
+ ;
+
+ref; // ME_D08C4CD12D8B Init_Str_DocumentEMailSelection_Choice_Selection
+
+: ME_C446F58154F2
+ CONST UID 'C446F58154F2'
+ CONST Name 'Init_Str_DocumentEMailSelection_Choice_WholeDocument'
+ CONST IsSummoned true
+ CONST Class class_Operation
+ : Stereotype st_ini::Operation ;
+ %SUMMARY 'Инициализация str_DocumentEMailSelection_Choice_WholeDocument' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_4F9A9C6803D4 // nsQuestions
+ ;
+ : Speller ME_4F9A981F0126 // WholeDocument
+ ;
+ : SpelledFor ME_817F4CEAD54C // DocumentEMailSelection_Choice_WholeDocument
+ ;
+
+ref; // ME_C446F58154F2 Init_Str_DocumentEMailSelection_Choice_WholeDocument
+
+: ME_ADBB335689D7
+ CONST UID 'ADBB335689D7'
+ CONST Name 'Init_Str_ListEMailSelection_Choice_Selected'
+ CONST IsSummoned true
+ CONST Class class_Operation
+ : Stereotype st_ini::Operation ;
+ %SUMMARY 'Инициализация str_ListEMailSelection_Choice_Selected' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_4F9A9C6803D4 // nsQuestions
+ ;
+ : Speller ME_4F9A9D470071 // Selected
+ ;
+ : SpelledFor ME_0692F4DB06E2 // ListEMailSelection_Choice_Selected
+ ;
+
+ref; // ME_ADBB335689D7 Init_Str_ListEMailSelection_Choice_Selected
+
+: ME_8B797973A9B7
+ CONST UID '8B797973A9B7'
+ CONST Name 'Init_Str_ListEMailSelection_Choice_WholeList'
+ CONST IsSummoned true
+ CONST Class class_Operation
+ : Stereotype st_ini::Operation ;
+ %SUMMARY 'Инициализация str_ListEMailSelection_Choice_WholeList' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_4F9A9C6803D4 // nsQuestions
+ ;
+ : Speller ME_4F9A9D5602BE // WholeList
+ ;
+ : SpelledFor ME_672A20D7C88F // ListEMailSelection_Choice_WholeList
+ ;
+
+ref; // ME_8B797973A9B7 Init_Str_ListEMailSelection_Choice_WholeList
+
+: ME_A58F44EBF5B8
+ CONST UID 'A58F44EBF5B8'
+ CONST Name 'Init_Str_ListPrintSelectedConfirmation_Choice_Selected'
+ CONST IsSummoned true
+ CONST Class class_Operation
+ : Stereotype st_ini::Operation ;
+ %SUMMARY 'Инициализация str_ListPrintSelectedConfirmation_Choice_Selected' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_4F9A9C6803D4 // nsQuestions
+ ;
+ : Speller ME_4F9A9DD0022C // Selected
+ ;
+ : SpelledFor ME_1EBF4D455E1E // ListPrintSelectedConfirmation_Choice_Selected
+ ;
+
+ref; // ME_A58F44EBF5B8 Init_Str_ListPrintSelectedConfirmation_Choice_Selected
+
+: ME_76F446D82D6F
+ CONST UID '76F446D82D6F'
+ CONST Name 'Init_Str_ListPrintSelectedConfirmation_Choice_WholeList'
+ CONST IsSummoned true
+ CONST Class class_Operation
+ : Stereotype st_ini::Operation ;
+ %SUMMARY 'Инициализация str_ListPrintSelectedConfirmation_Choice_WholeList' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_4F9A9C6803D4 // nsQuestions
+ ;
+ : Speller ME_4F9A9DE00280 // WholeList
+ ;
+ : SpelledFor ME_304381F8030F // ListPrintSelectedConfirmation_Choice_WholeList
+ ;
+
+ref; // ME_76F446D82D6F Init_Str_ListPrintSelectedConfirmation_Choice_WholeList
+
+: ME_877089F035DA
+ CONST UID '877089F035DA'
+ CONST Name 'Init_Str_PrintSelectedConfirmation_Choice_Selected'
+ CONST IsSummoned true
+ CONST Class class_Operation
+ : Stereotype st_ini::Operation ;
+ %SUMMARY 'Инициализация str_PrintSelectedConfirmation_Choice_Selected' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_4F9A9C6803D4 // nsQuestions
+ ;
+ : Speller ME_4F9A9EDE028B // Selected
+ ;
+ : SpelledFor ME_55B19A2CB6C0 // PrintSelectedConfirmation_Choice_Selected
+ ;
+
+ref; // ME_877089F035DA Init_Str_PrintSelectedConfirmation_Choice_Selected
+
+: ME_1E7BAD3112C1
+ CONST UID '1E7BAD3112C1'
+ CONST Name 'Init_Str_PrintSelectedConfirmation_Choice_WholeDocument'
+ CONST IsSummoned true
+ CONST Class class_Operation
+ : Stereotype st_ini::Operation ;
+ %SUMMARY 'Инициализация str_PrintSelectedConfirmation_Choice_WholeDocument' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_4F9A9C6803D4 // nsQuestions
+ ;
+ : Speller ME_4F9A9EF30089 // WholeDocument
+ ;
+ : SpelledFor ME_A815B1D1B27B // PrintSelectedConfirmation_Choice_WholeDocument
+ ;
+
+ref; // ME_1E7BAD3112C1 Init_Str_PrintSelectedConfirmation_Choice_WholeDocument
+
+: ME_62166B79CEB2
+ CONST UID '62166B79CEB2'
+ CONST Name 'Init_Str_ExportSelectionToWord_Choice_Selected'
+ CONST IsSummoned true
+ CONST Class class_Operation
+ : Stereotype st_ini::Operation ;
+ %SUMMARY 'Инициализация str_ExportSelectionToWord_Choice_Selected' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_4F9A9C6803D4 // nsQuestions
+ ;
+ : Speller ME_4F9A9F670013 // Selected
+ ;
+ : SpelledFor ME_5B6A5C2AE4E1 // ExportSelectionToWord_Choice_Selected
+ ;
+
+ref; // ME_62166B79CEB2 Init_Str_ExportSelectionToWord_Choice_Selected
+
+: ME_9C90AE5082FB
+ CONST UID '9C90AE5082FB'
+ CONST Name 'Init_Str_ExportSelectionToWord_Choice_WholeDocument'
+ CONST IsSummoned true
+ CONST Class class_Operation
+ : Stereotype st_ini::Operation ;
+ %SUMMARY 'Инициализация str_ExportSelectionToWord_Choice_WholeDocument' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_4F9A9C6803D4 // nsQuestions
+ ;
+ : Speller ME_4F9A9F7502CB // WholeDocument
+ ;
+ : SpelledFor ME_CCEB1A7F426D // ExportSelectionToWord_Choice_WholeDocument
+ ;
+
+ref; // ME_9C90AE5082FB Init_Str_ExportSelectionToWord_Choice_WholeDocument
+
+: ME_3F40099BE60C
+ CONST UID '3F40099BE60C'
+ CONST Name 'Init_Str_ListExportSelectionToWord_Choice_Selected'
+ CONST IsSummoned true
+ CONST Class class_Operation
+ : Stereotype st_ini::Operation ;
+ %SUMMARY 'Инициализация str_ListExportSelectionToWord_Choice_Selected' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_4F9A9C6803D4 // nsQuestions
+ ;
+ : Speller ME_4F9AA01E0031 // Selected
+ ;
+ : SpelledFor ME_FD1D8C02A25D // ListExportSelectionToWord_Choice_Selected
+ ;
+
+ref; // ME_3F40099BE60C Init_Str_ListExportSelectionToWord_Choice_Selected
+
+: ME_29BF49D57AAF
+ CONST UID '29BF49D57AAF'
+ CONST Name 'Init_Str_ListExportSelectionToWord_Choice_WholeList'
+ CONST IsSummoned true
+ CONST Class class_Operation
+ : Stereotype st_ini::Operation ;
+ %SUMMARY 'Инициализация str_ListExportSelectionToWord_Choice_WholeList' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_4F9A9C6803D4 // nsQuestions
+ ;
+ : Speller ME_4F9AA0300173 // WholeList
+ ;
+ : SpelledFor ME_97BBFBEB37EB // ListExportSelectionToWord_Choice_WholeList
+ ;
+
+ref; // ME_29BF49D57AAF Init_Str_ListExportSelectionToWord_Choice_WholeList
+
+: ME_4178C851D2BA
+ CONST UID '4178C851D2BA'
+ CONST Name 'Init_Str_ConsultDocumentsNotFound_Choice_Spec'
+ CONST IsSummoned true
+ CONST Class class_Operation
+ : Stereotype st_ini::Operation ;
+ %SUMMARY 'Инициализация str_ConsultDocumentsNotFound_Choice_Spec' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_4F9A9C6803D4 // nsQuestions
+ ;
+ : Speller ME_4F9ABD4202DA // Spec
+ ;
+ : SpelledFor ME_95EF818C0469 // ConsultDocumentsNotFound_Choice_Spec
+ ;
+
+ref; // ME_4178C851D2BA Init_Str_ConsultDocumentsNotFound_Choice_Spec
+
+: ME_7C693817A237
+ CONST UID '7C693817A237'
+ CONST Name 'Init_Str_ConsultDocumentsNotFound_Choice_Back'
+ CONST IsSummoned true
+ CONST Class class_Operation
+ : Stereotype st_ini::Operation ;
+ %SUMMARY 'Инициализация str_ConsultDocumentsNotFound_Choice_Back' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_4F9A9C6803D4 // nsQuestions
+ ;
+ : Speller ME_4F9ABD54028B // Back
+ ;
+ : SpelledFor ME_085B95DAA3A6 // ConsultDocumentsNotFound_Choice_Back
+ ;
+
+ref; // ME_7C693817A237 Init_Str_ConsultDocumentsNotFound_Choice_Back
+
+: ME_98A3D0CE2A1D
+ CONST UID '98A3D0CE2A1D'
+ CONST Name 'Init_Str_ConsultDocumentsNotFoundNoSpec_Choice_Back'
+ CONST IsSummoned true
+ CONST Class class_Operation
+ : Stereotype st_ini::Operation ;
+ %SUMMARY 'Инициализация str_ConsultDocumentsNotFoundNoSpec_Choice_Back' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_4F9A9C6803D4 // nsQuestions
+ ;
+ : Speller ME_527382EB03A9 // Back
+ ;
+ : SpelledFor ME_A03254C603EE // ConsultDocumentsNotFoundNoSpec_Choice_Back
+ ;
+
+ref; // ME_98A3D0CE2A1D Init_Str_ConsultDocumentsNotFoundNoSpec_Choice_Back
+
+: ME_9661BBF9A9E4
+ CONST UID '9661BBF9A9E4'
+ CONST Name 'Init_Str_DocumentEMailSelection'
+ CONST IsSummoned true
+ CONST Class class_Operation
+ : Stereotype st_ini::Operation ;
+ %SUMMARY 'Инициализация str_DocumentEMailSelection' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_4F9A9C6803D4 // nsQuestions
+ ;
+ : Speller ME_4F9A97A000B5 // DocumentEMailSelection
+ ;
+ : SpelledFor ME_6AC0D65B7F7E // DocumentEMailSelection
+ ;
+
+ref; // ME_9661BBF9A9E4 Init_Str_DocumentEMailSelection
+
+: ME_5E82EB288DDE
+ CONST UID '5E82EB288DDE'
+ CONST Name 'Init_Str_ListEMailSelection'
+ CONST IsSummoned true
+ CONST Class class_Operation
+ : Stereotype st_ini::Operation ;
+ %SUMMARY 'Инициализация str_ListEMailSelection' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_4F9A9C6803D4 // nsQuestions
+ ;
+ : Speller ME_4F9A9CE80132 // ListEMailSelection
+ ;
+ : SpelledFor ME_E73EA8BE3715 // ListEMailSelection
+ ;
+
+ref; // ME_5E82EB288DDE Init_Str_ListEMailSelection
+
+: ME_3CD8DE57FC20
+ CONST UID '3CD8DE57FC20'
+ CONST Name 'Init_Str_ListPrintSelectedConfirmation'
+ CONST IsSummoned true
+ CONST Class class_Operation
+ : Stereotype st_ini::Operation ;
+ %SUMMARY 'Инициализация str_ListPrintSelectedConfirmation' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_4F9A9C6803D4 // nsQuestions
+ ;
+ : Speller ME_4F9A9D8400FB // ListPrintSelectedConfirmation
+ ;
+ : SpelledFor ME_336A7DF9F896 // ListPrintSelectedConfirmation
+ ;
+
+ref; // ME_3CD8DE57FC20 Init_Str_ListPrintSelectedConfirmation
+
+: ME_E03BBE8C7C8F
+ CONST UID 'E03BBE8C7C8F'
+ CONST Name 'Init_Str_PrintSelectedConfirmation'
+ CONST IsSummoned true
+ CONST Class class_Operation
+ : Stereotype st_ini::Operation ;
+ %SUMMARY 'Инициализация str_PrintSelectedConfirmation' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_4F9A9C6803D4 // nsQuestions
+ ;
+ : Speller ME_4F9A9EA50070 // PrintSelectedConfirmation
+ ;
+ : SpelledFor ME_5BD8DC2DEA2A // PrintSelectedConfirmation
+ ;
+
+ref; // ME_E03BBE8C7C8F Init_Str_PrintSelectedConfirmation
+
+: ME_664E44C81600
+ CONST UID '664E44C81600'
+ CONST Name 'Init_Str_ExportSelectionToWord'
+ CONST IsSummoned true
+ CONST Class class_Operation
+ : Stereotype st_ini::Operation ;
+ %SUMMARY 'Инициализация str_ExportSelectionToWord' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_4F9A9C6803D4 // nsQuestions
+ ;
+ : Speller ME_4F9A9F2201B2 // ExportSelectionToWord
+ ;
+ : SpelledFor ME_F790A2D39CB4 // ExportSelectionToWord
+ ;
+
+ref; // ME_664E44C81600 Init_Str_ExportSelectionToWord
+
+: ME_3F9C93B567BF
+ CONST UID '3F9C93B567BF'
+ CONST Name 'Init_Str_ListExportSelectionToWord'
+ CONST IsSummoned true
+ CONST Class class_Operation
+ : Stereotype st_ini::Operation ;
+ %SUMMARY 'Инициализация str_ListExportSelectionToWord' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_4F9A9C6803D4 // nsQuestions
+ ;
+ : Speller ME_4F9A9FA3007C // ListExportSelectionToWord
+ ;
+ : SpelledFor ME_047DE089DBCE // ListExportSelectionToWord
+ ;
+
+ref; // ME_3F9C93B567BF Init_Str_ListExportSelectionToWord
+
+: ME_8F5661060F98
+ CONST UID '8F5661060F98'
+ CONST Name 'Init_Str_ConsultDocumentsNotFound'
+ CONST IsSummoned true
+ CONST Class class_Operation
+ : Stereotype st_ini::Operation ;
+ %SUMMARY 'Инициализация str_ConsultDocumentsNotFound' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_4F9A9C6803D4 // nsQuestions
+ ;
+ : Speller ME_4F9ABD110202 // ConsultDocumentsNotFound
+ ;
+ : SpelledFor ME_8D0EFC103C0E // ConsultDocumentsNotFound
+ ;
+
+ref; // ME_8F5661060F98 Init_Str_ConsultDocumentsNotFound
+
+: ME_A90A47432457
+ CONST UID 'A90A47432457'
+ CONST Name 'Init_Str_ConsultDocumentsNotFoundNoSpec'
+ CONST IsSummoned true
+ CONST Class class_Operation
+ : Stereotype st_ini::Operation ;
+ %SUMMARY 'Инициализация str_ConsultDocumentsNotFoundNoSpec' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_4F9A9C6803D4 // nsQuestions
+ ;
+ : Speller ME_5273829D012E // ConsultDocumentsNotFoundNoSpec
+ ;
+ : SpelledFor ME_17661BAA16A4 // ConsultDocumentsNotFoundNoSpec
+ ;
+
+ref; // ME_A90A47432457 Init_Str_ConsultDocumentsNotFoundNoSpec
+
+: ME_8EA22AC5E459
+ CONST UID '8EA22AC5E459'
+ CONST Name 'Init_Str_DocumentEMailSelection_CheckCaption'
+ CONST IsSummoned true
+ CONST Class class_Operation
+ : Stereotype st_ini::Operation ;
+ %SUMMARY 'Инициализация str_DocumentEMailSelection_CheckCaption' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_4F9A9C6803D4 // nsQuestions
+ ;
+ : Speller ME_A11CF2ABA866 // DocumentEMailSelection_CheckCaption
+ ;
+ : SpelledFor ME_5B9CDBEE4841 // DocumentEMailSelection_CheckCaption
+ ;
+
+ref; // ME_8EA22AC5E459 Init_Str_DocumentEMailSelection_CheckCaption
+
+: ME_BB02BF1AF6EE
+ CONST UID 'BB02BF1AF6EE'
+ CONST Name 'Init_Str_DocumentEMailSelection_SettingsCaption'
+ CONST IsSummoned true
+ CONST Class class_Operation
+ : Stereotype st_ini::Operation ;
+ %SUMMARY 'Инициализация str_DocumentEMailSelection_SettingsCaption' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_4F9A9C6803D4 // nsQuestions
+ ;
+ : Speller ME_05B687D0717C // DocumentEMailSelection_SettingsCaption
+ ;
+ : SpelledFor ME_3436BE96D939 // DocumentEMailSelection_SettingsCaption
+ ;
+
+ref; // ME_BB02BF1AF6EE Init_Str_DocumentEMailSelection_SettingsCaption
+
+: ME_E3D8EA441E91
+ CONST UID 'E3D8EA441E91'
+ CONST Name 'Init_Str_DocumentEMailSelection_LongHint'
+ CONST IsSummoned true
+ CONST Class class_Operation
+ : Stereotype st_ini::Operation ;
+ %SUMMARY 'Инициализация str_DocumentEMailSelection_LongHint' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_4F9A9C6803D4 // nsQuestions
+ ;
+ : Speller ME_C00CB26D1597 // DocumentEMailSelection_LongHint
+ ;
+ : SpelledFor ME_276ACD67CE3B // DocumentEMailSelection_LongHint
+ ;
+
+ref; // ME_E3D8EA441E91 Init_Str_DocumentEMailSelection_LongHint
+
+: ME_8C6583C7D8E8
+ CONST UID '8C6583C7D8E8'
+ CONST Name 'Init_Str_ListEMailSelection_CheckCaption'
+ CONST IsSummoned true
+ CONST Class class_Operation
+ : Stereotype st_ini::Operation ;
+ %SUMMARY 'Инициализация str_ListEMailSelection_CheckCaption' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_4F9A9C6803D4 // nsQuestions
+ ;
+ : Speller ME_7FAC13D5FCE0 // ListEMailSelection_CheckCaption
+ ;
+ : SpelledFor ME_1B9265629666 // ListEMailSelection_CheckCaption
+ ;
+
+ref; // ME_8C6583C7D8E8 Init_Str_ListEMailSelection_CheckCaption
+
+: ME_74853FE561F8
+ CONST UID '74853FE561F8'
+ CONST Name 'Init_Str_ListEMailSelection_SettingsCaption'
+ CONST IsSummoned true
+ CONST Class class_Operation
+ : Stereotype st_ini::Operation ;
+ %SUMMARY 'Инициализация str_ListEMailSelection_SettingsCaption' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_4F9A9C6803D4 // nsQuestions
+ ;
+ : Speller ME_6230D8B6C1E9 // ListEMailSelection_SettingsCaption
+ ;
+ : SpelledFor ME_1F25B63E6327 // ListEMailSelection_SettingsCaption
+ ;
+
+ref; // ME_74853FE561F8 Init_Str_ListEMailSelection_SettingsCaption
+
+: ME_E7A941CD8F36
+ CONST UID 'E7A941CD8F36'
+ CONST Name 'Init_Str_ListEMailSelection_LongHint'
+ CONST IsSummoned true
+ CONST Class class_Operation
+ : Stereotype st_ini::Operation ;
+ %SUMMARY 'Инициализация str_ListEMailSelection_LongHint' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_4F9A9C6803D4 // nsQuestions
+ ;
+ : Speller ME_5FD7955D6772 // ListEMailSelection_LongHint
+ ;
+ : SpelledFor ME_015D8546116A // ListEMailSelection_LongHint
+ ;
+
+ref; // ME_E7A941CD8F36 Init_Str_ListEMailSelection_LongHint
+
+: ME_B258A4CEC1EA
+ CONST UID 'B258A4CEC1EA'
+ CONST Name 'Init_Str_ListPrintSelectedConfirmation_CheckCaption'
+ CONST IsSummoned true
+ CONST Class class_Operation
+ : Stereotype st_ini::Operation ;
+ %SUMMARY 'Инициализация str_ListPrintSelectedConfirmation_CheckCaption' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_4F9A9C6803D4 // nsQuestions
+ ;
+ : Speller ME_B3C08296F672 // ListPrintSelectedConfirmation_CheckCaption
+ ;
+ : SpelledFor ME_767D3239D2D3 // ListPrintSelectedConfirmation_CheckCaption
+ ;
+
+ref; // ME_B258A4CEC1EA Init_Str_ListPrintSelectedConfirmation_CheckCaption
+
+: ME_FBAEE2C5042E
+ CONST UID 'FBAEE2C5042E'
+ CONST Name 'Init_Str_ListPrintSelectedConfirmation_SettingsCaption'
+ CONST IsSummoned true
+ CONST Class class_Operation
+ : Stereotype st_ini::Operation ;
+ %SUMMARY 'Инициализация str_ListPrintSelectedConfirmation_SettingsCaption' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_4F9A9C6803D4 // nsQuestions
+ ;
+ : Speller ME_D65A435E2B4B // ListPrintSelectedConfirmation_SettingsCaption
+ ;
+ : SpelledFor ME_9862C0D1880F // ListPrintSelectedConfirmation_SettingsCaption
+ ;
+
+ref; // ME_FBAEE2C5042E Init_Str_ListPrintSelectedConfirmation_SettingsCaption
+
+: ME_580D7A490108
+ CONST UID '580D7A490108'
+ CONST Name 'Init_Str_ListPrintSelectedConfirmation_LongHint'
+ CONST IsSummoned true
+ CONST Class class_Operation
+ : Stereotype st_ini::Operation ;
+ %SUMMARY 'Инициализация str_ListPrintSelectedConfirmation_LongHint' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_4F9A9C6803D4 // nsQuestions
+ ;
+ : Speller ME_37B771881FD3 // ListPrintSelectedConfirmation_LongHint
+ ;
+ : SpelledFor ME_10306FE2104C // ListPrintSelectedConfirmation_LongHint
+ ;
+
+ref; // ME_580D7A490108 Init_Str_ListPrintSelectedConfirmation_LongHint
+
+: ME_410336B58A51
+ CONST UID '410336B58A51'
+ CONST Name 'Init_Str_PrintSelectedConfirmation_CheckCaption'
+ CONST IsSummoned true
+ CONST Class class_Operation
+ : Stereotype st_ini::Operation ;
+ %SUMMARY 'Инициализация str_PrintSelectedConfirmation_CheckCaption' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_4F9A9C6803D4 // nsQuestions
+ ;
+ : Speller ME_9E56D232515D // PrintSelectedConfirmation_CheckCaption
+ ;
+ : SpelledFor ME_3639BD63AD20 // PrintSelectedConfirmation_CheckCaption
+ ;
+
+ref; // ME_410336B58A51 Init_Str_PrintSelectedConfirmation_CheckCaption
+
+: ME_BF467DAABB94
+ CONST UID 'BF467DAABB94'
+ CONST Name 'Init_Str_PrintSelectedConfirmation_SettingsCaption'
+ CONST IsSummoned true
+ CONST Class class_Operation
+ : Stereotype st_ini::Operation ;
+ %SUMMARY 'Инициализация str_PrintSelectedConfirmation_SettingsCaption' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_4F9A9C6803D4 // nsQuestions
+ ;
+ : Speller ME_08BEC8A9A38F // PrintSelectedConfirmation_SettingsCaption
+ ;
+ : SpelledFor ME_F5BB68FB5DA6 // PrintSelectedConfirmation_SettingsCaption
+ ;
+
+ref; // ME_BF467DAABB94 Init_Str_PrintSelectedConfirmation_SettingsCaption
+
+: ME_A44E21025173
+ CONST UID 'A44E21025173'
+ CONST Name 'Init_Str_PrintSelectedConfirmation_LongHint'
+ CONST IsSummoned true
+ CONST Class class_Operation
+ : Stereotype st_ini::Operation ;
+ %SUMMARY 'Инициализация str_PrintSelectedConfirmation_LongHint' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_4F9A9C6803D4 // nsQuestions
+ ;
+ : Speller ME_E3DE32BC5DD7 // PrintSelectedConfirmation_LongHint
+ ;
+ : SpelledFor ME_794D4C2DB458 // PrintSelectedConfirmation_LongHint
+ ;
+
+ref; // ME_A44E21025173 Init_Str_PrintSelectedConfirmation_LongHint
+
+: ME_136D127E3562
+ CONST UID '136D127E3562'
+ CONST Name 'Init_Str_ExportSelectionToWord_CheckCaption'
+ CONST IsSummoned true
+ CONST Class class_Operation
+ : Stereotype st_ini::Operation ;
+ %SUMMARY 'Инициализация str_ExportSelectionToWord_CheckCaption' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_4F9A9C6803D4 // nsQuestions
+ ;
+ : Speller ME_ADB17A353755 // ExportSelectionToWord_CheckCaption
+ ;
+ : SpelledFor ME_A6B07485EA0A // ExportSelectionToWord_CheckCaption
+ ;
+
+ref; // ME_136D127E3562 Init_Str_ExportSelectionToWord_CheckCaption
+
+: ME_D4D6C1088A67
+ CONST UID 'D4D6C1088A67'
+ CONST Name 'Init_Str_ExportSelectionToWord_SettingsCaption'
+ CONST IsSummoned true
+ CONST Class class_Operation
+ : Stereotype st_ini::Operation ;
+ %SUMMARY 'Инициализация str_ExportSelectionToWord_SettingsCaption' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_4F9A9C6803D4 // nsQuestions
+ ;
+ : Speller ME_36181C8C91CC // ExportSelectionToWord_SettingsCaption
+ ;
+ : SpelledFor ME_E72228376A80 // ExportSelectionToWord_SettingsCaption
+ ;
+
+ref; // ME_D4D6C1088A67 Init_Str_ExportSelectionToWord_SettingsCaption
+
+: ME_0AA92875C3EE
+ CONST UID '0AA92875C3EE'
+ CONST Name 'Init_Str_ExportSelectionToWord_LongHint'
+ CONST IsSummoned true
+ CONST Class class_Operation
+ : Stereotype st_ini::Operation ;
+ %SUMMARY 'Инициализация str_ExportSelectionToWord_LongHint' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_4F9A9C6803D4 // nsQuestions
+ ;
+ : Speller ME_E3BE167C85D7 // ExportSelectionToWord_LongHint
+ ;
+ : SpelledFor ME_582892E4EB03 // ExportSelectionToWord_LongHint
+ ;
+
+ref; // ME_0AA92875C3EE Init_Str_ExportSelectionToWord_LongHint
+
+: ME_12A8AF649C1A
+ CONST UID '12A8AF649C1A'
+ CONST Name 'Init_Str_ListExportSelectionToWord_CheckCaption'
+ CONST IsSummoned true
+ CONST Class class_Operation
+ : Stereotype st_ini::Operation ;
+ %SUMMARY 'Инициализация str_ListExportSelectionToWord_CheckCaption' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_4F9A9C6803D4 // nsQuestions
+ ;
+ : Speller ME_CBE5D3988148 // ListExportSelectionToWord_CheckCaption
+ ;
+ : SpelledFor ME_0D357ED73082 // ListExportSelectionToWord_CheckCaption
+ ;
+
+ref; // ME_12A8AF649C1A Init_Str_ListExportSelectionToWord_CheckCaption
+
+: ME_489A081F0940
+ CONST UID '489A081F0940'
+ CONST Name 'Init_Str_ListExportSelectionToWord_SettingsCaption'
+ CONST IsSummoned true
+ CONST Class class_Operation
+ : Stereotype st_ini::Operation ;
+ %SUMMARY 'Инициализация str_ListExportSelectionToWord_SettingsCaption' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_4F9A9C6803D4 // nsQuestions
+ ;
+ : Speller ME_CF57709EF2A4 // ListExportSelectionToWord_SettingsCaption
+ ;
+ : SpelledFor ME_4F63CF72DC42 // ListExportSelectionToWord_SettingsCaption
+ ;
+
+ref; // ME_489A081F0940 Init_Str_ListExportSelectionToWord_SettingsCaption
+
+: ME_2A71CEDF5D10
+ CONST UID '2A71CEDF5D10'
+ CONST Name 'Init_Str_ListExportSelectionToWord_LongHint'
+ CONST IsSummoned true
+ CONST Class class_Operation
+ : Stereotype st_ini::Operation ;
+ %SUMMARY 'Инициализация str_ListExportSelectionToWord_LongHint' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_4F9A9C6803D4 // nsQuestions
+ ;
+ : Speller ME_1A86C3981ADD // ListExportSelectionToWord_LongHint
+ ;
+ : SpelledFor ME_26B0E0469708 // ListExportSelectionToWord_LongHint
+ ;
+
+ref; // ME_2A71CEDF5D10 Init_Str_ListExportSelectionToWord_LongHint
+
+: ME_2113CB5A9D0D
+ CONST UID '2113CB5A9D0D'
+ CONST IsSummoned true
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4F9A9C6803D4 // nsQuestions
+ ;
+ : Target WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
+ ;
+
+ref; // ME_2113CB5A9D0D 
+
+: ME_146A169426C1
+ CONST UID '146A169426C1'
+ CONST IsSummoned true
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4F9A9C6803D4 // nsQuestions
+ ;
+ : Target WL 'ME_4E01D1E002AE' '4F9BDEEE01BC.pas.ms.script' // Tl3MessageID
+ ;
+
+ref; // ME_146A169426C1 
+
+: ME_3A3A8273DE85
+ CONST UID '3A3A8273DE85'
+ CONST IsSummoned true
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4F9A9C6803D4 // nsQuestions
+ ;
+ : Target WL 'ME_4AB0EE02004E' '4799D29F033F.pas.ms.script' // Dialogs
+ ;
+
+ref; // ME_3A3A8273DE85 
+
+: ME_4F9A9C6803D4
+ CONST UID '4F9A9C6803D4'
+ CONST Name 'nsQuestions'
+ CONST Class class_Class
+ : Stereotype st_UtilityPack ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_4F9BB1120134 // Сюда вынес все сообщения из StdRes с Choices
+ ;
+ : Operations
+   Seq: ( ME_D08C4CD12D8B // Init_Str_DocumentEMailSelection_Choice_Selection
+ ME_C446F58154F2 // Init_Str_DocumentEMailSelection_Choice_WholeDocument
+ ME_ADBB335689D7 // Init_Str_ListEMailSelection_Choice_Selected
+ ME_8B797973A9B7 // Init_Str_ListEMailSelection_Choice_WholeList
+ ME_A58F44EBF5B8 // Init_Str_ListPrintSelectedConfirmation_Choice_Selected
+ ME_76F446D82D6F // Init_Str_ListPrintSelectedConfirmation_Choice_WholeList
+ ME_877089F035DA // Init_Str_PrintSelectedConfirmation_Choice_Selected
+ ME_1E7BAD3112C1 // Init_Str_PrintSelectedConfirmation_Choice_WholeDocument
+ ME_62166B79CEB2 // Init_Str_ExportSelectionToWord_Choice_Selected
+ ME_9C90AE5082FB // Init_Str_ExportSelectionToWord_Choice_WholeDocument
+ ME_3F40099BE60C // Init_Str_ListExportSelectionToWord_Choice_Selected
+ ME_29BF49D57AAF // Init_Str_ListExportSelectionToWord_Choice_WholeList
+ ME_4178C851D2BA // Init_Str_ConsultDocumentsNotFound_Choice_Spec
+ ME_7C693817A237 // Init_Str_ConsultDocumentsNotFound_Choice_Back
+ ME_98A3D0CE2A1D // Init_Str_ConsultDocumentsNotFoundNoSpec_Choice_Back
+ ME_9661BBF9A9E4 // Init_Str_DocumentEMailSelection
+ ME_5E82EB288DDE // Init_Str_ListEMailSelection
+ ME_3CD8DE57FC20 // Init_Str_ListPrintSelectedConfirmation
+ ME_E03BBE8C7C8F // Init_Str_PrintSelectedConfirmation
+ ME_664E44C81600 // Init_Str_ExportSelectionToWord
+ ME_3F9C93B567BF // Init_Str_ListExportSelectionToWord
+ ME_8F5661060F98 // Init_Str_ConsultDocumentsNotFound
+ ME_A90A47432457 // Init_Str_ConsultDocumentsNotFoundNoSpec
+ ME_8EA22AC5E459 // Init_Str_DocumentEMailSelection_CheckCaption
+ ME_BB02BF1AF6EE // Init_Str_DocumentEMailSelection_SettingsCaption
+ ME_E3D8EA441E91 // Init_Str_DocumentEMailSelection_LongHint
+ ME_8C6583C7D8E8 // Init_Str_ListEMailSelection_CheckCaption
+ ME_74853FE561F8 // Init_Str_ListEMailSelection_SettingsCaption
+ ME_E7A941CD8F36 // Init_Str_ListEMailSelection_LongHint
+ ME_B258A4CEC1EA // Init_Str_ListPrintSelectedConfirmation_CheckCaption
+ ME_FBAEE2C5042E // Init_Str_ListPrintSelectedConfirmation_SettingsCaption
+ ME_580D7A490108 // Init_Str_ListPrintSelectedConfirmation_LongHint
+ ME_410336B58A51 // Init_Str_PrintSelectedConfirmation_CheckCaption
+ ME_BF467DAABB94 // Init_Str_PrintSelectedConfirmation_SettingsCaption
+ ME_A44E21025173 // Init_Str_PrintSelectedConfirmation_LongHint
+ ME_136D127E3562 // Init_Str_ExportSelectionToWord_CheckCaption
+ ME_D4D6C1088A67 // Init_Str_ExportSelectionToWord_SettingsCaption
+ ME_0AA92875C3EE // Init_Str_ExportSelectionToWord_LongHint
+ ME_12A8AF649C1A // Init_Str_ListExportSelectionToWord_CheckCaption
+ ME_489A081F0940 // Init_Str_ListExportSelectionToWord_SettingsCaption
+ ME_2A71CEDF5D10 // Init_Str_ListExportSelectionToWord_LongHint
+ )
+ ; // Operations
+ : Constants
+   Seq: ( ME_4F9A978A01B8 // Asks
+ ME_133EA42C3D0E // LCImpl_DocumentEMailSelection_Choices
+ ME_E717941FB90E // LCImpl_ListEMailSelection_Choices
+ ME_0DDBC24CAF72 // LCImpl_ListPrintSelectedConfirmation_Choices
+ ME_43C7CCB167A0 // LCImpl_PrintSelectedConfirmation_Choices
+ ME_AF0BDCE8C386 // LCImpl_ExportSelectionToWord_Choices
+ ME_CB2A2E37A56C // LCImpl_ListExportSelectionToWord_Choices
+ ME_A3FF1C976F1C // LCImpl_ConsultDocumentsNotFound_Choices
+ ME_668058777597 // LCImpl_ConsultDocumentsNotFoundNoSpec_Choices
+ ME_F46813F4C158 // LCImplAsks
+ )
+ ; // Constants
+ : Dependencies
+   Seq: ( ME_2113CB5A9D0D // 
+ ME_146A169426C1 // 
+ ME_3A3A8273DE85 // 
+ )
+ ; // Dependencies
+ CONST "no hands" false
+ : Generators
+ Seq: (
+ gen_intf.pas
+ )
+ ; // Generators
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Data'
+ CONST intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\Data\nsQuestions.pas'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Data'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\Data'
+ CONST extprop:rc:SelfName 'Questions'
+
+ref; // ME_4F9A9C6803D4 nsQuestions
+
+: ME_4F9BB1120134
+ CONST UID '4F9BB1120134'
+ CONST Name 'Сюда вынес все сообщения из StdRes с Choices'
+ CONST Class class_Category
+ : Stereotype st_Unit ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent WL 'ME_4677FF4B0036' '4677FF4B0036.pas.ms.script' // Data
+ ;
+ : Children
+   Seq: ( ME_4F9BB14900E7 // nsQuestionsWithChoices
+ ME_4F9A9C6803D4 // nsQuestions
+ )
+ ; // Children
+ : Depends
+   Seq: ( WL 'ME_4799D29F033F' '4799D29F033F.pas.ms.script' // Implementation
+ )
+ ; // Depends
+ : Generators
+ Seq: (
+ gen_pas.script
+ gen_pas.script.runner
+ )
+ ; // Generators
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Data'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Data'
+ CONST pas.script:Path 'shared\models\NewSchool\Scripts\4F9BB1120134.pas.ms.script'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\4F9BB1120134.pas.ms.script.runner'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\Data'
+
+ref; // ME_4F9BB1120134 Сюда вынес все сообщения из StdRes с Choices

@@ -149,11 +149,11 @@ ref; // ME_55B75CE103BE
  : Parent ME_4DEF302C0007 // ScriptEngine
  ;
  : Inherits
-   @ ( WL 'ME_4DAEEA9E0049' '4DAEEA14018A.pas.ms.script' // TtfwScriptEngine
- ) .SequenceCode.It
+   Seq: ( WL 'ME_4DAEEA9E0049' '4DAEEA14018A.pas.ms.script' // TtfwScriptEngine
+ )
  ; // Inherits
  : Dependencies
-   @ ( ME_4F2163660190 // 
+   Seq: ( ME_4F2163660190 // 
  ME_4F37BA7802C2 // 
  ME_4F43AC080302 // 
  ME_4F47643F03A9 // 
@@ -165,18 +165,20 @@ ref; // ME_55B75CE103BE
  ME_5284E8DD02C7 // 
  ME_53DA23DC0068 // 
  ME_55B75CE103BE // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\ScriptEngine'
  CONST intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\tfwScriptEngineEX.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\ScriptEngine'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'ScriptEngineEX'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'tfwScriptEngineEX'
 
 ref; // ME_4DEF306102FF TtfwScriptEngineEX
 
@@ -190,11 +192,11 @@ ref; // ME_4DEF306102FF TtfwScriptEngineEX
  : Parent WL 'ME_4E1F0EB100C4' '4E1F0EB100C4.pas.ms.script' // ScriptEngine
  ;
  : Children
-   @ ( ME_4DEF306102FF // TtfwScriptEngineEX
- ) .SequenceCode.It
+   Seq: ( ME_4DEF306102FF // TtfwScriptEngineEX
+ )
  ; // Children
  : Depends
-   @ ( WL 'ME_4DAEEA14018A' '4DAEEA14018A.pas.ms.script' // Scripting Axiomatics
+   Seq: ( WL 'ME_4DAEEA14018A' '4DAEEA14018A.pas.ms.script' // Scripting Axiomatics
  WL 'ME_4F2163250016' '4F2163250016.pas.ms.script' // CodeFlowWords
  WL 'ME_4F37ACB3033A' '4F37ACB3033A.pas.ms.script' // Compilation
  WL 'ME_4F43AB1D03DC' '4F43AB1D03DC.pas.ms.script' // WordsDefinition
@@ -207,15 +209,13 @@ ref; // ME_4DEF306102FF TtfwScriptEngineEX
  WL 'ME_5076977D0064' '5076977D0064.pas.ms.script' // Object Info
  WL 'ME_5284E8850019' '5284E8850019.pas.ms.script' // CodeBranchingWords
  WL 'ME_53DA23750089' '53DA23750089.pas.ms.script' // ScriptsCompilingAndProcessing
- ) .SequenceCode.It
+ )
  ; // Depends
- : Generators
- @ (
- gen_pas.script
- gen_pas.script.runner
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\ScriptEngine'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\ScriptEngine'
  CONST pas.script:Path 'shared\models\NewSchool\Scripts\4DEF302C0007.pas.ms.script'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
  CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\4DEF302C0007.pas.ms.script.runner'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_4DEF302C0007 ScriptEngine

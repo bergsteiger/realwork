@@ -1,0 +1,1180 @@
+// sdsDrugList 47EA01EA0070 ControllerUnit Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_47EA01EA0070
+
+FORWARD ME_47EA0F2B031C
+
+: ME_494167B70065
+ CONST UID '494167B70065'
+ CONST Name 'SetDataType'
+ CONST Class class_Attribute
+ : Stereotype st_impurity_value::Attribute ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_agr
+ : Parent ME_47EA0F2B031C // TsdsDrugList
+ ;
+ : Target WL 'ME_47EB3BEB00F1' '491D7C9603B2.pas.ms.script' // IdDrugList
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_494167B70065 SetDataType
+
+: ME_4947AE45000E
+ CONST UID '4947AE45000E'
+ CONST Name 'InitDataType'
+ CONST Class class_Attribute
+ : Stereotype st_impurity_value::Attribute ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_agr
+ : Parent ME_47EA0F2B031C // TsdsDrugList
+ ;
+ : Target WL 'ME_47F20DEA0340' '4B1D3D250382.pas.ms.script' // IdeList
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_4947AE45000E InitDataType
+
+: ME_FBDCC06A70A6
+ CONST UID 'FBDCC06A70A6'
+ CONST Name 'SetType'
+ CONST IsSummoned true
+ CONST Class class_Attribute
+ : Stereotype st_impurity_value::Attribute ;
+ %SUMMARY 'Реальный интерфейс контроллера прецедента для TsdsDrugList' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_lnk
+ : Parent ME_47EA0F2B031C // TsdsDrugList
+ ;
+ : Target WL 'ME_47EA026B024C' '491D7C9603B2.pas.ms.script' // IsdsDrugList
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_FBDCC06A70A6 SetType
+
+: ME_4B4E4EF4C612
+ CONST UID '4B4E4EF4C612'
+ CONST Name 'f_dsBaloonWarning'
+ CONST IsSummoned true
+ CONST Class class_Attribute
+ %SUMMARY 'Поле для области вывода dsBaloonWarning' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_ref
+ : Parent ME_47EA0F2B031C // TsdsDrugList
+ ;
+ : Target WL 'ME_4982B4D00032' '4982BE090383.pas.ms.script' // IvcmViewAreaControllerRef
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_4B4E4EF4C612 f_dsBaloonWarning
+
+: ME_196F9532D3F5
+ CONST UID '196F9532D3F5'
+ CONST Name 'aSynchroForm'
+ CONST IsSummoned true
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_EDFE395C8EE0' '491D7C9603B2.pas.ms.script' // TDrugList_SynchroView_Areas
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_196F9532D3F5 aSynchroForm
+
+: ME_341E87C755C8
+ CONST UID '341E87C755C8'
+ CONST Name 'ChangeSynchroForm'
+ CONST IsSummoned true
+ CONST Class class_Operation
+ %SUMMARY 'Переключает форму синхронного просмотра' ;
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_final
+ : Parent ME_47EA0F2B031C // TsdsDrugList
+ ;
+ : Parameters
+   Seq: ( ME_196F9532D3F5 // aSynchroForm
+ )
+ ; // Parameters
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_341E87C755C8 ChangeSynchroForm
+
+: ME_47EA4CB00275
+ CONST UID '47EA4CB00275'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_47EA0F2B031C // TsdsDrugList
+ ;
+ : Target WL 'ME_47E9EDD301A4' '491D7CDC0221.pas.ms.script' // TdsDrugList
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_47EA4CB00275 
+
+: ME_47ECDBB400FA
+ CONST UID '47ECDBB400FA'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_47EA0F2B031C // TsdsDrugList
+ ;
+ : Target WL 'ME_47877EB202FB' '4AB0C3C60310.pas.ms.script' // SysUtils
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_47ECDBB400FA 
+
+FORWARD ME_47ECD5A6015A
+
+: ME_47F07DAA0084
+ CONST UID '47F07DAA0084'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_47EA0F2B031C // TsdsDrugList
+ ;
+ : Target ME_47ECD5A6015A // TdsDrugListSynchroView
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_47F07DAA0084 
+
+: ME_47F0999D0250
+ CONST UID '47F0999D0250'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_47EA0F2B031C // TsdsDrugList
+ ;
+ : Target WL 'ME_47EB3E410033' '4A9FCCDB035B.pas.ms.script' // TdDrugList
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_47F0999D0250 
+
+: ME_47F37B1202FE
+ CONST UID '47F37B1202FE'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_47EA0F2B031C // TsdsDrugList
+ ;
+ : Target WL 'ME_47F33E9E03C8' '491DCA2C00A9.pas.ms.script' // TdeList
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_47F37B1202FE 
+
+: ME_47F3814C0358
+ CONST UID '47F3814C0358'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_47EA0F2B031C // TsdsDrugList
+ ;
+ : Target WL 'ME_47F20DEA0340' '4B1D3D250382.pas.ms.script' // IdeList
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_47F3814C0358 
+
+: ME_47F5BDD10372
+ CONST UID '47F5BDD10372'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_47EA0F2B031C // TsdsDrugList
+ ;
+ : Target WL 'ME_47F5BC100329' '4955235700D2.pas.ms.script' // TdsFilters
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_47F5BDD10372 
+
+FORWARD ME_47F5D70E03AB
+
+: ME_47F5D75A0063
+ CONST UID '47F5D75A0063'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_47EA0F2B031C // TsdsDrugList
+ ;
+ : Target ME_47F5D70E03AB // TdsMainDrugList
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_47F5D75A0063 
+
+: ME_47FB43500121
+ CONST UID '47FB43500121'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_47EA0F2B031C // TsdsDrugList
+ ;
+ : Target WL 'ME_47752AF90375' '47750CE700D0.pas.ms.script' // afwFacade
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_47FB43500121 
+
+: ME_47FB4596011A
+ CONST UID '47FB4596011A'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_47EA0F2B031C // TsdsDrugList
+ ;
+ : Target WL 'ME_47F260EC02C7' '521C9DA50125.pas.ms.script' // StdRes
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_47FB4596011A 
+
+: ME_47FB518E0032
+ CONST UID '47FB518E0032'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_47EA0F2B031C // TsdsDrugList
+ ;
+ : Target WL 'ME_47FB50E4008E' '48F747EC0073.pas.ms.script' // nsConst
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_47FB518E0032 
+
+: ME_47FEF9D701C3
+ CONST UID '47FEF9D701C3'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_47EA0F2B031C // TsdsDrugList
+ ;
+ : Target WL 'ME_47FEF9AA00CC' '47EA5024034B.pas.ms.script' // TdsListInfo
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_47FEF9D701C3 
+
+: ME_47FEFA17014D
+ CONST UID '47FEFA17014D'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_47EA0F2B031C // TsdsDrugList
+ ;
+ : Target WL 'ME_47F21FE90379' '48F747EC0073.pas.ms.script' // bsUtils
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_47FEFA17014D 
+
+FORWARD ME_4933E8FF02C7
+
+: ME_4933E90E02F0
+ CONST UID '4933E90E02F0'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_47EA0F2B031C // TsdsDrugList
+ ;
+ : Target ME_4933E8FF02C7 // TdsDrugListDocument
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_4933E90E02F0 
+
+: ME_4DC187AB012A
+ CONST UID '4DC187AB012A'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_47EA0F2B031C // TsdsDrugList
+ ;
+ : Target WL 'ME_492189D90209' '47F22C7501F6.pas.ms.script' // TdsWarning
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_4DC187AB012A 
+
+: ME_53BA49F0034B
+ CONST UID '53BA49F0034B'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_47EA0F2B031C // TsdsDrugList
+ ;
+ : Target WL 'ME_53BA488F00D8' '53A402C7010D.pas.ms.script' // nsTabbedInterfaceTypes
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_53BA49F0034B 
+
+: ME_41B49128CE19_ME_47EA0F2B031C
+ CONST UID '41B49128CE19'
+ CONST Name 'IsDocumentActive'
+ : Original WL 'ME_41B49128CE19' '491D7C9603B2.pas.ms.script' // IsDocumentActive
+ ;
+ : Implementor ME_47EA0F2B031C // TsdsDrugList
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "UseNewGen" 'undefined'
+ CONST "pm" true
+ CONST "reflectable" 'undefined'
+ref; // ME_41B49128CE19_ME_47EA0F2B031C IsDocumentActive
+
+: ME_47F3778403D9_ME_47EA0F2B031C
+ CONST UID '47F3778403D9'
+ CONST Name 'MakeData'
+ : Original WL 'ME_47F3778403D9' '47D0E1500033.pas.ms.script' // MakeData
+ ;
+ : Implementor ME_47EA0F2B031C // TsdsDrugList
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "UseNewGen" 'undefined'
+ref; // ME_47F3778403D9_ME_47EA0F2B031C MakeData
+
+: ME_47F4BF4E0397_ME_47EA0F2B031C
+ CONST UID '47F4BF4E0397'
+ CONST Name 'UpdateListInfo'
+ : Original WL 'ME_47F4BF4E0397' '491D7C9603B2.pas.ms.script' // UpdateListInfo
+ ;
+ : Implementor ME_47EA0F2B031C // TsdsDrugList
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "UseNewGen" 'undefined'
+ref; // ME_47F4BF4E0397_ME_47EA0F2B031C UpdateListInfo
+
+: ME_47FB2086026D_ME_47EA0F2B031C
+ CONST UID '47FB2086026D'
+ CONST Name 'Open'
+ : Original WL 'ME_47FB2086026D' '4922BFA000DD.pas.ms.script' // Open
+ ;
+ : Implementor ME_47EA0F2B031C // TsdsDrugList
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "UseNewGen" 'undefined'
+ref; // ME_47FB2086026D_ME_47EA0F2B031C Open
+
+: ME_47FF2155021A_ME_47EA0F2B031C
+ CONST UID '47FF2155021A'
+ CONST Name 'NodeForPositioning'
+ : Original WL 'ME_47FF2155021A' '4D1B444C015E.pas.ms.script' // NodeForPositioning
+ ;
+ : Implementor ME_47EA0F2B031C // TsdsDrugList
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "UseNewGen" 'undefined'
+ CONST "pm" true
+ CONST "reflectable" true
+ref; // ME_47FF2155021A_ME_47EA0F2B031C NodeForPositioning
+
+: ME_47FF44850384_ME_47EA0F2B031C
+ CONST UID '47FF44850384'
+ CONST Name 'ReleaseNodeForPositioning'
+ : Original WL 'ME_47FF44850384' '4D1B444C015E.pas.ms.script' // ReleaseNodeForPositioning
+ ;
+ : Implementor ME_47EA0F2B031C // TsdsDrugList
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "UseNewGen" 'undefined'
+ref; // ME_47FF44850384_ME_47EA0F2B031C ReleaseNodeForPositioning
+
+: ME_4925B1EC0100_ME_47EA0F2B031C
+ CONST UID '4925B1EC0100'
+ CONST Name 'BaseDocumentClass'
+ : Original WL 'ME_4925B1EC0100' '47EA50050263.pas.ms.script' // BaseDocumentClass
+ ;
+ : Implementor ME_47EA0F2B031C // TsdsDrugList
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "UseNewGen" 'undefined'
+ref; // ME_4925B1EC0100_ME_47EA0F2B031C BaseDocumentClass
+
+: ME_49AE664F006B_ME_47EA0F2B031C
+ CONST UID '49AE664F006B'
+ CONST Name 'dsListPrim'
+ : Original WL 'ME_49AE664F006B' '4D1B444C015E.pas.ms.script' // dsListPrim
+ ;
+ : Implementor ME_47EA0F2B031C // TsdsDrugList
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "UseNewGen" 'undefined'
+ CONST "pm" false
+ CONST "reflectable" 'undefined'
+ref; // ME_49AE664F006B_ME_47EA0F2B031C dsListPrim
+
+: ME_4DC185B80232_ME_47EA0F2B031C
+ CONST UID '4DC185B80232'
+ CONST Name 'dsBaloonWarning'
+ : Original WL 'ME_4DC185B80232' '491D7C9603B2.pas.ms.script' // dsBaloonWarning
+ ;
+ : Implementor ME_47EA0F2B031C // TsdsDrugList
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "Need Has" 'undefined'
+ CONST "UseNewGen" 'undefined'
+ CONST "is reference" 'undefined'
+ CONST "pm" true
+ CONST "required" 'undefined'
+ref; // ME_4DC185B80232_ME_47EA0F2B031C dsBaloonWarning
+
+: ME_500D3D75005B_ME_47EA0F2B031C
+ CONST UID '500D3D75005B'
+ CONST Name 'dsDrugList'
+ : Original WL 'ME_500D3D75005B' '491D7C9603B2.pas.ms.script' // dsDrugList
+ ;
+ : Implementor ME_47EA0F2B031C // TsdsDrugList
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "Need Has" false
+ CONST "UseNewGen" 'undefined'
+ CONST "is reference" true
+ CONST "pm" true
+ CONST "required" 'undefined'
+ref; // ME_500D3D75005B_ME_47EA0F2B031C dsDrugList
+
+: ME_500D3E3500FF_ME_47EA0F2B031C
+ CONST UID '500D3E3500FF'
+ CONST Name 'dsSynchroView'
+ : Original WL 'ME_500D3E3500FF' '491D7C9603B2.pas.ms.script' // dsSynchroView
+ ;
+ : Implementor ME_47EA0F2B031C // TsdsDrugList
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "Need Has" false
+ CONST "UseNewGen" 'undefined'
+ CONST "is reference" true
+ CONST "pm" true
+ CONST "required" 'undefined'
+ref; // ME_500D3E3500FF_ME_47EA0F2B031C dsSynchroView
+
+: ME_500D3E780156_ME_47EA0F2B031C
+ CONST UID '500D3E780156'
+ CONST Name 'dsFilters'
+ : Original WL 'ME_500D3E780156' '491D7C9603B2.pas.ms.script' // dsFilters
+ ;
+ : Implementor ME_47EA0F2B031C // TsdsDrugList
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "Need Has" false
+ CONST "UseNewGen" 'undefined'
+ CONST "is reference" true
+ CONST "pm" true
+ CONST "required" 'undefined'
+ref; // ME_500D3E780156_ME_47EA0F2B031C dsFilters
+
+: ME_500D3EB1023F_ME_47EA0F2B031C
+ CONST UID '500D3EB1023F'
+ CONST Name 'dsListInfo'
+ : Original WL 'ME_500D3EB1023F' '491D7C9603B2.pas.ms.script' // dsListInfo
+ ;
+ : Implementor ME_47EA0F2B031C // TsdsDrugList
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "Need Has" false
+ CONST "UseNewGen" 'undefined'
+ CONST "is reference" true
+ CONST "pm" true
+ CONST "required" 'undefined'
+ref; // ME_500D3EB1023F_ME_47EA0F2B031C dsListInfo
+
+: ME_501806DE0323_ME_47EA0F2B031C
+ CONST UID '501806DE0323'
+ CONST Name 'ShortListName'
+ : Original WL 'ME_501806DE0323' '4D1B444C015E.pas.ms.script' // ShortListName
+ ;
+ : Implementor ME_47EA0F2B031C // TsdsDrugList
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "UseNewGen" 'undefined'
+ CONST "pm" true
+ CONST "reflectable" 'undefined'
+ref; // ME_501806DE0323_ME_47EA0F2B031C ShortListName
+
+: ME_50180BA801C2_ME_47EA0F2B031C
+ CONST UID '50180BA801C2'
+ CONST Name 'ListName'
+ : Original WL 'ME_50180BA801C2' '4D1B444C015E.pas.ms.script' // ListName
+ ;
+ : Implementor ME_47EA0F2B031C // TsdsDrugList
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "UseNewGen" 'undefined'
+ CONST "pm" true
+ CONST "reflectable" 'undefined'
+ref; // ME_50180BA801C2_ME_47EA0F2B031C ListName
+
+: ME_5D78745D5001_ME_47EA0F2B031C
+ CONST UID '5D78745D5001'
+ CONST Name 'OpenDocument'
+ : Original WL 'ME_5D78745D5001' '491D7C9603B2.pas.ms.script' // OpenDocument
+ ;
+ : Implementor ME_47EA0F2B031C // TsdsDrugList
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "UseNewGen" 'undefined'
+ref; // ME_5D78745D5001_ME_47EA0F2B031C OpenDocument
+
+: ME_7680D04D575B_ME_47EA0F2B031C
+ CONST UID '7680D04D575B'
+ CONST Name 'OpenDrugInternationalNameSynonims'
+ : Original WL 'ME_7680D04D575B' '491D7C9603B2.pas.ms.script' // OpenDrugInternationalNameSynonims
+ ;
+ : Implementor ME_47EA0F2B031C // TsdsDrugList
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "UseNewGen" 'undefined'
+ref; // ME_7680D04D575B_ME_47EA0F2B031C OpenDrugInternationalNameSynonims
+
+: ME_7ECE38CEFE6F_ME_47EA0F2B031C
+ CONST UID '7ECE38CEFE6F'
+ CONST Name 'IsAttributesActive'
+ : Original WL 'ME_7ECE38CEFE6F' '491D7C9603B2.pas.ms.script' // IsAttributesActive
+ ;
+ : Implementor ME_47EA0F2B031C // TsdsDrugList
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "UseNewGen" 'undefined'
+ CONST "pm" true
+ CONST "reflectable" 'undefined'
+ref; // ME_7ECE38CEFE6F_ME_47EA0F2B031C IsAttributesActive
+
+: ME_862011C4CE04_ME_47EA0F2B031C
+ CONST UID '862011C4CE04'
+ CONST Name 'IsDrugInternationalNameSynonimsActive'
+ : Original WL 'ME_862011C4CE04' '491D7C9603B2.pas.ms.script' // IsDrugInternationalNameSynonimsActive
+ ;
+ : Implementor ME_47EA0F2B031C // TsdsDrugList
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "UseNewGen" 'undefined'
+ CONST "pm" true
+ CONST "reflectable" 'undefined'
+ref; // ME_862011C4CE04_ME_47EA0F2B031C IsDrugInternationalNameSynonimsActive
+
+: ME_ECBE8DB2214F_ME_47EA0F2B031C
+ CONST UID 'ECBE8DB2214F'
+ CONST Name 'OpenAttributes'
+ : Original WL 'ME_ECBE8DB2214F' '491D7C9603B2.pas.ms.script' // OpenAttributes
+ ;
+ : Implementor ME_47EA0F2B031C // TsdsDrugList
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "UseNewGen" 'undefined'
+ref; // ME_ECBE8DB2214F_ME_47EA0F2B031C OpenAttributes
+
+: ME_47F37DF001FE_ME_47EA0F2B031C
+ CONST UID '47F37DF001FE'
+ CONST Name 'DataExchange'
+ : Original WL 'ME_47F37DF001FE' '47D0E1500033.pas.ms.script' // DataExchange
+ ;
+ : Implementor ME_47EA0F2B031C // TsdsDrugList
+ ;
+ CONST OpKind opkind_Overridden
+ CONST "UseNewGen" 'undefined'
+ref; // ME_47F37DF001FE_ME_47EA0F2B031C DataExchange
+
+: ME_47FDDACC0101_ME_47EA0F2B031C
+ CONST UID '47FDDACC0101'
+ CONST Name 'DoOpenAttributes'
+ : Original WL 'ME_47FDDACC0101' '47EA50050263.pas.ms.script' // DoOpenAttributes
+ ;
+ : Implementor ME_47EA0F2B031C // TsdsDrugList
+ ;
+ CONST OpKind opkind_Overridden
+ CONST "UseNewGen" 'undefined'
+ref; // ME_47FDDACC0101_ME_47EA0F2B031C DoOpenAttributes
+
+: ME_47FDDD500143_ME_47EA0F2B031C
+ CONST UID '47FDDD500143'
+ CONST Name 'DoOpenDrugInternationalNameSynonims'
+ : Original WL 'ME_47FDDD500143' '47F075910035.pas.ms.script' // DoOpenDrugInternationalNameSynonims
+ ;
+ : Implementor ME_47EA0F2B031C // TsdsDrugList
+ ;
+ CONST OpKind opkind_Overridden
+ CONST "UseNewGen" 'undefined'
+ref; // ME_47FDDD500143_ME_47EA0F2B031C DoOpenDrugInternationalNameSynonims
+
+: ME_47FE03AE0225_ME_47EA0F2B031C
+ CONST UID '47FE03AE0225'
+ CONST Name 'NeedMakeDSAttributes'
+ : Original WL 'ME_47FE03AE0225' '47EA50050263.pas.ms.script' // NeedMakeDSAttributes
+ ;
+ : Implementor ME_47EA0F2B031C // TsdsDrugList
+ ;
+ CONST OpKind opkind_Overridden
+ CONST "UseNewGen" 'undefined'
+ref; // ME_47FE03AE0225_ME_47EA0F2B031C NeedMakeDSAttributes
+
+: ME_47FE048E0224_ME_47EA0F2B031C
+ CONST UID '47FE048E0224'
+ CONST Name 'NeedMakeDsDrugInternationalNameSynonims'
+ : Original WL 'ME_47FE048E0224' '47F075910035.pas.ms.script' // NeedMakeDsDrugInternationalNameSynonims
+ ;
+ : Implementor ME_47EA0F2B031C // TsdsDrugList
+ ;
+ CONST OpKind opkind_Overridden
+ CONST "UseNewGen" 'undefined'
+ref; // ME_47FE048E0224_ME_47EA0F2B031C NeedMakeDsDrugInternationalNameSynonims
+
+: ME_4925B7F00156_ME_47EA0F2B031C
+ CONST UID '4925B7F00156'
+ CONST Name 'ClearAllDS'
+ : Original WL 'ME_4925B7F00156' '47EA50050263.pas.ms.script' // ClearAllDS
+ ;
+ : Implementor ME_47EA0F2B031C // TsdsDrugList
+ ;
+ CONST OpKind opkind_Overridden
+ CONST "UseNewGen" 'undefined'
+ref; // ME_4925B7F00156_ME_47EA0F2B031C ClearAllDS
+
+: ME_4938F7E702B7_ME_47EA0F2B031C
+ CONST UID '4938F7E702B7'
+ CONST Name 'ClearAreas'
+ : Original WL 'ME_4938F7E702B7' '47D0E1500033.pas.ms.script' // ClearAreas
+ ;
+ : Implementor ME_47EA0F2B031C // TsdsDrugList
+ ;
+ CONST OpKind opkind_Overridden
+ CONST "UseNewGen" 'undefined'
+ref; // ME_4938F7E702B7_ME_47EA0F2B031C ClearAreas
+
+: ME_493D1BE601B1_ME_47EA0F2B031C
+ CONST UID '493D1BE601B1'
+ CONST Name 'NeedMakeDocument'
+ : Original WL 'ME_493D1BE601B1' '47EA50050263.pas.ms.script' // NeedMakeDocument
+ ;
+ : Implementor ME_47EA0F2B031C // TsdsDrugList
+ ;
+ CONST OpKind opkind_Overridden
+ CONST "UseNewGen" 'undefined'
+ref; // ME_493D1BE601B1_ME_47EA0F2B031C NeedMakeDocument
+
+: ME_53B3BF9C00EF_ME_47EA0F2B031C
+ CONST UID '53B3BF9C00EF'
+ CONST Name 'DoGetFormSetImageIndex'
+ : Original WL 'ME_53B3BF9C00EF' '47D0E1500033.pas.ms.script' // DoGetFormSetImageIndex
+ ;
+ : Implementor ME_47EA0F2B031C // TsdsDrugList
+ ;
+ CONST OpKind opkind_Overridden
+ CONST "UseNewGen" 'undefined'
+ref; // ME_53B3BF9C00EF_ME_47EA0F2B031C DoGetFormSetImageIndex
+
+: ME_47EA0F2B031C
+ CONST UID '47EA0F2B031C'
+ CONST Name 'TsdsDrugList'
+ CONST Class class_Class
+ : Stereotype st_UseCaseControllerImp ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'БОС Список лекарственных препаратов.' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_47EA01EA0070 // sdsDrugList
+ ;
+ : Inherits
+   Seq: ( WL 'ME_47F075CD00DC' '47F075910035.pas.ms.script' // sdsBaseDrugDocument
+ )
+ ; // Inherits
+ : Implements
+   Seq: ( WL 'ME_47EA026B024C' '491D7C9603B2.pas.ms.script' // IsdsDrugList
+ WL 'ME_4DC1671402AB' '4DC1708D032D.pas.ms.script' // nsListWarningGenerator
+ )
+ ; // Implements
+ : Attributes
+   Seq: ( ME_494167B70065 // SetDataType
+ ME_4947AE45000E // InitDataType
+ ME_FBDCC06A70A6 // SetType
+ ME_4B4E4EF4C612 // f_dsBaloonWarning
+ )
+ ; // Attributes
+ : Operations
+   Seq: ( ME_341E87C755C8 // ChangeSynchroForm
+ )
+ ; // Operations
+ : Implemented
+   Seq: ( ME_41B49128CE19_ME_47EA0F2B031C // IsDocumentActive
+ ME_47F3778403D9_ME_47EA0F2B031C // MakeData
+ ME_47F4BF4E0397_ME_47EA0F2B031C // UpdateListInfo
+ ME_47FB2086026D_ME_47EA0F2B031C // Open
+ ME_47FF2155021A_ME_47EA0F2B031C // NodeForPositioning
+ ME_47FF44850384_ME_47EA0F2B031C // ReleaseNodeForPositioning
+ ME_4925B1EC0100_ME_47EA0F2B031C // BaseDocumentClass
+ ME_49AE664F006B_ME_47EA0F2B031C // dsListPrim
+ ME_4DC185B80232_ME_47EA0F2B031C // dsBaloonWarning
+ ME_500D3D75005B_ME_47EA0F2B031C // dsDrugList
+ ME_500D3E3500FF_ME_47EA0F2B031C // dsSynchroView
+ ME_500D3E780156_ME_47EA0F2B031C // dsFilters
+ ME_500D3EB1023F_ME_47EA0F2B031C // dsListInfo
+ ME_501806DE0323_ME_47EA0F2B031C // ShortListName
+ ME_50180BA801C2_ME_47EA0F2B031C // ListName
+ ME_5D78745D5001_ME_47EA0F2B031C // OpenDocument
+ ME_7680D04D575B_ME_47EA0F2B031C // OpenDrugInternationalNameSynonims
+ ME_7ECE38CEFE6F_ME_47EA0F2B031C // IsAttributesActive
+ ME_862011C4CE04_ME_47EA0F2B031C // IsDrugInternationalNameSynonimsActive
+ ME_ECBE8DB2214F_ME_47EA0F2B031C // OpenAttributes
+ )
+ ; // Implemented
+ : Overridden
+   Seq: ( ME_47F37DF001FE_ME_47EA0F2B031C // DataExchange
+ ME_47FDDACC0101_ME_47EA0F2B031C // DoOpenAttributes
+ ME_47FDDD500143_ME_47EA0F2B031C // DoOpenDrugInternationalNameSynonims
+ ME_47FE03AE0225_ME_47EA0F2B031C // NeedMakeDSAttributes
+ ME_47FE048E0224_ME_47EA0F2B031C // NeedMakeDsDrugInternationalNameSynonims
+ ME_4925B7F00156_ME_47EA0F2B031C // ClearAllDS
+ ME_4938F7E702B7_ME_47EA0F2B031C // ClearAreas
+ ME_493D1BE601B1_ME_47EA0F2B031C // NeedMakeDocument
+ ME_53B3BF9C00EF_ME_47EA0F2B031C // DoGetFormSetImageIndex
+ )
+ ; // Overridden
+ : Dependencies
+   Seq: ( ME_47EA4CB00275 // 
+ ME_47ECDBB400FA // 
+ ME_47F07DAA0084 // 
+ ME_47F0999D0250 // 
+ ME_47F37B1202FE // 
+ ME_47F3814C0358 // 
+ ME_47F5BDD10372 // 
+ ME_47F5D75A0063 // 
+ ME_47FB43500121 // 
+ ME_47FB4596011A // 
+ ME_47FB518E0032 // 
+ ME_47FEF9D701C3 // 
+ ME_47FEFA17014D // 
+ ME_4933E90E02F0 // 
+ ME_4DC187AB012A // 
+ ME_53BA49F0034B // 
+ )
+ ; // Dependencies
+ CONST "UseNewGen" 'undefined'
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" true
+ CONST "register in scripts" 'undefined'
+ : Generators
+ Seq: (
+ gen_intf.pas
+ )
+ ; // Generators
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Drug'
+ CONST intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\Drug\sdsDrugList.pas'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Drug'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\Drug'
+ CONST extprop:pas:UnitName 'sdsDrugList'
+
+ref; // ME_47EA0F2B031C TsdsDrugList
+
+: ME_47F0913001F5
+ CONST UID '47F0913001F5'
+ CONST Name 'SDS'
+ CONST Class class_Attribute
+ : Stereotype st_UseCase::Attribute ;
+ %SUMMARY 'Ссылка на сборку' ;
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_lnk
+ : Parent ME_47ECD5A6015A // TdsDrugListSynchroView
+ ;
+ : Target WL 'ME_47EA026B024C' '491D7C9603B2.pas.ms.script' // IsdsDrugList
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_47F0913001F5 SDS
+
+: ME_5016A9680205
+ CONST UID '5016A9680205'
+ CONST Name 'FormDataSourceType'
+ CONST Class class_Attribute
+ : Stereotype st_impurity_value::Attribute ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_agr
+ : Parent ME_47ECD5A6015A // TdsDrugListSynchroView
+ ;
+ : Target WL 'ME_5016A90300B0' '491D7C9603B2.pas.ms.script' // IdsDrugListSynchroView
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_5016A9680205 FormDataSourceType
+
+: ME_33C4CFE7BE58_ME_47ECD5A6015A
+ CONST UID '33C4CFE7BE58'
+ CONST Name 'IsDrugInternationalNameSynonimsActive'
+ : Original WL 'ME_33C4CFE7BE58' '491D7C9603B2.pas.ms.script' // IsDrugInternationalNameSynonimsActive
+ ;
+ : Implementor ME_47ECD5A6015A // TdsDrugListSynchroView
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "UseNewGen" 'undefined'
+ CONST "pm" true
+ref; // ME_33C4CFE7BE58_ME_47ECD5A6015A IsDrugInternationalNameSynonimsActive
+
+: ME_47ECD5280007_ME_47ECD5A6015A
+ CONST UID '47ECD5280007'
+ CONST Name 'OpenDocument'
+ : Original WL 'ME_47ECD5280007' '4922BFA000DD.pas.ms.script' // OpenDocument
+ ;
+ : Implementor ME_47ECD5A6015A // TdsDrugListSynchroView
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "UseNewGen" 'undefined'
+ref; // ME_47ECD5280007_ME_47ECD5A6015A OpenDocument
+
+: ME_47ECD54803CB_ME_47ECD5A6015A
+ CONST UID '47ECD54803CB'
+ CONST Name 'HasDocument'
+ : Original WL 'ME_47ECD54803CB' '4922BFA000DD.pas.ms.script' // HasDocument
+ ;
+ : Implementor ME_47ECD5A6015A // TdsDrugListSynchroView
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "UseNewGen" 'undefined'
+ CONST "pm" true
+ref; // ME_47ECD54803CB_ME_47ECD5A6015A HasDocument
+
+: ME_47ECD5490012_ME_47ECD5A6015A
+ CONST UID '47ECD5490012'
+ CONST Name 'IsDocumentActive'
+ : Original WL 'ME_47ECD5490012' '4922BFA000DD.pas.ms.script' // IsDocumentActive
+ ;
+ : Implementor ME_47ECD5A6015A // TdsDrugListSynchroView
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "UseNewGen" 'undefined'
+ CONST "pm" true
+ref; // ME_47ECD5490012_ME_47ECD5A6015A IsDocumentActive
+
+: ME_47F08A0E035F_ME_47ECD5A6015A
+ CONST UID '47F08A0E035F'
+ CONST Name 'HasAttributes'
+ : Original WL 'ME_47F08A0E035F' '4922BFA000DD.pas.ms.script' // HasAttributes
+ ;
+ : Implementor ME_47ECD5A6015A // TdsDrugListSynchroView
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "UseNewGen" 'undefined'
+ CONST "pm" true
+ref; // ME_47F08A0E035F_ME_47ECD5A6015A HasAttributes
+
+: ME_47F08A2A03E6_ME_47ECD5A6015A
+ CONST UID '47F08A2A03E6'
+ CONST Name 'IsAttributesActive'
+ : Original WL 'ME_47F08A2A03E6' '4922BFA000DD.pas.ms.script' // IsAttributesActive
+ ;
+ : Implementor ME_47ECD5A6015A // TdsDrugListSynchroView
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "UseNewGen" 'undefined'
+ CONST "pm" true
+ref; // ME_47F08A2A03E6_ME_47ECD5A6015A IsAttributesActive
+
+: ME_47F08A7F0108_ME_47ECD5A6015A
+ CONST UID '47F08A7F0108'
+ CONST Name 'OpenAttributes'
+ : Original WL 'ME_47F08A7F0108' '4922BFA000DD.pas.ms.script' // OpenAttributes
+ ;
+ : Implementor ME_47ECD5A6015A // TdsDrugListSynchroView
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "UseNewGen" 'undefined'
+ref; // ME_47F08A7F0108_ME_47ECD5A6015A OpenAttributes
+
+: ME_494692790065_ME_47ECD5A6015A
+ CONST UID '494692790065'
+ CONST Name 'OpenList'
+ : Original WL 'ME_494692790065' '4922BFA000DD.pas.ms.script' // OpenList
+ ;
+ : Implementor ME_47ECD5A6015A // TdsDrugListSynchroView
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "UseNewGen" 'undefined'
+ref; // ME_494692790065_ME_47ECD5A6015A OpenList
+
+: ME_4946928403A8_ME_47ECD5A6015A
+ CONST UID '4946928403A8'
+ CONST Name 'HasList'
+ : Original WL 'ME_4946928403A8' '4922BFA000DD.pas.ms.script' // HasList
+ ;
+ : Implementor ME_47ECD5A6015A // TdsDrugListSynchroView
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "UseNewGen" 'undefined'
+ CONST "pm" true
+ref; // ME_4946928403A8_ME_47ECD5A6015A HasList
+
+: ME_49469292003A_ME_47ECD5A6015A
+ CONST UID '49469292003A'
+ CONST Name 'IsListActive'
+ : Original WL 'ME_49469292003A' '4922BFA000DD.pas.ms.script' // IsListActive
+ ;
+ : Implementor ME_47ECD5A6015A // TdsDrugListSynchroView
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "UseNewGen" 'undefined'
+ CONST "pm" true
+ref; // ME_49469292003A_ME_47ECD5A6015A IsListActive
+
+: ME_EBEDED9E4D65_ME_47ECD5A6015A
+ CONST UID 'EBEDED9E4D65'
+ CONST Name 'HasDrugInternationalNameSynonims'
+ : Original WL 'ME_EBEDED9E4D65' '491D7C9603B2.pas.ms.script' // HasDrugInternationalNameSynonims
+ ;
+ : Implementor ME_47ECD5A6015A // TdsDrugListSynchroView
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "UseNewGen" 'undefined'
+ CONST "pm" true
+ref; // ME_EBEDED9E4D65_ME_47ECD5A6015A HasDrugInternationalNameSynonims
+
+: ME_FED42B6D17CA_ME_47ECD5A6015A
+ CONST UID 'FED42B6D17CA'
+ CONST Name 'OpenDrugInternationalNameSynonims'
+ : Original WL 'ME_FED42B6D17CA' '491D7C9603B2.pas.ms.script' // OpenDrugInternationalNameSynonims
+ ;
+ : Implementor ME_47ECD5A6015A // TdsDrugListSynchroView
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "UseNewGen" 'undefined'
+ref; // ME_FED42B6D17CA_ME_47ECD5A6015A OpenDrugInternationalNameSynonims
+
+: ME_47ECD5A6015A
+ CONST UID '47ECD5A6015A'
+ CONST Name 'TdsDrugListSynchroView'
+ CONST Class class_Class
+ : Stereotype st_ViewAreaControllerImp ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Бизнес объект формы синхронного просмотра списка препаратов' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_47EA01EA0070 // sdsDrugList
+ ;
+ : Inherits
+   Seq: ( WL 'ME_47ECE94D03D4' '47D0E1500033.pas.ms.script' // vcmFormDataSourcePrim
+ )
+ ; // Inherits
+ : Implements
+   Seq: ( WL 'ME_494690E5004E' '4922BFA000DD.pas.ms.script' // IdsSimpleListSynchroView
+ WL 'ME_5016A90300B0' '491D7C9603B2.pas.ms.script' // IdsDrugListSynchroView
+ )
+ ; // Implements
+ : Attributes
+   Seq: ( ME_47F0913001F5 // SDS
+ ME_5016A9680205 // FormDataSourceType
+ )
+ ; // Attributes
+ : Implemented
+   Seq: ( ME_33C4CFE7BE58_ME_47ECD5A6015A // IsDrugInternationalNameSynonimsActive
+ ME_47ECD5280007_ME_47ECD5A6015A // OpenDocument
+ ME_47ECD54803CB_ME_47ECD5A6015A // HasDocument
+ ME_47ECD5490012_ME_47ECD5A6015A // IsDocumentActive
+ ME_47F08A0E035F_ME_47ECD5A6015A // HasAttributes
+ ME_47F08A2A03E6_ME_47ECD5A6015A // IsAttributesActive
+ ME_47F08A7F0108_ME_47ECD5A6015A // OpenAttributes
+ ME_494692790065_ME_47ECD5A6015A // OpenList
+ ME_4946928403A8_ME_47ECD5A6015A // HasList
+ ME_49469292003A_ME_47ECD5A6015A // IsListActive
+ ME_EBEDED9E4D65_ME_47ECD5A6015A // HasDrugInternationalNameSynonims
+ ME_FED42B6D17CA_ME_47ECD5A6015A // OpenDrugInternationalNameSynonims
+ )
+ ; // Implemented
+ CONST "UseNewGen" 'undefined'
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" true
+ CONST "register in scripts" 'undefined'
+ : Generators
+ Seq: (
+ gen_intf.pas
+ )
+ ; // Generators
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Drug'
+ CONST intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\Drug\dsDrugListSynchroView.pas'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Drug'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\Drug'
+ CONST extprop:pas:UnitName 'dsDrugListSynchroView'
+
+ref; // ME_47ECD5A6015A TdsDrugListSynchroView
+
+: ME_4D357C2102B8
+ CONST UID '4D357C2102B8'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4933E8FF02C7 // TdsDrugListDocument
+ ;
+ : Target WL 'ME_4C6A9AD101B4' '4C6A7BA001A5.pas.ms.script' // TnsF1DocumentContainer
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_4D357C2102B8 
+
+: ME_4C6AB38800F3_ME_4933E8FF02C7
+ CONST UID '4C6AB38800F3'
+ CONST Name 'MakeContainer'
+ : Original WL 'ME_4C6AB38800F3' '47EA50050263.pas.ms.script' // MakeContainer
+ ;
+ : Implementor ME_4933E8FF02C7 // TdsDrugListDocument
+ ;
+ CONST OpKind opkind_Overridden
+ CONST "UseNewGen" 'undefined'
+ref; // ME_4C6AB38800F3_ME_4933E8FF02C7 MakeContainer
+
+: ME_4933E8FF02C7
+ CONST UID '4933E8FF02C7'
+ CONST Name 'TdsDrugListDocument'
+ CONST Class class_Class
+ : Stereotype st_ViewAreaControllerImp ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_47EA01EA0070 // sdsDrugList
+ ;
+ : Inherits
+   Seq: ( WL 'ME_4926CAF40166' '47EA50050263.pas.ms.script' // dsBaseDocument
+ )
+ ; // Inherits
+ : Overridden
+   Seq: ( ME_4C6AB38800F3_ME_4933E8FF02C7 // MakeContainer
+ )
+ ; // Overridden
+ : Dependencies
+   Seq: ( ME_4D357C2102B8 // 
+ )
+ ; // Dependencies
+ CONST "UseNewGen" 'undefined'
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ : Generators
+ Seq: (
+ gen_intf.pas
+ )
+ ; // Generators
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Drug'
+ CONST intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\Drug\dsDrugListDocument.pas'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Drug'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\Drug'
+ CONST extprop:pas:UnitName 'dsDrugListDocument'
+
+ref; // ME_4933E8FF02C7 TdsDrugListDocument
+
+: ME_47F0D913030D_ME_47F5D70E03AB
+ CONST UID '47F0D913030D'
+ CONST Name 'NotifyAboutChangeCurrent'
+ : Original WL 'ME_47F0D913030D' '47F22C7501F6.pas.ms.script' // NotifyAboutChangeCurrent
+ ;
+ : Implementor ME_47F5D70E03AB // TdsMainDrugList
+ ;
+ CONST OpKind opkind_Overridden
+ CONST "UseNewGen" 'undefined'
+ref; // ME_47F0D913030D_ME_47F5D70E03AB NotifyAboutChangeCurrent
+
+: ME_47FB00640212_ME_47F5D70E03AB
+ CONST UID '47FB00640212'
+ CONST Name 'DoIsMain'
+ : Original WL 'ME_47FB00640212' '47F22C7501F6.pas.ms.script' // DoIsMain
+ ;
+ : Implementor ME_47F5D70E03AB // TdsMainDrugList
+ ;
+ CONST OpKind opkind_Overridden
+ CONST "UseNewGen" 'undefined'
+ref; // ME_47FB00640212_ME_47F5D70E03AB DoIsMain
+
+: ME_47F5D70E03AB
+ CONST UID '47F5D70E03AB'
+ CONST Name 'TdsMainDrugList'
+ CONST Class class_Class
+ : Stereotype st_ViewAreaControllerImp ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'БОФ списка препаратов в главной зоне' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_47EA01EA0070 // sdsDrugList
+ ;
+ : Inherits
+   Seq: ( WL 'ME_47E9EDD301A4' '491D7CDC0221.pas.ms.script' // TdsDrugList
+ )
+ ; // Inherits
+ : Overridden
+   Seq: ( ME_47F0D913030D_ME_47F5D70E03AB // NotifyAboutChangeCurrent
+ ME_47FB00640212_ME_47F5D70E03AB // DoIsMain
+ )
+ ; // Overridden
+ CONST "UseNewGen" 'undefined'
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" true
+ CONST "register in scripts" 'undefined'
+ : Generators
+ Seq: (
+ gen_intf.pas
+ )
+ ; // Generators
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Drug'
+ CONST intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\Drug\dsMainDrugList.pas'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Drug'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\Drug'
+ CONST extprop:pas:UnitName 'dsMainDrugList'
+
+ref; // ME_47F5D70E03AB TdsMainDrugList
+
+: ME_47EA01EA0070
+ CONST UID '47EA01EA0070'
+ CONST Name 'sdsDrugList'
+ CONST Class class_Category
+ : Stereotype st_ControllerUnit ;
+ %SUMMARY 'БОС Список лекарственных препаратов.' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent WL 'ME_49410AA9008B' '49410AA9008B.pas.ms.script' // Drug
+ ;
+ : Children
+   Seq: ( ME_47EA0F2B031C // TsdsDrugList
+ ME_47ECD5A6015A // TdsDrugListSynchroView
+ ME_4933E8FF02C7 // TdsDrugListDocument
+ ME_47F5D70E03AB // TdsMainDrugList
+ )
+ ; // Children
+ : Depends
+   Seq: ( WL 'ME_47750CE700D0' '47750CE700D0.pas.ms.script' // afwFacade
+ WL 'ME_47D0E1500033' '47D0E1500033.pas.ms.script' // Implementation
+ WL 'ME_47EA07FA02CE' '47EA07FA02CE.pas.ms.script' // bsTypes
+ WL 'ME_47EA50050263' '47EA50050263.pas.ms.script' // BaseDocument
+ WL 'ME_47EA5024034B' '47EA5024034B.pas.ms.script' // ListDataSources
+ WL 'ME_47ECAAF901F8' '47ECAAF901F8.pas.ms.script' // bsInterfaces
+ WL 'ME_47F075910035' '47F075910035.pas.ms.script' // sdsDrugDocument
+ WL 'ME_47F22C7501F6' '47F22C7501F6.pas.ms.script' // Document
+ WL 'ME_47F260DC003F' '47F260DC003F.pas.ms.script' // ns
+ WL 'ME_48F747EC0073' '48F747EC0073.pas.ms.script' // Common
+ WL 'ME_491D7C9603B2' '491D7C9603B2.pas.ms.script' // MedicInterfaces
+ WL 'ME_491D7CDC0221' '491D7CDC0221.pas.ms.script' // Medic
+ WL 'ME_491DCA2C00A9' '491DCA2C00A9.pas.ms.script' // Search
+ WL 'ME_4922BFA000DD' '4922BFA000DD.pas.ms.script' // SimpleListInterfaces
+ WL 'ME_4955235700D2' '4955235700D2.pas.ms.script' // SimpleList
+ WL 'ME_4982BE090383' '4982BE090383.pas.ms.script' // vcmControllers
+ WL 'ME_4A9FCCDB035B' '4A9FCCDB035B.pas.ms.script' // DrugData
+ WL 'ME_4AB0C3C60310' '4AB0C3C60310.pas.ms.script' // Sys
+ WL 'ME_4B1D3D250382' '4B1D3D250382.pas.ms.script' // PrimPrimListInterfaces
+ WL 'ME_4C6A7BA001A5' '4C6A7BA001A5.pas.ms.script' // F1DocumentContainers
+ WL 'ME_4DC1708D032D' '4DC1708D032D.pas.ms.script' // PrimListControllersRealization
+ WL 'ME_521C9DA50125' '521C9DA50125.pas.ms.script' // Application Resources
+ WL 'ME_53A402C7010D' '53A402C7010D.pas.ms.script' // TabbedInterfaceSupport
+ )
+ ; // Depends
+ CONST "UseNewGen" 'undefined'
+ : Generators
+ Seq: (
+ gen_pas.script
+ gen_pas.script.runner
+ )
+ ; // Generators
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Drug'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Drug'
+ CONST pas.script:Path 'shared\models\NewSchool\Scripts\47EA01EA0070.pas.ms.script'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\47EA01EA0070.pas.ms.script.runner'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\Drug'
+
+ref; // ME_47EA01EA0070 sdsDrugList

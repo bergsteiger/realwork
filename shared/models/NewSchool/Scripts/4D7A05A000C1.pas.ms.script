@@ -1,0 +1,79 @@
+// PrimWorkJournalInterfaces 4D7A05A000C1 Interfaces Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4D7A05A000C1
+
+FORWARD ME_4A83AA5202C1
+
+: ME_4A83AA610299
+ CONST UID '4A83AA610299'
+ CONST Name 'JournalShrinked'
+ CONST Class class_Operation
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_4A83AA5202C1 // InsWorkJournalListener
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_4A83AA610299 JournalShrinked
+
+: ME_4A83AA5202C1
+ CONST UID '4A83AA5202C1'
+ CONST GUID '730A7894-DD4B-4BB7-95EE-77F4E7C2EE79'
+ CONST Name 'InsWorkJournalListener'
+ CONST Class class_Class
+ : Stereotype st_Facet ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4D7A05A000C1 // PrimWorkJournalInterfaces
+ ;
+ : Operations
+   Seq: ( ME_4A83AA610299 // JournalShrinked
+ )
+ ; // Operations
+ CONST "UseNewGen" 'undefined'
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Search'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Search'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\Search'
+
+ref; // ME_4A83AA5202C1 InsWorkJournalListener
+
+: ME_4D7A05A000C1
+ CONST UID '4D7A05A000C1'
+ CONST Name 'PrimWorkJournalInterfaces'
+ CONST Class class_Category
+ : Stereotype st_Interfaces ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent WL 'ME_4A9FFD3F01AD' '4A9FFD3F01AD.pas.ms.script' // Search
+ ;
+ : Children
+   Seq: ( ME_4A83AA5202C1 // InsWorkJournalListener
+ )
+ ; // Children
+ CONST "UseNewGen" 'undefined'
+ CONST "author" 'Ëþëèí À.Â.'
+ CONST "is namespace" true
+ CONST "no hands" true
+ CONST "started" '11.03.2011 14:21'
+ : Generators
+ Seq: (
+ gen_intf.pas
+ gen_pas.script
+ gen_pas.script.runner
+ )
+ ; // Generators
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Search'
+ CONST intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\Search\PrimWorkJournalInterfaces.pas'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Search'
+ CONST pas.script:Path 'shared\models\NewSchool\Scripts\4D7A05A000C1.pas.ms.script'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\4D7A05A000C1.pas.ms.script.runner'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\Search'
+
+ref; // ME_4D7A05A000C1 PrimWorkJournalInterfaces

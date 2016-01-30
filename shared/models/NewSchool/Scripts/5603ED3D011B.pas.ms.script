@@ -53,11 +53,16 @@ ref; // ME_5603EE5A029B edpAnnotation
  : Parent ME_5603ED3D011B // ddPipeOutInterfaces
  ;
  : Attributes
-   @ ( ME_5603EE2B01E5 // edpDocument
+   Seq: ( ME_5603EE2B01E5 // edpDocument
  ME_5603EE4B0297 // edpReference
  ME_5603EE5A029B // edpAnnotation
- ) .SequenceCode.It
+ )
  ; // Attributes
+ CONST dfm:PathOnly '\common\components\rtl\Garant\dd'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\dd'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_5603EDF40264 TddExportDocPart
 
@@ -84,6 +89,7 @@ FORWARD ME_5616668C01A8
 : ME_98A902138D7E
  CONST UID '98A902138D7E'
  CONST Name 'DoIt'
+ CONST IsSummoned true
  CONST Class class_Operation
  %SUMMARY 'Сигнатура метода RollBack' ;
  CONST Visibility PublicAccess
@@ -104,8 +110,8 @@ ref; // ME_98A902138D7E DoIt
  : Parent ME_5603EF2E01F9 // IddExportFilerDispatcherElem
  ;
  : Operations
-   @ ( ME_98A902138D7E // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_98A902138D7E // DoIt
+ )
  ; // Operations
 
 ref; // ME_5616668C01A8 RollBack
@@ -122,13 +128,19 @@ ref; // ME_5616668C01A8 RollBack
  : Parent ME_5603ED3D011B // ddPipeOutInterfaces
  ;
  : Attributes
-   @ ( ME_5603F0260334 // Filer
- ) .SequenceCode.It
+   Seq: ( ME_5603F0260334 // Filer
+ )
  ; // Attributes
  : Operations
-   @ ( ME_5616668C01A8 // RollBack
- ) .SequenceCode.It
+   Seq: ( ME_5616668C01A8 // RollBack
+ )
  ; // Operations
+ CONST dfm:PathOnly '\common\components\rtl\Garant\dd'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\dd'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'ddExportFilerDispatcherElem'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_5603EF2E01F9 IddExportFilerDispatcherElem
 
@@ -173,10 +185,14 @@ ref; // ME_560A378601DD rAccGroup
  : Parent ME_5603ED3D011B // ddPipeOutInterfaces
  ;
  : Attributes
-   @ ( ME_560A36940224 // rPart
+   Seq: ( ME_560A36940224 // rPart
  ME_560A378601DD // rAccGroup
- ) .SequenceCode.It
+ )
  ; // Attributes
+ CONST dfm:PathOnly '\common\components\rtl\Garant\dd'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\dd'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_560A366C00E1 TddFilerDispatcherMapKeyRecord
 
@@ -229,11 +245,16 @@ ref; // ME_560A4DAE01F8 edbAccGroup
  : Parent ME_5603ED3D011B // ddPipeOutInterfaces
  ;
  : Attributes
-   @ ( ME_560A4D6A0266 // edbTopic
+   Seq: ( ME_560A4D6A0266 // edbTopic
  ME_560A4D7C03BD // edbSize
  ME_560A4DAE01F8 // edbAccGroup
- ) .SequenceCode.It
+ )
  ; // Attributes
+ CONST dfm:PathOnly '\common\components\rtl\Garant\dd'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\dd'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_560A4D4F01AE TddExportDivideBy
 
@@ -248,9 +269,13 @@ ref; // ME_560A4D4F01AE TddExportDivideBy
  : Parent ME_5603ED3D011B // ddPipeOutInterfaces
  ;
  : Inherits
-   @ ( ME_560A4D4F01AE // TddExportDivideBy
- ) .SequenceCode.It
+   Seq: ( ME_560A4D4F01AE // TddExportDivideBy
+ )
  ; // Inherits
+ CONST dfm:PathOnly '\common\components\rtl\Garant\dd'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\dd'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_560A4DCA0199 TddExportDivideBySet
 
@@ -303,11 +328,16 @@ ref; // ME_560BBA5801DD eptExportDate
  : Parent ME_5603ED3D011B // ddPipeOutInterfaces
  ;
  : Attributes
-   @ ( ME_560BBA22019C // eptPartNum
+   Seq: ( ME_560BBA22019C // eptPartNum
  ME_560BBA4A0256 // eptAccGroup
  ME_560BBA5801DD // eptExportDate
- ) .SequenceCode.It
+ )
  ; // Attributes
+ CONST dfm:PathOnly '\common\components\rtl\Garant\dd'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\dd'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_560BB87D0082 TddExportFileMaskPatternType
 
@@ -323,6 +353,7 @@ FORWARD ME_560BADDA015F
  : Parent ME_560BADDA015F // cExportFileMaskPatterns
  ;
  CONST Value '(S: ''%NUMBER%''; SLen: 8; SCodePage: 0)'
+ CONST extprop:pas:Value '(S: ''%NUMBER%''; SLen: 8; SCodePage: 0)'
 
 ref; // ME_560BAE1C02BB eptPartNum
 
@@ -336,6 +367,7 @@ ref; // ME_560BAE1C02BB eptPartNum
  : Parent ME_560BADDA015F // cExportFileMaskPatterns
  ;
  CONST Value '(S: ''%MAIN%''; SLen: 6; SCodePage: 0)'
+ CONST extprop:pas:Value '(S: ''%MAIN%''; SLen: 6; SCodePage: 0)'
 
 ref; // ME_560BB18800A4 eptAccGroup
 
@@ -349,6 +381,7 @@ ref; // ME_560BB18800A4 eptAccGroup
  : Parent ME_560BADDA015F // cExportFileMaskPatterns
  ;
  CONST Value '(S: ''%DATE%''; SLen: 6; SCodePage: 0)'
+ CONST extprop:pas:Value '(S: ''%DATE%''; SLen: 6; SCodePage: 0)'
 
 ref; // ME_560BBAF40223 eptExportDate
 
@@ -363,21 +396,25 @@ ref; // ME_560BBAF40223 eptExportDate
  : Parent ME_5603ED3D011B // ddPipeOutInterfaces
  ;
  : Inherits
-   @ ( WL 'ME_46780D0003AF' '4677FBA70343.pas.ms.script' // Tl3WString
- ) .SequenceCode.It
+   Seq: ( WL 'ME_46780D0003AF' '4677FBA70343.pas.ms.script' // Tl3WString
+ )
  ; // Inherits
  : Implements
-   @ ( ME_560BB87D0082 // TddExportFileMaskPatternType
- ) .SequenceCode.It
+   Seq: ( ME_560BB87D0082 // TddExportFileMaskPatternType
+ )
  ; // Implements
  : Attributes
-   @ ( ME_560BAE1C02BB // eptPartNum
+   Seq: ( ME_560BAE1C02BB // eptPartNum
  ME_560BB18800A4 // eptAccGroup
  ME_560BBAF40223 // eptExportDate
- ) .SequenceCode.It
+ )
  ; // Attributes
  CONST "Need map interface" false
  CONST "Need mapping support" false
+ CONST dfm:PathOnly '\common\components\rtl\Garant\dd'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\dd'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_560BADDA015F cExportFileMaskPatterns
 
@@ -393,6 +430,7 @@ FORWARD ME_56126374035D
  : Parent ME_56126374035D // cDefaultFileMask
  ;
  CONST Value '''document'''
+ CONST extprop:pas:Value '''document'''
 
 ref; // ME_561263CF0008 edpDocument
 
@@ -406,6 +444,7 @@ ref; // ME_561263CF0008 edpDocument
  : Parent ME_56126374035D // cDefaultFileMask
  ;
  CONST Value '''related'''
+ CONST extprop:pas:Value '''related'''
 
 ref; // ME_561263FD026B edpReference
 
@@ -419,6 +458,7 @@ ref; // ME_561263FD026B edpReference
  : Parent ME_56126374035D // cDefaultFileMask
  ;
  CONST Value '''annotation'''
+ CONST extprop:pas:Value '''annotation'''
 
 ref; // ME_5612641400DF edpAnnotation
 
@@ -433,21 +473,25 @@ ref; // ME_5612641400DF edpAnnotation
  : Parent ME_5603ED3D011B // ddPipeOutInterfaces
  ;
  : Inherits
-   @ ( WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
- ) .SequenceCode.It
+   Seq: ( WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
+ )
  ; // Inherits
  : Implements
-   @ ( ME_5603EDF40264 // TddExportDocPart
- ) .SequenceCode.It
+   Seq: ( ME_5603EDF40264 // TddExportDocPart
+ )
  ; // Implements
  : Attributes
-   @ ( ME_561263CF0008 // edpDocument
+   Seq: ( ME_561263CF0008 // edpDocument
  ME_561263FD026B // edpReference
  ME_5612641400DF // edpAnnotation
- ) .SequenceCode.It
+ )
  ; // Attributes
  CONST "Need map interface" false
  CONST "Need mapping support" false
+ CONST dfm:PathOnly '\common\components\rtl\Garant\dd'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\dd'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_56126374035D cDefaultFileMask
 
@@ -466,6 +510,7 @@ FORWARD ME_561E0B7603E7
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value '''CRITICAL ERROR: Ошибка (%s) открытия файла %s'''
 
 ref; // ME_561E0B8D0032 cFilerOpenErrorMsg
 
@@ -480,10 +525,14 @@ ref; // ME_561E0B8D0032 cFilerOpenErrorMsg
  : Parent ME_5603ED3D011B // ddPipeOutInterfaces
  ;
  : Attributes
-   @ ( ME_561E0B8D0032 // cFilerOpenErrorMsg
- ) .SequenceCode.It
+   Seq: ( ME_561E0B8D0032 // cFilerOpenErrorMsg
+ )
  ; // Attributes
  CONST "spell names" false
+ CONST dfm:PathOnly '\common\components\rtl\Garant\dd'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\dd'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_561E0B7603E7 Сообщения
 
@@ -518,9 +567,9 @@ ref; // ME_56419FFE02C9 aEmptyCount
  : Parent ME_56419FA802B2 // TddReportEmptyEvent
  ;
  : Parameters
-   @ ( ME_56419FFE02B9 // aSender
+   Seq: ( ME_56419FFE02B9 // aSender
  ME_56419FFE02C9 // aEmptyCount
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_56419FDA0124 DoIt
@@ -536,10 +585,14 @@ ref; // ME_56419FDA0124 DoIt
  : Parent ME_5603ED3D011B // ddPipeOutInterfaces
  ;
  : Operations
-   @ ( ME_56419FDA0124 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_56419FDA0124 // DoIt
+ )
  ; // Operations
  CONST "of object" true
+ CONST dfm:PathOnly '\common\components\rtl\Garant\dd'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\dd'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_56419FA802B2 TddReportEmptyEvent
 
@@ -622,8 +675,8 @@ ref; // ME_564C620500BE aIdx
  : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
  ;
  : Attributes
-   @ ( ME_564C620500BE // aIdx
- ) .SequenceCode.It
+   Seq: ( ME_564C620500BE // aIdx
+ )
  ; // Attributes
  CONST "pm" false
 
@@ -650,8 +703,8 @@ ref; // ME_564C60FD012A aTopic
  : Parent ME_564C60D40342 // Add
  ;
  : Parameters
-   @ ( ME_564C60FD012A // aTopic
- ) .SequenceCode.It
+   Seq: ( ME_564C60FD012A // aTopic
+ )
  ; // Parameters
 
 ref; // ME_564C60EA03DB DoIt
@@ -667,8 +720,8 @@ ref; // ME_564C60EA03DB DoIt
  : Parent ME_564C602B0373 // IddAnnoKindSortItem
  ;
  : Operations
-   @ ( ME_564C60EA03DB // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_564C60EA03DB // DoIt
+ )
  ; // Operations
 
 ref; // ME_564C60D40342 Add
@@ -685,16 +738,22 @@ ref; // ME_564C60D40342 Add
  : Parent ME_5603ED3D011B // ddPipeOutInterfaces
  ;
  : Attributes
-   @ ( ME_564C606E003D // Name
+   Seq: ( ME_564C606E003D // Name
  ME_564C611801BD // Count
  ME_564DA034027A // ID
  ME_564C61F80097 // Topics
- ) .SequenceCode.It
+ )
  ; // Attributes
  : Operations
-   @ ( ME_564C60D40342 // Add
- ) .SequenceCode.It
+   Seq: ( ME_564C60D40342 // Add
+ )
  ; // Operations
+ CONST dfm:PathOnly '\common\components\rtl\Garant\dd'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\dd'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'ddAnnoKindSortItem'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_564C602B0373 IddAnnoKindSortItem
 
@@ -708,7 +767,7 @@ ref; // ME_564C602B0373 IddAnnoKindSortItem
  : Parent WL 'ME_4677E18600C2' '4677E18600C2.pas.ms.script' // dd
  ;
  : Children
-   @ ( ME_5603EDF40264 // TddExportDocPart
+   Seq: ( ME_5603EDF40264 // TddExportDocPart
  ME_5603EF2E01F9 // IddExportFilerDispatcherElem
  ME_560A366C00E1 // TddFilerDispatcherMapKeyRecord
  ME_560A4D4F01AE // TddExportDivideBy
@@ -716,31 +775,28 @@ ref; // ME_564C602B0373 IddAnnoKindSortItem
  ME_560BB87D0082 // TddExportFileMaskPatternType
  ME_56419FA802B2 // TddReportEmptyEvent
  ME_564C602B0373 // IddAnnoKindSortItem
- ) .SequenceCode.It
+ )
  ; // Children
  : Constants
-   @ ( ME_560BADDA015F // cExportFileMaskPatterns
+   Seq: ( ME_560BADDA015F // cExportFileMaskPatterns
  ME_56126374035D // cDefaultFileMask
  ME_561E0B7603E7 // Сообщения
- ) .SequenceCode.It
+ )
  ; // Constants
  : Depends
-   @ ( WL 'ME_4677FBA70343' '4677FBA70343.pas.ms.script' // l3Interfaces
+   Seq: ( WL 'ME_4677FBA70343' '4677FBA70343.pas.ms.script' // l3Interfaces
  WL 'ME_47913B47006E' '47913B47006E.pas.ms.script' // l3CoreObjects
  WL 'ME_4AB0C3C60310' '4AB0C3C60310.pas.ms.script' // Sys
- ) .SequenceCode.It
+ )
  ; // Depends
  CONST "is namespace" true
  CONST "no hands" false
- : Generators
- @ (
- gen_intf.pas
- gen_pas.script
- gen_pas.script.runner
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\dd'
  CONST intf.pas:Path 'common\components\rtl\Garant\dd\ddPipeOutInterfaces.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\dd'
  CONST pas.script:Path 'shared\models\NewSchool\Scripts\5603ED3D011B.pas.ms.script'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
  CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\5603ED3D011B.pas.ms.script.runner'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_5603ED3D011B ddPipeOutInterfaces

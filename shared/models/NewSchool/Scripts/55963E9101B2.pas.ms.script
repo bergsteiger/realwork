@@ -26,6 +26,7 @@ ref; // ME_55C320FE02E7 aConfig
  CONST Value ''''''
  : ValueType WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
  ;
+ CONST extprop:pas:Value ''''''
 
 ref; // ME_55C33293034F aProviderKey
 
@@ -39,6 +40,7 @@ ref; // ME_55C33293034F aProviderKey
  CONST Value false
  : ValueType WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
+ CONST extprop:pas:Value false
 
 ref; // ME_55C320FE02F7 ForInfoOnly
 
@@ -51,10 +53,10 @@ ref; // ME_55C320FE02F7 ForInfoOnly
  : Parent ME_5513AC280059 // TBuildConfigProc
  ;
  : Parameters
-   @ ( ME_55C320FE02E7 // aConfig
+   Seq: ( ME_55C320FE02E7 // aConfig
  ME_55C33293034F // aProviderKey
  ME_55C320FE02F7 // ForInfoOnly
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_5513AC580001 DoIt
@@ -70,10 +72,14 @@ ref; // ME_5513AC580001 DoIt
  : Parent ME_55963E9101B2 // daGUITypes
  ;
  : Operations
-   @ ( ME_5513AC580001 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_5513AC580001 // DoIt
+ )
  ; // Operations
  CONST "of object" true
+ CONST dfm:PathOnly '\common\components\rtl\Garant\DA'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\DA'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_5513AC280059 TBuildConfigProc
 
@@ -87,25 +93,22 @@ ref; // ME_5513AC280059 TBuildConfigProc
  : Parent WL 'ME_543244050044' '543244050044.pas.ms.script' // DA
  ;
  : Children
-   @ ( ME_5513AC280059 // TBuildConfigProc
- ) .SequenceCode.It
+   Seq: ( ME_5513AC280059 // TBuildConfigProc
+ )
  ; // Children
  : Depends
-   @ ( WL 'ME_4AB0C3C60310' '4AB0C3C60310.pas.ms.script' // Sys
+   Seq: ( WL 'ME_4AB0C3C60310' '4AB0C3C60310.pas.ms.script' // Sys
  WL 'ME_4B990EDE031A' '4B990EDE031A.pas.ms.script' // AppConfig
- ) .SequenceCode.It
+ )
  ; // Depends
  CONST "is namespace" true
  CONST "no hands" false
- : Generators
- @ (
- gen_intf.pas
- gen_pas.script
- gen_pas.script.runner
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\DA'
  CONST intf.pas:Path 'common\components\rtl\Garant\DA\daGUITypes.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\DA'
  CONST pas.script:Path 'shared\models\NewSchool\Scripts\55963E9101B2.pas.ms.script'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
  CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\55963E9101B2.pas.ms.script.runner'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_55963E9101B2 daGUITypes

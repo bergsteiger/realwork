@@ -21,6 +21,12 @@ FORWARD ME_5199EF87030A
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
+ CONST dfm:PathOnly '\common\components\rtl\Garant\dd\PipeIn'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\dd\PipeIn'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'ddImportPipe'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_5199EFF70361 TddImportPipe
 
@@ -35,17 +41,16 @@ ref; // ME_5199EFF70361 TddImportPipe
  : Parent ME_5199EF4C0227 // PipeIn
  ;
  : Children
-   @ ( ME_5199EFF70361 // TddImportPipe
- ) .SequenceCode.It
+   Seq: ( ME_5199EFF70361 // TddImportPipe
+ )
  ; // Children
  CONST "finished" false
  CONST "no hands" false
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\dd\PipeIn'
  CONST intf.pas:Path 'common\components\rtl\Garant\dd\PipeIn\NOT_FINISHED_ddImportPipe.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\dd\PipeIn'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_5199EF87030A ddImportPipe
 
@@ -64,12 +69,14 @@ ref; // ME_5199EF87030A ddImportPipe
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\dd\PipeIn'
  CONST intf.pas:Path 'common\components\rtl\Garant\dd\PipeIn\NOT_FINISHED_ddFileIterator.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\dd\PipeIn'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'ddFileIterator'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'ddFileIterator'
 
 ref; // ME_519C8DFA0223 TddFileIterator
 
@@ -83,18 +90,16 @@ ref; // ME_519C8DFA0223 TddFileIterator
  : Parent WL 'ME_4677E18600C2' '4677E18600C2.pas.ms.script' // dd
  ;
  : Children
-   @ ( ME_5199EF87030A // ddImportPipe
+   Seq: ( ME_5199EF87030A // ddImportPipe
  ME_519C8DFA0223 // TddFileIterator
- ) .SequenceCode.It
+ )
  ; // Children
  CONST "path prefix" '/PipeIn'
- : Generators
- @ (
- gen_pas.script
- gen_pas.script.runner
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\dd\PipeIn'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\dd\PipeIn'
  CONST pas.script:Path 'shared\models\NewSchool\Scripts\5199EF4C0227.pas.ms.script'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
  CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\5199EF4C0227.pas.ms.script.runner'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_5199EF4C0227 PipeIn

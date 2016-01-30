@@ -1,0 +1,1844 @@
+// ServerAsyncExecution 53C900150015 Unit Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_53C900150015
+
+FORWARD ME_53D0E3330308
+
+: ME_53D0E35C037E
+ CONST UID '53D0E35C037E'
+ CONST Name 'ItemType'
+ CONST Class class_Attribute
+ : Stereotype st_impurity_value::Attribute ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_agr
+ : Parent ME_53D0E3330308 // TalcuAsyncTaskFinishedNotifierList
+ ;
+ : Target WL 'ME_53D0E2B3036C' '53CCB94A02A5.pas.ms.script' // IalcuAsyncTaskFinishedNotifier
+ ;
+
+ref; // ME_53D0E35C037E ItemType
+
+: ME_53D0E3330308
+ CONST UID '53D0E3330308'
+ CONST Name 'TalcuAsyncTaskFinishedNotifierList'
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_53C900150015 // ServerAsyncExecution
+ ;
+ : Inherits
+   Seq: ( WL 'ME_4A54DD4E036F' '47913B47006E.pas.ms.script' // Tl3ProtoDataContainer
+ )
+ ; // Inherits
+ : Implements
+   Seq: ( WL 'ME_47B57D630029' '47913B47006E.pas.ms.script' // l3InterfacePtrList
+ )
+ ; // Implements
+ : Attributes
+   Seq: ( ME_53D0E35C037E // ItemType
+ )
+ ; // Attributes
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ : Generators
+ Seq: (
+ gen_intf.pas
+ )
+ ; // Generators
+ CONST dfm:PathOnly '\archi\source\projects\PipeInAuto\Tasks'
+ CONST intf.pas:Path 'archi\source\projects\PipeInAuto\Tasks\alcuAsyncTaskFinishedNotifierList.pas'
+ CONST intf.pas:PathOnly '\archi\source\projects\PipeInAuto\Tasks'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\archi\source\projects\PipeInAuto\Tasks'
+ CONST extprop:rc:SelfName 'alcuAsyncTaskFinishedNotifierList'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'alcuAsyncTaskFinishedNotifierList'
+
+ref; // ME_53D0E3330308 TalcuAsyncTaskFinishedNotifierList
+
+FORWARD ME_53CE0BD20380
+
+FORWARD ME_53C92B390005
+
+: ME_53CDFA950212
+ CONST UID '53CDFA950212'
+ CONST Name 'ItemType'
+ CONST Class class_Attribute
+ : Stereotype st_impurity_value::Attribute ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_agr
+ : Parent ME_53CE0BD20380 // TalcuSubmitterWorkThreadList
+ ;
+ : Target ME_53C92B390005 // TalcuSubmitterWorkThread
+ ;
+
+ref; // ME_53CDFA950212 ItemType
+
+: ME_47B2C42A0163_ME_53CE0BD20380
+ CONST UID '47B2C42A0163'
+ CONST Name 'AssignItem'
+ : Original WL 'ME_47B2C42A0163' '47913B47006E.pas.ms.script' // AssignItem
+ ;
+ : Implementor ME_53CE0BD20380 // TalcuSubmitterWorkThreadList
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "ifdef" 'l3Items_NeedsAssignItem'
+ CONST "ifndef" 'l3Items_NoSort'
+ref; // ME_47B2C42A0163_ME_53CE0BD20380 AssignItem
+
+: ME_47B99D4503A2_ME_53CE0BD20380
+ CONST UID '47B99D4503A2'
+ CONST Name 'CompareExistingItems'
+ : Original WL 'ME_47B99D4503A2' '47BB24D30205.pas.ms.script' // CompareExistingItems
+ ;
+ : Implementor ME_53CE0BD20380 // TalcuSubmitterWorkThreadList
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_47B99D4503A2_ME_53CE0BD20380 CompareExistingItems
+
+: ME_53CE0BD20380
+ CONST UID '53CE0BD20380'
+ CONST Name 'TalcuSubmitterWorkThreadList'
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_53C900150015 // ServerAsyncExecution
+ ;
+ : Inherits
+   Seq: ( WL 'ME_47B99E920196' '47913B47006E.pas.ms.script' // l3UncomparabeObjectRefList
+ WL 'ME_4A54DD4E036F' '47913B47006E.pas.ms.script' // Tl3ProtoDataContainer
+ )
+ ; // Inherits
+ : Attributes
+   Seq: ( ME_53CDFA950212 // ItemType
+ )
+ ; // Attributes
+ : Implemented
+   Seq: ( ME_47B2C42A0163_ME_53CE0BD20380 // AssignItem
+ ME_47B99D4503A2_ME_53CE0BD20380 // CompareExistingItems
+ )
+ ; // Implemented
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ : Generators
+ Seq: (
+ gen_intf.pas
+ )
+ ; // Generators
+ CONST dfm:PathOnly '\archi\source\projects\PipeInAuto\Tasks'
+ CONST intf.pas:Path 'archi\source\projects\PipeInAuto\Tasks\alcuSubmitterWorkThreadList.pas'
+ CONST intf.pas:PathOnly '\archi\source\projects\PipeInAuto\Tasks'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\archi\source\projects\PipeInAuto\Tasks'
+ CONST extprop:rc:SelfName 'alcuSubmitterWorkThreadList'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'alcuSubmitterWorkThreadList'
+
+ref; // ME_53CE0BD20380 TalcuSubmitterWorkThreadList
+
+FORWARD ME_53CDF9FE006B
+
+: ME_53CE3DB10346
+ CONST UID '53CE3DB10346'
+ CONST Name 'HasWorkThreads'
+ CONST Class class_Attribute
+ : Stereotype st_readonly::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_agr
+ : Parent ME_53CDF9FE006B // TalcuSubmitterWorkPool
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+ CONST "pm" true
+ CONST "reads field" true
+
+ref; // ME_53CE3DB10346 HasWorkThreads
+
+: ME_5411745000ED
+ CONST UID '5411745000ED'
+ CONST Name 'f_LockSubmitTaskCounter'
+ CONST Class class_Attribute
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_53CDF9FE006B // TalcuSubmitterWorkPool
+ ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+
+ref; // ME_5411745000ED f_LockSubmitTaskCounter
+
+: ME_5416C3670067
+ CONST UID '5416C3670067'
+ CONST Name 'WorkThreadCount'
+ CONST Class class_Attribute
+ : Stereotype st_property::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_agr
+ : Parent ME_53CDF9FE006B // TalcuSubmitterWorkPool
+ ;
+ : Target WL 'ME_450A61050251' '3DBFDB23006E.pas.ms.script' // integer
+ ;
+ CONST "pm" true
+ CONST "reads field" true
+
+ref; // ME_5416C3670067 WorkThreadCount
+
+: ME_53CE044D00A5
+ CONST UID '53CE044D00A5'
+ CONST Name 'Manager'
+ CONST Class class_Attribute
+ : Stereotype st_readonly::Attribute ;
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_53CDF9FE006B // TalcuSubmitterWorkPool
+ ;
+ : Target WL 'ME_53CCB9880360' '53CCB94A02A5.pas.ms.script' // IalcuAsyncSubmitterManager
+ ;
+ CONST "pm" true
+ CONST "reads field" true
+
+ref; // ME_53CE044D00A5 Manager
+
+: ME_53CE0BFC03C5
+ CONST UID '53CE0BFC03C5'
+ CONST Name 'f_List'
+ CONST Class class_Attribute
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_53CDF9FE006B // TalcuSubmitterWorkPool
+ ;
+ : Target ME_53CE0BD20380 // TalcuSubmitterWorkThreadList
+ ;
+
+ref; // ME_53CE0BFC03C5 f_List
+
+: ME_53D0E36C00AE
+ CONST UID '53D0E36C00AE'
+ CONST Name 'f_FinishNotifierList'
+ CONST Class class_Attribute
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_53CDF9FE006B // TalcuSubmitterWorkPool
+ ;
+ : Target ME_53D0E3330308 // TalcuAsyncTaskFinishedNotifierList
+ ;
+
+ref; // ME_53D0E36C00AE f_FinishNotifierList
+
+: ME_55C2FE7C01F0
+ CONST UID '55C2FE7C01F0'
+ CONST Name 'f_SubmitGuard'
+ CONST Class class_Attribute
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_53CDF9FE006B // TalcuSubmitterWorkPool
+ ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+
+ref; // ME_55C2FE7C01F0 f_SubmitGuard
+
+: ME_078F4AFABEC5
+ CONST UID '078F4AFABEC5'
+ CONST Name 'f_HasWorkThreads'
+ CONST IsSummoned true
+ CONST Class class_Attribute
+ %SUMMARY 'Поле для свойства HasWorkThreads' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_ref
+ : Parent ME_53CDF9FE006B // TalcuSubmitterWorkPool
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+
+ref; // ME_078F4AFABEC5 f_HasWorkThreads
+
+: ME_873FCCCD48A0
+ CONST UID '873FCCCD48A0'
+ CONST Name 'f_WorkThreadCount'
+ CONST IsSummoned true
+ CONST Class class_Attribute
+ %SUMMARY 'Поле для свойства WorkThreadCount' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_ref
+ : Parent ME_53CDF9FE006B // TalcuSubmitterWorkPool
+ ;
+ : Target WL 'ME_450A61050251' '3DBFDB23006E.pas.ms.script' // integer
+ ;
+ CONST extprop:clearViaProperty 'WorkThreadCount'
+
+ref; // ME_873FCCCD48A0 f_WorkThreadCount
+
+: ME_FFD107211F50
+ CONST UID 'FFD107211F50'
+ CONST Name 'f_Manager'
+ CONST IsSummoned true
+ CONST Class class_Attribute
+ %SUMMARY 'Поле для свойства Manager' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_ref
+ : Parent ME_53CDF9FE006B // TalcuSubmitterWorkPool
+ ;
+ : Target WL 'ME_53CCB9880360' '53CCB94A02A5.pas.ms.script' // IalcuAsyncSubmitterManager
+ ;
+
+ref; // ME_FFD107211F50 f_Manager
+
+FORWARD ME_53CDFAF10205
+
+: ME_53CDFB3B0038
+ CONST UID '53CDFB3B0038'
+ CONST Name 'aManager'
+ CONST Class class_Parameter
+ : Stereotype st_const ;
+ : Target WL 'ME_53CCB9880360' '53CCB94A02A5.pas.ms.script' // IalcuAsyncSubmitterManager
+ ;
+
+ref; // ME_53CDFB3B0038 aManager
+
+: ME_53CDFAFC02CD
+ CONST UID '53CDFAFC02CD'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_53CDFAF10205 // Create
+ ;
+ : Parameters
+   Seq: ( ME_53CDFB3B0038 // aManager
+ )
+ ; // Parameters
+
+ref; // ME_53CDFAFC02CD DoIt
+
+: ME_53CDFAF10205
+ CONST UID '53CDFAF10205'
+ CONST Name 'Create'
+ CONST Class class_Class
+ : Stereotype st_Constructor ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_53CDF9FE006B // TalcuSubmitterWorkPool
+ ;
+ : Operations
+   Seq: ( ME_53CDFAFC02CD // DoIt
+ )
+ ; // Operations
+
+ref; // ME_53CDFAF10205 Create
+
+FORWARD ME_53D0E7D8019F
+
+: ME_53D0E804001C
+ CONST UID '53D0E804001C'
+ CONST Name 'aTask'
+ CONST Class class_Parameter
+ : Stereotype st_const ;
+ : Target WL 'ME_52F8C2BF0110' '52F8C298005C.pas.ms.script' // TddProcessTask
+ ;
+
+ref; // ME_53D0E804001C aTask
+
+: ME_53D0E7EC00F2
+ CONST UID '53D0E7EC00F2'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_53D0E7D8019F // NotifySubscribers
+ ;
+ : Parameters
+   Seq: ( ME_53D0E804001C // aTask
+ )
+ ; // Parameters
+
+ref; // ME_53D0E7EC00F2 DoIt
+
+: ME_53D0E7D8019F
+ CONST UID '53D0E7D8019F'
+ CONST Name 'NotifySubscribers'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_53CDF9FE006B // TalcuSubmitterWorkPool
+ ;
+ : Operations
+   Seq: ( ME_53D0E7EC00F2 // DoIt
+ )
+ ; // Operations
+
+ref; // ME_53D0E7D8019F NotifySubscribers
+
+: ME_53CDFAD5008A
+ CONST UID '53CDFAD5008A'
+ CONST Name 'aTask'
+ CONST Class class_Parameter
+ : Stereotype st_const ;
+ : Target WL 'ME_52F8C2BF0110' '52F8C298005C.pas.ms.script' // TddProcessTask
+ ;
+
+ref; // ME_53CDFAD5008A aTask
+
+: ME_53CDFABD0075
+ CONST UID '53CDFABD0075'
+ CONST Name 'SubmitTask'
+ CONST Class class_Operation
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_53CDF9FE006B // TalcuSubmitterWorkPool
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+ : Parameters
+   Seq: ( ME_53CDFAD5008A // aTask
+ )
+ ; // Parameters
+
+ref; // ME_53CDFABD0075 SubmitTask
+
+: ME_53F71EEF0278
+ CONST UID '53F71EEF0278'
+ CONST Name 'aServices'
+ CONST Class class_Parameter
+ : Stereotype st_const ;
+ : Target WL 'ME_53F7178501D3' '52F8C298005C.pas.ms.script' // IcsRunTaskServices
+ ;
+
+ref; // ME_53F71EEF0278 aServices
+
+: ME_53CDFADC00B4
+ CONST UID '53CDFADC00B4'
+ CONST Name 'CheckExecution'
+ CONST Class class_Operation
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_53CDF9FE006B // TalcuSubmitterWorkPool
+ ;
+ : Parameters
+   Seq: ( ME_53F71EEF0278 // aServices
+ )
+ ; // Parameters
+
+ref; // ME_53CDFADC00B4 CheckExecution
+
+: ME_53F721830387
+ CONST UID '53F721830387'
+ CONST Name 'aServices'
+ CONST Class class_Parameter
+ : Stereotype st_const ;
+ : Target WL 'ME_53F7178501D3' '52F8C298005C.pas.ms.script' // IcsRunTaskServices
+ ;
+
+ref; // ME_53F721830387 aServices
+
+: ME_53CF9B060043
+ CONST UID '53CF9B060043'
+ CONST Name 'HasRunningTask'
+ CONST Class class_Operation
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_53CDF9FE006B // TalcuSubmitterWorkPool
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+ : Parameters
+   Seq: ( ME_53F721830387 // aServices
+ )
+ ; // Parameters
+
+ref; // ME_53CF9B060043 HasRunningTask
+
+: ME_53D0E3A701BD
+ CONST UID '53D0E3A701BD'
+ CONST Name 'aNotifier'
+ CONST Class class_Parameter
+ : Stereotype st_const ;
+ : Target WL 'ME_53D0E2B3036C' '53CCB94A02A5.pas.ms.script' // IalcuAsyncTaskFinishedNotifier
+ ;
+
+ref; // ME_53D0E3A701BD aNotifier
+
+: ME_53D0E39102B2
+ CONST UID '53D0E39102B2'
+ CONST Name 'RegisterNotifier'
+ CONST Class class_Operation
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_53CDF9FE006B // TalcuSubmitterWorkPool
+ ;
+ : Parameters
+   Seq: ( ME_53D0E3A701BD // aNotifier
+ )
+ ; // Parameters
+
+ref; // ME_53D0E39102B2 RegisterNotifier
+
+: ME_53D0E3B8011A
+ CONST UID '53D0E3B8011A'
+ CONST Name 'aNotifier'
+ CONST Class class_Parameter
+ : Stereotype st_const ;
+ : Target WL 'ME_53D0E2B3036C' '53CCB94A02A5.pas.ms.script' // IalcuAsyncTaskFinishedNotifier
+ ;
+
+ref; // ME_53D0E3B8011A aNotifier
+
+: ME_53D0E3AE025B
+ CONST UID '53D0E3AE025B'
+ CONST Name 'UnRegisterNotifier'
+ CONST Class class_Operation
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_53CDF9FE006B // TalcuSubmitterWorkPool
+ ;
+ : Parameters
+   Seq: ( ME_53D0E3B8011A // aNotifier
+ )
+ ; // Parameters
+
+ref; // ME_53D0E3AE025B UnRegisterNotifier
+
+: ME_541173D101EC
+ CONST UID '541173D101EC'
+ CONST Name 'AllowSubmitTask'
+ CONST Class class_Operation
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_53CDF9FE006B // TalcuSubmitterWorkPool
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+
+ref; // ME_541173D101EC AllowSubmitTask
+
+: ME_541173EF01F8
+ CONST UID '541173EF01F8'
+ CONST Name 'LockSubmitTask'
+ CONST Class class_Operation
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_53CDF9FE006B // TalcuSubmitterWorkPool
+ ;
+
+ref; // ME_541173EF01F8 LockSubmitTask
+
+: ME_541174030002
+ CONST UID '541174030002'
+ CONST Name 'UnLockSubmitTask'
+ CONST Class class_Operation
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_53CDF9FE006B // TalcuSubmitterWorkPool
+ ;
+
+ref; // ME_541174030002 UnLockSubmitTask
+
+: ME_53CE100302E0
+ CONST UID '53CE100302E0'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_53CDF9FE006B // TalcuSubmitterWorkPool
+ ;
+ : Target ME_53C92B390005 // TalcuSubmitterWorkThread
+ ;
+
+ref; // ME_53CE100302E0 
+
+: ME_53CE384300C2
+ CONST UID '53CE384300C2'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_53CDF9FE006B // TalcuSubmitterWorkPool
+ ;
+ : Target WL 'ME_47289B590038' '4678193C009C.pas.ms.script' // PLong
+ ;
+
+ref; // ME_53CE384300C2 
+
+: ME_53CE3CBD02EE
+ CONST UID '53CE3CBD02EE'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_53CDF9FE006B // TalcuSubmitterWorkPool
+ ;
+ : Target WL 'ME_4CED3B270143' '47913B47006E.pas.ms.script' // l3L2IA
+ ;
+
+ref; // ME_53CE3CBD02EE 
+
+: ME_53CE3CE2038A
+ CONST UID '53CE3CE2038A'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_53CDF9FE006B // TalcuSubmitterWorkPool
+ ;
+ : Target WL 'ME_48A41FF10094' '4AB0C3F60375.pas.ms.script' // Windows
+ ;
+
+ref; // ME_53CE3CE2038A 
+
+: ME_53CE3D2A011E
+ CONST UID '53CE3D2A011E'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_53CDF9FE006B // TalcuSubmitterWorkPool
+ ;
+ : Target WL 'ME_53CD0E83039E' '52FBA554014B.pas.ms.script' // dt_User
+ ;
+
+ref; // ME_53CE3D2A011E 
+
+: ME_53CE3D7403C2
+ CONST UID '53CE3D7403C2'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_53CDF9FE006B // TalcuSubmitterWorkPool
+ ;
+ : Target WL 'ME_4ADC58F703CF' '4AB0C3C60310.pas.ms.script' // FreeAndNil
+ ;
+
+ref; // ME_53CE3D7403C2 
+
+: ME_53CE3E92007A
+ CONST UID '53CE3E92007A'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_53CDF9FE006B // TalcuSubmitterWorkPool
+ ;
+ : Target WL 'ME_55229480008E' '5432518A0316.pas.ms.script' // UserConsts
+ ;
+
+ref; // ME_53CE3E92007A 
+
+: ME_53D1000700AC
+ CONST UID '53D1000700AC'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_53CDF9FE006B // TalcuSubmitterWorkPool
+ ;
+ : Target WL 'ME_532047060349' '52FA49B901D3.pas.ms.script' // TcsTaskStatus
+ ;
+
+ref; // ME_53D1000700AC 
+
+: ME_55C2FEB80349
+ CONST UID '55C2FEB80349'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_53CDF9FE006B // TalcuSubmitterWorkPool
+ ;
+ : Target WL 'ME_54B7B2F900C2' '537B83AD01F0.pas.ms.script' // l3Interlocked
+ ;
+
+ref; // ME_55C2FEB80349 
+
+: ME_53D0E2CD0227_ME_53CDF9FE006B
+ CONST UID '53D0E2CD0227'
+ CONST Name 'TaskFinished'
+ : Original WL 'ME_53D0E2CD0227' '53CCB94A02A5.pas.ms.script' // TaskFinished
+ ;
+ : Implementor ME_53CDF9FE006B // TalcuSubmitterWorkPool
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_53D0E2CD0227_ME_53CDF9FE006B TaskFinished
+
+: ME_479731C50290_ME_53CDF9FE006B
+ CONST UID '479731C50290'
+ CONST Name 'Cleanup'
+ : Original WL 'ME_479731C50290' '51612EBB02F5.pas.ms.script' // Cleanup
+ ;
+ : Implementor ME_53CDF9FE006B // TalcuSubmitterWorkPool
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_479731C50290_ME_53CDF9FE006B Cleanup
+
+: ME_5000565C019C_ME_53CDF9FE006B
+ CONST UID '5000565C019C'
+ CONST Name 'ClearFields'
+ : Original WL 'ME_5000565C019C' '47913B47006E.pas.ms.script' // ClearFields
+ ;
+ : Implementor ME_53CDF9FE006B // TalcuSubmitterWorkPool
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_5000565C019C_ME_53CDF9FE006B ClearFields
+
+: ME_53CDF9FE006B
+ CONST UID '53CDF9FE006B'
+ CONST Name 'TalcuSubmitterWorkPool'
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Коллекция служебно-рабочих пользователей' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_53C900150015 // ServerAsyncExecution
+ ;
+ : Inherits
+   Seq: ( WL 'ME_49E7754802A9' '47913B47006E.pas.ms.script' // Tl3ProtoObject
+ )
+ ; // Inherits
+ : Implements
+   Seq: ( WL 'ME_53D0E2B3036C' '53CCB94A02A5.pas.ms.script' // IalcuAsyncTaskFinishedNotifier
+ )
+ ; // Implements
+ : Attributes
+   Seq: ( ME_53CE3DB10346 // HasWorkThreads
+ ME_5411745000ED // f_LockSubmitTaskCounter
+ ME_5416C3670067 // WorkThreadCount
+ ME_53CE044D00A5 // Manager
+ ME_53CE0BFC03C5 // f_List
+ ME_53D0E36C00AE // f_FinishNotifierList
+ ME_55C2FE7C01F0 // f_SubmitGuard
+ ME_078F4AFABEC5 // f_HasWorkThreads
+ ME_873FCCCD48A0 // f_WorkThreadCount
+ ME_FFD107211F50 // f_Manager
+ )
+ ; // Attributes
+ : Operations
+   Seq: ( ME_53CDFAF10205 // Create
+ ME_53D0E7D8019F // NotifySubscribers
+ ME_53CDFABD0075 // SubmitTask
+ ME_53CDFADC00B4 // CheckExecution
+ ME_53CF9B060043 // HasRunningTask
+ ME_53D0E39102B2 // RegisterNotifier
+ ME_53D0E3AE025B // UnRegisterNotifier
+ ME_541173D101EC // AllowSubmitTask
+ ME_541173EF01F8 // LockSubmitTask
+ ME_541174030002 // UnLockSubmitTask
+ )
+ ; // Operations
+ : Implemented
+   Seq: ( ME_53D0E2CD0227_ME_53CDF9FE006B // TaskFinished
+ )
+ ; // Implemented
+ : Overridden
+   Seq: ( ME_479731C50290_ME_53CDF9FE006B // Cleanup
+ ME_5000565C019C_ME_53CDF9FE006B // ClearFields
+ )
+ ; // Overridden
+ : Dependencies
+   Seq: ( ME_53CE100302E0 // 
+ ME_53CE384300C2 // 
+ ME_53CE3CBD02EE // 
+ ME_53CE3CE2038A // 
+ ME_53CE3D2A011E // 
+ ME_53CE3D7403C2 // 
+ ME_53CE3E92007A // 
+ ME_53D1000700AC // 
+ ME_55C2FEB80349 // 
+ )
+ ; // Dependencies
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ : Generators
+ Seq: (
+ gen_intf.pas
+ )
+ ; // Generators
+ CONST dfm:PathOnly '\archi\source\projects\PipeInAuto\Tasks'
+ CONST intf.pas:Path 'archi\source\projects\PipeInAuto\Tasks\alcuSubmitterWorkPool.pas'
+ CONST intf.pas:PathOnly '\archi\source\projects\PipeInAuto\Tasks'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\archi\source\projects\PipeInAuto\Tasks'
+ CONST extprop:rc:SelfName 'alcuSubmitterWorkPool'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'alcuSubmitterWorkPool'
+
+ref; // ME_53CDF9FE006B TalcuSubmitterWorkPool
+
+FORWARD ME_53C900CA012E
+
+FORWARD ME_53C9011903D6
+
+: ME_53C9160C03A2
+ CONST UID '53C9160C03A2'
+ CONST Name 'ExitCode'
+ CONST Class class_Attribute
+ : Stereotype st_readonly::Attribute ;
+ %SUMMARY 'Чем процесс завершился' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_agr
+ : Parent ME_53C9011903D6 // TalcuWorkThreadContainer
+ ;
+ : Target WL 'ME_46A618AF0053' '4AB0C3C60310.pas.ms.script' // Cardinal
+ ;
+ CONST "pm" true
+ CONST "reads field" true
+
+ref; // ME_53C9160C03A2 ExitCode
+
+: ME_53C9184901EB
+ CONST UID '53C9184901EB'
+ CONST Name 'f_TaskFileName'
+ CONST Class class_Attribute
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_53C9011903D6 // TalcuWorkThreadContainer
+ ;
+ : Target WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
+ ;
+
+ref; // ME_53C9184901EB f_TaskFileName
+
+: ME_53C9185F03E6
+ CONST UID '53C9185F03E6'
+ CONST Name 'f_ServerHostName'
+ CONST Class class_Attribute
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_53C9011903D6 // TalcuWorkThreadContainer
+ ;
+ : Target WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
+ ;
+
+ref; // ME_53C9185F03E6 f_ServerHostName
+
+: ME_53C91872034C
+ CONST UID '53C91872034C'
+ CONST Name 'f_UserName'
+ CONST Class class_Attribute
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_53C9011903D6 // TalcuWorkThreadContainer
+ ;
+ : Target WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
+ ;
+
+ref; // ME_53C91872034C f_UserName
+
+: ME_53C9188002E9
+ CONST UID '53C9188002E9'
+ CONST Name 'f_Password'
+ CONST Class class_Attribute
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_53C9011903D6 // TalcuWorkThreadContainer
+ ;
+ : Target WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
+ ;
+
+ref; // ME_53C9188002E9 f_Password
+
+: ME_53C918A503C9
+ CONST UID '53C918A503C9'
+ CONST Name 'f_ServerPort'
+ CONST Class class_Attribute
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_53C9011903D6 // TalcuWorkThreadContainer
+ ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+
+ref; // ME_53C918A503C9 f_ServerPort
+
+: ME_B7115C270D39
+ CONST UID 'B7115C270D39'
+ CONST Name 'f_ExitCode'
+ CONST IsSummoned true
+ CONST Class class_Attribute
+ %SUMMARY 'Поле для свойства ExitCode' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_ref
+ : Parent ME_53C9011903D6 // TalcuWorkThreadContainer
+ ;
+ : Target WL 'ME_46A618AF0053' '4AB0C3C60310.pas.ms.script' // Cardinal
+ ;
+
+ref; // ME_B7115C270D39 f_ExitCode
+
+FORWARD ME_53CCF6F70264
+
+: ME_53CCFD4901CB
+ CONST UID '53CCFD4901CB'
+ CONST Name 'anHostName'
+ CONST Class class_Parameter
+ : Stereotype st_const ;
+ : Target WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
+ ;
+
+ref; // ME_53CCFD4901CB anHostName
+
+: ME_53CCFD4901E1
+ CONST UID '53CCFD4901E1'
+ CONST Name 'aPort'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+
+ref; // ME_53CCFD4901E1 aPort
+
+: ME_53CCFD4901F8
+ CONST UID '53CCFD4901F8'
+ CONST Name 'aUserName'
+ CONST Class class_Parameter
+ : Stereotype st_const ;
+ : Target WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
+ ;
+
+ref; // ME_53CCFD4901F8 aUserName
+
+: ME_53CCFD490224
+ CONST UID '53CCFD490224'
+ CONST Name 'aPassword'
+ CONST Class class_Parameter
+ : Stereotype st_const ;
+ : Target WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
+ ;
+
+ref; // ME_53CCFD490224 aPassword
+
+: ME_53CCFD3F01C3
+ CONST UID '53CCFD3F01C3'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_53CCF6F70264 // Create
+ ;
+ : Parameters
+   Seq: ( ME_53CCFD4901CB // anHostName
+ ME_53CCFD4901E1 // aPort
+ ME_53CCFD4901F8 // aUserName
+ ME_53CCFD490224 // aPassword
+ )
+ ; // Parameters
+
+ref; // ME_53CCFD3F01C3 DoIt
+
+: ME_53CCF6F70264
+ CONST UID '53CCF6F70264'
+ CONST Name 'Create'
+ CONST Class class_Class
+ : Stereotype st_Constructor ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_53C9011903D6 // TalcuWorkThreadContainer
+ ;
+ : Operations
+   Seq: ( ME_53CCFD3F01C3 // DoIt
+ )
+ ; // Operations
+
+ref; // ME_53CCF6F70264 Create
+
+: ME_53D601230193
+ CONST UID '53D601230193'
+ CONST Name 'aTaskFile'
+ CONST Class class_Parameter
+ : Stereotype st_const ;
+ : Target WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
+ ;
+
+ref; // ME_53D601230193 aTaskFile
+
+: ME_53C917C30155
+ CONST UID '53C917C30155'
+ CONST Name 'SubmitTask'
+ CONST Class class_Operation
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_final
+ : Parent ME_53C9011903D6 // TalcuWorkThreadContainer
+ ;
+ : Parameters
+   Seq: ( ME_53D601230193 // aTaskFile
+ )
+ ; // Parameters
+
+ref; // ME_53C917C30155 SubmitTask
+
+: ME_540475CA0270
+ CONST UID '540475CA0270'
+ CONST Name 'AssistantFileName'
+ CONST Class class_Operation
+ : Stereotype st_static::Operation ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_53C9011903D6 // TalcuWorkThreadContainer
+ ;
+ : Target WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
+ ;
+
+ref; // ME_540475CA0270 AssistantFileName
+
+: ME_53CCFE53012B
+ CONST UID '53CCFE53012B'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_53C9011903D6 // TalcuWorkThreadContainer
+ ;
+ : Target WL 'ME_47E150FF028A' '4AB0997B00A2.pas.ms.script' // TStream
+ ;
+
+ref; // ME_53CCFE53012B 
+
+: ME_53CCFEA8008B
+ CONST UID '53CCFEA8008B'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_53C9011903D6 // TalcuWorkThreadContainer
+ ;
+ : Target WL 'ME_4C74ED51025F' '47913B47006E.pas.ms.script' // Tl3FileStream
+ ;
+
+ref; // ME_53CCFEA8008B 
+
+: ME_53CD0124016B
+ CONST UID '53CD0124016B'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_53C9011903D6 // TalcuWorkThreadContainer
+ ;
+ : Target WL 'ME_48F4BE400154' '4678193C009C.pas.ms.script' // Tl3FileMode
+ ;
+
+ref; // ME_53CD0124016B 
+
+: ME_53CD018F0044
+ CONST UID '53CD018F0044'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_53C9011903D6 // TalcuWorkThreadContainer
+ ;
+ : Target WL 'ME_4B57004201BD' '47D0290B016D.pas.ms.script' // l3FileUtils
+ ;
+
+ref; // ME_53CD018F0044 
+
+: ME_4911B69E037D_ME_53C9011903D6
+ CONST UID '4911B69E037D'
+ CONST Name 'DoExecute'
+ : Original WL 'ME_4911B69E037D' '47913B47006E.pas.ms.script' // DoExecute
+ ;
+ : Implementor ME_53C9011903D6 // TalcuWorkThreadContainer
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_4911B69E037D_ME_53C9011903D6 DoExecute
+
+: ME_53C9011903D6
+ CONST UID '53C9011903D6'
+ CONST Name 'TalcuWorkThreadContainer'
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_53C900CA012E // alcuAsyncSubmitter
+ ;
+ : Inherits
+   Seq: ( WL 'ME_4911B24C01F6' '47913B47006E.pas.ms.script' // Tl3ThreadContainer
+ )
+ ; // Inherits
+ : Attributes
+   Seq: ( ME_53C9160C03A2 // ExitCode
+ ME_53C9184901EB // f_TaskFileName
+ ME_53C9185F03E6 // f_ServerHostName
+ ME_53C91872034C // f_UserName
+ ME_53C9188002E9 // f_Password
+ ME_53C918A503C9 // f_ServerPort
+ ME_B7115C270D39 // f_ExitCode
+ )
+ ; // Attributes
+ : Operations
+   Seq: ( ME_53CCF6F70264 // Create
+ ME_53C917C30155 // SubmitTask
+ ME_540475CA0270 // AssistantFileName
+ )
+ ; // Operations
+ : Implemented
+   Seq: ( ME_4911B69E037D_ME_53C9011903D6 // DoExecute
+ )
+ ; // Implemented
+ : Dependencies
+   Seq: ( ME_53CCFE53012B // 
+ ME_53CCFEA8008B // 
+ ME_53CD0124016B // 
+ ME_53CD018F0044 // 
+ )
+ ; // Dependencies
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ CONST dfm:PathOnly '\archi\source\projects\PipeInAuto\Tasks'
+ CONST intf.pas:PathOnly '\archi\source\projects\PipeInAuto\Tasks'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\archi\source\projects\PipeInAuto\Tasks'
+ CONST extprop:rc:SelfName 'alcuWorkThreadContainer'
+ CONST extprop:rc:isAcceptableForScripts true
+
+ref; // ME_53C9011903D6 TalcuWorkThreadContainer
+
+: ME_53C92BE10099
+ CONST UID '53C92BE10099'
+ CONST Name 'UserID'
+ CONST Class class_Attribute
+ : Stereotype st_readonly::Attribute ;
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_agr
+ : Parent ME_53C92B390005 // TalcuSubmitterWorkThread
+ ;
+ : Target WL 'ME_53B3D9060271' '47BC51FE018B.pas.ms.script' // TUserID
+ ;
+ CONST "pm" true
+ CONST "reads field" true
+
+ref; // ME_53C92BE10099 UserID
+
+: ME_53C92C5F006F
+ CONST UID '53C92C5F006F'
+ CONST Name 'ActiveTask'
+ CONST Class class_Attribute
+ : Stereotype st_readonly::Attribute ;
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_agr
+ : Parent ME_53C92B390005 // TalcuSubmitterWorkThread
+ ;
+ : Target WL 'ME_52F8C2BF0110' '52F8C298005C.pas.ms.script' // TddProcessTask
+ ;
+ CONST "pm" true
+ CONST "reads field" true
+
+ref; // ME_53C92C5F006F ActiveTask
+
+: ME_53CCBDB70378
+ CONST UID '53CCBDB70378'
+ CONST Name 'Manager'
+ CONST Class class_Attribute
+ : Stereotype st_readonly::Attribute ;
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_agr
+ : Parent ME_53C92B390005 // TalcuSubmitterWorkThread
+ ;
+ : Target WL 'ME_53CCB9880360' '53CCB94A02A5.pas.ms.script' // IalcuAsyncSubmitterManager
+ ;
+ CONST "pm" true
+ CONST "reads field" true
+
+ref; // ME_53CCBDB70378 Manager
+
+: ME_53CF9DAC004E
+ CONST UID '53CF9DAC004E'
+ CONST Name 'StillRunning'
+ CONST Class class_Attribute
+ : Stereotype st_readonly::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_agr
+ : Parent ME_53C92B390005 // TalcuSubmitterWorkThread
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+ CONST "pm" true
+
+ref; // ME_53CF9DAC004E StillRunning
+
+: ME_5416C2D7005B
+ CONST UID '5416C2D7005B'
+ CONST Name 'Active'
+ CONST Class class_Attribute
+ : Stereotype st_property::Attribute ;
+ %SUMMARY 'Можно ли отцеплять утилиту' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_agr
+ : Parent ME_53C92B390005 // TalcuSubmitterWorkThread
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+ CONST "pm" true
+ CONST "reads field" true
+ CONST "writes field" true
+
+ref; // ME_5416C2D7005B Active
+
+: ME_53C92B530346
+ CONST UID '53C92B530346'
+ CONST Name 'f_Thread'
+ CONST Class class_Attribute
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_53C92B390005 // TalcuSubmitterWorkThread
+ ;
+ : Target ME_53C9011903D6 // TalcuWorkThreadContainer
+ ;
+
+ref; // ME_53C92B530346 f_Thread
+
+: ME_53D0E85802A9
+ CONST UID '53D0E85802A9'
+ CONST Name 'f_FinishNotifierList'
+ CONST Class class_Attribute
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_53C92B390005 // TalcuSubmitterWorkThread
+ ;
+ : Target ME_53D0E3330308 // TalcuAsyncTaskFinishedNotifierList
+ ;
+
+ref; // ME_53D0E85802A9 f_FinishNotifierList
+
+: ME_53D5FD150327
+ CONST UID '53D5FD150327'
+ CONST Name 'f_TaskFileName'
+ CONST Class class_Attribute
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_53C92B390005 // TalcuSubmitterWorkThread
+ ;
+ : Target WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
+ ;
+
+ref; // ME_53D5FD150327 f_TaskFileName
+
+: ME_55BF2BFF0282
+ CONST UID '55BF2BFF0282'
+ CONST Name 'f_SubmitGuard'
+ CONST Class class_Attribute
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_53C92B390005 // TalcuSubmitterWorkThread
+ ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+
+ref; // ME_55BF2BFF0282 f_SubmitGuard
+
+: ME_563C560B0083
+ CONST UID '563C560B0083'
+ CONST Name 'f_CheckExecutionGuard'
+ CONST Class class_Attribute
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_53C92B390005 // TalcuSubmitterWorkThread
+ ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+
+ref; // ME_563C560B0083 f_CheckExecutionGuard
+
+: ME_F3D67D068227
+ CONST UID 'F3D67D068227'
+ CONST Name 'f_UserID'
+ CONST IsSummoned true
+ CONST Class class_Attribute
+ %SUMMARY 'Поле для свойства UserID' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_ref
+ : Parent ME_53C92B390005 // TalcuSubmitterWorkThread
+ ;
+ : Target WL 'ME_53B3D9060271' '47BC51FE018B.pas.ms.script' // TUserID
+ ;
+
+ref; // ME_F3D67D068227 f_UserID
+
+: ME_F2D23C6AF401
+ CONST UID 'F2D23C6AF401'
+ CONST Name 'f_ActiveTask'
+ CONST IsSummoned true
+ CONST Class class_Attribute
+ %SUMMARY 'Поле для свойства ActiveTask' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_ref
+ : Parent ME_53C92B390005 // TalcuSubmitterWorkThread
+ ;
+ : Target WL 'ME_52F8C2BF0110' '52F8C298005C.pas.ms.script' // TddProcessTask
+ ;
+
+ref; // ME_F2D23C6AF401 f_ActiveTask
+
+: ME_76608ACAD39B
+ CONST UID '76608ACAD39B'
+ CONST Name 'f_Manager'
+ CONST IsSummoned true
+ CONST Class class_Attribute
+ %SUMMARY 'Поле для свойства Manager' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_ref
+ : Parent ME_53C92B390005 // TalcuSubmitterWorkThread
+ ;
+ : Target WL 'ME_53CCB9880360' '53CCB94A02A5.pas.ms.script' // IalcuAsyncSubmitterManager
+ ;
+
+ref; // ME_76608ACAD39B f_Manager
+
+: ME_499B6BEAF69D
+ CONST UID '499B6BEAF69D'
+ CONST Name 'f_Active'
+ CONST IsSummoned true
+ CONST Class class_Attribute
+ %SUMMARY 'Поле для свойства Active' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_ref
+ : Parent ME_53C92B390005 // TalcuSubmitterWorkThread
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+ CONST extprop:clearViaProperty 'Active'
+
+ref; // ME_499B6BEAF69D f_Active
+
+FORWARD ME_53CCF726039A
+
+: ME_53CCFD6303C7
+ CONST UID '53CCFD6303C7'
+ CONST Name 'aUserID'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_53B3D9060271' '47BC51FE018B.pas.ms.script' // TUserID
+ ;
+
+ref; // ME_53CCFD6303C7 aUserID
+
+: ME_53CCFD6303DC
+ CONST UID '53CCFD6303DC'
+ CONST Name 'aManager'
+ CONST Class class_Parameter
+ : Stereotype st_const ;
+ : Target WL 'ME_53CCB9880360' '53CCB94A02A5.pas.ms.script' // IalcuAsyncSubmitterManager
+ ;
+
+ref; // ME_53CCFD6303DC aManager
+
+: ME_53CCFD5A0397
+ CONST UID '53CCFD5A0397'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_53CCF726039A // Create
+ ;
+ : Parameters
+   Seq: ( ME_53CCFD6303C7 // aUserID
+ ME_53CCFD6303DC // aManager
+ )
+ ; // Parameters
+
+ref; // ME_53CCFD5A0397 DoIt
+
+: ME_53CCF726039A
+ CONST UID '53CCF726039A'
+ CONST Name 'Create'
+ CONST Class class_Class
+ : Stereotype st_Constructor ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_53C92B390005 // TalcuSubmitterWorkThread
+ ;
+ : Operations
+   Seq: ( ME_53CCFD5A0397 // DoIt
+ )
+ ; // Operations
+
+ref; // ME_53CCF726039A Create
+
+: ME_53CCF792037B
+ CONST UID '53CCF792037B'
+ CONST Name 'aTask'
+ CONST Class class_Parameter
+ : Stereotype st_const ;
+ : Target WL 'ME_52F8C2BF0110' '52F8C298005C.pas.ms.script' // TddProcessTask
+ ;
+
+ref; // ME_53CCF792037B aTask
+
+: ME_53CCF77201EF
+ CONST UID '53CCF77201EF'
+ CONST Name 'SubmitTask'
+ CONST Class class_Operation
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_53C92B390005 // TalcuSubmitterWorkThread
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+ : Parameters
+   Seq: ( ME_53CCF792037B // aTask
+ )
+ ; // Parameters
+
+ref; // ME_53CCF77201EF SubmitTask
+
+: ME_53F71C5F02FC
+ CONST UID '53F71C5F02FC'
+ CONST Name 'aServices'
+ CONST Class class_Parameter
+ : Stereotype st_const ;
+ : Target WL 'ME_53F7178501D3' '52F8C298005C.pas.ms.script' // IcsRunTaskServices
+ ;
+
+ref; // ME_53F71C5F02FC aServices
+
+: ME_53CDF9B0012E
+ CONST UID '53CDF9B0012E'
+ CONST Name 'CheckExecution'
+ CONST Class class_Operation
+ %SUMMARY 'Проверить что процесс завершился и освободиться по необходимости' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_53C92B390005 // TalcuSubmitterWorkThread
+ ;
+ : Parameters
+   Seq: ( ME_53F71C5F02FC // aServices
+ )
+ ; // Parameters
+
+ref; // ME_53CDF9B0012E CheckExecution
+
+: ME_53D0E888019C
+ CONST UID '53D0E888019C'
+ CONST Name 'aNotifier'
+ CONST Class class_Parameter
+ : Stereotype st_const ;
+ : Target WL 'ME_53D0E2B3036C' '53CCB94A02A5.pas.ms.script' // IalcuAsyncTaskFinishedNotifier
+ ;
+
+ref; // ME_53D0E888019C aNotifier
+
+: ME_53D0E880001E
+ CONST UID '53D0E880001E'
+ CONST Name 'RegisterNotifier'
+ CONST Class class_Operation
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_53C92B390005 // TalcuSubmitterWorkThread
+ ;
+ : Parameters
+   Seq: ( ME_53D0E888019C // aNotifier
+ )
+ ; // Parameters
+
+ref; // ME_53D0E880001E RegisterNotifier
+
+: ME_53D0E89400A5
+ CONST UID '53D0E89400A5'
+ CONST Name 'aNotifier'
+ CONST Class class_Parameter
+ : Stereotype st_const ;
+ : Target WL 'ME_53D0E2B3036C' '53CCB94A02A5.pas.ms.script' // IalcuAsyncTaskFinishedNotifier
+ ;
+
+ref; // ME_53D0E89400A5 aNotifier
+
+: ME_53D0E88D0368
+ CONST UID '53D0E88D0368'
+ CONST Name 'UnRegisterNotifier'
+ CONST Class class_Operation
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_53C92B390005 // TalcuSubmitterWorkThread
+ ;
+ : Parameters
+   Seq: ( ME_53D0E89400A5 // aNotifier
+ )
+ ; // Parameters
+
+ref; // ME_53D0E88D0368 UnRegisterNotifier
+
+: ME_53D0E89C0113
+ CONST UID '53D0E89C0113'
+ CONST Name 'NotifySubscribers'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_53C92B390005 // TalcuSubmitterWorkThread
+ ;
+
+ref; // ME_53D0E89C0113 NotifySubscribers
+
+: ME_5404732A00CC
+ CONST UID '5404732A00CC'
+ CONST Name 'AssistantExists'
+ CONST Class class_Operation
+ : Stereotype st_static::Operation ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_53C92B390005 // TalcuSubmitterWorkThread
+ ;
+ : Target WL 'ME_3DBFFE100240' '3DBFDB23006E.pas.ms.script' // boolean
+ ;
+ CONST extprop:pas:Value false
+
+ref; // ME_5404732A00CC AssistantExists
+
+: ME_53CE2DD802CB
+ CONST UID '53CE2DD802CB'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_53C92B390005 // TalcuSubmitterWorkThread
+ ;
+ : Target WL 'ME_532047380399' '52FA49B901D3.pas.ms.script' // TcsTaskTypes
+ ;
+
+ref; // ME_53CE2DD802CB 
+
+: ME_55BF2BDB0046
+ CONST UID '55BF2BDB0046'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_53C92B390005 // TalcuSubmitterWorkThread
+ ;
+ : Target WL 'ME_54B7B2F900C2' '537B83AD01F0.pas.ms.script' // l3Interlocked
+ ;
+
+ref; // ME_55BF2BDB0046 
+
+: ME_55BF2FD60354
+ CONST UID '55BF2FD60354'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_53C92B390005 // TalcuSubmitterWorkThread
+ ;
+ : Target WL 'ME_532047060349' '52FA49B901D3.pas.ms.script' // TcsTaskStatus
+ ;
+
+ref; // ME_55BF2FD60354 
+
+: ME_55BF2FDB0252
+ CONST UID '55BF2FDB0252'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_53C92B390005 // TalcuSubmitterWorkThread
+ ;
+ : Target WL 'ME_53C916400254' '52FA49B901D3.pas.ms.script' // TcsExecutionStatus
+ ;
+
+ref; // ME_55BF2FDB0252 
+
+: ME_53CF5E600196_ME_53C92B390005
+ CONST UID '53CF5E600196'
+ CONST Name 'ProcessAbort'
+ : Original WL 'ME_53CF5E600196' '52F8C298005C.pas.ms.script' // ProcessAbort
+ ;
+ : Implementor ME_53C92B390005 // TalcuSubmitterWorkThread
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_53CF5E600196_ME_53C92B390005 ProcessAbort
+
+: ME_479731C50290_ME_53C92B390005
+ CONST UID '479731C50290'
+ CONST Name 'Cleanup'
+ : Original WL 'ME_479731C50290' '51612EBB02F5.pas.ms.script' // Cleanup
+ ;
+ : Implementor ME_53C92B390005 // TalcuSubmitterWorkThread
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_479731C50290_ME_53C92B390005 Cleanup
+
+: ME_5000565C019C_ME_53C92B390005
+ CONST UID '5000565C019C'
+ CONST Name 'ClearFields'
+ : Original WL 'ME_5000565C019C' '47913B47006E.pas.ms.script' // ClearFields
+ ;
+ : Implementor ME_53C92B390005 // TalcuSubmitterWorkThread
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_5000565C019C_ME_53C92B390005 ClearFields
+
+: ME_53C92B390005
+ CONST UID '53C92B390005'
+ CONST Name 'TalcuSubmitterWorkThread'
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_53C900CA012E // alcuAsyncSubmitter
+ ;
+ : Inherits
+   Seq: ( WL 'ME_49E7754802A9' '47913B47006E.pas.ms.script' // Tl3ProtoObject
+ )
+ ; // Inherits
+ : Implements
+   Seq: ( WL 'ME_53CF5DC300E7' '52F8C298005C.pas.ms.script' // IcsExternalTaskAbortProcessor
+ )
+ ; // Implements
+ : Attributes
+   Seq: ( ME_53C92BE10099 // UserID
+ ME_53C92C5F006F // ActiveTask
+ ME_53CCBDB70378 // Manager
+ ME_53CF9DAC004E // StillRunning
+ ME_5416C2D7005B // Active
+ ME_53C92B530346 // f_Thread
+ ME_53D0E85802A9 // f_FinishNotifierList
+ ME_53D5FD150327 // f_TaskFileName
+ ME_55BF2BFF0282 // f_SubmitGuard
+ ME_563C560B0083 // f_CheckExecutionGuard
+ ME_F3D67D068227 // f_UserID
+ ME_F2D23C6AF401 // f_ActiveTask
+ ME_76608ACAD39B // f_Manager
+ ME_499B6BEAF69D // f_Active
+ )
+ ; // Attributes
+ : Operations
+   Seq: ( ME_53CCF726039A // Create
+ ME_53CCF77201EF // SubmitTask
+ ME_53CDF9B0012E // CheckExecution
+ ME_53D0E880001E // RegisterNotifier
+ ME_53D0E88D0368 // UnRegisterNotifier
+ ME_53D0E89C0113 // NotifySubscribers
+ ME_5404732A00CC // AssistantExists
+ )
+ ; // Operations
+ : Implemented
+   Seq: ( ME_53CF5E600196_ME_53C92B390005 // ProcessAbort
+ )
+ ; // Implemented
+ : Overridden
+   Seq: ( ME_479731C50290_ME_53C92B390005 // Cleanup
+ ME_5000565C019C_ME_53C92B390005 // ClearFields
+ )
+ ; // Overridden
+ : Dependencies
+   Seq: ( ME_53CE2DD802CB // 
+ ME_55BF2BDB0046 // 
+ ME_55BF2FD60354 // 
+ ME_55BF2FDB0252 // 
+ )
+ ; // Dependencies
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ CONST dfm:PathOnly '\archi\source\projects\PipeInAuto\Tasks'
+ CONST intf.pas:PathOnly '\archi\source\projects\PipeInAuto\Tasks'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\archi\source\projects\PipeInAuto\Tasks'
+ CONST extprop:rc:SelfName 'alcuSubmitterWorkThread'
+ CONST extprop:rc:isAcceptableForScripts true
+
+ref; // ME_53C92B390005 TalcuSubmitterWorkThread
+
+: ME_53CE37400077
+ CONST UID '53CE37400077'
+ CONST Name 'PalcuSubmitterWorkThread'
+ CONST Class class_Class
+ : Stereotype st_Typedef ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_53C900CA012E // alcuAsyncSubmitter
+ ;
+ : Inherits
+   Seq: ( ME_53C92B390005 // TalcuSubmitterWorkThread
+ )
+ ; // Inherits
+ CONST "isPointer" true
+ CONST dfm:PathOnly '\archi\source\projects\PipeInAuto\Tasks'
+ CONST intf.pas:PathOnly '\archi\source\projects\PipeInAuto\Tasks'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\archi\source\projects\PipeInAuto\Tasks'
+ CONST extprop:rc:isAcceptableForScripts true
+
+ref; // ME_53CE37400077 PalcuSubmitterWorkThread
+
+: ME_53C906D6006C
+ CONST UID '53C906D6006C'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_53C900CA012E // alcuAsyncSubmitter
+ ;
+ : Target WL 'ME_4773D64E036C' '47913B47006E.pas.ms.script' // l3Base
+ ;
+
+ref; // ME_53C906D6006C 
+
+: ME_53C90BB501AE
+ CONST UID '53C90BB501AE'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_53C900CA012E // alcuAsyncSubmitter
+ ;
+ : Target WL 'ME_48A41FF10094' '4AB0C3F60375.pas.ms.script' // Windows
+ ;
+
+ref; // ME_53C90BB501AE 
+
+: ME_53C915F600D3
+ CONST UID '53C915F600D3'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_53C900CA012E // alcuAsyncSubmitter
+ ;
+ : Target WL 'ME_47877EB202FB' '4AB0C3C60310.pas.ms.script' // SysUtils
+ ;
+
+ref; // ME_53C915F600D3 
+
+: ME_53C91B0C01D2
+ CONST UID '53C91B0C01D2'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_53C900CA012E // alcuAsyncSubmitter
+ ;
+ : Target WL 'ME_4807744200AA' '4AB0C3C60310.pas.ms.script' // System
+ ;
+
+ref; // ME_53C91B0C01D2 
+
+: ME_53C922CD02B9
+ CONST UID '53C922CD02B9'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_53C900CA012E // alcuAsyncSubmitter
+ ;
+ : Target WL 'ME_52304ABC01E7' '47913B47006E.pas.ms.script' // l3Base64
+ ;
+
+ref; // ME_53C922CD02B9 
+
+: ME_53CE30FC01C8
+ CONST UID '53CE30FC01C8'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_53C900CA012E // alcuAsyncSubmitter
+ ;
+ : Target WL 'ME_532046D302C2' '52FA49B901D3.pas.ms.script' // csTaskTypes
+ ;
+
+ref; // ME_53CE30FC01C8 
+
+: ME_53C900CA012E
+ CONST UID '53C900CA012E'
+ CONST Name 'alcuAsyncSubmitter'
+ CONST Class class_Class
+ : Stereotype st_UtilityPack ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Асинхронно посылает с сервера запросы на выполнение утилите.' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_53C900150015 // ServerAsyncExecution
+ ;
+ : Children
+   Seq: ( ME_53C9011903D6 // TalcuWorkThreadContainer
+ ME_53C92B390005 // TalcuSubmitterWorkThread
+ ME_53CE37400077 // PalcuSubmitterWorkThread
+ )
+ ; // Children
+ : Dependencies
+   Seq: ( ME_53C906D6006C // 
+ ME_53C90BB501AE // 
+ ME_53C915F600D3 // 
+ ME_53C91B0C01D2 // 
+ ME_53C922CD02B9 // 
+ ME_53CE30FC01C8 // 
+ )
+ ; // Dependencies
+ CONST "no hands" false
+ : Generators
+ Seq: (
+ gen_intf.pas
+ )
+ ; // Generators
+ CONST dfm:PathOnly '\archi\source\projects\PipeInAuto\Tasks'
+ CONST intf.pas:Path 'archi\source\projects\PipeInAuto\Tasks\alcuAsyncSubmitter.pas'
+ CONST intf.pas:PathOnly '\archi\source\projects\PipeInAuto\Tasks'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\archi\source\projects\PipeInAuto\Tasks'
+
+ref; // ME_53C900CA012E alcuAsyncSubmitter
+
+: ME_53C900150015
+ CONST UID '53C900150015'
+ CONST Name 'ServerAsyncExecution'
+ CONST Class class_Category
+ : Stereotype st_Unit ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent WL 'ME_52FA3D9502BD' '52FA3D9502BD.pas.ms.script' // Tasks
+ ;
+ : Children
+   Seq: ( ME_53D0E3330308 // TalcuAsyncTaskFinishedNotifierList
+ ME_53CE0BD20380 // TalcuSubmitterWorkThreadList
+ ME_53CDF9FE006B // TalcuSubmitterWorkPool
+ ME_53C900CA012E // alcuAsyncSubmitter
+ )
+ ; // Children
+ : Depends
+   Seq: ( WL 'ME_4678193C009C' '4678193C009C.pas.ms.script' // l3Types
+ WL 'ME_47913B47006E' '47913B47006E.pas.ms.script' // l3CoreObjects
+ WL 'ME_47BC51FE018B' '47BC51FE018B.pas.ms.script' // dt_Types
+ WL 'ME_47D0290B016D' '47D0290B016D.pas.ms.script' // l3Utils
+ WL 'ME_4AB0997B00A2' '4AB0997B00A2.pas.ms.script' // Common
+ WL 'ME_4AB0C3C60310' '4AB0C3C60310.pas.ms.script' // Sys
+ WL 'ME_4AB0C3F60375' '4AB0C3F60375.pas.ms.script' // Win
+ WL 'ME_52F8C298005C' '52F8C298005C.pas.ms.script' // Tasks
+ WL 'ME_52FA49B901D3' '52FA49B901D3.pas.ms.script' // ArchiClientServer
+ WL 'ME_52FBA554014B' '52FBA554014B.pas.ms.script' // Users
+ WL 'ME_537B83AD01F0' '537B83AD01F0.pas.ms.script' // l3Math
+ WL 'ME_53CCB94A02A5' '53CCB94A02A5.pas.ms.script' // alcuServerAsyncExecutionInterfaces
+ WL 'ME_5432518A0316' '5432518A0316.pas.ms.script' // daInterfaces
+ )
+ ; // Depends
+ CONST "ifdef" 'AppServerSide'
+ : Generators
+ Seq: (
+ gen_pas.script
+ gen_pas.script.runner
+ )
+ ; // Generators
+ CONST dfm:PathOnly '\archi\source\projects\PipeInAuto\Tasks'
+ CONST intf.pas:PathOnly '\archi\source\projects\PipeInAuto\Tasks'
+ CONST pas.script:Path 'shared\models\NewSchool\Scripts\53C900150015.pas.ms.script'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\53C900150015.pas.ms.script.runner'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\archi\source\projects\PipeInAuto\Tasks'
+
+ref; // ME_53C900150015 ServerAsyncExecution

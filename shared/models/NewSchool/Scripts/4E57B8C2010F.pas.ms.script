@@ -1,0 +1,843 @@
+// Требования к схеме документа EVD 4E57B8C2010F UseCases Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4E57B8C2010F
+
+FORWARD ME_4E67A4B600FB
+
+: ME_4E5CCE190335
+ CONST UID '4E5CCE190335'
+ CONST Name 'Шапка документа должна иметь тег HasAnno'
+ CONST Class class_Class
+ : Stereotype st_UseCaseTagRequirement ;
+ CONST Kind kind_NormalClass
+ %SUMMARY '{RequestLink:280859680}' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4E67A4B600FB // Стандартная схема документа
+ ;
+ CONST "CodeName" 'HasAnno'
+ CONST dfm:PathOnly '\common\components'
+ CONST intf.pas:PathOnly '\common\components'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+
+ref; // ME_4E5CCE190335 Шапка документа должна иметь тег HasAnno
+
+: ME_4E5D03C10190
+ CONST UID '4E5D03C10190'
+ CONST Name 'Стиль параграфа должен иметь возможность указания, что надо рисовать баллон в тексте документа'
+ CONST Class class_Class
+ : Stereotype st_UseCaseTagRequirement ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4E67A4B600FB // Стандартная схема документа
+ ;
+ CONST "CodeName" 'Collapsable'
+ CONST dfm:PathOnly '\common\components'
+ CONST intf.pas:PathOnly '\common\components'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+
+ref; // ME_4E5D03C10190 Стиль параграфа должен иметь возможность указания, что надо рисовать баллон в тексте документа
+
+FORWARD ME_4E5D0DC6002B
+
+: ME_4E57B8D703B8
+ CONST UID '4E57B8D703B8'
+ CONST Name 'Шрифт для печати преформатированного текста должен быть по-умолчанию равен 11'
+ CONST Class class_Class
+ : Stereotype st_UseCaseTagValueRequirement ;
+ CONST Kind kind_NormalClass
+ %SUMMARY '{RequestLink:279774062}' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4E5D0DC6002B // Размер шрифта при печати
+ ;
+ CONST "Value" 11
+ CONST dfm:PathOnly '\common\components'
+ CONST intf.pas:PathOnly '\common\components'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+
+ref; // ME_4E57B8D703B8 Шрифт для печати преформатированного текста должен быть по-умолчанию равен 11
+
+: ME_4E5D0DC6002B
+ CONST UID '4E5D0DC6002B'
+ CONST Name 'Размер шрифта при печати'
+ CONST Class class_Class
+ : Stereotype st_UseCaseTagRequirement ;
+ CONST Kind kind_NormalClass
+ %SUMMARY '{RequestLink:199590272}' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4E67A4B600FB // Стандартная схема документа
+ ;
+ : Children
+   Seq: ( ME_4E57B8D703B8 // Шрифт для печати преформатированного текста должен быть по-умолчанию равен 11
+ )
+ ; // Children
+ CONST "CodeName" 'PrintFontSize'
+ CONST dfm:PathOnly '\common\components'
+ CONST intf.pas:PathOnly '\common\components'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+
+ref; // ME_4E5D0DC6002B Размер шрифта при печати
+
+: ME_4E60E0AA027D
+ CONST UID '4E60E0AA027D'
+ CONST Name 'Стиль должен иметь возможность отображать шапку на одной строке с текстом'
+ CONST Class class_Class
+ : Stereotype st_UseCaseTagRequirement ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4E67A4B600FB // Стандартная схема документа
+ ;
+ CONST "CodeName" 'HeaderHasOwnSpace'
+ CONST dfm:PathOnly '\common\components'
+ CONST intf.pas:PathOnly '\common\components'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+
+ref; // ME_4E60E0AA027D Стиль должен иметь возможность отображать шапку на одной строке с текстом
+
+FORWARD ME_4E6758CB0292
+
+: ME_4E675968018B
+ CONST UID '4E675968018B'
+ CONST Name 'Для баллонов с информацией об изменениях текст фона должен быть RGB 237 239 243'
+ CONST Class class_Class
+ : Stereotype st_UseCaseTagValueRequirement ;
+ CONST Kind kind_NormalClass
+ %SUMMARY '{RequestLink:278837776}' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4E6758CB0292 // Параграфы должны иметь возможность настройки фона отображения
+ ;
+ CONST "Value" '$EDEFF3'
+ CONST dfm:PathOnly '\common\components'
+ CONST intf.pas:PathOnly '\common\components'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+
+ref; // ME_4E675968018B Для баллонов с информацией об изменениях текст фона должен быть RGB 237 239 243
+
+: ME_4E6758CB0292
+ CONST UID '4E6758CB0292'
+ CONST Name 'Параграфы должны иметь возможность настройки фона отображения'
+ CONST Class class_Class
+ : Stereotype st_UseCaseTagRequirement ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4E67A4B600FB // Стандартная схема документа
+ ;
+ : Children
+   Seq: ( ME_4E675968018B // Для баллонов с информацией об изменениях текст фона должен быть RGB 237 239 243
+ )
+ ; // Children
+ CONST "CodeName" 'BackColor'
+ CONST dfm:PathOnly '\common\components'
+ CONST intf.pas:PathOnly '\common\components'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+
+ref; // ME_4E6758CB0292 Параграфы должны иметь возможность настройки фона отображения
+
+FORWARD ME_4E67717E03BE
+
+: ME_4E6780B60109
+ CONST UID '4E6780B60109'
+ CONST Name 'Требования к заголовку баллона об изменениях в документе'
+ CONST Class class_Class
+ : Stereotype st_UseCaseRequirement ;
+ CONST Kind kind_NormalClass
+ %SUMMARY '{RequestLink:278837795}' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4E67717E03BE // Требования на оформление баллона
+ ;
+ CONST dfm:PathOnly '\common\components'
+ CONST intf.pas:PathOnly '\common\components'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+
+ref; // ME_4E6780B60109 Требования к заголовку баллона об изменениях в документе
+
+: ME_4E6780E40227
+ CONST UID '4E6780E40227'
+ CONST Name 'Требования к подвалу баллона об изменениях в документе'
+ CONST Class class_Class
+ : Stereotype st_UseCaseRequirement ;
+ CONST Kind kind_NormalClass
+ %SUMMARY '{RequestLink:278837795}' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4E67717E03BE // Требования на оформление баллона
+ ;
+ CONST dfm:PathOnly '\common\components'
+ CONST intf.pas:PathOnly '\common\components'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+
+ref; // ME_4E6780E40227 Требования к подвалу баллона об изменениях в документе
+
+: ME_4E6781010190
+ CONST UID '4E6781010190'
+ CONST Name 'Требования к тексту баллона об изменениях в документе'
+ CONST Class class_Class
+ : Stereotype st_UseCaseRequirement ;
+ CONST Kind kind_NormalClass
+ %SUMMARY '{RequestLink:278837795}' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4E67717E03BE // Требования на оформление баллона
+ ;
+ CONST dfm:PathOnly '\common\components'
+ CONST intf.pas:PathOnly '\common\components'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+
+ref; // ME_4E6781010190 Требования к тексту баллона об изменениях в документе
+
+: ME_4E6783AA00A8
+ CONST UID '4E6783AA00A8'
+ CONST Name 'Требования к подзаголовку баллона об изменениях документа'
+ CONST Class class_Class
+ : Stereotype st_UseCaseRequirement ;
+ CONST Kind kind_NormalClass
+ %SUMMARY '{RequestLink:278837795}' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4E67717E03BE // Требования на оформление баллона
+ ;
+ CONST dfm:PathOnly '\common\components'
+ CONST intf.pas:PathOnly '\common\components'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+
+ref; // ME_4E6783AA00A8 Требования к подзаголовку баллона об изменениях документа
+
+: ME_4E67717E03BE
+ CONST UID '4E67717E03BE'
+ CONST Name 'Требования на оформление баллона'
+ CONST Class class_Class
+ : Stereotype st_UseCaseRequirement ;
+ CONST Kind kind_NormalClass
+ %SUMMARY '{RequestLink:278837795}' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4E67A4B600FB // Стандартная схема документа
+ ;
+ : Children
+   Seq: ( ME_4E6780B60109 // Требования к заголовку баллона об изменениях в документе
+ ME_4E6780E40227 // Требования к подвалу баллона об изменениях в документе
+ ME_4E6781010190 // Требования к тексту баллона об изменениях в документе
+ ME_4E6783AA00A8 // Требования к подзаголовку баллона об изменениях документа
+ )
+ ; // Children
+ CONST dfm:PathOnly '\common\components'
+ CONST intf.pas:PathOnly '\common\components'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+
+ref; // ME_4E67717E03BE Требования на оформление баллона
+
+: ME_4E67899301A9
+ CONST UID '4E67899301A9'
+ CONST Name 'Требования к стилю заголовка группы контролов в КЗ'
+ CONST Class class_Class
+ : Stereotype st_UseCaseRequirement ;
+ CONST Kind kind_NormalClass
+ %SUMMARY '{RequestLink:263294701}'#13#10'{RequestLink:228688510}' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4E67A4B600FB // Стандартная схема документа
+ ;
+ CONST dfm:PathOnly '\common\components'
+ CONST intf.pas:PathOnly '\common\components'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+
+ref; // ME_4E67899301A9 Требования к стилю заголовка группы контролов в КЗ
+
+FORWARD ME_4E60DFD100C3
+
+: ME_4E60DFD100C3
+ CONST UID '4E60DFD100C3'
+ CONST Name 'Для юридиических и версионных комментариев шапка должна быть склеена в одну строчку с текстом'
+ CONST Class class_Class
+ : Stereotype st_UseCaseRequirement ;
+ CONST Kind kind_NormalClass
+ %SUMMARY '{RequestLink:272663564}' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4E67A4B600FB // Стандартная схема документа
+ ;
+ CONST dfm:PathOnly '\common\components'
+ CONST intf.pas:PathOnly '\common\components'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+
+ref; // ME_4E60DFD100C3 Для юридиических и версионных комментариев шапка должна быть склеена в одну строчку с текстом
+
+: ME_4E6789AF00CE
+ CONST UID '4E6789AF00CE'
+ CONST Name 'Требования к стилю распахивающейся части диалогов'
+ CONST Class class_Class
+ : Stereotype st_UseCaseRequirement ;
+ CONST Kind kind_NormalClass
+ %SUMMARY '{RequestLink:254944102}' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4E67A4B600FB // Стандартная схема документа
+ ;
+ CONST dfm:PathOnly '\common\components'
+ CONST intf.pas:PathOnly '\common\components'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+
+ref; // ME_4E6789AF00CE Требования к стилю распахивающейся части диалогов
+
+FORWARD ME_4E67A57800D4
+
+: ME_4E67A6B202BB
+ CONST UID '4E67A6B202BB'
+ CONST Name 'Текст баллона с информацией об изменениях должен иметь интерлиньяж 1.0'
+ CONST Class class_Class
+ : Stereotype st_UseCaseTagValueRequirement ;
+ CONST Kind kind_NormalClass
+ %SUMMARY '{RequestLink:278837795}' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4E67A57800D4 // Параграфы и стили должны иметь собственный интерлиньяж
+ ;
+ CONST "Value" 100
+ CONST dfm:PathOnly '\common\components'
+ CONST intf.pas:PathOnly '\common\components'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+
+ref; // ME_4E67A6B202BB Текст баллона с информацией об изменениях должен иметь интерлиньяж 1.0
+
+: ME_4E67A57800D4
+ CONST UID '4E67A57800D4'
+ CONST Name 'Параграфы и стили должны иметь собственный интерлиньяж'
+ CONST Class class_Class
+ : Stereotype st_UseCaseTagRequirement ;
+ CONST Kind kind_NormalClass
+ %SUMMARY '{RequestlInk:278837795}' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4E67A4B600FB // Стандартная схема документа
+ ;
+ : Children
+   Seq: ( ME_4E67A6B202BB // Текст баллона с информацией об изменениях должен иметь интерлиньяж 1.0
+ )
+ ; // Children
+ CONST "CodeName" 'LineSpacing'
+ CONST dfm:PathOnly '\common\components'
+ CONST intf.pas:PathOnly '\common\components'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+
+ref; // ME_4E67A57800D4 Параграфы и стили должны иметь собственный интерлиньяж
+
+: ME_4E6A1ADB0057
+ CONST UID '4E6A1ADB0057'
+ CONST Name 'Документ должен иметь собственный Header'
+ CONST Class class_Class
+ : Stereotype st_UseCaseTagRequirement ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4E67A4B600FB // Стандартная схема документа
+ ;
+ CONST "CodeName" 'Style Header'
+ CONST dfm:PathOnly '\common\components'
+ CONST intf.pas:PathOnly '\common\components'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+
+ref; // ME_4E6A1ADB0057 Документ должен иметь собственный Header
+
+: ME_4E6DD5C20039
+ CONST UID '4E6DD5C20039'
+ CONST Name 'Ссылки должны уметь содержать в себе скрипты'
+ CONST Class class_Class
+ : Stereotype st_UseCaseTagRequirement ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4E67A4B600FB // Стандартная схема документа
+ ;
+ CONST "CodeName" 'URL'
+ CONST dfm:PathOnly '\common\components'
+ CONST intf.pas:PathOnly '\common\components'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+
+ref; // ME_4E6DD5C20039 Ссылки должны уметь содержать в себе скрипты
+
+FORWARD ME_4E6F73B701ED
+
+: ME_4E6F73DB01E0
+ CONST UID '4E6F73DB01E0'
+ CONST Name 'Ссылка на официальную публикацию должна иметь Hint "Официальная копия графической публикации (Интернет-ссылка)"'
+ CONST Class class_Class
+ : Stereotype st_UseCaseTagValueRequirement ;
+ CONST Kind kind_NormalClass
+ %SUMMARY '[$283614171]' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4E6F73B701ED // Гиперссылки должны иметь Hint
+ ;
+ CONST "Value" '''Официальная копия графической публикации (Интернет-ссылка)'''
+ CONST dfm:PathOnly '\common\components'
+ CONST intf.pas:PathOnly '\common\components'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+
+ref; // ME_4E6F73DB01E0 Ссылка на официальную публикацию должна иметь Hint "Официальная копия графической публикации (Интернет-ссылка)"
+
+: ME_4E6F73B701ED
+ CONST UID '4E6F73B701ED'
+ CONST Name 'Гиперссылки должны иметь Hint'
+ CONST Class class_Class
+ : Stereotype st_UseCaseTagRequirement ;
+ CONST Kind kind_NormalClass
+ %SUMMARY '[$283614171]' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4E67A4B600FB // Стандартная схема документа
+ ;
+ : Children
+   Seq: ( ME_4E6F73DB01E0 // Ссылка на официальную публикацию должна иметь Hint "Официальная копия графической публикации (Интернет-ссылка)"
+ )
+ ; // Children
+ CONST "CodeName" 'Address ShortName'
+ CONST dfm:PathOnly '\common\components'
+ CONST intf.pas:PathOnly '\common\components'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+
+ref; // ME_4E6F73B701ED Гиперссылки должны иметь Hint
+
+FORWARD ME_4E7B2AD603D3
+
+: ME_4E7B27C60178
+ CONST UID '4E7B27C60178'
+ CONST Name 'Стиль с подчеркиванием'
+ CONST Class class_Class
+ : Stereotype st_UseCase ;
+ CONST Kind kind_NormalClass
+ %SUMMARY '{RequestLink:287214235}' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4E7B2AD603D3 // Стандартные стили абзацев
+ ;
+ CONST dfm:PathOnly '\common\components'
+ CONST intf.pas:PathOnly '\common\components'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+
+ref; // ME_4E7B27C60178 Стиль с подчеркиванием
+
+FORWARD ME_4E7B25360221
+
+: ME_4FD086670011
+ CONST UID '4FD086670011'
+ CONST Name 'Стили для ДПЭ должны наследоваться от стиля Внимание'
+ CONST Class class_Class
+ : Stereotype st_UseCaseRequirement ;
+ CONST Kind kind_NormalClass
+ %SUMMARY '{RequestLink:370390123}' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4E7B25360221 // Специальные стили текста для ДЭП
+ ;
+ CONST dfm:PathOnly '\common\components'
+ CONST intf.pas:PathOnly '\common\components'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+
+ref; // ME_4FD086670011 Стили для ДПЭ должны наследоваться от стиля Внимание
+
+: ME_4FD09229012E
+ CONST UID '4FD09229012E'
+ CONST Name 'У стилей ДПЭ должны быть картинки'
+ CONST Class class_Class
+ : Stereotype st_UseCaseRequirement ;
+ CONST Kind kind_NormalClass
+ %SUMMARY '{RequestLink:370389917}' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4E7B25360221 // Специальные стили текста для ДЭП
+ ;
+ CONST dfm:PathOnly '\common\components'
+ CONST intf.pas:PathOnly '\common\components'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+
+ref; // ME_4FD09229012E У стилей ДПЭ должны быть картинки
+
+: ME_4E7B25360221
+ CONST UID '4E7B25360221'
+ CONST Name 'Специальные стили текста для ДЭП'
+ CONST Class class_Class
+ : Stereotype st_UseCase ;
+ CONST Kind kind_NormalClass
+ %SUMMARY '{RequestLink:235046445}' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4E7B2AD603D3 // Стандартные стили абзацев
+ ;
+ : Children
+   Seq: ( ME_4FD086670011 // Стили для ДПЭ должны наследоваться от стиля Внимание
+ ME_4FD09229012E // У стилей ДПЭ должны быть картинки
+ )
+ ; // Children
+ CONST dfm:PathOnly '\common\components'
+ CONST intf.pas:PathOnly '\common\components'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+
+ref; // ME_4E7B25360221 Специальные стили текста для ДЭП
+
+: ME_4E96F94D0336
+ CONST UID '4E96F94D0336'
+ CONST Name 'Если стиль не определён в локальной таблице стилей, а в документе он присутствует, то его надо добавлять'
+ CONST Class class_Class
+ : Stereotype st_UseCaseRequirement ;
+ CONST Kind kind_NormalClass
+ %SUMMARY '{RequestLink:259890927}' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4E7B2AD603D3 // Стандартные стили абзацев
+ ;
+ CONST dfm:PathOnly '\common\components'
+ CONST intf.pas:PathOnly '\common\components'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+
+ref; // ME_4E96F94D0336 Если стиль не определён в локальной таблице стилей, а в документе он присутствует, то его надо добавлять
+
+: ME_4FA0DADF00BE
+ CONST UID '4FA0DADF00BE'
+ CONST Name 'Должен быть стиль `Внимание`'
+ CONST Class class_Class
+ : Stereotype st_UseCaseTagRequirement ;
+ CONST Kind kind_NormalClass
+ %SUMMARY '{RequestLink:362130309}'#13#10'Наследник от нормального, бледнорозовый фон. В шапке картинка и слово Внимание жирным.' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4E7B2AD603D3 // Стандартные стили абзацев
+ ;
+ CONST dfm:PathOnly '\common\components'
+ CONST intf.pas:PathOnly '\common\components'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+
+ref; // ME_4FA0DADF00BE Должен быть стиль `Внимание`
+
+FORWARD ME_5006CF2103B2
+
+: ME_5006CF4302F1
+ CONST UID '5006CF4302F1'
+ CONST Name 'Должен быть стиль `Напишите нам`'
+ CONST Class class_Class
+ : Stereotype st_UseCaseTagRequirement ;
+ CONST Kind kind_NormalClass
+ %SUMMARY '{RequestLink:378541177}' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_5006CF2103B2 // Стили для ААК
+ ;
+ CONST dfm:PathOnly '\common\components'
+ CONST intf.pas:PathOnly '\common\components'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+
+ref; // ME_5006CF4302F1 Должен быть стиль `Напишите нам`
+
+: ME_5006CF2103B2
+ CONST UID '5006CF2103B2'
+ CONST Name 'Стили для ААК'
+ CONST Class class_Class
+ : Stereotype st_UseCase ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4E7B2AD603D3 // Стандартные стили абзацев
+ ;
+ : Children
+   Seq: ( ME_5006CF4302F1 // Должен быть стиль `Напишите нам`
+ )
+ ; // Children
+ CONST dfm:PathOnly '\common\components'
+ CONST intf.pas:PathOnly '\common\components'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+
+ref; // ME_5006CF2103B2 Стили для ААК
+
+: ME_5513C4CD01F2
+ CONST UID '5513C4CD01F2'
+ CONST Name 'Должен быть стиль ''Сворачивающиеся блоки'''
+ CONST Class class_Class
+ : Stereotype st_UseCaseTagRequirement ;
+ CONST Kind kind_NormalClass
+ %SUMMARY '{Requestlink:589882366}' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4E7B2AD603D3 // Стандартные стили абзацев
+ ;
+ CONST dfm:PathOnly '\common\components'
+ CONST intf.pas:PathOnly '\common\components'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+
+ref; // ME_5513C4CD01F2 Должен быть стиль 'Сворачивающиеся блоки'
+
+: ME_4E7B2AD603D3
+ CONST UID '4E7B2AD603D3'
+ CONST Name 'Стандартные стили абзацев'
+ CONST Class class_Class
+ : Stereotype st_UseCase ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4E67A4B600FB // Стандартная схема документа
+ ;
+ : Children
+   Seq: ( ME_4E7B27C60178 // Стиль с подчеркиванием
+ ME_4E7B25360221 // Специальные стили текста для ДЭП
+ ME_4E96F94D0336 // Если стиль не определён в локальной таблице стилей, а в документе он присутствует, то его надо добавлять
+ ME_4FA0DADF00BE // Должен быть стиль `Внимание`
+ ME_5006CF2103B2 // Стили для ААК
+ ME_5513C4CD01F2 // Должен быть стиль 'Сворачивающиеся блоки'
+ )
+ ; // Children
+ CONST dfm:PathOnly '\common\components'
+ CONST intf.pas:PathOnly '\common\components'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+
+ref; // ME_4E7B2AD603D3 Стандартные стили абзацев
+
+: ME_4E9C0BEA03A2
+ CONST UID '4E9C0BEA03A2'
+ CONST Name 'У документа должен быть тег MaxSubID'
+ CONST Class class_Class
+ : Stereotype st_UseCaseTagRequirement ;
+ CONST Kind kind_NormalClass
+ %SUMMARY '{RequestLink:283608516}' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4E67A4B600FB // Стандартная схема документа
+ ;
+ CONST "CodeName" 'MaxSubID'
+ CONST dfm:PathOnly '\common\components'
+ CONST intf.pas:PathOnly '\common\components'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+
+ref; // ME_4E9C0BEA03A2 У документа должен быть тег MaxSubID
+
+: ME_4F2694680164
+ CONST UID '4F2694680164'
+ CONST Name 'У блоков и документов должен быть тег CompareContentsLevel'
+ CONST Class class_Class
+ : Stereotype st_UseCaseTagRequirement ;
+ CONST Kind kind_NormalClass
+ %SUMMARY '{RequestLink:332563400}' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4E67A4B600FB // Стандартная схема документа
+ ;
+ CONST "CodeName" 'CompareContentsLevel'
+ CONST dfm:PathOnly '\common\components'
+ CONST intf.pas:PathOnly '\common\components'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+
+ref; // ME_4F2694680164 У блоков и документов должен быть тег CompareContentsLevel
+
+: ME_4F3157F70307
+ CONST UID '4F3157F70307'
+ CONST Name 'У типа PIRec должен быть тег Flags'
+ CONST Class class_Class
+ : Stereotype st_UseCaseTagRequirement ;
+ CONST Kind kind_NormalClass
+ %SUMMARY '{RequestLink:336135727}'#13#10'{RequestLink:336136491}'#13#10'{RequestLink:330695385}' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4E67A4B600FB // Стандартная схема документа
+ ;
+ CONST "CodeName" 'Flags'
+ CONST dfm:PathOnly '\common\components'
+ CONST intf.pas:PathOnly '\common\components'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+
+ref; // ME_4F3157F70307 У типа PIRec должен быть тег Flags
+
+: ME_4F4DD50A0220
+ CONST UID '4F4DD50A0220'
+ CONST Name 'У объектных сегментов должен быть тег Базовая линия'
+ CONST Class class_Class
+ : Stereotype st_UseCaseTagRequirement ;
+ CONST Kind kind_NormalClass
+ %SUMMARY '{RequestLink:336663777}' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4E67A4B600FB // Стандартная схема документа
+ ;
+ CONST "CodeName" 'BaseLine'
+ CONST dfm:PathOnly '\common\components'
+ CONST intf.pas:PathOnly '\common\components'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+
+ref; // ME_4F4DD50A0220 У объектных сегментов должен быть тег Базовая линия
+
+: ME_4F8D4BDB0353
+ CONST UID '4F8D4BDB0353'
+ CONST Name 'У документа должен быть тег для хранения образа документа'
+ CONST Class class_Class
+ : Stereotype st_UseCaseTagRequirement ;
+ CONST Kind kind_NormalClass
+ %SUMMARY '{RequestLink:356073879}' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4E67A4B600FB // Стандартная схема документа
+ ;
+ CONST dfm:PathOnly '\common\components'
+ CONST intf.pas:PathOnly '\common\components'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+
+ref; // ME_4F8D4BDB0353 У документа должен быть тег для хранения образа документа
+
+: ME_4FBE1CBF01A8
+ CONST UID '4FBE1CBF01A8'
+ CONST Name 'У блоков и документов должен быть тег ViewKind'
+ CONST Class class_Class
+ : Stereotype st_UseCaseTagRequirement ;
+ CONST Kind kind_NormalClass
+ %SUMMARY '{RequestLink:360022952}' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4E67A4B600FB // Стандартная схема документа
+ ;
+ CONST dfm:PathOnly '\common\components'
+ CONST intf.pas:PathOnly '\common\components'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+
+ref; // ME_4FBE1CBF01A8 У блоков и документов должен быть тег ViewKind
+
+: ME_525E86530375
+ CONST UID '525E86530375'
+ CONST Name 'У документа должно быть свойство EditableParts'
+ CONST Class class_Class
+ : Stereotype st_UseCaseTagRequirement ;
+ CONST Kind kind_NormalClass
+ %SUMMARY '{RequestLink:280859697}' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4E67A4B600FB // Стандартная схема документа
+ ;
+ CONST "CodeName" 'EditableParts'
+ CONST dfm:PathOnly '\common\components'
+ CONST intf.pas:PathOnly '\common\components'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+
+ref; // ME_525E86530375 У документа должно быть свойство EditableParts
+
+: ME_53ABD87B000A
+ CONST UID '53ABD87B000A'
+ CONST Name 'Цвет ссылки, ведущей на утративший силу документ'
+ CONST Class class_Class
+ : Stereotype st_UseCaseTagRequirement ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'k:513880916' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4E67A4B600FB // Стандартная схема документа
+ ;
+ CONST dfm:PathOnly '\common\components'
+ CONST intf.pas:PathOnly '\common\components'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+
+ref; // ME_53ABD87B000A Цвет ссылки, ведущей на утративший силу документ
+
+: ME_4E67A4B600FB
+ CONST UID '4E67A4B600FB'
+ CONST Name 'Стандартная схема документа'
+ CONST Class class_Class
+ : Stereotype st_UseCase ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4E57B8C2010F // Требования к схеме документа EVD
+ ;
+ : Children
+   Seq: ( ME_4E5CCE190335 // Шапка документа должна иметь тег HasAnno
+ ME_4E5D03C10190 // Стиль параграфа должен иметь возможность указания, что надо рисовать баллон в тексте документа
+ ME_4E5D0DC6002B // Размер шрифта при печати
+ ME_4E60E0AA027D // Стиль должен иметь возможность отображать шапку на одной строке с текстом
+ ME_4E6758CB0292 // Параграфы должны иметь возможность настройки фона отображения
+ ME_4E67717E03BE // Требования на оформление баллона
+ ME_4E67899301A9 // Требования к стилю заголовка группы контролов в КЗ
+ ME_4E60DFD100C3 // Для юридиических и версионных комментариев шапка должна быть склеена в одну строчку с текстом
+ ME_4E6789AF00CE // Требования к стилю распахивающейся части диалогов
+ ME_4E67A57800D4 // Параграфы и стили должны иметь собственный интерлиньяж
+ ME_4E6A1ADB0057 // Документ должен иметь собственный Header
+ ME_4E6DD5C20039 // Ссылки должны уметь содержать в себе скрипты
+ ME_4E6F73B701ED // Гиперссылки должны иметь Hint
+ ME_4E7B2AD603D3 // Стандартные стили абзацев
+ ME_4E9C0BEA03A2 // У документа должен быть тег MaxSubID
+ ME_4F2694680164 // У блоков и документов должен быть тег CompareContentsLevel
+ ME_4F3157F70307 // У типа PIRec должен быть тег Flags
+ ME_4F4DD50A0220 // У объектных сегментов должен быть тег Базовая линия
+ ME_4F8D4BDB0353 // У документа должен быть тег для хранения образа документа
+ ME_4FBE1CBF01A8 // У блоков и документов должен быть тег ViewKind
+ ME_525E86530375 // У документа должно быть свойство EditableParts
+ ME_53ABD87B000A // Цвет ссылки, ведущей на утративший силу документ
+ )
+ ; // Children
+ CONST dfm:PathOnly '\common\components'
+ CONST intf.pas:PathOnly '\common\components'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+
+ref; // ME_4E67A4B600FB Стандартная схема документа
+
+: ME_4E57B8C2010F
+ CONST UID '4E57B8C2010F'
+ CONST Name 'Требования к схеме документа EVD'
+ CONST Class class_Category
+ : Stereotype st_UseCases ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent WL 'ME_4E36644A0023' '4E36644A0023.pas.ms.script' // Стандартные компоненты
+ ;
+ : Children
+   Seq: ( ME_4E67A4B600FB // Стандартная схема документа
+ )
+ ; // Children
+ CONST dfm:PathOnly '\common\components'
+ CONST intf.pas:PathOnly '\common\components'
+ CONST pas.script:Path 'shared\models\NewSchool\Scripts\4E57B8C2010F.pas.ms.script'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\4E57B8C2010F.pas.ms.script.runner'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+
+ref; // ME_4E57B8C2010F Требования к схеме документа EVD

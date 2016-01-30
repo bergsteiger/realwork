@@ -42,6 +42,7 @@ ref; // ME_50589F5201F9 ResizeLockedCount
 : ME_6BF503CC2AB6
  CONST UID '6BF503CC2AB6'
  CONST Name 'f_ResizeLockedCount'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY 'Поле для свойства ResizeLockedCount' ;
  CONST Visibility PrivateAccess
@@ -75,8 +76,8 @@ ref; // ME_5028A0160130 Sender
  : Parent ME_5028A00600B5 // ExecuteHandler
  ;
  : Parameters
-   @ ( ME_5028A0160130 // Sender
- ) .SequenceCode.It
+   Seq: ( ME_5028A0160130 // Sender
+ )
  ; // Parameters
 
 ref; // ME_5028A0110376 DoIt
@@ -92,8 +93,8 @@ ref; // ME_5028A0110376 DoIt
  : Parent ME_502888EA0114 // TCustomToolbar97
  ;
  : Operations
-   @ ( ME_5028A0110376 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_5028A0110376 // DoIt
+ )
  ; // Operations
 
 ref; // ME_5028A00600B5 ExecuteHandler
@@ -103,6 +104,7 @@ FORWARD ME_5028A09900D5
 : ME_568672D064D3
  CONST UID '568672D064D3'
  CONST Name 'DoIt'
+ CONST IsSummoned true
  CONST Class class_Operation
  %SUMMARY 'Сигнатура метода ExecuteDefered' ;
  CONST Visibility PublicAccess
@@ -123,8 +125,8 @@ ref; // ME_568672D064D3 DoIt
  : Parent ME_502888EA0114 // TCustomToolbar97
  ;
  : Operations
-   @ ( ME_568672D064D3 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_568672D064D3 // DoIt
+ )
  ; // Operations
 
 ref; // ME_5028A09900D5 ExecuteDefered
@@ -155,8 +157,8 @@ ref; // ME_503DE7BA0232 DoIt
  : Parent ME_502888EA0114 // TCustomToolbar97
  ;
  : Operations
-   @ ( ME_503DE7BA0232 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_503DE7BA0232 // DoIt
+ )
  ; // Operations
 
 ref; // ME_503DE79F02BA IsGToolbarSizeNeeded
@@ -166,6 +168,7 @@ FORWARD ME_504F06E0002A
 : ME_19AF9DECB118
  CONST UID '19AF9DECB118'
  CONST Name 'DoIt'
+ CONST IsSummoned true
  CONST Class class_Operation
  %SUMMARY 'Сигнатура метода LockResize' ;
  CONST Visibility PublicAccess
@@ -186,8 +189,8 @@ ref; // ME_19AF9DECB118 DoIt
  : Parent ME_502888EA0114 // TCustomToolbar97
  ;
  : Operations
-   @ ( ME_19AF9DECB118 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_19AF9DECB118 // DoIt
+ )
  ; // Operations
 
 ref; // ME_504F06E0002A LockResize
@@ -197,6 +200,7 @@ FORWARD ME_504F06EB033F
 : ME_00844CB3002F
  CONST UID '00844CB3002F'
  CONST Name 'DoIt'
+ CONST IsSummoned true
  CONST Class class_Operation
  %SUMMARY 'Сигнатура метода UnlockResize' ;
  CONST Visibility PublicAccess
@@ -217,8 +221,8 @@ ref; // ME_00844CB3002F DoIt
  : Parent ME_502888EA0114 // TCustomToolbar97
  ;
  : Operations
-   @ ( ME_00844CB3002F // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_00844CB3002F // DoIt
+ )
  ; // Operations
 
 ref; // ME_504F06EB033F UnlockResize
@@ -228,6 +232,7 @@ FORWARD ME_5058B29A007C
 : ME_51EE05C4C915
  CONST UID '51EE05C4C915'
  CONST Name 'DoIt'
+ CONST IsSummoned true
  CONST Class class_Operation
  %SUMMARY 'Сигнатура метода AdjustSizeForPanels' ;
  CONST Visibility PublicAccess
@@ -248,8 +253,8 @@ ref; // ME_51EE05C4C915 DoIt
  : Parent ME_502888EA0114 // TCustomToolbar97
  ;
  : Operations
-   @ ( ME_51EE05C4C915 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_51EE05C4C915 // DoIt
+ )
  ; // Operations
 
 ref; // ME_5058B29A007C AdjustSizeForPanels
@@ -257,6 +262,7 @@ ref; // ME_5058B29A007C AdjustSizeForPanels
 : ME_32E8F8A98807
  CONST UID '32E8F8A98807'
  CONST Name 'Ini_Reg_Class'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Регистрация TCustomToolbar97' ;
@@ -270,6 +276,7 @@ ref; // ME_32E8F8A98807 Ini_Reg_Class
 
 : ME_40BF6CE839C9
  CONST UID '40BF6CE839C9'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_502888EA0114 // TCustomToolbar97
@@ -286,6 +293,7 @@ ref; // ME_40BF6CE839C9
  ;
  : Implementor ME_502888EA0114 // TCustomToolbar97
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4F2A599E0283_ME_502888EA0114 SetBounds
 
 : ME_502888EA0114
@@ -299,37 +307,43 @@ ref; // ME_4F2A599E0283_ME_502888EA0114 SetBounds
  : Parent ME_5028888A0160 // TB97Tlbr
  ;
  : Inherits
-   @ ( WL 'ME_50288A3D023C' '5028898902A2.pas.ms.script' // TCustomToolWindow97
- ) .SequenceCode.It
+   Seq: ( WL 'ME_50288A3D023C' '5028898902A2.pas.ms.script' // TCustomToolWindow97
+ )
  ; // Inherits
  : Attributes
-   @ ( ME_50589F4B0042 // f_Bounds
+   Seq: ( ME_50589F4B0042 // f_Bounds
  ME_50589F5201F9 // ResizeLockedCount
  ME_6BF503CC2AB6 // f_ResizeLockedCount
- ) .SequenceCode.It
+ )
  ; // Attributes
  : Operations
-   @ ( ME_5028A00600B5 // ExecuteHandler
+   Seq: ( ME_5028A00600B5 // ExecuteHandler
  ME_5028A09900D5 // ExecuteDefered
  ME_503DE79F02BA // IsGToolbarSizeNeeded
  ME_504F06E0002A // LockResize
  ME_504F06EB033F // UnlockResize
  ME_5058B29A007C // AdjustSizeForPanels
  ME_32E8F8A98807 // Ini_Reg_Class
- ) .SequenceCode.It
+ )
  ; // Operations
  : Overridden
-   @ ( ME_4F2A599E0283_ME_502888EA0114 // SetBounds
- ) .SequenceCode.It
+   Seq: ( ME_4F2A599E0283_ME_502888EA0114 // SetBounds
+ )
  ; // Overridden
  : Dependencies
-   @ ( ME_40BF6CE839C9 // 
- ) .SequenceCode.It
+   Seq: ( ME_40BF6CE839C9 // 
+ )
  ; // Dependencies
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
+ CONST dfm:PathOnly '\common\components\rtl\external\tb97'
+ CONST intf.pas:PathOnly '\common\components\rtl\external\tb97'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'Toolbar97'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_502888EA0114 TCustomToolbar97
 
@@ -338,6 +352,7 @@ FORWARD ME_502888D60048
 : ME_5C59A1D3DE16
  CONST UID '5C59A1D3DE16'
  CONST Name 'Ini_Reg_Class'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Регистрация TToolbar97' ;
@@ -351,6 +366,7 @@ ref; // ME_5C59A1D3DE16 Ini_Reg_Class
 
 : ME_A36CF4AC693B
  CONST UID 'A36CF4AC693B'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_502888D60048 // TToolbar97
@@ -371,21 +387,27 @@ ref; // ME_A36CF4AC693B
  : Parent ME_5028888A0160 // TB97Tlbr
  ;
  : Inherits
-   @ ( ME_502888EA0114 // TCustomToolbar97
- ) .SequenceCode.It
+   Seq: ( ME_502888EA0114 // TCustomToolbar97
+ )
  ; // Inherits
  : Operations
-   @ ( ME_5C59A1D3DE16 // Ini_Reg_Class
- ) .SequenceCode.It
+   Seq: ( ME_5C59A1D3DE16 // Ini_Reg_Class
+ )
  ; // Operations
  : Dependencies
-   @ ( ME_A36CF4AC693B // 
- ) .SequenceCode.It
+   Seq: ( ME_A36CF4AC693B // 
+ )
  ; // Dependencies
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
+ CONST dfm:PathOnly '\common\components\rtl\external\tb97'
+ CONST intf.pas:PathOnly '\common\components\rtl\external\tb97'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'Toolbar97'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_502888D60048 TToolbar97
 
@@ -394,6 +416,7 @@ FORWARD ME_5028A2FC03A5
 : ME_ECA310AF3D23
  CONST UID 'ECA310AF3D23'
  CONST Name 'Ini_Reg_Class'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Регистрация TToolbarSep97' ;
@@ -407,6 +430,7 @@ ref; // ME_ECA310AF3D23 Ini_Reg_Class
 
 : ME_064294E686C9
  CONST UID '064294E686C9'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_5028A2FC03A5 // TToolbarSep97
@@ -427,21 +451,27 @@ ref; // ME_064294E686C9
  : Parent ME_5028888A0160 // TB97Tlbr
  ;
  : Inherits
-   @ ( WL 'ME_502CD936004A' '5028898902A2.pas.ms.script' // Ttb97CustomGraphicControl
- ) .SequenceCode.It
+   Seq: ( WL 'ME_502CD936004A' '5028898902A2.pas.ms.script' // Ttb97CustomGraphicControl
+ )
  ; // Inherits
  : Operations
-   @ ( ME_ECA310AF3D23 // Ini_Reg_Class
- ) .SequenceCode.It
+   Seq: ( ME_ECA310AF3D23 // Ini_Reg_Class
+ )
  ; // Operations
  : Dependencies
-   @ ( ME_064294E686C9 // 
- ) .SequenceCode.It
+   Seq: ( ME_064294E686C9 // 
+ )
  ; // Dependencies
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
+ CONST dfm:PathOnly '\common\components\rtl\external\tb97'
+ CONST intf.pas:PathOnly '\common\components\rtl\external\tb97'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'ToolbarSep97'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_5028A2FC03A5 TToolbarSep97
 
@@ -450,6 +480,7 @@ FORWARD ME_5374B0D9013D
 : ME_C338CCC15531
  CONST UID 'C338CCC15531'
  CONST Name 'Ini_Reg_Class'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Регистрация Ttb97MoreButton' ;
@@ -463,6 +494,7 @@ ref; // ME_C338CCC15531 Ini_Reg_Class
 
 : ME_28F39A601A5F
  CONST UID '28F39A601A5F'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_5374B0D9013D // Ttb97MoreButton
@@ -483,17 +515,23 @@ ref; // ME_28F39A601A5F
  : Parent ME_5028888A0160 // TB97Tlbr
  ;
  : Operations
-   @ ( ME_C338CCC15531 // Ini_Reg_Class
- ) .SequenceCode.It
+   Seq: ( ME_C338CCC15531 // Ini_Reg_Class
+ )
  ; // Operations
  : Dependencies
-   @ ( ME_28F39A601A5F // 
- ) .SequenceCode.It
+   Seq: ( ME_28F39A601A5F // 
+ )
  ; // Dependencies
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" true
+ CONST dfm:PathOnly '\common\components\rtl\external\tb97'
+ CONST intf.pas:PathOnly '\common\components\rtl\external\tb97'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'tb97MoreButton'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_5374B0D9013D Ttb97MoreButton
 
@@ -508,20 +546,19 @@ ref; // ME_5374B0D9013D Ttb97MoreButton
  : Parent ME_5028887002FD // Toolbar
  ;
  : Children
-   @ ( ME_502888EA0114 // TCustomToolbar97
+   Seq: ( ME_502888EA0114 // TCustomToolbar97
  ME_502888D60048 // TToolbar97
  ME_5028A2FC03A5 // TToolbarSep97
  ME_5374B0D9013D // Ttb97MoreButton
- ) .SequenceCode.It
+ )
  ; // Children
  CONST "finished" false
  CONST "no hands" false
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\external\tb97'
  CONST intf.pas:Path 'common\components\rtl\external\tb97\NOT_FINISHED_TB97Tlbr.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\external\tb97'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_5028888A0160 TB97Tlbr
 
@@ -535,23 +572,21 @@ ref; // ME_5028888A0160 TB97Tlbr
  : Parent WL 'ME_4C43E84F0304' '4C43E84F0304.pas.ms.script' // tb97
  ;
  : Children
-   @ ( ME_5028888A0160 // TB97Tlbr
- ) .SequenceCode.It
+   Seq: ( ME_5028888A0160 // TB97Tlbr
+ )
  ; // Children
  : Depends
-   @ ( WL 'ME_4728A7020026' '4728A7020026.pas.ms.script' // Types
+   Seq: ( WL 'ME_4728A7020026' '4728A7020026.pas.ms.script' // Types
  WL 'ME_4AB0C3C60310' '4AB0C3C60310.pas.ms.script' // Sys
  WL 'ME_5028898902A2' '5028898902A2.pas.ms.script' // tb97utils
  WL 'ME_561F9F7D02A7' '561F9F7D02A7.pas.ms.script' // ScriptEngine
- ) .SequenceCode.It
+ )
  ; // Depends
- : Generators
- @ (
- gen_pas.script
- gen_pas.script.runner
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\external\tb97'
+ CONST intf.pas:PathOnly '\common\components\rtl\external\tb97'
  CONST pas.script:Path 'shared\models\NewSchool\Scripts\5028887002FD.pas.ms.script'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
  CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\5028887002FD.pas.ms.script.runner'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_5028887002FD Toolbar

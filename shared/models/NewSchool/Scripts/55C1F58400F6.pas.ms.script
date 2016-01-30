@@ -27,8 +27,8 @@ ref; // ME_55C1F5DB02B4 aFileName
  : Parent ME_55C1F5C100CC // Make
  ;
  : Parameters
-   @ ( ME_55C1F5DB02B4 // aFileName
- ) .SequenceCode.It
+   Seq: ( ME_55C1F5DB02B4 // aFileName
+ )
  ; // Parameters
 
 ref; // ME_55C1F5D102FF DoIt
@@ -77,14 +77,14 @@ ref; // ME_55C2056B02B2
  : Parent ME_55C1F59F001C // TtfwCOMaker
  ;
  : Operations
-   @ ( ME_55C1F5D102FF // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_55C1F5D102FF // DoIt
+ )
  ; // Operations
  : Dependencies
-   @ ( ME_55C2040B0284 // 
+   Seq: ( ME_55C2040B0284 // 
  ME_55C2053102E8 // 
  ME_55C2056B02B2 // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  CONST "is static" true
 
@@ -123,24 +123,26 @@ ref; // ME_55C1F5B40343
  : Parent ME_55C1F58400F6 // Tools
  ;
  : Operations
-   @ ( ME_55C1F5C100CC // Make
- ) .SequenceCode.It
+   Seq: ( ME_55C1F5C100CC // Make
+ )
  ; // Operations
  : Dependencies
-   @ ( ME_55C1F5AB0306 // 
+   Seq: ( ME_55C1F5AB0306 // 
  ME_55C1F5B40343 // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\ScriptEngine'
  CONST intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\tfwCOMaker.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\ScriptEngine'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'COMaker'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'tfwCOMaker'
 
 ref; // ME_55C1F59F001C TtfwCOMaker
 
@@ -154,23 +156,21 @@ ref; // ME_55C1F59F001C TtfwCOMaker
  : Parent WL 'ME_55C1EE2F01B7' '55C1EE2F01B7.pas.ms.script' // ScriptEngine$Parsing
  ;
  : Children
-   @ ( ME_55C1F59F001C // TtfwCOMaker
- ) .SequenceCode.It
+   Seq: ( ME_55C1F59F001C // TtfwCOMaker
+ )
  ; // Children
  : Depends
-   @ ( WL 'ME_4678193C009C' '4678193C009C.pas.ms.script' // l3Types
+   Seq: ( WL 'ME_4678193C009C' '4678193C009C.pas.ms.script' // l3Types
  WL 'ME_4C1B474600AD' '4C1B474600AD.pas.ms.script' // Parser
  WL 'ME_4F4734A40270' '4F4734A40270.pas.ms.script' // Parser
  WL 'ME_52EF72190220' '52EF72190220.pas.ms.script' // tfwParserInterfaces
- ) .SequenceCode.It
+ )
  ; // Depends
- : Generators
- @ (
- gen_pas.script
- gen_pas.script.runner
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\ScriptEngine'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\ScriptEngine'
  CONST pas.script:Path 'shared\models\NewSchool\Scripts\55C1F58400F6.pas.ms.script'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
  CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\55C1F58400F6.pas.ms.script.runner'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_55C1F58400F6 Tools

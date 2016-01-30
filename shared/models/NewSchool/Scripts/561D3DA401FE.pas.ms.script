@@ -14,12 +14,16 @@ FORWARD ME_561D3DA401FE
  CONST Abstraction at_regular
  : Parent ME_561D3DA401FE // Containers
  ;
- : Generators
- @ (
- gen_pascal
- ) .SequenceCode.It
- ; // Generators
- CONST pascal:Path 'common\components\rtl\Garant\L3\Tl3LongintList_Proxy.pas'
+ CONST dfm:PathOnly '\MDProcess'
+ CONST intf.pas:PathOnly '\MDProcess\components\rtl\Garant\L3'
+ CONST mda:PathOnly '\MDProcess'
+ CONST mda.inc:PathOnly '\MDProcess'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST tpi.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'LongintList'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'Tl3LongintList_Proxy'
 
 ref; // ME_561D40470085 Tl3LongintList
 
@@ -33,16 +37,17 @@ ref; // ME_561D40470085 Tl3LongintList
  : Parent WL 'ME_561D37540316' '561D37540316.pas.ms.script' // L3$Interface
  ;
  : Children
-   @ ( ME_561D40470085 // Tl3LongintList
- ) .SequenceCode.It
+   Seq: ( ME_561D40470085 // Tl3LongintList
+ )
  ; // Children
- : Generators
- @ (
- gen_pas.script
- gen_pas.script.runner
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\MDProcess'
+ CONST intf.pas:PathOnly '\MDProcess\components\rtl\Garant\L3'
+ CONST mda:PathOnly '\MDProcess'
+ CONST mda.inc:PathOnly '\MDProcess'
  CONST pas.script:Path 'shared\models\NewSchool\Scripts\561D3DA401FE.pas.ms.script'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
  CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\561D3DA401FE.pas.ms.script.runner'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST tpi.script:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_561D3DA401FE Containers

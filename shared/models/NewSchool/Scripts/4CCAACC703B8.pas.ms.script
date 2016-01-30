@@ -1,0 +1,145 @@
+// FiltersInterfaces 4CCAACC703B8 ControllerInterfaces Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4CCAACC703B8
+
+FORWARD ME_4CB6C915011C
+
+: ME_4CB6C9330040
+ CONST UID '4CB6C9330040'
+ CONST Name 'Name'
+ CONST Class class_Attribute
+ : Stereotype st_readonly::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_lnk
+ : Parent ME_4CB6C915011C // IdsCreateFilter
+ ;
+ : Target WL 'ME_46780DA40383' '4677FBA70343.pas.ms.script' // Il3CString
+ ;
+ CONST "UseNewGen" 'undefined'
+ CONST "pm" false
+
+ref; // ME_4CB6C9330040 Name
+
+: ME_4CB6C95F0141
+ CONST UID '4CB6C95F0141'
+ CONST Name 'aName'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46780DA40383' '4677FBA70343.pas.ms.script' // Il3CString
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_4CB6C95F0141 aName
+
+: ME_4CB6C9490358
+ CONST UID '4CB6C9490358'
+ CONST Name 'CreateFilter'
+ CONST Class class_Operation
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_4CB6C915011C // IdsCreateFilter
+ ;
+ : Parameters
+   Seq: ( ME_4CB6C95F0141 // aName
+ )
+ ; // Parameters
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_4CB6C9490358 CreateFilter
+
+: ME_4CB6C96F00BB
+ CONST UID '4CB6C96F00BB'
+ CONST Name 'aName'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46780DA40383' '4677FBA70343.pas.ms.script' // Il3CString
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_4CB6C96F00BB aName
+
+: ME_4CB6C966029D
+ CONST UID '4CB6C966029D'
+ CONST Name 'RenameFilter'
+ CONST Class class_Operation
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_4CB6C915011C // IdsCreateFilter
+ ;
+ : Parameters
+   Seq: ( ME_4CB6C96F00BB // aName
+ )
+ ; // Parameters
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_4CB6C966029D RenameFilter
+
+: ME_4CB6C915011C
+ CONST UID '4CB6C915011C'
+ CONST GUID '0A1955B6-7882-4A4C-919E-F6B89BED5BE2'
+ CONST Name 'IdsCreateFilter'
+ CONST Class class_Class
+ : Stereotype st_ViewAreaController ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4CCAACC703B8 // FiltersInterfaces
+ ;
+ : Attributes
+   Seq: ( ME_4CB6C9330040 // Name
+ )
+ ; // Attributes
+ : Operations
+   Seq: ( ME_4CB6C9490358 // CreateFilter
+ ME_4CB6C966029D // RenameFilter
+ )
+ ; // Operations
+ CONST "UseNewGen" 'undefined'
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Filters'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Filters'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\Filters'
+
+ref; // ME_4CB6C915011C IdsCreateFilter
+
+: ME_4CCAACC703B8
+ CONST UID '4CCAACC703B8'
+ CONST Name 'FiltersInterfaces'
+ CONST Class class_Category
+ : Stereotype st_ControllerInterfaces ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent WL 'ME_4CCAACB5024D' '4CCAACB5024D.pas.ms.script' // Filters
+ ;
+ : Children
+   Seq: ( ME_4CB6C915011C // IdsCreateFilter
+ )
+ ; // Children
+ : Depends
+   Seq: ( WL 'ME_4677FBA70343' '4677FBA70343.pas.ms.script' // l3Interfaces
+ )
+ ; // Depends
+ CONST "UseNewGen" 'undefined'
+ CONST "is namespace" true
+ CONST "no hands" false
+ : Generators
+ Seq: (
+ gen_intf.pas
+ gen_pas.script
+ gen_pas.script.runner
+ )
+ ; // Generators
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Filters'
+ CONST intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\Filters\FiltersInterfaces.pas'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Filters'
+ CONST pas.script:Path 'shared\models\NewSchool\Scripts\4CCAACC703B8.pas.ms.script'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\4CCAACC703B8.pas.ms.script.runner'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\Filters'
+
+ref; // ME_4CCAACC703B8 FiltersInterfaces

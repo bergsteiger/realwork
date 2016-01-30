@@ -11,6 +11,7 @@ FORWARD ME_4C98A7AB00F5
 : ME_285FA762FD89
  CONST UID '285FA762FD89'
  CONST Name 'DoIt'
+ CONST IsSummoned true
  CONST Class class_Operation
  %SUMMARY 'Сигнатура метода WTSGetActiveConsoleSessionId' ;
  CONST Visibility PublicAccess
@@ -31,8 +32,8 @@ ref; // ME_285FA762FD89 DoIt
  : Parent ME_4C98A79C011D // JwaWinBase
  ;
  : Operations
-   @ ( ME_285FA762FD89 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_285FA762FD89 // DoIt
+ )
  ; // Operations
 
 ref; // ME_4C98A7AB00F5 WTSGetActiveConsoleSessionId
@@ -87,23 +88,22 @@ ref; // ME_4C98AE86021A
  : Parent ME_4C98A77001C2 // Win32API
  ;
  : Operations
-   @ ( ME_4C98A7AB00F5 // WTSGetActiveConsoleSessionId
- ) .SequenceCode.It
+   Seq: ( ME_4C98A7AB00F5 // WTSGetActiveConsoleSessionId
+ )
  ; // Operations
  : Dependencies
-   @ ( ME_4C98AE620132 // 
+   Seq: ( ME_4C98AE620132 // 
  ME_4C98AE730336 // 
  ME_4C98AE86021A // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  CONST "finished" false
  CONST "no hands" false
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\external\JEDI\Win32API'
  CONST intf.pas:Path 'common\components\rtl\external\JEDI\Win32API\NOT_FINISHED_JwaWinBase.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\external\JEDI\Win32API'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_4C98A79C011D JwaWinBase
 
@@ -119,12 +119,11 @@ ref; // ME_4C98A79C011D JwaWinBase
  ;
  CONST "finished" false
  CONST "no hands" false
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\external\JEDI\Win32API'
  CONST intf.pas:Path 'common\components\rtl\external\JEDI\Win32API\NOT_FINISHED_JwaNtStatus.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\external\JEDI\Win32API'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_4C98AE5C02C8 JwaNtStatus
 
@@ -140,12 +139,11 @@ ref; // ME_4C98AE5C02C8 JwaNtStatus
  ;
  CONST "finished" false
  CONST "no hands" false
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\external\JEDI\Win32API'
  CONST intf.pas:Path 'common\components\rtl\external\JEDI\Win32API\NOT_FINISHED_JwaWinNT.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\external\JEDI\Win32API'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_4C98AE6C0194 JwaWinNT
 
@@ -161,12 +159,11 @@ ref; // ME_4C98AE6C0194 JwaWinNT
  ;
  CONST "finished" false
  CONST "no hands" false
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\external\JEDI\Win32API'
  CONST intf.pas:Path 'common\components\rtl\external\JEDI\Win32API\NOT_FINISHED_JwaWinType.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\external\JEDI\Win32API'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_4C98AE7D0126 JwaWinType
 
@@ -180,20 +177,18 @@ ref; // ME_4C98AE7D0126 JwaWinType
  : Parent WL 'ME_4B4DCCBF034F' '4B4DCCBF034F.pas.ms.script' // JEDI
  ;
  : Children
-   @ ( ME_4C98A79C011D // JwaWinBase
+   Seq: ( ME_4C98A79C011D // JwaWinBase
  ME_4C98AE5C02C8 // JwaNtStatus
  ME_4C98AE6C0194 // JwaWinNT
  ME_4C98AE7D0126 // JwaWinType
- ) .SequenceCode.It
+ )
  ; // Children
  CONST "path prefix" '/Win32API'
- : Generators
- @ (
- gen_pas.script
- gen_pas.script.runner
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\external\JEDI\Win32API'
+ CONST intf.pas:PathOnly '\common\components\rtl\external\JEDI\Win32API'
  CONST pas.script:Path 'shared\models\NewSchool\Scripts\4C98A77001C2.pas.ms.script'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
  CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\4C98A77001C2.pas.ms.script.runner'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_4C98A77001C2 Win32API

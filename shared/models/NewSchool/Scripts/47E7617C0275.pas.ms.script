@@ -29,13 +29,13 @@ ref; // ME_47E766E10053 DoUpdate
  : Parent ME_47E7617C0275 // Actions
  ;
  : Inherits
-   @ ( WL 'ME_47913F970159' '47913B47006E.pas.ms.script' // l3Unknown
+   Seq: ( WL 'ME_47913F970159' '47913B47006E.pas.ms.script' // l3Unknown
  WL 'ME_47E7626B0083' '4799D29F033F.pas.ms.script' // TCustomAction
- ) .SequenceCode.It
+ )
  ; // Inherits
  : Operations
-   @ ( ME_47E766E10053 // DoUpdate
- ) .SequenceCode.It
+   Seq: ( ME_47E766E10053 // DoUpdate
+ )
  ; // Operations
  CONST "author" 'Люлин А.В.'
  CONST "finished" false
@@ -44,12 +44,14 @@ ref; // ME_47E766E10053 DoUpdate
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
  CONST "started" '25.02.2003 19:52'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\VCM\implementation\Visual'
  CONST intf.pas:Path 'common\components\gui\Garant\VCM\implementation\Visual\NOT_FINISHED_vcmAction.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\VCM\implementation\Visual'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'Action'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'vcmAction'
 
 ref; // ME_47E761BB02FE TvcmAction
 
@@ -77,6 +79,7 @@ ref; // ME_47E765F0013D OnTest
 : ME_6AA98E687BEC
  CONST UID '6AA98E687BEC'
  CONST Name 'f_OnTest'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY 'Поле для свойства OnTest' ;
  CONST Visibility PrivateAccess
@@ -86,6 +89,7 @@ ref; // ME_47E765F0013D OnTest
  ;
  : Target WL 'ME_47E765A20100' '4683F37902CF.pas.ms.script' // TvcmTestEvent
  ;
+ CONST extprop:clearViaProperty 'OnTest'
 
 ref; // ME_6AA98E687BEC f_OnTest
 
@@ -119,9 +123,9 @@ ref; // ME_47E7672D032A aTest
  : Parent ME_47E7652402FF // TvcmMainMenuAction
  ;
  : Parameters
-   @ ( ME_47E7672D030D // anOwner
+   Seq: ( ME_47E7672D030D // anOwner
  ME_47E7672D032A // aTest
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_47E7670B000F Create
@@ -158,9 +162,9 @@ ref; // ME_47E7AC3602D1 aTest
  : Target ME_47E7652402FF // TvcmMainMenuAction
  ;
  : Parameters
-   @ ( ME_47E7AC3602AE // anItem
+   Seq: ( ME_47E7AC3602AE // anItem
  ME_47E7AC3602D1 // aTest
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_47E7AC17020C MakeForMenu
@@ -183,6 +187,7 @@ ref; // ME_47E7B1910352
  ;
  : Implementor ME_47E7652402FF // TvcmMainMenuAction
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_47E766E10053_ME_47E7652402FF DoUpdate
 
 : ME_47E7652402FF
@@ -196,26 +201,26 @@ ref; // ME_47E766E10053_ME_47E7652402FF DoUpdate
  : Parent ME_47E7617C0275 // Actions
  ;
  : Inherits
-   @ ( ME_47E761BB02FE // TvcmAction
- ) .SequenceCode.It
+   Seq: ( ME_47E761BB02FE // TvcmAction
+ )
  ; // Inherits
  : Attributes
-   @ ( ME_47E765F0013D // OnTest
+   Seq: ( ME_47E765F0013D // OnTest
  ME_6AA98E687BEC // f_OnTest
- ) .SequenceCode.It
+ )
  ; // Attributes
  : Operations
-   @ ( ME_47E7670B000F // Create
+   Seq: ( ME_47E7670B000F // Create
  ME_47E7AC17020C // MakeForMenu
- ) .SequenceCode.It
+ )
  ; // Operations
  : Overridden
-   @ ( ME_47E766E10053_ME_47E7652402FF // DoUpdate
- ) .SequenceCode.It
+   Seq: ( ME_47E766E10053_ME_47E7652402FF // DoUpdate
+ )
  ; // Overridden
  : Dependencies
-   @ ( ME_47E7B1910352 // 
- ) .SequenceCode.It
+   Seq: ( ME_47E7B1910352 // 
+ )
  ; // Dependencies
  CONST "author" 'Люлин А.В.'
  CONST "needs InstanceR" 'undefined'
@@ -223,12 +228,14 @@ ref; // ME_47E766E10053_ME_47E7652402FF DoUpdate
  CONST "no hands" true
  CONST "register in scripts" 'undefined'
  CONST "started" '24.03.2008 11:24'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\VCM\implementation\Visual'
  CONST intf.pas:Path 'common\components\gui\Garant\VCM\implementation\Visual\vcmMainMenuAction.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\VCM\implementation\Visual'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'MainMenuAction'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'vcmMainMenuAction'
 
 ref; // ME_47E7652402FF TvcmMainMenuAction
 
@@ -247,12 +254,14 @@ ref; // ME_47E7652402FF TvcmMainMenuAction
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\VCM\implementation\Visual'
  CONST intf.pas:Path 'common\components\gui\Garant\VCM\implementation\Visual\NOT_FINISHED_vcmEntityAction.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\VCM\implementation\Visual'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'EntityAction'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'vcmEntityAction'
 
 ref; // ME_4F82EFAB02D4 TvcmEntityAction
 
@@ -271,12 +280,14 @@ ref; // ME_4F82EFAB02D4 TvcmEntityAction
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\VCM\implementation\Visual'
  CONST intf.pas:Path 'common\components\gui\Garant\VCM\implementation\Visual\NOT_FINISHED_vcmOperationAction.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\VCM\implementation\Visual'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'OperationAction'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'vcmOperationAction'
 
 ref; // ME_4F82EFBE018A TvcmOperationAction
 
@@ -295,12 +306,14 @@ ref; // ME_4F82EFBE018A TvcmOperationAction
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\VCM\implementation\Visual'
  CONST intf.pas:Path 'common\components\gui\Garant\VCM\implementation\Visual\NOT_FINISHED_vcmModuleAction.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\VCM\implementation\Visual'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'ModuleAction'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'vcmModuleAction'
 
 ref; // ME_4F82EFD20255 TvcmModuleAction
 
@@ -314,28 +327,26 @@ ref; // ME_4F82EFD20255 TvcmModuleAction
  : Parent WL 'ME_4790C3B8021E' '4790C3B8021E.pas.ms.script' // VCM
  ;
  : Children
-   @ ( ME_47E761BB02FE // TvcmAction
+   Seq: ( ME_47E761BB02FE // TvcmAction
  ME_47E7652402FF // TvcmMainMenuAction
  ME_4F82EFAB02D4 // TvcmEntityAction
  ME_4F82EFBE018A // TvcmOperationAction
  ME_4F82EFD20255 // TvcmModuleAction
- ) .SequenceCode.It
+ )
  ; // Children
  : Depends
-   @ ( WL 'ME_4683F37902CF' '4683F37902CF.pas.ms.script' // vcmInterfaces
+   Seq: ( WL 'ME_4683F37902CF' '4683F37902CF.pas.ms.script' // vcmInterfaces
  WL 'ME_47913B47006E' '47913B47006E.pas.ms.script' // l3CoreObjects
  WL 'ME_4799D29F033F' '4799D29F033F.pas.ms.script' // Implementation
  WL 'ME_4AB0997B00A2' '4AB0997B00A2.pas.ms.script' // Common
- ) .SequenceCode.It
+ )
  ; // Depends
  CONST "path prefix" '/implementation/Visual'
- : Generators
- @ (
- gen_pas.script
- gen_pas.script.runner
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\VCM\implementation\Visual'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\VCM\implementation\Visual'
  CONST pas.script:Path 'shared\models\NewSchool\Scripts\47E7617C0275.pas.ms.script'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
  CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\47E7617C0275.pas.ms.script.runner'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_47E7617C0275 Actions

@@ -41,6 +41,7 @@ ref; // ME_4787FF730219 aCaption
  CONST Value 0
  : ValueType WL 'ME_478806970243' '467823B7002C.pas.ms.script' // THandle
  ;
+ CONST extprop:pas:Value 0
 
 ref; // ME_4787FF73024E anAttachWnd
 
@@ -54,6 +55,7 @@ ref; // ME_4787FF73024E anAttachWnd
  CONST Value 'afw_lpwTimeout'
  : ValueType WL 'ME_46A618AF0053' '4AB0C3C60310.pas.ms.script' // Cardinal
  ;
+ CONST extprop:pas:Value 'afw_lpwTimeout'
 
 ref; // ME_4787FF730282 anInitialTimeout
 
@@ -67,6 +69,7 @@ ref; // ME_4787FF730282 anInitialTimeout
  CONST Value 'nil'
  : ValueType WL 'ME_47978736001E' '467823B7002C.pas.ms.script' // TafwCustomImageList
  ;
+ CONST extprop:pas:Value 'nil'
 
 ref; // ME_4787FF7302BD anImageList
 
@@ -80,6 +83,7 @@ ref; // ME_4787FF7302BD anImageList
  CONST Value '-1'
  : ValueType WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
  ;
+ CONST extprop:pas:Value '-1'
 
 ref; // ME_4787FF730305 anImageIndex
 
@@ -94,12 +98,12 @@ ref; // ME_4787FF730305 anImageIndex
  : Parent ME_47877AB8026C // TafwLongProcessVisualizer
  ;
  : Parameters
-   @ ( ME_4787FF730219 // aCaption
+   Seq: ( ME_4787FF730219 // aCaption
  ME_4787FF73024E // anAttachWnd
  ME_4787FF730282 // anInitialTimeout
  ME_4787FF7302BD // anImageList
  ME_4787FF730305 // anImageIndex
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_4787FEFF02E5 Create
@@ -124,6 +128,7 @@ ref; // ME_478800F50031 aCaption
  CONST Value 0
  : ValueType WL 'ME_478806970243' '467823B7002C.pas.ms.script' // THandle
  ;
+ CONST extprop:pas:Value 0
 
 ref; // ME_478800F5006B anAttachWnd
 
@@ -137,6 +142,7 @@ ref; // ME_478800F5006B anAttachWnd
  CONST Value 'afw_lpwTimeout'
  : ValueType WL 'ME_46A618AF0053' '4AB0C3C60310.pas.ms.script' // Cardinal
  ;
+ CONST extprop:pas:Value 'afw_lpwTimeout'
 
 ref; // ME_478800F500A7 anInitialTimeout
 
@@ -150,6 +156,7 @@ ref; // ME_478800F500A7 anInitialTimeout
  CONST Value 'nil'
  : ValueType WL 'ME_47978736001E' '467823B7002C.pas.ms.script' // TafwCustomImageList
  ;
+ CONST extprop:pas:Value 'nil'
 
 ref; // ME_478800F500E4 anImageList
 
@@ -163,6 +170,7 @@ ref; // ME_478800F500E4 anImageList
  CONST Value '-1'
  : ValueType WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
  ;
+ CONST extprop:pas:Value '-1'
 
 ref; // ME_478800F50122 anImageIndex
 
@@ -179,12 +187,12 @@ ref; // ME_478800F50122 anImageIndex
  : Target WL 'ME_473D936D035F' '467823B7002C.pas.ms.script' // IafwLongProcessVisualizer
  ;
  : Parameters
-   @ ( ME_478800F50031 // aCaption
+   Seq: ( ME_478800F50031 // aCaption
  ME_478800F5006B // anAttachWnd
  ME_478800F500A7 // anInitialTimeout
  ME_478800F500E4 // anImageList
  ME_478800F50122 // anImageIndex
- ) .SequenceCode.It
+ )
  ; // Parameters
  CONST "check nil" false
  CONST "need AfterCreate" 'undefined'
@@ -211,6 +219,7 @@ ref; // ME_52BC35210373
  ;
  : Implementor ME_47877AB8026C // TafwLongProcessVisualizer
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_479731C50290_ME_47877AB8026C Cleanup
 
 : ME_47877AB8026C
@@ -224,40 +233,42 @@ ref; // ME_479731C50290_ME_47877AB8026C Cleanup
  : Parent ME_47877A6F000A // Visual
  ;
  : Inherits
-   @ ( WL 'ME_49E7754802A9' '47913B47006E.pas.ms.script' // Tl3ProtoObject
- ) .SequenceCode.It
+   Seq: ( WL 'ME_49E7754802A9' '47913B47006E.pas.ms.script' // Tl3ProtoObject
+ )
  ; // Inherits
  : Implements
-   @ ( WL 'ME_473D936D035F' '467823B7002C.pas.ms.script' // IafwLongProcessVisualizer
- ) .SequenceCode.It
+   Seq: ( WL 'ME_473D936D035F' '467823B7002C.pas.ms.script' // IafwLongProcessVisualizer
+ )
  ; // Implements
  : Attributes
-   @ ( ME_4787FEC50181 // f_Wnd
- ) .SequenceCode.It
+   Seq: ( ME_4787FEC50181 // f_Wnd
+ )
  ; // Attributes
  : Operations
-   @ ( ME_4787FEFF02E5 // Create
+   Seq: ( ME_4787FEFF02E5 // Create
  ME_478800BA03B6 // Make
- ) .SequenceCode.It
+ )
  ; // Operations
  : Overridden
-   @ ( ME_479731C50290_ME_47877AB8026C // Cleanup
- ) .SequenceCode.It
+   Seq: ( ME_479731C50290_ME_47877AB8026C // Cleanup
+ )
  ; // Overridden
  : Dependencies
-   @ ( ME_52BC35210373 // 
- ) .SequenceCode.It
+   Seq: ( ME_52BC35210373 // 
+ )
  ; // Dependencies
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" true
  CONST "register in scripts" 'undefined'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\AFW\implementation\Visual'
  CONST intf.pas:Path 'common\components\gui\Garant\AFW\implementation\Visual\afwLongProcessVisualizer.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\AFW\implementation\Visual'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'afwLongProcessVisualizer'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'afwLongProcessVisualizer'
 
 ref; // ME_47877AB8026C TafwLongProcessVisualizer
 
@@ -598,11 +609,11 @@ ref; // ME_47E130690373 FFont
  : Parent ME_47E1227902E1 // afwVCL
  ;
  : Inherits
-   @ ( WL 'ME_479878FA0103' '4AB0997B00A2.pas.ms.script' // TComponent
- ) .SequenceCode.It
+   Seq: ( WL 'ME_479878FA0103' '4AB0997B00A2.pas.ms.script' // TComponent
+ )
  ; // Inherits
  : Attributes
-   @ ( ME_47E12FDC02D7 // FParent
+   Seq: ( ME_47E12FDC02D7 // FParent
  ME_47E12FE4026E // FWindowProc
  ME_47E12FED036C // FLeft
  ME_47E12FF50012 // FTop
@@ -625,12 +636,18 @@ ref; // ME_47E130690373 FFont
  ME_47E1305D01B0 // FAnchorMove
  ME_47E13063007E // FText
  ME_47E130690373 // FFont
- ) .SequenceCode.It
+ )
  ; // Attributes
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
+ CONST dfm:PathOnly '\common\components\gui\Garant\AFW\implementation\Visual'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\AFW\implementation\Visual'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'afwHackControl'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_47E1238E0157 TafwHackControl
 
@@ -656,6 +673,7 @@ FORWARD ME_47E1234E0368
  CONST Value 'nil'
  : ValueType ME_47E1234E0368 // RafwFont
  ;
+ CONST extprop:pas:Value 'nil'
 
 ref; // ME_47E122A90369 aFont
 
@@ -668,9 +686,9 @@ ref; // ME_47E122A90369 aFont
  : Parent ME_47E1227902E1 // afwVCL
  ;
  : Parameters
-   @ ( ME_47E122A90351 // aControl
+   Seq: ( ME_47E122A90351 // aControl
  ME_47E122A90369 // aFont
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_47E122A2014B afwHackControlFont
@@ -695,6 +713,7 @@ ref; // ME_47E122B90226 aFont
  CONST Value 'nil'
  : ValueType ME_47E1234E0368 // RafwFont
  ;
+ CONST extprop:pas:Value 'nil'
 
 ref; // ME_47E122B90240 aNewFont
 
@@ -707,9 +726,9 @@ ref; // ME_47E122B90240 aNewFont
  : Parent ME_47E1227902E1 // afwVCL
  ;
  : Parameters
-   @ ( ME_47E122B90226 // aFont
+   Seq: ( ME_47E122B90226 // aFont
  ME_47E122B90240 // aNewFont
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_47E122B30072 afwHackFont
@@ -773,12 +792,12 @@ ref; // ME_4B9F9AEF0299 aHeight
  : Parent ME_47E1227902E1 // afwVCL
  ;
  : Parameters
-   @ ( ME_4B9F9AEF01EE // aControl
+   Seq: ( ME_4B9F9AEF01EE // aControl
  ME_4B9F9AEF020D // aLeft
  ME_4B9F9AEF023C // aTop
  ME_4B9F9AEF026B // aWidth
  ME_4B9F9AEF0299 // aHeight
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_4B9F9A9603C4 afwSetBoundsWin2kFix
@@ -827,31 +846,30 @@ ref; // ME_4B9FA1270276
  : Parent ME_47877A6F000A // Visual
  ;
  : Operations
-   @ ( ME_47E122A2014B // afwHackControlFont
+   Seq: ( ME_47E122A2014B // afwHackControlFont
  ME_47E122B30072 // afwHackFont
  ME_4B9F9A9603C4 // afwSetBoundsWin2kFix
- ) .SequenceCode.It
+ )
  ; // Operations
  : Children
-   @ ( ME_47E1238E0157 // TafwHackControl
- ) .SequenceCode.It
+   Seq: ( ME_47E1238E0157 // TafwHackControl
+ )
  ; // Children
  : Dependencies
-   @ ( ME_47E131A90132 // 
+   Seq: ( ME_47E131A90132 // 
  ME_4B9F9FD801B1 // 
  ME_4B9FA1270276 // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  CONST "author" 'Люлин А.В.'
  CONST "no hands" true
  CONST "started" '04.12.2006 19:04'
  CONST "weak" true
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\AFW\implementation\Visual'
  CONST intf.pas:Path 'common\components\gui\Garant\AFW\implementation\Visual\afwVCL.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\AFW\implementation\Visual'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_47E1227902E1 afwVCL
 
@@ -869,14 +887,20 @@ FORWARD ME_47E122F001A4
  : Parent ME_47E122F001A4 // afwFont
  ;
  : Inherits
-   @ ( WL 'ME_47A0ACE90008' '47BB24D30205.pas.ms.script' // l3Castable
+   Seq: ( WL 'ME_47A0ACE90008' '47BB24D30205.pas.ms.script' // l3Castable
  WL 'ME_47E120930217' '55C4AEC801CA.pas.ms.script' // TFont
- ) .SequenceCode.It
+ )
  ; // Inherits
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
+ CONST dfm:PathOnly '\common\components\gui\Garant\AFW\implementation\Visual'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\AFW\implementation\Visual'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'afwCastableFont'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_47E15F2D00DB TafwCastableFont
 
@@ -947,6 +971,7 @@ ref; // ME_47E15C4F03BC Make
  ;
  : Implementor ME_47E1231D0293 // TafwFontI
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" false
 ref; // ME_46A610780340_ME_47E1231D0293 ForeColor
 
@@ -957,6 +982,7 @@ ref; // ME_46A610780340_ME_47E1231D0293 ForeColor
  ;
  : Implementor ME_47E1231D0293 // TafwFontI
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" false
 ref; // ME_46A6108E017F_ME_47E1231D0293 BackColor
 
@@ -967,6 +993,7 @@ ref; // ME_46A6108E017F_ME_47E1231D0293 BackColor
  ;
  : Implementor ME_47E1231D0293 // TafwFontI
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" false
 ref; // ME_46A610AF012C_ME_47E1231D0293 Name
 
@@ -977,6 +1004,7 @@ ref; // ME_46A610AF012C_ME_47E1231D0293 Name
  ;
  : Implementor ME_47E1231D0293 // TafwFontI
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" false
 ref; // ME_46A610E10084_ME_47E1231D0293 Pitch
 
@@ -987,6 +1015,7 @@ ref; // ME_46A610E10084_ME_47E1231D0293 Pitch
  ;
  : Implementor ME_47E1231D0293 // TafwFontI
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" false
 ref; // ME_46A6111000F9_ME_47E1231D0293 Size
 
@@ -997,6 +1026,7 @@ ref; // ME_46A6111000F9_ME_47E1231D0293 Size
  ;
  : Implementor ME_47E1231D0293 // TafwFontI
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" false
 ref; // ME_46A61136020C_ME_47E1231D0293 Index
 
@@ -1007,6 +1037,7 @@ ref; // ME_46A61136020C_ME_47E1231D0293 Index
  ;
  : Implementor ME_47E1231D0293 // TafwFontI
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" false
 ref; // ME_46A6127B0282_ME_47E1231D0293 Style
 
@@ -1017,6 +1048,7 @@ ref; // ME_46A6127B0282_ME_47E1231D0293 Style
  ;
  : Implementor ME_47E1231D0293 // TafwFontI
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" false
 ref; // ME_46A6129101E3_ME_47E1231D0293 Bold
 
@@ -1027,6 +1059,7 @@ ref; // ME_46A6129101E3_ME_47E1231D0293 Bold
  ;
  : Implementor ME_47E1231D0293 // TafwFontI
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" false
 ref; // ME_46A612AF0038_ME_47E1231D0293 Italic
 
@@ -1037,6 +1070,7 @@ ref; // ME_46A612AF0038_ME_47E1231D0293 Italic
  ;
  : Implementor ME_47E1231D0293 // TafwFontI
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" false
 ref; // ME_46A612C302D6_ME_47E1231D0293 Underline
 
@@ -1047,6 +1081,7 @@ ref; // ME_46A612C302D6_ME_47E1231D0293 Underline
  ;
  : Implementor ME_47E1231D0293 // TafwFontI
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" false
 ref; // ME_46A612DC01F5_ME_47E1231D0293 Strikeout
 
@@ -1057,6 +1092,7 @@ ref; // ME_46A612DC01F5_ME_47E1231D0293 Strikeout
  ;
  : Implementor ME_47E1231D0293 // TafwFontI
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_473DAA0F01C7_ME_47E1231D0293 Assign2Font
 
 : ME_47E1231D0293
@@ -1070,26 +1106,26 @@ ref; // ME_473DAA0F01C7_ME_47E1231D0293 Assign2Font
  : Parent ME_47E122F001A4 // afwFont
  ;
  : Inherits
-   @ ( WL 'ME_47913F970159' '47913B47006E.pas.ms.script' // l3Unknown
+   Seq: ( WL 'ME_47913F970159' '47913B47006E.pas.ms.script' // l3Unknown
  ME_47E15F2D00DB // TafwCastableFont
- ) .SequenceCode.It
+ )
  ; // Inherits
  : Implements
-   @ ( WL 'ME_4683D6A002DE' '467823B7002C.pas.ms.script' // IafwFont
- ) .SequenceCode.It
+   Seq: ( WL 'ME_4683D6A002DE' '467823B7002C.pas.ms.script' // IafwFont
+ )
  ; // Implements
  : Attributes
-   @ ( ME_47E159840335 // f_BackColor
+   Seq: ( ME_47E159840335 // f_BackColor
  ME_47E15992038C // f_Index
- ) .SequenceCode.It
+ )
  ; // Attributes
  : Operations
-   @ ( ME_47E15C42028A // Create
+   Seq: ( ME_47E15C42028A // Create
  ME_47E15C4F03BC // Make
- ) .SequenceCode.It
+ )
  ; // Operations
  : Implemented
-   @ ( ME_46A610780340_ME_47E1231D0293 // ForeColor
+   Seq: ( ME_46A610780340_ME_47E1231D0293 // ForeColor
  ME_46A6108E017F_ME_47E1231D0293 // BackColor
  ME_46A610AF012C_ME_47E1231D0293 // Name
  ME_46A610E10084_ME_47E1231D0293 // Pitch
@@ -1101,12 +1137,18 @@ ref; // ME_473DAA0F01C7_ME_47E1231D0293 Assign2Font
  ME_46A612C302D6_ME_47E1231D0293 // Underline
  ME_46A612DC01F5_ME_47E1231D0293 // Strikeout
  ME_473DAA0F01C7_ME_47E1231D0293 // Assign2Font
- ) .SequenceCode.It
+ )
  ; // Implemented
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
+ CONST dfm:PathOnly '\common\components\gui\Garant\AFW\implementation\Visual'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\AFW\implementation\Visual'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'afwFontI'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_47E1231D0293 TafwFontI
 
@@ -1156,6 +1198,7 @@ ref; // ME_497EEA78032F
  ;
  : Implementor ME_47E1233D01CD // TafwFont
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_47E15C42028A_ME_47E1233D01CD Create
 
 : ME_47E1233D01CD
@@ -1169,27 +1212,33 @@ ref; // ME_47E15C42028A_ME_47E1233D01CD Create
  : Parent ME_47E122F001A4 // afwFont
  ;
  : Inherits
-   @ ( ME_47E1231D0293 // TafwFontI
- ) .SequenceCode.It
+   Seq: ( ME_47E1231D0293 // TafwFontI
+ )
  ; // Inherits
  : Operations
-   @ ( ME_47E15C740102 // NameStored
+   Seq: ( ME_47E15C740102 // NameStored
  ME_47E15C7F03CD // HeightStored
- ) .SequenceCode.It
+ )
  ; // Operations
  : Overridden
-   @ ( ME_47E15C42028A_ME_47E1233D01CD // Create
- ) .SequenceCode.It
+   Seq: ( ME_47E15C42028A_ME_47E1233D01CD // Create
+ )
  ; // Overridden
  : Dependencies
-   @ ( ME_497EEA78032F // 
- ) .SequenceCode.It
+   Seq: ( ME_497EEA78032F // 
+ )
  ; // Dependencies
  CONST "need UC" true
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
+ CONST dfm:PathOnly '\common\components\gui\Garant\AFW\implementation\Visual'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\AFW\implementation\Visual'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'afwFont'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_47E1233D01CD TafwFont
 
@@ -1204,10 +1253,15 @@ ref; // ME_47E1233D01CD TafwFont
  : Parent ME_47E122F001A4 // afwFont
  ;
  : Inherits
-   @ ( ME_47E1233D01CD // TafwFont
- ) .SequenceCode.It
+   Seq: ( ME_47E1233D01CD // TafwFont
+ )
  ; // Inherits
  CONST "isClassRef" true
+ CONST dfm:PathOnly '\common\components\gui\Garant\AFW\implementation\Visual'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\AFW\implementation\Visual'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_47E1234E0368 RafwFont
 
@@ -1233,26 +1287,25 @@ ref; // ME_47E131BF017B
  : Parent ME_47877A6F000A // Visual
  ;
  : Children
-   @ ( ME_47E15F2D00DB // TafwCastableFont
+   Seq: ( ME_47E15F2D00DB // TafwCastableFont
  ME_47E1231D0293 // TafwFontI
  ME_47E1233D01CD // TafwFont
  ME_47E1234E0368 // RafwFont
- ) .SequenceCode.It
+ )
  ; // Children
  : Dependencies
-   @ ( ME_47E131BF017B // 
- ) .SequenceCode.It
+   Seq: ( ME_47E131BF017B // 
+ )
  ; // Dependencies
  CONST "author" 'Люлин А.В.'
  CONST "no hands" true
  CONST "started" '04.12.2006 18:52'
  CONST "weak" true
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\AFW\implementation\Visual'
  CONST intf.pas:Path 'common\components\gui\Garant\AFW\implementation\Visual\afwFont.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\AFW\implementation\Visual'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_47E122F001A4 afwFont
 
@@ -1350,14 +1403,19 @@ ref; // ME_480DC57602EB csBitmap
  : Parent ME_480DC4B90226 // TafwCustomCaretType
  ;
  : Attributes
-   @ ( ME_480DC53B037E // csBlock
+   Seq: ( ME_480DC53B037E // csBlock
  ME_480DC54601A5 // csHalfBlock
  ME_480DC5540398 // csVertLine
  ME_480DC56202D8 // csHorzLine
  ME_480DC56D016A // csCustom
  ME_480DC57602EB // csBitmap
- ) .SequenceCode.It
+ )
  ; // Attributes
+ CONST dfm:PathOnly '\common\components\gui\Garant\AFW\implementation\Visual'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\AFW\implementation\Visual'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_480DC52E02C6 TafwCaretShape
 
@@ -1440,13 +1498,18 @@ ref; // ME_480DC5E901E5 caCenter
  : Parent ME_480DC4B90226 // TafwCustomCaretType
  ;
  : Attributes
-   @ ( ME_480DC5C000D9 // caLeft
+   Seq: ( ME_480DC5C000D9 // caLeft
  ME_480DC5C901B0 // caTop
  ME_480DC5D702D3 // caRight
  ME_480DC5E0034E // caBottom
  ME_480DC5E901E5 // caCenter
- ) .SequenceCode.It
+ )
  ; // Attributes
+ CONST dfm:PathOnly '\common\components\gui\Garant\AFW\implementation\Visual'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\AFW\implementation\Visual'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_480DC5B20390 TafwCaretAlign
 
@@ -1465,6 +1528,7 @@ FORWARD ME_480DC6620108
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value 'caLeft'
 
 ref; // ME_480DC672036B DefAlign
 
@@ -1481,6 +1545,7 @@ ref; // ME_480DC672036B DefAlign
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value 0
 
 ref; // ME_480DC67F02FD DefBlinkTime
 
@@ -1497,6 +1562,7 @@ ref; // ME_480DC67F02FD DefBlinkTime
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value 2
 
 ref; // ME_480DC686014C DefCaretWd
 
@@ -1513,6 +1579,7 @@ ref; // ME_480DC686014C DefCaretWd
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value 10
 
 ref; // ME_480DC68D02FF DefCaretHt
 
@@ -1529,6 +1596,7 @@ ref; // ME_480DC68D02FF DefCaretHt
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value false
 
 ref; // ME_480DC6A501AE DefIsGray
 
@@ -1545,6 +1613,7 @@ ref; // ME_480DC6A501AE DefIsGray
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value 'csVertLine'
 
 ref; // ME_480DC6AE01D5 DefShape
 
@@ -1559,15 +1628,19 @@ ref; // ME_480DC6AE01D5 DefShape
  : Parent ME_480DC4B90226 // TafwCustomCaretType
  ;
  : Attributes
-   @ ( ME_480DC672036B // DefAlign
+   Seq: ( ME_480DC672036B // DefAlign
  ME_480DC67F02FD // DefBlinkTime
  ME_480DC686014C // DefCaretWd
  ME_480DC68D02FF // DefCaretHt
  ME_480DC6A501AE // DefIsGray
  ME_480DC6AE01D5 // DefShape
- ) .SequenceCode.It
+ )
  ; // Attributes
  CONST "spell names" false
+ CONST dfm:PathOnly '\common\components\gui\Garant\AFW\implementation\Visual'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\AFW\implementation\Visual'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_480DC6620108 Defaults
 
@@ -1610,6 +1683,7 @@ ref; // ME_480DC903031B OnChange
  CONST "needs field" true
  CONST "pm" true
  CONST "reads field" true
+ CONST extprop:pas:Value 'DefShape'
 
 ref; // ME_480DC92503DD Shape
 
@@ -1651,6 +1725,7 @@ ref; // ME_480DC95E036D Bitmap
  CONST "needs field" true
  CONST "pm" true
  CONST "reads field" true
+ CONST extprop:pas:Value 0
 
 ref; // ME_480DC9770164 BitmapHotSpotX
 
@@ -1673,6 +1748,7 @@ ref; // ME_480DC9770164 BitmapHotSpotX
  CONST "needs field" true
  CONST "pm" true
  CONST "reads field" true
+ CONST extprop:pas:Value 0
 
 ref; // ME_480DC99901B3 BitmapHotSpotY
 
@@ -1695,6 +1771,7 @@ ref; // ME_480DC99901B3 BitmapHotSpotY
  CONST "needs field" true
  CONST "pm" true
  CONST "reads field" true
+ CONST extprop:pas:Value 'DefAlign'
 
 ref; // ME_480DC9AF007C Align
 
@@ -1717,6 +1794,7 @@ ref; // ME_480DC9AF007C Align
  CONST "needs field" true
  CONST "pm" true
  CONST "reads field" true
+ CONST extprop:pas:Value 'DefBlinkTime'
 
 ref; // ME_480DC9C50199 BlinkTime
 
@@ -1739,6 +1817,7 @@ ref; // ME_480DC9C50199 BlinkTime
  CONST "needs field" true
  CONST "pm" true
  CONST "reads field" true
+ CONST extprop:pas:Value 'DefCaretHt'
 
 ref; // ME_480DC9FC0128 CaretHeight
 
@@ -1761,6 +1840,7 @@ ref; // ME_480DC9FC0128 CaretHeight
  CONST "needs field" true
  CONST "pm" true
  CONST "reads field" true
+ CONST extprop:pas:Value 'DefCaretWd'
 
 ref; // ME_480DCA13027E CaretWidth
 
@@ -1783,12 +1863,14 @@ ref; // ME_480DCA13027E CaretWidth
  CONST "needs field" true
  CONST "pm" true
  CONST "reads field" true
+ CONST extprop:pas:Value 'DefIsGray'
 
 ref; // ME_480DCA2701E2 IsGray
 
 : ME_89454D009DDA
  CONST UID '89454D009DDA'
  CONST Name 'f_OnChange'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY 'Поле для свойства OnChange' ;
  CONST Visibility PrivateAccess
@@ -1798,12 +1880,14 @@ ref; // ME_480DCA2701E2 IsGray
  ;
  : Target WL 'ME_47881B22005A' '4AB0997B00A2.pas.ms.script' // TNotifyEvent
  ;
+ CONST extprop:clearViaProperty 'OnChange'
 
 ref; // ME_89454D009DDA f_OnChange
 
 : ME_40EF8C4DE8A0
  CONST UID '40EF8C4DE8A0'
  CONST Name 'f_Shape'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY 'Поле для свойства Shape' ;
  CONST Visibility PrivateAccess
@@ -1813,12 +1897,14 @@ ref; // ME_89454D009DDA f_OnChange
  ;
  : Target ME_480DC52E02C6 // TafwCaretShape
  ;
+ CONST extprop:clearViaProperty 'Shape'
 
 ref; // ME_40EF8C4DE8A0 f_Shape
 
 : ME_37632C3AFEAD
  CONST UID '37632C3AFEAD'
  CONST Name 'f_Bitmap'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY 'Поле для свойства Bitmap' ;
  CONST Visibility PrivateAccess
@@ -1828,12 +1914,14 @@ ref; // ME_40EF8C4DE8A0 f_Shape
  ;
  : Target WL 'ME_47D15723038A' '55C4AEC801CA.pas.ms.script' // TBitmap
  ;
+ CONST extprop:clearViaProperty 'Bitmap'
 
 ref; // ME_37632C3AFEAD f_Bitmap
 
 : ME_091A384EC781
  CONST UID '091A384EC781'
  CONST Name 'f_BitmapHotSpotX'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY 'Поле для свойства BitmapHotSpotX' ;
  CONST Visibility PrivateAccess
@@ -1843,12 +1931,14 @@ ref; // ME_37632C3AFEAD f_Bitmap
  ;
  : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
  ;
+ CONST extprop:clearViaProperty 'BitmapHotSpotX'
 
 ref; // ME_091A384EC781 f_BitmapHotSpotX
 
 : ME_AEB121DDDB55
  CONST UID 'AEB121DDDB55'
  CONST Name 'f_BitmapHotSpotY'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY 'Поле для свойства BitmapHotSpotY' ;
  CONST Visibility PrivateAccess
@@ -1858,12 +1948,14 @@ ref; // ME_091A384EC781 f_BitmapHotSpotX
  ;
  : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
  ;
+ CONST extprop:clearViaProperty 'BitmapHotSpotY'
 
 ref; // ME_AEB121DDDB55 f_BitmapHotSpotY
 
 : ME_0F4373EEC260
  CONST UID '0F4373EEC260'
  CONST Name 'f_Align'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY 'Поле для свойства Align' ;
  CONST Visibility PrivateAccess
@@ -1873,12 +1965,14 @@ ref; // ME_AEB121DDDB55 f_BitmapHotSpotY
  ;
  : Target ME_480DC5B20390 // TafwCaretAlign
  ;
+ CONST extprop:clearViaProperty 'Align'
 
 ref; // ME_0F4373EEC260 f_Align
 
 : ME_6996D2ECEFB0
  CONST UID '6996D2ECEFB0'
  CONST Name 'f_BlinkTime'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY 'Поле для свойства BlinkTime' ;
  CONST Visibility PrivateAccess
@@ -1888,12 +1982,14 @@ ref; // ME_0F4373EEC260 f_Align
  ;
  : Target WL 'ME_476F71A701AB' '4AB0C3C60310.pas.ms.script' // Word
  ;
+ CONST extprop:clearViaProperty 'BlinkTime'
 
 ref; // ME_6996D2ECEFB0 f_BlinkTime
 
 : ME_8C8E1316E99C
  CONST UID '8C8E1316E99C'
  CONST Name 'f_CaretHeight'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY 'Поле для свойства CaretHeight' ;
  CONST Visibility PrivateAccess
@@ -1903,12 +1999,14 @@ ref; // ME_6996D2ECEFB0 f_BlinkTime
  ;
  : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
  ;
+ CONST extprop:clearViaProperty 'CaretHeight'
 
 ref; // ME_8C8E1316E99C f_CaretHeight
 
 : ME_217A96C1C913
  CONST UID '217A96C1C913'
  CONST Name 'f_CaretWidth'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY 'Поле для свойства CaretWidth' ;
  CONST Visibility PrivateAccess
@@ -1918,12 +2016,14 @@ ref; // ME_8C8E1316E99C f_CaretHeight
  ;
  : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
  ;
+ CONST extprop:clearViaProperty 'CaretWidth'
 
 ref; // ME_217A96C1C913 f_CaretWidth
 
 : ME_14FD12FDD0CF
  CONST UID '14FD12FDD0CF'
  CONST Name 'f_IsGray'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY 'Поле для свойства IsGray' ;
  CONST Visibility PrivateAccess
@@ -1933,6 +2033,7 @@ ref; // ME_217A96C1C913 f_CaretWidth
  ;
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
+ CONST extprop:clearViaProperty 'IsGray'
 
 ref; // ME_14FD12FDD0CF f_IsGray
 
@@ -1988,6 +2089,7 @@ ref; // ME_480DCDB10260
  ;
  : Implementor ME_480DC4B90226 // TafwCustomCaretType
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_479731C50290_ME_480DC4B90226 Cleanup
 
 : ME_480DC4B90226
@@ -2002,11 +2104,11 @@ ref; // ME_479731C50290_ME_480DC4B90226 Cleanup
  : Parent ME_47877A6F000A // Visual
  ;
  : Inherits
-   @ ( WL 'ME_47879856035F' '47913B47006E.pas.ms.script' // Tl3_Base
- ) .SequenceCode.It
+   Seq: ( WL 'ME_47879856035F' '47913B47006E.pas.ms.script' // Tl3_Base
+ )
  ; // Inherits
  : Attributes
-   @ ( ME_480DC903031B // OnChange
+   Seq: ( ME_480DC903031B // OnChange
  ME_480DC92503DD // Shape
  ME_480DC95E036D // Bitmap
  ME_480DC9770164 // BitmapHotSpotX
@@ -2026,30 +2128,30 @@ ref; // ME_479731C50290_ME_480DC4B90226 Cleanup
  ME_8C8E1316E99C // f_CaretHeight
  ME_217A96C1C913 // f_CaretWidth
  ME_14FD12FDD0CF // f_IsGray
- ) .SequenceCode.It
+ )
  ; // Attributes
  : Operations
-   @ ( ME_480DCA5C03B7 // Create
+   Seq: ( ME_480DCA5C03B7 // Create
  ME_480DCA6F0113 // NotifyChange
- ) .SequenceCode.It
+ )
  ; // Operations
  : Overridden
-   @ ( ME_479731C50290_ME_480DC4B90226 // Cleanup
- ) .SequenceCode.It
+   Seq: ( ME_479731C50290_ME_480DC4B90226 // Cleanup
+ )
  ; // Overridden
  : Children
-   @ ( ME_480DC52E02C6 // TafwCaretShape
+   Seq: ( ME_480DC52E02C6 // TafwCaretShape
  ME_480DC5B20390 // TafwCaretAlign
- ) .SequenceCode.It
+ )
  ; // Children
  : Constants
-   @ ( ME_480DC6620108 // Defaults
- ) .SequenceCode.It
+   Seq: ( ME_480DC6620108 // Defaults
+ )
  ; // Constants
  : Dependencies
-   @ ( ME_480DC94C02AC // 
+   Seq: ( ME_480DC94C02AC // 
  ME_480DCDB10260 // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  CONST "author" 'Люлин А.В.'
  CONST "needs InstanceR" 'undefined'
@@ -2057,12 +2159,14 @@ ref; // ME_479731C50290_ME_480DC4B90226 Cleanup
  CONST "no hands" true
  CONST "register in scripts" 'undefined'
  CONST "started" '09.12.1998 16:25'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\AFW\implementation\Visual'
  CONST intf.pas:Path 'common\components\gui\Garant\AFW\implementation\Visual\afwCustomCaretType.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\AFW\implementation\Visual'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'afwCustomCaretType'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'afwCustomCaretType'
 
 ref; // ME_480DC4B90226 TafwCustomCaretType
 
@@ -2280,6 +2384,7 @@ ref; // ME_52FCEE200321 Owner
 : ME_1CCAE44DE0E3
  CONST UID '1CCAE44DE0E3'
  CONST Name 'f_CellHeight'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY 'Поле для свойства CellHeight' ;
  CONST Visibility PrivateAccess
@@ -2289,12 +2394,14 @@ ref; // ME_52FCEE200321 Owner
  ;
  : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
  ;
+ CONST extprop:clearViaProperty 'CellHeight'
 
 ref; // ME_1CCAE44DE0E3 f_CellHeight
 
 : ME_C4F838D6BC1B
  CONST UID 'C4F838D6BC1B'
  CONST Name 'f_CellWidth'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY 'Поле для свойства CellWidth' ;
  CONST Visibility PrivateAccess
@@ -2304,12 +2411,14 @@ ref; // ME_1CCAE44DE0E3 f_CellHeight
  ;
  : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
  ;
+ CONST extprop:clearViaProperty 'CellWidth'
 
 ref; // ME_C4F838D6BC1B f_CellWidth
 
 : ME_CF7F79B527FA
  CONST UID 'CF7F79B527FA'
  CONST Name 'f_Linked'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY 'Поле для свойства Linked' ;
  CONST Visibility PrivateAccess
@@ -2319,12 +2428,14 @@ ref; // ME_C4F838D6BC1B f_CellWidth
  ;
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
+ CONST extprop:clearViaProperty 'Linked'
 
 ref; // ME_CF7F79B527FA f_Linked
 
 : ME_6F9A488FB668
  CONST UID '6F9A488FB668'
  CONST Name 'f_Position'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY 'Поле для свойства Position' ;
  CONST Visibility PrivateAccess
@@ -2334,12 +2445,14 @@ ref; // ME_CF7F79B527FA f_Linked
  ;
  : Target WL 'ME_47289677028A' '472745450206.pas.ms.script' // Tl3SPoint
  ;
+ CONST extprop:clearViaProperty 'Position'
 
 ref; // ME_6F9A488FB668 f_Position
 
 : ME_23C841D75677
  CONST UID '23C841D75677'
  CONST Name 'f_Visible'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY 'Поле для свойства Visible' ;
  CONST Visibility PrivateAccess
@@ -2349,12 +2462,14 @@ ref; // ME_6F9A488FB668 f_Position
  ;
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
+ CONST extprop:clearViaProperty 'Visible'
 
 ref; // ME_23C841D75677 f_Visible
 
 : ME_84BD0C234623
  CONST UID '84BD0C234623'
  CONST Name 'f_Hidden'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY 'Поле для свойства Hidden' ;
  CONST Visibility PrivateAccess
@@ -2364,12 +2479,14 @@ ref; // ME_23C841D75677 f_Visible
  ;
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
+ CONST extprop:clearViaProperty 'Hidden'
 
 ref; // ME_84BD0C234623 f_Hidden
 
 : ME_D0B077C95120
  CONST UID 'D0B077C95120'
  CONST Name 'f_CaretType'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY 'Поле для свойства CaretType' ;
  CONST Visibility PrivateAccess
@@ -2379,12 +2496,14 @@ ref; // ME_84BD0C234623 f_Hidden
  ;
  : Target ME_480DC4B90226 // TafwCustomCaretType
  ;
+ CONST extprop:clearViaProperty 'CaretType'
 
 ref; // ME_D0B077C95120 f_CaretType
 
 : ME_E859673116E6
  CONST UID 'E859673116E6'
  CONST Name 'f_Owner'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY 'Поле для свойства Owner' ;
  CONST Visibility PrivateAccess
@@ -2394,6 +2513,7 @@ ref; // ME_D0B077C95120 f_CaretType
  ;
  : Target WL 'ME_47E124E90272' '4799D29F033F.pas.ms.script' // TWinControl
  ;
+ CONST extprop:clearViaProperty 'Owner'
 
 ref; // ME_E859673116E6 f_Owner
 
@@ -2418,8 +2538,8 @@ ref; // ME_52FCEEFB0200 anOwner
  : Parent ME_52FCEEE902D1 // Create
  ;
  : Parameters
-   @ ( ME_52FCEEFB0200 // anOwner
- ) .SequenceCode.It
+   Seq: ( ME_52FCEEFB0200 // anOwner
+ )
  ; // Parameters
 
 ref; // ME_52FCEEF0030A DoIt
@@ -2435,8 +2555,8 @@ ref; // ME_52FCEEF0030A DoIt
  : Parent ME_480DD00B02E8 // TafwSingleCaret
  ;
  : Operations
-   @ ( ME_52FCEEF0030A // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_52FCEEF0030A // DoIt
+ )
  ; // Operations
 
 ref; // ME_52FCEEE902D1 Create
@@ -2482,8 +2602,8 @@ ref; // ME_480DD200019B Sender
  : Parent ME_480DD00B02E8 // TafwSingleCaret
  ;
  : Parameters
-   @ ( ME_480DD200019B // Sender
- ) .SequenceCode.It
+   Seq: ( ME_480DD200019B // Sender
+ )
  ; // Parameters
 
 ref; // ME_480DD1FC039F CaretTypeHasChanged
@@ -2587,6 +2707,7 @@ ref; // ME_480DD7B70313
  ;
  : Implementor ME_480DD00B02E8 // TafwSingleCaret
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_479731C50290_ME_480DD00B02E8 Cleanup
 
 : ME_480DD1890221_ME_480DD00B02E8
@@ -2596,6 +2717,7 @@ ref; // ME_479731C50290_ME_480DD00B02E8 Cleanup
  ;
  : Implementor ME_480DD00B02E8 // TafwSingleCaret
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_480DD1890221_ME_480DD00B02E8 GetOwner
 
 : ME_5000565C019C_ME_480DD00B02E8
@@ -2605,6 +2727,7 @@ ref; // ME_480DD1890221_ME_480DD00B02E8 GetOwner
  ;
  : Implementor ME_480DD00B02E8 // TafwSingleCaret
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_5000565C019C_ME_480DD00B02E8 ClearFields
 
 : ME_480DD00B02E8
@@ -2619,11 +2742,11 @@ ref; // ME_5000565C019C_ME_480DD00B02E8 ClearFields
  : Parent ME_47877A6F000A // Visual
  ;
  : Inherits
-   @ ( WL 'ME_49E7725102DA' '47913B47006E.pas.ms.script' // Tl3ProtoPersistent
- ) .SequenceCode.It
+   Seq: ( WL 'ME_49E7725102DA' '47913B47006E.pas.ms.script' // Tl3ProtoPersistent
+ )
  ; // Inherits
  : Attributes
-   @ ( ME_480DD07302DF // CellHeight
+   Seq: ( ME_480DD07302DF // CellHeight
  ME_480DD08601B6 // CellWidth
  ME_480DD09A026F // Linked
  ME_480DD0CA0330 // Position
@@ -2643,10 +2766,10 @@ ref; // ME_5000565C019C_ME_480DD00B02E8 ClearFields
  ME_84BD0C234623 // f_Hidden
  ME_D0B077C95120 // f_CaretType
  ME_E859673116E6 // f_Owner
- ) .SequenceCode.It
+ )
  ; // Attributes
  : Operations
-   @ ( ME_52FCEEE902D1 // Create
+   Seq: ( ME_52FCEEE902D1 // Create
  ME_480DD1C90077 // DoShowCaret
  ME_480DD1D40019 // DoHideCaret
  ME_480DD1FC039F // CaretTypeHasChanged
@@ -2656,18 +2779,18 @@ ref; // ME_5000565C019C_ME_480DD00B02E8 ClearFields
  ME_480DD75E00E3 // MakeShape
  ME_480DD7770166 // Reinit
  ME_480DD7840317 // ResetPos
- ) .SequenceCode.It
+ )
  ; // Operations
  : Overridden
-   @ ( ME_479731C50290_ME_480DD00B02E8 // Cleanup
+   Seq: ( ME_479731C50290_ME_480DD00B02E8 // Cleanup
  ME_480DD1890221_ME_480DD00B02E8 // GetOwner
  ME_5000565C019C_ME_480DD00B02E8 // ClearFields
- ) .SequenceCode.It
+ )
  ; // Overridden
  : Dependencies
-   @ ( ME_480DD522014F // 
+   Seq: ( ME_480DD522014F // 
  ME_480DD7B70313 // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  CONST "author" 'Люлин А.В.'
  CONST "needs InstanceR" 'undefined'
@@ -2675,12 +2798,14 @@ ref; // ME_5000565C019C_ME_480DD00B02E8 ClearFields
  CONST "no hands" true
  CONST "register in scripts" 'undefined'
  CONST "started" '09.12.1998 16:25'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\AFW\implementation\Visual'
  CONST intf.pas:Path 'common\components\gui\Garant\AFW\implementation\Visual\afwSingleCaret.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\AFW\implementation\Visual'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'afwSingleCaret'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'afwSingleCaret'
 
 ref; // ME_480DD00B02E8 TafwSingleCaret
 
@@ -2695,8 +2820,8 @@ ref; // ME_480DD00B02E8 TafwSingleCaret
  : Parent ME_47877A6F000A // Visual
  ;
  : Inherits
-   @ ( ME_480DC4B90226 // TafwCustomCaretType
- ) .SequenceCode.It
+   Seq: ( ME_480DC4B90226 // TafwCustomCaretType
+ )
  ; // Inherits
  CONST "author" 'Люлин А.В.'
  CONST "needs InstanceR" 'undefined'
@@ -2704,12 +2829,14 @@ ref; // ME_480DD00B02E8 TafwSingleCaret
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
  CONST "started" '09.12.1998 16:25'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\AFW\implementation\Visual'
  CONST intf.pas:Path 'common\components\gui\Garant\AFW\implementation\Visual\afwInsCaretType.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\AFW\implementation\Visual'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'afwInsCaretType'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'afwInsCaretType'
 
 ref; // ME_480DD275003D TafwInsCaretType
 
@@ -2722,6 +2849,7 @@ FORWARD ME_480DD2B200D2
  ;
  : Implementor ME_480DD2B200D2 // TafwOvrCaretType
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_480DCA5C03B7_ME_480DD2B200D2 Create
 
 : ME_480DD2B200D2
@@ -2735,24 +2863,26 @@ ref; // ME_480DCA5C03B7_ME_480DD2B200D2 Create
  : Parent ME_47877A6F000A // Visual
  ;
  : Inherits
-   @ ( ME_480DC4B90226 // TafwCustomCaretType
- ) .SequenceCode.It
+   Seq: ( ME_480DC4B90226 // TafwCustomCaretType
+ )
  ; // Inherits
  : Overridden
-   @ ( ME_480DCA5C03B7_ME_480DD2B200D2 // Create
- ) .SequenceCode.It
+   Seq: ( ME_480DCA5C03B7_ME_480DD2B200D2 // Create
+ )
  ; // Overridden
  CONST "need UC" true
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" true
  CONST "register in scripts" 'undefined'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\AFW\implementation\Visual'
  CONST intf.pas:Path 'common\components\gui\Garant\AFW\implementation\Visual\afwOvrCaretType.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\AFW\implementation\Visual'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'afwOvrCaretType'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'afwOvrCaretType'
 
 ref; // ME_480DD2B200D2 TafwOvrCaretType
 
@@ -2773,6 +2903,7 @@ FORWARD ME_480DDA2403DE
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value true
 
 ref; // ME_480DDA33028E DefInsMode
 
@@ -2787,10 +2918,14 @@ ref; // ME_480DDA33028E DefInsMode
  : Parent ME_480DD9F600F6 // TafwCaretPair
  ;
  : Attributes
-   @ ( ME_480DDA33028E // DefInsMode
- ) .SequenceCode.It
+   Seq: ( ME_480DDA33028E // DefInsMode
+ )
  ; // Attributes
  CONST "spell names" false
+ CONST dfm:PathOnly '\common\components\gui\Garant\AFW\implementation\Visual'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\AFW\implementation\Visual'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_480DDA2403DE Defaults
 
@@ -2854,6 +2989,7 @@ ref; // ME_480DDAA60276 OvrCaretType
 : ME_40AE952FA05B
  CONST UID '40AE952FA05B'
  CONST Name 'f_InsertMode'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY 'Поле для свойства InsertMode' ;
  CONST Visibility PrivateAccess
@@ -2863,12 +2999,14 @@ ref; // ME_480DDAA60276 OvrCaretType
  ;
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
+ CONST extprop:clearViaProperty 'InsertMode'
 
 ref; // ME_40AE952FA05B f_InsertMode
 
 : ME_F56A2E697351
  CONST UID 'F56A2E697351'
  CONST Name 'f_InsCaretType'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY 'Поле для свойства InsCaretType' ;
  CONST Visibility PrivateAccess
@@ -2878,12 +3016,14 @@ ref; // ME_40AE952FA05B f_InsertMode
  ;
  : Target ME_480DD275003D // TafwInsCaretType
  ;
+ CONST extprop:clearViaProperty 'InsCaretType'
 
 ref; // ME_F56A2E697351 f_InsCaretType
 
 : ME_9961B9040F2F
  CONST UID '9961B9040F2F'
  CONST Name 'f_OvrCaretType'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY 'Поле для свойства OvrCaretType' ;
  CONST Visibility PrivateAccess
@@ -2893,6 +3033,7 @@ ref; // ME_F56A2E697351 f_InsCaretType
  ;
  : Target ME_480DD2B200D2 // TafwOvrCaretType
  ;
+ CONST extprop:clearViaProperty 'OvrCaretType'
 
 ref; // ME_9961B9040F2F f_OvrCaretType
 
@@ -2914,6 +3055,7 @@ ref; // ME_480DDC10001D
  ;
  : Implementor ME_480DD9F600F6 // TafwCaretPair
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_479731C50290_ME_480DD9F600F6 Cleanup
 
 : ME_52FCEEE902D1_ME_480DD9F600F6
@@ -2923,6 +3065,7 @@ ref; // ME_479731C50290_ME_480DD9F600F6 Cleanup
  ;
  : Implementor ME_480DD9F600F6 // TafwCaretPair
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_52FCEEE902D1_ME_480DD9F600F6 Create
 
 : ME_480DD9F600F6
@@ -2937,41 +3080,43 @@ ref; // ME_52FCEEE902D1_ME_480DD9F600F6 Create
  : Parent ME_47877A6F000A // Visual
  ;
  : Inherits
-   @ ( ME_480DD00B02E8 // TafwSingleCaret
- ) .SequenceCode.It
+   Seq: ( ME_480DD00B02E8 // TafwSingleCaret
+ )
  ; // Inherits
  : Attributes
-   @ ( ME_480DDA5902F7 // InsertMode
+   Seq: ( ME_480DDA5902F7 // InsertMode
  ME_480DDA71036A // InsCaretType
  ME_480DDAA60276 // OvrCaretType
  ME_40AE952FA05B // f_InsertMode
  ME_F56A2E697351 // f_InsCaretType
  ME_9961B9040F2F // f_OvrCaretType
- ) .SequenceCode.It
+ )
  ; // Attributes
  : Overridden
-   @ ( ME_479731C50290_ME_480DD9F600F6 // Cleanup
+   Seq: ( ME_479731C50290_ME_480DD9F600F6 // Cleanup
  ME_52FCEEE902D1_ME_480DD9F600F6 // Create
- ) .SequenceCode.It
+ )
  ; // Overridden
  : Constants
-   @ ( ME_480DDA2403DE // Defaults
- ) .SequenceCode.It
+   Seq: ( ME_480DDA2403DE // Defaults
+ )
  ; // Constants
  : Dependencies
-   @ ( ME_480DDC10001D // 
- ) .SequenceCode.It
+   Seq: ( ME_480DDC10001D // 
+ )
  ; // Dependencies
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\AFW\implementation\Visual'
  CONST intf.pas:Path 'common\components\gui\Garant\AFW\implementation\Visual\afwCaretPair.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\AFW\implementation\Visual'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'afwCaretPair'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'afwCaretPair'
 
 ref; // ME_480DD9F600F6 TafwCaretPair
 
@@ -2995,6 +3140,7 @@ ref; // ME_480DE1870298
  ;
  : Implementor ME_480DDF270394 // TafwCaret
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" false
 ref; // ME_4728CCBC023F_ME_480DDF270394 Extent
 
@@ -3005,6 +3151,7 @@ ref; // ME_4728CCBC023F_ME_480DDF270394 Extent
  ;
  : Implementor ME_480DDF270394 // TafwCaret
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" false
 ref; // ME_4728CCC90157_ME_480DDF270394 Position
 
@@ -3015,6 +3162,7 @@ ref; // ME_4728CCC90157_ME_480DDF270394 Position
  ;
  : Implementor ME_480DDF270394 // TafwCaret
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" false
 ref; // ME_4728CCD502A9_ME_480DDF270394 Visible
 
@@ -3030,22 +3178,22 @@ ref; // ME_4728CCD502A9_ME_480DDF270394 Visible
  : Parent ME_47877A6F000A // Visual
  ;
  : Inherits
-   @ ( ME_480DD9F600F6 // TafwCaretPair
- ) .SequenceCode.It
+   Seq: ( ME_480DD9F600F6 // TafwCaretPair
+ )
  ; // Inherits
  : Implements
-   @ ( WL 'ME_478E4BF6002B' '467823B7002C.pas.ms.script' // IafwCaret
- ) .SequenceCode.It
+   Seq: ( WL 'ME_478E4BF6002B' '467823B7002C.pas.ms.script' // IafwCaret
+ )
  ; // Implements
  : Implemented
-   @ ( ME_4728CCBC023F_ME_480DDF270394 // Extent
+   Seq: ( ME_4728CCBC023F_ME_480DDF270394 // Extent
  ME_4728CCC90157_ME_480DDF270394 // Position
  ME_4728CCD502A9_ME_480DDF270394 // Visible
- ) .SequenceCode.It
+ )
  ; // Implemented
  : Dependencies
-   @ ( ME_480DE1870298 // 
- ) .SequenceCode.It
+   Seq: ( ME_480DE1870298 // 
+ )
  ; // Dependencies
  CONST "author" 'Люлин А.В.'
  CONST "needs InstanceR" 'undefined'
@@ -3053,12 +3201,14 @@ ref; // ME_4728CCD502A9_ME_480DDF270394 Visible
  CONST "no hands" true
  CONST "register in scripts" 'undefined'
  CONST "started" '09.12.1998 16:25'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\AFW\implementation\Visual'
  CONST intf.pas:Path 'common\components\gui\Garant\AFW\implementation\Visual\afwCaret.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\AFW\implementation\Visual'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'afwCaret'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'afwCaret'
 
 ref; // ME_480DDF270394 TafwCaret
 
@@ -3072,7 +3222,7 @@ ref; // ME_480DDF270394 TafwCaret
  : Parent WL 'ME_4790B4F00236' '4790B4F00236.pas.ms.script' // AFW
  ;
  : Children
-   @ ( ME_47877AB8026C // TafwLongProcessVisualizer
+   Seq: ( ME_47877AB8026C // TafwLongProcessVisualizer
  ME_47E1227902E1 // afwVCL
  ME_47E122F001A4 // afwFont
  ME_480DC4B90226 // TafwCustomCaretType
@@ -3081,10 +3231,10 @@ ref; // ME_480DDF270394 TafwCaret
  ME_480DD2B200D2 // TafwOvrCaretType
  ME_480DD9F600F6 // TafwCaretPair
  ME_480DDF270394 // TafwCaret
- ) .SequenceCode.It
+ )
  ; // Children
  : Depends
-   @ ( WL 'ME_467823B7002C' '467823B7002C.pas.ms.script' // afwInterfaces
+   Seq: ( WL 'ME_467823B7002C' '467823B7002C.pas.ms.script' // afwInterfaces
  WL 'ME_472745450206' '472745450206.pas.ms.script' // l3Units
  WL 'ME_473C3BEE0334' '473C3BEE0334.pas.ms.script' // l3Canvas
  WL 'ME_476F78840219' '476F78840219.pas.ms.script' // Messages
@@ -3095,16 +3245,14 @@ ref; // ME_480DDF270394 TafwCaret
  WL 'ME_4AB0C3C60310' '4AB0C3C60310.pas.ms.script' // Sys
  WL 'ME_4AB0C3F60375' '4AB0C3F60375.pas.ms.script' // Win
  WL 'ME_55C4AEC801CA' '55C4AEC801CA.pas.ms.script' // Graphics
- ) .SequenceCode.It
+ )
  ; // Depends
  CONST "path prefix" '/implementation/Visual'
- : Generators
- @ (
- gen_pas.script
- gen_pas.script.runner
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\AFW\implementation\Visual'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\AFW\implementation\Visual'
  CONST pas.script:Path 'shared\models\NewSchool\Scripts\47877A6F000A.pas.ms.script'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
  CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\47877A6F000A.pas.ms.script.runner'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_47877A6F000A Visual

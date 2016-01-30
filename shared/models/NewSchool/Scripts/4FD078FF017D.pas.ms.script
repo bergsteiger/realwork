@@ -32,10 +32,14 @@ ref; // ME_4FD1F8990015 DoIt
  : Parent ME_4FD1F6B00129 // vtPngImgListUtils
  ;
  : Operations
-   @ ( ME_4FD1F8990015 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_4FD1F8990015 // DoIt
+ )
  ; // Operations
  CONST "of object" false
+ CONST dfm:PathOnly '\common\components\gui\Garant\VT'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\VT'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_4FD1F885007C TvtImageListCreatorProc
 
@@ -50,10 +54,14 @@ ref; // ME_4FD1F885007C TvtImageListCreatorProc
  : Parent ME_4FD1F6B00129 // vtPngImgListUtils
  ;
  : Inherits
-   @ ( ME_4FD1F885007C // TvtImageListCreatorProc
- ) .SequenceCode.It
+   Seq: ( ME_4FD1F885007C // TvtImageListCreatorProc
+ )
  ; // Inherits
  CONST "isPointer" true
+ CONST dfm:PathOnly '\common\components\gui\Garant\VT'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\VT'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_4FD1F8AE0282 PvtImageListCreatorProc
 
@@ -180,7 +188,7 @@ ref; // ME_4FD1D58A02ED BlendFunc
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
  : Parameters
-   @ ( ME_4FD1D58A0168 // DestDC
+   Seq: ( ME_4FD1D58A0168 // DestDC
  ME_4FD1D58A018B // X
  ME_4FD1D58A01AF // Y
  ME_4FD1D58A01D3 // Width
@@ -191,7 +199,7 @@ ref; // ME_4FD1D58A02ED BlendFunc
  ME_4FD1D58A028D // SrcWidth
  ME_4FD1D58A02B4 // SrcHeight
  ME_4FD1D58A02ED // BlendFunc
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_4FD1D53E0124 Do
@@ -207,10 +215,14 @@ ref; // ME_4FD1D53E0124 Do
  : Parent ME_4FD1F6B00129 // vtPngImgListUtils
  ;
  : Operations
-   @ ( ME_4FD1D53E0124 // Do
- ) .SequenceCode.It
+   Seq: ( ME_4FD1D53E0124 // Do
+ )
  ; // Operations
  CONST "of object" false
+ CONST dfm:PathOnly '\common\components\gui\Garant\VT'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\VT'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_4FD1D52C02D7 TAlphaBlendFunc
 
@@ -242,8 +254,8 @@ ref; // ME_4FD3185E022F Do
  : Parent ME_4FD31272000C // TvtilCreators
  ;
  : Operations
-   @ ( ME_4FD3185E022F // Do
- ) .SequenceCode.It
+   Seq: ( ME_4FD3185E022F // Do
+ )
  ; // Operations
  CONST "is static" true
 
@@ -252,6 +264,7 @@ ref; // ME_4FD318100335 IsAssigned
 : ME_02386B48CCD2
  CONST UID '02386B48CCD2'
  CONST Name 'Exists'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_static::Operation ;
  %SUMMARY 'Проверяет создан экземпляр синглетона или нет' ;
@@ -261,6 +274,7 @@ ref; // ME_4FD318100335 IsAssigned
  ;
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
+ CONST extprop:pas:Value false
 
 ref; // ME_02386B48CCD2 Exists
 
@@ -275,19 +289,25 @@ ref; // ME_02386B48CCD2 Exists
  : Parent ME_4FD1F6B00129 // vtPngImgListUtils
  ;
  : Inherits
-   @ ( WL 'ME_47BB38C40154' '47913B47006E.pas.ms.script' // Tl3ProcedureList
- ) .SequenceCode.It
+   Seq: ( WL 'ME_47BB38C40154' '47913B47006E.pas.ms.script' // Tl3ProcedureList
+ )
  ; // Inherits
  : Operations
-   @ ( ME_4FD318100335 // IsAssigned
+   Seq: ( ME_4FD318100335 // IsAssigned
  ME_02386B48CCD2 // Exists
- ) .SequenceCode.It
+ )
  ; // Operations
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
  CONST "singleton" true
+ CONST dfm:PathOnly '\common\components\gui\Garant\VT'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\VT'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'ilCreators'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_4FD31272000C TvtilCreators
 
@@ -310,6 +330,7 @@ ref; // ME_502518FC0040 f_ImgDLL
 : ME_CBF39F4EB492
  CONST UID 'CBF39F4EB492'
  CONST Name 'Exists'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_static::Operation ;
  %SUMMARY 'Проверяет создан экземпляр синглетона или нет' ;
@@ -319,6 +340,7 @@ ref; // ME_502518FC0040 f_ImgDLL
  ;
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
+ CONST extprop:pas:Value false
 
 ref; // ME_CBF39F4EB492 Exists
 
@@ -329,6 +351,7 @@ ref; // ME_CBF39F4EB492 Exists
  ;
  : Implementor ME_502518C60255 // ImgLibraryManager
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_479731C50290_ME_502518C60255 Cleanup
 
 : ME_47A042E100E2_ME_502518C60255
@@ -338,6 +361,7 @@ ref; // ME_479731C50290_ME_502518C60255 Cleanup
  ;
  : Implementor ME_502518C60255 // ImgLibraryManager
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_47A042E100E2_ME_502518C60255 InitFields
 
 : ME_502518C60255
@@ -351,27 +375,32 @@ ref; // ME_47A042E100E2_ME_502518C60255 InitFields
  : Parent ME_4FD1F6B00129 // vtPngImgListUtils
  ;
  : Inherits
-   @ ( WL 'ME_49E7754802A9' '47913B47006E.pas.ms.script' // Tl3ProtoObject
- ) .SequenceCode.It
+   Seq: ( WL 'ME_49E7754802A9' '47913B47006E.pas.ms.script' // Tl3ProtoObject
+ )
  ; // Inherits
  : Attributes
-   @ ( ME_502518FC0040 // f_ImgDLL
- ) .SequenceCode.It
+   Seq: ( ME_502518FC0040 // f_ImgDLL
+ )
  ; // Attributes
  : Operations
-   @ ( ME_CBF39F4EB492 // Exists
- ) .SequenceCode.It
+   Seq: ( ME_CBF39F4EB492 // Exists
+ )
  ; // Operations
  : Overridden
-   @ ( ME_479731C50290_ME_502518C60255 // Cleanup
+   Seq: ( ME_479731C50290_ME_502518C60255 // Cleanup
  ME_47A042E100E2_ME_502518C60255 // InitFields
- ) .SequenceCode.It
+ )
  ; // Overridden
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
  CONST "singleton" true
+ CONST dfm:PathOnly '\common\components\gui\Garant\VT'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\VT'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_502518C60255 ImgLibraryManager
 
@@ -402,14 +431,18 @@ ref; // ME_4FD0896C038B type
  : Parent ME_4FD1F6B00129 // vtPngImgListUtils
  ;
  : Inherits
-   @ ( WL 'ME_4FD06F5A01D8' '4F8BEB580354.pas.ms.script' // TvtPILBpp
- ) .SequenceCode.It
+   Seq: ( WL 'ME_4FD06F5A01D8' '4F8BEB580354.pas.ms.script' // TvtPILBpp
+ )
  ; // Inherits
  : Attributes
-   @ ( ME_4FD0896C038B // type
- ) .SequenceCode.It
+   Seq: ( ME_4FD0896C038B // type
+ )
  ; // Attributes
  CONST "array type" 'dynamic'
+ CONST dfm:PathOnly '\common\components\gui\Garant\VT'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\VT'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_4FD0893B0006 TaBPPGlyphs
 
@@ -440,18 +473,22 @@ ref; // ME_4FD08649028E type
  : Parent ME_4FD1F6B00129 // vtPngImgListUtils
  ;
  : Inherits
-   @ ( WL 'ME_4FD06F1F020E' '4F8BEB580354.pas.ms.script' // TvtPILSize
- ) .SequenceCode.It
+   Seq: ( WL 'ME_4FD06F1F020E' '4F8BEB580354.pas.ms.script' // TvtPILSize
+ )
  ; // Inherits
  : Implements
-   @ ( WL 'ME_4FD06F1F020E' '4F8BEB580354.pas.ms.script' // TvtPILSize
- ) .SequenceCode.It
+   Seq: ( WL 'ME_4FD06F1F020E' '4F8BEB580354.pas.ms.script' // TvtPILSize
+ )
  ; // Implements
  : Attributes
-   @ ( ME_4FD08649028E // type
- ) .SequenceCode.It
+   Seq: ( ME_4FD08649028E // type
+ )
  ; // Attributes
  CONST "array type" 'dynamic'
+ CONST dfm:PathOnly '\common\components\gui\Garant\VT'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\VT'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_4FD0758E0318 TaPILSizes
 
@@ -474,6 +511,7 @@ FORWARD ME_4FD0822D01BF
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value '(16, 32, 24)'
 
 ref; // ME_4FD0823D03A6 PILSize
 
@@ -490,6 +528,7 @@ ref; // ME_4FD0823D03A6 PILSize
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value '[ps16x16, ps32x32, ps24x24]'
 
 ref; // ME_4FD0826D014D cDefaultAvailableSizes
 
@@ -504,11 +543,16 @@ ref; // ME_4FD0826D014D cDefaultAvailableSizes
  : Parent ME_4FD1F6B00129 // vtPngImgListUtils
  ;
  : Attributes
-   @ ( ME_4FD0823D03A6 // PILSize
+   Seq: ( ME_4FD0823D03A6 // PILSize
  ME_4FD0826D014D // cDefaultAvailableSizes
- ) .SequenceCode.It
+ )
  ; // Attributes
  CONST "spell names" false
+ CONST dfm:PathOnly '\common\components\gui\Garant\VT'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\VT'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'PngImgList Constants'
 
 ref; // ME_4FD0822D01BF vtPngImgList Constants
 
@@ -523,9 +567,15 @@ ref; // ME_4FD0822D01BF vtPngImgList Constants
  : Parent ME_4FD1F6B00129 // vtPngImgListUtils
  ;
  : Inherits
-   @ ( WL 'ME_47D15723038A' '55C4AEC801CA.pas.ms.script' // TBitmap
- ) .SequenceCode.It
+   Seq: ( WL 'ME_47D15723038A' '55C4AEC801CA.pas.ms.script' // TBitmap
+ )
  ; // Inherits
+ CONST dfm:PathOnly '\common\components\gui\Garant\VT'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\VT'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'Bitmap'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_4FD2087201A3 TBitmap
 
@@ -544,6 +594,7 @@ FORWARD ME_4FD1EB5903D2
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value 255
 
 ref; // ME_4FD1EB7402D8 cFullAlpha
 
@@ -560,6 +611,7 @@ ref; // ME_4FD1EB7402D8 cFullAlpha
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value 192
 
 ref; // ME_4FD1EB86009A cDisabledAlpha
 
@@ -580,6 +632,7 @@ ref; // ME_4FD1EB86009A cDisabledAlpha
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value '(18, 34, 26)'
 
 ref; // ME_4FD20EDD001E OldPILSize
 
@@ -594,12 +647,17 @@ ref; // ME_4FD20EDD001E OldPILSize
  : Parent ME_4FD1F6B00129 // vtPngImgListUtils
  ;
  : Attributes
-   @ ( ME_4FD1EB7402D8 // cFullAlpha
+   Seq: ( ME_4FD1EB7402D8 // cFullAlpha
  ME_4FD1EB86009A // cDisabledAlpha
  ME_4FD20EDD001E // OldPILSize
- ) .SequenceCode.It
+ )
  ; // Attributes
  CONST "spell names" false
+ CONST dfm:PathOnly '\common\components\gui\Garant\VT'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\VT'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'PngImgList const2'
 
 ref; // ME_4FD1EB5903D2 vtPngImgList const2
 
@@ -676,9 +734,9 @@ ref; // ME_4FD1F68A0391 aDest
  : Parent ME_4FD1F66B03D5 // PrepareAlphaBitmap
  ;
  : Parameters
-   @ ( ME_4FD1F68A036B // aSource
+   Seq: ( ME_4FD1F68A036B // aSource
  ME_4FD1F68A0391 // aDest
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_4FD1F68702AE DoIt
@@ -694,8 +752,8 @@ ref; // ME_4FD1F68702AE DoIt
  : Parent ME_4FD1F6B00129 // vtPngImgListUtils
  ;
  : Operations
-   @ ( ME_4FD1F68702AE // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_4FD1F68702AE // DoIt
+ )
  ; // Operations
 
 ref; // ME_4FD1F66B03D5 PrepareAlphaBitmap
@@ -823,7 +881,7 @@ ref; // ME_4FD1F7380166 BlendFunc
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
  : Parameters
-   @ ( ME_4FD1F7370186 // DestDC
+   Seq: ( ME_4FD1F7370186 // DestDC
  ME_4FD1F73701D2 // X
  ME_4FD1F7370241 // Y
  ME_4FD1F73702A1 // Width
@@ -834,7 +892,7 @@ ref; // ME_4FD1F7380166 BlendFunc
  ME_4FD1F73800AA // SrcWidth
  ME_4FD1F738010C // SrcHeight
  ME_4FD1F7380166 // BlendFunc
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_4FD1F7160282 DoIt
@@ -850,8 +908,8 @@ ref; // ME_4FD1F7160282 DoIt
  : Parent ME_4FD1F6B00129 // vtPngImgListUtils
  ;
  : Operations
-   @ ( ME_4FD1F7160282 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_4FD1F7160282 // DoIt
+ )
  ; // Operations
 
 ref; // ME_4FD1F6FB00AF AlphaBlend
@@ -889,9 +947,9 @@ ref; // ME_4FD1F76D01ED HalfTransparent
  : Target WL 'ME_476130E5023C' '4AB0C3C60310.pas.ms.script' // Byte
  ;
  : Parameters
-   @ ( ME_4FD1F76D01C8 // aTransparensy
+   Seq: ( ME_4FD1F76D01C8 // aTransparensy
  ME_4FD1F76D01ED // HalfTransparent
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_4FD1F767019E DoIt
@@ -907,8 +965,8 @@ ref; // ME_4FD1F767019E DoIt
  : Parent ME_4FD1F6B00129 // vtPngImgListUtils
  ;
  : Operations
-   @ ( ME_4FD1F767019E // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_4FD1F767019E // DoIt
+ )
  ; // Operations
 
 ref; // ME_4FD1F75F023A CalcTransparenctColor
@@ -934,8 +992,8 @@ ref; // ME_4FD1F79001F9 anAction
  : Parent ME_4FD1F77B0267 // IterateExistingImageListsF
  ;
  : Parameters
-   @ ( ME_4FD1F79001F9 // anAction
- ) .SequenceCode.It
+   Seq: ( ME_4FD1F79001F9 // anAction
+ )
  ; // Parameters
 
 ref; // ME_4FD1F78D01D6 DoIt
@@ -962,12 +1020,12 @@ ref; // ME_4FD1FD7B035E
  : Parent ME_4FD1F6B00129 // vtPngImgListUtils
  ;
  : Operations
-   @ ( ME_4FD1F78D01D6 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_4FD1F78D01D6 // DoIt
+ )
  ; // Operations
  : Dependencies
-   @ ( ME_4FD1FD7B035E // 
- ) .SequenceCode.It
+   Seq: ( ME_4FD1FD7B035E // 
+ )
  ; // Dependencies
 
 ref; // ME_4FD1F77B0267 IterateExistingImageListsF
@@ -993,8 +1051,8 @@ ref; // ME_4FD1F82B0075 aCreator
  : Parent ME_4FD1F81F02CF // AddImageListCreator
  ;
  : Parameters
-   @ ( ME_4FD1F82B0075 // aCreator
- ) .SequenceCode.It
+   Seq: ( ME_4FD1F82B0075 // aCreator
+ )
  ; // Parameters
 
 ref; // ME_4FD1F828026E DoIt
@@ -1010,8 +1068,8 @@ ref; // ME_4FD1F828026E DoIt
  : Parent ME_4FD1F6B00129 // vtPngImgListUtils
  ;
  : Operations
-   @ ( ME_4FD1F828026E // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_4FD1F828026E // DoIt
+ )
  ; // Operations
 
 ref; // ME_4FD1F81F02CF AddImageListCreator
@@ -1037,8 +1095,8 @@ ref; // ME_4FD1F90A004D aCreator
  : Parent ME_4FD1F900009A // AddImageListCreatorPrim
  ;
  : Parameters
-   @ ( ME_4FD1F90A004D // aCreator
- ) .SequenceCode.It
+   Seq: ( ME_4FD1F90A004D // aCreator
+ )
  ; // Parameters
 
 ref; // ME_4FD1F90800CC DoIt
@@ -1054,8 +1112,8 @@ ref; // ME_4FD1F90800CC DoIt
  : Parent ME_4FD1F6B00129 // vtPngImgListUtils
  ;
  : Operations
-   @ ( ME_4FD1F90800CC // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_4FD1F90800CC // DoIt
+ )
  ; // Operations
 
 ref; // ME_4FD1F900009A AddImageListCreatorPrim
@@ -1083,8 +1141,8 @@ ref; // ME_4FD1F97A0327 aSize
  : Target WL 'ME_4FD06F1F020E' '4F8BEB580354.pas.ms.script' // TvtPILSize
  ;
  : Parameters
-   @ ( ME_4FD1F97A0327 // aSize
- ) .SequenceCode.It
+   Seq: ( ME_4FD1F97A0327 // aSize
+ )
  ; // Parameters
 
 ref; // ME_4FD1F9770300 DoIt
@@ -1100,8 +1158,8 @@ ref; // ME_4FD1F9770300 DoIt
  : Parent ME_4FD1F6B00129 // vtPngImgListUtils
  ;
  : Operations
-   @ ( ME_4FD1F9770300 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_4FD1F9770300 // DoIt
+ )
  ; // Operations
 
 ref; // ME_4FD1F96300AF GetAnother$1
@@ -1129,8 +1187,8 @@ ref; // ME_4FD1F99D02A2 aBpp
  : Target WL 'ME_4FD06F5A01D8' '4F8BEB580354.pas.ms.script' // TvtPILBpp
  ;
  : Parameters
-   @ ( ME_4FD1F99D02A2 // aBpp
- ) .SequenceCode.It
+   Seq: ( ME_4FD1F99D02A2 // aBpp
+ )
  ; // Parameters
 
 ref; // ME_4FD1F9940361 DoIt
@@ -1146,8 +1204,8 @@ ref; // ME_4FD1F9940361 DoIt
  : Parent ME_4FD1F6B00129 // vtPngImgListUtils
  ;
  : Operations
-   @ ( ME_4FD1F9940361 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_4FD1F9940361 // DoIt
+ )
  ; // Operations
 
 ref; // ME_4FD1F98902AB GetAnother$2
@@ -1178,8 +1236,8 @@ ref; // ME_4FD1F9B70107 DoIt
  : Parent ME_4FD1F6B00129 // vtPngImgListUtils
  ;
  : Operations
-   @ ( ME_4FD1F9B70107 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_4FD1F9B70107 // DoIt
+ )
  ; // Operations
 
 ref; // ME_4FD1F9AA00E5 GetScreenColorDepth
@@ -1210,8 +1268,8 @@ ref; // ME_4FD1F9D30126 DoIt
  : Parent ME_4FD1F6B00129 // vtPngImgListUtils
  ;
  : Operations
-   @ ( ME_4FD1F9D30126 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_4FD1F9D30126 // DoIt
+ )
  ; // Operations
 
 ref; // ME_4FD1F9CB0196 AutoDetectColorDepth
@@ -1237,8 +1295,8 @@ ref; // ME_4FD1F9F502AA aBpp
  : Parent ME_4FD1F9E601E9 // SetColorDepthGlobal
  ;
  : Parameters
-   @ ( ME_4FD1F9F502AA // aBpp
- ) .SequenceCode.It
+   Seq: ( ME_4FD1F9F502AA // aBpp
+ )
  ; // Parameters
 
 ref; // ME_4FD1F9F20010 DoIt
@@ -1267,12 +1325,12 @@ ref; // ME_53B269150316
  : Parent ME_4FD1F6B00129 // vtPngImgListUtils
  ;
  : Operations
-   @ ( ME_4FD1F9F20010 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_4FD1F9F20010 // DoIt
+ )
  ; // Operations
  : Dependencies
-   @ ( ME_53B269150316 // 
- ) .SequenceCode.It
+   Seq: ( ME_53B269150316 // 
+ )
  ; // Dependencies
 
 ref; // ME_4FD1F9E601E9 SetColorDepthGlobal
@@ -1398,13 +1456,13 @@ ref; // ME_4FD21138002A
  : Parent ME_4FD078FF017D // vtImgLists
  ;
  : Attributes
-   @ ( ME_4FD1EC9A0369 // g_PILList
+   Seq: ( ME_4FD1EC9A0369 // g_PILList
  ME_4FD1EF0100BD // g_AlphaBlendFunc
  ME_4FD1EF4C02B3 // g_ScreenColorDepth
- ) .SequenceCode.It
+ )
  ; // Attributes
  : Operations
-   @ ( ME_4FD1F66B03D5 // PrepareAlphaBitmap
+   Seq: ( ME_4FD1F66B03D5 // PrepareAlphaBitmap
  ME_4FD1F6FB00AF // AlphaBlend
  ME_4FD1F75F023A // CalcTransparenctColor
  ME_4FD1F77B0267 // IterateExistingImageListsF
@@ -1415,10 +1473,10 @@ ref; // ME_4FD21138002A
  ME_4FD1F9AA00E5 // GetScreenColorDepth
  ME_4FD1F9CB0196 // AutoDetectColorDepth
  ME_4FD1F9E601E9 // SetColorDepthGlobal
- ) .SequenceCode.It
+ )
  ; // Operations
  : Children
-   @ ( ME_4FD1F885007C // TvtImageListCreatorProc
+   Seq: ( ME_4FD1F885007C // TvtImageListCreatorProc
  ME_4FD1F8AE0282 // PvtImageListCreatorProc
  ME_4FD1D52C02D7 // TAlphaBlendFunc
  ME_4FD31272000C // TvtilCreators
@@ -1426,15 +1484,15 @@ ref; // ME_4FD21138002A
  ME_4FD0893B0006 // TaBPPGlyphs
  ME_4FD0758E0318 // TaPILSizes
  ME_4FD2087201A3 // TBitmap
- ) .SequenceCode.It
+ )
  ; // Children
  : Constants
-   @ ( ME_4FD0822D01BF // vtPngImgList Constants
+   Seq: ( ME_4FD0822D01BF // vtPngImgList Constants
  ME_4FD1EB5903D2 // vtPngImgList const2
- ) .SequenceCode.It
+ )
  ; // Constants
  : Dependencies
-   @ ( ME_4FD1F7A1035D // 
+   Seq: ( ME_4FD1F7A1035D // 
  ME_4FD1F7AB0394 // 
  ME_4FD1F7FC0339 // 
  ME_4FD1F94A0353 // 
@@ -1444,15 +1502,15 @@ ref; // ME_4FD21138002A
  ME_4FD202CF01F4 // 
  ME_4FD20AEF01B8 // 
  ME_4FD21138002A // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  CONST "no hands" false
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\VT'
  CONST intf.pas:Path 'common\components\gui\Garant\VT\vtPngImgListUtils.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\VT'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'PngImgListUtils'
 
 ref; // ME_4FD1F6B00129 vtPngImgListUtils
 
@@ -1595,6 +1653,7 @@ ref; // ME_4FD22685016F f_AlphaDrawCache
 : ME_A8A10D6BF8F9
  CONST UID 'A8A10D6BF8F9'
  CONST Name 'f_Count'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY 'Поле для свойства Count' ;
  CONST Visibility PrivateAccess
@@ -1610,6 +1669,7 @@ ref; // ME_A8A10D6BF8F9 f_Count
 : ME_C3953E20E2A0
  CONST UID 'C3953E20E2A0'
  CONST Name 'f_CurBPP'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY 'Поле для свойства CurBPP' ;
  CONST Visibility PrivateAccess
@@ -1619,6 +1679,7 @@ ref; // ME_A8A10D6BF8F9 f_Count
  ;
  : Target WL 'ME_4FD06F5A01D8' '4F8BEB580354.pas.ms.script' // TvtPILBpp
  ;
+ CONST extprop:clearViaProperty 'CurBPP'
 
 ref; // ME_C3953E20E2A0 f_CurBPP
 
@@ -1646,8 +1707,8 @@ ref; // ME_4FD08DAC0278 new_operation
  : Parent ME_4ACB4A5201FC // TvtNonFixedPngImageListPrim
  ;
  : Operations
-   @ ( ME_4FD08DAC0278 // new_operation
- ) .SequenceCode.It
+   Seq: ( ME_4FD08DAC0278 // new_operation
+ )
  ; // Operations
 
 ref; // ME_4FD08DA20340 CalcCount
@@ -1673,8 +1734,8 @@ ref; // ME_4FD08DD30285 aCount
  : Parent ME_4FD08DBD02AD // ResizeAll
  ;
  : Parameters
-   @ ( ME_4FD08DD30285 // aCount
- ) .SequenceCode.It
+   Seq: ( ME_4FD08DD30285 // aCount
+ )
  ; // Parameters
 
 ref; // ME_4FD08DD103C5 new_operation
@@ -1690,8 +1751,8 @@ ref; // ME_4FD08DD103C5 new_operation
  : Parent ME_4ACB4A5201FC // TvtNonFixedPngImageListPrim
  ;
  : Operations
-   @ ( ME_4FD08DD103C5 // new_operation
- ) .SequenceCode.It
+   Seq: ( ME_4FD08DD103C5 // new_operation
+ )
  ; // Operations
 
 ref; // ME_4FD08DBD02AD ResizeAll
@@ -1719,8 +1780,8 @@ ref; // ME_4FD08E24012C aBpp
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
  : Parameters
-   @ ( ME_4FD08E24012C // aBpp
- ) .SequenceCode.It
+   Seq: ( ME_4FD08E24012C // aBpp
+ )
  ; // Parameters
 
 ref; // ME_4FD08E150038 DoIt
@@ -1736,8 +1797,8 @@ ref; // ME_4FD08E150038 DoIt
  : Parent ME_4ACB4A5201FC // TvtNonFixedPngImageListPrim
  ;
  : Operations
-   @ ( ME_4FD08E150038 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_4FD08E150038 // DoIt
+ )
  ; // Operations
 
 ref; // ME_4FD08E070341 CanAlphaDraw
@@ -1766,8 +1827,8 @@ ref; // ME_4FD08E3E03DE new_operation
  : Parent ME_4ACB4A5201FC // TvtNonFixedPngImageListPrim
  ;
  : Operations
-   @ ( ME_4FD08E3E03DE // new_operation
- ) .SequenceCode.It
+   Seq: ( ME_4FD08E3E03DE // new_operation
+ )
  ; // Operations
 
 ref; // ME_4FD08E3902B2 ClearAlphaDrawCache
@@ -1796,8 +1857,8 @@ ref; // ME_4FD08E5501E0 new_operation
  : Parent ME_4ACB4A5201FC // TvtNonFixedPngImageListPrim
  ;
  : Operations
-   @ ( ME_4FD08E5501E0 // new_operation
- ) .SequenceCode.It
+   Seq: ( ME_4FD08E5501E0 // new_operation
+ )
  ; // Operations
 
 ref; // ME_4FD08E4F0057 ClearCache
@@ -1828,8 +1889,8 @@ ref; // ME_4FD092780078 DoIt
  : Parent ME_4ACB4A5201FC // TvtNonFixedPngImageListPrim
  ;
  : Operations
-   @ ( ME_4FD092780078 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_4FD092780078 // DoIt
+ )
  ; // Operations
 
 ref; // ME_4FD092660354 AddItem
@@ -1855,8 +1916,8 @@ ref; // ME_4FD0934C0030 aIndex
  : Parent ME_4FD09329032F // Delete
  ;
  : Parameters
-   @ ( ME_4FD0934C0030 // aIndex
- ) .SequenceCode.It
+   Seq: ( ME_4FD0934C0030 // aIndex
+ )
  ; // Parameters
 
 ref; // ME_4FD09343024F DoIt
@@ -1872,8 +1933,8 @@ ref; // ME_4FD09343024F DoIt
  : Parent ME_4ACB4A5201FC // TvtNonFixedPngImageListPrim
  ;
  : Operations
-   @ ( ME_4FD09343024F // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_4FD09343024F // DoIt
+ )
  ; // Operations
 
 ref; // ME_4FD09329032F Delete
@@ -1919,10 +1980,10 @@ ref; // ME_4FD0949D01B0 Image
  : Parent ME_4FD0947D03BE // AddImage
  ;
  : Parameters
-   @ ( ME_4FD0949D015F // Index
+   Seq: ( ME_4FD0949D015F // Index
  ME_4FD0949D0187 // Bpp
  ME_4FD0949D01B0 // Image
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_4FD094950041 DoIt
@@ -1938,8 +1999,8 @@ ref; // ME_4FD094950041 DoIt
  : Parent ME_4ACB4A5201FC // TvtNonFixedPngImageListPrim
  ;
  : Operations
-   @ ( ME_4FD094950041 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_4FD094950041 // DoIt
+ )
  ; // Operations
 
 ref; // ME_4FD0947D03BE AddImage
@@ -1985,10 +2046,10 @@ ref; // ME_4FD094B2023B Image
  : Parent ME_4FD094A5039B // GetImage
  ;
  : Parameters
-   @ ( ME_4FD094B201CF // Index
+   Seq: ( ME_4FD094B201CF // Index
  ME_4FD094B201F7 // Bpp
  ME_4FD094B2023B // Image
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_4FD094AF01A1 DoIt
@@ -2004,8 +2065,8 @@ ref; // ME_4FD094AF01A1 DoIt
  : Parent ME_4ACB4A5201FC // TvtNonFixedPngImageListPrim
  ;
  : Operations
-   @ ( ME_4FD094AF01A1 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_4FD094AF01A1 // DoIt
+ )
  ; // Operations
 
 ref; // ME_4FD094A5039B GetImage
@@ -2034,8 +2095,8 @@ ref; // ME_4FD094C60083 new_operation
  : Parent ME_4ACB4A5201FC // TvtNonFixedPngImageListPrim
  ;
  : Operations
-   @ ( ME_4FD094C60083 // new_operation
- ) .SequenceCode.It
+   Seq: ( ME_4FD094C60083 // new_operation
+ )
  ; // Operations
 
 ref; // ME_4FD094BC00C9 Clear
@@ -2111,13 +2172,13 @@ ref; // ME_4FD094F80365 Enabled
  : Parent ME_4FD094DB01A3 // DrawGlyphSpecified$1
  ;
  : Parameters
-   @ ( ME_4FD094F80290 // Index
+   Seq: ( ME_4FD094F80290 // Index
  ME_4FD094F802B8 // Canvas
  ME_4FD094F802E1 // Bpp
  ME_4FD094F8030C // X
  ME_4FD094F80335 // Y
  ME_4FD094F80365 // Enabled
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_4FD094EB0330 DoIt
@@ -2133,8 +2194,8 @@ ref; // ME_4FD094EB0330 DoIt
  : Parent ME_4ACB4A5201FC // TvtNonFixedPngImageListPrim
  ;
  : Operations
-   @ ( ME_4FD094EB0330 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_4FD094EB0330 // DoIt
+ )
  ; // Operations
 
 ref; // ME_4FD094DB01A3 DrawGlyphSpecified$1
@@ -2211,6 +2272,7 @@ ref; // ME_4FD0953C01A7 Enabled
  CONST Value false
  : ValueType WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
+ CONST extprop:pas:Value false
 
 ref; // ME_4FD0953C01E5 HalfTransparent
 
@@ -2223,14 +2285,14 @@ ref; // ME_4FD0953C01E5 HalfTransparent
  : Parent ME_4FD095010268 // DrawGlyphSpecified$2
  ;
  : Parameters
-   @ ( ME_4FD0953C00D5 // Index
+   Seq: ( ME_4FD0953C00D5 // Index
  ME_4FD0953C00FE // Canvas
  ME_4FD0953C0127 // Bpp
  ME_4FD0953C0152 // X
  ME_4FD0953C017C // Y
  ME_4FD0953C01A7 // Enabled
  ME_4FD0953C01E5 // HalfTransparent
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_4FD09518004A DoIt
@@ -2246,8 +2308,8 @@ ref; // ME_4FD09518004A DoIt
  : Parent ME_4ACB4A5201FC // TvtNonFixedPngImageListPrim
  ;
  : Operations
-   @ ( ME_4FD09518004A // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_4FD09518004A // DoIt
+ )
  ; // Operations
 
 ref; // ME_4FD095010268 DrawGlyphSpecified$2
@@ -2293,10 +2355,10 @@ ref; // ME_4FD096BA012E aBpp
  : Parent ME_4FD0969703D3 // SaveImage
  ;
  : Parameters
-   @ ( ME_4FD096BA00DC // aFilename
+   Seq: ( ME_4FD096BA00DC // aFilename
  ME_4FD096BA0104 // aIndex
  ME_4FD096BA012E // aBpp
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_4FD096A9031A DoIt
@@ -2312,8 +2374,8 @@ ref; // ME_4FD096A9031A DoIt
  : Parent ME_4ACB4A5201FC // TvtNonFixedPngImageListPrim
  ;
  : Operations
-   @ ( ME_4FD096A9031A // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_4FD096A9031A // DoIt
+ )
  ; // Operations
 
 ref; // ME_4FD0969703D3 SaveImage
@@ -2349,9 +2411,9 @@ ref; // ME_4FD0A728026B Index2
  : Parent ME_4FD0A70C03C5 // Exchange
  ;
  : Parameters
-   @ ( ME_4FD0A7280243 // Index1
+   Seq: ( ME_4FD0A7280243 // Index1
  ME_4FD0A728026B // Index2
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_4FD0A71F0002 DoIt
@@ -2367,8 +2429,8 @@ ref; // ME_4FD0A71F0002 DoIt
  : Parent ME_4ACB4A5201FC // TvtNonFixedPngImageListPrim
  ;
  : Operations
-   @ ( ME_4FD0A71F0002 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_4FD0A71F0002 // DoIt
+ )
  ; // Operations
 
 ref; // ME_4FD0A70C03C5 Exchange
@@ -2396,8 +2458,8 @@ ref; // ME_502544490043 anIndex
  : Target WL 'ME_4769570D0204' '46A5E026007E.pas.ms.script' // TPoint
  ;
  : Parameters
-   @ ( ME_502544490043 // anIndex
- ) .SequenceCode.It
+   Seq: ( ME_502544490043 // anIndex
+ )
  ; // Parameters
 
 ref; // ME_502544440230 DoIt
@@ -2413,8 +2475,8 @@ ref; // ME_502544440230 DoIt
  : Parent ME_4ACB4A5201FC // TvtNonFixedPngImageListPrim
  ;
  : Operations
-   @ ( ME_502544440230 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_502544440230 // DoIt
+ )
  ; // Operations
  CONST "ifdef" 'DesignTimeLibrary'
 
@@ -2427,6 +2489,7 @@ ref; // ME_5025442B0365 ImageExtent
  ;
  : Implementor ME_4ACB4A5201FC // TvtNonFixedPngImageListPrim
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_4F950C6D03BE_ME_4ACB4A5201FC Draw
 
 : ME_53282D3E0350_ME_4ACB4A5201FC
@@ -2436,6 +2499,7 @@ ref; // ME_4F950C6D03BE_ME_4ACB4A5201FC Draw
  ;
  : Implementor ME_4ACB4A5201FC // TvtNonFixedPngImageListPrim
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_53282D3E0350_ME_4ACB4A5201FC SaveImageToStream
 
 : ME_47D1602000C6_ME_4ACB4A5201FC
@@ -2445,6 +2509,7 @@ ref; // ME_53282D3E0350_ME_4ACB4A5201FC SaveImageToStream
  ;
  : Implementor ME_4ACB4A5201FC // TvtNonFixedPngImageListPrim
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_47D1602000C6_ME_4ACB4A5201FC Create
 
 : ME_48077504027E_ME_4ACB4A5201FC
@@ -2454,6 +2519,7 @@ ref; // ME_47D1602000C6_ME_4ACB4A5201FC Create
  ;
  : Implementor ME_4ACB4A5201FC // TvtNonFixedPngImageListPrim
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_48077504027E_ME_4ACB4A5201FC Destroy
 
 : ME_4FD08E8503DC_ME_4ACB4A5201FC
@@ -2463,6 +2529,7 @@ ref; // ME_48077504027E_ME_4ACB4A5201FC Destroy
  ;
  : Implementor ME_4ACB4A5201FC // TvtNonFixedPngImageListPrim
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4FD08E8503DC_ME_4ACB4A5201FC Change
 
 : ME_4FD08EF002D0_ME_4ACB4A5201FC
@@ -2472,6 +2539,7 @@ ref; // ME_4FD08E8503DC_ME_4ACB4A5201FC Change
  ;
  : Implementor ME_4ACB4A5201FC // TvtNonFixedPngImageListPrim
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4FD08EF002D0_ME_4ACB4A5201FC DefineProperties
 
 : ME_4FD08F7F01AD_ME_4ACB4A5201FC
@@ -2481,6 +2549,7 @@ ref; // ME_4FD08EF002D0_ME_4ACB4A5201FC DefineProperties
  ;
  : Implementor ME_4ACB4A5201FC // TvtNonFixedPngImageListPrim
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4FD08F7F01AD_ME_4ACB4A5201FC ReadData
 
 : ME_4FD08FA7008C_ME_4ACB4A5201FC
@@ -2490,6 +2559,7 @@ ref; // ME_4FD08F7F01AD_ME_4ACB4A5201FC ReadData
  ;
  : Implementor ME_4ACB4A5201FC // TvtNonFixedPngImageListPrim
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4FD08FA7008C_ME_4ACB4A5201FC WriteData
 
 : ME_4FD092040227_ME_4ACB4A5201FC
@@ -2499,6 +2569,7 @@ ref; // ME_4FD08FA7008C_ME_4ACB4A5201FC WriteData
  ;
  : Implementor ME_4ACB4A5201FC // TvtNonFixedPngImageListPrim
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4FD092040227_ME_4ACB4A5201FC WriteState
 
 : ME_4FD093CB025F_ME_4ACB4A5201FC
@@ -2508,6 +2579,7 @@ ref; // ME_4FD092040227_ME_4ACB4A5201FC WriteState
  ;
  : Implementor ME_4ACB4A5201FC // TvtNonFixedPngImageListPrim
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4FD093CB025F_ME_4ACB4A5201FC DoDraw
 
 : ME_4FD0944D0202_ME_4ACB4A5201FC
@@ -2517,6 +2589,7 @@ ref; // ME_4FD093CB025F_ME_4ACB4A5201FC DoDraw
  ;
  : Implementor ME_4ACB4A5201FC // TvtNonFixedPngImageListPrim
  ;
+ CONST OpKind opkind_Overridden
  CONST "ifndef" 'DesignTimeLibrary,XE'
 ref; // ME_4FD0944D0202_ME_4ACB4A5201FC ImageExtent
 
@@ -2527,6 +2600,7 @@ ref; // ME_4FD0944D0202_ME_4ACB4A5201FC ImageExtent
  ;
  : Implementor ME_4ACB4A5201FC // TvtNonFixedPngImageListPrim
  ;
+ CONST OpKind opkind_Overridden
  CONST "ifndef" 'DesignTimeLibrary,XE'
 ref; // ME_4FD095D20217_ME_4ACB4A5201FC IsSmart
 
@@ -2541,15 +2615,15 @@ ref; // ME_4FD095D20217_ME_4ACB4A5201FC IsSmart
  : Parent ME_4ACB4A41034D // vtPngImgList
  ;
  : Inherits
-   @ ( WL 'ME_473DA2AF0168' '4799D29F033F.pas.ms.script' // TCustomImageList
- ) .SequenceCode.It
+   Seq: ( WL 'ME_473DA2AF0168' '4799D29F033F.pas.ms.script' // TCustomImageList
+ )
  ; // Inherits
  : Implements
-   @ ( WL 'ME_4F950C5102A8' '4F8BEB580354.pas.ms.script' // IvtFlashImageList
- ) .SequenceCode.It
+   Seq: ( WL 'ME_4F950C5102A8' '4F8BEB580354.pas.ms.script' // IvtFlashImageList
+ )
  ; // Implements
  : Attributes
-   @ ( ME_4FD088870303 // Count
+   Seq: ( ME_4FD088870303 // Count
  ME_4FD08989000B // f_Glyph
  ME_4FD089B50350 // CurBPP
  ME_4FD08A7D0127 // f_OldHeight
@@ -2560,10 +2634,10 @@ ref; // ME_4FD095D20217_ME_4ACB4A5201FC IsSmart
  ME_4FD22685016F // f_AlphaDrawCache
  ME_A8A10D6BF8F9 // f_Count
  ME_C3953E20E2A0 // f_CurBPP
- ) .SequenceCode.It
+ )
  ; // Attributes
  : Operations
-   @ ( ME_4FD08DA20340 // CalcCount
+   Seq: ( ME_4FD08DA20340 // CalcCount
  ME_4FD08DBD02AD // ResizeAll
  ME_4FD08E070341 // CanAlphaDraw
  ME_4FD08E3902B2 // ClearAlphaDrawCache
@@ -2578,15 +2652,15 @@ ref; // ME_4FD095D20217_ME_4ACB4A5201FC IsSmart
  ME_4FD0969703D3 // SaveImage
  ME_4FD0A70C03C5 // Exchange
  ME_5025442B0365 // ImageExtent
- ) .SequenceCode.It
+ )
  ; // Operations
  : Implemented
-   @ ( ME_4F950C6D03BE_ME_4ACB4A5201FC // Draw
+   Seq: ( ME_4F950C6D03BE_ME_4ACB4A5201FC // Draw
  ME_53282D3E0350_ME_4ACB4A5201FC // SaveImageToStream
- ) .SequenceCode.It
+ )
  ; // Implemented
  : Overridden
-   @ ( ME_47D1602000C6_ME_4ACB4A5201FC // Create
+   Seq: ( ME_47D1602000C6_ME_4ACB4A5201FC // Create
  ME_48077504027E_ME_4ACB4A5201FC // Destroy
  ME_4FD08E8503DC_ME_4ACB4A5201FC // Change
  ME_4FD08EF002D0_ME_4ACB4A5201FC // DefineProperties
@@ -2596,13 +2670,19 @@ ref; // ME_4FD095D20217_ME_4ACB4A5201FC IsSmart
  ME_4FD093CB025F_ME_4ACB4A5201FC // DoDraw
  ME_4FD0944D0202_ME_4ACB4A5201FC // ImageExtent
  ME_4FD095D20217_ME_4ACB4A5201FC // IsSmart
- ) .SequenceCode.It
+ )
  ; // Overridden
  CONST "need UC" true
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
+ CONST dfm:PathOnly '\common\components\gui\Garant\VT'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\VT'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'NonFixedPngImageListPrim'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_4ACB4A5201FC TvtNonFixedPngImageListPrim
 
@@ -2633,14 +2713,18 @@ ref; // ME_4FD0ABD80393 type
  : Parent ME_4ACB4A41034D // vtPngImgList
  ;
  : Inherits
-   @ ( WL 'ME_4FD06F5A01D8' '4F8BEB580354.pas.ms.script' // TvtPILBpp
- ) .SequenceCode.It
+   Seq: ( WL 'ME_4FD06F5A01D8' '4F8BEB580354.pas.ms.script' // TvtPILBpp
+ )
  ; // Inherits
  : Attributes
-   @ ( ME_4FD0ABD80393 // type
- ) .SequenceCode.It
+   Seq: ( ME_4FD0ABD80393 // type
+ )
  ; // Attributes
  CONST "array type" 'dynamic'
+ CONST dfm:PathOnly '\common\components\gui\Garant\VT'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\VT'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_4FD0AB9600D4 TvtBPPGlyphs
 
@@ -2671,14 +2755,18 @@ ref; // ME_4FD0AC6602C1 type
  : Parent ME_4ACB4A41034D // vtPngImgList
  ;
  : Inherits
-   @ ( WL 'ME_4FD06F1F020E' '4F8BEB580354.pas.ms.script' // TvtPILSize
- ) .SequenceCode.It
+   Seq: ( WL 'ME_4FD06F1F020E' '4F8BEB580354.pas.ms.script' // TvtPILSize
+ )
  ; // Inherits
  : Attributes
-   @ ( ME_4FD0AC6602C1 // type
- ) .SequenceCode.It
+   Seq: ( ME_4FD0AC6602C1 // type
+ )
  ; // Attributes
  CONST "array type" 'dynamic'
+ CONST dfm:PathOnly '\common\components\gui\Garant\VT'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\VT'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_4FD0AC3802E3 TvtSizeBPPGlyphs
 
@@ -2709,14 +2797,18 @@ ref; // ME_4FD0ADB10375 type
  : Parent ME_4ACB4A41034D // vtPngImgList
  ;
  : Inherits
-   @ ( WL 'ME_4FD06F1F020E' '4F8BEB580354.pas.ms.script' // TvtPILSize
- ) .SequenceCode.It
+   Seq: ( WL 'ME_4FD06F1F020E' '4F8BEB580354.pas.ms.script' // TvtPILSize
+ )
  ; // Inherits
  : Attributes
-   @ ( ME_4FD0ADB10375 // type
- ) .SequenceCode.It
+   Seq: ( ME_4FD0ADB10375 // type
+ )
  ; // Attributes
  CONST "array type" 'dynamic'
+ CONST dfm:PathOnly '\common\components\gui\Garant\VT'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\VT'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_4FD0ADA2017D TvtPILSizeBitmapArray
 
@@ -2747,14 +2839,18 @@ ref; // ME_4FD0AD940052 type
  : Parent ME_4ACB4A41034D // vtPngImgList
  ;
  : Inherits
-   @ ( WL 'ME_4FD06F1F020E' '4F8BEB580354.pas.ms.script' // TvtPILSize
- ) .SequenceCode.It
+   Seq: ( WL 'ME_4FD06F1F020E' '4F8BEB580354.pas.ms.script' // TvtPILSize
+ )
  ; // Inherits
  : Attributes
-   @ ( ME_4FD0AD940052 // type
- ) .SequenceCode.It
+   Seq: ( ME_4FD0AD940052 // type
+ )
  ; // Attributes
  CONST "array type" 'dynamic'
+ CONST dfm:PathOnly '\common\components\gui\Garant\VT'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\VT'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_4FD0AD7200F2 TvtPILSizeBoolArray
 
@@ -2915,6 +3011,7 @@ ref; // ME_4FD0AF1B035C f_Rebuilding
 : ME_C8282939AE8E
  CONST UID 'C8282939AE8E'
  CONST Name 'f_AvailableSizes'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY 'Поле для свойства AvailableSizes' ;
  CONST Visibility PrivateAccess
@@ -2924,12 +3021,14 @@ ref; // ME_4FD0AF1B035C f_Rebuilding
  ;
  : Target WL 'ME_4FD06FF6027F' '4F8BEB580354.pas.ms.script' // TvtPILSizes
  ;
+ CONST extprop:clearViaProperty 'AvailableSizes'
 
 ref; // ME_C8282939AE8E f_AvailableSizes
 
 : ME_48D2C51A5913
  CONST UID '48D2C51A5913'
  CONST Name 'f_Count'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY 'Поле для свойства Count' ;
  CONST Visibility PrivateAccess
@@ -2945,6 +3044,7 @@ ref; // ME_48D2C51A5913 f_Count
 : ME_95E415AAB9A7
  CONST UID '95E415AAB9A7'
  CONST Name 'f_CurBPP'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY 'Поле для свойства CurBPP' ;
  CONST Visibility PrivateAccess
@@ -2954,12 +3054,14 @@ ref; // ME_48D2C51A5913 f_Count
  ;
  : Target WL 'ME_4FD06F5A01D8' '4F8BEB580354.pas.ms.script' // TvtPILBpp
  ;
+ CONST extprop:clearViaProperty 'CurBPP'
 
 ref; // ME_95E415AAB9A7 f_CurBPP
 
 : ME_8B47C9A1D240
  CONST UID '8B47C9A1D240'
  CONST Name 'f_CurSize'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY 'Поле для свойства CurSize' ;
  CONST Visibility PrivateAccess
@@ -2969,6 +3071,7 @@ ref; // ME_95E415AAB9A7 f_CurBPP
  ;
  : Target WL 'ME_4FD06F1F020E' '4F8BEB580354.pas.ms.script' // TvtPILSize
  ;
+ CONST extprop:clearViaProperty 'CurSize'
 
 ref; // ME_8B47C9A1D240 f_CurSize
 
@@ -2984,6 +3087,7 @@ FORWARD ME_4FD0B13F0065
  CONST Value true
  : ValueType WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
+ CONST extprop:pas:Value true
 
 ref; // ME_4FD0B1590168 UseNewSizes
 
@@ -2996,8 +3100,8 @@ ref; // ME_4FD0B1590168 UseNewSizes
  : Parent ME_4FD0B13F0065 // CalcCount
  ;
  : Parameters
-   @ ( ME_4FD0B1590168 // UseNewSizes
- ) .SequenceCode.It
+   Seq: ( ME_4FD0B1590168 // UseNewSizes
+ )
  ; // Parameters
 
 ref; // ME_4FD0B157001E DoIt
@@ -3013,8 +3117,8 @@ ref; // ME_4FD0B157001E DoIt
  : Parent ME_4FD0A98C01BD // TvtPngImageListPrim
  ;
  : Operations
-   @ ( ME_4FD0B157001E // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_4FD0B157001E // DoIt
+ )
  ; // Operations
 
 ref; // ME_4FD0B13F0065 CalcCount
@@ -3040,8 +3144,8 @@ ref; // ME_4FD0B1D20051 aCount
  : Parent ME_4FD0B1C601D7 // ResizeAll
  ;
  : Parameters
-   @ ( ME_4FD0B1D20051 // aCount
- ) .SequenceCode.It
+   Seq: ( ME_4FD0B1D20051 // aCount
+ )
  ; // Parameters
 
 ref; // ME_4FD0B1CF008A DoIt
@@ -3057,8 +3161,8 @@ ref; // ME_4FD0B1CF008A DoIt
  : Parent ME_4FD0A98C01BD // TvtPngImageListPrim
  ;
  : Operations
-   @ ( ME_4FD0B1CF008A // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_4FD0B1CF008A // DoIt
+ )
  ; // Operations
 
 ref; // ME_4FD0B1C601D7 ResizeAll
@@ -3096,9 +3200,9 @@ ref; // ME_4FD0B20700F2 aSize
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
  : Parameters
-   @ ( ME_4FD0B20700C9 // aBpp
+   Seq: ( ME_4FD0B20700C9 // aBpp
  ME_4FD0B20700F2 // aSize
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_4FD0B202033C doIt
@@ -3114,8 +3218,8 @@ ref; // ME_4FD0B202033C doIt
  : Parent ME_4FD0A98C01BD // TvtPngImageListPrim
  ;
  : Operations
-   @ ( ME_4FD0B202033C // doIt
- ) .SequenceCode.It
+   Seq: ( ME_4FD0B202033C // doIt
+ )
  ; // Operations
 
 ref; // ME_4FD0B1FB01EA CanAlphaDraw
@@ -3144,8 +3248,8 @@ ref; // ME_4FD0B21F007A new_operation
  : Parent ME_4FD0A98C01BD // TvtPngImageListPrim
  ;
  : Operations
-   @ ( ME_4FD0B21F007A // new_operation
- ) .SequenceCode.It
+   Seq: ( ME_4FD0B21F007A // new_operation
+ )
  ; // Operations
 
 ref; // ME_4FD0B21900E8 ClearAlphaDrawCache
@@ -3174,8 +3278,8 @@ ref; // ME_4FD0B2350243 new_operation
  : Parent ME_4FD0A98C01BD // TvtPngImageListPrim
  ;
  : Operations
-   @ ( ME_4FD0B2350243 // new_operation
- ) .SequenceCode.It
+   Seq: ( ME_4FD0B2350243 // new_operation
+ )
  ; // Operations
 
 ref; // ME_4FD0B23002E8 ClearCache
@@ -3206,8 +3310,8 @@ ref; // ME_4FD0B2A6015C DoIt
  : Parent ME_4FD0A98C01BD // TvtPngImageListPrim
  ;
  : Operations
-   @ ( ME_4FD0B2A6015C // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_4FD0B2A6015C // DoIt
+ )
  ; // Operations
 
 ref; // ME_4FD0B2980233 AddItem
@@ -3233,8 +3337,8 @@ ref; // ME_4FD0B3010180 aIndex
  : Parent ME_4FD0B2F50112 // Delete
  ;
  : Parameters
-   @ ( ME_4FD0B3010180 // aIndex
- ) .SequenceCode.It
+   Seq: ( ME_4FD0B3010180 // aIndex
+ )
  ; // Parameters
 
 ref; // ME_4FD0B2FE0361 DoIt
@@ -3250,8 +3354,8 @@ ref; // ME_4FD0B2FE0361 DoIt
  : Parent ME_4FD0A98C01BD // TvtPngImageListPrim
  ;
  : Operations
-   @ ( ME_4FD0B2FE0361 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_4FD0B2FE0361 // DoIt
+ )
  ; // Operations
 
 ref; // ME_4FD0B2F50112 Delete
@@ -3307,11 +3411,11 @@ ref; // ME_4FD0B35C02CF Image
  : Parent ME_4FD0B3500288 // AddImage
  ;
  : Parameters
-   @ ( ME_4FD0B35C0254 // Index
+   Seq: ( ME_4FD0B35C0254 // Index
  ME_4FD0B35C027D // Size
  ME_4FD0B35C02A6 // Bpp
  ME_4FD0B35C02CF // Image
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_4FD0B3590378 DoIt
@@ -3327,8 +3431,8 @@ ref; // ME_4FD0B3590378 DoIt
  : Parent ME_4FD0A98C01BD // TvtPngImageListPrim
  ;
  : Operations
-   @ ( ME_4FD0B3590378 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_4FD0B3590378 // DoIt
+ )
  ; // Operations
 
 ref; // ME_4FD0B3500288 AddImage
@@ -3414,14 +3518,14 @@ ref; // ME_4FD0B39F0087 Enabled
  : Parent ME_4FD0B37801F0 // DrawGlyphSpecified$1
  ;
  : Parameters
-   @ ( ME_4FD0B39E026A // Index
+   Seq: ( ME_4FD0B39E026A // Index
  ME_4FD0B39E0297 // Canvas
  ME_4FD0B39E02C4 // Size
  ME_4FD0B39E0305 // Bpp
  ME_4FD0B39E037F // X
  ME_4FD0B39F001A // Y
  ME_4FD0B39F0087 // Enabled
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_4FD0B394038B DoIt
@@ -3437,8 +3541,8 @@ ref; // ME_4FD0B394038B DoIt
  : Parent ME_4FD0A98C01BD // TvtPngImageListPrim
  ;
  : Operations
-   @ ( ME_4FD0B394038B // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_4FD0B394038B // DoIt
+ )
  ; // Operations
 
 ref; // ME_4FD0B37801F0 DrawGlyphSpecified$1
@@ -3474,9 +3578,9 @@ ref; // ME_4FD0B44D038D Index2
  : Parent ME_4FD0B43A020D // Exchange
  ;
  : Parameters
-   @ ( ME_4FD0B44D0363 // Index1
+   Seq: ( ME_4FD0B44D0363 // Index1
  ME_4FD0B44D038D // Index2
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_4FD0B44601C6 DoIt
@@ -3492,8 +3596,8 @@ ref; // ME_4FD0B44601C6 DoIt
  : Parent ME_4FD0A98C01BD // TvtPngImageListPrim
  ;
  : Operations
-   @ ( ME_4FD0B44601C6 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_4FD0B44601C6 // DoIt
+ )
  ; // Operations
 
 ref; // ME_4FD0B43A020D Exchange
@@ -3522,8 +3626,8 @@ ref; // ME_4FD0B4730181 new_operation
  : Parent ME_4FD0A98C01BD // TvtPngImageListPrim
  ;
  : Operations
-   @ ( ME_4FD0B4730181 // new_operation
- ) .SequenceCode.It
+   Seq: ( ME_4FD0B4730181 // new_operation
+ )
  ; // Operations
 
 ref; // ME_4FD0B4640341 _RepairSizes
@@ -3552,8 +3656,8 @@ ref; // ME_4FD0B4DF00FA new_operation
  : Parent ME_4FD0A98C01BD // TvtPngImageListPrim
  ;
  : Operations
-   @ ( ME_4FD0B4DF00FA // new_operation
- ) .SequenceCode.It
+   Seq: ( ME_4FD0B4DF00FA // new_operation
+ )
  ; // Operations
 
 ref; // ME_4FD0B4D500C1 Clear
@@ -3589,9 +3693,9 @@ ref; // ME_4FD0B50902FB aSizeTo
  : Parent ME_4FD0B4EF00CE // CopySizeToSize
  ;
  : Parameters
-   @ ( ME_4FD0B50902D1 // aSizeFrom
+   Seq: ( ME_4FD0B50902D1 // aSizeFrom
  ME_4FD0B50902FB // aSizeTo
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_4FD0B4FF02F2 CopySizeToSize
@@ -3607,8 +3711,8 @@ ref; // ME_4FD0B4FF02F2 CopySizeToSize
  : Parent ME_4FD0A98C01BD // TvtPngImageListPrim
  ;
  : Operations
-   @ ( ME_4FD0B4FF02F2 // CopySizeToSize
- ) .SequenceCode.It
+   Seq: ( ME_4FD0B4FF02F2 // CopySizeToSize
+ )
  ; // Operations
 
 ref; // ME_4FD0B4EF00CE CopySizeToSize
@@ -3664,11 +3768,11 @@ ref; // ME_4FD0B5510232 aBpp
  : Parent ME_4FD0B54000ED // SaveImage
  ;
  : Parameters
-   @ ( ME_4FD0B55101B2 // aFilename
+   Seq: ( ME_4FD0B55101B2 // aFilename
  ME_4FD0B55101DD // aIndex
  ME_4FD0B5510207 // aSize
  ME_4FD0B5510232 // aBpp
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_4FD0B54B0128 DoIt
@@ -3684,8 +3788,8 @@ ref; // ME_4FD0B54B0128 DoIt
  : Parent ME_4FD0A98C01BD // TvtPngImageListPrim
  ;
  : Operations
-   @ ( ME_4FD0B54B0128 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_4FD0B54B0128 // DoIt
+ )
  ; // Operations
 
 ref; // ME_4FD0B54000ED SaveImage
@@ -3772,6 +3876,7 @@ ref; // ME_4FD0B8E4016E Enabled
  CONST Value false
  : ValueType WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
+ CONST extprop:pas:Value false
 
 ref; // ME_4FD0B8E4019F HalfTransparent
 
@@ -3784,7 +3889,7 @@ ref; // ME_4FD0B8E4019F HalfTransparent
  : Parent ME_4FD0B8CB02B7 // DrawGlyphSpecified$2
  ;
  : Parameters
-   @ ( ME_4FD0B8E40060 // Index
+   Seq: ( ME_4FD0B8E40060 // Index
  ME_4FD0B8E4008B // Canvas
  ME_4FD0B8E400B8 // Size
  ME_4FD0B8E400E5 // Bpp
@@ -3792,7 +3897,7 @@ ref; // ME_4FD0B8E4019F HalfTransparent
  ME_4FD0B8E40140 // Y
  ME_4FD0B8E4016E // Enabled
  ME_4FD0B8E4019F // HalfTransparent
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_4FD0B8D603AC DoIt
@@ -3808,8 +3913,8 @@ ref; // ME_4FD0B8D603AC DoIt
  : Parent ME_4FD0A98C01BD // TvtPngImageListPrim
  ;
  : Operations
-   @ ( ME_4FD0B8D603AC // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_4FD0B8D603AC // DoIt
+ )
  ; // Operations
 
 ref; // ME_4FD0B8CB02B7 DrawGlyphSpecified$2
@@ -3837,8 +3942,8 @@ ref; // ME_5025441103D6 anIndex
  : Target WL 'ME_4769570D0204' '46A5E026007E.pas.ms.script' // TPoint
  ;
  : Parameters
-   @ ( ME_5025441103D6 // anIndex
- ) .SequenceCode.It
+   Seq: ( ME_5025441103D6 // anIndex
+ )
  ; // Parameters
 
 ref; // ME_5025440D021F DoIt
@@ -3854,8 +3959,8 @@ ref; // ME_5025440D021F DoIt
  : Parent ME_4FD0A98C01BD // TvtPngImageListPrim
  ;
  : Operations
-   @ ( ME_5025440D021F // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_5025440D021F // DoIt
+ )
  ; // Operations
  CONST "ifdef" 'DesignTimeLibrary'
 
@@ -3868,6 +3973,7 @@ ref; // ME_502543E60239 ImageExtent
  ;
  : Implementor ME_4FD0A98C01BD // TvtPngImageListPrim
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_4F950C6D03BE_ME_4FD0A98C01BD Draw
 
 : ME_53282D3E0350_ME_4FD0A98C01BD
@@ -3877,6 +3983,7 @@ ref; // ME_4F950C6D03BE_ME_4FD0A98C01BD Draw
  ;
  : Implementor ME_4FD0A98C01BD // TvtPngImageListPrim
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_53282D3E0350_ME_4FD0A98C01BD SaveImageToStream
 
 : ME_47D1602000C6_ME_4FD0A98C01BD
@@ -3886,6 +3993,7 @@ ref; // ME_53282D3E0350_ME_4FD0A98C01BD SaveImageToStream
  ;
  : Implementor ME_4FD0A98C01BD // TvtPngImageListPrim
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_47D1602000C6_ME_4FD0A98C01BD Create
 
 : ME_48077504027E_ME_4FD0A98C01BD
@@ -3895,6 +4003,7 @@ ref; // ME_47D1602000C6_ME_4FD0A98C01BD Create
  ;
  : Implementor ME_4FD0A98C01BD // TvtPngImageListPrim
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_48077504027E_ME_4FD0A98C01BD Destroy
 
 : ME_4FD08E8503DC_ME_4FD0A98C01BD
@@ -3904,6 +4013,7 @@ ref; // ME_48077504027E_ME_4FD0A98C01BD Destroy
  ;
  : Implementor ME_4FD0A98C01BD // TvtPngImageListPrim
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4FD08E8503DC_ME_4FD0A98C01BD Change
 
 : ME_4FD08EF002D0_ME_4FD0A98C01BD
@@ -3913,6 +4023,7 @@ ref; // ME_4FD08E8503DC_ME_4FD0A98C01BD Change
  ;
  : Implementor ME_4FD0A98C01BD // TvtPngImageListPrim
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4FD08EF002D0_ME_4FD0A98C01BD DefineProperties
 
 : ME_4FD08F7F01AD_ME_4FD0A98C01BD
@@ -3922,6 +4033,7 @@ ref; // ME_4FD08EF002D0_ME_4FD0A98C01BD DefineProperties
  ;
  : Implementor ME_4FD0A98C01BD // TvtPngImageListPrim
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4FD08F7F01AD_ME_4FD0A98C01BD ReadData
 
 : ME_4FD08FA7008C_ME_4FD0A98C01BD
@@ -3931,6 +4043,7 @@ ref; // ME_4FD08F7F01AD_ME_4FD0A98C01BD ReadData
  ;
  : Implementor ME_4FD0A98C01BD // TvtPngImageListPrim
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4FD08FA7008C_ME_4FD0A98C01BD WriteData
 
 : ME_4FD092040227_ME_4FD0A98C01BD
@@ -3940,6 +4053,7 @@ ref; // ME_4FD08FA7008C_ME_4FD0A98C01BD WriteData
  ;
  : Implementor ME_4FD0A98C01BD // TvtPngImageListPrim
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4FD092040227_ME_4FD0A98C01BD WriteState
 
 : ME_4FD093CB025F_ME_4FD0A98C01BD
@@ -3949,6 +4063,7 @@ ref; // ME_4FD092040227_ME_4FD0A98C01BD WriteState
  ;
  : Implementor ME_4FD0A98C01BD // TvtPngImageListPrim
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4FD093CB025F_ME_4FD0A98C01BD DoDraw
 
 : ME_4FD0944D0202_ME_4FD0A98C01BD
@@ -3958,6 +4073,7 @@ ref; // ME_4FD093CB025F_ME_4FD0A98C01BD DoDraw
  ;
  : Implementor ME_4FD0A98C01BD // TvtPngImageListPrim
  ;
+ CONST OpKind opkind_Overridden
  CONST "ifndef" 'DesignTimeLibrary,XE'
 ref; // ME_4FD0944D0202_ME_4FD0A98C01BD ImageExtent
 
@@ -3968,6 +4084,7 @@ ref; // ME_4FD0944D0202_ME_4FD0A98C01BD ImageExtent
  ;
  : Implementor ME_4FD0A98C01BD // TvtPngImageListPrim
  ;
+ CONST OpKind opkind_Overridden
  CONST "ifndef" 'DesignTimeLibrary,XE'
 ref; // ME_4FD095D20217_ME_4FD0A98C01BD IsSmart
 
@@ -3982,15 +4099,15 @@ ref; // ME_4FD095D20217_ME_4FD0A98C01BD IsSmart
  : Parent ME_4ACB4A41034D // vtPngImgList
  ;
  : Inherits
-   @ ( WL 'ME_473DA2AF0168' '4799D29F033F.pas.ms.script' // TCustomImageList
- ) .SequenceCode.It
+   Seq: ( WL 'ME_473DA2AF0168' '4799D29F033F.pas.ms.script' // TCustomImageList
+ )
  ; // Inherits
  : Implements
-   @ ( WL 'ME_4F950C5102A8' '4F8BEB580354.pas.ms.script' // IvtFlashImageList
- ) .SequenceCode.It
+   Seq: ( WL 'ME_4F950C5102A8' '4F8BEB580354.pas.ms.script' // IvtFlashImageList
+ )
  ; // Implements
  : Attributes
-   @ ( ME_4FD0A9FC01F1 // AvailableSizes
+   Seq: ( ME_4FD0A9FC01F1 // AvailableSizes
  ME_4FD0AA5F00D7 // f_ChangeOn
  ME_4FD0AA8C002B // Count
  ME_4FD0AC8D0076 // f_Glyph
@@ -4004,10 +4121,10 @@ ref; // ME_4FD095D20217_ME_4FD0A98C01BD IsSmart
  ME_48D2C51A5913 // f_Count
  ME_95E415AAB9A7 // f_CurBPP
  ME_8B47C9A1D240 // f_CurSize
- ) .SequenceCode.It
+ )
  ; // Attributes
  : Operations
-   @ ( ME_4FD0B13F0065 // CalcCount
+   Seq: ( ME_4FD0B13F0065 // CalcCount
  ME_4FD0B1C601D7 // ResizeAll
  ME_4FD0B1FB01EA // CanAlphaDraw
  ME_4FD0B21900E8 // ClearAlphaDrawCache
@@ -4023,15 +4140,15 @@ ref; // ME_4FD095D20217_ME_4FD0A98C01BD IsSmart
  ME_4FD0B54000ED // SaveImage
  ME_4FD0B8CB02B7 // DrawGlyphSpecified$2
  ME_502543E60239 // ImageExtent
- ) .SequenceCode.It
+ )
  ; // Operations
  : Implemented
-   @ ( ME_4F950C6D03BE_ME_4FD0A98C01BD // Draw
+   Seq: ( ME_4F950C6D03BE_ME_4FD0A98C01BD // Draw
  ME_53282D3E0350_ME_4FD0A98C01BD // SaveImageToStream
- ) .SequenceCode.It
+ )
  ; // Implemented
  : Overridden
-   @ ( ME_47D1602000C6_ME_4FD0A98C01BD // Create
+   Seq: ( ME_47D1602000C6_ME_4FD0A98C01BD // Create
  ME_48077504027E_ME_4FD0A98C01BD // Destroy
  ME_4FD08E8503DC_ME_4FD0A98C01BD // Change
  ME_4FD08EF002D0_ME_4FD0A98C01BD // DefineProperties
@@ -4041,13 +4158,19 @@ ref; // ME_4FD095D20217_ME_4FD0A98C01BD IsSmart
  ME_4FD093CB025F_ME_4FD0A98C01BD // DoDraw
  ME_4FD0944D0202_ME_4FD0A98C01BD // ImageExtent
  ME_4FD095D20217_ME_4FD0A98C01BD // IsSmart
- ) .SequenceCode.It
+ )
  ; // Overridden
  CONST "need UC" true
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
+ CONST dfm:PathOnly '\common\components\gui\Garant\VT'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\VT'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'PngImageListPrim'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_4FD0A98C01BD TvtPngImageListPrim
 
@@ -4120,6 +4243,7 @@ ref; // ME_4FD0C1BF0313 Count
 : ME_46300F4F7DC7
  CONST UID '46300F4F7DC7'
  CONST Name 'f_FixedSize'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY 'Поле для свойства FixedSize' ;
  CONST Visibility PrivateAccess
@@ -4129,12 +4253,14 @@ ref; // ME_4FD0C1BF0313 Count
  ;
  : Target WL 'ME_4FD06F1F020E' '4F8BEB580354.pas.ms.script' // TvtPILSize
  ;
+ CONST extprop:clearViaProperty 'FixedSize'
 
 ref; // ME_46300F4F7DC7 f_FixedSize
 
 : ME_731B7FD51CF8
  CONST UID '731B7FD51CF8'
  CONST Name 'f_OriginalImgList'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY 'Поле для свойства OriginalImgList' ;
  CONST Visibility PrivateAccess
@@ -4144,6 +4270,7 @@ ref; // ME_46300F4F7DC7 f_FixedSize
  ;
  : Target ME_4FD0A98C01BD // TvtPngImageListPrim
  ;
+ CONST extprop:clearViaProperty 'OriginalImgList'
 
 ref; // ME_731B7FD51CF8 f_OriginalImgList
 
@@ -4168,8 +4295,8 @@ ref; // ME_4FD0C287009E Sender
  : Parent ME_4FD0C2760204 // ImageListChange
  ;
  : Parameters
-   @ ( ME_4FD0C287009E // Sender
- ) .SequenceCode.It
+   Seq: ( ME_4FD0C287009E // Sender
+ )
  ; // Parameters
 
 ref; // ME_4FD0C27F027A DoIt
@@ -4185,8 +4312,8 @@ ref; // ME_4FD0C27F027A DoIt
  : Parent ME_4FD0BFBC00F9 // TvtFixedSizeProxyPngImageListPrim
  ;
  : Operations
-   @ ( ME_4FD0C27F027A // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_4FD0C27F027A // DoIt
+ )
  ; // Operations
 
 ref; // ME_4FD0C2760204 ImageListChange
@@ -4198,6 +4325,7 @@ ref; // ME_4FD0C2760204 ImageListChange
  ;
  : Implementor ME_4FD0BFBC00F9 // TvtFixedSizeProxyPngImageListPrim
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_4F950C6D03BE_ME_4FD0BFBC00F9 Draw
 
 : ME_53282D3E0350_ME_4FD0BFBC00F9
@@ -4207,6 +4335,7 @@ ref; // ME_4F950C6D03BE_ME_4FD0BFBC00F9 Draw
  ;
  : Implementor ME_4FD0BFBC00F9 // TvtFixedSizeProxyPngImageListPrim
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_53282D3E0350_ME_4FD0BFBC00F9 SaveImageToStream
 
 : ME_47D1602000C6_ME_4FD0BFBC00F9
@@ -4216,6 +4345,7 @@ ref; // ME_53282D3E0350_ME_4FD0BFBC00F9 SaveImageToStream
  ;
  : Implementor ME_4FD0BFBC00F9 // TvtFixedSizeProxyPngImageListPrim
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_47D1602000C6_ME_4FD0BFBC00F9 Create
 
 : ME_48077504027E_ME_4FD0BFBC00F9
@@ -4225,6 +4355,7 @@ ref; // ME_47D1602000C6_ME_4FD0BFBC00F9 Create
  ;
  : Implementor ME_4FD0BFBC00F9 // TvtFixedSizeProxyPngImageListPrim
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_48077504027E_ME_4FD0BFBC00F9 Destroy
 
 : ME_4FD093CB025F_ME_4FD0BFBC00F9
@@ -4234,6 +4365,7 @@ ref; // ME_48077504027E_ME_4FD0BFBC00F9 Destroy
  ;
  : Implementor ME_4FD0BFBC00F9 // TvtFixedSizeProxyPngImageListPrim
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4FD093CB025F_ME_4FD0BFBC00F9 DoDraw
 
 : ME_4FD095D20217_ME_4FD0BFBC00F9
@@ -4243,6 +4375,7 @@ ref; // ME_4FD093CB025F_ME_4FD0BFBC00F9 DoDraw
  ;
  : Implementor ME_4FD0BFBC00F9 // TvtFixedSizeProxyPngImageListPrim
  ;
+ CONST OpKind opkind_Overridden
  CONST "ifndef" 'DesignTimeLibrary,XE'
 ref; // ME_4FD095D20217_ME_4FD0BFBC00F9 IsSmart
 
@@ -4257,43 +4390,49 @@ ref; // ME_4FD095D20217_ME_4FD0BFBC00F9 IsSmart
  : Parent ME_4ACB4A41034D // vtPngImgList
  ;
  : Inherits
-   @ ( WL 'ME_473DA2AF0168' '4799D29F033F.pas.ms.script' // TCustomImageList
- ) .SequenceCode.It
+   Seq: ( WL 'ME_473DA2AF0168' '4799D29F033F.pas.ms.script' // TCustomImageList
+ )
  ; // Inherits
  : Implements
-   @ ( WL 'ME_4F950C5102A8' '4F8BEB580354.pas.ms.script' // IvtFlashImageList
- ) .SequenceCode.It
+   Seq: ( WL 'ME_4F950C5102A8' '4F8BEB580354.pas.ms.script' // IvtFlashImageList
+ )
  ; // Implements
  : Attributes
-   @ ( ME_4FD0C074032D // FixedSize
+   Seq: ( ME_4FD0C074032D // FixedSize
  ME_4FD0C0CB027B // OriginalImgList
  ME_4FD0C16101F3 // f_ImageChangeLink
  ME_4FD0C1BF0313 // Count
  ME_46300F4F7DC7 // f_FixedSize
  ME_731B7FD51CF8 // f_OriginalImgList
- ) .SequenceCode.It
+ )
  ; // Attributes
  : Operations
-   @ ( ME_4FD0C2760204 // ImageListChange
- ) .SequenceCode.It
+   Seq: ( ME_4FD0C2760204 // ImageListChange
+ )
  ; // Operations
  : Implemented
-   @ ( ME_4F950C6D03BE_ME_4FD0BFBC00F9 // Draw
+   Seq: ( ME_4F950C6D03BE_ME_4FD0BFBC00F9 // Draw
  ME_53282D3E0350_ME_4FD0BFBC00F9 // SaveImageToStream
- ) .SequenceCode.It
+ )
  ; // Implemented
  : Overridden
-   @ ( ME_47D1602000C6_ME_4FD0BFBC00F9 // Create
+   Seq: ( ME_47D1602000C6_ME_4FD0BFBC00F9 // Create
  ME_48077504027E_ME_4FD0BFBC00F9 // Destroy
  ME_4FD093CB025F_ME_4FD0BFBC00F9 // DoDraw
  ME_4FD095D20217_ME_4FD0BFBC00F9 // IsSmart
- ) .SequenceCode.It
+ )
  ; // Overridden
  CONST "need UC" true
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
+ CONST dfm:PathOnly '\common\components\gui\Garant\VT'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\VT'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'FixedSizeProxyPngImageListPrim'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_4FD0BFBC00F9 TvtFixedSizeProxyPngImageListPrim
 
@@ -4308,14 +4447,20 @@ ref; // ME_4FD0BFBC00F9 TvtFixedSizeProxyPngImageListPrim
  : Parent ME_4ACB4A41034D // vtPngImgList
  ;
  : Inherits
-   @ ( ME_4ACB4A5201FC // TvtNonFixedPngImageListPrim
- ) .SequenceCode.It
+   Seq: ( ME_4ACB4A5201FC // TvtNonFixedPngImageListPrim
+ )
  ; // Inherits
  CONST "need UC" true
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
+ CONST dfm:PathOnly '\common\components\gui\Garant\VT'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\VT'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'NonFixedPngImageList'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_4FD224430014 TvtNonFixedPngImageList
 
@@ -4330,14 +4475,20 @@ ref; // ME_4FD224430014 TvtNonFixedPngImageList
  : Parent ME_4ACB4A41034D // vtPngImgList
  ;
  : Inherits
-   @ ( ME_4FD0A98C01BD // TvtPngImageListPrim
- ) .SequenceCode.It
+   Seq: ( ME_4FD0A98C01BD // TvtPngImageListPrim
+ )
  ; // Inherits
  CONST "need UC" true
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
+ CONST dfm:PathOnly '\common\components\gui\Garant\VT'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\VT'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'PngImageList'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_4FD2246B017B TvtPngImageList
 
@@ -4352,14 +4503,20 @@ ref; // ME_4FD2246B017B TvtPngImageList
  : Parent ME_4ACB4A41034D // vtPngImgList
  ;
  : Inherits
-   @ ( ME_4FD0BFBC00F9 // TvtFixedSizeProxyPngImageListPrim
- ) .SequenceCode.It
+   Seq: ( ME_4FD0BFBC00F9 // TvtFixedSizeProxyPngImageListPrim
+ )
  ; // Inherits
  CONST "need UC" true
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
+ CONST dfm:PathOnly '\common\components\gui\Garant\VT'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\VT'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'FixedSizeProxyPngImageList'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_4FD2248F001B TvtFixedSizeProxyPngImageList
 
@@ -4374,9 +4531,15 @@ ref; // ME_4FD2248F001B TvtFixedSizeProxyPngImageList
  : Parent ME_4ACB4A41034D // vtPngImgList
  ;
  : Inherits
-   @ ( ME_4FD2087201A3 // TBitmap
- ) .SequenceCode.It
+   Seq: ( ME_4FD2087201A3 // TBitmap
+ )
  ; // Inherits
+ CONST dfm:PathOnly '\common\components\gui\Garant\VT'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\VT'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'Bitmap'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_53B2693C02EA TBitmap
 
@@ -4394,6 +4557,7 @@ ref; // ME_53B2693C02EA TBitmap
  CONST Value '(BlendOp: AC_SRC_OVER; BlendFlags: 0; SourceConstantAlpha: cFullAlpha; AlphaFormat: AC_SRC_ALPHA)'
  : ValueType WL 'ME_4FD1D65F0393' '4AB0C3F60375.pas.ms.script' // TBlendFunction
  ;
+ CONST extprop:pas:Value '(BlendOp: AC_SRC_OVER; BlendFlags: 0; SourceConstantAlpha: cFullAlpha; AlphaFormat: AC_SRC_ALPHA)'
 
 ref; // ME_4FD1DF240385 g_BlendOp
 
@@ -4496,11 +4660,11 @@ ref; // ME_50254E88005F
  : Parent ME_4FD078FF017D // vtImgLists
  ;
  : Attributes
-   @ ( ME_4FD1DF240385 // g_BlendOp
- ) .SequenceCode.It
+   Seq: ( ME_4FD1DF240385 // g_BlendOp
+ )
  ; // Attributes
  : Children
-   @ ( ME_4ACB4A5201FC // TvtNonFixedPngImageListPrim
+   Seq: ( ME_4ACB4A5201FC // TvtNonFixedPngImageListPrim
  ME_4FD0AB9600D4 // TvtBPPGlyphs
  ME_4FD0AC3802E3 // TvtSizeBPPGlyphs
  ME_4FD0ADA2017D // TvtPILSizeBitmapArray
@@ -4511,10 +4675,10 @@ ref; // ME_50254E88005F
  ME_4FD2246B017B // TvtPngImageList
  ME_4FD2248F001B // TvtFixedSizeProxyPngImageList
  ME_53B2693C02EA // TBitmap
- ) .SequenceCode.It
+ )
  ; // Children
  : Dependencies
-   @ ( ME_4FD08CCC0250 // 
+   Seq: ( ME_4FD08CCC0250 // 
  ME_4FD08CEC03C4 // 
  ME_4FD1F55203E0 // 
  ME_4FD210CE0087 // 
@@ -4522,15 +4686,15 @@ ref; // ME_50254E88005F
  ME_4FD211E80283 // 
  ME_4FD224EC03C4 // 
  ME_50254E88005F // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  CONST "no hands" false
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\VT'
  CONST intf.pas:Path 'common\components\gui\Garant\VT\vtPngImgList.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\VT'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'PngImgList'
 
 ref; // ME_4ACB4A41034D vtPngImgList
 
@@ -4544,12 +4708,12 @@ ref; // ME_4ACB4A41034D vtPngImgList
  : Parent WL 'ME_4FD078CD00F6' '4FD078CD00F6.pas.ms.script' // VT$ImgList
  ;
  : Children
-   @ ( ME_4FD1F6B00129 // vtPngImgListUtils
+   Seq: ( ME_4FD1F6B00129 // vtPngImgListUtils
  ME_4ACB4A41034D // vtPngImgList
- ) .SequenceCode.It
+ )
  ; // Children
  : Depends
-   @ ( WL 'ME_4678193C009C' '4678193C009C.pas.ms.script' // l3Types
+   Seq: ( WL 'ME_4678193C009C' '4678193C009C.pas.ms.script' // l3Types
  WL 'ME_467C0CAA02AB' '467C0CAA02AB.pas.ms.script' // l3InternalInterfaces
  WL 'ME_46A5E026007E' '46A5E026007E.pas.ms.script' // l3Core
  WL 'ME_473C3BEE0334' '473C3BEE0334.pas.ms.script' // l3Canvas
@@ -4562,15 +4726,13 @@ ref; // ME_4ACB4A41034D vtPngImgList
  WL 'ME_537B83AD01F0' '537B83AD01F0.pas.ms.script' // l3Math
  WL 'ME_556F09AA036E' '556F09AA036E.pas.ms.script' // l3PrinterInterfaces
  WL 'ME_55C4AEC801CA' '55C4AEC801CA.pas.ms.script' // Graphics
- ) .SequenceCode.It
+ )
  ; // Depends
- : Generators
- @ (
- gen_pas.script
- gen_pas.script.runner
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\VT'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\VT'
  CONST pas.script:Path 'shared\models\NewSchool\Scripts\4FD078FF017D.pas.ms.script'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
  CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\4FD078FF017D.pas.ms.script.runner'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_4FD078FF017D vtImgLists

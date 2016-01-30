@@ -12,7 +12,7 @@ INCLUDE 'ElementsRTTI.ms.dict'
  : Parent WL 'ME_4AB10D480337' '4AB10D480337.pas.ms.script' // Shared Delphi Sand Box
  ;
  : Depends
-   @ ( WL 'ME_4773D64E036C' '47913B47006E.pas.ms.script' // l3Base
+   Seq: ( WL 'ME_4773D64E036C' '47913B47006E.pas.ms.script' // l3Base
  WL 'ME_4787A405013D' '4AB0C3C60310.pas.ms.script' // Exception
  WL 'ME_4B2A0D8A03A0' '4B2A0D6A0077.pas.ms.script' // TextTestRunner
  WL 'ME_4B2A0D9401CC' '4B2A0D6A0077.pas.ms.script' // GUITestRunner
@@ -20,7 +20,7 @@ INCLUDE 'ElementsRTTI.ms.dict'
  WL 'ME_4CA0BB8600CF' '4CA0BB31027B.pas.ms.script' // TKBridge
  WL 'ME_5155865B01B6' '5155865B01B6.pas.ms.script' // SandBoxTest
  WL 'ME_515D7B0B006F' '515D7B0B006F.pas.ms.script' // Containers
- ) .SequenceCode.It
+ )
  ; // Depends
  CONST "CONFIG_UC" false
  CONST "console" false
@@ -31,14 +31,20 @@ INCLUDE 'ElementsRTTI.ms.dict'
  CONST "no scripts" true
  CONST "old format" false
  : Generators
- @ (
+ Seq: (
  gen_intf.pas
  gen_pas.script
  gen_pas.script.runner
- ) .SequenceCode.It
+ )
  ; // Generators
+ CONST dfm:PathOnly '\common\components'
  CONST intf.pas:Path 'common\components\SandBoxTest\SandBoxTest.dpr'
+ CONST intf.pas:PathOnly '\common\components\SandBoxTest'
  CONST pas.script:Path 'shared\models\NewSchool\Scripts\515586050382.pas.ms.script'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
  CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\515586050382.pas.ms.script.runner'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\common\components'
+ CONST extprop:pas:UnitName 'SandBoxTest'
 
 ref; // ME_515586050382 SandBox$Tests

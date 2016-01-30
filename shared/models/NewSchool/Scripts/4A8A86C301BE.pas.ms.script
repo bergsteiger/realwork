@@ -103,19 +103,19 @@ ref; // ME_4A8C1C9F01F9
  : Parent ME_4A8A871B02ED // TnscCustomChatMemo
  ;
  : Attributes
-   @ ( ME_4A8C19080282 // Doc
+   Seq: ( ME_4A8C19080282 // Doc
  ME_4A8C19730220 // Point
  ME_4A8C1D370070 // Op
- ) .SequenceCode.It
+ )
  ; // Attributes
  : Operations
-   @ ( ME_4A8C132400BF // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_4A8C132400BF // DoIt
+ )
  ; // Operations
  : Dependencies
-   @ ( ME_4A8C1B7600B2 // 
+   Seq: ( ME_4A8C1B7600B2 // 
  ME_4A8C1C9F01F9 // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
 
 ref; // ME_4A8C12F70348 ValidateInsertionPoint
@@ -169,9 +169,9 @@ ref; // ME_4A8C258602AD theDoc
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
  : Parameters
-   @ ( ME_4A8C251E0098 // aPara
+   Seq: ( ME_4A8C251E0098 // aPara
  ME_4A8C258602AD // theDoc
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_4A8C16CA0034 IsParaInF1Doc
@@ -232,19 +232,19 @@ ref; // ME_4A8C172502FF
  : Parent ME_4A8A871B02ED // TnscCustomChatMemo
  ;
  : Attributes
-   @ ( ME_4A8C1A9003D6 // Doc
- ) .SequenceCode.It
+   Seq: ( ME_4A8C1A9003D6 // Doc
+ )
  ; // Attributes
  : Operations
-   @ ( ME_4A8C16CA0034 // IsParaInF1Doc
- ) .SequenceCode.It
+   Seq: ( ME_4A8C16CA0034 // IsParaInF1Doc
+ )
  ; // Operations
  : Dependencies
-   @ ( ME_4A8C171900A0 // 
+   Seq: ( ME_4A8C171900A0 // 
  ME_4A8C171C003E // 
  ME_4A8C171D02C8 // 
  ME_4A8C172502FF // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
 
 ref; // ME_4A8C16790143 IsParaInF1Doc
@@ -272,8 +272,8 @@ ref; // ME_4A8C25080108 theDoc
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
  : Parameters
-   @ ( ME_4A8C25080108 // theDoc
- ) .SequenceCode.It
+   Seq: ( ME_4A8C25080108 // theDoc
+ )
  ; // Parameters
 
 ref; // ME_4A8C250302A8 IsInF1Doc
@@ -290,8 +290,8 @@ ref; // ME_4A8C250302A8 IsInF1Doc
  : Parent ME_4A8A871B02ED // TnscCustomChatMemo
  ;
  : Operations
-   @ ( ME_4A8C250302A8 // IsInF1Doc
- ) .SequenceCode.It
+   Seq: ( ME_4A8C250302A8 // IsInF1Doc
+ )
  ; // Operations
 
 ref; // ME_4A8C249D02F4 IsInF1Doc
@@ -299,6 +299,7 @@ ref; // ME_4A8C249D02F4 IsInF1Doc
 : ME_5D2268805D92
  CONST UID '5D2268805D92'
  CONST Name 'Ini_Reg_Class'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Регистрация TnscCustomChatMemo' ;
@@ -336,6 +337,7 @@ ref; // ME_4A8C21240259
 
 : ME_93805D3ED54E
  CONST UID '93805D3ED54E'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_4A8A871B02ED // TnscCustomChatMemo
@@ -352,6 +354,7 @@ ref; // ME_93805D3ED54E
  ;
  : Implementor ME_4A8A871B02ED // TnscCustomChatMemo
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_4A8C083300C3_ME_4A8A871B02ED CanInsertParaOnMove
 
 : ME_4A8C24130193_ME_4A8A871B02ED
@@ -361,6 +364,7 @@ ref; // ME_4A8C083300C3_ME_4A8A871B02ED CanInsertParaOnMove
  ;
  : Implementor ME_4A8A871B02ED // TnscCustomChatMemo
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_4A8C24130193_ME_4A8A871B02ED IsInReadOnlyPara
 
 : ME_47A042E100E2_ME_4A8A871B02ED
@@ -370,6 +374,7 @@ ref; // ME_4A8C24130193_ME_4A8A871B02ED IsInReadOnlyPara
  ;
  : Implementor ME_4A8A871B02ED // TnscCustomChatMemo
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_47A042E100E2_ME_4A8A871B02ED InitFields
 
 : ME_482BFCBF01F0_ME_4A8A871B02ED
@@ -379,6 +384,7 @@ ref; // ME_47A042E100E2_ME_4A8A871B02ED InitFields
  ;
  : Implementor ME_4A8A871B02ED // TnscCustomChatMemo
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_482BFCBF01F0_ME_4A8A871B02ED DoBreakPara
 
 : ME_482D9D1701E0_ME_4A8A871B02ED
@@ -388,6 +394,7 @@ ref; // ME_482BFCBF01F0_ME_4A8A871B02ED DoBreakPara
  ;
  : Implementor ME_4A8A871B02ED // TnscCustomChatMemo
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_482D9D1701E0_ME_4A8A871B02ED TextSourceClass
 
 : ME_48735C4A03C3_ME_4A8A871B02ED
@@ -397,6 +404,7 @@ ref; // ME_482D9D1701E0_ME_4A8A871B02ED TextSourceClass
  ;
  : Implementor ME_4A8A871B02ED // TnscCustomChatMemo
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_48735C4A03C3_ME_4A8A871B02ED DefineProvideOperations
 
 : ME_48C7C1A2010C_ME_4A8A871B02ED
@@ -406,6 +414,7 @@ ref; // ME_48735C4A03C3_ME_4A8A871B02ED DefineProvideOperations
  ;
  : Implementor ME_4A8A871B02ED // TnscCustomChatMemo
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_48C7C1A2010C_ME_4A8A871B02ED Paste
 
 : ME_4A8A871B02ED
@@ -420,38 +429,38 @@ ref; // ME_48C7C1A2010C_ME_4A8A871B02ED Paste
  : Parent ME_4A8A86C301BE // Memos
  ;
  : Inherits
-   @ ( WL 'ME_4A8A6DD700CC' '4A8A6D020382.pas.ms.script' // TevCustomChatMemo
- ) .SequenceCode.It
+   Seq: ( WL 'ME_4A8A6DD700CC' '4A8A6D020382.pas.ms.script' // TevCustomChatMemo
+ )
  ; // Inherits
  : Implements
-   @ ( WL 'ME_4A8C065802BD' '47F088300159.pas.ms.script' // IevF1LikeEditor
- ) .SequenceCode.It
+   Seq: ( WL 'ME_4A8C065802BD' '47F088300159.pas.ms.script' // IevF1LikeEditor
+ )
  ; // Implements
  : Operations
-   @ ( ME_4A8C12F70348 // ValidateInsertionPoint
+   Seq: ( ME_4A8C12F70348 // ValidateInsertionPoint
  ME_4A8C16790143 // IsParaInF1Doc
  ME_4A8C249D02F4 // IsInF1Doc
  ME_5D2268805D92 // Ini_Reg_Class
- ) .SequenceCode.It
+ )
  ; // Operations
  : Implemented
-   @ ( ME_4A8C083300C3_ME_4A8A871B02ED // CanInsertParaOnMove
+   Seq: ( ME_4A8C083300C3_ME_4A8A871B02ED // CanInsertParaOnMove
  ME_4A8C24130193_ME_4A8A871B02ED // IsInReadOnlyPara
- ) .SequenceCode.It
+ )
  ; // Implemented
  : Overridden
-   @ ( ME_47A042E100E2_ME_4A8A871B02ED // InitFields
+   Seq: ( ME_47A042E100E2_ME_4A8A871B02ED // InitFields
  ME_482BFCBF01F0_ME_4A8A871B02ED // DoBreakPara
  ME_482D9D1701E0_ME_4A8A871B02ED // TextSourceClass
  ME_48735C4A03C3_ME_4A8A871B02ED // DefineProvideOperations
  ME_48C7C1A2010C_ME_4A8A871B02ED // Paste
- ) .SequenceCode.It
+ )
  ; // Overridden
  : Dependencies
-   @ ( ME_4A8BB2A30063 // 
+   Seq: ( ME_4A8BB2A30063 // 
  ME_4A8C21240259 // 
  ME_93805D3ED54E // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  CONST "author" 'Люлин А.В.'
  CONST "base wnd class" 'CWnd'
@@ -460,12 +469,14 @@ ref; // ME_48C7C1A2010C_ME_4A8A871B02ED Paste
  CONST "no hands" true
  CONST "register in scripts" 'undefined'
  CONST "started" '18.08.2009 14:48'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\Nemesis'
  CONST intf.pas:Path 'common\components\gui\Garant\Nemesis\nscCustomChatMemo.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Nemesis'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'ChatMemo'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'nscCustomChatMemo'
 
 ref; // ME_4A8A871B02ED TnscCustomChatMemo
 
@@ -474,6 +485,7 @@ FORWARD ME_4A8A8739017D
 : ME_DB84AA72A027
  CONST UID 'DB84AA72A027'
  CONST Name 'Ini_Reg_Class'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Регистрация TnscChatMemo' ;
@@ -487,6 +499,7 @@ ref; // ME_DB84AA72A027 Ini_Reg_Class
 
 : ME_816ADDCCE4D6
  CONST UID '816ADDCCE4D6'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_4A8A8739017D // TnscChatMemo
@@ -508,16 +521,16 @@ ref; // ME_816ADDCCE4D6
  : Parent ME_4A8A86C301BE // Memos
  ;
  : Inherits
-   @ ( ME_4A8A871B02ED // TnscCustomChatMemo
- ) .SequenceCode.It
+   Seq: ( ME_4A8A871B02ED // TnscCustomChatMemo
+ )
  ; // Inherits
  : Operations
-   @ ( ME_DB84AA72A027 // Ini_Reg_Class
- ) .SequenceCode.It
+   Seq: ( ME_DB84AA72A027 // Ini_Reg_Class
+ )
  ; // Operations
  : Dependencies
-   @ ( ME_816ADDCCE4D6 // 
- ) .SequenceCode.It
+   Seq: ( ME_816ADDCCE4D6 // 
+ )
  ; // Dependencies
  CONST "author" 'Люлин А.В.'
  CONST "base wnd class" 'CWnd'
@@ -527,12 +540,14 @@ ref; // ME_816ADDCCE4D6
  CONST "no hands" true
  CONST "register in scripts" 'undefined'
  CONST "started" '18.08.2009 14:49'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\Nemesis'
  CONST intf.pas:Path 'common\components\gui\Garant\Nemesis\nscChatMemo.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Nemesis'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'ChatMemo'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'nscChatMemo'
 
 ref; // ME_4A8A8739017D TnscChatMemo
 
@@ -556,6 +571,7 @@ ref; // ME_4A8BB2D902EC
  ;
  : Implementor ME_4A8BB2760229 // TnscCustomChatMemoTextSource
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_482D9A030221_ME_4A8BB2760229 DoMakeDocumentContainer
 
 : ME_4A8BB2760229
@@ -569,16 +585,16 @@ ref; // ME_482D9A030221_ME_4A8BB2760229 DoMakeDocumentContainer
  : Parent ME_4A8A86C301BE // Memos
  ;
  : Inherits
-   @ ( WL 'ME_482D98A20190' '4829D7D50156.pas.ms.script' // TevCustomMemoTextSource
- ) .SequenceCode.It
+   Seq: ( WL 'ME_482D98A20190' '4829D7D50156.pas.ms.script' // TevCustomMemoTextSource
+ )
  ; // Inherits
  : Overridden
-   @ ( ME_482D9A030221_ME_4A8BB2760229 // DoMakeDocumentContainer
- ) .SequenceCode.It
+   Seq: ( ME_482D9A030221_ME_4A8BB2760229 // DoMakeDocumentContainer
+ )
  ; // Overridden
  : Dependencies
-   @ ( ME_4A8BB2D902EC // 
- ) .SequenceCode.It
+   Seq: ( ME_4A8BB2D902EC // 
+ )
  ; // Dependencies
  CONST "author" 'Люлин А.В.'
  CONST "needs InstanceR" 'undefined'
@@ -586,12 +602,14 @@ ref; // ME_482D9A030221_ME_4A8BB2760229 DoMakeDocumentContainer
  CONST "no hands" true
  CONST "register in scripts" 'undefined'
  CONST "started" '19.08.2009 12:06'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\Nemesis'
  CONST intf.pas:Path 'common\components\gui\Garant\Nemesis\nscCustomChatMemoTextSource.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Nemesis'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'ChatMemoTextSource'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'nscCustomChatMemoTextSource'
 
 ref; // ME_4A8BB2760229 TnscCustomChatMemoTextSource
 
@@ -628,6 +646,7 @@ ref; // ME_4A8C141A01D3
  ;
  : Implementor ME_4A8BB2BD015E // TnscCustomChatMemoContainer
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_47F35245009A_ME_4A8BB2BD015E MakeProcessor
 
 : ME_48033300004D_ME_4A8BB2BD015E
@@ -637,6 +656,7 @@ ref; // ME_47F35245009A_ME_4A8BB2BD015E MakeProcessor
  ;
  : Implementor ME_4A8BB2BD015E // TnscCustomChatMemoContainer
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_48033300004D_ME_4A8BB2BD015E PartGeneratorClass
 
 : ME_4A8BB2BD015E
@@ -650,18 +670,18 @@ ref; // ME_48033300004D_ME_4A8BB2BD015E PartGeneratorClass
  : Parent ME_4A8A86C301BE // Memos
  ;
  : Inherits
-   @ ( WL 'ME_482D888D039E' '4829D7D50156.pas.ms.script' // TevCustomMemoContainer
- ) .SequenceCode.It
+   Seq: ( WL 'ME_482D888D039E' '4829D7D50156.pas.ms.script' // TevCustomMemoContainer
+ )
  ; // Inherits
  : Overridden
-   @ ( ME_47F35245009A_ME_4A8BB2BD015E // MakeProcessor
+   Seq: ( ME_47F35245009A_ME_4A8BB2BD015E // MakeProcessor
  ME_48033300004D_ME_4A8BB2BD015E // PartGeneratorClass
- ) .SequenceCode.It
+ )
  ; // Overridden
  : Dependencies
-   @ ( ME_4A8BB388017D // 
+   Seq: ( ME_4A8BB388017D // 
  ME_4A8C141A01D3 // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  CONST "author" 'Люлин А.В.'
  CONST "needs InstanceR" 'undefined'
@@ -669,12 +689,14 @@ ref; // ME_48033300004D_ME_4A8BB2BD015E PartGeneratorClass
  CONST "no hands" true
  CONST "register in scripts" 'undefined'
  CONST "started" '19.08.2009 12:08'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\Nemesis'
  CONST intf.pas:Path 'common\components\gui\Garant\Nemesis\nscCustomChatMemoContainer.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Nemesis'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'ChatMemoContainer'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'nscCustomChatMemoContainer'
 
 ref; // ME_4A8BB2BD015E TnscCustomChatMemoContainer
 
@@ -693,6 +715,7 @@ FORWARD ME_4BBDC4E500F0
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value '''Из документа ГАРАНТ:'''
 
 ref; // ME_4BBDC4EE0017 ChatPastePrefix
 
@@ -707,12 +730,16 @@ ref; // ME_4BBDC4EE0017 ChatPastePrefix
  : Parent ME_4A8BB357000F // TnscCustomChatMemoDocumentPartGenerator
  ;
  : Attributes
-   @ ( ME_4BBDC4EE0017 // ChatPastePrefix
- ) .SequenceCode.It
+   Seq: ( ME_4BBDC4EE0017 // ChatPastePrefix
+ )
  ; // Attributes
  CONST "Need map interface" false
  CONST "Need mapping support" false
  CONST "spell names" false
+ CONST dfm:PathOnly '\common\components\gui\Garant\Nemesis'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Nemesis'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_4BBDC4E500F0 Local
 
@@ -721,6 +748,7 @@ FORWARD ME_54D92F9F38A5
 : ME_20CAE3553527
  CONST UID '20CAE3553527'
  CONST Name 'ChatPastePrefix'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY '''Из документа ГАРАНТ:''' ;
  CONST Visibility PublicAccess
@@ -736,12 +764,14 @@ FORWARD ME_54D92F9F38A5
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''ChatPastePrefix''; rValue : ''Из документа ГАРАНТ:'')'
 
 ref; // ME_20CAE3553527 ChatPastePrefix
 
 : ME_54D92F9F38A5
  CONST UID '54D92F9F38A5'
  CONST Name 'LCImplLocal'
+ CONST IsSummoned true
  CONST Class class_Class
  : Stereotype st_Constants ;
  CONST Kind kind_NormalClass
@@ -751,11 +781,15 @@ ref; // ME_20CAE3553527 ChatPastePrefix
  : Parent ME_4A8BB357000F // TnscCustomChatMemoDocumentPartGenerator
  ;
  : Attributes
-   @ ( ME_20CAE3553527 // ChatPastePrefix
- ) .SequenceCode.It
+   Seq: ( ME_20CAE3553527 // ChatPastePrefix
+ )
  ; // Attributes
  CONST "elements prefix" 'str'
  CONST "spell names" false
+ CONST dfm:PathOnly '\common\components\gui\Garant\Nemesis'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Nemesis'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
  CONST extprop:pas:ElementPrefixBase 'str'
  CONST extprop:pas:ElementPrefix 'str_'
 
@@ -834,7 +868,8 @@ ref; // ME_4A8D287202AC f_NumberedPara
 
 : ME_20578FB5691C
  CONST UID '20578FB5691C'
- CONST Name 'Init_ChatPastePrefix'
+ CONST Name 'Init_Str_ChatPastePrefix'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Инициализация str_ChatPastePrefix' ;
@@ -842,8 +877,12 @@ ref; // ME_4A8D287202AC f_NumberedPara
  CONST Abstraction at_final
  : Parent ME_4A8BB357000F // TnscCustomChatMemoDocumentPartGenerator
  ;
+ : Speller ME_4BBDC4EE0017 // ChatPastePrefix
+ ;
+ : SpelledFor ME_20CAE3553527 // ChatPastePrefix
+ ;
 
-ref; // ME_20578FB5691C Init_ChatPastePrefix
+ref; // ME_20578FB5691C Init_Str_ChatPastePrefix
 
 : ME_4A8BD98201EB
  CONST UID '4A8BD98201EB'
@@ -1012,6 +1051,7 @@ ref; // ME_5347EF44011E
 
 : ME_288F0DB5C2BE
  CONST UID '288F0DB5C2BE'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_4A8BB357000F // TnscCustomChatMemoDocumentPartGenerator
@@ -1023,6 +1063,7 @@ ref; // ME_288F0DB5C2BE
 
 : ME_5BC2381B48ED
  CONST UID '5BC2381B48ED'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_4A8BB357000F // TnscCustomChatMemoDocumentPartGenerator
@@ -1039,6 +1080,7 @@ ref; // ME_5BC2381B48ED
  ;
  : Implementor ME_4A8BB357000F // TnscCustomChatMemoDocumentPartGenerator
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_479731C50290_ME_4A8BB357000F Cleanup
 
 : ME_4836B3DB01C9_ME_4A8BB357000F
@@ -1048,6 +1090,7 @@ ref; // ME_479731C50290_ME_4A8BB357000F Cleanup
  ;
  : Implementor ME_4A8BB357000F // TnscCustomChatMemoDocumentPartGenerator
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4836B3DB01C9_ME_4A8BB357000F DoAddAtom
 
 : ME_4836B3FC032A_ME_4A8BB357000F
@@ -1057,6 +1100,7 @@ ref; // ME_4836B3DB01C9_ME_4A8BB357000F DoAddAtom
  ;
  : Implementor ME_4A8BB357000F // TnscCustomChatMemoDocumentPartGenerator
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4836B3FC032A_ME_4A8BB357000F AddChild
 
 : ME_48E4B7F403D6_ME_4A8BB357000F
@@ -1066,6 +1110,7 @@ ref; // ME_4836B3FC032A_ME_4A8BB357000F AddChild
  ;
  : Implementor ME_4A8BB357000F // TnscCustomChatMemoDocumentPartGenerator
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_48E4B7F403D6_ME_4A8BB357000F FinishInsertion
 
 : ME_4A8BB357000F
@@ -1079,35 +1124,35 @@ ref; // ME_48E4B7F403D6_ME_4A8BB357000F FinishInsertion
  : Parent ME_4A8A86C301BE // Memos
  ;
  : Inherits
-   @ ( WL 'ME_48030DE6002F' '47ECACA70141.pas.ms.script' // TevDocumentPartGenerator
- ) .SequenceCode.It
+   Seq: ( WL 'ME_48030DE6002F' '47ECACA70141.pas.ms.script' // TevDocumentPartGenerator
+ )
  ; // Inherits
  : Attributes
-   @ ( ME_4A8BDA0501E0 // f_WasHandle
+   Seq: ( ME_4A8BDA0501E0 // f_WasHandle
  ME_4A8BDDDD0172 // f_WasInheritedParaAdd
  ME_4A8BE554022B // f_Doc
  ME_4A8BFBCB02EE // f_ExternalHandle
  ME_4A8D287202AC // f_NumberedPara
- ) .SequenceCode.It
+ )
  ; // Attributes
  : Operations
-   @ ( ME_20578FB5691C // Init_ChatPastePrefix
- ) .SequenceCode.It
+   Seq: ( ME_20578FB5691C // Init_Str_ChatPastePrefix
+ )
  ; // Operations
  : Overridden
-   @ ( ME_479731C50290_ME_4A8BB357000F // Cleanup
+   Seq: ( ME_479731C50290_ME_4A8BB357000F // Cleanup
  ME_4836B3DB01C9_ME_4A8BB357000F // DoAddAtom
  ME_4836B3FC032A_ME_4A8BB357000F // AddChild
  ME_48E4B7F403D6_ME_4A8BB357000F // FinishInsertion
- ) .SequenceCode.It
+ )
  ; // Overridden
  : Constants
-   @ ( ME_4BBDC4E500F0 // Local
+   Seq: ( ME_4BBDC4E500F0 // Local
  ME_54D92F9F38A5 // LCImplLocal
- ) .SequenceCode.It
+ )
  ; // Constants
  : Dependencies
-   @ ( ME_4A8BD98201EB // 
+   Seq: ( ME_4A8BD98201EB // 
  ME_4A8BDA7300BE // 
  ME_4A8BDA8200A7 // 
  ME_4A8BE76B0320 // 
@@ -1124,7 +1169,7 @@ ref; // ME_48E4B7F403D6_ME_4A8BB357000F FinishInsertion
  ME_5347EF44011E // 
  ME_288F0DB5C2BE // 
  ME_5BC2381B48ED // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  CONST "author" 'Люлин А.В.'
  CONST "needs InstanceR" 'undefined'
@@ -1132,12 +1177,14 @@ ref; // ME_48E4B7F403D6_ME_4A8BB357000F FinishInsertion
  CONST "no hands" true
  CONST "register in scripts" 'undefined'
  CONST "started" '19.08.2009 12:10'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\Nemesis'
  CONST intf.pas:Path 'common\components\gui\Garant\Nemesis\nscCustomChatMemoDocumentPartGenerator.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Nemesis'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'ChatMemoDocumentPartGenerator'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'nscCustomChatMemoDocumentPartGenerator'
 
 ref; // ME_4A8BB357000F TnscCustomChatMemoDocumentPartGenerator
 
@@ -1152,8 +1199,8 @@ ref; // ME_4A8BB357000F TnscCustomChatMemoDocumentPartGenerator
  : Parent ME_4A8A86C301BE // Memos
  ;
  : Inherits
-   @ ( WL 'ME_4864C01000A7' '4829D7D50156.pas.ms.script' // TevMemoProcessor
- ) .SequenceCode.It
+   Seq: ( WL 'ME_4864C01000A7' '4829D7D50156.pas.ms.script' // TevMemoProcessor
+ )
  ; // Inherits
  CONST "author" 'Люлин А.В.'
  CONST "needs InstanceR" 'undefined'
@@ -1161,12 +1208,14 @@ ref; // ME_4A8BB357000F TnscCustomChatMemoDocumentPartGenerator
  CONST "no hands" true
  CONST "register in scripts" 'undefined'
  CONST "started" '19.08.2009 19:02'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\Nemesis'
  CONST intf.pas:Path 'common\components\gui\Garant\Nemesis\nscCustomChatMemoProcessor.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Nemesis'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'ChatMemoProcessor'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'nscCustomChatMemoProcessor'
 
 ref; // ME_4A8C13FD0044 TnscCustomChatMemoProcessor
 
@@ -1181,16 +1230,16 @@ ref; // ME_4A8C13FD0044 TnscCustomChatMemoProcessor
  : Parent WL 'ME_490838AA02D0' '490838AA02D0.pas.ms.script' // Nemesis
  ;
  : Children
-   @ ( ME_4A8A871B02ED // TnscCustomChatMemo
+   Seq: ( ME_4A8A871B02ED // TnscCustomChatMemo
  ME_4A8A8739017D // TnscChatMemo
  ME_4A8BB2760229 // TnscCustomChatMemoTextSource
  ME_4A8BB2BD015E // TnscCustomChatMemoContainer
  ME_4A8BB357000F // TnscCustomChatMemoDocumentPartGenerator
  ME_4A8C13FD0044 // TnscCustomChatMemoProcessor
- ) .SequenceCode.It
+ )
  ; // Children
  : Depends
-   @ ( WL 'ME_4678193C009C' '4678193C009C.pas.ms.script' // l3Types
+   Seq: ( WL 'ME_4678193C009C' '4678193C009C.pas.ms.script' // l3Types
  WL 'ME_4678209200A6' '4678209200A6.pas.ms.script' // nevBase
  WL 'ME_469D0AC7005E' '469D0AC7005E.pas.ms.script' // Types
  WL 'ME_47913B47006E' '47913B47006E.pas.ms.script' // l3CoreObjects
@@ -1209,15 +1258,13 @@ ref; // ME_4A8C13FD0044 TnscCustomChatMemoProcessor
  WL 'ME_4A8A6D020382' '4A8A6D020382.pas.ms.script' // Memos
  WL 'ME_4AB0C3C60310' '4AB0C3C60310.pas.ms.script' // Sys
  WL 'ME_561F9F7D02A7' '561F9F7D02A7.pas.ms.script' // ScriptEngine
- ) .SequenceCode.It
+ )
  ; // Depends
- : Generators
- @ (
- gen_pas.script
- gen_pas.script.runner
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\Nemesis'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Nemesis'
  CONST pas.script:Path 'shared\models\NewSchool\Scripts\4A8A86C301BE.pas.ms.script'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
  CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\4A8A86C301BE.pas.ms.script.runner'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_4A8A86C301BE Memos

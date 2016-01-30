@@ -86,6 +86,7 @@ ref; // ME_4FFFF86503D4
 
 : ME_2F60632E694A
  CONST UID '2F60632E694A'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_4FFFDEE701EA // ModalDialogsKeywordsPack
@@ -106,26 +107,25 @@ ref; // ME_2F60632E694A
  : Parent ME_4FFFDA8302A7 // ModalDialogs
  ;
  : Dependencies
-   @ ( ME_4FFFDF5B0173 // 
+   Seq: ( ME_4FFFDF5B0173 // 
  ME_4FFFDF6000FF // 
  ME_4FFFDF6401B4 // 
  ME_4FFFDF680059 // 
  ME_4FFFE2E202D1 // 
  ME_4FFFF86503D4 // 
  ME_2F60632E694A // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  CONST "ifndef" 'NoScripts'
  CONST "needs script" 'undefined'
  CONST "no class name" 'undefined'
  CONST "no hands" false
  CONST "no_pop" 'undefined'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\ScriptEngine'
  CONST intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\ModalDialogsKeywordsPack.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\ScriptEngine'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_4FFFDEE701EA ModalDialogsKeywordsPack
 
@@ -164,27 +164,28 @@ ref; // ME_5093DC25011A
  : Parent ME_4FFFDA8302A7 // ModalDialogs
  ;
  : Dependencies
-   @ ( ME_5093D4BF0220 // 
+   Seq: ( ME_5093D4BF0220 // 
  ME_5093DC25011A // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\ScriptEngine'
  CONST intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\afwImpurity.imp.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\ScriptEngine'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
  CONST extprop:pas:TypeName '_afwImpurity_'
+ CONST extprop:pas:UnitName 'afwImpurity.imp'
 
 ref; // ME_5093D47602BF afwImpurity
 
 : ME_5EC98EA11FE0
  CONST UID '5EC98EA11FE0'
  CONST Name 'Ini_Reg'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Регистрация wait_Choice' ;
@@ -226,42 +227,45 @@ ref; // ME_4DB0614603C8_ME_4FFFF8520204 GetWordNameForRegister
  : Parent ME_4FFFDA8302A7 // ModalDialogs
  ;
  : Inherits
-   @ ( WL 'ME_53EDC0E701BC' '4F3E3F5F0160.pas.ms.script' // TtfwRegisterableWord
- ) .SequenceCode.It
+   Seq: ( WL 'ME_53EDC0E701BC' '4F3E3F5F0160.pas.ms.script' // TtfwRegisterableWord
+ )
  ; // Inherits
  : Implements
-   @ ( ME_5093D47602BF // afwImpurity
- ) .SequenceCode.It
+   Seq: ( ME_5093D47602BF // afwImpurity
+ )
  ; // Implements
  : Operations
-   @ ( ME_5EC98EA11FE0 // Ini_Reg
- ) .SequenceCode.It
+   Seq: ( ME_5EC98EA11FE0 // Ini_Reg
+ )
  ; // Operations
  : Implemented
-   @ ( ME_4DAEEDE10285_ME_4FFFF8520204 // DoDoIt
- ) .SequenceCode.It
+   Seq: ( ME_4DAEEDE10285_ME_4FFFF8520204 // DoDoIt
+ )
  ; // Implemented
  : Overridden
-   @ ( ME_4DB0614603C8_ME_4FFFF8520204 // GetWordNameForRegister
- ) .SequenceCode.It
+   Seq: ( ME_4DB0614603C8_ME_4FFFF8520204 // GetWordNameForRegister
+ )
  ; // Overridden
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\ScriptEngine'
  CONST intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\kwWaitChoice.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\ScriptEngine'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
  CONST extprop:pas:TypeName 'TkwWaitChoice'
+ CONST extprop:rc:SelfName 'WaitChoice'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'kwWaitChoice'
 
 ref; // ME_4FFFF8520204 wait_Choice
 
 : ME_38BB7E627EFD
  CONST UID '38BB7E627EFD'
  CONST Name 'Ini_Reg'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Регистрация Was_Wait' ;
@@ -303,24 +307,24 @@ ref; // ME_4DB0614603C8_ME_4DB94B3103DB GetWordNameForRegister
  : Parent ME_4FFFDA8302A7 // ModalDialogs
  ;
  : Inherits
-   @ ( WL 'ME_53EDC0E701BC' '4F3E3F5F0160.pas.ms.script' // TtfwRegisterableWord
- ) .SequenceCode.It
+   Seq: ( WL 'ME_53EDC0E701BC' '4F3E3F5F0160.pas.ms.script' // TtfwRegisterableWord
+ )
  ; // Inherits
  : Implements
-   @ ( ME_5093D47602BF // afwImpurity
- ) .SequenceCode.It
+   Seq: ( ME_5093D47602BF // afwImpurity
+ )
  ; // Implements
  : Operations
-   @ ( ME_38BB7E627EFD // Ini_Reg
- ) .SequenceCode.It
+   Seq: ( ME_38BB7E627EFD // Ini_Reg
+ )
  ; // Operations
  : Implemented
-   @ ( ME_4DAEEDE10285_ME_4DB94B3103DB // DoDoIt
- ) .SequenceCode.It
+   Seq: ( ME_4DAEEDE10285_ME_4DB94B3103DB // DoDoIt
+ )
  ; // Implemented
  : Overridden
-   @ ( ME_4DB0614603C8_ME_4DB94B3103DB // GetWordNameForRegister
- ) .SequenceCode.It
+   Seq: ( ME_4DB0614603C8_ME_4DB94B3103DB // GetWordNameForRegister
+ )
  ; // Overridden
  CONST "NameForScript" 'waited:?'
  CONST "author" 'Люлин А.В.'
@@ -329,19 +333,22 @@ ref; // ME_4DB0614603C8_ME_4DB94B3103DB GetWordNameForRegister
  CONST "no hands" true
  CONST "register in scripts" 'undefined'
  CONST "started" '28.04.2011 15:11'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\ScriptEngine'
  CONST intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\kwWasWait.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\ScriptEngine'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
  CONST extprop:pas:TypeName 'TkwWasWait'
+ CONST extprop:rc:SelfName 'WasWait'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'kwWasWait'
 
 ref; // ME_4DB94B3103DB Was_Wait
 
 : ME_750CEA32FAD1
  CONST UID '750CEA32FAD1'
  CONST Name 'Ini_Reg'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Регистрация wait_No' ;
@@ -383,24 +390,24 @@ ref; // ME_4DB0614603C8_ME_4DB94AE60059 GetWordNameForRegister
  : Parent ME_4FFFDA8302A7 // ModalDialogs
  ;
  : Inherits
-   @ ( WL 'ME_53EDC0E701BC' '4F3E3F5F0160.pas.ms.script' // TtfwRegisterableWord
- ) .SequenceCode.It
+   Seq: ( WL 'ME_53EDC0E701BC' '4F3E3F5F0160.pas.ms.script' // TtfwRegisterableWord
+ )
  ; // Inherits
  : Implements
-   @ ( ME_5093D47602BF // afwImpurity
- ) .SequenceCode.It
+   Seq: ( ME_5093D47602BF // afwImpurity
+ )
  ; // Implements
  : Operations
-   @ ( ME_750CEA32FAD1 // Ini_Reg
- ) .SequenceCode.It
+   Seq: ( ME_750CEA32FAD1 // Ini_Reg
+ )
  ; // Operations
  : Implemented
-   @ ( ME_4DAEEDE10285_ME_4DB94AE60059 // DoDoIt
- ) .SequenceCode.It
+   Seq: ( ME_4DAEEDE10285_ME_4DB94AE60059 // DoDoIt
+ )
  ; // Implemented
  : Overridden
-   @ ( ME_4DB0614603C8_ME_4DB94AE60059 // GetWordNameForRegister
- ) .SequenceCode.It
+   Seq: ( ME_4DB0614603C8_ME_4DB94AE60059 // GetWordNameForRegister
+ )
  ; // Overridden
  CONST "author" 'Люлин А.В.'
  CONST "needs InstanceR" 'undefined'
@@ -408,19 +415,22 @@ ref; // ME_4DB0614603C8_ME_4DB94AE60059 GetWordNameForRegister
  CONST "no hands" true
  CONST "register in scripts" 'undefined'
  CONST "started" '28.04.2011 15:10'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\ScriptEngine'
  CONST intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\kwWaitNo.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\ScriptEngine'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
  CONST extprop:pas:TypeName 'TkwWaitNo'
+ CONST extprop:rc:SelfName 'WaitNo'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'kwWaitNo'
 
 ref; // ME_4DB94AE60059 wait_No
 
 : ME_204CFD8DE590
  CONST UID '204CFD8DE590'
  CONST Name 'Ini_Reg'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Регистрация wait_Ok' ;
@@ -462,24 +472,24 @@ ref; // ME_4DB0614603C8_ME_4DDE8A650180 GetWordNameForRegister
  : Parent ME_4FFFDA8302A7 // ModalDialogs
  ;
  : Inherits
-   @ ( WL 'ME_53EDC0E701BC' '4F3E3F5F0160.pas.ms.script' // TtfwRegisterableWord
- ) .SequenceCode.It
+   Seq: ( WL 'ME_53EDC0E701BC' '4F3E3F5F0160.pas.ms.script' // TtfwRegisterableWord
+ )
  ; // Inherits
  : Implements
-   @ ( ME_5093D47602BF // afwImpurity
- ) .SequenceCode.It
+   Seq: ( ME_5093D47602BF // afwImpurity
+ )
  ; // Implements
  : Operations
-   @ ( ME_204CFD8DE590 // Ini_Reg
- ) .SequenceCode.It
+   Seq: ( ME_204CFD8DE590 // Ini_Reg
+ )
  ; // Operations
  : Implemented
-   @ ( ME_4DAEEDE10285_ME_4DDE8A650180 // DoDoIt
- ) .SequenceCode.It
+   Seq: ( ME_4DAEEDE10285_ME_4DDE8A650180 // DoDoIt
+ )
  ; // Implemented
  : Overridden
-   @ ( ME_4DB0614603C8_ME_4DDE8A650180 // GetWordNameForRegister
- ) .SequenceCode.It
+   Seq: ( ME_4DB0614603C8_ME_4DDE8A650180 // GetWordNameForRegister
+ )
  ; // Overridden
  CONST "author" 'Люлин А.В.'
  CONST "needs InstanceR" 'undefined'
@@ -487,19 +497,22 @@ ref; // ME_4DB0614603C8_ME_4DDE8A650180 GetWordNameForRegister
  CONST "no hands" true
  CONST "register in scripts" 'undefined'
  CONST "started" '26.05.2011 21:14'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\ScriptEngine'
  CONST intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\kwWaitOk.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\ScriptEngine'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
  CONST extprop:pas:TypeName 'TkwWaitOk'
+ CONST extprop:rc:SelfName 'WaitOk'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'kwWaitOk'
 
 ref; // ME_4DDE8A650180 wait_Ok
 
 : ME_C9E4C5A39179
  CONST UID 'C9E4C5A39179'
  CONST Name 'Ini_Reg'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Регистрация wait_Yes' ;
@@ -541,24 +554,24 @@ ref; // ME_4DB0614603C8_ME_4DB94A330111 GetWordNameForRegister
  : Parent ME_4FFFDA8302A7 // ModalDialogs
  ;
  : Inherits
-   @ ( WL 'ME_53EDC0E701BC' '4F3E3F5F0160.pas.ms.script' // TtfwRegisterableWord
- ) .SequenceCode.It
+   Seq: ( WL 'ME_53EDC0E701BC' '4F3E3F5F0160.pas.ms.script' // TtfwRegisterableWord
+ )
  ; // Inherits
  : Implements
-   @ ( ME_5093D47602BF // afwImpurity
- ) .SequenceCode.It
+   Seq: ( ME_5093D47602BF // afwImpurity
+ )
  ; // Implements
  : Operations
-   @ ( ME_C9E4C5A39179 // Ini_Reg
- ) .SequenceCode.It
+   Seq: ( ME_C9E4C5A39179 // Ini_Reg
+ )
  ; // Operations
  : Implemented
-   @ ( ME_4DAEEDE10285_ME_4DB94A330111 // DoDoIt
- ) .SequenceCode.It
+   Seq: ( ME_4DAEEDE10285_ME_4DB94A330111 // DoDoIt
+ )
  ; // Implemented
  : Overridden
-   @ ( ME_4DB0614603C8_ME_4DB94A330111 // GetWordNameForRegister
- ) .SequenceCode.It
+   Seq: ( ME_4DB0614603C8_ME_4DB94A330111 // GetWordNameForRegister
+ )
  ; // Overridden
  CONST "author" 'Люлин А.В.'
  CONST "needs InstanceR" 'undefined'
@@ -566,19 +579,22 @@ ref; // ME_4DB0614603C8_ME_4DB94A330111 GetWordNameForRegister
  CONST "no hands" true
  CONST "register in scripts" 'undefined'
  CONST "started" '28.04.2011 15:06'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\ScriptEngine'
  CONST intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\kwWaitYes.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\ScriptEngine'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
  CONST extprop:pas:TypeName 'TkwWaitYes'
+ CONST extprop:rc:SelfName 'WaitYes'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'kwWaitYes'
 
 ref; // ME_4DB94A330111 wait_Yes
 
 : ME_85A3C1E8F76E
  CONST UID '85A3C1E8F76E'
  CONST Name 'Ini_Reg'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Регистрация wait_Cancel' ;
@@ -620,36 +636,38 @@ ref; // ME_4DB0614603C8_ME_4FFFE217028B GetWordNameForRegister
  : Parent ME_4FFFDA8302A7 // ModalDialogs
  ;
  : Inherits
-   @ ( WL 'ME_53EDC0E701BC' '4F3E3F5F0160.pas.ms.script' // TtfwRegisterableWord
- ) .SequenceCode.It
+   Seq: ( WL 'ME_53EDC0E701BC' '4F3E3F5F0160.pas.ms.script' // TtfwRegisterableWord
+ )
  ; // Inherits
  : Implements
-   @ ( ME_5093D47602BF // afwImpurity
- ) .SequenceCode.It
+   Seq: ( ME_5093D47602BF // afwImpurity
+ )
  ; // Implements
  : Operations
-   @ ( ME_85A3C1E8F76E // Ini_Reg
- ) .SequenceCode.It
+   Seq: ( ME_85A3C1E8F76E // Ini_Reg
+ )
  ; // Operations
  : Implemented
-   @ ( ME_4DAEEDE10285_ME_4FFFE217028B // DoDoIt
- ) .SequenceCode.It
+   Seq: ( ME_4DAEEDE10285_ME_4FFFE217028B // DoDoIt
+ )
  ; // Implemented
  : Overridden
-   @ ( ME_4DB0614603C8_ME_4FFFE217028B // GetWordNameForRegister
- ) .SequenceCode.It
+   Seq: ( ME_4DB0614603C8_ME_4FFFE217028B // GetWordNameForRegister
+ )
  ; // Overridden
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\ScriptEngine'
  CONST intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\kwWaitCancel.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\ScriptEngine'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
  CONST extprop:pas:TypeName 'TkwWaitCancel'
+ CONST extprop:rc:SelfName 'WaitCancel'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'kwWaitCancel'
 
 ref; // ME_4FFFE217028B wait_Cancel
 
@@ -663,7 +681,7 @@ ref; // ME_4FFFE217028B wait_Cancel
  : Parent WL 'ME_4E1F0EB100C4' '4E1F0EB100C4.pas.ms.script' // ScriptEngine
  ;
  : Children
-   @ ( ME_4FFFDEE701EA // ModalDialogsKeywordsPack
+   Seq: ( ME_4FFFDEE701EA // ModalDialogsKeywordsPack
  ME_5093D47602BF // afwImpurity
  ME_4FFFF8520204 // wait_Choice
  ME_4DB94B3103DB // Was_Wait
@@ -671,24 +689,22 @@ ref; // ME_4FFFE217028B wait_Cancel
  ME_4DDE8A650180 // wait_Ok
  ME_4DB94A330111 // wait_Yes
  ME_4FFFE217028B // wait_Cancel
- ) .SequenceCode.It
+ )
  ; // Children
  : Depends
-   @ ( WL 'ME_4799D29F033F' '4799D29F033F.pas.ms.script' // Implementation
+   Seq: ( WL 'ME_4799D29F033F' '4799D29F033F.pas.ms.script' // Implementation
  WL 'ME_4DAEEA14018A' '4DAEEA14018A.pas.ms.script' // Scripting Axiomatics
  WL 'ME_4E030FC801EB' '4E030FC801EB.pas.ms.script' // BatchServices
  WL 'ME_4F3E3F5F0160' '4F3E3F5F0160.pas.ms.script' // PrimitiveWords
  WL 'ME_55BA28CE0290' '55BA28CE0290.pas.ms.script' // tfwScriptingTypes
- ) .SequenceCode.It
+ )
  ; // Depends
  CONST "ifndef" 'NoScripts,NoVCL'
- : Generators
- @ (
- gen_pas.script
- gen_pas.script.runner
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\ScriptEngine'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\ScriptEngine'
  CONST pas.script:Path 'shared\models\NewSchool\Scripts\4FFFDA8302A7.pas.ms.script'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
  CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\4FFFDA8302A7.pas.ms.script.runner'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_4FFFDA8302A7 ModalDialogs

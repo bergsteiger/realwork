@@ -1,0 +1,51 @@
+// Integration_i 463F52B10109 Impl Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+: ME_463F52B10109
+ CONST UID '463F52B10109'
+ CONST Name 'Integration_i'
+ CONST Class class_Category
+ : Stereotype st_Impl ;
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_regular
+ : Parent WL 'ME_456EA3D2031C' '456EA3D2031C.pas.ms.script' // GblAdapterLib
+ ;
+ : Depends
+   Seq: ( WL 'ME_45700BFD0251' '45700BFD0251.pas.ms.script' // DynamicDocList
+ WL 'ME_45EEAA8E034E' '45EEAA8E034E.pas.ms.script' // Search
+ WL 'ME_460BAAA30119' '460BAAA30119.pas.ms.script' // ApplicationHelper
+ WL 'ME_463F4DE5003E' '463F4DE5003E.pas.ms.script' // IntegrationProject
+ )
+ ; // Depends
+ CONST "is namespace" true
+ : Generators
+ Seq: (
+ gen_pas.script
+ gen_pas.script.runner
+ )
+ ; // Generators
+ CONST cpp:PathOnly '\garant6x\implementation\Garant\GblAdapterLib\impl\Integration_i'
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GblAdapterLib'
+ CONST dll.cpp:PathOnly '\garant6x\implementation\Garant\GblAdapterLib'
+ CONST dll.h:PathOnly '\garant6x\implementation\Garant\GblAdapterLib'
+ CONST fctr.cpp:PathOnly '\garant6x\implementation\Garant\GblAdapterLib\impl\Integration_i'
+ CONST fctr.h:PathOnly '\garant6x\implementation\Garant\GblAdapterLib\impl\Integration_i'
+ CONST h:PathOnly '\garant6x\implementation\Garant\GblAdapterLib\impl\Integration_i'
+ CONST i.h:PathOnly '\garant6x\implementation\Garant\GblAdapterLib\impl\Integration_i'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\tie\Garant\GblAdapterLib'
+ CONST mpc:PathOnly '\garant6x\implementation\Garant\project'
+ CONST mpc2:PathOnly '\garant6x\implementation\Garant\project'
+ CONST pas:PathOnly '\garant6x\implementation\Garant\GblAdapterLib'
+ CONST pas.script:Path 'shared\models\NewSchool\Scripts\463F52B10109.pas.ms.script'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\463F52B10109.pas.ms.script.runner'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc:PathOnly '\garant6x\implementation\Garant\GblAdapterLib'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\GblAdapterLib'
+ CONST s.ini:PathOnly '\garant6x\implementation\Garant\project'
+ CONST s.reg:PathOnly '\garant6x\implementation\Garant\project'
+ CONST vi.rc:PathOnly '\garant6x\implementation\Garant'
+ CONST vi.rch:PathOnly '\garant6x\implementation\Garant'
+
+ref; // ME_463F52B10109 Integration_i

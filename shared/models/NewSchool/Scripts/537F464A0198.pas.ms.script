@@ -16,6 +16,10 @@ FORWARD ME_537F469100A6
  CONST Abstraction at_regular
  : Parent ME_537F469100A6 // IdGlobal
  ;
+ CONST dfm:PathOnly '\common\components\rtl\external\Indy\Source\System'
+ CONST intf.pas:PathOnly '\common\components\rtl\external\Indy\Source\System'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_537F46A40077 TIdPort
 
@@ -30,6 +34,10 @@ ref; // ME_537F46A40077 TIdPort
  : Parent ME_537F469100A6 // IdGlobal
  ;
  CONST "array type" 'dynamic'
+ CONST dfm:PathOnly '\common\components\rtl\external\Indy\Source\System'
+ CONST intf.pas:PathOnly '\common\components\rtl\external\Indy\Source\System'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_538DBDE603A7 TIdBytes
 
@@ -44,18 +52,17 @@ ref; // ME_538DBDE603A7 TIdBytes
  : Parent ME_537F464A0198 // System
  ;
  : Children
-   @ ( ME_537F46A40077 // TIdPort
+   Seq: ( ME_537F46A40077 // TIdPort
  ME_538DBDE603A7 // TIdBytes
- ) .SequenceCode.It
+ )
  ; // Children
  CONST "finished" false
  CONST "no hands" false
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\external\Indy\Source\System'
  CONST intf.pas:Path 'common\components\rtl\external\Indy\Source\System\NOT_FINISHED_IdGlobal.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\external\Indy\Source\System'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_537F469100A6 IdGlobal
 
@@ -71,12 +78,11 @@ ref; // ME_537F469100A6 IdGlobal
  ;
  CONST "finished" false
  CONST "no hands" false
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\external\Indy\Source\System'
  CONST intf.pas:Path 'common\components\rtl\external\Indy\Source\System\NOT_FINISHED_IdException.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\external\Indy\Source\System'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_544E35D90359 IdException
 
@@ -203,7 +209,7 @@ ref; // ME_545B3F58032D ftpAborted
  : Parent ME_545B3EC403B9 // idComponent
  ;
  : Attributes
-   @ ( ME_545B3EF1024A // hsResolving
+   Seq: ( ME_545B3EF1024A // hsResolving
  ME_545B3F030105 // hsConnecting
  ME_545B3F0C005B // hsConnected
  ME_545B3F170394 // hsDisconnecting
@@ -212,8 +218,13 @@ ref; // ME_545B3F58032D ftpAborted
  ME_545B3F3A0253 // ftpTransfer
  ME_545B3F4D033E // ftpReady
  ME_545B3F58032D // ftpAborted
- ) .SequenceCode.It
+ )
  ; // Attributes
+ CONST dfm:PathOnly '\common\components\rtl\external\Indy\Source\System'
+ CONST intf.pas:PathOnly '\common\components\rtl\external\Indy\Source\System'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_545B3EE3029E TIdStatus
 
@@ -258,10 +269,10 @@ ref; // ME_545B5FC0012E AStatusText
  : Parent ME_545B3F72015E // TIdStatusEvent
  ;
  : Parameters
-   @ ( ME_545B5FC000FF // ASender
+   Seq: ( ME_545B5FC000FF // ASender
  ME_545B5FC0011F // AStatus
  ME_545B5FC0012E // AStatusText
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_545B3FAD00F2 DoIt
@@ -277,10 +288,14 @@ ref; // ME_545B3FAD00F2 DoIt
  : Parent ME_545B3EC403B9 // idComponent
  ;
  : Operations
-   @ ( ME_545B3FAD00F2 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_545B3FAD00F2 // DoIt
+ )
  ; // Operations
  CONST "of object" true
+ CONST dfm:PathOnly '\common\components\rtl\external\Indy\Source\System'
+ CONST intf.pas:PathOnly '\common\components\rtl\external\Indy\Source\System'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_545B3F72015E TIdStatusEvent
 
@@ -295,18 +310,17 @@ ref; // ME_545B3F72015E TIdStatusEvent
  : Parent ME_537F464A0198 // System
  ;
  : Children
-   @ ( ME_545B3EE3029E // TIdStatus
+   Seq: ( ME_545B3EE3029E // TIdStatus
  ME_545B3F72015E // TIdStatusEvent
- ) .SequenceCode.It
+ )
  ; // Children
  CONST "finished" false
  CONST "no hands" false
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\external\Indy\Source\System'
  CONST intf.pas:Path 'common\components\rtl\external\Indy\Source\System\NOT_FINISHED_idComponent.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\external\Indy\Source\System'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_545B3EC403B9 idComponent
 
@@ -320,23 +334,21 @@ ref; // ME_545B3EC403B9 idComponent
  : Parent WL 'ME_537F460C034E' '537F460C034E.pas.ms.script' // Indy
  ;
  : Children
-   @ ( ME_537F469100A6 // IdGlobal
+   Seq: ( ME_537F469100A6 // IdGlobal
  ME_544E35D90359 // IdException
  ME_545B3EC403B9 // idComponent
- ) .SequenceCode.It
+ )
  ; // Children
  : Depends
-   @ ( WL 'ME_4AB0C3C60310' '4AB0C3C60310.pas.ms.script' // Sys
- ) .SequenceCode.It
+   Seq: ( WL 'ME_4AB0C3C60310' '4AB0C3C60310.pas.ms.script' // Sys
+ )
  ; // Depends
  CONST "path prefix" '/Source/System'
- : Generators
- @ (
- gen_pas.script
- gen_pas.script.runner
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\external\Indy\Source\System'
+ CONST intf.pas:PathOnly '\common\components\rtl\external\Indy\Source\System'
  CONST pas.script:Path 'shared\models\NewSchool\Scripts\537F464A0198.pas.ms.script'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
  CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\537F464A0198.pas.ms.script.runner'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_537F464A0198 System

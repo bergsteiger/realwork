@@ -37,9 +37,9 @@ ref; // ME_4F212C06009B aCtx
  : Parent ME_4F212BD5010E // DoObject
  ;
  : Parameters
-   @ ( ME_4F212C06004A // anObject
+   Seq: ( ME_4F212C06004A // anObject
  ME_4F212C06009B // aCtx
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_4F212BFB0113 DoIt
@@ -55,8 +55,8 @@ ref; // ME_4F212BFB0113 DoIt
  : Parent ME_4F212BA80137 // TkwObjectFromStackWord
  ;
  : Operations
-   @ ( ME_4F212BFB0113 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_4F212BFB0113 // DoIt
+ )
  ; // Operations
 
 ref; // ME_4F212BD5010E DoObject
@@ -64,6 +64,7 @@ ref; // ME_4F212BD5010E DoObject
 : ME_641F33294FB9
  CONST UID '641F33294FB9'
  CONST Name 'Ini_Reg_Class'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Регистрация TkwObjectFromStackWord' ;
@@ -96,17 +97,17 @@ ref; // ME_4DAEEDE10285_ME_4F212BA80137 DoDoIt
  : Parent ME_54DC9ACA0156 // RTL bindings
  ;
  : Inherits
-   @ ( WL 'ME_53EDC0E701BC' '4F3E3F5F0160.pas.ms.script' // TtfwRegisterableWord
- ) .SequenceCode.It
+   Seq: ( WL 'ME_53EDC0E701BC' '4F3E3F5F0160.pas.ms.script' // TtfwRegisterableWord
+ )
  ; // Inherits
  : Operations
-   @ ( ME_4F212BD5010E // DoObject
+   Seq: ( ME_4F212BD5010E // DoObject
  ME_641F33294FB9 // Ini_Reg_Class
- ) .SequenceCode.It
+ )
  ; // Operations
  : Implemented
-   @ ( ME_4DAEEDE10285_ME_4F212BA80137 // DoDoIt
- ) .SequenceCode.It
+   Seq: ( ME_4DAEEDE10285_ME_4F212BA80137 // DoDoIt
+ )
  ; // Implemented
  CONST "author" 'Люлин А.В.'
  CONST "needs InstanceR" 'undefined'
@@ -114,12 +115,14 @@ ref; // ME_4DAEEDE10285_ME_4F212BA80137 DoDoIt
  CONST "no hands" true
  CONST "register in scripts" 'undefined'
  CONST "started" '26.01.2012 14:32'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\ScriptEngine'
  CONST intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\kwObjectFromStackWord.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\ScriptEngine'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'ObjectFromStackWord'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'kwObjectFromStackWord'
 
 ref; // ME_4F212BA80137 TkwObjectFromStackWord
 
@@ -133,17 +136,15 @@ ref; // ME_4F212BA80137 TkwObjectFromStackWord
  : Parent WL 'ME_54DB92A80279' '54DB92A80279.pas.ms.script' // ScriptEngine$RTLandVCL
  ;
  : Children
-   @ ( ME_4F212BA80137 // TkwObjectFromStackWord
- ) .SequenceCode.It
+   Seq: ( ME_4F212BA80137 // TkwObjectFromStackWord
+ )
  ; // Children
  CONST "ifndef" 'NoScripts'
- : Generators
- @ (
- gen_pas.script
- gen_pas.script.runner
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\ScriptEngine'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\ScriptEngine'
  CONST pas.script:Path 'shared\models\NewSchool\Scripts\54DC9ACA0156.pas.ms.script'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
  CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\54DC9ACA0156.pas.ms.script.runner'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_54DC9ACA0156 RTL bindings

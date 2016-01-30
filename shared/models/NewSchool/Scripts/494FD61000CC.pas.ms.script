@@ -1,0 +1,865 @@
+// Users 494FD61000CC VCMControls Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_494FD61000CC
+
+FORWARD ME_494FD63D011D
+
+FORWARD ME_4C7CDF1B0192
+
+: ME_4C7CDF3000FA
+ CONST UID '4C7CDF3000FA'
+ CONST Name 'SingleUser'
+ CONST Class class_Class
+ : Stereotype st_VCMOperationState ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_4C7CDF1B0192 // LogoutUser
+ ;
+ CONST "Checked" 'undefined'
+ CONST "Enabled" 'undefined'
+ CONST "UseNewGen" 'undefined'
+ CONST "Visible" 'undefined'
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\View'
+
+ref; // ME_4C7CDF3000FA SingleUser
+
+: ME_4C7CDF3B00BA
+ CONST UID '4C7CDF3B00BA'
+ CONST Name 'MultiUsers'
+ CONST Class class_Class
+ : Stereotype st_VCMOperationState ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Отключить выделенных пользователей' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_4C7CDF1B0192 // LogoutUser
+ ;
+ CONST "Checked" 'undefined'
+ CONST "Enabled" 'undefined'
+ CONST "UseNewGen" 'undefined'
+ CONST "Visible" 'undefined'
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\View'
+
+ref; // ME_4C7CDF3B00BA MultiUsers
+
+: ME_4C7CDF1B0192
+ CONST UID '4C7CDF1B0192'
+ CONST Name 'LogoutUser'
+ CONST Class class_Class
+ : Stereotype st_VCMOperation ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Отключить пользователя' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_494FD63D011D // Users
+ ;
+ : Children
+   Seq: ( ME_4C7CDF3000FA // SingleUser
+ ME_4C7CDF3B00BA // MultiUsers
+ )
+ ; // Children
+ CONST "AutoFocus" false
+ CONST "AutoLock" false
+ CONST "LongProcess" false
+ CONST "ShowInContextMenu" 'undefined'
+ CONST "ShowInToolbar" 'undefined'
+ CONST "UseNewGen" 'undefined'
+ CONST "has states" true
+ CONST "is FormActivate" false
+ CONST "is query" false
+ CONST "no prefix" false
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\View'
+
+ref; // ME_4C7CDF1B0192 LogoutUser
+
+FORWARD ME_4C7CDF570361
+
+: ME_4C7CDF8702B1
+ CONST UID '4C7CDF8702B1'
+ CONST Name 'Enabled'
+ CONST Class class_Class
+ : Stereotype st_VCMOperationState ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Запретить вновь созданным пользователям использование услуги Правового консалтинга' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_4C7CDF570361 // ConsultingStateForNewbie
+ ;
+ CONST "Checked" 'undefined'
+ CONST "Enabled" 'undefined'
+ CONST "ImageIndex" 163
+ CONST "UseNewGen" 'undefined'
+ CONST "Visible" 'undefined'
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\View'
+
+ref; // ME_4C7CDF8702B1 Enabled
+
+: ME_4C7CDFA20226
+ CONST UID '4C7CDFA20226'
+ CONST Name 'Disabled'
+ CONST Class class_Class
+ : Stereotype st_VCMOperationState ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Разрешить вновь созданным пользователям использование услуги Правового консалтинга' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_4C7CDF570361 // ConsultingStateForNewbie
+ ;
+ CONST "Checked" true
+ CONST "Enabled" 'undefined'
+ CONST "UseNewGen" 'undefined'
+ CONST "Visible" 'undefined'
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\View'
+
+ref; // ME_4C7CDFA20226 Disabled
+
+: ME_4C7CDF570361
+ CONST UID '4C7CDF570361'
+ CONST Name 'ConsultingStateForNewbie'
+ CONST Class class_Class
+ : Stereotype st_VCMOperation ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Разрешить/Запретить вновь созданным пользователям использование услуги Правового консалтинга' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_494FD63D011D // Users
+ ;
+ : Children
+   Seq: ( ME_4C7CDF8702B1 // Enabled
+ ME_4C7CDFA20226 // Disabled
+ )
+ ; // Children
+ CONST "AutoFocus" false
+ CONST "AutoLock" false
+ CONST "LongProcess" false
+ CONST "ShowInContextMenu" 'undefined'
+ CONST "ShowInToolbar" 'undefined'
+ CONST "UseNewGen" 'undefined'
+ CONST "has states" true
+ CONST "is FormActivate" false
+ CONST "is query" true
+ CONST "no prefix" false
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\View'
+
+ref; // ME_4C7CDF570361 ConsultingStateForNewbie
+
+FORWARD ME_4C7CDFE10330
+
+: ME_4C7CDFFC0065
+ CONST UID '4C7CDFFC0065'
+ CONST Name 'Enabled'
+ CONST Class class_Class
+ : Stereotype st_VCMOperationState ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Запретить авторегистрацию новых пользователей' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_4C7CDFE10330 // Autoregistration
+ ;
+ CONST "Checked" 'undefined'
+ CONST "Enabled" 'undefined'
+ CONST "ImageIndex" 171
+ CONST "UseNewGen" 'undefined'
+ CONST "Visible" 'undefined'
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\View'
+
+ref; // ME_4C7CDFFC0065 Enabled
+
+: ME_4C7CE0100153
+ CONST UID '4C7CE0100153'
+ CONST Name 'Disabled'
+ CONST Class class_Class
+ : Stereotype st_VCMOperationState ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Разрешить авторегистрацию новых пользователей' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_4C7CDFE10330 // Autoregistration
+ ;
+ CONST "Checked" true
+ CONST "Enabled" 'undefined'
+ CONST "UseNewGen" 'undefined'
+ CONST "Visible" 'undefined'
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\View'
+
+ref; // ME_4C7CE0100153 Disabled
+
+: ME_4C7CDFE10330
+ CONST UID '4C7CDFE10330'
+ CONST Name 'Autoregistration'
+ CONST Class class_Class
+ : Stereotype st_VCMOperation ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Разрешить/Запретить авторегистрацию новых пользователей' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_494FD63D011D // Users
+ ;
+ : Children
+   Seq: ( ME_4C7CDFFC0065 // Enabled
+ ME_4C7CE0100153 // Disabled
+ )
+ ; // Children
+ CONST "AutoFocus" false
+ CONST "AutoLock" false
+ CONST "LongProcess" false
+ CONST "ShowInContextMenu" 'undefined'
+ CONST "ShowInToolbar" 'undefined'
+ CONST "UseNewGen" 'undefined'
+ CONST "has states" true
+ CONST "is FormActivate" false
+ CONST "is query" true
+ CONST "no prefix" false
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\View'
+
+ref; // ME_4C7CDFE10330 Autoregistration
+
+FORWARD ME_4C7CE03100BF
+
+: ME_4C7CE04900BA
+ CONST UID '4C7CE04900BA'
+ CONST Name 'MultiUsers'
+ CONST Class class_Class
+ : Stereotype st_VCMOperationState ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_4C7CE03100BF // AddPrivelegedRight
+ ;
+ CONST "Checked" 'undefined'
+ CONST "Enabled" 'undefined'
+ CONST "UseNewGen" 'undefined'
+ CONST "Visible" 'undefined'
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\View'
+
+ref; // ME_4C7CE04900BA MultiUsers
+
+: ME_4C7CE05201E7
+ CONST UID '4C7CE05201E7'
+ CONST Name 'SingleUser'
+ CONST Class class_Class
+ : Stereotype st_VCMOperationState ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Сделать привилегированным' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_4C7CE03100BF // AddPrivelegedRight
+ ;
+ CONST "Checked" 'undefined'
+ CONST "Enabled" 'undefined'
+ CONST "UseNewGen" 'undefined'
+ CONST "Visible" 'undefined'
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\View'
+
+ref; // ME_4C7CE05201E7 SingleUser
+
+: ME_4C7CE03100BF
+ CONST UID '4C7CE03100BF'
+ CONST Name 'AddPrivelegedRight'
+ CONST Class class_Class
+ : Stereotype st_VCMOperation ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Сделать выделенных пользователей привилегированными' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_494FD63D011D // Users
+ ;
+ : Children
+   Seq: ( ME_4C7CE04900BA // MultiUsers
+ ME_4C7CE05201E7 // SingleUser
+ )
+ ; // Children
+ CONST "AutoFocus" false
+ CONST "AutoLock" false
+ CONST "LongProcess" false
+ CONST "ShowInContextMenu" 'undefined'
+ CONST "ShowInToolbar" 'undefined'
+ CONST "UseNewGen" 'undefined'
+ CONST "has states" true
+ CONST "is FormActivate" false
+ CONST "is query" false
+ CONST "no prefix" false
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\View'
+
+ref; // ME_4C7CE03100BF AddPrivelegedRight
+
+FORWARD ME_4C7CE0710199
+
+: ME_4C7CE08201AE
+ CONST UID '4C7CE08201AE'
+ CONST Name 'MultiUsers'
+ CONST Class class_Class
+ : Stereotype st_VCMOperationState ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_4C7CE0710199 // RemovePrivelegedRight
+ ;
+ CONST "Checked" 'undefined'
+ CONST "Enabled" 'undefined'
+ CONST "UseNewGen" 'undefined'
+ CONST "Visible" 'undefined'
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\View'
+
+ref; // ME_4C7CE08201AE MultiUsers
+
+: ME_4C7CE08B003A
+ CONST UID '4C7CE08B003A'
+ CONST Name 'SingleUser'
+ CONST Class class_Class
+ : Stereotype st_VCMOperationState ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Отменить режим привилегий' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_4C7CE0710199 // RemovePrivelegedRight
+ ;
+ CONST "Checked" 'undefined'
+ CONST "Enabled" 'undefined'
+ CONST "UseNewGen" 'undefined'
+ CONST "Visible" 'undefined'
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\View'
+
+ref; // ME_4C7CE08B003A SingleUser
+
+: ME_4C7CE0710199
+ CONST UID '4C7CE0710199'
+ CONST Name 'RemovePrivelegedRight'
+ CONST Class class_Class
+ : Stereotype st_VCMOperation ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Отменить для выделенных пользователей режим привилегий' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_494FD63D011D // Users
+ ;
+ : Children
+   Seq: ( ME_4C7CE08201AE // MultiUsers
+ ME_4C7CE08B003A // SingleUser
+ )
+ ; // Children
+ CONST "AutoFocus" false
+ CONST "AutoLock" false
+ CONST "LongProcess" false
+ CONST "ShowInContextMenu" 'undefined'
+ CONST "ShowInToolbar" 'undefined'
+ CONST "UseNewGen" 'undefined'
+ CONST "has states" true
+ CONST "is FormActivate" false
+ CONST "is query" false
+ CONST "no prefix" false
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\View'
+
+ref; // ME_4C7CE0710199 RemovePrivelegedRight
+
+: ME_4C7CEDAC0209
+ CONST UID '4C7CEDAC0209'
+ CONST Name 'UserFilter'
+ CONST Class class_Class
+ : Stereotype st_VCMOperation ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_494FD63D011D // Users
+ ;
+ CONST "AutoFocus" false
+ CONST "AutoLock" false
+ CONST "LongProcess" false
+ CONST "ShowInContextMenu" 'undefined'
+ CONST "ShowInToolbar" 'undefined'
+ CONST "UseNewGen" 'undefined'
+ CONST "has states" false
+ CONST "is FormActivate" false
+ CONST "is query" false
+ CONST "no prefix" false
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\View'
+
+ref; // ME_4C7CEDAC0209 UserFilter
+
+: ME_4C7CEDB701D6
+ CONST UID '4C7CEDB701D6'
+ CONST Name 'DisableConsulting'
+ CONST Class class_Class
+ : Stereotype st_VCMOperation ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_494FD63D011D // Users
+ ;
+ CONST "AutoFocus" false
+ CONST "AutoLock" false
+ CONST "LongProcess" false
+ CONST "ShowInContextMenu" 'undefined'
+ CONST "ShowInToolbar" 'undefined'
+ CONST "UseNewGen" 'undefined'
+ CONST "has states" false
+ CONST "is FormActivate" false
+ CONST "is query" false
+ CONST "no prefix" false
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\View'
+
+ref; // ME_4C7CEDB701D6 DisableConsulting
+
+: ME_4C7CEDC20353
+ CONST UID '4C7CEDC20353'
+ CONST Name 'EnableConsulting'
+ CONST Class class_Class
+ : Stereotype st_VCMOperation ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_494FD63D011D // Users
+ ;
+ CONST "AutoFocus" false
+ CONST "AutoLock" false
+ CONST "LongProcess" false
+ CONST "ShowInContextMenu" 'undefined'
+ CONST "ShowInToolbar" 'undefined'
+ CONST "UseNewGen" 'undefined'
+ CONST "has states" false
+ CONST "is FormActivate" false
+ CONST "is query" false
+ CONST "no prefix" false
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\View'
+
+ref; // ME_4C7CEDC20353 EnableConsulting
+
+: ME_4E807746035F
+ CONST UID '4E807746035F'
+ CONST Name 'MakeFiltersShared'
+ CONST Class class_Class
+ : Stereotype st_VCMOperation ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Сделать фильтры данного пользователя общими' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_494FD63D011D // Users
+ ;
+ : Implements
+   Seq: ( WL 'ME_4E8079840038' '481F0CA6017E.pas.ms.script' // Возможность назначения пользователям общих фильтров в администраторе
+ )
+ ; // Implements
+ CONST "AutoFocus" false
+ CONST "AutoLock" false
+ CONST "LongProcess" false
+ CONST "ShowInContextMenu" true
+ CONST "ShowInToolbar" false
+ CONST "UseNewGen" 'undefined'
+ CONST "has states" false
+ CONST "is FormActivate" false
+ CONST "is query" false
+ CONST "no prefix" false
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\View'
+
+ref; // ME_4E807746035F MakeFiltersShared
+
+: ME_4F3D030901C3
+ CONST UID '4F3D030901C3'
+ CONST Name 'DenyDeleteIdle'
+ CONST Class class_Class
+ : Stereotype st_VCMOperation ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Не удалять при бездействии' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_494FD63D011D // Users
+ ;
+ CONST "AutoFocus" false
+ CONST "AutoLock" false
+ CONST "LongProcess" false
+ CONST "ShowInContextMenu" true
+ CONST "ShowInToolbar" false
+ CONST "UseNewGen" 'undefined'
+ CONST "has states" false
+ CONST "is FormActivate" false
+ CONST "is query" false
+ CONST "no prefix" false
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\View'
+
+ref; // ME_4F3D030901C3 DenyDeleteIdle
+
+: ME_494FD65902BF
+ CONST UID '494FD65902BF'
+ CONST Name 'Add'
+ CONST Class class_Operation
+ %SUMMARY 'Добавить' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_494FD63D011D // Users
+ ;
+ CONST "AutoFocus" false
+ CONST "AutoLock" false
+ CONST "LongProcess" false
+ CONST "ShowInContextMenu" 'undefined'
+ CONST "ShowInToolbar" 'undefined'
+ CONST "UseNewGen" 'undefined'
+ CONST "has states" false
+ CONST "is FormActivate" false
+ CONST "is query" false
+ CONST "no prefix" false
+
+ref; // ME_494FD65902BF Add
+
+: ME_494FD63D011D
+ CONST UID '494FD63D011D'
+ CONST Name 'Users'
+ CONST Class class_Class
+ : Stereotype st_VCMOperations ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Пользователи' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_494FD61000CC // Users
+ ;
+ : Operations
+   Seq: ( ME_494FD65902BF // Add
+ )
+ ; // Operations
+ : Children
+   Seq: ( ME_4C7CDF1B0192 // LogoutUser
+ ME_4C7CDF570361 // ConsultingStateForNewbie
+ ME_4C7CDFE10330 // Autoregistration
+ ME_4C7CE03100BF // AddPrivelegedRight
+ ME_4C7CE0710199 // RemovePrivelegedRight
+ ME_4C7CEDAC0209 // UserFilter
+ ME_4C7CEDB701D6 // DisableConsulting
+ ME_4C7CEDC20353 // EnableConsulting
+ ME_4E807746035F // MakeFiltersShared
+ ME_4F3D030901C3 // DenyDeleteIdle
+ )
+ ; // Children
+ CONST "UseNewGen" 'undefined'
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\View'
+
+ref; // ME_494FD63D011D Users
+
+FORWARD ME_49EC752D0122
+
+: ME_49EC7545036C
+ CONST UID '49EC7545036C'
+ CONST Name 'Add'
+ CONST Class class_Operation
+ %SUMMARY 'Добавить' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_49EC752D0122 // Groups
+ ;
+ CONST "AutoFocus" false
+ CONST "AutoLock" false
+ CONST "LongProcess" false
+ CONST "ShowInContextMenu" 'undefined'
+ CONST "ShowInToolbar" 'undefined'
+ CONST "UseNewGen" 'undefined'
+ CONST "has states" false
+ CONST "is FormActivate" false
+ CONST "is query" false
+ CONST "no prefix" false
+
+ref; // ME_49EC7545036C Add
+
+: ME_49EC755501FB
+ CONST UID '49EC755501FB'
+ CONST Name 'ChangeBaseAccess'
+ CONST Class class_Operation
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_49EC752D0122 // Groups
+ ;
+ CONST "AutoFocus" false
+ CONST "AutoLock" false
+ CONST "LongProcess" false
+ CONST "ShowInContextMenu" 'undefined'
+ CONST "ShowInToolbar" 'undefined'
+ CONST "UseNewGen" 'undefined'
+ CONST "has states" false
+ CONST "is FormActivate" false
+ CONST "is query" false
+ CONST "no prefix" false
+
+ref; // ME_49EC755501FB ChangeBaseAccess
+
+: ME_49EEF22D004A
+ CONST UID '49EEF22D004A'
+ CONST Name 'Rename'
+ CONST Class class_Operation
+ %SUMMARY 'Переименовать группу' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_49EC752D0122 // Groups
+ ;
+ CONST "AutoFocus" false
+ CONST "AutoLock" false
+ CONST "LongProcess" false
+ CONST "ShowInContextMenu" 'undefined'
+ CONST "ShowInToolbar" 'undefined'
+ CONST "UseNewGen" 'undefined'
+ CONST "has states" false
+ CONST "is FormActivate" false
+ CONST "is query" false
+ CONST "no prefix" false
+
+ref; // ME_49EEF22D004A Rename
+
+: ME_49EC752D0122
+ CONST UID '49EC752D0122'
+ CONST Name 'Groups'
+ CONST Class class_Class
+ : Stereotype st_VCMOperations ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Группы' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_494FD61000CC // Users
+ ;
+ : Operations
+   Seq: ( ME_49EC7545036C // Add
+ ME_49EC755501FB // ChangeBaseAccess
+ ME_49EEF22D004A // Rename
+ )
+ ; // Operations
+ CONST "UseNewGen" 'undefined'
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\View'
+
+ref; // ME_49EC752D0122 Groups
+
+FORWARD ME_4AFB01B0002C
+
+FORWARD ME_4C7BB8DD0057
+
+: ME_4C7BB8EE00D0
+ CONST UID '4C7BB8EE00D0'
+ CONST Name 'Create'
+ CONST Class class_Class
+ : Stereotype st_VCMOperationState ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Создать' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_4C7BB8DD0057 // Save
+ ;
+ CONST "Checked" 'undefined'
+ CONST "Enabled" 'undefined'
+ CONST "UseNewGen" 'undefined'
+ CONST "Visible" 'undefined'
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\View'
+
+ref; // ME_4C7BB8EE00D0 Create
+
+: ME_4C7BB8DD0057
+ CONST UID '4C7BB8DD0057'
+ CONST Name 'Save'
+ CONST Class class_Class
+ : Stereotype st_VCMOperation ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Сохранить' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_4AFB01B0002C // Result
+ ;
+ : Children
+   Seq: ( ME_4C7BB8EE00D0 // Create
+ )
+ ; // Children
+ CONST "AutoFocus" false
+ CONST "AutoLock" false
+ CONST "LongProcess" false
+ CONST "ShowInContextMenu" 'undefined'
+ CONST "ShowInToolbar" 'undefined'
+ CONST "UseNewGen" 'undefined'
+ CONST "has states" true
+ CONST "is FormActivate" false
+ CONST "is query" false
+ CONST "no prefix" false
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\View'
+
+ref; // ME_4C7BB8DD0057 Save
+
+: ME_4AFB01B903B0
+ CONST UID '4AFB01B903B0'
+ CONST Name 'Save'
+ CONST Class class_Operation
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_4AFB01B0002C // Result
+ ;
+ CONST "AutoFocus" false
+ CONST "AutoLock" false
+ CONST "LongProcess" false
+ CONST "ShowInContextMenu" 'undefined'
+ CONST "ShowInToolbar" 'undefined'
+ CONST "UseNewGen" 'undefined'
+ CONST "has states" false
+ CONST "is FormActivate" false
+ CONST "is query" false
+ CONST "no prefix" false
+
+ref; // ME_4AFB01B903B0 Save
+
+: ME_4AFB01B0002C
+ CONST UID '4AFB01B0002C'
+ CONST Name 'Result'
+ CONST Class class_Class
+ : Stereotype st_VCMOperations ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_494FD61000CC // Users
+ ;
+ : Operations
+   Seq: ( ME_4AFB01B903B0 // Save
+ )
+ ; // Operations
+ : Children
+   Seq: ( ME_4C7BB8DD0057 // Save
+ )
+ ; // Children
+ CONST "UseNewGen" 'undefined'
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\View'
+
+ref; // ME_4AFB01B0002C Result
+
+: ME_494FD61000CC
+ CONST UID '494FD61000CC'
+ CONST Name 'Users'
+ CONST Class class_Category
+ : Stereotype st_VCMControls ;
+ %SUMMARY 'Операции для работ с учётными записями пользователей' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent WL 'ME_4954D3CD0185' '4954D3CD0185.pas.ms.script' // View
+ ;
+ : Children
+   Seq: ( ME_494FD63D011D // Users
+ ME_49EC752D0122 // Groups
+ ME_4AFB01B0002C // Result
+ )
+ ; // Children
+ : Depends
+   Seq: ( WL 'ME_481F0CA6017E' '481F0CA6017E.pas.ms.script' // Интерфейс Администратора
+ )
+ ; // Depends
+ CONST "UseNewGen" 'undefined'
+ CONST "author" 'Люлин А.В.'
+ CONST "is namespace" true
+ CONST "no hands" true
+ : Generators
+ Seq: (
+ gen_intf.pas
+ gen_pas.script
+ gen_pas.script.runner
+ )
+ ; // Generators
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View'
+ CONST intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\Admin_Users_Controls.pas'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View'
+ CONST pas.script:Path 'shared\models\NewSchool\Scripts\494FD61000CC.pas.ms.script'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\494FD61000CC.pas.ms.script.runner'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\View'
+ CONST extprop:pas:UnitName 'Admin_Users_Controls'
+
+ref; // ME_494FD61000CC Users

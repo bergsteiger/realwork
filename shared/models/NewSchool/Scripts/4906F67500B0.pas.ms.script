@@ -1,0 +1,172 @@
+// DayTipsData 4906F67500B0 Unit Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4906F67500B0
+
+FORWARD ME_4906F6A103D5
+
+: ME_4906F6FD017E
+ CONST UID '4906F6FD017E'
+ CONST Name 'Make'
+ CONST Class class_Operation
+ : Stereotype st_static::Operation ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_4906F6A103D5 // TnsTipsTree
+ ;
+ : Target WL 'ME_46825CC00249' '4682595B0268.pas.ms.script' // Il3SimpleTree
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_4906F6FD017E Make
+
+: ME_4906F73E00DA
+ CONST UID '4906F73E00DA'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4906F6A103D5 // TnsTipsTree
+ ;
+ : Target WL 'ME_48FF556602BA' '48F747EC0073.pas.ms.script' // DataAdapter
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_4906F73E00DA 
+
+: ME_4906F74E00E5
+ CONST UID '4906F74E00E5'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4906F6A103D5 // TnsTipsTree
+ ;
+ : Target WL 'ME_47FB50E4008E' '48F747EC0073.pas.ms.script' // nsConst
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_4906F74E00E5 
+
+: ME_4906F79100A6
+ CONST UID '4906F79100A6'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4906F6A103D5 // TnsTipsTree
+ ;
+ : Target WL 'ME_47877EB202FB' '4AB0C3C60310.pas.ms.script' // SysUtils
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_4906F79100A6 
+
+: ME_48FF64F60078_ME_4906F6A103D5
+ CONST UID '48FF64F60078'
+ CONST Name 'ReAqurieUnfilteredRoot'
+ : Original WL 'ME_48FF64F60078' '48FD8B2702F6.pas.ms.script' // ReAqurieUnfilteredRoot
+ ;
+ : Implementor ME_4906F6A103D5 // TnsTipsTree
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "UseNewGen" 'undefined'
+ref; // ME_48FF64F60078_ME_4906F6A103D5 ReAqurieUnfilteredRoot
+
+: ME_48FF56D003E6_ME_4906F6A103D5
+ CONST UID '48FF56D003E6'
+ CONST Name 'SettingsID'
+ : Original WL 'ME_48FF56D003E6' '48FD8B2702F6.pas.ms.script' // SettingsID
+ ;
+ : Implementor ME_4906F6A103D5 // TnsTipsTree
+ ;
+ CONST OpKind opkind_Overridden
+ CONST "UseNewGen" 'undefined'
+ref; // ME_48FF56D003E6_ME_4906F6A103D5 SettingsID
+
+: ME_4906F6A103D5
+ CONST UID '4906F6A103D5'
+ CONST Name 'TnsTipsTree'
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4906F67500B0 // DayTipsData
+ ;
+ : Inherits
+   Seq: ( WL 'ME_468361010204' '48FD8B2702F6.pas.ms.script' // TnsDataResetTreeStruct
+ )
+ ; // Inherits
+ : Operations
+   Seq: ( ME_4906F6FD017E // Make
+ )
+ ; // Operations
+ : Implemented
+   Seq: ( ME_48FF64F60078_ME_4906F6A103D5 // ReAqurieUnfilteredRoot
+ )
+ ; // Implemented
+ : Overridden
+   Seq: ( ME_48FF56D003E6_ME_4906F6A103D5 // SettingsID
+ )
+ ; // Overridden
+ : Dependencies
+   Seq: ( ME_4906F73E00DA // 
+ ME_4906F74E00E5 // 
+ ME_4906F79100A6 // 
+ )
+ ; // Dependencies
+ CONST "UseNewGen" 'undefined'
+ CONST "author" 'Лукьянец Р.В,'
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" true
+ CONST "register in scripts" 'undefined'
+ CONST "started" '2008/02/21 06:56:43'
+ : Generators
+ Seq: (
+ gen_intf.pas
+ )
+ ; // Generators
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\DayTips'
+ CONST intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\DayTips\nsTipsTree.pas'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\DayTips'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\DayTips'
+ CONST extprop:pas:UnitName 'nsTipsTree'
+
+ref; // ME_4906F6A103D5 TnsTipsTree
+
+: ME_4906F67500B0
+ CONST UID '4906F67500B0'
+ CONST Name 'DayTipsData'
+ CONST Class class_Category
+ : Stereotype st_Unit ;
+ %SUMMARY 'Структуры данных для Советов дня' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent WL 'ME_493FF75500F3' '493FF75500F3.pas.ms.script' // DayTips
+ ;
+ : Children
+   Seq: ( ME_4906F6A103D5 // TnsTipsTree
+ )
+ ; // Children
+ : Depends
+   Seq: ( WL 'ME_4682595B0268' '4682595B0268.pas.ms.script' // l3TreeInterfaces
+ WL 'ME_48F747EC0073' '48F747EC0073.pas.ms.script' // Common
+ WL 'ME_48FD8B2702F6' '48FD8B2702F6.pas.ms.script' // Tree
+ WL 'ME_4AB0C3C60310' '4AB0C3C60310.pas.ms.script' // Sys
+ )
+ ; // Depends
+ CONST "UseNewGen" 'undefined'
+ : Generators
+ Seq: (
+ gen_pas.script
+ gen_pas.script.runner
+ )
+ ; // Generators
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\DayTips'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\DayTips'
+ CONST pas.script:Path 'shared\models\NewSchool\Scripts\4906F67500B0.pas.ms.script'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\4906F67500B0.pas.ms.script.runner'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\DayTips'
+
+ref; // ME_4906F67500B0 DayTipsData

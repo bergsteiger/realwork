@@ -1,0 +1,48 @@
+// Сценарии работы с таблицами 4A89634E0160 UseCases Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4A89634E0160
+
+: ME_4A89636F0335
+ CONST UID '4A89636F0335'
+ CONST Name 'Работа с таблицами'
+ CONST Class class_Class
+ : Stereotype st_UseCase ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4A89634E0160 // Сценарии работы с таблицами
+ ;
+ CONST cpp:PathOnly '\common\components'
+ CONST dfm:PathOnly '\common\components'
+ CONST h:PathOnly '\common\components'
+ CONST intf.pas:PathOnly '\common\components'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+
+ref; // ME_4A89636F0335 Работа с таблицами
+
+: ME_4A89634E0160
+ CONST UID '4A89634E0160'
+ CONST Name 'Сценарии работы с таблицами'
+ CONST Class class_Category
+ : Stereotype st_UseCases ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent WL 'ME_4843AEB201A5' '4843AEB201A5.pas.ms.script' // Работа с таблицами
+ ;
+ : Children
+   Seq: ( ME_4A89636F0335 // Работа с таблицами
+ )
+ ; // Children
+ CONST cpp:PathOnly '\common\components'
+ CONST dfm:PathOnly '\common\components'
+ CONST h:PathOnly '\common\components'
+ CONST intf.pas:PathOnly '\common\components'
+ CONST pas.script:Path 'shared\models\NewSchool\Scripts\4A89634E0160.pas.ms.script'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\4A89634E0160.pas.ms.script.runner'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+
+ref; // ME_4A89634E0160 Сценарии работы с таблицами

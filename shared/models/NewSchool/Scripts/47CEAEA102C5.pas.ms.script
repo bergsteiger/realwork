@@ -19,6 +19,7 @@ FORWARD ME_47CEAECA02BF
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value '''SelectBTN'''
 
 ref; // ME_47CEAEDF003A csLogicBTN
 
@@ -35,6 +36,7 @@ ref; // ME_47CEAEDF003A csLogicBTN
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value '''AddBTN'''
 
 ref; // ME_47CEAEE901E4 csAddBTN
 
@@ -51,6 +53,7 @@ ref; // ME_47CEAEE901E4 csAddBTN
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value '''DeleteBTN'''
 
 ref; // ME_47CEAEF002E6 csDeleteBTN
 
@@ -65,12 +68,16 @@ ref; // ME_47CEAEF002E6 csDeleteBTN
  : Parent ME_47CEAEA102C5 // evQueryCardConst
  ;
  : Attributes
-   @ ( ME_47CEAEDF003A // csLogicBTN
+   Seq: ( ME_47CEAEDF003A // csLogicBTN
  ME_47CEAEE901E4 // csAddBTN
  ME_47CEAEF002E6 // csDeleteBTN
- ) .SequenceCode.It
+ )
  ; // Attributes
  CONST "spell names" false
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest\qf'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_47CEAECA02BF Button Names
 
@@ -89,6 +96,7 @@ FORWARD ME_47CEAF890349
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value 189
 
 ref; // ME_47CEAF8F0321 cMinusKeyCode
 
@@ -105,6 +113,7 @@ ref; // ME_47CEAF8F0321 cMinusKeyCode
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value 188
 
 ref; // ME_496F1AB8013A cPlusKeyCode
 
@@ -119,11 +128,15 @@ ref; // ME_496F1AB8013A cPlusKeyCode
  : Parent ME_47CEAEA102C5 // evQueryCardConst
  ;
  : Attributes
-   @ ( ME_47CEAF8F0321 // cMinusKeyCode
+   Seq: ( ME_47CEAF8F0321 // cMinusKeyCode
  ME_496F1AB8013A // cPlusKeyCode
- ) .SequenceCode.It
+ )
  ; // Attributes
  CONST "spell names" false
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest\qf'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_47CEAF890349 Keys
 
@@ -147,6 +160,7 @@ FORWARD ME_47CEAF9E026A
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value '(114, 113)'
 
 ref; // ME_47CEAFA600D0 ImgIndexArr
 
@@ -161,10 +175,14 @@ ref; // ME_47CEAFA600D0 ImgIndexArr
  : Parent ME_47CEAEA102C5 // evQueryCardConst
  ;
  : Attributes
-   @ ( ME_47CEAFA600D0 // ImgIndexArr
- ) .SequenceCode.It
+   Seq: ( ME_47CEAFA600D0 // ImgIndexArr
+ )
  ; // Attributes
  CONST "spell names" false
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest\qf'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_47CEAF9E026A Images
 
@@ -178,29 +196,26 @@ ref; // ME_47CEAF9E026A Images
  : Parent WL 'ME_4797632D0273' '4797632D0273.pas.ms.script' // Everest
  ;
  : Constants
-   @ ( ME_47CEAECA02BF // Button Names
+   Seq: ( ME_47CEAECA02BF // Button Names
  ME_47CEAF890349 // Keys
  ME_47CEAF9E026A // Images
- ) .SequenceCode.It
+ )
  ; // Constants
  : Depends
-   @ ( WL 'ME_4AB0C3C60310' '4AB0C3C60310.pas.ms.script' // Sys
- ) .SequenceCode.It
+   Seq: ( WL 'ME_4AB0C3C60310' '4AB0C3C60310.pas.ms.script' // Sys
+ )
  ; // Depends
  CONST "author" 'Инишев Д.А.'
  CONST "is namespace" true
  CONST "no hands" true
  CONST "path prefix" '/qf'
  CONST "started" '28.09.1999 10:18'
- : Generators
- @ (
- gen_intf.pas
- gen_pas.script
- gen_pas.script.runner
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest'
  CONST intf.pas:Path 'common\components\gui\Garant\Everest\qf\evQueryCardConst.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest\qf'
  CONST pas.script:Path 'shared\models\NewSchool\Scripts\47CEAEA102C5.pas.ms.script'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
  CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\47CEAEA102C5.pas.ms.script.runner'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_47CEAEA102C5 evQueryCardConst

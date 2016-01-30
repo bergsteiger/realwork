@@ -35,9 +35,15 @@ ref; // ME_4991A633007F Form
  : Parent ME_4ADDE3D70311 // OfficeLikeAppInterfaces
  ;
  : Attributes
-   @ ( ME_4991A633007F // Form
- ) .SequenceCode.It
+   Seq: ( ME_4991A633007F // Form
+ )
  ; // Attributes
+ CONST dfm:PathOnly '\common\components\gui\Garant\VCM\UserInteraction'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\VCM\UserInteraction'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'Window'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_4991A60F0247 InsWindow
 
@@ -51,26 +57,23 @@ ref; // ME_4991A60F0247 InsWindow
  : Parent WL 'ME_4954C0500033' '4954C0500033.pas.ms.script' // UserInteraction
  ;
  : Children
-   @ ( ME_4991A60F0247 // InsWindow
- ) .SequenceCode.It
+   Seq: ( ME_4991A60F0247 // InsWindow
+ )
  ; // Children
  : Depends
-   @ ( WL 'ME_4683F37902CF' '4683F37902CF.pas.ms.script' // vcmInterfaces
- ) .SequenceCode.It
+   Seq: ( WL 'ME_4683F37902CF' '4683F37902CF.pas.ms.script' // vcmInterfaces
+ )
  ; // Depends
  CONST "author" 'Ëþëèí À.Â.'
  CONST "is namespace" true
  CONST "no hands" true
  CONST "started" '20.10.2009 20:23'
- : Generators
- @ (
- gen_intf.pas
- gen_pas.script
- gen_pas.script.runner
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\VCM\UserInteraction'
  CONST intf.pas:Path 'common\components\gui\Garant\VCM\UserInteraction\OfficeLikeAppInterfaces.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\VCM\UserInteraction'
  CONST pas.script:Path 'shared\models\NewSchool\Scripts\4ADDE3D70311.pas.ms.script'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
  CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\4ADDE3D70311.pas.ms.script.runner'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_4ADDE3D70311 OfficeLikeAppInterfaces

@@ -85,6 +85,7 @@ ref; // ME_4BB34C0302A1 aPos
  CONST Value 'nil'
  : ValueType WL 'ME_46780DA40383' '4677FBA70343.pas.ms.script' // Il3CString
  ;
+ CONST extprop:pas:Value 'nil'
 
 ref; // ME_4BB34C0302BF aString
 
@@ -97,10 +98,10 @@ ref; // ME_4BB34C0302BF aString
  : Parent ME_4BB34BE200EB // C
  ;
  : Parameters
-   @ ( ME_4BB34C030276 // aChar
+   Seq: ( ME_4BB34C030276 // aChar
  ME_4BB34C0302A1 // aPos
  ME_4BB34C0302BF // aString
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_4BB34BEA02E1 C
@@ -117,8 +118,8 @@ ref; // ME_4BB34BEA02E1 C
  : Parent ME_4BB34A130179 // TexprTokenInfo
  ;
  : Operations
-   @ ( ME_4BB34BEA02E1 // C
- ) .SequenceCode.It
+   Seq: ( ME_4BB34BEA02E1 // C
+ )
  ; // Operations
 
 ref; // ME_4BB34BE200EB C
@@ -146,8 +147,8 @@ ref; // ME_4BB34F86002B aChar
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
  : Parameters
-   @ ( ME_4BB34F86002B // aChar
- ) .SequenceCode.It
+   Seq: ( ME_4BB34F86002B // aChar
+ )
  ; // Parameters
 
 ref; // ME_4BB34F7601B1 DoIt
@@ -163,8 +164,8 @@ ref; // ME_4BB34F7601B1 DoIt
  : Parent ME_4BB34A130179 // TexprTokenInfo
  ;
  : Operations
-   @ ( ME_4BB34F7601B1 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_4BB34F7601B1 // DoIt
+ )
  ; // Operations
 
 ref; // ME_4BB34F6602CC IsA$Char
@@ -192,8 +193,8 @@ ref; // ME_4BB34FA30293 anInt
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
  : Parameters
-   @ ( ME_4BB34FA30293 // anInt
- ) .SequenceCode.It
+   Seq: ( ME_4BB34FA30293 // anInt
+ )
  ; // Parameters
 
 ref; // ME_4BB34F9900B9 DoIt
@@ -209,8 +210,8 @@ ref; // ME_4BB34F9900B9 DoIt
  : Parent ME_4BB34A130179 // TexprTokenInfo
  ;
  : Operations
-   @ ( ME_4BB34F9900B9 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_4BB34F9900B9 // DoIt
+ )
  ; // Operations
 
 ref; // ME_4BB34F8B0303 IsA$Integer
@@ -227,18 +228,23 @@ ref; // ME_4BB34F8B0303 IsA$Integer
  : Parent ME_4BB3497F03CC // TexprTokensList
  ;
  : Attributes
-   @ ( ME_4BB34AF002A0 // rChar
+   Seq: ( ME_4BB34AF002A0 // rChar
  ME_4BB34B000210 // rPos
  ME_4BB34B7C01CB // rString
- ) .SequenceCode.It
+ )
  ; // Attributes
  : Operations
-   @ ( ME_4BB34BE200EB // C
+   Seq: ( ME_4BB34BE200EB // C
  ME_4BB34F6602CC // IsA$Char
  ME_4BB34F8B0303 // IsA$Integer
- ) .SequenceCode.It
+ )
  ; // Operations
  CONST "not treat as record for XE4" 'undefined'
+ CONST dfm:PathOnly '\common\components\rtl\external\Expr'
+ CONST intf.pas:PathOnly '\common\components\rtl\external\Expr'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'exprTokenInfo'
 
 ref; // ME_4BB34A130179 TexprTokenInfo
 
@@ -252,6 +258,11 @@ ref; // ME_4BB34A130179 TexprTokenInfo
  CONST Abstraction at_final
  : Parent ME_4BB3497F03CC // TexprTokensList
  ;
+ CONST dfm:PathOnly '\common\components\rtl\external\Expr'
+ CONST intf.pas:PathOnly '\common\components\rtl\external\Expr'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'Items_NoSort'
 
 ref; // ME_4BB34DEA00BF l3Items_NoSort
 
@@ -277,6 +288,7 @@ ref; // ME_4BB34BAE01C0 ItemType
  ;
  : Implementor ME_4BB3497F03CC // TexprTokensList
  ;
+ CONST OpKind opkind_Implemented
  CONST "ifndef" 'l3Items_IsAtomic'
 ref; // ME_47B07CF403D0_ME_4BB3497F03CC IsSameItems
 
@@ -287,6 +299,7 @@ ref; // ME_47B07CF403D0_ME_4BB3497F03CC IsSameItems
  ;
  : Implementor ME_4BB3497F03CC // TexprTokensList
  ;
+ CONST OpKind opkind_Implemented
  CONST "ifdef" 'l3Items_NeedsAssignItem'
  CONST "ifndef" 'l3Items_NoSort'
 ref; // ME_47B2C42A0163_ME_4BB3497F03CC AssignItem
@@ -298,6 +311,7 @@ ref; // ME_47B2C42A0163_ME_4BB3497F03CC AssignItem
  ;
  : Implementor ME_4BB3497F03CC // TexprTokensList
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_47B99D4503A2_ME_4BB3497F03CC CompareExistingItems
 
 : ME_4BB3497F03CC
@@ -311,24 +325,24 @@ ref; // ME_47B99D4503A2_ME_4BB3497F03CC CompareExistingItems
  : Parent ME_4739A0A5032E // ExprMake
  ;
  : Inherits
-   @ ( WL 'ME_4A54DD4E036F' '47913B47006E.pas.ms.script' // Tl3ProtoDataContainer
+   Seq: ( WL 'ME_4A54DD4E036F' '47913B47006E.pas.ms.script' // Tl3ProtoDataContainer
  WL 'ME_4B223ADC02BF' '47913B47006E.pas.ms.script' // l3RecordListPrim
- ) .SequenceCode.It
+ )
  ; // Inherits
  : Attributes
-   @ ( ME_4BB34BAE01C0 // ItemType
- ) .SequenceCode.It
+   Seq: ( ME_4BB34BAE01C0 // ItemType
+ )
  ; // Attributes
  : Implemented
-   @ ( ME_47B07CF403D0_ME_4BB3497F03CC // IsSameItems
+   Seq: ( ME_47B07CF403D0_ME_4BB3497F03CC // IsSameItems
  ME_47B2C42A0163_ME_4BB3497F03CC // AssignItem
  ME_47B99D4503A2_ME_4BB3497F03CC // CompareExistingItems
- ) .SequenceCode.It
+ )
  ; // Implemented
  : Children
-   @ ( ME_4BB34A130179 // TexprTokenInfo
+   Seq: ( ME_4BB34A130179 // TexprTokenInfo
  ME_4BB34DEA00BF // l3Items_NoSort
- ) .SequenceCode.It
+ )
  ; // Children
  CONST "author" 'Ëþëèí À.Â.'
  CONST "needs InstanceR" 'undefined'
@@ -336,12 +350,14 @@ ref; // ME_47B99D4503A2_ME_4BB3497F03CC CompareExistingItems
  CONST "no hands" true
  CONST "register in scripts" 'undefined'
  CONST "started" '31.03.2010 17:10'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\external\Expr'
  CONST intf.pas:Path 'common\components\rtl\external\Expr\exprTokensList.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\external\Expr'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'exprTokensList'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'exprTokensList'
 
 ref; // ME_4BB3497F03CC TexprTokensList
 
@@ -358,6 +374,10 @@ FORWARD ME_4739A8C90148
  CONST Abstraction at_regular
  : Parent ME_4739A8C90148 // ExprMake
  ;
+ CONST dfm:PathOnly '\common\components\rtl\external\Expr'
+ CONST intf.pas:PathOnly '\common\components\rtl\external\Expr'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_4739B39B0259 EIncorrectExpr
 
@@ -476,9 +496,9 @@ ref; // ME_4739BA4100A8 aPosition
  : Parent ME_4739A0D8009C // TExprBuilder
  ;
  : Parameters
-   @ ( ME_4739B7C701AB // aMessage
+   Seq: ( ME_4739B7C701AB // aMessage
  ME_4739BA4100A8 // aPosition
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_4739B7BB02D0 RaiseError
@@ -504,8 +524,8 @@ ref; // ME_4739B82F0345 S
  : Target WL 'ME_452257A0036F' '3DBFDB23006E.pas.ms.script' // a-string
  ;
  : Parameters
-   @ ( ME_4739B82F0345 // S
- ) .SequenceCode.It
+   Seq: ( ME_4739B82F0345 // S
+ )
  ; // Parameters
 
 ref; // ME_4739B82302B2 Preprocess
@@ -539,9 +559,9 @@ ref; // ME_4739BA490118 Multiplier
  : Parent ME_4739A0D8009C // TExprBuilder
  ;
  : Parameters
-   @ ( ME_4739B8680301 // Existing
+   Seq: ( ME_4739B8680301 // Existing
  ME_4739BA490118 // Multiplier
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_4739B83C0131 AddMult
@@ -577,9 +597,9 @@ ref; // ME_4739B88102B7 Exponent
  : Target WL 'ME_47398921031E' '47398897018F.pas.ms.script' // Tl3Expr
  ;
  : Parameters
-   @ ( ME_4739B8810285 // Base
+   Seq: ( ME_4739B8810285 // Base
  ME_4739B88102B7 // Exponent
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_4739B874036C MakePower
@@ -615,9 +635,9 @@ ref; // ME_4739B89D01DB Index
  : Target WL 'ME_47398921031E' '47398897018F.pas.ms.script' // Tl3Expr
  ;
  : Parameters
-   @ ( ME_4739B89D01A9 // Base
+   Seq: ( ME_4739B89D01A9 // Base
  ME_4739B89D01DB // Index
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_4739B890024A MakeIndex
@@ -663,10 +683,10 @@ ref; // ME_4739BA5601D5 N
  : Target WL 'ME_47398921031E' '47398897018F.pas.ms.script' // Tl3Expr
  ;
  : Parameters
-   @ ( ME_4739B8BF03CE // Base
+   Seq: ( ME_4739B8BF03CE // Base
  ME_4739BA5601A3 // Style
  ME_4739BA5601D5 // N
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_4739B8A60328 MakeCap
@@ -690,8 +710,8 @@ ref; // ME_473C36A90031 Base
  : Parent ME_4739A0D8009C // TExprBuilder
  ;
  : Parameters
-   @ ( ME_473C36A90031 // Base
- ) .SequenceCode.It
+   Seq: ( ME_473C36A90031 // Base
+ )
  ; // Parameters
 
 ref; // ME_473C36980376 Decorate
@@ -716,6 +736,7 @@ ref; // ME_473C36C0034C Need
  CONST Value false
  : ValueType WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
+ CONST extprop:pas:Value false
 
 ref; // ME_473C3766037C AllowComma
 
@@ -730,9 +751,9 @@ ref; // ME_473C3766037C AllowComma
  : Target WL 'ME_47398921031E' '47398897018F.pas.ms.script' // Tl3Expr
  ;
  : Parameters
-   @ ( ME_473C36C0034C // Need
+   Seq: ( ME_473C36C0034C // Need
  ME_473C3766037C // AllowComma
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_473C36B90107 ExprString
@@ -758,8 +779,8 @@ ref; // ME_473C36FF0324 Flags
  : Target WL 'ME_47398921031E' '47398897018F.pas.ms.script' // Tl3Expr
  ;
  : Parameters
-   @ ( ME_473C36FF0324 // Flags
- ) .SequenceCode.It
+   Seq: ( ME_473C36FF0324 // Flags
+ )
  ; // Parameters
 
 ref; // ME_473C36C802F3 BoolExpr
@@ -785,8 +806,8 @@ ref; // ME_473C37060071 Flags
  : Target WL 'ME_47398921031E' '47398897018F.pas.ms.script' // Tl3Expr
  ;
  : Parameters
-   @ ( ME_473C37060071 // Flags
- ) .SequenceCode.It
+   Seq: ( ME_473C37060071 // Flags
+ )
  ; // Parameters
 
 ref; // ME_473C36DF00ED Expr
@@ -812,8 +833,8 @@ ref; // ME_473C36F602F9 Flags
  : Target WL 'ME_47398921031E' '47398897018F.pas.ms.script' // Tl3Expr
  ;
  : Parameters
-   @ ( ME_473C36F602F9 // Flags
- ) .SequenceCode.It
+   Seq: ( ME_473C36F602F9 // Flags
+ )
  ; // Parameters
 
 ref; // ME_473C36EB0040 Factor
@@ -839,8 +860,8 @@ ref; // ME_473C3721012E Flags
  : Target WL 'ME_47398921031E' '47398897018F.pas.ms.script' // Tl3Expr
  ;
  : Parameters
-   @ ( ME_473C3721012E // Flags
- ) .SequenceCode.It
+   Seq: ( ME_473C3721012E // Flags
+ )
  ; // Parameters
 
 ref; // ME_473C37180135 Trans
@@ -866,8 +887,8 @@ ref; // ME_473C37340208 Flags
  : Target WL 'ME_47398921031E' '47398897018F.pas.ms.script' // Tl3Expr
  ;
  : Parameters
-   @ ( ME_473C37340208 // Flags
- ) .SequenceCode.It
+   Seq: ( ME_473C37340208 // Flags
+ )
  ; // Parameters
 
 ref; // ME_473C372C0152 Func
@@ -913,10 +934,10 @@ ref; // ME_473C37570349 Brackets
  : Target WL 'ME_47398921031E' '47398897018F.pas.ms.script' // Tl3Expr
  ;
  : Parameters
-   @ ( ME_473C375702BC // N
+   Seq: ( ME_473C375702BC // N
  ME_473C37570303 // Flags
  ME_473C37570349 // Brackets
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_473C373E0311 FuncName
@@ -952,9 +973,9 @@ ref; // ME_473C38BE031D Flags
  : Target WL 'ME_47398921031E' '47398897018F.pas.ms.script' // Tl3Expr
  ;
  : Parameters
-   @ ( ME_473C38BE02CD // N
+   Seq: ( ME_473C38BE02CD // N
  ME_473C38BE031D // Flags
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_473C38AE03C4 Token
@@ -980,8 +1001,8 @@ ref; // ME_473C38D302CD N
  : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
  ;
  : Parameters
-   @ ( ME_473C38D302CD // N
- ) .SequenceCode.It
+   Seq: ( ME_473C38D302CD // N
+ )
  ; // Parameters
 
 ref; // ME_473C38CB002C GreekLetter
@@ -1031,8 +1052,8 @@ ref; // ME_473C391200B1 Expr
  : Target WL 'ME_47398921031E' '47398897018F.pas.ms.script' // Tl3Expr
  ;
  : Parameters
-   @ ( ME_473C391200B1 // Expr
- ) .SequenceCode.It
+   Seq: ( ME_473C391200B1 // Expr
+ )
  ; // Parameters
 
 ref; // ME_473C390A0380 BuildExpr
@@ -1058,8 +1079,8 @@ ref; // ME_473C392C0271 Expr
  : Target WL 'ME_47398921031E' '47398897018F.pas.ms.script' // Tl3Expr
  ;
  : Parameters
-   @ ( ME_473C392C0271 // Expr
- ) .SequenceCode.It
+   Seq: ( ME_473C392C0271 // Expr
+ )
  ; // Parameters
 
 ref; // ME_473C391B001D SafeBuildExpr
@@ -1088,20 +1109,20 @@ ref; // ME_473C393C00A7 Create
  : Parent ME_4739A8C90148 // ExprMake
  ;
  : Inherits
-   @ ( WL 'ME_46780CCE037B' '47913B47006E.pas.ms.script' // Tl3Base
- ) .SequenceCode.It
+   Seq: ( WL 'ME_46780CCE037B' '47913B47006E.pas.ms.script' // Tl3Base
+ )
  ; // Inherits
  : Attributes
-   @ ( ME_4739B7D803E0 // Build
+   Seq: ( ME_4739B7D803E0 // Build
  ME_4739B7F400D3 // P
  ME_4739B8000365 // S
  ME_473C3A1B027E // FuncAutoIndex
  ME_473C3A30006C // VarAutoIndex
  ME_473C3A3D00E3 // PostSymbols
- ) .SequenceCode.It
+ )
  ; // Attributes
  : Operations
-   @ ( ME_4739B7BB02D0 // RaiseError
+   Seq: ( ME_4739B7BB02D0 // RaiseError
  ME_4739B82302B2 // Preprocess
  ME_4739B83C0131 // AddMult
  ME_4739B874036C // MakePower
@@ -1122,12 +1143,18 @@ ref; // ME_473C393C00A7 Create
  ME_473C390A0380 // BuildExpr
  ME_473C391B001D // SafeBuildExpr
  ME_473C393C00A7 // Create
- ) .SequenceCode.It
+ )
  ; // Operations
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
+ CONST dfm:PathOnly '\common\components\rtl\external\Expr'
+ CONST intf.pas:PathOnly '\common\components\rtl\external\Expr'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'ExprBuilder'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_4739A0D8009C TExprBuilder
 
@@ -1142,13 +1169,19 @@ ref; // ME_4739A0D8009C TExprBuilder
  : Parent ME_4739A8C90148 // ExprMake
  ;
  : Inherits
-   @ ( ME_4BB3497F03CC // TexprTokensList
- ) .SequenceCode.It
+   Seq: ( ME_4BB3497F03CC // TexprTokensList
+ )
  ; // Inherits
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
+ CONST dfm:PathOnly '\common\components\rtl\external\Expr'
+ CONST intf.pas:PathOnly '\common\components\rtl\external\Expr'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'StringEx'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_4BB34C3C00C0 Tl3StringEx
 
@@ -1173,9 +1206,13 @@ ref; // ME_4739A94C039F Expr
  ;
  : Target WL 'ME_47398921031E' '47398897018F.pas.ms.script' // Tl3Expr
  ;
+ : CanRaise
+   Seq: ( ME_4739B39B0259 // EIncorrectExpr
+ )
+ ; // CanRaise
  : Parameters
-   @ ( ME_4739A94C039F // Expr
- ) .SequenceCode.It
+   Seq: ( ME_4739A94C039F // Expr
+ )
  ; // Parameters
 
 ref; // ME_4739A90703E6 BuildExpr
@@ -1202,8 +1239,8 @@ ref; // ME_4739A9770275 Expr
  : Target WL 'ME_47398921031E' '47398897018F.pas.ms.script' // Tl3Expr
  ;
  : Parameters
-   @ ( ME_4739A9770275 // Expr
- ) .SequenceCode.It
+   Seq: ( ME_4739A9770275 // Expr
+ )
  ; // Parameters
 
 ref; // ME_4739A9530128 SafeBuildExpr
@@ -1231,28 +1268,27 @@ ref; // ME_4BB349BD01DC
  : Parent ME_4739A0A5032E // ExprMake
  ;
  : Operations
-   @ ( ME_4739A90703E6 // BuildExpr
+   Seq: ( ME_4739A90703E6 // BuildExpr
  ME_4739A9530128 // SafeBuildExpr
- ) .SequenceCode.It
+ )
  ; // Operations
  : Children
-   @ ( ME_4739B39B0259 // EIncorrectExpr
+   Seq: ( ME_4739B39B0259 // EIncorrectExpr
  ME_4739A0D8009C // TExprBuilder
  ME_4BB34C3C00C0 // Tl3StringEx
- ) .SequenceCode.It
+ )
  ; // Children
  : Dependencies
-   @ ( ME_4BB349BD01DC // 
- ) .SequenceCode.It
+   Seq: ( ME_4BB349BD01DC // 
+ )
  ; // Dependencies
  CONST "finished" false
  CONST "no hands" false
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\external\Expr'
  CONST intf.pas:Path 'common\components\rtl\external\Expr\NOT_FINISHED_ExprMake.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\external\Expr'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_4739A8C90148 ExprMake
 
@@ -1267,24 +1303,22 @@ ref; // ME_4739A8C90148 ExprMake
  : Parent WL 'ME_473987420315' '473987420315.pas.ms.script' // Expr
  ;
  : Children
-   @ ( ME_4BB3497F03CC // TexprTokensList
+   Seq: ( ME_4BB3497F03CC // TexprTokensList
  ME_4739A8C90148 // ExprMake
- ) .SequenceCode.It
+ )
  ; // Children
  : Depends
-   @ ( WL 'ME_4677FBA70343' '4677FBA70343.pas.ms.script' // l3Interfaces
+   Seq: ( WL 'ME_4677FBA70343' '4677FBA70343.pas.ms.script' // l3Interfaces
  WL 'ME_47398897018F' '47398897018F.pas.ms.script' // ExprDraw
  WL 'ME_47913B47006E' '47913B47006E.pas.ms.script' // l3CoreObjects
  WL 'ME_4AB0C3C60310' '4AB0C3C60310.pas.ms.script' // Sys
- ) .SequenceCode.It
+ )
  ; // Depends
- : Generators
- @ (
- gen_pas.script
- gen_pas.script.runner
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\external\Expr'
+ CONST intf.pas:PathOnly '\common\components\rtl\external\Expr'
  CONST pas.script:Path 'shared\models\NewSchool\Scripts\4739A0A5032E.pas.ms.script'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
  CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\4739A0A5032E.pas.ms.script.runner'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_4739A0A5032E ExprMake

@@ -29,8 +29,8 @@ ref; // ME_557FEAAA02B7 theGenerator
  : Target WL 'ME_4678160E01BE' '47913B47006E.pas.ms.script' // Ik2TagGenerator
  ;
  : Parameters
-   @ ( ME_557FEAAA02B7 // theGenerator
- ) .SequenceCode.It
+   Seq: ( ME_557FEAAA02B7 // theGenerator
+ )
  ; // Parameters
 
 ref; // ME_556EEAE90227 DoIt
@@ -46,8 +46,8 @@ ref; // ME_556EEAE90227 DoIt
  : Parent ME_556ECBCF0396 // Tf1ExternalHyperlinkEliminator
  ;
  : Operations
-   @ ( ME_556EEAE90227 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_556EEAE90227 // DoIt
+ )
  ; // Operations
  CONST "is static" true
 
@@ -104,6 +104,7 @@ ref; // ME_55701DEA009D
  ;
  : Implementor ME_556ECBCF0396 // Tf1ExternalHyperlinkEliminator
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_49E488070386_ME_556ECBCF0396 ParaTypeForFiltering
 
 : ME_49E48829016F_ME_556ECBCF0396
@@ -113,6 +114,7 @@ ref; // ME_49E488070386_ME_556ECBCF0396 ParaTypeForFiltering
  ;
  : Implementor ME_556ECBCF0396 // Tf1ExternalHyperlinkEliminator
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_49E48829016F_ME_556ECBCF0396 NeedWritePara
 
 : ME_556ECBCF0396
@@ -126,35 +128,37 @@ ref; // ME_49E48829016F_ME_556ECBCF0396 NeedWritePara
  : Parent ME_557FE2750253 // Filters
  ;
  : Inherits
-   @ ( WL 'ME_49E487650342' '47ECB8BD00A8.pas.ms.script' // TevdLeafParaFilter
- ) .SequenceCode.It
+   Seq: ( WL 'ME_49E487650342' '47ECB8BD00A8.pas.ms.script' // TevdLeafParaFilter
+ )
  ; // Inherits
  : Operations
-   @ ( ME_556EEA830002 // SetTo
- ) .SequenceCode.It
+   Seq: ( ME_556EEA830002 // SetTo
+ )
  ; // Operations
  : Overridden
-   @ ( ME_49E488070386_ME_556ECBCF0396 // ParaTypeForFiltering
+   Seq: ( ME_49E488070386_ME_556ECBCF0396 // ParaTypeForFiltering
  ME_49E48829016F_ME_556ECBCF0396 // NeedWritePara
- ) .SequenceCode.It
+ )
  ; // Overridden
  : Dependencies
-   @ ( ME_556EEC29010F // 
+   Seq: ( ME_556EEC29010F // 
  ME_557017A400B4 // 
  ME_557017C902F9 // 
  ME_55701DEA009D // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\Nemesis'
  CONST intf.pas:Path 'common\components\gui\Garant\Nemesis\f1ExternalHyperlinkEliminator.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Nemesis'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'f1ExternalHyperlinkEliminator'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'f1ExternalHyperlinkEliminator'
 
 ref; // ME_556ECBCF0396 Tf1ExternalHyperlinkEliminator
 
@@ -168,25 +172,23 @@ ref; // ME_556ECBCF0396 Tf1ExternalHyperlinkEliminator
  : Parent WL 'ME_490838AA02D0' '490838AA02D0.pas.ms.script' // Nemesis
  ;
  : Children
-   @ ( ME_556ECBCF0396 // Tf1ExternalHyperlinkEliminator
- ) .SequenceCode.It
+   Seq: ( ME_556ECBCF0396 // Tf1ExternalHyperlinkEliminator
+ )
  ; // Children
  : Depends
-   @ ( WL 'ME_469D0AC7005E' '469D0AC7005E.pas.ms.script' // Types
+   Seq: ( WL 'ME_469D0AC7005E' '469D0AC7005E.pas.ms.script' // Types
  WL 'ME_47913B47006E' '47913B47006E.pas.ms.script' // l3CoreObjects
  WL 'ME_47AC75550330' '47AC75550330.pas.ms.script' // k2Tags
  WL 'ME_47ECB8BD00A8' '47ECB8BD00A8.pas.ms.script' // Generators
  WL 'ME_484A470100DD' '484A470100DD.pas.ms.script' // Standard
  WL 'ME_4AB0C3C60310' '4AB0C3C60310.pas.ms.script' // Sys
- ) .SequenceCode.It
+ )
  ; // Depends
- : Generators
- @ (
- gen_pas.script
- gen_pas.script.runner
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\Nemesis'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Nemesis'
  CONST pas.script:Path 'shared\models\NewSchool\Scripts\557FE2750253.pas.ms.script'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
  CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\557FE2750253.pas.ms.script.runner'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_557FE2750253 Filters

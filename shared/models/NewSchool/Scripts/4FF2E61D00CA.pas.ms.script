@@ -1,0 +1,56 @@
+// AAC$DataSources 4FF2E61D00CA VCMControllers Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+: ME_4FF2E61D00CA
+ CONST UID '4FF2E61D00CA'
+ CONST Name 'AAC'
+ CONST Class class_Category
+ : Stereotype st_VCMControllers ;
+ %SUMMARY 'Контроллеры бизнес-логики прецедента "Актуальная аналитика"' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent WL 'ME_4FF2E55B02CF' '4FF2E55B02CF.pas.ms.script' // AAC
+ ;
+ : Children
+   Seq: ( WL 'ME_4FF2E6570285' '4FF2E6570285.pas.ms.script' // AACInterfaces
+ WL 'ME_4FF2E66802B4' '4FF2E66802B4.pas.ms.script' // AACImplementation
+ )
+ ; // Children
+ : Depends
+   Seq: ( WL 'ME_4677E16A022A' '4677E16A022A.pas.ms.script' // K2
+ WL 'ME_467A8734039C' '467A8734039C.pas.ms.script' // EVD
+ WL 'ME_4680C57D01E9' '4680C57D01E9.pas.ms.script' // Business
+ WL 'ME_4790C3B8021E' '4790C3B8021E.pas.ms.script' // VCM
+ WL 'ME_4790D09A0378' '4790D09A0378.pas.ms.script' // L3
+ WL 'ME_4797632D0273' '4797632D0273.pas.ms.script' // Everest
+ WL 'ME_47E9EEC60260' '47E9EEC60260.pas.ms.script' // Model
+ WL 'ME_484FA67302D7' '484FA67302D7.pas.ms.script' // GUI
+ WL 'ME_4982BE090383' '4982BE090383.pas.ms.script' // vcmControllers
+ WL 'ME_4A9F8388014E' '4A9F8388014E.pas.ms.script' // Document
+ WL 'ME_4C6A65ED0374' '4C6A65ED0374.pas.ms.script' // F1DocumentProcessing
+ WL 'ME_4CEBA36A00AA' '4CEBA36A00AA.pas.ms.script' // f1DocumentTagsImplementation
+ WL 'ME_4D1B64E70031' '4D1B64E70031.pas.ms.script' // BusinessInterfaces
+ WL 'ME_4D1B6BAB022D' '4D1B6BAB022D.pas.ms.script' // F1DocumentProcessingInterfaces
+ )
+ ; // Depends
+ CONST "UseNewGen" 'undefined'
+ CONST "exec mode" 'concluded'
+ CONST "gui" 'prj'
+ CONST "is namespace" true
+ CONST "vendor" 'none'
+ : Generators
+ Seq: (
+ gen_pas.script
+ gen_pas.script.runner
+ )
+ ; // Generators
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\AAC'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\AAC'
+ CONST pas.script:Path 'shared\models\NewSchool\Scripts\4FF2E61D00CA.pas.ms.script'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\4FF2E61D00CA.pas.ms.script.runner'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\AAC'
+
+ref; // ME_4FF2E61D00CA AAC$DataSources

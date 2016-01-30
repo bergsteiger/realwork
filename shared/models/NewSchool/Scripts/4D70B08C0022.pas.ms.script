@@ -28,8 +28,8 @@ ref; // ME_4D70C53302A4 aFileName
  : Parent ME_4D70B0D50358 // ItstNSRCListener
  ;
  : Parameters
-   @ ( ME_4D70C53302A4 // aFileName
- ) .SequenceCode.It
+   Seq: ( ME_4D70C53302A4 // aFileName
+ )
  ; // Parameters
 
 ref; // ME_4D70B2AF0288 ExtractFileEvent
@@ -46,9 +46,16 @@ ref; // ME_4D70B2AF0288 ExtractFileEvent
  : Parent ME_4D70B17C001C // TtstNSRCGenerator
  ;
  : Operations
-   @ ( ME_4D70B2AF0288 // ExtractFileEvent
- ) .SequenceCode.It
+   Seq: ( ME_4D70B2AF0288 // ExtractFileEvent
+ )
  ; // Operations
+ CONST dfm:PathOnly '\common\components\rtl\Garant\Daily'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\Daily'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\common\components\rtl\Garant\Daily'
+ CONST extprop:rc:SelfName 'tstNSRCListener'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_4D70B0D50358 ItstNSRCListener
 
@@ -85,8 +92,8 @@ ref; // ME_54EEDFDB0273 aListener
  : Parent ME_4D70B17C001C // TtstNSRCGenerator
  ;
  : Parameters
-   @ ( ME_54EEDFDB0273 // aListener
- ) .SequenceCode.It
+   Seq: ( ME_54EEDFDB0273 // aListener
+ )
  ; // Parameters
 
 ref; // ME_4D70B25B0190 LinkNSRCListener
@@ -110,8 +117,8 @@ ref; // ME_54EEDFEB013B aListener
  : Parent ME_4D70B17C001C // TtstNSRCGenerator
  ;
  : Parameters
-   @ ( ME_54EEDFEB013B // aListener
- ) .SequenceCode.It
+   Seq: ( ME_54EEDFEB013B // aListener
+ )
  ; // Parameters
 
 ref; // ME_4D70B2A203B9 UnlinkNSRCListener
@@ -123,6 +130,7 @@ ref; // ME_4D70B2A203B9 UnlinkNSRCListener
  ;
  : Implementor ME_4D70B17C001C // TtstNSRCGenerator
  ;
+ CONST OpKind opkind_Overridden
  CONST "ifdef" 'nsTest'
 ref; // ME_4D70C8250128_ME_4D70B17C001C SaveObjFileName
 
@@ -138,36 +146,44 @@ ref; // ME_4D70C8250128_ME_4D70B17C001C SaveObjFileName
  : Parent ME_4D70B08C0022 // NSRCUtils
  ;
  : Inherits
-   @ ( WL 'ME_4B59FBCA0096' '47ECB8BD00A8.pas.ms.script' // TddNSRCGenerator
- ) .SequenceCode.It
+   Seq: ( WL 'ME_4B59FBCA0096' '47ECB8BD00A8.pas.ms.script' // TddNSRCGenerator
+ )
  ; // Inherits
  : Attributes
-   @ ( ME_4D70C549028D // f_Listener
- ) .SequenceCode.It
+   Seq: ( ME_4D70C549028D // f_Listener
+ )
  ; // Attributes
  : Operations
-   @ ( ME_4D70B25B0190 // LinkNSRCListener
+   Seq: ( ME_4D70B25B0190 // LinkNSRCListener
  ME_4D70B2A203B9 // UnlinkNSRCListener
- ) .SequenceCode.It
+ )
  ; // Operations
  : Overridden
-   @ ( ME_4D70C8250128_ME_4D70B17C001C // SaveObjFileName
- ) .SequenceCode.It
+   Seq: ( ME_4D70C8250128_ME_4D70B17C001C // SaveObjFileName
+ )
  ; // Overridden
  : Children
-   @ ( ME_4D70B0D50358 // ItstNSRCListener
- ) .SequenceCode.It
+   Seq: ( ME_4D70B0D50358 // ItstNSRCListener
+ )
  ; // Children
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
  : Generators
- @ (
+ Seq: (
  gen_intf.pas
- ) .SequenceCode.It
+ )
  ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\Daily'
  CONST intf.pas:Path 'common\components\rtl\Garant\Daily\tstNSRCGenerator.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\Daily'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\common\components\rtl\Garant\Daily'
+ CONST extprop:rc:SelfName 'tstNSRCGenerator'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'tstNSRCGenerator'
 
 ref; // ME_4D70B17C001C TtstNSRCGenerator
 
@@ -182,21 +198,26 @@ ref; // ME_4D70B17C001C TtstNSRCGenerator
  : Parent WL 'ME_4B2A15810261' '4B2A15810261.pas.ms.script' // DailyTest
  ;
  : Children
-   @ ( ME_4D70B17C001C // TtstNSRCGenerator
- ) .SequenceCode.It
+   Seq: ( ME_4D70B17C001C // TtstNSRCGenerator
+ )
  ; // Children
  : Depends
-   @ ( WL 'ME_47ECB8BD00A8' '47ECB8BD00A8.pas.ms.script' // Generators
+   Seq: ( WL 'ME_47ECB8BD00A8' '47ECB8BD00A8.pas.ms.script' // Generators
  WL 'ME_4AB0C3C60310' '4AB0C3C60310.pas.ms.script' // Sys
- ) .SequenceCode.It
+ )
  ; // Depends
  : Generators
- @ (
+ Seq: (
  gen_pas.script
  gen_pas.script.runner
- ) .SequenceCode.It
+ )
  ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\Daily'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\Daily'
  CONST pas.script:Path 'shared\models\NewSchool\Scripts\4D70B08C0022.pas.ms.script'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
  CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\4D70B08C0022.pas.ms.script.runner'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\common\components\rtl\Garant\Daily'
 
 ref; // ME_4D70B08C0022 NSRCUtils

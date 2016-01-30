@@ -1,0 +1,38 @@
+// DecorationProcessing 4F33E7AF02BA Unit Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+: ME_4F33E7AF02BA
+ CONST UID '4F33E7AF02BA'
+ CONST Name 'DecorationProcessing'
+ CONST Class class_Category
+ : Stereotype st_Unit ;
+ %SUMMARY 'Работа с декорациями документов' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent WL 'ME_4F33E7790312' '4F33E7790312.pas.ms.script' // Presentation
+ ;
+ : Depends
+   Seq: ( WL 'ME_47AC75550330' '47AC75550330.pas.ms.script' // k2Tags
+ WL 'ME_47F086170200' '47F086170200.pas.ms.script' // DocumentContainers
+ WL 'ME_481DB8210016' '481DB8210016.pas.ms.script' // Document
+ WL 'ME_484900780017' '484900780017.pas.ms.script' // Работа с документом
+ WL 'ME_48492FC0029D' '48492FC0029D.pas.ms.script' // Standard
+ WL 'ME_4F4B48E5029E' '4F4B48E5029E.pas.ms.script' // Aspects
+ )
+ ; // Depends
+ : Generators
+ Seq: (
+ gen_pas.script
+ gen_pas.script.runner
+ )
+ ; // Generators
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Presentation'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Presentation'
+ CONST pas.script:Path 'shared\models\NewSchool\Scripts\4F33E7AF02BA.pas.ms.script'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\4F33E7AF02BA.pas.ms.script.runner'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\Presentation'
+
+ref; // ME_4F33E7AF02BA DecorationProcessing

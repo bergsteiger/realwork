@@ -57,8 +57,8 @@ ref; // ME_528C93BA029D anOther
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
  : Parameters
-   @ ( ME_528C93BA029D // anOther
- ) .SequenceCode.It
+   Seq: ( ME_528C93BA029D // anOther
+ )
  ; // Parameters
 
 ref; // ME_528C93B6011F DoIt
@@ -74,8 +74,8 @@ ref; // ME_528C93B6011F DoIt
  : Parent ME_528C9354017B // TvcmFormID
  ;
  : Operations
-   @ ( ME_528C93B6011F // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_528C93B6011F // DoIt
+ )
  ; // Operations
 
 ref; // ME_528C93AC00EB EQ
@@ -91,15 +91,20 @@ ref; // ME_528C93AC00EB EQ
  : Parent ME_528C93040132 // vcmBaseTypes
  ;
  : Attributes
-   @ ( ME_528C938103E3 // rName
+   Seq: ( ME_528C938103E3 // rName
  ME_528C938D0129 // rID
- ) .SequenceCode.It
+ )
  ; // Attributes
  : Operations
-   @ ( ME_528C93AC00EB // EQ
- ) .SequenceCode.It
+   Seq: ( ME_528C93AC00EB // EQ
+ )
  ; // Operations
  CONST "not treat as record for XE4" 'undefined'
+ CONST dfm:PathOnly '\common\components\gui\Garant\VCM'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\VCM'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'FormID'
 
 ref; // ME_528C9354017B TvcmFormID
 
@@ -272,7 +277,7 @@ ref; // ME_528C946201CF ForFocus
  : Parent ME_528C93040132 // vcmBaseTypes
  ;
  : Attributes
-   @ ( ME_528C940A03BD // Any
+   Seq: ( ME_528C940A03BD // Any
  ME_528C941101FC // Main
  ME_528C94160294 // Navigator
  ME_528C941F00C5 // Parent
@@ -285,10 +290,15 @@ ref; // ME_528C946201CF ForFocus
  ME_528C9451011B // SimpleFloat
  ME_528C945901DA // MainObjectForm
  ME_528C946201CF // ForFocus
- ) .SequenceCode.It
+ )
  ; // Attributes
  CONST "children prefix" 'zt'
  CONST "elements prefix" 'vcm'
+ CONST dfm:PathOnly '\common\components\gui\Garant\VCM'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\VCM'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:isAcceptableForScripts true
  CONST extprop:pas:ElementPrefixBase 'vcm'
  CONST extprop:pas:ElementPrefix 'vcm_zt'
 
@@ -347,11 +357,16 @@ ref; // ME_528D9F800248 vcm_nmYes
  : Parent ME_528C93040132 // vcmBaseTypes
  ;
  : Attributes
-   @ ( ME_528D9F70002F // vcm_nmForce
+   Seq: ( ME_528D9F70002F // vcm_nmForce
  ME_528D9F7A02F2 // vcm_nmNo
  ME_528D9F800248 // vcm_nmYes
- ) .SequenceCode.It
+ )
  ; // Attributes
+ CONST dfm:PathOnly '\common\components\gui\Garant\VCM'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\VCM'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_528D9F530036 TvcmNeedMakeDS
 
@@ -371,6 +386,7 @@ FORWARD ME_52A567390016
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value 31
 
 ref; // ME_52A5674D033E vcm_utAny
 
@@ -385,10 +401,14 @@ ref; // ME_52A5674D033E vcm_utAny
  : Parent ME_528C93040132 // vcmBaseTypes
  ;
  : Attributes
-   @ ( ME_52A5674D033E // vcm_utAny
- ) .SequenceCode.It
+   Seq: ( ME_52A5674D033E // vcm_utAny
+ )
  ; // Attributes
  CONST "spell names" false
+ CONST dfm:PathOnly '\common\components\gui\Garant\VCM'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\VCM'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_52A567390016 UserTypes
 
@@ -403,9 +423,13 @@ ref; // ME_52A567390016 UserTypes
  : Parent ME_528C93040132 // vcmBaseTypes
  ;
  : Inherits
-   @ ( WL 'ME_469FA03900D4' '4678193C009C.pas.ms.script' // Tl3IteratorAction
- ) .SequenceCode.It
+   Seq: ( WL 'ME_469FA03900D4' '4678193C009C.pas.ms.script' // Tl3IteratorAction
+ )
  ; // Inherits
+ CONST dfm:PathOnly '\common\components\gui\Garant\VCM'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\VCM'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_53D1DC0400B7 TvcmIteratorAction
 
@@ -419,32 +443,29 @@ ref; // ME_53D1DC0400B7 TvcmIteratorAction
  : Parent WL 'ME_4790C3B8021E' '4790C3B8021E.pas.ms.script' // VCM
  ;
  : Children
-   @ ( ME_528C9354017B // TvcmFormID
+   Seq: ( ME_528C9354017B // TvcmFormID
  ME_528C93FD01EA // TvcmZoneType
  ME_528D9F530036 // TvcmNeedMakeDS
  ME_53D1DC0400B7 // TvcmIteratorAction
- ) .SequenceCode.It
+ )
  ; // Children
  : Constants
-   @ ( ME_52A567390016 // UserTypes
- ) .SequenceCode.It
+   Seq: ( ME_52A567390016 // UserTypes
+ )
  ; // Constants
  : Depends
-   @ ( WL 'ME_4678193C009C' '4678193C009C.pas.ms.script' // l3Types
+   Seq: ( WL 'ME_4678193C009C' '4678193C009C.pas.ms.script' // l3Types
  WL 'ME_4AB0C3C60310' '4AB0C3C60310.pas.ms.script' // Sys
- ) .SequenceCode.It
+ )
  ; // Depends
  CONST "is namespace" true
  CONST "no hands" false
- : Generators
- @ (
- gen_intf.pas
- gen_pas.script
- gen_pas.script.runner
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\VCM'
  CONST intf.pas:Path 'common\components\gui\Garant\VCM\vcmBaseTypes.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\VCM'
  CONST pas.script:Path 'shared\models\NewSchool\Scripts\528C93040132.pas.ms.script'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
  CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\528C93040132.pas.ms.script.runner'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_528C93040132 vcmBaseTypes

@@ -17,6 +17,11 @@ FORWARD ME_4BCE9EF8033F
  CONST Abstraction at_abstract
  : Parent ME_4BCE9EF8033F // FormProducer
  ;
+ CONST dfm:PathOnly '\common\components\gui\Garant\Daily'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Daily'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\common\components\gui\Garant\Daily'
  CONST extprop:pas:TypeName '_FormClass_'
 
 ref; // ME_4BCE9F17020A FormClass
@@ -32,10 +37,16 @@ ref; // ME_4BCE9F17020A FormClass
  : Parent ME_4BCE9EF8033F // FormProducer
  ;
  : Inherits
-   @ ( ME_4BCE9F17020A // FormClass
- ) .SequenceCode.It
+   Seq: ( ME_4BCE9F17020A // FormClass
+ )
  ; // Inherits
  CONST "isClassRef" true
+ CONST dfm:PathOnly '\common\components\gui\Garant\Daily'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Daily'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\common\components\gui\Garant\Daily'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_4C9B2C6403B8 FormClassRef
 
@@ -105,12 +116,12 @@ ref; // ME_4BCE9FF8020F
  : Parent ME_4BCE9EF8033F // FormProducer
  ;
  : Operations
-   @ ( ME_4BCE9FDE0103 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_4BCE9FDE0103 // DoIt
+ )
  ; // Operations
  : Dependencies
-   @ ( ME_4BCE9FF8020F // 
- ) .SequenceCode.It
+   Seq: ( ME_4BCE9FF8020F // 
+ )
  ; // Dependencies
 
 ref; // ME_4BCE9FC203E4 MakeForm
@@ -141,8 +152,8 @@ ref; // ME_4C9B2B8F02BA DoIt
  : Parent ME_4BCE9EF8033F // FormProducer
  ;
  : Operations
-   @ ( ME_4C9B2B8F02BA // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_4C9B2B8F02BA // DoIt
+ )
  ; // Operations
 
 ref; // ME_4C9B2B7F0266 MakeFormClass
@@ -180,8 +191,8 @@ ref; // ME_4C08D62B0149 aForm
  : Parent ME_4BCE9EF8033F // FormProducer
  ;
  : Parameters
-   @ ( ME_4C08D62B0149 // aForm
- ) .SequenceCode.It
+   Seq: ( ME_4C08D62B0149 // aForm
+ )
  ; // Parameters
 
 ref; // ME_4C08D61F0231 FormMade
@@ -255,41 +266,47 @@ ref; // ME_4C08D02C033F
  : Parent ME_4BCE9EA0028A // MixIns
  ;
  : Attributes
-   @ ( ME_4BCE9F9102AA // FormClass
+   Seq: ( ME_4BCE9F9102AA // FormClass
  ME_4C0E55EC033C // f_FixedHeight
- ) .SequenceCode.It
+ )
  ; // Attributes
  : Operations
-   @ ( ME_4BCE9FC203E4 // MakeForm
+   Seq: ( ME_4BCE9FC203E4 // MakeForm
  ME_4C9B2B7F0266 // MakeFormClass
  ME_4C08CF700318 // FormExtent
  ME_4C08D61F0231 // FormMade
  ME_4DA2F7900393 // UseFormExtentAsClientSize
- ) .SequenceCode.It
+ )
  ; // Operations
  : Children
-   @ ( ME_4BCE9F17020A // FormClass
+   Seq: ( ME_4BCE9F17020A // FormClass
  ME_4C9B2C6403B8 // FormClassRef
- ) .SequenceCode.It
+ )
  ; // Children
  : Dependencies
-   @ ( ME_4BCE9F890019 // 
+   Seq: ( ME_4BCE9F890019 // 
  ME_4BCEA5AB0052 // 
  ME_4BCEAD7103DD // 
  ME_4C08D02C033F // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
  : Generators
- @ (
+ Seq: (
  gen_intf.pas
- ) .SequenceCode.It
+ )
  ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\Daily'
  CONST intf.pas:Path 'common\components\gui\Garant\Daily\FormProducer.imp.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Daily'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\common\components\gui\Garant\Daily'
  CONST extprop:pas:TypeName '_FormProducer_'
+ CONST extprop:pas:UnitName 'FormProducer.imp'
 
 ref; // ME_4BCE9EF8033F FormProducer
 
@@ -304,24 +321,29 @@ ref; // ME_4BCE9EF8033F FormProducer
  : Parent WL 'ME_4B30C5FF0172' '4B30C5FF0172.pas.ms.script' // TestFormsTest
  ;
  : Children
-   @ ( ME_4BCE9EF8033F // FormProducer
- ) .SequenceCode.It
+   Seq: ( ME_4BCE9EF8033F // FormProducer
+ )
  ; // Children
  : Depends
-   @ ( WL 'ME_4728A7020026' '4728A7020026.pas.ms.script' // Types
+   Seq: ( WL 'ME_4728A7020026' '4728A7020026.pas.ms.script' // Types
  WL 'ME_47913B47006E' '47913B47006E.pas.ms.script' // l3CoreObjects
  WL 'ME_4799D29F033F' '4799D29F033F.pas.ms.script' // Implementation
  WL 'ME_47D0E1500033' '47D0E1500033.pas.ms.script' // Implementation
  WL 'ME_4AB0C3C60310' '4AB0C3C60310.pas.ms.script' // Sys
- ) .SequenceCode.It
+ )
  ; // Depends
  : Generators
- @ (
+ Seq: (
  gen_pas.script
  gen_pas.script.runner
- ) .SequenceCode.It
+ )
  ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\Daily'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Daily'
  CONST pas.script:Path 'shared\models\NewSchool\Scripts\4BCE9EA0028A.pas.ms.script'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
  CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\4BCE9EA0028A.pas.ms.script.runner'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\common\components\gui\Garant\Daily'
 
 ref; // ME_4BCE9EA0028A MixIns

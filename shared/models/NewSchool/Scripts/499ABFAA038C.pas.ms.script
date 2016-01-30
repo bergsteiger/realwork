@@ -12,18 +12,18 @@ INCLUDE 'ElementsRTTI.ms.dict'
  : Parent WL 'ME_4AB1071F01B0' '4AB1071F01B0.pas.ms.script' // Shared Delphi For F1
  ;
  : Children
-   @ ( WL 'ME_499ABFC003E5' '499ABFC003E5.pas.ms.script' // Navigator
+   Seq: ( WL 'ME_499ABFC003E5' '499ABFC003E5.pas.ms.script' // Navigator
  WL 'ME_499C0BD60338' '499C0BD60338.pas.ms.script' // Tree
  WL 'ME_4D6BB43F02C7' '4D6BB43F02C7.pas.ms.script' // Editor
- ) .SequenceCode.It
+ )
  ; // Children
  : Depends
-   @ ( WL 'ME_467A75D90346' '467A75D90346.pas.ms.script' // VT
+   Seq: ( WL 'ME_467A75D90346' '467A75D90346.pas.ms.script' // VT
  WL 'ME_4680E7D50168' '4680E7D50168.pas.ms.script' // Everest Engine
  WL 'ME_469F3E37025A' '469F3E37025A.pas.ms.script' // Rtl
  WL 'ME_490838AA02D0' '490838AA02D0.pas.ms.script' // Nemesis
  WL 'ME_4E1352670215' '4E1352670215.pas.ms.script' // Nemesis$Tails
- ) .SequenceCode.It
+ )
  ; // Depends
  CONST "defines" 'l3Define.inc'
  CONST "exec mode" 'concluded'
@@ -32,17 +32,12 @@ INCLUDE 'ElementsRTTI.ms.dict'
  CONST "ifndef" 'XE'
  CONST "is namespace" true
  CONST "vendor" '/Garant'
- : Generators
- @ (
- gen_forth_structure
- gen_intf.pas
- gen_pas.script
- gen_pas.script.runner
- ) .SequenceCode.It
- ; // Generators
- CONST forth_structure:Path 'shared\models\NewSchool\Shared Delphi For F1\NemesisTest\NemesisTest.model.script'
+ CONST dfm:PathOnly '\common\components\gui\Garant\Nemesis'
  CONST intf.pas:Path 'common\components\gui\Garant\Nemesis\NemesisTest.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Nemesis'
  CONST pas.script:Path 'shared\models\NewSchool\Scripts\499ABFAA038C.pas.ms.script'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
  CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\499ABFAA038C.pas.ms.script.runner'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_499ABFAA038C NemesisTest

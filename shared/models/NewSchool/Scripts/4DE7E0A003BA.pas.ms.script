@@ -1,0 +1,64 @@
+// archi$Test 4DE7E0A003BA Project Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+: ME_4DE7E0A003BA
+ CONST UID '4DE7E0A003BA'
+ CONST Name 'archi'
+ CONST Class class_Category
+ : Stereotype st_Project ;
+ %SUMMARY 'Тесты Архивариуса.'#13#10''#13#10'База: *testbase* (\\archi2\archi\testbase). '#13#10'Ini-файл: w:\archi\source\projects\Archi\ArchiTest.ini '#13#10'База копируется к себе на компьютер в "C:\Base". '#13#10'Файл проекта: "ArchiTest.dpr"' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Children
+   Seq: ( WL 'ME_4DE765AE02EB' '4DE765AE02EB.pas.ms.script' // ArchiInsiderTests
+ WL 'ME_53BBFFDF0108' '53BBFFDF0108.pas.ms.script' // Tasks
+ WL 'ME_4DE4A1D0031E' '4DE4A1D0031E.pas.ms.script' // Archi$Test
+ )
+ ; // Children
+ : Depends
+   Seq: ( WL 'ME_4677DDBD0193' '4677DDBD0193.pas.ms.script' // Shared Delphi
+ WL 'ME_469F3E37025A' '469F3E37025A.pas.ms.script' // Rtl
+ WL 'ME_49B1511700CA' '49B1511700CA.pas.ms.script' // Shared Delphi Core
+ WL 'ME_4AB0C3C60310' '4AB0C3C60310.pas.ms.script' // Sys
+ WL 'ME_4ABA2360025A' '4ABA2360025A.pas.ms.script' // Shared Delphi For Archi
+ WL 'ME_4ABCC25A0322' '4ABCC25A0322.pas.ms.script' // Shared Delphi Low Level
+ WL 'ME_4B2A10C40309' '4B2A10C40309.pas.ms.script' // DUnitTuning
+ WL 'ME_4B30CC420206' '4B30CC420206.pas.ms.script' // Shared Delphi Testing Framework
+ WL 'ME_4B30FC850092' '4B30FC850092.pas.ms.script' // VCM_TFW
+ WL 'ME_4CA0BB31027B' '4CA0BB31027B.pas.ms.script' // BridgeToKviaCORBA
+ WL 'ME_4DE7F62B000D' '4DE7F62B000D.pas.ms.script' // archi
+ WL 'ME_4DECDB4003E2' '4DECDB4003E2.pas.ms.script' // archi$common
+ WL 'ME_4E5B80A503AD' '4E5B80A503AD.pas.ms.script' // archi$TestSupport
+ WL 'ME_4E5B8882039E' '4E5B8882039E.pas.ms.script' // archi$ScriptEngine
+ WL 'ME_562E251101C2' '562E251101C2.pas.ms.script' // Shared Delphi Rtl
+ )
+ ; // Depends
+ CONST "Full MDP" false
+ CONST "create project" true
+ CONST "defines" 'arDefine.inc'
+ CONST "fix version" 0
+ CONST "force usage" true
+ CONST "full constraint" true
+ CONST "ifdef" 'nsTest,InsiderTest'
+ CONST "major version" 1
+ CONST "minor version" 0
+ CONST "package prefix" 'ru.garant'
+ CONST "root path suffix" '/source/projects/Archi'
+ CONST "space key" 'archi'
+ CONST "space name" 'Архивариус'
+ : Generators
+ Seq: (
+ gen_pas.script
+ gen_pas.script.runner
+ )
+ ; // Generators
+ CONST dfm:PathOnly '\archi\source\projects\Archi'
+ CONST intf.pas:PathOnly '\archi\source\projects\Archi'
+ CONST pas.script:Path 'shared\models\NewSchool\Scripts\4DE7E0A003BA.pas.ms.script'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\4DE7E0A003BA.pas.ms.script.runner'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\archi\source\projects\Archi'
+
+ref; // ME_4DE7E0A003BA archi$Test

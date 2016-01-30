@@ -1,0 +1,174 @@
+// ConsultationInterfaces 491C3E540050 ControllerInterfaces Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_491C3E540050
+
+FORWARD ME_492F005A02C7
+
+: ME_492F006F00BE
+ CONST UID '492F006F00BE'
+ CONST Name 'dsQuery'
+ CONST Class class_Attribute
+ : Stereotype st_area::Attribute ;
+ %SUMMARY 'для формы поискового запроса' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_lnk
+ : Parent ME_492F005A02C7 // IsdsQuery
+ ;
+ : Target WL 'ME_491DC972029C' '4AA5503000D7.pas.ms.script' // IdsQuery
+ ;
+ CONST "Need Has" 'undefined'
+ CONST "UseNewGen" 'undefined'
+ CONST "pm" true
+ CONST "required" 'undefined'
+
+ref; // ME_492F006F00BE dsQuery
+
+: ME_492F00890059
+ CONST UID '492F00890059'
+ CONST Name 'dsSaveLoad'
+ CONST Class class_Attribute
+ : Stereotype st_area::Attribute ;
+ %SUMMARY 'для контейнера поискового запроса' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_lnk
+ : Parent ME_492F005A02C7 // IsdsQuery
+ ;
+ : Target WL 'ME_4923F61A0112' '4AA5503000D7.pas.ms.script' // IdsSaveLoad
+ ;
+ CONST "Need Has" 'undefined'
+ CONST "UseNewGen" 'undefined'
+ CONST "pm" true
+ CONST "required" 'undefined'
+
+ref; // ME_492F00890059 dsSaveLoad
+
+: ME_492F005A02C7
+ CONST UID '492F005A02C7'
+ CONST GUID '0D4BCBD4-AA04-45B7-AAF0-34CEFA6EE31C'
+ CONST Name 'IsdsQuery'
+ CONST Class class_Class
+ : Stereotype st_UseCaseController ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Бизнес объект прецедентов "Поисковый запрос"' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_491C3E540050 // ConsultationInterfaces
+ ;
+ : Attributes
+   Seq: ( ME_492F006F00BE // dsQuery
+ ME_492F00890059 // dsSaveLoad
+ )
+ ; // Attributes
+ CONST "UseNewGen" 'undefined'
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Consultation'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Consultation'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\Consultation'
+
+ref; // ME_492F005A02C7 IsdsQuery
+
+FORWARD ME_492F01200192
+
+: ME_492F006F00BE_ME_492F01200192
+ CONST UID '492F006F00BE'
+ CONST Name 'dsQuery'
+ : Original ME_492F006F00BE // dsQuery
+ ;
+ : Implementor ME_492F01200192 // IsdsSendConsultation
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "Need Has" 'undefined'
+ CONST "UseNewGen" 'undefined'
+ CONST "pm" true
+ CONST "required" 'undefined'
+ref; // ME_492F006F00BE_ME_492F01200192 dsQuery
+
+: ME_492F00890059_ME_492F01200192
+ CONST UID '492F00890059'
+ CONST Name 'dsSaveLoad'
+ : Original ME_492F00890059 // dsSaveLoad
+ ;
+ : Implementor ME_492F01200192 // IsdsSendConsultation
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "Need Has" 'undefined'
+ CONST "UseNewGen" 'undefined'
+ CONST "pm" true
+ CONST "required" 'undefined'
+ref; // ME_492F00890059_ME_492F01200192 dsSaveLoad
+
+: ME_492F01200192
+ CONST UID '492F01200192'
+ CONST GUID 'B788E478-BE1E-422D-85F0-0AF63DEFB0B9'
+ CONST Name 'IsdsSendConsultation'
+ CONST Class class_Class
+ : Stereotype st_UseCaseController ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_491C3E540050 // ConsultationInterfaces
+ ;
+ : Inherits
+   Seq: ( ME_492F005A02C7 // IsdsQuery
+ )
+ ; // Inherits
+ : Implemented
+   Seq: ( ME_492F006F00BE_ME_492F01200192 // dsQuery
+ ME_492F00890059_ME_492F01200192 // dsSaveLoad
+ )
+ ; // Implemented
+ CONST "UseNewGen" 'undefined'
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Consultation'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Consultation'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\Consultation'
+
+ref; // ME_492F01200192 IsdsSendConsultation
+
+: ME_491C3E540050
+ CONST UID '491C3E540050'
+ CONST Name 'ConsultationInterfaces'
+ CONST Class class_Category
+ : Stereotype st_ControllerInterfaces ;
+ %SUMMARY 'Интерфейсы для работы с консультациями' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent WL 'ME_493FCF1E03DC' '493FCF1E03DC.pas.ms.script' // Consultation
+ ;
+ : Children
+   Seq: ( ME_492F005A02C7 // IsdsQuery
+ ME_492F01200192 // IsdsSendConsultation
+ )
+ ; // Children
+ : Depends
+   Seq: ( WL 'ME_4AA5503000D7' '4AA5503000D7.pas.ms.script' // QueryCardInterfaces
+ )
+ ; // Depends
+ CONST "UseNewGen" 'undefined'
+ CONST "author" 'Люлин А.В.'
+ CONST "is namespace" true
+ CONST "no hands" true
+ CONST "started" '13.11.2008'
+ : Generators
+ Seq: (
+ gen_intf.pas
+ gen_pas.script
+ gen_pas.script.runner
+ )
+ ; // Generators
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Consultation'
+ CONST intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\Consultation\ConsultationInterfaces.pas'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Consultation'
+ CONST pas.script:Path 'shared\models\NewSchool\Scripts\491C3E540050.pas.ms.script'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\491C3E540050.pas.ms.script.runner'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\Consultation'
+
+ref; // ME_491C3E540050 ConsultationInterfaces

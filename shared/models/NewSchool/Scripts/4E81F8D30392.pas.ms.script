@@ -41,8 +41,8 @@ ref; // ME_4E81A28801A1 aModel
  : Parent ME_4E81A27A0202 // Create
  ;
  : Parameters
-   @ ( ME_4E81A28801A1 // aModel
- ) .SequenceCode.It
+   Seq: ( ME_4E81A28801A1 // aModel
+ )
  ; // Parameters
 
 ref; // ME_4E81A2800188 DoIt
@@ -58,8 +58,8 @@ ref; // ME_4E81A2800188 DoIt
  : Parent ME_4E81A1D3027D // TevReqIterator
  ;
  : Operations
-   @ ( ME_4E81A2800188 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_4E81A2800188 // DoIt
+ )
  ; // Operations
 
 ref; // ME_4E81A27A0202 Create
@@ -69,6 +69,7 @@ FORWARD ME_4E81A2A903BA
 : ME_28BF7AB50802
  CONST UID '28BF7AB50802'
  CONST Name 'aModel'
+ CONST IsSummoned true
  CONST Class class_Parameter
  : Stereotype st_in ;
  : Target WL 'ME_47CD6F6D031D' '47CD5C7602CD.pas.ms.script' // IevQueryCard
@@ -79,6 +80,7 @@ ref; // ME_28BF7AB50802 aModel
 : ME_8165657CDD57
  CONST UID '8165657CDD57'
  CONST Name 'DoIt'
+ CONST IsSummoned true
  CONST Class class_Operation
  %SUMMARY 'Сигнатура фабрики TevReqIterator.Make' ;
  CONST Visibility PrivateAccess
@@ -88,8 +90,8 @@ ref; // ME_28BF7AB50802 aModel
  : Target WL 'ME_4E81A28E00E5' '47CD5C7602CD.pas.ms.script' // IevReqIterator
  ;
  : Parameters
-   @ ( ME_28BF7AB50802 // aModel
- ) .SequenceCode.It
+   Seq: ( ME_28BF7AB50802 // aModel
+ )
  ; // Parameters
 
 ref; // ME_8165657CDD57 DoIt
@@ -105,16 +107,16 @@ ref; // ME_8165657CDD57 DoIt
  : Parent ME_4E81A1D3027D // TevReqIterator
  ;
  : Inherits
-   @ ( ME_4E81A27A0202 // Create
- ) .SequenceCode.It
+   Seq: ( ME_4E81A27A0202 // Create
+ )
  ; // Inherits
  : Implements
-   @ ( WL 'ME_4E81A28E00E5' '47CD5C7602CD.pas.ms.script' // IevReqIterator
- ) .SequenceCode.It
+   Seq: ( WL 'ME_4E81A28E00E5' '47CD5C7602CD.pas.ms.script' // IevReqIterator
+ )
  ; // Implements
  : Operations
-   @ ( ME_8165657CDD57 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_8165657CDD57 // DoIt
+ )
  ; // Operations
  CONST "check nil" false
  CONST "need AfterCreate" 'undefined'
@@ -144,8 +146,8 @@ ref; // ME_4E820B7F00A4 anEditor
  : Parent ME_4E820B680303 // Create$1
  ;
  : Parameters
-   @ ( ME_4E820B7F00A4 // anEditor
- ) .SequenceCode.It
+   Seq: ( ME_4E820B7F00A4 // anEditor
+ )
  ; // Parameters
 
 ref; // ME_4E820B7101C3 DoIt
@@ -172,12 +174,12 @@ ref; // ME_4E820EBA0117
  : Parent ME_4E81A1D3027D // TevReqIterator
  ;
  : Operations
-   @ ( ME_4E820B7101C3 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_4E820B7101C3 // DoIt
+ )
  ; // Operations
  : Dependencies
-   @ ( ME_4E820EBA0117 // 
- ) .SequenceCode.It
+   Seq: ( ME_4E820EBA0117 // 
+ )
  ; // Dependencies
 
 ref; // ME_4E820B680303 Create$1
@@ -187,6 +189,7 @@ FORWARD ME_4E820B830131
 : ME_192C1DA86847
  CONST UID '192C1DA86847'
  CONST Name 'anEditor'
+ CONST IsSummoned true
  CONST Class class_Parameter
  : Stereotype st_in ;
  : Target WL 'ME_48E22669037D' '48E225F102A3.pas.ms.script' // TevQueryCardEditor
@@ -197,6 +200,7 @@ ref; // ME_192C1DA86847 anEditor
 : ME_0343EE11F887
  CONST UID '0343EE11F887'
  CONST Name 'DoIt'
+ CONST IsSummoned true
  CONST Class class_Operation
  %SUMMARY 'Сигнатура фабрики TevReqIterator.Make$1' ;
  CONST Visibility PrivateAccess
@@ -206,8 +210,8 @@ ref; // ME_192C1DA86847 anEditor
  : Target WL 'ME_4E81A28E00E5' '47CD5C7602CD.pas.ms.script' // IevReqIterator
  ;
  : Parameters
-   @ ( ME_192C1DA86847 // anEditor
- ) .SequenceCode.It
+   Seq: ( ME_192C1DA86847 // anEditor
+ )
  ; // Parameters
 
 ref; // ME_0343EE11F887 DoIt
@@ -223,16 +227,16 @@ ref; // ME_0343EE11F887 DoIt
  : Parent ME_4E81A1D3027D // TevReqIterator
  ;
  : Inherits
-   @ ( ME_4E820B680303 // Create$1
- ) .SequenceCode.It
+   Seq: ( ME_4E820B680303 // Create$1
+ )
  ; // Inherits
  : Implements
-   @ ( WL 'ME_4E81A28E00E5' '47CD5C7602CD.pas.ms.script' // IevReqIterator
- ) .SequenceCode.It
+   Seq: ( WL 'ME_4E81A28E00E5' '47CD5C7602CD.pas.ms.script' // IevReqIterator
+ )
  ; // Implements
  : Operations
-   @ ( ME_0343EE11F887 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_0343EE11F887 // DoIt
+ )
  ; // Operations
  CONST "check nil" false
  CONST "need AfterCreate" 'undefined'
@@ -248,6 +252,7 @@ ref; // ME_4E820B830131 Make$1
  ;
  : Implementor ME_4E81A1D3027D // TevReqIterator
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_5000565C019C_ME_4E81A1D3027D ClearFields
 
 : ME_4E81A1D3027D
@@ -261,27 +266,27 @@ ref; // ME_5000565C019C_ME_4E81A1D3027D ClearFields
  : Parent ME_4E81F8D30392 // qfUtils
  ;
  : Inherits
-   @ ( WL 'ME_4AE5CA2D0034' '47913B47006E.pas.ms.script' // Tl3CProtoObject
- ) .SequenceCode.It
+   Seq: ( WL 'ME_4AE5CA2D0034' '47913B47006E.pas.ms.script' // Tl3CProtoObject
+ )
  ; // Inherits
  : Implements
-   @ ( WL 'ME_4E81A28E00E5' '47CD5C7602CD.pas.ms.script' // IevReqIterator
- ) .SequenceCode.It
+   Seq: ( WL 'ME_4E81A28E00E5' '47CD5C7602CD.pas.ms.script' // IevReqIterator
+ )
  ; // Implements
  : Attributes
-   @ ( ME_4E81A26403DB // f_Model
- ) .SequenceCode.It
+   Seq: ( ME_4E81A26403DB // f_Model
+ )
  ; // Attributes
  : Operations
-   @ ( ME_4E81A27A0202 // Create
+   Seq: ( ME_4E81A27A0202 // Create
  ME_4E81A2A903BA // Make
  ME_4E820B680303 // Create$1
  ME_4E820B830131 // Make$1
- ) .SequenceCode.It
+ )
  ; // Operations
  : Overridden
-   @ ( ME_5000565C019C_ME_4E81A1D3027D // ClearFields
- ) .SequenceCode.It
+   Seq: ( ME_5000565C019C_ME_4E81A1D3027D // ClearFields
+ )
  ; // Overridden
  CONST "author" 'Люлин А.В.'
  CONST "needs InstanceR" 'undefined'
@@ -289,12 +294,14 @@ ref; // ME_5000565C019C_ME_4E81A1D3027D ClearFields
  CONST "no hands" true
  CONST "register in scripts" 'undefined'
  CONST "started" '27.09.2011 14:13'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest'
  CONST intf.pas:Path 'common\components\gui\Garant\Everest\evReqIterator.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'ReqIterator'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'evReqIterator'
 
 ref; // ME_4E81A1D3027D TevReqIterator
 
@@ -308,23 +315,21 @@ ref; // ME_4E81A1D3027D TevReqIterator
  : Parent WL 'ME_4797632D0273' '4797632D0273.pas.ms.script' // Everest
  ;
  : Children
-   @ ( ME_4E81A1D3027D // TevReqIterator
- ) .SequenceCode.It
+   Seq: ( ME_4E81A1D3027D // TevReqIterator
+ )
  ; // Children
  : Depends
-   @ ( WL 'ME_47913B47006E' '47913B47006E.pas.ms.script' // l3CoreObjects
+   Seq: ( WL 'ME_47913B47006E' '47913B47006E.pas.ms.script' // l3CoreObjects
  WL 'ME_47C5207602D1' '47C5207602D1.pas.ms.script' // nevTools
  WL 'ME_47CD5C7602CD' '47CD5C7602CD.pas.ms.script' // evQueryCardInt
  WL 'ME_48E225F102A3' '48E225F102A3.pas.ms.script' // QueryCard
- ) .SequenceCode.It
+ )
  ; // Depends
- : Generators
- @ (
- gen_pas.script
- gen_pas.script.runner
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest'
  CONST pas.script:Path 'shared\models\NewSchool\Scripts\4E81F8D30392.pas.ms.script'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
  CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\4E81F8D30392.pas.ms.script.runner'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_4E81F8D30392 qfUtils

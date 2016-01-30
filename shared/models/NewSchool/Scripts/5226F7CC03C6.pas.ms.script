@@ -15,12 +15,11 @@ FORWARD ME_5226F7CC03C6
  : Parent ME_5226F7CC03C6 // Samples
  ;
  CONST "no hands" false
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\external\NotFinished\Borland\Delphi\Samples'
  CONST intf.pas:Path 'common\components\rtl\external\NotFinished\Borland\Delphi\Samples\Spin.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\external\NotFinished\Borland\Delphi\Samples'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_5226F85800FA Spin
 
@@ -40,6 +39,12 @@ FORWARD ME_53E0F45F02B2
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
+ CONST dfm:PathOnly '\common\components\rtl\external\NotFinished\Borland\Delphi\Samples'
+ CONST intf.pas:PathOnly '\common\components\rtl\external\NotFinished\Borland\Delphi\Samples'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'Gauge'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_53E491DB0065 TGauge
 
@@ -54,16 +59,15 @@ ref; // ME_53E491DB0065 TGauge
  : Parent ME_5226F7CC03C6 // Samples
  ;
  : Children
-   @ ( ME_53E491DB0065 // TGauge
- ) .SequenceCode.It
+   Seq: ( ME_53E491DB0065 // TGauge
+ )
  ; // Children
  CONST "no hands" false
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\external\NotFinished\Borland\Delphi\Samples'
  CONST intf.pas:Path 'common\components\rtl\external\NotFinished\Borland\Delphi\Samples\Gauges.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\external\NotFinished\Borland\Delphi\Samples'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_53E0F45F02B2 Gauges
 
@@ -77,17 +81,15 @@ ref; // ME_53E0F45F02B2 Gauges
  : Parent WL 'ME_5226F61C0109' '5226F61C0109.pas.ms.script' // Samples
  ;
  : Children
-   @ ( ME_5226F85800FA // Spin
+   Seq: ( ME_5226F85800FA // Spin
  ME_53E0F45F02B2 // Gauges
- ) .SequenceCode.It
+ )
  ; // Children
- : Generators
- @ (
- gen_pas.script
- gen_pas.script.runner
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\external\NotFinished\Borland\Delphi\Samples'
+ CONST intf.pas:PathOnly '\common\components\rtl\external\NotFinished\Borland\Delphi\Samples'
  CONST pas.script:Path 'shared\models\NewSchool\Scripts\5226F7CC03C6.pas.ms.script'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
  CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\5226F7CC03C6.pas.ms.script.runner'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_5226F7CC03C6 Samples

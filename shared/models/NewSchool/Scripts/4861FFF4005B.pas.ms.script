@@ -28,6 +28,7 @@ ref; // ME_486200F902AB T
  ;
  : Implementor ME_4862008C0017 // Concret
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_48620066005A_ME_4862008C0017 compare
 
 : ME_4862008C0017
@@ -42,17 +43,23 @@ ref; // ME_48620066005A_ME_4862008C0017 compare
  : Parent ME_4861FFF4005B // Concret
  ;
  : Implements
-   @ ( WL 'ME_4862003B01A0' '4861FFE8022A.pas.ms.script' // Comparable
- ) .SequenceCode.It
+   Seq: ( WL 'ME_4862003B01A0' '4861FFE8022A.pas.ms.script' // Comparable
+ )
  ; // Implements
  : Attributes
-   @ ( ME_486200F902AB // T
- ) .SequenceCode.It
+   Seq: ( ME_486200F902AB // T
+ )
  ; // Attributes
  : Implemented
-   @ ( ME_48620066005A_ME_4862008C0017 // compare
- ) .SequenceCode.It
+   Seq: ( ME_48620066005A_ME_4862008C0017 // compare
+ )
  ; // Implemented
+ CONST dfm:PathOnly '\common\components\SandBox'
+ CONST intf.pas:PathOnly '\common\components\SandBox'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\common\components\SandBox'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_4862008C0017 Concret
 
@@ -66,24 +73,29 @@ ref; // ME_4862008C0017 Concret
  : Parent WL 'ME_4861FFCA02CE' '4861FFCA02CE.pas.ms.script' // SandBox
  ;
  : Children
-   @ ( ME_4862008C0017 // Concret
- ) .SequenceCode.It
+   Seq: ( ME_4862008C0017 // Concret
+ )
  ; // Children
  : Depends
-   @ ( WL 'ME_4861FFE8022A' '4861FFE8022A.pas.ms.script' // Pure
- ) .SequenceCode.It
+   Seq: ( WL 'ME_4861FFE8022A' '4861FFE8022A.pas.ms.script' // Pure
+ )
  ; // Depends
  CONST "is namespace" true
  CONST "no hands" false
  : Generators
- @ (
+ Seq: (
  gen_intf.pas
  gen_pas.script
  gen_pas.script.runner
- ) .SequenceCode.It
+ )
  ; // Generators
+ CONST dfm:PathOnly '\common\components\SandBox'
  CONST intf.pas:Path 'common\components\SandBox\Concret.pas'
+ CONST intf.pas:PathOnly '\common\components\SandBox'
  CONST pas.script:Path 'shared\models\NewSchool\Scripts\4861FFF4005B.pas.ms.script'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
  CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\4861FFF4005B.pas.ms.script.runner'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\common\components\SandBox'
 
 ref; // ME_4861FFF4005B Concret

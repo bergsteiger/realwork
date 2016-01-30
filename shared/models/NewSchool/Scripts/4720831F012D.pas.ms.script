@@ -15,10 +15,16 @@ FORWARD ME_4720831F012D
  : Parent ME_4720831F012D // m3DBInterfaces
  ;
  : Inherits
-   @ ( WL 'ME_472082DD036D' '472082A400B8.pas.ms.script' // Im3Base
- ) .SequenceCode.It
+   Seq: ( WL 'ME_472082DD036D' '472082A400B8.pas.ms.script' // Im3Base
+ )
  ; // Inherits
  CONST "is default ancestor" true
+ CONST dfm:PathOnly '\common\components\rtl\Garant\m3'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\m3'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'm3Base'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_472083450181 Im3Base
 
@@ -88,12 +94,17 @@ ref; // ME_486B7E4803A2 m3_dsObject
  : Parent ME_4720831F012D // m3DBInterfaces
  ;
  : Attributes
-   @ ( ME_472083B60039 // m3_dsMain
+   Seq: ( ME_472083B60039 // m3_dsMain
  ME_472083C00387 // m3_dsAnno
  ME_472083CC0117 // m3_dsInfo
  ME_486B7E4803A2 // m3_dsObject
- ) .SequenceCode.It
+ )
  ; // Attributes
+ CONST dfm:PathOnly '\common\components\rtl\Garant\m3'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\m3'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_472083770011 Tm3DocPartSelector
 
@@ -109,9 +120,13 @@ ref; // ME_472083770011 Tm3DocPartSelector
  : Parent ME_4720831F012D // m3DBInterfaces
  ;
  : Inherits
-   @ ( ME_472083770011 // Tm3DocPartSelector
- ) .SequenceCode.It
+   Seq: ( ME_472083770011 // Tm3DocPartSelector
+ )
  ; // Inherits
+ CONST dfm:PathOnly '\common\components\rtl\Garant\m3'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\m3'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_472083950000 Tm3DocPartSet
 
@@ -131,6 +146,7 @@ FORWARD ME_472083E202FA
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value 'm3_dsMain'
 
 ref; // ME_472083FF0157 m3_defDocPart
 
@@ -147,6 +163,7 @@ ref; // ME_472083FF0157 m3_defDocPart
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value 'High(Longint)'
 
 ref; // ME_555C9B90027D Cm3ConstVersion
 
@@ -163,6 +180,7 @@ ref; // ME_555C9B90027D Cm3ConstVersion
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value 0
 
 ref; // ME_555C9B9F00E2 Cm3LastVersion
 
@@ -177,12 +195,16 @@ ref; // ME_555C9B9F00E2 Cm3LastVersion
  : Parent ME_4720831F012D // m3DBInterfaces
  ;
  : Attributes
-   @ ( ME_472083FF0157 // m3_defDocPart
+   Seq: ( ME_472083FF0157 // m3_defDocPart
  ME_555C9B90027D // Cm3ConstVersion
  ME_555C9B9F00E2 // Cm3LastVersion
- ) .SequenceCode.It
+ )
  ; // Attributes
  CONST "spell names" false
+ CONST dfm:PathOnly '\common\components\rtl\Garant\m3'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\m3'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_472083E202FA m3DBConsts
 
@@ -198,10 +220,14 @@ ref; // ME_472083E202FA m3DBConsts
  : Parent ME_4720831F012D // m3DBInterfaces
  ;
  : Inherits
-   @ ( ME_472083770011 // Tm3DocPartSelector
- ) .SequenceCode.It
+   Seq: ( ME_472083770011 // Tm3DocPartSelector
+ )
  ; // Inherits
  CONST "spell names" false
+ CONST dfm:PathOnly '\common\components\rtl\Garant\m3'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\m3'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_4720842C0346 m3_AllDocParts
 
@@ -318,18 +344,22 @@ ref; // ME_49C28081033C C
  : Parent ME_4720831F012D // m3DBInterfaces
  ;
  : Attributes
-   @ ( ME_4725D03D00EC // rIndexID
+   Seq: ( ME_4725D03D00EC // rIndexID
  ME_4725D0460320 // rRelID
  ME_4725D0540167 // rRightsMask
  ME_4725D0A103CB // rLockedBy
  ME_55153C6D024E // rDocType
  ME_55153C8102C0 // rExtDocID
- ) .SequenceCode.It
+ )
  ; // Attributes
  : Operations
-   @ ( ME_49C28081033C // C
- ) .SequenceCode.It
+   Seq: ( ME_49C28081033C // C
+ )
  ; // Operations
+ CONST dfm:PathOnly '\common\components\rtl\Garant\m3'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\m3'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_4725D0080104 Tm3DBDocumentInfo
 
@@ -405,16 +435,21 @@ ref; // ME_49BFC737039A C
  : Parent ME_4720831F012D // m3DBInterfaces
  ;
  : Attributes
-   @ ( ME_4725D1F402B0 // rID
+   Seq: ( ME_4725D1F402B0 // rID
  ME_4725D21101A3 // rPart
  ME_486B7E780339 // rIdx
- ) .SequenceCode.It
+ )
  ; // Attributes
  : Operations
-   @ ( ME_49BFC737039A // C
- ) .SequenceCode.It
+   Seq: ( ME_49BFC737039A // C
+ )
  ; // Operations
  CONST "not treat as record for XE4" 'undefined'
+ CONST dfm:PathOnly '\common\components\rtl\Garant\m3'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\m3'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'm3DBStreamIndex'
 
 ref; // ME_4725D1E4005E Tm3DBStreamIndex
 
@@ -451,9 +486,9 @@ ref; // ME_486B7F11014B anIndex
  : Target WL 'ME_3DBFFE100240' '3DBFDB23006E.pas.ms.script' // boolean
  ;
  : Parameters
-   @ ( ME_4725D25500BB // aFiler
+   Seq: ( ME_4725D25500BB // aFiler
  ME_486B7F11014B // anIndex
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_4725D2470273 Do
@@ -470,10 +505,14 @@ ref; // ME_4725D2470273 Do
  : Parent ME_4720831F012D // m3DBInterfaces
  ;
  : Operations
-   @ ( ME_4725D2470273 // Do
- ) .SequenceCode.It
+   Seq: ( ME_4725D2470273 // Do
+ )
  ; // Operations
  CONST "of object" false
+ CONST dfm:PathOnly '\common\components\rtl\Garant\m3'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\m3'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_4725D22401C8 Tm3FilerAction
 
@@ -488,9 +527,15 @@ ref; // ME_4725D22401C8 Tm3FilerAction
  : Parent ME_4720831F012D // m3DBInterfaces
  ;
  : Inherits
-   @ ( WL 'ME_4678160E01BE' '47913B47006E.pas.ms.script' // Ik2TagGenerator
- ) .SequenceCode.It
+   Seq: ( WL 'ME_4678160E01BE' '47913B47006E.pas.ms.script' // Ik2TagGenerator
+ )
  ; // Inherits
+ CONST dfm:PathOnly '\common\components\rtl\Garant\m3'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\m3'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'm3TagGenerator'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_4725D3B00254 Im3TagGenerator
 
@@ -543,11 +588,16 @@ ref; // ME_47271B7F0047 m3_cmNotRewrite
  : Parent ME_4720831F012D // m3DBInterfaces
  ;
  : Attributes
-   @ ( ME_47271B6F00EE // m3_cmRewrite
+   Seq: ( ME_47271B6F00EE // m3_cmRewrite
  ME_47271B780340 // m3_cmRewriteEmpty
  ME_47271B7F0047 // m3_cmNotRewrite
- ) .SequenceCode.It
+ )
  ; // Attributes
+ CONST dfm:PathOnly '\common\components\rtl\Garant\m3'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\m3'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_47271B660267 Tm3DBCopyMode
 
@@ -578,8 +628,8 @@ ref; // ME_4FA16BA4008B DoIt
  : Parent ME_5411960801BF // Mm3DB
  ;
  : Operations
-   @ ( ME_4FA16BA4008B // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_4FA16BA4008B // DoIt
+ )
  ; // Operations
 
 ref; // ME_4FA16B78016F DeleteVersion
@@ -610,8 +660,8 @@ ref; // ME_5419A77E0304 DoIt
  : Parent ME_5411960801BF // Mm3DB
  ;
  : Operations
-   @ ( ME_5419A77E0304 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_5419A77E0304 // DoIt
+ )
  ; // Operations
 
 ref; // ME_5419A76B0193 CompareVersionWithBackup
@@ -640,8 +690,8 @@ ref; // ME_5419A7A20291 DoIt
  : Parent ME_5411960801BF // Mm3DB
  ;
  : Operations
-   @ ( ME_5419A7A20291 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_5419A7A20291 // DoIt
+ )
  ; // Operations
 
 ref; // ME_5419A79201B8 CopyBackupToVersion
@@ -670,8 +720,8 @@ ref; // ME_5419A7B7016E DoIt
  : Parent ME_5411960801BF // Mm3DB
  ;
  : Operations
-   @ ( ME_5419A7B7016E // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_5419A7B7016E // DoIt
+ )
  ; // Operations
 
 ref; // ME_5419A7AA002A CopyVersionToBackup
@@ -697,8 +747,8 @@ ref; // ME_541AE1DA0168 aDir
  : Parent ME_541AE1C4006F // ExtractMainTo
  ;
  : Parameters
-   @ ( ME_541AE1DA0168 // aDir
- ) .SequenceCode.It
+   Seq: ( ME_541AE1DA0168 // aDir
+ )
  ; // Parameters
 
 ref; // ME_541AE1D10299 DoIt
@@ -714,8 +764,8 @@ ref; // ME_541AE1D10299 DoIt
  : Parent ME_5411960801BF // Mm3DB
  ;
  : Operations
-   @ ( ME_541AE1D10299 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_541AE1D10299 // DoIt
+ )
  ; // Operations
 
 ref; // ME_541AE1C4006F ExtractMainTo
@@ -741,8 +791,8 @@ ref; // ME_541AE4DD02EB aDir
  : Parent ME_541AE4C701CE // ExtractVersionTo
  ;
  : Parameters
-   @ ( ME_541AE4DD02EB // aDir
- ) .SequenceCode.It
+   Seq: ( ME_541AE4DD02EB // aDir
+ )
  ; // Parameters
 
 ref; // ME_541AE4D6011A DoIt
@@ -758,8 +808,8 @@ ref; // ME_541AE4D6011A DoIt
  : Parent ME_5411960801BF // Mm3DB
  ;
  : Operations
-   @ ( ME_541AE4D6011A // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_541AE4D6011A // DoIt
+ )
  ; // Operations
 
 ref; // ME_541AE4C701CE ExtractVersionTo
@@ -785,8 +835,8 @@ ref; // ME_541AF7A702CE aDir
  : Parent ME_541AF7940108 // ExtractBackupTo
  ;
  : Parameters
-   @ ( ME_541AF7A702CE // aDir
- ) .SequenceCode.It
+   Seq: ( ME_541AF7A702CE // aDir
+ )
  ; // Parameters
 
 ref; // ME_541AF7A60344 DoIt
@@ -802,8 +852,8 @@ ref; // ME_541AF7A60344 DoIt
  : Parent ME_5411960801BF // Mm3DB
  ;
  : Operations
-   @ ( ME_541AF7A60344 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_541AF7A60344 // DoIt
+ )
  ; // Operations
 
 ref; // ME_541AF7940108 ExtractBackupTo
@@ -828,8 +878,8 @@ ref; // ME_47272C150178 aOpenMode
  : Parent ME_5411960801BF // Mm3DB
  ;
  : Parameters
-   @ ( ME_47272C150178 // aOpenMode
- ) .SequenceCode.It
+   Seq: ( ME_47272C150178 // aOpenMode
+ )
  ; // Parameters
 
 ref; // ME_47272C0C0284 Start
@@ -844,6 +894,7 @@ ref; // ME_47272C0C0284 Start
  CONST Value true
  : ValueType WL 'ME_3DBFFE100240' '3DBFDB23006E.pas.ms.script' // boolean
  ;
+ CONST extprop:pas:Value true
 
 ref; // ME_47272BCC03AE aNotEmpty
 
@@ -857,6 +908,7 @@ ref; // ME_47272BCC03AE aNotEmpty
  CONST Value true
  : ValueType WL 'ME_3DBFFE100240' '3DBFDB23006E.pas.ms.script' // boolean
  ;
+ CONST extprop:pas:Value true
 
 ref; // ME_563C86AD01A7 aPurgeDeletedObjects
 
@@ -872,9 +924,9 @@ ref; // ME_563C86AD01A7 aPurgeDeletedObjects
  : Target WL 'ME_3DBFFE100240' '3DBFDB23006E.pas.ms.script' // boolean
  ;
  : Parameters
-   @ ( ME_47272BCC03AE // aNotEmpty
+   Seq: ( ME_47272BCC03AE // aNotEmpty
  ME_563C86AD01A7 // aPurgeDeletedObjects
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_47272BBF01F7 Update
@@ -928,7 +980,7 @@ ref; // ME_47272B980395 Stop
  : Parent ME_4720831F012D // m3DBInterfaces
  ;
  : Operations
-   @ ( ME_4FA16B78016F // DeleteVersion
+   Seq: ( ME_4FA16B78016F // DeleteVersion
  ME_5419A76B0193 // CompareVersionWithBackup
  ME_5419A79201B8 // CopyBackupToVersion
  ME_5419A7AA002A // CopyVersionToBackup
@@ -940,8 +992,12 @@ ref; // ME_47272B980395 Stop
  ME_47272BAA0251 // Purge
  ME_47272C1D02C4 // Finish
  ME_47272B980395 // Stop
- ) .SequenceCode.It
+ )
  ; // Operations
+ CONST dfm:PathOnly '\common\components\rtl\Garant\m3'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\m3'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_5411960801BF Mm3DB
 
@@ -980,9 +1036,9 @@ ref; // ME_486B7EFE0111 anIndex
  : Target WL 'ME_3DBFFE100240' '3DBFDB23006E.pas.ms.script' // boolean
  ;
  : Parameters
-   @ ( ME_476B80B203CF // aDoc
+   Seq: ( ME_476B80B203CF // aDoc
  ME_486B7EFE0111 // anIndex
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_4725D27303C1 Do
@@ -999,14 +1055,18 @@ ref; // ME_4725D27303C1 Do
  : Parent ME_4720831F012D // m3DBInterfaces
  ;
  : Operations
-   @ ( ME_4725D27303C1 // Do
- ) .SequenceCode.It
+   Seq: ( ME_4725D27303C1 // Do
+ )
  ; // Operations
  : Forwarded
-   @ ( ME_472084A601F7 // Im3DBDocumentPart
- ) .SequenceCode.It
+   Seq: ( ME_472084A601F7 // Im3DBDocumentPart
+ )
  ; // Forwarded
  CONST "of object" false
+ CONST dfm:PathOnly '\common\components\rtl\Garant\m3'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\m3'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_4725D2650399 Tm3DocumentAction
 
@@ -1040,13 +1100,19 @@ ref; // ME_4720847C026F DB
  : Parent ME_4720831F012D // m3DBInterfaces
  ;
  : Operations
-   @ ( ME_4720847C026F // DB
- ) .SequenceCode.It
+   Seq: ( ME_4720847C026F // DB
+ )
  ; // Operations
  : Forwarded
-   @ ( ME_472084690055 // Im3DB
- ) .SequenceCode.It
+   Seq: ( ME_472084690055 // Im3DB
+ )
  ; // Forwarded
+ CONST dfm:PathOnly '\common\components\rtl\Garant\m3'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\m3'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'm3DBObject'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_4720844C0099 Im3DBObject
 
@@ -1083,9 +1149,9 @@ ref; // ME_476B80BE0007 anIndex
  : Target WL 'ME_3DBFFE100240' '3DBFDB23006E.pas.ms.script' // boolean
  ;
  : Parameters
-   @ ( ME_476B80BD03CE // aStream
+   Seq: ( ME_476B80BD03CE // aStream
  ME_476B80BE0007 // anIndex
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_4725D2AC0214 Do
@@ -1102,10 +1168,14 @@ ref; // ME_4725D2AC0214 Do
  : Parent ME_4720831F012D // m3DBInterfaces
  ;
  : Operations
-   @ ( ME_4725D2AC0214 // Do
- ) .SequenceCode.It
+   Seq: ( ME_4725D2AC0214 // Do
+ )
  ; // Operations
  CONST "of object" false
+ CONST dfm:PathOnly '\common\components\rtl\Garant\m3'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\m3'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_4725D28D02D8 Tm3DBStreamAction
 
@@ -1138,8 +1208,8 @@ ref; // ME_4FA16BB40052 DoIt
  : Parent ME_472084690055 // Im3DB
  ;
  : Operations
-   @ ( ME_4FA16BB40052 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_4FA16BB40052 // DoIt
+ )
  ; // Operations
 
 ref; // ME_4FA16B91036A DeleteMain
@@ -1165,8 +1235,8 @@ ref; // ME_4FBB76F100E3 aNewName
  : Parent ME_4FBB76D701DC // RenameMain
  ;
  : Parameters
-   @ ( ME_4FBB76F100E3 // aNewName
- ) .SequenceCode.It
+   Seq: ( ME_4FBB76F100E3 // aNewName
+ )
  ; // Parameters
 
 ref; // ME_4FBB76E300CA DoIt
@@ -1183,8 +1253,8 @@ ref; // ME_4FBB76E300CA DoIt
  : Parent ME_472084690055 // Im3DB
  ;
  : Operations
-   @ ( ME_4FBB76E300CA // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_4FBB76E300CA // DoIt
+ )
  ; // Operations
 
 ref; // ME_4FBB76D701DC RenameMain
@@ -1210,8 +1280,8 @@ ref; // ME_4FBB77050269 aNewName
  : Parent ME_4FBB76F50376 // RenameVersion
  ;
  : Parameters
-   @ ( ME_4FBB77050269 // aNewName
- ) .SequenceCode.It
+   Seq: ( ME_4FBB77050269 // aNewName
+ )
  ; // Parameters
 
 ref; // ME_4FBB7704004D DoIt
@@ -1228,8 +1298,8 @@ ref; // ME_4FBB7704004D DoIt
  : Parent ME_472084690055 // Im3DB
  ;
  : Operations
-   @ ( ME_4FBB7704004D // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_4FBB7704004D // DoIt
+ )
  ; // Operations
 
 ref; // ME_4FBB76F50376 RenameVersion
@@ -1255,8 +1325,8 @@ ref; // ME_4FBB828C0130 aNewName
  : Parent ME_4FBB827801E4 // Rename
  ;
  : Parameters
-   @ ( ME_4FBB828C0130 // aNewName
- ) .SequenceCode.It
+   Seq: ( ME_4FBB828C0130 // aNewName
+ )
  ; // Parameters
 
 ref; // ME_4FBB828903BB DoIt
@@ -1273,8 +1343,8 @@ ref; // ME_4FBB828903BB DoIt
  : Parent ME_472084690055 // Im3DB
  ;
  : Operations
-   @ ( ME_4FBB828903BB // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_4FBB828903BB // DoIt
+ )
  ; // Operations
 
 ref; // ME_4FBB827801E4 Rename
@@ -1302,8 +1372,8 @@ ref; // ME_5553301F005F aMode
  : Target WL 'ME_4720937500A4' '4720862F0238.pas.ms.script' // Im3IndexedStorage
  ;
  : Parameters
-   @ ( ME_5553301F005F // aMode
- ) .SequenceCode.It
+   Seq: ( ME_5553301F005F // aMode
+ )
  ; // Parameters
 
 ref; // ME_5553301901CA DoIt
@@ -1319,8 +1389,8 @@ ref; // ME_5553301901CA DoIt
  : Parent ME_472084690055 // Im3DB
  ;
  : Operations
-   @ ( ME_5553301901CA // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_5553301901CA // DoIt
+ )
  ; // Operations
 
 ref; // ME_555330090162 GetBackupStorage
@@ -1348,8 +1418,8 @@ ref; // ME_555330350328 aMode
  : Target WL 'ME_4720937500A4' '4720862F0238.pas.ms.script' // Im3IndexedStorage
  ;
  : Parameters
-   @ ( ME_555330350328 // aMode
- ) .SequenceCode.It
+   Seq: ( ME_555330350328 // aMode
+ )
  ; // Parameters
 
 ref; // ME_555330300384 DoIt
@@ -1365,8 +1435,8 @@ ref; // ME_555330300384 DoIt
  : Parent ME_472084690055 // Im3DB
  ;
  : Operations
-   @ ( ME_555330300384 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_555330300384 // DoIt
+ )
  ; // Operations
 
 ref; // ME_5553302501A8 GetVersionsStorage
@@ -1394,8 +1464,8 @@ ref; // ME_555361BA0026 aMode
  : Target WL 'ME_4720937500A4' '4720862F0238.pas.ms.script' // Im3IndexedStorage
  ;
  : Parameters
-   @ ( ME_555361BA0026 // aMode
- ) .SequenceCode.It
+   Seq: ( ME_555361BA0026 // aMode
+ )
  ; // Parameters
 
 ref; // ME_555361B501B5 DoIt
@@ -1411,8 +1481,8 @@ ref; // ME_555361B501B5 DoIt
  : Parent ME_472084690055 // Im3DB
  ;
  : Operations
-   @ ( ME_555361B501B5 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_555361B501B5 // DoIt
+ )
  ; // Operations
 
 ref; // ME_555361A80058 MainStorage
@@ -1427,6 +1497,7 @@ ref; // ME_555361A80058 MainStorage
  CONST Value 1
  : ValueType WL 'ME_3DBFFD7002C2' '3DBFDB23006E.pas.ms.script' // long
  ;
+ CONST extprop:pas:Value 1
 
 ref; // ME_4727200D027E anIndexID
 
@@ -1442,8 +1513,8 @@ ref; // ME_4727200D027E anIndexID
  : Target ME_4727181C02DD // Im3DBRange
  ;
  : Parameters
-   @ ( ME_4727200D027E // anIndexID
- ) .SequenceCode.It
+   Seq: ( ME_4727200D027E // anIndexID
+ )
  ; // Parameters
 
 ref; // ME_47271FFF00D9 IndexedFiles
@@ -1458,6 +1529,7 @@ ref; // ME_47271FFF00D9 IndexedFiles
  CONST Value false
  : ValueType WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
+ CONST extprop:pas:Value false
 
 ref; // ME_472720310370 aNotEmpty
 
@@ -1471,6 +1543,7 @@ ref; // ME_472720310370 aNotEmpty
  CONST Value 0
  : ValueType WL 'ME_3DBFFD7002C2' '3DBFDB23006E.pas.ms.script' // long
  ;
+ CONST extprop:pas:Value 0
 
 ref; // ME_472720310398 aLevel
 
@@ -1486,9 +1559,9 @@ ref; // ME_472720310398 aLevel
  : Target ME_4727181C02DD // Im3DBRange
  ;
  : Parameters
-   @ ( ME_472720310370 // aNotEmpty
+   Seq: ( ME_472720310370 // aNotEmpty
  ME_472720310398 // aLevel
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_4727201800DF ModifiedFiles
@@ -1583,8 +1656,8 @@ ref; // ME_47272E8603DA anID
  : Target ME_472084C101C4 // Im3DBDocument
  ;
  : Parameters
-   @ ( ME_47272E8603DA // anID
- ) .SequenceCode.It
+   Seq: ( ME_47272E8603DA // anID
+ )
  ; // Parameters
 
 ref; // ME_47272E7903B3 GetDocument
@@ -1623,8 +1696,8 @@ ref; // ME_4BC83548019B aList
  : Target ME_4727181C02DD // Im3DBRange
  ;
  : Parameters
-   @ ( ME_4BC83548019B // aList
- ) .SequenceCode.It
+   Seq: ( ME_4BC83548019B // aList
+ )
  ; // Parameters
 
 ref; // ME_4BC8352E02D3 FilesInList
@@ -1636,6 +1709,7 @@ ref; // ME_4BC8352E02D3 FilesInList
  ;
  : Implementor ME_472084690055 // Im3DB
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_47272B980395_ME_472084690055 Stop
 
 : ME_47272BAA0251_ME_472084690055
@@ -1645,6 +1719,7 @@ ref; // ME_47272B980395_ME_472084690055 Stop
  ;
  : Implementor ME_472084690055 // Im3DB
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_47272BAA0251_ME_472084690055 Purge
 
 : ME_47272BBF01F7_ME_472084690055
@@ -1654,6 +1729,7 @@ ref; // ME_47272BAA0251_ME_472084690055 Purge
  ;
  : Implementor ME_472084690055 // Im3DB
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_47272BBF01F7_ME_472084690055 Update
 
 : ME_47272C0C0284_ME_472084690055
@@ -1663,6 +1739,7 @@ ref; // ME_47272BBF01F7_ME_472084690055 Update
  ;
  : Implementor ME_472084690055 // Im3DB
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_47272C0C0284_ME_472084690055 Start
 
 : ME_47272C1D02C4_ME_472084690055
@@ -1672,6 +1749,7 @@ ref; // ME_47272C0C0284_ME_472084690055 Start
  ;
  : Implementor ME_472084690055 // Im3DB
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_47272C1D02C4_ME_472084690055 Finish
 
 : ME_4FA16B78016F_ME_472084690055
@@ -1681,6 +1759,7 @@ ref; // ME_47272C1D02C4_ME_472084690055 Finish
  ;
  : Implementor ME_472084690055 // Im3DB
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_4FA16B78016F_ME_472084690055 DeleteVersion
 
 : ME_5419A76B0193_ME_472084690055
@@ -1690,6 +1769,7 @@ ref; // ME_4FA16B78016F_ME_472084690055 DeleteVersion
  ;
  : Implementor ME_472084690055 // Im3DB
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_5419A76B0193_ME_472084690055 CompareVersionWithBackup
 
 : ME_5419A79201B8_ME_472084690055
@@ -1699,6 +1779,7 @@ ref; // ME_5419A76B0193_ME_472084690055 CompareVersionWithBackup
  ;
  : Implementor ME_472084690055 // Im3DB
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_5419A79201B8_ME_472084690055 CopyBackupToVersion
 
 : ME_5419A7AA002A_ME_472084690055
@@ -1708,6 +1789,7 @@ ref; // ME_5419A79201B8_ME_472084690055 CopyBackupToVersion
  ;
  : Implementor ME_472084690055 // Im3DB
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_5419A7AA002A_ME_472084690055 CopyVersionToBackup
 
 : ME_541AE1C4006F_ME_472084690055
@@ -1717,6 +1799,7 @@ ref; // ME_5419A7AA002A_ME_472084690055 CopyVersionToBackup
  ;
  : Implementor ME_472084690055 // Im3DB
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_541AE1C4006F_ME_472084690055 ExtractMainTo
 
 : ME_541AE4C701CE_ME_472084690055
@@ -1726,6 +1809,7 @@ ref; // ME_541AE1C4006F_ME_472084690055 ExtractMainTo
  ;
  : Implementor ME_472084690055 // Im3DB
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_541AE4C701CE_ME_472084690055 ExtractVersionTo
 
 : ME_541AF7940108_ME_472084690055
@@ -1735,6 +1819,7 @@ ref; // ME_541AE4C701CE_ME_472084690055 ExtractVersionTo
  ;
  : Implementor ME_472084690055 // Im3DB
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_541AF7940108_ME_472084690055 ExtractBackupTo
 
 : ME_472084690055
@@ -1750,11 +1835,11 @@ ref; // ME_541AF7940108_ME_472084690055 ExtractBackupTo
  : Parent ME_4720831F012D // m3DBInterfaces
  ;
  : Implements
-   @ ( ME_5411960801BF // Mm3DB
- ) .SequenceCode.It
+   Seq: ( ME_5411960801BF // Mm3DB
+ )
  ; // Implements
  : Operations
-   @ ( ME_4FA16B91036A // DeleteMain
+   Seq: ( ME_4FA16B91036A // DeleteMain
  ME_4FBB76D701DC // RenameMain
  ME_4FBB76F50376 // RenameVersion
  ME_4FBB827801E4 // Rename
@@ -1771,10 +1856,10 @@ ref; // ME_541AF7940108_ME_472084690055 ExtractBackupTo
  ME_47272E7903B3 // GetDocument
  ME_49BE895B01ED // FreeVersions
  ME_4BC8352E02D3 // FilesInList
- ) .SequenceCode.It
+ )
  ; // Operations
  : Implemented
-   @ ( ME_47272B980395_ME_472084690055 // Stop
+   Seq: ( ME_47272B980395_ME_472084690055 // Stop
  ME_47272BAA0251_ME_472084690055 // Purge
  ME_47272BBF01F7_ME_472084690055 // Update
  ME_47272C0C0284_ME_472084690055 // Start
@@ -1786,13 +1871,19 @@ ref; // ME_541AF7940108_ME_472084690055 ExtractBackupTo
  ME_541AE1C4006F_ME_472084690055 // ExtractMainTo
  ME_541AE4C701CE_ME_472084690055 // ExtractVersionTo
  ME_541AF7940108_ME_472084690055 // ExtractBackupTo
- ) .SequenceCode.It
+ )
  ; // Implemented
  : Forwarded
-   @ ( ME_472084C101C4 // Im3DBDocument
+   Seq: ( ME_472084C101C4 // Im3DBDocument
  ME_4727181C02DD // Im3DBRange
- ) .SequenceCode.It
+ )
  ; // Forwarded
+ CONST dfm:PathOnly '\common\components\rtl\Garant\m3'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\m3'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'm3DB'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_472084690055 Im3DB
 
@@ -1856,8 +1947,8 @@ ref; // ME_555CAF30018C DoIt
  : Parent ME_472084A601F7 // Im3DBDocumentPart
  ;
  : Operations
-   @ ( ME_555CAF30018C // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_555CAF30018C // DoIt
+ )
  ; // Operations
 
 ref; // ME_555CAF230331 DateTime
@@ -1872,6 +1963,7 @@ ref; // ME_555CAF230331 DateTime
  CONST Value 'm3_saRead'
  : ValueType WL 'ME_47208653003B' '4720862F0238.pas.ms.script' // Tm3StoreAccess
  ;
+ CONST extprop:pas:Value 'm3_saRead'
 
 ref; // ME_486B7F68002B aMode
 
@@ -1885,6 +1977,7 @@ ref; // ME_486B7F68002B aMode
  CONST Value 'm3_defDocPart'
  : ValueType ME_472083770011 // Tm3DocPartSelector
  ;
+ CONST extprop:pas:Value 'm3_defDocPart'
 
 ref; // ME_486B7F680052 aDocPart
 
@@ -1898,6 +1991,7 @@ ref; // ME_486B7F680052 aDocPart
  CONST Value 0
  : ValueType WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
  ;
+ CONST extprop:pas:Value 0
 
 ref; // ME_486B7F68007E aIndex
 
@@ -1913,10 +2007,10 @@ ref; // ME_486B7F68007E aIndex
  : Target WL 'ME_46A5AFF103CA' '46A0E6C5023A.pas.ms.script' // IStream
  ;
  : Parameters
-   @ ( ME_486B7F68002B // aMode
+   Seq: ( ME_486B7F68002B // aMode
  ME_486B7F680052 // aDocPart
  ME_486B7F68007E // aIndex
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_4725D13E031C Open
@@ -1928,6 +2022,7 @@ ref; // ME_4725D13E031C Open
  ;
  : Implementor ME_472084A601F7 // Im3DBDocumentPart
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_4720847C026F_ME_472084A601F7 DB
 
 : ME_472084A601F7
@@ -1943,23 +2038,29 @@ ref; // ME_4720847C026F_ME_472084A601F7 DB
  : Parent ME_4720831F012D // m3DBInterfaces
  ;
  : Inherits
-   @ ( ME_4720844C0099 // Im3DBObject
- ) .SequenceCode.It
+   Seq: ( ME_4720844C0099 // Im3DBObject
+ )
  ; // Inherits
  : Attributes
-   @ ( ME_4725D0FB008B // Document
+   Seq: ( ME_4725D0FB008B // Document
  ME_4725D11802BD // Info
- ) .SequenceCode.It
+ )
  ; // Attributes
  : Operations
-   @ ( ME_555CAF230331 // DateTime
+   Seq: ( ME_555CAF230331 // DateTime
  ME_4725D13E031C // Open
- ) .SequenceCode.It
+ )
  ; // Operations
  : Implemented
-   @ ( ME_4720847C026F_ME_472084A601F7 // DB
- ) .SequenceCode.It
+   Seq: ( ME_4720847C026F_ME_472084A601F7 // DB
+ )
  ; // Implemented
+ CONST dfm:PathOnly '\common\components\rtl\Garant\m3'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\m3'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'm3DBDocumentPart'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_472084A601F7 Im3DBDocumentPart
 
@@ -2030,6 +2131,7 @@ ref; // ME_472085390162 GetConst
  CONST Value 0
  : ValueType WL 'ME_3DBFFD7002C2' '3DBFDB23006E.pas.ms.script' // long
  ;
+ CONST extprop:pas:Value 0
 
 ref; // ME_47208574029E aLevel
 
@@ -2045,8 +2147,8 @@ ref; // ME_47208574029E aLevel
  : Target ME_472084A601F7 // Im3DBDocumentPart
  ;
  : Parameters
-   @ ( ME_47208574029E // aLevel
- ) .SequenceCode.It
+   Seq: ( ME_47208574029E // aLevel
+ )
  ; // Parameters
 
 ref; // ME_4720856602B2 GetVersion
@@ -2061,6 +2163,7 @@ ref; // ME_4720856602B2 GetVersion
  CONST Value 'm3_saRead'
  : ValueType WL 'ME_47208653003B' '4720862F0238.pas.ms.script' // Tm3StoreAccess
  ;
+ CONST extprop:pas:Value 'm3_saRead'
 
 ref; // ME_486B7FC10253 aMode
 
@@ -2074,6 +2177,7 @@ ref; // ME_486B7FC10253 aMode
  CONST Value 'm3_defDocPart'
  : ValueType ME_472083770011 // Tm3DocPartSelector
  ;
+ CONST extprop:pas:Value 'm3_defDocPart'
 
 ref; // ME_486B7FC10284 aDocPart
 
@@ -2087,6 +2191,7 @@ ref; // ME_486B7FC10284 aDocPart
  CONST Value 0
  : ValueType WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
  ;
+ CONST extprop:pas:Value 0
 
 ref; // ME_486B7FC102C2 aIndex
 
@@ -2102,10 +2207,10 @@ ref; // ME_486B7FC102C2 aIndex
  : Target WL 'ME_46A5AFF103CA' '46A0E6C5023A.pas.ms.script' // IStream
  ;
  : Parameters
-   @ ( ME_486B7FC10253 // aMode
+   Seq: ( ME_486B7FC10253 // aMode
  ME_486B7FC10284 // aDocPart
  ME_486B7FC102C2 // aIndex
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_472085990020 Open
@@ -2142,8 +2247,8 @@ ref; // ME_486B7FE600BB aObjID
  : Parent ME_472084C101C4 // Im3DBDocument
  ;
  : Parameters
-   @ ( ME_486B7FE600BB // aObjID
- ) .SequenceCode.It
+   Seq: ( ME_486B7FE600BB // aObjID
+ )
  ; // Parameters
 
 ref; // ME_486B7FE5002E DeleteObject
@@ -2155,6 +2260,7 @@ ref; // ME_486B7FE5002E DeleteObject
  ;
  : Implementor ME_472084C101C4 // Im3DBDocument
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_4720847C026F_ME_472084C101C4 DB
 
 : ME_472084C101C4
@@ -2170,27 +2276,33 @@ ref; // ME_4720847C026F_ME_472084C101C4 DB
  : Parent ME_4720831F012D // m3DBInterfaces
  ;
  : Inherits
-   @ ( ME_4720844C0099 // Im3DBObject
- ) .SequenceCode.It
+   Seq: ( ME_4720844C0099 // Im3DBObject
+ )
  ; // Inherits
  : Attributes
-   @ ( ME_472084D802D5 // ID
- ) .SequenceCode.It
+   Seq: ( ME_472084D802D5 // ID
+ )
  ; // Attributes
  : Operations
-   @ ( ME_472084FC00BA // Delete
+   Seq: ( ME_472084FC00BA // Delete
  ME_47208516014E // Undelete
  ME_472085390162 // GetConst
  ME_4720856602B2 // GetVersion
  ME_472085990020 // Open
  ME_486B7FD901A7 // GetFreeObjectID
  ME_486B7FE5002E // DeleteObject
- ) .SequenceCode.It
+ )
  ; // Operations
  : Implemented
-   @ ( ME_4720847C026F_ME_472084C101C4 // DB
- ) .SequenceCode.It
+   Seq: ( ME_4720847C026F_ME_472084C101C4 // DB
+ )
  ; // Implemented
+ CONST dfm:PathOnly '\common\components\rtl\Garant\m3'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\m3'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'm3DBDocument'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_472084C101C4 Im3DBDocument
 
@@ -2218,8 +2330,8 @@ ref; // ME_486B7EB7037A anIndex
  : Target WL 'ME_3DBFFE100240' '3DBFDB23006E.pas.ms.script' // boolean
  ;
  : Parameters
-   @ ( ME_486B7EB7037A // anIndex
- ) .SequenceCode.It
+   Seq: ( ME_486B7EB7037A // anIndex
+ )
  ; // Parameters
 
 ref; // ME_486B7EAB01C6 DoIt
@@ -2236,10 +2348,14 @@ ref; // ME_486B7EAB01C6 DoIt
  : Parent ME_4720831F012D // m3DBInterfaces
  ;
  : Operations
-   @ ( ME_486B7EAB01C6 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_486B7EAB01C6 // DoIt
+ )
  ; // Operations
  CONST "of object" false
+ CONST dfm:PathOnly '\common\components\rtl\Garant\m3'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\m3'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_486B7E920329 Tm3DBIndexAction
 
@@ -2296,13 +2412,18 @@ ref; // ME_49BFCFD903BA Backup
  : Parent ME_4720831F012D // m3DBInterfaces
  ;
  : Attributes
-   @ ( ME_49BFCFBA00C6 // Const
+   Seq: ( ME_49BFCFBA00C6 // Const
  ME_49BFCFCF0100 // Version
  ME_49BFCFD903BA // Backup
- ) .SequenceCode.It
+ )
  ; // Attributes
  CONST "children prefix" 'bp'
  CONST "elements prefix" 'm3'
+ CONST dfm:PathOnly '\common\components\rtl\Garant\m3'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\m3'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:isAcceptableForScripts true
  CONST extprop:pas:ElementPrefixBase 'm3'
  CONST extprop:pas:ElementPrefix 'm3_bp'
 
@@ -2376,20 +2497,25 @@ ref; // ME_49BFDB980033 CV
  : Parent ME_4720831F012D // m3DBInterfaces
  ;
  : Inherits
-   @ ( ME_4725D1E4005E // Tm3DBStreamIndex
- ) .SequenceCode.It
+   Seq: ( ME_4725D1E4005E // Tm3DBStreamIndex
+ )
  ; // Inherits
  : Attributes
-   @ ( ME_49BFCFA702DD // rDBPart
+   Seq: ( ME_49BFCFA702DD // rDBPart
  ME_49BFDB620156 // rVersion
- ) .SequenceCode.It
+ )
  ; // Attributes
  : Operations
-   @ ( ME_49BFD0280183 // C
+   Seq: ( ME_49BFD0280183 // C
  ME_49BFDB980033 // CV
- ) .SequenceCode.It
+ )
  ; // Operations
  CONST "not treat as record for XE4" 'undefined'
+ CONST dfm:PathOnly '\common\components\rtl\Garant\m3'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\m3'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'm3DBStreamIndexEx'
 
 ref; // ME_49BFCF61009F Tm3DBStreamIndexEx
 
@@ -2415,8 +2541,8 @@ ref; // ME_476B810B0024 aRange
  : Target ME_4727181C02DD // Im3DBRange
  ;
  : Parameters
-   @ ( ME_476B810B0024 // aRange
- ) .SequenceCode.It
+   Seq: ( ME_476B810B0024 // aRange
+ )
  ; // Parameters
 
 ref; // ME_472718E303CA Mul
@@ -2451,6 +2577,7 @@ ref; // ME_4BC82F500279 aNeedWriteToBase
  CONST Value 'm3_AllDocParts'
  : ValueType ME_472083950000 // Tm3DocPartSet
  ;
+ CONST extprop:pas:Value 'm3_AllDocParts'
 
 ref; // ME_472719770340 aParts
 
@@ -2465,10 +2592,10 @@ ref; // ME_472719770340 aParts
  : Target WL 'ME_3DBFFD7002C2' '3DBFDB23006E.pas.ms.script' // long
  ;
  : Parameters
-   @ ( ME_476B81020193 // aFilter
+   Seq: ( ME_476B81020193 // aFilter
  ME_4BC82F500279 // aNeedWriteToBase
  ME_472719770340 // aParts
- ) .SequenceCode.It
+ )
  ; // Parameters
  CONST "ifndef" 'm3NoEVD'
 
@@ -2494,6 +2621,7 @@ ref; // ME_47271A510237 anAction
  CONST Value 'm3_AllDocParts'
  : ValueType ME_472083950000 // Tm3DocPartSet
  ;
+ CONST extprop:pas:Value 'm3_AllDocParts'
 
 ref; // ME_47271A510269 aParts
 
@@ -2508,9 +2636,9 @@ ref; // ME_47271A510269 aParts
  : Target WL 'ME_3DBFFD7002C2' '3DBFDB23006E.pas.ms.script' // long
  ;
  : Parameters
-   @ ( ME_47271A510237 // anAction
+   Seq: ( ME_47271A510237 // anAction
  ME_47271A510269 // aParts
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_47271A4301A1 IterateF
@@ -2535,6 +2663,7 @@ ref; // ME_47271A960286 anAction
  CONST Value 'm3_AllDocParts'
  : ValueType ME_472083950000 // Tm3DocPartSet
  ;
+ CONST extprop:pas:Value 'm3_AllDocParts'
 
 ref; // ME_47271A9602B8 aParts
 
@@ -2549,9 +2678,9 @@ ref; // ME_47271A9602B8 aParts
  : Target WL 'ME_3DBFFD7002C2' '3DBFDB23006E.pas.ms.script' // long
  ;
  : Parameters
-   @ ( ME_47271A960286 // anAction
+   Seq: ( ME_47271A960286 // anAction
  ME_47271A9602B8 // aParts
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_47271A8703B1 IterateF
@@ -2576,6 +2705,7 @@ ref; // ME_476B80FA0138 aDB
  CONST Value 'm3_cmRewrite'
  : ValueType ME_47271B660267 // Tm3DBCopyMode
  ;
+ CONST extprop:pas:Value 'm3_cmRewrite'
 
 ref; // ME_47271AC1006B aMode
 
@@ -2589,6 +2719,7 @@ ref; // ME_47271AC1006B aMode
  CONST Value 'm3_AllDocParts'
  : ValueType ME_472083950000 // Tm3DocPartSet
  ;
+ CONST extprop:pas:Value 'm3_AllDocParts'
 
 ref; // ME_47271AC100A8 aParts
 
@@ -2604,10 +2735,10 @@ ref; // ME_47271AC100A8 aParts
  : Target WL 'ME_3DBFFE100240' '3DBFDB23006E.pas.ms.script' // boolean
  ;
  : Parameters
-   @ ( ME_476B80FA0138 // aDB
+   Seq: ( ME_476B80FA0138 // aDB
  ME_47271AC1006B // aMode
  ME_47271AC100A8 // aParts
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_47271A9E01AC CopyTo
@@ -2619,6 +2750,7 @@ ref; // ME_47271A9E01AC CopyTo
  ;
  : Implementor ME_4727181C02DD // Im3DBRange
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_4720847C026F_ME_4727181C02DD DB
 
 : ME_4727181C02DD
@@ -2634,21 +2766,27 @@ ref; // ME_4720847C026F_ME_4727181C02DD DB
  : Parent ME_4720831F012D // m3DBInterfaces
  ;
  : Inherits
-   @ ( ME_4720844C0099 // Im3DBObject
- ) .SequenceCode.It
+   Seq: ( ME_4720844C0099 // Im3DBObject
+ )
  ; // Inherits
  : Operations
-   @ ( ME_472718E303CA // Mul
+   Seq: ( ME_472718E303CA // Mul
  ME_472719650005 // Iterate
  ME_47271A4301A1 // IterateF
  ME_47271A8703B1 // IterateF
  ME_47271A9E01AC // CopyTo
- ) .SequenceCode.It
+ )
  ; // Operations
  : Implemented
-   @ ( ME_4720847C026F_ME_4727181C02DD // DB
- ) .SequenceCode.It
+   Seq: ( ME_4720847C026F_ME_4727181C02DD // DB
+ )
  ; // Implemented
+ CONST dfm:PathOnly '\common\components\rtl\Garant\m3'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\m3'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'm3DBRange'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_4727181C02DD Im3DBRange
 
@@ -2673,8 +2811,8 @@ ref; // ME_5553753500F3 anID
  : Parent ME_55537517005E // Tm3FilesProcessed
  ;
  : Parameters
-   @ ( ME_5553753500F3 // anID
- ) .SequenceCode.It
+   Seq: ( ME_5553753500F3 // anID
+ )
  ; // Parameters
 
 ref; // ME_555375260156 DoIt
@@ -2690,10 +2828,14 @@ ref; // ME_555375260156 DoIt
  : Parent ME_4720831F012D // m3DBInterfaces
  ;
  : Operations
-   @ ( ME_555375260156 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_555375260156 // DoIt
+ )
  ; // Operations
  CONST "of object" true
+ CONST dfm:PathOnly '\common\components\rtl\Garant\m3'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\m3'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_55537517005E Tm3FilesProcessed
 
@@ -2738,10 +2880,10 @@ ref; // ME_555375860391 aTime
  : Parent ME_55537541038B // Tm3FilesProcessedEx
  ;
  : Parameters
-   @ ( ME_55537586033B // anID
+   Seq: ( ME_55537586033B // anID
  ME_55537586036B // aMaxID
  ME_555375860391 // aTime
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_555375710275 DoIt
@@ -2757,10 +2899,14 @@ ref; // ME_555375710275 DoIt
  : Parent ME_4720831F012D // m3DBInterfaces
  ;
  : Operations
-   @ ( ME_555375710275 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_555375710275 // DoIt
+ )
  ; // Operations
  CONST "of object" true
+ CONST dfm:PathOnly '\common\components\rtl\Garant\m3'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\m3'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_55537541038B Tm3FilesProcessedEx
 
@@ -2775,7 +2921,7 @@ ref; // ME_55537541038B Tm3FilesProcessedEx
  : Parent WL 'ME_548712F60101' '548712F60101.pas.ms.script' // m3$DB
  ;
  : Children
-   @ ( ME_472083450181 // Im3Base
+   Seq: ( ME_472083450181 // Im3Base
  ME_472083770011 // Tm3DocPartSelector
  ME_472083950000 // Tm3DocPartSet
  ME_4720842C0346 // m3_AllDocParts
@@ -2797,35 +2943,32 @@ ref; // ME_55537541038B Tm3FilesProcessedEx
  ME_4727181C02DD // Im3DBRange
  ME_55537517005E // Tm3FilesProcessed
  ME_55537541038B // Tm3FilesProcessedEx
- ) .SequenceCode.It
+ )
  ; // Children
  : Constants
-   @ ( ME_472083E202FA // m3DBConsts
- ) .SequenceCode.It
+   Seq: ( ME_472083E202FA // m3DBConsts
+ )
  ; // Constants
  : Depends
-   @ ( WL 'ME_4678193C009C' '4678193C009C.pas.ms.script' // l3Types
+   Seq: ( WL 'ME_4678193C009C' '4678193C009C.pas.ms.script' // l3Types
  WL 'ME_46A0E6C5023A' '46A0E6C5023A.pas.ms.script' // ActiveX
  WL 'ME_472082A400B8' '472082A400B8.pas.ms.script' // m3Interfaces
  WL 'ME_4720862F0238' '4720862F0238.pas.ms.script' // m3StorageInterfaces
  WL 'ME_47913B47006E' '47913B47006E.pas.ms.script' // l3CoreObjects
  WL 'ME_4A4DE16302A2' '4A4DE16302A2.pas.ms.script' // k2Core
  WL 'ME_4AB0C3C60310' '4AB0C3C60310.pas.ms.script' // Sys
- ) .SequenceCode.It
+ )
  ; // Depends
  CONST "author" 'Ëþëèí À.Â.'
  CONST "is namespace" true
  CONST "no hands" true
  CONST "started" '18.08.2004 19:37'
- : Generators
- @ (
- gen_intf.pas
- gen_pas.script
- gen_pas.script.runner
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\m3'
  CONST intf.pas:Path 'common\components\rtl\Garant\m3\m3DBInterfaces.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\m3'
  CONST pas.script:Path 'shared\models\NewSchool\Scripts\4720831F012D.pas.ms.script'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
  CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\4720831F012D.pas.ms.script.runner'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_4720831F012D m3DBInterfaces

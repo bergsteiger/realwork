@@ -69,9 +69,9 @@ ref; // ME_4DEFCA9B0192 aRec2
  : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
  ;
  : Parameters
-   @ ( ME_4DEFCA9B0168 // aRec1
+   Seq: ( ME_4DEFCA9B0168 // aRec1
  ME_4DEFCA9B0192 // aRec2
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_4DEFCA8C01DE DoIt
@@ -87,8 +87,8 @@ ref; // ME_4DEFCA8C01DE DoIt
  : Parent ME_4DEFC4AE0296 // Tl3CustomRecListView
  ;
  : Operations
-   @ ( ME_4DEFCA8C01DE // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_4DEFCA8C01DE // DoIt
+ )
  ; // Operations
 
 ref; // ME_4DEFCA7603C4 CompareRecs
@@ -114,21 +114,21 @@ ref; // ME_4DEFB2D90167_ME_4DEFC4AE0296 CompareData
  : Parent ME_4DEFC483033B // RecListView
  ;
  : Inherits
-   @ ( WL 'ME_4DEFB2450043' '4A6D65B9022A.pas.ms.script' // l3OtherListView
- ) .SequenceCode.It
+   Seq: ( WL 'ME_4DEFB2450043' '4A6D65B9022A.pas.ms.script' // l3OtherListView
+ )
  ; // Inherits
  : Attributes
-   @ ( ME_4DEFC4D5035F // ListType
+   Seq: ( ME_4DEFC4D5035F // ListType
  ME_4DEFC4F903A7 // ItemType
- ) .SequenceCode.It
+ )
  ; // Attributes
  : Operations
-   @ ( ME_4DEFCA7603C4 // CompareRecs
- ) .SequenceCode.It
+   Seq: ( ME_4DEFCA7603C4 // CompareRecs
+ )
  ; // Operations
  : Implemented
-   @ ( ME_4DEFB2D90167_ME_4DEFC4AE0296 // CompareData
- ) .SequenceCode.It
+   Seq: ( ME_4DEFB2D90167_ME_4DEFC4AE0296 // CompareData
+ )
  ; // Implemented
  CONST "author" 'Люлин А.В.'
  CONST "needs InstanceR" 'undefined'
@@ -136,12 +136,14 @@ ref; // ME_4DEFB2D90167_ME_4DEFC4AE0296 CompareData
  CONST "no hands" true
  CONST "register in scripts" 'undefined'
  CONST "started" '08.06.2011 22:51'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\L3'
  CONST intf.pas:Path 'common\components\rtl\Garant\L3\l3CustomRecListView.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\L3'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'RecListView'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'l3CustomRecListView'
 
 ref; // ME_4DEFC4AE0296 Tl3CustomRecListView
 
@@ -180,9 +182,9 @@ ref; // ME_4DEFC8CB01DF anItem2
  : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
  ;
  : Parameters
-   @ ( ME_4DEFC8CB01B7 // anItem1
+   Seq: ( ME_4DEFC8CB01B7 // anItem1
  ME_4DEFC8CB01DF // anItem2
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_4DEFC8B501C7 DoIt
@@ -198,10 +200,14 @@ ref; // ME_4DEFC8B501C7 DoIt
  : Parent ME_4DEFC812022F // Tl3EventedRecListView
  ;
  : Operations
-   @ ( ME_4DEFC8B501C7 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_4DEFC8B501C7 // DoIt
+ )
  ; // Operations
  CONST "of object" true
+ CONST dfm:PathOnly '\common\components\rtl\Garant\L3'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\L3'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_4DEFC883018A Tl3CompareItemsEvent
 
@@ -250,9 +256,9 @@ ref; // ME_4DEFC8DD01B0 aCompareItemsEvent
  : Parent ME_4DEFC86E0263 // Create
  ;
  : Parameters
-   @ ( ME_4DEFC87E035B // aList
+   Seq: ( ME_4DEFC87E035B // aList
  ME_4DEFC8DD01B0 // aCompareItemsEvent
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_4DEFC87503AA DoIt
@@ -268,8 +274,8 @@ ref; // ME_4DEFC87503AA DoIt
  : Parent ME_4DEFC812022F // Tl3EventedRecListView
  ;
  : Operations
-   @ ( ME_4DEFC87503AA // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_4DEFC87503AA // DoIt
+ )
  ; // Operations
 
 ref; // ME_4DEFC86E0263 Create
@@ -295,24 +301,24 @@ ref; // ME_4DEFCA7603C4_ME_4DEFC812022F CompareRecs
  : Parent ME_4DEFC483033B // RecListView
  ;
  : Inherits
-   @ ( ME_4DEFC4AE0296 // Tl3CustomRecListView
- ) .SequenceCode.It
+   Seq: ( ME_4DEFC4AE0296 // Tl3CustomRecListView
+ )
  ; // Inherits
  : Attributes
-   @ ( ME_4DEFC8A40391 // f_CompareItemsEvent
- ) .SequenceCode.It
+   Seq: ( ME_4DEFC8A40391 // f_CompareItemsEvent
+ )
  ; // Attributes
  : Operations
-   @ ( ME_4DEFC86E0263 // Create
- ) .SequenceCode.It
+   Seq: ( ME_4DEFC86E0263 // Create
+ )
  ; // Operations
  : Implemented
-   @ ( ME_4DEFCA7603C4_ME_4DEFC812022F // CompareRecs
- ) .SequenceCode.It
+   Seq: ( ME_4DEFCA7603C4_ME_4DEFC812022F // CompareRecs
+ )
  ; // Implemented
  : Children
-   @ ( ME_4DEFC883018A // Tl3CompareItemsEvent
- ) .SequenceCode.It
+   Seq: ( ME_4DEFC883018A // Tl3CompareItemsEvent
+ )
  ; // Children
  CONST "author" 'Люлин А.В.'
  CONST "needs InstanceR" 'undefined'
@@ -320,12 +326,14 @@ ref; // ME_4DEFCA7603C4_ME_4DEFC812022F CompareRecs
  CONST "no hands" true
  CONST "register in scripts" 'undefined'
  CONST "started" '08.06.2011 23:06'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\L3'
  CONST intf.pas:Path 'common\components\rtl\Garant\L3\l3EventedRecListView.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\L3'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'EventedRecListView'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'l3EventedRecListView'
 
 ref; // ME_4DEFC812022F Tl3EventedRecListView
 
@@ -339,24 +347,22 @@ ref; // ME_4DEFC812022F Tl3EventedRecListView
  : Parent WL 'ME_4790D09A0378' '4790D09A0378.pas.ms.script' // L3
  ;
  : Children
-   @ ( ME_4DEFC4AE0296 // Tl3CustomRecListView
+   Seq: ( ME_4DEFC4AE0296 // Tl3CustomRecListView
  ME_4DEFC812022F // Tl3EventedRecListView
- ) .SequenceCode.It
+ )
  ; // Children
  : Depends
-   @ ( WL 'ME_47BB24D30205' '47BB24D30205.pas.ms.script' // Стандартные примеси
+   Seq: ( WL 'ME_47BB24D30205' '47BB24D30205.pas.ms.script' // Стандартные примеси
  WL 'ME_4A6D65B9022A' '4A6D65B9022A.pas.ms.script' // Containers
  WL 'ME_4AB0C3C60310' '4AB0C3C60310.pas.ms.script' // Sys
  WL 'ME_4B880BC203B6' '4B880BC203B6.pas.ms.script' // RecLists
- ) .SequenceCode.It
+ )
  ; // Depends
- : Generators
- @ (
- gen_pas.script
- gen_pas.script.runner
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\L3'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\L3'
  CONST pas.script:Path 'shared\models\NewSchool\Scripts\4DEFC483033B.pas.ms.script'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
  CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\4DEFC483033B.pas.ms.script.runner'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_4DEFC483033B RecListView

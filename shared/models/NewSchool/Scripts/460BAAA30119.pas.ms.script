@@ -1,0 +1,1332 @@
+// ApplicationHelper 460BAAA30119 Unit Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_460BAAA30119
+
+FORWARD ME_4746FD4401F3
+
+: ME_4746FDE602D3
+ CONST UID '4746FDE602D3'
+ CONST Name 'facet'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_3DBFFE240068' '3DBFDB23006E.pas.ms.script' // string
+ ;
+
+ref; // ME_4746FDE602D3 facet
+
+: ME_4746FDB603AC
+ CONST UID '4746FDB603AC'
+ CONST Name 'get_server_interface'
+ CONST Class class_Operation
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_4746FD4401F3 // ServerFacade
+ ;
+ : Parameters
+   Seq: ( ME_4746FDE602D3 // facet
+ )
+ ; // Parameters
+
+ref; // ME_4746FDB603AC get_server_interface
+
+: ME_4746FD4401F3
+ CONST UID '4746FD4401F3'
+ CONST Name 'ServerFacade'
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_460BAAA30119 // ApplicationHelper
+ ;
+ : Operations
+   Seq: ( ME_4746FDB603AC // get_server_interface
+ )
+ ; // Operations
+ CONST "Refcount" 'standard'
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ : Generators
+ Seq: (
+ gen_h
+ gen_intf.pas
+ )
+ ; // Generators
+ CONST cpp:PathOnly '\garant6x\implementation\Garant\GblAdapterLib\ApplicationHelper'
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GblAdapterLib'
+ CONST dll.cpp:PathOnly '\garant6x\implementation\Garant\GblAdapterLib'
+ CONST dll.h:PathOnly '\garant6x\implementation\Garant\GblAdapterLib'
+ CONST fctr.cpp:PathOnly '\garant6x\implementation\Garant\GblAdapterLib'
+ CONST fctr.h:PathOnly '\garant6x\implementation\Garant\GblAdapterLib'
+ CONST h:Path 'garant6x\implementation\Garant\GblAdapterLib\ApplicationHelper\ServerFacade.h'
+ CONST h:PathOnly '\garant6x\implementation\Garant\GblAdapterLib\ApplicationHelper'
+ CONST i.h:PathOnly '\garant6x\implementation\Garant\GblAdapterLib\ApplicationHelper'
+ CONST intf.pas:Path 'garant6x\implementation\Garant\tie\Garant\GblAdapterLib\ServerFacade.pas'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\tie\Garant\GblAdapterLib'
+ CONST mpc:PathOnly '\garant6x\implementation\Garant\project'
+ CONST mpc2:PathOnly '\garant6x\implementation\Garant\project'
+ CONST pas:PathOnly '\garant6x\implementation\Garant\GblAdapterLib'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc:PathOnly '\garant6x\implementation\Garant\GblAdapterLib'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\GblAdapterLib'
+ CONST s.ini:PathOnly '\garant6x\implementation\Garant\project'
+ CONST s.reg:PathOnly '\garant6x\implementation\Garant\project'
+ CONST vi.rc:PathOnly '\garant6x\implementation\Garant'
+ CONST vi.rch:PathOnly '\garant6x\implementation\Garant'
+ CONST extprop:rc:isAcceptableForScripts true
+
+ref; // ME_4746FD4401F3 ServerFacade
+
+FORWARD ME_460A6EF8024B
+
+FORWARD ME_460A80090380
+
+: ME_460A801C0323
+ CONST UID '460A801C0323'
+ CONST Name 'stamp'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_460A80090380 // BaseId
+ ;
+ : Target WL 'ME_3DBFFDE101CA' '3DBFDB23006E.pas.ms.script' // unsigned long
+ ;
+
+ref; // ME_460A801C0323 stamp
+
+: ME_460A80090380
+ CONST UID '460A80090380'
+ CONST Name 'BaseId'
+ CONST Class class_Class
+ : Stereotype st_Struct ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_460A6EF8024B // ApplicationHelper
+ ;
+ : Attributes
+   Seq: ( ME_460A801C0323 // stamp
+ )
+ ; // Attributes
+ CONST "force usage" true
+ CONST "need UC" true
+ CONST cpp:PathOnly '\garant6x\implementation\Garant\GblAdapterLib\ApplicationHelper'
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GblAdapterLib'
+ CONST dll.cpp:PathOnly '\garant6x\implementation\Garant\GblAdapterLib'
+ CONST dll.h:PathOnly '\garant6x\implementation\Garant\GblAdapterLib'
+ CONST fctr.cpp:PathOnly '\garant6x\implementation\Garant\GblAdapterLib'
+ CONST fctr.h:PathOnly '\garant6x\implementation\Garant\GblAdapterLib'
+ CONST h:PathOnly '\garant6x\implementation\Garant\GblAdapterLib\ApplicationHelper'
+ CONST i.h:PathOnly '\garant6x\implementation\Garant\GblAdapterLib\ApplicationHelper'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\tie\Garant\GblAdapterLib'
+ CONST mpc:PathOnly '\garant6x\implementation\Garant\project'
+ CONST mpc2:PathOnly '\garant6x\implementation\Garant\project'
+ CONST pas:PathOnly '\garant6x\implementation\Garant\GblAdapterLib'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc:PathOnly '\garant6x\implementation\Garant\GblAdapterLib'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\GblAdapterLib'
+ CONST s.ini:PathOnly '\garant6x\implementation\Garant\project'
+ CONST s.reg:PathOnly '\garant6x\implementation\Garant\project'
+ CONST vi.rc:PathOnly '\garant6x\implementation\Garant'
+ CONST vi.rch:PathOnly '\garant6x\implementation\Garant'
+
+ref; // ME_460A80090380 BaseId
+
+: ME_460BC33000DA
+ CONST UID '460BC33000DA'
+ CONST Name 'base_id'
+ CONST Class class_Attribute
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_460A6EF8024B // ApplicationHelper
+ ;
+ : Target ME_460A80090380 // BaseId
+ ;
+ CONST "is mutable" true
+
+ref; // ME_460BC33000DA base_id
+
+: ME_460CC91401D4
+ CONST UID '460CC91401D4'
+ CONST Name 'function_manager'
+ CONST Class class_Attribute
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_ref
+ : Parent ME_460A6EF8024B // ApplicationHelper
+ ;
+ CONST "is mutable" true
+
+ref; // ME_460CC91401D4 function_manager
+
+: ME_460CCA2602EE
+ CONST UID '460CCA2602EE'
+ CONST Name 'contract_form'
+ CONST Class class_Attribute
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_ref
+ : Parent ME_460A6EF8024B // ApplicationHelper
+ ;
+ CONST "is mutable" true
+
+ref; // ME_460CCA2602EE contract_form
+
+: ME_460CCA470167
+ CONST UID '460CCA470167'
+ CONST Name 'search_manager'
+ CONST Class class_Attribute
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_ref
+ : Parent ME_460A6EF8024B // ApplicationHelper
+ ;
+ CONST "is mutable" true
+
+ref; // ME_460CCA470167 search_manager
+
+: ME_460CCA69006D
+ CONST UID '460CCA69006D'
+ CONST Name 'user_manager'
+ CONST Class class_Attribute
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_ref
+ : Parent ME_460A6EF8024B // ApplicationHelper
+ ;
+ CONST "is mutable" true
+
+ref; // ME_460CCA69006D user_manager
+
+: ME_460CCAC50157
+ CONST UID '460CCAC50157'
+ CONST Name 'folders'
+ CONST Class class_Attribute
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_ref
+ : Parent ME_460A6EF8024B // ApplicationHelper
+ ;
+ CONST "is mutable" true
+
+ref; // ME_460CCAC50157 folders
+
+: ME_460CCAEB01C5
+ CONST UID '460CCAEB01C5'
+ CONST Name 'under_control_manager'
+ CONST Class class_Attribute
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_ref
+ : Parent ME_460A6EF8024B // ApplicationHelper
+ ;
+ CONST "is mutable" true
+
+ref; // ME_460CCAEB01C5 under_control_manager
+
+: ME_460CCB0802BF
+ CONST UID '460CCB0802BF'
+ CONST Name 'settings'
+ CONST Class class_Attribute
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_ref
+ : Parent ME_460A6EF8024B // ApplicationHelper
+ ;
+ CONST "is mutable" true
+
+ref; // ME_460CCB0802BF settings
+
+: ME_460CCB1D02AF
+ CONST UID '460CCB1D02AF'
+ CONST Name 'settings_manager'
+ CONST Class class_Attribute
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_ref
+ : Parent ME_460A6EF8024B // ApplicationHelper
+ ;
+ CONST "is mutable" true
+
+ref; // ME_460CCB1D02AF settings_manager
+
+: ME_460CCB300000
+ CONST UID '460CCB300000'
+ CONST Name 'life_cycle_manager'
+ CONST Class class_Attribute
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_ref
+ : Parent ME_460A6EF8024B // ApplicationHelper
+ ;
+ CONST "is mutable" true
+
+ref; // ME_460CCB300000 life_cycle_manager
+
+: ME_460CCB48005D
+ CONST UID '460CCB48005D'
+ CONST Name 'consultation_manager'
+ CONST Class class_Attribute
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_ref
+ : Parent ME_460A6EF8024B // ApplicationHelper
+ ;
+ CONST "is mutable" true
+
+ref; // ME_460CCB48005D consultation_manager
+
+: ME_460CCB730203
+ CONST UID '460CCB730203'
+ CONST Name 'logging_manager'
+ CONST Class class_Attribute
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_ref
+ : Parent ME_460A6EF8024B // ApplicationHelper
+ ;
+ CONST "is mutable" true
+
+ref; // ME_460CCB730203 logging_manager
+
+: ME_463F5B1A0271
+ CONST UID '463F5B1A0271'
+ CONST Name 'integration'
+ CONST Class class_Attribute
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_ref
+ : Parent ME_460A6EF8024B // ApplicationHelper
+ ;
+ CONST "is mutable" true
+
+ref; // ME_463F5B1A0271 integration
+
+: ME_468271160271
+ CONST UID '468271160271'
+ CONST Name 'xml_save'
+ CONST Class class_Attribute
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_ref
+ : Parent ME_460A6EF8024B // ApplicationHelper
+ ;
+ CONST "is mutable" true
+
+ref; // ME_468271160271 xml_save
+
+: ME_47C2A4010112
+ CONST UID '47C2A4010112'
+ CONST Name 'prime'
+ CONST Class class_Attribute
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_ref
+ : Parent ME_460A6EF8024B // ApplicationHelper
+ ;
+ CONST "is mutable" true
+
+ref; // ME_47C2A4010112 prime
+
+: ME_47C697EC013B
+ CONST UID '47C697EC013B'
+ CONST Name 'prime_xml_save'
+ CONST Class class_Attribute
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_ref
+ : Parent ME_460A6EF8024B // ApplicationHelper
+ ;
+ CONST "is mutable" true
+
+ref; // ME_47C697EC013B prime_xml_save
+
+: ME_47470A6C0354
+ CONST UID '47470A6C0354'
+ CONST Name 'server_facade'
+ CONST Class class_Attribute
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_ref
+ : Parent ME_460A6EF8024B // ApplicationHelper
+ ;
+ : Target ME_4746FD4401F3 // ServerFacade
+ ;
+ CONST TargetStereotype 'const'
+
+ref; // ME_47470A6C0354 server_facade
+
+: ME_4A80366B032E
+ CONST UID '4A80366B032E'
+ CONST Name 'user_journal'
+ CONST Class class_Attribute
+ %SUMMARY 'Журнал работы' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_ref
+ : Parent ME_460A6EF8024B // ApplicationHelper
+ ;
+ CONST "is mutable" true
+
+ref; // ME_4A80366B032E user_journal
+
+: ME_4ABB42BE005E
+ CONST UID '4ABB42BE005E'
+ CONST Name 'tree_factory'
+ CONST Class class_Attribute
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_ref
+ : Parent ME_460A6EF8024B // ApplicationHelper
+ ;
+ CONST "is mutable" true
+
+ref; // ME_4ABB42BE005E tree_factory
+
+: ME_4AC4AAD502D8
+ CONST UID '4AC4AAD502D8'
+ CONST Name 'property_manager'
+ CONST Class class_Attribute
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_ref
+ : Parent ME_460A6EF8024B // ApplicationHelper
+ ;
+ CONST "is mutable" true
+
+ref; // ME_4AC4AAD502D8 property_manager
+
+: ME_4AD31BDC01C8
+ CONST UID '4AD31BDC01C8'
+ CONST Name 'banner_manager'
+ CONST Class class_Attribute
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_ref
+ : Parent ME_460A6EF8024B // ApplicationHelper
+ ;
+ CONST "is mutable" true
+
+ref; // ME_4AD31BDC01C8 banner_manager
+
+: ME_4AEE9F4A02BF
+ CONST UID '4AEE9F4A02BF'
+ CONST Name 'uid'
+ CONST Class class_Attribute
+ : Stereotype st_readonly::Attribute ;
+ %SUMMARY 'uid текущего пользователя' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_agr
+ : Parent ME_460A6EF8024B // ApplicationHelper
+ ;
+ CONST "is mutable" true
+ CONST "needs field" true
+ CONST "pm" true
+
+ref; // ME_4AEE9F4A02BF uid
+
+: ME_4AF00C6203B8
+ CONST UID '4AF00C6203B8'
+ CONST Name 'group_manager'
+ CONST Class class_Attribute
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_ref
+ : Parent ME_460A6EF8024B // ApplicationHelper
+ ;
+ CONST "is mutable" true
+
+ref; // ME_4AF00C6203B8 group_manager
+
+: ME_4BD555DD0100
+ CONST UID '4BD555DD0100'
+ CONST Name 'remote_support'
+ CONST Class class_Attribute
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_ref
+ : Parent ME_460A6EF8024B // ApplicationHelper
+ ;
+ CONST "is mutable" true
+
+ref; // ME_4BD555DD0100 remote_support
+
+: ME_4CA5C3B902CF
+ CONST UID '4CA5C3B902CF'
+ CONST Name 'filters_manager'
+ CONST Class class_Attribute
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_ref
+ : Parent ME_460A6EF8024B // ApplicationHelper
+ ;
+ CONST "is mutable" true
+
+ref; // ME_4CA5C3B902CF filters_manager
+
+: ME_4D3EE90700C5
+ CONST UID '4D3EE90700C5'
+ CONST Name 'context_filter'
+ CONST Class class_Attribute
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_ref
+ : Parent ME_460A6EF8024B // ApplicationHelper
+ ;
+ CONST "is mutable" true
+
+ref; // ME_4D3EE90700C5 context_filter
+
+: ME_4DD4FD16037F
+ CONST UID '4DD4FD16037F'
+ CONST Name 'main_menu'
+ CONST Class class_Attribute
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_ref
+ : Parent ME_460A6EF8024B // ApplicationHelper
+ ;
+ CONST "is mutable" true
+
+ref; // ME_4DD4FD16037F main_menu
+
+: ME_4F71D30F03A9
+ CONST UID '4F71D30F03A9'
+ CONST Name 'decisions_archive_support'
+ CONST Class class_Attribute
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_ref
+ : Parent ME_460A6EF8024B // ApplicationHelper
+ ;
+ CONST "is mutable" true
+
+ref; // ME_4F71D30F03A9 decisions_archive_support
+
+: ME_4FE86F45030E
+ CONST UID '4FE86F45030E'
+ CONST Name 'document_type_resolver'
+ CONST Class class_Attribute
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_ref
+ : Parent ME_460A6EF8024B // ApplicationHelper
+ ;
+ CONST "is mutable" true
+
+ref; // ME_4FE86F45030E document_type_resolver
+
+: ME_55952CC10360
+ CONST UID '55952CC10360'
+ CONST Name 'link_manager'
+ CONST Class class_Attribute
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_ref
+ : Parent ME_460A6EF8024B // ApplicationHelper
+ ;
+ CONST "is mutable" true
+
+ref; // ME_55952CC10360 link_manager
+
+: ME_33D55694A309
+ CONST UID '33D55694A309'
+ CONST Name 'f_uid'
+ CONST IsSummoned true
+ CONST Class class_Attribute
+ %SUMMARY 'Поле для свойства uid' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_ref
+ : Parent ME_460A6EF8024B // ApplicationHelper
+ ;
+
+ref; // ME_33D55694A309 f_uid
+
+: ME_460A806C0214
+ CONST UID '460A806C0214'
+ CONST Name 'clear_cache_and_regenerate_base_id'
+ CONST Class class_Operation
+ : Stereotype st_chg::Operation ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_460A6EF8024B // ApplicationHelper
+ ;
+
+ref; // ME_460A806C0214 clear_cache_and_regenerate_base_id
+
+: ME_462F69F80357
+ CONST UID '462F69F80357'
+ CONST Name 'base_id'
+ CONST Class class_Parameter
+ : Stereotype st_inout ;
+ : Target ME_460A80090380 // BaseId
+ ;
+
+ref; // ME_462F69F80357 base_id
+
+: ME_460A80AB0254
+ CONST UID '460A80AB0254'
+ CONST Name 'compare_and_update_base_id'
+ CONST Class class_Operation
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_460A6EF8024B // ApplicationHelper
+ ;
+ : Target WL 'ME_3DBFFE100240' '3DBFDB23006E.pas.ms.script' // boolean
+ ;
+ : Parameters
+   Seq: ( ME_462F69F80357 // base_id
+ )
+ ; // Parameters
+
+ref; // ME_460A80AB0254 compare_and_update_base_id
+
+: ME_460A80C603C1
+ CONST UID '460A80C603C1'
+ CONST Name 'get_cached_function_manager'
+ CONST Class class_Operation
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_460A6EF8024B // ApplicationHelper
+ ;
+
+ref; // ME_460A80C603C1 get_cached_function_manager
+
+: ME_4D3EE8C701C0
+ CONST UID '4D3EE8C701C0'
+ CONST Name 'get_cached_context_filter'
+ CONST Class class_Operation
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_460A6EF8024B // ApplicationHelper
+ ;
+
+ref; // ME_4D3EE8C701C0 get_cached_context_filter
+
+: ME_460A819B01DA
+ CONST UID '460A819B01DA'
+ CONST Name 'get_cached_contract_form'
+ CONST Class class_Operation
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_460A6EF8024B // ApplicationHelper
+ ;
+
+ref; // ME_460A819B01DA get_cached_contract_form
+
+: ME_460B91AE00DA
+ CONST UID '460B91AE00DA'
+ CONST Name 'get_cached_user_manager'
+ CONST Class class_Operation
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_460A6EF8024B // ApplicationHelper
+ ;
+
+ref; // ME_460B91AE00DA get_cached_user_manager
+
+: ME_460B91FC0157
+ CONST UID '460B91FC0157'
+ CONST Name 'get_cached_folders'
+ CONST Class class_Operation
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_460A6EF8024B // ApplicationHelper
+ ;
+
+ref; // ME_460B91FC0157 get_cached_folders
+
+: ME_460B92A701F4
+ CONST UID '460B92A701F4'
+ CONST Name 'get_cached_under_control_manager'
+ CONST Class class_Operation
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_460A6EF8024B // ApplicationHelper
+ ;
+
+ref; // ME_460B92A701F4 get_cached_under_control_manager
+
+: ME_460B94F80232
+ CONST UID '460B94F80232'
+ CONST Name 'get_cached_settings'
+ CONST Class class_Operation
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_460A6EF8024B // ApplicationHelper
+ ;
+
+ref; // ME_460B94F80232 get_cached_settings
+
+: ME_460B95AC03D8
+ CONST UID '460B95AC03D8'
+ CONST Name 'get_cached_settings_manager'
+ CONST Class class_Operation
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_460A6EF8024B // ApplicationHelper
+ ;
+
+ref; // ME_460B95AC03D8 get_cached_settings_manager
+
+: ME_460B95D9004E
+ CONST UID '460B95D9004E'
+ CONST Name 'get_cached_life_cycle_manager'
+ CONST Class class_Operation
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_460A6EF8024B // ApplicationHelper
+ ;
+
+ref; // ME_460B95D9004E get_cached_life_cycle_manager
+
+: ME_4682713102DE
+ CONST UID '4682713102DE'
+ CONST Name 'get_cached_xml_save'
+ CONST Class class_Operation
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_460A6EF8024B // ApplicationHelper
+ ;
+
+ref; // ME_4682713102DE get_cached_xml_save
+
+: ME_460BA6F801D4
+ CONST UID '460BA6F801D4'
+ CONST Name 'thr_mgr'
+ CONST Class class_Operation
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_regular
+ : Parent ME_460A6EF8024B // ApplicationHelper
+ ;
+
+ref; // ME_460BA6F801D4 thr_mgr
+
+: ME_460BA70A0157
+ CONST UID '460BA70A0157'
+ CONST Name 'is_configurations_exist'
+ CONST Class class_Operation
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_460A6EF8024B // ApplicationHelper
+ ;
+ : Target WL 'ME_3DBFFE100240' '3DBFDB23006E.pas.ms.script' // boolean
+ ;
+
+ref; // ME_460BA70A0157 is_configurations_exist
+
+: ME_460BA7220280
+ CONST UID '460BA7220280'
+ CONST Name 'get_cached_search_manager'
+ CONST Class class_Operation
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_460A6EF8024B // ApplicationHelper
+ ;
+
+ref; // ME_460BA7220280 get_cached_search_manager
+
+: ME_460BA73401D4
+ CONST UID '460BA73401D4'
+ CONST Name 'get_cached_consultation_manager'
+ CONST Class class_Operation
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_460A6EF8024B // ApplicationHelper
+ ;
+
+ref; // ME_460BA73401D4 get_cached_consultation_manager
+
+: ME_460BA77D007D
+ CONST UID '460BA77D007D'
+ CONST Name 'get_cached_logging_manager'
+ CONST Class class_Operation
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_460A6EF8024B // ApplicationHelper
+ ;
+
+ref; // ME_460BA77D007D get_cached_logging_manager
+
+: ME_463F5B37009C
+ CONST UID '463F5B37009C'
+ CONST Name 'get_cached_integration'
+ CONST Class class_Operation
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_460A6EF8024B // ApplicationHelper
+ ;
+
+ref; // ME_463F5B37009C get_cached_integration
+
+: ME_47C2A4670007
+ CONST UID '47C2A4670007'
+ CONST Name 'get_cached_prime'
+ CONST Class class_Operation
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_460A6EF8024B // ApplicationHelper
+ ;
+
+ref; // ME_47C2A4670007 get_cached_prime
+
+: ME_47C695540167
+ CONST UID '47C695540167'
+ CONST Name 'get_cached_prime_xml_save'
+ CONST Class class_Operation
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_460A6EF8024B // ApplicationHelper
+ ;
+
+ref; // ME_47C695540167 get_cached_prime_xml_save
+
+: ME_460CD7A6038A
+ CONST UID '460CD7A6038A'
+ CONST Name 'start_listen_for_me'
+ CONST Class class_Operation
+ : Stereotype st_chg::Operation ;
+ %SUMMARY 'Заставляем NotifyManager слушать нотификации только для меня' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_460A6EF8024B // ApplicationHelper
+ ;
+
+ref; // ME_460CD7A6038A start_listen_for_me
+
+: ME_460CD7D402FD
+ CONST UID '460CD7D402FD'
+ CONST Name 'stop_listen_for_me'
+ CONST Class class_Operation
+ : Stereotype st_chg::Operation ;
+ %SUMMARY 'Прекратить слушать нотификации для меня' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_460A6EF8024B // ApplicationHelper
+ ;
+
+ref; // ME_460CD7D402FD stop_listen_for_me
+
+: ME_460CDD6C0399
+ CONST UID '460CDD6C0399'
+ CONST Name 'clear_cache'
+ CONST Class class_Operation
+ %SUMMARY 'Очистка кешированных серверных объектов' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_460A6EF8024B // ApplicationHelper
+ ;
+
+ref; // ME_460CDD6C0399 clear_cache
+
+: ME_474702A100AE
+ CONST UID '474702A100AE'
+ CONST Name 'server_facade'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target ME_4746FD4401F3 // ServerFacade
+ ;
+
+ref; // ME_474702A100AE server_facade
+
+: ME_4746FE3B0046
+ CONST UID '4746FE3B0046'
+ CONST Name 'init'
+ CONST Class class_Operation
+ : Stereotype st_chg::Operation ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_460A6EF8024B // ApplicationHelper
+ ;
+ : Parameters
+   Seq: ( ME_474702A100AE // server_facade
+ )
+ ; // Parameters
+
+ref; // ME_4746FE3B0046 init
+
+: ME_474704110312
+ CONST UID '474704110312'
+ CONST Name 'make'
+ CONST Class class_Operation
+ : Stereotype st_ctor::Operation ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_460A6EF8024B // ApplicationHelper
+ ;
+
+ref; // ME_474704110312 make
+
+: ME_474705300058
+ CONST UID '474705300058'
+ CONST Name 'server_facade'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ : Parent ME_460A6EF8024B // ApplicationHelper
+ ;
+ : Target ME_4746FD4401F3 // ServerFacade
+ ;
+ CONST TargetStereotype 'const,cached'
+
+ref; // ME_474705300058 server_facade
+
+: ME_4A80371200CE
+ CONST UID '4A80371200CE'
+ CONST Name 'get_cached_user_journal'
+ CONST Class class_Operation
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_460A6EF8024B // ApplicationHelper
+ ;
+
+ref; // ME_4A80371200CE get_cached_user_journal
+
+: ME_4ABB429C0210
+ CONST UID '4ABB429C0210'
+ CONST Name 'get_cached_tree_factory'
+ CONST Class class_Operation
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_460A6EF8024B // ApplicationHelper
+ ;
+
+ref; // ME_4ABB429C0210 get_cached_tree_factory
+
+: ME_4AC4AB0C01BC
+ CONST UID '4AC4AB0C01BC'
+ CONST Name 'get_cached_property_manager'
+ CONST Class class_Operation
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_460A6EF8024B // ApplicationHelper
+ ;
+
+ref; // ME_4AC4AB0C01BC get_cached_property_manager
+
+: ME_4ACF446803B9
+ CONST UID '4ACF446803B9'
+ CONST Name 'get_cached_banner_manager'
+ CONST Class class_Operation
+ %SUMMARY 'Получить баннер с сервера' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_460A6EF8024B // ApplicationHelper
+ ;
+
+ref; // ME_4ACF446803B9 get_cached_banner_manager
+
+: ME_4AEE9E0E01D3
+ CONST UID '4AEE9E0E01D3'
+ CONST Name 'get_cached_current_user_id'
+ CONST Class class_Operation
+ %SUMMARY 'возвращает идентификатор текущего пользователя' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_460A6EF8024B // ApplicationHelper
+ ;
+
+ref; // ME_4AEE9E0E01D3 get_cached_current_user_id
+
+: ME_4AF00C4B02A1
+ CONST UID '4AF00C4B02A1'
+ CONST Name 'get_cached_group_manager'
+ CONST Class class_Operation
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_460A6EF8024B // ApplicationHelper
+ ;
+
+ref; // ME_4AF00C4B02A1 get_cached_group_manager
+
+: ME_4BD5566102F9
+ CONST UID '4BD5566102F9'
+ CONST Name 'get_cached_remote_document_support'
+ CONST Class class_Operation
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_460A6EF8024B // ApplicationHelper
+ ;
+
+ref; // ME_4BD5566102F9 get_cached_remote_document_support
+
+: ME_4CA5C3E1000C
+ CONST UID '4CA5C3E1000C'
+ CONST Name 'get_cached_filters_manager'
+ CONST Class class_Operation
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_460A6EF8024B // ApplicationHelper
+ ;
+
+ref; // ME_4CA5C3E1000C get_cached_filters_manager
+
+: ME_4DD4FCEF01B0
+ CONST UID '4DD4FCEF01B0'
+ CONST Name 'get_cached_main_menu'
+ CONST Class class_Operation
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_460A6EF8024B // ApplicationHelper
+ ;
+
+ref; // ME_4DD4FCEF01B0 get_cached_main_menu
+
+: ME_4F71D2D20136
+ CONST UID '4F71D2D20136'
+ CONST Name 'get_cached_decisions_archive_support'
+ CONST Class class_Operation
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_460A6EF8024B // ApplicationHelper
+ ;
+
+ref; // ME_4F71D2D20136 get_cached_decisions_archive_support
+
+: ME_4FE86FAD00A3
+ CONST UID '4FE86FAD00A3'
+ CONST Name 'get_cached_document_type_resolver'
+ CONST Class class_Operation
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_460A6EF8024B // ApplicationHelper
+ ;
+
+ref; // ME_4FE86FAD00A3 get_cached_document_type_resolver
+
+: ME_55952CE501E5
+ CONST UID '55952CE501E5'
+ CONST Name 'get_cached_link_manager'
+ CONST Class class_Operation
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_460A6EF8024B // ApplicationHelper
+ ;
+
+ref; // ME_55952CE501E5 get_cached_link_manager
+
+: ME_FD650D5ECDA7
+ CONST UID 'FD650D5ECDA7'
+ CONST Name 'Exists'
+ CONST IsSummoned true
+ CONST Class class_Operation
+ : Stereotype st_static::Operation ;
+ %SUMMARY 'Проверяет создан экземпляр синглетона или нет' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_460A6EF8024B // ApplicationHelper
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+ CONST extprop:pas:Value false
+
+ref; // ME_FD650D5ECDA7 Exists
+
+: ME_46272E6103D4
+ CONST UID '46272E6103D4'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_460A6EF8024B // ApplicationHelper
+ ;
+
+ref; // ME_46272E6103D4 
+
+: ME_460A6EF8024B
+ CONST UID '460A6EF8024B'
+ CONST Name 'ApplicationHelper'
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_460BAAA30119 // ApplicationHelper
+ ;
+ : Attributes
+   Seq: ( ME_460BC33000DA // base_id
+ ME_460CC91401D4 // function_manager
+ ME_460CCA2602EE // contract_form
+ ME_460CCA470167 // search_manager
+ ME_460CCA69006D // user_manager
+ ME_460CCAC50157 // folders
+ ME_460CCAEB01C5 // under_control_manager
+ ME_460CCB0802BF // settings
+ ME_460CCB1D02AF // settings_manager
+ ME_460CCB300000 // life_cycle_manager
+ ME_460CCB48005D // consultation_manager
+ ME_460CCB730203 // logging_manager
+ ME_463F5B1A0271 // integration
+ ME_468271160271 // xml_save
+ ME_47C2A4010112 // prime
+ ME_47C697EC013B // prime_xml_save
+ ME_47470A6C0354 // server_facade
+ ME_4A80366B032E // user_journal
+ ME_4ABB42BE005E // tree_factory
+ ME_4AC4AAD502D8 // property_manager
+ ME_4AD31BDC01C8 // banner_manager
+ ME_4AEE9F4A02BF // uid
+ ME_4AF00C6203B8 // group_manager
+ ME_4BD555DD0100 // remote_support
+ ME_4CA5C3B902CF // filters_manager
+ ME_4D3EE90700C5 // context_filter
+ ME_4DD4FD16037F // main_menu
+ ME_4F71D30F03A9 // decisions_archive_support
+ ME_4FE86F45030E // document_type_resolver
+ ME_55952CC10360 // link_manager
+ ME_33D55694A309 // f_uid
+ )
+ ; // Attributes
+ : Operations
+   Seq: ( ME_460A806C0214 // clear_cache_and_regenerate_base_id
+ ME_460A80AB0254 // compare_and_update_base_id
+ ME_460A80C603C1 // get_cached_function_manager
+ ME_4D3EE8C701C0 // get_cached_context_filter
+ ME_460A819B01DA // get_cached_contract_form
+ ME_460B91AE00DA // get_cached_user_manager
+ ME_460B91FC0157 // get_cached_folders
+ ME_460B92A701F4 // get_cached_under_control_manager
+ ME_460B94F80232 // get_cached_settings
+ ME_460B95AC03D8 // get_cached_settings_manager
+ ME_460B95D9004E // get_cached_life_cycle_manager
+ ME_4682713102DE // get_cached_xml_save
+ ME_460BA6F801D4 // thr_mgr
+ ME_460BA70A0157 // is_configurations_exist
+ ME_460BA7220280 // get_cached_search_manager
+ ME_460BA73401D4 // get_cached_consultation_manager
+ ME_460BA77D007D // get_cached_logging_manager
+ ME_463F5B37009C // get_cached_integration
+ ME_47C2A4670007 // get_cached_prime
+ ME_47C695540167 // get_cached_prime_xml_save
+ ME_460CD7A6038A // start_listen_for_me
+ ME_460CD7D402FD // stop_listen_for_me
+ ME_460CDD6C0399 // clear_cache
+ ME_4746FE3B0046 // init
+ ME_474704110312 // make
+ ME_474705300058 // server_facade
+ ME_4A80371200CE // get_cached_user_journal
+ ME_4ABB429C0210 // get_cached_tree_factory
+ ME_4AC4AB0C01BC // get_cached_property_manager
+ ME_4ACF446803B9 // get_cached_banner_manager
+ ME_4AEE9E0E01D3 // get_cached_current_user_id
+ ME_4AF00C4B02A1 // get_cached_group_manager
+ ME_4BD5566102F9 // get_cached_remote_document_support
+ ME_4CA5C3E1000C // get_cached_filters_manager
+ ME_4DD4FCEF01B0 // get_cached_main_menu
+ ME_4F71D2D20136 // get_cached_decisions_archive_support
+ ME_4FE86FAD00A3 // get_cached_document_type_resolver
+ ME_55952CE501E5 // get_cached_link_manager
+ ME_FD650D5ECDA7 // Exists
+ )
+ ; // Operations
+ : Children
+   Seq: ( ME_460A80090380 // BaseId
+ )
+ ; // Children
+ : Dependencies
+   Seq: ( ME_46272E6103D4 // 
+ )
+ ; // Dependencies
+ CONST "need UC" true
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ CONST "singleton" true
+ : Generators
+ Seq: (
+ gen_cpp
+ gen_h
+ gen_intf.pas
+ )
+ ; // Generators
+ CONST cpp:Path 'garant6x\implementation\Garant\GblAdapterLib\ApplicationHelper\ApplicationHelper.cpp'
+ CONST cpp:PathOnly '\garant6x\implementation\Garant\GblAdapterLib\ApplicationHelper'
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GblAdapterLib'
+ CONST dll.cpp:PathOnly '\garant6x\implementation\Garant\GblAdapterLib'
+ CONST dll.h:PathOnly '\garant6x\implementation\Garant\GblAdapterLib'
+ CONST fctr.cpp:PathOnly '\garant6x\implementation\Garant\GblAdapterLib'
+ CONST fctr.h:PathOnly '\garant6x\implementation\Garant\GblAdapterLib'
+ CONST h:Path 'garant6x\implementation\Garant\GblAdapterLib\ApplicationHelper\ApplicationHelper.h'
+ CONST h:PathOnly '\garant6x\implementation\Garant\GblAdapterLib\ApplicationHelper'
+ CONST i.h:PathOnly '\garant6x\implementation\Garant\GblAdapterLib\ApplicationHelper'
+ CONST intf.pas:Path 'garant6x\implementation\Garant\tie\Garant\GblAdapterLib\ApplicationHelper.pas'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\tie\Garant\GblAdapterLib'
+ CONST mpc:PathOnly '\garant6x\implementation\Garant\project'
+ CONST mpc2:PathOnly '\garant6x\implementation\Garant\project'
+ CONST pas:PathOnly '\garant6x\implementation\Garant\GblAdapterLib'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc:PathOnly '\garant6x\implementation\Garant\GblAdapterLib'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\GblAdapterLib'
+ CONST s.ini:PathOnly '\garant6x\implementation\Garant\project'
+ CONST s.reg:PathOnly '\garant6x\implementation\Garant\project'
+ CONST vi.rc:PathOnly '\garant6x\implementation\Garant'
+ CONST vi.rch:PathOnly '\garant6x\implementation\Garant'
+ CONST extprop:rc:isAcceptableForScripts true
+
+ref; // ME_460A6EF8024B ApplicationHelper
+
+FORWARD ME_47711DA00052
+
+: ME_47711DCF03A0
+ CONST UID '47711DCF03A0'
+ CONST Name 'is_session_active'
+ CONST Class class_Attribute
+ : Stereotype st_property::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_47711DA00052 // SessionHelper
+ ;
+ : Target WL 'ME_3DBFFE100240' '3DBFDB23006E.pas.ms.script' // boolean
+ ;
+ CONST "pm" true
+
+ref; // ME_47711DCF03A0 is_session_active
+
+: ME_477129B00039
+ CONST UID '477129B00039'
+ CONST Name 'make'
+ CONST Class class_Operation
+ : Stereotype st_ctor::Operation ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ : Parent ME_47711DA00052 // SessionHelper
+ ;
+
+ref; // ME_477129B00039 make
+
+: ME_E18A8C17B0D2
+ CONST UID 'E18A8C17B0D2'
+ CONST Name 'Exists'
+ CONST IsSummoned true
+ CONST Class class_Operation
+ : Stereotype st_static::Operation ;
+ %SUMMARY 'Проверяет создан экземпляр синглетона или нет' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_47711DA00052 // SessionHelper
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+ CONST extprop:pas:Value false
+
+ref; // ME_E18A8C17B0D2 Exists
+
+: ME_47711DA00052
+ CONST UID '47711DA00052'
+ CONST Name 'SessionHelper'
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_460BAAA30119 // ApplicationHelper
+ ;
+ : Attributes
+   Seq: ( ME_47711DCF03A0 // is_session_active
+ )
+ ; // Attributes
+ : Operations
+   Seq: ( ME_477129B00039 // make
+ ME_E18A8C17B0D2 // Exists
+ )
+ ; // Operations
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ CONST "singleton" true
+ : Generators
+ Seq: (
+ gen_cpp
+ gen_h
+ gen_intf.pas
+ )
+ ; // Generators
+ CONST cpp:Path 'garant6x\implementation\Garant\GblAdapterLib\ApplicationHelper\SessionHelper.cpp'
+ CONST cpp:PathOnly '\garant6x\implementation\Garant\GblAdapterLib\ApplicationHelper'
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GblAdapterLib'
+ CONST dll.cpp:PathOnly '\garant6x\implementation\Garant\GblAdapterLib'
+ CONST dll.h:PathOnly '\garant6x\implementation\Garant\GblAdapterLib'
+ CONST fctr.cpp:PathOnly '\garant6x\implementation\Garant\GblAdapterLib'
+ CONST fctr.h:PathOnly '\garant6x\implementation\Garant\GblAdapterLib'
+ CONST h:Path 'garant6x\implementation\Garant\GblAdapterLib\ApplicationHelper\SessionHelper.h'
+ CONST h:PathOnly '\garant6x\implementation\Garant\GblAdapterLib\ApplicationHelper'
+ CONST i.h:PathOnly '\garant6x\implementation\Garant\GblAdapterLib\ApplicationHelper'
+ CONST intf.pas:Path 'garant6x\implementation\Garant\tie\Garant\GblAdapterLib\SessionHelper.pas'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\tie\Garant\GblAdapterLib'
+ CONST mpc:PathOnly '\garant6x\implementation\Garant\project'
+ CONST mpc2:PathOnly '\garant6x\implementation\Garant\project'
+ CONST pas:PathOnly '\garant6x\implementation\Garant\GblAdapterLib'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc:PathOnly '\garant6x\implementation\Garant\GblAdapterLib'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\GblAdapterLib'
+ CONST s.ini:PathOnly '\garant6x\implementation\Garant\project'
+ CONST s.reg:PathOnly '\garant6x\implementation\Garant\project'
+ CONST vi.rc:PathOnly '\garant6x\implementation\Garant'
+ CONST vi.rch:PathOnly '\garant6x\implementation\Garant'
+ CONST extprop:rc:isAcceptableForScripts true
+
+ref; // ME_47711DA00052 SessionHelper
+
+: ME_460BAAA30119
+ CONST UID '460BAAA30119'
+ CONST Name 'ApplicationHelper'
+ CONST Class class_Category
+ : Stereotype st_Unit ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent WL 'ME_456EA3D2031C' '456EA3D2031C.pas.ms.script' // GblAdapterLib
+ ;
+ : Children
+   Seq: ( ME_4746FD4401F3 // ServerFacade
+ ME_460A6EF8024B // ApplicationHelper
+ ME_47711DA00052 // SessionHelper
+ )
+ ; // Children
+ : Depends
+   Seq: ( WL 'ME_469F3E37025A' '469F3E37025A.pas.ms.script' // Rtl
+ WL 'ME_4AB0C3C60310' '4AB0C3C60310.pas.ms.script' // Sys
+ )
+ ; // Depends
+ : Generators
+ Seq: (
+ gen_pas.script
+ gen_pas.script.runner
+ )
+ ; // Generators
+ CONST cpp:PathOnly '\garant6x\implementation\Garant\GblAdapterLib\ApplicationHelper'
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GblAdapterLib'
+ CONST dll.cpp:PathOnly '\garant6x\implementation\Garant\GblAdapterLib'
+ CONST dll.h:PathOnly '\garant6x\implementation\Garant\GblAdapterLib'
+ CONST fctr.cpp:PathOnly '\garant6x\implementation\Garant\GblAdapterLib'
+ CONST fctr.h:PathOnly '\garant6x\implementation\Garant\GblAdapterLib'
+ CONST h:PathOnly '\garant6x\implementation\Garant\GblAdapterLib\ApplicationHelper'
+ CONST i.h:PathOnly '\garant6x\implementation\Garant\GblAdapterLib\ApplicationHelper'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\tie\Garant\GblAdapterLib'
+ CONST mpc:PathOnly '\garant6x\implementation\Garant\project'
+ CONST mpc2:PathOnly '\garant6x\implementation\Garant\project'
+ CONST pas:PathOnly '\garant6x\implementation\Garant\GblAdapterLib'
+ CONST pas.script:Path 'shared\models\NewSchool\Scripts\460BAAA30119.pas.ms.script'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\460BAAA30119.pas.ms.script.runner'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc:PathOnly '\garant6x\implementation\Garant\GblAdapterLib'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\GblAdapterLib'
+ CONST s.ini:PathOnly '\garant6x\implementation\Garant\project'
+ CONST s.reg:PathOnly '\garant6x\implementation\Garant\project'
+ CONST vi.rc:PathOnly '\garant6x\implementation\Garant'
+ CONST vi.rch:PathOnly '\garant6x\implementation\Garant'
+
+ref; // ME_460BAAA30119 ApplicationHelper

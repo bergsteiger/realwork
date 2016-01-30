@@ -1,0 +1,105 @@
+// PostingOrder 542015B5012C VCMUseCase Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_542015B5012C
+
+: ME_4AA919DA010C
+ CONST UID '4AA919DA010C'
+ CONST Name 'CommonPost'
+ CONST Class class_Class
+ : Stereotype st_VCMUseCaseRealization ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Файл' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_542015B5012C // PostingOrder
+ ;
+ : Inherits
+   Seq: ( WL 'ME_4AA919B200AB' '4AA9196700EB.pas.ms.script' // CommonPost
+ )
+ ; // Inherits
+ : Implements
+   Seq: ( WL 'ME_484E635201F4' '484E610E0335.pas.ms.script' // ПРАЙМ
+ )
+ ; // Implements
+ CONST "UseNewGen" 'undefined'
+ CONST "author" 'Люлин А.В.'
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" true
+ CONST "register in scripts" 'undefined'
+ CONST "started" '15.09.2009 19:19'
+ : Generators
+ Seq: (
+ gen_intf.pas
+ )
+ ; // Generators
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View'
+ CONST intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\moCommonPost.pas'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant'
+ CONST extprop:pas:TypeName 'Tmo_CommonPost'
+ CONST extprop:pas:UnitName 'moCommonPost'
+
+ref; // ME_4AA919DA010C CommonPost
+
+: ME_542015B5012C
+ CONST UID '542015B5012C'
+ CONST Name 'PostingOrder'
+ CONST Class class_Category
+ : Stereotype st_VCMUseCase ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent WL 'ME_4A856C6B0338' '4A856C6B0338.pas.ms.script' // F1 Common For Shell And Monitoring
+ ;
+ : Children
+   Seq: ( ME_4AA919DA010C // CommonPost
+ WL 'ME_4AA9194D0280' '4AA9194D0280.pas.ms.script' // View
+ )
+ ; // Children
+ : Depends
+   Seq: ( WL 'ME_442BEDF00290' '442BEDF00290.pas.ms.script' // garant6x
+ WL 'ME_45ED6F0303D2' '45ED6F0303D2.pas.ms.script' // shared
+ WL 'ME_4677DDBD0193' '4677DDBD0193.pas.ms.script' // Shared Delphi
+ WL 'ME_4684F91300DD' '4684F91300DD.pas.ms.script' // Vcl
+ WL 'ME_4790C3B8021E' '4790C3B8021E.pas.ms.script' // VCM
+ WL 'ME_4790D09A0378' '4790D09A0378.pas.ms.script' // L3
+ WL 'ME_484E610E0335' '484E610E0335.pas.ms.script' // Информационная поддержка
+ WL 'ME_49549627008C' '49549627008C.pas.ms.script' // LegalDomain
+ WL 'ME_4954C00703D0' '4954C00703D0.pas.ms.script' // OfficeLike
+ WL 'ME_49B1511700CA' '49B1511700CA.pas.ms.script' // Shared Delphi Core
+ WL 'ME_4A78010000B7' '4A78010000B7.pas.ms.script' // Search
+ WL 'ME_4A8567F2039C' '4A8567F2039C.pas.ms.script' // SearchLite
+ WL 'ME_4A9FD48B02A5' '4A9FD48B02A5.pas.ms.script' // F1 Application Template
+ WL 'ME_4AB1071F01B0' '4AB1071F01B0.pas.ms.script' // Shared Delphi For F1
+ WL 'ME_4ABCC25A0322' '4ABCC25A0322.pas.ms.script' // Shared Delphi Low Level
+ WL 'ME_4B63155B0328' '4B63155B0328.pas.ms.script' // MDProcess$ForDelphi
+ WL 'ME_4E13416D0227' '4E13416D0227.pas.ms.script' // VCM$Visual
+ WL 'ME_4E200FC9003B' '4E200FC9003B.pas.ms.script' // VCM$Scripting
+ WL 'ME_4E2F0E1B03BB' '4E2F0E1B03BB.pas.ms.script' // L3$Domain
+ WL 'ME_4E366CA201C2' '4E366CA201C2.pas.ms.script' // F1 Требования
+ WL 'ME_4E5BC50E02E1' '4E5BC50E02E1.pas.ms.script' // Shared Delphi Требования к низкоуровневым библиотекам
+ WL 'ME_54CF97B10370' '54CF97B10370.pas.ms.script' // ScriptEngine$Core
+ WL 'ME_54DB92A80279' '54DB92A80279.pas.ms.script' // ScriptEngine$RTLandVCL
+ WL 'ME_562E251101C2' '562E251101C2.pas.ms.script' // Shared Delphi Rtl
+ )
+ ; // Depends
+ CONST "UseNewGen" 'undefined'
+ : Generators
+ Seq: (
+ gen_pas.script
+ gen_pas.script.runner
+ )
+ ; // Generators
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis'
+ CONST pas.script:Path 'shared\models\NewSchool\Scripts\542015B5012C.pas.ms.script'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\542015B5012C.pas.ms.script.runner'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant'
+
+ref; // ME_542015B5012C PostingOrder

@@ -15,9 +15,14 @@ FORWARD ME_469F886F010C
  : Parent ME_469F886F010C // k2Types
  ;
  : Inherits
-   @ ( WL 'ME_469F88B30381' '4678137501EA.pas.ms.script' // Tk2TypeKind
- ) .SequenceCode.It
+   Seq: ( WL 'ME_469F88B30381' '4678137501EA.pas.ms.script' // Tk2TypeKind
+ )
  ; // Inherits
+ CONST dfm:PathOnly '\common\components\rtl\Garant\K2'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\K2'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_530DF71B0297 Tk2TypeKind
 
@@ -32,9 +37,14 @@ ref; // ME_530DF71B0297 Tk2TypeKind
  : Parent ME_469F886F010C // k2Types
  ;
  : Inherits
-   @ ( WL 'ME_469F88FC00E7' '47913B47006E.pas.ms.script' // Tk2VarKind
- ) .SequenceCode.It
+   Seq: ( WL 'ME_469F88FC00E7' '47913B47006E.pas.ms.script' // Tk2VarKind
+ )
  ; // Inherits
+ CONST dfm:PathOnly '\common\components\rtl\Garant\K2'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\K2'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_530DF7280141 Tk2VarKind
 
@@ -49,9 +59,14 @@ ref; // ME_530DF7280141 Tk2VarKind
  : Parent ME_469F886F010C // k2Types
  ;
  : Inherits
-   @ ( WL 'ME_469F893F01AB' '4678137501EA.pas.ms.script' // Tk2Variant
- ) .SequenceCode.It
+   Seq: ( WL 'ME_469F893F01AB' '4678137501EA.pas.ms.script' // Tk2Variant
+ )
  ; // Inherits
+ CONST dfm:PathOnly '\common\components\rtl\Garant\K2'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\K2'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_530DF7340360 Tk2Variant
 
@@ -60,6 +75,7 @@ FORWARD ME_C107AD0CFB3A
 : ME_10A11B93E883
  CONST UID '10A11B93E883'
  CONST Name 'k2_vkInteger'
+ CONST IsSummoned true
  CONST Class class_Attribute
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
@@ -72,12 +88,14 @@ FORWARD ME_C107AD0CFB3A
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value 'l3Variant.k2_vkInteger'
 
 ref; // ME_10A11B93E883 k2_vkInteger
 
 : ME_C0C5FDA4C759
  CONST UID 'C0C5FDA4C759'
  CONST Name 'k2_vkString'
+ CONST IsSummoned true
  CONST Class class_Attribute
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
@@ -90,12 +108,14 @@ ref; // ME_10A11B93E883 k2_vkInteger
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value 'l3Variant.k2_vkString'
 
 ref; // ME_C0C5FDA4C759 k2_vkString
 
 : ME_E3B6C47A877A
  CONST UID 'E3B6C47A877A'
  CONST Name 'k2_vkTransparent'
+ CONST IsSummoned true
  CONST Class class_Attribute
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
@@ -108,12 +128,14 @@ ref; // ME_C0C5FDA4C759 k2_vkString
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value 'l3Variant.k2_vkTransparent'
 
 ref; // ME_E3B6C47A877A k2_vkTransparent
 
 : ME_2C8E7838E195
  CONST UID '2C8E7838E195'
  CONST Name 'k2_vkStream'
+ CONST IsSummoned true
  CONST Class class_Attribute
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
@@ -126,12 +148,14 @@ ref; // ME_E3B6C47A877A k2_vkTransparent
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value 'l3Variant.k2_vkStream'
 
 ref; // ME_2C8E7838E195 k2_vkStream
 
 : ME_C107AD0CFB3A
  CONST UID 'C107AD0CFB3A'
  CONST Name 'Tk2VarKind_Tk2VarKind_Constants'
+ CONST IsSummoned true
  CONST Class class_Class
  : Stereotype st_Constants ;
  CONST Kind kind_NormalClass
@@ -141,13 +165,17 @@ ref; // ME_2C8E7838E195 k2_vkStream
  : Parent ME_469F886F010C // k2Types
  ;
  : Attributes
-   @ ( ME_10A11B93E883 // k2_vkInteger
+   Seq: ( ME_10A11B93E883 // k2_vkInteger
  ME_C0C5FDA4C759 // k2_vkString
  ME_E3B6C47A877A // k2_vkTransparent
  ME_2C8E7838E195 // k2_vkStream
- ) .SequenceCode.It
+ )
  ; // Attributes
  CONST "spell names" false
+ CONST dfm:PathOnly '\common\components\rtl\Garant\K2'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\K2'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_C107AD0CFB3A Tk2VarKind_Tk2VarKind_Constants
 
@@ -156,6 +184,7 @@ FORWARD ME_3F4381CBD91B
 : ME_F7A134A5823C
  CONST UID 'F7A134A5823C'
  CONST Name 'k2_tkInteger'
+ CONST IsSummoned true
  CONST Class class_Attribute
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
@@ -168,12 +197,14 @@ FORWARD ME_3F4381CBD91B
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value 'k2Interfaces.k2_tkInteger'
 
 ref; // ME_F7A134A5823C k2_tkInteger
 
 : ME_F7ECB2536A81
  CONST UID 'F7ECB2536A81'
  CONST Name 'k2_tkBool'
+ CONST IsSummoned true
  CONST Class class_Attribute
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
@@ -186,12 +217,14 @@ ref; // ME_F7A134A5823C k2_tkInteger
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value 'k2Interfaces.k2_tkBool'
 
 ref; // ME_F7ECB2536A81 k2_tkBool
 
 : ME_183BFEE193B5
  CONST UID '183BFEE193B5'
  CONST Name 'k2_tkObject'
+ CONST IsSummoned true
  CONST Class class_Attribute
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
@@ -204,12 +237,14 @@ ref; // ME_F7ECB2536A81 k2_tkBool
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value 'k2Interfaces.k2_tkObject'
 
 ref; // ME_183BFEE193B5 k2_tkObject
 
 : ME_F6F5E5A84BFE
  CONST UID 'F6F5E5A84BFE'
  CONST Name 'k2_tkTransparent'
+ CONST IsSummoned true
  CONST Class class_Attribute
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
@@ -222,12 +257,14 @@ ref; // ME_183BFEE193B5 k2_tkObject
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value 'k2Interfaces.k2_tkTransparent'
 
 ref; // ME_F6F5E5A84BFE k2_tkTransparent
 
 : ME_9AB05E716E5A
  CONST UID '9AB05E716E5A'
  CONST Name 'k2_tkStream'
+ CONST IsSummoned true
  CONST Class class_Attribute
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
@@ -240,12 +277,14 @@ ref; // ME_F6F5E5A84BFE k2_tkTransparent
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value 'k2Interfaces.k2_tkStream'
 
 ref; // ME_9AB05E716E5A k2_tkStream
 
 : ME_3F4381CBD91B
  CONST UID '3F4381CBD91B'
  CONST Name 'Tk2TypeKind_Tk2TypeKind_Constants'
+ CONST IsSummoned true
  CONST Class class_Class
  : Stereotype st_Constants ;
  CONST Kind kind_NormalClass
@@ -255,14 +294,18 @@ ref; // ME_9AB05E716E5A k2_tkStream
  : Parent ME_469F886F010C // k2Types
  ;
  : Attributes
-   @ ( ME_F7A134A5823C // k2_tkInteger
+   Seq: ( ME_F7A134A5823C // k2_tkInteger
  ME_F7ECB2536A81 // k2_tkBool
  ME_183BFEE193B5 // k2_tkObject
  ME_F6F5E5A84BFE // k2_tkTransparent
  ME_9AB05E716E5A // k2_tkStream
- ) .SequenceCode.It
+ )
  ; // Attributes
  CONST "spell names" false
+ CONST dfm:PathOnly '\common\components\rtl\Garant\K2'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\K2'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_3F4381CBD91B Tk2TypeKind_Tk2TypeKind_Constants
 
@@ -277,34 +320,31 @@ ref; // ME_3F4381CBD91B Tk2TypeKind_Tk2TypeKind_Constants
  : Parent WL 'ME_4677E16A022A' '4677E16A022A.pas.ms.script' // K2
  ;
  : Children
-   @ ( ME_530DF71B0297 // Tk2TypeKind
+   Seq: ( ME_530DF71B0297 // Tk2TypeKind
  ME_530DF7280141 // Tk2VarKind
  ME_530DF7340360 // Tk2Variant
- ) .SequenceCode.It
+ )
  ; // Children
  : Constants
-   @ ( ME_C107AD0CFB3A // Tk2VarKind_Tk2VarKind_Constants
+   Seq: ( ME_C107AD0CFB3A // Tk2VarKind_Tk2VarKind_Constants
  ME_3F4381CBD91B // Tk2TypeKind_Tk2TypeKind_Constants
- ) .SequenceCode.It
+ )
  ; // Constants
  : Depends
-   @ ( WL 'ME_4678137501EA' '4678137501EA.pas.ms.script' // k2Interfaces
+   Seq: ( WL 'ME_4678137501EA' '4678137501EA.pas.ms.script' // k2Interfaces
  WL 'ME_47913B47006E' '47913B47006E.pas.ms.script' // l3CoreObjects
- ) .SequenceCode.It
+ )
  ; // Depends
  CONST "author" 'Ëþëèí À.Â.'
  CONST "is namespace" true
  CONST "no hands" true
  CONST "started" '01.12.1998 19:16'
- : Generators
- @ (
- gen_intf.pas
- gen_pas.script
- gen_pas.script.runner
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\K2'
  CONST intf.pas:Path 'common\components\rtl\Garant\K2\k2Types.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\K2'
  CONST pas.script:Path 'shared\models\NewSchool\Scripts\469F886F010C.pas.ms.script'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
  CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\469F886F010C.pas.ms.script.runner'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_469F886F010C k2Types

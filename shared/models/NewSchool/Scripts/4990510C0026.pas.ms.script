@@ -1,0 +1,329 @@
+// SearchDomainInterfaces 4990510C0026 Interfaces Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4990510C0026
+
+FORWARD ME_49006BB201CB
+
+: ME_49006BCA029D
+ CONST UID '49006BCA029D'
+ CONST Name 'loNone'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_49006BB201CB // TLogicOperation
+ ;
+
+ref; // ME_49006BCA029D loNone
+
+: ME_49006BD1039F
+ CONST UID '49006BD1039F'
+ CONST Name 'loOr'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_49006BB201CB // TLogicOperation
+ ;
+
+ref; // ME_49006BD1039F loOr
+
+: ME_49006BD80050
+ CONST UID '49006BD80050'
+ CONST Name 'loAnd'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_49006BB201CB // TLogicOperation
+ ;
+
+ref; // ME_49006BD80050 loAnd
+
+: ME_49006BDE00B4
+ CONST UID '49006BDE00B4'
+ CONST Name 'loNot'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_49006BB201CB // TLogicOperation
+ ;
+
+ref; // ME_49006BDE00B4 loNot
+
+: ME_49006BB201CB
+ CONST UID '49006BB201CB'
+ CONST Name 'TLogicOperation'
+ CONST Class class_Class
+ : Stereotype st_Enum ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4990510C0026 // SearchDomainInterfaces
+ ;
+ : Attributes
+   Seq: ( ME_49006BCA029D // loNone
+ ME_49006BD1039F // loOr
+ ME_49006BD80050 // loAnd
+ ME_49006BDE00B4 // loNot
+ )
+ ; // Attributes
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Model'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Model'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\Model'
+ CONST extprop:rc:isAcceptableForScripts true
+
+ref; // ME_49006BB201CB TLogicOperation
+
+FORWARD ME_4990513A00CF
+
+: ME_499051B602D4
+ CONST UID '499051B602D4'
+ CONST Name 'Operation'
+ CONST Class class_Attribute
+ : Stereotype st_property::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_lnk
+ : Parent ME_4990513A00CF // InsLogicOperation
+ ;
+ : Target ME_49006BB201CB // TLogicOperation
+ ;
+ CONST "pm" true
+
+ref; // ME_499051B602D4 Operation
+
+: ME_4990513A00CF
+ CONST UID '4990513A00CF'
+ CONST GUID '6FF60911-661A-4835-9C7D-D3A8553EDE96'
+ CONST Name 'InsLogicOperation'
+ CONST Class class_Class
+ : Stereotype st_Facet ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4990510C0026 // SearchDomainInterfaces
+ ;
+ : Attributes
+   Seq: ( ME_499051B602D4 // Operation
+ )
+ ; // Attributes
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Model'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Model'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\Model'
+ CONST extprop:rc:SelfName 'LogicOperation'
+ CONST extprop:rc:isAcceptableForScripts true
+
+ref; // ME_4990513A00CF InsLogicOperation
+
+: ME_49006BE702D7
+ CONST UID '49006BE702D7'
+ CONST Name 'TLogicOperationSet'
+ CONST Class class_Class
+ : Stereotype st_SetOf ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4990510C0026 // SearchDomainInterfaces
+ ;
+ : Inherits
+   Seq: ( ME_49006BB201CB // TLogicOperation
+ )
+ ; // Inherits
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Model'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Model'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\Model'
+
+ref; // ME_49006BE702D7 TLogicOperationSet
+
+FORWARD ME_49006C6F02C8
+
+: ME_49006CA10328
+ CONST UID '49006CA10328'
+ CONST Name 'Tag'
+ CONST Class class_Attribute
+ : Stereotype st_property::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_lnk
+ : Parent ME_49006C6F02C8 // InsTaggedTreeInfo
+ ;
+ : Target WL 'ME_46780DA40383' '4677FBA70343.pas.ms.script' // Il3CString
+ ;
+ CONST "pm" true
+
+ref; // ME_49006CA10328 Tag
+
+: ME_49006CB00191
+ CONST UID '49006CB00191'
+ CONST Name 'LogicOperations'
+ CONST Class class_Attribute
+ : Stereotype st_property::Attribute ;
+ %SUMMARY 'допустимые для дерева логические операции' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_lnk
+ : Parent ME_49006C6F02C8 // InsTaggedTreeInfo
+ ;
+ : Target ME_49006BE702D7 // TLogicOperationSet
+ ;
+ CONST "pm" true
+
+ref; // ME_49006CB00191 LogicOperations
+
+: ME_49006CC30205
+ CONST UID '49006CC30205'
+ CONST Name 'ServerOneLevel'
+ CONST Class class_Attribute
+ : Stereotype st_property::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_lnk
+ : Parent ME_49006C6F02C8 // InsTaggedTreeInfo
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+ CONST "pm" true
+
+ref; // ME_49006CC30205 ServerOneLevel
+
+: ME_49006CD60357
+ CONST UID '49006CD60357'
+ CONST Name 'IsOneLogicOperation'
+ CONST Class class_Attribute
+ : Stereotype st_readonly::Attribute ;
+ %SUMMARY 'количество логический операций - одна' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_lnk
+ : Parent ME_49006C6F02C8 // InsTaggedTreeInfo
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+ CONST "pm" true
+
+ref; // ME_49006CD60357 IsOneLogicOperation
+
+: ME_49006C820284
+ CONST UID '49006C820284'
+ CONST Name 'aInfo'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target ME_49006C6F02C8 // InsTaggedTreeInfo
+ ;
+
+ref; // ME_49006C820284 aInfo
+
+: ME_49006C7E0341
+ CONST UID '49006C7E0341'
+ CONST Name 'AssignInfo'
+ CONST Class class_Operation
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_49006C6F02C8 // InsTaggedTreeInfo
+ ;
+ : Parameters
+   Seq: ( ME_49006C820284 // aInfo
+ )
+ ; // Parameters
+
+ref; // ME_49006C7E0341 AssignInfo
+
+: ME_49006C8A02D0
+ CONST UID '49006C8A02D0'
+ CONST Name 'IsDataOneLevel'
+ CONST Class class_Operation
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_49006C6F02C8 // InsTaggedTreeInfo
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+
+ref; // ME_49006C8A02D0 IsDataOneLevel
+
+: ME_49006C6F02C8
+ CONST UID '49006C6F02C8'
+ CONST GUID '255BD920-7322-4C04-A208-161C9656148B'
+ CONST Name 'InsTaggedTreeInfo'
+ CONST Class class_Class
+ : Stereotype st_Facet ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4990510C0026 // SearchDomainInterfaces
+ ;
+ : Attributes
+   Seq: ( ME_49006CA10328 // Tag
+ ME_49006CB00191 // LogicOperations
+ ME_49006CC30205 // ServerOneLevel
+ ME_49006CD60357 // IsOneLogicOperation
+ )
+ ; // Attributes
+ : Operations
+   Seq: ( ME_49006C7E0341 // AssignInfo
+ ME_49006C8A02D0 // IsDataOneLevel
+ )
+ ; // Operations
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Model'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Model'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\Model'
+ CONST extprop:rc:SelfName 'TaggedTreeInfo'
+ CONST extprop:rc:isAcceptableForScripts true
+
+ref; // ME_49006C6F02C8 InsTaggedTreeInfo
+
+: ME_4990510C0026
+ CONST UID '4990510C0026'
+ CONST Name 'SearchDomainInterfaces'
+ CONST Class class_Category
+ : Stereotype st_Interfaces ;
+ %SUMMARY 'Поиск' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent WL 'ME_47E9EEC60260' '47E9EEC60260.pas.ms.script' // Model
+ ;
+ : Children
+   Seq: ( ME_49006BB201CB // TLogicOperation
+ ME_4990513A00CF // InsLogicOperation
+ ME_49006BE702D7 // TLogicOperationSet
+ ME_49006C6F02C8 // InsTaggedTreeInfo
+ )
+ ; // Children
+ : Depends
+   Seq: ( WL 'ME_4677FBA70343' '4677FBA70343.pas.ms.script' // l3Interfaces
+ WL 'ME_4AB0C3C60310' '4AB0C3C60310.pas.ms.script' // Sys
+ )
+ ; // Depends
+ CONST "author" 'Люлин А.В.'
+ CONST "is namespace" true
+ CONST "no hands" true
+ CONST "started" '09.02.2009 18:52'
+ : Generators
+ Seq: (
+ gen_intf.pas
+ gen_pas.script
+ gen_pas.script.runner
+ )
+ ; // Generators
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Model'
+ CONST intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\Model\SearchDomainInterfaces.pas'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Model'
+ CONST pas.script:Path 'shared\models\NewSchool\Scripts\4990510C0026.pas.ms.script'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\4990510C0026.pas.ms.script.runner'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\Model'
+
+ref; // ME_4990510C0026 SearchDomainInterfaces

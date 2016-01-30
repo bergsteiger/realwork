@@ -1,0 +1,233 @@
+// Folders 4AD5B47F0278 Unit Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4AD5B47F0278
+
+FORWARD ME_4AD5B48E038A
+
+FORWARD ME_4AD5B4A90315
+
+: ME_4AD5B4D0029C
+ CONST UID '4AD5B4D0029C'
+ CONST Name 'f_AcceptedRights'
+ CONST Class class_Attribute
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_4AD5B4A90315 // TnsNodeWithRights
+ ;
+ : Target WL 'ME_4990221803CE' '4990135D02F1.pas.ms.script' // TFoldersActionsSet
+ ;
+
+ref; // ME_4AD5B4D0029C f_AcceptedRights
+
+: ME_4AD5B4D803B2
+ CONST UID '4AD5B4D803B2'
+ CONST Name 'f_RestrictedRights'
+ CONST Class class_Attribute
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_4AD5B4A90315 // TnsNodeWithRights
+ ;
+ : Target WL 'ME_4990221803CE' '4990135D02F1.pas.ms.script' // TFoldersActionsSet
+ ;
+
+ref; // ME_4AD5B4D803B2 f_RestrictedRights
+
+: ME_4AD5B4A90315
+ CONST UID '4AD5B4A90315'
+ CONST Name 'TnsNodeWithRights'
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4AD5B48E038A // nsFolderNodes
+ ;
+ : Attributes
+   Seq: ( ME_4AD5B4D0029C // f_AcceptedRights
+ ME_4AD5B4D803B2 // f_RestrictedRights
+ )
+ ; // Attributes
+ CONST "finished" false
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Common'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Common'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\Common'
+ CONST extprop:rc:SelfName 'NodeWithRights'
+ CONST extprop:rc:isAcceptableForScripts true
+
+ref; // ME_4AD5B4A90315 TnsNodeWithRights
+
+: ME_4AD5B4E0036C
+ CONST UID '4AD5B4E0036C'
+ CONST Name 'TnsFoldersNode'
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4AD5B48E038A // nsFolderNodes
+ ;
+ : Inherits
+   Seq: ( ME_4AD5B4A90315 // TnsNodeWithRights
+ )
+ ; // Inherits
+ CONST "finished" false
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Common'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Common'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\Common'
+ CONST extprop:rc:SelfName 'FoldersNode'
+ CONST extprop:rc:isAcceptableForScripts true
+
+ref; // ME_4AD5B4E0036C TnsFoldersNode
+
+FORWARD ME_4C7E782B01A4
+
+: ME_6699557EBB6F
+ CONST UID '6699557EBB6F'
+ CONST Name 'DoIt'
+ CONST IsSummoned true
+ CONST Class class_Operation
+ %SUMMARY 'Сигнатура метода nsFindInsertPosition' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_4C7E782B01A4 // nsFindInsertPosition
+ ;
+
+ref; // ME_6699557EBB6F DoIt
+
+: ME_4C7E782B01A4
+ CONST UID '4C7E782B01A4'
+ CONST Name 'nsFindInsertPosition'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_4AD5B48E038A // nsFolderNodes
+ ;
+ : Operations
+   Seq: ( ME_6699557EBB6F // DoIt
+ )
+ ; // Operations
+ CONST extprop:rc:SelfName 'FindInsertPosition'
+
+ref; // ME_4C7E782B01A4 nsFindInsertPosition
+
+FORWARD ME_4C7E785A02DA
+
+: ME_1E8FADC4E6DC
+ CONST UID '1E8FADC4E6DC'
+ CONST Name 'DoIt'
+ CONST IsSummoned true
+ CONST Class class_Operation
+ %SUMMARY 'Сигнатура метода nsHasNodeAnyFlag' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_4C7E785A02DA // nsHasNodeAnyFlag
+ ;
+
+ref; // ME_1E8FADC4E6DC DoIt
+
+: ME_4C7E785A02DA
+ CONST UID '4C7E785A02DA'
+ CONST Name 'nsHasNodeAnyFlag'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_4AD5B48E038A // nsFolderNodes
+ ;
+ : Operations
+   Seq: ( ME_1E8FADC4E6DC // DoIt
+ )
+ ; // Operations
+ CONST extprop:rc:SelfName 'HasNodeAnyFlag'
+
+ref; // ME_4C7E785A02DA nsHasNodeAnyFlag
+
+: ME_4AD5B48E038A
+ CONST UID '4AD5B48E038A'
+ CONST Name 'nsFolderNodes'
+ CONST Class class_Class
+ : Stereotype st_UtilityPack ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_4AD5B47F0278 // Folders
+ ;
+ : Operations
+   Seq: ( ME_4C7E782B01A4 // nsFindInsertPosition
+ ME_4C7E785A02DA // nsHasNodeAnyFlag
+ )
+ ; // Operations
+ : Children
+   Seq: ( ME_4AD5B4A90315 // TnsNodeWithRights
+ ME_4AD5B4E0036C // TnsFoldersNode
+ )
+ ; // Children
+ CONST "finished" false
+ CONST "no hands" false
+ : Generators
+ Seq: (
+ gen_intf.pas
+ )
+ ; // Generators
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Common'
+ CONST intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\Common\NOT_FINISHED_nsFolderNodes.pas'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Common'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\Common'
+ CONST extprop:rc:SelfName 'FolderNodes'
+
+ref; // ME_4AD5B48E038A nsFolderNodes
+
+: ME_4AD5B47F0278
+ CONST UID '4AD5B47F0278'
+ CONST Name 'Folders'
+ CONST Class class_Category
+ : Stereotype st_Unit ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent WL 'ME_4ABB680E0218' '4ABB680E0218.pas.ms.script' // Common$Lib
+ ;
+ : Children
+   Seq: ( ME_4AD5B48E038A // nsFolderNodes
+ )
+ ; // Children
+ : Depends
+   Seq: ( WL 'ME_47913B47006E' '47913B47006E.pas.ms.script' // l3CoreObjects
+ WL 'ME_4990135D02F1' '4990135D02F1.pas.ms.script' // FoldersDomainInterfaces
+ )
+ ; // Depends
+ : Generators
+ Seq: (
+ gen_pas.script
+ gen_pas.script.runner
+ )
+ ; // Generators
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Common'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Common'
+ CONST pas.script:Path 'shared\models\NewSchool\Scripts\4AD5B47F0278.pas.ms.script'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\4AD5B47F0278.pas.ms.script.runner'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\Common'
+
+ref; // ME_4AD5B47F0278 Folders

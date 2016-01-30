@@ -17,10 +17,15 @@ FORWARD ME_4AB22E140136
  : Parent ME_4AB22E140136 // TvcmApplication
  ;
  : Inherits
-   @ ( ME_4AB22E140136 // TvcmApplication
- ) .SequenceCode.It
+   Seq: ( ME_4AB22E140136 // TvcmApplication
+ )
  ; // Inherits
  CONST "isClassRef" true
+ CONST dfm:PathOnly '\common\components\gui\Garant\VCM\implementation\Visual'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\VCM\implementation\Visual'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_4AB23A8A0223 RvcmApplication
 
@@ -37,6 +42,7 @@ ref; // ME_4AB23A8A0223 RvcmApplication
  : Target ME_4AB23A8A0223 // RvcmApplication
  ;
  CONST "ifndef" 'DesignTimeLibrary'
+ CONST extprop:pas:Value 'nil'
 
 ref; // ME_4AB23AA10088 g_Instance
 
@@ -66,8 +72,8 @@ ref; // ME_4AB23AC80337 DoIt
  : Parent ME_4AB22E140136 // TvcmApplication
  ;
  : Operations
-   @ ( ME_4AB23AC80337 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_4AB23AC80337 // DoIt
+ )
  ; // Operations
  CONST "ifndef" 'DesignTimeLibrary'
  CONST "is static" true
@@ -105,9 +111,9 @@ ref; // ME_4C910A6A011E aCap
  : Parent ME_4AB33E56019A // PublishModule
  ;
  : Parameters
-   @ ( ME_4AB33E7A03B0 // aModule
+   Seq: ( ME_4AB33E7A03B0 // aModule
  ME_4C910A6A011E // aCap
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_4AB33E77023E DoIt
@@ -134,12 +140,12 @@ ref; // ME_4AB3407002A3
  : Parent ME_4AB22E140136 // TvcmApplication
  ;
  : Operations
-   @ ( ME_4AB33E77023E // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_4AB33E77023E // DoIt
+ )
  ; // Operations
  : Dependencies
-   @ ( ME_4AB3407002A3 // 
- ) .SequenceCode.It
+   Seq: ( ME_4AB3407002A3 // 
+ )
  ; // Dependencies
  CONST "ifndef" 'DesignTimeLibrary'
  CONST "is static" false
@@ -188,6 +194,7 @@ ref; // ME_4AB33EAC01DE aCap
  CONST Value false
  : ValueType WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
+ CONST extprop:pas:Value false
 
 ref; // ME_4ABC7A9E00C4 aNoPrefix
 
@@ -202,11 +209,11 @@ ref; // ME_4ABC7A9E00C4 aNoPrefix
  : Target WL 'ME_4683CF84010A' '467BAB7F021E.pas.ms.script' // TvcmMOPID
  ;
  : Parameters
-   @ ( ME_4AB33EAC01A4 // aModule
+   Seq: ( ME_4AB33EAC01A4 // aModule
  ME_4AB33EAC01C1 // aName
  ME_4AB33EAC01DE // aCap
  ME_4ABC7A9E00C4 // aNoPrefix
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_4AB33E9900E3 DoIt
@@ -233,12 +240,12 @@ ref; // ME_4AB34074033F
  : Parent ME_4AB22E140136 // TvcmApplication
  ;
  : Operations
-   @ ( ME_4AB33E9900E3 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_4AB33E9900E3 // DoIt
+ )
  ; // Operations
  : Dependencies
-   @ ( ME_4AB34074033F // 
- ) .SequenceCode.It
+   Seq: ( ME_4AB34074033F // 
+ )
  ; // Dependencies
  CONST "ifndef" 'DesignTimeLibrary'
  CONST "is static" false
@@ -297,6 +304,7 @@ ref; // ME_4AB33F3703BE anOpCap
  CONST Value false
  : ValueType WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
+ CONST extprop:pas:Value false
 
 ref; // ME_4AB33F3703DB aNoPrefix
 
@@ -311,12 +319,12 @@ ref; // ME_4AB33F3703DB aNoPrefix
  : Target WL 'ME_4683CF3401F5' '467BAB7F021E.pas.ms.script' // TvcmOPID
  ;
  : Parameters
-   @ ( ME_4AB33F37036A // anEn
+   Seq: ( ME_4AB33F37036A // anEn
  ME_4AB33F370384 // anOp
  ME_4AB33F37039F // anEnCap
  ME_4AB33F3703BE // anOpCap
  ME_4AB33F3703DB // aNoPrefix
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_4AB33F2301A5 DoIt
@@ -343,12 +351,12 @@ ref; // ME_4AB3407C0076
  : Parent ME_4AB22E140136 // TvcmApplication
  ;
  : Operations
-   @ ( ME_4AB33F2301A5 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_4AB33F2301A5 // DoIt
+ )
  ; // Operations
  : Dependencies
-   @ ( ME_4AB3407C0076 // 
- ) .SequenceCode.It
+   Seq: ( ME_4AB3407C0076 // 
+ )
  ; // Dependencies
  CONST "ifndef" 'DesignTimeLibrary'
  CONST "is static" false
@@ -407,6 +415,7 @@ ref; // ME_4AB33F620117 anOpCap
  CONST Value false
  : ValueType WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
+ CONST extprop:pas:Value false
 
 ref; // ME_4AB33F620135 aNoPrefix
 
@@ -421,12 +430,12 @@ ref; // ME_4AB33F620135 aNoPrefix
  : Target WL 'ME_4683CF3401F5' '467BAB7F021E.pas.ms.script' // TvcmOPID
  ;
  : Parameters
-   @ ( ME_4AB33F6200B8 // anEn
+   Seq: ( ME_4AB33F6200B8 // anEn
  ME_4AB33F6200D9 // anOp
  ME_4AB33F6200F9 // anEnCap
  ME_4AB33F620117 // anOpCap
  ME_4AB33F620135 // aNoPrefix
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_4AB33F5F020B DoIt
@@ -453,12 +462,12 @@ ref; // ME_4AB3407F0316
  : Parent ME_4AB22E140136 // TvcmApplication
  ;
  : Operations
-   @ ( ME_4AB33F5F020B // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_4AB33F5F020B // DoIt
+ )
  ; // Operations
  : Dependencies
-   @ ( ME_4AB3407F0316 // 
- ) .SequenceCode.It
+   Seq: ( ME_4AB3407F0316 // 
+ )
  ; // Dependencies
  CONST "ifndef" 'DesignTimeLibrary'
  CONST "is static" false
@@ -507,6 +516,7 @@ ref; // ME_4C77CA3800E1 aState
  CONST Value false
  : ValueType WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
+ CONST extprop:pas:Value false
 
 ref; // ME_4C77CA380103 aNoPrefix
 
@@ -522,11 +532,11 @@ ref; // ME_4C77CA380103 aNoPrefix
  : Target WL 'ME_4C77C99500F6' '4AB34028023E.pas.ms.script' // TvcmBaseOperationState
  ;
  : Parameters
-   @ ( ME_4C77CA3800A5 // anEn
+   Seq: ( ME_4C77CA3800A5 // anEn
  ME_4C77CA3800C3 // anOp
  ME_4C77CA3800E1 // aState
  ME_4C77CA380103 // aNoPrefix
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_4C77C9FC01A9 DoIt
@@ -542,8 +552,8 @@ ref; // ME_4C77C9FC01A9 DoIt
  : Parent ME_4AB22E140136 // TvcmApplication
  ;
  : Operations
-   @ ( ME_4C77C9FC01A9 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_4C77C9FC01A9 // DoIt
+ )
  ; // Operations
  CONST "ifndef" 'DesignTimeLibrary'
  CONST "is static" false
@@ -592,6 +602,7 @@ ref; // ME_4EC4C87C0350 anImageIndex
  CONST Value false
  : ValueType WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
+ CONST extprop:pas:Value false
 
 ref; // ME_4EC4C87D000A aNoPrefix
 
@@ -604,11 +615,11 @@ ref; // ME_4EC4C87D000A aNoPrefix
  : Parent ME_4EC4C83F01B4 // SetOperationImageIndex
  ;
  : Parameters
-   @ ( ME_4EC4C87C01F0 // anEn
+   Seq: ( ME_4EC4C87C01F0 // anEn
  ME_4EC4C87C02AE // anOp
  ME_4EC4C87C0350 // anImageIndex
  ME_4EC4C87D000A // aNoPrefix
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_4EC4C8580286 DoIt
@@ -624,8 +635,8 @@ ref; // ME_4EC4C8580286 DoIt
  : Parent ME_4AB22E140136 // TvcmApplication
  ;
  : Operations
-   @ ( ME_4EC4C8580286 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_4EC4C8580286 // DoIt
+ )
  ; // Operations
  CONST "ifndef" 'DesignTimeLibrary'
 
@@ -655,8 +666,8 @@ ref; // ME_4F6AF5F801B8 DoIt
  : Parent ME_4AB22E140136 // TvcmApplication
  ;
  : Operations
-   @ ( ME_4F6AF5F801B8 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_4F6AF5F801B8 // DoIt
+ )
  ; // Operations
  CONST "is static" true
 
@@ -693,9 +704,9 @@ ref; // ME_4F79A8F9005C aHelpFile
  : Parent ME_4F79A8E60206 // Run
  ;
  : Parameters
-   @ ( ME_4F79A8F9000B // aTitle
+   Seq: ( ME_4F79A8F9000B // aTitle
  ME_4F79A8F9005C // aHelpFile
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_4F79A8F601F2 DoIt
@@ -744,14 +755,14 @@ ref; // ME_521B8F7500DF
  : Parent ME_4AB22E140136 // TvcmApplication
  ;
  : Operations
-   @ ( ME_4F79A8F601F2 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_4F79A8F601F2 // DoIt
+ )
  ; // Operations
  : Dependencies
-   @ ( ME_4F79AC200294 // 
+   Seq: ( ME_4F79AC200294 // 
  ME_521B8DAC02FB // 
  ME_521B8F7500DF // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  CONST "is static" true
 
@@ -788,9 +799,9 @@ ref; // ME_4F6AF5AB02F4 aHelpFile
  : Parent ME_4F6AF5860291 // Runner
  ;
  : Parameters
-   @ ( ME_4F6AF5AB02A9 // aTitle
+   Seq: ( ME_4F6AF5AB02A9 // aTitle
  ME_4F6AF5AB02F4 // aHelpFile
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_4F6AF59403C0 DoIt
@@ -806,8 +817,8 @@ ref; // ME_4F6AF59403C0 DoIt
  : Parent ME_4AB22E140136 // TvcmApplication
  ;
  : Operations
-   @ ( ME_4F6AF59403C0 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_4F6AF59403C0 // DoIt
+ )
  ; // Operations
  CONST "is static" true
 
@@ -837,8 +848,8 @@ ref; // ME_52F226AA017C DoIt
  : Parent ME_4AB22E140136 // TvcmApplication
  ;
  : Operations
-   @ ( ME_52F226AA017C // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_52F226AA017C // DoIt
+ )
  ; // Operations
  CONST "is static" true
 
@@ -865,8 +876,8 @@ ref; // ME_4AB23D2801E8 aMain
  : Parent ME_4AB22E140136 // TvcmApplication
  ;
  : Parameters
-   @ ( ME_4AB23D2801E8 // aMain
- ) .SequenceCode.It
+   Seq: ( ME_4AB23D2801E8 // aMain
+ )
  ; // Parameters
  CONST "ifndef" 'DesignTimeLibrary'
 
@@ -904,8 +915,8 @@ ref; // ME_4AB24E770161 aFactory
  : Parent ME_4AB22E140136 // TvcmApplication
  ;
  : Parameters
-   @ ( ME_4AB24E770161 // aFactory
- ) .SequenceCode.It
+   Seq: ( ME_4AB24E770161 // aFactory
+ )
  ; // Parameters
  CONST "ifndef" 'DesignTimeLibrary'
 
@@ -929,6 +940,7 @@ ref; // ME_4AB24F0D00D3
  ;
  : Implementor ME_4AB22E140136 // TvcmApplication
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_47D1602000C6_ME_4AB22E140136 Create
 
 : ME_4AB22E140136
@@ -942,15 +954,15 @@ ref; // ME_47D1602000C6_ME_4AB22E140136 Create
  : Parent ME_50883A2E00B3 // Application
  ;
  : Inherits
-   @ ( WL 'ME_4AAA214A0250' '4AB0997B00A2.pas.ms.script' // TDataModule
- ) .SequenceCode.It
+   Seq: ( WL 'ME_4AAA214A0250' '4AB0997B00A2.pas.ms.script' // TDataModule
+ )
  ; // Inherits
  : Attributes
-   @ ( ME_4AB23AA10088 // g_Instance
- ) .SequenceCode.It
+   Seq: ( ME_4AB23AA10088 // g_Instance
+ )
  ; // Attributes
  : Operations
-   @ ( ME_4AB23A660050 // Instance
+   Seq: ( ME_4AB23A660050 // Instance
  ME_4AB33E56019A // PublishModule
  ME_4AB33E8201D8 // PublishModuleOperation
  ME_4AB33EF900E2 // PublishOperation
@@ -964,19 +976,19 @@ ref; // ME_47D1602000C6_ME_4AB22E140136 Create
  ME_4AB23CF803E5 // RegisterModules
  ME_4AB24E3703E3 // RegisterFormSetFactories
  ME_4AB24E6E0127 // RegisterFormSetFactory
- ) .SequenceCode.It
+ )
  ; // Operations
  : Overridden
-   @ ( ME_47D1602000C6_ME_4AB22E140136 // Create
- ) .SequenceCode.It
+   Seq: ( ME_47D1602000C6_ME_4AB22E140136 // Create
+ )
  ; // Overridden
  : Children
-   @ ( ME_4AB23A8A0223 // RvcmApplication
- ) .SequenceCode.It
+   Seq: ( ME_4AB23A8A0223 // RvcmApplication
+ )
  ; // Children
  : Dependencies
-   @ ( ME_4AB24F0D00D3 // 
- ) .SequenceCode.It
+   Seq: ( ME_4AB24F0D00D3 // 
+ )
  ; // Dependencies
  CONST "author" 'Люлин А.В.'
  CONST "needs InstanceR" 'undefined'
@@ -984,12 +996,14 @@ ref; // ME_47D1602000C6_ME_4AB22E140136 Create
  CONST "no hands" true
  CONST "register in scripts" 'undefined'
  CONST "started" '17.09.2009 16:40'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\VCM\implementation\Visual'
  CONST intf.pas:Path 'common\components\gui\Garant\VCM\implementation\Visual\vcmApplication.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\VCM\implementation\Visual'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'Application'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'vcmApplication'
 
 ref; // ME_4AB22E140136 TvcmApplication
 
@@ -1004,9 +1018,13 @@ ref; // ME_4AB22E140136 TvcmApplication
  : Parent ME_50883A2E00B3 // Application
  ;
  : Inherits
-   @ ( ME_4AB22E140136 // TvcmApplication
- ) .SequenceCode.It
+   Seq: ( ME_4AB22E140136 // TvcmApplication
+ )
  ; // Inherits
+ CONST dfm:PathOnly '\common\components\gui\Garant\VCM\implementation\Visual'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\VCM\implementation\Visual'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_523040FB01AA MvcmApplication
 
@@ -1020,12 +1038,12 @@ ref; // ME_523040FB01AA MvcmApplication
  : Parent WL 'ME_4E13416D0227' '4E13416D0227.pas.ms.script' // VCM$Visual
  ;
  : Children
-   @ ( ME_4AB22E140136 // TvcmApplication
+   Seq: ( ME_4AB22E140136 // TvcmApplication
  ME_523040FB01AA // MvcmApplication
- ) .SequenceCode.It
+ )
  ; // Children
  : Depends
-   @ ( WL 'ME_467BAB7F021E' '467BAB7F021E.pas.ms.script' // vcmExternalInterfaces
+   Seq: ( WL 'ME_467BAB7F021E' '467BAB7F021E.pas.ms.script' // vcmExternalInterfaces
  WL 'ME_47750CE700D0' '47750CE700D0.pas.ms.script' // afwFacade
  WL 'ME_4799D29F033F' '4799D29F033F.pas.ms.script' // Implementation
  WL 'ME_47B9727603BE' '47B9727603BE.pas.ms.script' // FormSets
@@ -1035,16 +1053,14 @@ ref; // ME_523040FB01AA MvcmApplication
  WL 'ME_4AB0C3C60310' '4AB0C3C60310.pas.ms.script' // Sys
  WL 'ME_4AB34028023E' '4AB34028023E.pas.ms.script' // Components
  WL 'ME_4F9BDEEE01BC' '4F9BDEEE01BC.pas.ms.script' // Поддержка локализованных сообщений
- ) .SequenceCode.It
+ )
  ; // Depends
  CONST "path prefix" '/implementation/Visual'
- : Generators
- @ (
- gen_pas.script
- gen_pas.script.runner
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\VCM\implementation\Visual'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\VCM\implementation\Visual'
  CONST pas.script:Path 'shared\models\NewSchool\Scripts\50883A2E00B3.pas.ms.script'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
  CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\50883A2E00B3.pas.ms.script.runner'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_50883A2E00B3 Application

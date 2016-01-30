@@ -1,0 +1,76 @@
+// Поддержка формул 4EF09DE80211 UseCases Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4EF09DE80211
+
+FORWARD ME_4EF09E0D007E
+
+: ME_4EF09E25025C
+ CONST UID '4EF09E25025C'
+ CONST Name 'При рендеренге должен учитываться Zoom'
+ CONST Class class_Class
+ : Stereotype st_UseCaseRequirement ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4EF09E0D007E // Рендеринг формул в PNG
+ ;
+ CONST dfm:PathOnly '\common\components'
+ CONST intf.pas:PathOnly '\common\components'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\common\components'
+
+ref; // ME_4EF09E25025C При рендеренге должен учитываться Zoom
+
+: ME_4EF09E0D007E
+ CONST UID '4EF09E0D007E'
+ CONST Name 'Рендеринг формул в PNG'
+ CONST Class class_Class
+ : Stereotype st_UseCase ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4EF09DE80211 // Поддержка формул
+ ;
+ : Children
+   Seq: ( ME_4EF09E25025C // При рендеренге должен учитываться Zoom
+ )
+ ; // Children
+ CONST dfm:PathOnly '\common\components'
+ CONST intf.pas:PathOnly '\common\components'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\common\components'
+
+ref; // ME_4EF09E0D007E Рендеринг формул в PNG
+
+: ME_4EF09DE80211
+ CONST UID '4EF09DE80211'
+ CONST Name 'Поддержка формул'
+ CONST Class class_Category
+ : Stereotype st_UseCases ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent WL 'ME_4EF09DD80155' '4EF09DD80155.pas.ms.script' // Требования
+ ;
+ : Children
+   Seq: ( ME_4EF09E0D007E // Рендеринг формул в PNG
+ )
+ ; // Children
+ : Generators
+ Seq: (
+ gen_pas.script
+ gen_pas.script.runner
+ )
+ ; // Generators
+ CONST dfm:PathOnly '\common\components'
+ CONST intf.pas:PathOnly '\common\components'
+ CONST pas.script:Path 'shared\models\NewSchool\Scripts\4EF09DE80211.pas.ms.script'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\4EF09DE80211.pas.ms.script.runner'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\common\components'
+
+ref; // ME_4EF09DE80211 Поддержка формул

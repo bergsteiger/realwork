@@ -45,6 +45,7 @@ ref; // ME_4B613A0400DC AllowTrucking
 : ME_662E49A32826
  CONST UID '662E49A32826'
  CONST Name 'f_HotTruck'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY 'Поле для свойства HotTruck' ;
  CONST Visibility PrivateAccess
@@ -60,6 +61,7 @@ ref; // ME_662E49A32826 f_HotTruck
 : ME_6E3B6D3CEC15
  CONST UID '6E3B6D3CEC15'
  CONST Name 'f_AllowTrucking'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY 'Поле для свойства AllowTrucking' ;
  CONST Visibility PrivateAccess
@@ -69,6 +71,7 @@ ref; // ME_662E49A32826 f_HotTruck
  ;
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
+ CONST extprop:clearViaProperty 'AllowTrucking'
 
 ref; // ME_6E3B6D3CEC15 f_AllowTrucking
 
@@ -91,8 +94,8 @@ ref; // ME_4B613A1F0043 aValue
  : Parent ME_4B6019A601D8 // TnscFocusLabel
  ;
  : Parameters
-   @ ( ME_4B613A1F0043 // aValue
- ) .SequenceCode.It
+   Seq: ( ME_4B613A1F0043 // aValue
+ )
  ; // Parameters
 
 ref; // ME_4B613A180222 SetHotTruck
@@ -128,8 +131,8 @@ ref; // ME_4B613A48034C Message
  : Parent ME_4B6019A601D8 // TnscFocusLabel
  ;
  : Parameters
-   @ ( ME_4B613A48034C // Message
- ) .SequenceCode.It
+   Seq: ( ME_4B613A48034C // Message
+ )
  ; // Parameters
  CONST "Message ID" 'CM_MOUSEENTER'
 
@@ -155,8 +158,8 @@ ref; // ME_4B613A5D029E Message
  : Parent ME_4B6019A601D8 // TnscFocusLabel
  ;
  : Parameters
-   @ ( ME_4B613A5D029E // Message
- ) .SequenceCode.It
+   Seq: ( ME_4B613A5D029E // Message
+ )
  ; // Parameters
  CONST "Message ID" 'CM_MOUSELEAVE'
 
@@ -182,8 +185,8 @@ ref; // ME_4B613A730365 Message
  : Parent ME_4B6019A601D8 // TnscFocusLabel
  ;
  : Parameters
-   @ ( ME_4B613A730365 // Message
- ) .SequenceCode.It
+   Seq: ( ME_4B613A730365 // Message
+ )
  ; // Parameters
  CONST "Message ID" 'WM_WINDOWPOSCHANGED'
 
@@ -207,6 +210,7 @@ ref; // ME_4B613C610167
  ;
  : Implementor ME_4B6019A601D8 // TnscFocusLabel
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4B61371503B9_ME_4B6019A601D8 NeedUnderLine
 
 : ME_4C03EAA20362_ME_4B6019A601D8
@@ -216,6 +220,7 @@ ref; // ME_4B61371503B9_ME_4B6019A601D8 NeedUnderLine
  ;
  : Implementor ME_4B6019A601D8 // TnscFocusLabel
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4C03EAA20362_ME_4B6019A601D8 AllowClickByKeyBoard
 
 : ME_4C03EAB40015_ME_4B6019A601D8
@@ -225,6 +230,7 @@ ref; // ME_4C03EAA20362_ME_4B6019A601D8 AllowClickByKeyBoard
  ;
  : Implementor ME_4B6019A601D8 // TnscFocusLabel
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4C03EAB40015_ME_4B6019A601D8 AllowTranslateReturn
 
 : ME_4B6019A601D8
@@ -238,45 +244,47 @@ ref; // ME_4C03EAB40015_ME_4B6019A601D8 AllowTranslateReturn
  : Parent ME_4B601984005A // Labels
  ;
  : Inherits
-   @ ( WL 'ME_4A9B9BC00258' '4A9B9BAA0207.pas.ms.script' // TvtFocusLabel
- ) .SequenceCode.It
+   Seq: ( WL 'ME_4A9B9BC00258' '4A9B9BAA0207.pas.ms.script' // TvtFocusLabel
+ )
  ; // Inherits
  : Attributes
-   @ ( ME_4B6139E202A8 // HotTruck
+   Seq: ( ME_4B6139E202A8 // HotTruck
  ME_4B613A0400DC // AllowTrucking
  ME_662E49A32826 // f_HotTruck
  ME_6E3B6D3CEC15 // f_AllowTrucking
- ) .SequenceCode.It
+ )
  ; // Attributes
  : Operations
-   @ ( ME_4B613A180222 // SetHotTruck
+   Seq: ( ME_4B613A180222 // SetHotTruck
  ME_4B613A2A035D // UpdateTruckFromCursor
  ME_4B613A38003A // CMMouseEnter
  ME_4B613A4E0094 // CMMouseLeave
  ME_4B613A6900B7 // WMWindowPosChanged
- ) .SequenceCode.It
+ )
  ; // Operations
  : Overridden
-   @ ( ME_4B61371503B9_ME_4B6019A601D8 // NeedUnderLine
+   Seq: ( ME_4B61371503B9_ME_4B6019A601D8 // NeedUnderLine
  ME_4C03EAA20362_ME_4B6019A601D8 // AllowClickByKeyBoard
  ME_4C03EAB40015_ME_4B6019A601D8 // AllowTranslateReturn
- ) .SequenceCode.It
+ )
  ; // Overridden
  : Dependencies
-   @ ( ME_4B613C610167 // 
- ) .SequenceCode.It
+   Seq: ( ME_4B613C610167 // 
+ )
  ; // Dependencies
  CONST "base wnd class" 'CWnd'
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\Nemesis'
  CONST intf.pas:Path 'common\components\gui\Garant\Nemesis\nscFocusLabel.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Nemesis'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'FocusLabel'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'nscFocusLabel'
 
 ref; // ME_4B6019A601D8 TnscFocusLabel
 
@@ -290,23 +298,21 @@ ref; // ME_4B6019A601D8 TnscFocusLabel
  : Parent WL 'ME_490838AA02D0' '490838AA02D0.pas.ms.script' // Nemesis
  ;
  : Children
-   @ ( ME_4B6019A601D8 // TnscFocusLabel
- ) .SequenceCode.It
+   Seq: ( ME_4B6019A601D8 // TnscFocusLabel
+ )
  ; // Children
  : Depends
-   @ ( WL 'ME_476F78840219' '476F78840219.pas.ms.script' // Messages
+   Seq: ( WL 'ME_476F78840219' '476F78840219.pas.ms.script' // Messages
  WL 'ME_4A9B9BAA0207' '4A9B9BAA0207.pas.ms.script' // Labels
  WL 'ME_4AB0C3C60310' '4AB0C3C60310.pas.ms.script' // Sys
  WL 'ME_4AB0C3F60375' '4AB0C3F60375.pas.ms.script' // Win
- ) .SequenceCode.It
+ )
  ; // Depends
- : Generators
- @ (
- gen_pas.script
- gen_pas.script.runner
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\Nemesis'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Nemesis'
  CONST pas.script:Path 'shared\models\NewSchool\Scripts\4B601984005A.pas.ms.script'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
  CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\4B601984005A.pas.ms.script.runner'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_4B601984005A Labels

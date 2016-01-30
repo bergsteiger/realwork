@@ -12,15 +12,15 @@ INCLUDE 'ElementsRTTI.ms.dict'
  : Parent WL 'ME_4677DDBD0193' '4677DDBD0193.pas.ms.script' // Shared Delphi
  ;
  : Children
-   @ ( WL 'ME_506AC2F00283' '506AC2F00283.pas.ms.script' // VGSceneWords
- ) .SequenceCode.It
+   Seq: ( WL 'ME_506AC2F00283' '506AC2F00283.pas.ms.script' // VGSceneWords
+ )
  ; // Children
  : Depends
-   @ ( WL 'ME_4684F91300DD' '4684F91300DD.pas.ms.script' // Vcl
+   Seq: ( WL 'ME_4684F91300DD' '4684F91300DD.pas.ms.script' // Vcl
  WL 'ME_469F3E37025A' '469F3E37025A.pas.ms.script' // Rtl
  WL 'ME_4CFCE4F203CE' '4CFCE4F203CE.pas.ms.script' // VGScene
  WL 'ME_54CF97B10370' '54CF97B10370.pas.ms.script' // ScriptEngine$Core
- ) .SequenceCode.It
+ )
  ; // Depends
  CONST "defines" 'seDefine.inc'
  CONST "exec mode" 'concluded'
@@ -28,17 +28,11 @@ INCLUDE 'ElementsRTTI.ms.dict'
  CONST "ifndef" 'NoVGScene,NoScripts'
  CONST "is namespace" true
  CONST "vendor" '/Garant'
- : Generators
- @ (
- gen_forth_structure
- gen_intf.pas
- gen_pas.script
- gen_pas.script.runner
- ) .SequenceCode.It
- ; // Generators
- CONST forth_structure:Path 'shared\models\NewSchool\Shared Delphi\ScriptEngine$VG\ScriptEngine$VG.model.script'
- CONST intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\ScriptEngine$VG_lib.info'
+ CONST dfm:PathOnly '\common\components\rtl\Garant\ScriptEngine'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\ScriptEngine'
  CONST pas.script:Path 'shared\models\NewSchool\Scripts\54EC663A02E3.pas.ms.script'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
  CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\54EC663A02E3.pas.ms.script.runner'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_54EC663A02E3 ScriptEngine$VG

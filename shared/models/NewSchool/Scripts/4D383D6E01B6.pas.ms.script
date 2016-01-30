@@ -1,0 +1,85 @@
+// BaseDocument 4D383D6E01B6 VCMForms Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4D383D6E01B6
+
+: ME_497F142501FA
+ CONST UID '497F142501FA'
+ CONST Name 'BaseDocumentForDocumentModule'
+ CONST Class class_Class
+ : Stereotype st_VCMForm ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Форма для работы с документом' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_4D383D6E01B6 // BaseDocument
+ ;
+ : Implements
+   Seq: ( WL 'ME_49870A7E033E' '497ED74F0032.pas.ms.script' // BaseDocument
+ WL 'ME_4A82BCFA02EF' '4AADF9450143.pas.ms.script' // MvcmEntityForm
+ )
+ ; // Implements
+ CONST "NeedsHackRef" true
+ CONST "UseNewGen" 'undefined'
+ CONST "ZoneType" 'Any'
+ CONST "author" 'Люлин А.В.'
+ CONST "base wnd class" 'CWnd'
+ CONST "finished dfm" true
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" true
+ CONST "register in scripts" 'undefined'
+ CONST "resizeable" false
+ CONST "restrict form def" 'undefined'
+ CONST "started" '27.01.2009 17:04'
+ : Generators
+ Seq: (
+ gen_intf.pas
+ )
+ ; // Generators
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View'
+ CONST intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\BaseDocumentForDocumentModule.imp.pas'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\View'
+ CONST extprop:pas:TypeName '_BaseDocumentForDocumentModule_'
+ CONST extprop:pas:UnitName 'BaseDocumentForDocumentModule.imp'
+
+ref; // ME_497F142501FA BaseDocumentForDocumentModule
+
+: ME_4D383D6E01B6
+ CONST UID '4D383D6E01B6'
+ CONST Name 'BaseDocument'
+ CONST Class class_Category
+ : Stereotype st_VCMForms ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent WL 'ME_4A9F76D70283' '4A9F76D70283.pas.ms.script' // View
+ ;
+ : Children
+   Seq: ( ME_497F142501FA // BaseDocumentForDocumentModule
+ )
+ ; // Children
+ : Depends
+   Seq: ( WL 'ME_497ED74F0032' '497ED74F0032.pas.ms.script' // Common
+ WL 'ME_4AADF9450143' '4AADF9450143.pas.ms.script' // Visual
+ )
+ ; // Depends
+ CONST "UseNewGen" 'undefined'
+ : Generators
+ Seq: (
+ gen_pas.script
+ gen_pas.script.runner
+ )
+ ; // Generators
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View'
+ CONST pas.script:Path 'shared\models\NewSchool\Scripts\4D383D6E01B6.pas.ms.script'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\4D383D6E01B6.pas.ms.script.runner'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\View'
+
+ref; // ME_4D383D6E01B6 BaseDocument

@@ -1,0 +1,240 @@
+// Admin 5123A72D03E5 VCMTestTarget Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_5123A72D03E5
+
+FORWARD ME_5123A74700E2
+
+: ME_7368BD68B67A
+ CONST UID '7368BD68B67A'
+ CONST Name 'TvcmApplicationRef'
+ CONST IsSummoned true
+ CONST Class class_Class
+ : Stereotype st_Typedef ;
+ CONST Kind kind_NormalClass
+ %SUMMARY '—сылка на приложение дл€ DesignTime редакторов' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_5123A74700E2 // AdminTest
+ ;
+ : Inherits
+   Seq: ( ME_5123A74700E2 // AdminTest
+ )
+ ; // Inherits
+ CONST "UseNewGen" 'undefined'
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis'
+
+ref; // ME_7368BD68B67A TvcmApplicationRef
+
+FORWARD ME_5123A75E00D5
+
+: ME_5123A769004F
+ CONST UID '5123A769004F'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_5123A74700E2 // AdminTest
+ ;
+ : Target ME_5123A75E00D5 // toKAdmin
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_5123A769004F 
+
+: ME_4F79BCC902C5_ME_5123A74700E2
+ CONST UID '4F79BCC902C5'
+ CONST Name 'CalcBatchMode'
+ : Original WL 'ME_4F79BCC902C5' '51309A4A02FB.pas.ms.script' // CalcBatchMode
+ ;
+ : Implementor ME_5123A74700E2 // AdminTest
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "UseNewGen" 'undefined'
+ CONST "is static" true
+ref; // ME_4F79BCC902C5_ME_5123A74700E2 CalcBatchMode
+
+: ME_5123A74700E2
+ CONST UID '5123A74700E2'
+ CONST Name 'AdminTest'
+ CONST Class class_Class
+ : Stereotype st_VCMTestApplication ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_5123A72D03E5 // Admin
+ ;
+ : Inherits
+   Seq: ( WL 'ME_4AA517B5037A' '4AA5181600DC.pas.ms.script' // AdminApp
+ )
+ ; // Inherits
+ : Implements
+   Seq: ( WL 'ME_4F79CD9F015F' '4F79CD2603DF.pas.ms.script' // VCMAppTester
+ )
+ ; // Implements
+ : Implemented
+   Seq: ( ME_4F79BCC902C5_ME_5123A74700E2 // CalcBatchMode
+ )
+ ; // Implemented
+ : Children
+   Seq: ( ME_7368BD68B67A // TvcmApplicationRef
+ )
+ ; // Children
+ : Dependencies
+   Seq: ( ME_5123A769004F // 
+ )
+ ; // Dependencies
+ CONST "UseNewGen" 'undefined'
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ : Generators
+ Seq: (
+ gen_intf.pas
+ )
+ ; // Generators
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis'
+ CONST intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\AdminTestRes.pas'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis'
+ CONST extprop:pas:TypeName 'TAdminTestRes'
+ CONST extprop:pas:UnitName 'AdminTestRes'
+
+ref; // ME_5123A74700E2 AdminTest
+
+: ME_4B7AB0B6016E_ME_5123A75E00D5
+ CONST UID '4B7AB0B6016E'
+ CONST Name 'CommandLineKey'
+ : Original WL 'ME_4B7AB0B6016E' '4B2A112B011A.pas.ms.script' // CommandLineKey
+ ;
+ : Implementor ME_5123A75E00D5 // toKAdmin
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "UseNewGen" 'undefined'
+ref; // ME_4B7AB0B6016E_ME_5123A75E00D5 CommandLineKey
+
+: ME_4B7C0B43005B_ME_5123A75E00D5
+ CONST UID '4B7C0B43005B'
+ CONST Name 'TimesPage'
+ : Original WL 'ME_4B7C0B43005B' '4B2A112B011A.pas.ms.script' // TimesPage
+ ;
+ : Implementor ME_5123A75E00D5 // toKAdmin
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "UseNewGen" 'undefined'
+ref; // ME_4B7C0B43005B_ME_5123A75E00D5 TimesPage
+
+: ME_4B7C0B670215_ME_5123A75E00D5
+ CONST UID '4B7C0B670215'
+ CONST Name 'ResultsPage'
+ : Original WL 'ME_4B7C0B670215' '4B2A112B011A.pas.ms.script' // ResultsPage
+ ;
+ : Implementor ME_5123A75E00D5 // toKAdmin
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "UseNewGen" 'undefined'
+ref; // ME_4B7C0B670215_ME_5123A75E00D5 ResultsPage
+
+: ME_5123A75E00D5
+ CONST UID '5123A75E00D5'
+ CONST Name 'toKAdmin'
+ CONST Class class_Class
+ : Stereotype st_TestResults ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_5123A72D03E5 // Admin
+ ;
+ : Inherits
+   Seq: ( WL 'ME_4B7AAC7A031D' '4B2A112B011A.pas.ms.script' // TTestResultsPlace
+ )
+ ; // Inherits
+ : Implemented
+   Seq: ( ME_4B7AB0B6016E_ME_5123A75E00D5 // CommandLineKey
+ ME_4B7C0B43005B_ME_5123A75E00D5 // TimesPage
+ ME_4B7C0B670215_ME_5123A75E00D5 // ResultsPage
+ )
+ ; // Implemented
+ CONST "UseNewGen" 'undefined'
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "needs script keywords documentation" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ : Generators
+ Seq: (
+ gen_intf.pas
+ )
+ ; // Generators
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis'
+ CONST intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\toKAdmin.pas'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis'
+ CONST extprop:pas:TypeName 'TtoKAdmin'
+
+ref; // ME_5123A75E00D5 toKAdmin
+
+: ME_5123A72D03E5
+ CONST UID '5123A72D03E5'
+ CONST Name 'Admin'
+ CONST Class class_Category
+ : Stereotype st_VCMTestTarget ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent WL 'ME_5123A6AF023B' '5123A6AF023B.pas.ms.script' // F1 ≈жедневные тесты јдминистратора
+ ;
+ : Children
+   Seq: ( ME_5123A74700E2 // AdminTest
+ ME_5123A75E00D5 // toKAdmin
+ )
+ ; // Children
+ : Depends
+   Seq: ( WL 'ME_4773D64E036C' '47913B47006E.pas.ms.script' // l3Base
+ WL 'ME_4787A405013D' '4AB0C3C60310.pas.ms.script' // Exception
+ WL 'ME_4AA5181600DC' '4AA5181600DC.pas.ms.script' // Admin$Shell
+ WL 'ME_4B2A0D8A03A0' '4B2A0D6A0077.pas.ms.script' // TextTestRunner
+ WL 'ME_4B2A0D9401CC' '4B2A0D6A0077.pas.ms.script' // GUITestRunner
+ WL 'ME_4B2A10C40309' '4B2A10C40309.pas.ms.script' // DUnitTuning
+ WL 'ME_4B2A112B011A' '4B2A112B011A.pas.ms.script' // Source
+ WL 'ME_4B2A6D4303A9' '4B2A112B011A.pas.ms.script' // KTestRunner
+ WL 'ME_4CA0BB8600CF' '4CA0BB31027B.pas.ms.script' // TKBridge
+ WL 'ME_4DAECE5D0060' '4B30FC850092.pas.ms.script' // TvcmInsiderTest
+ WL 'ME_4DC3FE5D03B4' '4E25969000FF.pas.ms.script' // TF1AutoTestSuite
+ WL 'ME_4F6B65EA0392' '4F6B65EA0392.pas.ms.script' // F1Like
+ WL 'ME_4F79CCD4016C' '4F79CCD4016C.pas.ms.script' // VCM$ Applications Testing
+ WL 'ME_4F79CD2603DF' '4F79CD2603DF.pas.ms.script' // AppTestingSupport
+ )
+ ; // Depends
+ CONST "CONFIG_UC" false
+ CONST "UseNewGen" 'undefined'
+ CONST "console" false
+ CONST "is insider test" false
+ CONST "need UC in project" false
+ CONST "no scripts" 'undefined'
+ CONST "old format" false
+ : Generators
+ Seq: (
+ gen_intf.pas
+ gen_pas.script
+ gen_pas.script.runner
+ )
+ ; // Generators
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis'
+ CONST intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\AdminAppTest.dpr'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis'
+ CONST pas.script:Path 'shared\models\NewSchool\Scripts\5123A72D03E5.pas.ms.script'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\5123A72D03E5.pas.ms.script.runner'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis'
+ CONST extprop:pas:UnitName 'AdminAppTest'
+
+ref; // ME_5123A72D03E5 Admin

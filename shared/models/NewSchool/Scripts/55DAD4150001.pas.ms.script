@@ -45,6 +45,7 @@ ref; // ME_55DAD44D036F DataServerPort
  ;
  : Implementor ME_55DAD42802B1 // IpgParamsStorage
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" false
 ref; // ME_5507D9B100F7_ME_55DAD42802B1 ProviderKey
 
@@ -55,6 +56,7 @@ ref; // ME_5507D9B100F7_ME_55DAD42802B1 ProviderKey
  ;
  : Implementor ME_55DAD42802B1 // IpgParamsStorage
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_55095596033F_ME_55DAD42802B1 InitStorage
 
 : ME_550963930391_ME_55DAD42802B1
@@ -64,6 +66,7 @@ ref; // ME_55095596033F_ME_55DAD42802B1 InitStorage
  ;
  : Implementor ME_55DAD42802B1 // IpgParamsStorage
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" false
 ref; // ME_550963930391_ME_55DAD42802B1 Login
 
@@ -74,6 +77,7 @@ ref; // ME_550963930391_ME_55DAD42802B1 Login
  ;
  : Implementor ME_55DAD42802B1 // IpgParamsStorage
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" false
 ref; // ME_550963A60121_ME_55DAD42802B1 Password
 
@@ -84,6 +88,7 @@ ref; // ME_550963A60121_ME_55DAD42802B1 Password
  ;
  : Implementor ME_55DAD42802B1 // IpgParamsStorage
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" false
 ref; // ME_550963BC00B0_ME_55DAD42802B1 DocStoragePath
 
@@ -94,6 +99,7 @@ ref; // ME_550963BC00B0_ME_55DAD42802B1 DocStoragePath
  ;
  : Implementor ME_55DAD42802B1 // IpgParamsStorage
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" false
 ref; // ME_550963CF0092_ME_55DAD42802B1 DocImagePath
 
@@ -104,6 +110,7 @@ ref; // ME_550963CF0092_ME_55DAD42802B1 DocImagePath
  ;
  : Implementor ME_55DAD42802B1 // IpgParamsStorage
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" false
 ref; // ME_550963EB02F8_ME_55DAD42802B1 HomeDirPath
 
@@ -114,6 +121,7 @@ ref; // ME_550963EB02F8_ME_55DAD42802B1 HomeDirPath
  ;
  : Implementor ME_55DAD42802B1 // IpgParamsStorage
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_5515121F0358_ME_55DAD42802B1 OuterConfigEdit
 
 : ME_551512370064_ME_55DAD42802B1
@@ -123,6 +131,7 @@ ref; // ME_5515121F0358_ME_55DAD42802B1 OuterConfigEdit
  ;
  : Implementor ME_55DAD42802B1 // IpgParamsStorage
  ;
+ CONST OpKind opkind_Implemented
  CONST "force overload" true
 ref; // ME_551512370064_ME_55DAD42802B1 BuildConfig
 
@@ -138,16 +147,16 @@ ref; // ME_551512370064_ME_55DAD42802B1 BuildConfig
  : Parent ME_55DAD4150001 // pgInterfaces
  ;
  : Inherits
-   @ ( WL 'ME_5507D90F00D2' '5432518A0316.pas.ms.script' // IdaParamsStorage
- ) .SequenceCode.It
+   Seq: ( WL 'ME_5507D90F00D2' '5432518A0316.pas.ms.script' // IdaParamsStorage
+ )
  ; // Inherits
  : Attributes
-   @ ( ME_55DAD43B00AF // DataServerHostName
+   Seq: ( ME_55DAD43B00AF // DataServerHostName
  ME_55DAD44D036F // DataServerPort
- ) .SequenceCode.It
+ )
  ; // Attributes
  : Implemented
-   @ ( ME_5507D9B100F7_ME_55DAD42802B1 // ProviderKey
+   Seq: ( ME_5507D9B100F7_ME_55DAD42802B1 // ProviderKey
  ME_55095596033F_ME_55DAD42802B1 // InitStorage
  ME_550963930391_ME_55DAD42802B1 // Login
  ME_550963A60121_ME_55DAD42802B1 // Password
@@ -156,8 +165,14 @@ ref; // ME_551512370064_ME_55DAD42802B1 BuildConfig
  ME_550963EB02F8_ME_55DAD42802B1 // HomeDirPath
  ME_5515121F0358_ME_55DAD42802B1 // OuterConfigEdit
  ME_551512370064_ME_55DAD42802B1 // BuildConfig
- ) .SequenceCode.It
+ )
  ; // Implemented
+ CONST dfm:PathOnly '\common\components\rtl\Garant\PG'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\PG'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'pgParamsStorage'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_55DAD42802B1 IpgParamsStorage
 
@@ -184,8 +199,8 @@ ref; // ME_562765090263 aData
  : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
  ;
  : Parameters
-   @ ( ME_562765090263 // aData
- ) .SequenceCode.It
+   Seq: ( ME_562765090263 // aData
+ )
  ; // Parameters
 
 ref; // ME_5627650001E5 ToInteger
@@ -211,8 +226,8 @@ ref; // ME_562765190268 aData
  : Target WL 'ME_559390220212' '5432448401BC.pas.ms.script' // LargeInt
  ;
  : Parameters
-   @ ( ME_562765190268 // aData
- ) .SequenceCode.It
+   Seq: ( ME_562765190268 // aData
+ )
  ; // Parameters
 
 ref; // ME_56276513038B ToLargeInt
@@ -238,8 +253,8 @@ ref; // ME_56276527035B aData
  : Target WL 'ME_4E8EDFCA01C0' '47D0290B016D.pas.ms.script' // TStDate
  ;
  : Parameters
-   @ ( ME_56276527035B // aData
- ) .SequenceCode.It
+   Seq: ( ME_56276527035B // aData
+ )
  ; // Parameters
 
 ref; // ME_56276521027B ToStDate
@@ -265,8 +280,8 @@ ref; // ME_56276537039F aData
  : Target WL 'ME_5593952A0301' '47D0290B016D.pas.ms.script' // TStTime
  ;
  : Parameters
-   @ ( ME_56276537039F // aData
- ) .SequenceCode.It
+   Seq: ( ME_56276537039F // aData
+ )
  ; // Parameters
 
 ref; // ME_562765320349 ToStTime
@@ -292,8 +307,8 @@ ref; // ME_56276547024D aData
  : Target WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
  ;
  : Parameters
-   @ ( ME_56276547024D // aData
- ) .SequenceCode.It
+   Seq: ( ME_56276547024D // aData
+ )
  ; // Parameters
 
 ref; // ME_5627654202D2 ToString
@@ -319,8 +334,8 @@ ref; // ME_562E12A4001E aData
  : Target WL 'ME_476130E5023C' '4AB0C3C60310.pas.ms.script' // Byte
  ;
  : Parameters
-   @ ( ME_562E12A4001E // aData
- ) .SequenceCode.It
+   Seq: ( ME_562E12A4001E // aData
+ )
  ; // Parameters
 
 ref; // ME_562E129A00BB ToByte
@@ -332,6 +347,7 @@ ref; // ME_562E129A00BB ToByte
  ;
  : Implementor ME_55E41C6E00E2 // IpgDataConverter
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_555995210007_ME_55E41C6E00E2 AllocateParamBuffer
 
 : ME_5559955500DF_ME_55E41C6E00E2
@@ -341,6 +357,7 @@ ref; // ME_555995210007_ME_55E41C6E00E2 AllocateParamBuffer
  ;
  : Implementor ME_55E41C6E00E2 // IpgDataConverter
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_5559955500DF_ME_55E41C6E00E2 ParamToDataBase
 
 : ME_55599596005B_ME_55E41C6E00E2
@@ -350,6 +367,7 @@ ref; // ME_5559955500DF_ME_55E41C6E00E2 ParamToDataBase
  ;
  : Implementor ME_55E41C6E00E2 // IpgDataConverter
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_55599596005B_ME_55E41C6E00E2 ParamFromDataBase
 
 : ME_5559D14D02D1_ME_55E41C6E00E2
@@ -359,6 +377,7 @@ ref; // ME_55599596005B_ME_55E41C6E00E2 ParamFromDataBase
  ;
  : Implementor ME_55E41C6E00E2 // IpgDataConverter
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_5559D14D02D1_ME_55E41C6E00E2 FreeParamBuffer
 
 : ME_55E41C6E00E2
@@ -373,25 +392,31 @@ ref; // ME_5559D14D02D1_ME_55E41C6E00E2 FreeParamBuffer
  : Parent ME_55DAD4150001 // pgInterfaces
  ;
  : Inherits
-   @ ( WL 'ME_5559950F0013' '5432518A0316.pas.ms.script' // IdaDataConverter
- ) .SequenceCode.It
+   Seq: ( WL 'ME_5559950F0013' '5432518A0316.pas.ms.script' // IdaDataConverter
+ )
  ; // Inherits
  : Operations
-   @ ( ME_5627650001E5 // ToInteger
+   Seq: ( ME_5627650001E5 // ToInteger
  ME_56276513038B // ToLargeInt
  ME_56276521027B // ToStDate
  ME_562765320349 // ToStTime
  ME_5627654202D2 // ToString
  ME_562E129A00BB // ToByte
- ) .SequenceCode.It
+ )
  ; // Operations
  : Implemented
-   @ ( ME_555995210007_ME_55E41C6E00E2 // AllocateParamBuffer
+   Seq: ( ME_555995210007_ME_55E41C6E00E2 // AllocateParamBuffer
  ME_5559955500DF_ME_55E41C6E00E2 // ParamToDataBase
  ME_55599596005B_ME_55E41C6E00E2 // ParamFromDataBase
  ME_5559D14D02D1_ME_55E41C6E00E2 // FreeParamBuffer
- ) .SequenceCode.It
+ )
  ; // Implemented
+ CONST dfm:PathOnly '\common\components\rtl\Garant\PG'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\PG'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'pgDataConverter'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_55E41C6E00E2 IpgDataConverter
 
@@ -406,9 +431,13 @@ ref; // ME_55E41C6E00E2 IpgDataConverter
  : Parent ME_55DAD4150001 // pgInterfaces
  ;
  : Inherits
-   @ ( WL 'ME_4787A405013D' '4AB0C3C60310.pas.ms.script' // Exception
- ) .SequenceCode.It
+   Seq: ( WL 'ME_4787A405013D' '4AB0C3C60310.pas.ms.script' // Exception
+ )
  ; // Inherits
+ CONST dfm:PathOnly '\common\components\rtl\Garant\PG'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\PG'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_55F6B3BF01F9 EPgError
 
@@ -427,6 +456,7 @@ FORWARD ME_562F3A6203BD
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value 5432
 
 ref; // ME_562F3A7302D7 c_DefaultPostgresPort
 
@@ -441,10 +471,14 @@ ref; // ME_562F3A7302D7 c_DefaultPostgresPort
  : Parent ME_55DAD4150001 // pgInterfaces
  ;
  : Attributes
-   @ ( ME_562F3A7302D7 // c_DefaultPostgresPort
- ) .SequenceCode.It
+   Seq: ( ME_562F3A7302D7 // c_DefaultPostgresPort
+ )
  ; // Attributes
  CONST "spell names" false
+ CONST dfm:PathOnly '\common\components\rtl\Garant\PG'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\PG'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_562F3A6203BD Defaults
 
@@ -459,9 +493,13 @@ ref; // ME_562F3A6203BD Defaults
  : Parent ME_55DAD4150001 // pgInterfaces
  ;
  : Inherits
-   @ ( ME_55F6B3BF01F9 // EPgError
- ) .SequenceCode.It
+   Seq: ( ME_55F6B3BF01F9 // EPgError
+ )
  ; // Inherits
+ CONST dfm:PathOnly '\common\components\rtl\Garant\PG'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\PG'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_565D8E820009 EpgLockError
 
@@ -475,34 +513,31 @@ ref; // ME_565D8E820009 EpgLockError
  : Parent WL 'ME_543388FB0261' '543388FB0261.pas.ms.script' // PG
  ;
  : Children
-   @ ( ME_55DAD42802B1 // IpgParamsStorage
+   Seq: ( ME_55DAD42802B1 // IpgParamsStorage
  ME_55E41C6E00E2 // IpgDataConverter
  ME_55F6B3BF01F9 // EPgError
  ME_565D8E820009 // EpgLockError
- ) .SequenceCode.It
+ )
  ; // Children
  : Constants
-   @ ( ME_562F3A6203BD // Defaults
- ) .SequenceCode.It
+   Seq: ( ME_562F3A6203BD // Defaults
+ )
  ; // Constants
  : Depends
-   @ ( WL 'ME_47D0290B016D' '47D0290B016D.pas.ms.script' // l3Utils
+   Seq: ( WL 'ME_47D0290B016D' '47D0290B016D.pas.ms.script' // l3Utils
  WL 'ME_4AB0C3C60310' '4AB0C3C60310.pas.ms.script' // Sys
  WL 'ME_5432448401BC' '5432448401BC.pas.ms.script' // daTypes
  WL 'ME_5432518A0316' '5432518A0316.pas.ms.script' // daInterfaces
- ) .SequenceCode.It
+ )
  ; // Depends
  CONST "is namespace" true
  CONST "no hands" false
- : Generators
- @ (
- gen_intf.pas
- gen_pas.script
- gen_pas.script.runner
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\PG'
  CONST intf.pas:Path 'common\components\rtl\Garant\PG\pgInterfaces.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\PG'
  CONST pas.script:Path 'shared\models\NewSchool\Scripts\55DAD4150001.pas.ms.script'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
  CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\55DAD4150001.pas.ms.script.runner'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_55DAD4150001 pgInterfaces

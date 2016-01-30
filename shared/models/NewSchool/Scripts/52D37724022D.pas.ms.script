@@ -19,6 +19,7 @@ FORWARD ME_52D3773600D6
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value '$0419'
 
 ref; // ME_52D377540030 langRussian
 
@@ -33,10 +34,14 @@ ref; // ME_52D377540030 langRussian
  : Parent ME_52D37724022D // ddRTFConst
  ;
  : Attributes
-   @ ( ME_52D377540030 // langRussian
- ) .SequenceCode.It
+   Seq: ( ME_52D377540030 // langRussian
+ )
  ; // Attributes
  CONST "spell names" false
+ CONST dfm:PathOnly '\common\components\rtl\Garant\dd'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\dd'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_52D3773600D6 RTFLangConts
 
@@ -50,21 +55,18 @@ ref; // ME_52D3773600D6 RTFLangConts
  : Parent WL 'ME_4677E18600C2' '4677E18600C2.pas.ms.script' // dd
  ;
  : Constants
-   @ ( ME_52D3773600D6 // RTFLangConts
- ) .SequenceCode.It
+   Seq: ( ME_52D3773600D6 // RTFLangConts
+ )
  ; // Constants
  CONST "finished" false
  CONST "is namespace" true
  CONST "no hands" false
- : Generators
- @ (
- gen_intf.pas
- gen_pas.script
- gen_pas.script.runner
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\dd'
  CONST intf.pas:Path 'common\components\rtl\Garant\dd\NOT_FINISHED_ddRTFConst.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\dd'
  CONST pas.script:Path 'shared\models\NewSchool\Scripts\52D37724022D.pas.ms.script'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
  CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\52D37724022D.pas.ms.script.runner'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_52D37724022D ddRTFConst

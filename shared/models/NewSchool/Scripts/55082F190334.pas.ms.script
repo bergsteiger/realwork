@@ -42,8 +42,8 @@ ref; // ME_558A376C0166 aOtherList
  : Parent ME_558A37400258 // Create
  ;
  : Parameters
-   @ ( ME_558A376C0166 // aOtherList
- ) .SequenceCode.It
+   Seq: ( ME_558A376C0166 // aOtherList
+ )
  ; // Parameters
 
 ref; // ME_558A374B00B1 DoIt
@@ -59,8 +59,8 @@ ref; // ME_558A374B00B1 DoIt
  : Parent ME_558947020183 // TvcmHistoryItemList
  ;
  : Operations
-   @ ( ME_558A374B00B1 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_558A374B00B1 // DoIt
+ )
  ; // Operations
 
 ref; // ME_558A37400258 Create
@@ -70,6 +70,7 @@ FORWARD ME_558A377003D0
 : ME_FF806B4F5894
  CONST UID 'FF806B4F5894'
  CONST Name 'aOtherList'
+ CONST IsSummoned true
  CONST Class class_Parameter
  : Stereotype st_in ;
  : Target WL 'ME_5589489B004F' '4683F37902CF.pas.ms.script' // IvcmHistoryItems
@@ -80,6 +81,7 @@ ref; // ME_FF806B4F5894 aOtherList
 : ME_464BA3BA25A7
  CONST UID '464BA3BA25A7'
  CONST Name 'DoIt'
+ CONST IsSummoned true
  CONST Class class_Operation
  %SUMMARY 'Сигнатура фабрики TvcmHistoryItemList.Make' ;
  CONST Visibility PrivateAccess
@@ -87,8 +89,8 @@ ref; // ME_FF806B4F5894 aOtherList
  : Parent ME_558A377003D0 // Make
  ;
  : Parameters
-   @ ( ME_FF806B4F5894 // aOtherList
- ) .SequenceCode.It
+   Seq: ( ME_FF806B4F5894 // aOtherList
+ )
  ; // Parameters
 
 ref; // ME_464BA3BA25A7 DoIt
@@ -104,12 +106,12 @@ ref; // ME_464BA3BA25A7 DoIt
  : Parent ME_558947020183 // TvcmHistoryItemList
  ;
  : Inherits
-   @ ( ME_558A37400258 // Create
- ) .SequenceCode.It
+   Seq: ( ME_558A37400258 // Create
+ )
  ; // Inherits
  : Operations
-   @ ( ME_464BA3BA25A7 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_464BA3BA25A7 // DoIt
+ )
  ; // Operations
  CONST "check nil" false
  CONST "need AfterCreate" 'undefined'
@@ -123,6 +125,7 @@ FORWARD ME_558A3C5601E4
 : ME_3E70430FFD7A
  CONST UID '3E70430FFD7A'
  CONST Name 'DoIt'
+ CONST IsSummoned true
  CONST Class class_Operation
  %SUMMARY 'Сигнатура метода Create$1' ;
  CONST Visibility PublicAccess
@@ -143,8 +146,8 @@ ref; // ME_3E70430FFD7A DoIt
  : Parent ME_558947020183 // TvcmHistoryItemList
  ;
  : Operations
-   @ ( ME_3E70430FFD7A // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_3E70430FFD7A // DoIt
+ )
  ; // Operations
 
 ref; // ME_558A3C5601E4 Create$1
@@ -154,6 +157,7 @@ FORWARD ME_558A3C660286
 : ME_0857E78FFEE6
  CONST UID '0857E78FFEE6'
  CONST Name 'DoIt'
+ CONST IsSummoned true
  CONST Class class_Operation
  %SUMMARY 'Сигнатура фабрики TvcmHistoryItemList.Make$1' ;
  CONST Visibility PrivateAccess
@@ -174,12 +178,12 @@ ref; // ME_0857E78FFEE6 DoIt
  : Parent ME_558947020183 // TvcmHistoryItemList
  ;
  : Inherits
-   @ ( ME_558A3C5601E4 // Create$1
- ) .SequenceCode.It
+   Seq: ( ME_558A3C5601E4 // Create$1
+ )
  ; // Inherits
  : Operations
-   @ ( ME_0857E78FFEE6 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_0857E78FFEE6 // DoIt
+ )
  ; // Operations
  CONST "check nil" false
  CONST "need AfterCreate" 'undefined'
@@ -209,8 +213,8 @@ ref; // ME_558A413802B4 aOtherList
  : Parent ME_558A411B0177 // Assign
  ;
  : Parameters
-   @ ( ME_558A413802B4 // aOtherList
- ) .SequenceCode.It
+   Seq: ( ME_558A413802B4 // aOtherList
+ )
  ; // Parameters
 
 ref; // ME_558A41290295 DoIt
@@ -226,8 +230,8 @@ ref; // ME_558A41290295 DoIt
  : Parent ME_558947020183 // TvcmHistoryItemList
  ;
  : Operations
-   @ ( ME_558A41290295 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_558A41290295 // DoIt
+ )
  ; // Operations
 
 ref; // ME_558A411B0177 Assign
@@ -239,6 +243,7 @@ ref; // ME_558A411B0177 Assign
  ;
  : Implementor ME_558947020183 // TvcmHistoryItemList
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" false
 ref; // ME_55894A2A006B_ME_558947020183 HistoryItemCount
 
@@ -249,6 +254,7 @@ ref; // ME_55894A2A006B_ME_558947020183 HistoryItemCount
  ;
  : Implementor ME_558947020183 // TvcmHistoryItemList
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" false
 ref; // ME_55894A3F00A3_ME_558947020183 HistoryItems
 
@@ -259,6 +265,7 @@ ref; // ME_55894A3F00A3_ME_558947020183 HistoryItems
  ;
  : Implementor ME_558947020183 // TvcmHistoryItemList
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_55894A720144_ME_558947020183 MakeClone
 
 : ME_558947020183
@@ -272,42 +279,44 @@ ref; // ME_55894A720144_ME_558947020183 MakeClone
  : Parent ME_55082F190334 // Implementation
  ;
  : Inherits
-   @ ( WL 'ME_4A54DD4E036F' '47913B47006E.pas.ms.script' // Tl3ProtoDataContainer
- ) .SequenceCode.It
+   Seq: ( WL 'ME_4A54DD4E036F' '47913B47006E.pas.ms.script' // Tl3ProtoDataContainer
+ )
  ; // Inherits
  : Implements
-   @ ( WL 'ME_47B57D830369' '47913B47006E.pas.ms.script' // l3InterfaceRefList
+   Seq: ( WL 'ME_47B57D830369' '47913B47006E.pas.ms.script' // l3InterfaceRefList
  WL 'ME_5589489B004F' '4683F37902CF.pas.ms.script' // IvcmHistoryItems
- ) .SequenceCode.It
+ )
  ; // Implements
  : Attributes
-   @ ( ME_5589487300A3 // ItemType
- ) .SequenceCode.It
+   Seq: ( ME_5589487300A3 // ItemType
+ )
  ; // Attributes
  : Operations
-   @ ( ME_558A37400258 // Create
+   Seq: ( ME_558A37400258 // Create
  ME_558A377003D0 // Make
  ME_558A3C5601E4 // Create$1
  ME_558A3C660286 // Make$1
  ME_558A411B0177 // Assign
- ) .SequenceCode.It
+ )
  ; // Operations
  : Implemented
-   @ ( ME_55894A2A006B_ME_558947020183 // HistoryItemCount
+   Seq: ( ME_55894A2A006B_ME_558947020183 // HistoryItemCount
  ME_55894A3F00A3_ME_558947020183 // HistoryItems
  ME_55894A720144_ME_558947020183 // MakeClone
- ) .SequenceCode.It
+ )
  ; // Implemented
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\VCM\implementation'
  CONST intf.pas:Path 'common\components\gui\Garant\VCM\implementation\vcmHistoryItemList.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\VCM\implementation'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'HistoryItemList'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'vcmHistoryItemList'
 
 ref; // ME_558947020183 TvcmHistoryItemList
 
@@ -326,12 +335,14 @@ ref; // ME_558947020183 TvcmHistoryItemList
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\VCM\implementation'
  CONST intf.pas:Path 'common\components\gui\Garant\VCM\implementation\NOT_FINISHED_vcmHistoryFormNode.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\VCM\implementation'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'HistoryFormNode'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'vcmHistoryFormNode'
 
 ref; // ME_5614F2B602CC TvcmHistoryFormNode
 
@@ -392,6 +403,7 @@ FORWARD ME_5583B0BD0124
 : ME_AB29624211F7
  CONST UID 'AB29624211F7'
  CONST Name 'DoIt'
+ CONST IsSummoned true
  CONST Class class_Operation
  %SUMMARY 'Сигнатура метода ResetContainer' ;
  CONST Visibility PublicAccess
@@ -412,8 +424,8 @@ ref; // ME_AB29624211F7 DoIt
  : Parent ME_5506D3B601B8 // IvcmFormHistoryItem
  ;
  : Operations
-   @ ( ME_AB29624211F7 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_AB29624211F7 // DoIt
+ )
  ; // Operations
 
 ref; // ME_5583B0BD0124 ResetContainer
@@ -425,6 +437,7 @@ ref; // ME_5583B0BD0124 ResetContainer
  ;
  : Implementor ME_5506D3B601B8 // IvcmFormHistoryItem
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" true
 ref; // ME_499559980178_ME_5506D3B601B8 Caption
 
@@ -435,6 +448,7 @@ ref; // ME_499559980178_ME_5506D3B601B8 Caption
  ;
  : Implementor ME_5506D3B601B8 // IvcmFormHistoryItem
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_550938E80131_ME_5506D3B601B8 Activate$1
 
 : ME_5509390702F7_ME_5506D3B601B8
@@ -444,6 +458,7 @@ ref; // ME_550938E80131_ME_5506D3B601B8 Activate$1
  ;
  : Implementor ME_5506D3B601B8 // IvcmFormHistoryItem
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_5509390702F7_ME_5506D3B601B8 Activate$2
 
 : ME_5509391E0197_ME_5506D3B601B8
@@ -453,6 +468,7 @@ ref; // ME_5509390702F7_ME_5506D3B601B8 Activate$2
  ;
  : Implementor ME_5506D3B601B8 // IvcmFormHistoryItem
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_5509391E0197_ME_5506D3B601B8 Drop
 
 : ME_550953A00312_ME_5506D3B601B8
@@ -462,6 +478,7 @@ ref; // ME_5509391E0197_ME_5506D3B601B8 Drop
  ;
  : Implementor ME_5506D3B601B8 // IvcmFormHistoryItem
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_550953A00312_ME_5506D3B601B8 IsAcceptable
 
 : ME_5506D3B601B8
@@ -476,27 +493,33 @@ ref; // ME_550953A00312_ME_5506D3B601B8 IsAcceptable
  : Parent ME_4AA7B6AB0214 // vcmHistory
  ;
  : Inherits
-   @ ( WL 'ME_4995594A014C' '4683F37902CF.pas.ms.script' // IvcmHistoryItem
- ) .SequenceCode.It
+   Seq: ( WL 'ME_4995594A014C' '4683F37902CF.pas.ms.script' // IvcmHistoryItem
+ )
  ; // Inherits
  : Attributes
-   @ ( ME_5506D47103A1 // FormClass
+   Seq: ( ME_5506D47103A1 // FormClass
  ME_5506D4830243 // UserType
  ME_5506D49100B7 // ItemType
- ) .SequenceCode.It
+ )
  ; // Attributes
  : Operations
-   @ ( ME_5583B0BD0124 // ResetContainer
- ) .SequenceCode.It
+   Seq: ( ME_5583B0BD0124 // ResetContainer
+ )
  ; // Operations
  : Implemented
-   @ ( ME_499559980178_ME_5506D3B601B8 // Caption
+   Seq: ( ME_499559980178_ME_5506D3B601B8 // Caption
  ME_550938E80131_ME_5506D3B601B8 // Activate$1
  ME_5509390702F7_ME_5506D3B601B8 // Activate$2
  ME_5509391E0197_ME_5506D3B601B8 // Drop
  ME_550953A00312_ME_5506D3B601B8 // IsAcceptable
- ) .SequenceCode.It
+ )
  ; // Implemented
+ CONST dfm:PathOnly '\common\components\gui\Garant\VCM\implementation'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\VCM\implementation'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'FormHistoryItem'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_5506D3B601B8 IvcmFormHistoryItem
 
@@ -544,6 +567,7 @@ ref; // ME_5506D5530235 InDestroy
  CONST Value false
  : ValueType WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
+ CONST extprop:pas:Value false
 
 ref; // ME_5506D5530256 aForceSave
 
@@ -558,11 +582,11 @@ ref; // ME_5506D5530256 aForceSave
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
  : Parameters
-   @ ( ME_5506D553020B // aForm
+   Seq: ( ME_5506D553020B // aForm
  ME_5506D5530220 // aStateType
  ME_5506D5530235 // InDestroy
  ME_5506D5530256 // aForceSave
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_5506D54B01EC DoIt
@@ -578,8 +602,8 @@ ref; // ME_5506D54B01EC DoIt
  : Parent ME_5506D52B03E3 // IvcmInternalHistory
  ;
  : Operations
-   @ ( ME_5506D54B01EC // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_5506D54B01EC // DoIt
+ )
  ; // Operations
 
 ref; // ME_5506D54601F8 InternalSaveState
@@ -591,6 +615,7 @@ ref; // ME_5506D54601F8 InternalSaveState
  ;
  : Implementor ME_5506D52B03E3 // IvcmInternalHistory
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_499559BF038A_ME_5506D52B03E3 BeforeFormDestroy
 
 : ME_499559C900EE_ME_5506D52B03E3
@@ -600,6 +625,7 @@ ref; // ME_499559BF038A_ME_5506D52B03E3 BeforeFormDestroy
  ;
  : Implementor ME_5506D52B03E3 // IvcmInternalHistory
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_499559C900EE_ME_5506D52B03E3 ForceSaveState
 
 : ME_499559DD00D6_ME_5506D52B03E3
@@ -609,6 +635,7 @@ ref; // ME_499559C900EE_ME_5506D52B03E3 ForceSaveState
  ;
  : Implementor ME_5506D52B03E3 // IvcmInternalHistory
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_499559DD00D6_ME_5506D52B03E3 SaveState
 
 : ME_499559EC0143_ME_5506D52B03E3
@@ -618,6 +645,7 @@ ref; // ME_499559DD00D6_ME_5506D52B03E3 SaveState
  ;
  : Implementor ME_5506D52B03E3 // IvcmInternalHistory
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_499559EC0143_ME_5506D52B03E3 SaveClose
 
 : ME_49955A0E01FD_ME_5506D52B03E3
@@ -627,6 +655,7 @@ ref; // ME_499559EC0143_ME_5506D52B03E3 SaveClose
  ;
  : Implementor ME_5506D52B03E3 // IvcmInternalHistory
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_49955A0E01FD_ME_5506D52B03E3 HasInPreviousStep
 
 : ME_49955A280277_ME_5506D52B03E3
@@ -636,6 +665,7 @@ ref; // ME_49955A0E01FD_ME_5506D52B03E3 HasInPreviousStep
  ;
  : Implementor ME_5506D52B03E3 // IvcmInternalHistory
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_49955A280277_ME_5506D52B03E3 Back
 
 : ME_49955A3202E4_ME_5506D52B03E3
@@ -645,6 +675,7 @@ ref; // ME_49955A280277_ME_5506D52B03E3 Back
  ;
  : Implementor ME_5506D52B03E3 // IvcmInternalHistory
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_49955A3202E4_ME_5506D52B03E3 Forward
 
 : ME_49955A4401E0_ME_5506D52B03E3
@@ -654,6 +685,7 @@ ref; // ME_49955A3202E4_ME_5506D52B03E3 Forward
  ;
  : Implementor ME_5506D52B03E3 // IvcmInternalHistory
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_49955A4401E0_ME_5506D52B03E3 Back
 
 : ME_49955A4F00AB_ME_5506D52B03E3
@@ -663,6 +695,7 @@ ref; // ME_49955A4401E0_ME_5506D52B03E3 Back
  ;
  : Implementor ME_5506D52B03E3 // IvcmInternalHistory
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_49955A4F00AB_ME_5506D52B03E3 Forward
 
 : ME_49955A5B00B1_ME_5506D52B03E3
@@ -672,6 +705,7 @@ ref; // ME_49955A4F00AB_ME_5506D52B03E3 Forward
  ;
  : Implementor ME_5506D52B03E3 // IvcmInternalHistory
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_49955A5B00B1_ME_5506D52B03E3 CanBack
 
 : ME_49955A6701A1_ME_5506D52B03E3
@@ -681,6 +715,7 @@ ref; // ME_49955A5B00B1_ME_5506D52B03E3 CanBack
  ;
  : Implementor ME_5506D52B03E3 // IvcmInternalHistory
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_49955A6701A1_ME_5506D52B03E3 CanForward
 
 : ME_49955A71029F_ME_5506D52B03E3
@@ -690,6 +725,7 @@ ref; // ME_49955A6701A1_ME_5506D52B03E3 CanForward
  ;
  : Implementor ME_5506D52B03E3 // IvcmInternalHistory
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_49955A71029F_ME_5506D52B03E3 GetBackStrings
 
 : ME_49955A7B015F_ME_5506D52B03E3
@@ -699,6 +735,7 @@ ref; // ME_49955A71029F_ME_5506D52B03E3 GetBackStrings
  ;
  : Implementor ME_5506D52B03E3 // IvcmInternalHistory
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_49955A7B015F_ME_5506D52B03E3 GetForwardStrings
 
 : ME_49955A870211_ME_5506D52B03E3
@@ -708,6 +745,7 @@ ref; // ME_49955A7B015F_ME_5506D52B03E3 GetForwardStrings
  ;
  : Implementor ME_5506D52B03E3 // IvcmInternalHistory
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_49955A870211_ME_5506D52B03E3 Start
 
 : ME_49955AA6028E_ME_5506D52B03E3
@@ -717,6 +755,7 @@ ref; // ME_49955A870211_ME_5506D52B03E3 Start
  ;
  : Implementor ME_5506D52B03E3 // IvcmInternalHistory
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_49955AA6028E_ME_5506D52B03E3 Finish
 
 : ME_49955AB102DB_ME_5506D52B03E3
@@ -726,6 +765,7 @@ ref; // ME_49955AA6028E_ME_5506D52B03E3 Finish
  ;
  : Implementor ME_5506D52B03E3 // IvcmInternalHistory
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_49955AB102DB_ME_5506D52B03E3 AddForm
 
 : ME_49955ABC00AD_ME_5506D52B03E3
@@ -735,6 +775,7 @@ ref; // ME_49955AB102DB_ME_5506D52B03E3 AddForm
  ;
  : Implementor ME_5506D52B03E3 // IvcmInternalHistory
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_49955ABC00AD_ME_5506D52B03E3 RemoveForm
 
 : ME_49955AC80055_ME_5506D52B03E3
@@ -744,6 +785,7 @@ ref; // ME_49955ABC00AD_ME_5506D52B03E3 RemoveForm
  ;
  : Implementor ME_5506D52B03E3 // IvcmInternalHistory
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_49955AC80055_ME_5506D52B03E3 Add
 
 : ME_49955AD6022E_ME_5506D52B03E3
@@ -753,6 +795,7 @@ ref; // ME_49955AC80055_ME_5506D52B03E3 Add
  ;
  : Implementor ME_5506D52B03E3 // IvcmInternalHistory
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_49955AD6022E_ME_5506D52B03E3 IsLast
 
 : ME_49955AE20023_ME_5506D52B03E3
@@ -762,6 +805,7 @@ ref; // ME_49955AD6022E_ME_5506D52B03E3 IsLast
  ;
  : Implementor ME_5506D52B03E3 // IvcmInternalHistory
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" true
 ref; // ME_49955AE20023_ME_5506D52B03E3 InBF
 
@@ -772,6 +816,7 @@ ref; // ME_49955AE20023_ME_5506D52B03E3 InBF
  ;
  : Implementor ME_5506D52B03E3 // IvcmInternalHistory
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" true
 ref; // ME_49955AF40024_ME_5506D52B03E3 InProcess
 
@@ -782,6 +827,7 @@ ref; // ME_49955AF40024_ME_5506D52B03E3 InProcess
  ;
  : Implementor ME_5506D52B03E3 // IvcmInternalHistory
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_49EDA518032B_ME_5506D52B03E3 InBack
 
 : ME_4DB0239600EC_ME_5506D52B03E3
@@ -791,6 +837,7 @@ ref; // ME_49EDA518032B_ME_5506D52B03E3 InBack
  ;
  : Implementor ME_5506D52B03E3 // IvcmInternalHistory
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_4DB0239600EC_ME_5506D52B03E3 Clear
 
 : ME_4E82C9D3005D_ME_5506D52B03E3
@@ -800,6 +847,7 @@ ref; // ME_4DB0239600EC_ME_5506D52B03E3 Clear
  ;
  : Implementor ME_5506D52B03E3 // IvcmInternalHistory
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_4E82C9D3005D_ME_5506D52B03E3 DeleteBackItem
 
 : ME_4FC4CF3F01DC_ME_5506D52B03E3
@@ -809,6 +857,7 @@ ref; // ME_4E82C9D3005D_ME_5506D52B03E3 DeleteBackItem
  ;
  : Implementor ME_5506D52B03E3 // IvcmInternalHistory
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_4FC4CF3F01DC_ME_5506D52B03E3 GetBackCount
 
 : ME_4FC4CF570044_ME_5506D52B03E3
@@ -818,6 +867,7 @@ ref; // ME_4FC4CF3F01DC_ME_5506D52B03E3 GetBackCount
  ;
  : Implementor ME_5506D52B03E3 // IvcmInternalHistory
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_4FC4CF570044_ME_5506D52B03E3 GetForwardCount
 
 : ME_4FC4CF6B0145_ME_5506D52B03E3
@@ -827,6 +877,7 @@ ref; // ME_4FC4CF570044_ME_5506D52B03E3 GetForwardCount
  ;
  : Implementor ME_5506D52B03E3 // IvcmInternalHistory
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_4FC4CF6B0145_ME_5506D52B03E3 GetBackItem
 
 : ME_4FC4CF840110_ME_5506D52B03E3
@@ -836,6 +887,7 @@ ref; // ME_4FC4CF6B0145_ME_5506D52B03E3 GetBackItem
  ;
  : Implementor ME_5506D52B03E3 // IvcmInternalHistory
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_4FC4CF840110_ME_5506D52B03E3 GetForwardItem
 
 : ME_53DE68ED020E_ME_5506D52B03E3
@@ -845,6 +897,7 @@ ref; // ME_4FC4CF840110_ME_5506D52B03E3 GetForwardItem
  ;
  : Implementor ME_5506D52B03E3 // IvcmInternalHistory
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_53DE68ED020E_ME_5506D52B03E3 DeleteForwardItem
 
 : ME_5583A8D20275_ME_5506D52B03E3
@@ -854,6 +907,7 @@ ref; // ME_53DE68ED020E_ME_5506D52B03E3 DeleteForwardItem
  ;
  : Implementor ME_5506D52B03E3 // IvcmInternalHistory
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_5583A8D20275_ME_5506D52B03E3 ResetContainer
 
 : ME_558A5FAC01CC_ME_5506D52B03E3
@@ -863,6 +917,7 @@ ref; // ME_5583A8D20275_ME_5506D52B03E3 ResetContainer
  ;
  : Implementor ME_5506D52B03E3 // IvcmInternalHistory
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_558A5FAC01CC_ME_5506D52B03E3 MakeState
 
 : ME_558A5FD70198_ME_5506D52B03E3
@@ -872,6 +927,7 @@ ref; // ME_558A5FAC01CC_ME_5506D52B03E3 MakeState
  ;
  : Implementor ME_5506D52B03E3 // IvcmInternalHistory
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_558A5FD70198_ME_5506D52B03E3 AssignState
 
 : ME_559F70D00030_ME_5506D52B03E3
@@ -881,6 +937,7 @@ ref; // ME_558A5FD70198_ME_5506D52B03E3 AssignState
  ;
  : Implementor ME_5506D52B03E3 // IvcmInternalHistory
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_559F70D00030_ME_5506D52B03E3 SaveClone
 
 : ME_5506D52B03E3
@@ -895,15 +952,15 @@ ref; // ME_559F70D00030_ME_5506D52B03E3 SaveClone
  : Parent ME_4AA7B6AB0214 // vcmHistory
  ;
  : Inherits
-   @ ( WL 'ME_49940B4A02FC' '4683F37902CF.pas.ms.script' // IvcmHistory
- ) .SequenceCode.It
+   Seq: ( WL 'ME_49940B4A02FC' '4683F37902CF.pas.ms.script' // IvcmHistory
+ )
  ; // Inherits
  : Operations
-   @ ( ME_5506D54601F8 // InternalSaveState
- ) .SequenceCode.It
+   Seq: ( ME_5506D54601F8 // InternalSaveState
+ )
  ; // Operations
  : Implemented
-   @ ( ME_499559BF038A_ME_5506D52B03E3 // BeforeFormDestroy
+   Seq: ( ME_499559BF038A_ME_5506D52B03E3 // BeforeFormDestroy
  ME_499559C900EE_ME_5506D52B03E3 // ForceSaveState
  ME_499559DD00D6_ME_5506D52B03E3 // SaveState
  ME_499559EC0143_ME_5506D52B03E3 // SaveClose
@@ -936,8 +993,14 @@ ref; // ME_559F70D00030_ME_5506D52B03E3 SaveClone
  ME_558A5FAC01CC_ME_5506D52B03E3 // MakeState
  ME_558A5FD70198_ME_5506D52B03E3 // AssignState
  ME_559F70D00030_ME_5506D52B03E3 // SaveClone
- ) .SequenceCode.It
+ )
  ; // Implemented
+ CONST dfm:PathOnly '\common\components\gui\Garant\VCM\implementation'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\VCM\implementation'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'InternalHistory'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_5506D52B03E3 IvcmInternalHistory
 
@@ -1176,9 +1239,9 @@ ref; // ME_5506D9270044 InDestroy
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
  : Parameters
-   @ ( ME_5506D927002F // aForm
+   Seq: ( ME_5506D927002F // aForm
  ME_5506D9270044 // InDestroy
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_5506D923026D DoIt
@@ -1195,8 +1258,8 @@ ref; // ME_5506D923026D DoIt
  : Parent ME_5506D56E02FB // TvcmHistory
  ;
  : Operations
-   @ ( ME_5506D923026D // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_5506D923026D // DoIt
+ )
  ; // Operations
 
 ref; // ME_5506D91401EE NeedSaveForm
@@ -1234,9 +1297,9 @@ ref; // ME_5506D9410316 theHistory
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
  : Parameters
-   @ ( ME_5506D9410300 // aForm
+   Seq: ( ME_5506D9410300 // aForm
  ME_5506D9410316 // theHistory
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_5506D93D00E5 DoIt
@@ -1253,8 +1316,8 @@ ref; // ME_5506D93D00E5 DoIt
  : Parent ME_5506D56E02FB // TvcmHistory
  ;
  : Operations
-   @ ( ME_5506D93D00E5 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_5506D93D00E5 // DoIt
+ )
  ; // Operations
 
 ref; // ME_5506D937025E CheckAnother
@@ -1282,8 +1345,8 @@ ref; // ME_5506D97F00BA anIndex
  : Target WL 'ME_4683C9AC03AC' '467BAB7F021E.pas.ms.script' // IvcmCString
  ;
  : Parameters
-   @ ( ME_5506D97F00BA // anIndex
- ) .SequenceCode.It
+   Seq: ( ME_5506D97F00BA // anIndex
+ )
  ; // Parameters
 
 ref; // ME_5506D97B03DB DoIt
@@ -1300,8 +1363,8 @@ ref; // ME_5506D97B03DB DoIt
  : Parent ME_5506D56E02FB // TvcmHistory
  ;
  : Operations
-   @ ( ME_5506D97B03DB // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_5506D97B03DB // DoIt
+ )
  ; // Operations
 
 ref; // ME_5506D97302DF GetCaption
@@ -1327,8 +1390,8 @@ ref; // ME_5506D99F00B8 aMainForm
  : Parent ME_5506D99500B7 // Create
  ;
  : Parameters
-   @ ( ME_5506D99F00B8 // aMainForm
- ) .SequenceCode.It
+   Seq: ( ME_5506D99F00B8 // aMainForm
+ )
  ; // Parameters
 
 ref; // ME_5506D99C03D6 DoIt
@@ -1344,8 +1407,8 @@ ref; // ME_5506D99C03D6 DoIt
  : Parent ME_5506D56E02FB // TvcmHistory
  ;
  : Operations
-   @ ( ME_5506D99C03D6 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_5506D99C03D6 // DoIt
+ )
  ; // Operations
 
 ref; // ME_5506D99500B7 Create
@@ -1355,6 +1418,7 @@ FORWARD ME_559A3FCA017D
 : ME_305717D3556A
  CONST UID '305717D3556A'
  CONST Name 'aMainForm'
+ CONST IsSummoned true
  CONST Class class_Parameter
  : Stereotype st_in ;
  : Target WL 'ME_4914746C019E' '4683F37902CF.pas.ms.script' // IvcmEntityForm
@@ -1365,6 +1429,7 @@ ref; // ME_305717D3556A aMainForm
 : ME_E49FA1E8A382
  CONST UID 'E49FA1E8A382'
  CONST Name 'DoIt'
+ CONST IsSummoned true
  CONST Class class_Operation
  %SUMMARY 'Сигнатура фабрики TvcmHistory.Make' ;
  CONST Visibility PrivateAccess
@@ -1374,8 +1439,8 @@ ref; // ME_305717D3556A aMainForm
  : Target WL 'ME_49940B4A02FC' '4683F37902CF.pas.ms.script' // IvcmHistory
  ;
  : Parameters
-   @ ( ME_305717D3556A // aMainForm
- ) .SequenceCode.It
+   Seq: ( ME_305717D3556A // aMainForm
+ )
  ; // Parameters
 
 ref; // ME_E49FA1E8A382 DoIt
@@ -1391,16 +1456,16 @@ ref; // ME_E49FA1E8A382 DoIt
  : Parent ME_5506D56E02FB // TvcmHistory
  ;
  : Inherits
-   @ ( ME_5506D99500B7 // Create
- ) .SequenceCode.It
+   Seq: ( ME_5506D99500B7 // Create
+ )
  ; // Inherits
  : Implements
-   @ ( WL 'ME_49940B4A02FC' '4683F37902CF.pas.ms.script' // IvcmHistory
- ) .SequenceCode.It
+   Seq: ( WL 'ME_49940B4A02FC' '4683F37902CF.pas.ms.script' // IvcmHistory
+ )
  ; // Implements
  : Operations
-   @ ( ME_E49FA1E8A382 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_E49FA1E8A382 // DoIt
+ )
  ; // Operations
  CONST "check nil" false
  CONST "need AfterCreate" 'undefined'
@@ -1427,6 +1492,7 @@ ref; // ME_558A4BD00226
  ;
  : Implementor ME_5506D56E02FB // TvcmHistory
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_499559BF038A_ME_5506D56E02FB BeforeFormDestroy
 
 : ME_499559C900EE_ME_5506D56E02FB
@@ -1436,6 +1502,7 @@ ref; // ME_499559BF038A_ME_5506D56E02FB BeforeFormDestroy
  ;
  : Implementor ME_5506D56E02FB // TvcmHistory
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_499559C900EE_ME_5506D56E02FB ForceSaveState
 
 : ME_499559DD00D6_ME_5506D56E02FB
@@ -1445,6 +1512,7 @@ ref; // ME_499559C900EE_ME_5506D56E02FB ForceSaveState
  ;
  : Implementor ME_5506D56E02FB // TvcmHistory
  ;
+ CONST OpKind opkind_Implemented
  CONST "force overload" true
 ref; // ME_499559DD00D6_ME_5506D56E02FB SaveState
 
@@ -1455,6 +1523,7 @@ ref; // ME_499559DD00D6_ME_5506D56E02FB SaveState
  ;
  : Implementor ME_5506D56E02FB // TvcmHistory
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_499559EC0143_ME_5506D56E02FB SaveClose
 
 : ME_49955A0E01FD_ME_5506D56E02FB
@@ -1464,6 +1533,7 @@ ref; // ME_499559EC0143_ME_5506D56E02FB SaveClose
  ;
  : Implementor ME_5506D56E02FB // TvcmHistory
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_49955A0E01FD_ME_5506D56E02FB HasInPreviousStep
 
 : ME_49955A280277_ME_5506D56E02FB
@@ -1473,6 +1543,7 @@ ref; // ME_49955A0E01FD_ME_5506D56E02FB HasInPreviousStep
  ;
  : Implementor ME_5506D56E02FB // TvcmHistory
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_49955A280277_ME_5506D56E02FB Back
 
 : ME_49955A3202E4_ME_5506D56E02FB
@@ -1482,6 +1553,7 @@ ref; // ME_49955A280277_ME_5506D56E02FB Back
  ;
  : Implementor ME_5506D56E02FB // TvcmHistory
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_49955A3202E4_ME_5506D56E02FB Forward
 
 : ME_49955A4401E0_ME_5506D56E02FB
@@ -1491,6 +1563,7 @@ ref; // ME_49955A3202E4_ME_5506D56E02FB Forward
  ;
  : Implementor ME_5506D56E02FB // TvcmHistory
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_49955A4401E0_ME_5506D56E02FB Back
 
 : ME_49955A4F00AB_ME_5506D56E02FB
@@ -1500,6 +1573,7 @@ ref; // ME_49955A4401E0_ME_5506D56E02FB Back
  ;
  : Implementor ME_5506D56E02FB // TvcmHistory
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_49955A4F00AB_ME_5506D56E02FB Forward
 
 : ME_49955A5B00B1_ME_5506D56E02FB
@@ -1509,6 +1583,7 @@ ref; // ME_49955A4F00AB_ME_5506D56E02FB Forward
  ;
  : Implementor ME_5506D56E02FB // TvcmHistory
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_49955A5B00B1_ME_5506D56E02FB CanBack
 
 : ME_49955A6701A1_ME_5506D56E02FB
@@ -1518,6 +1593,7 @@ ref; // ME_49955A5B00B1_ME_5506D56E02FB CanBack
  ;
  : Implementor ME_5506D56E02FB // TvcmHistory
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_49955A6701A1_ME_5506D56E02FB CanForward
 
 : ME_49955A71029F_ME_5506D56E02FB
@@ -1527,6 +1603,7 @@ ref; // ME_49955A6701A1_ME_5506D56E02FB CanForward
  ;
  : Implementor ME_5506D56E02FB // TvcmHistory
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_49955A71029F_ME_5506D56E02FB GetBackStrings
 
 : ME_49955A7B015F_ME_5506D56E02FB
@@ -1536,6 +1613,7 @@ ref; // ME_49955A71029F_ME_5506D56E02FB GetBackStrings
  ;
  : Implementor ME_5506D56E02FB // TvcmHistory
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_49955A7B015F_ME_5506D56E02FB GetForwardStrings
 
 : ME_49955A870211_ME_5506D56E02FB
@@ -1545,6 +1623,7 @@ ref; // ME_49955A7B015F_ME_5506D56E02FB GetForwardStrings
  ;
  : Implementor ME_5506D56E02FB // TvcmHistory
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_49955A870211_ME_5506D56E02FB Start
 
 : ME_49955AA6028E_ME_5506D56E02FB
@@ -1554,6 +1633,7 @@ ref; // ME_49955A870211_ME_5506D56E02FB Start
  ;
  : Implementor ME_5506D56E02FB // TvcmHistory
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_49955AA6028E_ME_5506D56E02FB Finish
 
 : ME_49955AB102DB_ME_5506D56E02FB
@@ -1563,6 +1643,7 @@ ref; // ME_49955AA6028E_ME_5506D56E02FB Finish
  ;
  : Implementor ME_5506D56E02FB // TvcmHistory
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_49955AB102DB_ME_5506D56E02FB AddForm
 
 : ME_49955ABC00AD_ME_5506D56E02FB
@@ -1572,6 +1653,7 @@ ref; // ME_49955AB102DB_ME_5506D56E02FB AddForm
  ;
  : Implementor ME_5506D56E02FB // TvcmHistory
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_49955ABC00AD_ME_5506D56E02FB RemoveForm
 
 : ME_49955AC80055_ME_5506D56E02FB
@@ -1581,6 +1663,7 @@ ref; // ME_49955ABC00AD_ME_5506D56E02FB RemoveForm
  ;
  : Implementor ME_5506D56E02FB // TvcmHistory
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_49955AC80055_ME_5506D56E02FB Add
 
 : ME_49955AD6022E_ME_5506D56E02FB
@@ -1590,6 +1673,7 @@ ref; // ME_49955AC80055_ME_5506D56E02FB Add
  ;
  : Implementor ME_5506D56E02FB // TvcmHistory
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_49955AD6022E_ME_5506D56E02FB IsLast
 
 : ME_49955AE20023_ME_5506D56E02FB
@@ -1599,6 +1683,7 @@ ref; // ME_49955AD6022E_ME_5506D56E02FB IsLast
  ;
  : Implementor ME_5506D56E02FB // TvcmHistory
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" true
 ref; // ME_49955AE20023_ME_5506D56E02FB InBF
 
@@ -1609,6 +1694,7 @@ ref; // ME_49955AE20023_ME_5506D56E02FB InBF
  ;
  : Implementor ME_5506D56E02FB // TvcmHistory
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" true
 ref; // ME_49955AF40024_ME_5506D56E02FB InProcess
 
@@ -1619,6 +1705,7 @@ ref; // ME_49955AF40024_ME_5506D56E02FB InProcess
  ;
  : Implementor ME_5506D56E02FB // TvcmHistory
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_49EDA518032B_ME_5506D56E02FB InBack
 
 : ME_4DB0239600EC_ME_5506D56E02FB
@@ -1628,6 +1715,7 @@ ref; // ME_49EDA518032B_ME_5506D56E02FB InBack
  ;
  : Implementor ME_5506D56E02FB // TvcmHistory
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_4DB0239600EC_ME_5506D56E02FB Clear
 
 : ME_4E82C9D3005D_ME_5506D56E02FB
@@ -1637,6 +1725,7 @@ ref; // ME_4DB0239600EC_ME_5506D56E02FB Clear
  ;
  : Implementor ME_5506D56E02FB // TvcmHistory
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_4E82C9D3005D_ME_5506D56E02FB DeleteBackItem
 
 : ME_4FC4CF3F01DC_ME_5506D56E02FB
@@ -1646,6 +1735,7 @@ ref; // ME_4E82C9D3005D_ME_5506D56E02FB DeleteBackItem
  ;
  : Implementor ME_5506D56E02FB // TvcmHistory
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_4FC4CF3F01DC_ME_5506D56E02FB GetBackCount
 
 : ME_4FC4CF570044_ME_5506D56E02FB
@@ -1655,6 +1745,7 @@ ref; // ME_4FC4CF3F01DC_ME_5506D56E02FB GetBackCount
  ;
  : Implementor ME_5506D56E02FB // TvcmHistory
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_4FC4CF570044_ME_5506D56E02FB GetForwardCount
 
 : ME_4FC4CF6B0145_ME_5506D56E02FB
@@ -1664,6 +1755,7 @@ ref; // ME_4FC4CF570044_ME_5506D56E02FB GetForwardCount
  ;
  : Implementor ME_5506D56E02FB // TvcmHistory
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_4FC4CF6B0145_ME_5506D56E02FB GetBackItem
 
 : ME_4FC4CF840110_ME_5506D56E02FB
@@ -1673,6 +1765,7 @@ ref; // ME_4FC4CF6B0145_ME_5506D56E02FB GetBackItem
  ;
  : Implementor ME_5506D56E02FB // TvcmHistory
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_4FC4CF840110_ME_5506D56E02FB GetForwardItem
 
 : ME_53DE68ED020E_ME_5506D56E02FB
@@ -1682,6 +1775,7 @@ ref; // ME_4FC4CF840110_ME_5506D56E02FB GetForwardItem
  ;
  : Implementor ME_5506D56E02FB // TvcmHistory
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_53DE68ED020E_ME_5506D56E02FB DeleteForwardItem
 
 : ME_5506D54601F8_ME_5506D56E02FB
@@ -1691,6 +1785,7 @@ ref; // ME_53DE68ED020E_ME_5506D56E02FB DeleteForwardItem
  ;
  : Implementor ME_5506D56E02FB // TvcmHistory
  ;
+ CONST OpKind opkind_Implemented
  CONST "force overload" true
 ref; // ME_5506D54601F8_ME_5506D56E02FB InternalSaveState
 
@@ -1701,6 +1796,7 @@ ref; // ME_5506D54601F8_ME_5506D56E02FB InternalSaveState
  ;
  : Implementor ME_5506D56E02FB // TvcmHistory
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_5583A8D20275_ME_5506D56E02FB ResetContainer
 
 : ME_558A5FAC01CC_ME_5506D56E02FB
@@ -1710,6 +1806,7 @@ ref; // ME_5583A8D20275_ME_5506D56E02FB ResetContainer
  ;
  : Implementor ME_5506D56E02FB // TvcmHistory
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_558A5FAC01CC_ME_5506D56E02FB MakeState
 
 : ME_558A5FD70198_ME_5506D56E02FB
@@ -1719,6 +1816,7 @@ ref; // ME_558A5FAC01CC_ME_5506D56E02FB MakeState
  ;
  : Implementor ME_5506D56E02FB // TvcmHistory
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_558A5FD70198_ME_5506D56E02FB AssignState
 
 : ME_559F70D00030_ME_5506D56E02FB
@@ -1728,6 +1826,7 @@ ref; // ME_558A5FD70198_ME_5506D56E02FB AssignState
  ;
  : Implementor ME_5506D56E02FB // TvcmHistory
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_559F70D00030_ME_5506D56E02FB SaveClone
 
 : ME_479731C50290_ME_5506D56E02FB
@@ -1737,6 +1836,7 @@ ref; // ME_559F70D00030_ME_5506D56E02FB SaveClone
  ;
  : Implementor ME_5506D56E02FB // TvcmHistory
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_479731C50290_ME_5506D56E02FB Cleanup
 
 : ME_5506D56E02FB
@@ -1750,16 +1850,16 @@ ref; // ME_479731C50290_ME_5506D56E02FB Cleanup
  : Parent ME_4AA7B6AB0214 // vcmHistory
  ;
  : Inherits
-   @ ( WL 'ME_519A130C00B6' '47D0E1500033.pas.ms.script' // TvcmCacheableBase
- ) .SequenceCode.It
+   Seq: ( WL 'ME_519A130C00B6' '47D0E1500033.pas.ms.script' // TvcmCacheableBase
+ )
  ; // Inherits
  : Implements
-   @ ( WL 'ME_49940B4A02FC' '4683F37902CF.pas.ms.script' // IvcmHistory
+   Seq: ( WL 'ME_49940B4A02FC' '4683F37902CF.pas.ms.script' // IvcmHistory
  ME_5506D52B03E3 // IvcmInternalHistory
- ) .SequenceCode.It
+ )
  ; // Implements
  : Attributes
-   @ ( ME_558A90A30189 // f_History
+   Seq: ( ME_558A90A30189 // f_History
  ME_559F97F3019A // f_SavingClone
  ME_5506D8CD0392 // MainForm
  ME_5506DA2A0293 // f_Forms
@@ -1773,18 +1873,18 @@ ref; // ME_479731C50290_ME_5506D56E02FB Cleanup
  ME_5506DAAC0200 // f_InBF
  ME_5506DAB701B5 // f_InBack
  ME_5506DAC3008F // f_ForceSave
- ) .SequenceCode.It
+ )
  ; // Attributes
  : Operations
-   @ ( ME_5506D91401EE // NeedSaveForm
+   Seq: ( ME_5506D91401EE // NeedSaveForm
  ME_5506D937025E // CheckAnother
  ME_5506D97302DF // GetCaption
  ME_5506D99500B7 // Create
  ME_559A3FCA017D // Make
- ) .SequenceCode.It
+ )
  ; // Operations
  : Implemented
-   @ ( ME_499559BF038A_ME_5506D56E02FB // BeforeFormDestroy
+   Seq: ( ME_499559BF038A_ME_5506D56E02FB // BeforeFormDestroy
  ME_499559C900EE_ME_5506D56E02FB // ForceSaveState
  ME_499559DD00D6_ME_5506D56E02FB // SaveState
  ME_499559EC0143_ME_5506D56E02FB // SaveClose
@@ -1818,20 +1918,26 @@ ref; // ME_479731C50290_ME_5506D56E02FB Cleanup
  ME_558A5FAC01CC_ME_5506D56E02FB // MakeState
  ME_558A5FD70198_ME_5506D56E02FB // AssignState
  ME_559F70D00030_ME_5506D56E02FB // SaveClone
- ) .SequenceCode.It
+ )
  ; // Implemented
  : Overridden
-   @ ( ME_479731C50290_ME_5506D56E02FB // Cleanup
- ) .SequenceCode.It
+   Seq: ( ME_479731C50290_ME_5506D56E02FB // Cleanup
+ )
  ; // Overridden
  : Dependencies
-   @ ( ME_558A4BD00226 // 
- ) .SequenceCode.It
+   Seq: ( ME_558A4BD00226 // 
+ )
  ; // Dependencies
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
+ CONST dfm:PathOnly '\common\components\gui\Garant\VCM\implementation'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\VCM\implementation'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'History'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_5506D56E02FB TvcmHistory
 
@@ -1870,6 +1976,7 @@ FORWARD ME_5506DB9403A6
 : ME_365485162274
  CONST UID '365485162274'
  CONST Name 'DoIt'
+ CONST IsSummoned true
  CONST Class class_Operation
  %SUMMARY 'Сигнатура метода DoActivate' ;
  CONST Visibility PublicAccess
@@ -1890,8 +1997,8 @@ ref; // ME_365485162274 DoIt
  : Parent ME_5506DB25003E // TvcmObjectWithDataHistoryItem
  ;
  : Operations
-   @ ( ME_365485162274 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_365485162274 // DoIt
+ )
  ; // Operations
 
 ref; // ME_5506DB9403A6 DoActivate
@@ -1927,9 +2034,9 @@ ref; // ME_5506DBB40338 aData
  : Parent ME_5506DBA30102 // Create
  ;
  : Parameters
-   @ ( ME_5506DBB40325 // aObject
+   Seq: ( ME_5506DBB40325 // aObject
  ME_5506DBB40338 // aData
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_5506DBAF0301 DoIt
@@ -1945,8 +2052,8 @@ ref; // ME_5506DBAF0301 DoIt
  : Parent ME_5506DB25003E // TvcmObjectWithDataHistoryItem
  ;
  : Operations
-   @ ( ME_5506DBAF0301 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_5506DBAF0301 // DoIt
+ )
  ; // Operations
 
 ref; // ME_5506DBA30102 Create
@@ -1956,6 +2063,7 @@ FORWARD ME_5506DBBA03DA
 : ME_252E695EDF05
  CONST UID '252E695EDF05'
  CONST Name 'aObject'
+ CONST IsSummoned true
  CONST Class class_Parameter
  : Stereotype st_in ;
  : Target WL 'ME_491AFD0D015E' '4683F37902CF.pas.ms.script' // IvcmObjectWithData
@@ -1966,6 +2074,7 @@ ref; // ME_252E695EDF05 aObject
 : ME_D0FB99BA6575
  CONST UID 'D0FB99BA6575'
  CONST Name 'aData'
+ CONST IsSummoned true
  CONST Class class_Parameter
  : Stereotype st_in ;
  : Target WL 'ME_47F378D3029B' '4683F37902CF.pas.ms.script' // IvcmData
@@ -1976,6 +2085,7 @@ ref; // ME_D0FB99BA6575 aData
 : ME_E5FC6D8D46EE
  CONST UID 'E5FC6D8D46EE'
  CONST Name 'DoIt'
+ CONST IsSummoned true
  CONST Class class_Operation
  %SUMMARY 'Сигнатура фабрики TvcmObjectWithDataHistoryItem.Make' ;
  CONST Visibility PrivateAccess
@@ -1983,9 +2093,9 @@ ref; // ME_D0FB99BA6575 aData
  : Parent ME_5506DBBA03DA // Make
  ;
  : Parameters
-   @ ( ME_252E695EDF05 // aObject
+   Seq: ( ME_252E695EDF05 // aObject
  ME_D0FB99BA6575 // aData
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_E5FC6D8D46EE DoIt
@@ -2001,12 +2111,12 @@ ref; // ME_E5FC6D8D46EE DoIt
  : Parent ME_5506DB25003E // TvcmObjectWithDataHistoryItem
  ;
  : Inherits
-   @ ( ME_5506DBA30102 // Create
- ) .SequenceCode.It
+   Seq: ( ME_5506DBA30102 // Create
+ )
  ; // Inherits
  : Operations
-   @ ( ME_E5FC6D8D46EE // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_E5FC6D8D46EE // DoIt
+ )
  ; // Operations
  CONST "check nil" false
  CONST "need AfterCreate" 'undefined'
@@ -2022,6 +2132,7 @@ ref; // ME_5506DBBA03DA Make
  ;
  : Implementor ME_5506DB25003E // TvcmObjectWithDataHistoryItem
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" true
 ref; // ME_499559980178_ME_5506DB25003E Caption
 
@@ -2032,6 +2143,7 @@ ref; // ME_499559980178_ME_5506DB25003E Caption
  ;
  : Implementor ME_5506DB25003E // TvcmObjectWithDataHistoryItem
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_550938E80131_ME_5506DB25003E Activate$1
 
 : ME_5509390702F7_ME_5506DB25003E
@@ -2041,6 +2153,7 @@ ref; // ME_550938E80131_ME_5506DB25003E Activate$1
  ;
  : Implementor ME_5506DB25003E // TvcmObjectWithDataHistoryItem
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_5509390702F7_ME_5506DB25003E Activate$2
 
 : ME_5509391E0197_ME_5506DB25003E
@@ -2050,6 +2163,7 @@ ref; // ME_5509390702F7_ME_5506DB25003E Activate$2
  ;
  : Implementor ME_5506DB25003E // TvcmObjectWithDataHistoryItem
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_5509391E0197_ME_5506DB25003E Drop
 
 : ME_550953A00312_ME_5506DB25003E
@@ -2059,6 +2173,7 @@ ref; // ME_5509391E0197_ME_5506DB25003E Drop
  ;
  : Implementor ME_5506DB25003E // TvcmObjectWithDataHistoryItem
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_550953A00312_ME_5506DB25003E IsAcceptable
 
 : ME_5506DB25003E
@@ -2072,36 +2187,42 @@ ref; // ME_550953A00312_ME_5506DB25003E IsAcceptable
  : Parent ME_4AA7B6AB0214 // vcmHistory
  ;
  : Inherits
-   @ ( WL 'ME_47F25BEE0389' '47D0E1500033.pas.ms.script' // TvcmBase
- ) .SequenceCode.It
+   Seq: ( WL 'ME_47F25BEE0389' '47D0E1500033.pas.ms.script' // TvcmBase
+ )
  ; // Inherits
  : Implements
-   @ ( WL 'ME_4995594A014C' '4683F37902CF.pas.ms.script' // IvcmHistoryItem
- ) .SequenceCode.It
+   Seq: ( WL 'ME_4995594A014C' '4683F37902CF.pas.ms.script' // IvcmHistoryItem
+ )
  ; // Implements
  : Attributes
-   @ ( ME_5506DBEF02F5 // f_Object
+   Seq: ( ME_5506DBEF02F5 // f_Object
  ME_5506DBF70194 // f_Data
- ) .SequenceCode.It
+ )
  ; // Attributes
  : Operations
-   @ ( ME_5506DB9403A6 // DoActivate
+   Seq: ( ME_5506DB9403A6 // DoActivate
  ME_5506DBA30102 // Create
  ME_5506DBBA03DA // Make
- ) .SequenceCode.It
+ )
  ; // Operations
  : Implemented
-   @ ( ME_499559980178_ME_5506DB25003E // Caption
+   Seq: ( ME_499559980178_ME_5506DB25003E // Caption
  ME_550938E80131_ME_5506DB25003E // Activate$1
  ME_5509390702F7_ME_5506DB25003E // Activate$2
  ME_5509391E0197_ME_5506DB25003E // Drop
  ME_550953A00312_ME_5506DB25003E // IsAcceptable
- ) .SequenceCode.It
+ )
  ; // Implemented
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
+ CONST dfm:PathOnly '\common\components\gui\Garant\VCM\implementation'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\VCM\implementation'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'ObjectWithDataHistoryItem'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_5506DB25003E TvcmObjectWithDataHistoryItem
 
@@ -2118,9 +2239,13 @@ FORWARD ME_5506DC4F0011
  : Parent ME_5506DC4F0011 // TvcmHistoryItemBase
  ;
  : Inherits
-   @ ( WL 'ME_4787A405013D' '4AB0C3C60310.pas.ms.script' // Exception
- ) .SequenceCode.It
+   Seq: ( WL 'ME_4787A405013D' '4AB0C3C60310.pas.ms.script' // Exception
+ )
  ; // Inherits
+ CONST dfm:PathOnly '\common\components\gui\Garant\VCM\implementation'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\VCM\implementation'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_550823370284 EvcmFormWasClosedInSave
 
@@ -2354,6 +2479,7 @@ ref; // ME_550822A20275 f_ItemType
 : ME_9FF906C1926F
  CONST UID '9FF906C1926F'
  CONST Name 'f_SavingClone'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY 'Поле для свойства SavingClone' ;
  CONST Visibility PrivateAccess
@@ -2399,9 +2525,9 @@ ref; // ME_55080FF3039B anOwner
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
  : Parameters
-   @ ( ME_55080FF30386 // aMainForm
+   Seq: ( ME_55080FF30386 // aMainForm
  ME_55080FF3039B // anOwner
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_55080FED01FF DoIt
@@ -2417,8 +2543,8 @@ ref; // ME_55080FED01FF DoIt
  : Parent ME_5506DC4F0011 // TvcmHistoryItemBase
  ;
  : Operations
-   @ ( ME_55080FED01FF // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_55080FED01FF // DoIt
+ )
  ; // Operations
 
 ref; // ME_55080FE40284 DoActivate
@@ -2444,8 +2570,8 @@ ref; // ME_5508101E00F6 aForm
  : Parent ME_5508100C018B // UpdateContainer
  ;
  : Parameters
-   @ ( ME_5508101E00F6 // aForm
- ) .SequenceCode.It
+   Seq: ( ME_5508101E00F6 // aForm
+ )
  ; // Parameters
 
 ref; // ME_5508101802F4 DoIt
@@ -2461,8 +2587,8 @@ ref; // ME_5508101802F4 DoIt
  : Parent ME_5506DC4F0011 // TvcmHistoryItemBase
  ;
  : Operations
-   @ ( ME_5508101802F4 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_5508101802F4 // DoIt
+ )
  ; // Operations
 
 ref; // ME_5508100C018B UpdateContainer
@@ -2472,6 +2598,7 @@ FORWARD ME_5508102A0098
 : ME_51F7DDAA242C
  CONST UID '51F7DDAA242C'
  CONST Name 'aForm'
+ CONST IsSummoned true
  CONST Class class_Parameter
  : Stereotype st_in ;
  : Target WL 'ME_4914746C019E' '4683F37902CF.pas.ms.script' // IvcmEntityForm
@@ -2482,14 +2609,15 @@ ref; // ME_51F7DDAA242C aForm
 : ME_DBE07977E147
  CONST UID 'DBE07977E147'
  CONST Name 'DoIt'
+ CONST IsSummoned true
  CONST Class class_Operation
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
  : Parent ME_5508102A0098 // UpdateOwner
  ;
  : Parameters
-   @ ( ME_51F7DDAA242C // aForm
- ) .SequenceCode.It
+   Seq: ( ME_51F7DDAA242C // aForm
+ )
  ; // Parameters
 
 ref; // ME_DBE07977E147 DoIt
@@ -2505,12 +2633,12 @@ ref; // ME_DBE07977E147 DoIt
  : Parent ME_5506DC4F0011 // TvcmHistoryItemBase
  ;
  : Inherits
-   @ ( ME_5508100C018B // UpdateContainer
- ) .SequenceCode.It
+   Seq: ( ME_5508100C018B // UpdateContainer
+ )
  ; // Inherits
  : Operations
-   @ ( ME_DBE07977E147 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_DBE07977E147 // DoIt
+ )
  ; // Operations
 
 ref; // ME_5508102A0098 UpdateOwner
@@ -2520,6 +2648,7 @@ FORWARD ME_5508103701AF
 : ME_1CC73EBC583D
  CONST UID '1CC73EBC583D'
  CONST Name 'aForm'
+ CONST IsSummoned true
  CONST Class class_Parameter
  : Stereotype st_in ;
  : Target WL 'ME_4914746C019E' '4683F37902CF.pas.ms.script' // IvcmEntityForm
@@ -2530,14 +2659,15 @@ ref; // ME_1CC73EBC583D aForm
 : ME_4421E0AB3FF0
  CONST UID '4421E0AB3FF0'
  CONST Name 'DoIt'
+ CONST IsSummoned true
  CONST Class class_Operation
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
  : Parent ME_5508103701AF // UpdateAggregate
  ;
  : Parameters
-   @ ( ME_1CC73EBC583D // aForm
- ) .SequenceCode.It
+   Seq: ( ME_1CC73EBC583D // aForm
+ )
  ; // Parameters
 
 ref; // ME_4421E0AB3FF0 DoIt
@@ -2553,12 +2683,12 @@ ref; // ME_4421E0AB3FF0 DoIt
  : Parent ME_5506DC4F0011 // TvcmHistoryItemBase
  ;
  : Inherits
-   @ ( ME_5508102A0098 // UpdateOwner
- ) .SequenceCode.It
+   Seq: ( ME_5508102A0098 // UpdateOwner
+ )
  ; // Inherits
  : Operations
-   @ ( ME_4421E0AB3FF0 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_4421E0AB3FF0 // DoIt
+ )
  ; // Operations
 
 ref; // ME_5508103701AF UpdateAggregate
@@ -2568,6 +2698,7 @@ FORWARD ME_5508104402FE
 : ME_F5550C67E4DA
  CONST UID 'F5550C67E4DA'
  CONST Name 'aForm'
+ CONST IsSummoned true
  CONST Class class_Parameter
  : Stereotype st_in ;
  : Target WL 'ME_4914746C019E' '4683F37902CF.pas.ms.script' // IvcmEntityForm
@@ -2578,14 +2709,15 @@ ref; // ME_F5550C67E4DA aForm
 : ME_90D2A4E037E4
  CONST UID '90D2A4E037E4'
  CONST Name 'DoIt'
+ CONST IsSummoned true
  CONST Class class_Operation
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
  : Parent ME_5508104402FE // UpdateFormInfo
  ;
  : Parameters
-   @ ( ME_F5550C67E4DA // aForm
- ) .SequenceCode.It
+   Seq: ( ME_F5550C67E4DA // aForm
+ )
  ; // Parameters
 
 ref; // ME_90D2A4E037E4 DoIt
@@ -2601,12 +2733,12 @@ ref; // ME_90D2A4E037E4 DoIt
  : Parent ME_5506DC4F0011 // TvcmHistoryItemBase
  ;
  : Inherits
-   @ ( ME_5508103701AF // UpdateAggregate
- ) .SequenceCode.It
+   Seq: ( ME_5508103701AF // UpdateAggregate
+ )
  ; // Inherits
  : Operations
-   @ ( ME_90D2A4E037E4 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_90D2A4E037E4 // DoIt
+ )
  ; // Operations
 
 ref; // ME_5508104402FE UpdateFormInfo
@@ -2616,6 +2748,7 @@ FORWARD ME_5508105E024B
 : ME_946E3168DFEA
  CONST UID '946E3168DFEA'
  CONST Name 'DoIt'
+ CONST IsSummoned true
  CONST Class class_Operation
  %SUMMARY 'Сигнатура метода FreeContainer' ;
  CONST Visibility PublicAccess
@@ -2636,8 +2769,8 @@ ref; // ME_946E3168DFEA DoIt
  : Parent ME_5506DC4F0011 // TvcmHistoryItemBase
  ;
  : Operations
-   @ ( ME_946E3168DFEA // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_946E3168DFEA // DoIt
+ )
  ; // Operations
 
 ref; // ME_5508105E024B FreeContainer
@@ -2647,6 +2780,7 @@ FORWARD ME_5508106B01A3
 : ME_8A5F82217E34
  CONST UID '8A5F82217E34'
  CONST Name 'DoIt'
+ CONST IsSummoned true
  CONST Class class_Operation
  %SUMMARY 'Сигнатура метода FreeOwner' ;
  CONST Visibility PublicAccess
@@ -2667,8 +2801,8 @@ ref; // ME_8A5F82217E34 DoIt
  : Parent ME_5506DC4F0011 // TvcmHistoryItemBase
  ;
  : Operations
-   @ ( ME_8A5F82217E34 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_8A5F82217E34 // DoIt
+ )
  ; // Operations
 
 ref; // ME_5508106B01A3 FreeOwner
@@ -2678,6 +2812,7 @@ FORWARD ME_550810770379
 : ME_DE12EFE1705F
  CONST UID 'DE12EFE1705F'
  CONST Name 'DoIt'
+ CONST IsSummoned true
  CONST Class class_Operation
  %SUMMARY 'Сигнатура метода FreeAggregate' ;
  CONST Visibility PublicAccess
@@ -2698,8 +2833,8 @@ ref; // ME_DE12EFE1705F DoIt
  : Parent ME_5506DC4F0011 // TvcmHistoryItemBase
  ;
  : Operations
-   @ ( ME_DE12EFE1705F // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_DE12EFE1705F // DoIt
+ )
  ; // Operations
 
 ref; // ME_550810770379 FreeAggregate
@@ -2727,8 +2862,8 @@ ref; // ME_550810950132 aMainForm
  : Target WL 'ME_49525C400141' '4683F37902CF.pas.ms.script' // IvcmContainer
  ;
  : Parameters
-   @ ( ME_550810950132 // aMainForm
- ) .SequenceCode.It
+   Seq: ( ME_550810950132 // aMainForm
+ )
  ; // Parameters
 
 ref; // ME_550810920105 DoIt
@@ -2744,8 +2879,8 @@ ref; // ME_550810920105 DoIt
  : Parent ME_5506DC4F0011 // TvcmHistoryItemBase
  ;
  : Operations
-   @ ( ME_550810920105 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_550810920105 // DoIt
+ )
  ; // Operations
 
 ref; // ME_5508108B0208 Container
@@ -2793,10 +2928,10 @@ ref; // ME_550810C603BE aDataSource
  : Target WL 'ME_4914746C019E' '4683F37902CF.pas.ms.script' // IvcmEntityForm
  ;
  : Parameters
-   @ ( ME_550810C6034C // aMainForm
+   Seq: ( ME_550810C6034C // aMainForm
  ME_550810C6037D // anOwner
  ME_550810C603BE // aDataSource
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_550810BF02DE DoIt
@@ -2812,8 +2947,8 @@ ref; // ME_550810BF02DE DoIt
  : Parent ME_5506DC4F0011 // TvcmHistoryItemBase
  ;
  : Operations
-   @ ( ME_550810BF02DE // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_550810BF02DE // DoIt
+ )
  ; // Operations
 
 ref; // ME_550810B10266 MakeForm
@@ -2823,6 +2958,7 @@ FORWARD ME_550811080395
 : ME_11CC23A144E0
  CONST UID '11CC23A144E0'
  CONST Name 'aForm'
+ CONST IsSummoned true
  CONST Class class_Parameter
  : Stereotype st_in ;
  : Target WL 'ME_4914746C019E' '4683F37902CF.pas.ms.script' // IvcmEntityForm
@@ -2833,14 +2969,15 @@ ref; // ME_11CC23A144E0 aForm
 : ME_CE8100125394
  CONST UID 'CE8100125394'
  CONST Name 'DoIt'
+ CONST IsSummoned true
  CONST Class class_Operation
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
  : Parent ME_550811080395 // StoreFocused
  ;
  : Parameters
-   @ ( ME_11CC23A144E0 // aForm
- ) .SequenceCode.It
+   Seq: ( ME_11CC23A144E0 // aForm
+ )
  ; // Parameters
 
 ref; // ME_CE8100125394 DoIt
@@ -2856,12 +2993,12 @@ ref; // ME_CE8100125394 DoIt
  : Parent ME_5506DC4F0011 // TvcmHistoryItemBase
  ;
  : Inherits
-   @ ( ME_5508104402FE // UpdateFormInfo
- ) .SequenceCode.It
+   Seq: ( ME_5508104402FE // UpdateFormInfo
+ )
  ; // Inherits
  : Operations
-   @ ( ME_CE8100125394 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_CE8100125394 // DoIt
+ )
  ; // Operations
 
 ref; // ME_550811080395 StoreFocused
@@ -2871,6 +3008,7 @@ FORWARD ME_55081119039F
 : ME_E8964E07EE3A
  CONST UID 'E8964E07EE3A'
  CONST Name 'aForm'
+ CONST IsSummoned true
  CONST Class class_Parameter
  : Stereotype st_in ;
  : Target WL 'ME_4914746C019E' '4683F37902CF.pas.ms.script' // IvcmEntityForm
@@ -2881,14 +3019,15 @@ ref; // ME_E8964E07EE3A aForm
 : ME_B5022AC083A6
  CONST UID 'B5022AC083A6'
  CONST Name 'DoIt'
+ CONST IsSummoned true
  CONST Class class_Operation
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
  : Parent ME_55081119039F // RestoreFocused
  ;
  : Parameters
-   @ ( ME_E8964E07EE3A // aForm
- ) .SequenceCode.It
+   Seq: ( ME_E8964E07EE3A // aForm
+ )
  ; // Parameters
 
 ref; // ME_B5022AC083A6 DoIt
@@ -2904,12 +3043,12 @@ ref; // ME_B5022AC083A6 DoIt
  : Parent ME_5506DC4F0011 // TvcmHistoryItemBase
  ;
  : Inherits
-   @ ( ME_550811080395 // StoreFocused
- ) .SequenceCode.It
+   Seq: ( ME_550811080395 // StoreFocused
+ )
  ; // Inherits
  : Operations
-   @ ( ME_B5022AC083A6 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_B5022AC083A6 // DoIt
+ )
  ; // Operations
 
 ref; // ME_55081119039F RestoreFocused
@@ -3005,7 +3144,7 @@ ref; // ME_559F8849017D aForClone
  : Parent ME_550811520043 // Create
  ;
  : Parameters
-   @ ( ME_559F88490016 // aForm
+   Seq: ( ME_559F88490016 // aForm
  ME_559F88490026 // aStateType
  ME_559F88490045 // aFormId
  ME_559F88490064 // aUserType
@@ -3013,7 +3152,7 @@ ref; // ME_559F8849017D aForClone
  ME_559F884900E1 // aItemType
  ME_559F8849012F // aSubUserType
  ME_559F8849017D // aForClone
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_550811680044 DoIt
@@ -3029,8 +3168,8 @@ ref; // ME_550811680044 DoIt
  : Parent ME_5506DC4F0011 // TvcmHistoryItemBase
  ;
  : Operations
-   @ ( ME_550811680044 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_550811680044 // DoIt
+ )
  ; // Operations
 
 ref; // ME_550811520043 Create
@@ -3040,6 +3179,7 @@ FORWARD ME_550811800186
 : ME_087B7BBAC830
  CONST UID '087B7BBAC830'
  CONST Name 'aForm'
+ CONST IsSummoned true
  CONST Class class_Parameter
  : Stereotype st_in ;
  : Target WL 'ME_4914746C019E' '4683F37902CF.pas.ms.script' // IvcmEntityForm
@@ -3050,6 +3190,7 @@ ref; // ME_087B7BBAC830 aForm
 : ME_CDDA7ADE12AD
  CONST UID 'CDDA7ADE12AD'
  CONST Name 'aStateType'
+ CONST IsSummoned true
  CONST Class class_Parameter
  : Stereotype st_in ;
  : Target WL 'ME_4683CBFD032D' '467BAB7F021E.pas.ms.script' // TvcmStateType
@@ -3060,6 +3201,7 @@ ref; // ME_CDDA7ADE12AD aStateType
 : ME_E6027C3C9FF3
  CONST UID 'E6027C3C9FF3'
  CONST Name 'aFormId'
+ CONST IsSummoned true
  CONST Class class_Parameter
  : Stereotype st_in ;
  : Target WL 'ME_476A84380187' '4683F37902CF.pas.ms.script' // TvcmFormID
@@ -3070,6 +3212,7 @@ ref; // ME_E6027C3C9FF3 aFormId
 : ME_D5E92C074FC1
  CONST UID 'D5E92C074FC1'
  CONST Name 'aUserType'
+ CONST IsSummoned true
  CONST Class class_Parameter
  : Stereotype st_in ;
  : Target WL 'ME_47F2534B010F' '499EAAE502A8.pas.ms.script' // TvcmUserType
@@ -3080,6 +3223,7 @@ ref; // ME_D5E92C074FC1 aUserType
 : ME_2421315657AE
  CONST UID '2421315657AE'
  CONST Name 'aZoneType'
+ CONST IsSummoned true
  CONST Class class_Parameter
  : Stereotype st_in ;
  : Target WL 'ME_4992F763038E' '4683F37902CF.pas.ms.script' // TvcmZoneType
@@ -3090,6 +3234,7 @@ ref; // ME_2421315657AE aZoneType
 : ME_2B590D1AA16A
  CONST UID '2B590D1AA16A'
  CONST Name 'aItemType'
+ CONST IsSummoned true
  CONST Class class_Parameter
  : Stereotype st_in ;
  : Target WL 'ME_4683F451006D' '4683F37902CF.pas.ms.script' // TvcmHistoryItemType
@@ -3100,6 +3245,7 @@ ref; // ME_2B590D1AA16A aItemType
 : ME_DFB913583309
  CONST UID 'DFB913583309'
  CONST Name 'aSubUserType'
+ CONST IsSummoned true
  CONST Class class_Parameter
  : Stereotype st_in ;
  : Target WL 'ME_47F2534B010F' '499EAAE502A8.pas.ms.script' // TvcmUserType
@@ -3110,6 +3256,7 @@ ref; // ME_DFB913583309 aSubUserType
 : ME_140C1B9DDAD5
  CONST UID '140C1B9DDAD5'
  CONST Name 'aForClone'
+ CONST IsSummoned true
  CONST Class class_Parameter
  : Stereotype st_in ;
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
@@ -3120,6 +3267,7 @@ ref; // ME_140C1B9DDAD5 aForClone
 : ME_A1238EBE8983
  CONST UID 'A1238EBE8983'
  CONST Name 'DoIt'
+ CONST IsSummoned true
  CONST Class class_Operation
  %SUMMARY 'Сигнатура фабрики TvcmHistoryItemBase.Make$1' ;
  CONST Visibility PrivateAccess
@@ -3127,7 +3275,7 @@ ref; // ME_140C1B9DDAD5 aForClone
  : Parent ME_550811800186 // Make$1
  ;
  : Parameters
-   @ ( ME_087B7BBAC830 // aForm
+   Seq: ( ME_087B7BBAC830 // aForm
  ME_CDDA7ADE12AD // aStateType
  ME_E6027C3C9FF3 // aFormId
  ME_D5E92C074FC1 // aUserType
@@ -3135,7 +3283,7 @@ ref; // ME_140C1B9DDAD5 aForClone
  ME_2B590D1AA16A // aItemType
  ME_DFB913583309 // aSubUserType
  ME_140C1B9DDAD5 // aForClone
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_A1238EBE8983 DoIt
@@ -3151,12 +3299,12 @@ ref; // ME_A1238EBE8983 DoIt
  : Parent ME_5506DC4F0011 // TvcmHistoryItemBase
  ;
  : Inherits
-   @ ( ME_550811520043 // Create
- ) .SequenceCode.It
+   Seq: ( ME_550811520043 // Create
+ )
  ; // Inherits
  : Operations
-   @ ( ME_A1238EBE8983 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_A1238EBE8983 // DoIt
+ )
  ; // Operations
  CONST "check nil" false
  CONST "need AfterCreate" 'undefined'
@@ -3198,9 +3346,9 @@ ref; // ME_550811A90387 aStateType
  : Target ME_5506D3B601B8 // IvcmFormHistoryItem
  ;
  : Parameters
-   @ ( ME_550811A90372 // aForm
+   Seq: ( ME_550811A90372 // aForm
  ME_550811A90387 // aStateType
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_550811A30157 DoIt
@@ -3216,8 +3364,8 @@ ref; // ME_550811A30157 DoIt
  : Parent ME_5506DC4F0011 // TvcmHistoryItemBase
  ;
  : Operations
-   @ ( ME_550811A30157 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_550811A30157 // DoIt
+ )
  ; // Operations
  CONST "is static" true
 
@@ -3230,6 +3378,7 @@ ref; // ME_5508119800FB Make$2
  ;
  : Implementor ME_5506DC4F0011 // TvcmHistoryItemBase
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" true
 ref; // ME_499559980178_ME_5506DC4F0011 Caption
 
@@ -3240,6 +3389,7 @@ ref; // ME_499559980178_ME_5506DC4F0011 Caption
  ;
  : Implementor ME_5506DC4F0011 // TvcmHistoryItemBase
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" true
 ref; // ME_5506D47103A1_ME_5506DC4F0011 FormClass
 
@@ -3250,6 +3400,7 @@ ref; // ME_5506D47103A1_ME_5506DC4F0011 FormClass
  ;
  : Implementor ME_5506DC4F0011 // TvcmHistoryItemBase
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" true
 ref; // ME_5506D4830243_ME_5506DC4F0011 UserType
 
@@ -3260,6 +3411,7 @@ ref; // ME_5506D4830243_ME_5506DC4F0011 UserType
  ;
  : Implementor ME_5506DC4F0011 // TvcmHistoryItemBase
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" true
 ref; // ME_5506D49100B7_ME_5506DC4F0011 ItemType
 
@@ -3270,6 +3422,7 @@ ref; // ME_5506D49100B7_ME_5506DC4F0011 ItemType
  ;
  : Implementor ME_5506DC4F0011 // TvcmHistoryItemBase
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_550938E80131_ME_5506DC4F0011 Activate$1
 
 : ME_5509390702F7_ME_5506DC4F0011
@@ -3279,6 +3432,7 @@ ref; // ME_550938E80131_ME_5506DC4F0011 Activate$1
  ;
  : Implementor ME_5506DC4F0011 // TvcmHistoryItemBase
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_5509390702F7_ME_5506DC4F0011 Activate$2
 
 : ME_5509391E0197_ME_5506DC4F0011
@@ -3288,6 +3442,7 @@ ref; // ME_5509390702F7_ME_5506DC4F0011 Activate$2
  ;
  : Implementor ME_5506DC4F0011 // TvcmHistoryItemBase
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_5509391E0197_ME_5506DC4F0011 Drop
 
 : ME_550953A00312_ME_5506DC4F0011
@@ -3297,6 +3452,7 @@ ref; // ME_5509391E0197_ME_5506DC4F0011 Drop
  ;
  : Implementor ME_5506DC4F0011 // TvcmHistoryItemBase
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_550953A00312_ME_5506DC4F0011 IsAcceptable
 
 : ME_5583B0BD0124_ME_5506DC4F0011
@@ -3306,6 +3462,7 @@ ref; // ME_550953A00312_ME_5506DC4F0011 IsAcceptable
  ;
  : Implementor ME_5506DC4F0011 // TvcmHistoryItemBase
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_5583B0BD0124_ME_5506DC4F0011 ResetContainer
 
 : ME_479731C50290_ME_5506DC4F0011
@@ -3315,6 +3472,7 @@ ref; // ME_5583B0BD0124_ME_5506DC4F0011 ResetContainer
  ;
  : Implementor ME_5506DC4F0011 // TvcmHistoryItemBase
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_479731C50290_ME_5506DC4F0011 Cleanup
 
 : ME_4A60B23E00C3_ME_5506DC4F0011
@@ -3324,6 +3482,7 @@ ref; // ME_479731C50290_ME_5506DC4F0011 Cleanup
  ;
  : Implementor ME_5506DC4F0011 // TvcmHistoryItemBase
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4A60B23E00C3_ME_5506DC4F0011 COMQueryInterface
 
 : ME_5506DC4F0011
@@ -3337,15 +3496,15 @@ ref; // ME_4A60B23E00C3_ME_5506DC4F0011 COMQueryInterface
  : Parent ME_4AA7B6AB0214 // vcmHistory
  ;
  : Inherits
-   @ ( WL 'ME_519A130C00B6' '47D0E1500033.pas.ms.script' // TvcmCacheableBase
- ) .SequenceCode.It
+   Seq: ( WL 'ME_519A130C00B6' '47D0E1500033.pas.ms.script' // TvcmCacheableBase
+ )
  ; // Inherits
  : Implements
-   @ ( ME_5506D3B601B8 // IvcmFormHistoryItem
- ) .SequenceCode.It
+   Seq: ( ME_5506D3B601B8 // IvcmFormHistoryItem
+ )
  ; // Implements
  : Attributes
-   @ ( ME_559F88140365 // SavingClone
+   Seq: ( ME_559F88140365 // SavingClone
  ME_5614F3020215 // f_PathNode
  ME_5508221803AC // f_FormClass
  ME_5508222300C9 // f_FormId
@@ -3362,10 +3521,10 @@ ref; // ME_4A60B23E00C3_ME_5506DC4F0011 COMQueryInterface
  ME_55082298015F // f_DataSource
  ME_550822A20275 // f_ItemType
  ME_9FF906C1926F // f_SavingClone
- ) .SequenceCode.It
+ )
  ; // Attributes
  : Operations
-   @ ( ME_55080FE40284 // DoActivate
+   Seq: ( ME_55080FE40284 // DoActivate
  ME_5508100C018B // UpdateContainer
  ME_5508102A0098 // UpdateOwner
  ME_5508103701AF // UpdateAggregate
@@ -3380,10 +3539,10 @@ ref; // ME_4A60B23E00C3_ME_5506DC4F0011 COMQueryInterface
  ME_550811520043 // Create
  ME_550811800186 // Make$1
  ME_5508119800FB // Make$2
- ) .SequenceCode.It
+ )
  ; // Operations
  : Implemented
-   @ ( ME_499559980178_ME_5506DC4F0011 // Caption
+   Seq: ( ME_499559980178_ME_5506DC4F0011 // Caption
  ME_5506D47103A1_ME_5506DC4F0011 // FormClass
  ME_5506D4830243_ME_5506DC4F0011 // UserType
  ME_5506D49100B7_ME_5506DC4F0011 // ItemType
@@ -3392,21 +3551,27 @@ ref; // ME_4A60B23E00C3_ME_5506DC4F0011 COMQueryInterface
  ME_5509391E0197_ME_5506DC4F0011 // Drop
  ME_550953A00312_ME_5506DC4F0011 // IsAcceptable
  ME_5583B0BD0124_ME_5506DC4F0011 // ResetContainer
- ) .SequenceCode.It
+ )
  ; // Implemented
  : Overridden
-   @ ( ME_479731C50290_ME_5506DC4F0011 // Cleanup
+   Seq: ( ME_479731C50290_ME_5506DC4F0011 // Cleanup
  ME_4A60B23E00C3_ME_5506DC4F0011 // COMQueryInterface
- ) .SequenceCode.It
+ )
  ; // Overridden
  : Children
-   @ ( ME_550823370284 // EvcmFormWasClosedInSave
- ) .SequenceCode.It
+   Seq: ( ME_550823370284 // EvcmFormWasClosedInSave
+ )
  ; // Children
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
+ CONST dfm:PathOnly '\common\components\gui\Garant\VCM\implementation'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\VCM\implementation'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'HistoryItemBase'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_5506DC4F0011 TvcmHistoryItemBase
 
@@ -3434,6 +3599,7 @@ ref; // ME_55C0A7A20092 ItemType
  ;
  : Implementor ME_55C0B44002EA // IvcmFormHistoryItemList
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" true
 ref; // ME_47D8233603DD_ME_55C0B44002EA First
 
@@ -3444,6 +3610,7 @@ ref; // ME_47D8233603DD_ME_55C0B44002EA First
  ;
  : Implementor ME_55C0B44002EA // IvcmFormHistoryItemList
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" true
 ref; // ME_47D823570315_ME_55C0B44002EA Last
 
@@ -3454,6 +3621,7 @@ ref; // ME_47D823570315_ME_55C0B44002EA Last
  ;
  : Implementor ME_55C0B44002EA // IvcmFormHistoryItemList
  ;
+ CONST OpKind opkind_Implemented
  CONST "is default" true
  CONST "pm" true
 ref; // ME_47D8248802AD_ME_55C0B44002EA Items
@@ -3465,6 +3633,7 @@ ref; // ME_47D8248802AD_ME_55C0B44002EA Items
  ;
  : Implementor ME_55C0B44002EA // IvcmFormHistoryItemList
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" true
 ref; // ME_47E381E203D2_ME_55C0B44002EA Empty
 
@@ -3475,6 +3644,7 @@ ref; // ME_47E381E203D2_ME_55C0B44002EA Empty
  ;
  : Implementor ME_55C0B44002EA // IvcmFormHistoryItemList
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" true
 ref; // ME_4BB08B8902F2_ME_55C0B44002EA Count
 
@@ -3490,21 +3660,27 @@ ref; // ME_4BB08B8902F2_ME_55C0B44002EA Count
  : Parent ME_4AA7B6AB0214 // vcmHistory
  ;
  : Implements
-   @ ( WL 'ME_47D821AE00EF' '47D810610398.pas.ms.script' // Ml3List
- ) .SequenceCode.It
+   Seq: ( WL 'ME_47D821AE00EF' '47D810610398.pas.ms.script' // Ml3List
+ )
  ; // Implements
  : Attributes
-   @ ( ME_55C0A7A20092 // ItemType
- ) .SequenceCode.It
+   Seq: ( ME_55C0A7A20092 // ItemType
+ )
  ; // Attributes
  : Implemented
-   @ ( ME_47D8233603DD_ME_55C0B44002EA // First
+   Seq: ( ME_47D8233603DD_ME_55C0B44002EA // First
  ME_47D823570315_ME_55C0B44002EA // Last
  ME_47D8248802AD_ME_55C0B44002EA // Items
  ME_47E381E203D2_ME_55C0B44002EA // Empty
  ME_4BB08B8902F2_ME_55C0B44002EA // Count
- ) .SequenceCode.It
+ )
  ; // Implemented
+ CONST dfm:PathOnly '\common\components\gui\Garant\VCM\implementation'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\VCM\implementation'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'FormHistoryItemList'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_55C0B44002EA IvcmFormHistoryItemList
 
@@ -3532,6 +3708,7 @@ ref; // ME_55C0BF0500C6 ItemType
  ;
  : Implementor ME_55C0A6F4039E // TvcmFormHistoryItemList
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" true
 ref; // ME_4BB08B8902F2_ME_55C0A6F4039E Count
 
@@ -3546,26 +3723,32 @@ ref; // ME_4BB08B8902F2_ME_55C0A6F4039E Count
  : Parent ME_4AA7B6AB0214 // vcmHistory
  ;
  : Inherits
-   @ ( WL 'ME_4A54DD4E036F' '47913B47006E.pas.ms.script' // Tl3ProtoDataContainer
- ) .SequenceCode.It
+   Seq: ( WL 'ME_4A54DD4E036F' '47913B47006E.pas.ms.script' // Tl3ProtoDataContainer
+ )
  ; // Inherits
  : Implements
-   @ ( WL 'ME_47B57D830369' '47913B47006E.pas.ms.script' // l3InterfaceRefList
+   Seq: ( WL 'ME_47B57D830369' '47913B47006E.pas.ms.script' // l3InterfaceRefList
  ME_55C0B44002EA // IvcmFormHistoryItemList
- ) .SequenceCode.It
+ )
  ; // Implements
  : Attributes
-   @ ( ME_55C0BF0500C6 // ItemType
- ) .SequenceCode.It
+   Seq: ( ME_55C0BF0500C6 // ItemType
+ )
  ; // Attributes
  : Implemented
-   @ ( ME_4BB08B8902F2_ME_55C0A6F4039E // Count
- ) .SequenceCode.It
+   Seq: ( ME_4BB08B8902F2_ME_55C0A6F4039E // Count
+ )
  ; // Implemented
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
+ CONST dfm:PathOnly '\common\components\gui\Garant\VCM\implementation'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\VCM\implementation'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'FormHistoryItemList'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_55C0A6F4039E TvcmFormHistoryItemList
 
@@ -3632,9 +3815,9 @@ ref; // ME_550825B80214 aStateType
  : Target ME_5506D3B601B8 // IvcmFormHistoryItem
  ;
  : Parameters
-   @ ( ME_550825B801FE // aForm
+   Seq: ( ME_550825B801FE // aForm
  ME_550825B80214 // aStateType
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_550825B303D4 DoIt
@@ -3650,8 +3833,8 @@ ref; // ME_550825B303D4 DoIt
  : Parent ME_5506DC9F019D // TvcmHistoryItemRec
  ;
  : Operations
-   @ ( ME_550825B303D4 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_550825B303D4 // DoIt
+ )
  ; // Operations
 
 ref; // ME_550825AC0253 MakeChild
@@ -3697,10 +3880,10 @@ ref; // ME_550825E101AC aList
  : Parent ME_550825D501AF // SaveOwned
  ;
  : Parameters
-   @ ( ME_550825E10181 // aForm
+   Seq: ( ME_550825E10181 // aForm
  ME_550825E10196 // aStateType
  ME_550825E101AC // aList
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_550825DC0122 DoIt
@@ -3716,8 +3899,8 @@ ref; // ME_550825DC0122 DoIt
  : Parent ME_5506DC9F019D // TvcmHistoryItemRec
  ;
  : Operations
-   @ ( ME_550825DC0122 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_550825DC0122 // DoIt
+ )
  ; // Operations
 
 ref; // ME_550825D501AF SaveOwned
@@ -3727,6 +3910,7 @@ FORWARD ME_550825EE00D2
 : ME_1A6CFB1469B7
  CONST UID '1A6CFB1469B7'
  CONST Name 'aForm'
+ CONST IsSummoned true
  CONST Class class_Parameter
  : Stereotype st_in ;
  : Target WL 'ME_4914746C019E' '4683F37902CF.pas.ms.script' // IvcmEntityForm
@@ -3737,6 +3921,7 @@ ref; // ME_1A6CFB1469B7 aForm
 : ME_7E5F84689403
  CONST UID '7E5F84689403'
  CONST Name 'aStateType'
+ CONST IsSummoned true
  CONST Class class_Parameter
  : Stereotype st_in ;
  : Target WL 'ME_4683CBFD032D' '467BAB7F021E.pas.ms.script' // TvcmStateType
@@ -3747,6 +3932,7 @@ ref; // ME_7E5F84689403 aStateType
 : ME_F4BAADE8B589
  CONST UID 'F4BAADE8B589'
  CONST Name 'aList'
+ CONST IsSummoned true
  CONST Class class_Parameter
  : Stereotype st_out ;
  : Target ME_55C0A6F4039E // TvcmFormHistoryItemList
@@ -3757,16 +3943,17 @@ ref; // ME_F4BAADE8B589 aList
 : ME_32BEE22ECD10
  CONST UID '32BEE22ECD10'
  CONST Name 'DoIt'
+ CONST IsSummoned true
  CONST Class class_Operation
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
  : Parent ME_550825EE00D2 // SaveDocked
  ;
  : Parameters
-   @ ( ME_1A6CFB1469B7 // aForm
+   Seq: ( ME_1A6CFB1469B7 // aForm
  ME_7E5F84689403 // aStateType
  ME_F4BAADE8B589 // aList
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_32BEE22ECD10 DoIt
@@ -3782,12 +3969,12 @@ ref; // ME_32BEE22ECD10 DoIt
  : Parent ME_5506DC9F019D // TvcmHistoryItemRec
  ;
  : Inherits
-   @ ( ME_550825D501AF // SaveOwned
- ) .SequenceCode.It
+   Seq: ( ME_550825D501AF // SaveOwned
+ )
  ; // Inherits
  : Operations
-   @ ( ME_32BEE22ECD10 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_32BEE22ECD10 // DoIt
+ )
  ; // Operations
 
 ref; // ME_550825EE00D2 SaveDocked
@@ -3843,11 +4030,11 @@ ref; // ME_5508261800E0 aInFormSet
  : Parent ME_5508260503CB // ActivateList
  ;
  : Parameters
-   @ ( ME_55082618009F // aMainForm
+   Seq: ( ME_55082618009F // aMainForm
  ME_5508261800B5 // aForm
  ME_5508261800CA // aList
  ME_5508261800E0 // aInFormSet
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_5508261001F9 DoIt
@@ -3863,8 +4050,8 @@ ref; // ME_5508261001F9 DoIt
  : Parent ME_5506DC9F019D // TvcmHistoryItemRec
  ;
  : Operations
-   @ ( ME_5508261001F9 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_5508261001F9 // DoIt
+ )
  ; // Operations
 
 ref; // ME_5508260503CB ActivateList
@@ -3876,6 +4063,7 @@ ref; // ME_5508260503CB ActivateList
  ;
  : Implementor ME_5506DC9F019D // TvcmHistoryItemRec
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_479731C50290_ME_5506DC9F019D Cleanup
 
 : ME_550811520043_ME_5506DC9F019D
@@ -3885,6 +4073,7 @@ ref; // ME_479731C50290_ME_5506DC9F019D Cleanup
  ;
  : Implementor ME_5506DC9F019D // TvcmHistoryItemRec
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_550811520043_ME_5506DC9F019D Create
 
 : ME_5506DC9F019D
@@ -3898,30 +4087,36 @@ ref; // ME_550811520043_ME_5506DC9F019D Create
  : Parent ME_4AA7B6AB0214 // vcmHistory
  ;
  : Inherits
-   @ ( ME_5506DC4F0011 // TvcmHistoryItemBase
- ) .SequenceCode.It
+   Seq: ( ME_5506DC4F0011 // TvcmHistoryItemBase
+ )
  ; // Inherits
  : Attributes
-   @ ( ME_550826550389 // f_Docked
+   Seq: ( ME_550826550389 // f_Docked
  ME_5508264C03E7 // f_Children
- ) .SequenceCode.It
+ )
  ; // Attributes
  : Operations
-   @ ( ME_550825AC0253 // MakeChild
+   Seq: ( ME_550825AC0253 // MakeChild
  ME_550825D501AF // SaveOwned
  ME_550825EE00D2 // SaveDocked
  ME_5508260503CB // ActivateList
- ) .SequenceCode.It
+ )
  ; // Operations
  : Overridden
-   @ ( ME_479731C50290_ME_5506DC9F019D // Cleanup
+   Seq: ( ME_479731C50290_ME_5506DC9F019D // Cleanup
  ME_550811520043_ME_5506DC9F019D // Create
- ) .SequenceCode.It
+ )
  ; // Overridden
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
+ CONST dfm:PathOnly '\common\components\gui\Garant\VCM\implementation'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\VCM\implementation'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'HistoryItemRec'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_5506DC9F019D TvcmHistoryItemRec
 
@@ -3962,8 +4157,8 @@ ref; // ME_55082871005E aCaption
  : Parent ME_550828670328 // Create
  ;
  : Parameters
-   @ ( ME_55082871005E // aCaption
- ) .SequenceCode.It
+   Seq: ( ME_55082871005E // aCaption
+ )
  ; // Parameters
 
 ref; // ME_5508286C01A5 DoIt
@@ -3979,8 +4174,8 @@ ref; // ME_5508286C01A5 DoIt
  : Parent ME_5506DD0C00BA // TvcmContainerHistoryItem
  ;
  : Operations
-   @ ( ME_5508286C01A5 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_5508286C01A5 // DoIt
+ )
  ; // Operations
 
 ref; // ME_550828670328 Create
@@ -4018,9 +4213,9 @@ ref; // ME_550829060286 anOwner
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
  : Parameters
-   @ ( ME_550829060270 // aMainForm
+   Seq: ( ME_550829060270 // aMainForm
  ME_550829060286 // anOwner
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_5508290100A1 DoIt
@@ -4036,8 +4231,8 @@ ref; // ME_5508290100A1 DoIt
  : Parent ME_5506DD0C00BA // TvcmContainerHistoryItem
  ;
  : Operations
-   @ ( ME_5508290100A1 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_5508290100A1 // DoIt
+ )
  ; // Operations
 
 ref; // ME_550828F60179 DoActivate
@@ -4047,6 +4242,7 @@ FORWARD ME_55C0BFCB029A
 : ME_B32D827C9FE8
  CONST UID 'B32D827C9FE8'
  CONST Name 'aCaption'
+ CONST IsSummoned true
  CONST Class class_Parameter
  : Stereotype st_in ;
  : Target WL 'ME_4683C9AC03AC' '467BAB7F021E.pas.ms.script' // IvcmCString
@@ -4057,6 +4253,7 @@ ref; // ME_B32D827C9FE8 aCaption
 : ME_35F21F5E2C56
  CONST UID '35F21F5E2C56'
  CONST Name 'DoIt'
+ CONST IsSummoned true
  CONST Class class_Operation
  %SUMMARY 'Сигнатура фабрики TvcmContainerHistoryItem.Make' ;
  CONST Visibility PrivateAccess
@@ -4066,8 +4263,8 @@ ref; // ME_B32D827C9FE8 aCaption
  : Target WL 'ME_5506D4AB03AF' '4683F37902CF.pas.ms.script' // IvcmContainerHistoryItem
  ;
  : Parameters
-   @ ( ME_B32D827C9FE8 // aCaption
- ) .SequenceCode.It
+   Seq: ( ME_B32D827C9FE8 // aCaption
+ )
  ; // Parameters
 
 ref; // ME_35F21F5E2C56 DoIt
@@ -4083,16 +4280,16 @@ ref; // ME_35F21F5E2C56 DoIt
  : Parent ME_5506DD0C00BA // TvcmContainerHistoryItem
  ;
  : Inherits
-   @ ( ME_550828670328 // Create
- ) .SequenceCode.It
+   Seq: ( ME_550828670328 // Create
+ )
  ; // Inherits
  : Implements
-   @ ( WL 'ME_5506D4AB03AF' '4683F37902CF.pas.ms.script' // IvcmContainerHistoryItem
- ) .SequenceCode.It
+   Seq: ( WL 'ME_5506D4AB03AF' '4683F37902CF.pas.ms.script' // IvcmContainerHistoryItem
+ )
  ; // Implements
  : Operations
-   @ ( ME_35F21F5E2C56 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_35F21F5E2C56 // DoIt
+ )
  ; // Operations
  CONST "check nil" false
  CONST "need AfterCreate" 'undefined'
@@ -4108,6 +4305,7 @@ ref; // ME_55C0BFCB029A Make
  ;
  : Implementor ME_5506DD0C00BA // TvcmContainerHistoryItem
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" true
 ref; // ME_499559980178_ME_5506DD0C00BA Caption
 
@@ -4118,6 +4316,7 @@ ref; // ME_499559980178_ME_5506DD0C00BA Caption
  ;
  : Implementor ME_5506DD0C00BA // TvcmContainerHistoryItem
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_5506D4C70264_ME_5506DD0C00BA Add
 
 : ME_5506D4DD031A_ME_5506DD0C00BA
@@ -4127,6 +4326,7 @@ ref; // ME_5506D4C70264_ME_5506DD0C00BA Add
  ;
  : Implementor ME_5506DD0C00BA // TvcmContainerHistoryItem
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_5506D4DD031A_ME_5506DD0C00BA IsEmpty
 
 : ME_5506D4EF0074_ME_5506DD0C00BA
@@ -4136,6 +4336,7 @@ ref; // ME_5506D4DD031A_ME_5506DD0C00BA IsEmpty
  ;
  : Implementor ME_5506DD0C00BA // TvcmContainerHistoryItem
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_5506D4EF0074_ME_5506DD0C00BA ItemsCount
 
 : ME_5506D504018E_ME_5506DD0C00BA
@@ -4145,6 +4346,7 @@ ref; // ME_5506D4EF0074_ME_5506DD0C00BA ItemsCount
  ;
  : Implementor ME_5506DD0C00BA // TvcmContainerHistoryItem
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_5506D504018E_ME_5506DD0C00BA GetItem
 
 : ME_550938E80131_ME_5506DD0C00BA
@@ -4154,6 +4356,7 @@ ref; // ME_5506D504018E_ME_5506DD0C00BA GetItem
  ;
  : Implementor ME_5506DD0C00BA // TvcmContainerHistoryItem
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_550938E80131_ME_5506DD0C00BA Activate$1
 
 : ME_5509390702F7_ME_5506DD0C00BA
@@ -4163,6 +4366,7 @@ ref; // ME_550938E80131_ME_5506DD0C00BA Activate$1
  ;
  : Implementor ME_5506DD0C00BA // TvcmContainerHistoryItem
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_5509390702F7_ME_5506DD0C00BA Activate$2
 
 : ME_5509391E0197_ME_5506DD0C00BA
@@ -4172,6 +4376,7 @@ ref; // ME_5509390702F7_ME_5506DD0C00BA Activate$2
  ;
  : Implementor ME_5506DD0C00BA // TvcmContainerHistoryItem
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_5509391E0197_ME_5506DD0C00BA Drop
 
 : ME_550953A00312_ME_5506DD0C00BA
@@ -4181,6 +4386,7 @@ ref; // ME_5509391E0197_ME_5506DD0C00BA Drop
  ;
  : Implementor ME_5506DD0C00BA // TvcmContainerHistoryItem
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_550953A00312_ME_5506DD0C00BA IsAcceptable
 
 : ME_479731C50290_ME_5506DD0C00BA
@@ -4190,6 +4396,7 @@ ref; // ME_550953A00312_ME_5506DD0C00BA IsAcceptable
  ;
  : Implementor ME_5506DD0C00BA // TvcmContainerHistoryItem
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_479731C50290_ME_5506DD0C00BA Cleanup
 
 : ME_5506DD0C00BA
@@ -4203,25 +4410,25 @@ ref; // ME_479731C50290_ME_5506DD0C00BA Cleanup
  : Parent ME_4AA7B6AB0214 // vcmHistory
  ;
  : Inherits
-   @ ( ME_558947020183 // TvcmHistoryItemList
- ) .SequenceCode.It
+   Seq: ( ME_558947020183 // TvcmHistoryItemList
+ )
  ; // Inherits
  : Implements
-   @ ( WL 'ME_5506D4AB03AF' '4683F37902CF.pas.ms.script' // IvcmContainerHistoryItem
- ) .SequenceCode.It
+   Seq: ( WL 'ME_5506D4AB03AF' '4683F37902CF.pas.ms.script' // IvcmContainerHistoryItem
+ )
  ; // Implements
  : Attributes
-   @ ( ME_55082895031B // f_Caption
- ) .SequenceCode.It
+   Seq: ( ME_55082895031B // f_Caption
+ )
  ; // Attributes
  : Operations
-   @ ( ME_550828670328 // Create
+   Seq: ( ME_550828670328 // Create
  ME_550828F60179 // DoActivate
  ME_55C0BFCB029A // Make
- ) .SequenceCode.It
+ )
  ; // Operations
  : Implemented
-   @ ( ME_499559980178_ME_5506DD0C00BA // Caption
+   Seq: ( ME_499559980178_ME_5506DD0C00BA // Caption
  ME_5506D4C70264_ME_5506DD0C00BA // Add
  ME_5506D4DD031A_ME_5506DD0C00BA // IsEmpty
  ME_5506D4EF0074_ME_5506DD0C00BA // ItemsCount
@@ -4230,16 +4437,22 @@ ref; // ME_479731C50290_ME_5506DD0C00BA Cleanup
  ME_5509390702F7_ME_5506DD0C00BA // Activate$2
  ME_5509391E0197_ME_5506DD0C00BA // Drop
  ME_550953A00312_ME_5506DD0C00BA // IsAcceptable
- ) .SequenceCode.It
+ )
  ; // Implemented
  : Overridden
-   @ ( ME_479731C50290_ME_5506DD0C00BA // Cleanup
- ) .SequenceCode.It
+   Seq: ( ME_479731C50290_ME_5506DD0C00BA // Cleanup
+ )
  ; // Overridden
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
+ CONST dfm:PathOnly '\common\components\gui\Garant\VCM\implementation'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\VCM\implementation'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'ContainerHistoryItem'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_5506DD0C00BA TvcmContainerHistoryItem
 
@@ -4328,10 +4541,10 @@ ref; // ME_5591188E03E1 aContainerItem
  : Parent ME_558A5AC303BA // Create
  ;
  : Parameters
-   @ ( ME_5591188E03BA // aItems
+   Seq: ( ME_5591188E03BA // aItems
  ME_5591188E03CD // aCurrent
  ME_5591188E03E1 // aContainerItem
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_558A5AD802E5 DoIt
@@ -4347,8 +4560,8 @@ ref; // ME_558A5AD802E5 DoIt
  : Parent ME_558A59F101DA // TvcmHistoryState
  ;
  : Operations
-   @ ( ME_558A5AD802E5 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_558A5AD802E5 // DoIt
+ )
  ; // Operations
 
 ref; // ME_558A5AC303BA Create
@@ -4358,6 +4571,7 @@ FORWARD ME_558A5AE30142
 : ME_B4FF479E7CEF
  CONST UID 'B4FF479E7CEF'
  CONST Name 'aItems'
+ CONST IsSummoned true
  CONST Class class_Parameter
  : Stereotype st_in ;
  : Target WL 'ME_5589489B004F' '4683F37902CF.pas.ms.script' // IvcmHistoryItems
@@ -4368,6 +4582,7 @@ ref; // ME_B4FF479E7CEF aItems
 : ME_05A04767F2D9
  CONST UID '05A04767F2D9'
  CONST Name 'aCurrent'
+ CONST IsSummoned true
  CONST Class class_Parameter
  : Stereotype st_in ;
  : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
@@ -4378,6 +4593,7 @@ ref; // ME_05A04767F2D9 aCurrent
 : ME_44FB884E074F
  CONST UID '44FB884E074F'
  CONST Name 'aContainerItem'
+ CONST IsSummoned true
  CONST Class class_Parameter
  : Stereotype st_in ;
  : Target WL 'ME_5506D4AB03AF' '4683F37902CF.pas.ms.script' // IvcmContainerHistoryItem
@@ -4388,6 +4604,7 @@ ref; // ME_44FB884E074F aContainerItem
 : ME_6008B4F976EE
  CONST UID '6008B4F976EE'
  CONST Name 'DoIt'
+ CONST IsSummoned true
  CONST Class class_Operation
  %SUMMARY 'Сигнатура фабрики TvcmHistoryState.Make' ;
  CONST Visibility PrivateAccess
@@ -4395,10 +4612,10 @@ ref; // ME_44FB884E074F aContainerItem
  : Parent ME_558A5AE30142 // Make
  ;
  : Parameters
-   @ ( ME_B4FF479E7CEF // aItems
+   Seq: ( ME_B4FF479E7CEF // aItems
  ME_05A04767F2D9 // aCurrent
  ME_44FB884E074F // aContainerItem
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_6008B4F976EE DoIt
@@ -4414,12 +4631,12 @@ ref; // ME_6008B4F976EE DoIt
  : Parent ME_558A59F101DA // TvcmHistoryState
  ;
  : Inherits
-   @ ( ME_558A5AC303BA // Create
- ) .SequenceCode.It
+   Seq: ( ME_558A5AC303BA // Create
+ )
  ; // Inherits
  : Operations
-   @ ( ME_6008B4F976EE // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_6008B4F976EE // DoIt
+ )
  ; // Operations
  CONST "check nil" false
  CONST "need AfterCreate" 'undefined'
@@ -4435,6 +4652,7 @@ ref; // ME_558A5AE30142 Make
  ;
  : Implementor ME_558A59F101DA // TvcmHistoryState
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" true
 ref; // ME_558A5A260359_ME_558A59F101DA Items
 
@@ -4445,6 +4663,7 @@ ref; // ME_558A5A260359_ME_558A59F101DA Items
  ;
  : Implementor ME_558A59F101DA // TvcmHistoryState
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" true
 ref; // ME_558D24FD013A_ME_558A59F101DA Current
 
@@ -4455,6 +4674,7 @@ ref; // ME_558D24FD013A_ME_558A59F101DA Current
  ;
  : Implementor ME_558A59F101DA // TvcmHistoryState
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" true
 ref; // ME_55910DA003E1_ME_558A59F101DA ContainerItem
 
@@ -4465,6 +4685,7 @@ ref; // ME_55910DA003E1_ME_558A59F101DA ContainerItem
  ;
  : Implementor ME_558A59F101DA // TvcmHistoryState
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_479731C50290_ME_558A59F101DA Cleanup
 
 : ME_558A59F101DA
@@ -4478,38 +4699,44 @@ ref; // ME_479731C50290_ME_558A59F101DA Cleanup
  : Parent ME_4AA7B6AB0214 // vcmHistory
  ;
  : Inherits
-   @ ( WL 'ME_49E7754802A9' '47913B47006E.pas.ms.script' // Tl3ProtoObject
- ) .SequenceCode.It
+   Seq: ( WL 'ME_49E7754802A9' '47913B47006E.pas.ms.script' // Tl3ProtoObject
+ )
  ; // Inherits
  : Implements
-   @ ( WL 'ME_558946640194' '4683F37902CF.pas.ms.script' // IvcmHistoryState
- ) .SequenceCode.It
+   Seq: ( WL 'ME_558946640194' '4683F37902CF.pas.ms.script' // IvcmHistoryState
+ )
  ; // Implements
  : Attributes
-   @ ( ME_558A5A6A03E6 // f_Items
+   Seq: ( ME_558A5A6A03E6 // f_Items
  ME_558D24A902D3 // f_Current
  ME_5591187302A2 // f_ContainerItem
- ) .SequenceCode.It
+ )
  ; // Attributes
  : Operations
-   @ ( ME_558A5AC303BA // Create
+   Seq: ( ME_558A5AC303BA // Create
  ME_558A5AE30142 // Make
- ) .SequenceCode.It
+ )
  ; // Operations
  : Implemented
-   @ ( ME_558A5A260359_ME_558A59F101DA // Items
+   Seq: ( ME_558A5A260359_ME_558A59F101DA // Items
  ME_558D24FD013A_ME_558A59F101DA // Current
  ME_55910DA003E1_ME_558A59F101DA // ContainerItem
- ) .SequenceCode.It
+ )
  ; // Implemented
  : Overridden
-   @ ( ME_479731C50290_ME_558A59F101DA // Cleanup
- ) .SequenceCode.It
+   Seq: ( ME_479731C50290_ME_558A59F101DA // Cleanup
+ )
  ; // Overridden
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
+ CONST dfm:PathOnly '\common\components\gui\Garant\VCM\implementation'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\VCM\implementation'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'HistoryState'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_558A59F101DA TvcmHistoryState
 
@@ -4555,8 +4782,8 @@ ref; // ME_559F7CE40310 DoIt
  : Parent ME_5506DCC90183 // TvcmHistoryItemPrim
  ;
  : Operations
-   @ ( ME_559F7CE40310 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_559F7CE40310 // DoIt
+ )
  ; // Operations
 
 ref; // ME_559F7CBC036D NeedCheckHasForm
@@ -4568,6 +4795,7 @@ ref; // ME_559F7CBC036D NeedCheckHasForm
  ;
  : Implementor ME_5506DCC90183 // TvcmHistoryItemPrim
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_55080FE40284_ME_5506DCC90183 DoActivate
 
 : ME_550825AC0253_ME_5506DCC90183
@@ -4577,6 +4805,7 @@ ref; // ME_55080FE40284_ME_5506DCC90183 DoActivate
  ;
  : Implementor ME_5506DCC90183 // TvcmHistoryItemPrim
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_550825AC0253_ME_5506DCC90183 MakeChild
 
 : ME_550811520043_ME_5506DCC90183
@@ -4586,6 +4815,7 @@ ref; // ME_550825AC0253_ME_5506DCC90183 MakeChild
  ;
  : Implementor ME_5506DCC90183 // TvcmHistoryItemPrim
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_550811520043_ME_5506DCC90183 Create
 
 : ME_5506DCC90183
@@ -4599,30 +4829,36 @@ ref; // ME_550811520043_ME_5506DCC90183 Create
  : Parent ME_4AA7B6AB0214 // vcmHistory
  ;
  : Inherits
-   @ ( ME_5506DC9F019D // TvcmHistoryItemRec
- ) .SequenceCode.It
+   Seq: ( ME_5506DC9F019D // TvcmHistoryItemRec
+ )
  ; // Inherits
  : Attributes
-   @ ( ME_550826DF0126 // f_StateType
- ) .SequenceCode.It
+   Seq: ( ME_550826DF0126 // f_StateType
+ )
  ; // Attributes
  : Operations
-   @ ( ME_559F7CBC036D // NeedCheckHasForm
- ) .SequenceCode.It
+   Seq: ( ME_559F7CBC036D // NeedCheckHasForm
+ )
  ; // Operations
  : Implemented
-   @ ( ME_55080FE40284_ME_5506DCC90183 // DoActivate
+   Seq: ( ME_55080FE40284_ME_5506DCC90183 // DoActivate
  ME_550825AC0253_ME_5506DCC90183 // MakeChild
- ) .SequenceCode.It
+ )
  ; // Implemented
  : Overridden
-   @ ( ME_550811520043_ME_5506DCC90183 // Create
- ) .SequenceCode.It
+   Seq: ( ME_550811520043_ME_5506DCC90183 // Create
+ )
  ; // Overridden
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
+ CONST dfm:PathOnly '\common\components\gui\Garant\VCM\implementation'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\VCM\implementation'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'HistoryItemPrim'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_5506DCC90183 TvcmHistoryItemPrim
 
@@ -4635,6 +4871,7 @@ FORWARD ME_5506DD5502B6
  ;
  : Implementor ME_5506DD5502B6 // TvcmContainerFormSetHistoryItem
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_550828F60179_ME_5506DD5502B6 DoActivate
 
 : ME_5506DD5502B6
@@ -4648,17 +4885,23 @@ ref; // ME_550828F60179_ME_5506DD5502B6 DoActivate
  : Parent ME_4AA7B6AB0214 // vcmHistory
  ;
  : Inherits
-   @ ( ME_5506DD0C00BA // TvcmContainerHistoryItem
- ) .SequenceCode.It
+   Seq: ( ME_5506DD0C00BA // TvcmContainerHistoryItem
+ )
  ; // Inherits
  : Overridden
-   @ ( ME_550828F60179_ME_5506DD5502B6 // DoActivate
- ) .SequenceCode.It
+   Seq: ( ME_550828F60179_ME_5506DD5502B6 // DoActivate
+ )
  ; // Overridden
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
+ CONST dfm:PathOnly '\common\components\gui\Garant\VCM\implementation'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\VCM\implementation'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'ContainerFormSetHistoryItem'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_5506DD5502B6 TvcmContainerFormSetHistoryItem
 
@@ -4717,11 +4960,11 @@ ref; // ME_559F902C0377 aForClone
  : Target ME_5506D3B601B8 // IvcmFormHistoryItem
  ;
  : Parameters
-   @ ( ME_559F902C0329 // aForm
+   Seq: ( ME_559F902C0329 // aForm
  ME_559F902C0349 // aStateType
  ME_559F902C0358 // InDestroy
  ME_559F902C0377 // aForClone
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_55082751012F DoIt
@@ -4737,8 +4980,8 @@ ref; // ME_55082751012F DoIt
  : Parent ME_5506DCE50052 // TvcmHistoryItem
  ;
  : Operations
-   @ ( ME_55082751012F // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_55082751012F // DoIt
+ )
  ; // Operations
  CONST "is static" true
 
@@ -4751,6 +4994,7 @@ ref; // ME_55082738022C Make
  ;
  : Implementor ME_5506DCE50052 // TvcmHistoryItem
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_55080FE40284_ME_5506DCE50052 DoActivate
 
 : ME_550825AC0253_ME_5506DCE50052
@@ -4760,6 +5004,7 @@ ref; // ME_55080FE40284_ME_5506DCE50052 DoActivate
  ;
  : Implementor ME_5506DCE50052 // TvcmHistoryItem
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_550825AC0253_ME_5506DCE50052 MakeChild
 
 : ME_5506DCE50052
@@ -4773,22 +5018,28 @@ ref; // ME_550825AC0253_ME_5506DCE50052 MakeChild
  : Parent ME_4AA7B6AB0214 // vcmHistory
  ;
  : Inherits
-   @ ( ME_5506DC9F019D // TvcmHistoryItemRec
- ) .SequenceCode.It
+   Seq: ( ME_5506DC9F019D // TvcmHistoryItemRec
+ )
  ; // Inherits
  : Operations
-   @ ( ME_55082738022C // Make
- ) .SequenceCode.It
+   Seq: ( ME_55082738022C // Make
+ )
  ; // Operations
  : Implemented
-   @ ( ME_55080FE40284_ME_5506DCE50052 // DoActivate
+   Seq: ( ME_55080FE40284_ME_5506DCE50052 // DoActivate
  ME_550825AC0253_ME_5506DCE50052 // MakeChild
- ) .SequenceCode.It
+ )
  ; // Implemented
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
+ CONST dfm:PathOnly '\common\components\gui\Garant\VCM\implementation'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\VCM\implementation'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'HistoryItem'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_5506DCE50052 TvcmHistoryItem
 
@@ -4807,6 +5058,7 @@ ref; // ME_5506DCE50052 TvcmHistoryItem
  CONST Value 'High(Integer)'
  : ValueType WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
  ;
+ CONST extprop:pas:Value 'High(Integer)'
 
 ref; // ME_4AA7B6BB01BF g_vcmHistoryLimit
 
@@ -4824,6 +5076,7 @@ ref; // ME_4AA7B6BB01BF g_vcmHistoryLimit
  CONST Value 0
  : ValueType WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
  ;
+ CONST extprop:pas:Value 0
 
 ref; // ME_5506DC210162 g_LockHistory
 
@@ -4841,6 +5094,7 @@ ref; // ME_5506DC210162 g_LockHistory
  CONST Value 10
  : ValueType WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
  ;
+ CONST extprop:pas:Value 10
 
 ref; // ME_55084C9D01E5 cMaxCount
 
@@ -4859,6 +5113,7 @@ ref; // ME_55084C9D01E5 cMaxCount
  CONST Value 0
  : ValueType WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
  ;
+ CONST extprop:pas:Value 0
 
 ref; // ME_55084CDF0274 g_LockBeforeFormDestroy
 
@@ -5038,14 +5293,14 @@ ref; // ME_5614F2DD02E0
  : Parent ME_55082F190334 // Implementation
  ;
  : Attributes
-   @ ( ME_4AA7B6BB01BF // g_vcmHistoryLimit
+   Seq: ( ME_4AA7B6BB01BF // g_vcmHistoryLimit
  ME_5506DC210162 // g_LockHistory
  ME_55084C9D01E5 // cMaxCount
  ME_55084CDF0274 // g_LockBeforeFormDestroy
- ) .SequenceCode.It
+ )
  ; // Attributes
  : Children
-   @ ( ME_5506D3B601B8 // IvcmFormHistoryItem
+   Seq: ( ME_5506D3B601B8 // IvcmFormHistoryItem
  ME_5506D52B03E3 // IvcmInternalHistory
  ME_5506D56E02FB // TvcmHistory
  ME_5506DB25003E // TvcmObjectWithDataHistoryItem
@@ -5058,10 +5313,10 @@ ref; // ME_5614F2DD02E0
  ME_5506DCC90183 // TvcmHistoryItemPrim
  ME_5506DD5502B6 // TvcmContainerFormSetHistoryItem
  ME_5506DCE50052 // TvcmHistoryItem
- ) .SequenceCode.It
+ )
  ; // Children
  : Dependencies
-   @ ( ME_550853EC01E7 // 
+   Seq: ( ME_550853EC01E7 // 
  ME_5508540402F1 // 
  ME_550854170294 // 
  ME_5508544F016D // 
@@ -5076,15 +5331,15 @@ ref; // ME_5614F2DD02E0
  ME_5508550B01BD // 
  ME_558A36B40083 // 
  ME_5614F2DD02E0 // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  CONST "no hands" false
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\VCM\implementation'
  CONST intf.pas:Path 'common\components\gui\Garant\VCM\implementation\vcmHistory.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\VCM\implementation'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'History'
 
 ref; // ME_4AA7B6AB0214 vcmHistory
 
@@ -5098,13 +5353,13 @@ ref; // ME_4AA7B6AB0214 vcmHistory
  : Parent WL 'ME_4E13416D0227' '4E13416D0227.pas.ms.script' // VCM$Visual
  ;
  : Children
-   @ ( ME_558947020183 // TvcmHistoryItemList
+   Seq: ( ME_558947020183 // TvcmHistoryItemList
  ME_5614F2B602CC // TvcmHistoryFormNode
  ME_4AA7B6AB0214 // vcmHistory
- ) .SequenceCode.It
+ )
  ; // Children
  : Depends
-   @ ( WL 'ME_467BAB7F021E' '467BAB7F021E.pas.ms.script' // vcmExternalInterfaces
+   Seq: ( WL 'ME_467BAB7F021E' '467BAB7F021E.pas.ms.script' // vcmExternalInterfaces
  WL 'ME_4683F37902CF' '4683F37902CF.pas.ms.script' // vcmInterfaces
  WL 'ME_47750CE700D0' '47750CE700D0.pas.ms.script' // afwFacade
  WL 'ME_478CF8070260' '478CF8070260.pas.ms.script' // l3IID
@@ -5123,16 +5378,14 @@ ref; // ME_4AA7B6AB0214 vcmHistory
  WL 'ME_528C93040132' '528C93040132.pas.ms.script' // vcmBaseTypes
  WL 'ME_537B83AD01F0' '537B83AD01F0.pas.ms.script' // l3Math
  WL 'ME_54B90AC6014B' '54B90AC6014B.pas.ms.script' // StringUtils
- ) .SequenceCode.It
+ )
  ; // Depends
  CONST "path prefix" '/implementation'
- : Generators
- @ (
- gen_pas.script
- gen_pas.script.runner
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\VCM\implementation'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\VCM\implementation'
  CONST pas.script:Path 'shared\models\NewSchool\Scripts\55082F190334.pas.ms.script'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
  CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\55082F190334.pas.ms.script.runner'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_55082F190334 Implementation

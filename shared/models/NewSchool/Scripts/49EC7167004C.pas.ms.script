@@ -1,0 +1,4662 @@
+// InternetAgent 49EC7167004C VCMModule Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_49EC7167004C
+
+FORWARD ME_49F0573B0332
+
+: ME_49F0577C02ED
+ CONST UID '49F0577C02ED'
+ CONST Name 'InitFields'
+ CONST Class class_Operation
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_regular
+ : Parent ME_49F0573B0332 // TnsWebBrowserPrim
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_49F0577C02ED InitFields
+
+: ME_49F058E50188
+ CONST UID '49F058E50188'
+ CONST Name 'Cleanup'
+ CONST Class class_Operation
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_regular
+ : Parent ME_49F0573B0332 // TnsWebBrowserPrim
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_49F058E50188 Cleanup
+
+: ME_49F05B140375
+ CONST UID '49F05B140375'
+ CONST Name 'aGUID'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_469F3EEF0024' '4AB0C3C60310.pas.ms.script' // TGUID
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_49F05B140375 aGUID
+
+: ME_49F05B0D02C7
+ CONST UID '49F05B0D02C7'
+ CONST Name 'CheckStamp'
+ CONST Class class_Operation
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_final
+ : Parent ME_49F0573B0332 // TnsWebBrowserPrim
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+ : Parameters
+   Seq: ( ME_49F05B140375 // aGUID
+ )
+ ; // Parameters
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_49F05B0D02C7 CheckStamp
+
+: ME_A0DEBDFD48CA
+ CONST UID 'A0DEBDFD48CA'
+ CONST Name 'Ini_Reg_Class'
+ CONST IsSummoned true
+ CONST Class class_Operation
+ : Stereotype st_ini::Operation ;
+ %SUMMARY 'Регистрация TnsWebBrowserPrim' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_49F0573B0332 // TnsWebBrowserPrim
+ ;
+ CONST "UseNewGen" 'undefined'
+ CONST "ifndef" 'NoScripts'
+
+ref; // ME_A0DEBDFD48CA Ini_Reg_Class
+
+: ME_1832049210CB
+ CONST UID '1832049210CB'
+ CONST IsSummoned true
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_49F0573B0332 // TnsWebBrowserPrim
+ ;
+ : Target WL 'ME_561F9F9400BC' '561F9F7D02A7.pas.ms.script' // TtfwClassRef
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_1832049210CB 
+
+: ME_48077504027E_ME_49F0573B0332
+ CONST UID '48077504027E'
+ CONST Name 'Destroy'
+ : Original WL 'ME_48077504027E' '4AB0C3C60310.pas.ms.script' // Destroy
+ ;
+ : Implementor ME_49F0573B0332 // TnsWebBrowserPrim
+ ;
+ CONST OpKind opkind_Overridden
+ CONST "UseNewGen" 'undefined'
+ref; // ME_48077504027E_ME_49F0573B0332 Destroy
+
+: ME_49F057120234_ME_49F0573B0332
+ CONST UID '49F057120234'
+ CONST Name 'AfterConstruction'
+ : Original WL 'ME_49F057120234' '4AB0C3C60310.pas.ms.script' // AfterConstruction
+ ;
+ : Implementor ME_49F0573B0332 // TnsWebBrowserPrim
+ ;
+ CONST OpKind opkind_Overridden
+ CONST "UseNewGen" 'undefined'
+ref; // ME_49F057120234_ME_49F0573B0332 AfterConstruction
+
+: ME_49F0573B0332
+ CONST UID '49F0573B0332'
+ CONST Name 'TnsWebBrowserPrim'
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_49EC7167004C // InternetAgent
+ ;
+ : Inherits
+   Seq: ( WL 'ME_49EC9D0E00F0' '49EC9CDD0093.pas.ms.script' // TWebBrowser
+ )
+ ; // Inherits
+ : Operations
+   Seq: ( ME_49F0577C02ED // InitFields
+ ME_49F058E50188 // Cleanup
+ ME_49F05B0D02C7 // CheckStamp
+ ME_A0DEBDFD48CA // Ini_Reg_Class
+ )
+ ; // Operations
+ : Overridden
+   Seq: ( ME_48077504027E_ME_49F0573B0332 // Destroy
+ ME_49F057120234_ME_49F0573B0332 // AfterConstruction
+ )
+ ; // Overridden
+ : Dependencies
+   Seq: ( ME_1832049210CB // 
+ )
+ ; // Dependencies
+ CONST "UseNewGen" 'undefined'
+ CONST "author" 'Люлин А.В.'
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" true
+ CONST "register in scripts" 'undefined'
+ CONST "started" '23.04.2009 15:56'
+ : Generators
+ Seq: (
+ gen_intf.pas
+ )
+ ; // Generators
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View\InternetAgent'
+ CONST intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\InternetAgent\nsWebBrowserPrim.pas'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View\InternetAgent'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\View\InternetAgent'
+ CONST extprop:pas:UnitName 'nsWebBrowserPrim'
+
+ref; // ME_49F0573B0332 TnsWebBrowserPrim
+
+FORWARD ME_49ECB8E002B0
+
+: ME_4BB32FCD0157
+ CONST UID '4BB32FCD0157'
+ CONST Name 'Scale'
+ CONST Class class_Attribute
+ : Stereotype st_property::Attribute ;
+ %SUMMARY 'Масштаб' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_agr
+ : Parent ME_49ECB8E002B0 // TnsWebBrowser
+ ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+ CONST "UseNewGen" 'undefined'
+ CONST "needs field" true
+ CONST "pm" true
+ CONST "reads field" true
+
+ref; // ME_4BB32FCD0157 Scale
+
+: ME_51F8BDBC03C0
+ CONST UID '51F8BDBC03C0'
+ CONST Name 'f_FPUCtrlWord'
+ CONST Class class_Attribute
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_49ECB8E002B0 // TnsWebBrowser
+ ;
+ : Target WL 'ME_476F71A701AB' '4AB0C3C60310.pas.ms.script' // Word
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_51F8BDBC03C0 f_FPUCtrlWord
+
+: ME_548A9074019B
+ CONST UID '548A9074019B'
+ CONST Name 'f_RememberedWndHandle'
+ CONST Class class_Attribute
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_49ECB8E002B0 // TnsWebBrowser
+ ;
+ : Target WL 'ME_46A5DA1F0255' '4AB0C3F60375.pas.ms.script' // hWnd
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_548A9074019B f_RememberedWndHandle
+
+: ME_7B6E0E2F78E6
+ CONST UID '7B6E0E2F78E6'
+ CONST Name 'f_Scale'
+ CONST IsSummoned true
+ CONST Class class_Attribute
+ %SUMMARY 'Поле для свойства Scale' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_ref
+ : Parent ME_49ECB8E002B0 // TnsWebBrowser
+ ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+ CONST "UseNewGen" 'undefined'
+ CONST extprop:clearViaProperty 'Scale'
+
+ref; // ME_7B6E0E2F78E6 f_Scale
+
+FORWARD ME_49F0457A016C
+
+: ME_49F045A60281
+ CONST UID '49F045A60281'
+ CONST Name 'Sender'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_4807745602C8' '4AB0C3C60310.pas.ms.script' // TObject
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_49F045A60281 Sender
+
+: ME_49F045A602A1
+ CONST UID '49F045A602A1'
+ CONST Name 'pDisp'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_49ED9D5A015F' '4AB0C3C60310.pas.ms.script' // IDispatch
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_49F045A602A1 pDisp
+
+: ME_49F045A602C1
+ CONST UID '49F045A602C1'
+ CONST Name 'URL'
+ CONST Class class_Parameter
+ : Stereotype st_inout ;
+ : Target WL 'ME_49ED892F022E' '4AB0C3C60310.pas.ms.script' // OleVariant
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_49F045A602C1 URL
+
+: ME_49F0459601D5
+ CONST UID '49F0459601D5'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_49F0457A016C // DocumentComplete
+ ;
+ : Parameters
+   Seq: ( ME_49F045A60281 // Sender
+ ME_49F045A602A1 // pDisp
+ ME_49F045A602C1 // URL
+ )
+ ; // Parameters
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_49F0459601D5 DoIt
+
+: ME_49F0487B00F6
+ CONST UID '49F0487B00F6'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_49F0457A016C // DocumentComplete
+ ;
+ : Target WL 'ME_49F048510365' '47ECB2870309.pas.ms.script' // evStyleTableTools
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_49F0487B00F6 
+
+: ME_49F0457A016C
+ CONST UID '49F0457A016C'
+ CONST Name 'DocumentComplete'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Документ готов к работе' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_49ECB8E002B0 // TnsWebBrowser
+ ;
+ : Operations
+   Seq: ( ME_49F0459601D5 // DoIt
+ )
+ ; // Operations
+ : Dependencies
+   Seq: ( ME_49F0487B00F6 // 
+ )
+ ; // Dependencies
+ CONST "UseNewGen" 'undefined'
+ CONST "ifndef" 'XE'
+
+ref; // ME_49F0457A016C DocumentComplete
+
+FORWARD ME_49F062A50141
+
+: ME_49F062C1011F
+ CONST UID '49F062C1011F'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_49F062A50141 // ApplyZoom
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_49F062C1011F DoIt
+
+: ME_49F062D202A1
+ CONST UID '49F062D202A1'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_49F062A50141 // ApplyZoom
+ ;
+ : Target WL 'ME_49F048510365' '47ECB2870309.pas.ms.script' // evStyleTableTools
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_49F062D202A1 
+
+: ME_49F05D6C0165
+ CONST UID '49F05D6C0165'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_49F062A50141 // ApplyZoom
+ ;
+ : Target WL 'ME_48088D6800F9' '4AB0C3C60310.pas.ms.script' // Variants
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_49F05D6C0165 
+
+: ME_4BB360B501B9
+ CONST UID '4BB360B501B9'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_49F062A50141 // ApplyZoom
+ ;
+ : Target WL 'ME_4BB3609E0331' '4AB0997B00A2.pas.ms.script' // AnsiStartsText
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_4BB360B501B9 
+
+: ME_49F062A50141
+ CONST UID '49F062A50141'
+ CONST Name 'ApplyZoom'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Выставляет Zoom из таблицы стилей' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_49ECB8E002B0 // TnsWebBrowser
+ ;
+ : Operations
+   Seq: ( ME_49F062C1011F // DoIt
+ )
+ ; // Operations
+ : Dependencies
+   Seq: ( ME_49F062D202A1 // 
+ ME_49F05D6C0165 // 
+ ME_4BB360B501B9 // 
+ )
+ ; // Dependencies
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_49F062A50141 ApplyZoom
+
+FORWARD ME_4BB3665300BC
+
+: ME_4BB36679023B
+ CONST UID '4BB36679023B'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_4BB3665300BC // ScaleDisabled
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_4BB36679023B DoIt
+
+: ME_4BB3669002C6
+ CONST UID '4BB3669002C6'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4BB3665300BC // ScaleDisabled
+ ;
+ : Target WL 'ME_4BB3609E0331' '4AB0997B00A2.pas.ms.script' // AnsiStartsText
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_4BB3669002C6 
+
+: ME_4BB3665300BC
+ CONST UID '4BB3665300BC'
+ CONST Name 'ScaleDisabled'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Масштабирование запрещено' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_49ECB8E002B0 // TnsWebBrowser
+ ;
+ : Operations
+   Seq: ( ME_4BB36679023B // DoIt
+ )
+ ; // Operations
+ : Dependencies
+   Seq: ( ME_4BB3669002C6 // 
+ )
+ ; // Dependencies
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_4BB3665300BC ScaleDisabled
+
+FORWARD ME_5175412302EE
+
+: ME_517541400321
+ CONST UID '517541400321'
+ CONST Name 'Sender'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_4807745602C8' '4AB0C3C60310.pas.ms.script' // TObject
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_517541400321 Sender
+
+: ME_517541400349
+ CONST UID '517541400349'
+ CONST Name 'pDisp'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_49ED9D5A015F' '4AB0C3C60310.pas.ms.script' // IDispatch
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_517541400349 pDisp
+
+: ME_517541400374
+ CONST UID '517541400374'
+ CONST Name 'URL'
+ CONST Class class_Parameter
+ : Stereotype st_const ;
+ : Target WL 'ME_49ED892F022E' '4AB0C3C60310.pas.ms.script' // OleVariant
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_517541400374 URL
+
+: ME_51754135016D
+ CONST UID '51754135016D'
+ CONST Name '<<>> DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_5175412302EE // DocumentCompleteXE
+ ;
+ : Parameters
+   Seq: ( ME_517541400321 // Sender
+ ME_517541400349 // pDisp
+ ME_517541400374 // URL
+ )
+ ; // Parameters
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_51754135016D <<>> DoIt
+
+: ME_5175412302EE
+ CONST UID '5175412302EE'
+ CONST Name 'DocumentCompleteXE'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_49ECB8E002B0 // TnsWebBrowser
+ ;
+ : Operations
+   Seq: ( ME_51754135016D // <<>> DoIt
+ )
+ ; // Operations
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_5175412302EE DocumentCompleteXE
+
+: ME_4E9579F202C6
+ CONST UID '4E9579F202C6'
+ CONST Name 'aMsg'
+ CONST Class class_Parameter
+ : Stereotype st_inout ;
+ : Target WL 'ME_4E9574A2008E' '476F78840219.pas.ms.script' // TWMSize
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_4E9579F202C6 aMsg
+
+: ME_4E9574530051
+ CONST UID '4E9574530051'
+ CONST Name 'WMSize'
+ CONST Class class_Operation
+ : Stereotype st_message::Operation ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_49ECB8E002B0 // TnsWebBrowser
+ ;
+ : Parameters
+   Seq: ( ME_4E9579F202C6 // aMsg
+ )
+ ; // Parameters
+ CONST "Message ID" 'WM_Size'
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_4E9574530051 WMSize
+
+: ME_4279859667A7
+ CONST UID '4279859667A7'
+ CONST Name 'Ini_Reg_Class'
+ CONST IsSummoned true
+ CONST Class class_Operation
+ : Stereotype st_ini::Operation ;
+ %SUMMARY 'Регистрация TnsWebBrowser' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_49ECB8E002B0 // TnsWebBrowser
+ ;
+ CONST "UseNewGen" 'undefined'
+ CONST "ifndef" 'NoScripts'
+
+ref; // ME_4279859667A7 Ini_Reg_Class
+
+FORWARD ME_4E9574DB0120
+
+: ME_4E95750C01FF
+ CONST UID '4E95750C01FF'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_49ECB8E002B0 // TnsWebBrowser
+ ;
+ : Target ME_4E9574DB0120 // nsWebBrowserHelper
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_4E95750C01FF 
+
+: ME_4E95791101FD
+ CONST UID '4E95791101FD'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_49ECB8E002B0 // TnsWebBrowser
+ ;
+ : Target WL 'ME_48C6811302CB' '47913B47006E.pas.ms.script' // l3SysUtils
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_4E95791101FD 
+
+: ME_501BDE4F003E
+ CONST UID '501BDE4F003E'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_49ECB8E002B0 // TnsWebBrowser
+ ;
+ : Target WL 'ME_4CDD241C0184' '47913B47006E.pas.ms.script' // l3System
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_501BDE4F003E 
+
+: ME_501BDEBC028B
+ CONST UID '501BDEBC028B'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_49ECB8E002B0 // TnsWebBrowser
+ ;
+ : Target WL 'ME_4787A405013D' '4AB0C3C60310.pas.ms.script' // Exception
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_501BDEBC028B 
+
+: ME_32E1F31CAC31
+ CONST UID '32E1F31CAC31'
+ CONST IsSummoned true
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_49ECB8E002B0 // TnsWebBrowser
+ ;
+ : Target WL 'ME_561F9F9400BC' '561F9F7D02A7.pas.ms.script' // TtfwClassRef
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_32E1F31CAC31 
+
+: ME_4A485B710126_ME_49ECB8E002B0
+ CONST UID '4A485B710126'
+ CONST Name 'DoStyleTableChanged'
+ : Original WL 'ME_4A485B710126' '47ECB2870309.pas.ms.script' // DoStyleTableChanged
+ ;
+ : Implementor ME_49ECB8E002B0 // TnsWebBrowser
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "UseNewGen" 'undefined'
+ref; // ME_4A485B710126_ME_49ECB8E002B0 DoStyleTableChanged
+
+: ME_47D1602000C6_ME_49ECB8E002B0
+ CONST UID '47D1602000C6'
+ CONST Name 'Create'
+ : Original WL 'ME_47D1602000C6' '4AB0997B00A2.pas.ms.script' // Create
+ ;
+ : Implementor ME_49ECB8E002B0 // TnsWebBrowser
+ ;
+ CONST OpKind opkind_Overridden
+ CONST "UseNewGen" 'undefined'
+ref; // ME_47D1602000C6_ME_49ECB8E002B0 Create
+
+: ME_48077504027E_ME_49ECB8E002B0
+ CONST UID '48077504027E'
+ CONST Name 'Destroy'
+ : Original WL 'ME_48077504027E' '4AB0C3C60310.pas.ms.script' // Destroy
+ ;
+ : Implementor ME_49ECB8E002B0 // TnsWebBrowser
+ ;
+ CONST OpKind opkind_Overridden
+ CONST "UseNewGen" 'undefined'
+ref; // ME_48077504027E_ME_49ECB8E002B0 Destroy
+
+: ME_49F0577C02ED_ME_49ECB8E002B0
+ CONST UID '49F0577C02ED'
+ CONST Name 'InitFields'
+ : Original ME_49F0577C02ED // InitFields
+ ;
+ : Implementor ME_49ECB8E002B0 // TnsWebBrowser
+ ;
+ CONST OpKind opkind_Overridden
+ CONST "UseNewGen" 'undefined'
+ref; // ME_49F0577C02ED_ME_49ECB8E002B0 InitFields
+
+: ME_4CC8414403B8_ME_49ECB8E002B0
+ CONST UID '4CC8414403B8'
+ CONST Name 'CreateWnd'
+ : Original WL 'ME_4CC8414403B8' '4799D29F033F.pas.ms.script' // CreateWnd
+ ;
+ : Implementor ME_49ECB8E002B0 // TnsWebBrowser
+ ;
+ CONST OpKind opkind_Overridden
+ CONST "UseNewGen" 'undefined'
+ref; // ME_4CC8414403B8_ME_49ECB8E002B0 CreateWnd
+
+: ME_4CC841540158_ME_49ECB8E002B0
+ CONST UID '4CC841540158'
+ CONST Name 'DestroyWnd'
+ : Original WL 'ME_4CC841540158' '4799D29F033F.pas.ms.script' // DestroyWnd
+ ;
+ : Implementor ME_49ECB8E002B0 // TnsWebBrowser
+ ;
+ CONST OpKind opkind_Overridden
+ CONST "UseNewGen" 'undefined'
+ref; // ME_4CC841540158_ME_49ECB8E002B0 DestroyWnd
+
+: ME_4E955E8F0237_ME_49ECB8E002B0
+ CONST UID '4E955E8F0237'
+ CONST Name 'ForceWMSize'
+ : Original WL 'ME_4E955E8F0237' '4799D29F033F.pas.ms.script' // ForceWMSize
+ ;
+ : Implementor ME_49ECB8E002B0 // TnsWebBrowser
+ ;
+ CONST OpKind opkind_Overridden
+ CONST "UseNewGen" 'undefined'
+ CONST "ifdef" 'l3HackedVCL'
+ CONST "ifndef" 'DesignTimeLibrary'
+ref; // ME_4E955E8F0237_ME_49ECB8E002B0 ForceWMSize
+
+: ME_49ECB8E002B0
+ CONST UID '49ECB8E002B0'
+ CONST Name 'TnsWebBrowser'
+ CONST Class class_Class
+ : Stereotype st_GuiControl ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Наследник от стандартного компонента, для заточек в F1' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_49EC7167004C // InternetAgent
+ ;
+ : Inherits
+   Seq: ( WL 'ME_49EF346400A4' '49EF33F700C2.pas.ms.script' // afwShortcutsHandler
+ ME_49F0573B0332 // TnsWebBrowserPrim
+ )
+ ; // Inherits
+ : Implements
+   Seq: ( WL 'ME_480DA68701CE' '47ECB2870309.pas.ms.script' // evStyleTableListener
+ )
+ ; // Implements
+ : Attributes
+   Seq: ( ME_4BB32FCD0157 // Scale
+ ME_51F8BDBC03C0 // f_FPUCtrlWord
+ ME_548A9074019B // f_RememberedWndHandle
+ ME_7B6E0E2F78E6 // f_Scale
+ )
+ ; // Attributes
+ : Operations
+   Seq: ( ME_49F0457A016C // DocumentComplete
+ ME_49F062A50141 // ApplyZoom
+ ME_4BB3665300BC // ScaleDisabled
+ ME_5175412302EE // DocumentCompleteXE
+ ME_4E9574530051 // WMSize
+ ME_4279859667A7 // Ini_Reg_Class
+ )
+ ; // Operations
+ : Implemented
+   Seq: ( ME_4A485B710126_ME_49ECB8E002B0 // DoStyleTableChanged
+ )
+ ; // Implemented
+ : Overridden
+   Seq: ( ME_47D1602000C6_ME_49ECB8E002B0 // Create
+ ME_48077504027E_ME_49ECB8E002B0 // Destroy
+ ME_49F0577C02ED_ME_49ECB8E002B0 // InitFields
+ ME_4CC8414403B8_ME_49ECB8E002B0 // CreateWnd
+ ME_4CC841540158_ME_49ECB8E002B0 // DestroyWnd
+ ME_4E955E8F0237_ME_49ECB8E002B0 // ForceWMSize
+ )
+ ; // Overridden
+ : Dependencies
+   Seq: ( ME_4E95750C01FF // 
+ ME_4E95791101FD // 
+ ME_501BDE4F003E // 
+ ME_501BDEBC028B // 
+ ME_32E1F31CAC31 // 
+ )
+ ; // Dependencies
+ CONST "UseNewGen" 'undefined'
+ CONST "author" 'Люлин А.В.'
+ CONST "base wnd class" 'CWnd'
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" true
+ CONST "register in scripts" 'undefined'
+ CONST "started" '20.04.2009 22:04'
+ : Generators
+ Seq: (
+ gen_intf.pas
+ )
+ ; // Generators
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View\InternetAgent'
+ CONST intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\InternetAgent\nsWebBrowser.pas'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View\InternetAgent'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\View\InternetAgent'
+ CONST extprop:pas:UnitName 'nsWebBrowser'
+
+ref; // ME_49ECB8E002B0 TnsWebBrowser
+
+FORWARD ME_49EC746B01E5
+
+FORWARD ME_49EDAA740295
+
+FORWARD ME_49EDAAA601D9
+
+: ME_49EDAAF403C0
+ CONST UID '49EDAAF403C0'
+ CONST Name 'URL'
+ CONST Class class_Attribute
+ : Stereotype st_readonly::Attribute ;
+ %SUMMARY 'Путь к странице' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_lnk
+ : Parent ME_49EDAAA601D9 // InsInternetAgentState
+ ;
+ : Target WL 'ME_498849D803A8' '4AB0C3C60310.pas.ms.script' // WideString
+ ;
+ CONST "UseNewGen" 'undefined'
+ CONST "pm" false
+
+ref; // ME_49EDAAF403C0 URL
+
+: ME_49EDDCC000A8
+ CONST UID '49EDDCC000A8'
+ CONST Name 'anURL'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_498849D803A8' '4AB0C3C60310.pas.ms.script' // WideString
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_49EDDCC000A8 anURL
+
+: ME_49EDDC9F007A
+ CONST UID '49EDDC9F007A'
+ CONST Name 'SetParams'
+ CONST Class class_Operation
+ %SUMMARY 'Устанавливает новые параметры состояния Интернет-агента' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_49EDAAA601D9 // InsInternetAgentState
+ ;
+ : Parameters
+   Seq: ( ME_49EDDCC000A8 // anURL
+ )
+ ; // Parameters
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_49EDDC9F007A SetParams
+
+: ME_49EDAAA601D9
+ CONST UID '49EDAAA601D9'
+ CONST GUID 'D4ACF593-E6B2-403E-BF8B-88C3E553312B'
+ CONST Name 'InsInternetAgentState'
+ CONST Class class_Class
+ : Stereotype st_Facet ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Состояние Интернет-агента' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_49EDAA740295 // TnsInternetAgentState
+ ;
+ : Implements
+   Seq: ( WL 'ME_4683CEAD00CF' '467BAB7F021E.pas.ms.script' // IvcmBase
+ )
+ ; // Implements
+ : Attributes
+   Seq: ( ME_49EDAAF403C0 // URL
+ )
+ ; // Attributes
+ : Operations
+   Seq: ( ME_49EDDC9F007A // SetParams
+ )
+ ; // Operations
+ CONST "UseNewGen" 'undefined'
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View\InternetAgent\Forms'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View\InternetAgent\Forms'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\View\InternetAgent'
+
+ref; // ME_49EDAAA601D9 InsInternetAgentState
+
+: ME_49EDAB560377
+ CONST UID '49EDAB560377'
+ CONST Name 'f_URL'
+ CONST Class class_Attribute
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_49EDAA740295 // TnsInternetAgentState
+ ;
+ : Target WL 'ME_498849D803A8' '4AB0C3C60310.pas.ms.script' // WideString
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_49EDAB560377 f_URL
+
+: ME_49EDAB34003B
+ CONST UID '49EDAB34003B'
+ CONST Name 'anURL'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_498849D803A8' '4AB0C3C60310.pas.ms.script' // WideString
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_49EDAB34003B anURL
+
+: ME_49EDAB220014
+ CONST UID '49EDAB220014'
+ CONST Name 'Make'
+ CONST Class class_Operation
+ : Stereotype st_factory::Operation ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_49EDAA740295 // TnsInternetAgentState
+ ;
+ : Parameters
+   Seq: ( ME_49EDAB34003B // anURL
+ )
+ ; // Parameters
+ CONST "UseNewGen" 'undefined'
+ CONST "check nil" false
+ CONST "need AfterCreate" 'undefined'
+ CONST "need Aggregate" 'undefined'
+ CONST "need As" false
+
+ref; // ME_49EDAB220014 Make
+
+: ME_49EDAB3E0291
+ CONST UID '49EDAB3E0291'
+ CONST Name 'anURL'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_498849D803A8' '4AB0C3C60310.pas.ms.script' // WideString
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_49EDAB3E0291 anURL
+
+: ME_49EDAB3802C8
+ CONST UID '49EDAB3802C8'
+ CONST Name 'Create'
+ CONST Class class_Operation
+ : Stereotype st_ctor::Operation ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_49EDAA740295 // TnsInternetAgentState
+ ;
+ : Parameters
+   Seq: ( ME_49EDAB3E0291 // anURL
+ )
+ ; // Parameters
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_49EDAB3802C8 Create
+
+: ME_49EDAAF403C0_ME_49EDAA740295
+ CONST UID '49EDAAF403C0'
+ CONST Name 'URL'
+ : Original ME_49EDAAF403C0 // URL
+ ;
+ : Implementor ME_49EDAA740295 // TnsInternetAgentState
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "UseNewGen" 'undefined'
+ CONST "pm" false
+ref; // ME_49EDAAF403C0_ME_49EDAA740295 URL
+
+: ME_49EDDC9F007A_ME_49EDAA740295
+ CONST UID '49EDDC9F007A'
+ CONST Name 'SetParams'
+ : Original ME_49EDDC9F007A // SetParams
+ ;
+ : Implementor ME_49EDAA740295 // TnsInternetAgentState
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "UseNewGen" 'undefined'
+ref; // ME_49EDDC9F007A_ME_49EDAA740295 SetParams
+
+: ME_49EDAA740295
+ CONST UID '49EDAA740295'
+ CONST Name 'TnsInternetAgentState'
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ : Parent ME_49EC746B01E5 // PrimInternetAgent
+ ;
+ : Inherits
+   Seq: ( WL 'ME_49E7754802A9' '47913B47006E.pas.ms.script' // Tl3ProtoObject
+ )
+ ; // Inherits
+ : Implements
+   Seq: ( ME_49EDAAA601D9 // InsInternetAgentState
+ )
+ ; // Implements
+ : Attributes
+   Seq: ( ME_49EDAB560377 // f_URL
+ )
+ ; // Attributes
+ : Operations
+   Seq: ( ME_49EDAB220014 // Make
+ ME_49EDAB3802C8 // Create
+ )
+ ; // Operations
+ : Implemented
+   Seq: ( ME_49EDAAF403C0_ME_49EDAA740295 // URL
+ ME_49EDDC9F007A_ME_49EDAA740295 // SetParams
+ )
+ ; // Implemented
+ : Children
+   Seq: ( ME_49EDAAA601D9 // InsInternetAgentState
+ )
+ ; // Children
+ CONST "UseNewGen" 'undefined'
+ CONST "author" 'Люлин А.В.'
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" true
+ CONST "register in scripts" 'undefined'
+ CONST "started" '21.04.2009 15:14'
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View\InternetAgent\Forms'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View\InternetAgent\Forms'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\View\InternetAgent'
+
+ref; // ME_49EDAA740295 TnsInternetAgentState
+
+FORWARD ME_4BB345E00184
+
+: ME_4BB346630393
+ CONST UID '4BB346630393'
+ CONST Name 'pi_InternetAgent_Scale'
+ CONST Class class_Attribute
+ %SUMMARY 'Идентификатор натройки "Масштаб"' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_4BB345E00184 // Settings IDs
+ ;
+ CONST Value 'gi_Internal + ''/Новости онлайн/Масштаб'''
+ CONST "AutoInc" false
+ CONST "UseNewGen" 'undefined'
+ CONST "forced type" 'none'
+ CONST "is define" false
+ CONST extprop:pas:Value 'gi_Internal + ''/Новости онлайн/Масштаб'''
+
+ref; // ME_4BB346630393 pi_InternetAgent_Scale
+
+: ME_4BB345E00184
+ CONST UID '4BB345E00184'
+ CONST Name 'Settings IDs'
+ CONST Class class_Class
+ : Stereotype st_Constants ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Идентификаторы настроек' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ : Parent ME_49EC746B01E5 // PrimInternetAgent
+ ;
+ : Attributes
+   Seq: ( ME_4BB346630393 // pi_InternetAgent_Scale
+ )
+ ; // Attributes
+ CONST "UseNewGen" 'undefined'
+ CONST "spell names" false
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View\InternetAgent\Forms'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View\InternetAgent\Forms'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\View\InternetAgent'
+
+ref; // ME_4BB345E00184 Settings IDs
+
+FORWARD ME_4C6274C701D2
+
+FORWARD ME_7D29C85C535C
+
+: ME_CE36DBC3B17C
+ CONST UID 'CE36DBC3B17C'
+ CONST Name 'utInternetAgentName'
+ CONST IsSummoned true
+ CONST Class class_Attribute
+ %SUMMARY 'Строковый идентификатор пользовательского типа "Новости онлайн"' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_7D29C85C535C // utInternetAgentConstants
+ ;
+ CONST Value '''utInternetAgent'''
+ CONST "AutoInc" false
+ CONST "UseNewGen" 'undefined'
+ CONST "forced type" 'none'
+ CONST "is define" false
+ CONST extprop:pas:Value '''utInternetAgent'''
+
+ref; // ME_CE36DBC3B17C utInternetAgentName
+
+: ME_2F4E0A6059C3
+ CONST UID '2F4E0A6059C3'
+ CONST Name 'utInternetAgent'
+ CONST IsSummoned true
+ CONST Class class_Attribute
+ %SUMMARY 'Новости онлайн' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_7D29C85C535C // utInternetAgentConstants
+ ;
+ : Target WL 'ME_47F2534B010F' '499EAAE502A8.pas.ms.script' // TvcmUserType
+ ;
+ CONST Value 0
+ : ValueType WL 'ME_47F2534B010F' '499EAAE502A8.pas.ms.script' // TvcmUserType
+ ;
+ CONST "AutoInc" false
+ CONST "UseNewGen" 'undefined'
+ CONST "forced type" 'none'
+ CONST "is define" true
+ CONST extprop:pas:Value 'TvcmUserType(0)'
+
+ref; // ME_2F4E0A6059C3 utInternetAgent
+
+: ME_7D29C85C535C
+ CONST UID '7D29C85C535C'
+ CONST Name 'utInternetAgentConstants'
+ CONST IsSummoned true
+ CONST Class class_Class
+ : Stereotype st_Constants ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Константы для типа формы utInternetAgent' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4C6274C701D2 // utInternetAgent
+ ;
+ : Attributes
+   Seq: ( ME_CE36DBC3B17C // utInternetAgentName
+ ME_2F4E0A6059C3 // utInternetAgent
+ )
+ ; // Attributes
+ CONST "UseNewGen" 'undefined'
+ CONST "spell names" false
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View\InternetAgent\Forms'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View\InternetAgent\Forms'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\View\InternetAgent'
+
+ref; // ME_7D29C85C535C utInternetAgentConstants
+
+FORWARD ME_59277CFBE1B1
+
+: ME_7ADC30724ABF
+ CONST UID '7ADC30724ABF'
+ CONST Name 'Ini_Reg'
+ CONST IsSummoned true
+ CONST Class class_Operation
+ : Stereotype st_ini::Operation ;
+ %SUMMARY 'Регистрация Tkw_FormUserType_utInternetAgent' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_59277CFBE1B1 // Tkw_FormUserType_utInternetAgent
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_7ADC30724ABF Ini_Reg
+
+: ME_4DB0614603C8_ME_59277CFBE1B1
+ CONST UID '4DB0614603C8'
+ CONST Name 'GetWordNameForRegister'
+ : Original WL 'ME_4DB0614603C8' '4F3E3F5F0160.pas.ms.script' // GetWordNameForRegister
+ ;
+ : Implementor ME_59277CFBE1B1 // Tkw_FormUserType_utInternetAgent
+ ;
+ CONST OpKind opkind_Overridden
+ CONST "UseNewGen" 'undefined'
+ref; // ME_4DB0614603C8_ME_59277CFBE1B1 GetWordNameForRegister
+
+: ME_4EE1DC8903BB_ME_59277CFBE1B1
+ CONST UID '4EE1DC8903BB'
+ CONST Name 'GetInteger'
+ : Original WL 'ME_4EE1DC8903BB' '4F3E3F5F0160.pas.ms.script' // GetInteger
+ ;
+ : Implementor ME_59277CFBE1B1 // Tkw_FormUserType_utInternetAgent
+ ;
+ CONST OpKind opkind_Overridden
+ CONST "UseNewGen" 'undefined'
+ref; // ME_4EE1DC8903BB_ME_59277CFBE1B1 GetInteger
+
+: ME_59277CFBE1B1
+ CONST UID '59277CFBE1B1'
+ CONST Name 'Tkw_FormUserType_utInternetAgent'
+ CONST IsSummoned true
+ CONST Class class_Class
+ : Stereotype st_ScriptKeyword ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Слово словаря для типа формы utInternetAgent' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_4C6274C701D2 // utInternetAgent
+ ;
+ : Inherits
+   Seq: ( WL 'ME_4EE1DBBB013C' '4F3E3F5F0160.pas.ms.script' // TtfwInteger
+ )
+ ; // Inherits
+ : Operations
+   Seq: ( ME_7ADC30724ABF // Ini_Reg
+ )
+ ; // Operations
+ : Overridden
+   Seq: ( ME_4DB0614603C8_ME_59277CFBE1B1 // GetWordNameForRegister
+ ME_4EE1DC8903BB_ME_59277CFBE1B1 // GetInteger
+ )
+ ; // Overridden
+ CONST "NameForScript" 'тип_формы::utInternetAgent'
+ CONST "UseNewGen" 'undefined'
+ CONST "ifndef" 'NoScripts'
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View\InternetAgent\Forms'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View\InternetAgent\Forms'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\View\InternetAgent'
+
+ref; // ME_59277CFBE1B1 Tkw_FormUserType_utInternetAgent
+
+: ME_4C6274C701D2
+ CONST UID '4C6274C701D2'
+ CONST Name 'utInternetAgent'
+ CONST Class class_Class
+ : Stereotype st_UserType ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Новости онлайн' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_49EC746B01E5 // PrimInternetAgent
+ ;
+ : Children
+   Seq: ( ME_59277CFBE1B1 // Tkw_FormUserType_utInternetAgent
+ )
+ ; // Children
+ : Constants
+   Seq: ( ME_7D29C85C535C // utInternetAgentConstants
+ )
+ ; // Constants
+ CONST "CanClose" 'undefined'
+ CONST "CanHaveToolbars" 'undefined'
+ CONST "ImageIndex" '-1'
+ CONST "NeedOnQueryClose" false
+ CONST "NeedOnQueryMaximized" false
+ CONST "NeedOnQueryOpen" false
+ CONST "UseNewGen" 'undefined'
+ CONST "VisibleToUser" true
+ CONST "Weight" '-1'
+ : Generators
+ Seq: (
+ gen_intf.pas
+ )
+ ; // Generators
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View\InternetAgent\Forms'
+ CONST intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\InternetAgent\Forms\PrimInternetAgent_utInternetAgent_UserType.pas'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View\InternetAgent\Forms'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\View\InternetAgent'
+ CONST extprop:pas:UnitName 'PrimInternetAgent_utInternetAgent_UserType'
+
+ref; // ME_4C6274C701D2 utInternetAgent
+
+FORWARD ME_3EE49A0FE376
+
+: ME_55A055D3EAC9
+ CONST UID '55A055D3EAC9'
+ CONST Name 'utInternetAgentCaption'
+ CONST IsSummoned true
+ CONST Class class_Attribute
+ %SUMMARY 'Заголовок пользовательского типа "Новости онлайн"' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_3EE49A0FE376 // utInternetAgentLocalConstants
+ ;
+ CONST Value '''Новости онлайн'''
+ CONST "AutoInc" false
+ CONST "UseNewGen" 'undefined'
+ CONST "forced type" 'none'
+ CONST "is define" false
+ CONST extprop:pas:Value '''Новости онлайн'''
+
+ref; // ME_55A055D3EAC9 utInternetAgentCaption
+
+: ME_3EE49A0FE376
+ CONST UID '3EE49A0FE376'
+ CONST Name 'utInternetAgentLocalConstants'
+ CONST IsSummoned true
+ CONST Class class_Class
+ : Stereotype st_LocalConst ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Локализуемые константы для типа формы utInternetAgent' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_49EC746B01E5 // PrimInternetAgent
+ ;
+ : Attributes
+   Seq: ( ME_55A055D3EAC9 // utInternetAgentCaption
+ )
+ ; // Attributes
+ CONST "Need map interface" false
+ CONST "Need mapping support" false
+ CONST "UseNewGen" 'undefined'
+ CONST "spell names" false
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View\InternetAgent\Forms'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View\InternetAgent\Forms'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\View\InternetAgent'
+
+ref; // ME_3EE49A0FE376 utInternetAgentLocalConstants
+
+FORWARD ME_E4396FDEB3F5
+
+: ME_7F386BB7255A
+ CONST UID '7F386BB7255A'
+ CONST Name 'utInternetAgentCaption'
+ CONST IsSummoned true
+ CONST Class class_Attribute
+ %SUMMARY 'Заголовок пользовательского типа "Новости онлайн"' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_E4396FDEB3F5 // LCImplutInternetAgentLocalConstants
+ ;
+ : Target WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
+ ;
+ CONST Value '(rS : -1; rLocalized : false; rKey : ''utInternetAgentCaption''; rValue : ''Новости онлайн'')'
+ : ValueType WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
+ ;
+ CONST "AutoInc" false
+ CONST "UseNewGen" 'undefined'
+ CONST "forced type" 'none'
+ CONST "is define" false
+ CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''utInternetAgentCaption''; rValue : ''Новости онлайн'')'
+
+ref; // ME_7F386BB7255A utInternetAgentCaption
+
+: ME_E4396FDEB3F5
+ CONST UID 'E4396FDEB3F5'
+ CONST Name 'LCImplutInternetAgentLocalConstants'
+ CONST IsSummoned true
+ CONST Class class_Class
+ : Stereotype st_Constants ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Локализуемые строки utInternetAgentLocalConstants' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ : Parent ME_49EC746B01E5 // PrimInternetAgent
+ ;
+ : Attributes
+   Seq: ( ME_7F386BB7255A // utInternetAgentCaption
+ )
+ ; // Attributes
+ CONST "UseNewGen" 'undefined'
+ CONST "elements prefix" 'str'
+ CONST "spell names" false
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View\InternetAgent\Forms'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View\InternetAgent\Forms'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\View\InternetAgent'
+ CONST extprop:pas:ElementPrefixBase 'str'
+ CONST extprop:pas:ElementPrefix 'str_'
+
+ref; // ME_E4396FDEB3F5 LCImplutInternetAgentLocalConstants
+
+: ME_49EC9D2702BA
+ CONST UID '49EC9D2702BA'
+ CONST Name 'f_Browser'
+ CONST Class class_Attribute
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_49EC746B01E5 // PrimInternetAgent
+ ;
+ : Target ME_49ECB8E002B0 // TnsWebBrowser
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_49EC9D2702BA f_Browser
+
+: ME_49EDA2390109
+ CONST UID '49EDA2390109'
+ CONST Name 'f_InInit'
+ CONST Class class_Attribute
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_49EC746B01E5 // PrimInternetAgent
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_49EDA2390109 f_InInit
+
+: ME_49EDDF7C01C0
+ CONST UID '49EDDF7C01C0'
+ CONST Name 'f_URL'
+ CONST Class class_Attribute
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_49EC746B01E5 // PrimInternetAgent
+ ;
+ : Target WL 'ME_498849D803A8' '4AB0C3C60310.pas.ms.script' // WideString
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_49EDDF7C01C0 f_URL
+
+: ME_49EDE8EA0384
+ CONST UID '49EDE8EA0384'
+ CONST Class class_Attribute
+ : Stereotype st_ViewArea::Attribute ;
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_lnk
+ : Parent ME_49EC746B01E5 // PrimInternetAgent
+ ;
+ : Target WL 'ME_49EC6E080148' '49EC6D9000EE.pas.ms.script' // IdsInternetAgent
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_49EDE8EA0384 
+
+: ME_49EDED8D0305
+ CONST UID '49EDED8D0305'
+ CONST Name 'f_CanBack'
+ CONST Class class_Attribute
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_49EC746B01E5 // PrimInternetAgent
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_49EDED8D0305 f_CanBack
+
+: ME_49EDED9503D0
+ CONST UID '49EDED9503D0'
+ CONST Name 'f_CanForward'
+ CONST Class class_Attribute
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_49EC746B01E5 // PrimInternetAgent
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_49EDED9503D0 f_CanForward
+
+: ME_4A11644A00DF
+ CONST UID '4A11644A00DF'
+ CONST Name 'f_NavigateErrorPass'
+ CONST Class class_Attribute
+ %SUMMARY 'Признак, что мы "прошли" через обработчик ошибки навигации.' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_49EC746B01E5 // PrimInternetAgent
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_4A11644A00DF f_NavigateErrorPass
+
+: ME_4A11647D0225
+ CONST UID '4A11647D0225'
+ CONST Name 'f_NavigateErrorCode'
+ CONST Class class_Attribute
+ %SUMMARY 'Содержит код ошибки, если мы "прошли" через обработчик ошибки навигации.' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_49EC746B01E5 // PrimInternetAgent
+ ;
+ : Target WL 'ME_469F99BD026B' '4AB0C3C60310.pas.ms.script' // HResult
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_4A11647D0225 f_NavigateErrorCode
+
+FORWARD ME_49ED882F0024
+
+: ME_49ED9CBF01C1
+ CONST UID '49ED9CBF01C1'
+ CONST Name 'Sender'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_4807745602C8' '4AB0C3C60310.pas.ms.script' // TObject
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_49ED9CBF01C1 Sender
+
+: ME_49ED9CBF0202
+ CONST UID '49ED9CBF0202'
+ CONST Name 'pDisp'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_49ED9D5A015F' '4AB0C3C60310.pas.ms.script' // IDispatch
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_49ED9CBF0202 pDisp
+
+: ME_49ED9CBF0270
+ CONST UID '49ED9CBF0270'
+ CONST Name 'URL'
+ CONST Class class_Parameter
+ : Stereotype st_inout ;
+ : Target WL 'ME_49ED892F022E' '4AB0C3C60310.pas.ms.script' // OleVariant
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_49ED9CBF0270 URL
+
+: ME_49ED9CBF02D8
+ CONST UID '49ED9CBF02D8'
+ CONST Name 'Flags'
+ CONST Class class_Parameter
+ : Stereotype st_inout ;
+ : Target WL 'ME_49ED892F022E' '4AB0C3C60310.pas.ms.script' // OleVariant
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_49ED9CBF02D8 Flags
+
+: ME_49ED9CBF0348
+ CONST UID '49ED9CBF0348'
+ CONST Name 'TargetFrameName'
+ CONST Class class_Parameter
+ : Stereotype st_inout ;
+ : Target WL 'ME_49ED892F022E' '4AB0C3C60310.pas.ms.script' // OleVariant
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_49ED9CBF0348 TargetFrameName
+
+: ME_49ED9CBF03AA
+ CONST UID '49ED9CBF03AA'
+ CONST Name 'PostData'
+ CONST Class class_Parameter
+ : Stereotype st_inout ;
+ : Target WL 'ME_49ED892F022E' '4AB0C3C60310.pas.ms.script' // OleVariant
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_49ED9CBF03AA PostData
+
+: ME_49ED9CC00020
+ CONST UID '49ED9CC00020'
+ CONST Name 'Headers'
+ CONST Class class_Parameter
+ : Stereotype st_inout ;
+ : Target WL 'ME_49ED892F022E' '4AB0C3C60310.pas.ms.script' // OleVariant
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_49ED9CC00020 Headers
+
+: ME_49ED9CC0008A
+ CONST UID '49ED9CC0008A'
+ CONST Name 'Cancel'
+ CONST Class class_Parameter
+ : Stereotype st_inout ;
+ : Target WL 'ME_49ED88C9020B' '4AB0C3C60310.pas.ms.script' // WordBool
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_49ED9CC0008A Cancel
+
+: ME_49ED8850006F
+ CONST UID '49ED8850006F'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_49ED882F0024 // BeforeNavigate
+ ;
+ : Parameters
+   Seq: ( ME_49ED9CBF01C1 // Sender
+ ME_49ED9CBF0202 // pDisp
+ ME_49ED9CBF0270 // URL
+ ME_49ED9CBF02D8 // Flags
+ ME_49ED9CBF0348 // TargetFrameName
+ ME_49ED9CBF03AA // PostData
+ ME_49ED9CC00020 // Headers
+ ME_49ED9CC0008A // Cancel
+ )
+ ; // Parameters
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_49ED8850006F DoIt
+
+: ME_49EEEB700322
+ CONST UID '49EEEB700322'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_49ED882F0024 // BeforeNavigate
+ ;
+ : Target WL 'ME_49EEF16603C9' '49F1CAA100B5.pas.ms.script' // nsInternetUtils
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_49EEEB700322 
+
+: ME_49EEEEDD03C9
+ CONST UID '49EEEEDD03C9'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_49ED882F0024 // BeforeNavigate
+ ;
+ : Target WL 'ME_47F260EC02C7' '521C9DA50125.pas.ms.script' // StdRes
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_49EEEEDD03C9 
+
+: ME_49EF00A802B1
+ CONST UID '49EF00A802B1'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_49ED882F0024 // BeforeNavigate
+ ;
+ : Target WL 'ME_47F9C7C9010E' '4F4B8FA60272.pas.ms.script' // nsExternalObjectPrim
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_49EF00A802B1 
+
+: ME_49EF050801C3
+ CONST UID '49EF050801C3'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_49ED882F0024 // BeforeNavigate
+ ;
+ : Target WL 'ME_4773D64E036C' '47913B47006E.pas.ms.script' // l3Base
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_49EF050801C3 
+
+: ME_49ED882F0024
+ CONST UID '49ED882F0024'
+ CONST Name 'BeforeNavigate'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Обработчик события навигации' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_49EC746B01E5 // PrimInternetAgent
+ ;
+ : Operations
+   Seq: ( ME_49ED8850006F // DoIt
+ )
+ ; // Operations
+ : Dependencies
+   Seq: ( ME_49EEEB700322 // 
+ ME_49EEEEDD03C9 // 
+ ME_49EF00A802B1 // 
+ ME_49EF050801C3 // 
+ )
+ ; // Dependencies
+ CONST "UseNewGen" 'undefined'
+ CONST "ifndef" 'XE'
+
+ref; // ME_49ED882F0024 BeforeNavigate
+
+FORWARD ME_49ED8A6F01AE
+
+: ME_49ED8A880293
+ CONST UID '49ED8A880293'
+ CONST Name 'Sender'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_4807745602C8' '4AB0C3C60310.pas.ms.script' // TObject
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_49ED8A880293 Sender
+
+: ME_49ED8A8802AC
+ CONST UID '49ED8A8802AC'
+ CONST Name 'Text'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_498849D803A8' '4AB0C3C60310.pas.ms.script' // WideString
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_49ED8A8802AC Text
+
+: ME_49ED8A800300
+ CONST UID '49ED8A800300'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_49ED8A6F01AE // TitleChange
+ ;
+ : Parameters
+   Seq: ( ME_49ED8A880293 // Sender
+ ME_49ED8A8802AC // Text
+ )
+ ; // Parameters
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_49ED8A800300 DoIt
+
+: ME_49ED8A6F01AE
+ CONST UID '49ED8A6F01AE'
+ CONST Name 'TitleChange'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_49EC746B01E5 // PrimInternetAgent
+ ;
+ : Operations
+   Seq: ( ME_49ED8A800300 // DoIt
+ )
+ ; // Operations
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_49ED8A6F01AE TitleChange
+
+FORWARD ME_49ED8AA0026E
+
+: ME_49ED9CE10202
+ CONST UID '49ED9CE10202'
+ CONST Name 'Sender'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_4807745602C8' '4AB0C3C60310.pas.ms.script' // TObject
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_49ED9CE10202 Sender
+
+: ME_49ED9CE1021E
+ CONST UID '49ED9CE1021E'
+ CONST Name 'pDisp'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_49ED9D5A015F' '4AB0C3C60310.pas.ms.script' // IDispatch
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_49ED9CE1021E pDisp
+
+: ME_49ED9CE10239
+ CONST UID '49ED9CE10239'
+ CONST Name 'URL'
+ CONST Class class_Parameter
+ : Stereotype st_inout ;
+ : Target WL 'ME_49ED892F022E' '4AB0C3C60310.pas.ms.script' // OleVariant
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_49ED9CE10239 URL
+
+: ME_49ED8AB1009B
+ CONST UID '49ED8AB1009B'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_49ED8AA0026E // NavigateComplete
+ ;
+ : Parameters
+   Seq: ( ME_49ED9CE10202 // Sender
+ ME_49ED9CE1021E // pDisp
+ ME_49ED9CE10239 // URL
+ )
+ ; // Parameters
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_49ED8AB1009B DoIt
+
+: ME_49ED8AA0026E
+ CONST UID '49ED8AA0026E'
+ CONST Name 'NavigateComplete'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_49EC746B01E5 // PrimInternetAgent
+ ;
+ : Operations
+   Seq: ( ME_49ED8AB1009B // DoIt
+ )
+ ; // Operations
+ CONST "UseNewGen" 'undefined'
+ CONST "ifndef" 'XE'
+
+ref; // ME_49ED8AA0026E NavigateComplete
+
+FORWARD ME_49EDE0FF002C
+
+: ME_49EDE12A0036
+ CONST UID '49EDE12A0036'
+ CONST Name 'anURL'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_498849D803A8' '4AB0C3C60310.pas.ms.script' // WideString
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_49EDE12A0036 anURL
+
+: ME_49EDE1220252
+ CONST UID '49EDE1220252'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_49EDE0FF002C // Navigate
+ ;
+ : Parameters
+   Seq: ( ME_49EDE12A0036 // anURL
+ )
+ ; // Parameters
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_49EDE1220252 DoIt
+
+: ME_49EDE0FF002C
+ CONST UID '49EDE0FF002C'
+ CONST Name 'Navigate'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Навигация на заданный адрес' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_49EC746B01E5 // PrimInternetAgent
+ ;
+ : Operations
+   Seq: ( ME_49EDE1220252 // DoIt
+ )
+ ; // Operations
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_49EDE0FF002C Navigate
+
+FORWARD ME_49EDEDCE0015
+
+: ME_49EDEDF9002F
+ CONST UID '49EDEDF9002F'
+ CONST Name 'Sender'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_4807745602C8' '4AB0C3C60310.pas.ms.script' // TObject
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_49EDEDF9002F Sender
+
+: ME_49EDEDF90056
+ CONST UID '49EDEDF90056'
+ CONST Name 'Command'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_49EDEDF90056 Command
+
+: ME_49EDEDF90089
+ CONST UID '49EDEDF90089'
+ CONST Name 'Enable'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_49ED88C9020B' '4AB0C3C60310.pas.ms.script' // WordBool
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_49EDEDF90089 Enable
+
+: ME_49EDEDED0358
+ CONST UID '49EDEDED0358'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_49EDEDCE0015 // CommandStateChange
+ ;
+ : Parameters
+   Seq: ( ME_49EDEDF9002F // Sender
+ ME_49EDEDF90056 // Command
+ ME_49EDEDF90089 // Enable
+ )
+ ; // Parameters
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_49EDEDED0358 DoIt
+
+: ME_49EDEDCE0015
+ CONST UID '49EDEDCE0015'
+ CONST Name 'CommandStateChange'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Реакция на смену доступности команды' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_49EC746B01E5 // PrimInternetAgent
+ ;
+ : Operations
+   Seq: ( ME_49EDEDED0358 // DoIt
+ )
+ ; // Operations
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_49EDEDCE0015 CommandStateChange
+
+FORWARD ME_4A1133EF0284
+
+: ME_4A11353202D0
+ CONST UID '4A11353202D0'
+ CONST Name 'Sender'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_4807745602C8' '4AB0C3C60310.pas.ms.script' // TObject
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_4A11353202D0 Sender
+
+: ME_4A11353202F9
+ CONST UID '4A11353202F9'
+ CONST Name 'pDisp'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_49ED9D5A015F' '4AB0C3C60310.pas.ms.script' // IDispatch
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_4A11353202F9 pDisp
+
+: ME_4A1135320324
+ CONST UID '4A1135320324'
+ CONST Name 'URL'
+ CONST Class class_Parameter
+ : Stereotype st_inout ;
+ : Target WL 'ME_49ED892F022E' '4AB0C3C60310.pas.ms.script' // OleVariant
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_4A1135320324 URL
+
+: ME_4A113532034F
+ CONST UID '4A113532034F'
+ CONST Name 'Frame'
+ CONST Class class_Parameter
+ : Stereotype st_inout ;
+ : Target WL 'ME_49ED892F022E' '4AB0C3C60310.pas.ms.script' // OleVariant
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_4A113532034F Frame
+
+: ME_4A1135320380
+ CONST UID '4A1135320380'
+ CONST Name 'StatusCode'
+ CONST Class class_Parameter
+ : Stereotype st_inout ;
+ : Target WL 'ME_49ED892F022E' '4AB0C3C60310.pas.ms.script' // OleVariant
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_4A1135320380 StatusCode
+
+: ME_4A11353203AB
+ CONST UID '4A11353203AB'
+ CONST Name 'Cancel'
+ CONST Class class_Parameter
+ : Stereotype st_inout ;
+ : Target WL 'ME_49ED88C9020B' '4AB0C3C60310.pas.ms.script' // WordBool
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_4A11353203AB Cancel
+
+: ME_4A1133EF0289
+ CONST UID '4A1133EF0289'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_4A1133EF0284 // NavigateError
+ ;
+ : Parameters
+   Seq: ( ME_4A11353202D0 // Sender
+ ME_4A11353202F9 // pDisp
+ ME_4A1135320324 // URL
+ ME_4A113532034F // Frame
+ ME_4A1135320380 // StatusCode
+ ME_4A11353203AB // Cancel
+ )
+ ; // Parameters
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_4A1133EF0289 DoIt
+
+: ME_4A1135F002F7
+ CONST UID '4A1135F002F7'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4A1133EF0284 // NavigateError
+ ;
+ : Target WL 'ME_47F260EC02C7' '521C9DA50125.pas.ms.script' // StdRes
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_4A1135F002F7 
+
+: ME_4A113A3B0145
+ CONST UID '4A113A3B0145'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4A1133EF0284 // NavigateError
+ ;
+ : Target WL 'ME_47F4EED50062' '4AADF9450143.pas.ms.script' // vcmForm
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_4A113A3B0145 
+
+: ME_4A1133EF0284
+ CONST UID '4A1133EF0284'
+ CONST Name 'NavigateError'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Обработчик события ошибка навигации' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_49EC746B01E5 // PrimInternetAgent
+ ;
+ : Operations
+   Seq: ( ME_4A1133EF0289 // DoIt
+ )
+ ; // Operations
+ : Dependencies
+   Seq: ( ME_4A1135F002F7 // 
+ ME_4A113A3B0145 // 
+ )
+ ; // Dependencies
+ CONST "UseNewGen" 'undefined'
+ CONST "ifndef" 'XE'
+
+ref; // ME_4A1133EF0284 NavigateError
+
+FORWARD ME_5175422C03AF
+
+: ME_5175428F0388
+ CONST UID '5175428F0388'
+ CONST Name 'Sender'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_4807745602C8' '4AB0C3C60310.pas.ms.script' // TObject
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_5175428F0388 Sender
+
+: ME_5175428F03C3
+ CONST UID '5175428F03C3'
+ CONST Name 'pDisp'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_49ED9D5A015F' '4AB0C3C60310.pas.ms.script' // IDispatch
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_5175428F03C3 pDisp
+
+: ME_517542900003
+ CONST UID '517542900003'
+ CONST Name 'URL'
+ CONST Class class_Parameter
+ : Stereotype st_const ;
+ : Target WL 'ME_49ED892F022E' '4AB0C3C60310.pas.ms.script' // OleVariant
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_517542900003 URL
+
+: ME_517542900031
+ CONST UID '517542900031'
+ CONST Name 'Flags'
+ CONST Class class_Parameter
+ : Stereotype st_const ;
+ : Target WL 'ME_49ED892F022E' '4AB0C3C60310.pas.ms.script' // OleVariant
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_517542900031 Flags
+
+: ME_517542900059
+ CONST UID '517542900059'
+ CONST Name 'TargetFrameName'
+ CONST Class class_Parameter
+ : Stereotype st_const ;
+ : Target WL 'ME_49ED892F022E' '4AB0C3C60310.pas.ms.script' // OleVariant
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_517542900059 TargetFrameName
+
+: ME_517542900086
+ CONST UID '517542900086'
+ CONST Name 'PostData'
+ CONST Class class_Parameter
+ : Stereotype st_const ;
+ : Target WL 'ME_49ED892F022E' '4AB0C3C60310.pas.ms.script' // OleVariant
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_517542900086 PostData
+
+: ME_5175429000B0
+ CONST UID '5175429000B0'
+ CONST Name 'Headers'
+ CONST Class class_Parameter
+ : Stereotype st_const ;
+ : Target WL 'ME_49ED892F022E' '4AB0C3C60310.pas.ms.script' // OleVariant
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_5175429000B0 Headers
+
+: ME_5175429000DC
+ CONST UID '5175429000DC'
+ CONST Name 'Cancel'
+ CONST Class class_Parameter
+ : Stereotype st_inout ;
+ : Target WL 'ME_49ED88C9020B' '4AB0C3C60310.pas.ms.script' // WordBool
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_5175429000DC Cancel
+
+: ME_517542510032
+ CONST UID '517542510032'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_5175422C03AF // BeforeNavigateXE
+ ;
+ : Parameters
+   Seq: ( ME_5175428F0388 // Sender
+ ME_5175428F03C3 // pDisp
+ ME_517542900003 // URL
+ ME_517542900031 // Flags
+ ME_517542900059 // TargetFrameName
+ ME_517542900086 // PostData
+ ME_5175429000B0 // Headers
+ ME_5175429000DC // Cancel
+ )
+ ; // Parameters
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_517542510032 DoIt
+
+: ME_5175422C03AF
+ CONST UID '5175422C03AF'
+ CONST Name 'BeforeNavigateXE'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_49EC746B01E5 // PrimInternetAgent
+ ;
+ : Operations
+   Seq: ( ME_517542510032 // DoIt
+ )
+ ; // Operations
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_5175422C03AF BeforeNavigateXE
+
+FORWARD ME_517544400331
+
+: ME_5175446D00FC
+ CONST UID '5175446D00FC'
+ CONST Name 'Sender'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_4807745602C8' '4AB0C3C60310.pas.ms.script' // TObject
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_5175446D00FC Sender
+
+: ME_5175446D0130
+ CONST UID '5175446D0130'
+ CONST Name 'pDisp'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_49ED9D5A015F' '4AB0C3C60310.pas.ms.script' // IDispatch
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_5175446D0130 pDisp
+
+: ME_5175446D015B
+ CONST UID '5175446D015B'
+ CONST Name 'URL'
+ CONST Class class_Parameter
+ : Stereotype st_const ;
+ : Target WL 'ME_49ED892F022E' '4AB0C3C60310.pas.ms.script' // OleVariant
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_5175446D015B URL
+
+: ME_5175445F00B2
+ CONST UID '5175445F00B2'
+ CONST Name '<<>> DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_517544400331 // NavigateCompleteXE
+ ;
+ : Parameters
+   Seq: ( ME_5175446D00FC // Sender
+ ME_5175446D0130 // pDisp
+ ME_5175446D015B // URL
+ )
+ ; // Parameters
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_5175445F00B2 <<>> DoIt
+
+: ME_517544400331
+ CONST UID '517544400331'
+ CONST Name 'NavigateCompleteXE'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_49EC746B01E5 // PrimInternetAgent
+ ;
+ : Operations
+   Seq: ( ME_5175445F00B2 // <<>> DoIt
+ )
+ ; // Operations
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_517544400331 NavigateCompleteXE
+
+FORWARD ME_517544E2036E
+
+: ME_517545180372
+ CONST UID '517545180372'
+ CONST Name 'Sender'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_4807745602C8' '4AB0C3C60310.pas.ms.script' // TObject
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_517545180372 Sender
+
+: ME_51754518039D
+ CONST UID '51754518039D'
+ CONST Name 'pDisp'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_49ED9D5A015F' '4AB0C3C60310.pas.ms.script' // IDispatch
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_51754518039D pDisp
+
+: ME_5175451803C3
+ CONST UID '5175451803C3'
+ CONST Name 'URL'
+ CONST Class class_Parameter
+ : Stereotype st_const ;
+ : Target WL 'ME_49ED892F022E' '4AB0C3C60310.pas.ms.script' // OleVariant
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_5175451803C3 URL
+
+: ME_517545190004
+ CONST UID '517545190004'
+ CONST Name 'Frame'
+ CONST Class class_Parameter
+ : Stereotype st_const ;
+ : Target WL 'ME_49ED892F022E' '4AB0C3C60310.pas.ms.script' // OleVariant
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_517545190004 Frame
+
+: ME_51754519002C
+ CONST UID '51754519002C'
+ CONST Name 'StatusCode'
+ CONST Class class_Parameter
+ : Stereotype st_const ;
+ : Target WL 'ME_49ED892F022E' '4AB0C3C60310.pas.ms.script' // OleVariant
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_51754519002C StatusCode
+
+: ME_517545190053
+ CONST UID '517545190053'
+ CONST Name 'Cancel'
+ CONST Class class_Parameter
+ : Stereotype st_inout ;
+ : Target WL 'ME_49ED88C9020B' '4AB0C3C60310.pas.ms.script' // WordBool
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_517545190053 Cancel
+
+: ME_517544F1032B
+ CONST UID '517544F1032B'
+ CONST Name '<<>> DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_517544E2036E // NavigateErrorXE
+ ;
+ : Parameters
+   Seq: ( ME_517545180372 // Sender
+ ME_51754518039D // pDisp
+ ME_5175451803C3 // URL
+ ME_517545190004 // Frame
+ ME_51754519002C // StatusCode
+ ME_517545190053 // Cancel
+ )
+ ; // Parameters
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_517544F1032B <<>> DoIt
+
+: ME_517544E2036E
+ CONST UID '517544E2036E'
+ CONST Name 'NavigateErrorXE'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_49EC746B01E5 // PrimInternetAgent
+ ;
+ : Operations
+   Seq: ( ME_517544F1032B // <<>> DoIt
+ )
+ ; // Operations
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_517544E2036E NavigateErrorXE
+
+FORWARD ME_5411790D0297
+
+: ME_5411791E02E7
+ CONST UID '5411791E02E7'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_5411790D0297 // MakeBrowser
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_5411791E02E7 DoIt
+
+: ME_5411790D0297
+ CONST UID '5411790D0297'
+ CONST Name 'MakeBrowser'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_49EC746B01E5 // PrimInternetAgent
+ ;
+ : Operations
+   Seq: ( ME_5411791E02E7 // DoIt
+ )
+ ; // Operations
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_5411790D0297 MakeBrowser
+
+: ME_A8D6F8D5B972
+ CONST UID 'A8D6F8D5B972'
+ CONST Name 'Init_Str_utInternetAgentCaption'
+ CONST IsSummoned true
+ CONST Class class_Operation
+ : Stereotype st_ini::Operation ;
+ %SUMMARY 'Инициализация str_utInternetAgentCaption' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_49EC746B01E5 // PrimInternetAgent
+ ;
+ CONST "UseNewGen" 'undefined'
+ : Speller ME_55A055D3EAC9 // utInternetAgentCaption
+ ;
+ : SpelledFor ME_7F386BB7255A // utInternetAgentCaption
+ ;
+
+ref; // ME_A8D6F8D5B972 Init_Str_utInternetAgentCaption
+
+: ME_296C48FB2B90
+ CONST UID '296C48FB2B90'
+ CONST Name 'Ini_Reg_Class'
+ CONST IsSummoned true
+ CONST Class class_Operation
+ : Stereotype st_ini::Operation ;
+ %SUMMARY 'Регистрация PrimInternetAgent' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_49EC746B01E5 // PrimInternetAgent
+ ;
+ CONST "UseNewGen" 'undefined'
+ CONST "ifndef" 'NoScripts'
+
+ref; // ME_296C48FB2B90 Ini_Reg_Class
+
+: ME_49EC9D5A00ED
+ CONST UID '49EC9D5A00ED'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_49EC746B01E5 // PrimInternetAgent
+ ;
+ : Target WL 'ME_47877EB202FB' '4AB0C3C60310.pas.ms.script' // SysUtils
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_49EC9D5A00ED 
+
+: ME_49ECA57202DD
+ CONST UID '49ECA57202DD'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_49EC746B01E5 // PrimInternetAgent
+ ;
+ : Target WL 'ME_47E12539018D' '4799D29F033F.pas.ms.script' // TAlign
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_49ECA57202DD 
+
+: ME_49EDB73B014A
+ CONST UID '49EDB73B014A'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_49EC746B01E5 // PrimInternetAgent
+ ;
+ : Target WL 'ME_4981AC530096' '4AB0997B00A2.pas.ms.script' // EOleError
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_49EDB73B014A 
+
+: ME_49EDCE2A015C
+ CONST UID '49EDCE2A015C'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_49EC746B01E5 // PrimInternetAgent
+ ;
+ : Target WL 'ME_49EC9CF0030B' '49EC9CDD0093.pas.ms.script' // shdocvw
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_49EDCE2A015C 
+
+: ME_4A04301A0036
+ CONST UID '4A04301A0036'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_49EC746B01E5 // PrimInternetAgent
+ ;
+ : Target WL 'ME_4A042F5D03B2' '4AB0C3F60375.pas.ms.script' // UrlMon
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_4A04301A0036 
+
+: ME_4A04306E0109
+ CONST UID '4A04306E0109'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_49EC746B01E5 // PrimInternetAgent
+ ;
+ : Target WL 'ME_49EEFA91008E' '4799D29F033F.pas.ms.script' // OleCtrls
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_4A04306E0109 
+
+: ME_4A04308801B6
+ CONST UID '4A04308801B6'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_49EC746B01E5 // PrimInternetAgent
+ ;
+ : Target WL 'ME_48A41FF10094' '4AB0C3F60375.pas.ms.script' // Windows
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_4A04308801B6 
+
+: ME_4BB344EC010F
+ CONST UID '4BB344EC010F'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_49EC746B01E5 // PrimInternetAgent
+ ;
+ : Target WL 'ME_47752AF90375' '47750CE700D0.pas.ms.script' // afwFacade
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_4BB344EC010F 
+
+: ME_4BB3461902E1
+ CONST UID '4BB3461902E1'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_49EC746B01E5 // PrimInternetAgent
+ ;
+ : Target WL 'ME_47FB50E4008E' '48F747EC0073.pas.ms.script' // nsConst
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_4BB3461902E1 
+
+: ME_4BEBD04302D4
+ CONST UID '4BEBD04302D4'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_49EC746B01E5 // PrimInternetAgent
+ ;
+ : Target WL 'ME_490C47C70210' '48F747EC0073.pas.ms.script' // nsUtils
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_4BEBD04302D4 
+
+: ME_4CC91A0D03DB
+ CONST UID '4CC91A0D03DB'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_49EC746B01E5 // PrimInternetAgent
+ ;
+ : Target WL 'ME_491B32C1015D' '47F2170002B2.pas.ms.script' // TDocumentPositionType
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_4CC91A0D03DB 
+
+: ME_4F7B187F0332
+ CONST UID '4F7B187F0332'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_49EC746B01E5 // PrimInternetAgent
+ ;
+ : Target WL 'ME_4F7B037D01FF' '4F6B66140294.pas.ms.script' // nsSettingsConst
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_4F7B187F0332 
+
+: ME_4F9BB969005D
+ CONST UID '4F9BB969005D'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_49EC746B01E5 // PrimInternetAgent
+ ;
+ : Target WL 'ME_4F9BB17D03CD' '4F9BB1120134.pas.ms.script' // Questions
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_4F9BB969005D 
+
+: ME_545B47900355
+ CONST UID '545B47900355'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_49EC746B01E5 // PrimInternetAgent
+ ;
+ : Target WL 'ME_53BA488F00D8' '53A402C7010D.pas.ms.script' // nsTabbedInterfaceTypes
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_545B47900355 
+
+: ME_E4BA402B1BC1
+ CONST UID 'E4BA402B1BC1'
+ CONST IsSummoned true
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_49EC746B01E5 // PrimInternetAgent
+ ;
+ : Target WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_E4BA402B1BC1 
+
+: ME_5906F3F774F1
+ CONST UID '5906F3F774F1'
+ CONST IsSummoned true
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_49EC746B01E5 // PrimInternetAgent
+ ;
+ : Target WL 'ME_4E01D1E002AE' '4F9BDEEE01BC.pas.ms.script' // Tl3MessageID
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_5906F3F774F1 
+
+: ME_71858CE1D041
+ CONST UID '71858CE1D041'
+ CONST IsSummoned true
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_49EC746B01E5 // PrimInternetAgent
+ ;
+ : Target WL 'ME_561F9F9400BC' '561F9F7D02A7.pas.ms.script' // TtfwClassRef
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_71858CE1D041 
+
+: ME_494F89C30197_ME_49EC746B01E5
+ CONST UID '494F89C30197'
+ CONST Name 'Delete'
+ : Original WL 'ME_494F89C30197' '494F898C013E.pas.ms.script' // Delete
+ ;
+ : Implementor ME_49EC746B01E5 // PrimInternetAgent
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "AutoFocus" false
+ CONST "AutoLock" false
+ CONST "LongProcess" false
+ CONST "ShowInContextMenu" 'undefined'
+ CONST "ShowInToolbar" 'undefined'
+ CONST "UseNewGen" 'undefined'
+ CONST "has states" true
+ CONST "is FormActivate" false
+ CONST "is query" false
+ CONST "no prefix" false
+ref; // ME_494F89C30197_ME_49EC746B01E5 Delete
+
+: ME_4951284902BD_ME_49EC746B01E5
+ CONST UID '4951284902BD'
+ CONST Name 'Copy'
+ : Original WL 'ME_4951284902BD' '495127DD017C.pas.ms.script' // Copy
+ ;
+ : Implementor ME_49EC746B01E5 // PrimInternetAgent
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "AutoFocus" false
+ CONST "AutoLock" false
+ CONST "LongProcess" false
+ CONST "ShowInContextMenu" 'undefined'
+ CONST "ShowInToolbar" 'undefined'
+ CONST "UseNewGen" 'undefined'
+ CONST "has states" false
+ CONST "is FormActivate" false
+ CONST "is query" false
+ CONST "no prefix" false
+ref; // ME_4951284902BD_ME_49EC746B01E5 Copy
+
+: ME_4951285702E1_ME_49EC746B01E5
+ CONST UID '4951285702E1'
+ CONST Name 'Cut'
+ : Original WL 'ME_4951285702E1' '495127DD017C.pas.ms.script' // Cut
+ ;
+ : Implementor ME_49EC746B01E5 // PrimInternetAgent
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "AutoFocus" false
+ CONST "AutoLock" false
+ CONST "LongProcess" false
+ CONST "ShowInContextMenu" 'undefined'
+ CONST "ShowInToolbar" 'undefined'
+ CONST "UseNewGen" 'undefined'
+ CONST "has states" false
+ CONST "is FormActivate" false
+ CONST "is query" false
+ CONST "no prefix" false
+ref; // ME_4951285702E1_ME_49EC746B01E5 Cut
+
+: ME_49512B5D0009_ME_49EC746B01E5
+ CONST UID '49512B5D0009'
+ CONST Name 'FindContext'
+ : Original WL 'ME_49512B5D0009' '495127DD017C.pas.ms.script' // FindContext
+ ;
+ : Implementor ME_49EC746B01E5 // PrimInternetAgent
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "AutoFocus" false
+ CONST "AutoLock" false
+ CONST "LongProcess" false
+ CONST "ShowInContextMenu" 'undefined'
+ CONST "ShowInToolbar" 'undefined'
+ CONST "UseNewGen" 'undefined'
+ CONST "has states" false
+ CONST "is FormActivate" false
+ CONST "is query" false
+ CONST "no prefix" false
+ref; // ME_49512B5D0009_ME_49EC746B01E5 FindContext
+
+: ME_495130C40123_ME_49EC746B01E5
+ CONST UID '495130C40123'
+ CONST Name 'FindNext'
+ : Original WL 'ME_495130C40123' '495127DD017C.pas.ms.script' // FindNext
+ ;
+ : Implementor ME_49EC746B01E5 // PrimInternetAgent
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "AutoFocus" false
+ CONST "AutoLock" false
+ CONST "LongProcess" false
+ CONST "ShowInContextMenu" 'undefined'
+ CONST "ShowInToolbar" 'undefined'
+ CONST "UseNewGen" 'undefined'
+ CONST "has states" false
+ CONST "is FormActivate" false
+ CONST "is query" false
+ CONST "no prefix" false
+ref; // ME_495130C40123_ME_49EC746B01E5 FindNext
+
+: ME_49521D8E0295_ME_49EC746B01E5
+ CONST UID '49521D8E0295'
+ CONST Name 'Print'
+ : Original WL 'ME_49521D8E0295' '494F898C013E.pas.ms.script' // Print
+ ;
+ : Implementor ME_49EC746B01E5 // PrimInternetAgent
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "AutoFocus" false
+ CONST "AutoLock" false
+ CONST "LongProcess" false
+ CONST "ShowInContextMenu" 'undefined'
+ CONST "ShowInToolbar" 'undefined'
+ CONST "UseNewGen" 'undefined'
+ CONST "has states" false
+ CONST "is FormActivate" false
+ CONST "is query" false
+ CONST "no prefix" false
+ref; // ME_49521D8E0295_ME_49EC746B01E5 Print
+
+: ME_495220DE0298_ME_49EC746B01E5
+ CONST UID '495220DE0298'
+ CONST Name 'PrintDialog'
+ : Original WL 'ME_495220DE0298' '494F898C013E.pas.ms.script' // PrintDialog
+ ;
+ : Implementor ME_49EC746B01E5 // PrimInternetAgent
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "AutoFocus" false
+ CONST "AutoLock" false
+ CONST "LongProcess" false
+ CONST "ShowInContextMenu" 'undefined'
+ CONST "ShowInToolbar" 'undefined'
+ CONST "UseNewGen" 'undefined'
+ CONST "has states" false
+ CONST "is FormActivate" false
+ CONST "is query" false
+ CONST "no prefix" false
+ref; // ME_495220DE0298_ME_49EC746B01E5 PrintDialog
+
+: ME_495220F2033A_ME_49EC746B01E5
+ CONST UID '495220F2033A'
+ CONST Name 'PrintPreview'
+ : Original WL 'ME_495220F2033A' '494F898C013E.pas.ms.script' // PrintPreview
+ ;
+ : Implementor ME_49EC746B01E5 // PrimInternetAgent
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "AutoFocus" false
+ CONST "AutoLock" false
+ CONST "LongProcess" false
+ CONST "ShowInContextMenu" 'undefined'
+ CONST "ShowInToolbar" 'undefined'
+ CONST "UseNewGen" 'undefined'
+ CONST "has states" false
+ CONST "is FormActivate" false
+ CONST "is query" false
+ CONST "no prefix" false
+ref; // ME_495220F2033A_ME_49EC746B01E5 PrintPreview
+
+: ME_495235F401C0_ME_49EC746B01E5
+ CONST UID '495235F401C0'
+ CONST Name 'Save'
+ : Original WL 'ME_495235F401C0' '494F898C013E.pas.ms.script' // Save
+ ;
+ : Implementor ME_49EC746B01E5 // PrimInternetAgent
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "AutoFocus" false
+ CONST "AutoLock" false
+ CONST "LongProcess" false
+ CONST "ShowInContextMenu" 'undefined'
+ CONST "ShowInToolbar" 'undefined'
+ CONST "UseNewGen" 'undefined'
+ CONST "has states" false
+ CONST "is FormActivate" false
+ CONST "is query" false
+ CONST "no prefix" false
+ref; // ME_495235F401C0_ME_49EC746B01E5 Save
+
+: ME_49EDFA3701B0_ME_49EC746B01E5
+ CONST UID '49EDFA3701B0'
+ CONST Name 'Paste'
+ : Original WL 'ME_49EDFA3701B0' '495127DD017C.pas.ms.script' // Paste
+ ;
+ : Implementor ME_49EC746B01E5 // PrimInternetAgent
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "AutoFocus" false
+ CONST "AutoLock" false
+ CONST "LongProcess" false
+ CONST "ShowInContextMenu" 'undefined'
+ CONST "ShowInToolbar" 'undefined'
+ CONST "UseNewGen" 'undefined'
+ CONST "has states" false
+ CONST "is FormActivate" false
+ CONST "is query" false
+ CONST "no prefix" false
+ref; // ME_49EDFA3701B0_ME_49EC746B01E5 Paste
+
+: ME_49EDFCA2006D_ME_49EC746B01E5
+ CONST UID '49EDFCA2006D'
+ CONST Name 'Undo'
+ : Original WL 'ME_49EDFCA2006D' '495127DD017C.pas.ms.script' // Undo
+ ;
+ : Implementor ME_49EC746B01E5 // PrimInternetAgent
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "AutoFocus" false
+ CONST "AutoLock" false
+ CONST "LongProcess" false
+ CONST "ShowInContextMenu" 'undefined'
+ CONST "ShowInToolbar" 'undefined'
+ CONST "UseNewGen" 'undefined'
+ CONST "has states" false
+ CONST "is FormActivate" false
+ CONST "is query" false
+ CONST "no prefix" false
+ref; // ME_49EDFCA2006D_ME_49EC746B01E5 Undo
+
+: ME_49EDFCB100BC_ME_49EC746B01E5
+ CONST UID '49EDFCB100BC'
+ CONST Name 'Redo'
+ : Original WL 'ME_49EDFCB100BC' '495127DD017C.pas.ms.script' // Redo
+ ;
+ : Implementor ME_49EC746B01E5 // PrimInternetAgent
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "AutoFocus" false
+ CONST "AutoLock" false
+ CONST "LongProcess" false
+ CONST "ShowInContextMenu" 'undefined'
+ CONST "ShowInToolbar" 'undefined'
+ CONST "UseNewGen" 'undefined'
+ CONST "has states" false
+ CONST "is FormActivate" false
+ CONST "is query" false
+ CONST "no prefix" false
+ref; // ME_49EDFCB100BC_ME_49EC746B01E5 Redo
+
+: ME_49EE01AA02BE_ME_49EC746B01E5
+ CONST UID '49EE01AA02BE'
+ CONST Name 'SelectAll'
+ : Original WL 'ME_49EE01AA02BE' '495127DD017C.pas.ms.script' // SelectAll
+ ;
+ : Implementor ME_49EC746B01E5 // PrimInternetAgent
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "AutoFocus" false
+ CONST "AutoLock" false
+ CONST "LongProcess" false
+ CONST "ShowInContextMenu" 'undefined'
+ CONST "ShowInToolbar" 'undefined'
+ CONST "UseNewGen" 'undefined'
+ CONST "has states" false
+ CONST "is FormActivate" false
+ CONST "is query" false
+ CONST "no prefix" false
+ref; // ME_49EE01AA02BE_ME_49EC746B01E5 SelectAll
+
+: ME_49EE01BC022E_ME_49EC746B01E5
+ CONST UID '49EE01BC022E'
+ CONST Name 'Deselect'
+ : Original WL 'ME_49EE01BC022E' '495127DD017C.pas.ms.script' // Deselect
+ ;
+ : Implementor ME_49EC746B01E5 // PrimInternetAgent
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "AutoFocus" false
+ CONST "AutoLock" false
+ CONST "LongProcess" false
+ CONST "ShowInContextMenu" 'undefined'
+ CONST "ShowInToolbar" 'undefined'
+ CONST "UseNewGen" 'undefined'
+ CONST "has states" false
+ CONST "is FormActivate" false
+ CONST "is query" false
+ CONST "no prefix" false
+ref; // ME_49EE01BC022E_ME_49EC746B01E5 Deselect
+
+: ME_49FEDE4703B8_ME_49EC746B01E5
+ CONST UID '49FEDE4703B8'
+ CONST Name 'FindPrev'
+ : Original WL 'ME_49FEDE4703B8' '495127DD017C.pas.ms.script' // FindPrev
+ ;
+ : Implementor ME_49EC746B01E5 // PrimInternetAgent
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "AutoFocus" false
+ CONST "AutoLock" false
+ CONST "LongProcess" false
+ CONST "ShowInContextMenu" 'undefined'
+ CONST "ShowInToolbar" 'undefined'
+ CONST "UseNewGen" 'undefined'
+ CONST "has states" false
+ CONST "is FormActivate" false
+ CONST "is query" false
+ CONST "no prefix" false
+ref; // ME_49FEDE4703B8_ME_49EC746B01E5 FindPrev
+
+: ME_4BB32C1401C0_ME_49EC746B01E5
+ CONST UID '4BB32C1401C0'
+ CONST Name 'ChangeScale'
+ : Original WL 'ME_4BB32C1401C0' '5278E45101D3.pas.ms.script' // ChangeScale
+ ;
+ : Implementor ME_49EC746B01E5 // PrimInternetAgent
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "AutoFocus" false
+ CONST "AutoLock" false
+ CONST "LongProcess" false
+ CONST "Needs Broadcast" false
+ CONST "UseNewGen" 'undefined'
+ CONST "has states" false
+ CONST "is FormActivate" false
+ CONST "is query" true
+ CONST "no prefix" false
+ref; // ME_4BB32C1401C0_ME_49EC746B01E5 ChangeScale
+
+: ME_4BB366A901D7_ME_49EC746B01E5
+ CONST UID '4BB366A901D7'
+ CONST Name 'CanChangeScale'
+ : Original WL 'ME_4BB366A901D7' '5278E45101D3.pas.ms.script' // CanChangeScale
+ ;
+ : Implementor ME_49EC746B01E5 // PrimInternetAgent
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "AutoFocus" false
+ CONST "AutoLock" false
+ CONST "LongProcess" false
+ CONST "Needs Broadcast" false
+ CONST "UseNewGen" 'undefined'
+ CONST "has states" false
+ CONST "is FormActivate" false
+ CONST "is query" true
+ CONST "no prefix" false
+ref; // ME_4BB366A901D7_ME_49EC746B01E5 CanChangeScale
+
+: ME_4C7D0C7B0185_ME_49EC746B01E5
+ CONST UID '4C7D0C7B0185'
+ CONST Name 'Copy'
+ : Original WL 'ME_4C7D0C7B0185' '495127DD017C.pas.ms.script' // Copy
+ ;
+ : Implementor ME_49EC746B01E5 // PrimInternetAgent
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "AutoFocus" false
+ CONST "AutoLock" false
+ CONST "LongProcess" false
+ CONST "ShowInContextMenu" 'undefined'
+ CONST "ShowInToolbar" 'undefined'
+ CONST "UseNewGen" 'undefined'
+ CONST "has states" true
+ CONST "is FormActivate" false
+ CONST "is query" false
+ CONST "no prefix" false
+ref; // ME_4C7D0C7B0185_ME_49EC746B01E5 Copy
+
+: ME_4C7D0CC90052_ME_49EC746B01E5
+ CONST UID '4C7D0CC90052'
+ CONST Name 'Delete'
+ : Original WL 'ME_4C7D0CC90052' '494F898C013E.pas.ms.script' // Delete
+ ;
+ : Implementor ME_49EC746B01E5 // PrimInternetAgent
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "AutoFocus" false
+ CONST "AutoLock" false
+ CONST "LongProcess" false
+ CONST "ShowInContextMenu" 'undefined'
+ CONST "ShowInToolbar" 'undefined'
+ CONST "UseNewGen" 'undefined'
+ CONST "has states" true
+ CONST "is FormActivate" false
+ CONST "is query" false
+ CONST "no prefix" false
+ref; // ME_4C7D0CC90052_ME_49EC746B01E5 Delete
+
+: ME_479731C50290_ME_49EC746B01E5
+ CONST UID '479731C50290'
+ CONST Name 'Cleanup'
+ : Original WL 'ME_479731C50290' '51612EBB02F5.pas.ms.script' // Cleanup
+ ;
+ : Implementor ME_49EC746B01E5 // PrimInternetAgent
+ ;
+ CONST OpKind opkind_Overridden
+ CONST "UseNewGen" 'undefined'
+ref; // ME_479731C50290_ME_49EC746B01E5 Cleanup
+
+: ME_497469C90140_ME_49EC746B01E5
+ CONST UID '497469C90140'
+ CONST Name 'NotifyDataSourceChanged'
+ : Original WL 'ME_497469C90140' '5000041101C8.pas.ms.script' // NotifyDataSourceChanged
+ ;
+ : Implementor ME_49EC746B01E5 // PrimInternetAgent
+ ;
+ CONST OpKind opkind_Overridden
+ CONST "UseNewGen" 'undefined'
+ref; // ME_497469C90140_ME_49EC746B01E5 NotifyDataSourceChanged
+
+: ME_49803F5503AA_ME_49EC746B01E5
+ CONST UID '49803F5503AA'
+ CONST Name 'DoInit'
+ : Original WL 'ME_49803F5503AA' '4AADF9450143.pas.ms.script' // DoInit
+ ;
+ : Implementor ME_49EC746B01E5 // PrimInternetAgent
+ ;
+ CONST OpKind opkind_Overridden
+ CONST "UseNewGen" 'undefined'
+ref; // ME_49803F5503AA_ME_49EC746B01E5 DoInit
+
+: ME_49806ED503D5_ME_49EC746B01E5
+ CONST UID '49806ED503D5'
+ CONST Name 'DoSaveState'
+ : Original WL 'ME_49806ED503D5' '4AADF9450143.pas.ms.script' // DoSaveState
+ ;
+ : Implementor ME_49EC746B01E5 // PrimInternetAgent
+ ;
+ CONST OpKind opkind_Overridden
+ CONST "UseNewGen" 'undefined'
+ref; // ME_49806ED503D5_ME_49EC746B01E5 DoSaveState
+
+: ME_49807428008C_ME_49EC746B01E5
+ CONST UID '49807428008C'
+ CONST Name 'DoLoadState'
+ : Original WL 'ME_49807428008C' '4AADF9450143.pas.ms.script' // DoLoadState
+ ;
+ : Implementor ME_49EC746B01E5 // PrimInternetAgent
+ ;
+ CONST OpKind opkind_Overridden
+ CONST "UseNewGen" 'undefined'
+ref; // ME_49807428008C_ME_49EC746B01E5 DoLoadState
+
+: ME_543E3AA801D0_ME_49EC746B01E5
+ CONST UID '543E3AA801D0'
+ CONST Name 'DoGetTabImageIndex'
+ : Original WL 'ME_543E3AA801D0' '533D53FF00C2.pas.ms.script' // DoGetTabImageIndex
+ ;
+ : Implementor ME_49EC746B01E5 // PrimInternetAgent
+ ;
+ CONST OpKind opkind_Overridden
+ CONST "UseNewGen" 'undefined'
+ref; // ME_543E3AA801D0_ME_49EC746B01E5 DoGetTabImageIndex
+
+: ME_49EC746B01E5
+ CONST UID '49EC746B01E5'
+ CONST Name 'PrimInternetAgent'
+ CONST Class class_Class
+ : Stereotype st_VCMForm ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Базаовая форма для [Интернет-агента|$124453728]' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_49EC7167004C // InternetAgent
+ ;
+ : Inherits
+   Seq: ( WL 'ME_49525B34022A' '4AADF9450143.pas.ms.script' // TvcmEntityForm
+ )
+ ; // Inherits
+ : Implements
+   Seq: ( WL 'ME_494F89AA0017' '494F898C013E.pas.ms.script' // Edit
+ WL 'ME_4951282D0269' '495127DD017C.pas.ms.script' // Edit
+ WL 'ME_49521D8203A0' '494F898C013E.pas.ms.script' // File
+ WL 'ME_4BB32B8400B0' '5278E45101D3.pas.ms.script' // Scalable
+ WL 'ME_543E3A600253' '533D53FF00C2.pas.ms.script' // vcmChromeLikeTabIconUpdater
+ )
+ ; // Implements
+ : Attributes
+   Seq: ( ME_49EC9D2702BA // f_Browser
+ ME_49EDA2390109 // f_InInit
+ ME_49EDDF7C01C0 // f_URL
+ ME_49EDE8EA0384 // 
+ ME_49EDED8D0305 // f_CanBack
+ ME_49EDED9503D0 // f_CanForward
+ ME_4A11644A00DF // f_NavigateErrorPass
+ ME_4A11647D0225 // f_NavigateErrorCode
+ )
+ ; // Attributes
+ : Operations
+   Seq: ( ME_49ED882F0024 // BeforeNavigate
+ ME_49ED8A6F01AE // TitleChange
+ ME_49ED8AA0026E // NavigateComplete
+ ME_49EDE0FF002C // Navigate
+ ME_49EDEDCE0015 // CommandStateChange
+ ME_4A1133EF0284 // NavigateError
+ ME_5175422C03AF // BeforeNavigateXE
+ ME_517544400331 // NavigateCompleteXE
+ ME_517544E2036E // NavigateErrorXE
+ ME_5411790D0297 // MakeBrowser
+ ME_A8D6F8D5B972 // Init_Str_utInternetAgentCaption
+ ME_296C48FB2B90 // Ini_Reg_Class
+ )
+ ; // Operations
+ : Implemented
+   Seq: ( ME_494F89C30197_ME_49EC746B01E5 // Delete
+ ME_4951284902BD_ME_49EC746B01E5 // Copy
+ ME_4951285702E1_ME_49EC746B01E5 // Cut
+ ME_49512B5D0009_ME_49EC746B01E5 // FindContext
+ ME_495130C40123_ME_49EC746B01E5 // FindNext
+ ME_49521D8E0295_ME_49EC746B01E5 // Print
+ ME_495220DE0298_ME_49EC746B01E5 // PrintDialog
+ ME_495220F2033A_ME_49EC746B01E5 // PrintPreview
+ ME_495235F401C0_ME_49EC746B01E5 // Save
+ ME_49EDFA3701B0_ME_49EC746B01E5 // Paste
+ ME_49EDFCA2006D_ME_49EC746B01E5 // Undo
+ ME_49EDFCB100BC_ME_49EC746B01E5 // Redo
+ ME_49EE01AA02BE_ME_49EC746B01E5 // SelectAll
+ ME_49EE01BC022E_ME_49EC746B01E5 // Deselect
+ ME_49FEDE4703B8_ME_49EC746B01E5 // FindPrev
+ ME_4BB32C1401C0_ME_49EC746B01E5 // ChangeScale
+ ME_4BB366A901D7_ME_49EC746B01E5 // CanChangeScale
+ ME_4C7D0C7B0185_ME_49EC746B01E5 // Copy
+ ME_4C7D0CC90052_ME_49EC746B01E5 // Delete
+ )
+ ; // Implemented
+ : Overridden
+   Seq: ( ME_479731C50290_ME_49EC746B01E5 // Cleanup
+ ME_497469C90140_ME_49EC746B01E5 // NotifyDataSourceChanged
+ ME_49803F5503AA_ME_49EC746B01E5 // DoInit
+ ME_49806ED503D5_ME_49EC746B01E5 // DoSaveState
+ ME_49807428008C_ME_49EC746B01E5 // DoLoadState
+ ME_543E3AA801D0_ME_49EC746B01E5 // DoGetTabImageIndex
+ )
+ ; // Overridden
+ : Children
+   Seq: ( ME_49EDAA740295 // TnsInternetAgentState
+ ME_4C6274C701D2 // utInternetAgent
+ )
+ ; // Children
+ : Constants
+   Seq: ( ME_4BB345E00184 // Settings IDs
+ ME_3EE49A0FE376 // utInternetAgentLocalConstants
+ ME_E4396FDEB3F5 // LCImplutInternetAgentLocalConstants
+ )
+ ; // Constants
+ : Dependencies
+   Seq: ( ME_49EC9D5A00ED // 
+ ME_49ECA57202DD // 
+ ME_49EDB73B014A // 
+ ME_49EDCE2A015C // 
+ ME_4A04301A0036 // 
+ ME_4A04306E0109 // 
+ ME_4A04308801B6 // 
+ ME_4BB344EC010F // 
+ ME_4BB3461902E1 // 
+ ME_4BEBD04302D4 // 
+ ME_4CC91A0D03DB // 
+ ME_4F7B187F0332 // 
+ ME_4F9BB969005D // 
+ ME_545B47900355 // 
+ ME_E4BA402B1BC1 // 
+ ME_5906F3F774F1 // 
+ ME_71858CE1D041 // 
+ )
+ ; // Dependencies
+ CONST "NeedsHackRef" true
+ CONST "UseNewGen" 'undefined'
+ CONST "ZoneType" 'Any'
+ CONST "base wnd class" 'CWnd'
+ CONST "finished dfm" true
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ CONST "resizeable" false
+ CONST "restrict form def" 'undefined'
+ : Generators
+ Seq: (
+ gen_intf.pas
+ )
+ ; // Generators
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View\InternetAgent\Forms'
+ CONST intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\InternetAgent\Forms\PrimInternetAgent_Form.pas'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View\InternetAgent\Forms'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\View\InternetAgent'
+ CONST extprop:pas:TypeName 'TPrimInternetAgentForm'
+ CONST extprop:pas:UnitName 'PrimInternetAgent_Form'
+
+ref; // ME_49EC746B01E5 PrimInternetAgent
+
+FORWARD ME_49EC739C0100
+
+FORWARD ME_49EC74D002B8
+
+FORWARD ME_36BF14AE3334
+
+FORWARD ME_C5740E932C6C
+
+: ME_CA5DB54AC6B9
+ CONST UID 'CA5DB54AC6B9'
+ CONST Name 'fm_InternetAgentForm'
+ CONST IsSummoned true
+ CONST Class class_Attribute
+ %SUMMARY 'Идентификатор формы TInternetAgentForm' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_C5740E932C6C // InternetAgent$FIDs
+ ;
+ : Target WL 'ME_4FFC30A800DF' '4683F37902CF.pas.ms.script' // TvcmFormDescriptor
+ ;
+ CONST Value '(rFormID : (rName : ''InternetAgentForm''; rID : 0); rFactory : nil)'
+ : ValueType WL 'ME_4FFC30A800DF' '4683F37902CF.pas.ms.script' // TvcmFormDescriptor
+ ;
+ CONST "AutoInc" false
+ CONST "UseNewGen" 'undefined'
+ CONST "forced type" 'none'
+ CONST "is define" false
+ CONST extprop:pas:Value '(rFormID : (rName : ''InternetAgentForm''; rID : 0); rFactory : nil)'
+
+ref; // ME_CA5DB54AC6B9 fm_InternetAgentForm
+
+: ME_C5740E932C6C
+ CONST UID 'C5740E932C6C'
+ CONST Name 'InternetAgent'
+ CONST IsSummoned true
+ CONST Class class_Class
+ : Stereotype st_Constants ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_36BF14AE3334 // InternetAgent$F$Def
+ ;
+ : Attributes
+   Seq: ( ME_CA5DB54AC6B9 // fm_InternetAgentForm
+ )
+ ; // Attributes
+ CONST "UseNewGen" 'undefined'
+ CONST "spell names" false
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View\InternetAgent\Forms'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View\InternetAgent\Forms'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\View\InternetAgent'
+
+ref; // ME_C5740E932C6C InternetAgent$FIDs
+
+: ME_36BF14AE3334
+ CONST UID '36BF14AE3334'
+ CONST GUID '4953CF3C-7760-41BE-BBC7-7CA06BAE484D'
+ CONST Name 'InternetAgent'
+ CONST IsSummoned true
+ CONST Class class_Class
+ : Stereotype st_VCMFormDefinition ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Идентификатор формы InternetAgent$F' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_49EC74D002B8 // InternetAgent$F
+ ;
+ : Constants
+   Seq: ( ME_C5740E932C6C // InternetAgent$FIDs
+ )
+ ; // Constants
+ CONST "UseNewGen" 'undefined'
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View\InternetAgent\Forms'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View\InternetAgent\Forms'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\View\InternetAgent'
+ CONST extprop:pas:TypeName 'InternetAgentFormDef'
+
+ref; // ME_36BF14AE3334 InternetAgent$F$Def
+
+: ME_6B2A80D2DD09
+ CONST UID '6B2A80D2DD09'
+ CONST Name 'Ini_Reg_Class'
+ CONST IsSummoned true
+ CONST Class class_Operation
+ : Stereotype st_ini::Operation ;
+ %SUMMARY 'Регистрация InternetAgent$F' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_49EC74D002B8 // InternetAgent$F
+ ;
+ CONST "UseNewGen" 'undefined'
+ CONST "ifndef" 'NoScripts'
+
+ref; // ME_6B2A80D2DD09 Ini_Reg_Class
+
+: ME_E08A7820A450
+ CONST UID 'E08A7820A450'
+ CONST Name 'Ini_FormFactory_InternetAgent'
+ CONST IsSummoned true
+ CONST Class class_Operation
+ : Stereotype st_ini::Operation ;
+ %SUMMARY 'Регистрация фабрики формы InternetAgent$F' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_49EC74D002B8 // InternetAgent$F
+ ;
+ CONST "UseNewGen" 'undefined'
+ : SpelledFor ME_49EC74D002B8 // InternetAgent$F
+ ;
+
+ref; // ME_E08A7820A450 Ini_FormFactory_InternetAgent$F$Def
+
+: ME_0A227548E081
+ CONST UID '0A227548E081'
+ CONST IsSummoned true
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_49EC74D002B8 // InternetAgent$F
+ ;
+ : Target WL 'ME_561F9F9400BC' '561F9F7D02A7.pas.ms.script' // TtfwClassRef
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_0A227548E081 
+
+FORWARD ME_2FF07503D0DF
+
+: ME_49EC74D002B8
+ CONST UID '49EC74D002B8'
+ CONST Name 'InternetAgent'
+ CONST Class class_Class
+ : Stereotype st_VCMFinalForm ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Новости онлайн' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_49EC739C0100 // PrimInternetAgent$FP
+ ;
+ : Inherits
+   Seq: ( ME_49EC746B01E5 // PrimInternetAgent
+ )
+ ; // Inherits
+ : Implements
+   Seq: ( ME_36BF14AE3334 // InternetAgent$F$Def
+ )
+ ; // Implements
+ : Operations
+   Seq: ( ME_6B2A80D2DD09 // Ini_Reg_Class
+ ME_E08A7820A450 // Ini_FormFactory_InternetAgent$F$Def
+ )
+ ; // Operations
+ : Children
+   Seq: ( ME_36BF14AE3334 // InternetAgent$F$Def
+ )
+ ; // Children
+ : Dependencies
+   Seq: ( ME_0A227548E081 // 
+ )
+ ; // Dependencies
+ : Injected
+   Seq: ( ME_2FF07503D0DF // 
+ )
+ ; // Injected
+ CONST "NeedsHackRef" true
+ CONST "UseNewGen" 'undefined'
+ CONST "ZoneType" 'Any'
+ CONST "base wnd class" 'CWnd'
+ CONST "finished dfm" true
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ CONST "resizeable" false
+ CONST "restrict form def" 'undefined'
+ : Generators
+ Seq: (
+ gen_dfm
+ gen_intf.pas
+ )
+ ; // Generators
+ CONST dfm:Path 'garant6x\implementation\Garant\GbaNemesis\View\InternetAgent\Forms\InternetAgent_Form.dfm'
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View\InternetAgent\Forms'
+ CONST intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\InternetAgent\Forms\InternetAgent_Form.pas'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View\InternetAgent\Forms'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\View\InternetAgent'
+ CONST extprop:pas:TypeName 'TInternetAgentForm'
+ CONST extprop:pas:UnitName 'InternetAgent_Form'
+
+ref; // ME_49EC74D002B8 InternetAgent$F
+
+FORWARD ME_49F586610347
+
+FORWARD ME_49F5A832015F
+
+: ME_B64252B538A1
+ CONST UID 'B64252B538A1'
+ CONST IsSummoned true
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_49F5A832015F // InternetAgent
+ ;
+ : Target ME_36BF14AE3334 // InternetAgent$F$Def
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_B64252B538A1 
+
+: ME_49EDE45A02EB_ME_49F5A832015F
+ CONST UID '49EDE45A02EB'
+ CONST Name 'URL'
+ : Original WL 'ME_49EDE45A02EB' '49EC6D9000EE.pas.ms.script' // URL
+ ;
+ : Implementor ME_49F5A832015F // InternetAgent
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "UseNewGen" 'undefined'
+ CONST "pm" false
+ref; // ME_49EDE45A02EB_ME_49F5A832015F URL
+
+: ME_49F5A832015F
+ CONST UID '49F5A832015F'
+ CONST Name 'InternetAgent'
+ CONST Class class_Class
+ : Stereotype st_VCMZone ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_49F586610347 // InternetAgent
+ ;
+ : Inherits
+   Seq: ( ME_49EC74D002B8 // InternetAgent$F
+ )
+ ; // Inherits
+ : Implements
+   Seq: ( WL 'ME_4A37A70E01DE' '49EC6D9000EE.pas.ms.script' // MainViewArea
+ )
+ ; // Implements
+ : Implemented
+   Seq: ( ME_49EDE45A02EB_ME_49F5A832015F // URL
+ )
+ ; // Implemented
+ : Dependencies
+   Seq: ( ME_B64252B538A1 // 
+ )
+ ; // Dependencies
+ CONST "ActivateIfUpdate" 'None'
+ CONST "Need GetFormCount" false
+ CONST "Need OnFormWeight" 'undefined'
+ CONST "Need UC" 'undefined'
+ CONST "UseNewGen" 'undefined'
+ CONST "ZoneType" 'Parent'
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View\InternetAgent'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View\InternetAgent'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\View\InternetAgent'
+
+ref; // ME_49F5A832015F InternetAgent
+
+FORWARD ME_48016EEB0A62
+
+: ME_61EB5ECACE81
+ CONST UID '61EB5ECACE81'
+ CONST Name 'fsInternetAgentCaption'
+ CONST IsSummoned true
+ CONST Class class_Attribute
+ %SUMMARY 'Заголовок фабрики сборки форм "InternetAgent"' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_48016EEB0A62 // InternetAgentCaptionLocalConstants
+ ;
+ CONST Value '''Интернет-агент'''
+ CONST "AutoInc" false
+ CONST "UseNewGen" 'undefined'
+ CONST "forced type" 'none'
+ CONST "is define" false
+ CONST extprop:pas:Value '''Интернет-агент'''
+
+ref; // ME_61EB5ECACE81 fsInternetAgentCaption
+
+: ME_48016EEB0A62
+ CONST UID '48016EEB0A62'
+ CONST Name 'InternetAgentCaptionLocalConstants'
+ CONST IsSummoned true
+ CONST Class class_Class
+ : Stereotype st_LocalConst ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Локализуемые константы для фабрики сборки форм InternetAgent' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_49F586610347 // InternetAgent
+ ;
+ : Attributes
+   Seq: ( ME_61EB5ECACE81 // fsInternetAgentCaption
+ )
+ ; // Attributes
+ CONST "Need map interface" false
+ CONST "Need mapping support" false
+ CONST "UseNewGen" 'undefined'
+ CONST "spell names" false
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View\InternetAgent'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View\InternetAgent'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\View\InternetAgent'
+
+ref; // ME_48016EEB0A62 InternetAgentCaptionLocalConstants
+
+FORWARD ME_6F9AAA691B0A
+
+: ME_51F943ABD682
+ CONST UID '51F943ABD682'
+ CONST Name 'fsInternetAgentCaption'
+ CONST IsSummoned true
+ CONST Class class_Attribute
+ %SUMMARY 'Заголовок фабрики сборки форм "InternetAgent"' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_6F9AAA691B0A // LCImplInternetAgentCaptionLocalConstants
+ ;
+ : Target WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
+ ;
+ CONST Value '(rS : -1; rLocalized : false; rKey : ''fsInternetAgentCaption''; rValue : ''Интернет-агент'')'
+ : ValueType WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
+ ;
+ CONST "AutoInc" false
+ CONST "UseNewGen" 'undefined'
+ CONST "forced type" 'none'
+ CONST "is define" false
+ CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''fsInternetAgentCaption''; rValue : ''Интернет-агент'')'
+
+ref; // ME_51F943ABD682 fsInternetAgentCaption
+
+: ME_6F9AAA691B0A
+ CONST UID '6F9AAA691B0A'
+ CONST Name 'LCImplInternetAgentCaptionLocalConstants'
+ CONST IsSummoned true
+ CONST Class class_Class
+ : Stereotype st_Constants ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Локализуемые строки InternetAgentCaptionLocalConstants' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ : Parent ME_49F586610347 // InternetAgent
+ ;
+ : Attributes
+   Seq: ( ME_51F943ABD682 // fsInternetAgentCaption
+ )
+ ; // Attributes
+ CONST "UseNewGen" 'undefined'
+ CONST "elements prefix" 'str'
+ CONST "spell names" false
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View\InternetAgent'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View\InternetAgent'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\View\InternetAgent'
+ CONST extprop:pas:ElementPrefixBase 'str'
+ CONST extprop:pas:ElementPrefix 'str_'
+
+ref; // ME_6F9AAA691B0A LCImplInternetAgentCaptionLocalConstants
+
+FORWARD ME_4C922F4CC339
+
+: ME_34C844CCE591
+ CONST UID '34C844CCE591'
+ CONST Name 'aDataSource'
+ CONST IsSummoned true
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_47F252870299' '4683F37902CF.pas.ms.script' // IvcmFormSetDataSource
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_34C844CCE591 aDataSource
+
+: ME_83EFD5C5B72A
+ CONST UID '83EFD5C5B72A'
+ CONST Name 'aNew'
+ CONST IsSummoned true
+ CONST Class class_Parameter
+ : Stereotype st_out ;
+ : Target WL 'ME_47EB900B0216' '4683F37902CF.pas.ms.script' // IvcmFormDataSource
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_83EFD5C5B72A aNew
+
+: ME_A1D6E0F28651
+ CONST UID 'A1D6E0F28651'
+ CONST Name 'aSubUserType'
+ CONST IsSummoned true
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_47F2534B010F' '499EAAE502A8.pas.ms.script' // TvcmUserType
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_A1D6E0F28651 aSubUserType
+
+: ME_E1F80FE28AD6
+ CONST UID 'E1F80FE28AD6'
+ CONST Name 'DoIt'
+ CONST IsSummoned true
+ CONST Class class_Operation
+ %SUMMARY 'данные необходимые для создания формы' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_4C922F4CC339 // InternetAgent_Parent_NeedMakeForm
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+ : Parameters
+   Seq: ( ME_34C844CCE591 // aDataSource
+ ME_83EFD5C5B72A // aNew
+ ME_A1D6E0F28651 // aSubUserType
+ )
+ ; // Parameters
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_E1F80FE28AD6 DoIt
+
+: ME_4C922F4CC339
+ CONST UID '4C922F4CC339'
+ CONST Name 'InternetAgent_Parent_NeedMakeForm'
+ CONST IsSummoned true
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Обработчик OnNeedMakeForm для InternetAgent' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_49F586610347 // InternetAgent
+ ;
+ : Inherits
+   Seq: ( WL 'ME_50096E800075' '47B9727603BE.pas.ms.script' // TvcmNeedMakeFormEvent
+ )
+ ; // Inherits
+ : Operations
+   Seq: ( ME_E1F80FE28AD6 // DoIt
+ )
+ ; // Operations
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_4C922F4CC339 InternetAgent_Parent_NeedMakeForm
+
+: ME_420A44BD55FD
+ CONST UID '420A44BD55FD'
+ CONST Name 'Exists'
+ CONST IsSummoned true
+ CONST Class class_Operation
+ : Stereotype st_static::Operation ;
+ %SUMMARY 'Проверяет создан экземпляр синглетона или нет' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_49F586610347 // InternetAgent
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+ CONST "UseNewGen" 'undefined'
+ CONST extprop:pas:Value false
+
+ref; // ME_420A44BD55FD Exists
+
+: ME_568D9D6C363D
+ CONST UID '568D9D6C363D'
+ CONST Name 'Init_Str_fsInternetAgentCaption'
+ CONST IsSummoned true
+ CONST Class class_Operation
+ : Stereotype st_ini::Operation ;
+ %SUMMARY 'Инициализация str_fsInternetAgentCaption' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_49F586610347 // InternetAgent
+ ;
+ CONST "UseNewGen" 'undefined'
+ : Speller ME_61EB5ECACE81 // fsInternetAgentCaption
+ ;
+ : SpelledFor ME_51F943ABD682 // fsInternetAgentCaption
+ ;
+
+ref; // ME_568D9D6C363D Init_Str_fsInternetAgentCaption
+
+: ME_144B04BE200E
+ CONST UID '144B04BE200E'
+ CONST IsSummoned true
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_49F586610347 // InternetAgent
+ ;
+ : Target WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_144B04BE200E 
+
+: ME_CFD28B5CBE4C
+ CONST UID 'CFD28B5CBE4C'
+ CONST IsSummoned true
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_49F586610347 // InternetAgent
+ ;
+ : Target WL 'ME_4E01D1E002AE' '4F9BDEEE01BC.pas.ms.script' // Tl3MessageID
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_CFD28B5CBE4C 
+
+: ME_47A042E100E2_ME_49F586610347
+ CONST UID '47A042E100E2'
+ CONST Name 'InitFields'
+ : Original WL 'ME_47A042E100E2' '47913B47006E.pas.ms.script' // InitFields
+ ;
+ : Implementor ME_49F586610347 // InternetAgent
+ ;
+ CONST OpKind opkind_Overridden
+ CONST "UseNewGen" 'undefined'
+ref; // ME_47A042E100E2_ME_49F586610347 InitFields
+
+: ME_4FFE854A009B_ME_49F586610347
+ CONST UID '4FFE854A009B'
+ CONST Name 'GetInstance'
+ : Original WL 'ME_4FFE854A009B' '47B9727603BE.pas.ms.script' // GetInstance
+ ;
+ : Implementor ME_49F586610347 // InternetAgent
+ ;
+ CONST OpKind opkind_Overridden
+ CONST "UseNewGen" 'undefined'
+ CONST "is static" true
+ref; // ME_4FFE854A009B_ME_49F586610347 GetInstance
+
+: ME_49F586610347
+ CONST UID '49F586610347'
+ CONST Name 'InternetAgent'
+ CONST Class class_Class
+ : Stereotype st_VCMFormSetFactory ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Сборка форм для прецедента Интернет-агент' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_49EC739C0100 // PrimInternetAgent$FP
+ ;
+ : Inherits
+   Seq: ( WL 'ME_47B97312006D' '47B9727603BE.pas.ms.script' // TvcmFormSetFactory
+ )
+ ; // Inherits
+ : Operations
+   Seq: ( ME_4C922F4CC339 // InternetAgent_Parent_NeedMakeForm
+ ME_420A44BD55FD // Exists
+ ME_568D9D6C363D // Init_Str_fsInternetAgentCaption
+ )
+ ; // Operations
+ : Overridden
+   Seq: ( ME_47A042E100E2_ME_49F586610347 // InitFields
+ ME_4FFE854A009B_ME_49F586610347 // GetInstance
+ )
+ ; // Overridden
+ : Children
+   Seq: ( ME_49F5A832015F // InternetAgent
+ )
+ ; // Children
+ : Constants
+   Seq: ( ME_48016EEB0A62 // InternetAgentCaptionLocalConstants
+ ME_6F9AAA691B0A // LCImplInternetAgentCaptionLocalConstants
+ )
+ ; // Constants
+ : Dependencies
+   Seq: ( ME_144B04BE200E // 
+ ME_CFD28B5CBE4C // 
+ )
+ ; // Dependencies
+ CONST "Caption" 'Интернет-агент'
+ CONST "DefaultStatusForm" '-1'
+ CONST "Need GetMainCaption" false
+ CONST "Need GetMainImageIndex" false
+ CONST "UseNewGen" 'undefined'
+ CONST "author" 'Люлин А.В.'
+ CONST "finished dfm" true
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" true
+ CONST "register in scripts" 'undefined'
+ CONST "singleton" true
+ CONST "started" '27.04.2009 14:19'
+ : Generators
+ Seq: (
+ gen_intf.pas
+ )
+ ; // Generators
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View\InternetAgent'
+ CONST intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\InternetAgent\fsInternetAgent.pas'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View\InternetAgent'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\View\InternetAgent'
+ CONST extprop:pas:TypeName 'Tfs_InternetAgent'
+ CONST extprop:pas:UnitName 'fsInternetAgent'
+
+ref; // ME_49F586610347 InternetAgent
+
+FORWARD ME_4B14DF1F0101
+
+: ME_4B14DF4201A3
+ CONST UID '4B14DF4201A3'
+ CONST Name 'Log'
+ CONST Class class_Operation
+ : Stereotype st_static::Operation ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_4B14DF1F0101 // TnsOpenInternetAgentEvent
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_4B14DF4201A3 Log
+
+: ME_4B14DF7401B1
+ CONST UID '4B14DF7401B1'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4B14DF1F0101 // TnsOpenInternetAgentEvent
+ ;
+ : Target WL 'ME_45ED58FF0201' '45ED58CF03E6.pas.ms.script' // LogEvent
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_4B14DF7401B1 
+
+: ME_4B14DF1F0101
+ CONST UID '4B14DF1F0101'
+ CONST Name 'TnsOpenInternetAgentEvent'
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_49EC739C0100 // PrimInternetAgent$FP
+ ;
+ : Inherits
+   Seq: ( WL 'ME_4B0A6109010C' '4B0A60DF01F2.pas.ms.script' // TnsLogEvent
+ )
+ ; // Inherits
+ : Operations
+   Seq: ( ME_4B14DF4201A3 // Log
+ )
+ ; // Operations
+ : Dependencies
+   Seq: ( ME_4B14DF7401B1 // 
+ )
+ ; // Dependencies
+ CONST "UseNewGen" 'undefined'
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View\InternetAgent'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View\InternetAgent'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\View\InternetAgent'
+
+ref; // ME_4B14DF1F0101 TnsOpenInternetAgentEvent
+
+FORWARD ME_A85B3F2265CC
+
+FORWARD ME_688265610B11
+
+: ME_3287E2BED7FA
+ CONST UID '3287E2BED7FA'
+ CONST Name 'Ini_Reg'
+ CONST IsSummoned true
+ CONST Class class_Operation
+ : Stereotype st_ini::Operation ;
+ %SUMMARY 'Регистрация Tkw_Form_InternetAgent' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_688265610B11 // Tkw_Form_InternetAgent
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_3287E2BED7FA Ini_Reg
+
+: ME_4DB0614603C8_ME_688265610B11
+ CONST UID '4DB0614603C8'
+ CONST Name 'GetWordNameForRegister'
+ : Original WL 'ME_4DB0614603C8' '4F3E3F5F0160.pas.ms.script' // GetWordNameForRegister
+ ;
+ : Implementor ME_688265610B11 // Tkw_Form_InternetAgent
+ ;
+ CONST OpKind opkind_Overridden
+ CONST "UseNewGen" 'undefined'
+ref; // ME_4DB0614603C8_ME_688265610B11 GetWordNameForRegister
+
+: ME_4DDFD2EA0116_ME_688265610B11
+ CONST UID '4DDFD2EA0116'
+ CONST Name 'GetString'
+ : Original WL 'ME_4DDFD2EA0116' '4F3E3F5F0160.pas.ms.script' // GetString
+ ;
+ : Implementor ME_688265610B11 // Tkw_Form_InternetAgent
+ ;
+ CONST OpKind opkind_Overridden
+ CONST "UseNewGen" 'undefined'
+ref; // ME_4DDFD2EA0116_ME_688265610B11 GetString
+
+: ME_688265610B11
+ CONST UID '688265610B11'
+ CONST Name 'Tkw_Form_InternetAgent'
+ CONST IsSummoned true
+ CONST Class class_Class
+ : Stereotype st_ScriptKeyword ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Слово словаря для идентификатора формы InternetAgent$F'#13#10'----'#13#10'*Пример использования*:'#13#10'{code}'#13#10'''aControl'' форма::InternetAgent TryFocus ASSERT'#13#10'{code}' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_A85B3F2265CC // InternetAgentKeywordsPack
+ ;
+ : Inherits
+   Seq: ( WL 'ME_508527F30183' '54DB92D203C9.pas.ms.script' // TtfwControlString
+ )
+ ; // Inherits
+ : Operations
+   Seq: ( ME_3287E2BED7FA // Ini_Reg
+ )
+ ; // Operations
+ : Overridden
+   Seq: ( ME_4DB0614603C8_ME_688265610B11 // GetWordNameForRegister
+ ME_4DDFD2EA0116_ME_688265610B11 // GetString
+ )
+ ; // Overridden
+ CONST "NameForScript" 'форма::InternetAgent'
+ CONST "UseNewGen" 'undefined'
+ CONST "ifndef" 'NoScripts'
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View\InternetAgent'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View\InternetAgent'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\View\InternetAgent'
+
+ref; // ME_688265610B11 Tkw_Form_InternetAgent
+
+: ME_0EAA533748DC
+ CONST UID '0EAA533748DC'
+ CONST IsSummoned true
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_A85B3F2265CC // InternetAgentKeywordsPack
+ ;
+ : Target WL 'ME_55153C2C036F' '55BA28CE0290.pas.ms.script' // TypeInfoExt
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_0EAA533748DC 
+
+: ME_2FF07503D0DF
+ CONST UID '2FF07503D0DF'
+ CONST IsSummoned true
+ CONST Class class_Dependency
+ : Stereotype st_injects::Dependency ;
+ : Parent ME_A85B3F2265CC // InternetAgentKeywordsPack
+ ;
+ : Target ME_49EC74D002B8 // InternetAgent$F
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_2FF07503D0DF 
+
+: ME_A85B3F2265CC
+ CONST UID 'A85B3F2265CC'
+ CONST Name 'InternetAgentKeywordsPack'
+ CONST IsSummoned true
+ CONST Class class_Class
+ : Stereotype st_ScriptKeywordsPack ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Набор слов словаря для доступа к экземплярам контролов формы InternetAgent$F' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_49EC739C0100 // PrimInternetAgent$FP
+ ;
+ : Inherits
+   Seq: ( ME_49EC74D002B8 // InternetAgent$F
+ )
+ ; // Inherits
+ : Children
+   Seq: ( ME_688265610B11 // Tkw_Form_InternetAgent
+ )
+ ; // Children
+ : Dependencies
+   Seq: ( ME_0EAA533748DC // 
+ ME_2FF07503D0DF // 
+ )
+ ; // Dependencies
+ CONST "UseNewGen" 'undefined'
+ CONST "ifndef" 'NoScripts'
+ CONST "needs script" 'undefined'
+ CONST "no class name" 'undefined'
+ CONST "no hands" false
+ CONST "no_pop" true
+ : Generators
+ Seq: (
+ gen_intf.pas
+ )
+ ; // Generators
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View\InternetAgent'
+ CONST intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\InternetAgent\InternetAgentKeywordsPack.pas'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View\InternetAgent'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\View\InternetAgent'
+
+ref; // ME_A85B3F2265CC InternetAgentKeywordsPack
+
+FORWARD ME_49ECAADA03C7
+
+: ME_49EDE7BB03BC
+ CONST UID '49EDE7BB03BC'
+ CONST Name 'anURL'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46780DA40383' '4677FBA70343.pas.ms.script' // Il3CString
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_49EDE7BB03BC anURL
+
+: ME_4B71825000FA
+ CONST UID '4B71825000FA'
+ CONST Name 'aContainer'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_49525C400141' '4683F37902CF.pas.ms.script' // IvcmContainer
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_4B71825000FA aContainer
+
+: ME_49ECAB2F03E4
+ CONST UID '49ECAB2F03E4'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_49ECAADA03C7 // MakeInternetAgent
+ ;
+ : Parameters
+   Seq: ( ME_49EDE7BB03BC // anURL
+ ME_4B71825000FA // aContainer
+ )
+ ; // Parameters
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_49ECAB2F03E4 DoIt
+
+: ME_49ECA9E301EF
+ CONST UID '49ECA9E301EF'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_49ECAADA03C7 // MakeInternetAgent
+ ;
+ : Target WL 'ME_49ECA984005F' '49EC6DB703E5.pas.ms.script' // TsdsInternetAgent
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_49ECA9E301EF 
+
+: ME_49ECAA4400C8
+ CONST UID '49ECAA4400C8'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_49ECAADA03C7 // MakeInternetAgent
+ ;
+ : Target WL 'ME_47F260EC02C7' '521C9DA50125.pas.ms.script' // StdRes
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_49ECAA4400C8 
+
+: ME_49ECAA2A0030
+ CONST UID '49ECAA2A0030'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_49ECAADA03C7 // MakeInternetAgent
+ ;
+ : Target WL 'ME_47B97312006D' '47B9727603BE.pas.ms.script' // TvcmFormSetFactory
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_49ECAA2A0030 
+
+: ME_49ECAADA03C7
+ CONST UID '49ECAADA03C7'
+ CONST Name 'MakeInternetAgent'
+ CONST Class class_Class
+ : Stereotype st_FormSetFactory ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Создаёт область вывода Интернет-агента' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_49EC739C0100 // PrimInternetAgent$FP
+ ;
+ : Operations
+   Seq: ( ME_49ECAB2F03E4 // DoIt
+ )
+ ; // Operations
+ : Dependencies
+   Seq: ( ME_49ECA9E301EF // 
+ ME_49ECAA4400C8 // 
+ ME_49ECAA2A0030 // 
+ )
+ ; // Dependencies
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_49ECAADA03C7 MakeInternetAgent
+
+: ME_4A979E9B0245
+ CONST UID '4A979E9B0245'
+ CONST Name 'InternetAgent'
+ CONST Class class_Operation
+ : Stereotype st_ModuleOperation::Operation ;
+ %SUMMARY 'Новости онлайн' ;
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_final
+ : Parent ME_49EC739C0100 // PrimInternetAgent$FP
+ ;
+ CONST "ShowInToolbar" 'undefined'
+ CONST "UseNewGen" 'undefined'
+ CONST "no prefix" false
+ CONST "no test" false
+
+ref; // ME_4A979E9B0245 InternetAgent
+
+: ME_4A979E4D015A
+ CONST UID '4A979E4D015A'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_49EC739C0100 // PrimInternetAgent$FP
+ ;
+ : Target WL 'ME_46780DA40383' '4677FBA70343.pas.ms.script' // Il3CString
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_4A979E4D015A 
+
+: ME_4A979E4F037F
+ CONST UID '4A979E4F037F'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_49EC739C0100 // PrimInternetAgent$FP
+ ;
+ : Target WL 'ME_4773D64E036C' '47913B47006E.pas.ms.script' // l3Base
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_4A979E4F037F 
+
+: ME_4A979E51035B
+ CONST UID '4A979E51035B'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_49EC739C0100 // PrimInternetAgent$FP
+ ;
+ : Target WL 'ME_48FF556602BA' '48F747EC0073.pas.ms.script' // DataAdapter
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_4A979E51035B 
+
+: ME_4AAA08430001
+ CONST UID '4AAA08430001'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_49EC739C0100 // PrimInternetAgent$FP
+ ;
+ : Target WL 'ME_4A6854C70390' '47F2170002B2.pas.ms.script' // nsTypes
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_4AAA08430001 
+
+: ME_4B14DF4B0118
+ CONST UID '4B14DF4B0118'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_49EC739C0100 // PrimInternetAgent$FP
+ ;
+ : Target ME_4B14DF1F0101 // TnsOpenInternetAgentEvent
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_4B14DF4B0118 
+
+: ME_4B5EDA850332
+ CONST UID '4B5EDA850332'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_49EC739C0100 // PrimInternetAgent$FP
+ ;
+ : Target WL 'ME_47752AF90375' '47750CE700D0.pas.ms.script' // afwFacade
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_4B5EDA850332 
+
+: ME_4B5EDC76016E
+ CONST UID '4B5EDC76016E'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_49EC739C0100 // PrimInternetAgent$FP
+ ;
+ : Target WL 'ME_475EA8840080' '467823B7002C.pas.ms.script' // Locale
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_4B5EDC76016E 
+
+: ME_4C0DDE9901BA
+ CONST UID '4C0DDE9901BA'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_49EC739C0100 // PrimInternetAgent$FP
+ ;
+ : Target WL 'ME_47FB50E4008E' '48F747EC0073.pas.ms.script' // nsConst
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_4C0DDE9901BA 
+
+: ME_FE3665AC6FCD
+ CONST UID 'FE3665AC6FCD'
+ CONST IsSummoned true
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_49EC739C0100 // PrimInternetAgent$FP
+ ;
+ : Target WL 'ME_47F25BC801DB' '47D0E1500033.pas.ms.script' // vcmBase
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_FE3665AC6FCD 
+
+FORWARD ME_F132DC06DD1C
+
+: ME_352D4DA4371B
+ CONST UID '352D4DA4371B'
+ CONST IsSummoned true
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_49EC739C0100 // PrimInternetAgent$FP
+ ;
+ : Target ME_F132DC06DD1C // Tkw_InternetAgent_opInternetAgent
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_352D4DA4371B 
+
+: ME_49EC739C0100
+ CONST UID '49EC739C0100'
+ CONST Name 'PrimInternetAgent'
+ CONST Class class_Class
+ : Stereotype st_VCMFormsPack ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Модуль для [Интернет-агента|$144575249]' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_49EC7167004C // InternetAgent
+ ;
+ : Operations
+   Seq: ( ME_49ECAADA03C7 // MakeInternetAgent
+ ME_4A979E9B0245 // InternetAgent
+ )
+ ; // Operations
+ : Children
+   Seq: ( ME_49EC74D002B8 // InternetAgent$F
+ ME_49F586610347 // InternetAgent
+ ME_4B14DF1F0101 // TnsOpenInternetAgentEvent
+ ME_A85B3F2265CC // InternetAgentKeywordsPack
+ )
+ ; // Children
+ : Dependencies
+   Seq: ( ME_4A979E4D015A // 
+ ME_4A979E4F037F // 
+ ME_4A979E51035B // 
+ ME_4AAA08430001 // 
+ ME_4B14DF4B0118 // 
+ ME_4B5EDA850332 // 
+ ME_4B5EDC76016E // 
+ ME_4C0DDE9901BA // 
+ ME_FE3665AC6FCD // 
+ ME_352D4DA4371B // 
+ )
+ ; // Dependencies
+ CONST "UseNewGen" 'undefined'
+ CONST "author" 'Люлин А.В.'
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" true
+ CONST "register in scripts" 'undefined'
+ : Generators
+ Seq: (
+ gen_intf.pas
+ )
+ ; // Generators
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View\InternetAgent'
+ CONST intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\InternetAgent\PrimInternetAgent_Module.pas'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View\InternetAgent'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\View\InternetAgent'
+ CONST extprop:pas:TypeName 'TPrimInternetAgentModule'
+ CONST extprop:pas:UnitName 'PrimInternetAgent_Module'
+
+ref; // ME_49EC739C0100 PrimInternetAgent$FP
+
+FORWARD ME_4E957515024B
+
+: ME_4E9575490144
+ CONST UID '4E9575490144'
+ CONST Name 'hwnd'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_4E95755B0162' '4AB0C3F60375.pas.ms.script' // HWND
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_4E9575490144 hwnd
+
+: ME_4E95754901A6
+ CONST UID '4E95754901A6'
+ CONST Name 'lParam'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46A5BA230233' '4AB0C3F60375.pas.ms.script' // LPARAM
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_4E95754901A6 lParam
+
+: ME_4E95753501A3
+ CONST UID '4E95753501A3'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_4E957515024B // EnumChildWindowProc
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+ : Parameters
+   Seq: ( ME_4E9575490144 // hwnd
+ ME_4E95754901A6 // lParam
+ )
+ ; // Parameters
+ CONST "UseNewGen" 'undefined'
+ CONST "calling conventions" 'stdcall'
+
+ref; // ME_4E95753501A3 DoIt
+
+: ME_4E9575950367
+ CONST UID '4E9575950367'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4E957515024B // EnumChildWindowProc
+ ;
+ : Target WL 'ME_483C378301CB' '4AB0997B00A2.pas.ms.script' // StrUtils
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_4E9575950367 
+
+: ME_4E957ACA02F3
+ CONST UID '4E957ACA02F3'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4E957515024B // EnumChildWindowProc
+ ;
+ : Target WL 'ME_47ECBD5D03BB' '476F78840219.pas.ms.script' // Msg Codes
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_4E957ACA02F3 
+
+: ME_4E957515024B
+ CONST UID '4E957515024B'
+ CONST Name 'EnumChildWindowProc'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_4E9574DB0120 // nsWebBrowserHelper
+ ;
+ : Operations
+   Seq: ( ME_4E95753501A3 // DoIt
+ )
+ ; // Operations
+ : Dependencies
+   Seq: ( ME_4E9575950367 // 
+ ME_4E957ACA02F3 // 
+ )
+ ; // Dependencies
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_4E957515024B EnumChildWindowProc
+
+: ME_4E9574DB0120
+ CONST UID '4E9574DB0120'
+ CONST Name 'nsWebBrowserHelper'
+ CONST Class class_Class
+ : Stereotype st_UtilityPack ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_49EC7167004C // InternetAgent
+ ;
+ : Operations
+   Seq: ( ME_4E957515024B // EnumChildWindowProc
+ )
+ ; // Operations
+ CONST "UseNewGen" 'undefined'
+ CONST "author" 'Люлин А.В.'
+ CONST "no hands" true
+ CONST "started" '12.10.2011 15:07'
+ : Generators
+ Seq: (
+ gen_intf.pas
+ )
+ ; // Generators
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View\InternetAgent'
+ CONST intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\InternetAgent\nsWebBrowserHelper.pas'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View\InternetAgent'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\View\InternetAgent'
+
+ref; // ME_4E9574DB0120 nsWebBrowserHelper
+
+: ME_69162E7BAFF2
+ CONST UID '69162E7BAFF2'
+ CONST Name 'Ini_Reg'
+ CONST IsSummoned true
+ CONST Class class_Operation
+ : Stereotype st_ini::Operation ;
+ %SUMMARY 'Регистрация Tkw_InternetAgent_opInternetAgent' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_F132DC06DD1C // Tkw_InternetAgent_opInternetAgent
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_69162E7BAFF2 Ini_Reg
+
+: ME_FAC724500938
+ CONST UID 'FAC724500938'
+ CONST IsSummoned true
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_F132DC06DD1C // Tkw_InternetAgent_opInternetAgent
+ ;
+ : Target WL 'ME_47F260EC02C7' '521C9DA50125.pas.ms.script' // StdRes
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_FAC724500938 
+
+: ME_4DB0614603C8_ME_F132DC06DD1C
+ CONST UID '4DB0614603C8'
+ CONST Name 'GetWordNameForRegister'
+ : Original WL 'ME_4DB0614603C8' '4F3E3F5F0160.pas.ms.script' // GetWordNameForRegister
+ ;
+ : Implementor ME_F132DC06DD1C // Tkw_InternetAgent_opInternetAgent
+ ;
+ CONST OpKind opkind_Overridden
+ CONST "UseNewGen" 'undefined'
+ref; // ME_4DB0614603C8_ME_F132DC06DD1C GetWordNameForRegister
+
+: ME_4DB079E00084_ME_F132DC06DD1C
+ CONST UID '4DB079E00084'
+ CONST Name 'GetModuleOperationCode'
+ : Original WL 'ME_4DB079E00084' '4E200FED0213.pas.ms.script' // GetModuleOperationCode
+ ;
+ : Implementor ME_F132DC06DD1C // Tkw_InternetAgent_opInternetAgent
+ ;
+ CONST OpKind opkind_Overridden
+ CONST "UseNewGen" 'undefined'
+ref; // ME_4DB079E00084_ME_F132DC06DD1C GetModuleOperationCode
+
+: ME_F132DC06DD1C
+ CONST UID 'F132DC06DD1C'
+ CONST Name 'Tkw_InternetAgent_opInternetAgent'
+ CONST IsSummoned true
+ CONST Class class_Class
+ : Stereotype st_ScriptKeyword ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Слово словаря для вызова операции модуля InternetAgent.InternetAgent (Интернет-агент Новости онлайн)' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_49EC7167004C // InternetAgent
+ ;
+ : Inherits
+   Seq: ( WL 'ME_4DB060930263' '4E200FED0213.pas.ms.script' // TtfwModuleOperationWord
+ )
+ ; // Inherits
+ : Operations
+   Seq: ( ME_69162E7BAFF2 // Ini_Reg
+ )
+ ; // Operations
+ : Overridden
+   Seq: ( ME_4DB0614603C8_ME_F132DC06DD1C // GetWordNameForRegister
+ ME_4DB079E00084_ME_F132DC06DD1C // GetModuleOperationCode
+ )
+ ; // Overridden
+ : Dependencies
+   Seq: ( ME_FAC724500938 // 
+ )
+ ; // Dependencies
+ CONST "NameForScript" 'моп::Интернет-агент_Новости_онлайн'
+ CONST "UseNewGen" 'undefined'
+ CONST "ifndef" 'NoScripts'
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ : Generators
+ Seq: (
+ gen_intf.pas
+ )
+ ; // Generators
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View\InternetAgent'
+ CONST intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\InternetAgent\kw_InternetAgent_opInternetAgent.pas'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View\InternetAgent'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\View\InternetAgent'
+ CONST extprop:pas:UnitName 'kw_InternetAgent_opInternetAgent'
+
+ref; // ME_F132DC06DD1C Tkw_InternetAgent_opInternetAgent
+
+: ME_49EC7167004C
+ CONST UID '49EC7167004C'
+ CONST Name 'InternetAgent'
+ CONST Class class_Category
+ : Stereotype st_VCMModule ;
+ %SUMMARY 'Модуль для [Интернет-агента|$144575249]' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent WL 'ME_4A969297010D' '4A969297010D.pas.ms.script' // View
+ ;
+ : Children
+   Seq: ( ME_49F0573B0332 // TnsWebBrowserPrim
+ ME_49ECB8E002B0 // TnsWebBrowser
+ ME_49EC746B01E5 // PrimInternetAgent
+ ME_49EC739C0100 // PrimInternetAgent$FP
+ ME_4E9574DB0120 // nsWebBrowserHelper
+ ME_F132DC06DD1C // Tkw_InternetAgent_opInternetAgent
+ )
+ ; // Children
+ : Depends
+   Seq: ( WL 'ME_45ED58CF03E6' '45ED58CF03E6.pas.ms.script' // Logging
+ WL 'ME_4677FBA70343' '4677FBA70343.pas.ms.script' // l3Interfaces
+ WL 'ME_467823B7002C' '467823B7002C.pas.ms.script' // afwInterfaces
+ WL 'ME_467BAB7F021E' '467BAB7F021E.pas.ms.script' // vcmExternalInterfaces
+ WL 'ME_4683F37902CF' '4683F37902CF.pas.ms.script' // vcmInterfaces
+ WL 'ME_476F78840219' '476F78840219.pas.ms.script' // Messages
+ WL 'ME_47750CE700D0' '47750CE700D0.pas.ms.script' // afwFacade
+ WL 'ME_47913B47006E' '47913B47006E.pas.ms.script' // l3CoreObjects
+ WL 'ME_4799D29F033F' '4799D29F033F.pas.ms.script' // Implementation
+ WL 'ME_47B9727603BE' '47B9727603BE.pas.ms.script' // FormSets
+ WL 'ME_47D0E1500033' '47D0E1500033.pas.ms.script' // Implementation
+ WL 'ME_47EA946A0315' '47EA946A0315.pas.ms.script' // l3Misc
+ WL 'ME_47ECB2870309' '47ECB2870309.pas.ms.script' // StyleTable
+ WL 'ME_47F2170002B2' '47F2170002B2.pas.ms.script' // nsTypes
+ WL 'ME_47F260DC003F' '47F260DC003F.pas.ms.script' // ns
+ WL 'ME_48F747EC0073' '48F747EC0073.pas.ms.script' // Common
+ WL 'ME_494F898C013E' '494F898C013E.pas.ms.script' // Usual
+ WL 'ME_495127DD017C' '495127DD017C.pas.ms.script' // Text
+ WL 'ME_499EAAE502A8' '499EAAE502A8.pas.ms.script' // vcmUserControls
+ WL 'ME_49EC6D9000EE' '49EC6D9000EE.pas.ms.script' // InternetAgentInterfaces
+ WL 'ME_49EC6DB703E5' '49EC6DB703E5.pas.ms.script' // InternetAgent
+ WL 'ME_49EC9CDD0093' '49EC9CDD0093.pas.ms.script' // Web
+ WL 'ME_49EF33F700C2' '49EF33F700C2.pas.ms.script' // ControlsMixIns
+ WL 'ME_49F1CAA100B5' '49F1CAA100B5.pas.ms.script' // Internet
+ WL 'ME_4A7C0A8202A9' '4A7C0A8202A9.pas.ms.script' // View
+ WL 'ME_4AADF9450143' '4AADF9450143.pas.ms.script' // Visual
+ WL 'ME_4AB0997B00A2' '4AB0997B00A2.pas.ms.script' // Common
+ WL 'ME_4AB0C3C60310' '4AB0C3C60310.pas.ms.script' // Sys
+ WL 'ME_4AB0C3F60375' '4AB0C3F60375.pas.ms.script' // Win
+ WL 'ME_4B0A60DF01F2' '4B0A60DF01F2.pas.ms.script' // Logging
+ WL 'ME_4E200FED0213' '4E200FED0213.pas.ms.script' // Operations
+ WL 'ME_4F3E3F5F0160' '4F3E3F5F0160.pas.ms.script' // PrimitiveWords
+ WL 'ME_4F4B8FA60272' '4F4B8FA60272.pas.ms.script' // Implementation
+ WL 'ME_4F6B66140294' '4F6B66140294.pas.ms.script' // ParentAndChild
+ WL 'ME_4F9BB1120134' '4F9BB1120134.pas.ms.script' // Сюда вынес все сообщения из StdRes с Choices
+ WL 'ME_521C9DA50125' '521C9DA50125.pas.ms.script' // Application Resources
+ WL 'ME_5278E45101D3' '5278E45101D3.pas.ms.script' // ScalingSupport
+ WL 'ME_533D53FF00C2' '533D53FF00C2.pas.ms.script' // Visual$ChromeLike
+ WL 'ME_53A402C7010D' '53A402C7010D.pas.ms.script' // TabbedInterfaceSupport
+ WL 'ME_54DB92D203C9' '54DB92D203C9.pas.ms.script' // VCL bindings
+ WL 'ME_55BA28CE0290' '55BA28CE0290.pas.ms.script' // tfwScriptingTypes
+ WL 'ME_561F9F7D02A7' '561F9F7D02A7.pas.ms.script' // ScriptEngine
+ )
+ ; // Depends
+ CONST "UseNewGen" 'undefined'
+ : Generators
+ Seq: (
+ gen_pas.script
+ gen_pas.script.runner
+ )
+ ; // Generators
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View\InternetAgent'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View\InternetAgent'
+ CONST pas.script:Path 'shared\models\NewSchool\Scripts\49EC7167004C.pas.ms.script'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\49EC7167004C.pas.ms.script.runner'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\View\InternetAgent'
+
+ref; // ME_49EC7167004C InternetAgent

@@ -1,0 +1,308 @@
+// ScriptEngine 4E5B891C01DE Unit Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4E5B891C01DE
+
+FORWARD ME_4DE34290028F
+
+: ME_4DFB4117021C
+ CONST UID '4DFB4117021C'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4DE34290028F // TArchiScriptEngine
+ ;
+ : Target WL 'ME_4DFB406602B7' '4DE629810132.pas.ms.script' // arEditorUtils
+ ;
+
+ref; // ME_4DFB4117021C 
+
+: ME_4E244CDD0017
+ CONST UID '4E244CDD0017'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4DE34290028F // TArchiScriptEngine
+ ;
+ : Target WL 'ME_4E244C8400D2' '4DE629810132.pas.ms.script' // arDialogsPack
+ ;
+
+ref; // ME_4E244CDD0017 
+
+: ME_4E4A19EA0246
+ CONST UID '4E4A19EA0246'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4DE34290028F // TArchiScriptEngine
+ ;
+ : Target WL 'ME_4E4A1982012A' '4DE629810132.pas.ms.script' // CommonArchiWords
+ ;
+
+ref; // ME_4E4A19EA0246 
+
+: ME_4E4BAE0A0022
+ CONST UID '4E4BAE0A0022'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4DE34290028F // TArchiScriptEngine
+ ;
+ : Target WL 'ME_4DB6CA4F010D' '54F079B5035C.pas.ms.script' // TkwCompiledWord
+ ;
+
+ref; // ME_4E4BAE0A0022 
+
+: ME_4E4BB3C80256
+ CONST UID '4E4BB3C80256'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4DE34290028F // TArchiScriptEngine
+ ;
+ : Target WL 'ME_4DB0091E033E' '4DAF19F600C5.pas.ms.script' // TtfwContext
+ ;
+
+ref; // ME_4E4BB3C80256 
+
+FORWARD ME_4E5C937F00B2
+
+: ME_4E5C93FC005E
+ CONST UID '4E5C93FC005E'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4DE34290028F // TArchiScriptEngine
+ ;
+ : Target ME_4E5C937F00B2 // TkwDocumentSpravka
+ ;
+
+ref; // ME_4E5C93FC005E 
+
+: ME_4E78CAF1036F
+ CONST UID '4E78CAF1036F'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4DE34290028F // TArchiScriptEngine
+ ;
+ : Target WL 'ME_4DAEED140007' '4DAF19F600C5.pas.ms.script' // TtfwWord
+ ;
+
+ref; // ME_4E78CAF1036F 
+
+: ME_4F5DA17F0065
+ CONST UID '4F5DA17F0065'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4DE34290028F // TArchiScriptEngine
+ ;
+ : Target WL 'ME_4F5DA0BF025A' '4F5DA07B02CD.pas.ms.script' // kwEditorKeyWordsPack
+ ;
+
+ref; // ME_4F5DA17F0065 
+
+: ME_4F61983F0193
+ CONST UID '4F61983F0193'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4DE34290028F // TArchiScriptEngine
+ ;
+ : Target WL 'ME_4F619597030C' '4F6195640184.pas.ms.script' // kwCommonArchiWords
+ ;
+
+ref; // ME_4F61983F0193 
+
+: ME_4DE34290028F
+ CONST UID '4DE34290028F'
+ CONST Name 'TArchiScriptEngine'
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4E5B891C01DE // ScriptEngine
+ ;
+ : Inherits
+   Seq: ( WL 'ME_4DEF306102FF' '4DEF302C0007.pas.ms.script' // TtfwScriptEngineEX
+ )
+ ; // Inherits
+ : Dependencies
+   Seq: ( ME_4DFB4117021C // 
+ ME_4E244CDD0017 // 
+ ME_4E4A19EA0246 // 
+ ME_4E4BAE0A0022 // 
+ ME_4E4BB3C80256 // 
+ ME_4E5C93FC005E // 
+ ME_4E78CAF1036F // 
+ ME_4F5DA17F0065 // 
+ ME_4F61983F0193 // 
+ )
+ ; // Dependencies
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ : Generators
+ Seq: (
+ gen_intf.pas
+ )
+ ; // Generators
+ CONST dfm:PathOnly '\archi\source\projects\Archi\Archi_Script_Engine'
+ CONST intf.pas:Path 'archi\source\projects\Archi\Archi_Script_Engine\ArchiScriptEngine.pas'
+ CONST intf.pas:PathOnly '\archi\source\projects\Archi\Archi_Script_Engine'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\archi\source\projects\Archi\Archi_Script_Engine'
+ CONST extprop:rc:SelfName 'ArchiScriptEngine'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'ArchiScriptEngine'
+
+ref; // ME_4DE34290028F TArchiScriptEngine
+
+: ME_0C0F245B60D3
+ CONST UID '0C0F245B60D3'
+ CONST Name 'Ini_Reg'
+ CONST IsSummoned true
+ CONST Class class_Operation
+ : Stereotype st_ini::Operation ;
+ %SUMMARY 'Регистрация TkwDocumentSpravka' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_4E5C937F00B2 // TkwDocumentSpravka
+ ;
+
+ref; // ME_0C0F245B60D3 Ini_Reg
+
+: ME_4E5C948602EE
+ CONST UID '4E5C948602EE'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4E5C937F00B2 // TkwDocumentSpravka
+ ;
+ : Target WL 'ME_4DFB4D5E0084' '4DFB49C40350.pas.ms.script' // TMainForm
+ ;
+
+ref; // ME_4E5C948602EE 
+
+: ME_4E5C9A0F007F
+ CONST UID '4E5C9A0F007F'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4E5C937F00B2 // TkwDocumentSpravka
+ ;
+ : Target WL 'ME_4DFB4B01001D' '4DFB49C40350.pas.ms.script' // TDocEditorWindow
+ ;
+
+ref; // ME_4E5C9A0F007F 
+
+: ME_4DAEEDE10285_ME_4E5C937F00B2
+ CONST UID '4DAEEDE10285'
+ CONST Name 'DoDoIt'
+ : Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.pas.ms.script' // DoDoIt
+ ;
+ : Implementor ME_4E5C937F00B2 // TkwDocumentSpravka
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_4DAEEDE10285_ME_4E5C937F00B2 DoDoIt
+
+: ME_4DB0614603C8_ME_4E5C937F00B2
+ CONST UID '4DB0614603C8'
+ CONST Name 'GetWordNameForRegister'
+ : Original WL 'ME_4DB0614603C8' '4F3E3F5F0160.pas.ms.script' // GetWordNameForRegister
+ ;
+ : Implementor ME_4E5C937F00B2 // TkwDocumentSpravka
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_4DB0614603C8_ME_4E5C937F00B2 GetWordNameForRegister
+
+: ME_4E5C937F00B2
+ CONST UID '4E5C937F00B2'
+ CONST Name 'TkwDocumentSpravka'
+ CONST Class class_Class
+ : Stereotype st_ScriptKeyword ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4E5B891C01DE // ScriptEngine
+ ;
+ : Inherits
+   Seq: ( WL 'ME_53EDC0E701BC' '4F3E3F5F0160.pas.ms.script' // TtfwRegisterableWord
+ )
+ ; // Inherits
+ : Operations
+   Seq: ( ME_0C0F245B60D3 // Ini_Reg
+ )
+ ; // Operations
+ : Implemented
+   Seq: ( ME_4DAEEDE10285_ME_4E5C937F00B2 // DoDoIt
+ )
+ ; // Implemented
+ : Overridden
+   Seq: ( ME_4DB0614603C8_ME_4E5C937F00B2 // GetWordNameForRegister
+ )
+ ; // Overridden
+ : Dependencies
+   Seq: ( ME_4E5C948602EE // 
+ ME_4E5C9A0F007F // 
+ )
+ ; // Dependencies
+ CONST "NameForScript" 'оп::Документ_Справка_к_документу'
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ : Generators
+ Seq: (
+ gen_intf.pas
+ )
+ ; // Generators
+ CONST dfm:PathOnly '\archi\source\projects\Archi\Archi_Script_Engine'
+ CONST intf.pas:Path 'archi\source\projects\Archi\Archi_Script_Engine\kwDocumentSpravka.pas'
+ CONST intf.pas:PathOnly '\archi\source\projects\Archi\Archi_Script_Engine'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\archi\source\projects\Archi\Archi_Script_Engine'
+ CONST extprop:rc:SelfName 'DocumentSpravka'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'kwDocumentSpravka'
+
+ref; // ME_4E5C937F00B2 TkwDocumentSpravka
+
+: ME_4E5B891C01DE
+ CONST UID '4E5B891C01DE'
+ CONST Name 'ScriptEngine'
+ CONST Class class_Category
+ : Stereotype st_Unit ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent WL 'ME_4E5B88E60142' '4E5B88E60142.pas.ms.script' // Archi Script Engine
+ ;
+ : Children
+   Seq: ( ME_4DE34290028F // TArchiScriptEngine
+ ME_4E5C937F00B2 // TkwDocumentSpravka
+ )
+ ; // Children
+ : Depends
+   Seq: ( WL 'ME_4DAEEA14018A' '4DAEEA14018A.pas.ms.script' // Scripting Axiomatics
+ WL 'ME_4DAF19F600C5' '4DAF19F600C5.pas.ms.script' // tfwScriptingInterfaces
+ WL 'ME_4DE629810132' '4DE629810132.pas.ms.script' // Scripting
+ WL 'ME_4DEF302C0007' '4DEF302C0007.pas.ms.script' // ScriptEngine
+ WL 'ME_4DFB49C40350' '4DFB49C40350.pas.ms.script' // MainWindows
+ WL 'ME_4E4B99A60349' '4E4B99A60349.pas.ms.script' // Tools
+ WL 'ME_4F2275C00012' '4F2275C00012.pas.ms.script' // ScriptingKeywordsCore
+ WL 'ME_4F3E3F5F0160' '4F3E3F5F0160.pas.ms.script' // PrimitiveWords
+ WL 'ME_4F5DA07B02CD' '4F5DA07B02CD.pas.ms.script' // EditorKeyWords
+ WL 'ME_4F6195640184' '4F6195640184.pas.ms.script' // CommonArchiWords
+ WL 'ME_54F079B5035C' '54F079B5035C.pas.ms.script' // CompiledWords
+ )
+ ; // Depends
+ : Generators
+ Seq: (
+ gen_pas.script
+ gen_pas.script.runner
+ )
+ ; // Generators
+ CONST dfm:PathOnly '\archi\source\projects\Archi\Archi_Script_Engine'
+ CONST intf.pas:PathOnly '\archi\source\projects\Archi\Archi_Script_Engine'
+ CONST pas.script:Path 'shared\models\NewSchool\Scripts\4E5B891C01DE.pas.ms.script'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\4E5B891C01DE.pas.ms.script.runner'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\archi\source\projects\Archi\Archi_Script_Engine'
+
+ref; // ME_4E5B891C01DE ScriptEngine

@@ -9,6 +9,7 @@ FORWARD ME_4C52C0600246
 : ME_CD42F1656185
  CONST UID 'CD42F1656185'
  CONST Name 'Ini_Reg_Class'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Регистрация TvtSpinEdit' ;
@@ -22,6 +23,7 @@ ref; // ME_CD42F1656185 Ini_Reg_Class
 
 : ME_E2102A1C5166
  CONST UID 'E2102A1C5166'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_4C52C0600246 // TvtSpinEdit
@@ -42,16 +44,16 @@ ref; // ME_E2102A1C5166
  : Parent ME_4C52C05501D8 // Editors
  ;
  : Operations
-   @ ( ME_CD42F1656185 // Ini_Reg_Class
- ) .SequenceCode.It
+   Seq: ( ME_CD42F1656185 // Ini_Reg_Class
+ )
  ; // Operations
  : Dependencies
-   @ ( ME_E2102A1C5166 // 
- ) .SequenceCode.It
+   Seq: ( ME_E2102A1C5166 // 
+ )
  ; // Dependencies
  : Injected
-   @ ( WL 'ME_5E9C4EDE6DA3' '4F6094D80196.pas.ms.script' // 
- ) .SequenceCode.It
+   Seq: ( WL 'ME_5E9C4EDE6DA3' '4F6094D80196.pas.ms.script' // 
+ )
  ; // Injected
  CONST "base wnd class" 'CWnd'
  CONST "finished" false
@@ -59,12 +61,14 @@ ref; // ME_E2102A1C5166
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" true
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\VT'
  CONST intf.pas:Path 'common\components\gui\Garant\VT\NOT_FINISHED_vtSpinEdit.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\VT'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'SpinEdit'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'vtSpinEdit'
 
 ref; // ME_4C52C0600246 TvtSpinEdit
 
@@ -78,20 +82,18 @@ ref; // ME_4C52C0600246 TvtSpinEdit
  : Parent WL 'ME_467A75D90346' '467A75D90346.pas.ms.script' // VT
  ;
  : Children
-   @ ( ME_4C52C0600246 // TvtSpinEdit
- ) .SequenceCode.It
+   Seq: ( ME_4C52C0600246 // TvtSpinEdit
+ )
  ; // Children
  : Depends
-   @ ( WL 'ME_561F9F7D02A7' '561F9F7D02A7.pas.ms.script' // ScriptEngine
- ) .SequenceCode.It
+   Seq: ( WL 'ME_561F9F7D02A7' '561F9F7D02A7.pas.ms.script' // ScriptEngine
+ )
  ; // Depends
- : Generators
- @ (
- gen_pas.script
- gen_pas.script.runner
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\VT'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\VT'
  CONST pas.script:Path 'shared\models\NewSchool\Scripts\4C52C05501D8.pas.ms.script'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
  CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\4C52C05501D8.pas.ms.script.runner'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_4C52C05501D8 Editors

@@ -1,0 +1,2896 @@
+// bsInterfaces 47ECAAF901F8 Interfaces Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_47ECAAF901F8
+
+FORWARD ME_48FF6D050234
+
+: ME_48FF6D200201
+ CONST UID '48FF6D200201'
+ CONST Name 'Updated'
+ CONST Class class_Operation
+ %SUMMARY 'данные дерева были обновлены. Реакция на обновление данных'#13#10'            приложения' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_48FF6D050234 // InsTreeDataListener
+ ;
+
+ref; // ME_48FF6D200201 Updated
+
+: ME_48FF6D050234
+ CONST UID '48FF6D050234'
+ CONST GUID 'D025DDF3-973A-434D-9111-797324B1055F'
+ CONST Name 'InsTreeDataListener'
+ CONST Class class_Class
+ : Stereotype st_Facet ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Слушатель событий данных дерева' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_47ECAAF901F8 // bsInterfaces
+ ;
+ : Inherits
+   Seq: ( WL 'ME_4680CF330338' '4677FBA70343.pas.ms.script' // Il3Notify
+ )
+ ; // Inherits
+ : Operations
+   Seq: ( ME_48FF6D200201 // Updated
+ )
+ ; // Operations
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Model'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Model'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\Model'
+ CONST extprop:rc:SelfName 'TreeDataListener'
+ CONST extprop:rc:isAcceptableForScripts true
+
+ref; // ME_48FF6D050234 InsTreeDataListener
+
+FORWARD ME_48FEE95F0124
+
+: ME_48FEE96D03AD
+ CONST UID '48FEE96D03AD'
+ CONST Name 'DataDropped'
+ CONST Class class_Operation
+ %SUMMARY 'данные приняты объектом' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_48FEE95F0124 // InsDropListener
+ ;
+
+ref; // ME_48FEE96D03AD DataDropped
+
+: ME_48FEE95F0124
+ CONST UID '48FEE95F0124'
+ CONST GUID 'C77E3F45-7318-4C2D-845C-CA9561A220FE'
+ CONST Name 'InsDropListener'
+ CONST Class class_Class
+ : Stereotype st_Facet ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Слушатель события приёма данных объекта' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_47ECAAF901F8 // bsInterfaces
+ ;
+ : Inherits
+   Seq: ( WL 'ME_4680CF330338' '4677FBA70343.pas.ms.script' // Il3Notify
+ )
+ ; // Inherits
+ : Operations
+   Seq: ( ME_48FEE96D03AD // DataDropped
+ )
+ ; // Operations
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Model'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Model'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\Model'
+ CONST extprop:rc:SelfName 'DropListener'
+ CONST extprop:rc:isAcceptableForScripts true
+
+ref; // ME_48FEE95F0124 InsDropListener
+
+FORWARD ME_4806F15703CF
+
+: ME_48FF424B018F
+ CONST UID '48FF424B018F'
+ CONST Name 'aFilters'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_47724B6500F6' '4682595B0268.pas.ms.script' // Il3TreeFilters
+ ;
+
+ref; // ME_48FF424B018F aFilters
+
+: ME_48FF42490203
+ CONST UID '48FF42490203'
+ CONST Name 'SetFilters'
+ CONST Class class_Operation
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_4806F15703CF // InsInternalFilterableTree
+ ;
+ : Parameters
+   Seq: ( ME_48FF424B018F // aFilters
+ )
+ ; // Parameters
+
+ref; // ME_48FF42490203 SetFilters
+
+: ME_4806F15703CF
+ CONST UID '4806F15703CF'
+ CONST GUID '7690D816-5593-438F-A9DD-561B729C4B2B'
+ CONST Name 'InsInternalFilterableTree'
+ CONST Class class_Class
+ : Stereotype st_Facet ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Фильтруемое дерево.' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_47ECAAF901F8 // bsInterfaces
+ ;
+ : Operations
+   Seq: ( ME_48FF42490203 // SetFilters
+ )
+ ; // Operations
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Model'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Model'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\Model'
+ CONST extprop:rc:SelfName 'InternalFilterableTree'
+ CONST extprop:rc:isAcceptableForScripts true
+
+ref; // ME_4806F15703CF InsInternalFilterableTree
+
+FORWARD ME_4901E64C0042
+
+: ME_4901E65C0092
+ CONST UID '4901E65C0092'
+ CONST Name 'UserFlag'
+ CONST Class class_Attribute
+ : Stereotype st_readonly::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_lnk
+ : Parent ME_4901E64C0042 // InsUserFlagsFilter
+ ;
+ : Target WL 'ME_47BC524C0245' '4AB0C3C60310.pas.ms.script' // LongWord
+ ;
+ CONST "pm" true
+
+ref; // ME_4901E65C0092 UserFlag
+
+: ME_4901E64C0042
+ CONST UID '4901E64C0042'
+ CONST GUID '01F3490B-CBAE-47A5-A6B0-B15C392913FE'
+ CONST Name 'InsUserFlagsFilter'
+ CONST Class class_Class
+ : Stereotype st_Facet ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_47ECAAF901F8 // bsInterfaces
+ ;
+ : Attributes
+   Seq: ( ME_4901E65C0092 // UserFlag
+ )
+ ; // Attributes
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Model'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Model'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\Model'
+ CONST extprop:rc:SelfName 'UserFlagsFilter'
+ CONST extprop:rc:isAcceptableForScripts true
+
+ref; // ME_4901E64C0042 InsUserFlagsFilter
+
+FORWARD ME_49F015CA0381
+
+: ME_49F015F003D0
+ CONST UID '49F015F003D0'
+ CONST Name 'GroupUID'
+ CONST Class class_Attribute
+ : Stereotype st_readonly::Attribute ;
+ %SUMMARY 'ID группы' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_lnk
+ : Parent ME_49F015CA0381 // InsGroupFilter
+ ;
+ : Target WL 'ME_3DBFFD7002C2' '3DBFDB23006E.pas.ms.script' // long
+ ;
+ CONST "pm" false
+
+ref; // ME_49F015F003D0 GroupUID
+
+: ME_49F015CA0381
+ CONST UID '49F015CA0381'
+ CONST GUID 'AB75A9B8-AAFF-4DF4-9EB8-9816BD4790CF'
+ CONST Name 'InsGroupFilter'
+ CONST Class class_Class
+ : Stereotype st_Facet ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Фильтр на группу пользователей' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_47ECAAF901F8 // bsInterfaces
+ ;
+ : Attributes
+   Seq: ( ME_49F015F003D0 // GroupUID
+ )
+ ; // Attributes
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Model'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Model'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\Model'
+ CONST extprop:rc:SelfName 'GroupFilter'
+ CONST extprop:rc:isAcceptableForScripts true
+
+ref; // ME_49F015CA0381 InsGroupFilter
+
+FORWARD ME_4901EE8402B6
+
+: ME_4901EE910334
+ CONST UID '4901EE910334'
+ CONST Name 'Country'
+ CONST Class class_Attribute
+ : Stereotype st_property::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_lnk
+ : Parent ME_4901EE8402B6 // InsCountryFilter
+ ;
+ : Target WL 'ME_468259900322' '4682595B0268.pas.ms.script' // Il3SimpleNode
+ ;
+ CONST "pm" true
+
+ref; // ME_4901EE910334 Country
+
+: ME_4901EE8402B6
+ CONST UID '4901EE8402B6'
+ CONST GUID '4820ABD1-6068-4A81-8A3A-0AE7B6B2027F'
+ CONST Name 'InsCountryFilter'
+ CONST Class class_Class
+ : Stereotype st_Facet ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_47ECAAF901F8 // bsInterfaces
+ ;
+ : Attributes
+   Seq: ( ME_4901EE910334 // Country
+ )
+ ; // Attributes
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Model'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Model'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\Model'
+ CONST extprop:rc:SelfName 'CountryFilter'
+ CONST extprop:rc:isAcceptableForScripts true
+
+ref; // ME_4901EE8402B6 InsCountryFilter
+
+FORWARD ME_4901EE9D02E5
+
+: ME_4901EEAD0242
+ CONST UID '4901EEAD0242'
+ CONST Name 'Country'
+ CONST Class class_Attribute
+ : Stereotype st_readonly::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_lnk
+ : Parent ME_4901EE9D02E5 // InsMedicFirmListFilters
+ ;
+ : Target ME_4901EE8402B6 // InsCountryFilter
+ ;
+ CONST "pm" true
+
+ref; // ME_4901EEAD0242 Country
+
+: ME_4901EED800E3
+ CONST UID '4901EED800E3'
+ CONST Name 'aFilter'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target ME_4901EE8402B6 // InsCountryFilter
+ ;
+
+ref; // ME_4901EED800E3 aFilter
+
+: ME_4901EED201C4
+ CONST UID '4901EED201C4'
+ CONST Name 'SetCountry'
+ CONST Class class_Operation
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_4901EE9D02E5 // InsMedicFirmListFilters
+ ;
+ : Target ME_4901EE9D02E5 // InsMedicFirmListFilters
+ ;
+ : Parameters
+   Seq: ( ME_4901EED800E3 // aFilter
+ )
+ ; // Parameters
+
+ref; // ME_4901EED201C4 SetCountry
+
+: ME_47724B790382_ME_4901EE9D02E5
+ CONST UID '47724B790382'
+ CONST Name 'SetContext'
+ : Original WL 'ME_47724B790382' '4682595B0268.pas.ms.script' // SetContext
+ ;
+ : Implementor ME_4901EE9D02E5 // InsMedicFirmListFilters
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_47724B790382_ME_4901EE9D02E5 SetContext
+
+: ME_47724B87036B_ME_4901EE9D02E5
+ CONST UID '47724B87036B'
+ CONST Name 'Clone'
+ : Original WL 'ME_47724B87036B' '4682595B0268.pas.ms.script' // Clone
+ ;
+ : Implementor ME_4901EE9D02E5 // InsMedicFirmListFilters
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_47724B87036B_ME_4901EE9D02E5 Clone
+
+: ME_47724B9402ED_ME_4901EE9D02E5
+ CONST UID '47724B9402ED'
+ CONST Name 'Context'
+ : Original WL 'ME_47724B9402ED' '4682595B0268.pas.ms.script' // Context
+ ;
+ : Implementor ME_4901EE9D02E5 // InsMedicFirmListFilters
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "pm" true
+ref; // ME_47724B9402ED_ME_4901EE9D02E5 Context
+
+: ME_4901EE9D02E5
+ CONST UID '4901EE9D02E5'
+ CONST GUID '7DEB49A8-BF7A-484C-8DEF-B8FCC67C970E'
+ CONST Name 'InsMedicFirmListFilters'
+ CONST Class class_Class
+ : Stereotype st_Facet ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_47ECAAF901F8 // bsInterfaces
+ ;
+ : Inherits
+   Seq: ( WL 'ME_47724B6500F6' '4682595B0268.pas.ms.script' // Il3TreeFilters
+ )
+ ; // Inherits
+ : Attributes
+   Seq: ( ME_4901EEAD0242 // Country
+ )
+ ; // Attributes
+ : Operations
+   Seq: ( ME_4901EED201C4 // SetCountry
+ )
+ ; // Operations
+ : Implemented
+   Seq: ( ME_47724B790382_ME_4901EE9D02E5 // SetContext
+ ME_47724B87036B_ME_4901EE9D02E5 // Clone
+ ME_47724B9402ED_ME_4901EE9D02E5 // Context
+ )
+ ; // Implemented
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Model'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Model'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\Model'
+ CONST extprop:rc:SelfName 'MedicFirmListFilters'
+ CONST extprop:rc:isAcceptableForScripts true
+
+ref; // ME_4901EE9D02E5 InsMedicFirmListFilters
+
+FORWARD ME_4902013F03CC
+
+: ME_490201580363
+ CONST UID '490201580363'
+ CONST Name 'FilterType'
+ CONST Class class_Attribute
+ : Stereotype st_readonly::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_lnk
+ : Parent ME_4902013F03CC // InsAttributeTreeFilters
+ ;
+ : Target WL 'ME_490200F300DD' '47F2170002B2.pas.ms.script' // TnsFilterType
+ ;
+ CONST "pm" true
+
+ref; // ME_490201580363 FilterType
+
+: ME_4902019F02E3
+ CONST UID '4902019F02E3'
+ CONST Name 'aType'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_490200F300DD' '47F2170002B2.pas.ms.script' // TnsFilterType
+ ;
+
+ref; // ME_4902019F02E3 aType
+
+: ME_4902019901A1
+ CONST UID '4902019901A1'
+ CONST Name 'SetFilterType'
+ CONST Class class_Operation
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_4902013F03CC // InsAttributeTreeFilters
+ ;
+ : Target ME_4902013F03CC // InsAttributeTreeFilters
+ ;
+ : Parameters
+   Seq: ( ME_4902019F02E3 // aType
+ )
+ ; // Parameters
+
+ref; // ME_4902019901A1 SetFilterType
+
+: ME_47724B790382_ME_4902013F03CC
+ CONST UID '47724B790382'
+ CONST Name 'SetContext'
+ : Original WL 'ME_47724B790382' '4682595B0268.pas.ms.script' // SetContext
+ ;
+ : Implementor ME_4902013F03CC // InsAttributeTreeFilters
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_47724B790382_ME_4902013F03CC SetContext
+
+: ME_47724B87036B_ME_4902013F03CC
+ CONST UID '47724B87036B'
+ CONST Name 'Clone'
+ : Original WL 'ME_47724B87036B' '4682595B0268.pas.ms.script' // Clone
+ ;
+ : Implementor ME_4902013F03CC // InsAttributeTreeFilters
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_47724B87036B_ME_4902013F03CC Clone
+
+: ME_47724B9402ED_ME_4902013F03CC
+ CONST UID '47724B9402ED'
+ CONST Name 'Context'
+ : Original WL 'ME_47724B9402ED' '4682595B0268.pas.ms.script' // Context
+ ;
+ : Implementor ME_4902013F03CC // InsAttributeTreeFilters
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "pm" true
+ref; // ME_47724B9402ED_ME_4902013F03CC Context
+
+: ME_4902013F03CC
+ CONST UID '4902013F03CC'
+ CONST GUID 'F6622951-EF1D-4EC5-AC6E-384A170795E3'
+ CONST Name 'InsAttributeTreeFilters'
+ CONST Class class_Class
+ : Stereotype st_Facet ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_47ECAAF901F8 // bsInterfaces
+ ;
+ : Inherits
+   Seq: ( WL 'ME_47724B6500F6' '4682595B0268.pas.ms.script' // Il3TreeFilters
+ )
+ ; // Inherits
+ : Attributes
+   Seq: ( ME_490201580363 // FilterType
+ )
+ ; // Attributes
+ : Operations
+   Seq: ( ME_4902019901A1 // SetFilterType
+ )
+ ; // Operations
+ : Implemented
+   Seq: ( ME_47724B790382_ME_4902013F03CC // SetContext
+ ME_47724B87036B_ME_4902013F03CC // Clone
+ ME_47724B9402ED_ME_4902013F03CC // Context
+ )
+ ; // Implemented
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Model'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Model'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\Model'
+ CONST extprop:rc:SelfName 'AttributeTreeFilters'
+ CONST extprop:rc:isAcceptableForScripts true
+
+ref; // ME_4902013F03CC InsAttributeTreeFilters
+
+FORWARD ME_4902077602BA
+
+: ME_4902077E028F
+ CONST UID '4902077E028F'
+ CONST Name 'LayerID'
+ CONST Class class_Attribute
+ : Stereotype st_readonly::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_lnk
+ : Parent ME_4902077602BA // InsLayerFilter
+ ;
+ : Target WL 'ME_45EEC7EA01C5' '457450470167.pas.ms.script' // LayerId
+ ;
+ CONST "pm" true
+
+ref; // ME_4902077E028F LayerID
+
+: ME_4902077602BA
+ CONST UID '4902077602BA'
+ CONST GUID '0403CEB6-88AD-4C35-879C-E88311D4A9D9'
+ CONST Name 'InsLayerFilter'
+ CONST Class class_Class
+ : Stereotype st_Facet ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_47ECAAF901F8 // bsInterfaces
+ ;
+ : Attributes
+   Seq: ( ME_4902077E028F // LayerID
+ )
+ ; // Attributes
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Model'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Model'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\Model'
+ CONST extprop:rc:SelfName 'LayerFilter'
+ CONST extprop:rc:isAcceptableForScripts true
+
+ref; // ME_4902077602BA InsLayerFilter
+
+FORWARD ME_490207910151
+
+: ME_4902079D02D4
+ CONST UID '4902079D02D4'
+ CONST Name 'Layer'
+ CONST Class class_Attribute
+ : Stereotype st_readonly::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_lnk
+ : Parent ME_490207910151 // InsLayeredTreeFilters
+ ;
+ : Target ME_4902077602BA // InsLayerFilter
+ ;
+ CONST "pm" true
+
+ref; // ME_4902079D02D4 Layer
+
+: ME_490207AF030F
+ CONST UID '490207AF030F'
+ CONST Name 'aFilter'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target ME_4902077602BA // InsLayerFilter
+ ;
+
+ref; // ME_490207AF030F aFilter
+
+: ME_490207AB002D
+ CONST UID '490207AB002D'
+ CONST Name 'SetLayer'
+ CONST Class class_Operation
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_490207910151 // InsLayeredTreeFilters
+ ;
+ : Target ME_490207910151 // InsLayeredTreeFilters
+ ;
+ : Parameters
+   Seq: ( ME_490207AF030F // aFilter
+ )
+ ; // Parameters
+
+ref; // ME_490207AB002D SetLayer
+
+: ME_47724B790382_ME_490207910151
+ CONST UID '47724B790382'
+ CONST Name 'SetContext'
+ : Original WL 'ME_47724B790382' '4682595B0268.pas.ms.script' // SetContext
+ ;
+ : Implementor ME_490207910151 // InsLayeredTreeFilters
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_47724B790382_ME_490207910151 SetContext
+
+: ME_47724B87036B_ME_490207910151
+ CONST UID '47724B87036B'
+ CONST Name 'Clone'
+ : Original WL 'ME_47724B87036B' '4682595B0268.pas.ms.script' // Clone
+ ;
+ : Implementor ME_490207910151 // InsLayeredTreeFilters
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_47724B87036B_ME_490207910151 Clone
+
+: ME_47724B9402ED_ME_490207910151
+ CONST UID '47724B9402ED'
+ CONST Name 'Context'
+ : Original WL 'ME_47724B9402ED' '4682595B0268.pas.ms.script' // Context
+ ;
+ : Implementor ME_490207910151 // InsLayeredTreeFilters
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "pm" true
+ref; // ME_47724B9402ED_ME_490207910151 Context
+
+: ME_490207910151
+ CONST UID '490207910151'
+ CONST GUID '2F853221-5387-4F89-95BF-B2B5B4E0D26F'
+ CONST Name 'InsLayeredTreeFilters'
+ CONST Class class_Class
+ : Stereotype st_Facet ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_47ECAAF901F8 // bsInterfaces
+ ;
+ : Inherits
+   Seq: ( WL 'ME_47724B6500F6' '4682595B0268.pas.ms.script' // Il3TreeFilters
+ )
+ ; // Inherits
+ : Attributes
+   Seq: ( ME_4902079D02D4 // Layer
+ )
+ ; // Attributes
+ : Operations
+   Seq: ( ME_490207AB002D // SetLayer
+ )
+ ; // Operations
+ : Implemented
+   Seq: ( ME_47724B790382_ME_490207910151 // SetContext
+ ME_47724B87036B_ME_490207910151 // Clone
+ ME_47724B9402ED_ME_490207910151 // Context
+ )
+ ; // Implemented
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Model'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Model'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\Model'
+ CONST extprop:rc:SelfName 'LayeredTreeFilters'
+ CONST extprop:rc:isAcceptableForScripts true
+
+ref; // ME_490207910151 InsLayeredTreeFilters
+
+FORWARD ME_48FF5116013C
+
+: ME_490596110042
+ CONST UID '490596110042'
+ CONST Name 'Context'
+ CONST Class class_Attribute
+ : Stereotype st_readonly::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_lnk
+ : Parent ME_48FF5116013C // InsAdapterFilters
+ ;
+ : Target WL 'ME_45EEBB5002CE' '457450470167.pas.ms.script' // ContextFilter
+ ;
+ CONST "pm" true
+
+ref; // ME_490596110042 Context
+
+: ME_49059620001F
+ CONST UID '49059620001F'
+ CONST Name 'UserFlags'
+ CONST Class class_Attribute
+ : Stereotype st_readonly::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_lnk
+ : Parent ME_48FF5116013C // InsAdapterFilters
+ ;
+ : Target WL 'ME_45EED57B01AA' '45EEAA96039C.pas.ms.script' // UserFilter
+ ;
+ CONST "pm" true
+
+ref; // ME_49059620001F UserFlags
+
+: ME_4905962D0036
+ CONST UID '4905962D0036'
+ CONST Name 'Layer'
+ CONST Class class_Attribute
+ : Stereotype st_readonly::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_lnk
+ : Parent ME_48FF5116013C // InsAdapterFilters
+ ;
+ : Target WL 'ME_45EEC54700D2' '457450470167.pas.ms.script' // LayerFilter
+ ;
+ CONST "pm" true
+
+ref; // ME_4905962D0036 Layer
+
+: ME_490596400201
+ CONST UID '490596400201'
+ CONST Name 'Trim'
+ CONST Class class_Attribute
+ : Stereotype st_readonly::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_lnk
+ : Parent ME_48FF5116013C // InsAdapterFilters
+ ;
+ : Target WL 'ME_45EEC54700CE' '457450470167.pas.ms.script' // TrimFilter
+ ;
+ CONST "pm" true
+
+ref; // ME_490596400201 Trim
+
+: ME_4905964F0196
+ CONST UID '4905964F0196'
+ CONST Name 'TrimLeaf'
+ CONST Class class_Attribute
+ : Stereotype st_readonly::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_lnk
+ : Parent ME_48FF5116013C // InsAdapterFilters
+ ;
+ : Target WL 'ME_47A1A4FB0255' '457450470167.pas.ms.script' // TrimLeafFilter
+ ;
+ CONST "pm" true
+
+ref; // ME_4905964F0196 TrimLeaf
+
+: ME_4905965B03A2
+ CONST UID '4905965B03A2'
+ CONST Name 'Country'
+ CONST Class class_Attribute
+ : Stereotype st_readonly::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_lnk
+ : Parent ME_48FF5116013C // InsAdapterFilters
+ ;
+ : Target WL 'ME_47F7244B0303' '457450470167.pas.ms.script' // CountryFilter
+ ;
+ CONST "pm" true
+
+ref; // ME_4905965B03A2 Country
+
+: ME_49059668030F
+ CONST UID '49059668030F'
+ CONST Name 'CutToLeaf'
+ CONST Class class_Attribute
+ : Stereotype st_readonly::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_lnk
+ : Parent ME_48FF5116013C // InsAdapterFilters
+ ;
+ : Target WL 'ME_483547CA00B2' '457450470167.pas.ms.script' // CutToLeafCountFilter
+ ;
+ CONST "pm" true
+
+ref; // ME_49059668030F CutToLeaf
+
+: ME_4905967D0333
+ CONST UID '4905967D0333'
+ CONST Name 'Blocks'
+ CONST Class class_Attribute
+ : Stereotype st_readonly::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_lnk
+ : Parent ME_48FF5116013C // InsAdapterFilters
+ ;
+ : Target WL 'ME_487C670700D5' '457450470167.pas.ms.script' // BlocksFilter
+ ;
+ CONST "pm" true
+
+ref; // ME_4905967D0333 Blocks
+
+: ME_4A8BE475022C
+ CONST UID '4A8BE475022C'
+ CONST Name 'Inpharm'
+ CONST Class class_Attribute
+ : Stereotype st_readonly::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_lnk
+ : Parent ME_48FF5116013C // InsAdapterFilters
+ ;
+ : Target WL 'ME_4A8BACAC0281' '457450470167.pas.ms.script' // InpharmFilter
+ ;
+ CONST "pm" false
+
+ref; // ME_4A8BE475022C Inpharm
+
+: ME_4AA4D48B0234
+ CONST UID '4AA4D48B0234'
+ CONST Name 'PromptsTreeFilter'
+ CONST Class class_Attribute
+ : Stereotype st_readonly::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_lnk
+ : Parent ME_48FF5116013C // InsAdapterFilters
+ ;
+ : Target WL 'ME_4AA0FE420344' '457450470167.pas.ms.script' // VariantsForDocFilter
+ ;
+ CONST "pm" false
+
+ref; // ME_4AA4D48B0234 PromptsTreeFilter
+
+: ME_490595C30161
+ CONST UID '490595C30161'
+ CONST Name 'MakeFilterList'
+ CONST Class class_Operation
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_48FF5116013C // InsAdapterFilters
+ ;
+ : Target WL 'ME_45EEBD050271' '457450470167.pas.ms.script' // FilterList
+ ;
+
+ref; // ME_490595C30161 MakeFilterList
+
+: ME_490595D402BD
+ CONST UID '490595D402BD'
+ CONST Name 'FiltersCount'
+ CONST Class class_Operation
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_48FF5116013C // InsAdapterFilters
+ ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+
+ref; // ME_490595D402BD FiltersCount
+
+: ME_490595E10299
+ CONST UID '490595E10299'
+ CONST Name 'HasPrefilters'
+ CONST Class class_Operation
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_48FF5116013C // InsAdapterFilters
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+
+ref; // ME_490595E10299 HasPrefilters
+
+: ME_490595EE0289
+ CONST UID '490595EE0289'
+ CONST Name 'MakePrefilterList'
+ CONST Class class_Operation
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_48FF5116013C // InsAdapterFilters
+ ;
+ : Target WL 'ME_45EEBD050271' '457450470167.pas.ms.script' // FilterList
+ ;
+
+ref; // ME_490595EE0289 MakePrefilterList
+
+: ME_490595F90107
+ CONST UID '490595F90107'
+ CONST Name 'MakeTrimLeafFilter'
+ CONST Class class_Operation
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_48FF5116013C // InsAdapterFilters
+ ;
+
+ref; // ME_490595F90107 MakeTrimLeafFilter
+
+: ME_4905960301EF
+ CONST UID '4905960301EF'
+ CONST Name 'MakeBlocksFilter'
+ CONST Class class_Operation
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_48FF5116013C // InsAdapterFilters
+ ;
+
+ref; // ME_4905960301EF MakeBlocksFilter
+
+: ME_4A8BE4990157
+ CONST UID '4A8BE4990157'
+ CONST Name 'MakeInpharmFilter'
+ CONST Class class_Operation
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_48FF5116013C // InsAdapterFilters
+ ;
+
+ref; // ME_4A8BE4990157 MakeInpharmFilter
+
+: ME_4AA4DC9E0198
+ CONST UID '4AA4DC9E0198'
+ CONST Name 'aDocID'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_47BC524C0245' '4AB0C3C60310.pas.ms.script' // LongWord
+ ;
+
+ref; // ME_4AA4DC9E0198 aDocID
+
+: ME_4AA4D4B0013D
+ CONST UID '4AA4D4B0013D'
+ CONST Name 'MakePromptsTreeFilter'
+ CONST Class class_Operation
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_48FF5116013C // InsAdapterFilters
+ ;
+ : Target WL 'ME_4AA0FE420344' '457450470167.pas.ms.script' // VariantsForDocFilter
+ ;
+ : Parameters
+   Seq: ( ME_4AA4DC9E0198 // aDocID
+ )
+ ; // Parameters
+
+ref; // ME_4AA4D4B0013D MakePromptsTreeFilter
+
+: ME_48FF5116013C
+ CONST UID '48FF5116013C'
+ CONST GUID 'AF0AECDE-D4A4-4CE4-8FCB-0F8FAFE18C72'
+ CONST Name 'InsAdapterFilters'
+ CONST Class class_Class
+ : Stereotype st_Facet ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_47ECAAF901F8 // bsInterfaces
+ ;
+ : Attributes
+   Seq: ( ME_490596110042 // Context
+ ME_49059620001F // UserFlags
+ ME_4905962D0036 // Layer
+ ME_490596400201 // Trim
+ ME_4905964F0196 // TrimLeaf
+ ME_4905965B03A2 // Country
+ ME_49059668030F // CutToLeaf
+ ME_4905967D0333 // Blocks
+ ME_4A8BE475022C // Inpharm
+ ME_4AA4D48B0234 // PromptsTreeFilter
+ )
+ ; // Attributes
+ : Operations
+   Seq: ( ME_490595C30161 // MakeFilterList
+ ME_490595D402BD // FiltersCount
+ ME_490595E10299 // HasPrefilters
+ ME_490595EE0289 // MakePrefilterList
+ ME_490595F90107 // MakeTrimLeafFilter
+ ME_4905960301EF // MakeBlocksFilter
+ ME_4A8BE4990157 // MakeInpharmFilter
+ ME_4AA4D4B0013D // MakePromptsTreeFilter
+ )
+ ; // Operations
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Model'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Model'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\Model'
+ CONST extprop:rc:SelfName 'AdapterFilters'
+ CONST extprop:rc:isAcceptableForScripts true
+
+ref; // ME_48FF5116013C InsAdapterFilters
+
+FORWARD ME_49071AE3035B
+
+: ME_49071AF00132
+ CONST UID '49071AF00132'
+ CONST Name 'CountryFilterResetted'
+ CONST Class class_Operation
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_49071AE3035B // InsMedicFirmsTreeNotifyRecipient
+ ;
+
+ref; // ME_49071AF00132 CountryFilterResetted
+
+: ME_49071AE3035B
+ CONST UID '49071AE3035B'
+ CONST GUID '8D12F03C-7F88-4278-9BAE-B9FC009938F2'
+ CONST Name 'InsMedicFirmsTreeNotifyRecipient'
+ CONST Class class_Class
+ : Stereotype st_Facet ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Подписчик на нотификацию об изменении дерева фильтров' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_47ECAAF901F8 // bsInterfaces
+ ;
+ : Operations
+   Seq: ( ME_49071AF00132 // CountryFilterResetted
+ )
+ ; // Operations
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Model'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Model'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\Model'
+ CONST extprop:rc:SelfName 'MedicFirmsTreeNotifyRecipient'
+ CONST extprop:rc:isAcceptableForScripts true
+
+ref; // ME_49071AE3035B InsMedicFirmsTreeNotifyRecipient
+
+FORWARD ME_49071AFF0024
+
+: ME_49071B140010
+ CONST UID '49071B140010'
+ CONST Name 'aSubscriber'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target ME_49071AE3035B // InsMedicFirmsTreeNotifyRecipient
+ ;
+
+ref; // ME_49071B140010 aSubscriber
+
+: ME_49071B0F0100
+ CONST UID '49071B0F0100'
+ CONST Name 'Subscribe'
+ CONST Class class_Operation
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_49071AFF0024 // InsMedicFirmsTreeNotificationSource
+ ;
+ : Parameters
+   Seq: ( ME_49071B140010 // aSubscriber
+ )
+ ; // Parameters
+
+ref; // ME_49071B0F0100 Subscribe
+
+: ME_49071B22000C
+ CONST UID '49071B22000C'
+ CONST Name 'aSubscriber'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target ME_49071AE3035B // InsMedicFirmsTreeNotifyRecipient
+ ;
+
+ref; // ME_49071B22000C aSubscriber
+
+: ME_49071B1D0098
+ CONST UID '49071B1D0098'
+ CONST Name 'Unsubscribe'
+ CONST Class class_Operation
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_49071AFF0024 // InsMedicFirmsTreeNotificationSource
+ ;
+ : Parameters
+   Seq: ( ME_49071B22000C // aSubscriber
+ )
+ ; // Parameters
+
+ref; // ME_49071B1D0098 Unsubscribe
+
+: ME_49071AFF0024
+ CONST UID '49071AFF0024'
+ CONST GUID 'A73D77E2-D6B0-4F29-925D-21DC4EB97D1B'
+ CONST Name 'InsMedicFirmsTreeNotificationSource'
+ CONST Class class_Class
+ : Stereotype st_Facet ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_47ECAAF901F8 // bsInterfaces
+ ;
+ : Operations
+   Seq: ( ME_49071B0F0100 // Subscribe
+ ME_49071B1D0098 // Unsubscribe
+ )
+ ; // Operations
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Model'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Model'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\Model'
+ CONST extprop:rc:SelfName 'MedicFirmsTreeNotificationSource'
+ CONST extprop:rc:isAcceptableForScripts true
+
+ref; // ME_49071AFF0024 InsMedicFirmsTreeNotificationSource
+
+FORWARD ME_490896CE00FD
+
+: ME_490896DA03E4
+ CONST UID '490896DA03E4'
+ CONST Name 'BaseSettingID'
+ CONST Class class_Operation
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_490896CE00FD // InsContextFilterParamsInfo
+ ;
+ : Target WL 'ME_473D9E950032' '467823B7002C.pas.ms.script' // TafwSettingId
+ ;
+
+ref; // ME_490896DA03E4 BaseSettingID
+
+: ME_490896E600DC
+ CONST UID '490896E600DC'
+ CONST Name 'WordPositionSettingID'
+ CONST Class class_Operation
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_490896CE00FD // InsContextFilterParamsInfo
+ ;
+ : Target WL 'ME_473D9E950032' '467823B7002C.pas.ms.script' // TafwSettingId
+ ;
+
+ref; // ME_490896E600DC WordPositionSettingID
+
+: ME_490896F300D8
+ CONST UID '490896F300D8'
+ CONST Name 'WordOrderSettingID'
+ CONST Class class_Operation
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_490896CE00FD // InsContextFilterParamsInfo
+ ;
+ : Target WL 'ME_473D9E950032' '467823B7002C.pas.ms.script' // TafwSettingId
+ ;
+
+ref; // ME_490896F300D8 WordOrderSettingID
+
+: ME_49089705028B
+ CONST UID '49089705028B'
+ CONST Name 'TreeLevelDistSettingID'
+ CONST Class class_Operation
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_490896CE00FD // InsContextFilterParamsInfo
+ ;
+ : Target WL 'ME_473D9E950032' '467823B7002C.pas.ms.script' // TafwSettingId
+ ;
+
+ref; // ME_49089705028B TreeLevelDistSettingID
+
+: ME_490896CE00FD
+ CONST UID '490896CE00FD'
+ CONST GUID '12889696-EACB-4A19-9AAA-31D7DBBC89AE'
+ CONST Name 'InsContextFilterParamsInfo'
+ CONST Class class_Class
+ : Stereotype st_Facet ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_47ECAAF901F8 // bsInterfaces
+ ;
+ : Operations
+   Seq: ( ME_490896DA03E4 // BaseSettingID
+ ME_490896E600DC // WordPositionSettingID
+ ME_490896F300D8 // WordOrderSettingID
+ ME_49089705028B // TreeLevelDistSettingID
+ )
+ ; // Operations
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Model'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Model'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\Model'
+ CONST extprop:rc:SelfName 'ContextFilterParamsInfo'
+ CONST extprop:rc:isAcceptableForScripts true
+
+ref; // ME_490896CE00FD InsContextFilterParamsInfo
+
+FORWARD ME_4909E0980010
+
+: ME_4909E0C00304
+ CONST UID '4909E0C00304'
+ CONST Name 'Root'
+ CONST Class class_Attribute
+ : Stereotype st_property::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_lnk
+ : Parent ME_4909E0980010 // InsRootInfo
+ ;
+ : Target WL 'ME_45EEB95901C5' '457450470167.pas.ms.script' // NodeBase
+ ;
+ CONST "pm" true
+
+ref; // ME_4909E0C00304 Root
+
+: ME_4909E0980010
+ CONST UID '4909E0980010'
+ CONST GUID '0D5B759F-97A2-4B5B-B426-041C61F5C7F5'
+ CONST Name 'InsRootInfo'
+ CONST Class class_Class
+ : Stereotype st_Facet ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Коллеги, это что?' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_47ECAAF901F8 // bsInterfaces
+ ;
+ : Attributes
+   Seq: ( ME_4909E0C00304 // Root
+ )
+ ; // Attributes
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Model'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Model'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\Model'
+ CONST extprop:rc:SelfName 'RootInfo'
+ CONST extprop:rc:isAcceptableForScripts true
+
+ref; // ME_4909E0980010 InsRootInfo
+
+FORWARD ME_491443D20347
+
+: ME_491443FE01BE
+ CONST UID '491443FE01BE'
+ CONST Name 'Changed'
+ CONST Class class_Operation
+ %SUMMARY 'вызывается после изменения\восстановления настроек' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_491443D20347 // InsUserSettingsListener
+ ;
+
+ref; // ME_491443FE01BE Changed
+
+: ME_491443D20347
+ CONST UID '491443D20347'
+ CONST GUID '099B2AEC-2999-4A56-BF23-2DE9ECCB3580'
+ CONST Name 'InsUserSettingsListener'
+ CONST Class class_Class
+ : Stereotype st_Facet ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Слушатель событий пользовательских настроек' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_47ECAAF901F8 // bsInterfaces
+ ;
+ : Operations
+   Seq: ( ME_491443FE01BE // Changed
+ )
+ ; // Operations
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Model'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Model'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\Model'
+ CONST extprop:rc:SelfName 'UserSettingsListener'
+ CONST extprop:rc:isAcceptableForScripts true
+
+ref; // ME_491443D20347 InsUserSettingsListener
+
+FORWARD ME_49144428028D
+
+: ME_4914443E0326
+ CONST UID '4914443E0326'
+ CONST Name 'StartEdit'
+ CONST Class class_Operation
+ %SUMMARY 'вызывается перед началом редактирования конфигурации' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_49144428028D // InsUserSettingsEditListener
+ ;
+
+ref; // ME_4914443E0326 StartEdit
+
+: ME_49144428028D
+ CONST UID '49144428028D'
+ CONST GUID '6F121752-BD9A-4E11-89FC-2786E96C5562'
+ CONST Name 'InsUserSettingsEditListener'
+ CONST Class class_Class
+ : Stereotype st_Facet ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Слушатель событий редактирования конфигураций' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_47ECAAF901F8 // bsInterfaces
+ ;
+ : Operations
+   Seq: ( ME_4914443E0326 // StartEdit
+ )
+ ; // Operations
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Model'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Model'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\Model'
+ CONST extprop:rc:SelfName 'UserSettingsEditListener'
+ CONST extprop:rc:isAcceptableForScripts true
+
+ref; // ME_49144428028D InsUserSettingsEditListener
+
+FORWARD ME_4914445E0259
+
+: ME_4914447200F4
+ CONST UID '4914447200F4'
+ CONST Name 'aListener'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target ME_49144428028D // InsUserSettingsEditListener
+ ;
+
+ref; // ME_4914447200F4 aListener
+
+: ME_4914446E0280
+ CONST UID '4914446E0280'
+ CONST Name 'AddListener'
+ CONST Class class_Operation
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_4914445E0259 // InsSettingsNotify
+ ;
+ : Parameters
+   Seq: ( ME_4914447200F4 // aListener
+ )
+ ; // Parameters
+
+ref; // ME_4914446E0280 AddListener
+
+: ME_4914447F031C
+ CONST UID '4914447F031C'
+ CONST Name 'aListener'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target ME_49144428028D // InsUserSettingsEditListener
+ ;
+
+ref; // ME_4914447F031C aListener
+
+: ME_4914447B01C4
+ CONST UID '4914447B01C4'
+ CONST Name 'RemoveListener'
+ CONST Class class_Operation
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_4914445E0259 // InsSettingsNotify
+ ;
+ : Parameters
+   Seq: ( ME_4914447F031C // aListener
+ )
+ ; // Parameters
+
+ref; // ME_4914447B01C4 RemoveListener
+
+: ME_4914448B01AE
+ CONST UID '4914448B01AE'
+ CONST Name 'aListener'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target ME_491443D20347 // InsUserSettingsListener
+ ;
+
+ref; // ME_4914448B01AE aListener
+
+: ME_491444880189
+ CONST UID '491444880189'
+ CONST Name 'AddListener'
+ CONST Class class_Operation
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_4914445E0259 // InsSettingsNotify
+ ;
+ : Parameters
+   Seq: ( ME_4914448B01AE // aListener
+ )
+ ; // Parameters
+
+ref; // ME_491444880189 AddListener
+
+: ME_49144496003C
+ CONST UID '49144496003C'
+ CONST Name 'aListener'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target ME_491443D20347 // InsUserSettingsListener
+ ;
+
+ref; // ME_49144496003C aListener
+
+: ME_4914449202EA
+ CONST UID '4914449202EA'
+ CONST Name 'RemoveListener'
+ CONST Class class_Operation
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_4914445E0259 // InsSettingsNotify
+ ;
+ : Parameters
+   Seq: ( ME_49144496003C // aListener
+ )
+ ; // Parameters
+
+ref; // ME_4914449202EA RemoveListener
+
+: ME_4914445E0259
+ CONST UID '4914445E0259'
+ CONST GUID '2BB29B20-0145-4821-AE74-CC4403C5DB03'
+ CONST Name 'InsSettingsNotify'
+ CONST Class class_Class
+ : Stereotype st_Facet ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Уведомляет о событиях настроек проекта' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_47ECAAF901F8 // bsInterfaces
+ ;
+ : Operations
+   Seq: ( ME_4914446E0280 // AddListener
+ ME_4914447B01C4 // RemoveListener
+ ME_491444880189 // AddListener
+ ME_4914449202EA // RemoveListener
+ )
+ ; // Operations
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Model'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Model'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\Model'
+ CONST extprop:rc:SelfName 'SettingsNotify'
+ CONST extprop:rc:isAcceptableForScripts true
+
+ref; // ME_4914445E0259 InsSettingsNotify
+
+FORWARD ME_491444C201EB
+
+: ME_4914451B03BB
+ CONST UID '4914451B03BB'
+ CONST Name 'SettingsNotify'
+ CONST Class class_Attribute
+ : Stereotype st_readonly::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_lnk
+ : Parent ME_491444C201EB // InsSettings
+ ;
+ : Target ME_4914445E0259 // InsSettingsNotify
+ ;
+ CONST "pm" true
+
+ref; // ME_4914451B03BB SettingsNotify
+
+: ME_49144567028A
+ CONST UID '49144567028A'
+ CONST Name 'Data'
+ CONST Class class_Attribute
+ : Stereotype st_property::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_lnk
+ : Parent ME_491444C201EB // InsSettings
+ ;
+ : Target WL 'ME_45EEDBE30119' '45EEAA69036E.pas.ms.script' // SettingsManager
+ ;
+ CONST "pm" true
+
+ref; // ME_49144567028A Data
+
+: ME_491444D00360
+ CONST UID '491444D00360'
+ CONST Name 'StartEdit'
+ CONST Class class_Operation
+ %SUMMARY 'вызывается перед началом редактирования' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_491444C201EB // InsSettings
+ ;
+
+ref; // ME_491444D00360 StartEdit
+
+: ME_491444E70109
+ CONST UID '491444E70109'
+ CONST Name 'UserSettingsChanged'
+ CONST Class class_Operation
+ %SUMMARY 'при изменении\восстановлении пользовательских настроек' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_491444C201EB // InsSettings
+ ;
+
+ref; // ME_491444E70109 UserSettingsChanged
+
+: ME_491444FB0228
+ CONST UID '491444FB0228'
+ CONST Name 'StartReplace'
+ CONST Class class_Operation
+ %SUMMARY 'вызывается перед переключением конфигурации' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_491444C201EB // InsSettings
+ ;
+
+ref; // ME_491444FB0228 StartReplace
+
+: ME_4914450A01D2
+ CONST UID '4914450A01D2'
+ CONST Name 'FinishReplace'
+ CONST Class class_Operation
+ %SUMMARY 'вызывается по окончании переключения конфигурации' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_491444C201EB // InsSettings
+ ;
+
+ref; // ME_4914450A01D2 FinishReplace
+
+: ME_491444C201EB
+ CONST UID '491444C201EB'
+ CONST GUID 'D6082E9B-FEED-46AE-B78F-922DB54B2C8E'
+ CONST Name 'InsSettings'
+ CONST Class class_Class
+ : Stereotype st_Facet ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Интерфейс замены настроек' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_47ECAAF901F8 // bsInterfaces
+ ;
+ : Attributes
+   Seq: ( ME_4914451B03BB // SettingsNotify
+ ME_49144567028A // Data
+ )
+ ; // Attributes
+ : Operations
+   Seq: ( ME_491444D00360 // StartEdit
+ ME_491444E70109 // UserSettingsChanged
+ ME_491444FB0228 // StartReplace
+ ME_4914450A01D2 // FinishReplace
+ )
+ ; // Operations
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Model'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Model'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\Model'
+ CONST extprop:rc:SelfName 'Settings'
+ CONST extprop:rc:isAcceptableForScripts true
+
+ref; // ME_491444C201EB InsSettings
+
+FORWARD ME_49144EC703BE
+
+: ME_49144F060160
+ CONST UID '49144F060160'
+ CONST Name 'InfoChanged'
+ CONST Class class_Operation
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_49144EC703BE // InsConfigNotifyRecipient
+ ;
+
+ref; // ME_49144F060160 InfoChanged
+
+: ME_49144EC703BE
+ CONST UID '49144EC703BE'
+ CONST GUID '27C9A5F9-4778-497F-BB3E-706128FF8DFE'
+ CONST Name 'InsConfigNotifyRecipient'
+ CONST Class class_Class
+ : Stereotype st_Facet ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Подписчик на нотификацию об изменении имени/хинта конфигурации' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_47ECAAF901F8 // bsInterfaces
+ ;
+ : Operations
+   Seq: ( ME_49144F060160 // InfoChanged
+ )
+ ; // Operations
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Model'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Model'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\Model'
+ CONST extprop:rc:SelfName 'ConfigNotifyRecipient'
+ CONST extprop:rc:isAcceptableForScripts true
+
+ref; // ME_49144EC703BE InsConfigNotifyRecipient
+
+FORWARD ME_49144F1E018C
+
+: ME_49144F2C00E9
+ CONST UID '49144F2C00E9'
+ CONST Name 'aSubscriber'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target ME_49144EC703BE // InsConfigNotifyRecipient
+ ;
+
+ref; // ME_49144F2C00E9 aSubscriber
+
+: ME_49144F29019A
+ CONST UID '49144F29019A'
+ CONST Name 'Subscribe'
+ CONST Class class_Operation
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_49144F1E018C // InsConfigNotificationSource
+ ;
+ : Parameters
+   Seq: ( ME_49144F2C00E9 // aSubscriber
+ )
+ ; // Parameters
+
+ref; // ME_49144F29019A Subscribe
+
+: ME_49144F3602A3
+ CONST UID '49144F3602A3'
+ CONST Name 'aSubscriber'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target ME_49144EC703BE // InsConfigNotifyRecipient
+ ;
+
+ref; // ME_49144F3602A3 aSubscriber
+
+: ME_49144F360036
+ CONST UID '49144F360036'
+ CONST Name 'Unsubscribe'
+ CONST Class class_Operation
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_49144F1E018C // InsConfigNotificationSource
+ ;
+ : Parameters
+   Seq: ( ME_49144F3602A3 // aSubscriber
+ )
+ ; // Parameters
+
+ref; // ME_49144F360036 Unsubscribe
+
+: ME_49144F1E018C
+ CONST UID '49144F1E018C'
+ CONST GUID '9839D8B6-8FD0-4A5E-9A5A-7CE72C47A365'
+ CONST Name 'InsConfigNotificationSource'
+ CONST Class class_Class
+ : Stereotype st_Facet ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_47ECAAF901F8 // bsInterfaces
+ ;
+ : Operations
+   Seq: ( ME_49144F29019A // Subscribe
+ ME_49144F360036 // Unsubscribe
+ )
+ ; // Operations
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Model'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Model'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\Model'
+ CONST extprop:rc:SelfName 'ConfigNotificationSource'
+ CONST extprop:rc:isAcceptableForScripts true
+
+ref; // ME_49144F1E018C InsConfigNotificationSource
+
+FORWARD ME_4926A3780038
+
+: ME_4926A3930339
+ CONST UID '4926A3930339'
+ CONST Name 'Updated'
+ CONST Class class_Operation
+ %SUMMARY 'изменилось дерево' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_4926A3780038 // InsCRSimpleListTypeRootNodeListener
+ ;
+
+ref; // ME_4926A3930339 Updated
+
+: ME_4926A3780038
+ CONST UID '4926A3780038'
+ CONST GUID 'CC62F3F7-D10A-4B39-BAB9-704BB2910038'
+ CONST Name 'InsCRSimpleListTypeRootNodeListener'
+ CONST Class class_Class
+ : Stereotype st_Facet ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Слушатель событий дерева типов КР' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_47ECAAF901F8 // bsInterfaces
+ ;
+ : Inherits
+   Seq: ( WL 'ME_4680CF330338' '4677FBA70343.pas.ms.script' // Il3Notify
+ )
+ ; // Inherits
+ : Operations
+   Seq: ( ME_4926A3930339 // Updated
+ )
+ ; // Operations
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Model'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Model'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\Model'
+ CONST extprop:rc:SelfName 'CRSimpleListTypeRootNodeListener'
+ CONST extprop:rc:isAcceptableForScripts true
+
+ref; // ME_4926A3780038 InsCRSimpleListTypeRootNodeListener
+
+FORWARD ME_4937D05003A2
+
+: ME_4937D4A90300
+ CONST UID '4937D4A90300'
+ CONST Name 'HasNode'
+ CONST Class class_Attribute
+ : Stereotype st_readonly::Attribute ;
+ %SUMMARY 'определяет установлено ли значение' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_lnk
+ : Parent ME_4937D05003A2 // IbsFrozenNode
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+ CONST "pm" true
+
+ref; // ME_4937D4A90300 HasNode
+
+: ME_4937D4EB015E
+ CONST UID '4937D4EB015E'
+ CONST Name 'Value'
+ CONST Class class_Attribute
+ : Stereotype st_property::Attribute ;
+ %SUMMARY 'хранимое значение, которое размораживается при получении' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_lnk
+ : Parent ME_4937D05003A2 // IbsFrozenNode
+ ;
+ : Target WL 'ME_45EEB95901C5' '457450470167.pas.ms.script' // NodeBase
+ ;
+ CONST "pm" true
+
+ref; // ME_4937D4EB015E Value
+
+: ME_4937D52802E2
+ CONST UID '4937D52802E2'
+ CONST Name 'Caption'
+ CONST Class class_Attribute
+ : Stereotype st_readonly::Attribute ;
+ %SUMMARY 'Заголовок замороженной ноды' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_lnk
+ : Parent ME_4937D05003A2 // IbsFrozenNode
+ ;
+ : Target WL 'ME_47209E670266' '4678193C009C.pas.ms.script' // Tl3PCharLen
+ ;
+ CONST "pm" true
+
+ref; // ME_4937D52802E2 Caption
+
+: ME_4937D48D0381
+ CONST UID '4937D48D0381'
+ CONST Name 'aValue'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target ME_4937D05003A2 // IbsFrozenNode
+ ;
+
+ref; // ME_4937D48D0381 aValue
+
+: ME_4937D4840030
+ CONST UID '4937D4840030'
+ CONST Name 'IsSame'
+ CONST Class class_Operation
+ %SUMMARY 'проверяет на равенство' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_4937D05003A2 // IbsFrozenNode
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+ : Parameters
+   Seq: ( ME_4937D48D0381 // aValue
+ )
+ ; // Parameters
+
+ref; // ME_4937D4840030 IsSame
+
+: ME_4937D49E00FD
+ CONST UID '4937D49E00FD'
+ CONST Name 'aValue'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target ME_4937D05003A2 // IbsFrozenNode
+ ;
+
+ref; // ME_4937D49E00FD aValue
+
+: ME_4937D49600EE
+ CONST UID '4937D49600EE'
+ CONST Name 'Assign'
+ CONST Class class_Operation
+ %SUMMARY 'скопировать данные' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_4937D05003A2 // IbsFrozenNode
+ ;
+ : Parameters
+   Seq: ( ME_4937D49E00FD // aValue
+ )
+ ; // Parameters
+
+ref; // ME_4937D49600EE Assign
+
+: ME_4937D05003A2
+ CONST UID '4937D05003A2'
+ CONST GUID 'E86D2D87-36DC-4B88-A482-48295B66F800'
+ CONST Name 'IbsFrozenNode'
+ CONST Class class_Class
+ : Stereotype st_Facet ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Интерфейс для работы с замороженными узлами' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_47ECAAF901F8 // bsInterfaces
+ ;
+ : Attributes
+   Seq: ( ME_4937D4A90300 // HasNode
+ ME_4937D4EB015E // Value
+ ME_4937D52802E2 // Caption
+ )
+ ; // Attributes
+ : Operations
+   Seq: ( ME_4937D4840030 // IsSame
+ ME_4937D49600EE // Assign
+ )
+ ; // Operations
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Model'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Model'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\Model'
+ CONST extprop:rc:SelfName 'bsFrozenNode'
+ CONST extprop:rc:isAcceptableForScripts true
+
+ref; // ME_4937D05003A2 IbsFrozenNode
+
+FORWARD ME_48F73FF3029C
+
+: ME_48F876A900AF
+ CONST UID '48F876A900AF'
+ CONST Name 'List'
+ CONST Class class_Attribute
+ : Stereotype st_readonly::Attribute ;
+ %SUMMARY 'адаптерный список документов' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_lnk
+ : Parent ME_48F73FF3029C // IbsListTreeData
+ ;
+ : Target WL 'ME_45EEDB730265' '45700BFD0251.pas.ms.script' // DynList
+ ;
+ CONST "pm" true
+
+ref; // ME_48F876A900AF List
+
+: ME_48F876C701BD
+ CONST UID '48F876C701BD'
+ CONST Name 'Root'
+ CONST Class class_Attribute
+ : Stereotype st_readonly::Attribute ;
+ %SUMMARY 'корень дерева списка' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_lnk
+ : Parent ME_48F73FF3029C // IbsListTreeData
+ ;
+ : Target WL 'ME_45EEB95901C5' '457450470167.pas.ms.script' // NodeBase
+ ;
+ CONST "pm" true
+
+ref; // ME_48F876C701BD Root
+
+: ME_48F876DA0247
+ CONST UID '48F876DA0247'
+ CONST Name 'Nodes'
+ CONST Class class_Attribute
+ : Stereotype st_readonly::Attribute ;
+ %SUMMARY 'выбранный узлы списка на момент создания данных' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_lnk
+ : Parent ME_48F73FF3029C // IbsListTreeData
+ ;
+ : Target WL 'ME_45EECAA0007D' '457450470167.pas.ms.script' // NodesClipboard
+ ;
+ CONST "pm" true
+
+ref; // ME_48F876DA0247 Nodes
+
+: ME_48F876F10193
+ CONST UID '48F876F10193'
+ CONST Name 'Node'
+ CONST Class class_Attribute
+ : Stereotype st_readonly::Attribute ;
+ %SUMMARY 'текущий выбранный узел дерева' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_lnk
+ : Parent ME_48F73FF3029C // IbsListTreeData
+ ;
+ : Target WL 'ME_468259900322' '4682595B0268.pas.ms.script' // Il3SimpleNode
+ ;
+ CONST "pm" true
+
+ref; // ME_48F876F10193 Node
+
+: ME_48F73FF3029C
+ CONST UID '48F73FF3029C'
+ CONST GUID 'B9FBC837-91AB-4754-A508-A3D85855991A'
+ CONST Name 'IbsListTreeData'
+ CONST Class class_Class
+ : Stereotype st_Facet ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Данные дерева списка' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_47ECAAF901F8 // bsInterfaces
+ ;
+ : Inherits
+   Seq: ( WL 'ME_47AAFE470329' '4682595B0268.pas.ms.script' // Il3Nodes
+ )
+ ; // Inherits
+ : Attributes
+   Seq: ( ME_48F876A900AF // List
+ ME_48F876C701BD // Root
+ ME_48F876DA0247 // Nodes
+ ME_48F876F10193 // Node
+ )
+ ; // Attributes
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Model'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Model'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\Model'
+ CONST extprop:rc:SelfName 'bsListTreeData'
+ CONST extprop:rc:isAcceptableForScripts true
+
+ref; // ME_48F73FF3029C IbsListTreeData
+
+FORWARD ME_495275E40046
+
+: ME_495276050302
+ CONST UID '495276050302'
+ CONST Name 'InternalNumber'
+ CONST Class class_Attribute
+ : Stereotype st_readonly::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_lnk
+ : Parent ME_495275E40046 // IbsDocumentStreamWrapper
+ ;
+ : Target WL 'ME_46780DA40383' '4677FBA70343.pas.ms.script' // Il3CString
+ ;
+ CONST "pm" true
+
+ref; // ME_495276050302 InternalNumber
+
+: ME_49527634025F
+ CONST UID '49527634025F'
+ CONST Name 'EVDStream'
+ CONST Class class_Attribute
+ : Stereotype st_readonly::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_lnk
+ : Parent ME_495275E40046 // IbsDocumentStreamWrapper
+ ;
+ : Target WL 'ME_47C699BD0247' '47C5207602D1.pas.ms.script' // InevObjectHolder
+ ;
+ CONST "pm" true
+
+ref; // ME_49527634025F EVDStream
+
+: ME_495275E40046
+ CONST UID '495275E40046'
+ CONST GUID '35818298-C09D-4BB0-95B8-F81FA789DC54'
+ CONST Name 'IbsDocumentStreamWrapper'
+ CONST Class class_Class
+ : Stereotype st_Facet ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_47ECAAF901F8 // bsInterfaces
+ ;
+ : Attributes
+   Seq: ( ME_495276050302 // InternalNumber
+ ME_49527634025F // EVDStream
+ )
+ ; // Attributes
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Model'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Model'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\Model'
+ CONST extprop:rc:SelfName 'bsDocumentStreamWrapper'
+ CONST extprop:rc:isAcceptableForScripts true
+
+ref; // ME_495275E40046 IbsDocumentStreamWrapper
+
+FORWARD ME_495278E6028C
+
+: ME_495278F9011B
+ CONST UID '495278F9011B'
+ CONST Name 'aValue'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46780DA40383' '4677FBA70343.pas.ms.script' // Il3CString
+ ;
+
+ref; // ME_495278F9011B aValue
+
+: ME_495278F403D3
+ CONST UID '495278F403D3'
+ CONST Name 'GetCRNodeByValue'
+ CONST Class class_Operation
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_495278E6028C // IbsCRSettingsConverter
+ ;
+ : Target ME_4937D05003A2 // IbsFrozenNode
+ ;
+ : Parameters
+   Seq: ( ME_495278F9011B // aValue
+ )
+ ; // Parameters
+
+ref; // ME_495278F403D3 GetCRNodeByValue
+
+: ME_495278E6028C
+ CONST UID '495278E6028C'
+ CONST GUID 'DF1E263F-04F7-44C7-907A-B5FBF9FD6847'
+ CONST Name 'IbsCRSettingsConverter'
+ CONST Class class_Class
+ : Stereotype st_Facet ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_47ECAAF901F8 // bsInterfaces
+ ;
+ : Operations
+   Seq: ( ME_495278F403D3 // GetCRNodeByValue
+ )
+ ; // Operations
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Model'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Model'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\Model'
+ CONST extprop:rc:SelfName 'bsCRSettingsConverter'
+ CONST extprop:rc:isAcceptableForScripts true
+
+ref; // ME_495278E6028C IbsCRSettingsConverter
+
+FORWARD ME_49527999013D
+
+: ME_49527A2702F4
+ CONST UID '49527A2702F4'
+ CONST Name 'HasUnread'
+ CONST Class class_Attribute
+ : Stereotype st_readonly::Attribute ;
+ %SUMMARY 'наличие непрочитанных консультаций' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_lnk
+ : Parent ME_49527999013D // IbsConsultationManager
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+ CONST "pm" true
+
+ref; // ME_49527A2702F4 HasUnread
+
+: ME_5501366003A9
+ CONST UID '5501366003A9'
+ CONST Name 'CurrentStatus'
+ CONST Class class_Attribute
+ : Stereotype st_readonly::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_lnk
+ : Parent ME_49527999013D // IbsConsultationManager
+ ;
+ : Target WL 'ME_550136350165' '47EA07FA02CE.pas.ms.script' // TbsConsultationOperations
+ ;
+ CONST "pm" true
+
+ref; // ME_5501366003A9 CurrentStatus
+
+: ME_495279E501CB
+ CONST UID '495279E501CB'
+ CONST Name 'UnreadChanged'
+ CONST Class class_Operation
+ %SUMMARY 'изменилось количество не прочтенных' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_49527999013D // IbsConsultationManager
+ ;
+
+ref; // ME_495279E501CB UnreadChanged
+
+: ME_495279F20005
+ CONST UID '495279F20005'
+ CONST Name 'NoConnection'
+ CONST Class class_Operation
+ %SUMMARY 'нет доступа к серверу консультаций' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_49527999013D // IbsConsultationManager
+ ;
+
+ref; // ME_495279F20005 NoConnection
+
+: ME_495279FD039E
+ CONST UID '495279FD039E'
+ CONST Name 'NoSubscription'
+ CONST Class class_Operation
+ %SUMMARY 'у пользователя нет доступа к сервису консультаций' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_49527999013D // IbsConsultationManager
+ ;
+
+ref; // ME_495279FD039E NoSubscription
+
+: ME_49527A1B0162
+ CONST UID '49527A1B0162'
+ CONST Name 'InternetConnected'
+ CONST Class class_Operation
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_49527999013D // IbsConsultationManager
+ ;
+
+ref; // ME_49527A1B0162 InternetConnected
+
+: ME_4BCD8E0B00AE
+ CONST UID '4BCD8E0B00AE'
+ CONST Name 'InternetDisConnected'
+ CONST Class class_Operation
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_49527999013D // IbsConsultationManager
+ ;
+
+ref; // ME_4BCD8E0B00AE InternetDisConnected
+
+: ME_46A44F6B035E_ME_49527999013D
+ CONST UID '46A44F6B035E'
+ CONST Name 'Subscribe'
+ : Original WL 'ME_46A44F6B035E' '4677FBA70343.pas.ms.script' // Subscribe
+ ;
+ : Implementor ME_49527999013D // IbsConsultationManager
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_46A44F6B035E_ME_49527999013D Subscribe
+
+: ME_46A44FFE0143_ME_49527999013D
+ CONST UID '46A44FFE0143'
+ CONST Name 'Unsubscribe'
+ : Original WL 'ME_46A44FFE0143' '4677FBA70343.pas.ms.script' // Unsubscribe
+ ;
+ : Implementor ME_49527999013D // IbsConsultationManager
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_46A44FFE0143_ME_49527999013D Unsubscribe
+
+: ME_49527999013D
+ CONST UID '49527999013D'
+ CONST GUID '371A71E1-37C7-48F1-B015-FF347960C55C'
+ CONST Name 'IbsConsultationManager'
+ CONST Class class_Class
+ : Stereotype st_Facet ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Менеджер консультаций' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_47ECAAF901F8 // bsInterfaces
+ ;
+ : Implements
+   Seq: ( WL 'ME_46782E7F0307' '4677FBA70343.pas.ms.script' // Il3ChangeNotifier
+ )
+ ; // Implements
+ : Attributes
+   Seq: ( ME_49527A2702F4 // HasUnread
+ ME_5501366003A9 // CurrentStatus
+ )
+ ; // Attributes
+ : Operations
+   Seq: ( ME_495279E501CB // UnreadChanged
+ ME_495279F20005 // NoConnection
+ ME_495279FD039E // NoSubscription
+ ME_49527A1B0162 // InternetConnected
+ ME_4BCD8E0B00AE // InternetDisConnected
+ )
+ ; // Operations
+ : Implemented
+   Seq: ( ME_46A44F6B035E_ME_49527999013D // Subscribe
+ ME_46A44FFE0143_ME_49527999013D // Unsubscribe
+ )
+ ; // Implemented
+ CONST "ifndef" 'Admin,Monitorings'
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Model'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Model'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\Model'
+ CONST extprop:rc:SelfName 'bsConsultationManager'
+ CONST extprop:rc:isAcceptableForScripts true
+
+ref; // ME_49527999013D IbsConsultationManager
+
+FORWARD ME_4901E66D024F
+
+: ME_4901E691032E
+ CONST UID '4901E691032E'
+ CONST Name 'UserFlags'
+ CONST Class class_Attribute
+ : Stereotype st_readonly::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_lnk
+ : Parent ME_4901E66D024F // InsUserFlagsFilters
+ ;
+ : Target ME_4901E64C0042 // InsUserFlagsFilter
+ ;
+ CONST "pm" true
+
+ref; // ME_4901E691032E UserFlags
+
+: ME_49F0161A037E
+ CONST UID '49F0161A037E'
+ CONST Name 'Group'
+ CONST Class class_Attribute
+ : Stereotype st_readonly::Attribute ;
+ %SUMMARY 'Фильтр на группу' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_lnk
+ : Parent ME_4901E66D024F // InsUserFlagsFilters
+ ;
+ : Target ME_49F015CA0381 // InsGroupFilter
+ ;
+ CONST "pm" true
+
+ref; // ME_49F0161A037E Group
+
+: ME_49F1573C02B4
+ CONST UID '49F1573C02B4'
+ CONST Name 'PermanentUserFlags'
+ CONST Class class_Attribute
+ : Stereotype st_readonly::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_lnk
+ : Parent ME_4901E66D024F // InsUserFlagsFilters
+ ;
+ : Target ME_4901E64C0042 // InsUserFlagsFilter
+ ;
+ CONST "pm" true
+
+ref; // ME_49F1573C02B4 PermanentUserFlags
+
+: ME_4901E6CA016A
+ CONST UID '4901E6CA016A'
+ CONST Name 'aFilter'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target ME_4901E64C0042 // InsUserFlagsFilter
+ ;
+
+ref; // ME_4901E6CA016A aFilter
+
+: ME_4901E6C301FD
+ CONST UID '4901E6C301FD'
+ CONST Name 'SetUserFlag'
+ CONST Class class_Operation
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_4901E66D024F // InsUserFlagsFilters
+ ;
+ : Target ME_4901E66D024F // InsUserFlagsFilters
+ ;
+ : Parameters
+   Seq: ( ME_4901E6CA016A // aFilter
+ )
+ ; // Parameters
+
+ref; // ME_4901E6C301FD SetUserFlag
+
+: ME_49F019DF014C
+ CONST UID '49F019DF014C'
+ CONST Name 'aFilter'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target ME_49F015CA0381 // InsGroupFilter
+ ;
+
+ref; // ME_49F019DF014C aFilter
+
+: ME_49F019C2015C
+ CONST UID '49F019C2015C'
+ CONST Name 'SetGroup'
+ CONST Class class_Operation
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_4901E66D024F // InsUserFlagsFilters
+ ;
+ : Target ME_4901E66D024F // InsUserFlagsFilters
+ ;
+ : Parameters
+   Seq: ( ME_49F019DF014C // aFilter
+ )
+ ; // Parameters
+
+ref; // ME_49F019C2015C SetGroup
+
+: ME_49F157760296
+ CONST UID '49F157760296'
+ CONST Name 'aFilter'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target ME_4901E64C0042 // InsUserFlagsFilter
+ ;
+
+ref; // ME_49F157760296 aFilter
+
+: ME_49F157660281
+ CONST UID '49F157660281'
+ CONST Name 'SetPermanentUserFlag'
+ CONST Class class_Operation
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_4901E66D024F // InsUserFlagsFilters
+ ;
+ : Target ME_4901E66D024F // InsUserFlagsFilters
+ ;
+ : Parameters
+   Seq: ( ME_49F157760296 // aFilter
+ )
+ ; // Parameters
+
+ref; // ME_49F157660281 SetPermanentUserFlag
+
+: ME_47724B790382_ME_4901E66D024F
+ CONST UID '47724B790382'
+ CONST Name 'SetContext'
+ : Original WL 'ME_47724B790382' '4682595B0268.pas.ms.script' // SetContext
+ ;
+ : Implementor ME_4901E66D024F // InsUserFlagsFilters
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_47724B790382_ME_4901E66D024F SetContext
+
+: ME_47724B87036B_ME_4901E66D024F
+ CONST UID '47724B87036B'
+ CONST Name 'Clone'
+ : Original WL 'ME_47724B87036B' '4682595B0268.pas.ms.script' // Clone
+ ;
+ : Implementor ME_4901E66D024F // InsUserFlagsFilters
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_47724B87036B_ME_4901E66D024F Clone
+
+: ME_47724B9402ED_ME_4901E66D024F
+ CONST UID '47724B9402ED'
+ CONST Name 'Context'
+ : Original WL 'ME_47724B9402ED' '4682595B0268.pas.ms.script' // Context
+ ;
+ : Implementor ME_4901E66D024F // InsUserFlagsFilters
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "pm" true
+ref; // ME_47724B9402ED_ME_4901E66D024F Context
+
+: ME_4901E66D024F
+ CONST UID '4901E66D024F'
+ CONST GUID '70949CA2-C90A-40F3-8138-627F0EA90920'
+ CONST Name 'InsUserFlagsFilters'
+ CONST Class class_Class
+ : Stereotype st_Facet ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_47ECAAF901F8 // bsInterfaces
+ ;
+ : Inherits
+   Seq: ( WL 'ME_47724B6500F6' '4682595B0268.pas.ms.script' // Il3TreeFilters
+ )
+ ; // Inherits
+ : Attributes
+   Seq: ( ME_4901E691032E // UserFlags
+ ME_49F0161A037E // Group
+ ME_49F1573C02B4 // PermanentUserFlags
+ )
+ ; // Attributes
+ : Operations
+   Seq: ( ME_4901E6C301FD // SetUserFlag
+ ME_49F019C2015C // SetGroup
+ ME_49F157660281 // SetPermanentUserFlag
+ )
+ ; // Operations
+ : Implemented
+   Seq: ( ME_47724B790382_ME_4901E66D024F // SetContext
+ ME_47724B87036B_ME_4901E66D024F // Clone
+ ME_47724B9402ED_ME_4901E66D024F // Context
+ )
+ ; // Implemented
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Model'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Model'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\Model'
+ CONST extprop:rc:SelfName 'UserFlagsFilters'
+ CONST extprop:rc:isAcceptableForScripts true
+
+ref; // ME_4901E66D024F InsUserFlagsFilters
+
+FORWARD ME_49F1AD9B00B6
+
+: ME_49F1AED002EE
+ CONST UID '49F1AED002EE'
+ CONST Name 'Count'
+ CONST Class class_Attribute
+ : Stereotype st_readonly::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_lnk
+ : Parent ME_49F1AD9B00B6 // IbsSelectedUsers
+ ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+ CONST "pm" true
+
+ref; // ME_49F1AED002EE Count
+
+FORWARD ME_49F1AE8F03C3
+
+: ME_49F1AE9A0180
+ CONST UID '49F1AE9A0180'
+ CONST Name 'anIndex'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_49F1AE8F03C3 // Name
+ ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+
+ref; // ME_49F1AE9A0180 anIndex
+
+: ME_49F1AE8F03C3
+ CONST UID '49F1AE8F03C3'
+ CONST Name 'Name'
+ CONST Class class_Attribute
+ : Stereotype st_readonly::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_lnk
+ : Parent ME_49F1AD9B00B6 // IbsSelectedUsers
+ ;
+ : Target WL 'ME_46780DA40383' '4677FBA70343.pas.ms.script' // Il3CString
+ ;
+ : Attributes
+   Seq: ( ME_49F1AE9A0180 // anIndex
+ )
+ ; // Attributes
+ CONST "pm" true
+
+ref; // ME_49F1AE8F03C3 Name
+
+FORWARD ME_49F1AEFF0284
+
+: ME_49F1AF050374
+ CONST UID '49F1AF050374'
+ CONST Name 'anIndex'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_49F1AEFF0284 // UID
+ ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+
+ref; // ME_49F1AF050374 anIndex
+
+: ME_49F1AEFF0284
+ CONST UID '49F1AEFF0284'
+ CONST Name 'UID'
+ CONST Class class_Attribute
+ : Stereotype st_readonly::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_lnk
+ : Parent ME_49F1AD9B00B6 // IbsSelectedUsers
+ ;
+ : Target WL 'ME_3DBFFD7002C2' '3DBFDB23006E.pas.ms.script' // long
+ ;
+ : Attributes
+   Seq: ( ME_49F1AF050374 // anIndex
+ )
+ ; // Attributes
+ CONST "pm" true
+
+ref; // ME_49F1AEFF0284 UID
+
+: ME_49F1AE0202DF
+ CONST UID '49F1AE0202DF'
+ CONST Name 'aName'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46780DA40383' '4677FBA70343.pas.ms.script' // Il3CString
+ ;
+
+ref; // ME_49F1AE0202DF aName
+
+: ME_49F1AE0202FE
+ CONST UID '49F1AE0202FE'
+ CONST Name 'anUID'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_3DBFFD7002C2' '3DBFDB23006E.pas.ms.script' // long
+ ;
+
+ref; // ME_49F1AE0202FE anUID
+
+: ME_49F1ADEF0280
+ CONST UID '49F1ADEF0280'
+ CONST Name 'AddUser'
+ CONST Class class_Operation
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_49F1AD9B00B6 // IbsSelectedUsers
+ ;
+ : Parameters
+   Seq: ( ME_49F1AE0202DF // aName
+ ME_49F1AE0202FE // anUID
+ )
+ ; // Parameters
+
+ref; // ME_49F1ADEF0280 AddUser
+
+: ME_49F1AD9B00B6
+ CONST UID '49F1AD9B00B6'
+ CONST GUID '55285BB9-CBAD-4A66-BF73-93BB93EAC2D6'
+ CONST Name 'IbsSelectedUsers'
+ CONST Class class_Class
+ : Stereotype st_Facet ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Выделенные пользователи' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_47ECAAF901F8 // bsInterfaces
+ ;
+ : Attributes
+   Seq: ( ME_49F1AED002EE // Count
+ ME_49F1AE8F03C3 // Name
+ ME_49F1AEFF0284 // UID
+ )
+ ; // Attributes
+ : Operations
+   Seq: ( ME_49F1ADEF0280 // AddUser
+ )
+ ; // Operations
+ CONST "ifdef" 'Admin'
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Model'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Model'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\Model'
+ CONST extprop:rc:SelfName 'bsSelectedUsers'
+ CONST extprop:rc:isAcceptableForScripts true
+
+ref; // ME_49F1AD9B00B6 IbsSelectedUsers
+
+FORWARD ME_49F17AE6005F
+
+: ME_49F17C070091
+ CONST UID '49F17C070091'
+ CONST Name 'Node'
+ CONST Class class_Attribute
+ : Stereotype st_readonly::Attribute ;
+ %SUMMARY 'Выделенный пользователь' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_lnk
+ : Parent ME_49F17AE6005F // IbsUserTreeData
+ ;
+ : Target WL 'ME_468259900322' '4682595B0268.pas.ms.script' // Il3SimpleNode
+ ;
+ CONST "pm" true
+
+ref; // ME_49F17C070091 Node
+
+: ME_49F1AE1D02A4
+ CONST UID '49F1AE1D02A4'
+ CONST Name 'Users'
+ CONST Class class_Attribute
+ : Stereotype st_readonly::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_lnk
+ : Parent ME_49F17AE6005F // IbsUserTreeData
+ ;
+ : Target ME_49F1AD9B00B6 // IbsSelectedUsers
+ ;
+ CONST "pm" true
+
+ref; // ME_49F1AE1D02A4 Users
+
+: ME_49F17AE6005F
+ CONST UID '49F17AE6005F'
+ CONST GUID '682E3AE7-4510-476F-AC9C-1C405D8E96F3'
+ CONST Name 'IbsUserTreeData'
+ CONST Class class_Class
+ : Stereotype st_Facet ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Данные для d&d пользователей в группы' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_47ECAAF901F8 // bsInterfaces
+ ;
+ : Inherits
+   Seq: ( WL 'ME_47AAFE470329' '4682595B0268.pas.ms.script' // Il3Nodes
+ )
+ ; // Inherits
+ : Attributes
+   Seq: ( ME_49F17C070091 // Node
+ ME_49F1AE1D02A4 // Users
+ )
+ ; // Attributes
+ CONST "ifdef" 'Admin'
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Model'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Model'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\Model'
+ CONST extprop:rc:SelfName 'bsUserTreeData'
+ CONST extprop:rc:isAcceptableForScripts true
+
+ref; // ME_49F17AE6005F IbsUserTreeData
+
+FORWARD ME_56A872B801DB
+
+: ME_56A872F7016B
+ CONST UID '56A872F7016B'
+ CONST Name 'aIndex'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+
+ref; // ME_56A872F7016B aIndex
+
+: ME_56A872EF012A
+ CONST UID '56A872EF012A'
+ CONST Name 'GetIsSelected'
+ CONST Class class_Operation
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_56A872B801DB // InsTreeStructState
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+ : Parameters
+   Seq: ( ME_56A872F7016B // aIndex
+ )
+ ; // Parameters
+
+ref; // ME_56A872EF012A GetIsSelected
+
+: ME_56A872B801DB
+ CONST UID '56A872B801DB'
+ CONST GUID 'B5B7BD25-911C-40C5-BEA7-197F865C795A'
+ CONST Name 'InsTreeStructState'
+ CONST Class class_Class
+ : Stereotype st_Facet ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_47ECAAF901F8 // bsInterfaces
+ ;
+ : Operations
+   Seq: ( ME_56A872EF012A // GetIsSelected
+ )
+ ; // Operations
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Model'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Model'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\Model'
+ CONST extprop:rc:SelfName 'TreeStructState'
+ CONST extprop:rc:isAcceptableForScripts true
+
+ref; // ME_56A872B801DB InsTreeStructState
+
+FORWARD ME_56A872FE02E8
+
+: ME_56A873120383
+ CONST UID '56A873120383'
+ CONST Name 'MakeState'
+ CONST Class class_Operation
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_56A872FE02E8 // InsTreeStructStateProvider
+ ;
+ : Target ME_56A872B801DB // InsTreeStructState
+ ;
+
+ref; // ME_56A873120383 MakeState
+
+: ME_56A872FE02E8
+ CONST UID '56A872FE02E8'
+ CONST GUID '51C290F5-D7FE-4998-8E23-8D0A648163E2'
+ CONST Name 'InsTreeStructStateProvider'
+ CONST Class class_Class
+ : Stereotype st_Facet ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_47ECAAF901F8 // bsInterfaces
+ ;
+ : Operations
+   Seq: ( ME_56A873120383 // MakeState
+ )
+ ; // Operations
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Model'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Model'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\Model'
+ CONST extprop:rc:SelfName 'TreeStructStateProvider'
+ CONST extprop:rc:isAcceptableForScripts true
+
+ref; // ME_56A872FE02E8 InsTreeStructStateProvider
+
+FORWARD ME_56A89F5D012C
+
+: ME_56A89F7603B2
+ CONST UID '56A89F7603B2'
+ CONST Name 'aState'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target ME_56A872B801DB // InsTreeStructState
+ ;
+
+ref; // ME_56A89F7603B2 aState
+
+: ME_56A89F6B03A5
+ CONST UID '56A89F6B03A5'
+ CONST Name 'AssignState'
+ CONST Class class_Operation
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_56A89F5D012C // InsTreeStructStateConsumer
+ ;
+ : Parameters
+   Seq: ( ME_56A89F7603B2 // aState
+ )
+ ; // Parameters
+
+ref; // ME_56A89F6B03A5 AssignState
+
+: ME_56A89F5D012C
+ CONST UID '56A89F5D012C'
+ CONST GUID '177B1BBA-5717-4464-BB48-5453A0B2A2DB'
+ CONST Name 'InsTreeStructStateConsumer'
+ CONST Class class_Class
+ : Stereotype st_Facet ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_47ECAAF901F8 // bsInterfaces
+ ;
+ : Operations
+   Seq: ( ME_56A89F6B03A5 // AssignState
+ )
+ ; // Operations
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Model'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Model'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\Model'
+ CONST extprop:rc:SelfName 'TreeStructStateConsumer'
+ CONST extprop:rc:isAcceptableForScripts true
+
+ref; // ME_56A89F5D012C InsTreeStructStateConsumer
+
+: ME_47ECAAF901F8
+ CONST UID '47ECAAF901F8'
+ CONST Name 'bsInterfaces'
+ CONST Class class_Category
+ : Stereotype st_Interfaces ;
+ %SUMMARY 'Интерфейсы бизнес уровня (ой ли?)' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent WL 'ME_47E9EEC60260' '47E9EEC60260.pas.ms.script' // Model
+ ;
+ : Children
+   Seq: ( ME_48FF6D050234 // InsTreeDataListener
+ ME_48FEE95F0124 // InsDropListener
+ ME_4806F15703CF // InsInternalFilterableTree
+ ME_4901E64C0042 // InsUserFlagsFilter
+ ME_49F015CA0381 // InsGroupFilter
+ ME_4901EE8402B6 // InsCountryFilter
+ ME_4901EE9D02E5 // InsMedicFirmListFilters
+ ME_4902013F03CC // InsAttributeTreeFilters
+ ME_4902077602BA // InsLayerFilter
+ ME_490207910151 // InsLayeredTreeFilters
+ ME_48FF5116013C // InsAdapterFilters
+ ME_49071AE3035B // InsMedicFirmsTreeNotifyRecipient
+ ME_49071AFF0024 // InsMedicFirmsTreeNotificationSource
+ ME_490896CE00FD // InsContextFilterParamsInfo
+ ME_4909E0980010 // InsRootInfo
+ ME_491443D20347 // InsUserSettingsListener
+ ME_49144428028D // InsUserSettingsEditListener
+ ME_4914445E0259 // InsSettingsNotify
+ ME_491444C201EB // InsSettings
+ ME_49144EC703BE // InsConfigNotifyRecipient
+ ME_49144F1E018C // InsConfigNotificationSource
+ ME_4926A3780038 // InsCRSimpleListTypeRootNodeListener
+ ME_4937D05003A2 // IbsFrozenNode
+ ME_48F73FF3029C // IbsListTreeData
+ ME_495275E40046 // IbsDocumentStreamWrapper
+ ME_495278E6028C // IbsCRSettingsConverter
+ ME_49527999013D // IbsConsultationManager
+ ME_4901E66D024F // InsUserFlagsFilters
+ ME_49F1AD9B00B6 // IbsSelectedUsers
+ ME_49F17AE6005F // IbsUserTreeData
+ ME_56A872B801DB // InsTreeStructState
+ ME_56A872FE02E8 // InsTreeStructStateProvider
+ ME_56A89F5D012C // InsTreeStructStateConsumer
+ )
+ ; // Children
+ : Depends
+   Seq: ( WL 'ME_456F02A50196' '456F02A50196.pas.ms.script' // BaseTreeSupport
+ WL 'ME_45700BFD0251' '45700BFD0251.pas.ms.script' // DynamicDocList
+ WL 'ME_4570511E038A' '4570511E038A.pas.ms.script' // Document
+ WL 'ME_457450470167' '457450470167.pas.ms.script' // DynamicTree
+ WL 'ME_45EEA4890342' '45EEA4890342.pas.ms.script' // ExternalOperation
+ WL 'ME_45EEAA69036E' '45EEAA69036E.pas.ms.script' // Settings
+ WL 'ME_45EEAA96039C' '45EEAA96039C.pas.ms.script' // Security
+ WL 'ME_4677FBA70343' '4677FBA70343.pas.ms.script' // l3Interfaces
+ WL 'ME_4678193C009C' '4678193C009C.pas.ms.script' // l3Types
+ WL 'ME_467823B7002C' '467823B7002C.pas.ms.script' // afwInterfaces
+ WL 'ME_4682595B0268' '4682595B0268.pas.ms.script' // l3TreeInterfaces
+ WL 'ME_4683F37902CF' '4683F37902CF.pas.ms.script' // vcmInterfaces
+ WL 'ME_476BF10A0280' '476BF10A0280.pas.ms.script' // l3Tree_TLB
+ WL 'ME_47C5207602D1' '47C5207602D1.pas.ms.script' // nevTools
+ WL 'ME_47EA07FA02CE' '47EA07FA02CE.pas.ms.script' // bsTypes
+ WL 'ME_47F2170002B2' '47F2170002B2.pas.ms.script' // nsTypes
+ WL 'ME_4912DD020283' '4912DD020283.pas.ms.script' // eeInterfaces
+ WL 'ME_4A251D6E00BD' '4A251D6E00BD.pas.ms.script' // nevNavigation
+ WL 'ME_4AB0C3C60310' '4AB0C3C60310.pas.ms.script' // Sys
+ )
+ ; // Depends
+ CONST "is namespace" true
+ CONST "no hands" true
+ : Generators
+ Seq: (
+ gen_intf.pas
+ gen_pas.script
+ gen_pas.script.runner
+ )
+ ; // Generators
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Model'
+ CONST intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\Model\bsInterfaces.pas'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Model'
+ CONST pas.script:Path 'shared\models\NewSchool\Scripts\47ECAAF901F8.pas.ms.script'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\47ECAAF901F8.pas.ms.script.runner'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\Model'
+
+ref; // ME_47ECAAF901F8 bsInterfaces

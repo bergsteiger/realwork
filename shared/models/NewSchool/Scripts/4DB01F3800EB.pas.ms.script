@@ -1,0 +1,3448 @@
+// Words 4DB01F3800EB ScriptKeywords Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4DB01F3800EB
+
+FORWARD ME_4DAF069D0072
+
+: ME_221D082CCD15
+ CONST UID '221D082CCD15'
+ CONST Name 'Ini_Reg'
+ CONST IsSummoned true
+ CONST Class class_Operation
+ : Stereotype st_ini::Operation ;
+ %SUMMARY 'Регистрация AttributeSearch' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_4DAF069D0072 // AttributeSearch
+ ;
+
+ref; // ME_221D082CCD15 Ini_Reg
+
+: ME_4DAEEDE10285_ME_4DAF069D0072
+ CONST UID '4DAEEDE10285'
+ CONST Name 'DoDoIt'
+ : Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.pas.ms.script' // DoDoIt
+ ;
+ : Implementor ME_4DAF069D0072 // AttributeSearch
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_4DAEEDE10285_ME_4DAF069D0072 DoDoIt
+
+: ME_4DB0614603C8_ME_4DAF069D0072
+ CONST UID '4DB0614603C8'
+ CONST Name 'GetWordNameForRegister'
+ : Original WL 'ME_4DB0614603C8' '4F3E3F5F0160.pas.ms.script' // GetWordNameForRegister
+ ;
+ : Implementor ME_4DAF069D0072 // AttributeSearch
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_4DB0614603C8_ME_4DAF069D0072 GetWordNameForRegister
+
+: ME_4DAF069D0072
+ CONST UID '4DAF069D0072'
+ CONST Name 'AttributeSearch'
+ CONST Class class_Class
+ : Stereotype st_ScriptKeyword ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4DB01F3800EB // Words
+ ;
+ : Inherits
+   Seq: ( WL 'ME_53EDC0E701BC' '4F3E3F5F0160.pas.ms.script' // TtfwRegisterableWord
+ )
+ ; // Inherits
+ : Implements
+   Seq: ( WL 'ME_4DA3190C022C' '4DA318AB0254.pas.ms.script' // F1Test
+ )
+ ; // Implements
+ : Operations
+   Seq: ( ME_221D082CCD15 // Ini_Reg
+ )
+ ; // Operations
+ : Implemented
+   Seq: ( ME_4DAEEDE10285_ME_4DAF069D0072 // DoDoIt
+ )
+ ; // Implemented
+ : Overridden
+   Seq: ( ME_4DB0614603C8_ME_4DAF069D0072 // GetWordNameForRegister
+ )
+ ; // Overridden
+ CONST "NameForScript" 'ППР_Prim'
+ CONST "author" 'Люлин А.В.'
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" true
+ CONST "register in scripts" 'undefined'
+ CONST "started" '20.04.2011 20:15'
+ : Generators
+ Seq: (
+ gen_intf.pas
+ )
+ ; // Generators
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\F1_Words'
+ CONST intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\F1_Words\kwAttributeSearch.pas'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\F1_Words'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\F1_Words'
+ CONST extprop:pas:TypeName 'TkwAttributeSearch'
+ CONST extprop:rc:SelfName 'AttributeSearch'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'kwAttributeSearch'
+
+ref; // ME_4DAF069D0072 AttributeSearch
+
+FORWARD ME_4DAF1471030D
+
+: ME_3A471EDEDEA0
+ CONST UID '3A471EDEDEA0'
+ CONST Name 'Ini_Reg'
+ CONST IsSummoned true
+ CONST Class class_Operation
+ : Stereotype st_ini::Operation ;
+ %SUMMARY 'Регистрация MainMenu' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_4DAF1471030D // MainMenu
+ ;
+
+ref; // ME_3A471EDEDEA0 Ini_Reg
+
+: ME_4DAEEDE10285_ME_4DAF1471030D
+ CONST UID '4DAEEDE10285'
+ CONST Name 'DoDoIt'
+ : Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.pas.ms.script' // DoDoIt
+ ;
+ : Implementor ME_4DAF1471030D // MainMenu
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_4DAEEDE10285_ME_4DAF1471030D DoDoIt
+
+: ME_4DB0614603C8_ME_4DAF1471030D
+ CONST UID '4DB0614603C8'
+ CONST Name 'GetWordNameForRegister'
+ : Original WL 'ME_4DB0614603C8' '4F3E3F5F0160.pas.ms.script' // GetWordNameForRegister
+ ;
+ : Implementor ME_4DAF1471030D // MainMenu
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_4DB0614603C8_ME_4DAF1471030D GetWordNameForRegister
+
+: ME_4DAF1471030D
+ CONST UID '4DAF1471030D'
+ CONST Name 'MainMenu'
+ CONST Class class_Class
+ : Stereotype st_ScriptKeyword ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4DB01F3800EB // Words
+ ;
+ : Inherits
+   Seq: ( WL 'ME_53EDC0E701BC' '4F3E3F5F0160.pas.ms.script' // TtfwRegisterableWord
+ )
+ ; // Inherits
+ : Implements
+   Seq: ( WL 'ME_4DA3190C022C' '4DA318AB0254.pas.ms.script' // F1Test
+ )
+ ; // Implements
+ : Operations
+   Seq: ( ME_3A471EDEDEA0 // Ini_Reg
+ )
+ ; // Operations
+ : Implemented
+   Seq: ( ME_4DAEEDE10285_ME_4DAF1471030D // DoDoIt
+ )
+ ; // Implemented
+ : Overridden
+   Seq: ( ME_4DB0614603C8_ME_4DAF1471030D // GetWordNameForRegister
+ )
+ ; // Overridden
+ CONST "NameForScript" 'ОсновноеМеню'
+ CONST "author" 'Люлин А.В.'
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" true
+ CONST "register in scripts" 'undefined'
+ CONST "started" '20.04.2011 21:14'
+ : Generators
+ Seq: (
+ gen_intf.pas
+ )
+ ; // Generators
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\F1_Words'
+ CONST intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\F1_Words\kwMainMenu.pas'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\F1_Words'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\F1_Words'
+ CONST extprop:pas:TypeName 'TkwMainMenu'
+ CONST extprop:rc:SelfName 'MainMenu'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'kwMainMenu'
+
+ref; // ME_4DAF1471030D MainMenu
+
+FORWARD ME_4DAF1DD9017F
+
+: ME_DB85C7969AD9
+ CONST UID 'DB85C7969AD9'
+ CONST Name 'Ini_Reg'
+ CONST IsSummoned true
+ CONST Class class_Operation
+ : Stereotype st_ini::Operation ;
+ %SUMMARY 'Регистрация Ok' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_4DAF1DD9017F // Ok
+ ;
+
+ref; // ME_DB85C7969AD9 Ini_Reg
+
+: ME_550ADA9002BA
+ CONST UID '550ADA9002BA'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4DAF1DD9017F // Ok
+ ;
+ : Target WL 'ME_4AA936DC0154' '47D0E1500033.pas.ms.script' // vcmDispatcher
+ ;
+
+ref; // ME_550ADA9002BA 
+
+: ME_4DAEEDE10285_ME_4DAF1DD9017F
+ CONST UID '4DAEEDE10285'
+ CONST Name 'DoDoIt'
+ : Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.pas.ms.script' // DoDoIt
+ ;
+ : Implementor ME_4DAF1DD9017F // Ok
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_4DAEEDE10285_ME_4DAF1DD9017F DoDoIt
+
+: ME_4DB0614603C8_ME_4DAF1DD9017F
+ CONST UID '4DB0614603C8'
+ CONST Name 'GetWordNameForRegister'
+ : Original WL 'ME_4DB0614603C8' '4F3E3F5F0160.pas.ms.script' // GetWordNameForRegister
+ ;
+ : Implementor ME_4DAF1DD9017F // Ok
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_4DB0614603C8_ME_4DAF1DD9017F GetWordNameForRegister
+
+: ME_4DAF1DD9017F
+ CONST UID '4DAF1DD9017F'
+ CONST Name 'Ok'
+ CONST Class class_Class
+ : Stereotype st_ScriptKeyword ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4DB01F3800EB // Words
+ ;
+ : Inherits
+   Seq: ( WL 'ME_53EDC0E701BC' '4F3E3F5F0160.pas.ms.script' // TtfwRegisterableWord
+ )
+ ; // Inherits
+ : Implements
+   Seq: ( WL 'ME_4DA3190C022C' '4DA318AB0254.pas.ms.script' // F1Test
+ )
+ ; // Implements
+ : Operations
+   Seq: ( ME_DB85C7969AD9 // Ini_Reg
+ )
+ ; // Operations
+ : Implemented
+   Seq: ( ME_4DAEEDE10285_ME_4DAF1DD9017F // DoDoIt
+ )
+ ; // Implemented
+ : Overridden
+   Seq: ( ME_4DB0614603C8_ME_4DAF1DD9017F // GetWordNameForRegister
+ )
+ ; // Overridden
+ : Dependencies
+   Seq: ( ME_550ADA9002BA // 
+ )
+ ; // Dependencies
+ CONST "NameForScript" 'Ok'
+ CONST "author" 'Люлин А.В.'
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" true
+ CONST "register in scripts" 'undefined'
+ CONST "started" '20.04.2011 21:54'
+ : Generators
+ Seq: (
+ gen_intf.pas
+ )
+ ; // Generators
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\F1_Words'
+ CONST intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\F1_Words\kwOk.pas'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\F1_Words'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\F1_Words'
+ CONST extprop:pas:TypeName 'TkwOk'
+ CONST extprop:rc:SelfName 'Ok'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'kwOk'
+
+ref; // ME_4DAF1DD9017F Ok
+
+FORWARD ME_4DB00AF302F0
+
+: ME_D448BCFB2BB0
+ CONST UID 'D448BCFB2BB0'
+ CONST Name 'Ini_Reg'
+ CONST IsSummoned true
+ CONST Class class_Operation
+ : Stereotype st_ini::Operation ;
+ %SUMMARY 'Регистрация OpenDocument' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_4DB00AF302F0 // OpenDocument
+ ;
+
+ref; // ME_D448BCFB2BB0 Ini_Reg
+
+: ME_50FFA6360333
+ CONST UID '50FFA6360333'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4DB00AF302F0 // OpenDocument
+ ;
+ : Target WL 'ME_4B2A12BA0288' '4AB0C3C60310.pas.ms.script' // IntToStr
+ ;
+
+ref; // ME_50FFA6360333 
+
+: ME_4DAEEDE10285_ME_4DB00AF302F0
+ CONST UID '4DAEEDE10285'
+ CONST Name 'DoDoIt'
+ : Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.pas.ms.script' // DoDoIt
+ ;
+ : Implementor ME_4DB00AF302F0 // OpenDocument
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_4DAEEDE10285_ME_4DB00AF302F0 DoDoIt
+
+: ME_4DB0614603C8_ME_4DB00AF302F0
+ CONST UID '4DB0614603C8'
+ CONST Name 'GetWordNameForRegister'
+ : Original WL 'ME_4DB0614603C8' '4F3E3F5F0160.pas.ms.script' // GetWordNameForRegister
+ ;
+ : Implementor ME_4DB00AF302F0 // OpenDocument
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_4DB0614603C8_ME_4DB00AF302F0 GetWordNameForRegister
+
+: ME_4DB00AF302F0
+ CONST UID '4DB00AF302F0'
+ CONST Name 'OpenDocument'
+ CONST Class class_Class
+ : Stereotype st_ScriptKeyword ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4DB01F3800EB // Words
+ ;
+ : Inherits
+   Seq: ( WL 'ME_53EDC0E701BC' '4F3E3F5F0160.pas.ms.script' // TtfwRegisterableWord
+ )
+ ; // Inherits
+ : Implements
+   Seq: ( WL 'ME_4DA3190C022C' '4DA318AB0254.pas.ms.script' // F1Test
+ )
+ ; // Implements
+ : Operations
+   Seq: ( ME_D448BCFB2BB0 // Ini_Reg
+ )
+ ; // Operations
+ : Implemented
+   Seq: ( ME_4DAEEDE10285_ME_4DB00AF302F0 // DoDoIt
+ )
+ ; // Implemented
+ : Overridden
+   Seq: ( ME_4DB0614603C8_ME_4DB00AF302F0 // GetWordNameForRegister
+ )
+ ; // Overridden
+ : Dependencies
+   Seq: ( ME_50FFA6360333 // 
+ )
+ ; // Dependencies
+ CONST "NameForScript" 'Открыть'
+ CONST "author" 'Люлин А.В.'
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" true
+ CONST "register in scripts" 'undefined'
+ CONST "started" '21.04.2011 14:46'
+ : Generators
+ Seq: (
+ gen_intf.pas
+ )
+ ; // Generators
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\F1_Words'
+ CONST intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\F1_Words\kwOpenDocument.pas'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\F1_Words'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\F1_Words'
+ CONST extprop:pas:TypeName 'TkwOpenDocument'
+ CONST extprop:rc:SelfName 'OpenDocument'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'kwOpenDocument'
+
+ref; // ME_4DB00AF302F0 OpenDocument
+
+FORWARD ME_4DB7EAEB004D
+
+FORWARD ME_4DB7F58D0052
+
+: ME_4DB7F5A70296
+ CONST UID '4DB7F5A70296'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4DB7EAEB004D // F1WordsUser
+ ;
+ : Target ME_4DB7F58D0052 // f1WordsPack
+ ;
+
+ref; // ME_4DB7F5A70296 
+
+: ME_50BA1ACB0139
+ CONST UID '50BA1ACB0139'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4DB7EAEB004D // F1WordsUser
+ ;
+ : Target WL 'ME_4DB7EA830363' '4F4CB50403CC.pas.ms.script' // pop_editor_DeleteUserComment
+ ;
+
+ref; // ME_50BA1ACB0139 
+
+: ME_4DB7EAEB004D
+ CONST UID '4DB7EAEB004D'
+ CONST Name 'F1WordsUser'
+ CONST Class class_Class
+ : Stereotype st_Impurity ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_4DB01F3800EB // Words
+ ;
+ : Dependencies
+   Seq: ( ME_4DB7F5A70296 // 
+ ME_50BA1ACB0139 // 
+ )
+ ; // Dependencies
+ CONST "author" 'Люлин А.В.'
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" true
+ CONST "register in scripts" 'undefined'
+ CONST "started" '27.04.2011 14:08'
+ : Generators
+ Seq: (
+ gen_intf.pas
+ )
+ ; // Generators
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\F1_Words'
+ CONST intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\F1_Words\F1WordsUser.imp.pas'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\F1_Words'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\F1_Words'
+ CONST extprop:pas:TypeName '_F1WordsUser_'
+ CONST extprop:pas:UnitName 'F1WordsUser.imp'
+
+ref; // ME_4DB7EAEB004D F1WordsUser
+
+FORWARD ME_4DB82E4D0197
+
+: ME_4DB82E6E0390
+ CONST UID '4DB82E6E0390'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4DB7F58D0052 // f1WordsPack
+ ;
+ : Target ME_4DB82E4D0197 // TkwDocumentsCacheClear
+ ;
+
+ref; // ME_4DB82E6E0390 
+
+FORWARD ME_4DC3D8E200AF
+
+: ME_4DC3D90A01FD
+ CONST UID '4DC3D90A01FD'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4DB7F58D0052 // f1WordsPack
+ ;
+ : Target ME_4DC3D8E200AF // TkwTimeMachineSetDate
+ ;
+
+ref; // ME_4DC3D90A01FD 
+
+: ME_4DD0F8AE024B
+ CONST UID '4DD0F8AE024B'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4DB7F58D0052 // f1WordsPack
+ ;
+ : Target WL 'ME_4DD0F87600ED' '4F4CB50403CC.pas.ms.script' // pop_editor_HasComment
+ ;
+
+ref; // ME_4DD0F8AE024B 
+
+FORWARD ME_4DD530DD03D8
+
+: ME_4DD530FE037A
+ CONST UID '4DD530FE037A'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4DB7F58D0052 // f1WordsPack
+ ;
+ : Target ME_4DD530DD03D8 // TkwExportHelp
+ ;
+
+ref; // ME_4DD530FE037A 
+
+FORWARD ME_4DBA9CE301B4
+
+: ME_4DE8C74A0352
+ CONST UID '4DE8C74A0352'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4DB7F58D0052 // f1WordsPack
+ ;
+ : Target ME_4DBA9CE301B4 // TkwFiltersList
+ ;
+
+ref; // ME_4DE8C74A0352 
+
+FORWARD ME_4EC134690154
+
+: ME_4EC134A3028D
+ CONST UID '4EC134A3028D'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4DB7F58D0052 // f1WordsPack
+ ;
+ : Target ME_4EC134690154 // f1_BaseDate
+ ;
+
+ref; // ME_4EC134A3028D 
+
+: ME_4F38130300E8
+ CONST UID '4F38130300E8'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4DB7F58D0052 // f1WordsPack
+ ;
+ : Target ME_4DAF069D0072 // AttributeSearch
+ ;
+
+ref; // ME_4F38130300E8 
+
+: ME_4F3813090350
+ CONST UID '4F3813090350'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4DB7F58D0052 // f1WordsPack
+ ;
+ : Target ME_4DAF1DD9017F // Ok
+ ;
+
+ref; // ME_4F3813090350 
+
+: ME_4F38130F02F2
+ CONST UID '4F38130F02F2'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4DB7F58D0052 // f1WordsPack
+ ;
+ : Target ME_4DAF1471030D // MainMenu
+ ;
+
+ref; // ME_4F38130F02F2 
+
+FORWARD ME_50237E1C0249
+
+: ME_50237E350169
+ CONST UID '50237E350169'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4DB7F58D0052 // f1WordsPack
+ ;
+ : Target ME_50237E1C0249 // f1_ComplectName
+ ;
+
+ref; // ME_50237E350169 
+
+FORWARD ME_50237E3A03A5
+
+: ME_50237E5E00C0
+ CONST UID '50237E5E00C0'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4DB7F58D0052 // f1WordsPack
+ ;
+ : Target ME_50237E3A03A5 // f1_ComplectOwner
+ ;
+
+ref; // ME_50237E5E00C0 
+
+FORWARD ME_539834A703AD
+
+: ME_539835BC030C
+ CONST UID '539835BC030C'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4DB7F58D0052 // f1WordsPack
+ ;
+ : Target ME_539834A703AD // RestoreSettings
+ ;
+
+ref; // ME_539835BC030C 
+
+FORWARD ME_53B12B8A03DC
+
+: ME_53B12BC7004F
+ CONST UID '53B12BC7004F'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4DB7F58D0052 // f1WordsPack
+ ;
+ : Target ME_53B12B8A03DC // ClearDocumentContextSearchHistory
+ ;
+
+ref; // ME_53B12BC7004F 
+
+FORWARD ME_53B12BB200FE
+
+: ME_53B12BCA02F9
+ CONST UID '53B12BCA02F9'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4DB7F58D0052 // f1WordsPack
+ ;
+ : Target ME_53B12BB200FE // ClearPharmContextSearchHistory
+ ;
+
+ref; // ME_53B12BCA02F9 
+
+FORWARD ME_53B2B2730077
+
+: ME_53B2B2A80158
+ CONST UID '53B2B2A80158'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4DB7F58D0052 // f1WordsPack
+ ;
+ : Target ME_53B2B2730077 // IsPharmPermanentFilterExists
+ ;
+
+ref; // ME_53B2B2A80158 
+
+FORWARD ME_53B2B2950270
+
+: ME_53B2B2AC0340
+ CONST UID '53B2B2AC0340'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4DB7F58D0052 // f1WordsPack
+ ;
+ : Target ME_53B2B2950270 // IsLegalPermanentFilterExists
+ ;
+
+ref; // ME_53B2B2AC0340 
+
+FORWARD ME_53B2CAE50115
+
+: ME_53B2CAF302B6
+ CONST UID '53B2CAF302B6'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4DB7F58D0052 // f1WordsPack
+ ;
+ : Target ME_53B2CAE50115 // IsMyDocumentsEmpty
+ ;
+
+ref; // ME_53B2CAF302B6 
+
+FORWARD ME_53B2DE010174
+
+: ME_53B2DF1700BA
+ CONST UID '53B2DF1700BA'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4DB7F58D0052 // f1WordsPack
+ ;
+ : Target ME_53B2DE010174 // configurations_GetCount
+ ;
+
+ref; // ME_53B2DF1700BA 
+
+FORWARD ME_53B2DF2B005B
+
+: ME_53B2DF4B038E
+ CONST UID '53B2DF4B038E'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4DB7F58D0052 // f1WordsPack
+ ;
+ : Target ME_53B2DF2B005B // configurations_GetConfiguration
+ ;
+
+ref; // ME_53B2DF4B038E 
+
+FORWARD ME_53B2DF500282
+
+: ME_53B2DF5E02B1
+ CONST UID '53B2DF5E02B1'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4DB7F58D0052 // f1WordsPack
+ ;
+ : Target ME_53B2DF500282 // configuration_GetName
+ ;
+
+ref; // ME_53B2DF5E02B1 
+
+FORWARD ME_53B2DF6C00CA
+
+: ME_53B2DF79037E
+ CONST UID '53B2DF79037E'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4DB7F58D0052 // f1WordsPack
+ ;
+ : Target ME_53B2DF6C00CA // configuration_GetType
+ ;
+
+ref; // ME_53B2DF79037E 
+
+FORWARD ME_53B2DF81021D
+
+: ME_53B2DF9101A0
+ CONST UID '53B2DF9101A0'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4DB7F58D0052 // f1WordsPack
+ ;
+ : Target ME_53B2DF81021D // configurations_GetActiveConfiguration
+ ;
+
+ref; // ME_53B2DF9101A0 
+
+FORWARD ME_53B2DF9903E3
+
+: ME_53B2E00E0298
+ CONST UID '53B2E00E0298'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4DB7F58D0052 // f1WordsPack
+ ;
+ : Target ME_53B2DF9903E3 // configuration_Activate
+ ;
+
+ref; // ME_53B2E00E0298 
+
+FORWARD ME_53B2E3EF00C4
+
+: ME_53B2E40003C4
+ CONST UID '53B2E40003C4'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4DB7F58D0052 // f1WordsPack
+ ;
+ : Target ME_53B2E3EF00C4 // configuration_GetID
+ ;
+
+ref; // ME_53B2E40003C4 
+
+: ME_14FB5B8E9EAE
+ CONST UID '14FB5B8E9EAE'
+ CONST IsSummoned true
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4DB7F58D0052 // f1WordsPack
+ ;
+ : Target WL 'ME_55153C2C036F' '55BA28CE0290.pas.ms.script' // TypeInfoExt
+ ;
+
+ref; // ME_14FB5B8E9EAE 
+
+: ME_4DB7F58D0052
+ CONST UID '4DB7F58D0052'
+ CONST Name 'f1WordsPack'
+ CONST Class class_Class
+ : Stereotype st_ScriptKeywordsPack ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_4DB01F3800EB // Words
+ ;
+ : Dependencies
+   Seq: ( ME_4DB82E6E0390 // 
+ ME_4DC3D90A01FD // 
+ ME_4DD0F8AE024B // 
+ ME_4DD530FE037A // 
+ ME_4DE8C74A0352 // 
+ ME_4EC134A3028D // 
+ ME_4F38130300E8 // 
+ ME_4F3813090350 // 
+ ME_4F38130F02F2 // 
+ ME_50237E350169 // 
+ ME_50237E5E00C0 // 
+ ME_539835BC030C // 
+ ME_53B12BC7004F // 
+ ME_53B12BCA02F9 // 
+ ME_53B2B2A80158 // 
+ ME_53B2B2AC0340 // 
+ ME_53B2CAF302B6 // 
+ ME_53B2DF1700BA // 
+ ME_53B2DF4B038E // 
+ ME_53B2DF5E02B1 // 
+ ME_53B2DF79037E // 
+ ME_53B2DF9101A0 // 
+ ME_53B2E00E0298 // 
+ ME_53B2E40003C4 // 
+ ME_14FB5B8E9EAE // 
+ )
+ ; // Dependencies
+ CONST "author" 'Люлин А.В.'
+ CONST "ifndef" 'NoScripts'
+ CONST "needs script" 'undefined'
+ CONST "no class name" 'undefined'
+ CONST "no hands" true
+ CONST "no_pop" 'undefined'
+ CONST "started" '27.04.2011 14:53'
+ : Generators
+ Seq: (
+ gen_intf.pas
+ )
+ ; // Generators
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\F1_Words'
+ CONST intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\F1_Words\f1WordsPack.pas'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\F1_Words'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\F1_Words'
+
+ref; // ME_4DB7F58D0052 f1WordsPack
+
+: ME_E9F3B5988DE2
+ CONST UID 'E9F3B5988DE2'
+ CONST Name 'Ini_Reg'
+ CONST IsSummoned true
+ CONST Class class_Operation
+ : Stereotype st_ini::Operation ;
+ %SUMMARY 'Регистрация TkwDocumentsCacheClear' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_4DB82E4D0197 // TkwDocumentsCacheClear
+ ;
+
+ref; // ME_E9F3B5988DE2 Ini_Reg
+
+: ME_4DB82EC60013
+ CONST UID '4DB82EC60013'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4DB82E4D0197 // TkwDocumentsCacheClear
+ ;
+ : Target WL 'ME_47F100430323' '47F086170200.pas.ms.script' // TevDocumentsCache
+ ;
+
+ref; // ME_4DB82EC60013 
+
+: ME_4DAEEDE10285_ME_4DB82E4D0197
+ CONST UID '4DAEEDE10285'
+ CONST Name 'DoDoIt'
+ : Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.pas.ms.script' // DoDoIt
+ ;
+ : Implementor ME_4DB82E4D0197 // TkwDocumentsCacheClear
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_4DAEEDE10285_ME_4DB82E4D0197 DoDoIt
+
+: ME_4DB0614603C8_ME_4DB82E4D0197
+ CONST UID '4DB0614603C8'
+ CONST Name 'GetWordNameForRegister'
+ : Original WL 'ME_4DB0614603C8' '4F3E3F5F0160.pas.ms.script' // GetWordNameForRegister
+ ;
+ : Implementor ME_4DB82E4D0197 // TkwDocumentsCacheClear
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_4DB0614603C8_ME_4DB82E4D0197 GetWordNameForRegister
+
+: ME_4DB82E4D0197
+ CONST UID '4DB82E4D0197'
+ CONST Name 'TkwDocumentsCacheClear'
+ CONST Class class_Class
+ : Stereotype st_ScriptKeyword ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4DB01F3800EB // Words
+ ;
+ : Inherits
+   Seq: ( WL 'ME_53EDC0E701BC' '4F3E3F5F0160.pas.ms.script' // TtfwRegisterableWord
+ )
+ ; // Inherits
+ : Operations
+   Seq: ( ME_E9F3B5988DE2 // Ini_Reg
+ )
+ ; // Operations
+ : Implemented
+   Seq: ( ME_4DAEEDE10285_ME_4DB82E4D0197 // DoDoIt
+ )
+ ; // Implemented
+ : Overridden
+   Seq: ( ME_4DB0614603C8_ME_4DB82E4D0197 // GetWordNameForRegister
+ )
+ ; // Overridden
+ : Dependencies
+   Seq: ( ME_4DB82EC60013 // 
+ )
+ ; // Dependencies
+ CONST "NameForScript" 'documentscache:Clear'
+ CONST "author" 'Люлин А.В.'
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" true
+ CONST "register in scripts" 'undefined'
+ CONST "started" '27.04.2011 18:55'
+ : Generators
+ Seq: (
+ gen_intf.pas
+ )
+ ; // Generators
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\F1_Words'
+ CONST intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\F1_Words\kwDocumentsCacheClear.pas'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\F1_Words'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\F1_Words'
+ CONST extprop:rc:SelfName 'DocumentsCacheClear'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'kwDocumentsCacheClear'
+
+ref; // ME_4DB82E4D0197 TkwDocumentsCacheClear
+
+: ME_808D8A6C82A5
+ CONST UID '808D8A6C82A5'
+ CONST Name 'Ini_Reg'
+ CONST IsSummoned true
+ CONST Class class_Operation
+ : Stereotype st_ini::Operation ;
+ %SUMMARY 'Регистрация TkwFiltersList' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_4DBA9CE301B4 // TkwFiltersList
+ ;
+
+ref; // ME_808D8A6C82A5 Ini_Reg
+
+: ME_4DAEEDE10285_ME_4DBA9CE301B4
+ CONST UID '4DAEEDE10285'
+ CONST Name 'DoDoIt'
+ : Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.pas.ms.script' // DoDoIt
+ ;
+ : Implementor ME_4DBA9CE301B4 // TkwFiltersList
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_4DAEEDE10285_ME_4DBA9CE301B4 DoDoIt
+
+: ME_4DB0614603C8_ME_4DBA9CE301B4
+ CONST UID '4DB0614603C8'
+ CONST Name 'GetWordNameForRegister'
+ : Original WL 'ME_4DB0614603C8' '4F3E3F5F0160.pas.ms.script' // GetWordNameForRegister
+ ;
+ : Implementor ME_4DBA9CE301B4 // TkwFiltersList
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_4DB0614603C8_ME_4DBA9CE301B4 GetWordNameForRegister
+
+: ME_4DBA9CE301B4
+ CONST UID '4DBA9CE301B4'
+ CONST Name 'TkwFiltersList'
+ CONST Class class_Class
+ : Stereotype st_ScriptKeyword ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4DB01F3800EB // Words
+ ;
+ : Inherits
+   Seq: ( WL 'ME_53EDC0E701BC' '4F3E3F5F0160.pas.ms.script' // TtfwRegisterableWord
+ )
+ ; // Inherits
+ : Implements
+   Seq: ( WL 'ME_4DB94A660083' '4F69B9040391.pas.ms.script' // VCMWord
+ )
+ ; // Implements
+ : Operations
+   Seq: ( ME_808D8A6C82A5 // Ini_Reg
+ )
+ ; // Operations
+ : Implemented
+   Seq: ( ME_4DAEEDE10285_ME_4DBA9CE301B4 // DoDoIt
+ )
+ ; // Implemented
+ : Overridden
+   Seq: ( ME_4DB0614603C8_ME_4DBA9CE301B4 // GetWordNameForRegister
+ )
+ ; // Overridden
+ CONST "NameForScript" 'filters:Open'
+ CONST "author" 'Люлин А.В.'
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" true
+ CONST "register in scripts" 'undefined'
+ CONST "started" '29.04.2011 15:11'
+ : Generators
+ Seq: (
+ gen_intf.pas
+ )
+ ; // Generators
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\F1_Words'
+ CONST intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\F1_Words\kwFiltersList.pas'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\F1_Words'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\F1_Words'
+ CONST extprop:rc:SelfName 'FiltersList'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'kwFiltersList'
+
+ref; // ME_4DBA9CE301B4 TkwFiltersList
+
+: ME_DE4303136FB9
+ CONST UID 'DE4303136FB9'
+ CONST Name 'Ini_Reg'
+ CONST IsSummoned true
+ CONST Class class_Operation
+ : Stereotype st_ini::Operation ;
+ %SUMMARY 'Регистрация TkwTimeMachineSetDate' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_4DC3D8E200AF // TkwTimeMachineSetDate
+ ;
+
+ref; // ME_DE4303136FB9 Ini_Reg
+
+: ME_4DC3D948011C
+ CONST UID '4DC3D948011C'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4DC3D8E200AF // TkwTimeMachineSetDate
+ ;
+ : Target WL 'ME_4B1E8FAE0380' '48F747EC0073.pas.ms.script' // DefDataAdapter
+ ;
+
+ref; // ME_4DC3D948011C 
+
+: ME_4DC3D9A703E5
+ CONST UID '4DC3D9A703E5'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4DC3D8E200AF // TkwTimeMachineSetDate
+ ;
+ : Target WL 'ME_4B5700C301E3' '47D0290B016D.pas.ms.script' // l3DateSt
+ ;
+
+ref; // ME_4DC3D9A703E5 
+
+: ME_4DC3DEAE030D
+ CONST UID '4DC3DEAE030D'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4DC3D8E200AF // TkwTimeMachineSetDate
+ ;
+ : Target WL 'ME_47F9CF5500D1' '48F747EC0073.pas.ms.script' // bsConvert
+ ;
+
+ref; // ME_4DC3DEAE030D 
+
+: ME_4DAEEDE10285_ME_4DC3D8E200AF
+ CONST UID '4DAEEDE10285'
+ CONST Name 'DoDoIt'
+ : Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.pas.ms.script' // DoDoIt
+ ;
+ : Implementor ME_4DC3D8E200AF // TkwTimeMachineSetDate
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_4DAEEDE10285_ME_4DC3D8E200AF DoDoIt
+
+: ME_4DB0614603C8_ME_4DC3D8E200AF
+ CONST UID '4DB0614603C8'
+ CONST Name 'GetWordNameForRegister'
+ : Original WL 'ME_4DB0614603C8' '4F3E3F5F0160.pas.ms.script' // GetWordNameForRegister
+ ;
+ : Implementor ME_4DC3D8E200AF // TkwTimeMachineSetDate
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_4DB0614603C8_ME_4DC3D8E200AF GetWordNameForRegister
+
+: ME_4DC3D8E200AF
+ CONST UID '4DC3D8E200AF'
+ CONST Name 'TkwTimeMachineSetDate'
+ CONST Class class_Class
+ : Stereotype st_ScriptKeyword ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4DB01F3800EB // Words
+ ;
+ : Inherits
+   Seq: ( WL 'ME_53EDC0E701BC' '4F3E3F5F0160.pas.ms.script' // TtfwRegisterableWord
+ )
+ ; // Inherits
+ : Operations
+   Seq: ( ME_DE4303136FB9 // Ini_Reg
+ )
+ ; // Operations
+ : Implemented
+   Seq: ( ME_4DAEEDE10285_ME_4DC3D8E200AF // DoDoIt
+ )
+ ; // Implemented
+ : Overridden
+   Seq: ( ME_4DB0614603C8_ME_4DC3D8E200AF // GetWordNameForRegister
+ )
+ ; // Overridden
+ : Dependencies
+   Seq: ( ME_4DC3D948011C // 
+ ME_4DC3D9A703E5 // 
+ ME_4DC3DEAE030D // 
+ )
+ ; // Dependencies
+ CONST "NameForScript" 'timemachine:SetDate'
+ CONST "author" 'Люлин А.В.'
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" true
+ CONST "register in scripts" 'undefined'
+ CONST "started" '06.05.2011 15:18'
+ : Generators
+ Seq: (
+ gen_intf.pas
+ )
+ ; // Generators
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\F1_Words'
+ CONST intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\F1_Words\kwTimeMachineSetDate.pas'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\F1_Words'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\F1_Words'
+ CONST extprop:rc:SelfName 'TimeMachineSetDate'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'kwTimeMachineSetDate'
+
+ref; // ME_4DC3D8E200AF TkwTimeMachineSetDate
+
+: ME_C2D74C1A3C69
+ CONST UID 'C2D74C1A3C69'
+ CONST Name 'Ini_Reg'
+ CONST IsSummoned true
+ CONST Class class_Operation
+ : Stereotype st_ini::Operation ;
+ %SUMMARY 'Регистрация TkwExportHelp' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_4DD530DD03D8 // TkwExportHelp
+ ;
+
+ref; // ME_C2D74C1A3C69 Ini_Reg
+
+: ME_4DD5312E03BE
+ CONST UID '4DD5312E03BE'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4DD530DD03D8 // TkwExportHelp
+ ;
+ : Target WL 'ME_49525C7A0114' '4AADF9450143.pas.ms.script' // TvcmMainForm
+ ;
+
+ref; // ME_4DD5312E03BE 
+
+: ME_4DD5314D00AC
+ CONST UID '4DD5314D00AC'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4DD530DD03D8 // TkwExportHelp
+ ;
+ : Target WL 'ME_4AA936DC0154' '47D0E1500033.pas.ms.script' // vcmDispatcher
+ ;
+
+ref; // ME_4DD5314D00AC 
+
+: ME_4DAEEDE10285_ME_4DD530DD03D8
+ CONST UID '4DAEEDE10285'
+ CONST Name 'DoDoIt'
+ : Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.pas.ms.script' // DoDoIt
+ ;
+ : Implementor ME_4DD530DD03D8 // TkwExportHelp
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_4DAEEDE10285_ME_4DD530DD03D8 DoDoIt
+
+: ME_4DB0614603C8_ME_4DD530DD03D8
+ CONST UID '4DB0614603C8'
+ CONST Name 'GetWordNameForRegister'
+ : Original WL 'ME_4DB0614603C8' '4F3E3F5F0160.pas.ms.script' // GetWordNameForRegister
+ ;
+ : Implementor ME_4DD530DD03D8 // TkwExportHelp
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_4DB0614603C8_ME_4DD530DD03D8 GetWordNameForRegister
+
+: ME_4DD530DD03D8
+ CONST UID '4DD530DD03D8'
+ CONST Name 'TkwExportHelp'
+ CONST Class class_Class
+ : Stereotype st_ScriptKeyword ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4DB01F3800EB // Words
+ ;
+ : Inherits
+   Seq: ( WL 'ME_53EDC0E701BC' '4F3E3F5F0160.pas.ms.script' // TtfwRegisterableWord
+ )
+ ; // Inherits
+ : Operations
+   Seq: ( ME_C2D74C1A3C69 // Ini_Reg
+ )
+ ; // Operations
+ : Implemented
+   Seq: ( ME_4DAEEDE10285_ME_4DD530DD03D8 // DoDoIt
+ )
+ ; // Implemented
+ : Overridden
+   Seq: ( ME_4DB0614603C8_ME_4DD530DD03D8 // GetWordNameForRegister
+ )
+ ; // Overridden
+ : Dependencies
+   Seq: ( ME_4DD5312E03BE // 
+ ME_4DD5314D00AC // 
+ )
+ ; // Dependencies
+ CONST "NameForScript" 'vcm:ExportHelp'
+ CONST "author" 'Люлин А.В.'
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" true
+ CONST "register in scripts" 'undefined'
+ CONST "started" '19.05.2011 19:02'
+ : Generators
+ Seq: (
+ gen_intf.pas
+ )
+ ; // Generators
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\F1_Words'
+ CONST intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\F1_Words\kwExportHelp.pas'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\F1_Words'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\F1_Words'
+ CONST extprop:rc:SelfName 'ExportHelp'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'kwExportHelp'
+
+ref; // ME_4DD530DD03D8 TkwExportHelp
+
+: ME_F2D46E234CA6
+ CONST UID 'F2D46E234CA6'
+ CONST Name 'Ini_Reg'
+ CONST IsSummoned true
+ CONST Class class_Operation
+ : Stereotype st_ini::Operation ;
+ %SUMMARY 'Регистрация f1_BaseDate' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_4EC134690154 // f1_BaseDate
+ ;
+
+ref; // ME_F2D46E234CA6 Ini_Reg
+
+: ME_4EC134D80042
+ CONST UID '4EC134D80042'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4EC134690154 // f1_BaseDate
+ ;
+ : Target WL 'ME_47F21FE90379' '48F747EC0073.pas.ms.script' // bsUtils
+ ;
+
+ref; // ME_4EC134D80042 
+
+: ME_4DAEEDE10285_ME_4EC134690154
+ CONST UID '4DAEEDE10285'
+ CONST Name 'DoDoIt'
+ : Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.pas.ms.script' // DoDoIt
+ ;
+ : Implementor ME_4EC134690154 // f1_BaseDate
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_4DAEEDE10285_ME_4EC134690154 DoDoIt
+
+: ME_4DB0614603C8_ME_4EC134690154
+ CONST UID '4DB0614603C8'
+ CONST Name 'GetWordNameForRegister'
+ : Original WL 'ME_4DB0614603C8' '4F3E3F5F0160.pas.ms.script' // GetWordNameForRegister
+ ;
+ : Implementor ME_4EC134690154 // f1_BaseDate
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_4DB0614603C8_ME_4EC134690154 GetWordNameForRegister
+
+: ME_4EC134690154
+ CONST UID '4EC134690154'
+ CONST Name 'f1_BaseDate'
+ CONST Class class_Class
+ : Stereotype st_ScriptKeyword ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Кладёт на стек дату базы в строковом формате' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4DB01F3800EB // Words
+ ;
+ : Inherits
+   Seq: ( WL 'ME_53EDC0E701BC' '4F3E3F5F0160.pas.ms.script' // TtfwRegisterableWord
+ )
+ ; // Inherits
+ : Operations
+   Seq: ( ME_F2D46E234CA6 // Ini_Reg
+ )
+ ; // Operations
+ : Implemented
+   Seq: ( ME_4DAEEDE10285_ME_4EC134690154 // DoDoIt
+ )
+ ; // Implemented
+ : Overridden
+   Seq: ( ME_4DB0614603C8_ME_4EC134690154 // GetWordNameForRegister
+ )
+ ; // Overridden
+ : Dependencies
+   Seq: ( ME_4EC134D80042 // 
+ )
+ ; // Dependencies
+ CONST "author" 'Люлин А.В.'
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" true
+ CONST "register in scripts" 'undefined'
+ CONST "started" '14.11.2011 19:32'
+ : Generators
+ Seq: (
+ gen_intf.pas
+ )
+ ; // Generators
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\F1_Words'
+ CONST intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\F1_Words\kwF1BaseDate.pas'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\F1_Words'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\F1_Words'
+ CONST extprop:pas:TypeName 'TkwF1BaseDate'
+ CONST extprop:rc:SelfName 'F1BaseDate'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'kwF1BaseDate'
+
+ref; // ME_4EC134690154 f1_BaseDate
+
+: ME_DB9A3F6401C3
+ CONST UID 'DB9A3F6401C3'
+ CONST Name 'Ini_Reg'
+ CONST IsSummoned true
+ CONST Class class_Operation
+ : Stereotype st_ini::Operation ;
+ %SUMMARY 'Регистрация f1_ComplectName' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_50237E1C0249 // f1_ComplectName
+ ;
+
+ref; // ME_DB9A3F6401C3 Ini_Reg
+
+: ME_50237E2C0368
+ CONST UID '50237E2C0368'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_50237E1C0249 // f1_ComplectName
+ ;
+ : Target WL 'ME_47F21FE90379' '48F747EC0073.pas.ms.script' // bsUtils
+ ;
+
+ref; // ME_50237E2C0368 
+
+: ME_4DAEEDE10285_ME_50237E1C0249
+ CONST UID '4DAEEDE10285'
+ CONST Name 'DoDoIt'
+ : Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.pas.ms.script' // DoDoIt
+ ;
+ : Implementor ME_50237E1C0249 // f1_ComplectName
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_4DAEEDE10285_ME_50237E1C0249 DoDoIt
+
+: ME_4DB0614603C8_ME_50237E1C0249
+ CONST UID '4DB0614603C8'
+ CONST Name 'GetWordNameForRegister'
+ : Original WL 'ME_4DB0614603C8' '4F3E3F5F0160.pas.ms.script' // GetWordNameForRegister
+ ;
+ : Implementor ME_50237E1C0249 // f1_ComplectName
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_4DB0614603C8_ME_50237E1C0249 GetWordNameForRegister
+
+: ME_50237E1C0249
+ CONST UID '50237E1C0249'
+ CONST Name 'f1_ComplectName'
+ CONST Class class_Class
+ : Stereotype st_ScriptKeyword ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_4DB01F3800EB // Words
+ ;
+ : Inherits
+   Seq: ( WL 'ME_53EDC0E701BC' '4F3E3F5F0160.pas.ms.script' // TtfwRegisterableWord
+ )
+ ; // Inherits
+ : Operations
+   Seq: ( ME_DB9A3F6401C3 // Ini_Reg
+ )
+ ; // Operations
+ : Implemented
+   Seq: ( ME_4DAEEDE10285_ME_50237E1C0249 // DoDoIt
+ )
+ ; // Implemented
+ : Overridden
+   Seq: ( ME_4DB0614603C8_ME_50237E1C0249 // GetWordNameForRegister
+ )
+ ; // Overridden
+ : Dependencies
+   Seq: ( ME_50237E2C0368 // 
+ )
+ ; // Dependencies
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ : Generators
+ Seq: (
+ gen_intf.pas
+ )
+ ; // Generators
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\F1_Words'
+ CONST intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\F1_Words\kwF1ComplectName.pas'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\F1_Words'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\F1_Words'
+ CONST extprop:pas:TypeName 'TkwF1ComplectName'
+ CONST extprop:rc:SelfName 'F1ComplectName'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'kwF1ComplectName'
+
+ref; // ME_50237E1C0249 f1_ComplectName
+
+: ME_C1A4557B6BFF
+ CONST UID 'C1A4557B6BFF'
+ CONST Name 'Ini_Reg'
+ CONST IsSummoned true
+ CONST Class class_Operation
+ : Stereotype st_ini::Operation ;
+ %SUMMARY 'Регистрация f1_ComplectOwner' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_50237E3A03A5 // f1_ComplectOwner
+ ;
+
+ref; // ME_C1A4557B6BFF Ini_Reg
+
+: ME_50237E590288
+ CONST UID '50237E590288'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_50237E3A03A5 // f1_ComplectOwner
+ ;
+ : Target WL 'ME_47F21FE90379' '48F747EC0073.pas.ms.script' // bsUtils
+ ;
+
+ref; // ME_50237E590288 
+
+: ME_4DAEEDE10285_ME_50237E3A03A5
+ CONST UID '4DAEEDE10285'
+ CONST Name 'DoDoIt'
+ : Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.pas.ms.script' // DoDoIt
+ ;
+ : Implementor ME_50237E3A03A5 // f1_ComplectOwner
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_4DAEEDE10285_ME_50237E3A03A5 DoDoIt
+
+: ME_4DB0614603C8_ME_50237E3A03A5
+ CONST UID '4DB0614603C8'
+ CONST Name 'GetWordNameForRegister'
+ : Original WL 'ME_4DB0614603C8' '4F3E3F5F0160.pas.ms.script' // GetWordNameForRegister
+ ;
+ : Implementor ME_50237E3A03A5 // f1_ComplectOwner
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_4DB0614603C8_ME_50237E3A03A5 GetWordNameForRegister
+
+: ME_50237E3A03A5
+ CONST UID '50237E3A03A5'
+ CONST Name 'f1_ComplectOwner'
+ CONST Class class_Class
+ : Stereotype st_ScriptKeyword ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_4DB01F3800EB // Words
+ ;
+ : Inherits
+   Seq: ( WL 'ME_53EDC0E701BC' '4F3E3F5F0160.pas.ms.script' // TtfwRegisterableWord
+ )
+ ; // Inherits
+ : Operations
+   Seq: ( ME_C1A4557B6BFF // Ini_Reg
+ )
+ ; // Operations
+ : Implemented
+   Seq: ( ME_4DAEEDE10285_ME_50237E3A03A5 // DoDoIt
+ )
+ ; // Implemented
+ : Overridden
+   Seq: ( ME_4DB0614603C8_ME_50237E3A03A5 // GetWordNameForRegister
+ )
+ ; // Overridden
+ : Dependencies
+   Seq: ( ME_50237E590288 // 
+ )
+ ; // Dependencies
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ : Generators
+ Seq: (
+ gen_intf.pas
+ )
+ ; // Generators
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\F1_Words'
+ CONST intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\F1_Words\kwF1ComplectOwner.pas'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\F1_Words'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\F1_Words'
+ CONST extprop:pas:TypeName 'TkwF1ComplectOwner'
+ CONST extprop:rc:SelfName 'F1ComplectOwner'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'kwF1ComplectOwner'
+
+ref; // ME_50237E3A03A5 f1_ComplectOwner
+
+: ME_3D3AAEBE650D
+ CONST UID '3D3AAEBE650D'
+ CONST Name 'Ini_Reg'
+ CONST IsSummoned true
+ CONST Class class_Operation
+ : Stereotype st_ini::Operation ;
+ %SUMMARY 'Регистрация RestoreSettings' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_539834A703AD // RestoreSettings
+ ;
+
+ref; // ME_3D3AAEBE650D Ini_Reg
+
+: ME_5398352E0259
+ CONST UID '5398352E0259'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_539834A703AD // RestoreSettings
+ ;
+ : Target WL 'ME_4ABB4C2B03D5' '4ABA137C00E5.pas.ms.script' // nsConfigurationList
+ ;
+
+ref; // ME_5398352E0259 
+
+: ME_4DAEEDE10285_ME_539834A703AD
+ CONST UID '4DAEEDE10285'
+ CONST Name 'DoDoIt'
+ : Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.pas.ms.script' // DoDoIt
+ ;
+ : Implementor ME_539834A703AD // RestoreSettings
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_4DAEEDE10285_ME_539834A703AD DoDoIt
+
+: ME_4DB0614603C8_ME_539834A703AD
+ CONST UID '4DB0614603C8'
+ CONST Name 'GetWordNameForRegister'
+ : Original WL 'ME_4DB0614603C8' '4F3E3F5F0160.pas.ms.script' // GetWordNameForRegister
+ ;
+ : Implementor ME_539834A703AD // RestoreSettings
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_4DB0614603C8_ME_539834A703AD GetWordNameForRegister
+
+: ME_539834A703AD
+ CONST UID '539834A703AD'
+ CONST Name 'RestoreSettings'
+ CONST Class class_Class
+ : Stereotype st_ScriptKeyword ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_4DB01F3800EB // Words
+ ;
+ : Inherits
+   Seq: ( WL 'ME_53EDC0E701BC' '4F3E3F5F0160.pas.ms.script' // TtfwRegisterableWord
+ )
+ ; // Inherits
+ : Operations
+   Seq: ( ME_3D3AAEBE650D // Ini_Reg
+ )
+ ; // Operations
+ : Implemented
+   Seq: ( ME_4DAEEDE10285_ME_539834A703AD // DoDoIt
+ )
+ ; // Implemented
+ : Overridden
+   Seq: ( ME_4DB0614603C8_ME_539834A703AD // GetWordNameForRegister
+ )
+ ; // Overridden
+ : Dependencies
+   Seq: ( ME_5398352E0259 // 
+ )
+ ; // Dependencies
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ : Generators
+ Seq: (
+ gen_intf.pas
+ )
+ ; // Generators
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\F1_Words'
+ CONST intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\F1_Words\kwRestoreSettings.pas'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\F1_Words'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\F1_Words'
+ CONST extprop:pas:TypeName 'TkwRestoreSettings'
+ CONST extprop:rc:SelfName 'RestoreSettings'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'kwRestoreSettings'
+
+ref; // ME_539834A703AD RestoreSettings
+
+FORWARD ME_53B12A56032C
+
+FORWARD ME_53B12AEE01A2
+
+: ME_53B12B660261
+ CONST UID '53B12B660261'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_53B12AEE01A2 // GetContextHistoryKind
+ ;
+ : Target WL 'ME_4AD825C703D8' '54F9F6FB0143.pas.ms.script' // TnsContextHistoryKind
+ ;
+
+ref; // ME_53B12B660261 DoIt
+
+: ME_53B12AEE01A2
+ CONST UID '53B12AEE01A2'
+ CONST Name 'GetContextHistoryKind'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_abstract
+ : Parent ME_53B12A56032C // ClearContextSearchHistory
+ ;
+ : Operations
+   Seq: ( ME_53B12B660261 // DoIt
+ )
+ ; // Operations
+
+ref; // ME_53B12AEE01A2 GetContextHistoryKind
+
+: ME_53B12C260178
+ CONST UID '53B12C260178'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_53B12A56032C // ClearContextSearchHistory
+ ;
+ : Target WL 'ME_495132550324' '4A9F98B901A5.pas.ms.script' // TnsBaseSearchKind
+ ;
+
+ref; // ME_53B12C260178 
+
+: ME_53B147B301F0
+ CONST UID '53B147B301F0'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_53B12A56032C // ClearContextSearchHistory
+ ;
+ : Target WL 'ME_4AD8570C01CC' '54F9EC5B0269.pas.ms.script' // nsContextHistory
+ ;
+
+ref; // ME_53B147B301F0 
+
+: ME_4DAEEDE10285_ME_53B12A56032C
+ CONST UID '4DAEEDE10285'
+ CONST Name 'DoDoIt'
+ : Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.pas.ms.script' // DoDoIt
+ ;
+ : Implementor ME_53B12A56032C // ClearContextSearchHistory
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_4DAEEDE10285_ME_53B12A56032C DoDoIt
+
+: ME_53B12A56032C
+ CONST UID '53B12A56032C'
+ CONST Name 'ClearContextSearchHistory'
+ CONST Class class_Class
+ : Stereotype st_ScriptKeyword ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_4DB01F3800EB // Words
+ ;
+ : Inherits
+   Seq: ( WL 'ME_53EDC0E701BC' '4F3E3F5F0160.pas.ms.script' // TtfwRegisterableWord
+ )
+ ; // Inherits
+ : Operations
+   Seq: ( ME_53B12AEE01A2 // GetContextHistoryKind
+ )
+ ; // Operations
+ : Implemented
+   Seq: ( ME_4DAEEDE10285_ME_53B12A56032C // DoDoIt
+ )
+ ; // Implemented
+ : Dependencies
+   Seq: ( ME_53B12C260178 // 
+ ME_53B147B301F0 // 
+ )
+ ; // Dependencies
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ : Generators
+ Seq: (
+ gen_intf.pas
+ )
+ ; // Generators
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\F1_Words'
+ CONST intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\F1_Words\kwClearContextSearchHistory.pas'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\F1_Words'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\F1_Words'
+ CONST extprop:pas:TypeName 'TkwClearContextSearchHistory'
+ CONST extprop:rc:SelfName 'ClearContextSearchHistory'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'kwClearContextSearchHistory'
+
+ref; // ME_53B12A56032C ClearContextSearchHistory
+
+: ME_80FCABDED35A
+ CONST UID '80FCABDED35A'
+ CONST Name 'Ini_Reg'
+ CONST IsSummoned true
+ CONST Class class_Operation
+ : Stereotype st_ini::Operation ;
+ %SUMMARY 'Регистрация ClearDocumentContextSearchHistory' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_53B12B8A03DC // ClearDocumentContextSearchHistory
+ ;
+
+ref; // ME_80FCABDED35A Ini_Reg
+
+: ME_53B12AEE01A2_ME_53B12B8A03DC
+ CONST UID '53B12AEE01A2'
+ CONST Name 'GetContextHistoryKind'
+ : Original ME_53B12AEE01A2 // GetContextHistoryKind
+ ;
+ : Implementor ME_53B12B8A03DC // ClearDocumentContextSearchHistory
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_53B12AEE01A2_ME_53B12B8A03DC GetContextHistoryKind
+
+: ME_4DB0614603C8_ME_53B12B8A03DC
+ CONST UID '4DB0614603C8'
+ CONST Name 'GetWordNameForRegister'
+ : Original WL 'ME_4DB0614603C8' '4F3E3F5F0160.pas.ms.script' // GetWordNameForRegister
+ ;
+ : Implementor ME_53B12B8A03DC // ClearDocumentContextSearchHistory
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_4DB0614603C8_ME_53B12B8A03DC GetWordNameForRegister
+
+: ME_53B12B8A03DC
+ CONST UID '53B12B8A03DC'
+ CONST Name 'ClearDocumentContextSearchHistory'
+ CONST Class class_Class
+ : Stereotype st_ScriptKeyword ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_4DB01F3800EB // Words
+ ;
+ : Inherits
+   Seq: ( ME_53B12A56032C // ClearContextSearchHistory
+ )
+ ; // Inherits
+ : Operations
+   Seq: ( ME_80FCABDED35A // Ini_Reg
+ )
+ ; // Operations
+ : Implemented
+   Seq: ( ME_53B12AEE01A2_ME_53B12B8A03DC // GetContextHistoryKind
+ )
+ ; // Implemented
+ : Overridden
+   Seq: ( ME_4DB0614603C8_ME_53B12B8A03DC // GetWordNameForRegister
+ )
+ ; // Overridden
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ : Generators
+ Seq: (
+ gen_intf.pas
+ )
+ ; // Generators
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\F1_Words'
+ CONST intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\F1_Words\kwClearDocumentContextSearchHistory.pas'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\F1_Words'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\F1_Words'
+ CONST extprop:pas:TypeName 'TkwClearDocumentContextSearchHistory'
+ CONST extprop:rc:SelfName 'ClearDocumentContextSearchHistory'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'kwClearDocumentContextSearchHistory'
+
+ref; // ME_53B12B8A03DC ClearDocumentContextSearchHistory
+
+: ME_1B5A6A2FB644
+ CONST UID '1B5A6A2FB644'
+ CONST Name 'Ini_Reg'
+ CONST IsSummoned true
+ CONST Class class_Operation
+ : Stereotype st_ini::Operation ;
+ %SUMMARY 'Регистрация ClearPharmContextSearchHistory' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_53B12BB200FE // ClearPharmContextSearchHistory
+ ;
+
+ref; // ME_1B5A6A2FB644 Ini_Reg
+
+: ME_53B12AEE01A2_ME_53B12BB200FE
+ CONST UID '53B12AEE01A2'
+ CONST Name 'GetContextHistoryKind'
+ : Original ME_53B12AEE01A2 // GetContextHistoryKind
+ ;
+ : Implementor ME_53B12BB200FE // ClearPharmContextSearchHistory
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_53B12AEE01A2_ME_53B12BB200FE GetContextHistoryKind
+
+: ME_4DB0614603C8_ME_53B12BB200FE
+ CONST UID '4DB0614603C8'
+ CONST Name 'GetWordNameForRegister'
+ : Original WL 'ME_4DB0614603C8' '4F3E3F5F0160.pas.ms.script' // GetWordNameForRegister
+ ;
+ : Implementor ME_53B12BB200FE // ClearPharmContextSearchHistory
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_4DB0614603C8_ME_53B12BB200FE GetWordNameForRegister
+
+: ME_53B12BB200FE
+ CONST UID '53B12BB200FE'
+ CONST Name 'ClearPharmContextSearchHistory'
+ CONST Class class_Class
+ : Stereotype st_ScriptKeyword ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_4DB01F3800EB // Words
+ ;
+ : Inherits
+   Seq: ( ME_53B12A56032C // ClearContextSearchHistory
+ )
+ ; // Inherits
+ : Operations
+   Seq: ( ME_1B5A6A2FB644 // Ini_Reg
+ )
+ ; // Operations
+ : Implemented
+   Seq: ( ME_53B12AEE01A2_ME_53B12BB200FE // GetContextHistoryKind
+ )
+ ; // Implemented
+ : Overridden
+   Seq: ( ME_4DB0614603C8_ME_53B12BB200FE // GetWordNameForRegister
+ )
+ ; // Overridden
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ : Generators
+ Seq: (
+ gen_intf.pas
+ )
+ ; // Generators
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\F1_Words'
+ CONST intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\F1_Words\kwClearPharmContextSearchHistory.pas'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\F1_Words'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\F1_Words'
+ CONST extprop:pas:TypeName 'TkwClearPharmContextSearchHistory'
+ CONST extprop:rc:SelfName 'ClearPharmContextSearchHistory'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'kwClearPharmContextSearchHistory'
+
+ref; // ME_53B12BB200FE ClearPharmContextSearchHistory
+
+FORWARD ME_54E2143501BA
+
+: ME_54E2145701FC
+ CONST UID '54E2145701FC'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_54E2143501BA // kwPermanentFilterExistsUses
+ ;
+ : Target WL 'ME_4B1E8FAE0380' '48F747EC0073.pas.ms.script' // DefDataAdapter
+ ;
+
+ref; // ME_54E2145701FC 
+
+: ME_54E2143501BA
+ CONST UID '54E2143501BA'
+ CONST Name 'kwPermanentFilterExistsUses'
+ CONST Class class_Class
+ : Stereotype st_Impurity ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_4DB01F3800EB // Words
+ ;
+ : Dependencies
+   Seq: ( ME_54E2145701FC // 
+ )
+ ; // Dependencies
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ : Generators
+ Seq: (
+ gen_intf.pas
+ )
+ ; // Generators
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\F1_Words'
+ CONST intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\F1_Words\kwPermanentFilterExistsUses.imp.pas'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\F1_Words'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\F1_Words'
+ CONST extprop:pas:TypeName '_kwPermanentFilterExistsUses_'
+ CONST extprop:pas:UnitName 'kwPermanentFilterExistsUses.imp'
+
+ref; // ME_54E2143501BA kwPermanentFilterExistsUses
+
+FORWARD ME_53B2B1460348
+
+FORWARD ME_53B2B2C800D6
+
+: ME_53B2B2EC03B4
+ CONST UID '53B2B2EC03B4'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_53B2B2C800D6 // GetFilters
+ ;
+ : Target WL 'ME_45EEB14402F9' '45EEA48F011F.pas.ms.script' // FiltersFromQuery
+ ;
+
+ref; // ME_53B2B2EC03B4 DoIt
+
+: ME_53B2B2C800D6
+ CONST UID '53B2B2C800D6'
+ CONST Name 'GetFilters'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_abstract
+ : Parent ME_53B2B1460348 // PermanentFilterExists
+ ;
+ : Operations
+   Seq: ( ME_53B2B2EC03B4 // DoIt
+ )
+ ; // Operations
+
+ref; // ME_53B2B2C800D6 GetFilters
+
+: ME_53B2B3A0014D
+ CONST UID '53B2B3A0014D'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_53B2B1460348 // PermanentFilterExists
+ ;
+ : Target WL 'ME_4B1E8FAE0380' '48F747EC0073.pas.ms.script' // DefDataAdapter
+ ;
+
+ref; // ME_53B2B3A0014D 
+
+: ME_4DAEEDE10285_ME_53B2B1460348
+ CONST UID '4DAEEDE10285'
+ CONST Name 'DoDoIt'
+ : Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.pas.ms.script' // DoDoIt
+ ;
+ : Implementor ME_53B2B1460348 // PermanentFilterExists
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_4DAEEDE10285_ME_53B2B1460348 DoDoIt
+
+: ME_53B2B1460348
+ CONST UID '53B2B1460348'
+ CONST Name 'PermanentFilterExists'
+ CONST Class class_Class
+ : Stereotype st_ScriptKeyword ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_4DB01F3800EB // Words
+ ;
+ : Inherits
+   Seq: ( WL 'ME_53EDC0E701BC' '4F3E3F5F0160.pas.ms.script' // TtfwRegisterableWord
+ )
+ ; // Inherits
+ : Implements
+   Seq: ( ME_54E2143501BA // kwPermanentFilterExistsUses
+ )
+ ; // Implements
+ : Operations
+   Seq: ( ME_53B2B2C800D6 // GetFilters
+ )
+ ; // Operations
+ : Implemented
+   Seq: ( ME_4DAEEDE10285_ME_53B2B1460348 // DoDoIt
+ )
+ ; // Implemented
+ : Dependencies
+   Seq: ( ME_53B2B3A0014D // 
+ )
+ ; // Dependencies
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ : Generators
+ Seq: (
+ gen_intf.pas
+ )
+ ; // Generators
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\F1_Words'
+ CONST intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\F1_Words\kwPermanentFilterExists.pas'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\F1_Words'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\F1_Words'
+ CONST extprop:pas:TypeName 'TkwPermanentFilterExists'
+ CONST extprop:rc:SelfName 'PermanentFilterExists'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'kwPermanentFilterExists'
+
+ref; // ME_53B2B1460348 PermanentFilterExists
+
+: ME_8927731A5526
+ CONST UID '8927731A5526'
+ CONST Name 'Ini_Reg'
+ CONST IsSummoned true
+ CONST Class class_Operation
+ : Stereotype st_ini::Operation ;
+ %SUMMARY 'Регистрация IsLegalPermanentFilterExists' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_53B2B2950270 // IsLegalPermanentFilterExists
+ ;
+
+ref; // ME_8927731A5526 Ini_Reg
+
+: ME_53B2B2C800D6_ME_53B2B2950270
+ CONST UID '53B2B2C800D6'
+ CONST Name 'GetFilters'
+ : Original ME_53B2B2C800D6 // GetFilters
+ ;
+ : Implementor ME_53B2B2950270 // IsLegalPermanentFilterExists
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_53B2B2C800D6_ME_53B2B2950270 GetFilters
+
+: ME_4DB0614603C8_ME_53B2B2950270
+ CONST UID '4DB0614603C8'
+ CONST Name 'GetWordNameForRegister'
+ : Original WL 'ME_4DB0614603C8' '4F3E3F5F0160.pas.ms.script' // GetWordNameForRegister
+ ;
+ : Implementor ME_53B2B2950270 // IsLegalPermanentFilterExists
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_4DB0614603C8_ME_53B2B2950270 GetWordNameForRegister
+
+: ME_53B2B2950270
+ CONST UID '53B2B2950270'
+ CONST Name 'IsLegalPermanentFilterExists'
+ CONST Class class_Class
+ : Stereotype st_ScriptKeyword ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_4DB01F3800EB // Words
+ ;
+ : Inherits
+   Seq: ( ME_53B2B1460348 // PermanentFilterExists
+ )
+ ; // Inherits
+ : Operations
+   Seq: ( ME_8927731A5526 // Ini_Reg
+ )
+ ; // Operations
+ : Implemented
+   Seq: ( ME_53B2B2C800D6_ME_53B2B2950270 // GetFilters
+ )
+ ; // Implemented
+ : Overridden
+   Seq: ( ME_4DB0614603C8_ME_53B2B2950270 // GetWordNameForRegister
+ )
+ ; // Overridden
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ : Generators
+ Seq: (
+ gen_intf.pas
+ )
+ ; // Generators
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\F1_Words'
+ CONST intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\F1_Words\kwIsLegalPermanentFilterExists.pas'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\F1_Words'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\F1_Words'
+ CONST extprop:pas:TypeName 'TkwIsLegalPermanentFilterExists'
+ CONST extprop:rc:SelfName 'IsLegalPermanentFilterExists'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'kwIsLegalPermanentFilterExists'
+
+ref; // ME_53B2B2950270 IsLegalPermanentFilterExists
+
+: ME_16109AAB55A8
+ CONST UID '16109AAB55A8'
+ CONST Name 'Ini_Reg'
+ CONST IsSummoned true
+ CONST Class class_Operation
+ : Stereotype st_ini::Operation ;
+ %SUMMARY 'Регистрация IsMyDocumentsEmpty' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_53B2CAE50115 // IsMyDocumentsEmpty
+ ;
+
+ref; // ME_16109AAB55A8 Ini_Reg
+
+: ME_53B2CB6B0177
+ CONST UID '53B2CB6B0177'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_53B2CAE50115 // IsMyDocumentsEmpty
+ ;
+ : Target WL 'ME_4574353000CB' '4570501E037A.pas.ms.script' // NodeFlags
+ ;
+
+ref; // ME_53B2CB6B0177 
+
+: ME_53B2CBC9035C
+ CONST UID '53B2CBC9035C'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_53B2CAE50115 // IsMyDocumentsEmpty
+ ;
+ : Target WL 'ME_4B1E8FAE0380' '48F747EC0073.pas.ms.script' // DefDataAdapter
+ ;
+
+ref; // ME_53B2CBC9035C 
+
+: ME_53B2CC23000A
+ CONST UID '53B2CC23000A'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_53B2CAE50115 // IsMyDocumentsEmpty
+ ;
+ : Target WL 'ME_456FE63B01D4' '456F02A50196.pas.ms.script' // Node
+ ;
+
+ref; // ME_53B2CC23000A 
+
+: ME_4DAEEDE10285_ME_53B2CAE50115
+ CONST UID '4DAEEDE10285'
+ CONST Name 'DoDoIt'
+ : Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.pas.ms.script' // DoDoIt
+ ;
+ : Implementor ME_53B2CAE50115 // IsMyDocumentsEmpty
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_4DAEEDE10285_ME_53B2CAE50115 DoDoIt
+
+: ME_4DB0614603C8_ME_53B2CAE50115
+ CONST UID '4DB0614603C8'
+ CONST Name 'GetWordNameForRegister'
+ : Original WL 'ME_4DB0614603C8' '4F3E3F5F0160.pas.ms.script' // GetWordNameForRegister
+ ;
+ : Implementor ME_53B2CAE50115 // IsMyDocumentsEmpty
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_4DB0614603C8_ME_53B2CAE50115 GetWordNameForRegister
+
+: ME_53B2CAE50115
+ CONST UID '53B2CAE50115'
+ CONST Name 'IsMyDocumentsEmpty'
+ CONST Class class_Class
+ : Stereotype st_ScriptKeyword ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_4DB01F3800EB // Words
+ ;
+ : Inherits
+   Seq: ( WL 'ME_53EDC0E701BC' '4F3E3F5F0160.pas.ms.script' // TtfwRegisterableWord
+ )
+ ; // Inherits
+ : Operations
+   Seq: ( ME_16109AAB55A8 // Ini_Reg
+ )
+ ; // Operations
+ : Implemented
+   Seq: ( ME_4DAEEDE10285_ME_53B2CAE50115 // DoDoIt
+ )
+ ; // Implemented
+ : Overridden
+   Seq: ( ME_4DB0614603C8_ME_53B2CAE50115 // GetWordNameForRegister
+ )
+ ; // Overridden
+ : Dependencies
+   Seq: ( ME_53B2CB6B0177 // 
+ ME_53B2CBC9035C // 
+ ME_53B2CC23000A // 
+ )
+ ; // Dependencies
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ : Generators
+ Seq: (
+ gen_intf.pas
+ )
+ ; // Generators
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\F1_Words'
+ CONST intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\F1_Words\kwIsMyDocumentsEmpty.pas'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\F1_Words'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\F1_Words'
+ CONST extprop:pas:TypeName 'TkwIsMyDocumentsEmpty'
+ CONST extprop:rc:SelfName 'IsMyDocumentsEmpty'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'kwIsMyDocumentsEmpty'
+
+ref; // ME_53B2CAE50115 IsMyDocumentsEmpty
+
+FORWARD ME_54E2136B00DB
+
+: ME_54E213A9011D
+ CONST UID '54E213A9011D'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_54E2136B00DB // kwConfigurationsWordUses
+ ;
+ : Target WL 'ME_4B1E8FAE0380' '48F747EC0073.pas.ms.script' // DefDataAdapter
+ ;
+
+ref; // ME_54E213A9011D 
+
+: ME_54E213AD024D
+ CONST UID '54E213AD024D'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_54E2136B00DB // kwConfigurationsWordUses
+ ;
+ : Target WL 'ME_45EEDBE30144' '45EEAA69036E.pas.ms.script' // ConfigurationManager
+ ;
+
+ref; // ME_54E213AD024D 
+
+: ME_54E2136B00DB
+ CONST UID '54E2136B00DB'
+ CONST Name 'kwConfigurationsWordUses'
+ CONST Class class_Class
+ : Stereotype st_Impurity ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_4DB01F3800EB // Words
+ ;
+ : Dependencies
+   Seq: ( ME_54E213A9011D // 
+ ME_54E213AD024D // 
+ )
+ ; // Dependencies
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ : Generators
+ Seq: (
+ gen_intf.pas
+ )
+ ; // Generators
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\F1_Words'
+ CONST intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\F1_Words\kwConfigurationsWordUses.imp.pas'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\F1_Words'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\F1_Words'
+ CONST extprop:pas:TypeName '_kwConfigurationsWordUses_'
+ CONST extprop:pas:UnitName 'kwConfigurationsWordUses.imp'
+
+ref; // ME_54E2136B00DB kwConfigurationsWordUses
+
+FORWARD ME_53B2E10F03C0
+
+: ME_53B2E31D02BE
+ CONST UID '53B2E31D02BE'
+ CONST Name 'ConfigurationManager'
+ CONST Class class_Attribute
+ : Stereotype st_readonly::Attribute ;
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_agr
+ : Parent ME_53B2E10F03C0 // ConfigurationsWord
+ ;
+ : Target WL 'ME_45EEDBE30144' '45EEAA69036E.pas.ms.script' // ConfigurationManager
+ ;
+ CONST "pm" true
+ CONST "reads field" true
+
+ref; // ME_53B2E31D02BE ConfigurationManager
+
+: ME_BF20223798F8
+ CONST UID 'BF20223798F8'
+ CONST Name 'f_ConfigurationManager'
+ CONST IsSummoned true
+ CONST Class class_Attribute
+ %SUMMARY 'Поле для свойства ConfigurationManager' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_ref
+ : Parent ME_53B2E10F03C0 // ConfigurationsWord
+ ;
+ : Target WL 'ME_45EEDBE30144' '45EEAA69036E.pas.ms.script' // ConfigurationManager
+ ;
+
+ref; // ME_BF20223798F8 f_ConfigurationManager
+
+FORWARD ME_53B2E1D201CE
+
+: ME_53B2E2EB00A0
+ CONST UID '53B2E2EB00A0'
+ CONST Name 'aCtx'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_4DB0091E033E' '4DAF19F600C5.pas.ms.script' // TtfwContext
+ ;
+
+ref; // ME_53B2E2EB00A0 aCtx
+
+: ME_53B2E2E90101
+ CONST UID '53B2E2E90101'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_53B2E1D201CE // DoWithConfigurations
+ ;
+ : Parameters
+   Seq: ( ME_53B2E2EB00A0 // aCtx
+ )
+ ; // Parameters
+
+ref; // ME_53B2E2E90101 DoIt
+
+: ME_53B2E1D201CE
+ CONST UID '53B2E1D201CE'
+ CONST Name 'DoWithConfigurations'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_abstract
+ : Parent ME_53B2E10F03C0 // ConfigurationsWord
+ ;
+ : Operations
+   Seq: ( ME_53B2E2E90101 // DoIt
+ )
+ ; // Operations
+
+ref; // ME_53B2E1D201CE DoWithConfigurations
+
+: ME_53B2E1770154
+ CONST UID '53B2E1770154'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_53B2E10F03C0 // ConfigurationsWord
+ ;
+ : Target WL 'ME_4B1E8FAE0380' '48F747EC0073.pas.ms.script' // DefDataAdapter
+ ;
+
+ref; // ME_53B2E1770154 
+
+: ME_4DAEEDE10285_ME_53B2E10F03C0
+ CONST UID '4DAEEDE10285'
+ CONST Name 'DoDoIt'
+ : Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.pas.ms.script' // DoDoIt
+ ;
+ : Implementor ME_53B2E10F03C0 // ConfigurationsWord
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_4DAEEDE10285_ME_53B2E10F03C0 DoDoIt
+
+: ME_5000565C019C_ME_53B2E10F03C0
+ CONST UID '5000565C019C'
+ CONST Name 'ClearFields'
+ : Original WL 'ME_5000565C019C' '47913B47006E.pas.ms.script' // ClearFields
+ ;
+ : Implementor ME_53B2E10F03C0 // ConfigurationsWord
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_5000565C019C_ME_53B2E10F03C0 ClearFields
+
+: ME_53B2E10F03C0
+ CONST UID '53B2E10F03C0'
+ CONST Name 'ConfigurationsWord'
+ CONST Class class_Class
+ : Stereotype st_ScriptKeyword ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_4DB01F3800EB // Words
+ ;
+ : Inherits
+   Seq: ( WL 'ME_53EDC0E701BC' '4F3E3F5F0160.pas.ms.script' // TtfwRegisterableWord
+ )
+ ; // Inherits
+ : Implements
+   Seq: ( ME_54E2136B00DB // kwConfigurationsWordUses
+ )
+ ; // Implements
+ : Attributes
+   Seq: ( ME_53B2E31D02BE // ConfigurationManager
+ ME_BF20223798F8 // f_ConfigurationManager
+ )
+ ; // Attributes
+ : Operations
+   Seq: ( ME_53B2E1D201CE // DoWithConfigurations
+ )
+ ; // Operations
+ : Implemented
+   Seq: ( ME_4DAEEDE10285_ME_53B2E10F03C0 // DoDoIt
+ )
+ ; // Implemented
+ : Overridden
+   Seq: ( ME_5000565C019C_ME_53B2E10F03C0 // ClearFields
+ )
+ ; // Overridden
+ : Dependencies
+   Seq: ( ME_53B2E1770154 // 
+ )
+ ; // Dependencies
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ : Generators
+ Seq: (
+ gen_intf.pas
+ )
+ ; // Generators
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\F1_Words'
+ CONST intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\F1_Words\kwConfigurationsWord.pas'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\F1_Words'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\F1_Words'
+ CONST extprop:pas:TypeName 'TkwConfigurationsWord'
+ CONST extprop:rc:SelfName 'ConfigurationsWord'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'kwConfigurationsWord'
+
+ref; // ME_53B2E10F03C0 ConfigurationsWord
+
+FORWARD ME_53B2E13A03D6
+
+FORWARD ME_53B2E36A0075
+
+: ME_53B2E39503B7
+ CONST UID '53B2E39503B7'
+ CONST Name 'aConfiguration'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_45EEDBE3014C' '45EEAA69036E.pas.ms.script' // Configuration
+ ;
+
+ref; // ME_53B2E39503B7 aConfiguration
+
+: ME_53B2E39503D6
+ CONST UID '53B2E39503D6'
+ CONST Name 'aCtx'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_4DB0091E033E' '4DAF19F600C5.pas.ms.script' // TtfwContext
+ ;
+
+ref; // ME_53B2E39503D6 aCtx
+
+: ME_53B2E38900D6
+ CONST UID '53B2E38900D6'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_53B2E36A0075 // DoWithConfiguration
+ ;
+ : Parameters
+   Seq: ( ME_53B2E39503B7 // aConfiguration
+ ME_53B2E39503D6 // aCtx
+ )
+ ; // Parameters
+
+ref; // ME_53B2E38900D6 DoIt
+
+: ME_53B2E36A0075
+ CONST UID '53B2E36A0075'
+ CONST Name 'DoWithConfiguration'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_abstract
+ : Parent ME_53B2E13A03D6 // ConfigurationWord
+ ;
+ : Operations
+   Seq: ( ME_53B2E38900D6 // DoIt
+ )
+ ; // Operations
+
+ref; // ME_53B2E36A0075 DoWithConfiguration
+
+: ME_53B2EC7E00B8
+ CONST UID '53B2EC7E00B8'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_53B2E13A03D6 // ConfigurationWord
+ ;
+ : Target WL 'ME_47877EB202FB' '4AB0C3C60310.pas.ms.script' // SysUtils
+ ;
+
+ref; // ME_53B2EC7E00B8 
+
+: ME_53B2E1D201CE_ME_53B2E13A03D6
+ CONST UID '53B2E1D201CE'
+ CONST Name 'DoWithConfigurations'
+ : Original ME_53B2E1D201CE // DoWithConfigurations
+ ;
+ : Implementor ME_53B2E13A03D6 // ConfigurationWord
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_53B2E1D201CE_ME_53B2E13A03D6 DoWithConfigurations
+
+: ME_53B2E13A03D6
+ CONST UID '53B2E13A03D6'
+ CONST Name 'ConfigurationWord'
+ CONST Class class_Class
+ : Stereotype st_ScriptKeyword ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_4DB01F3800EB // Words
+ ;
+ : Inherits
+   Seq: ( ME_53B2E10F03C0 // ConfigurationsWord
+ )
+ ; // Inherits
+ : Operations
+   Seq: ( ME_53B2E36A0075 // DoWithConfiguration
+ )
+ ; // Operations
+ : Implemented
+   Seq: ( ME_53B2E1D201CE_ME_53B2E13A03D6 // DoWithConfigurations
+ )
+ ; // Implemented
+ : Dependencies
+   Seq: ( ME_53B2EC7E00B8 // 
+ )
+ ; // Dependencies
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ : Generators
+ Seq: (
+ gen_intf.pas
+ )
+ ; // Generators
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\F1_Words'
+ CONST intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\F1_Words\kwConfigurationWord.pas'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\F1_Words'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\F1_Words'
+ CONST extprop:pas:TypeName 'TkwConfigurationWord'
+ CONST extprop:rc:SelfName 'ConfigurationWord'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'kwConfigurationWord'
+
+ref; // ME_53B2E13A03D6 ConfigurationWord
+
+: ME_65D4842A8022
+ CONST UID '65D4842A8022'
+ CONST Name 'Ini_Reg'
+ CONST IsSummoned true
+ CONST Class class_Operation
+ : Stereotype st_ini::Operation ;
+ %SUMMARY 'Регистрация configuration_GetType' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_53B2DF6C00CA // configuration_GetType
+ ;
+
+ref; // ME_65D4842A8022 Ini_Reg
+
+: ME_53B2E36A0075_ME_53B2DF6C00CA
+ CONST UID '53B2E36A0075'
+ CONST Name 'DoWithConfiguration'
+ : Original ME_53B2E36A0075 // DoWithConfiguration
+ ;
+ : Implementor ME_53B2DF6C00CA // configuration_GetType
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_53B2E36A0075_ME_53B2DF6C00CA DoWithConfiguration
+
+: ME_4DB0614603C8_ME_53B2DF6C00CA
+ CONST UID '4DB0614603C8'
+ CONST Name 'GetWordNameForRegister'
+ : Original WL 'ME_4DB0614603C8' '4F3E3F5F0160.pas.ms.script' // GetWordNameForRegister
+ ;
+ : Implementor ME_53B2DF6C00CA // configuration_GetType
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_4DB0614603C8_ME_53B2DF6C00CA GetWordNameForRegister
+
+: ME_53B2DF6C00CA
+ CONST UID '53B2DF6C00CA'
+ CONST Name 'configuration_GetType'
+ CONST Class class_Class
+ : Stereotype st_ScriptKeyword ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_4DB01F3800EB // Words
+ ;
+ : Inherits
+   Seq: ( ME_53B2E13A03D6 // ConfigurationWord
+ )
+ ; // Inherits
+ : Operations
+   Seq: ( ME_65D4842A8022 // Ini_Reg
+ )
+ ; // Operations
+ : Implemented
+   Seq: ( ME_53B2E36A0075_ME_53B2DF6C00CA // DoWithConfiguration
+ )
+ ; // Implemented
+ : Overridden
+   Seq: ( ME_4DB0614603C8_ME_53B2DF6C00CA // GetWordNameForRegister
+ )
+ ; // Overridden
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ : Generators
+ Seq: (
+ gen_intf.pas
+ )
+ ; // Generators
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\F1_Words'
+ CONST intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\F1_Words\kwConfigurationGetType.pas'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\F1_Words'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\F1_Words'
+ CONST extprop:pas:TypeName 'TkwConfigurationGetType'
+ CONST extprop:rc:SelfName 'ConfigurationGetType'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'kwConfigurationGetType'
+
+ref; // ME_53B2DF6C00CA configuration_GetType
+
+: ME_00D8E13F43FC
+ CONST UID '00D8E13F43FC'
+ CONST Name 'Ini_Reg'
+ CONST IsSummoned true
+ CONST Class class_Operation
+ : Stereotype st_ini::Operation ;
+ %SUMMARY 'Регистрация configurations_GetActiveConfiguration' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_53B2DF81021D // configurations_GetActiveConfiguration
+ ;
+
+ref; // ME_00D8E13F43FC Ini_Reg
+
+: ME_53B2E1D201CE_ME_53B2DF81021D
+ CONST UID '53B2E1D201CE'
+ CONST Name 'DoWithConfigurations'
+ : Original ME_53B2E1D201CE // DoWithConfigurations
+ ;
+ : Implementor ME_53B2DF81021D // configurations_GetActiveConfiguration
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_53B2E1D201CE_ME_53B2DF81021D DoWithConfigurations
+
+: ME_4DB0614603C8_ME_53B2DF81021D
+ CONST UID '4DB0614603C8'
+ CONST Name 'GetWordNameForRegister'
+ : Original WL 'ME_4DB0614603C8' '4F3E3F5F0160.pas.ms.script' // GetWordNameForRegister
+ ;
+ : Implementor ME_53B2DF81021D // configurations_GetActiveConfiguration
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_4DB0614603C8_ME_53B2DF81021D GetWordNameForRegister
+
+: ME_53B2DF81021D
+ CONST UID '53B2DF81021D'
+ CONST Name 'configurations_GetActiveConfiguration'
+ CONST Class class_Class
+ : Stereotype st_ScriptKeyword ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_4DB01F3800EB // Words
+ ;
+ : Inherits
+   Seq: ( ME_53B2E10F03C0 // ConfigurationsWord
+ )
+ ; // Inherits
+ : Operations
+   Seq: ( ME_00D8E13F43FC // Ini_Reg
+ )
+ ; // Operations
+ : Implemented
+   Seq: ( ME_53B2E1D201CE_ME_53B2DF81021D // DoWithConfigurations
+ )
+ ; // Implemented
+ : Overridden
+   Seq: ( ME_4DB0614603C8_ME_53B2DF81021D // GetWordNameForRegister
+ )
+ ; // Overridden
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ : Generators
+ Seq: (
+ gen_intf.pas
+ )
+ ; // Generators
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\F1_Words'
+ CONST intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\F1_Words\kwConfigurationsGetActiveConfiguration.pas'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\F1_Words'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\F1_Words'
+ CONST extprop:pas:TypeName 'TkwConfigurationsGetActiveConfiguration'
+ CONST extprop:rc:SelfName 'ConfigurationsGetActiveConfiguration'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'kwConfigurationsGetActiveConfiguration'
+
+ref; // ME_53B2DF81021D configurations_GetActiveConfiguration
+
+: ME_C145B7EA7D0C
+ CONST UID 'C145B7EA7D0C'
+ CONST Name 'Ini_Reg'
+ CONST IsSummoned true
+ CONST Class class_Operation
+ : Stereotype st_ini::Operation ;
+ %SUMMARY 'Регистрация configuration_Activate' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_53B2DF9903E3 // configuration_Activate
+ ;
+
+ref; // ME_C145B7EA7D0C Ini_Reg
+
+: ME_53C54A9902BE
+ CONST UID '53C54A9902BE'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_53B2DF9903E3 // configuration_Activate
+ ;
+ : Target WL 'ME_4ABB4C2B03D5' '4ABA137C00E5.pas.ms.script' // nsConfigurationList
+ ;
+
+ref; // ME_53C54A9902BE 
+
+: ME_53B2E36A0075_ME_53B2DF9903E3
+ CONST UID '53B2E36A0075'
+ CONST Name 'DoWithConfiguration'
+ : Original ME_53B2E36A0075 // DoWithConfiguration
+ ;
+ : Implementor ME_53B2DF9903E3 // configuration_Activate
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_53B2E36A0075_ME_53B2DF9903E3 DoWithConfiguration
+
+: ME_4DB0614603C8_ME_53B2DF9903E3
+ CONST UID '4DB0614603C8'
+ CONST Name 'GetWordNameForRegister'
+ : Original WL 'ME_4DB0614603C8' '4F3E3F5F0160.pas.ms.script' // GetWordNameForRegister
+ ;
+ : Implementor ME_53B2DF9903E3 // configuration_Activate
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_4DB0614603C8_ME_53B2DF9903E3 GetWordNameForRegister
+
+: ME_53B2DF9903E3
+ CONST UID '53B2DF9903E3'
+ CONST Name 'configuration_Activate'
+ CONST Class class_Class
+ : Stereotype st_ScriptKeyword ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_4DB01F3800EB // Words
+ ;
+ : Inherits
+   Seq: ( ME_53B2E13A03D6 // ConfigurationWord
+ )
+ ; // Inherits
+ : Operations
+   Seq: ( ME_C145B7EA7D0C // Ini_Reg
+ )
+ ; // Operations
+ : Implemented
+   Seq: ( ME_53B2E36A0075_ME_53B2DF9903E3 // DoWithConfiguration
+ )
+ ; // Implemented
+ : Overridden
+   Seq: ( ME_4DB0614603C8_ME_53B2DF9903E3 // GetWordNameForRegister
+ )
+ ; // Overridden
+ : Dependencies
+   Seq: ( ME_53C54A9902BE // 
+ )
+ ; // Dependencies
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ : Generators
+ Seq: (
+ gen_intf.pas
+ )
+ ; // Generators
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\F1_Words'
+ CONST intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\F1_Words\kwConfigurationActivate.pas'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\F1_Words'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\F1_Words'
+ CONST extprop:pas:TypeName 'TkwConfigurationActivate'
+ CONST extprop:rc:SelfName 'ConfigurationActivate'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'kwConfigurationActivate'
+
+ref; // ME_53B2DF9903E3 configuration_Activate
+
+: ME_A94F4BA2E37B
+ CONST UID 'A94F4BA2E37B'
+ CONST Name 'Ini_Reg'
+ CONST IsSummoned true
+ CONST Class class_Operation
+ : Stereotype st_ini::Operation ;
+ %SUMMARY 'Регистрация configurations_GetCount' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_53B2DE010174 // configurations_GetCount
+ ;
+
+ref; // ME_A94F4BA2E37B Ini_Reg
+
+: ME_53B2E1D201CE_ME_53B2DE010174
+ CONST UID '53B2E1D201CE'
+ CONST Name 'DoWithConfigurations'
+ : Original ME_53B2E1D201CE // DoWithConfigurations
+ ;
+ : Implementor ME_53B2DE010174 // configurations_GetCount
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_53B2E1D201CE_ME_53B2DE010174 DoWithConfigurations
+
+: ME_4DB0614603C8_ME_53B2DE010174
+ CONST UID '4DB0614603C8'
+ CONST Name 'GetWordNameForRegister'
+ : Original WL 'ME_4DB0614603C8' '4F3E3F5F0160.pas.ms.script' // GetWordNameForRegister
+ ;
+ : Implementor ME_53B2DE010174 // configurations_GetCount
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_4DB0614603C8_ME_53B2DE010174 GetWordNameForRegister
+
+: ME_53B2DE010174
+ CONST UID '53B2DE010174'
+ CONST Name 'configurations_GetCount'
+ CONST Class class_Class
+ : Stereotype st_ScriptKeyword ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_4DB01F3800EB // Words
+ ;
+ : Inherits
+   Seq: ( ME_53B2E10F03C0 // ConfigurationsWord
+ )
+ ; // Inherits
+ : Operations
+   Seq: ( ME_A94F4BA2E37B // Ini_Reg
+ )
+ ; // Operations
+ : Implemented
+   Seq: ( ME_53B2E1D201CE_ME_53B2DE010174 // DoWithConfigurations
+ )
+ ; // Implemented
+ : Overridden
+   Seq: ( ME_4DB0614603C8_ME_53B2DE010174 // GetWordNameForRegister
+ )
+ ; // Overridden
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ : Generators
+ Seq: (
+ gen_intf.pas
+ )
+ ; // Generators
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\F1_Words'
+ CONST intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\F1_Words\kwConfigurationsGetCount.pas'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\F1_Words'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\F1_Words'
+ CONST extprop:pas:TypeName 'TkwConfigurationsGetCount'
+ CONST extprop:rc:SelfName 'ConfigurationsGetCount'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'kwConfigurationsGetCount'
+
+ref; // ME_53B2DE010174 configurations_GetCount
+
+: ME_811C9135B677
+ CONST UID '811C9135B677'
+ CONST Name 'Ini_Reg'
+ CONST IsSummoned true
+ CONST Class class_Operation
+ : Stereotype st_ini::Operation ;
+ %SUMMARY 'Регистрация configuration_GetName' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_53B2DF500282 // configuration_GetName
+ ;
+
+ref; // ME_811C9135B677 Ini_Reg
+
+: ME_53B2EDC803C0
+ CONST UID '53B2EDC803C0'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_53B2DF500282 // configuration_GetName
+ ;
+ : Target WL 'ME_431841610361' '4423F94903C8.pas.ms.script' // String
+ ;
+
+ref; // ME_53B2EDC803C0 
+
+: ME_53B2EEB600BD
+ CONST UID '53B2EEB600BD'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_53B2DF500282 // configuration_GetName
+ ;
+ : Target WL 'ME_4AB882990057' '47F2170002B2.pas.ms.script' // nsCStr
+ ;
+
+ref; // ME_53B2EEB600BD 
+
+: ME_53B2E36A0075_ME_53B2DF500282
+ CONST UID '53B2E36A0075'
+ CONST Name 'DoWithConfiguration'
+ : Original ME_53B2E36A0075 // DoWithConfiguration
+ ;
+ : Implementor ME_53B2DF500282 // configuration_GetName
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_53B2E36A0075_ME_53B2DF500282 DoWithConfiguration
+
+: ME_4DB0614603C8_ME_53B2DF500282
+ CONST UID '4DB0614603C8'
+ CONST Name 'GetWordNameForRegister'
+ : Original WL 'ME_4DB0614603C8' '4F3E3F5F0160.pas.ms.script' // GetWordNameForRegister
+ ;
+ : Implementor ME_53B2DF500282 // configuration_GetName
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_4DB0614603C8_ME_53B2DF500282 GetWordNameForRegister
+
+: ME_53B2DF500282
+ CONST UID '53B2DF500282'
+ CONST Name 'configuration_GetName'
+ CONST Class class_Class
+ : Stereotype st_ScriptKeyword ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_4DB01F3800EB // Words
+ ;
+ : Inherits
+   Seq: ( ME_53B2E13A03D6 // ConfigurationWord
+ )
+ ; // Inherits
+ : Operations
+   Seq: ( ME_811C9135B677 // Ini_Reg
+ )
+ ; // Operations
+ : Implemented
+   Seq: ( ME_53B2E36A0075_ME_53B2DF500282 // DoWithConfiguration
+ )
+ ; // Implemented
+ : Overridden
+   Seq: ( ME_4DB0614603C8_ME_53B2DF500282 // GetWordNameForRegister
+ )
+ ; // Overridden
+ : Dependencies
+   Seq: ( ME_53B2EDC803C0 // 
+ ME_53B2EEB600BD // 
+ )
+ ; // Dependencies
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ : Generators
+ Seq: (
+ gen_intf.pas
+ )
+ ; // Generators
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\F1_Words'
+ CONST intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\F1_Words\kwConfigurationGetName.pas'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\F1_Words'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\F1_Words'
+ CONST extprop:pas:TypeName 'TkwConfigurationGetName'
+ CONST extprop:rc:SelfName 'ConfigurationGetName'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'kwConfigurationGetName'
+
+ref; // ME_53B2DF500282 configuration_GetName
+
+: ME_0B4AE036BAF6
+ CONST UID '0B4AE036BAF6'
+ CONST Name 'Ini_Reg'
+ CONST IsSummoned true
+ CONST Class class_Operation
+ : Stereotype st_ini::Operation ;
+ %SUMMARY 'Регистрация configuration_GetID' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_53B2E3EF00C4 // configuration_GetID
+ ;
+
+ref; // ME_0B4AE036BAF6 Ini_Reg
+
+: ME_53B2E36A0075_ME_53B2E3EF00C4
+ CONST UID '53B2E36A0075'
+ CONST Name 'DoWithConfiguration'
+ : Original ME_53B2E36A0075 // DoWithConfiguration
+ ;
+ : Implementor ME_53B2E3EF00C4 // configuration_GetID
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_53B2E36A0075_ME_53B2E3EF00C4 DoWithConfiguration
+
+: ME_4DB0614603C8_ME_53B2E3EF00C4
+ CONST UID '4DB0614603C8'
+ CONST Name 'GetWordNameForRegister'
+ : Original WL 'ME_4DB0614603C8' '4F3E3F5F0160.pas.ms.script' // GetWordNameForRegister
+ ;
+ : Implementor ME_53B2E3EF00C4 // configuration_GetID
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_4DB0614603C8_ME_53B2E3EF00C4 GetWordNameForRegister
+
+: ME_53B2E3EF00C4
+ CONST UID '53B2E3EF00C4'
+ CONST Name 'configuration_GetID'
+ CONST Class class_Class
+ : Stereotype st_ScriptKeyword ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_4DB01F3800EB // Words
+ ;
+ : Inherits
+   Seq: ( ME_53B2E13A03D6 // ConfigurationWord
+ )
+ ; // Inherits
+ : Operations
+   Seq: ( ME_0B4AE036BAF6 // Ini_Reg
+ )
+ ; // Operations
+ : Implemented
+   Seq: ( ME_53B2E36A0075_ME_53B2E3EF00C4 // DoWithConfiguration
+ )
+ ; // Implemented
+ : Overridden
+   Seq: ( ME_4DB0614603C8_ME_53B2E3EF00C4 // GetWordNameForRegister
+ )
+ ; // Overridden
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ : Generators
+ Seq: (
+ gen_intf.pas
+ )
+ ; // Generators
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\F1_Words'
+ CONST intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\F1_Words\kwConfigurationGetID.pas'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\F1_Words'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\F1_Words'
+ CONST extprop:pas:TypeName 'TkwConfigurationGetID'
+ CONST extprop:rc:SelfName 'ConfigurationGetID'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'kwConfigurationGetID'
+
+ref; // ME_53B2E3EF00C4 configuration_GetID
+
+: ME_19B41B874EB2
+ CONST UID '19B41B874EB2'
+ CONST Name 'Ini_Reg'
+ CONST IsSummoned true
+ CONST Class class_Operation
+ : Stereotype st_ini::Operation ;
+ %SUMMARY 'Регистрация configurations_GetConfiguration' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_53B2DF2B005B // configurations_GetConfiguration
+ ;
+
+ref; // ME_19B41B874EB2 Ini_Reg
+
+: ME_53B2E1D201CE_ME_53B2DF2B005B
+ CONST UID '53B2E1D201CE'
+ CONST Name 'DoWithConfigurations'
+ : Original ME_53B2E1D201CE // DoWithConfigurations
+ ;
+ : Implementor ME_53B2DF2B005B // configurations_GetConfiguration
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_53B2E1D201CE_ME_53B2DF2B005B DoWithConfigurations
+
+: ME_4DB0614603C8_ME_53B2DF2B005B
+ CONST UID '4DB0614603C8'
+ CONST Name 'GetWordNameForRegister'
+ : Original WL 'ME_4DB0614603C8' '4F3E3F5F0160.pas.ms.script' // GetWordNameForRegister
+ ;
+ : Implementor ME_53B2DF2B005B // configurations_GetConfiguration
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_4DB0614603C8_ME_53B2DF2B005B GetWordNameForRegister
+
+: ME_53B2DF2B005B
+ CONST UID '53B2DF2B005B'
+ CONST Name 'configurations_GetConfiguration'
+ CONST Class class_Class
+ : Stereotype st_ScriptKeyword ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_4DB01F3800EB // Words
+ ;
+ : Inherits
+   Seq: ( ME_53B2E10F03C0 // ConfigurationsWord
+ )
+ ; // Inherits
+ : Operations
+   Seq: ( ME_19B41B874EB2 // Ini_Reg
+ )
+ ; // Operations
+ : Implemented
+   Seq: ( ME_53B2E1D201CE_ME_53B2DF2B005B // DoWithConfigurations
+ )
+ ; // Implemented
+ : Overridden
+   Seq: ( ME_4DB0614603C8_ME_53B2DF2B005B // GetWordNameForRegister
+ )
+ ; // Overridden
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ : Generators
+ Seq: (
+ gen_intf.pas
+ )
+ ; // Generators
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\F1_Words'
+ CONST intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\F1_Words\kwConfigurationsGetConfiguration.pas'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\F1_Words'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\F1_Words'
+ CONST extprop:pas:TypeName 'TkwConfigurationsGetConfiguration'
+ CONST extprop:rc:SelfName 'ConfigurationsGetConfiguration'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'kwConfigurationsGetConfiguration'
+
+ref; // ME_53B2DF2B005B configurations_GetConfiguration
+
+: ME_69866135A912
+ CONST UID '69866135A912'
+ CONST Name 'Ini_Reg'
+ CONST IsSummoned true
+ CONST Class class_Operation
+ : Stereotype st_ini::Operation ;
+ %SUMMARY 'Регистрация IsPharmPermanentFilterExists' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_53B2B2730077 // IsPharmPermanentFilterExists
+ ;
+
+ref; // ME_69866135A912 Ini_Reg
+
+: ME_53B2B2C800D6_ME_53B2B2730077
+ CONST UID '53B2B2C800D6'
+ CONST Name 'GetFilters'
+ : Original ME_53B2B2C800D6 // GetFilters
+ ;
+ : Implementor ME_53B2B2730077 // IsPharmPermanentFilterExists
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_53B2B2C800D6_ME_53B2B2730077 GetFilters
+
+: ME_4DB0614603C8_ME_53B2B2730077
+ CONST UID '4DB0614603C8'
+ CONST Name 'GetWordNameForRegister'
+ : Original WL 'ME_4DB0614603C8' '4F3E3F5F0160.pas.ms.script' // GetWordNameForRegister
+ ;
+ : Implementor ME_53B2B2730077 // IsPharmPermanentFilterExists
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_4DB0614603C8_ME_53B2B2730077 GetWordNameForRegister
+
+: ME_53B2B2730077
+ CONST UID '53B2B2730077'
+ CONST Name 'IsPharmPermanentFilterExists'
+ CONST Class class_Class
+ : Stereotype st_ScriptKeyword ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_4DB01F3800EB // Words
+ ;
+ : Inherits
+   Seq: ( ME_53B2B1460348 // PermanentFilterExists
+ )
+ ; // Inherits
+ : Operations
+   Seq: ( ME_69866135A912 // Ini_Reg
+ )
+ ; // Operations
+ : Implemented
+   Seq: ( ME_53B2B2C800D6_ME_53B2B2730077 // GetFilters
+ )
+ ; // Implemented
+ : Overridden
+   Seq: ( ME_4DB0614603C8_ME_53B2B2730077 // GetWordNameForRegister
+ )
+ ; // Overridden
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ : Generators
+ Seq: (
+ gen_intf.pas
+ )
+ ; // Generators
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\F1_Words'
+ CONST intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\F1_Words\kwIsPharmPermanentFilterExists.pas'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\F1_Words'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\F1_Words'
+ CONST extprop:pas:TypeName 'TkwIsPharmPermanentFilterExists'
+ CONST extprop:rc:SelfName 'IsPharmPermanentFilterExists'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'kwIsPharmPermanentFilterExists'
+
+ref; // ME_53B2B2730077 IsPharmPermanentFilterExists
+
+: ME_4DB01F3800EB
+ CONST UID '4DB01F3800EB'
+ CONST Name 'Words'
+ CONST Class class_Category
+ : Stereotype st_ScriptKeywords ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent WL 'ME_4DB057A602EB' '4DB057A602EB.pas.ms.script' // F1 Words
+ ;
+ : Children
+   Seq: ( ME_4DAF069D0072 // AttributeSearch
+ ME_4DAF1471030D // MainMenu
+ ME_4DAF1DD9017F // Ok
+ ME_4DB00AF302F0 // OpenDocument
+ ME_4DB7EAEB004D // F1WordsUser
+ ME_4DB7F58D0052 // f1WordsPack
+ ME_4DB82E4D0197 // TkwDocumentsCacheClear
+ ME_4DBA9CE301B4 // TkwFiltersList
+ ME_4DC3D8E200AF // TkwTimeMachineSetDate
+ ME_4DD530DD03D8 // TkwExportHelp
+ ME_4EC134690154 // f1_BaseDate
+ ME_50237E1C0249 // f1_ComplectName
+ ME_50237E3A03A5 // f1_ComplectOwner
+ ME_539834A703AD // RestoreSettings
+ ME_53B12A56032C // ClearContextSearchHistory
+ ME_53B12B8A03DC // ClearDocumentContextSearchHistory
+ ME_53B12BB200FE // ClearPharmContextSearchHistory
+ ME_54E2143501BA // kwPermanentFilterExistsUses
+ ME_53B2B1460348 // PermanentFilterExists
+ ME_53B2B2950270 // IsLegalPermanentFilterExists
+ ME_53B2CAE50115 // IsMyDocumentsEmpty
+ ME_54E2136B00DB // kwConfigurationsWordUses
+ ME_53B2E10F03C0 // ConfigurationsWord
+ ME_53B2E13A03D6 // ConfigurationWord
+ ME_53B2DF6C00CA // configuration_GetType
+ ME_53B2DF81021D // configurations_GetActiveConfiguration
+ ME_53B2DF9903E3 // configuration_Activate
+ ME_53B2DE010174 // configurations_GetCount
+ ME_53B2DF500282 // configuration_GetName
+ ME_53B2E3EF00C4 // configuration_GetID
+ ME_53B2DF2B005B // configurations_GetConfiguration
+ ME_53B2B2730077 // IsPharmPermanentFilterExists
+ )
+ ; // Children
+ : Depends
+   Seq: ( WL 'ME_4423F94903C8' '4423F94903C8.pas.ms.script' // IO
+ WL 'ME_456F02A50196' '456F02A50196.pas.ms.script' // BaseTreeSupport
+ WL 'ME_4570501E037A' '4570501E037A.pas.ms.script' // Folders
+ WL 'ME_45EEA48F011F' '45EEA48F011F.pas.ms.script' // Filters
+ WL 'ME_45EEAA69036E' '45EEAA69036E.pas.ms.script' // Settings
+ WL 'ME_4677FBA70343' '4677FBA70343.pas.ms.script' // l3Interfaces
+ WL 'ME_4678193C009C' '4678193C009C.pas.ms.script' // l3Types
+ WL 'ME_4678209200A6' '4678209200A6.pas.ms.script' // nevBase
+ WL 'ME_4683F37902CF' '4683F37902CF.pas.ms.script' // vcmInterfaces
+ WL 'ME_469F3E37025A' '469F3E37025A.pas.ms.script' // Rtl
+ WL 'ME_47750CE700D0' '47750CE700D0.pas.ms.script' // afwFacade
+ WL 'ME_47913B47006E' '47913B47006E.pas.ms.script' // l3CoreObjects
+ WL 'ME_47AC75550330' '47AC75550330.pas.ms.script' // k2Tags
+ WL 'ME_47C5207602D1' '47C5207602D1.pas.ms.script' // nevTools
+ WL 'ME_47C695A10172' '47C695A10172.pas.ms.script' // evTypes
+ WL 'ME_47D0290B016D' '47D0290B016D.pas.ms.script' // l3Utils
+ WL 'ME_47D0E1500033' '47D0E1500033.pas.ms.script' // Implementation
+ WL 'ME_47ECAB0B0265' '47ECAB0B0265.pas.ms.script' // evMsgCode
+ WL 'ME_47ECB8BD00A8' '47ECB8BD00A8.pas.ms.script' // Generators
+ WL 'ME_47F086170200' '47F086170200.pas.ms.script' // DocumentContainers
+ WL 'ME_47F1F38601A3' '47F1F38601A3.pas.ms.script' // ParaUtils
+ WL 'ME_47F2170002B2' '47F2170002B2.pas.ms.script' // nsTypes
+ WL 'ME_4829D7D50156' '4829D7D50156.pas.ms.script' // Editors
+ WL 'ME_48453A40017C' '48453A40017C.pas.ms.script' // evOp
+ WL 'ME_48492FC0029D' '48492FC0029D.pas.ms.script' // Standard
+ WL 'ME_48F747EC0073' '48F747EC0073.pas.ms.script' // Common
+ WL 'ME_4A9F98B901A5' '4A9F98B901A5.pas.ms.script' // BaseSearchInterfaces
+ WL 'ME_4AADF9450143' '4AADF9450143.pas.ms.script' // Visual
+ WL 'ME_4AB0C3C60310' '4AB0C3C60310.pas.ms.script' // Sys
+ WL 'ME_4ABA137C00E5' '4ABA137C00E5.pas.ms.script' // Config
+ WL 'ME_4ACF3E400050' '4ACF3E400050.pas.ms.script' // BaseSearch
+ WL 'ME_4B97E7FD006C' '4B97E7FD006C.pas.ms.script' // Outliner
+ WL 'ME_4D90513F009C' '4D90513F009C.pas.ms.script' // Reminders
+ WL 'ME_4DA318AB0254' '4DA318AB0254.pas.ms.script' // TestsTuning
+ WL 'ME_4DAEEA14018A' '4DAEEA14018A.pas.ms.script' // Scripting Axiomatics
+ WL 'ME_4DAF19F600C5' '4DAF19F600C5.pas.ms.script' // tfwScriptingInterfaces
+ WL 'ME_4F2275C00012' '4F2275C00012.pas.ms.script' // ScriptingKeywordsCore
+ WL 'ME_4F3E3F5F0160' '4F3E3F5F0160.pas.ms.script' // PrimitiveWords
+ WL 'ME_4F4CB50403CC' '4F4CB50403CC.pas.ms.script' // EditorFromStackKeyWords
+ WL 'ME_4F69B9040391' '4F69B9040391.pas.ms.script' // VCMWords
+ WL 'ME_4F6C5511015F' '4F6C5511015F.pas.ms.script' // afwSettings
+ WL 'ME_4F7D8B3A03A0' '4F7D8B3A03A0.pas.ms.script' // SettingsUtils
+ WL 'ME_54F9EC5B0269' '54F9EC5B0269.pas.ms.script' // ContextHistory
+ WL 'ME_54F9F6FB0143' '54F9F6FB0143.pas.ms.script' // ContextHistoryInterfaces
+ WL 'ME_55BA28CE0290' '55BA28CE0290.pas.ms.script' // tfwScriptingTypes
+ )
+ ; // Depends
+ CONST "ifndef" 'NoScripts'
+ : Generators
+ Seq: (
+ gen_pas.script
+ gen_pas.script.runner
+ )
+ ; // Generators
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\F1_Words'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\F1_Words'
+ CONST pas.script:Path 'shared\models\NewSchool\Scripts\4DB01F3800EB.pas.ms.script'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\4DB01F3800EB.pas.ms.script.runner'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\F1_Words'
+
+ref; // ME_4DB01F3800EB Words

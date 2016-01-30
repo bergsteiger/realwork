@@ -21,6 +21,7 @@ ref; // ME_4CA0B2AC0096 DoIt
 
 : ME_8232CCF6C74A
  CONST UID '8232CCF6C74A'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_4CA0B27401E4 // TSuccessTest
@@ -37,6 +38,7 @@ ref; // ME_8232CCF6C74A
  ;
  : Implementor ME_4CA0B27401E4 // TSuccessTest
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4C937013031D_ME_4CA0B27401E4 GetFolder
 
 : ME_4DAED6F60146_ME_4CA0B27401E4
@@ -46,6 +48,7 @@ ref; // ME_4C937013031D_ME_4CA0B27401E4 GetFolder
  ;
  : Implementor ME_4CA0B27401E4 // TSuccessTest
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4DAED6F60146_ME_4CA0B27401E4 GetModelElementGUID
 
 : ME_4CA0B27401E4
@@ -60,21 +63,21 @@ ref; // ME_4DAED6F60146_ME_4CA0B27401E4 GetModelElementGUID
  : Parent ME_4CA0B2660199 // TFWTests
  ;
  : Inherits
-   @ ( WL 'ME_4B2A11BC0255' '4B2A112B011A.pas.ms.script' // TBaseTest
- ) .SequenceCode.It
+   Seq: ( WL 'ME_4B2A11BC0255' '4B2A112B011A.pas.ms.script' // TBaseTest
+ )
  ; // Inherits
  : Operations
-   @ ( ME_4CA0B2AC0096 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_4CA0B2AC0096 // DoIt
+ )
  ; // Operations
  : Overridden
-   @ ( ME_4C937013031D_ME_4CA0B27401E4 // GetFolder
+   Seq: ( ME_4C937013031D_ME_4CA0B27401E4 // GetFolder
  ME_4DAED6F60146_ME_4CA0B27401E4 // GetModelElementGUID
- ) .SequenceCode.It
+ )
  ; // Overridden
  : Dependencies
-   @ ( ME_8232CCF6C74A // 
- ) .SequenceCode.It
+   Seq: ( ME_8232CCF6C74A // 
+ )
  ; // Dependencies
  CONST "author" 'Ëþëèí À.Â.'
  CONST "needs InstanceR" 'undefined'
@@ -83,11 +86,19 @@ ref; // ME_4DAED6F60146_ME_4CA0B27401E4 GetModelElementGUID
  CONST "register in scripts" 'undefined'
  CONST "started" '27.09.2010 19:04'
  : Generators
- @ (
+ Seq: (
  gen_intf.pas
- ) .SequenceCode.It
+ )
  ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\TestForTFW'
  CONST intf.pas:Path 'common\components\rtl\Garant\TestForTFW\SuccessTest.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\TestForTFW'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\common\components\rtl\Garant\TestForTFW'
+ CONST extprop:rc:SelfName 'SuccessTest'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'SuccessTest'
 
 ref; // ME_4CA0B27401E4 TSuccessTest
 
@@ -108,6 +119,7 @@ ref; // ME_4CA0B2E40378 DoIt
 
 : ME_368B50DD4DE4
  CONST UID '368B50DD4DE4'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_4CA0B2BA01AC // TFailedTest
@@ -124,6 +136,7 @@ ref; // ME_368B50DD4DE4
  ;
  : Implementor ME_4CA0B2BA01AC // TFailedTest
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4C937013031D_ME_4CA0B2BA01AC GetFolder
 
 : ME_4DAED6F60146_ME_4CA0B2BA01AC
@@ -133,6 +146,7 @@ ref; // ME_4C937013031D_ME_4CA0B2BA01AC GetFolder
  ;
  : Implementor ME_4CA0B2BA01AC // TFailedTest
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4DAED6F60146_ME_4CA0B2BA01AC GetModelElementGUID
 
 : ME_4CA0B2BA01AC
@@ -146,21 +160,21 @@ ref; // ME_4DAED6F60146_ME_4CA0B2BA01AC GetModelElementGUID
  : Parent ME_4CA0B2660199 // TFWTests
  ;
  : Inherits
-   @ ( WL 'ME_4B2A11BC0255' '4B2A112B011A.pas.ms.script' // TBaseTest
- ) .SequenceCode.It
+   Seq: ( WL 'ME_4B2A11BC0255' '4B2A112B011A.pas.ms.script' // TBaseTest
+ )
  ; // Inherits
  : Operations
-   @ ( ME_4CA0B2E40378 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_4CA0B2E40378 // DoIt
+ )
  ; // Operations
  : Overridden
-   @ ( ME_4C937013031D_ME_4CA0B2BA01AC // GetFolder
+   Seq: ( ME_4C937013031D_ME_4CA0B2BA01AC // GetFolder
  ME_4DAED6F60146_ME_4CA0B2BA01AC // GetModelElementGUID
- ) .SequenceCode.It
+ )
  ; // Overridden
  : Dependencies
-   @ ( ME_368B50DD4DE4 // 
- ) .SequenceCode.It
+   Seq: ( ME_368B50DD4DE4 // 
+ )
  ; // Dependencies
  CONST "author" 'Ëþëèí À.Â.'
  CONST "needs InstanceR" 'undefined'
@@ -169,11 +183,19 @@ ref; // ME_4DAED6F60146_ME_4CA0B2BA01AC GetModelElementGUID
  CONST "register in scripts" 'undefined'
  CONST "started" '27.09.2010 19:05'
  : Generators
- @ (
+ Seq: (
  gen_intf.pas
- ) .SequenceCode.It
+ )
  ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\TestForTFW'
  CONST intf.pas:Path 'common\components\rtl\Garant\TestForTFW\FailedTest.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\TestForTFW'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\common\components\rtl\Garant\TestForTFW'
+ CONST extprop:rc:SelfName 'FailedTest'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'FailedTest'
 
 ref; // ME_4CA0B2BA01AC TFailedTest
 
@@ -194,6 +216,7 @@ ref; // ME_4CAC95F60396 DoIt
 
 : ME_F135413F966F
  CONST UID 'F135413F966F'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_4CAC95AC011D // K235868845
@@ -210,6 +233,7 @@ ref; // ME_F135413F966F
  ;
  : Implementor ME_4CAC95AC011D // K235868845
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4C937013031D_ME_4CAC95AC011D GetFolder
 
 : ME_4DAED6F60146_ME_4CAC95AC011D
@@ -219,6 +243,7 @@ ref; // ME_4C937013031D_ME_4CAC95AC011D GetFolder
  ;
  : Implementor ME_4CAC95AC011D // K235868845
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4DAED6F60146_ME_4CAC95AC011D GetModelElementGUID
 
 : ME_4CAC95AC011D
@@ -233,21 +258,21 @@ ref; // ME_4DAED6F60146_ME_4CAC95AC011D GetModelElementGUID
  : Parent ME_4CA0B2660199 // TFWTests
  ;
  : Inherits
-   @ ( WL 'ME_4B2A11BC0255' '4B2A112B011A.pas.ms.script' // TBaseTest
- ) .SequenceCode.It
+   Seq: ( WL 'ME_4B2A11BC0255' '4B2A112B011A.pas.ms.script' // TBaseTest
+ )
  ; // Inherits
  : Operations
-   @ ( ME_4CAC95F60396 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_4CAC95F60396 // DoIt
+ )
  ; // Operations
  : Overridden
-   @ ( ME_4C937013031D_ME_4CAC95AC011D // GetFolder
+   Seq: ( ME_4C937013031D_ME_4CAC95AC011D // GetFolder
  ME_4DAED6F60146_ME_4CAC95AC011D // GetModelElementGUID
- ) .SequenceCode.It
+ )
  ; // Overridden
  : Dependencies
-   @ ( ME_F135413F966F // 
- ) .SequenceCode.It
+   Seq: ( ME_F135413F966F // 
+ )
  ; // Dependencies
  CONST "author" 'Ëþëèí À.Â.'
  CONST "needs InstanceR" 'undefined'
@@ -256,12 +281,19 @@ ref; // ME_4DAED6F60146_ME_4CAC95AC011D GetModelElementGUID
  CONST "register in scripts" 'undefined'
  CONST "started" '06.10.2010 19:29'
  : Generators
- @ (
+ Seq: (
  gen_intf.pas
- ) .SequenceCode.It
+ )
  ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\TestForTFW'
  CONST intf.pas:Path 'common\components\rtl\Garant\TestForTFW\K235868845.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\TestForTFW'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\common\components\rtl\Garant\TestForTFW'
  CONST extprop:pas:TypeName 'TK235868845'
+ CONST extprop:rc:SelfName 'K235868845'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_4CAC95AC011D K235868845
 
@@ -275,23 +307,28 @@ ref; // ME_4CAC95AC011D K235868845
  : Parent WL 'ME_4CA0B1CA00A3' '4CA0B1CA00A3.pas.ms.script' // TestForTFW
  ;
  : Children
-   @ ( ME_4CA0B27401E4 // TSuccessTest
+   Seq: ( ME_4CA0B27401E4 // TSuccessTest
  ME_4CA0B2BA01AC // TFailedTest
  ME_4CAC95AC011D // K235868845
- ) .SequenceCode.It
+ )
  ; // Children
  : Depends
-   @ ( WL 'ME_4B2A0D6A0077' '4B2A0D6A0077.pas.ms.script' // Source
+   Seq: ( WL 'ME_4B2A0D6A0077' '4B2A0D6A0077.pas.ms.script' // Source
  WL 'ME_4B2A112B011A' '4B2A112B011A.pas.ms.script' // Source
- ) .SequenceCode.It
+ )
  ; // Depends
  : Generators
- @ (
+ Seq: (
  gen_pas.script
  gen_pas.script.runner
- ) .SequenceCode.It
+ )
  ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\TestForTFW'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\TestForTFW'
  CONST pas.script:Path 'shared\models\NewSchool\Scripts\4CA0B2660199.pas.ms.script'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
  CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\4CA0B2660199.pas.ms.script.runner'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\common\components\rtl\Garant\TestForTFW'
 
 ref; // ME_4CA0B2660199 TFWTests

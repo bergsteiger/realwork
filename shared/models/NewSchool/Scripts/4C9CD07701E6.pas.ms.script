@@ -451,7 +451,7 @@ ref; // ME_50598CB402AA atVersions
  : Parent ME_4C9CD0E8038A // dt_AttrSchema
  ;
  : Attributes
-   @ ( ME_50598B07035F // atNothing
+   Seq: ( ME_50598B07035F // atNothing
  ME_50598B16014B // atShortName
  ME_50598B270350 // atFullName
  ME_50598B3A018A // atPriceLevel
@@ -487,8 +487,13 @@ ref; // ME_50598CB402AA atVersions
  ME_50598C9D03E5 // atSub
  ME_50598CAA02C0 // atRenum
  ME_50598CB402AA // atVersions
- ) .SequenceCode.It
+ )
  ; // Attributes
+ CONST dfm:PathOnly '\common\components\rtl\Garant\dd'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\dd'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_50598AA402C9 TdtAttribute
 
@@ -502,6 +507,10 @@ ref; // ME_50598AA402C9 TdtAttribute
  CONST Abstraction at_regular
  : Parent ME_4C9CD0E8038A // dt_AttrSchema
  ;
+ CONST dfm:PathOnly '\common\components\rtl\Garant\dd'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\dd'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_55DF0180035F TDoc2DocLinkRec
 
@@ -527,22 +536,21 @@ ref; // ME_4C9CD1030186
  : Parent ME_4C9CD07701E6 // AttrSchema
  ;
  : Children
-   @ ( ME_50598AA402C9 // TdtAttribute
+   Seq: ( ME_50598AA402C9 // TdtAttribute
  ME_55DF0180035F // TDoc2DocLinkRec
- ) .SequenceCode.It
+ )
  ; // Children
  : Dependencies
-   @ ( ME_4C9CD1030186 // 
- ) .SequenceCode.It
+   Seq: ( ME_4C9CD1030186 // 
+ )
  ; // Dependencies
  CONST "finished" false
  CONST "no hands" false
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\dd'
  CONST intf.pas:Path 'common\components\rtl\Garant\dd\NOT_FINISHED_dt_AttrSchema.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\dd'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_4C9CD0E8038A dt_AttrSchema
 
@@ -556,20 +564,18 @@ ref; // ME_4C9CD0E8038A dt_AttrSchema
  : Parent WL 'ME_4677E18600C2' '4677E18600C2.pas.ms.script' // dd
  ;
  : Children
-   @ ( ME_4C9CD0E8038A // dt_AttrSchema
- ) .SequenceCode.It
+   Seq: ( ME_4C9CD0E8038A // dt_AttrSchema
+ )
  ; // Children
  : Depends
-   @ ( WL 'ME_47BC51FE018B' '47BC51FE018B.pas.ms.script' // dt_Types
- ) .SequenceCode.It
+   Seq: ( WL 'ME_47BC51FE018B' '47BC51FE018B.pas.ms.script' // dt_Types
+ )
  ; // Depends
- : Generators
- @ (
- gen_pas.script
- gen_pas.script.runner
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\dd'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\dd'
  CONST pas.script:Path 'shared\models\NewSchool\Scripts\4C9CD07701E6.pas.ms.script'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
  CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\4C9CD07701E6.pas.ms.script.runner'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_4C9CD07701E6 AttrSchema

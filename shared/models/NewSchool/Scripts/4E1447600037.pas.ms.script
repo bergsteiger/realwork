@@ -17,13 +17,19 @@ FORWARD ME_49213DFA02CB
  : Parent ME_49213DFA02CB // vtStdRes
  ;
  : Inherits
-   @ ( WL 'ME_4AAA214A0250' '4AB0997B00A2.pas.ms.script' // TDataModule
- ) .SequenceCode.It
+   Seq: ( WL 'ME_4AAA214A0250' '4AB0997B00A2.pas.ms.script' // TDataModule
+ )
  ; // Inherits
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
+ CONST dfm:PathOnly '\common\components\gui\Garant\VT'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\VT'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'StdResources'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_4AAE399802A2 TvtStdResources
 
@@ -49,21 +55,21 @@ ref; // ME_49213E3A030E vtStdResources
  : Parent ME_4E1447600037 // Common
  ;
  : Operations
-   @ ( ME_49213E3A030E // vtStdResources
- ) .SequenceCode.It
+   Seq: ( ME_49213E3A030E // vtStdResources
+ )
  ; // Operations
  : Children
-   @ ( ME_4AAE399802A2 // TvtStdResources
- ) .SequenceCode.It
+   Seq: ( ME_4AAE399802A2 // TvtStdResources
+ )
  ; // Children
  CONST "finished" false
  CONST "no hands" false
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\VT'
  CONST intf.pas:Path 'common\components\gui\Garant\VT\NOT_FINISHED_vtStdRes.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\VT'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'StdRes'
 
 ref; // ME_49213DFA02CB vtStdRes
 
@@ -77,20 +83,18 @@ ref; // ME_49213DFA02CB vtStdRes
  : Parent WL 'ME_4D4927B5008B' '4D4927B5008B.pas.ms.script' // VT$Core
  ;
  : Children
-   @ ( ME_49213DFA02CB // vtStdRes
- ) .SequenceCode.It
+   Seq: ( ME_49213DFA02CB // vtStdRes
+ )
  ; // Children
  : Depends
-   @ ( WL 'ME_4AB0997B00A2' '4AB0997B00A2.pas.ms.script' // Common
- ) .SequenceCode.It
+   Seq: ( WL 'ME_4AB0997B00A2' '4AB0997B00A2.pas.ms.script' // Common
+ )
  ; // Depends
- : Generators
- @ (
- gen_pas.script
- gen_pas.script.runner
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\VT'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\VT'
  CONST pas.script:Path 'shared\models\NewSchool\Scripts\4E1447600037.pas.ms.script'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
  CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\4E1447600037.pas.ms.script.runner'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_4E1447600037 Common

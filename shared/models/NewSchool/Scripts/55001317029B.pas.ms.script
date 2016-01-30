@@ -27,8 +27,8 @@ ref; // ME_551409C00088 aMenu
  : Parent ME_5514099B0316 // Tl3PopupMenuHelperCallback
  ;
  : Parameters
-   @ ( ME_551409C00088 // aMenu
- ) .SequenceCode.It
+   Seq: ( ME_551409C00088 // aMenu
+ )
  ; // Parameters
 
 ref; // ME_551409B6017E DoIt
@@ -44,10 +44,14 @@ ref; // ME_551409B6017E DoIt
  : Parent ME_550013770000 // Tl3PopupMenuHelper
  ;
  : Operations
-   @ ( ME_551409B6017E // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_551409B6017E // DoIt
+ )
  ; // Operations
  CONST "of object" true
+ CONST dfm:PathOnly '\common\components\rtl\Garant\L3'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\L3'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_5514099B0316 Tl3PopupMenuHelperCallback
 
@@ -56,6 +60,7 @@ FORWARD ME_E654F73164D2
 : ME_E1CC92564CEE
  CONST UID 'E1CC92564CEE'
  CONST Name 'aControl'
+ CONST IsSummoned true
  CONST Class class_Parameter
  : Stereotype st_in ;
  : Target WL 'ME_479878FA0103' '4AB0997B00A2.pas.ms.script' // TComponent
@@ -66,6 +71,7 @@ ref; // ME_E1CC92564CEE aControl
 : ME_E1CC92564CEF
  CONST UID 'E1CC92564CEF'
  CONST Name 'aPoint'
+ CONST IsSummoned true
  CONST Class class_Parameter
  : Stereotype st_in ;
  : Target WL 'ME_4739AD110072' '4728A7020026.pas.ms.script' // TPoint
@@ -76,6 +82,7 @@ ref; // ME_E1CC92564CEF aPoint
 : ME_1FF8AE53688A
  CONST UID '1FF8AE53688A'
  CONST Name 'GetPopupMenu'
+ CONST IsSummoned true
  CONST Class class_Operation
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
@@ -84,9 +91,9 @@ ref; // ME_E1CC92564CEF aPoint
  : Target WL 'ME_47E7ABCB0296' '4799D29F033F.pas.ms.script' // TMenuItem
  ;
  : Parameters
-   @ ( ME_E1CC92564CEE // aControl
+   Seq: ( ME_E1CC92564CEE // aControl
  ME_E1CC92564CEF // aPoint
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_1FF8AE53688A GetPopupMenu
@@ -94,6 +101,7 @@ ref; // ME_1FF8AE53688A GetPopupMenu
 : ME_1873E626AAA8
  CONST UID '1873E626AAA8'
  CONST Name 'aControl'
+ CONST IsSummoned true
  CONST Class class_Parameter
  : Stereotype st_in ;
  : Target WL 'ME_479878FA0103' '4AB0997B00A2.pas.ms.script' // TComponent
@@ -104,6 +112,7 @@ ref; // ME_1873E626AAA8 aControl
 : ME_1873E626AAA9
  CONST UID '1873E626AAA9'
  CONST Name 'aPoint'
+ CONST IsSummoned true
  CONST Class class_Parameter
  : Stereotype st_in ;
  : Target WL 'ME_4739AD110072' '4728A7020026.pas.ms.script' // TPoint
@@ -114,6 +123,7 @@ ref; // ME_1873E626AAA9 aPoint
 : ME_1873E626AAAA
  CONST UID '1873E626AAAA'
  CONST Name 'aCallback'
+ CONST IsSummoned true
  CONST Class class_Parameter
  : Stereotype st_in ;
  : Target ME_5514099B0316 // Tl3PopupMenuHelperCallback
@@ -124,16 +134,17 @@ ref; // ME_1873E626AAAA aCallback
 : ME_E1C719B751DC
  CONST UID 'E1C719B751DC'
  CONST Name 'GetPopupMenuForComponentInfo'
+ CONST IsSummoned true
  CONST Class class_Operation
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
  : Parent ME_E654F73164D2 // Ml3PopupMenuHelper
  ;
  : Parameters
-   @ ( ME_1873E626AAA8 // aControl
+   Seq: ( ME_1873E626AAA8 // aControl
  ME_1873E626AAA9 // aPoint
  ME_1873E626AAAA // aCallback
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_E1C719B751DC GetPopupMenuForComponentInfo
@@ -141,6 +152,7 @@ ref; // ME_E1C719B751DC GetPopupMenuForComponentInfo
 : ME_E654F73164D2
  CONST UID 'E654F73164D2'
  CONST Name 'Ml3PopupMenuHelper'
+ CONST IsSummoned true
  CONST Class class_Class
  : Stereotype st_PureMixIn ;
  CONST Kind kind_NormalClass
@@ -150,10 +162,14 @@ ref; // ME_E1C719B751DC GetPopupMenuForComponentInfo
  : Parent ME_550013770000 // Tl3PopupMenuHelper
  ;
  : Operations
-   @ ( ME_1FF8AE53688A // GetPopupMenu
+   Seq: ( ME_1FF8AE53688A // GetPopupMenu
  ME_E1C719B751DC // GetPopupMenuForComponentInfo
- ) .SequenceCode.It
+ )
  ; // Operations
+ CONST dfm:PathOnly '\common\components\rtl\Garant\L3'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\L3'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_E654F73164D2 Ml3PopupMenuHelper
 
@@ -183,6 +199,7 @@ ref; // ME_E1C719B751DC_ME_04CE71F4AB07 GetPopupMenuForComponentInfo
  CONST UID '04CE71F4AB07'
  CONST GUID '0FC02FC0-1297-4100-A3A7-8D342CAD75B2'
  CONST Name 'Il3PopupMenuHelper'
+ CONST IsSummoned true
  CONST Class class_Class
  : Stereotype st_Facet ;
  CONST Kind kind_NormalClass
@@ -192,20 +209,27 @@ ref; // ME_E1C719B751DC_ME_04CE71F4AB07 GetPopupMenuForComponentInfo
  : Parent ME_550013770000 // Tl3PopupMenuHelper
  ;
  : Implements
-   @ ( ME_E654F73164D2 // Ml3PopupMenuHelper
- ) .SequenceCode.It
+   Seq: ( ME_E654F73164D2 // Ml3PopupMenuHelper
+ )
  ; // Implements
  : Implemented
-   @ ( ME_1FF8AE53688A_ME_04CE71F4AB07 // GetPopupMenu
+   Seq: ( ME_1FF8AE53688A_ME_04CE71F4AB07 // GetPopupMenu
  ME_E1C719B751DC_ME_04CE71F4AB07 // GetPopupMenuForComponentInfo
- ) .SequenceCode.It
+ )
  ; // Implemented
+ CONST dfm:PathOnly '\common\components\rtl\Garant\L3'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\L3'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'PopupMenuHelper'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_04CE71F4AB07 Il3PopupMenuHelper
 
 : ME_EFA6EAF6766C
  CONST UID 'EFA6EAF6766C'
  CONST Name 'TControlFriend'
+ CONST IsSummoned true
  CONST Class class_Class
  : Stereotype st_SimpleClass ;
  CONST Kind kind_NormalClass
@@ -215,19 +239,26 @@ ref; // ME_04CE71F4AB07 Il3PopupMenuHelper
  : Parent ME_550013770000 // Tl3PopupMenuHelper
  ;
  : Inherits
-   @ ( WL 'ME_47E1201703C3' '4799D29F033F.pas.ms.script' // TControl
- ) .SequenceCode.It
+   Seq: ( WL 'ME_47E1201703C3' '4799D29F033F.pas.ms.script' // TControl
+ )
  ; // Inherits
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" false
+ CONST dfm:PathOnly '\common\components\rtl\Garant\L3'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\L3'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'ControlFriend'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_EFA6EAF6766C TControlFriend
 
 : ME_A59886A74A23
  CONST UID 'A59886A74A23'
  CONST Name 'Alien'
+ CONST IsSummoned true
  CONST Class class_Attribute
  : Stereotype st_writeonly::Attribute ;
  %SUMMARY 'Внешняя реализация сервиса Il3PopupMenuHelper' ;
@@ -246,6 +277,7 @@ ref; // ME_A59886A74A23 Alien
 : ME_2D9D17149A5C
  CONST UID '2D9D17149A5C'
  CONST Name 'f_Alien'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY 'Поле для свойства Alien' ;
  CONST Visibility PrivateAccess
@@ -255,6 +287,7 @@ ref; // ME_A59886A74A23 Alien
  ;
  : Target ME_04CE71F4AB07 // Il3PopupMenuHelper
  ;
+ CONST extprop:clearViaProperty 'Alien'
 
 ref; // ME_2D9D17149A5C f_Alien
 
@@ -290,9 +323,9 @@ ref; // ME_5506BF9E038C aPoint
  : Target WL 'ME_47E7ABCB0296' '4799D29F033F.pas.ms.script' // TMenuItem
  ;
  : Parameters
-   @ ( ME_5506BF9E033F // aControl
+   Seq: ( ME_5506BF9E033F // aControl
  ME_5506BF9E038C // aPoint
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_5506BF830025 GetPopupMenu
@@ -337,10 +370,10 @@ ref; // ME_551409E3015F aCallback
  : Parent ME_550013770000 // Tl3PopupMenuHelper
  ;
  : Parameters
-   @ ( ME_5506BFC00110 // aControl
+   Seq: ( ME_5506BFC00110 // aControl
  ME_5513F50501E2 // aPoint
  ME_551409E3015F // aCallback
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_5506BFB302ED GetPopupMenuForComponentInfo
@@ -348,6 +381,7 @@ ref; // ME_5506BFB302ED GetPopupMenuForComponentInfo
 : ME_0928230ED8B8
  CONST UID '0928230ED8B8'
  CONST Name 'Exists'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_static::Operation ;
  %SUMMARY 'Проверяет создан экземпляр синглетона или нет' ;
@@ -357,6 +391,7 @@ ref; // ME_5506BFB302ED GetPopupMenuForComponentInfo
  ;
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
+ CONST extprop:pas:Value false
 
 ref; // ME_0928230ED8B8 Exists
 
@@ -412,55 +447,57 @@ ref; // ME_5000565C019C_ME_550013770000 ClearFields
  : Parent ME_55001317029B // VCLHelpers
  ;
  : Inherits
-   @ ( WL 'ME_49E7754802A9' '47913B47006E.pas.ms.script' // Tl3ProtoObject
- ) .SequenceCode.It
+   Seq: ( WL 'ME_49E7754802A9' '47913B47006E.pas.ms.script' // Tl3ProtoObject
+ )
  ; // Inherits
  : Implements
-   @ ( ME_E654F73164D2 // Ml3PopupMenuHelper
- ) .SequenceCode.It
+   Seq: ( ME_E654F73164D2 // Ml3PopupMenuHelper
+ )
  ; // Implements
  : Attributes
-   @ ( ME_A59886A74A23 // Alien
+   Seq: ( ME_A59886A74A23 // Alien
  ME_2D9D17149A5C // f_Alien
- ) .SequenceCode.It
+ )
  ; // Attributes
  : Operations
-   @ ( ME_5506BF830025 // GetPopupMenu
+   Seq: ( ME_5506BF830025 // GetPopupMenu
  ME_5506BFB302ED // GetPopupMenuForComponentInfo
  ME_0928230ED8B8 // Exists
- ) .SequenceCode.It
+ )
  ; // Operations
  : Implemented
-   @ ( ME_1FF8AE53688A_ME_550013770000 // GetPopupMenu
+   Seq: ( ME_1FF8AE53688A_ME_550013770000 // GetPopupMenu
  ME_E1C719B751DC_ME_550013770000 // GetPopupMenuForComponentInfo
- ) .SequenceCode.It
+ )
  ; // Implemented
  : Overridden
-   @ ( ME_5000565C019C_ME_550013770000 // ClearFields
- ) .SequenceCode.It
+   Seq: ( ME_5000565C019C_ME_550013770000 // ClearFields
+ )
  ; // Overridden
  : Children
-   @ ( ME_5514099B0316 // Tl3PopupMenuHelperCallback
+   Seq: ( ME_5514099B0316 // Tl3PopupMenuHelperCallback
  ME_E654F73164D2 // Ml3PopupMenuHelper
  ME_04CE71F4AB07 // Il3PopupMenuHelper
  ME_EFA6EAF6766C // TControlFriend
- ) .SequenceCode.It
+ )
  ; // Children
  : Dependencies
-   @ ( ME_5500148103D9 // 
- ) .SequenceCode.It
+   Seq: ( ME_5500148103D9 // 
+ )
  ; // Dependencies
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
  CONST "singleton" true
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\L3'
  CONST intf.pas:Path 'common\components\rtl\Garant\L3\l3PopupMenuHelper.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\L3'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'PopupMenuHelper'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'l3PopupMenuHelper'
 
 ref; // ME_550013770000 Tl3PopupMenuHelper
 
@@ -471,6 +508,7 @@ FORWARD ME_622F6A2DA951
 : ME_951E20C5C5A6
  CONST UID '951E20C5C5A6'
  CONST Name 'aControl'
+ CONST IsSummoned true
  CONST Class class_Parameter
  : Stereotype st_in ;
  : Target WL 'ME_47E124E90272' '4799D29F033F.pas.ms.script' // TWinControl
@@ -481,6 +519,7 @@ ref; // ME_951E20C5C5A6 aControl
 : ME_A1E64DB467E3
  CONST UID 'A1E64DB467E3'
  CONST Name 'Close'
+ CONST IsSummoned true
  CONST Class class_Operation
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
@@ -489,8 +528,8 @@ ref; // ME_951E20C5C5A6 aControl
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
  : Parameters
-   @ ( ME_951E20C5C5A6 // aControl
- ) .SequenceCode.It
+   Seq: ( ME_951E20C5C5A6 // aControl
+ )
  ; // Parameters
 
 ref; // ME_A1E64DB467E3 Close
@@ -498,6 +537,7 @@ ref; // ME_A1E64DB467E3 Close
 : ME_622F6A2DA951
  CONST UID '622F6A2DA951'
  CONST Name 'Ml3CloseFormHelper'
+ CONST IsSummoned true
  CONST Class class_Class
  : Stereotype st_PureMixIn ;
  CONST Kind kind_NormalClass
@@ -507,9 +547,13 @@ ref; // ME_A1E64DB467E3 Close
  : Parent ME_55014D810077 // Tl3CloseFormHelper
  ;
  : Operations
-   @ ( ME_A1E64DB467E3 // Close
- ) .SequenceCode.It
+   Seq: ( ME_A1E64DB467E3 // Close
+ )
  ; // Operations
+ CONST dfm:PathOnly '\common\components\rtl\Garant\L3'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\L3'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_622F6A2DA951 Ml3CloseFormHelper
 
@@ -529,6 +573,7 @@ ref; // ME_A1E64DB467E3_ME_7ED31A3A9A99 Close
  CONST UID '7ED31A3A9A99'
  CONST GUID 'A031440F-1B01-4D9B-A86B-5F4E065BE1E9'
  CONST Name 'Il3CloseFormHelper'
+ CONST IsSummoned true
  CONST Class class_Class
  : Stereotype st_Facet ;
  CONST Kind kind_NormalClass
@@ -538,19 +583,26 @@ ref; // ME_A1E64DB467E3_ME_7ED31A3A9A99 Close
  : Parent ME_55014D810077 // Tl3CloseFormHelper
  ;
  : Implements
-   @ ( ME_622F6A2DA951 // Ml3CloseFormHelper
- ) .SequenceCode.It
+   Seq: ( ME_622F6A2DA951 // Ml3CloseFormHelper
+ )
  ; // Implements
  : Implemented
-   @ ( ME_A1E64DB467E3_ME_7ED31A3A9A99 // Close
- ) .SequenceCode.It
+   Seq: ( ME_A1E64DB467E3_ME_7ED31A3A9A99 // Close
+ )
  ; // Implemented
+ CONST dfm:PathOnly '\common\components\rtl\Garant\L3'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\L3'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'CloseFormHelper'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_7ED31A3A9A99 Il3CloseFormHelper
 
 : ME_F6AF6D2F477A
  CONST UID 'F6AF6D2F477A'
  CONST Name 'Alien'
+ CONST IsSummoned true
  CONST Class class_Attribute
  : Stereotype st_writeonly::Attribute ;
  %SUMMARY 'Внешняя реализация сервиса Il3CloseFormHelper' ;
@@ -569,6 +621,7 @@ ref; // ME_F6AF6D2F477A Alien
 : ME_4B1B99FAC447
  CONST UID '4B1B99FAC447'
  CONST Name 'f_Alien'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY 'Поле для свойства Alien' ;
  CONST Visibility PrivateAccess
@@ -578,6 +631,7 @@ ref; // ME_F6AF6D2F477A Alien
  ;
  : Target ME_7ED31A3A9A99 // Il3CloseFormHelper
  ;
+ CONST extprop:clearViaProperty 'Alien'
 
 ref; // ME_4B1B99FAC447 f_Alien
 
@@ -603,8 +657,8 @@ ref; // ME_5506BFFA037E aControl
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
  : Parameters
-   @ ( ME_5506BFFA037E // aControl
- ) .SequenceCode.It
+   Seq: ( ME_5506BFFA037E // aControl
+ )
  ; // Parameters
 
 ref; // ME_5506BFF50385 Close
@@ -612,6 +666,7 @@ ref; // ME_5506BFF50385 Close
 : ME_80168DE90672
  CONST UID '80168DE90672'
  CONST Name 'Exists'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_static::Operation ;
  %SUMMARY 'Проверяет создан экземпляр синглетона или нет' ;
@@ -621,6 +676,7 @@ ref; // ME_5506BFF50385 Close
  ;
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
+ CONST extprop:pas:Value false
 
 ref; // ME_80168DE90672 Exists
 
@@ -666,51 +722,53 @@ ref; // ME_5000565C019C_ME_55014D810077 ClearFields
  : Parent ME_55001317029B // VCLHelpers
  ;
  : Inherits
-   @ ( WL 'ME_49E7754802A9' '47913B47006E.pas.ms.script' // Tl3ProtoObject
- ) .SequenceCode.It
+   Seq: ( WL 'ME_49E7754802A9' '47913B47006E.pas.ms.script' // Tl3ProtoObject
+ )
  ; // Inherits
  : Implements
-   @ ( ME_622F6A2DA951 // Ml3CloseFormHelper
- ) .SequenceCode.It
+   Seq: ( ME_622F6A2DA951 // Ml3CloseFormHelper
+ )
  ; // Implements
  : Attributes
-   @ ( ME_F6AF6D2F477A // Alien
+   Seq: ( ME_F6AF6D2F477A // Alien
  ME_4B1B99FAC447 // f_Alien
- ) .SequenceCode.It
+ )
  ; // Attributes
  : Operations
-   @ ( ME_5506BFF50385 // Close
+   Seq: ( ME_5506BFF50385 // Close
  ME_80168DE90672 // Exists
- ) .SequenceCode.It
+ )
  ; // Operations
  : Implemented
-   @ ( ME_A1E64DB467E3_ME_55014D810077 // Close
- ) .SequenceCode.It
+   Seq: ( ME_A1E64DB467E3_ME_55014D810077 // Close
+ )
  ; // Implemented
  : Overridden
-   @ ( ME_5000565C019C_ME_55014D810077 // ClearFields
- ) .SequenceCode.It
+   Seq: ( ME_5000565C019C_ME_55014D810077 // ClearFields
+ )
  ; // Overridden
  : Children
-   @ ( ME_622F6A2DA951 // Ml3CloseFormHelper
+   Seq: ( ME_622F6A2DA951 // Ml3CloseFormHelper
  ME_7ED31A3A9A99 // Il3CloseFormHelper
- ) .SequenceCode.It
+ )
  ; // Children
  : Dependencies
-   @ ( ME_5501605B0022 // 
- ) .SequenceCode.It
+   Seq: ( ME_5501605B0022 // 
+ )
  ; // Dependencies
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
  CONST "singleton" true
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\L3'
  CONST intf.pas:Path 'common\components\rtl\Garant\L3\l3CloseFormHelper.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\L3'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'CloseFormHelper'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'l3CloseFormHelper'
 
 ref; // ME_55014D810077 Tl3CloseFormHelper
 
@@ -721,6 +779,7 @@ FORWARD ME_2B0D8771E8B2
 : ME_1B4D9FCCF6EF
  CONST UID '1B4D9FCCF6EF'
  CONST Name 'anAction'
+ CONST IsSummoned true
  CONST Class class_Parameter
  : Stereotype st_in ;
  : Target WL 'ME_47E7626B0083' '4799D29F033F.pas.ms.script' // TCustomAction
@@ -731,6 +790,7 @@ ref; // ME_1B4D9FCCF6EF anAction
 : ME_781F06EEA149
  CONST UID '781F06EEA149'
  CONST Name 'Format'
+ CONST IsSummoned true
  CONST Class class_Operation
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
@@ -739,8 +799,8 @@ ref; // ME_1B4D9FCCF6EF anAction
  : Target WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
  ;
  : Parameters
-   @ ( ME_1B4D9FCCF6EF // anAction
- ) .SequenceCode.It
+   Seq: ( ME_1B4D9FCCF6EF // anAction
+ )
  ; // Parameters
 
 ref; // ME_781F06EEA149 Format
@@ -748,6 +808,7 @@ ref; // ME_781F06EEA149 Format
 : ME_2B0D8771E8B2
  CONST UID '2B0D8771E8B2'
  CONST Name 'Ml3FormatActionInfoHelper'
+ CONST IsSummoned true
  CONST Class class_Class
  : Stereotype st_PureMixIn ;
  CONST Kind kind_NormalClass
@@ -757,9 +818,13 @@ ref; // ME_781F06EEA149 Format
  : Parent ME_551442110069 // Tl3FormatActionInfoHelper
  ;
  : Operations
-   @ ( ME_781F06EEA149 // Format
- ) .SequenceCode.It
+   Seq: ( ME_781F06EEA149 // Format
+ )
  ; // Operations
+ CONST dfm:PathOnly '\common\components\rtl\Garant\L3'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\L3'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_2B0D8771E8B2 Ml3FormatActionInfoHelper
 
@@ -779,6 +844,7 @@ ref; // ME_781F06EEA149_ME_19259CFA643D Format
  CONST UID '19259CFA643D'
  CONST GUID 'CBBE7B8C-EED1-4A7B-ADB2-361BE86A2A05'
  CONST Name 'Il3FormatActionInfoHelper'
+ CONST IsSummoned true
  CONST Class class_Class
  : Stereotype st_Facet ;
  CONST Kind kind_NormalClass
@@ -788,19 +854,26 @@ ref; // ME_781F06EEA149_ME_19259CFA643D Format
  : Parent ME_551442110069 // Tl3FormatActionInfoHelper
  ;
  : Implements
-   @ ( ME_2B0D8771E8B2 // Ml3FormatActionInfoHelper
- ) .SequenceCode.It
+   Seq: ( ME_2B0D8771E8B2 // Ml3FormatActionInfoHelper
+ )
  ; // Implements
  : Implemented
-   @ ( ME_781F06EEA149_ME_19259CFA643D // Format
- ) .SequenceCode.It
+   Seq: ( ME_781F06EEA149_ME_19259CFA643D // Format
+ )
  ; // Implemented
+ CONST dfm:PathOnly '\common\components\rtl\Garant\L3'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\L3'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'FormatActionInfoHelper'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_19259CFA643D Il3FormatActionInfoHelper
 
 : ME_AA18E44208D9
  CONST UID 'AA18E44208D9'
  CONST Name 'Alien'
+ CONST IsSummoned true
  CONST Class class_Attribute
  : Stereotype st_writeonly::Attribute ;
  %SUMMARY 'Внешняя реализация сервиса Il3FormatActionInfoHelper' ;
@@ -819,6 +892,7 @@ ref; // ME_AA18E44208D9 Alien
 : ME_128EEA84FC35
  CONST UID '128EEA84FC35'
  CONST Name 'f_Alien'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY 'Поле для свойства Alien' ;
  CONST Visibility PrivateAccess
@@ -828,6 +902,7 @@ ref; // ME_AA18E44208D9 Alien
  ;
  : Target ME_19259CFA643D // Il3FormatActionInfoHelper
  ;
+ CONST extprop:clearViaProperty 'Alien'
 
 ref; // ME_128EEA84FC35 f_Alien
 
@@ -853,8 +928,8 @@ ref; // ME_5514426501EC anAction
  : Target WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
  ;
  : Parameters
-   @ ( ME_5514426501EC // anAction
- ) .SequenceCode.It
+   Seq: ( ME_5514426501EC // anAction
+ )
  ; // Parameters
 
 ref; // ME_5514424D01A2 Format
@@ -862,6 +937,7 @@ ref; // ME_5514424D01A2 Format
 : ME_E2D013D864C7
  CONST UID 'E2D013D864C7'
  CONST Name 'Exists'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_static::Operation ;
  %SUMMARY 'Проверяет создан экземпляр синглетона или нет' ;
@@ -871,6 +947,7 @@ ref; // ME_5514424D01A2 Format
  ;
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
+ CONST extprop:pas:Value false
 
 ref; // ME_E2D013D864C7 Exists
 
@@ -905,47 +982,49 @@ ref; // ME_5000565C019C_ME_551442110069 ClearFields
  : Parent ME_55001317029B // VCLHelpers
  ;
  : Inherits
-   @ ( WL 'ME_49E7754802A9' '47913B47006E.pas.ms.script' // Tl3ProtoObject
- ) .SequenceCode.It
+   Seq: ( WL 'ME_49E7754802A9' '47913B47006E.pas.ms.script' // Tl3ProtoObject
+ )
  ; // Inherits
  : Implements
-   @ ( ME_2B0D8771E8B2 // Ml3FormatActionInfoHelper
- ) .SequenceCode.It
+   Seq: ( ME_2B0D8771E8B2 // Ml3FormatActionInfoHelper
+ )
  ; // Implements
  : Attributes
-   @ ( ME_AA18E44208D9 // Alien
+   Seq: ( ME_AA18E44208D9 // Alien
  ME_128EEA84FC35 // f_Alien
- ) .SequenceCode.It
+ )
  ; // Attributes
  : Operations
-   @ ( ME_5514424D01A2 // Format
+   Seq: ( ME_5514424D01A2 // Format
  ME_E2D013D864C7 // Exists
- ) .SequenceCode.It
+ )
  ; // Operations
  : Implemented
-   @ ( ME_781F06EEA149_ME_551442110069 // Format
- ) .SequenceCode.It
+   Seq: ( ME_781F06EEA149_ME_551442110069 // Format
+ )
  ; // Implemented
  : Overridden
-   @ ( ME_5000565C019C_ME_551442110069 // ClearFields
- ) .SequenceCode.It
+   Seq: ( ME_5000565C019C_ME_551442110069 // ClearFields
+ )
  ; // Overridden
  : Children
-   @ ( ME_2B0D8771E8B2 // Ml3FormatActionInfoHelper
+   Seq: ( ME_2B0D8771E8B2 // Ml3FormatActionInfoHelper
  ME_19259CFA643D // Il3FormatActionInfoHelper
- ) .SequenceCode.It
+ )
  ; // Children
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
  CONST "singleton" true
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\L3'
  CONST intf.pas:Path 'common\components\rtl\Garant\L3\l3FormatActionInfoHelper.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\L3'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'FormatActionInfoHelper'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'l3FormatActionInfoHelper'
 
 ref; // ME_551442110069 Tl3FormatActionInfoHelper
 
@@ -972,8 +1051,8 @@ ref; // ME_55154410019B aLinkData
  : Parent ME_5515434903D6 // Tl3WikiLinkClicked
  ;
  : Parameters
-   @ ( ME_55154410019B // aLinkData
- ) .SequenceCode.It
+   Seq: ( ME_55154410019B // aLinkData
+ )
  ; // Parameters
 
 ref; // ME_5515436B02F8 DoIt
@@ -989,10 +1068,14 @@ ref; // ME_5515436B02F8 DoIt
  : Parent ME_551542E902F5 // Tl3HugeMessageDlgWithWikiHelper
  ;
  : Operations
-   @ ( ME_5515436B02F8 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_5515436B02F8 // DoIt
+ )
  ; // Operations
  CONST "of object" true
+ CONST dfm:PathOnly '\common\components\rtl\Garant\L3'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\L3'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_5515434903D6 Tl3WikiLinkClicked
 
@@ -1001,6 +1084,7 @@ FORWARD ME_59B170ED03AC
 : ME_9FEE7453B595
  CONST UID '9FEE7453B595'
  CONST Name 'aText'
+ CONST IsSummoned true
  CONST Class class_Parameter
  : Stereotype st_in ;
  : Target WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
@@ -1011,6 +1095,7 @@ ref; // ME_9FEE7453B595 aText
 : ME_9FEE7453B596
  CONST UID '9FEE7453B596'
  CONST Name 'aClickCallback'
+ CONST IsSummoned true
  CONST Class class_Parameter
  : Stereotype st_in ;
  : Target ME_5515434903D6 // Tl3WikiLinkClicked
@@ -1021,15 +1106,16 @@ ref; // ME_9FEE7453B596 aClickCallback
 : ME_03211FE23BF3
  CONST UID '03211FE23BF3'
  CONST Name 'Say'
+ CONST IsSummoned true
  CONST Class class_Operation
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
  : Parent ME_59B170ED03AC // Ml3HugeMessageDlgWithWikiHelper
  ;
  : Parameters
-   @ ( ME_9FEE7453B595 // aText
+   Seq: ( ME_9FEE7453B595 // aText
  ME_9FEE7453B596 // aClickCallback
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_03211FE23BF3 Say
@@ -1037,6 +1123,7 @@ ref; // ME_03211FE23BF3 Say
 : ME_6E0C463C6133
  CONST UID '6E0C463C6133'
  CONST Name 'aLinkText'
+ CONST IsSummoned true
  CONST Class class_Parameter
  : Stereotype st_in ;
  : Target WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
@@ -1047,6 +1134,7 @@ ref; // ME_6E0C463C6133 aLinkText
 : ME_6E0C463C6134
  CONST UID '6E0C463C6134'
  CONST Name 'aLinkData'
+ CONST IsSummoned true
  CONST Class class_Parameter
  : Stereotype st_in ;
  : Target WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
@@ -1057,6 +1145,7 @@ ref; // ME_6E0C463C6134 aLinkData
 : ME_5AFFFDE1F6AB
  CONST UID '5AFFFDE1F6AB'
  CONST Name 'FormatLink'
+ CONST IsSummoned true
  CONST Class class_Operation
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
@@ -1065,9 +1154,9 @@ ref; // ME_6E0C463C6134 aLinkData
  : Target WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
  ;
  : Parameters
-   @ ( ME_6E0C463C6133 // aLinkText
+   Seq: ( ME_6E0C463C6133 // aLinkText
  ME_6E0C463C6134 // aLinkData
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_5AFFFDE1F6AB FormatLink
@@ -1075,6 +1164,7 @@ ref; // ME_5AFFFDE1F6AB FormatLink
 : ME_454847872576
  CONST UID '454847872576'
  CONST Name 'aCaption'
+ CONST IsSummoned true
  CONST Class class_Parameter
  : Stereotype st_in ;
  : Target WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
@@ -1085,6 +1175,7 @@ ref; // ME_454847872576 aCaption
 : ME_454847872577
  CONST UID '454847872577'
  CONST Name 'aText'
+ CONST IsSummoned true
  CONST Class class_Parameter
  : Stereotype st_in ;
  : Target WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
@@ -1095,6 +1186,7 @@ ref; // ME_454847872577 aText
 : ME_3CDB8D32C712
  CONST UID '3CDB8D32C712'
  CONST Name 'FormatCloak'
+ CONST IsSummoned true
  CONST Class class_Operation
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
@@ -1103,9 +1195,9 @@ ref; // ME_454847872577 aText
  : Target WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
  ;
  : Parameters
-   @ ( ME_454847872576 // aCaption
+   Seq: ( ME_454847872576 // aCaption
  ME_454847872577 // aText
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_3CDB8D32C712 FormatCloak
@@ -1113,6 +1205,7 @@ ref; // ME_3CDB8D32C712 FormatCloak
 : ME_CDCC556698E5
  CONST UID 'CDCC556698E5'
  CONST Name 'CanUseWiki'
+ CONST IsSummoned true
  CONST Class class_Operation
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
@@ -1126,6 +1219,7 @@ ref; // ME_CDCC556698E5 CanUseWiki
 : ME_59B170ED03AC
  CONST UID '59B170ED03AC'
  CONST Name 'Ml3HugeMessageDlgWithWikiHelper'
+ CONST IsSummoned true
  CONST Class class_Class
  : Stereotype st_PureMixIn ;
  CONST Kind kind_NormalClass
@@ -1135,12 +1229,16 @@ ref; // ME_CDCC556698E5 CanUseWiki
  : Parent ME_551542E902F5 // Tl3HugeMessageDlgWithWikiHelper
  ;
  : Operations
-   @ ( ME_03211FE23BF3 // Say
+   Seq: ( ME_03211FE23BF3 // Say
  ME_5AFFFDE1F6AB // FormatLink
  ME_3CDB8D32C712 // FormatCloak
  ME_CDCC556698E5 // CanUseWiki
- ) .SequenceCode.It
+ )
  ; // Operations
+ CONST dfm:PathOnly '\common\components\rtl\Garant\L3'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\L3'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_59B170ED03AC Ml3HugeMessageDlgWithWikiHelper
 
@@ -1190,6 +1288,7 @@ ref; // ME_CDCC556698E5_ME_765520F9F4F4 CanUseWiki
  CONST UID '765520F9F4F4'
  CONST GUID 'E19F61CE-9AEF-409B-814C-B75941D1010E'
  CONST Name 'Il3HugeMessageDlgWithWikiHelper'
+ CONST IsSummoned true
  CONST Class class_Class
  : Stereotype st_Facet ;
  CONST Kind kind_NormalClass
@@ -1199,22 +1298,29 @@ ref; // ME_CDCC556698E5_ME_765520F9F4F4 CanUseWiki
  : Parent ME_551542E902F5 // Tl3HugeMessageDlgWithWikiHelper
  ;
  : Implements
-   @ ( ME_59B170ED03AC // Ml3HugeMessageDlgWithWikiHelper
- ) .SequenceCode.It
+   Seq: ( ME_59B170ED03AC // Ml3HugeMessageDlgWithWikiHelper
+ )
  ; // Implements
  : Implemented
-   @ ( ME_03211FE23BF3_ME_765520F9F4F4 // Say
+   Seq: ( ME_03211FE23BF3_ME_765520F9F4F4 // Say
  ME_3CDB8D32C712_ME_765520F9F4F4 // FormatCloak
  ME_5AFFFDE1F6AB_ME_765520F9F4F4 // FormatLink
  ME_CDCC556698E5_ME_765520F9F4F4 // CanUseWiki
- ) .SequenceCode.It
+ )
  ; // Implemented
+ CONST dfm:PathOnly '\common\components\rtl\Garant\L3'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\L3'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'HugeMessageDlgWithWikiHelper'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_765520F9F4F4 Il3HugeMessageDlgWithWikiHelper
 
 : ME_B33E4E9D6324
  CONST UID 'B33E4E9D6324'
  CONST Name 'Alien'
+ CONST IsSummoned true
  CONST Class class_Attribute
  : Stereotype st_writeonly::Attribute ;
  %SUMMARY 'Внешняя реализация сервиса Il3HugeMessageDlgWithWikiHelper' ;
@@ -1233,6 +1339,7 @@ ref; // ME_B33E4E9D6324 Alien
 : ME_1753B166638D
  CONST UID '1753B166638D'
  CONST Name 'f_Alien'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY 'Поле для свойства Alien' ;
  CONST Visibility PrivateAccess
@@ -1242,6 +1349,7 @@ ref; // ME_B33E4E9D6324 Alien
  ;
  : Target ME_765520F9F4F4 // Il3HugeMessageDlgWithWikiHelper
  ;
+ CONST extprop:clearViaProperty 'Alien'
 
 ref; // ME_1753B166638D f_Alien
 
@@ -1275,9 +1383,9 @@ ref; // ME_551543BA03CD aClickCallback
  : Parent ME_551542E902F5 // Tl3HugeMessageDlgWithWikiHelper
  ;
  : Parameters
-   @ ( ME_551543BA03AF // aText
+   Seq: ( ME_551543BA03AF // aText
  ME_551543BA03CD // aClickCallback
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_55154391001C Say
@@ -1314,9 +1422,9 @@ ref; // ME_55154DDE0223 aLinkData
  : Target WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
  ;
  : Parameters
-   @ ( ME_55154DDE0202 // aLinkText
+   Seq: ( ME_55154DDE0202 // aLinkText
  ME_55154DDE0223 // aLinkData
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_55154DC20217 FormatLink
@@ -1353,9 +1461,9 @@ ref; // ME_551572F60231 aText
  : Target WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
  ;
  : Parameters
-   @ ( ME_551572F601EA // aCaption
+   Seq: ( ME_551572F601EA // aCaption
  ME_551572F60231 // aText
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_551572DE021E FormatCloak
@@ -1377,6 +1485,7 @@ ref; // ME_55157F5F013E CanUseWiki
 : ME_2461F5AACB7B
  CONST UID '2461F5AACB7B'
  CONST Name 'Exists'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_static::Operation ;
  %SUMMARY 'Проверяет создан экземпляр синглетона или нет' ;
@@ -1386,6 +1495,7 @@ ref; // ME_55157F5F013E CanUseWiki
  ;
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
+ CONST extprop:pas:Value false
 
 ref; // ME_2461F5AACB7B Exists
 
@@ -1505,62 +1615,64 @@ ref; // ME_5000565C019C_ME_551542E902F5 ClearFields
  : Parent ME_55001317029B // VCLHelpers
  ;
  : Inherits
-   @ ( WL 'ME_49E7754802A9' '47913B47006E.pas.ms.script' // Tl3ProtoObject
- ) .SequenceCode.It
+   Seq: ( WL 'ME_49E7754802A9' '47913B47006E.pas.ms.script' // Tl3ProtoObject
+ )
  ; // Inherits
  : Implements
-   @ ( ME_59B170ED03AC // Ml3HugeMessageDlgWithWikiHelper
- ) .SequenceCode.It
+   Seq: ( ME_59B170ED03AC // Ml3HugeMessageDlgWithWikiHelper
+ )
  ; // Implements
  : Attributes
-   @ ( ME_B33E4E9D6324 // Alien
+   Seq: ( ME_B33E4E9D6324 // Alien
  ME_1753B166638D // f_Alien
- ) .SequenceCode.It
+ )
  ; // Attributes
  : Operations
-   @ ( ME_55154391001C // Say
+   Seq: ( ME_55154391001C // Say
  ME_55154DC20217 // FormatLink
  ME_551572DE021E // FormatCloak
  ME_55157F5F013E // CanUseWiki
  ME_2461F5AACB7B // Exists
- ) .SequenceCode.It
+ )
  ; // Operations
  : Implemented
-   @ ( ME_03211FE23BF3_ME_551542E902F5 // Say
+   Seq: ( ME_03211FE23BF3_ME_551542E902F5 // Say
  ME_3CDB8D32C712_ME_551542E902F5 // FormatCloak
  ME_5AFFFDE1F6AB_ME_551542E902F5 // FormatLink
  ME_CDCC556698E5_ME_551542E902F5 // CanUseWiki
- ) .SequenceCode.It
+ )
  ; // Implemented
  : Overridden
-   @ ( ME_5000565C019C_ME_551542E902F5 // ClearFields
- ) .SequenceCode.It
+   Seq: ( ME_5000565C019C_ME_551542E902F5 // ClearFields
+ )
  ; // Overridden
  : Children
-   @ ( ME_5515434903D6 // Tl3WikiLinkClicked
+   Seq: ( ME_5515434903D6 // Tl3WikiLinkClicked
  ME_59B170ED03AC // Ml3HugeMessageDlgWithWikiHelper
  ME_765520F9F4F4 // Il3HugeMessageDlgWithWikiHelper
- ) .SequenceCode.It
+ )
  ; // Children
  : Dependencies
-   @ ( ME_55154EAC01BE // 
+   Seq: ( ME_55154EAC01BE // 
  ME_55154EB0028E // 
  ME_55154EC0027C // 
  ME_55154F03034C // 
  ME_551572D4034A // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
  CONST "singleton" true
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\L3'
  CONST intf.pas:Path 'common\components\rtl\Garant\L3\l3HugeMessageDlgWithWikiHelper.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\L3'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'HugeMessageDlgWithWikiHelper'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'l3HugeMessageDlgWithWikiHelper'
 
 ref; // ME_551542E902F5 Tl3HugeMessageDlgWithWikiHelper
 
@@ -1573,6 +1685,7 @@ FORWARD ME_29DCAB941EB5
 : ME_EEA66CD23213
  CONST UID 'EEA66CD23213'
  CONST Name 'anItem'
+ CONST IsSummoned true
  CONST Class class_Parameter
  : Stereotype st_in ;
  : Target WL 'ME_479878FA0103' '4AB0997B00A2.pas.ms.script' // TComponent
@@ -1583,6 +1696,7 @@ ref; // ME_EEA66CD23213 anItem
 : ME_41DE64DA5AB2
  CONST UID '41DE64DA5AB2'
  CONST Name 'DoIt'
+ CONST IsSummoned true
  CONST Class class_Operation
  %SUMMARY 'Тип подитеративной функции для Ml3IterateComponentParents.IterateF' ;
  CONST Visibility PublicAccess
@@ -1592,8 +1706,8 @@ ref; // ME_EEA66CD23213 anItem
  : Target WL 'ME_3DBFFE100240' '3DBFDB23006E.pas.ms.script' // boolean
  ;
  : Parameters
-   @ ( ME_EEA66CD23213 // anItem
- ) .SequenceCode.It
+   Seq: ( ME_EEA66CD23213 // anItem
+ )
  ; // Parameters
 
 ref; // ME_41DE64DA5AB2 DoIt
@@ -1601,6 +1715,7 @@ ref; // ME_41DE64DA5AB2 DoIt
 : ME_29DCAB941EB5
  CONST UID '29DCAB941EB5'
  CONST Name 'Ml3IterateComponentParents_IterateF_Action'
+ CONST IsSummoned true
  CONST Class class_Class
  : Stereotype st_Function ;
  CONST Kind kind_NormalClass
@@ -1610,10 +1725,14 @@ ref; // ME_41DE64DA5AB2 DoIt
  : Parent ME_8F612712D29F // Ml3IterateComponentParents
  ;
  : Operations
-   @ ( ME_41DE64DA5AB2 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_41DE64DA5AB2 // DoIt
+ )
  ; // Operations
  CONST "of object" false
+ CONST dfm:PathOnly '\common\components\rtl\Garant\L3'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\L3'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_29DCAB941EB5 Ml3IterateComponentParents_IterateF_Action
 
@@ -1622,6 +1741,7 @@ FORWARD ME_3410F441967F
 : ME_24C2D2F69431
  CONST UID '24C2D2F69431'
  CONST Name 'aComponent'
+ CONST IsSummoned true
  CONST Class class_Attribute
  : Stereotype st_in::Attribute ;
  CONST Visibility PublicAccess
@@ -1636,6 +1756,7 @@ ref; // ME_24C2D2F69431 aComponent
 
 : ME_C55E2E29D333
  CONST UID 'C55E2E29D333'
+ CONST IsSummoned true
  CONST Class class_Attribute
  : Stereotype st_element_type::Attribute ;
  CONST Visibility PrivateAccess
@@ -1650,6 +1771,7 @@ ref; // ME_C55E2E29D333
 
 : ME_C4546DACFBEA
  CONST UID 'C4546DACFBEA'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_3410F441967F // IterateF
@@ -1661,6 +1783,7 @@ ref; // ME_C4546DACFBEA
 
 : ME_D01235270F76
  CONST UID 'D01235270F76'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_3410F441967F // IterateF
@@ -1673,6 +1796,7 @@ ref; // ME_D01235270F76
 : ME_3410F441967F
  CONST UID '3410F441967F'
  CONST Name 'IterateF'
+ CONST IsSummoned true
  CONST Class class_Class
  : Stereotype st_facetiterator ;
  CONST Kind kind_NormalClass
@@ -1681,14 +1805,14 @@ ref; // ME_D01235270F76
  : Parent ME_8F612712D29F // Ml3IterateComponentParents
  ;
  : Attributes
-   @ ( ME_24C2D2F69431 // aComponent
+   Seq: ( ME_24C2D2F69431 // aComponent
  ME_C55E2E29D333 // 
- ) .SequenceCode.It
+ )
  ; // Attributes
  : Dependencies
-   @ ( ME_C4546DACFBEA // 
+   Seq: ( ME_C4546DACFBEA // 
  ME_D01235270F76 // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  CONST "needs index" 'undefined'
  CONST "needs result" 'undefined'
@@ -1699,6 +1823,7 @@ ref; // ME_3410F441967F IterateF
 : ME_C3947A7CDC61
  CONST UID 'C3947A7CDC61'
  CONST Name 'anAction'
+ CONST IsSummoned true
  CONST Class class_Parameter
  : Stereotype st_in ;
  : Target WL 'ME_3ECB343C024C' '3DBFDB23006E.pas.ms.script' // pointer
@@ -1709,6 +1834,7 @@ ref; // ME_C3947A7CDC61 anAction
 : ME_40223A2E3EEA
  CONST UID '40223A2E3EEA'
  CONST Name 'L2_Ml3IterateComponentParents_IterateF_Action'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_static::Operation ;
  %SUMMARY 'Функция формирования заглушки для ЛОКАЛЬНОЙ подитеративной функции для Ml3IterateComponentParents.IterateF' ;
@@ -1719,17 +1845,19 @@ ref; // ME_C3947A7CDC61 anAction
  : Target ME_29DCAB941EB5 // Ml3IterateComponentParents_IterateF_Action
  ;
  : Parameters
-   @ ( ME_C3947A7CDC61 // anAction
- ) .SequenceCode.It
+   Seq: ( ME_C3947A7CDC61 // anAction
+ )
  ; // Parameters
  CONST extprop:isGlobal true
  CONST extprop:isAsm true
+ CONST extprop:pas:Value 'nil'
 
 ref; // ME_40223A2E3EEA L2_Ml3IterateComponentParents_IterateF_Action
 
 : ME_8F612712D29F
  CONST UID '8F612712D29F'
  CONST Name 'Ml3IterateComponentParents'
+ CONST IsSummoned true
  CONST Class class_Class
  : Stereotype st_PureMixIn ;
  CONST Kind kind_NormalClass
@@ -1739,14 +1867,18 @@ ref; // ME_40223A2E3EEA L2_Ml3IterateComponentParents_IterateF_Action
  : Parent ME_551AA9BD01EE // Tl3IterateComponentParents
  ;
  : Operations
-   @ ( ME_3410F441967F // IterateF
+   Seq: ( ME_3410F441967F // IterateF
  ME_40223A2E3EEA // L2_Ml3IterateComponentParents_IterateF_Action
- ) .SequenceCode.It
+ )
  ; // Operations
  : Children
-   @ ( ME_29DCAB941EB5 // Ml3IterateComponentParents_IterateF_Action
- ) .SequenceCode.It
+   Seq: ( ME_29DCAB941EB5 // Ml3IterateComponentParents_IterateF_Action
+ )
  ; // Children
+ CONST dfm:PathOnly '\common\components\rtl\Garant\L3'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\L3'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_8F612712D29F Ml3IterateComponentParents
 
@@ -1768,6 +1900,7 @@ ref; // ME_3410F441967F_ME_7D793C9B4E2A IterateF
  CONST UID '7D793C9B4E2A'
  CONST GUID '5A7F04AD-BABF-4265-8160-3A5BDA277D22'
  CONST Name 'Il3IterateComponentParents'
+ CONST IsSummoned true
  CONST Class class_Class
  : Stereotype st_Facet ;
  CONST Kind kind_NormalClass
@@ -1777,19 +1910,26 @@ ref; // ME_3410F441967F_ME_7D793C9B4E2A IterateF
  : Parent ME_551AA9BD01EE // Tl3IterateComponentParents
  ;
  : Implements
-   @ ( ME_8F612712D29F // Ml3IterateComponentParents
- ) .SequenceCode.It
+   Seq: ( ME_8F612712D29F // Ml3IterateComponentParents
+ )
  ; // Implements
  : Implemented
-   @ ( ME_3410F441967F_ME_7D793C9B4E2A // IterateF
- ) .SequenceCode.It
+   Seq: ( ME_3410F441967F_ME_7D793C9B4E2A // IterateF
+ )
  ; // Implemented
+ CONST dfm:PathOnly '\common\components\rtl\Garant\L3'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\L3'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'IterateComponentParents'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_7D793C9B4E2A Il3IterateComponentParents
 
 : ME_A40B60CED801
  CONST UID 'A40B60CED801'
  CONST Name 'Alien'
+ CONST IsSummoned true
  CONST Class class_Attribute
  : Stereotype st_writeonly::Attribute ;
  %SUMMARY 'Внешняя реализация сервиса Il3IterateComponentParents' ;
@@ -1808,6 +1948,7 @@ ref; // ME_A40B60CED801 Alien
 : ME_33A73AC9104F
  CONST UID '33A73AC9104F'
  CONST Name 'f_Alien'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY 'Поле для свойства Alien' ;
  CONST Visibility PrivateAccess
@@ -1817,6 +1958,7 @@ ref; // ME_A40B60CED801 Alien
  ;
  : Target ME_7D793C9B4E2A // Il3IterateComponentParents
  ;
+ CONST extprop:clearViaProperty 'Alien'
 
 ref; // ME_33A73AC9104F f_Alien
 
@@ -1873,13 +2015,13 @@ ref; // ME_551C4D0802D4
  : Parent ME_551AA9BD01EE // Tl3IterateComponentParents
  ;
  : Attributes
-   @ ( ME_551AB83701BC // aComponent
+   Seq: ( ME_551AB83701BC // aComponent
  ME_551AB59F02E1 // 
- ) .SequenceCode.It
+ )
  ; // Attributes
  : Dependencies
-   @ ( ME_551C4D0802D4 // 
- ) .SequenceCode.It
+   Seq: ( ME_551C4D0802D4 // 
+ )
  ; // Dependencies
  CONST "needs index" 'undefined'
  CONST "needs result" 'undefined'
@@ -1889,6 +2031,7 @@ ref; // ME_551AAAFB036B Iterate
 : ME_0F4F88FFEF30
  CONST UID '0F4F88FFEF30'
  CONST Name 'Exists'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_static::Operation ;
  %SUMMARY 'Проверяет создан экземпляр синглетона или нет' ;
@@ -1898,6 +2041,7 @@ ref; // ME_551AAAFB036B Iterate
  ;
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
+ CONST extprop:pas:Value false
 
 ref; // ME_0F4F88FFEF30 Exists
 
@@ -1934,47 +2078,49 @@ ref; // ME_5000565C019C_ME_551AA9BD01EE ClearFields
  : Parent ME_55001317029B // VCLHelpers
  ;
  : Inherits
-   @ ( WL 'ME_49E7754802A9' '47913B47006E.pas.ms.script' // Tl3ProtoObject
- ) .SequenceCode.It
+   Seq: ( WL 'ME_49E7754802A9' '47913B47006E.pas.ms.script' // Tl3ProtoObject
+ )
  ; // Inherits
  : Implements
-   @ ( ME_8F612712D29F // Ml3IterateComponentParents
- ) .SequenceCode.It
+   Seq: ( ME_8F612712D29F // Ml3IterateComponentParents
+ )
  ; // Implements
  : Attributes
-   @ ( ME_A40B60CED801 // Alien
+   Seq: ( ME_A40B60CED801 // Alien
  ME_33A73AC9104F // f_Alien
- ) .SequenceCode.It
+ )
  ; // Attributes
  : Operations
-   @ ( ME_551AAAFB036B // Iterate
+   Seq: ( ME_551AAAFB036B // Iterate
  ME_0F4F88FFEF30 // Exists
- ) .SequenceCode.It
+ )
  ; // Operations
  : Implemented
-   @ ( ME_3410F441967F_ME_551AA9BD01EE // IterateF
- ) .SequenceCode.It
+   Seq: ( ME_3410F441967F_ME_551AA9BD01EE // IterateF
+ )
  ; // Implemented
  : Overridden
-   @ ( ME_5000565C019C_ME_551AA9BD01EE // ClearFields
- ) .SequenceCode.It
+   Seq: ( ME_5000565C019C_ME_551AA9BD01EE // ClearFields
+ )
  ; // Overridden
  : Children
-   @ ( ME_8F612712D29F // Ml3IterateComponentParents
+   Seq: ( ME_8F612712D29F // Ml3IterateComponentParents
  ME_7D793C9B4E2A // Il3IterateComponentParents
- ) .SequenceCode.It
+ )
  ; // Children
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
  CONST "singleton" true
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\L3'
  CONST intf.pas:Path 'common\components\rtl\Garant\L3\l3IterateComponentParents.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\L3'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'IterateComponentParents'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'l3IterateComponentParents'
 
 ref; // ME_551AA9BD01EE Tl3IterateComponentParents
 
@@ -1985,6 +2131,7 @@ FORWARD ME_A24A217A2949
 : ME_938AE659321C
  CONST UID '938AE659321C'
  CONST Name 'aPoint'
+ CONST IsSummoned true
  CONST Class class_Parameter
  : Stereotype st_in ;
  : Target WL 'ME_4739AD110072' '4728A7020026.pas.ms.script' // TPoint
@@ -1995,6 +2142,7 @@ ref; // ME_938AE659321C aPoint
 : ME_938AE659321D
  CONST UID '938AE659321D'
  CONST Name 'aComponent'
+ CONST IsSummoned true
  CONST Class class_Parameter
  : Stereotype st_out ;
  : Target WL 'ME_479878FA0103' '4AB0997B00A2.pas.ms.script' // TComponent
@@ -2005,6 +2153,7 @@ ref; // ME_938AE659321D aComponent
 : ME_938AE659321E
  CONST UID '938AE659321E'
  CONST Name 'aBindedControl'
+ CONST IsSummoned true
  CONST Class class_Parameter
  : Stereotype st_out ;
  : Target WL 'ME_47E1201703C3' '4799D29F033F.pas.ms.script' // TControl
@@ -2015,6 +2164,7 @@ ref; // ME_938AE659321E aBindedControl
 : ME_77F02E022F3C
  CONST UID '77F02E022F3C'
  CONST Name 'GetComponent'
+ CONST IsSummoned true
  CONST Class class_Operation
  %SUMMARY 'aBindedControl - если найденный компонент - контрол, то равен этому контролу, если нет, то его родитель' ;
  CONST Visibility PublicAccess
@@ -2022,10 +2172,10 @@ ref; // ME_938AE659321E aBindedControl
  : Parent ME_A24A217A2949 // Ml3GetComponentFromPointHelper
  ;
  : Parameters
-   @ ( ME_938AE659321C // aPoint
+   Seq: ( ME_938AE659321C // aPoint
  ME_938AE659321D // aComponent
  ME_938AE659321E // aBindedControl
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_77F02E022F3C GetComponent
@@ -2033,6 +2183,7 @@ ref; // ME_77F02E022F3C GetComponent
 : ME_A24A217A2949
  CONST UID 'A24A217A2949'
  CONST Name 'Ml3GetComponentFromPointHelper'
+ CONST IsSummoned true
  CONST Class class_Class
  : Stereotype st_PureMixIn ;
  CONST Kind kind_NormalClass
@@ -2042,9 +2193,13 @@ ref; // ME_77F02E022F3C GetComponent
  : Parent ME_551AB8CA014A // Tl3GetComponentFromPointHelper
  ;
  : Operations
-   @ ( ME_77F02E022F3C // GetComponent
- ) .SequenceCode.It
+   Seq: ( ME_77F02E022F3C // GetComponent
+ )
  ; // Operations
+ CONST dfm:PathOnly '\common\components\rtl\Garant\L3'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\L3'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_A24A217A2949 Ml3GetComponentFromPointHelper
 
@@ -2064,6 +2219,7 @@ ref; // ME_77F02E022F3C_ME_90623703A4D4 GetComponent
  CONST UID '90623703A4D4'
  CONST GUID '8A45EBEB-1919-4ED9-AE29-39A44F9B3F6E'
  CONST Name 'Il3GetComponentFromPointHelper'
+ CONST IsSummoned true
  CONST Class class_Class
  : Stereotype st_Facet ;
  CONST Kind kind_NormalClass
@@ -2073,19 +2229,26 @@ ref; // ME_77F02E022F3C_ME_90623703A4D4 GetComponent
  : Parent ME_551AB8CA014A // Tl3GetComponentFromPointHelper
  ;
  : Implements
-   @ ( ME_A24A217A2949 // Ml3GetComponentFromPointHelper
- ) .SequenceCode.It
+   Seq: ( ME_A24A217A2949 // Ml3GetComponentFromPointHelper
+ )
  ; // Implements
  : Implemented
-   @ ( ME_77F02E022F3C_ME_90623703A4D4 // GetComponent
- ) .SequenceCode.It
+   Seq: ( ME_77F02E022F3C_ME_90623703A4D4 // GetComponent
+ )
  ; // Implemented
+ CONST dfm:PathOnly '\common\components\rtl\Garant\L3'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\L3'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'GetComponentFromPointHelper'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_90623703A4D4 Il3GetComponentFromPointHelper
 
 : ME_6F7428A13918
  CONST UID '6F7428A13918'
  CONST Name 'Alien'
+ CONST IsSummoned true
  CONST Class class_Attribute
  : Stereotype st_writeonly::Attribute ;
  %SUMMARY 'Внешняя реализация сервиса Il3GetComponentFromPointHelper' ;
@@ -2104,6 +2267,7 @@ ref; // ME_6F7428A13918 Alien
 : ME_5FB63B69F422
  CONST UID '5FB63B69F422'
  CONST Name 'f_Alien'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY 'Поле для свойства Alien' ;
  CONST Visibility PrivateAccess
@@ -2113,6 +2277,7 @@ ref; // ME_6F7428A13918 Alien
  ;
  : Target ME_90623703A4D4 // Il3GetComponentFromPointHelper
  ;
+ CONST extprop:clearViaProperty 'Alien'
 
 ref; // ME_5FB63B69F422 f_Alien
 
@@ -2157,10 +2322,10 @@ ref; // ME_551AD6E100F1 aBindedControl
  : Parent ME_551AB8CA014A // Tl3GetComponentFromPointHelper
  ;
  : Parameters
-   @ ( ME_551ABA3E0014 // aPoint
+   Seq: ( ME_551ABA3E0014 // aPoint
  ME_551AD6E100CF // aComponent
  ME_551AD6E100F1 // aBindedControl
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_551ABA0A0154 GetComponent
@@ -2168,6 +2333,7 @@ ref; // ME_551ABA0A0154 GetComponent
 : ME_5A11208B85B8
  CONST UID '5A11208B85B8'
  CONST Name 'Exists'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_static::Operation ;
  %SUMMARY 'Проверяет создан экземпляр синглетона или нет' ;
@@ -2177,6 +2343,7 @@ ref; // ME_551ABA0A0154 GetComponent
  ;
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
+ CONST extprop:pas:Value false
 
 ref; // ME_5A11208B85B8 Exists
 
@@ -2211,47 +2378,49 @@ ref; // ME_5000565C019C_ME_551AB8CA014A ClearFields
  : Parent ME_55001317029B // VCLHelpers
  ;
  : Inherits
-   @ ( WL 'ME_49E7754802A9' '47913B47006E.pas.ms.script' // Tl3ProtoObject
- ) .SequenceCode.It
+   Seq: ( WL 'ME_49E7754802A9' '47913B47006E.pas.ms.script' // Tl3ProtoObject
+ )
  ; // Inherits
  : Implements
-   @ ( ME_A24A217A2949 // Ml3GetComponentFromPointHelper
- ) .SequenceCode.It
+   Seq: ( ME_A24A217A2949 // Ml3GetComponentFromPointHelper
+ )
  ; // Implements
  : Attributes
-   @ ( ME_6F7428A13918 // Alien
+   Seq: ( ME_6F7428A13918 // Alien
  ME_5FB63B69F422 // f_Alien
- ) .SequenceCode.It
+ )
  ; // Attributes
  : Operations
-   @ ( ME_551ABA0A0154 // GetComponent
+   Seq: ( ME_551ABA0A0154 // GetComponent
  ME_5A11208B85B8 // Exists
- ) .SequenceCode.It
+ )
  ; // Operations
  : Implemented
-   @ ( ME_77F02E022F3C_ME_551AB8CA014A // GetComponent
- ) .SequenceCode.It
+   Seq: ( ME_77F02E022F3C_ME_551AB8CA014A // GetComponent
+ )
  ; // Implemented
  : Overridden
-   @ ( ME_5000565C019C_ME_551AB8CA014A // ClearFields
- ) .SequenceCode.It
+   Seq: ( ME_5000565C019C_ME_551AB8CA014A // ClearFields
+ )
  ; // Overridden
  : Children
-   @ ( ME_A24A217A2949 // Ml3GetComponentFromPointHelper
+   Seq: ( ME_A24A217A2949 // Ml3GetComponentFromPointHelper
  ME_90623703A4D4 // Il3GetComponentFromPointHelper
- ) .SequenceCode.It
+ )
  ; // Children
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
  CONST "singleton" true
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\L3'
  CONST intf.pas:Path 'common\components\rtl\Garant\L3\l3GetComponentFromPointHelper.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\L3'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'GetComponentFromPointHelper'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'l3GetComponentFromPointHelper'
 
 ref; // ME_551AB8CA014A Tl3GetComponentFromPointHelper
 
@@ -2262,6 +2431,7 @@ FORWARD ME_6FB88E211F27
 : ME_18E0BD886492
  CONST UID '18E0BD886492'
  CONST Name 'anObject'
+ CONST IsSummoned true
  CONST Class class_Parameter
  : Stereotype st_in ;
  : Target WL 'ME_4807745602C8' '4AB0C3C60310.pas.ms.script' // TObject
@@ -2272,6 +2442,7 @@ ref; // ME_18E0BD886492 anObject
 : ME_18E0BD886493
  CONST UID '18E0BD886493'
  CONST Name 'aShortInfo'
+ CONST IsSummoned true
  CONST Class class_Parameter
  : Stereotype st_in ;
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
@@ -2282,6 +2453,7 @@ ref; // ME_18E0BD886493 aShortInfo
 : ME_18E0BD886494
  CONST UID '18E0BD886494'
  CONST Name 'anObjectPropFound'
+ CONST IsSummoned true
  CONST Class class_Parameter
  : Stereotype st_in ;
  : Target WL 'ME_5320560B0287' '5012CA2D0012.pas.ms.script' // TRTTIInfoObjectPropertyFoundCallBack
@@ -2292,6 +2464,7 @@ ref; // ME_18E0BD886494 anObjectPropFound
 : ME_D4A861440DBF
  CONST UID 'D4A861440DBF'
  CONST Name 'Format'
+ CONST IsSummoned true
  CONST Class class_Operation
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
@@ -2300,10 +2473,10 @@ ref; // ME_18E0BD886494 anObjectPropFound
  : Target WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
  ;
  : Parameters
-   @ ( ME_18E0BD886492 // anObject
+   Seq: ( ME_18E0BD886492 // anObject
  ME_18E0BD886493 // aShortInfo
  ME_18E0BD886494 // anObjectPropFound
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_D4A861440DBF Format
@@ -2311,6 +2484,7 @@ ref; // ME_D4A861440DBF Format
 : ME_6FB88E211F27
  CONST UID '6FB88E211F27'
  CONST Name 'Ml3FormatObjectInfoHelper'
+ CONST IsSummoned true
  CONST Class class_Class
  : Stereotype st_PureMixIn ;
  CONST Kind kind_NormalClass
@@ -2320,9 +2494,13 @@ ref; // ME_D4A861440DBF Format
  : Parent ME_551BCBFD0240 // Tl3FormatObjectInfoHelper
  ;
  : Operations
-   @ ( ME_D4A861440DBF // Format
- ) .SequenceCode.It
+   Seq: ( ME_D4A861440DBF // Format
+ )
  ; // Operations
+ CONST dfm:PathOnly '\common\components\rtl\Garant\L3'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\L3'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_6FB88E211F27 Ml3FormatObjectInfoHelper
 
@@ -2342,6 +2520,7 @@ ref; // ME_D4A861440DBF_ME_5DD0A3AA9AB2 Format
  CONST UID '5DD0A3AA9AB2'
  CONST GUID 'ABD71A64-8BB2-4F31-9E8A-D6E19C4EB16A'
  CONST Name 'Il3FormatObjectInfoHelper'
+ CONST IsSummoned true
  CONST Class class_Class
  : Stereotype st_Facet ;
  CONST Kind kind_NormalClass
@@ -2351,19 +2530,26 @@ ref; // ME_D4A861440DBF_ME_5DD0A3AA9AB2 Format
  : Parent ME_551BCBFD0240 // Tl3FormatObjectInfoHelper
  ;
  : Implements
-   @ ( ME_6FB88E211F27 // Ml3FormatObjectInfoHelper
- ) .SequenceCode.It
+   Seq: ( ME_6FB88E211F27 // Ml3FormatObjectInfoHelper
+ )
  ; // Implements
  : Implemented
-   @ ( ME_D4A861440DBF_ME_5DD0A3AA9AB2 // Format
- ) .SequenceCode.It
+   Seq: ( ME_D4A861440DBF_ME_5DD0A3AA9AB2 // Format
+ )
  ; // Implemented
+ CONST dfm:PathOnly '\common\components\rtl\Garant\L3'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\L3'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'FormatObjectInfoHelper'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_5DD0A3AA9AB2 Il3FormatObjectInfoHelper
 
 : ME_AAFCC3202173
  CONST UID 'AAFCC3202173'
  CONST Name 'Alien'
+ CONST IsSummoned true
  CONST Class class_Attribute
  : Stereotype st_writeonly::Attribute ;
  %SUMMARY 'Внешняя реализация сервиса Il3FormatObjectInfoHelper' ;
@@ -2382,6 +2568,7 @@ ref; // ME_AAFCC3202173 Alien
 : ME_5CDD3FE24911
  CONST UID '5CDD3FE24911'
  CONST Name 'f_Alien'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY 'Поле для свойства Alien' ;
  CONST Visibility PrivateAccess
@@ -2391,6 +2578,7 @@ ref; // ME_AAFCC3202173 Alien
  ;
  : Target ME_5DD0A3AA9AB2 // Il3FormatObjectInfoHelper
  ;
+ CONST extprop:clearViaProperty 'Alien'
 
 ref; // ME_5CDD3FE24911 f_Alien
 
@@ -2436,10 +2624,10 @@ ref; // ME_551BE083025F anObjectPropFound
  : Target WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
  ;
  : Parameters
-   @ ( ME_551BE08301D7 // anObject
+   Seq: ( ME_551BE08301D7 // anObject
  ME_551BE083021B // aShortInfo
  ME_551BE083025F // anObjectPropFound
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_551BCC1F00E6 Format
@@ -2447,6 +2635,7 @@ ref; // ME_551BCC1F00E6 Format
 : ME_23A498EC50FA
  CONST UID '23A498EC50FA'
  CONST Name 'Exists'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_static::Operation ;
  %SUMMARY 'Проверяет создан экземпляр синглетона или нет' ;
@@ -2456,6 +2645,7 @@ ref; // ME_551BCC1F00E6 Format
  ;
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
+ CONST extprop:pas:Value false
 
 ref; // ME_23A498EC50FA Exists
 
@@ -2567,57 +2757,59 @@ ref; // ME_5000565C019C_ME_551BCBFD0240 ClearFields
  : Parent ME_55001317029B // VCLHelpers
  ;
  : Inherits
-   @ ( WL 'ME_49E7754802A9' '47913B47006E.pas.ms.script' // Tl3ProtoObject
- ) .SequenceCode.It
+   Seq: ( WL 'ME_49E7754802A9' '47913B47006E.pas.ms.script' // Tl3ProtoObject
+ )
  ; // Inherits
  : Implements
-   @ ( ME_6FB88E211F27 // Ml3FormatObjectInfoHelper
- ) .SequenceCode.It
+   Seq: ( ME_6FB88E211F27 // Ml3FormatObjectInfoHelper
+ )
  ; // Implements
  : Attributes
-   @ ( ME_AAFCC3202173 // Alien
+   Seq: ( ME_AAFCC3202173 // Alien
  ME_5CDD3FE24911 // f_Alien
- ) .SequenceCode.It
+ )
  ; // Attributes
  : Operations
-   @ ( ME_551BCC1F00E6 // Format
+   Seq: ( ME_551BCC1F00E6 // Format
  ME_23A498EC50FA // Exists
- ) .SequenceCode.It
+ )
  ; // Operations
  : Implemented
-   @ ( ME_D4A861440DBF_ME_551BCBFD0240 // Format
- ) .SequenceCode.It
+   Seq: ( ME_D4A861440DBF_ME_551BCBFD0240 // Format
+ )
  ; // Implemented
  : Overridden
-   @ ( ME_5000565C019C_ME_551BCBFD0240 // ClearFields
- ) .SequenceCode.It
+   Seq: ( ME_5000565C019C_ME_551BCBFD0240 // ClearFields
+ )
  ; // Overridden
  : Children
-   @ ( ME_6FB88E211F27 // Ml3FormatObjectInfoHelper
+   Seq: ( ME_6FB88E211F27 // Ml3FormatObjectInfoHelper
  ME_5DD0A3AA9AB2 // Il3FormatObjectInfoHelper
- ) .SequenceCode.It
+ )
  ; // Children
  : Dependencies
-   @ ( ME_551BCC1303DA // 
+   Seq: ( ME_551BCC1303DA // 
  ME_551BCCE303C0 // 
  ME_551BCD5B036A // 
  ME_551BCDCA01B5 // 
  ME_551BE05B00B1 // 
  ME_551BE86403E7 // 
  ME_551BE8F600B4 // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
  CONST "singleton" true
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\L3'
  CONST intf.pas:Path 'common\components\rtl\Garant\L3\l3FormatObjectInfoHelper.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\L3'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'FormatObjectInfoHelper'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'l3FormatObjectInfoHelper'
 
 ref; // ME_551BCBFD0240 Tl3FormatObjectInfoHelper
 
@@ -2628,6 +2820,7 @@ FORWARD ME_358069CF953D
 : ME_FC96CEF34C46
  CONST UID 'FC96CEF34C46'
  CONST Name 'GetCapture'
+ CONST IsSummoned true
  CONST Class class_Operation
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
@@ -2641,6 +2834,7 @@ ref; // ME_FC96CEF34C46 GetCapture
 : ME_358069CF953D
  CONST UID '358069CF953D'
  CONST Name 'Ml3GetCaptureHelper'
+ CONST IsSummoned true
  CONST Class class_Class
  : Stereotype st_PureMixIn ;
  CONST Kind kind_NormalClass
@@ -2650,9 +2844,13 @@ ref; // ME_FC96CEF34C46 GetCapture
  : Parent ME_55226C5F035A // Tl3GetCaptureHelper
  ;
  : Operations
-   @ ( ME_FC96CEF34C46 // GetCapture
- ) .SequenceCode.It
+   Seq: ( ME_FC96CEF34C46 // GetCapture
+ )
  ; // Operations
+ CONST dfm:PathOnly '\common\components\rtl\Garant\L3'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\L3'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_358069CF953D Ml3GetCaptureHelper
 
@@ -2672,6 +2870,7 @@ ref; // ME_FC96CEF34C46_ME_23B04EF2BA04 GetCapture
  CONST UID '23B04EF2BA04'
  CONST GUID '37325DBC-4527-4860-8B30-E4FA121B0FC5'
  CONST Name 'Il3GetCaptureHelper'
+ CONST IsSummoned true
  CONST Class class_Class
  : Stereotype st_Facet ;
  CONST Kind kind_NormalClass
@@ -2681,19 +2880,26 @@ ref; // ME_FC96CEF34C46_ME_23B04EF2BA04 GetCapture
  : Parent ME_55226C5F035A // Tl3GetCaptureHelper
  ;
  : Implements
-   @ ( ME_358069CF953D // Ml3GetCaptureHelper
- ) .SequenceCode.It
+   Seq: ( ME_358069CF953D // Ml3GetCaptureHelper
+ )
  ; // Implements
  : Implemented
-   @ ( ME_FC96CEF34C46_ME_23B04EF2BA04 // GetCapture
- ) .SequenceCode.It
+   Seq: ( ME_FC96CEF34C46_ME_23B04EF2BA04 // GetCapture
+ )
  ; // Implemented
+ CONST dfm:PathOnly '\common\components\rtl\Garant\L3'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\L3'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'GetCaptureHelper'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_23B04EF2BA04 Il3GetCaptureHelper
 
 : ME_EC748CF7BFB4
  CONST UID 'EC748CF7BFB4'
  CONST Name 'Alien'
+ CONST IsSummoned true
  CONST Class class_Attribute
  : Stereotype st_writeonly::Attribute ;
  %SUMMARY 'Внешняя реализация сервиса Il3GetCaptureHelper' ;
@@ -2712,6 +2918,7 @@ ref; // ME_EC748CF7BFB4 Alien
 : ME_CBB0543C43F4
  CONST UID 'CBB0543C43F4'
  CONST Name 'f_Alien'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY 'Поле для свойства Alien' ;
  CONST Visibility PrivateAccess
@@ -2721,6 +2928,7 @@ ref; // ME_EC748CF7BFB4 Alien
  ;
  : Target ME_23B04EF2BA04 // Il3GetCaptureHelper
  ;
+ CONST extprop:clearViaProperty 'Alien'
 
 ref; // ME_CBB0543C43F4 f_Alien
 
@@ -2741,6 +2949,7 @@ ref; // ME_55226C7E01C4 GetCapture
 : ME_BBCF167A72A2
  CONST UID 'BBCF167A72A2'
  CONST Name 'Exists'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_static::Operation ;
  %SUMMARY 'Проверяет создан экземпляр синглетона или нет' ;
@@ -2750,6 +2959,7 @@ ref; // ME_55226C7E01C4 GetCapture
  ;
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
+ CONST extprop:pas:Value false
 
 ref; // ME_BBCF167A72A2 Exists
 
@@ -2795,51 +3005,53 @@ ref; // ME_5000565C019C_ME_55226C5F035A ClearFields
  : Parent ME_55001317029B // VCLHelpers
  ;
  : Inherits
-   @ ( WL 'ME_49E7754802A9' '47913B47006E.pas.ms.script' // Tl3ProtoObject
- ) .SequenceCode.It
+   Seq: ( WL 'ME_49E7754802A9' '47913B47006E.pas.ms.script' // Tl3ProtoObject
+ )
  ; // Inherits
  : Implements
-   @ ( ME_358069CF953D // Ml3GetCaptureHelper
- ) .SequenceCode.It
+   Seq: ( ME_358069CF953D // Ml3GetCaptureHelper
+ )
  ; // Implements
  : Attributes
-   @ ( ME_EC748CF7BFB4 // Alien
+   Seq: ( ME_EC748CF7BFB4 // Alien
  ME_CBB0543C43F4 // f_Alien
- ) .SequenceCode.It
+ )
  ; // Attributes
  : Operations
-   @ ( ME_55226C7E01C4 // GetCapture
+   Seq: ( ME_55226C7E01C4 // GetCapture
  ME_BBCF167A72A2 // Exists
- ) .SequenceCode.It
+ )
  ; // Operations
  : Implemented
-   @ ( ME_FC96CEF34C46_ME_55226C5F035A // GetCapture
- ) .SequenceCode.It
+   Seq: ( ME_FC96CEF34C46_ME_55226C5F035A // GetCapture
+ )
  ; // Implemented
  : Overridden
-   @ ( ME_5000565C019C_ME_55226C5F035A // ClearFields
- ) .SequenceCode.It
+   Seq: ( ME_5000565C019C_ME_55226C5F035A // ClearFields
+ )
  ; // Overridden
  : Children
-   @ ( ME_358069CF953D // Ml3GetCaptureHelper
+   Seq: ( ME_358069CF953D // Ml3GetCaptureHelper
  ME_23B04EF2BA04 // Il3GetCaptureHelper
- ) .SequenceCode.It
+ )
  ; // Children
  : Dependencies
-   @ ( ME_5523DAD002EB // 
- ) .SequenceCode.It
+   Seq: ( ME_5523DAD002EB // 
+ )
  ; // Dependencies
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
  CONST "singleton" true
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\L3'
  CONST intf.pas:Path 'common\components\rtl\Garant\L3\l3GetCaptureHelper.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\L3'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'GetCaptureHelper'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'l3GetCaptureHelper'
 
 ref; // ME_55226C5F035A Tl3GetCaptureHelper
 
@@ -2850,6 +3062,7 @@ FORWARD ME_EFEB3610D6E5
 : ME_2C21E4297A48
  CONST UID '2C21E4297A48'
  CONST Name 'aComponent'
+ CONST IsSummoned true
  CONST Class class_Parameter
  : Stereotype st_in ;
  : Target WL 'ME_479878FA0103' '4AB0997B00A2.pas.ms.script' // TComponent
@@ -2860,6 +3073,7 @@ ref; // ME_2C21E4297A48 aComponent
 : ME_BB0BB5CAA29B
  CONST UID 'BB0BB5CAA29B'
  CONST Name 'GetBounds'
+ CONST IsSummoned true
  CONST Class class_Operation
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
@@ -2868,8 +3082,8 @@ ref; // ME_2C21E4297A48 aComponent
  : Target WL 'ME_4728A7190065' '4728A7020026.pas.ms.script' // TRect
  ;
  : Parameters
-   @ ( ME_2C21E4297A48 // aComponent
- ) .SequenceCode.It
+   Seq: ( ME_2C21E4297A48 // aComponent
+ )
  ; // Parameters
 
 ref; // ME_BB0BB5CAA29B GetBounds
@@ -2877,6 +3091,7 @@ ref; // ME_BB0BB5CAA29B GetBounds
 : ME_EFEB3610D6E5
  CONST UID 'EFEB3610D6E5'
  CONST Name 'Ml3GetComponentBoundsHelper'
+ CONST IsSummoned true
  CONST Class class_Class
  : Stereotype st_PureMixIn ;
  CONST Kind kind_NormalClass
@@ -2886,9 +3101,13 @@ ref; // ME_BB0BB5CAA29B GetBounds
  : Parent ME_5522D7A90252 // Tl3GetComponentBoundsHelper
  ;
  : Operations
-   @ ( ME_BB0BB5CAA29B // GetBounds
- ) .SequenceCode.It
+   Seq: ( ME_BB0BB5CAA29B // GetBounds
+ )
  ; // Operations
+ CONST dfm:PathOnly '\common\components\rtl\Garant\L3'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\L3'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_EFEB3610D6E5 Ml3GetComponentBoundsHelper
 
@@ -2908,6 +3127,7 @@ ref; // ME_BB0BB5CAA29B_ME_DFD91650A75C GetBounds
  CONST UID 'DFD91650A75C'
  CONST GUID 'B081F2FC-089F-4E17-A5BC-DE28732B26EB'
  CONST Name 'Il3GetComponentBoundsHelper'
+ CONST IsSummoned true
  CONST Class class_Class
  : Stereotype st_Facet ;
  CONST Kind kind_NormalClass
@@ -2917,37 +3137,26 @@ ref; // ME_BB0BB5CAA29B_ME_DFD91650A75C GetBounds
  : Parent ME_5522D7A90252 // Tl3GetComponentBoundsHelper
  ;
  : Implements
-   @ ( ME_EFEB3610D6E5 // Ml3GetComponentBoundsHelper
- ) .SequenceCode.It
+   Seq: ( ME_EFEB3610D6E5 // Ml3GetComponentBoundsHelper
+ )
  ; // Implements
  : Implemented
-   @ ( ME_BB0BB5CAA29B_ME_DFD91650A75C // GetBounds
- ) .SequenceCode.It
+   Seq: ( ME_BB0BB5CAA29B_ME_DFD91650A75C // GetBounds
+ )
  ; // Implemented
+ CONST dfm:PathOnly '\common\components\rtl\Garant\L3'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\L3'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'GetComponentBoundsHelper'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_DFD91650A75C Il3GetComponentBoundsHelper
-
-: ME_5523CE450325
- CONST UID '5523CE450325'
- CONST Name 'EmptyRect'
- CONST Class class_Attribute
- : Stereotype st_static::Attribute ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- CONST LinkType lt_agr
- : Parent ME_5522D7A90252 // Tl3GetComponentBoundsHelper
- ;
- : Target WL 'ME_4728A7190065' '4728A7020026.pas.ms.script' // TRect
- ;
- CONST Value '(Left: 0; Top: 0; Right: 0; Bottom: 0)'
- : ValueType WL 'ME_4728A7190065' '4728A7020026.pas.ms.script' // TRect
- ;
-
-ref; // ME_5523CE450325 EmptyRect
 
 : ME_412CE1E38B75
  CONST UID '412CE1E38B75'
  CONST Name 'Alien'
+ CONST IsSummoned true
  CONST Class class_Attribute
  : Stereotype st_writeonly::Attribute ;
  %SUMMARY 'Внешняя реализация сервиса Il3GetComponentBoundsHelper' ;
@@ -2966,6 +3175,7 @@ ref; // ME_412CE1E38B75 Alien
 : ME_413F9C6CA746
  CONST UID '413F9C6CA746'
  CONST Name 'f_Alien'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY 'Поле для свойства Alien' ;
  CONST Visibility PrivateAccess
@@ -2975,6 +3185,7 @@ ref; // ME_412CE1E38B75 Alien
  ;
  : Target ME_DFD91650A75C // Il3GetComponentBoundsHelper
  ;
+ CONST extprop:clearViaProperty 'Alien'
 
 ref; // ME_413F9C6CA746 f_Alien
 
@@ -3000,8 +3211,8 @@ ref; // ME_5522D7EF02AB aComponent
  : Target WL 'ME_4728A7190065' '4728A7020026.pas.ms.script' // TRect
  ;
  : Parameters
-   @ ( ME_5522D7EF02AB // aComponent
- ) .SequenceCode.It
+   Seq: ( ME_5522D7EF02AB // aComponent
+ )
  ; // Parameters
 
 ref; // ME_5522D7D800FE GetBounds
@@ -3009,6 +3220,7 @@ ref; // ME_5522D7D800FE GetBounds
 : ME_BCAE6B2DCC1E
  CONST UID 'BCAE6B2DCC1E'
  CONST Name 'Exists'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_static::Operation ;
  %SUMMARY 'Проверяет создан экземпляр синглетона или нет' ;
@@ -3018,6 +3230,7 @@ ref; // ME_5522D7D800FE GetBounds
  ;
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
+ CONST extprop:pas:Value false
 
 ref; // ME_BCAE6B2DCC1E Exists
 
@@ -3063,52 +3276,53 @@ ref; // ME_5000565C019C_ME_5522D7A90252 ClearFields
  : Parent ME_55001317029B // VCLHelpers
  ;
  : Inherits
-   @ ( WL 'ME_49E7754802A9' '47913B47006E.pas.ms.script' // Tl3ProtoObject
- ) .SequenceCode.It
+   Seq: ( WL 'ME_49E7754802A9' '47913B47006E.pas.ms.script' // Tl3ProtoObject
+ )
  ; // Inherits
  : Implements
-   @ ( ME_EFEB3610D6E5 // Ml3GetComponentBoundsHelper
- ) .SequenceCode.It
+   Seq: ( ME_EFEB3610D6E5 // Ml3GetComponentBoundsHelper
+ )
  ; // Implements
  : Attributes
-   @ ( ME_5523CE450325 // EmptyRect
- ME_412CE1E38B75 // Alien
+   Seq: ( ME_412CE1E38B75 // Alien
  ME_413F9C6CA746 // f_Alien
- ) .SequenceCode.It
+ )
  ; // Attributes
  : Operations
-   @ ( ME_5522D7D800FE // GetBounds
+   Seq: ( ME_5522D7D800FE // GetBounds
  ME_BCAE6B2DCC1E // Exists
- ) .SequenceCode.It
+ )
  ; // Operations
  : Implemented
-   @ ( ME_BB0BB5CAA29B_ME_5522D7A90252 // GetBounds
- ) .SequenceCode.It
+   Seq: ( ME_BB0BB5CAA29B_ME_5522D7A90252 // GetBounds
+ )
  ; // Implemented
  : Overridden
-   @ ( ME_5000565C019C_ME_5522D7A90252 // ClearFields
- ) .SequenceCode.It
+   Seq: ( ME_5000565C019C_ME_5522D7A90252 // ClearFields
+ )
  ; // Overridden
  : Children
-   @ ( ME_EFEB3610D6E5 // Ml3GetComponentBoundsHelper
+   Seq: ( ME_EFEB3610D6E5 // Ml3GetComponentBoundsHelper
  ME_DFD91650A75C // Il3GetComponentBoundsHelper
- ) .SequenceCode.It
+ )
  ; // Children
  : Dependencies
-   @ ( ME_5522D89E03B2 // 
- ) .SequenceCode.It
+   Seq: ( ME_5522D89E03B2 // 
+ )
  ; // Dependencies
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
  CONST "singleton" true
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\L3'
  CONST intf.pas:Path 'common\components\rtl\Garant\L3\l3GetComponentBoundsHelper.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\L3'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'GetComponentBoundsHelper'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'l3GetComponentBoundsHelper'
 
 ref; // ME_5522D7A90252 Tl3GetComponentBoundsHelper
 
@@ -3119,6 +3333,7 @@ FORWARD ME_556F25860097
 : ME_25FD6EF29149
  CONST UID '25FD6EF29149'
  CONST Name 'TControlFriend'
+ CONST IsSummoned true
  CONST Class class_Class
  : Stereotype st_SimpleClass ;
  CONST Kind kind_NormalClass
@@ -3128,13 +3343,19 @@ FORWARD ME_556F25860097
  : Parent ME_556F25860097 // Tl3ControlFontInfo
  ;
  : Inherits
-   @ ( WL 'ME_47E1201703C3' '4799D29F033F.pas.ms.script' // TControl
- ) .SequenceCode.It
+   Seq: ( WL 'ME_47E1201703C3' '4799D29F033F.pas.ms.script' // TControl
+ )
  ; // Inherits
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" false
+ CONST dfm:PathOnly '\common\components\rtl\Garant\L3'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\L3'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'ControlFriend'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_25FD6EF29149 TControlFriend
 
@@ -3173,8 +3394,8 @@ ref; // ME_556F25E303CC aControl
  : Parent ME_556F25D20367 // Create
  ;
  : Parameters
-   @ ( ME_556F25E303CC // aControl
- ) .SequenceCode.It
+   Seq: ( ME_556F25E303CC // aControl
+ )
  ; // Parameters
 
 ref; // ME_556F25D801C0 DoIt
@@ -3190,8 +3411,8 @@ ref; // ME_556F25D801C0 DoIt
  : Parent ME_556F25860097 // Tl3ControlFontInfo
  ;
  : Operations
-   @ ( ME_556F25D801C0 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_556F25D801C0 // DoIt
+ )
  ; // Operations
 
 ref; // ME_556F25D20367 Create
@@ -3201,6 +3422,7 @@ FORWARD ME_556F25ED00C2
 : ME_AF36E77E7476
  CONST UID 'AF36E77E7476'
  CONST Name 'aControl'
+ CONST IsSummoned true
  CONST Class class_Parameter
  : Stereotype st_in ;
  : Target WL 'ME_47E1201703C3' '4799D29F033F.pas.ms.script' // TControl
@@ -3211,6 +3433,7 @@ ref; // ME_AF36E77E7476 aControl
 : ME_DBEF40918C62
  CONST UID 'DBEF40918C62'
  CONST Name 'DoIt'
+ CONST IsSummoned true
  CONST Class class_Operation
  %SUMMARY 'Сигнатура фабрики Tl3ControlFontInfo.Make' ;
  CONST Visibility PrivateAccess
@@ -3220,8 +3443,8 @@ ref; // ME_AF36E77E7476 aControl
  : Target WL 'ME_46A60B17028B' '4677FBA70343.pas.ms.script' // Il3FontInfo
  ;
  : Parameters
-   @ ( ME_AF36E77E7476 // aControl
- ) .SequenceCode.It
+   Seq: ( ME_AF36E77E7476 // aControl
+ )
  ; // Parameters
 
 ref; // ME_DBEF40918C62 DoIt
@@ -3237,16 +3460,16 @@ ref; // ME_DBEF40918C62 DoIt
  : Parent ME_556F25860097 // Tl3ControlFontInfo
  ;
  : Inherits
-   @ ( ME_556F25D20367 // Create
- ) .SequenceCode.It
+   Seq: ( ME_556F25D20367 // Create
+ )
  ; // Inherits
  : Implements
-   @ ( WL 'ME_46A60B17028B' '4677FBA70343.pas.ms.script' // Il3FontInfo
- ) .SequenceCode.It
+   Seq: ( WL 'ME_46A60B17028B' '4677FBA70343.pas.ms.script' // Il3FontInfo
+ )
  ; // Implements
  : Operations
-   @ ( ME_DBEF40918C62 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_DBEF40918C62 // DoIt
+ )
  ; // Operations
  CONST "check nil" false
  CONST "need AfterCreate" 'undefined'
@@ -3408,24 +3631,24 @@ ref; // ME_479731C50290_ME_556F25860097 Cleanup
  : Parent ME_556F24A80035 // Tl3ControlFontService
  ;
  : Inherits
-   @ ( WL 'ME_4AE5CA2D0034' '47913B47006E.pas.ms.script' // Tl3CProtoObject
- ) .SequenceCode.It
+   Seq: ( WL 'ME_4AE5CA2D0034' '47913B47006E.pas.ms.script' // Tl3CProtoObject
+ )
  ; // Inherits
  : Implements
-   @ ( WL 'ME_46A60B17028B' '4677FBA70343.pas.ms.script' // Il3FontInfo
- ) .SequenceCode.It
+   Seq: ( WL 'ME_46A60B17028B' '4677FBA70343.pas.ms.script' // Il3FontInfo
+ )
  ; // Implements
  : Attributes
-   @ ( ME_556F25FC0213 // f_Control
- ) .SequenceCode.It
+   Seq: ( ME_556F25FC0213 // f_Control
+ )
  ; // Attributes
  : Operations
-   @ ( ME_556F25D20367 // Create
+   Seq: ( ME_556F25D20367 // Create
  ME_556F25ED00C2 // Make
- ) .SequenceCode.It
+ )
  ; // Operations
  : Implemented
-   @ ( ME_46A60D7A02E4_ME_556F25860097 // Size
+   Seq: ( ME_46A60D7A02E4_ME_556F25860097 // Size
  ME_46A60E2802E4_ME_556F25860097 // Name
  ME_46A60E58013F_ME_556F25860097 // Bold
  ME_46A60E740045_ME_556F25860097 // Italic
@@ -3435,25 +3658,31 @@ ref; // ME_479731C50290_ME_556F25860097 Cleanup
  ME_46A60EF300C9_ME_556F25860097 // BackColor
  ME_46A60F63035F_ME_556F25860097 // Pitch
  ME_46A60F89031E_ME_556F25860097 // Index
- ) .SequenceCode.It
+ )
  ; // Implemented
  : Overridden
-   @ ( ME_479731C50290_ME_556F25860097 // Cleanup
- ) .SequenceCode.It
+   Seq: ( ME_479731C50290_ME_556F25860097 // Cleanup
+ )
  ; // Overridden
  : Children
-   @ ( ME_25FD6EF29149 // TControlFriend
- ) .SequenceCode.It
+   Seq: ( ME_25FD6EF29149 // TControlFriend
+ )
  ; // Children
  : Dependencies
-   @ ( ME_556F25AF0144 // 
+   Seq: ( ME_556F25AF0144 // 
  ME_556F3C8C0144 // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
+ CONST dfm:PathOnly '\common\components\rtl\Garant\L3'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\L3'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'ControlFontInfo'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_556F25860097 Tl3ControlFontInfo
 
@@ -3462,6 +3691,7 @@ FORWARD ME_6CEEDAAA8451
 : ME_0F97AE3EC352
  CONST UID '0F97AE3EC352'
  CONST Name 'aControl'
+ CONST IsSummoned true
  CONST Class class_Parameter
  : Stereotype st_in ;
  : Target WL 'ME_47E1201703C3' '4799D29F033F.pas.ms.script' // TControl
@@ -3472,6 +3702,7 @@ ref; // ME_0F97AE3EC352 aControl
 : ME_B31F486B3A13
  CONST UID 'B31F486B3A13'
  CONST Name 'GetFont'
+ CONST IsSummoned true
  CONST Class class_Operation
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
@@ -3480,8 +3711,8 @@ ref; // ME_0F97AE3EC352 aControl
  : Target WL 'ME_46A60B17028B' '4677FBA70343.pas.ms.script' // Il3FontInfo
  ;
  : Parameters
-   @ ( ME_0F97AE3EC352 // aControl
- ) .SequenceCode.It
+   Seq: ( ME_0F97AE3EC352 // aControl
+ )
  ; // Parameters
 
 ref; // ME_B31F486B3A13 GetFont
@@ -3489,6 +3720,7 @@ ref; // ME_B31F486B3A13 GetFont
 : ME_6CEEDAAA8451
  CONST UID '6CEEDAAA8451'
  CONST Name 'Ml3ControlFontService'
+ CONST IsSummoned true
  CONST Class class_Class
  : Stereotype st_PureMixIn ;
  CONST Kind kind_NormalClass
@@ -3498,9 +3730,13 @@ ref; // ME_B31F486B3A13 GetFont
  : Parent ME_556F24A80035 // Tl3ControlFontService
  ;
  : Operations
-   @ ( ME_B31F486B3A13 // GetFont
- ) .SequenceCode.It
+   Seq: ( ME_B31F486B3A13 // GetFont
+ )
  ; // Operations
+ CONST dfm:PathOnly '\common\components\rtl\Garant\L3'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\L3'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_6CEEDAAA8451 Ml3ControlFontService
 
@@ -3520,6 +3756,7 @@ ref; // ME_B31F486B3A13_ME_5B1EBFCEA918 GetFont
  CONST UID '5B1EBFCEA918'
  CONST GUID '04DBC214-58B9-46AE-ADC2-A02B5FFF1CE1'
  CONST Name 'Il3ControlFontService'
+ CONST IsSummoned true
  CONST Class class_Class
  : Stereotype st_Facet ;
  CONST Kind kind_NormalClass
@@ -3529,19 +3766,26 @@ ref; // ME_B31F486B3A13_ME_5B1EBFCEA918 GetFont
  : Parent ME_556F24A80035 // Tl3ControlFontService
  ;
  : Implements
-   @ ( ME_6CEEDAAA8451 // Ml3ControlFontService
- ) .SequenceCode.It
+   Seq: ( ME_6CEEDAAA8451 // Ml3ControlFontService
+ )
  ; // Implements
  : Implemented
-   @ ( ME_B31F486B3A13_ME_5B1EBFCEA918 // GetFont
- ) .SequenceCode.It
+   Seq: ( ME_B31F486B3A13_ME_5B1EBFCEA918 // GetFont
+ )
  ; // Implemented
+ CONST dfm:PathOnly '\common\components\rtl\Garant\L3'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\L3'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'ControlFontService'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_5B1EBFCEA918 Il3ControlFontService
 
 : ME_CE4655B375ED
  CONST UID 'CE4655B375ED'
  CONST Name 'Alien'
+ CONST IsSummoned true
  CONST Class class_Attribute
  : Stereotype st_writeonly::Attribute ;
  %SUMMARY 'Внешняя реализация сервиса Il3ControlFontService' ;
@@ -3560,6 +3804,7 @@ ref; // ME_CE4655B375ED Alien
 : ME_A1050C164039
  CONST UID 'A1050C164039'
  CONST Name 'f_Alien'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY 'Поле для свойства Alien' ;
  CONST Visibility PrivateAccess
@@ -3569,6 +3814,7 @@ ref; // ME_CE4655B375ED Alien
  ;
  : Target ME_5B1EBFCEA918 // Il3ControlFontService
  ;
+ CONST extprop:clearViaProperty 'Alien'
 
 ref; // ME_A1050C164039 f_Alien
 
@@ -3594,8 +3840,8 @@ ref; // ME_556F24EF0347 aControl
  : Target WL 'ME_46A60B17028B' '4677FBA70343.pas.ms.script' // Il3FontInfo
  ;
  : Parameters
-   @ ( ME_556F24EF0347 // aControl
- ) .SequenceCode.It
+   Seq: ( ME_556F24EF0347 // aControl
+ )
  ; // Parameters
 
 ref; // ME_556F24D50369 GetFont
@@ -3603,6 +3849,7 @@ ref; // ME_556F24D50369 GetFont
 : ME_7CD1AC5EB531
  CONST UID '7CD1AC5EB531'
  CONST Name 'Exists'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_static::Operation ;
  %SUMMARY 'Проверяет создан экземпляр синглетона или нет' ;
@@ -3612,6 +3859,7 @@ ref; // ME_556F24D50369 GetFont
  ;
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
+ CONST extprop:pas:Value false
 
 ref; // ME_7CD1AC5EB531 Exists
 
@@ -3646,48 +3894,50 @@ ref; // ME_5000565C019C_ME_556F24A80035 ClearFields
  : Parent ME_55001317029B // VCLHelpers
  ;
  : Inherits
-   @ ( WL 'ME_49E7754802A9' '47913B47006E.pas.ms.script' // Tl3ProtoObject
- ) .SequenceCode.It
+   Seq: ( WL 'ME_49E7754802A9' '47913B47006E.pas.ms.script' // Tl3ProtoObject
+ )
  ; // Inherits
  : Implements
-   @ ( ME_6CEEDAAA8451 // Ml3ControlFontService
- ) .SequenceCode.It
+   Seq: ( ME_6CEEDAAA8451 // Ml3ControlFontService
+ )
  ; // Implements
  : Attributes
-   @ ( ME_CE4655B375ED // Alien
+   Seq: ( ME_CE4655B375ED // Alien
  ME_A1050C164039 // f_Alien
- ) .SequenceCode.It
+ )
  ; // Attributes
  : Operations
-   @ ( ME_556F24D50369 // GetFont
+   Seq: ( ME_556F24D50369 // GetFont
  ME_7CD1AC5EB531 // Exists
- ) .SequenceCode.It
+ )
  ; // Operations
  : Implemented
-   @ ( ME_B31F486B3A13_ME_556F24A80035 // GetFont
- ) .SequenceCode.It
+   Seq: ( ME_B31F486B3A13_ME_556F24A80035 // GetFont
+ )
  ; // Implemented
  : Overridden
-   @ ( ME_5000565C019C_ME_556F24A80035 // ClearFields
- ) .SequenceCode.It
+   Seq: ( ME_5000565C019C_ME_556F24A80035 // ClearFields
+ )
  ; // Overridden
  : Children
-   @ ( ME_556F25860097 // Tl3ControlFontInfo
+   Seq: ( ME_556F25860097 // Tl3ControlFontInfo
  ME_6CEEDAAA8451 // Ml3ControlFontService
  ME_5B1EBFCEA918 // Il3ControlFontService
- ) .SequenceCode.It
+ )
  ; // Children
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
  CONST "singleton" true
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\L3'
  CONST intf.pas:Path 'common\components\rtl\Garant\L3\l3ControlFontService.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\L3'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'ControlFontService'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'l3ControlFontService'
 
 ref; // ME_556F24A80035 Tl3ControlFontService
 
@@ -3701,7 +3951,7 @@ ref; // ME_556F24A80035 Tl3ControlFontService
  : Parent WL 'ME_550012C403C4' '550012C403C4.pas.ms.script' // L3$AFW
  ;
  : Children
-   @ ( ME_550013770000 // Tl3PopupMenuHelper
+   Seq: ( ME_550013770000 // Tl3PopupMenuHelper
  ME_55014D810077 // Tl3CloseFormHelper
  ME_551442110069 // Tl3FormatActionInfoHelper
  ME_551542E902F5 // Tl3HugeMessageDlgWithWikiHelper
@@ -3711,10 +3961,10 @@ ref; // ME_556F24A80035 Tl3ControlFontService
  ME_55226C5F035A // Tl3GetCaptureHelper
  ME_5522D7A90252 // Tl3GetComponentBoundsHelper
  ME_556F24A80035 // Tl3ControlFontService
- ) .SequenceCode.It
+ )
  ; // Children
  : Depends
-   @ ( WL 'ME_4677FBA70343' '4677FBA70343.pas.ms.script' // l3Interfaces
+   Seq: ( WL 'ME_4677FBA70343' '4677FBA70343.pas.ms.script' // l3Interfaces
  WL 'ME_4728A7020026' '4728A7020026.pas.ms.script' // Types
  WL 'ME_4767743E00E5' '4767743E00E5.pas.ms.script' // TypInfo
  WL 'ME_47913B47006E' '47913B47006E.pas.ms.script' // l3CoreObjects
@@ -3723,16 +3973,14 @@ ref; // ME_556F24A80035 Tl3ControlFontService
  WL 'ME_4AB0C3C60310' '4AB0C3C60310.pas.ms.script' // Sys
  WL 'ME_5012CA2D0012' '5012CA2D0012.pas.ms.script' // l3TestUtils
  WL 'ME_55C4AEC801CA' '55C4AEC801CA.pas.ms.script' // Graphics
- ) .SequenceCode.It
+ )
  ; // Depends
  CONST "ifndef" 'NoVCL'
- : Generators
- @ (
- gen_pas.script
- gen_pas.script.runner
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\L3'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\L3'
  CONST pas.script:Path 'shared\models\NewSchool\Scripts\55001317029B.pas.ms.script'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
  CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\55001317029B.pas.ms.script.runner'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_55001317029B VCLHelpers

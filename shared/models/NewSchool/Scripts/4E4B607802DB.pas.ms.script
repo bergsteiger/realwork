@@ -1,0 +1,498 @@
+// Utils 4E4B607802DB Unit Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4E4B607802DB
+
+FORWARD ME_4E4B60A30391
+
+FORWARD ME_4E4B60FC0037
+
+: ME_284986B8D956
+ CONST UID '284986B8D956'
+ CONST Name 'DoIt'
+ CONST IsSummoned true
+ CONST Class class_Operation
+ %SUMMARY 'Сигнатура метода Macros_MakeChangeDoc' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_4E4B60FC0037 // Macros_MakeChangeDoc
+ ;
+
+ref; // ME_284986B8D956 DoIt
+
+: ME_4E4B60FC0037
+ CONST UID '4E4B60FC0037'
+ CONST Name 'Macros_MakeChangeDoc'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'полнотекстовая редакция' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_4E4B60A30391 // UsersMacro
+ ;
+ : Operations
+   Seq: ( ME_284986B8D956 // DoIt
+ )
+ ; // Operations
+
+ref; // ME_4E4B60FC0037 Macros_MakeChangeDoc
+
+FORWARD ME_4E4B61100328
+
+: ME_D0D5171BCE5D
+ CONST UID 'D0D5171BCE5D'
+ CONST Name 'DoIt'
+ CONST IsSummoned true
+ CONST Class class_Operation
+ %SUMMARY 'Сигнатура метода Macros_InsertDocChanges' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_4E4B61100328 // Macros_InsertDocChanges
+ ;
+
+ref; // ME_D0D5171BCE5D DoIt
+
+: ME_4E4B61100328
+ CONST UID '4E4B61100328'
+ CONST Name 'Macros_InsertDocChanges'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_4E4B60A30391 // UsersMacro
+ ;
+ : Operations
+   Seq: ( ME_D0D5171BCE5D // DoIt
+ )
+ ; // Operations
+
+ref; // ME_4E4B61100328 Macros_InsertDocChanges
+
+FORWARD ME_4E4B612A0321
+
+: ME_229765A94A9C
+ CONST UID '229765A94A9C'
+ CONST Name 'DoIt'
+ CONST IsSummoned true
+ CONST Class class_Operation
+ %SUMMARY 'Сигнатура метода Macros_ReplaceFutureEditionToCurrent' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_4E4B612A0321 // Macros_ReplaceFutureEditionToCurrent
+ ;
+
+ref; // ME_229765A94A9C DoIt
+
+: ME_4E4B612A0321
+ CONST UID '4E4B612A0321'
+ CONST Name 'Macros_ReplaceFutureEditionToCurrent'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'замена текущей редакции на будущую' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_4E4B60A30391 // UsersMacro
+ ;
+ : Operations
+   Seq: ( ME_229765A94A9C // DoIt
+ )
+ ; // Operations
+
+ref; // ME_4E4B612A0321 Macros_ReplaceFutureEditionToCurrent
+
+: ME_4E4B60A30391
+ CONST UID '4E4B60A30391'
+ CONST Name 'UsersMacro'
+ CONST Class class_Class
+ : Stereotype st_UtilityPack ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_4E4B607802DB // Utils
+ ;
+ : Operations
+   Seq: ( ME_4E4B60FC0037 // Macros_MakeChangeDoc
+ ME_4E4B61100328 // Macros_InsertDocChanges
+ ME_4E4B612A0321 // Macros_ReplaceFutureEditionToCurrent
+ )
+ ; // Operations
+ CONST "finished" false
+ CONST "no hands" false
+ : Generators
+ Seq: (
+ gen_intf.pas
+ )
+ ; // Generators
+ CONST dfm:PathOnly '\archi\source\projects\Archi\Main'
+ CONST intf.pas:Path 'archi\source\projects\Archi\Main\NOT_FINISHED_UsersMacro.pas'
+ CONST intf.pas:PathOnly '\archi\source\projects\Archi\Main'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\archi\source\projects\Archi\Main'
+
+ref; // ME_4E4B60A30391 UsersMacro
+
+FORWARD ME_4E8309E100D5
+
+: ME_4E8309F600F8
+ CONST UID '4E8309F600F8'
+ CONST Name 'TIniRecord'
+ CONST Class class_Class
+ : Stereotype st_StaticObject ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4E8309E100D5 // IniShop
+ ;
+ CONST "finished" false
+ CONST "not treat as record for XE4" 'undefined'
+ CONST dfm:PathOnly '\archi\source\projects\Archi\Main'
+ CONST intf.pas:PathOnly '\archi\source\projects\Archi\Main'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\archi\source\projects\Archi\Main'
+ CONST extprop:rc:SelfName 'IniRecord'
+
+ref; // ME_4E8309F600F8 TIniRecord
+
+: ME_4E8309E100D5
+ CONST UID '4E8309E100D5'
+ CONST Name 'IniShop'
+ CONST Class class_Class
+ : Stereotype st_UtilityPack ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_4E4B607802DB // Utils
+ ;
+ : Children
+   Seq: ( ME_4E8309F600F8 // TIniRecord
+ )
+ ; // Children
+ CONST "finished" false
+ CONST "no hands" false
+ : Generators
+ Seq: (
+ gen_intf.pas
+ )
+ ; // Generators
+ CONST dfm:PathOnly '\archi\source\projects\Archi\Main'
+ CONST intf.pas:Path 'archi\source\projects\Archi\Main\NOT_FINISHED_IniShop.pas'
+ CONST intf.pas:PathOnly '\archi\source\projects\Archi\Main'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\archi\source\projects\Archi\Main'
+
+ref; // ME_4E8309E100D5 IniShop
+
+FORWARD ME_4F0C09DA02DE
+
+FORWARD ME_4F0C0A00013A
+
+: ME_4F0C0A0C02F7
+ CONST UID '4F0C0A0C02F7'
+ CONST Name 'ddNone'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_4F0C0A00013A // TDragDataType
+ ;
+
+ref; // ME_4F0C0A0C02F7 ddNone
+
+: ME_4F0C0A160036
+ CONST UID '4F0C0A160036'
+ CONST Name 'ddDragObj'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_4F0C0A00013A // TDragDataType
+ ;
+
+ref; // ME_4F0C0A160036 ddDragObj
+
+: ME_4F0C0A1E0126
+ CONST UID '4F0C0A1E0126'
+ CONST Name 'ddHyperLink'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_4F0C0A00013A // TDragDataType
+ ;
+
+ref; // ME_4F0C0A1E0126 ddHyperLink
+
+: ME_4F0C0A260315
+ CONST UID '4F0C0A260315'
+ CONST Name 'ddBackHyperLink'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_4F0C0A00013A // TDragDataType
+ ;
+
+ref; // ME_4F0C0A260315 ddBackHyperLink
+
+: ME_4F0C0A2E0225
+ CONST UID '4F0C0A2E0225'
+ CONST Name 'ddDoc'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_4F0C0A00013A // TDragDataType
+ ;
+
+ref; // ME_4F0C0A2E0225 ddDoc
+
+: ME_4F0C0A3601AD
+ CONST UID '4F0C0A3601AD'
+ CONST Name 'ddSrchObj'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_4F0C0A00013A // TDragDataType
+ ;
+
+ref; // ME_4F0C0A3601AD ddSrchObj
+
+: ME_4F0C0A3E031A
+ CONST UID '4F0C0A3E031A'
+ CONST Name 'ddSrchID'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_4F0C0A00013A // TDragDataType
+ ;
+
+ref; // ME_4F0C0A3E031A ddSrchID
+
+: ME_4F0C0A470185
+ CONST UID '4F0C0A470185'
+ CONST Name 'ddDictItem'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_4F0C0A00013A // TDragDataType
+ ;
+
+ref; // ME_4F0C0A470185 ddDictItem
+
+: ME_4F0C0A4E01EE
+ CONST UID '4F0C0A4E01EE'
+ CONST Name 'ddMailDocLink'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_4F0C0A00013A // TDragDataType
+ ;
+
+ref; // ME_4F0C0A4E01EE ddMailDocLink
+
+: ME_4F0C0A00013A
+ CONST UID '4F0C0A00013A'
+ CONST Name 'TDragDataType'
+ CONST Class class_Class
+ : Stereotype st_Enum ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4F0C09DA02DE // ObjList
+ ;
+ : Attributes
+   Seq: ( ME_4F0C0A0C02F7 // ddNone
+ ME_4F0C0A160036 // ddDragObj
+ ME_4F0C0A1E0126 // ddHyperLink
+ ME_4F0C0A260315 // ddBackHyperLink
+ ME_4F0C0A2E0225 // ddDoc
+ ME_4F0C0A3601AD // ddSrchObj
+ ME_4F0C0A3E031A // ddSrchID
+ ME_4F0C0A470185 // ddDictItem
+ ME_4F0C0A4E01EE // ddMailDocLink
+ )
+ ; // Attributes
+ CONST "finished" false
+ CONST dfm:PathOnly '\archi\source\projects\Archi\Main'
+ CONST intf.pas:PathOnly '\archi\source\projects\Archi\Main'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\archi\source\projects\Archi\Main'
+ CONST extprop:rc:isAcceptableForScripts true
+
+ref; // ME_4F0C0A00013A TDragDataType
+
+: ME_4F0C09DA02DE
+ CONST UID '4F0C09DA02DE'
+ CONST Name 'ObjList'
+ CONST Class class_Class
+ : Stereotype st_UtilityPack ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_4E4B607802DB // Utils
+ ;
+ : Children
+   Seq: ( ME_4F0C0A00013A // TDragDataType
+ )
+ ; // Children
+ CONST "finished" false
+ CONST "no hands" false
+ : Generators
+ Seq: (
+ gen_intf.pas
+ )
+ ; // Generators
+ CONST dfm:PathOnly '\archi\source\projects\Archi\Main'
+ CONST intf.pas:Path 'archi\source\projects\Archi\Main\NOT_FINISHED_ObjList.pas'
+ CONST intf.pas:PathOnly '\archi\source\projects\Archi\Main'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\archi\source\projects\Archi\Main'
+
+ref; // ME_4F0C09DA02DE ObjList
+
+FORWARD ME_5272012D0254
+
+FORWARD ME_5272013F001A
+
+: ME_6205251456B6
+ CONST UID '6205251456B6'
+ CONST Name 'DoIt'
+ CONST IsSummoned true
+ CONST Class class_Operation
+ %SUMMARY 'Сигнатура метода InitArchiBaseEngine' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_5272013F001A // InitArchiBaseEngine
+ ;
+
+ref; // ME_6205251456B6 DoIt
+
+: ME_5272013F001A
+ CONST UID '5272013F001A'
+ CONST Name 'InitArchiBaseEngine'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_5272012D0254 // archiHTInit
+ ;
+ : Operations
+   Seq: ( ME_6205251456B6 // DoIt
+ )
+ ; // Operations
+
+ref; // ME_5272013F001A InitArchiBaseEngine
+
+FORWARD ME_5272014F03E1
+
+: ME_2130ED384099
+ CONST UID '2130ED384099'
+ CONST Name 'DoIt'
+ CONST IsSummoned true
+ CONST Class class_Operation
+ %SUMMARY 'Сигнатура метода DoneBaseEngine' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_5272014F03E1 // DoneBaseEngine
+ ;
+
+ref; // ME_2130ED384099 DoIt
+
+: ME_5272014F03E1
+ CONST UID '5272014F03E1'
+ CONST Name 'DoneBaseEngine'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_5272012D0254 // archiHTInit
+ ;
+ : Operations
+   Seq: ( ME_2130ED384099 // DoIt
+ )
+ ; // Operations
+
+ref; // ME_5272014F03E1 DoneBaseEngine
+
+: ME_5272012D0254
+ CONST UID '5272012D0254'
+ CONST Name 'archiHTInit'
+ CONST Class class_Class
+ : Stereotype st_UtilityPack ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_4E4B607802DB // Utils
+ ;
+ : Operations
+   Seq: ( ME_5272013F001A // InitArchiBaseEngine
+ ME_5272014F03E1 // DoneBaseEngine
+ )
+ ; // Operations
+ CONST "finished" false
+ CONST "no hands" false
+ : Generators
+ Seq: (
+ gen_intf.pas
+ )
+ ; // Generators
+ CONST dfm:PathOnly '\archi\source\projects\Archi\Main'
+ CONST intf.pas:Path 'archi\source\projects\Archi\Main\NOT_FINISHED_archiHTInit.pas'
+ CONST intf.pas:PathOnly '\archi\source\projects\Archi\Main'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\archi\source\projects\Archi\Main'
+
+ref; // ME_5272012D0254 archiHTInit
+
+: ME_4E4B607802DB
+ CONST UID '4E4B607802DB'
+ CONST Name 'Utils'
+ CONST Class class_Category
+ : Stereotype st_Unit ;
+ %SUMMARY 'Вспомогательные модули.' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent WL 'ME_4DFB490B0209' '4DFB490B0209.pas.ms.script' // Main
+ ;
+ : Children
+   Seq: ( ME_4E4B60A30391 // UsersMacro
+ ME_4E8309E100D5 // IniShop
+ ME_4F0C09DA02DE // ObjList
+ ME_5272012D0254 // archiHTInit
+ )
+ ; // Children
+ : Depends
+   Seq: ( WL 'ME_47913B47006E' '47913B47006E.pas.ms.script' // l3CoreObjects
+ )
+ ; // Depends
+ : Generators
+ Seq: (
+ gen_pas.script
+ gen_pas.script.runner
+ )
+ ; // Generators
+ CONST dfm:PathOnly '\archi\source\projects\Archi\Main'
+ CONST intf.pas:PathOnly '\archi\source\projects\Archi\Main'
+ CONST pas.script:Path 'shared\models\NewSchool\Scripts\4E4B607802DB.pas.ms.script'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\4E4B607802DB.pas.ms.script.runner'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\archi\source\projects\Archi\Main'
+
+ref; // ME_4E4B607802DB Utils

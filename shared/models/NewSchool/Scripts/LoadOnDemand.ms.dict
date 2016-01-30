@@ -19,7 +19,9 @@ TtfwWord FUNCTION LoadWord
  end // l_VAR IsNil !
  else
  begin
-  UIDS_LIST ->^ aWordName >>> l_VAR
+  //aWordName false @ UIDS_LIST pop:NewWordDefinitor:CheckRefcountVar >>> l_VAR
+  aWordName false @ UIDS_LIST pop:NewWordDefinitor:CheckVar >>> l_VAR
+  //UIDS_LIST ->^ aWordName >>> l_VAR
   // - добавляем переменную и снимем её со стека
   
   STRING VAR l_Code 

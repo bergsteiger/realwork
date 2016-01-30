@@ -14,6 +14,10 @@ FORWARD ME_47BB24D30205
  CONST Abstraction at_abstract
  : Parent ME_47BB24D30205 // Стандартные примеси
  ;
+ CONST dfm:PathOnly '\common\components\rtl\Garant\L3'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\L3'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
  CONST extprop:pas:TypeName '_ListType_'
 
 ref; // ME_47BB26C70176 ListType
@@ -56,8 +60,8 @@ ref; // ME_47BB279402B5 aList
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
  : Parameters
-   @ ( ME_47BB279402B5 // aList
- ) .SequenceCode.It
+   Seq: ( ME_47BB279402B5 // aList
+ )
  ; // Parameters
 
 ref; // ME_47BB2786011C DeleteList
@@ -84,8 +88,8 @@ ref; // ME_47BB27B50288 aList
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
  : Parameters
-   @ ( ME_47BB27B50288 // aList
- ) .SequenceCode.It
+   Seq: ( ME_47BB27B50288 // aList
+ )
  ; // Parameters
 
 ref; // ME_47BB27A101FF InsertList
@@ -112,8 +116,8 @@ ref; // ME_47BB27FA020E aList
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
  : Parameters
-   @ ( ME_47BB27FA020E // aList
- ) .SequenceCode.It
+   Seq: ( ME_47BB27FA020E // aList
+ )
  ; // Parameters
 
 ref; // ME_47BB27E802DF IntersectList
@@ -129,26 +133,26 @@ ref; // ME_47BB27E802DF IntersectList
  : Parent ME_47BB24D30205 // Стандартные примеси
  ;
  : Attributes
-   @ ( ME_47BB26DA0248 // 
- ) .SequenceCode.It
+   Seq: ( ME_47BB26DA0248 // 
+ )
  ; // Attributes
  : Operations
-   @ ( ME_47BB2786011C // DeleteList
+   Seq: ( ME_47BB2786011C // DeleteList
  ME_47BB27A101FF // InsertList
  ME_47BB27E802DF // IntersectList
- ) .SequenceCode.It
+ )
  ; // Operations
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\L3'
  CONST intf.pas:Path 'common\components\rtl\Garant\L3\l3ListOperations.imp.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\L3'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
  CONST extprop:pas:TypeName '_l3ListOperations_'
+ CONST extprop:pas:UnitName 'l3ListOperations.imp'
 
 ref; // ME_47BB26AF027F l3ListOperations
 
@@ -162,6 +166,10 @@ ref; // ME_47BB26AF027F l3ListOperations
  CONST Abstraction at_abstract
  : Parent ME_47BB24D30205 // Стандартные примеси
  ;
+ CONST dfm:PathOnly '\common\components\rtl\Garant\L3'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\L3'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
  CONST extprop:pas:TypeName '_FindDataType_'
 
 ref; // ME_47B9BBB401D0 FindDataType
@@ -177,6 +185,10 @@ ref; // ME_47B9BBB401D0 FindDataType
  CONST Abstraction at_abstract
  : Parent ME_47BB24D30205 // Стандартные примеси
  ;
+ CONST dfm:PathOnly '\common\components\rtl\Garant\L3'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\L3'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
  CONST extprop:pas:TypeName '_ItemType_'
 
 ref; // ME_47A1B1500302 ItemType
@@ -250,11 +262,11 @@ ref; // ME_47B9BD0C00E0 aList
  : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
  ;
  : Parameters
-   @ ( ME_47BE999D019B // anItem
+   Seq: ( ME_47BE999D019B // anItem
  ME_47BB145400F5 // aData
  ME_47B9BB88017F // aSortIndex
  ME_47B9BD0C00E0 // aList
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_47B9BAFD01F4 CompareItemWithData
@@ -289,6 +301,7 @@ ref; // ME_47B9CA8C03B6 theIndex
  CONST Value 'l3_siNative'
  : ValueType WL 'ME_476F958501F2' '4678193C009C.pas.ms.script' // Tl3SortIndex
  ;
+ CONST extprop:pas:Value 'l3_siNative'
 
 ref; // ME_47B9CA8D0024 aSortIndex
 
@@ -304,10 +317,10 @@ ref; // ME_47B9CA8D0024 aSortIndex
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
  : Parameters
-   @ ( ME_47B9CA8C0355 // aFindData
+   Seq: ( ME_47B9CA8C0355 // aFindData
  ME_47B9CA8C03B6 // theIndex
  ME_47B9CA8D0024 // aSortIndex
- ) .SequenceCode.It
+ )
  ; // Parameters
  CONST "force overload" true
 
@@ -325,25 +338,25 @@ ref; // ME_47B9CA1001D2 FindData
  : Parent ME_47BB24D30205 // Стандартные примеси
  ;
  : Attributes
-   @ ( ME_47B9BBC50307 // 
- ) .SequenceCode.It
+   Seq: ( ME_47B9BBC50307 // 
+ )
  ; // Attributes
  : Operations
-   @ ( ME_47B9BAFD01F4 // CompareItemWithData
+   Seq: ( ME_47B9BAFD01F4 // CompareItemWithData
  ME_47B9CA1001D2 // FindData
- ) .SequenceCode.It
+ )
  ; // Operations
  CONST "needs InstanceR" true
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\L3'
  CONST intf.pas:Path 'common\components\rtl\Garant\L3\l3Searcher.imp.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\L3'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
  CONST extprop:pas:TypeName '_l3Searcher_'
+ CONST extprop:pas:UnitName 'l3Searcher.imp'
 
 ref; // ME_47B47E230134 l3Searcher
 
@@ -360,10 +373,14 @@ FORWARD ME_47B3245E0148
  : Parent ME_47B3245E0148 // l3Sortable
  ;
  : Inherits
-   @ ( ME_47A1B1500302 // ItemType
- ) .SequenceCode.It
+   Seq: ( ME_47A1B1500302 // ItemType
+ )
  ; // Inherits
  CONST "isPointer" true
+ CONST dfm:PathOnly '\common\components\rtl\Garant\L3'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\L3'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_47B9A14B0217 PItemType
 
@@ -385,6 +402,7 @@ ref; // ME_47B9A14B0217 PItemType
  ;
  CONST "needs field" false
  CONST "pm" true
+ CONST extprop:pas:Value 'l3_siUnsorted'
 
 ref; // ME_47B5AF7F03DC SortIndex
 
@@ -407,6 +425,7 @@ ref; // ME_47B5AF7F03DC SortIndex
  CONST "ifndef" 'l3Items_NoSort'
  CONST "needs field" false
  CONST "pm" true
+ CONST extprop:pas:Value false
 
 ref; // ME_47B5AFCB0366 Sorted
 
@@ -431,6 +450,7 @@ ref; // ME_47B5AFCB0366 Sorted
  CONST "pm" true
  CONST "reads field" true
  CONST "writes field" true
+ CONST extprop:pas:Value 'l3Types.l3_dupIgnore'
 
 ref; // ME_47B9796900DA Duplicates
 
@@ -487,6 +507,7 @@ ref; // ME_4A6599C1023B Duplicates
 : ME_29C5CDD75913
  CONST UID '29C5CDD75913'
  CONST Name 'f_Duplicates'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY 'Поле для свойства Duplicates' ;
  CONST Visibility PrivateAccess
@@ -497,6 +518,7 @@ ref; // ME_4A6599C1023B Duplicates
  : Target WL 'ME_47614B2901AE' '4678193C009C.pas.ms.script' // Tl3Duplicates
  ;
  CONST "ifndef" 'l3Items_NoSort'
+ CONST extprop:clearViaProperty 'Duplicates'
 
 ref; // ME_29C5CDD75913 f_Duplicates
 
@@ -542,9 +564,9 @@ ref; // ME_47B5B0FA0023 aHi
  : Parent ME_47B3245E0148 // l3Sortable
  ;
  : Parameters
-   @ ( ME_47B5B0F903D4 // aLo
+   Seq: ( ME_47B5B0F903D4 // aLo
  ME_47B5B0FA0023 // aHi
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_47B5B0D4000D SortInterval
@@ -602,11 +624,11 @@ ref; // ME_47BEB5440296 aList
  : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
  ;
  : Parameters
-   @ ( ME_47BEB5440163 // A
+   Seq: ( ME_47BEB5440163 // A
  ME_47BEB54401C8 // B
  ME_47BEB544022F // aSortIndex
  ME_47BEB5440296 // aList
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_47B5B5F1038E DoCompareItems
@@ -641,9 +663,9 @@ ref; // ME_47BEC68103E7 I2
  : Parent ME_47B3245E0148 // l3Sortable
  ;
  : Parameters
-   @ ( ME_47BEC68103A0 // I1
+   Seq: ( ME_47BEC68103A0 // I1
  ME_47BEC68103E7 // I2
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_47B5B88203A7 Swap
@@ -680,8 +702,8 @@ ref; // ME_47B9843D02AF Value
  : Parent ME_47B3245E0148 // l3Sortable
  ;
  : Parameters
-   @ ( ME_47B9843D02AF // Value
- ) .SequenceCode.It
+   Seq: ( ME_47B9843D02AF // Value
+ )
  ; // Parameters
 
 ref; // ME_47B9843903DB DoSetSortIndex
@@ -718,9 +740,9 @@ ref; // ME_47B98FAE020F theIndex
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
  : Parameters
-   @ ( ME_47B98FAE01C6 // aFindData
+   Seq: ( ME_47B98FAE01C6 // aFindData
  ME_47B98FAE020F // theIndex
- ) .SequenceCode.It
+ )
  ; // Parameters
  CONST "ifndef" 'l3Items_NoSort'
 
@@ -750,17 +772,17 @@ ref; // ME_47C51B8E00FA Cleanup
  : Parent ME_47BB24D30205 // Стандартные примеси
  ;
  : Attributes
-   @ ( ME_47B5AF7F03DC // SortIndex
+   Seq: ( ME_47B5AF7F03DC // SortIndex
  ME_47B5AFCB0366 // Sorted
  ME_47B9796900DA // Duplicates
  ME_47B9802D02E7 // Hi
  ME_47A1B1A702A5 // ItemType
  ME_4A6599C1023B // Duplicates
  ME_29C5CDD75913 // f_Duplicates
- ) .SequenceCode.It
+ )
  ; // Attributes
  : Operations
-   @ ( ME_47B5AE6B0294 // Sort
+   Seq: ( ME_47B5AE6B0294 // Sort
  ME_47B5B0D4000D // SortInterval
  ME_47B5B5F1038E // DoCompareItems
  ME_47B5B88203A7 // Swap
@@ -768,23 +790,23 @@ ref; // ME_47C51B8E00FA Cleanup
  ME_47B9843903DB // DoSetSortIndex
  ME_47B98F7E03A7 // DoFindInsertionPlace
  ME_47C51B8E00FA // Cleanup
- ) .SequenceCode.It
+ )
  ; // Operations
  : Children
-   @ ( ME_47B9A14B0217 // PItemType
- ) .SequenceCode.It
+   Seq: ( ME_47B9A14B0217 // PItemType
+ )
  ; // Children
  CONST "needs InstanceR" true
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\L3'
  CONST intf.pas:Path 'common\components\rtl\Garant\L3\l3Sortable.imp.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\L3'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
  CONST extprop:pas:TypeName '_l3Sortable_'
+ CONST extprop:pas:UnitName 'l3Sortable.imp'
 
 ref; // ME_47B3245E0148 l3Sortable
 
@@ -799,6 +821,10 @@ ref; // ME_47B3245E0148 l3Sortable
  CONST Abstraction at_abstract
  : Parent ME_47BB24D30205 // Стандартные примеси
  ;
+ CONST dfm:PathOnly '\common\components\rtl\Garant\L3'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\L3'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
  CONST extprop:pas:TypeName '_DataType_'
 
 ref; // ME_47B5942000E2 DataType
@@ -816,10 +842,14 @@ FORWARD ME_47B45152003F
  : Parent ME_47B45152003F // l3Items
  ;
  : Inherits
-   @ ( ME_47A1B1500302 // ItemType
- ) .SequenceCode.It
+   Seq: ( ME_47A1B1500302 // ItemType
+ )
  ; // Inherits
  CONST "isPointer" true
+ CONST dfm:PathOnly '\common\components\rtl\Garant\L3'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\L3'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_47BEB6660288 PFindItemType
 
@@ -895,12 +925,16 @@ ref; // ME_47B9C1FB0141 rList
  : Parent ME_47B45152003F // l3Items
  ;
  : Attributes
-   @ ( ME_47B9C1D10041 // rA
+   Seq: ( ME_47B9C1D10041 // rA
  ME_47B9C1DF0156 // rB
  ME_47B9C1EA00EA // rSortIndex
  ME_47B9C1FB0141 // rList
- ) .SequenceCode.It
+ )
  ; // Attributes
+ CONST dfm:PathOnly '\common\components\rtl\Garant\L3'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\L3'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_47B9C1A80342 CompareItemsRec
 
@@ -916,6 +950,11 @@ ref; // ME_47B9C1A80342 CompareItemsRec
  ;
  CONST "ifdef" 'l3Items_IsProto'
  CONST "ifndef" 'l3Items_HasChanging'
+ CONST dfm:PathOnly '\common\components\rtl\Garant\L3'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\L3'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'Items_NoChanging'
 
 ref; // ME_4DF0F8E70108 l3Items_NoChanging
 
@@ -930,6 +969,11 @@ ref; // ME_4DF0F8E70108 l3Items_NoChanging
  : Parent ME_47B45152003F // l3Items
  ;
  CONST "ifdef" 'l3Items_IsProto'
+ CONST dfm:PathOnly '\common\components\rtl\Garant\L3'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\L3'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'Items_NoOwner'
 
 ref; // ME_4DF0F9010038 l3Items_NoOwner
 
@@ -960,6 +1004,10 @@ ref; // ME_47B5947703B3 f_Data
  ;
  : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
  ;
+ : CanRaise
+   Seq: ( WL 'ME_479F1C5600EA' '4AB0997B00A2.pas.ms.script' // EListError
+ )
+ ; // CanRaise
  CONST "needs field" false
  CONST "pm" true
 
@@ -1010,6 +1058,10 @@ ref; // ME_47B9BBE10063 FindDataType
  ;
  : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
  ;
+ : CanRaiseInSet
+   Seq: ( WL 'ME_479F1C5600EA' '4AB0997B00A2.pas.ms.script' // EListError
+ )
+ ; // CanRaiseInSet
  CONST "needs field" false
  CONST "pm" true
  CONST "reads field" true
@@ -1033,6 +1085,7 @@ ref; // ME_47B5945C00C0
 : ME_FD0A4834F08B
  CONST UID 'FD0A4834F08B'
  CONST Name 'f_Count'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY 'Поле для свойства Count' ;
  CONST Visibility PrivateAccess
@@ -1042,6 +1095,7 @@ ref; // ME_47B5945C00C0
  ;
  : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
  ;
+ CONST extprop:clearViaProperty 'Count'
 
 ref; // ME_FD0A4834F08B f_Count
 
@@ -1065,8 +1119,8 @@ ref; // ME_47B486D50032 Index
  : Parent ME_47B45152003F // l3Items
  ;
  : Parameters
-   @ ( ME_47B486D50032 // Index
- ) .SequenceCode.It
+   Seq: ( ME_47B486D50032 // Index
+ )
  ; // Parameters
 
 ref; // ME_47B486CB037A Delete
@@ -1091,8 +1145,8 @@ ref; // ME_47B489670391 Index
  : Parent ME_47B45152003F // l3Items
  ;
  : Parameters
-   @ ( ME_47B489670391 // Index
- ) .SequenceCode.It
+   Seq: ( ME_47B489670391 // Index
+ )
  ; // Parameters
 
 ref; // ME_47B4895F01BE DoDelete
@@ -1148,11 +1202,11 @@ ref; // ME_47BAF18D02D3 aList
  : Parent ME_47B45152003F // l3Items
  ;
  : Parameters
-   @ ( ME_47B48A6503D5 // Dst
+   Seq: ( ME_47B48A6503D5 // Dst
  ME_47B48A66001E // Src
  ME_47B48A66004F // aSize
  ME_47BAF18D02D3 // aList
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_47B48A510176 MoveItems
@@ -1187,9 +1241,9 @@ ref; // ME_47B49B310255 anItem
  : Parent ME_47B45152003F // l3Items
  ;
  : Parameters
-   @ ( ME_47B49B310220 // aPlace
+   Seq: ( ME_47B49B310220 // aPlace
  ME_47B49B310255 // anItem
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_47B49B1D033E FillSlot
@@ -1224,9 +1278,9 @@ ref; // ME_47B49EE50274 aData
  : Parent ME_47B45152003F // l3Items
  ;
  : Parameters
-   @ ( ME_47B49EE5023D // anIndex
+   Seq: ( ME_47B49EE5023D // anIndex
  ME_47B49EE50274 // aData
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_47B49EC50034 DirectInsert
@@ -1251,8 +1305,8 @@ ref; // ME_47B4A01200C9 anIndex
  : Parent ME_47B45152003F // l3Items
  ;
  : Parameters
-   @ ( ME_47B4A01200C9 // anIndex
- ) .SequenceCode.It
+   Seq: ( ME_47B4A01200C9 // anIndex
+ )
  ; // Parameters
 
 ref; // ME_47B49FF70034 CheckSetItem
@@ -1288,9 +1342,9 @@ ref; // ME_47BEDAED02A3 aList
  : Parent ME_47B45152003F // l3Items
  ;
  : Parameters
-   @ ( ME_47BEDAED021E // NewCapacity
+   Seq: ( ME_47BEDAED021E // NewCapacity
  ME_47BEDAED02A3 // aList
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_47B5976F024E ReAllocList
@@ -1317,8 +1371,8 @@ ref; // ME_47BED88A003A aList
  : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
  ;
  : Parameters
-   @ ( ME_47BED88A003A // aList
- ) .SequenceCode.It
+   Seq: ( ME_47BED88A003A // aList
+ )
  ; // Parameters
 
 ref; // ME_47B5984B019D GetCapacity
@@ -1368,9 +1422,13 @@ ref; // ME_47B5B7C80374 Index
  CONST Abstraction at_final
  : Parent ME_47B45152003F // l3Items
  ;
+ : CanRaise
+   Seq: ( WL 'ME_479F1C5600EA' '4AB0997B00A2.pas.ms.script' // EListError
+ )
+ ; // CanRaise
  : Parameters
-   @ ( ME_47B5B7C80374 // Index
- ) .SequenceCode.It
+   Seq: ( ME_47B5B7C80374 // Index
+ )
  ; // Parameters
 
 ref; // ME_47B5B7B6011A CheckIndex
@@ -1396,8 +1454,8 @@ ref; // ME_47B5BDD000D6 anIndex
  : Target ME_47B9A14B0217 // PItemType
  ;
  : Parameters
-   @ ( ME_47B5BDD000D6 // anIndex
- ) .SequenceCode.It
+   Seq: ( ME_47B5BDD000D6 // anIndex
+ )
  ; // Parameters
 
 ref; // ME_47B5BDCD035D ItemSlot
@@ -1444,10 +1502,10 @@ ref; // ME_47BEC81701C4 anItems
  : Parent ME_47B45152003F // l3Items
  ;
  : Parameters
-   @ ( ME_47BB04EA01C3 // A
+   Seq: ( ME_47BB04EA01C3 // A
  ME_47BB04EA0235 // B
  ME_47BEC81701C4 // anItems
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_47B5C4080270 DoExchange
@@ -1494,10 +1552,10 @@ ref; // ME_47BEDD5B02E5 anItems
  : Parent ME_47B45152003F // l3Items
  ;
  : Parameters
-   @ ( ME_47B935D00130 // aPlace
+   Seq: ( ME_47B935D00130 // aPlace
  ME_47B935D00192 // anItem
  ME_47BEDD5B02E5 // anItems
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_47B935AF0066 FillItem
@@ -1521,8 +1579,8 @@ ref; // ME_47B9480200F7 aPlace
  : Parent ME_47B45152003F // l3Items
  ;
  : Parameters
-   @ ( ME_47B9480200F7 // aPlace
- ) .SequenceCode.It
+   Seq: ( ME_47B9480200F7 // aPlace
+ )
  ; // Parameters
 
 ref; // ME_47B947FD009A FreeSlot
@@ -1559,9 +1617,9 @@ ref; // ME_4B87F92F0170 aList
  : Parent ME_47B45152003F // l3Items
  ;
  : Parameters
-   @ ( ME_4B87F92F0096 // aPlace
+   Seq: ( ME_4B87F92F0096 // aPlace
  ME_4B87F92F0170 // aList
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_47B94A5C006E FreeItem
@@ -1587,8 +1645,8 @@ ref; // ME_47B975B501BE aTargetSize
  : Target WL 'ME_3DBFFD7002C2' '3DBFDB23006E.pas.ms.script' // long
  ;
  : Parameters
-   @ ( ME_47B975B501BE // aTargetSize
- ) .SequenceCode.It
+   Seq: ( ME_47B975B501BE // aTargetSize
+ )
  ; // Parameters
 
 ref; // ME_47B975AF02ED ExpandSize
@@ -1631,8 +1689,8 @@ ref; // ME_47B9C44A0322 CI
  : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
  ;
  : Parameters
-   @ ( ME_47B9C44A0322 // CI
- ) .SequenceCode.It
+   Seq: ( ME_47B9C44A0322 // CI
+ )
  ; // Parameters
 
 ref; // ME_47B99D4503A2 CompareExistingItems
@@ -1667,9 +1725,9 @@ ref; // ME_47BB020A0316 I2
  : Parent ME_47B45152003F // l3Items
  ;
  : Parameters
-   @ ( ME_47BB020A0298 // I1
+   Seq: ( ME_47BB020A0298 // I1
  ME_47BB020A0316 // I2
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_47BB01F000D3 Exchange
@@ -1706,9 +1764,9 @@ ref; // ME_47BEDF370327 aList
  : Target ME_47B9A14B0217 // PItemType
  ;
  : Parameters
-   @ ( ME_47BEDF37029E // anIndex
+   Seq: ( ME_47BEDF37029E // anIndex
  ME_47BEDF370327 // aList
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_47BEDF2A02EA GetItemSlot
@@ -1754,10 +1812,10 @@ ref; // ME_47BEED180243 Action
  : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
  ;
  : Parameters
-   @ ( ME_47BEED18012D // I1
+   Seq: ( ME_47BEED18012D // I1
  ME_47BEED1801B8 // I2
  ME_47BEED180243 // Action
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_47BEED100067 IterateF
@@ -1783,8 +1841,8 @@ ref; // ME_47BEED4200EA Action
  : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
  ;
  : Parameters
-   @ ( ME_47BEED4200EA // Action
- ) .SequenceCode.It
+   Seq: ( ME_47BEED4200EA // Action
+ )
  ; // Parameters
 
 ref; // ME_47BEED3D038B IterateAllF
@@ -1809,8 +1867,8 @@ ref; // ME_4B87FD3B00C9 aPlace
  : Parent ME_47B45152003F // l3Items
  ;
  : Parameters
-   @ ( ME_4B87FD3B00C9 // aPlace
- ) .SequenceCode.It
+   Seq: ( ME_4B87FD3B00C9 // aPlace
+ )
  ; // Parameters
  CONST "ifdef" 'l3Items_NeedsBeforeFreeItem'
 
@@ -1869,25 +1927,25 @@ ref; // ME_47B9BAFD01F4_ME_47B45152003F CompareItemWithData
  : Parent ME_47BB24D30205 // Стандартные примеси
  ;
  : Inherits
-   @ ( ME_47B3245E0148 // l3Sortable
- ) .SequenceCode.It
+   Seq: ( ME_47B3245E0148 // l3Sortable
+ )
  ; // Inherits
  : Implements
-   @ ( ME_47B47E230134 // l3Searcher
- ) .SequenceCode.It
+   Seq: ( ME_47B47E230134 // l3Searcher
+ )
  ; // Implements
  : Attributes
-   @ ( ME_47B5947703B3 // f_Data
+   Seq: ( ME_47B5947703B3 // f_Data
  ME_47B5982200F8 // Capacity
  ME_47B97BE20318 // Lo
  ME_47B9BBE10063 // FindDataType
  ME_47BEE088001A // Count
  ME_47B5945C00C0 // 
  ME_FD0A4834F08B // f_Count
- ) .SequenceCode.It
+ )
  ; // Attributes
  : Operations
-   @ ( ME_47B486CB037A // Delete
+   Seq: ( ME_47B486CB037A // Delete
  ME_47B4895F01BE // DoDelete
  ME_47B48A510176 // MoveItems
  ME_47B49B1D033E // FillSlot
@@ -1911,36 +1969,36 @@ ref; // ME_47B9BAFD01F4_ME_47B45152003F CompareItemWithData
  ME_47BEED100067 // IterateF
  ME_47BEED3D038B // IterateAllF
  ME_4B87FCF8038B // BeforeFreeItem
- ) .SequenceCode.It
+ )
  ; // Operations
  : Implemented
-   @ ( ME_47B5B5F1038E_ME_47B45152003F // DoCompareItems
+   Seq: ( ME_47B5B5F1038E_ME_47B45152003F // DoCompareItems
  ME_47B5B88203A7_ME_47B45152003F // Swap
  ME_47B9BAFD01F4_ME_47B45152003F // CompareItemWithData
- ) .SequenceCode.It
+ )
  ; // Implemented
  : Children
-   @ ( ME_47BEB6660288 // PFindItemType
+   Seq: ( ME_47BEB6660288 // PFindItemType
  ME_47B9C1A80342 // CompareItemsRec
  ME_4DF0F8E70108 // l3Items_NoChanging
  ME_4DF0F9010038 // l3Items_NoOwner
- ) .SequenceCode.It
+ )
  ; // Children
  : Dependencies
-   @ ( ME_4DD4EC1E0174 // 
- ) .SequenceCode.It
+   Seq: ( ME_4DD4EC1E0174 // 
+ )
  ; // Dependencies
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\L3'
  CONST intf.pas:Path 'common\components\rtl\Garant\L3\l3Items.imp.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\L3'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
  CONST extprop:pas:TypeName '_l3Items_'
+ CONST extprop:pas:UnitName 'l3Items.imp'
 
 ref; // ME_47B45152003F l3Items
 
@@ -1979,8 +2037,8 @@ ref; // ME_47CEC8C701A5 aList
  : Parent ME_47CEC8860198 // l3ListAssign
  ;
  : Parameters
-   @ ( ME_47CEC8C701A5 // aList
- ) .SequenceCode.It
+   Seq: ( ME_47CEC8C701A5 // aList
+ )
  ; // Parameters
 
 ref; // ME_47CEC8BA02E2 AssignList
@@ -1996,24 +2054,24 @@ ref; // ME_47CEC8BA02E2 AssignList
  : Parent ME_47BB24D30205 // Стандартные примеси
  ;
  : Attributes
-   @ ( ME_47CEC8A603C9 // 
- ) .SequenceCode.It
+   Seq: ( ME_47CEC8A603C9 // 
+ )
  ; // Attributes
  : Operations
-   @ ( ME_47CEC8BA02E2 // AssignList
- ) .SequenceCode.It
+   Seq: ( ME_47CEC8BA02E2 // AssignList
+ )
  ; // Operations
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\L3'
  CONST intf.pas:Path 'common\components\rtl\Garant\L3\l3ListAssign.imp.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\L3'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
  CONST extprop:pas:TypeName '_l3ListAssign_'
+ CONST extprop:pas:UnitName 'l3ListAssign.imp'
 
 ref; // ME_47CEC8860198 l3ListAssign
 
@@ -2043,12 +2101,12 @@ ref; // ME_4BB09A4A0311 DoIt
  : Parent ME_47CED1980057 // l3InterfacedList
  ;
  : Implements
-   @ ( ME_47BB26C70176 // ListType
- ) .SequenceCode.It
+   Seq: ( ME_47BB26C70176 // ListType
+ )
  ; // Implements
  : Operations
-   @ ( ME_4BB09A4A0311 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_4BB09A4A0311 // DoIt
+ )
  ; // Operations
  CONST "check nil" false
  CONST "need AfterCreate" 'undefined'
@@ -2079,33 +2137,33 @@ ref; // ME_4BB08B8902F2_ME_47CED1980057 Count
  : Parent ME_47BB24D30205 // Стандартные примеси
  ;
  : Inherits
-   @ ( ME_47CEC8860198 // l3ListAssign
- ) .SequenceCode.It
+   Seq: ( ME_47CEC8860198 // l3ListAssign
+ )
  ; // Inherits
  : Implements
-   @ ( ME_47BB26C70176 // ListType
+   Seq: ( ME_47BB26C70176 // ListType
  WL 'ME_4BB08B690185' '47D810610398.pas.ms.script' // Ml3CountHolder
- ) .SequenceCode.It
+ )
  ; // Implements
  : Operations
-   @ ( ME_4BB09A40008E // MakeI
- ) .SequenceCode.It
+   Seq: ( ME_4BB09A40008E // MakeI
+ )
  ; // Operations
  : Implemented
-   @ ( ME_4BB08B8902F2_ME_47CED1980057 // Count
- ) .SequenceCode.It
+   Seq: ( ME_4BB08B8902F2_ME_47CED1980057 // Count
+ )
  ; // Implemented
  CONST "needs InstanceR" true
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\L3'
  CONST intf.pas:Path 'common\components\rtl\Garant\L3\l3InterfacedList.imp.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\L3'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
  CONST extprop:pas:TypeName '_l3InterfacedList_'
+ CONST extprop:pas:UnitName 'l3InterfacedList.imp'
 
 ref; // ME_47CED1980057 l3InterfacedList
 
@@ -2141,9 +2199,9 @@ ref; // ME_47A0AD7F0198 Obj
  : Target WL 'ME_469F9A0001B0' '4677FBA70343.pas.ms.script' // HResult
  ;
  : Parameters
-   @ ( ME_47A0AD7F0179 // IID
+   Seq: ( ME_47A0AD7F0179 // IID
  ME_47A0AD7F0198 // Obj
- ) .SequenceCode.It
+ )
  ; // Parameters
  CONST "calling conventions" 'stdcall'
 
@@ -2161,8 +2219,8 @@ ref; // ME_47A0AD3A01F7 QueryInterface
  : Parent ME_47BB24D30205 // Стандартные примеси
  ;
  : Operations
-   @ ( ME_47A0AD3A01F7 // QueryInterface
- ) .SequenceCode.It
+   Seq: ( ME_47A0AD3A01F7 // QueryInterface
+ )
  ; // Operations
  CONST "author" 'Люлин А.В.'
  CONST "needs InstanceR" 'undefined'
@@ -2170,13 +2228,13 @@ ref; // ME_47A0AD3A01F7 QueryInterface
  CONST "no hands" true
  CONST "register in scripts" 'undefined'
  CONST "started" '30.01.2006 21:27'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\L3'
  CONST intf.pas:Path 'common\components\rtl\Garant\L3\l3Castable.imp.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\L3'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
  CONST extprop:pas:TypeName '_l3Castable_'
+ CONST extprop:pas:UnitName 'l3Castable.imp'
 
 ref; // ME_47A0ACE90008 l3Castable
 
@@ -2187,6 +2245,7 @@ FORWARD ME_54D9E08D0212
 : ME_F5AAE6B2C2F4
  CONST UID 'F5AAE6B2C2F4'
  CONST Name 'DoIt'
+ CONST IsSummoned true
  CONST Class class_Operation
  %SUMMARY 'Сигнатура метода DoChanged' ;
  CONST Visibility PublicAccess
@@ -2207,8 +2266,8 @@ ref; // ME_F5AAE6B2C2F4 DoIt
  : Parent ME_4A5CBFAB03AF // l3Changing
  ;
  : Operations
-   @ ( ME_F5AAE6B2C2F4 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_F5AAE6B2C2F4 // DoIt
+ )
  ; // Operations
 
 ref; // ME_54D9E08D0212 DoChanged
@@ -2218,6 +2277,7 @@ FORWARD ME_54D9E09D018D
 : ME_5738FC697CCD
  CONST UID '5738FC697CCD'
  CONST Name 'DoIt'
+ CONST IsSummoned true
  CONST Class class_Operation
  %SUMMARY 'Сигнатура метода DoChanging' ;
  CONST Visibility PublicAccess
@@ -2238,8 +2298,8 @@ ref; // ME_5738FC697CCD DoIt
  : Parent ME_4A5CBFAB03AF // l3Changing
  ;
  : Operations
-   @ ( ME_5738FC697CCD // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_5738FC697CCD // DoIt
+ )
  ; // Operations
 
 ref; // ME_54D9E09D018D DoChanging
@@ -2276,18 +2336,18 @@ ref; // ME_4A5CC00B03D5_ME_4A5CBFAB03AF Changed
  : Parent ME_47BB24D30205 // Стандартные примеси
  ;
  : Implements
-   @ ( WL 'ME_54D8B06301D2' '47D810610398.pas.ms.script' // Ml3ChangingChanged
- ) .SequenceCode.It
+   Seq: ( WL 'ME_54D8B06301D2' '47D810610398.pas.ms.script' // Ml3ChangingChanged
+ )
  ; // Implements
  : Operations
-   @ ( ME_54D9E08D0212 // DoChanged
+   Seq: ( ME_54D9E08D0212 // DoChanged
  ME_54D9E09D018D // DoChanging
- ) .SequenceCode.It
+ )
  ; // Operations
  : Implemented
-   @ ( ME_4A5CBFFE0157_ME_4A5CBFAB03AF // Changing
+   Seq: ( ME_4A5CBFFE0157_ME_4A5CBFAB03AF // Changing
  ME_4A5CC00B03D5_ME_4A5CBFAB03AF // Changed
- ) .SequenceCode.It
+ )
  ; // Implemented
  CONST "author" 'Люлин А.В.'
  CONST "needs InstanceR" 'undefined'
@@ -2295,13 +2355,13 @@ ref; // ME_4A5CC00B03D5_ME_4A5CBFAB03AF Changed
  CONST "no hands" true
  CONST "register in scripts" 'undefined'
  CONST "started" '14.07.2009 21:26'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\L3'
  CONST intf.pas:Path 'common\components\rtl\Garant\L3\l3Changing.imp.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\L3'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
  CONST extprop:pas:TypeName '_l3Changing_'
+ CONST extprop:pas:UnitName 'l3Changing.imp'
 
 ref; // ME_4A5CBFAB03AF l3Changing
 
@@ -2316,9 +2376,13 @@ ref; // ME_4A5CBFAB03AF l3Changing
  : Parent ME_47BB24D30205 // Стандартные примеси
  ;
  : Inherits
-   @ ( ME_4A5CBFAB03AF // l3Changing
- ) .SequenceCode.It
+   Seq: ( ME_4A5CBFAB03AF // l3Changing
+ )
  ; // Inherits
+ CONST dfm:PathOnly '\common\components\rtl\Garant\L3'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\L3'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_4A5CC1A80100 Ml3Changing
 
@@ -2346,6 +2410,7 @@ ref; // ME_48FC9D1101DC ChangeCount
 : ME_8A7E5D3767BC
  CONST UID '8A7E5D3767BC'
  CONST Name 'f_ChangeCount'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY 'Поле для свойства ChangeCount' ;
  CONST Visibility PrivateAccess
@@ -2355,6 +2420,7 @@ ref; // ME_48FC9D1101DC ChangeCount
  ;
  : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
  ;
+ CONST extprop:clearViaProperty 'ChangeCount'
 
 ref; // ME_8A7E5D3767BC f_ChangeCount
 
@@ -2424,24 +2490,24 @@ ref; // ME_54D9E09D018D_ME_48FC9CD002FE DoChanging
  : Parent ME_47BB24D30205 // Стандартные примеси
  ;
  : Implements
-   @ ( ME_4A5CC1A80100 // Ml3Changing
- ) .SequenceCode.It
+   Seq: ( ME_4A5CC1A80100 // Ml3Changing
+ )
  ; // Implements
  : Attributes
-   @ ( ME_48FC9D1101DC // ChangeCount
+   Seq: ( ME_48FC9D1101DC // ChangeCount
  ME_8A7E5D3767BC // f_ChangeCount
- ) .SequenceCode.It
+ )
  ; // Attributes
  : Operations
-   @ ( ME_48FC9D1F016E // FireChanging
+   Seq: ( ME_48FC9D1F016E // FireChanging
  ME_48FC9D300237 // FireChanged
  ME_48FC9D5E0310 // IsChanging
- ) .SequenceCode.It
+ )
  ; // Operations
  : Overridden
-   @ ( ME_54D9E08D0212_ME_48FC9CD002FE // DoChanged
+   Seq: ( ME_54D9E08D0212_ME_48FC9CD002FE // DoChanged
  ME_54D9E09D018D_ME_48FC9CD002FE // DoChanging
- ) .SequenceCode.It
+ )
  ; // Overridden
  CONST "author" 'Люлин А.В.'
  CONST "needs InstanceR" 'undefined'
@@ -2449,13 +2515,13 @@ ref; // ME_54D9E09D018D_ME_48FC9CD002FE DoChanging
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
  CONST "started" '20.10.2005 09:49'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\L3'
  CONST intf.pas:Path 'common\components\rtl\Garant\L3\l3LockedChangePrim.imp.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\L3'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
  CONST extprop:pas:TypeName '_l3LockedChangePrim_'
+ CONST extprop:pas:UnitName 'l3LockedChangePrim.imp'
 
 ref; // ME_48FC9CD002FE l3LockedChangePrim
 
@@ -2471,8 +2537,8 @@ ref; // ME_48FC9CD002FE l3LockedChangePrim
  : Parent ME_47BB24D30205 // Стандартные примеси
  ;
  : Inherits
-   @ ( ME_48FC9CD002FE // l3LockedChangePrim
- ) .SequenceCode.It
+   Seq: ( ME_48FC9CD002FE // l3LockedChangePrim
+ )
  ; // Inherits
  CONST "author" 'Люлин А.В.'
  CONST "needs InstanceR" 'undefined'
@@ -2480,13 +2546,13 @@ ref; // ME_48FC9CD002FE l3LockedChangePrim
  CONST "no hands" true
  CONST "register in scripts" 'undefined'
  CONST "started" '24.11.2008 17:47'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\L3'
  CONST intf.pas:Path 'common\components\rtl\Garant\L3\l3LockedChange.imp.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\L3'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
  CONST extprop:pas:TypeName '_l3LockedChange_'
+ CONST extprop:pas:UnitName 'l3LockedChange.imp'
 
 ref; // ME_492ABDE901A7 l3LockedChange
 
@@ -2501,9 +2567,13 @@ ref; // ME_492ABDE901A7 l3LockedChange
  : Parent ME_47BB24D30205 // Стандартные примеси
  ;
  : Inherits
-   @ ( ME_47A0ACE90008 // l3Castable
- ) .SequenceCode.It
+   Seq: ( ME_47A0ACE90008 // l3Castable
+ )
  ; // Inherits
+ CONST dfm:PathOnly '\common\components\rtl\Garant\L3'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\L3'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_4A60B2AB03CE Ml3Castable
 
@@ -2539,9 +2609,9 @@ ref; // ME_4A60B23E0164 Obj
  : Target WL 'ME_49427DEE015B' '478CF8070260.pas.ms.script' // Tl3HResult
  ;
  : Parameters
-   @ ( ME_4A60B23E0113 // IID
+   Seq: ( ME_4A60B23E0113 // IID
  ME_4A60B23E0164 // Obj
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_4A60B23E00C3 COMQueryInterface
@@ -2592,33 +2662,33 @@ ref; // ME_47A0AD3A01F7_ME_4A60B2220398 QueryInterface
  : Parent ME_47BB24D30205 // Стандартные примеси
  ;
  : Implements
-   @ ( ME_4A60B2AB03CE // Ml3Castable
- ) .SequenceCode.It
+   Seq: ( ME_4A60B2AB03CE // Ml3Castable
+ )
  ; // Implements
  : Operations
-   @ ( ME_4A60B23E00C3 // COMQueryInterface
- ) .SequenceCode.It
+   Seq: ( ME_4A60B23E00C3 // COMQueryInterface
+ )
  ; // Operations
  : Overridden
-   @ ( ME_47A0AD3A01F7_ME_4A60B2220398 // QueryInterface
- ) .SequenceCode.It
+   Seq: ( ME_47A0AD3A01F7_ME_4A60B2220398 // QueryInterface
+ )
  ; // Overridden
  : Dependencies
-   @ ( ME_4A60B5510347 // 
+   Seq: ( ME_4A60B5510347 // 
  ME_4B17E91B002A // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\L3'
  CONST intf.pas:Path 'common\components\rtl\Garant\L3\l3COMQueryInterface.imp.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\L3'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
  CONST extprop:pas:TypeName '_l3COMQueryInterface_'
+ CONST extprop:pas:UnitName 'l3COMQueryInterface.imp'
 
 ref; // ME_4A60B2220398 l3COMQueryInterface
 
@@ -2633,9 +2703,13 @@ ref; // ME_4A60B2220398 l3COMQueryInterface
  : Parent ME_47BB24D30205 // Стандартные примеси
  ;
  : Inherits
-   @ ( WL 'ME_478CF32A03B6' '4AB0997B00A2.pas.ms.script' // TPersistent
- ) .SequenceCode.It
+   Seq: ( WL 'ME_478CF32A03B6' '4AB0997B00A2.pas.ms.script' // TPersistent
+ )
  ; // Inherits
+ CONST dfm:PathOnly '\common\components\rtl\Garant\L3'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\L3'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_4A60A7CC002B MPersistent
 
@@ -2644,6 +2718,7 @@ FORWARD ME_4ADEE4C90303
 : ME_DACE44787928
  CONST UID 'DACE44787928'
  CONST Name 'DoIt'
+ CONST IsSummoned true
  CONST Class class_Operation
  %SUMMARY 'Сигнатура метода l3IEQ' ;
  CONST Visibility PublicAccess
@@ -2664,9 +2739,10 @@ ref; // ME_DACE44787928 DoIt
  : Parent ME_47CFE7F00221 // l3InterfacesMisc
  ;
  : Operations
-   @ ( ME_DACE44787928 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_DACE44787928 // DoIt
+ )
  ; // Operations
+ CONST extprop:rc:SelfName 'IEQ'
 
 ref; // ME_4ADEE4C90303 l3IEQ
 
@@ -2675,6 +2751,7 @@ FORWARD ME_4B17E8E10102
 : ME_999403FAC4AC
  CONST UID '999403FAC4AC'
  CONST Name 'DoIt'
+ CONST IsSummoned true
  CONST Class class_Operation
  %SUMMARY 'Сигнатура метода l3IOK' ;
  CONST Visibility PublicAccess
@@ -2695,9 +2772,10 @@ ref; // ME_999403FAC4AC DoIt
  : Parent ME_47CFE7F00221 // l3InterfacesMisc
  ;
  : Operations
-   @ ( ME_999403FAC4AC // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_999403FAC4AC // DoIt
+ )
  ; // Operations
+ CONST extprop:rc:SelfName 'IOK'
 
 ref; // ME_4B17E8E10102 l3IOK
 
@@ -2706,6 +2784,7 @@ FORWARD ME_4B17E8F10299
 : ME_A034ED07A0CF
  CONST UID 'A034ED07A0CF'
  CONST Name 'DoIt'
+ CONST IsSummoned true
  CONST Class class_Operation
  %SUMMARY 'Сигнатура метода l3IFail' ;
  CONST Visibility PublicAccess
@@ -2726,9 +2805,10 @@ ref; // ME_A034ED07A0CF DoIt
  : Parent ME_47CFE7F00221 // l3InterfacesMisc
  ;
  : Operations
-   @ ( ME_A034ED07A0CF // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_A034ED07A0CF // DoIt
+ )
  ; // Operations
+ CONST extprop:rc:SelfName 'IFail'
 
 ref; // ME_4B17E8F10299 l3IFail
 
@@ -2744,21 +2824,21 @@ ref; // ME_4B17E8F10299 l3IFail
  : Parent ME_47BB24D30205 // Стандартные примеси
  ;
  : Operations
-   @ ( ME_4ADEE4C90303 // l3IEQ
+   Seq: ( ME_4ADEE4C90303 // l3IEQ
  ME_4B17E8E10102 // l3IOK
  ME_4B17E8F10299 // l3IFail
- ) .SequenceCode.It
+ )
  ; // Operations
  CONST "author" 'Люлин А.В.'
  CONST "finished" false
  CONST "no hands" false
  CONST "started" '07.04.2000 12:46'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\L3'
  CONST intf.pas:Path 'common\components\rtl\Garant\L3\NOT_FINISHED_l3InterfacesMisc.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\L3'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'InterfacesMisc'
 
 ref; // ME_47CFE7F00221 l3InterfacesMisc
 
@@ -2773,9 +2853,13 @@ ref; // ME_47CFE7F00221 l3InterfacesMisc
  : Parent ME_47BB24D30205 // Стандартные примеси
  ;
  : Inherits
-   @ ( ME_47B45152003F // l3Items
- ) .SequenceCode.It
+   Seq: ( ME_47B45152003F // l3Items
+ )
  ; // Inherits
+ CONST dfm:PathOnly '\common\components\rtl\Garant\L3'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\L3'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_4B8688ED0168 Ml3Items
 
@@ -2802,24 +2886,24 @@ ref; // ME_467813E40207_ME_4BE42D490361 CheckStamp
  : Parent ME_47BB24D30205 // Стандартные примеси
  ;
  : Implements
-   @ ( WL 'ME_54D8A952031C' '47D810610398.pas.ms.script' // Ml3CheckStamp
- ) .SequenceCode.It
+   Seq: ( WL 'ME_54D8A952031C' '47D810610398.pas.ms.script' // Ml3CheckStamp
+ )
  ; // Implements
  : Implemented
-   @ ( ME_467813E40207_ME_4BE42D490361 // CheckStamp
- ) .SequenceCode.It
+   Seq: ( ME_467813E40207_ME_4BE42D490361 // CheckStamp
+ )
  ; // Implemented
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\L3'
  CONST intf.pas:Path 'common\components\rtl\Garant\L3\l3CheckStamp.imp.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\L3'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
  CONST extprop:pas:TypeName '_l3CheckStamp_'
+ CONST extprop:pas:UnitName 'l3CheckStamp.imp'
 
 ref; // ME_4BE42D490361 l3CheckStamp
 
@@ -2834,9 +2918,13 @@ ref; // ME_4BE42D490361 l3CheckStamp
  : Parent ME_47BB24D30205 // Стандартные примеси
  ;
  : Inherits
-   @ ( ME_4A60B2220398 // l3COMQueryInterface
- ) .SequenceCode.It
+   Seq: ( ME_4A60B2220398 // l3COMQueryInterface
+ )
  ; // Inherits
+ CONST dfm:PathOnly '\common\components\rtl\Garant\L3'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\L3'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_4CED5B570326 Ml3COMQueryInterface
 
@@ -2850,6 +2938,10 @@ ref; // ME_4CED5B570326 Ml3COMQueryInterface
  CONST Abstraction at_abstract
  : Parent ME_47BB24D30205 // Стандартные примеси
  ;
+ CONST dfm:PathOnly '\common\components\rtl\Garant\L3'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\L3'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_4DD3DC6203CF _Instance_R_
 
@@ -2864,7 +2956,7 @@ ref; // ME_4DD3DC6203CF _Instance_R_
  : Parent WL 'ME_4790D09A0378' '4790D09A0378.pas.ms.script' // L3
  ;
  : Children
-   @ ( ME_47BB26C70176 // ListType
+   Seq: ( ME_47BB26C70176 // ListType
  ME_47BB26AF027F // l3ListOperations
  ME_47B9BBB401D0 // FindDataType
  ME_47A1B1500302 // ItemType
@@ -2887,25 +2979,23 @@ ref; // ME_4DD3DC6203CF _Instance_R_
  ME_4BE42D490361 // l3CheckStamp
  ME_4CED5B570326 // Ml3COMQueryInterface
  ME_4DD3DC6203CF // _Instance_R_
- ) .SequenceCode.It
+ )
  ; // Children
  : Depends
-   @ ( WL 'ME_4677FBA70343' '4677FBA70343.pas.ms.script' // l3Interfaces
+   Seq: ( WL 'ME_4677FBA70343' '4677FBA70343.pas.ms.script' // l3Interfaces
  WL 'ME_4678193C009C' '4678193C009C.pas.ms.script' // l3Types
  WL 'ME_478CF8070260' '478CF8070260.pas.ms.script' // l3IID
  WL 'ME_479F1DEA0057' '479F1DEA0057.pas.ms.script' // RTLConsts
  WL 'ME_47D810610398' '47D810610398.pas.ms.script' // l3PureMixIns
  WL 'ME_4AB0997B00A2' '4AB0997B00A2.pas.ms.script' // Common
  WL 'ME_4AB0C3C60310' '4AB0C3C60310.pas.ms.script' // Sys
- ) .SequenceCode.It
+ )
  ; // Depends
- : Generators
- @ (
- gen_pas.script
- gen_pas.script.runner
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\L3'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\L3'
  CONST pas.script:Path 'shared\models\NewSchool\Scripts\47BB24D30205.pas.ms.script'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
  CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\47BB24D30205.pas.ms.script.runner'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_47BB24D30205 Стандартные примеси

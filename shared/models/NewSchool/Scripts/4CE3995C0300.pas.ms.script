@@ -27,8 +27,8 @@ ref; // ME_4CE399DB02D2 aFile
  : Parent ME_4CE399BC02E3 // ProcessFile
  ;
  : Parameters
-   @ ( ME_4CE399DB02D2 // aFile
- ) .SequenceCode.It
+   Seq: ( ME_4CE399DB02D2 // aFile
+ )
  ; // Parameters
 
 ref; // ME_4CE399D3015C DoIt
@@ -187,11 +187,11 @@ ref; // ME_4CF8E29F0347
  : Parent ME_4CE3998200D9 // TevAdjustNSRCToPage
  ;
  : Operations
-   @ ( ME_4CE399D3015C // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_4CE399D3015C // DoIt
+ )
  ; // Operations
  : Dependencies
-   @ ( ME_4CE39DB80195 // 
+   Seq: ( ME_4CE39DB80195 // 
  ME_4CE39DBF028C // 
  ME_4CE39EF801AA // 
  ME_4CE39F2F0037 // 
@@ -204,7 +204,7 @@ ref; // ME_4CF8E29F0347
  ME_4CE3A2A1018D // 
  ME_4CE3A51F013C // 
  ME_4CF8E29F0347 // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  CONST "is static" true
 
@@ -222,8 +222,8 @@ ref; // ME_4CE399BC02E3 ProcessFile
  : Parent ME_4CE3995C0300 // Tools
  ;
  : Operations
-   @ ( ME_4CE399BC02E3 // ProcessFile
- ) .SequenceCode.It
+   Seq: ( ME_4CE399BC02E3 // ProcessFile
+ )
  ; // Operations
  CONST "author" 'Ëþëèí À.Â.'
  CONST "needs InstanceR" 'undefined'
@@ -231,12 +231,14 @@ ref; // ME_4CE399BC02E3 ProcessFile
  CONST "no hands" true
  CONST "register in scripts" 'undefined'
  CONST "started" '17.11.2010 12:00'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\EverestCommon\Tools'
  CONST intf.pas:Path 'common\components\gui\Garant\EverestCommon\Tools\evAdjustNSRCToPage.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\EverestCommon\Tools'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'AdjustNSRCToPage'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'evAdjustNSRCToPage'
 
 ref; // ME_4CE3998200D9 TevAdjustNSRCToPage
 
@@ -250,11 +252,11 @@ ref; // ME_4CE3998200D9 TevAdjustNSRCToPage
  : Parent WL 'ME_48EEE54C0072' '48EEE54C0072.pas.ms.script' // EverestCommon
  ;
  : Children
-   @ ( ME_4CE3998200D9 // TevAdjustNSRCToPage
- ) .SequenceCode.It
+   Seq: ( ME_4CE3998200D9 // TevAdjustNSRCToPage
+ )
  ; // Children
  : Depends
-   @ ( WL 'ME_4678193C009C' '4678193C009C.pas.ms.script' // l3Types
+   Seq: ( WL 'ME_4678193C009C' '4678193C009C.pas.ms.script' // l3Types
  WL 'ME_476BE98C01B8' '476BE98C01B8.pas.ms.script' // l3Chars
  WL 'ME_47913B47006E' '47913B47006E.pas.ms.script' // l3CoreObjects
  WL 'ME_47ECA80B000D' '47ECA80B000D.pas.ms.script' // Generators
@@ -264,16 +266,14 @@ ref; // ME_4CE3998200D9 TevAdjustNSRCToPage
  WL 'ME_4B324F930103' '4B324F930103.pas.ms.script' // Filters
  WL 'ME_4C407B410029' '4C407B410029.pas.ms.script' // Generators
  WL 'ME_4C9CD483018B' '4C9CD483018B.pas.ms.script' // Readers
- ) .SequenceCode.It
+ )
  ; // Depends
  CONST "path prefix" '/Tools'
- : Generators
- @ (
- gen_pas.script
- gen_pas.script.runner
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\EverestCommon\Tools'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\EverestCommon\Tools'
  CONST pas.script:Path 'shared\models\NewSchool\Scripts\4CE3995C0300.pas.ms.script'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
  CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\4CE3995C0300.pas.ms.script.runner'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_4CE3995C0300 Tools

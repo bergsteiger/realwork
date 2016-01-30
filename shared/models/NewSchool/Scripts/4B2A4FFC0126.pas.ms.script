@@ -21,6 +21,7 @@ FORWARD ME_4B2A50640392
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value '''document.nsr'''
 
 ref; // ME_4B2A507E003B cNSRCFileIn
 
@@ -37,6 +38,7 @@ ref; // ME_4B2A507E003B cNSRCFileIn
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value '''badtext.uni'''
 
 ref; // ME_4B337C4801AD cBadTextUnicode
 
@@ -51,11 +53,16 @@ ref; // ME_4B337C4801AD cBadTextUnicode
  : Parent ME_4B2A50570311 // TestGlobals
  ;
  : Attributes
-   @ ( ME_4B2A507E003B // cNSRCFileIn
+   Seq: ( ME_4B2A507E003B // cNSRCFileIn
  ME_4B337C4801AD // cBadTextUnicode
- ) .SequenceCode.It
+ )
  ; // Attributes
  CONST "spell names" false
+ CONST dfm:PathOnly '\common\components\rtl\Garant\Daily'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\Daily'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\common\components\rtl\Garant\Daily'
 
 ref; // ME_4B2A50640392 Constants
 
@@ -70,16 +77,21 @@ ref; // ME_4B2A50640392 Constants
  : Parent ME_4B2A4FFC0126 // Environment
  ;
  : Constants
-   @ ( ME_4B2A50640392 // Constants
- ) .SequenceCode.It
+   Seq: ( ME_4B2A50640392 // Constants
+ )
  ; // Constants
  CONST "no hands" false
  : Generators
- @ (
+ Seq: (
  gen_intf.pas
- ) .SequenceCode.It
+ )
  ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\Daily'
  CONST intf.pas:Path 'common\components\rtl\Garant\Daily\TestGlobals.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\Daily'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\common\components\rtl\Garant\Daily'
 
 ref; // ME_4B2A50570311 TestGlobals
 
@@ -94,16 +106,21 @@ ref; // ME_4B2A50570311 TestGlobals
  : Parent WL 'ME_4B2A15810261' '4B2A15810261.pas.ms.script' // DailyTest
  ;
  : Children
-   @ ( ME_4B2A50570311 // TestGlobals
- ) .SequenceCode.It
+   Seq: ( ME_4B2A50570311 // TestGlobals
+ )
  ; // Children
  : Generators
- @ (
+ Seq: (
  gen_pas.script
  gen_pas.script.runner
- ) .SequenceCode.It
+ )
  ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\Daily'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\Daily'
  CONST pas.script:Path 'shared\models\NewSchool\Scripts\4B2A4FFC0126.pas.ms.script'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
  CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\4B2A4FFC0126.pas.ms.script.runner'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\common\components\rtl\Garant\Daily'
 
 ref; // ME_4B2A4FFC0126 Environment

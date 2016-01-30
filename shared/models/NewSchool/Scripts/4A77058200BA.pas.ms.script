@@ -1,0 +1,1455 @@
+// Editions 4A77058200BA VCMControls Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4A77058200BA
+
+FORWARD ME_4A7705AD01AB
+
+FORWARD ME_4C7BAEB4010E
+
+: ME_4C7BAED10308
+ CONST UID '4C7BAED10308'
+ CONST Name 'ShowChanges'
+ CONST Class class_Class
+ : Stereotype st_VCMOperationState ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Показать изменения' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_4C7BAEB4010E // CompareEditions
+ ;
+ CONST "Checked" 'undefined'
+ CONST "Enabled" 'undefined'
+ CONST "Visible" 'undefined'
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\View'
+
+ref; // ME_4C7BAED10308 ShowChanges
+
+: ME_4C7BAEB4010E
+ CONST UID '4C7BAEB4010E'
+ CONST Name 'CompareEditions'
+ CONST Class class_Class
+ : Stereotype st_VCMOperation ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Сравнение редакций' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_4A7705AD01AB // Document
+ ;
+ : Children
+   Seq: ( ME_4C7BAED10308 // ShowChanges
+ )
+ ; // Children
+ CONST "AutoFocus" false
+ CONST "AutoLock" false
+ CONST "LongProcess" false
+ CONST "ShowInContextMenu" 'undefined'
+ CONST "ShowInToolbar" 'undefined'
+ CONST "has states" true
+ CONST "is FormActivate" false
+ CONST "is query" false
+ CONST "no prefix" false
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\View'
+
+ref; // ME_4C7BAEB4010E CompareEditions
+
+: ME_4A7705AD01AB
+ CONST UID '4A7705AD01AB'
+ CONST Name 'Document'
+ CONST Class class_Class
+ : Stereotype st_VCMOperations ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Документ' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4A77058200BA // Editions
+ ;
+ : Children
+   Seq: ( ME_4C7BAEB4010E // CompareEditions
+ )
+ ; // Children
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\View'
+
+ref; // ME_4A7705AD01AB Document
+
+FORWARD ME_4DD125D3009F
+
+: ME_4DD1260D02D1
+ CONST UID '4DD1260D02D1'
+ CONST Name 'ShowChanges'
+ CONST Class class_Class
+ : Stereotype st_VCMOperation ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Показать изменения' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_4DD125D3009F // Document$ShowChanges
+ ;
+ CONST "AutoFocus" false
+ CONST "AutoLock" false
+ CONST "LongProcess" false
+ CONST "ShowInContextMenu" 'undefined'
+ CONST "ShowInToolbar" 'undefined'
+ CONST "has states" true
+ CONST "is FormActivate" false
+ CONST "is query" false
+ CONST "no prefix" false
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\View'
+
+ref; // ME_4DD1260D02D1 ShowChanges
+
+: ME_4DD125D3009F
+ CONST UID '4DD125D3009F'
+ CONST Name 'Document'
+ CONST Class class_Class
+ : Stereotype st_VCMOperations ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Документ' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4A77058200BA // Editions
+ ;
+ : Children
+   Seq: ( ME_4DD1260D02D1 // ShowChanges
+ )
+ ; // Children
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\View'
+
+ref; // ME_4DD125D3009F Document$ShowChanges
+
+FORWARD ME_4DDCBA9A0016
+
+: ME_4DDCBABC03B7
+ CONST UID '4DDCBABC03B7'
+ CONST Name 'ViewChangedFragments'
+ CONST Class class_Class
+ : Stereotype st_VCMOperation ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Обзор изменений документа' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_4DDCBA9A0016 // Document$ViewChangedFragments
+ ;
+ CONST "AutoFocus" false
+ CONST "AutoLock" false
+ CONST "LongProcess" false
+ CONST "ShowInContextMenu" false
+ CONST "ShowInToolbar" true
+ CONST "has states" false
+ CONST "is FormActivate" false
+ CONST "is query" false
+ CONST "no prefix" false
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\View'
+
+ref; // ME_4DDCBABC03B7 ViewChangedFragments
+
+: ME_4DDCBA9A0016
+ CONST UID '4DDCBA9A0016'
+ CONST Name 'Document'
+ CONST Class class_Class
+ : Stereotype st_VCMOperations ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Документ' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4A77058200BA // Editions
+ ;
+ : Children
+   Seq: ( ME_4DDCBABC03B7 // ViewChangedFragments
+ )
+ ; // Children
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\View'
+
+ref; // ME_4DDCBA9A0016 Document$ViewChangedFragments
+
+FORWARD ME_4E8B360E006C
+
+: ME_4AE9D38A02DA
+ CONST UID '4AE9D38A02DA'
+ CONST Name 'SetPosition'
+ CONST Class class_Operation
+ : Stereotype st_InternalOperation::Operation ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_4E8B360E006C // Document$SetPosition
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+ CONST "AutoFocus" false
+ CONST "AutoLock" false
+ CONST "LongProcess" false
+ CONST "Needs Broadcast" false
+ CONST "has states" false
+ CONST "is FormActivate" false
+ CONST "is query" true
+ CONST "no prefix" false
+
+ref; // ME_4AE9D38A02DA SetPosition
+
+: ME_4E8B360E006C
+ CONST UID '4E8B360E006C'
+ CONST Name 'Document'
+ CONST Class class_Class
+ : Stereotype st_VCMFacet ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4A77058200BA // Editions
+ ;
+ : Implements
+   Seq: ( WL 'ME_4E8B2A6701A5' '484900780017.pas.ms.script' // Из просмотра изменений документа должна быть возможность переключится в сравнение редакций
+ WL 'ME_4E8B3702025D' '484900780017.pas.ms.script' // Если в ссылке со скриптом приехал Sub, то надо переходить на этот Sub после выполнения скрипта
+ )
+ ; // Implements
+ : Operations
+   Seq: ( ME_4AE9D38A02DA // SetPosition
+ )
+ ; // Operations
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\View'
+
+ref; // ME_4E8B360E006C Document$SetPosition
+
+FORWARD ME_4E8C3C6C0244
+
+: ME_4B1E37CE00C1
+ CONST UID '4B1E37CE00C1'
+ CONST Name 'ReturnToDocument'
+ CONST Class class_Operation
+ %SUMMARY 'Вернуться в текст документа' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_4E8C3C6C0244 // Edition
+ ;
+ CONST "AutoFocus" false
+ CONST "AutoLock" false
+ CONST "LongProcess" false
+ CONST "ShowInContextMenu" 'undefined'
+ CONST "ShowInToolbar" 'undefined'
+ CONST "has states" false
+ CONST "is FormActivate" false
+ CONST "is query" false
+ CONST "no prefix" false
+
+ref; // ME_4B1E37CE00C1 ReturnToDocument
+
+: ME_4E8C3C6C0244
+ CONST UID '4E8C3C6C0244'
+ CONST Name 'Edition'
+ CONST Class class_Class
+ : Stereotype st_VCMOperations ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Редакция' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4A77058200BA // Editions
+ ;
+ : Operations
+   Seq: ( ME_4B1E37CE00C1 // ReturnToDocument
+ )
+ ; // Operations
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\View'
+
+ref; // ME_4E8C3C6C0244 Edition
+
+FORWARD ME_4F991E420079
+
+: ME_4B506F4D0196
+ CONST UID '4B506F4D0196'
+ CONST Name 'GetParaForPositionning'
+ CONST Class class_Operation
+ : Stereotype st_InternalOperation::Operation ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_4F991E420079 // Document$GetParaForPositioning
+ ;
+ : Target WL 'ME_4A7FC9C9008F' '4912DD020283.pas.ms.script' // IeeLeafPara
+ ;
+ CONST "AutoFocus" false
+ CONST "AutoLock" false
+ CONST "LongProcess" false
+ CONST "Needs Broadcast" false
+ CONST "has states" false
+ CONST "is FormActivate" false
+ CONST "is query" false
+ CONST "no prefix" false
+
+ref; // ME_4B506F4D0196 GetParaForPositionning
+
+: ME_4AE9D38A02DA_ME_4F991E420079
+ CONST UID '4AE9D38A02DA'
+ CONST Name 'SetPosition'
+ : Original ME_4AE9D38A02DA // SetPosition
+ ;
+ : Implementor ME_4F991E420079 // Document$GetParaForPositioning
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "AutoFocus" false
+ CONST "AutoLock" false
+ CONST "LongProcess" false
+ CONST "Needs Broadcast" false
+ CONST "has states" false
+ CONST "is FormActivate" false
+ CONST "is query" true
+ CONST "no prefix" false
+ref; // ME_4AE9D38A02DA_ME_4F991E420079 SetPosition
+
+: ME_4F991E420079
+ CONST UID '4F991E420079'
+ CONST Name 'Document'
+ CONST Class class_Class
+ : Stereotype st_VCMFacet ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4A77058200BA // Editions
+ ;
+ : Inherits
+   Seq: ( ME_4E8B360E006C // Document$SetPosition
+ )
+ ; // Inherits
+ : Implements
+   Seq: ( WL 'ME_4F9926180136' '484900780017.pas.ms.script' // Если из списка редакций открывается ОИД или СР, то по возможности должен сохраняться верхний видимый параграф
+ )
+ ; // Implements
+ : Operations
+   Seq: ( ME_4B506F4D0196 // GetParaForPositionning
+ )
+ ; // Operations
+ : Implemented
+   Seq: ( ME_4AE9D38A02DA_ME_4F991E420079 // SetPosition
+ )
+ ; // Implemented
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\View'
+
+ref; // ME_4F991E420079 Document$GetParaForPositioning
+
+FORWARD ME_99FC3411E852
+
+: ME_C43096EE1AF9
+ CONST UID 'C43096EE1AF9'
+ CONST Name 'PointID'
+ CONST IsSummoned true
+ CONST Class class_Attribute
+ : Stereotype st_readonly::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_agr
+ : Parent ME_99FC3411E852 // IDocument_SetPosition_Params
+ ;
+ : Target WL 'ME_46A618AF0053' '4AB0C3C60310.pas.ms.script' // Cardinal
+ ;
+ CONST "pm" false
+
+ref; // ME_C43096EE1AF9 PointID
+
+: ME_BC389FCA1CEC
+ CONST UID 'BC389FCA1CEC'
+ CONST Name 'PointType'
+ CONST IsSummoned true
+ CONST Class class_Attribute
+ : Stereotype st_readonly::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_agr
+ : Parent ME_99FC3411E852 // IDocument_SetPosition_Params
+ ;
+ : Target WL 'ME_491B32C1015D' '47F2170002B2.pas.ms.script' // TDocumentPositionType
+ ;
+ CONST "pm" false
+
+ref; // ME_BC389FCA1CEC PointType
+
+: ME_A79B573AF449
+ CONST UID 'A79B573AF449'
+ CONST Name 'UserType'
+ CONST IsSummoned true
+ CONST Class class_Attribute
+ : Stereotype st_readonly::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_agr
+ : Parent ME_99FC3411E852 // IDocument_SetPosition_Params
+ ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+ CONST "pm" false
+
+ref; // ME_A79B573AF449 UserType
+
+: ME_4E4FEC1E508B
+ CONST UID '4E4FEC1E508B'
+ CONST Name 'ResultValue'
+ CONST IsSummoned true
+ CONST Class class_Attribute
+ : Stereotype st_property::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_agr
+ : Parent ME_99FC3411E852 // IDocument_SetPosition_Params
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+ CONST "pm" false
+
+ref; // ME_4E4FEC1E508B ResultValue
+
+: ME_99FC3411E852
+ CONST UID '99FC3411E852'
+ CONST GUID '1787C467-17B6-4E3F-B610-EF24112F0BBE'
+ CONST Name 'IDocument_SetPosition_Params'
+ CONST IsSummoned true
+ CONST Class class_Class
+ : Stereotype st_Facet ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Параметры для операции Document.SetPosition' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4A77058200BA // Editions
+ ;
+ : Attributes
+   Seq: ( ME_C43096EE1AF9 // PointID
+ ME_BC389FCA1CEC // PointType
+ ME_A79B573AF449 // UserType
+ ME_4E4FEC1E508B // ResultValue
+ )
+ ; // Attributes
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\View'
+ CONST extprop:rc:SelfName 'Document_SetPosition_Params'
+ CONST extprop:rc:isAcceptableForScripts true
+
+ref; // ME_99FC3411E852 IDocument_SetPosition_Params
+
+FORWARD ME_D2D41F3E8BA1
+
+: ME_99024C651FBE
+ CONST UID '99024C651FBE'
+ CONST Name 'f_PointID'
+ CONST IsSummoned true
+ CONST Class class_Attribute
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_ref
+ : Parent ME_D2D41F3E8BA1 // TDocument_SetPosition_Params
+ ;
+ : Target WL 'ME_46A618AF0053' '4AB0C3C60310.pas.ms.script' // Cardinal
+ ;
+
+ref; // ME_99024C651FBE f_PointID
+
+: ME_E27274A08A03
+ CONST UID 'E27274A08A03'
+ CONST Name 'f_PointType'
+ CONST IsSummoned true
+ CONST Class class_Attribute
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_ref
+ : Parent ME_D2D41F3E8BA1 // TDocument_SetPosition_Params
+ ;
+ : Target WL 'ME_491B32C1015D' '47F2170002B2.pas.ms.script' // TDocumentPositionType
+ ;
+
+ref; // ME_E27274A08A03 f_PointType
+
+: ME_EB7A33D3350E
+ CONST UID 'EB7A33D3350E'
+ CONST Name 'f_UserType'
+ CONST IsSummoned true
+ CONST Class class_Attribute
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_ref
+ : Parent ME_D2D41F3E8BA1 // TDocument_SetPosition_Params
+ ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+
+ref; // ME_EB7A33D3350E f_UserType
+
+: ME_2FA4D5E7C5A9
+ CONST UID '2FA4D5E7C5A9'
+ CONST Name 'f_ResultValue'
+ CONST IsSummoned true
+ CONST Class class_Attribute
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_ref
+ : Parent ME_D2D41F3E8BA1 // TDocument_SetPosition_Params
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+
+ref; // ME_2FA4D5E7C5A9 f_ResultValue
+
+: ME_5B9CB1119F50
+ CONST UID '5B9CB1119F50'
+ CONST Name 'aPointID'
+ CONST IsSummoned true
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46A618AF0053' '4AB0C3C60310.pas.ms.script' // Cardinal
+ ;
+
+ref; // ME_5B9CB1119F50 aPointID
+
+: ME_5B9CB1119F51
+ CONST UID '5B9CB1119F51'
+ CONST Name 'aPointType'
+ CONST IsSummoned true
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_491B32C1015D' '47F2170002B2.pas.ms.script' // TDocumentPositionType
+ ;
+
+ref; // ME_5B9CB1119F51 aPointType
+
+: ME_5B9CB1119F52
+ CONST UID '5B9CB1119F52'
+ CONST Name 'aUserType'
+ CONST IsSummoned true
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+
+ref; // ME_5B9CB1119F52 aUserType
+
+: ME_90E2ACA44431
+ CONST UID '90E2ACA44431'
+ CONST Name 'Create'
+ CONST IsSummoned true
+ CONST Class class_Operation
+ : Stereotype st_ctor::Operation ;
+ %SUMMARY 'Конструктор TDocument_SetPosition_Params' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_D2D41F3E8BA1 // TDocument_SetPosition_Params
+ ;
+ : Parameters
+   Seq: ( ME_5B9CB1119F50 // aPointID
+ ME_5B9CB1119F51 // aPointType
+ ME_5B9CB1119F52 // aUserType
+ )
+ ; // Parameters
+
+ref; // ME_90E2ACA44431 Create
+
+: ME_5D90C06BC667
+ CONST UID '5D90C06BC667'
+ CONST Name 'aPointID'
+ CONST IsSummoned true
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46A618AF0053' '4AB0C3C60310.pas.ms.script' // Cardinal
+ ;
+
+ref; // ME_5D90C06BC667 aPointID
+
+: ME_5D90C06BC668
+ CONST UID '5D90C06BC668'
+ CONST Name 'aPointType'
+ CONST IsSummoned true
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_491B32C1015D' '47F2170002B2.pas.ms.script' // TDocumentPositionType
+ ;
+
+ref; // ME_5D90C06BC668 aPointType
+
+: ME_5D90C06BC669
+ CONST UID '5D90C06BC669'
+ CONST Name 'aUserType'
+ CONST IsSummoned true
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+
+ref; // ME_5D90C06BC669 aUserType
+
+: ME_62246923B494
+ CONST UID '62246923B494'
+ CONST Name 'Make'
+ CONST IsSummoned true
+ CONST Class class_Operation
+ : Stereotype st_factory::Operation ;
+ %SUMMARY 'Фабрика TDocument_SetPosition_Params' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_D2D41F3E8BA1 // TDocument_SetPosition_Params
+ ;
+ : Parameters
+   Seq: ( ME_5D90C06BC667 // aPointID
+ ME_5D90C06BC668 // aPointType
+ ME_5D90C06BC669 // aUserType
+ )
+ ; // Parameters
+ CONST "check nil" false
+ CONST "need AfterCreate" 'undefined'
+ CONST "need Aggregate" 'undefined'
+ CONST "need As" false
+
+ref; // ME_62246923B494 Make
+
+: ME_4E4FEC1E508B_ME_D2D41F3E8BA1
+ CONST UID '4E4FEC1E508B'
+ CONST Name 'ResultValue'
+ : Original ME_4E4FEC1E508B // ResultValue
+ ;
+ : Implementor ME_D2D41F3E8BA1 // TDocument_SetPosition_Params
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "pm" false
+ref; // ME_4E4FEC1E508B_ME_D2D41F3E8BA1 ResultValue
+
+: ME_A79B573AF449_ME_D2D41F3E8BA1
+ CONST UID 'A79B573AF449'
+ CONST Name 'UserType'
+ : Original ME_A79B573AF449 // UserType
+ ;
+ : Implementor ME_D2D41F3E8BA1 // TDocument_SetPosition_Params
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "pm" false
+ref; // ME_A79B573AF449_ME_D2D41F3E8BA1 UserType
+
+: ME_BC389FCA1CEC_ME_D2D41F3E8BA1
+ CONST UID 'BC389FCA1CEC'
+ CONST Name 'PointType'
+ : Original ME_BC389FCA1CEC // PointType
+ ;
+ : Implementor ME_D2D41F3E8BA1 // TDocument_SetPosition_Params
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "pm" false
+ref; // ME_BC389FCA1CEC_ME_D2D41F3E8BA1 PointType
+
+: ME_C43096EE1AF9_ME_D2D41F3E8BA1
+ CONST UID 'C43096EE1AF9'
+ CONST Name 'PointID'
+ : Original ME_C43096EE1AF9 // PointID
+ ;
+ : Implementor ME_D2D41F3E8BA1 // TDocument_SetPosition_Params
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "pm" false
+ref; // ME_C43096EE1AF9_ME_D2D41F3E8BA1 PointID
+
+: ME_D2D41F3E8BA1
+ CONST UID 'D2D41F3E8BA1'
+ CONST Name 'TDocument_SetPosition_Params'
+ CONST IsSummoned true
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Реализация IDocument_SetPosition_Params' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ : Parent ME_4A77058200BA // Editions
+ ;
+ : Inherits
+   Seq: ( WL 'ME_4AE5CA2D0034' '47913B47006E.pas.ms.script' // Tl3CProtoObject
+ )
+ ; // Inherits
+ : Implements
+   Seq: ( ME_99FC3411E852 // IDocument_SetPosition_Params
+ )
+ ; // Implements
+ : Attributes
+   Seq: ( ME_99024C651FBE // f_PointID
+ ME_E27274A08A03 // f_PointType
+ ME_EB7A33D3350E // f_UserType
+ ME_2FA4D5E7C5A9 // f_ResultValue
+ )
+ ; // Attributes
+ : Operations
+   Seq: ( ME_90E2ACA44431 // Create
+ ME_62246923B494 // Make
+ )
+ ; // Operations
+ : Implemented
+   Seq: ( ME_4E4FEC1E508B_ME_D2D41F3E8BA1 // ResultValue
+ ME_A79B573AF449_ME_D2D41F3E8BA1 // UserType
+ ME_BC389FCA1CEC_ME_D2D41F3E8BA1 // PointType
+ ME_C43096EE1AF9_ME_D2D41F3E8BA1 // PointID
+ )
+ ; // Implemented
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\View'
+ CONST extprop:rc:SelfName 'Document_SetPosition_Params'
+ CONST extprop:rc:isAcceptableForScripts true
+
+ref; // ME_D2D41F3E8BA1 TDocument_SetPosition_Params
+
+FORWARD ME_293DA96B22E7
+
+: ME_53A73DAACF11
+ CONST UID '53A73DAACF11'
+ CONST Name 'aTarget'
+ CONST IsSummoned true
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_4991AD08005B' '4683F37902CF.pas.ms.script' // IvcmEntity
+ ;
+
+ref; // ME_53A73DAACF11 aTarget
+
+: ME_53A73DAACF12
+ CONST UID '53A73DAACF12'
+ CONST Name 'aPointID'
+ CONST IsSummoned true
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46A618AF0053' '4AB0C3C60310.pas.ms.script' // Cardinal
+ ;
+
+ref; // ME_53A73DAACF12 aPointID
+
+: ME_53A73DAACF13
+ CONST UID '53A73DAACF13'
+ CONST Name 'aPointType'
+ CONST IsSummoned true
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_491B32C1015D' '47F2170002B2.pas.ms.script' // TDocumentPositionType
+ ;
+ CONST Value 'Sub'
+ : ValueType WL 'ME_491B32C1015D' '47F2170002B2.pas.ms.script' // TDocumentPositionType
+ ;
+ CONST extprop:pas:Value 'bsTypesNew.dptSub'
+
+ref; // ME_53A73DAACF13 aPointType
+
+: ME_53A73DAACF14
+ CONST UID '53A73DAACF14'
+ CONST Name 'aUserType'
+ CONST IsSummoned true
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+ CONST Value 0
+ : ValueType WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+ CONST extprop:pas:Value 0
+
+ref; // ME_53A73DAACF14 aUserType
+
+: ME_2DF9B19B191F
+ CONST UID '2DF9B19B191F'
+ CONST Name 'Call'
+ CONST IsSummoned true
+ CONST Class class_Operation
+ : Stereotype st_static::Operation ;
+ %SUMMARY 'Вызов операции Document.SetPosition у сущности' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_293DA96B22E7 // Op_Document_SetPosition
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+ : Parameters
+   Seq: ( ME_53A73DAACF11 // aTarget
+ ME_53A73DAACF12 // aPointID
+ ME_53A73DAACF13 // aPointType
+ ME_53A73DAACF14 // aUserType
+ )
+ ; // Parameters
+ CONST extprop:pas:Value false
+
+ref; // ME_2DF9B19B191F Call
+
+: ME_C67EBD562151
+ CONST UID 'C67EBD562151'
+ CONST Name 'aTarget'
+ CONST IsSummoned true
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_49930CC501C9' '4683F37902CF.pas.ms.script' // IvcmAggregate
+ ;
+
+ref; // ME_C67EBD562151 aTarget
+
+: ME_C67EBD562152
+ CONST UID 'C67EBD562152'
+ CONST Name 'aPointID'
+ CONST IsSummoned true
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46A618AF0053' '4AB0C3C60310.pas.ms.script' // Cardinal
+ ;
+
+ref; // ME_C67EBD562152 aPointID
+
+: ME_C67EBD562153
+ CONST UID 'C67EBD562153'
+ CONST Name 'aPointType'
+ CONST IsSummoned true
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_491B32C1015D' '47F2170002B2.pas.ms.script' // TDocumentPositionType
+ ;
+ CONST Value 'Sub'
+ : ValueType WL 'ME_491B32C1015D' '47F2170002B2.pas.ms.script' // TDocumentPositionType
+ ;
+ CONST extprop:pas:Value 'bsTypesNew.dptSub'
+
+ref; // ME_C67EBD562153 aPointType
+
+: ME_C67EBD562154
+ CONST UID 'C67EBD562154'
+ CONST Name 'aUserType'
+ CONST IsSummoned true
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+ CONST Value 0
+ : ValueType WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+ CONST extprop:pas:Value 0
+
+ref; // ME_C67EBD562154 aUserType
+
+: ME_5E397189A36F
+ CONST UID '5E397189A36F'
+ CONST Name 'Call'
+ CONST IsSummoned true
+ CONST Class class_Operation
+ : Stereotype st_static::Operation ;
+ %SUMMARY 'Вызов операции Document.SetPosition у агрегации' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_293DA96B22E7 // Op_Document_SetPosition
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+ : Parameters
+   Seq: ( ME_C67EBD562151 // aTarget
+ ME_C67EBD562152 // aPointID
+ ME_C67EBD562153 // aPointType
+ ME_C67EBD562154 // aUserType
+ )
+ ; // Parameters
+ CONST extprop:pas:Value false
+
+ref; // ME_5E397189A36F Call
+
+: ME_893B3EBC865F
+ CONST UID '893B3EBC865F'
+ CONST Name 'aTarget'
+ CONST IsSummoned true
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_4914746C019E' '4683F37902CF.pas.ms.script' // IvcmEntityForm
+ ;
+
+ref; // ME_893B3EBC865F aTarget
+
+: ME_893B3EBC8660
+ CONST UID '893B3EBC8660'
+ CONST Name 'aPointID'
+ CONST IsSummoned true
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46A618AF0053' '4AB0C3C60310.pas.ms.script' // Cardinal
+ ;
+
+ref; // ME_893B3EBC8660 aPointID
+
+: ME_893B3EBC8661
+ CONST UID '893B3EBC8661'
+ CONST Name 'aPointType'
+ CONST IsSummoned true
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_491B32C1015D' '47F2170002B2.pas.ms.script' // TDocumentPositionType
+ ;
+ CONST Value 'Sub'
+ : ValueType WL 'ME_491B32C1015D' '47F2170002B2.pas.ms.script' // TDocumentPositionType
+ ;
+ CONST extprop:pas:Value 'bsTypesNew.dptSub'
+
+ref; // ME_893B3EBC8661 aPointType
+
+: ME_893B3EBC8662
+ CONST UID '893B3EBC8662'
+ CONST Name 'aUserType'
+ CONST IsSummoned true
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+ CONST Value 0
+ : ValueType WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+ CONST extprop:pas:Value 0
+
+ref; // ME_893B3EBC8662 aUserType
+
+: ME_8DE7FC7DDB65
+ CONST UID '8DE7FC7DDB65'
+ CONST Name 'Call'
+ CONST IsSummoned true
+ CONST Class class_Operation
+ : Stereotype st_static::Operation ;
+ %SUMMARY 'Вызов операции Document.SetPosition у формы' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_293DA96B22E7 // Op_Document_SetPosition
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+ : Parameters
+   Seq: ( ME_893B3EBC865F // aTarget
+ ME_893B3EBC8660 // aPointID
+ ME_893B3EBC8661 // aPointType
+ ME_893B3EBC8662 // aUserType
+ )
+ ; // Parameters
+ CONST extprop:pas:Value false
+
+ref; // ME_8DE7FC7DDB65 Call
+
+: ME_4BB001647424
+ CONST UID '4BB001647424'
+ CONST Name 'aTarget'
+ CONST IsSummoned true
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_49525C400141' '4683F37902CF.pas.ms.script' // IvcmContainer
+ ;
+
+ref; // ME_4BB001647424 aTarget
+
+: ME_4BB001647425
+ CONST UID '4BB001647425'
+ CONST Name 'aPointID'
+ CONST IsSummoned true
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46A618AF0053' '4AB0C3C60310.pas.ms.script' // Cardinal
+ ;
+
+ref; // ME_4BB001647425 aPointID
+
+: ME_4BB001647426
+ CONST UID '4BB001647426'
+ CONST Name 'aPointType'
+ CONST IsSummoned true
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_491B32C1015D' '47F2170002B2.pas.ms.script' // TDocumentPositionType
+ ;
+ CONST Value 'Sub'
+ : ValueType WL 'ME_491B32C1015D' '47F2170002B2.pas.ms.script' // TDocumentPositionType
+ ;
+ CONST extprop:pas:Value 'bsTypesNew.dptSub'
+
+ref; // ME_4BB001647426 aPointType
+
+: ME_4BB001647427
+ CONST UID '4BB001647427'
+ CONST Name 'aUserType'
+ CONST IsSummoned true
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+ CONST Value 0
+ : ValueType WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+ CONST extprop:pas:Value 0
+
+ref; // ME_4BB001647427 aUserType
+
+: ME_A6607DA320A0
+ CONST UID 'A6607DA320A0'
+ CONST Name 'Call'
+ CONST IsSummoned true
+ CONST Class class_Operation
+ : Stereotype st_static::Operation ;
+ %SUMMARY 'Вызов операции Document.SetPosition у контейнера' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_293DA96B22E7 // Op_Document_SetPosition
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+ : Parameters
+   Seq: ( ME_4BB001647424 // aTarget
+ ME_4BB001647425 // aPointID
+ ME_4BB001647426 // aPointType
+ ME_4BB001647427 // aUserType
+ )
+ ; // Parameters
+ CONST extprop:pas:Value false
+
+ref; // ME_A6607DA320A0 Call
+
+: ME_293DA96B22E7
+ CONST UID '293DA96B22E7'
+ CONST Name 'Op_Document_SetPosition'
+ CONST IsSummoned true
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Класс для вызова операции Document.SetPosition' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4A77058200BA // Editions
+ ;
+ : Operations
+   Seq: ( ME_2DF9B19B191F // Call
+ ME_5E397189A36F // Call
+ ME_8DE7FC7DDB65 // Call
+ ME_A6607DA320A0 // Call
+ )
+ ; // Operations
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\View'
+ CONST extprop:rc:isAcceptableForScripts true
+
+ref; // ME_293DA96B22E7 Op_Document_SetPosition
+
+FORWARD ME_E1194B4C02D2
+
+: ME_F9C055C57DF5
+ CONST UID 'F9C055C57DF5'
+ CONST Name 'ResultValue'
+ CONST IsSummoned true
+ CONST Class class_Attribute
+ : Stereotype st_property::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_agr
+ : Parent ME_E1194B4C02D2 // IDocument_GetParaForPositionning_Params
+ ;
+ : Target WL 'ME_4A7FC9C9008F' '4912DD020283.pas.ms.script' // IeeLeafPara
+ ;
+ CONST "pm" false
+
+ref; // ME_F9C055C57DF5 ResultValue
+
+: ME_E1194B4C02D2
+ CONST UID 'E1194B4C02D2'
+ CONST GUID 'E79D0E07-76C9-4606-9FE2-95A75EDF5769'
+ CONST Name 'IDocument_GetParaForPositionning_Params'
+ CONST IsSummoned true
+ CONST Class class_Class
+ : Stereotype st_Facet ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Параметры для операции Document.GetParaForPositionning' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4A77058200BA // Editions
+ ;
+ : Attributes
+   Seq: ( ME_F9C055C57DF5 // ResultValue
+ )
+ ; // Attributes
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\View'
+ CONST extprop:rc:SelfName 'Document_GetParaForPositionning_Params'
+ CONST extprop:rc:isAcceptableForScripts true
+
+ref; // ME_E1194B4C02D2 IDocument_GetParaForPositionning_Params
+
+FORWARD ME_5DB76F402B0D
+
+: ME_E971A398B1C9
+ CONST UID 'E971A398B1C9'
+ CONST Name 'f_ResultValue'
+ CONST IsSummoned true
+ CONST Class class_Attribute
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_ref
+ : Parent ME_5DB76F402B0D // TDocument_GetParaForPositionning_Params
+ ;
+ : Target WL 'ME_4A7FC9C9008F' '4912DD020283.pas.ms.script' // IeeLeafPara
+ ;
+
+ref; // ME_E971A398B1C9 f_ResultValue
+
+: ME_CACE1BA7DBBA
+ CONST UID 'CACE1BA7DBBA'
+ CONST Name 'Create'
+ CONST IsSummoned true
+ CONST Class class_Operation
+ : Stereotype st_ctor::Operation ;
+ %SUMMARY 'Конструктор TDocument_GetParaForPositionning_Params' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_5DB76F402B0D // TDocument_GetParaForPositionning_Params
+ ;
+
+ref; // ME_CACE1BA7DBBA Create
+
+: ME_3E431F2FC980
+ CONST UID '3E431F2FC980'
+ CONST Name 'Make'
+ CONST IsSummoned true
+ CONST Class class_Operation
+ : Stereotype st_factory::Operation ;
+ %SUMMARY 'Фабрика TDocument_GetParaForPositionning_Params' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_5DB76F402B0D // TDocument_GetParaForPositionning_Params
+ ;
+ CONST "check nil" false
+ CONST "need AfterCreate" 'undefined'
+ CONST "need Aggregate" 'undefined'
+ CONST "need As" false
+
+ref; // ME_3E431F2FC980 Make
+
+: ME_F9C055C57DF5_ME_5DB76F402B0D
+ CONST UID 'F9C055C57DF5'
+ CONST Name 'ResultValue'
+ : Original ME_F9C055C57DF5 // ResultValue
+ ;
+ : Implementor ME_5DB76F402B0D // TDocument_GetParaForPositionning_Params
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "pm" false
+ref; // ME_F9C055C57DF5_ME_5DB76F402B0D ResultValue
+
+: ME_5000565C019C_ME_5DB76F402B0D
+ CONST UID '5000565C019C'
+ CONST Name 'ClearFields'
+ : Original WL 'ME_5000565C019C' '47913B47006E.pas.ms.script' // ClearFields
+ ;
+ : Implementor ME_5DB76F402B0D // TDocument_GetParaForPositionning_Params
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_5000565C019C_ME_5DB76F402B0D ClearFields
+
+: ME_5DB76F402B0D
+ CONST UID '5DB76F402B0D'
+ CONST Name 'TDocument_GetParaForPositionning_Params'
+ CONST IsSummoned true
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Реализация IDocument_GetParaForPositionning_Params' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ : Parent ME_4A77058200BA // Editions
+ ;
+ : Inherits
+   Seq: ( WL 'ME_4AE5CA2D0034' '47913B47006E.pas.ms.script' // Tl3CProtoObject
+ )
+ ; // Inherits
+ : Implements
+   Seq: ( ME_E1194B4C02D2 // IDocument_GetParaForPositionning_Params
+ )
+ ; // Implements
+ : Attributes
+   Seq: ( ME_E971A398B1C9 // f_ResultValue
+ )
+ ; // Attributes
+ : Operations
+   Seq: ( ME_CACE1BA7DBBA // Create
+ ME_3E431F2FC980 // Make
+ )
+ ; // Operations
+ : Implemented
+   Seq: ( ME_F9C055C57DF5_ME_5DB76F402B0D // ResultValue
+ )
+ ; // Implemented
+ : Overridden
+   Seq: ( ME_5000565C019C_ME_5DB76F402B0D // ClearFields
+ )
+ ; // Overridden
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\View'
+ CONST extprop:rc:SelfName 'Document_GetParaForPositionning_Params'
+ CONST extprop:rc:isAcceptableForScripts true
+
+ref; // ME_5DB76F402B0D TDocument_GetParaForPositionning_Params
+
+FORWARD ME_0E3B5BC0A746
+
+: ME_292F68166FC4
+ CONST UID '292F68166FC4'
+ CONST Name 'aTarget'
+ CONST IsSummoned true
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_4991AD08005B' '4683F37902CF.pas.ms.script' // IvcmEntity
+ ;
+
+ref; // ME_292F68166FC4 aTarget
+
+: ME_75783DA0214F
+ CONST UID '75783DA0214F'
+ CONST Name 'Call'
+ CONST IsSummoned true
+ CONST Class class_Operation
+ : Stereotype st_static::Operation ;
+ %SUMMARY 'Вызов операции Document.GetParaForPositionning у сущности' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_0E3B5BC0A746 // Op_Document_GetParaForPositionning
+ ;
+ : Target WL 'ME_4A7FC9C9008F' '4912DD020283.pas.ms.script' // IeeLeafPara
+ ;
+ : Parameters
+   Seq: ( ME_292F68166FC4 // aTarget
+ )
+ ; // Parameters
+
+ref; // ME_75783DA0214F Call
+
+: ME_FF3C8372F285
+ CONST UID 'FF3C8372F285'
+ CONST Name 'aTarget'
+ CONST IsSummoned true
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_49930CC501C9' '4683F37902CF.pas.ms.script' // IvcmAggregate
+ ;
+
+ref; // ME_FF3C8372F285 aTarget
+
+: ME_587BFA83ABA0
+ CONST UID '587BFA83ABA0'
+ CONST Name 'Call'
+ CONST IsSummoned true
+ CONST Class class_Operation
+ : Stereotype st_static::Operation ;
+ %SUMMARY 'Вызов операции Document.GetParaForPositionning у агрегации' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_0E3B5BC0A746 // Op_Document_GetParaForPositionning
+ ;
+ : Target WL 'ME_4A7FC9C9008F' '4912DD020283.pas.ms.script' // IeeLeafPara
+ ;
+ : Parameters
+   Seq: ( ME_FF3C8372F285 // aTarget
+ )
+ ; // Parameters
+
+ref; // ME_587BFA83ABA0 Call
+
+: ME_E5E72D4C8391
+ CONST UID 'E5E72D4C8391'
+ CONST Name 'aTarget'
+ CONST IsSummoned true
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_4914746C019E' '4683F37902CF.pas.ms.script' // IvcmEntityForm
+ ;
+
+ref; // ME_E5E72D4C8391 aTarget
+
+: ME_DFF5F48F7C0F
+ CONST UID 'DFF5F48F7C0F'
+ CONST Name 'Call'
+ CONST IsSummoned true
+ CONST Class class_Operation
+ : Stereotype st_static::Operation ;
+ %SUMMARY 'Вызов операции Document.GetParaForPositionning у формы' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_0E3B5BC0A746 // Op_Document_GetParaForPositionning
+ ;
+ : Target WL 'ME_4A7FC9C9008F' '4912DD020283.pas.ms.script' // IeeLeafPara
+ ;
+ : Parameters
+   Seq: ( ME_E5E72D4C8391 // aTarget
+ )
+ ; // Parameters
+
+ref; // ME_DFF5F48F7C0F Call
+
+: ME_2F5A107EFDB8
+ CONST UID '2F5A107EFDB8'
+ CONST Name 'aTarget'
+ CONST IsSummoned true
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_49525C400141' '4683F37902CF.pas.ms.script' // IvcmContainer
+ ;
+
+ref; // ME_2F5A107EFDB8 aTarget
+
+: ME_8D673BCDD23C
+ CONST UID '8D673BCDD23C'
+ CONST Name 'Call'
+ CONST IsSummoned true
+ CONST Class class_Operation
+ : Stereotype st_static::Operation ;
+ %SUMMARY 'Вызов операции Document.GetParaForPositionning у контейнера' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_0E3B5BC0A746 // Op_Document_GetParaForPositionning
+ ;
+ : Target WL 'ME_4A7FC9C9008F' '4912DD020283.pas.ms.script' // IeeLeafPara
+ ;
+ : Parameters
+   Seq: ( ME_2F5A107EFDB8 // aTarget
+ )
+ ; // Parameters
+
+ref; // ME_8D673BCDD23C Call
+
+: ME_0E3B5BC0A746
+ CONST UID '0E3B5BC0A746'
+ CONST Name 'Op_Document_GetParaForPositionning'
+ CONST IsSummoned true
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Класс для вызова операции Document.GetParaForPositionning' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4A77058200BA // Editions
+ ;
+ : Operations
+   Seq: ( ME_75783DA0214F // Call
+ ME_587BFA83ABA0 // Call
+ ME_DFF5F48F7C0F // Call
+ ME_8D673BCDD23C // Call
+ )
+ ; // Operations
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\View'
+ CONST extprop:rc:isAcceptableForScripts true
+
+ref; // ME_0E3B5BC0A746 Op_Document_GetParaForPositionning
+
+: ME_4A77058200BA
+ CONST UID '4A77058200BA'
+ CONST Name 'Editions'
+ CONST Class class_Category
+ : Stereotype st_VCMControls ;
+ %SUMMARY 'Работа с редакциями' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent WL 'ME_4A7C099B004F' '4A7C099B004F.pas.ms.script' // View
+ ;
+ : Children
+   Seq: ( ME_4A7705AD01AB // Document
+ ME_4DD125D3009F // Document$ShowChanges
+ ME_4DDCBA9A0016 // Document$ViewChangedFragments
+ ME_4E8B360E006C // Document$SetPosition
+ ME_4E8C3C6C0244 // Edition
+ ME_4F991E420079 // Document$GetParaForPositioning
+ ME_99FC3411E852 // IDocument_SetPosition_Params
+ ME_D2D41F3E8BA1 // TDocument_SetPosition_Params
+ ME_293DA96B22E7 // Op_Document_SetPosition
+ ME_E1194B4C02D2 // IDocument_GetParaForPositionning_Params
+ ME_5DB76F402B0D // TDocument_GetParaForPositionning_Params
+ ME_0E3B5BC0A746 // Op_Document_GetParaForPositionning
+ )
+ ; // Children
+ : Depends
+   Seq: ( WL 'ME_47F2170002B2' '47F2170002B2.pas.ms.script' // nsTypes
+ WL 'ME_484900780017' '484900780017.pas.ms.script' // Работа с документом
+ WL 'ME_4912DD020283' '4912DD020283.pas.ms.script' // eeInterfaces
+ WL 'ME_4914746C019E' '4683F37902CF.pas.ms.script' // IvcmEntityForm
+ WL 'ME_49525C400141' '4683F37902CF.pas.ms.script' // IvcmContainer
+ WL 'ME_4991AD08005B' '4683F37902CF.pas.ms.script' // IvcmEntity
+ WL 'ME_49930CC501C9' '4683F37902CF.pas.ms.script' // IvcmAggregate
+ WL 'ME_4AB0C3C60310' '4AB0C3C60310.pas.ms.script' // Sys
+ WL 'ME_4AE5CA2D0034' '47913B47006E.pas.ms.script' // Tl3CProtoObject
+ )
+ ; // Depends
+ CONST "is namespace" true
+ CONST "no hands" false
+ : Generators
+ Seq: (
+ gen_intf.pas
+ gen_pas.script
+ gen_pas.script.runner
+ )
+ ; // Generators
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View'
+ CONST intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\Base_Operations_Editions_Controls.pas'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View'
+ CONST pas.script:Path 'shared\models\NewSchool\Scripts\4A77058200BA.pas.ms.script'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\4A77058200BA.pas.ms.script.runner'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\View'
+ CONST extprop:pas:UnitName 'Base_Operations_Editions_Controls'
+
+ref; // ME_4A77058200BA Editions

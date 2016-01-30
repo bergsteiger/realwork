@@ -1,0 +1,1118 @@
+// nsFiltersInterfaces 4CAC58E50231 Interfaces Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4CAC58E50231
+
+FORWARD ME_499184BF03C8
+
+: ME_4991850C0199
+ CONST UID '4991850C0199'
+ CONST Name 'Tree'
+ CONST Class class_Attribute
+ : Stereotype st_readonly::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_lnk
+ : Parent ME_499184BF03C8 // InsFiltersContainer
+ ;
+ : Target WL 'ME_476BF13201C4' '476BF10A0280.pas.ms.script' // Il3Tree
+ ;
+ CONST "pm" true
+
+ref; // ME_4991850C0199 Tree
+
+: ME_4991855E01FB
+ CONST UID '4991855E01FB'
+ CONST Name 'PermanentFilters'
+ CONST Class class_Attribute
+ : Stereotype st_readonly::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_lnk
+ : Parent ME_499184BF03C8 // InsFiltersContainer
+ ;
+ : Target WL 'ME_45EEB14402F9' '45EEA48F011F.pas.ms.script' // FiltersFromQuery
+ ;
+ CONST "pm" true
+
+ref; // ME_4991855E01FB PermanentFilters
+
+: ME_499184BF03C8
+ CONST UID '499184BF03C8'
+ CONST GUID '11FAFA58-1C81-4E9C-A713-34D9A5880AB1'
+ CONST Name 'InsFiltersContainer'
+ CONST Class class_Class
+ : Stereotype st_Facet ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Конейнер фильтров' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4CAC58E50231 // nsFiltersInterfaces
+ ;
+ : Attributes
+   Seq: ( ME_4991850C0199 // Tree
+ ME_4991855E01FB // PermanentFilters
+ )
+ ; // Attributes
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Filters'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Filters'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\Filters'
+ CONST extprop:rc:SelfName 'FiltersContainer'
+ CONST extprop:rc:isAcceptableForScripts true
+
+ref; // ME_499184BF03C8 InsFiltersContainer
+
+FORWARD ME_499044E00044
+
+: ME_499044F60208
+ CONST UID '499044F60208'
+ CONST Name 'FiltersType'
+ CONST Class class_Attribute
+ : Stereotype st_readonly::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_lnk
+ : Parent ME_499044E00044 // InsFiltersTree
+ ;
+ : Target WL 'ME_47F5C59F0135' '47EA07FA02CE.pas.ms.script' // TbsListType
+ ;
+ CONST "pm" true
+
+ref; // ME_499044F60208 FiltersType
+
+: ME_499044E00044
+ CONST UID '499044E00044'
+ CONST GUID '0DCE9174-7D56-4EF7-A0A8-24DBEF00F4EA'
+ CONST Name 'InsFiltersTree'
+ CONST Class class_Class
+ : Stereotype st_Facet ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Дерево фильтров' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4CAC58E50231 // nsFiltersInterfaces
+ ;
+ : Attributes
+   Seq: ( ME_499044F60208 // FiltersType
+ )
+ ; // Attributes
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Filters'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Filters'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\Filters'
+ CONST extprop:rc:SelfName 'FiltersTree'
+ CONST extprop:rc:isAcceptableForScripts true
+
+ref; // ME_499044E00044 InsFiltersTree
+
+FORWARD ME_4991887A031F
+
+: ME_499189000111
+ CONST UID '499189000111'
+ CONST Name 'UsedStatus'
+ CONST Class class_Attribute
+ : Stereotype st_readonly::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_lnk
+ : Parent ME_4991887A031F // InsFilterNode
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+ CONST "pm" true
+
+ref; // ME_499189000111 UsedStatus
+
+: ME_4991890D03D6
+ CONST UID '4991890D03D6'
+ CONST Name 'DeletedStatus'
+ CONST Class class_Attribute
+ : Stereotype st_readonly::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_lnk
+ : Parent ME_4991887A031F // InsFilterNode
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+ CONST "pm" true
+
+ref; // ME_4991890D03D6 DeletedStatus
+
+: ME_4991891D0093
+ CONST UID '4991891D0093'
+ CONST Name 'AutoApplied'
+ CONST Class class_Attribute
+ : Stereotype st_property::Attribute ;
+ %SUMMARY 'постоянный фильтр, используется после каждого поиска' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_lnk
+ : Parent ME_4991887A031F // InsFilterNode
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+ CONST "pm" true
+
+ref; // ME_4991891D0093 AutoApplied
+
+: ME_4FD9E3F900B3
+ CONST UID '4FD9E3F900B3'
+ CONST Name 'ID'
+ CONST Class class_Attribute
+ : Stereotype st_readonly::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_lnk
+ : Parent ME_4991887A031F // InsFilterNode
+ ;
+ : Target WL 'ME_48FD996601CE' '4AB0C3C60310.pas.ms.script' // Longword
+ ;
+ CONST "pm" true
+
+ref; // ME_4FD9E3F900B3 ID
+
+: ME_4CAEEF3100F9
+ CONST UID '4CAEEF3100F9'
+ CONST Name 'CanModify'
+ CONST Class class_Operation
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_4991887A031F // InsFilterNode
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+
+ref; // ME_4CAEEF3100F9 CanModify
+
+: ME_4CB2FCFD029F
+ CONST UID '4CB2FCFD029F'
+ CONST Name 'MarkToDelete'
+ CONST Class class_Operation
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_4991887A031F // InsFilterNode
+ ;
+
+ref; // ME_4CB2FCFD029F MarkToDelete
+
+: ME_4CB55A3101E0
+ CONST UID '4CB55A3101E0'
+ CONST Name 'ValidateName'
+ CONST Class class_Operation
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_4991887A031F // InsFilterNode
+ ;
+
+ref; // ME_4CB55A3101E0 ValidateName
+
+: ME_4991887A031F
+ CONST UID '4991887A031F'
+ CONST GUID '3B9B8DD6-7A45-42A6-98CC-77E42A4F5899'
+ CONST Name 'InsFilterNode'
+ CONST Class class_Class
+ : Stereotype st_Facet ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Узел фильтра' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4CAC58E50231 // nsFiltersInterfaces
+ ;
+ : Attributes
+   Seq: ( ME_499189000111 // UsedStatus
+ ME_4991890D03D6 // DeletedStatus
+ ME_4991891D0093 // AutoApplied
+ ME_4FD9E3F900B3 // ID
+ )
+ ; // Attributes
+ : Operations
+   Seq: ( ME_4CAEEF3100F9 // CanModify
+ ME_4CB2FCFD029F // MarkToDelete
+ ME_4CB55A3101E0 // ValidateName
+ )
+ ; // Operations
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Filters'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Filters'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\Filters'
+ CONST extprop:rc:SelfName 'FilterNode'
+ CONST extprop:rc:isAcceptableForScripts true
+
+ref; // ME_4991887A031F InsFilterNode
+
+FORWARD ME_4CADA33B0257
+
+: ME_4CADA34D0108
+ CONST UID '4CADA34D0108'
+ CONST Name 'ftDocuments'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_4CADA33B0257 // TnsFiltersType
+ ;
+
+ref; // ME_4CADA34D0108 ftDocuments
+
+: ME_4CADA35E0305
+ CONST UID '4CADA35E0305'
+ CONST Name 'ftDrugs'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_4CADA33B0257 // TnsFiltersType
+ ;
+
+ref; // ME_4CADA35E0305 ftDrugs
+
+: ME_4CADA33B0257
+ CONST UID '4CADA33B0257'
+ CONST Name 'TnsFiltersType'
+ CONST Class class_Class
+ : Stereotype st_Enum ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4CAC58E50231 // nsFiltersInterfaces
+ ;
+ : Attributes
+   Seq: ( ME_4CADA34D0108 // ftDocuments
+ ME_4CADA35E0305 // ftDrugs
+ )
+ ; // Attributes
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Filters'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Filters'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\Filters'
+ CONST extprop:rc:isAcceptableForScripts true
+
+ref; // ME_4CADA33B0257 TnsFiltersType
+
+FORWARD ME_4F98240403BA
+
+: ME_4CB2B26B0365_ME_4F98240403BA
+ CONST UID '4CB2B26B0365'
+ CONST Name 'filters_changed'
+ : Original WL 'ME_4CB2B26B0365' '45EEA48F011F.pas.ms.script' // filters_changed
+ ;
+ : Implementor ME_4F98240403BA // InsFiltersListener
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_4CB2B26B0365_ME_4F98240403BA filters_changed
+
+: ME_4CB2B27F03C3_ME_4F98240403BA
+ CONST UID '4CB2B27F03C3'
+ CONST Name 'filter_name_changed'
+ : Original WL 'ME_4CB2B27F03C3' '45EEA48F011F.pas.ms.script' // filter_name_changed
+ ;
+ : Implementor ME_4F98240403BA // InsFiltersListener
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_4CB2B27F03C3_ME_4F98240403BA filter_name_changed
+
+: ME_4CB2B2910052_ME_4F98240403BA
+ CONST UID '4CB2B2910052'
+ CONST Name 'filter_permanence_changed'
+ : Original WL 'ME_4CB2B2910052' '45EEA48F011F.pas.ms.script' // filter_permanence_changed
+ ;
+ : Implementor ME_4F98240403BA // InsFiltersListener
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_4CB2B2910052_ME_4F98240403BA filter_permanence_changed
+
+: ME_4F98240403BA
+ CONST UID '4F98240403BA'
+ CONST GUID '0556EFE5-9A1B-41AB-8E13-642856BDDD7A'
+ CONST Name 'InsFiltersListener'
+ CONST Class class_Class
+ : Stereotype st_Facet ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4CAC58E50231 // nsFiltersInterfaces
+ ;
+ : Inherits
+   Seq: ( WL 'ME_4CB2B25302F7' '45EEA48F011F.pas.ms.script' // FilterNotifier
+ )
+ ; // Inherits
+ : Implemented
+   Seq: ( ME_4CB2B26B0365_ME_4F98240403BA // filters_changed
+ ME_4CB2B27F03C3_ME_4F98240403BA // filter_name_changed
+ ME_4CB2B2910052_ME_4F98240403BA // filter_permanence_changed
+ )
+ ; // Implemented
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Filters'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Filters'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\Filters'
+ CONST extprop:rc:SelfName 'FiltersListener'
+ CONST extprop:rc:isAcceptableForScripts true
+
+ref; // ME_4F98240403BA InsFiltersListener
+
+FORWARD ME_5061DE0D0252
+
+: ME_5061DE2D0275
+ CONST UID '5061DE2D0275'
+ CONST Name 'FiltersType'
+ CONST Class class_Attribute
+ : Stereotype st_readonly::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_lnk
+ : Parent ME_5061DE0D0252 // InsFilterRootNode
+ ;
+ : Target ME_4CADA33B0257 // TnsFiltersType
+ ;
+ CONST "pm" false
+
+ref; // ME_5061DE2D0275 FiltersType
+
+: ME_46A44F6B035E_ME_5061DE0D0252
+ CONST UID '46A44F6B035E'
+ CONST Name 'Subscribe'
+ : Original WL 'ME_46A44F6B035E' '4677FBA70343.pas.ms.script' // Subscribe
+ ;
+ : Implementor ME_5061DE0D0252 // InsFilterRootNode
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_46A44F6B035E_ME_5061DE0D0252 Subscribe
+
+: ME_46A44FFE0143_ME_5061DE0D0252
+ CONST UID '46A44FFE0143'
+ CONST Name 'Unsubscribe'
+ : Original WL 'ME_46A44FFE0143' '4677FBA70343.pas.ms.script' // Unsubscribe
+ ;
+ : Implementor ME_5061DE0D0252 // InsFilterRootNode
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_46A44FFE0143_ME_5061DE0D0252 Unsubscribe
+
+: ME_47710BBE0052_ME_5061DE0D0252
+ CONST UID '47710BBE0052'
+ CONST Name 'InsertChild'
+ : Original WL 'ME_47710BBE0052' '476BF10A0280.pas.ms.script' // InsertChild
+ ;
+ : Implementor ME_5061DE0D0252 // InsFilterRootNode
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_47710BBE0052_ME_5061DE0D0252 InsertChild
+
+: ME_47710BCC0099_ME_5061DE0D0252
+ CONST UID '47710BCC0099'
+ CONST Name 'InsertChildBefore'
+ : Original WL 'ME_47710BCC0099' '476BF10A0280.pas.ms.script' // InsertChildBefore
+ ;
+ : Implementor ME_5061DE0D0252 // InsFilterRootNode
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_47710BCC0099_ME_5061DE0D0252 InsertChildBefore
+
+: ME_47710BF103B7_ME_5061DE0D0252
+ CONST UID '47710BF103B7'
+ CONST Name 'IsAcceptChild'
+ : Original WL 'ME_47710BF103B7' '476BF10A0280.pas.ms.script' // IsAcceptChild
+ ;
+ : Implementor ME_5061DE0D0252 // InsFilterRootNode
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_47710BF103B7_ME_5061DE0D0252 IsAcceptChild
+
+: ME_47710BFD00A6_ME_5061DE0D0252
+ CONST UID '47710BFD00A6'
+ CONST Name 'GetChildByNumber'
+ : Original WL 'ME_47710BFD00A6' '476BF10A0280.pas.ms.script' // GetChildByNumber
+ ;
+ : Implementor ME_5061DE0D0252 // InsFilterRootNode
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_47710BFD00A6_ME_5061DE0D0252 GetChildByNumber
+
+: ME_47710C0E00D9_ME_5061DE0D0252
+ CONST UID '47710C0E00D9'
+ CONST Name 'GetNodeByNumber'
+ : Original WL 'ME_47710C0E00D9' '476BF10A0280.pas.ms.script' // GetNodeByNumber
+ ;
+ : Implementor ME_5061DE0D0252 // InsFilterRootNode
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_47710C0E00D9_ME_5061DE0D0252 GetNodeByNumber
+
+: ME_47710C1F0389_ME_5061DE0D0252
+ CONST UID '47710C1F0389'
+ CONST Name 'GetNumInParent'
+ : Original WL 'ME_47710C1F0389' '476BF10A0280.pas.ms.script' // GetNumInParent
+ ;
+ : Implementor ME_5061DE0D0252 // InsFilterRootNode
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_47710C1F0389_ME_5061DE0D0252 GetNumInParent
+
+: ME_47710C4A017A_ME_5061DE0D0252
+ CONST UID '47710C4A017A'
+ CONST Name 'Notify'
+ : Original WL 'ME_47710C4A017A' '476BF10A0280.pas.ms.script' // Notify
+ ;
+ : Implementor ME_5061DE0D0252 // InsFilterRootNode
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_47710C4A017A_ME_5061DE0D0252 Notify
+
+: ME_47710C5B0032_ME_5061DE0D0252
+ CONST UID '47710C5B0032'
+ CONST Name 'IncAllChildrenCount'
+ : Original WL 'ME_47710C5B0032' '476BF10A0280.pas.ms.script' // IncAllChildrenCount
+ ;
+ : Implementor ME_5061DE0D0252 // InsFilterRootNode
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_47710C5B0032_ME_5061DE0D0252 IncAllChildrenCount
+
+: ME_47710C6002AA_ME_5061DE0D0252
+ CONST UID '47710C6002AA'
+ CONST Name 'Remove'
+ : Original WL 'ME_47710C6002AA' '476BF10A0280.pas.ms.script' // Remove
+ ;
+ : Implementor ME_5061DE0D0252 // InsFilterRootNode
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_47710C6002AA_ME_5061DE0D0252 Remove
+
+: ME_47710C8C007B_ME_5061DE0D0252
+ CONST UID '47710C8C007B'
+ CONST Name 'Move'
+ : Original WL 'ME_47710C8C007B' '476BF10A0280.pas.ms.script' // Move
+ ;
+ : Implementor ME_5061DE0D0252 // InsFilterRootNode
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_47710C8C007B_ME_5061DE0D0252 Move
+
+: ME_47710C9F001E_ME_5061DE0D0252
+ CONST UID '47710C9F001E'
+ CONST Name 'Iterate'
+ : Original WL 'ME_47710C9F001E' '476BF10A0280.pas.ms.script' // Iterate
+ ;
+ : Implementor ME_5061DE0D0252 // InsFilterRootNode
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_47710C9F001E_ME_5061DE0D0252 Iterate
+
+: ME_47710CC30122_ME_5061DE0D0252
+ CONST UID '47710CC30122'
+ CONST Name 'IterateF'
+ : Original WL 'ME_47710CC30122' '476BF10A0280.pas.ms.script' // IterateF
+ ;
+ : Implementor ME_5061DE0D0252 // InsFilterRootNode
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_47710CC30122_ME_5061DE0D0252 IterateF
+
+: ME_47710CE400B0_ME_5061DE0D0252
+ CONST UID '47710CE400B0'
+ CONST Name 'ReleaseChilds'
+ : Original WL 'ME_47710CE400B0' '476BF10A0280.pas.ms.script' // ReleaseChilds
+ ;
+ : Implementor ME_5061DE0D0252 // InsFilterRootNode
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_47710CE400B0_ME_5061DE0D0252 ReleaseChilds
+
+: ME_47710DC10100_ME_5061DE0D0252
+ CONST UID '47710DC10100'
+ CONST Name 'CompareChild'
+ : Original WL 'ME_47710DC10100' '476BF10A0280.pas.ms.script' // CompareChild
+ ;
+ : Implementor ME_5061DE0D0252 // InsFilterRootNode
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_47710DC10100_ME_5061DE0D0252 CompareChild
+
+: ME_47710DE4027E_ME_5061DE0D0252
+ CONST UID '47710DE4027E'
+ CONST Name 'SortChilds'
+ : Original WL 'ME_47710DE4027E' '476BF10A0280.pas.ms.script' // SortChilds
+ ;
+ : Implementor ME_5061DE0D0252 // InsFilterRootNode
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_47710DE4027E_ME_5061DE0D0252 SortChilds
+
+: ME_47710DF70238_ME_5061DE0D0252
+ CONST UID '47710DF70238'
+ CONST Name 'Sort'
+ : Original WL 'ME_47710DF70238' '476BF10A0280.pas.ms.script' // Sort
+ ;
+ : Implementor ME_5061DE0D0252 // InsFilterRootNode
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_47710DF70238_ME_5061DE0D0252 Sort
+
+: ME_47710E430313_ME_5061DE0D0252
+ CONST UID '47710E430313'
+ CONST Name 'Text'
+ : Original WL 'ME_47710E430313' '476BF10A0280.pas.ms.script' // Text
+ ;
+ : Implementor ME_5061DE0D0252 // InsFilterRootNode
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "pm" false
+ref; // ME_47710E430313_ME_5061DE0D0252 Text
+
+: ME_47710E730361_ME_5061DE0D0252
+ CONST UID '47710E730361'
+ CONST Name 'AllChildrenCount'
+ : Original WL 'ME_47710E730361' '476BF10A0280.pas.ms.script' // AllChildrenCount
+ ;
+ : Implementor ME_5061DE0D0252 // InsFilterRootNode
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "pm" false
+ref; // ME_47710E730361_ME_5061DE0D0252 AllChildrenCount
+
+: ME_47710E8D018C_ME_5061DE0D0252
+ CONST UID '47710E8D018C'
+ CONST Name 'ChildSorted'
+ : Original WL 'ME_47710E8D018C' '476BF10A0280.pas.ms.script' // ChildSorted
+ ;
+ : Implementor ME_5061DE0D0252 // InsFilterRootNode
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "pm" false
+ref; // ME_47710E8D018C_ME_5061DE0D0252 ChildSorted
+
+: ME_47710E9D0055_ME_5061DE0D0252
+ CONST UID '47710E9D0055'
+ CONST Name 'ChildSortedFromParent'
+ : Original WL 'ME_47710E9D0055' '476BF10A0280.pas.ms.script' // ChildSortedFromParent
+ ;
+ : Implementor ME_5061DE0D0252 // InsFilterRootNode
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "pm" false
+ref; // ME_47710E9D0055_ME_5061DE0D0252 ChildSortedFromParent
+
+: ME_47710EAD0211_ME_5061DE0D0252
+ CONST UID '47710EAD0211'
+ CONST Name 'Flags'
+ : Original WL 'ME_47710EAD0211' '476BF10A0280.pas.ms.script' // Flags
+ ;
+ : Implementor ME_5061DE0D0252 // InsFilterRootNode
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "pm" false
+ref; // ME_47710EAD0211_ME_5061DE0D0252 Flags
+
+: ME_4771102F01C3_ME_5061DE0D0252
+ CONST UID '4771102F01C3'
+ CONST Name 'NextNode'
+ : Original WL 'ME_4771102F01C3' '476BF10A0280.pas.ms.script' // NextNode
+ ;
+ : Implementor ME_5061DE0D0252 // InsFilterRootNode
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "pm" false
+ref; // ME_4771102F01C3_ME_5061DE0D0252 NextNode
+
+: ME_477110580184_ME_5061DE0D0252
+ CONST UID '477110580184'
+ CONST Name 'PrevNode'
+ : Original WL 'ME_477110580184' '476BF10A0280.pas.ms.script' // PrevNode
+ ;
+ : Implementor ME_5061DE0D0252 // InsFilterRootNode
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "pm" false
+ref; // ME_477110580184_ME_5061DE0D0252 PrevNode
+
+: ME_4771108100D0_ME_5061DE0D0252
+ CONST UID '4771108100D0'
+ CONST Name 'ParentNode'
+ : Original WL 'ME_4771108100D0' '476BF10A0280.pas.ms.script' // ParentNode
+ ;
+ : Implementor ME_5061DE0D0252 // InsFilterRootNode
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "pm" false
+ref; // ME_4771108100D0_ME_5061DE0D0252 ParentNode
+
+: ME_477110A2026C_ME_5061DE0D0252
+ CONST UID '477110A2026C'
+ CONST Name 'ChildNode'
+ : Original WL 'ME_477110A2026C' '476BF10A0280.pas.ms.script' // ChildNode
+ ;
+ : Implementor ME_5061DE0D0252 // InsFilterRootNode
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "pm" false
+ref; // ME_477110A2026C_ME_5061DE0D0252 ChildNode
+
+: ME_47723CDB00A4_ME_5061DE0D0252
+ CONST UID '47723CDB00A4'
+ CONST Name 'IsFirst'
+ : Original WL 'ME_47723CDB00A4' '4682595B0268.pas.ms.script' // IsFirst
+ ;
+ : Implementor ME_5061DE0D0252 // InsFilterRootNode
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_47723CDB00A4_ME_5061DE0D0252 IsFirst
+
+: ME_47723CFF0148_ME_5061DE0D0252
+ CONST UID '47723CFF0148'
+ CONST Name 'IsLast'
+ : Original WL 'ME_47723CFF0148' '4682595B0268.pas.ms.script' // IsLast
+ ;
+ : Implementor ME_5061DE0D0252 // InsFilterRootNode
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_47723CFF0148_ME_5061DE0D0252 IsLast
+
+: ME_47723D0F0392_ME_5061DE0D0252
+ CONST UID '47723D0F0392'
+ CONST Name 'HasChild'
+ : Original WL 'ME_47723D0F0392' '4682595B0268.pas.ms.script' // HasChild
+ ;
+ : Implementor ME_5061DE0D0252 // InsFilterRootNode
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_47723D0F0392_ME_5061DE0D0252 HasChild
+
+: ME_47723D1D03D6_ME_5061DE0D0252
+ CONST UID '47723D1D03D6'
+ CONST Name 'MaybeChild'
+ : Original WL 'ME_47723D1D03D6' '4682595B0268.pas.ms.script' // MaybeChild
+ ;
+ : Implementor ME_5061DE0D0252 // InsFilterRootNode
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_47723D1D03D6_ME_5061DE0D0252 MaybeChild
+
+: ME_47723D2E0051_ME_5061DE0D0252
+ CONST UID '47723D2E0051'
+ CONST Name 'GetLevel'
+ : Original WL 'ME_47723D2E0051' '4682595B0268.pas.ms.script' // GetLevel
+ ;
+ : Implementor ME_5061DE0D0252 // InsFilterRootNode
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_47723D2E0051_ME_5061DE0D0252 GetLevel
+
+: ME_47723D3B0058_ME_5061DE0D0252
+ CONST UID '47723D3B0058'
+ CONST Name 'GetLevelFor'
+ : Original WL 'ME_47723D3B0058' '4682595B0268.pas.ms.script' // GetLevelFor
+ ;
+ : Implementor ME_5061DE0D0252 // InsFilterRootNode
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_47723D3B0058_ME_5061DE0D0252 GetLevelFor
+
+: ME_47723D4C0360_ME_5061DE0D0252
+ CONST UID '47723D4C0360'
+ CONST Name 'IsSame'
+ : Original WL 'ME_47723D4C0360' '4682595B0268.pas.ms.script' // IsSame
+ ;
+ : Implementor ME_5061DE0D0252 // InsFilterRootNode
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_47723D4C0360_ME_5061DE0D0252 IsSame
+
+: ME_47723DB901CA_ME_5061DE0D0252
+ CONST UID '47723DB901CA'
+ CONST Name 'IsDisappeared'
+ : Original WL 'ME_47723DB901CA' '4682595B0268.pas.ms.script' // IsDisappeared
+ ;
+ : Implementor ME_5061DE0D0252 // InsFilterRootNode
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_47723DB901CA_ME_5061DE0D0252 IsDisappeared
+
+: ME_47723DD1008F_ME_5061DE0D0252
+ CONST UID '47723DD1008F'
+ CONST Name 'BeginMove'
+ : Original WL 'ME_47723DD1008F' '4682595B0268.pas.ms.script' // BeginMove
+ ;
+ : Implementor ME_5061DE0D0252 // InsFilterRootNode
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_47723DD1008F_ME_5061DE0D0252 BeginMove
+
+: ME_47723DE0009F_ME_5061DE0D0252
+ CONST UID '47723DE0009F'
+ CONST Name 'EndMove'
+ : Original WL 'ME_47723DE0009F' '4682595B0268.pas.ms.script' // EndMove
+ ;
+ : Implementor ME_5061DE0D0252 // InsFilterRootNode
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_47723DE0009F_ME_5061DE0D0252 EndMove
+
+: ME_47723DED006A_ME_5061DE0D0252
+ CONST UID '47723DED006A'
+ CONST Name 'Delete'
+ : Original WL 'ME_47723DED006A' '4682595B0268.pas.ms.script' // Delete
+ ;
+ : Implementor ME_5061DE0D0252 // InsFilterRootNode
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_47723DED006A_ME_5061DE0D0252 Delete
+
+: ME_47723E8C0086_ME_5061DE0D0252
+ CONST UID '47723E8C0086'
+ CONST Name 'Text'
+ : Original WL 'ME_47723E8C0086' '4682595B0268.pas.ms.script' // Text
+ ;
+ : Implementor ME_5061DE0D0252 // InsFilterRootNode
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "pm" false
+ref; // ME_47723E8C0086_ME_5061DE0D0252 Text
+
+: ME_4772408A0361_ME_5061DE0D0252
+ CONST UID '4772408A0361'
+ CONST Name 'Parent'
+ : Original WL 'ME_4772408A0361' '4682595B0268.pas.ms.script' // Parent
+ ;
+ : Implementor ME_5061DE0D0252 // InsFilterRootNode
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "pm" false
+ref; // ME_4772408A0361_ME_5061DE0D0252 Parent
+
+: ME_477240B10267_ME_5061DE0D0252
+ CONST UID '477240B10267'
+ CONST Name 'Child'
+ : Original WL 'ME_477240B10267' '4682595B0268.pas.ms.script' // Child
+ ;
+ : Implementor ME_5061DE0D0252 // InsFilterRootNode
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "pm" false
+ref; // ME_477240B10267_ME_5061DE0D0252 Child
+
+: ME_477241AC00B9_ME_5061DE0D0252
+ CONST UID '477241AC00B9'
+ CONST Name 'Next'
+ : Original WL 'ME_477241AC00B9' '4682595B0268.pas.ms.script' // Next
+ ;
+ : Implementor ME_5061DE0D0252 // InsFilterRootNode
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "pm" false
+ref; // ME_477241AC00B9_ME_5061DE0D0252 Next
+
+: ME_4772423302AF_ME_5061DE0D0252
+ CONST UID '4772423302AF'
+ CONST Name 'Flag'
+ : Original WL 'ME_4772423302AF' '4682595B0268.pas.ms.script' // Flag
+ ;
+ : Implementor ME_5061DE0D0252 // InsFilterRootNode
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "pm" false
+ref; // ME_4772423302AF_ME_5061DE0D0252 Flag
+
+: ME_477242700004_ME_5061DE0D0252
+ CONST UID '477242700004'
+ CONST Name 'Flags'
+ : Original WL 'ME_477242700004' '4682595B0268.pas.ms.script' // Flags
+ ;
+ : Implementor ME_5061DE0D0252 // InsFilterRootNode
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "pm" false
+ref; // ME_477242700004_ME_5061DE0D0252 Flags
+
+: ME_4772429202E4_ME_5061DE0D0252
+ CONST UID '4772429202E4'
+ CONST Name 'ThisChildrenCount'
+ : Original WL 'ME_4772429202E4' '4682595B0268.pas.ms.script' // ThisChildrenCount
+ ;
+ : Implementor ME_5061DE0D0252 // InsFilterRootNode
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "pm" false
+ref; // ME_4772429202E4_ME_5061DE0D0252 ThisChildrenCount
+
+: ME_477242A40219_ME_5061DE0D0252
+ CONST UID '477242A40219'
+ CONST Name 'IndexInParent'
+ : Original WL 'ME_477242A40219' '4682595B0268.pas.ms.script' // IndexInParent
+ ;
+ : Implementor ME_5061DE0D0252 // InsFilterRootNode
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "pm" true
+ref; // ME_477242A40219_ME_5061DE0D0252 IndexInParent
+
+: ME_47A86F070101_ME_5061DE0D0252
+ CONST UID '47A86F070101'
+ CONST Name 'CanAcceptData'
+ : Original WL 'ME_47A86F070101' '4682595B0268.pas.ms.script' // CanAcceptData
+ ;
+ : Implementor ME_5061DE0D0252 // InsFilterRootNode
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_47A86F070101_ME_5061DE0D0252 CanAcceptData
+
+: ME_47A86F1C016B_ME_5061DE0D0252
+ CONST UID '47A86F1C016B'
+ CONST Name 'DropData'
+ : Original WL 'ME_47A86F1C016B' '4682595B0268.pas.ms.script' // DropData
+ ;
+ : Implementor ME_5061DE0D0252 // InsFilterRootNode
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_47A86F1C016B_ME_5061DE0D0252 DropData
+
+: ME_47ADA09C019B_ME_5061DE0D0252
+ CONST UID '47ADA09C019B'
+ CONST Name 'CanMove'
+ : Original WL 'ME_47ADA09C019B' '4682595B0268.pas.ms.script' // CanMove
+ ;
+ : Implementor ME_5061DE0D0252 // InsFilterRootNode
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_47ADA09C019B_ME_5061DE0D0252 CanMove
+
+: ME_47B5759A03C0_ME_5061DE0D0252
+ CONST UID '47B5759A03C0'
+ CONST Name 'Prev'
+ : Original WL 'ME_47B5759A03C0' '4682595B0268.pas.ms.script' // Prev
+ ;
+ : Implementor ME_5061DE0D0252 // InsFilterRootNode
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "pm" false
+ref; // ME_47B5759A03C0_ME_5061DE0D0252 Prev
+
+: ME_4A5CBFFE0157_ME_5061DE0D0252
+ CONST UID '4A5CBFFE0157'
+ CONST Name 'Changing'
+ : Original WL 'ME_4A5CBFFE0157' '47D810610398.pas.ms.script' // Changing
+ ;
+ : Implementor ME_5061DE0D0252 // InsFilterRootNode
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_4A5CBFFE0157_ME_5061DE0D0252 Changing
+
+: ME_4A5CC00B03D5_ME_5061DE0D0252
+ CONST UID '4A5CC00B03D5'
+ CONST Name 'Changed'
+ : Original WL 'ME_4A5CC00B03D5' '47D810610398.pas.ms.script' // Changed
+ ;
+ : Implementor ME_5061DE0D0252 // InsFilterRootNode
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_4A5CC00B03D5_ME_5061DE0D0252 Changed
+
+: ME_5061DE0D0252
+ CONST UID '5061DE0D0252'
+ CONST GUID 'AE369DFF-E3F3-4DD5-8308-EC42AD32E8CD'
+ CONST Name 'InsFilterRootNode'
+ CONST Class class_Class
+ : Stereotype st_Facet ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4CAC58E50231 // nsFiltersInterfaces
+ ;
+ : Inherits
+   Seq: ( WL 'ME_4771111001F9' '476BF10A0280.pas.ms.script' // Il3RootNode
+ )
+ ; // Inherits
+ : Attributes
+   Seq: ( ME_5061DE2D0275 // FiltersType
+ )
+ ; // Attributes
+ : Implemented
+   Seq: ( ME_46A44F6B035E_ME_5061DE0D0252 // Subscribe
+ ME_46A44FFE0143_ME_5061DE0D0252 // Unsubscribe
+ ME_47710BBE0052_ME_5061DE0D0252 // InsertChild
+ ME_47710BCC0099_ME_5061DE0D0252 // InsertChildBefore
+ ME_47710BF103B7_ME_5061DE0D0252 // IsAcceptChild
+ ME_47710BFD00A6_ME_5061DE0D0252 // GetChildByNumber
+ ME_47710C0E00D9_ME_5061DE0D0252 // GetNodeByNumber
+ ME_47710C1F0389_ME_5061DE0D0252 // GetNumInParent
+ ME_47710C4A017A_ME_5061DE0D0252 // Notify
+ ME_47710C5B0032_ME_5061DE0D0252 // IncAllChildrenCount
+ ME_47710C6002AA_ME_5061DE0D0252 // Remove
+ ME_47710C8C007B_ME_5061DE0D0252 // Move
+ ME_47710C9F001E_ME_5061DE0D0252 // Iterate
+ ME_47710CC30122_ME_5061DE0D0252 // IterateF
+ ME_47710CE400B0_ME_5061DE0D0252 // ReleaseChilds
+ ME_47710DC10100_ME_5061DE0D0252 // CompareChild
+ ME_47710DE4027E_ME_5061DE0D0252 // SortChilds
+ ME_47710DF70238_ME_5061DE0D0252 // Sort
+ ME_47710E430313_ME_5061DE0D0252 // Text
+ ME_47710E730361_ME_5061DE0D0252 // AllChildrenCount
+ ME_47710E8D018C_ME_5061DE0D0252 // ChildSorted
+ ME_47710E9D0055_ME_5061DE0D0252 // ChildSortedFromParent
+ ME_47710EAD0211_ME_5061DE0D0252 // Flags
+ ME_4771102F01C3_ME_5061DE0D0252 // NextNode
+ ME_477110580184_ME_5061DE0D0252 // PrevNode
+ ME_4771108100D0_ME_5061DE0D0252 // ParentNode
+ ME_477110A2026C_ME_5061DE0D0252 // ChildNode
+ ME_47723CDB00A4_ME_5061DE0D0252 // IsFirst
+ ME_47723CFF0148_ME_5061DE0D0252 // IsLast
+ ME_47723D0F0392_ME_5061DE0D0252 // HasChild
+ ME_47723D1D03D6_ME_5061DE0D0252 // MaybeChild
+ ME_47723D2E0051_ME_5061DE0D0252 // GetLevel
+ ME_47723D3B0058_ME_5061DE0D0252 // GetLevelFor
+ ME_47723D4C0360_ME_5061DE0D0252 // IsSame
+ ME_47723DB901CA_ME_5061DE0D0252 // IsDisappeared
+ ME_47723DD1008F_ME_5061DE0D0252 // BeginMove
+ ME_47723DE0009F_ME_5061DE0D0252 // EndMove
+ ME_47723DED006A_ME_5061DE0D0252 // Delete
+ ME_47723E8C0086_ME_5061DE0D0252 // Text
+ ME_4772408A0361_ME_5061DE0D0252 // Parent
+ ME_477240B10267_ME_5061DE0D0252 // Child
+ ME_477241AC00B9_ME_5061DE0D0252 // Next
+ ME_4772423302AF_ME_5061DE0D0252 // Flag
+ ME_477242700004_ME_5061DE0D0252 // Flags
+ ME_4772429202E4_ME_5061DE0D0252 // ThisChildrenCount
+ ME_477242A40219_ME_5061DE0D0252 // IndexInParent
+ ME_47A86F070101_ME_5061DE0D0252 // CanAcceptData
+ ME_47A86F1C016B_ME_5061DE0D0252 // DropData
+ ME_47ADA09C019B_ME_5061DE0D0252 // CanMove
+ ME_47B5759A03C0_ME_5061DE0D0252 // Prev
+ ME_4A5CBFFE0157_ME_5061DE0D0252 // Changing
+ ME_4A5CC00B03D5_ME_5061DE0D0252 // Changed
+ )
+ ; // Implemented
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Filters'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Filters'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\Filters'
+ CONST extprop:rc:SelfName 'FilterRootNode'
+ CONST extprop:rc:isAcceptableForScripts true
+
+ref; // ME_5061DE0D0252 InsFilterRootNode
+
+FORWARD ME_56443DCF0299
+
+: ME_56443E470148
+ CONST UID '56443E470148'
+ CONST Name 'Current'
+ CONST Class class_Attribute
+ : Stereotype st_readonly::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_lnk
+ : Parent ME_56443DCF0299 // InsFiltersEnumerator
+ ;
+ : Target WL 'ME_4CA499CA03DD' '45EEA48F011F.pas.ms.script' // FilterFromQuery
+ ;
+ CONST "pm" false
+
+ref; // ME_56443E470148 Current
+
+: ME_56443DDB0195
+ CONST UID '56443DDB0195'
+ CONST Name 'Reset'
+ CONST Class class_Operation
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_56443DCF0299 // InsFiltersEnumerator
+ ;
+
+ref; // ME_56443DDB0195 Reset
+
+: ME_56443DE2025A
+ CONST UID '56443DE2025A'
+ CONST Name 'MoveNext'
+ CONST Class class_Operation
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_56443DCF0299 // InsFiltersEnumerator
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+
+ref; // ME_56443DE2025A MoveNext
+
+: ME_56443DCF0299
+ CONST UID '56443DCF0299'
+ CONST GUID '0919FA07-042E-4CB2-9BD1-A4C47103F038'
+ CONST Name 'InsFiltersEnumerator'
+ CONST Class class_Class
+ : Stereotype st_Facet ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4CAC58E50231 // nsFiltersInterfaces
+ ;
+ : Attributes
+   Seq: ( ME_56443E470148 // Current
+ )
+ ; // Attributes
+ : Operations
+   Seq: ( ME_56443DDB0195 // Reset
+ ME_56443DE2025A // MoveNext
+ )
+ ; // Operations
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Filters'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Filters'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\Filters'
+ CONST extprop:rc:SelfName 'FiltersEnumerator'
+ CONST extprop:rc:isAcceptableForScripts true
+
+ref; // ME_56443DCF0299 InsFiltersEnumerator
+
+: ME_4CAC58E50231
+ CONST UID '4CAC58E50231'
+ CONST Name 'nsFiltersInterfaces'
+ CONST Class class_Category
+ : Stereotype st_Interfaces ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent WL 'ME_4CAC58CB03A2' '4CAC58CB03A2.pas.ms.script' // Filters
+ ;
+ : Children
+   Seq: ( ME_499184BF03C8 // InsFiltersContainer
+ ME_499044E00044 // InsFiltersTree
+ ME_4991887A031F // InsFilterNode
+ ME_4CADA33B0257 // TnsFiltersType
+ ME_4F98240403BA // InsFiltersListener
+ ME_5061DE0D0252 // InsFilterRootNode
+ ME_56443DCF0299 // InsFiltersEnumerator
+ )
+ ; // Children
+ : Depends
+   Seq: ( WL 'ME_45EEA48F011F' '45EEA48F011F.pas.ms.script' // Filters
+ WL 'ME_476BF10A0280' '476BF10A0280.pas.ms.script' // l3Tree_TLB
+ WL 'ME_47EA07FA02CE' '47EA07FA02CE.pas.ms.script' // bsTypes
+ WL 'ME_4AB0C3C60310' '4AB0C3C60310.pas.ms.script' // Sys
+ )
+ ; // Depends
+ CONST "is namespace" true
+ CONST "no hands" false
+ : Generators
+ Seq: (
+ gen_intf.pas
+ gen_pas.script
+ gen_pas.script.runner
+ )
+ ; // Generators
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Filters'
+ CONST intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\Filters\nsFiltersInterfaces.pas'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Filters'
+ CONST pas.script:Path 'shared\models\NewSchool\Scripts\4CAC58E50231.pas.ms.script'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\4CAC58E50231.pas.ms.script.runner'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\Filters'
+
+ref; // ME_4CAC58E50231 nsFiltersInterfaces

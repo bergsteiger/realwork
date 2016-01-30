@@ -11,7 +11,7 @@ INCLUDE 'ElementsRTTI.ms.dict'
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
  : Children
-   @ ( WL 'ME_4677E16A022A' '4677E16A022A.pas.ms.script' // K2
+   Seq: ( WL 'ME_4677E16A022A' '4677E16A022A.pas.ms.script' // K2
  WL 'ME_467A8734039C' '467A8734039C.pas.ms.script' // EVD
  WL 'ME_47540FF802AC' '47540FF802AC.pas.ms.script' // Orpheus
  WL 'ME_4ACDBBED0241' '4ACDBBED0241.pas.ms.script' // ImageEn
@@ -22,6 +22,7 @@ INCLUDE 'ElementsRTTI.ms.dict'
  WL 'ME_4CFCE4F203CE' '4CFCE4F203CE.pas.ms.script' // VGScene
  WL 'ME_4D4927B5008B' '4D4927B5008B.pas.ms.script' // VT$Core
  WL 'ME_4CC81F680162' '4CC81F680162.pas.ms.script' // SkinnedControls
+ WL 'ME_4843AEB201A5' '4843AEB201A5.pas.ms.script' // Работа с таблицами
  WL 'ME_4C43E84F0304' '4C43E84F0304.pas.ms.script' // tb97
  WL 'ME_52B04B1E00CD' '52B04B1E00CD.pas.ms.script' // Everest$Visual
  WL 'ME_4790C3B8021E' '4790C3B8021E.pas.ms.script' // VCM
@@ -36,11 +37,13 @@ INCLUDE 'ElementsRTTI.ms.dict'
  WL 'ME_4E13416D0227' '4E13416D0227.pas.ms.script' // VCM$Visual
  WL 'ME_519C9851011D' '519C9851011D.pas.ms.script' // ZipForge
  WL 'ME_5214D28E024C' '5214D28E024C.pas.ms.script' // dd$AppConfig
+ WL 'ME_48299EAC014F' '48299EAC014F.pas.ms.script' // Компоненты для ввода данных
  WL 'ME_52CFEC8C0111' '52CFEC8C0111.pas.ms.script' // VT$WithVCM
  WL 'ME_4F91817500AC' '4F91817500AC.pas.ms.script' // VT$Rem
  WL 'ME_537F460C034E' '537F460C034E.pas.ms.script' // Indy
  WL 'ME_5400135F0192' '5400135F0192.pas.ms.script' // eDocEngine
  WL 'ME_5400141B00BE' '5400141B00BE.pas.ms.script' // gnotice_Shared
+ WL 'ME_4836C4E2003A' '4836C4E2003A.pas.ms.script' // Форматы обмена
  WL 'ME_48EEE54C0072' '48EEE54C0072.pas.ms.script' // EverestCommon
  WL 'ME_4E2EE37B0097' '4E2EE37B0097.pas.ms.script' // Everest$EditorUsers
  WL 'ME_4E200FC9003B' '4E200FC9003B.pas.ms.script' // VCM$Scripting
@@ -51,17 +54,17 @@ INCLUDE 'ElementsRTTI.ms.dict'
  WL 'ME_54F47D8D007E' '54F47D8D007E.pas.ms.script' // ScriptEngine$ImageEn
  WL 'ME_54F5911700DB' '54F5911700DB.pas.ms.script' // ScriptEngine$tb97
  WL 'ME_552D08860307' '552D08860307.pas.ms.script' // ScriptEngine$EVD
- ) .SequenceCode.It
+ )
  ; // Children
  : Depends
-   @ ( WL 'ME_469F3E37025A' '469F3E37025A.pas.ms.script' // Rtl
+   Seq: ( WL 'ME_469F3E37025A' '469F3E37025A.pas.ms.script' // Rtl
  WL 'ME_49B1511700CA' '49B1511700CA.pas.ms.script' // Shared Delphi Core
  WL 'ME_4ABCC25A0322' '4ABCC25A0322.pas.ms.script' // Shared Delphi Low Level
  WL 'ME_4B63155B0328' '4B63155B0328.pas.ms.script' // MDProcess$ForDelphi
  WL 'ME_4E5BC50E02E1' '4E5BC50E02E1.pas.ms.script' // Shared Delphi Требования к низкоуровневым библиотекам
  WL 'ME_4E78C3EC018D' '4E78C3EC018D.pas.ms.script' // Shared Delphi Требования
  WL 'ME_562E251101C2' '562E251101C2.pas.ms.script' // Shared Delphi Rtl
- ) .SequenceCode.It
+ )
  ; // Depends
  CONST "Full MDP" false
  CONST "create project" true
@@ -74,17 +77,13 @@ INCLUDE 'ElementsRTTI.ms.dict'
  CONST "root path suffix" '/components'
  CONST "space key" 'SHD'
  CONST "space name" 'Shared (delphi)'
- : Generators
- @ (
- gen_forth_structure
- gen_intf.pas
- gen_pas.script
- gen_pas.script.runner
- ) .SequenceCode.It
- ; // Generators
- CONST forth_structure:Path 'shared\models\NewSchool\Shared Delphi\Shared Delphi.model.script'
- CONST intf.pas:Path 'common\components\common_prj.info'
+ CONST cpp:PathOnly '\common\components'
+ CONST dfm:PathOnly '\common\components'
+ CONST h:PathOnly '\common\components'
+ CONST intf.pas:PathOnly '\common\components'
  CONST pas.script:Path 'shared\models\NewSchool\Scripts\4677DDBD0193.pas.ms.script'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
  CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\4677DDBD0193.pas.ms.script.runner'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_4677DDBD0193 Shared Delphi

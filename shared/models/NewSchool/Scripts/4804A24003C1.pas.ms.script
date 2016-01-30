@@ -32,12 +32,12 @@ ref; // ME_49DB53CE0367 X
  : Parent ME_4804A24003C1 // LeafPara Painters
  ;
  : Inherits
-   @ ( WL 'ME_4804CB1B0328' '49DCBC09029B.pas.ms.script' // evLeafParaPainter
- ) .SequenceCode.It
+   Seq: ( WL 'ME_4804CB1B0328' '49DCBC09029B.pas.ms.script' // evLeafParaPainter
+ )
  ; // Inherits
  : Attributes
-   @ ( ME_49DB53CE0367 // X
- ) .SequenceCode.It
+   Seq: ( ME_49DB53CE0367 // X
+ )
  ; // Attributes
  CONST "author" 'Люлин А.В.'
  CONST "needs InstanceR" 'undefined'
@@ -45,12 +45,14 @@ ref; // ME_49DB53CE0367 X
  CONST "no hands" true
  CONST "register in scripts" 'undefined'
  CONST "started" '07.04.2009 17:21'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest'
  CONST intf.pas:Path 'common\components\gui\Garant\Everest\evLeafParaPainter.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'LeafParaPainter'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'evLeafParaPainter'
 
 ref; // ME_49DB53330394 TevLeafParaPainter
 
@@ -94,16 +96,16 @@ ref; // ME_4E31744801A1
  : Parent ME_4804A24003C1 // LeafPara Painters
  ;
  : Inherits
-   @ ( WL 'ME_4804CB1B0328' '49DCBC09029B.pas.ms.script' // evLeafParaPainter
- ) .SequenceCode.It
+   Seq: ( WL 'ME_4804CB1B0328' '49DCBC09029B.pas.ms.script' // evLeafParaPainter
+ )
  ; // Inherits
  : Attributes
-   @ ( ME_49DB52F7020B // X
- ) .SequenceCode.It
+   Seq: ( ME_49DB52F7020B // X
+ )
  ; // Attributes
  : Dependencies
-   @ ( ME_4E31744801A1 // 
- ) .SequenceCode.It
+   Seq: ( ME_4E31744801A1 // 
+ )
  ; // Dependencies
  CONST "author" 'Люлин А.В.'
  CONST "needs InstanceR" 'undefined'
@@ -111,12 +113,14 @@ ref; // ME_4E31744801A1
  CONST "no hands" true
  CONST "register in scripts" 'undefined'
  CONST "started" '06.04.2009 20:21'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest'
  CONST intf.pas:Path 'common\components\gui\Garant\Everest\evTextParaPainterPrim.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'TextParaPainterPrim'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'evTextParaPainterPrim'
 
 ref; // ME_49DA2BF5016E TevTextParaPainterPrim
 
@@ -153,9 +157,9 @@ ref; // ME_55CC63990327 aStyle
  : Parent ME_55CC63800051 // AssignFontFromStyle
  ;
  : Parameters
-   @ ( ME_55CC63990317 // aFont
+   Seq: ( ME_55CC63990317 // aFont
  ME_55CC63990327 // aStyle
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_55CC638F0033 DoIt
@@ -171,8 +175,8 @@ ref; // ME_55CC638F0033 DoIt
  : Parent ME_4804CC1E0349 // TevTextParaPainter
  ;
  : Operations
-   @ ( ME_55CC638F0033 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_55CC638F0033 // DoIt
+ )
  ; // Operations
 
 ref; // ME_55CC63800051 AssignFontFromStyle
@@ -206,6 +210,7 @@ ref; // ME_51FF903D01D1
  ;
  : Implementor ME_4804CC1E0349 // TevTextParaPainter
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_5062C0650076_ME_4804CC1E0349 NeedCalcSpace
 
 : ME_51FF6BC10266_ME_4804CC1E0349
@@ -215,6 +220,7 @@ ref; // ME_5062C0650076_ME_4804CC1E0349 NeedCalcSpace
  ;
  : Implementor ME_4804CC1E0349 // TevTextParaPainter
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_51FF6BC10266_ME_4804CC1E0349 HeaderOwnSpace
 
 : ME_5208B63400C1_ME_4804CC1E0349
@@ -224,6 +230,7 @@ ref; // ME_51FF6BC10266_ME_4804CC1E0349 HeaderOwnSpace
  ;
  : Implementor ME_4804CC1E0349 // TevTextParaPainter
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_5208B63400C1_ME_4804CC1E0349 GetSpaceTop
 
 : ME_47A6FEE600FC_ME_4804CC1E0349
@@ -233,6 +240,7 @@ ref; // ME_5208B63400C1_ME_4804CC1E0349 GetSpaceTop
  ;
  : Implementor ME_4804CC1E0349 // TevTextParaPainter
  ;
+ CONST OpKind opkind_Overridden
  CONST "ifndef" 'DesignTimeLibrary'
 ref; // ME_47A6FEE600FC_ME_4804CC1E0349 IsCacheable
 
@@ -248,33 +256,33 @@ ref; // ME_47A6FEE600FC_ME_4804CC1E0349 IsCacheable
  : Parent ME_4804A24003C1 // LeafPara Painters
  ;
  : Inherits
-   @ ( ME_49DA2BF5016E // TevTextParaPainterPrim
+   Seq: ( ME_49DA2BF5016E // TevTextParaPainterPrim
  WL 'ME_5062BFDB025E' '49DCBC09029B.pas.ms.script' // AACSpaceDrawing
  WL 'ME_5514FB530333' '49DCBC09029B.pas.ms.script' // evCollapsedStylePainter
- ) .SequenceCode.It
+ )
  ; // Inherits
  : Implements
-   @ ( WL 'ME_4E71FB8302C6' '529F102E0065.pas.ms.script' // nevStringCache
- ) .SequenceCode.It
+   Seq: ( WL 'ME_4E71FB8302C6' '529F102E0065.pas.ms.script' // nevStringCache
+ )
  ; // Implements
  : Operations
-   @ ( ME_55CC63800051 // AssignFontFromStyle
- ) .SequenceCode.It
+   Seq: ( ME_55CC63800051 // AssignFontFromStyle
+ )
  ; // Operations
  : Implemented
-   @ ( ME_5062C0650076_ME_4804CC1E0349 // NeedCalcSpace
+   Seq: ( ME_5062C0650076_ME_4804CC1E0349 // NeedCalcSpace
  ME_51FF6BC10266_ME_4804CC1E0349 // HeaderOwnSpace
  ME_5208B63400C1_ME_4804CC1E0349 // GetSpaceTop
- ) .SequenceCode.It
+ )
  ; // Implemented
  : Overridden
-   @ ( ME_47A6FEE600FC_ME_4804CC1E0349 // IsCacheable
- ) .SequenceCode.It
+   Seq: ( ME_47A6FEE600FC_ME_4804CC1E0349 // IsCacheable
+ )
  ; // Overridden
  : Dependencies
-   @ ( ME_5062D55300EB // 
+   Seq: ( ME_5062D55300EB // 
  ME_51FF903D01D1 // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  CONST "author" 'Люлин А.В.'
  CONST "needs InstanceR" 'undefined'
@@ -282,12 +290,14 @@ ref; // ME_47A6FEE600FC_ME_4804CC1E0349 IsCacheable
  CONST "no hands" true
  CONST "register in scripts" 'undefined'
  CONST "started" '14.03.1997 10:07'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest'
  CONST intf.pas:Path 'common\components\gui\Garant\Everest\evTextParaPainter.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'TextParaPainter'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'evTextParaPainter'
 
 ref; // ME_4804CC1E0349 TevTextParaPainter
 
@@ -306,12 +316,14 @@ ref; // ME_4804CC1E0349 TevTextParaPainter
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest'
  CONST intf.pas:Path 'common\components\gui\Garant\Everest\NOT_FINISHED_evLinePainter.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'LinePainter'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'evLinePainter'
 
 ref; // ME_49DA328801C9 TevLinePainter
 
@@ -332,6 +344,7 @@ FORWARD ME_4B8BF1F90349
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value ''' Начало страницы. '''
 
 ref; // ME_4B8BF20A031D PageBegin
 
@@ -346,13 +359,17 @@ ref; // ME_4B8BF20A031D PageBegin
  : Parent ME_480C9D5E01EE // TevPageBreakPainter
  ;
  : Attributes
-   @ ( ME_4B8BF20A031D // PageBegin
- ) .SequenceCode.It
+   Seq: ( ME_4B8BF20A031D // PageBegin
+ )
  ; // Attributes
  CONST "Need map interface" false
  CONST "Need mapping support" false
  CONST "children prefix" 'nevmm'
  CONST "spell names" false
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
  CONST extprop:pas:ElementPrefix 'nevmm'
 
 ref; // ME_4B8BF1F90349 Local
@@ -362,6 +379,7 @@ FORWARD ME_5F711CE85869
 : ME_710F11916A3D
  CONST UID '710F11916A3D'
  CONST Name 'PageBegin'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY ''' Начало страницы. ''' ;
  CONST Visibility PublicAccess
@@ -377,12 +395,14 @@ FORWARD ME_5F711CE85869
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''nevmmPageBegin''; rValue : '' Начало страницы. '')'
 
 ref; // ME_710F11916A3D PageBegin
 
 : ME_5F711CE85869
  CONST UID '5F711CE85869'
  CONST Name 'LCImplLocal'
+ CONST IsSummoned true
  CONST Class class_Class
  : Stereotype st_Constants ;
  CONST Kind kind_NormalClass
@@ -392,12 +412,16 @@ ref; // ME_710F11916A3D PageBegin
  : Parent ME_480C9D5E01EE // TevPageBreakPainter
  ;
  : Attributes
-   @ ( ME_710F11916A3D // PageBegin
- ) .SequenceCode.It
+   Seq: ( ME_710F11916A3D // PageBegin
+ )
  ; // Attributes
  CONST "children prefix" 'nevmm'
  CONST "elements prefix" 'str'
  CONST "spell names" false
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
  CONST extprop:pas:ElementPrefixBase 'str'
  CONST extprop:pas:ElementPrefix 'str_nevmm'
 
@@ -459,16 +483,17 @@ ref; // ME_480C9E010000 B
  : Parent ME_480C9D5E01EE // TevPageBreakPainter
  ;
  : Parameters
-   @ ( ME_480C9E0003A9 // A
+   Seq: ( ME_480C9E0003A9 // A
  ME_480C9E010000 // B
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_480C9DEF0099 DrawLine
 
 : ME_1B369276488B
  CONST UID '1B369276488B'
- CONST Name 'Init_PageBegin'
+ CONST Name 'Init_Str_PageBegin'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Инициализация str_nevmmPageBegin' ;
@@ -476,8 +501,12 @@ ref; // ME_480C9DEF0099 DrawLine
  CONST Abstraction at_final
  : Parent ME_480C9D5E01EE // TevPageBreakPainter
  ;
+ : Speller ME_4B8BF20A031D // PageBegin
+ ;
+ : SpelledFor ME_710F11916A3D // PageBegin
+ ;
 
-ref; // ME_1B369276488B Init_PageBegin
+ref; // ME_1B369276488B Init_Str_PageBegin
 
 : ME_480CA0A1008C
  CONST UID '480CA0A1008C'
@@ -571,6 +600,7 @@ ref; // ME_53D0AFF00071
 
 : ME_B8A346F7213A
  CONST UID 'B8A346F7213A'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_480C9D5E01EE // TevPageBreakPainter
@@ -582,6 +612,7 @@ ref; // ME_B8A346F7213A
 
 : ME_23667F328009
  CONST UID '23667F328009'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_480C9D5E01EE // TevPageBreakPainter
@@ -598,6 +629,7 @@ ref; // ME_23667F328009
  ;
  : Implementor ME_480C9D5E01EE // TevPageBreakPainter
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4804C81000B9_ME_480C9D5E01EE DrawLeaf
 
 : ME_480C9D5E01EE
@@ -612,27 +644,27 @@ ref; // ME_4804C81000B9_ME_480C9D5E01EE DrawLeaf
  : Parent ME_4804A24003C1 // LeafPara Painters
  ;
  : Inherits
-   @ ( ME_49DB53330394 // TevLeafParaPainter
- ) .SequenceCode.It
+   Seq: ( ME_49DB53330394 // TevLeafParaPainter
+ )
  ; // Inherits
  : Operations
-   @ ( ME_480C9DC4032F // GetString
+   Seq: ( ME_480C9DC4032F // GetString
  ME_480C9DDD01B0 // NewPage
  ME_480C9DEF0099 // DrawLine
- ME_1B369276488B // Init_PageBegin
- ) .SequenceCode.It
+ ME_1B369276488B // Init_Str_PageBegin
+ )
  ; // Operations
  : Overridden
-   @ ( ME_4804C81000B9_ME_480C9D5E01EE // DrawLeaf
- ) .SequenceCode.It
+   Seq: ( ME_4804C81000B9_ME_480C9D5E01EE // DrawLeaf
+ )
  ; // Overridden
  : Constants
-   @ ( ME_4B8BF1F90349 // Local
+   Seq: ( ME_4B8BF1F90349 // Local
  ME_5F711CE85869 // LCImplLocal
- ) .SequenceCode.It
+ )
  ; // Constants
  : Dependencies
-   @ ( ME_480CA0A1008C // 
+   Seq: ( ME_480CA0A1008C // 
  ME_480CA0F0036A // 
  ME_480CA369012A // 
  ME_480CA4040065 // 
@@ -642,7 +674,7 @@ ref; // ME_4804C81000B9_ME_480C9D5E01EE DrawLeaf
  ME_53D0AFF00071 // 
  ME_B8A346F7213A // 
  ME_23667F328009 // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  CONST "author" 'Люлин А.В.'
  CONST "needs InstanceR" 'undefined'
@@ -650,12 +682,14 @@ ref; // ME_4804C81000B9_ME_480C9D5E01EE DrawLeaf
  CONST "no hands" true
  CONST "register in scripts" 'undefined'
  CONST "started" '03.10.2000 16:03'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest'
  CONST intf.pas:Path 'common\components\gui\Garant\Everest\evPageBreakPainter.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'PageBreakPainter'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'evPageBreakPainter'
 
 ref; // ME_480C9D5E01EE TevPageBreakPainter
 
@@ -676,6 +710,7 @@ FORWARD ME_4B8C005F03B8
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value ''' Начало раздела. (%s, книжная) '''
 
 ref; // ME_4B8C00950122 PortaitSection
 
@@ -692,6 +727,7 @@ ref; // ME_4B8C00950122 PortaitSection
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value ''' Начало раздела. (%s, альбомная) '''
 
 ref; // ME_4B8C00B3030B LandscapeSection
 
@@ -706,14 +742,18 @@ ref; // ME_4B8C00B3030B LandscapeSection
  : Parent ME_480CA641014D // TevSectionBreakPainter
  ;
  : Attributes
-   @ ( ME_4B8C00950122 // PortaitSection
+   Seq: ( ME_4B8C00950122 // PortaitSection
  ME_4B8C00B3030B // LandscapeSection
- ) .SequenceCode.It
+ )
  ; // Attributes
  CONST "Need map interface" false
  CONST "Need mapping support" false
  CONST "children prefix" 'nev'
  CONST "spell names" false
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
  CONST extprop:pas:ElementPrefix 'nev'
 
 ref; // ME_4B8C005F03B8 Local
@@ -723,6 +763,7 @@ FORWARD ME_8395777CD6A3
 : ME_D25C91F77269
  CONST UID 'D25C91F77269'
  CONST Name 'PortaitSection'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY ''' Начало раздела. (%s, книжная) ''' ;
  CONST Visibility PublicAccess
@@ -738,12 +779,14 @@ FORWARD ME_8395777CD6A3
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''nevPortaitSection''; rValue : '' Начало раздела. (%s, книжная) '')'
 
 ref; // ME_D25C91F77269 PortaitSection
 
 : ME_ED6A57C6A9F1
  CONST UID 'ED6A57C6A9F1'
  CONST Name 'LandscapeSection'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY ''' Начало раздела. (%s, альбомная) ''' ;
  CONST Visibility PublicAccess
@@ -759,12 +802,14 @@ ref; // ME_D25C91F77269 PortaitSection
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''nevLandscapeSection''; rValue : '' Начало раздела. (%s, альбомная) '')'
 
 ref; // ME_ED6A57C6A9F1 LandscapeSection
 
 : ME_8395777CD6A3
  CONST UID '8395777CD6A3'
  CONST Name 'LCImplLocal'
+ CONST IsSummoned true
  CONST Class class_Class
  : Stereotype st_Constants ;
  CONST Kind kind_NormalClass
@@ -774,13 +819,17 @@ ref; // ME_ED6A57C6A9F1 LandscapeSection
  : Parent ME_480CA641014D // TevSectionBreakPainter
  ;
  : Attributes
-   @ ( ME_D25C91F77269 // PortaitSection
+   Seq: ( ME_D25C91F77269 // PortaitSection
  ME_ED6A57C6A9F1 // LandscapeSection
- ) .SequenceCode.It
+ )
  ; // Attributes
  CONST "children prefix" 'nev'
  CONST "elements prefix" 'str'
  CONST "spell names" false
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
  CONST extprop:pas:ElementPrefixBase 'str'
  CONST extprop:pas:ElementPrefix 'str_nev'
 
@@ -788,7 +837,8 @@ ref; // ME_8395777CD6A3 LCImplLocal
 
 : ME_ADAF29A1D600
  CONST UID 'ADAF29A1D600'
- CONST Name 'Init_PortaitSection'
+ CONST Name 'Init_Str_PortaitSection'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Инициализация str_nevPortaitSection' ;
@@ -796,12 +846,17 @@ ref; // ME_8395777CD6A3 LCImplLocal
  CONST Abstraction at_final
  : Parent ME_480CA641014D // TevSectionBreakPainter
  ;
+ : Speller ME_4B8C00950122 // PortaitSection
+ ;
+ : SpelledFor ME_D25C91F77269 // PortaitSection
+ ;
 
-ref; // ME_ADAF29A1D600 Init_PortaitSection
+ref; // ME_ADAF29A1D600 Init_Str_PortaitSection
 
 : ME_5341E57C3F90
  CONST UID '5341E57C3F90'
- CONST Name 'Init_LandscapeSection'
+ CONST Name 'Init_Str_LandscapeSection'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Инициализация str_nevLandscapeSection' ;
@@ -809,8 +864,12 @@ ref; // ME_ADAF29A1D600 Init_PortaitSection
  CONST Abstraction at_final
  : Parent ME_480CA641014D // TevSectionBreakPainter
  ;
+ : Speller ME_4B8C00B3030B // LandscapeSection
+ ;
+ : SpelledFor ME_ED6A57C6A9F1 // LandscapeSection
+ ;
 
-ref; // ME_5341E57C3F90 Init_LandscapeSection
+ref; // ME_5341E57C3F90 Init_Str_LandscapeSection
 
 : ME_480CA6D90305
  CONST UID '480CA6D90305'
@@ -926,6 +985,7 @@ ref; // ME_53D0B04A0378
 
 : ME_A7BB925E3514
  CONST UID 'A7BB925E3514'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_480CA641014D // TevSectionBreakPainter
@@ -937,6 +997,7 @@ ref; // ME_A7BB925E3514
 
 : ME_14E61ADC089D
  CONST UID '14E61ADC089D'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_480CA641014D // TevSectionBreakPainter
@@ -953,6 +1014,7 @@ ref; // ME_14E61ADC089D
  ;
  : Implementor ME_480CA641014D // TevSectionBreakPainter
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_480C9DC4032F_ME_480CA641014D GetString
 
 : ME_480C9DDD01B0_ME_480CA641014D
@@ -962,6 +1024,7 @@ ref; // ME_480C9DC4032F_ME_480CA641014D GetString
  ;
  : Implementor ME_480CA641014D // TevSectionBreakPainter
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_480C9DDD01B0_ME_480CA641014D NewPage
 
 : ME_480C9DEF0099_ME_480CA641014D
@@ -971,6 +1034,7 @@ ref; // ME_480C9DDD01B0_ME_480CA641014D NewPage
  ;
  : Implementor ME_480CA641014D // TevSectionBreakPainter
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_480C9DEF0099_ME_480CA641014D DrawLine
 
 : ME_480CA641014D
@@ -985,27 +1049,27 @@ ref; // ME_480C9DEF0099_ME_480CA641014D DrawLine
  : Parent ME_4804A24003C1 // LeafPara Painters
  ;
  : Inherits
-   @ ( ME_480C9D5E01EE // TevPageBreakPainter
- ) .SequenceCode.It
+   Seq: ( ME_480C9D5E01EE // TevPageBreakPainter
+ )
  ; // Inherits
  : Operations
-   @ ( ME_ADAF29A1D600 // Init_PortaitSection
- ME_5341E57C3F90 // Init_LandscapeSection
- ) .SequenceCode.It
+   Seq: ( ME_ADAF29A1D600 // Init_Str_PortaitSection
+ ME_5341E57C3F90 // Init_Str_LandscapeSection
+ )
  ; // Operations
  : Overridden
-   @ ( ME_480C9DC4032F_ME_480CA641014D // GetString
+   Seq: ( ME_480C9DC4032F_ME_480CA641014D // GetString
  ME_480C9DDD01B0_ME_480CA641014D // NewPage
  ME_480C9DEF0099_ME_480CA641014D // DrawLine
- ) .SequenceCode.It
+ )
  ; // Overridden
  : Constants
-   @ ( ME_4B8C005F03B8 // Local
+   Seq: ( ME_4B8C005F03B8 // Local
  ME_8395777CD6A3 // LCImplLocal
- ) .SequenceCode.It
+ )
  ; // Constants
  : Dependencies
-   @ ( ME_480CA6D90305 // 
+   Seq: ( ME_480CA6D90305 // 
  ME_480CA7CF02FE // 
  ME_480CA868009B // 
  ME_480CA8CE0281 // 
@@ -1017,7 +1081,7 @@ ref; // ME_480C9DEF0099_ME_480CA641014D DrawLine
  ME_53D0B04A0378 // 
  ME_A7BB925E3514 // 
  ME_14E61ADC089D // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  CONST "author" 'Люлин А.В.'
  CONST "needs InstanceR" 'undefined'
@@ -1025,12 +1089,14 @@ ref; // ME_480C9DEF0099_ME_480CA641014D DrawLine
  CONST "no hands" true
  CONST "register in scripts" 'undefined'
  CONST "started" '03.10.2000 18:59'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest'
  CONST intf.pas:Path 'common\components\gui\Garant\Everest\evSectionBreakPainter.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'SectionBreakPainter'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'evSectionBreakPainter'
 
 ref; // ME_480CA641014D TevSectionBreakPainter
 
@@ -1060,8 +1126,8 @@ ref; // ME_5022687C027C DoIt
  : Parent ME_55CC33ED010B // TevAACTextPainter
  ;
  : Operations
-   @ ( ME_5022687C027C // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_5022687C027C // DoIt
+ )
  ; // Operations
 
 ref; // ME_502268560274 CheckDrawFocused
@@ -1087,8 +1153,8 @@ ref; // ME_4D6649270300 aSeg
  : Parent ME_4D664903006E // ValidateSegFont
  ;
  : Parameters
-   @ ( ME_4D6649270300 // aSeg
- ) .SequenceCode.It
+   Seq: ( ME_4D6649270300 // aSeg
+ )
  ; // Parameters
 
 ref; // ME_4D66492400D1 DoIt
@@ -1104,8 +1170,8 @@ ref; // ME_4D66492400D1 DoIt
  : Parent ME_55CC33ED010B // TevAACTextPainter
  ;
  : Operations
-   @ ( ME_4D66492400D1 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_4D66492400D1 // DoIt
+ )
  ; // Operations
 
 ref; // ME_4D664903006E ValidateSegFont
@@ -1134,8 +1200,8 @@ ref; // ME_55CC5EFE0273 DoIt
  : Parent ME_55CC33ED010B // TevAACTextPainter
  ;
  : Operations
-   @ ( ME_55CC5EFE0273 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_55CC5EFE0273 // DoIt
+ )
  ; // Operations
 
 ref; // ME_55CC5EDA00AD BeforeDrawLeaf
@@ -1164,8 +1230,8 @@ ref; // ME_55CC5F2403C8 DoIt
  : Parent ME_55CC33ED010B // TevAACTextPainter
  ;
  : Operations
-   @ ( ME_55CC5F2403C8 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_55CC5F2403C8 // DoIt
+ )
  ; // Operations
 
 ref; // ME_55CC5F0D01A2 AfterDrawLeaf
@@ -1232,6 +1298,7 @@ ref; // ME_55CC699D0195
  ;
  : Implementor ME_55CC33ED010B // TevAACTextPainter
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4E2702FE01EA_ME_55CC33ED010B FillUnfilled
 
 : ME_55CC33A10342_ME_55CC33ED010B
@@ -1241,6 +1308,7 @@ ref; // ME_4E2702FE01EA_ME_55CC33ED010B FillUnfilled
  ;
  : Implementor ME_55CC33ED010B // TevAACTextPainter
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_55CC33A10342_ME_55CC33ED010B GetBackColor
 
 : ME_55CC33ED010B
@@ -1255,39 +1323,41 @@ ref; // ME_55CC33A10342_ME_55CC33ED010B GetBackColor
  : Parent ME_4804A24003C1 // LeafPara Painters
  ;
  : Inherits
-   @ ( ME_4804CC1E0349 // TevTextParaPainter
- ) .SequenceCode.It
+   Seq: ( ME_4804CC1E0349 // TevTextParaPainter
+ )
  ; // Inherits
  : Operations
-   @ ( ME_502268560274 // CheckDrawFocused
+   Seq: ( ME_502268560274 // CheckDrawFocused
  ME_4D664903006E // ValidateSegFont
  ME_55CC5EDA00AD // BeforeDrawLeaf
  ME_55CC5F0D01A2 // AfterDrawLeaf
- ) .SequenceCode.It
+ )
  ; // Operations
  : Overridden
-   @ ( ME_4E2702FE01EA_ME_55CC33ED010B // FillUnfilled
+   Seq: ( ME_4E2702FE01EA_ME_55CC33ED010B // FillUnfilled
  ME_55CC33A10342_ME_55CC33ED010B // GetBackColor
- ) .SequenceCode.It
+ )
  ; // Overridden
  : Dependencies
-   @ ( ME_55CC3BEC0103 // 
+   Seq: ( ME_55CC3BEC0103 // 
  ME_55CC3D5D0061 // 
  ME_55CC3EEF01A4 // 
  ME_55CC42B502D9 // 
  ME_55CC699D0195 // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest'
  CONST intf.pas:Path 'common\components\gui\Garant\Everest\evAACTextPainter.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'AACTextPainter'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'evAACTextPainter'
 
 ref; // ME_55CC33ED010B TevAACTextPainter
 
@@ -1359,8 +1429,8 @@ ref; // ME_4D725A670247 DoIt
  : Parent ME_49DA30D901B6 // TevTextParaPainterEx
  ;
  : Operations
-   @ ( ME_4D725A670247 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_4D725A670247 // DoIt
+ )
  ; // Operations
 
 ref; // ME_4D725A550218 ValidateParaFont
@@ -1913,6 +1983,7 @@ ref; // ME_55CB1BAA0350
  ;
  : Implementor ME_49DA30D901B6 // TevTextParaPainterEx
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_479F2AFB0397_ME_49DA30D901B6 Release
 
 : ME_4804B5FC02A3_ME_49DA30D901B6
@@ -1922,6 +1993,7 @@ ref; // ME_479F2AFB0397_ME_49DA30D901B6 Release
  ;
  : Implementor ME_49DA30D901B6 // TevTextParaPainterEx
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4804B5FC02A3_ME_49DA30D901B6 DoInitAlignObjects
 
 : ME_4804B9BB0383_ME_49DA30D901B6
@@ -1931,6 +2003,7 @@ ref; // ME_4804B5FC02A3_ME_49DA30D901B6 DoInitAlignObjects
  ;
  : Implementor ME_49DA30D901B6 // TevTextParaPainterEx
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4804B9BB0383_ME_49DA30D901B6 GetFramePartPrim
 
 : ME_4804BC800172_ME_49DA30D901B6
@@ -1940,6 +2013,7 @@ ref; // ME_4804B9BB0383_ME_49DA30D901B6 GetFramePartPrim
  ;
  : Implementor ME_49DA30D901B6 // TevTextParaPainterEx
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4804BC800172_ME_49DA30D901B6 InitBottom
 
 : ME_4804C35B00B2_ME_49DA30D901B6
@@ -1949,6 +2023,7 @@ ref; // ME_4804BC800172_ME_49DA30D901B6 InitBottom
  ;
  : Implementor ME_49DA30D901B6 // TevTextParaPainterEx
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4804C35B00B2_ME_49DA30D901B6 DoDrawFrameText
 
 : ME_4804C81000B9_ME_49DA30D901B6
@@ -1958,6 +2033,7 @@ ref; // ME_4804C35B00B2_ME_49DA30D901B6 DoDrawFrameText
  ;
  : Implementor ME_49DA30D901B6 // TevTextParaPainterEx
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4804C81000B9_ME_49DA30D901B6 DrawLeaf
 
 : ME_4E2702FE01EA_ME_49DA30D901B6
@@ -1967,6 +2043,7 @@ ref; // ME_4804C81000B9_ME_49DA30D901B6 DrawLeaf
  ;
  : Implementor ME_49DA30D901B6 // TevTextParaPainterEx
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4E2702FE01EA_ME_49DA30D901B6 FillUnfilled
 
 : ME_49DA30D901B6
@@ -1981,31 +2058,39 @@ ref; // ME_4E2702FE01EA_ME_49DA30D901B6 FillUnfilled
  : Parent ME_4804A24003C1 // LeafPara Painters
  ;
  : Inherits
-   @ ( ME_55CC33ED010B // TevAACTextPainter
- ) .SequenceCode.It
+   Seq: ( ME_55CC33ED010B // TevAACTextPainter
+ )
  ; // Inherits
+ : Implements
+   Seq: ( WL 'ME_4E314D470350' '4E3160C802DA.pas.ms.script' // Возможность печатать фиксированным шрифтом
+ WL 'ME_4E5CF72A00BC' '4E5CF70B01E2.pas.ms.script' // "Шапка" комментариев должна отображаться целиком или не отображаться вовсе, если она не имеет собственной отдельной строки вывода
+ WL 'ME_4E5CF9ED03B7' '4E5CF70B01E2.pas.ms.script' // Отображение комментариев
+ WL 'ME_4E5CFCBA026C' '4E5CF70B01E2.pas.ms.script' // Отображение баллонов внутри текста
+ WL 'ME_4E6A2DF3030F' '4E5CF70B01E2.pas.ms.script' // Отображение шапки параграфа
+ )
+ ; // Implements
  : Attributes
-   @ ( ME_49DA33FC021D // f_FirstIndent
+   Seq: ( ME_49DA33FC021D // f_FirstIndent
  ME_4E272722029F // f_TopLine
  ME_4E568E1200BB // f_LinePainter
- ) .SequenceCode.It
+ )
  ; // Attributes
  : Operations
-   @ ( ME_4D725A550218 // ValidateParaFont
- ) .SequenceCode.It
+   Seq: ( ME_4D725A550218 // ValidateParaFont
+ )
  ; // Operations
  : Overridden
-   @ ( ME_479F2AFB0397_ME_49DA30D901B6 // Release
+   Seq: ( ME_479F2AFB0397_ME_49DA30D901B6 // Release
  ME_4804B5FC02A3_ME_49DA30D901B6 // DoInitAlignObjects
  ME_4804B9BB0383_ME_49DA30D901B6 // GetFramePartPrim
  ME_4804BC800172_ME_49DA30D901B6 // InitBottom
  ME_4804C35B00B2_ME_49DA30D901B6 // DoDrawFrameText
  ME_4804C81000B9_ME_49DA30D901B6 // DrawLeaf
  ME_4E2702FE01EA_ME_49DA30D901B6 // FillUnfilled
- ) .SequenceCode.It
+ )
  ; // Overridden
  : Dependencies
-   @ ( ME_49DA328F037A // 
+   Seq: ( ME_49DA328F037A // 
  ME_49DA334C0334 // 
  ME_49DA335A0238 // 
  ME_49DA33CB021C // 
@@ -2054,7 +2139,7 @@ ref; // ME_4E2702FE01EA_ME_49DA30D901B6 FillUnfilled
  ME_53AAC13D0030 // 
  ME_53D78CC6012C // 
  ME_55CB1BAA0350 // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  CONST "author" 'Люлин А.В.'
  CONST "needs InstanceR" 'undefined'
@@ -2062,12 +2147,14 @@ ref; // ME_4E2702FE01EA_ME_49DA30D901B6 FillUnfilled
  CONST "no hands" true
  CONST "register in scripts" 'undefined'
  CONST "started" '06.04.2009 20:42'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest'
  CONST intf.pas:Path 'common\components\gui\Garant\Everest\evTextParaPainterEx.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'TextParaPainterEx'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'evTextParaPainterEx'
 
 ref; // ME_49DA30D901B6 TevTextParaPainterEx
 
@@ -2115,6 +2202,7 @@ ref; // ME_53D0F6EE0230
  ;
  : Implementor ME_4804CC63006C // TevFormulaPainter
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4804B86403BE_ME_4804CC63006C DoFillSelection
 
 : ME_4804C81000B9_ME_4804CC63006C
@@ -2124,6 +2212,7 @@ ref; // ME_4804B86403BE_ME_4804CC63006C DoFillSelection
  ;
  : Implementor ME_4804CC63006C // TevFormulaPainter
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4804C81000B9_ME_4804CC63006C DrawLeaf
 
 : ME_4E53B9A500B4_ME_4804CC63006C
@@ -2133,6 +2222,7 @@ ref; // ME_4804C81000B9_ME_4804CC63006C DrawLeaf
  ;
  : Implementor ME_4804CC63006C // TevFormulaPainter
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4E53B9A500B4_ME_4804CC63006C GetBitmapForPara
 
 : ME_4804CC63006C
@@ -2146,20 +2236,20 @@ ref; // ME_4E53B9A500B4_ME_4804CC63006C GetBitmapForPara
  : Parent ME_4804A24003C1 // LeafPara Painters
  ;
  : Inherits
-   @ ( ME_49DA30D901B6 // TevTextParaPainterEx
- ) .SequenceCode.It
+   Seq: ( ME_49DA30D901B6 // TevTextParaPainterEx
+ )
  ; // Inherits
  : Overridden
-   @ ( ME_4804B86403BE_ME_4804CC63006C // DoFillSelection
+   Seq: ( ME_4804B86403BE_ME_4804CC63006C // DoFillSelection
  ME_4804C81000B9_ME_4804CC63006C // DrawLeaf
  ME_4E53B9A500B4_ME_4804CC63006C // GetBitmapForPara
- ) .SequenceCode.It
+ )
  ; // Overridden
  : Dependencies
-   @ ( ME_4804CCB802E5 // 
+   Seq: ( ME_4804CCB802E5 // 
  ME_4DD67BEC00A2 // 
  ME_53D0F6EE0230 // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  CONST "author" 'Люлин А.В.'
  CONST "needs InstanceR" 'undefined'
@@ -2167,12 +2257,14 @@ ref; // ME_4E53B9A500B4_ME_4804CC63006C GetBitmapForPara
  CONST "no hands" true
  CONST "register in scripts" 'undefined'
  CONST "started" '15.12.2002 15:28'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest'
  CONST intf.pas:Path 'common\components\gui\Garant\Everest\evFormulaPainter.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'FormulaPainter'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'evFormulaPainter'
 
 ref; // ME_4804CC63006C TevFormulaPainter
 
@@ -2209,6 +2301,7 @@ ref; // ME_53D0F11C01A6
  ;
  : Implementor ME_4804CBCA0090 // TevBitmapParaPainter
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4804B86403BE_ME_4804CBCA0090 DoFillSelection
 
 : ME_4804C81000B9_ME_4804CBCA0090
@@ -2218,6 +2311,7 @@ ref; // ME_4804B86403BE_ME_4804CBCA0090 DoFillSelection
  ;
  : Implementor ME_4804CBCA0090 // TevBitmapParaPainter
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4804C81000B9_ME_4804CBCA0090 DrawLeaf
 
 : ME_4804CBCA0090
@@ -2232,18 +2326,18 @@ ref; // ME_4804C81000B9_ME_4804CBCA0090 DrawLeaf
  : Parent ME_4804A24003C1 // LeafPara Painters
  ;
  : Inherits
-   @ ( ME_49DB53330394 // TevLeafParaPainter
- ) .SequenceCode.It
+   Seq: ( ME_49DB53330394 // TevLeafParaPainter
+ )
  ; // Inherits
  : Overridden
-   @ ( ME_4804B86403BE_ME_4804CBCA0090 // DoFillSelection
+   Seq: ( ME_4804B86403BE_ME_4804CBCA0090 // DoFillSelection
  ME_4804C81000B9_ME_4804CBCA0090 // DrawLeaf
- ) .SequenceCode.It
+ )
  ; // Overridden
  : Dependencies
-   @ ( ME_4DD67C2A01F6 // 
+   Seq: ( ME_4DD67C2A01F6 // 
  ME_53D0F11C01A6 // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  CONST "author" 'Люлин А.В.'
  CONST "needs InstanceR" 'undefined'
@@ -2251,12 +2345,14 @@ ref; // ME_4804C81000B9_ME_4804CBCA0090 DrawLeaf
  CONST "no hands" true
  CONST "register in scripts" 'undefined'
  CONST "started" '16.12.2002 14:35'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest'
  CONST intf.pas:Path 'common\components\gui\Garant\Everest\evBitmapParaPainter.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'BitmapParaPainter'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'evBitmapParaPainter'
 
 ref; // ME_4804CBCA0090 TevBitmapParaPainter
 
@@ -2329,11 +2425,11 @@ ref; // ME_49DB2EB90096 aBtnWidth
  : Parent ME_49DB2E950297 // DrawImgListComponent
  ;
  : Parameters
-   @ ( ME_49DB2EB9002D // aEditRect
+   Seq: ( ME_49DB2EB9002D // aEditRect
  ME_49DB2EB90053 // aType
  ME_49DB2EB90074 // aPartialDraw
  ME_49DB2EB90096 // aBtnWidth
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_49DB2EA7020F DoIt
@@ -2350,12 +2446,12 @@ ref; // ME_49DB2EA7020F DoIt
  : Parent ME_4804CDA403CE // TevControlParaPainter
  ;
  : Attributes
-   @ ( ME_4E14519000A2 // ImageInfo
- ) .SequenceCode.It
+   Seq: ( ME_4E14519000A2 // ImageInfo
+ )
  ; // Attributes
  : Operations
-   @ ( ME_49DB2EA7020F // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_49DB2EA7020F // DoIt
+ )
  ; // Operations
 
 ref; // ME_49DB2E950297 DrawImgListComponent
@@ -2556,6 +2652,7 @@ ref; // ME_53D64C7B006F
  ;
  : Implementor ME_4804CDA403CE // TevControlParaPainter
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4804B76803D5_ME_4804CDA403CE DrawFrame
 
 : ME_4804C81000B9_ME_4804CDA403CE
@@ -2565,6 +2662,7 @@ ref; // ME_4804B76803D5_ME_4804CDA403CE DrawFrame
  ;
  : Implementor ME_4804CDA403CE // TevControlParaPainter
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4804C81000B9_ME_4804CDA403CE DrawLeaf
 
 : ME_4D664903006E_ME_4804CDA403CE
@@ -2574,6 +2672,7 @@ ref; // ME_4804C81000B9_ME_4804CDA403CE DrawLeaf
  ;
  : Implementor ME_4804CDA403CE // TevControlParaPainter
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4D664903006E_ME_4804CDA403CE ValidateSegFont
 
 : ME_4D725A550218_ME_4804CDA403CE
@@ -2583,6 +2682,7 @@ ref; // ME_4D664903006E_ME_4804CDA403CE ValidateSegFont
  ;
  : Implementor ME_4804CDA403CE // TevControlParaPainter
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4D725A550218_ME_4804CDA403CE ValidateParaFont
 
 : ME_4804CDA403CE
@@ -2597,22 +2697,22 @@ ref; // ME_4D725A550218_ME_4804CDA403CE ValidateParaFont
  : Parent ME_4804A24003C1 // LeafPara Painters
  ;
  : Inherits
-   @ ( ME_49DA30D901B6 // TevTextParaPainterEx
- ) .SequenceCode.It
+   Seq: ( ME_49DA30D901B6 // TevTextParaPainterEx
+ )
  ; // Inherits
  : Operations
-   @ ( ME_49DB2E950297 // DrawImgListComponent
- ) .SequenceCode.It
+   Seq: ( ME_49DB2E950297 // DrawImgListComponent
+ )
  ; // Operations
  : Overridden
-   @ ( ME_4804B76803D5_ME_4804CDA403CE // DrawFrame
+   Seq: ( ME_4804B76803D5_ME_4804CDA403CE // DrawFrame
  ME_4804C81000B9_ME_4804CDA403CE // DrawLeaf
  ME_4D664903006E_ME_4804CDA403CE // ValidateSegFont
  ME_4D725A550218_ME_4804CDA403CE // ValidateParaFont
- ) .SequenceCode.It
+ )
  ; // Overridden
  : Dependencies
-   @ ( ME_4804D129029A // 
+   Seq: ( ME_4804D129029A // 
  ME_4804D17B010C // 
  ME_4804D23D001B // 
  ME_4804D28A0184 // 
@@ -2629,7 +2729,7 @@ ref; // ME_4D725A550218_ME_4804CDA403CE ValidateParaFont
  ME_4D833B8903DD // 
  ME_4D833B9F013D // 
  ME_53D64C7B006F // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  CONST "author" 'Люлин А.В.'
  CONST "needs InstanceR" 'undefined'
@@ -2637,12 +2737,14 @@ ref; // ME_4D725A550218_ME_4804CDA403CE ValidateParaFont
  CONST "no hands" true
  CONST "register in scripts" 'undefined'
  CONST "started" '02.11.2004 15:49'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest'
  CONST intf.pas:Path 'common\components\gui\Garant\Everest\evControlParaPainter.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'ControlParaPainter'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'evControlParaPainter'
 
 ref; // ME_4804CDA403CE TevControlParaPainter
 
@@ -2657,7 +2759,7 @@ ref; // ME_4804CDA403CE TevControlParaPainter
  : Parent WL 'ME_4797632D0273' '4797632D0273.pas.ms.script' // Everest
  ;
  : Children
-   @ ( ME_49DB53330394 // TevLeafParaPainter
+   Seq: ( ME_49DB53330394 // TevLeafParaPainter
  ME_49DA2BF5016E // TevTextParaPainterPrim
  ME_4804CC1E0349 // TevTextParaPainter
  ME_49DA328801C9 // TevLinePainter
@@ -2668,10 +2770,10 @@ ref; // ME_4804CDA403CE TevControlParaPainter
  ME_4804CC63006C // TevFormulaPainter
  ME_4804CBCA0090 // TevBitmapParaPainter
  ME_4804CDA403CE // TevControlParaPainter
- ) .SequenceCode.It
+ )
  ; // Children
  : Depends
-   @ ( WL 'ME_4677FBA70343' '4677FBA70343.pas.ms.script' // l3Interfaces
+   Seq: ( WL 'ME_4677FBA70343' '4677FBA70343.pas.ms.script' // l3Interfaces
  WL 'ME_4678193C009C' '4678193C009C.pas.ms.script' // l3Types
  WL 'ME_4678209200A6' '4678209200A6.pas.ms.script' // nevBase
  WL 'ME_467823B7002C' '467823B7002C.pas.ms.script' // afwInterfaces
@@ -2722,7 +2824,9 @@ ref; // ME_4804CDA403CE TevControlParaPainter
  WL 'ME_4A267EE3017B' '4A267EE3017B.pas.ms.script' // HotSpots
  WL 'ME_4AB0C3C60310' '4AB0C3C60310.pas.ms.script' // Sys
  WL 'ME_4AB0C3F60375' '4AB0C3F60375.pas.ms.script' // Win
+ WL 'ME_4E3160C802DA' '4E3160C802DA.pas.ms.script' // Печать документа
  WL 'ME_4E56909E0240' '4E56909E0240.pas.ms.script' // evResultFont
+ WL 'ME_4E5CF70B01E2' '4E5CF70B01E2.pas.ms.script' // Требования к редактору Эверест
  WL 'ME_4E5FADDD00A1' '4E5FADDD00A1.pas.ms.script' // Segments
  WL 'ME_4E60BA4D00A6' '4E60BA4D00A6.pas.ms.script' // Fonts
  WL 'ME_4E71FAFC0240' '4E71FAFC0240.pas.ms.script' // Garbage
@@ -2732,16 +2836,14 @@ ref; // ME_4804CDA403CE TevControlParaPainter
  WL 'ME_53D258F1004F' '53D258F1004F.pas.ms.script' // InterfaceFactories
  WL 'ME_54B90AC6014B' '54B90AC6014B.pas.ms.script' // StringUtils
  WL 'ME_55C4AEC801CA' '55C4AEC801CA.pas.ms.script' // Graphics
- ) .SequenceCode.It
+ )
  ; // Depends
  CONST "ifdef" 'evNeedPainters'
- : Generators
- @ (
- gen_pas.script
- gen_pas.script.runner
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest'
  CONST pas.script:Path 'shared\models\NewSchool\Scripts\4804A24003C1.pas.ms.script'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
  CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\4804A24003C1.pas.ms.script.runner'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_4804A24003C1 LeafPara Painters

@@ -1,0 +1,850 @@
+// AdminDomainInterfaces 49903C95009E Interfaces Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_49903C95009E
+
+FORWARD ME_491D982203CD
+
+: ME_491D98470107
+ CONST UID '491D98470107'
+ CONST Name 'MaxLength'
+ CONST Class class_Attribute
+ : Stereotype st_readonly::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_491D982203CD // EdsMaxLengthExceed
+ ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+ CONST "needs field" false
+ CONST "pm" true
+ CONST "reads field" true
+
+ref; // ME_491D98470107 MaxLength
+
+: ME_7AC108DB4043
+ CONST UID '7AC108DB4043'
+ CONST Name 'f_MaxLength'
+ CONST IsSummoned true
+ CONST Class class_Attribute
+ %SUMMARY 'Поле для свойства MaxLength' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_ref
+ : Parent ME_491D982203CD // EdsMaxLengthExceed
+ ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+
+ref; // ME_7AC108DB4043 f_MaxLength
+
+: ME_491D987C0028
+ CONST UID '491D987C0028'
+ CONST Name 'Create'
+ CONST Class class_Operation
+ : Stereotype st_ctor::Operation ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_491D982203CD // EdsMaxLengthExceed
+ ;
+
+ref; // ME_491D987C0028 Create
+
+: ME_491D982203CD
+ CONST UID '491D982203CD'
+ CONST Name 'EdsMaxLengthExceed'
+ CONST Class class_Class
+ : Stereotype st_Exception ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Превышена допустимая длинна строки' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_49903C95009E // AdminDomainInterfaces
+ ;
+ : Inherits
+   Seq: ( WL 'ME_4787A405013D' '4AB0C3C60310.pas.ms.script' // Exception
+ )
+ ; // Inherits
+ : Attributes
+   Seq: ( ME_491D98470107 // MaxLength
+ ME_7AC108DB4043 // f_MaxLength
+ )
+ ; // Attributes
+ : Operations
+   Seq: ( ME_491D987C0028 // Create
+ )
+ ; // Operations
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Model'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Model'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\Model'
+
+ref; // ME_491D982203CD EdsMaxLengthExceed
+
+FORWARD ME_49903D1702E2
+
+: ME_49903D950099
+ CONST UID '49903D950099'
+ CONST Name 'HasEmail'
+ CONST Class class_Attribute
+ : Stereotype st_readonly::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_lnk
+ : Parent ME_49903D1702E2 // InsAdminInfo
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+ CONST "pm" true
+
+ref; // ME_49903D950099 HasEmail
+
+: ME_49903DA70271
+ CONST UID '49903DA70271'
+ CONST Name 'HasPhone'
+ CONST Class class_Attribute
+ : Stereotype st_readonly::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_lnk
+ : Parent ME_49903D1702E2 // InsAdminInfo
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+ CONST "pm" true
+
+ref; // ME_49903DA70271 HasPhone
+
+: ME_49903D5500C5
+ CONST UID '49903D5500C5'
+ CONST Name 'Phone'
+ CONST Class class_Attribute
+ : Stereotype st_property::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_lnk
+ : Parent ME_49903D1702E2 // InsAdminInfo
+ ;
+ : Target WL 'ME_46780DA40383' '4677FBA70343.pas.ms.script' // Il3CString
+ ;
+ : CanRaiseInSet
+   Seq: ( ME_491D982203CD // EdsMaxLengthExceed
+ )
+ ; // CanRaiseInSet
+ CONST "pm" true
+
+ref; // ME_49903D5500C5 Phone
+
+: ME_49903D6F0242
+ CONST UID '49903D6F0242'
+ CONST Name 'Email'
+ CONST Class class_Attribute
+ : Stereotype st_property::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_lnk
+ : Parent ME_49903D1702E2 // InsAdminInfo
+ ;
+ : Target WL 'ME_46780DA40383' '4677FBA70343.pas.ms.script' // Il3CString
+ ;
+ : CanRaiseInSet
+   Seq: ( ME_491D982203CD // EdsMaxLengthExceed
+ )
+ ; // CanRaiseInSet
+ CONST "pm" true
+
+ref; // ME_49903D6F0242 Email
+
+: ME_49903D1702E2
+ CONST UID '49903D1702E2'
+ CONST GUID '61BE9766-54B8-4A29-A794-8E08259285B1'
+ CONST Name 'InsAdminInfo'
+ CONST Class class_Class
+ : Stereotype st_Facet ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Информация об администраторе' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_49903C95009E // AdminDomainInterfaces
+ ;
+ : Attributes
+   Seq: ( ME_49903D950099 // HasEmail
+ ME_49903DA70271 // HasPhone
+ ME_49903D5500C5 // Phone
+ ME_49903D6F0242 // Email
+ )
+ ; // Attributes
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Model'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Model'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\Model'
+ CONST extprop:rc:SelfName 'AdminInfo'
+ CONST extprop:rc:isAcceptableForScripts true
+
+ref; // ME_49903D1702E2 InsAdminInfo
+
+FORWARD ME_4B5024CA0129
+
+: ME_4B5026E201E6
+ CONST UID '4B5026E201E6'
+ CONST Name 'UID'
+ CONST Class class_Attribute
+ : Stereotype st_readonly::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_lnk
+ : Parent ME_4B5024CA0129 // nsUserProperty
+ ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+ CONST "pm" false
+
+ref; // ME_4B5026E201E6 UID
+
+: ME_4B5026F60253
+ CONST UID '4B5026F60253'
+ CONST Name 'GroupUID'
+ CONST Class class_Attribute
+ : Stereotype st_readonly::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_lnk
+ : Parent ME_4B5024CA0129 // nsUserProperty
+ ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+ CONST "pm" false
+
+ref; // ME_4B5026F60253 GroupUID
+
+: ME_4B5026FD015E
+ CONST UID '4B5026FD015E'
+ CONST Name 'Login'
+ CONST Class class_Attribute
+ : Stereotype st_readonly::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_lnk
+ : Parent ME_4B5024CA0129 // nsUserProperty
+ ;
+ : Target WL 'ME_46780DA40383' '4677FBA70343.pas.ms.script' // Il3CString
+ ;
+ CONST "pm" false
+
+ref; // ME_4B5026FD015E Login
+
+: ME_4B502705014F
+ CONST UID '4B502705014F'
+ CONST Name 'Name'
+ CONST Class class_Attribute
+ : Stereotype st_readonly::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_lnk
+ : Parent ME_4B5024CA0129 // nsUserProperty
+ ;
+ : Target WL 'ME_46780DA40383' '4677FBA70343.pas.ms.script' // Il3CString
+ ;
+ CONST "pm" false
+
+ref; // ME_4B502705014F Name
+
+: ME_4B50270B0138
+ CONST UID '4B50270B0138'
+ CONST Name 'Mail'
+ CONST Class class_Attribute
+ : Stereotype st_readonly::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_lnk
+ : Parent ME_4B5024CA0129 // nsUserProperty
+ ;
+ : Target WL 'ME_46780DA40383' '4677FBA70343.pas.ms.script' // Il3CString
+ ;
+ CONST "pm" false
+
+ref; // ME_4B50270B0138 Mail
+
+: ME_4B5027120274
+ CONST UID '4B5027120274'
+ CONST Name 'IsChanged'
+ CONST Class class_Attribute
+ : Stereotype st_property::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_lnk
+ : Parent ME_4B5024CA0129 // nsUserProperty
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+ CONST "pm" false
+
+ref; // ME_4B5027120274 IsChanged
+
+: ME_4B50271C00EE
+ CONST UID '4B50271C00EE'
+ CONST Name 'IsNewUser'
+ CONST Class class_Attribute
+ : Stereotype st_readonly::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_lnk
+ : Parent ME_4B5024CA0129 // nsUserProperty
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+ CONST "pm" false
+
+ref; // ME_4B50271C00EE IsNewUser
+
+: ME_4B502720021F
+ CONST UID '4B502720021F'
+ CONST Name 'CanBuyConsulting'
+ CONST Class class_Attribute
+ : Stereotype st_readonly::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_lnk
+ : Parent ME_4B5024CA0129 // nsUserProperty
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+ CONST "pm" false
+
+ref; // ME_4B502720021F CanBuyConsulting
+
+: ME_4B5027240286
+ CONST UID '4B5027240286'
+ CONST Name 'IsSystem'
+ CONST Class class_Attribute
+ : Stereotype st_readonly::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_lnk
+ : Parent ME_4B5024CA0129 // nsUserProperty
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+ CONST "pm" false
+
+ref; // ME_4B5027240286 IsSystem
+
+: ME_4B50272901C3
+ CONST UID '4B50272901C3'
+ CONST Name 'IsPrivileged'
+ CONST Class class_Attribute
+ : Stereotype st_readonly::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_lnk
+ : Parent ME_4B5024CA0129 // nsUserProperty
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+ CONST "pm" false
+
+ref; // ME_4B50272901C3 IsPrivileged
+
+: ME_4F3C01AD01FB
+ CONST UID '4F3C01AD01FB'
+ CONST Name 'DontDeleteIdle'
+ CONST Class class_Attribute
+ : Stereotype st_readonly::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_lnk
+ : Parent ME_4B5024CA0129 // nsUserProperty
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+ CONST "pm" false
+
+ref; // ME_4F3C01AD01FB DontDeleteIdle
+
+: ME_4B5025A002EE
+ CONST UID '4B5025A002EE'
+ CONST Name 'HasUserProfile'
+ CONST Class class_Operation
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_4B5024CA0129 // nsUserProperty
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+
+ref; // ME_4B5025A002EE HasUserProfile
+
+: ME_4B5025A700F0
+ CONST UID '4B5025A700F0'
+ CONST Name 'HasPassword'
+ CONST Class class_Operation
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_4B5024CA0129 // nsUserProperty
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+
+ref; // ME_4B5025A700F0 HasPassword
+
+: ME_4F3CCCD401EF
+ CONST UID '4F3CCCD401EF'
+ CONST Name 'aName'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46780D0003AF' '4677FBA70343.pas.ms.script' // Tl3WString
+ ;
+
+ref; // ME_4F3CCCD401EF aName
+
+: ME_4F3CCCD40260
+ CONST UID '4F3CCCD40260'
+ CONST Name 'aMail'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46780D0003AF' '4677FBA70343.pas.ms.script' // Tl3WString
+ ;
+
+ref; // ME_4F3CCCD40260 aMail
+
+: ME_4F3CCCD402D0
+ CONST UID '4F3CCCD402D0'
+ CONST Name 'aCanBuyConsulting'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+
+ref; // ME_4F3CCCD402D0 aCanBuyConsulting
+
+: ME_4F3CCCD40343
+ CONST UID '4F3CCCD40343'
+ CONST Name 'aIsPrivileged'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+
+ref; // ME_4F3CCCD40343 aIsPrivileged
+
+: ME_4F3CCCD403B2
+ CONST UID '4F3CCCD403B2'
+ CONST Name 'aDontDeleteIdle'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+
+ref; // ME_4F3CCCD403B2 aDontDeleteIdle
+
+: ME_4F3CCCD5003C
+ CONST UID '4F3CCCD5003C'
+ CONST Name 'aPassword'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46780D0003AF' '4677FBA70343.pas.ms.script' // Tl3WString
+ ;
+
+ref; // ME_4F3CCCD5003C aPassword
+
+: ME_4F3CCCD500AD
+ CONST UID '4F3CCCD500AD'
+ CONST Name 'aGroupUID'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_3DBFFD7002C2' '3DBFDB23006E.pas.ms.script' // long
+ ;
+
+ref; // ME_4F3CCCD500AD aGroupUID
+
+: ME_4F3CCCD50120
+ CONST UID '4F3CCCD50120'
+ CONST Name 'IsPasswordChanged'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+ CONST Value false
+ : ValueType WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+ CONST extprop:pas:Value false
+
+ref; // ME_4F3CCCD50120 IsPasswordChanged
+
+: ME_4B5026560312
+ CONST UID '4B5026560312'
+ CONST Name 'SaveUserProfile'
+ CONST Class class_Operation
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_4B5024CA0129 // nsUserProperty
+ ;
+ : Parameters
+   Seq: ( ME_4F3CCCD401EF // aName
+ ME_4F3CCCD40260 // aMail
+ ME_4F3CCCD402D0 // aCanBuyConsulting
+ ME_4F3CCCD40343 // aIsPrivileged
+ ME_4F3CCCD403B2 // aDontDeleteIdle
+ ME_4F3CCCD5003C // aPassword
+ ME_4F3CCCD500AD // aGroupUID
+ ME_4F3CCCD50120 // IsPasswordChanged
+ )
+ ; // Parameters
+
+ref; // ME_4B5026560312 SaveUserProfile
+
+: ME_4B54607500E3
+ CONST UID '4B54607500E3'
+ CONST Name 'aName'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46780D0003AF' '4677FBA70343.pas.ms.script' // Tl3WString
+ ;
+
+ref; // ME_4B54607500E3 aName
+
+: ME_4B5460750122
+ CONST UID '4B5460750122'
+ CONST Name 'aMail'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46780D0003AF' '4677FBA70343.pas.ms.script' // Tl3WString
+ ;
+
+ref; // ME_4B5460750122 aMail
+
+: ME_4B5460750170
+ CONST UID '4B5460750170'
+ CONST Name 'aPassword'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46780D0003AF' '4677FBA70343.pas.ms.script' // Tl3WString
+ ;
+
+ref; // ME_4B5460750170 aPassword
+
+: ME_4B54607501AE
+ CONST UID '4B54607501AE'
+ CONST Name 'IsPasswordChanged'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+ CONST Value false
+ : ValueType WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+ CONST extprop:pas:Value false
+
+ref; // ME_4B54607501AE IsPasswordChanged
+
+: ME_4B5460600098
+ CONST UID '4B5460600098'
+ CONST Name 'SaveUserInfo'
+ CONST Class class_Operation
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_4B5024CA0129 // nsUserProperty
+ ;
+ : Parameters
+   Seq: ( ME_4B54607500E3 // aName
+ ME_4B5460750122 // aMail
+ ME_4B5460750170 // aPassword
+ ME_4B54607501AE // IsPasswordChanged
+ )
+ ; // Parameters
+
+ref; // ME_4B5460600098 SaveUserInfo
+
+: ME_4B5024CA0129
+ CONST UID '4B5024CA0129'
+ CONST Name 'nsUserProperty'
+ CONST Class class_Class
+ : Stereotype st_PureMixIn ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_49903C95009E // AdminDomainInterfaces
+ ;
+ : Attributes
+   Seq: ( ME_4B5026E201E6 // UID
+ ME_4B5026F60253 // GroupUID
+ ME_4B5026FD015E // Login
+ ME_4B502705014F // Name
+ ME_4B50270B0138 // Mail
+ ME_4B5027120274 // IsChanged
+ ME_4B50271C00EE // IsNewUser
+ ME_4B502720021F // CanBuyConsulting
+ ME_4B5027240286 // IsSystem
+ ME_4B50272901C3 // IsPrivileged
+ ME_4F3C01AD01FB // DontDeleteIdle
+ )
+ ; // Attributes
+ : Operations
+   Seq: ( ME_4B5025A002EE // HasUserProfile
+ ME_4B5025A700F0 // HasPassword
+ ME_4B5026560312 // SaveUserProfile
+ ME_4B5460600098 // SaveUserInfo
+ )
+ ; // Operations
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Model'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Model'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\Model'
+ CONST extprop:rc:SelfName 'UserProperty'
+
+ref; // ME_4B5024CA0129 nsUserProperty
+
+FORWARD ME_4B50250E0139
+
+: ME_4B5025A002EE_ME_4B50250E0139
+ CONST UID '4B5025A002EE'
+ CONST Name 'HasUserProfile'
+ : Original ME_4B5025A002EE // HasUserProfile
+ ;
+ : Implementor ME_4B50250E0139 // InsUserProperty
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_4B5025A002EE_ME_4B50250E0139 HasUserProfile
+
+: ME_4B5025A700F0_ME_4B50250E0139
+ CONST UID '4B5025A700F0'
+ CONST Name 'HasPassword'
+ : Original ME_4B5025A700F0 // HasPassword
+ ;
+ : Implementor ME_4B50250E0139 // InsUserProperty
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_4B5025A700F0_ME_4B50250E0139 HasPassword
+
+: ME_4B5026560312_ME_4B50250E0139
+ CONST UID '4B5026560312'
+ CONST Name 'SaveUserProfile'
+ : Original ME_4B5026560312 // SaveUserProfile
+ ;
+ : Implementor ME_4B50250E0139 // InsUserProperty
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_4B5026560312_ME_4B50250E0139 SaveUserProfile
+
+: ME_4B5026E201E6_ME_4B50250E0139
+ CONST UID '4B5026E201E6'
+ CONST Name 'UID'
+ : Original ME_4B5026E201E6 // UID
+ ;
+ : Implementor ME_4B50250E0139 // InsUserProperty
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "pm" false
+ref; // ME_4B5026E201E6_ME_4B50250E0139 UID
+
+: ME_4B5026F60253_ME_4B50250E0139
+ CONST UID '4B5026F60253'
+ CONST Name 'GroupUID'
+ : Original ME_4B5026F60253 // GroupUID
+ ;
+ : Implementor ME_4B50250E0139 // InsUserProperty
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "pm" false
+ref; // ME_4B5026F60253_ME_4B50250E0139 GroupUID
+
+: ME_4B5026FD015E_ME_4B50250E0139
+ CONST UID '4B5026FD015E'
+ CONST Name 'Login'
+ : Original ME_4B5026FD015E // Login
+ ;
+ : Implementor ME_4B50250E0139 // InsUserProperty
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "pm" false
+ref; // ME_4B5026FD015E_ME_4B50250E0139 Login
+
+: ME_4B502705014F_ME_4B50250E0139
+ CONST UID '4B502705014F'
+ CONST Name 'Name'
+ : Original ME_4B502705014F // Name
+ ;
+ : Implementor ME_4B50250E0139 // InsUserProperty
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "pm" false
+ref; // ME_4B502705014F_ME_4B50250E0139 Name
+
+: ME_4B50270B0138_ME_4B50250E0139
+ CONST UID '4B50270B0138'
+ CONST Name 'Mail'
+ : Original ME_4B50270B0138 // Mail
+ ;
+ : Implementor ME_4B50250E0139 // InsUserProperty
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "pm" false
+ref; // ME_4B50270B0138_ME_4B50250E0139 Mail
+
+: ME_4B5027120274_ME_4B50250E0139
+ CONST UID '4B5027120274'
+ CONST Name 'IsChanged'
+ : Original ME_4B5027120274 // IsChanged
+ ;
+ : Implementor ME_4B50250E0139 // InsUserProperty
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "pm" false
+ref; // ME_4B5027120274_ME_4B50250E0139 IsChanged
+
+: ME_4B50271C00EE_ME_4B50250E0139
+ CONST UID '4B50271C00EE'
+ CONST Name 'IsNewUser'
+ : Original ME_4B50271C00EE // IsNewUser
+ ;
+ : Implementor ME_4B50250E0139 // InsUserProperty
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "pm" false
+ref; // ME_4B50271C00EE_ME_4B50250E0139 IsNewUser
+
+: ME_4B502720021F_ME_4B50250E0139
+ CONST UID '4B502720021F'
+ CONST Name 'CanBuyConsulting'
+ : Original ME_4B502720021F // CanBuyConsulting
+ ;
+ : Implementor ME_4B50250E0139 // InsUserProperty
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "pm" false
+ref; // ME_4B502720021F_ME_4B50250E0139 CanBuyConsulting
+
+: ME_4B5027240286_ME_4B50250E0139
+ CONST UID '4B5027240286'
+ CONST Name 'IsSystem'
+ : Original ME_4B5027240286 // IsSystem
+ ;
+ : Implementor ME_4B50250E0139 // InsUserProperty
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "pm" false
+ref; // ME_4B5027240286_ME_4B50250E0139 IsSystem
+
+: ME_4B50272901C3_ME_4B50250E0139
+ CONST UID '4B50272901C3'
+ CONST Name 'IsPrivileged'
+ : Original ME_4B50272901C3 // IsPrivileged
+ ;
+ : Implementor ME_4B50250E0139 // InsUserProperty
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "pm" false
+ref; // ME_4B50272901C3_ME_4B50250E0139 IsPrivileged
+
+: ME_4B5460600098_ME_4B50250E0139
+ CONST UID '4B5460600098'
+ CONST Name 'SaveUserInfo'
+ : Original ME_4B5460600098 // SaveUserInfo
+ ;
+ : Implementor ME_4B50250E0139 // InsUserProperty
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_4B5460600098_ME_4B50250E0139 SaveUserInfo
+
+: ME_4F3C01AD01FB_ME_4B50250E0139
+ CONST UID '4F3C01AD01FB'
+ CONST Name 'DontDeleteIdle'
+ : Original ME_4F3C01AD01FB // DontDeleteIdle
+ ;
+ : Implementor ME_4B50250E0139 // InsUserProperty
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "pm" false
+ref; // ME_4F3C01AD01FB_ME_4B50250E0139 DontDeleteIdle
+
+: ME_4B50250E0139
+ CONST UID '4B50250E0139'
+ CONST GUID '1DD2D30F-4FAB-4F0C-B591-CB76CADDB345'
+ CONST Name 'InsUserProperty'
+ CONST Class class_Class
+ : Stereotype st_Facet ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_49903C95009E // AdminDomainInterfaces
+ ;
+ : Implements
+   Seq: ( ME_4B5024CA0129 // nsUserProperty
+ )
+ ; // Implements
+ : Implemented
+   Seq: ( ME_4B5025A002EE_ME_4B50250E0139 // HasUserProfile
+ ME_4B5025A700F0_ME_4B50250E0139 // HasPassword
+ ME_4B5026560312_ME_4B50250E0139 // SaveUserProfile
+ ME_4B5026E201E6_ME_4B50250E0139 // UID
+ ME_4B5026F60253_ME_4B50250E0139 // GroupUID
+ ME_4B5026FD015E_ME_4B50250E0139 // Login
+ ME_4B502705014F_ME_4B50250E0139 // Name
+ ME_4B50270B0138_ME_4B50250E0139 // Mail
+ ME_4B5027120274_ME_4B50250E0139 // IsChanged
+ ME_4B50271C00EE_ME_4B50250E0139 // IsNewUser
+ ME_4B502720021F_ME_4B50250E0139 // CanBuyConsulting
+ ME_4B5027240286_ME_4B50250E0139 // IsSystem
+ ME_4B50272901C3_ME_4B50250E0139 // IsPrivileged
+ ME_4B5460600098_ME_4B50250E0139 // SaveUserInfo
+ ME_4F3C01AD01FB_ME_4B50250E0139 // DontDeleteIdle
+ )
+ ; // Implemented
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Model'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Model'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\Model'
+ CONST extprop:rc:SelfName 'UserProperty'
+ CONST extprop:rc:isAcceptableForScripts true
+
+ref; // ME_4B50250E0139 InsUserProperty
+
+: ME_49903C95009E
+ CONST UID '49903C95009E'
+ CONST Name 'AdminDomainInterfaces'
+ CONST Class class_Category
+ : Stereotype st_Interfaces ;
+ %SUMMARY 'Администрирование' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent WL 'ME_47E9EEC60260' '47E9EEC60260.pas.ms.script' // Model
+ ;
+ : Children
+   Seq: ( ME_491D982203CD // EdsMaxLengthExceed
+ ME_49903D1702E2 // InsAdminInfo
+ ME_4B5024CA0129 // nsUserProperty
+ ME_4B50250E0139 // InsUserProperty
+ )
+ ; // Children
+ : Depends
+   Seq: ( WL 'ME_4677FBA70343' '4677FBA70343.pas.ms.script' // l3Interfaces
+ WL 'ME_4AB0C3C60310' '4AB0C3C60310.pas.ms.script' // Sys
+ )
+ ; // Depends
+ CONST "author" 'Люлин А.В.'
+ CONST "is namespace" true
+ CONST "no hands" true
+ CONST "started" '09.02.2009 17:24'
+ : Generators
+ Seq: (
+ gen_intf.pas
+ gen_pas.script
+ gen_pas.script.runner
+ )
+ ; // Generators
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Model'
+ CONST intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\Model\AdminDomainInterfaces.pas'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Model'
+ CONST pas.script:Path 'shared\models\NewSchool\Scripts\49903C95009E.pas.ms.script'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\49903C95009E.pas.ms.script.runner'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\Model'
+
+ref; // ME_49903C95009E AdminDomainInterfaces

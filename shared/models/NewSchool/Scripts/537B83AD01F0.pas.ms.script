@@ -47,10 +47,10 @@ ref; // ME_47E0C3A00240 aParamC
  : Target WL 'ME_3DBFFD7002C2' '3DBFDB23006E.pas.ms.script' // long
  ;
  : Parameters
-   @ ( ME_47E0C3A0020E // aParamA
+   Seq: ( ME_47E0C3A0020E // aParamA
  ME_47E0C3A00228 // aParamB
  ME_47E0C3A00240 // aParamC
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_47E0C38E037F l3MulDiv
@@ -67,19 +67,19 @@ ref; // ME_47E0C38E037F l3MulDiv
  : Parent ME_537B83AD01F0 // l3Math
  ;
  : Operations
-   @ ( ME_47E0C38E037F // l3MulDiv
- ) .SequenceCode.It
+   Seq: ( ME_47E0C38E037F // l3MulDiv
+ )
  ; // Operations
  CONST "author" 'Ëþëèí À.Â.'
  CONST "finished" false
  CONST "no hands" false
  CONST "started" '22.11.1999 18:02'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\L3'
  CONST intf.pas:Path 'common\components\rtl\Garant\L3\NOT_FINISHED_l3Math.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\L3'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'Math'
 
 ref; // ME_47E0C36201C7 l3Math
 
@@ -116,9 +116,9 @@ ref; // ME_47A066CC01C6 B
  : Target WL 'ME_3DBFFD7002C2' '3DBFDB23006E.pas.ms.script' // long
  ;
  : Parameters
-   @ ( ME_47A066CC01A6 // A
+   Seq: ( ME_47A066CC01A6 // A
  ME_47A066CC01C6 // B
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_47A066C301D4 Max
@@ -154,9 +154,9 @@ ref; // ME_47A066DC013F B
  : Target WL 'ME_3DBFFD7002C2' '3DBFDB23006E.pas.ms.script' // long
  ;
  : Parameters
-   @ ( ME_47A066DC0120 // A
+   Seq: ( ME_47A066DC0120 // A
  ME_47A066DC013F // B
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_47A066D40062 Min
@@ -172,20 +172,20 @@ ref; // ME_47A066D40062 Min
  : Parent ME_537B83AD01F0 // l3Math
  ;
  : Operations
-   @ ( ME_47A066C301D4 // Max
+   Seq: ( ME_47A066C301D4 // Max
  ME_47A066D40062 // Min
- ) .SequenceCode.It
+ )
  ; // Operations
  CONST "author" 'Ëþëèí À.Â.'
  CONST "finished" false
  CONST "no hands" false
  CONST "started" '01.12.95 16:28'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\L3'
  CONST intf.pas:Path 'common\components\rtl\Garant\L3\NOT_FINISHED_l3MinMax.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\L3'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'MinMax'
 
 ref; // ME_47A066980016 l3MinMax
 
@@ -201,12 +201,12 @@ ref; // ME_47A066980016 l3MinMax
  ;
  CONST "finished" false
  CONST "no hands" false
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\L3'
  CONST intf.pas:Path 'common\components\rtl\Garant\L3\NOT_FINISHED_l3Interlocked.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\L3'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'Interlocked'
 
 ref; // ME_54B7B2F900C2 l3Interlocked
 
@@ -220,18 +220,16 @@ ref; // ME_54B7B2F900C2 l3Interlocked
  : Parent WL 'ME_4E2F0E1B03BB' '4E2F0E1B03BB.pas.ms.script' // L3$Domain
  ;
  : Children
-   @ ( ME_47E0C36201C7 // l3Math
+   Seq: ( ME_47E0C36201C7 // l3Math
  ME_47A066980016 // l3MinMax
  ME_54B7B2F900C2 // l3Interlocked
- ) .SequenceCode.It
+ )
  ; // Children
- : Generators
- @ (
- gen_pas.script
- gen_pas.script.runner
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\L3'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\L3'
  CONST pas.script:Path 'shared\models\NewSchool\Scripts\537B83AD01F0.pas.ms.script'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
  CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\537B83AD01F0.pas.ms.script.runner'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_537B83AD01F0 l3Math

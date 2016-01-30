@@ -1,0 +1,186 @@
+// AutoPipeServer 52E8D676018A ExeTarget Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_52E8D676018A
+
+FORWARD ME_52E8DF0A03BA
+
+FORWARD ME_52E8DD1002BE
+
+: ME_6FC811CE4911
+ CONST UID '6FC811CE4911'
+ CONST Name 'Ini_Reg_Class'
+ CONST IsSummoned true
+ CONST Class class_Operation
+ : Stereotype st_ini::Operation ;
+ %SUMMARY 'Регистрация TArchiServerForm' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_52E8DD1002BE // TArchiServerForm
+ ;
+ CONST "ifndef" 'NoScripts'
+
+ref; // ME_6FC811CE4911 Ini_Reg_Class
+
+: ME_4D0B6F809E42
+ CONST UID '4D0B6F809E42'
+ CONST IsSummoned true
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_52E8DD1002BE // TArchiServerForm
+ ;
+ : Target WL 'ME_561F9F9400BC' '561F9F7D02A7.pas.ms.script' // TtfwClassRef
+ ;
+
+ref; // ME_4D0B6F809E42 
+
+: ME_52E8DD1002BE
+ CONST UID '52E8DD1002BE'
+ CONST Name 'TArchiServerForm'
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_52E8DF0A03BA // TAutoPipeServerForm
+ ;
+ : Inherits
+   Seq: ( WL 'ME_4952591E0263' '4799D29F033F.pas.ms.script' // TForm
+ )
+ ; // Inherits
+ : Operations
+   Seq: ( ME_6FC811CE4911 // Ini_Reg_Class
+ )
+ ; // Operations
+ : Dependencies
+   Seq: ( ME_4D0B6F809E42 // 
+ )
+ ; // Dependencies
+ CONST "finished" false
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ CONST dfm:PathOnly '\archi\source\projects\PipeInAuto'
+ CONST intf.pas:PathOnly '\archi\source\projects\PipeInAuto'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\archi\source\projects\PipeInAuto'
+ CONST extprop:rc:SelfName 'ArchiServerForm'
+ CONST extprop:rc:isAcceptableForScripts true
+
+ref; // ME_52E8DD1002BE TArchiServerForm
+
+: ME_52F8CA0D0075
+ CONST UID '52F8CA0D0075'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_52E8DF0A03BA // TAutoPipeServerForm
+ ;
+ : Target WL 'ME_52F8C9E00037' '53D656130130.pas.ms.script' // TalcuServer
+ ;
+
+ref; // ME_52F8CA0D0075 
+
+: ME_52E8DF0A03BA
+ CONST UID '52E8DF0A03BA'
+ CONST Name 'TAutoPipeServerForm'
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_52E8D676018A // AutoPipeServer
+ ;
+ : Children
+   Seq: ( ME_52E8DD1002BE // TArchiServerForm
+ )
+ ; // Children
+ : Dependencies
+   Seq: ( ME_52F8CA0D0075 // 
+ )
+ ; // Dependencies
+ CONST "finished" false
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ : Generators
+ Seq: (
+ gen_intf.pas
+ )
+ ; // Generators
+ CONST dfm:PathOnly '\archi\source\projects\PipeInAuto'
+ CONST intf.pas:Path 'archi\source\projects\PipeInAuto\NOT_FINISHED_AutoPipeServerForm.pas'
+ CONST intf.pas:PathOnly '\archi\source\projects\PipeInAuto'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\archi\source\projects\PipeInAuto'
+ CONST extprop:rc:SelfName 'AutoPipeServerForm'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'AutoPipeServerForm'
+
+ref; // ME_52E8DF0A03BA TAutoPipeServerForm
+
+: ME_52E8D676018A
+ CONST UID '52E8D676018A'
+ CONST Name 'AutoPipeServer'
+ CONST Class class_Category
+ : Stereotype st_ExeTarget ;
+ %SUMMARY 'Приложение Сервера автоматизации Архивариуса' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent WL 'ME_4E7727A101CF' '4E7727A101CF.pas.ms.script' // archi$AutoPipeServer$Garant
+ ;
+ : Children
+   Seq: ( ME_52E8DF0A03BA // TAutoPipeServerForm
+ )
+ ; // Children
+ : Depends
+   Seq: ( WL 'ME_4678193C009C' '4678193C009C.pas.ms.script' // l3Types
+ WL 'ME_467A8734039C' '467A8734039C.pas.ms.script' // EVD
+ WL 'ME_4684F91300DD' '4684F91300DD.pas.ms.script' // Vcl
+ WL 'ME_4790D09A0378' '4790D09A0378.pas.ms.script' // L3
+ WL 'ME_47913B47006E' '47913B47006E.pas.ms.script' // l3CoreObjects
+ WL 'ME_4799D29F033F' '4799D29F033F.pas.ms.script' // Implementation
+ WL 'ME_47D0290B016D' '47D0290B016D.pas.ms.script' // l3Utils
+ WL 'ME_52F8C27F01AB' '52F8C27F01AB.pas.ms.script' // cs
+ WL 'ME_52F8C298005C' '52F8C298005C.pas.ms.script' // Tasks
+ WL 'ME_52FA3D9502BD' '52FA3D9502BD.pas.ms.script' // Tasks
+ WL 'ME_52FA3DD30094' '52FA3DD30094.pas.ms.script' // Lists
+ WL 'ME_52FA49B901D3' '52FA49B901D3.pas.ms.script' // ArchiClientServer
+ WL 'ME_53A038340371' '53A038340371.pas.ms.script' // MultiThread
+ WL 'ME_53A05123034C' '53A05123034C.pas.ms.script' // TasksLists
+ WL 'ME_53C51B390355' '53C51B390355.pas.ms.script' // TasksTuning
+ WL 'ME_53C900150015' '53C900150015.pas.ms.script' // ServerAsyncExecution
+ WL 'ME_53CCB94A02A5' '53CCB94A02A5.pas.ms.script' // alcuServerAsyncExecutionInterfaces
+ WL 'ME_53CCC1D8036D' '53CCC1D8036D.pas.ms.script' // Server
+ WL 'ME_53CCC2F702C7' '53CCC2F702C7.pas.ms.script' // Managers
+ WL 'ME_53CCCA40004C' '53CCCA40004C.pas.ms.script' // BaseEngine
+ WL 'ME_53D656130130' '53D656130130.pas.ms.script' // Server
+ WL 'ME_561F9F7D02A7' '561F9F7D02A7.pas.ms.script' // ScriptEngine
+ )
+ ; // Depends
+ CONST "CONFIG_UC" false
+ CONST "console" false
+ CONST "ifdef" 'AppServerSide'
+ CONST "need UC in project" true
+ CONST "old format" false
+ : Generators
+ Seq: (
+ gen_intf.pas
+ gen_pas.script
+ gen_pas.script.runner
+ )
+ ; // Generators
+ CONST dfm:PathOnly '\archi\source\projects\PipeInAuto'
+ CONST intf.pas:Path 'archi\source\projects\PipeInAuto\AutoPipeServer.dpr'
+ CONST intf.pas:PathOnly '\archi\source\projects\PipeInAuto'
+ CONST pas.script:Path 'shared\models\NewSchool\Scripts\52E8D676018A.pas.ms.script'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\52E8D676018A.pas.ms.script.runner'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\archi\source\projects\PipeInAuto'
+
+ref; // ME_52E8D676018A AutoPipeServer

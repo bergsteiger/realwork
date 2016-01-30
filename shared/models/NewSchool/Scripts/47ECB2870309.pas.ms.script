@@ -34,8 +34,8 @@ ref; // ME_4DD3D2B5019D DoIt
  : Parent ME_4DD3D2710378 // TevSpies
  ;
  : Operations
-   @ ( ME_4DD3D2B5019D // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_4DD3D2B5019D // DoIt
+ )
  ; // Operations
  CONST "is static" true
 
@@ -52,12 +52,12 @@ ref; // ME_4DD3D2A20200 Exists
  : Parent ME_47ECB297037D // evStyleTableSpy
  ;
  : Inherits
-   @ ( WL 'ME_47ACA26600BF' '47913B47006E.pas.ms.script' // Tl3InterfacePtrList
- ) .SequenceCode.It
+   Seq: ( WL 'ME_47ACA26600BF' '47913B47006E.pas.ms.script' // Tl3InterfacePtrList
+ )
  ; // Inherits
  : Operations
-   @ ( ME_4DD3D2A20200 // Exists
- ) .SequenceCode.It
+   Seq: ( ME_4DD3D2A20200 // Exists
+ )
  ; // Operations
  CONST "author" 'Люлин А.В.'
  CONST "needs InstanceR" 'undefined'
@@ -66,6 +66,12 @@ ref; // ME_4DD3D2A20200 Exists
  CONST "register in scripts" 'undefined'
  CONST "singleton" true
  CONST "started" '18.05.2011 18:07'
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'Spies'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_4DD3D2710378 TevSpies
 
@@ -83,6 +89,7 @@ ref; // ME_4DD3D2710378 TevSpies
  CONST Value 0
  : ValueType WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
  ;
+ CONST extprop:pas:Value 0
 
 ref; // ME_480DB70000B9 f_Changes
 
@@ -106,6 +113,7 @@ ref; // ME_47ECB2D40104 aSpy
  CONST Value false
  : ValueType WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
+ CONST extprop:pas:Value false
 
 ref; // ME_47ECB2D40120 SelfNotify
 
@@ -119,6 +127,7 @@ ref; // ME_47ECB2D40120 SelfNotify
  CONST Value true
  : ValueType WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
+ CONST extprop:pas:Value true
 
 ref; // ME_47ECB2D4013B aAtEnd
 
@@ -132,10 +141,10 @@ ref; // ME_47ECB2D4013B aAtEnd
  : Parent ME_47ECB297037D // evStyleTableSpy
  ;
  : Parameters
-   @ ( ME_47ECB2D40104 // aSpy
+   Seq: ( ME_47ECB2D40104 // aSpy
  ME_47ECB2D40120 // SelfNotify
  ME_47ECB2D4013B // aAtEnd
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_47ECB2BC01DF evAddStyleTableSpy
@@ -160,8 +169,8 @@ ref; // ME_480DA997034C aSpy
  : Parent ME_47ECB297037D // evStyleTableSpy
  ;
  : Parameters
-   @ ( ME_480DA997034C // aSpy
- ) .SequenceCode.It
+   Seq: ( ME_480DA997034C // aSpy
+ )
  ; // Parameters
 
 ref; // ME_480DA98F0055 evDelStyleTableSpy
@@ -188,6 +197,7 @@ ref; // ME_480DA99E035A evNotifyStyleTableChanging
  CONST Value false
  : ValueType WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
+ CONST extprop:pas:Value false
 
 ref; // ME_480DA9B80022 aCancel
 
@@ -201,8 +211,8 @@ ref; // ME_480DA9B80022 aCancel
  : Parent ME_47ECB297037D // evStyleTableSpy
  ;
  : Parameters
-   @ ( ME_480DA9B80022 // aCancel
- ) .SequenceCode.It
+   Seq: ( ME_480DA9B80022 // aCancel
+ )
  ; // Parameters
 
 ref; // ME_480DA9AC0180 evNotifyStyleTableChanged
@@ -320,22 +330,22 @@ ref; // ME_4DD3D292011D
  : Parent ME_47ECB2870309 // StyleTable
  ;
  : Attributes
-   @ ( ME_480DB70000B9 // f_Changes
- ) .SequenceCode.It
+   Seq: ( ME_480DB70000B9 // f_Changes
+ )
  ; // Attributes
  : Operations
-   @ ( ME_47ECB2BC01DF // evAddStyleTableSpy
+   Seq: ( ME_47ECB2BC01DF // evAddStyleTableSpy
  ME_480DA98F0055 // evDelStyleTableSpy
  ME_480DA99E035A // evNotifyStyleTableChanging
  ME_480DA9AC0180 // evNotifyStyleTableChanged
- ) .SequenceCode.It
+ )
  ; // Operations
  : Children
-   @ ( ME_4DD3D2710378 // TevSpies
- ) .SequenceCode.It
+   Seq: ( ME_4DD3D2710378 // TevSpies
+ )
  ; // Children
  : Dependencies
-   @ ( ME_480DB9000046 // 
+   Seq: ( ME_480DB9000046 // 
  ME_480DB94201BE // 
  ME_480DBAF50189 // 
  ME_480DBC4A0364 // 
@@ -344,18 +354,18 @@ ref; // ME_4DD3D292011D
  ME_480DBE8303CA // 
  ME_480DC0DB0159 // 
  ME_4DD3D292011D // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  CONST "author" 'Люлин А.В.'
  CONST "ifndef" 'DesignTimeLibrary'
  CONST "no hands" true
  CONST "started" '23.09.2002 09:32'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest'
  CONST intf.pas:Path 'common\components\gui\Garant\Everest\evStyleTableSpy.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'StyleTableSpy'
 
 ref; // ME_47ECB297037D evStyleTableSpy
 
@@ -418,6 +428,7 @@ ref; // ME_4A485BF60279
  ;
  : Implementor ME_4A485B0D0223 // evStyleTableListenerPrim
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_467D2CB10135_ME_4A485B0D0223 StyleTableChanged
 
 : ME_47A042E100E2_ME_4A485B0D0223
@@ -427,6 +438,7 @@ ref; // ME_467D2CB10135_ME_4A485B0D0223 StyleTableChanged
  ;
  : Implementor ME_4A485B0D0223 // evStyleTableListenerPrim
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_47A042E100E2_ME_4A485B0D0223 InitFields
 
 : ME_4A485B0D0223
@@ -440,27 +452,27 @@ ref; // ME_47A042E100E2_ME_4A485B0D0223 InitFields
  : Parent ME_47ECB2870309 // StyleTable
  ;
  : Implements
-   @ ( WL 'ME_467D2C8F0172' '467823B7002C.pas.ms.script' // IafwStyleTableSpy
+   Seq: ( WL 'ME_467D2C8F0172' '467823B7002C.pas.ms.script' // IafwStyleTableSpy
  WL 'ME_4A5CB93700CF' '47913B47006E.pas.ms.script' // Ml3Unknown
- ) .SequenceCode.It
+ )
  ; // Implements
  : Operations
-   @ ( ME_4A485B710126 // DoStyleTableChanged
+   Seq: ( ME_4A485B710126 // DoStyleTableChanged
  ME_4A485DBE0293 // NeedListen
  ME_4A4867A20049 // AtEnd
- ) .SequenceCode.It
+ )
  ; // Operations
  : Implemented
-   @ ( ME_467D2CB10135_ME_4A485B0D0223 // StyleTableChanged
- ) .SequenceCode.It
+   Seq: ( ME_467D2CB10135_ME_4A485B0D0223 // StyleTableChanged
+ )
  ; // Implemented
  : Overridden
-   @ ( ME_47A042E100E2_ME_4A485B0D0223 // InitFields
- ) .SequenceCode.It
+   Seq: ( ME_47A042E100E2_ME_4A485B0D0223 // InitFields
+ )
  ; // Overridden
  : Dependencies
-   @ ( ME_4A485BF60279 // 
- ) .SequenceCode.It
+   Seq: ( ME_4A485BF60279 // 
+ )
  ; // Dependencies
  CONST "author" 'Люлин А.В.'
  CONST "ifndef" 'DesignTimeLibrary'
@@ -469,13 +481,13 @@ ref; // ME_47A042E100E2_ME_4A485B0D0223 InitFields
  CONST "no hands" true
  CONST "register in scripts" 'undefined'
  CONST "started" '29.06.2009 10:11'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest'
  CONST intf.pas:Path 'common\components\gui\Garant\Everest\evStyleTableListenerPrim.imp.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
  CONST extprop:pas:TypeName '_evStyleTableListenerPrim_'
+ CONST extprop:pas:UnitName 'evStyleTableListenerPrim.imp'
 
 ref; // ME_4A485B0D0223 evStyleTableListenerPrim
 
@@ -543,8 +555,8 @@ ref; // ME_554CEA3900F2 anIndex
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
  : Attributes
-   @ ( ME_554CEA3900F2 // anIndex
- ) .SequenceCode.It
+   Seq: ( ME_554CEA3900F2 // anIndex
+ )
  ; // Attributes
  CONST "pm" true
 
@@ -553,6 +565,7 @@ ref; // ME_554CEA2D01A9 IsOwn
 : ME_ED92BE2C2BF6
  CONST UID 'ED92BE2C2BF6'
  CONST Name 'f_Context'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY 'Поле для свойства Context' ;
  CONST Visibility PrivateAccess
@@ -562,6 +575,7 @@ ref; // ME_554CEA2D01A9 IsOwn
  ;
  : Target WL 'ME_476BEF7B0378' '4678209200A6.pas.ms.script' // InevOp
  ;
+ CONST extprop:clearViaProperty 'Context'
 
 ref; // ME_ED92BE2C2BF6 f_Context
 
@@ -570,6 +584,7 @@ FORWARD ME_554CE773030B
 : ME_563DCCC9FFBB
  CONST UID '563DCCC9FFBB'
  CONST Name 'DoIt'
+ CONST IsSummoned true
  CONST Class class_Operation
  %SUMMARY 'Сигнатура метода Changing' ;
  CONST Visibility PublicAccess
@@ -590,8 +605,8 @@ ref; // ME_563DCCC9FFBB DoIt
  : Parent ME_522ED98F0223 // TevInterface
  ;
  : Operations
-   @ ( ME_563DCCC9FFBB // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_563DCCC9FFBB // DoIt
+ )
  ; // Operations
 
 ref; // ME_554CE773030B Changing
@@ -617,8 +632,8 @@ ref; // ME_554CE78C00D6 aCancel
  : Parent ME_554CE783008B // ChangedEx
  ;
  : Parameters
-   @ ( ME_554CE78C00D6 // aCancel
- ) .SequenceCode.It
+   Seq: ( ME_554CE78C00D6 // aCancel
+ )
  ; // Parameters
 
 ref; // ME_554CE7890350 DoIt
@@ -634,8 +649,8 @@ ref; // ME_554CE7890350 DoIt
  : Parent ME_522ED98F0223 // TevInterface
  ;
  : Operations
-   @ ( ME_554CE7890350 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_554CE7890350 // DoIt
+ )
  ; // Operations
 
 ref; // ME_554CE783008B ChangedEx
@@ -666,8 +681,8 @@ ref; // ME_554CE7D402CE DoIt
  : Parent ME_522ED98F0223 // TevInterface
  ;
  : Operations
-   @ ( ME_554CE7D402CE // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_554CE7D402CE // DoIt
+ )
  ; // Operations
 
 ref; // ME_554CE7CC01DE IsDefault
@@ -679,6 +694,7 @@ ref; // ME_554CE7CC01DE IsDefault
  ;
  : Implementor ME_522ED98F0223 // TevInterface
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_5000565C019C_ME_522ED98F0223 ClearFields
 
 : ME_522ED98F0223
@@ -693,37 +709,39 @@ ref; // ME_5000565C019C_ME_522ED98F0223 ClearFields
  : Parent ME_47ECB2870309 // StyleTable
  ;
  : Inherits
-   @ ( WL 'ME_46780E690001' '47913B47006E.pas.ms.script' // Tl3CacheableBase
- ) .SequenceCode.It
+   Seq: ( WL 'ME_46780E690001' '47913B47006E.pas.ms.script' // Tl3CacheableBase
+ )
  ; // Inherits
  : Attributes
-   @ ( ME_554CE8390106 // Tag
+   Seq: ( ME_554CE8390106 // Tag
  ME_554CE92F02D5 // Context
  ME_554CEA2D01A9 // IsOwn
  ME_ED92BE2C2BF6 // f_Context
- ) .SequenceCode.It
+ )
  ; // Attributes
  : Operations
-   @ ( ME_554CE773030B // Changing
+   Seq: ( ME_554CE773030B // Changing
  ME_554CE783008B // ChangedEx
  ME_554CE7CC01DE // IsDefault
- ) .SequenceCode.It
+ )
  ; // Operations
  : Overridden
-   @ ( ME_5000565C019C_ME_522ED98F0223 // ClearFields
- ) .SequenceCode.It
+   Seq: ( ME_5000565C019C_ME_522ED98F0223 // ClearFields
+ )
  ; // Overridden
  CONST "finished" false
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest'
  CONST intf.pas:Path 'common\components\gui\Garant\Everest\NOT_FINISHED_evInterface.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'Interface'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'evInterface'
 
 ref; // ME_522ED98F0223 TevInterface
 
@@ -753,17 +771,17 @@ ref; // ME_4A263C1900C1 evGetDefaultZoom
  : Parent ME_47ECB2870309 // StyleTable
  ;
  : Operations
-   @ ( ME_4A263C1900C1 // evGetDefaultZoom
- ) .SequenceCode.It
+   Seq: ( ME_4A263C1900C1 // evGetDefaultZoom
+ )
  ; // Operations
  CONST "finished" false
  CONST "no hands" false
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest'
  CONST intf.pas:Path 'common\components\gui\Garant\Everest\NOT_FINISHED_evStyleTableTools.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'StyleTableTools'
 
 ref; // ME_49F048510365 evStyleTableTools
 
@@ -787,6 +805,7 @@ ref; // ME_480DA6FC0254
  ;
  : Implementor ME_480DA68701CE // evStyleTableListener
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_479731C50290_ME_480DA68701CE Cleanup
 
 : ME_480DA68701CE
@@ -801,16 +820,16 @@ ref; // ME_479731C50290_ME_480DA68701CE Cleanup
  : Parent ME_47ECB2870309 // StyleTable
  ;
  : Inherits
-   @ ( ME_4A485B0D0223 // evStyleTableListenerPrim
- ) .SequenceCode.It
+   Seq: ( ME_4A485B0D0223 // evStyleTableListenerPrim
+ )
  ; // Inherits
  : Overridden
-   @ ( ME_479731C50290_ME_480DA68701CE // Cleanup
- ) .SequenceCode.It
+   Seq: ( ME_479731C50290_ME_480DA68701CE // Cleanup
+ )
  ; // Overridden
  : Dependencies
-   @ ( ME_480DA6FC0254 // 
- ) .SequenceCode.It
+   Seq: ( ME_480DA6FC0254 // 
+ )
  ; // Dependencies
  CONST "author" 'Люлин А.В.'
  CONST "ifndef" 'DesignTimeLibrary'
@@ -818,13 +837,13 @@ ref; // ME_479731C50290_ME_480DA68701CE Cleanup
  CONST "needs script" 'undefined'
  CONST "no hands" true
  CONST "register in scripts" 'undefined'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest'
  CONST intf.pas:Path 'common\components\gui\Garant\Everest\evStyleTableListener.imp.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
  CONST extprop:pas:TypeName '_evStyleTableListener_'
+ CONST extprop:pas:UnitName 'evStyleTableListener.imp'
 
 ref; // ME_480DA68701CE evStyleTableListener
 
@@ -848,6 +867,7 @@ ref; // ME_4A485C10011A
  ;
  : Implementor ME_4A485B9801E0 // evCacheableStyleTableListener
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_479F2AFB0397_ME_4A485B9801E0 Release
 
 : ME_4A485B9801E0
@@ -862,16 +882,16 @@ ref; // ME_479F2AFB0397_ME_4A485B9801E0 Release
  : Parent ME_47ECB2870309 // StyleTable
  ;
  : Inherits
-   @ ( ME_4A485B0D0223 // evStyleTableListenerPrim
- ) .SequenceCode.It
+   Seq: ( ME_4A485B0D0223 // evStyleTableListenerPrim
+ )
  ; // Inherits
  : Overridden
-   @ ( ME_479F2AFB0397_ME_4A485B9801E0 // Release
- ) .SequenceCode.It
+   Seq: ( ME_479F2AFB0397_ME_4A485B9801E0 // Release
+ )
  ; // Overridden
  : Dependencies
-   @ ( ME_4A485C10011A // 
- ) .SequenceCode.It
+   Seq: ( ME_4A485C10011A // 
+ )
  ; // Dependencies
  CONST "author" 'Люлин А.В.'
  CONST "ifndef" 'DesignTimeLibrary'
@@ -880,13 +900,13 @@ ref; // ME_479F2AFB0397_ME_4A485B9801E0 Release
  CONST "no hands" true
  CONST "register in scripts" 'undefined'
  CONST "started" '29.06.2009 10:14'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest'
  CONST intf.pas:Path 'common\components\gui\Garant\Everest\evCacheableStyleTableListener.imp.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
  CONST extprop:pas:TypeName '_evCacheableStyleTableListener_'
+ CONST extprop:pas:UnitName 'evCacheableStyleTableListener.imp'
 
 ref; // ME_4A485B9801E0 evCacheableStyleTableListener
 
@@ -918,14 +938,18 @@ ref; // ME_4E54E160011A
  : Parent ME_4E55123003CD // TevStandardStylesListPrim
  ;
  : Inherits
-   @ ( WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
- ) .SequenceCode.It
+   Seq: ( WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ )
  ; // Inherits
  : Attributes
-   @ ( ME_4E54E160011A // 
- ) .SequenceCode.It
+   Seq: ( ME_4E54E160011A // 
+ )
  ; // Attributes
  CONST "array type" 'dynamic'
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_4E54E14900FA TevStandardStylesCacheByFixedFont
 
@@ -955,14 +979,18 @@ ref; // ME_4E54D2000072
  : Parent ME_4E55123003CD // TevStandardStylesListPrim
  ;
  : Inherits
-   @ ( WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
- ) .SequenceCode.It
+   Seq: ( WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ )
  ; // Inherits
  : Attributes
-   @ ( ME_4E54D2000072 // 
- ) .SequenceCode.It
+   Seq: ( ME_4E54D2000072 // 
+ )
  ; // Attributes
  CONST "array type" 'dynamic'
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_4E54D1D103D6 TevStandardStylesCacheByVisibility
 
@@ -992,14 +1020,18 @@ ref; // ME_4E54D23D030F
  : Parent ME_4E55123003CD // TevStandardStylesListPrim
  ;
  : Inherits
-   @ ( WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
- ) .SequenceCode.It
+   Seq: ( WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ )
  ; // Inherits
  : Attributes
-   @ ( ME_4E54D23D030F // 
- ) .SequenceCode.It
+   Seq: ( ME_4E54D23D030F // 
+ )
  ; // Attributes
  CONST "array type" 'dynamic'
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_4E54D21B039E TevStandardStylesCacheByJustification
 
@@ -1044,11 +1076,16 @@ ref; // ME_4E551B5D02D6 rID
  : Parent ME_4E55123003CD // TevStandardStylesListPrim
  ;
  : Attributes
-   @ ( ME_4E551B0001F6 // rValue
+   Seq: ( ME_4E551B0001F6 // rValue
  ME_4E551B5D02D6 // rID
- ) .SequenceCode.It
+ )
  ; // Attributes
  CONST "not treat as record for XE4" 'undefined'
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'StandardStylesCacheItem'
 
 ref; // ME_4E551AEB012B TevStandardStylesCacheItem
 
@@ -1088,8 +1125,8 @@ ref; // ME_4E55159C0033 theCache
  : Parent ME_4E55156E009C // evFreeStandardStylesCache
  ;
  : Parameters
-   @ ( ME_4E55159C0033 // theCache
- ) .SequenceCode.It
+   Seq: ( ME_4E55159C0033 // theCache
+ )
  ; // Parameters
 
 ref; // ME_4E55158C013E DoIt
@@ -1105,10 +1142,11 @@ ref; // ME_4E55158C013E DoIt
  : Parent ME_4E55123003CD // TevStandardStylesListPrim
  ;
  : Operations
-   @ ( ME_4E55158C013E // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_4E55158C013E // DoIt
+ )
  ; // Operations
  CONST "is static" true
+ CONST extprop:rc:SelfName 'FreeStandardStylesCache'
 
 ref; // ME_4E55156E009C evFreeStandardStylesCache
 
@@ -1119,6 +1157,7 @@ ref; // ME_4E55156E009C evFreeStandardStylesCache
  ;
  : Implementor ME_4E55123003CD // TevStandardStylesListPrim
  ;
+ CONST OpKind opkind_Implemented
  CONST "ifndef" 'l3Items_IsAtomic'
 ref; // ME_47B07CF403D0_ME_4E55123003CD IsSameItems
 
@@ -1129,6 +1168,7 @@ ref; // ME_47B07CF403D0_ME_4E55123003CD IsSameItems
  ;
  : Implementor ME_4E55123003CD // TevStandardStylesListPrim
  ;
+ CONST OpKind opkind_Implemented
  CONST "ifdef" 'l3Items_NeedsAssignItem'
  CONST "ifndef" 'l3Items_NoSort'
 ref; // ME_47B2C42A0163_ME_4E55123003CD AssignItem
@@ -1140,6 +1180,7 @@ ref; // ME_47B2C42A0163_ME_4E55123003CD AssignItem
  ;
  : Implementor ME_4E55123003CD // TevStandardStylesListPrim
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_47B94A5C006E_ME_4E55123003CD FreeItem
 
 : ME_47B99D4503A2_ME_4E55123003CD
@@ -1149,6 +1190,7 @@ ref; // ME_47B94A5C006E_ME_4E55123003CD FreeItem
  ;
  : Implementor ME_4E55123003CD // TevStandardStylesListPrim
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_47B99D4503A2_ME_4E55123003CD CompareExistingItems
 
 : ME_47A042E100E2_ME_4E55123003CD
@@ -1158,6 +1200,7 @@ ref; // ME_47B99D4503A2_ME_4E55123003CD CompareExistingItems
  ;
  : Implementor ME_4E55123003CD // TevStandardStylesListPrim
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_47A042E100E2_ME_4E55123003CD InitFields
 
 : ME_4E55123003CD
@@ -1171,35 +1214,35 @@ ref; // ME_47A042E100E2_ME_4E55123003CD InitFields
  : Parent ME_47ECB2870309 // StyleTable
  ;
  : Inherits
-   @ ( WL 'ME_4A54DD4E036F' '47913B47006E.pas.ms.script' // Tl3ProtoDataContainer
+   Seq: ( WL 'ME_4A54DD4E036F' '47913B47006E.pas.ms.script' // Tl3ProtoDataContainer
  WL 'ME_4E5506F6007E' '47913B47006E.pas.ms.script' // l3RecordListPrimPrim
- ) .SequenceCode.It
+ )
  ; // Inherits
  : Attributes
-   @ ( ME_4E5512DE006B // ItemType
- ) .SequenceCode.It
+   Seq: ( ME_4E5512DE006B // ItemType
+ )
  ; // Attributes
  : Operations
-   @ ( ME_4E55156E009C // evFreeStandardStylesCache
- ) .SequenceCode.It
+   Seq: ( ME_4E55156E009C // evFreeStandardStylesCache
+ )
  ; // Operations
  : Implemented
-   @ ( ME_47B07CF403D0_ME_4E55123003CD // IsSameItems
+   Seq: ( ME_47B07CF403D0_ME_4E55123003CD // IsSameItems
  ME_47B2C42A0163_ME_4E55123003CD // AssignItem
  ME_47B94A5C006E_ME_4E55123003CD // FreeItem
  ME_47B99D4503A2_ME_4E55123003CD // CompareExistingItems
- ) .SequenceCode.It
+ )
  ; // Implemented
  : Overridden
-   @ ( ME_47A042E100E2_ME_4E55123003CD // InitFields
- ) .SequenceCode.It
+   Seq: ( ME_47A042E100E2_ME_4E55123003CD // InitFields
+ )
  ; // Overridden
  : Children
-   @ ( ME_4E54E14900FA // TevStandardStylesCacheByFixedFont
+   Seq: ( ME_4E54E14900FA // TevStandardStylesCacheByFixedFont
  ME_4E54D1D103D6 // TevStandardStylesCacheByVisibility
  ME_4E54D21B039E // TevStandardStylesCacheByJustification
  ME_4E551AEB012B // TevStandardStylesCacheItem
- ) .SequenceCode.It
+ )
  ; // Children
  CONST "author" 'Люлин А.В.'
  CONST "needs InstanceR" 'undefined'
@@ -1207,12 +1250,14 @@ ref; // ME_47A042E100E2_ME_4E55123003CD InitFields
  CONST "no hands" true
  CONST "register in scripts" 'undefined'
  CONST "started" '24.08.2011 19:02'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest'
  CONST intf.pas:Path 'common\components\gui\Garant\Everest\evStandardStylesListPrim.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'StandardStylesListPrim'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'evStandardStylesListPrim'
 
 ref; // ME_4E55123003CD TevStandardStylesListPrim
 
@@ -1279,9 +1324,9 @@ ref; // ME_4E3175B0003F aFontSize
  : Parent ME_4E317595024E // C
  ;
  : Parameters
-   @ ( ME_4E3175B0000C // aStyleID
+   Seq: ( ME_4E3175B0000C // aStyleID
  ME_4E3175B0003F // aFontSize
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_4E31759E0155 DoIt
@@ -1297,8 +1342,8 @@ ref; // ME_4E31759E0155 DoIt
  : Parent ME_4E3175000369 // TevDefaultStyleFontSize
  ;
  : Operations
-   @ ( ME_4E31759E0155 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_4E31759E0155 // DoIt
+ )
  ; // Operations
 
 ref; // ME_4E317595024E C
@@ -1326,8 +1371,8 @@ ref; // ME_4E3175E40031 anOther
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
  : Parameters
-   @ ( ME_4E3175E40031 // anOther
- ) .SequenceCode.It
+   Seq: ( ME_4E3175E40031 // anOther
+ )
  ; // Parameters
 
 ref; // ME_4E3175D402C9 DoIt
@@ -1343,8 +1388,8 @@ ref; // ME_4E3175D402C9 DoIt
  : Parent ME_4E3175000369 // TevDefaultStyleFontSize
  ;
  : Operations
-   @ ( ME_4E3175D402C9 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_4E3175D402C9 // DoIt
+ )
  ; // Operations
 
 ref; // ME_4E3175CA0048 EQ
@@ -1360,16 +1405,21 @@ ref; // ME_4E3175CA0048 EQ
  : Parent ME_4E3173F50217 // TevDefaultStylesFontSizesPrim
  ;
  : Attributes
-   @ ( ME_4E3175520059 // rStyleID
+   Seq: ( ME_4E3175520059 // rStyleID
  ME_4E31758703CE // rFontSize
- ) .SequenceCode.It
+ )
  ; // Attributes
  : Operations
-   @ ( ME_4E317595024E // C
+   Seq: ( ME_4E317595024E // C
  ME_4E3175CA0048 // EQ
- ) .SequenceCode.It
+ )
  ; // Operations
  CONST "not treat as record for XE4" 'undefined'
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'DefaultStyleFontSize'
 
 ref; // ME_4E3175000369 TevDefaultStyleFontSize
 
@@ -1395,6 +1445,7 @@ ref; // ME_4E3175210334 ItemType
  ;
  : Implementor ME_4E3173F50217 // TevDefaultStylesFontSizesPrim
  ;
+ CONST OpKind opkind_Implemented
  CONST "ifdef" 'l3Items_NeedsAssignItem'
  CONST "ifndef" 'l3Items_NoSort'
 ref; // ME_47B2C42A0163_ME_4E3173F50217 AssignItem
@@ -1406,6 +1457,7 @@ ref; // ME_47B2C42A0163_ME_4E3173F50217 AssignItem
  ;
  : Implementor ME_4E3173F50217 // TevDefaultStylesFontSizesPrim
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_47B99D4503A2_ME_4E3173F50217 CompareExistingItems
 
 : ME_47A042E100E2_ME_4E3173F50217
@@ -1415,6 +1467,7 @@ ref; // ME_47B99D4503A2_ME_4E3173F50217 CompareExistingItems
  ;
  : Implementor ME_4E3173F50217 // TevDefaultStylesFontSizesPrim
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_47A042E100E2_ME_4E3173F50217 InitFields
 
 : ME_4E3173F50217
@@ -1429,26 +1482,26 @@ ref; // ME_47A042E100E2_ME_4E3173F50217 InitFields
  : Parent ME_47ECB2870309 // StyleTable
  ;
  : Inherits
-   @ ( WL 'ME_4A54DD4E036F' '47913B47006E.pas.ms.script' // Tl3ProtoDataContainer
+   Seq: ( WL 'ME_4A54DD4E036F' '47913B47006E.pas.ms.script' // Tl3ProtoDataContainer
  WL 'ME_4B223DB5024B' '47913B47006E.pas.ms.script' // l3RecordWithEQList
- ) .SequenceCode.It
+ )
  ; // Inherits
  : Attributes
-   @ ( ME_4E3175210334 // ItemType
- ) .SequenceCode.It
+   Seq: ( ME_4E3175210334 // ItemType
+ )
  ; // Attributes
  : Implemented
-   @ ( ME_47B2C42A0163_ME_4E3173F50217 // AssignItem
+   Seq: ( ME_47B2C42A0163_ME_4E3173F50217 // AssignItem
  ME_47B99D4503A2_ME_4E3173F50217 // CompareExistingItems
- ) .SequenceCode.It
+ )
  ; // Implemented
  : Overridden
-   @ ( ME_47A042E100E2_ME_4E3173F50217 // InitFields
- ) .SequenceCode.It
+   Seq: ( ME_47A042E100E2_ME_4E3173F50217 // InitFields
+ )
  ; // Overridden
  : Children
-   @ ( ME_4E3175000369 // TevDefaultStyleFontSize
- ) .SequenceCode.It
+   Seq: ( ME_4E3175000369 // TevDefaultStyleFontSize
+ )
  ; // Children
  CONST "author" 'Люлин А.В.'
  CONST "needs InstanceR" 'undefined'
@@ -1456,12 +1509,14 @@ ref; // ME_47A042E100E2_ME_4E3173F50217 InitFields
  CONST "no hands" true
  CONST "register in scripts" 'undefined'
  CONST "started" '28.07.2011 18:48'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest'
  CONST intf.pas:Path 'common\components\gui\Garant\Everest\evDefaultStylesFontSizesPrim.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'DefaultStylesFontSizesPrim'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'evDefaultStylesFontSizesPrim'
 
 ref; // ME_4E3173F50217 TevDefaultStylesFontSizesPrim
 
@@ -1489,6 +1544,7 @@ ref; // ME_4E317B210219 FindDataType
  ;
  : Implementor ME_4E317AC802F4 // TevDefaultStylesFontSizesPrim1
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_47B9BAFD01F4_ME_4E317AC802F4 CompareItemWithData
 
 : ME_4E317AC802F4
@@ -1502,17 +1558,17 @@ ref; // ME_47B9BAFD01F4_ME_4E317AC802F4 CompareItemWithData
  : Parent ME_47ECB2870309 // StyleTable
  ;
  : Inherits
-   @ ( WL 'ME_47B47E230134' '47BB24D30205.pas.ms.script' // l3Searcher
+   Seq: ( WL 'ME_47B47E230134' '47BB24D30205.pas.ms.script' // l3Searcher
  ME_4E3173F50217 // TevDefaultStylesFontSizesPrim
- ) .SequenceCode.It
+ )
  ; // Inherits
  : Attributes
-   @ ( ME_4E317B210219 // FindDataType
- ) .SequenceCode.It
+   Seq: ( ME_4E317B210219 // FindDataType
+ )
  ; // Attributes
  : Overridden
-   @ ( ME_47B9BAFD01F4_ME_4E317AC802F4 // CompareItemWithData
- ) .SequenceCode.It
+   Seq: ( ME_47B9BAFD01F4_ME_4E317AC802F4 // CompareItemWithData
+ )
  ; // Overridden
  CONST "author" 'Люлин А.В.'
  CONST "needs InstanceR" 'undefined'
@@ -1520,12 +1576,14 @@ ref; // ME_47B9BAFD01F4_ME_4E317AC802F4 CompareItemWithData
  CONST "no hands" true
  CONST "register in scripts" 'undefined'
  CONST "started" '28.07.2011 19:05'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest'
  CONST intf.pas:Path 'common\components\gui\Garant\Everest\evDefaultStylesFontSizesPrim1.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'DefaultStylesFontSizesPrim1'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'evDefaultStylesFontSizesPrim1'
 
 ref; // ME_4E317AC802F4 TevDefaultStylesFontSizesPrim1
 
@@ -1568,8 +1626,8 @@ ref; // ME_4E31764C01C9 aTag
  : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
  ;
  : Parameters
-   @ ( ME_4E31764C01C9 // aTag
- ) .SequenceCode.It
+   Seq: ( ME_4E31764C01C9 // aTag
+ )
  ; // Parameters
 
 ref; // ME_4E31763E003E DoIt
@@ -1607,13 +1665,13 @@ ref; // ME_4E3176710273
  : Parent ME_4E31743D01F8 // TevDefaultStylesFontSizes
  ;
  : Operations
-   @ ( ME_4E31763E003E // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_4E31763E003E // DoIt
+ )
  ; // Operations
  : Dependencies
-   @ ( ME_4E31766401EC // 
+   Seq: ( ME_4E31766401EC // 
  ME_4E3176710273 // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
 
 ref; // ME_4E317625032D FontSizeForTag
@@ -1686,15 +1744,15 @@ ref; // ME_4E317E4C028F
  : Parent ME_4E31743D01F8 // TevDefaultStylesFontSizes
  ;
  : Operations
-   @ ( ME_4E31795B0349 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_4E31795B0349 // DoIt
+ )
  ; // Operations
  : Dependencies
-   @ ( ME_4E31796E03AF // 
+   Seq: ( ME_4E31796E03AF // 
  ME_4E317DCC03D0 // 
  ME_4E317E1A0381 // 
  ME_4E317E4C028F // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
 
 ref; // ME_4E317944036F SaveStylesFontSizes
@@ -1722,8 +1780,8 @@ ref; // ME_4E32AE5703C0 aStyle
  : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
  ;
  : Parameters
-   @ ( ME_4E32AE5703C0 // aStyle
- ) .SequenceCode.It
+   Seq: ( ME_4E32AE5703C0 // aStyle
+ )
  ; // Parameters
 
 ref; // ME_4E32AE4C020B DoIt
@@ -1739,8 +1797,8 @@ ref; // ME_4E32AE4C020B DoIt
  : Parent ME_4E31743D01F8 // TevDefaultStylesFontSizes
  ;
  : Operations
-   @ ( ME_4E32AE4C020B // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_4E32AE4C020B // DoIt
+ )
  ; // Operations
 
 ref; // ME_4E32AE440052 FontSizeForStyle
@@ -1748,6 +1806,7 @@ ref; // ME_4E32AE440052 FontSizeForStyle
 : ME_8138B129F774
  CONST UID '8138B129F774'
  CONST Name 'Exists'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_static::Operation ;
  %SUMMARY 'Проверяет создан экземпляр синглетона или нет' ;
@@ -1757,6 +1816,7 @@ ref; // ME_4E32AE440052 FontSizeForStyle
  ;
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
+ CONST extprop:pas:Value false
 
 ref; // ME_8138B129F774 Exists
 
@@ -1805,25 +1865,25 @@ ref; // ME_5239A347013E
  : Parent ME_47ECB2870309 // StyleTable
  ;
  : Inherits
-   @ ( ME_4E317AC802F4 // TevDefaultStylesFontSizesPrim1
- ) .SequenceCode.It
+   Seq: ( ME_4E317AC802F4 // TevDefaultStylesFontSizesPrim1
+ )
  ; // Inherits
  : Attributes
-   @ ( ME_4E31799A01C3 // f_Saved
- ) .SequenceCode.It
+   Seq: ( ME_4E31799A01C3 // f_Saved
+ )
  ; // Attributes
  : Operations
-   @ ( ME_4E317625032D // FontSizeForTag
+   Seq: ( ME_4E317625032D // FontSizeForTag
  ME_4E317944036F // SaveStylesFontSizes
  ME_4E32AE440052 // FontSizeForStyle
  ME_8138B129F774 // Exists
- ) .SequenceCode.It
+ )
  ; // Operations
  : Dependencies
-   @ ( ME_5239A0C500F2 // 
+   Seq: ( ME_5239A0C500F2 // 
  ME_5239A10603DA // 
  ME_5239A347013E // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  CONST "author" 'Люлин А.В.'
  CONST "needs InstanceR" 'undefined'
@@ -1832,12 +1892,14 @@ ref; // ME_5239A347013E
  CONST "register in scripts" 'undefined'
  CONST "singleton" true
  CONST "started" '28.07.2011 18:48'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest'
  CONST intf.pas:Path 'common\components\gui\Garant\Everest\evDefaultStylesFontSizes.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'DefaultStylesFontSizes'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'evDefaultStylesFontSizes'
 
 ref; // ME_4E31743D01F8 TevDefaultStylesFontSizes
 
@@ -1883,6 +1945,7 @@ ref; // ME_4E32AB9D0269
  ;
  : Implementor ME_4E32AB1401C0 // TevStyleTableFontSizeCorrector
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_49E488070386_ME_4E32AB1401C0 ParaTypeForFiltering
 
 : ME_49E4883E0176_ME_4E32AB1401C0
@@ -1892,6 +1955,7 @@ ref; // ME_49E488070386_ME_4E32AB1401C0 ParaTypeForFiltering
  ;
  : Implementor ME_4E32AB1401C0 // TevStyleTableFontSizeCorrector
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_49E4883E0176_ME_4E32AB1401C0 DoWritePara
 
 : ME_4E32AB1401C0
@@ -1906,19 +1970,19 @@ ref; // ME_49E4883E0176_ME_4E32AB1401C0 DoWritePara
  : Parent ME_47ECB2870309 // StyleTable
  ;
  : Inherits
-   @ ( WL 'ME_49E487650342' '47ECB8BD00A8.pas.ms.script' // TevdLeafParaFilter
- ) .SequenceCode.It
+   Seq: ( WL 'ME_49E487650342' '47ECB8BD00A8.pas.ms.script' // TevdLeafParaFilter
+ )
  ; // Inherits
  : Overridden
-   @ ( ME_49E488070386_ME_4E32AB1401C0 // ParaTypeForFiltering
+   Seq: ( ME_49E488070386_ME_4E32AB1401C0 // ParaTypeForFiltering
  ME_49E4883E0176_ME_4E32AB1401C0 // DoWritePara
- ) .SequenceCode.It
+ )
  ; // Overridden
  : Dependencies
-   @ ( ME_4E32AB5F03B5 // 
+   Seq: ( ME_4E32AB5F03B5 // 
  ME_4E32AB8E0365 // 
  ME_4E32AB9D0269 // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  CONST "author" 'Люлин А.В.'
  CONST "needs InstanceR" 'undefined'
@@ -1926,12 +1990,14 @@ ref; // ME_49E4883E0176_ME_4E32AB1401C0 DoWritePara
  CONST "no hands" true
  CONST "register in scripts" 'undefined'
  CONST "started" '29.07.2011 16:45'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest'
  CONST intf.pas:Path 'common\components\gui\Garant\Everest\evStyleTableFontSizeCorrector.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'StyleTableFontSizeCorrector'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'evStyleTableFontSizeCorrector'
 
 ref; // ME_4E32AB1401C0 TevStyleTableFontSizeCorrector
 
@@ -2005,11 +2071,11 @@ ref; // ME_4E551E5602FC aFixed
  : Target WL 'ME_4E68E516025B' '4E56909E0240.pas.ms.script' // IevResultFont
  ;
  : Parameters
-   @ ( ME_4E551BC20028 // anID
+   Seq: ( ME_4E551BC20028 // anID
  ME_4E551E56028E // aJust
  ME_4E551E5602AC // aVis
  ME_4E551E5602FC // aFixed
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_4E551BB202CD DoIt
@@ -2025,8 +2091,8 @@ ref; // ME_4E551BB202CD DoIt
  : Parent ME_4E55134F0348 // TevStandardStylesList
  ;
  : Operations
-   @ ( ME_4E551BB202CD // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_4E551BB202CD // DoIt
+ )
  ; // Operations
 
 ref; // ME_4E551B9F0203 StyleByID
@@ -2092,12 +2158,12 @@ ref; // ME_4E551BFB0045 aStyle
  : Parent ME_4E551BCF0180 // AddStyleByID
  ;
  : Parameters
-   @ ( ME_4E551BFA023D // anID
+   Seq: ( ME_4E551BFA023D // anID
  ME_4E551E5E0380 // aJust
  ME_4E551E5E03AF // aVis
  ME_4E551E5E03E4 // aFixed
  ME_4E551BFB0045 // aStyle
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_4E551BF50339 DoIt
@@ -2113,8 +2179,8 @@ ref; // ME_4E551BF50339 DoIt
  : Parent ME_4E55134F0348 // TevStandardStylesList
  ;
  : Operations
-   @ ( ME_4E551BF50339 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_4E551BF50339 // DoIt
+ )
  ; // Operations
 
 ref; // ME_4E551BCF0180 AddStyleByID
@@ -2148,6 +2214,7 @@ ref; // ME_4E68E96C03A3
  ;
  : Implementor ME_4E55134F0348 // TevStandardStylesList
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_47B9BAFD01F4_ME_4E55134F0348 CompareItemWithData
 
 : ME_4E55134F0348
@@ -2161,27 +2228,27 @@ ref; // ME_47B9BAFD01F4_ME_4E55134F0348 CompareItemWithData
  : Parent ME_47ECB2870309 // StyleTable
  ;
  : Inherits
-   @ ( WL 'ME_47B47E230134' '47BB24D30205.pas.ms.script' // l3Searcher
+   Seq: ( WL 'ME_47B47E230134' '47BB24D30205.pas.ms.script' // l3Searcher
  ME_4E55123003CD // TevStandardStylesListPrim
- ) .SequenceCode.It
+ )
  ; // Inherits
  : Attributes
-   @ ( ME_4E5515EE002B // FindDataType
- ) .SequenceCode.It
+   Seq: ( ME_4E5515EE002B // FindDataType
+ )
  ; // Attributes
  : Operations
-   @ ( ME_4E551B9F0203 // StyleByID
+   Seq: ( ME_4E551B9F0203 // StyleByID
  ME_4E551BCF0180 // AddStyleByID
- ) .SequenceCode.It
+ )
  ; // Operations
  : Overridden
-   @ ( ME_47B9BAFD01F4_ME_4E55134F0348 // CompareItemWithData
- ) .SequenceCode.It
+   Seq: ( ME_47B9BAFD01F4_ME_4E55134F0348 // CompareItemWithData
+ )
  ; // Overridden
  : Dependencies
-   @ ( ME_4E5524630309 // 
+   Seq: ( ME_4E5524630309 // 
  ME_4E68E96C03A3 // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  CONST "author" 'Люлин А.В.'
  CONST "needs InstanceR" 'undefined'
@@ -2189,12 +2256,14 @@ ref; // ME_47B9BAFD01F4_ME_4E55134F0348 CompareItemWithData
  CONST "no hands" true
  CONST "register in scripts" 'undefined'
  CONST "started" '24.08.2011 19:06'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest'
  CONST intf.pas:Path 'common\components\gui\Garant\Everest\evStandardStylesList.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'StandardStylesList'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'evStandardStylesList'
 
 ref; // ME_4E55134F0348 TevStandardStylesList
 
@@ -2226,14 +2295,18 @@ ref; // ME_4E54D257025E
  : Parent ME_4E54CF7E0143 // TevStandardStyles
  ;
  : Inherits
-   @ ( WL 'ME_4E54C76802DB' '476BE0350329.pas.ms.script' // StandardCachedStyle
- ) .SequenceCode.It
+   Seq: ( WL 'ME_4E54C76802DB' '476BE0350329.pas.ms.script' // StandardCachedStyle
+ )
  ; // Inherits
  : Attributes
-   @ ( ME_4E54D257025E // 
- ) .SequenceCode.It
+   Seq: ( ME_4E54D257025E // 
+ )
  ; // Attributes
  CONST "array type" 'dynamic'
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_4E54D246013E TevStandardStylesCacheByID
 
@@ -2308,10 +2381,10 @@ ref; // ME_4E54D0AB01C5 theFont
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
  : Parameters
-   @ ( ME_4E54D0AB0187 // aPara
+   Seq: ( ME_4E54D0AB0187 // aPara
  ME_4E5F9A460188 // aFixedFont
  ME_4E54D0AB01C5 // theFont
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_4E54D0910211 DoIt
@@ -2327,8 +2400,8 @@ ref; // ME_4E54D0910211 DoIt
  : Parent ME_4E54CF7E0143 // TevStandardStyles
  ;
  : Operations
-   @ ( ME_4E54D0910211 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_4E54D0910211 // DoIt
+ )
  ; // Operations
 
 ref; // ME_4E54D081006C GetStandardStyleFont
@@ -2357,8 +2430,8 @@ ref; // ME_4E54D0FF0151 DoIt
  : Parent ME_4E54CF7E0143 // TevStandardStyles
  ;
  : Operations
-   @ ( ME_4E54D0FF0151 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_4E54D0FF0151 // DoIt
+ )
  ; // Operations
 
 ref; // ME_4E54D0F101B3 FreeFonts
@@ -2396,9 +2469,9 @@ ref; // ME_4E5F9AA203AC aPrinting
  : Target WL 'ME_4E68E516025B' '4E56909E0240.pas.ms.script' // IevResultFont
  ;
  : Parameters
-   @ ( ME_4E5F9AA2036E // aStyle
+   Seq: ( ME_4E5F9AA2036E // aStyle
  ME_4E5F9AA203AC // aPrinting
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_4E5F9A9E029F DoIt
@@ -2414,8 +2487,8 @@ ref; // ME_4E5F9A9E029F DoIt
  : Parent ME_4E54CF7E0143 // TevStandardStyles
  ;
  : Operations
-   @ ( ME_4E5F9A9E029F // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_4E5F9A9E029F // DoIt
+ )
  ; // Operations
 
 ref; // ME_4E5F9A5E02A3 GetStyleFont
@@ -2491,13 +2564,13 @@ ref; // ME_4E5F9B650013 theFont
  : Parent ME_4E5F9ADA02CE // CheckFontInCache
  ;
  : Parameters
-   @ ( ME_4E5F9B6402BF // anObj
+   Seq: ( ME_4E5F9B6402BF // anObj
  ME_4E5F9B6402F5 // anID
  ME_4E5F9B640335 // aJust
  ME_4E5F9B640362 // aVis
  ME_4E5F9B640399 // aFixedFont
  ME_4E5F9B650013 // theFont
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_4E5F9B56022C DoIt
@@ -2513,8 +2586,8 @@ ref; // ME_4E5F9B56022C DoIt
  : Parent ME_4E54CF7E0143 // TevStandardStyles
  ;
  : Operations
-   @ ( ME_4E5F9B56022C // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_4E5F9B56022C // DoIt
+ )
  ; // Operations
 
 ref; // ME_4E5F9ADA02CE CheckFontInCache
@@ -2522,6 +2595,7 @@ ref; // ME_4E5F9ADA02CE CheckFontInCache
 : ME_259DEB6622FC
  CONST UID '259DEB6622FC'
  CONST Name 'Exists'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_static::Operation ;
  %SUMMARY 'Проверяет создан экземпляр синглетона или нет' ;
@@ -2531,6 +2605,7 @@ ref; // ME_4E5F9ADA02CE CheckFontInCache
  ;
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
+ CONST extprop:pas:Value false
 
 ref; // ME_259DEB6622FC Exists
 
@@ -2629,6 +2704,7 @@ ref; // ME_4E68E9B402EF
  ;
  : Implementor ME_4E54CF7E0143 // TevStandardStyles
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_4A485B710126_ME_4E54CF7E0143 DoStyleTableChanged
 
 : ME_479731C50290_ME_4E54CF7E0143
@@ -2638,6 +2714,7 @@ ref; // ME_4A485B710126_ME_4E54CF7E0143 DoStyleTableChanged
  ;
  : Implementor ME_4E54CF7E0143 // TevStandardStyles
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_479731C50290_ME_4E54CF7E0143 Cleanup
 
 : ME_4A4867A20049_ME_4E54CF7E0143
@@ -2647,6 +2724,7 @@ ref; // ME_479731C50290_ME_4E54CF7E0143 Cleanup
  ;
  : Implementor ME_4E54CF7E0143 // TevStandardStyles
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4A4867A20049_ME_4E54CF7E0143 AtEnd
 
 : ME_4E54CF7E0143
@@ -2661,42 +2739,43 @@ ref; // ME_4A4867A20049_ME_4E54CF7E0143 AtEnd
  : Parent ME_47ECB2870309 // StyleTable
  ;
  : Inherits
-   @ ( ME_480DA68701CE // evStyleTableListener
+   Seq: ( ME_480DA68701CE // evStyleTableListener
  WL 'ME_49E7754802A9' '47913B47006E.pas.ms.script' // Tl3ProtoObject
- ) .SequenceCode.It
+ )
  ; // Inherits
  : Implements
-   @ ( WL 'ME_467D2A5403B6' '467823B7002C.pas.ms.script' // IafwFontCache
- ) .SequenceCode.It
+   Seq: ( WL 'ME_467D2A5403B6' '467823B7002C.pas.ms.script' // IafwFontCache
+ WL 'ME_4E314D470350' '4E3160C802DA.pas.ms.script' // Возможность печатать фиксированным шрифтом
+ )
  ; // Implements
  : Attributes
-   @ ( ME_4E54D27701C5 // f_StandardFont
+   Seq: ( ME_4E54D27701C5 // f_StandardFont
  ME_4E551376025B // f_StylesList
- ) .SequenceCode.It
+ )
  ; // Attributes
  : Operations
-   @ ( ME_4E54D081006C // GetStandardStyleFont
+   Seq: ( ME_4E54D081006C // GetStandardStyleFont
  ME_4E54D0F101B3 // FreeFonts
  ME_4E5F9A5E02A3 // GetStyleFont
  ME_4E5F9ADA02CE // CheckFontInCache
  ME_259DEB6622FC // Exists
- ) .SequenceCode.It
+ )
  ; // Operations
  : Implemented
-   @ ( ME_4A485B710126_ME_4E54CF7E0143 // DoStyleTableChanged
- ) .SequenceCode.It
+   Seq: ( ME_4A485B710126_ME_4E54CF7E0143 // DoStyleTableChanged
+ )
  ; // Implemented
  : Overridden
-   @ ( ME_479731C50290_ME_4E54CF7E0143 // Cleanup
+   Seq: ( ME_479731C50290_ME_4E54CF7E0143 // Cleanup
  ME_4A4867A20049_ME_4E54CF7E0143 // AtEnd
- ) .SequenceCode.It
+ )
  ; // Overridden
  : Children
-   @ ( ME_4E54D246013E // TevStandardStylesCacheByID
- ) .SequenceCode.It
+   Seq: ( ME_4E54D246013E // TevStandardStylesCacheByID
+ )
  ; // Children
  : Dependencies
-   @ ( ME_4E54D021021B // 
+   Seq: ( ME_4E54D021021B // 
  ME_4E54D03902A6 // 
  ME_4E54D2B001AE // 
  ME_4E54E06701DD // 
@@ -2704,7 +2783,7 @@ ref; // ME_4A4867A20049_ME_4E54CF7E0143 AtEnd
  ME_4E5F989C0262 // 
  ME_4E649DCA018E // 
  ME_4E68E9B402EF // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  CONST "author" 'Люлин А.В.'
  CONST "needs InstanceR" 'undefined'
@@ -2713,12 +2792,14 @@ ref; // ME_4A4867A20049_ME_4E54CF7E0143 AtEnd
  CONST "register in scripts" 'undefined'
  CONST "singleton" true
  CONST "started" '24.08.2011 14:16'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest'
  CONST intf.pas:Path 'common\components\gui\Garant\Everest\evStandardStyles.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'StandardStyles'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'evStandardStyles'
 
 ref; // ME_4E54CF7E0143 TevStandardStyles
 
@@ -2731,6 +2812,7 @@ FORWARD ME_ADC42F5F57B3
 : ME_306B1D04CA9C
  CONST UID '306B1D04CA9C'
  CONST Name 'DoIt'
+ CONST IsSummoned true
  CONST Class class_Operation
  %SUMMARY 'Сигнатура метода CheckSubscribe' ;
  CONST Visibility PublicAccess
@@ -2743,6 +2825,7 @@ ref; // ME_306B1D04CA9C DoIt
 : ME_ADC42F5F57B3
  CONST UID 'ADC42F5F57B3'
  CONST Name 'CheckSubscribe'
+ CONST IsSummoned true
  CONST Class class_Class
  : Stereotype st_method ;
  CONST Kind kind_NormalClass
@@ -2752,8 +2835,8 @@ ref; // ME_306B1D04CA9C DoIt
  : Parent ME_5EDF2B8ACE76 // TevStylesSettingsListener
  ;
  : Operations
-   @ ( ME_306B1D04CA9C // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_306B1D04CA9C // DoIt
+ )
  ; // Operations
  CONST "is static" true
 
@@ -2762,6 +2845,7 @@ ref; // ME_ADC42F5F57B3 CheckSubscribe
 : ME_77C4E20A1895
  CONST UID '77C4E20A1895'
  CONST Name 'aSettingId'
+ CONST IsSummoned true
  CONST Class class_Parameter
  : Stereotype st_in ;
  : Target WL 'ME_473D9E950032' '467823B7002C.pas.ms.script' // TafwSettingId
@@ -2772,6 +2856,7 @@ ref; // ME_77C4E20A1895 aSettingId
 : ME_704CA5071A35
  CONST UID '704CA5071A35'
  CONST Name 'IsSettingAffectsUs'
+ CONST IsSummoned true
  CONST Class class_Operation
  %SUMMARY 'Метод для проверки того факта, что TevStylesSettingsListener касается изменение указанной настройки' ;
  CONST Visibility PrivateAccess
@@ -2781,8 +2866,8 @@ ref; // ME_77C4E20A1895 aSettingId
  : Target WL 'ME_3DBFFE100240' '3DBFDB23006E.pas.ms.script' // boolean
  ;
  : Parameters
-   @ ( ME_77C4E20A1895 // aSettingId
- ) .SequenceCode.It
+   Seq: ( ME_77C4E20A1895 // aSettingId
+ )
  ; // Parameters
 
 ref; // ME_704CA5071A35 IsSettingAffectsUs
@@ -2790,6 +2875,7 @@ ref; // ME_704CA5071A35 IsSettingAffectsUs
 : ME_E299FD04EA19
  CONST UID 'E299FD04EA19'
  CONST Name 'Exists'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_static::Operation ;
  %SUMMARY 'Проверяет создан экземпляр синглетона или нет' ;
@@ -2799,11 +2885,13 @@ ref; // ME_704CA5071A35 IsSettingAffectsUs
  ;
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
+ CONST extprop:pas:Value false
 
 ref; // ME_E299FD04EA19 Exists
 
 : ME_D2016F86B06E
  CONST UID 'D2016F86B06E'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_5EDF2B8ACE76 // TevStylesSettingsListener
@@ -2820,11 +2908,13 @@ ref; // ME_D2016F86B06E
  ;
  : Implementor ME_5EDF2B8ACE76 // TevStylesSettingsListener
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_47EA863A035C_ME_5EDF2B8ACE76 DoSettingChanged
 
 : ME_5EDF2B8ACE76
  CONST UID '5EDF2B8ACE76'
  CONST Name 'TevStylesSettingsListener'
+ CONST IsSummoned true
  CONST Class class_Class
  : Stereotype st_SimpleClass ;
  CONST Kind kind_NormalClass
@@ -2834,32 +2924,38 @@ ref; // ME_47EA863A035C_ME_5EDF2B8ACE76 DoSettingChanged
  : Parent ME_522ED9B4018B // evStyles
  ;
  : Inherits
-   @ ( WL 'ME_49E7754802A9' '47913B47006E.pas.ms.script' // Tl3ProtoObject
- ) .SequenceCode.It
+   Seq: ( WL 'ME_49E7754802A9' '47913B47006E.pas.ms.script' // Tl3ProtoObject
+ )
  ; // Inherits
  : Implements
-   @ ( WL 'ME_47EA85E7005B' '47EA4BB502F9.pas.ms.script' // afwSettingChanged
- ) .SequenceCode.It
+   Seq: ( WL 'ME_47EA85E7005B' '47EA4BB502F9.pas.ms.script' // afwSettingChanged
+ )
  ; // Implements
  : Operations
-   @ ( ME_ADC42F5F57B3 // CheckSubscribe
+   Seq: ( ME_ADC42F5F57B3 // CheckSubscribe
  ME_704CA5071A35 // IsSettingAffectsUs
  ME_E299FD04EA19 // Exists
- ) .SequenceCode.It
+ )
  ; // Operations
  : Overridden
-   @ ( ME_47EA863A035C_ME_5EDF2B8ACE76 // DoSettingChanged
- ) .SequenceCode.It
+   Seq: ( ME_47EA863A035C_ME_5EDF2B8ACE76 // DoSettingChanged
+ )
  ; // Overridden
  : Dependencies
-   @ ( ME_D2016F86B06E // 
- ) .SequenceCode.It
+   Seq: ( ME_D2016F86B06E // 
+ )
  ; // Dependencies
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
  CONST "singleton" true
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'StylesSettingsListener'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_5EDF2B8ACE76 TevStylesSettingsListener
 
@@ -2890,8 +2986,8 @@ ref; // ME_5238718D0226 DoIt
  : Parent ME_522ED9B4018B // evStyles
  ;
  : Operations
-   @ ( ME_5238718D0226 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_5238718D0226 // DoIt
+ )
  ; // Operations
  CONST "is static" true
 
@@ -2902,6 +2998,7 @@ FORWARD ME_B4F9EAF1647A
 : ME_5676E7C9C5EE
  CONST UID '5676E7C9C5EE'
  CONST Name 'DoIt'
+ CONST IsSummoned true
  CONST Class class_Operation
  %SUMMARY 'Метод для получения значения настройки "Печать и экспорт"."Использовать для экспорта и печати размер шрифта, отображаемого на экране"' ;
  CONST Visibility PublicAccess
@@ -2915,6 +3012,7 @@ ref; // ME_5676E7C9C5EE DoIt
 
 : ME_99E882CA5521
  CONST UID '99E882CA5521'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_B4F9EAF1647A // PrintAndExportDefaultSetting
@@ -2927,6 +3025,7 @@ ref; // ME_99E882CA5521
 : ME_B4F9EAF1647A
  CONST UID 'B4F9EAF1647A'
  CONST Name 'PrintAndExportDefaultSetting'
+ CONST IsSummoned true
  CONST Class class_Class
  : Stereotype st_method ;
  CONST Kind kind_NormalClass
@@ -2935,13 +3034,17 @@ ref; // ME_99E882CA5521
  CONST Abstraction at_final
  : Parent ME_522ED9B4018B // evStyles
  ;
+ : Implements
+   Seq: ( WL 'ME_5214960C034B' '4E3160C802DA.pas.ms.script' // Печать и экспорт
+ )
+ ; // Implements
  : Operations
-   @ ( ME_5676E7C9C5EE // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_5676E7C9C5EE // DoIt
+ )
  ; // Operations
  : Dependencies
-   @ ( ME_99E882CA5521 // 
- ) .SequenceCode.It
+   Seq: ( ME_99E882CA5521 // 
+ )
  ; // Dependencies
  CONST "is static" true
 
@@ -2952,6 +3055,7 @@ FORWARD ME_C4840679B5EF
 : ME_AC3A30595778
  CONST UID 'AC3A30595778'
  CONST Name 'DoIt'
+ CONST IsSummoned true
  CONST Class class_Operation
  %SUMMARY 'Метод для получения значения настройки "Печать и экспорт"."Использовать для экспорта и печати следующий размер шрифта"' ;
  CONST Visibility PublicAccess
@@ -2965,6 +3069,7 @@ ref; // ME_AC3A30595778 DoIt
 
 : ME_AB0031608A65
  CONST UID 'AB0031608A65'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_C4840679B5EF // PrintAndExportCustomSetting
@@ -2977,6 +3082,7 @@ ref; // ME_AB0031608A65
 : ME_C4840679B5EF
  CONST UID 'C4840679B5EF'
  CONST Name 'PrintAndExportCustomSetting'
+ CONST IsSummoned true
  CONST Class class_Class
  : Stereotype st_method ;
  CONST Kind kind_NormalClass
@@ -2985,13 +3091,17 @@ ref; // ME_AB0031608A65
  CONST Abstraction at_final
  : Parent ME_522ED9B4018B // evStyles
  ;
+ : Implements
+   Seq: ( WL 'ME_5214960C034B' '4E3160C802DA.pas.ms.script' // Печать и экспорт
+ )
+ ; // Implements
  : Operations
-   @ ( ME_AC3A30595778 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_AC3A30595778 // DoIt
+ )
  ; // Operations
  : Dependencies
-   @ ( ME_AB0031608A65 // 
- ) .SequenceCode.It
+   Seq: ( ME_AB0031608A65 // 
+ )
  ; // Dependencies
  CONST "is static" true
 
@@ -3002,6 +3112,7 @@ FORWARD ME_71C286195AC6
 : ME_BCA72ACC3073
  CONST UID 'BCA72ACC3073'
  CONST Name 'DoIt'
+ CONST IsSummoned true
  CONST Class class_Operation
  %SUMMARY 'Метод для получения значения настройки "Использовать для экспорта и печати следующий размер шрифта"' ;
  CONST Visibility PublicAccess
@@ -3015,6 +3126,7 @@ ref; // ME_BCA72ACC3073 DoIt
 
 : ME_4E01AB100733
  CONST UID '4E01AB100733'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_71C286195AC6 // PrintAndExportFontSizeSetting
@@ -3027,6 +3139,7 @@ ref; // ME_4E01AB100733
 : ME_71C286195AC6
  CONST UID '71C286195AC6'
  CONST Name 'PrintAndExportFontSizeSetting'
+ CONST IsSummoned true
  CONST Class class_Class
  : Stereotype st_method ;
  CONST Kind kind_NormalClass
@@ -3035,13 +3148,17 @@ ref; // ME_4E01AB100733
  CONST Abstraction at_final
  : Parent ME_522ED9B4018B // evStyles
  ;
+ : Implements
+   Seq: ( WL 'ME_4E314EC80391' '4E3160C802DA.pas.ms.script' // Использовать для экспорта и печати следующий размер шрифта
+ )
+ ; // Implements
  : Operations
-   @ ( ME_BCA72ACC3073 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_BCA72ACC3073 // DoIt
+ )
  ; // Operations
  : Dependencies
-   @ ( ME_4E01AB100733 // 
- ) .SequenceCode.It
+   Seq: ( ME_4E01AB100733 // 
+ )
  ; // Dependencies
  CONST "is static" true
 
@@ -3052,6 +3169,7 @@ FORWARD ME_FF5063A3A440
 : ME_E6E2C45BFECF
  CONST UID 'E6E2C45BFECF'
  CONST Name 'aValue'
+ CONST IsSummoned true
  CONST Class class_Parameter
  : Stereotype st_in ;
  : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
@@ -3062,6 +3180,7 @@ ref; // ME_E6E2C45BFECF aValue
 : ME_ACCFB6683A6A
  CONST UID 'ACCFB6683A6A'
  CONST Name 'DoIt'
+ CONST IsSummoned true
  CONST Class class_Operation
  %SUMMARY 'Метод для записи значения настройки "Использовать для экспорта и печати следующий размер шрифта"' ;
  CONST Visibility PublicAccess
@@ -3069,14 +3188,15 @@ ref; // ME_E6E2C45BFECF aValue
  : Parent ME_FF5063A3A440 // WritePrintAndExportFontSizeSetting
  ;
  : Parameters
-   @ ( ME_E6E2C45BFECF // aValue
- ) .SequenceCode.It
+   Seq: ( ME_E6E2C45BFECF // aValue
+ )
  ; // Parameters
 
 ref; // ME_ACCFB6683A6A DoIt
 
 : ME_EEFF1B74B298
  CONST UID 'EEFF1B74B298'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_FF5063A3A440 // WritePrintAndExportFontSizeSetting
@@ -3089,6 +3209,7 @@ ref; // ME_EEFF1B74B298
 : ME_FF5063A3A440
  CONST UID 'FF5063A3A440'
  CONST Name 'WritePrintAndExportFontSizeSetting'
+ CONST IsSummoned true
  CONST Class class_Class
  : Stereotype st_method ;
  CONST Kind kind_NormalClass
@@ -3097,13 +3218,17 @@ ref; // ME_EEFF1B74B298
  CONST Abstraction at_final
  : Parent ME_522ED9B4018B // evStyles
  ;
+ : Implements
+   Seq: ( WL 'ME_4E314EC80391' '4E3160C802DA.pas.ms.script' // Использовать для экспорта и печати следующий размер шрифта
+ )
+ ; // Implements
  : Operations
-   @ ( ME_ACCFB6683A6A // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_ACCFB6683A6A // DoIt
+ )
  ; // Operations
  : Dependencies
-   @ ( ME_EEFF1B74B298 // 
- ) .SequenceCode.It
+   Seq: ( ME_EEFF1B74B298 // 
+ )
  ; // Dependencies
  CONST "is static" true
 
@@ -3124,6 +3249,7 @@ FORWARD ME_870F97A58415
 
 : ME_62D236A986D4
  CONST UID '62D236A986D4'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_522ED9B4018B // evStyles
@@ -3137,6 +3263,7 @@ FORWARD ME_C9ADD4944F97
 
 : ME_2A81B3BA96E9
  CONST UID '2A81B3BA96E9'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_522ED9B4018B // evStyles
@@ -3158,38 +3285,43 @@ ref; // ME_2A81B3BA96E9
  : Parent ME_47ECB2870309 // StyleTable
  ;
  : Inherits
-   @ ( ME_522ED98F0223 // TevInterface
- ) .SequenceCode.It
+   Seq: ( ME_522ED98F0223 // TevInterface
+ )
  ; // Inherits
+ : Implements
+   Seq: ( WL 'ME_5214960C034B' '4E3160C802DA.pas.ms.script' // Печать и экспорт
+ )
+ ; // Implements
  : Operations
-   @ ( ME_52387143039D // PrintAndExportFontSize
+   Seq: ( ME_52387143039D // PrintAndExportFontSize
  ME_B4F9EAF1647A // PrintAndExportDefaultSetting
  ME_C4840679B5EF // PrintAndExportCustomSetting
  ME_71C286195AC6 // PrintAndExportFontSizeSetting
  ME_FF5063A3A440 // WritePrintAndExportFontSizeSetting
- ) .SequenceCode.It
+ )
  ; // Operations
  : Children
-   @ ( ME_5EDF2B8ACE76 // TevStylesSettingsListener
- ) .SequenceCode.It
+   Seq: ( ME_5EDF2B8ACE76 // TevStylesSettingsListener
+ )
  ; // Children
  : Dependencies
-   @ ( ME_523970E60269 // 
+   Seq: ( ME_523970E60269 // 
  ME_62D236A986D4 // 
  ME_2A81B3BA96E9 // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest'
  CONST intf.pas:Path 'common\components\gui\Garant\Everest\evStyles_SH.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
  CONST extprop:pas:TypeName 'SHevStyles'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'evStyles_SH'
 
 ref; // ME_522ED9B4018B evStyles
 
@@ -3205,20 +3337,22 @@ ref; // ME_522ED9B4018B evStyles
  : Parent ME_47ECB2870309 // StyleTable
  ;
  : Inherits
-   @ ( ME_522ED98F0223 // TevInterface
- ) .SequenceCode.It
+   Seq: ( ME_522ED98F0223 // TevInterface
+ )
  ; // Inherits
  CONST "finished" false
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest'
  CONST intf.pas:Path 'common\components\gui\Garant\Everest\NOT_FINISHED_evFontInterface.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'FontInterface'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'evFontInterface'
 
 ref; // ME_522EDD1F0044 TevFontInterface
 
@@ -3233,10 +3367,15 @@ ref; // ME_522EDD1F0044 TevFontInterface
  : Parent ME_480DB927035A // TevStyleInterface
  ;
  : Inherits
-   @ ( ME_480DB927035A // TevStyleInterface
- ) .SequenceCode.It
+   Seq: ( ME_480DB927035A // TevStyleInterface
+ )
  ; // Inherits
  CONST "isClassRef" true
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_554CE65703B1 RevStyleInterface
 
@@ -3251,9 +3390,14 @@ ref; // ME_554CE65703B1 RevStyleInterface
  : Parent ME_480DB927035A // TevStyleInterface
  ;
  : Inherits
-   @ ( WL 'ME_47C69EBC00A8' '47AC75550330.pas.ms.script' // Tk2TagID
- ) .SequenceCode.It
+   Seq: ( WL 'ME_47C69EBC00A8' '47AC75550330.pas.ms.script' // Tk2TagID
+ )
  ; // Inherits
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_5551C0F6034E Tk2TagID
 
@@ -3393,6 +3537,7 @@ ref; // ME_554CE6060046 ParentInterface
 : ME_3837A93A281E
  CONST UID '3837A93A281E'
  CONST Name 'f_Font'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY 'Поле для свойства Font' ;
  CONST Visibility PrivateAccess
@@ -3408,6 +3553,7 @@ ref; // ME_3837A93A281E f_Font
 : ME_5379A618E478
  CONST UID '5379A618E478'
  CONST Name 'f_ParentInterface'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY 'Поле для свойства ParentInterface' ;
  CONST Visibility PrivateAccess
@@ -3443,8 +3589,8 @@ ref; // ME_554CEC3901CE aType
  : Target WL 'ME_46A4745301A3' '4677FBA70343.pas.ms.script' // Il3Strings
  ;
  : Parameters
-   @ ( ME_554CEC3901CE // aType
- ) .SequenceCode.It
+   Seq: ( ME_554CEC3901CE // aType
+ )
  ; // Parameters
 
 ref; // ME_554CEC37001D DoIt
@@ -3460,8 +3606,8 @@ ref; // ME_554CEC37001D DoIt
  : Parent ME_480DB927035A // TevStyleInterface
  ;
  : Operations
-   @ ( ME_554CEC37001D // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_554CEC37001D // DoIt
+ )
  ; // Operations
  CONST "is static" true
 
@@ -3479,6 +3625,7 @@ FORWARD ME_554CEC000039
  CONST Value 'nil'
  : ValueType WL 'ME_47AC723D02DC' '49A58A1A03C4.pas.ms.script' // Tk2Type
  ;
+ CONST extprop:pas:Value 'nil'
 
 ref; // ME_554CEC0C006A aType
 
@@ -3492,6 +3639,7 @@ ref; // ME_554CEC0C006A aType
  CONST Value 'TxtNormalANSI'
  : ValueType WL 'ME_476BE0660328' '476BE0350329.pas.ms.script' // Standard
  ;
+ CONST extprop:pas:Value 'ev_saTxtNormalANSI'
 
 ref; // ME_554CEC0C0088 aStyle
 
@@ -3504,9 +3652,9 @@ ref; // ME_554CEC0C0088 aStyle
  : Parent ME_554CEC000039 // Make
  ;
  : Parameters
-   @ ( ME_554CEC0C006A // aType
+   Seq: ( ME_554CEC0C006A // aType
  ME_554CEC0C0088 // aStyle
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_554CEC0803D4 DoIt
@@ -3522,8 +3670,8 @@ ref; // ME_554CEC0803D4 DoIt
  : Parent ME_480DB927035A // TevStyleInterface
  ;
  : Operations
-   @ ( ME_554CEC0803D4 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_554CEC0803D4 // DoIt
+ )
  ; // Operations
 
 ref; // ME_554CEC000039 Make
@@ -3533,6 +3681,7 @@ FORWARD ME_554CEC4F02F8
 : ME_2E275D612D59
  CONST UID '2E275D612D59'
  CONST Name 'aType'
+ CONST IsSummoned true
  CONST Class class_Parameter
  : Stereotype st_in ;
  : Target WL 'ME_47AC723D02DC' '49A58A1A03C4.pas.ms.script' // Tk2Type
@@ -3543,6 +3692,7 @@ ref; // ME_2E275D612D59 aType
 : ME_BD9D95BF81DA
  CONST UID 'BD9D95BF81DA'
  CONST Name 'DoIt'
+ CONST IsSummoned true
  CONST Class class_Operation
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
@@ -3551,8 +3701,8 @@ ref; // ME_2E275D612D59 aType
  : Target WL 'ME_46A4745301A3' '4677FBA70343.pas.ms.script' // Il3Strings
  ;
  : Parameters
-   @ ( ME_2E275D612D59 // aType
- ) .SequenceCode.It
+   Seq: ( ME_2E275D612D59 // aType
+ )
  ; // Parameters
 
 ref; // ME_BD9D95BF81DA DoIt
@@ -3568,12 +3718,12 @@ ref; // ME_BD9D95BF81DA DoIt
  : Parent ME_480DB927035A // TevStyleInterface
  ;
  : Inherits
-   @ ( ME_554CEC2A0191 // MakeList
- ) .SequenceCode.It
+   Seq: ( ME_554CEC2A0191 // MakeList
+ )
  ; // Inherits
  : Operations
-   @ ( ME_BD9D95BF81DA // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_BD9D95BF81DA // DoIt
+ )
  ; // Operations
  CONST "is static" true
 
@@ -3606,8 +3756,8 @@ ref; // ME_554CEC7D037E DoIt
  : Parent ME_480DB927035A // TevStyleInterface
  ;
  : Operations
-   @ ( ME_554CEC7D037E // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_554CEC7D037E // DoIt
+ )
  ; // Operations
 
 ref; // ME_554CEC770101 GetVT
@@ -3634,6 +3784,7 @@ ref; // ME_554CECD70005 S
  CONST Value 0
  : ValueType WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
  ;
+ CONST extprop:pas:Value 0
 
 ref; // ME_554CECD7001D ID
 
@@ -3646,9 +3797,9 @@ ref; // ME_554CECD7001D ID
  : Parent ME_554CECCB0076 // Add
  ;
  : Parameters
-   @ ( ME_554CECD70005 // S
+   Seq: ( ME_554CECD70005 // S
  ME_554CECD7001D // ID
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_554CECD10299 DoIt
@@ -3665,8 +3816,8 @@ ref; // ME_554CECD10299 DoIt
  : Parent ME_480DB927035A // TevStyleInterface
  ;
  : Operations
-   @ ( ME_554CECD10299 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_554CECD10299 // DoIt
+ )
  ; // Operations
 
 ref; // ME_554CECCB0076 Add
@@ -3676,6 +3827,7 @@ FORWARD ME_554CECE7001A
 : ME_1642490C4DAD
  CONST UID '1642490C4DAD'
  CONST Name 'DoIt'
+ CONST IsSummoned true
  CONST Class class_Operation
  %SUMMARY 'Сигнатура метода Delete' ;
  CONST Visibility PublicAccess
@@ -3697,8 +3849,8 @@ ref; // ME_1642490C4DAD DoIt
  : Parent ME_480DB927035A // TevStyleInterface
  ;
  : Operations
-   @ ( ME_1642490C4DAD // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_1642490C4DAD // DoIt
+ )
  ; // Operations
 
 ref; // ME_554CECE7001A Delete
@@ -3724,8 +3876,8 @@ ref; // ME_554CED2B038B aType
  : Parent ME_554CED1F006A // SelectStyledObjectType
  ;
  : Parameters
-   @ ( ME_554CED2B038B // aType
- ) .SequenceCode.It
+   Seq: ( ME_554CED2B038B // aType
+ )
  ; // Parameters
 
 ref; // ME_554CED280233 DoIt
@@ -3742,8 +3894,8 @@ ref; // ME_554CED280233 DoIt
  : Parent ME_480DB927035A // TevStyleInterface
  ;
  : Operations
-   @ ( ME_554CED280233 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_554CED280233 // DoIt
+ )
  ; // Operations
 
 ref; // ME_554CED1F006A SelectStyledObjectType
@@ -3769,8 +3921,8 @@ ref; // ME_554CED570043 anObject
  : Parent ME_554CED4F0071 // SelectStyledObject
  ;
  : Parameters
-   @ ( ME_554CED570043 // anObject
- ) .SequenceCode.It
+   Seq: ( ME_554CED570043 // anObject
+ )
  ; // Parameters
 
 ref; // ME_554CED5402FF DoIt
@@ -3787,8 +3939,8 @@ ref; // ME_554CED5402FF DoIt
  : Parent ME_480DB927035A // TevStyleInterface
  ;
  : Operations
-   @ ( ME_554CED5402FF // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_554CED5402FF // DoIt
+ )
  ; // Operations
 
 ref; // ME_554CED4F0071 SelectStyledObject
@@ -3816,8 +3968,8 @@ ref; // ME_554CED8401F3 S
  : Target WL 'ME_532031160122' '47913B47006E.pas.ms.script' // Tl3Variant
  ;
  : Parameters
-   @ ( ME_554CED8401F3 // S
- ) .SequenceCode.It
+   Seq: ( ME_554CED8401F3 // S
+ )
  ; // Parameters
 
 ref; // ME_554CED8001C5 DoIt
@@ -3834,8 +3986,8 @@ ref; // ME_554CED8001C5 DoIt
  : Parent ME_480DB927035A // TevStyleInterface
  ;
  : Operations
-   @ ( ME_554CED8001C5 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_554CED8001C5 // DoIt
+ )
  ; // Operations
 
 ref; // ME_554CED730123 SelectStyle$1
@@ -3863,8 +4015,8 @@ ref; // ME_554CED990333 ID
  : Target WL 'ME_532031160122' '47913B47006E.pas.ms.script' // Tl3Variant
  ;
  : Parameters
-   @ ( ME_554CED990333 // ID
- ) .SequenceCode.It
+   Seq: ( ME_554CED990333 // ID
+ )
  ; // Parameters
 
 ref; // ME_554CED97003E DoI
@@ -3881,8 +4033,8 @@ ref; // ME_554CED97003E DoI
  : Parent ME_480DB927035A // TevStyleInterface
  ;
  : Operations
-   @ ( ME_554CED97003E // DoI
- ) .SequenceCode.It
+   Seq: ( ME_554CED97003E // DoI
+ )
  ; // Operations
 
 ref; // ME_554CED8F018A SelectStyle$2
@@ -3892,6 +4044,7 @@ FORWARD ME_554CEDBE0374
 : ME_B28F9FDA38F5
  CONST UID 'B28F9FDA38F5'
  CONST Name 'DoIt'
+ CONST IsSummoned true
  CONST Class class_Operation
  %SUMMARY 'Сигнатура метода IncFontSize' ;
  CONST Visibility PublicAccess
@@ -3912,8 +4065,8 @@ ref; // ME_B28F9FDA38F5 DoIt
  : Parent ME_480DB927035A // TevStyleInterface
  ;
  : Operations
-   @ ( ME_B28F9FDA38F5 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_B28F9FDA38F5 // DoIt
+ )
  ; // Operations
 
 ref; // ME_554CEDBE0374 IncFontSize
@@ -3923,6 +4076,7 @@ FORWARD ME_554CEDC503A4
 : ME_A853BD69C0E9
  CONST UID 'A853BD69C0E9'
  CONST Name 'DoIt'
+ CONST IsSummoned true
  CONST Class class_Operation
  %SUMMARY 'Сигнатура метода DecFontSize' ;
  CONST Visibility PublicAccess
@@ -3943,8 +4097,8 @@ ref; // ME_A853BD69C0E9 DoIt
  : Parent ME_480DB927035A // TevStyleInterface
  ;
  : Operations
-   @ ( ME_A853BD69C0E9 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_A853BD69C0E9 // DoIt
+ )
  ; // Operations
 
 ref; // ME_554CEDC503A4 DecFontSize
@@ -3954,6 +4108,7 @@ FORWARD ME_554CEDCD0089
 : ME_0DFDA6F6258B
  CONST UID '0DFDA6F6258B'
  CONST Name 'DoIt'
+ CONST IsSummoned true
  CONST Class class_Operation
  %SUMMARY 'Сигнатура метода IncAllFontSize' ;
  CONST Visibility PublicAccess
@@ -3974,8 +4129,8 @@ ref; // ME_0DFDA6F6258B DoIt
  : Parent ME_480DB927035A // TevStyleInterface
  ;
  : Operations
-   @ ( ME_0DFDA6F6258B // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_0DFDA6F6258B // DoIt
+ )
  ; // Operations
 
 ref; // ME_554CEDCD0089 IncAllFontSize
@@ -3985,6 +4140,7 @@ FORWARD ME_554CEDD40305
 : ME_306F4E3509A8
  CONST UID '306F4E3509A8'
  CONST Name 'DoIt'
+ CONST IsSummoned true
  CONST Class class_Operation
  %SUMMARY 'Сигнатура метода DecAllFontSize' ;
  CONST Visibility PublicAccess
@@ -4005,8 +4161,8 @@ ref; // ME_306F4E3509A8 DoIt
  : Parent ME_480DB927035A // TevStyleInterface
  ;
  : Operations
-   @ ( ME_306F4E3509A8 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_306F4E3509A8 // DoIt
+ )
  ; // Operations
 
 ref; // ME_554CEDD40305 DecAllFontSize
@@ -4034,8 +4190,8 @@ ref; // ME_554CEE0E0270 Action
  : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
  ;
  : Parameters
-   @ ( ME_554CEE0E0270 // Action
- ) .SequenceCode.It
+   Seq: ( ME_554CEE0E0270 // Action
+ )
  ; // Parameters
 
 ref; // ME_554CEE0C0242 DoIt
@@ -4052,8 +4208,8 @@ ref; // ME_554CEE0C0242 DoIt
  : Parent ME_480DB927035A // TevStyleInterface
  ;
  : Operations
-   @ ( ME_554CEE0C0242 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_554CEE0C0242 // DoIt
+ )
  ; // Operations
 
 ref; // ME_554CEE0500C0 Iterate
@@ -4081,8 +4237,8 @@ ref; // ME_554CEE2D036C Action
  : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
  ;
  : Parameters
-   @ ( ME_554CEE2D036C // Action
- ) .SequenceCode.It
+   Seq: ( ME_554CEE2D036C // Action
+ )
  ; // Parameters
 
 ref; // ME_554CEE2900AF DoIt
@@ -4099,8 +4255,8 @@ ref; // ME_554CEE2900AF DoIt
  : Parent ME_480DB927035A // TevStyleInterface
  ;
  : Operations
-   @ ( ME_554CEE2900AF // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_554CEE2900AF // DoIt
+ )
  ; // Operations
 
 ref; // ME_554CEE2302D6 IterateF
@@ -4128,8 +4284,8 @@ ref; // ME_554CEE79034F aIncludeIdArray
  : Target WL 'ME_476BF22B03E1' '476BF10A0280.pas.ms.script' // Il3Node
  ;
  : Parameters
-   @ ( ME_554CEE79034F // aIncludeIdArray
- ) .SequenceCode.It
+   Seq: ( ME_554CEE79034F // aIncludeIdArray
+ )
  ; // Parameters
 
 ref; // ME_554CEE740101 DoIt
@@ -4146,8 +4302,8 @@ ref; // ME_554CEE740101 DoIt
  : Parent ME_480DB927035A // TevStyleInterface
  ;
  : Operations
-   @ ( ME_554CEE740101 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_554CEE740101 // DoIt
+ )
  ; // Operations
 
 ref; // ME_554CEE6C02E7 MakeStylesTreeRoot
@@ -4247,6 +4403,7 @@ ref; // ME_5551BFEA0174
  ;
  : Implementor ME_480DB927035A // TevStyleInterface
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" false
 ref; // ME_46A4746A03AF_ME_480DB927035A Items
 
@@ -4257,6 +4414,7 @@ ref; // ME_46A4746A03AF_ME_480DB927035A Items
  ;
  : Implementor ME_480DB927035A // TevStyleInterface
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_479731C50290_ME_480DB927035A Cleanup
 
 : ME_4DD3B7AB0108_ME_480DB927035A
@@ -4266,6 +4424,7 @@ ref; // ME_479731C50290_ME_480DB927035A Cleanup
  ;
  : Implementor ME_480DB927035A // TevStyleInterface
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4DD3B7AB0108_ME_480DB927035A Create
 
 : ME_554CE773030B_ME_480DB927035A
@@ -4275,6 +4434,7 @@ ref; // ME_4DD3B7AB0108_ME_480DB927035A Create
  ;
  : Implementor ME_480DB927035A // TevStyleInterface
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_554CE773030B_ME_480DB927035A Changing
 
 : ME_554CE783008B_ME_480DB927035A
@@ -4284,6 +4444,7 @@ ref; // ME_554CE773030B_ME_480DB927035A Changing
  ;
  : Implementor ME_480DB927035A // TevStyleInterface
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_554CE783008B_ME_480DB927035A ChangedEx
 
 : ME_554CE7CC01DE_ME_480DB927035A
@@ -4293,6 +4454,7 @@ ref; // ME_554CE783008B_ME_480DB927035A ChangedEx
  ;
  : Implementor ME_480DB927035A // TevStyleInterface
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_554CE7CC01DE_ME_480DB927035A IsDefault
 
 : ME_554CE8390106_ME_480DB927035A
@@ -4302,6 +4464,7 @@ ref; // ME_554CE7CC01DE_ME_480DB927035A IsDefault
  ;
  : Implementor ME_480DB927035A // TevStyleInterface
  ;
+ CONST OpKind opkind_Overridden
  CONST "pm" true
 ref; // ME_554CE8390106_ME_480DB927035A Tag
 
@@ -4312,6 +4475,7 @@ ref; // ME_554CE8390106_ME_480DB927035A Tag
  ;
  : Implementor ME_480DB927035A // TevStyleInterface
  ;
+ CONST OpKind opkind_Overridden
  CONST "pm" true
  CONST "reads field" true
 ref; // ME_554CE92F02D5_ME_480DB927035A Context
@@ -4323,6 +4487,7 @@ ref; // ME_554CE92F02D5_ME_480DB927035A Context
  ;
  : Implementor ME_480DB927035A // TevStyleInterface
  ;
+ CONST OpKind opkind_Overridden
  CONST "pm" true
 ref; // ME_554CEA2D01A9_ME_480DB927035A IsOwn
 
@@ -4338,15 +4503,16 @@ ref; // ME_554CEA2D01A9_ME_480DB927035A IsOwn
  : Parent ME_47ECB2870309 // StyleTable
  ;
  : Inherits
-   @ ( ME_522ED9B4018B // evStyles
- ) .SequenceCode.It
+   Seq: ( ME_522ED9B4018B // evStyles
+ )
  ; // Inherits
  : Implements
-   @ ( WL 'ME_46A4745301A3' '4677FBA70343.pas.ms.script' // Il3Strings
- ) .SequenceCode.It
+   Seq: ( WL 'ME_46A4745301A3' '4677FBA70343.pas.ms.script' // Il3Strings
+ WL 'ME_4E365B7F023B' '4E365B6002CA.pas.ms.script' // Отдельная настройка шрифта в панели навигации
+ )
  ; // Implements
  : Attributes
-   @ ( ME_522EDD7A0109 // Font
+   Seq: ( ME_522EDD7A0109 // Font
  ME_554CE4780115 // ParentName
  ME_554CE4A00368 // Caption
  ME_554CE4F2005A // Style
@@ -4356,10 +4522,10 @@ ref; // ME_554CEA2D01A9_ME_480DB927035A IsOwn
  ME_554CE6060046 // ParentInterface
  ME_3837A93A281E // f_Font
  ME_5379A618E478 // f_ParentInterface
- ) .SequenceCode.It
+ )
  ; // Attributes
  : Operations
-   @ ( ME_554CEC2A0191 // MakeList
+   Seq: ( ME_554CEC2A0191 // MakeList
  ME_554CEC000039 // Make
  ME_554CEC4F02F8 // MakeListForBlock
  ME_554CEC770101 // GetVT
@@ -4376,14 +4542,14 @@ ref; // ME_554CEA2D01A9_ME_480DB927035A IsOwn
  ME_554CEE0500C0 // Iterate
  ME_554CEE2302D6 // IterateF
  ME_554CEE6C02E7 // MakeStylesTreeRoot
- ) .SequenceCode.It
+ )
  ; // Operations
  : Implemented
-   @ ( ME_46A4746A03AF_ME_480DB927035A // Items
- ) .SequenceCode.It
+   Seq: ( ME_46A4746A03AF_ME_480DB927035A // Items
+ )
  ; // Implemented
  : Overridden
-   @ ( ME_479731C50290_ME_480DB927035A // Cleanup
+   Seq: ( ME_479731C50290_ME_480DB927035A // Cleanup
  ME_4DD3B7AB0108_ME_480DB927035A // Create
  ME_554CE773030B_ME_480DB927035A // Changing
  ME_554CE783008B_ME_480DB927035A // ChangedEx
@@ -4391,15 +4557,15 @@ ref; // ME_554CEA2D01A9_ME_480DB927035A IsOwn
  ME_554CE8390106_ME_480DB927035A // Tag
  ME_554CE92F02D5_ME_480DB927035A // Context
  ME_554CEA2D01A9_ME_480DB927035A // IsOwn
- ) .SequenceCode.It
+ )
  ; // Overridden
  : Children
-   @ ( ME_554CE65703B1 // RevStyleInterface
+   Seq: ( ME_554CE65703B1 // RevStyleInterface
  ME_5551C0F6034E // Tk2TagID
- ) .SequenceCode.It
+ )
  ; // Children
  : Dependencies
-   @ ( ME_5551BBAE01CE // 
+   Seq: ( ME_5551BBAE01CE // 
  ME_5551BD9802E9 // 
  ME_5551BE2703C6 // 
  ME_5551BE6900BA // 
@@ -4407,7 +4573,7 @@ ref; // ME_554CEA2D01A9_ME_480DB927035A IsOwn
  ME_5551BEE30394 // 
  ME_5551BF44025A // 
  ME_5551BFEA0174 // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  CONST "author" 'Люлин А.В.'
  CONST "need UC" true
@@ -4416,12 +4582,14 @@ ref; // ME_554CEA2D01A9_ME_480DB927035A IsOwn
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
  CONST "started" '20.05.2005 18:34'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest'
  CONST intf.pas:Path 'common\components\gui\Garant\Everest\evStyleInterface.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'StyleInterface'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'evStyleInterface'
 
 ref; // ME_480DB927035A TevStyleInterface
 
@@ -4432,6 +4600,7 @@ FORWARD ME_55522B5101D3
 : ME_3BD7F4F77D13
  CONST UID '3BD7F4F77D13'
  CONST Name 'Tk2DictionaryFriend'
+ CONST IsSummoned true
  CONST Class class_Class
  : Stereotype st_SimpleClass ;
  CONST Kind kind_NormalClass
@@ -4441,13 +4610,19 @@ FORWARD ME_55522B5101D3
  : Parent ME_55522B5101D3 // TevStyleInterfaceEx
  ;
  : Inherits
-   @ ( WL 'ME_4860AF86034F' '467FC43F01F9.pas.ms.script' // Tk2Dictionary
- ) .SequenceCode.It
+   Seq: ( WL 'ME_4860AF86034F' '467FC43F01F9.pas.ms.script' // Tk2Dictionary
+ )
  ; // Inherits
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" false
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'DictionaryFriend'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_3BD7F4F77D13 Tk2DictionaryFriend
 
@@ -4472,6 +4647,7 @@ ref; // ME_55522BCE00BC ForExport
 : ME_D773B218DB17
  CONST UID 'D773B218DB17'
  CONST Name 'f_ForExport'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY 'Поле для свойства ForExport' ;
  CONST Visibility PrivateAccess
@@ -4481,6 +4657,7 @@ ref; // ME_55522BCE00BC ForExport
  ;
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
+ CONST extprop:clearViaProperty 'ForExport'
 
 ref; // ME_D773B218DB17 f_ForExport
 
@@ -4517,9 +4694,9 @@ ref; // ME_55522C61021D Atom
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
  : Parameters
-   @ ( ME_55522C6101FF // G
+   Seq: ( ME_55522C6101FF // G
  ME_55522C61021D // Atom
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_55522C5C00A1 DoIt
@@ -4535,8 +4712,8 @@ ref; // ME_55522C5C00A1 DoIt
  : Parent ME_55522B5101D3 // TevStyleInterfaceEx
  ;
  : Operations
-   @ ( ME_55522C5C00A1 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_55522C5C00A1 // DoIt
+ )
  ; // Operations
 
 ref; // ME_55522C52008B DoFinishAtom
@@ -4562,8 +4739,8 @@ ref; // ME_55522CBB01AA Reader
  : Parent ME_55522CA900D2 // Load$1
  ;
  : Parameters
-   @ ( ME_55522CBB01AA // Reader
- ) .SequenceCode.It
+   Seq: ( ME_55522CBB01AA // Reader
+ )
  ; // Parameters
 
 ref; // ME_55522CB802B8 DoIt
@@ -4579,8 +4756,8 @@ ref; // ME_55522CB802B8 DoIt
  : Parent ME_55522B5101D3 // TevStyleInterfaceEx
  ;
  : Operations
-   @ ( ME_55522CB802B8 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_55522CB802B8 // DoIt
+ )
  ; // Operations
 
 ref; // ME_55522CA900D2 Load$1
@@ -4606,8 +4783,8 @@ ref; // ME_55522CD400C0 S
  : Parent ME_55522CC50260 // Load$2
  ;
  : Parameters
-   @ ( ME_55522CD400C0 // S
- ) .SequenceCode.It
+   Seq: ( ME_55522CD400C0 // S
+ )
  ; // Parameters
 
 ref; // ME_55522CCE0154 DoIt
@@ -4623,8 +4800,8 @@ ref; // ME_55522CCE0154 DoIt
  : Parent ME_55522B5101D3 // TevStyleInterfaceEx
  ;
  : Operations
-   @ ( ME_55522CCE0154 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_55522CCE0154 // DoIt
+ )
  ; // Operations
 
 ref; // ME_55522CC50260 Load$2
@@ -4650,8 +4827,8 @@ ref; // ME_55522CE900DB G
  : Parent ME_55522CDE0277 // Save$1
  ;
  : Parameters
-   @ ( ME_55522CE900DB // G
- ) .SequenceCode.It
+   Seq: ( ME_55522CE900DB // G
+ )
  ; // Parameters
 
 ref; // ME_55522CE6023E DoIt
@@ -4667,8 +4844,8 @@ ref; // ME_55522CE6023E DoIt
  : Parent ME_55522B5101D3 // TevStyleInterfaceEx
  ;
  : Operations
-   @ ( ME_55522CE6023E // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_55522CE6023E // DoIt
+ )
  ; // Operations
 
 ref; // ME_55522CDE0277 Save$1
@@ -4695,6 +4872,7 @@ ref; // ME_55522D270001 S
  CONST Value false
  : ValueType WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
+ CONST extprop:pas:Value false
 
 ref; // ME_55522D270015 aBinary
 
@@ -4707,9 +4885,9 @@ ref; // ME_55522D270015 aBinary
  : Parent ME_55522D1803AB // Save$2
  ;
  : Parameters
-   @ ( ME_55522D270001 // S
+   Seq: ( ME_55522D270001 // S
  ME_55522D270015 // aBinary
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_55522D2201DB DoIt
@@ -4725,8 +4903,8 @@ ref; // ME_55522D2201DB DoIt
  : Parent ME_55522B5101D3 // TevStyleInterfaceEx
  ;
  : Operations
-   @ ( ME_55522D2201DB // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_55522D2201DB // DoIt
+ )
  ; // Operations
 
 ref; // ME_55522D1803AB Save$2
@@ -4752,8 +4930,8 @@ ref; // ME_55522D4E000C G
  : Parent ME_55522D4500AB // SaveCurrent
  ;
  : Parameters
-   @ ( ME_55522D4E000C // G
- ) .SequenceCode.It
+   Seq: ( ME_55522D4E000C // G
+ )
  ; // Parameters
 
 ref; // ME_55522D4B0385 DoIt
@@ -4769,8 +4947,8 @@ ref; // ME_55522D4B0385 DoIt
  : Parent ME_55522B5101D3 // TevStyleInterfaceEx
  ;
  : Operations
-   @ ( ME_55522D4B0385 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_55522D4B0385 // DoIt
+ )
  ; // Operations
 
 ref; // ME_55522D4500AB SaveCurrent
@@ -4793,6 +4971,7 @@ ref; // ME_55522E5B0139
  ;
  : Implementor ME_55522B5101D3 // TevStyleInterfaceEx
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_47A042E100E2_ME_55522B5101D3 InitFields
 
 : ME_55522B5101D3
@@ -4806,39 +4985,45 @@ ref; // ME_47A042E100E2_ME_55522B5101D3 InitFields
  : Parent ME_4857EFDA01E5 // evStyleInterfaceEx
  ;
  : Inherits
-   @ ( ME_480DB927035A // TevStyleInterface
- ) .SequenceCode.It
+   Seq: ( ME_480DB927035A // TevStyleInterface
+ )
  ; // Inherits
  : Attributes
-   @ ( ME_55522BCE00BC // ForExport
+   Seq: ( ME_55522BCE00BC // ForExport
  ME_D773B218DB17 // f_ForExport
- ) .SequenceCode.It
+ )
  ; // Attributes
  : Operations
-   @ ( ME_55522C52008B // DoFinishAtom
+   Seq: ( ME_55522C52008B // DoFinishAtom
  ME_55522CA900D2 // Load$1
  ME_55522CC50260 // Load$2
  ME_55522CDE0277 // Save$1
  ME_55522D1803AB // Save$2
  ME_55522D4500AB // SaveCurrent
- ) .SequenceCode.It
+ )
  ; // Operations
  : Overridden
-   @ ( ME_47A042E100E2_ME_55522B5101D3 // InitFields
- ) .SequenceCode.It
+   Seq: ( ME_47A042E100E2_ME_55522B5101D3 // InitFields
+ )
  ; // Overridden
  : Children
-   @ ( ME_3BD7F4F77D13 // Tk2DictionaryFriend
- ) .SequenceCode.It
+   Seq: ( ME_3BD7F4F77D13 // Tk2DictionaryFriend
+ )
  ; // Children
  : Dependencies
-   @ ( ME_55522E5B0139 // 
- ) .SequenceCode.It
+   Seq: ( ME_55522E5B0139 // 
+ )
  ; // Dependencies
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'StyleInterfaceEx'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_55522B5101D3 TevStyleInterfaceEx
 
@@ -4869,17 +5054,23 @@ ref; // ME_55522DCC00B5 f_StyleTable
  : Parent ME_4857EFDA01E5 // evStyleInterfaceEx
  ;
  : Inherits
-   @ ( WL 'ME_47F226C7001F' '47ECA80B000D.pas.ms.script' // Tk2DocumentGenerator
- ) .SequenceCode.It
+   Seq: ( WL 'ME_47F226C7001F' '47ECA80B000D.pas.ms.script' // Tk2DocumentGenerator
+ )
  ; // Inherits
  : Attributes
-   @ ( ME_55522DCC00B5 // f_StyleTable
- ) .SequenceCode.It
+   Seq: ( ME_55522DCC00B5 // f_StyleTable
+ )
  ; // Attributes
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'StyleTableGenerator'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_55522D920268 TevStyleTableGenerator
 
@@ -5117,16 +5308,16 @@ ref; // ME_555330EC02B9
  : Parent ME_47ECB2870309 // StyleTable
  ;
  : Attributes
-   @ ( ME_55522B3B0275 // g_InCreateDocumentSchema
- ) .SequenceCode.It
+   Seq: ( ME_55522B3B0275 // g_InCreateDocumentSchema
+ )
  ; // Attributes
  : Children
-   @ ( ME_55522B5101D3 // TevStyleInterfaceEx
+   Seq: ( ME_55522B5101D3 // TevStyleInterfaceEx
  ME_55522D920268 // TevStyleTableGenerator
- ) .SequenceCode.It
+ )
  ; // Children
  : Dependencies
-   @ ( ME_555329720039 // 
+   Seq: ( ME_555329720039 // 
  ME_5553298E0026 // 
  ME_555329AB024F // 
  ME_555329DC002A // 
@@ -5145,17 +5336,17 @@ ref; // ME_555330EC02B9
  ME_55532BE4001F // 
  ME_55532C1D0107 // 
  ME_555330EC02B9 // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  CONST "author" 'Люлин А.В.'
  CONST "no hands" false
  CONST "started" '20.05.2005 17:28'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest'
  CONST intf.pas:Path 'common\components\gui\Garant\Everest\evStyleInterfaceEx.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'StyleInterfaceEx'
 
 ref; // ME_4857EFDA01E5 evStyleInterfaceEx
 
@@ -5164,6 +5355,7 @@ FORWARD ME_6DDBA3F7BE38
 : ME_1EF07FB5B603
  CONST UID '1EF07FB5B603'
  CONST Name 'pi_evStyles_PrintAndExport'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY 'Идентификатор настройки "Печать и экспорт"' ;
  CONST Visibility PublicAccess
@@ -5175,12 +5367,14 @@ FORWARD ME_6DDBA3F7BE38
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value '''Стили/Печать и экспорт'''
 
 ref; // ME_1EF07FB5B603 pi_evStyles_PrintAndExport
 
 : ME_2100B3DB752B
  CONST UID '2100B3DB752B'
  CONST Name 'pi_evStyles_PrintAndExport_Default'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY 'Идентификатор настройки "Печать и экспорт"."Использовать для экспорта и печати размер шрифта, отображаемого на экране"' ;
  CONST Visibility PublicAccess
@@ -5192,12 +5386,14 @@ ref; // ME_1EF07FB5B603 pi_evStyles_PrintAndExport
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value '''Стили/Печать и экспорт/Использовать для экспорта и печати размер шрифта, отображаемого на экране'''
 
 ref; // ME_2100B3DB752B pi_evStyles_PrintAndExport_Default
 
 : ME_49910FBBC7EB
  CONST UID '49910FBBC7EB'
  CONST Name 'pi_evStyles_PrintAndExport_Custom'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY 'Идентификатор настройки "Печать и экспорт"."Использовать для экспорта и печати следующий размер шрифта"' ;
  CONST Visibility PublicAccess
@@ -5209,12 +5405,14 @@ ref; // ME_2100B3DB752B pi_evStyles_PrintAndExport_Default
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value '''Стили/Печать и экспорт/Использовать для экспорта и печати следующий размер шрифта'''
 
 ref; // ME_49910FBBC7EB pi_evStyles_PrintAndExport_Custom
 
 : ME_6DDBA3F7BE38
  CONST UID '6DDBA3F7BE38'
  CONST Name 'PrintAndExportKey'
+ CONST IsSummoned true
  CONST Class class_Class
  : Stereotype st_Constants ;
  CONST Kind kind_NormalClass
@@ -5223,12 +5421,16 @@ ref; // ME_49910FBBC7EB pi_evStyles_PrintAndExport_Custom
  : Parent ME_870F97A58415 // evStylesPrintAndExportSettingRes
  ;
  : Attributes
-   @ ( ME_1EF07FB5B603 // pi_evStyles_PrintAndExport
+   Seq: ( ME_1EF07FB5B603 // pi_evStyles_PrintAndExport
  ME_2100B3DB752B // pi_evStyles_PrintAndExport_Default
  ME_49910FBBC7EB // pi_evStyles_PrintAndExport_Custom
- ) .SequenceCode.It
+ )
  ; // Attributes
  CONST "spell names" false
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_6DDBA3F7BE38 PrintAndExportKey
 
@@ -5237,6 +5439,7 @@ FORWARD ME_75642F3D4A02
 : ME_569A9025A6CA
  CONST UID '569A9025A6CA'
  CONST Name 'PrintAndExport'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY 'Печать и экспорт' ;
  CONST Visibility PublicAccess
@@ -5248,12 +5451,14 @@ FORWARD ME_75642F3D4A02
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value '''Печать и экспорт'''
 
 ref; // ME_569A9025A6CA PrintAndExport
 
 : ME_75642F3D4A02
  CONST UID '75642F3D4A02'
  CONST Name 'PrintAndExportName'
+ CONST IsSummoned true
  CONST Class class_Class
  : Stereotype st_LocalConst ;
  CONST Kind kind_NormalClass
@@ -5263,12 +5468,16 @@ ref; // ME_569A9025A6CA PrintAndExport
  : Parent ME_870F97A58415 // evStylesPrintAndExportSettingRes
  ;
  : Attributes
-   @ ( ME_569A9025A6CA // PrintAndExport
- ) .SequenceCode.It
+   Seq: ( ME_569A9025A6CA // PrintAndExport
+ )
  ; // Attributes
  CONST "Need map interface" false
  CONST "Need mapping support" false
  CONST "spell names" false
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_75642F3D4A02 PrintAndExportName
 
@@ -5277,6 +5486,7 @@ FORWARD ME_B5C917CE7651
 : ME_B70FE04D7DCC
  CONST UID 'B70FE04D7DCC'
  CONST Name 'Default'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY 'Использовать для экспорта и печати размер шрифта, отображаемого на экране' ;
  CONST Visibility PublicAccess
@@ -5288,12 +5498,14 @@ FORWARD ME_B5C917CE7651
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value '''Использовать для экспорта и печати размер шрифта, отображаемого на экране'''
 
 ref; // ME_B70FE04D7DCC Default
 
 : ME_1967C485CDFA
  CONST UID '1967C485CDFA'
  CONST Name 'Custom'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY 'Использовать для экспорта и печати следующий размер шрифта' ;
  CONST Visibility PublicAccess
@@ -5305,12 +5517,14 @@ ref; // ME_B70FE04D7DCC Default
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value '''Использовать для экспорта и печати следующий размер шрифта'''
 
 ref; // ME_1967C485CDFA Custom
 
 : ME_B5C917CE7651
  CONST UID 'B5C917CE7651'
  CONST Name 'PrintAndExportValues'
+ CONST IsSummoned true
  CONST Class class_Class
  : Stereotype st_LocalConst ;
  CONST Kind kind_NormalClass
@@ -5320,14 +5534,18 @@ ref; // ME_1967C485CDFA Custom
  : Parent ME_870F97A58415 // evStylesPrintAndExportSettingRes
  ;
  : Attributes
-   @ ( ME_B70FE04D7DCC // Default
+   Seq: ( ME_B70FE04D7DCC // Default
  ME_1967C485CDFA // Custom
- ) .SequenceCode.It
+ )
  ; // Attributes
  CONST "Need map interface" false
  CONST "Need mapping support" false
  CONST "elements prefix" 'PrintAndExport'
  CONST "spell names" false
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
  CONST extprop:pas:ElementPrefixBase 'PrintAndExport'
  CONST extprop:pas:ElementPrefix 'PrintAndExport_'
 
@@ -5338,6 +5556,7 @@ FORWARD ME_A3878476650A
 : ME_514D772FABCB
  CONST UID '514D772FABCB'
  CONST Name 'PrintAndExport'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY 'Печать и экспорт' ;
  CONST Visibility PublicAccess
@@ -5353,12 +5572,14 @@ FORWARD ME_A3878476650A
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''PrintAndExport''; rValue : ''Печать и экспорт'')'
 
 ref; // ME_514D772FABCB PrintAndExport
 
 : ME_A3878476650A
  CONST UID 'A3878476650A'
  CONST Name 'LCImplPrintAndExportName'
+ CONST IsSummoned true
  CONST Class class_Class
  : Stereotype st_Constants ;
  CONST Kind kind_NormalClass
@@ -5368,11 +5589,15 @@ ref; // ME_514D772FABCB PrintAndExport
  : Parent ME_870F97A58415 // evStylesPrintAndExportSettingRes
  ;
  : Attributes
-   @ ( ME_514D772FABCB // PrintAndExport
- ) .SequenceCode.It
+   Seq: ( ME_514D772FABCB // PrintAndExport
+ )
  ; // Attributes
  CONST "elements prefix" 'str'
  CONST "spell names" false
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
  CONST extprop:pas:ElementPrefixBase 'str'
  CONST extprop:pas:ElementPrefix 'str_'
 
@@ -5383,6 +5608,7 @@ FORWARD ME_A317B969314A
 : ME_9F9DEB464186
  CONST UID '9F9DEB464186'
  CONST Name 'Default'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY 'Использовать для экспорта и печати размер шрифта, отображаемого на экране' ;
  CONST Visibility PublicAccess
@@ -5398,12 +5624,14 @@ FORWARD ME_A317B969314A
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''PrintAndExport_Default''; rValue : ''Использовать для экспорта и печати размер шрифта, отображаемого на экране'')'
 
 ref; // ME_9F9DEB464186 Default
 
 : ME_5557B5ED5E4A
  CONST UID '5557B5ED5E4A'
  CONST Name 'Custom'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY 'Использовать для экспорта и печати следующий размер шрифта' ;
  CONST Visibility PublicAccess
@@ -5419,12 +5647,14 @@ ref; // ME_9F9DEB464186 Default
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''PrintAndExport_Custom''; rValue : ''Использовать для экспорта и печати следующий размер шрифта'')'
 
 ref; // ME_5557B5ED5E4A Custom
 
 : ME_A317B969314A
  CONST UID 'A317B969314A'
  CONST Name 'LCImplPrintAndExportValues'
+ CONST IsSummoned true
  CONST Class class_Class
  : Stereotype st_Constants ;
  CONST Kind kind_NormalClass
@@ -5434,12 +5664,16 @@ ref; // ME_5557B5ED5E4A Custom
  : Parent ME_870F97A58415 // evStylesPrintAndExportSettingRes
  ;
  : Attributes
-   @ ( ME_9F9DEB464186 // Default
+   Seq: ( ME_9F9DEB464186 // Default
  ME_5557B5ED5E4A // Custom
- ) .SequenceCode.It
+ )
  ; // Attributes
  CONST "elements prefix" 'str_PrintAndExport'
  CONST "spell names" false
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
  CONST extprop:pas:ElementPrefixBase 'str_PrintAndExport'
  CONST extprop:pas:ElementPrefix 'str_PrintAndExport_'
 
@@ -5447,7 +5681,8 @@ ref; // ME_A317B969314A LCImplPrintAndExportValues
 
 : ME_BE2EC0B0E731
  CONST UID 'BE2EC0B0E731'
- CONST Name 'Init_PrintAndExport'
+ CONST Name 'Init_Str_PrintAndExport'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Инициализация str_PrintAndExport' ;
@@ -5455,12 +5690,17 @@ ref; // ME_A317B969314A LCImplPrintAndExportValues
  CONST Abstraction at_final
  : Parent ME_870F97A58415 // evStylesPrintAndExportSettingRes
  ;
+ : Speller ME_569A9025A6CA // PrintAndExport
+ ;
+ : SpelledFor ME_514D772FABCB // PrintAndExport
+ ;
 
-ref; // ME_BE2EC0B0E731 Init_PrintAndExport
+ref; // ME_BE2EC0B0E731 Init_Str_PrintAndExport
 
 : ME_CF54DB9B6208
  CONST UID 'CF54DB9B6208'
- CONST Name 'Init_Default'
+ CONST Name 'Init_Str_Default'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Инициализация str_PrintAndExport_Default' ;
@@ -5468,12 +5708,17 @@ ref; // ME_BE2EC0B0E731 Init_PrintAndExport
  CONST Abstraction at_final
  : Parent ME_870F97A58415 // evStylesPrintAndExportSettingRes
  ;
+ : Speller ME_B70FE04D7DCC // Default
+ ;
+ : SpelledFor ME_9F9DEB464186 // Default
+ ;
 
-ref; // ME_CF54DB9B6208 Init_Default
+ref; // ME_CF54DB9B6208 Init_Str_Default
 
 : ME_A643D43A0C80
  CONST UID 'A643D43A0C80'
- CONST Name 'Init_Custom'
+ CONST Name 'Init_Str_Custom'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Инициализация str_PrintAndExport_Custom' ;
@@ -5481,11 +5726,16 @@ ref; // ME_CF54DB9B6208 Init_Default
  CONST Abstraction at_final
  : Parent ME_870F97A58415 // evStylesPrintAndExportSettingRes
  ;
+ : Speller ME_1967C485CDFA // Custom
+ ;
+ : SpelledFor ME_5557B5ED5E4A // Custom
+ ;
 
-ref; // ME_A643D43A0C80 Init_Custom
+ref; // ME_A643D43A0C80 Init_Str_Custom
 
 : ME_0F303462DF25
  CONST UID '0F303462DF25'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_870F97A58415 // evStylesPrintAndExportSettingRes
@@ -5497,6 +5747,7 @@ ref; // ME_0F303462DF25
 
 : ME_D1481946966B
  CONST UID 'D1481946966B'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_870F97A58415 // evStylesPrintAndExportSettingRes
@@ -5509,6 +5760,7 @@ ref; // ME_D1481946966B
 : ME_870F97A58415
  CONST UID '870F97A58415'
  CONST Name 'evStylesPrintAndExportSettingRes'
+ CONST IsSummoned true
  CONST Class class_Class
  : Stereotype st_UtilityPack ;
  CONST Kind kind_NormalClass
@@ -5517,32 +5769,36 @@ ref; // ME_D1481946966B
  CONST Abstraction at_final
  : Parent ME_47ECB2870309 // StyleTable
  ;
+ : Implements
+   Seq: ( WL 'ME_5214960C034B' '4E3160C802DA.pas.ms.script' // Печать и экспорт
+ )
+ ; // Implements
  : Operations
-   @ ( ME_BE2EC0B0E731 // Init_PrintAndExport
- ME_CF54DB9B6208 // Init_Default
- ME_A643D43A0C80 // Init_Custom
- ) .SequenceCode.It
+   Seq: ( ME_BE2EC0B0E731 // Init_Str_PrintAndExport
+ ME_CF54DB9B6208 // Init_Str_Default
+ ME_A643D43A0C80 // Init_Str_Custom
+ )
  ; // Operations
  : Constants
-   @ ( ME_6DDBA3F7BE38 // PrintAndExportKey
+   Seq: ( ME_6DDBA3F7BE38 // PrintAndExportKey
  ME_75642F3D4A02 // PrintAndExportName
  ME_B5C917CE7651 // PrintAndExportValues
  ME_A3878476650A // LCImplPrintAndExportName
  ME_A317B969314A // LCImplPrintAndExportValues
- ) .SequenceCode.It
+ )
  ; // Constants
  : Dependencies
-   @ ( ME_0F303462DF25 // 
+   Seq: ( ME_0F303462DF25 // 
  ME_D1481946966B // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  CONST "no hands" false
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest'
  CONST intf.pas:Path 'common\components\gui\Garant\Everest\evStylesPrintAndExportSettingRes.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'StylesPrintAndExportSettingRes'
 
 ref; // ME_870F97A58415 evStylesPrintAndExportSettingRes
 
@@ -5551,6 +5807,7 @@ FORWARD ME_86E0B8C46D3A
 : ME_C71B2FC1ECE9
  CONST UID 'C71B2FC1ECE9'
  CONST Name 'KEY_PrintAndExportFontSize_pef8'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY '8' ;
  CONST Visibility PublicAccess
@@ -5564,6 +5821,7 @@ ref; // ME_C71B2FC1ECE9 KEY_PrintAndExportFontSize_pef8
 : ME_3876AAB74D59
  CONST UID '3876AAB74D59'
  CONST Name 'KEY_PrintAndExportFontSize_pef9'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY '9' ;
  CONST Visibility PublicAccess
@@ -5577,6 +5835,7 @@ ref; // ME_3876AAB74D59 KEY_PrintAndExportFontSize_pef9
 : ME_9CA0E0D7887C
  CONST UID '9CA0E0D7887C'
  CONST Name 'KEY_PrintAndExportFontSize_pef10'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY '10' ;
  CONST Visibility PublicAccess
@@ -5590,6 +5849,7 @@ ref; // ME_9CA0E0D7887C KEY_PrintAndExportFontSize_pef10
 : ME_B6CE4E265167
  CONST UID 'B6CE4E265167'
  CONST Name 'KEY_PrintAndExportFontSize_pef11'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY '11' ;
  CONST Visibility PublicAccess
@@ -5603,6 +5863,7 @@ ref; // ME_B6CE4E265167 KEY_PrintAndExportFontSize_pef11
 : ME_5477CF0BF037
  CONST UID '5477CF0BF037'
  CONST Name 'KEY_PrintAndExportFontSize_pef12'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY '12' ;
  CONST Visibility PublicAccess
@@ -5616,6 +5877,7 @@ ref; // ME_5477CF0BF037 KEY_PrintAndExportFontSize_pef12
 : ME_D799DD1DC9F3
  CONST UID 'D799DD1DC9F3'
  CONST Name 'KEY_PrintAndExportFontSize_pef14'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY '14' ;
  CONST Visibility PublicAccess
@@ -5629,6 +5891,7 @@ ref; // ME_D799DD1DC9F3 KEY_PrintAndExportFontSize_pef14
 : ME_0AA08BEA186F
  CONST UID '0AA08BEA186F'
  CONST Name 'KEY_PrintAndExportFontSize_pef16'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY '16' ;
  CONST Visibility PublicAccess
@@ -5642,6 +5905,7 @@ ref; // ME_0AA08BEA186F KEY_PrintAndExportFontSize_pef16
 : ME_86E0B8C46D3A
  CONST UID '86E0B8C46D3A'
  CONST Name 'PrintAndExportFontSizeEnum'
+ CONST IsSummoned true
  CONST Class class_Class
  : Stereotype st_Enum ;
  CONST Kind kind_NormalClass
@@ -5651,15 +5915,20 @@ ref; // ME_0AA08BEA186F KEY_PrintAndExportFontSize_pef16
  : Parent ME_C9ADD4944F97 // evStylesPrintAndExportFontSizeSettingRes
  ;
  : Attributes
-   @ ( ME_C71B2FC1ECE9 // KEY_PrintAndExportFontSize_pef8
+   Seq: ( ME_C71B2FC1ECE9 // KEY_PrintAndExportFontSize_pef8
  ME_3876AAB74D59 // KEY_PrintAndExportFontSize_pef9
  ME_9CA0E0D7887C // KEY_PrintAndExportFontSize_pef10
  ME_B6CE4E265167 // KEY_PrintAndExportFontSize_pef11
  ME_5477CF0BF037 // KEY_PrintAndExportFontSize_pef12
  ME_D799DD1DC9F3 // KEY_PrintAndExportFontSize_pef14
  ME_0AA08BEA186F // KEY_PrintAndExportFontSize_pef16
- ) .SequenceCode.It
+ )
  ; // Attributes
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_86E0B8C46D3A PrintAndExportFontSizeEnum
 
@@ -5668,6 +5937,7 @@ FORWARD ME_1782647A5439
 : ME_77DC0A07D1F7
  CONST UID '77DC0A07D1F7'
  CONST Name 'pi_evStyles_PrintAndExportFontSize'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY 'Идентификатор настройки "Использовать для экспорта и печати следующий размер шрифта"' ;
  CONST Visibility PublicAccess
@@ -5679,12 +5949,14 @@ FORWARD ME_1782647A5439
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value '''Стили/Использовать для экспорта и печати следующий размер шрифта'''
 
 ref; // ME_77DC0A07D1F7 pi_evStyles_PrintAndExportFontSize
 
 : ME_B15096317BFF
  CONST UID 'B15096317BFF'
  CONST Name 'dv_evStyles_PrintAndExportFontSize'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY 'Значение по-умолчанию настройки "Использовать для экспорта и печати следующий размер шрифта"' ;
  CONST Visibility PublicAccess
@@ -5696,12 +5968,14 @@ ref; // ME_77DC0A07D1F7 pi_evStyles_PrintAndExportFontSize
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value 0
 
 ref; // ME_B15096317BFF dv_evStyles_PrintAndExportFontSize
 
 : ME_1782647A5439
  CONST UID '1782647A5439'
  CONST Name 'PrintAndExportFontSizeKey'
+ CONST IsSummoned true
  CONST Class class_Class
  : Stereotype st_Constants ;
  CONST Kind kind_NormalClass
@@ -5710,11 +5984,15 @@ ref; // ME_B15096317BFF dv_evStyles_PrintAndExportFontSize
  : Parent ME_C9ADD4944F97 // evStylesPrintAndExportFontSizeSettingRes
  ;
  : Attributes
-   @ ( ME_77DC0A07D1F7 // pi_evStyles_PrintAndExportFontSize
+   Seq: ( ME_77DC0A07D1F7 // pi_evStyles_PrintAndExportFontSize
  ME_B15096317BFF // dv_evStyles_PrintAndExportFontSize
- ) .SequenceCode.It
+ )
  ; // Attributes
  CONST "spell names" false
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_1782647A5439 PrintAndExportFontSizeKey
 
@@ -5723,6 +6001,7 @@ FORWARD ME_300F056A3E29
 : ME_B24E06693035
  CONST UID 'B24E06693035'
  CONST Name 'PrintAndExportFontSize'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY 'Использовать для экспорта и печати следующий размер шрифта' ;
  CONST Visibility PublicAccess
@@ -5734,12 +6013,14 @@ FORWARD ME_300F056A3E29
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value '''Использовать для экспорта и печати следующий размер шрифта'''
 
 ref; // ME_B24E06693035 PrintAndExportFontSize
 
 : ME_300F056A3E29
  CONST UID '300F056A3E29'
  CONST Name 'PrintAndExportFontSizeName'
+ CONST IsSummoned true
  CONST Class class_Class
  : Stereotype st_LocalConst ;
  CONST Kind kind_NormalClass
@@ -5749,12 +6030,16 @@ ref; // ME_B24E06693035 PrintAndExportFontSize
  : Parent ME_C9ADD4944F97 // evStylesPrintAndExportFontSizeSettingRes
  ;
  : Attributes
-   @ ( ME_B24E06693035 // PrintAndExportFontSize
- ) .SequenceCode.It
+   Seq: ( ME_B24E06693035 // PrintAndExportFontSize
+ )
  ; // Attributes
  CONST "Need map interface" false
  CONST "Need mapping support" false
  CONST "spell names" false
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_300F056A3E29 PrintAndExportFontSizeName
 
@@ -5763,6 +6048,7 @@ FORWARD ME_0F54723B9097
 : ME_96A5C7144E3D
  CONST UID '96A5C7144E3D'
  CONST Name 'pef8'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY '8' ;
  CONST Visibility PublicAccess
@@ -5774,12 +6060,14 @@ FORWARD ME_0F54723B9097
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value '''8'''
 
 ref; // ME_96A5C7144E3D pef8
 
 : ME_4FD853DD65A8
  CONST UID '4FD853DD65A8'
  CONST Name 'pef9'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY '9' ;
  CONST Visibility PublicAccess
@@ -5791,12 +6079,14 @@ ref; // ME_96A5C7144E3D pef8
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value '''9'''
 
 ref; // ME_4FD853DD65A8 pef9
 
 : ME_97ECF91D50DB
  CONST UID '97ECF91D50DB'
  CONST Name 'pef10'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY '10' ;
  CONST Visibility PublicAccess
@@ -5808,12 +6098,14 @@ ref; // ME_4FD853DD65A8 pef9
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value '''10'''
 
 ref; // ME_97ECF91D50DB pef10
 
 : ME_4024903E186B
  CONST UID '4024903E186B'
  CONST Name 'pef11'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY '11' ;
  CONST Visibility PublicAccess
@@ -5825,12 +6117,14 @@ ref; // ME_97ECF91D50DB pef10
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value '''11'''
 
 ref; // ME_4024903E186B pef11
 
 : ME_0B5C090928C4
  CONST UID '0B5C090928C4'
  CONST Name 'pef12'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY '12' ;
  CONST Visibility PublicAccess
@@ -5842,12 +6136,14 @@ ref; // ME_4024903E186B pef11
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value '''12'''
 
 ref; // ME_0B5C090928C4 pef12
 
 : ME_086F24F76C26
  CONST UID '086F24F76C26'
  CONST Name 'pef14'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY '14' ;
  CONST Visibility PublicAccess
@@ -5859,12 +6155,14 @@ ref; // ME_0B5C090928C4 pef12
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value '''14'''
 
 ref; // ME_086F24F76C26 pef14
 
 : ME_965460DF7185
  CONST UID '965460DF7185'
  CONST Name 'pef16'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY '16' ;
  CONST Visibility PublicAccess
@@ -5876,12 +6174,14 @@ ref; // ME_086F24F76C26 pef14
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value '''16'''
 
 ref; // ME_965460DF7185 pef16
 
 : ME_0F54723B9097
  CONST UID '0F54723B9097'
  CONST Name 'PrintAndExportFontSizeValues'
+ CONST IsSummoned true
  CONST Class class_Class
  : Stereotype st_LocalConst ;
  CONST Kind kind_NormalClass
@@ -5891,23 +6191,27 @@ ref; // ME_965460DF7185 pef16
  : Parent ME_C9ADD4944F97 // evStylesPrintAndExportFontSizeSettingRes
  ;
  : Inherits
-   @ ( ME_86E0B8C46D3A // PrintAndExportFontSizeEnum
- ) .SequenceCode.It
+   Seq: ( ME_86E0B8C46D3A // PrintAndExportFontSizeEnum
+ )
  ; // Inherits
  : Attributes
-   @ ( ME_96A5C7144E3D // pef8
+   Seq: ( ME_96A5C7144E3D // pef8
  ME_4FD853DD65A8 // pef9
  ME_97ECF91D50DB // pef10
  ME_4024903E186B // pef11
  ME_0B5C090928C4 // pef12
  ME_086F24F76C26 // pef14
  ME_965460DF7185 // pef16
- ) .SequenceCode.It
+ )
  ; // Attributes
  CONST "Need map interface" true
  CONST "Need mapping support" true
  CONST "elements prefix" 'PrintAndExportFontSize'
  CONST "spell names" false
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
  CONST extprop:pas:ElementPrefixBase 'PrintAndExportFontSize'
  CONST extprop:pas:ElementPrefix 'PrintAndExportFontSize_'
 
@@ -5918,6 +6222,7 @@ FORWARD ME_BE1983D4EE58
 : ME_D105A1C05DEA
  CONST UID 'D105A1C05DEA'
  CONST Name 'pef8'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY '8' ;
  CONST Visibility PublicAccess
@@ -5933,12 +6238,14 @@ FORWARD ME_BE1983D4EE58
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''PrintAndExportFontSize_pef8''; rValue : ''8'')'
 
 ref; // ME_D105A1C05DEA pef8
 
 : ME_A387B5DB4FAC
  CONST UID 'A387B5DB4FAC'
  CONST Name 'pef9'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY '9' ;
  CONST Visibility PublicAccess
@@ -5954,12 +6261,14 @@ ref; // ME_D105A1C05DEA pef8
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''PrintAndExportFontSize_pef9''; rValue : ''9'')'
 
 ref; // ME_A387B5DB4FAC pef9
 
 : ME_BBC2ED4B38BC
  CONST UID 'BBC2ED4B38BC'
  CONST Name 'pef10'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY '10' ;
  CONST Visibility PublicAccess
@@ -5975,12 +6284,14 @@ ref; // ME_A387B5DB4FAC pef9
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''PrintAndExportFontSize_pef10''; rValue : ''10'')'
 
 ref; // ME_BBC2ED4B38BC pef10
 
 : ME_6B97D05C8650
  CONST UID '6B97D05C8650'
  CONST Name 'pef11'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY '11' ;
  CONST Visibility PublicAccess
@@ -5996,12 +6307,14 @@ ref; // ME_BBC2ED4B38BC pef10
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''PrintAndExportFontSize_pef11''; rValue : ''11'')'
 
 ref; // ME_6B97D05C8650 pef11
 
 : ME_691591BE9CC4
  CONST UID '691591BE9CC4'
  CONST Name 'pef12'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY '12' ;
  CONST Visibility PublicAccess
@@ -6017,12 +6330,14 @@ ref; // ME_6B97D05C8650 pef11
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''PrintAndExportFontSize_pef12''; rValue : ''12'')'
 
 ref; // ME_691591BE9CC4 pef12
 
 : ME_8E8680B425B2
  CONST UID '8E8680B425B2'
  CONST Name 'pef14'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY '14' ;
  CONST Visibility PublicAccess
@@ -6038,12 +6353,14 @@ ref; // ME_691591BE9CC4 pef12
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''PrintAndExportFontSize_pef14''; rValue : ''14'')'
 
 ref; // ME_8E8680B425B2 pef14
 
 : ME_76A3781CCD06
  CONST UID '76A3781CCD06'
  CONST Name 'pef16'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY '16' ;
  CONST Visibility PublicAccess
@@ -6059,12 +6376,14 @@ ref; // ME_8E8680B425B2 pef14
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''PrintAndExportFontSize_pef16''; rValue : ''16'')'
 
 ref; // ME_76A3781CCD06 pef16
 
 : ME_BE1983D4EE58
  CONST UID 'BE1983D4EE58'
  CONST Name 'LCImplPrintAndExportFontSizeValues'
+ CONST IsSummoned true
  CONST Class class_Class
  : Stereotype st_Constants ;
  CONST Kind kind_NormalClass
@@ -6074,17 +6393,21 @@ ref; // ME_76A3781CCD06 pef16
  : Parent ME_C9ADD4944F97 // evStylesPrintAndExportFontSizeSettingRes
  ;
  : Attributes
-   @ ( ME_D105A1C05DEA // pef8
+   Seq: ( ME_D105A1C05DEA // pef8
  ME_A387B5DB4FAC // pef9
  ME_BBC2ED4B38BC // pef10
  ME_6B97D05C8650 // pef11
  ME_691591BE9CC4 // pef12
  ME_8E8680B425B2 // pef14
  ME_76A3781CCD06 // pef16
- ) .SequenceCode.It
+ )
  ; // Attributes
  CONST "elements prefix" 'str_PrintAndExportFontSize'
  CONST "spell names" false
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
  CONST extprop:pas:ElementPrefixBase 'str_PrintAndExportFontSize'
  CONST extprop:pas:ElementPrefix 'str_PrintAndExportFontSize_'
 
@@ -6095,6 +6418,7 @@ FORWARD ME_B23AC4E8CF02
 : ME_AECDBEE72B72
  CONST UID 'AECDBEE72B72'
  CONST Name 'pef8'
+ CONST IsSummoned true
  CONST Class class_Attribute
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
@@ -6106,12 +6430,14 @@ FORWARD ME_B23AC4E8CF02
  CONST Value 'pef8'
  : ValueType ME_BE1983D4EE58 // LCImplPrintAndExportFontSizeValues
  ;
+ CONST extprop:pas:Value 'str_PrintAndExportFontSize_pef8'
 
 ref; // ME_AECDBEE72B72 pef8
 
 : ME_BA23E2F17A53
  CONST UID 'BA23E2F17A53'
  CONST Name 'pef9'
+ CONST IsSummoned true
  CONST Class class_Attribute
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
@@ -6123,12 +6449,14 @@ ref; // ME_AECDBEE72B72 pef8
  CONST Value 'pef9'
  : ValueType ME_BE1983D4EE58 // LCImplPrintAndExportFontSizeValues
  ;
+ CONST extprop:pas:Value 'str_PrintAndExportFontSize_pef9'
 
 ref; // ME_BA23E2F17A53 pef9
 
 : ME_BBC252C642DC
  CONST UID 'BBC252C642DC'
  CONST Name 'pef10'
+ CONST IsSummoned true
  CONST Class class_Attribute
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
@@ -6140,12 +6468,14 @@ ref; // ME_BA23E2F17A53 pef9
  CONST Value 'pef10'
  : ValueType ME_BE1983D4EE58 // LCImplPrintAndExportFontSizeValues
  ;
+ CONST extprop:pas:Value 'str_PrintAndExportFontSize_pef10'
 
 ref; // ME_BBC252C642DC pef10
 
 : ME_ABD420FB6EE9
  CONST UID 'ABD420FB6EE9'
  CONST Name 'pef11'
+ CONST IsSummoned true
  CONST Class class_Attribute
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
@@ -6157,12 +6487,14 @@ ref; // ME_BBC252C642DC pef10
  CONST Value 'pef11'
  : ValueType ME_BE1983D4EE58 // LCImplPrintAndExportFontSizeValues
  ;
+ CONST extprop:pas:Value 'str_PrintAndExportFontSize_pef11'
 
 ref; // ME_ABD420FB6EE9 pef11
 
 : ME_92B160E34332
  CONST UID '92B160E34332'
  CONST Name 'pef12'
+ CONST IsSummoned true
  CONST Class class_Attribute
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
@@ -6174,12 +6506,14 @@ ref; // ME_ABD420FB6EE9 pef11
  CONST Value 'pef12'
  : ValueType ME_BE1983D4EE58 // LCImplPrintAndExportFontSizeValues
  ;
+ CONST extprop:pas:Value 'str_PrintAndExportFontSize_pef12'
 
 ref; // ME_92B160E34332 pef12
 
 : ME_76CE7A95FF36
  CONST UID '76CE7A95FF36'
  CONST Name 'pef14'
+ CONST IsSummoned true
  CONST Class class_Attribute
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
@@ -6191,12 +6525,14 @@ ref; // ME_92B160E34332 pef12
  CONST Value 'pef14'
  : ValueType ME_BE1983D4EE58 // LCImplPrintAndExportFontSizeValues
  ;
+ CONST extprop:pas:Value 'str_PrintAndExportFontSize_pef14'
 
 ref; // ME_76CE7A95FF36 pef14
 
 : ME_D97D50B050B7
  CONST UID 'D97D50B050B7'
  CONST Name 'pef16'
+ CONST IsSummoned true
  CONST Class class_Attribute
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
@@ -6208,12 +6544,14 @@ ref; // ME_76CE7A95FF36 pef14
  CONST Value 'pef16'
  : ValueType ME_BE1983D4EE58 // LCImplPrintAndExportFontSizeValues
  ;
+ CONST extprop:pas:Value 'str_PrintAndExportFontSize_pef16'
 
 ref; // ME_D97D50B050B7 pef16
 
 : ME_B23AC4E8CF02
  CONST UID 'B23AC4E8CF02'
  CONST Name 'PrintAndExportFontSizeValuesMap'
+ CONST IsSummoned true
  CONST Class class_Class
  : Stereotype st_ConstantArray ;
  CONST Kind kind_NormalClass
@@ -6223,25 +6561,29 @@ ref; // ME_D97D50B050B7 pef16
  : Parent ME_C9ADD4944F97 // evStylesPrintAndExportFontSizeSettingRes
  ;
  : Inherits
-   @ ( WL 'ME_4B3B49B40262' '4F9BDEEE01BC.pas.ms.script' // Pl3StringIDEx
- ) .SequenceCode.It
+   Seq: ( WL 'ME_4B3B49B40262' '4F9BDEEE01BC.pas.ms.script' // Pl3StringIDEx
+ )
  ; // Inherits
  : Implements
-   @ ( ME_86E0B8C46D3A // PrintAndExportFontSizeEnum
- ) .SequenceCode.It
+   Seq: ( ME_86E0B8C46D3A // PrintAndExportFontSizeEnum
+ )
  ; // Implements
  : Attributes
-   @ ( ME_AECDBEE72B72 // pef8
+   Seq: ( ME_AECDBEE72B72 // pef8
  ME_BA23E2F17A53 // pef9
  ME_BBC252C642DC // pef10
  ME_ABD420FB6EE9 // pef11
  ME_92B160E34332 // pef12
  ME_76CE7A95FF36 // pef14
  ME_D97D50B050B7 // pef16
- ) .SequenceCode.It
+ )
  ; // Attributes
  CONST "Need map interface" true
  CONST "Need mapping support" true
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_B23AC4E8CF02 PrintAndExportFontSizeValuesMap
 
@@ -6250,6 +6592,7 @@ FORWARD ME_2F2551498AA7
 : ME_B9D22C2482B9
  CONST UID 'B9D22C2482B9'
  CONST Name 'aStrings'
+ CONST IsSummoned true
  CONST Class class_Parameter
  : Stereotype st_in ;
  : Target WL 'ME_4683CEE9034C' '467823B7002C.pas.ms.script' // IafwStrings
@@ -6260,6 +6603,7 @@ ref; // ME_B9D22C2482B9 aStrings
 : ME_1884DBA9EBBD
  CONST UID '1884DBA9EBBD'
  CONST Name 'FillStrings'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_static::Operation ;
  %SUMMARY 'Заполнение списка строк значениями' ;
@@ -6268,8 +6612,8 @@ ref; // ME_B9D22C2482B9 aStrings
  : Parent ME_2F2551498AA7 // PrintAndExportFontSizeValuesMapHelper
  ;
  : Parameters
-   @ ( ME_B9D22C2482B9 // aStrings
- ) .SequenceCode.It
+   Seq: ( ME_B9D22C2482B9 // aStrings
+ )
  ; // Parameters
 
 ref; // ME_1884DBA9EBBD FillStrings
@@ -6277,6 +6621,7 @@ ref; // ME_1884DBA9EBBD FillStrings
 : ME_63E9FE4A21B5
  CONST UID '63E9FE4A21B5'
  CONST Name 'aDisplayName'
+ CONST IsSummoned true
  CONST Class class_Parameter
  : Stereotype st_in ;
  : Target WL 'ME_46780DA40383' '4677FBA70343.pas.ms.script' // Il3CString
@@ -6287,6 +6632,7 @@ ref; // ME_63E9FE4A21B5 aDisplayName
 : ME_401032D7711F
  CONST UID '401032D7711F'
  CONST Name 'DisplayNameToValue'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_static::Operation ;
  %SUMMARY 'Преобразование строкового значения к порядковому' ;
@@ -6297,8 +6643,8 @@ ref; // ME_63E9FE4A21B5 aDisplayName
  : Target ME_86E0B8C46D3A // PrintAndExportFontSizeEnum
  ;
  : Parameters
-   @ ( ME_63E9FE4A21B5 // aDisplayName
- ) .SequenceCode.It
+   Seq: ( ME_63E9FE4A21B5 // aDisplayName
+ )
  ; // Parameters
 
 ref; // ME_401032D7711F DisplayNameToValue
@@ -6306,6 +6652,7 @@ ref; // ME_401032D7711F DisplayNameToValue
 : ME_2F2551498AA7
  CONST UID '2F2551498AA7'
  CONST Name 'PrintAndExportFontSizeValuesMapHelper'
+ CONST IsSummoned true
  CONST Class class_Class
  : Stereotype st_SimpleClass ;
  CONST Kind kind_NormalClass
@@ -6315,14 +6662,19 @@ ref; // ME_401032D7711F DisplayNameToValue
  : Parent ME_C9ADD4944F97 // evStylesPrintAndExportFontSizeSettingRes
  ;
  : Operations
-   @ ( ME_1884DBA9EBBD // FillStrings
+   Seq: ( ME_1884DBA9EBBD // FillStrings
  ME_401032D7711F // DisplayNameToValue
- ) .SequenceCode.It
+ )
  ; // Operations
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_2F2551498AA7 PrintAndExportFontSizeValuesMapHelper
 
@@ -6331,6 +6683,7 @@ FORWARD ME_E7E820B69587
 : ME_893287292E3C
  CONST UID '893287292E3C'
  CONST Name 'Make'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_factory::Operation ;
  %SUMMARY 'Фабричный метод для TPrintAndExportFontSizeValuesMapImplPrim' ;
@@ -6354,6 +6707,7 @@ ref; // ME_893287292E3C Make
  ;
  : Implementor ME_E7E820B69587 // TPrintAndExportFontSizeValuesMapImplPrim
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" true
 ref; // ME_46A5EFE602DE_ME_E7E820B69587 MapID
 
@@ -6364,6 +6718,7 @@ ref; // ME_46A5EFE602DE_ME_E7E820B69587 MapID
  ;
  : Implementor ME_E7E820B69587 // TPrintAndExportFontSizeValuesMapImplPrim
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_46A5F0130365_ME_E7E820B69587 GetDisplayNames
 
 : ME_46A5F03800A2_ME_E7E820B69587
@@ -6373,6 +6728,7 @@ ref; // ME_46A5F0130365_ME_E7E820B69587 GetDisplayNames
  ;
  : Implementor ME_E7E820B69587 // TPrintAndExportFontSizeValuesMapImplPrim
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_46A5F03800A2_ME_E7E820B69587 MapSize
 
 : ME_46A5FCF900E0_ME_E7E820B69587
@@ -6382,6 +6738,7 @@ ref; // ME_46A5F03800A2_ME_E7E820B69587 MapSize
  ;
  : Implementor ME_E7E820B69587 // TPrintAndExportFontSizeValuesMapImplPrim
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_46A5FCF900E0_ME_E7E820B69587 DisplayNameToValue
 
 : ME_46A5FD1B000D_ME_E7E820B69587
@@ -6391,11 +6748,13 @@ ref; // ME_46A5FCF900E0_ME_E7E820B69587 DisplayNameToValue
  ;
  : Implementor ME_E7E820B69587 // TPrintAndExportFontSizeValuesMapImplPrim
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_46A5FD1B000D_ME_E7E820B69587 ValueToDisplayName
 
 : ME_E7E820B69587
  CONST UID 'E7E820B69587'
  CONST Name 'TPrintAndExportFontSizeValuesMapImplPrim'
+ CONST IsSummoned true
  CONST Class class_Class
  : Stereotype st_SimpleClass ;
  CONST Kind kind_NormalClass
@@ -6405,29 +6764,35 @@ ref; // ME_46A5FD1B000D_ME_E7E820B69587 ValueToDisplayName
  : Parent ME_C9ADD4944F97 // evStylesPrintAndExportFontSizeSettingRes
  ;
  : Inherits
-   @ ( WL 'ME_4AE5CA2D0034' '47913B47006E.pas.ms.script' // Tl3CProtoObject
- ) .SequenceCode.It
+   Seq: ( WL 'ME_4AE5CA2D0034' '47913B47006E.pas.ms.script' // Tl3CProtoObject
+ )
  ; // Inherits
  : Implements
-   @ ( WL 'ME_46A5FCD303C1' '4677FBA70343.pas.ms.script' // Il3IntegerValueMap
- ) .SequenceCode.It
+   Seq: ( WL 'ME_46A5FCD303C1' '4677FBA70343.pas.ms.script' // Il3IntegerValueMap
+ )
  ; // Implements
  : Operations
-   @ ( ME_893287292E3C // Make
- ) .SequenceCode.It
+   Seq: ( ME_893287292E3C // Make
+ )
  ; // Operations
  : Implemented
-   @ ( ME_46A5EFE602DE_ME_E7E820B69587 // MapID
+   Seq: ( ME_46A5EFE602DE_ME_E7E820B69587 // MapID
  ME_46A5F0130365_ME_E7E820B69587 // GetDisplayNames
  ME_46A5F03800A2_ME_E7E820B69587 // MapSize
  ME_46A5FCF900E0_ME_E7E820B69587 // DisplayNameToValue
  ME_46A5FD1B000D_ME_E7E820B69587 // ValueToDisplayName
- ) .SequenceCode.It
+ )
  ; // Implemented
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'PrintAndExportFontSizeValuesMapImplPrim'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_E7E820B69587 TPrintAndExportFontSizeValuesMapImplPrim
 
@@ -6436,6 +6801,7 @@ FORWARD ME_1F17EF4CC358
 : ME_369351B72390
  CONST UID '369351B72390'
  CONST Name 'Make'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_factory::Operation ;
  %SUMMARY 'Фабричный метод для TPrintAndExportFontSizeValuesMapImpl' ;
@@ -6455,6 +6821,7 @@ ref; // ME_369351B72390 Make
 : ME_E24A28349835
  CONST UID 'E24A28349835'
  CONST Name 'Exists'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_static::Operation ;
  %SUMMARY 'Проверяет создан экземпляр синглетона или нет' ;
@@ -6464,12 +6831,14 @@ ref; // ME_369351B72390 Make
  ;
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
+ CONST extprop:pas:Value false
 
 ref; // ME_E24A28349835 Exists
 
 : ME_1F17EF4CC358
  CONST UID '1F17EF4CC358'
  CONST Name 'TPrintAndExportFontSizeValuesMapImpl'
+ CONST IsSummoned true
  CONST Class class_Class
  : Stereotype st_SimpleClass ;
  CONST Kind kind_NormalClass
@@ -6479,19 +6848,25 @@ ref; // ME_E24A28349835 Exists
  : Parent ME_C9ADD4944F97 // evStylesPrintAndExportFontSizeSettingRes
  ;
  : Inherits
-   @ ( ME_E7E820B69587 // TPrintAndExportFontSizeValuesMapImplPrim
- ) .SequenceCode.It
+   Seq: ( ME_E7E820B69587 // TPrintAndExportFontSizeValuesMapImplPrim
+ )
  ; // Inherits
  : Operations
-   @ ( ME_369351B72390 // Make
+   Seq: ( ME_369351B72390 // Make
  ME_E24A28349835 // Exists
- ) .SequenceCode.It
+ )
  ; // Operations
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
  CONST "singleton" true
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'PrintAndExportFontSizeValuesMapImpl'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_1F17EF4CC358 TPrintAndExportFontSizeValuesMapImpl
 
@@ -6500,6 +6875,7 @@ FORWARD ME_BF2F4E876EC6
 : ME_1E9F5D197502
  CONST UID '1E9F5D197502'
  CONST Name 'PrintAndExportFontSize'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY 'Использовать для экспорта и печати следующий размер шрифта' ;
  CONST Visibility PublicAccess
@@ -6515,12 +6891,14 @@ FORWARD ME_BF2F4E876EC6
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''PrintAndExportFontSize''; rValue : ''Использовать для экспорта и печати следующий размер шрифта'')'
 
 ref; // ME_1E9F5D197502 PrintAndExportFontSize
 
 : ME_BF2F4E876EC6
  CONST UID 'BF2F4E876EC6'
  CONST Name 'LCImplPrintAndExportFontSizeName'
+ CONST IsSummoned true
  CONST Class class_Class
  : Stereotype st_Constants ;
  CONST Kind kind_NormalClass
@@ -6530,11 +6908,15 @@ ref; // ME_1E9F5D197502 PrintAndExportFontSize
  : Parent ME_C9ADD4944F97 // evStylesPrintAndExportFontSizeSettingRes
  ;
  : Attributes
-   @ ( ME_1E9F5D197502 // PrintAndExportFontSize
- ) .SequenceCode.It
+   Seq: ( ME_1E9F5D197502 // PrintAndExportFontSize
+ )
  ; // Attributes
  CONST "elements prefix" 'str'
  CONST "spell names" false
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
  CONST extprop:pas:ElementPrefixBase 'str'
  CONST extprop:pas:ElementPrefix 'str_'
 
@@ -6542,7 +6924,8 @@ ref; // ME_BF2F4E876EC6 LCImplPrintAndExportFontSizeName
 
 : ME_39FC78BB43EE
  CONST UID '39FC78BB43EE'
- CONST Name 'Init_pef8'
+ CONST Name 'Init_Str_pef8'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Инициализация str_PrintAndExportFontSize_pef8' ;
@@ -6550,12 +6933,17 @@ ref; // ME_BF2F4E876EC6 LCImplPrintAndExportFontSizeName
  CONST Abstraction at_final
  : Parent ME_C9ADD4944F97 // evStylesPrintAndExportFontSizeSettingRes
  ;
+ : Speller ME_96A5C7144E3D // pef8
+ ;
+ : SpelledFor ME_D105A1C05DEA // pef8
+ ;
 
-ref; // ME_39FC78BB43EE Init_pef8
+ref; // ME_39FC78BB43EE Init_Str_pef8
 
 : ME_B3BADB5F547E
  CONST UID 'B3BADB5F547E'
- CONST Name 'Init_pef9'
+ CONST Name 'Init_Str_pef9'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Инициализация str_PrintAndExportFontSize_pef9' ;
@@ -6563,12 +6951,17 @@ ref; // ME_39FC78BB43EE Init_pef8
  CONST Abstraction at_final
  : Parent ME_C9ADD4944F97 // evStylesPrintAndExportFontSizeSettingRes
  ;
+ : Speller ME_4FD853DD65A8 // pef9
+ ;
+ : SpelledFor ME_A387B5DB4FAC // pef9
+ ;
 
-ref; // ME_B3BADB5F547E Init_pef9
+ref; // ME_B3BADB5F547E Init_Str_pef9
 
 : ME_B75E8FEC8427
  CONST UID 'B75E8FEC8427'
- CONST Name 'Init_pef10'
+ CONST Name 'Init_Str_pef10'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Инициализация str_PrintAndExportFontSize_pef10' ;
@@ -6576,12 +6969,17 @@ ref; // ME_B3BADB5F547E Init_pef9
  CONST Abstraction at_final
  : Parent ME_C9ADD4944F97 // evStylesPrintAndExportFontSizeSettingRes
  ;
+ : Speller ME_97ECF91D50DB // pef10
+ ;
+ : SpelledFor ME_BBC2ED4B38BC // pef10
+ ;
 
-ref; // ME_B75E8FEC8427 Init_pef10
+ref; // ME_B75E8FEC8427 Init_Str_pef10
 
 : ME_E662745F1A52
  CONST UID 'E662745F1A52'
- CONST Name 'Init_pef11'
+ CONST Name 'Init_Str_pef11'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Инициализация str_PrintAndExportFontSize_pef11' ;
@@ -6589,12 +6987,17 @@ ref; // ME_B75E8FEC8427 Init_pef10
  CONST Abstraction at_final
  : Parent ME_C9ADD4944F97 // evStylesPrintAndExportFontSizeSettingRes
  ;
+ : Speller ME_4024903E186B // pef11
+ ;
+ : SpelledFor ME_6B97D05C8650 // pef11
+ ;
 
-ref; // ME_E662745F1A52 Init_pef11
+ref; // ME_E662745F1A52 Init_Str_pef11
 
 : ME_ABDCEE4B7607
  CONST UID 'ABDCEE4B7607'
- CONST Name 'Init_pef12'
+ CONST Name 'Init_Str_pef12'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Инициализация str_PrintAndExportFontSize_pef12' ;
@@ -6602,12 +7005,17 @@ ref; // ME_E662745F1A52 Init_pef11
  CONST Abstraction at_final
  : Parent ME_C9ADD4944F97 // evStylesPrintAndExportFontSizeSettingRes
  ;
+ : Speller ME_0B5C090928C4 // pef12
+ ;
+ : SpelledFor ME_691591BE9CC4 // pef12
+ ;
 
-ref; // ME_ABDCEE4B7607 Init_pef12
+ref; // ME_ABDCEE4B7607 Init_Str_pef12
 
 : ME_66A34F2032B4
  CONST UID '66A34F2032B4'
- CONST Name 'Init_pef14'
+ CONST Name 'Init_Str_pef14'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Инициализация str_PrintAndExportFontSize_pef14' ;
@@ -6615,12 +7023,17 @@ ref; // ME_ABDCEE4B7607 Init_pef12
  CONST Abstraction at_final
  : Parent ME_C9ADD4944F97 // evStylesPrintAndExportFontSizeSettingRes
  ;
+ : Speller ME_086F24F76C26 // pef14
+ ;
+ : SpelledFor ME_8E8680B425B2 // pef14
+ ;
 
-ref; // ME_66A34F2032B4 Init_pef14
+ref; // ME_66A34F2032B4 Init_Str_pef14
 
 : ME_FFC26EE61097
  CONST UID 'FFC26EE61097'
- CONST Name 'Init_pef16'
+ CONST Name 'Init_Str_pef16'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Инициализация str_PrintAndExportFontSize_pef16' ;
@@ -6628,12 +7041,17 @@ ref; // ME_66A34F2032B4 Init_pef14
  CONST Abstraction at_final
  : Parent ME_C9ADD4944F97 // evStylesPrintAndExportFontSizeSettingRes
  ;
+ : Speller ME_965460DF7185 // pef16
+ ;
+ : SpelledFor ME_76A3781CCD06 // pef16
+ ;
 
-ref; // ME_FFC26EE61097 Init_pef16
+ref; // ME_FFC26EE61097 Init_Str_pef16
 
 : ME_93C652ACA3D8
  CONST UID '93C652ACA3D8'
- CONST Name 'Init_PrintAndExportFontSize'
+ CONST Name 'Init_Str_PrintAndExportFontSize'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Инициализация str_PrintAndExportFontSize' ;
@@ -6641,11 +7059,16 @@ ref; // ME_FFC26EE61097 Init_pef16
  CONST Abstraction at_final
  : Parent ME_C9ADD4944F97 // evStylesPrintAndExportFontSizeSettingRes
  ;
+ : Speller ME_B24E06693035 // PrintAndExportFontSize
+ ;
+ : SpelledFor ME_1E9F5D197502 // PrintAndExportFontSize
+ ;
 
-ref; // ME_93C652ACA3D8 Init_PrintAndExportFontSize
+ref; // ME_93C652ACA3D8 Init_Str_PrintAndExportFontSize
 
 : ME_E786DF941FB7
  CONST UID 'E786DF941FB7'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_C9ADD4944F97 // evStylesPrintAndExportFontSizeSettingRes
@@ -6657,6 +7080,7 @@ ref; // ME_E786DF941FB7
 
 : ME_29DA0043F9A6
  CONST UID '29DA0043F9A6'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_C9ADD4944F97 // evStylesPrintAndExportFontSizeSettingRes
@@ -6668,6 +7092,7 @@ ref; // ME_29DA0043F9A6
 
 : ME_5227F8E24CB1
  CONST UID '5227F8E24CB1'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_C9ADD4944F97 // evStylesPrintAndExportFontSizeSettingRes
@@ -6679,6 +7104,7 @@ ref; // ME_5227F8E24CB1
 
 : ME_0C886C14C09A
  CONST UID '0C886C14C09A'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_C9ADD4944F97 // evStylesPrintAndExportFontSizeSettingRes
@@ -6690,6 +7116,7 @@ ref; // ME_0C886C14C09A
 
 : ME_BBC352822A79
  CONST UID 'BBC352822A79'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_C9ADD4944F97 // evStylesPrintAndExportFontSizeSettingRes
@@ -6702,6 +7129,7 @@ ref; // ME_BBC352822A79
 : ME_C9ADD4944F97
  CONST UID 'C9ADD4944F97'
  CONST Name 'evStylesPrintAndExportFontSizeSettingRes'
+ CONST IsSummoned true
  CONST Class class_Class
  : Stereotype st_UtilityPack ;
  CONST Kind kind_NormalClass
@@ -6710,48 +7138,52 @@ ref; // ME_BBC352822A79
  CONST Abstraction at_final
  : Parent ME_47ECB2870309 // StyleTable
  ;
+ : Implements
+   Seq: ( WL 'ME_4E314EC80391' '4E3160C802DA.pas.ms.script' // Использовать для экспорта и печати следующий размер шрифта
+ )
+ ; // Implements
  : Operations
-   @ ( ME_39FC78BB43EE // Init_pef8
- ME_B3BADB5F547E // Init_pef9
- ME_B75E8FEC8427 // Init_pef10
- ME_E662745F1A52 // Init_pef11
- ME_ABDCEE4B7607 // Init_pef12
- ME_66A34F2032B4 // Init_pef14
- ME_FFC26EE61097 // Init_pef16
- ME_93C652ACA3D8 // Init_PrintAndExportFontSize
- ) .SequenceCode.It
+   Seq: ( ME_39FC78BB43EE // Init_Str_pef8
+ ME_B3BADB5F547E // Init_Str_pef9
+ ME_B75E8FEC8427 // Init_Str_pef10
+ ME_E662745F1A52 // Init_Str_pef11
+ ME_ABDCEE4B7607 // Init_Str_pef12
+ ME_66A34F2032B4 // Init_Str_pef14
+ ME_FFC26EE61097 // Init_Str_pef16
+ ME_93C652ACA3D8 // Init_Str_PrintAndExportFontSize
+ )
  ; // Operations
  : Children
-   @ ( ME_86E0B8C46D3A // PrintAndExportFontSizeEnum
+   Seq: ( ME_86E0B8C46D3A // PrintAndExportFontSizeEnum
  ME_2F2551498AA7 // PrintAndExportFontSizeValuesMapHelper
  ME_E7E820B69587 // TPrintAndExportFontSizeValuesMapImplPrim
  ME_1F17EF4CC358 // TPrintAndExportFontSizeValuesMapImpl
- ) .SequenceCode.It
+ )
  ; // Children
  : Constants
-   @ ( ME_1782647A5439 // PrintAndExportFontSizeKey
+   Seq: ( ME_1782647A5439 // PrintAndExportFontSizeKey
  ME_300F056A3E29 // PrintAndExportFontSizeName
  ME_0F54723B9097 // PrintAndExportFontSizeValues
  ME_BE1983D4EE58 // LCImplPrintAndExportFontSizeValues
  ME_B23AC4E8CF02 // PrintAndExportFontSizeValuesMap
  ME_BF2F4E876EC6 // LCImplPrintAndExportFontSizeName
- ) .SequenceCode.It
+ )
  ; // Constants
  : Dependencies
-   @ ( ME_E786DF941FB7 // 
+   Seq: ( ME_E786DF941FB7 // 
  ME_29DA0043F9A6 // 
  ME_5227F8E24CB1 // 
  ME_0C886C14C09A // 
  ME_BBC352822A79 // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  CONST "no hands" false
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest'
  CONST intf.pas:Path 'common\components\gui\Garant\Everest\evStylesPrintAndExportFontSizeSettingRes.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'StylesPrintAndExportFontSizeSettingRes'
 
 ref; // ME_C9ADD4944F97 evStylesPrintAndExportFontSizeSettingRes
 
@@ -6765,7 +7197,7 @@ ref; // ME_C9ADD4944F97 evStylesPrintAndExportFontSizeSettingRes
  : Parent WL 'ME_4797632D0273' '4797632D0273.pas.ms.script' // Everest
  ;
  : Children
-   @ ( ME_47ECB297037D // evStyleTableSpy
+   Seq: ( ME_47ECB297037D // evStyleTableSpy
  ME_4A485B0D0223 // evStyleTableListenerPrim
  ME_522ED98F0223 // TevInterface
  ME_49F048510365 // evStyleTableTools
@@ -6784,10 +7216,10 @@ ref; // ME_C9ADD4944F97 evStylesPrintAndExportFontSizeSettingRes
  ME_4857EFDA01E5 // evStyleInterfaceEx
  ME_870F97A58415 // evStylesPrintAndExportSettingRes
  ME_C9ADD4944F97 // evStylesPrintAndExportFontSizeSettingRes
- ) .SequenceCode.It
+ )
  ; // Children
  : Depends
-   @ ( WL 'ME_4677FBA70343' '4677FBA70343.pas.ms.script' // l3Interfaces
+   Seq: ( WL 'ME_4677FBA70343' '4677FBA70343.pas.ms.script' // l3Interfaces
  WL 'ME_4678193C009C' '4678193C009C.pas.ms.script' // l3Types
  WL 'ME_4678209200A6' '4678209200A6.pas.ms.script' // nevBase
  WL 'ME_467823B7002C' '467823B7002C.pas.ms.script' // afwInterfaces
@@ -6819,20 +7251,20 @@ ref; // ME_C9ADD4944F97 evStylesPrintAndExportFontSizeSettingRes
  WL 'ME_49A6646B0044' '49A6646B0044.pas.ms.script' // k2BaseTypes
  WL 'ME_4AB0997B00A2' '4AB0997B00A2.pas.ms.script' // Common
  WL 'ME_4AB0C3C60310' '4AB0C3C60310.pas.ms.script' // Sys
+ WL 'ME_4E3160C802DA' '4E3160C802DA.pas.ms.script' // Печать документа
+ WL 'ME_4E365B6002CA' '4E365B6002CA.pas.ms.script' // Отображение списков
  WL 'ME_4E56909E0240' '4E56909E0240.pas.ms.script' // evResultFont
  WL 'ME_5319CE3F02E2' '5319CE3F02E2.pas.ms.script' // k2Containers
  WL 'ME_537B83AD01F0' '537B83AD01F0.pas.ms.script' // l3Math
  WL 'ME_54B90AC6014B' '54B90AC6014B.pas.ms.script' // StringUtils
  WL 'ME_55C4AEC801CA' '55C4AEC801CA.pas.ms.script' // Graphics
- ) .SequenceCode.It
+ )
  ; // Depends
- : Generators
- @ (
- gen_pas.script
- gen_pas.script.runner
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest'
  CONST pas.script:Path 'shared\models\NewSchool\Scripts\47ECB2870309.pas.ms.script'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
  CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\47ECB2870309.pas.ms.script.runner'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_47ECB2870309 StyleTable

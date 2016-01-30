@@ -13,6 +13,7 @@ FORWARD ME_146BAB726A49
 : ME_2B6312FE03C2
  CONST UID '2B6312FE03C2'
  CONST Name 'ut_FromWithPanelName'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY 'Строковый идентификатор пользовательского типа "FromWithPanel"' ;
  CONST Visibility PublicAccess
@@ -24,12 +25,14 @@ FORWARD ME_146BAB726A49
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value '''ut_FromWithPanel'''
 
 ref; // ME_2B6312FE03C2 ut_FromWithPanelName
 
 : ME_93CF77697EF4
  CONST UID '93CF77697EF4'
  CONST Name 'ut_FromWithPanel'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY 'FromWithPanel' ;
  CONST Visibility PublicAccess
@@ -45,12 +48,14 @@ ref; // ME_2B6312FE03C2 ut_FromWithPanelName
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" true
+ CONST extprop:pas:Value 'TvcmUserType(0)'
 
 ref; // ME_93CF77697EF4 ut_FromWithPanel
 
 : ME_146BAB726A49
  CONST UID '146BAB726A49'
  CONST Name 'ut_FromWithPanelConstants'
+ CONST IsSummoned true
  CONST Class class_Class
  : Stereotype st_Constants ;
  CONST Kind kind_NormalClass
@@ -60,11 +65,16 @@ ref; // ME_93CF77697EF4 ut_FromWithPanel
  : Parent ME_C8D510D2786B // ut_FromWithPanel
  ;
  : Attributes
-   @ ( ME_2B6312FE03C2 // ut_FromWithPanelName
+   Seq: ( ME_2B6312FE03C2 // ut_FromWithPanelName
  ME_93CF77697EF4 // ut_FromWithPanel
- ) .SequenceCode.It
+ )
  ; // Attributes
  CONST "spell names" false
+ CONST dfm:PathOnly '\common\components\gui\Garant\Daily\Forms'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Daily\Forms'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\common\components\gui\Forms'
 
 ref; // ME_146BAB726A49 ut_FromWithPanelConstants
 
@@ -73,6 +83,7 @@ FORWARD ME_5B8F2FD9B7F1
 : ME_DCDEC3BFEA56
  CONST UID 'DCDEC3BFEA56'
  CONST Name 'Ini_Reg'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Регистрация Tkw_FormUserType_ut_FromWithPanel' ;
@@ -90,6 +101,7 @@ ref; // ME_DCDEC3BFEA56 Ini_Reg
  ;
  : Implementor ME_5B8F2FD9B7F1 // Tkw_FormUserType_ut_FromWithPanel
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4DB0614603C8_ME_5B8F2FD9B7F1 GetWordNameForRegister
 
 : ME_4EE1DC8903BB_ME_5B8F2FD9B7F1
@@ -99,11 +111,13 @@ ref; // ME_4DB0614603C8_ME_5B8F2FD9B7F1 GetWordNameForRegister
  ;
  : Implementor ME_5B8F2FD9B7F1 // Tkw_FormUserType_ut_FromWithPanel
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4EE1DC8903BB_ME_5B8F2FD9B7F1 GetInteger
 
 : ME_5B8F2FD9B7F1
  CONST UID '5B8F2FD9B7F1'
  CONST Name 'Tkw_FormUserType_ut_FromWithPanel'
+ CONST IsSummoned true
  CONST Class class_Class
  : Stereotype st_ScriptKeyword ;
  CONST Kind kind_NormalClass
@@ -113,17 +127,17 @@ ref; // ME_4EE1DC8903BB_ME_5B8F2FD9B7F1 GetInteger
  : Parent ME_C8D510D2786B // ut_FromWithPanel
  ;
  : Inherits
-   @ ( WL 'ME_4EE1DBBB013C' '4F3E3F5F0160.pas.ms.script' // TtfwInteger
- ) .SequenceCode.It
+   Seq: ( WL 'ME_4EE1DBBB013C' '4F3E3F5F0160.pas.ms.script' // TtfwInteger
+ )
  ; // Inherits
  : Operations
-   @ ( ME_DCDEC3BFEA56 // Ini_Reg
- ) .SequenceCode.It
+   Seq: ( ME_DCDEC3BFEA56 // Ini_Reg
+ )
  ; // Operations
  : Overridden
-   @ ( ME_4DB0614603C8_ME_5B8F2FD9B7F1 // GetWordNameForRegister
+   Seq: ( ME_4DB0614603C8_ME_5B8F2FD9B7F1 // GetWordNameForRegister
  ME_4EE1DC8903BB_ME_5B8F2FD9B7F1 // GetInteger
- ) .SequenceCode.It
+ )
  ; // Overridden
  CONST "NameForScript" 'тип_формы::ut_FromWithPanel'
  CONST "ifndef" 'NoScripts'
@@ -131,12 +145,20 @@ ref; // ME_4EE1DC8903BB_ME_5B8F2FD9B7F1 GetInteger
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
+ CONST dfm:PathOnly '\common\components\gui\Garant\Daily\Forms'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Daily\Forms'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\common\components\gui\Forms'
+ CONST extprop:rc:SelfName '_FormUserType_ut_FromWithPanel'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_5B8F2FD9B7F1 Tkw_FormUserType_ut_FromWithPanel
 
 : ME_C8D510D2786B
  CONST UID 'C8D510D2786B'
  CONST Name 'ut_FromWithPanel'
+ CONST IsSummoned true
  CONST Class class_Class
  : Stereotype st_UserType ;
  CONST Kind kind_NormalClass
@@ -146,12 +168,12 @@ ref; // ME_5B8F2FD9B7F1 Tkw_FormUserType_ut_FromWithPanel
  : Parent ME_51D534260378 // FromWithPanel
  ;
  : Children
-   @ ( ME_5B8F2FD9B7F1 // Tkw_FormUserType_ut_FromWithPanel
- ) .SequenceCode.It
+   Seq: ( ME_5B8F2FD9B7F1 // Tkw_FormUserType_ut_FromWithPanel
+ )
  ; // Children
  : Constants
-   @ ( ME_146BAB726A49 // ut_FromWithPanelConstants
- ) .SequenceCode.It
+   Seq: ( ME_146BAB726A49 // ut_FromWithPanelConstants
+ )
  ; // Constants
  CONST "CanClose" 'undefined'
  CONST "CanHaveToolbars" 'undefined'
@@ -162,11 +184,17 @@ ref; // ME_5B8F2FD9B7F1 Tkw_FormUserType_ut_FromWithPanel
  CONST "VisibleToUser" false
  CONST "Weight" '-1'
  : Generators
- @ (
+ Seq: (
  gen_intf.pas
- ) .SequenceCode.It
+ )
  ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\Daily\Forms'
  CONST intf.pas:Path 'common\components\gui\Garant\Daily\Forms\FromWithPanel_ut_FromWithPanel_UserType.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Daily\Forms'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\common\components\gui\Forms'
+ CONST extprop:pas:UnitName 'FromWithPanel_ut_FromWithPanel_UserType'
 
 ref; // ME_C8D510D2786B ut_FromWithPanel
 
@@ -177,6 +205,7 @@ FORWARD ME_2B78060AC0E3
 : ME_EF0B111C70AB
  CONST UID 'EF0B111C70AB'
  CONST Name 'fm_FromWithPanelForm'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY 'Идентификатор формы TFromWithPanelForm' ;
  CONST Visibility PublicAccess
@@ -192,12 +221,14 @@ FORWARD ME_2B78060AC0E3
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value '(rFormID : (rName : ''FromWithPanelForm''; rID : 0); rFactory : nil)'
 
 ref; // ME_EF0B111C70AB fm_FromWithPanelForm
 
 : ME_2B78060AC0E3
  CONST UID '2B78060AC0E3'
  CONST Name 'FromWithPanelIDs'
+ CONST IsSummoned true
  CONST Class class_Class
  : Stereotype st_Constants ;
  CONST Kind kind_NormalClass
@@ -206,10 +237,15 @@ ref; // ME_EF0B111C70AB fm_FromWithPanelForm
  : Parent ME_DA3DF41960FE // FromWithPanel$Def
  ;
  : Attributes
-   @ ( ME_EF0B111C70AB // fm_FromWithPanelForm
- ) .SequenceCode.It
+   Seq: ( ME_EF0B111C70AB // fm_FromWithPanelForm
+ )
  ; // Attributes
  CONST "spell names" false
+ CONST dfm:PathOnly '\common\components\gui\Garant\Daily\Forms'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Daily\Forms'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\common\components\gui\Forms'
 
 ref; // ME_2B78060AC0E3 FromWithPanelIDs
 
@@ -217,6 +253,7 @@ ref; // ME_2B78060AC0E3 FromWithPanelIDs
  CONST UID 'DA3DF41960FE'
  CONST GUID '52A98A72-5DD1-4BDA-8FD3-152438D1B28D'
  CONST Name 'FromWithPanel'
+ CONST IsSummoned true
  CONST Class class_Class
  : Stereotype st_VCMFormDefinition ;
  CONST Kind kind_NormalClass
@@ -226,10 +263,16 @@ ref; // ME_2B78060AC0E3 FromWithPanelIDs
  : Parent ME_51D534260378 // FromWithPanel
  ;
  : Constants
-   @ ( ME_2B78060AC0E3 // FromWithPanelIDs
- ) .SequenceCode.It
+   Seq: ( ME_2B78060AC0E3 // FromWithPanelIDs
+ )
  ; // Constants
+ CONST dfm:PathOnly '\common\components\gui\Garant\Daily\Forms'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Daily\Forms'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\common\components\gui\Forms'
  CONST extprop:pas:TypeName 'FromWithPanelFormDef'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_DA3DF41960FE FromWithPanel$Def
 
@@ -238,6 +281,7 @@ FORWARD ME_276A6ED02559
 : ME_502E9BA2E9A1
  CONST UID '502E9BA2E9A1'
  CONST Name 'ut_FromWithPanelCaption'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY 'Заголовок пользовательского типа "FromWithPanel"' ;
  CONST Visibility PublicAccess
@@ -249,12 +293,14 @@ FORWARD ME_276A6ED02559
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value '''FromWithPanel'''
 
 ref; // ME_502E9BA2E9A1 ut_FromWithPanelCaption
 
 : ME_276A6ED02559
  CONST UID '276A6ED02559'
  CONST Name 'ut_FromWithPanelLocalConstants'
+ CONST IsSummoned true
  CONST Class class_Class
  : Stereotype st_LocalConst ;
  CONST Kind kind_NormalClass
@@ -264,12 +310,17 @@ ref; // ME_502E9BA2E9A1 ut_FromWithPanelCaption
  : Parent ME_51D534260378 // FromWithPanel
  ;
  : Attributes
-   @ ( ME_502E9BA2E9A1 // ut_FromWithPanelCaption
- ) .SequenceCode.It
+   Seq: ( ME_502E9BA2E9A1 // ut_FromWithPanelCaption
+ )
  ; // Attributes
  CONST "Need map interface" false
  CONST "Need mapping support" false
  CONST "spell names" false
+ CONST dfm:PathOnly '\common\components\gui\Garant\Daily\Forms'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Daily\Forms'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\common\components\gui\Forms'
 
 ref; // ME_276A6ED02559 ut_FromWithPanelLocalConstants
 
@@ -278,6 +329,7 @@ FORWARD ME_4EB210042F4A
 : ME_1B83072744DF
  CONST UID '1B83072744DF'
  CONST Name 'ut_FromWithPanelCaption'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY 'Заголовок пользовательского типа "FromWithPanel"' ;
  CONST Visibility PublicAccess
@@ -293,12 +345,14 @@ FORWARD ME_4EB210042F4A
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''ut_FromWithPanelCaption''; rValue : ''FromWithPanel'')'
 
 ref; // ME_1B83072744DF ut_FromWithPanelCaption
 
 : ME_4EB210042F4A
  CONST UID '4EB210042F4A'
  CONST Name 'LCImplut_FromWithPanelLocalConstants'
+ CONST IsSummoned true
  CONST Class class_Class
  : Stereotype st_Constants ;
  CONST Kind kind_NormalClass
@@ -308,11 +362,16 @@ ref; // ME_1B83072744DF ut_FromWithPanelCaption
  : Parent ME_51D534260378 // FromWithPanel
  ;
  : Attributes
-   @ ( ME_1B83072744DF // ut_FromWithPanelCaption
- ) .SequenceCode.It
+   Seq: ( ME_1B83072744DF // ut_FromWithPanelCaption
+ )
  ; // Attributes
  CONST "elements prefix" 'str'
  CONST "spell names" false
+ CONST dfm:PathOnly '\common\components\gui\Garant\Daily\Forms'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Daily\Forms'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\common\components\gui\Forms'
  CONST extprop:pas:ElementPrefixBase 'str'
  CONST extprop:pas:ElementPrefix 'str_'
 
@@ -329,20 +388,26 @@ ref; // ME_4EB210042F4A LCImplut_FromWithPanelLocalConstants
  : Parent ME_51D534260378 // FromWithPanel
  ;
  : Inherits
-   @ ( WL 'ME_4A7961A701CF' '4A7960CC03A4.pas.ms.script' // TvtPanel
- ) .SequenceCode.It
+   Seq: ( WL 'ME_4A7961A701CF' '4A7960CC03A4.pas.ms.script' // TvtPanel
+ )
  ; // Inherits
  CONST "ControlClass" 'none'
  CONST "need Caption" 'undefined'
  CONST "needs field" true
  CONST "pm" true
  CONST "put to dfm" false
+ CONST dfm:PathOnly '\common\components\gui\Garant\Daily\Forms'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Daily\Forms'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\common\components\gui\Forms'
 
 ref; // ME_51D5346A02B5 WorkSpace
 
 : ME_EBA4A169B7BD
  CONST UID 'EBA4A169B7BD'
  CONST Name 'f_WorkSpace'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY 'Поле для свойства WorkSpace' ;
  CONST Visibility PrivateAccess
@@ -358,6 +423,7 @@ ref; // ME_EBA4A169B7BD f_WorkSpace
 : ME_6EDDA27DE2DB
  CONST UID '6EDDA27DE2DB'
  CONST Name 'Ini_Reg_Class'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Регистрация FromWithPanel' ;
@@ -372,6 +438,7 @@ ref; // ME_6EDDA27DE2DB Ini_Reg_Class
 : ME_DF64362141A0
  CONST UID 'DF64362141A0'
  CONST Name 'Ini_FormFactory_FromWithPanel'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Регистрация фабрики формы FromWithPanel' ;
@@ -379,12 +446,15 @@ ref; // ME_6EDDA27DE2DB Ini_Reg_Class
  CONST Abstraction at_final
  : Parent ME_51D534260378 // FromWithPanel
  ;
+ : SpelledFor ME_51D534260378 // FromWithPanel
+ ;
 
 ref; // ME_DF64362141A0 Ini_FormFactory_FromWithPanel$Def
 
 : ME_62697209BC9B
  CONST UID '62697209BC9B'
- CONST Name 'Init_ut_FromWithPanelCaption'
+ CONST Name 'Init_Str_ut_FromWithPanelCaption'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Инициализация str_ut_FromWithPanelCaption' ;
@@ -392,8 +462,12 @@ ref; // ME_DF64362141A0 Ini_FormFactory_FromWithPanel$Def
  CONST Abstraction at_final
  : Parent ME_51D534260378 // FromWithPanel
  ;
+ : Speller ME_502E9BA2E9A1 // ut_FromWithPanelCaption
+ ;
+ : SpelledFor ME_1B83072744DF // ut_FromWithPanelCaption
+ ;
 
-ref; // ME_62697209BC9B Init_ut_FromWithPanelCaption
+ref; // ME_62697209BC9B Init_Str_ut_FromWithPanelCaption
 
 : ME_51D565B10103
  CONST UID '51D565B10103'
@@ -408,6 +482,7 @@ ref; // ME_51D565B10103
 
 : ME_96C02BD84106
  CONST UID '96C02BD84106'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_51D534260378 // FromWithPanel
@@ -419,6 +494,7 @@ ref; // ME_96C02BD84106
 
 : ME_138DF24BF065
  CONST UID '138DF24BF065'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_51D534260378 // FromWithPanel
@@ -430,6 +506,7 @@ ref; // ME_138DF24BF065
 
 : ME_60644F5AE5B2
  CONST UID '60644F5AE5B2'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_51D534260378 // FromWithPanel
@@ -446,6 +523,7 @@ ref; // ME_60644F5AE5B2
  ;
  : Implementor ME_51D534260378 // FromWithPanel
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4A8E8F2E0195_ME_51D534260378 InitControls
 
 FORWARD ME_E2DBF02FE0BB
@@ -461,48 +539,48 @@ FORWARD ME_E2DBF02FE0BB
  : Parent ME_51D533840334 // FormWithPanel
  ;
  : Inherits
-   @ ( WL 'ME_49525B34022A' '4AADF9450143.pas.ms.script' // TvcmEntityForm
- ) .SequenceCode.It
+   Seq: ( WL 'ME_49525B34022A' '4AADF9450143.pas.ms.script' // TvcmEntityForm
+ )
  ; // Inherits
  : Implements
-   @ ( ME_DA3DF41960FE // FromWithPanel$Def
- ) .SequenceCode.It
+   Seq: ( ME_DA3DF41960FE // FromWithPanel$Def
+ )
  ; // Implements
  : Attributes
-   @ ( ME_51D5346A02B5 // WorkSpace
+   Seq: ( ME_51D5346A02B5 // WorkSpace
  ME_EBA4A169B7BD // f_WorkSpace
- ) .SequenceCode.It
+ )
  ; // Attributes
  : Operations
-   @ ( ME_6EDDA27DE2DB // Ini_Reg_Class
+   Seq: ( ME_6EDDA27DE2DB // Ini_Reg_Class
  ME_DF64362141A0 // Ini_FormFactory_FromWithPanel$Def
- ME_62697209BC9B // Init_ut_FromWithPanelCaption
- ) .SequenceCode.It
+ ME_62697209BC9B // Init_Str_ut_FromWithPanelCaption
+ )
  ; // Operations
  : Overridden
-   @ ( ME_4A8E8F2E0195_ME_51D534260378 // InitControls
- ) .SequenceCode.It
+   Seq: ( ME_4A8E8F2E0195_ME_51D534260378 // InitControls
+ )
  ; // Overridden
  : Children
-   @ ( ME_C8D510D2786B // ut_FromWithPanel
+   Seq: ( ME_C8D510D2786B // ut_FromWithPanel
  ME_DA3DF41960FE // FromWithPanel$Def
- ) .SequenceCode.It
+ )
  ; // Children
  : Constants
-   @ ( ME_276A6ED02559 // ut_FromWithPanelLocalConstants
+   Seq: ( ME_276A6ED02559 // ut_FromWithPanelLocalConstants
  ME_4EB210042F4A // LCImplut_FromWithPanelLocalConstants
- ) .SequenceCode.It
+ )
  ; // Constants
  : Dependencies
-   @ ( ME_51D565B10103 // 
+   Seq: ( ME_51D565B10103 // 
  ME_96C02BD84106 // 
  ME_138DF24BF065 // 
  ME_60644F5AE5B2 // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  : Injected
-   @ ( ME_E2DBF02FE0BB // 
- ) .SequenceCode.It
+   Seq: ( ME_E2DBF02FE0BB // 
+ )
  ; // Injected
  CONST "NeedsHackRef" true
  CONST "ZoneType" 'Any'
@@ -516,14 +594,22 @@ FORWARD ME_E2DBF02FE0BB
  CONST "resizeable" false
  CONST "restrict form def" 'undefined'
  : Generators
- @ (
+ Seq: (
  gen_dfm
  gen_intf.pas
- ) .SequenceCode.It
+ )
  ; // Generators
  CONST dfm:Path 'common\components\gui\Garant\Daily\Forms\FromWithPanel_Form.dfm'
+ CONST dfm:PathOnly '\common\components\gui\Garant\Daily\Forms'
  CONST intf.pas:Path 'common\components\gui\Garant\Daily\Forms\FromWithPanel_Form.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Daily\Forms'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\common\components\gui\Forms'
  CONST extprop:pas:TypeName 'TFromWithPanelForm'
+ CONST extprop:rc:SelfName 'FromWithPanelForm'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'FromWithPanel_Form'
 
 ref; // ME_51D534260378 FromWithPanel
 
@@ -534,6 +620,7 @@ FORWARD ME_2B5A54A6E5EB
 : ME_ECF2DF746A22
  CONST UID 'ECF2DF746A22'
  CONST Name 'Ini_Reg'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Регистрация Tkw_Form_FromWithPanel' ;
@@ -551,6 +638,7 @@ ref; // ME_ECF2DF746A22 Ini_Reg
  ;
  : Implementor ME_2B5A54A6E5EB // Tkw_Form_FromWithPanel
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4DB0614603C8_ME_2B5A54A6E5EB GetWordNameForRegister
 
 : ME_4DDFD2EA0116_ME_2B5A54A6E5EB
@@ -560,11 +648,13 @@ ref; // ME_4DB0614603C8_ME_2B5A54A6E5EB GetWordNameForRegister
  ;
  : Implementor ME_2B5A54A6E5EB // Tkw_Form_FromWithPanel
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4DDFD2EA0116_ME_2B5A54A6E5EB GetString
 
 : ME_2B5A54A6E5EB
  CONST UID '2B5A54A6E5EB'
  CONST Name 'Tkw_Form_FromWithPanel'
+ CONST IsSummoned true
  CONST Class class_Class
  : Stereotype st_ScriptKeyword ;
  CONST Kind kind_NormalClass
@@ -574,17 +664,17 @@ ref; // ME_4DDFD2EA0116_ME_2B5A54A6E5EB GetString
  : Parent ME_0DCE11DEABEB // FromWithPanelKeywordsPack
  ;
  : Inherits
-   @ ( WL 'ME_508527F30183' '54DB92D203C9.pas.ms.script' // TtfwControlString
- ) .SequenceCode.It
+   Seq: ( WL 'ME_508527F30183' '54DB92D203C9.pas.ms.script' // TtfwControlString
+ )
  ; // Inherits
  : Operations
-   @ ( ME_ECF2DF746A22 // Ini_Reg
- ) .SequenceCode.It
+   Seq: ( ME_ECF2DF746A22 // Ini_Reg
+ )
  ; // Operations
  : Overridden
-   @ ( ME_4DB0614603C8_ME_2B5A54A6E5EB // GetWordNameForRegister
+   Seq: ( ME_4DB0614603C8_ME_2B5A54A6E5EB // GetWordNameForRegister
  ME_4DDFD2EA0116_ME_2B5A54A6E5EB // GetString
- ) .SequenceCode.It
+ )
  ; // Overridden
  CONST "NameForScript" 'форма::FromWithPanel'
  CONST "ifndef" 'NoScripts'
@@ -592,6 +682,13 @@ ref; // ME_4DDFD2EA0116_ME_2B5A54A6E5EB GetString
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
+ CONST dfm:PathOnly '\common\components\gui\Garant\Daily\Forms'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Daily\Forms'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\common\components\gui\Forms'
+ CONST extprop:rc:SelfName '_Form_FromWithPanel'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_2B5A54A6E5EB Tkw_Form_FromWithPanel
 
@@ -600,6 +697,7 @@ FORWARD ME_5BBF7B69BE1D
 : ME_8247D0934AEC
  CONST UID '8247D0934AEC'
  CONST Name 'Ini_Reg'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Регистрация Tkw_FromWithPanel_Control_WorkSpace' ;
@@ -612,6 +710,7 @@ ref; // ME_8247D0934AEC Ini_Reg
 
 : ME_F90213F43D11
  CONST UID 'F90213F43D11'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_5BBF7B69BE1D // Tkw_FromWithPanel_Control_WorkSpace
@@ -623,6 +722,7 @@ ref; // ME_F90213F43D11
 
 : ME_529279979E31
  CONST UID '529279979E31'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_5BBF7B69BE1D // Tkw_FromWithPanel_Control_WorkSpace
@@ -639,6 +739,7 @@ ref; // ME_529279979E31
  ;
  : Implementor ME_5BBF7B69BE1D // Tkw_FromWithPanel_Control_WorkSpace
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4DB0614603C8_ME_5BBF7B69BE1D GetWordNameForRegister
 
 : ME_4DDFD2EA0116_ME_5BBF7B69BE1D
@@ -648,6 +749,7 @@ ref; // ME_4DB0614603C8_ME_5BBF7B69BE1D GetWordNameForRegister
  ;
  : Implementor ME_5BBF7B69BE1D // Tkw_FromWithPanel_Control_WorkSpace
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4DDFD2EA0116_ME_5BBF7B69BE1D GetString
 
 : ME_52A086150180_ME_5BBF7B69BE1D
@@ -657,12 +759,14 @@ ref; // ME_4DDFD2EA0116_ME_5BBF7B69BE1D GetString
  ;
  : Implementor ME_5BBF7B69BE1D // Tkw_FromWithPanel_Control_WorkSpace
  ;
+ CONST OpKind opkind_Overridden
  CONST "is static" true
 ref; // ME_52A086150180_ME_5BBF7B69BE1D RegisterInEngine
 
 : ME_5BBF7B69BE1D
  CONST UID '5BBF7B69BE1D'
  CONST Name 'Tkw_FromWithPanel_Control_WorkSpace'
+ CONST IsSummoned true
  CONST Class class_Class
  : Stereotype st_ScriptKeyword ;
  CONST Kind kind_NormalClass
@@ -672,29 +776,36 @@ ref; // ME_52A086150180_ME_5BBF7B69BE1D RegisterInEngine
  : Parent ME_0DCE11DEABEB // FromWithPanelKeywordsPack
  ;
  : Inherits
-   @ ( WL 'ME_508527F30183' '54DB92D203C9.pas.ms.script' // TtfwControlString
- ) .SequenceCode.It
+   Seq: ( WL 'ME_508527F30183' '54DB92D203C9.pas.ms.script' // TtfwControlString
+ )
  ; // Inherits
  : Operations
-   @ ( ME_8247D0934AEC // Ini_Reg
- ) .SequenceCode.It
+   Seq: ( ME_8247D0934AEC // Ini_Reg
+ )
  ; // Operations
  : Overridden
-   @ ( ME_4DB0614603C8_ME_5BBF7B69BE1D // GetWordNameForRegister
+   Seq: ( ME_4DB0614603C8_ME_5BBF7B69BE1D // GetWordNameForRegister
  ME_4DDFD2EA0116_ME_5BBF7B69BE1D // GetString
  ME_52A086150180_ME_5BBF7B69BE1D // RegisterInEngine
- ) .SequenceCode.It
+ )
  ; // Overridden
  : Dependencies
-   @ ( ME_F90213F43D11 // 
+   Seq: ( ME_F90213F43D11 // 
  ME_529279979E31 // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  CONST "NameForScript" 'контрол::WorkSpace'
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
+ CONST dfm:PathOnly '\common\components\gui\Garant\Daily\Forms'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Daily\Forms'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\common\components\gui\Forms'
+ CONST extprop:rc:SelfName '_FromWithPanel_Control_WorkSpace'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_5BBF7B69BE1D Tkw_FromWithPanel_Control_WorkSpace
 
@@ -703,6 +814,7 @@ FORWARD ME_B42BC0D3240E
 : ME_AA1FCC50C1C1
  CONST UID 'AA1FCC50C1C1'
  CONST Name 'Ini_Reg'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Регистрация Tkw_FromWithPanel_Control_WorkSpace_Push' ;
@@ -715,6 +827,7 @@ ref; // ME_AA1FCC50C1C1 Ini_Reg
 
 : ME_53300059B724
  CONST UID '53300059B724'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_B42BC0D3240E // Tkw_FromWithPanel_Control_WorkSpace_Push
@@ -731,6 +844,7 @@ ref; // ME_53300059B724
  ;
  : Implementor ME_B42BC0D3240E // Tkw_FromWithPanel_Control_WorkSpace_Push
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4DAEEDE10285_ME_B42BC0D3240E DoDoIt
 
 : ME_4DB0614603C8_ME_B42BC0D3240E
@@ -740,11 +854,13 @@ ref; // ME_4DAEEDE10285_ME_B42BC0D3240E DoDoIt
  ;
  : Implementor ME_B42BC0D3240E // Tkw_FromWithPanel_Control_WorkSpace_Push
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4DB0614603C8_ME_B42BC0D3240E GetWordNameForRegister
 
 : ME_B42BC0D3240E
  CONST UID 'B42BC0D3240E'
  CONST Name 'Tkw_FromWithPanel_Control_WorkSpace_Push'
+ CONST IsSummoned true
  CONST Class class_Class
  : Stereotype st_ScriptKeyword ;
  CONST Kind kind_NormalClass
@@ -754,27 +870,34 @@ ref; // ME_4DB0614603C8_ME_B42BC0D3240E GetWordNameForRegister
  : Parent ME_0DCE11DEABEB // FromWithPanelKeywordsPack
  ;
  : Inherits
-   @ ( WL 'ME_4F2141AD0203' '4F69DF560034.pas.ms.script' // byname_control_push
- ) .SequenceCode.It
+   Seq: ( WL 'ME_4F2141AD0203' '4F69DF560034.pas.ms.script' // byname_control_push
+ )
  ; // Inherits
  : Operations
-   @ ( ME_AA1FCC50C1C1 // Ini_Reg
- ) .SequenceCode.It
+   Seq: ( ME_AA1FCC50C1C1 // Ini_Reg
+ )
  ; // Operations
  : Overridden
-   @ ( ME_4DAEEDE10285_ME_B42BC0D3240E // DoDoIt
+   Seq: ( ME_4DAEEDE10285_ME_B42BC0D3240E // DoDoIt
  ME_4DB0614603C8_ME_B42BC0D3240E // GetWordNameForRegister
- ) .SequenceCode.It
+ )
  ; // Overridden
  : Dependencies
-   @ ( ME_53300059B724 // 
- ) .SequenceCode.It
+   Seq: ( ME_53300059B724 // 
+ )
  ; // Dependencies
  CONST "NameForScript" 'контрол::WorkSpace:push'
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
+ CONST dfm:PathOnly '\common\components\gui\Garant\Daily\Forms'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Daily\Forms'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\common\components\gui\Forms'
+ CONST extprop:rc:SelfName '_FromWithPanel_Control_WorkSpace_Push'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_B42BC0D3240E Tkw_FromWithPanel_Control_WorkSpace_Push
 
@@ -783,6 +906,7 @@ FORWARD ME_E583E346F779
 : ME_D5D180FBCAB9
  CONST UID 'D5D180FBCAB9'
  CONST Name 'aCtx'
+ CONST IsSummoned true
  CONST Class class_Parameter
  : Stereotype st_in ;
  : Target WL 'ME_4DB0091E033E' '4DAF19F600C5.pas.ms.script' // TtfwContext
@@ -793,6 +917,7 @@ ref; // ME_D5D180FBCAB9 aCtx
 : ME_D5D180FBCABA
  CONST UID 'D5D180FBCABA'
  CONST Name 'aFromWithPanelForm'
+ CONST IsSummoned true
  CONST Class class_Parameter
  : Stereotype st_in ;
  : Target ME_51D534260378 // FromWithPanel
@@ -803,6 +928,7 @@ ref; // ME_D5D180FBCABA aFromWithPanelForm
 : ME_73128B9B7C04
  CONST UID '73128B9B7C04'
  CONST Name 'WorkSpace'
+ CONST IsSummoned true
  CONST Class class_Operation
  %SUMMARY 'Реализация слова скрипта .TFromWithPanelForm.WorkSpace' ;
  CONST Visibility PrivateAccess
@@ -812,9 +938,9 @@ ref; // ME_D5D180FBCABA aFromWithPanelForm
  : Target WL 'ME_4A7961A701CF' '4A7960CC03A4.pas.ms.script' // TvtPanel
  ;
  : Parameters
-   @ ( ME_D5D180FBCAB9 // aCtx
+   Seq: ( ME_D5D180FBCAB9 // aCtx
  ME_D5D180FBCABA // aFromWithPanelForm
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_73128B9B7C04 WorkSpace
@@ -822,6 +948,7 @@ ref; // ME_73128B9B7C04 WorkSpace
 : ME_7AC9EE36CF35
  CONST UID '7AC9EE36CF35'
  CONST Name 'Ini_Reg'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Регистрация FromWithPanelForm_WorkSpace' ;
@@ -834,6 +961,7 @@ ref; // ME_7AC9EE36CF35 Ini_Reg
 
 : ME_5040466B991C
  CONST UID '5040466B991C'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_E583E346F779 // FromWithPanelForm_WorkSpace
@@ -845,6 +973,7 @@ ref; // ME_5040466B991C
 
 : ME_D697F9ED72A5
  CONST UID 'D697F9ED72A5'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_E583E346F779 // FromWithPanelForm_WorkSpace
@@ -856,6 +985,7 @@ ref; // ME_D697F9ED72A5
 
 : ME_13EDC7B7428A
  CONST UID '13EDC7B7428A'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_E583E346F779 // FromWithPanelForm_WorkSpace
@@ -872,6 +1002,7 @@ ref; // ME_13EDC7B7428A
  ;
  : Implementor ME_E583E346F779 // FromWithPanelForm_WorkSpace
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_4DAEEDE10285_ME_E583E346F779 DoDoIt
 
 : ME_4DB0614603C8_ME_E583E346F779
@@ -881,6 +1012,7 @@ ref; // ME_4DAEEDE10285_ME_E583E346F779 DoDoIt
  ;
  : Implementor ME_E583E346F779 // FromWithPanelForm_WorkSpace
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4DB0614603C8_ME_E583E346F779 GetWordNameForRegister
 
 : ME_52D00B00031A_ME_E583E346F779
@@ -890,6 +1022,7 @@ ref; // ME_4DB0614603C8_ME_E583E346F779 GetWordNameForRegister
  ;
  : Implementor ME_E583E346F779 // FromWithPanelForm_WorkSpace
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_52D00B00031A_ME_E583E346F779 SetValuePrim
 
 : ME_551544E2001A_ME_E583E346F779
@@ -899,6 +1032,7 @@ ref; // ME_52D00B00031A_ME_E583E346F779 SetValuePrim
  ;
  : Implementor ME_E583E346F779 // FromWithPanelForm_WorkSpace
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_551544E2001A_ME_E583E346F779 GetResultTypeInfo
 
 : ME_559687E6025A_ME_E583E346F779
@@ -908,6 +1042,7 @@ ref; // ME_551544E2001A_ME_E583E346F779 GetResultTypeInfo
  ;
  : Implementor ME_E583E346F779 // FromWithPanelForm_WorkSpace
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_559687E6025A_ME_E583E346F779 GetAllParamsCount
 
 : ME_5617F4D00243_ME_E583E346F779
@@ -917,11 +1052,13 @@ ref; // ME_559687E6025A_ME_E583E346F779 GetAllParamsCount
  ;
  : Implementor ME_E583E346F779 // FromWithPanelForm_WorkSpace
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_5617F4D00243_ME_E583E346F779 ParamsTypes
 
 : ME_E583E346F779
  CONST UID 'E583E346F779'
  CONST Name 'FromWithPanelForm_WorkSpace'
+ CONST IsSummoned true
  CONST Class class_Class
  : Stereotype st_ScriptKeyword ;
  CONST Kind kind_NormalClass
@@ -931,44 +1068,52 @@ ref; // ME_5617F4D00243_ME_E583E346F779 ParamsTypes
  : Parent ME_0DCE11DEABEB // FromWithPanelKeywordsPack
  ;
  : Inherits
-   @ ( WL 'ME_5619169603BE' '55CCADD2013D.pas.ms.script' // TtfwPropertyLike
- ) .SequenceCode.It
+   Seq: ( WL 'ME_5619169603BE' '55CCADD2013D.pas.ms.script' // TtfwPropertyLike
+ )
  ; // Inherits
  : Operations
-   @ ( ME_73128B9B7C04 // WorkSpace
+   Seq: ( ME_73128B9B7C04 // WorkSpace
  ME_7AC9EE36CF35 // Ini_Reg
- ) .SequenceCode.It
+ )
  ; // Operations
  : Implemented
-   @ ( ME_4DAEEDE10285_ME_E583E346F779 // DoDoIt
- ) .SequenceCode.It
+   Seq: ( ME_4DAEEDE10285_ME_E583E346F779 // DoDoIt
+ )
  ; // Implemented
  : Overridden
-   @ ( ME_4DB0614603C8_ME_E583E346F779 // GetWordNameForRegister
+   Seq: ( ME_4DB0614603C8_ME_E583E346F779 // GetWordNameForRegister
  ME_52D00B00031A_ME_E583E346F779 // SetValuePrim
  ME_551544E2001A_ME_E583E346F779 // GetResultTypeInfo
  ME_559687E6025A_ME_E583E346F779 // GetAllParamsCount
  ME_5617F4D00243_ME_E583E346F779 // ParamsTypes
- ) .SequenceCode.It
+ )
  ; // Overridden
  : Dependencies
-   @ ( ME_5040466B991C // 
+   Seq: ( ME_5040466B991C // 
  ME_D697F9ED72A5 // 
  ME_13EDC7B7428A // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  CONST "NameForScript" '.TFromWithPanelForm.WorkSpace'
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
+ CONST dfm:PathOnly '\common\components\gui\Garant\Daily\Forms'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Daily\Forms'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\common\components\gui\Forms'
  CONST extprop:pas:TypeName 'TkwFromWithPanelFormWorkSpace'
+ CONST extprop:rc:SelfName 'FromWithPanelFormWorkSpace'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_E583E346F779 FromWithPanelForm_WorkSpace
 
 : ME_B17B543E327C
  CONST UID 'B17B543E327C'
  CONST Name 'WorkSpace'
+ CONST IsSummoned true
  CONST Class class_Attribute
  : Stereotype st_readonly::Attribute ;
  %SUMMARY 'Контрол WorkSpace формы TFromWithPanelForm' ;
@@ -987,6 +1132,7 @@ ref; // ME_B17B543E327C WorkSpace
 : ME_A74A85A76B37
  CONST UID 'A74A85A76B37'
  CONST Name 'WorkSpace'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_keyword::Operation ;
  %SUMMARY 'Контрол WorkSpace формы TFromWithPanelForm' ;
@@ -1005,7 +1151,8 @@ ref; // ME_A74A85A76B37 WorkSpace
 
 : ME_E0D6EFFC1BB7
  CONST UID 'E0D6EFFC1BB7'
- CONST Name 'Reg_TtfwContext'
+ CONST Name 'Reg_Type_TtfwContext'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Регистрация типа TtfwContext' ;
@@ -1013,12 +1160,15 @@ ref; // ME_A74A85A76B37 WorkSpace
  CONST Abstraction at_final
  : Parent ME_0DCE11DEABEB // FromWithPanelKeywordsPack
  ;
+ : SpelledFor WL 'ME_4DB0091E033E' '4DAF19F600C5.pas.ms.script' // TtfwContext
+ ;
 
-ref; // ME_E0D6EFFC1BB7 Reg_TtfwContext
+ref; // ME_E0D6EFFC1BB7 Reg_Type_TtfwContext
 
 : ME_4F72F0093097
  CONST UID '4F72F0093097'
- CONST Name 'Reg_FromWithPanel'
+ CONST Name 'Reg_Type_FromWithPanel'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Регистрация типа FromWithPanel' ;
@@ -1026,12 +1176,15 @@ ref; // ME_E0D6EFFC1BB7 Reg_TtfwContext
  CONST Abstraction at_final
  : Parent ME_0DCE11DEABEB // FromWithPanelKeywordsPack
  ;
+ : SpelledFor ME_51D534260378 // FromWithPanel
+ ;
 
-ref; // ME_4F72F0093097 Reg_FromWithPanel
+ref; // ME_4F72F0093097 Reg_Type_FromWithPanel
 
 : ME_CFA23B3A24C8
  CONST UID 'CFA23B3A24C8'
- CONST Name 'Reg_TvtPanel'
+ CONST Name 'Reg_Type_TvtPanel'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Регистрация типа TvtPanel' ;
@@ -1039,11 +1192,14 @@ ref; // ME_4F72F0093097 Reg_FromWithPanel
  CONST Abstraction at_final
  : Parent ME_0DCE11DEABEB // FromWithPanelKeywordsPack
  ;
+ : SpelledFor WL 'ME_4A7961A701CF' '4A7960CC03A4.pas.ms.script' // TvtPanel
+ ;
 
-ref; // ME_CFA23B3A24C8 Reg_TvtPanel
+ref; // ME_CFA23B3A24C8 Reg_Type_TvtPanel
 
 : ME_77B21BEE3650
  CONST UID '77B21BEE3650'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_0DCE11DEABEB // FromWithPanelKeywordsPack
@@ -1055,6 +1211,7 @@ ref; // ME_77B21BEE3650
 
 : ME_E2DBF02FE0BB
  CONST UID 'E2DBF02FE0BB'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_injects::Dependency ;
  : Parent ME_0DCE11DEABEB // FromWithPanelKeywordsPack
@@ -1066,6 +1223,7 @@ ref; // ME_E2DBF02FE0BB
 
 : ME_35E62FA89000
  CONST UID '35E62FA89000'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_0DCE11DEABEB // FromWithPanelKeywordsPack
@@ -1078,6 +1236,7 @@ ref; // ME_35E62FA89000
 : ME_0DCE11DEABEB
  CONST UID '0DCE11DEABEB'
  CONST Name 'FromWithPanelKeywordsPack'
+ CONST IsSummoned true
  CONST Class class_Class
  : Stereotype st_ScriptKeywordsPack ;
  CONST Kind kind_NormalClass
@@ -1087,32 +1246,32 @@ ref; // ME_35E62FA89000
  : Parent ME_51D533840334 // FormWithPanel
  ;
  : Inherits
-   @ ( ME_51D534260378 // FromWithPanel
- ) .SequenceCode.It
+   Seq: ( ME_51D534260378 // FromWithPanel
+ )
  ; // Inherits
  : Attributes
-   @ ( ME_B17B543E327C // WorkSpace
- ) .SequenceCode.It
+   Seq: ( ME_B17B543E327C // WorkSpace
+ )
  ; // Attributes
  : Operations
-   @ ( ME_A74A85A76B37 // WorkSpace
- ME_E0D6EFFC1BB7 // Reg_TtfwContext
- ME_4F72F0093097 // Reg_FromWithPanel
- ME_CFA23B3A24C8 // Reg_TvtPanel
- ) .SequenceCode.It
+   Seq: ( ME_A74A85A76B37 // WorkSpace
+ ME_E0D6EFFC1BB7 // Reg_Type_TtfwContext
+ ME_4F72F0093097 // Reg_Type_FromWithPanel
+ ME_CFA23B3A24C8 // Reg_Type_TvtPanel
+ )
  ; // Operations
  : Children
-   @ ( ME_2B5A54A6E5EB // Tkw_Form_FromWithPanel
+   Seq: ( ME_2B5A54A6E5EB // Tkw_Form_FromWithPanel
  ME_5BBF7B69BE1D // Tkw_FromWithPanel_Control_WorkSpace
  ME_B42BC0D3240E // Tkw_FromWithPanel_Control_WorkSpace_Push
  ME_E583E346F779 // FromWithPanelForm_WorkSpace
- ) .SequenceCode.It
+ )
  ; // Children
  : Dependencies
-   @ ( ME_77B21BEE3650 // 
+   Seq: ( ME_77B21BEE3650 // 
  ME_E2DBF02FE0BB // 
  ME_35E62FA89000 // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  CONST "ifndef" 'NoScripts'
  CONST "needs script" 'undefined'
@@ -1120,11 +1279,16 @@ ref; // ME_35E62FA89000
  CONST "no hands" false
  CONST "no_pop" true
  : Generators
- @ (
+ Seq: (
  gen_intf.pas
- ) .SequenceCode.It
+ )
  ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\Daily\Forms'
  CONST intf.pas:Path 'common\components\gui\Garant\Daily\Forms\FromWithPanelKeywordsPack.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Daily\Forms'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\common\components\gui\Forms'
 
 ref; // ME_0DCE11DEABEB FromWithPanelKeywordsPack
 
@@ -1138,12 +1302,12 @@ ref; // ME_0DCE11DEABEB FromWithPanelKeywordsPack
  : Parent WL 'ME_4B30C6E3023C' '4B30C6E3023C.pas.ms.script' // Forms
  ;
  : Children
-   @ ( ME_51D534260378 // FromWithPanel
+   Seq: ( ME_51D534260378 // FromWithPanel
  ME_0DCE11DEABEB // FromWithPanelKeywordsPack
- ) .SequenceCode.It
+ )
  ; // Children
  : Depends
-   @ ( WL 'ME_4683F37902CF' '4683F37902CF.pas.ms.script' // vcmInterfaces
+   Seq: ( WL 'ME_4683F37902CF' '4683F37902CF.pas.ms.script' // vcmInterfaces
  WL 'ME_4767743E00E5' '4767743E00E5.pas.ms.script' // TypInfo
  WL 'ME_4799D29F033F' '4799D29F033F.pas.ms.script' // Implementation
  WL 'ME_499EAAE502A8' '499EAAE502A8.pas.ms.script' // vcmUserControls
@@ -1158,15 +1322,20 @@ ref; // ME_0DCE11DEABEB FromWithPanelKeywordsPack
  WL 'ME_55BA28CE0290' '55BA28CE0290.pas.ms.script' // tfwScriptingTypes
  WL 'ME_55CCADD2013D' '55CCADD2013D.pas.ms.script' // ClassLikeMapping
  WL 'ME_561F9F7D02A7' '561F9F7D02A7.pas.ms.script' // ScriptEngine
- ) .SequenceCode.It
+ )
  ; // Depends
  : Generators
- @ (
+ Seq: (
  gen_pas.script
  gen_pas.script.runner
- ) .SequenceCode.It
+ )
  ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\Daily\Forms'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Daily\Forms'
  CONST pas.script:Path 'shared\models\NewSchool\Scripts\51D533840334.pas.ms.script'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
  CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\51D533840334.pas.ms.script.runner'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\common\components\gui\Forms'
 
 ref; // ME_51D533840334 FormWithPanel

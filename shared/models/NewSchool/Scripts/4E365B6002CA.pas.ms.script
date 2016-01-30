@@ -1,0 +1,88 @@
+// Отображение списков 4E365B6002CA UseCases Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4E365B6002CA
+
+FORWARD ME_4E365B7F023B
+
+: ME_4F54AFDF01F3
+ CONST UID '4F54AFDF01F3'
+ CONST Name 'Структура документа должна показываться своим собственным стилем'
+ CONST Class class_Class
+ : Stereotype st_UseCaseRequirement ;
+ CONST Kind kind_NormalClass
+ %SUMMARY '{RequestLink:336142662}' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4E365B7F023B // Отдельная настройка шрифта в панели навигации
+ ;
+ CONST dfm:PathOnly '\common\components'
+ CONST intf.pas:PathOnly '\common\components'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+
+ref; // ME_4F54AFDF01F3 Структура документа должна показываться своим собственным стилем
+
+: ME_4F54B0740014
+ CONST UID '4F54B0740014'
+ CONST Name 'Рубрикатор должен показываться стилем Текст'
+ CONST Class class_Class
+ : Stereotype st_UseCaseRequirement ;
+ CONST Kind kind_NormalClass
+ %SUMMARY '{RequestLink:336142662}' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4E365B7F023B // Отдельная настройка шрифта в панели навигации
+ ;
+ CONST dfm:PathOnly '\common\components'
+ CONST intf.pas:PathOnly '\common\components'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+
+ref; // ME_4F54B0740014 Рубрикатор должен показываться стилем Текст
+
+: ME_4E365B7F023B
+ CONST UID '4E365B7F023B'
+ CONST Name 'Отдельная настройка шрифта в панели навигации'
+ CONST Class class_Class
+ : Stereotype st_UseCase ;
+ CONST Kind kind_NormalClass
+ %SUMMARY '{RequestLink:96475831}' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4E365B6002CA // Отображение списков
+ ;
+ : Children
+   Seq: ( ME_4F54AFDF01F3 // Структура документа должна показываться своим собственным стилем
+ ME_4F54B0740014 // Рубрикатор должен показываться стилем Текст
+ )
+ ; // Children
+ CONST dfm:PathOnly '\common\components'
+ CONST intf.pas:PathOnly '\common\components'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+
+ref; // ME_4E365B7F023B Отдельная настройка шрифта в панели навигации
+
+: ME_4E365B6002CA
+ CONST UID '4E365B6002CA'
+ CONST Name 'Отображение списков'
+ CONST Class class_Category
+ : Stereotype st_UseCases ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent WL 'ME_4E36644A0023' '4E36644A0023.pas.ms.script' // Стандартные компоненты
+ ;
+ : Children
+   Seq: ( ME_4E365B7F023B // Отдельная настройка шрифта в панели навигации
+ )
+ ; // Children
+ CONST dfm:PathOnly '\common\components'
+ CONST intf.pas:PathOnly '\common\components'
+ CONST pas.script:Path 'shared\models\NewSchool\Scripts\4E365B6002CA.pas.ms.script'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\4E365B6002CA.pas.ms.script.runner'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+
+ref; // ME_4E365B6002CA Отображение списков

@@ -1,0 +1,155 @@
+// HAFPainters 4CF3810D0038 VCMForms Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4CF3810D0038
+
+FORWARD ME_4CF37C170269
+
+: ME_4CF37B3401D9
+ CONST UID '4CF37B3401D9'
+ CONST Name 'TnsConsultationHAFPainter'
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4CF37C170269 // nsConsultationHAFPainterImages
+ ;
+ : Inherits
+   Seq: ( WL 'ME_47F2317F015E' '491DCA2C00A9.pas.ms.script' // TnsHAFPainter
+ )
+ ; // Inherits
+ CONST "UseNewGen" 'undefined'
+ CONST "author" 'Люлин А.В.'
+ CONST "finished" false
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ CONST "started" '2010/10/26 13:02:52'
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Consultation'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Consultation'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\Consultation'
+
+ref; // ME_4CF37B3401D9 TnsConsultationHAFPainter
+
+: ME_A9BB14C0B36A
+ CONST UID 'A9BB14C0B36A'
+ CONST Name 'Ini_Reg_Class'
+ CONST IsSummoned true
+ CONST Class class_Operation
+ : Stereotype st_ini::Operation ;
+ %SUMMARY 'Регистрация nsConsultationHAFPainterImages' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_4CF37C170269 // nsConsultationHAFPainterImages
+ ;
+ CONST "UseNewGen" 'undefined'
+ CONST "ifndef" 'NoScripts'
+
+ref; // ME_A9BB14C0B36A Ini_Reg_Class
+
+: ME_0DB87C32D2CD
+ CONST UID '0DB87C32D2CD'
+ CONST IsSummoned true
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4CF37C170269 // nsConsultationHAFPainterImages
+ ;
+ : Target WL 'ME_561F9F9400BC' '561F9F7D02A7.pas.ms.script' // TtfwClassRef
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_0DB87C32D2CD 
+
+: ME_4CF37C170269
+ CONST UID '4CF37C170269'
+ CONST Name 'nsConsultationHAFPainterImages'
+ CONST Class class_Class
+ : Stereotype st_VCMDataModule ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4CF3810D0038 // HAFPainters
+ ;
+ : Inherits
+   Seq: ( WL 'ME_4AAA214A0250' '4AB0997B00A2.pas.ms.script' // TDataModule
+ )
+ ; // Inherits
+ : Operations
+   Seq: ( ME_A9BB14C0B36A // Ini_Reg_Class
+ )
+ ; // Operations
+ : Children
+   Seq: ( ME_4CF37B3401D9 // TnsConsultationHAFPainter
+ )
+ ; // Children
+ : Dependencies
+   Seq: ( ME_0DB87C32D2CD // 
+ )
+ ; // Dependencies
+ CONST "NeedsHackRef" true
+ CONST "UseNewGen" 'undefined'
+ CONST "author" 'Люлин А.В.'
+ CONST "base wnd class" 'CWnd'
+ CONST "finished" false
+ CONST "finished dfm" true
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ CONST "resizeable" false
+ : Generators
+ Seq: (
+ gen_intf.pas
+ )
+ ; // Generators
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Consultation'
+ CONST intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\Consultation\NOT_FINISHED_nsConsultationHAFPainterImages_Form.pas'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Consultation'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\Consultation'
+ CONST extprop:pas:TypeName 'TnsConsultationHAFPainterImagesForm'
+ CONST extprop:pas:UnitName 'nsConsultationHAFPainterImages_Form'
+
+ref; // ME_4CF37C170269 nsConsultationHAFPainterImages
+
+: ME_4CF3810D0038
+ CONST UID '4CF3810D0038'
+ CONST Name 'HAFPainters'
+ CONST Class class_Category
+ : Stereotype st_VCMForms ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent WL 'ME_4CF380E402F8' '4CF380E402F8.pas.ms.script' // Consultation$View
+ ;
+ : Children
+   Seq: ( ME_4CF37C170269 // nsConsultationHAFPainterImages
+ )
+ ; // Children
+ : Depends
+   Seq: ( WL 'ME_491DCA2C00A9' '491DCA2C00A9.pas.ms.script' // Search
+ WL 'ME_4AB0997B00A2' '4AB0997B00A2.pas.ms.script' // Common
+ WL 'ME_561F9F7D02A7' '561F9F7D02A7.pas.ms.script' // ScriptEngine
+ )
+ ; // Depends
+ CONST "UseNewGen" 'undefined'
+ : Generators
+ Seq: (
+ gen_pas.script
+ gen_pas.script.runner
+ )
+ ; // Generators
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Consultation'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Consultation'
+ CONST pas.script:Path 'shared\models\NewSchool\Scripts\4CF3810D0038.pas.ms.script'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\4CF3810D0038.pas.ms.script.runner'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\Consultation'
+
+ref; // ME_4CF3810D0038 HAFPainters

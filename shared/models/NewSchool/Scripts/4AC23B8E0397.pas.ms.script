@@ -1,0 +1,63 @@
+// F1 Core 4AC23B8E0397 VCMDomain Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+: ME_4AC23B8E0397
+ CONST UID '4AC23B8E0397'
+ CONST Name 'F1 Core'
+ CONST Class class_Category
+ : Stereotype st_VCMDomain ;
+ %SUMMARY 'Базовые модули оболочки' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Children
+   Seq: ( WL 'ME_4A92C561015D' '4A92C561015D.pas.ms.script' // Common
+ WL 'ME_4A7C095601DA' '4A7C095601DA.pas.ms.script' // Base Operations
+ WL 'ME_4954BDE30347' '4954BDE30347.pas.ms.script' // Splash
+ )
+ ; // Children
+ : Depends
+   Seq: ( WL 'ME_442BEDF00290' '442BEDF00290.pas.ms.script' // garant6x
+ WL 'ME_45ED6F0303D2' '45ED6F0303D2.pas.ms.script' // shared
+ WL 'ME_4677DDBD0193' '4677DDBD0193.pas.ms.script' // Shared Delphi
+ WL 'ME_498B35810374' '498B35810374.pas.ms.script' // F1 Базовые определения предметной области
+ WL 'ME_49B1511700CA' '49B1511700CA.pas.ms.script' // Shared Delphi Core
+ WL 'ME_4A82FE48010A' '4A82FE48010A.pas.ms.script' // Shared Delphi Operations
+ WL 'ME_4A856C6B0338' '4A856C6B0338.pas.ms.script' // F1 Common For Shell And Monitoring
+ WL 'ME_4AB1071F01B0' '4AB1071F01B0.pas.ms.script' // Shared Delphi For F1
+ WL 'ME_4ABCC25A0322' '4ABCC25A0322.pas.ms.script' // Shared Delphi Low Level
+ WL 'ME_4E366CA201C2' '4E366CA201C2.pas.ms.script' // F1 Требования
+ WL 'ME_4E5BC50E02E1' '4E5BC50E02E1.pas.ms.script' // Shared Delphi Требования к низкоуровневым библиотекам
+ WL 'ME_4E78CD64017F' '4E78CD64017F.pas.ms.script' // F1 Проблемы и решения
+ WL 'ME_4F6CCC8800A0' '4F6CCC8800A0.pas.ms.script' // Shared Delphi F1 Like Application
+ WL 'ME_561FCFDC007C' '561FCFDC007C.pas.ms.script' // Templates
+ WL 'ME_562E251101C2' '562E251101C2.pas.ms.script' // Shared Delphi Rtl
+ )
+ ; // Depends
+ CONST "Full MDP" false
+ CONST "create project" true
+ CONST "defines" 'nsDefine.inc'
+ CONST "fix version" 0
+ CONST "full constraint" false
+ CONST "ifndef" 'Admin,Monitorings'
+ CONST "major version" 7
+ CONST "minor version" 12
+ CONST "package prefix" 'ru.garant'
+ CONST "root path suffix" '/implementation/Garant'
+ CONST "space key" 'NMS'
+ CONST "space name" 'Nemesis'
+ : Generators
+ Seq: (
+ gen_pas.script
+ gen_pas.script.runner
+ )
+ ; // Generators
+ CONST dfm:PathOnly '\garant6x\implementation\Garant'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant'
+ CONST pas.script:Path 'shared\models\NewSchool\Scripts\4AC23B8E0397.pas.ms.script'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\4AC23B8E0397.pas.ms.script.runner'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant'
+
+ref; // ME_4AC23B8E0397 F1 Core

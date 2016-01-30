@@ -21,6 +21,7 @@ FORWARD ME_499441EF01A9
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value '''Закрыть'''
 
 ref; // ME_499441F601BF CloseHint
 
@@ -37,6 +38,7 @@ ref; // ME_499441F601BF CloseHint
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value '''Открыть в новом окне'''
 
 ref; // ME_499441FB0098 MaximizedHint
 
@@ -53,6 +55,7 @@ ref; // ME_499441FB0098 MaximizedHint
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value '''Открыть в текущем окне'''
 
 ref; // ME_499441FF030C OpenHint
 
@@ -67,15 +70,19 @@ ref; // ME_499441FF030C OpenHint
  : Parent ME_4B8E967F00BE // vcmMenuManagerRes
  ;
  : Attributes
-   @ ( ME_499441F601BF // CloseHint
+   Seq: ( ME_499441F601BF // CloseHint
  ME_499441FB0098 // MaximizedHint
  ME_499441FF030C // OpenHint
- ) .SequenceCode.It
+ )
  ; // Attributes
  CONST "Need map interface" false
  CONST "Need mapping support" false
  CONST "children prefix" 'vcm'
  CONST "spell names" false
+ CONST dfm:PathOnly '\common\components\gui\Garant\VCM\implementation'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\VCM\implementation'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
  CONST extprop:pas:ElementPrefix 'vcm'
 
 ref; // ME_499441EF01A9 TvcmUserTypeHints
@@ -85,6 +92,7 @@ FORWARD ME_FB02A8C924A8
 : ME_AB31C63C062C
  CONST UID 'AB31C63C062C'
  CONST Name 'CloseHint'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY '''Закрыть''' ;
  CONST Visibility PublicAccess
@@ -100,12 +108,14 @@ FORWARD ME_FB02A8C924A8
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''vcmCloseHint''; rValue : ''Закрыть'')'
 
 ref; // ME_AB31C63C062C CloseHint
 
 : ME_3020E2A62239
  CONST UID '3020E2A62239'
  CONST Name 'MaximizedHint'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY '''Открыть в новом окне''' ;
  CONST Visibility PublicAccess
@@ -121,12 +131,14 @@ ref; // ME_AB31C63C062C CloseHint
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''vcmMaximizedHint''; rValue : ''Открыть в новом окне'')'
 
 ref; // ME_3020E2A62239 MaximizedHint
 
 : ME_972B6A393155
  CONST UID '972B6A393155'
  CONST Name 'OpenHint'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY '''Открыть в текущем окне''' ;
  CONST Visibility PublicAccess
@@ -142,12 +154,14 @@ ref; // ME_3020E2A62239 MaximizedHint
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''vcmOpenHint''; rValue : ''Открыть в текущем окне'')'
 
 ref; // ME_972B6A393155 OpenHint
 
 : ME_FB02A8C924A8
  CONST UID 'FB02A8C924A8'
  CONST Name 'LCImplTvcmUserTypeHints'
+ CONST IsSummoned true
  CONST Class class_Class
  : Stereotype st_Constants ;
  CONST Kind kind_NormalClass
@@ -157,14 +171,18 @@ ref; // ME_972B6A393155 OpenHint
  : Parent ME_4B8E967F00BE // vcmMenuManagerRes
  ;
  : Attributes
-   @ ( ME_AB31C63C062C // CloseHint
+   Seq: ( ME_AB31C63C062C // CloseHint
  ME_3020E2A62239 // MaximizedHint
  ME_972B6A393155 // OpenHint
- ) .SequenceCode.It
+ )
  ; // Attributes
  CONST "children prefix" 'vcm'
  CONST "elements prefix" 'str'
  CONST "spell names" false
+ CONST dfm:PathOnly '\common\components\gui\Garant\VCM\implementation'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\VCM\implementation'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
  CONST extprop:pas:ElementPrefixBase 'str'
  CONST extprop:pas:ElementPrefix 'str_vcm'
 
@@ -172,7 +190,8 @@ ref; // ME_FB02A8C924A8 LCImplTvcmUserTypeHints
 
 : ME_B83D2A98FEF2
  CONST UID 'B83D2A98FEF2'
- CONST Name 'Init_CloseHint'
+ CONST Name 'Init_Str_CloseHint'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Инициализация str_vcmCloseHint' ;
@@ -180,12 +199,17 @@ ref; // ME_FB02A8C924A8 LCImplTvcmUserTypeHints
  CONST Abstraction at_final
  : Parent ME_4B8E967F00BE // vcmMenuManagerRes
  ;
+ : Speller ME_499441F601BF // CloseHint
+ ;
+ : SpelledFor ME_AB31C63C062C // CloseHint
+ ;
 
-ref; // ME_B83D2A98FEF2 Init_CloseHint
+ref; // ME_B83D2A98FEF2 Init_Str_CloseHint
 
 : ME_67AD8DD8E318
  CONST UID '67AD8DD8E318'
- CONST Name 'Init_MaximizedHint'
+ CONST Name 'Init_Str_MaximizedHint'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Инициализация str_vcmMaximizedHint' ;
@@ -193,12 +217,17 @@ ref; // ME_B83D2A98FEF2 Init_CloseHint
  CONST Abstraction at_final
  : Parent ME_4B8E967F00BE // vcmMenuManagerRes
  ;
+ : Speller ME_499441FB0098 // MaximizedHint
+ ;
+ : SpelledFor ME_3020E2A62239 // MaximizedHint
+ ;
 
-ref; // ME_67AD8DD8E318 Init_MaximizedHint
+ref; // ME_67AD8DD8E318 Init_Str_MaximizedHint
 
 : ME_E42A5E90B7F3
  CONST UID 'E42A5E90B7F3'
- CONST Name 'Init_OpenHint'
+ CONST Name 'Init_Str_OpenHint'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Инициализация str_vcmOpenHint' ;
@@ -206,11 +235,16 @@ ref; // ME_67AD8DD8E318 Init_MaximizedHint
  CONST Abstraction at_final
  : Parent ME_4B8E967F00BE // vcmMenuManagerRes
  ;
+ : Speller ME_499441FF030C // OpenHint
+ ;
+ : SpelledFor ME_972B6A393155 // OpenHint
+ ;
 
-ref; // ME_E42A5E90B7F3 Init_OpenHint
+ref; // ME_E42A5E90B7F3 Init_Str_OpenHint
 
 : ME_543A779BD77B
  CONST UID '543A779BD77B'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_4B8E967F00BE // vcmMenuManagerRes
@@ -222,6 +256,7 @@ ref; // ME_543A779BD77B
 
 : ME_B123A011CDF7
  CONST UID 'B123A011CDF7'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_4B8E967F00BE // vcmMenuManagerRes
@@ -242,30 +277,30 @@ ref; // ME_B123A011CDF7
  : Parent ME_4B8E967100D5 // vcmL10nImpl
  ;
  : Operations
-   @ ( ME_B83D2A98FEF2 // Init_CloseHint
- ME_67AD8DD8E318 // Init_MaximizedHint
- ME_E42A5E90B7F3 // Init_OpenHint
- ) .SequenceCode.It
+   Seq: ( ME_B83D2A98FEF2 // Init_Str_CloseHint
+ ME_67AD8DD8E318 // Init_Str_MaximizedHint
+ ME_E42A5E90B7F3 // Init_Str_OpenHint
+ )
  ; // Operations
  : Constants
-   @ ( ME_499441EF01A9 // TvcmUserTypeHints
+   Seq: ( ME_499441EF01A9 // TvcmUserTypeHints
  ME_FB02A8C924A8 // LCImplTvcmUserTypeHints
- ) .SequenceCode.It
+ )
  ; // Constants
  : Dependencies
-   @ ( ME_543A779BD77B // 
+   Seq: ( ME_543A779BD77B // 
  ME_B123A011CDF7 // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  CONST "author" 'Люлин А.В.'
  CONST "no hands" true
  CONST "started" '03.03.2010 20:04'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\VCM\implementation'
  CONST intf.pas:Path 'common\components\gui\Garant\VCM\implementation\vcmMenuManagerRes.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\VCM\implementation'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'MenuManagerRes'
 
 ref; // ME_4B8E967F00BE vcmMenuManagerRes
 
@@ -286,6 +321,7 @@ FORWARD ME_4B8E9D250114
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value '''Верхняя'''
 
 ref; // ME_4B8E9D470331 Top
 
@@ -302,6 +338,7 @@ ref; // ME_4B8E9D470331 Top
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value '''Нижняя'''
 
 ref; // ME_4B8E9D52017B Bottom
 
@@ -318,6 +355,7 @@ ref; // ME_4B8E9D52017B Bottom
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value '''Левая'''
 
 ref; // ME_4B8E9D5C00C5 Left
 
@@ -334,6 +372,7 @@ ref; // ME_4B8E9D5C00C5 Left
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value '''Правая'''
 
 ref; // ME_4B8E9D6A0086 Right
 
@@ -348,20 +387,24 @@ ref; // ME_4B8E9D6A0086 Right
  : Parent ME_4B8E9CF900FD // vcmCustomizeToolsRes
  ;
  : Inherits
-   @ ( WL 'ME_4992F83801C5' '499EAAE502A8.pas.ms.script' // TvcmEffectiveToolBarPos
- ) .SequenceCode.It
+   Seq: ( WL 'ME_4992F83801C5' '499EAAE502A8.pas.ms.script' // TvcmEffectiveToolBarPos
+ )
  ; // Inherits
  : Attributes
-   @ ( ME_4B8E9D470331 // Top
+   Seq: ( ME_4B8E9D470331 // Top
  ME_4B8E9D52017B // Bottom
  ME_4B8E9D5C00C5 // Left
  ME_4B8E9D6A0086 // Right
- ) .SequenceCode.It
+ )
  ; // Attributes
  CONST "Need map interface" false
  CONST "Need mapping support" false
  CONST "children prefix" 'vcmetbp'
  CONST "spell names" false
+ CONST dfm:PathOnly '\common\components\gui\Garant\VCM\implementation'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\VCM\implementation'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
  CONST extprop:pas:ElementPrefix 'vcmetbp'
 
 ref; // ME_4B8E9D250114 ToolbarPos
@@ -381,6 +424,7 @@ FORWARD ME_4B8EA1840338
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value '''- Разделитель -'''
 
 ref; // ME_4B8EA1A401D6 Separator
 
@@ -397,6 +441,7 @@ ref; // ME_4B8EA1A401D6 Separator
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value '''Вы действительно хотите восстановить позиции и набор операций всех панелей инструментов системы по умолчанию?'''
 
 ref; // ME_4B8EA424001A AskResoreToolbar
 
@@ -411,14 +456,18 @@ ref; // ME_4B8EA424001A AskResoreToolbar
  : Parent ME_4B8E9CF900FD // vcmCustomizeToolsRes
  ;
  : Attributes
-   @ ( ME_4B8EA1A401D6 // Separator
+   Seq: ( ME_4B8EA1A401D6 // Separator
  ME_4B8EA424001A // AskResoreToolbar
- ) .SequenceCode.It
+ )
  ; // Attributes
  CONST "Need map interface" false
  CONST "Need mapping support" false
  CONST "children prefix" 'vcm'
  CONST "spell names" false
+ CONST dfm:PathOnly '\common\components\gui\Garant\VCM\implementation'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\VCM\implementation'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
  CONST extprop:pas:ElementPrefix 'vcm'
 
 ref; // ME_4B8EA1840338 Local
@@ -428,6 +477,7 @@ FORWARD ME_80C1FC5E7E1A
 : ME_DDCD8DFDF9F6
  CONST UID 'DDCD8DFDF9F6'
  CONST Name 'Top'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY '''Верхняя''' ;
  CONST Visibility PublicAccess
@@ -443,12 +493,14 @@ FORWARD ME_80C1FC5E7E1A
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''vcmetbpTop''; rValue : ''Верхняя'')'
 
 ref; // ME_DDCD8DFDF9F6 Top
 
 : ME_03182DA6CD0C
  CONST UID '03182DA6CD0C'
  CONST Name 'Bottom'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY '''Нижняя''' ;
  CONST Visibility PublicAccess
@@ -464,12 +516,14 @@ ref; // ME_DDCD8DFDF9F6 Top
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''vcmetbpBottom''; rValue : ''Нижняя'')'
 
 ref; // ME_03182DA6CD0C Bottom
 
 : ME_F8A1F209B0F7
  CONST UID 'F8A1F209B0F7'
  CONST Name 'Left'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY '''Левая''' ;
  CONST Visibility PublicAccess
@@ -485,12 +539,14 @@ ref; // ME_03182DA6CD0C Bottom
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''vcmetbpLeft''; rValue : ''Левая'')'
 
 ref; // ME_F8A1F209B0F7 Left
 
 : ME_398E012298A5
  CONST UID '398E012298A5'
  CONST Name 'Right'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY '''Правая''' ;
  CONST Visibility PublicAccess
@@ -506,12 +562,14 @@ ref; // ME_F8A1F209B0F7 Left
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''vcmetbpRight''; rValue : ''Правая'')'
 
 ref; // ME_398E012298A5 Right
 
 : ME_80C1FC5E7E1A
  CONST UID '80C1FC5E7E1A'
  CONST Name 'LCImplToolbarPos'
+ CONST IsSummoned true
  CONST Class class_Class
  : Stereotype st_Constants ;
  CONST Kind kind_NormalClass
@@ -521,15 +579,19 @@ ref; // ME_398E012298A5 Right
  : Parent ME_4B8E9CF900FD // vcmCustomizeToolsRes
  ;
  : Attributes
-   @ ( ME_DDCD8DFDF9F6 // Top
+   Seq: ( ME_DDCD8DFDF9F6 // Top
  ME_03182DA6CD0C // Bottom
  ME_F8A1F209B0F7 // Left
  ME_398E012298A5 // Right
- ) .SequenceCode.It
+ )
  ; // Attributes
  CONST "children prefix" 'vcmetbp'
  CONST "elements prefix" 'str'
  CONST "spell names" false
+ CONST dfm:PathOnly '\common\components\gui\Garant\VCM\implementation'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\VCM\implementation'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
  CONST extprop:pas:ElementPrefixBase 'str'
  CONST extprop:pas:ElementPrefix 'str_vcmetbp'
 
@@ -540,6 +602,7 @@ FORWARD ME_7F8E33A8CA68
 : ME_33711D80583E
  CONST UID '33711D80583E'
  CONST Name 'Top'
+ CONST IsSummoned true
  CONST Class class_Attribute
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
@@ -551,12 +614,14 @@ FORWARD ME_7F8E33A8CA68
  CONST Value 'Top'
  : ValueType ME_80C1FC5E7E1A // LCImplToolbarPos
  ;
+ CONST extprop:pas:Value 'str_vcmetbpTop'
 
 ref; // ME_33711D80583E Top
 
 : ME_FE2920DD171C
  CONST UID 'FE2920DD171C'
  CONST Name 'Bottom'
+ CONST IsSummoned true
  CONST Class class_Attribute
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
@@ -568,12 +633,14 @@ ref; // ME_33711D80583E Top
  CONST Value 'Bottom'
  : ValueType ME_80C1FC5E7E1A // LCImplToolbarPos
  ;
+ CONST extprop:pas:Value 'str_vcmetbpBottom'
 
 ref; // ME_FE2920DD171C Bottom
 
 : ME_78A966FC2F33
  CONST UID '78A966FC2F33'
  CONST Name 'Left'
+ CONST IsSummoned true
  CONST Class class_Attribute
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
@@ -585,12 +652,14 @@ ref; // ME_FE2920DD171C Bottom
  CONST Value 'Left'
  : ValueType ME_80C1FC5E7E1A // LCImplToolbarPos
  ;
+ CONST extprop:pas:Value 'str_vcmetbpLeft'
 
 ref; // ME_78A966FC2F33 Left
 
 : ME_602C48B325B3
  CONST UID '602C48B325B3'
  CONST Name 'Right'
+ CONST IsSummoned true
  CONST Class class_Attribute
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
@@ -602,12 +671,14 @@ ref; // ME_78A966FC2F33 Left
  CONST Value 'Right'
  : ValueType ME_80C1FC5E7E1A // LCImplToolbarPos
  ;
+ CONST extprop:pas:Value 'str_vcmetbpRight'
 
 ref; // ME_602C48B325B3 Right
 
 : ME_7F8E33A8CA68
  CONST UID '7F8E33A8CA68'
  CONST Name 'ToolbarPosMap'
+ CONST IsSummoned true
  CONST Class class_Class
  : Stereotype st_ConstantArray ;
  CONST Kind kind_NormalClass
@@ -617,22 +688,26 @@ ref; // ME_602C48B325B3 Right
  : Parent ME_4B8E9CF900FD // vcmCustomizeToolsRes
  ;
  : Inherits
-   @ ( WL 'ME_4B3B49B40262' '4F9BDEEE01BC.pas.ms.script' // Pl3StringIDEx
- ) .SequenceCode.It
+   Seq: ( WL 'ME_4B3B49B40262' '4F9BDEEE01BC.pas.ms.script' // Pl3StringIDEx
+ )
  ; // Inherits
  : Implements
-   @ ( WL 'ME_4992F83801C5' '499EAAE502A8.pas.ms.script' // TvcmEffectiveToolBarPos
- ) .SequenceCode.It
+   Seq: ( WL 'ME_4992F83801C5' '499EAAE502A8.pas.ms.script' // TvcmEffectiveToolBarPos
+ )
  ; // Implements
  : Attributes
-   @ ( ME_33711D80583E // Top
+   Seq: ( ME_33711D80583E // Top
  ME_FE2920DD171C // Bottom
  ME_78A966FC2F33 // Left
  ME_602C48B325B3 // Right
- ) .SequenceCode.It
+ )
  ; // Attributes
  CONST "Need map interface" false
  CONST "Need mapping support" false
+ CONST dfm:PathOnly '\common\components\gui\Garant\VCM\implementation'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\VCM\implementation'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_7F8E33A8CA68 ToolbarPosMap
 
@@ -641,6 +716,7 @@ FORWARD ME_B1647D57FAD1
 : ME_BE5A17DB515F
  CONST UID 'BE5A17DB515F'
  CONST Name 'Separator'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY '''- Разделитель -''' ;
  CONST Visibility PublicAccess
@@ -656,12 +732,14 @@ FORWARD ME_B1647D57FAD1
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''vcmSeparator''; rValue : ''- Разделитель -'')'
 
 ref; // ME_BE5A17DB515F Separator
 
 : ME_794C5E085401
  CONST UID '794C5E085401'
  CONST Name 'AskResoreToolbar'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY '''Вы действительно хотите восстановить позиции и набор операций всех панелей инструментов системы по умолчанию?''' ;
  CONST Visibility PublicAccess
@@ -677,12 +755,14 @@ ref; // ME_BE5A17DB515F Separator
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''vcmAskResoreToolbar''; rValue : ''Вы действительно хотите восстановить позиции и набор операций всех панелей инструментов системы по умолчанию?'')'
 
 ref; // ME_794C5E085401 AskResoreToolbar
 
 : ME_B1647D57FAD1
  CONST UID 'B1647D57FAD1'
  CONST Name 'LCImplLocal'
+ CONST IsSummoned true
  CONST Class class_Class
  : Stereotype st_Constants ;
  CONST Kind kind_NormalClass
@@ -692,13 +772,17 @@ ref; // ME_794C5E085401 AskResoreToolbar
  : Parent ME_4B8E9CF900FD // vcmCustomizeToolsRes
  ;
  : Attributes
-   @ ( ME_BE5A17DB515F // Separator
+   Seq: ( ME_BE5A17DB515F // Separator
  ME_794C5E085401 // AskResoreToolbar
- ) .SequenceCode.It
+ )
  ; // Attributes
  CONST "children prefix" 'vcm'
  CONST "elements prefix" 'str'
  CONST "spell names" false
+ CONST dfm:PathOnly '\common\components\gui\Garant\VCM\implementation'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\VCM\implementation'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
  CONST extprop:pas:ElementPrefixBase 'str'
  CONST extprop:pas:ElementPrefix 'str_vcm'
 
@@ -706,7 +790,8 @@ ref; // ME_B1647D57FAD1 LCImplLocal
 
 : ME_82C732F3FD32
  CONST UID '82C732F3FD32'
- CONST Name 'Init_Top'
+ CONST Name 'Init_Str_Top'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Инициализация str_vcmetbpTop' ;
@@ -714,12 +799,17 @@ ref; // ME_B1647D57FAD1 LCImplLocal
  CONST Abstraction at_final
  : Parent ME_4B8E9CF900FD // vcmCustomizeToolsRes
  ;
+ : Speller ME_4B8E9D470331 // Top
+ ;
+ : SpelledFor ME_DDCD8DFDF9F6 // Top
+ ;
 
-ref; // ME_82C732F3FD32 Init_Top
+ref; // ME_82C732F3FD32 Init_Str_Top
 
 : ME_1060F3416125
  CONST UID '1060F3416125'
- CONST Name 'Init_Bottom'
+ CONST Name 'Init_Str_Bottom'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Инициализация str_vcmetbpBottom' ;
@@ -727,12 +817,17 @@ ref; // ME_82C732F3FD32 Init_Top
  CONST Abstraction at_final
  : Parent ME_4B8E9CF900FD // vcmCustomizeToolsRes
  ;
+ : Speller ME_4B8E9D52017B // Bottom
+ ;
+ : SpelledFor ME_03182DA6CD0C // Bottom
+ ;
 
-ref; // ME_1060F3416125 Init_Bottom
+ref; // ME_1060F3416125 Init_Str_Bottom
 
 : ME_2AF7898ADDCC
  CONST UID '2AF7898ADDCC'
- CONST Name 'Init_Left'
+ CONST Name 'Init_Str_Left'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Инициализация str_vcmetbpLeft' ;
@@ -740,12 +835,17 @@ ref; // ME_1060F3416125 Init_Bottom
  CONST Abstraction at_final
  : Parent ME_4B8E9CF900FD // vcmCustomizeToolsRes
  ;
+ : Speller ME_4B8E9D5C00C5 // Left
+ ;
+ : SpelledFor ME_F8A1F209B0F7 // Left
+ ;
 
-ref; // ME_2AF7898ADDCC Init_Left
+ref; // ME_2AF7898ADDCC Init_Str_Left
 
 : ME_C05E9E3E3937
  CONST UID 'C05E9E3E3937'
- CONST Name 'Init_Right'
+ CONST Name 'Init_Str_Right'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Инициализация str_vcmetbpRight' ;
@@ -753,12 +853,17 @@ ref; // ME_2AF7898ADDCC Init_Left
  CONST Abstraction at_final
  : Parent ME_4B8E9CF900FD // vcmCustomizeToolsRes
  ;
+ : Speller ME_4B8E9D6A0086 // Right
+ ;
+ : SpelledFor ME_398E012298A5 // Right
+ ;
 
-ref; // ME_C05E9E3E3937 Init_Right
+ref; // ME_C05E9E3E3937 Init_Str_Right
 
 : ME_E52033B63186
  CONST UID 'E52033B63186'
- CONST Name 'Init_Separator'
+ CONST Name 'Init_Str_Separator'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Инициализация str_vcmSeparator' ;
@@ -766,12 +871,17 @@ ref; // ME_C05E9E3E3937 Init_Right
  CONST Abstraction at_final
  : Parent ME_4B8E9CF900FD // vcmCustomizeToolsRes
  ;
+ : Speller ME_4B8EA1A401D6 // Separator
+ ;
+ : SpelledFor ME_BE5A17DB515F // Separator
+ ;
 
-ref; // ME_E52033B63186 Init_Separator
+ref; // ME_E52033B63186 Init_Str_Separator
 
 : ME_4882F21D9822
  CONST UID '4882F21D9822'
- CONST Name 'Init_AskResoreToolbar'
+ CONST Name 'Init_Str_AskResoreToolbar'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Инициализация str_vcmAskResoreToolbar' ;
@@ -779,11 +889,16 @@ ref; // ME_E52033B63186 Init_Separator
  CONST Abstraction at_final
  : Parent ME_4B8E9CF900FD // vcmCustomizeToolsRes
  ;
+ : Speller ME_4B8EA424001A // AskResoreToolbar
+ ;
+ : SpelledFor ME_794C5E085401 // AskResoreToolbar
+ ;
 
-ref; // ME_4882F21D9822 Init_AskResoreToolbar
+ref; // ME_4882F21D9822 Init_Str_AskResoreToolbar
 
 : ME_695CA8676FCE
  CONST UID '695CA8676FCE'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_4B8E9CF900FD // vcmCustomizeToolsRes
@@ -795,6 +910,7 @@ ref; // ME_695CA8676FCE
 
 : ME_0D87BFA5BDA6
  CONST UID '0D87BFA5BDA6'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_4B8E9CF900FD // vcmCustomizeToolsRes
@@ -815,36 +931,36 @@ ref; // ME_0D87BFA5BDA6
  : Parent ME_4B8E967100D5 // vcmL10nImpl
  ;
  : Operations
-   @ ( ME_82C732F3FD32 // Init_Top
- ME_1060F3416125 // Init_Bottom
- ME_2AF7898ADDCC // Init_Left
- ME_C05E9E3E3937 // Init_Right
- ME_E52033B63186 // Init_Separator
- ME_4882F21D9822 // Init_AskResoreToolbar
- ) .SequenceCode.It
+   Seq: ( ME_82C732F3FD32 // Init_Str_Top
+ ME_1060F3416125 // Init_Str_Bottom
+ ME_2AF7898ADDCC // Init_Str_Left
+ ME_C05E9E3E3937 // Init_Str_Right
+ ME_E52033B63186 // Init_Str_Separator
+ ME_4882F21D9822 // Init_Str_AskResoreToolbar
+ )
  ; // Operations
  : Constants
-   @ ( ME_4B8E9D250114 // ToolbarPos
+   Seq: ( ME_4B8E9D250114 // ToolbarPos
  ME_4B8EA1840338 // Local
  ME_80C1FC5E7E1A // LCImplToolbarPos
  ME_7F8E33A8CA68 // ToolbarPosMap
  ME_B1647D57FAD1 // LCImplLocal
- ) .SequenceCode.It
+ )
  ; // Constants
  : Dependencies
-   @ ( ME_695CA8676FCE // 
+   Seq: ( ME_695CA8676FCE // 
  ME_0D87BFA5BDA6 // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  CONST "author" 'Люлин А.В.'
  CONST "no hands" true
  CONST "started" '03.03.2010 20:31'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\VCM\implementation'
  CONST intf.pas:Path 'common\components\gui\Garant\VCM\implementation\vcmCustomizeToolsRes.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\VCM\implementation'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'CustomizeToolsRes'
 
 ref; // ME_4B8E9CF900FD vcmCustomizeToolsRes
 
@@ -865,6 +981,7 @@ FORWARD ME_4B8F8EBA0081
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value '''Показать вкладку "%s"'''
 
 ref; // ME_4B8F8EE703B8 ShowTab
 
@@ -881,6 +998,7 @@ ref; // ME_4B8F8EE703B8 ShowTab
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value '''Скрыть вкладку "%s"'''
 
 ref; // ME_4B8F8F1302D8 HideTab
 
@@ -895,14 +1013,18 @@ ref; // ME_4B8F8F1302D8 HideTab
  : Parent ME_4B8F8EA1013C // vcmBaseMenuManagerRes
  ;
  : Attributes
-   @ ( ME_4B8F8EE703B8 // ShowTab
+   Seq: ( ME_4B8F8EE703B8 // ShowTab
  ME_4B8F8F1302D8 // HideTab
- ) .SequenceCode.It
+ )
  ; // Attributes
  CONST "Need map interface" false
  CONST "Need mapping support" false
  CONST "children prefix" 'vcm'
  CONST "spell names" false
+ CONST dfm:PathOnly '\common\components\gui\Garant\VCM\implementation'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\VCM\implementation'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
  CONST extprop:pas:ElementPrefix 'vcm'
 
 ref; // ME_4B8F8EBA0081 Local
@@ -912,6 +1034,7 @@ FORWARD ME_E2AF68C8049D
 : ME_5C6A4E03EC32
  CONST UID '5C6A4E03EC32'
  CONST Name 'ShowTab'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY '''Показать вкладку "%s"''' ;
  CONST Visibility PublicAccess
@@ -927,12 +1050,14 @@ FORWARD ME_E2AF68C8049D
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''vcmShowTab''; rValue : ''Показать вкладку "%s"'')'
 
 ref; // ME_5C6A4E03EC32 ShowTab
 
 : ME_5D5E7E1FC789
  CONST UID '5D5E7E1FC789'
  CONST Name 'HideTab'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY '''Скрыть вкладку "%s"''' ;
  CONST Visibility PublicAccess
@@ -948,12 +1073,14 @@ ref; // ME_5C6A4E03EC32 ShowTab
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''vcmHideTab''; rValue : ''Скрыть вкладку "%s"'')'
 
 ref; // ME_5D5E7E1FC789 HideTab
 
 : ME_E2AF68C8049D
  CONST UID 'E2AF68C8049D'
  CONST Name 'LCImplLocal'
+ CONST IsSummoned true
  CONST Class class_Class
  : Stereotype st_Constants ;
  CONST Kind kind_NormalClass
@@ -963,13 +1090,17 @@ ref; // ME_5D5E7E1FC789 HideTab
  : Parent ME_4B8F8EA1013C // vcmBaseMenuManagerRes
  ;
  : Attributes
-   @ ( ME_5C6A4E03EC32 // ShowTab
+   Seq: ( ME_5C6A4E03EC32 // ShowTab
  ME_5D5E7E1FC789 // HideTab
- ) .SequenceCode.It
+ )
  ; // Attributes
  CONST "children prefix" 'vcm'
  CONST "elements prefix" 'str'
  CONST "spell names" false
+ CONST dfm:PathOnly '\common\components\gui\Garant\VCM\implementation'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\VCM\implementation'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
  CONST extprop:pas:ElementPrefixBase 'str'
  CONST extprop:pas:ElementPrefix 'str_vcm'
 
@@ -977,7 +1108,8 @@ ref; // ME_E2AF68C8049D LCImplLocal
 
 : ME_5BF88617E50D
  CONST UID '5BF88617E50D'
- CONST Name 'Init_ShowTab'
+ CONST Name 'Init_Str_ShowTab'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Инициализация str_vcmShowTab' ;
@@ -985,12 +1117,17 @@ ref; // ME_E2AF68C8049D LCImplLocal
  CONST Abstraction at_final
  : Parent ME_4B8F8EA1013C // vcmBaseMenuManagerRes
  ;
+ : Speller ME_4B8F8EE703B8 // ShowTab
+ ;
+ : SpelledFor ME_5C6A4E03EC32 // ShowTab
+ ;
 
-ref; // ME_5BF88617E50D Init_ShowTab
+ref; // ME_5BF88617E50D Init_Str_ShowTab
 
 : ME_67DD3E39D48A
  CONST UID '67DD3E39D48A'
- CONST Name 'Init_HideTab'
+ CONST Name 'Init_Str_HideTab'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Инициализация str_vcmHideTab' ;
@@ -998,11 +1135,16 @@ ref; // ME_5BF88617E50D Init_ShowTab
  CONST Abstraction at_final
  : Parent ME_4B8F8EA1013C // vcmBaseMenuManagerRes
  ;
+ : Speller ME_4B8F8F1302D8 // HideTab
+ ;
+ : SpelledFor ME_5D5E7E1FC789 // HideTab
+ ;
 
-ref; // ME_67DD3E39D48A Init_HideTab
+ref; // ME_67DD3E39D48A Init_Str_HideTab
 
 : ME_4EC624A0C085
  CONST UID '4EC624A0C085'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_4B8F8EA1013C // vcmBaseMenuManagerRes
@@ -1014,6 +1156,7 @@ ref; // ME_4EC624A0C085
 
 : ME_6495D0F7CE66
  CONST UID '6495D0F7CE66'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_4B8F8EA1013C // vcmBaseMenuManagerRes
@@ -1034,29 +1177,29 @@ ref; // ME_6495D0F7CE66
  : Parent ME_4B8E967100D5 // vcmL10nImpl
  ;
  : Operations
-   @ ( ME_5BF88617E50D // Init_ShowTab
- ME_67DD3E39D48A // Init_HideTab
- ) .SequenceCode.It
+   Seq: ( ME_5BF88617E50D // Init_Str_ShowTab
+ ME_67DD3E39D48A // Init_Str_HideTab
+ )
  ; // Operations
  : Constants
-   @ ( ME_4B8F8EBA0081 // Local
+   Seq: ( ME_4B8F8EBA0081 // Local
  ME_E2AF68C8049D // LCImplLocal
- ) .SequenceCode.It
+ )
  ; // Constants
  : Dependencies
-   @ ( ME_4EC624A0C085 // 
+   Seq: ( ME_4EC624A0C085 // 
  ME_6495D0F7CE66 // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  CONST "author" 'Люлин А.В.'
  CONST "no hands" true
  CONST "started" '04.03.2010 13:42'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\VCM\implementation'
  CONST intf.pas:Path 'common\components\gui\Garant\VCM\implementation\vcmBaseMenuManagerRes.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\VCM\implementation'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'MenuManagerRes'
 
 ref; // ME_4B8F8EA1013C vcmBaseMenuManagerRes
 
@@ -1077,6 +1220,7 @@ FORWARD ME_4B8F9D9703B0
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value '''Ошибочный элемент истории'''
 
 ref; // ME_4B8F9DAC00C5 WrongHistoryElement
 
@@ -1091,13 +1235,17 @@ ref; // ME_4B8F9DAC00C5 WrongHistoryElement
  : Parent ME_4B8F9D770358 // vcmHistoryRes
  ;
  : Attributes
-   @ ( ME_4B8F9DAC00C5 // WrongHistoryElement
- ) .SequenceCode.It
+   Seq: ( ME_4B8F9DAC00C5 // WrongHistoryElement
+ )
  ; // Attributes
  CONST "Need map interface" false
  CONST "Need mapping support" false
  CONST "children prefix" 'vcm'
  CONST "spell names" false
+ CONST dfm:PathOnly '\common\components\gui\Garant\VCM\implementation'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\VCM\implementation'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
  CONST extprop:pas:ElementPrefix 'vcm'
 
 ref; // ME_4B8F9D9703B0 Local
@@ -1107,6 +1255,7 @@ FORWARD ME_3C671EECFBF4
 : ME_20A6CA7BB19C
  CONST UID '20A6CA7BB19C'
  CONST Name 'WrongHistoryElement'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY '''Ошибочный элемент истории''' ;
  CONST Visibility PublicAccess
@@ -1122,12 +1271,14 @@ FORWARD ME_3C671EECFBF4
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''vcmWrongHistoryElement''; rValue : ''Ошибочный элемент истории'')'
 
 ref; // ME_20A6CA7BB19C WrongHistoryElement
 
 : ME_3C671EECFBF4
  CONST UID '3C671EECFBF4'
  CONST Name 'LCImplLocal'
+ CONST IsSummoned true
  CONST Class class_Class
  : Stereotype st_Constants ;
  CONST Kind kind_NormalClass
@@ -1137,12 +1288,16 @@ ref; // ME_20A6CA7BB19C WrongHistoryElement
  : Parent ME_4B8F9D770358 // vcmHistoryRes
  ;
  : Attributes
-   @ ( ME_20A6CA7BB19C // WrongHistoryElement
- ) .SequenceCode.It
+   Seq: ( ME_20A6CA7BB19C // WrongHistoryElement
+ )
  ; // Attributes
  CONST "children prefix" 'vcm'
  CONST "elements prefix" 'str'
  CONST "spell names" false
+ CONST dfm:PathOnly '\common\components\gui\Garant\VCM\implementation'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\VCM\implementation'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
  CONST extprop:pas:ElementPrefixBase 'str'
  CONST extprop:pas:ElementPrefix 'str_vcm'
 
@@ -1150,7 +1305,8 @@ ref; // ME_3C671EECFBF4 LCImplLocal
 
 : ME_37F0161DC613
  CONST UID '37F0161DC613'
- CONST Name 'Init_WrongHistoryElement'
+ CONST Name 'Init_Str_WrongHistoryElement'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Инициализация str_vcmWrongHistoryElement' ;
@@ -1158,11 +1314,16 @@ ref; // ME_3C671EECFBF4 LCImplLocal
  CONST Abstraction at_final
  : Parent ME_4B8F9D770358 // vcmHistoryRes
  ;
+ : Speller ME_4B8F9DAC00C5 // WrongHistoryElement
+ ;
+ : SpelledFor ME_20A6CA7BB19C // WrongHistoryElement
+ ;
 
-ref; // ME_37F0161DC613 Init_WrongHistoryElement
+ref; // ME_37F0161DC613 Init_Str_WrongHistoryElement
 
 : ME_EDE8F3185B7B
  CONST UID 'EDE8F3185B7B'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_4B8F9D770358 // vcmHistoryRes
@@ -1174,6 +1335,7 @@ ref; // ME_EDE8F3185B7B
 
 : ME_DFB4D1617EB5
  CONST UID 'DFB4D1617EB5'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_4B8F9D770358 // vcmHistoryRes
@@ -1194,28 +1356,28 @@ ref; // ME_DFB4D1617EB5
  : Parent ME_4B8E967100D5 // vcmL10nImpl
  ;
  : Operations
-   @ ( ME_37F0161DC613 // Init_WrongHistoryElement
- ) .SequenceCode.It
+   Seq: ( ME_37F0161DC613 // Init_Str_WrongHistoryElement
+ )
  ; // Operations
  : Constants
-   @ ( ME_4B8F9D9703B0 // Local
+   Seq: ( ME_4B8F9D9703B0 // Local
  ME_3C671EECFBF4 // LCImplLocal
- ) .SequenceCode.It
+ )
  ; // Constants
  : Dependencies
-   @ ( ME_EDE8F3185B7B // 
+   Seq: ( ME_EDE8F3185B7B // 
  ME_DFB4D1617EB5 // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  CONST "author" 'Люлин А.В.'
  CONST "no hands" true
  CONST "started" '04.03.2010 14:46'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\VCM\implementation'
  CONST intf.pas:Path 'common\components\gui\Garant\VCM\implementation\vcmHistoryRes.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\VCM\implementation'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'HistoryRes'
 
 ref; // ME_4B8F9D770358 vcmHistoryRes
 
@@ -1282,14 +1444,19 @@ ref; // ME_4B97783F0301 32x32
  : Parent ME_4B9777000394 // vcmToolbarMenuRes
  ;
  : Attributes
-   @ ( ME_4B9778220022 // Automatic
+   Seq: ( ME_4B9778220022 // Automatic
  ME_4B97782C00C1 // 16x16
  ME_4B9778350379 // 24x24
  ME_4B97783F0301 // 32x32
- ) .SequenceCode.It
+ )
  ; // Attributes
  CONST "children prefix" 'gs'
  CONST "elements prefix" 'vcm'
+ CONST dfm:PathOnly '\common\components\gui\Garant\VCM\implementation'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\VCM\implementation'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:isAcceptableForScripts true
  CONST extprop:pas:ElementPrefixBase 'vcm'
  CONST extprop:pas:ElementPrefix 'vcm_gs'
 
@@ -1310,6 +1477,7 @@ FORWARD ME_4B9777220364
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value '''Автоматически'''
 
 ref; // ME_4B97776D0180 Automatic
 
@@ -1326,6 +1494,7 @@ ref; // ME_4B97776D0180 Automatic
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value '''Маленькие'''
 
 ref; // ME_4B977777034D 16x16
 
@@ -1342,6 +1511,7 @@ ref; // ME_4B977777034D 16x16
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value '''Средние'''
 
 ref; // ME_4B97778202BF 24x24
 
@@ -1358,6 +1528,7 @@ ref; // ME_4B97778202BF 24x24
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value '''Большие'''
 
 ref; // ME_4B97778F003C 32x32
 
@@ -1373,20 +1544,25 @@ ref; // ME_4B97778F003C 32x32
  : Parent ME_4B9777000394 // vcmToolbarMenuRes
  ;
  : Inherits
-   @ ( ME_4B977802001D // TvcmGlyphSize
- ) .SequenceCode.It
+   Seq: ( ME_4B977802001D // TvcmGlyphSize
+ )
  ; // Inherits
  : Attributes
-   @ ( ME_4B97776D0180 // Automatic
+   Seq: ( ME_4B97776D0180 // Automatic
  ME_4B977777034D // 16x16
  ME_4B97778202BF // 24x24
  ME_4B97778F003C // 32x32
- ) .SequenceCode.It
+ )
  ; // Attributes
  CONST "Need map interface" false
  CONST "Need mapping support" true
  CONST "children prefix" 'vcmgs'
  CONST "spell names" false
+ CONST dfm:PathOnly '\common\components\gui\Garant\VCM\implementation'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\VCM\implementation'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'IconSize'
  CONST extprop:pas:ElementPrefix 'vcmgs'
 
 ref; // ME_4B9777220364 vcmIconSize
@@ -1396,6 +1572,7 @@ FORWARD ME_1333F1537465
 : ME_5A5CB54822E0
  CONST UID '5A5CB54822E0'
  CONST Name 'Automatic'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY '''Автоматически''' ;
  CONST Visibility PublicAccess
@@ -1411,12 +1588,14 @@ FORWARD ME_1333F1537465
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''vcmgsAutomatic''; rValue : ''Автоматически'')'
 
 ref; // ME_5A5CB54822E0 Automatic
 
 : ME_163AC987C7F2
  CONST UID '163AC987C7F2'
  CONST Name '16x16'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY '''Маленькие''' ;
  CONST Visibility PublicAccess
@@ -1432,12 +1611,14 @@ ref; // ME_5A5CB54822E0 Automatic
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''vcmgs16x16''; rValue : ''Маленькие'')'
 
 ref; // ME_163AC987C7F2 16x16
 
 : ME_9CAEB236A6D5
  CONST UID '9CAEB236A6D5'
  CONST Name '24x24'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY '''Средние''' ;
  CONST Visibility PublicAccess
@@ -1453,12 +1634,14 @@ ref; // ME_163AC987C7F2 16x16
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''vcmgs24x24''; rValue : ''Средние'')'
 
 ref; // ME_9CAEB236A6D5 24x24
 
 : ME_C6677DECB4CE
  CONST UID 'C6677DECB4CE'
  CONST Name '32x32'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY '''Большие''' ;
  CONST Visibility PublicAccess
@@ -1474,12 +1657,14 @@ ref; // ME_9CAEB236A6D5 24x24
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''vcmgs32x32''; rValue : ''Большие'')'
 
 ref; // ME_C6677DECB4CE 32x32
 
 : ME_1333F1537465
  CONST UID '1333F1537465'
  CONST Name 'LCImplvcmIconSize'
+ CONST IsSummoned true
  CONST Class class_Class
  : Stereotype st_Constants ;
  CONST Kind kind_NormalClass
@@ -1489,15 +1674,19 @@ ref; // ME_C6677DECB4CE 32x32
  : Parent ME_4B9777000394 // vcmToolbarMenuRes
  ;
  : Attributes
-   @ ( ME_5A5CB54822E0 // Automatic
+   Seq: ( ME_5A5CB54822E0 // Automatic
  ME_163AC987C7F2 // 16x16
  ME_9CAEB236A6D5 // 24x24
  ME_C6677DECB4CE // 32x32
- ) .SequenceCode.It
+ )
  ; // Attributes
  CONST "children prefix" 'vcmgs'
  CONST "elements prefix" 'str'
  CONST "spell names" false
+ CONST dfm:PathOnly '\common\components\gui\Garant\VCM\implementation'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\VCM\implementation'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
  CONST extprop:pas:ElementPrefixBase 'str'
  CONST extprop:pas:ElementPrefix 'str_vcmgs'
 
@@ -1508,6 +1697,7 @@ FORWARD ME_0493A882BA7D
 : ME_A2A05DE6F039
  CONST UID 'A2A05DE6F039'
  CONST Name 'Automatic'
+ CONST IsSummoned true
  CONST Class class_Attribute
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
@@ -1519,12 +1709,14 @@ FORWARD ME_0493A882BA7D
  CONST Value 'Automatic'
  : ValueType ME_1333F1537465 // LCImplvcmIconSize
  ;
+ CONST extprop:pas:Value 'str_vcmgsAutomatic'
 
 ref; // ME_A2A05DE6F039 Automatic
 
 : ME_8FC691C9EDD8
  CONST UID '8FC691C9EDD8'
  CONST Name '16x16'
+ CONST IsSummoned true
  CONST Class class_Attribute
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
@@ -1536,12 +1728,14 @@ ref; // ME_A2A05DE6F039 Automatic
  CONST Value '16x16'
  : ValueType ME_1333F1537465 // LCImplvcmIconSize
  ;
+ CONST extprop:pas:Value 'str_vcmgs16x16'
 
 ref; // ME_8FC691C9EDD8 16x16
 
 : ME_4F7644AFAEA7
  CONST UID '4F7644AFAEA7'
  CONST Name '24x24'
+ CONST IsSummoned true
  CONST Class class_Attribute
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
@@ -1553,12 +1747,14 @@ ref; // ME_8FC691C9EDD8 16x16
  CONST Value '24x24'
  : ValueType ME_1333F1537465 // LCImplvcmIconSize
  ;
+ CONST extprop:pas:Value 'str_vcmgs24x24'
 
 ref; // ME_4F7644AFAEA7 24x24
 
 : ME_BBE02D2BA2B0
  CONST UID 'BBE02D2BA2B0'
  CONST Name '32x32'
+ CONST IsSummoned true
  CONST Class class_Attribute
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
@@ -1570,12 +1766,14 @@ ref; // ME_4F7644AFAEA7 24x24
  CONST Value '32x32'
  : ValueType ME_1333F1537465 // LCImplvcmIconSize
  ;
+ CONST extprop:pas:Value 'str_vcmgs32x32'
 
 ref; // ME_BBE02D2BA2B0 32x32
 
 : ME_0493A882BA7D
  CONST UID '0493A882BA7D'
  CONST Name 'vcmIconSizeMap'
+ CONST IsSummoned true
  CONST Class class_Class
  : Stereotype st_ConstantArray ;
  CONST Kind kind_NormalClass
@@ -1585,22 +1783,27 @@ ref; // ME_BBE02D2BA2B0 32x32
  : Parent ME_4B9777000394 // vcmToolbarMenuRes
  ;
  : Inherits
-   @ ( WL 'ME_4B3B49B40262' '4F9BDEEE01BC.pas.ms.script' // Pl3StringIDEx
- ) .SequenceCode.It
+   Seq: ( WL 'ME_4B3B49B40262' '4F9BDEEE01BC.pas.ms.script' // Pl3StringIDEx
+ )
  ; // Inherits
  : Implements
-   @ ( ME_4B977802001D // TvcmGlyphSize
- ) .SequenceCode.It
+   Seq: ( ME_4B977802001D // TvcmGlyphSize
+ )
  ; // Implements
  : Attributes
-   @ ( ME_A2A05DE6F039 // Automatic
+   Seq: ( ME_A2A05DE6F039 // Automatic
  ME_8FC691C9EDD8 // 16x16
  ME_4F7644AFAEA7 // 24x24
  ME_BBE02D2BA2B0 // 32x32
- ) .SequenceCode.It
+ )
  ; // Attributes
  CONST "Need map interface" false
  CONST "Need mapping support" true
+ CONST dfm:PathOnly '\common\components\gui\Garant\VCM\implementation'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\VCM\implementation'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'IconSizeMap'
 
 ref; // ME_0493A882BA7D vcmIconSizeMap
 
@@ -1609,6 +1812,7 @@ FORWARD ME_6882EB48F231
 : ME_EB523EA50C00
  CONST UID 'EB523EA50C00'
  CONST Name 'aStrings'
+ CONST IsSummoned true
  CONST Class class_Parameter
  : Stereotype st_in ;
  : Target WL 'ME_4683CEE9034C' '467823B7002C.pas.ms.script' // IafwStrings
@@ -1619,6 +1823,7 @@ ref; // ME_EB523EA50C00 aStrings
 : ME_FB88C9F59624
  CONST UID 'FB88C9F59624'
  CONST Name 'FillStrings'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_static::Operation ;
  %SUMMARY 'Заполнение списка строк значениями' ;
@@ -1627,8 +1832,8 @@ ref; // ME_EB523EA50C00 aStrings
  : Parent ME_6882EB48F231 // vcmIconSizeMapHelper
  ;
  : Parameters
-   @ ( ME_EB523EA50C00 // aStrings
- ) .SequenceCode.It
+   Seq: ( ME_EB523EA50C00 // aStrings
+ )
  ; // Parameters
 
 ref; // ME_FB88C9F59624 FillStrings
@@ -1636,6 +1841,7 @@ ref; // ME_FB88C9F59624 FillStrings
 : ME_9C0EED7C5E71
  CONST UID '9C0EED7C5E71'
  CONST Name 'aDisplayName'
+ CONST IsSummoned true
  CONST Class class_Parameter
  : Stereotype st_in ;
  : Target WL 'ME_46780DA40383' '4677FBA70343.pas.ms.script' // Il3CString
@@ -1646,6 +1852,7 @@ ref; // ME_9C0EED7C5E71 aDisplayName
 : ME_BC56D7E589F8
  CONST UID 'BC56D7E589F8'
  CONST Name 'DisplayNameToValue'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_static::Operation ;
  %SUMMARY 'Преобразование строкового значения к порядковому' ;
@@ -1656,8 +1863,8 @@ ref; // ME_9C0EED7C5E71 aDisplayName
  : Target ME_4B977802001D // TvcmGlyphSize
  ;
  : Parameters
-   @ ( ME_9C0EED7C5E71 // aDisplayName
- ) .SequenceCode.It
+   Seq: ( ME_9C0EED7C5E71 // aDisplayName
+ )
  ; // Parameters
 
 ref; // ME_BC56D7E589F8 DisplayNameToValue
@@ -1665,6 +1872,7 @@ ref; // ME_BC56D7E589F8 DisplayNameToValue
 : ME_6882EB48F231
  CONST UID '6882EB48F231'
  CONST Name 'vcmIconSizeMapHelper'
+ CONST IsSummoned true
  CONST Class class_Class
  : Stereotype st_SimpleClass ;
  CONST Kind kind_NormalClass
@@ -1674,20 +1882,27 @@ ref; // ME_BC56D7E589F8 DisplayNameToValue
  : Parent ME_4B9777000394 // vcmToolbarMenuRes
  ;
  : Operations
-   @ ( ME_FB88C9F59624 // FillStrings
+   Seq: ( ME_FB88C9F59624 // FillStrings
  ME_BC56D7E589F8 // DisplayNameToValue
- ) .SequenceCode.It
+ )
  ; // Operations
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
+ CONST dfm:PathOnly '\common\components\gui\Garant\VCM\implementation'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\VCM\implementation'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'IconSizeMapHelper'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_6882EB48F231 vcmIconSizeMapHelper
 
 : ME_D2D82FD36C93
  CONST UID 'D2D82FD36C93'
- CONST Name 'Init_Automatic'
+ CONST Name 'Init_Str_Automatic'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Инициализация str_vcmgsAutomatic' ;
@@ -1695,12 +1910,17 @@ ref; // ME_6882EB48F231 vcmIconSizeMapHelper
  CONST Abstraction at_final
  : Parent ME_4B9777000394 // vcmToolbarMenuRes
  ;
+ : Speller ME_4B97776D0180 // Automatic
+ ;
+ : SpelledFor ME_5A5CB54822E0 // Automatic
+ ;
 
-ref; // ME_D2D82FD36C93 Init_Automatic
+ref; // ME_D2D82FD36C93 Init_Str_Automatic
 
 : ME_7691E1D665AF
  CONST UID '7691E1D665AF'
- CONST Name 'Init_16x16'
+ CONST Name 'Init_Str_16x16'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Инициализация str_vcmgs16x16' ;
@@ -1708,12 +1928,17 @@ ref; // ME_D2D82FD36C93 Init_Automatic
  CONST Abstraction at_final
  : Parent ME_4B9777000394 // vcmToolbarMenuRes
  ;
+ : Speller ME_4B977777034D // 16x16
+ ;
+ : SpelledFor ME_163AC987C7F2 // 16x16
+ ;
 
-ref; // ME_7691E1D665AF Init_16x16
+ref; // ME_7691E1D665AF Init_Str_16x16
 
 : ME_29995FD88C63
  CONST UID '29995FD88C63'
- CONST Name 'Init_24x24'
+ CONST Name 'Init_Str_24x24'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Инициализация str_vcmgs24x24' ;
@@ -1721,12 +1946,17 @@ ref; // ME_7691E1D665AF Init_16x16
  CONST Abstraction at_final
  : Parent ME_4B9777000394 // vcmToolbarMenuRes
  ;
+ : Speller ME_4B97778202BF // 24x24
+ ;
+ : SpelledFor ME_9CAEB236A6D5 // 24x24
+ ;
 
-ref; // ME_29995FD88C63 Init_24x24
+ref; // ME_29995FD88C63 Init_Str_24x24
 
 : ME_B8FCFC827F4E
  CONST UID 'B8FCFC827F4E'
- CONST Name 'Init_32x32'
+ CONST Name 'Init_Str_32x32'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Инициализация str_vcmgs32x32' ;
@@ -1734,11 +1964,16 @@ ref; // ME_29995FD88C63 Init_24x24
  CONST Abstraction at_final
  : Parent ME_4B9777000394 // vcmToolbarMenuRes
  ;
+ : Speller ME_4B97778F003C // 32x32
+ ;
+ : SpelledFor ME_C6677DECB4CE // 32x32
+ ;
 
-ref; // ME_B8FCFC827F4E Init_32x32
+ref; // ME_B8FCFC827F4E Init_Str_32x32
 
 : ME_2552FFDCE4CC
  CONST UID '2552FFDCE4CC'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_4B9777000394 // vcmToolbarMenuRes
@@ -1750,6 +1985,7 @@ ref; // ME_2552FFDCE4CC
 
 : ME_0A8828297B2D
  CONST UID '0A8828297B2D'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_4B9777000394 // vcmToolbarMenuRes
@@ -1761,6 +1997,7 @@ ref; // ME_0A8828297B2D
 
 : ME_D823BF492716
  CONST UID 'D823BF492716'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_4B9777000394 // vcmToolbarMenuRes
@@ -1772,6 +2009,7 @@ ref; // ME_D823BF492716
 
 : ME_7B82F3842A19
  CONST UID '7B82F3842A19'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_4B9777000394 // vcmToolbarMenuRes
@@ -1792,39 +2030,39 @@ ref; // ME_7B82F3842A19
  : Parent ME_4B8E967100D5 // vcmL10nImpl
  ;
  : Operations
-   @ ( ME_D2D82FD36C93 // Init_Automatic
- ME_7691E1D665AF // Init_16x16
- ME_29995FD88C63 // Init_24x24
- ME_B8FCFC827F4E // Init_32x32
- ) .SequenceCode.It
+   Seq: ( ME_D2D82FD36C93 // Init_Str_Automatic
+ ME_7691E1D665AF // Init_Str_16x16
+ ME_29995FD88C63 // Init_Str_24x24
+ ME_B8FCFC827F4E // Init_Str_32x32
+ )
  ; // Operations
  : Children
-   @ ( ME_4B977802001D // TvcmGlyphSize
+   Seq: ( ME_4B977802001D // TvcmGlyphSize
  ME_6882EB48F231 // vcmIconSizeMapHelper
- ) .SequenceCode.It
+ )
  ; // Children
  : Constants
-   @ ( ME_4B9777220364 // vcmIconSize
+   Seq: ( ME_4B9777220364 // vcmIconSize
  ME_1333F1537465 // LCImplvcmIconSize
  ME_0493A882BA7D // vcmIconSizeMap
- ) .SequenceCode.It
+ )
  ; // Constants
  : Dependencies
-   @ ( ME_2552FFDCE4CC // 
+   Seq: ( ME_2552FFDCE4CC // 
  ME_0A8828297B2D // 
  ME_D823BF492716 // 
  ME_7B82F3842A19 // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  CONST "author" 'Люлин А.В.'
  CONST "no hands" true
  CONST "started" '10.03.2010 13:40'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\VCM\implementation'
  CONST intf.pas:Path 'common\components\gui\Garant\VCM\implementation\vcmToolbarMenuRes.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\VCM\implementation'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'ToolbarMenuRes'
 
 ref; // ME_4B9777000394 vcmToolbarMenuRes
 
@@ -1838,30 +2076,28 @@ ref; // ME_4B9777000394 vcmToolbarMenuRes
  : Parent WL 'ME_4790C3B8021E' '4790C3B8021E.pas.ms.script' // VCM
  ;
  : Children
-   @ ( ME_4B8E967F00BE // vcmMenuManagerRes
+   Seq: ( ME_4B8E967F00BE // vcmMenuManagerRes
  ME_4B8E9CF900FD // vcmCustomizeToolsRes
  ME_4B8F8EA1013C // vcmBaseMenuManagerRes
  ME_4B8F9D770358 // vcmHistoryRes
  ME_4B9777000394 // vcmToolbarMenuRes
- ) .SequenceCode.It
+ )
  ; // Children
  : Depends
-   @ ( WL 'ME_4677FBA70343' '4677FBA70343.pas.ms.script' // l3Interfaces
+   Seq: ( WL 'ME_4677FBA70343' '4677FBA70343.pas.ms.script' // l3Interfaces
  WL 'ME_467823B7002C' '467823B7002C.pas.ms.script' // afwInterfaces
  WL 'ME_47D0E1500033' '47D0E1500033.pas.ms.script' // Implementation
  WL 'ME_499EAAE502A8' '499EAAE502A8.pas.ms.script' // vcmUserControls
  WL 'ME_4AB0C3C60310' '4AB0C3C60310.pas.ms.script' // Sys
  WL 'ME_54B90AC6014B' '54B90AC6014B.pas.ms.script' // StringUtils
- ) .SequenceCode.It
+ )
  ; // Depends
  CONST "path prefix" '/implementation'
- : Generators
- @ (
- gen_pas.script
- gen_pas.script.runner
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\VCM\implementation'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\VCM\implementation'
  CONST pas.script:Path 'shared\models\NewSchool\Scripts\4B8E967100D5.pas.ms.script'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
  CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\4B8E967100D5.pas.ms.script.runner'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_4B8E967100D5 vcmL10nImpl

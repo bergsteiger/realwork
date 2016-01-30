@@ -1,0 +1,28 @@
+// Требования 4E3136AA020F Requirements Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+: ME_4E3136AA020F
+ CONST UID '4E3136AA020F'
+ CONST Name 'Требования'
+ CONST Class class_Category
+ : Stereotype st_Requirements ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent WL 'ME_4DE7F62B000D' '4DE7F62B000D.pas.ms.script' // archi
+ ;
+ : Generators
+ Seq: (
+ gen_pas.script
+ gen_pas.script.runner
+ )
+ ; // Generators
+ CONST dfm:PathOnly '\archi\source\projects\Archi'
+ CONST intf.pas:PathOnly '\archi\source\projects\Archi'
+ CONST pas.script:Path 'shared\models\NewSchool\Scripts\4E3136AA020F.pas.ms.script'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\4E3136AA020F.pas.ms.script.runner'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\archi\source\projects\Archi'
+
+ref; // ME_4E3136AA020F Требования

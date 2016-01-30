@@ -29,8 +29,8 @@ ref; // ME_53C7E8F70070 aTypeInfo
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
  : Parameters
-   @ ( ME_53C7E8F70070 // aTypeInfo
- ) .SequenceCode.It
+   Seq: ( ME_53C7E8F70070 // aTypeInfo
+ )
  ; // Parameters
 
 ref; // ME_53C7E8EC0126 DoIt
@@ -46,8 +46,8 @@ ref; // ME_53C7E8EC0126 DoIt
  : Parent ME_53C7E84E012D // TtfwEnumRegistrator
  ;
  : Operations
-   @ ( ME_53C7E8EC0126 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_53C7E8EC0126 // DoIt
+ )
  ; // Operations
  CONST "is static" true
 
@@ -126,27 +126,29 @@ ref; // ME_5571AFFA026F
  : Parent ME_53C7C3100231 // ConstantsRegistration
  ;
  : Operations
-   @ ( ME_53C7E877024C // RegisterEnum
- ) .SequenceCode.It
+   Seq: ( ME_53C7E877024C // RegisterEnum
+ )
  ; // Operations
  : Dependencies
-   @ ( ME_53C7E86A0060 // 
+   Seq: ( ME_53C7E86A0060 // 
  ME_53C7ED6E0278 // 
  ME_5527F8910184 // 
  ME_553128F00129 // 
  ME_5571AFFA026F // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\ScriptEngine'
  CONST intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\tfwEnumRegistrator.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\ScriptEngine'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'EnumRegistrator'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'tfwEnumRegistrator'
 
 ref; // ME_53C7E84E012D TtfwEnumRegistrator
 
@@ -211,36 +213,39 @@ ref; // ME_47B99D4503A2_ME_53C7ED350038 CompareExistingItems
  : Parent ME_53C7C3100231 // ConstantsRegistration
  ;
  : Inherits
-   @ ( WL 'ME_47B5782902DA' '47913B47006E.pas.ms.script' // l3PtrList
+   Seq: ( WL 'ME_47B5782902DA' '47913B47006E.pas.ms.script' // l3PtrList
  WL 'ME_4A54DD4E036F' '47913B47006E.pas.ms.script' // Tl3ProtoDataContainer
- ) .SequenceCode.It
+ )
  ; // Inherits
  : Attributes
-   @ ( ME_53C7ED4B02E0 // ItemType
- ) .SequenceCode.It
+   Seq: ( ME_53C7ED4B02E0 // ItemType
+ )
  ; // Attributes
  : Implemented
-   @ ( ME_47B07CF403D0_ME_53C7ED350038 // IsSameItems
+   Seq: ( ME_47B07CF403D0_ME_53C7ED350038 // IsSameItems
  ME_47B2C42A0163_ME_53C7ED350038 // AssignItem
  ME_47B99D4503A2_ME_53C7ED350038 // CompareExistingItems
- ) .SequenceCode.It
+ )
  ; // Implemented
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\ScriptEngine'
  CONST intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\tfwRTTITypeInfoList.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\ScriptEngine'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'RTTITypeInfoList'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'tfwRTTITypeInfoList'
 
 ref; // ME_53C7ED350038 TtfwRTTITypeInfoList
 
 : ME_7FDA9112BE29
  CONST UID '7FDA9112BE29'
  CONST Name 'Exists'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_static::Operation ;
  %SUMMARY 'Проверяет создан экземпляр синглетона или нет' ;
@@ -250,6 +255,7 @@ ref; // ME_53C7ED350038 TtfwRTTITypeInfoList
  ;
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
+ CONST extprop:pas:Value false
 
 ref; // ME_7FDA9112BE29 Exists
 
@@ -264,24 +270,26 @@ ref; // ME_7FDA9112BE29 Exists
  : Parent ME_53C7C3100231 // ConstantsRegistration
  ;
  : Inherits
-   @ ( ME_53C7ED350038 // TtfwRTTITypeInfoList
- ) .SequenceCode.It
+   Seq: ( ME_53C7ED350038 // TtfwRTTITypeInfoList
+ )
  ; // Inherits
  : Operations
-   @ ( ME_7FDA9112BE29 // Exists
- ) .SequenceCode.It
+   Seq: ( ME_7FDA9112BE29 // Exists
+ )
  ; // Operations
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
  CONST "singleton" true
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\ScriptEngine'
  CONST intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\tfwRegisteredEnums.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\ScriptEngine'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'RegisteredEnums'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'tfwRegisteredEnums'
 
 ref; // ME_53C7ED5A01A0 TtfwRegisteredEnums
 
@@ -320,8 +328,8 @@ ref; // ME_553129B50026 aTypeInfo
  : Parent ME_553129980377 // Register
  ;
  : Parameters
-   @ ( ME_553129B50026 // aTypeInfo
- ) .SequenceCode.It
+   Seq: ( ME_553129B50026 // aTypeInfo
+ )
  ; // Parameters
 
 ref; // ME_553129A200E1 DoIt
@@ -337,8 +345,8 @@ ref; // ME_553129A200E1 DoIt
  : Parent ME_553128CE018D // TtfwIntegerToEnumName
  ;
  : Operations
-   @ ( ME_553129A200E1 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_553129A200E1 // DoIt
+ )
  ; // Operations
  CONST "is static" true
 
@@ -347,6 +355,7 @@ ref; // ME_553129980377 Register
 : ME_EA67F42908FE
  CONST UID 'EA67F42908FE'
  CONST Name 'Ini_Reg_Class'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Регистрация TtfwIntegerToEnumName' ;
@@ -413,41 +422,43 @@ ref; // ME_551544E2001A_ME_553128CE018D GetResultTypeInfo
  : Parent ME_53C7C3100231 // ConstantsRegistration
  ;
  : Inherits
-   @ ( WL 'ME_54D229E702B6' '4F3E3F5F0160.pas.ms.script' // TtfwRegisterableWordPrim
- ) .SequenceCode.It
+   Seq: ( WL 'ME_54D229E702B6' '4F3E3F5F0160.pas.ms.script' // TtfwRegisterableWordPrim
+ )
  ; // Inherits
  : Attributes
-   @ ( ME_553129CB00CF // f_TypeInfo
- ) .SequenceCode.It
+   Seq: ( ME_553129CB00CF // f_TypeInfo
+ )
  ; // Attributes
  : Operations
-   @ ( ME_553129980377 // Register
+   Seq: ( ME_553129980377 // Register
  ME_EA67F42908FE // Ini_Reg_Class
- ) .SequenceCode.It
+ )
  ; // Operations
  : Implemented
-   @ ( ME_4DAEEDE10285_ME_553128CE018D // DoDoIt
- ) .SequenceCode.It
+   Seq: ( ME_4DAEEDE10285_ME_553128CE018D // DoDoIt
+ )
  ; // Implemented
  : Overridden
-   @ ( ME_551544E2001A_ME_553128CE018D // GetResultTypeInfo
- ) .SequenceCode.It
+   Seq: ( ME_551544E2001A_ME_553128CE018D // GetResultTypeInfo
+ )
  ; // Overridden
  : Dependencies
-   @ ( ME_553132B30377 // 
+   Seq: ( ME_553132B30377 // 
  ME_553132DA02B0 // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\ScriptEngine'
  CONST intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\tfwIntegerToEnumName.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\ScriptEngine'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'IntegerToEnumName'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'tfwIntegerToEnumName'
 
 ref; // ME_553128CE018D TtfwIntegerToEnumName
 
@@ -486,8 +497,8 @@ ref; // ME_5531333D016E aTypeInfo
  : Parent ME_55313331027C // Register
  ;
  : Parameters
-   @ ( ME_5531333D016E // aTypeInfo
- ) .SequenceCode.It
+   Seq: ( ME_5531333D016E // aTypeInfo
+ )
  ; // Parameters
 
 ref; // ME_5531333A0311 DoIt
@@ -503,8 +514,8 @@ ref; // ME_5531333A0311 DoIt
  : Parent ME_553132CA032A // TtfwStringToEnumValue
  ;
  : Operations
-   @ ( ME_5531333A0311 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_5531333A0311 // DoIt
+ )
  ; // Operations
  CONST "is static" true
 
@@ -513,6 +524,7 @@ ref; // ME_55313331027C Register
 : ME_856730F72448
  CONST UID '856730F72448'
  CONST Name 'Ini_Reg_Class'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Регистрация TtfwStringToEnumValue' ;
@@ -566,40 +578,42 @@ ref; // ME_551544E2001A_ME_553132CA032A GetResultTypeInfo
  : Parent ME_53C7C3100231 // ConstantsRegistration
  ;
  : Inherits
-   @ ( WL 'ME_54D229E702B6' '4F3E3F5F0160.pas.ms.script' // TtfwRegisterableWordPrim
- ) .SequenceCode.It
+   Seq: ( WL 'ME_54D229E702B6' '4F3E3F5F0160.pas.ms.script' // TtfwRegisterableWordPrim
+ )
  ; // Inherits
  : Attributes
-   @ ( ME_5531331902AE // f_TypeInfo
- ) .SequenceCode.It
+   Seq: ( ME_5531331902AE // f_TypeInfo
+ )
  ; // Attributes
  : Operations
-   @ ( ME_55313331027C // Register
+   Seq: ( ME_55313331027C // Register
  ME_856730F72448 // Ini_Reg_Class
- ) .SequenceCode.It
+ )
  ; // Operations
  : Implemented
-   @ ( ME_4DAEEDE10285_ME_553132CA032A // DoDoIt
- ) .SequenceCode.It
+   Seq: ( ME_4DAEEDE10285_ME_553132CA032A // DoDoIt
+ )
  ; // Implemented
  : Overridden
-   @ ( ME_551544E2001A_ME_553132CA032A // GetResultTypeInfo
- ) .SequenceCode.It
+   Seq: ( ME_551544E2001A_ME_553132CA032A // GetResultTypeInfo
+ )
  ; // Overridden
  : Dependencies
-   @ ( ME_5531332002CF // 
- ) .SequenceCode.It
+   Seq: ( ME_5531332002CF // 
+ )
  ; // Dependencies
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\ScriptEngine'
  CONST intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\tfwStringToEnumValue.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\ScriptEngine'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'StringToEnumValue'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'tfwStringToEnumValue'
 
 ref; // ME_553132CA032A TtfwStringToEnumValue
 
@@ -648,9 +662,9 @@ ref; // ME_55C0DA48036E aTypeInfo
  : Parent ME_55C0DA200397 // Create
  ;
  : Parameters
-   @ ( ME_55C0DA2A030D // aValue
+   Seq: ( ME_55C0DA2A030D // aValue
  ME_55C0DA48036E // aTypeInfo
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_55C0DA29001E DoIt
@@ -666,8 +680,8 @@ ref; // ME_55C0DA29001E DoIt
  : Parent ME_55C0D99E0109 // TtfwEnumConstantRegistrator
  ;
  : Operations
-   @ ( ME_55C0DA29001E // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_55C0DA29001E // DoIt
+ )
  ; // Operations
 
 ref; // ME_55C0DA200397 Create
@@ -713,10 +727,10 @@ ref; // ME_55C0DAA40125 aTypeInfo
  : Parent ME_55C0DA7C026A // Register
  ;
  : Parameters
-   @ ( ME_55C0DA910239 // aName
+   Seq: ( ME_55C0DA910239 // aName
  ME_55C0DA910261 // aValue
  ME_55C0DAA40125 // aTypeInfo
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_55C0DA8F03C4 DoIt
@@ -743,12 +757,12 @@ ref; // ME_55C0DA88018C
  : Parent ME_55C0D99E0109 // TtfwEnumConstantRegistrator
  ;
  : Operations
-   @ ( ME_55C0DA8F03C4 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_55C0DA8F03C4 // DoIt
+ )
  ; // Operations
  : Dependencies
-   @ ( ME_55C0DA88018C // 
- ) .SequenceCode.It
+   Seq: ( ME_55C0DA88018C // 
+ )
  ; // Dependencies
  CONST "is static" true
 
@@ -757,6 +771,7 @@ ref; // ME_55C0DA7C026A Register
 : ME_FCED495E89D6
  CONST UID 'FCED495E89D6'
  CONST Name 'Ini_Reg'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Регистрация TtfwEnumConstantRegistrator' ;
@@ -789,33 +804,35 @@ ref; // ME_52CFC11603C8_ME_55C0D99E0109 ResultTypeInfo
  : Parent ME_53C7C3100231 // ConstantsRegistration
  ;
  : Inherits
-   @ ( WL 'ME_53C7C4BF03D9' '4F3E3F5F0160.pas.ms.script' // TtfwIntegerConstantRegistrator
- ) .SequenceCode.It
+   Seq: ( WL 'ME_53C7C4BF03D9' '4F3E3F5F0160.pas.ms.script' // TtfwIntegerConstantRegistrator
+ )
  ; // Inherits
  : Attributes
-   @ ( ME_55C0DA5A015D // f_TypeInfo
- ) .SequenceCode.It
+   Seq: ( ME_55C0DA5A015D // f_TypeInfo
+ )
  ; // Attributes
  : Operations
-   @ ( ME_55C0DA200397 // Create
+   Seq: ( ME_55C0DA200397 // Create
  ME_55C0DA7C026A // Register
  ME_FCED495E89D6 // Ini_Reg
- ) .SequenceCode.It
+ )
  ; // Operations
  : Overridden
-   @ ( ME_52CFC11603C8_ME_55C0D99E0109 // ResultTypeInfo
- ) .SequenceCode.It
+   Seq: ( ME_52CFC11603C8_ME_55C0D99E0109 // ResultTypeInfo
+ )
  ; // Overridden
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\ScriptEngine'
  CONST intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\tfwEnumConstantRegistrator.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\ScriptEngine'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'EnumConstantRegistrator'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'tfwEnumConstantRegistrator'
 
 ref; // ME_55C0D99E0109 TtfwEnumConstantRegistrator
 
@@ -829,28 +846,26 @@ ref; // ME_55C0D99E0109 TtfwEnumConstantRegistrator
  : Parent WL 'ME_54CF97B10370' '54CF97B10370.pas.ms.script' // ScriptEngine$Core
  ;
  : Children
-   @ ( ME_53C7E84E012D // TtfwEnumRegistrator
+   Seq: ( ME_53C7E84E012D // TtfwEnumRegistrator
  ME_53C7ED350038 // TtfwRTTITypeInfoList
  ME_53C7ED5A01A0 // TtfwRegisteredEnums
  ME_553128CE018D // TtfwIntegerToEnumName
  ME_553132CA032A // TtfwStringToEnumValue
  ME_55C0D99E0109 // TtfwEnumConstantRegistrator
- ) .SequenceCode.It
+ )
  ; // Children
  : Depends
-   @ ( WL 'ME_4767743E00E5' '4767743E00E5.pas.ms.script' // TypInfo
+   Seq: ( WL 'ME_4767743E00E5' '4767743E00E5.pas.ms.script' // TypInfo
  WL 'ME_47913B47006E' '47913B47006E.pas.ms.script' // l3CoreObjects
  WL 'ME_4F3E3F5F0160' '4F3E3F5F0160.pas.ms.script' // PrimitiveWords
- ) .SequenceCode.It
+ )
  ; // Depends
  CONST "ifndef" 'NoScripts'
- : Generators
- @ (
- gen_pas.script
- gen_pas.script.runner
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\ScriptEngine'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\ScriptEngine'
  CONST pas.script:Path 'shared\models\NewSchool\Scripts\53C7C3100231.pas.ms.script'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
  CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\53C7C3100231.pas.ms.script.runner'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_53C7C3100231 ConstantsRegistration

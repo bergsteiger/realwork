@@ -16,13 +16,13 @@ FORWARD ME_4A3B771101D5
  : Parent ME_4A3B771101D5 // Anchors
  ;
  : Inherits
-   @ ( WL 'ME_49DE374402D1' '47E3DF460095.pas.ms.script' // nevBasePoint
- ) .SequenceCode.It
+   Seq: ( WL 'ME_49DE374402D1' '47E3DF460095.pas.ms.script' // nevBasePoint
+ )
  ; // Inherits
  : Implements
-   @ ( WL 'ME_49D25A310104' '47E3DF460095.pas.ms.script' // nevParentPointFactoryEx
+   Seq: ( WL 'ME_49D25A310104' '47E3DF460095.pas.ms.script' // nevParentPointFactoryEx
  WL 'ME_49DF54E500B3' '47E3DF460095.pas.ms.script' // nevDiff
- ) .SequenceCode.It
+ )
  ; // Implements
  CONST "author" 'Ëþëèí À.Â.'
  CONST "needs InstanceR" 'undefined'
@@ -30,13 +30,13 @@ FORWARD ME_4A3B771101D5
  CONST "no hands" true
  CONST "register in scripts" 'undefined'
  CONST "started" '09.04.2009 21:44'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest\new'
  CONST intf.pas:Path 'common\components\gui\Garant\Everest\new\nevAnchor.imp.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest\new'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
  CONST extprop:pas:TypeName '_nevAnchor_'
+ CONST extprop:pas:UnitName 'nevAnchor.imp'
 
 ref; // ME_49DE38EE03AC nevAnchor
 
@@ -123,8 +123,8 @@ ref; // ME_4A3B6C03029C aTag
  : Target WL 'ME_47C5B5BE009D' '47C5207602D1.pas.ms.script' // InevAnchor
  ;
  : Parameters
-   @ ( ME_4A3B6C03029C // aTag
- ) .SequenceCode.It
+   Seq: ( ME_4A3B6C03029C // aTag
+ )
  ; // Parameters
  CONST "check nil" false
  CONST "need AfterCreate" 'undefined'
@@ -167,8 +167,8 @@ ref; // ME_4A3B708F02F8 aView
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
  : Parameters
-   @ ( ME_4A3B708F02F8 // aView
- ) .SequenceCode.It
+   Seq: ( ME_4A3B708F02F8 // aView
+ )
  ; // Parameters
 
 ref; // ME_4A3B708900C4 GetAtEnd
@@ -230,9 +230,9 @@ ref; // ME_4A3B7F5000C0 aMap
  : Target WL 'ME_476BDEBA0308' '4678209200A6.pas.ms.script' // TnevParaIndex
  ;
  : Parameters
-   @ ( ME_4A3B7F500081 // aView
+   Seq: ( ME_4A3B7F500081 // aView
  ME_4A3B7F5000C0 // aMap
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_4A3B7F2E01CE GetVertPosition
@@ -269,8 +269,8 @@ ref; // ME_4A3B82770199 aValue
  : Parent ME_49DE393900D3 // TnevAnchor
  ;
  : Parameters
-   @ ( ME_4A3B82770199 // aValue
- ) .SequenceCode.It
+   Seq: ( ME_4A3B82770199 // aValue
+ )
  ; // Parameters
 
 ref; // ME_4A3B82710255 SetInner
@@ -306,9 +306,9 @@ ref; // ME_4AEC32300247 aRealTop
  : Target WL 'ME_47C5B57E0390' '47C5207602D1.pas.ms.script' // InevBasePoint
  ;
  : Parameters
-   @ ( ME_4AEC32300207 // aChild
+   Seq: ( ME_4AEC32300207 // aChild
  ME_4AEC32300247 // aRealTop
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_4A3B848302A5 GetInnerFor
@@ -357,9 +357,9 @@ ref; // ME_50336AE1008E aForDrawing
  : Target WL 'ME_47C5B57E0390' '47C5207602D1.pas.ms.script' // InevBasePoint
  ;
  : Parameters
-   @ ( ME_50336AE10040 // aFI
+   Seq: ( ME_50336AE10040 // aFI
  ME_50336AE1008E // aForDrawing
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_4AA7797701F5 DoGetInnerForChildThatNotAfterEnd
@@ -385,8 +385,8 @@ ref; // ME_4C0E3C460269 aChild
  : Target WL 'ME_47C5B57E0390' '47C5207602D1.pas.ms.script' // InevBasePoint
  ;
  : Parameters
-   @ ( ME_4C0E3C460269 // aChild
- ) .SequenceCode.It
+   Seq: ( ME_4C0E3C460269 // aChild
+ )
  ; // Parameters
 
 ref; // ME_4AEC34960358 GetInnerTop
@@ -420,9 +420,9 @@ ref; // ME_4C3318A5039E aPoint
  : Parent ME_49DE393900D3 // TnevAnchor
  ;
  : Parameters
-   @ ( ME_4C3318A50359 // aView
+   Seq: ( ME_4C3318A50359 // aView
  ME_4C3318A5039E // aPoint
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_4B1D0220010E DoAssignPoint
@@ -486,12 +486,12 @@ ref; // ME_500EA3080187 aMode
  : Parent ME_49DE393900D3 // TnevAnchor
  ;
  : Parameters
-   @ ( ME_500EA3080030 // aView
+   Seq: ( ME_500EA3080030 // aView
  ME_500EA308007E // anInner
  ME_500EA30800DC // anIndex
  ME_500EA308012A // aFirst
  ME_500EA3080187 // aMode
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_4B90DBFE00EF DoAddInner
@@ -516,6 +516,7 @@ ref; // ME_545B6AD300ED aView
  CONST Value '-1'
  : ValueType WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
  ;
+ CONST extprop:pas:Value '-1'
 
 ref; // ME_545B6AD3011B anMaxID
 
@@ -528,9 +529,9 @@ ref; // ME_545B6AD3011B anMaxID
  : Parent ME_49DE393900D3 // TnevAnchor
  ;
  : Parameters
-   @ ( ME_545B6AD300ED // aView
+   Seq: ( ME_545B6AD300ED // aView
  ME_545B6AD3011B // anMaxID
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_4B9625260325 DoCompareWithOtherInner
@@ -565,9 +566,9 @@ ref; // ME_5342BCC1013B anInnerPoint
  : Parent ME_49DE393900D3 // TnevAnchor
  ;
  : Parameters
-   @ ( ME_5342BCC100E0 // aView
+   Seq: ( ME_5342BCC100E0 // aView
  ME_5342BCC1013B // anInnerPoint
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_4C7361850250 DoInitByCursor
@@ -625,6 +626,7 @@ ref; // ME_53D8EF510333
  ;
  : Implementor ME_49DE393900D3 // TnevAnchor
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_47C5B55D00B4_ME_49DE393900D3 Range
 
 : ME_47C5B603039F_ME_49DE393900D3
@@ -634,6 +636,7 @@ ref; // ME_47C5B55D00B4_ME_49DE393900D3 Range
  ;
  : Implementor ME_49DE393900D3 // TnevAnchor
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" true
 ref; // ME_47C5B603039F_ME_49DE393900D3 Formatting
 
@@ -644,6 +647,7 @@ ref; // ME_47C5B603039F_ME_49DE393900D3 Formatting
  ;
  : Implementor ME_49DE393900D3 // TnevAnchor
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_47C5B65D0195_ME_49DE393900D3 VertPosition
 
 : ME_47C5B6D30128_ME_49DE393900D3
@@ -653,6 +657,7 @@ ref; // ME_47C5B65D0195_ME_49DE393900D3 VertPosition
  ;
  : Implementor ME_49DE393900D3 // TnevAnchor
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_47C5B6D30128_ME_49DE393900D3 NeedWindowsCaret
 
 : ME_47C5B6E503C3_ME_49DE393900D3
@@ -662,6 +667,7 @@ ref; // ME_47C5B6D30128_ME_49DE393900D3 NeedWindowsCaret
  ;
  : Implementor ME_49DE393900D3 // TnevAnchor
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_47C5B6E503C3_ME_49DE393900D3 ClonePoint
 
 : ME_47C5B6F202A0_ME_49DE393900D3
@@ -671,6 +677,7 @@ ref; // ME_47C5B6E503C3_ME_49DE393900D3 ClonePoint
  ;
  : Implementor ME_49DE393900D3 // TnevAnchor
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_47C5B6F202A0_ME_49DE393900D3 DeltaX
 
 : ME_47C5B7400152_ME_49DE393900D3
@@ -680,6 +687,7 @@ ref; // ME_47C5B6F202A0_ME_49DE393900D3 DeltaX
  ;
  : Implementor ME_49DE393900D3 // TnevAnchor
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" true
 ref; // ME_47C5B7400152_ME_49DE393900D3 Inner
 
@@ -690,6 +698,7 @@ ref; // ME_47C5B7400152_ME_49DE393900D3 Inner
  ;
  : Implementor ME_49DE393900D3 // TnevAnchor
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" false
 ref; // ME_47C5B75F00AF_ME_49DE393900D3 Position
 
@@ -700,6 +709,7 @@ ref; // ME_47C5B75F00AF_ME_49DE393900D3 Position
  ;
  : Implementor ME_49DE393900D3 // TnevAnchor
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_47C5C20D00DB_ME_49DE393900D3 LinkListener
 
 : ME_47C5C21C03D8_ME_49DE393900D3
@@ -709,6 +719,7 @@ ref; // ME_47C5C20D00DB_ME_49DE393900D3 LinkListener
  ;
  : Implementor ME_49DE393900D3 // TnevAnchor
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_47C5C21C03D8_ME_49DE393900D3 UnlinkListener
 
 : ME_47C5C25C022F_ME_49DE393900D3
@@ -718,6 +729,7 @@ ref; // ME_47C5C21C03D8_ME_49DE393900D3 UnlinkListener
  ;
  : Implementor ME_49DE393900D3 // TnevAnchor
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_47C5C25C022F_ME_49DE393900D3 AssignPoint
 
 : ME_47F5FDA303BC_ME_49DE393900D3
@@ -727,6 +739,7 @@ ref; // ME_47C5C25C022F_ME_49DE393900D3 AssignPoint
  ;
  : Implementor ME_49DE393900D3 // TnevAnchor
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_47F5FDA303BC_ME_49DE393900D3 InnerFor
 
 : ME_47F618A90162_ME_49DE393900D3
@@ -736,6 +749,7 @@ ref; // ME_47F5FDA303BC_ME_49DE393900D3 InnerFor
  ;
  : Implementor ME_49DE393900D3 // TnevAnchor
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" true
 ref; // ME_47F618A90162_ME_49DE393900D3 AfterEnd
 
@@ -746,6 +760,7 @@ ref; // ME_47F618A90162_ME_49DE393900D3 AfterEnd
  ;
  : Implementor ME_49DE393900D3 // TnevAnchor
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" false
 ref; // ME_47FB32280262_ME_49DE393900D3 AsLeaf
 
@@ -756,6 +771,7 @@ ref; // ME_47FB32280262_ME_49DE393900D3 AsLeaf
  ;
  : Implementor ME_49DE393900D3 // TnevAnchor
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_47FF3F1800FE_ME_49DE393900D3 AtEnd
 
 : ME_47FF414E039D_ME_49DE393900D3
@@ -765,6 +781,7 @@ ref; // ME_47FF3F1800FE_ME_49DE393900D3 AtEnd
  ;
  : Implementor ME_49DE393900D3 // TnevAnchor
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_47FF414E039D_ME_49DE393900D3 AtStart
 
 : ME_49E6FB10002A_ME_49DE393900D3
@@ -774,6 +791,7 @@ ref; // ME_47FF414E039D_ME_49DE393900D3 AtStart
  ;
  : Implementor ME_49DE393900D3 // TnevAnchor
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" true
 ref; // ME_49E6FB10002A_ME_49DE393900D3 Text
 
@@ -784,6 +802,7 @@ ref; // ME_49E6FB10002A_ME_49DE393900D3 Text
  ;
  : Implementor ME_49DE393900D3 // TnevAnchor
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_4A4C856300DF_ME_49DE393900D3 DisableListener
 
 : ME_4A4C8581014B_ME_49DE393900D3
@@ -793,6 +812,7 @@ ref; // ME_4A4C856300DF_ME_49DE393900D3 DisableListener
  ;
  : Implementor ME_49DE393900D3 // TnevAnchor
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_4A4C8581014B_ME_49DE393900D3 EnableListener
 
 : ME_4A58B79A0360_ME_49DE393900D3
@@ -802,6 +822,7 @@ ref; // ME_4A4C8581014B_ME_49DE393900D3 EnableListener
  ;
  : Implementor ME_49DE393900D3 // TnevAnchor
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" false
 ref; // ME_4A58B79A0360_ME_49DE393900D3 HasInner
 
@@ -812,6 +833,7 @@ ref; // ME_4A58B79A0360_ME_49DE393900D3 HasInner
  ;
  : Implementor ME_49DE393900D3 // TnevAnchor
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" false
 ref; // ME_4A5B48A701A9_ME_49DE393900D3 ShowCollapsed
 
@@ -822,6 +844,7 @@ ref; // ME_4A5B48A701A9_ME_49DE393900D3 ShowCollapsed
  ;
  : Implementor ME_49DE393900D3 // TnevAnchor
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_4A5B60870158_ME_49DE393900D3 Compare
 
 : ME_4A5B6D370262_ME_49DE393900D3
@@ -831,6 +854,7 @@ ref; // ME_4A5B60870158_ME_49DE393900D3 Compare
  ;
  : Implementor ME_49DE393900D3 // TnevAnchor
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_4A5B6D370262_ME_49DE393900D3 CheckPos
 
 : ME_4A5C66200185_ME_49DE393900D3
@@ -840,6 +864,7 @@ ref; // ME_4A5B6D370262_ME_49DE393900D3 CheckPos
  ;
  : Implementor ME_49DE393900D3 // TnevAnchor
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_4A5C66200185_ME_49DE393900D3 ReadOnly
 
 : ME_4A5C6DB4014D_ME_49DE393900D3
@@ -849,6 +874,7 @@ ref; // ME_4A5C66200185_ME_49DE393900D3 ReadOnly
  ;
  : Implementor ME_49DE393900D3 // TnevAnchor
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_4A5C6DB4014D_ME_49DE393900D3 AsPoint
 
 : ME_4A5C750E01F7_ME_49DE393900D3
@@ -858,6 +884,7 @@ ref; // ME_4A5C6DB4014D_ME_49DE393900D3 AsPoint
  ;
  : Implementor ME_49DE393900D3 // TnevAnchor
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_4A5C750E01F7_ME_49DE393900D3 AsCursor
 
 : ME_4A5C7D2F0079_ME_49DE393900D3
@@ -867,6 +894,7 @@ ref; // ME_4A5C750E01F7_ME_49DE393900D3 AsCursor
  ;
  : Implementor ME_49DE393900D3 // TnevAnchor
  ;
+ CONST OpKind opkind_Implemented
  CONST "ifdef" 'evNeedMarkers'
  CONST "pm" false
 ref; // ME_4A5C7D2F0079_ME_49DE393900D3 MarkersSource
@@ -878,6 +906,7 @@ ref; // ME_4A5C7D2F0079_ME_49DE393900D3 MarkersSource
  ;
  : Implementor ME_49DE393900D3 // TnevAnchor
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_4A5C8A9D0324_ME_49DE393900D3 ProcessMessage
 
 : ME_4A5C9138035D_ME_49DE393900D3
@@ -887,6 +916,7 @@ ref; // ME_4A5C8A9D0324_ME_49DE393900D3 ProcessMessage
  ;
  : Implementor ME_49DE393900D3 // TnevAnchor
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" false
 ref; // ME_4A5C9138035D_ME_49DE393900D3 Listener
 
@@ -897,6 +927,7 @@ ref; // ME_4A5C9138035D_ME_49DE393900D3 Listener
  ;
  : Implementor ME_49DE393900D3 // TnevAnchor
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_4A5C913F0235_ME_49DE393900D3 GetBlockLength
 
 : ME_4A810F81018E_ME_49DE393900D3
@@ -906,6 +937,7 @@ ref; // ME_4A5C913F0235_ME_49DE393900D3 GetBlockLength
  ;
  : Implementor ME_49DE393900D3 // TnevAnchor
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_4A810F81018E_ME_49DE393900D3 MergeTo
 
 : ME_4AA76AE00147_ME_49DE393900D3
@@ -915,6 +947,7 @@ ref; // ME_4A810F81018E_ME_49DE393900D3 MergeTo
  ;
  : Implementor ME_49DE393900D3 // TnevAnchor
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_4AA76AE00147_ME_49DE393900D3 InnerForChildThatNotAfterEnd
 
 : ME_4AA76AF90174_ME_49DE393900D3
@@ -924,6 +957,7 @@ ref; // ME_4AA76AE00147_ME_49DE393900D3 InnerForChildThatNotAfterEnd
  ;
  : Implementor ME_49DE393900D3 // TnevAnchor
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_4AA76AF90174_ME_49DE393900D3 HasBaseLine
 
 : ME_4B90DA600047_ME_49DE393900D3
@@ -933,6 +967,7 @@ ref; // ME_4AA76AF90174_ME_49DE393900D3 HasBaseLine
  ;
  : Implementor ME_49DE393900D3 // TnevAnchor
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_4B90DA600047_ME_49DE393900D3 AddInner
 
 : ME_4B9623150178_ME_49DE393900D3
@@ -942,6 +977,7 @@ ref; // ME_4B90DA600047_ME_49DE393900D3 AddInner
  ;
  : Implementor ME_49DE393900D3 // TnevAnchor
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_4B9623150178_ME_49DE393900D3 CompareWithOtherInner
 
 : ME_4C456C8E027F_ME_49DE393900D3
@@ -951,6 +987,7 @@ ref; // ME_4B9623150178_ME_49DE393900D3 CompareWithOtherInner
  ;
  : Implementor ME_49DE393900D3 // TnevAnchor
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_4C456C8E027F_ME_49DE393900D3 InnerHead
 
 : ME_4C456CEA01DE_ME_49DE393900D3
@@ -960,6 +997,7 @@ ref; // ME_4C456C8E027F_ME_49DE393900D3 InnerHead
  ;
  : Implementor ME_49DE393900D3 // TnevAnchor
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_4C456CEA01DE_ME_49DE393900D3 HasHeadPart
 
 : ME_4C456D220317_ME_49DE393900D3
@@ -969,6 +1007,7 @@ ref; // ME_4C456CEA01DE_ME_49DE393900D3 HasHeadPart
  ;
  : Implementor ME_49DE393900D3 // TnevAnchor
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_4C456D220317_ME_49DE393900D3 AddHeadInner
 
 : ME_4C457D0502E1_ME_49DE393900D3
@@ -978,6 +1017,7 @@ ref; // ME_4C456D220317_ME_49DE393900D3 AddHeadInner
  ;
  : Implementor ME_49DE393900D3 // TnevAnchor
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_4C457D0502E1_ME_49DE393900D3 CopyHeadParts
 
 : ME_4C735E600112_ME_49DE393900D3
@@ -987,6 +1027,7 @@ ref; // ME_4C457D0502E1_ME_49DE393900D3 CopyHeadParts
  ;
  : Implementor ME_49DE393900D3 // TnevAnchor
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_4C735E600112_ME_49DE393900D3 InitByCursor
 
 : ME_4D9C113C0320_ME_49DE393900D3
@@ -996,6 +1037,7 @@ ref; // ME_4C735E600112_ME_49DE393900D3 InitByCursor
  ;
  : Implementor ME_49DE393900D3 // TnevAnchor
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_4D9C113C0320_ME_49DE393900D3 InitBaseLineInner
 
 : ME_4DDCD59301D5_ME_49DE393900D3
@@ -1005,6 +1047,7 @@ ref; // ME_4D9C113C0320_ME_49DE393900D3 InitBaseLineInner
  ;
  : Implementor ME_49DE393900D3 // TnevAnchor
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_4DDCD59301D5_ME_49DE393900D3 InnerTop
 
 : ME_4EC3B0330271_ME_49DE393900D3
@@ -1014,6 +1057,7 @@ ref; // ME_4DDCD59301D5_ME_49DE393900D3 InnerTop
  ;
  : Implementor ME_49DE393900D3 // TnevAnchor
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" true
 ref; // ME_4EC3B0330271_ME_49DE393900D3 BeforeStart
 
@@ -1024,6 +1068,7 @@ ref; // ME_4EC3B0330271_ME_49DE393900D3 BeforeStart
  ;
  : Implementor ME_49DE393900D3 // TnevAnchor
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_50DAA7010050_ME_49DE393900D3 CorrectMoveRight
 
 : ME_4B1D08980098_ME_49DE393900D3
@@ -1033,6 +1078,7 @@ ref; // ME_50DAA7010050_ME_49DE393900D3 CorrectMoveRight
  ;
  : Implementor ME_49DE393900D3 // TnevAnchor
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4B1D08980098_ME_49DE393900D3 DoSignalScroll
 
 : ME_4B1D08AA027C_ME_49DE393900D3
@@ -1042,6 +1088,7 @@ ref; // ME_4B1D08980098_ME_49DE393900D3 DoSignalScroll
  ;
  : Implementor ME_49DE393900D3 // TnevAnchor
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4B1D08AA027C_ME_49DE393900D3 DoLockScroll
 
 : ME_4B1D08E001CF_ME_49DE393900D3
@@ -1051,6 +1098,7 @@ ref; // ME_4B1D08AA027C_ME_49DE393900D3 DoLockScroll
  ;
  : Implementor ME_49DE393900D3 // TnevAnchor
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4B1D08E001CF_ME_49DE393900D3 DoUnlockScroll
 
 : ME_49DE393900D3
@@ -1065,25 +1113,25 @@ ref; // ME_4B1D08E001CF_ME_49DE393900D3 DoUnlockScroll
  : Parent ME_4A3B771101D5 // Anchors
  ;
  : Inherits
-   @ ( ME_49DE38EE03AC // nevAnchor
- ) .SequenceCode.It
+   Seq: ( ME_49DE38EE03AC // nevAnchor
+ )
  ; // Inherits
  : Implements
-   @ ( WL 'ME_47C5B57E0390' '47C5207602D1.pas.ms.script' // InevBasePoint
+   Seq: ( WL 'ME_47C5B57E0390' '47C5207602D1.pas.ms.script' // InevBasePoint
  WL 'ME_47C5B5BE009D' '47C5207602D1.pas.ms.script' // InevAnchor
  WL 'ME_47C5B6770058' '47C5207602D1.pas.ms.script' // MnevBasePointModify
  WL 'ME_4B1CFB8E0090' '47E3DF460095.pas.ms.script' // nevAnchorModify
- ) .SequenceCode.It
+ )
  ; // Implements
  : Attributes
-   @ ( ME_4A3B6B4C02B8 // f_View
+   Seq: ( ME_4A3B6B4C02B8 // f_View
  ME_4A3B6B5D0055 // f_LockScroll
  ME_4A3B6B710260 // f_NeedSignal
  ME_4A58BA550111 // HasInner
- ) .SequenceCode.It
+ )
  ; // Attributes
  : Operations
-   @ ( ME_4A3B6BF80304 // Make
+   Seq: ( ME_4A3B6BF80304 // Make
  ME_4A3B707700C9 // GetAtStart
  ME_4A3B708900C4 // GetAtEnd
  ME_4A3B7E35010E // GetAsLeaf
@@ -1099,10 +1147,10 @@ ref; // ME_4B1D08E001CF_ME_49DE393900D3 DoUnlockScroll
  ME_4B90DBFE00EF // DoAddInner
  ME_4B9625260325 // DoCompareWithOtherInner
  ME_4C7361850250 // DoInitByCursor
- ) .SequenceCode.It
+ )
  ; // Operations
  : Implemented
-   @ ( ME_47C5B55D00B4_ME_49DE393900D3 // Range
+   Seq: ( ME_47C5B55D00B4_ME_49DE393900D3 // Range
  ME_47C5B603039F_ME_49DE393900D3 // Formatting
  ME_47C5B65D0195_ME_49DE393900D3 // VertPosition
  ME_47C5B6D30128_ME_49DE393900D3 // NeedWindowsCaret
@@ -1146,20 +1194,20 @@ ref; // ME_4B1D08E001CF_ME_49DE393900D3 DoUnlockScroll
  ME_4DDCD59301D5_ME_49DE393900D3 // InnerTop
  ME_4EC3B0330271_ME_49DE393900D3 // BeforeStart
  ME_50DAA7010050_ME_49DE393900D3 // CorrectMoveRight
- ) .SequenceCode.It
+ )
  ; // Implemented
  : Overridden
-   @ ( ME_4B1D08980098_ME_49DE393900D3 // DoSignalScroll
+   Seq: ( ME_4B1D08980098_ME_49DE393900D3 // DoSignalScroll
  ME_4B1D08AA027C_ME_49DE393900D3 // DoLockScroll
  ME_4B1D08E001CF_ME_49DE393900D3 // DoUnlockScroll
- ) .SequenceCode.It
+ )
  ; // Overridden
  : Dependencies
-   @ ( ME_4A3B6A2F0146 // 
+   Seq: ( ME_4A3B6A2F0146 // 
  ME_4A3B705F029F // 
  ME_53D8EF340243 // 
  ME_53D8EF510333 // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  CONST "author" 'Ëþëèí À.Â.'
  CONST "needs InstanceR" 'undefined'
@@ -1167,12 +1215,14 @@ ref; // ME_4B1D08E001CF_ME_49DE393900D3 DoUnlockScroll
  CONST "no hands" true
  CONST "register in scripts" 'undefined'
  CONST "started" '12.04.2005 14:12'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest\new'
  CONST intf.pas:Path 'common\components\gui\Garant\Everest\new\nevAnchor.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest\new'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'Anchor'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'nevAnchor'
 
 ref; // ME_49DE393900D3 TnevAnchor
 
@@ -1201,8 +1251,8 @@ ref; // ME_4A3B9B530129 aView
  : Target WL 'ME_480F377B0271' '4678209200A6.pas.ms.script' // TnevFormatInfoPrim
  ;
  : Parameters
-   @ ( ME_4A3B9B530129 // aView
- ) .SequenceCode.It
+   Seq: ( ME_4A3B9B530129 // aView
+ )
  ; // Parameters
 
 ref; // ME_4A3B9B480108 DoIt
@@ -1218,8 +1268,8 @@ ref; // ME_4A3B9B480108 DoIt
  : Parent ME_4A3B9AD60266 // TnevLeafParaAnchor
  ;
  : Operations
-   @ ( ME_4A3B9B480108 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_4A3B9B480108 // DoIt
+ )
  ; // Operations
 
 ref; // ME_4A3B9B3B0161 ObjMap
@@ -1255,9 +1305,9 @@ ref; // ME_4A3BA80C0276 aMap
  : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
  ;
  : Parameters
-   @ ( ME_4A3BA80C0258 // aView
+   Seq: ( ME_4A3BA80C0258 // aView
  ME_4A3BA80C0276 // aMap
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_4A3BA80002E5 GetPaintOffsetY
@@ -1293,6 +1343,7 @@ ref; // ME_53D7D2550016
  ;
  : Implementor ME_4A3B9AD60266 // TnevLeafParaAnchor
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_47FB320102A6_ME_4A3B9AD60266 InitPointByPt
 
 : ME_4A5CDCAC0230_ME_4A3B9AD60266
@@ -1302,6 +1353,7 @@ ref; // ME_47FB320102A6_ME_4A3B9AD60266 InitPointByPt
  ;
  : Implementor ME_4A3B9AD60266 // TnevLeafParaAnchor
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_4A5CDCAC0230_ME_4A3B9AD60266 PaintOffsetY
 
 : ME_4A3B7E35010E_ME_4A3B9AD60266
@@ -1311,6 +1363,7 @@ ref; // ME_4A5CDCAC0230_ME_4A3B9AD60266 PaintOffsetY
  ;
  : Implementor ME_4A3B9AD60266 // TnevLeafParaAnchor
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4A3B7E35010E_ME_4A3B9AD60266 GetAsLeaf
 
 : ME_4A3B7E540378_ME_4A3B9AD60266
@@ -1320,6 +1373,7 @@ ref; // ME_4A3B7E35010E_ME_4A3B9AD60266 GetAsLeaf
  ;
  : Implementor ME_4A3B9AD60266 // TnevLeafParaAnchor
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4A3B7E540378_ME_4A3B9AD60266 GetPosition
 
 : ME_4A3B9AD60266
@@ -1334,32 +1388,32 @@ ref; // ME_4A3B7E540378_ME_4A3B9AD60266 GetPosition
  : Parent ME_4A3B771101D5 // Anchors
  ;
  : Inherits
-   @ ( ME_49DE393900D3 // TnevAnchor
- ) .SequenceCode.It
+   Seq: ( ME_49DE393900D3 // TnevAnchor
+ )
  ; // Inherits
  : Implements
-   @ ( WL 'ME_47FB31D1033A' '47C5207602D1.pas.ms.script' // InevLeafPoint
- ) .SequenceCode.It
+   Seq: ( WL 'ME_47FB31D1033A' '47C5207602D1.pas.ms.script' // InevLeafPoint
+ )
  ; // Implements
  : Operations
-   @ ( ME_4A3B9B3B0161 // ObjMap
+   Seq: ( ME_4A3B9B3B0161 // ObjMap
  ME_4A3BA80002E5 // GetPaintOffsetY
- ) .SequenceCode.It
+ )
  ; // Operations
  : Implemented
-   @ ( ME_47FB320102A6_ME_4A3B9AD60266 // InitPointByPt
+   Seq: ( ME_47FB320102A6_ME_4A3B9AD60266 // InitPointByPt
  ME_4A5CDCAC0230_ME_4A3B9AD60266 // PaintOffsetY
- ) .SequenceCode.It
+ )
  ; // Implemented
  : Overridden
-   @ ( ME_4A3B7E35010E_ME_4A3B9AD60266 // GetAsLeaf
+   Seq: ( ME_4A3B7E35010E_ME_4A3B9AD60266 // GetAsLeaf
  ME_4A3B7E540378_ME_4A3B9AD60266 // GetPosition
- ) .SequenceCode.It
+ )
  ; // Overridden
  : Dependencies
-   @ ( ME_53D7D2310353 // 
+   Seq: ( ME_53D7D2310353 // 
  ME_53D7D2550016 // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  CONST "author" 'Ëþëèí À.Â.'
  CONST "needs InstanceR" 'undefined'
@@ -1367,12 +1421,14 @@ ref; // ME_4A3B7E540378_ME_4A3B9AD60266 GetPosition
  CONST "no hands" true
  CONST "register in scripts" 'undefined'
  CONST "started" '12.04.2005 15:42'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest\new'
  CONST intf.pas:Path 'common\components\gui\Garant\Everest\new\nevLeafParaAnchor.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest\new'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'LeafParaAnchor'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'nevLeafParaAnchor'
 
 ref; // ME_4A3B9AD60266 TnevLeafParaAnchor
 
@@ -1427,6 +1483,17 @@ ref; // ME_53D2422D029B
 
 ref; // ME_53D24276019B 
 
+: ME_567A84990200
+ CONST UID '567A84990200'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4A3BAB21005A // TnevSolidParaAnchor
+ ;
+ : Target WL 'ME_4CEBC4B702DD' '48492FC0029D.pas.ms.script' // LeafParaDecorationsHolder
+ ;
+
+ref; // ME_567A84990200 
+
 : ME_4A3B707700C9_ME_4A3BAB21005A
  CONST UID '4A3B707700C9'
  CONST Name 'GetAtStart'
@@ -1434,6 +1501,7 @@ ref; // ME_53D24276019B
  ;
  : Implementor ME_4A3BAB21005A // TnevSolidParaAnchor
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_4A3B707700C9_ME_4A3BAB21005A GetAtStart
 
 : ME_4A3B708900C4_ME_4A3BAB21005A
@@ -1443,6 +1511,7 @@ ref; // ME_4A3B707700C9_ME_4A3BAB21005A GetAtStart
  ;
  : Implementor ME_4A3BAB21005A // TnevSolidParaAnchor
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_4A3B708900C4_ME_4A3BAB21005A GetAtEnd
 
 : ME_4A3B7F2E01CE_ME_4A3BAB21005A
@@ -1452,6 +1521,7 @@ ref; // ME_4A3B708900C4_ME_4A3BAB21005A GetAtEnd
  ;
  : Implementor ME_4A3BAB21005A // TnevSolidParaAnchor
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_4A3B7F2E01CE_ME_4A3BAB21005A GetVertPosition
 
 : ME_4B1D0E1A0256_ME_4A3BAB21005A
@@ -1461,6 +1531,7 @@ ref; // ME_4A3B7F2E01CE_ME_4A3BAB21005A GetVertPosition
  ;
  : Implementor ME_4A3BAB21005A // TnevSolidParaAnchor
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_4B1D0E1A0256_ME_4A3BAB21005A GetY
 
 : ME_4B1D0E3A00F7_ME_4A3BAB21005A
@@ -1470,6 +1541,7 @@ ref; // ME_4B1D0E1A0256_ME_4A3BAB21005A GetY
  ;
  : Implementor ME_4A3BAB21005A // TnevSolidParaAnchor
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_4B1D0E3A00F7_ME_4A3BAB21005A SetY
 
 : ME_479731C50290_ME_4A3BAB21005A
@@ -1479,6 +1551,7 @@ ref; // ME_4B1D0E3A00F7_ME_4A3BAB21005A SetY
  ;
  : Implementor ME_4A3BAB21005A // TnevSolidParaAnchor
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_479731C50290_ME_4A3BAB21005A Cleanup
 
 : ME_4A3BA80002E5_ME_4A3BAB21005A
@@ -1488,6 +1561,7 @@ ref; // ME_479731C50290_ME_4A3BAB21005A Cleanup
  ;
  : Implementor ME_4A3BAB21005A // TnevSolidParaAnchor
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4A3BA80002E5_ME_4A3BAB21005A GetPaintOffsetY
 
 : ME_4AA785540310_ME_4A3BAB21005A
@@ -1497,6 +1571,7 @@ ref; // ME_4A3BA80002E5_ME_4A3BAB21005A GetPaintOffsetY
  ;
  : Implementor ME_4A3BAB21005A // TnevSolidParaAnchor
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4AA785540310_ME_4A3BAB21005A DoDiff
 
 : ME_4B1D0220010E_ME_4A3BAB21005A
@@ -1506,6 +1581,7 @@ ref; // ME_4AA785540310_ME_4A3BAB21005A DoDiff
  ;
  : Implementor ME_4A3BAB21005A // TnevSolidParaAnchor
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4B1D0220010E_ME_4A3BAB21005A DoAssignPoint
 
 : ME_4A3BAB21005A
@@ -1520,37 +1596,38 @@ ref; // ME_4B1D0220010E_ME_4A3BAB21005A DoAssignPoint
  : Parent ME_4A3B771101D5 // Anchors
  ;
  : Inherits
-   @ ( ME_4A3B9AD60266 // TnevLeafParaAnchor
- ) .SequenceCode.It
+   Seq: ( ME_4A3B9AD60266 // TnevLeafParaAnchor
+ )
  ; // Inherits
  : Implements
-   @ ( WL 'ME_4B1CFCE401D3' '47E3DF460095.pas.ms.script' // nevSolidParaAnchorModify
- ) .SequenceCode.It
+   Seq: ( WL 'ME_4B1CFCE401D3' '47E3DF460095.pas.ms.script' // nevSolidParaAnchorModify
+ )
  ; // Implements
  : Attributes
-   @ ( ME_4A3BAB6000FF // f_Y
- ) .SequenceCode.It
+   Seq: ( ME_4A3BAB6000FF // f_Y
+ )
  ; // Attributes
  : Implemented
-   @ ( ME_4A3B707700C9_ME_4A3BAB21005A // GetAtStart
+   Seq: ( ME_4A3B707700C9_ME_4A3BAB21005A // GetAtStart
  ME_4A3B708900C4_ME_4A3BAB21005A // GetAtEnd
  ME_4A3B7F2E01CE_ME_4A3BAB21005A // GetVertPosition
  ME_4B1D0E1A0256_ME_4A3BAB21005A // GetY
  ME_4B1D0E3A00F7_ME_4A3BAB21005A // SetY
- ) .SequenceCode.It
+ )
  ; // Implemented
  : Overridden
-   @ ( ME_479731C50290_ME_4A3BAB21005A // Cleanup
+   Seq: ( ME_479731C50290_ME_4A3BAB21005A // Cleanup
  ME_4A3BA80002E5_ME_4A3BAB21005A // GetPaintOffsetY
  ME_4AA785540310_ME_4A3BAB21005A // DoDiff
  ME_4B1D0220010E_ME_4A3BAB21005A // DoAssignPoint
- ) .SequenceCode.It
+ )
  ; // Overridden
  : Dependencies
-   @ ( ME_4A3BADC50282 // 
+   Seq: ( ME_4A3BADC50282 // 
  ME_53D2422D029B // 
  ME_53D24276019B // 
- ) .SequenceCode.It
+ ME_567A84990200 // 
+ )
  ; // Dependencies
  CONST "author" 'Ëþëèí À.Â.'
  CONST "needs InstanceR" 'undefined'
@@ -1558,12 +1635,14 @@ ref; // ME_4B1D0220010E_ME_4A3BAB21005A DoAssignPoint
  CONST "no hands" true
  CONST "register in scripts" 'undefined'
  CONST "started" '24.10.2005 10:03'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest\new'
  CONST intf.pas:Path 'common\components\gui\Garant\Everest\new\nevSolidParaAnchor.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest\new'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'SolidParaAnchor'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'nevSolidParaAnchor'
 
 ref; // ME_4A3BAB21005A TnevSolidParaAnchor
 
@@ -1605,13 +1684,13 @@ ref; // ME_53D0F1890312
  : Parent ME_4A3B771101D5 // Anchors
  ;
  : Inherits
-   @ ( ME_4A3BAB21005A // TnevSolidParaAnchor
- ) .SequenceCode.It
+   Seq: ( ME_4A3BAB21005A // TnevSolidParaAnchor
+ )
  ; // Inherits
  : Dependencies
-   @ ( ME_53D0F16E0303 // 
+   Seq: ( ME_53D0F16E0303 // 
  ME_53D0F1890312 // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  CONST "author" 'Ëþëèí À.Â.'
  CONST "needs InstanceR" 'undefined'
@@ -1619,12 +1698,14 @@ ref; // ME_53D0F1890312
  CONST "no hands" true
  CONST "register in scripts" 'undefined'
  CONST "started" '24.10.2005 09:01'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest\new'
  CONST intf.pas:Path 'common\components\gui\Garant\Everest\new\nevBitmapParaAnchor.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest\new'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'BitmapParaAnchor'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'nevBitmapParaAnchor'
 
 ref; // ME_4A3BB0550026 TnevBitmapParaAnchor
 
@@ -1666,17 +1747,17 @@ ref; // ME_53D0AFBB0041
  : Parent ME_4A3B771101D5 // Anchors
  ;
  : Inherits
-   @ ( ME_4A3BAB21005A // TnevSolidParaAnchor
- ) .SequenceCode.It
+   Seq: ( ME_4A3BAB21005A // TnevSolidParaAnchor
+ )
  ; // Inherits
  : Implements
-   @ ( WL 'ME_4B1D1CE30270' '47E3DF460095.pas.ms.script' // nevBreakParaAnchorModify
- ) .SequenceCode.It
+   Seq: ( WL 'ME_4B1D1CE30270' '47E3DF460095.pas.ms.script' // nevBreakParaAnchorModify
+ )
  ; // Implements
  : Dependencies
-   @ ( ME_53D0AF910359 // 
+   Seq: ( ME_53D0AF910359 // 
  ME_53D0AFBB0041 // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  CONST "author" 'Ëþëèí À.Â.'
  CONST "needs InstanceR" 'undefined'
@@ -1684,12 +1765,14 @@ ref; // ME_53D0AFBB0041
  CONST "no hands" true
  CONST "register in scripts" 'undefined'
  CONST "started" '24.11.2006 12:34'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest\new'
  CONST intf.pas:Path 'common\components\gui\Garant\Everest\new\nevBreakParaAnchor.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest\new'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'BreakParaAnchor'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'nevBreakParaAnchor'
 
 ref; // ME_4A3BB09A0147 TnevBreakParaAnchor
 
@@ -1762,6 +1845,7 @@ ref; // ME_53D78E5A0079
  ;
  : Implementor ME_4A3F37440382 // TnevTextParaAnchor
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_4A3B707700C9_ME_4A3F37440382 GetAtStart
 
 : ME_4A3B708900C4_ME_4A3F37440382
@@ -1771,6 +1855,7 @@ ref; // ME_4A3B707700C9_ME_4A3F37440382 GetAtStart
  ;
  : Implementor ME_4A3F37440382 // TnevTextParaAnchor
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_4A3B708900C4_ME_4A3F37440382 GetAtEnd
 
 : ME_4A3B7F2E01CE_ME_4A3F37440382
@@ -1780,6 +1865,7 @@ ref; // ME_4A3B708900C4_ME_4A3F37440382 GetAtEnd
  ;
  : Implementor ME_4A3F37440382 // TnevTextParaAnchor
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_4A3B7F2E01CE_ME_4A3F37440382 GetVertPosition
 
 : ME_4A5CD65C01D4_ME_4A3F37440382
@@ -1789,6 +1875,7 @@ ref; // ME_4A3B7F2E01CE_ME_4A3F37440382 GetVertPosition
  ;
  : Implementor ME_4A3F37440382 // TnevTextParaAnchor
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_4A5CD65C01D4_ME_4A3F37440382 GetLC
 
 : ME_4B1D11DC00AD_ME_4A3F37440382
@@ -1798,6 +1885,7 @@ ref; // ME_4A5CD65C01D4_ME_4A3F37440382 GetLC
  ;
  : Implementor ME_4A3F37440382 // TnevTextParaAnchor
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_4B1D11DC00AD_ME_4A3F37440382 SetLinePrim
 
 : ME_479731C50290_ME_4A3F37440382
@@ -1807,6 +1895,7 @@ ref; // ME_4B1D11DC00AD_ME_4A3F37440382 SetLinePrim
  ;
  : Implementor ME_4A3F37440382 // TnevTextParaAnchor
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_479731C50290_ME_4A3F37440382 Cleanup
 
 : ME_4A3BA80002E5_ME_4A3F37440382
@@ -1816,6 +1905,7 @@ ref; // ME_479731C50290_ME_4A3F37440382 Cleanup
  ;
  : Implementor ME_4A3F37440382 // TnevTextParaAnchor
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4A3BA80002E5_ME_4A3F37440382 GetPaintOffsetY
 
 : ME_4B1D0220010E_ME_4A3F37440382
@@ -1825,6 +1915,7 @@ ref; // ME_4A3BA80002E5_ME_4A3F37440382 GetPaintOffsetY
  ;
  : Implementor ME_4A3F37440382 // TnevTextParaAnchor
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4B1D0220010E_ME_4A3F37440382 DoAssignPoint
 
 : ME_4A3F37440382
@@ -1838,39 +1929,39 @@ ref; // ME_4B1D0220010E_ME_4A3F37440382 DoAssignPoint
  : Parent ME_4A3B771101D5 // Anchors
  ;
  : Inherits
-   @ ( ME_4A3B9AD60266 // TnevLeafParaAnchor
- ) .SequenceCode.It
+   Seq: ( ME_4A3B9AD60266 // TnevLeafParaAnchor
+ )
  ; // Inherits
  : Implements
-   @ ( WL 'ME_480F66CA00DC' '47C52679006D.pas.ms.script' // nevTextParaTool
+   Seq: ( WL 'ME_480F66CA00DC' '47C52679006D.pas.ms.script' // nevTextParaTool
  WL 'ME_4A5CD38B00C6' '47E3DF460095.pas.ms.script' // nevTextParaViewBounds
  WL 'ME_4B1CFD19035B' '47E3DF460095.pas.ms.script' // nevTextParaAnchorModify
- ) .SequenceCode.It
+ )
  ; // Implements
  : Attributes
-   @ ( ME_4A3F37C702BD // f_Line
- ) .SequenceCode.It
+   Seq: ( ME_4A3F37C702BD // f_Line
+ )
  ; // Attributes
  : Implemented
-   @ ( ME_4A3B707700C9_ME_4A3F37440382 // GetAtStart
+   Seq: ( ME_4A3B707700C9_ME_4A3F37440382 // GetAtStart
  ME_4A3B708900C4_ME_4A3F37440382 // GetAtEnd
  ME_4A3B7F2E01CE_ME_4A3F37440382 // GetVertPosition
  ME_4A5CD65C01D4_ME_4A3F37440382 // GetLC
  ME_4B1D11DC00AD_ME_4A3F37440382 // SetLinePrim
- ) .SequenceCode.It
+ )
  ; // Implemented
  : Overridden
-   @ ( ME_479731C50290_ME_4A3F37440382 // Cleanup
+   Seq: ( ME_479731C50290_ME_4A3F37440382 // Cleanup
  ME_4A3BA80002E5_ME_4A3F37440382 // GetPaintOffsetY
  ME_4B1D0220010E_ME_4A3F37440382 // DoAssignPoint
- ) .SequenceCode.It
+ )
  ; // Overridden
  : Dependencies
-   @ ( ME_4A3F385902CA // 
+   Seq: ( ME_4A3F385902CA // 
  ME_4A3F3B4A0250 // 
  ME_53D78E3D0362 // 
  ME_53D78E5A0079 // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  CONST "author" 'Ëþëèí À.Â.'
  CONST "needs InstanceR" 'undefined'
@@ -1878,12 +1969,14 @@ ref; // ME_4B1D0220010E_ME_4A3F37440382 DoAssignPoint
  CONST "no hands" true
  CONST "register in scripts" 'undefined'
  CONST "started" '12.04.2005 15:30'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest\new'
  CONST intf.pas:Path 'common\components\gui\Garant\Everest\new\nevTextParaAnchor.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest\new'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'TextParaAnchor'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'nevTextParaAnchor'
 
 ref; // ME_4A3F37440382 TnevTextParaAnchor
 
@@ -1941,8 +2034,8 @@ ref; // ME_4A58C43903D6 CheckInner
  : Parent ME_4A3F457A0129 // TnevParaListAnchor
  ;
  : Operations
-   @ ( ME_4A58C43903D6 // CheckInner
- ) .SequenceCode.It
+   Seq: ( ME_4A58C43903D6 // CheckInner
+ )
  ; // Operations
 
 ref; // ME_4A58C42A029C CheckInner
@@ -1971,8 +2064,8 @@ ref; // ME_55376B1200B8 DoIt
  : Parent ME_4A3F457A0129 // TnevParaListAnchor
  ;
  : Operations
-   @ ( ME_55376B1200B8 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_55376B1200B8 // DoIt
+ )
  ; // Operations
 
 ref; // ME_55376B0B01DC ClearInner
@@ -2001,8 +2094,8 @@ ref; // ME_55376B920367 DoIt
  : Parent ME_4A3F457A0129 // TnevParaListAnchor
  ;
  : Operations
-   @ ( ME_55376B920367 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_55376B920367 // DoIt
+ )
  ; // Operations
 
 ref; // ME_55376B1B00F8 ClearInnerInFire
@@ -2049,6 +2142,7 @@ ref; // ME_53D77FF303CB
  ;
  : Implementor ME_4A3F457A0129 // TnevParaListAnchor
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_4A3B707700C9_ME_4A3F457A0129 GetAtStart
 
 : ME_4A3B708900C4_ME_4A3F457A0129
@@ -2058,6 +2152,7 @@ ref; // ME_4A3B707700C9_ME_4A3F457A0129 GetAtStart
  ;
  : Implementor ME_4A3F457A0129 // TnevParaListAnchor
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_4A3B708900C4_ME_4A3F457A0129 GetAtEnd
 
 : ME_4A3B7F2E01CE_ME_4A3F457A0129
@@ -2067,6 +2162,7 @@ ref; // ME_4A3B708900C4_ME_4A3F457A0129 GetAtEnd
  ;
  : Implementor ME_4A3F457A0129 // TnevParaListAnchor
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_4A3B7F2E01CE_ME_4A3F457A0129 GetVertPosition
 
 : ME_4B1D16510174_ME_4A3F457A0129
@@ -2076,6 +2172,7 @@ ref; // ME_4A3B7F2E01CE_ME_4A3F457A0129 GetVertPosition
  ;
  : Implementor ME_4A3F457A0129 // TnevParaListAnchor
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_4B1D16510174_ME_4A3F457A0129 SetPID
 
 : ME_4B1D1957015A_ME_4A3F457A0129
@@ -2085,6 +2182,7 @@ ref; // ME_4B1D16510174_ME_4A3F457A0129 SetPID
  ;
  : Implementor ME_4A3F457A0129 // TnevParaListAnchor
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_4B1D1957015A_ME_4A3F457A0129 GetPID
 
 : ME_479731C50290_ME_4A3F457A0129
@@ -2094,6 +2192,7 @@ ref; // ME_4B1D1957015A_ME_4A3F457A0129 GetPID
  ;
  : Implementor ME_4A3F457A0129 // TnevParaListAnchor
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_479731C50290_ME_4A3F457A0129 Cleanup
 
 : ME_48CF73CE00B5_ME_4A3F457A0129
@@ -2103,6 +2202,7 @@ ref; // ME_479731C50290_ME_4A3F457A0129 Cleanup
  ;
  : Implementor ME_4A3F457A0129 // TnevParaListAnchor
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_48CF73CE00B5_ME_4A3F457A0129 DoFire
 
 : ME_4A3B7E540378_ME_4A3F457A0129
@@ -2112,6 +2212,7 @@ ref; // ME_48CF73CE00B5_ME_4A3F457A0129 DoFire
  ;
  : Implementor ME_4A3F457A0129 // TnevParaListAnchor
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4A3B7E540378_ME_4A3F457A0129 GetPosition
 
 : ME_4A3B826402B8_ME_4A3F457A0129
@@ -2121,6 +2222,7 @@ ref; // ME_4A3B7E540378_ME_4A3F457A0129 GetPosition
  ;
  : Implementor ME_4A3F457A0129 // TnevParaListAnchor
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4A3B826402B8_ME_4A3F457A0129 GetInner
 
 : ME_4A3B82710255_ME_4A3F457A0129
@@ -2130,6 +2232,7 @@ ref; // ME_4A3B826402B8_ME_4A3F457A0129 GetInner
  ;
  : Implementor ME_4A3F457A0129 // TnevParaListAnchor
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4A3B82710255_ME_4A3F457A0129 SetInner
 
 : ME_4A3F4707018A_ME_4A3F457A0129
@@ -2139,6 +2242,7 @@ ref; // ME_4A3B82710255_ME_4A3F457A0129 SetInner
  ;
  : Implementor ME_4A3F457A0129 // TnevParaListAnchor
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4A3F4707018A_ME_4A3F457A0129 Create
 
 : ME_4A48AFBD001D_ME_4A3F457A0129
@@ -2148,6 +2252,7 @@ ref; // ME_4A3F4707018A_ME_4A3F457A0129 Create
  ;
  : Implementor ME_4A3F457A0129 // TnevParaListAnchor
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4A48AFBD001D_ME_4A3F457A0129 NeedEvents
 
 : ME_4A58BA550111_ME_4A3F457A0129
@@ -2157,6 +2262,7 @@ ref; // ME_4A48AFBD001D_ME_4A3F457A0129 NeedEvents
  ;
  : Implementor ME_4A3F457A0129 // TnevParaListAnchor
  ;
+ CONST OpKind opkind_Overridden
  CONST "needs field" false
  CONST "pm" true
 ref; // ME_4A58BA550111_ME_4A3F457A0129 HasInner
@@ -2168,6 +2274,7 @@ ref; // ME_4A58BA550111_ME_4A3F457A0129 HasInner
  ;
  : Implementor ME_4A3F457A0129 // TnevParaListAnchor
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4B1D0220010E_ME_4A3F457A0129 DoAssignPoint
 
 : ME_4A3F457A0129
@@ -2182,36 +2289,36 @@ ref; // ME_4B1D0220010E_ME_4A3F457A0129 DoAssignPoint
  : Parent ME_4A3B771101D5 // Anchors
  ;
  : Inherits
-   @ ( ME_49DE393900D3 // TnevAnchor
- ) .SequenceCode.It
+   Seq: ( ME_49DE393900D3 // TnevAnchor
+ )
  ; // Inherits
  : Implements
-   @ ( WL 'ME_480F4E9301DE' '47C52679006D.pas.ms.script' // nevParaListTool
+   Seq: ( WL 'ME_480F4E9301DE' '47C52679006D.pas.ms.script' // nevParaListTool
  WL 'ME_4A5CD0CB0038' '47E3DF460095.pas.ms.script' // nevParaListViewBounds
  WL 'ME_4B1CFCBA0170' '47E3DF460095.pas.ms.script' // nevParaListAnchorModify
- ) .SequenceCode.It
+ )
  ; // Implements
  : Attributes
-   @ ( ME_4A3F46640237 // f_PID
+   Seq: ( ME_4A3F46640237 // f_PID
  ME_4A3F46760099 // f_Inner
- ) .SequenceCode.It
+ )
  ; // Attributes
  : Operations
-   @ ( ME_4A58C42A029C // CheckInner
+   Seq: ( ME_4A58C42A029C // CheckInner
  ME_55376B0B01DC // ClearInner
  ME_55376B1B00F8 // ClearInnerInFire
- ) .SequenceCode.It
+ )
  ; // Operations
  : Implemented
-   @ ( ME_4A3B707700C9_ME_4A3F457A0129 // GetAtStart
+   Seq: ( ME_4A3B707700C9_ME_4A3F457A0129 // GetAtStart
  ME_4A3B708900C4_ME_4A3F457A0129 // GetAtEnd
  ME_4A3B7F2E01CE_ME_4A3F457A0129 // GetVertPosition
  ME_4B1D16510174_ME_4A3F457A0129 // SetPID
  ME_4B1D1957015A_ME_4A3F457A0129 // GetPID
- ) .SequenceCode.It
+ )
  ; // Implemented
  : Overridden
-   @ ( ME_479731C50290_ME_4A3F457A0129 // Cleanup
+   Seq: ( ME_479731C50290_ME_4A3F457A0129 // Cleanup
  ME_48CF73CE00B5_ME_4A3F457A0129 // DoFire
  ME_4A3B7E540378_ME_4A3F457A0129 // GetPosition
  ME_4A3B826402B8_ME_4A3F457A0129 // GetInner
@@ -2220,13 +2327,13 @@ ref; // ME_4B1D0220010E_ME_4A3F457A0129 DoAssignPoint
  ME_4A48AFBD001D_ME_4A3F457A0129 // NeedEvents
  ME_4A58BA550111_ME_4A3F457A0129 // HasInner
  ME_4B1D0220010E_ME_4A3F457A0129 // DoAssignPoint
- ) .SequenceCode.It
+ )
  ; // Overridden
  : Dependencies
-   @ ( ME_4A3F49CE02E6 // 
+   Seq: ( ME_4A3F49CE02E6 // 
  ME_53D77FD402F3 // 
  ME_53D77FF303CB // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  CONST "author" 'Ëþëèí À.Â.'
  CONST "needs InstanceR" 'undefined'
@@ -2234,12 +2341,14 @@ ref; // ME_4B1D0220010E_ME_4A3F457A0129 DoAssignPoint
  CONST "no hands" true
  CONST "register in scripts" 'undefined'
  CONST "started" '12.04.2005 15:28'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest\new'
  CONST intf.pas:Path 'common\components\gui\Garant\Everest\new\nevParaListAnchor.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest\new'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'ParaListAnchor'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'nevParaListAnchor'
 
 ref; // ME_4A3F457A0129 TnevParaListAnchor
 
@@ -2280,8 +2389,8 @@ ref; // ME_4AEC33620199 aView
  : Parent ME_4A5D7BF302EB // CheckBaseLine
  ;
  : Parameters
-   @ ( ME_4AEC33620199 // aView
- ) .SequenceCode.It
+   Seq: ( ME_4AEC33620199 // aView
+ )
  ; // Parameters
 
 ref; // ME_4A5D7C200219 DoGetBaseLine
@@ -2342,15 +2451,15 @@ ref; // ME_4A5D7E0F023A
  : Parent ME_4A5D7B82016A // TnevTableRowAnchor
  ;
  : Operations
-   @ ( ME_4A5D7C200219 // DoGetBaseLine
- ) .SequenceCode.It
+   Seq: ( ME_4A5D7C200219 // DoGetBaseLine
+ )
  ; // Operations
  : Dependencies
-   @ ( ME_4A5D7CCD0098 // 
+   Seq: ( ME_4A5D7CCD0098 // 
  ME_4A5D7DEF01D2 // 
  ME_4A5D7DFA030B // 
  ME_4A5D7E0F023A // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
 
 ref; // ME_4A5D7BF302EB CheckBaseLine
@@ -2386,6 +2495,7 @@ ref; // ME_53D676470383
  ;
  : Implementor ME_4A5D7B82016A // TnevTableRowAnchor
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_479731C50290_ME_4A5D7B82016A Cleanup
 
 : ME_4A3B707700C9_ME_4A5D7B82016A
@@ -2395,6 +2505,7 @@ ref; // ME_479731C50290_ME_4A5D7B82016A Cleanup
  ;
  : Implementor ME_4A5D7B82016A // TnevTableRowAnchor
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4A3B707700C9_ME_4A5D7B82016A GetAtStart
 
 : ME_4A3B708900C4_ME_4A5D7B82016A
@@ -2404,6 +2515,7 @@ ref; // ME_4A3B707700C9_ME_4A5D7B82016A GetAtStart
  ;
  : Implementor ME_4A5D7B82016A // TnevTableRowAnchor
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4A3B708900C4_ME_4A5D7B82016A GetAtEnd
 
 : ME_4A3B7F2E01CE_ME_4A5D7B82016A
@@ -2413,6 +2525,7 @@ ref; // ME_4A3B708900C4_ME_4A5D7B82016A GetAtEnd
  ;
  : Implementor ME_4A5D7B82016A // TnevTableRowAnchor
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4A3B7F2E01CE_ME_4A5D7B82016A GetVertPosition
 
 : ME_4A3B826402B8_ME_4A5D7B82016A
@@ -2422,6 +2535,7 @@ ref; // ME_4A3B7F2E01CE_ME_4A5D7B82016A GetVertPosition
  ;
  : Implementor ME_4A5D7B82016A // TnevTableRowAnchor
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4A3B826402B8_ME_4A5D7B82016A GetInner
 
 : ME_4A3B82710255_ME_4A5D7B82016A
@@ -2431,6 +2545,7 @@ ref; // ME_4A3B826402B8_ME_4A5D7B82016A GetInner
  ;
  : Implementor ME_4A5D7B82016A // TnevTableRowAnchor
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4A3B82710255_ME_4A5D7B82016A SetInner
 
 : ME_4A3B848302A5_ME_4A5D7B82016A
@@ -2440,6 +2555,7 @@ ref; // ME_4A3B82710255_ME_4A5D7B82016A SetInner
  ;
  : Implementor ME_4A5D7B82016A // TnevTableRowAnchor
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4A3B848302A5_ME_4A5D7B82016A GetInnerFor
 
 : ME_4A58BA550111_ME_4A5D7B82016A
@@ -2449,6 +2565,7 @@ ref; // ME_4A3B848302A5_ME_4A5D7B82016A GetInnerFor
  ;
  : Implementor ME_4A5D7B82016A // TnevTableRowAnchor
  ;
+ CONST OpKind opkind_Overridden
  CONST "needs field" false
  CONST "pm" true
 ref; // ME_4A58BA550111_ME_4A5D7B82016A HasInner
@@ -2460,6 +2577,7 @@ ref; // ME_4A58BA550111_ME_4A5D7B82016A HasInner
  ;
  : Implementor ME_4A5D7B82016A // TnevTableRowAnchor
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4AA777B603B6_ME_4A5D7B82016A DoHasBaseLine
 
 : ME_4AA7797701F5_ME_4A5D7B82016A
@@ -2469,6 +2587,7 @@ ref; // ME_4AA777B603B6_ME_4A5D7B82016A DoHasBaseLine
  ;
  : Implementor ME_4A5D7B82016A // TnevTableRowAnchor
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4AA7797701F5_ME_4A5D7B82016A DoGetInnerForChildThatNotAfterEnd
 
 : ME_4AA785540310_ME_4A5D7B82016A
@@ -2478,6 +2597,7 @@ ref; // ME_4AA7797701F5_ME_4A5D7B82016A DoGetInnerForChildThatNotAfterEnd
  ;
  : Implementor ME_4A5D7B82016A // TnevTableRowAnchor
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4AA785540310_ME_4A5D7B82016A DoDiff
 
 : ME_4AEC34960358_ME_4A5D7B82016A
@@ -2487,6 +2607,7 @@ ref; // ME_4AA785540310_ME_4A5D7B82016A DoDiff
  ;
  : Implementor ME_4A5D7B82016A // TnevTableRowAnchor
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4AEC34960358_ME_4A5D7B82016A GetInnerTop
 
 : ME_4B1CFD7B0332_ME_4A5D7B82016A
@@ -2496,6 +2617,7 @@ ref; // ME_4AEC34960358_ME_4A5D7B82016A GetInnerTop
  ;
  : Implementor ME_4A5D7B82016A // TnevTableRowAnchor
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4B1CFD7B0332_ME_4A5D7B82016A DoBottom
 
 : ME_4B1D0220010E_ME_4A5D7B82016A
@@ -2505,6 +2627,7 @@ ref; // ME_4B1CFD7B0332_ME_4A5D7B82016A DoBottom
  ;
  : Implementor ME_4A5D7B82016A // TnevTableRowAnchor
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4B1D0220010E_ME_4A5D7B82016A DoAssignPoint
 
 : ME_4B1D18650208_ME_4A5D7B82016A
@@ -2514,6 +2637,7 @@ ref; // ME_4B1D0220010E_ME_4A5D7B82016A DoAssignPoint
  ;
  : Implementor ME_4A5D7B82016A // TnevTableRowAnchor
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4B1D18650208_ME_4A5D7B82016A DoIncLine
 
 : ME_4B90DBFE00EF_ME_4A5D7B82016A
@@ -2523,6 +2647,7 @@ ref; // ME_4B1D18650208_ME_4A5D7B82016A DoIncLine
  ;
  : Implementor ME_4A5D7B82016A // TnevTableRowAnchor
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4B90DBFE00EF_ME_4A5D7B82016A DoAddInner
 
 : ME_4B9625260325_ME_4A5D7B82016A
@@ -2532,6 +2657,7 @@ ref; // ME_4B90DBFE00EF_ME_4A5D7B82016A DoAddInner
  ;
  : Implementor ME_4A5D7B82016A // TnevTableRowAnchor
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4B9625260325_ME_4A5D7B82016A DoCompareWithOtherInner
 
 : ME_4C7361850250_ME_4A5D7B82016A
@@ -2541,6 +2667,7 @@ ref; // ME_4B9625260325_ME_4A5D7B82016A DoCompareWithOtherInner
  ;
  : Implementor ME_4A5D7B82016A // TnevTableRowAnchor
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4C7361850250_ME_4A5D7B82016A DoInitByCursor
 
 : ME_4A5D7B82016A
@@ -2555,19 +2682,19 @@ ref; // ME_4C7361850250_ME_4A5D7B82016A DoInitByCursor
  : Parent ME_4A3B771101D5 // Anchors
  ;
  : Inherits
-   @ ( ME_4A3F457A0129 // TnevParaListAnchor
- ) .SequenceCode.It
+   Seq: ( ME_4A3F457A0129 // TnevParaListAnchor
+ )
  ; // Inherits
  : Attributes
-   @ ( ME_4DDBD99C01B4 // f_BaseLine
- ) .SequenceCode.It
+   Seq: ( ME_4DDBD99C01B4 // f_BaseLine
+ )
  ; // Attributes
  : Operations
-   @ ( ME_4A5D7BF302EB // CheckBaseLine
- ) .SequenceCode.It
+   Seq: ( ME_4A5D7BF302EB // CheckBaseLine
+ )
  ; // Operations
  : Overridden
-   @ ( ME_479731C50290_ME_4A5D7B82016A // Cleanup
+   Seq: ( ME_479731C50290_ME_4A5D7B82016A // Cleanup
  ME_4A3B707700C9_ME_4A5D7B82016A // GetAtStart
  ME_4A3B708900C4_ME_4A5D7B82016A // GetAtEnd
  ME_4A3B7F2E01CE_ME_4A5D7B82016A // GetVertPosition
@@ -2585,12 +2712,12 @@ ref; // ME_4C7361850250_ME_4A5D7B82016A DoInitByCursor
  ME_4B90DBFE00EF_ME_4A5D7B82016A // DoAddInner
  ME_4B9625260325_ME_4A5D7B82016A // DoCompareWithOtherInner
  ME_4C7361850250_ME_4A5D7B82016A // DoInitByCursor
- ) .SequenceCode.It
+ )
  ; // Overridden
  : Dependencies
-   @ ( ME_53D6762F0013 // 
+   Seq: ( ME_53D6762F0013 // 
  ME_53D676470383 // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  CONST "author" 'Ëþëèí À.Â.'
  CONST "needs InstanceR" 'undefined'
@@ -2598,12 +2725,14 @@ ref; // ME_4C7361850250_ME_4A5D7B82016A DoInitByCursor
  CONST "no hands" true
  CONST "register in scripts" 'undefined'
  CONST "started" '31.03.2005 13:09'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest\new'
  CONST intf.pas:Path 'common\components\gui\Garant\Everest\new\nevTableRowAnchor.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest\new'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'TableRowAnchor'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'nevTableRowAnchor'
 
 ref; // ME_4A5D7B82016A TnevTableRowAnchor
 
@@ -2662,6 +2791,7 @@ ref; // ME_53D2445E0349
  ;
  : Implementor ME_4A5D82380323 // TnevTableCellAnchor
  ;
+ CONST OpKind opkind_Overridden
  CONST "needs field" false
  CONST "pm" true
 ref; // ME_4A58BA550111_ME_4A5D82380323 HasInner
@@ -2673,6 +2803,7 @@ ref; // ME_4A58BA550111_ME_4A5D82380323 HasInner
  ;
  : Implementor ME_4A5D82380323 // TnevTableCellAnchor
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4B1D18650208_ME_4A5D82380323 DoIncLine
 
 : ME_55376B1B00F8_ME_4A5D82380323
@@ -2682,6 +2813,7 @@ ref; // ME_4B1D18650208_ME_4A5D82380323 DoIncLine
  ;
  : Implementor ME_4A5D82380323 // TnevTableCellAnchor
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_55376B1B00F8_ME_4A5D82380323 ClearInnerInFire
 
 : ME_4A5D82380323
@@ -2696,21 +2828,21 @@ ref; // ME_55376B1B00F8_ME_4A5D82380323 ClearInnerInFire
  : Parent ME_4A3B771101D5 // Anchors
  ;
  : Inherits
-   @ ( ME_4A3F457A0129 // TnevParaListAnchor
- ) .SequenceCode.It
+   Seq: ( ME_4A3F457A0129 // TnevParaListAnchor
+ )
  ; // Inherits
  : Overridden
-   @ ( ME_4A58BA550111_ME_4A5D82380323 // HasInner
+   Seq: ( ME_4A58BA550111_ME_4A5D82380323 // HasInner
  ME_4B1D18650208_ME_4A5D82380323 // DoIncLine
  ME_55376B1B00F8_ME_4A5D82380323 // ClearInnerInFire
- ) .SequenceCode.It
+ )
  ; // Overridden
  : Dependencies
-   @ ( ME_4A5D829C012F // 
+   Seq: ( ME_4A5D829C012F // 
  ME_4A5D82AA01F5 // 
  ME_53D2444301FF // 
  ME_53D2445E0349 // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  CONST "author" 'Èíèøåâ Ä.À.'
  CONST "needs InstanceR" 'undefined'
@@ -2718,12 +2850,14 @@ ref; // ME_55376B1B00F8_ME_4A5D82380323 ClearInnerInFire
  CONST "no hands" true
  CONST "register in scripts" 'undefined'
  CONST "started" '2009/04/28 09:56:30'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest\new'
  CONST intf.pas:Path 'common\components\gui\Garant\Everest\new\nevTableCellAnchor.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest\new'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'TableCellAnchor'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'nevTableCellAnchor'
 
 ref; // ME_4A5D82380323 TnevTableCellAnchor
 
@@ -2760,6 +2894,7 @@ ref; // ME_53CE2B4103C8
  ;
  : Implementor ME_4D6E6C6501F9 // TnevAutoreferatDocumentAnchor
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4B1D18650208_ME_4D6E6C6501F9 DoIncLine
 
 : ME_4D6E6C6501F9
@@ -2773,17 +2908,17 @@ ref; // ME_4B1D18650208_ME_4D6E6C6501F9 DoIncLine
  : Parent ME_4A3B771101D5 // Anchors
  ;
  : Inherits
-   @ ( ME_4A3F457A0129 // TnevParaListAnchor
- ) .SequenceCode.It
+   Seq: ( ME_4A3F457A0129 // TnevParaListAnchor
+ )
  ; // Inherits
  : Overridden
-   @ ( ME_4B1D18650208_ME_4D6E6C6501F9 // DoIncLine
- ) .SequenceCode.It
+   Seq: ( ME_4B1D18650208_ME_4D6E6C6501F9 // DoIncLine
+ )
  ; // Overridden
  : Dependencies
-   @ ( ME_53CE2B1B0220 // 
+   Seq: ( ME_53CE2B1B0220 // 
  ME_53CE2B4103C8 // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  CONST "author" 'Ëþëèí À.Â.'
  CONST "needs InstanceR" 'undefined'
@@ -2791,12 +2926,14 @@ ref; // ME_4B1D18650208_ME_4D6E6C6501F9 DoIncLine
  CONST "no hands" true
  CONST "register in scripts" 'undefined'
  CONST "started" '02.03.2011 19:13'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest\new'
  CONST intf.pas:Path 'common\components\gui\Garant\Everest\new\nevAutoreferatDocumentAnchor.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest\new'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'AutoreferatDocumentAnchor'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'nevAutoreferatDocumentAnchor'
 
 ref; // ME_4D6E6C6501F9 TnevAutoreferatDocumentAnchor
 
@@ -2844,6 +2981,7 @@ ref; // ME_53D669C40179
  ;
  : Implementor ME_4ED8C0B600A4 // TnevDocumentPartAnchor
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4A58C42A029C_ME_4ED8C0B600A4 CheckInner
 
 : ME_4ED8C0B600A4
@@ -2857,29 +2995,31 @@ ref; // ME_4A58C42A029C_ME_4ED8C0B600A4 CheckInner
  : Parent ME_4A3B771101D5 // Anchors
  ;
  : Inherits
-   @ ( ME_4A3F457A0129 // TnevParaListAnchor
- ) .SequenceCode.It
+   Seq: ( ME_4A3F457A0129 // TnevParaListAnchor
+ )
  ; // Inherits
  : Overridden
-   @ ( ME_4A58C42A029C_ME_4ED8C0B600A4 // CheckInner
- ) .SequenceCode.It
+   Seq: ( ME_4A58C42A029C_ME_4ED8C0B600A4 // CheckInner
+ )
  ; // Overridden
  : Dependencies
-   @ ( ME_4ED8C102021F // 
+   Seq: ( ME_4ED8C102021F // 
  ME_53D669A80159 // 
  ME_53D669C40179 // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest\new'
  CONST intf.pas:Path 'common\components\gui\Garant\Everest\new\nevDocumentPartAnchor.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest\new'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'DocumentPartAnchor'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'nevDocumentPartAnchor'
 
 ref; // ME_4ED8C0B600A4 TnevDocumentPartAnchor
 
@@ -2916,6 +3056,7 @@ ref; // ME_53D67286007A
  ;
  : Implementor ME_4F1EC738000E // TnevTableAnchor
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_48CF73CE00B5_ME_4F1EC738000E DoFire
 
 : ME_4F1EC738000E
@@ -2929,28 +3070,30 @@ ref; // ME_48CF73CE00B5_ME_4F1EC738000E DoFire
  : Parent ME_4A3B771101D5 // Anchors
  ;
  : Inherits
-   @ ( ME_4A3F457A0129 // TnevParaListAnchor
- ) .SequenceCode.It
+   Seq: ( ME_4A3F457A0129 // TnevParaListAnchor
+ )
  ; // Inherits
  : Overridden
-   @ ( ME_48CF73CE00B5_ME_4F1EC738000E // DoFire
- ) .SequenceCode.It
+   Seq: ( ME_48CF73CE00B5_ME_4F1EC738000E // DoFire
+ )
  ; // Overridden
  : Dependencies
-   @ ( ME_53D67266024A // 
+   Seq: ( ME_53D67266024A // 
  ME_53D67286007A // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest\new'
  CONST intf.pas:Path 'common\components\gui\Garant\Everest\new\nevTableAnchor.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest\new'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'TableAnchor'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'nevTableAnchor'
 
 ref; // ME_4F1EC738000E TnevTableAnchor
 
@@ -2965,7 +3108,7 @@ ref; // ME_4F1EC738000E TnevTableAnchor
  : Parent WL 'ME_4797632D0273' '4797632D0273.pas.ms.script' // Everest
  ;
  : Children
-   @ ( ME_49DE38EE03AC // nevAnchor
+   Seq: ( ME_49DE38EE03AC // nevAnchor
  ME_49DE393900D3 // TnevAnchor
  ME_4A3B9AD60266 // TnevLeafParaAnchor
  ME_4A3BAB21005A // TnevSolidParaAnchor
@@ -2978,10 +3121,10 @@ ref; // ME_4F1EC738000E TnevTableAnchor
  ME_4D6E6C6501F9 // TnevAutoreferatDocumentAnchor
  ME_4ED8C0B600A4 // TnevDocumentPartAnchor
  ME_4F1EC738000E // TnevTableAnchor
- ) .SequenceCode.It
+ )
  ; // Children
  : Depends
-   @ ( WL 'ME_4678209200A6' '4678209200A6.pas.ms.script' // nevBase
+   Seq: ( WL 'ME_4678209200A6' '4678209200A6.pas.ms.script' // nevBase
  WL 'ME_467823B7002C' '467823B7002C.pas.ms.script' // afwInterfaces
  WL 'ME_469D0AC7005E' '469D0AC7005E.pas.ms.script' // Types
  WL 'ME_47913B47006E' '47913B47006E.pas.ms.script' // l3CoreObjects
@@ -2994,18 +3137,16 @@ ref; // ME_4F1EC738000E TnevTableAnchor
  WL 'ME_4AB0C3C60310' '4AB0C3C60310.pas.ms.script' // Sys
  WL 'ME_537B83AD01F0' '537B83AD01F0.pas.ms.script' // l3Math
  WL 'ME_53D258F1004F' '53D258F1004F.pas.ms.script' // InterfaceFactories
- ) .SequenceCode.It
+ )
  ; // Depends
  CONST "defines" 'nevDefine.inc'
  CONST "ifdef" 'k2ForEditor'
  CONST "path prefix" '/new'
- : Generators
- @ (
- gen_pas.script
- gen_pas.script.runner
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest\new'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest\new'
  CONST pas.script:Path 'shared\models\NewSchool\Scripts\4A3B771101D5.pas.ms.script'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
  CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\4A3B771101D5.pas.ms.script.runner'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_4A3B771101D5 Anchors

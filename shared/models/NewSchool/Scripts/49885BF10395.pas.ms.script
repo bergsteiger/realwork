@@ -1,0 +1,267 @@
+// F1Lite 49885BF10395 VCMControls Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_49885BF10395
+
+FORWARD ME_4AFD421E02F7
+
+: ME_4AFD4230031F
+ CONST UID '4AFD4230031F'
+ CONST Name 'ToggleFoundWords'
+ CONST Class class_Operation
+ %SUMMARY 'Подсвечивать найденный контекст' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_4AFD421E02F7 // Edit
+ ;
+ CONST "AutoFocus" false
+ CONST "AutoLock" false
+ CONST "LongProcess" false
+ CONST "ShowInContextMenu" 'undefined'
+ CONST "ShowInToolbar" 'undefined'
+ CONST "UseNewGen" 'undefined'
+ CONST "has states" false
+ CONST "is FormActivate" false
+ CONST "is query" false
+ CONST "no prefix" false
+
+ref; // ME_4AFD4230031F ToggleFoundWords
+
+: ME_4AFD421E02F7
+ CONST UID '4AFD421E02F7'
+ CONST Name 'Edit'
+ CONST Class class_Class
+ : Stereotype st_VCMOperations ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Правка' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_49885BF10395 // F1Lite
+ ;
+ : Operations
+   Seq: ( ME_4AFD4230031F // ToggleFoundWords
+ )
+ ; // Operations
+ CONST "UseNewGen" 'undefined'
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\View'
+
+ref; // ME_4AFD421E02F7 Edit
+
+FORWARD ME_4C3AFAA902D2
+
+FORWARD ME_4C7D39A7029B
+
+: ME_4C7D39BD001B
+ CONST UID '4C7D39BD001B'
+ CONST Name 'RemoveFromControl'
+ CONST Class class_Class
+ : Stereotype st_VCMOperationState ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Снять с контроля' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_4C7D39A7029B // AddToControl
+ ;
+ CONST "Checked" true
+ CONST "Enabled" 'undefined'
+ CONST "UseNewGen" 'undefined'
+ CONST "Visible" 'undefined'
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\View'
+
+ref; // ME_4C7D39BD001B RemoveFromControl
+
+: ME_4C7D39A7029B
+ CONST UID '4C7D39A7029B'
+ CONST Name 'AddToControl'
+ CONST Class class_Class
+ : Stereotype st_VCMOperation ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Поставить на контроль' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_4C3AFAA902D2 // Text$ForDocument
+ ;
+ : Children
+   Seq: ( ME_4C7D39BD001B // RemoveFromControl
+ )
+ ; // Children
+ CONST "AutoFocus" false
+ CONST "AutoLock" false
+ CONST "LongProcess" false
+ CONST "ShowInContextMenu" 'undefined'
+ CONST "ShowInToolbar" 'undefined'
+ CONST "UseNewGen" 'undefined'
+ CONST "has states" true
+ CONST "is FormActivate" false
+ CONST "is query" false
+ CONST "no prefix" false
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\View'
+
+ref; // ME_4C7D39A7029B AddToControl
+
+: ME_4C3AFAD90234
+ CONST UID '4C3AFAD90234'
+ CONST Name 'AddToControl'
+ CONST Class class_Operation
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_4C3AFAA902D2 // Text$ForDocument
+ ;
+ CONST "AutoFocus" false
+ CONST "AutoLock" false
+ CONST "LongProcess" false
+ CONST "ShowInContextMenu" 'undefined'
+ CONST "ShowInToolbar" 'undefined'
+ CONST "UseNewGen" 'undefined'
+ CONST "has states" true
+ CONST "is FormActivate" false
+ CONST "is query" false
+ CONST "no prefix" false
+
+ref; // ME_4C3AFAD90234 AddToControl
+
+: ME_4C3AFAA902D2
+ CONST UID '4C3AFAA902D2'
+ CONST Name 'Text'
+ CONST Class class_Class
+ : Stereotype st_VCMOperations ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_49885BF10395 // F1Lite
+ ;
+ : Operations
+   Seq: ( ME_4C3AFAD90234 // AddToControl
+ )
+ ; // Operations
+ : Children
+   Seq: ( ME_4C7D39A7029B // AddToControl
+ )
+ ; // Children
+ CONST "UseNewGen" 'undefined'
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\View'
+
+ref; // ME_4C3AFAA902D2 Text$ForDocument
+
+FORWARD ME_4C3AFB320320
+
+: ME_4C3AFB450234
+ CONST UID '4C3AFB450234'
+ CONST Name 'ShowCorrespondentListToPart'
+ CONST Class class_Operation
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_4C3AFB320320 // Selection$ForDocument
+ ;
+ CONST "AutoFocus" false
+ CONST "AutoLock" false
+ CONST "LongProcess" false
+ CONST "ShowInContextMenu" 'undefined'
+ CONST "ShowInToolbar" 'undefined'
+ CONST "UseNewGen" 'undefined'
+ CONST "has states" false
+ CONST "is FormActivate" false
+ CONST "is query" false
+ CONST "no prefix" false
+
+ref; // ME_4C3AFB450234 ShowCorrespondentListToPart
+
+: ME_4C3AFB51020D
+ CONST UID '4C3AFB51020D'
+ CONST Name 'ShowRespondentListToPart'
+ CONST Class class_Operation
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_4C3AFB320320 // Selection$ForDocument
+ ;
+ CONST "AutoFocus" false
+ CONST "AutoLock" false
+ CONST "LongProcess" false
+ CONST "ShowInContextMenu" 'undefined'
+ CONST "ShowInToolbar" 'undefined'
+ CONST "UseNewGen" 'undefined'
+ CONST "has states" false
+ CONST "is FormActivate" false
+ CONST "is query" false
+ CONST "no prefix" false
+
+ref; // ME_4C3AFB51020D ShowRespondentListToPart
+
+: ME_4C3AFB320320
+ CONST UID '4C3AFB320320'
+ CONST Name 'Selection'
+ CONST Class class_Class
+ : Stereotype st_VCMOperations ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_49885BF10395 // F1Lite
+ ;
+ : Operations
+   Seq: ( ME_4C3AFB450234 // ShowCorrespondentListToPart
+ ME_4C3AFB51020D // ShowRespondentListToPart
+ )
+ ; // Operations
+ CONST "UseNewGen" 'undefined'
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\View'
+
+ref; // ME_4C3AFB320320 Selection$ForDocument
+
+: ME_49885BF10395
+ CONST UID '49885BF10395'
+ CONST Name 'F1Lite'
+ CONST Class class_Category
+ : Stereotype st_VCMControls ;
+ %SUMMARY 'Урезанные "сущности" для таких форм как документ-схема' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent WL 'ME_4A9F76D70283' '4A9F76D70283.pas.ms.script' // View
+ ;
+ : Children
+   Seq: ( ME_4AFD421E02F7 // Edit
+ ME_4C3AFAA902D2 // Text$ForDocument
+ ME_4C3AFB320320 // Selection$ForDocument
+ )
+ ; // Children
+ CONST "UseNewGen" 'undefined'
+ CONST "is namespace" true
+ CONST "no hands" false
+ : Generators
+ Seq: (
+ gen_intf.pas
+ gen_pas.script
+ gen_pas.script.runner
+ )
+ ; // Generators
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View'
+ CONST intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\Document_F1Lite_Controls.pas'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View'
+ CONST pas.script:Path 'shared\models\NewSchool\Scripts\49885BF10395.pas.ms.script'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\49885BF10395.pas.ms.script.runner'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\View'
+ CONST extprop:pas:UnitName 'Document_F1Lite_Controls'
+
+ref; // ME_49885BF10395 F1Lite

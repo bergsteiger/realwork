@@ -1,0 +1,4563 @@
+// BaseSearchInterfaces 4A9F98B901A5 Interfaces Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4A9F98B901A5
+
+FORWARD ME_49512DE00227
+
+: ME_496B525B0033
+ CONST UID '496B525B0033'
+ CONST Name 'Local'
+ CONST Class class_Attribute
+ %SUMMARY 'Локальный поиск контекста (Ctrl+F)' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_49512DE00227 // TnsBaseSearchOpenKind
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_496B525B0033 Local
+
+: ME_496B52670133
+ CONST UID '496B52670133'
+ CONST Name 'Specify'
+ CONST Class class_Attribute
+ %SUMMARY 'Уточнить' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_49512DE00227 // TnsBaseSearchOpenKind
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_496B52670133 Specify
+
+: ME_496B526F0235
+ CONST UID '496B526F0235'
+ CONST Name 'Global'
+ CONST Class class_Attribute
+ %SUMMARY 'Глобальный поиск (F4)' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_49512DE00227 // TnsBaseSearchOpenKind
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_496B526F0235 Global
+
+: ME_49512DE00227
+ CONST UID '49512DE00227'
+ CONST Name 'TnsBaseSearchOpenKind'
+ CONST Class class_Class
+ : Stereotype st_Enum ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Типы открытия базового поиска' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4A9F98B901A5 // BaseSearchInterfaces
+ ;
+ : Attributes
+   Seq: ( ME_496B525B0033 // Local
+ ME_496B52670133 // Specify
+ ME_496B526F0235 // Global
+ )
+ ; // Attributes
+ CONST "UseNewGen" 'undefined'
+ CONST "children prefix" 'bsok'
+ CONST "elements prefix" 'ns'
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Search'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Search'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\Search'
+ CONST extprop:pas:ElementPrefixBase 'ns'
+ CONST extprop:pas:ElementPrefix 'ns_bsok'
+
+ref; // ME_49512DE00227 TnsBaseSearchOpenKind
+
+FORWARD ME_496B51660087
+
+: ME_496B51730362
+ CONST UID '496B51730362'
+ CONST Name 'aNewVisible'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_496B51730362 aNewVisible
+
+: ME_496B517202C5
+ CONST UID '496B517202C5'
+ CONST Name 'VisibleChanged'
+ CONST Class class_Operation
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_496B51660087 // InsBaseSearchVisibleWatcher
+ ;
+ : Parameters
+   Seq: ( ME_496B51730362 // aNewVisible
+ )
+ ; // Parameters
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_496B517202C5 VisibleChanged
+
+: ME_496B51660087
+ CONST UID '496B51660087'
+ CONST GUID 'E98658D8-1553-40D7-A6E1-840C705598C9'
+ CONST Name 'InsBaseSearchVisibleWatcher'
+ CONST Class class_Class
+ : Stereotype st_Facet ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4A9F98B901A5 // BaseSearchInterfaces
+ ;
+ : Operations
+   Seq: ( ME_496B517202C5 // VisibleChanged
+ )
+ ; // Operations
+ CONST "UseNewGen" 'undefined'
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Search'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Search'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\Search'
+
+ref; // ME_496B51660087 InsBaseSearchVisibleWatcher
+
+FORWARD ME_4951327800EE
+
+: ME_4951375B0052
+ CONST UID '4951375B0052'
+ CONST Name 'Context'
+ CONST Class class_Attribute
+ : Stereotype st_readonly::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_lnk
+ : Parent ME_4951327800EE // InsBaseSearchContextProvider
+ ;
+ : Target WL 'ME_46780DA40383' '4677FBA70343.pas.ms.script' // Il3CString
+ ;
+ CONST "UseNewGen" 'undefined'
+ CONST "pm" true
+
+ref; // ME_4951375B0052 Context
+
+: ME_49513746034D
+ CONST UID '49513746034D'
+ CONST Name 'RepairMistakes'
+ CONST Class class_Operation
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_4951327800EE // InsBaseSearchContextProvider
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_49513746034D RepairMistakes
+
+: ME_4951327800EE
+ CONST UID '4951327800EE'
+ CONST GUID '674A4919-B96A-489C-AFEC-726940684C28'
+ CONST Name 'InsBaseSearchContextProvider'
+ CONST Class class_Class
+ : Stereotype st_Facet ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4A9F98B901A5 // BaseSearchInterfaces
+ ;
+ : Attributes
+   Seq: ( ME_4951375B0052 // Context
+ )
+ ; // Attributes
+ : Operations
+   Seq: ( ME_49513746034D // RepairMistakes
+ )
+ ; // Operations
+ CONST "UseNewGen" 'undefined'
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Search'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Search'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\Search'
+
+ref; // ME_4951327800EE InsBaseSearchContextProvider
+
+FORWARD ME_496B5F7603B4
+
+: ME_5626252201EE
+ CONST UID '5626252201EE'
+ CONST Name 'AdapterNode'
+ CONST Class class_Attribute
+ : Stereotype st_readonly::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_lnk
+ : Parent ME_496B5F7603B4 // InsBaseSearchClass
+ ;
+ : Target WL 'ME_45EEB95901C5' '457450470167.pas.ms.script' // NodeBase
+ ;
+ CONST "UseNewGen" 'undefined'
+ CONST "pm" true
+
+ref; // ME_5626252201EE AdapterNode
+
+: ME_5626254502B1
+ CONST UID '5626254502B1'
+ CONST Name 'Name'
+ CONST Class class_Attribute
+ : Stereotype st_readonly::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_lnk
+ : Parent ME_496B5F7603B4 // InsBaseSearchClass
+ ;
+ : Target WL 'ME_46780DA40383' '4677FBA70343.pas.ms.script' // Il3CString
+ ;
+ CONST "UseNewGen" 'undefined'
+ CONST "pm" true
+
+ref; // ME_5626254502B1 Name
+
+FORWARD ME_56262560021F
+
+: ME_562625700179
+ CONST UID '562625700179'
+ CONST Name 'aAnother'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target ME_496B5F7603B4 // InsBaseSearchClass
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_562625700179 aAnother
+
+: ME_562625650284
+ CONST UID '562625650284'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_56262560021F // IsSame
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+ : Parameters
+   Seq: ( ME_562625700179 // aAnother
+ )
+ ; // Parameters
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_562625650284 DoIt
+
+: ME_56262560021F
+ CONST UID '56262560021F'
+ CONST Name 'IsSame'
+ CONST Class class_Class
+ : Stereotype st_facetmethod ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_496B5F7603B4 // InsBaseSearchClass
+ ;
+ : Operations
+   Seq: ( ME_562625650284 // DoIt
+ )
+ ; // Operations
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_56262560021F IsSame
+
+: ME_496B5F7603B4
+ CONST UID '496B5F7603B4'
+ CONST GUID 'F376FEAE-F09B-4E92-A508-6FB991BFBFB2'
+ CONST Name 'InsBaseSearchClass'
+ CONST Class class_Class
+ : Stereotype st_Facet ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4A9F98B901A5 // BaseSearchInterfaces
+ ;
+ : Attributes
+   Seq: ( ME_5626252201EE // AdapterNode
+ ME_5626254502B1 // Name
+ )
+ ; // Attributes
+ : Operations
+   Seq: ( ME_56262560021F // IsSame
+ )
+ ; // Operations
+ CONST "UseNewGen" 'undefined'
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Search'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Search'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\Search'
+
+ref; // ME_496B5F7603B4 InsBaseSearchClass
+
+FORWARD ME_5625E70C0151
+
+: ME_5625E74C0183
+ CONST UID '5625E74C0183'
+ CONST Name 'Current'
+ CONST Class class_Attribute
+ : Stereotype st_readonly::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_lnk
+ : Parent ME_5625E70C0151 // InsBaseSearchClassesEnumerator
+ ;
+ : Target ME_496B5F7603B4 // InsBaseSearchClass
+ ;
+ CONST "UseNewGen" 'undefined'
+ CONST "pm" true
+
+ref; // ME_5625E74C0183 Current
+
+: ME_5625E75802C9
+ CONST UID '5625E75802C9'
+ CONST Name 'Reset'
+ CONST Class class_Operation
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_5625E70C0151 // InsBaseSearchClassesEnumerator
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_5625E75802C9 Reset
+
+: ME_56273B63001B
+ CONST UID '56273B63001B'
+ CONST Name 'MoveNext'
+ CONST Class class_Operation
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_5625E70C0151 // InsBaseSearchClassesEnumerator
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_56273B63001B MoveNext
+
+: ME_5625E70C0151
+ CONST UID '5625E70C0151'
+ CONST GUID 'A67B9BF0-F2F5-4F80-AB66-E23E6502043D'
+ CONST Name 'InsBaseSearchClassesEnumerator'
+ CONST Class class_Class
+ : Stereotype st_Facet ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4A9F98B901A5 // BaseSearchInterfaces
+ ;
+ : Attributes
+   Seq: ( ME_5625E74C0183 // Current
+ )
+ ; // Attributes
+ : Operations
+   Seq: ( ME_5625E75802C9 // Reset
+ ME_56273B63001B // MoveNext
+ )
+ ; // Operations
+ CONST "UseNewGen" 'undefined'
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Search'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Search'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\Search'
+
+ref; // ME_5625E70C0151 InsBaseSearchClassesEnumerator
+
+FORWARD ME_495132550324
+
+: ME_496B50AA0005
+ CONST UID '496B50AA0005'
+ CONST Name 'Menu'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_495132550324 // TnsBaseSearchKind
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_496B50AA0005 Menu
+
+: ME_496B50AF000F
+ CONST UID '496B50AF000F'
+ CONST Name 'List'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_495132550324 // TnsBaseSearchKind
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_496B50AF000F List
+
+: ME_496B50B40009
+ CONST UID '496B50B40009'
+ CONST Name 'Document'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_495132550324 // TnsBaseSearchKind
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_496B50B40009 Document
+
+: ME_496B50B800A1
+ CONST UID '496B50B800A1'
+ CONST Name 'Query'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_495132550324 // TnsBaseSearchKind
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_496B50B800A1 Query
+
+: ME_495132550324
+ CONST UID '495132550324'
+ CONST Name 'TnsBaseSearchKind'
+ CONST Class class_Class
+ : Stereotype st_Enum ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4A9F98B901A5 // BaseSearchInterfaces
+ ;
+ : Attributes
+   Seq: ( ME_496B50AA0005 // Menu
+ ME_496B50AF000F // List
+ ME_496B50B40009 // Document
+ ME_496B50B800A1 // Query
+ )
+ ; // Attributes
+ CONST "UseNewGen" 'undefined'
+ CONST "children prefix" 'bsk'
+ CONST "elements prefix" 'ns'
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Search'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Search'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\Search'
+ CONST extprop:pas:ElementPrefixBase 'ns'
+ CONST extprop:pas:ElementPrefix 'ns_bsk'
+
+ref; // ME_495132550324 TnsBaseSearchKind
+
+FORWARD ME_495132300336
+
+: ME_496B50ED023C
+ CONST UID '496B50ED023C'
+ CONST Name 'Everywere'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_495132300336 // TnsSearchArea
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_496B50ED023C Everywere
+
+: ME_496B50F103B6
+ CONST UID '496B50F103B6'
+ CONST Name 'Text'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_495132300336 // TnsSearchArea
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_496B50F103B6 Text
+
+: ME_496B50F6019A
+ CONST UID '496B50F6019A'
+ CONST Name 'TitlesOnly'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_495132300336 // TnsSearchArea
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_496B50F6019A TitlesOnly
+
+: ME_495132300336
+ CONST UID '495132300336'
+ CONST Name 'TnsSearchArea'
+ CONST Class class_Class
+ : Stereotype st_Enum ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4A9F98B901A5 // BaseSearchInterfaces
+ ;
+ : Attributes
+   Seq: ( ME_496B50ED023C // Everywere
+ ME_496B50F103B6 // Text
+ ME_496B50F6019A // TitlesOnly
+ )
+ ; // Attributes
+ CONST "UseNewGen" 'undefined'
+ CONST "children prefix" 'sa'
+ CONST "elements prefix" 'ns'
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Search'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Search'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\Search'
+ CONST extprop:pas:ElementPrefixBase 'ns'
+ CONST extprop:pas:ElementPrefix 'ns_sa'
+
+ref; // ME_495132300336 TnsSearchArea
+
+FORWARD ME_496B4F6303E5
+
+: ME_496B4F6D02B5
+ CONST UID '496B4F6D02B5'
+ CONST Name 'CheckLocalDataReady'
+ CONST Class class_Operation
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_496B4F6303E5 // InsBaseSearchDataReadyChecker
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_496B4F6D02B5 CheckLocalDataReady
+
+: ME_496B4F6303E5
+ CONST UID '496B4F6303E5'
+ CONST GUID 'F01A4C08-BF24-4300-B7E1-EA5CE47AD428'
+ CONST Name 'InsBaseSearchDataReadyChecker'
+ CONST Class class_Class
+ : Stereotype st_Facet ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4A9F98B901A5 // BaseSearchInterfaces
+ ;
+ : Operations
+   Seq: ( ME_496B4F6D02B5 // CheckLocalDataReady
+ )
+ ; // Operations
+ CONST "UseNewGen" 'undefined'
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Search'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Search'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\Search'
+
+ref; // ME_496B4F6303E5 InsBaseSearchDataReadyChecker
+
+FORWARD ME_4ACA1757039E
+
+: ME_4ACA17770179
+ CONST UID '4ACA17770179'
+ CONST Name 'SupportDisabled'
+ CONST Class class_Operation
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_4ACA1757039E // MnsSupportDisabled
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_4ACA17770179 SupportDisabled
+
+: ME_4ACA1757039E
+ CONST UID '4ACA1757039E'
+ CONST Name 'MnsSupportDisabled'
+ CONST Class class_Class
+ : Stereotype st_PureMixIn ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4A9F98B901A5 // BaseSearchInterfaces
+ ;
+ : Operations
+   Seq: ( ME_4ACA17770179 // SupportDisabled
+ )
+ ; // Operations
+ CONST "UseNewGen" 'undefined'
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Search'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Search'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\Search'
+
+ref; // ME_4ACA1757039E MnsSupportDisabled
+
+FORWARD ME_496B533F00AE
+
+: ME_496B534E002C
+ CONST UID '496B534E002C'
+ CONST Name 'aQuery'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46A451250363' '4AB0C3C60310.pas.ms.script' // IUnknown
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_496B534E002C aQuery
+
+: ME_496B534B0098
+ CONST UID '496B534B0098'
+ CONST Name 'SetDataFromQuery'
+ CONST Class class_Operation
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_496B533F00AE // InsBaseSearchQueryDataProcessor
+ ;
+ : Parameters
+   Seq: ( ME_496B534E002C // aQuery
+ )
+ ; // Parameters
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_496B534B0098 SetDataFromQuery
+
+: ME_496B5356008C
+ CONST UID '496B5356008C'
+ CONST Name 'RequestFind'
+ CONST Class class_Operation
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_496B533F00AE // InsBaseSearchQueryDataProcessor
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_496B5356008C RequestFind
+
+: ME_49FFFE5B033A
+ CONST UID '49FFFE5B033A'
+ CONST Name 'RequestCheckFragmentsCount'
+ CONST Class class_Operation
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_496B533F00AE // InsBaseSearchQueryDataProcessor
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_49FFFE5B033A RequestCheckFragmentsCount
+
+: ME_4A13A97F0211
+ CONST UID '4A13A97F0211'
+ CONST Name 'RequestCheckFindBack'
+ CONST Class class_Operation
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_496B533F00AE // InsBaseSearchQueryDataProcessor
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_4A13A97F0211 RequestCheckFindBack
+
+: ME_496B533F00AE
+ CONST UID '496B533F00AE'
+ CONST GUID '40201F1F-3C11-4497-B812-5CC0D75A2355'
+ CONST Name 'InsBaseSearchQueryDataProcessor'
+ CONST Class class_Class
+ : Stereotype st_Facet ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4A9F98B901A5 // BaseSearchInterfaces
+ ;
+ : Operations
+   Seq: ( ME_496B534B0098 // SetDataFromQuery
+ ME_496B5356008C // RequestFind
+ ME_49FFFE5B033A // RequestCheckFragmentsCount
+ ME_4A13A97F0211 // RequestCheckFindBack
+ )
+ ; // Operations
+ CONST "UseNewGen" 'undefined'
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Search'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Search'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\Search'
+
+ref; // ME_496B533F00AE InsBaseSearchQueryDataProcessor
+
+FORWARD ME_496B51A10197
+
+: ME_567290190285
+ CONST UID '567290190285'
+ CONST Name 'IsActive'
+ CONST Class class_Attribute
+ : Stereotype st_readonly::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_lnk
+ : Parent ME_496B51A10197 // InsSearchWindow
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+ CONST "UseNewGen" 'undefined'
+ CONST "pm" true
+
+ref; // ME_567290190285 IsActive
+
+: ME_4ACB63B502EA
+ CONST UID '4ACB63B502EA'
+ CONST Name 'Container'
+ CONST Class class_Attribute
+ : Stereotype st_readonly::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_lnk
+ : Parent ME_496B51A10197 // InsSearchWindow
+ ;
+ : Target WL 'ME_49525C400141' '4683F37902CF.pas.ms.script' // IvcmContainer
+ ;
+ CONST "UseNewGen" 'undefined'
+ CONST "pm" false
+
+ref; // ME_4ACB63B502EA Container
+
+: ME_496B51AA02C3
+ CONST UID '496B51AA02C3'
+ CONST Name 'ParamsChanged'
+ CONST Class class_Operation
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_496B51A10197 // InsSearchWindow
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_496B51AA02C3 ParamsChanged
+
+: ME_496B51B500C8
+ CONST UID '496B51B500C8'
+ CONST Name 'PresentationChanged'
+ CONST Class class_Operation
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_496B51A10197 // InsSearchWindow
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_496B51B500C8 PresentationChanged
+
+: ME_496B51BF02D2
+ CONST UID '496B51BF02D2'
+ CONST Name 'ExampleChanged'
+ CONST Class class_Operation
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_496B51A10197 // InsSearchWindow
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_496B51BF02D2 ExampleChanged
+
+: ME_496B51C90345
+ CONST UID '496B51C90345'
+ CONST Name 'CheckFindEnabled'
+ CONST Class class_Operation
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_496B51A10197 // InsSearchWindow
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_496B51C90345 CheckFindEnabled
+
+: ME_496B51D40055
+ CONST UID '496B51D40055'
+ CONST Name 'ClassNamesChanged'
+ CONST Class class_Operation
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_496B51A10197 // InsSearchWindow
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_496B51D40055 ClassNamesChanged
+
+: ME_496B51DC037D
+ CONST UID '496B51DC037D'
+ CONST Name 'CloseWindow'
+ CONST Class class_Operation
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_496B51A10197 // InsSearchWindow
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_496B51DC037D CloseWindow
+
+: ME_496B51F301F8
+ CONST UID '496B51F301F8'
+ CONST Name 'aNeedFlash'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+ CONST Value true
+ : ValueType WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+ CONST "UseNewGen" 'undefined'
+ CONST extprop:pas:Value true
+
+ref; // ME_496B51F301F8 aNeedFlash
+
+: ME_496B51F202B1
+ CONST UID '496B51F202B1'
+ CONST Name 'ActivateWindow'
+ CONST Class class_Operation
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_496B51A10197 // InsSearchWindow
+ ;
+ : Parameters
+   Seq: ( ME_496B51F301F8 // aNeedFlash
+ )
+ ; // Parameters
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_496B51F202B1 ActivateWindow
+
+: ME_49FFD8050279
+ CONST UID '49FFD8050279'
+ CONST Name 'CheckFragmentsCount'
+ CONST Class class_Operation
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_496B51A10197 // InsSearchWindow
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_49FFD8050279 CheckFragmentsCount
+
+: ME_5437B4340246
+ CONST UID '5437B4340246'
+ CONST Name 'ForceUpdateClassForHistory'
+ CONST Class class_Operation
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_496B51A10197 // InsSearchWindow
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_5437B4340246 ForceUpdateClassForHistory
+
+: ME_496B51A10197
+ CONST UID '496B51A10197'
+ CONST GUID '793F257C-3520-4B48-AE36-4CB918875D2E'
+ CONST Name 'InsSearchWindow'
+ CONST Class class_Class
+ : Stereotype st_Facet ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4A9F98B901A5 // BaseSearchInterfaces
+ ;
+ : Attributes
+   Seq: ( ME_567290190285 // IsActive
+ ME_4ACB63B502EA // Container
+ )
+ ; // Attributes
+ : Operations
+   Seq: ( ME_496B51AA02C3 // ParamsChanged
+ ME_496B51B500C8 // PresentationChanged
+ ME_496B51BF02D2 // ExampleChanged
+ ME_496B51C90345 // CheckFindEnabled
+ ME_496B51D40055 // ClassNamesChanged
+ ME_496B51DC037D // CloseWindow
+ ME_496B51F202B1 // ActivateWindow
+ ME_49FFD8050279 // CheckFragmentsCount
+ ME_5437B4340246 // ForceUpdateClassForHistory
+ )
+ ; // Operations
+ CONST "UseNewGen" 'undefined'
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Search'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Search'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\Search'
+
+ref; // ME_496B51A10197 InsSearchWindow
+
+FORWARD ME_49513222021F
+
+: ME_49513239027A
+ CONST UID '49513239027A'
+ CONST Name 'Area'
+ CONST Class class_Attribute
+ : Stereotype st_property::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_lnk
+ : Parent ME_49513222021F // InsContextSearcher
+ ;
+ : Target ME_495132300336 // TnsSearchArea
+ ;
+ CONST "UseNewGen" 'undefined'
+ CONST "pm" true
+
+ref; // ME_49513239027A Area
+
+: ME_4AD608860210
+ CONST UID '4AD608860210'
+ CONST Name 'VisibleWatcher'
+ CONST Class class_Attribute
+ : Stereotype st_readonly::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_lnk
+ : Parent ME_49513222021F // InsContextSearcher
+ ;
+ : Target ME_496B51660087 // InsBaseSearchVisibleWatcher
+ ;
+ CONST "UseNewGen" 'undefined'
+ CONST "pm" false
+
+ref; // ME_4AD608860210 VisibleWatcher
+
+: ME_4951325E03B6
+ CONST UID '4951325E03B6'
+ CONST Name 'Kind'
+ CONST Class class_Operation
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_49513222021F // InsContextSearcher
+ ;
+ : Target ME_495132550324 // TnsBaseSearchKind
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_4951325E03B6 Kind
+
+: ME_4951329C03CA
+ CONST UID '4951329C03CA'
+ CONST Name 'aContext'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target ME_4951327800EE // InsBaseSearchContextProvider
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_4951329C03CA aContext
+
+: ME_4951329D0002
+ CONST UID '4951329D0002'
+ CONST Name 'aProcessor'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_495132860112' '4D7A0528021A.pas.ms.script' // InsBaseSearchResultProcessor
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_4951329D0002 aProcessor
+
+: ME_4951329202AB
+ CONST UID '4951329202AB'
+ CONST Name 'Find'
+ CONST Class class_Operation
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_49513222021F // InsContextSearcher
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+ : Parameters
+   Seq: ( ME_4951329C03CA // aContext
+ ME_4951329D0002 // aProcessor
+ )
+ ; // Parameters
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_4951329202AB Find
+
+: ME_495132A703DF
+ CONST UID '495132A703DF'
+ CONST Name 'AllowSearchInTitles'
+ CONST Class class_Operation
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_49513222021F // InsContextSearcher
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_495132A703DF AllowSearchInTitles
+
+: ME_495132B70156
+ CONST UID '495132B70156'
+ CONST Name 'IsLocalSearchArea'
+ CONST Class class_Operation
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_49513222021F // InsContextSearcher
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_495132B70156 IsLocalSearchArea
+
+: ME_495132C70046
+ CONST UID '495132C70046'
+ CONST Name 'aNewContext'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46780DA40383' '4677FBA70343.pas.ms.script' // Il3CString
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_495132C70046 aNewContext
+
+: ME_495132C20005
+ CONST UID '495132C20005'
+ CONST Name 'ContextChanged'
+ CONST Class class_Operation
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_49513222021F // InsContextSearcher
+ ;
+ : Parameters
+   Seq: ( ME_495132C70046 // aNewContext
+ )
+ ; // Parameters
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_495132C20005 ContextChanged
+
+: ME_495132CE010F
+ CONST UID '495132CE010F'
+ CONST Name 'IsLocalDataReady'
+ CONST Class class_Operation
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_49513222021F // InsContextSearcher
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_495132CE010F IsLocalDataReady
+
+: ME_49FEA336031E
+ CONST UID '49FEA336031E'
+ CONST Name 'aContext'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target ME_4951327800EE // InsBaseSearchContextProvider
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_49FEA336031E aContext
+
+: ME_49FEA336035D
+ CONST UID '49FEA336035D'
+ CONST Name 'aProcessor'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_495132860112' '4D7A0528021A.pas.ms.script' // InsBaseSearchResultProcessor
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_49FEA336035D aProcessor
+
+: ME_49FEA325027E
+ CONST UID '49FEA325027E'
+ CONST Name 'FindBack'
+ CONST Class class_Operation
+ %SUMMARY 'Искать назад' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_49513222021F // InsContextSearcher
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+ : Parameters
+   Seq: ( ME_49FEA336031E // aContext
+ ME_49FEA336035D // aProcessor
+ )
+ ; // Parameters
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_49FEA325027E FindBack
+
+: ME_49FEB37C02FB
+ CONST UID '49FEB37C02FB'
+ CONST Name 'FindBackSupported'
+ CONST Class class_Operation
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_49513222021F // InsContextSearcher
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_49FEB37C02FB FindBackSupported
+
+: ME_49FEB3960023
+ CONST UID '49FEB3960023'
+ CONST Name 'FindBackEnabled'
+ CONST Class class_Operation
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_49513222021F // InsContextSearcher
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_49FEB3960023 FindBackEnabled
+
+: ME_49FFD8230333
+ CONST UID '49FFD8230333'
+ CONST Name 'FragmentsCountSuffix'
+ CONST Class class_Operation
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_49513222021F // InsContextSearcher
+ ;
+ : Target WL 'ME_46780DA40383' '4677FBA70343.pas.ms.script' // Il3CString
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_49FFD8230333 FragmentsCountSuffix
+
+: ME_4AA4E63900F9
+ CONST UID '4AA4E63900F9'
+ CONST Name 'AllowPrompts'
+ CONST Class class_Operation
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_49513222021F // InsContextSearcher
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_4AA4E63900F9 AllowPrompts
+
+: ME_4AA4E64E0395
+ CONST UID '4AA4E64E0395'
+ CONST Name 'PromptsInfo'
+ CONST Class class_Operation
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_49513222021F // InsContextSearcher
+ ;
+ : Target WL 'ME_47BC524C0245' '4AB0C3C60310.pas.ms.script' // LongWord
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_4AA4E64E0395 PromptsInfo
+
+: ME_4B263ADE02E0
+ CONST UID '4B263ADE02E0'
+ CONST Name 'SwitchToTextIfPossible'
+ CONST Class class_Operation
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_49513222021F // InsContextSearcher
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_4B263ADE02E0 SwitchToTextIfPossible
+
+: ME_561641EE03D8
+ CONST UID '561641EE03D8'
+ CONST Name 'IsSearchLocked'
+ CONST Class class_Operation
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_49513222021F // InsContextSearcher
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_561641EE03D8 IsSearchLocked
+
+: ME_4ACA17770179_ME_49513222021F
+ CONST UID '4ACA17770179'
+ CONST Name 'SupportDisabled'
+ : Original ME_4ACA17770179 // SupportDisabled
+ ;
+ : Implementor ME_49513222021F // InsContextSearcher
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "UseNewGen" 'undefined'
+ref; // ME_4ACA17770179_ME_49513222021F SupportDisabled
+
+: ME_49513222021F
+ CONST UID '49513222021F'
+ CONST GUID '3E94FD76-AA33-4F11-894F-7F6344176794'
+ CONST Name 'InsContextSearcher'
+ CONST Class class_Class
+ : Stereotype st_Facet ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4A9F98B901A5 // BaseSearchInterfaces
+ ;
+ : Implements
+   Seq: ( ME_4ACA1757039E // MnsSupportDisabled
+ )
+ ; // Implements
+ : Attributes
+   Seq: ( ME_49513239027A // Area
+ ME_4AD608860210 // VisibleWatcher
+ )
+ ; // Attributes
+ : Operations
+   Seq: ( ME_4951325E03B6 // Kind
+ ME_4951329202AB // Find
+ ME_495132A703DF // AllowSearchInTitles
+ ME_495132B70156 // IsLocalSearchArea
+ ME_495132C20005 // ContextChanged
+ ME_495132CE010F // IsLocalDataReady
+ ME_49FEA325027E // FindBack
+ ME_49FEB37C02FB // FindBackSupported
+ ME_49FEB3960023 // FindBackEnabled
+ ME_49FFD8230333 // FragmentsCountSuffix
+ ME_4AA4E63900F9 // AllowPrompts
+ ME_4AA4E64E0395 // PromptsInfo
+ ME_4B263ADE02E0 // SwitchToTextIfPossible
+ ME_561641EE03D8 // IsSearchLocked
+ )
+ ; // Operations
+ : Implemented
+   Seq: ( ME_4ACA17770179_ME_49513222021F // SupportDisabled
+ )
+ ; // Implemented
+ CONST "UseNewGen" 'undefined'
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Search'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Search'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\Search'
+
+ref; // ME_49513222021F InsContextSearcher
+
+FORWARD ME_496B512E026D
+
+: ME_496B51440394
+ CONST UID '496B51440394'
+ CONST Name 'aCorrectedContext'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46A4756D00CC' '4677FBA70343.pas.ms.script' // Il3StringsEx
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_496B51440394 aCorrectedContext
+
+: ME_496B514403B5
+ CONST UID '496B514403B5'
+ CONST Name 'aMistakesList'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46A4756D00CC' '4677FBA70343.pas.ms.script' // Il3StringsEx
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_496B514403B5 aMistakesList
+
+: ME_496B513C0168
+ CONST UID '496B513C0168'
+ CONST Name 'Correct'
+ CONST Class class_Operation
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_496B512E026D // InsMistakesCorrector
+ ;
+ : Parameters
+   Seq: ( ME_496B51440394 // aCorrectedContext
+ ME_496B514403B5 // aMistakesList
+ )
+ ; // Parameters
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_496B513C0168 Correct
+
+: ME_496B512E026D
+ CONST UID '496B512E026D'
+ CONST GUID '48789C4F-0569-4518-821B-EA5BF3A64480'
+ CONST Name 'InsMistakesCorrector'
+ CONST Class class_Class
+ : Stereotype st_Facet ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4A9F98B901A5 // BaseSearchInterfaces
+ ;
+ : Operations
+   Seq: ( ME_496B513C0168 // Correct
+ )
+ ; // Operations
+ CONST "UseNewGen" 'undefined'
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Search'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Search'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\Search'
+
+ref; // ME_496B512E026D InsMistakesCorrector
+
+FORWARD ME_4D90B8C60164
+
+: ME_4D90B8D700F9
+ CONST UID '4D90B8D700F9'
+ CONST Name 'rContainer'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_agr
+ : Parent ME_4D90B8C60164 // TnsContainerForBaseSearchInfo
+ ;
+ : Target WL 'ME_49525C400141' '4683F37902CF.pas.ms.script' // IvcmContainer
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_4D90B8D700F9 rContainer
+
+: ME_4D90B949007A
+ CONST UID '4D90B949007A'
+ CONST Name 'rZone'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_agr
+ : Parent ME_4D90B8C60164 // TnsContainerForBaseSearchInfo
+ ;
+ : Target WL 'ME_4992F763038E' '4683F37902CF.pas.ms.script' // TvcmZoneType
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_4D90B949007A rZone
+
+: ME_4D90B8C60164
+ CONST UID '4D90B8C60164'
+ CONST Name 'TnsContainerForBaseSearchInfo'
+ CONST Class class_Class
+ : Stereotype st_Struct ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4A9F98B901A5 // BaseSearchInterfaces
+ ;
+ : Attributes
+   Seq: ( ME_4D90B8D700F9 // rContainer
+ ME_4D90B949007A // rZone
+ )
+ ; // Attributes
+ CONST "UseNewGen" 'undefined'
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Search'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Search'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\Search'
+
+ref; // ME_4D90B8C60164 TnsContainerForBaseSearchInfo
+
+FORWARD ME_4F22C29301C6
+
+FORWARD ME_4F22C2D00369
+
+: ME_4F22C31A0137
+ CONST UID '4F22C31A0137'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_4F22C2D00369 // FormCloseWasRequested
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_4F22C31A0137 DoIt
+
+: ME_4F22C2D00369
+ CONST UID '4F22C2D00369'
+ CONST Name 'FormCloseWasRequested'
+ CONST Class class_Class
+ : Stereotype st_facetmethod ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Окно уже попросили закрыться'#13#10'http://mdp.garant.ru/pages/viewpage.action?pageId=321989072&focusedCommentId=330698655#comment-330698655'#13#10'Скорее всего его нельзя запоминать в историю. Точнее не егго а форму БП, которая на него смотрит' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_4F22C29301C6 // MnsBaseSearchPresentationState
+ ;
+ : Operations
+   Seq: ( ME_4F22C31A0137 // DoIt
+ )
+ ; // Operations
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_4F22C2D00369 FormCloseWasRequested
+
+: ME_4F22C29301C6
+ CONST UID '4F22C29301C6'
+ CONST Name 'MnsBaseSearchPresentationState'
+ CONST Class class_Class
+ : Stereotype st_PureMixIn ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'http://mdp.garant.ru/pages/viewpage.action?pageId=321989072'#13#10'http://mdp.garant.ru/pages/viewpage.action?pageId=321989072&focusedCommentId=330698655#comment-330698655' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4A9F98B901A5 // BaseSearchInterfaces
+ ;
+ : Operations
+   Seq: ( ME_4F22C2D00369 // FormCloseWasRequested
+ )
+ ; // Operations
+ CONST "UseNewGen" 'undefined'
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Search'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Search'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\Search'
+
+ref; // ME_4F22C29301C6 MnsBaseSearchPresentationState
+
+: ME_496B500E0283
+ CONST UID '496B500E0283'
+ CONST Name 'ETryToFindEmptyContext'
+ CONST Class class_Class
+ : Stereotype st_Exception ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4A9F98B901A5 // BaseSearchInterfaces
+ ;
+ : Inherits
+   Seq: ( WL 'ME_4787A405013D' '4AB0C3C60310.pas.ms.script' // Exception
+ )
+ ; // Inherits
+ CONST "UseNewGen" 'undefined'
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Search'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Search'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\Search'
+
+ref; // ME_496B500E0283 ETryToFindEmptyContext
+
+FORWARD ME_496B52CD024B
+
+: ME_496B52D80371
+ CONST UID '496B52D80371'
+ CONST Name 'OpenKind'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target ME_49512DE00227 // TnsBaseSearchOpenKind
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_496B52D80371 OpenKind
+
+: ME_496B52D602EE
+ CONST UID '496B52D602EE'
+ CONST Name 'OpenWindow'
+ CONST Class class_Operation
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_496B52CD024B // InsBaseSearchWindowOpener
+ ;
+ : Parameters
+   Seq: ( ME_496B52D80371 // OpenKind
+ )
+ ; // Parameters
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_496B52D602EE OpenWindow
+
+: ME_496B52CD024B
+ CONST UID '496B52CD024B'
+ CONST GUID '5D504A4A-A102-4393-A6E3-7B05893425C5'
+ CONST Name 'InsBaseSearchWindowOpener'
+ CONST Class class_Class
+ : Stereotype st_Facet ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4A9F98B901A5 // BaseSearchInterfaces
+ ;
+ : Operations
+   Seq: ( ME_496B52D602EE // OpenWindow
+ )
+ ; // Operations
+ CONST "UseNewGen" 'undefined'
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Search'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Search'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\Search'
+
+ref; // ME_496B52CD024B InsBaseSearchWindowOpener
+
+FORWARD ME_49916BFE01A4
+
+: ME_49916C1E001D
+ CONST UID '49916C1E001D'
+ CONST Name 'SearchList'
+ CONST Class class_Attribute
+ : Stereotype st_readonly::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_lnk
+ : Parent ME_49916BFE01A4 // InsBaseSearchListSource
+ ;
+ : Target WL 'ME_45EEDB730265' '45700BFD0251.pas.ms.script' // DynList
+ ;
+ CONST "UseNewGen" 'undefined'
+ CONST "pm" false
+
+ref; // ME_49916C1E001D SearchList
+
+: ME_49916BFE01A4
+ CONST UID '49916BFE01A4'
+ CONST GUID 'A3EE6B9E-5CDF-4D52-9384-3ADB2C60D102'
+ CONST Name 'InsBaseSearchListSource'
+ CONST Class class_Class
+ : Stereotype st_Facet ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4A9F98B901A5 // BaseSearchInterfaces
+ ;
+ : Attributes
+   Seq: ( ME_49916C1E001D // SearchList
+ )
+ ; // Attributes
+ CONST "UseNewGen" 'undefined'
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Search'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Search'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\Search'
+
+ref; // ME_49916BFE01A4 InsBaseSearchListSource
+
+FORWARD ME_496B4C2700D5
+
+: ME_4ACA195801CB
+ CONST UID '4ACA195801CB'
+ CONST Name 'ContainerForBaseSearch'
+ CONST Class class_Attribute
+ : Stereotype st_readonly::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_lnk
+ : Parent ME_496B4C2700D5 // InsBaseSearchPresentation
+ ;
+ : Target ME_4D90B8C60164 // TnsContainerForBaseSearchInfo
+ ;
+ CONST "UseNewGen" 'undefined'
+ CONST "pm" false
+
+ref; // ME_4ACA195801CB ContainerForBaseSearch
+
+: ME_4AD6EAA3034A
+ CONST UID '4AD6EAA3034A'
+ CONST Name 'ContextSearcher'
+ CONST Class class_Attribute
+ : Stereotype st_readonly::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_lnk
+ : Parent ME_496B4C2700D5 // InsBaseSearchPresentation
+ ;
+ : Target ME_49513222021F // InsContextSearcher
+ ;
+ CONST "UseNewGen" 'undefined'
+ CONST "pm" false
+
+ref; // ME_4AD6EAA3034A ContextSearcher
+
+: ME_4F1D607E0027
+ CONST UID '4F1D607E0027'
+ CONST Name 'NeedSaveActiveClassBeforeSearch'
+ CONST Class class_Attribute
+ : Stereotype st_readonly::Attribute ;
+ %SUMMARY 'Сохранять ли активный класс ДО поиска (как в списке) или ПОСЛЕ (как в ОМ)'#13#10'http://mdp.garant.ru/pages/viewpage.action?pageId=327826220'#13#10'Вообще говоря там надо ещё обрабатывать ситуацию - локальный поиск или глобальный, т.е. смениться прецедент после поиска или нет' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_lnk
+ : Parent ME_496B4C2700D5 // InsBaseSearchPresentation
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+ CONST "UseNewGen" 'undefined'
+ CONST "pm" false
+
+ref; // ME_4F1D607E0027 NeedSaveActiveClassBeforeSearch
+
+: ME_496B4C41023E
+ CONST UID '496B4C41023E'
+ CONST Name 'WindowRequired'
+ CONST Class class_Operation
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_496B4C2700D5 // InsBaseSearchPresentation
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_496B4C41023E WindowRequired
+
+: ME_496B4C500246
+ CONST UID '496B4C500246'
+ CONST Name 'WindowCloseable'
+ CONST Class class_Operation
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_496B4C2700D5 // InsBaseSearchPresentation
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_496B4C500246 WindowCloseable
+
+: ME_496B4CA000B6
+ CONST UID '496B4CA000B6'
+ CONST Name 'CanCloseWindow'
+ CONST Class class_Operation
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_496B4C2700D5 // InsBaseSearchPresentation
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_496B4CA000B6 CanCloseWindow
+
+: ME_496B4CD9005F
+ CONST UID '496B4CD9005F'
+ CONST Name 'IsQueryCard'
+ CONST Class class_Operation
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_496B4C2700D5 // InsBaseSearchPresentation
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_496B4CD9005F IsQueryCard
+
+: ME_496B4CE30132
+ CONST UID '496B4CE30132'
+ CONST Name 'TreatSuccessSearchAsManualOpen'
+ CONST Class class_Operation
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_496B4C2700D5 // InsBaseSearchPresentation
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_496B4CE30132 TreatSuccessSearchAsManualOpen
+
+: ME_496B4CED0306
+ CONST UID '496B4CED0306'
+ CONST Name 'AutoActivateWindow'
+ CONST Class class_Operation
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_496B4C2700D5 // InsBaseSearchPresentation
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_496B4CED0306 AutoActivateWindow
+
+: ME_4ACA17770179_ME_496B4C2700D5
+ CONST UID '4ACA17770179'
+ CONST Name 'SupportDisabled'
+ : Original ME_4ACA17770179 // SupportDisabled
+ ;
+ : Implementor ME_496B4C2700D5 // InsBaseSearchPresentation
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "UseNewGen" 'undefined'
+ref; // ME_4ACA17770179_ME_496B4C2700D5 SupportDisabled
+
+: ME_4F22C2D00369_ME_496B4C2700D5
+ CONST UID '4F22C2D00369'
+ CONST Name 'FormCloseWasRequested'
+ : Original ME_4F22C2D00369 // FormCloseWasRequested
+ ;
+ : Implementor ME_496B4C2700D5 // InsBaseSearchPresentation
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "UseNewGen" 'undefined'
+ref; // ME_4F22C2D00369_ME_496B4C2700D5 FormCloseWasRequested
+
+: ME_496B4C2700D5
+ CONST UID '496B4C2700D5'
+ CONST GUID '6F7CE717-5FD9-45EE-9487-F4F1A0F9C248'
+ CONST Name 'InsBaseSearchPresentation'
+ CONST Class class_Class
+ : Stereotype st_Facet ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Представление "Базового поиска"' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4A9F98B901A5 // BaseSearchInterfaces
+ ;
+ : Implements
+   Seq: ( ME_4ACA1757039E // MnsSupportDisabled
+ WL 'ME_4EB7CCF90203' '484FA67302D7.pas.ms.script' // При хождении по истории выбор должен восстанавливаться
+ ME_4F22C29301C6 // MnsBaseSearchPresentationState
+ )
+ ; // Implements
+ : Attributes
+   Seq: ( ME_4ACA195801CB // ContainerForBaseSearch
+ ME_4AD6EAA3034A // ContextSearcher
+ ME_4F1D607E0027 // NeedSaveActiveClassBeforeSearch
+ )
+ ; // Attributes
+ : Operations
+   Seq: ( ME_496B4C41023E // WindowRequired
+ ME_496B4C500246 // WindowCloseable
+ ME_496B4CA000B6 // CanCloseWindow
+ ME_496B4CD9005F // IsQueryCard
+ ME_496B4CE30132 // TreatSuccessSearchAsManualOpen
+ ME_496B4CED0306 // AutoActivateWindow
+ )
+ ; // Operations
+ : Implemented
+   Seq: ( ME_4ACA17770179_ME_496B4C2700D5 // SupportDisabled
+ ME_4F22C2D00369_ME_496B4C2700D5 // FormCloseWasRequested
+ )
+ ; // Implemented
+ CONST "UseNewGen" 'undefined'
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Search'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Search'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\Search'
+
+ref; // ME_496B4C2700D5 InsBaseSearchPresentation
+
+FORWARD ME_4901F73E01D0
+
+: ME_4901F74E0224
+ CONST UID '4901F74E0224'
+ CONST Name 'LeafCount'
+ CONST Class class_Attribute
+ : Stereotype st_readonly::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_lnk
+ : Parent ME_4901F73E01D0 // InsCutToLeafFilter
+ ;
+ : Target WL 'ME_47BC524C0245' '4AB0C3C60310.pas.ms.script' // LongWord
+ ;
+ CONST "UseNewGen" 'undefined'
+ CONST "pm" true
+
+ref; // ME_4901F74E0224 LeafCount
+
+: ME_4901F73E01D0
+ CONST UID '4901F73E01D0'
+ CONST GUID '82C20B16-25CE-4A11-A1AA-BC052236983F'
+ CONST Name 'InsCutToLeafFilter'
+ CONST Class class_Class
+ : Stereotype st_Facet ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4A9F98B901A5 // BaseSearchInterfaces
+ ;
+ : Attributes
+   Seq: ( ME_4901F74E0224 // LeafCount
+ )
+ ; // Attributes
+ CONST "UseNewGen" 'undefined'
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Search'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Search'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\Search'
+
+ref; // ME_4901F73E01D0 InsCutToLeafFilter
+
+FORWARD ME_4AA4D4EB0005
+
+: ME_4AA4D5150176
+ CONST UID '4AA4D5150176'
+ CONST Name 'InternalDocNumber'
+ CONST Class class_Attribute
+ : Stereotype st_readonly::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_lnk
+ : Parent ME_4AA4D4EB0005 // InsPromptForDocFilter
+ ;
+ : Target WL 'ME_48FD996601CE' '4AB0C3C60310.pas.ms.script' // Longword
+ ;
+ CONST "UseNewGen" 'undefined'
+ CONST "pm" false
+
+ref; // ME_4AA4D5150176 InternalDocNumber
+
+: ME_4AA4D4EB0005
+ CONST UID '4AA4D4EB0005'
+ CONST GUID '37181736-0998-4C7D-9DFD-6245F00168A6'
+ CONST Name 'InsPromptForDocFilter'
+ CONST Class class_Class
+ : Stereotype st_Facet ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4A9F98B901A5 // BaseSearchInterfaces
+ ;
+ : Attributes
+   Seq: ( ME_4AA4D5150176 // InternalDocNumber
+ )
+ ; // Attributes
+ CONST "UseNewGen" 'undefined'
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Search'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Search'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\Search'
+
+ref; // ME_4AA4D4EB0005 InsPromptForDocFilter
+
+FORWARD ME_4901F75A0378
+
+: ME_4AA4D5710363
+ CONST UID '4AA4D5710363'
+ CONST Name 'ForDoc'
+ CONST Class class_Attribute
+ : Stereotype st_readonly::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_lnk
+ : Parent ME_4901F75A0378 // InsBaseSearchPromptFilters
+ ;
+ : Target ME_4AA4D4EB0005 // InsPromptForDocFilter
+ ;
+ CONST "UseNewGen" 'undefined'
+ CONST "pm" false
+
+ref; // ME_4AA4D5710363 ForDoc
+
+: ME_4901F76E0360
+ CONST UID '4901F76E0360'
+ CONST Name 'Leaf'
+ CONST Class class_Attribute
+ : Stereotype st_readonly::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_lnk
+ : Parent ME_4901F75A0378 // InsBaseSearchPromptFilters
+ ;
+ : Target ME_4901F73E01D0 // InsCutToLeafFilter
+ ;
+ CONST "UseNewGen" 'undefined'
+ CONST "pm" true
+
+ref; // ME_4901F76E0360 Leaf
+
+: ME_4901F78E0062
+ CONST UID '4901F78E0062'
+ CONST Name 'aFilter'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target ME_4901F73E01D0 // InsCutToLeafFilter
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_4901F78E0062 aFilter
+
+: ME_4901F789034B
+ CONST UID '4901F789034B'
+ CONST Name 'SetLeaf'
+ CONST Class class_Operation
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_4901F75A0378 // InsBaseSearchPromptFilters
+ ;
+ : Target ME_4901F75A0378 // InsBaseSearchPromptFilters
+ ;
+ : Parameters
+   Seq: ( ME_4901F78E0062 // aFilter
+ )
+ ; // Parameters
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_4901F789034B SetLeaf
+
+: ME_4AA4D7AB0168
+ CONST UID '4AA4D7AB0168'
+ CONST Name 'aFilter'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target ME_4AA4D4EB0005 // InsPromptForDocFilter
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_4AA4D7AB0168 aFilter
+
+: ME_4AA4D7930085
+ CONST UID '4AA4D7930085'
+ CONST Name 'SetPromptForDoc'
+ CONST Class class_Operation
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_4901F75A0378 // InsBaseSearchPromptFilters
+ ;
+ : Target ME_4901F75A0378 // InsBaseSearchPromptFilters
+ ;
+ : Parameters
+   Seq: ( ME_4AA4D7AB0168 // aFilter
+ )
+ ; // Parameters
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_4AA4D7930085 SetPromptForDoc
+
+: ME_47724B790382_ME_4901F75A0378
+ CONST UID '47724B790382'
+ CONST Name 'SetContext'
+ : Original WL 'ME_47724B790382' '4682595B0268.pas.ms.script' // SetContext
+ ;
+ : Implementor ME_4901F75A0378 // InsBaseSearchPromptFilters
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "UseNewGen" 'undefined'
+ref; // ME_47724B790382_ME_4901F75A0378 SetContext
+
+: ME_47724B87036B_ME_4901F75A0378
+ CONST UID '47724B87036B'
+ CONST Name 'Clone'
+ : Original WL 'ME_47724B87036B' '4682595B0268.pas.ms.script' // Clone
+ ;
+ : Implementor ME_4901F75A0378 // InsBaseSearchPromptFilters
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "UseNewGen" 'undefined'
+ref; // ME_47724B87036B_ME_4901F75A0378 Clone
+
+: ME_47724B9402ED_ME_4901F75A0378
+ CONST UID '47724B9402ED'
+ CONST Name 'Context'
+ : Original WL 'ME_47724B9402ED' '4682595B0268.pas.ms.script' // Context
+ ;
+ : Implementor ME_4901F75A0378 // InsBaseSearchPromptFilters
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "UseNewGen" 'undefined'
+ CONST "pm" true
+ref; // ME_47724B9402ED_ME_4901F75A0378 Context
+
+: ME_4901F75A0378
+ CONST UID '4901F75A0378'
+ CONST GUID '1C61F6BE-82F5-4A17-AA9F-A2AD82FE6F96'
+ CONST Name 'InsBaseSearchPromptFilters'
+ CONST Class class_Class
+ : Stereotype st_Facet ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4A9F98B901A5 // BaseSearchInterfaces
+ ;
+ : Inherits
+   Seq: ( WL 'ME_47724B6500F6' '4682595B0268.pas.ms.script' // Il3TreeFilters
+ )
+ ; // Inherits
+ : Attributes
+   Seq: ( ME_4AA4D5710363 // ForDoc
+ ME_4901F76E0360 // Leaf
+ )
+ ; // Attributes
+ : Operations
+   Seq: ( ME_4901F789034B // SetLeaf
+ ME_4AA4D7930085 // SetPromptForDoc
+ )
+ ; // Operations
+ : Implemented
+   Seq: ( ME_47724B790382_ME_4901F75A0378 // SetContext
+ ME_47724B87036B_ME_4901F75A0378 // Clone
+ ME_47724B9402ED_ME_4901F75A0378 // Context
+ )
+ ; // Implemented
+ CONST "UseNewGen" 'undefined'
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Search'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Search'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\Search'
+
+ref; // ME_4901F75A0378 InsBaseSearchPromptFilters
+
+FORWARD ME_495139650302
+
+: ME_4ACF583B019D
+ CONST UID '4ACF583B019D'
+ CONST Name 'None'
+ CONST Class class_Attribute
+ %SUMMARY 'в случае если параметры поиска не заданы' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_495139650302 // TbsBaseSearchResult
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_4ACF583B019D None
+
+: ME_4ACF584602AC
+ CONST UID '4ACF584602AC'
+ CONST Name 'ContinueSearch'
+ CONST Class class_Attribute
+ %SUMMARY 'продолжить поиск' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_495139650302 // TbsBaseSearchResult
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_4ACF584602AC ContinueSearch
+
+: ME_4ACF58520025
+ CONST UID '4ACF58520025'
+ CONST Name 'SearchFinished'
+ CONST Class class_Attribute
+ %SUMMARY 'поиск в текте завершен' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_495139650302 // TbsBaseSearchResult
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_4ACF58520025 SearchFinished
+
+: ME_4ACF585C031D
+ CONST UID '4ACF585C031D'
+ CONST Name 'SearchFinishedNotFound'
+ CONST Class class_Attribute
+ %SUMMARY 'в тексте ничего не найдено' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_495139650302 // TbsBaseSearchResult
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_4ACF585C031D SearchFinishedNotFound
+
+: ME_4ACF586A029C
+ CONST UID '4ACF586A029C'
+ CONST Name 'SearchFinishedAllInHidden'
+ CONST Class class_Attribute
+ %SUMMARY 'тексте нечто найдено, но все в скрытом тексте' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_495139650302 // TbsBaseSearchResult
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_4ACF586A029C SearchFinishedAllInHidden
+
+: ME_495139650302
+ CONST UID '495139650302'
+ CONST Name 'TbsBaseSearchResult'
+ CONST Class class_Class
+ : Stereotype st_Enum ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4A9F98B901A5 // BaseSearchInterfaces
+ ;
+ : Attributes
+   Seq: ( ME_4ACF583B019D // None
+ ME_4ACF584602AC // ContinueSearch
+ ME_4ACF58520025 // SearchFinished
+ ME_4ACF585C031D // SearchFinishedNotFound
+ ME_4ACF586A029C // SearchFinishedAllInHidden
+ )
+ ; // Attributes
+ CONST "UseNewGen" 'undefined'
+ CONST "children prefix" 'bsr'
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Search'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Search'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\Search'
+ CONST extprop:pas:ElementPrefix 'bsr'
+
+ref; // ME_495139650302 TbsBaseSearchResult
+
+FORWARD ME_49512F660180
+
+: ME_4952667C0385
+ CONST UID '4952667C0385'
+ CONST Name 'CanContinue'
+ CONST Class class_Attribute
+ : Stereotype st_readonly::Attribute ;
+ %SUMMARY 'может ли поиск быть продолжен (F3)' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_lnk
+ : Parent ME_49512F660180 // IbsBaseDocumentContextSearcher
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+ CONST "UseNewGen" 'undefined'
+ CONST "pm" true
+
+ref; // ME_4952667C0385 CanContinue
+
+: ME_49FEB49800A8
+ CONST UID '49FEB49800A8'
+ CONST Name 'CanFindBack'
+ CONST Class class_Attribute
+ : Stereotype st_readonly::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_lnk
+ : Parent ME_49512F660180 // IbsBaseDocumentContextSearcher
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+ CONST "UseNewGen" 'undefined'
+ CONST "pm" false
+
+ref; // ME_49FEB49800A8 CanFindBack
+
+: ME_49FFE06200FA
+ CONST UID '49FFE06200FA'
+ CONST Name 'FragmentsCount'
+ CONST Class class_Attribute
+ : Stereotype st_readonly::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_lnk
+ : Parent ME_49512F660180 // IbsBaseDocumentContextSearcher
+ ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+ CONST "UseNewGen" 'undefined'
+ CONST "pm" true
+
+ref; // ME_49FFE06200FA FragmentsCount
+
+: ME_495266A500B0
+ CONST UID '495266A500B0'
+ CONST Name 'Context'
+ CONST Class class_Attribute
+ : Stereotype st_readonly::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_lnk
+ : Parent ME_49512F660180 // IbsBaseDocumentContextSearcher
+ ;
+ : Target WL 'ME_46780DA40383' '4677FBA70343.pas.ms.script' // Il3CString
+ ;
+ CONST "UseNewGen" 'undefined'
+ CONST "pm" true
+
+ref; // ME_495266A500B0 Context
+
+: ME_495266540218
+ CONST UID '495266540218'
+ CONST Name 'aContext'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46780DA40383' '4677FBA70343.pas.ms.script' // Il3CString
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_495266540218 aContext
+
+: ME_4952664C03BC
+ CONST UID '4952664C03BC'
+ CONST Name 'Find'
+ CONST Class class_Operation
+ %SUMMARY 'поиск' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_49512F660180 // IbsBaseDocumentContextSearcher
+ ;
+ : Target ME_495139650302 // TbsBaseSearchResult
+ ;
+ : Parameters
+   Seq: ( ME_495266540218 // aContext
+ )
+ ; // Parameters
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_4952664C03BC Find
+
+: ME_495266660127
+ CONST UID '495266660127'
+ CONST Name 'aNewContext'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46780DA40383' '4677FBA70343.pas.ms.script' // Il3CString
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_495266660127 aNewContext
+
+: ME_4952665F0298
+ CONST UID '4952665F0298'
+ CONST Name 'ContextChanged'
+ CONST Class class_Operation
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_49512F660180 // IbsBaseDocumentContextSearcher
+ ;
+ : Parameters
+   Seq: ( ME_495266660127 // aNewContext
+ )
+ ; // Parameters
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_4952665F0298 ContextChanged
+
+: ME_49FEAD670382
+ CONST UID '49FEAD670382'
+ CONST Name 'FindBack'
+ CONST Class class_Operation
+ %SUMMARY 'Вернутся к предыдущему вхождению' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_49512F660180 // IbsBaseDocumentContextSearcher
+ ;
+ : Target ME_495139650302 // TbsBaseSearchResult
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_49FEAD670382 FindBack
+
+: ME_49512F660180
+ CONST UID '49512F660180'
+ CONST GUID '12BC458F-160F-4D3E-AE17-B95998B2B341'
+ CONST Name 'IbsBaseDocumentContextSearcher'
+ CONST Class class_Class
+ : Stereotype st_Facet ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4A9F98B901A5 // BaseSearchInterfaces
+ ;
+ : Implements
+   Seq: ( WL 'ME_4E85E21A018D' '484900780017.pas.ms.script' // Контекстный поиск в документе
+ )
+ ; // Implements
+ : Attributes
+   Seq: ( ME_4952667C0385 // CanContinue
+ ME_49FEB49800A8 // CanFindBack
+ ME_49FFE06200FA // FragmentsCount
+ ME_495266A500B0 // Context
+ )
+ ; // Attributes
+ : Operations
+   Seq: ( ME_4952664C03BC // Find
+ ME_4952665F0298 // ContextChanged
+ ME_49FEAD670382 // FindBack
+ )
+ ; // Operations
+ CONST "UseNewGen" 'undefined'
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Search'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Search'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\Search'
+
+ref; // ME_49512F660180 IbsBaseDocumentContextSearcher
+
+FORWARD ME_4AD5EDAE025A
+
+: ME_4AD5EDC703BE
+ CONST UID '4AD5EDC703BE'
+ CONST Name 'Presentation'
+ CONST Class class_Attribute
+ : Stereotype st_property::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_lnk
+ : Parent ME_4AD5EDAE025A // MnsPresentationHolder
+ ;
+ : Target ME_496B4C2700D5 // InsBaseSearchPresentation
+ ;
+ CONST "UseNewGen" 'undefined'
+ CONST "pm" true
+
+ref; // ME_4AD5EDC703BE Presentation
+
+FORWARD ME_4F1EA8A202D8
+
+: ME_4F1EA8E1037B
+ CONST UID '4F1EA8E1037B'
+ CONST Name 'aForm'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_4914746C019E' '4683F37902CF.pas.ms.script' // IvcmEntityForm
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_4F1EA8E1037B aForm
+
+: ME_4F1EA8D40084
+ CONST UID '4F1EA8D40084'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_4F1EA8A202D8 // ValidateBaseSearchForm
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+ : Parameters
+   Seq: ( ME_4F1EA8E1037B // aForm
+ )
+ ; // Parameters
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_4F1EA8D40084 DoIt
+
+: ME_4F1EA8A202D8
+ CONST UID '4F1EA8A202D8'
+ CONST Name 'ValidateBaseSearchForm'
+ CONST Class class_Class
+ : Stereotype st_facetmethod ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Проверяет, что форма БП "той системы", т.е. встроена в то же главное окно, что и сам Searcher' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_4AD5EDAE025A // MnsPresentationHolder
+ ;
+ : Operations
+   Seq: ( ME_4F1EA8D40084 // DoIt
+ )
+ ; // Operations
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_4F1EA8A202D8 ValidateBaseSearchForm
+
+: ME_4AD5EBB900DE
+ CONST UID '4AD5EBB900DE'
+ CONST Name 'aPresentation'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target ME_496B4C2700D5 // InsBaseSearchPresentation
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_4AD5EBB900DE aPresentation
+
+: ME_4AD5EBB302EA
+ CONST UID '4AD5EBB302EA'
+ CONST Name 'RemovePresentation'
+ CONST Class class_Operation
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_4AD5EDAE025A // MnsPresentationHolder
+ ;
+ : Parameters
+   Seq: ( ME_4AD5EBB900DE // aPresentation
+ )
+ ; // Parameters
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_4AD5EBB302EA RemovePresentation
+
+: ME_4AD5EDAE025A
+ CONST UID '4AD5EDAE025A'
+ CONST Name 'MnsPresentationHolder'
+ CONST Class class_Class
+ : Stereotype st_PureMixIn ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4A9F98B901A5 // BaseSearchInterfaces
+ ;
+ : Attributes
+   Seq: ( ME_4AD5EDC703BE // Presentation
+ )
+ ; // Attributes
+ : Operations
+   Seq: ( ME_4F1EA8A202D8 // ValidateBaseSearchForm
+ ME_4AD5EBB302EA // RemovePresentation
+ )
+ ; // Operations
+ CONST "UseNewGen" 'undefined'
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Search'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Search'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\Search'
+
+ref; // ME_4AD5EDAE025A MnsPresentationHolder
+
+FORWARD ME_562626470198
+
+: ME_5626267C01CF
+ CONST UID '5626267C01CF'
+ CONST Name 'NotifyClassesChanged'
+ CONST Class class_Operation
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_562626470198 // InsBaseSearchClassesListener
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_5626267C01CF NotifyClassesChanged
+
+: ME_562626470198
+ CONST UID '562626470198'
+ CONST GUID '7936540E-3122-4B48-AFEC-E517EEAC43D6'
+ CONST Name 'InsBaseSearchClassesListener'
+ CONST Class class_Class
+ : Stereotype st_Facet ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4A9F98B901A5 // BaseSearchInterfaces
+ ;
+ : Operations
+   Seq: ( ME_5626267C01CF // NotifyClassesChanged
+ )
+ ; // Operations
+ CONST "UseNewGen" 'undefined'
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Search'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Search'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\Search'
+
+ref; // ME_562626470198 InsBaseSearchClassesListener
+
+FORWARD ME_4DE659AB0279
+
+: ME_4DE659C203A3
+ CONST UID '4DE659C203A3'
+ CONST Name 'None'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_4DE659AB0279 // SearchClassesConst
+ ;
+ CONST Value 'nil'
+ CONST "AutoInc" false
+ CONST "UseNewGen" 'undefined'
+ CONST "forced type" 'none'
+ CONST "is define" false
+ CONST extprop:pas:Value 'nil'
+
+ref; // ME_4DE659C203A3 None
+
+: ME_4DE659AB0279
+ CONST UID '4DE659AB0279'
+ CONST Name 'SearchClassesConst'
+ CONST Class class_Class
+ : Stereotype st_Constants ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4A9F98B901A5 // BaseSearchInterfaces
+ ;
+ : Attributes
+   Seq: ( ME_4DE659C203A3 // None
+ )
+ ; // Attributes
+ CONST "UseNewGen" 'undefined'
+ CONST "children prefix" 'bsc'
+ CONST "elements prefix" 'ns'
+ CONST "spell names" false
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Search'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Search'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\Search'
+ CONST extprop:pas:ElementPrefixBase 'ns'
+ CONST extprop:pas:ElementPrefix 'ns_bsc'
+
+ref; // ME_4DE659AB0279 SearchClassesConst
+
+FORWARD ME_4F203112036A
+
+FORWARD ME_4F20313F00E3
+
+: ME_4F20314B0148
+ CONST UID '4F20314B0148'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_4F20313F00E3 // IsIt
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_4F20314B0148 DoIt
+
+: ME_4F20313F00E3
+ CONST UID '4F20313F00E3'
+ CONST Name 'IsIt'
+ CONST Class class_Class
+ : Stereotype st_facetmethod ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_4F203112036A // InsMainMenuLikeBaseSearchOwner
+ ;
+ : Operations
+   Seq: ( ME_4F20314B0148 // DoIt
+ )
+ ; // Operations
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_4F20313F00E3 IsIt
+
+: ME_4F203112036A
+ CONST UID '4F203112036A'
+ CONST GUID 'DF3EF06D-56F1-477C-932A-6CC09342E7DD'
+ CONST Name 'InsMainMenuLikeBaseSearchOwner'
+ CONST Class class_Class
+ : Stereotype st_Facet ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Определяет, что владелец БП является похожим на ОМ' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4A9F98B901A5 // BaseSearchInterfaces
+ ;
+ : Operations
+   Seq: ( ME_4F20313F00E3 // IsIt
+ )
+ ; // Operations
+ CONST "UseNewGen" 'undefined'
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Search'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Search'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\Search'
+
+ref; // ME_4F203112036A InsMainMenuLikeBaseSearchOwner
+
+FORWARD ME_54EC12AB018C
+
+: ME_54EC12E8029D
+ CONST UID '54EC12E8029D'
+ CONST Name 'Context'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_54EC12AB018C // TnsBaseSearchStateElement
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_54EC12E8029D Context
+
+: ME_54EC12F4027F
+ CONST UID '54EC12F4027F'
+ CONST Name 'NeedShowWindow'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_54EC12AB018C // TnsBaseSearchStateElement
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_54EC12F4027F NeedShowWindow
+
+: ME_54EC12FD010C
+ CONST UID '54EC12FD010C'
+ CONST Name 'OpenKind'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_54EC12AB018C // TnsBaseSearchStateElement
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_54EC12FD010C OpenKind
+
+: ME_5628ADFE0103
+ CONST UID '5628ADFE0103'
+ CONST Name 'ActiveClass'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_54EC12AB018C // TnsBaseSearchStateElement
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_5628ADFE0103 ActiveClass
+
+: ME_563B213501B2
+ CONST UID '563B213501B2'
+ CONST Name 'SearchArea'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_54EC12AB018C // TnsBaseSearchStateElement
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_563B213501B2 SearchArea
+
+: ME_54EC12AB018C
+ CONST UID '54EC12AB018C'
+ CONST Name 'TnsBaseSearchStateElement'
+ CONST Class class_Class
+ : Stereotype st_Enum ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4A9F98B901A5 // BaseSearchInterfaces
+ ;
+ : Attributes
+   Seq: ( ME_54EC12E8029D // Context
+ ME_54EC12F4027F // NeedShowWindow
+ ME_54EC12FD010C // OpenKind
+ ME_5628ADFE0103 // ActiveClass
+ ME_563B213501B2 // SearchArea
+ )
+ ; // Attributes
+ CONST "UseNewGen" 'undefined'
+ CONST "children prefix" 'sse'
+ CONST "elements prefix" 'ns'
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Search'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Search'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\Search'
+ CONST extprop:pas:ElementPrefixBase 'ns'
+ CONST extprop:pas:ElementPrefix 'ns_sse'
+
+ref; // ME_54EC12AB018C TnsBaseSearchStateElement
+
+: ME_54EC13510253
+ CONST UID '54EC13510253'
+ CONST Name 'TnsBaseSearchStateElements'
+ CONST Class class_Class
+ : Stereotype st_SetOf ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4A9F98B901A5 // BaseSearchInterfaces
+ ;
+ : Inherits
+   Seq: ( ME_54EC12AB018C // TnsBaseSearchStateElement
+ )
+ ; // Inherits
+ CONST "UseNewGen" 'undefined'
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Search'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Search'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\Search'
+
+ref; // ME_54EC13510253 TnsBaseSearchStateElements
+
+FORWARD ME_5433905403C7
+
+: ME_5433906E029E
+ CONST UID '5433906E029E'
+ CONST Name 'Context'
+ CONST Class class_Attribute
+ : Stereotype st_readonly::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_lnk
+ : Parent ME_5433905403C7 // InsBaseSearcherInitialState
+ ;
+ : Target WL 'ME_46780DA40383' '4677FBA70343.pas.ms.script' // Il3CString
+ ;
+ CONST "UseNewGen" 'undefined'
+ CONST "pm" true
+
+ref; // ME_5433906E029E Context
+
+: ME_5433907D0069
+ CONST UID '5433907D0069'
+ CONST Name 'NeedShowWindow'
+ CONST Class class_Attribute
+ : Stereotype st_readonly::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_lnk
+ : Parent ME_5433905403C7 // InsBaseSearcherInitialState
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+ CONST "UseNewGen" 'undefined'
+ CONST "pm" true
+
+ref; // ME_5433907D0069 NeedShowWindow
+
+: ME_543395C302F5
+ CONST UID '543395C302F5'
+ CONST Name 'OpenKind'
+ CONST Class class_Attribute
+ : Stereotype st_readonly::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_lnk
+ : Parent ME_5433905403C7 // InsBaseSearcherInitialState
+ ;
+ : Target ME_49512DE00227 // TnsBaseSearchOpenKind
+ ;
+ CONST "UseNewGen" 'undefined'
+ CONST "pm" true
+
+ref; // ME_543395C302F5 OpenKind
+
+: ME_54EC13C3024B
+ CONST UID '54EC13C3024B'
+ CONST Name 'Elements'
+ CONST Class class_Attribute
+ : Stereotype st_readonly::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_lnk
+ : Parent ME_5433905403C7 // InsBaseSearcherInitialState
+ ;
+ : Target ME_54EC13510253 // TnsBaseSearchStateElements
+ ;
+ CONST "UseNewGen" 'undefined'
+ CONST "pm" true
+
+ref; // ME_54EC13C3024B Elements
+
+: ME_5624BD0C00DC
+ CONST UID '5624BD0C00DC'
+ CONST Name 'CurrentSearchClass'
+ CONST Class class_Attribute
+ : Stereotype st_readonly::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_lnk
+ : Parent ME_5433905403C7 // InsBaseSearcherInitialState
+ ;
+ : Target ME_496B5F7603B4 // InsBaseSearchClass
+ ;
+ CONST "UseNewGen" 'undefined'
+ CONST "pm" true
+
+ref; // ME_5624BD0C00DC CurrentSearchClass
+
+: ME_563B210C0058
+ CONST UID '563B210C0058'
+ CONST Name 'SearchArea'
+ CONST Class class_Attribute
+ : Stereotype st_readonly::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_lnk
+ : Parent ME_5433905403C7 // InsBaseSearcherInitialState
+ ;
+ : Target ME_495132300336 // TnsSearchArea
+ ;
+ CONST "UseNewGen" 'undefined'
+ CONST "pm" true
+
+ref; // ME_563B210C0058 SearchArea
+
+: ME_56726FDF0031
+ CONST UID '56726FDF0031'
+ CONST Name 'NeedActivate'
+ CONST Class class_Attribute
+ : Stereotype st_readonly::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_lnk
+ : Parent ME_5433905403C7 // InsBaseSearcherInitialState
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+ CONST "UseNewGen" 'undefined'
+ CONST "pm" true
+
+ref; // ME_56726FDF0031 NeedActivate
+
+: ME_5433905403C7
+ CONST UID '5433905403C7'
+ CONST GUID 'E92D641C-DB96-46E9-8DC6-9C0802A7FE41'
+ CONST Name 'InsBaseSearcherInitialState'
+ CONST Class class_Class
+ : Stereotype st_Facet ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4A9F98B901A5 // BaseSearchInterfaces
+ ;
+ : Attributes
+   Seq: ( ME_5433906E029E // Context
+ ME_5433907D0069 // NeedShowWindow
+ ME_543395C302F5 // OpenKind
+ ME_54EC13C3024B // Elements
+ ME_5624BD0C00DC // CurrentSearchClass
+ ME_563B210C0058 // SearchArea
+ ME_56726FDF0031 // NeedActivate
+ )
+ ; // Attributes
+ CONST "UseNewGen" 'undefined'
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Search'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Search'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\Search'
+
+ref; // ME_5433905403C7 InsBaseSearcherInitialState
+
+FORWARD ME_54327CB100C6
+
+: ME_54327CCD0178
+ CONST UID '54327CCD0178'
+ CONST Name 'InitialState'
+ CONST Class class_Attribute
+ : Stereotype st_readonly::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_lnk
+ : Parent ME_54327CB100C6 // InsBaseSearchInitialStateProvider
+ ;
+ : Target ME_5433905403C7 // InsBaseSearcherInitialState
+ ;
+ CONST "UseNewGen" 'undefined'
+ CONST "pm" true
+
+ref; // ME_54327CCD0178 InitialState
+
+: ME_560B83DE0294
+ CONST UID '560B83DE0294'
+ CONST Name 'StateForClone'
+ CONST Class class_Attribute
+ : Stereotype st_readonly::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_lnk
+ : Parent ME_54327CB100C6 // InsBaseSearchInitialStateProvider
+ ;
+ : Target ME_5433905403C7 // InsBaseSearcherInitialState
+ ;
+ CONST "UseNewGen" 'undefined'
+ CONST "pm" true
+
+ref; // ME_560B83DE0294 StateForClone
+
+: ME_54327CB100C6
+ CONST UID '54327CB100C6'
+ CONST GUID 'A5D8EBF4-4701-484C-A32D-EAB41D4411B8'
+ CONST Name 'InsBaseSearchInitialStateProvider'
+ CONST Class class_Class
+ : Stereotype st_Facet ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4A9F98B901A5 // BaseSearchInterfaces
+ ;
+ : Attributes
+   Seq: ( ME_54327CCD0178 // InitialState
+ ME_560B83DE0294 // StateForClone
+ )
+ ; // Attributes
+ CONST "UseNewGen" 'undefined'
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Search'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Search'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\Search'
+
+ref; // ME_54327CB100C6 InsBaseSearchInitialStateProvider
+
+FORWARD ME_496B5FAB039D
+
+: ME_5627529C00F0
+ CONST UID '5627529C00F0'
+ CONST Name 'FirstClass'
+ CONST Class class_Attribute
+ : Stereotype st_readonly::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_lnk
+ : Parent ME_496B5FAB039D // InsBaseSearchClasses
+ ;
+ : Target ME_496B5F7603B4 // InsBaseSearchClass
+ ;
+ CONST "UseNewGen" 'undefined'
+ CONST "pm" true
+
+ref; // ME_5627529C00F0 FirstClass
+
+: ME_5626263E00DB
+ CONST UID '5626263E00DB'
+ CONST Name 'GetEnumerator'
+ CONST Class class_Operation
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_496B5FAB039D // InsBaseSearchClasses
+ ;
+ : Target ME_5625E70C0151 // InsBaseSearchClassesEnumerator
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_5626263E00DB GetEnumerator
+
+: ME_562626640151
+ CONST UID '562626640151'
+ CONST Name 'aListener'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target ME_562626470198 // InsBaseSearchClassesListener
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_562626640151 aListener
+
+: ME_56262657026D
+ CONST UID '56262657026D'
+ CONST Name 'Subscribe'
+ CONST Class class_Operation
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_496B5FAB039D // InsBaseSearchClasses
+ ;
+ : Parameters
+   Seq: ( ME_562626640151 // aListener
+ )
+ ; // Parameters
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_56262657026D Subscribe
+
+: ME_562626750023
+ CONST UID '562626750023'
+ CONST Name 'aListener'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target ME_562626470198 // InsBaseSearchClassesListener
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_562626750023 aListener
+
+: ME_562626670311
+ CONST UID '562626670311'
+ CONST Name 'Unsubscribe'
+ CONST Class class_Operation
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_496B5FAB039D // InsBaseSearchClasses
+ ;
+ : Parameters
+   Seq: ( ME_562626750023 // aListener
+ )
+ ; // Parameters
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_562626670311 Unsubscribe
+
+: ME_5627525A0045
+ CONST UID '5627525A0045'
+ CONST Name 'aPath'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46780D0003AF' '4677FBA70343.pas.ms.script' // Tl3WString
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_5627525A0045 aPath
+
+: ME_562752420083
+ CONST UID '562752420083'
+ CONST Name 'GetClassByPath'
+ CONST Class class_Operation
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_496B5FAB039D // InsBaseSearchClasses
+ ;
+ : Target ME_496B5F7603B4 // InsBaseSearchClass
+ ;
+ : Parameters
+   Seq: ( ME_5627525A0045 // aPath
+ )
+ ; // Parameters
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_562752420083 GetClassByPath
+
+: ME_496B5FAB039D
+ CONST UID '496B5FAB039D'
+ CONST GUID '3D7D5C7D-2890-4D29-804A-F50E579A28CB'
+ CONST Name 'InsBaseSearchClasses'
+ CONST Class class_Class
+ : Stereotype st_Facet ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4A9F98B901A5 // BaseSearchInterfaces
+ ;
+ : Attributes
+   Seq: ( ME_5627529C00F0 // FirstClass
+ )
+ ; // Attributes
+ : Operations
+   Seq: ( ME_5626263E00DB // GetEnumerator
+ ME_56262657026D // Subscribe
+ ME_562626670311 // Unsubscribe
+ ME_562752420083 // GetClassByPath
+ )
+ ; // Operations
+ CONST "UseNewGen" 'undefined'
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Search'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Search'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\Search'
+
+ref; // ME_496B5FAB039D InsBaseSearchClasses
+
+FORWARD ME_562DE21C0240
+
+: ME_562DE24C01CD
+ CONST UID '562DE24C01CD'
+ CONST Name 'Closed'
+ CONST Class class_Attribute
+ %SUMMARY 'Окно закрыто' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_562DE21C0240 // TnsBaseSearchWindowState
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_562DE24C01CD Closed
+
+: ME_562DE251012C
+ CONST UID '562DE251012C'
+ CONST Name 'Opened'
+ CONST Class class_Attribute
+ %SUMMARY 'Окно открыто' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_562DE21C0240 // TnsBaseSearchWindowState
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_562DE251012C Opened
+
+: ME_562DE25601C0
+ CONST UID '562DE25601C0'
+ CONST Name 'Force'
+ CONST Class class_Attribute
+ %SUMMARY 'Окно было открыто пользователем' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_562DE21C0240 // TnsBaseSearchWindowState
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_562DE25601C0 Force
+
+: ME_562DE21C0240
+ CONST UID '562DE21C0240'
+ CONST Name 'TnsBaseSearchWindowState'
+ CONST Class class_Class
+ : Stereotype st_Enum ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4A9F98B901A5 // BaseSearchInterfaces
+ ;
+ : Attributes
+   Seq: ( ME_562DE24C01CD // Closed
+ ME_562DE251012C // Opened
+ ME_562DE25601C0 // Force
+ )
+ ; // Attributes
+ CONST "UseNewGen" 'undefined'
+ CONST "children prefix" 'ws'
+ CONST "elements prefix" 'ns'
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Search'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Search'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\Search'
+ CONST extprop:pas:ElementPrefixBase 'ns'
+ CONST extprop:pas:ElementPrefix 'ns_ws'
+
+ref; // ME_562DE21C0240 TnsBaseSearchWindowState
+
+FORWARD ME_562DE146027E
+
+: ME_562DE1B50368
+ CONST UID '562DE1B50368'
+ CONST Name 'ActiveClass'
+ CONST Class class_Attribute
+ : Stereotype st_readonly::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_lnk
+ : Parent ME_562DE146027E // InsBaseSearcherWindowDataState
+ ;
+ : Target ME_496B5F7603B4 // InsBaseSearchClass
+ ;
+ CONST "UseNewGen" 'undefined'
+ CONST "pm" true
+
+ref; // ME_562DE1B50368 ActiveClass
+
+: ME_562DE1D5038F
+ CONST UID '562DE1D5038F'
+ CONST Name 'Context'
+ CONST Class class_Attribute
+ : Stereotype st_readonly::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_lnk
+ : Parent ME_562DE146027E // InsBaseSearcherWindowDataState
+ ;
+ : Target WL 'ME_46780DA40383' '4677FBA70343.pas.ms.script' // Il3CString
+ ;
+ CONST "UseNewGen" 'undefined'
+ CONST "pm" true
+
+ref; // ME_562DE1D5038F Context
+
+: ME_562DE26B0160
+ CONST UID '562DE26B0160'
+ CONST Name 'WindowState'
+ CONST Class class_Attribute
+ : Stereotype st_readonly::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_lnk
+ : Parent ME_562DE146027E // InsBaseSearcherWindowDataState
+ ;
+ : Target ME_562DE21C0240 // TnsBaseSearchWindowState
+ ;
+ CONST "UseNewGen" 'undefined'
+ CONST "pm" true
+
+ref; // ME_562DE26B0160 WindowState
+
+: ME_562DE146027E
+ CONST UID '562DE146027E'
+ CONST GUID 'FEF02F60-B5AC-4322-B2AD-D71F9F0AC310'
+ CONST Name 'InsBaseSearcherWindowDataState'
+ CONST Class class_Class
+ : Stereotype st_Facet ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4A9F98B901A5 // BaseSearchInterfaces
+ ;
+ : Attributes
+   Seq: ( ME_562DE1B50368 // ActiveClass
+ ME_562DE1D5038F // Context
+ ME_562DE26B0160 // WindowState
+ )
+ ; // Attributes
+ CONST "UseNewGen" 'undefined'
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Search'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Search'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\Search'
+
+ref; // ME_562DE146027E InsBaseSearcherWindowDataState
+
+FORWARD ME_562F5C450383
+
+: ME_562F5C6E019F
+ CONST UID '562F5C6E019F'
+ CONST Name 'Context'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_562F5C450383 // TnsBaseSearcherChangeElement
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_562F5C6E019F Context
+
+: ME_562F5C8100D5
+ CONST UID '562F5C8100D5'
+ CONST Name 'ActiveClass'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_562F5C450383 // TnsBaseSearcherChangeElement
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_562F5C8100D5 ActiveClass
+
+: ME_562F5C8703D8
+ CONST UID '562F5C8703D8'
+ CONST Name 'SearchArea'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_562F5C450383 // TnsBaseSearcherChangeElement
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_562F5C8703D8 SearchArea
+
+: ME_562F5C450383
+ CONST UID '562F5C450383'
+ CONST Name 'TnsBaseSearcherChangeElement'
+ CONST Class class_Class
+ : Stereotype st_Enum ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4A9F98B901A5 // BaseSearchInterfaces
+ ;
+ : Attributes
+   Seq: ( ME_562F5C6E019F // Context
+ ME_562F5C8100D5 // ActiveClass
+ ME_562F5C8703D8 // SearchArea
+ )
+ ; // Attributes
+ CONST "UseNewGen" 'undefined'
+ CONST "children prefix" 'ce'
+ CONST "elements prefix" 'ns'
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Search'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Search'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\Search'
+ CONST extprop:pas:ElementPrefixBase 'ns'
+ CONST extprop:pas:ElementPrefix 'ns_ce'
+
+ref; // ME_562F5C450383 TnsBaseSearcherChangeElement
+
+: ME_562F5CC60355
+ CONST UID '562F5CC60355'
+ CONST Name 'TnsBaseSearcherChangeElements'
+ CONST Class class_Class
+ : Stereotype st_SetOf ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4A9F98B901A5 // BaseSearchInterfaces
+ ;
+ : Inherits
+   Seq: ( ME_562F5C450383 // TnsBaseSearcherChangeElement
+ )
+ ; // Inherits
+ CONST "UseNewGen" 'undefined'
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Search'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Search'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\Search'
+
+ref; // ME_562F5CC60355 TnsBaseSearcherChangeElements
+
+FORWARD ME_562F5C9401F0
+
+: ME_562F5D0401AB
+ CONST UID '562F5D0401AB'
+ CONST Name 'aChangedElements'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target ME_562F5CC60355 // TnsBaseSearcherChangeElements
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_562F5D0401AB aChangedElements
+
+: ME_562F5CE2001C
+ CONST UID '562F5CE2001C'
+ CONST Name 'NotifyBaseSearcherDataChanged'
+ CONST Class class_Operation
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_562F5C9401F0 // InsBaseSearchWindowDataListener
+ ;
+ : Parameters
+   Seq: ( ME_562F5D0401AB // aChangedElements
+ )
+ ; // Parameters
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_562F5CE2001C NotifyBaseSearcherDataChanged
+
+: ME_562F5C9401F0
+ CONST UID '562F5C9401F0'
+ CONST GUID '077A6E65-4EFE-4D18-B636-37CE23834A28'
+ CONST Name 'InsBaseSearchWindowDataListener'
+ CONST Class class_Class
+ : Stereotype st_Facet ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4A9F98B901A5 // BaseSearchInterfaces
+ ;
+ : Operations
+   Seq: ( ME_562F5CE2001C // NotifyBaseSearcherDataChanged
+ )
+ ; // Operations
+ CONST "UseNewGen" 'undefined'
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Search'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Search'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\Search'
+
+ref; // ME_562F5C9401F0 InsBaseSearchWindowDataListener
+
+FORWARD ME_496B629D0188
+
+: ME_496B630301B5
+ CONST UID '496B630301B5'
+ CONST Name 'ClassesAnywayDisabled'
+ CONST Class class_Attribute
+ : Stereotype st_readonly::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_lnk
+ : Parent ME_496B629D0188 // InsBaseSearcherWindowData
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+ CONST "UseNewGen" 'undefined'
+ CONST "pm" true
+
+ref; // ME_496B630301B5 ClassesAnywayDisabled
+
+: ME_496B631F01AD
+ CONST UID '496B631F01AD'
+ CONST Name 'AllowSearchInTitles'
+ CONST Class class_Attribute
+ : Stereotype st_readonly::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_lnk
+ : Parent ME_496B629D0188 // InsBaseSearcherWindowData
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+ CONST "UseNewGen" 'undefined'
+ CONST "pm" true
+
+ref; // ME_496B631F01AD AllowSearchInTitles
+
+: ME_496B633D033B
+ CONST UID '496B633D033B'
+ CONST Name 'FindEnabled'
+ CONST Class class_Attribute
+ : Stereotype st_readonly::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_lnk
+ : Parent ME_496B629D0188 // InsBaseSearcherWindowData
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+ CONST "UseNewGen" 'undefined'
+ CONST "pm" true
+
+ref; // ME_496B633D033B FindEnabled
+
+: ME_49FEA2840322
+ CONST UID '49FEA2840322'
+ CONST Name 'FindBackSupported'
+ CONST Class class_Attribute
+ : Stereotype st_readonly::Attribute ;
+ %SUMMARY 'В принципе можем искать назад' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_lnk
+ : Parent ME_496B629D0188 // InsBaseSearcherWindowData
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+ CONST "UseNewGen" 'undefined'
+ CONST "pm" true
+
+ref; // ME_49FEA2840322 FindBackSupported
+
+: ME_49FEA2AE013A
+ CONST UID '49FEA2AE013A'
+ CONST Name 'FindBackEnabled'
+ CONST Class class_Attribute
+ : Stereotype st_readonly::Attribute ;
+ %SUMMARY 'Поиск назад доступен в данный момент' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_lnk
+ : Parent ME_496B629D0188 // InsBaseSearcherWindowData
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+ CONST "UseNewGen" 'undefined'
+ CONST "pm" true
+
+ref; // ME_49FEA2AE013A FindBackEnabled
+
+: ME_49FFD84603C6
+ CONST UID '49FFD84603C6'
+ CONST Name 'FragmentsCountSuffix'
+ CONST Class class_Attribute
+ : Stereotype st_readonly::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_lnk
+ : Parent ME_496B629D0188 // InsBaseSearcherWindowData
+ ;
+ : Target WL 'ME_46780DA40383' '4677FBA70343.pas.ms.script' // Il3CString
+ ;
+ CONST "UseNewGen" 'undefined'
+ CONST "pm" true
+
+ref; // ME_49FFD84603C6 FragmentsCountSuffix
+
+: ME_562DB68E022A
+ CONST UID '562DB68E022A'
+ CONST Name 'PromptTree'
+ CONST Class class_Attribute
+ : Stereotype st_readonly::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_lnk
+ : Parent ME_496B629D0188 // InsBaseSearcherWindowData
+ ;
+ : Target WL 'ME_46825CC00249' '4682595B0268.pas.ms.script' // Il3SimpleTree
+ ;
+ CONST "UseNewGen" 'undefined'
+ CONST "pm" true
+
+ref; // ME_562DB68E022A PromptTree
+
+: ME_562F3AFA00EF
+ CONST UID '562F3AFA00EF'
+ CONST Name 'ErrorWords'
+ CONST Class class_Attribute
+ : Stereotype st_property::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_lnk
+ : Parent ME_496B629D0188 // InsBaseSearcherWindowData
+ ;
+ : Target WL 'ME_4683CF0601DB' '467BAB7F021E.pas.ms.script' // IvcmStrings
+ ;
+ CONST "UseNewGen" 'undefined'
+ CONST "pm" true
+
+ref; // ME_562F3AFA00EF ErrorWords
+
+: ME_496B62BF00A7
+ CONST UID '496B62BF00A7'
+ CONST Name 'ContextKind'
+ CONST Class class_Attribute
+ : Stereotype st_readonly::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_lnk
+ : Parent ME_496B629D0188 // InsBaseSearcherWindowData
+ ;
+ : Target ME_495132550324 // TnsBaseSearchKind
+ ;
+ CONST "UseNewGen" 'undefined'
+ CONST "pm" true
+
+ref; // ME_496B62BF00A7 ContextKind
+
+: ME_496B62E80050
+ CONST UID '496B62E80050'
+ CONST Name 'AvailableClasses'
+ CONST Class class_Attribute
+ : Stereotype st_readonly::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_lnk
+ : Parent ME_496B629D0188 // InsBaseSearcherWindowData
+ ;
+ : Target ME_496B5FAB039D // InsBaseSearchClasses
+ ;
+ CONST "UseNewGen" 'undefined'
+ CONST "pm" true
+
+ref; // ME_496B62E80050 AvailableClasses
+
+: ME_496B636102E7
+ CONST UID '496B636102E7'
+ CONST Name 'Context'
+ CONST Class class_Attribute
+ : Stereotype st_property::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_lnk
+ : Parent ME_496B629D0188 // InsBaseSearcherWindowData
+ ;
+ : Target WL 'ME_46780DA40383' '4677FBA70343.pas.ms.script' // Il3CString
+ ;
+ CONST "UseNewGen" 'undefined'
+ CONST "pm" true
+
+ref; // ME_496B636102E7 Context
+
+: ME_496B637C00B7
+ CONST UID '496B637C00B7'
+ CONST Name 'ActiveClass'
+ CONST Class class_Attribute
+ : Stereotype st_property::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_lnk
+ : Parent ME_496B629D0188 // InsBaseSearcherWindowData
+ ;
+ : Target ME_496B5F7603B4 // InsBaseSearchClass
+ ;
+ CONST "UseNewGen" 'undefined'
+ CONST "pm" true
+
+ref; // ME_496B637C00B7 ActiveClass
+
+: ME_496B63BE0309
+ CONST UID '496B63BE0309'
+ CONST Name 'Area'
+ CONST Class class_Attribute
+ : Stereotype st_property::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_lnk
+ : Parent ME_496B629D0188 // InsBaseSearcherWindowData
+ ;
+ : Target ME_495132300336 // TnsSearchArea
+ ;
+ CONST "UseNewGen" 'undefined'
+ CONST "pm" true
+
+ref; // ME_496B63BE0309 Area
+
+: ME_496B63D40168
+ CONST UID '496B63D40168'
+ CONST Name 'ExampleText'
+ CONST Class class_Attribute
+ : Stereotype st_readonly::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_lnk
+ : Parent ME_496B629D0188 // InsBaseSearcherWindowData
+ ;
+ : Target WL 'ME_46780DA40383' '4677FBA70343.pas.ms.script' // Il3CString
+ ;
+ CONST "UseNewGen" 'undefined'
+ CONST "pm" true
+
+ref; // ME_496B63D40168 ExampleText
+
+: ME_4EE5F8200085
+ CONST UID '4EE5F8200085'
+ CONST Name 'ActiveClassForSaveState'
+ CONST Class class_Attribute
+ : Stereotype st_readonly::Attribute ;
+ %SUMMARY 'http://mdp.garant.ru/pages/viewpage.action?pageId=300026165' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_lnk
+ : Parent ME_496B629D0188 // InsBaseSearcherWindowData
+ ;
+ : Target ME_496B5F7603B4 // InsBaseSearchClass
+ ;
+ CONST "UseNewGen" 'undefined'
+ CONST "pm" true
+
+ref; // ME_4EE5F8200085 ActiveClassForSaveState
+
+FORWARD ME_562E027100BA
+
+: ME_562E027A03BA
+ CONST UID '562E027A03BA'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_562E027100BA // MakeState
+ ;
+ : Target ME_562DE146027E // InsBaseSearcherWindowDataState
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_562E027A03BA DoIt
+
+: ME_562E027100BA
+ CONST UID '562E027100BA'
+ CONST Name 'MakeState'
+ CONST Class class_Class
+ : Stereotype st_facetmethod ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_496B629D0188 // InsBaseSearcherWindowData
+ ;
+ : Operations
+   Seq: ( ME_562E027A03BA // DoIt
+ )
+ ; // Operations
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_562E027100BA MakeState
+
+FORWARD ME_562E02880261
+
+: ME_562E0297000E
+ CONST UID '562E0297000E'
+ CONST Name 'aState'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target ME_562DE146027E // InsBaseSearcherWindowDataState
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_562E0297000E aState
+
+: ME_562E029202B3
+ CONST UID '562E029202B3'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_562E02880261 // AssignState
+ ;
+ : Parameters
+   Seq: ( ME_562E0297000E // aState
+ )
+ ; // Parameters
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_562E029202B3 DoIt
+
+: ME_562E02880261
+ CONST UID '562E02880261'
+ CONST Name 'AssignState'
+ CONST Class class_Class
+ : Stereotype st_facetmethod ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_496B629D0188 // InsBaseSearcherWindowData
+ ;
+ : Operations
+   Seq: ( ME_562E029202B3 // DoIt
+ )
+ ; // Operations
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_562E02880261 AssignState
+
+FORWARD ME_562F5D4E0001
+
+: ME_562F5D60017D
+ CONST UID '562F5D60017D'
+ CONST Name 'aListener'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target ME_562F5C9401F0 // InsBaseSearchWindowDataListener
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_562F5D60017D aListener
+
+: ME_562F5D5502E6
+ CONST UID '562F5D5502E6'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_562F5D4E0001 // Subscribe
+ ;
+ : Parameters
+   Seq: ( ME_562F5D60017D // aListener
+ )
+ ; // Parameters
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_562F5D5502E6 DoIt
+
+: ME_562F5D4E0001
+ CONST UID '562F5D4E0001'
+ CONST Name 'Subscribe'
+ CONST Class class_Class
+ : Stereotype st_facetmethod ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_496B629D0188 // InsBaseSearcherWindowData
+ ;
+ : Operations
+   Seq: ( ME_562F5D5502E6 // DoIt
+ )
+ ; // Operations
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_562F5D4E0001 Subscribe
+
+FORWARD ME_562F5D6503B6
+
+: ME_562F5D76034D
+ CONST UID '562F5D76034D'
+ CONST Name 'aListener'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target ME_562F5C9401F0 // InsBaseSearchWindowDataListener
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_562F5D76034D aListener
+
+: ME_562F5D6D008E
+ CONST UID '562F5D6D008E'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_562F5D6503B6 // Unsubscribe
+ ;
+ : Parameters
+   Seq: ( ME_562F5D76034D // aListener
+ )
+ ; // Parameters
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_562F5D6D008E DoIt
+
+: ME_562F5D6503B6
+ CONST UID '562F5D6503B6'
+ CONST Name 'Unsubscribe'
+ CONST Class class_Class
+ : Stereotype st_facetmethod ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_496B629D0188 // InsBaseSearcherWindowData
+ ;
+ : Operations
+   Seq: ( ME_562F5D6D008E // DoIt
+ )
+ ; // Operations
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_562F5D6503B6 Unsubscribe
+
+: ME_4C04A80C018D
+ CONST UID '4C04A80C018D'
+ CONST Name 'StoreActiveClass'
+ CONST Class class_Operation
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_496B629D0188 // InsBaseSearcherWindowData
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_4C04A80C018D StoreActiveClass
+
+: ME_4AD5EBB302EA_ME_496B629D0188
+ CONST UID '4AD5EBB302EA'
+ CONST Name 'RemovePresentation'
+ : Original ME_4AD5EBB302EA // RemovePresentation
+ ;
+ : Implementor ME_496B629D0188 // InsBaseSearcherWindowData
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "UseNewGen" 'undefined'
+ref; // ME_4AD5EBB302EA_ME_496B629D0188 RemovePresentation
+
+: ME_4AD5EDC703BE_ME_496B629D0188
+ CONST UID '4AD5EDC703BE'
+ CONST Name 'Presentation'
+ : Original ME_4AD5EDC703BE // Presentation
+ ;
+ : Implementor ME_496B629D0188 // InsBaseSearcherWindowData
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "UseNewGen" 'undefined'
+ CONST "pm" true
+ref; // ME_4AD5EDC703BE_ME_496B629D0188 Presentation
+
+: ME_4F1EA8A202D8_ME_496B629D0188
+ CONST UID '4F1EA8A202D8'
+ CONST Name 'ValidateBaseSearchForm'
+ : Original ME_4F1EA8A202D8 // ValidateBaseSearchForm
+ ;
+ : Implementor ME_496B629D0188 // InsBaseSearcherWindowData
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "UseNewGen" 'undefined'
+ref; // ME_4F1EA8A202D8_ME_496B629D0188 ValidateBaseSearchForm
+
+: ME_496B629D0188
+ CONST UID '496B629D0188'
+ CONST GUID 'DD7D1F2D-820E-444C-9DF2-8780A9B6256D'
+ CONST Name 'InsBaseSearcherWindowData'
+ CONST Class class_Class
+ : Stereotype st_Facet ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4A9F98B901A5 // BaseSearchInterfaces
+ ;
+ : Implements
+   Seq: ( ME_4AD5EDAE025A // MnsPresentationHolder
+ )
+ ; // Implements
+ : Attributes
+   Seq: ( ME_496B630301B5 // ClassesAnywayDisabled
+ ME_496B631F01AD // AllowSearchInTitles
+ ME_496B633D033B // FindEnabled
+ ME_49FEA2840322 // FindBackSupported
+ ME_49FEA2AE013A // FindBackEnabled
+ ME_49FFD84603C6 // FragmentsCountSuffix
+ ME_562DB68E022A // PromptTree
+ ME_562F3AFA00EF // ErrorWords
+ ME_496B62BF00A7 // ContextKind
+ ME_496B62E80050 // AvailableClasses
+ ME_496B636102E7 // Context
+ ME_496B637C00B7 // ActiveClass
+ ME_496B63BE0309 // Area
+ ME_496B63D40168 // ExampleText
+ ME_4EE5F8200085 // ActiveClassForSaveState
+ )
+ ; // Attributes
+ : Operations
+   Seq: ( ME_562E027100BA // MakeState
+ ME_562E02880261 // AssignState
+ ME_562F5D4E0001 // Subscribe
+ ME_562F5D6503B6 // Unsubscribe
+ ME_4C04A80C018D // StoreActiveClass
+ )
+ ; // Operations
+ : Implemented
+   Seq: ( ME_4AD5EBB302EA_ME_496B629D0188 // RemovePresentation
+ ME_4AD5EDC703BE_ME_496B629D0188 // Presentation
+ ME_4F1EA8A202D8_ME_496B629D0188 // ValidateBaseSearchForm
+ )
+ ; // Implemented
+ CONST "UseNewGen" 'undefined'
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Search'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Search'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\Search'
+
+ref; // ME_496B629D0188 InsBaseSearcherWindowData
+
+FORWARD ME_496B5FCE02FD
+
+: ME_5629CB87033C
+ CONST UID '5629CB87033C'
+ CONST Name 'SearchWindow'
+ CONST Class class_Attribute
+ : Stereotype st_property::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_lnk
+ : Parent ME_496B5FCE02FD // InsBaseSearcher
+ ;
+ : Target ME_496B51A10197 // InsSearchWindow
+ ;
+ CONST "UseNewGen" 'undefined'
+ CONST "pm" true
+
+ref; // ME_5629CB87033C SearchWindow
+
+: ME_5629BE0F005C
+ CONST UID '5629BE0F005C'
+ CONST Name 'WindowData'
+ CONST Class class_Attribute
+ : Stereotype st_readonly::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_lnk
+ : Parent ME_496B5FCE02FD // InsBaseSearcher
+ ;
+ : Target ME_496B629D0188 // InsBaseSearcherWindowData
+ ;
+ CONST "UseNewGen" 'undefined'
+ CONST "pm" true
+
+ref; // ME_5629BE0F005C WindowData
+
+FORWARD ME_4EB7BE980010
+
+: ME_4EB7BEA20379
+ CONST UID '4EB7BEA20379'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_4EB7BE980010 // DropActiveClass
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_4EB7BEA20379 DoIt
+
+: ME_4EB7BE980010
+ CONST UID '4EB7BE980010'
+ CONST Name 'DropActiveClass'
+ CONST Class class_Class
+ : Stereotype st_facetmethod ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'http://mdp.garant.ru/pages/viewpage.action?pageId=269069309&focusedCommentId=296624258#comment-296624258' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_496B5FCE02FD // InsBaseSearcher
+ ;
+ : Implements
+   Seq: ( WL 'ME_4EB7BA320128' '484FA67302D7.pas.ms.script' // Данный выбор не запоминается, когда мы сами инициируем вызов "Основного Меню"
+ )
+ ; // Implements
+ : Operations
+   Seq: ( ME_4EB7BEA20379 // DoIt
+ )
+ ; // Operations
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_4EB7BE980010 DropActiveClass
+
+FORWARD ME_543392190118
+
+: ME_543392320063
+ CONST UID '543392320063'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_543392190118 // MakeState
+ ;
+ : Target ME_5433905403C7 // InsBaseSearcherInitialState
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_543392320063 DoIt
+
+: ME_543392190118
+ CONST UID '543392190118'
+ CONST Name 'MakeState'
+ CONST Class class_Class
+ : Stereotype st_facetmethod ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_496B5FCE02FD // InsBaseSearcher
+ ;
+ : Operations
+   Seq: ( ME_543392320063 // DoIt
+ )
+ ; // Operations
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_543392190118 MakeState
+
+FORWARD ME_5433923F0280
+
+: ME_5433925B00BE
+ CONST UID '5433925B00BE'
+ CONST Name 'aState'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target ME_5433905403C7 // InsBaseSearcherInitialState
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_5433925B00BE aState
+
+: ME_5433925602F7
+ CONST UID '5433925602F7'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_5433923F0280 // AssignState
+ ;
+ : Parameters
+   Seq: ( ME_5433925B00BE // aState
+ )
+ ; // Parameters
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_5433925602F7 DoIt
+
+: ME_5433923F0280
+ CONST UID '5433923F0280'
+ CONST Name 'AssignState'
+ CONST Class class_Class
+ : Stereotype st_facetmethod ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_496B5FCE02FD // InsBaseSearcher
+ ;
+ : Operations
+   Seq: ( ME_5433925602F7 // DoIt
+ )
+ ; // Operations
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_5433923F0280 AssignState
+
+FORWARD ME_5437B478018C
+
+: ME_5437B47F03D1
+ CONST UID '5437B47F03D1'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_5437B478018C // ForceUpdateClassForHistory
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_5437B47F03D1 DoIt
+
+: ME_5437B478018C
+ CONST UID '5437B478018C'
+ CONST Name 'ForceUpdateClassForHistory'
+ CONST Class class_Class
+ : Stereotype st_facetmethod ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_496B5FCE02FD // InsBaseSearcher
+ ;
+ : Operations
+   Seq: ( ME_5437B47F03D1 // DoIt
+ )
+ ; // Operations
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_5437B478018C ForceUpdateClassForHistory
+
+FORWARD ME_54EC1B5C00E4
+
+: ME_560B83C00194
+ CONST UID '560B83C00194'
+ CONST Name 'aStateElements'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target ME_54EC13510253 // TnsBaseSearchStateElements
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_560B83C00194 aStateElements
+
+: ME_560B83C001C3
+ CONST UID '560B83C001C3'
+ CONST Name 'aForClone'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_560B83C001C3 aForClone
+
+: ME_54EC1B9501DF
+ CONST UID '54EC1B9501DF'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_54EC1B5C00E4 // MakeStateParams
+ ;
+ : Target ME_5433905403C7 // InsBaseSearcherInitialState
+ ;
+ : Parameters
+   Seq: ( ME_560B83C00194 // aStateElements
+ ME_560B83C001C3 // aForClone
+ )
+ ; // Parameters
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_54EC1B9501DF DoIt
+
+: ME_54EC1B5C00E4
+ CONST UID '54EC1B5C00E4'
+ CONST Name 'MakeStateParams'
+ CONST Class class_Class
+ : Stereotype st_facetmethod ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_496B5FCE02FD // InsBaseSearcher
+ ;
+ : Operations
+   Seq: ( ME_54EC1B9501DF // DoIt
+ )
+ ; // Operations
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_54EC1B5C00E4 MakeStateParams
+
+FORWARD ME_55AF44F501B9
+
+: ME_55AF4502005D
+ CONST UID '55AF4502005D'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_55AF44F501B9 // ContainerIsClosing
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_55AF4502005D DoIt
+
+: ME_55AF44F501B9
+ CONST UID '55AF44F501B9'
+ CONST Name 'ContainerIsClosing'
+ CONST Class class_Class
+ : Stereotype st_facetmethod ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_496B5FCE02FD // InsBaseSearcher
+ ;
+ : Operations
+   Seq: ( ME_55AF4502005D // DoIt
+ )
+ ; // Operations
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_55AF44F501B9 ContainerIsClosing
+
+FORWARD ME_5629B2030130
+
+: ME_F2601CA7409D
+ CONST UID 'F2601CA7409D'
+ CONST Name 'DoIt'
+ CONST IsSummoned true
+ CONST Class class_Operation
+ %SUMMARY 'Сигнатура метода Find' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_5629B2030130 // Find
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_F2601CA7409D DoIt
+
+: ME_5629B2030130
+ CONST UID '5629B2030130'
+ CONST Name 'Find'
+ CONST Class class_Class
+ : Stereotype st_facetmethod ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_496B5FCE02FD // InsBaseSearcher
+ ;
+ : Operations
+   Seq: ( ME_F2601CA7409D // DoIt
+ )
+ ; // Operations
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_5629B2030130 Find
+
+FORWARD ME_5629B2380023
+
+: ME_A6CC8450927D
+ CONST UID 'A6CC8450927D'
+ CONST Name 'DoIt'
+ CONST IsSummoned true
+ CONST Class class_Operation
+ %SUMMARY 'Сигнатура метода FindBack' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_5629B2380023 // FindBack
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_A6CC8450927D DoIt
+
+: ME_5629B2380023
+ CONST UID '5629B2380023'
+ CONST Name 'FindBack'
+ CONST Class class_Class
+ : Stereotype st_facetmethod ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_496B5FCE02FD // InsBaseSearcher
+ ;
+ : Operations
+   Seq: ( ME_A6CC8450927D // DoIt
+ )
+ ; // Operations
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_5629B2380023 FindBack
+
+FORWARD ME_5629B24C0274
+
+: ME_C837C2210474
+ CONST UID 'C837C2210474'
+ CONST Name 'DoIt'
+ CONST IsSummoned true
+ CONST Class class_Operation
+ %SUMMARY 'Сигнатура метода ApplyCurrentExample' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_5629B24C0274 // ApplyCurrentExample
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_C837C2210474 DoIt
+
+: ME_5629B24C0274
+ CONST UID '5629B24C0274'
+ CONST Name 'ApplyCurrentExample'
+ CONST Class class_Class
+ : Stereotype st_facetmethod ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_496B5FCE02FD // InsBaseSearcher
+ ;
+ : Operations
+   Seq: ( ME_C837C2210474 // DoIt
+ )
+ ; // Operations
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_5629B24C0274 ApplyCurrentExample
+
+: ME_496B5FE1018E
+ CONST UID '496B5FE1018E'
+ CONST Name 'OpenKind'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target ME_49512DE00227 // TnsBaseSearchOpenKind
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_496B5FE1018E OpenKind
+
+: ME_496B5FE00107
+ CONST UID '496B5FE00107'
+ CONST Name 'ShowWindowByUser'
+ CONST Class class_Operation
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_496B5FCE02FD // InsBaseSearcher
+ ;
+ : Parameters
+   Seq: ( ME_496B5FE1018E // OpenKind
+ )
+ ; // Parameters
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_496B5FE00107 ShowWindowByUser
+
+: ME_4AD5EBB302EA_ME_496B5FCE02FD
+ CONST UID '4AD5EBB302EA'
+ CONST Name 'RemovePresentation'
+ : Original ME_4AD5EBB302EA // RemovePresentation
+ ;
+ : Implementor ME_496B5FCE02FD // InsBaseSearcher
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "UseNewGen" 'undefined'
+ref; // ME_4AD5EBB302EA_ME_496B5FCE02FD RemovePresentation
+
+: ME_4AD5EDC703BE_ME_496B5FCE02FD
+ CONST UID '4AD5EDC703BE'
+ CONST Name 'Presentation'
+ : Original ME_4AD5EDC703BE // Presentation
+ ;
+ : Implementor ME_496B5FCE02FD // InsBaseSearcher
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "UseNewGen" 'undefined'
+ CONST "pm" true
+ref; // ME_4AD5EDC703BE_ME_496B5FCE02FD Presentation
+
+: ME_4F1EA8A202D8_ME_496B5FCE02FD
+ CONST UID '4F1EA8A202D8'
+ CONST Name 'ValidateBaseSearchForm'
+ : Original ME_4F1EA8A202D8 // ValidateBaseSearchForm
+ ;
+ : Implementor ME_496B5FCE02FD // InsBaseSearcher
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "UseNewGen" 'undefined'
+ref; // ME_4F1EA8A202D8_ME_496B5FCE02FD ValidateBaseSearchForm
+
+: ME_496B5FCE02FD
+ CONST UID '496B5FCE02FD'
+ CONST GUID 'A794F871-A872-47EC-B5D2-C2FFE1FF4138'
+ CONST Name 'InsBaseSearcher'
+ CONST Class class_Class
+ : Stereotype st_Facet ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4A9F98B901A5 // BaseSearchInterfaces
+ ;
+ : Implements
+   Seq: ( ME_4AD5EDAE025A // MnsPresentationHolder
+ )
+ ; // Implements
+ : Attributes
+   Seq: ( ME_5629CB87033C // SearchWindow
+ ME_5629BE0F005C // WindowData
+ )
+ ; // Attributes
+ : Operations
+   Seq: ( ME_4EB7BE980010 // DropActiveClass
+ ME_543392190118 // MakeState
+ ME_5433923F0280 // AssignState
+ ME_5437B478018C // ForceUpdateClassForHistory
+ ME_54EC1B5C00E4 // MakeStateParams
+ ME_55AF44F501B9 // ContainerIsClosing
+ ME_5629B2030130 // Find
+ ME_5629B2380023 // FindBack
+ ME_5629B24C0274 // ApplyCurrentExample
+ ME_496B5FE00107 // ShowWindowByUser
+ )
+ ; // Operations
+ : Implemented
+   Seq: ( ME_4AD5EBB302EA_ME_496B5FCE02FD // RemovePresentation
+ ME_4AD5EDC703BE_ME_496B5FCE02FD // Presentation
+ ME_4F1EA8A202D8_ME_496B5FCE02FD // ValidateBaseSearchForm
+ )
+ ; // Implemented
+ CONST "UseNewGen" 'undefined'
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Search'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Search'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\Search'
+
+ref; // ME_496B5FCE02FD InsBaseSearcher
+
+FORWARD ME_5631AC50016C
+
+: ME_5631AC7700D9
+ CONST UID '5631AC7700D9'
+ CONST Name 'BaseSearcher'
+ CONST Class class_Attribute
+ : Stereotype st_readonly::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_lnk
+ : Parent ME_5631AC50016C // InsBaseSearcherProvider
+ ;
+ : Target ME_496B5FCE02FD // InsBaseSearcher
+ ;
+ CONST "UseNewGen" 'undefined'
+ CONST "pm" false
+
+ref; // ME_5631AC7700D9 BaseSearcher
+
+: ME_5631AC50016C
+ CONST UID '5631AC50016C'
+ CONST GUID '75F17410-E8D4-42B9-84D5-DC1EA4486A12'
+ CONST Name 'InsBaseSearcherProvider'
+ CONST Class class_Class
+ : Stereotype st_Facet ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4A9F98B901A5 // BaseSearchInterfaces
+ ;
+ : Attributes
+   Seq: ( ME_5631AC7700D9 // BaseSearcher
+ )
+ ; // Attributes
+ CONST "UseNewGen" 'undefined'
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Search'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Search'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\Search'
+
+ref; // ME_5631AC50016C InsBaseSearcherProvider
+
+FORWARD ME_5673E9380067
+
+: ME_5673E95D0119
+ CONST UID '5673E95D0119'
+ CONST Name 'ns_sseAll'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_5673E9380067 // SearchStateElementConstants
+ ;
+ CONST Value '[ns_sseContext, ns_sseNeedShowWindow, ns_sseOpenKind, ns_sseActiveClass, ns_sseSearchArea]'
+ CONST "AutoInc" false
+ CONST "UseNewGen" 'undefined'
+ CONST "forced type" 'none'
+ CONST "is define" false
+ CONST extprop:pas:Value '[ns_sseContext, ns_sseNeedShowWindow, ns_sseOpenKind, ns_sseActiveClass, ns_sseSearchArea]'
+
+ref; // ME_5673E95D0119 ns_sseAll
+
+: ME_5673E9380067
+ CONST UID '5673E9380067'
+ CONST Name 'SearchStateElementConstants'
+ CONST Class class_Class
+ : Stereotype st_Constants ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4A9F98B901A5 // BaseSearchInterfaces
+ ;
+ : Attributes
+   Seq: ( ME_5673E95D0119 // ns_sseAll
+ )
+ ; // Attributes
+ CONST "UseNewGen" 'undefined'
+ CONST "spell names" false
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Search'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Search'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\Search'
+
+ref; // ME_5673E9380067 SearchStateElementConstants
+
+: ME_4A9F98B901A5
+ CONST UID '4A9F98B901A5'
+ CONST Name 'BaseSearchInterfaces'
+ CONST Class class_Category
+ : Stereotype st_Interfaces ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent WL 'ME_4A9FFD3F01AD' '4A9FFD3F01AD.pas.ms.script' // Search
+ ;
+ : Children
+   Seq: ( ME_49512DE00227 // TnsBaseSearchOpenKind
+ ME_496B51660087 // InsBaseSearchVisibleWatcher
+ ME_4951327800EE // InsBaseSearchContextProvider
+ ME_496B5F7603B4 // InsBaseSearchClass
+ ME_5625E70C0151 // InsBaseSearchClassesEnumerator
+ ME_495132550324 // TnsBaseSearchKind
+ ME_495132300336 // TnsSearchArea
+ ME_496B4F6303E5 // InsBaseSearchDataReadyChecker
+ ME_4ACA1757039E // MnsSupportDisabled
+ ME_496B533F00AE // InsBaseSearchQueryDataProcessor
+ ME_496B51A10197 // InsSearchWindow
+ ME_49513222021F // InsContextSearcher
+ ME_496B512E026D // InsMistakesCorrector
+ ME_4D90B8C60164 // TnsContainerForBaseSearchInfo
+ ME_4F22C29301C6 // MnsBaseSearchPresentationState
+ ME_496B500E0283 // ETryToFindEmptyContext
+ ME_496B52CD024B // InsBaseSearchWindowOpener
+ ME_49916BFE01A4 // InsBaseSearchListSource
+ ME_496B4C2700D5 // InsBaseSearchPresentation
+ ME_4901F73E01D0 // InsCutToLeafFilter
+ ME_4AA4D4EB0005 // InsPromptForDocFilter
+ ME_4901F75A0378 // InsBaseSearchPromptFilters
+ ME_495139650302 // TbsBaseSearchResult
+ ME_49512F660180 // IbsBaseDocumentContextSearcher
+ ME_4AD5EDAE025A // MnsPresentationHolder
+ ME_562626470198 // InsBaseSearchClassesListener
+ ME_4F203112036A // InsMainMenuLikeBaseSearchOwner
+ ME_54EC12AB018C // TnsBaseSearchStateElement
+ ME_54EC13510253 // TnsBaseSearchStateElements
+ ME_5433905403C7 // InsBaseSearcherInitialState
+ ME_54327CB100C6 // InsBaseSearchInitialStateProvider
+ ME_496B5FAB039D // InsBaseSearchClasses
+ ME_562DE21C0240 // TnsBaseSearchWindowState
+ ME_562DE146027E // InsBaseSearcherWindowDataState
+ ME_562F5C450383 // TnsBaseSearcherChangeElement
+ ME_562F5CC60355 // TnsBaseSearcherChangeElements
+ ME_562F5C9401F0 // InsBaseSearchWindowDataListener
+ ME_496B629D0188 // InsBaseSearcherWindowData
+ ME_496B5FCE02FD // InsBaseSearcher
+ ME_5631AC50016C // InsBaseSearcherProvider
+ )
+ ; // Children
+ : Constants
+   Seq: ( ME_4DE659AB0279 // SearchClassesConst
+ ME_5673E9380067 // SearchStateElementConstants
+ )
+ ; // Constants
+ : Depends
+   Seq: ( WL 'ME_45700BFD0251' '45700BFD0251.pas.ms.script' // DynamicDocList
+ WL 'ME_457450470167' '457450470167.pas.ms.script' // DynamicTree
+ WL 'ME_4677FBA70343' '4677FBA70343.pas.ms.script' // l3Interfaces
+ WL 'ME_467BAB7F021E' '467BAB7F021E.pas.ms.script' // vcmExternalInterfaces
+ WL 'ME_4682595B0268' '4682595B0268.pas.ms.script' // l3TreeInterfaces
+ WL 'ME_4683F37902CF' '4683F37902CF.pas.ms.script' // vcmInterfaces
+ WL 'ME_484900780017' '484900780017.pas.ms.script' // Работа с документом
+ WL 'ME_484FA67302D7' '484FA67302D7.pas.ms.script' // GUI
+ WL 'ME_4AB0C3C60310' '4AB0C3C60310.pas.ms.script' // Sys
+ WL 'ME_4D7A0528021A' '4D7A0528021A.pas.ms.script' // PrimBaseSearchInterfaces
+ WL 'ME_54F9F6FB0143' '54F9F6FB0143.pas.ms.script' // ContextHistoryInterfaces
+ )
+ ; // Depends
+ CONST "UseNewGen" 'undefined'
+ CONST "author" 'Люлин А.В.'
+ CONST "is namespace" true
+ CONST "no hands" true
+ CONST "started" '03.09.2009 14:22'
+ : Generators
+ Seq: (
+ gen_intf.pas
+ gen_pas.script
+ gen_pas.script.runner
+ )
+ ; // Generators
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Search'
+ CONST intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\Search\BaseSearchInterfaces.pas'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Search'
+ CONST pas.script:Path 'shared\models\NewSchool\Scripts\4A9F98B901A5.pas.ms.script'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\4A9F98B901A5.pas.ms.script.runner'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\Search'
+
+ref; // ME_4A9F98B901A5 BaseSearchInterfaces

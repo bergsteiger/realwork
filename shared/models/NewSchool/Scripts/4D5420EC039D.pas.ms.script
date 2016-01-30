@@ -45,11 +45,15 @@ ref; // ME_4D54264501E2 Y
  : Parent ME_4D5420EC039D // vgTypes
  ;
  : Attributes
-   @ ( ME_4D54263D0028 // X
+   Seq: ( ME_4D54263D0028 // X
  ME_4D54264501E2 // Y
- ) .SequenceCode.It
+ )
  ; // Attributes
  CONST "packed" true
+ CONST dfm:PathOnly '\common\components\rtl\external\VGScene'
+ CONST intf.pas:PathOnly '\common\components\rtl\external\VGScene'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_4D5422330322 TvgPoint
 
@@ -122,13 +126,17 @@ ref; // ME_4D5422E40216 Bottom
  : Parent ME_4D5420EC039D // vgTypes
  ;
  : Attributes
-   @ ( ME_4D5422C4024F // Left
+   Seq: ( ME_4D5422C4024F // Left
  ME_4D5422D203E6 // Top
  ME_4D5422DB0254 // Right
  ME_4D5422E40216 // Bottom
- ) .SequenceCode.It
+ )
  ; // Attributes
  CONST "packed" true
+ CONST dfm:PathOnly '\common\components\rtl\external\VGScene'
+ CONST intf.pas:PathOnly '\common\components\rtl\external\VGScene'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_4D5422A300EF TvgRectLTRB
 
@@ -173,15 +181,34 @@ ref; // ME_4D5423510020 BottomRight
  : Parent ME_4D5420EC039D // vgTypes
  ;
  : Attributes
-   @ ( ME_4D54233E0171 // TopLeft
+   Seq: ( ME_4D54233E0171 // TopLeft
  ME_4D5423510020 // BottomRight
- ) .SequenceCode.It
+ )
  ; // Attributes
  CONST "packed" true
+ CONST dfm:PathOnly '\common\components\rtl\external\VGScene'
+ CONST intf.pas:PathOnly '\common\components\rtl\external\VGScene'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_4D5423250187 TvgRectPoints
 
 FORWARD ME_4D5421A80032
+
+: ME_4D5421D90202
+ CONST UID '4D5421D90202'
+ CONST Name 'void'
+ CONST Class class_Attribute
+ : Stereotype st_switch::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_ref
+ : Parent ME_4D5421A80032 // TvgRect
+ ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+
+ref; // ME_4D5421D90202 void
 
 : ME_4D5423850073
  CONST UID '4D5423850073'
@@ -197,6 +224,7 @@ FORWARD ME_4D5421A80032
  CONST Value 0
  : ValueType ME_4D5422A300EF // TvgRectLTRB
  ;
+ CONST extprop:pas:Value 0
 
 ref; // ME_4D5423850073 voidLTRB
 
@@ -214,6 +242,7 @@ ref; // ME_4D5423850073 voidLTRB
  CONST Value 1
  : ValueType ME_4D5423250187 // TvgRectPoints
  ;
+ CONST extprop:pas:Value 1
 
 ref; // ME_4D5423B90009 voidRectPoints
 
@@ -228,12 +257,17 @@ ref; // ME_4D5423B90009 voidRectPoints
  : Parent ME_4D5420EC039D // vgTypes
  ;
  : Attributes
-   @ ( ME_4D5423850073 // voidLTRB
+   Seq: ( ME_4D5421D90202 // void
+ ME_4D5423850073 // voidLTRB
  ME_4D5423B90009 // voidRectPoints
- ) .SequenceCode.It
+ )
  ; // Attributes
  CONST "Need less" false
  CONST "packed" true
+ CONST dfm:PathOnly '\common\components\rtl\external\VGScene'
+ CONST intf.pas:PathOnly '\common\components\rtl\external\VGScene'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_4D5421A80032 TvgRect
 
@@ -286,11 +320,16 @@ ref; // ME_4D5E82A70066 vgAnimationInOut
  : Parent ME_4D5420EC039D // vgTypes
  ;
  : Attributes
-   @ ( ME_4D5E8294032F // vgAnimationIn
+   Seq: ( ME_4D5E8294032F // vgAnimationIn
  ME_4D5E829E027A // vgAnimationOut
  ME_4D5E82A70066 // vgAnimationInOut
- ) .SequenceCode.It
+ )
  ; // Attributes
+ CONST dfm:PathOnly '\common\components\rtl\external\VGScene'
+ CONST intf.pas:PathOnly '\common\components\rtl\external\VGScene'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_4D5E8288010A TvgAnimationType
 
@@ -439,7 +478,7 @@ ref; // ME_4D5E83A703A4 vgInterpolationBounce
  : Parent ME_4D5420EC039D // vgTypes
  ;
  : Attributes
-   @ ( ME_4D5E830F0063 // vgInterpolationLinear
+   Seq: ( ME_4D5E830F0063 // vgInterpolationLinear
  ME_4D5E831702AA // vgInterpolationQuadratic
  ME_4D5E831F0090 // vgInterpolationCubic
  ME_4D5E8328036A // vgInterpolationQuartic
@@ -450,8 +489,13 @@ ref; // ME_4D5E83A703A4 vgInterpolationBounce
  ME_4D5E8350005C // vgInterpolationElastic
  ME_4D5E8372004B // vgInterpolationBack
  ME_4D5E83A703A4 // vgInterpolationBounce
- ) .SequenceCode.It
+ )
  ; // Attributes
+ CONST dfm:PathOnly '\common\components\rtl\external\VGScene'
+ CONST intf.pas:PathOnly '\common\components\rtl\external\VGScene'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_4D5E83030332 TvgInterpolationType
 
@@ -756,7 +800,7 @@ ref; // ME_4D5EB4F00384 vaFitRight
  : Parent ME_4D5420EC039D // vgTypes
  ;
  : Attributes
-   @ ( ME_4D5EB4280295 // vaNone
+   Seq: ( ME_4D5EB4280295 // vaNone
  ME_4D5EB430004F // vaTopLeft
  ME_4D5EB43703E5 // vaTopRight
  ME_4D5EB4400003 // vaBottomLeft
@@ -780,8 +824,13 @@ ref; // ME_4D5EB4F00384 vaFitRight
  ME_4D5EB4E10046 // vaFit
  ME_4D5EB4E90257 // vaFitLeft
  ME_4D5EB4F00384 // vaFitRight
- ) .SequenceCode.It
+ )
  ; // Attributes
+ CONST dfm:PathOnly '\common\components\rtl\external\VGScene'
+ CONST intf.pas:PathOnly '\common\components\rtl\external\VGScene'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_4D5EB41C02CB TvgAlign
 
@@ -822,10 +871,15 @@ ref; // ME_4D5EB57C0150 vgDragAutomatic
  : Parent ME_4D5420EC039D // vgTypes
  ;
  : Attributes
-   @ ( ME_4D5EB55F030A // vgDragManual
+   Seq: ( ME_4D5EB55F030A // vgDragManual
  ME_4D5EB57C0150 // vgDragAutomatic
- ) .SequenceCode.It
+ )
  ; // Attributes
+ CONST dfm:PathOnly '\common\components\rtl\external\VGScene'
+ CONST intf.pas:PathOnly '\common\components\rtl\external\VGScene'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_4D5EB55602EC TvgDragMode
 
@@ -884,11 +938,15 @@ ref; // ME_4D5EB6560341 Data
  : Parent ME_4D5420EC039D // vgTypes
  ;
  : Attributes
-   @ ( ME_4D5EB6400105 // Source
+   Seq: ( ME_4D5EB6400105 // Source
  ME_4D5EB648019A // Files
  ME_4D5EB6560341 // Data
- ) .SequenceCode.It
+ )
  ; // Attributes
+ CONST dfm:PathOnly '\common\components\rtl\external\VGScene'
+ CONST intf.pas:PathOnly '\common\components\rtl\external\VGScene'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_4D5EB63002C9 TvgDragObject
 
@@ -933,10 +991,10 @@ ref; // ME_4D5EB6D20154 Point
  : Parent ME_4D5EB6BD003B // TvgDragEnterEvent
  ;
  : Parameters
-   @ ( ME_4D5EB6D200E2 // Sender
+   Seq: ( ME_4D5EB6D200E2 // Sender
  ME_4D5EB6D20112 // Data
  ME_4D5EB6D20154 // Point
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_4D5EB6C902A1 DoIt
@@ -952,10 +1010,14 @@ ref; // ME_4D5EB6C902A1 DoIt
  : Parent ME_4D5420EC039D // vgTypes
  ;
  : Operations
-   @ ( ME_4D5EB6C902A1 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_4D5EB6C902A1 // DoIt
+ )
  ; // Operations
  CONST "of object" true
+ CONST dfm:PathOnly '\common\components\rtl\external\VGScene'
+ CONST intf.pas:PathOnly '\common\components\rtl\external\VGScene'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_4D5EB6BD003B TvgDragEnterEvent
 
@@ -1010,11 +1072,11 @@ ref; // ME_4D5EB6F6003C Accept
  : Parent ME_4D5EB6DC0020 // TvgDragOverEvent
  ;
  : Parameters
-   @ ( ME_4D5EB6F503B8 // Sender
+   Seq: ( ME_4D5EB6F503B8 // Sender
  ME_4D5EB6F503DD // Data
  ME_4D5EB6F6001A // Point
  ME_4D5EB6F6003C // Accept
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_4D5EB6ED03C0 DoIt
@@ -1030,10 +1092,14 @@ ref; // ME_4D5EB6ED03C0 DoIt
  : Parent ME_4D5420EC039D // vgTypes
  ;
  : Operations
-   @ ( ME_4D5EB6ED03C0 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_4D5EB6ED03C0 // DoIt
+ )
  ; // Operations
  CONST "of object" true
+ CONST dfm:PathOnly '\common\components\rtl\external\VGScene'
+ CONST intf.pas:PathOnly '\common\components\rtl\external\VGScene'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_4D5EB6DC0020 TvgDragOverEvent
 
@@ -1078,10 +1144,10 @@ ref; // ME_4D5EB71B025A Point
  : Parent ME_4D5EB7070390 // TvgDragDropEvent
  ;
  : Parameters
-   @ ( ME_4D5EB71B01FE // Sender
+   Seq: ( ME_4D5EB71B01FE // Sender
  ME_4D5EB71B0221 // Data
  ME_4D5EB71B025A // Point
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_4D5EB7150094 DoIt
@@ -1097,10 +1163,14 @@ ref; // ME_4D5EB7150094 DoIt
  : Parent ME_4D5420EC039D // vgTypes
  ;
  : Operations
-   @ ( ME_4D5EB7150094 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_4D5EB7150094 // DoIt
+ )
  ; // Operations
  CONST "of object" true
+ CONST dfm:PathOnly '\common\components\rtl\external\VGScene'
+ CONST intf.pas:PathOnly '\common\components\rtl\external\VGScene'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_4D5EB7070390 TvgDragDropEvent
 
@@ -1135,9 +1205,9 @@ ref; // ME_4D5EB744022D ACanFocused
  : Parent ME_4D5EB7320084 // TvgCanFocusedEvent
  ;
  : Parameters
-   @ ( ME_4D5EB744020B // Sender
+   Seq: ( ME_4D5EB744020B // Sender
  ME_4D5EB744022D // ACanFocused
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_4D5EB7400274 DoIt
@@ -1153,10 +1223,14 @@ ref; // ME_4D5EB7400274 DoIt
  : Parent ME_4D5420EC039D // vgTypes
  ;
  : Operations
-   @ ( ME_4D5EB7400274 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_4D5EB7400274 // DoIt
+ )
  ; // Operations
  CONST "of object" true
+ CONST dfm:PathOnly '\common\components\rtl\external\VGScene'
+ CONST intf.pas:PathOnly '\common\components\rtl\external\VGScene'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_4D5EB7320084 TvgCanFocusedEvent
 
@@ -1201,10 +1275,10 @@ ref; // ME_4D5EB7B800BC deltaTime
  : Parent ME_4D5EB79601FE // TvgProcessTickEvent
  ;
  : Parameters
-   @ ( ME_4D5EB7B8005D // Sender
+   Seq: ( ME_4D5EB7B8005D // Sender
  ME_4D5EB7B80091 // time
  ME_4D5EB7B800BC // deltaTime
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_4D5EB7AE0217 DoIt
@@ -1220,10 +1294,14 @@ ref; // ME_4D5EB7AE0217 DoIt
  : Parent ME_4D5420EC039D // vgTypes
  ;
  : Operations
-   @ ( ME_4D5EB7AE0217 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_4D5EB7AE0217 // DoIt
+ )
  ; // Operations
  CONST "of object" true
+ CONST dfm:PathOnly '\common\components\rtl\external\VGScene'
+ CONST intf.pas:PathOnly '\common\components\rtl\external\VGScene'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_4D5EB79601FE TvgProcessTickEvent
 
@@ -1288,12 +1366,12 @@ ref; // ME_4D5EB7FA03B6 Y
  : Parent ME_4D5EB7D80075 // TvgMouseEvent
  ;
  : Parameters
-   @ ( ME_4D5EB7FA0328 // Sender
+   Seq: ( ME_4D5EB7FA0328 // Sender
  ME_4D5EB7FA0349 // Button
  ME_4D5EB7FA036B // Shift
  ME_4D5EB7FA038D // X
  ME_4D5EB7FA03B6 // Y
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_4D5EB7E50092 DoIt
@@ -1309,10 +1387,14 @@ ref; // ME_4D5EB7E50092 DoIt
  : Parent ME_4D5420EC039D // vgTypes
  ;
  : Operations
-   @ ( ME_4D5EB7E50092 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_4D5EB7E50092 // DoIt
+ )
  ; // Operations
  CONST "of object" true
+ CONST dfm:PathOnly '\common\components\rtl\external\VGScene'
+ CONST intf.pas:PathOnly '\common\components\rtl\external\VGScene'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_4D5EB7D80075 TvgMouseEvent
 
@@ -1387,13 +1469,13 @@ ref; // ME_4D5EB8400182 Dy
  : Parent ME_4D5EB81F0042 // TvgMouseMoveEvent
  ;
  : Parameters
-   @ ( ME_4D5EB84000CC // Sender
+   Seq: ( ME_4D5EB84000CC // Sender
  ME_4D5EB84000EE // Shift
  ME_4D5EB8400114 // X
  ME_4D5EB840013B // Y
  ME_4D5EB840015E // Dx
  ME_4D5EB8400182 // Dy
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_4D5EB82C01B7 DoIt
@@ -1409,10 +1491,14 @@ ref; // ME_4D5EB82C01B7 DoIt
  : Parent ME_4D5420EC039D // vgTypes
  ;
  : Operations
-   @ ( ME_4D5EB82C01B7 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_4D5EB82C01B7 // DoIt
+ )
  ; // Operations
  CONST "of object" true
+ CONST dfm:PathOnly '\common\components\rtl\external\VGScene'
+ CONST intf.pas:PathOnly '\common\components\rtl\external\VGScene'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_4D5EB81F0042 TvgMouseMoveEvent
 
@@ -1477,12 +1563,12 @@ ref; // ME_4D5EB878025C Handled
  : Parent ME_4D5EB85C024F // TvgMouseWheelEvent
  ;
  : Parameters
-   @ ( ME_4D5EB87801BD // Sender
+   Seq: ( ME_4D5EB87801BD // Sender
  ME_4D5EB87801E0 // Shift
  ME_4D5EB8780202 // WheelDelta
  ME_4D5EB8780237 // MousePos
  ME_4D5EB878025C // Handled
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_4D5EB86B00B3 DoIt
@@ -1498,10 +1584,14 @@ ref; // ME_4D5EB86B00B3 DoIt
  : Parent ME_4D5420EC039D // vgTypes
  ;
  : Operations
-   @ ( ME_4D5EB86B00B3 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_4D5EB86B00B3 // DoIt
+ )
  ; // Operations
  CONST "of object" true
+ CONST dfm:PathOnly '\common\components\rtl\external\VGScene'
+ CONST intf.pas:PathOnly '\common\components\rtl\external\VGScene'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_4D5EB85C024F TvgMouseWheelEvent
 
@@ -1556,11 +1646,11 @@ ref; // ME_4D5EB8A60364 Shift
  : Parent ME_4D5EB88F01E7 // TvgKeyEvent
  ;
  : Parameters
-   @ ( ME_4D5EB8A602E8 // Sender
+   Seq: ( ME_4D5EB8A602E8 // Sender
  ME_4D5EB8A6030A // Key
  ME_4D5EB8A6033C // KeyChar
  ME_4D5EB8A60364 // Shift
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_4D5EB89D011A DoIt
@@ -1576,10 +1666,14 @@ ref; // ME_4D5EB89D011A DoIt
  : Parent ME_4D5420EC039D // vgTypes
  ;
  : Operations
-   @ ( ME_4D5EB89D011A // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_4D5EB89D011A // DoIt
+ )
  ; // Operations
  CONST "of object" true
+ CONST dfm:PathOnly '\common\components\rtl\external\VGScene'
+ CONST intf.pas:PathOnly '\common\components\rtl\external\VGScene'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_4D5EB88F01E7 TvgKeyEvent
 
@@ -1644,12 +1738,17 @@ ref; // ME_509290A1035C vgCornerBottomRight
  : Parent ME_4D5420EC039D // vgTypes
  ;
  : Attributes
-   @ ( ME_5092908B01DE // vgCornerTopLeft
+   Seq: ( ME_5092908B01DE // vgCornerTopLeft
  ME_509290950032 // vgCornerTopRight
  ME_5092909D0356 // vgCornerBottomLeft
  ME_509290A1035C // vgCornerBottomRight
- ) .SequenceCode.It
+ )
  ; // Attributes
+ CONST dfm:PathOnly '\common\components\rtl\external\VGScene'
+ CONST intf.pas:PathOnly '\common\components\rtl\external\VGScene'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_508FF305027A TvgCorner
 
@@ -1664,9 +1763,13 @@ ref; // ME_508FF305027A TvgCorner
  : Parent ME_4D5420EC039D // vgTypes
  ;
  : Inherits
-   @ ( ME_508FF305027A // TvgCorner
- ) .SequenceCode.It
+   Seq: ( ME_508FF305027A // TvgCorner
+ )
  ; // Inherits
+ CONST dfm:PathOnly '\common\components\rtl\external\VGScene'
+ CONST intf.pas:PathOnly '\common\components\rtl\external\VGScene'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_509290BA02F1 TvgCorners
 
@@ -1731,12 +1834,17 @@ ref; // ME_5092910902EF vgCornerInnerLine
  : Parent ME_4D5420EC039D // vgTypes
  ;
  : Attributes
-   @ ( ME_509290F202E8 // vgCornerRound
+   Seq: ( ME_509290F202E8 // vgCornerRound
  ME_509290FA0280 // vgCornerBevel
  ME_5092910201F5 // vgCornerInnerRound
  ME_5092910902EF // vgCornerInnerLine
- ) .SequenceCode.It
+ )
  ; // Attributes
+ CONST dfm:PathOnly '\common\components\rtl\external\VGScene'
+ CONST intf.pas:PathOnly '\common\components\rtl\external\VGScene'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_509290E7008B TvgCornerType
 
@@ -1801,12 +1909,17 @@ ref; // ME_5092914D01A9 vgSideRight
  : Parent ME_4D5420EC039D // vgTypes
  ;
  : Attributes
-   @ ( ME_509291310327 // vgSideTop
+   Seq: ( ME_509291310327 // vgSideTop
  ME_509291400009 // vgSideLeft
  ME_509291460380 // vgSideBottom
  ME_5092914D01A9 // vgSideRight
- ) .SequenceCode.It
+ )
  ; // Attributes
+ CONST dfm:PathOnly '\common\components\rtl\external\VGScene'
+ CONST intf.pas:PathOnly '\common\components\rtl\external\VGScene'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_5092911800F9 TvgSide
 
@@ -1821,9 +1934,13 @@ ref; // ME_5092911800F9 TvgSide
  : Parent ME_4D5420EC039D // vgTypes
  ;
  : Inherits
-   @ ( ME_5092911800F9 // TvgSide
- ) .SequenceCode.It
+   Seq: ( ME_5092911800F9 // TvgSide
+ )
  ; // Inherits
+ CONST dfm:PathOnly '\common\components\rtl\external\VGScene'
+ CONST intf.pas:PathOnly '\common\components\rtl\external\VGScene'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_5092915B03AC TvgSides
 
@@ -1842,6 +1959,7 @@ FORWARD ME_50929F6901F4
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value 0
 
 ref; // ME_50929F780344 a
 
@@ -1858,6 +1976,7 @@ ref; // ME_50929F780344 a
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value 2
 
 ref; // ME_50929F8203BE b
 
@@ -1872,11 +1991,15 @@ ref; // ME_50929F8203BE b
  : Parent ME_4D5420EC039D // vgTypes
  ;
  : Attributes
-   @ ( ME_50929F780344 // a
+   Seq: ( ME_50929F780344 // a
  ME_50929F8203BE // b
- ) .SequenceCode.It
+ )
  ; // Attributes
  CONST "spell names" false
+ CONST dfm:PathOnly '\common\components\rtl\external\VGScene'
+ CONST intf.pas:PathOnly '\common\components\rtl\external\VGScene'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_50929F6901F4 TFromZeroToTwoRange
 
@@ -1906,14 +2029,18 @@ ref; // ME_509291E502DA
  : Parent ME_4D5420EC039D // vgTypes
  ;
  : Inherits
-   @ ( ME_50929F6901F4 // TFromZeroToTwoRange
- ) .SequenceCode.It
+   Seq: ( ME_50929F6901F4 // TFromZeroToTwoRange
+ )
  ; // Inherits
  : Attributes
-   @ ( ME_509291E502DA // 
- ) .SequenceCode.It
+   Seq: ( ME_509291E502DA // 
+ )
  ; // Attributes
  CONST "array type" 'dynamic'
+ CONST dfm:PathOnly '\common\components\rtl\external\VGScene'
+ CONST intf.pas:PathOnly '\common\components\rtl\external\VGScene'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_509291AD0374 TvgVectorArray
 
@@ -1972,15 +2099,34 @@ ref; // ME_50939CAE025F W
  : Parent ME_4D5420EC039D // vgTypes
  ;
  : Attributes
-   @ ( ME_50939C9C0284 // X
+   Seq: ( ME_50939C9C0284 // X
  ME_50939CA8037A // Y
  ME_50939CAE025F // W
- ) .SequenceCode.It
+ )
  ; // Attributes
+ CONST dfm:PathOnly '\common\components\rtl\external\VGScene'
+ CONST intf.pas:PathOnly '\common\components\rtl\external\VGScene'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_50939C8F0326 TvgVectorStruct
 
 FORWARD ME_5092A0A00097
+
+: ME_5092A0BE0388
+ CONST UID '5092A0BE0388'
+ CONST Name 'void'
+ CONST Class class_Attribute
+ : Stereotype st_switch::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_ref
+ : Parent ME_5092A0A00097 // TvgVector
+ ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+
+ref; // ME_5092A0BE0388 void
 
 : ME_5092A0E0028B
  CONST UID '5092A0E0028B'
@@ -1996,6 +2142,7 @@ FORWARD ME_5092A0A00097
  CONST Value 0
  : ValueType ME_509291AD0374 // TvgVectorArray
  ;
+ CONST extprop:pas:Value 0
 
 ref; // ME_5092A0E0028B V
 
@@ -2013,6 +2160,7 @@ ref; // ME_5092A0E0028B V
  CONST Value 1
  : ValueType ME_50939C8F0326 // TvgVectorStruct
  ;
+ CONST extprop:pas:Value 1
 
 ref; // ME_5092A0F7029D voidStruct
 
@@ -2027,12 +2175,17 @@ ref; // ME_5092A0F7029D voidStruct
  : Parent ME_4D5420EC039D // vgTypes
  ;
  : Attributes
-   @ ( ME_5092A0E0028B // V
+   Seq: ( ME_5092A0BE0388 // void
+ ME_5092A0E0028B // V
  ME_5092A0F7029D // voidStruct
- ) .SequenceCode.It
+ )
  ; // Attributes
  CONST "Need less" false
  CONST "packed" true
+ CONST dfm:PathOnly '\common\components\rtl\external\VGScene'
+ CONST intf.pas:PathOnly '\common\components\rtl\external\VGScene'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_5092A0A00097 TvgVector
 
@@ -2175,7 +2328,7 @@ ref; // ME_50939BFA00CE m33
  : Parent ME_4D5420EC039D // vgTypes
  ;
  : Attributes
-   @ ( ME_50939B9803E3 // m11
+   Seq: ( ME_50939B9803E3 // m11
  ME_50939BCC017C // m12
  ME_50939BD20082 // m13
  ME_50939BDB00E9 // m21
@@ -2184,8 +2337,12 @@ ref; // ME_50939BFA00CE m33
  ME_50939BF00224 // m31
  ME_50939BF501F1 // m32
  ME_50939BFA00CE // m33
- ) .SequenceCode.It
+ )
  ; // Attributes
+ CONST dfm:PathOnly '\common\components\rtl\external\VGScene'
+ CONST intf.pas:PathOnly '\common\components\rtl\external\VGScene'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_50939B820319 TvgMatrixStruct
 
@@ -2215,10 +2372,14 @@ ref; // ME_5092A26C012C
  : Parent ME_4D5420EC039D // vgTypes
  ;
  : Attributes
-   @ ( ME_5092A26C012C // 
- ) .SequenceCode.It
+   Seq: ( ME_5092A26C012C // 
+ )
  ; // Attributes
  CONST "array type" 'dynamic'
+ CONST dfm:PathOnly '\common\components\rtl\external\VGScene'
+ CONST intf.pas:PathOnly '\common\components\rtl\external\VGScene'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_5092A26202EC TvgPolygon
 
@@ -2233,10 +2394,14 @@ ref; // ME_5092A26202EC TvgPolygon
  : Parent ME_4D5420EC039D // vgTypes
  ;
  : Inherits
-   @ ( ME_5092A26202EC // TvgPolygon
- ) .SequenceCode.It
+   Seq: ( ME_5092A26202EC // TvgPolygon
+ )
  ; // Inherits
  CONST "isPointer" true
+ CONST dfm:PathOnly '\common\components\rtl\external\VGScene'
+ CONST intf.pas:PathOnly '\common\components\rtl\external\VGScene'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_5092A27F02DA PvgPolygon
 
@@ -2251,9 +2416,14 @@ ref; // ME_5092A27F02DA PvgPolygon
  : Parent ME_4D5420EC039D // vgTypes
  ;
  : Inherits
-   @ ( WL 'ME_46A618AF0053' '4AB0C3C60310.pas.ms.script' // Cardinal
- ) .SequenceCode.It
+   Seq: ( WL 'ME_46A618AF0053' '4AB0C3C60310.pas.ms.script' // Cardinal
+ )
  ; // Inherits
+ CONST dfm:PathOnly '\common\components\rtl\external\VGScene'
+ CONST intf.pas:PathOnly '\common\components\rtl\external\VGScene'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_4D555D65006D TvgColor
 
@@ -2272,6 +2442,7 @@ FORWARD ME_5092A54C00FA
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value 0
 
 ref; // ME_5092A55F023B a
 
@@ -2288,6 +2459,7 @@ ref; // ME_5092A55F023B a
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value 0
 
 ref; // ME_5092A5640214 b
 
@@ -2302,11 +2474,15 @@ ref; // ME_5092A5640214 b
  : Parent ME_4D5420EC039D // vgTypes
  ;
  : Attributes
-   @ ( ME_5092A55F023B // a
+   Seq: ( ME_5092A55F023B // a
  ME_5092A5640214 // b
- ) .SequenceCode.It
+ )
  ; // Attributes
  CONST "spell names" false
+ CONST dfm:PathOnly '\common\components\rtl\external\VGScene'
+ CONST intf.pas:PathOnly '\common\components\rtl\external\VGScene'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_5092A54C00FA TFromZeroToZeroRange
 
@@ -2325,6 +2501,7 @@ FORWARD ME_5092A57A01C6
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value 0
 
 ref; // ME_5092A5860303 a
 
@@ -2341,6 +2518,7 @@ ref; // ME_5092A5860303 a
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value 4
 
 ref; // ME_5092A58D0236 b
 
@@ -2355,11 +2533,15 @@ ref; // ME_5092A58D0236 b
  : Parent ME_4D5420EC039D // vgTypes
  ;
  : Attributes
-   @ ( ME_5092A5860303 // a
+   Seq: ( ME_5092A5860303 // a
  ME_5092A58D0236 // b
- ) .SequenceCode.It
+ )
  ; // Attributes
  CONST "spell names" false
+ CONST dfm:PathOnly '\common\components\rtl\external\VGScene'
+ CONST intf.pas:PathOnly '\common\components\rtl\external\VGScene'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_5092A57A01C6 TFromZeroToFourRange
 
@@ -2390,14 +2572,18 @@ ref; // ME_5092A5AF01EA .
  : Parent ME_4D5420EC039D // vgTypes
  ;
  : Inherits
-   @ ( ME_5092A57A01C6 // TFromZeroToFourRange
- ) .SequenceCode.It
+   Seq: ( ME_5092A57A01C6 // TFromZeroToFourRange
+ )
  ; // Inherits
  : Attributes
-   @ ( ME_5092A5AF01EA // .
- ) .SequenceCode.It
+   Seq: ( ME_5092A5AF01EA // .
+ )
  ; // Attributes
  CONST "array type" 'dynamic'
+ CONST dfm:PathOnly '\common\components\rtl\external\VGScene'
+ CONST intf.pas:PathOnly '\common\components\rtl\external\VGScene'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_5092A5A0013F TvgColorArray
 
@@ -2442,10 +2628,14 @@ ref; // ME_50939D7402B2 LoWord
  : Parent ME_4D5420EC039D // vgTypes
  ;
  : Attributes
-   @ ( ME_50939D5B012B // HiWord
+   Seq: ( ME_50939D5B012B // HiWord
  ME_50939D7402B2 // LoWord
- ) .SequenceCode.It
+ )
  ; // Attributes
+ CONST dfm:PathOnly '\common\components\rtl\external\VGScene'
+ CONST intf.pas:PathOnly '\common\components\rtl\external\VGScene'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_50939D3403CE TvgColorRecStructW
 
@@ -2504,12 +2694,16 @@ ref; // ME_5092A69500C4 B
  : Parent ME_4D5420EC039D // vgTypes
  ;
  : Attributes
-   @ ( ME_5092A6840389 // R
+   Seq: ( ME_5092A6840389 // R
  ME_5092A6910017 // G
  ME_5092A69500C4 // B
- ) .SequenceCode.It
+ )
  ; // Attributes
  CONST "packed" true
+ CONST dfm:PathOnly '\common\components\rtl\external\VGScene'
+ CONST intf.pas:PathOnly '\common\components\rtl\external\VGScene'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_5092A650001D TvgColor24
 
@@ -2539,14 +2733,18 @@ ref; // ME_5092A6BB0111
  : Parent ME_4D5420EC039D // vgTypes
  ;
  : Inherits
-   @ ( ME_5092A54C00FA // TFromZeroToZeroRange
- ) .SequenceCode.It
+   Seq: ( ME_5092A54C00FA // TFromZeroToZeroRange
+ )
  ; // Inherits
  : Attributes
-   @ ( ME_5092A6BB0111 // 
- ) .SequenceCode.It
+   Seq: ( ME_5092A6BB0111 // 
+ )
  ; // Attributes
  CONST "array type" 'dynamic'
+ CONST dfm:PathOnly '\common\components\rtl\external\VGScene'
+ CONST intf.pas:PathOnly '\common\components\rtl\external\VGScene'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_5092A6AD00F7 TvgColor24Array
 
@@ -2561,10 +2759,14 @@ ref; // ME_5092A6AD00F7 TvgColor24Array
  : Parent ME_4D5420EC039D // vgTypes
  ;
  : Inherits
-   @ ( ME_5092A6AD00F7 // TvgColor24Array
- ) .SequenceCode.It
+   Seq: ( ME_5092A6AD00F7 // TvgColor24Array
+ )
  ; // Inherits
  CONST "isPointer" true
+ CONST dfm:PathOnly '\common\components\rtl\external\VGScene'
+ CONST intf.pas:PathOnly '\common\components\rtl\external\VGScene'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_5092A6C503B0 PvgColor24Array
 
@@ -2578,6 +2780,10 @@ ref; // ME_5092A6C503B0 PvgColor24Array
  CONST Abstraction at_regular
  : Parent ME_4D5420EC039D // vgTypes
  ;
+ CONST dfm:PathOnly '\common\components\rtl\external\VGScene'
+ CONST intf.pas:PathOnly '\common\components\rtl\external\VGScene'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_50939DB70371 TvgColorRecStructB
 
@@ -2592,10 +2798,14 @@ ref; // ME_50939DB70371 TvgColorRecStructB
  : Parent ME_4D5420EC039D // vgTypes
  ;
  : Inherits
-   @ ( ME_5092A5A0013F // TvgColorArray
- ) .SequenceCode.It
+   Seq: ( ME_5092A5A0013F // TvgColorArray
+ )
  ; // Inherits
  CONST "isPointer" true
+ CONST dfm:PathOnly '\common\components\rtl\external\VGScene'
+ CONST intf.pas:PathOnly '\common\components\rtl\external\VGScene'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_5092A72B02DB PvgColorArray
 
@@ -2610,14 +2820,34 @@ ref; // ME_5092A72B02DB PvgColorArray
  : Parent ME_4D5420EC039D // vgTypes
  ;
  : Inherits
-   @ ( ME_4D555D65006D // TvgColor
- ) .SequenceCode.It
+   Seq: ( ME_4D555D65006D // TvgColor
+ )
  ; // Inherits
  CONST "isPointer" true
+ CONST dfm:PathOnly '\common\components\rtl\external\VGScene'
+ CONST intf.pas:PathOnly '\common\components\rtl\external\VGScene'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_4D555D8601D1 PvgColor
 
 FORWARD ME_5092A34C02A7
+
+: ME_5092A35C01FB
+ CONST UID '5092A35C01FB'
+ CONST Name 'void'
+ CONST Class class_Attribute
+ : Stereotype st_switch::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_ref
+ : Parent ME_5092A34C02A7 // TvgColorRec
+ ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+
+ref; // ME_5092A35C01FB void
 
 : ME_5092A3990310
  CONST UID '5092A3990310'
@@ -2633,6 +2863,7 @@ FORWARD ME_5092A34C02A7
  CONST Value 0
  : ValueType ME_4D555D65006D // TvgColor
  ;
+ CONST extprop:pas:Value 0
 
 ref; // ME_5092A3990310 Color
 
@@ -2650,6 +2881,7 @@ ref; // ME_5092A3990310 Color
  CONST Value 1
  : ValueType ME_50939D3403CE // TvgColorRecStructW
  ;
+ CONST extprop:pas:Value 1
 
 ref; // ME_5092A3F0021A voidStructW
 
@@ -2667,6 +2899,7 @@ ref; // ME_5092A3F0021A voidStructW
  CONST Value 2
  : ValueType ME_50939DB70371 // TvgColorRecStructB
  ;
+ CONST extprop:pas:Value 2
 
 ref; // ME_5092A41201ED voidStructB
 
@@ -2681,14 +2914,19 @@ ref; // ME_5092A41201ED voidStructB
  : Parent ME_4D5420EC039D // vgTypes
  ;
  : Attributes
-   @ ( ME_5092A3990310 // Color
+   Seq: ( ME_5092A35C01FB // void
+ ME_5092A3990310 // Color
  ME_5092A3F0021A // voidStructW
  ME_5092A41201ED // voidStructB
- ) .SequenceCode.It
+ )
  ; // Attributes
  CONST "Need less" false
  CONST "ifdef" 'FPC_BIG_ENDIAN'
  CONST "packed" true
+ CONST dfm:PathOnly '\common\components\rtl\external\VGScene'
+ CONST intf.pas:PathOnly '\common\components\rtl\external\VGScene'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_5092A34C02A7 TvgColorRec
 
@@ -2741,11 +2979,16 @@ ref; // ME_5092ABBA01EF vgWrapTileStretch
  : Parent ME_4D5420EC039D // vgTypes
  ;
  : Attributes
-   @ ( ME_5092ABA903A0 // vgWrapTile
+   Seq: ( ME_5092ABA903A0 // vgWrapTile
  ME_5092ABB003BA // vgWrapTileOriginal
  ME_5092ABBA01EF // vgWrapTileStretch
- ) .SequenceCode.It
+ )
  ; // Attributes
+ CONST dfm:PathOnly '\common\components\rtl\external\VGScene'
+ CONST intf.pas:PathOnly '\common\components\rtl\external\VGScene'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_5092AB9D0100 TvgWrapMode
 
@@ -2775,18 +3018,37 @@ ref; // ME_5092A15F0038
  : Parent ME_4D5420EC039D // vgTypes
  ;
  : Inherits
-   @ ( ME_50929F6901F4 // TFromZeroToTwoRange
- ) .SequenceCode.It
+   Seq: ( ME_50929F6901F4 // TFromZeroToTwoRange
+ )
  ; // Inherits
  : Attributes
-   @ ( ME_5092A15F0038 // 
- ) .SequenceCode.It
+   Seq: ( ME_5092A15F0038 // 
+ )
  ; // Attributes
  CONST "array type" 'dynamic'
+ CONST dfm:PathOnly '\common\components\rtl\external\VGScene'
+ CONST intf.pas:PathOnly '\common\components\rtl\external\VGScene'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_5092A1530389 TvgMatrixArray
 
 FORWARD ME_5092A1C10094
+
+: ME_5092A1D803A2
+ CONST UID '5092A1D803A2'
+ CONST Name 'void'
+ CONST Class class_Attribute
+ : Stereotype st_switch::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_ref
+ : Parent ME_5092A1C10094 // TvgMatrix
+ ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+
+ref; // ME_5092A1D803A2 void
 
 : ME_5092A1EA003D
  CONST UID '5092A1EA003D'
@@ -2802,6 +3064,7 @@ FORWARD ME_5092A1C10094
  CONST Value 0
  : ValueType ME_5092A1530389 // TvgMatrixArray
  ;
+ CONST extprop:pas:Value 0
 
 ref; // ME_5092A1EA003D M
 
@@ -2819,6 +3082,7 @@ ref; // ME_5092A1EA003D M
  CONST Value 1
  : ValueType ME_50939B820319 // TvgMatrixStruct
  ;
+ CONST extprop:pas:Value 1
 
 ref; // ME_5092A2000325 voidStruct
 
@@ -2833,12 +3097,17 @@ ref; // ME_5092A2000325 voidStruct
  : Parent ME_4D5420EC039D // vgTypes
  ;
  : Attributes
-   @ ( ME_5092A1EA003D // M
+   Seq: ( ME_5092A1D803A2 // void
+ ME_5092A1EA003D // M
  ME_5092A2000325 // voidStruct
- ) .SequenceCode.It
+ )
  ; // Attributes
  CONST "Need less" false
  CONST "packed" true
+ CONST dfm:PathOnly '\common\components\rtl\external\VGScene'
+ CONST intf.pas:PathOnly '\common\components\rtl\external\VGScene'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_5092A1C10094 TvgMatrix
 
@@ -2853,10 +3122,14 @@ ref; // ME_5092A1C10094 TvgMatrix
  : Parent ME_4D5420EC039D // vgTypes
  ;
  : Inherits
-   @ ( ME_5092A34C02A7 // TvgColorRec
- ) .SequenceCode.It
+   Seq: ( ME_5092A34C02A7 // TvgColorRec
+ )
  ; // Inherits
  CONST "isPointer" true
+ CONST dfm:PathOnly '\common\components\rtl\external\VGScene'
+ CONST intf.pas:PathOnly '\common\components\rtl\external\VGScene'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_5092A6DD01D1 PvgColorRec
 
@@ -2886,14 +3159,18 @@ ref; // ME_5092A6250125
  : Parent ME_4D5420EC039D // vgTypes
  ;
  : Inherits
-   @ ( ME_5092A54C00FA // TFromZeroToZeroRange
- ) .SequenceCode.It
+   Seq: ( ME_5092A54C00FA // TFromZeroToZeroRange
+ )
  ; // Inherits
  : Attributes
-   @ ( ME_5092A6250125 // 
- ) .SequenceCode.It
+   Seq: ( ME_5092A6250125 // 
+ )
  ; // Attributes
  CONST "array type" 'dynamic'
+ CONST dfm:PathOnly '\common\components\rtl\external\VGScene'
+ CONST intf.pas:PathOnly '\common\components\rtl\external\VGScene'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_5092A5CD00B7 TvgColorRecArray
 
@@ -2908,10 +3185,14 @@ ref; // ME_5092A5CD00B7 TvgColorRecArray
  : Parent ME_4D5420EC039D // vgTypes
  ;
  : Inherits
-   @ ( ME_5092A5CD00B7 // TvgColorRecArray
- ) .SequenceCode.It
+   Seq: ( ME_5092A5CD00B7 // TvgColorRecArray
+ )
  ; // Inherits
  CONST "isPointer" true
+ CONST dfm:PathOnly '\common\components\rtl\external\VGScene'
+ CONST intf.pas:PathOnly '\common\components\rtl\external\VGScene'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_5093B0E503D3 PvgColorRecArray
 
@@ -2934,6 +3215,7 @@ FORWARD ME_5092A75A0387
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value '3.141592654'
 
 ref; // ME_5092A77A02AA cPI
 
@@ -2954,6 +3236,7 @@ ref; // ME_5092A77A02AA cPI
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value '0.017453292'
 
 ref; // ME_5092A7850306 cPIdiv180
 
@@ -2974,6 +3257,7 @@ ref; // ME_5092A7850306 cPIdiv180
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value '57.29577951'
 
 ref; // ME_5092A79201BB c180divPI
 
@@ -2994,6 +3278,7 @@ ref; // ME_5092A79201BB c180divPI
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value '6.283185307'
 
 ref; // ME_5092A79C0034 c2PI
 
@@ -3014,6 +3299,7 @@ ref; // ME_5092A79C0034 c2PI
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value '1.570796326'
 
 ref; // ME_5092A7A30285 cPIdiv2
 
@@ -3034,6 +3320,7 @@ ref; // ME_5092A7A30285 cPIdiv2
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value '0.785398163'
 
 ref; // ME_5092A7AB010E cPIdiv4
 
@@ -3054,6 +3341,7 @@ ref; // ME_5092A7AB010E cPIdiv4
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value '2.35619449'
 
 ref; // ME_5092A7B20285 c3PIdiv4
 
@@ -3074,6 +3362,7 @@ ref; // ME_5092A7B20285 c3PIdiv4
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value '1/6.283185307'
 
 ref; // ME_5092A7BB00FC cInv2PI
 
@@ -3094,6 +3383,7 @@ ref; // ME_5092A7BB00FC cInv2PI
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value '1/360'
 
 ref; // ME_5092A7C30226 cInv360
 
@@ -3114,6 +3404,7 @@ ref; // ME_5092A7C30226 cInv360
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value 180
 
 ref; // ME_5092A7CB0362 c180
 
@@ -3134,6 +3425,7 @@ ref; // ME_5092A7CB0362 c180
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value 360
 
 ref; // ME_5092A7D403A9 c360
 
@@ -3154,6 +3446,7 @@ ref; // ME_5092A7D403A9 c360
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value '0.5'
 
 ref; // ME_5092A7DD0318 cOneHalf
 
@@ -3174,6 +3467,7 @@ ref; // ME_5092A7DD0318 cOneHalf
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value '1e-40'
 
 ref; // ME_5092A7E50328 Epsilon
 
@@ -3194,6 +3488,7 @@ ref; // ME_5092A7E50328 Epsilon
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value '[vgCornerTopLeft, vgCornerTopRight, vgCornerBottomLeft, vgCornerBottomRight]'
 
 ref; // ME_5092AB0B0224 AllCorners
 
@@ -3214,6 +3509,7 @@ ref; // ME_5092AB0B0224 AllCorners
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value '[vgSideTop,vgSideLeft,vgSideBottom,vgSideRight]'
 
 ref; // ME_5092AB1D018B AllSides
 
@@ -3234,6 +3530,7 @@ ref; // ME_5092AB1D018B AllSides
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value '(X: $FFFF; Y: $FFFF)'
 
 ref; // ME_5092AB250282 ClosePolygon
 
@@ -3250,6 +3547,7 @@ ref; // ME_5092AB250282 ClosePolygon
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value '0.5522847498'
 
 ref; // ME_5092AB2E0097 CurveKappa
 
@@ -3266,6 +3564,7 @@ ref; // ME_5092AB2E0097 CurveKappa
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value '1 - CurveKappa'
 
 ref; // ME_5092AB3700CD CurveKappaInv
 
@@ -3282,6 +3581,7 @@ ref; // ME_5092AB3700CD CurveKappaInv
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value 'System.WideChar(#0)'
 
 ref; // ME_5092AB3F017A vgWideNull
 
@@ -3298,6 +3598,7 @@ ref; // ME_5092AB3F017A vgWideNull
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value 'System.WideChar(#9)'
 
 ref; // ME_5092AB460375 vgWideTabulator
 
@@ -3314,6 +3615,7 @@ ref; // ME_5092AB460375 vgWideTabulator
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value 'System.WideChar(#32)'
 
 ref; // ME_5092AB4F0164 vgWideSpace
 
@@ -3330,6 +3632,7 @@ ref; // ME_5092AB4F0164 vgWideSpace
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value 'System.WideChar($D)'
 
 ref; // ME_5092AB580290 vgWideCarriageReturn
 
@@ -3346,6 +3649,7 @@ ref; // ME_5092AB580290 vgWideCarriageReturn
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value 'System.WideChar($A)'
 
 ref; // ME_5092AB60007A vgWideLineFeed
 
@@ -3362,6 +3666,7 @@ ref; // ME_5092AB60007A vgWideLineFeed
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value 'System.WideChar($B)'
 
 ref; // ME_5092AB6703A5 vgWideVerticalTab
 
@@ -3378,6 +3683,7 @@ ref; // ME_5092AB6703A5 vgWideVerticalTab
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value 'System.WideChar($C)'
 
 ref; // ME_5092AB6F0374 vgWideFormFeed
 
@@ -3394,6 +3700,7 @@ ref; // ME_5092AB6F0374 vgWideFormFeed
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value 'System.WideChar($2028)'
 
 ref; // ME_5092AB7702A5 vgWideLineSeparator
 
@@ -3410,6 +3717,7 @@ ref; // ME_5092AB7702A5 vgWideLineSeparator
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value 'System.WideChar($2029)'
 
 ref; // ME_5092AB7F010A vgWideParagraphSeparator
 
@@ -3426,6 +3734,7 @@ ref; // ME_5092AB7F010A vgWideParagraphSeparator
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value 'System.WideChar($FEFF)'
 
 ref; // ME_5092AB8801A1 BOM_LSB_FIRST
 
@@ -3442,6 +3751,7 @@ ref; // ME_5092AB8801A1 BOM_LSB_FIRST
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value 'System.WideChar($FFFE)'
 
 ref; // ME_5092AB8F02A4 BOM_MSB_FIRST
 
@@ -3456,7 +3766,7 @@ ref; // ME_5092AB8F02A4 BOM_MSB_FIRST
  : Parent ME_4D5420EC039D // vgTypes
  ;
  : Attributes
-   @ ( ME_5092A77A02AA // cPI
+   Seq: ( ME_5092A77A02AA // cPI
  ME_5092A7850306 // cPIdiv180
  ME_5092A79201BB // c180divPI
  ME_5092A79C0034 // c2PI
@@ -3485,9 +3795,14 @@ ref; // ME_5092AB8F02A4 BOM_MSB_FIRST
  ME_5092AB7F010A // vgWideParagraphSeparator
  ME_5092AB8801A1 // BOM_LSB_FIRST
  ME_5092AB8F02A4 // BOM_MSB_FIRST
- ) .SequenceCode.It
+ )
  ; // Attributes
  CONST "spell names" false
+ CONST dfm:PathOnly '\common\components\rtl\external\VGScene'
+ CONST intf.pas:PathOnly '\common\components\rtl\external\VGScene'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'TypesConstants'
 
 ref; // ME_5092A75A0387 vgTypesConstants
 
@@ -3510,6 +3825,7 @@ FORWARD ME_5093C4A702DA
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value '(m11:1.0;m12:0.0;m13:0.0;m21:0.0;m22:1.0;m23:0.0; m31:0.0;m32:0.0;m33:1.0)'
 
 ref; // ME_5093C4CD0191 IdentityMatrix
 
@@ -3530,6 +3846,7 @@ ref; // ME_5093C4CD0191 IdentityMatrix
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value '(m11:0.0;m12:0.0;m13:0.0;m21:0.0;m22:0.0;m23:0.0;m31:0.0;m32:0.0;m33:0.0)'
 
 ref; // ME_5093C4E3007E ZeroMatrix
 
@@ -3550,6 +3867,7 @@ ref; // ME_5093C4E3007E ZeroMatrix
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value '(Left: 0; Top: 0; Right: 0; Bottom: 0)'
 
 ref; // ME_5093C4F003E6 NullRect
 
@@ -3564,12 +3882,17 @@ ref; // ME_5093C4F003E6 NullRect
  : Parent ME_4D5420EC039D // vgTypes
  ;
  : Attributes
-   @ ( ME_5093C4CD0191 // IdentityMatrix
+   Seq: ( ME_5093C4CD0191 // IdentityMatrix
  ME_5093C4E3007E // ZeroMatrix
  ME_5093C4F003E6 // NullRect
- ) .SequenceCode.It
+ )
  ; // Attributes
  CONST "spell names" false
+ CONST dfm:PathOnly '\common\components\rtl\external\VGScene'
+ CONST intf.pas:PathOnly '\common\components\rtl\external\VGScene'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'TypesConstants2'
 
 ref; // ME_5093C4A702DA vgTypesConstants2
 
@@ -3584,10 +3907,14 @@ ref; // ME_5093C4A702DA vgTypesConstants2
  : Parent ME_4D5420EC039D // vgTypes
  ;
  : Inherits
-   @ ( ME_4D5421A80032 // TvgRect
- ) .SequenceCode.It
+   Seq: ( ME_4D5421A80032 // TvgRect
+ )
  ; // Inherits
  CONST "isPointer" true
+ CONST dfm:PathOnly '\common\components\rtl\external\VGScene'
+ CONST intf.pas:PathOnly '\common\components\rtl\external\VGScene'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_533E745701FF PvgRect
 
@@ -3601,7 +3928,7 @@ ref; // ME_533E745701FF PvgRect
  : Parent WL 'ME_4CFCE4F203CE' '4CFCE4F203CE.pas.ms.script' // VGScene
  ;
  : Children
-   @ ( ME_4D5422330322 // TvgPoint
+   Seq: ( ME_4D5422330322 // TvgPoint
  ME_4D5422A300EF // TvgRectLTRB
  ME_4D5423250187 // TvgRectPoints
  ME_4D5421A80032 // TvgRect
@@ -3650,32 +3977,29 @@ ref; // ME_533E745701FF PvgRect
  ME_5092A5CD00B7 // TvgColorRecArray
  ME_5093B0E503D3 // PvgColorRecArray
  ME_533E745701FF // PvgRect
- ) .SequenceCode.It
+ )
  ; // Children
  : Constants
-   @ ( ME_5092A75A0387 // vgTypesConstants
+   Seq: ( ME_5092A75A0387 // vgTypesConstants
  ME_5093C4A702DA // vgTypesConstants2
- ) .SequenceCode.It
+ )
  ; // Constants
  : Depends
-   @ ( WL 'ME_4799D29F033F' '4799D29F033F.pas.ms.script' // Implementation
+   Seq: ( WL 'ME_4799D29F033F' '4799D29F033F.pas.ms.script' // Implementation
  WL 'ME_4AB0997B00A2' '4AB0997B00A2.pas.ms.script' // Common
  WL 'ME_4AB0C3C60310' '4AB0C3C60310.pas.ms.script' // Sys
- ) .SequenceCode.It
+ )
  ; // Depends
  CONST "author" 'Ëþëèí À.Â.'
  CONST "is namespace" true
  CONST "no hands" false
  CONST "started" '10.02.2011 20:32'
- : Generators
- @ (
- gen_intf.pas
- gen_pas.script
- gen_pas.script.runner
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\external\VGScene'
  CONST intf.pas:Path 'common\components\rtl\external\VGScene\vgTypes.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\external\VGScene'
  CONST pas.script:Path 'shared\models\NewSchool\Scripts\4D5420EC039D.pas.ms.script'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
  CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\4D5420EC039D.pas.ms.script.runner'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_4D5420EC039D vgTypes

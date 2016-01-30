@@ -27,8 +27,8 @@ ref; // ME_4DA83600037F aControl
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
  : Parameters
-   @ ( ME_4DA83600037F // aControl
- ) .SequenceCode.It
+   Seq: ( ME_4DA83600037F // aControl
+ )
  ; // Parameters
 
 ref; // ME_4DA835E501AA CanBeDockedInto
@@ -45,9 +45,15 @@ ref; // ME_4DA835E501AA CanBeDockedInto
  : Parent ME_4DA835360142 // afwDockingInterfaces
  ;
  : Operations
-   @ ( ME_4DA835E501AA // CanBeDockedInto
- ) .SequenceCode.It
+   Seq: ( ME_4DA835E501AA // CanBeDockedInto
+ )
  ; // Operations
+ CONST dfm:PathOnly '\common\components\gui\Garant\AFW'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\AFW'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'afwDockableControl'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_4DA835920377 IafwDockableControl
 
@@ -74,8 +80,8 @@ ref; // ME_4DA835DC0394 aDockable
  : Target WL 'ME_47E124E90272' '4799D29F033F.pas.ms.script' // TWinControl
  ;
  : Parameters
-   @ ( ME_4DA835DC0394 // aDockable
- ) .SequenceCode.It
+   Seq: ( ME_4DA835DC0394 // aDockable
+ )
  ; // Parameters
 
 ref; // ME_4DA835AB02CC GetDockControl
@@ -92,9 +98,15 @@ ref; // ME_4DA835AB02CC GetDockControl
  : Parent ME_4DA835360142 // afwDockingInterfaces
  ;
  : Operations
-   @ ( ME_4DA835AB02CC // GetDockControl
- ) .SequenceCode.It
+   Seq: ( ME_4DA835AB02CC // GetDockControl
+ )
  ; // Operations
+ CONST dfm:PathOnly '\common\components\gui\Garant\AFW'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\AFW'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'afwControlDock'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_4DA834C4007C IafwControlDock
 
@@ -108,28 +120,25 @@ ref; // ME_4DA834C4007C IafwControlDock
  : Parent WL 'ME_4790B4F00236' '4790B4F00236.pas.ms.script' // AFW
  ;
  : Children
-   @ ( ME_4DA835920377 // IafwDockableControl
+   Seq: ( ME_4DA835920377 // IafwDockableControl
  ME_4DA834C4007C // IafwControlDock
- ) .SequenceCode.It
+ )
  ; // Children
  : Depends
-   @ ( WL 'ME_4799D29F033F' '4799D29F033F.pas.ms.script' // Implementation
+   Seq: ( WL 'ME_4799D29F033F' '4799D29F033F.pas.ms.script' // Implementation
  WL 'ME_4AB0C3C60310' '4AB0C3C60310.pas.ms.script' // Sys
- ) .SequenceCode.It
+ )
  ; // Depends
  CONST "author" 'Ëþëèí À.Â.'
  CONST "is namespace" true
  CONST "no hands" true
  CONST "started" '15.04.2011 16:08'
- : Generators
- @ (
- gen_intf.pas
- gen_pas.script
- gen_pas.script.runner
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\AFW'
  CONST intf.pas:Path 'common\components\gui\Garant\AFW\afwDockingInterfaces.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\AFW'
  CONST pas.script:Path 'shared\models\NewSchool\Scripts\4DA835360142.pas.ms.script'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
  CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\4DA835360142.pas.ms.script.runner'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_4DA835360142 afwDockingInterfaces

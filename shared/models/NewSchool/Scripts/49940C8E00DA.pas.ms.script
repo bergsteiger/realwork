@@ -15,10 +15,15 @@ FORWARD ME_49940C8E00DA
  : Parent ME_49940C8E00DA // vcmTaskPanelInterfaces
  ;
  : Inherits
-   @ ( WL 'ME_4992FC0C02CA' '4683F37902CF.pas.ms.script' // IvcmBase
- ) .SequenceCode.It
+   Seq: ( WL 'ME_4992FC0C02CA' '4683F37902CF.pas.ms.script' // IvcmBase
+ )
  ; // Inherits
  CONST "is default ancestor" true
+ CONST dfm:PathOnly '\common\components\gui\Garant\VCM'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\VCM'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_49940DAA0114 IvcmBase
 
@@ -54,9 +59,15 @@ ref; // ME_4992FD01012E Position
  : Parent ME_49940C8E00DA // vcmTaskPanelInterfaces
  ;
  : Attributes
-   @ ( ME_4992FD01012E // Position
- ) .SequenceCode.It
+   Seq: ( ME_4992FD01012E // Position
+ )
  ; // Attributes
+ CONST dfm:PathOnly '\common\components\gui\Garant\VCM'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\VCM'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'CustOpsItem'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_4992FCF401BC IvcmCustOpsItem
 
@@ -91,9 +102,15 @@ ref; // ME_4992FAFE027C Action
  : Parent ME_49940C8E00DA // vcmTaskPanelInterfaces
  ;
  : Attributes
-   @ ( ME_4992FAFE027C // Action
- ) .SequenceCode.It
+   Seq: ( ME_4992FAFE027C // Action
+ )
  ; // Attributes
+ CONST dfm:PathOnly '\common\components\gui\Garant\VCM'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\VCM'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'CustOpsOperation'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_4992FA6A03C1 IvcmCustOpsOperation
 
@@ -140,6 +157,7 @@ ref; // ME_4992FF4F02E2 Caption
  ;
  : Implementor ME_4992FD760178 // IvcmCustOpsRepGroup
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_46A44F6B035E_ME_4992FD760178 Subscribe
 
 : ME_46A44FFE0143_ME_4992FD760178
@@ -149,6 +167,7 @@ ref; // ME_46A44F6B035E_ME_4992FD760178 Subscribe
  ;
  : Implementor ME_4992FD760178 // IvcmCustOpsRepGroup
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_46A44FFE0143_ME_4992FD760178 Unsubscribe
 
 : ME_4992FD760178
@@ -163,19 +182,25 @@ ref; // ME_46A44FFE0143_ME_4992FD760178 Unsubscribe
  : Parent ME_49940C8E00DA // vcmTaskPanelInterfaces
  ;
  : Implements
-   @ ( WL 'ME_46782E7F0307' '4677FBA70343.pas.ms.script' // Il3ChangeNotifier
- ) .SequenceCode.It
+   Seq: ( WL 'ME_46782E7F0307' '4677FBA70343.pas.ms.script' // Il3ChangeNotifier
+ )
  ; // Implements
  : Attributes
-   @ ( ME_4992FF64034E // Id
+   Seq: ( ME_4992FF64034E // Id
  ME_4992FF4F02E2 // Caption
- ) .SequenceCode.It
+ )
  ; // Attributes
  : Implemented
-   @ ( ME_46A44F6B035E_ME_4992FD760178 // Subscribe
+   Seq: ( ME_46A44F6B035E_ME_4992FD760178 // Subscribe
  ME_46A44FFE0143_ME_4992FD760178 // Unsubscribe
- ) .SequenceCode.It
+ )
  ; // Implemented
+ CONST dfm:PathOnly '\common\components\gui\Garant\VCM'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\VCM'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'CustOpsRepGroup'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_4992FD760178 IvcmCustOpsRepGroup
 
@@ -241,6 +266,7 @@ ref; // ME_4992FB9502EA UserCaption
  ;
  : Implementor ME_4992FB1F0246 // IvcmCustOpsRepOperation
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_46A44F6B035E_ME_4992FB1F0246 Subscribe
 
 : ME_46A44FFE0143_ME_4992FB1F0246
@@ -250,6 +276,7 @@ ref; // ME_46A44F6B035E_ME_4992FB1F0246 Subscribe
  ;
  : Implementor ME_4992FB1F0246 // IvcmCustOpsRepOperation
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_46A44FFE0143_ME_4992FB1F0246 Unsubscribe
 
 : ME_4992FAFE027C_ME_4992FB1F0246
@@ -259,6 +286,7 @@ ref; // ME_46A44FFE0143_ME_4992FB1F0246 Unsubscribe
  ;
  : Implementor ME_4992FB1F0246 // IvcmCustOpsRepOperation
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" true
 ref; // ME_4992FAFE027C_ME_4992FB1F0246 Action
 
@@ -275,29 +303,35 @@ ref; // ME_4992FAFE027C_ME_4992FB1F0246 Action
  : Parent ME_49940C8E00DA // vcmTaskPanelInterfaces
  ;
  : Inherits
-   @ ( ME_4992FA6A03C1 // IvcmCustOpsOperation
- ) .SequenceCode.It
+   Seq: ( ME_4992FA6A03C1 // IvcmCustOpsOperation
+ )
  ; // Inherits
  : Implements
-   @ ( WL 'ME_46782E7F0307' '4677FBA70343.pas.ms.script' // Il3ChangeNotifier
- ) .SequenceCode.It
+   Seq: ( WL 'ME_46782E7F0307' '4677FBA70343.pas.ms.script' // Il3ChangeNotifier
+ )
  ; // Implements
  : Attributes
-   @ ( ME_4992FB5B038D // Group
+   Seq: ( ME_4992FB5B038D // Group
  ME_4992FB8001C7 // Caption
  ME_4992FB9502EA // UserCaption
- ) .SequenceCode.It
+ )
  ; // Attributes
  : Implemented
-   @ ( ME_46A44F6B035E_ME_4992FB1F0246 // Subscribe
+   Seq: ( ME_46A44F6B035E_ME_4992FB1F0246 // Subscribe
  ME_46A44FFE0143_ME_4992FB1F0246 // Unsubscribe
  ME_4992FAFE027C_ME_4992FB1F0246 // Action
- ) .SequenceCode.It
+ )
  ; // Implemented
  : Forwarded
-   @ ( ME_4992FB48004C // IvcmCustOpsRepGroupOperations
- ) .SequenceCode.It
+   Seq: ( ME_4992FB48004C // IvcmCustOpsRepGroupOperations
+ )
  ; // Forwarded
+ CONST dfm:PathOnly '\common\components\gui\Garant\VCM'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\VCM'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'CustOpsRepOperation'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_4992FB1F0246 IvcmCustOpsRepOperation
 
@@ -348,14 +382,20 @@ ref; // ME_4992FEFB00E2 Caption
  : Parent ME_49940C8E00DA // vcmTaskPanelInterfaces
  ;
  : Attributes
-   @ ( ME_4992FEDB0052 // Operations
+   Seq: ( ME_4992FEDB0052 // Operations
  ME_4992FEFB00E2 // Caption
- ) .SequenceCode.It
+ )
  ; // Attributes
  : Forwarded
-   @ ( ME_4992FEA1018B // IvcmCustOpsRepOperationsIterator
- ) .SequenceCode.It
+   Seq: ( ME_4992FEA1018B // IvcmCustOpsRepOperationsIterator
+ )
  ; // Forwarded
+ CONST dfm:PathOnly '\common\components\gui\Garant\VCM'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\VCM'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'CustOpsRepGroupOperations'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_4992FB48004C IvcmCustOpsRepGroupOperations
 
@@ -384,9 +424,15 @@ ref; // ME_4992FEAC01DC Next
  : Parent ME_49940C8E00DA // vcmTaskPanelInterfaces
  ;
  : Operations
-   @ ( ME_4992FEAC01DC // Next
- ) .SequenceCode.It
+   Seq: ( ME_4992FEAC01DC // Next
+ )
  ; // Operations
+ CONST dfm:PathOnly '\common\components\gui\Garant\VCM'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\VCM'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'CustOpsRepOperationsIterator'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_4992FEA1018B IvcmCustOpsRepOperationsIterator
 
@@ -419,13 +465,19 @@ ref; // ME_4992FCE3035B Next
  : Parent ME_49940C8E00DA // vcmTaskPanelInterfaces
  ;
  : Operations
-   @ ( ME_4992FCE3035B // Next
- ) .SequenceCode.It
+   Seq: ( ME_4992FCE3035B // Next
+ )
  ; // Operations
  : Forwarded
-   @ ( ME_4992FDB10225 // IvcmCustOpsGroupOperation
- ) .SequenceCode.It
+   Seq: ( ME_4992FDB10225 // IvcmCustOpsGroupOperation
+ )
  ; // Forwarded
+ CONST dfm:PathOnly '\common\components\gui\Garant\VCM'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\VCM'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'CustOpsGroupOperationsIterator'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_4992FCD700DB IvcmCustOpsGroupOperationsIterator
 
@@ -548,11 +600,11 @@ ref; // ME_4992FD4A008F aCaption
  : Target ME_4992FDB10225 // IvcmCustOpsGroupOperation
  ;
  : Parameters
-   @ ( ME_4992FD4903DA // aRepOp
+   Seq: ( ME_4992FD4903DA // aRepOp
  ME_4992FD4A0025 // aForAllUseCases
  ME_4992FD4A0057 // aPosition
  ME_4992FD4A008F // aCaption
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_4992FD32031B AddOperation
@@ -564,6 +616,7 @@ ref; // ME_4992FD32031B AddOperation
  ;
  : Implementor ME_4992FD1902A5 // IvcmCustOpsGroup
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_46A44F6B035E_ME_4992FD1902A5 Subscribe
 
 : ME_46A44FFE0143_ME_4992FD1902A5
@@ -573,6 +626,7 @@ ref; // ME_46A44F6B035E_ME_4992FD1902A5 Subscribe
  ;
  : Implementor ME_4992FD1902A5 // IvcmCustOpsGroup
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_46A44FFE0143_ME_4992FD1902A5 Unsubscribe
 
 : ME_4992FD01012E_ME_4992FD1902A5
@@ -582,6 +636,7 @@ ref; // ME_46A44FFE0143_ME_4992FD1902A5 Unsubscribe
  ;
  : Implementor ME_4992FD1902A5 // IvcmCustOpsGroup
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" true
 ref; // ME_4992FD01012E_ME_4992FD1902A5 Position
 
@@ -598,30 +653,36 @@ ref; // ME_4992FD01012E_ME_4992FD1902A5 Position
  : Parent ME_49940C8E00DA // vcmTaskPanelInterfaces
  ;
  : Inherits
-   @ ( ME_4992FCF401BC // IvcmCustOpsItem
- ) .SequenceCode.It
+   Seq: ( ME_4992FCF401BC // IvcmCustOpsItem
+ )
  ; // Inherits
  : Implements
-   @ ( WL 'ME_46782E7F0307' '4677FBA70343.pas.ms.script' // Il3ChangeNotifier
- ) .SequenceCode.It
+   Seq: ( WL 'ME_46782E7F0307' '4677FBA70343.pas.ms.script' // Il3ChangeNotifier
+ )
  ; // Implements
  : Attributes
-   @ ( ME_4992FD530270 // Operations
+   Seq: ( ME_4992FD530270 // Operations
  ME_4992FD8302D9 // RepGroup
  ME_4D346D3403BD // IsLinkToExistingControl
  ME_4D346D830170 // Control
- ) .SequenceCode.It
+ )
  ; // Attributes
  : Operations
-   @ ( ME_4992FD32031B // AddOperation
- ) .SequenceCode.It
+   Seq: ( ME_4992FD32031B // AddOperation
+ )
  ; // Operations
  : Implemented
-   @ ( ME_46A44F6B035E_ME_4992FD1902A5 // Subscribe
+   Seq: ( ME_46A44F6B035E_ME_4992FD1902A5 // Subscribe
  ME_46A44FFE0143_ME_4992FD1902A5 // Unsubscribe
  ME_4992FD01012E_ME_4992FD1902A5 // Position
- ) .SequenceCode.It
+ )
  ; // Implemented
+ CONST dfm:PathOnly '\common\components\gui\Garant\VCM'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\VCM'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'CustOpsGroup'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_4992FD1902A5 IvcmCustOpsGroup
 
@@ -653,9 +714,15 @@ ref; // ME_4992FF88003B Next
  : Parent ME_49940C8E00DA // vcmTaskPanelInterfaces
  ;
  : Operations
-   @ ( ME_4992FF88003B // Next
- ) .SequenceCode.It
+   Seq: ( ME_4992FF88003B // Next
+ )
  ; // Operations
+ CONST dfm:PathOnly '\common\components\gui\Garant\VCM'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\VCM'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'CustOpsRepGroupsIterator'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_4992FF770054 IvcmCustOpsRepGroupsIterator
 
@@ -776,6 +843,7 @@ ref; // ME_4992FDE1028F Delete
  ;
  : Implementor ME_4992FDB10225 // IvcmCustOpsGroupOperation
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_46A44F6B035E_ME_4992FDB10225 Subscribe
 
 : ME_46A44FFE0143_ME_4992FDB10225
@@ -785,6 +853,7 @@ ref; // ME_46A44F6B035E_ME_4992FDB10225 Subscribe
  ;
  : Implementor ME_4992FDB10225 // IvcmCustOpsGroupOperation
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_46A44FFE0143_ME_4992FDB10225 Unsubscribe
 
 : ME_4992FD01012E_ME_4992FDB10225
@@ -794,6 +863,7 @@ ref; // ME_46A44FFE0143_ME_4992FDB10225 Unsubscribe
  ;
  : Implementor ME_4992FDB10225 // IvcmCustOpsGroupOperation
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" true
 ref; // ME_4992FD01012E_ME_4992FDB10225 Position
 
@@ -810,32 +880,38 @@ ref; // ME_4992FD01012E_ME_4992FDB10225 Position
  : Parent ME_49940C8E00DA // vcmTaskPanelInterfaces
  ;
  : Inherits
-   @ ( ME_4992FCF401BC // IvcmCustOpsItem
- ) .SequenceCode.It
+   Seq: ( ME_4992FCF401BC // IvcmCustOpsItem
+ )
  ; // Inherits
  : Implements
-   @ ( WL 'ME_46782E7F0307' '4677FBA70343.pas.ms.script' // Il3ChangeNotifier
- ) .SequenceCode.It
+   Seq: ( WL 'ME_46782E7F0307' '4677FBA70343.pas.ms.script' // Il3ChangeNotifier
+ )
  ; // Implements
  : Attributes
-   @ ( ME_4992FE050327 // ForAllUseCases
+   Seq: ( ME_4992FE050327 // ForAllUseCases
  ME_4992FE5E0203 // GroupId
  ME_4992FE700358 // IsDefaultCaption
  ME_4992FE1500E3 // Caption
  ME_4992FDF00191 // RepOp
  ME_4992FE4F0173 // Group
- ) .SequenceCode.It
+ )
  ; // Attributes
  : Operations
-   @ ( ME_4992FDE1028F // Delete
- ) .SequenceCode.It
+   Seq: ( ME_4992FDE1028F // Delete
+ )
  ; // Operations
  : Implemented
-   @ ( ME_46A44F6B035E_ME_4992FDB10225 // Subscribe
+   Seq: ( ME_46A44F6B035E_ME_4992FDB10225 // Subscribe
  ME_46A44FFE0143_ME_4992FDB10225 // Unsubscribe
  ME_4992FD01012E_ME_4992FDB10225 // Position
- ) .SequenceCode.It
+ )
  ; // Implemented
+ CONST dfm:PathOnly '\common\components\gui\Garant\VCM'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\VCM'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'CustOpsGroupOperation'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_4992FDB10225 IvcmCustOpsGroupOperation
 
@@ -866,9 +942,15 @@ ref; // ME_4992FE89024F Next
  : Parent ME_49940C8E00DA // vcmTaskPanelInterfaces
  ;
  : Operations
-   @ ( ME_4992FE89024F // Next
- ) .SequenceCode.It
+   Seq: ( ME_4992FE89024F // Next
+ )
  ; // Operations
+ CONST dfm:PathOnly '\common\components\gui\Garant\VCM'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\VCM'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'CustOpsGroupsIterator'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_4992FE7D0230 IvcmCustOpsGroupsIterator
 
@@ -900,9 +982,15 @@ ref; // ME_4992FF1F02ED Next
  : Parent ME_49940C8E00DA // vcmTaskPanelInterfaces
  ;
  : Operations
-   @ ( ME_4992FF1F02ED // Next
- ) .SequenceCode.It
+   Seq: ( ME_4992FF1F02ED // Next
+ )
  ; // Operations
+ CONST dfm:PathOnly '\common\components\gui\Garant\VCM'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\VCM'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'CustOpsRepGroupsOperationsIterator'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_4992FF0B03D4 IvcmCustOpsRepGroupsOperationsIterator
 
@@ -1015,8 +1103,8 @@ ref; // ME_4992FFC001E0 aGroup
  : Target ME_4992FD760178 // IvcmCustOpsRepGroup
  ;
  : Parameters
-   @ ( ME_4992FFC001E0 // aGroup
- ) .SequenceCode.It
+   Seq: ( ME_4992FFC001E0 // aGroup
+ )
  ; // Parameters
 
 ref; // ME_4992FFB7015F AddRepGroup
@@ -1041,8 +1129,8 @@ ref; // ME_4992FFD002F7 aGroup
  : Parent ME_4992FF9A0273 // IvcmCustOps
  ;
  : Parameters
-   @ ( ME_4992FFD002F7 // aGroup
- ) .SequenceCode.It
+   Seq: ( ME_4992FFD002F7 // aGroup
+ )
  ; // Parameters
 
 ref; // ME_4992FFC802A3 DeleteRepGroup
@@ -1078,9 +1166,9 @@ ref; // ME_4992FFE3039F aPosition
  : Target ME_4992FD1902A5 // IvcmCustOpsGroup
  ;
  : Parameters
-   @ ( ME_4992FFE3035E // aRepGroup
+   Seq: ( ME_4992FFE3035E // aRepGroup
  ME_4992FFE3039F // aPosition
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_4992FFD700FC AddGroup
@@ -1104,6 +1192,7 @@ ref; // ME_4992FFEF01FB Refresh
  ;
  : Implementor ME_4992FF9A0273 // IvcmCustOps
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_46A44F6B035E_ME_4992FF9A0273 Subscribe
 
 : ME_46A44FFE0143_ME_4992FF9A0273
@@ -1113,6 +1202,7 @@ ref; // ME_46A44F6B035E_ME_4992FF9A0273 Subscribe
  ;
  : Implementor ME_4992FF9A0273 // IvcmCustOps
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_46A44FFE0143_ME_4992FF9A0273 Unsubscribe
 
 : ME_4992FF9A0273
@@ -1128,29 +1218,35 @@ ref; // ME_46A44FFE0143_ME_4992FF9A0273 Unsubscribe
  : Parent ME_49940C8E00DA // vcmTaskPanelInterfaces
  ;
  : Implements
-   @ ( WL 'ME_46782E7F0307' '4677FBA70343.pas.ms.script' // Il3ChangeNotifier
- ) .SequenceCode.It
+   Seq: ( WL 'ME_46782E7F0307' '4677FBA70343.pas.ms.script' // Il3ChangeNotifier
+ )
  ; // Implements
  : Attributes
-   @ ( ME_49930056007C // BaseSettingId
+   Seq: ( ME_49930056007C // BaseSettingId
  ME_4993000E000A // RepGroupsOperations
  ME_4993002B01F4 // RepGroups
  ME_4993004300B5 // Groups
  ME_4F619F340358 // EnableSaveToSettings
- ) .SequenceCode.It
+ )
  ; // Attributes
  : Operations
-   @ ( ME_4992FFB7015F // AddRepGroup
+   Seq: ( ME_4992FFB7015F // AddRepGroup
  ME_4992FFC802A3 // DeleteRepGroup
  ME_4992FFD700FC // AddGroup
  ME_4992FFEF01FB // Refresh
- ) .SequenceCode.It
+ )
  ; // Operations
  : Implemented
-   @ ( ME_46A44F6B035E_ME_4992FF9A0273 // Subscribe
+   Seq: ( ME_46A44F6B035E_ME_4992FF9A0273 // Subscribe
  ME_46A44FFE0143_ME_4992FF9A0273 // Unsubscribe
- ) .SequenceCode.It
+ )
  ; // Implemented
+ CONST dfm:PathOnly '\common\components\gui\Garant\VCM'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\VCM'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'CustOps'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_4992FF9A0273 IvcmCustOps
 
@@ -1180,6 +1276,7 @@ ref; // ME_499300AB0231 Form
  ;
  : Implementor ME_4993008E00DA // IvcmCustAvailableToolbarOps
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_46A44F6B035E_ME_4993008E00DA Subscribe
 
 : ME_46A44FFE0143_ME_4993008E00DA
@@ -1189,6 +1286,7 @@ ref; // ME_46A44F6B035E_ME_4993008E00DA Subscribe
  ;
  : Implementor ME_4993008E00DA // IvcmCustAvailableToolbarOps
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_46A44FFE0143_ME_4993008E00DA Unsubscribe
 
 : ME_4992FFB7015F_ME_4993008E00DA
@@ -1198,6 +1296,7 @@ ref; // ME_46A44FFE0143_ME_4993008E00DA Unsubscribe
  ;
  : Implementor ME_4993008E00DA // IvcmCustAvailableToolbarOps
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_4992FFB7015F_ME_4993008E00DA AddRepGroup
 
 : ME_4992FFC802A3_ME_4993008E00DA
@@ -1207,6 +1306,7 @@ ref; // ME_4992FFB7015F_ME_4993008E00DA AddRepGroup
  ;
  : Implementor ME_4993008E00DA // IvcmCustAvailableToolbarOps
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_4992FFC802A3_ME_4993008E00DA DeleteRepGroup
 
 : ME_4992FFD700FC_ME_4993008E00DA
@@ -1216,6 +1316,7 @@ ref; // ME_4992FFC802A3_ME_4993008E00DA DeleteRepGroup
  ;
  : Implementor ME_4993008E00DA // IvcmCustAvailableToolbarOps
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_4992FFD700FC_ME_4993008E00DA AddGroup
 
 : ME_4992FFEF01FB_ME_4993008E00DA
@@ -1225,6 +1326,7 @@ ref; // ME_4992FFD700FC_ME_4993008E00DA AddGroup
  ;
  : Implementor ME_4993008E00DA // IvcmCustAvailableToolbarOps
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_4992FFEF01FB_ME_4993008E00DA Refresh
 
 : ME_4993000E000A_ME_4993008E00DA
@@ -1234,6 +1336,7 @@ ref; // ME_4992FFEF01FB_ME_4993008E00DA Refresh
  ;
  : Implementor ME_4993008E00DA // IvcmCustAvailableToolbarOps
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" true
 ref; // ME_4993000E000A_ME_4993008E00DA RepGroupsOperations
 
@@ -1244,6 +1347,7 @@ ref; // ME_4993000E000A_ME_4993008E00DA RepGroupsOperations
  ;
  : Implementor ME_4993008E00DA // IvcmCustAvailableToolbarOps
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" true
 ref; // ME_4993002B01F4_ME_4993008E00DA RepGroups
 
@@ -1254,6 +1358,7 @@ ref; // ME_4993002B01F4_ME_4993008E00DA RepGroups
  ;
  : Implementor ME_4993008E00DA // IvcmCustAvailableToolbarOps
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" true
 ref; // ME_4993004300B5_ME_4993008E00DA Groups
 
@@ -1264,6 +1369,7 @@ ref; // ME_4993004300B5_ME_4993008E00DA Groups
  ;
  : Implementor ME_4993008E00DA // IvcmCustAvailableToolbarOps
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" true
 ref; // ME_49930056007C_ME_4993008E00DA BaseSettingId
 
@@ -1274,6 +1380,7 @@ ref; // ME_49930056007C_ME_4993008E00DA BaseSettingId
  ;
  : Implementor ME_4993008E00DA // IvcmCustAvailableToolbarOps
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" true
 ref; // ME_4F619F340358_ME_4993008E00DA EnableSaveToSettings
 
@@ -1290,15 +1397,15 @@ ref; // ME_4F619F340358_ME_4993008E00DA EnableSaveToSettings
  : Parent ME_49940C8E00DA // vcmTaskPanelInterfaces
  ;
  : Inherits
-   @ ( ME_4992FF9A0273 // IvcmCustOps
- ) .SequenceCode.It
+   Seq: ( ME_4992FF9A0273 // IvcmCustOps
+ )
  ; // Inherits
  : Attributes
-   @ ( ME_499300AB0231 // Form
- ) .SequenceCode.It
+   Seq: ( ME_499300AB0231 // Form
+ )
  ; // Attributes
  : Implemented
-   @ ( ME_46A44F6B035E_ME_4993008E00DA // Subscribe
+   Seq: ( ME_46A44F6B035E_ME_4993008E00DA // Subscribe
  ME_46A44FFE0143_ME_4993008E00DA // Unsubscribe
  ME_4992FFB7015F_ME_4993008E00DA // AddRepGroup
  ME_4992FFC802A3_ME_4993008E00DA // DeleteRepGroup
@@ -1309,8 +1416,14 @@ ref; // ME_4F619F340358_ME_4993008E00DA EnableSaveToSettings
  ME_4993004300B5_ME_4993008E00DA // Groups
  ME_49930056007C_ME_4993008E00DA // BaseSettingId
  ME_4F619F340358_ME_4993008E00DA // EnableSaveToSettings
- ) .SequenceCode.It
+ )
  ; // Implemented
+ CONST dfm:PathOnly '\common\components\gui\Garant\VCM'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\VCM'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'CustAvailableToolbarOps'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_4993008E00DA IvcmCustAvailableToolbarOps
 
@@ -1367,8 +1480,8 @@ ref; // ME_49940B6400D0 aEntityForm
  : Parent ME_49940B180124 // IvcmMainForm
  ;
  : Parameters
-   @ ( ME_49940B6400D0 // aEntityForm
- ) .SequenceCode.It
+   Seq: ( ME_49940B6400D0 // aEntityForm
+ )
  ; // Parameters
 
 ref; // ME_49940B5C0118 AddFormToTasksPanel
@@ -1392,8 +1505,8 @@ ref; // ME_49940B720221 aEntityForm
  : Parent ME_49940B180124 // IvcmMainForm
  ;
  : Parameters
-   @ ( ME_49940B720221 // aEntityForm
- ) .SequenceCode.It
+   Seq: ( ME_49940B720221 // aEntityForm
+ )
  ; // Parameters
 
 ref; // ME_49940B6C01A2 RemoveFormFromTasksPanel
@@ -1411,15 +1524,21 @@ ref; // ME_49940B6C01A2 RemoveFormFromTasksPanel
  : Parent ME_49940C8E00DA // vcmTaskPanelInterfaces
  ;
  : Attributes
-   @ ( ME_49940B79009F // History
+   Seq: ( ME_49940B79009F // History
  ME_49940B9401BF // TasksPanel
- ) .SequenceCode.It
+ )
  ; // Attributes
  : Operations
-   @ ( ME_49940B5C0118 // AddFormToTasksPanel
+   Seq: ( ME_49940B5C0118 // AddFormToTasksPanel
  ME_49940B6C01A2 // RemoveFormFromTasksPanel
- ) .SequenceCode.It
+ )
  ; // Operations
+ CONST dfm:PathOnly '\common\components\gui\Garant\VCM'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\VCM'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'MainForm'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_49940B180124 IvcmMainForm
 
@@ -1445,8 +1564,8 @@ ref; // ME_4993011501BE aModule
  : Parent ME_499300FB015F // IvcmCustOpsRepository
  ;
  : Parameters
-   @ ( ME_4993011501BE // aModule
- ) .SequenceCode.It
+   Seq: ( ME_4993011501BE // aModule
+ )
  ; // Parameters
 
 ref; // ME_4993010D009D AddModule
@@ -1471,8 +1590,8 @@ ref; // ME_4993012303A6 aForm
  : Parent ME_499300FB015F // IvcmCustOpsRepository
  ;
  : Parameters
-   @ ( ME_4993012303A6 // aForm
- ) .SequenceCode.It
+   Seq: ( ME_4993012303A6 // aForm
+ )
  ; // Parameters
 
 ref; // ME_4993011D0121 AddForm
@@ -1497,8 +1616,8 @@ ref; // ME_4993013101CD aForm
  : Parent ME_499300FB015F // IvcmCustOpsRepository
  ;
  : Parameters
-   @ ( ME_4993013101CD // aForm
- ) .SequenceCode.It
+   Seq: ( ME_4993013101CD // aForm
+ )
  ; // Parameters
 
 ref; // ME_4993012A00C2 RemoveForm
@@ -1516,11 +1635,17 @@ ref; // ME_4993012A00C2 RemoveForm
  : Parent ME_49940C8E00DA // vcmTaskPanelInterfaces
  ;
  : Operations
-   @ ( ME_4993010D009D // AddModule
+   Seq: ( ME_4993010D009D // AddModule
  ME_4993011D0121 // AddForm
  ME_4993012A00C2 // RemoveForm
- ) .SequenceCode.It
+ )
  ; // Operations
+ CONST dfm:PathOnly '\common\components\gui\Garant\VCM'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\VCM'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'CustOpsRepository'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_499300FB015F IvcmCustOpsRepository
 
@@ -1657,7 +1782,7 @@ ref; // ME_50ADEE360325 cvcm_tpAfterUpdate
  : Parent ME_49940C8E00DA // vcmTaskPanelInterfaces
  ;
  : Attributes
-   @ ( ME_50ADEDEF0127 // cvcm_tpOperationRemove
+   Seq: ( ME_50ADEDEF0127 // cvcm_tpOperationRemove
  ME_50ADEDFA0143 // cvcm_tpOpPosChanged
  ME_50ADEE0202A8 // cvcm_tpOpCaptionChanged
  ME_50ADEE0B0093 // cvcm_tpGroupRemove
@@ -1667,8 +1792,13 @@ ref; // ME_50ADEE360325 cvcm_tpAfterUpdate
  ME_50ADEE2801B2 // cvcm_tpGroupPosChanged
  ME_50ADEE2F025F // cvcm_tpBeforeUpdate
  ME_50ADEE360325 // cvcm_tpAfterUpdate
- ) .SequenceCode.It
+ )
  ; // Attributes
+ CONST dfm:PathOnly '\common\components\gui\Garant\VCM'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\VCM'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_50ADEDD600C6 TvcmTaskPanelOperation
 
@@ -1714,10 +1844,10 @@ ref; // ME_46A450FA031C aInterface
  : Parent ME_46A450A102C3 // IvcmTaskPanelNotifyRecipient
  ;
  : Parameters
-   @ ( ME_46A450FA02B7 // aNotifier
+   Seq: ( ME_46A450FA02B7 // aNotifier
  ME_46A450FA02E9 // aOperation
  ME_46A450FA031C // aInterface
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_46A450C703AE TaskPanelNotify
@@ -1735,13 +1865,19 @@ ref; // ME_46A450C703AE TaskPanelNotify
  : Parent ME_49940C8E00DA // vcmTaskPanelInterfaces
  ;
  : Inherits
-   @ ( WL 'ME_4680CF330338' '4677FBA70343.pas.ms.script' // Il3Notify
- ) .SequenceCode.It
+   Seq: ( WL 'ME_4680CF330338' '4677FBA70343.pas.ms.script' // Il3Notify
+ )
  ; // Inherits
  : Operations
-   @ ( ME_46A450C703AE // TaskPanelNotify
- ) .SequenceCode.It
+   Seq: ( ME_46A450C703AE // TaskPanelNotify
+ )
  ; // Operations
+ CONST dfm:PathOnly '\common\components\gui\Garant\VCM'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\VCM'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'TaskPanelNotifyRecipient'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_46A450A102C3 IvcmTaskPanelNotifyRecipient
 
@@ -1756,7 +1892,7 @@ ref; // ME_46A450A102C3 IvcmTaskPanelNotifyRecipient
  : Parent WL 'ME_4790C3B8021E' '4790C3B8021E.pas.ms.script' // VCM
  ;
  : Children
-   @ ( ME_49940DAA0114 // IvcmBase
+   Seq: ( ME_49940DAA0114 // IvcmBase
  ME_4992FCF401BC // IvcmCustOpsItem
  ME_4992FA6A03C1 // IvcmCustOpsOperation
  ME_4992FD760178 // IvcmCustOpsRepGroup
@@ -1775,30 +1911,27 @@ ref; // ME_46A450A102C3 IvcmTaskPanelNotifyRecipient
  ME_499300FB015F // IvcmCustOpsRepository
  ME_50ADEDD600C6 // TvcmTaskPanelOperation
  ME_46A450A102C3 // IvcmTaskPanelNotifyRecipient
- ) .SequenceCode.It
+ )
  ; // Children
  : Depends
-   @ ( WL 'ME_4677FBA70343' '4677FBA70343.pas.ms.script' // l3Interfaces
+   Seq: ( WL 'ME_4677FBA70343' '4677FBA70343.pas.ms.script' // l3Interfaces
  WL 'ME_467823B7002C' '467823B7002C.pas.ms.script' // afwInterfaces
  WL 'ME_467BAB7F021E' '467BAB7F021E.pas.ms.script' // vcmExternalInterfaces
  WL 'ME_4683F37902CF' '4683F37902CF.pas.ms.script' // vcmInterfaces
  WL 'ME_4799D29F033F' '4799D29F033F.pas.ms.script' // Implementation
  WL 'ME_4AB0C3C60310' '4AB0C3C60310.pas.ms.script' // Sys
- ) .SequenceCode.It
+ )
  ; // Depends
  CONST "author" 'Ëþëèí À.Â.'
  CONST "is namespace" true
  CONST "no hands" true
  CONST "started" '12.02.2008 14:49'
- : Generators
- @ (
- gen_intf.pas
- gen_pas.script
- gen_pas.script.runner
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\VCM'
  CONST intf.pas:Path 'common\components\gui\Garant\VCM\vcmTaskPanelInterfaces.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\VCM'
  CONST pas.script:Path 'shared\models\NewSchool\Scripts\49940C8E00DA.pas.ms.script'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
  CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\49940C8E00DA.pas.ms.script.runner'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_49940C8E00DA vcmTaskPanelInterfaces

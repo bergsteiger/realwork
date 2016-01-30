@@ -50,8 +50,8 @@ ref; // ME_536AC39C034B Index
  : Target WL 'ME_532973740186' '53288DFA03A7.pas.ms.script' // TvgReminder
  ;
  : Attributes
-   @ ( ME_536AC39C034B // Index
- ) .SequenceCode.It
+   Seq: ( ME_536AC39C034B // Index
+ )
  ; // Attributes
 
 ref; // ME_536AC39500C3 Reminder
@@ -67,21 +67,21 @@ ref; // ME_536AC39500C3 Reminder
  : Parent ME_536A56A6004E // NewReminders
  ;
  : Inherits
-   @ ( WL 'ME_532322D901A3' '53288DFA03A7.pas.ms.script' // TvgRemindersLine
- ) .SequenceCode.It
+   Seq: ( WL 'ME_532322D901A3' '53288DFA03A7.pas.ms.script' // TvgRemindersLine
+ )
  ; // Inherits
  : Attributes
-   @ ( ME_536B5DA30257 // Count
+   Seq: ( ME_536B5DA30257 // Count
  ME_536AC39500C3 // Reminder
- ) .SequenceCode.It
+ )
  ; // Attributes
  CONST "is friend" false
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\VT'
  CONST intf.pas:Path 'common\components\gui\Garant\VT\vgRemindersLine_p.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\VT'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:pas:UnitName 'vgRemindersLine_p'
 
 ref; // ME_536A57190399 TvgRemindersLine
 
@@ -158,23 +158,23 @@ ref; // ME_536B5E2E033B vgImage
  : Parent ME_536A56A6004E // NewReminders
  ;
  : Inherits
-   @ ( WL 'ME_532973740186' '53288DFA03A7.pas.ms.script' // TvgReminder
- ) .SequenceCode.It
+   Seq: ( WL 'ME_532973740186' '53288DFA03A7.pas.ms.script' // TvgReminder
+ )
  ; // Inherits
  : Attributes
-   @ ( ME_536B5D8B01C6 // Caption
+   Seq: ( ME_536B5D8B01C6 // Caption
  ME_536B5D980340 // Flash
  ME_53712731020C // Visible
  ME_536B5E2E033B // vgImage
- ) .SequenceCode.It
+ )
  ; // Attributes
  CONST "is friend" false
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\VT'
  CONST intf.pas:Path 'common\components\gui\Garant\VT\vgReminder_p.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\VT'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:pas:UnitName 'vgReminder_p'
 
 ref; // ME_536B5D600367 TvgReminder
 
@@ -188,23 +188,21 @@ ref; // ME_536B5D600367 TvgReminder
  : Parent WL 'ME_499A86490253' '499A86490253.pas.ms.script' // VTTest
  ;
  : Children
-   @ ( ME_536A57190399 // TvgRemindersLine
+   Seq: ( ME_536A57190399 // TvgRemindersLine
  ME_536B5D600367 // TvgReminder
- ) .SequenceCode.It
+ )
  ; // Children
  : Depends
-   @ ( WL 'ME_4AB0C3C60310' '4AB0C3C60310.pas.ms.script' // Sys
+   Seq: ( WL 'ME_4AB0C3C60310' '4AB0C3C60310.pas.ms.script' // Sys
  WL 'ME_4CFCE51A00B0' '4CFCE51A00B0.pas.ms.script' // Impl
  WL 'ME_53288DFA03A7' '53288DFA03A7.pas.ms.script' // NewReminders
- ) .SequenceCode.It
+ )
  ; // Depends
- : Generators
- @ (
- gen_pas.script
- gen_pas.script.runner
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\VT'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\VT'
  CONST pas.script:Path 'shared\models\NewSchool\Scripts\536A56A6004E.pas.ms.script'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
  CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\536A56A6004E.pas.ms.script.runner'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_536A56A6004E NewReminders

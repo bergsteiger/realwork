@@ -1,0 +1,218 @@
+// TimeStampSync 4614E97E01C5 Impl Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4614E97E01C5
+
+FORWARD ME_4614E05A0222
+
+: ME_4614F51F034B
+ CONST UID '4614F51F034B'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4614E05A0222 // ActiveChangeableProxy
+ ;
+
+ref; // ME_4614F51F034B 
+
+: ME_4614E05A0222
+ CONST UID '4614E05A0222'
+ CONST Name 'ActiveChangeableProxy'
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4614E97E01C5 // TimeStampSync
+ ;
+ : Dependencies
+   Seq: ( ME_4614F51F034B // 
+ )
+ ; // Dependencies
+ CONST "Refcount" 'standard'
+ CONST "need UC" true
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ : Generators
+ Seq: (
+ gen_cpp
+ gen_h
+ gen_intf.pas
+ )
+ ; // Generators
+ CONST cpp:Path 'garant6x\implementation\Garant\GblAdapterLib\impl\TimeStampSync\ActiveChangeableProxy.cpp'
+ CONST cpp:PathOnly '\garant6x\implementation\Garant\GblAdapterLib\impl\TimeStampSync'
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GblAdapterLib'
+ CONST dll.cpp:PathOnly '\garant6x\implementation\Garant\GblAdapterLib'
+ CONST dll.h:PathOnly '\garant6x\implementation\Garant\GblAdapterLib'
+ CONST fctr.cpp:PathOnly '\garant6x\implementation\Garant\GblAdapterLib\impl\TimeStampSync'
+ CONST fctr.h:PathOnly '\garant6x\implementation\Garant\GblAdapterLib\impl\TimeStampSync'
+ CONST h:Path 'garant6x\implementation\Garant\GblAdapterLib\impl\TimeStampSync\ActiveChangeableProxy.h'
+ CONST h:PathOnly '\garant6x\implementation\Garant\GblAdapterLib\impl\TimeStampSync'
+ CONST i.h:PathOnly '\garant6x\implementation\Garant\GblAdapterLib\impl\TimeStampSync'
+ CONST intf.pas:Path 'garant6x\implementation\Garant\tie\Garant\GblAdapterLib\ActiveChangeableProxy.pas'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\tie\Garant\GblAdapterLib'
+ CONST mpc:PathOnly '\garant6x\implementation\Garant\project'
+ CONST mpc2:PathOnly '\garant6x\implementation\Garant\project'
+ CONST pas:PathOnly '\garant6x\implementation\Garant\GblAdapterLib'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc:PathOnly '\garant6x\implementation\Garant\GblAdapterLib'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\GblAdapterLib'
+ CONST s.ini:PathOnly '\garant6x\implementation\Garant\project'
+ CONST s.reg:PathOnly '\garant6x\implementation\Garant\project'
+ CONST vi.rc:PathOnly '\garant6x\implementation\Garant'
+ CONST vi.rch:PathOnly '\garant6x\implementation\Garant'
+ CONST extprop:rc:isAcceptableForScripts true
+
+ref; // ME_4614E05A0222 ActiveChangeableProxy
+
+: ME_4614E03B02EE
+ CONST UID '4614E03B02EE'
+ CONST Name 'TimeStampObjectManager'
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4614E97E01C5 // TimeStampSync
+ ;
+ CONST "need UC" true
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ CONST "singleton" true
+ : Generators
+ Seq: (
+ gen_cpp
+ gen_h
+ gen_intf.pas
+ )
+ ; // Generators
+ CONST cpp:Path 'garant6x\implementation\Garant\GblAdapterLib\impl\TimeStampSync\TimeStampObjectManager.cpp'
+ CONST cpp:PathOnly '\garant6x\implementation\Garant\GblAdapterLib\impl\TimeStampSync'
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GblAdapterLib'
+ CONST dll.cpp:PathOnly '\garant6x\implementation\Garant\GblAdapterLib'
+ CONST dll.h:PathOnly '\garant6x\implementation\Garant\GblAdapterLib'
+ CONST fctr.cpp:PathOnly '\garant6x\implementation\Garant\GblAdapterLib\impl\TimeStampSync'
+ CONST fctr.h:PathOnly '\garant6x\implementation\Garant\GblAdapterLib\impl\TimeStampSync'
+ CONST h:Path 'garant6x\implementation\Garant\GblAdapterLib\impl\TimeStampSync\TimeStampObjectManager.h'
+ CONST h:PathOnly '\garant6x\implementation\Garant\GblAdapterLib\impl\TimeStampSync'
+ CONST i.h:PathOnly '\garant6x\implementation\Garant\GblAdapterLib\impl\TimeStampSync'
+ CONST intf.pas:Path 'garant6x\implementation\Garant\tie\Garant\GblAdapterLib\imeStampObjectManager.pas'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\tie\Garant\GblAdapterLib'
+ CONST mpc:PathOnly '\garant6x\implementation\Garant\project'
+ CONST mpc2:PathOnly '\garant6x\implementation\Garant\project'
+ CONST pas:PathOnly '\garant6x\implementation\Garant\GblAdapterLib'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc:PathOnly '\garant6x\implementation\Garant\GblAdapterLib'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\GblAdapterLib'
+ CONST s.ini:PathOnly '\garant6x\implementation\Garant\project'
+ CONST s.reg:PathOnly '\garant6x\implementation\Garant\project'
+ CONST vi.rc:PathOnly '\garant6x\implementation\Garant'
+ CONST vi.rch:PathOnly '\garant6x\implementation\Garant'
+ CONST extprop:rc:SelfName 'imeStampObjectManager'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'imeStampObjectManager'
+
+ref; // ME_4614E03B02EE TimeStampObjectManager
+
+: ME_4614EBAD0222
+ CONST UID '4614EBAD0222'
+ CONST Name 'ActiveChangeableBase'
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4614E97E01C5 // TimeStampSync
+ ;
+ CONST "need UC" true
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ : Generators
+ Seq: (
+ gen_cpp
+ gen_h
+ gen_intf.pas
+ )
+ ; // Generators
+ CONST cpp:Path 'garant6x\implementation\Garant\GblAdapterLib\impl\TimeStampSync\ActiveChangeableBase.cpp'
+ CONST cpp:PathOnly '\garant6x\implementation\Garant\GblAdapterLib\impl\TimeStampSync'
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GblAdapterLib'
+ CONST dll.cpp:PathOnly '\garant6x\implementation\Garant\GblAdapterLib'
+ CONST dll.h:PathOnly '\garant6x\implementation\Garant\GblAdapterLib'
+ CONST fctr.cpp:PathOnly '\garant6x\implementation\Garant\GblAdapterLib\impl\TimeStampSync'
+ CONST fctr.h:PathOnly '\garant6x\implementation\Garant\GblAdapterLib\impl\TimeStampSync'
+ CONST h:Path 'garant6x\implementation\Garant\GblAdapterLib\impl\TimeStampSync\ActiveChangeableBase.h'
+ CONST h:PathOnly '\garant6x\implementation\Garant\GblAdapterLib\impl\TimeStampSync'
+ CONST i.h:PathOnly '\garant6x\implementation\Garant\GblAdapterLib\impl\TimeStampSync'
+ CONST intf.pas:Path 'garant6x\implementation\Garant\tie\Garant\GblAdapterLib\ActiveChangeableBase.pas'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\tie\Garant\GblAdapterLib'
+ CONST mpc:PathOnly '\garant6x\implementation\Garant\project'
+ CONST mpc2:PathOnly '\garant6x\implementation\Garant\project'
+ CONST pas:PathOnly '\garant6x\implementation\Garant\GblAdapterLib'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc:PathOnly '\garant6x\implementation\Garant\GblAdapterLib'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\GblAdapterLib'
+ CONST s.ini:PathOnly '\garant6x\implementation\Garant\project'
+ CONST s.reg:PathOnly '\garant6x\implementation\Garant\project'
+ CONST vi.rc:PathOnly '\garant6x\implementation\Garant'
+ CONST vi.rch:PathOnly '\garant6x\implementation\Garant'
+ CONST extprop:rc:isAcceptableForScripts true
+
+ref; // ME_4614EBAD0222 ActiveChangeableBase
+
+: ME_4614E97E01C5
+ CONST UID '4614E97E01C5'
+ CONST Name 'TimeStampSync'
+ CONST Class class_Category
+ : Stereotype st_Impl ;
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_regular
+ : Parent WL 'ME_456EA3D2031C' '456EA3D2031C.pas.ms.script' // GblAdapterLib
+ ;
+ : Children
+   Seq: ( ME_4614E05A0222 // ActiveChangeableProxy
+ ME_4614E03B02EE // TimeStampObjectManager
+ ME_4614EBAD0222 // ActiveChangeableBase
+ )
+ ; // Children
+ CONST "is namespace" true
+ : Generators
+ Seq: (
+ gen_pas.script
+ gen_pas.script.runner
+ )
+ ; // Generators
+ CONST cpp:PathOnly '\garant6x\implementation\Garant\GblAdapterLib\impl\TimeStampSync'
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GblAdapterLib'
+ CONST dll.cpp:PathOnly '\garant6x\implementation\Garant\GblAdapterLib'
+ CONST dll.h:PathOnly '\garant6x\implementation\Garant\GblAdapterLib'
+ CONST fctr.cpp:PathOnly '\garant6x\implementation\Garant\GblAdapterLib\impl\TimeStampSync'
+ CONST fctr.h:PathOnly '\garant6x\implementation\Garant\GblAdapterLib\impl\TimeStampSync'
+ CONST h:PathOnly '\garant6x\implementation\Garant\GblAdapterLib\impl\TimeStampSync'
+ CONST i.h:PathOnly '\garant6x\implementation\Garant\GblAdapterLib\impl\TimeStampSync'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\tie\Garant\GblAdapterLib'
+ CONST mpc:PathOnly '\garant6x\implementation\Garant\project'
+ CONST mpc2:PathOnly '\garant6x\implementation\Garant\project'
+ CONST pas:PathOnly '\garant6x\implementation\Garant\GblAdapterLib'
+ CONST pas.script:Path 'shared\models\NewSchool\Scripts\4614E97E01C5.pas.ms.script'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\4614E97E01C5.pas.ms.script.runner'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc:PathOnly '\garant6x\implementation\Garant\GblAdapterLib'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\GblAdapterLib'
+ CONST s.ini:PathOnly '\garant6x\implementation\Garant\project'
+ CONST s.reg:PathOnly '\garant6x\implementation\Garant\project'
+ CONST vi.rc:PathOnly '\garant6x\implementation\Garant'
+ CONST vi.rch:PathOnly '\garant6x\implementation\Garant'
+
+ref; // ME_4614E97E01C5 TimeStampSync

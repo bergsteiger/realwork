@@ -39,8 +39,8 @@ ref; // ME_51349D2901B5 aForm
  : Parent ME_51349B6001D3 // TestForm4Scripts
  ;
  : Parameters
-   @ ( ME_51349D2901B5 // aForm
- ) .SequenceCode.It
+   Seq: ( ME_51349D2901B5 // aForm
+ )
  ; // Parameters
 
 ref; // ME_51349D1803A7 LinkTestForm
@@ -80,22 +80,21 @@ ref; // ME_51349D4E02CB GetTestForm
  : Parent ME_51309A4A02FB // Tests Res Common
  ;
  : Attributes
-   @ ( ME_51349CE90123 // g_TestsForm
- ) .SequenceCode.It
+   Seq: ( ME_51349CE90123 // g_TestsForm
+ )
  ; // Attributes
  : Operations
-   @ ( ME_51349D1803A7 // LinkTestForm
+   Seq: ( ME_51349D1803A7 // LinkTestForm
  ME_51349D2D0187 // UnLinkTestForm
  ME_51349D4E02CB // GetTestForm
- ) .SequenceCode.It
+ )
  ; // Operations
  CONST "no hands" false
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\Shared_Delphi_Tests_Common'
  CONST intf.pas:Path 'common\components\rtl\Garant\Shared_Delphi_Tests_Common\TestForm4Scripts.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\Shared_Delphi_Tests_Common'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_51349B6001D3 TestForm4Scripts
 
@@ -116,6 +115,7 @@ FORWARD ME_52F21A610247
  CONST Value false
  : ValueType WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
+ CONST extprop:pas:Value false
 
 ref; // ME_4DA478990164 g_IsBatchMode
 
@@ -134,6 +134,7 @@ ref; // ME_4DA478990164 g_IsBatchMode
  CONST Value false
  : ValueType WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
+ CONST extprop:pas:Value false
 
 ref; // ME_4DA478B5000C g_IsBatchModeValid
 
@@ -179,6 +180,7 @@ ref; // ME_52F21B3201DF g_TestsForm
  ;
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
+ CONST extprop:pas:Value false
 
 ref; // ME_52F21B3B012E g_InRun
 
@@ -208,8 +210,8 @@ ref; // ME_4F79BCDA0351 DoIt
  : Parent ME_52F21A610247 // GUIAppTester
  ;
  : Operations
-   @ ( ME_4F79BCDA0351 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_4F79BCDA0351 // DoIt
+ )
  ; // Operations
  CONST "is static" true
 
@@ -246,9 +248,9 @@ ref; // ME_4DA3362C00B5 Done
  : Parent ME_4DA3361A0305 // DoIdle
  ;
  : Parameters
-   @ ( ME_4DA3362C0043 // Sender
+   Seq: ( ME_4DA3362C0043 // Sender
  ME_4DA3362C00B5 // Done
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_4DA33626026D DoIt
@@ -264,8 +266,8 @@ ref; // ME_4DA33626026D DoIt
  : Parent ME_52F21A610247 // GUIAppTester
  ;
  : Operations
-   @ ( ME_4DA33626026D // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_4DA33626026D // DoIt
+ )
  ; // Operations
  CONST "is static" true
 
@@ -297,8 +299,8 @@ ref; // ME_4DA4766801BC DoIt
  : Parent ME_52F21A610247 // GUIAppTester
  ;
  : Operations
-   @ ( ME_4DA4766801BC // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_4DA4766801BC // DoIt
+ )
  ; // Operations
  CONST "ifdef" 'InsiderTest'
  CONST "is static" true
@@ -330,8 +332,8 @@ ref; // ME_4F79B9E70001 DoIt
  : Parent ME_52F21A610247 // GUIAppTester
  ;
  : Operations
-   @ ( ME_4F79B9E70001 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_4F79B9E70001 // DoIt
+ )
  ; // Operations
  CONST "is static" true
 
@@ -415,40 +417,40 @@ ref; // ME_55099C0B00E4
  : Parent ME_51309A4A02FB // Tests Res Common
  ;
  : Attributes
-   @ ( ME_4DA478990164 // g_IsBatchMode
+   Seq: ( ME_4DA478990164 // g_IsBatchMode
  ME_4DA478B5000C // g_IsBatchModeValid
  ME_52F21B18009E // g_Debugger
  ME_52F21B3201DF // g_TestsForm
  ME_52F21B3B012E // g_InRun
- ) .SequenceCode.It
+ )
  ; // Attributes
  : Operations
-   @ ( ME_4F79BCC902C5 // CalcBatchMode
+   Seq: ( ME_4F79BCC902C5 // CalcBatchMode
  ME_4DA3361A0305 // DoIdle
  ME_4DA476580343 // IsBatchMode
  ME_4F79B9D500D7 // ReadyToRun
- ) .SequenceCode.It
+ )
  ; // Operations
  : Dependencies
-   @ ( ME_52F22702013E // 
+   Seq: ( ME_52F22702013E // 
  ME_52F259E0007D // 
  ME_52F25C7E009E // 
  ME_52F25F240290 // 
  ME_52F2615A008E // 
  ME_55099C0B00E4 // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\Shared_Delphi_Tests_Common'
  CONST intf.pas:Path 'common\components\rtl\Garant\Shared_Delphi_Tests_Common\GUIAppTester.imp.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\Shared_Delphi_Tests_Common'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
  CONST extprop:pas:TypeName '_GUIAppTester_'
+ CONST extprop:pas:UnitName 'GUIAppTester.imp'
 
 ref; // ME_52F21A610247 GUIAppTester
 
@@ -480,10 +482,14 @@ ref; // ME_52F264F70116
  : Parent ME_52F255E702F0 // TGUIAppTester
  ;
  : Attributes
-   @ ( ME_52F264F70116 // 
- ) .SequenceCode.It
+   Seq: ( ME_52F264F70116 // 
+ )
  ; // Attributes
  CONST "array type" 'dynamic'
+ CONST dfm:PathOnly '\common\components\rtl\Garant\Shared_Delphi_Tests_Common'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\Shared_Delphi_Tests_Common'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_52F264E400E6 TResultsPlaces
 
@@ -513,8 +519,8 @@ ref; // ME_52F26508019F DoIt
  : Parent ME_52F255E702F0 // TGUIAppTester
  ;
  : Operations
-   @ ( ME_52F26508019F // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_52F26508019F // DoIt
+ )
  ; // Operations
  CONST "is static" true
 
@@ -543,8 +549,8 @@ ref; // ME_52F2656802BD aPlaces
  : Target ME_52F264E400E6 // TResultsPlaces
  ;
  : Parameters
-   @ ( ME_52F2656802BD // aPlaces
- ) .SequenceCode.It
+   Seq: ( ME_52F2656802BD // aPlaces
+ )
  ; // Parameters
 
 ref; // ME_52F2654F009A DoIt
@@ -560,8 +566,8 @@ ref; // ME_52F2654F009A DoIt
  : Parent ME_52F255E702F0 // TGUIAppTester
  ;
  : Operations
-   @ ( ME_52F2654F009A // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_52F2654F009A // DoIt
+ )
  ; // Operations
  CONST "is static" true
 
@@ -596,6 +602,7 @@ ref; // ME_52F268E10370
  ;
  : Implementor ME_52F255E702F0 // TGUIAppTester
  ;
+ CONST OpKind opkind_Implemented
  CONST "is static" true
 ref; // ME_4F79BCC902C5_ME_52F255E702F0 CalcBatchMode
 
@@ -610,38 +617,40 @@ ref; // ME_4F79BCC902C5_ME_52F255E702F0 CalcBatchMode
  : Parent ME_51309A4A02FB // Tests Res Common
  ;
  : Inherits
-   @ ( WL 'ME_49E7754802A9' '47913B47006E.pas.ms.script' // Tl3ProtoObject
+   Seq: ( WL 'ME_49E7754802A9' '47913B47006E.pas.ms.script' // Tl3ProtoObject
  ME_52F21A610247 // GUIAppTester
- ) .SequenceCode.It
+ )
  ; // Inherits
  : Operations
-   @ ( ME_52F264840382 // GetResultsPlaces
+   Seq: ( ME_52F264840382 // GetResultsPlaces
  ME_52F2651C00F4 // MakeResults
- ) .SequenceCode.It
+ )
  ; // Operations
  : Implemented
-   @ ( ME_4F79BCC902C5_ME_52F255E702F0 // CalcBatchMode
- ) .SequenceCode.It
+   Seq: ( ME_4F79BCC902C5_ME_52F255E702F0 // CalcBatchMode
+ )
  ; // Implemented
  : Children
-   @ ( ME_52F264E400E6 // TResultsPlaces
- ) .SequenceCode.It
+   Seq: ( ME_52F264E400E6 // TResultsPlaces
+ )
  ; // Children
  : Dependencies
-   @ ( ME_52F2645E038F // 
+   Seq: ( ME_52F2645E038F // 
  ME_52F268E10370 // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\Shared_Delphi_Tests_Common'
  CONST intf.pas:Path 'common\components\rtl\Garant\Shared_Delphi_Tests_Common\GUIAppTester.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\Shared_Delphi_Tests_Common'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'GUIAppTester'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'GUIAppTester'
 
 ref; // ME_52F255E702F0 TGUIAppTester
 
@@ -655,13 +664,13 @@ ref; // ME_52F255E702F0 TGUIAppTester
  : Parent WL 'ME_513098F2017C' '513098F2017C.pas.ms.script' // Shared Delphi Tests Common
  ;
  : Children
-   @ ( ME_51349B6001D3 // TestForm4Scripts
+   Seq: ( ME_51349B6001D3 // TestForm4Scripts
  ME_52F21A610247 // GUIAppTester
  ME_52F255E702F0 // TGUIAppTester
- ) .SequenceCode.It
+ )
  ; // Children
  : Depends
-   @ ( WL 'ME_47913B47006E' '47913B47006E.pas.ms.script' // l3CoreObjects
+   Seq: ( WL 'ME_47913B47006E' '47913B47006E.pas.ms.script' // l3CoreObjects
  WL 'ME_4799D29F033F' '4799D29F033F.pas.ms.script' // Implementation
  WL 'ME_4AB0C3C60310' '4AB0C3C60310.pas.ms.script' // Sys
  WL 'ME_4B2A0D6A0077' '4B2A0D6A0077.pas.ms.script' // Source
@@ -669,15 +678,13 @@ ref; // ME_52F255E702F0 TGUIAppTester
  WL 'ME_4DB14DDC01A9' '4DB14DDC01A9.pas.ms.script' // ScriptDebugger
  WL 'ME_4DEF302C0007' '4DEF302C0007.pas.ms.script' // ScriptEngine
  WL 'ME_4E030FC801EB' '4E030FC801EB.pas.ms.script' // BatchServices
- ) .SequenceCode.It
+ )
  ; // Depends
- : Generators
- @ (
- gen_pas.script
- gen_pas.script.runner
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\Shared_Delphi_Tests_Common'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\Shared_Delphi_Tests_Common'
  CONST pas.script:Path 'shared\models\NewSchool\Scripts\51309A4A02FB.pas.ms.script'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
  CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\51309A4A02FB.pas.ms.script.runner'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_51309A4A02FB Tests Res Common

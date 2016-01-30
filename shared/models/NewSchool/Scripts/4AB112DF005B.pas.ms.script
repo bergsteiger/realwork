@@ -20,6 +20,7 @@ FORWARD ME_4862217300FF
  : Parent ME_4862217300FF // ANSIDOS
  ;
  CONST Value '-12'
+ CONST extprop:pas:Value '-12'
 
 ref; // ME_486221B101C4 Handle
 
@@ -33,6 +34,7 @@ ref; // ME_486221B101C4 Handle
  : Parent ME_4862217300FF // ANSIDOS
  ;
  CONST Value '''Моноширинный'''
+ CONST extprop:pas:Value '''Моноширинный'''
 
 ref; // ME_486221B701A0 Name
 
@@ -46,6 +48,7 @@ ref; // ME_486221B701A0 Name
  : Parent ME_4862217300FF // ANSIDOS
  ;
  CONST Value 0
+ CONST extprop:pas:Value 0
 
 ref; // ME_486221BD027B FirstIndent
 
@@ -59,6 +62,7 @@ ref; // ME_486221BD027B FirstIndent
  : Parent ME_4862217300FF // ANSIDOS
  ;
  CONST Value 0
+ CONST extprop:pas:Value 0
 
 ref; // ME_486221C40294 FirstLineIndent
 
@@ -74,6 +78,7 @@ ref; // ME_486221C40294 FirstLineIndent
  CONST Value 'Preformatted'
  : ValueType WL 'ME_4688D85301B2' '469D0AC7005E.pas.ms.script' // IndentType
  ;
+ CONST extprop:pas:Value 'evdTypes.ev_itPreformatted'
 
 ref; // ME_486221CC0215 Justification
 
@@ -89,13 +94,17 @@ ref; // ME_486221CC0215 Justification
  : Parent ME_4862215A02D8 // TextStyle
  ;
  : Attributes
-   @ ( ME_486221B101C4 // Handle
+   Seq: ( ME_486221B101C4 // Handle
  ME_486221B701A0 // Name
  ME_486221BD027B // FirstIndent
  ME_486221C40294 // FirstLineIndent
  ME_486221CC0215 // Justification
- ) .SequenceCode.It
+ )
  ; // Attributes
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest_Engine'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest_Engine'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
  CONST extprop:pas:TypeName 'Tf1ANSIDOS'
  CONST extprop:pas:ElementPrefixBase 'f1'
  CONST extprop:pas:ElementPrefix 'f1_'
@@ -116,6 +125,7 @@ FORWARD ME_4A8046CB0074
  : Parent ME_4A8046CB0074 // Font
  ;
  CONST Value '@'
+ CONST extprop:pas:Value '@'
 
 ref; // ME_4A8046E601E0 ForeColor
 
@@ -129,6 +139,7 @@ ref; // ME_4A8046E601E0 ForeColor
  : Parent ME_4A8046CB0074 // Font
  ;
  CONST Value '@'
+ CONST extprop:pas:Value '@'
 
 ref; // ME_4A804B250367 Bold
 
@@ -143,10 +154,14 @@ ref; // ME_4A804B250367 Bold
  : Parent ME_4A8046650113 // CompareEditionsText
  ;
  : Attributes
-   @ ( ME_4A8046E601E0 // ForeColor
+   Seq: ( ME_4A8046E601E0 // ForeColor
  ME_4A804B250367 // Bold
- ) .SequenceCode.It
+ )
  ; // Attributes
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest_Engine'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest_Engine'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
  CONST extprop:pas:TypeName 'Tf1Font'
  CONST extprop:pas:ElementPrefixBase 'f1'
  CONST extprop:pas:ElementPrefix 'f1_'
@@ -163,6 +178,7 @@ ref; // ME_4A8046CB0074 Font
  : Parent ME_4A8046650113 // CompareEditionsText
  ;
  CONST Value '-65534'
+ CONST extprop:pas:Value '-65534'
 
 ref; // ME_4A80468601F1 Handle
 
@@ -176,6 +192,7 @@ ref; // ME_4A80468601F1 Handle
  : Parent ME_4A8046650113 // CompareEditionsText
  ;
  CONST Value '''Сравнение редакций'''
+ CONST extprop:pas:Value '''Сравнение редакций'''
 
 ref; // ME_4A80469D0225 Name
 
@@ -191,18 +208,22 @@ ref; // ME_4A80469D0225 Name
  : Parent ME_4862215A02D8 // TextStyle
  ;
  : Inherits
-   @ ( WL 'ME_4860ED2200AB' '484A470100DD.pas.ms.script' // ColorSelection
- ) .SequenceCode.It
+   Seq: ( WL 'ME_4860ED2200AB' '484A470100DD.pas.ms.script' // ColorSelection
+ )
  ; // Inherits
  : Attributes
-   @ ( ME_4A80468601F1 // Handle
+   Seq: ( ME_4A80468601F1 // Handle
  ME_4A80469D0225 // Name
- ) .SequenceCode.It
+ )
  ; // Attributes
  : Children
-   @ ( ME_4A8046CB0074 // Font
- ) .SequenceCode.It
+   Seq: ( ME_4A8046CB0074 // Font
+ )
  ; // Children
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest_Engine'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest_Engine'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
  CONST extprop:pas:TypeName 'Tf1CompareEditionsText'
  CONST extprop:pas:ElementPrefixBase 'f1'
  CONST extprop:pas:ElementPrefix 'f1_'
@@ -223,6 +244,7 @@ FORWARD ME_4A69799101F8
  : Parent ME_4A69799101F8 // Font
  ;
  CONST Value true
+ CONST extprop:pas:Value true
 
 ref; // ME_4A6979990332 Strikeout
 
@@ -237,9 +259,13 @@ ref; // ME_4A6979990332 Strikeout
  : Parent ME_4A6978A4008E // DeletedText
  ;
  : Attributes
-   @ ( ME_4A6979990332 // Strikeout
- ) .SequenceCode.It
+   Seq: ( ME_4A6979990332 // Strikeout
+ )
  ; // Attributes
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest_Engine'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest_Engine'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
  CONST extprop:pas:TypeName 'Tf1Font'
  CONST extprop:pas:ElementPrefixBase 'f1'
  CONST extprop:pas:ElementPrefix 'f1_'
@@ -256,6 +282,7 @@ ref; // ME_4A69799101F8 Font
  : Parent ME_4A6978A4008E // DeletedText
  ;
  CONST Value '-42'
+ CONST extprop:pas:Value '-42'
 
 ref; // ME_4A6978B502FB Handle
 
@@ -269,6 +296,7 @@ ref; // ME_4A6978B502FB Handle
  : Parent ME_4A6978A4008E // DeletedText
  ;
  CONST Value '''Удалённый текст'''
+ CONST extprop:pas:Value '''Удалённый текст'''
 
 ref; // ME_4A6978C1008B Name
 
@@ -284,18 +312,22 @@ ref; // ME_4A6978C1008B Name
  : Parent ME_4862215A02D8 // TextStyle
  ;
  : Inherits
-   @ ( ME_4A8046650113 // CompareEditionsText
- ) .SequenceCode.It
+   Seq: ( ME_4A8046650113 // CompareEditionsText
+ )
  ; // Inherits
  : Attributes
-   @ ( ME_4A6978B502FB // Handle
+   Seq: ( ME_4A6978B502FB // Handle
  ME_4A6978C1008B // Name
- ) .SequenceCode.It
+ )
  ; // Attributes
  : Children
-   @ ( ME_4A69799101F8 // Font
- ) .SequenceCode.It
+   Seq: ( ME_4A69799101F8 // Font
+ )
  ; // Children
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest_Engine'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest_Engine'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
  CONST extprop:pas:TypeName 'Tf1DeletedText'
  CONST extprop:pas:ElementPrefixBase 'f1'
  CONST extprop:pas:ElementPrefix 'f1_'
@@ -314,6 +346,7 @@ FORWARD ME_4A7A962F00C6
  : Parent ME_4A7A962F00C6 // ChatHeaderSender
  ;
  CONST Value '-43'
+ CONST extprop:pas:Value '-43'
 
 ref; // ME_4A7A96D000BE Handle
 
@@ -327,6 +360,7 @@ ref; // ME_4A7A96D000BE Handle
  : Parent ME_4A7A962F00C6 // ChatHeaderSender
  ;
  CONST Value '''Заголовок собственного сообщения'''
+ CONST extprop:pas:Value '''Заголовок собственного сообщения'''
 
 ref; // ME_4A7A96E300BF Name
 
@@ -342,14 +376,18 @@ ref; // ME_4A7A96E300BF Name
  : Parent ME_4862215A02D8 // TextStyle
  ;
  : Inherits
-   @ ( WL 'ME_4860ED2200AB' '484A470100DD.pas.ms.script' // ColorSelection
- ) .SequenceCode.It
+   Seq: ( WL 'ME_4860ED2200AB' '484A470100DD.pas.ms.script' // ColorSelection
+ )
  ; // Inherits
  : Attributes
-   @ ( ME_4A7A96D000BE // Handle
+   Seq: ( ME_4A7A96D000BE // Handle
  ME_4A7A96E300BF // Name
- ) .SequenceCode.It
+ )
  ; // Attributes
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest_Engine'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest_Engine'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
  CONST extprop:pas:TypeName 'Tf1ChatHeaderSender'
  CONST extprop:pas:ElementPrefixBase 'f1'
  CONST extprop:pas:ElementPrefix 'f1_'
@@ -368,6 +406,7 @@ FORWARD ME_4A7A9694012E
  : Parent ME_4A7A9694012E // ChatHeaderRecipient
  ;
  CONST Value '-44'
+ CONST extprop:pas:Value '-44'
 
 ref; // ME_4A7A970D00F8 Handle
 
@@ -381,6 +420,7 @@ ref; // ME_4A7A970D00F8 Handle
  : Parent ME_4A7A9694012E // ChatHeaderRecipient
  ;
  CONST Value '''Заголовок полученного сообщения'''
+ CONST extprop:pas:Value '''Заголовок полученного сообщения'''
 
 ref; // ME_4A7A97170201 Name
 
@@ -396,14 +436,18 @@ ref; // ME_4A7A97170201 Name
  : Parent ME_4862215A02D8 // TextStyle
  ;
  : Inherits
-   @ ( WL 'ME_4860ED2200AB' '484A470100DD.pas.ms.script' // ColorSelection
- ) .SequenceCode.It
+   Seq: ( WL 'ME_4860ED2200AB' '484A470100DD.pas.ms.script' // ColorSelection
+ )
  ; // Inherits
  : Attributes
-   @ ( ME_4A7A970D00F8 // Handle
+   Seq: ( ME_4A7A970D00F8 // Handle
  ME_4A7A97170201 // Name
- ) .SequenceCode.It
+ )
  ; // Attributes
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest_Engine'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest_Engine'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
  CONST extprop:pas:TypeName 'Tf1ChatHeaderRecipient'
  CONST extprop:pas:ElementPrefixBase 'f1'
  CONST extprop:pas:ElementPrefix 'f1_'
@@ -426,6 +470,7 @@ FORWARD ME_4A697921012D
  CONST Value 'clAqua'
  : ValueType WL 'ME_47CBD5980343' '55C4AEC801CA.pas.ms.script' // Colors
  ;
+ CONST extprop:pas:Value 'Graphics.clAqua'
 
 ref; // ME_4A697929035B BackColor
 
@@ -440,9 +485,13 @@ ref; // ME_4A697929035B BackColor
  : Parent ME_4A6978700071 // AddedText
  ;
  : Attributes
-   @ ( ME_4A697929035B // BackColor
- ) .SequenceCode.It
+   Seq: ( ME_4A697929035B // BackColor
+ )
  ; // Attributes
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest_Engine'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest_Engine'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
  CONST extprop:pas:TypeName 'Tf1Font'
  CONST extprop:pas:ElementPrefixBase 'f1'
  CONST extprop:pas:ElementPrefix 'f1_'
@@ -459,6 +508,7 @@ ref; // ME_4A697921012D Font
  : Parent ME_4A6978700071 // AddedText
  ;
  CONST Value '-41'
+ CONST extprop:pas:Value '-41'
 
 ref; // ME_4A69788203E6 Handle
 
@@ -472,6 +522,7 @@ ref; // ME_4A69788203E6 Handle
  : Parent ME_4A6978700071 // AddedText
  ;
  CONST Value '''Добавленный текст'''
+ CONST extprop:pas:Value '''Добавленный текст'''
 
 ref; // ME_4A69789000F0 Name
 
@@ -487,18 +538,22 @@ ref; // ME_4A69789000F0 Name
  : Parent ME_4862215A02D8 // TextStyle
  ;
  : Inherits
-   @ ( ME_4A8046650113 // CompareEditionsText
- ) .SequenceCode.It
+   Seq: ( ME_4A8046650113 // CompareEditionsText
+ )
  ; // Inherits
  : Attributes
-   @ ( ME_4A69788203E6 // Handle
+   Seq: ( ME_4A69788203E6 // Handle
  ME_4A69789000F0 // Name
- ) .SequenceCode.It
+ )
  ; // Attributes
  : Children
-   @ ( ME_4A697921012D // Font
- ) .SequenceCode.It
+   Seq: ( ME_4A697921012D // Font
+ )
  ; // Children
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest_Engine'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest_Engine'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
  CONST extprop:pas:TypeName 'Tf1AddedText'
  CONST extprop:pas:ElementPrefixBase 'f1'
  CONST extprop:pas:ElementPrefix 'f1_'
@@ -517,6 +572,7 @@ FORWARD ME_4AD8438700EE
  : Parent ME_4AD8438700EE // NewSchoolMainMenu
  ;
  CONST Value '-65531'
+ CONST extprop:pas:Value '-65531'
 
 ref; // ME_4AD84395015F Handle
 
@@ -530,6 +586,7 @@ ref; // ME_4AD84395015F Handle
  : Parent ME_4AD8438700EE // NewSchoolMainMenu
  ;
  CONST Value '''Основное меню (по-умолчанию)'''
+ CONST extprop:pas:Value '''Основное меню (по-умолчанию)'''
 
 ref; // ME_4AD843A802F0 Name
 
@@ -545,10 +602,14 @@ ref; // ME_4AD843A802F0 Name
  : Parent ME_4862215A02D8 // TextStyle
  ;
  : Attributes
-   @ ( ME_4AD84395015F // Handle
+   Seq: ( ME_4AD84395015F // Handle
  ME_4AD843A802F0 // Name
- ) .SequenceCode.It
+ )
  ; // Attributes
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest_Engine'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest_Engine'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
  CONST extprop:pas:TypeName 'Tf1NewSchoolMainMenu'
  CONST extprop:pas:ElementPrefixBase 'f1'
  CONST extprop:pas:ElementPrefix 'f1_'
@@ -569,6 +630,7 @@ FORWARD ME_4ACB35A501D5
  : Parent ME_4ACB35A501D5 // Font
  ;
  CONST Value '''Verdana'''
+ CONST extprop:pas:Value '''Verdana'''
 
 ref; // ME_4ACB35B1031A Name
 
@@ -582,6 +644,7 @@ ref; // ME_4ACB35B1031A Name
  : Parent ME_4ACB35A501D5 // Font
  ;
  CONST Value 8
+ CONST extprop:pas:Value 8
 
 ref; // ME_4ACB35BD0309 Size
 
@@ -596,10 +659,14 @@ ref; // ME_4ACB35BD0309 Size
  : Parent ME_4ACB351A031E // MainMenu
  ;
  : Attributes
-   @ ( ME_4ACB35B1031A // Name
+   Seq: ( ME_4ACB35B1031A // Name
  ME_4ACB35BD0309 // Size
- ) .SequenceCode.It
+ )
  ; // Attributes
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest_Engine'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest_Engine'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
  CONST extprop:pas:TypeName 'Tf1Font'
  CONST extprop:pas:ElementPrefixBase 'f1'
  CONST extprop:pas:ElementPrefix 'f1_'
@@ -616,6 +683,7 @@ ref; // ME_4ACB35A501D5 Font
  : Parent ME_4ACB351A031E // MainMenu
  ;
  CONST Value '-29'
+ CONST extprop:pas:Value '-29'
 
 ref; // ME_4ACB352C0038 Handle
 
@@ -629,6 +697,7 @@ ref; // ME_4ACB352C0038 Handle
  : Parent ME_4ACB351A031E // MainMenu
  ;
  CONST Value '''Основное меню (преемственное)'''
+ CONST extprop:pas:Value '''Основное меню (преемственное)'''
 
 ref; // ME_4ACB35370223 Name
 
@@ -644,14 +713,18 @@ ref; // ME_4ACB35370223 Name
  : Parent ME_4862215A02D8 // TextStyle
  ;
  : Attributes
-   @ ( ME_4ACB352C0038 // Handle
+   Seq: ( ME_4ACB352C0038 // Handle
  ME_4ACB35370223 // Name
- ) .SequenceCode.It
+ )
  ; // Attributes
  : Children
-   @ ( ME_4ACB35A501D5 // Font
- ) .SequenceCode.It
+   Seq: ( ME_4ACB35A501D5 // Font
+ )
  ; // Children
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest_Engine'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest_Engine'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
  CONST extprop:pas:TypeName 'Tf1MainMenu'
  CONST extprop:pas:ElementPrefixBase 'f1'
  CONST extprop:pas:ElementPrefix 'f1_'
@@ -672,6 +745,7 @@ FORWARD ME_4ACB35E40151
  : Parent ME_4ACB35E40151 // Font
  ;
  CONST Value '$00A95800'
+ CONST extprop:pas:Value '$00A95800'
 
 ref; // ME_4ACB35EC026C ForeColor
 
@@ -687,6 +761,7 @@ ref; // ME_4ACB35EC026C ForeColor
  CONST Value 'clBtnFace'
  : ValueType WL 'ME_47CBD5980343' '55C4AEC801CA.pas.ms.script' // Colors
  ;
+ CONST extprop:pas:Value 'Graphics.clBtnFace'
 
 ref; // ME_4ACB36040393 BackColor
 
@@ -700,6 +775,7 @@ ref; // ME_4ACB36040393 BackColor
  : Parent ME_4ACB35E40151 // Font
  ;
  CONST Value true
+ CONST extprop:pas:Value true
 
 ref; // ME_4ACB36100032 Bold
 
@@ -714,11 +790,15 @@ ref; // ME_4ACB36100032 Bold
  : Parent ME_4ACB354D030B // MainMenuHeader
  ;
  : Attributes
-   @ ( ME_4ACB35EC026C // ForeColor
+   Seq: ( ME_4ACB35EC026C // ForeColor
  ME_4ACB36040393 // BackColor
  ME_4ACB36100032 // Bold
- ) .SequenceCode.It
+ )
  ; // Attributes
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest_Engine'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest_Engine'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
  CONST extprop:pas:TypeName 'Tf1Font'
  CONST extprop:pas:ElementPrefixBase 'f1'
  CONST extprop:pas:ElementPrefix 'f1_'
@@ -735,6 +815,7 @@ ref; // ME_4ACB35E40151 Font
  : Parent ME_4ACB354D030B // MainMenuHeader
  ;
  CONST Value '-33'
+ CONST extprop:pas:Value '-33'
 
 ref; // ME_4ACB35660397 Handle
 
@@ -748,6 +829,7 @@ ref; // ME_4ACB35660397 Handle
  : Parent ME_4ACB354D030B // MainMenuHeader
  ;
  CONST Value '''Заголовок *'''
+ CONST extprop:pas:Value '''Заголовок *'''
 
 ref; // ME_4ACB35720337 Name
 
@@ -763,18 +845,22 @@ ref; // ME_4ACB35720337 Name
  : Parent ME_4862215A02D8 // TextStyle
  ;
  : Inherits
-   @ ( ME_4ACB351A031E // MainMenu
- ) .SequenceCode.It
+   Seq: ( ME_4ACB351A031E // MainMenu
+ )
  ; // Inherits
  : Attributes
-   @ ( ME_4ACB35660397 // Handle
+   Seq: ( ME_4ACB35660397 // Handle
  ME_4ACB35720337 // Name
- ) .SequenceCode.It
+ )
  ; // Attributes
  : Children
-   @ ( ME_4ACB35E40151 // Font
- ) .SequenceCode.It
+   Seq: ( ME_4ACB35E40151 // Font
+ )
  ; // Children
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest_Engine'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest_Engine'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
  CONST extprop:pas:TypeName 'Tf1MainMenuHeader'
  CONST extprop:pas:ElementPrefixBase 'f1'
  CONST extprop:pas:ElementPrefix 'f1_'
@@ -795,6 +881,7 @@ FORWARD ME_4ACF28310243
  : Parent ME_4ACF28310243 // Font
  ;
  CONST Value true
+ CONST extprop:pas:Value true
 
 ref; // ME_4ACF283F01F5 Bold
 
@@ -808,6 +895,7 @@ ref; // ME_4ACF283F01F5 Bold
  : Parent ME_4ACF28310243 // Font
  ;
  CONST Value true
+ CONST extprop:pas:Value true
 
 ref; // ME_4ACF284B0257 Underline
 
@@ -822,10 +910,14 @@ ref; // ME_4ACF284B0257 Underline
  : Parent ME_4ACF27EA0362 // MainMenuConstPath
  ;
  : Attributes
-   @ ( ME_4ACF283F01F5 // Bold
+   Seq: ( ME_4ACF283F01F5 // Bold
  ME_4ACF284B0257 // Underline
- ) .SequenceCode.It
+ )
  ; // Attributes
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest_Engine'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest_Engine'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
  CONST extprop:pas:TypeName 'Tf1Font'
  CONST extprop:pas:ElementPrefixBase 'f1'
  CONST extprop:pas:ElementPrefix 'f1_'
@@ -842,6 +934,7 @@ ref; // ME_4ACF28310243 Font
  : Parent ME_4ACF27EA0362 // MainMenuConstPath
  ;
  CONST Value '-31'
+ CONST extprop:pas:Value '-31'
 
 ref; // ME_4ACF281B036B Handle
 
@@ -855,6 +948,7 @@ ref; // ME_4ACF281B036B Handle
  : Parent ME_4ACF27EA0362 // MainMenuConstPath
  ;
  CONST Value '''Постоянная часть *'''
+ CONST extprop:pas:Value '''Постоянная часть *'''
 
 ref; // ME_4ACF28250251 Name
 
@@ -870,18 +964,22 @@ ref; // ME_4ACF28250251 Name
  : Parent ME_4862215A02D8 // TextStyle
  ;
  : Inherits
-   @ ( ME_4ACB351A031E // MainMenu
- ) .SequenceCode.It
+   Seq: ( ME_4ACB351A031E // MainMenu
+ )
  ; // Inherits
  : Attributes
-   @ ( ME_4ACF281B036B // Handle
+   Seq: ( ME_4ACF281B036B // Handle
  ME_4ACF28250251 // Name
- ) .SequenceCode.It
+ )
  ; // Attributes
  : Children
-   @ ( ME_4ACF28310243 // Font
- ) .SequenceCode.It
+   Seq: ( ME_4ACF28310243 // Font
+ )
  ; // Children
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest_Engine'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest_Engine'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
  CONST extprop:pas:TypeName 'Tf1MainMenuConstPath'
  CONST extprop:pas:ElementPrefixBase 'f1'
  CONST extprop:pas:ElementPrefix 'f1_'
@@ -902,6 +1000,7 @@ FORWARD ME_4AD5C9A90185
  : Parent ME_4AD5C9A90185 // Font
  ;
  CONST Value '''Arial'''
+ CONST extprop:pas:Value '''Arial'''
 
 ref; // ME_4AD5C9B20354 Name
 
@@ -915,6 +1014,7 @@ ref; // ME_4AD5C9B20354 Name
  : Parent ME_4AD5C9A90185 // Font
  ;
  CONST Value 10
+ CONST extprop:pas:Value 10
 
 ref; // ME_4AD5C9BC036A Size
 
@@ -928,6 +1028,7 @@ ref; // ME_4AD5C9BC036A Size
  : Parent ME_4AD5C9A90185 // Font
  ;
  CONST Value '$00A95800'
+ CONST extprop:pas:Value '$00A95800'
 
 ref; // ME_4ADC67200182 ForeColor
 
@@ -942,11 +1043,15 @@ ref; // ME_4ADC67200182 ForeColor
  : Parent ME_4AD5C80F0127 // NewSchoolMainMenuConstPath
  ;
  : Attributes
-   @ ( ME_4AD5C9B20354 // Name
+   Seq: ( ME_4AD5C9B20354 // Name
  ME_4AD5C9BC036A // Size
  ME_4ADC67200182 // ForeColor
- ) .SequenceCode.It
+ )
  ; // Attributes
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest_Engine'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest_Engine'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
  CONST extprop:pas:TypeName 'Tf1Font'
  CONST extprop:pas:ElementPrefixBase 'f1'
  CONST extprop:pas:ElementPrefix 'f1_'
@@ -963,6 +1068,7 @@ ref; // ME_4AD5C9A90185 Font
  : Parent ME_4AD5C80F0127 // NewSchoolMainMenuConstPath
  ;
  CONST Value '-65532'
+ CONST extprop:pas:Value '-65532'
 
 ref; // ME_4AD5C822030A Handle
 
@@ -976,6 +1082,7 @@ ref; // ME_4AD5C822030A Handle
  : Parent ME_4AD5C80F0127 // NewSchoolMainMenuConstPath
  ;
  CONST Value '''Постоянная часть'''
+ CONST extprop:pas:Value '''Постоянная часть'''
 
 ref; // ME_4AD5C84C01AF Name
 
@@ -991,18 +1098,22 @@ ref; // ME_4AD5C84C01AF Name
  : Parent ME_4862215A02D8 // TextStyle
  ;
  : Inherits
-   @ ( ME_4AD8438700EE // NewSchoolMainMenu
- ) .SequenceCode.It
+   Seq: ( ME_4AD8438700EE // NewSchoolMainMenu
+ )
  ; // Inherits
  : Attributes
-   @ ( ME_4AD5C822030A // Handle
+   Seq: ( ME_4AD5C822030A // Handle
  ME_4AD5C84C01AF // Name
- ) .SequenceCode.It
+ )
  ; // Attributes
  : Children
-   @ ( ME_4AD5C9A90185 // Font
- ) .SequenceCode.It
+   Seq: ( ME_4AD5C9A90185 // Font
+ )
  ; // Children
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest_Engine'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest_Engine'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
  CONST extprop:pas:TypeName 'Tf1NewSchoolMainMenuConstPath'
  CONST extprop:pas:ElementPrefixBase 'f1'
  CONST extprop:pas:ElementPrefix 'f1_'
@@ -1025,6 +1136,7 @@ FORWARD ME_4ACB363A00A2
  CONST Value 'clBlack'
  : ValueType WL 'ME_47CBD5980343' '55C4AEC801CA.pas.ms.script' // Colors
  ;
+ CONST extprop:pas:Value 'Graphics.clBlack'
 
 ref; // ME_4ACB36410220 ForeColor
 
@@ -1040,6 +1152,7 @@ ref; // ME_4ACB36410220 ForeColor
  CONST Value 'clWhite'
  : ValueType WL 'ME_47CBD5980343' '55C4AEC801CA.pas.ms.script' // Colors
  ;
+ CONST extprop:pas:Value 'Graphics.clWhite'
 
 ref; // ME_4ACB36680300 BackColor
 
@@ -1053,6 +1166,7 @@ ref; // ME_4ACB36680300 BackColor
  : Parent ME_4ACB363A00A2 // Font
  ;
  CONST Value 11
+ CONST extprop:pas:Value 11
 
 ref; // ME_4ACB38AE024E Size
 
@@ -1066,6 +1180,7 @@ ref; // ME_4ACB38AE024E Size
  : Parent ME_4ACB363A00A2 // Font
  ;
  CONST Value '''Arial'''
+ CONST extprop:pas:Value '''Arial'''
 
 ref; // ME_4ACB3C670216 Name
 
@@ -1079,6 +1194,7 @@ ref; // ME_4ACB3C670216 Name
  : Parent ME_4ACB363A00A2 // Font
  ;
  CONST Value true
+ CONST extprop:pas:Value true
 
 ref; // ME_4ADC3B680089 Bold
 
@@ -1093,13 +1209,17 @@ ref; // ME_4ADC3B680089 Bold
  : Parent ME_4ACB349301A9 // NewSchoolMainMenuHeader
  ;
  : Attributes
-   @ ( ME_4ACB36410220 // ForeColor
+   Seq: ( ME_4ACB36410220 // ForeColor
  ME_4ACB36680300 // BackColor
  ME_4ACB38AE024E // Size
  ME_4ACB3C670216 // Name
  ME_4ADC3B680089 // Bold
- ) .SequenceCode.It
+ )
  ; // Attributes
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest_Engine'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest_Engine'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
  CONST extprop:pas:TypeName 'Tf1Font'
  CONST extprop:pas:ElementPrefixBase 'f1'
  CONST extprop:pas:ElementPrefix 'f1_'
@@ -1116,6 +1236,7 @@ ref; // ME_4ACB363A00A2 Font
  : Parent ME_4ACB349301A9 // NewSchoolMainMenuHeader
  ;
  CONST Value '-65533'
+ CONST extprop:pas:Value '-65533'
 
 ref; // ME_4ACB34A20308 Handle
 
@@ -1129,6 +1250,7 @@ ref; // ME_4ACB34A20308 Handle
  : Parent ME_4ACB349301A9 // NewSchoolMainMenuHeader
  ;
  CONST Value '''Заголовок'''
+ CONST extprop:pas:Value '''Заголовок'''
 
 ref; // ME_4ACB34C8017F Name
 
@@ -1144,18 +1266,22 @@ ref; // ME_4ACB34C8017F Name
  : Parent ME_4862215A02D8 // TextStyle
  ;
  : Inherits
-   @ ( ME_4AD8438700EE // NewSchoolMainMenu
- ) .SequenceCode.It
+   Seq: ( ME_4AD8438700EE // NewSchoolMainMenu
+ )
  ; // Inherits
  : Attributes
-   @ ( ME_4ACB34A20308 // Handle
+   Seq: ( ME_4ACB34A20308 // Handle
  ME_4ACB34C8017F // Name
- ) .SequenceCode.It
+ )
  ; // Attributes
  : Children
-   @ ( ME_4ACB363A00A2 // Font
- ) .SequenceCode.It
+   Seq: ( ME_4ACB363A00A2 // Font
+ )
  ; // Children
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest_Engine'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest_Engine'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
  CONST extprop:pas:TypeName 'Tf1NewSchoolMainMenuHeader'
  CONST extprop:pas:ElementPrefixBase 'f1'
  CONST extprop:pas:ElementPrefix 'f1_'
@@ -1174,6 +1300,10 @@ FORWARD ME_4ADC299C03D9
  CONST Abstraction at_regular
  : Parent ME_4ADC299C03D9 // MainMenuChangePath
  ;
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest_Engine'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest_Engine'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
  CONST extprop:pas:TypeName 'Tf1Font'
  CONST extprop:pas:ElementPrefixBase 'f1'
  CONST extprop:pas:ElementPrefix 'f1_'
@@ -1190,6 +1320,7 @@ ref; // ME_4ADC29F90006 Font
  : Parent ME_4ADC299C03D9 // MainMenuChangePath
  ;
  CONST Value '-32'
+ CONST extprop:pas:Value '-32'
 
 ref; // ME_4ADC29D40064 Handle
 
@@ -1203,6 +1334,7 @@ ref; // ME_4ADC29D40064 Handle
  : Parent ME_4ADC299C03D9 // MainMenuChangePath
  ;
  CONST Value '''Переменная часть'''
+ CONST extprop:pas:Value '''Переменная часть'''
 
 ref; // ME_4ADC29EC0026 Name
 
@@ -1218,18 +1350,22 @@ ref; // ME_4ADC29EC0026 Name
  : Parent ME_4862215A02D8 // TextStyle
  ;
  : Inherits
-   @ ( ME_4ACB351A031E // MainMenu
- ) .SequenceCode.It
+   Seq: ( ME_4ACB351A031E // MainMenu
+ )
  ; // Inherits
  : Attributes
-   @ ( ME_4ADC29D40064 // Handle
+   Seq: ( ME_4ADC29D40064 // Handle
  ME_4ADC29EC0026 // Name
- ) .SequenceCode.It
+ )
  ; // Attributes
  : Children
-   @ ( ME_4ADC29F90006 // Font
- ) .SequenceCode.It
+   Seq: ( ME_4ADC29F90006 // Font
+ )
  ; // Children
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest_Engine'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest_Engine'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
  CONST extprop:pas:TypeName 'Tf1MainMenuChangePath'
  CONST extprop:pas:ElementPrefixBase 'f1'
  CONST extprop:pas:ElementPrefix 'f1_'
@@ -1250,6 +1386,7 @@ FORWARD ME_4ADC2A7403E5
  : Parent ME_4ADC2A7403E5 // Font
  ;
  CONST Value true
+ CONST extprop:pas:Value true
 
 ref; // ME_4ADC2A7B0396 Underline
 
@@ -1264,9 +1401,13 @@ ref; // ME_4ADC2A7B0396 Underline
  : Parent ME_4ADC2A3E0370 // MainMenuInteractiveHeader
  ;
  : Attributes
-   @ ( ME_4ADC2A7B0396 // Underline
- ) .SequenceCode.It
+   Seq: ( ME_4ADC2A7B0396 // Underline
+ )
  ; // Attributes
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest_Engine'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest_Engine'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
  CONST extprop:pas:TypeName 'Tf1Font'
  CONST extprop:pas:ElementPrefixBase 'f1'
  CONST extprop:pas:ElementPrefix 'f1_'
@@ -1283,6 +1424,7 @@ ref; // ME_4ADC2A7403E5 Font
  : Parent ME_4ADC2A3E0370 // MainMenuInteractiveHeader
  ;
  CONST Value '-34'
+ CONST extprop:pas:Value '-34'
 
 ref; // ME_4ADC2A590319 Handle
 
@@ -1296,6 +1438,7 @@ ref; // ME_4ADC2A590319 Handle
  : Parent ME_4ADC2A3E0370 // MainMenuInteractiveHeader
  ;
  CONST Value '''Интерактивный заголовок'''
+ CONST extprop:pas:Value '''Интерактивный заголовок'''
 
 ref; // ME_4ADC2A68032D Name
 
@@ -1311,18 +1454,22 @@ ref; // ME_4ADC2A68032D Name
  : Parent ME_4862215A02D8 // TextStyle
  ;
  : Inherits
-   @ ( ME_4ACB354D030B // MainMenuHeader
- ) .SequenceCode.It
+   Seq: ( ME_4ACB354D030B // MainMenuHeader
+ )
  ; // Inherits
  : Attributes
-   @ ( ME_4ADC2A590319 // Handle
+   Seq: ( ME_4ADC2A590319 // Handle
  ME_4ADC2A68032D // Name
- ) .SequenceCode.It
+ )
  ; // Attributes
  : Children
-   @ ( ME_4ADC2A7403E5 // Font
- ) .SequenceCode.It
+   Seq: ( ME_4ADC2A7403E5 // Font
+ )
  ; // Children
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest_Engine'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest_Engine'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
  CONST extprop:pas:TypeName 'Tf1MainMenuInteractiveHeader'
  CONST extprop:pas:ElementPrefixBase 'f1'
  CONST extprop:pas:ElementPrefix 'f1_'
@@ -1343,6 +1490,7 @@ FORWARD ME_4DDE678403B7
  : Parent ME_4DDE678403B7 // Font
  ;
  CONST Value true
+ CONST extprop:pas:Value true
 
 ref; // ME_4DDE678B03A0 Italic
 
@@ -1358,6 +1506,7 @@ ref; // ME_4DDE678B03A0 Italic
  CONST Value 'clPurple'
  : ValueType WL 'ME_47CBD5980343' '55C4AEC801CA.pas.ms.script' // Colors
  ;
+ CONST extprop:pas:Value 'Graphics.clPurple'
 
 ref; // ME_4DDE67B800E6 ForeColor
 
@@ -1372,10 +1521,14 @@ ref; // ME_4DDE67B800E6 ForeColor
  : Parent ME_4DDE66FE0008 // Changes1
  ;
  : Attributes
-   @ ( ME_4DDE678B03A0 // Italic
+   Seq: ( ME_4DDE678B03A0 // Italic
  ME_4DDE67B800E6 // ForeColor
- ) .SequenceCode.It
+ )
  ; // Attributes
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest_Engine'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest_Engine'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
  CONST extprop:pas:TypeName 'Tf1Font'
  CONST extprop:pas:ElementPrefixBase 'f1'
  CONST extprop:pas:ElementPrefix 'f1_'
@@ -1392,6 +1545,7 @@ ref; // ME_4DDE678403B7 Font
  : Parent ME_4DDE66FE0008 // Changes1
  ;
  CONST Value '-65530'
+ CONST extprop:pas:Value '-65530'
 
 ref; // ME_4DDE6725006E Handle
 
@@ -1405,6 +1559,7 @@ ref; // ME_4DDE6725006E Handle
  : Parent ME_4DDE66FE0008 // Changes1
  ;
  CONST Value '''Обзор изменений документа 1'''
+ CONST extprop:pas:Value '''Обзор изменений документа 1'''
 
 ref; // ME_4DDE674000F5 Name
 
@@ -1420,6 +1575,7 @@ ref; // ME_4DDE674000F5 Name
  CONST Value 'Center'
  : ValueType WL 'ME_4688D85301B2' '469D0AC7005E.pas.ms.script' // IndentType
  ;
+ CONST extprop:pas:Value 'evdTypes.ev_itCenter'
 
 ref; // ME_4DDE676302C4 Justification
 
@@ -1433,6 +1589,7 @@ ref; // ME_4DDE676302C4 Justification
  : Parent ME_4DDE66FE0008 // Changes1
  ;
  CONST Value 0
+ CONST extprop:pas:Value 0
 
 ref; // ME_4DDE74BE00D9 FirstIndent
 
@@ -1448,16 +1605,20 @@ ref; // ME_4DDE74BE00D9 FirstIndent
  : Parent ME_4862215A02D8 // TextStyle
  ;
  : Attributes
-   @ ( ME_4DDE6725006E // Handle
+   Seq: ( ME_4DDE6725006E // Handle
  ME_4DDE674000F5 // Name
  ME_4DDE676302C4 // Justification
  ME_4DDE74BE00D9 // FirstIndent
- ) .SequenceCode.It
+ )
  ; // Attributes
  : Children
-   @ ( ME_4DDE678403B7 // Font
- ) .SequenceCode.It
+   Seq: ( ME_4DDE678403B7 // Font
+ )
  ; // Children
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest_Engine'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest_Engine'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
  CONST extprop:pas:TypeName 'Tf1Changes1'
  CONST extprop:pas:ElementPrefixBase 'f1'
  CONST extprop:pas:ElementPrefix 'f1_'
@@ -1476,6 +1637,7 @@ FORWARD ME_4DDE6716010D
  : Parent ME_4DDE6716010D // Changes2
  ;
  CONST Value '-65529'
+ CONST extprop:pas:Value '-65529'
 
 ref; // ME_4DDE6731014F Handle
 
@@ -1489,6 +1651,7 @@ ref; // ME_4DDE6731014F Handle
  : Parent ME_4DDE6716010D // Changes2
  ;
  CONST Value '''Обзор изменений документа 2'''
+ CONST extprop:pas:Value '''Обзор изменений документа 2'''
 
 ref; // ME_4DDE674D02C6 Name
 
@@ -1504,6 +1667,7 @@ ref; // ME_4DDE674D02C6 Name
  CONST Value 'Left'
  : ValueType WL 'ME_4688D85301B2' '469D0AC7005E.pas.ms.script' // IndentType
  ;
+ CONST extprop:pas:Value 'evdTypes.ev_itLeft'
 
 ref; // ME_4DDE676D03D7 Justification
 
@@ -1519,15 +1683,19 @@ ref; // ME_4DDE676D03D7 Justification
  : Parent ME_4862215A02D8 // TextStyle
  ;
  : Inherits
-   @ ( ME_4DDE66FE0008 // Changes1
- ) .SequenceCode.It
+   Seq: ( ME_4DDE66FE0008 // Changes1
+ )
  ; // Inherits
  : Attributes
-   @ ( ME_4DDE6731014F // Handle
+   Seq: ( ME_4DDE6731014F // Handle
  ME_4DDE674D02C6 // Name
  ME_4DDE676D03D7 // Justification
- ) .SequenceCode.It
+ )
  ; // Attributes
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest_Engine'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest_Engine'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
  CONST extprop:pas:TypeName 'Tf1Changes2'
  CONST extprop:pas:ElementPrefixBase 'f1'
  CONST extprop:pas:ElementPrefix 'f1_'
@@ -1548,6 +1716,7 @@ FORWARD ME_4E9718AD01ED
  CONST Value 'EnclosureHeader'
  : ValueType WL 'ME_476BE0660328' '476BE0350329.pas.ms.script' // Standard
  ;
+ CONST extprop:pas:Value 'evdStyles.ev_saEnclosureHeader'
 
 ref; // ME_4E9718FC028E Handle
 
@@ -1561,6 +1730,7 @@ ref; // ME_4E9718FC028E Handle
  : Parent ME_4E9718AD01ED // EnclosureHeader
  ;
  CONST Value '''Заголовок приложения'''
+ CONST extprop:pas:Value '''Заголовок приложения'''
 
 ref; // ME_4E9719110109 Name
 
@@ -1574,6 +1744,7 @@ ref; // ME_4E9719110109 Name
  : Parent ME_4E9718AD01ED // EnclosureHeader
  ;
  CONST Value true
+ CONST extprop:pas:Value true
 
 ref; // ME_4E97192A0380 Apply2Para
 
@@ -1589,6 +1760,7 @@ ref; // ME_4E97192A0380 Apply2Para
  CONST Value 'Right'
  : ValueType WL 'ME_4688D85301B2' '469D0AC7005E.pas.ms.script' // IndentType
  ;
+ CONST extprop:pas:Value 'evdTypes.ev_itRight'
 
 ref; // ME_4E97193C018D Justification
 
@@ -1604,16 +1776,20 @@ ref; // ME_4E97193C018D Justification
  : Parent ME_4862215A02D8 // TextStyle
  ;
  : Inherits
-   @ ( WL 'ME_4860ED2200AB' '484A470100DD.pas.ms.script' // ColorSelection
- ) .SequenceCode.It
+   Seq: ( WL 'ME_4860ED2200AB' '484A470100DD.pas.ms.script' // ColorSelection
+ )
  ; // Inherits
  : Attributes
-   @ ( ME_4E9718FC028E // Handle
+   Seq: ( ME_4E9718FC028E // Handle
  ME_4E9719110109 // Name
  ME_4E97192A0380 // Apply2Para
  ME_4E97193C018D // Justification
- ) .SequenceCode.It
+ )
  ; // Attributes
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest_Engine'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest_Engine'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
  CONST extprop:pas:TypeName 'Tf1EnclosureHeader'
  CONST extprop:pas:ElementPrefixBase 'f1'
  CONST extprop:pas:ElementPrefix 'f1_'
@@ -1634,6 +1810,7 @@ FORWARD ME_4EC2842F0044
  : Parent ME_4EC2842F0044 // Font
  ;
  CONST Value true
+ CONST extprop:pas:Value true
 
 ref; // ME_4EC2843902EA Bold
 
@@ -1647,6 +1824,7 @@ ref; // ME_4EC2843902EA Bold
  : Parent ME_4EC2842F0044 // Font
  ;
  CONST Value '@'
+ CONST extprop:pas:Value '@'
 
 ref; // ME_4EC28D1F0227 ForeColor
 
@@ -1661,10 +1839,14 @@ ref; // ME_4EC28D1F0227 ForeColor
  : Parent ME_4EC2831B023E // EditionInterval
  ;
  : Attributes
-   @ ( ME_4EC2843902EA // Bold
+   Seq: ( ME_4EC2843902EA // Bold
  ME_4EC28D1F0227 // ForeColor
- ) .SequenceCode.It
+ )
  ; // Attributes
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest_Engine'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest_Engine'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
  CONST extprop:pas:TypeName 'Tf1Font'
  CONST extprop:pas:ElementPrefixBase 'f1'
  CONST extprop:pas:ElementPrefix 'f1_'
@@ -1683,6 +1865,7 @@ ref; // ME_4EC2842F0044 Font
  CONST Value 'EditionInterval'
  : ValueType WL 'ME_476BE0660328' '476BE0350329.pas.ms.script' // Standard
  ;
+ CONST extprop:pas:Value 'evdStyles.ev_saEditionInterval'
 
 ref; // ME_4EC283460224 Handle
 
@@ -1696,6 +1879,7 @@ ref; // ME_4EC283460224 Handle
  : Parent ME_4EC2831B023E // EditionInterval
  ;
  CONST Value '''Интервал действия редакции'''
+ CONST extprop:pas:Value '''Интервал действия редакции'''
 
 ref; // ME_4EC28408022D Name
 
@@ -1709,6 +1893,7 @@ ref; // ME_4EC28408022D Name
  : Parent ME_4EC2831B023E // EditionInterval
  ;
  CONST Value false
+ CONST extprop:pas:Value false
 
 ref; // ME_4EC2889101A4 IsChangeableFont
 
@@ -1722,6 +1907,7 @@ ref; // ME_4EC2889101A4 IsChangeableFont
  : Parent ME_4EC2831B023E // EditionInterval
  ;
  CONST Value false
+ CONST extprop:pas:Value false
 
 ref; // ME_4EC288A800A8 VisibleToUser
 
@@ -1737,20 +1923,24 @@ ref; // ME_4EC288A800A8 VisibleToUser
  : Parent ME_4862215A02D8 // TextStyle
  ;
  : Inherits
-   @ ( WL 'ME_4860ED2200AB' '484A470100DD.pas.ms.script' // ColorSelection
- ) .SequenceCode.It
+   Seq: ( WL 'ME_4860ED2200AB' '484A470100DD.pas.ms.script' // ColorSelection
+ )
  ; // Inherits
  : Attributes
-   @ ( ME_4EC283460224 // Handle
+   Seq: ( ME_4EC283460224 // Handle
  ME_4EC28408022D // Name
  ME_4EC2889101A4 // IsChangeableFont
  ME_4EC288A800A8 // VisibleToUser
- ) .SequenceCode.It
+ )
  ; // Attributes
  : Children
-   @ ( ME_4EC2842F0044 // Font
- ) .SequenceCode.It
+   Seq: ( ME_4EC2842F0044 // Font
+ )
  ; // Children
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest_Engine'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest_Engine'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
  CONST extprop:pas:TypeName 'Tf1EditionInterval'
  CONST extprop:pas:ElementPrefixBase 'f1'
  CONST extprop:pas:ElementPrefix 'f1_'
@@ -1771,6 +1961,7 @@ FORWARD ME_4EC284E902C0
  : Parent ME_4EC284E902C0 // Font
  ;
  CONST Value 10
+ CONST extprop:pas:Value 10
 
 ref; // ME_4EC28D2B0238 Size
 
@@ -1785,9 +1976,13 @@ ref; // ME_4EC28D2B0238 Size
  : Parent ME_4EC283940183 // Edition
  ;
  : Attributes
-   @ ( ME_4EC28D2B0238 // Size
- ) .SequenceCode.It
+   Seq: ( ME_4EC28D2B0238 // Size
+ )
  ; // Attributes
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest_Engine'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest_Engine'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
  CONST extprop:pas:TypeName 'Tf1Font'
  CONST extprop:pas:ElementPrefixBase 'f1'
  CONST extprop:pas:ElementPrefix 'f1_'
@@ -1806,6 +2001,7 @@ ref; // ME_4EC284E902C0 Font
  CONST Value 'Edition'
  : ValueType WL 'ME_476BE0660328' '476BE0350329.pas.ms.script' // Standard
  ;
+ CONST extprop:pas:Value 'evdStyles.ev_saEdition'
 
 ref; // ME_4EC2839F0325 Handle
 
@@ -1819,6 +2015,7 @@ ref; // ME_4EC2839F0325 Handle
  : Parent ME_4EC283940183 // Edition
  ;
  CONST Value 0
+ CONST extprop:pas:Value 0
 
 ref; // ME_4EC283B60271 FirstIndent
 
@@ -1832,6 +2029,7 @@ ref; // ME_4EC283B60271 FirstIndent
  : Parent ME_4EC283940183 // Edition
  ;
  CONST Value 370
+ CONST extprop:pas:Value 370
 
 ref; // ME_4EC283C1010C LeftIndent
 
@@ -1847,6 +2045,7 @@ ref; // ME_4EC283C1010C LeftIndent
  CONST Value 'Left'
  : ValueType WL 'ME_4688D85301B2' '469D0AC7005E.pas.ms.script' // IndentType
  ;
+ CONST extprop:pas:Value 'evdTypes.ev_itLeft'
 
 ref; // ME_4EC283D400FC Justification
 
@@ -1860,6 +2059,7 @@ ref; // ME_4EC283D400FC Justification
  : Parent ME_4EC283940183 // Edition
  ;
  CONST Value '''Редакция'''
+ CONST extprop:pas:Value '''Редакция'''
 
 ref; // ME_4EC2841A02F7 Name
 
@@ -1873,6 +2073,7 @@ ref; // ME_4EC2841A02F7 Name
  : Parent ME_4EC283940183 // Edition
  ;
  CONST Value false
+ CONST extprop:pas:Value false
 
 ref; // ME_4EC2889A00BC IsChangeableFont
 
@@ -1886,6 +2087,7 @@ ref; // ME_4EC2889A00BC IsChangeableFont
  : Parent ME_4EC283940183 // Edition
  ;
  CONST Value false
+ CONST extprop:pas:Value false
 
 ref; // ME_4EC288AF03AE VisibleToUser
 
@@ -1901,19 +2103,23 @@ ref; // ME_4EC288AF03AE VisibleToUser
  : Parent ME_4862215A02D8 // TextStyle
  ;
  : Attributes
-   @ ( ME_4EC2839F0325 // Handle
+   Seq: ( ME_4EC2839F0325 // Handle
  ME_4EC283B60271 // FirstIndent
  ME_4EC283C1010C // LeftIndent
  ME_4EC283D400FC // Justification
  ME_4EC2841A02F7 // Name
  ME_4EC2889A00BC // IsChangeableFont
  ME_4EC288AF03AE // VisibleToUser
- ) .SequenceCode.It
+ )
  ; // Attributes
  : Children
-   @ ( ME_4EC284E902C0 // Font
- ) .SequenceCode.It
+   Seq: ( ME_4EC284E902C0 // Font
+ )
  ; // Children
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest_Engine'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest_Engine'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
  CONST extprop:pas:TypeName 'Tf1Edition'
  CONST extprop:pas:ElementPrefixBase 'f1'
  CONST extprop:pas:ElementPrefix 'f1_'
@@ -1936,6 +2142,7 @@ FORWARD ME_4EC294BB0089
  CONST Value 'clSilver'
  : ValueType WL 'ME_47CBD5980343' '55C4AEC801CA.pas.ms.script' // Colors
  ;
+ CONST extprop:pas:Value 'Graphics.clSilver'
 
 ref; // ME_4EC2950500DE ForeColor
 
@@ -1949,6 +2156,7 @@ ref; // ME_4EC2950500DE ForeColor
  : Parent ME_4EC294BB0089 // Font
  ;
  CONST Value false
+ CONST extprop:pas:Value false
 
 ref; // ME_4EC296B40283 Bold
 
@@ -1963,10 +2171,14 @@ ref; // ME_4EC296B40283 Bold
  : Parent ME_4EC292E401B8 // EditionNumber
  ;
  : Attributes
-   @ ( ME_4EC2950500DE // ForeColor
+   Seq: ( ME_4EC2950500DE // ForeColor
  ME_4EC296B40283 // Bold
- ) .SequenceCode.It
+ )
  ; // Attributes
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest_Engine'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest_Engine'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
  CONST extprop:pas:TypeName 'Tf1Font'
  CONST extprop:pas:ElementPrefixBase 'f1'
  CONST extprop:pas:ElementPrefix 'f1_'
@@ -1985,6 +2197,7 @@ ref; // ME_4EC294BB0089 Font
  CONST Value 'EditionNumber'
  : ValueType WL 'ME_476BE0660328' '476BE0350329.pas.ms.script' // Standard
  ;
+ CONST extprop:pas:Value 'evdStyles.ev_saEditionNumber'
 
 ref; // ME_4EC29304028F Handle
 
@@ -1998,6 +2211,7 @@ ref; // ME_4EC29304028F Handle
  : Parent ME_4EC292E401B8 // EditionNumber
  ;
  CONST Value '''Номер редакции'''
+ CONST extprop:pas:Value '''Номер редакции'''
 
 ref; // ME_4EC2931C012D Name
 
@@ -2013,18 +2227,22 @@ ref; // ME_4EC2931C012D Name
  : Parent ME_4862215A02D8 // TextStyle
  ;
  : Inherits
-   @ ( ME_4EC2831B023E // EditionInterval
- ) .SequenceCode.It
+   Seq: ( ME_4EC2831B023E // EditionInterval
+ )
  ; // Inherits
  : Attributes
-   @ ( ME_4EC29304028F // Handle
+   Seq: ( ME_4EC29304028F // Handle
  ME_4EC2931C012D // Name
- ) .SequenceCode.It
+ )
  ; // Attributes
  : Children
-   @ ( ME_4EC294BB0089 // Font
- ) .SequenceCode.It
+   Seq: ( ME_4EC294BB0089 // Font
+ )
  ; // Children
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest_Engine'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest_Engine'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
  CONST extprop:pas:TypeName 'Tf1EditionNumber'
  CONST extprop:pas:ElementPrefixBase 'f1'
  CONST extprop:pas:ElementPrefix 'f1_'
@@ -2045,6 +2263,7 @@ FORWARD ME_51E512FD0100
  : Parent ME_51E512FD0100 // Font
  ;
  CONST Value 11
+ CONST extprop:pas:Value 11
 
 ref; // ME_51E513090280 Size
 
@@ -2058,6 +2277,7 @@ ref; // ME_51E513090280 Size
  : Parent ME_51E512FD0100 // Font
  ;
  CONST Value '$818386'
+ CONST extprop:pas:Value '$818386'
 
 ref; // ME_51E5130F03BC ForeColor
 
@@ -2072,10 +2292,14 @@ ref; // ME_51E5130F03BC ForeColor
  : Parent ME_51E5116E03A9 // Snippet
  ;
  : Attributes
-   @ ( ME_51E513090280 // Size
+   Seq: ( ME_51E513090280 // Size
  ME_51E5130F03BC // ForeColor
- ) .SequenceCode.It
+ )
  ; // Attributes
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest_Engine'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest_Engine'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
  CONST extprop:pas:TypeName 'Tf1Font'
  CONST extprop:pas:ElementPrefixBase 'f1'
  CONST extprop:pas:ElementPrefix 'f1_'
@@ -2094,6 +2318,7 @@ ref; // ME_51E512FD0100 Font
  CONST Value 'Snippet'
  : ValueType WL 'ME_476BE0660328' '476BE0350329.pas.ms.script' // Standard
  ;
+ CONST extprop:pas:Value 'evdStyles.ev_saSnippet'
 
 ref; // ME_51E511E40320 Handle
 
@@ -2107,6 +2332,7 @@ ref; // ME_51E511E40320 Handle
  : Parent ME_51E5116E03A9 // Snippet
  ;
  CONST Value '''Дочерний элемент списка'''
+ CONST extprop:pas:Value '''Дочерний элемент списка'''
 
 ref; // ME_51E511F10275 Name
 
@@ -2120,6 +2346,7 @@ ref; // ME_51E511F10275 Name
  : Parent ME_51E5116E03A9 // Snippet
  ;
  CONST Value 0
+ CONST extprop:pas:Value 0
 
 ref; // ME_51E513270160 FirstIndent
 
@@ -2133,6 +2360,7 @@ ref; // ME_51E513270160 FirstIndent
  : Parent ME_51E5116E03A9 // Snippet
  ;
  CONST Value 300
+ CONST extprop:pas:Value 300
 
 ref; // ME_565713E901A7 RightIndent
 
@@ -2148,16 +2376,20 @@ ref; // ME_565713E901A7 RightIndent
  : Parent ME_4862215A02D8 // TextStyle
  ;
  : Attributes
-   @ ( ME_51E511E40320 // Handle
+   Seq: ( ME_51E511E40320 // Handle
  ME_51E511F10275 // Name
  ME_51E513270160 // FirstIndent
  ME_565713E901A7 // RightIndent
- ) .SequenceCode.It
+ )
  ; // Attributes
  : Children
-   @ ( ME_51E512FD0100 // Font
- ) .SequenceCode.It
+   Seq: ( ME_51E512FD0100 // Font
+ )
  ; // Children
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest_Engine'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest_Engine'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
  CONST extprop:pas:TypeName 'Tf1Snippet'
  CONST extprop:pas:ElementPrefixBase 'f1'
  CONST extprop:pas:ElementPrefix 'f1_'
@@ -2178,6 +2410,7 @@ FORWARD ME_565704EA026C
  CONST Value 'DocumentInList'
  : ValueType WL 'ME_476BE0660328' '476BE0350329.pas.ms.script' // Standard
  ;
+ CONST extprop:pas:Value 'evdStyles.ev_saDocumentInList'
 
 ref; // ME_565704F801F4 Handle
 
@@ -2191,6 +2424,7 @@ ref; // ME_565704F801F4 Handle
  : Parent ME_565704EA026C // DocumentInList
  ;
  CONST Value '''Документ в списке'''
+ CONST extprop:pas:Value '''Документ в списке'''
 
 ref; // ME_565705170085 Name
 
@@ -2204,6 +2438,7 @@ ref; // ME_565705170085 Name
  : Parent ME_565704EA026C // DocumentInList
  ;
  CONST Value false
+ CONST extprop:pas:Value false
 
 ref; // ME_555C8DD403CF VisibleToUser
 
@@ -2217,6 +2452,7 @@ ref; // ME_555C8DD403CF VisibleToUser
  : Parent ME_565704EA026C // DocumentInList
  ;
  CONST Value 0
+ CONST extprop:pas:Value 0
 
 ref; // ME_5657055F01B7 FirstIndent
 
@@ -2230,6 +2466,7 @@ ref; // ME_5657055F01B7 FirstIndent
  : Parent ME_565704EA026C // DocumentInList
  ;
  CONST Value 300
+ CONST extprop:pas:Value 300
 
 ref; // ME_56570589032A RightIndent
 
@@ -2245,13 +2482,17 @@ ref; // ME_56570589032A RightIndent
  : Parent ME_4862215A02D8 // TextStyle
  ;
  : Attributes
-   @ ( ME_565704F801F4 // Handle
+   Seq: ( ME_565704F801F4 // Handle
  ME_565705170085 // Name
  ME_555C8DD403CF // VisibleToUser
  ME_5657055F01B7 // FirstIndent
  ME_56570589032A // RightIndent
- ) .SequenceCode.It
+ )
  ; // Attributes
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest_Engine'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest_Engine'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
  CONST extprop:pas:TypeName 'Tf1DocumentInList'
  CONST extprop:pas:ElementPrefixBase 'f1'
  CONST extprop:pas:ElementPrefix 'f1_'
@@ -2272,6 +2513,7 @@ FORWARD ME_53D6375003DC
  : Parent ME_53D6375003DC // Font
  ;
  CONST Value '$8b1a55'
+ CONST extprop:pas:Value '$8b1a55'
 
 ref; // ME_53D6375A00AD ForeColor
 
@@ -2286,9 +2528,13 @@ ref; // ME_53D6375A00AD ForeColor
  : Parent ME_53D636E80128 // VisitedSnippetInList
  ;
  : Attributes
-   @ ( ME_53D6375A00AD // ForeColor
- ) .SequenceCode.It
+   Seq: ( ME_53D6375A00AD // ForeColor
+ )
  ; // Attributes
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest_Engine'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest_Engine'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
  CONST extprop:pas:TypeName 'Tf1Font'
  CONST extprop:pas:ElementPrefixBase 'f1'
  CONST extprop:pas:ElementPrefix 'f1_'
@@ -2307,6 +2553,7 @@ ref; // ME_53D6375003DC Font
  CONST Value 'VisitedSnippetInList'
  : ValueType WL 'ME_476BE0660328' '476BE0350329.pas.ms.script' // Standard
  ;
+ CONST extprop:pas:Value 'evdStyles.ev_saVisitedSnippetInList'
 
 ref; // ME_53D637040131 Handle
 
@@ -2320,6 +2567,7 @@ ref; // ME_53D637040131 Handle
  : Parent ME_53D636E80128 // VisitedSnippetInList
  ;
  CONST Value false
+ CONST extprop:pas:Value false
 
 ref; // ME_53D6373003AD VisibleToUser
 
@@ -2333,6 +2581,7 @@ ref; // ME_53D6373003AD VisibleToUser
  : Parent ME_53D636E80128 // VisitedSnippetInList
  ;
  CONST Value '''Посещенный дочерний элемент списка'''
+ CONST extprop:pas:Value '''Посещенный дочерний элемент списка'''
 
 ref; // ME_53D63774021F Name
 
@@ -2348,19 +2597,23 @@ ref; // ME_53D63774021F Name
  : Parent ME_4862215A02D8 // TextStyle
  ;
  : Inherits
-   @ ( ME_51E5116E03A9 // Snippet
- ) .SequenceCode.It
+   Seq: ( ME_51E5116E03A9 // Snippet
+ )
  ; // Inherits
  : Attributes
-   @ ( ME_53D637040131 // Handle
+   Seq: ( ME_53D637040131 // Handle
  ME_53D6373003AD // VisibleToUser
  ME_53D63774021F // Name
- ) .SequenceCode.It
+ )
  ; // Attributes
  : Children
-   @ ( ME_53D6375003DC // Font
- ) .SequenceCode.It
+   Seq: ( ME_53D6375003DC // Font
+ )
  ; // Children
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest_Engine'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest_Engine'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
  CONST extprop:pas:TypeName 'Tf1VisitedSnippetInList'
  CONST extprop:pas:ElementPrefixBase 'f1'
  CONST extprop:pas:ElementPrefix 'f1_'
@@ -2383,6 +2636,7 @@ FORWARD ME_54BE6A73037C
  CONST Value 'clYellow'
  : ValueType WL 'ME_47CBD5980343' '55C4AEC801CA.pas.ms.script' // Colors
  ;
+ CONST extprop:pas:Value 'Graphics.clYellow'
 
 ref; // ME_54BE6A8C03B4 BackColor
 
@@ -2397,9 +2651,13 @@ ref; // ME_54BE6A8C03B4 BackColor
  : Parent ME_54BE69EE00CD // TechComment
  ;
  : Attributes
-   @ ( ME_54BE6A8C03B4 // BackColor
- ) .SequenceCode.It
+   Seq: ( ME_54BE6A8C03B4 // BackColor
+ )
  ; // Attributes
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest_Engine'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest_Engine'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
  CONST extprop:pas:TypeName 'Tf1Font'
  CONST extprop:pas:ElementPrefixBase 'f1'
  CONST extprop:pas:ElementPrefix 'f1_'
@@ -2418,6 +2676,7 @@ ref; // ME_54BE6A73037C Font
  CONST Value 'TechComment'
  : ValueType WL 'ME_476BE0660328' '476BE0350329.pas.ms.script' // Standard
  ;
+ CONST extprop:pas:Value 'evdStyles.ev_saTechComment'
 
 ref; // ME_54BE6A000350 Handle
 
@@ -2431,6 +2690,7 @@ ref; // ME_54BE6A000350 Handle
  : Parent ME_54BE69EE00CD // TechComment
  ;
  CONST Value 0
+ CONST extprop:pas:Value 0
 
 ref; // ME_54BE6A2C0162 FirstIndent
 
@@ -2444,6 +2704,7 @@ ref; // ME_54BE6A2C0162 FirstIndent
  : Parent ME_54BE69EE00CD // TechComment
  ;
  CONST Value 0
+ CONST extprop:pas:Value 0
 
 ref; // ME_54BE6A380245 FirstLineIndent
 
@@ -2459,6 +2720,7 @@ ref; // ME_54BE6A380245 FirstLineIndent
  CONST Value 'Left'
  : ValueType WL 'ME_4688D85301B2' '469D0AC7005E.pas.ms.script' // IndentType
  ;
+ CONST extprop:pas:Value 'evdTypes.ev_itLeft'
 
 ref; // ME_54BE6A4B028F Justification
 
@@ -2472,6 +2734,7 @@ ref; // ME_54BE6A4B028F Justification
  : Parent ME_54BE69EE00CD // TechComment
  ;
  CONST Value '''Технический комментарий'''
+ CONST extprop:pas:Value '''Технический комментарий'''
 
 ref; // ME_54BE6E7100DC Name
 
@@ -2487,17 +2750,21 @@ ref; // ME_54BE6E7100DC Name
  : Parent ME_4862215A02D8 // TextStyle
  ;
  : Attributes
-   @ ( ME_54BE6A000350 // Handle
+   Seq: ( ME_54BE6A000350 // Handle
  ME_54BE6A2C0162 // FirstIndent
  ME_54BE6A380245 // FirstLineIndent
  ME_54BE6A4B028F // Justification
  ME_54BE6E7100DC // Name
- ) .SequenceCode.It
+ )
  ; // Attributes
  : Children
-   @ ( ME_54BE6A73037C // Font
- ) .SequenceCode.It
+   Seq: ( ME_54BE6A73037C // Font
+ )
  ; // Children
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest_Engine'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest_Engine'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
  CONST extprop:pas:TypeName 'Tf1TechComment'
  CONST extprop:pas:ElementPrefixBase 'f1'
  CONST extprop:pas:ElementPrefix 'f1_'
@@ -2518,6 +2785,7 @@ FORWARD ME_53CCD5FA001A
  : Parent ME_53CCD5FA001A // Font
  ;
  CONST Value '$8b1a55'
+ CONST extprop:pas:Value '$8b1a55'
 
 ref; // ME_53CCD60D01F0 ForeColor
 
@@ -2531,6 +2799,7 @@ ref; // ME_53CCD60D01F0 ForeColor
  : Parent ME_53CCD5FA001A // Font
  ;
  CONST Value '@'
+ CONST extprop:pas:Value '@'
 
 ref; // ME_53D630750375 Size
 
@@ -2545,10 +2814,14 @@ ref; // ME_53D630750375 Size
  : Parent ME_53CCD4FE0269 // VisitedDocumentInList
  ;
  : Attributes
-   @ ( ME_53CCD60D01F0 // ForeColor
+   Seq: ( ME_53CCD60D01F0 // ForeColor
  ME_53D630750375 // Size
- ) .SequenceCode.It
+ )
  ; // Attributes
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest_Engine'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest_Engine'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
  CONST extprop:pas:TypeName 'Tf1Font'
  CONST extprop:pas:ElementPrefixBase 'f1'
  CONST extprop:pas:ElementPrefix 'f1_'
@@ -2567,6 +2840,7 @@ ref; // ME_53CCD5FA001A Font
  CONST Value 'VisitedDocumentInList'
  : ValueType WL 'ME_476BE0660328' '476BE0350329.pas.ms.script' // Standard
  ;
+ CONST extprop:pas:Value 'evdStyles.ev_saVisitedDocumentInList'
 
 ref; // ME_53CCD51D00E5 Handle
 
@@ -2580,6 +2854,7 @@ ref; // ME_53CCD51D00E5 Handle
  : Parent ME_53CCD4FE0269 // VisitedDocumentInList
  ;
  CONST Value '''Посещенный документ списка'''
+ CONST extprop:pas:Value '''Посещенный документ списка'''
 
 ref; // ME_53CCD5320111 Name
 
@@ -2595,18 +2870,22 @@ ref; // ME_53CCD5320111 Name
  : Parent ME_4862215A02D8 // TextStyle
  ;
  : Inherits
-   @ ( ME_565704EA026C // DocumentInList
- ) .SequenceCode.It
+   Seq: ( ME_565704EA026C // DocumentInList
+ )
  ; // Inherits
  : Attributes
-   @ ( ME_53CCD51D00E5 // Handle
+   Seq: ( ME_53CCD51D00E5 // Handle
  ME_53CCD5320111 // Name
- ) .SequenceCode.It
+ )
  ; // Attributes
  : Children
-   @ ( ME_53CCD5FA001A // Font
- ) .SequenceCode.It
+   Seq: ( ME_53CCD5FA001A // Font
+ )
  ; // Children
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest_Engine'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest_Engine'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
  CONST extprop:pas:TypeName 'Tf1VisitedDocumentInList'
  CONST extprop:pas:ElementPrefixBase 'f1'
  CONST extprop:pas:ElementPrefix 'f1_'
@@ -2646,11 +2925,11 @@ ref; // ME_4EC2A63C02C6
  : Parent ME_4860F3C103E4 // F1
  ;
  : Implements
-   @ ( WL 'ME_4860FD880077' '48492FC0029D.pas.ms.script' // TextStyle
- ) .SequenceCode.It
+   Seq: ( WL 'ME_4860FD880077' '48492FC0029D.pas.ms.script' // TextStyle
+ )
  ; // Implements
  : Children
-   @ ( ME_4862217300FF // ANSIDOS
+   Seq: ( ME_4862217300FF // ANSIDOS
  ME_4A8046650113 // CompareEditionsText
  ME_4A6978A4008E // DeletedText
  ME_4A7A962F00C6 // ChatHeaderSender
@@ -2675,12 +2954,12 @@ ref; // ME_4EC2A63C02C6
  ME_53D636E80128 // VisitedSnippetInList
  ME_54BE69EE00CD // TechComment
  ME_53CCD4FE0269 // VisitedDocumentInList
- ) .SequenceCode.It
+ )
  ; // Children
  : Dependencies
-   @ ( ME_4EC2A43A00C3 // 
+   Seq: ( ME_4EC2A43A00C3 // 
  ME_4EC2A63C02C6 // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  CONST "Defines CompareTagWithInt" false
  CONST "Defines CompareTags" false
@@ -2688,13 +2967,13 @@ ref; // ME_4EC2A63C02C6
  CONST "Parented" 'undefined'
  CONST "SmallTag" 'undefined'
  CONST "children prefix" 'sa'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest_Engine'
  CONST intf.pas:Path 'common\components\gui\Garant\Everest_Engine\f1TextStyle_Const.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest_Engine'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
  CONST extprop:pas:TypeName 'TextStyleTag'
+ CONST extprop:pas:UnitName 'f1TextStyle_Const'
  CONST extprop:pas:ElementPrefixBase 'f1'
  CONST extprop:pas:ElementPrefix 'f1_sa'
 
@@ -2711,15 +2990,20 @@ ref; // ME_4862215A02D8 TextStyle
  : Parent ME_4860F3C103E4 // F1
  ;
  : Implements
-   @ ( WL 'ME_485683750360' '48492FC0029D.pas.ms.script' // TextPara
- ) .SequenceCode.It
+   Seq: ( WL 'ME_485683750360' '48492FC0029D.pas.ms.script' // TextPara
+ )
  ; // Implements
  CONST "Defines CompareTagWithInt" false
  CONST "Defines CompareTags" false
  CONST "Implementation" 'undef'
  CONST "Parented" 'undefined'
  CONST "SmallTag" 'undefined'
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest_Engine'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest_Engine'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
  CONST extprop:pas:TypeName 'TextParaTag'
+ CONST extprop:pas:UnitName 'f1TextPara_Const'
  CONST extprop:pas:ElementPrefixBase 'f1'
  CONST extprop:pas:ElementPrefix 'f1_'
 
@@ -2736,15 +3020,20 @@ ref; // ME_54BE533C0001 TextPara
  : Parent ME_4860F3C103E4 // F1
  ;
  : Implements
-   @ ( WL 'ME_4857B5260267' '48492FC0029D.pas.ms.script' // Document
- ) .SequenceCode.It
+   Seq: ( WL 'ME_4857B5260267' '48492FC0029D.pas.ms.script' // Document
+ )
  ; // Implements
  CONST "Defines CompareTagWithInt" false
  CONST "Defines CompareTags" false
  CONST "Implementation" 'undef'
  CONST "Parented" 'undefined'
  CONST "SmallTag" 'undefined'
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest_Engine'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest_Engine'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
  CONST extprop:pas:TypeName 'DocumentTag'
+ CONST extprop:pas:UnitName 'f1Document_Const'
  CONST extprop:pas:ElementPrefixBase 'f1'
  CONST extprop:pas:ElementPrefix 'f1_'
 
@@ -2785,19 +3074,24 @@ ref; // ME_54BE6ACC0233 Style
  : Parent ME_4860F3C103E4 // F1
  ;
  : Implements
-   @ ( WL 'ME_4857920901AF' '48492FC0029D.pas.ms.script' // DecorTextPara
- ) .SequenceCode.It
+   Seq: ( WL 'ME_4857920901AF' '48492FC0029D.pas.ms.script' // DecorTextPara
+ )
  ; // Implements
  : Attributes
-   @ ( ME_54BE6ACC0233 // Style
- ) .SequenceCode.It
+   Seq: ( ME_54BE6ACC0233 // Style
+ )
  ; // Attributes
  CONST "Defines CompareTagWithInt" false
  CONST "Defines CompareTags" false
  CONST "Implementation" 'undef'
  CONST "Parented" 'undefined'
  CONST "SmallTag" 'undefined'
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest_Engine'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest_Engine'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
  CONST extprop:pas:TypeName 'DecorTextParaTag'
+ CONST extprop:pas:UnitName 'f1DecorTextPara_Const'
  CONST extprop:pas:ElementPrefixBase 'f1'
  CONST extprop:pas:ElementPrefix 'f1_'
 
@@ -2856,20 +3150,25 @@ ref; // ME_54BE6960012C Height
  : Parent ME_4860F3C103E4 // F1
  ;
  : Implements
-   @ ( WL 'ME_4858116B0355' '48492FC0029D.pas.ms.script' // BitmapPara
- ) .SequenceCode.It
+   Seq: ( WL 'ME_4858116B0355' '48492FC0029D.pas.ms.script' // BitmapPara
+ )
  ; // Implements
  : Attributes
-   @ ( ME_54BE69530016 // Width
+   Seq: ( ME_54BE69530016 // Width
  ME_54BE6960012C // Height
- ) .SequenceCode.It
+ )
  ; // Attributes
  CONST "Defines CompareTagWithInt" false
  CONST "Defines CompareTags" false
  CONST "Implementation" 'undef'
  CONST "Parented" 'undefined'
  CONST "SmallTag" 'undefined'
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest_Engine'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest_Engine'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
  CONST extprop:pas:TypeName 'BitmapParaTag'
+ CONST extprop:pas:UnitName 'f1BitmapPara_Const'
  CONST extprop:pas:ElementPrefixBase 'f1'
  CONST extprop:pas:ElementPrefix 'f1_'
 
@@ -2892,6 +3191,7 @@ FORWARD ME_4028A9B7940C
 
 : ME_830EB2F5AEC4
  CONST UID '830EB2F5AEC4'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_4860F3C103E4 // F1
@@ -2912,30 +3212,34 @@ ref; // ME_830EB2F5AEC4
  : Parent ME_4AB112DF005B // EVD
  ;
  : Inherits
-   @ ( WL 'ME_4868BE17039B' '48492FC0029D.pas.ms.script' // Everest
- ) .SequenceCode.It
+   Seq: ( WL 'ME_4868BE17039B' '48492FC0029D.pas.ms.script' // Everest
+ )
  ; // Inherits
+ : Implements
+   Seq: ( WL 'ME_4E6A1F500033' '4E6A1F2D0336.pas.ms.script' // Схема документа в F1
+ )
+ ; // Implements
  : Children
-   @ ( ME_4862215A02D8 // TextStyle
+   Seq: ( ME_4862215A02D8 // TextStyle
  ME_54BE533C0001 // TextPara
  ME_54BE5365004B // Document
  ME_54BE68F10127 // DecorTextPara
  ME_54BE692F0384 // BitmapPara
- ) .SequenceCode.It
+ )
  ; // Children
  : Dependencies
-   @ ( ME_4B72E2140339 // 
+   Seq: ( ME_4B72E2140339 // 
  ME_830EB2F5AEC4 // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  CONST "elements prefix" 'f1'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest_Engine'
  CONST intf.pas:Path 'common\components\gui\Garant\Everest_Engine\F1_Schema.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest_Engine'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
  CONST extprop:pas:TypeName 'TF1Schema'
+ CONST extprop:pas:UnitName 'F1_Schema'
  CONST extprop:pas:ElementPrefixBase 'f1'
  CONST extprop:pas:ElementPrefix 'f1_'
 
@@ -2950,6 +3254,7 @@ FORWARD ME_54BE514101E5
  ;
  : Implementor ME_54BE514101E5 // TeeTextPara
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4D63D26D033F_ME_54BE514101E5 QueryTool
 
 : ME_54BE514101E5
@@ -2963,34 +3268,36 @@ ref; // ME_4D63D26D033F_ME_54BE514101E5 QueryTool
  : Parent ME_4AB112DF005B // EVD
  ;
  : Inherits
-   @ ( WL 'ME_48577C150116' '53D258F1004F.pas.ms.script' // TevTextPara
- ) .SequenceCode.It
+   Seq: ( WL 'ME_48577C150116' '53D258F1004F.pas.ms.script' // TevTextPara
+ )
  ; // Inherits
  : Implements
-   @ ( ME_54BE533C0001 // TextPara
+   Seq: ( ME_54BE533C0001 // TextPara
  ME_54BE68F10127 // DecorTextPara
- ) .SequenceCode.It
+ )
  ; // Implements
  : Overridden
-   @ ( ME_4D63D26D033F_ME_54BE514101E5 // QueryTool
- ) .SequenceCode.It
+   Seq: ( ME_4D63D26D033F_ME_54BE514101E5 // QueryTool
+ )
  ; // Overridden
  : Injected
-   @ ( WL 'ME_54BE525C0357' '54BE4A3A005B.pas.ms.script' // 
+   Seq: ( WL 'ME_54BE525C0357' '54BE4A3A005B.pas.ms.script' // 
  WL 'ME_54BE526A02CF' '54BE4A3A005B.pas.ms.script' // 
- ) .SequenceCode.It
+ )
  ; // Injected
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest_Engine'
  CONST intf.pas:Path 'common\components\gui\Garant\Everest_Engine\eeTextPara_InterfaceFactory.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest_Engine'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
  CONST extprop:pas:TypeName 'TeeTextParaInterfaceFactory'
+ CONST extprop:rc:SelfName 'eeTextParaInterfaceFactory'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'eeTextPara_InterfaceFactory'
 
 ref; // ME_54BE514101E5 TeeTextPara
 
@@ -3003,6 +3310,7 @@ FORWARD ME_54BE51580257
  ;
  : Implementor ME_54BE51580257 // TeeDocument
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4D63D26D033F_ME_54BE51580257 QueryTool
 
 : ME_54BE51580257
@@ -3016,33 +3324,35 @@ ref; // ME_4D63D26D033F_ME_54BE51580257 QueryTool
  : Parent ME_4AB112DF005B // EVD
  ;
  : Inherits
-   @ ( WL 'ME_4857B637007C' '53D258F1004F.pas.ms.script' // TevDocument
- ) .SequenceCode.It
+   Seq: ( WL 'ME_4857B637007C' '53D258F1004F.pas.ms.script' // TevDocument
+ )
  ; // Inherits
  : Implements
-   @ ( ME_54BE5365004B // Document
- ) .SequenceCode.It
+   Seq: ( ME_54BE5365004B // Document
+ )
  ; // Implements
  : Overridden
-   @ ( ME_4D63D26D033F_ME_54BE51580257 // QueryTool
- ) .SequenceCode.It
+   Seq: ( ME_4D63D26D033F_ME_54BE51580257 // QueryTool
+ )
  ; // Overridden
  : Injected
-   @ ( WL 'ME_54BE5277018F' '54BE4A3A005B.pas.ms.script' // 
+   Seq: ( WL 'ME_54BE5277018F' '54BE4A3A005B.pas.ms.script' // 
  WL 'ME_54BE52830056' '54BE4A3A005B.pas.ms.script' // 
- ) .SequenceCode.It
+ )
  ; // Injected
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest_Engine'
  CONST intf.pas:Path 'common\components\gui\Garant\Everest_Engine\eeDocument_InterfaceFactory.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest_Engine'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
  CONST extprop:pas:TypeName 'TeeDocumentInterfaceFactory'
+ CONST extprop:rc:SelfName 'eeDocumentInterfaceFactory'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'eeDocument_InterfaceFactory'
 
 ref; // ME_54BE51580257 TeeDocument
 
@@ -3057,16 +3367,16 @@ ref; // ME_54BE51580257 TeeDocument
  : Parent ME_4AB112DF005B // EVD
  ;
  : Inherits
-   @ ( ME_4860F3C103E4 // F1
- ) .SequenceCode.It
+   Seq: ( ME_4860F3C103E4 // F1
+ )
  ; // Inherits
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest_Engine'
  CONST intf.pas:Path 'common\components\gui\Garant\Everest_Engine\eeDocument_Schema.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest_Engine'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
  CONST extprop:pas:TypeName 'TeeDocumentSchema'
+ CONST extprop:pas:UnitName 'eeDocument_Schema'
 
 ref; // ME_4B72E1CE0002 eeDocument
 
@@ -3075,6 +3385,7 @@ FORWARD ME_135A09B54955
 : ME_16619B144959
  CONST UID '16619B144959'
  CONST Name 'TextStyle_ANSIDOS_Name_Value'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY 'Локализуемое значения атрибута TextStyle_ANSIDOS_Name_Value' ;
  CONST Visibility PublicAccess
@@ -3086,12 +3397,14 @@ FORWARD ME_135A09B54955
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value '''Моноширинный'''
 
 ref; // ME_16619B144959 TextStyle_ANSIDOS_Name_Value
 
 : ME_8AB4ADDED3CC
  CONST UID '8AB4ADDED3CC'
  CONST Name 'TextStyle_CompareEditionsText_Name_Value'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY 'Локализуемое значения атрибута TextStyle_CompareEditionsText_Name_Value' ;
  CONST Visibility PublicAccess
@@ -3103,12 +3416,14 @@ ref; // ME_16619B144959 TextStyle_ANSIDOS_Name_Value
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value '''Сравнение редакций'''
 
 ref; // ME_8AB4ADDED3CC TextStyle_CompareEditionsText_Name_Value
 
 : ME_2506B1CAF3EB
  CONST UID '2506B1CAF3EB'
  CONST Name 'TextStyle_DeletedText_Name_Value'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY 'Локализуемое значения атрибута TextStyle_DeletedText_Name_Value' ;
  CONST Visibility PublicAccess
@@ -3120,12 +3435,14 @@ ref; // ME_8AB4ADDED3CC TextStyle_CompareEditionsText_Name_Value
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value '''Удалённый текст'''
 
 ref; // ME_2506B1CAF3EB TextStyle_DeletedText_Name_Value
 
 : ME_9400C281F255
  CONST UID '9400C281F255'
  CONST Name 'TextStyle_ChatHeaderSender_Name_Value'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY 'Локализуемое значения атрибута TextStyle_ChatHeaderSender_Name_Value' ;
  CONST Visibility PublicAccess
@@ -3137,12 +3454,14 @@ ref; // ME_2506B1CAF3EB TextStyle_DeletedText_Name_Value
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value '''Заголовок собственного сообщения'''
 
 ref; // ME_9400C281F255 TextStyle_ChatHeaderSender_Name_Value
 
 : ME_C89E98C65657
  CONST UID 'C89E98C65657'
  CONST Name 'TextStyle_ChatHeaderRecipient_Name_Value'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY 'Локализуемое значения атрибута TextStyle_ChatHeaderRecipient_Name_Value' ;
  CONST Visibility PublicAccess
@@ -3154,12 +3473,14 @@ ref; // ME_9400C281F255 TextStyle_ChatHeaderSender_Name_Value
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value '''Заголовок полученного сообщения'''
 
 ref; // ME_C89E98C65657 TextStyle_ChatHeaderRecipient_Name_Value
 
 : ME_B72093EABDC0
  CONST UID 'B72093EABDC0'
  CONST Name 'TextStyle_AddedText_Name_Value'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY 'Локализуемое значения атрибута TextStyle_AddedText_Name_Value' ;
  CONST Visibility PublicAccess
@@ -3171,12 +3492,14 @@ ref; // ME_C89E98C65657 TextStyle_ChatHeaderRecipient_Name_Value
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value '''Добавленный текст'''
 
 ref; // ME_B72093EABDC0 TextStyle_AddedText_Name_Value
 
 : ME_EA056FE32A49
  CONST UID 'EA056FE32A49'
  CONST Name 'TextStyle_NewSchoolMainMenu_Name_Value'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY 'Локализуемое значения атрибута TextStyle_NewSchoolMainMenu_Name_Value' ;
  CONST Visibility PublicAccess
@@ -3188,12 +3511,14 @@ ref; // ME_B72093EABDC0 TextStyle_AddedText_Name_Value
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value '''Основное меню (по-умолчанию)'''
 
 ref; // ME_EA056FE32A49 TextStyle_NewSchoolMainMenu_Name_Value
 
 : ME_7E3FBD6D3926
  CONST UID '7E3FBD6D3926'
  CONST Name 'TextStyle_MainMenu_Font_Name_Value'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY 'Локализуемое значения атрибута TextStyle_MainMenu_Font_Name_Value' ;
  CONST Visibility PublicAccess
@@ -3205,12 +3530,14 @@ ref; // ME_EA056FE32A49 TextStyle_NewSchoolMainMenu_Name_Value
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value '''Verdana'''
 
 ref; // ME_7E3FBD6D3926 TextStyle_MainMenu_Font_Name_Value
 
 : ME_55053F3F4A4E
  CONST UID '55053F3F4A4E'
  CONST Name 'TextStyle_MainMenu_Name_Value'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY 'Локализуемое значения атрибута TextStyle_MainMenu_Name_Value' ;
  CONST Visibility PublicAccess
@@ -3222,12 +3549,14 @@ ref; // ME_7E3FBD6D3926 TextStyle_MainMenu_Font_Name_Value
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value '''Основное меню (преемственное)'''
 
 ref; // ME_55053F3F4A4E TextStyle_MainMenu_Name_Value
 
 : ME_D2724F136654
  CONST UID 'D2724F136654'
  CONST Name 'TextStyle_MainMenuHeader_Name_Value'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY 'Локализуемое значения атрибута TextStyle_MainMenuHeader_Name_Value' ;
  CONST Visibility PublicAccess
@@ -3239,12 +3568,14 @@ ref; // ME_55053F3F4A4E TextStyle_MainMenu_Name_Value
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value '''Заголовок *'''
 
 ref; // ME_D2724F136654 TextStyle_MainMenuHeader_Name_Value
 
 : ME_27CA4EDBD17D
  CONST UID '27CA4EDBD17D'
  CONST Name 'TextStyle_MainMenuConstPath_Name_Value'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY 'Локализуемое значения атрибута TextStyle_MainMenuConstPath_Name_Value' ;
  CONST Visibility PublicAccess
@@ -3256,12 +3587,14 @@ ref; // ME_D2724F136654 TextStyle_MainMenuHeader_Name_Value
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value '''Постоянная часть *'''
 
 ref; // ME_27CA4EDBD17D TextStyle_MainMenuConstPath_Name_Value
 
 : ME_DF01AB86D91A
  CONST UID 'DF01AB86D91A'
  CONST Name 'TextStyle_NewSchoolMainMenuConstPath_Font_Name_Value'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY 'Локализуемое значения атрибута TextStyle_NewSchoolMainMenuConstPath_Font_Name_Value' ;
  CONST Visibility PublicAccess
@@ -3273,12 +3606,14 @@ ref; // ME_27CA4EDBD17D TextStyle_MainMenuConstPath_Name_Value
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value '''Arial'''
 
 ref; // ME_DF01AB86D91A TextStyle_NewSchoolMainMenuConstPath_Font_Name_Value
 
 : ME_491D5024B3D9
  CONST UID '491D5024B3D9'
  CONST Name 'TextStyle_NewSchoolMainMenuConstPath_Name_Value'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY 'Локализуемое значения атрибута TextStyle_NewSchoolMainMenuConstPath_Name_Value' ;
  CONST Visibility PublicAccess
@@ -3290,12 +3625,14 @@ ref; // ME_DF01AB86D91A TextStyle_NewSchoolMainMenuConstPath_Font_Name_Value
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value '''Постоянная часть'''
 
 ref; // ME_491D5024B3D9 TextStyle_NewSchoolMainMenuConstPath_Name_Value
 
 : ME_10C7884E1F25
  CONST UID '10C7884E1F25'
  CONST Name 'TextStyle_NewSchoolMainMenuHeader_Font_Name_Value'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY 'Локализуемое значения атрибута TextStyle_NewSchoolMainMenuHeader_Font_Name_Value' ;
  CONST Visibility PublicAccess
@@ -3307,12 +3644,14 @@ ref; // ME_491D5024B3D9 TextStyle_NewSchoolMainMenuConstPath_Name_Value
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value '''Arial'''
 
 ref; // ME_10C7884E1F25 TextStyle_NewSchoolMainMenuHeader_Font_Name_Value
 
 : ME_9A717449CD2E
  CONST UID '9A717449CD2E'
  CONST Name 'TextStyle_NewSchoolMainMenuHeader_Name_Value'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY 'Локализуемое значения атрибута TextStyle_NewSchoolMainMenuHeader_Name_Value' ;
  CONST Visibility PublicAccess
@@ -3324,12 +3663,14 @@ ref; // ME_10C7884E1F25 TextStyle_NewSchoolMainMenuHeader_Font_Name_Value
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value '''Заголовок'''
 
 ref; // ME_9A717449CD2E TextStyle_NewSchoolMainMenuHeader_Name_Value
 
 : ME_7CA614858280
  CONST UID '7CA614858280'
  CONST Name 'TextStyle_MainMenuChangePath_Name_Value'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY 'Локализуемое значения атрибута TextStyle_MainMenuChangePath_Name_Value' ;
  CONST Visibility PublicAccess
@@ -3341,12 +3682,14 @@ ref; // ME_9A717449CD2E TextStyle_NewSchoolMainMenuHeader_Name_Value
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value '''Переменная часть'''
 
 ref; // ME_7CA614858280 TextStyle_MainMenuChangePath_Name_Value
 
 : ME_23BE03A07BD5
  CONST UID '23BE03A07BD5'
  CONST Name 'TextStyle_MainMenuInteractiveHeader_Name_Value'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY 'Локализуемое значения атрибута TextStyle_MainMenuInteractiveHeader_Name_Value' ;
  CONST Visibility PublicAccess
@@ -3358,12 +3701,14 @@ ref; // ME_7CA614858280 TextStyle_MainMenuChangePath_Name_Value
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value '''Интерактивный заголовок'''
 
 ref; // ME_23BE03A07BD5 TextStyle_MainMenuInteractiveHeader_Name_Value
 
 : ME_72E8E705AEA7
  CONST UID '72E8E705AEA7'
  CONST Name 'TextStyle_Changes1_Name_Value'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY 'Локализуемое значения атрибута TextStyle_Changes1_Name_Value' ;
  CONST Visibility PublicAccess
@@ -3375,12 +3720,14 @@ ref; // ME_23BE03A07BD5 TextStyle_MainMenuInteractiveHeader_Name_Value
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value '''Обзор изменений документа 1'''
 
 ref; // ME_72E8E705AEA7 TextStyle_Changes1_Name_Value
 
 : ME_3089DB05BE53
  CONST UID '3089DB05BE53'
  CONST Name 'TextStyle_Changes2_Name_Value'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY 'Локализуемое значения атрибута TextStyle_Changes2_Name_Value' ;
  CONST Visibility PublicAccess
@@ -3392,12 +3739,14 @@ ref; // ME_72E8E705AEA7 TextStyle_Changes1_Name_Value
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value '''Обзор изменений документа 2'''
 
 ref; // ME_3089DB05BE53 TextStyle_Changes2_Name_Value
 
 : ME_CA0830ABA9E1
  CONST UID 'CA0830ABA9E1'
  CONST Name 'TextStyle_EnclosureHeader_Name_Value'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY 'Локализуемое значения атрибута TextStyle_EnclosureHeader_Name_Value' ;
  CONST Visibility PublicAccess
@@ -3409,12 +3758,14 @@ ref; // ME_3089DB05BE53 TextStyle_Changes2_Name_Value
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value '''Заголовок приложения'''
 
 ref; // ME_CA0830ABA9E1 TextStyle_EnclosureHeader_Name_Value
 
 : ME_4BE1CE8F6546
  CONST UID '4BE1CE8F6546'
  CONST Name 'TextStyle_EditionInterval_Name_Value'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY 'Локализуемое значения атрибута TextStyle_EditionInterval_Name_Value' ;
  CONST Visibility PublicAccess
@@ -3426,12 +3777,14 @@ ref; // ME_CA0830ABA9E1 TextStyle_EnclosureHeader_Name_Value
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value '''Интервал действия редакции'''
 
 ref; // ME_4BE1CE8F6546 TextStyle_EditionInterval_Name_Value
 
 : ME_530468D6B93E
  CONST UID '530468D6B93E'
  CONST Name 'TextStyle_Edition_Name_Value'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY 'Локализуемое значения атрибута TextStyle_Edition_Name_Value' ;
  CONST Visibility PublicAccess
@@ -3443,12 +3796,14 @@ ref; // ME_4BE1CE8F6546 TextStyle_EditionInterval_Name_Value
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value '''Редакция'''
 
 ref; // ME_530468D6B93E TextStyle_Edition_Name_Value
 
 : ME_BF034452A9CA
  CONST UID 'BF034452A9CA'
  CONST Name 'TextStyle_EditionNumber_Name_Value'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY 'Локализуемое значения атрибута TextStyle_EditionNumber_Name_Value' ;
  CONST Visibility PublicAccess
@@ -3460,12 +3815,14 @@ ref; // ME_530468D6B93E TextStyle_Edition_Name_Value
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value '''Номер редакции'''
 
 ref; // ME_BF034452A9CA TextStyle_EditionNumber_Name_Value
 
 : ME_5DC6A96CA585
  CONST UID '5DC6A96CA585'
  CONST Name 'TextStyle_Snippet_Name_Value'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY 'Локализуемое значения атрибута TextStyle_Snippet_Name_Value' ;
  CONST Visibility PublicAccess
@@ -3477,12 +3834,14 @@ ref; // ME_BF034452A9CA TextStyle_EditionNumber_Name_Value
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value '''Дочерний элемент списка'''
 
 ref; // ME_5DC6A96CA585 TextStyle_Snippet_Name_Value
 
 : ME_08A558666313
  CONST UID '08A558666313'
  CONST Name 'TextStyle_DocumentInList_Name_Value'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY 'Локализуемое значения атрибута TextStyle_DocumentInList_Name_Value' ;
  CONST Visibility PublicAccess
@@ -3494,12 +3853,14 @@ ref; // ME_5DC6A96CA585 TextStyle_Snippet_Name_Value
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value '''Документ в списке'''
 
 ref; // ME_08A558666313 TextStyle_DocumentInList_Name_Value
 
 : ME_7F6204D4D6AF
  CONST UID '7F6204D4D6AF'
  CONST Name 'TextStyle_VisitedSnippetInList_Name_Value'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY 'Локализуемое значения атрибута TextStyle_VisitedSnippetInList_Name_Value' ;
  CONST Visibility PublicAccess
@@ -3511,12 +3872,14 @@ ref; // ME_08A558666313 TextStyle_DocumentInList_Name_Value
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value '''Посещенный дочерний элемент списка'''
 
 ref; // ME_7F6204D4D6AF TextStyle_VisitedSnippetInList_Name_Value
 
 : ME_70A621B61B38
  CONST UID '70A621B61B38'
  CONST Name 'TextStyle_TechComment_Name_Value'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY 'Локализуемое значения атрибута TextStyle_TechComment_Name_Value' ;
  CONST Visibility PublicAccess
@@ -3528,12 +3891,14 @@ ref; // ME_7F6204D4D6AF TextStyle_VisitedSnippetInList_Name_Value
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value '''Технический комментарий'''
 
 ref; // ME_70A621B61B38 TextStyle_TechComment_Name_Value
 
 : ME_7D9F7622974B
  CONST UID '7D9F7622974B'
  CONST Name 'TextStyle_VisitedDocumentInList_Name_Value'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY 'Локализуемое значения атрибута TextStyle_VisitedDocumentInList_Name_Value' ;
  CONST Visibility PublicAccess
@@ -3545,12 +3910,14 @@ ref; // ME_70A621B61B38 TextStyle_TechComment_Name_Value
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value '''Посещенный документ списка'''
 
 ref; // ME_7D9F7622974B TextStyle_VisitedDocumentInList_Name_Value
 
 : ME_135A09B54955
  CONST UID '135A09B54955'
  CONST Name 'AttrValues'
+ CONST IsSummoned true
  CONST Class class_Class
  : Stereotype st_LocalConst ;
  CONST Kind kind_NormalClass
@@ -3560,7 +3927,7 @@ ref; // ME_7D9F7622974B TextStyle_VisitedDocumentInList_Name_Value
  : Parent ME_4028A9B7940C // F1_AttrValues
  ;
  : Attributes
-   @ ( ME_16619B144959 // TextStyle_ANSIDOS_Name_Value
+   Seq: ( ME_16619B144959 // TextStyle_ANSIDOS_Name_Value
  ME_8AB4ADDED3CC // TextStyle_CompareEditionsText_Name_Value
  ME_2506B1CAF3EB // TextStyle_DeletedText_Name_Value
  ME_9400C281F255 // TextStyle_ChatHeaderSender_Name_Value
@@ -3588,11 +3955,15 @@ ref; // ME_7D9F7622974B TextStyle_VisitedDocumentInList_Name_Value
  ME_7F6204D4D6AF // TextStyle_VisitedSnippetInList_Name_Value
  ME_70A621B61B38 // TextStyle_TechComment_Name_Value
  ME_7D9F7622974B // TextStyle_VisitedDocumentInList_Name_Value
- ) .SequenceCode.It
+ )
  ; // Attributes
  CONST "Need map interface" false
  CONST "Need mapping support" false
  CONST "spell names" false
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest_Engine'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest_Engine'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_135A09B54955 AttrValues
 
@@ -3601,6 +3972,7 @@ FORWARD ME_CFCAF1C4F82D
 : ME_E333FE43F695
  CONST UID 'E333FE43F695'
  CONST Name 'TextStyle_ANSIDOS_Name_Value'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY 'Локализуемое значения атрибута TextStyle_ANSIDOS_Name_Value' ;
  CONST Visibility PublicAccess
@@ -3616,12 +3988,14 @@ FORWARD ME_CFCAF1C4F82D
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''TextStyle_ANSIDOS_Name_Value''; rValue : ''Моноширинный'')'
 
 ref; // ME_E333FE43F695 TextStyle_ANSIDOS_Name_Value
 
 : ME_FCDB972AAB66
  CONST UID 'FCDB972AAB66'
  CONST Name 'TextStyle_CompareEditionsText_Name_Value'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY 'Локализуемое значения атрибута TextStyle_CompareEditionsText_Name_Value' ;
  CONST Visibility PublicAccess
@@ -3637,12 +4011,14 @@ ref; // ME_E333FE43F695 TextStyle_ANSIDOS_Name_Value
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''TextStyle_CompareEditionsText_Name_Value''; rValue : ''Сравнение редакций'')'
 
 ref; // ME_FCDB972AAB66 TextStyle_CompareEditionsText_Name_Value
 
 : ME_5DD40E846A08
  CONST UID '5DD40E846A08'
  CONST Name 'TextStyle_DeletedText_Name_Value'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY 'Локализуемое значения атрибута TextStyle_DeletedText_Name_Value' ;
  CONST Visibility PublicAccess
@@ -3658,12 +4034,14 @@ ref; // ME_FCDB972AAB66 TextStyle_CompareEditionsText_Name_Value
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''TextStyle_DeletedText_Name_Value''; rValue : ''Удалённый текст'')'
 
 ref; // ME_5DD40E846A08 TextStyle_DeletedText_Name_Value
 
 : ME_F87C1B3EC36D
  CONST UID 'F87C1B3EC36D'
  CONST Name 'TextStyle_ChatHeaderSender_Name_Value'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY 'Локализуемое значения атрибута TextStyle_ChatHeaderSender_Name_Value' ;
  CONST Visibility PublicAccess
@@ -3679,12 +4057,14 @@ ref; // ME_5DD40E846A08 TextStyle_DeletedText_Name_Value
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''TextStyle_ChatHeaderSender_Name_Value''; rValue : ''Заголовок собственного сообщения'')'
 
 ref; // ME_F87C1B3EC36D TextStyle_ChatHeaderSender_Name_Value
 
 : ME_70E3A3585552
  CONST UID '70E3A3585552'
  CONST Name 'TextStyle_ChatHeaderRecipient_Name_Value'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY 'Локализуемое значения атрибута TextStyle_ChatHeaderRecipient_Name_Value' ;
  CONST Visibility PublicAccess
@@ -3700,12 +4080,14 @@ ref; // ME_F87C1B3EC36D TextStyle_ChatHeaderSender_Name_Value
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''TextStyle_ChatHeaderRecipient_Name_Value''; rValue : ''Заголовок полученного сообщения'')'
 
 ref; // ME_70E3A3585552 TextStyle_ChatHeaderRecipient_Name_Value
 
 : ME_FD054096D328
  CONST UID 'FD054096D328'
  CONST Name 'TextStyle_AddedText_Name_Value'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY 'Локализуемое значения атрибута TextStyle_AddedText_Name_Value' ;
  CONST Visibility PublicAccess
@@ -3721,12 +4103,14 @@ ref; // ME_70E3A3585552 TextStyle_ChatHeaderRecipient_Name_Value
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''TextStyle_AddedText_Name_Value''; rValue : ''Добавленный текст'')'
 
 ref; // ME_FD054096D328 TextStyle_AddedText_Name_Value
 
 : ME_AFBC510A5319
  CONST UID 'AFBC510A5319'
  CONST Name 'TextStyle_NewSchoolMainMenu_Name_Value'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY 'Локализуемое значения атрибута TextStyle_NewSchoolMainMenu_Name_Value' ;
  CONST Visibility PublicAccess
@@ -3742,12 +4126,14 @@ ref; // ME_FD054096D328 TextStyle_AddedText_Name_Value
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''TextStyle_NewSchoolMainMenu_Name_Value''; rValue : ''Основное меню (по-умолчанию)'')'
 
 ref; // ME_AFBC510A5319 TextStyle_NewSchoolMainMenu_Name_Value
 
 : ME_301E1B981A9B
  CONST UID '301E1B981A9B'
  CONST Name 'TextStyle_MainMenu_Font_Name_Value'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY 'Локализуемое значения атрибута TextStyle_MainMenu_Font_Name_Value' ;
  CONST Visibility PublicAccess
@@ -3763,12 +4149,14 @@ ref; // ME_AFBC510A5319 TextStyle_NewSchoolMainMenu_Name_Value
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''TextStyle_MainMenu_Font_Name_Value''; rValue : ''Verdana'')'
 
 ref; // ME_301E1B981A9B TextStyle_MainMenu_Font_Name_Value
 
 : ME_DB2E56C270DD
  CONST UID 'DB2E56C270DD'
  CONST Name 'TextStyle_MainMenu_Name_Value'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY 'Локализуемое значения атрибута TextStyle_MainMenu_Name_Value' ;
  CONST Visibility PublicAccess
@@ -3784,12 +4172,14 @@ ref; // ME_301E1B981A9B TextStyle_MainMenu_Font_Name_Value
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''TextStyle_MainMenu_Name_Value''; rValue : ''Основное меню (преемственное)'')'
 
 ref; // ME_DB2E56C270DD TextStyle_MainMenu_Name_Value
 
 : ME_3F5E7D604ED3
  CONST UID '3F5E7D604ED3'
  CONST Name 'TextStyle_MainMenuHeader_Name_Value'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY 'Локализуемое значения атрибута TextStyle_MainMenuHeader_Name_Value' ;
  CONST Visibility PublicAccess
@@ -3805,12 +4195,14 @@ ref; // ME_DB2E56C270DD TextStyle_MainMenu_Name_Value
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''TextStyle_MainMenuHeader_Name_Value''; rValue : ''Заголовок *'')'
 
 ref; // ME_3F5E7D604ED3 TextStyle_MainMenuHeader_Name_Value
 
 : ME_545BFB114755
  CONST UID '545BFB114755'
  CONST Name 'TextStyle_MainMenuConstPath_Name_Value'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY 'Локализуемое значения атрибута TextStyle_MainMenuConstPath_Name_Value' ;
  CONST Visibility PublicAccess
@@ -3826,12 +4218,14 @@ ref; // ME_3F5E7D604ED3 TextStyle_MainMenuHeader_Name_Value
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''TextStyle_MainMenuConstPath_Name_Value''; rValue : ''Постоянная часть *'')'
 
 ref; // ME_545BFB114755 TextStyle_MainMenuConstPath_Name_Value
 
 : ME_CCB8B73EC344
  CONST UID 'CCB8B73EC344'
  CONST Name 'TextStyle_NewSchoolMainMenuConstPath_Font_Name_Value'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY 'Локализуемое значения атрибута TextStyle_NewSchoolMainMenuConstPath_Font_Name_Value' ;
  CONST Visibility PublicAccess
@@ -3847,12 +4241,14 @@ ref; // ME_545BFB114755 TextStyle_MainMenuConstPath_Name_Value
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''TextStyle_NewSchoolMainMenuConstPath_Font_Name_Value''; rValue : ''Arial'')'
 
 ref; // ME_CCB8B73EC344 TextStyle_NewSchoolMainMenuConstPath_Font_Name_Value
 
 : ME_A2A4E61317EC
  CONST UID 'A2A4E61317EC'
  CONST Name 'TextStyle_NewSchoolMainMenuConstPath_Name_Value'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY 'Локализуемое значения атрибута TextStyle_NewSchoolMainMenuConstPath_Name_Value' ;
  CONST Visibility PublicAccess
@@ -3868,12 +4264,14 @@ ref; // ME_CCB8B73EC344 TextStyle_NewSchoolMainMenuConstPath_Font_Name_Value
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''TextStyle_NewSchoolMainMenuConstPath_Name_Value''; rValue : ''Постоянная часть'')'
 
 ref; // ME_A2A4E61317EC TextStyle_NewSchoolMainMenuConstPath_Name_Value
 
 : ME_7ED6C1C8C532
  CONST UID '7ED6C1C8C532'
  CONST Name 'TextStyle_NewSchoolMainMenuHeader_Font_Name_Value'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY 'Локализуемое значения атрибута TextStyle_NewSchoolMainMenuHeader_Font_Name_Value' ;
  CONST Visibility PublicAccess
@@ -3889,12 +4287,14 @@ ref; // ME_A2A4E61317EC TextStyle_NewSchoolMainMenuConstPath_Name_Value
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''TextStyle_NewSchoolMainMenuHeader_Font_Name_Value''; rValue : ''Arial'')'
 
 ref; // ME_7ED6C1C8C532 TextStyle_NewSchoolMainMenuHeader_Font_Name_Value
 
 : ME_6A62A343B7A5
  CONST UID '6A62A343B7A5'
  CONST Name 'TextStyle_NewSchoolMainMenuHeader_Name_Value'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY 'Локализуемое значения атрибута TextStyle_NewSchoolMainMenuHeader_Name_Value' ;
  CONST Visibility PublicAccess
@@ -3910,12 +4310,14 @@ ref; // ME_7ED6C1C8C532 TextStyle_NewSchoolMainMenuHeader_Font_Name_Value
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''TextStyle_NewSchoolMainMenuHeader_Name_Value''; rValue : ''Заголовок'')'
 
 ref; // ME_6A62A343B7A5 TextStyle_NewSchoolMainMenuHeader_Name_Value
 
 : ME_2A9E5D993503
  CONST UID '2A9E5D993503'
  CONST Name 'TextStyle_MainMenuChangePath_Name_Value'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY 'Локализуемое значения атрибута TextStyle_MainMenuChangePath_Name_Value' ;
  CONST Visibility PublicAccess
@@ -3931,12 +4333,14 @@ ref; // ME_6A62A343B7A5 TextStyle_NewSchoolMainMenuHeader_Name_Value
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''TextStyle_MainMenuChangePath_Name_Value''; rValue : ''Переменная часть'')'
 
 ref; // ME_2A9E5D993503 TextStyle_MainMenuChangePath_Name_Value
 
 : ME_70D8E71F80EB
  CONST UID '70D8E71F80EB'
  CONST Name 'TextStyle_MainMenuInteractiveHeader_Name_Value'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY 'Локализуемое значения атрибута TextStyle_MainMenuInteractiveHeader_Name_Value' ;
  CONST Visibility PublicAccess
@@ -3952,12 +4356,14 @@ ref; // ME_2A9E5D993503 TextStyle_MainMenuChangePath_Name_Value
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''TextStyle_MainMenuInteractiveHeader_Name_Value''; rValue : ''Интерактивный заголовок'')'
 
 ref; // ME_70D8E71F80EB TextStyle_MainMenuInteractiveHeader_Name_Value
 
 : ME_5EBD3F89212F
  CONST UID '5EBD3F89212F'
  CONST Name 'TextStyle_Changes1_Name_Value'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY 'Локализуемое значения атрибута TextStyle_Changes1_Name_Value' ;
  CONST Visibility PublicAccess
@@ -3973,12 +4379,14 @@ ref; // ME_70D8E71F80EB TextStyle_MainMenuInteractiveHeader_Name_Value
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''TextStyle_Changes1_Name_Value''; rValue : ''Обзор изменений документа 1'')'
 
 ref; // ME_5EBD3F89212F TextStyle_Changes1_Name_Value
 
 : ME_4C48BCC52138
  CONST UID '4C48BCC52138'
  CONST Name 'TextStyle_Changes2_Name_Value'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY 'Локализуемое значения атрибута TextStyle_Changes2_Name_Value' ;
  CONST Visibility PublicAccess
@@ -3994,12 +4402,14 @@ ref; // ME_5EBD3F89212F TextStyle_Changes1_Name_Value
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''TextStyle_Changes2_Name_Value''; rValue : ''Обзор изменений документа 2'')'
 
 ref; // ME_4C48BCC52138 TextStyle_Changes2_Name_Value
 
 : ME_56490BC09182
  CONST UID '56490BC09182'
  CONST Name 'TextStyle_EnclosureHeader_Name_Value'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY 'Локализуемое значения атрибута TextStyle_EnclosureHeader_Name_Value' ;
  CONST Visibility PublicAccess
@@ -4015,12 +4425,14 @@ ref; // ME_4C48BCC52138 TextStyle_Changes2_Name_Value
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''TextStyle_EnclosureHeader_Name_Value''; rValue : ''Заголовок приложения'')'
 
 ref; // ME_56490BC09182 TextStyle_EnclosureHeader_Name_Value
 
 : ME_6B7AF3319A56
  CONST UID '6B7AF3319A56'
  CONST Name 'TextStyle_EditionInterval_Name_Value'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY 'Локализуемое значения атрибута TextStyle_EditionInterval_Name_Value' ;
  CONST Visibility PublicAccess
@@ -4036,12 +4448,14 @@ ref; // ME_56490BC09182 TextStyle_EnclosureHeader_Name_Value
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''TextStyle_EditionInterval_Name_Value''; rValue : ''Интервал действия редакции'')'
 
 ref; // ME_6B7AF3319A56 TextStyle_EditionInterval_Name_Value
 
 : ME_6B254D7600E1
  CONST UID '6B254D7600E1'
  CONST Name 'TextStyle_Edition_Name_Value'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY 'Локализуемое значения атрибута TextStyle_Edition_Name_Value' ;
  CONST Visibility PublicAccess
@@ -4057,12 +4471,14 @@ ref; // ME_6B7AF3319A56 TextStyle_EditionInterval_Name_Value
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''TextStyle_Edition_Name_Value''; rValue : ''Редакция'')'
 
 ref; // ME_6B254D7600E1 TextStyle_Edition_Name_Value
 
 : ME_9CC79EFB2DFC
  CONST UID '9CC79EFB2DFC'
  CONST Name 'TextStyle_EditionNumber_Name_Value'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY 'Локализуемое значения атрибута TextStyle_EditionNumber_Name_Value' ;
  CONST Visibility PublicAccess
@@ -4078,12 +4494,14 @@ ref; // ME_6B254D7600E1 TextStyle_Edition_Name_Value
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''TextStyle_EditionNumber_Name_Value''; rValue : ''Номер редакции'')'
 
 ref; // ME_9CC79EFB2DFC TextStyle_EditionNumber_Name_Value
 
 : ME_1876D1DEEA9F
  CONST UID '1876D1DEEA9F'
  CONST Name 'TextStyle_Snippet_Name_Value'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY 'Локализуемое значения атрибута TextStyle_Snippet_Name_Value' ;
  CONST Visibility PublicAccess
@@ -4099,12 +4517,14 @@ ref; // ME_9CC79EFB2DFC TextStyle_EditionNumber_Name_Value
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''TextStyle_Snippet_Name_Value''; rValue : ''Дочерний элемент списка'')'
 
 ref; // ME_1876D1DEEA9F TextStyle_Snippet_Name_Value
 
 : ME_DF2BA991C139
  CONST UID 'DF2BA991C139'
  CONST Name 'TextStyle_DocumentInList_Name_Value'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY 'Локализуемое значения атрибута TextStyle_DocumentInList_Name_Value' ;
  CONST Visibility PublicAccess
@@ -4120,12 +4540,14 @@ ref; // ME_1876D1DEEA9F TextStyle_Snippet_Name_Value
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''TextStyle_DocumentInList_Name_Value''; rValue : ''Документ в списке'')'
 
 ref; // ME_DF2BA991C139 TextStyle_DocumentInList_Name_Value
 
 : ME_78CD1541C5D4
  CONST UID '78CD1541C5D4'
  CONST Name 'TextStyle_VisitedSnippetInList_Name_Value'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY 'Локализуемое значения атрибута TextStyle_VisitedSnippetInList_Name_Value' ;
  CONST Visibility PublicAccess
@@ -4141,12 +4563,14 @@ ref; // ME_DF2BA991C139 TextStyle_DocumentInList_Name_Value
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''TextStyle_VisitedSnippetInList_Name_Value''; rValue : ''Посещенный дочерний элемент списка'')'
 
 ref; // ME_78CD1541C5D4 TextStyle_VisitedSnippetInList_Name_Value
 
 : ME_460EEDCB6B19
  CONST UID '460EEDCB6B19'
  CONST Name 'TextStyle_TechComment_Name_Value'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY 'Локализуемое значения атрибута TextStyle_TechComment_Name_Value' ;
  CONST Visibility PublicAccess
@@ -4162,12 +4586,14 @@ ref; // ME_78CD1541C5D4 TextStyle_VisitedSnippetInList_Name_Value
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''TextStyle_TechComment_Name_Value''; rValue : ''Технический комментарий'')'
 
 ref; // ME_460EEDCB6B19 TextStyle_TechComment_Name_Value
 
 : ME_DCA5DF1203DF
  CONST UID 'DCA5DF1203DF'
  CONST Name 'TextStyle_VisitedDocumentInList_Name_Value'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY 'Локализуемое значения атрибута TextStyle_VisitedDocumentInList_Name_Value' ;
  CONST Visibility PublicAccess
@@ -4183,12 +4609,14 @@ ref; // ME_460EEDCB6B19 TextStyle_TechComment_Name_Value
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''TextStyle_VisitedDocumentInList_Name_Value''; rValue : ''Посещенный документ списка'')'
 
 ref; // ME_DCA5DF1203DF TextStyle_VisitedDocumentInList_Name_Value
 
 : ME_CFCAF1C4F82D
  CONST UID 'CFCAF1C4F82D'
  CONST Name 'LCImplAttrValues'
+ CONST IsSummoned true
  CONST Class class_Class
  : Stereotype st_Constants ;
  CONST Kind kind_NormalClass
@@ -4198,7 +4626,7 @@ ref; // ME_DCA5DF1203DF TextStyle_VisitedDocumentInList_Name_Value
  : Parent ME_4028A9B7940C // F1_AttrValues
  ;
  : Attributes
-   @ ( ME_E333FE43F695 // TextStyle_ANSIDOS_Name_Value
+   Seq: ( ME_E333FE43F695 // TextStyle_ANSIDOS_Name_Value
  ME_FCDB972AAB66 // TextStyle_CompareEditionsText_Name_Value
  ME_5DD40E846A08 // TextStyle_DeletedText_Name_Value
  ME_F87C1B3EC36D // TextStyle_ChatHeaderSender_Name_Value
@@ -4226,10 +4654,14 @@ ref; // ME_DCA5DF1203DF TextStyle_VisitedDocumentInList_Name_Value
  ME_78CD1541C5D4 // TextStyle_VisitedSnippetInList_Name_Value
  ME_460EEDCB6B19 // TextStyle_TechComment_Name_Value
  ME_DCA5DF1203DF // TextStyle_VisitedDocumentInList_Name_Value
- ) .SequenceCode.It
+ )
  ; // Attributes
  CONST "elements prefix" 'str'
  CONST "spell names" false
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest_Engine'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest_Engine'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
  CONST extprop:pas:ElementPrefixBase 'str'
  CONST extprop:pas:ElementPrefix 'str_'
 
@@ -4237,7 +4669,8 @@ ref; // ME_CFCAF1C4F82D LCImplAttrValues
 
 : ME_18491A7AD430
  CONST UID '18491A7AD430'
- CONST Name 'Init_TextStyle_ANSIDOS_Name_Value'
+ CONST Name 'Init_Str_TextStyle_ANSIDOS_Name_Value'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Инициализация str_TextStyle_ANSIDOS_Name_Value' ;
@@ -4245,12 +4678,17 @@ ref; // ME_CFCAF1C4F82D LCImplAttrValues
  CONST Abstraction at_final
  : Parent ME_4028A9B7940C // F1_AttrValues
  ;
+ : Speller ME_16619B144959 // TextStyle_ANSIDOS_Name_Value
+ ;
+ : SpelledFor ME_E333FE43F695 // TextStyle_ANSIDOS_Name_Value
+ ;
 
-ref; // ME_18491A7AD430 Init_TextStyle_ANSIDOS_Name_Value
+ref; // ME_18491A7AD430 Init_Str_TextStyle_ANSIDOS_Name_Value
 
 : ME_C69ED2E5296F
  CONST UID 'C69ED2E5296F'
- CONST Name 'Init_TextStyle_CompareEditionsText_Name_Value'
+ CONST Name 'Init_Str_TextStyle_CompareEditionsText_Name_Value'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Инициализация str_TextStyle_CompareEditionsText_Name_Value' ;
@@ -4258,12 +4696,17 @@ ref; // ME_18491A7AD430 Init_TextStyle_ANSIDOS_Name_Value
  CONST Abstraction at_final
  : Parent ME_4028A9B7940C // F1_AttrValues
  ;
+ : Speller ME_8AB4ADDED3CC // TextStyle_CompareEditionsText_Name_Value
+ ;
+ : SpelledFor ME_FCDB972AAB66 // TextStyle_CompareEditionsText_Name_Value
+ ;
 
-ref; // ME_C69ED2E5296F Init_TextStyle_CompareEditionsText_Name_Value
+ref; // ME_C69ED2E5296F Init_Str_TextStyle_CompareEditionsText_Name_Value
 
 : ME_1B190C9A6779
  CONST UID '1B190C9A6779'
- CONST Name 'Init_TextStyle_DeletedText_Name_Value'
+ CONST Name 'Init_Str_TextStyle_DeletedText_Name_Value'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Инициализация str_TextStyle_DeletedText_Name_Value' ;
@@ -4271,12 +4714,17 @@ ref; // ME_C69ED2E5296F Init_TextStyle_CompareEditionsText_Name_Value
  CONST Abstraction at_final
  : Parent ME_4028A9B7940C // F1_AttrValues
  ;
+ : Speller ME_2506B1CAF3EB // TextStyle_DeletedText_Name_Value
+ ;
+ : SpelledFor ME_5DD40E846A08 // TextStyle_DeletedText_Name_Value
+ ;
 
-ref; // ME_1B190C9A6779 Init_TextStyle_DeletedText_Name_Value
+ref; // ME_1B190C9A6779 Init_Str_TextStyle_DeletedText_Name_Value
 
 : ME_94D2EC13088B
  CONST UID '94D2EC13088B'
- CONST Name 'Init_TextStyle_ChatHeaderSender_Name_Value'
+ CONST Name 'Init_Str_TextStyle_ChatHeaderSender_Name_Value'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Инициализация str_TextStyle_ChatHeaderSender_Name_Value' ;
@@ -4284,12 +4732,17 @@ ref; // ME_1B190C9A6779 Init_TextStyle_DeletedText_Name_Value
  CONST Abstraction at_final
  : Parent ME_4028A9B7940C // F1_AttrValues
  ;
+ : Speller ME_9400C281F255 // TextStyle_ChatHeaderSender_Name_Value
+ ;
+ : SpelledFor ME_F87C1B3EC36D // TextStyle_ChatHeaderSender_Name_Value
+ ;
 
-ref; // ME_94D2EC13088B Init_TextStyle_ChatHeaderSender_Name_Value
+ref; // ME_94D2EC13088B Init_Str_TextStyle_ChatHeaderSender_Name_Value
 
 : ME_A29415CD3AFD
  CONST UID 'A29415CD3AFD'
- CONST Name 'Init_TextStyle_ChatHeaderRecipient_Name_Value'
+ CONST Name 'Init_Str_TextStyle_ChatHeaderRecipient_Name_Value'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Инициализация str_TextStyle_ChatHeaderRecipient_Name_Value' ;
@@ -4297,12 +4750,17 @@ ref; // ME_94D2EC13088B Init_TextStyle_ChatHeaderSender_Name_Value
  CONST Abstraction at_final
  : Parent ME_4028A9B7940C // F1_AttrValues
  ;
+ : Speller ME_C89E98C65657 // TextStyle_ChatHeaderRecipient_Name_Value
+ ;
+ : SpelledFor ME_70E3A3585552 // TextStyle_ChatHeaderRecipient_Name_Value
+ ;
 
-ref; // ME_A29415CD3AFD Init_TextStyle_ChatHeaderRecipient_Name_Value
+ref; // ME_A29415CD3AFD Init_Str_TextStyle_ChatHeaderRecipient_Name_Value
 
 : ME_182C8C8204D7
  CONST UID '182C8C8204D7'
- CONST Name 'Init_TextStyle_AddedText_Name_Value'
+ CONST Name 'Init_Str_TextStyle_AddedText_Name_Value'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Инициализация str_TextStyle_AddedText_Name_Value' ;
@@ -4310,12 +4768,17 @@ ref; // ME_A29415CD3AFD Init_TextStyle_ChatHeaderRecipient_Name_Value
  CONST Abstraction at_final
  : Parent ME_4028A9B7940C // F1_AttrValues
  ;
+ : Speller ME_B72093EABDC0 // TextStyle_AddedText_Name_Value
+ ;
+ : SpelledFor ME_FD054096D328 // TextStyle_AddedText_Name_Value
+ ;
 
-ref; // ME_182C8C8204D7 Init_TextStyle_AddedText_Name_Value
+ref; // ME_182C8C8204D7 Init_Str_TextStyle_AddedText_Name_Value
 
 : ME_1822E7AF9607
  CONST UID '1822E7AF9607'
- CONST Name 'Init_TextStyle_NewSchoolMainMenu_Name_Value'
+ CONST Name 'Init_Str_TextStyle_NewSchoolMainMenu_Name_Value'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Инициализация str_TextStyle_NewSchoolMainMenu_Name_Value' ;
@@ -4323,12 +4786,17 @@ ref; // ME_182C8C8204D7 Init_TextStyle_AddedText_Name_Value
  CONST Abstraction at_final
  : Parent ME_4028A9B7940C // F1_AttrValues
  ;
+ : Speller ME_EA056FE32A49 // TextStyle_NewSchoolMainMenu_Name_Value
+ ;
+ : SpelledFor ME_AFBC510A5319 // TextStyle_NewSchoolMainMenu_Name_Value
+ ;
 
-ref; // ME_1822E7AF9607 Init_TextStyle_NewSchoolMainMenu_Name_Value
+ref; // ME_1822E7AF9607 Init_Str_TextStyle_NewSchoolMainMenu_Name_Value
 
 : ME_3F6010DC8D96
  CONST UID '3F6010DC8D96'
- CONST Name 'Init_TextStyle_MainMenu_Font_Name_Value'
+ CONST Name 'Init_Str_TextStyle_MainMenu_Font_Name_Value'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Инициализация str_TextStyle_MainMenu_Font_Name_Value' ;
@@ -4336,12 +4804,17 @@ ref; // ME_1822E7AF9607 Init_TextStyle_NewSchoolMainMenu_Name_Value
  CONST Abstraction at_final
  : Parent ME_4028A9B7940C // F1_AttrValues
  ;
+ : Speller ME_7E3FBD6D3926 // TextStyle_MainMenu_Font_Name_Value
+ ;
+ : SpelledFor ME_301E1B981A9B // TextStyle_MainMenu_Font_Name_Value
+ ;
 
-ref; // ME_3F6010DC8D96 Init_TextStyle_MainMenu_Font_Name_Value
+ref; // ME_3F6010DC8D96 Init_Str_TextStyle_MainMenu_Font_Name_Value
 
 : ME_E6CCEC053885
  CONST UID 'E6CCEC053885'
- CONST Name 'Init_TextStyle_MainMenu_Name_Value'
+ CONST Name 'Init_Str_TextStyle_MainMenu_Name_Value'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Инициализация str_TextStyle_MainMenu_Name_Value' ;
@@ -4349,12 +4822,17 @@ ref; // ME_3F6010DC8D96 Init_TextStyle_MainMenu_Font_Name_Value
  CONST Abstraction at_final
  : Parent ME_4028A9B7940C // F1_AttrValues
  ;
+ : Speller ME_55053F3F4A4E // TextStyle_MainMenu_Name_Value
+ ;
+ : SpelledFor ME_DB2E56C270DD // TextStyle_MainMenu_Name_Value
+ ;
 
-ref; // ME_E6CCEC053885 Init_TextStyle_MainMenu_Name_Value
+ref; // ME_E6CCEC053885 Init_Str_TextStyle_MainMenu_Name_Value
 
 : ME_2608718B45F3
  CONST UID '2608718B45F3'
- CONST Name 'Init_TextStyle_MainMenuHeader_Name_Value'
+ CONST Name 'Init_Str_TextStyle_MainMenuHeader_Name_Value'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Инициализация str_TextStyle_MainMenuHeader_Name_Value' ;
@@ -4362,12 +4840,17 @@ ref; // ME_E6CCEC053885 Init_TextStyle_MainMenu_Name_Value
  CONST Abstraction at_final
  : Parent ME_4028A9B7940C // F1_AttrValues
  ;
+ : Speller ME_D2724F136654 // TextStyle_MainMenuHeader_Name_Value
+ ;
+ : SpelledFor ME_3F5E7D604ED3 // TextStyle_MainMenuHeader_Name_Value
+ ;
 
-ref; // ME_2608718B45F3 Init_TextStyle_MainMenuHeader_Name_Value
+ref; // ME_2608718B45F3 Init_Str_TextStyle_MainMenuHeader_Name_Value
 
 : ME_3F4716197817
  CONST UID '3F4716197817'
- CONST Name 'Init_TextStyle_MainMenuConstPath_Name_Value'
+ CONST Name 'Init_Str_TextStyle_MainMenuConstPath_Name_Value'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Инициализация str_TextStyle_MainMenuConstPath_Name_Value' ;
@@ -4375,12 +4858,17 @@ ref; // ME_2608718B45F3 Init_TextStyle_MainMenuHeader_Name_Value
  CONST Abstraction at_final
  : Parent ME_4028A9B7940C // F1_AttrValues
  ;
+ : Speller ME_27CA4EDBD17D // TextStyle_MainMenuConstPath_Name_Value
+ ;
+ : SpelledFor ME_545BFB114755 // TextStyle_MainMenuConstPath_Name_Value
+ ;
 
-ref; // ME_3F4716197817 Init_TextStyle_MainMenuConstPath_Name_Value
+ref; // ME_3F4716197817 Init_Str_TextStyle_MainMenuConstPath_Name_Value
 
 : ME_5EDD04658736
  CONST UID '5EDD04658736'
- CONST Name 'Init_TextStyle_NewSchoolMainMenuConstPath_Font_Name_Value'
+ CONST Name 'Init_Str_TextStyle_NewSchoolMainMenuConstPath_Font_Name_Value'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Инициализация str_TextStyle_NewSchoolMainMenuConstPath_Font_Name_Value' ;
@@ -4388,12 +4876,17 @@ ref; // ME_3F4716197817 Init_TextStyle_MainMenuConstPath_Name_Value
  CONST Abstraction at_final
  : Parent ME_4028A9B7940C // F1_AttrValues
  ;
+ : Speller ME_DF01AB86D91A // TextStyle_NewSchoolMainMenuConstPath_Font_Name_Value
+ ;
+ : SpelledFor ME_CCB8B73EC344 // TextStyle_NewSchoolMainMenuConstPath_Font_Name_Value
+ ;
 
-ref; // ME_5EDD04658736 Init_TextStyle_NewSchoolMainMenuConstPath_Font_Name_Value
+ref; // ME_5EDD04658736 Init_Str_TextStyle_NewSchoolMainMenuConstPath_Font_Name_Value
 
 : ME_BCFE9BE90264
  CONST UID 'BCFE9BE90264'
- CONST Name 'Init_TextStyle_NewSchoolMainMenuConstPath_Name_Value'
+ CONST Name 'Init_Str_TextStyle_NewSchoolMainMenuConstPath_Name_Value'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Инициализация str_TextStyle_NewSchoolMainMenuConstPath_Name_Value' ;
@@ -4401,12 +4894,17 @@ ref; // ME_5EDD04658736 Init_TextStyle_NewSchoolMainMenuConstPath_Font_Name_Valu
  CONST Abstraction at_final
  : Parent ME_4028A9B7940C // F1_AttrValues
  ;
+ : Speller ME_491D5024B3D9 // TextStyle_NewSchoolMainMenuConstPath_Name_Value
+ ;
+ : SpelledFor ME_A2A4E61317EC // TextStyle_NewSchoolMainMenuConstPath_Name_Value
+ ;
 
-ref; // ME_BCFE9BE90264 Init_TextStyle_NewSchoolMainMenuConstPath_Name_Value
+ref; // ME_BCFE9BE90264 Init_Str_TextStyle_NewSchoolMainMenuConstPath_Name_Value
 
 : ME_354CDEA9E53A
  CONST UID '354CDEA9E53A'
- CONST Name 'Init_TextStyle_NewSchoolMainMenuHeader_Font_Name_Value'
+ CONST Name 'Init_Str_TextStyle_NewSchoolMainMenuHeader_Font_Name_Value'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Инициализация str_TextStyle_NewSchoolMainMenuHeader_Font_Name_Value' ;
@@ -4414,12 +4912,17 @@ ref; // ME_BCFE9BE90264 Init_TextStyle_NewSchoolMainMenuConstPath_Name_Value
  CONST Abstraction at_final
  : Parent ME_4028A9B7940C // F1_AttrValues
  ;
+ : Speller ME_10C7884E1F25 // TextStyle_NewSchoolMainMenuHeader_Font_Name_Value
+ ;
+ : SpelledFor ME_7ED6C1C8C532 // TextStyle_NewSchoolMainMenuHeader_Font_Name_Value
+ ;
 
-ref; // ME_354CDEA9E53A Init_TextStyle_NewSchoolMainMenuHeader_Font_Name_Value
+ref; // ME_354CDEA9E53A Init_Str_TextStyle_NewSchoolMainMenuHeader_Font_Name_Value
 
 : ME_50644474C84F
  CONST UID '50644474C84F'
- CONST Name 'Init_TextStyle_NewSchoolMainMenuHeader_Name_Value'
+ CONST Name 'Init_Str_TextStyle_NewSchoolMainMenuHeader_Name_Value'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Инициализация str_TextStyle_NewSchoolMainMenuHeader_Name_Value' ;
@@ -4427,12 +4930,17 @@ ref; // ME_354CDEA9E53A Init_TextStyle_NewSchoolMainMenuHeader_Font_Name_Value
  CONST Abstraction at_final
  : Parent ME_4028A9B7940C // F1_AttrValues
  ;
+ : Speller ME_9A717449CD2E // TextStyle_NewSchoolMainMenuHeader_Name_Value
+ ;
+ : SpelledFor ME_6A62A343B7A5 // TextStyle_NewSchoolMainMenuHeader_Name_Value
+ ;
 
-ref; // ME_50644474C84F Init_TextStyle_NewSchoolMainMenuHeader_Name_Value
+ref; // ME_50644474C84F Init_Str_TextStyle_NewSchoolMainMenuHeader_Name_Value
 
 : ME_03DD3573CC38
  CONST UID '03DD3573CC38'
- CONST Name 'Init_TextStyle_MainMenuChangePath_Name_Value'
+ CONST Name 'Init_Str_TextStyle_MainMenuChangePath_Name_Value'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Инициализация str_TextStyle_MainMenuChangePath_Name_Value' ;
@@ -4440,12 +4948,17 @@ ref; // ME_50644474C84F Init_TextStyle_NewSchoolMainMenuHeader_Name_Value
  CONST Abstraction at_final
  : Parent ME_4028A9B7940C // F1_AttrValues
  ;
+ : Speller ME_7CA614858280 // TextStyle_MainMenuChangePath_Name_Value
+ ;
+ : SpelledFor ME_2A9E5D993503 // TextStyle_MainMenuChangePath_Name_Value
+ ;
 
-ref; // ME_03DD3573CC38 Init_TextStyle_MainMenuChangePath_Name_Value
+ref; // ME_03DD3573CC38 Init_Str_TextStyle_MainMenuChangePath_Name_Value
 
 : ME_5B53EE4CEB68
  CONST UID '5B53EE4CEB68'
- CONST Name 'Init_TextStyle_MainMenuInteractiveHeader_Name_Value'
+ CONST Name 'Init_Str_TextStyle_MainMenuInteractiveHeader_Name_Value'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Инициализация str_TextStyle_MainMenuInteractiveHeader_Name_Value' ;
@@ -4453,12 +4966,17 @@ ref; // ME_03DD3573CC38 Init_TextStyle_MainMenuChangePath_Name_Value
  CONST Abstraction at_final
  : Parent ME_4028A9B7940C // F1_AttrValues
  ;
+ : Speller ME_23BE03A07BD5 // TextStyle_MainMenuInteractiveHeader_Name_Value
+ ;
+ : SpelledFor ME_70D8E71F80EB // TextStyle_MainMenuInteractiveHeader_Name_Value
+ ;
 
-ref; // ME_5B53EE4CEB68 Init_TextStyle_MainMenuInteractiveHeader_Name_Value
+ref; // ME_5B53EE4CEB68 Init_Str_TextStyle_MainMenuInteractiveHeader_Name_Value
 
 : ME_99B8F8EDD333
  CONST UID '99B8F8EDD333'
- CONST Name 'Init_TextStyle_Changes1_Name_Value'
+ CONST Name 'Init_Str_TextStyle_Changes1_Name_Value'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Инициализация str_TextStyle_Changes1_Name_Value' ;
@@ -4466,12 +4984,17 @@ ref; // ME_5B53EE4CEB68 Init_TextStyle_MainMenuInteractiveHeader_Name_Value
  CONST Abstraction at_final
  : Parent ME_4028A9B7940C // F1_AttrValues
  ;
+ : Speller ME_72E8E705AEA7 // TextStyle_Changes1_Name_Value
+ ;
+ : SpelledFor ME_5EBD3F89212F // TextStyle_Changes1_Name_Value
+ ;
 
-ref; // ME_99B8F8EDD333 Init_TextStyle_Changes1_Name_Value
+ref; // ME_99B8F8EDD333 Init_Str_TextStyle_Changes1_Name_Value
 
 : ME_1F8218D94107
  CONST UID '1F8218D94107'
- CONST Name 'Init_TextStyle_Changes2_Name_Value'
+ CONST Name 'Init_Str_TextStyle_Changes2_Name_Value'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Инициализация str_TextStyle_Changes2_Name_Value' ;
@@ -4479,12 +5002,17 @@ ref; // ME_99B8F8EDD333 Init_TextStyle_Changes1_Name_Value
  CONST Abstraction at_final
  : Parent ME_4028A9B7940C // F1_AttrValues
  ;
+ : Speller ME_3089DB05BE53 // TextStyle_Changes2_Name_Value
+ ;
+ : SpelledFor ME_4C48BCC52138 // TextStyle_Changes2_Name_Value
+ ;
 
-ref; // ME_1F8218D94107 Init_TextStyle_Changes2_Name_Value
+ref; // ME_1F8218D94107 Init_Str_TextStyle_Changes2_Name_Value
 
 : ME_8290D98311E8
  CONST UID '8290D98311E8'
- CONST Name 'Init_TextStyle_EnclosureHeader_Name_Value'
+ CONST Name 'Init_Str_TextStyle_EnclosureHeader_Name_Value'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Инициализация str_TextStyle_EnclosureHeader_Name_Value' ;
@@ -4492,12 +5020,17 @@ ref; // ME_1F8218D94107 Init_TextStyle_Changes2_Name_Value
  CONST Abstraction at_final
  : Parent ME_4028A9B7940C // F1_AttrValues
  ;
+ : Speller ME_CA0830ABA9E1 // TextStyle_EnclosureHeader_Name_Value
+ ;
+ : SpelledFor ME_56490BC09182 // TextStyle_EnclosureHeader_Name_Value
+ ;
 
-ref; // ME_8290D98311E8 Init_TextStyle_EnclosureHeader_Name_Value
+ref; // ME_8290D98311E8 Init_Str_TextStyle_EnclosureHeader_Name_Value
 
 : ME_158876BDDA61
  CONST UID '158876BDDA61'
- CONST Name 'Init_TextStyle_EditionInterval_Name_Value'
+ CONST Name 'Init_Str_TextStyle_EditionInterval_Name_Value'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Инициализация str_TextStyle_EditionInterval_Name_Value' ;
@@ -4505,12 +5038,17 @@ ref; // ME_8290D98311E8 Init_TextStyle_EnclosureHeader_Name_Value
  CONST Abstraction at_final
  : Parent ME_4028A9B7940C // F1_AttrValues
  ;
+ : Speller ME_4BE1CE8F6546 // TextStyle_EditionInterval_Name_Value
+ ;
+ : SpelledFor ME_6B7AF3319A56 // TextStyle_EditionInterval_Name_Value
+ ;
 
-ref; // ME_158876BDDA61 Init_TextStyle_EditionInterval_Name_Value
+ref; // ME_158876BDDA61 Init_Str_TextStyle_EditionInterval_Name_Value
 
 : ME_903ADD60B4E3
  CONST UID '903ADD60B4E3'
- CONST Name 'Init_TextStyle_Edition_Name_Value'
+ CONST Name 'Init_Str_TextStyle_Edition_Name_Value'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Инициализация str_TextStyle_Edition_Name_Value' ;
@@ -4518,12 +5056,17 @@ ref; // ME_158876BDDA61 Init_TextStyle_EditionInterval_Name_Value
  CONST Abstraction at_final
  : Parent ME_4028A9B7940C // F1_AttrValues
  ;
+ : Speller ME_530468D6B93E // TextStyle_Edition_Name_Value
+ ;
+ : SpelledFor ME_6B254D7600E1 // TextStyle_Edition_Name_Value
+ ;
 
-ref; // ME_903ADD60B4E3 Init_TextStyle_Edition_Name_Value
+ref; // ME_903ADD60B4E3 Init_Str_TextStyle_Edition_Name_Value
 
 : ME_236288A44FD2
  CONST UID '236288A44FD2'
- CONST Name 'Init_TextStyle_EditionNumber_Name_Value'
+ CONST Name 'Init_Str_TextStyle_EditionNumber_Name_Value'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Инициализация str_TextStyle_EditionNumber_Name_Value' ;
@@ -4531,12 +5074,17 @@ ref; // ME_903ADD60B4E3 Init_TextStyle_Edition_Name_Value
  CONST Abstraction at_final
  : Parent ME_4028A9B7940C // F1_AttrValues
  ;
+ : Speller ME_BF034452A9CA // TextStyle_EditionNumber_Name_Value
+ ;
+ : SpelledFor ME_9CC79EFB2DFC // TextStyle_EditionNumber_Name_Value
+ ;
 
-ref; // ME_236288A44FD2 Init_TextStyle_EditionNumber_Name_Value
+ref; // ME_236288A44FD2 Init_Str_TextStyle_EditionNumber_Name_Value
 
 : ME_7C2FB5A164D5
  CONST UID '7C2FB5A164D5'
- CONST Name 'Init_TextStyle_Snippet_Name_Value'
+ CONST Name 'Init_Str_TextStyle_Snippet_Name_Value'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Инициализация str_TextStyle_Snippet_Name_Value' ;
@@ -4544,12 +5092,17 @@ ref; // ME_236288A44FD2 Init_TextStyle_EditionNumber_Name_Value
  CONST Abstraction at_final
  : Parent ME_4028A9B7940C // F1_AttrValues
  ;
+ : Speller ME_5DC6A96CA585 // TextStyle_Snippet_Name_Value
+ ;
+ : SpelledFor ME_1876D1DEEA9F // TextStyle_Snippet_Name_Value
+ ;
 
-ref; // ME_7C2FB5A164D5 Init_TextStyle_Snippet_Name_Value
+ref; // ME_7C2FB5A164D5 Init_Str_TextStyle_Snippet_Name_Value
 
 : ME_BC5263CDC377
  CONST UID 'BC5263CDC377'
- CONST Name 'Init_TextStyle_DocumentInList_Name_Value'
+ CONST Name 'Init_Str_TextStyle_DocumentInList_Name_Value'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Инициализация str_TextStyle_DocumentInList_Name_Value' ;
@@ -4557,12 +5110,17 @@ ref; // ME_7C2FB5A164D5 Init_TextStyle_Snippet_Name_Value
  CONST Abstraction at_final
  : Parent ME_4028A9B7940C // F1_AttrValues
  ;
+ : Speller ME_08A558666313 // TextStyle_DocumentInList_Name_Value
+ ;
+ : SpelledFor ME_DF2BA991C139 // TextStyle_DocumentInList_Name_Value
+ ;
 
-ref; // ME_BC5263CDC377 Init_TextStyle_DocumentInList_Name_Value
+ref; // ME_BC5263CDC377 Init_Str_TextStyle_DocumentInList_Name_Value
 
 : ME_6F9D71CEBDA4
  CONST UID '6F9D71CEBDA4'
- CONST Name 'Init_TextStyle_VisitedSnippetInList_Name_Value'
+ CONST Name 'Init_Str_TextStyle_VisitedSnippetInList_Name_Value'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Инициализация str_TextStyle_VisitedSnippetInList_Name_Value' ;
@@ -4570,12 +5128,17 @@ ref; // ME_BC5263CDC377 Init_TextStyle_DocumentInList_Name_Value
  CONST Abstraction at_final
  : Parent ME_4028A9B7940C // F1_AttrValues
  ;
+ : Speller ME_7F6204D4D6AF // TextStyle_VisitedSnippetInList_Name_Value
+ ;
+ : SpelledFor ME_78CD1541C5D4 // TextStyle_VisitedSnippetInList_Name_Value
+ ;
 
-ref; // ME_6F9D71CEBDA4 Init_TextStyle_VisitedSnippetInList_Name_Value
+ref; // ME_6F9D71CEBDA4 Init_Str_TextStyle_VisitedSnippetInList_Name_Value
 
 : ME_4DB132074871
  CONST UID '4DB132074871'
- CONST Name 'Init_TextStyle_TechComment_Name_Value'
+ CONST Name 'Init_Str_TextStyle_TechComment_Name_Value'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Инициализация str_TextStyle_TechComment_Name_Value' ;
@@ -4583,12 +5146,17 @@ ref; // ME_6F9D71CEBDA4 Init_TextStyle_VisitedSnippetInList_Name_Value
  CONST Abstraction at_final
  : Parent ME_4028A9B7940C // F1_AttrValues
  ;
+ : Speller ME_70A621B61B38 // TextStyle_TechComment_Name_Value
+ ;
+ : SpelledFor ME_460EEDCB6B19 // TextStyle_TechComment_Name_Value
+ ;
 
-ref; // ME_4DB132074871 Init_TextStyle_TechComment_Name_Value
+ref; // ME_4DB132074871 Init_Str_TextStyle_TechComment_Name_Value
 
 : ME_29244C27AE75
  CONST UID '29244C27AE75'
- CONST Name 'Init_TextStyle_VisitedDocumentInList_Name_Value'
+ CONST Name 'Init_Str_TextStyle_VisitedDocumentInList_Name_Value'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Инициализация str_TextStyle_VisitedDocumentInList_Name_Value' ;
@@ -4596,11 +5164,16 @@ ref; // ME_4DB132074871 Init_TextStyle_TechComment_Name_Value
  CONST Abstraction at_final
  : Parent ME_4028A9B7940C // F1_AttrValues
  ;
+ : Speller ME_7D9F7622974B // TextStyle_VisitedDocumentInList_Name_Value
+ ;
+ : SpelledFor ME_DCA5DF1203DF // TextStyle_VisitedDocumentInList_Name_Value
+ ;
 
-ref; // ME_29244C27AE75 Init_TextStyle_VisitedDocumentInList_Name_Value
+ref; // ME_29244C27AE75 Init_Str_TextStyle_VisitedDocumentInList_Name_Value
 
 : ME_47288684F4A5
  CONST UID '47288684F4A5'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_4028A9B7940C // F1_AttrValues
@@ -4612,6 +5185,7 @@ ref; // ME_47288684F4A5
 
 : ME_001AAA245994
  CONST UID '001AAA245994'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_4028A9B7940C // F1_AttrValues
@@ -4624,6 +5198,7 @@ ref; // ME_001AAA245994
 : ME_4028A9B7940C
  CONST UID '4028A9B7940C'
  CONST Name 'F1_AttrValues'
+ CONST IsSummoned true
  CONST Class class_Class
  : Stereotype st_UtilityPack ;
  CONST Kind kind_NormalClass
@@ -4633,53 +5208,52 @@ ref; // ME_001AAA245994
  : Parent ME_4AB112DF005B // EVD
  ;
  : Operations
-   @ ( ME_18491A7AD430 // Init_TextStyle_ANSIDOS_Name_Value
- ME_C69ED2E5296F // Init_TextStyle_CompareEditionsText_Name_Value
- ME_1B190C9A6779 // Init_TextStyle_DeletedText_Name_Value
- ME_94D2EC13088B // Init_TextStyle_ChatHeaderSender_Name_Value
- ME_A29415CD3AFD // Init_TextStyle_ChatHeaderRecipient_Name_Value
- ME_182C8C8204D7 // Init_TextStyle_AddedText_Name_Value
- ME_1822E7AF9607 // Init_TextStyle_NewSchoolMainMenu_Name_Value
- ME_3F6010DC8D96 // Init_TextStyle_MainMenu_Font_Name_Value
- ME_E6CCEC053885 // Init_TextStyle_MainMenu_Name_Value
- ME_2608718B45F3 // Init_TextStyle_MainMenuHeader_Name_Value
- ME_3F4716197817 // Init_TextStyle_MainMenuConstPath_Name_Value
- ME_5EDD04658736 // Init_TextStyle_NewSchoolMainMenuConstPath_Font_Name_Value
- ME_BCFE9BE90264 // Init_TextStyle_NewSchoolMainMenuConstPath_Name_Value
- ME_354CDEA9E53A // Init_TextStyle_NewSchoolMainMenuHeader_Font_Name_Value
- ME_50644474C84F // Init_TextStyle_NewSchoolMainMenuHeader_Name_Value
- ME_03DD3573CC38 // Init_TextStyle_MainMenuChangePath_Name_Value
- ME_5B53EE4CEB68 // Init_TextStyle_MainMenuInteractiveHeader_Name_Value
- ME_99B8F8EDD333 // Init_TextStyle_Changes1_Name_Value
- ME_1F8218D94107 // Init_TextStyle_Changes2_Name_Value
- ME_8290D98311E8 // Init_TextStyle_EnclosureHeader_Name_Value
- ME_158876BDDA61 // Init_TextStyle_EditionInterval_Name_Value
- ME_903ADD60B4E3 // Init_TextStyle_Edition_Name_Value
- ME_236288A44FD2 // Init_TextStyle_EditionNumber_Name_Value
- ME_7C2FB5A164D5 // Init_TextStyle_Snippet_Name_Value
- ME_BC5263CDC377 // Init_TextStyle_DocumentInList_Name_Value
- ME_6F9D71CEBDA4 // Init_TextStyle_VisitedSnippetInList_Name_Value
- ME_4DB132074871 // Init_TextStyle_TechComment_Name_Value
- ME_29244C27AE75 // Init_TextStyle_VisitedDocumentInList_Name_Value
- ) .SequenceCode.It
+   Seq: ( ME_18491A7AD430 // Init_Str_TextStyle_ANSIDOS_Name_Value
+ ME_C69ED2E5296F // Init_Str_TextStyle_CompareEditionsText_Name_Value
+ ME_1B190C9A6779 // Init_Str_TextStyle_DeletedText_Name_Value
+ ME_94D2EC13088B // Init_Str_TextStyle_ChatHeaderSender_Name_Value
+ ME_A29415CD3AFD // Init_Str_TextStyle_ChatHeaderRecipient_Name_Value
+ ME_182C8C8204D7 // Init_Str_TextStyle_AddedText_Name_Value
+ ME_1822E7AF9607 // Init_Str_TextStyle_NewSchoolMainMenu_Name_Value
+ ME_3F6010DC8D96 // Init_Str_TextStyle_MainMenu_Font_Name_Value
+ ME_E6CCEC053885 // Init_Str_TextStyle_MainMenu_Name_Value
+ ME_2608718B45F3 // Init_Str_TextStyle_MainMenuHeader_Name_Value
+ ME_3F4716197817 // Init_Str_TextStyle_MainMenuConstPath_Name_Value
+ ME_5EDD04658736 // Init_Str_TextStyle_NewSchoolMainMenuConstPath_Font_Name_Value
+ ME_BCFE9BE90264 // Init_Str_TextStyle_NewSchoolMainMenuConstPath_Name_Value
+ ME_354CDEA9E53A // Init_Str_TextStyle_NewSchoolMainMenuHeader_Font_Name_Value
+ ME_50644474C84F // Init_Str_TextStyle_NewSchoolMainMenuHeader_Name_Value
+ ME_03DD3573CC38 // Init_Str_TextStyle_MainMenuChangePath_Name_Value
+ ME_5B53EE4CEB68 // Init_Str_TextStyle_MainMenuInteractiveHeader_Name_Value
+ ME_99B8F8EDD333 // Init_Str_TextStyle_Changes1_Name_Value
+ ME_1F8218D94107 // Init_Str_TextStyle_Changes2_Name_Value
+ ME_8290D98311E8 // Init_Str_TextStyle_EnclosureHeader_Name_Value
+ ME_158876BDDA61 // Init_Str_TextStyle_EditionInterval_Name_Value
+ ME_903ADD60B4E3 // Init_Str_TextStyle_Edition_Name_Value
+ ME_236288A44FD2 // Init_Str_TextStyle_EditionNumber_Name_Value
+ ME_7C2FB5A164D5 // Init_Str_TextStyle_Snippet_Name_Value
+ ME_BC5263CDC377 // Init_Str_TextStyle_DocumentInList_Name_Value
+ ME_6F9D71CEBDA4 // Init_Str_TextStyle_VisitedSnippetInList_Name_Value
+ ME_4DB132074871 // Init_Str_TextStyle_TechComment_Name_Value
+ ME_29244C27AE75 // Init_Str_TextStyle_VisitedDocumentInList_Name_Value
+ )
  ; // Operations
  : Constants
-   @ ( ME_135A09B54955 // AttrValues
+   Seq: ( ME_135A09B54955 // AttrValues
  ME_CFCAF1C4F82D // LCImplAttrValues
- ) .SequenceCode.It
+ )
  ; // Constants
  : Dependencies
-   @ ( ME_47288684F4A5 // 
+   Seq: ( ME_47288684F4A5 // 
  ME_001AAA245994 // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  CONST "no hands" false
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest_Engine'
  CONST intf.pas:Path 'common\components\gui\Garant\Everest_Engine\F1_AttrValues.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest_Engine'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_4028A9B7940C F1_AttrValues
 
@@ -4694,33 +5268,32 @@ ref; // ME_4028A9B7940C F1_AttrValues
  : Parent WL 'ME_4680E7D50168' '4680E7D50168.pas.ms.script' // Everest Engine
  ;
  : Children
-   @ ( ME_4860F3C103E4 // F1
+   Seq: ( ME_4860F3C103E4 // F1
  ME_54BE514101E5 // TeeTextPara
  ME_54BE51580257 // TeeDocument
  ME_4B72E1CE0002 // eeDocument
  ME_4028A9B7940C // F1_AttrValues
- ) .SequenceCode.It
+ )
  ; // Children
  : Depends
-   @ ( WL 'ME_469D0AC7005E' '469D0AC7005E.pas.ms.script' // Types
+   Seq: ( WL 'ME_469D0AC7005E' '469D0AC7005E.pas.ms.script' // Types
  WL 'ME_473C3BEE0334' '473C3BEE0334.pas.ms.script' // l3Canvas
  WL 'ME_476BE0350329' '476BE0350329.pas.ms.script' // Styles
  WL 'ME_4799D29F033F' '4799D29F033F.pas.ms.script' // Implementation
  WL 'ME_47A1D4C201E8' '47A1D4C201E8.pas.ms.script' // l3Const
  WL 'ME_48492FC0029D' '48492FC0029D.pas.ms.script' // Standard
  WL 'ME_484A470100DD' '484A470100DD.pas.ms.script' // Standard
+ WL 'ME_4E6A1F2D0336' '4E6A1F2D0336.pas.ms.script' // Требования к схеме документа в F1
  WL 'ME_53D258F1004F' '53D258F1004F.pas.ms.script' // InterfaceFactories
  WL 'ME_55C4AEC801CA' '55C4AEC801CA.pas.ms.script' // Graphics
- ) .SequenceCode.It
+ )
  ; // Depends
  CONST "ifdef" 'Nemesis'
- : Generators
- @ (
- gen_pas.script
- gen_pas.script.runner
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest_Engine'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest_Engine'
  CONST pas.script:Path 'shared\models\NewSchool\Scripts\4AB112DF005B.pas.ms.script'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
  CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\4AB112DF005B.pas.ms.script.runner'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_4AB112DF005B EVD

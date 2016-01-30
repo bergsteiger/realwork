@@ -47,10 +47,10 @@ ref; // ME_51BB1F88010E aNewRoot
  : Parent ME_4AE825FC019D // TeeRootChangedEvent
  ;
  : Parameters
-   @ ( ME_51BB1F8800CA // aSender
+   Seq: ( ME_51BB1F8800CA // aSender
  ME_51BB1F8800EC // anOldRoot
  ME_51BB1F88010E // aNewRoot
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_51BB1F840013 DoIt
@@ -66,10 +66,14 @@ ref; // ME_51BB1F840013 DoIt
  : Parent ME_499C0B7B012E // TeeTreeViewExport
  ;
  : Operations
-   @ ( ME_51BB1F840013 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_51BB1F840013 // DoIt
+ )
  ; // Operations
  CONST "of object" true
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest_Engine'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest_Engine'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_4AE825FC019D TeeRootChangedEvent
 
@@ -134,12 +138,12 @@ ref; // ME_5319F84300AC aSelected
  : Parent ME_5143245F0209 // TeeFormatStatusInfo
  ;
  : Parameters
-   @ ( ME_51432475030B // aSender
+   Seq: ( ME_51432475030B // aSender
  ME_514324750325 // Info
  ME_5319F8430059 // aCurrent
  ME_5319F8430083 // aCount
  ME_5319F84300AC // aSelected
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_514324710379 DoIt
@@ -155,10 +159,14 @@ ref; // ME_514324710379 DoIt
  : Parent ME_499C0B7B012E // TeeTreeViewExport
  ;
  : Operations
-   @ ( ME_514324710379 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_514324710379 // DoIt
+ )
  ; // Operations
  CONST "of object" true
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest_Engine'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest_Engine'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_5143245F0209 TeeFormatStatusInfo
 
@@ -193,9 +201,9 @@ ref; // ME_5319F83700BD anOld
  : Parent ME_5319EA3F0238 // TeeCurrentIndexChangedEvent
  ;
  : Parameters
-   @ ( ME_5319F837009E // aNew
+   Seq: ( ME_5319F837009E // aNew
  ME_5319F83700BD // anOld
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_5319EA5F014C DoIt
@@ -212,10 +220,14 @@ ref; // ME_5319EA5F014C DoIt
  : Parent ME_499C0B7B012E // TeeTreeViewExport
  ;
  : Operations
-   @ ( ME_5319EA5F014C // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_5319EA5F014C // DoIt
+ )
  ; // Operations
  CONST "of object" true
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest_Engine'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest_Engine'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_5319EA3F0238 TeeCurrentIndexChangedEvent
 
@@ -245,14 +257,18 @@ ref; // ME_5319F98500F0
  : Parent ME_499C0B7B012E // TeeTreeViewExport
  ;
  : Inherits
-   @ ( WL 'ME_5319F9030194' '4912DD020283.pas.ms.script' // TeeSetBitType
- ) .SequenceCode.It
+   Seq: ( WL 'ME_5319F9030194' '4912DD020283.pas.ms.script' // TeeSetBitType
+ )
  ; // Inherits
  : Attributes
-   @ ( ME_5319F98500F0 // 
- ) .SequenceCode.It
+   Seq: ( ME_5319F98500F0 // 
+ )
  ; // Attributes
  CONST "array type" 'dynamic'
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest_Engine'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest_Engine'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_5319F95101E5 TeeBT2L3BTMap
 
@@ -275,6 +291,7 @@ FORWARD ME_5319FA4A0180
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value '(sbSelect, sbDeselect, sbInvert)'
 
 ref; // ME_5319FA630196 eeBT2L3BT
 
@@ -289,10 +306,14 @@ ref; // ME_5319FA630196 eeBT2L3BT
  : Parent ME_499C0B7B012E // TeeTreeViewExport
  ;
  : Attributes
-   @ ( ME_5319FA630196 // eeBT2L3BT
- ) .SequenceCode.It
+   Seq: ( ME_5319FA630196 // eeBT2L3BT
+ )
  ; // Attributes
  CONST "spell names" false
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest_Engine'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest_Engine'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_5319FA4A0180 eeTreeViewExport Private Const
 
@@ -475,6 +496,7 @@ ref; // ME_56161B100145 LoadingCloneState
 : ME_963D7548ADE7
  CONST UID '963D7548ADE7'
  CONST Name 'f_TreeView'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY 'Поле для свойства TreeView' ;
  CONST Visibility PrivateAccess
@@ -490,6 +512,7 @@ ref; // ME_963D7548ADE7 f_TreeView
 : ME_9156FAAB4C70
  CONST UID '9156FAAB4C70'
  CONST Name 'f_DblClickOnFolder'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY 'Поле для свойства DblClickOnFolder' ;
  CONST Visibility PrivateAccess
@@ -499,12 +522,14 @@ ref; // ME_963D7548ADE7 f_TreeView
  ;
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
+ CONST extprop:clearViaProperty 'DblClickOnFolder'
 
 ref; // ME_9156FAAB4C70 f_DblClickOnFolder
 
 : ME_59388BADF959
  CONST UID '59388BADF959'
  CONST Name 'f_ClearTreeStructOnSaveState'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY 'Поле для свойства ClearTreeStructOnSaveState' ;
  CONST Visibility PrivateAccess
@@ -514,12 +539,14 @@ ref; // ME_9156FAAB4C70 f_DblClickOnFolder
  ;
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
+ CONST extprop:clearViaProperty 'ClearTreeStructOnSaveState'
 
 ref; // ME_59388BADF959 f_ClearTreeStructOnSaveState
 
 : ME_14F2A9A92A66
  CONST UID '14F2A9A92A66'
  CONST Name 'f_NeedStatus'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY 'Поле для свойства NeedStatus' ;
  CONST Visibility PrivateAccess
@@ -529,12 +556,14 @@ ref; // ME_59388BADF959 f_ClearTreeStructOnSaveState
  ;
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
+ CONST extprop:clearViaProperty 'NeedStatus'
 
 ref; // ME_14F2A9A92A66 f_NeedStatus
 
 : ME_A1995AA8A265
  CONST UID 'A1995AA8A265'
  CONST Name 'f_OnRootChanged'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY 'Поле для свойства OnRootChanged' ;
  CONST Visibility PrivateAccess
@@ -544,12 +573,14 @@ ref; // ME_14F2A9A92A66 f_NeedStatus
  ;
  : Target ME_4AE825FC019D // TeeRootChangedEvent
  ;
+ CONST extprop:clearViaProperty 'OnRootChanged'
 
 ref; // ME_A1995AA8A265 f_OnRootChanged
 
 : ME_CFFF183E028B
  CONST UID 'CFFF183E028B'
  CONST Name 'f_OnFormatStatusInfo'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY 'Поле для свойства OnFormatStatusInfo' ;
  CONST Visibility PrivateAccess
@@ -559,12 +590,14 @@ ref; // ME_A1995AA8A265 f_OnRootChanged
  ;
  : Target ME_5143245F0209 // TeeFormatStatusInfo
  ;
+ CONST extprop:clearViaProperty 'OnFormatStatusInfo'
 
 ref; // ME_CFFF183E028B f_OnFormatStatusInfo
 
 : ME_A08D4541C770
  CONST UID 'A08D4541C770'
  CONST Name 'f_OnCurrentIndexChanged'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY 'Поле для свойства OnCurrentIndexChanged' ;
  CONST Visibility PrivateAccess
@@ -574,12 +607,14 @@ ref; // ME_CFFF183E028B f_OnFormatStatusInfo
  ;
  : Target ME_5319EA3F0238 // TeeCurrentIndexChangedEvent
  ;
+ CONST extprop:clearViaProperty 'OnCurrentIndexChanged'
 
 ref; // ME_A08D4541C770 f_OnCurrentIndexChanged
 
 : ME_0AD97C71A3E3
  CONST UID '0AD97C71A3E3'
  CONST Name 'f_LoadingCloneState'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY 'Поле для свойства LoadingCloneState' ;
  CONST Visibility PrivateAccess
@@ -623,9 +658,9 @@ ref; // ME_5319F2680096 anOld
  : Parent ME_5319F25902B0 // DoCurrentIndexChanged
  ;
  : Parameters
-   @ ( ME_5319F2680078 // aNew
+   Seq: ( ME_5319F2680078 // aNew
  ME_5319F2680096 // anOld
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_5319F26500A3 DoIt
@@ -641,8 +676,8 @@ ref; // ME_5319F26500A3 DoIt
  : Parent ME_531DB14D03CC // TeeTreeViewExportPrim
  ;
  : Operations
-   @ ( ME_5319F26500A3 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_5319F26500A3 // DoIt
+ )
  ; // Operations
 
 ref; // ME_5319F25902B0 DoCurrentIndexChanged
@@ -690,10 +725,10 @@ ref; // ME_55DC280C0253 aForClone
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
  : Parameters
-   @ ( ME_55DC280C0224 // aState
+   Seq: ( ME_55DC280C0224 // aState
  ME_55DC280C0243 // aStateType
  ME_55DC280C0253 // aForClone
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_52DD0F7603D8 DoIt
@@ -722,12 +757,12 @@ ref; // ME_531F10870089
  : Parent ME_531DB14D03CC // TeeTreeViewExportPrim
  ;
  : Operations
-   @ ( ME_52DD0F7603D8 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_52DD0F7603D8 // DoIt
+ )
  ; // Operations
  : Dependencies
-   @ ( ME_531F10870089 // 
- ) .SequenceCode.It
+   Seq: ( ME_531F10870089 // 
+ )
  ; // Dependencies
  CONST "ifndef" 'DesignTimeLibrary, NoVCM'
 
@@ -776,10 +811,10 @@ ref; // ME_55DC28190099 aForClone
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
  : Parameters
-   @ ( ME_55DC2819006A // aState
+   Seq: ( ME_55DC2819006A // aState
  ME_55DC28190089 // aStateType
  ME_55DC28190099 // aForClone
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_52DD0F50018F DoIt
@@ -806,12 +841,12 @@ ref; // ME_531F1081003B
  : Parent ME_531DB14D03CC // TeeTreeViewExportPrim
  ;
  : Operations
-   @ ( ME_52DD0F50018F // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_52DD0F50018F // DoIt
+ )
  ; // Operations
  : Dependencies
-   @ ( ME_531F1081003B // 
- ) .SequenceCode.It
+   Seq: ( ME_531F1081003B // 
+ )
  ; // Dependencies
  CONST "ifndef" 'DesignTimeLibrary, NoVCM'
 
@@ -843,8 +878,8 @@ ref; // ME_51DBCAA4022B DoIt
  : Parent ME_531DB14D03CC // TeeTreeViewExportPrim
  ;
  : Operations
-   @ ( ME_51DBCAA4022B // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_51DBCAA4022B // DoIt
+ )
  ; // Operations
 
 ref; // ME_51DBCA8C0206 GetSelectedCountForStatusbar
@@ -875,8 +910,8 @@ ref; // ME_5319F2D600A9 DoIt
  : Parent ME_531DB14D03CC // TeeTreeViewExportPrim
  ;
  : Operations
-   @ ( ME_5319F2D600A9 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_5319F2D600A9 // DoIt
+ )
  ; // Operations
 
 ref; // ME_5319F2CE0307 IsTreeStructAssigned
@@ -902,8 +937,8 @@ ref; // ME_5319F3000379 aIndex
  : Parent ME_5319F2F10189 // MakeItemVisible
  ;
  : Parameters
-   @ ( ME_5319F3000379 // aIndex
- ) .SequenceCode.It
+   Seq: ( ME_5319F3000379 // aIndex
+ )
  ; // Parameters
 
 ref; // ME_5319F2FD0356 DoIt
@@ -920,8 +955,8 @@ ref; // ME_5319F2FD0356 DoIt
  : Parent ME_531DB14D03CC // TeeTreeViewExportPrim
  ;
  : Operations
-   @ ( ME_5319F2FD0356 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_5319F2FD0356 // DoIt
+ )
  ; // Operations
 
 ref; // ME_5319F2F10189 MakeItemVisible
@@ -957,9 +992,9 @@ ref; // ME_5319F15F030B aNewRoot
  : Parent ME_5319F116018F // RootChanged$1
  ;
  : Parameters
-   @ ( ME_5319F15F02EF // anOldRoot
+   Seq: ( ME_5319F15F02EF // anOldRoot
  ME_5319F15F030B // aNewRoot
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_5319F1590315 DoIt
@@ -975,8 +1010,8 @@ ref; // ME_5319F1590315 DoIt
  : Parent ME_531DB14D03CC // TeeTreeViewExportPrim
  ;
  : Operations
-   @ ( ME_5319F1590315 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_5319F1590315 // DoIt
+ )
  ; // Operations
 
 ref; // ME_5319F116018F RootChanged$1
@@ -1012,9 +1047,9 @@ ref; // ME_5319F18B02FB aNewRoot
  : Parent ME_5319F17400EC // RootChanged$2
  ;
  : Parameters
-   @ ( ME_5319F18B02DE // anOldRoot
+   Seq: ( ME_5319F18B02DE // anOldRoot
  ME_5319F18B02FB // aNewRoot
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_5319F18502DE DoIt
@@ -1030,8 +1065,8 @@ ref; // ME_5319F18502DE DoIt
  : Parent ME_531DB14D03CC // TeeTreeViewExportPrim
  ;
  : Operations
-   @ ( ME_5319F18502DE // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_5319F18502DE // DoIt
+ )
  ; // Operations
 
 ref; // ME_5319F17400EC RootChanged$2
@@ -1041,6 +1076,7 @@ FORWARD ME_5319F2A101E6
 : ME_1CDCBACC0A7E
  CONST UID '1CDCBACC0A7E'
  CONST Name 'DoIt'
+ CONST IsSummoned true
  CONST Class class_Operation
  %SUMMARY 'Сигнатура метода UpdateStatus' ;
  CONST Visibility PublicAccess
@@ -1062,8 +1098,8 @@ ref; // ME_1CDCBACC0A7E DoIt
  : Parent ME_531DB14D03CC // TeeTreeViewExportPrim
  ;
  : Operations
-   @ ( ME_1CDCBACC0A7E // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_1CDCBACC0A7E // DoIt
+ )
  ; // Operations
 
 ref; // ME_5319F2A101E6 UpdateStatus
@@ -1088,8 +1124,8 @@ ref; // ME_531DB6DB015C Msg
  : Parent ME_531DB14D03CC // TeeTreeViewExportPrim
  ;
  : Parameters
-   @ ( ME_531DB6DB015C // Msg
- ) .SequenceCode.It
+   Seq: ( ME_531DB6DB015C // Msg
+ )
  ; // Parameters
  CONST "Message ID" 'WM_LBUTTONDBLCLK'
 
@@ -1098,6 +1134,7 @@ ref; // ME_531DB6C5003F WMLButtonDblClk
 : ME_8C03C9CDE8AC
  CONST UID '8C03C9CDE8AC'
  CONST Name 'Ini_Reg_Class'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Регистрация TeeTreeViewExportPrim' ;
@@ -1111,6 +1148,7 @@ ref; // ME_8C03C9CDE8AC Ini_Reg_Class
 
 : ME_376196CA28E7
  CONST UID '376196CA28E7'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_531DB14D03CC // TeeTreeViewExportPrim
@@ -1127,6 +1165,7 @@ ref; // ME_376196CA28E7
  ;
  : Implementor ME_531DB14D03CC // TeeTreeViewExportPrim
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_4683E75B01D8_ME_531DB14D03CC SaveState
 
 : ME_4683E79D0331_ME_531DB14D03CC
@@ -1136,6 +1175,7 @@ ref; // ME_4683E75B01D8_ME_531DB14D03CC SaveState
  ;
  : Implementor ME_531DB14D03CC // TeeTreeViewExportPrim
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_4683E79D0331_ME_531DB14D03CC LoadState
 
 : ME_475E9466022A_ME_531DB14D03CC
@@ -1145,6 +1185,7 @@ ref; // ME_4683E79D0331_ME_531DB14D03CC LoadState
  ;
  : Implementor ME_531DB14D03CC // TeeTreeViewExportPrim
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_475E9466022A_ME_531DB14D03CC GetStatusInfo
 
 : ME_477244190062_ME_531DB14D03CC
@@ -1154,6 +1195,7 @@ ref; // ME_475E9466022A_ME_531DB14D03CC GetStatusInfo
  ;
  : Implementor ME_531DB14D03CC // TeeTreeViewExportPrim
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_477244190062_ME_531DB14D03CC Notify
 
 : ME_55DC1CFE018D_ME_531DB14D03CC
@@ -1163,6 +1205,7 @@ ref; // ME_477244190062_ME_531DB14D03CC Notify
  ;
  : Implementor ME_531DB14D03CC // TeeTreeViewExportPrim
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_55DC1CFE018D_ME_531DB14D03CC SaveStateForClone
 
 : ME_55DC1D21005D_ME_531DB14D03CC
@@ -1172,6 +1215,7 @@ ref; // ME_55DC1CFE018D_ME_531DB14D03CC SaveStateForClone
  ;
  : Implementor ME_531DB14D03CC // TeeTreeViewExportPrim
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_55DC1D21005D_ME_531DB14D03CC LoadCloneState
 
 : ME_479731C50290_ME_531DB14D03CC
@@ -1181,6 +1225,7 @@ ref; // ME_55DC1D21005D_ME_531DB14D03CC LoadCloneState
  ;
  : Implementor ME_531DB14D03CC // TeeTreeViewExportPrim
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_479731C50290_ME_531DB14D03CC Cleanup
 
 : ME_47D1602000C6_ME_531DB14D03CC
@@ -1190,6 +1235,7 @@ ref; // ME_479731C50290_ME_531DB14D03CC Cleanup
  ;
  : Implementor ME_531DB14D03CC // TeeTreeViewExportPrim
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_47D1602000C6_ME_531DB14D03CC Create
 
 : ME_48C7C4990287_ME_531DB14D03CC
@@ -1199,6 +1245,7 @@ ref; // ME_47D1602000C6_ME_531DB14D03CC Create
  ;
  : Implementor ME_531DB14D03CC // TeeTreeViewExportPrim
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_48C7C4990287_ME_531DB14D03CC COMQueryInterface
 
 : ME_5000565C019C_ME_531DB14D03CC
@@ -1208,6 +1255,7 @@ ref; // ME_48C7C4990287_ME_531DB14D03CC COMQueryInterface
  ;
  : Implementor ME_531DB14D03CC // TeeTreeViewExportPrim
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_5000565C019C_ME_531DB14D03CC ClearFields
 
 : ME_5151AE2202F5_ME_531DB14D03CC
@@ -1217,6 +1265,7 @@ ref; // ME_5000565C019C_ME_531DB14D03CC ClearFields
  ;
  : Implementor ME_531DB14D03CC // TeeTreeViewExportPrim
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_5151AE2202F5_ME_531DB14D03CC NotifyIfNewCurrentEmpty
 
 : ME_5152C93400EB_ME_531DB14D03CC
@@ -1226,6 +1275,7 @@ ref; // ME_5151AE2202F5_ME_531DB14D03CC NotifyIfNewCurrentEmpty
  ;
  : Implementor ME_531DB14D03CC // TeeTreeViewExportPrim
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_5152C93400EB_ME_531DB14D03CC DoDoProcessCommand
 
 : ME_5152CC6A0355_ME_531DB14D03CC
@@ -1235,6 +1285,7 @@ ref; // ME_5152C93400EB_ME_531DB14D03CC DoDoProcessCommand
  ;
  : Implementor ME_531DB14D03CC // TeeTreeViewExportPrim
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_5152CC6A0355_ME_531DB14D03CC CallCurrentChanged
 
 : ME_515EF27A028F_ME_531DB14D03CC
@@ -1244,6 +1295,7 @@ ref; // ME_5152CC6A0355_ME_531DB14D03CC CallCurrentChanged
  ;
  : Implementor ME_531DB14D03CC // TeeTreeViewExportPrim
  ;
+ CONST OpKind opkind_Overridden
  CONST "pm" true
 ref; // ME_515EF27A028F_ME_531DB14D03CC TreeStruct
 
@@ -1254,6 +1306,7 @@ ref; // ME_515EF27A028F_ME_531DB14D03CC TreeStruct
  ;
  : Implementor ME_531DB14D03CC // TeeTreeViewExportPrim
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_516297E40319_ME_531DB14D03CC SubscribeTreeStruct
 
 : ME_5162982100FB_ME_531DB14D03CC
@@ -1263,6 +1316,7 @@ ref; // ME_516297E40319_ME_531DB14D03CC SubscribeTreeStruct
  ;
  : Implementor ME_531DB14D03CC // TeeTreeViewExportPrim
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_5162982100FB_ME_531DB14D03CC UnsubscribeTreeStruct
 
 : ME_51629A880103_ME_531DB14D03CC
@@ -1272,6 +1326,7 @@ ref; // ME_5162982100FB_ME_531DB14D03CC UnsubscribeTreeStruct
  ;
  : Implementor ME_531DB14D03CC // TeeTreeViewExportPrim
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_51629A880103_ME_531DB14D03CC MakeTreeStructOnDraw
 
 : ME_51629C9B00C2_ME_531DB14D03CC
@@ -1281,6 +1336,7 @@ ref; // ME_51629A880103_ME_531DB14D03CC MakeTreeStructOnDraw
  ;
  : Implementor ME_531DB14D03CC // TeeTreeViewExportPrim
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_51629C9B00C2_ME_531DB14D03CC DoOnExpand
 
 : ME_51629D5D018A_ME_531DB14D03CC
@@ -1290,6 +1346,7 @@ ref; // ME_51629C9B00C2_ME_531DB14D03CC DoOnExpand
  ;
  : Implementor ME_531DB14D03CC // TeeTreeViewExportPrim
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_51629D5D018A_ME_531DB14D03CC DoTreeChanged
 
 : ME_51629D8E02C8_ME_531DB14D03CC
@@ -1299,6 +1356,7 @@ ref; // ME_51629D5D018A_ME_531DB14D03CC DoTreeChanged
  ;
  : Implementor ME_531DB14D03CC // TeeTreeViewExportPrim
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_51629D8E02C8_ME_531DB14D03CC SetTreeStructFromHistory
 
 : ME_531DB14D03CC
@@ -1312,20 +1370,20 @@ ref; // ME_51629D8E02C8_ME_531DB14D03CC SetTreeStructFromHistory
  : Parent ME_499C0B7B012E // TeeTreeViewExport
  ;
  : Inherits
-   @ ( WL 'ME_4B97E8130272' '4B97E7FD006C.pas.ms.script' // TvtOutlinerWithDragDrop
- ) .SequenceCode.It
+   Seq: ( WL 'ME_4B97E8130272' '4B97E7FD006C.pas.ms.script' // TvtOutlinerWithDragDrop
+ )
  ; // Inherits
  : Implements
-   @ ( WL 'ME_467C166B007B' '467BAB7F021E.pas.ms.script' // IvcmState
+   Seq: ( WL 'ME_467C166B007B' '467BAB7F021E.pas.ms.script' // IvcmState
  WL 'ME_46A4549E000C' '4677FBA70343.pas.ms.script' // Il3SelectCountChangedRecipient
  WL 'ME_473D96390341' '467823B7002C.pas.ms.script' // IafwStatusElement
  WL 'ME_47724373032C' '4682595B0268.pas.ms.script' // Il3RootSpy
  WL 'ME_477243CF0296' '4682595B0268.pas.ms.script' // Il3NodeNotifyRecipient
  WL 'ME_55DC1CE20394' '467BAB7F021E.pas.ms.script' // IvcmCloneableState
- ) .SequenceCode.It
+ )
  ; // Implements
  : Attributes
-   @ ( ME_5319ECD7006D // TreeView
+   Seq: ( ME_5319ECD7006D // TreeView
  ME_5319F49A0265 // DblClickOnFolder
  ME_5319F4BD01DE // ClearTreeStructOnSaveState
  ME_5319F6AD01DF // NeedStatus
@@ -1343,10 +1401,10 @@ ref; // ME_51629D8E02C8_ME_531DB14D03CC SetTreeStructFromHistory
  ME_CFFF183E028B // f_OnFormatStatusInfo
  ME_A08D4541C770 // f_OnCurrentIndexChanged
  ME_0AD97C71A3E3 // f_LoadingCloneState
- ) .SequenceCode.It
+ )
  ; // Attributes
  : Operations
-   @ ( ME_5319F25902B0 // DoCurrentIndexChanged
+   Seq: ( ME_5319F25902B0 // DoCurrentIndexChanged
  ME_52DD0F6F0223 // DoLoadState
  ME_52DD0F440276 // DoSaveState
  ME_51DBCA8C0206 // GetSelectedCountForStatusbar
@@ -1357,19 +1415,19 @@ ref; // ME_51629D8E02C8_ME_531DB14D03CC SetTreeStructFromHistory
  ME_5319F2A101E6 // UpdateStatus
  ME_531DB6C5003F // WMLButtonDblClk
  ME_8C03C9CDE8AC // Ini_Reg_Class
- ) .SequenceCode.It
+ )
  ; // Operations
  : Implemented
-   @ ( ME_4683E75B01D8_ME_531DB14D03CC // SaveState
+   Seq: ( ME_4683E75B01D8_ME_531DB14D03CC // SaveState
  ME_4683E79D0331_ME_531DB14D03CC // LoadState
  ME_475E9466022A_ME_531DB14D03CC // GetStatusInfo
  ME_477244190062_ME_531DB14D03CC // Notify
  ME_55DC1CFE018D_ME_531DB14D03CC // SaveStateForClone
  ME_55DC1D21005D_ME_531DB14D03CC // LoadCloneState
- ) .SequenceCode.It
+ )
  ; // Implemented
  : Overridden
-   @ ( ME_479731C50290_ME_531DB14D03CC // Cleanup
+   Seq: ( ME_479731C50290_ME_531DB14D03CC // Cleanup
  ME_47D1602000C6_ME_531DB14D03CC // Create
  ME_48C7C4990287_ME_531DB14D03CC // COMQueryInterface
  ME_5000565C019C_ME_531DB14D03CC // ClearFields
@@ -1383,17 +1441,23 @@ ref; // ME_51629D8E02C8_ME_531DB14D03CC SetTreeStructFromHistory
  ME_51629C9B00C2_ME_531DB14D03CC // DoOnExpand
  ME_51629D5D018A_ME_531DB14D03CC // DoTreeChanged
  ME_51629D8E02C8_ME_531DB14D03CC // SetTreeStructFromHistory
- ) .SequenceCode.It
+ )
  ; // Overridden
  : Dependencies
-   @ ( ME_376196CA28E7 // 
- ) .SequenceCode.It
+   Seq: ( ME_376196CA28E7 // 
+ )
  ; // Dependencies
  CONST "base wnd class" 'CWnd'
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest_Engine'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest_Engine'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'eeTreeViewExportPrim'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_531DB14D03CC TeeTreeViewExportPrim
 
@@ -1448,8 +1512,8 @@ ref; // ME_531A0A67023E aTreeView
  : Parent ME_531A0A5E017A // Create
  ;
  : Parameters
-   @ ( ME_531A0A67023E // aTreeView
- ) .SequenceCode.It
+   Seq: ( ME_531A0A67023E // aTreeView
+ )
  ; // Parameters
 
 ref; // ME_531A0A630396 DoIt
@@ -1465,8 +1529,8 @@ ref; // ME_531A0A630396 DoIt
  : Parent ME_5319FAE701F7 // TeeTreeViewShadow
  ;
  : Operations
-   @ ( ME_531A0A630396 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_531A0A630396 // DoIt
+ )
  ; // Operations
 
 ref; // ME_531A0A5E017A Create
@@ -1476,6 +1540,7 @@ FORWARD ME_531A0A880317
 : ME_1FC0803FE88A
  CONST UID '1FC0803FE88A'
  CONST Name 'aTreeView'
+ CONST IsSummoned true
  CONST Class class_Parameter
  : Stereotype st_in ;
  : Target ME_531DB14D03CC // TeeTreeViewExportPrim
@@ -1486,6 +1551,7 @@ ref; // ME_1FC0803FE88A aTreeView
 : ME_B4A7B1A28DDE
  CONST UID 'B4A7B1A28DDE'
  CONST Name 'DoIt'
+ CONST IsSummoned true
  CONST Class class_Operation
  %SUMMARY 'Сигнатура фабрики TeeTreeViewShadow.Make' ;
  CONST Visibility PrivateAccess
@@ -1495,8 +1561,8 @@ ref; // ME_1FC0803FE88A aTreeView
  : Target WL 'ME_4912DD200333' '4912DD020283.pas.ms.script' // IeeTreeView
  ;
  : Parameters
-   @ ( ME_1FC0803FE88A // aTreeView
- ) .SequenceCode.It
+   Seq: ( ME_1FC0803FE88A // aTreeView
+ )
  ; // Parameters
 
 ref; // ME_B4A7B1A28DDE DoIt
@@ -1512,16 +1578,16 @@ ref; // ME_B4A7B1A28DDE DoIt
  : Parent ME_5319FAE701F7 // TeeTreeViewShadow
  ;
  : Inherits
-   @ ( ME_531A0A5E017A // Create
- ) .SequenceCode.It
+   Seq: ( ME_531A0A5E017A // Create
+ )
  ; // Inherits
  : Implements
-   @ ( WL 'ME_4912DD200333' '4912DD020283.pas.ms.script' // IeeTreeView
- ) .SequenceCode.It
+   Seq: ( WL 'ME_4912DD200333' '4912DD020283.pas.ms.script' // IeeTreeView
+ )
  ; // Implements
  : Operations
-   @ ( ME_B4A7B1A28DDE // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_B4A7B1A28DDE // DoIt
+ )
  ; // Operations
  CONST "check nil" false
  CONST "need AfterCreate" 'undefined'
@@ -1537,6 +1603,7 @@ ref; // ME_531A0A880317 Make
  ;
  : Implementor ME_5319FAE701F7 // TeeTreeViewShadow
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_46A5D4220369_ME_5319FAE701F7 OwnerDead
 
 : ME_5319FFC90029_ME_5319FAE701F7
@@ -1546,6 +1613,7 @@ ref; // ME_46A5D4220369_ME_5319FAE701F7 OwnerDead
  ;
  : Implementor ME_5319FAE701F7 // TeeTreeViewShadow
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" false
 ref; // ME_5319FFC90029_ME_5319FAE701F7 Root
 
@@ -1556,6 +1624,7 @@ ref; // ME_5319FFC90029_ME_5319FAE701F7 Root
  ;
  : Implementor ME_5319FAE701F7 // TeeTreeViewShadow
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" false
 ref; // ME_531A003602A7_ME_5319FAE701F7 SelectedCount
 
@@ -1566,6 +1635,7 @@ ref; // ME_531A003602A7_ME_5319FAE701F7 SelectedCount
  ;
  : Implementor ME_5319FAE701F7 // TeeTreeViewShadow
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" false
 ref; // ME_531A005002E3_ME_5319FAE701F7 NodeFlags
 
@@ -1576,6 +1646,7 @@ ref; // ME_531A005002E3_ME_5319FAE701F7 NodeFlags
  ;
  : Implementor ME_5319FAE701F7 // TeeTreeViewShadow
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" false
 ref; // ME_531A007501D2_ME_5319FAE701F7 FlagsByAbsIndex
 
@@ -1586,6 +1657,7 @@ ref; // ME_531A007501D2_ME_5319FAE701F7 FlagsByAbsIndex
  ;
  : Implementor ME_5319FAE701F7 // TeeTreeViewShadow
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_531A00CA0043_ME_5319FAE701F7 TestFlagMask
 
 : ME_531A010F00A5_ME_5319FAE701F7
@@ -1595,6 +1667,7 @@ ref; // ME_531A00CA0043_ME_5319FAE701F7 TestFlagMask
  ;
  : Implementor ME_5319FAE701F7 // TeeTreeViewShadow
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_531A010F00A5_ME_5319FAE701F7 SetFlagMask
 
 : ME_531A01E70176_ME_5319FAE701F7
@@ -1604,6 +1677,7 @@ ref; // ME_531A010F00A5_ME_5319FAE701F7 SetFlagMask
  ;
  : Implementor ME_5319FAE701F7 // TeeTreeViewShadow
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_531A01E70176_ME_5319FAE701F7 SetFlagMask$1
 
 : ME_531A022A023F_ME_5319FAE701F7
@@ -1613,6 +1687,7 @@ ref; // ME_531A01E70176_ME_5319FAE701F7 SetFlagMask$1
  ;
  : Implementor ME_5319FAE701F7 // TeeTreeViewShadow
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_531A022A023F_ME_5319FAE701F7 ExpandSubDir
 
 : ME_531A033D028D_ME_5319FAE701F7
@@ -1622,6 +1697,7 @@ ref; // ME_531A022A023F_ME_5319FAE701F7 ExpandSubDir
  ;
  : Implementor ME_5319FAE701F7 // TeeTreeViewShadow
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_531A033D028D_ME_5319FAE701F7 ChangeExpand
 
 : ME_531A04C30010_ME_5319FAE701F7
@@ -1631,6 +1707,7 @@ ref; // ME_531A033D028D_ME_5319FAE701F7 ChangeExpand
  ;
  : Implementor ME_5319FAE701F7 // TeeTreeViewShadow
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_531A04C30010_ME_5319FAE701F7 IsChanging
 
 : ME_531A04DD0289_ME_5319FAE701F7
@@ -1640,6 +1717,7 @@ ref; // ME_531A04C30010_ME_5319FAE701F7 IsChanging
  ;
  : Implementor ME_5319FAE701F7 // TeeTreeViewShadow
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_531A04DD0289_ME_5319FAE701F7 Changing
 
 : ME_531A04E70208_ME_5319FAE701F7
@@ -1649,6 +1727,7 @@ ref; // ME_531A04DD0289_ME_5319FAE701F7 Changing
  ;
  : Implementor ME_5319FAE701F7 // TeeTreeViewShadow
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_531A04E70208_ME_5319FAE701F7 Changed
 
 : ME_531A04F802C1_ME_5319FAE701F7
@@ -1658,6 +1737,7 @@ ref; // ME_531A04E70208_ME_5319FAE701F7 Changed
  ;
  : Implementor ME_5319FAE701F7 // TeeTreeViewShadow
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_531A04F802C1_ME_5319FAE701F7 GetAbsIndex
 
 : ME_531A05120121_ME_5319FAE701F7
@@ -1667,6 +1747,7 @@ ref; // ME_531A04F802C1_ME_5319FAE701F7 GetAbsIndex
  ;
  : Implementor ME_5319FAE701F7 // TeeTreeViewShadow
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_531A05120121_ME_5319FAE701F7 GetAbsIndex$1
 
 : ME_531A060301BA_ME_5319FAE701F7
@@ -1676,6 +1757,7 @@ ref; // ME_531A05120121_ME_5319FAE701F7 GetAbsIndex$1
  ;
  : Implementor ME_5319FAE701F7 // TeeTreeViewShadow
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_531A060301BA_ME_5319FAE701F7 Iterate
 
 : ME_531A064001BF_ME_5319FAE701F7
@@ -1685,6 +1767,7 @@ ref; // ME_531A060301BA_ME_5319FAE701F7 Iterate
  ;
  : Implementor ME_5319FAE701F7 // TeeTreeViewShadow
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_531A064001BF_ME_5319FAE701F7 IterateF
 
 : ME_531A068302C5_ME_5319FAE701F7
@@ -1694,6 +1777,7 @@ ref; // ME_531A064001BF_ME_5319FAE701F7 IterateF
  ;
  : Implementor ME_5319FAE701F7 // TeeTreeViewShadow
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_531A068302C5_ME_5319FAE701F7 GetNextSelected
 
 : ME_531A06AC0398_ME_5319FAE701F7
@@ -1703,6 +1787,7 @@ ref; // ME_531A068302C5_ME_5319FAE701F7 GetNextSelected
  ;
  : Implementor ME_5319FAE701F7 // TeeTreeViewShadow
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_531A06AC0398_ME_5319FAE701F7 ClearSelected
 
 : ME_531A06B90062_ME_5319FAE701F7
@@ -1712,6 +1797,7 @@ ref; // ME_531A06AC0398_ME_5319FAE701F7 ClearSelected
  ;
  : Implementor ME_5319FAE701F7 // TeeTreeViewShadow
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_531A06B90062_ME_5319FAE701F7 SetAllFlags
 
 : ME_531A06CB00A1_ME_5319FAE701F7
@@ -1721,6 +1807,7 @@ ref; // ME_531A06B90062_ME_5319FAE701F7 SetAllFlags
  ;
  : Implementor ME_5319FAE701F7 // TeeTreeViewShadow
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_531A06CB00A1_ME_5319FAE701F7 GetNode
 
 : ME_531A06DC0206_ME_5319FAE701F7
@@ -1730,6 +1817,7 @@ ref; // ME_531A06CB00A1_ME_5319FAE701F7 GetNode
  ;
  : Implementor ME_5319FAE701F7 // TeeTreeViewShadow
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_531A06DC0206_ME_5319FAE701F7 GetNodeByAbsIndex
 
 : ME_531A06EE0061_ME_5319FAE701F7
@@ -1739,6 +1827,7 @@ ref; // ME_531A06DC0206_ME_5319FAE701F7 GetNodeByAbsIndex
  ;
  : Implementor ME_5319FAE701F7 // TeeTreeViewShadow
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_531A06EE0061_ME_5319FAE701F7 Wake
 
 : ME_531A0701038A_ME_5319FAE701F7
@@ -1748,6 +1837,7 @@ ref; // ME_531A06EE0061_ME_5319FAE701F7 Wake
  ;
  : Implementor ME_5319FAE701F7 // TeeTreeViewShadow
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_531A0701038A_ME_5319FAE701F7 IsExpanded
 
 : ME_531A07C3001B_ME_5319FAE701F7
@@ -1757,6 +1847,7 @@ ref; // ME_531A0701038A_ME_5319FAE701F7 IsExpanded
  ;
  : Implementor ME_5319FAE701F7 // TeeTreeViewShadow
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" false
 ref; // ME_531A07C3001B_ME_5319FAE701F7 Tree
 
@@ -1767,6 +1858,7 @@ ref; // ME_531A07C3001B_ME_5319FAE701F7 Tree
  ;
  : Implementor ME_5319FAE701F7 // TeeTreeViewShadow
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" false
 ref; // ME_531A07D200DD_ME_5319FAE701F7 Current
 
@@ -1777,6 +1869,7 @@ ref; // ME_531A07D200DD_ME_5319FAE701F7 Current
  ;
  : Implementor ME_5319FAE701F7 // TeeTreeViewShadow
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" false
 ref; // ME_531A07DB00DB_ME_5319FAE701F7 AbsCurrent
 
@@ -1787,6 +1880,7 @@ ref; // ME_531A07DB00DB_ME_5319FAE701F7 AbsCurrent
  ;
  : Implementor ME_5319FAE701F7 // TeeTreeViewShadow
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" false
 ref; // ME_531A080B0384_ME_5319FAE701F7 CurrentNode
 
@@ -1797,6 +1891,7 @@ ref; // ME_531A080B0384_ME_5319FAE701F7 CurrentNode
  ;
  : Implementor ME_5319FAE701F7 // TeeTreeViewShadow
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_531A08350016_ME_5319FAE701F7 GetNodeIndex
 
 : ME_531A084E02CC_ME_5319FAE701F7
@@ -1806,6 +1901,7 @@ ref; // ME_531A08350016_ME_5319FAE701F7 GetNodeIndex
  ;
  : Implementor ME_5319FAE701F7 // TeeTreeViewShadow
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_531A084E02CC_ME_5319FAE701F7 GetNodeAbsIndex
 
 : ME_531A08620054_ME_5319FAE701F7
@@ -1815,6 +1911,7 @@ ref; // ME_531A084E02CC_ME_5319FAE701F7 GetNodeAbsIndex
  ;
  : Implementor ME_5319FAE701F7 // TeeTreeViewShadow
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_531A08620054_ME_5319FAE701F7 ExpandAll
 
 : ME_531A08680334_ME_5319FAE701F7
@@ -1824,6 +1921,7 @@ ref; // ME_531A08620054_ME_5319FAE701F7 ExpandAll
  ;
  : Implementor ME_5319FAE701F7 // TeeTreeViewShadow
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_531A08680334_ME_5319FAE701F7 CollapseAll
 
 : ME_531A087102D4_ME_5319FAE701F7
@@ -1833,6 +1931,7 @@ ref; // ME_531A08680334_ME_5319FAE701F7 CollapseAll
  ;
  : Implementor ME_5319FAE701F7 // TeeTreeViewShadow
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_531A087102D4_ME_5319FAE701F7 GoToNode
 
 : ME_479731C50290_ME_5319FAE701F7
@@ -1842,6 +1941,7 @@ ref; // ME_531A087102D4_ME_5319FAE701F7 GoToNode
  ;
  : Implementor ME_5319FAE701F7 // TeeTreeViewShadow
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_479731C50290_ME_5319FAE701F7 Cleanup
 
 : ME_5319FAE701F7
@@ -1855,27 +1955,27 @@ ref; // ME_479731C50290_ME_5319FAE701F7 Cleanup
  : Parent ME_499C0B7B012E // TeeTreeViewExport
  ;
  : Inherits
-   @ ( WL 'ME_46780E690001' '47913B47006E.pas.ms.script' // Tl3CacheableBase
- ) .SequenceCode.It
+   Seq: ( WL 'ME_46780E690001' '47913B47006E.pas.ms.script' // Tl3CacheableBase
+ )
  ; // Inherits
  : Implements
-   @ ( WL 'ME_4912DD1102D3' '4912DD020283.pas.ms.script' // IeeTree
+   Seq: ( WL 'ME_4912DD1102D3' '4912DD020283.pas.ms.script' // IeeTree
  WL 'ME_4912DD200333' '4912DD020283.pas.ms.script' // IeeTreeView
  WL 'ME_5319FB8800AC' '49523C640160.pas.ms.script' // IeeTool
- ) .SequenceCode.It
+ )
  ; // Implements
  : Attributes
-   @ ( ME_531A0B06024D // f_TreeView
+   Seq: ( ME_531A0B06024D // f_TreeView
  ME_531A0B18027A // f_UpdateCount
- ) .SequenceCode.It
+ )
  ; // Attributes
  : Operations
-   @ ( ME_531A0A5E017A // Create
+   Seq: ( ME_531A0A5E017A // Create
  ME_531A0A880317 // Make
- ) .SequenceCode.It
+ )
  ; // Operations
  : Implemented
-   @ ( ME_46A5D4220369_ME_5319FAE701F7 // OwnerDead
+   Seq: ( ME_46A5D4220369_ME_5319FAE701F7 // OwnerDead
  ME_5319FFC90029_ME_5319FAE701F7 // Root
  ME_531A003602A7_ME_5319FAE701F7 // SelectedCount
  ME_531A005002E3_ME_5319FAE701F7 // NodeFlags
@@ -1908,16 +2008,22 @@ ref; // ME_479731C50290_ME_5319FAE701F7 Cleanup
  ME_531A08620054_ME_5319FAE701F7 // ExpandAll
  ME_531A08680334_ME_5319FAE701F7 // CollapseAll
  ME_531A087102D4_ME_5319FAE701F7 // GoToNode
- ) .SequenceCode.It
+ )
  ; // Implemented
  : Overridden
-   @ ( ME_479731C50290_ME_5319FAE701F7 // Cleanup
- ) .SequenceCode.It
+   Seq: ( ME_479731C50290_ME_5319FAE701F7 // Cleanup
+ )
  ; // Overridden
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest_Engine'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest_Engine'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'eeTreeViewShadow'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_5319FAE701F7 TeeTreeViewShadow
 
@@ -1949,8 +2055,8 @@ ref; // ME_531F03520260 DoIt
  : Parent ME_531F032C03BA // IeeTreeState
  ;
  : Operations
-   @ ( ME_531F03520260 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_531F03520260 // DoIt
+ )
  ; // Operations
 
 ref; // ME_531F034B00AA GetTree
@@ -1986,9 +2092,9 @@ ref; // ME_531F036B02E2 aData
  : Parent ME_531F036000C7 // SetTree
  ;
  : Parameters
-   @ ( ME_531F036B02C9 // aValue
+   Seq: ( ME_531F036B02C9 // aValue
  ME_531F036B02E2 // aData
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_531F0366027A DoIt
@@ -2004,8 +2110,8 @@ ref; // ME_531F0366027A DoIt
  : Parent ME_531F032C03BA // IeeTreeState
  ;
  : Operations
-   @ ( ME_531F0366027A // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_531F0366027A // DoIt
+ )
  ; // Operations
 
 ref; // ME_531F036000C7 SetTree
@@ -2036,8 +2142,8 @@ ref; // ME_531F037C0082 DoIt
  : Parent ME_531F032C03BA // IeeTreeState
  ;
  : Operations
-   @ ( ME_531F037C0082 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_531F037C0082 // DoIt
+ )
  ; // Operations
 
 ref; // ME_531F037602E5 GetData
@@ -2054,12 +2160,18 @@ ref; // ME_531F037602E5 GetData
  : Parent ME_531F03AA0018 // TeeTreeState
  ;
  : Operations
-   @ ( ME_531F034B00AA // GetTree
+   Seq: ( ME_531F034B00AA // GetTree
  ME_531F036000C7 // SetTree
  ME_531F037602E5 // GetData
- ) .SequenceCode.It
+ )
  ; // Operations
  CONST "ifndef" 'DesignTimeLibrary'
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest_Engine'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest_Engine'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'eeTreeState'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_531F032C03BA IeeTreeState
 
@@ -2122,9 +2234,9 @@ ref; // ME_531F0415000E aData
  : Parent ME_531F040903D7 // Create
  ;
  : Parameters
-   @ ( ME_531F041403DD // aTree
+   Seq: ( ME_531F041403DD // aTree
  ME_531F0415000E // aData
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_531F040F0314 DoIt
@@ -2140,8 +2252,8 @@ ref; // ME_531F040F0314 DoIt
  : Parent ME_531F03AA0018 // TeeTreeState
  ;
  : Operations
-   @ ( ME_531F040F0314 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_531F040F0314 // DoIt
+ )
  ; // Operations
 
 ref; // ME_531F040903D7 Create
@@ -2151,6 +2263,7 @@ FORWARD ME_531F041C0175
 : ME_C2CA6AD497E3
  CONST UID 'C2CA6AD497E3'
  CONST Name 'aTree'
+ CONST IsSummoned true
  CONST Class class_Parameter
  : Stereotype st_in ;
  : Target WL 'ME_46825CC00249' '4682595B0268.pas.ms.script' // Il3SimpleTree
@@ -2161,6 +2274,7 @@ ref; // ME_C2CA6AD497E3 aTree
 : ME_7EBA45ED5D03
  CONST UID '7EBA45ED5D03'
  CONST Name 'aData'
+ CONST IsSummoned true
  CONST Class class_Parameter
  : Stereotype st_in ;
  : Target WL 'ME_515DAE6F0242' '4B97E7FD006C.pas.ms.script' // TvtOutlinerHystoryData
@@ -2171,6 +2285,7 @@ ref; // ME_7EBA45ED5D03 aData
 : ME_B9781A09473B
  CONST UID 'B9781A09473B'
  CONST Name 'DoIt'
+ CONST IsSummoned true
  CONST Class class_Operation
  %SUMMARY 'Сигнатура фабрики TeeTreeState.Make' ;
  CONST Visibility PrivateAccess
@@ -2180,9 +2295,9 @@ ref; // ME_7EBA45ED5D03 aData
  : Target ME_531F032C03BA // IeeTreeState
  ;
  : Parameters
-   @ ( ME_C2CA6AD497E3 // aTree
+   Seq: ( ME_C2CA6AD497E3 // aTree
  ME_7EBA45ED5D03 // aData
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_B9781A09473B DoIt
@@ -2198,16 +2313,16 @@ ref; // ME_B9781A09473B DoIt
  : Parent ME_531F03AA0018 // TeeTreeState
  ;
  : Inherits
-   @ ( ME_531F040903D7 // Create
- ) .SequenceCode.It
+   Seq: ( ME_531F040903D7 // Create
+ )
  ; // Inherits
  : Implements
-   @ ( ME_531F032C03BA // IeeTreeState
- ) .SequenceCode.It
+   Seq: ( ME_531F032C03BA // IeeTreeState
+ )
  ; // Implements
  : Operations
-   @ ( ME_B9781A09473B // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_B9781A09473B // DoIt
+ )
  ; // Operations
  CONST "check nil" false
  CONST "need AfterCreate" 'undefined'
@@ -2223,6 +2338,7 @@ ref; // ME_531F041C0175 Make
  ;
  : Implementor ME_531F03AA0018 // TeeTreeState
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_531F034B00AA_ME_531F03AA0018 GetTree
 
 : ME_531F036000C7_ME_531F03AA0018
@@ -2232,6 +2348,7 @@ ref; // ME_531F034B00AA_ME_531F03AA0018 GetTree
  ;
  : Implementor ME_531F03AA0018 // TeeTreeState
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_531F036000C7_ME_531F03AA0018 SetTree
 
 : ME_531F037602E5_ME_531F03AA0018
@@ -2241,6 +2358,7 @@ ref; // ME_531F036000C7_ME_531F03AA0018 SetTree
  ;
  : Implementor ME_531F03AA0018 // TeeTreeState
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_531F037602E5_ME_531F03AA0018 GetData
 
 : ME_479731C50290_ME_531F03AA0018
@@ -2250,6 +2368,7 @@ ref; // ME_531F037602E5_ME_531F03AA0018 GetData
  ;
  : Implementor ME_531F03AA0018 // TeeTreeState
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_479731C50290_ME_531F03AA0018 Cleanup
 
 : ME_4A60B23E00C3_ME_531F03AA0018
@@ -2259,6 +2378,7 @@ ref; // ME_479731C50290_ME_531F03AA0018 Cleanup
  ;
  : Implementor ME_531F03AA0018 // TeeTreeState
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4A60B23E00C3_ME_531F03AA0018 COMQueryInterface
 
 : ME_531F03AA0018
@@ -2272,49 +2392,56 @@ ref; // ME_4A60B23E00C3_ME_531F03AA0018 COMQueryInterface
  : Parent ME_499C0B7B012E // TeeTreeViewExport
  ;
  : Inherits
-   @ ( WL 'ME_46780E690001' '47913B47006E.pas.ms.script' // Tl3CacheableBase
- ) .SequenceCode.It
+   Seq: ( WL 'ME_46780E690001' '47913B47006E.pas.ms.script' // Tl3CacheableBase
+ )
  ; // Inherits
  : Implements
-   @ ( ME_531F032C03BA // IeeTreeState
- ) .SequenceCode.It
+   Seq: ( ME_531F032C03BA // IeeTreeState
+ )
  ; // Implements
  : Attributes
-   @ ( ME_531F044C02C8 // f_Tree
+   Seq: ( ME_531F044C02C8 // f_Tree
  ME_531F045A0126 // f_Data
- ) .SequenceCode.It
+ )
  ; // Attributes
  : Operations
-   @ ( ME_531F040903D7 // Create
+   Seq: ( ME_531F040903D7 // Create
  ME_531F041C0175 // Make
- ) .SequenceCode.It
+ )
  ; // Operations
  : Implemented
-   @ ( ME_531F034B00AA_ME_531F03AA0018 // GetTree
+   Seq: ( ME_531F034B00AA_ME_531F03AA0018 // GetTree
  ME_531F036000C7_ME_531F03AA0018 // SetTree
  ME_531F037602E5_ME_531F03AA0018 // GetData
- ) .SequenceCode.It
+ )
  ; // Implemented
  : Overridden
-   @ ( ME_479731C50290_ME_531F03AA0018 // Cleanup
+   Seq: ( ME_479731C50290_ME_531F03AA0018 // Cleanup
  ME_4A60B23E00C3_ME_531F03AA0018 // COMQueryInterface
- ) .SequenceCode.It
+ )
  ; // Overridden
  : Children
-   @ ( ME_531F032C03BA // IeeTreeState
- ) .SequenceCode.It
+   Seq: ( ME_531F032C03BA // IeeTreeState
+ )
  ; // Children
  CONST "ifndef" 'DesignTimeLibrary'
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest_Engine'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest_Engine'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'eeTreeState'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_531F03AA0018 TeeTreeState
 
 : ME_F339B077DFDE
  CONST UID 'F339B077DFDE'
  CONST Name 'Ini_Reg_Class'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Регистрация TeeTreeViewExport' ;
@@ -2482,6 +2609,7 @@ ref; // ME_531F31C00319
 
 : ME_C9E1E80FCB96
  CONST UID 'C9E1E80FCB96'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_499C0B7B012E // TeeTreeViewExport
@@ -2503,29 +2631,29 @@ ref; // ME_C9E1E80FCB96
  : Parent ME_494B947D0127 // Tree
  ;
  : Inherits
-   @ ( ME_531DB14D03CC // TeeTreeViewExportPrim
- ) .SequenceCode.It
+   Seq: ( ME_531DB14D03CC // TeeTreeViewExportPrim
+ )
  ; // Inherits
  : Operations
-   @ ( ME_F339B077DFDE // Ini_Reg_Class
- ) .SequenceCode.It
+   Seq: ( ME_F339B077DFDE // Ini_Reg_Class
+ )
  ; // Operations
  : Children
-   @ ( ME_4AE825FC019D // TeeRootChangedEvent
+   Seq: ( ME_4AE825FC019D // TeeRootChangedEvent
  ME_5143245F0209 // TeeFormatStatusInfo
  ME_5319EA3F0238 // TeeCurrentIndexChangedEvent
  ME_5319F95101E5 // TeeBT2L3BTMap
  ME_531DB14D03CC // TeeTreeViewExportPrim
  ME_5319FAE701F7 // TeeTreeViewShadow
  ME_531F03AA0018 // TeeTreeState
- ) .SequenceCode.It
+ )
  ; // Children
  : Constants
-   @ ( ME_5319FA4A0180 // eeTreeViewExport Private Const
- ) .SequenceCode.It
+   Seq: ( ME_5319FA4A0180 // eeTreeViewExport Private Const
+ )
  ; // Constants
  : Dependencies
-   @ ( ME_531F2F220321 // 
+   Seq: ( ME_531F2F220321 // 
  ME_531F319F019F // 
  ME_531F31A200EA // 
  ME_531F31A50049 // 
@@ -2540,7 +2668,7 @@ ref; // ME_C9E1E80FCB96
  ME_531F31BE0071 // 
  ME_531F31C00319 // 
  ME_C9E1E80FCB96 // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  CONST "base wnd class" 'CWnd'
  CONST "need UC" true
@@ -2548,12 +2676,14 @@ ref; // ME_C9E1E80FCB96
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest_Engine'
  CONST intf.pas:Path 'common\components\gui\Garant\Everest_Engine\eeTreeViewExport.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest_Engine'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'eeTreeViewExport'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'eeTreeViewExport'
 
 ref; // ME_499C0B7B012E TeeTreeViewExport
 
@@ -2600,10 +2730,10 @@ ref; // ME_5143237F0256 aOldCurrent
  : Parent ME_4A9D4FB0034A // TeeCurrentChanged
  ;
  : Parameters
-   @ ( ME_5143237F0217 // aSender
+   Seq: ( ME_5143237F0217 // aSender
  ME_5143237F0237 // aNewCurrent
  ME_5143237F0256 // aOldCurrent
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_5143237C0059 DoIt
@@ -2620,10 +2750,14 @@ ref; // ME_5143237C0059 DoIt
  : Parent ME_494B949E022B // TeeTreeView
  ;
  : Operations
-   @ ( ME_5143237C0059 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_5143237C0059 // DoIt
+ )
  ; // Operations
  CONST "of object" true
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest_Engine'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest_Engine'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_4A9D4FB0034A TeeCurrentChanged
 
@@ -2648,8 +2782,8 @@ ref; // ME_5143232B0023 aChar
  : Parent ME_5143230F01E4 // TeeNewCharPressed
  ;
  : Parameters
-   @ ( ME_5143232B0023 // aChar
- ) .SequenceCode.It
+   Seq: ( ME_5143232B0023 // aChar
+ )
  ; // Parameters
 
 ref; // ME_5143231C01FD DoIt
@@ -2666,10 +2800,14 @@ ref; // ME_5143231C01FD DoIt
  : Parent ME_494B949E022B // TeeTreeView
  ;
  : Operations
-   @ ( ME_5143231C01FD // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_5143231C01FD // DoIt
+ )
  ; // Operations
  CONST "of object" true
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest_Engine'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest_Engine'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_5143230F01E4 TeeNewCharPressed
 
@@ -2694,8 +2832,8 @@ ref; // ME_5199D92E007C theTree
  : Parent ME_5199D8F700DB // TeeMakeTreeSource
  ;
  : Parameters
-   @ ( ME_5199D92E007C // theTree
- ) .SequenceCode.It
+   Seq: ( ME_5199D92E007C // theTree
+ )
  ; // Parameters
 
 ref; // ME_5199D9280259 DoIt
@@ -2711,10 +2849,14 @@ ref; // ME_5199D9280259 DoIt
  : Parent ME_494B949E022B // TeeTreeView
  ;
  : Operations
-   @ ( ME_5199D9280259 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_5199D9280259 // DoIt
+ )
  ; // Operations
  CONST "of object" true
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest_Engine'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest_Engine'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_5199D8F700DB TeeMakeTreeSource
 
@@ -2761,10 +2903,10 @@ ref; // ME_531F268D0200 aImages
  : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
  ;
  : Parameters
-   @ ( ME_531F268D01CC // aSender
+   Seq: ( ME_531F268D01CC // aSender
  ME_531F268D01E6 // anIndex
  ME_531F268D0200 // aImages
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_531F268901AC DoIt
@@ -2781,10 +2923,14 @@ ref; // ME_531F268901AC DoIt
  : Parent ME_494B949E022B // TeeTreeView
  ;
  : Operations
-   @ ( ME_531F268901AC // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_531F268901AC // DoIt
+ )
  ; // Operations
  CONST "of object" true
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest_Engine'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest_Engine'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_531F26760295 TeeGetItemImage
 
@@ -2819,9 +2965,9 @@ ref; // ME_531F26F0029C anIndex
  : Parent ME_531F26CE016D // TeeActionElement
  ;
  : Parameters
-   @ ( ME_531F26F00282 // aSender
+   Seq: ( ME_531F26F00282 // aSender
  ME_531F26F0029C // anIndex
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_531F26ED03A6 DoIt
@@ -2838,10 +2984,14 @@ ref; // ME_531F26ED03A6 DoIt
  : Parent ME_494B949E022B // TeeTreeView
  ;
  : Operations
-   @ ( ME_531F26ED03A6 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_531F26ED03A6 // DoIt
+ )
  ; // Operations
  CONST "of object" true
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest_Engine'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest_Engine'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_531F26CE016D TeeActionElement
 
@@ -2888,10 +3038,10 @@ ref; // ME_531F2778008A anExpand
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
  : Parameters
-   @ ( ME_531F27780053 // Sender
+   Seq: ( ME_531F27780053 // Sender
  ME_531F2778006E // CNode
  ME_531F2778008A // anExpand
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_531F277500E2 DoIt
@@ -2907,10 +3057,14 @@ ref; // ME_531F277500E2 DoIt
  : Parent ME_494B949E022B // TeeTreeView
  ;
  : Operations
-   @ ( ME_531F277500E2 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_531F277500E2 // DoIt
+ )
  ; // Operations
  CONST "of object" true
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest_Engine'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest_Engine'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_531F27550066 TeeBeforeExpandNode
 
@@ -2945,9 +3099,9 @@ ref; // ME_531F27BB036A CNode
  : Parent ME_531F279B03C7 // TeeExpandNodeEvent
  ;
  : Parameters
-   @ ( ME_531F27BB0328 // Sender
+   Seq: ( ME_531F27BB0328 // Sender
  ME_531F27BB036A // CNode
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_531F27B901E7 DoIt
@@ -2963,10 +3117,14 @@ ref; // ME_531F27B901E7 DoIt
  : Parent ME_494B949E022B // TeeTreeView
  ;
  : Operations
-   @ ( ME_531F27B901E7 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_531F27B901E7 // DoIt
+ )
  ; // Operations
  CONST "of object" true
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest_Engine'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest_Engine'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_531F279B03C7 TeeExpandNodeEvent
 
@@ -3083,6 +3241,7 @@ ref; // ME_531F2C400095 OnNewCharPressed
 : ME_422AFFD3AC88
  CONST UID '422AFFD3AC88'
  CONST Name 'f_OnMakeTreeSource'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY 'Поле для свойства OnMakeTreeSource' ;
  CONST Visibility PrivateAccess
@@ -3092,12 +3251,14 @@ ref; // ME_531F2C400095 OnNewCharPressed
  ;
  : Target ME_5199D8F700DB // TeeMakeTreeSource
  ;
+ CONST extprop:clearViaProperty 'OnMakeTreeSource'
 
 ref; // ME_422AFFD3AC88 f_OnMakeTreeSource
 
 : ME_40DDF2A66EB4
  CONST UID '40DDF2A66EB4'
  CONST Name 'f_BeforeExpand'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY 'Поле для свойства BeforeExpand' ;
  CONST Visibility PrivateAccess
@@ -3107,12 +3268,14 @@ ref; // ME_422AFFD3AC88 f_OnMakeTreeSource
  ;
  : Target ME_531F27550066 // TeeBeforeExpandNode
  ;
+ CONST extprop:clearViaProperty 'BeforeExpand'
 
 ref; // ME_40DDF2A66EB4 f_BeforeExpand
 
 : ME_6310D737ECBD
  CONST UID '6310D737ECBD'
  CONST Name 'f_OnExpand'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY 'Поле для свойства OnExpand' ;
  CONST Visibility PrivateAccess
@@ -3122,12 +3285,14 @@ ref; // ME_40DDF2A66EB4 f_BeforeExpand
  ;
  : Target ME_531F279B03C7 // TeeExpandNodeEvent
  ;
+ CONST extprop:clearViaProperty 'OnExpand'
 
 ref; // ME_6310D737ECBD f_OnExpand
 
 : ME_D7E08AA29474
  CONST UID 'D7E08AA29474'
  CONST Name 'f_OnCollapse'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY 'Поле для свойства OnCollapse' ;
  CONST Visibility PrivateAccess
@@ -3137,12 +3302,14 @@ ref; // ME_6310D737ECBD f_OnExpand
  ;
  : Target ME_531F279B03C7 // TeeExpandNodeEvent
  ;
+ CONST extprop:clearViaProperty 'OnCollapse'
 
 ref; // ME_D7E08AA29474 f_OnCollapse
 
 : ME_0F2BAFC1129D
  CONST UID '0F2BAFC1129D'
  CONST Name 'f_OnNewCharPressed'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY 'Поле для свойства OnNewCharPressed' ;
  CONST Visibility PrivateAccess
@@ -3152,12 +3319,14 @@ ref; // ME_D7E08AA29474 f_OnCollapse
  ;
  : Target ME_5143230F01E4 // TeeNewCharPressed
  ;
+ CONST extprop:clearViaProperty 'OnNewCharPressed'
 
 ref; // ME_0F2BAFC1129D f_OnNewCharPressed
 
 : ME_C89F38A244BB
  CONST UID 'C89F38A244BB'
  CONST Name 'Ini_Reg_Class'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Регистрация TeeCustomTreeView' ;
@@ -3171,6 +3340,7 @@ ref; // ME_C89F38A244BB Ini_Reg_Class
 
 : ME_E89D092FBD7B
  CONST UID 'E89D092FBD7B'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_531F287D025D // TeeCustomTreeView
@@ -3187,6 +3357,7 @@ ref; // ME_E89D092FBD7B
  ;
  : Implementor ME_531F287D025D // TeeCustomTreeView
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_5152C04F0258_ME_531F287D025D vlbProcessingChar
 
 : ME_515EF1880228_ME_531F287D025D
@@ -3196,6 +3367,7 @@ ref; // ME_5152C04F0258_ME_531F287D025D vlbProcessingChar
  ;
  : Implementor ME_531F287D025D // TeeCustomTreeView
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_515EF1880228_ME_531F287D025D MakeTreeStruct
 
 : ME_51629C9B00C2_ME_531F287D025D
@@ -3205,6 +3377,7 @@ ref; // ME_515EF1880228_ME_531F287D025D MakeTreeStruct
  ;
  : Implementor ME_531F287D025D // TeeCustomTreeView
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_51629C9B00C2_ME_531F287D025D DoOnExpand
 
 : ME_531F287D025D
@@ -3219,11 +3392,11 @@ ref; // ME_51629C9B00C2_ME_531F287D025D DoOnExpand
  : Parent ME_494B949E022B // TeeTreeView
  ;
  : Inherits
-   @ ( ME_499C0B7B012E // TeeTreeViewExport
- ) .SequenceCode.It
+   Seq: ( ME_499C0B7B012E // TeeTreeViewExport
+ )
  ; // Inherits
  : Attributes
-   @ ( ME_531F2B9503C0 // TreeView
+   Seq: ( ME_531F2B9503C0 // TreeView
  ME_531F2C15011E // OnMakeTreeSource
  ME_531F2C20008C // BeforeExpand
  ME_531F2C2B0161 // OnExpand
@@ -3234,33 +3407,40 @@ ref; // ME_51629C9B00C2_ME_531F287D025D DoOnExpand
  ME_6310D737ECBD // f_OnExpand
  ME_D7E08AA29474 // f_OnCollapse
  ME_0F2BAFC1129D // f_OnNewCharPressed
- ) .SequenceCode.It
+ )
  ; // Attributes
  : Operations
-   @ ( ME_C89F38A244BB // Ini_Reg_Class
- ) .SequenceCode.It
+   Seq: ( ME_C89F38A244BB // Ini_Reg_Class
+ )
  ; // Operations
  : Overridden
-   @ ( ME_5152C04F0258_ME_531F287D025D // vlbProcessingChar
+   Seq: ( ME_5152C04F0258_ME_531F287D025D // vlbProcessingChar
  ME_515EF1880228_ME_531F287D025D // MakeTreeStruct
  ME_51629C9B00C2_ME_531F287D025D // DoOnExpand
- ) .SequenceCode.It
+ )
  ; // Overridden
  : Dependencies
-   @ ( ME_E89D092FBD7B // 
- ) .SequenceCode.It
+   Seq: ( ME_E89D092FBD7B // 
+ )
  ; // Dependencies
  CONST "base wnd class" 'CWnd'
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest_Engine'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest_Engine'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'eeCustomTreeView'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_531F287D025D TeeCustomTreeView
 
 : ME_E2F2A9DD8561
  CONST UID 'E2F2A9DD8561'
  CONST Name 'Ini_Reg_Class'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Регистрация TeeTreeView' ;
@@ -3318,6 +3498,7 @@ ref; // ME_531F32CF0010
 
 : ME_A2860EC67FFC
  CONST UID 'A2860EC67FFC'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_494B949E022B // TeeTreeView
@@ -3339,15 +3520,15 @@ ref; // ME_A2860EC67FFC
  : Parent ME_494B947D0127 // Tree
  ;
  : Inherits
-   @ ( ME_531F287D025D // TeeCustomTreeView
- ) .SequenceCode.It
+   Seq: ( ME_531F287D025D // TeeCustomTreeView
+ )
  ; // Inherits
  : Operations
-   @ ( ME_E2F2A9DD8561 // Ini_Reg_Class
- ) .SequenceCode.It
+   Seq: ( ME_E2F2A9DD8561 // Ini_Reg_Class
+ )
  ; // Operations
  : Children
-   @ ( ME_4A9D4FB0034A // TeeCurrentChanged
+   Seq: ( ME_4A9D4FB0034A // TeeCurrentChanged
  ME_5143230F01E4 // TeeNewCharPressed
  ME_5199D8F700DB // TeeMakeTreeSource
  ME_531F26760295 // TeeGetItemImage
@@ -3355,15 +3536,15 @@ ref; // ME_A2860EC67FFC
  ME_531F27550066 // TeeBeforeExpandNode
  ME_531F279B03C7 // TeeExpandNodeEvent
  ME_531F287D025D // TeeCustomTreeView
- ) .SequenceCode.It
+ )
  ; // Children
  : Dependencies
-   @ ( ME_531F324103BB // 
+   Seq: ( ME_531F324103BB // 
  ME_531F326D0269 // 
  ME_531F328A020F // 
  ME_531F32CF0010 // 
  ME_A2860EC67FFC // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  CONST "base wnd class" 'CWnd'
  CONST "need UC" true
@@ -3371,12 +3552,14 @@ ref; // ME_A2860EC67FFC
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest_Engine'
  CONST intf.pas:Path 'common\components\gui\Garant\Everest_Engine\eeTreeView.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest_Engine'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'eeTreeView'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'eeTreeView'
 
 ref; // ME_494B949E022B TeeTreeView
 
@@ -3393,9 +3576,15 @@ FORWARD ME_531F2A0900B9
  : Parent ME_531F2A0900B9 // eeCustomTreeView
  ;
  : Inherits
-   @ ( ME_531F287D025D // TeeCustomTreeView
- ) .SequenceCode.It
+   Seq: ( ME_531F287D025D // TeeCustomTreeView
+ )
  ; // Inherits
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest_Engine'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest_Engine'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'eeCustomTreeView'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_499C0B9C01E2 TeeCustomTreeView
 
@@ -3410,16 +3599,15 @@ ref; // ME_499C0B9C01E2 TeeCustomTreeView
  : Parent ME_494B947D0127 // Tree
  ;
  : Children
-   @ ( ME_499C0B9C01E2 // TeeCustomTreeView
- ) .SequenceCode.It
+   Seq: ( ME_499C0B9C01E2 // TeeCustomTreeView
+ )
  ; // Children
  CONST "no hands" false
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest_Engine'
  CONST intf.pas:Path 'common\components\gui\Garant\Everest_Engine\eeCustomTreeView.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest_Engine'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_531F2A0900B9 eeCustomTreeView
 
@@ -3433,13 +3621,13 @@ ref; // ME_531F2A0900B9 eeCustomTreeView
  : Parent WL 'ME_4680E7D50168' '4680E7D50168.pas.ms.script' // Everest Engine
  ;
  : Children
-   @ ( ME_499C0B7B012E // TeeTreeViewExport
+   Seq: ( ME_499C0B7B012E // TeeTreeViewExport
  ME_494B949E022B // TeeTreeView
  ME_531F2A0900B9 // eeCustomTreeView
- ) .SequenceCode.It
+ )
  ; // Children
  : Depends
-   @ ( WL 'ME_4677FBA70343' '4677FBA70343.pas.ms.script' // l3Interfaces
+   Seq: ( WL 'ME_4677FBA70343' '4677FBA70343.pas.ms.script' // l3Interfaces
  WL 'ME_4678193C009C' '4678193C009C.pas.ms.script' // l3Types
  WL 'ME_467823B7002C' '467823B7002C.pas.ms.script' // afwInterfaces
  WL 'ME_467BAB7F021E' '467BAB7F021E.pas.ms.script' // vcmExternalInterfaces
@@ -3464,15 +3652,13 @@ ref; // ME_531F2A0900B9 eeCustomTreeView
  WL 'ME_4B97E7FD006C' '4B97E7FD006C.pas.ms.script' // Outliner
  WL 'ME_54B90AC6014B' '54B90AC6014B.pas.ms.script' // StringUtils
  WL 'ME_561F9F7D02A7' '561F9F7D02A7.pas.ms.script' // ScriptEngine
- ) .SequenceCode.It
+ )
  ; // Depends
- : Generators
- @ (
- gen_pas.script
- gen_pas.script.runner
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest_Engine'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest_Engine'
  CONST pas.script:Path 'shared\models\NewSchool\Scripts\494B947D0127.pas.ms.script'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
  CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\494B947D0127.pas.ms.script.runner'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_494B947D0127 Tree

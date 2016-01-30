@@ -1,0 +1,1234 @@
+// Medic$Unit 4901F07D039B Unit Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4901F07D039B
+
+FORWARD ME_4901F0CF03B0
+
+: ME_4901F25B039C
+ CONST UID '4901F25B039C'
+ CONST Name 'f_Country'
+ CONST Class class_Attribute
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_4901F0CF03B0 // TnsMedicFirmListFilters
+ ;
+ : Target WL 'ME_4901EE8402B6' '47ECAAF901F8.pas.ms.script' // InsCountryFilter
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_4901F25B039C f_Country
+
+FORWARD ME_4901F13D034E
+
+: ME_4901F21C036E
+ CONST UID '4901F21C036E'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4901F0CF03B0 // TnsMedicFirmListFilters
+ ;
+ : Target ME_4901F13D034E // TnsCountryFilter
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_4901F21C036E 
+
+: ME_4901F234019C
+ CONST UID '4901F234019C'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4901F0CF03B0 // TnsMedicFirmListFilters
+ ;
+ : Target WL 'ME_47877EB202FB' '4AB0C3C60310.pas.ms.script' // SysUtils
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_4901F234019C 
+
+: ME_4901EEAD0242_ME_4901F0CF03B0
+ CONST UID '4901EEAD0242'
+ CONST Name 'Country'
+ : Original WL 'ME_4901EEAD0242' '47ECAAF901F8.pas.ms.script' // Country
+ ;
+ : Implementor ME_4901F0CF03B0 // TnsMedicFirmListFilters
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "UseNewGen" 'undefined'
+ CONST "pm" true
+ref; // ME_4901EEAD0242_ME_4901F0CF03B0 Country
+
+: ME_4901EED201C4_ME_4901F0CF03B0
+ CONST UID '4901EED201C4'
+ CONST Name 'SetCountry'
+ : Original WL 'ME_4901EED201C4' '47ECAAF901F8.pas.ms.script' // SetCountry
+ ;
+ : Implementor ME_4901F0CF03B0 // TnsMedicFirmListFilters
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "UseNewGen" 'undefined'
+ref; // ME_4901EED201C4_ME_4901F0CF03B0 SetCountry
+
+: ME_479731C50290_ME_4901F0CF03B0
+ CONST UID '479731C50290'
+ CONST Name 'Cleanup'
+ : Original WL 'ME_479731C50290' '51612EBB02F5.pas.ms.script' // Cleanup
+ ;
+ : Implementor ME_4901F0CF03B0 // TnsMedicFirmListFilters
+ ;
+ CONST OpKind opkind_Overridden
+ CONST "UseNewGen" 'undefined'
+ref; // ME_479731C50290_ME_4901F0CF03B0 Cleanup
+
+: ME_48FF4F47010F_ME_4901F0CF03B0
+ CONST UID '48FF4F47010F'
+ CONST Name 'Create'
+ : Original WL 'ME_48FF4F47010F' '47E246C90144.pas.ms.script' // Create
+ ;
+ : Implementor ME_4901F0CF03B0 // TnsMedicFirmListFilters
+ ;
+ CONST OpKind opkind_Overridden
+ CONST "UseNewGen" 'undefined'
+ref; // ME_48FF4F47010F_ME_4901F0CF03B0 Create
+
+: ME_4901F0CF03B0
+ CONST UID '4901F0CF03B0'
+ CONST Name 'TnsMedicFirmListFilters'
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4901F07D039B // Medic$Unit
+ ;
+ : Inherits
+   Seq: ( WL 'ME_48FF4EC501F6' '47E246C90144.pas.ms.script' // Tl3TreeFilters
+ )
+ ; // Inherits
+ : Implements
+   Seq: ( WL 'ME_4901EE9D02E5' '47ECAAF901F8.pas.ms.script' // InsMedicFirmListFilters
+ )
+ ; // Implements
+ : Attributes
+   Seq: ( ME_4901F25B039C // f_Country
+ )
+ ; // Attributes
+ : Implemented
+   Seq: ( ME_4901EEAD0242_ME_4901F0CF03B0 // Country
+ ME_4901EED201C4_ME_4901F0CF03B0 // SetCountry
+ )
+ ; // Implemented
+ : Overridden
+   Seq: ( ME_479731C50290_ME_4901F0CF03B0 // Cleanup
+ ME_48FF4F47010F_ME_4901F0CF03B0 // Create
+ )
+ ; // Overridden
+ : Dependencies
+   Seq: ( ME_4901F21C036E // 
+ ME_4901F234019C // 
+ )
+ ; // Dependencies
+ CONST "UseNewGen" 'undefined'
+ CONST "author" 'Лукьянец Р.В.'
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" true
+ CONST "register in scripts" 'undefined'
+ CONST "started" '2008/03/21 11:36:49'
+ : Generators
+ Seq: (
+ gen_intf.pas
+ )
+ ; // Generators
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Medic'
+ CONST intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\Medic\nsMedicFirmListFilters.pas'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Medic'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\Medic'
+ CONST extprop:pas:UnitName 'nsMedicFirmListFilters'
+
+ref; // ME_4901F0CF03B0 TnsMedicFirmListFilters
+
+: ME_4901F1A603DE
+ CONST UID '4901F1A603DE'
+ CONST Name 'f_Country'
+ CONST Class class_Attribute
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_4901F13D034E // TnsCountryFilter
+ ;
+ : Target WL 'ME_468259900322' '4682595B0268.pas.ms.script' // Il3SimpleNode
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_4901F1A603DE f_Country
+
+: ME_4901F1B903DF
+ CONST UID '4901F1B903DF'
+ CONST Name 'aNode'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_468259900322' '4682595B0268.pas.ms.script' // Il3SimpleNode
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_4901F1B903DF aNode
+
+: ME_4901F1B5030B
+ CONST UID '4901F1B5030B'
+ CONST Name 'Create'
+ CONST Class class_Operation
+ : Stereotype st_ctor::Operation ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_4901F13D034E // TnsCountryFilter
+ ;
+ : Parameters
+   Seq: ( ME_4901F1B903DF // aNode
+ )
+ ; // Parameters
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_4901F1B5030B Create
+
+: ME_4901F1C600F9
+ CONST UID '4901F1C600F9'
+ CONST Name 'aNode'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_468259900322' '4682595B0268.pas.ms.script' // Il3SimpleNode
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_4901F1C600F9 aNode
+
+: ME_4901F1C2020F
+ CONST UID '4901F1C2020F'
+ CONST Name 'Make'
+ CONST Class class_Operation
+ : Stereotype st_factory::Operation ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_4901F13D034E // TnsCountryFilter
+ ;
+ : Parameters
+   Seq: ( ME_4901F1C600F9 // aNode
+ )
+ ; // Parameters
+ CONST "UseNewGen" 'undefined'
+ CONST "check nil" false
+ CONST "need AfterCreate" 'undefined'
+ CONST "need Aggregate" 'undefined'
+ CONST "need As" false
+
+ref; // ME_4901F1C2020F Make
+
+: ME_4901EE910334_ME_4901F13D034E
+ CONST UID '4901EE910334'
+ CONST Name 'Country'
+ : Original WL 'ME_4901EE910334' '47ECAAF901F8.pas.ms.script' // Country
+ ;
+ : Implementor ME_4901F13D034E // TnsCountryFilter
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "UseNewGen" 'undefined'
+ CONST "pm" true
+ref; // ME_4901EE910334_ME_4901F13D034E Country
+
+: ME_479731C50290_ME_4901F13D034E
+ CONST UID '479731C50290'
+ CONST Name 'Cleanup'
+ : Original WL 'ME_479731C50290' '51612EBB02F5.pas.ms.script' // Cleanup
+ ;
+ : Implementor ME_4901F13D034E // TnsCountryFilter
+ ;
+ CONST OpKind opkind_Overridden
+ CONST "UseNewGen" 'undefined'
+ref; // ME_479731C50290_ME_4901F13D034E Cleanup
+
+: ME_4901F13D034E
+ CONST UID '4901F13D034E'
+ CONST Name 'TnsCountryFilter'
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4901F07D039B // Medic$Unit
+ ;
+ : Inherits
+   Seq: ( WL 'ME_46780E690001' '47913B47006E.pas.ms.script' // Tl3CacheableBase
+ )
+ ; // Inherits
+ : Implements
+   Seq: ( WL 'ME_4901EE8402B6' '47ECAAF901F8.pas.ms.script' // InsCountryFilter
+ )
+ ; // Implements
+ : Attributes
+   Seq: ( ME_4901F1A603DE // f_Country
+ )
+ ; // Attributes
+ : Operations
+   Seq: ( ME_4901F1B5030B // Create
+ ME_4901F1C2020F // Make
+ )
+ ; // Operations
+ : Implemented
+   Seq: ( ME_4901EE910334_ME_4901F13D034E // Country
+ )
+ ; // Implemented
+ : Overridden
+   Seq: ( ME_479731C50290_ME_4901F13D034E // Cleanup
+ )
+ ; // Overridden
+ CONST "UseNewGen" 'undefined'
+ CONST "author" 'Лукьянец Р.В.'
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" true
+ CONST "register in scripts" 'undefined'
+ CONST "started" '2008/04/07 11:18:26'
+ : Generators
+ Seq: (
+ gen_intf.pas
+ )
+ ; // Generators
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Medic'
+ CONST intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\Medic\nsCountryFilter.pas'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Medic'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\Medic'
+ CONST extprop:pas:UnitName 'nsCountryFilter'
+
+ref; // ME_4901F13D034E TnsCountryFilter
+
+FORWARD ME_490707F10167
+
+: ME_49070844012C
+ CONST UID '49070844012C'
+ CONST Name 'Make'
+ CONST Class class_Operation
+ : Stereotype st_static::Operation ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_490707F10167 // TnsMedicDictionTreeBase
+ ;
+ : Target WL 'ME_46825CC00249' '4682595B0268.pas.ms.script' // Il3SimpleTree
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_49070844012C Make
+
+: ME_4907086E0219
+ CONST UID '4907086E0219'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_490707F10167 // TnsMedicDictionTreeBase
+ ;
+ : Target WL 'ME_47FB50E4008E' '48F747EC0073.pas.ms.script' // nsConst
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_4907086E0219 
+
+: ME_49070887037C
+ CONST UID '49070887037C'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_490707F10167 // TnsMedicDictionTreeBase
+ ;
+ : Target WL 'ME_47877EB202FB' '4AB0C3C60310.pas.ms.script' // SysUtils
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_49070887037C 
+
+: ME_490708A9026B
+ CONST UID '490708A9026B'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_490707F10167 // TnsMedicDictionTreeBase
+ ;
+ : Target WL 'ME_48FF556602BA' '48F747EC0073.pas.ms.script' // DataAdapter
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_490708A9026B 
+
+: ME_49070AAE0376
+ CONST UID '49070AAE0376'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_490707F10167 // TnsMedicDictionTreeBase
+ ;
+ : Target WL 'ME_48FF569700F6' '47F2170002B2.pas.ms.script' // StringRoutines
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_49070AAE0376 
+
+: ME_48FF64F60078_ME_490707F10167
+ CONST UID '48FF64F60078'
+ CONST Name 'ReAqurieUnfilteredRoot'
+ : Original WL 'ME_48FF64F60078' '48FD8B2702F6.pas.ms.script' // ReAqurieUnfilteredRoot
+ ;
+ : Implementor ME_490707F10167 // TnsMedicDictionTreeBase
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "UseNewGen" 'undefined'
+ref; // ME_48FF64F60078_ME_490707F10167 ReAqurieUnfilteredRoot
+
+: ME_48FF56D003E6_ME_490707F10167
+ CONST UID '48FF56D003E6'
+ CONST Name 'SettingsID'
+ : Original WL 'ME_48FF56D003E6' '48FD8B2702F6.pas.ms.script' // SettingsID
+ ;
+ : Implementor ME_490707F10167 // TnsMedicDictionTreeBase
+ ;
+ CONST OpKind opkind_Overridden
+ CONST "UseNewGen" 'undefined'
+ref; // ME_48FF56D003E6_ME_490707F10167 SettingsID
+
+: ME_490707F10167
+ CONST UID '490707F10167'
+ CONST Name 'TnsMedicDictionTreeBase'
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Словарь медицинских терминов' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4901F07D039B // Medic$Unit
+ ;
+ : Inherits
+   Seq: ( WL 'ME_468361010204' '48FD8B2702F6.pas.ms.script' // TnsDataResetTreeStruct
+ )
+ ; // Inherits
+ : Operations
+   Seq: ( ME_49070844012C // Make
+ )
+ ; // Operations
+ : Implemented
+   Seq: ( ME_48FF64F60078_ME_490707F10167 // ReAqurieUnfilteredRoot
+ )
+ ; // Implemented
+ : Overridden
+   Seq: ( ME_48FF56D003E6_ME_490707F10167 // SettingsID
+ )
+ ; // Overridden
+ : Dependencies
+   Seq: ( ME_4907086E0219 // 
+ ME_49070887037C // 
+ ME_490708A9026B // 
+ ME_49070AAE0376 // 
+ )
+ ; // Dependencies
+ CONST "UseNewGen" 'undefined'
+ CONST "author" 'Лукьянец Р.В.'
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" true
+ CONST "register in scripts" 'undefined'
+ CONST "started" '2008/03/06 10:02:57'
+ : Generators
+ Seq: (
+ gen_intf.pas
+ )
+ ; // Generators
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Medic'
+ CONST intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\Medic\nsMedicDictionTreeBase.pas'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Medic'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\Medic'
+ CONST extprop:pas:UnitName 'nsMedicDictionTreeBase'
+
+ref; // ME_490707F10167 TnsMedicDictionTreeBase
+
+FORWARD ME_49070AD5032C
+
+: ME_49070C2102D0
+ CONST UID '49070C2102D0'
+ CONST Name 'Make'
+ CONST Class class_Operation
+ : Stereotype st_factory::Operation ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_49070AD5032C // TnsMedicDictionTree
+ ;
+ : Target WL 'ME_46825CC00249' '4682595B0268.pas.ms.script' // Il3SimpleTree
+ ;
+ CONST "UseNewGen" 'undefined'
+ CONST "check nil" false
+ CONST "need AfterCreate" 'undefined'
+ CONST "need Aggregate" 'undefined'
+ CONST "need As" false
+
+ref; // ME_49070C2102D0 Make
+
+: ME_91952700593F
+ CONST UID '91952700593F'
+ CONST Name 'Exists'
+ CONST IsSummoned true
+ CONST Class class_Operation
+ : Stereotype st_static::Operation ;
+ %SUMMARY 'Проверяет создан экземпляр синглетона или нет' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_49070AD5032C // TnsMedicDictionTree
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+ CONST "UseNewGen" 'undefined'
+ CONST extprop:pas:Value false
+
+ref; // ME_91952700593F Exists
+
+: ME_49070AD5032C
+ CONST UID '49070AD5032C'
+ CONST Name 'TnsMedicDictionTree'
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Словарь медицинских терминов (синглетон)' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4901F07D039B // Medic$Unit
+ ;
+ : Inherits
+   Seq: ( ME_490707F10167 // TnsMedicDictionTreeBase
+ )
+ ; // Inherits
+ : Operations
+   Seq: ( ME_49070C2102D0 // Make
+ ME_91952700593F // Exists
+ )
+ ; // Operations
+ CONST "UseNewGen" 'undefined'
+ CONST "author" 'Лукьянец Р.В.'
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" true
+ CONST "register in scripts" 'undefined'
+ CONST "singleton" true
+ CONST "started" '2008/03/06 10:02:57'
+ : Generators
+ Seq: (
+ gen_intf.pas
+ )
+ ; // Generators
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Medic'
+ CONST intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\Medic\nsMedicDictionTree.pas'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Medic'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\Medic'
+ CONST extprop:pas:UnitName 'nsMedicDictionTree'
+
+ref; // ME_49070AD5032C TnsMedicDictionTree
+
+FORWARD ME_490711B101F9
+
+: ME_490711E203CD
+ CONST UID '490711E203CD'
+ CONST Name 'Create'
+ CONST Class class_Operation
+ : Stereotype st_ctor::Operation ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_490711B101F9 // TnsMedicFirmsTreeBase
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_490711E203CD Create
+
+: ME_490711F30323
+ CONST UID '490711F30323'
+ CONST Name 'Make'
+ CONST Class class_Operation
+ : Stereotype st_static::Operation ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_490711B101F9 // TnsMedicFirmsTreeBase
+ ;
+ : Target WL 'ME_46825CC00249' '4682595B0268.pas.ms.script' // Il3SimpleTree
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_490711F30323 Make
+
+: ME_4907120A0123
+ CONST UID '4907120A0123'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_490711B101F9 // TnsMedicFirmsTreeBase
+ ;
+ : Target WL 'ME_48FF556602BA' '48F747EC0073.pas.ms.script' // DataAdapter
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_4907120A0123 
+
+: ME_4907121901EF
+ CONST UID '4907121901EF'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_490711B101F9 // TnsMedicFirmsTreeBase
+ ;
+ : Target WL 'ME_47FB50E4008E' '48F747EC0073.pas.ms.script' // nsConst
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_4907121901EF 
+
+: ME_4907122A01B7
+ CONST UID '4907122A01B7'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_490711B101F9 // TnsMedicFirmsTreeBase
+ ;
+ : Target WL 'ME_47877EB202FB' '4AB0C3C60310.pas.ms.script' // SysUtils
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_4907122A01B7 
+
+: ME_4907127E01FC
+ CONST UID '4907127E01FC'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_490711B101F9 // TnsMedicFirmsTreeBase
+ ;
+ : Target ME_4901F0CF03B0 // TnsMedicFirmListFilters
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_4907127E01FC 
+
+: ME_4907172A00E5
+ CONST UID '4907172A00E5'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_490711B101F9 // TnsMedicFirmsTreeBase
+ ;
+ : Target WL 'ME_48FF569700F6' '47F2170002B2.pas.ms.script' // StringRoutines
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_4907172A00E5 
+
+: ME_48FF64F60078_ME_490711B101F9
+ CONST UID '48FF64F60078'
+ CONST Name 'ReAqurieUnfilteredRoot'
+ : Original WL 'ME_48FF64F60078' '48FD8B2702F6.pas.ms.script' // ReAqurieUnfilteredRoot
+ ;
+ : Implementor ME_490711B101F9 // TnsMedicFirmsTreeBase
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "UseNewGen" 'undefined'
+ref; // ME_48FF64F60078_ME_490711B101F9 ReAqurieUnfilteredRoot
+
+: ME_48FF4C25031E_ME_490711B101F9
+ CONST UID '48FF4C25031E'
+ CONST Name 'MakeFilters'
+ : Original WL 'ME_48FF4C25031E' '48FD8B2702F6.pas.ms.script' // MakeFilters
+ ;
+ : Implementor ME_490711B101F9 // TnsMedicFirmsTreeBase
+ ;
+ CONST OpKind opkind_Overridden
+ CONST "UseNewGen" 'undefined'
+ref; // ME_48FF4C25031E_ME_490711B101F9 MakeFilters
+
+: ME_48FF520E03A0_ME_490711B101F9
+ CONST UID '48FF520E03A0'
+ CONST Name 'FillFilters'
+ : Original WL 'ME_48FF520E03A0' '48FD8B2702F6.pas.ms.script' // FillFilters
+ ;
+ : Implementor ME_490711B101F9 // TnsMedicFirmsTreeBase
+ ;
+ CONST OpKind opkind_Overridden
+ CONST "UseNewGen" 'undefined'
+ref; // ME_48FF520E03A0_ME_490711B101F9 FillFilters
+
+: ME_48FF56D003E6_ME_490711B101F9
+ CONST UID '48FF56D003E6'
+ CONST Name 'SettingsID'
+ : Original WL 'ME_48FF56D003E6' '48FD8B2702F6.pas.ms.script' // SettingsID
+ ;
+ : Implementor ME_490711B101F9 // TnsMedicFirmsTreeBase
+ ;
+ CONST OpKind opkind_Overridden
+ CONST "UseNewGen" 'undefined'
+ref; // ME_48FF56D003E6_ME_490711B101F9 SettingsID
+
+: ME_48FF64E700E5_ME_490711B101F9
+ CONST UID '48FF64E700E5'
+ CONST Name 'BeforeReset'
+ : Original WL 'ME_48FF64E700E5' '48FD8B2702F6.pas.ms.script' // BeforeReset
+ ;
+ : Implementor ME_490711B101F9 // TnsMedicFirmsTreeBase
+ ;
+ CONST OpKind opkind_Overridden
+ CONST "UseNewGen" 'undefined'
+ref; // ME_48FF64E700E5_ME_490711B101F9 BeforeReset
+
+: ME_490711B101F9
+ CONST UID '490711B101F9'
+ CONST Name 'TnsMedicFirmsTreeBase'
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4901F07D039B // Medic$Unit
+ ;
+ : Inherits
+   Seq: ( WL 'ME_468361010204' '48FD8B2702F6.pas.ms.script' // TnsDataResetTreeStruct
+ )
+ ; // Inherits
+ : Operations
+   Seq: ( ME_490711E203CD // Create
+ ME_490711F30323 // Make
+ )
+ ; // Operations
+ : Implemented
+   Seq: ( ME_48FF64F60078_ME_490711B101F9 // ReAqurieUnfilteredRoot
+ )
+ ; // Implemented
+ : Overridden
+   Seq: ( ME_48FF4C25031E_ME_490711B101F9 // MakeFilters
+ ME_48FF520E03A0_ME_490711B101F9 // FillFilters
+ ME_48FF56D003E6_ME_490711B101F9 // SettingsID
+ ME_48FF64E700E5_ME_490711B101F9 // BeforeReset
+ )
+ ; // Overridden
+ : Dependencies
+   Seq: ( ME_4907120A0123 // 
+ ME_4907121901EF // 
+ ME_4907122A01B7 // 
+ ME_4907127E01FC // 
+ ME_4907172A00E5 // 
+ )
+ ; // Dependencies
+ CONST "UseNewGen" 'undefined'
+ CONST "author" 'Лукьянец Р.В.'
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" true
+ CONST "register in scripts" 'undefined'
+ CONST "started" '2008/03/21 11:36:49'
+ : Generators
+ Seq: (
+ gen_intf.pas
+ )
+ ; // Generators
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Medic'
+ CONST intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\Medic\nsMedicFirmsTreeBase.pas'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Medic'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\Medic'
+ CONST extprop:pas:UnitName 'nsMedicFirmsTreeBase'
+
+ref; // ME_490711B101F9 TnsMedicFirmsTreeBase
+
+FORWARD ME_49071797031F
+
+: ME_490717B00328
+ CONST UID '490717B00328'
+ CONST Name 'Make'
+ CONST Class class_Operation
+ : Stereotype st_factory::Operation ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_49071797031F // TnsMedicFirmsTree
+ ;
+ : Target WL 'ME_46825CC00249' '4682595B0268.pas.ms.script' // Il3SimpleTree
+ ;
+ CONST "UseNewGen" 'undefined'
+ CONST "check nil" false
+ CONST "need AfterCreate" 'undefined'
+ CONST "need Aggregate" 'undefined'
+ CONST "need As" false
+
+ref; // ME_490717B00328 Make
+
+: ME_70495A4CDA4F
+ CONST UID '70495A4CDA4F'
+ CONST Name 'Exists'
+ CONST IsSummoned true
+ CONST Class class_Operation
+ : Stereotype st_static::Operation ;
+ %SUMMARY 'Проверяет создан экземпляр синглетона или нет' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_49071797031F // TnsMedicFirmsTree
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+ CONST "UseNewGen" 'undefined'
+ CONST extprop:pas:Value false
+
+ref; // ME_70495A4CDA4F Exists
+
+: ME_49071797031F
+ CONST UID '49071797031F'
+ CONST Name 'TnsMedicFirmsTree'
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4901F07D039B // Medic$Unit
+ ;
+ : Inherits
+   Seq: ( ME_490711B101F9 // TnsMedicFirmsTreeBase
+ )
+ ; // Inherits
+ : Operations
+   Seq: ( ME_490717B00328 // Make
+ ME_70495A4CDA4F // Exists
+ )
+ ; // Operations
+ CONST "UseNewGen" 'undefined'
+ CONST "author" 'Лукьянец Р.В.'
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" true
+ CONST "register in scripts" 'undefined'
+ CONST "singleton" true
+ CONST "started" '2008/03/21 11:36:49'
+ : Generators
+ Seq: (
+ gen_intf.pas
+ )
+ ; // Generators
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Medic'
+ CONST intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\Medic\nsMedicFirmsTree.pas'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Medic'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\Medic'
+ CONST extprop:pas:UnitName 'nsMedicFirmsTree'
+
+ref; // ME_49071797031F TnsMedicFirmsTree
+
+FORWARD ME_49071C6300FF
+
+: ME_49071CE701EE
+ CONST UID '49071CE701EE'
+ CONST Name 'ItemType'
+ CONST Class class_Attribute
+ : Stereotype st_impurity_value::Attribute ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_agr
+ : Parent ME_49071C6300FF // TnsMedicFirmsSubscribersList
+ ;
+ : Target WL 'ME_49071AE3035B' '47ECAAF901F8.pas.ms.script' // InsMedicFirmsTreeNotifyRecipient
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_49071CE701EE ItemType
+
+: ME_49071C6300FF
+ CONST UID '49071C6300FF'
+ CONST Name 'TnsMedicFirmsSubscribersList'
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4901F07D039B // Medic$Unit
+ ;
+ : Inherits
+   Seq: ( WL 'ME_47B57D630029' '47913B47006E.pas.ms.script' // l3InterfacePtrList
+ WL 'ME_47BC3A07027F' '47913B47006E.pas.ms.script' // Tl3SimpleDataContainer
+ )
+ ; // Inherits
+ : Attributes
+   Seq: ( ME_49071CE701EE // ItemType
+ )
+ ; // Attributes
+ CONST "UseNewGen" 'undefined'
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ : Generators
+ Seq: (
+ gen_intf.pas
+ )
+ ; // Generators
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Medic'
+ CONST intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\Medic\nsMedicFirmsSubscribersList.pas'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Medic'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\Medic'
+ CONST extprop:pas:UnitName 'nsMedicFirmsSubscribersList'
+
+ref; // ME_49071C6300FF TnsMedicFirmsSubscribersList
+
+FORWARD ME_49071BFA03A4
+
+: ME_49071CBB02BA
+ CONST UID '49071CBB02BA'
+ CONST Name 'f_MFSubscribers'
+ CONST Class class_Attribute
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_49071BFA03A4 // TnsMedicFirmsCountryFilterTreeBase
+ ;
+ : Target ME_49071C6300FF // TnsMedicFirmsSubscribersList
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_49071CBB02BA f_MFSubscribers
+
+: ME_49071D400235
+ CONST UID '49071D400235'
+ CONST Name 'Create'
+ CONST Class class_Operation
+ : Stereotype st_ctor::Operation ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_49071BFA03A4 // TnsMedicFirmsCountryFilterTreeBase
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_49071D400235 Create
+
+: ME_49071D53036B
+ CONST UID '49071D53036B'
+ CONST Name 'Make'
+ CONST Class class_Operation
+ : Stereotype st_static::Operation ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_49071BFA03A4 // TnsMedicFirmsCountryFilterTreeBase
+ ;
+ : Target WL 'ME_46825CC00249' '4682595B0268.pas.ms.script' // Il3SimpleTree
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_49071D53036B Make
+
+: ME_49071EDC0216
+ CONST UID '49071EDC0216'
+ CONST Name 'NotifyMedicFirmsRecipients'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_49071BFA03A4 // TnsMedicFirmsCountryFilterTreeBase
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_49071EDC0216 NotifyMedicFirmsRecipients
+
+: ME_49071DAF031C
+ CONST UID '49071DAF031C'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_49071BFA03A4 // TnsMedicFirmsCountryFilterTreeBase
+ ;
+ : Target WL 'ME_47877EB202FB' '4AB0C3C60310.pas.ms.script' // SysUtils
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_49071DAF031C 
+
+: ME_49071DBD015A
+ CONST UID '49071DBD015A'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_49071BFA03A4 // TnsMedicFirmsCountryFilterTreeBase
+ ;
+ : Target WL 'ME_48FF556602BA' '48F747EC0073.pas.ms.script' // DataAdapter
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_49071DBD015A 
+
+: ME_49071F9A00A0
+ CONST UID '49071F9A00A0'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_49071BFA03A4 // TnsMedicFirmsCountryFilterTreeBase
+ ;
+ : Target WL 'ME_48FF569700F6' '47F2170002B2.pas.ms.script' // StringRoutines
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_49071F9A00A0 
+
+: ME_49071FDA00E9
+ CONST UID '49071FDA00E9'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_49071BFA03A4 // TnsMedicFirmsCountryFilterTreeBase
+ ;
+ : Target WL 'ME_47FB50E4008E' '48F747EC0073.pas.ms.script' // nsConst
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_49071FDA00E9 
+
+: ME_48FF64F60078_ME_49071BFA03A4
+ CONST UID '48FF64F60078'
+ CONST Name 'ReAqurieUnfilteredRoot'
+ : Original WL 'ME_48FF64F60078' '48FD8B2702F6.pas.ms.script' // ReAqurieUnfilteredRoot
+ ;
+ : Implementor ME_49071BFA03A4 // TnsMedicFirmsCountryFilterTreeBase
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "UseNewGen" 'undefined'
+ref; // ME_48FF64F60078_ME_49071BFA03A4 ReAqurieUnfilteredRoot
+
+: ME_49071B0F0100_ME_49071BFA03A4
+ CONST UID '49071B0F0100'
+ CONST Name 'Subscribe'
+ : Original WL 'ME_49071B0F0100' '47ECAAF901F8.pas.ms.script' // Subscribe
+ ;
+ : Implementor ME_49071BFA03A4 // TnsMedicFirmsCountryFilterTreeBase
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "UseNewGen" 'undefined'
+ref; // ME_49071B0F0100_ME_49071BFA03A4 Subscribe
+
+: ME_49071B1D0098_ME_49071BFA03A4
+ CONST UID '49071B1D0098'
+ CONST Name 'Unsubscribe'
+ : Original WL 'ME_49071B1D0098' '47ECAAF901F8.pas.ms.script' // Unsubscribe
+ ;
+ : Implementor ME_49071BFA03A4 // TnsMedicFirmsCountryFilterTreeBase
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "UseNewGen" 'undefined'
+ref; // ME_49071B1D0098_ME_49071BFA03A4 Unsubscribe
+
+: ME_479731C50290_ME_49071BFA03A4
+ CONST UID '479731C50290'
+ CONST Name 'Cleanup'
+ : Original WL 'ME_479731C50290' '51612EBB02F5.pas.ms.script' // Cleanup
+ ;
+ : Implementor ME_49071BFA03A4 // TnsMedicFirmsCountryFilterTreeBase
+ ;
+ CONST OpKind opkind_Overridden
+ CONST "UseNewGen" 'undefined'
+ref; // ME_479731C50290_ME_49071BFA03A4 Cleanup
+
+: ME_48FF64E700E5_ME_49071BFA03A4
+ CONST UID '48FF64E700E5'
+ CONST Name 'BeforeReset'
+ : Original WL 'ME_48FF64E700E5' '48FD8B2702F6.pas.ms.script' // BeforeReset
+ ;
+ : Implementor ME_49071BFA03A4 // TnsMedicFirmsCountryFilterTreeBase
+ ;
+ CONST OpKind opkind_Overridden
+ CONST "UseNewGen" 'undefined'
+ref; // ME_48FF64E700E5_ME_49071BFA03A4 BeforeReset
+
+: ME_49071BFA03A4
+ CONST UID '49071BFA03A4'
+ CONST Name 'TnsMedicFirmsCountryFilterTreeBase'
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4901F07D039B // Medic$Unit
+ ;
+ : Inherits
+   Seq: ( WL 'ME_468361010204' '48FD8B2702F6.pas.ms.script' // TnsDataResetTreeStruct
+ )
+ ; // Inherits
+ : Implements
+   Seq: ( WL 'ME_49071AFF0024' '47ECAAF901F8.pas.ms.script' // InsMedicFirmsTreeNotificationSource
+ )
+ ; // Implements
+ : Attributes
+   Seq: ( ME_49071CBB02BA // f_MFSubscribers
+ )
+ ; // Attributes
+ : Operations
+   Seq: ( ME_49071D400235 // Create
+ ME_49071D53036B // Make
+ ME_49071EDC0216 // NotifyMedicFirmsRecipients
+ )
+ ; // Operations
+ : Implemented
+   Seq: ( ME_48FF64F60078_ME_49071BFA03A4 // ReAqurieUnfilteredRoot
+ ME_49071B0F0100_ME_49071BFA03A4 // Subscribe
+ ME_49071B1D0098_ME_49071BFA03A4 // Unsubscribe
+ )
+ ; // Implemented
+ : Overridden
+   Seq: ( ME_479731C50290_ME_49071BFA03A4 // Cleanup
+ ME_48FF64E700E5_ME_49071BFA03A4 // BeforeReset
+ )
+ ; // Overridden
+ : Dependencies
+   Seq: ( ME_49071DAF031C // 
+ ME_49071DBD015A // 
+ ME_49071F9A00A0 // 
+ ME_49071FDA00E9 // 
+ )
+ ; // Dependencies
+ CONST "UseNewGen" 'undefined'
+ CONST "author" 'Лукьянец Р.В.'
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" true
+ CONST "register in scripts" 'undefined'
+ CONST "started" '2008/03/21 11:36:49'
+ : Generators
+ Seq: (
+ gen_intf.pas
+ )
+ ; // Generators
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Medic'
+ CONST intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\Medic\nsMedicFirmsCountryFilterTreeBase.pas'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Medic'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\Medic'
+ CONST extprop:pas:UnitName 'nsMedicFirmsCountryFilterTreeBase'
+
+ref; // ME_49071BFA03A4 TnsMedicFirmsCountryFilterTreeBase
+
+FORWARD ME_49071DD902DC
+
+: ME_49071E1D0102
+ CONST UID '49071E1D0102'
+ CONST Name 'Make'
+ CONST Class class_Operation
+ : Stereotype st_factory::Operation ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_49071DD902DC // TnsMedicFirmsCountryFilterTree
+ ;
+ : Target WL 'ME_46825CC00249' '4682595B0268.pas.ms.script' // Il3SimpleTree
+ ;
+ CONST "UseNewGen" 'undefined'
+ CONST "check nil" false
+ CONST "need AfterCreate" 'undefined'
+ CONST "need Aggregate" 'undefined'
+ CONST "need As" false
+
+ref; // ME_49071E1D0102 Make
+
+: ME_094F0198A236
+ CONST UID '094F0198A236'
+ CONST Name 'Exists'
+ CONST IsSummoned true
+ CONST Class class_Operation
+ : Stereotype st_static::Operation ;
+ %SUMMARY 'Проверяет создан экземпляр синглетона или нет' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_49071DD902DC // TnsMedicFirmsCountryFilterTree
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+ CONST "UseNewGen" 'undefined'
+ CONST extprop:pas:Value false
+
+ref; // ME_094F0198A236 Exists
+
+: ME_49071DD902DC
+ CONST UID '49071DD902DC'
+ CONST Name 'TnsMedicFirmsCountryFilterTree'
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4901F07D039B // Medic$Unit
+ ;
+ : Inherits
+   Seq: ( ME_49071BFA03A4 // TnsMedicFirmsCountryFilterTreeBase
+ )
+ ; // Inherits
+ : Operations
+   Seq: ( ME_49071E1D0102 // Make
+ ME_094F0198A236 // Exists
+ )
+ ; // Operations
+ CONST "UseNewGen" 'undefined'
+ CONST "author" 'Лукьянец Р.В.'
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" true
+ CONST "register in scripts" 'undefined'
+ CONST "singleton" true
+ CONST "started" '2008/03/21 11:36:49'
+ : Generators
+ Seq: (
+ gen_intf.pas
+ )
+ ; // Generators
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Medic'
+ CONST intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\Medic\nsMedicFirmsCountryFilterTree.pas'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Medic'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\Medic'
+ CONST extprop:pas:UnitName 'nsMedicFirmsCountryFilterTree'
+
+ref; // ME_49071DD902DC TnsMedicFirmsCountryFilterTree
+
+: ME_4901F07D039B
+ CONST UID '4901F07D039B'
+ CONST Name 'Medic'
+ CONST Class class_Category
+ : Stereotype st_Unit ;
+ %SUMMARY 'Структуры данных для Инфарма' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent WL 'ME_494106E500F3' '494106E500F3.pas.ms.script' // Medic
+ ;
+ : Children
+   Seq: ( ME_4901F0CF03B0 // TnsMedicFirmListFilters
+ ME_4901F13D034E // TnsCountryFilter
+ ME_490707F10167 // TnsMedicDictionTreeBase
+ ME_49070AD5032C // TnsMedicDictionTree
+ ME_490711B101F9 // TnsMedicFirmsTreeBase
+ ME_49071797031F // TnsMedicFirmsTree
+ ME_49071C6300FF // TnsMedicFirmsSubscribersList
+ ME_49071BFA03A4 // TnsMedicFirmsCountryFilterTreeBase
+ ME_49071DD902DC // TnsMedicFirmsCountryFilterTree
+ )
+ ; // Children
+ : Depends
+   Seq: ( WL 'ME_4682595B0268' '4682595B0268.pas.ms.script' // l3TreeInterfaces
+ WL 'ME_47913B47006E' '47913B47006E.pas.ms.script' // l3CoreObjects
+ WL 'ME_47E246C90144' '47E246C90144.pas.ms.script' // l3Trees
+ WL 'ME_47ECAAF901F8' '47ECAAF901F8.pas.ms.script' // bsInterfaces
+ WL 'ME_47F2170002B2' '47F2170002B2.pas.ms.script' // nsTypes
+ WL 'ME_48F747EC0073' '48F747EC0073.pas.ms.script' // Common
+ WL 'ME_48FD8B2702F6' '48FD8B2702F6.pas.ms.script' // Tree
+ WL 'ME_4AB0C3C60310' '4AB0C3C60310.pas.ms.script' // Sys
+ )
+ ; // Depends
+ CONST "UseNewGen" 'undefined'
+ : Generators
+ Seq: (
+ gen_pas.script
+ gen_pas.script.runner
+ )
+ ; // Generators
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Medic'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Medic'
+ CONST pas.script:Path 'shared\models\NewSchool\Scripts\4901F07D039B.pas.ms.script'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\4901F07D039B.pas.ms.script.runner'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\Medic'
+
+ref; // ME_4901F07D039B Medic$Unit

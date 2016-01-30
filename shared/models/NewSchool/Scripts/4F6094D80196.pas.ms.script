@@ -6,11 +6,14 @@ FORWARD ME_4F6094D80196
 
 FORWARD ME_4F6096D500C3
 
+FORWARD ME_552E449000E2
+
 FORWARD ME_765DA382B537
 
 : ME_BEA7A80449E0
  CONST UID 'BEA7A80449E0'
  CONST Name 'aCtx'
+ CONST IsSummoned true
  CONST Class class_Parameter
  : Stereotype st_in ;
  : Target WL 'ME_4DB0091E033E' '4DAF19F600C5.pas.ms.script' // TtfwContext
@@ -21,6 +24,7 @@ ref; // ME_BEA7A80449E0 aCtx
 : ME_7A2DDC297C52
  CONST UID '7A2DDC297C52'
  CONST Name 'DDSupport_GetState'
+ CONST IsSummoned true
  CONST Class class_Operation
  %SUMMARY 'Реализация слова скрипта DDSupport:GetState' ;
  CONST Visibility PrivateAccess
@@ -30,8 +34,8 @@ ref; // ME_BEA7A80449E0 aCtx
  : Target WL 'ME_552E443E0209' '47F485150151.pas.ms.script' // TDragDataState
  ;
  : Parameters
-   @ ( ME_BEA7A80449E0 // aCtx
- ) .SequenceCode.It
+   Seq: ( ME_BEA7A80449E0 // aCtx
+ )
  ; // Parameters
 
 ref; // ME_7A2DDC297C52 DDSupport_GetState
@@ -39,6 +43,7 @@ ref; // ME_7A2DDC297C52 DDSupport_GetState
 : ME_C39E9A8E8EDF
  CONST UID 'C39E9A8E8EDF'
  CONST Name 'Ini_Reg'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Регистрация DDSupport_GetState' ;
@@ -51,6 +56,7 @@ ref; // ME_C39E9A8E8EDF Ini_Reg
 
 : ME_29009F142513
  CONST UID '29009F142513'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_765DA382B537 // DDSupport_GetState
@@ -62,6 +68,7 @@ ref; // ME_29009F142513
 
 : ME_C2B96FE482BD
  CONST UID 'C2B96FE482BD'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_765DA382B537 // DDSupport_GetState
@@ -73,6 +80,7 @@ ref; // ME_C2B96FE482BD
 
 : ME_4A65D6AFC2CA
  CONST UID '4A65D6AFC2CA'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_765DA382B537 // DDSupport_GetState
@@ -89,6 +97,7 @@ ref; // ME_4A65D6AFC2CA
  ;
  : Implementor ME_765DA382B537 // DDSupport_GetState
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_4DAEEDE10285_ME_765DA382B537 DoDoIt
 
 : ME_4DB0614603C8_ME_765DA382B537
@@ -98,6 +107,7 @@ ref; // ME_4DAEEDE10285_ME_765DA382B537 DoDoIt
  ;
  : Implementor ME_765DA382B537 // DDSupport_GetState
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4DB0614603C8_ME_765DA382B537 GetWordNameForRegister
 
 : ME_551544E2001A_ME_765DA382B537
@@ -107,6 +117,7 @@ ref; // ME_4DB0614603C8_ME_765DA382B537 GetWordNameForRegister
  ;
  : Implementor ME_765DA382B537 // DDSupport_GetState
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_551544E2001A_ME_765DA382B537 GetResultTypeInfo
 
 : ME_559687E6025A_ME_765DA382B537
@@ -116,6 +127,7 @@ ref; // ME_551544E2001A_ME_765DA382B537 GetResultTypeInfo
  ;
  : Implementor ME_765DA382B537 // DDSupport_GetState
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_559687E6025A_ME_765DA382B537 GetAllParamsCount
 
 : ME_5617F4D00243_ME_765DA382B537
@@ -125,11 +137,13 @@ ref; // ME_559687E6025A_ME_765DA382B537 GetAllParamsCount
  ;
  : Implementor ME_765DA382B537 // DDSupport_GetState
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_5617F4D00243_ME_765DA382B537 ParamsTypes
 
 : ME_765DA382B537
  CONST UID '765DA382B537'
  CONST Name 'DDSupport_GetState'
+ CONST IsSummoned true
  CONST Class class_Class
  : Stereotype st_ScriptKeyword ;
  CONST Kind kind_NormalClass
@@ -139,37 +153,45 @@ ref; // ME_5617F4D00243_ME_765DA382B537 ParamsTypes
  : Parent ME_4F6096D500C3 // kwVTControlsPack
  ;
  : Inherits
-   @ ( WL 'ME_561BAC4B0005' '55CCADD2013D.pas.ms.script' // TtfwGlobalKeyWord
- ) .SequenceCode.It
+   Seq: ( WL 'ME_561BAC4B0005' '55CCADD2013D.pas.ms.script' // TtfwGlobalKeyWord
+ )
  ; // Inherits
  : Operations
-   @ ( ME_7A2DDC297C52 // DDSupport_GetState
+   Seq: ( ME_7A2DDC297C52 // DDSupport_GetState
  ME_C39E9A8E8EDF // Ini_Reg
- ) .SequenceCode.It
+ )
  ; // Operations
  : Implemented
-   @ ( ME_4DAEEDE10285_ME_765DA382B537 // DoDoIt
- ) .SequenceCode.It
+   Seq: ( ME_4DAEEDE10285_ME_765DA382B537 // DoDoIt
+ )
  ; // Implemented
  : Overridden
-   @ ( ME_4DB0614603C8_ME_765DA382B537 // GetWordNameForRegister
+   Seq: ( ME_4DB0614603C8_ME_765DA382B537 // GetWordNameForRegister
  ME_551544E2001A_ME_765DA382B537 // GetResultTypeInfo
  ME_559687E6025A_ME_765DA382B537 // GetAllParamsCount
  ME_5617F4D00243_ME_765DA382B537 // ParamsTypes
- ) .SequenceCode.It
+ )
  ; // Overridden
  : Dependencies
-   @ ( ME_29009F142513 // 
+   Seq: ( ME_29009F142513 // 
  ME_C2B96FE482BD // 
  ME_4A65D6AFC2CA // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  CONST "NameForScript" 'DDSupport:GetState'
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
+ CONST dfm:PathOnly '\common\components\rtl\Garant\ScriptEngine'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\ScriptEngine'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
  CONST extprop:pas:TypeName 'TkwDDSupportGetState'
+ CONST extprop:rc:SelfName 'DDSupportGetState'
+ CONST extprop:rc:isAcceptableForScripts true
+ : SpelledFor ME_552E449000E2 // DDSupport_GetState
+ ;
 
 ref; // ME_765DA382B537 DDSupport_GetState
 
@@ -185,12 +207,15 @@ ref; // ME_765DA382B537 DDSupport_GetState
  ;
  : Target WL 'ME_552E443E0209' '47F485150151.pas.ms.script' // TDragDataState
  ;
+ : Speller ME_765DA382B537 // DDSupport_GetState
+ ;
 
 ref; // ME_552E449000E2 DDSupport_GetState
 
 : ME_EEF10775377E
  CONST UID 'EEF10775377E'
- CONST Name 'Reg_TtfwContext'
+ CONST Name 'Reg_Type_TtfwContext'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Регистрация типа TtfwContext' ;
@@ -198,12 +223,15 @@ ref; // ME_552E449000E2 DDSupport_GetState
  CONST Abstraction at_final
  : Parent ME_4F6096D500C3 // kwVTControlsPack
  ;
+ : SpelledFor WL 'ME_4DB0091E033E' '4DAF19F600C5.pas.ms.script' // TtfwContext
+ ;
 
-ref; // ME_EEF10775377E Reg_TtfwContext
+ref; // ME_EEF10775377E Reg_Type_TtfwContext
 
 : ME_0E37BA87743F
  CONST UID '0E37BA87743F'
- CONST Name 'Reg_TDragDataState'
+ CONST Name 'Reg_Type_TDragDataState'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Регистрация типа TDragDataState' ;
@@ -211,8 +239,10 @@ ref; // ME_EEF10775377E Reg_TtfwContext
  CONST Abstraction at_final
  : Parent ME_4F6096D500C3 // kwVTControlsPack
  ;
+ : SpelledFor WL 'ME_552E443E0209' '47F485150151.pas.ms.script' // TDragDataState
+ ;
 
-ref; // ME_0E37BA87743F Reg_TDragDataState
+ref; // ME_0E37BA87743F Reg_Type_TDragDataState
 
 : ME_552E446F01A5
  CONST UID '552E446F01A5'
@@ -238,6 +268,7 @@ ref; // ME_552E4473008D
 
 : ME_2B35C5F0BCD6
  CONST UID '2B35C5F0BCD6'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_4F6096D500C3 // kwVTControlsPack
@@ -249,6 +280,7 @@ ref; // ME_2B35C5F0BCD6
 
 : ME_D2CBE62EA295
  CONST UID 'D2CBE62EA295'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_4F6096D500C3 // kwVTControlsPack
@@ -269,43 +301,46 @@ ref; // ME_D2CBE62EA295
  : Parent ME_4F6094D80196 // vtControlsFromStackWords
  ;
  : Operations
-   @ ( ME_552E449000E2 // DDSupport_GetState
- ME_EEF10775377E // Reg_TtfwContext
- ME_0E37BA87743F // Reg_TDragDataState
- ) .SequenceCode.It
+   Seq: ( ME_552E449000E2 // DDSupport_GetState
+ ME_EEF10775377E // Reg_Type_TtfwContext
+ ME_0E37BA87743F // Reg_Type_TDragDataState
+ )
  ; // Operations
  : Children
-   @ ( ME_765DA382B537 // DDSupport_GetState
- ) .SequenceCode.It
+   Seq: ( ME_765DA382B537 // DDSupport_GetState
+ )
  ; // Children
  : Dependencies
-   @ ( ME_552E446F01A5 // 
+   Seq: ( ME_552E446F01A5 // 
  ME_552E4473008D // 
  ME_2B35C5F0BCD6 // 
  ME_D2CBE62EA295 // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  CONST "ifndef" 'NoScripts'
  CONST "needs script" 'undefined'
  CONST "no class name" 'undefined'
  CONST "no hands" false
  CONST "no_pop" 'undefined'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\ScriptEngine'
  CONST intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\kwVTControlsPack.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\ScriptEngine'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'VTControlsPack'
 
 ref; // ME_4F6096D500C3 kwVTControlsPack
 
 FORWARD ME_552D23C300F1
+
+FORWARD ME_552D24400252
 
 FORWARD ME_61EE94402745
 
 : ME_32621B9BF42D
  CONST UID '32621B9BF42D'
  CONST Name 'aCtx'
+ CONST IsSummoned true
  CONST Class class_Parameter
  : Stereotype st_in ;
  : Target WL 'ME_4DB0091E033E' '4DAF19F600C5.pas.ms.script' // TtfwContext
@@ -316,6 +351,7 @@ ref; // ME_32621B9BF42D aCtx
 : ME_32621B9BF42E
  CONST UID '32621B9BF42E'
  CONST Name 'aCheckListBox'
+ CONST IsSummoned true
  CONST Class class_Parameter
  : Stereotype st_in ;
  : Target WL 'ME_51F24E890269' '4799D29F033F.pas.ms.script' // TCheckListBox
@@ -326,6 +362,7 @@ ref; // ME_32621B9BF42E aCheckListBox
 : ME_32621B9BF42F
  CONST UID '32621B9BF42F'
  CONST Name 'anIndex'
+ CONST IsSummoned true
  CONST Class class_Parameter
  : Stereotype st_in ;
  : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
@@ -336,6 +373,7 @@ ref; // ME_32621B9BF42F anIndex
 : ME_5C7C4E6C6645
  CONST UID '5C7C4E6C6645'
  CONST Name 'GetChecked'
+ CONST IsSummoned true
  CONST Class class_Operation
  %SUMMARY 'Реализация слова скрипта pop:CheckListBox:GetChecked' ;
  CONST Visibility PrivateAccess
@@ -345,10 +383,10 @@ ref; // ME_32621B9BF42F anIndex
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
  : Parameters
-   @ ( ME_32621B9BF42D // aCtx
+   Seq: ( ME_32621B9BF42D // aCtx
  ME_32621B9BF42E // aCheckListBox
  ME_32621B9BF42F // anIndex
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_5C7C4E6C6645 GetChecked
@@ -356,6 +394,7 @@ ref; // ME_5C7C4E6C6645 GetChecked
 : ME_B3C67DC51C24
  CONST UID 'B3C67DC51C24'
  CONST Name 'Ini_Reg'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Регистрация pop_CheckListBox_GetChecked' ;
@@ -368,6 +407,7 @@ ref; // ME_B3C67DC51C24 Ini_Reg
 
 : ME_897201D0983E
  CONST UID '897201D0983E'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_61EE94402745 // pop_CheckListBox_GetChecked
@@ -379,6 +419,7 @@ ref; // ME_897201D0983E
 
 : ME_B2B32F277750
  CONST UID 'B2B32F277750'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_61EE94402745 // pop_CheckListBox_GetChecked
@@ -390,6 +431,7 @@ ref; // ME_B2B32F277750
 
 : ME_4B61CD4F16CE
  CONST UID '4B61CD4F16CE'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_61EE94402745 // pop_CheckListBox_GetChecked
@@ -406,6 +448,7 @@ ref; // ME_4B61CD4F16CE
  ;
  : Implementor ME_61EE94402745 // pop_CheckListBox_GetChecked
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_4DAEEDE10285_ME_61EE94402745 DoDoIt
 
 : ME_4DB0614603C8_ME_61EE94402745
@@ -415,6 +458,7 @@ ref; // ME_4DAEEDE10285_ME_61EE94402745 DoDoIt
  ;
  : Implementor ME_61EE94402745 // pop_CheckListBox_GetChecked
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4DB0614603C8_ME_61EE94402745 GetWordNameForRegister
 
 : ME_551544E2001A_ME_61EE94402745
@@ -424,6 +468,7 @@ ref; // ME_4DB0614603C8_ME_61EE94402745 GetWordNameForRegister
  ;
  : Implementor ME_61EE94402745 // pop_CheckListBox_GetChecked
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_551544E2001A_ME_61EE94402745 GetResultTypeInfo
 
 : ME_559687E6025A_ME_61EE94402745
@@ -433,6 +478,7 @@ ref; // ME_551544E2001A_ME_61EE94402745 GetResultTypeInfo
  ;
  : Implementor ME_61EE94402745 // pop_CheckListBox_GetChecked
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_559687E6025A_ME_61EE94402745 GetAllParamsCount
 
 : ME_5617F4D00243_ME_61EE94402745
@@ -442,11 +488,13 @@ ref; // ME_559687E6025A_ME_61EE94402745 GetAllParamsCount
  ;
  : Implementor ME_61EE94402745 // pop_CheckListBox_GetChecked
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_5617F4D00243_ME_61EE94402745 ParamsTypes
 
 : ME_61EE94402745
  CONST UID '61EE94402745'
  CONST Name 'pop_CheckListBox_GetChecked'
+ CONST IsSummoned true
  CONST Class class_Class
  : Stereotype st_ScriptKeyword ;
  CONST Kind kind_NormalClass
@@ -456,45 +504,56 @@ ref; // ME_5617F4D00243_ME_61EE94402745 ParamsTypes
  : Parent ME_552D23C300F1 // CheckListBoxWordsPack
  ;
  : Inherits
-   @ ( WL 'ME_55CCAE000335' '55CCADD2013D.pas.ms.script' // TtfwClassLike
- ) .SequenceCode.It
+   Seq: ( WL 'ME_55CCAE000335' '55CCADD2013D.pas.ms.script' // TtfwClassLike
+ )
  ; // Inherits
  : Operations
-   @ ( ME_5C7C4E6C6645 // GetChecked
+   Seq: ( ME_5C7C4E6C6645 // GetChecked
  ME_B3C67DC51C24 // Ini_Reg
- ) .SequenceCode.It
+ )
  ; // Operations
  : Implemented
-   @ ( ME_4DAEEDE10285_ME_61EE94402745 // DoDoIt
- ) .SequenceCode.It
+   Seq: ( ME_4DAEEDE10285_ME_61EE94402745 // DoDoIt
+ )
  ; // Implemented
  : Overridden
-   @ ( ME_4DB0614603C8_ME_61EE94402745 // GetWordNameForRegister
+   Seq: ( ME_4DB0614603C8_ME_61EE94402745 // GetWordNameForRegister
  ME_551544E2001A_ME_61EE94402745 // GetResultTypeInfo
  ME_559687E6025A_ME_61EE94402745 // GetAllParamsCount
  ME_5617F4D00243_ME_61EE94402745 // ParamsTypes
- ) .SequenceCode.It
+ )
  ; // Overridden
  : Dependencies
-   @ ( ME_897201D0983E // 
+   Seq: ( ME_897201D0983E // 
  ME_B2B32F277750 // 
  ME_4B61CD4F16CE // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  CONST "NameForScript" 'pop:CheckListBox:GetChecked'
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
+ CONST dfm:PathOnly '\common\components\rtl\Garant\ScriptEngine'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\ScriptEngine'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
  CONST extprop:pas:TypeName 'TkwPopCheckListBoxGetChecked'
+ CONST extprop:rc:SelfName 'PopCheckListBoxGetChecked'
+ CONST extprop:rc:isAcceptableForScripts true
+ : SpelledFor ME_552D24400252 // GetChecked
+ ;
 
 ref; // ME_61EE94402745 pop_CheckListBox_GetChecked
+
+FORWARD ME_552D24650138
 
 FORWARD ME_CA2863D28A34
 
 : ME_C7693873D917
  CONST UID 'C7693873D917'
  CONST Name 'aCtx'
+ CONST IsSummoned true
  CONST Class class_Parameter
  : Stereotype st_in ;
  : Target WL 'ME_4DB0091E033E' '4DAF19F600C5.pas.ms.script' // TtfwContext
@@ -505,6 +564,7 @@ ref; // ME_C7693873D917 aCtx
 : ME_C7693873D918
  CONST UID 'C7693873D918'
  CONST Name 'aCheckListBox'
+ CONST IsSummoned true
  CONST Class class_Parameter
  : Stereotype st_in ;
  : Target WL 'ME_51F24E890269' '4799D29F033F.pas.ms.script' // TCheckListBox
@@ -515,6 +575,7 @@ ref; // ME_C7693873D918 aCheckListBox
 : ME_C7693873D919
  CONST UID 'C7693873D919'
  CONST Name 'anIndex'
+ CONST IsSummoned true
  CONST Class class_Parameter
  : Stereotype st_in ;
  : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
@@ -525,6 +586,7 @@ ref; // ME_C7693873D919 anIndex
 : ME_C7693873D91A
  CONST UID 'C7693873D91A'
  CONST Name 'aValue'
+ CONST IsSummoned true
  CONST Class class_Parameter
  : Stereotype st_in ;
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
@@ -535,6 +597,7 @@ ref; // ME_C7693873D91A aValue
 : ME_AEDB5415872F
  CONST UID 'AEDB5415872F'
  CONST Name 'SetChecked'
+ CONST IsSummoned true
  CONST Class class_Operation
  %SUMMARY 'Реализация слова скрипта pop:CheckListBox:SetChecked' ;
  CONST Visibility PrivateAccess
@@ -542,11 +605,11 @@ ref; // ME_C7693873D91A aValue
  : Parent ME_CA2863D28A34 // pop_CheckListBox_SetChecked
  ;
  : Parameters
-   @ ( ME_C7693873D917 // aCtx
+   Seq: ( ME_C7693873D917 // aCtx
  ME_C7693873D918 // aCheckListBox
  ME_C7693873D919 // anIndex
  ME_C7693873D91A // aValue
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_AEDB5415872F SetChecked
@@ -554,6 +617,7 @@ ref; // ME_AEDB5415872F SetChecked
 : ME_9C90870E1774
  CONST UID '9C90870E1774'
  CONST Name 'Ini_Reg'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Регистрация pop_CheckListBox_SetChecked' ;
@@ -566,6 +630,7 @@ ref; // ME_9C90870E1774 Ini_Reg
 
 : ME_25FEF9F69D8C
  CONST UID '25FEF9F69D8C'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_CA2863D28A34 // pop_CheckListBox_SetChecked
@@ -577,6 +642,7 @@ ref; // ME_25FEF9F69D8C
 
 : ME_6ADF95C9EBB6
  CONST UID '6ADF95C9EBB6'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_CA2863D28A34 // pop_CheckListBox_SetChecked
@@ -588,6 +654,7 @@ ref; // ME_6ADF95C9EBB6
 
 : ME_BFA920459542
  CONST UID 'BFA920459542'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_CA2863D28A34 // pop_CheckListBox_SetChecked
@@ -604,6 +671,7 @@ ref; // ME_BFA920459542
  ;
  : Implementor ME_CA2863D28A34 // pop_CheckListBox_SetChecked
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_4DAEEDE10285_ME_CA2863D28A34 DoDoIt
 
 : ME_4DB0614603C8_ME_CA2863D28A34
@@ -613,6 +681,7 @@ ref; // ME_4DAEEDE10285_ME_CA2863D28A34 DoDoIt
  ;
  : Implementor ME_CA2863D28A34 // pop_CheckListBox_SetChecked
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4DB0614603C8_ME_CA2863D28A34 GetWordNameForRegister
 
 : ME_551544E2001A_ME_CA2863D28A34
@@ -622,6 +691,7 @@ ref; // ME_4DB0614603C8_ME_CA2863D28A34 GetWordNameForRegister
  ;
  : Implementor ME_CA2863D28A34 // pop_CheckListBox_SetChecked
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_551544E2001A_ME_CA2863D28A34 GetResultTypeInfo
 
 : ME_559687E6025A_ME_CA2863D28A34
@@ -631,6 +701,7 @@ ref; // ME_551544E2001A_ME_CA2863D28A34 GetResultTypeInfo
  ;
  : Implementor ME_CA2863D28A34 // pop_CheckListBox_SetChecked
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_559687E6025A_ME_CA2863D28A34 GetAllParamsCount
 
 : ME_5617F4D00243_ME_CA2863D28A34
@@ -640,11 +711,13 @@ ref; // ME_559687E6025A_ME_CA2863D28A34 GetAllParamsCount
  ;
  : Implementor ME_CA2863D28A34 // pop_CheckListBox_SetChecked
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_5617F4D00243_ME_CA2863D28A34 ParamsTypes
 
 : ME_CA2863D28A34
  CONST UID 'CA2863D28A34'
  CONST Name 'pop_CheckListBox_SetChecked'
+ CONST IsSummoned true
  CONST Class class_Class
  : Stereotype st_ScriptKeyword ;
  CONST Kind kind_NormalClass
@@ -654,45 +727,56 @@ ref; // ME_5617F4D00243_ME_CA2863D28A34 ParamsTypes
  : Parent ME_552D23C300F1 // CheckListBoxWordsPack
  ;
  : Inherits
-   @ ( WL 'ME_55CCAE000335' '55CCADD2013D.pas.ms.script' // TtfwClassLike
- ) .SequenceCode.It
+   Seq: ( WL 'ME_55CCAE000335' '55CCADD2013D.pas.ms.script' // TtfwClassLike
+ )
  ; // Inherits
  : Operations
-   @ ( ME_AEDB5415872F // SetChecked
+   Seq: ( ME_AEDB5415872F // SetChecked
  ME_9C90870E1774 // Ini_Reg
- ) .SequenceCode.It
+ )
  ; // Operations
  : Implemented
-   @ ( ME_4DAEEDE10285_ME_CA2863D28A34 // DoDoIt
- ) .SequenceCode.It
+   Seq: ( ME_4DAEEDE10285_ME_CA2863D28A34 // DoDoIt
+ )
  ; // Implemented
  : Overridden
-   @ ( ME_4DB0614603C8_ME_CA2863D28A34 // GetWordNameForRegister
+   Seq: ( ME_4DB0614603C8_ME_CA2863D28A34 // GetWordNameForRegister
  ME_551544E2001A_ME_CA2863D28A34 // GetResultTypeInfo
  ME_559687E6025A_ME_CA2863D28A34 // GetAllParamsCount
  ME_5617F4D00243_ME_CA2863D28A34 // ParamsTypes
- ) .SequenceCode.It
+ )
  ; // Overridden
  : Dependencies
-   @ ( ME_25FEF9F69D8C // 
+   Seq: ( ME_25FEF9F69D8C // 
  ME_6ADF95C9EBB6 // 
  ME_BFA920459542 // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  CONST "NameForScript" 'pop:CheckListBox:SetChecked'
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
+ CONST dfm:PathOnly '\common\components\rtl\Garant\ScriptEngine'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\ScriptEngine'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
  CONST extprop:pas:TypeName 'TkwPopCheckListBoxSetChecked'
+ CONST extprop:rc:SelfName 'PopCheckListBoxSetChecked'
+ CONST extprop:rc:isAcceptableForScripts true
+ : SpelledFor ME_552D24650138 // SetChecked
+ ;
 
 ref; // ME_CA2863D28A34 pop_CheckListBox_SetChecked
+
+FORWARD ME_552D24A702F3
 
 FORWARD ME_CC902BB857AE
 
 : ME_20C854D57D7E
  CONST UID '20C854D57D7E'
  CONST Name 'aCtx'
+ CONST IsSummoned true
  CONST Class class_Parameter
  : Stereotype st_in ;
  : Target WL 'ME_4DB0091E033E' '4DAF19F600C5.pas.ms.script' // TtfwContext
@@ -703,6 +787,7 @@ ref; // ME_20C854D57D7E aCtx
 : ME_20C854D57D7F
  CONST UID '20C854D57D7F'
  CONST Name 'aCheckListBox'
+ CONST IsSummoned true
  CONST Class class_Parameter
  : Stereotype st_in ;
  : Target WL 'ME_51F24E890269' '4799D29F033F.pas.ms.script' // TCheckListBox
@@ -713,6 +798,7 @@ ref; // ME_20C854D57D7F aCheckListBox
 : ME_9D7C5A3CC63F
  CONST UID '9D7C5A3CC63F'
  CONST Name 'UncheckAll'
+ CONST IsSummoned true
  CONST Class class_Operation
  %SUMMARY 'Реализация слова скрипта pop:CheckListBox:UncheckAll' ;
  CONST Visibility PrivateAccess
@@ -720,9 +806,9 @@ ref; // ME_20C854D57D7F aCheckListBox
  : Parent ME_CC902BB857AE // pop_CheckListBox_UncheckAll
  ;
  : Parameters
-   @ ( ME_20C854D57D7E // aCtx
+   Seq: ( ME_20C854D57D7E // aCtx
  ME_20C854D57D7F // aCheckListBox
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_9D7C5A3CC63F UncheckAll
@@ -730,6 +816,7 @@ ref; // ME_9D7C5A3CC63F UncheckAll
 : ME_C53897BA8431
  CONST UID 'C53897BA8431'
  CONST Name 'Ini_Reg'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Регистрация pop_CheckListBox_UncheckAll' ;
@@ -742,6 +829,7 @@ ref; // ME_C53897BA8431 Ini_Reg
 
 : ME_95B7257E20E2
  CONST UID '95B7257E20E2'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_CC902BB857AE // pop_CheckListBox_UncheckAll
@@ -753,6 +841,7 @@ ref; // ME_95B7257E20E2
 
 : ME_643A72BED21D
  CONST UID '643A72BED21D'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_CC902BB857AE // pop_CheckListBox_UncheckAll
@@ -764,6 +853,7 @@ ref; // ME_643A72BED21D
 
 : ME_EB0DF8CBB4D5
  CONST UID 'EB0DF8CBB4D5'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_CC902BB857AE // pop_CheckListBox_UncheckAll
@@ -780,6 +870,7 @@ ref; // ME_EB0DF8CBB4D5
  ;
  : Implementor ME_CC902BB857AE // pop_CheckListBox_UncheckAll
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_4DAEEDE10285_ME_CC902BB857AE DoDoIt
 
 : ME_4DB0614603C8_ME_CC902BB857AE
@@ -789,6 +880,7 @@ ref; // ME_4DAEEDE10285_ME_CC902BB857AE DoDoIt
  ;
  : Implementor ME_CC902BB857AE // pop_CheckListBox_UncheckAll
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4DB0614603C8_ME_CC902BB857AE GetWordNameForRegister
 
 : ME_551544E2001A_ME_CC902BB857AE
@@ -798,6 +890,7 @@ ref; // ME_4DB0614603C8_ME_CC902BB857AE GetWordNameForRegister
  ;
  : Implementor ME_CC902BB857AE // pop_CheckListBox_UncheckAll
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_551544E2001A_ME_CC902BB857AE GetResultTypeInfo
 
 : ME_559687E6025A_ME_CC902BB857AE
@@ -807,6 +900,7 @@ ref; // ME_551544E2001A_ME_CC902BB857AE GetResultTypeInfo
  ;
  : Implementor ME_CC902BB857AE // pop_CheckListBox_UncheckAll
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_559687E6025A_ME_CC902BB857AE GetAllParamsCount
 
 : ME_5617F4D00243_ME_CC902BB857AE
@@ -816,11 +910,13 @@ ref; // ME_559687E6025A_ME_CC902BB857AE GetAllParamsCount
  ;
  : Implementor ME_CC902BB857AE // pop_CheckListBox_UncheckAll
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_5617F4D00243_ME_CC902BB857AE ParamsTypes
 
 : ME_CC902BB857AE
  CONST UID 'CC902BB857AE'
  CONST Name 'pop_CheckListBox_UncheckAll'
+ CONST IsSummoned true
  CONST Class class_Class
  : Stereotype st_ScriptKeyword ;
  CONST Kind kind_NormalClass
@@ -830,37 +926,45 @@ ref; // ME_5617F4D00243_ME_CC902BB857AE ParamsTypes
  : Parent ME_552D23C300F1 // CheckListBoxWordsPack
  ;
  : Inherits
-   @ ( WL 'ME_55CCAE000335' '55CCADD2013D.pas.ms.script' // TtfwClassLike
- ) .SequenceCode.It
+   Seq: ( WL 'ME_55CCAE000335' '55CCADD2013D.pas.ms.script' // TtfwClassLike
+ )
  ; // Inherits
  : Operations
-   @ ( ME_9D7C5A3CC63F // UncheckAll
+   Seq: ( ME_9D7C5A3CC63F // UncheckAll
  ME_C53897BA8431 // Ini_Reg
- ) .SequenceCode.It
+ )
  ; // Operations
  : Implemented
-   @ ( ME_4DAEEDE10285_ME_CC902BB857AE // DoDoIt
- ) .SequenceCode.It
+   Seq: ( ME_4DAEEDE10285_ME_CC902BB857AE // DoDoIt
+ )
  ; // Implemented
  : Overridden
-   @ ( ME_4DB0614603C8_ME_CC902BB857AE // GetWordNameForRegister
+   Seq: ( ME_4DB0614603C8_ME_CC902BB857AE // GetWordNameForRegister
  ME_551544E2001A_ME_CC902BB857AE // GetResultTypeInfo
  ME_559687E6025A_ME_CC902BB857AE // GetAllParamsCount
  ME_5617F4D00243_ME_CC902BB857AE // ParamsTypes
- ) .SequenceCode.It
+ )
  ; // Overridden
  : Dependencies
-   @ ( ME_95B7257E20E2 // 
+   Seq: ( ME_95B7257E20E2 // 
  ME_643A72BED21D // 
  ME_EB0DF8CBB4D5 // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  CONST "NameForScript" 'pop:CheckListBox:UncheckAll'
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
+ CONST dfm:PathOnly '\common\components\rtl\Garant\ScriptEngine'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\ScriptEngine'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
  CONST extprop:pas:TypeName 'TkwPopCheckListBoxUncheckAll'
+ CONST extprop:rc:SelfName 'PopCheckListBoxUncheckAll'
+ CONST extprop:rc:isAcceptableForScripts true
+ : SpelledFor ME_552D24A702F3 // UncheckAll
+ ;
 
 ref; // ME_CC902BB857AE pop_CheckListBox_UncheckAll
 
@@ -887,12 +991,14 @@ ref; // ME_552D245001D2 anIndex
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
  : Parameters
-   @ ( ME_552D245001D2 // anIndex
- ) .SequenceCode.It
+   Seq: ( ME_552D245001D2 // anIndex
+ )
  ; // Parameters
  CONST "bind params" 'undefined'
  CONST "lvalue" 'undefined'
  CONST "mapped" 'undefined'
+ : Speller ME_61EE94402745 // pop_CheckListBox_GetChecked
+ ;
 
 ref; // ME_552D24400252 GetChecked
 
@@ -927,13 +1033,15 @@ ref; // ME_552D24820061 aValue
  : Parent ME_552D23C300F1 // CheckListBoxWordsPack
  ;
  : Parameters
-   @ ( ME_552D2482001C // anIndex
+   Seq: ( ME_552D2482001C // anIndex
  ME_552D24820061 // aValue
- ) .SequenceCode.It
+ )
  ; // Parameters
  CONST "bind params" 'undefined'
  CONST "lvalue" 'undefined'
  CONST "mapped" 'undefined'
+ : Speller ME_CA2863D28A34 // pop_CheckListBox_SetChecked
+ ;
 
 ref; // ME_552D24650138 SetChecked
 
@@ -950,12 +1058,15 @@ ref; // ME_552D24650138 SetChecked
  CONST "bind params" 'undefined'
  CONST "lvalue" 'undefined'
  CONST "mapped" 'undefined'
+ : Speller ME_CC902BB857AE // pop_CheckListBox_UncheckAll
+ ;
 
 ref; // ME_552D24A702F3 UncheckAll
 
 : ME_F3586F2699C4
  CONST UID 'F3586F2699C4'
- CONST Name 'Reg_TtfwContext'
+ CONST Name 'Reg_Type_TtfwContext'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Регистрация типа TtfwContext' ;
@@ -963,12 +1074,15 @@ ref; // ME_552D24A702F3 UncheckAll
  CONST Abstraction at_final
  : Parent ME_552D23C300F1 // CheckListBoxWordsPack
  ;
+ : SpelledFor WL 'ME_4DB0091E033E' '4DAF19F600C5.pas.ms.script' // TtfwContext
+ ;
 
-ref; // ME_F3586F2699C4 Reg_TtfwContext
+ref; // ME_F3586F2699C4 Reg_Type_TtfwContext
 
 : ME_90436DB2B425
  CONST UID '90436DB2B425'
- CONST Name 'Reg_TCheckListBox'
+ CONST Name 'Reg_Type_TCheckListBox'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Регистрация типа TCheckListBox' ;
@@ -976,12 +1090,15 @@ ref; // ME_F3586F2699C4 Reg_TtfwContext
  CONST Abstraction at_final
  : Parent ME_552D23C300F1 // CheckListBoxWordsPack
  ;
+ : SpelledFor WL 'ME_51F24E890269' '4799D29F033F.pas.ms.script' // TCheckListBox
+ ;
 
-ref; // ME_90436DB2B425 Reg_TCheckListBox
+ref; // ME_90436DB2B425 Reg_Type_TCheckListBox
 
 : ME_B8E94565C646
  CONST UID 'B8E94565C646'
- CONST Name 'Reg_Integer'
+ CONST Name 'Reg_Type_Integer'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Регистрация типа Integer' ;
@@ -989,12 +1106,15 @@ ref; // ME_90436DB2B425 Reg_TCheckListBox
  CONST Abstraction at_final
  : Parent ME_552D23C300F1 // CheckListBoxWordsPack
  ;
+ : SpelledFor WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
 
-ref; // ME_B8E94565C646 Reg_Integer
+ref; // ME_B8E94565C646 Reg_Type_Integer
 
 : ME_E38AC0597B99
  CONST UID 'E38AC0597B99'
- CONST Name 'Reg_Boolean'
+ CONST Name 'Reg_Type_Boolean'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Регистрация типа Boolean' ;
@@ -1002,11 +1122,14 @@ ref; // ME_B8E94565C646 Reg_Integer
  CONST Abstraction at_final
  : Parent ME_552D23C300F1 // CheckListBoxWordsPack
  ;
+ : SpelledFor WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
 
-ref; // ME_E38AC0597B99 Reg_Boolean
+ref; // ME_E38AC0597B99 Reg_Type_Boolean
 
 : ME_17B93F887F12
  CONST UID '17B93F887F12'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_552D23C300F1 // CheckListBoxWordsPack
@@ -1018,6 +1141,7 @@ ref; // ME_17B93F887F12
 
 : ME_DAFA93F50119
  CONST UID 'DAFA93F50119'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_injects::Dependency ;
  : Parent ME_552D23C300F1 // CheckListBoxWordsPack
@@ -1029,6 +1153,7 @@ ref; // ME_DAFA93F50119
 
 : ME_1AB9901397DD
  CONST UID '1AB9901397DD'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_552D23C300F1 // CheckListBoxWordsPack
@@ -1049,52 +1174,54 @@ ref; // ME_1AB9901397DD
  : Parent ME_4F6094D80196 // vtControlsFromStackWords
  ;
  : Inherits
-   @ ( WL 'ME_51F24E890269' '4799D29F033F.pas.ms.script' // TCheckListBox
- ) .SequenceCode.It
+   Seq: ( WL 'ME_51F24E890269' '4799D29F033F.pas.ms.script' // TCheckListBox
+ )
  ; // Inherits
  : Operations
-   @ ( ME_552D24400252 // GetChecked
+   Seq: ( ME_552D24400252 // GetChecked
  ME_552D24650138 // SetChecked
  ME_552D24A702F3 // UncheckAll
- ME_F3586F2699C4 // Reg_TtfwContext
- ME_90436DB2B425 // Reg_TCheckListBox
- ME_B8E94565C646 // Reg_Integer
- ME_E38AC0597B99 // Reg_Boolean
- ) .SequenceCode.It
+ ME_F3586F2699C4 // Reg_Type_TtfwContext
+ ME_90436DB2B425 // Reg_Type_TCheckListBox
+ ME_B8E94565C646 // Reg_Type_Integer
+ ME_E38AC0597B99 // Reg_Type_Boolean
+ )
  ; // Operations
  : Children
-   @ ( ME_61EE94402745 // pop_CheckListBox_GetChecked
+   Seq: ( ME_61EE94402745 // pop_CheckListBox_GetChecked
  ME_CA2863D28A34 // pop_CheckListBox_SetChecked
  ME_CC902BB857AE // pop_CheckListBox_UncheckAll
- ) .SequenceCode.It
+ )
  ; // Children
  : Dependencies
-   @ ( ME_17B93F887F12 // 
+   Seq: ( ME_17B93F887F12 // 
  ME_DAFA93F50119 // 
  ME_1AB9901397DD // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  CONST "ifndef" 'NoScripts'
  CONST "needs script" 'undefined'
  CONST "no class name" 'undefined'
  CONST "no hands" false
  CONST "no_pop" 'undefined'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\ScriptEngine'
  CONST intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\CheckListBoxWordsPack.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\ScriptEngine'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_552D23C300F1 CheckListBoxWordsPack
 
 FORWARD ME_552E3DE40071
+
+FORWARD ME_A3B59E36022B
 
 FORWARD ME_06BAC463482F
 
 : ME_3BADAA90F842
  CONST UID '3BADAA90F842'
  CONST Name 'aCtx'
+ CONST IsSummoned true
  CONST Class class_Parameter
  : Stereotype st_in ;
  : Target WL 'ME_4DB0091E033E' '4DAF19F600C5.pas.ms.script' // TtfwContext
@@ -1105,6 +1232,7 @@ ref; // ME_3BADAA90F842 aCtx
 : ME_3BADAA90F843
  CONST UID '3BADAA90F843'
  CONST Name 'aRadioButton'
+ CONST IsSummoned true
  CONST Class class_Parameter
  : Stereotype st_in ;
  : Target WL 'ME_4F69BC9C014A' '4799D29F033F.pas.ms.script' // TRadioButton
@@ -1115,6 +1243,7 @@ ref; // ME_3BADAA90F843 aRadioButton
 : ME_0B811F8AAF5C
  CONST UID '0B811F8AAF5C'
  CONST Name 'Checked'
+ CONST IsSummoned true
  CONST Class class_Operation
  %SUMMARY 'Реализация слова скрипта pop:RadioButton:Checked' ;
  CONST Visibility PrivateAccess
@@ -1124,9 +1253,9 @@ ref; // ME_3BADAA90F843 aRadioButton
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
  : Parameters
-   @ ( ME_3BADAA90F842 // aCtx
+   Seq: ( ME_3BADAA90F842 // aCtx
  ME_3BADAA90F843 // aRadioButton
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_0B811F8AAF5C Checked
@@ -1134,6 +1263,7 @@ ref; // ME_0B811F8AAF5C Checked
 : ME_FEDDA4E009C2
  CONST UID 'FEDDA4E009C2'
  CONST Name 'Ini_Reg'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Регистрация pop_RadioButton_Checked' ;
@@ -1146,6 +1276,7 @@ ref; // ME_FEDDA4E009C2 Ini_Reg
 
 : ME_6FD69A379FEB
  CONST UID '6FD69A379FEB'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_06BAC463482F // pop_RadioButton_Checked
@@ -1157,6 +1288,7 @@ ref; // ME_6FD69A379FEB
 
 : ME_48FC0C23F6D0
  CONST UID '48FC0C23F6D0'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_06BAC463482F // pop_RadioButton_Checked
@@ -1168,6 +1300,7 @@ ref; // ME_48FC0C23F6D0
 
 : ME_4B201D47157E
  CONST UID '4B201D47157E'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_06BAC463482F // pop_RadioButton_Checked
@@ -1184,6 +1317,7 @@ ref; // ME_4B201D47157E
  ;
  : Implementor ME_06BAC463482F // pop_RadioButton_Checked
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_4DAEEDE10285_ME_06BAC463482F DoDoIt
 
 : ME_4DB0614603C8_ME_06BAC463482F
@@ -1193,6 +1327,7 @@ ref; // ME_4DAEEDE10285_ME_06BAC463482F DoDoIt
  ;
  : Implementor ME_06BAC463482F // pop_RadioButton_Checked
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4DB0614603C8_ME_06BAC463482F GetWordNameForRegister
 
 : ME_52D00B00031A_ME_06BAC463482F
@@ -1202,6 +1337,7 @@ ref; // ME_4DB0614603C8_ME_06BAC463482F GetWordNameForRegister
  ;
  : Implementor ME_06BAC463482F // pop_RadioButton_Checked
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_52D00B00031A_ME_06BAC463482F SetValuePrim
 
 : ME_551544E2001A_ME_06BAC463482F
@@ -1211,6 +1347,7 @@ ref; // ME_52D00B00031A_ME_06BAC463482F SetValuePrim
  ;
  : Implementor ME_06BAC463482F // pop_RadioButton_Checked
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_551544E2001A_ME_06BAC463482F GetResultTypeInfo
 
 : ME_559687E6025A_ME_06BAC463482F
@@ -1220,6 +1357,7 @@ ref; // ME_551544E2001A_ME_06BAC463482F GetResultTypeInfo
  ;
  : Implementor ME_06BAC463482F // pop_RadioButton_Checked
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_559687E6025A_ME_06BAC463482F GetAllParamsCount
 
 : ME_5617F4D00243_ME_06BAC463482F
@@ -1229,11 +1367,13 @@ ref; // ME_559687E6025A_ME_06BAC463482F GetAllParamsCount
  ;
  : Implementor ME_06BAC463482F // pop_RadioButton_Checked
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_5617F4D00243_ME_06BAC463482F ParamsTypes
 
 : ME_06BAC463482F
  CONST UID '06BAC463482F'
  CONST Name 'pop_RadioButton_Checked'
+ CONST IsSummoned true
  CONST Class class_Class
  : Stereotype st_ScriptKeyword ;
  CONST Kind kind_NormalClass
@@ -1243,38 +1383,46 @@ ref; // ME_5617F4D00243_ME_06BAC463482F ParamsTypes
  : Parent ME_552E3DE40071 // RadioButtonWordsPack
  ;
  : Inherits
-   @ ( WL 'ME_5619169603BE' '55CCADD2013D.pas.ms.script' // TtfwPropertyLike
- ) .SequenceCode.It
+   Seq: ( WL 'ME_5619169603BE' '55CCADD2013D.pas.ms.script' // TtfwPropertyLike
+ )
  ; // Inherits
  : Operations
-   @ ( ME_0B811F8AAF5C // Checked
+   Seq: ( ME_0B811F8AAF5C // Checked
  ME_FEDDA4E009C2 // Ini_Reg
- ) .SequenceCode.It
+ )
  ; // Operations
  : Implemented
-   @ ( ME_4DAEEDE10285_ME_06BAC463482F // DoDoIt
- ) .SequenceCode.It
+   Seq: ( ME_4DAEEDE10285_ME_06BAC463482F // DoDoIt
+ )
  ; // Implemented
  : Overridden
-   @ ( ME_4DB0614603C8_ME_06BAC463482F // GetWordNameForRegister
+   Seq: ( ME_4DB0614603C8_ME_06BAC463482F // GetWordNameForRegister
  ME_52D00B00031A_ME_06BAC463482F // SetValuePrim
  ME_551544E2001A_ME_06BAC463482F // GetResultTypeInfo
  ME_559687E6025A_ME_06BAC463482F // GetAllParamsCount
  ME_5617F4D00243_ME_06BAC463482F // ParamsTypes
- ) .SequenceCode.It
+ )
  ; // Overridden
  : Dependencies
-   @ ( ME_6FD69A379FEB // 
+   Seq: ( ME_6FD69A379FEB // 
  ME_48FC0C23F6D0 // 
  ME_4B201D47157E // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  CONST "NameForScript" 'pop:RadioButton:Checked'
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
+ CONST dfm:PathOnly '\common\components\rtl\Garant\ScriptEngine'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\ScriptEngine'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
  CONST extprop:pas:TypeName 'TkwPopRadioButtonChecked'
+ CONST extprop:rc:SelfName 'PopRadioButtonChecked'
+ CONST extprop:rc:isAcceptableForScripts true
+ : SpelledFor ME_A3B59E36022B // Checked
+ ;
 
 ref; // ME_06BAC463482F pop_RadioButton_Checked
 
@@ -1297,6 +1445,7 @@ ref; // ME_552E3E30024F Checked
 : ME_A3B59E36022B
  CONST UID 'A3B59E36022B'
  CONST Name 'Checked'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_keyword::Operation ;
  CONST Visibility PublicAccess
@@ -1308,12 +1457,15 @@ ref; // ME_552E3E30024F Checked
  CONST "bind params" 'undefined'
  CONST "lvalue" 'undefined'
  CONST "mapped" true
+ : Speller ME_06BAC463482F // pop_RadioButton_Checked
+ ;
 
 ref; // ME_A3B59E36022B Checked
 
 : ME_5EAE79403B92
  CONST UID '5EAE79403B92'
- CONST Name 'Reg_TtfwContext'
+ CONST Name 'Reg_Type_TtfwContext'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Регистрация типа TtfwContext' ;
@@ -1321,12 +1473,15 @@ ref; // ME_A3B59E36022B Checked
  CONST Abstraction at_final
  : Parent ME_552E3DE40071 // RadioButtonWordsPack
  ;
+ : SpelledFor WL 'ME_4DB0091E033E' '4DAF19F600C5.pas.ms.script' // TtfwContext
+ ;
 
-ref; // ME_5EAE79403B92 Reg_TtfwContext
+ref; // ME_5EAE79403B92 Reg_Type_TtfwContext
 
 : ME_9AB816CFDDB7
  CONST UID '9AB816CFDDB7'
- CONST Name 'Reg_TRadioButton'
+ CONST Name 'Reg_Type_TRadioButton'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Регистрация типа TRadioButton' ;
@@ -1334,12 +1489,15 @@ ref; // ME_5EAE79403B92 Reg_TtfwContext
  CONST Abstraction at_final
  : Parent ME_552E3DE40071 // RadioButtonWordsPack
  ;
+ : SpelledFor WL 'ME_4F69BC9C014A' '4799D29F033F.pas.ms.script' // TRadioButton
+ ;
 
-ref; // ME_9AB816CFDDB7 Reg_TRadioButton
+ref; // ME_9AB816CFDDB7 Reg_Type_TRadioButton
 
 : ME_2D67F2F48AE2
  CONST UID '2D67F2F48AE2'
- CONST Name 'Reg_Boolean'
+ CONST Name 'Reg_Type_Boolean'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Регистрация типа Boolean' ;
@@ -1347,11 +1505,14 @@ ref; // ME_9AB816CFDDB7 Reg_TRadioButton
  CONST Abstraction at_final
  : Parent ME_552E3DE40071 // RadioButtonWordsPack
  ;
+ : SpelledFor WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
 
-ref; // ME_2D67F2F48AE2 Reg_Boolean
+ref; // ME_2D67F2F48AE2 Reg_Type_Boolean
 
 : ME_67603C8D28CE
  CONST UID '67603C8D28CE'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_552E3DE40071 // RadioButtonWordsPack
@@ -1363,6 +1524,7 @@ ref; // ME_67603C8D28CE
 
 : ME_EEE2819C03E3
  CONST UID 'EEE2819C03E3'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_injects::Dependency ;
  : Parent ME_552E3DE40071 // RadioButtonWordsPack
@@ -1374,6 +1536,7 @@ ref; // ME_EEE2819C03E3
 
 : ME_3AFB6B80C649
  CONST UID '3AFB6B80C649'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_552E3DE40071 // RadioButtonWordsPack
@@ -1394,51 +1557,53 @@ ref; // ME_3AFB6B80C649
  : Parent ME_4F6094D80196 // vtControlsFromStackWords
  ;
  : Inherits
-   @ ( WL 'ME_4F69BC9C014A' '4799D29F033F.pas.ms.script' // TRadioButton
- ) .SequenceCode.It
+   Seq: ( WL 'ME_4F69BC9C014A' '4799D29F033F.pas.ms.script' // TRadioButton
+ )
  ; // Inherits
  : Attributes
-   @ ( ME_552E3E30024F // Checked
- ) .SequenceCode.It
+   Seq: ( ME_552E3E30024F // Checked
+ )
  ; // Attributes
  : Operations
-   @ ( ME_A3B59E36022B // Checked
- ME_5EAE79403B92 // Reg_TtfwContext
- ME_9AB816CFDDB7 // Reg_TRadioButton
- ME_2D67F2F48AE2 // Reg_Boolean
- ) .SequenceCode.It
+   Seq: ( ME_A3B59E36022B // Checked
+ ME_5EAE79403B92 // Reg_Type_TtfwContext
+ ME_9AB816CFDDB7 // Reg_Type_TRadioButton
+ ME_2D67F2F48AE2 // Reg_Type_Boolean
+ )
  ; // Operations
  : Children
-   @ ( ME_06BAC463482F // pop_RadioButton_Checked
- ) .SequenceCode.It
+   Seq: ( ME_06BAC463482F // pop_RadioButton_Checked
+ )
  ; // Children
  : Dependencies
-   @ ( ME_67603C8D28CE // 
+   Seq: ( ME_67603C8D28CE // 
  ME_EEE2819C03E3 // 
  ME_3AFB6B80C649 // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  CONST "ifndef" 'NoScripts'
  CONST "needs script" 'undefined'
  CONST "no class name" 'undefined'
  CONST "no hands" false
  CONST "no_pop" 'undefined'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\ScriptEngine'
  CONST intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\RadioButtonWordsPack.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\ScriptEngine'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_552E3DE40071 RadioButtonWordsPack
 
 FORWARD ME_552E3E7E023A
+
+FORWARD ME_552E3EE00284
 
 FORWARD ME_0B36D9E86F88
 
 : ME_4137B798DD60
  CONST UID '4137B798DD60'
  CONST Name 'aCtx'
+ CONST IsSummoned true
  CONST Class class_Parameter
  : Stereotype st_in ;
  : Target WL 'ME_4DB0091E033E' '4DAF19F600C5.pas.ms.script' // TtfwContext
@@ -1449,6 +1614,7 @@ ref; // ME_4137B798DD60 aCtx
 : ME_4137B798DD61
  CONST UID '4137B798DD61'
  CONST Name 'aStatusBar'
+ CONST IsSummoned true
  CONST Class class_Parameter
  : Stereotype st_in ;
  : Target WL 'ME_4E15A00502A3' '4E159FE900E2.pas.ms.script' // TvtStatusBar
@@ -1459,6 +1625,7 @@ ref; // ME_4137B798DD61 aStatusBar
 : ME_4137B798DD62
  CONST UID '4137B798DD62'
  CONST Name 'anIndex'
+ CONST IsSummoned true
  CONST Class class_Parameter
  : Stereotype st_in ;
  : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
@@ -1469,6 +1636,7 @@ ref; // ME_4137B798DD62 anIndex
 : ME_2B3EB01EE00A
  CONST UID '2B3EB01EE00A'
  CONST Name 'GetPanel'
+ CONST IsSummoned true
  CONST Class class_Operation
  %SUMMARY 'Реализация слова скрипта pop:vtStatusBar:GetPanel' ;
  CONST Visibility PrivateAccess
@@ -1478,10 +1646,10 @@ ref; // ME_4137B798DD62 anIndex
  : Target WL 'ME_53F7021D0257' '4E159FE900E2.pas.ms.script' // TvtStatusPanel
  ;
  : Parameters
-   @ ( ME_4137B798DD60 // aCtx
+   Seq: ( ME_4137B798DD60 // aCtx
  ME_4137B798DD61 // aStatusBar
  ME_4137B798DD62 // anIndex
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_2B3EB01EE00A GetPanel
@@ -1489,6 +1657,7 @@ ref; // ME_2B3EB01EE00A GetPanel
 : ME_009226F79C22
  CONST UID '009226F79C22'
  CONST Name 'Ini_Reg'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Регистрация pop_StatusBar_GetPanel' ;
@@ -1501,6 +1670,7 @@ ref; // ME_009226F79C22 Ini_Reg
 
 : ME_959F7D7C6F5B
  CONST UID '959F7D7C6F5B'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_0B36D9E86F88 // pop_StatusBar_GetPanel
@@ -1512,6 +1682,7 @@ ref; // ME_959F7D7C6F5B
 
 : ME_8943C9497975
  CONST UID '8943C9497975'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_0B36D9E86F88 // pop_StatusBar_GetPanel
@@ -1523,6 +1694,7 @@ ref; // ME_8943C9497975
 
 : ME_83E395AE24EC
  CONST UID '83E395AE24EC'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_0B36D9E86F88 // pop_StatusBar_GetPanel
@@ -1539,6 +1711,7 @@ ref; // ME_83E395AE24EC
  ;
  : Implementor ME_0B36D9E86F88 // pop_StatusBar_GetPanel
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_4DAEEDE10285_ME_0B36D9E86F88 DoDoIt
 
 : ME_4DB0614603C8_ME_0B36D9E86F88
@@ -1548,6 +1721,7 @@ ref; // ME_4DAEEDE10285_ME_0B36D9E86F88 DoDoIt
  ;
  : Implementor ME_0B36D9E86F88 // pop_StatusBar_GetPanel
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4DB0614603C8_ME_0B36D9E86F88 GetWordNameForRegister
 
 : ME_551544E2001A_ME_0B36D9E86F88
@@ -1557,6 +1731,7 @@ ref; // ME_4DB0614603C8_ME_0B36D9E86F88 GetWordNameForRegister
  ;
  : Implementor ME_0B36D9E86F88 // pop_StatusBar_GetPanel
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_551544E2001A_ME_0B36D9E86F88 GetResultTypeInfo
 
 : ME_559687E6025A_ME_0B36D9E86F88
@@ -1566,6 +1741,7 @@ ref; // ME_551544E2001A_ME_0B36D9E86F88 GetResultTypeInfo
  ;
  : Implementor ME_0B36D9E86F88 // pop_StatusBar_GetPanel
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_559687E6025A_ME_0B36D9E86F88 GetAllParamsCount
 
 : ME_5617F4D00243_ME_0B36D9E86F88
@@ -1575,11 +1751,13 @@ ref; // ME_559687E6025A_ME_0B36D9E86F88 GetAllParamsCount
  ;
  : Implementor ME_0B36D9E86F88 // pop_StatusBar_GetPanel
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_5617F4D00243_ME_0B36D9E86F88 ParamsTypes
 
 : ME_0B36D9E86F88
  CONST UID '0B36D9E86F88'
  CONST Name 'pop_StatusBar_GetPanel'
+ CONST IsSummoned true
  CONST Class class_Class
  : Stereotype st_ScriptKeyword ;
  CONST Kind kind_NormalClass
@@ -1589,37 +1767,45 @@ ref; // ME_5617F4D00243_ME_0B36D9E86F88 ParamsTypes
  : Parent ME_552E3E7E023A // StatusBarWordsPack
  ;
  : Inherits
-   @ ( WL 'ME_55CCAE000335' '55CCADD2013D.pas.ms.script' // TtfwClassLike
- ) .SequenceCode.It
+   Seq: ( WL 'ME_55CCAE000335' '55CCADD2013D.pas.ms.script' // TtfwClassLike
+ )
  ; // Inherits
  : Operations
-   @ ( ME_2B3EB01EE00A // GetPanel
+   Seq: ( ME_2B3EB01EE00A // GetPanel
  ME_009226F79C22 // Ini_Reg
- ) .SequenceCode.It
+ )
  ; // Operations
  : Implemented
-   @ ( ME_4DAEEDE10285_ME_0B36D9E86F88 // DoDoIt
- ) .SequenceCode.It
+   Seq: ( ME_4DAEEDE10285_ME_0B36D9E86F88 // DoDoIt
+ )
  ; // Implemented
  : Overridden
-   @ ( ME_4DB0614603C8_ME_0B36D9E86F88 // GetWordNameForRegister
+   Seq: ( ME_4DB0614603C8_ME_0B36D9E86F88 // GetWordNameForRegister
  ME_551544E2001A_ME_0B36D9E86F88 // GetResultTypeInfo
  ME_559687E6025A_ME_0B36D9E86F88 // GetAllParamsCount
  ME_5617F4D00243_ME_0B36D9E86F88 // ParamsTypes
- ) .SequenceCode.It
+ )
  ; // Overridden
  : Dependencies
-   @ ( ME_959F7D7C6F5B // 
+   Seq: ( ME_959F7D7C6F5B // 
  ME_8943C9497975 // 
  ME_83E395AE24EC // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  CONST "NameForScript" 'pop:vtStatusBar:GetPanel'
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
+ CONST dfm:PathOnly '\common\components\rtl\Garant\ScriptEngine'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\ScriptEngine'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
  CONST extprop:pas:TypeName 'TkwPopStatusBarGetPanel'
+ CONST extprop:rc:SelfName 'PopStatusBarGetPanel'
+ CONST extprop:rc:isAcceptableForScripts true
+ : SpelledFor ME_552E3EE00284 // GetPanel
+ ;
 
 ref; // ME_0B36D9E86F88 pop_StatusBar_GetPanel
 
@@ -1646,19 +1832,22 @@ ref; // ME_552E3F9C03AA anIndex
  : Target WL 'ME_53F7021D0257' '4E159FE900E2.pas.ms.script' // TvtStatusPanel
  ;
  : Parameters
-   @ ( ME_552E3F9C03AA // anIndex
- ) .SequenceCode.It
+   Seq: ( ME_552E3F9C03AA // anIndex
+ )
  ; // Parameters
  CONST "NameForScript" 'pop:vtStatusBar:GetPanel'
  CONST "bind params" 'undefined'
  CONST "lvalue" 'undefined'
  CONST "mapped" 'undefined'
+ : Speller ME_0B36D9E86F88 // pop_StatusBar_GetPanel
+ ;
 
 ref; // ME_552E3EE00284 GetPanel
 
 : ME_DE5E0CC80C79
  CONST UID 'DE5E0CC80C79'
- CONST Name 'Reg_TtfwContext'
+ CONST Name 'Reg_Type_TtfwContext'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Регистрация типа TtfwContext' ;
@@ -1666,12 +1855,15 @@ ref; // ME_552E3EE00284 GetPanel
  CONST Abstraction at_final
  : Parent ME_552E3E7E023A // StatusBarWordsPack
  ;
+ : SpelledFor WL 'ME_4DB0091E033E' '4DAF19F600C5.pas.ms.script' // TtfwContext
+ ;
 
-ref; // ME_DE5E0CC80C79 Reg_TtfwContext
+ref; // ME_DE5E0CC80C79 Reg_Type_TtfwContext
 
 : ME_4DF34F678E8B
  CONST UID '4DF34F678E8B'
- CONST Name 'Reg_TvtStatusBar'
+ CONST Name 'Reg_Type_TvtStatusBar'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Регистрация типа TvtStatusBar' ;
@@ -1679,12 +1871,15 @@ ref; // ME_DE5E0CC80C79 Reg_TtfwContext
  CONST Abstraction at_final
  : Parent ME_552E3E7E023A // StatusBarWordsPack
  ;
+ : SpelledFor WL 'ME_4E15A00502A3' '4E159FE900E2.pas.ms.script' // TvtStatusBar
+ ;
 
-ref; // ME_4DF34F678E8B Reg_TvtStatusBar
+ref; // ME_4DF34F678E8B Reg_Type_TvtStatusBar
 
 : ME_B1F383576999
  CONST UID 'B1F383576999'
- CONST Name 'Reg_Integer'
+ CONST Name 'Reg_Type_Integer'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Регистрация типа Integer' ;
@@ -1692,12 +1887,15 @@ ref; // ME_4DF34F678E8B Reg_TvtStatusBar
  CONST Abstraction at_final
  : Parent ME_552E3E7E023A // StatusBarWordsPack
  ;
+ : SpelledFor WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
 
-ref; // ME_B1F383576999 Reg_Integer
+ref; // ME_B1F383576999 Reg_Type_Integer
 
 : ME_A60514F4EAD2
  CONST UID 'A60514F4EAD2'
- CONST Name 'Reg_TvtStatusPanel'
+ CONST Name 'Reg_Type_TvtStatusPanel'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Регистрация типа TvtStatusPanel' ;
@@ -1705,11 +1903,14 @@ ref; // ME_B1F383576999 Reg_Integer
  CONST Abstraction at_final
  : Parent ME_552E3E7E023A // StatusBarWordsPack
  ;
+ : SpelledFor WL 'ME_53F7021D0257' '4E159FE900E2.pas.ms.script' // TvtStatusPanel
+ ;
 
-ref; // ME_A60514F4EAD2 Reg_TvtStatusPanel
+ref; // ME_A60514F4EAD2 Reg_Type_TvtStatusPanel
 
 : ME_6AA779960A33
  CONST UID '6AA779960A33'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_552E3E7E023A // StatusBarWordsPack
@@ -1721,6 +1922,7 @@ ref; // ME_6AA779960A33
 
 : ME_2EAB3449D520
  CONST UID '2EAB3449D520'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_injects::Dependency ;
  : Parent ME_552E3E7E023A // StatusBarWordsPack
@@ -1732,6 +1934,7 @@ ref; // ME_2EAB3449D520
 
 : ME_A8BEA1DD44A0
  CONST UID 'A8BEA1DD44A0'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_552E3E7E023A // StatusBarWordsPack
@@ -1752,48 +1955,50 @@ ref; // ME_A8BEA1DD44A0
  : Parent ME_4F6094D80196 // vtControlsFromStackWords
  ;
  : Inherits
-   @ ( WL 'ME_4E15A00502A3' '4E159FE900E2.pas.ms.script' // TvtStatusBar
- ) .SequenceCode.It
+   Seq: ( WL 'ME_4E15A00502A3' '4E159FE900E2.pas.ms.script' // TvtStatusBar
+ )
  ; // Inherits
  : Operations
-   @ ( ME_552E3EE00284 // GetPanel
- ME_DE5E0CC80C79 // Reg_TtfwContext
- ME_4DF34F678E8B // Reg_TvtStatusBar
- ME_B1F383576999 // Reg_Integer
- ME_A60514F4EAD2 // Reg_TvtStatusPanel
- ) .SequenceCode.It
+   Seq: ( ME_552E3EE00284 // GetPanel
+ ME_DE5E0CC80C79 // Reg_Type_TtfwContext
+ ME_4DF34F678E8B // Reg_Type_TvtStatusBar
+ ME_B1F383576999 // Reg_Type_Integer
+ ME_A60514F4EAD2 // Reg_Type_TvtStatusPanel
+ )
  ; // Operations
  : Children
-   @ ( ME_0B36D9E86F88 // pop_StatusBar_GetPanel
- ) .SequenceCode.It
+   Seq: ( ME_0B36D9E86F88 // pop_StatusBar_GetPanel
+ )
  ; // Children
  : Dependencies
-   @ ( ME_6AA779960A33 // 
+   Seq: ( ME_6AA779960A33 // 
  ME_2EAB3449D520 // 
  ME_A8BEA1DD44A0 // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  CONST "ifndef" 'NoScripts'
  CONST "needs script" 'undefined'
  CONST "no class name" 'undefined'
  CONST "no hands" false
  CONST "no_pop" 'undefined'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\ScriptEngine'
  CONST intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\StatusBarWordsPack.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\ScriptEngine'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_552E3E7E023A StatusBarWordsPack
 
 FORWARD ME_552E403E0038
+
+FORWARD ME_552E40740003
 
 FORWARD ME_7D107A8BDD1A
 
 : ME_85FD6CE9CB6F
  CONST UID '85FD6CE9CB6F'
  CONST Name 'aCtx'
+ CONST IsSummoned true
  CONST Class class_Parameter
  : Stereotype st_in ;
  : Target WL 'ME_4DB0091E033E' '4DAF19F600C5.pas.ms.script' // TtfwContext
@@ -1804,6 +2009,7 @@ ref; // ME_85FD6CE9CB6F aCtx
 : ME_85FD6CE9CB70
  CONST UID '85FD6CE9CB70'
  CONST Name 'aStatusPanel'
+ CONST IsSummoned true
  CONST Class class_Parameter
  : Stereotype st_in ;
  : Target WL 'ME_53F7021D0257' '4E159FE900E2.pas.ms.script' // TvtStatusPanel
@@ -1814,6 +2020,7 @@ ref; // ME_85FD6CE9CB70 aStatusPanel
 : ME_D504B43B31FD
  CONST UID 'D504B43B31FD'
  CONST Name 'GetText'
+ CONST IsSummoned true
  CONST Class class_Operation
  %SUMMARY 'Реализация слова скрипта pop:vtStatusPanel:GetText' ;
  CONST Visibility PrivateAccess
@@ -1823,9 +2030,9 @@ ref; // ME_85FD6CE9CB70 aStatusPanel
  : Target WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
  ;
  : Parameters
-   @ ( ME_85FD6CE9CB6F // aCtx
+   Seq: ( ME_85FD6CE9CB6F // aCtx
  ME_85FD6CE9CB70 // aStatusPanel
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_D504B43B31FD GetText
@@ -1833,6 +2040,7 @@ ref; // ME_D504B43B31FD GetText
 : ME_86FFB8DAB958
  CONST UID '86FFB8DAB958'
  CONST Name 'Ini_Reg'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Регистрация pop_StatusPanel_GetText' ;
@@ -1845,6 +2053,7 @@ ref; // ME_86FFB8DAB958 Ini_Reg
 
 : ME_A3C00FFD8946
  CONST UID 'A3C00FFD8946'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_7D107A8BDD1A // pop_StatusPanel_GetText
@@ -1856,6 +2065,7 @@ ref; // ME_A3C00FFD8946
 
 : ME_8BD34047857C
  CONST UID '8BD34047857C'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_7D107A8BDD1A // pop_StatusPanel_GetText
@@ -1867,6 +2077,7 @@ ref; // ME_8BD34047857C
 
 : ME_F29E5F23F6E7
  CONST UID 'F29E5F23F6E7'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_7D107A8BDD1A // pop_StatusPanel_GetText
@@ -1883,6 +2094,7 @@ ref; // ME_F29E5F23F6E7
  ;
  : Implementor ME_7D107A8BDD1A // pop_StatusPanel_GetText
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_4DAEEDE10285_ME_7D107A8BDD1A DoDoIt
 
 : ME_4DB0614603C8_ME_7D107A8BDD1A
@@ -1892,6 +2104,7 @@ ref; // ME_4DAEEDE10285_ME_7D107A8BDD1A DoDoIt
  ;
  : Implementor ME_7D107A8BDD1A // pop_StatusPanel_GetText
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4DB0614603C8_ME_7D107A8BDD1A GetWordNameForRegister
 
 : ME_551544E2001A_ME_7D107A8BDD1A
@@ -1901,6 +2114,7 @@ ref; // ME_4DB0614603C8_ME_7D107A8BDD1A GetWordNameForRegister
  ;
  : Implementor ME_7D107A8BDD1A // pop_StatusPanel_GetText
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_551544E2001A_ME_7D107A8BDD1A GetResultTypeInfo
 
 : ME_559687E6025A_ME_7D107A8BDD1A
@@ -1910,6 +2124,7 @@ ref; // ME_551544E2001A_ME_7D107A8BDD1A GetResultTypeInfo
  ;
  : Implementor ME_7D107A8BDD1A // pop_StatusPanel_GetText
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_559687E6025A_ME_7D107A8BDD1A GetAllParamsCount
 
 : ME_5617F4D00243_ME_7D107A8BDD1A
@@ -1919,11 +2134,13 @@ ref; // ME_559687E6025A_ME_7D107A8BDD1A GetAllParamsCount
  ;
  : Implementor ME_7D107A8BDD1A // pop_StatusPanel_GetText
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_5617F4D00243_ME_7D107A8BDD1A ParamsTypes
 
 : ME_7D107A8BDD1A
  CONST UID '7D107A8BDD1A'
  CONST Name 'pop_StatusPanel_GetText'
+ CONST IsSummoned true
  CONST Class class_Class
  : Stereotype st_ScriptKeyword ;
  CONST Kind kind_NormalClass
@@ -1933,37 +2150,45 @@ ref; // ME_5617F4D00243_ME_7D107A8BDD1A ParamsTypes
  : Parent ME_552E403E0038 // StatusPanelWordsPack
  ;
  : Inherits
-   @ ( WL 'ME_55CCAE000335' '55CCADD2013D.pas.ms.script' // TtfwClassLike
- ) .SequenceCode.It
+   Seq: ( WL 'ME_55CCAE000335' '55CCADD2013D.pas.ms.script' // TtfwClassLike
+ )
  ; // Inherits
  : Operations
-   @ ( ME_D504B43B31FD // GetText
+   Seq: ( ME_D504B43B31FD // GetText
  ME_86FFB8DAB958 // Ini_Reg
- ) .SequenceCode.It
+ )
  ; // Operations
  : Implemented
-   @ ( ME_4DAEEDE10285_ME_7D107A8BDD1A // DoDoIt
- ) .SequenceCode.It
+   Seq: ( ME_4DAEEDE10285_ME_7D107A8BDD1A // DoDoIt
+ )
  ; // Implemented
  : Overridden
-   @ ( ME_4DB0614603C8_ME_7D107A8BDD1A // GetWordNameForRegister
+   Seq: ( ME_4DB0614603C8_ME_7D107A8BDD1A // GetWordNameForRegister
  ME_551544E2001A_ME_7D107A8BDD1A // GetResultTypeInfo
  ME_559687E6025A_ME_7D107A8BDD1A // GetAllParamsCount
  ME_5617F4D00243_ME_7D107A8BDD1A // ParamsTypes
- ) .SequenceCode.It
+ )
  ; // Overridden
  : Dependencies
-   @ ( ME_A3C00FFD8946 // 
+   Seq: ( ME_A3C00FFD8946 // 
  ME_8BD34047857C // 
  ME_F29E5F23F6E7 // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  CONST "NameForScript" 'pop:vtStatusPanel:GetText'
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
+ CONST dfm:PathOnly '\common\components\rtl\Garant\ScriptEngine'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\ScriptEngine'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
  CONST extprop:pas:TypeName 'TkwPopStatusPanelGetText'
+ CONST extprop:rc:SelfName 'PopStatusPanelGetText'
+ CONST extprop:rc:isAcceptableForScripts true
+ : SpelledFor ME_552E40740003 // GetText
+ ;
 
 ref; // ME_7D107A8BDD1A pop_StatusPanel_GetText
 
@@ -1983,12 +2208,15 @@ ref; // ME_7D107A8BDD1A pop_StatusPanel_GetText
  CONST "bind params" 'undefined'
  CONST "lvalue" 'undefined'
  CONST "mapped" 'undefined'
+ : Speller ME_7D107A8BDD1A // pop_StatusPanel_GetText
+ ;
 
 ref; // ME_552E40740003 GetText
 
 : ME_3A0D63A9E7BA
  CONST UID '3A0D63A9E7BA'
- CONST Name 'Reg_TtfwContext'
+ CONST Name 'Reg_Type_TtfwContext'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Регистрация типа TtfwContext' ;
@@ -1996,12 +2224,15 @@ ref; // ME_552E40740003 GetText
  CONST Abstraction at_final
  : Parent ME_552E403E0038 // StatusPanelWordsPack
  ;
+ : SpelledFor WL 'ME_4DB0091E033E' '4DAF19F600C5.pas.ms.script' // TtfwContext
+ ;
 
-ref; // ME_3A0D63A9E7BA Reg_TtfwContext
+ref; // ME_3A0D63A9E7BA Reg_Type_TtfwContext
 
 : ME_71FD3BD9C5A0
  CONST UID '71FD3BD9C5A0'
- CONST Name 'Reg_TvtStatusPanel'
+ CONST Name 'Reg_Type_TvtStatusPanel'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Регистрация типа TvtStatusPanel' ;
@@ -2009,12 +2240,15 @@ ref; // ME_3A0D63A9E7BA Reg_TtfwContext
  CONST Abstraction at_final
  : Parent ME_552E403E0038 // StatusPanelWordsPack
  ;
+ : SpelledFor WL 'ME_53F7021D0257' '4E159FE900E2.pas.ms.script' // TvtStatusPanel
+ ;
 
-ref; // ME_71FD3BD9C5A0 Reg_TvtStatusPanel
+ref; // ME_71FD3BD9C5A0 Reg_Type_TvtStatusPanel
 
 : ME_30CBBC983D1C
  CONST UID '30CBBC983D1C'
- CONST Name 'Reg_String'
+ CONST Name 'Reg_Type_String'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Регистрация типа String' ;
@@ -2022,11 +2256,14 @@ ref; // ME_71FD3BD9C5A0 Reg_TvtStatusPanel
  CONST Abstraction at_final
  : Parent ME_552E403E0038 // StatusPanelWordsPack
  ;
+ : SpelledFor WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
+ ;
 
-ref; // ME_30CBBC983D1C Reg_String
+ref; // ME_30CBBC983D1C Reg_Type_String
 
 : ME_837CE0DDC4C2
  CONST UID '837CE0DDC4C2'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_552E403E0038 // StatusPanelWordsPack
@@ -2038,6 +2275,7 @@ ref; // ME_837CE0DDC4C2
 
 : ME_677003967BFF
  CONST UID '677003967BFF'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_injects::Dependency ;
  : Parent ME_552E403E0038 // StatusPanelWordsPack
@@ -2049,6 +2287,7 @@ ref; // ME_677003967BFF
 
 : ME_DD2CC8A97743
  CONST UID 'DD2CC8A97743'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_552E403E0038 // StatusPanelWordsPack
@@ -2069,47 +2308,49 @@ ref; // ME_DD2CC8A97743
  : Parent ME_4F6094D80196 // vtControlsFromStackWords
  ;
  : Inherits
-   @ ( WL 'ME_53F7021D0257' '4E159FE900E2.pas.ms.script' // TvtStatusPanel
- ) .SequenceCode.It
+   Seq: ( WL 'ME_53F7021D0257' '4E159FE900E2.pas.ms.script' // TvtStatusPanel
+ )
  ; // Inherits
  : Operations
-   @ ( ME_552E40740003 // GetText
- ME_3A0D63A9E7BA // Reg_TtfwContext
- ME_71FD3BD9C5A0 // Reg_TvtStatusPanel
- ME_30CBBC983D1C // Reg_String
- ) .SequenceCode.It
+   Seq: ( ME_552E40740003 // GetText
+ ME_3A0D63A9E7BA // Reg_Type_TtfwContext
+ ME_71FD3BD9C5A0 // Reg_Type_TvtStatusPanel
+ ME_30CBBC983D1C // Reg_Type_String
+ )
  ; // Operations
  : Children
-   @ ( ME_7D107A8BDD1A // pop_StatusPanel_GetText
- ) .SequenceCode.It
+   Seq: ( ME_7D107A8BDD1A // pop_StatusPanel_GetText
+ )
  ; // Children
  : Dependencies
-   @ ( ME_837CE0DDC4C2 // 
+   Seq: ( ME_837CE0DDC4C2 // 
  ME_677003967BFF // 
  ME_DD2CC8A97743 // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  CONST "ifndef" 'NoScripts'
  CONST "needs script" 'undefined'
  CONST "no class name" 'undefined'
  CONST "no hands" false
  CONST "no_pop" 'undefined'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\ScriptEngine'
  CONST intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\StatusPanelWordsPack.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\ScriptEngine'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_552E403E0038 StatusPanelWordsPack
 
 FORWARD ME_552E413F010E
+
+FORWARD ME_FFBFE1E95F74
 
 FORWARD ME_0F40F0279E11
 
 : ME_E400A5348F48
  CONST UID 'E400A5348F48'
  CONST Name 'aCtx'
+ CONST IsSummoned true
  CONST Class class_Parameter
  : Stereotype st_in ;
  : Target WL 'ME_4DB0091E033E' '4DAF19F600C5.pas.ms.script' // TtfwContext
@@ -2120,6 +2361,7 @@ ref; // ME_E400A5348F48 aCtx
 : ME_E400A5348F49
  CONST UID 'E400A5348F49'
  CONST Name 'aSpinEdit'
+ CONST IsSummoned true
  CONST Class class_Parameter
  : Stereotype st_in ;
  : Target WL 'ME_4C52C0600246' '4C52C05501D8.pas.ms.script' // TvtSpinEdit
@@ -2130,6 +2372,7 @@ ref; // ME_E400A5348F49 aSpinEdit
 : ME_7366517D8188
  CONST UID '7366517D8188'
  CONST Name 'Value'
+ CONST IsSummoned true
  CONST Class class_Operation
  %SUMMARY 'Реализация слова скрипта pop:SpinEdit:Value' ;
  CONST Visibility PrivateAccess
@@ -2139,9 +2382,9 @@ ref; // ME_E400A5348F49 aSpinEdit
  : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
  ;
  : Parameters
-   @ ( ME_E400A5348F48 // aCtx
+   Seq: ( ME_E400A5348F48 // aCtx
  ME_E400A5348F49 // aSpinEdit
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_7366517D8188 Value
@@ -2149,6 +2392,7 @@ ref; // ME_7366517D8188 Value
 : ME_794547B5EA11
  CONST UID '794547B5EA11'
  CONST Name 'aSpinEdit'
+ CONST IsSummoned true
  CONST Class class_Parameter
  : Stereotype st_in ;
  : Target WL 'ME_4C52C0600246' '4C52C05501D8.pas.ms.script' // TvtSpinEdit
@@ -2159,6 +2403,7 @@ ref; // ME_794547B5EA11 aSpinEdit
 : ME_794547B5EA12
  CONST UID '794547B5EA12'
  CONST Name 'aValue'
+ CONST IsSummoned true
  CONST Class class_Parameter
  : Stereotype st_in ;
  : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
@@ -2169,6 +2414,7 @@ ref; // ME_794547B5EA12 aValue
 : ME_A9BA2BCEA197
  CONST UID 'A9BA2BCEA197'
  CONST Name 'DoSetValue'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_static::Operation ;
  %SUMMARY 'Метод установки значения свойства Value' ;
@@ -2177,9 +2423,9 @@ ref; // ME_794547B5EA12 aValue
  : Parent ME_0F40F0279E11 // pop_SpinEdit_Value
  ;
  : Parameters
-   @ ( ME_794547B5EA11 // aSpinEdit
+   Seq: ( ME_794547B5EA11 // aSpinEdit
  ME_794547B5EA12 // aValue
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_A9BA2BCEA197 DoSetValue
@@ -2187,6 +2433,7 @@ ref; // ME_A9BA2BCEA197 DoSetValue
 : ME_461A53ADC708
  CONST UID '461A53ADC708'
  CONST Name 'Ini_Reg'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Регистрация pop_SpinEdit_Value' ;
@@ -2199,6 +2446,7 @@ ref; // ME_461A53ADC708 Ini_Reg
 
 : ME_41D723A180EB
  CONST UID '41D723A180EB'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_0F40F0279E11 // pop_SpinEdit_Value
@@ -2210,6 +2458,7 @@ ref; // ME_41D723A180EB
 
 : ME_58B2FD334070
  CONST UID '58B2FD334070'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_0F40F0279E11 // pop_SpinEdit_Value
@@ -2221,6 +2470,7 @@ ref; // ME_58B2FD334070
 
 : ME_80F2C7D24B26
  CONST UID '80F2C7D24B26'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_0F40F0279E11 // pop_SpinEdit_Value
@@ -2237,6 +2487,7 @@ ref; // ME_80F2C7D24B26
  ;
  : Implementor ME_0F40F0279E11 // pop_SpinEdit_Value
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_4DAEEDE10285_ME_0F40F0279E11 DoDoIt
 
 : ME_4DB0614603C8_ME_0F40F0279E11
@@ -2246,6 +2497,7 @@ ref; // ME_4DAEEDE10285_ME_0F40F0279E11 DoDoIt
  ;
  : Implementor ME_0F40F0279E11 // pop_SpinEdit_Value
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4DB0614603C8_ME_0F40F0279E11 GetWordNameForRegister
 
 : ME_52D00B00031A_ME_0F40F0279E11
@@ -2255,6 +2507,7 @@ ref; // ME_4DB0614603C8_ME_0F40F0279E11 GetWordNameForRegister
  ;
  : Implementor ME_0F40F0279E11 // pop_SpinEdit_Value
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_52D00B00031A_ME_0F40F0279E11 SetValuePrim
 
 : ME_551544E2001A_ME_0F40F0279E11
@@ -2264,6 +2517,7 @@ ref; // ME_52D00B00031A_ME_0F40F0279E11 SetValuePrim
  ;
  : Implementor ME_0F40F0279E11 // pop_SpinEdit_Value
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_551544E2001A_ME_0F40F0279E11 GetResultTypeInfo
 
 : ME_559687E6025A_ME_0F40F0279E11
@@ -2273,6 +2527,7 @@ ref; // ME_551544E2001A_ME_0F40F0279E11 GetResultTypeInfo
  ;
  : Implementor ME_0F40F0279E11 // pop_SpinEdit_Value
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_559687E6025A_ME_0F40F0279E11 GetAllParamsCount
 
 : ME_5617F4D00243_ME_0F40F0279E11
@@ -2282,11 +2537,13 @@ ref; // ME_559687E6025A_ME_0F40F0279E11 GetAllParamsCount
  ;
  : Implementor ME_0F40F0279E11 // pop_SpinEdit_Value
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_5617F4D00243_ME_0F40F0279E11 ParamsTypes
 
 : ME_0F40F0279E11
  CONST UID '0F40F0279E11'
  CONST Name 'pop_SpinEdit_Value'
+ CONST IsSummoned true
  CONST Class class_Class
  : Stereotype st_ScriptKeyword ;
  CONST Kind kind_NormalClass
@@ -2296,39 +2553,47 @@ ref; // ME_5617F4D00243_ME_0F40F0279E11 ParamsTypes
  : Parent ME_552E413F010E // SpinEditWordsPack
  ;
  : Inherits
-   @ ( WL 'ME_5619169603BE' '55CCADD2013D.pas.ms.script' // TtfwPropertyLike
- ) .SequenceCode.It
+   Seq: ( WL 'ME_5619169603BE' '55CCADD2013D.pas.ms.script' // TtfwPropertyLike
+ )
  ; // Inherits
  : Operations
-   @ ( ME_7366517D8188 // Value
+   Seq: ( ME_7366517D8188 // Value
  ME_A9BA2BCEA197 // DoSetValue
  ME_461A53ADC708 // Ini_Reg
- ) .SequenceCode.It
+ )
  ; // Operations
  : Implemented
-   @ ( ME_4DAEEDE10285_ME_0F40F0279E11 // DoDoIt
- ) .SequenceCode.It
+   Seq: ( ME_4DAEEDE10285_ME_0F40F0279E11 // DoDoIt
+ )
  ; // Implemented
  : Overridden
-   @ ( ME_4DB0614603C8_ME_0F40F0279E11 // GetWordNameForRegister
+   Seq: ( ME_4DB0614603C8_ME_0F40F0279E11 // GetWordNameForRegister
  ME_52D00B00031A_ME_0F40F0279E11 // SetValuePrim
  ME_551544E2001A_ME_0F40F0279E11 // GetResultTypeInfo
  ME_559687E6025A_ME_0F40F0279E11 // GetAllParamsCount
  ME_5617F4D00243_ME_0F40F0279E11 // ParamsTypes
- ) .SequenceCode.It
+ )
  ; // Overridden
  : Dependencies
-   @ ( ME_41D723A180EB // 
+   Seq: ( ME_41D723A180EB // 
  ME_58B2FD334070 // 
  ME_80F2C7D24B26 // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  CONST "NameForScript" 'pop:SpinEdit:Value'
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
+ CONST dfm:PathOnly '\common\components\rtl\Garant\ScriptEngine'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\ScriptEngine'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
  CONST extprop:pas:TypeName 'TkwPopSpinEditValue'
+ CONST extprop:rc:SelfName 'PopSpinEditValue'
+ CONST extprop:rc:isAcceptableForScripts true
+ : SpelledFor ME_FFBFE1E95F74 // Value
+ ;
 
 ref; // ME_0F40F0279E11 pop_SpinEdit_Value
 
@@ -2351,6 +2616,7 @@ ref; // ME_552E41740211 Value
 : ME_FFBFE1E95F74
  CONST UID 'FFBFE1E95F74'
  CONST Name 'Value'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_keyword::Operation ;
  CONST Visibility PublicAccess
@@ -2362,12 +2628,15 @@ ref; // ME_552E41740211 Value
  CONST "bind params" 'undefined'
  CONST "lvalue" 'undefined'
  CONST "mapped" 'undefined'
+ : Speller ME_0F40F0279E11 // pop_SpinEdit_Value
+ ;
 
 ref; // ME_FFBFE1E95F74 Value
 
 : ME_8CABF531A171
  CONST UID '8CABF531A171'
- CONST Name 'Reg_TtfwContext'
+ CONST Name 'Reg_Type_TtfwContext'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Регистрация типа TtfwContext' ;
@@ -2375,12 +2644,15 @@ ref; // ME_FFBFE1E95F74 Value
  CONST Abstraction at_final
  : Parent ME_552E413F010E // SpinEditWordsPack
  ;
+ : SpelledFor WL 'ME_4DB0091E033E' '4DAF19F600C5.pas.ms.script' // TtfwContext
+ ;
 
-ref; // ME_8CABF531A171 Reg_TtfwContext
+ref; // ME_8CABF531A171 Reg_Type_TtfwContext
 
 : ME_67FE0D3712E1
  CONST UID '67FE0D3712E1'
- CONST Name 'Reg_TvtSpinEdit'
+ CONST Name 'Reg_Type_TvtSpinEdit'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Регистрация типа TvtSpinEdit' ;
@@ -2388,12 +2660,15 @@ ref; // ME_8CABF531A171 Reg_TtfwContext
  CONST Abstraction at_final
  : Parent ME_552E413F010E // SpinEditWordsPack
  ;
+ : SpelledFor WL 'ME_4C52C0600246' '4C52C05501D8.pas.ms.script' // TvtSpinEdit
+ ;
 
-ref; // ME_67FE0D3712E1 Reg_TvtSpinEdit
+ref; // ME_67FE0D3712E1 Reg_Type_TvtSpinEdit
 
 : ME_57D4341F5472
  CONST UID '57D4341F5472'
- CONST Name 'Reg_Integer'
+ CONST Name 'Reg_Type_Integer'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Регистрация типа Integer' ;
@@ -2401,11 +2676,14 @@ ref; // ME_67FE0D3712E1 Reg_TvtSpinEdit
  CONST Abstraction at_final
  : Parent ME_552E413F010E // SpinEditWordsPack
  ;
+ : SpelledFor WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
 
-ref; // ME_57D4341F5472 Reg_Integer
+ref; // ME_57D4341F5472 Reg_Type_Integer
 
 : ME_69DF091EE737
  CONST UID '69DF091EE737'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_552E413F010E // SpinEditWordsPack
@@ -2417,6 +2695,7 @@ ref; // ME_69DF091EE737
 
 : ME_5E9C4EDE6DA3
  CONST UID '5E9C4EDE6DA3'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_injects::Dependency ;
  : Parent ME_552E413F010E // SpinEditWordsPack
@@ -2428,6 +2707,7 @@ ref; // ME_5E9C4EDE6DA3
 
 : ME_684C9A0C5F63
  CONST UID '684C9A0C5F63'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_552E413F010E // SpinEditWordsPack
@@ -2448,41 +2728,40 @@ ref; // ME_684C9A0C5F63
  : Parent ME_4F6094D80196 // vtControlsFromStackWords
  ;
  : Inherits
-   @ ( WL 'ME_4C52C0600246' '4C52C05501D8.pas.ms.script' // TvtSpinEdit
- ) .SequenceCode.It
+   Seq: ( WL 'ME_4C52C0600246' '4C52C05501D8.pas.ms.script' // TvtSpinEdit
+ )
  ; // Inherits
  : Attributes
-   @ ( ME_552E41740211 // Value
- ) .SequenceCode.It
+   Seq: ( ME_552E41740211 // Value
+ )
  ; // Attributes
  : Operations
-   @ ( ME_FFBFE1E95F74 // Value
- ME_8CABF531A171 // Reg_TtfwContext
- ME_67FE0D3712E1 // Reg_TvtSpinEdit
- ME_57D4341F5472 // Reg_Integer
- ) .SequenceCode.It
+   Seq: ( ME_FFBFE1E95F74 // Value
+ ME_8CABF531A171 // Reg_Type_TtfwContext
+ ME_67FE0D3712E1 // Reg_Type_TvtSpinEdit
+ ME_57D4341F5472 // Reg_Type_Integer
+ )
  ; // Operations
  : Children
-   @ ( ME_0F40F0279E11 // pop_SpinEdit_Value
- ) .SequenceCode.It
+   Seq: ( ME_0F40F0279E11 // pop_SpinEdit_Value
+ )
  ; // Children
  : Dependencies
-   @ ( ME_69DF091EE737 // 
+   Seq: ( ME_69DF091EE737 // 
  ME_5E9C4EDE6DA3 // 
  ME_684C9A0C5F63 // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  CONST "ifndef" 'NoScripts'
  CONST "needs script" 'undefined'
  CONST "no class name" 'undefined'
  CONST "no hands" false
  CONST "no_pop" 'undefined'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\ScriptEngine'
  CONST intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\SpinEditWordsPack.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\ScriptEngine'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_552E413F010E SpinEditWordsPack
 
@@ -2491,6 +2770,7 @@ FORWARD ME_552E47C10290
 : ME_4B686C2C3878
  CONST UID '4B686C2C3878'
  CONST Name 'TvtCustomListerFriend'
+ CONST IsSummoned true
  CONST Class class_Class
  : Stereotype st_SimpleClass ;
  CONST Kind kind_NormalClass
@@ -2500,21 +2780,30 @@ FORWARD ME_552E47C10290
  : Parent ME_552E47C10290 // ListerWordsPack
  ;
  : Inherits
-   @ ( WL 'ME_515062D301C4' '4B97E7FD006C.pas.ms.script' // TvtCustomLister
- ) .SequenceCode.It
+   Seq: ( WL 'ME_515062D301C4' '4B97E7FD006C.pas.ms.script' // TvtCustomLister
+ )
  ; // Inherits
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" false
+ CONST dfm:PathOnly '\common\components\rtl\Garant\ScriptEngine'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\ScriptEngine'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'ListerFriend'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_4B686C2C3878 TvtCustomListerFriend
+
+FORWARD ME_552E482B0030
 
 FORWARD ME_3601E7023043
 
 : ME_52E26E31DEAB
  CONST UID '52E26E31DEAB'
  CONST Name 'aCtx'
+ CONST IsSummoned true
  CONST Class class_Parameter
  : Stereotype st_in ;
  : Target WL 'ME_4DB0091E033E' '4DAF19F600C5.pas.ms.script' // TtfwContext
@@ -2525,6 +2814,7 @@ ref; // ME_52E26E31DEAB aCtx
 : ME_52E26E31DEAC
  CONST UID '52E26E31DEAC'
  CONST Name 'aLister'
+ CONST IsSummoned true
  CONST Class class_Parameter
  : Stereotype st_in ;
  : Target WL 'ME_515062D301C4' '4B97E7FD006C.pas.ms.script' // TvtCustomLister
@@ -2535,6 +2825,7 @@ ref; // ME_52E26E31DEAC aLister
 : ME_52E26E31DEAD
  CONST UID '52E26E31DEAD'
  CONST Name 'aFinish'
+ CONST IsSummoned true
  CONST Class class_Parameter
  : Stereotype st_in ;
  : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
@@ -2545,6 +2836,7 @@ ref; // ME_52E26E31DEAD aFinish
 : ME_EFDA6E4429D8
  CONST UID 'EFDA6E4429D8'
  CONST Name 'SelectWithShift'
+ CONST IsSummoned true
  CONST Class class_Operation
  %SUMMARY 'Реализация слова скрипта pop:Lister:SelectWithShift' ;
  CONST Visibility PrivateAccess
@@ -2552,10 +2844,10 @@ ref; // ME_52E26E31DEAD aFinish
  : Parent ME_3601E7023043 // pop_Lister_SelectWithShift
  ;
  : Parameters
-   @ ( ME_52E26E31DEAB // aCtx
+   Seq: ( ME_52E26E31DEAB // aCtx
  ME_52E26E31DEAC // aLister
  ME_52E26E31DEAD // aFinish
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_EFDA6E4429D8 SelectWithShift
@@ -2563,6 +2855,7 @@ ref; // ME_EFDA6E4429D8 SelectWithShift
 : ME_C9C81BF99F08
  CONST UID 'C9C81BF99F08'
  CONST Name 'Ini_Reg'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Регистрация pop_Lister_SelectWithShift' ;
@@ -2575,6 +2868,7 @@ ref; // ME_C9C81BF99F08 Ini_Reg
 
 : ME_6D04D782C8F1
  CONST UID '6D04D782C8F1'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_3601E7023043 // pop_Lister_SelectWithShift
@@ -2586,6 +2880,7 @@ ref; // ME_6D04D782C8F1
 
 : ME_F68A07C990B1
  CONST UID 'F68A07C990B1'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_3601E7023043 // pop_Lister_SelectWithShift
@@ -2597,6 +2892,7 @@ ref; // ME_F68A07C990B1
 
 : ME_3FA26D4C0220
  CONST UID '3FA26D4C0220'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_3601E7023043 // pop_Lister_SelectWithShift
@@ -2613,6 +2909,7 @@ ref; // ME_3FA26D4C0220
  ;
  : Implementor ME_3601E7023043 // pop_Lister_SelectWithShift
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_4DAEEDE10285_ME_3601E7023043 DoDoIt
 
 : ME_4DB0614603C8_ME_3601E7023043
@@ -2622,6 +2919,7 @@ ref; // ME_4DAEEDE10285_ME_3601E7023043 DoDoIt
  ;
  : Implementor ME_3601E7023043 // pop_Lister_SelectWithShift
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4DB0614603C8_ME_3601E7023043 GetWordNameForRegister
 
 : ME_551544E2001A_ME_3601E7023043
@@ -2631,6 +2929,7 @@ ref; // ME_4DB0614603C8_ME_3601E7023043 GetWordNameForRegister
  ;
  : Implementor ME_3601E7023043 // pop_Lister_SelectWithShift
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_551544E2001A_ME_3601E7023043 GetResultTypeInfo
 
 : ME_559687E6025A_ME_3601E7023043
@@ -2640,6 +2939,7 @@ ref; // ME_551544E2001A_ME_3601E7023043 GetResultTypeInfo
  ;
  : Implementor ME_3601E7023043 // pop_Lister_SelectWithShift
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_559687E6025A_ME_3601E7023043 GetAllParamsCount
 
 : ME_5617F4D00243_ME_3601E7023043
@@ -2649,11 +2949,13 @@ ref; // ME_559687E6025A_ME_3601E7023043 GetAllParamsCount
  ;
  : Implementor ME_3601E7023043 // pop_Lister_SelectWithShift
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_5617F4D00243_ME_3601E7023043 ParamsTypes
 
 : ME_3601E7023043
  CONST UID '3601E7023043'
  CONST Name 'pop_Lister_SelectWithShift'
+ CONST IsSummoned true
  CONST Class class_Class
  : Stereotype st_ScriptKeyword ;
  CONST Kind kind_NormalClass
@@ -2663,45 +2965,56 @@ ref; // ME_5617F4D00243_ME_3601E7023043 ParamsTypes
  : Parent ME_552E47C10290 // ListerWordsPack
  ;
  : Inherits
-   @ ( WL 'ME_55CCAE000335' '55CCADD2013D.pas.ms.script' // TtfwClassLike
- ) .SequenceCode.It
+   Seq: ( WL 'ME_55CCAE000335' '55CCADD2013D.pas.ms.script' // TtfwClassLike
+ )
  ; // Inherits
  : Operations
-   @ ( ME_EFDA6E4429D8 // SelectWithShift
+   Seq: ( ME_EFDA6E4429D8 // SelectWithShift
  ME_C9C81BF99F08 // Ini_Reg
- ) .SequenceCode.It
+ )
  ; // Operations
  : Implemented
-   @ ( ME_4DAEEDE10285_ME_3601E7023043 // DoDoIt
- ) .SequenceCode.It
+   Seq: ( ME_4DAEEDE10285_ME_3601E7023043 // DoDoIt
+ )
  ; // Implemented
  : Overridden
-   @ ( ME_4DB0614603C8_ME_3601E7023043 // GetWordNameForRegister
+   Seq: ( ME_4DB0614603C8_ME_3601E7023043 // GetWordNameForRegister
  ME_551544E2001A_ME_3601E7023043 // GetResultTypeInfo
  ME_559687E6025A_ME_3601E7023043 // GetAllParamsCount
  ME_5617F4D00243_ME_3601E7023043 // ParamsTypes
- ) .SequenceCode.It
+ )
  ; // Overridden
  : Dependencies
-   @ ( ME_6D04D782C8F1 // 
+   Seq: ( ME_6D04D782C8F1 // 
  ME_F68A07C990B1 // 
  ME_3FA26D4C0220 // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  CONST "NameForScript" 'pop:Lister:SelectWithShift'
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
+ CONST dfm:PathOnly '\common\components\rtl\Garant\ScriptEngine'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\ScriptEngine'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
  CONST extprop:pas:TypeName 'TkwPopListerSelectWithShift'
+ CONST extprop:rc:SelfName 'PopListerSelectWithShift'
+ CONST extprop:rc:isAcceptableForScripts true
+ : SpelledFor ME_552E482B0030 // SelectWithShift
+ ;
 
 ref; // ME_3601E7023043 pop_Lister_SelectWithShift
+
+FORWARD ME_552E485701AB
 
 FORWARD ME_94BB02952F38
 
 : ME_2B911BDEE690
  CONST UID '2B911BDEE690'
  CONST Name 'aCtx'
+ CONST IsSummoned true
  CONST Class class_Parameter
  : Stereotype st_in ;
  : Target WL 'ME_4DB0091E033E' '4DAF19F600C5.pas.ms.script' // TtfwContext
@@ -2712,6 +3025,7 @@ ref; // ME_2B911BDEE690 aCtx
 : ME_2B911BDEE691
  CONST UID '2B911BDEE691'
  CONST Name 'aLister'
+ CONST IsSummoned true
  CONST Class class_Parameter
  : Stereotype st_in ;
  : Target WL 'ME_515062D301C4' '4B97E7FD006C.pas.ms.script' // TvtCustomLister
@@ -2722,6 +3036,7 @@ ref; // ME_2B911BDEE691 aLister
 : ME_2B911BDEE692
  CONST UID '2B911BDEE692'
  CONST Name 'anIndex'
+ CONST IsSummoned true
  CONST Class class_Parameter
  : Stereotype st_in ;
  : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
@@ -2732,6 +3047,7 @@ ref; // ME_2B911BDEE692 anIndex
 : ME_542EE0AE8385
  CONST UID '542EE0AE8385'
  CONST Name 'GetSelected'
+ CONST IsSummoned true
  CONST Class class_Operation
  %SUMMARY 'Реализация слова скрипта pop:Lister:GetSelected' ;
  CONST Visibility PrivateAccess
@@ -2741,10 +3057,10 @@ ref; // ME_2B911BDEE692 anIndex
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
  : Parameters
-   @ ( ME_2B911BDEE690 // aCtx
+   Seq: ( ME_2B911BDEE690 // aCtx
  ME_2B911BDEE691 // aLister
  ME_2B911BDEE692 // anIndex
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_542EE0AE8385 GetSelected
@@ -2752,6 +3068,7 @@ ref; // ME_542EE0AE8385 GetSelected
 : ME_E0831D991CC7
  CONST UID 'E0831D991CC7'
  CONST Name 'Ini_Reg'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Регистрация pop_Lister_GetSelected' ;
@@ -2764,6 +3081,7 @@ ref; // ME_E0831D991CC7 Ini_Reg
 
 : ME_0F56344F292C
  CONST UID '0F56344F292C'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_94BB02952F38 // pop_Lister_GetSelected
@@ -2775,6 +3093,7 @@ ref; // ME_0F56344F292C
 
 : ME_5108C9F5F80B
  CONST UID '5108C9F5F80B'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_94BB02952F38 // pop_Lister_GetSelected
@@ -2786,6 +3105,7 @@ ref; // ME_5108C9F5F80B
 
 : ME_EC8CBF25CD1B
  CONST UID 'EC8CBF25CD1B'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_94BB02952F38 // pop_Lister_GetSelected
@@ -2802,6 +3122,7 @@ ref; // ME_EC8CBF25CD1B
  ;
  : Implementor ME_94BB02952F38 // pop_Lister_GetSelected
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_4DAEEDE10285_ME_94BB02952F38 DoDoIt
 
 : ME_4DB0614603C8_ME_94BB02952F38
@@ -2811,6 +3132,7 @@ ref; // ME_4DAEEDE10285_ME_94BB02952F38 DoDoIt
  ;
  : Implementor ME_94BB02952F38 // pop_Lister_GetSelected
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4DB0614603C8_ME_94BB02952F38 GetWordNameForRegister
 
 : ME_551544E2001A_ME_94BB02952F38
@@ -2820,6 +3142,7 @@ ref; // ME_4DB0614603C8_ME_94BB02952F38 GetWordNameForRegister
  ;
  : Implementor ME_94BB02952F38 // pop_Lister_GetSelected
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_551544E2001A_ME_94BB02952F38 GetResultTypeInfo
 
 : ME_559687E6025A_ME_94BB02952F38
@@ -2829,6 +3152,7 @@ ref; // ME_551544E2001A_ME_94BB02952F38 GetResultTypeInfo
  ;
  : Implementor ME_94BB02952F38 // pop_Lister_GetSelected
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_559687E6025A_ME_94BB02952F38 GetAllParamsCount
 
 : ME_5617F4D00243_ME_94BB02952F38
@@ -2838,11 +3162,13 @@ ref; // ME_559687E6025A_ME_94BB02952F38 GetAllParamsCount
  ;
  : Implementor ME_94BB02952F38 // pop_Lister_GetSelected
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_5617F4D00243_ME_94BB02952F38 ParamsTypes
 
 : ME_94BB02952F38
  CONST UID '94BB02952F38'
  CONST Name 'pop_Lister_GetSelected'
+ CONST IsSummoned true
  CONST Class class_Class
  : Stereotype st_ScriptKeyword ;
  CONST Kind kind_NormalClass
@@ -2852,45 +3178,56 @@ ref; // ME_5617F4D00243_ME_94BB02952F38 ParamsTypes
  : Parent ME_552E47C10290 // ListerWordsPack
  ;
  : Inherits
-   @ ( WL 'ME_55CCAE000335' '55CCADD2013D.pas.ms.script' // TtfwClassLike
- ) .SequenceCode.It
+   Seq: ( WL 'ME_55CCAE000335' '55CCADD2013D.pas.ms.script' // TtfwClassLike
+ )
  ; // Inherits
  : Operations
-   @ ( ME_542EE0AE8385 // GetSelected
+   Seq: ( ME_542EE0AE8385 // GetSelected
  ME_E0831D991CC7 // Ini_Reg
- ) .SequenceCode.It
+ )
  ; // Operations
  : Implemented
-   @ ( ME_4DAEEDE10285_ME_94BB02952F38 // DoDoIt
- ) .SequenceCode.It
+   Seq: ( ME_4DAEEDE10285_ME_94BB02952F38 // DoDoIt
+ )
  ; // Implemented
  : Overridden
-   @ ( ME_4DB0614603C8_ME_94BB02952F38 // GetWordNameForRegister
+   Seq: ( ME_4DB0614603C8_ME_94BB02952F38 // GetWordNameForRegister
  ME_551544E2001A_ME_94BB02952F38 // GetResultTypeInfo
  ME_559687E6025A_ME_94BB02952F38 // GetAllParamsCount
  ME_5617F4D00243_ME_94BB02952F38 // ParamsTypes
- ) .SequenceCode.It
+ )
  ; // Overridden
  : Dependencies
-   @ ( ME_0F56344F292C // 
+   Seq: ( ME_0F56344F292C // 
  ME_5108C9F5F80B // 
  ME_EC8CBF25CD1B // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  CONST "NameForScript" 'pop:Lister:GetSelected'
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
+ CONST dfm:PathOnly '\common\components\rtl\Garant\ScriptEngine'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\ScriptEngine'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
  CONST extprop:pas:TypeName 'TkwPopListerGetSelected'
+ CONST extprop:rc:SelfName 'PopListerGetSelected'
+ CONST extprop:rc:isAcceptableForScripts true
+ : SpelledFor ME_552E485701AB // GetSelected
+ ;
 
 ref; // ME_94BB02952F38 pop_Lister_GetSelected
+
+FORWARD ME_552E48AF00FD
 
 FORWARD ME_0BB474851F7E
 
 : ME_4C589AEFDED9
  CONST UID '4C589AEFDED9'
  CONST Name 'aCtx'
+ CONST IsSummoned true
  CONST Class class_Parameter
  : Stereotype st_in ;
  : Target WL 'ME_4DB0091E033E' '4DAF19F600C5.pas.ms.script' // TtfwContext
@@ -2901,6 +3238,7 @@ ref; // ME_4C589AEFDED9 aCtx
 : ME_4C589AEFDEDA
  CONST UID '4C589AEFDEDA'
  CONST Name 'aLister'
+ CONST IsSummoned true
  CONST Class class_Parameter
  : Stereotype st_in ;
  : Target WL 'ME_515062D301C4' '4B97E7FD006C.pas.ms.script' // TvtCustomLister
@@ -2911,6 +3249,7 @@ ref; // ME_4C589AEFDEDA aLister
 : ME_D04F3C7D1449
  CONST UID 'D04F3C7D1449'
  CONST Name 'FooterCaption'
+ CONST IsSummoned true
  CONST Class class_Operation
  %SUMMARY 'Реализация слова скрипта pop:Lister:FooterCaption' ;
  CONST Visibility PrivateAccess
@@ -2920,9 +3259,9 @@ ref; // ME_4C589AEFDEDA aLister
  : Target WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
  ;
  : Parameters
-   @ ( ME_4C589AEFDED9 // aCtx
+   Seq: ( ME_4C589AEFDED9 // aCtx
  ME_4C589AEFDEDA // aLister
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_D04F3C7D1449 FooterCaption
@@ -2930,6 +3269,7 @@ ref; // ME_D04F3C7D1449 FooterCaption
 : ME_42B40AE73778
  CONST UID '42B40AE73778'
  CONST Name 'Ini_Reg'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Регистрация pop_Lister_FooterCaption' ;
@@ -2942,6 +3282,7 @@ ref; // ME_42B40AE73778 Ini_Reg
 
 : ME_9C58013F8F9F
  CONST UID '9C58013F8F9F'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_0BB474851F7E // pop_Lister_FooterCaption
@@ -2953,6 +3294,7 @@ ref; // ME_9C58013F8F9F
 
 : ME_C18690AE84F9
  CONST UID 'C18690AE84F9'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_0BB474851F7E // pop_Lister_FooterCaption
@@ -2964,6 +3306,7 @@ ref; // ME_C18690AE84F9
 
 : ME_A9524A2C59C5
  CONST UID 'A9524A2C59C5'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_0BB474851F7E // pop_Lister_FooterCaption
@@ -2980,6 +3323,7 @@ ref; // ME_A9524A2C59C5
  ;
  : Implementor ME_0BB474851F7E // pop_Lister_FooterCaption
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_4DAEEDE10285_ME_0BB474851F7E DoDoIt
 
 : ME_4DB0614603C8_ME_0BB474851F7E
@@ -2989,6 +3333,7 @@ ref; // ME_4DAEEDE10285_ME_0BB474851F7E DoDoIt
  ;
  : Implementor ME_0BB474851F7E // pop_Lister_FooterCaption
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4DB0614603C8_ME_0BB474851F7E GetWordNameForRegister
 
 : ME_551544E2001A_ME_0BB474851F7E
@@ -2998,6 +3343,7 @@ ref; // ME_4DB0614603C8_ME_0BB474851F7E GetWordNameForRegister
  ;
  : Implementor ME_0BB474851F7E // pop_Lister_FooterCaption
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_551544E2001A_ME_0BB474851F7E GetResultTypeInfo
 
 : ME_559687E6025A_ME_0BB474851F7E
@@ -3007,6 +3353,7 @@ ref; // ME_551544E2001A_ME_0BB474851F7E GetResultTypeInfo
  ;
  : Implementor ME_0BB474851F7E // pop_Lister_FooterCaption
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_559687E6025A_ME_0BB474851F7E GetAllParamsCount
 
 : ME_5617F4D00243_ME_0BB474851F7E
@@ -3016,11 +3363,13 @@ ref; // ME_559687E6025A_ME_0BB474851F7E GetAllParamsCount
  ;
  : Implementor ME_0BB474851F7E // pop_Lister_FooterCaption
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_5617F4D00243_ME_0BB474851F7E ParamsTypes
 
 : ME_0BB474851F7E
  CONST UID '0BB474851F7E'
  CONST Name 'pop_Lister_FooterCaption'
+ CONST IsSummoned true
  CONST Class class_Class
  : Stereotype st_ScriptKeyword ;
  CONST Kind kind_NormalClass
@@ -3030,45 +3379,56 @@ ref; // ME_5617F4D00243_ME_0BB474851F7E ParamsTypes
  : Parent ME_552E47C10290 // ListerWordsPack
  ;
  : Inherits
-   @ ( WL 'ME_55CCAE000335' '55CCADD2013D.pas.ms.script' // TtfwClassLike
- ) .SequenceCode.It
+   Seq: ( WL 'ME_55CCAE000335' '55CCADD2013D.pas.ms.script' // TtfwClassLike
+ )
  ; // Inherits
  : Operations
-   @ ( ME_D04F3C7D1449 // FooterCaption
+   Seq: ( ME_D04F3C7D1449 // FooterCaption
  ME_42B40AE73778 // Ini_Reg
- ) .SequenceCode.It
+ )
  ; // Operations
  : Implemented
-   @ ( ME_4DAEEDE10285_ME_0BB474851F7E // DoDoIt
- ) .SequenceCode.It
+   Seq: ( ME_4DAEEDE10285_ME_0BB474851F7E // DoDoIt
+ )
  ; // Implemented
  : Overridden
-   @ ( ME_4DB0614603C8_ME_0BB474851F7E // GetWordNameForRegister
+   Seq: ( ME_4DB0614603C8_ME_0BB474851F7E // GetWordNameForRegister
  ME_551544E2001A_ME_0BB474851F7E // GetResultTypeInfo
  ME_559687E6025A_ME_0BB474851F7E // GetAllParamsCount
  ME_5617F4D00243_ME_0BB474851F7E // ParamsTypes
- ) .SequenceCode.It
+ )
  ; // Overridden
  : Dependencies
-   @ ( ME_9C58013F8F9F // 
+   Seq: ( ME_9C58013F8F9F // 
  ME_C18690AE84F9 // 
  ME_A9524A2C59C5 // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  CONST "NameForScript" 'pop:Lister:FooterCaption'
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
+ CONST dfm:PathOnly '\common\components\rtl\Garant\ScriptEngine'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\ScriptEngine'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
  CONST extprop:pas:TypeName 'TkwPopListerFooterCaption'
+ CONST extprop:rc:SelfName 'PopListerFooterCaption'
+ CONST extprop:rc:isAcceptableForScripts true
+ : SpelledFor ME_552E48AF00FD // FooterCaption
+ ;
 
 ref; // ME_0BB474851F7E pop_Lister_FooterCaption
+
+FORWARD ME_0A9E3CD4EF7A
 
 FORWARD ME_AC4C8A615B0D
 
 : ME_2349E0BDE4B9
  CONST UID '2349E0BDE4B9'
  CONST Name 'aCtx'
+ CONST IsSummoned true
  CONST Class class_Parameter
  : Stereotype st_in ;
  : Target WL 'ME_4DB0091E033E' '4DAF19F600C5.pas.ms.script' // TtfwContext
@@ -3079,6 +3439,7 @@ ref; // ME_2349E0BDE4B9 aCtx
 : ME_2349E0BDE4BA
  CONST UID '2349E0BDE4BA'
  CONST Name 'aLister'
+ CONST IsSummoned true
  CONST Class class_Parameter
  : Stereotype st_in ;
  : Target WL 'ME_515062D301C4' '4B97E7FD006C.pas.ms.script' // TvtCustomLister
@@ -3089,6 +3450,7 @@ ref; // ME_2349E0BDE4BA aLister
 : ME_E16233BAE445
  CONST UID 'E16233BAE445'
  CONST Name 'Current'
+ CONST IsSummoned true
  CONST Class class_Operation
  %SUMMARY 'Реализация слова скрипта pop:Lister:Current' ;
  CONST Visibility PrivateAccess
@@ -3098,9 +3460,9 @@ ref; // ME_2349E0BDE4BA aLister
  : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
  ;
  : Parameters
-   @ ( ME_2349E0BDE4B9 // aCtx
+   Seq: ( ME_2349E0BDE4B9 // aCtx
  ME_2349E0BDE4BA // aLister
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_E16233BAE445 Current
@@ -3108,6 +3470,7 @@ ref; // ME_E16233BAE445 Current
 : ME_6B409DB3AA44
  CONST UID '6B409DB3AA44'
  CONST Name 'Ini_Reg'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Регистрация pop_Lister_Current' ;
@@ -3120,6 +3483,7 @@ ref; // ME_6B409DB3AA44 Ini_Reg
 
 : ME_60D26A6F869F
  CONST UID '60D26A6F869F'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_AC4C8A615B0D // pop_Lister_Current
@@ -3131,6 +3495,7 @@ ref; // ME_60D26A6F869F
 
 : ME_371AFA4ABFE6
  CONST UID '371AFA4ABFE6'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_AC4C8A615B0D // pop_Lister_Current
@@ -3142,6 +3507,7 @@ ref; // ME_371AFA4ABFE6
 
 : ME_79030070955F
  CONST UID '79030070955F'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_AC4C8A615B0D // pop_Lister_Current
@@ -3158,6 +3524,7 @@ ref; // ME_79030070955F
  ;
  : Implementor ME_AC4C8A615B0D // pop_Lister_Current
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_4DAEEDE10285_ME_AC4C8A615B0D DoDoIt
 
 : ME_4DB0614603C8_ME_AC4C8A615B0D
@@ -3167,6 +3534,7 @@ ref; // ME_4DAEEDE10285_ME_AC4C8A615B0D DoDoIt
  ;
  : Implementor ME_AC4C8A615B0D // pop_Lister_Current
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4DB0614603C8_ME_AC4C8A615B0D GetWordNameForRegister
 
 : ME_52D00B00031A_ME_AC4C8A615B0D
@@ -3176,6 +3544,7 @@ ref; // ME_4DB0614603C8_ME_AC4C8A615B0D GetWordNameForRegister
  ;
  : Implementor ME_AC4C8A615B0D // pop_Lister_Current
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_52D00B00031A_ME_AC4C8A615B0D SetValuePrim
 
 : ME_551544E2001A_ME_AC4C8A615B0D
@@ -3185,6 +3554,7 @@ ref; // ME_52D00B00031A_ME_AC4C8A615B0D SetValuePrim
  ;
  : Implementor ME_AC4C8A615B0D // pop_Lister_Current
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_551544E2001A_ME_AC4C8A615B0D GetResultTypeInfo
 
 : ME_559687E6025A_ME_AC4C8A615B0D
@@ -3194,6 +3564,7 @@ ref; // ME_551544E2001A_ME_AC4C8A615B0D GetResultTypeInfo
  ;
  : Implementor ME_AC4C8A615B0D // pop_Lister_Current
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_559687E6025A_ME_AC4C8A615B0D GetAllParamsCount
 
 : ME_5617F4D00243_ME_AC4C8A615B0D
@@ -3203,11 +3574,13 @@ ref; // ME_559687E6025A_ME_AC4C8A615B0D GetAllParamsCount
  ;
  : Implementor ME_AC4C8A615B0D // pop_Lister_Current
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_5617F4D00243_ME_AC4C8A615B0D ParamsTypes
 
 : ME_AC4C8A615B0D
  CONST UID 'AC4C8A615B0D'
  CONST Name 'pop_Lister_Current'
+ CONST IsSummoned true
  CONST Class class_Class
  : Stereotype st_ScriptKeyword ;
  CONST Kind kind_NormalClass
@@ -3217,38 +3590,46 @@ ref; // ME_5617F4D00243_ME_AC4C8A615B0D ParamsTypes
  : Parent ME_552E47C10290 // ListerWordsPack
  ;
  : Inherits
-   @ ( WL 'ME_5619169603BE' '55CCADD2013D.pas.ms.script' // TtfwPropertyLike
- ) .SequenceCode.It
+   Seq: ( WL 'ME_5619169603BE' '55CCADD2013D.pas.ms.script' // TtfwPropertyLike
+ )
  ; // Inherits
  : Operations
-   @ ( ME_E16233BAE445 // Current
+   Seq: ( ME_E16233BAE445 // Current
  ME_6B409DB3AA44 // Ini_Reg
- ) .SequenceCode.It
+ )
  ; // Operations
  : Implemented
-   @ ( ME_4DAEEDE10285_ME_AC4C8A615B0D // DoDoIt
- ) .SequenceCode.It
+   Seq: ( ME_4DAEEDE10285_ME_AC4C8A615B0D // DoDoIt
+ )
  ; // Implemented
  : Overridden
-   @ ( ME_4DB0614603C8_ME_AC4C8A615B0D // GetWordNameForRegister
+   Seq: ( ME_4DB0614603C8_ME_AC4C8A615B0D // GetWordNameForRegister
  ME_52D00B00031A_ME_AC4C8A615B0D // SetValuePrim
  ME_551544E2001A_ME_AC4C8A615B0D // GetResultTypeInfo
  ME_559687E6025A_ME_AC4C8A615B0D // GetAllParamsCount
  ME_5617F4D00243_ME_AC4C8A615B0D // ParamsTypes
- ) .SequenceCode.It
+ )
  ; // Overridden
  : Dependencies
-   @ ( ME_60D26A6F869F // 
+   Seq: ( ME_60D26A6F869F // 
  ME_371AFA4ABFE6 // 
  ME_79030070955F // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  CONST "NameForScript" 'pop:Lister:Current'
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
+ CONST dfm:PathOnly '\common\components\rtl\Garant\ScriptEngine'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\ScriptEngine'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
  CONST extprop:pas:TypeName 'TkwPopListerCurrent'
+ CONST extprop:rc:SelfName 'PopListerCurrent'
+ CONST extprop:rc:isAcceptableForScripts true
+ : SpelledFor ME_0A9E3CD4EF7A // Current
+ ;
 
 ref; // ME_AC4C8A615B0D pop_Lister_Current
 
@@ -3289,12 +3670,14 @@ ref; // ME_552E4841002D aFinish
  : Parent ME_552E47C10290 // ListerWordsPack
  ;
  : Parameters
-   @ ( ME_552E4841002D // aFinish
- ) .SequenceCode.It
+   Seq: ( ME_552E4841002D // aFinish
+ )
  ; // Parameters
  CONST "bind params" 'undefined'
  CONST "lvalue" 'undefined'
  CONST "mapped" 'undefined'
+ : Speller ME_3601E7023043 // pop_Lister_SelectWithShift
+ ;
 
 ref; // ME_552E482B0030 SelectWithShift
 
@@ -3320,12 +3703,14 @@ ref; // ME_552E486601BC anIndex
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
  : Parameters
-   @ ( ME_552E486601BC // anIndex
- ) .SequenceCode.It
+   Seq: ( ME_552E486601BC // anIndex
+ )
  ; // Parameters
  CONST "bind params" 'undefined'
  CONST "lvalue" 'undefined'
  CONST "mapped" 'undefined'
+ : Speller ME_94BB02952F38 // pop_Lister_GetSelected
+ ;
 
 ref; // ME_552E485701AB GetSelected
 
@@ -3343,12 +3728,15 @@ ref; // ME_552E485701AB GetSelected
  CONST "bind params" 'undefined'
  CONST "lvalue" 'undefined'
  CONST "mapped" 'undefined'
+ : Speller ME_0BB474851F7E // pop_Lister_FooterCaption
+ ;
 
 ref; // ME_552E48AF00FD FooterCaption
 
 : ME_0A9E3CD4EF7A
  CONST UID '0A9E3CD4EF7A'
  CONST Name 'Current'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_keyword::Operation ;
  CONST Visibility PublicAccess
@@ -3360,12 +3748,15 @@ ref; // ME_552E48AF00FD FooterCaption
  CONST "bind params" 'undefined'
  CONST "lvalue" 'undefined'
  CONST "mapped" true
+ : Speller ME_AC4C8A615B0D // pop_Lister_Current
+ ;
 
 ref; // ME_0A9E3CD4EF7A Current
 
 : ME_6F43485B8015
  CONST UID '6F43485B8015'
- CONST Name 'Reg_TtfwContext'
+ CONST Name 'Reg_Type_TtfwContext'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Регистрация типа TtfwContext' ;
@@ -3373,12 +3764,15 @@ ref; // ME_0A9E3CD4EF7A Current
  CONST Abstraction at_final
  : Parent ME_552E47C10290 // ListerWordsPack
  ;
+ : SpelledFor WL 'ME_4DB0091E033E' '4DAF19F600C5.pas.ms.script' // TtfwContext
+ ;
 
-ref; // ME_6F43485B8015 Reg_TtfwContext
+ref; // ME_6F43485B8015 Reg_Type_TtfwContext
 
 : ME_A1774599D6F1
  CONST UID 'A1774599D6F1'
- CONST Name 'Reg_TvtCustomLister'
+ CONST Name 'Reg_Type_TvtCustomLister'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Регистрация типа TvtCustomLister' ;
@@ -3386,12 +3780,15 @@ ref; // ME_6F43485B8015 Reg_TtfwContext
  CONST Abstraction at_final
  : Parent ME_552E47C10290 // ListerWordsPack
  ;
+ : SpelledFor WL 'ME_515062D301C4' '4B97E7FD006C.pas.ms.script' // TvtCustomLister
+ ;
 
-ref; // ME_A1774599D6F1 Reg_TvtCustomLister
+ref; // ME_A1774599D6F1 Reg_Type_TvtCustomLister
 
 : ME_4550BB3CEA7C
  CONST UID '4550BB3CEA7C'
- CONST Name 'Reg_Integer'
+ CONST Name 'Reg_Type_Integer'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Регистрация типа Integer' ;
@@ -3399,12 +3796,15 @@ ref; // ME_A1774599D6F1 Reg_TvtCustomLister
  CONST Abstraction at_final
  : Parent ME_552E47C10290 // ListerWordsPack
  ;
+ : SpelledFor WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
 
-ref; // ME_4550BB3CEA7C Reg_Integer
+ref; // ME_4550BB3CEA7C Reg_Type_Integer
 
 : ME_E47AE43E0036
  CONST UID 'E47AE43E0036'
- CONST Name 'Reg_Boolean'
+ CONST Name 'Reg_Type_Boolean'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Регистрация типа Boolean' ;
@@ -3412,12 +3812,15 @@ ref; // ME_4550BB3CEA7C Reg_Integer
  CONST Abstraction at_final
  : Parent ME_552E47C10290 // ListerWordsPack
  ;
+ : SpelledFor WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
 
-ref; // ME_E47AE43E0036 Reg_Boolean
+ref; // ME_E47AE43E0036 Reg_Type_Boolean
 
 : ME_CB4F2E9E8C1E
  CONST UID 'CB4F2E9E8C1E'
- CONST Name 'Reg_String'
+ CONST Name 'Reg_Type_String'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Регистрация типа String' ;
@@ -3425,8 +3828,10 @@ ref; // ME_E47AE43E0036 Reg_Boolean
  CONST Abstraction at_final
  : Parent ME_552E47C10290 // ListerWordsPack
  ;
+ : SpelledFor WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
+ ;
 
-ref; // ME_CB4F2E9E8C1E Reg_String
+ref; // ME_CB4F2E9E8C1E Reg_Type_String
 
 : ME_552E47E403B6
  CONST UID '552E47E403B6'
@@ -3441,6 +3846,7 @@ ref; // ME_552E47E403B6
 
 : ME_B04B038EE6B6
  CONST UID 'B04B038EE6B6'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_552E47C10290 // ListerWordsPack
@@ -3452,6 +3858,7 @@ ref; // ME_B04B038EE6B6
 
 : ME_FF0FE00994E3
  CONST UID 'FF0FE00994E3'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_injects::Dependency ;
  : Parent ME_552E47C10290 // ListerWordsPack
@@ -3463,6 +3870,7 @@ ref; // ME_FF0FE00994E3
 
 : ME_AC7A55E874C8
  CONST UID 'AC7A55E874C8'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_552E47C10290 // ListerWordsPack
@@ -3479,6 +3887,7 @@ ref; // ME_AC7A55E874C8
  ;
  : Implementor ME_552E47C10290 // ListerWordsPack
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_46A5AA4B003C_ME_552E47C10290 Invalidate
 
 : ME_552E47C10290
@@ -3492,65 +3901,67 @@ ref; // ME_46A5AA4B003C_ME_552E47C10290 Invalidate
  : Parent ME_4F6094D80196 // vtControlsFromStackWords
  ;
  : Inherits
-   @ ( WL 'ME_515062D301C4' '4B97E7FD006C.pas.ms.script' // TvtCustomLister
- ) .SequenceCode.It
+   Seq: ( WL 'ME_515062D301C4' '4B97E7FD006C.pas.ms.script' // TvtCustomLister
+ )
  ; // Inherits
  : Attributes
-   @ ( ME_552E48810254 // Current
- ) .SequenceCode.It
+   Seq: ( ME_552E48810254 // Current
+ )
  ; // Attributes
  : Operations
-   @ ( ME_552E482B0030 // SelectWithShift
+   Seq: ( ME_552E482B0030 // SelectWithShift
  ME_552E485701AB // GetSelected
  ME_552E48AF00FD // FooterCaption
  ME_0A9E3CD4EF7A // Current
- ME_6F43485B8015 // Reg_TtfwContext
- ME_A1774599D6F1 // Reg_TvtCustomLister
- ME_4550BB3CEA7C // Reg_Integer
- ME_E47AE43E0036 // Reg_Boolean
- ME_CB4F2E9E8C1E // Reg_String
- ) .SequenceCode.It
+ ME_6F43485B8015 // Reg_Type_TtfwContext
+ ME_A1774599D6F1 // Reg_Type_TvtCustomLister
+ ME_4550BB3CEA7C // Reg_Type_Integer
+ ME_E47AE43E0036 // Reg_Type_Boolean
+ ME_CB4F2E9E8C1E // Reg_Type_String
+ )
  ; // Operations
  : Implemented
-   @ ( ME_46A5AA4B003C_ME_552E47C10290 // Invalidate
- ) .SequenceCode.It
+   Seq: ( ME_46A5AA4B003C_ME_552E47C10290 // Invalidate
+ )
  ; // Implemented
  : Children
-   @ ( ME_4B686C2C3878 // TvtCustomListerFriend
+   Seq: ( ME_4B686C2C3878 // TvtCustomListerFriend
  ME_3601E7023043 // pop_Lister_SelectWithShift
  ME_94BB02952F38 // pop_Lister_GetSelected
  ME_0BB474851F7E // pop_Lister_FooterCaption
  ME_AC4C8A615B0D // pop_Lister_Current
- ) .SequenceCode.It
+ )
  ; // Children
  : Dependencies
-   @ ( ME_552E47E403B6 // 
+   Seq: ( ME_552E47E403B6 // 
  ME_B04B038EE6B6 // 
  ME_FF0FE00994E3 // 
  ME_AC7A55E874C8 // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  CONST "ifndef" 'NoScripts'
  CONST "needs script" 'undefined'
  CONST "no class name" 'undefined'
  CONST "no hands" false
  CONST "no_pop" 'undefined'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\ScriptEngine'
  CONST intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\ListerWordsPack.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\ScriptEngine'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_552E47C10290 ListerWordsPack
 
 FORWARD ME_552E49070307
+
+FORWARD ME_552E497A03E2
 
 FORWARD ME_39ABBBDC9493
 
 : ME_696CE121E20D
  CONST UID '696CE121E20D'
  CONST Name 'aCtx'
+ CONST IsSummoned true
  CONST Class class_Parameter
  : Stereotype st_in ;
  : Target WL 'ME_4DB0091E033E' '4DAF19F600C5.pas.ms.script' // TtfwContext
@@ -3561,6 +3972,7 @@ ref; // ME_696CE121E20D aCtx
 : ME_696CE121E20E
  CONST UID '696CE121E20E'
  CONST Name 'aPageControl'
+ CONST IsSummoned true
  CONST Class class_Parameter
  : Stereotype st_in ;
  : Target WL 'ME_4E36C0C3014B' '499ABF4F02A1.pas.ms.script' // TElCustomPageControl
@@ -3571,6 +3983,7 @@ ref; // ME_696CE121E20E aPageControl
 : ME_696CE121E20F
  CONST UID '696CE121E20F'
  CONST Name 'aCaption'
+ CONST IsSummoned true
  CONST Class class_Parameter
  : Stereotype st_in ;
  : Target WL 'ME_46780DA40383' '4677FBA70343.pas.ms.script' // Il3CString
@@ -3581,6 +3994,7 @@ ref; // ME_696CE121E20F aCaption
 : ME_FCC6A46AF340
  CONST UID 'FCC6A46AF340'
  CONST Name 'FindPageByCaption'
+ CONST IsSummoned true
  CONST Class class_Operation
  %SUMMARY 'Реализация слова скрипта pop:PageControl:FindPageByCaption' ;
  CONST Visibility PrivateAccess
@@ -3590,10 +4004,10 @@ ref; // ME_696CE121E20F aCaption
  : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
  ;
  : Parameters
-   @ ( ME_696CE121E20D // aCtx
+   Seq: ( ME_696CE121E20D // aCtx
  ME_696CE121E20E // aPageControl
  ME_696CE121E20F // aCaption
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_FCC6A46AF340 FindPageByCaption
@@ -3601,6 +4015,7 @@ ref; // ME_FCC6A46AF340 FindPageByCaption
 : ME_8A1C6A567D94
  CONST UID '8A1C6A567D94'
  CONST Name 'Ini_Reg'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Регистрация pop_PageControl_FindPageByCaption' ;
@@ -3613,6 +4028,7 @@ ref; // ME_8A1C6A567D94 Ini_Reg
 
 : ME_BB012EC36A47
  CONST UID 'BB012EC36A47'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_39ABBBDC9493 // pop_PageControl_FindPageByCaption
@@ -3624,6 +4040,7 @@ ref; // ME_BB012EC36A47
 
 : ME_07B391425F6D
  CONST UID '07B391425F6D'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_39ABBBDC9493 // pop_PageControl_FindPageByCaption
@@ -3635,6 +4052,7 @@ ref; // ME_07B391425F6D
 
 : ME_A4798DC01583
  CONST UID 'A4798DC01583'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_39ABBBDC9493 // pop_PageControl_FindPageByCaption
@@ -3651,6 +4069,7 @@ ref; // ME_A4798DC01583
  ;
  : Implementor ME_39ABBBDC9493 // pop_PageControl_FindPageByCaption
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_4DAEEDE10285_ME_39ABBBDC9493 DoDoIt
 
 : ME_4DB0614603C8_ME_39ABBBDC9493
@@ -3660,6 +4079,7 @@ ref; // ME_4DAEEDE10285_ME_39ABBBDC9493 DoDoIt
  ;
  : Implementor ME_39ABBBDC9493 // pop_PageControl_FindPageByCaption
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4DB0614603C8_ME_39ABBBDC9493 GetWordNameForRegister
 
 : ME_551544E2001A_ME_39ABBBDC9493
@@ -3669,6 +4089,7 @@ ref; // ME_4DB0614603C8_ME_39ABBBDC9493 GetWordNameForRegister
  ;
  : Implementor ME_39ABBBDC9493 // pop_PageControl_FindPageByCaption
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_551544E2001A_ME_39ABBBDC9493 GetResultTypeInfo
 
 : ME_559687E6025A_ME_39ABBBDC9493
@@ -3678,6 +4099,7 @@ ref; // ME_551544E2001A_ME_39ABBBDC9493 GetResultTypeInfo
  ;
  : Implementor ME_39ABBBDC9493 // pop_PageControl_FindPageByCaption
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_559687E6025A_ME_39ABBBDC9493 GetAllParamsCount
 
 : ME_5617F4D00243_ME_39ABBBDC9493
@@ -3687,11 +4109,13 @@ ref; // ME_559687E6025A_ME_39ABBBDC9493 GetAllParamsCount
  ;
  : Implementor ME_39ABBBDC9493 // pop_PageControl_FindPageByCaption
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_5617F4D00243_ME_39ABBBDC9493 ParamsTypes
 
 : ME_39ABBBDC9493
  CONST UID '39ABBBDC9493'
  CONST Name 'pop_PageControl_FindPageByCaption'
+ CONST IsSummoned true
  CONST Class class_Class
  : Stereotype st_ScriptKeyword ;
  CONST Kind kind_NormalClass
@@ -3701,45 +4125,56 @@ ref; // ME_5617F4D00243_ME_39ABBBDC9493 ParamsTypes
  : Parent ME_552E49070307 // PageControlWordsPack
  ;
  : Inherits
-   @ ( WL 'ME_55CCAE000335' '55CCADD2013D.pas.ms.script' // TtfwClassLike
- ) .SequenceCode.It
+   Seq: ( WL 'ME_55CCAE000335' '55CCADD2013D.pas.ms.script' // TtfwClassLike
+ )
  ; // Inherits
  : Operations
-   @ ( ME_FCC6A46AF340 // FindPageByCaption
+   Seq: ( ME_FCC6A46AF340 // FindPageByCaption
  ME_8A1C6A567D94 // Ini_Reg
- ) .SequenceCode.It
+ )
  ; // Operations
  : Implemented
-   @ ( ME_4DAEEDE10285_ME_39ABBBDC9493 // DoDoIt
- ) .SequenceCode.It
+   Seq: ( ME_4DAEEDE10285_ME_39ABBBDC9493 // DoDoIt
+ )
  ; // Implemented
  : Overridden
-   @ ( ME_4DB0614603C8_ME_39ABBBDC9493 // GetWordNameForRegister
+   Seq: ( ME_4DB0614603C8_ME_39ABBBDC9493 // GetWordNameForRegister
  ME_551544E2001A_ME_39ABBBDC9493 // GetResultTypeInfo
  ME_559687E6025A_ME_39ABBBDC9493 // GetAllParamsCount
  ME_5617F4D00243_ME_39ABBBDC9493 // ParamsTypes
- ) .SequenceCode.It
+ )
  ; // Overridden
  : Dependencies
-   @ ( ME_BB012EC36A47 // 
+   Seq: ( ME_BB012EC36A47 // 
  ME_07B391425F6D // 
  ME_A4798DC01583 // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  CONST "NameForScript" 'pop:PageControl:FindPageByCaption'
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
+ CONST dfm:PathOnly '\common\components\rtl\Garant\ScriptEngine'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\ScriptEngine'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
  CONST extprop:pas:TypeName 'TkwPopPageControlFindPageByCaption'
+ CONST extprop:rc:SelfName 'PopPageControlFindPageByCaption'
+ CONST extprop:rc:isAcceptableForScripts true
+ : SpelledFor ME_552E497A03E2 // FindPageByCaption
+ ;
 
 ref; // ME_39ABBBDC9493 pop_PageControl_FindPageByCaption
+
+FORWARD ME_552E49BC0078
 
 FORWARD ME_1C7B18964322
 
 : ME_3D5919C81E97
  CONST UID '3D5919C81E97'
  CONST Name 'aCtx'
+ CONST IsSummoned true
  CONST Class class_Parameter
  : Stereotype st_in ;
  : Target WL 'ME_4DB0091E033E' '4DAF19F600C5.pas.ms.script' // TtfwContext
@@ -3750,6 +4185,7 @@ ref; // ME_3D5919C81E97 aCtx
 : ME_3D5919C81E98
  CONST UID '3D5919C81E98'
  CONST Name 'aPageControl'
+ CONST IsSummoned true
  CONST Class class_Parameter
  : Stereotype st_in ;
  : Target WL 'ME_4E36C0C3014B' '499ABF4F02A1.pas.ms.script' // TElCustomPageControl
@@ -3760,6 +4196,7 @@ ref; // ME_3D5919C81E98 aPageControl
 : ME_3D5919C81E99
  CONST UID '3D5919C81E99'
  CONST Name 'anIndex'
+ CONST IsSummoned true
  CONST Class class_Parameter
  : Stereotype st_in ;
  : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
@@ -3770,6 +4207,7 @@ ref; // ME_3D5919C81E99 anIndex
 : ME_600644323CE8
  CONST UID '600644323CE8'
  CONST Name 'PageCaptionByIndex'
+ CONST IsSummoned true
  CONST Class class_Operation
  %SUMMARY 'Реализация слова скрипта pop:PageControl:PageCaptionByIndex' ;
  CONST Visibility PrivateAccess
@@ -3779,10 +4217,10 @@ ref; // ME_3D5919C81E99 anIndex
  : Target WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
  ;
  : Parameters
-   @ ( ME_3D5919C81E97 // aCtx
+   Seq: ( ME_3D5919C81E97 // aCtx
  ME_3D5919C81E98 // aPageControl
  ME_3D5919C81E99 // anIndex
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_600644323CE8 PageCaptionByIndex
@@ -3790,6 +4228,7 @@ ref; // ME_600644323CE8 PageCaptionByIndex
 : ME_736234021CE4
  CONST UID '736234021CE4'
  CONST Name 'Ini_Reg'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Регистрация pop_PageControl_PageCaptionByIndex' ;
@@ -3802,6 +4241,7 @@ ref; // ME_736234021CE4 Ini_Reg
 
 : ME_BEE17A5791A1
  CONST UID 'BEE17A5791A1'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_1C7B18964322 // pop_PageControl_PageCaptionByIndex
@@ -3813,6 +4253,7 @@ ref; // ME_BEE17A5791A1
 
 : ME_63E014712F2D
  CONST UID '63E014712F2D'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_1C7B18964322 // pop_PageControl_PageCaptionByIndex
@@ -3824,6 +4265,7 @@ ref; // ME_63E014712F2D
 
 : ME_9523C23D1654
  CONST UID '9523C23D1654'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_1C7B18964322 // pop_PageControl_PageCaptionByIndex
@@ -3840,6 +4282,7 @@ ref; // ME_9523C23D1654
  ;
  : Implementor ME_1C7B18964322 // pop_PageControl_PageCaptionByIndex
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_4DAEEDE10285_ME_1C7B18964322 DoDoIt
 
 : ME_4DB0614603C8_ME_1C7B18964322
@@ -3849,6 +4292,7 @@ ref; // ME_4DAEEDE10285_ME_1C7B18964322 DoDoIt
  ;
  : Implementor ME_1C7B18964322 // pop_PageControl_PageCaptionByIndex
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4DB0614603C8_ME_1C7B18964322 GetWordNameForRegister
 
 : ME_551544E2001A_ME_1C7B18964322
@@ -3858,6 +4302,7 @@ ref; // ME_4DB0614603C8_ME_1C7B18964322 GetWordNameForRegister
  ;
  : Implementor ME_1C7B18964322 // pop_PageControl_PageCaptionByIndex
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_551544E2001A_ME_1C7B18964322 GetResultTypeInfo
 
 : ME_559687E6025A_ME_1C7B18964322
@@ -3867,6 +4312,7 @@ ref; // ME_551544E2001A_ME_1C7B18964322 GetResultTypeInfo
  ;
  : Implementor ME_1C7B18964322 // pop_PageControl_PageCaptionByIndex
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_559687E6025A_ME_1C7B18964322 GetAllParamsCount
 
 : ME_5617F4D00243_ME_1C7B18964322
@@ -3876,11 +4322,13 @@ ref; // ME_559687E6025A_ME_1C7B18964322 GetAllParamsCount
  ;
  : Implementor ME_1C7B18964322 // pop_PageControl_PageCaptionByIndex
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_5617F4D00243_ME_1C7B18964322 ParamsTypes
 
 : ME_1C7B18964322
  CONST UID '1C7B18964322'
  CONST Name 'pop_PageControl_PageCaptionByIndex'
+ CONST IsSummoned true
  CONST Class class_Class
  : Stereotype st_ScriptKeyword ;
  CONST Kind kind_NormalClass
@@ -3890,45 +4338,56 @@ ref; // ME_5617F4D00243_ME_1C7B18964322 ParamsTypes
  : Parent ME_552E49070307 // PageControlWordsPack
  ;
  : Inherits
-   @ ( WL 'ME_55CCAE000335' '55CCADD2013D.pas.ms.script' // TtfwClassLike
- ) .SequenceCode.It
+   Seq: ( WL 'ME_55CCAE000335' '55CCADD2013D.pas.ms.script' // TtfwClassLike
+ )
  ; // Inherits
  : Operations
-   @ ( ME_600644323CE8 // PageCaptionByIndex
+   Seq: ( ME_600644323CE8 // PageCaptionByIndex
  ME_736234021CE4 // Ini_Reg
- ) .SequenceCode.It
+ )
  ; // Operations
  : Implemented
-   @ ( ME_4DAEEDE10285_ME_1C7B18964322 // DoDoIt
- ) .SequenceCode.It
+   Seq: ( ME_4DAEEDE10285_ME_1C7B18964322 // DoDoIt
+ )
  ; // Implemented
  : Overridden
-   @ ( ME_4DB0614603C8_ME_1C7B18964322 // GetWordNameForRegister
+   Seq: ( ME_4DB0614603C8_ME_1C7B18964322 // GetWordNameForRegister
  ME_551544E2001A_ME_1C7B18964322 // GetResultTypeInfo
  ME_559687E6025A_ME_1C7B18964322 // GetAllParamsCount
  ME_5617F4D00243_ME_1C7B18964322 // ParamsTypes
- ) .SequenceCode.It
+ )
  ; // Overridden
  : Dependencies
-   @ ( ME_BEE17A5791A1 // 
+   Seq: ( ME_BEE17A5791A1 // 
  ME_63E014712F2D // 
  ME_9523C23D1654 // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  CONST "NameForScript" 'pop:PageControl:PageCaptionByIndex'
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
+ CONST dfm:PathOnly '\common\components\rtl\Garant\ScriptEngine'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\ScriptEngine'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
  CONST extprop:pas:TypeName 'TkwPopPageControlPageCaptionByIndex'
+ CONST extprop:rc:SelfName 'PopPageControlPageCaptionByIndex'
+ CONST extprop:rc:isAcceptableForScripts true
+ : SpelledFor ME_552E49BC0078 // PageCaptionByIndex
+ ;
 
 ref; // ME_1C7B18964322 pop_PageControl_PageCaptionByIndex
+
+FORWARD ME_552E49E00306
 
 FORWARD ME_CF3FBFFD21B3
 
 : ME_06CB2A47DF76
  CONST UID '06CB2A47DF76'
  CONST Name 'aCtx'
+ CONST IsSummoned true
  CONST Class class_Parameter
  : Stereotype st_in ;
  : Target WL 'ME_4DB0091E033E' '4DAF19F600C5.pas.ms.script' // TtfwContext
@@ -3939,6 +4398,7 @@ ref; // ME_06CB2A47DF76 aCtx
 : ME_06CB2A47DF77
  CONST UID '06CB2A47DF77'
  CONST Name 'aPageControl'
+ CONST IsSummoned true
  CONST Class class_Parameter
  : Stereotype st_in ;
  : Target WL 'ME_4E36C0C3014B' '499ABF4F02A1.pas.ms.script' // TElCustomPageControl
@@ -3949,6 +4409,7 @@ ref; // ME_06CB2A47DF77 aPageControl
 : ME_06CB2A47DF78
  CONST UID '06CB2A47DF78'
  CONST Name 'anIndex'
+ CONST IsSummoned true
  CONST Class class_Parameter
  : Stereotype st_in ;
  : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
@@ -3959,6 +4420,7 @@ ref; // ME_06CB2A47DF78 anIndex
 : ME_2BB966C33F13
  CONST UID '2BB966C33F13'
  CONST Name 'PageByIndex'
+ CONST IsSummoned true
  CONST Class class_Operation
  %SUMMARY 'Реализация слова скрипта pop:PageControl:PageByIndex' ;
  CONST Visibility PrivateAccess
@@ -3968,10 +4430,10 @@ ref; // ME_06CB2A47DF78 anIndex
  : Target WL 'ME_499ABF9802AC' '499ABF4F02A1.pas.ms.script' // TElTabSheet
  ;
  : Parameters
-   @ ( ME_06CB2A47DF76 // aCtx
+   Seq: ( ME_06CB2A47DF76 // aCtx
  ME_06CB2A47DF77 // aPageControl
  ME_06CB2A47DF78 // anIndex
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_2BB966C33F13 PageByIndex
@@ -3979,6 +4441,7 @@ ref; // ME_2BB966C33F13 PageByIndex
 : ME_FF0D38636DC4
  CONST UID 'FF0D38636DC4'
  CONST Name 'Ini_Reg'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Регистрация pop_PageControl_PageByIndex' ;
@@ -3991,6 +4454,7 @@ ref; // ME_FF0D38636DC4 Ini_Reg
 
 : ME_71D250B88C2F
  CONST UID '71D250B88C2F'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_CF3FBFFD21B3 // pop_PageControl_PageByIndex
@@ -4002,6 +4466,7 @@ ref; // ME_71D250B88C2F
 
 : ME_A10146E0E49B
  CONST UID 'A10146E0E49B'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_CF3FBFFD21B3 // pop_PageControl_PageByIndex
@@ -4013,6 +4478,7 @@ ref; // ME_A10146E0E49B
 
 : ME_EAF54CCC448E
  CONST UID 'EAF54CCC448E'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_CF3FBFFD21B3 // pop_PageControl_PageByIndex
@@ -4029,6 +4495,7 @@ ref; // ME_EAF54CCC448E
  ;
  : Implementor ME_CF3FBFFD21B3 // pop_PageControl_PageByIndex
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_4DAEEDE10285_ME_CF3FBFFD21B3 DoDoIt
 
 : ME_4DB0614603C8_ME_CF3FBFFD21B3
@@ -4038,6 +4505,7 @@ ref; // ME_4DAEEDE10285_ME_CF3FBFFD21B3 DoDoIt
  ;
  : Implementor ME_CF3FBFFD21B3 // pop_PageControl_PageByIndex
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4DB0614603C8_ME_CF3FBFFD21B3 GetWordNameForRegister
 
 : ME_551544E2001A_ME_CF3FBFFD21B3
@@ -4047,6 +4515,7 @@ ref; // ME_4DB0614603C8_ME_CF3FBFFD21B3 GetWordNameForRegister
  ;
  : Implementor ME_CF3FBFFD21B3 // pop_PageControl_PageByIndex
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_551544E2001A_ME_CF3FBFFD21B3 GetResultTypeInfo
 
 : ME_559687E6025A_ME_CF3FBFFD21B3
@@ -4056,6 +4525,7 @@ ref; // ME_551544E2001A_ME_CF3FBFFD21B3 GetResultTypeInfo
  ;
  : Implementor ME_CF3FBFFD21B3 // pop_PageControl_PageByIndex
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_559687E6025A_ME_CF3FBFFD21B3 GetAllParamsCount
 
 : ME_5617F4D00243_ME_CF3FBFFD21B3
@@ -4065,11 +4535,13 @@ ref; // ME_559687E6025A_ME_CF3FBFFD21B3 GetAllParamsCount
  ;
  : Implementor ME_CF3FBFFD21B3 // pop_PageControl_PageByIndex
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_5617F4D00243_ME_CF3FBFFD21B3 ParamsTypes
 
 : ME_CF3FBFFD21B3
  CONST UID 'CF3FBFFD21B3'
  CONST Name 'pop_PageControl_PageByIndex'
+ CONST IsSummoned true
  CONST Class class_Class
  : Stereotype st_ScriptKeyword ;
  CONST Kind kind_NormalClass
@@ -4079,45 +4551,56 @@ ref; // ME_5617F4D00243_ME_CF3FBFFD21B3 ParamsTypes
  : Parent ME_552E49070307 // PageControlWordsPack
  ;
  : Inherits
-   @ ( WL 'ME_55CCAE000335' '55CCADD2013D.pas.ms.script' // TtfwClassLike
- ) .SequenceCode.It
+   Seq: ( WL 'ME_55CCAE000335' '55CCADD2013D.pas.ms.script' // TtfwClassLike
+ )
  ; // Inherits
  : Operations
-   @ ( ME_2BB966C33F13 // PageByIndex
+   Seq: ( ME_2BB966C33F13 // PageByIndex
  ME_FF0D38636DC4 // Ini_Reg
- ) .SequenceCode.It
+ )
  ; // Operations
  : Implemented
-   @ ( ME_4DAEEDE10285_ME_CF3FBFFD21B3 // DoDoIt
- ) .SequenceCode.It
+   Seq: ( ME_4DAEEDE10285_ME_CF3FBFFD21B3 // DoDoIt
+ )
  ; // Implemented
  : Overridden
-   @ ( ME_4DB0614603C8_ME_CF3FBFFD21B3 // GetWordNameForRegister
+   Seq: ( ME_4DB0614603C8_ME_CF3FBFFD21B3 // GetWordNameForRegister
  ME_551544E2001A_ME_CF3FBFFD21B3 // GetResultTypeInfo
  ME_559687E6025A_ME_CF3FBFFD21B3 // GetAllParamsCount
  ME_5617F4D00243_ME_CF3FBFFD21B3 // ParamsTypes
- ) .SequenceCode.It
+ )
  ; // Overridden
  : Dependencies
-   @ ( ME_71D250B88C2F // 
+   Seq: ( ME_71D250B88C2F // 
  ME_A10146E0E49B // 
  ME_EAF54CCC448E // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  CONST "NameForScript" 'pop:PageControl:PageByIndex'
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
+ CONST dfm:PathOnly '\common\components\rtl\Garant\ScriptEngine'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\ScriptEngine'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
  CONST extprop:pas:TypeName 'TkwPopPageControlPageByIndex'
+ CONST extprop:rc:SelfName 'PopPageControlPageByIndex'
+ CONST extprop:rc:isAcceptableForScripts true
+ : SpelledFor ME_552E49E00306 // PageByIndex
+ ;
 
 ref; // ME_CF3FBFFD21B3 pop_PageControl_PageByIndex
+
+FORWARD ME_552E4A5E02C9
 
 FORWARD ME_2A5E921BA82F
 
 : ME_CCC973E82F25
  CONST UID 'CCC973E82F25'
  CONST Name 'aCtx'
+ CONST IsSummoned true
  CONST Class class_Parameter
  : Stereotype st_in ;
  : Target WL 'ME_4DB0091E033E' '4DAF19F600C5.pas.ms.script' // TtfwContext
@@ -4128,6 +4611,7 @@ ref; // ME_CCC973E82F25 aCtx
 : ME_CCC973E82F26
  CONST UID 'CCC973E82F26'
  CONST Name 'aPageControl'
+ CONST IsSummoned true
  CONST Class class_Parameter
  : Stereotype st_in ;
  : Target WL 'ME_4E36C0C3014B' '499ABF4F02A1.pas.ms.script' // TElCustomPageControl
@@ -4138,6 +4622,7 @@ ref; // ME_CCC973E82F26 aPageControl
 : ME_29701A9D9F2B
  CONST UID '29701A9D9F2B'
  CONST Name 'GetAllPageCaptions'
+ CONST IsSummoned true
  CONST Class class_Operation
  %SUMMARY 'Реализация слова скрипта pop:PageControl:GetAllPageCaptions' ;
  CONST Visibility PrivateAccess
@@ -4147,9 +4632,9 @@ ref; // ME_CCC973E82F26 aPageControl
  : Target WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
  ;
  : Parameters
-   @ ( ME_CCC973E82F25 // aCtx
+   Seq: ( ME_CCC973E82F25 // aCtx
  ME_CCC973E82F26 // aPageControl
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_29701A9D9F2B GetAllPageCaptions
@@ -4157,6 +4642,7 @@ ref; // ME_29701A9D9F2B GetAllPageCaptions
 : ME_DFDE1FE20015
  CONST UID 'DFDE1FE20015'
  CONST Name 'Ini_Reg'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Регистрация pop_PageControl_GetAllPageCaptions' ;
@@ -4169,6 +4655,7 @@ ref; // ME_DFDE1FE20015 Ini_Reg
 
 : ME_C1CF5BD60269
  CONST UID 'C1CF5BD60269'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_2A5E921BA82F // pop_PageControl_GetAllPageCaptions
@@ -4180,6 +4667,7 @@ ref; // ME_C1CF5BD60269
 
 : ME_89395BEE000D
  CONST UID '89395BEE000D'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_2A5E921BA82F // pop_PageControl_GetAllPageCaptions
@@ -4191,6 +4679,7 @@ ref; // ME_89395BEE000D
 
 : ME_C53ED93F2E0F
  CONST UID 'C53ED93F2E0F'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_2A5E921BA82F // pop_PageControl_GetAllPageCaptions
@@ -4207,6 +4696,7 @@ ref; // ME_C53ED93F2E0F
  ;
  : Implementor ME_2A5E921BA82F // pop_PageControl_GetAllPageCaptions
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_4DAEEDE10285_ME_2A5E921BA82F DoDoIt
 
 : ME_4DB0614603C8_ME_2A5E921BA82F
@@ -4216,6 +4706,7 @@ ref; // ME_4DAEEDE10285_ME_2A5E921BA82F DoDoIt
  ;
  : Implementor ME_2A5E921BA82F // pop_PageControl_GetAllPageCaptions
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4DB0614603C8_ME_2A5E921BA82F GetWordNameForRegister
 
 : ME_551544E2001A_ME_2A5E921BA82F
@@ -4225,6 +4716,7 @@ ref; // ME_4DB0614603C8_ME_2A5E921BA82F GetWordNameForRegister
  ;
  : Implementor ME_2A5E921BA82F // pop_PageControl_GetAllPageCaptions
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_551544E2001A_ME_2A5E921BA82F GetResultTypeInfo
 
 : ME_559687E6025A_ME_2A5E921BA82F
@@ -4234,6 +4726,7 @@ ref; // ME_551544E2001A_ME_2A5E921BA82F GetResultTypeInfo
  ;
  : Implementor ME_2A5E921BA82F // pop_PageControl_GetAllPageCaptions
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_559687E6025A_ME_2A5E921BA82F GetAllParamsCount
 
 : ME_5617F4D00243_ME_2A5E921BA82F
@@ -4243,11 +4736,13 @@ ref; // ME_559687E6025A_ME_2A5E921BA82F GetAllParamsCount
  ;
  : Implementor ME_2A5E921BA82F // pop_PageControl_GetAllPageCaptions
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_5617F4D00243_ME_2A5E921BA82F ParamsTypes
 
 : ME_2A5E921BA82F
  CONST UID '2A5E921BA82F'
  CONST Name 'pop_PageControl_GetAllPageCaptions'
+ CONST IsSummoned true
  CONST Class class_Class
  : Stereotype st_ScriptKeyword ;
  CONST Kind kind_NormalClass
@@ -4257,37 +4752,45 @@ ref; // ME_5617F4D00243_ME_2A5E921BA82F ParamsTypes
  : Parent ME_552E49070307 // PageControlWordsPack
  ;
  : Inherits
-   @ ( WL 'ME_55CCAE000335' '55CCADD2013D.pas.ms.script' // TtfwClassLike
- ) .SequenceCode.It
+   Seq: ( WL 'ME_55CCAE000335' '55CCADD2013D.pas.ms.script' // TtfwClassLike
+ )
  ; // Inherits
  : Operations
-   @ ( ME_29701A9D9F2B // GetAllPageCaptions
+   Seq: ( ME_29701A9D9F2B // GetAllPageCaptions
  ME_DFDE1FE20015 // Ini_Reg
- ) .SequenceCode.It
+ )
  ; // Operations
  : Implemented
-   @ ( ME_4DAEEDE10285_ME_2A5E921BA82F // DoDoIt
- ) .SequenceCode.It
+   Seq: ( ME_4DAEEDE10285_ME_2A5E921BA82F // DoDoIt
+ )
  ; // Implemented
  : Overridden
-   @ ( ME_4DB0614603C8_ME_2A5E921BA82F // GetWordNameForRegister
+   Seq: ( ME_4DB0614603C8_ME_2A5E921BA82F // GetWordNameForRegister
  ME_551544E2001A_ME_2A5E921BA82F // GetResultTypeInfo
  ME_559687E6025A_ME_2A5E921BA82F // GetAllParamsCount
  ME_5617F4D00243_ME_2A5E921BA82F // ParamsTypes
- ) .SequenceCode.It
+ )
  ; // Overridden
  : Dependencies
-   @ ( ME_C1CF5BD60269 // 
+   Seq: ( ME_C1CF5BD60269 // 
  ME_89395BEE000D // 
  ME_C53ED93F2E0F // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  CONST "NameForScript" 'pop:PageControl:GetAllPageCaptions'
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
+ CONST dfm:PathOnly '\common\components\rtl\Garant\ScriptEngine'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\ScriptEngine'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
  CONST extprop:pas:TypeName 'TkwPopPageControlGetAllPageCaptions'
+ CONST extprop:rc:SelfName 'PopPageControlGetAllPageCaptions'
+ CONST extprop:rc:isAcceptableForScripts true
+ : SpelledFor ME_552E4A5E02C9 // GetAllPageCaptions
+ ;
 
 ref; // ME_2A5E921BA82F pop_PageControl_GetAllPageCaptions
 
@@ -4313,12 +4816,14 @@ ref; // ME_552E499F012A aCaption
  : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
  ;
  : Parameters
-   @ ( ME_552E499F012A // aCaption
- ) .SequenceCode.It
+   Seq: ( ME_552E499F012A // aCaption
+ )
  ; // Parameters
  CONST "bind params" 'undefined'
  CONST "lvalue" 'undefined'
  CONST "mapped" 'undefined'
+ : Speller ME_39ABBBDC9493 // pop_PageControl_FindPageByCaption
+ ;
 
 ref; // ME_552E497A03E2 FindPageByCaption
 
@@ -4344,12 +4849,14 @@ ref; // ME_552E49C6034B anIndex
  : Target WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
  ;
  : Parameters
-   @ ( ME_552E49C6034B // anIndex
- ) .SequenceCode.It
+   Seq: ( ME_552E49C6034B // anIndex
+ )
  ; // Parameters
  CONST "bind params" 'undefined'
  CONST "lvalue" 'undefined'
  CONST "mapped" 'undefined'
+ : Speller ME_1C7B18964322 // pop_PageControl_PageCaptionByIndex
+ ;
 
 ref; // ME_552E49BC0078 PageCaptionByIndex
 
@@ -4375,12 +4882,14 @@ ref; // ME_552E4A1C0261 anIndex
  : Target WL 'ME_499ABF9802AC' '499ABF4F02A1.pas.ms.script' // TElTabSheet
  ;
  : Parameters
-   @ ( ME_552E4A1C0261 // anIndex
- ) .SequenceCode.It
+   Seq: ( ME_552E4A1C0261 // anIndex
+ )
  ; // Parameters
  CONST "bind params" 'undefined'
  CONST "lvalue" 'undefined'
  CONST "mapped" 'undefined'
+ : Speller ME_CF3FBFFD21B3 // pop_PageControl_PageByIndex
+ ;
 
 ref; // ME_552E49E00306 PageByIndex
 
@@ -4398,12 +4907,15 @@ ref; // ME_552E49E00306 PageByIndex
  CONST "bind params" 'undefined'
  CONST "lvalue" 'undefined'
  CONST "mapped" 'undefined'
+ : Speller ME_2A5E921BA82F // pop_PageControl_GetAllPageCaptions
+ ;
 
 ref; // ME_552E4A5E02C9 GetAllPageCaptions
 
 : ME_FF6E261E5670
  CONST UID 'FF6E261E5670'
- CONST Name 'Reg_TtfwContext'
+ CONST Name 'Reg_Type_TtfwContext'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Регистрация типа TtfwContext' ;
@@ -4411,12 +4923,15 @@ ref; // ME_552E4A5E02C9 GetAllPageCaptions
  CONST Abstraction at_final
  : Parent ME_552E49070307 // PageControlWordsPack
  ;
+ : SpelledFor WL 'ME_4DB0091E033E' '4DAF19F600C5.pas.ms.script' // TtfwContext
+ ;
 
-ref; // ME_FF6E261E5670 Reg_TtfwContext
+ref; // ME_FF6E261E5670 Reg_Type_TtfwContext
 
 : ME_7DFAB41E3AF0
  CONST UID '7DFAB41E3AF0'
- CONST Name 'Reg_TElCustomPageControl'
+ CONST Name 'Reg_Type_TElCustomPageControl'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Регистрация типа TElCustomPageControl' ;
@@ -4424,12 +4939,15 @@ ref; // ME_FF6E261E5670 Reg_TtfwContext
  CONST Abstraction at_final
  : Parent ME_552E49070307 // PageControlWordsPack
  ;
+ : SpelledFor WL 'ME_4E36C0C3014B' '499ABF4F02A1.pas.ms.script' // TElCustomPageControl
+ ;
 
-ref; // ME_7DFAB41E3AF0 Reg_TElCustomPageControl
+ref; // ME_7DFAB41E3AF0 Reg_Type_TElCustomPageControl
 
 : ME_1CA5C622C0E7
  CONST UID '1CA5C622C0E7'
- CONST Name 'Reg_Il3CString'
+ CONST Name 'Reg_Type_Il3CString'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Регистрация типа Il3CString' ;
@@ -4437,12 +4955,15 @@ ref; // ME_7DFAB41E3AF0 Reg_TElCustomPageControl
  CONST Abstraction at_final
  : Parent ME_552E49070307 // PageControlWordsPack
  ;
+ : SpelledFor WL 'ME_46780DA40383' '4677FBA70343.pas.ms.script' // Il3CString
+ ;
 
-ref; // ME_1CA5C622C0E7 Reg_Il3CString
+ref; // ME_1CA5C622C0E7 Reg_Type_Il3CString
 
 : ME_1315397436AD
  CONST UID '1315397436AD'
- CONST Name 'Reg_Integer'
+ CONST Name 'Reg_Type_Integer'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Регистрация типа Integer' ;
@@ -4450,12 +4971,15 @@ ref; // ME_1CA5C622C0E7 Reg_Il3CString
  CONST Abstraction at_final
  : Parent ME_552E49070307 // PageControlWordsPack
  ;
+ : SpelledFor WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
 
-ref; // ME_1315397436AD Reg_Integer
+ref; // ME_1315397436AD Reg_Type_Integer
 
 : ME_7D24E327930B
  CONST UID '7D24E327930B'
- CONST Name 'Reg_String'
+ CONST Name 'Reg_Type_String'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Регистрация типа String' ;
@@ -4463,12 +4987,15 @@ ref; // ME_1315397436AD Reg_Integer
  CONST Abstraction at_final
  : Parent ME_552E49070307 // PageControlWordsPack
  ;
+ : SpelledFor WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
+ ;
 
-ref; // ME_7D24E327930B Reg_String
+ref; // ME_7D24E327930B Reg_Type_String
 
 : ME_CC2A35F48157
  CONST UID 'CC2A35F48157'
- CONST Name 'Reg_TElTabSheet'
+ CONST Name 'Reg_Type_TElTabSheet'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Регистрация типа TElTabSheet' ;
@@ -4476,8 +5003,10 @@ ref; // ME_7D24E327930B Reg_String
  CONST Abstraction at_final
  : Parent ME_552E49070307 // PageControlWordsPack
  ;
+ : SpelledFor WL 'ME_499ABF9802AC' '499ABF4F02A1.pas.ms.script' // TElTabSheet
+ ;
 
-ref; // ME_CC2A35F48157 Reg_TElTabSheet
+ref; // ME_CC2A35F48157 Reg_Type_TElTabSheet
 
 : ME_552E496C017C
  CONST UID '552E496C017C'
@@ -4492,6 +5021,7 @@ ref; // ME_552E496C017C
 
 : ME_A807A64D9A51
  CONST UID 'A807A64D9A51'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_552E49070307 // PageControlWordsPack
@@ -4503,6 +5033,7 @@ ref; // ME_A807A64D9A51
 
 : ME_E95BFC7A3A3A
  CONST UID 'E95BFC7A3A3A'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_injects::Dependency ;
  : Parent ME_552E49070307 // PageControlWordsPack
@@ -4514,6 +5045,7 @@ ref; // ME_E95BFC7A3A3A
 
 : ME_8A536F6477F1
  CONST UID '8A536F6477F1'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_552E49070307 // PageControlWordsPack
@@ -4534,47 +5066,46 @@ ref; // ME_8A536F6477F1
  : Parent ME_4F6094D80196 // vtControlsFromStackWords
  ;
  : Inherits
-   @ ( WL 'ME_4E36C0C3014B' '499ABF4F02A1.pas.ms.script' // TElCustomPageControl
- ) .SequenceCode.It
+   Seq: ( WL 'ME_4E36C0C3014B' '499ABF4F02A1.pas.ms.script' // TElCustomPageControl
+ )
  ; // Inherits
  : Operations
-   @ ( ME_552E497A03E2 // FindPageByCaption
+   Seq: ( ME_552E497A03E2 // FindPageByCaption
  ME_552E49BC0078 // PageCaptionByIndex
  ME_552E49E00306 // PageByIndex
  ME_552E4A5E02C9 // GetAllPageCaptions
- ME_FF6E261E5670 // Reg_TtfwContext
- ME_7DFAB41E3AF0 // Reg_TElCustomPageControl
- ME_1CA5C622C0E7 // Reg_Il3CString
- ME_1315397436AD // Reg_Integer
- ME_7D24E327930B // Reg_String
- ME_CC2A35F48157 // Reg_TElTabSheet
- ) .SequenceCode.It
+ ME_FF6E261E5670 // Reg_Type_TtfwContext
+ ME_7DFAB41E3AF0 // Reg_Type_TElCustomPageControl
+ ME_1CA5C622C0E7 // Reg_Type_Il3CString
+ ME_1315397436AD // Reg_Type_Integer
+ ME_7D24E327930B // Reg_Type_String
+ ME_CC2A35F48157 // Reg_Type_TElTabSheet
+ )
  ; // Operations
  : Children
-   @ ( ME_39ABBBDC9493 // pop_PageControl_FindPageByCaption
+   Seq: ( ME_39ABBBDC9493 // pop_PageControl_FindPageByCaption
  ME_1C7B18964322 // pop_PageControl_PageCaptionByIndex
  ME_CF3FBFFD21B3 // pop_PageControl_PageByIndex
  ME_2A5E921BA82F // pop_PageControl_GetAllPageCaptions
- ) .SequenceCode.It
+ )
  ; // Children
  : Dependencies
-   @ ( ME_552E496C017C // 
+   Seq: ( ME_552E496C017C // 
  ME_A807A64D9A51 // 
  ME_E95BFC7A3A3A // 
  ME_8A536F6477F1 // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  CONST "ifndef" 'NoScripts'
  CONST "needs script" 'undefined'
  CONST "no class name" 'undefined'
  CONST "no hands" false
  CONST "no_pop" 'undefined'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\ScriptEngine'
  CONST intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\PageControlWordsPack.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\ScriptEngine'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_552E49070307 PageControlWordsPack
 
@@ -4588,7 +5119,7 @@ ref; // ME_552E49070307 PageControlWordsPack
  : Parent WL 'ME_54EC57FA0285' '54EC57FA0285.pas.ms.script' // ScriptEngine$VT
  ;
  : Children
-   @ ( ME_4F6096D500C3 // kwVTControlsPack
+   Seq: ( ME_4F6096D500C3 // kwVTControlsPack
  ME_552D23C300F1 // CheckListBoxWordsPack
  ME_552E3DE40071 // RadioButtonWordsPack
  ME_552E3E7E023A // StatusBarWordsPack
@@ -4596,10 +5127,10 @@ ref; // ME_552E49070307 PageControlWordsPack
  ME_552E413F010E // SpinEditWordsPack
  ME_552E47C10290 // ListerWordsPack
  ME_552E49070307 // PageControlWordsPack
- ) .SequenceCode.It
+ )
  ; // Children
  : Depends
-   @ ( WL 'ME_4677FBA70343' '4677FBA70343.pas.ms.script' // l3Interfaces
+   Seq: ( WL 'ME_4677FBA70343' '4677FBA70343.pas.ms.script' // l3Interfaces
  WL 'ME_4728A7020026' '4728A7020026.pas.ms.script' // Types
  WL 'ME_4767743E00E5' '4767743E00E5.pas.ms.script' // TypInfo
  WL 'ME_47913B47006E' '47913B47006E.pas.ms.script' // l3CoreObjects
@@ -4616,16 +5147,14 @@ ref; // ME_552E49070307 PageControlWordsPack
  WL 'ME_5527F81C020E' '5527F81C020E.pas.ms.script' // TypesRegistration
  WL 'ME_55BA28CE0290' '55BA28CE0290.pas.ms.script' // tfwScriptingTypes
  WL 'ME_55CCADD2013D' '55CCADD2013D.pas.ms.script' // ClassLikeMapping
- ) .SequenceCode.It
+ )
  ; // Depends
  CONST "ifndef" 'NoScripts'
- : Generators
- @ (
- gen_pas.script
- gen_pas.script.runner
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\ScriptEngine'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\ScriptEngine'
  CONST pas.script:Path 'shared\models\NewSchool\Scripts\4F6094D80196.pas.ms.script'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
  CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\4F6094D80196.pas.ms.script.runner'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_4F6094D80196 vtControlsFromStackWords

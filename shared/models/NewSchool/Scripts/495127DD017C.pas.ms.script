@@ -22,6 +22,10 @@ FORWARD ME_4C7D0C7B0185
  CONST "Checked" 'undefined'
  CONST "Enabled" 'undefined'
  CONST "Visible" 'undefined'
+ CONST dfm:PathOnly '\common\components\gui\Garant\VCM\UserInteraction'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\VCM\UserInteraction'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_4C7D0C8F019F AttributesCopy
 
@@ -37,8 +41,8 @@ ref; // ME_4C7D0C8F019F AttributesCopy
  : Parent ME_4951282D0269 // Edit
  ;
  : Children
-   @ ( ME_4C7D0C8F019F // AttributesCopy
- ) .SequenceCode.It
+   Seq: ( ME_4C7D0C8F019F // AttributesCopy
+ )
  ; // Children
  CONST "AutoFocus" false
  CONST "AutoLock" false
@@ -49,6 +53,10 @@ ref; // ME_4C7D0C8F019F AttributesCopy
  CONST "is FormActivate" false
  CONST "is query" false
  CONST "no prefix" false
+ CONST dfm:PathOnly '\common\components\gui\Garant\VCM\UserInteraction'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\VCM\UserInteraction'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_4C7D0C7B0185 Copy
 
@@ -273,7 +281,7 @@ ref; // ME_49FEDE4703B8 FindPrev
  : Parent ME_495127DD017C // Text
  ;
  : Operations
-   @ ( ME_4951284902BD // Copy
+   Seq: ( ME_4951284902BD // Copy
  ME_4951285702E1 // Cut
  ME_49512B5D0009 // FindContext
  ME_495130C40123 // FindNext
@@ -283,12 +291,16 @@ ref; // ME_49FEDE4703B8 FindPrev
  ME_49EE01AA02BE // SelectAll
  ME_49EE01BC022E // Deselect
  ME_49FEDE4703B8 // FindPrev
- ) .SequenceCode.It
+ )
  ; // Operations
  : Children
-   @ ( ME_4C7D0C7B0185 // Copy
- ) .SequenceCode.It
+   Seq: ( ME_4C7D0C7B0185 // Copy
+ )
  ; // Children
+ CONST dfm:PathOnly '\common\components\gui\Garant\VCM\UserInteraction'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\VCM\UserInteraction'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_4951282D0269 Edit
 
@@ -405,13 +417,17 @@ ref; // ME_4C3B566800F0 DeleteColumn
  : Parent ME_495127DD017C // Text
  ;
  : Operations
-   @ ( ME_4C3B563A03CA // Insert
+   Seq: ( ME_4C3B563A03CA // Insert
  ME_4C3B564601EF // InsertRow
  ME_4C3B565101D9 // DeleteRow
  ME_4C3B565D02E7 // InsertColumn
  ME_4C3B566800F0 // DeleteColumn
- ) .SequenceCode.It
+ )
  ; // Operations
+ CONST dfm:PathOnly '\common\components\gui\Garant\VCM\UserInteraction'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\VCM\UserInteraction'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_4C3B562D017C Table
 
@@ -508,12 +524,16 @@ ref; // ME_4C3B56CE0091 Strikeout
  : Parent ME_495127DD017C // Text
  ;
  : Operations
-   @ ( ME_4C3B56AC03CA // Bold
+   Seq: ( ME_4C3B56AC03CA // Bold
  ME_4C3B56BA01AE // Italic
  ME_4C3B56C4028F // Underline
  ME_4C3B56CE0091 // Strikeout
- ) .SequenceCode.It
+ )
  ; // Operations
+ CONST dfm:PathOnly '\common\components\gui\Garant\VCM\UserInteraction'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\VCM\UserInteraction'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_4C3B56A30038 Font
 
@@ -528,24 +548,22 @@ ref; // ME_4C3B56A30038 Font
  : Parent WL 'ME_4954C0500033' '4954C0500033.pas.ms.script' // UserInteraction
  ;
  : Children
-   @ ( ME_4951282D0269 // Edit
+   Seq: ( ME_4951282D0269 // Edit
  ME_4C3B562D017C // Table
  ME_4C3B56A30038 // Font
- ) .SequenceCode.It
+ )
  ; // Children
  CONST "author" 'Ëþëèí À.Â.'
  CONST "is namespace" true
  CONST "no hands" true
  CONST "started" '23.12.2008 21:03'
- : Generators
- @ (
- gen_intf.pas
- gen_pas.script
- gen_pas.script.runner
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\VCM\UserInteraction'
  CONST intf.pas:Path 'common\components\gui\Garant\VCM\UserInteraction\OfficeLike_Text_Controls.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\VCM\UserInteraction'
  CONST pas.script:Path 'shared\models\NewSchool\Scripts\495127DD017C.pas.ms.script'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
  CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\495127DD017C.pas.ms.script.runner'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:pas:UnitName 'OfficeLike_Text_Controls'
 
 ref; // ME_495127DD017C Text

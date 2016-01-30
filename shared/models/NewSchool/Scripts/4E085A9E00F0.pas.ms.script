@@ -1,0 +1,991 @@
+// DocumentUtils 4E085A9E00F0 Unit Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4E085A9E00F0
+
+FORWARD ME_4E085B110285
+
+FORWARD ME_4E08B77F03B5
+
+FORWARD ME_4E08B798037B
+
+FORWARD ME_4E09AFC40022
+
+: ME_4E09CDBF02B6
+ CONST UID '4E09CDBF02B6'
+ CONST Name 'First'
+ CONST Class class_Class
+ : Stereotype st_Choice ;
+ CONST Kind kind_NormalClass
+ %SUMMARY '''Запросить отсутствующий документ у специалиста Правовой поддержки онлайн''' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4E09AFC40022 // Choices
+ ;
+ CONST "AutoInc" false
+ CONST "forced type" 'none'
+ CONST "is define" false
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Common'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Common'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\Common'
+
+ref; // ME_4E09CDBF02B6 First
+
+: ME_4E09CDD80287
+ CONST UID '4E09CDD80287'
+ CONST Name 'Second'
+ CONST Class class_Class
+ : Stereotype st_Choice ;
+ CONST Kind kind_NormalClass
+ %SUMMARY '''Вернуться в открытый документ''' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4E09AFC40022 // Choices
+ ;
+ : Inherits
+   Seq: ( ME_4E09CDBF02B6 // First
+ )
+ ; // Inherits
+ CONST "AutoInc" false
+ CONST "forced type" 'none'
+ CONST "is define" false
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Common'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Common'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\Common'
+
+ref; // ME_4E09CDD80287 Second
+
+: ME_4E09AFC40022
+ CONST UID '4E09AFC40022'
+ CONST Name 'Choices'
+ CONST Class class_Class
+ : Stereotype st_Choices ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_4E08B798037B // DocumentMissing
+ ;
+ : Children
+   Seq: ( ME_4E09CDBF02B6 // First
+ ME_4E09CDD80287 // Second
+ )
+ ; // Children
+ CONST "Need map interface" false
+ CONST "Need mapping support" false
+ CONST "spell names" false
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Common'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Common'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\Common'
+
+ref; // ME_4E09AFC40022 Choices
+
+: ME_4E09D37B005B
+ CONST UID '4E09D37B005B'
+ CONST Class class_Attribute
+ : Stereotype st_CustomChoice::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_ref
+ : Parent ME_4E08B798037B // DocumentMissing
+ ;
+ : Target ME_4E09CDBF02B6 // First
+ ;
+
+ref; // ME_4E09D37B005B 
+
+: ME_4E0A03E10122
+ CONST UID '4E0A03E10122'
+ CONST Class class_Attribute
+ : Stereotype st_DefaultChoice::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_ref
+ : Parent ME_4E08B798037B // DocumentMissing
+ ;
+ : Target ME_4E09CDD80287 // Second
+ ;
+
+ref; // ME_4E0A03E10122 
+
+: ME_4E08B798037B
+ CONST UID '4E08B798037B'
+ CONST Name 'DocumentMissing'
+ CONST Class class_Class
+ : Stereotype st_Message ;
+ CONST Kind kind_NormalClass
+ %SUMMARY '''Данный документ не включён в состав Вашего комплекта.''' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4E08B77F03B5 // Local
+ ;
+ : Attributes
+   Seq: ( ME_4E09D37B005B // 
+ ME_4E0A03E10122 // 
+ )
+ ; // Attributes
+ : Children
+   Seq: ( ME_4E09AFC40022 // Choices
+ )
+ ; // Children
+ CONST "AutoInc" false
+ CONST "DlgType" 'Warning'
+ CONST "NeedCheck" false
+ CONST "forced type" 'none'
+ CONST "is define" false
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Common'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Common'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\Common'
+
+ref; // ME_4E08B798037B DocumentMissing
+
+: ME_4E0B29630091
+ CONST UID '4E0B29630091'
+ CONST Name 'MissingDocumentIsContainedInBlock'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_4E08B77F03B5 // Local
+ ;
+ CONST Value '''Документ содержится в информационном блоке:'''
+ CONST "AutoInc" false
+ CONST "forced type" 'none'
+ CONST "is define" false
+ CONST extprop:pas:Value '''Документ содержится в информационном блоке:'''
+
+ref; // ME_4E0B29630091 MissingDocumentIsContainedInBlock
+
+: ME_4E0B29C50297
+ CONST UID '4E0B29C50297'
+ CONST Name 'MissingDocumentIsContainedInBlocks'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_4E08B77F03B5 // Local
+ ;
+ CONST Value '''Документ содержится в информационных блоках:'''
+ CONST "AutoInc" false
+ CONST "forced type" 'none'
+ CONST "is define" false
+ CONST extprop:pas:Value '''Документ содержится в информационных блоках:'''
+
+ref; // ME_4E0B29C50297 MissingDocumentIsContainedInBlocks
+
+: ME_4E0B29E2017C
+ CONST UID '4E0B29E2017C'
+ CONST Name 'MissingDocumentInfo'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_4E08B77F03B5 // Local
+ ;
+ CONST Value '''Подробнее о запрашиваемом документе'''
+ CONST "AutoInc" false
+ CONST "forced type" 'none'
+ CONST "is define" false
+ CONST extprop:pas:Value '''Подробнее о запрашиваемом документе'''
+
+ref; // ME_4E0B29E2017C MissingDocumentInfo
+
+: ME_4E0B2A04033B
+ CONST UID '4E0B2A04033B'
+ CONST Name 'ContactInfo'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_4E08B77F03B5 // Local
+ ;
+ CONST Value '''Контактная информация'''
+ CONST "AutoInc" false
+ CONST "forced type" 'none'
+ CONST "is define" false
+ CONST extprop:pas:Value '''Контактная информация'''
+
+ref; // ME_4E0B2A04033B ContactInfo
+
+: ME_4E08B77F03B5
+ CONST UID '4E08B77F03B5'
+ CONST Name 'Local'
+ CONST Class class_Class
+ : Stereotype st_LocalConst ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_4E085B110285 // TbsDocumentMissingMessage
+ ;
+ : Attributes
+   Seq: ( ME_4E0B29630091 // MissingDocumentIsContainedInBlock
+ ME_4E0B29C50297 // MissingDocumentIsContainedInBlocks
+ ME_4E0B29E2017C // MissingDocumentInfo
+ ME_4E0B2A04033B // ContactInfo
+ )
+ ; // Attributes
+ : Children
+   Seq: ( ME_4E08B798037B // DocumentMissing
+ )
+ ; // Children
+ CONST "Need map interface" false
+ CONST "Need mapping support" false
+ CONST "spell names" false
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Common'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Common'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\Common'
+
+ref; // ME_4E08B77F03B5 Local
+
+FORWARD ME_F19FF79AA68F
+
+: ME_3D7393E8CE21
+ CONST UID '3D7393E8CE21'
+ CONST Name 'DocumentMissing_Choice_First'
+ CONST IsSummoned true
+ CONST Class class_Attribute
+ %SUMMARY '''Запросить отсутствующий документ у специалиста Правовой поддержки онлайн''' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_F19FF79AA68F // LCImpl_DocumentMissing_Choices
+ ;
+ : Target WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
+ ;
+ CONST Value '(rS : -1; rLocalized : false; rKey : ''DocumentMissing_Choice_First''; rValue : ''Запросить отсутствующий документ у специалиста Правовой поддержки онлайн'')'
+ : ValueType WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
+ ;
+ CONST "AutoInc" false
+ CONST "forced type" 'none'
+ CONST "is define" false
+ CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''DocumentMissing_Choice_First''; rValue : ''Запросить отсутствующий документ у специалиста Правовой поддержки онлайн'')'
+
+ref; // ME_3D7393E8CE21 DocumentMissing_Choice_First
+
+: ME_968A84F1D374
+ CONST UID '968A84F1D374'
+ CONST Name 'DocumentMissing_Choice_Second'
+ CONST IsSummoned true
+ CONST Class class_Attribute
+ %SUMMARY '''Вернуться в открытый документ''' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_F19FF79AA68F // LCImpl_DocumentMissing_Choices
+ ;
+ : Target WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
+ ;
+ CONST Value '(rS : -1; rLocalized : false; rKey : ''DocumentMissing_Choice_Second''; rValue : ''Вернуться в открытый документ'')'
+ : ValueType WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
+ ;
+ CONST "AutoInc" false
+ CONST "forced type" 'none'
+ CONST "is define" false
+ CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''DocumentMissing_Choice_Second''; rValue : ''Вернуться в открытый документ'')'
+
+ref; // ME_968A84F1D374 DocumentMissing_Choice_Second
+
+: ME_F19FF79AA68F
+ CONST UID 'F19FF79AA68F'
+ CONST Name 'LCImpl_DocumentMissing_Choices'
+ CONST IsSummoned true
+ CONST Class class_Class
+ : Stereotype st_Constants ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Варианты выбора для диалога DocumentMissing' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ : Parent ME_4E085B110285 // TbsDocumentMissingMessage
+ ;
+ : Attributes
+   Seq: ( ME_3D7393E8CE21 // DocumentMissing_Choice_First
+ ME_968A84F1D374 // DocumentMissing_Choice_Second
+ )
+ ; // Attributes
+ CONST "elements prefix" 'str'
+ CONST "spell names" false
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Common'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Common'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\Common'
+ CONST extprop:pas:ElementPrefixBase 'str'
+ CONST extprop:pas:ElementPrefix 'str_'
+
+ref; // ME_F19FF79AA68F LCImpl_DocumentMissing_Choices
+
+FORWARD ME_01A80F53BB8B
+
+: ME_9C5981D88684
+ CONST UID '9C5981D88684'
+ CONST Name 'DocumentMissing'
+ CONST IsSummoned true
+ CONST Class class_Attribute
+ %SUMMARY '''Данный документ не включён в состав Вашего комплекта.''' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_01A80F53BB8B // LCImplLocal
+ ;
+ : Target WL 'ME_4E01D1E002AE' '4F9BDEEE01BC.pas.ms.script' // Tl3MessageID
+ ;
+ CONST Value '(rS : -1; rLocalized : false; rKey : ''DocumentMissing''; rValue : ''Данный документ не включён в состав Вашего комплекта.'')'
+ : ValueType WL 'ME_4E01D1E002AE' '4F9BDEEE01BC.pas.ms.script' // Tl3MessageID
+ ;
+ CONST "AutoInc" false
+ CONST "forced type" 'none'
+ CONST "is define" false
+ CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''DocumentMissing''; rValue : ''Данный документ не включён в состав Вашего комплекта.'')'
+
+ref; // ME_9C5981D88684 DocumentMissing
+
+: ME_1C4EA5CC47E1
+ CONST UID '1C4EA5CC47E1'
+ CONST Name 'MissingDocumentIsContainedInBlock'
+ CONST IsSummoned true
+ CONST Class class_Attribute
+ %SUMMARY '''Документ содержится в информационном блоке:''' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_01A80F53BB8B // LCImplLocal
+ ;
+ : Target WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
+ ;
+ CONST Value '(rS : -1; rLocalized : false; rKey : ''MissingDocumentIsContainedInBlock''; rValue : ''Документ содержится в информационном блоке:'')'
+ : ValueType WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
+ ;
+ CONST "AutoInc" false
+ CONST "forced type" 'none'
+ CONST "is define" false
+ CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''MissingDocumentIsContainedInBlock''; rValue : ''Документ содержится в информационном блоке:'')'
+
+ref; // ME_1C4EA5CC47E1 MissingDocumentIsContainedInBlock
+
+: ME_8341751CB523
+ CONST UID '8341751CB523'
+ CONST Name 'MissingDocumentIsContainedInBlocks'
+ CONST IsSummoned true
+ CONST Class class_Attribute
+ %SUMMARY '''Документ содержится в информационных блоках:''' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_01A80F53BB8B // LCImplLocal
+ ;
+ : Target WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
+ ;
+ CONST Value '(rS : -1; rLocalized : false; rKey : ''MissingDocumentIsContainedInBlocks''; rValue : ''Документ содержится в информационных блоках:'')'
+ : ValueType WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
+ ;
+ CONST "AutoInc" false
+ CONST "forced type" 'none'
+ CONST "is define" false
+ CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''MissingDocumentIsContainedInBlocks''; rValue : ''Документ содержится в информационных блоках:'')'
+
+ref; // ME_8341751CB523 MissingDocumentIsContainedInBlocks
+
+: ME_7B7B7E730976
+ CONST UID '7B7B7E730976'
+ CONST Name 'MissingDocumentInfo'
+ CONST IsSummoned true
+ CONST Class class_Attribute
+ %SUMMARY '''Подробнее о запрашиваемом документе''' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_01A80F53BB8B // LCImplLocal
+ ;
+ : Target WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
+ ;
+ CONST Value '(rS : -1; rLocalized : false; rKey : ''MissingDocumentInfo''; rValue : ''Подробнее о запрашиваемом документе'')'
+ : ValueType WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
+ ;
+ CONST "AutoInc" false
+ CONST "forced type" 'none'
+ CONST "is define" false
+ CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''MissingDocumentInfo''; rValue : ''Подробнее о запрашиваемом документе'')'
+
+ref; // ME_7B7B7E730976 MissingDocumentInfo
+
+: ME_01AB214EAA1C
+ CONST UID '01AB214EAA1C'
+ CONST Name 'ContactInfo'
+ CONST IsSummoned true
+ CONST Class class_Attribute
+ %SUMMARY '''Контактная информация''' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_01A80F53BB8B // LCImplLocal
+ ;
+ : Target WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
+ ;
+ CONST Value '(rS : -1; rLocalized : false; rKey : ''ContactInfo''; rValue : ''Контактная информация'')'
+ : ValueType WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
+ ;
+ CONST "AutoInc" false
+ CONST "forced type" 'none'
+ CONST "is define" false
+ CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''ContactInfo''; rValue : ''Контактная информация'')'
+
+ref; // ME_01AB214EAA1C ContactInfo
+
+: ME_01A80F53BB8B
+ CONST UID '01A80F53BB8B'
+ CONST Name 'LCImplLocal'
+ CONST IsSummoned true
+ CONST Class class_Class
+ : Stereotype st_Constants ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Локализуемые строки Local' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ : Parent ME_4E085B110285 // TbsDocumentMissingMessage
+ ;
+ : Attributes
+   Seq: ( ME_9C5981D88684 // DocumentMissing
+ ME_1C4EA5CC47E1 // MissingDocumentIsContainedInBlock
+ ME_8341751CB523 // MissingDocumentIsContainedInBlocks
+ ME_7B7B7E730976 // MissingDocumentInfo
+ ME_01AB214EAA1C // ContactInfo
+ )
+ ; // Attributes
+ CONST "elements prefix" 'str'
+ CONST "spell names" false
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Common'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Common'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\Common'
+ CONST extprop:pas:ElementPrefixBase 'str'
+ CONST extprop:pas:ElementPrefix 'str_'
+
+ref; // ME_01A80F53BB8B LCImplLocal
+
+FORWARD ME_4E085B3F01F5
+
+: ME_4E085B7C018A
+ CONST UID '4E085B7C018A'
+ CONST Name 'AllowConsulting'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+ CONST Value false
+ : ValueType WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+ CONST extprop:pas:Value false
+
+ref; // ME_4E085B7C018A AllowConsulting
+
+: ME_4E085B7C0304
+ CONST UID '4E085B7C0304'
+ CONST Name 'aMissingInfo'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_45EEB6520309' '4570511E038A.pas.ms.script' // MissingInfo
+ ;
+ CONST Value 'nil'
+ : ValueType WL 'ME_45EEB6520309' '4570511E038A.pas.ms.script' // MissingInfo
+ ;
+ CONST extprop:pas:Value 'nil'
+
+ref; // ME_4E085B7C0304 aMissingInfo
+
+: ME_4E085B7003B3
+ CONST UID '4E085B7003B3'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_4E085B3F01F5 // Show
+ ;
+ : Parameters
+   Seq: ( ME_4E085B7C018A // AllowConsulting
+ ME_4E085B7C0304 // aMissingInfo
+ )
+ ; // Parameters
+
+ref; // ME_4E085B7003B3 DoIt
+
+: ME_4E085C12000E
+ CONST UID '4E085C12000E'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4E085B3F01F5 // Show
+ ;
+ : Target WL 'ME_47F260EC02C7' '521C9DA50125.pas.ms.script' // StdRes
+ ;
+
+ref; // ME_4E085C12000E 
+
+: ME_4E0869BE00CE
+ CONST UID '4E0869BE00CE'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4E085B3F01F5 // Show
+ ;
+ : Target WL 'ME_47878E0E0191' '54B90AC6014B.pas.ms.script' // l3String
+ ;
+
+ref; // ME_4E0869BE00CE 
+
+: ME_4E0869F100C8
+ CONST UID '4E0869F100C8'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4E085B3F01F5 // Show
+ ;
+ : Target WL 'ME_4AB882990057' '47F2170002B2.pas.ms.script' // nsCStr
+ ;
+
+ref; // ME_4E0869F100C8 
+
+: ME_4E086A28010D
+ CONST UID '4E086A28010D'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4E085B3F01F5 // Show
+ ;
+ : Target WL 'ME_4B1E8FAE0380' '48F747EC0073.pas.ms.script' // DefDataAdapter
+ ;
+
+ref; // ME_4E086A28010D 
+
+: ME_4E086A8C0298
+ CONST UID '4E086A8C0298'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4E085B3F01F5 // Show
+ ;
+ : Target WL 'ME_4A9D12BB00CC' '4AADF9450143.pas.ms.script' // ShowMessageDlg
+ ;
+
+ref; // ME_4E086A8C0298 
+
+: ME_4E086B33035C
+ CONST UID '4E086B33035C'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4E085B3F01F5 // Show
+ ;
+ : Target WL 'ME_45EEE13200E5' '45EEAA8E034E.pas.ms.script' // QueryType
+ ;
+
+ref; // ME_4E086B33035C 
+
+: ME_4E086B6702C4
+ CONST UID '4E086B6702C4'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4E085B3F01F5 // Show
+ ;
+ : Target WL 'ME_4B8E676500AD' '4AADF9450143.pas.ms.script' // vcmDialogs
+ ;
+
+ref; // ME_4E086B6702C4 
+
+: ME_4E086BBC0089
+ CONST UID '4E086BBC0089'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4E085B3F01F5 // Show
+ ;
+ : Target WL 'ME_46780DA40383' '4677FBA70343.pas.ms.script' // Il3CString
+ ;
+
+ref; // ME_4E086BBC0089 
+
+: ME_4E086C0901C3
+ CONST UID '4E086C0901C3'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4E085B3F01F5 // Show
+ ;
+ : Target WL 'ME_431841610361' '4423F94903C8.pas.ms.script' // String
+ ;
+
+ref; // ME_4E086C0901C3 
+
+: ME_4E086D370345
+ CONST UID '4E086D370345'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4E085B3F01F5 // Show
+ ;
+ : Target WL 'ME_476A763702A8' '49942E3202B3.pas.ms.script' // PvcmMessageID
+ ;
+
+ref; // ME_4E086D370345 
+
+: ME_4E0879230287
+ CONST UID '4E0879230287'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4E085B3F01F5 // Show
+ ;
+ : Target WL 'ME_47877EB202FB' '4AB0C3C60310.pas.ms.script' // SysUtils
+ ;
+
+ref; // ME_4E0879230287 
+
+: ME_4E087941005C
+ CONST UID '4E087941005C'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4E085B3F01F5 // Show
+ ;
+ : Target WL 'ME_4A8ADF9E0058' '47D0E1500033.pas.ms.script' // vcmFmt
+ ;
+
+ref; // ME_4E087941005C 
+
+: ME_4E0879710101
+ CONST UID '4E0879710101'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4E085B3F01F5 // Show
+ ;
+ : Target WL 'ME_47A082F101DB' '476BE98C01B8.pas.ms.script' // Ext Chars
+ ;
+
+ref; // ME_4E0879710101 
+
+: ME_4E0879BD03BD
+ CONST UID '4E0879BD03BD'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4E085B3F01F5 // Show
+ ;
+ : Target WL 'ME_4AE8A02C03E7' '4A85282C0252.pas.ms.script' // nsQuery
+ ;
+
+ref; // ME_4E0879BD03BD 
+
+: ME_4E14687502F8
+ CONST UID '4E14687502F8'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4E085B3F01F5 // Show
+ ;
+ : Target WL 'ME_483C378301CB' '4AB0997B00A2.pas.ms.script' // StrUtils
+ ;
+
+ref; // ME_4E14687502F8 
+
+: ME_4E085B3F01F5
+ CONST UID '4E085B3F01F5'
+ CONST Name 'Show'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Показывает сообщение' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_4E085B110285 // TbsDocumentMissingMessage
+ ;
+ : Operations
+   Seq: ( ME_4E085B7003B3 // DoIt
+ )
+ ; // Operations
+ : Dependencies
+   Seq: ( ME_4E085C12000E // 
+ ME_4E0869BE00CE // 
+ ME_4E0869F100C8 // 
+ ME_4E086A28010D // 
+ ME_4E086A8C0298 // 
+ ME_4E086B33035C // 
+ ME_4E086B6702C4 // 
+ ME_4E086BBC0089 // 
+ ME_4E086C0901C3 // 
+ ME_4E086D370345 // 
+ ME_4E0879230287 // 
+ ME_4E087941005C // 
+ ME_4E0879710101 // 
+ ME_4E0879BD03BD // 
+ ME_4E14687502F8 // 
+ )
+ ; // Dependencies
+ CONST "is static" true
+
+ref; // ME_4E085B3F01F5 Show
+
+: ME_15D1CF87B526
+ CONST UID '15D1CF87B526'
+ CONST Name 'Init_Str_DocumentMissing_Choice_First'
+ CONST IsSummoned true
+ CONST Class class_Operation
+ : Stereotype st_ini::Operation ;
+ %SUMMARY 'Инициализация str_DocumentMissing_Choice_First' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_4E085B110285 // TbsDocumentMissingMessage
+ ;
+ : Speller ME_4E09CDBF02B6 // First
+ ;
+ : SpelledFor ME_3D7393E8CE21 // DocumentMissing_Choice_First
+ ;
+
+ref; // ME_15D1CF87B526 Init_Str_DocumentMissing_Choice_First
+
+: ME_01056CE0C644
+ CONST UID '01056CE0C644'
+ CONST Name 'Init_Str_DocumentMissing_Choice_Second'
+ CONST IsSummoned true
+ CONST Class class_Operation
+ : Stereotype st_ini::Operation ;
+ %SUMMARY 'Инициализация str_DocumentMissing_Choice_Second' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_4E085B110285 // TbsDocumentMissingMessage
+ ;
+ : Speller ME_4E09CDD80287 // Second
+ ;
+ : SpelledFor ME_968A84F1D374 // DocumentMissing_Choice_Second
+ ;
+
+ref; // ME_01056CE0C644 Init_Str_DocumentMissing_Choice_Second
+
+: ME_485CCD05A4F9
+ CONST UID '485CCD05A4F9'
+ CONST Name 'Init_Str_DocumentMissing'
+ CONST IsSummoned true
+ CONST Class class_Operation
+ : Stereotype st_ini::Operation ;
+ %SUMMARY 'Инициализация str_DocumentMissing' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_4E085B110285 // TbsDocumentMissingMessage
+ ;
+ : Speller ME_4E08B798037B // DocumentMissing
+ ;
+ : SpelledFor ME_9C5981D88684 // DocumentMissing
+ ;
+
+ref; // ME_485CCD05A4F9 Init_Str_DocumentMissing
+
+: ME_595A6CE6E351
+ CONST UID '595A6CE6E351'
+ CONST Name 'Init_Str_MissingDocumentIsContainedInBlock'
+ CONST IsSummoned true
+ CONST Class class_Operation
+ : Stereotype st_ini::Operation ;
+ %SUMMARY 'Инициализация str_MissingDocumentIsContainedInBlock' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_4E085B110285 // TbsDocumentMissingMessage
+ ;
+ : Speller ME_4E0B29630091 // MissingDocumentIsContainedInBlock
+ ;
+ : SpelledFor ME_1C4EA5CC47E1 // MissingDocumentIsContainedInBlock
+ ;
+
+ref; // ME_595A6CE6E351 Init_Str_MissingDocumentIsContainedInBlock
+
+: ME_4E276DDF660B
+ CONST UID '4E276DDF660B'
+ CONST Name 'Init_Str_MissingDocumentIsContainedInBlocks'
+ CONST IsSummoned true
+ CONST Class class_Operation
+ : Stereotype st_ini::Operation ;
+ %SUMMARY 'Инициализация str_MissingDocumentIsContainedInBlocks' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_4E085B110285 // TbsDocumentMissingMessage
+ ;
+ : Speller ME_4E0B29C50297 // MissingDocumentIsContainedInBlocks
+ ;
+ : SpelledFor ME_8341751CB523 // MissingDocumentIsContainedInBlocks
+ ;
+
+ref; // ME_4E276DDF660B Init_Str_MissingDocumentIsContainedInBlocks
+
+: ME_FAC3BE6F9E7F
+ CONST UID 'FAC3BE6F9E7F'
+ CONST Name 'Init_Str_MissingDocumentInfo'
+ CONST IsSummoned true
+ CONST Class class_Operation
+ : Stereotype st_ini::Operation ;
+ %SUMMARY 'Инициализация str_MissingDocumentInfo' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_4E085B110285 // TbsDocumentMissingMessage
+ ;
+ : Speller ME_4E0B29E2017C // MissingDocumentInfo
+ ;
+ : SpelledFor ME_7B7B7E730976 // MissingDocumentInfo
+ ;
+
+ref; // ME_FAC3BE6F9E7F Init_Str_MissingDocumentInfo
+
+: ME_CA203AFD8C8B
+ CONST UID 'CA203AFD8C8B'
+ CONST Name 'Init_Str_ContactInfo'
+ CONST IsSummoned true
+ CONST Class class_Operation
+ : Stereotype st_ini::Operation ;
+ %SUMMARY 'Инициализация str_ContactInfo' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_4E085B110285 // TbsDocumentMissingMessage
+ ;
+ : Speller ME_4E0B2A04033B // ContactInfo
+ ;
+ : SpelledFor ME_01AB214EAA1C // ContactInfo
+ ;
+
+ref; // ME_CA203AFD8C8B Init_Str_ContactInfo
+
+: ME_97BBC58D07C4
+ CONST UID '97BBC58D07C4'
+ CONST IsSummoned true
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4E085B110285 // TbsDocumentMissingMessage
+ ;
+ : Target WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
+ ;
+
+ref; // ME_97BBC58D07C4 
+
+: ME_19262FEB7460
+ CONST UID '19262FEB7460'
+ CONST IsSummoned true
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4E085B110285 // TbsDocumentMissingMessage
+ ;
+ : Target WL 'ME_4E01D1E002AE' '4F9BDEEE01BC.pas.ms.script' // Tl3MessageID
+ ;
+
+ref; // ME_19262FEB7460 
+
+: ME_BC63F52668AF
+ CONST UID 'BC63F52668AF'
+ CONST IsSummoned true
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4E085B110285 // TbsDocumentMissingMessage
+ ;
+ : Target WL 'ME_4AB0EE02004E' '4799D29F033F.pas.ms.script' // Dialogs
+ ;
+
+ref; // ME_BC63F52668AF 
+
+: ME_4E085B110285
+ CONST UID '4E085B110285'
+ CONST Name 'TbsDocumentMissingMessage'
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'сообщение которое выдается при открытии документа или ссылки, которой'#13#10'       нет в базе (находится в отсутствующих блоках)' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4E085A9E00F0 // DocumentUtils
+ ;
+ : Operations
+   Seq: ( ME_4E085B3F01F5 // Show
+ ME_15D1CF87B526 // Init_Str_DocumentMissing_Choice_First
+ ME_01056CE0C644 // Init_Str_DocumentMissing_Choice_Second
+ ME_485CCD05A4F9 // Init_Str_DocumentMissing
+ ME_595A6CE6E351 // Init_Str_MissingDocumentIsContainedInBlock
+ ME_4E276DDF660B // Init_Str_MissingDocumentIsContainedInBlocks
+ ME_FAC3BE6F9E7F // Init_Str_MissingDocumentInfo
+ ME_CA203AFD8C8B // Init_Str_ContactInfo
+ )
+ ; // Operations
+ : Constants
+   Seq: ( ME_4E08B77F03B5 // Local
+ ME_F19FF79AA68F // LCImpl_DocumentMissing_Choices
+ ME_01A80F53BB8B // LCImplLocal
+ )
+ ; // Constants
+ : Dependencies
+   Seq: ( ME_97BBC58D07C4 // 
+ ME_19262FEB7460 // 
+ ME_BC63F52668AF // 
+ )
+ ; // Dependencies
+ CONST "author" 'Люлин А.В.'
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" true
+ CONST "register in scripts" 'undefined'
+ CONST "started" '27.06.2011 14:27'
+ : Generators
+ Seq: (
+ gen_intf.pas
+ )
+ ; // Generators
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Common'
+ CONST intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\Common\bsDocumentMissingMessage.pas'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Common'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\Common'
+ CONST extprop:rc:SelfName 'bsDocumentMissingMessage'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'bsDocumentMissingMessage'
+
+ref; // ME_4E085B110285 TbsDocumentMissingMessage
+
+: ME_4E085A9E00F0
+ CONST UID '4E085A9E00F0'
+ CONST Name 'DocumentUtils'
+ CONST Class class_Category
+ : Stereotype st_Unit ;
+ %SUMMARY 'Утилиты работы с документом' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent WL 'ME_4ABB680E0218' '4ABB680E0218.pas.ms.script' // Common$Lib
+ ;
+ : Children
+   Seq: ( ME_4E085B110285 // TbsDocumentMissingMessage
+ )
+ ; // Children
+ : Depends
+   Seq: ( WL 'ME_4423F94903C8' '4423F94903C8.pas.ms.script' // IO
+ WL 'ME_4570511E038A' '4570511E038A.pas.ms.script' // Document
+ WL 'ME_45EEAA8E034E' '45EEAA8E034E.pas.ms.script' // Search
+ WL 'ME_4677FBA70343' '4677FBA70343.pas.ms.script' // l3Interfaces
+ WL 'ME_476BE98C01B8' '476BE98C01B8.pas.ms.script' // l3Chars
+ WL 'ME_47913B47006E' '47913B47006E.pas.ms.script' // l3CoreObjects
+ WL 'ME_4799D29F033F' '4799D29F033F.pas.ms.script' // Implementation
+ WL 'ME_47D0E1500033' '47D0E1500033.pas.ms.script' // Implementation
+ WL 'ME_47F2170002B2' '47F2170002B2.pas.ms.script' // nsTypes
+ WL 'ME_48F747EC0073' '48F747EC0073.pas.ms.script' // Common
+ WL 'ME_49942E3202B3' '49942E3202B3.pas.ms.script' // vcmGUI
+ WL 'ME_4A85282C0252' '4A85282C0252.pas.ms.script' // LiteSearch
+ WL 'ME_4AADF9450143' '4AADF9450143.pas.ms.script' // Visual
+ WL 'ME_4AB0997B00A2' '4AB0997B00A2.pas.ms.script' // Common
+ WL 'ME_4AB0C3C60310' '4AB0C3C60310.pas.ms.script' // Sys
+ WL 'ME_521C9DA50125' '521C9DA50125.pas.ms.script' // Application Resources
+ WL 'ME_54B90AC6014B' '54B90AC6014B.pas.ms.script' // StringUtils
+ )
+ ; // Depends
+ : Generators
+ Seq: (
+ gen_pas.script
+ gen_pas.script.runner
+ )
+ ; // Generators
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Common'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Common'
+ CONST pas.script:Path 'shared\models\NewSchool\Scripts\4E085A9E00F0.pas.ms.script'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\4E085A9E00F0.pas.ms.script.runner'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\Common'
+
+ref; // ME_4E085A9E00F0 DocumentUtils

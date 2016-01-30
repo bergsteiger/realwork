@@ -20,12 +20,14 @@ FORWARD ME_4AC5DA5A01AD
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\VT'
  CONST intf.pas:Path 'common\components\gui\Garant\VT\NOT_FINISHED_vtGroupBox.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\VT'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'GroupBox'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'vtGroupBox'
 
 ref; // ME_4AC608E40294 TvtGroupBox
 
@@ -39,16 +41,14 @@ ref; // ME_4AC608E40294 TvtGroupBox
  : Parent WL 'ME_467A75D90346' '467A75D90346.pas.ms.script' // VT
  ;
  : Children
-   @ ( ME_4AC608E40294 // TvtGroupBox
- ) .SequenceCode.It
+   Seq: ( ME_4AC608E40294 // TvtGroupBox
+ )
  ; // Children
- : Generators
- @ (
- gen_pas.script
- gen_pas.script.runner
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\VT'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\VT'
  CONST pas.script:Path 'shared\models\NewSchool\Scripts\4AC5DA5A01AD.pas.ms.script'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
  CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\4AC5DA5A01AD.pas.ms.script.runner'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_4AC5DA5A01AD Radio

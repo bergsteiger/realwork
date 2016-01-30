@@ -41,8 +41,8 @@ ref; // ME_4E1C045C02BB aText
  : Parent ME_4E1C02500330 // SaveDrawing
  ;
  : Parameters
-   @ ( ME_4E1C045C02BB // aText
- ) .SequenceCode.It
+   Seq: ( ME_4E1C045C02BB // aText
+ )
  ; // Parameters
 
 ref; // ME_4E1C028C03B3 DoIt
@@ -59,8 +59,8 @@ ref; // ME_4E1C028C03B3 DoIt
  : Parent ME_4E1C016B0011 // DrawOutputSupport
  ;
  : Operations
-   @ ( ME_4E1C028C03B3 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_4E1C028C03B3 // DoIt
+ )
  ; // Operations
 
 ref; // ME_4E1C02500330 SaveDrawing
@@ -86,8 +86,8 @@ ref; // ME_4EB100DE00F2 aText
  : Parent ME_4EB100CE0160 // DoRepaint
  ;
  : Parameters
-   @ ( ME_4EB100DE00F2 // aText
- ) .SequenceCode.It
+   Seq: ( ME_4EB100DE00F2 // aText
+ )
  ; // Parameters
 
 ref; // ME_4EB100D900D7 DoIt
@@ -103,8 +103,8 @@ ref; // ME_4EB100D900D7 DoIt
  : Parent ME_4E1C016B0011 // DrawOutputSupport
  ;
  : Operations
-   @ ( ME_4EB100D900D7 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_4EB100D900D7 // DoIt
+ )
  ; // Operations
 
 ref; // ME_4EB100CE0160 DoRepaint
@@ -130,8 +130,8 @@ ref; // ME_4E2046FB031C aView
  : Target WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
  ;
  : Parameters
-   @ ( ME_4E2046FB031C // aView
- ) .SequenceCode.It
+   Seq: ( ME_4E2046FB031C // aView
+ )
  ; // Parameters
 
 ref; // ME_4E1C0C6C026C DoOpenLog
@@ -155,8 +155,8 @@ ref; // ME_4E2047000027 aLogName
  : Parent ME_4E1C016B0011 // DrawOutputSupport
  ;
  : Parameters
-   @ ( ME_4E2047000027 // aLogName
- ) .SequenceCode.It
+   Seq: ( ME_4E2047000027 // aLogName
+ )
  ; // Parameters
 
 ref; // ME_4E1C0C8C0007 DoCloseLog
@@ -179,6 +179,7 @@ ref; // ME_4E1C0D53022E
  ;
  : Implementor ME_4E1C016B0011 // DrawOutputSupport
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_4CA5D0430096_ME_4E1C016B0011 OpenLog
 
 : ME_4CA5D0540033_ME_4E1C016B0011
@@ -188,6 +189,7 @@ ref; // ME_4CA5D0430096_ME_4E1C016B0011 OpenLog
  ;
  : Implementor ME_4E1C016B0011 // DrawOutputSupport
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_4CA5D0540033_ME_4E1C016B0011 CloseLog
 
 : ME_4CACAF4F008D_ME_4E1C016B0011
@@ -197,6 +199,7 @@ ref; // ME_4CA5D0540033_ME_4E1C016B0011 CloseLog
  ;
  : Implementor ME_4E1C016B0011 // DrawOutputSupport
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_4CACAF4F008D_ME_4E1C016B0011 LogScreen
 
 : ME_4E1C016B0011
@@ -211,41 +214,41 @@ ref; // ME_4CACAF4F008D_ME_4E1C016B0011 LogScreen
  : Parent ME_4E1C0134031B // MixIns
  ;
  : Implements
-   @ ( WL 'ME_4CA5CD47037B' '4811D4EC0237.pas.ms.script' // InevShapesLogger
- ) .SequenceCode.It
+   Seq: ( WL 'ME_4CA5CD47037B' '4811D4EC0237.pas.ms.script' // InevShapesLogger
+ )
  ; // Implements
  : Attributes
-   @ ( ME_4E1C0C53030F // f_Editor
- ) .SequenceCode.It
+   Seq: ( ME_4E1C0C53030F // f_Editor
+ )
  ; // Attributes
  : Operations
-   @ ( ME_4E1C02500330 // SaveDrawing
+   Seq: ( ME_4E1C02500330 // SaveDrawing
  ME_4EB100CE0160 // DoRepaint
  ME_4E1C0C6C026C // DoOpenLog
  ME_4E1C0C8C0007 // DoCloseLog
- ) .SequenceCode.It
+ )
  ; // Operations
  : Implemented
-   @ ( ME_4CA5D0430096_ME_4E1C016B0011 // OpenLog
+   Seq: ( ME_4CA5D0430096_ME_4E1C016B0011 // OpenLog
  ME_4CA5D0540033_ME_4E1C016B0011 // CloseLog
  ME_4CACAF4F008D_ME_4E1C016B0011 // LogScreen
- ) .SequenceCode.It
+ )
  ; // Implemented
  : Dependencies
-   @ ( ME_4E1C0D53022E // 
- ) .SequenceCode.It
+   Seq: ( ME_4E1C0D53022E // 
+ )
  ; // Dependencies
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\ScriptEngine'
  CONST intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\DrawOutputSupport.imp.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\ScriptEngine'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
  CONST extprop:pas:TypeName '_DrawOutputSupport_'
+ CONST extprop:pas:UnitName 'DrawOutputSupport.imp'
 
 ref; // ME_4E1C016B0011 DrawOutputSupport
 
@@ -272,8 +275,8 @@ ref; // ME_4CC816FA0088 aText
  : Parent ME_4CC8163F034F // MakeSelection
  ;
  : Parameters
-   @ ( ME_4CC816FA0088 // aText
- ) .SequenceCode.It
+   Seq: ( ME_4CC816FA0088 // aText
+ )
  ; // Parameters
 
 ref; // ME_4CC816ED030E DoIt
@@ -290,8 +293,8 @@ ref; // ME_4CC816ED030E DoIt
  : Parent ME_4CC815A00031 // SelectTablePart
  ;
  : Operations
-   @ ( ME_4CC816ED030E // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_4CC816ED030E // DoIt
+ )
  ; // Operations
 
 ref; // ME_4CC8163F034F MakeSelection
@@ -329,9 +332,9 @@ ref; // ME_4CC8185D0008 aTable
  : Target WL 'ME_47C5B54401B2' '47C5207602D1.pas.ms.script' // InevRange
  ;
  : Parameters
-   @ ( ME_4CC8185C03D4 // aView
+   Seq: ( ME_4CC8185C03D4 // aView
  ME_4CC8185D0008 // aTable
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_4CC8183E0250 DoIt
@@ -348,8 +351,8 @@ ref; // ME_4CC8183E0250 DoIt
  : Parent ME_4CC815A00031 // SelectTablePart
  ;
  : Operations
-   @ ( ME_4CC8183E0250 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_4CC8183E0250 // DoIt
+ )
  ; // Operations
 
 ref; // ME_4CC81818005F GetSelection
@@ -390,8 +393,8 @@ ref; // ME_4CC818FF016D aDocument
  : Target WL 'ME_47C6A6570369' '47C5207602D1.pas.ms.script' // InevParaList
  ;
  : Parameters
-   @ ( ME_4CC818FF016D // aDocument
- ) .SequenceCode.It
+   Seq: ( ME_4CC818FF016D // aDocument
+ )
  ; // Parameters
 
 ref; // ME_4CC818F4022D GetTablePara
@@ -446,11 +449,11 @@ ref; // ME_4CC81D5E0072 aFinishCell
  : Parent ME_4CC815A00031 // SelectTablePart
  ;
  : Parameters
-   @ ( ME_4CC81D5D03A9 // aStartRow
+   Seq: ( ME_4CC81D5D03A9 // aStartRow
  ME_4CC81D5D03DE // aStartCell
  ME_4CC81D5E002B // aFinishRow
  ME_4CC81D5E0072 // aFinishCell
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_4CC81D4101AC GetSelectParam
@@ -477,8 +480,8 @@ ref; // ME_4C987406038C aColID
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
  : Parameters
-   @ ( ME_4C987406038C // aColID
- ) .SequenceCode.It
+   Seq: ( ME_4C987406038C // aColID
+ )
  ; // Parameters
 
 ref; // ME_4C9874060367 SelectColumn
@@ -531,31 +534,31 @@ ref; // ME_4CE3ACDF0156
  : Parent ME_4E1C0134031B // MixIns
  ;
  : Operations
-   @ ( ME_4CC8163F034F // MakeSelection
+   Seq: ( ME_4CC8163F034F // MakeSelection
  ME_4CC81818005F // GetSelection
  ME_4CC8189D02DF // NeedSelection
  ME_4CC818F4022D // GetTablePara
  ME_4CC81D4101AC // GetSelectParam
  ME_4C9874060367 // SelectColumn
  ME_4C34625E021F // SelectTableWholly
- ) .SequenceCode.It
+ )
  ; // Operations
  : Dependencies
-   @ ( ME_4CC8226B00BE // 
+   Seq: ( ME_4CC8226B00BE // 
  ME_4CE3ACDF0156 // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\ScriptEngine'
  CONST intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\SelectTablePart.imp.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\ScriptEngine'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
  CONST extprop:pas:TypeName '_SelectTablePart_'
+ CONST extprop:pas:UnitName 'SelectTablePart.imp'
 
 ref; // ME_4CC815A00031 SelectTablePart
 
@@ -581,8 +584,8 @@ ref; // ME_4CE1356C00CB aText
  : Parent ME_4CE1344403AC // ClipboardOperations
  ;
  : Parameters
-   @ ( ME_4CE1356C00CB // aText
- ) .SequenceCode.It
+   Seq: ( ME_4CE1356C00CB // aText
+ )
  ; // Parameters
 
 ref; // ME_4CE134D20213 CopyToClipboard
@@ -607,8 +610,8 @@ ref; // ME_4CE135710088 aText
  : Parent ME_4CE1344403AC // ClipboardOperations
  ;
  : Parameters
-   @ ( ME_4CE135710088 // aText
- ) .SequenceCode.It
+   Seq: ( ME_4CE135710088 // aText
+ )
  ; // Parameters
 
 ref; // ME_4CE135070353 PasteFromClipboard
@@ -645,8 +648,8 @@ ref; // ME_4CEFC15F01CA aText
  : Parent ME_4CE1344403AC // ClipboardOperations
  ;
  : Parameters
-   @ ( ME_4CEFC15F01CA // aText
- ) .SequenceCode.It
+   Seq: ( ME_4CEFC15F01CA // aText
+ )
  ; // Parameters
 
 ref; // ME_4CEFC0D300F4 CopyAndPaste2DocumentBottom
@@ -696,29 +699,29 @@ ref; // ME_4CEFCB710370
  : Parent ME_4E1C0134031B // MixIns
  ;
  : Operations
-   @ ( ME_4CE134D20213 // CopyToClipboard
+   Seq: ( ME_4CE134D20213 // CopyToClipboard
  ME_4CE135070353 // PasteFromClipboard
  ME_4CE1357800B5 // ClearClipboard
  ME_4CEFC0D300F4 // CopyAndPaste2DocumentBottom
- ) .SequenceCode.It
+ )
  ; // Operations
  : Dependencies
-   @ ( ME_4CE135E90391 // 
+   Seq: ( ME_4CE135E90391 // 
  ME_4CEFCB040014 // 
  ME_4CEFCB710370 // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\ScriptEngine'
  CONST intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\ClipboardOperations.imp.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\ScriptEngine'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
  CONST extprop:pas:TypeName '_ClipboardOperations_'
+ CONST extprop:pas:UnitName 'ClipboardOperations.imp'
 
 ref; // ME_4CE1344403AC ClipboardOperations
 
@@ -861,11 +864,11 @@ ref; // ME_4F0D869F029B anEtalon
  : Target WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
  ;
  : Parameters
-   @ ( ME_4F0D869F022A // aNumber
+   Seq: ( ME_4F0D869F022A // aNumber
  ME_4F0D869F0258 // aWidthNumber
  ME_4F0D869F0287 // aCounter
  ME_4F0D869F029B // anEtalon
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_4F0D867A0340 DoIt
@@ -881,8 +884,8 @@ ref; // ME_4F0D867A0340 DoIt
  : Parent ME_4F72AE860228 // TkwPrintDataSaver
  ;
  : Operations
-   @ ( ME_4F0D867A0340 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_4F0D867A0340 // DoIt
+ )
  ; // Operations
 
 ref; // ME_4F0D866C01AA PageFileName
@@ -911,8 +914,8 @@ ref; // ME_4F0E827A03AA DoIt
  : Parent ME_4F72AE860228 // TkwPrintDataSaver
  ;
  : Operations
-   @ ( ME_4F0E827A03AA // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_4F0E827A03AA // DoIt
+ )
  ; // Operations
 
 ref; // ME_4F0E826901E6 ClearFields
@@ -938,8 +941,8 @@ ref; // ME_4F72D91F0006 aCtx
  : Parent ME_4F72D8AE013F // StartWaitingToPrint
  ;
  : Parameters
-   @ ( ME_4F72D91F0006 // aCtx
- ) .SequenceCode.It
+   Seq: ( ME_4F72D91F0006 // aCtx
+ )
  ; // Parameters
 
 ref; // ME_4F72D9060372 DoIt
@@ -955,8 +958,8 @@ ref; // ME_4F72D9060372 DoIt
  : Parent ME_4F72AE860228 // TkwPrintDataSaver
  ;
  : Operations
-   @ ( ME_4F72D9060372 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_4F72D9060372 // DoIt
+ )
  ; // Operations
 
 ref; // ME_4F72D8AE013F StartWaitingToPrint
@@ -985,8 +988,8 @@ ref; // ME_4F72D939004A Doit
  : Parent ME_4F72AE860228 // TkwPrintDataSaver
  ;
  : Operations
-   @ ( ME_4F72D939004A // Doit
- ) .SequenceCode.It
+   Seq: ( ME_4F72D939004A // Doit
+ )
  ; // Operations
 
 ref; // ME_4F72D927016C EndWatingToPrint
@@ -1006,6 +1009,7 @@ ref; // ME_4F743764030D InitPritSaver
 : ME_CA685CD2CCD6
  CONST UID 'CA685CD2CCD6'
  CONST Name 'Exists'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_static::Operation ;
  %SUMMARY 'Проверяет создан экземпляр синглетона или нет' ;
@@ -1015,6 +1019,7 @@ ref; // ME_4F743764030D InitPritSaver
  ;
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
+ CONST extprop:pas:Value false
 
 ref; // ME_CA685CD2CCD6 Exists
 
@@ -1102,6 +1107,7 @@ ref; // ME_4F72DED80371
  ;
  : Implementor ME_4F72AE860228 // TkwPrintDataSaver
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_473D86B20150_ME_4F72AE860228 SetCurrentPage
 
 : ME_473D86BD03D7_ME_4F72AE860228
@@ -1111,6 +1117,7 @@ ref; // ME_473D86B20150_ME_4F72AE860228 SetCurrentPage
  ;
  : Implementor ME_4F72AE860228 // TkwPrintDataSaver
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_473D86BD03D7_ME_4F72AE860228 Invalidate
 
 : ME_473D86C60253_ME_4F72AE860228
@@ -1120,6 +1127,7 @@ ref; // ME_473D86BD03D7_ME_4F72AE860228 Invalidate
  ;
  : Implementor ME_4F72AE860228 // TkwPrintDataSaver
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_473D86C60253_ME_4F72AE860228 Done
 
 : ME_473D86D60152_ME_4F72AE860228
@@ -1129,6 +1137,7 @@ ref; // ME_473D86C60253_ME_4F72AE860228 Done
  ;
  : Implementor ME_4F72AE860228 // TkwPrintDataSaver
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" true
 ref; // ME_473D86D60152_ME_4F72AE860228 PreviewCanvas
 
@@ -1139,6 +1148,7 @@ ref; // ME_473D86D60152_ME_4F72AE860228 PreviewCanvas
  ;
  : Implementor ME_4F72AE860228 // TkwPrintDataSaver
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" true
 ref; // ME_473D86E601F5_ME_4F72AE860228 Painted
 
@@ -1149,6 +1159,7 @@ ref; // ME_473D86E601F5_ME_4F72AE860228 Painted
  ;
  : Implementor ME_4F72AE860228 // TkwPrintDataSaver
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_4CA5D0430096_ME_4F72AE860228 OpenLog
 
 : ME_4CA5D0540033_ME_4F72AE860228
@@ -1158,6 +1169,7 @@ ref; // ME_4CA5D0430096_ME_4F72AE860228 OpenLog
  ;
  : Implementor ME_4F72AE860228 // TkwPrintDataSaver
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_4CA5D0540033_ME_4F72AE860228 CloseLog
 
 : ME_4CACAF4F008D_ME_4F72AE860228
@@ -1167,6 +1179,7 @@ ref; // ME_4CA5D0540033_ME_4F72AE860228 CloseLog
  ;
  : Implementor ME_4F72AE860228 // TkwPrintDataSaver
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_4CACAF4F008D_ME_4F72AE860228 LogScreen
 
 : ME_4CB6E39A019E_ME_4F72AE860228
@@ -1176,6 +1189,7 @@ ref; // ME_4CACAF4F008D_ME_4F72AE860228 LogScreen
  ;
  : Implementor ME_4F72AE860228 // TkwPrintDataSaver
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_4CB6E39A019E_ME_4F72AE860228 LogPage
 
 : ME_4DDE0F5C0097_ME_4F72AE860228
@@ -1185,6 +1199,7 @@ ref; // ME_4CB6E39A019E_ME_4F72AE860228 LogPage
  ;
  : Implementor ME_4F72AE860228 // TkwPrintDataSaver
  ;
+ CONST OpKind opkind_Implemented
  CONST "ifdef" 'nsTest'
 ref; // ME_4DDE0F5C0097_ME_4F72AE860228 ShouldStop
 
@@ -1195,6 +1210,7 @@ ref; // ME_4DDE0F5C0097_ME_4F72AE860228 ShouldStop
  ;
  : Implementor ME_4F72AE860228 // TkwPrintDataSaver
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_4F72F9CD022D_ME_4F72AE860228 GetPanel
 
 : ME_4F746CEA001D_ME_4F72AE860228
@@ -1204,6 +1220,7 @@ ref; // ME_4F72F9CD022D_ME_4F72AE860228 GetPanel
  ;
  : Implementor ME_4F72AE860228 // TkwPrintDataSaver
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_4F746CEA001D_ME_4F72AE860228 CheckResult
 
 : ME_4F7967A8006B_ME_4F72AE860228
@@ -1213,6 +1230,7 @@ ref; // ME_4F746CEA001D_ME_4F72AE860228 CheckResult
  ;
  : Implementor ME_4F72AE860228 // TkwPrintDataSaver
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_4F7967A8006B_ME_4F72AE860228 IsWaitingPrint
 
 : ME_51ADB60602BB_ME_4F72AE860228
@@ -1222,6 +1240,7 @@ ref; // ME_4F7967A8006B_ME_4F72AE860228 IsWaitingPrint
  ;
  : Implementor ME_4F72AE860228 // TkwPrintDataSaver
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_51ADB60602BB_ME_4F72AE860228 IncCounterPageNumer
 
 : ME_479731C50290_ME_4F72AE860228
@@ -1231,6 +1250,7 @@ ref; // ME_51ADB60602BB_ME_4F72AE860228 IncCounterPageNumer
  ;
  : Implementor ME_4F72AE860228 // TkwPrintDataSaver
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_479731C50290_ME_4F72AE860228 Cleanup
 
 : ME_4F72AE860228
@@ -1245,35 +1265,35 @@ ref; // ME_479731C50290_ME_4F72AE860228 Cleanup
  : Parent ME_4E1C0134031B // MixIns
  ;
  : Inherits
-   @ ( WL 'ME_4F72F0A30036' '47EA968D0155.pas.ms.script' // TevCustomPrintDataSaver
- ) .SequenceCode.It
+   Seq: ( WL 'ME_4F72F0A30036' '47EA968D0155.pas.ms.script' // TevCustomPrintDataSaver
+ )
  ; // Inherits
  : Implements
-   @ ( WL 'ME_473D869A0282' '467823B7002C.pas.ms.script' // IafwPreviewPanel
+   Seq: ( WL 'ME_473D869A0282' '467823B7002C.pas.ms.script' // IafwPreviewPanel
  WL 'ME_4CA5CD47037B' '4811D4EC0237.pas.ms.script' // InevShapesLogger
  WL 'ME_4CB6E3800078' '474144E20301.pas.ms.script' // IafwPagesLogger
- ) .SequenceCode.It
+ )
  ; // Implements
  : Attributes
-   @ ( ME_4F72AF79006E // f_Context
+   Seq: ( ME_4F72AF79006E // f_Context
  ME_4F72B4710030 // f_Now
  ME_4F72B487036E // f_CurrentOutput
  ME_4F72B4AA00FE // f_LogNumber
  ME_4F72B4C101CA // f_Done
  ME_4F72DBBE0285 // f_WasInit
- ) .SequenceCode.It
+ )
  ; // Attributes
  : Operations
-   @ ( ME_4F0D866C01AA // PageFileName
+   Seq: ( ME_4F0D866C01AA // PageFileName
  ME_4F0E826901E6 // ClearFields
  ME_4F72D8AE013F // StartWaitingToPrint
  ME_4F72D927016C // EndWatingToPrint
  ME_4F743764030D // InitPritSaver
  ME_CA685CD2CCD6 // Exists
- ) .SequenceCode.It
+ )
  ; // Operations
  : Implemented
-   @ ( ME_473D86B20150_ME_4F72AE860228 // SetCurrentPage
+   Seq: ( ME_473D86B20150_ME_4F72AE860228 // SetCurrentPage
  ME_473D86BD03D7_ME_4F72AE860228 // Invalidate
  ME_473D86C60253_ME_4F72AE860228 // Done
  ME_473D86D60152_ME_4F72AE860228 // PreviewCanvas
@@ -1287,21 +1307,21 @@ ref; // ME_479731C50290_ME_4F72AE860228 Cleanup
  ME_4F746CEA001D_ME_4F72AE860228 // CheckResult
  ME_4F7967A8006B_ME_4F72AE860228 // IsWaitingPrint
  ME_51ADB60602BB_ME_4F72AE860228 // IncCounterPageNumer
- ) .SequenceCode.It
+ )
  ; // Implemented
  : Overridden
-   @ ( ME_479731C50290_ME_4F72AE860228 // Cleanup
- ) .SequenceCode.It
+   Seq: ( ME_479731C50290_ME_4F72AE860228 // Cleanup
+ )
  ; // Overridden
  : Dependencies
-   @ ( ME_4F72C2EE0254 // 
+   Seq: ( ME_4F72C2EE0254 // 
  ME_4F72C37D0120 // 
  ME_4F72C498000B // 
  ME_4F72C4B8034C // 
  ME_4F72C88200AC // 
  ME_4F72CAAF019E // 
  ME_4F72DED80371 // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  CONST "ifdef" 'InsiderTest'
  CONST "needs InstanceR" 'undefined'
@@ -1309,12 +1329,14 @@ ref; // ME_479731C50290_ME_4F72AE860228 Cleanup
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
  CONST "singleton" true
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\ScriptEngine'
  CONST intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\kwPrintDataSaver.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\ScriptEngine'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'PrintDataSaver'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'kwPrintDataSaver'
 
 ref; // ME_4F72AE860228 TkwPrintDataSaver
 
@@ -1383,8 +1405,8 @@ ref; // ME_4FA3C6F500AD aLogName
  : Parent ME_4FA3C6D2025F // DoCloseLog
  ;
  : Parameters
-   @ ( ME_4FA3C6F500AD // aLogName
- ) .SequenceCode.It
+   Seq: ( ME_4FA3C6F500AD // aLogName
+ )
  ; // Parameters
 
 ref; // ME_4FA3C6E402D5 DoIt
@@ -1400,8 +1422,8 @@ ref; // ME_4FA3C6E402D5 DoIt
  : Parent ME_4FA3BB1500BA // LinesDrawOutput
  ;
  : Operations
-   @ ( ME_4FA3C6E402D5 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_4FA3C6E402D5 // DoIt
+ )
  ; // Operations
 
 ref; // ME_4FA3C6D2025F DoCloseLog
@@ -1437,9 +1459,9 @@ ref; // ME_51B6F2E5038A aPrinting
  : Parent ME_4FA3CBA503D7 // SaveDrawing
  ;
  : Parameters
-   @ ( ME_51B6F2E50375 // anEditor
+   Seq: ( ME_51B6F2E50375 // anEditor
  ME_51B6F2E5038A // aPrinting
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_4FA3CBB40052 DoIt
@@ -1455,8 +1477,8 @@ ref; // ME_4FA3CBB40052 DoIt
  : Parent ME_4FA3BB1500BA // LinesDrawOutput
  ;
  : Operations
-   @ ( ME_4FA3CBB40052 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_4FA3CBB40052 // DoIt
+ )
  ; // Operations
 
 ref; // ME_4FA3CBA503D7 SaveDrawing
@@ -1479,6 +1501,7 @@ ref; // ME_4FA3C80103D4
  ;
  : Implementor ME_4FA3BB1500BA // LinesDrawOutput
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_4D00C91B03B2_ME_4FA3BB1500BA OpenLinesLog
 
 : ME_4D00C9410153_ME_4FA3BB1500BA
@@ -1488,6 +1511,7 @@ ref; // ME_4D00C91B03B2_ME_4FA3BB1500BA OpenLinesLog
  ;
  : Implementor ME_4FA3BB1500BA // LinesDrawOutput
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_4D00C9410153_ME_4FA3BB1500BA CloseLinesLog
 
 : ME_4FA3D5A500A9_ME_4FA3BB1500BA
@@ -1497,6 +1521,7 @@ ref; // ME_4D00C9410153_ME_4FA3BB1500BA CloseLinesLog
  ;
  : Implementor ME_4FA3BB1500BA // LinesDrawOutput
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_4FA3D5A500A9_ME_4FA3BB1500BA GetPrecision
 
 : ME_4FA3BB1500BA
@@ -1510,41 +1535,41 @@ ref; // ME_4FA3D5A500A9_ME_4FA3BB1500BA GetPrecision
  : Parent ME_4E1C0134031B // MixIns
  ;
  : Implements
-   @ ( WL 'ME_4D00C63C03E2' '473C3BEE0334.pas.ms.script' // Il3FrameLinesLogger
- ) .SequenceCode.It
+   Seq: ( WL 'ME_4D00C63C03E2' '473C3BEE0334.pas.ms.script' // Il3FrameLinesLogger
+ )
  ; // Implements
  : Attributes
-   @ ( ME_4FA3BD63037A // f_OutputFileName
+   Seq: ( ME_4FA3BD63037A // f_OutputFileName
  ME_4FA3C49701B6 // f_ObjID
  ME_4FA3D8FD0126 // f_Precision
- ) .SequenceCode.It
+ )
  ; // Attributes
  : Operations
-   @ ( ME_4FA3C6D2025F // DoCloseLog
+   Seq: ( ME_4FA3C6D2025F // DoCloseLog
  ME_4FA3CBA503D7 // SaveDrawing
- ) .SequenceCode.It
+ )
  ; // Operations
  : Implemented
-   @ ( ME_4D00C91B03B2_ME_4FA3BB1500BA // OpenLinesLog
+   Seq: ( ME_4D00C91B03B2_ME_4FA3BB1500BA // OpenLinesLog
  ME_4D00C9410153_ME_4FA3BB1500BA // CloseLinesLog
  ME_4FA3D5A500A9_ME_4FA3BB1500BA // GetPrecision
- ) .SequenceCode.It
+ )
  ; // Implemented
  : Dependencies
-   @ ( ME_4FA3C80103D4 // 
- ) .SequenceCode.It
+   Seq: ( ME_4FA3C80103D4 // 
+ )
  ; // Dependencies
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\ScriptEngine'
  CONST intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\LinesDrawOutput.imp.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\ScriptEngine'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
  CONST extprop:pas:TypeName '_LinesDrawOutput_'
+ CONST extprop:pas:UnitName 'LinesDrawOutput.imp'
 
 ref; // ME_4FA3BB1500BA LinesDrawOutput
 
@@ -1559,15 +1584,15 @@ ref; // ME_4FA3BB1500BA LinesDrawOutput
  : Parent WL 'ME_54ECA252008F' '54ECA252008F.pas.ms.script' // ScriptEngine$Everest
  ;
  : Children
-   @ ( ME_4E1C016B0011 // DrawOutputSupport
+   Seq: ( ME_4E1C016B0011 // DrawOutputSupport
  ME_4CC815A00031 // SelectTablePart
  ME_4CE1344403AC // ClipboardOperations
  ME_4F72AE860228 // TkwPrintDataSaver
  ME_4FA3BB1500BA // LinesDrawOutput
- ) .SequenceCode.It
+ )
  ; // Children
  : Depends
-   @ ( WL 'ME_467823B7002C' '467823B7002C.pas.ms.script' // afwInterfaces
+   Seq: ( WL 'ME_467823B7002C' '467823B7002C.pas.ms.script' // afwInterfaces
  WL 'ME_467C0CAA02AB' '467C0CAA02AB.pas.ms.script' // l3InternalInterfaces
  WL 'ME_473C3BEE0334' '473C3BEE0334.pas.ms.script' // l3Canvas
  WL 'ME_474144E20301' '474144E20301.pas.ms.script' // Draw
@@ -1586,15 +1611,13 @@ ref; // ME_4FA3BB1500BA LinesDrawOutput
  WL 'ME_4DAF19F600C5' '4DAF19F600C5.pas.ms.script' // tfwScriptingInterfaces
  WL 'ME_54B90AC6014B' '54B90AC6014B.pas.ms.script' // StringUtils
  WL 'ME_55C4AEC801CA' '55C4AEC801CA.pas.ms.script' // Graphics
- ) .SequenceCode.It
+ )
  ; // Depends
- : Generators
- @ (
- gen_pas.script
- gen_pas.script.runner
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\ScriptEngine'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\ScriptEngine'
  CONST pas.script:Path 'shared\models\NewSchool\Scripts\4E1C0134031B.pas.ms.script'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
  CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\4E1C0134031B.pas.ms.script.runner'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_4E1C0134031B MixIns

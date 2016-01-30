@@ -1,0 +1,61 @@
+// SplashInterfaces 499D0684023C Interfaces Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_499D0684023C
+
+: ME_499D06CC02D2
+ CONST UID '499D06CC02D2'
+ CONST GUID '6DE59664-EC43-42E5-AE95-A2465CF37006'
+ CONST Name 'InsSplashClient'
+ CONST Class class_Class
+ : Stereotype st_Facet ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Невизуальный объект.'#13#10'Готовит данные для сервера и запускает его.'#13#10'Перед разрушением говорит серверу, что можно уже не показывать сплеш.' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_499D0684023C // SplashInterfaces
+ ;
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Splash'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Splash'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\Splash'
+ CONST extprop:rc:SelfName 'SplashClient'
+ CONST extprop:rc:isAcceptableForScripts true
+
+ref; // ME_499D06CC02D2 InsSplashClient
+
+: ME_499D0684023C
+ CONST UID '499D0684023C'
+ CONST Name 'SplashInterfaces'
+ CONST Class class_Category
+ : Stereotype st_Interfaces ;
+ %SUMMARY 'Интерфесы для клиента' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent WL 'ME_499C065E01E5' '499C065E01E5.pas.ms.script' // Splash
+ ;
+ : Children
+   Seq: ( ME_499D06CC02D2 // InsSplashClient
+ )
+ ; // Children
+ CONST "is namespace" true
+ CONST "no hands" false
+ : Generators
+ Seq: (
+ gen_intf.pas
+ gen_pas.script
+ gen_pas.script.runner
+ )
+ ; // Generators
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Splash'
+ CONST intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\Splash\SplashInterfaces.pas'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Splash'
+ CONST pas.script:Path 'shared\models\NewSchool\Scripts\499D0684023C.pas.ms.script'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\499D0684023C.pas.ms.script.runner'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\Splash'
+
+ref; // ME_499D0684023C SplashInterfaces

@@ -27,8 +27,8 @@ ref; // ME_4E847F0903CB aFileName
  : Parent ME_4E847EEE02DB // HTMLtoEVD
  ;
  : Parameters
-   @ ( ME_4E847F0903CB // aFileName
- ) .SequenceCode.It
+   Seq: ( ME_4E847F0903CB // aFileName
+ )
  ; // Parameters
 
 ref; // ME_4E847F010124 DoIt
@@ -55,15 +55,59 @@ ref; // ME_4E8482E30076
  : Parent ME_4E847D990353 // HTMLtoEVDWriterTest
  ;
  : Operations
-   @ ( ME_4E847F010124 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_4E847F010124 // DoIt
+ )
  ; // Operations
  : Dependencies
-   @ ( ME_4E8482E30076 // 
- ) .SequenceCode.It
+   Seq: ( ME_4E8482E30076 // 
+ )
  ; // Dependencies
 
 ref; // ME_4E847EEE02DB HTMLtoEVD
+
+FORWARD ME_56A613A30375
+
+: ME_56A613DB02EC
+ CONST UID '56A613DB02EC'
+ CONST Name 'aHTMLReader'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_48EA3D2E0054' '48EA3D1F0232.pas.ms.script' // TddHTMLReader
+ ;
+
+ref; // ME_56A613DB02EC aHTMLReader
+
+: ME_56A613CE0275
+ CONST UID '56A613CE0275'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_56A613A30375 // TuningReader
+ ;
+ : Parameters
+   Seq: ( ME_56A613DB02EC // aHTMLReader
+ )
+ ; // Parameters
+
+ref; // ME_56A613CE0275 DoIt
+
+: ME_56A613A30375
+ CONST UID '56A613A30375'
+ CONST Name 'TuningReader'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_regular
+ : Parent ME_4E847D990353 // HTMLtoEVDWriterTest
+ ;
+ : Operations
+   Seq: ( ME_56A613CE0275 // DoIt
+ )
+ ; // Operations
+
+ref; // ME_56A613A30375 TuningReader
 
 : ME_4E847E14033E
  CONST UID '4E847E14033E'
@@ -78,6 +122,7 @@ ref; // ME_4E847E14033E
 
 : ME_03DDA3153AEC
  CONST UID '03DDA3153AEC'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_4E847D990353 // HTMLtoEVDWriterTest
@@ -94,6 +139,7 @@ ref; // ME_03DDA3153AEC
  ;
  : Implementor ME_4E847D990353 // HTMLtoEVDWriterTest
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4C937013031D_ME_4E847D990353 GetFolder
 
 : ME_4DAED6F60146_ME_4E847D990353
@@ -103,6 +149,7 @@ ref; // ME_4C937013031D_ME_4E847D990353 GetFolder
  ;
  : Implementor ME_4E847D990353 // HTMLtoEVDWriterTest
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4DAED6F60146_ME_4E847D990353 GetModelElementGUID
 
 : ME_4E847D990353
@@ -116,22 +163,23 @@ ref; // ME_4DAED6F60146_ME_4E847D990353 GetModelElementGUID
  : Parent ME_4E847D6D002B // HTML
  ;
  : Inherits
-   @ ( WL 'ME_4BACDDB500CE' '4BACDD97014B.pas.ms.script' // WriterTest
- ) .SequenceCode.It
+   Seq: ( WL 'ME_4BACDDB500CE' '4BACDD97014B.pas.ms.script' // WriterTest
+ )
  ; // Inherits
  : Operations
-   @ ( ME_4E847EEE02DB // HTMLtoEVD
- ) .SequenceCode.It
+   Seq: ( ME_4E847EEE02DB // HTMLtoEVD
+ ME_56A613A30375 // TuningReader
+ )
  ; // Operations
  : Overridden
-   @ ( ME_4C937013031D_ME_4E847D990353 // GetFolder
+   Seq: ( ME_4C937013031D_ME_4E847D990353 // GetFolder
  ME_4DAED6F60146_ME_4E847D990353 // GetModelElementGUID
- ) .SequenceCode.It
+ )
  ; // Overridden
  : Dependencies
-   @ ( ME_4E847E14033E // 
+   Seq: ( ME_4E847E14033E // 
  ME_03DDA3153AEC // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  CONST "author" 'Ëþëèí À.Â.'
  CONST "needs InstanceR" 'undefined'
@@ -140,12 +188,19 @@ ref; // ME_4DAED6F60146_ME_4E847D990353 GetModelElementGUID
  CONST "register in scripts" 'undefined'
  CONST "started" '29.09.2011 18:17'
  : Generators
- @ (
+ Seq: (
  gen_intf.pas
- ) .SequenceCode.It
+ )
  ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\Daily'
  CONST intf.pas:Path 'common\components\rtl\Garant\Daily\HTMLtoEVDWriterTest.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\Daily'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\common\components\rtl\Garant\Daily'
  CONST extprop:pas:TypeName 'THTMLtoEVDWriterTest'
+ CONST extprop:rc:SelfName 'HTMLtoEVDWriterTest'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_4E847D990353 HTMLtoEVDWriterTest
 
@@ -166,6 +221,7 @@ ref; // ME_4E847F290293 DoIt
 
 : ME_D65AD71377E2
  CONST UID 'D65AD71377E2'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_4E847E770184 // HTMLtoEVDTest
@@ -182,6 +238,7 @@ ref; // ME_D65AD71377E2
  ;
  : Implementor ME_4E847E770184 // HTMLtoEVDTest
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4C937013031D_ME_4E847E770184 GetFolder
 
 : ME_4DAED6F60146_ME_4E847E770184
@@ -191,6 +248,7 @@ ref; // ME_4C937013031D_ME_4E847E770184 GetFolder
  ;
  : Implementor ME_4E847E770184 // HTMLtoEVDTest
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4DAED6F60146_ME_4E847E770184 GetModelElementGUID
 
 : ME_4E847E770184
@@ -204,33 +262,40 @@ ref; // ME_4DAED6F60146_ME_4E847E770184 GetModelElementGUID
  : Parent ME_4E847D6D002B // HTML
  ;
  : Inherits
-   @ ( ME_4E847D990353 // HTMLtoEVDWriterTest
- ) .SequenceCode.It
+   Seq: ( ME_4E847D990353 // HTMLtoEVDWriterTest
+ )
  ; // Inherits
  : Operations
-   @ ( ME_4E847F290293 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_4E847F290293 // DoIt
+ )
  ; // Operations
  : Overridden
-   @ ( ME_4C937013031D_ME_4E847E770184 // GetFolder
+   Seq: ( ME_4C937013031D_ME_4E847E770184 // GetFolder
  ME_4DAED6F60146_ME_4E847E770184 // GetModelElementGUID
- ) .SequenceCode.It
+ )
  ; // Overridden
  : Dependencies
-   @ ( ME_D65AD71377E2 // 
- ) .SequenceCode.It
+   Seq: ( ME_D65AD71377E2 // 
+ )
  ; // Dependencies
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
  : Generators
- @ (
+ Seq: (
  gen_intf.pas
- ) .SequenceCode.It
+ )
  ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\Daily'
  CONST intf.pas:Path 'common\components\rtl\Garant\Daily\HTMLtoEVDTest.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\Daily'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\common\components\rtl\Garant\Daily'
  CONST extprop:pas:TypeName 'THTMLtoEVDTest'
+ CONST extprop:rc:SelfName 'HTMLtoEVDTest'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_4E847E770184 HTMLtoEVDTest
 
@@ -257,8 +322,8 @@ ref; // ME_516E741E03B5 aFileName
  : Parent ME_516E73FC02CE // EVDtoHTML
  ;
  : Parameters
-   @ ( ME_516E741E03B5 // aFileName
- ) .SequenceCode.It
+   Seq: ( ME_516E741E03B5 // aFileName
+ )
  ; // Parameters
 
 ref; // ME_516E741401FE DoIt
@@ -296,13 +361,13 @@ ref; // ME_516E78F201B8
  : Parent ME_516E72CA0386 // EVDtoHTMLWriterTest
  ;
  : Operations
-   @ ( ME_516E741401FE // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_516E741401FE // DoIt
+ )
  ; // Operations
  : Dependencies
-   @ ( ME_516E78DA0191 // 
+   Seq: ( ME_516E78DA0191 // 
  ME_516E78F201B8 // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
 
 ref; // ME_516E73FC02CE EVDtoHTML
@@ -360,8 +425,8 @@ ref; // ME_516E778001F7 aReader
  : Parent ME_516E775B03C9 // SomeFormatToHTML
  ;
  : Parameters
-   @ ( ME_516E778001F7 // aReader
- ) .SequenceCode.It
+   Seq: ( ME_516E778001F7 // aReader
+ )
  ; // Parameters
 
 ref; // ME_516E776C03D7 DoIt
@@ -377,13 +442,13 @@ ref; // ME_516E776C03D7 DoIt
  : Parent ME_516E72CA0386 // EVDtoHTMLWriterTest
  ;
  : Attributes
-   @ ( ME_516E7C2302F4 // Filter
+   Seq: ( ME_516E7C2302F4 // Filter
  ME_516E7C3300F6 // Writer
- ) .SequenceCode.It
+ )
  ; // Attributes
  : Operations
-   @ ( ME_516E776C03D7 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_516E776C03D7 // DoIt
+ )
  ; // Operations
 
 ref; // ME_516E775B03C9 SomeFormatToHTML
@@ -401,6 +466,7 @@ ref; // ME_516E732F028C
 
 : ME_00582F75C6A4
  CONST UID '00582F75C6A4'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_516E72CA0386 // EVDtoHTMLWriterTest
@@ -417,6 +483,7 @@ ref; // ME_00582F75C6A4
  ;
  : Implementor ME_516E72CA0386 // EVDtoHTMLWriterTest
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4C937013031D_ME_516E72CA0386 GetFolder
 
 : ME_4DAED6F60146_ME_516E72CA0386
@@ -426,6 +493,7 @@ ref; // ME_4C937013031D_ME_516E72CA0386 GetFolder
  ;
  : Implementor ME_516E72CA0386 // EVDtoHTMLWriterTest
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4DAED6F60146_ME_516E72CA0386 GetModelElementGUID
 
 : ME_516E72CA0386
@@ -439,35 +507,42 @@ ref; // ME_4DAED6F60146_ME_516E72CA0386 GetModelElementGUID
  : Parent ME_4E847D6D002B // HTML
  ;
  : Inherits
-   @ ( WL 'ME_4BACDDB500CE' '4BACDD97014B.pas.ms.script' // WriterTest
- ) .SequenceCode.It
+   Seq: ( WL 'ME_4BACDDB500CE' '4BACDD97014B.pas.ms.script' // WriterTest
+ )
  ; // Inherits
  : Operations
-   @ ( ME_516E73FC02CE // EVDtoHTML
+   Seq: ( ME_516E73FC02CE // EVDtoHTML
  ME_516E775B03C9 // SomeFormatToHTML
- ) .SequenceCode.It
+ )
  ; // Operations
  : Overridden
-   @ ( ME_4C937013031D_ME_516E72CA0386 // GetFolder
+   Seq: ( ME_4C937013031D_ME_516E72CA0386 // GetFolder
  ME_4DAED6F60146_ME_516E72CA0386 // GetModelElementGUID
- ) .SequenceCode.It
+ )
  ; // Overridden
  : Dependencies
-   @ ( ME_516E732F028C // 
+   Seq: ( ME_516E732F028C // 
  ME_00582F75C6A4 // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
  : Generators
- @ (
+ Seq: (
  gen_intf.pas
- ) .SequenceCode.It
+ )
  ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\Daily'
  CONST intf.pas:Path 'common\components\rtl\Garant\Daily\EVDtoHTMLWriterTest.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\Daily'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\common\components\rtl\Garant\Daily'
  CONST extprop:pas:TypeName 'TEVDtoHTMLWriterTest'
+ CONST extprop:rc:SelfName 'EVDtoHTMLWriterTest'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_516E72CA0386 EVDtoHTMLWriterTest
 
@@ -488,6 +563,7 @@ ref; // ME_516E73710182 DoIt
 
 : ME_71AC1E513E87
  CONST UID '71AC1E513E87'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_516E734901D3 // EVDtoHTMLTest
@@ -504,6 +580,7 @@ ref; // ME_71AC1E513E87
  ;
  : Implementor ME_516E734901D3 // EVDtoHTMLTest
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4C937013031D_ME_516E734901D3 GetFolder
 
 : ME_4DAED6F60146_ME_516E734901D3
@@ -513,6 +590,7 @@ ref; // ME_4C937013031D_ME_516E734901D3 GetFolder
  ;
  : Implementor ME_516E734901D3 // EVDtoHTMLTest
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4DAED6F60146_ME_516E734901D3 GetModelElementGUID
 
 : ME_516E734901D3
@@ -526,35 +604,131 @@ ref; // ME_4DAED6F60146_ME_516E734901D3 GetModelElementGUID
  : Parent ME_4E847D6D002B // HTML
  ;
  : Inherits
-   @ ( ME_516E72CA0386 // EVDtoHTMLWriterTest
- ) .SequenceCode.It
+   Seq: ( ME_516E72CA0386 // EVDtoHTMLWriterTest
+ )
  ; // Inherits
  : Operations
-   @ ( ME_516E73710182 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_516E73710182 // DoIt
+ )
  ; // Operations
  : Overridden
-   @ ( ME_4C937013031D_ME_516E734901D3 // GetFolder
+   Seq: ( ME_4C937013031D_ME_516E734901D3 // GetFolder
  ME_4DAED6F60146_ME_516E734901D3 // GetModelElementGUID
- ) .SequenceCode.It
+ )
  ; // Overridden
  : Dependencies
-   @ ( ME_71AC1E513E87 // 
- ) .SequenceCode.It
+   Seq: ( ME_71AC1E513E87 // 
+ )
  ; // Dependencies
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
  : Generators
- @ (
+ Seq: (
  gen_intf.pas
- ) .SequenceCode.It
+ )
  ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\Daily'
  CONST intf.pas:Path 'common\components\rtl\Garant\Daily\EVDtoHTMLTest.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\Daily'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\common\components\rtl\Garant\Daily'
  CONST extprop:pas:TypeName 'TEVDtoHTMLTest'
+ CONST extprop:rc:SelfName 'EVDtoHTMLTest'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_516E734901D3 EVDtoHTMLTest
+
+FORWARD ME_56A613EC02A2
+
+: ME_436BD6F70CA7
+ CONST UID '436BD6F70CA7'
+ CONST IsSummoned true
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_56A613EC02A2 // HTMLtoEVDWithURLTest
+ ;
+ : Target WL 'ME_4B2A0DCE03A9' '4B2A0D6A0077.pas.ms.script' // TestFrameWork
+ ;
+
+ref; // ME_436BD6F70CA7 
+
+: ME_4C937013031D_ME_56A613EC02A2
+ CONST UID '4C937013031D'
+ CONST Name 'GetFolder'
+ : Original WL 'ME_4C937013031D' '4B2A0D6A0077.pas.ms.script' // GetFolder
+ ;
+ : Implementor ME_56A613EC02A2 // HTMLtoEVDWithURLTest
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_4C937013031D_ME_56A613EC02A2 GetFolder
+
+: ME_4DAED6F60146_ME_56A613EC02A2
+ CONST UID '4DAED6F60146'
+ CONST Name 'GetModelElementGUID'
+ : Original WL 'ME_4DAED6F60146' '4B2A0D6A0077.pas.ms.script' // GetModelElementGUID
+ ;
+ : Implementor ME_56A613EC02A2 // HTMLtoEVDWithURLTest
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_4DAED6F60146_ME_56A613EC02A2 GetModelElementGUID
+
+: ME_56A613A30375_ME_56A613EC02A2
+ CONST UID '56A613A30375'
+ CONST Name 'TuningReader'
+ : Original ME_56A613A30375 // TuningReader
+ ;
+ : Implementor ME_56A613EC02A2 // HTMLtoEVDWithURLTest
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_56A613A30375_ME_56A613EC02A2 TuningReader
+
+: ME_56A613EC02A2
+ CONST UID '56A613EC02A2'
+ CONST Name 'HTMLtoEVDWithURLTest'
+ CONST Class class_Class
+ : Stereotype st_TestCase ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_4E847D6D002B // HTML
+ ;
+ : Inherits
+   Seq: ( ME_4E847E770184 // HTMLtoEVDTest
+ )
+ ; // Inherits
+ : Overridden
+   Seq: ( ME_4C937013031D_ME_56A613EC02A2 // GetFolder
+ ME_4DAED6F60146_ME_56A613EC02A2 // GetModelElementGUID
+ ME_56A613A30375_ME_56A613EC02A2 // TuningReader
+ )
+ ; // Overridden
+ : Dependencies
+   Seq: ( ME_436BD6F70CA7 // 
+ )
+ ; // Dependencies
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ : Generators
+ Seq: (
+ gen_intf.pas
+ )
+ ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\Daily'
+ CONST intf.pas:Path 'common\components\rtl\Garant\Daily\HTMLtoEVDWithURLTest.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\Daily'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\common\components\rtl\Garant\Daily'
+ CONST extprop:pas:TypeName 'THTMLtoEVDWithURLTest'
+ CONST extprop:rc:SelfName 'HTMLtoEVDWithURLTest'
+ CONST extprop:rc:isAcceptableForScripts true
+
+ref; // ME_56A613EC02A2 HTMLtoEVDWithURLTest
 
 : ME_4E847D6D002B
  CONST UID '4E847D6D002B'
@@ -566,14 +740,15 @@ ref; // ME_516E734901D3 EVDtoHTMLTest
  : Parent WL 'ME_4B2A15810261' '4B2A15810261.pas.ms.script' // DailyTest
  ;
  : Children
-   @ ( ME_4E847D990353 // HTMLtoEVDWriterTest
+   Seq: ( ME_4E847D990353 // HTMLtoEVDWriterTest
  ME_4E847E770184 // HTMLtoEVDTest
  ME_516E72CA0386 // EVDtoHTMLWriterTest
  ME_516E734901D3 // EVDtoHTMLTest
- ) .SequenceCode.It
+ ME_56A613EC02A2 // HTMLtoEVDWithURLTest
+ )
  ; // Children
  : Depends
-   @ ( WL 'ME_47913B47006E' '47913B47006E.pas.ms.script' // l3CoreObjects
+   Seq: ( WL 'ME_47913B47006E' '47913B47006E.pas.ms.script' // l3CoreObjects
  WL 'ME_482D6E960087' '482D6E960087.pas.ms.script' // Readers
  WL 'ME_483E80C9025F' '483E80C9025F.pas.ms.script' // Readers
  WL 'ME_48EA3D1F0232' '48EA3D1F0232.pas.ms.script' // Readers
@@ -581,15 +756,20 @@ ref; // ME_516E734901D3 EVDtoHTMLTest
  WL 'ME_4AB0C3C60310' '4AB0C3C60310.pas.ms.script' // Sys
  WL 'ME_4B2A0D6A0077' '4B2A0D6A0077.pas.ms.script' // Source
  WL 'ME_4BACDD97014B' '4BACDD97014B.pas.ms.script' // Write
- ) .SequenceCode.It
+ )
  ; // Depends
  : Generators
- @ (
+ Seq: (
  gen_pas.script
  gen_pas.script.runner
- ) .SequenceCode.It
+ )
  ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\Daily'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\Daily'
  CONST pas.script:Path 'shared\models\NewSchool\Scripts\4E847D6D002B.pas.ms.script'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
  CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\4E847D6D002B.pas.ms.script.runner'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\common\components\rtl\Garant\Daily'
 
 ref; // ME_4E847D6D002B HTML

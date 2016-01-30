@@ -11,6 +11,7 @@ FORWARD ME_55C483850136
 : ME_FDC9EB6DED6D
  CONST UID 'FDC9EB6DED6D'
  CONST Name 'DoIt'
+ CONST IsSummoned true
  CONST Class class_Operation
  %SUMMARY 'Сигнатура метода Run' ;
  CONST Visibility PublicAccess
@@ -174,11 +175,11 @@ ref; // ME_56456EFB02A4
  : Parent ME_55C482EC023E // TcallMSSRunner
  ;
  : Operations
-   @ ( ME_FDC9EB6DED6D // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_FDC9EB6DED6D // DoIt
+ )
  ; // Operations
  : Dependencies
-   @ ( ME_55C483970098 // 
+   Seq: ( ME_55C483970098 // 
  ME_55C483AE017E // 
  ME_55C483FC02E8 // 
  ME_55C48FF70223 // 
@@ -191,7 +192,7 @@ ref; // ME_56456EFB02A4
  ME_563CB35E0235 // 
  ME_563CB8030308 // 
  ME_56456EFB02A4 // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  CONST "is static" true
 
@@ -208,19 +209,21 @@ ref; // ME_55C483850136 Run
  : Parent ME_55C482960214 // callMSS
  ;
  : Operations
-   @ ( ME_55C483850136 // Run
- ) .SequenceCode.It
+   Seq: ( ME_55C483850136 // Run
+ )
  ; // Operations
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components'
  CONST intf.pas:Path 'common\components\callMSS\callMSSRunner.pas'
+ CONST intf.pas:PathOnly '\common\components\callMSS'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'callMSSRunner'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'callMSSRunner'
 
 ref; // ME_55C482EC023E TcallMSSRunner
 
@@ -235,11 +238,11 @@ ref; // ME_55C482EC023E TcallMSSRunner
  : Parent WL 'ME_4ABCC25A0322' '4ABCC25A0322.pas.ms.script' // Shared Delphi Low Level
  ;
  : Children
-   @ ( ME_55C482EC023E // TcallMSSRunner
- ) .SequenceCode.It
+   Seq: ( ME_55C482EC023E // TcallMSSRunner
+ )
  ; // Children
  : Depends
-   @ ( WL 'ME_469F3E37025A' '469F3E37025A.pas.ms.script' // Rtl
+   Seq: ( WL 'ME_469F3E37025A' '469F3E37025A.pas.ms.script' // Rtl
  WL 'ME_4790D09A0378' '4790D09A0378.pas.ms.script' // L3
  WL 'ME_47913B47006E' '47913B47006E.pas.ms.script' // l3CoreObjects
  WL 'ME_47D0290B016D' '47D0290B016D.pas.ms.script' // l3Utils
@@ -253,7 +256,7 @@ ref; // ME_55C482EC023E TcallMSSRunner
  WL 'ME_54B90AC6014B' '54B90AC6014B.pas.ms.script' // StringUtils
  WL 'ME_54CF97B10370' '54CF97B10370.pas.ms.script' // ScriptEngine$Core
  WL 'ME_55C481E00003' '55C481E00003.pas.ms.script' // ScriptCallers
- ) .SequenceCode.It
+ )
  ; // Depends
  CONST "CONFIG_UC" false
  CONST "console" true
@@ -261,15 +264,12 @@ ref; // ME_55C482EC023E TcallMSSRunner
  CONST "need UC in project" true
  CONST "old format" false
  CONST "path suffix" '/callMSS'
- : Generators
- @ (
- gen_intf.pas
- gen_pas.script
- gen_pas.script.runner
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components'
  CONST intf.pas:Path 'common\components\callMSS\callMSS.dpr'
+ CONST intf.pas:PathOnly '\common\components\callMSS'
  CONST pas.script:Path 'shared\models\NewSchool\Scripts\55C482960214.pas.ms.script'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
  CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\55C482960214.pas.ms.script.runner'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_55C482960214 callMSS

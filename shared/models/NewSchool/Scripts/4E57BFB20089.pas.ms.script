@@ -1,0 +1,76 @@
+// Работа с текстом документа 4E57BFB20089 UseCases Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4E57BFB20089
+
+FORWARD ME_4E6A1CBB03D4
+
+FORWARD ME_4E57BFF3006E
+
+: ME_4E57BFF3006E
+ CONST UID '4E57BFF3006E'
+ CONST Name 'Межстрочный интервал должен быть равен 1'
+ CONST Class class_Class
+ : Stereotype st_UseCaseRequirement ;
+ CONST Kind kind_NormalClass
+ %SUMMARY '{RequestLink:278833302}'#13#10'{RequestLink:352454487}' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4E6A1CBB03D4 // Отображение документа в F1
+ ;
+ CONST dfm:PathOnly '\common\components'
+ CONST intf.pas:PathOnly '\common\components'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+
+ref; // ME_4E57BFF3006E Межстрочный интервал должен быть равен 1
+
+: ME_4E6A1CBB03D4
+ CONST UID '4E6A1CBB03D4'
+ CONST Name 'Отображение документа в F1'
+ CONST Class class_Class
+ : Stereotype st_UseCase ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4E57BFB20089 // Работа с текстом документа
+ ;
+ : Children
+   Seq: ( ME_4E57BFF3006E // Межстрочный интервал должен быть равен 1
+ )
+ ; // Children
+ CONST dfm:PathOnly '\common\components'
+ CONST intf.pas:PathOnly '\common\components'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+
+ref; // ME_4E6A1CBB03D4 Отображение документа в F1
+
+: ME_4E57BFB20089
+ CONST UID '4E57BFB20089'
+ CONST Name 'Работа с текстом документа'
+ CONST Class class_Category
+ : Stereotype st_UseCases ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent WL 'ME_4E57BF810311' '4E57BF810311.pas.ms.script' // Требования к системным библиотекам для F1
+ ;
+ : Children
+   Seq: ( ME_4E6A1CBB03D4 // Отображение документа в F1
+ )
+ ; // Children
+ : Depends
+   Seq: ( WL 'ME_4E5BBABD028A' '4E5BBABD028A.pas.ms.script' // Базовые механизмы отображения объектов
+ WL 'ME_4E5CF70B01E2' '4E5CF70B01E2.pas.ms.script' // Требования к редактору Эверест
+ WL 'ME_4E6A1F2D0336' '4E6A1F2D0336.pas.ms.script' // Требования к схеме документа в F1
+ )
+ ; // Depends
+ CONST dfm:PathOnly '\common\components'
+ CONST intf.pas:PathOnly '\common\components'
+ CONST pas.script:Path 'shared\models\NewSchool\Scripts\4E57BFB20089.pas.ms.script'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\4E57BFB20089.pas.ms.script.runner'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+
+ref; // ME_4E57BFB20089 Работа с текстом документа

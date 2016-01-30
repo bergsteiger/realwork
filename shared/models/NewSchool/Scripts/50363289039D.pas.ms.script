@@ -60,6 +60,7 @@ ref; // ME_503633450065 aReader
  CONST Value true
  : ValueType WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
+ CONST extprop:pas:Value true
 
 ref; // ME_50363345009D NeedCheck
 
@@ -72,9 +73,9 @@ ref; // ME_50363345009D NeedCheck
  : Parent ME_503633240255 // SomeFormatToXML
  ;
  : Parameters
-   @ ( ME_503633450065 // aReader
+   Seq: ( ME_503633450065 // aReader
  ME_50363345009D // NeedCheck
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_5036333D0023 DoIt
@@ -90,13 +91,13 @@ ref; // ME_5036333D0023 DoIt
  : Parent ME_503632AC03D9 // XMLWriterTest
  ;
  : Attributes
-   @ ( ME_503633F6028D // Writer
+   Seq: ( ME_503633F6028D // Writer
  ME_50363403022C // Filer
- ) .SequenceCode.It
+ )
  ; // Attributes
  : Operations
-   @ ( ME_5036333D0023 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_5036333D0023 // DoIt
+ )
  ; // Operations
 
 ref; // ME_503633240255 SomeFormatToXML
@@ -139,6 +140,7 @@ ref; // ME_5036336402FD aFileName
  CONST Value true
  : ValueType WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
+ CONST extprop:pas:Value true
 
 ref; // ME_50363364032C NeedCheck
 
@@ -151,9 +153,9 @@ ref; // ME_50363364032C NeedCheck
  : Parent ME_5036334B00AD // EVDtoXML
  ;
  : Parameters
-   @ ( ME_5036336402FD // aFileName
+   Seq: ( ME_5036336402FD // aFileName
  ME_50363364032C // NeedCheck
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_5036335F01AE DoIt
@@ -180,22 +182,23 @@ ref; // ME_503634FB03DB
  : Parent ME_503632AC03D9 // XMLWriterTest
  ;
  : Attributes
-   @ ( ME_5036350103D2 // Reader
- ) .SequenceCode.It
+   Seq: ( ME_5036350103D2 // Reader
+ )
  ; // Attributes
  : Operations
-   @ ( ME_5036335F01AE // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_5036335F01AE // DoIt
+ )
  ; // Operations
  : Dependencies
-   @ ( ME_503634FB03DB // 
- ) .SequenceCode.It
+   Seq: ( ME_503634FB03DB // 
+ )
  ; // Dependencies
 
 ref; // ME_5036334B00AD EVDtoXML
 
 : ME_7B6A4E1E7A1D
  CONST UID '7B6A4E1E7A1D'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_503632AC03D9 // XMLWriterTest
@@ -212,6 +215,7 @@ ref; // ME_7B6A4E1E7A1D
  ;
  : Implementor ME_503632AC03D9 // XMLWriterTest
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4C937013031D_ME_503632AC03D9 GetFolder
 
 : ME_4DAED6F60146_ME_503632AC03D9
@@ -221,6 +225,7 @@ ref; // ME_4C937013031D_ME_503632AC03D9 GetFolder
  ;
  : Implementor ME_503632AC03D9 // XMLWriterTest
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4DAED6F60146_ME_503632AC03D9 GetModelElementGUID
 
 : ME_503632AC03D9
@@ -234,34 +239,41 @@ ref; // ME_4DAED6F60146_ME_503632AC03D9 GetModelElementGUID
  : Parent ME_50363289039D // XML
  ;
  : Inherits
-   @ ( WL 'ME_4BACDDB500CE' '4BACDD97014B.pas.ms.script' // WriterTest
- ) .SequenceCode.It
+   Seq: ( WL 'ME_4BACDDB500CE' '4BACDD97014B.pas.ms.script' // WriterTest
+ )
  ; // Inherits
  : Operations
-   @ ( ME_503633240255 // SomeFormatToXML
+   Seq: ( ME_503633240255 // SomeFormatToXML
  ME_5036334B00AD // EVDtoXML
- ) .SequenceCode.It
+ )
  ; // Operations
  : Overridden
-   @ ( ME_4C937013031D_ME_503632AC03D9 // GetFolder
+   Seq: ( ME_4C937013031D_ME_503632AC03D9 // GetFolder
  ME_4DAED6F60146_ME_503632AC03D9 // GetModelElementGUID
- ) .SequenceCode.It
+ )
  ; // Overridden
  : Dependencies
-   @ ( ME_7B6A4E1E7A1D // 
- ) .SequenceCode.It
+   Seq: ( ME_7B6A4E1E7A1D // 
+ )
  ; // Dependencies
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
  : Generators
- @ (
+ Seq: (
  gen_intf.pas
- ) .SequenceCode.It
+ )
  ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\Daily'
  CONST intf.pas:Path 'common\components\rtl\Garant\Daily\XMLWriterTest.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\Daily'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\common\components\rtl\Garant\Daily'
  CONST extprop:pas:TypeName 'TXMLWriterTest'
+ CONST extprop:rc:SelfName 'XMLWriterTest'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_503632AC03D9 XMLWriterTest
 
@@ -282,6 +294,7 @@ ref; // ME_5036347502D4 DoIt
 
 : ME_443FF00B4054
  CONST UID '443FF00B4054'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_503632E400D2 // EVDtoXMLWiterTest
@@ -298,6 +311,7 @@ ref; // ME_443FF00B4054
  ;
  : Implementor ME_503632E400D2 // EVDtoXMLWiterTest
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4C937013031D_ME_503632E400D2 GetFolder
 
 : ME_4DAED6F60146_ME_503632E400D2
@@ -307,6 +321,7 @@ ref; // ME_4C937013031D_ME_503632E400D2 GetFolder
  ;
  : Implementor ME_503632E400D2 // EVDtoXMLWiterTest
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4DAED6F60146_ME_503632E400D2 GetModelElementGUID
 
 : ME_503632E400D2
@@ -320,33 +335,40 @@ ref; // ME_4DAED6F60146_ME_503632E400D2 GetModelElementGUID
  : Parent ME_50363289039D // XML
  ;
  : Inherits
-   @ ( ME_503632AC03D9 // XMLWriterTest
- ) .SequenceCode.It
+   Seq: ( ME_503632AC03D9 // XMLWriterTest
+ )
  ; // Inherits
  : Operations
-   @ ( ME_5036347502D4 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_5036347502D4 // DoIt
+ )
  ; // Operations
  : Overridden
-   @ ( ME_4C937013031D_ME_503632E400D2 // GetFolder
+   Seq: ( ME_4C937013031D_ME_503632E400D2 // GetFolder
  ME_4DAED6F60146_ME_503632E400D2 // GetModelElementGUID
- ) .SequenceCode.It
+ )
  ; // Overridden
  : Dependencies
-   @ ( ME_443FF00B4054 // 
- ) .SequenceCode.It
+   Seq: ( ME_443FF00B4054 // 
+ )
  ; // Dependencies
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
  : Generators
- @ (
+ Seq: (
  gen_intf.pas
- ) .SequenceCode.It
+ )
  ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\Daily'
  CONST intf.pas:Path 'common\components\rtl\Garant\Daily\EVDtoXMLWiterTest.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\Daily'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\common\components\rtl\Garant\Daily'
  CONST extprop:pas:TypeName 'TEVDtoXMLWiterTest'
+ CONST extprop:rc:SelfName 'EVDtoXMLWiterTest'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_503632E400D2 EVDtoXMLWiterTest
 
@@ -431,16 +453,16 @@ ref; // ME_55AE7F050326
  : Parent ME_55AE3EAE00F3 // L3XMLWriterTest
  ;
  : Operations
-   @ ( ME_55AE3F490121 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_55AE3F490121 // DoIt
+ )
  ; // Operations
  : Dependencies
-   @ ( ME_55AE44030059 // 
+   Seq: ( ME_55AE44030059 // 
  ME_55AE452B03D4 // 
  ME_55AE7B4C03C6 // 
  ME_55AE7B7002BF // 
  ME_55AE7F050326 // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
 
 ref; // ME_55AE3F340080 BuildXML
@@ -460,6 +482,7 @@ ref; // ME_55AE76C10243 DoIt
 
 : ME_43CC48ED1BB4
  CONST UID '43CC48ED1BB4'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_55AE3EAE00F3 // L3XMLWriterTest
@@ -476,6 +499,7 @@ ref; // ME_43CC48ED1BB4
  ;
  : Implementor ME_55AE3EAE00F3 // L3XMLWriterTest
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4C937013031D_ME_55AE3EAE00F3 GetFolder
 
 : ME_4DAED6F60146_ME_55AE3EAE00F3
@@ -485,6 +509,7 @@ ref; // ME_4C937013031D_ME_55AE3EAE00F3 GetFolder
  ;
  : Implementor ME_55AE3EAE00F3 // L3XMLWriterTest
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4DAED6F60146_ME_55AE3EAE00F3 GetModelElementGUID
 
 : ME_55AE3EAE00F3
@@ -498,34 +523,41 @@ ref; // ME_4DAED6F60146_ME_55AE3EAE00F3 GetModelElementGUID
  : Parent ME_50363289039D // XML
  ;
  : Inherits
-   @ ( WL 'ME_4B2A11BC0255' '4B2A112B011A.pas.ms.script' // TBaseTest
- ) .SequenceCode.It
+   Seq: ( WL 'ME_4B2A11BC0255' '4B2A112B011A.pas.ms.script' // TBaseTest
+ )
  ; // Inherits
  : Operations
-   @ ( ME_55AE3F340080 // BuildXML
+   Seq: ( ME_55AE3F340080 // BuildXML
  ME_55AE76C10243 // DoIt
- ) .SequenceCode.It
+ )
  ; // Operations
  : Overridden
-   @ ( ME_4C937013031D_ME_55AE3EAE00F3 // GetFolder
+   Seq: ( ME_4C937013031D_ME_55AE3EAE00F3 // GetFolder
  ME_4DAED6F60146_ME_55AE3EAE00F3 // GetModelElementGUID
- ) .SequenceCode.It
+ )
  ; // Overridden
  : Dependencies
-   @ ( ME_43CC48ED1BB4 // 
- ) .SequenceCode.It
+   Seq: ( ME_43CC48ED1BB4 // 
+ )
  ; // Dependencies
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
  : Generators
- @ (
+ Seq: (
  gen_intf.pas
- ) .SequenceCode.It
+ )
  ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\Daily'
  CONST intf.pas:Path 'common\components\rtl\Garant\Daily\L3XMLWriterTest.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\Daily'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\common\components\rtl\Garant\Daily'
  CONST extprop:pas:TypeName 'TL3XMLWriterTest'
+ CONST extprop:rc:SelfName 'L3XMLWriterTest'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_55AE3EAE00F3 L3XMLWriterTest
 
@@ -539,13 +571,13 @@ ref; // ME_55AE3EAE00F3 L3XMLWriterTest
  : Parent WL 'ME_4B2A15810261' '4B2A15810261.pas.ms.script' // DailyTest
  ;
  : Children
-   @ ( ME_503632AC03D9 // XMLWriterTest
+   Seq: ( ME_503632AC03D9 // XMLWriterTest
  ME_503632E400D2 // EVDtoXMLWiterTest
  ME_55AE3EAE00F3 // L3XMLWriterTest
- ) .SequenceCode.It
+ )
  ; // Children
  : Depends
-   @ ( WL 'ME_4677FBA70343' '4677FBA70343.pas.ms.script' // l3Interfaces
+   Seq: ( WL 'ME_4677FBA70343' '4677FBA70343.pas.ms.script' // l3Interfaces
  WL 'ME_4678193C009C' '4678193C009C.pas.ms.script' // l3Types
  WL 'ME_47913B47006E' '47913B47006E.pas.ms.script' // l3CoreObjects
  WL 'ME_47ECB8BD00A8' '47ECB8BD00A8.pas.ms.script' // Generators
@@ -556,15 +588,20 @@ ref; // ME_55AE3EAE00F3 L3XMLWriterTest
  WL 'ME_4B2A112B011A' '4B2A112B011A.pas.ms.script' // Source
  WL 'ME_4BACDD97014B' '4BACDD97014B.pas.ms.script' // Write
  WL 'ME_55AE44BA0133' '55AE44BA0133.pas.ms.script' // XML
- ) .SequenceCode.It
+ )
  ; // Depends
  : Generators
- @ (
+ Seq: (
  gen_pas.script
  gen_pas.script.runner
- ) .SequenceCode.It
+ )
  ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\Daily'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\Daily'
  CONST pas.script:Path 'shared\models\NewSchool\Scripts\50363289039D.pas.ms.script'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
  CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\50363289039D.pas.ms.script.runner'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\common\components\rtl\Garant\Daily'
 
 ref; // ME_50363289039D XML

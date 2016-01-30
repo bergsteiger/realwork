@@ -47,13 +47,19 @@ ref; // ME_499C1A5C03B4 CaptionChanged
  : Parent ME_499C1A100121 // nscTaskPanelInterfaces
  ;
  : Attributes
-   @ ( ME_499C1AA001FF // Op
- ) .SequenceCode.It
+   Seq: ( ME_499C1AA001FF // Op
+ )
  ; // Attributes
  : Operations
-   @ ( ME_499C1A5C03B4 // CaptionChanged
- ) .SequenceCode.It
+   Seq: ( ME_499C1A5C03B4 // CaptionChanged
+ )
  ; // Operations
+ CONST dfm:PathOnly '\common\components\gui\Garant\Nemesis'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Nemesis'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'OperationNode'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_499C1A4E03C8 InscOperationNode
 
@@ -68,26 +74,23 @@ ref; // ME_499C1A4E03C8 InscOperationNode
  : Parent WL 'ME_490838AA02D0' '490838AA02D0.pas.ms.script' // Nemesis
  ;
  : Children
-   @ ( ME_499C1A4E03C8 // InscOperationNode
- ) .SequenceCode.It
+   Seq: ( ME_499C1A4E03C8 // InscOperationNode
+ )
  ; // Children
  : Depends
-   @ ( WL 'ME_49940C8E00DA' '49940C8E00DA.pas.ms.script' // vcmTaskPanelInterfaces
- ) .SequenceCode.It
+   Seq: ( WL 'ME_49940C8E00DA' '49940C8E00DA.pas.ms.script' // vcmTaskPanelInterfaces
+ )
  ; // Depends
  CONST "author" 'Ëþëèí À.Â.'
  CONST "is namespace" true
  CONST "no hands" true
  CONST "started" '18.02.2009 17:24'
- : Generators
- @ (
- gen_intf.pas
- gen_pas.script
- gen_pas.script.runner
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\Nemesis'
  CONST intf.pas:Path 'common\components\gui\Garant\Nemesis\nscTaskPanelInterfaces.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Nemesis'
  CONST pas.script:Path 'shared\models\NewSchool\Scripts\499C1A100121.pas.ms.script'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
  CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\499C1A100121.pas.ms.script.runner'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_499C1A100121 nscTaskPanelInterfaces

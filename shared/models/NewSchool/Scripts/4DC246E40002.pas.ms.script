@@ -35,6 +35,7 @@ ref; // ME_4DC39ECD00B1
  ;
  : Implementor ME_4DC247C80356 // TAutoTest
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_4DC3D2E00153_ME_4DC247C80356 Run
 
 : ME_4DC3DE630030_ME_4DC247C80356
@@ -44,6 +45,7 @@ ref; // ME_4DC3D2E00153_ME_4DC247C80356 Run
  ;
  : Implementor ME_4DC247C80356 // TAutoTest
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_4DC3DE630030_ME_4DC247C80356 Prepare
 
 : ME_4DC247C80356
@@ -57,29 +59,31 @@ ref; // ME_4DC3DE630030_ME_4DC247C80356 Prepare
  : Parent ME_4DC246E40002 // AutoTests
  ;
  : Inherits
-   @ ( WL 'ME_4DC3D2590217' '4DC3D21E006E.pas.ms.script' // TCustomInsiderScripter
- ) .SequenceCode.It
+   Seq: ( WL 'ME_4DC3D2590217' '4DC3D21E006E.pas.ms.script' // TCustomInsiderScripter
+ )
  ; // Inherits
  : Implemented
-   @ ( ME_4DC3D2E00153_ME_4DC247C80356 // Run
+   Seq: ( ME_4DC3D2E00153_ME_4DC247C80356 // Run
  ME_4DC3DE630030_ME_4DC247C80356 // Prepare
- ) .SequenceCode.It
+ )
  ; // Implemented
  : Dependencies
-   @ ( ME_4DC25BD50125 // 
+   Seq: ( ME_4DC25BD50125 // 
  ME_4DC39ECD00B1 // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\ScriptTestLibrary'
  CONST intf.pas:Path 'common\components\rtl\Garant\ScriptTestLibrary\AutoTest.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\ScriptTestLibrary'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'AutoTest'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'AutoTest'
 
 ref; // ME_4DC247C80356 TAutoTest
 
@@ -114,8 +118,8 @@ ref; // ME_4EA50BF00299 DoIt
  : Parent ME_4DC40A7E00C8 // TCustomAutoTestSuite
  ;
  : Operations
-   @ ( ME_4EA50BF00299 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_4EA50BF00299 // DoIt
+ )
  ; // Operations
 
 ref; // ME_4EA50B95037D GetDataFolder
@@ -146,8 +150,8 @@ ref; // ME_4EA50C2100BF DoIt
  : Parent ME_4DC40A7E00C8 // TCustomAutoTestSuite
  ;
  : Operations
-   @ ( ME_4EA50C2100BF // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_4EA50C2100BF // DoIt
+ )
  ; // Operations
 
 ref; // ME_4EA50C04021B GetExt
@@ -173,8 +177,8 @@ ref; // ME_506D816E00C1 aDirName
  : Parent ME_506D80B002A6 // CheckExists
  ;
  : Parameters
-   @ ( ME_506D816E00C1 // aDirName
- ) .SequenceCode.It
+   Seq: ( ME_506D816E00C1 // aDirName
+ )
  ; // Parameters
 
 ref; // ME_506D81590085 DoIt
@@ -190,8 +194,8 @@ ref; // ME_506D81590085 DoIt
  : Parent ME_4DC40A7E00C8 // TCustomAutoTestSuite
  ;
  : Operations
-   @ ( ME_506D81590085 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_506D81590085 // DoIt
+ )
  ; // Operations
 
 ref; // ME_506D80B002A6 CheckExists
@@ -219,8 +223,8 @@ ref; // ME_506D818E03C9 aTestName
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
  : Parameters
-   @ ( ME_506D818E03C9 // aTestName
- ) .SequenceCode.It
+   Seq: ( ME_506D818E03C9 // aTestName
+ )
  ; // Parameters
 
 ref; // ME_506D81890103 DoIt
@@ -236,8 +240,8 @@ ref; // ME_506D81890103 DoIt
  : Parent ME_4DC40A7E00C8 // TCustomAutoTestSuite
  ;
  : Operations
-   @ ( ME_506D81890103 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_506D81890103 // DoIt
+ )
  ; // Operations
 
 ref; // ME_506D8174020F Try2FindTest
@@ -293,6 +297,7 @@ ref; // ME_4DC42054007C
  ;
  : Implementor ME_4DC40A7E00C8 // TCustomAutoTestSuite
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4DC38C96018E_ME_4DC40A7E00C8 AddTests
 
 : ME_4DCCD004030E_ME_4DC40A7E00C8
@@ -302,6 +307,7 @@ ref; // ME_4DC38C96018E_ME_4DC40A7E00C8 AddTests
  ;
  : Implementor ME_4DC40A7E00C8 // TCustomAutoTestSuite
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4DCCD004030E_ME_4DC40A7E00C8 DoHasScriptChildren
 
 : ME_4DC40A7E00C8
@@ -315,32 +321,38 @@ ref; // ME_4DCCD004030E_ME_4DC40A7E00C8 DoHasScriptChildren
  : Parent ME_4DC24CA4037E // CustomAutoTestsSuite
  ;
  : Inherits
-   @ ( WL 'ME_4DC24566022C' '4B2A0D6A0077.pas.ms.script' // TTestSuite
- ) .SequenceCode.It
+   Seq: ( WL 'ME_4DC24566022C' '4B2A0D6A0077.pas.ms.script' // TTestSuite
+ )
  ; // Inherits
  : Operations
-   @ ( ME_4EA50B95037D // GetDataFolder
+   Seq: ( ME_4EA50B95037D // GetDataFolder
  ME_4EA50C04021B // GetExt
  ME_506D80B002A6 // CheckExists
  ME_506D8174020F // Try2FindTest
- ) .SequenceCode.It
+ )
  ; // Operations
  : Overridden
-   @ ( ME_4DC38C96018E_ME_4DC40A7E00C8 // AddTests
+   Seq: ( ME_4DC38C96018E_ME_4DC40A7E00C8 // AddTests
  ME_4DCCD004030E_ME_4DC40A7E00C8 // DoHasScriptChildren
- ) .SequenceCode.It
+ )
  ; // Overridden
  : Dependencies
-   @ ( ME_4DC40C22000B // 
+   Seq: ( ME_4DC40C22000B // 
  ME_4DC40C2600E0 // 
  ME_4DC41B0A014B // 
  ME_4DC42054007C // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
+ CONST dfm:PathOnly '\common\components\rtl\Garant\ScriptTestLibrary'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\ScriptTestLibrary'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'AutoTestSuite'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_4DC40A7E00C8 TCustomAutoTestSuite
 
@@ -355,16 +367,16 @@ ref; // ME_4DC40A7E00C8 TCustomAutoTestSuite
  : Parent ME_4DC246E40002 // AutoTests
  ;
  : Children
-   @ ( ME_4DC40A7E00C8 // TCustomAutoTestSuite
- ) .SequenceCode.It
+   Seq: ( ME_4DC40A7E00C8 // TCustomAutoTestSuite
+ )
  ; // Children
  CONST "no hands" false
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\ScriptTestLibrary'
  CONST intf.pas:Path 'common\components\rtl\Garant\ScriptTestLibrary\CustomAutoTestsSuite.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\ScriptTestLibrary'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'AutoTestsSuite'
 
 ref; // ME_4DC24CA4037E CustomAutoTestsSuite
 
@@ -379,12 +391,12 @@ ref; // ME_4DC24CA4037E CustomAutoTestsSuite
  : Parent WL 'ME_4DC3D1BC0060' '4DC3D1BC0060.pas.ms.script' // ScriptTestLibrary
  ;
  : Children
-   @ ( ME_4DC247C80356 // TAutoTest
+   Seq: ( ME_4DC247C80356 // TAutoTest
  ME_4DC24CA4037E // CustomAutoTestsSuite
- ) .SequenceCode.It
+ )
  ; // Children
  : Depends
-   @ ( WL 'ME_47913B47006E' '47913B47006E.pas.ms.script' // l3CoreObjects
+   Seq: ( WL 'ME_47913B47006E' '47913B47006E.pas.ms.script' // l3CoreObjects
  WL 'ME_4799D29F033F' '4799D29F033F.pas.ms.script' // Implementation
  WL 'ME_47D0290B016D' '47D0290B016D.pas.ms.script' // l3Utils
  WL 'ME_4AB0C3C60310' '4AB0C3C60310.pas.ms.script' // Sys
@@ -392,15 +404,13 @@ ref; // ME_4DC24CA4037E CustomAutoTestsSuite
  WL 'ME_4B2A112B011A' '4B2A112B011A.pas.ms.script' // Source
  WL 'ME_4B30FC850092' '4B30FC850092.pas.ms.script' // VCM_TFW
  WL 'ME_4DC3D21E006E' '4DC3D21E006E.pas.ms.script' // ScriptTestUnit
- ) .SequenceCode.It
+ )
  ; // Depends
- : Generators
- @ (
- gen_pas.script
- gen_pas.script.runner
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\ScriptTestLibrary'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\ScriptTestLibrary'
  CONST pas.script:Path 'shared\models\NewSchool\Scripts\4DC246E40002.pas.ms.script'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
  CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\4DC246E40002.pas.ms.script.runner'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_4DC246E40002 AutoTests

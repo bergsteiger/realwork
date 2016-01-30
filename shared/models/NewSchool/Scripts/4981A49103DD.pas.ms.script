@@ -9,6 +9,7 @@ FORWARD ME_4981A4AE0282
 : ME_54C48F101989
  CONST UID '54C48F101989'
  CONST Name 'Ini_Reg_Class'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Регистрация TvtShockwaveFlashEx' ;
@@ -22,6 +23,7 @@ ref; // ME_54C48F101989 Ini_Reg_Class
 
 : ME_23A5C2CC3055
  CONST UID '23A5C2CC3055'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_4981A4AE0282 // TvtShockwaveFlashEx
@@ -42,16 +44,16 @@ ref; // ME_23A5C2CC3055
  : Parent ME_4981A49103DD // Flash
  ;
  : Operations
-   @ ( ME_54C48F101989 // Ini_Reg_Class
- ) .SequenceCode.It
+   Seq: ( ME_54C48F101989 // Ini_Reg_Class
+ )
  ; // Operations
  : Dependencies
-   @ ( ME_23A5C2CC3055 // 
- ) .SequenceCode.It
+   Seq: ( ME_23A5C2CC3055 // 
+ )
  ; // Dependencies
  : Injected
-   @ ( WL 'ME_7440CAD05A63' '54EC8EE003AB.pas.ms.script' // 
- ) .SequenceCode.It
+   Seq: ( WL 'ME_7440CAD05A63' '54EC8EE003AB.pas.ms.script' // 
+ )
  ; // Injected
  CONST "author" 'Морозов М.А.'
  CONST "finished" false
@@ -60,12 +62,14 @@ ref; // ME_23A5C2CC3055
  CONST "no hands" false
  CONST "register in scripts" true
  CONST "started" '2005/09/29 10:12:39'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\VT'
  CONST intf.pas:Path 'common\components\gui\Garant\VT\NOT_FINISHED_vtShockwaveFlashEx.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\VT'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'Flash'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'vtShockwaveFlashEx'
 
 ref; // ME_4981A4AE0282 TvtShockwaveFlashEx
 
@@ -80,21 +84,19 @@ ref; // ME_4981A4AE0282 TvtShockwaveFlashEx
  : Parent WL 'ME_467A75D90346' '467A75D90346.pas.ms.script' // VT
  ;
  : Children
-   @ ( ME_4981A4AE0282 // TvtShockwaveFlashEx
- ) .SequenceCode.It
+   Seq: ( ME_4981A4AE0282 // TvtShockwaveFlashEx
+ )
  ; // Children
  : Depends
-   @ ( WL 'ME_561F9F7D02A7' '561F9F7D02A7.pas.ms.script' // ScriptEngine
- ) .SequenceCode.It
+   Seq: ( WL 'ME_561F9F7D02A7' '561F9F7D02A7.pas.ms.script' // ScriptEngine
+ )
  ; // Depends
  CONST "ifndef" 'NoFlash'
- : Generators
- @ (
- gen_pas.script
- gen_pas.script.runner
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\VT'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\VT'
  CONST pas.script:Path 'shared\models\NewSchool\Scripts\4981A49103DD.pas.ms.script'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
  CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\4981A49103DD.pas.ms.script.runner'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_4981A49103DD Flash

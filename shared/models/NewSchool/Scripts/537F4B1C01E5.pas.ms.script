@@ -101,28 +101,30 @@ ref; // ME_537F4C150009 LastPing
  : Parent ME_537F4B1C01E5 // Clients
  ;
  : Inherits
-   @ ( WL 'ME_52FBB30A01C6' '52FBB2FC0386.pas.ms.script' // TCsObject
- ) .SequenceCode.It
+   Seq: ( WL 'ME_52FBB30A01C6' '52FBB2FC0386.pas.ms.script' // TCsObject
+ )
  ; // Inherits
  : Attributes
-   @ ( ME_537F4B9A00F1 // ClientId
+   Seq: ( ME_537F4B9A00F1 // ClientId
  ME_537F4BAD0139 // LoginName
  ME_537F4BC5015A // ListenIp
  ME_537F4BDD0351 // ListenPort
  ME_537F4C000221 // UID
  ME_537F4C150009 // LastPing
- ) .SequenceCode.It
+ )
  ; // Attributes
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\cs'
  CONST intf.pas:Path 'common\components\rtl\Garant\cs\CsClientInfo.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\cs'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'CsClientInfo'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'CsClientInfo'
 
 ref; // ME_537F4B3B03DD TCsClientInfo
 
@@ -150,6 +152,7 @@ ref; // ME_537F4CBA0208 ItemType
  ;
  : Implementor ME_537F4CAB01B2 // TCsClientInfoList
  ;
+ CONST OpKind opkind_Implemented
  CONST "ifdef" 'l3Items_NeedsAssignItem'
  CONST "ifndef" 'l3Items_NoSort'
 ref; // ME_47B2C42A0163_ME_537F4CAB01B2 AssignItem
@@ -161,6 +164,7 @@ ref; // ME_47B2C42A0163_ME_537F4CAB01B2 AssignItem
  ;
  : Implementor ME_537F4CAB01B2 // TCsClientInfoList
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_47B99D4503A2_ME_537F4CAB01B2 CompareExistingItems
 
 : ME_537F4CAB01B2
@@ -174,29 +178,31 @@ ref; // ME_47B99D4503A2_ME_537F4CAB01B2 CompareExistingItems
  : Parent ME_537F4B1C01E5 // Clients
  ;
  : Inherits
-   @ ( WL 'ME_47B99E920196' '47913B47006E.pas.ms.script' // l3UncomparabeObjectRefList
+   Seq: ( WL 'ME_47B99E920196' '47913B47006E.pas.ms.script' // l3UncomparabeObjectRefList
  WL 'ME_4A54DD4E036F' '47913B47006E.pas.ms.script' // Tl3ProtoDataContainer
- ) .SequenceCode.It
+ )
  ; // Inherits
  : Attributes
-   @ ( ME_537F4CBA0208 // ItemType
- ) .SequenceCode.It
+   Seq: ( ME_537F4CBA0208 // ItemType
+ )
  ; // Attributes
  : Implemented
-   @ ( ME_47B2C42A0163_ME_537F4CAB01B2 // AssignItem
+   Seq: ( ME_47B2C42A0163_ME_537F4CAB01B2 // AssignItem
  ME_47B99D4503A2_ME_537F4CAB01B2 // CompareExistingItems
- ) .SequenceCode.It
+ )
  ; // Implemented
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\cs'
  CONST intf.pas:Path 'common\components\rtl\Garant\cs\CsClientInfoList.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\cs'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'CsClientInfoList'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'CsClientInfoList'
 
 ref; // ME_537F4CAB01B2 TCsClientInfoList
 
@@ -210,23 +216,21 @@ ref; // ME_537F4CAB01B2 TCsClientInfoList
  : Parent WL 'ME_52F8C27F01AB' '52F8C27F01AB.pas.ms.script' // cs
  ;
  : Children
-   @ ( ME_537F4B3B03DD // TCsClientInfo
+   Seq: ( ME_537F4B3B03DD // TCsClientInfo
  ME_537F4CAB01B2 // TCsClientInfoList
- ) .SequenceCode.It
+ )
  ; // Children
  : Depends
-   @ ( WL 'ME_47913B47006E' '47913B47006E.pas.ms.script' // l3CoreObjects
+   Seq: ( WL 'ME_47913B47006E' '47913B47006E.pas.ms.script' // l3CoreObjects
  WL 'ME_4AB0C3C60310' '4AB0C3C60310.pas.ms.script' // Sys
  WL 'ME_52FBB2FC0386' '52FBB2FC0386.pas.ms.script' // Core
- ) .SequenceCode.It
+ )
  ; // Depends
- : Generators
- @ (
- gen_pas.script
- gen_pas.script.runner
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\cs'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\cs'
  CONST pas.script:Path 'shared\models\NewSchool\Scripts\537F4B1C01E5.pas.ms.script'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
  CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\537F4B1C01E5.pas.ms.script.runner'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_537F4B1C01E5 Clients

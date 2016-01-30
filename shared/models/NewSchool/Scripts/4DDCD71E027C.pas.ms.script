@@ -1,0 +1,492 @@
+// ChangesBetweenEditionsInterfaces 4DDCD71E027C ControllerInterfaces Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4DDCD71E027C
+
+FORWARD ME_4F2BF13800A5
+
+: ME_4DDCE9110130
+ CONST UID '4DDCE9110130'
+ CONST Name 'RightEdition'
+ CONST Class class_Attribute
+ : Stereotype st_readonly::Attribute ;
+ %SUMMARY 'Правая редакция' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_lnk
+ : Parent ME_4F2BF13800A5 // MnsEditionsHolder
+ ;
+ : Target WL 'ME_45EEB6520191' '4570511E038A.pas.ms.script' // Document
+ ;
+ CONST "UseNewGen" 'undefined'
+ CONST "pm" false
+
+ref; // ME_4DDCE9110130 RightEdition
+
+: ME_4F2BF187026F
+ CONST UID '4F2BF187026F'
+ CONST Name 'LeftEdition'
+ CONST Class class_Attribute
+ : Stereotype st_readonly::Attribute ;
+ %SUMMARY 'Левая редакция' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_lnk
+ : Parent ME_4F2BF13800A5 // MnsEditionsHolder
+ ;
+ : Target WL 'ME_45EEB6520191' '4570511E038A.pas.ms.script' // Document
+ ;
+ CONST "UseNewGen" 'undefined'
+ CONST "pm" false
+
+ref; // ME_4F2BF187026F LeftEdition
+
+: ME_4F2BF13800A5
+ CONST UID '4F2BF13800A5'
+ CONST Name 'MnsEditionsHolder'
+ CONST Class class_Class
+ : Stereotype st_PureMixIn ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4DDCD71E027C // ChangesBetweenEditionsInterfaces
+ ;
+ : Attributes
+   Seq: ( ME_4DDCE9110130 // RightEdition
+ ME_4F2BF187026F // LeftEdition
+ )
+ ; // Attributes
+ CONST "UseNewGen" 'undefined'
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\ChangesBetweenEditions'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\ChangesBetweenEditions'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\ChangesBetweenEditions'
+
+ref; // ME_4F2BF13800A5 MnsEditionsHolder
+
+FORWARD ME_4DDCD7420084
+
+: ME_4DDD0C170344
+ CONST UID '4DDD0C170344'
+ CONST Name 'DocumentContainer'
+ CONST Class class_Attribute
+ : Stereotype st_readonly::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_lnk
+ : Parent ME_4DDCD7420084 // IdsChangesBetweenEditions
+ ;
+ : Target WL 'ME_47C6A603009D' '47C5207602D1.pas.ms.script' // InevDocumentContainer
+ ;
+ CONST "UseNewGen" 'undefined'
+ CONST "pm" false
+
+ref; // ME_4DDD0C170344 DocumentContainer
+
+: ME_4DDCE9110130_ME_4DDCD7420084
+ CONST UID '4DDCE9110130'
+ CONST Name 'RightEdition'
+ : Original ME_4DDCE9110130 // RightEdition
+ ;
+ : Implementor ME_4DDCD7420084 // IdsChangesBetweenEditions
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "UseNewGen" 'undefined'
+ CONST "pm" false
+ref; // ME_4DDCE9110130_ME_4DDCD7420084 RightEdition
+
+: ME_4DF9D63B0360_ME_4DDCD7420084
+ CONST UID '4DF9D63B0360'
+ CONST Name 'DocInfo'
+ : Original WL 'ME_4DF9D63B0360' '4B1FC2FF03CD.pas.ms.script' // DocInfo
+ ;
+ : Implementor ME_4DDCD7420084 // IdsChangesBetweenEditions
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "UseNewGen" 'undefined'
+ CONST "pm" true
+ CONST "reflectable" true
+ref; // ME_4DF9D63B0360_ME_4DDCD7420084 DocInfo
+
+: ME_4F2BF187026F_ME_4DDCD7420084
+ CONST UID '4F2BF187026F'
+ CONST Name 'LeftEdition'
+ : Original ME_4F2BF187026F // LeftEdition
+ ;
+ : Implementor ME_4DDCD7420084 // IdsChangesBetweenEditions
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "UseNewGen" 'undefined'
+ CONST "pm" false
+ref; // ME_4F2BF187026F_ME_4DDCD7420084 LeftEdition
+
+: ME_4DDCD7420084
+ CONST UID '4DDCD7420084'
+ CONST GUID '2D74CBC5-124E-4777-A6CA-891E3037761E'
+ CONST Name 'IdsChangesBetweenEditions'
+ CONST Class class_Class
+ : Stereotype st_ViewAreaController ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4DDCD71E027C // ChangesBetweenEditionsInterfaces
+ ;
+ : Implements
+   Seq: ( WL 'ME_4ED8F1860003' '4B1FC2FF03CD.pas.ms.script' // MdeDocInfoProvider
+ ME_4F2BF13800A5 // MnsEditionsHolder
+ )
+ ; // Implements
+ : Attributes
+   Seq: ( ME_4DDD0C170344 // DocumentContainer
+ )
+ ; // Attributes
+ : Implemented
+   Seq: ( ME_4DDCE9110130_ME_4DDCD7420084 // RightEdition
+ ME_4DF9D63B0360_ME_4DDCD7420084 // DocInfo
+ ME_4F2BF187026F_ME_4DDCD7420084 // LeftEdition
+ )
+ ; // Implemented
+ CONST "UseNewGen" 'undefined'
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\ChangesBetweenEditions'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\ChangesBetweenEditions'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\ChangesBetweenEditions'
+
+ref; // ME_4DDCD7420084 IdsChangesBetweenEditions
+
+FORWARD ME_4DDCD8CD008D
+
+: ME_4DDCD8ED00A5
+ CONST UID '4DDCD8ED00A5'
+ CONST Name 'DiffProvider'
+ CONST Class class_Attribute
+ : Stereotype st_readonly::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_lnk
+ : Parent ME_4DDCD8CD008D // InsChangesBetweenEditionsInfo
+ ;
+ : Target WL 'ME_4D78D8200190' '4570511E038A.pas.ms.script' // DiffDocDataProvider
+ ;
+ CONST "UseNewGen" 'undefined'
+ CONST "pm" false
+
+ref; // ME_4DDCD8ED00A5 DiffProvider
+
+: ME_4DDCE9110130_ME_4DDCD8CD008D
+ CONST UID '4DDCE9110130'
+ CONST Name 'RightEdition'
+ : Original ME_4DDCE9110130 // RightEdition
+ ;
+ : Implementor ME_4DDCD8CD008D // InsChangesBetweenEditionsInfo
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "UseNewGen" 'undefined'
+ CONST "pm" false
+ref; // ME_4DDCE9110130_ME_4DDCD8CD008D RightEdition
+
+: ME_4F2BF187026F_ME_4DDCD8CD008D
+ CONST UID '4F2BF187026F'
+ CONST Name 'LeftEdition'
+ : Original ME_4F2BF187026F // LeftEdition
+ ;
+ : Implementor ME_4DDCD8CD008D // InsChangesBetweenEditionsInfo
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "UseNewGen" 'undefined'
+ CONST "pm" false
+ref; // ME_4F2BF187026F_ME_4DDCD8CD008D LeftEdition
+
+: ME_4DDCD8CD008D
+ CONST UID '4DDCD8CD008D'
+ CONST GUID '66611345-5B71-4A0D-863D-C2903B8296A9'
+ CONST Name 'InsChangesBetweenEditionsInfo'
+ CONST Class class_Class
+ : Stereotype st_Facet ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4DDCD71E027C // ChangesBetweenEditionsInterfaces
+ ;
+ : Implements
+   Seq: ( ME_4F2BF13800A5 // MnsEditionsHolder
+ )
+ ; // Implements
+ : Attributes
+   Seq: ( ME_4DDCD8ED00A5 // DiffProvider
+ )
+ ; // Attributes
+ : Implemented
+   Seq: ( ME_4DDCE9110130_ME_4DDCD8CD008D // RightEdition
+ ME_4F2BF187026F_ME_4DDCD8CD008D // LeftEdition
+ )
+ ; // Implemented
+ CONST "UseNewGen" 'undefined'
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\ChangesBetweenEditions'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\ChangesBetweenEditions'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\ChangesBetweenEditions'
+
+ref; // ME_4DDCD8CD008D InsChangesBetweenEditionsInfo
+
+FORWARD ME_4DDCF62C01DF
+
+: ME_4DDCF63C0353
+ CONST UID '4DDCF63C0353'
+ CONST Name 'Info'
+ CONST Class class_Attribute
+ : Stereotype st_readonly::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_lnk
+ : Parent ME_4DDCF62C01DF // IsdsChangesBetweenEditionsData
+ ;
+ : Target ME_4DDCD8CD008D // InsChangesBetweenEditionsInfo
+ ;
+ CONST "UseNewGen" 'undefined'
+ CONST "pm" false
+
+ref; // ME_4DDCF63C0353 Info
+
+: ME_4995768F007A_ME_4DDCF62C01DF
+ CONST UID '4995768F007A'
+ CONST Name 'Clone'
+ : Original WL 'ME_4995768F007A' '4683F37902CF.pas.ms.script' // Clone
+ ;
+ : Implementor ME_4DDCF62C01DF // IsdsChangesBetweenEditionsData
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "UseNewGen" 'undefined'
+ref; // ME_4995768F007A_ME_4DDCF62C01DF Clone
+
+: ME_4DDCF62C01DF
+ CONST UID '4DDCF62C01DF'
+ CONST GUID '840AD10B-834F-49F5-B4BC-521EE38DB3AA'
+ CONST Name 'IsdsChangesBetweenEditionsData'
+ CONST Class class_Class
+ : Stereotype st_Facet ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4DDCD71E027C // ChangesBetweenEditionsInterfaces
+ ;
+ : Inherits
+   Seq: ( WL 'ME_47F378D3029B' '4683F37902CF.pas.ms.script' // IvcmData
+ )
+ ; // Inherits
+ : Attributes
+   Seq: ( ME_4DDCF63C0353 // Info
+ )
+ ; // Attributes
+ : Implemented
+   Seq: ( ME_4995768F007A_ME_4DDCF62C01DF // Clone
+ )
+ ; // Implemented
+ CONST "UseNewGen" 'undefined'
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\ChangesBetweenEditions'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\ChangesBetweenEditions'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\ChangesBetweenEditions'
+
+ref; // ME_4DDCF62C01DF IsdsChangesBetweenEditionsData
+
+FORWARD ME_4DDCD72C006B
+
+FORWARD ME_4DDCD7520351
+
+: ME_4DDCE9110130_ME_4DDCD7520351
+ CONST UID '4DDCE9110130'
+ CONST Name 'RightEdition'
+ : Original ME_4DDCE9110130 // RightEdition
+ ;
+ : Implementor ME_4DDCD7520351 // Changes
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "UseNewGen" 'undefined'
+ CONST "pm" false
+ref; // ME_4DDCE9110130_ME_4DDCD7520351 RightEdition
+
+: ME_4DDD0C170344_ME_4DDCD7520351
+ CONST UID '4DDD0C170344'
+ CONST Name 'DocumentContainer'
+ : Original ME_4DDD0C170344 // DocumentContainer
+ ;
+ : Implementor ME_4DDCD7520351 // Changes
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "UseNewGen" 'undefined'
+ CONST "pm" false
+ref; // ME_4DDD0C170344_ME_4DDCD7520351 DocumentContainer
+
+: ME_4DF9D63B0360_ME_4DDCD7520351
+ CONST UID '4DF9D63B0360'
+ CONST Name 'DocInfo'
+ : Original WL 'ME_4DF9D63B0360' '4B1FC2FF03CD.pas.ms.script' // DocInfo
+ ;
+ : Implementor ME_4DDCD7520351 // Changes
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "UseNewGen" 'undefined'
+ CONST "pm" true
+ CONST "reflectable" true
+ref; // ME_4DF9D63B0360_ME_4DDCD7520351 DocInfo
+
+: ME_4F2BF187026F_ME_4DDCD7520351
+ CONST UID '4F2BF187026F'
+ CONST Name 'LeftEdition'
+ : Original ME_4F2BF187026F // LeftEdition
+ ;
+ : Implementor ME_4DDCD7520351 // Changes
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "UseNewGen" 'undefined'
+ CONST "pm" false
+ref; // ME_4F2BF187026F_ME_4DDCD7520351 LeftEdition
+
+: ME_4DDCD7520351
+ CONST UID '4DDCD7520351'
+ CONST Name 'Changes'
+ CONST Class class_Class
+ : Stereotype st_Area ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_4DDCD72C006B // IsdsChangesBetweenEditions
+ ;
+ : Inherits
+   Seq: ( ME_4DDCD7420084 // IdsChangesBetweenEditions
+ )
+ ; // Inherits
+ : Implemented
+   Seq: ( ME_4DDCE9110130_ME_4DDCD7520351 // RightEdition
+ ME_4DDD0C170344_ME_4DDCD7520351 // DocumentContainer
+ ME_4DF9D63B0360_ME_4DDCD7520351 // DocInfo
+ ME_4F2BF187026F_ME_4DDCD7520351 // LeftEdition
+ )
+ ; // Implemented
+ CONST "Need Has" 'undefined'
+ CONST "UseNewGen" 'undefined'
+ CONST "is reference" 'undefined'
+ CONST "pm" true
+ CONST "required" 'undefined'
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\ChangesBetweenEditions'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\ChangesBetweenEditions'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\ChangesBetweenEditions'
+
+ref; // ME_4DDCD7520351 Changes
+
+: ME_4DF9D63B0360_ME_4DDCD72C006B
+ CONST UID '4DF9D63B0360'
+ CONST Name 'DocInfo'
+ : Original WL 'ME_4DF9D63B0360' '4B1FC2FF03CD.pas.ms.script' // DocInfo
+ ;
+ : Implementor ME_4DDCD72C006B // IsdsChangesBetweenEditions
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "UseNewGen" 'undefined'
+ CONST "pm" true
+ CONST "reflectable" true
+ref; // ME_4DF9D63B0360_ME_4DDCD72C006B DocInfo
+
+: ME_4ED906420134_ME_4DDCD72C006B
+ CONST UID '4ED906420134'
+ CONST Name 'EditionsList'
+ : Original WL 'ME_4ED906420134' '491B305A0096.pas.ms.script' // EditionsList
+ ;
+ : Implementor ME_4DDCD72C006B // IsdsChangesBetweenEditions
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "Need Has" 'undefined'
+ CONST "UseNewGen" 'undefined'
+ CONST "is reference" 'undefined'
+ CONST "pm" true
+ CONST "required" 'undefined'
+ref; // ME_4ED906420134_ME_4DDCD72C006B EditionsList
+
+: ME_4DDCD72C006B
+ CONST UID '4DDCD72C006B'
+ CONST GUID 'CEB84047-C17B-48F3-BEA2-191D90F3BBE6'
+ CONST Name 'IsdsChangesBetweenEditions'
+ CONST Class class_Class
+ : Stereotype st_UseCaseController ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Прецедент ОИД' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4DDCD71E027C // ChangesBetweenEditionsInterfaces
+ ;
+ : Implements
+   Seq: ( WL 'ME_4ED8ECEE00EE' '491B305A0096.pas.ms.script' // IsdsPrimDocument
+ WL 'ME_4ED905EA0339' '491B305A0096.pas.ms.script' // IsdsEditionsHolder
+ )
+ ; // Implements
+ : Attributes
+   Seq: ( ME_4DDCD7520351 // Changes
+ )
+ ; // Attributes
+ : Implemented
+   Seq: ( ME_4DF9D63B0360_ME_4DDCD72C006B // DocInfo
+ ME_4ED906420134_ME_4DDCD72C006B // EditionsList
+ )
+ ; // Implemented
+ CONST "UseNewGen" 'undefined'
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\ChangesBetweenEditions'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\ChangesBetweenEditions'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\ChangesBetweenEditions'
+
+ref; // ME_4DDCD72C006B IsdsChangesBetweenEditions
+
+: ME_4DDCD71E027C
+ CONST UID '4DDCD71E027C'
+ CONST Name 'ChangesBetweenEditionsInterfaces'
+ CONST Class class_Category
+ : Stereotype st_ControllerInterfaces ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent WL 'ME_4DDCD6FF0208' '4DDCD6FF0208.pas.ms.script' // ChangesBetweenEditions$Domain
+ ;
+ : Children
+   Seq: ( ME_4F2BF13800A5 // MnsEditionsHolder
+ ME_4DDCD7420084 // IdsChangesBetweenEditions
+ ME_4DDCD8CD008D // InsChangesBetweenEditionsInfo
+ ME_4DDCF62C01DF // IsdsChangesBetweenEditionsData
+ ME_4DDCD72C006B // IsdsChangesBetweenEditions
+ )
+ ; // Children
+ : Depends
+   Seq: ( WL 'ME_4570511E038A' '4570511E038A.pas.ms.script' // Document
+ WL 'ME_4683F37902CF' '4683F37902CF.pas.ms.script' // vcmInterfaces
+ WL 'ME_47C5207602D1' '47C5207602D1.pas.ms.script' // nevTools
+ WL 'ME_491B305A0096' '491B305A0096.pas.ms.script' // DocumentAndListInterfaces
+ WL 'ME_4B1FC2FF03CD' '4B1FC2FF03CD.pas.ms.script' // DocumentInterfaces
+ )
+ ; // Depends
+ CONST "UseNewGen" 'undefined'
+ CONST "is namespace" true
+ CONST "no hands" false
+ : Generators
+ Seq: (
+ gen_intf.pas
+ gen_pas.script
+ gen_pas.script.runner
+ )
+ ; // Generators
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\ChangesBetweenEditions'
+ CONST intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\ChangesBetweenEditions\ChangesBetweenEditionsInterfaces.pas'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\ChangesBetweenEditions'
+ CONST pas.script:Path 'shared\models\NewSchool\Scripts\4DDCD71E027C.pas.ms.script'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\4DDCD71E027C.pas.ms.script.runner'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\ChangesBetweenEditions'
+
+ref; // ME_4DDCD71E027C ChangesBetweenEditionsInterfaces

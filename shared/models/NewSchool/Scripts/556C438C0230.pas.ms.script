@@ -134,7 +134,7 @@ ref; // ME_556C6A1C029C CONNECTION_NEEDED
  : Parent ME_556C43B0014B // LibPQ
  ;
  : Attributes
-   @ ( ME_556C69620228 // CONNECTION_OK
+   Seq: ( ME_556C69620228 // CONNECTION_OK
  ME_556C697200F5 // CONNECTION_BAD
  ME_556C697D02D7 // CONNECTION_STARTED
  ME_556C69A202AC // CONNECTION_MADE
@@ -143,8 +143,13 @@ ref; // ME_556C6A1C029C CONNECTION_NEEDED
  ME_556C69E60194 // CONNECTION_SETENV
  ME_556C6A0703E4 // CONNECTION_SSL_STARTUP
  ME_556C6A1C029C // CONNECTION_NEEDED
- ) .SequenceCode.It
+ )
  ; // Attributes
+ CONST dfm:PathOnly '\common\components\rtl\Garant\PG'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\PG'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_556C692502A8 TpgConnectStatusType
 
@@ -158,6 +163,10 @@ ref; // ME_556C692502A8 TpgConnectStatusType
  CONST Abstraction at_regular
  : Parent ME_556C43B0014B // LibPQ
  ;
+ CONST dfm:PathOnly '\common\components\rtl\Garant\PG'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\PG'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_556C693F00DA TPGconn
 
@@ -172,10 +181,14 @@ ref; // ME_556C693F00DA TPGconn
  : Parent ME_556C43B0014B // LibPQ
  ;
  : Inherits
-   @ ( ME_556C693F00DA // TPGconn
- ) .SequenceCode.It
+   Seq: ( ME_556C693F00DA // TPGconn
+ )
  ; // Inherits
  CONST "isPointer" true
+ CONST dfm:PathOnly '\common\components\rtl\Garant\PG'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\PG'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_556C694900CA PPGconn
 
@@ -189,6 +202,10 @@ ref; // ME_556C694900CA PPGconn
  CONST Abstraction at_regular
  : Parent ME_556C43B0014B // LibPQ
  ;
+ CONST dfm:PathOnly '\common\components\rtl\Garant\PG'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\PG'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_556DA4F400D1 TPGresult
 
@@ -203,10 +220,14 @@ ref; // ME_556DA4F400D1 TPGresult
  : Parent ME_556C43B0014B // LibPQ
  ;
  : Inherits
-   @ ( ME_556DA4F400D1 // TPGresult
- ) .SequenceCode.It
+   Seq: ( ME_556DA4F400D1 // TPGresult
+ )
  ; // Inherits
  CONST "isPointer" true
+ CONST dfm:PathOnly '\common\components\rtl\Garant\PG'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\PG'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_556DA51E037C PPGresult
 
@@ -324,7 +345,7 @@ ref; // ME_5604FAB80165 PGRES_FATAL_ERROR
  : Parent ME_556C43B0014B // LibPQ
  ;
  : Attributes
-   @ ( ME_5604FA0D02F2 // PGRES_EMPTY_QUERY
+   Seq: ( ME_5604FA0D02F2 // PGRES_EMPTY_QUERY
  ME_5604FA1D00B6 // PGRES_COMMAND_OK
  ME_5604FA3E02D3 // PGRES_TUPLES_OK
  ME_5604FA60007B // PGRES_COPY_OUT
@@ -332,8 +353,13 @@ ref; // ME_5604FAB80165 PGRES_FATAL_ERROR
  ME_5604FA8F0187 // PGRES_BAD_RESPONSE
  ME_5604FAAA036E // PGRES_NONFATAL_ERROR
  ME_5604FAB80165 // PGRES_FATAL_ERROR
- ) .SequenceCode.It
+ )
  ; // Attributes
+ CONST dfm:PathOnly '\common\components\rtl\Garant\PG'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\PG'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_5604F9D900DD TpgExecStatusType
 
@@ -349,22 +375,21 @@ ref; // ME_5604F9D900DD TpgExecStatusType
  : Parent ME_556C438C0230 // NativeSupport
  ;
  : Children
-   @ ( ME_556C692502A8 // TpgConnectStatusType
+   Seq: ( ME_556C692502A8 // TpgConnectStatusType
  ME_556C693F00DA // TPGconn
  ME_556C694900CA // PPGconn
  ME_556DA4F400D1 // TPGresult
  ME_556DA51E037C // PPGresult
  ME_5604F9D900DD // TpgExecStatusType
- ) .SequenceCode.It
+ )
  ; // Children
  CONST "finished" false
  CONST "no hands" false
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\PG'
  CONST intf.pas:Path 'common\components\rtl\Garant\PG\NOT_FINISHED_LibPQ.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\PG'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_556C43B0014B LibPQ
 
@@ -378,16 +403,14 @@ ref; // ME_556C43B0014B LibPQ
  : Parent WL 'ME_543388FB0261' '543388FB0261.pas.ms.script' // PG
  ;
  : Children
-   @ ( ME_556C43B0014B // LibPQ
- ) .SequenceCode.It
+   Seq: ( ME_556C43B0014B // LibPQ
+ )
  ; // Children
- : Generators
- @ (
- gen_pas.script
- gen_pas.script.runner
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\PG'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\PG'
  CONST pas.script:Path 'shared\models\NewSchool\Scripts\556C438C0230.pas.ms.script'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
  CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\556C438C0230.pas.ms.script.runner'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_556C438C0230 NativeSupport

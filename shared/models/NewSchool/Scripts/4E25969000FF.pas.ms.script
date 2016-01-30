@@ -1,0 +1,135 @@
+// AutoTests 4E25969000FF Unit Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4E25969000FF
+
+FORWARD ME_4DC3FE5D03B4
+
+: ME_4DC40E2F00E3
+ CONST UID '4DC40E2F00E3'
+ CONST Name 'Register'
+ CONST Class class_Operation
+ : Stereotype st_static::Operation ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_4DC3FE5D03B4 // TF1AutoTestSuite
+ ;
+
+ref; // ME_4DC40E2F00E3 Register
+
+: ME_4DC3FF18023D
+ CONST UID '4DC3FF18023D'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4DC3FE5D03B4 // TF1AutoTestSuite
+ ;
+ : Target WL 'ME_4DC3F6DD00F1' '4DB01C7F03C7.pas.ms.script' // TF1AutoScripter
+ ;
+
+ref; // ME_4DC3FF18023D 
+
+: ME_4EA807C40295
+ CONST UID '4EA807C40295'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4DC3FE5D03B4 // TF1AutoTestSuite
+ ;
+ : Target WL 'ME_4B2A0DCE03A9' '4B2A0D6A0077.pas.ms.script' // TestFrameWork
+ ;
+
+ref; // ME_4EA807C40295 
+
+: ME_5040A3CE0118_ME_4DC3FE5D03B4
+ CONST UID '5040A3CE0118'
+ CONST Name 'DoReReadAbstractTests'
+ : Original WL 'ME_5040A3CE0118' '4B2A0D6A0077.pas.ms.script' // DoReReadAbstractTests
+ ;
+ : Implementor ME_4DC3FE5D03B4 // TF1AutoTestSuite
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_5040A3CE0118_ME_4DC3FE5D03B4 DoReReadAbstractTests
+
+: ME_4DC3FE5D03B4
+ CONST UID '4DC3FE5D03B4'
+ CONST Name 'TF1AutoTestSuite'
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4E25969000FF // AutoTests
+ ;
+ : Inherits
+   Seq: ( WL 'ME_51307830007E' '5130776E01BE.pas.ms.script' // TAutoTestSuiteWithDUnitSupport
+ )
+ ; // Inherits
+ : Operations
+   Seq: ( ME_4DC40E2F00E3 // Register
+ )
+ ; // Operations
+ : Overridden
+   Seq: ( ME_5040A3CE0118_ME_4DC3FE5D03B4 // DoReReadAbstractTests
+ )
+ ; // Overridden
+ : Dependencies
+   Seq: ( ME_4DC3FF18023D // 
+ ME_4EA807C40295 // 
+ )
+ ; // Dependencies
+ CONST "ifdef" 'nsTest'
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ : Generators
+ Seq: (
+ gen_intf.pas
+ )
+ ; // Generators
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\F1_AutoTests'
+ CONST intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\F1_AutoTests\F1AutoTestSuite.pas'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\F1_AutoTests'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\F1_AutoTests'
+ CONST extprop:rc:SelfName 'F1AutoTestSuite'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'F1AutoTestSuite'
+
+ref; // ME_4DC3FE5D03B4 TF1AutoTestSuite
+
+: ME_4E25969000FF
+ CONST UID '4E25969000FF'
+ CONST Name 'AutoTests'
+ CONST Class class_Category
+ : Stereotype st_Unit ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent WL 'ME_4E2596720102' '4E2596720102.pas.ms.script' // F1 AutoTests
+ ;
+ : Children
+   Seq: ( ME_4DC3FE5D03B4 // TF1AutoTestSuite
+ )
+ ; // Children
+ : Depends
+   Seq: ( WL 'ME_4B2A0D6A0077' '4B2A0D6A0077.pas.ms.script' // Source
+ WL 'ME_4DB01C7F03C7' '4DB01C7F03C7.pas.ms.script' // Core
+ WL 'ME_5130776E01BE' '5130776E01BE.pas.ms.script' // DUnitKeyWordsSupport
+ )
+ ; // Depends
+ : Generators
+ Seq: (
+ gen_pas.script
+ gen_pas.script.runner
+ )
+ ; // Generators
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\F1_AutoTests'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\F1_AutoTests'
+ CONST pas.script:Path 'shared\models\NewSchool\Scripts\4E25969000FF.pas.ms.script'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\4E25969000FF.pas.ms.script.runner'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\F1_AutoTests'
+
+ref; // ME_4E25969000FF AutoTests

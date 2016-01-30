@@ -9,6 +9,7 @@ FORWARD ME_53EDB09201BF
 : ME_4EEADA1C3DD0
  CONST UID '4EEADA1C3DD0'
  CONST Name 'DocTypeID'
+ CONST IsSummoned true
  CONST Class class_Attribute
  : Stereotype st_property::Attribute ;
  CONST Visibility PublicAccess
@@ -25,6 +26,7 @@ ref; // ME_4EEADA1C3DD0 DocTypeID
 : ME_E24C1E692D7A
  CONST UID 'E24C1E692D7A'
  CONST Name 'LastUpdateDate'
+ CONST IsSummoned true
  CONST Class class_Attribute
  : Stereotype st_property::Attribute ;
  CONST Visibility PublicAccess
@@ -42,6 +44,7 @@ ref; // ME_E24C1E692D7A LastUpdateDate
 : ME_43C9B3E0B545
  CONST UID '43C9B3E0B545'
  CONST Name 'NotifyList'
+ CONST IsSummoned true
  CONST Class class_Attribute
  : Stereotype st_property::Attribute ;
  CONST Visibility PublicAccess
@@ -60,6 +63,7 @@ FORWARD ME_53F19FE300BB
 : ME_C4D1E41E73D1
  CONST UID 'C4D1E41E73D1'
  CONST Name 'CourtsList'
+ CONST IsSummoned true
  CONST Class class_Attribute
  : Stereotype st_readonly::Attribute ;
  CONST Visibility PublicAccess
@@ -76,6 +80,7 @@ ref; // ME_C4D1E41E73D1 CourtsList
 : ME_B67A69AEE25A
  CONST UID 'B67A69AEE25A'
  CONST Name 'IsParamsValid'
+ CONST IsSummoned true
  CONST Class class_Attribute
  : Stereotype st_property::Attribute ;
  CONST Visibility PublicAccess
@@ -91,6 +96,7 @@ ref; // ME_B67A69AEE25A IsParamsValid
 
 : ME_2F1DE7F92BB5
  CONST UID '2F1DE7F92BB5'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_53EDB09201BF // TcsCourtDecisionSabCheckerParams
@@ -107,6 +113,7 @@ ref; // ME_2F1DE7F92BB5
  ;
  : Implementor ME_53EDB09201BF // TcsCourtDecisionSabCheckerParams
  ;
+ CONST OpKind opkind_Implemented
  CONST "is static" true
 ref; // ME_53AC03EE01FD_ME_53EDB09201BF GetTaggedDataType
 
@@ -121,40 +128,42 @@ ref; // ME_53AC03EE01FD_ME_53EDB09201BF GetTaggedDataType
  : Parent ME_53EDB01E0287 // CourtDecisionSabCheckerParams
  ;
  : Inherits
-   @ ( WL 'ME_534572370056' '47913B47006E.pas.ms.script' // Tl3Tag
- ) .SequenceCode.It
+   Seq: ( WL 'ME_534572370056' '47913B47006E.pas.ms.script' // Tl3Tag
+ )
  ; // Inherits
  : Implements
-   @ ( WL 'ME_53AC01CD0335' '53B15D5603E3.pas.ms.script' // evdTagHolder
+   Seq: ( WL 'ME_53AC01CD0335' '53B15D5603E3.pas.ms.script' // evdTagHolder
  WL 'ME_53ECABA803E2' '484A470100DD.pas.ms.script' // CourtDecisionSabCheckerParams
- ) .SequenceCode.It
+ )
  ; // Implements
  : Attributes
-   @ ( ME_4EEADA1C3DD0 // DocTypeID
+   Seq: ( ME_4EEADA1C3DD0 // DocTypeID
  ME_E24C1E692D7A // LastUpdateDate
  ME_43C9B3E0B545 // NotifyList
  ME_C4D1E41E73D1 // CourtsList
  ME_B67A69AEE25A // IsParamsValid
- ) .SequenceCode.It
+ )
  ; // Attributes
  : Implemented
-   @ ( ME_53AC03EE01FD_ME_53EDB09201BF // GetTaggedDataType
- ) .SequenceCode.It
+   Seq: ( ME_53AC03EE01FD_ME_53EDB09201BF // GetTaggedDataType
+ )
  ; // Implemented
  : Dependencies
-   @ ( ME_2F1DE7F92BB5 // 
- ) .SequenceCode.It
+   Seq: ( ME_2F1DE7F92BB5 // 
+ )
  ; // Dependencies
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\cs'
  CONST intf.pas:Path 'common\components\rtl\Garant\cs\csCourtDecisionSabCheckerParams.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\cs'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'csCourtDecisionSabCheckerParams'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'csCourtDecisionSabCheckerParams'
 
 ref; // ME_53EDB09201BF TcsCourtDecisionSabCheckerParams
 
@@ -163,6 +172,7 @@ FORWARD ME_53EDB1000048
 : ME_1647FA5EBD4E
  CONST UID '1647FA5EBD4E'
  CONST Name 'Name'
+ CONST IsSummoned true
  CONST Class class_Attribute
  : Stereotype st_property::Attribute ;
  CONST Visibility PublicAccess
@@ -179,6 +189,7 @@ ref; // ME_1647FA5EBD4E Name
 : ME_1604C1884F3C
  CONST UID '1604C1884F3C'
  CONST Name 'SourceID'
+ CONST IsSummoned true
  CONST Class class_Attribute
  : Stereotype st_property::Attribute ;
  CONST Visibility PublicAccess
@@ -195,6 +206,7 @@ ref; // ME_1604C1884F3C SourceID
 : ME_2095F3B6D6AD
  CONST UID '2095F3B6D6AD'
  CONST Name 'NeedProcess'
+ CONST IsSummoned true
  CONST Class class_Attribute
  : Stereotype st_property::Attribute ;
  CONST Visibility PublicAccess
@@ -213,6 +225,7 @@ FORWARD ME_53EDDC0402AA
 : ME_28B5B5DE52B9
  CONST UID '28B5B5DE52B9'
  CONST Name 'DecisionPhrases'
+ CONST IsSummoned true
  CONST Class class_Attribute
  : Stereotype st_readonly::Attribute ;
  CONST Visibility PublicAccess
@@ -250,14 +263,15 @@ ref; // ME_53EDD3CF03C2 DoIt
  : Parent ME_53EDB1000048 // TcsCourtDescription
  ;
  : Operations
-   @ ( ME_53EDD3CF03C2 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_53EDD3CF03C2 // DoIt
+ )
  ; // Operations
 
 ref; // ME_53EDD3C40089 Clear
 
 : ME_105CF91C4BC4
  CONST UID '105CF91C4BC4'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_53EDB1000048 // TcsCourtDescription
@@ -274,6 +288,7 @@ ref; // ME_105CF91C4BC4
  ;
  : Implementor ME_53EDB1000048 // TcsCourtDescription
  ;
+ CONST OpKind opkind_Implemented
  CONST "is static" true
 ref; // ME_53AC03EE01FD_ME_53EDB1000048 GetTaggedDataType
 
@@ -288,43 +303,45 @@ ref; // ME_53AC03EE01FD_ME_53EDB1000048 GetTaggedDataType
  : Parent ME_53EDB01E0287 // CourtDecisionSabCheckerParams
  ;
  : Inherits
-   @ ( WL 'ME_534572370056' '47913B47006E.pas.ms.script' // Tl3Tag
- ) .SequenceCode.It
+   Seq: ( WL 'ME_534572370056' '47913B47006E.pas.ms.script' // Tl3Tag
+ )
  ; // Inherits
  : Implements
-   @ ( WL 'ME_53AC01CD0335' '53B15D5603E3.pas.ms.script' // evdTagHolder
+   Seq: ( WL 'ME_53AC01CD0335' '53B15D5603E3.pas.ms.script' // evdTagHolder
  WL 'ME_53ECAC500028' '484A470100DD.pas.ms.script' // CourtDescription
- ) .SequenceCode.It
+ )
  ; // Implements
  : Attributes
-   @ ( ME_1647FA5EBD4E // Name
+   Seq: ( ME_1647FA5EBD4E // Name
  ME_1604C1884F3C // SourceID
  ME_2095F3B6D6AD // NeedProcess
  ME_28B5B5DE52B9 // DecisionPhrases
- ) .SequenceCode.It
+ )
  ; // Attributes
  : Operations
-   @ ( ME_53EDD3C40089 // Clear
- ) .SequenceCode.It
+   Seq: ( ME_53EDD3C40089 // Clear
+ )
  ; // Operations
  : Implemented
-   @ ( ME_53AC03EE01FD_ME_53EDB1000048 // GetTaggedDataType
- ) .SequenceCode.It
+   Seq: ( ME_53AC03EE01FD_ME_53EDB1000048 // GetTaggedDataType
+ )
  ; // Implemented
  : Dependencies
-   @ ( ME_105CF91C4BC4 // 
- ) .SequenceCode.It
+   Seq: ( ME_105CF91C4BC4 // 
+ )
  ; // Dependencies
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\cs'
  CONST intf.pas:Path 'common\components\rtl\Garant\cs\csCourtDescription.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\cs'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'csCourtDescription'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'csCourtDescription'
 
 ref; // ME_53EDB1000048 TcsCourtDescription
 
@@ -337,6 +354,7 @@ FORWARD ME_53EDECDF01AA
  ;
  : Implementor ME_53EDDC0402AA // DecisionPhrasesHelper
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" false
 ref; // ME_53BFCD4C03BF_ME_53EDDC0402AA Count
 
@@ -347,6 +365,7 @@ ref; // ME_53BFCD4C03BF_ME_53EDDC0402AA Count
  ;
  : Implementor ME_53EDDC0402AA // DecisionPhrasesHelper
  ;
+ CONST OpKind opkind_Implemented
  CONST "is default" true
  CONST "pm" false
 ref; // ME_53BFCD5501FC_ME_53EDDC0402AA Strings
@@ -358,6 +377,7 @@ ref; // ME_53BFCD5501FC_ME_53EDDC0402AA Strings
  ;
  : Implementor ME_53EDDC0402AA // DecisionPhrasesHelper
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_53BFCD800222_ME_53EDDC0402AA Add
 
 : ME_53BFCDAA0388_ME_53EDDC0402AA
@@ -367,6 +387,7 @@ ref; // ME_53BFCD800222_ME_53EDDC0402AA Add
  ;
  : Implementor ME_53EDDC0402AA // DecisionPhrasesHelper
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_53BFCDAA0388_ME_53EDDC0402AA CopyTo
 
 : ME_53BFCE310249_ME_53EDDC0402AA
@@ -376,6 +397,7 @@ ref; // ME_53BFCDAA0388_ME_53EDDC0402AA CopyTo
  ;
  : Implementor ME_53EDDC0402AA // DecisionPhrasesHelper
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_53BFCE310249_ME_53EDDC0402AA CopyFrom
 
 : ME_53EDDC0402AA
@@ -390,21 +412,26 @@ ref; // ME_53BFCE310249_ME_53EDDC0402AA CopyFrom
  : Parent ME_53EDECDF01AA // csDecisionPhrasesHelper
  ;
  : Inherits
-   @ ( WL 'ME_53BFCCE800ED' '484A470100DD.pas.ms.script' // StringListHelper
- ) .SequenceCode.It
+   Seq: ( WL 'ME_53BFCCE800ED' '484A470100DD.pas.ms.script' // StringListHelper
+ )
  ; // Inherits
  : Implements
-   @ ( WL 'ME_53ECACE50004' '484A470100DD.pas.ms.script' // CourtDecisionPhrase
- ) .SequenceCode.It
+   Seq: ( WL 'ME_53ECACE50004' '484A470100DD.pas.ms.script' // CourtDecisionPhrase
+ )
  ; // Implements
  : Implemented
-   @ ( ME_53BFCD4C03BF_ME_53EDDC0402AA // Count
+   Seq: ( ME_53BFCD4C03BF_ME_53EDDC0402AA // Count
  ME_53BFCD5501FC_ME_53EDDC0402AA // Strings
  ME_53BFCD800222_ME_53EDDC0402AA // Add
  ME_53BFCDAA0388_ME_53EDDC0402AA // CopyTo
  ME_53BFCE310249_ME_53EDDC0402AA // CopyFrom
- ) .SequenceCode.It
+ )
  ; // Implemented
+ CONST dfm:PathOnly '\common\components\rtl\Garant\cs'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\cs'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_53EDDC0402AA DecisionPhrasesHelper
 
@@ -415,6 +442,7 @@ FORWARD ME_53EDE46500ED
 : ME_4CF9F3FB5331
  CONST UID '4CF9F3FB5331'
  CONST Name 'aValue'
+ CONST IsSummoned true
  CONST Class class_Parameter
  : Stereotype st_in ;
  : Target WL 'ME_534572370056' '47913B47006E.pas.ms.script' // Tl3Tag
@@ -425,6 +453,7 @@ ref; // ME_4CF9F3FB5331 aValue
 : ME_1520C3F33D63
  CONST UID '1520C3F33D63'
  CONST Name 'DoIt'
+ CONST IsSummoned true
  CONST Class class_Operation
  %SUMMARY 'Сигнатура фабрики TDecisionPhrasesHelper.Make' ;
  CONST Visibility PrivateAccess
@@ -434,8 +463,8 @@ ref; // ME_4CF9F3FB5331 aValue
  : Target ME_53EDDC0402AA // DecisionPhrasesHelper
  ;
  : Parameters
-   @ ( ME_4CF9F3FB5331 // aValue
- ) .SequenceCode.It
+   Seq: ( ME_4CF9F3FB5331 // aValue
+ )
  ; // Parameters
 
 ref; // ME_1520C3F33D63 DoIt
@@ -451,16 +480,16 @@ ref; // ME_1520C3F33D63 DoIt
  : Parent ME_53EDE216017A // TDecisionPhrasesHelper
  ;
  : Inherits
-   @ ( WL 'ME_53BD1BCF010B' '484A470100DD.pas.ms.script' // Create
- ) .SequenceCode.It
+   Seq: ( WL 'ME_53BD1BCF010B' '484A470100DD.pas.ms.script' // Create
+ )
  ; // Inherits
  : Implements
-   @ ( ME_53EDDC0402AA // DecisionPhrasesHelper
- ) .SequenceCode.It
+   Seq: ( ME_53EDDC0402AA // DecisionPhrasesHelper
+ )
  ; // Implements
  : Operations
-   @ ( ME_1520C3F33D63 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_1520C3F33D63 // DoIt
+ )
  ; // Operations
  CONST "check nil" false
  CONST "need AfterCreate" 'undefined'
@@ -487,6 +516,7 @@ ref; // ME_53EDE7B9024E
  ;
  : Implementor ME_53EDE216017A // TDecisionPhrasesHelper
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_53EDDCE10317_ME_53EDE216017A DoAdd
 
 : ME_53F1FD130157_ME_53EDE216017A
@@ -496,6 +526,7 @@ ref; // ME_53EDDCE10317_ME_53EDE216017A DoAdd
  ;
  : Implementor ME_53EDE216017A // TDecisionPhrasesHelper
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_53F1FD130157_ME_53EDE216017A DoGetStrings
 
 : ME_53EDE216017A
@@ -509,30 +540,36 @@ ref; // ME_53F1FD130157_ME_53EDE216017A DoGetStrings
  : Parent ME_53EDECDF01AA // csDecisionPhrasesHelper
  ;
  : Inherits
-   @ ( WL 'ME_53EDDCC203B4' '484A470100DD.pas.ms.script' // TAbstractStringListHelper
- ) .SequenceCode.It
+   Seq: ( WL 'ME_53EDDCC203B4' '484A470100DD.pas.ms.script' // TAbstractStringListHelper
+ )
  ; // Inherits
  : Implements
-   @ ( ME_53EDDC0402AA // DecisionPhrasesHelper
- ) .SequenceCode.It
+   Seq: ( ME_53EDDC0402AA // DecisionPhrasesHelper
+ )
  ; // Implements
  : Operations
-   @ ( ME_53EDE46500ED // Make
- ) .SequenceCode.It
+   Seq: ( ME_53EDE46500ED // Make
+ )
  ; // Operations
  : Implemented
-   @ ( ME_53EDDCE10317_ME_53EDE216017A // DoAdd
+   Seq: ( ME_53EDDCE10317_ME_53EDE216017A // DoAdd
  ME_53F1FD130157_ME_53EDE216017A // DoGetStrings
- ) .SequenceCode.It
+ )
  ; // Implemented
  : Dependencies
-   @ ( ME_53EDE7B9024E // 
- ) .SequenceCode.It
+   Seq: ( ME_53EDE7B9024E // 
+ )
  ; // Dependencies
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
+ CONST dfm:PathOnly '\common\components\rtl\Garant\cs'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\cs'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'DecisionPhrasesHelper'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_53EDE216017A TDecisionPhrasesHelper
 
@@ -547,17 +584,16 @@ ref; // ME_53EDE216017A TDecisionPhrasesHelper
  : Parent ME_53EDB01E0287 // CourtDecisionSabCheckerParams
  ;
  : Children
-   @ ( ME_53EDDC0402AA // DecisionPhrasesHelper
+   Seq: ( ME_53EDDC0402AA // DecisionPhrasesHelper
  ME_53EDE216017A // TDecisionPhrasesHelper
- ) .SequenceCode.It
+ )
  ; // Children
  CONST "no hands" false
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\cs'
  CONST intf.pas:Path 'common\components\rtl\Garant\cs\csDecisionPhrasesHelper.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\cs'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_53EDECDF01AA csDecisionPhrasesHelper
 
@@ -608,8 +644,8 @@ ref; // ME_53F1E760023B anIndex
  : Target WL 'ME_534572370056' '47913B47006E.pas.ms.script' // Tl3Tag
  ;
  : Attributes
-   @ ( ME_53F1E760023B // anIndex
- ) .SequenceCode.It
+   Seq: ( ME_53F1E760023B // anIndex
+ )
  ; // Attributes
  CONST "pm" false
 
@@ -636,8 +672,8 @@ ref; // ME_53F1E473006C anItem
  : Parent ME_53F1A11B01EF // Add
  ;
  : Parameters
-   @ ( ME_53F1E473006C // anItem
- ) .SequenceCode.It
+   Seq: ( ME_53F1E473006C // anItem
+ )
  ; // Parameters
 
 ref; // ME_53F1A16700E3 DoIt
@@ -653,8 +689,8 @@ ref; // ME_53F1A16700E3 DoIt
  : Parent ME_53F19FE300BB // CourtsListHelper
  ;
  : Operations
-   @ ( ME_53F1A16700E3 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_53F1A16700E3 // DoIt
+ )
  ; // Operations
 
 ref; // ME_53F1A11B01EF Add
@@ -671,18 +707,23 @@ ref; // ME_53F1A11B01EF Add
  : Parent ME_53F19F280320 // csCourtsListHelper
  ;
  : Implements
-   @ ( WL 'ME_53ECAC500028' '484A470100DD.pas.ms.script' // CourtDescription
- ) .SequenceCode.It
+   Seq: ( WL 'ME_53ECAC500028' '484A470100DD.pas.ms.script' // CourtDescription
+ )
  ; // Implements
  : Attributes
-   @ ( ME_53F1A0C00041 // Count
+   Seq: ( ME_53F1A0C00041 // Count
  ME_53F1E757017F // Courts
- ) .SequenceCode.It
+ )
  ; // Attributes
  : Operations
-   @ ( ME_53F1A11B01EF // Add
- ) .SequenceCode.It
+   Seq: ( ME_53F1A11B01EF // Add
+ )
  ; // Operations
+ CONST dfm:PathOnly '\common\components\rtl\Garant\cs'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\cs'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_53F19FE300BB CourtsListHelper
 
@@ -693,6 +734,7 @@ FORWARD ME_53F1A04500AD
 : ME_7CFBDA9825AF
  CONST UID '7CFBDA9825AF'
  CONST Name 'aValue'
+ CONST IsSummoned true
  CONST Class class_Parameter
  : Stereotype st_in ;
  : Target WL 'ME_534572370056' '47913B47006E.pas.ms.script' // Tl3Tag
@@ -703,6 +745,7 @@ ref; // ME_7CFBDA9825AF aValue
 : ME_6DC96B85A015
  CONST UID '6DC96B85A015'
  CONST Name 'DoIt'
+ CONST IsSummoned true
  CONST Class class_Operation
  %SUMMARY 'Сигнатура фабрики TCourtsListHelper.Make' ;
  CONST Visibility PrivateAccess
@@ -712,8 +755,8 @@ ref; // ME_7CFBDA9825AF aValue
  : Target ME_53F19FE300BB // CourtsListHelper
  ;
  : Parameters
-   @ ( ME_7CFBDA9825AF // aValue
- ) .SequenceCode.It
+   Seq: ( ME_7CFBDA9825AF // aValue
+ )
  ; // Parameters
 
 ref; // ME_6DC96B85A015 DoIt
@@ -729,16 +772,16 @@ ref; // ME_6DC96B85A015 DoIt
  : Parent ME_53F19FD5004B // TCourtsListHelper
  ;
  : Inherits
-   @ ( WL 'ME_53BD1BCF010B' '484A470100DD.pas.ms.script' // Create
- ) .SequenceCode.It
+   Seq: ( WL 'ME_53BD1BCF010B' '484A470100DD.pas.ms.script' // Create
+ )
  ; // Inherits
  : Implements
-   @ ( ME_53F19FE300BB // CourtsListHelper
- ) .SequenceCode.It
+   Seq: ( ME_53F19FE300BB // CourtsListHelper
+ )
  ; // Implements
  : Operations
-   @ ( ME_6DC96B85A015 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_6DC96B85A015 // DoIt
+ )
  ; // Operations
  CONST "check nil" false
  CONST "need AfterCreate" 'undefined'
@@ -765,6 +808,7 @@ ref; // ME_53F1A000022C
  ;
  : Implementor ME_53F19FD5004B // TCourtsListHelper
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" false
 ref; // ME_53F1A0C00041_ME_53F19FD5004B Count
 
@@ -775,6 +819,7 @@ ref; // ME_53F1A0C00041_ME_53F19FD5004B Count
  ;
  : Implementor ME_53F19FD5004B // TCourtsListHelper
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_53F1A11B01EF_ME_53F19FD5004B Add
 
 : ME_53F1E757017F_ME_53F19FD5004B
@@ -784,6 +829,7 @@ ref; // ME_53F1A11B01EF_ME_53F19FD5004B Add
  ;
  : Implementor ME_53F19FD5004B // TCourtsListHelper
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" false
 ref; // ME_53F1E757017F_ME_53F19FD5004B Courts
 
@@ -798,31 +844,37 @@ ref; // ME_53F1E757017F_ME_53F19FD5004B Courts
  : Parent ME_53F19F280320 // csCourtsListHelper
  ;
  : Inherits
-   @ ( WL 'ME_53BFD54A01CC' '484A470100DD.pas.ms.script' // TevdTagHelper
- ) .SequenceCode.It
+   Seq: ( WL 'ME_53BFD54A01CC' '484A470100DD.pas.ms.script' // TevdTagHelper
+ )
  ; // Inherits
  : Implements
-   @ ( ME_53F19FE300BB // CourtsListHelper
- ) .SequenceCode.It
+   Seq: ( ME_53F19FE300BB // CourtsListHelper
+ )
  ; // Implements
  : Operations
-   @ ( ME_53F1A04500AD // Make
- ) .SequenceCode.It
+   Seq: ( ME_53F1A04500AD // Make
+ )
  ; // Operations
  : Implemented
-   @ ( ME_53F1A0C00041_ME_53F19FD5004B // Count
+   Seq: ( ME_53F1A0C00041_ME_53F19FD5004B // Count
  ME_53F1A11B01EF_ME_53F19FD5004B // Add
  ME_53F1E757017F_ME_53F19FD5004B // Courts
- ) .SequenceCode.It
+ )
  ; // Implemented
  : Dependencies
-   @ ( ME_53F1A000022C // 
- ) .SequenceCode.It
+   Seq: ( ME_53F1A000022C // 
+ )
  ; // Dependencies
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
+ CONST dfm:PathOnly '\common\components\rtl\Garant\cs'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\cs'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'CourtsListHelper'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_53F19FD5004B TCourtsListHelper
 
@@ -837,17 +889,16 @@ ref; // ME_53F19FD5004B TCourtsListHelper
  : Parent ME_53EDB01E0287 // CourtDecisionSabCheckerParams
  ;
  : Children
-   @ ( ME_53F19FE300BB // CourtsListHelper
+   Seq: ( ME_53F19FE300BB // CourtsListHelper
  ME_53F19FD5004B // TCourtsListHelper
- ) .SequenceCode.It
+ )
  ; // Children
  CONST "no hands" false
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\cs'
  CONST intf.pas:Path 'common\components\rtl\Garant\cs\csCourtsListHelper.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\cs'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_53F19F280320 csCourtsListHelper
 
@@ -861,29 +912,27 @@ ref; // ME_53F19F280320 csCourtsListHelper
  : Parent WL 'ME_52F8C27F01AB' '52F8C27F01AB.pas.ms.script' // cs
  ;
  : Children
-   @ ( ME_53EDB09201BF // TcsCourtDecisionSabCheckerParams
+   Seq: ( ME_53EDB09201BF // TcsCourtDecisionSabCheckerParams
  ME_53EDB1000048 // TcsCourtDescription
  ME_53EDECDF01AA // csDecisionPhrasesHelper
  ME_53F19F280320 // csCourtsListHelper
- ) .SequenceCode.It
+ )
  ; // Children
  : Depends
-   @ ( WL 'ME_47913B47006E' '47913B47006E.pas.ms.script' // l3CoreObjects
+   Seq: ( WL 'ME_47913B47006E' '47913B47006E.pas.ms.script' // l3CoreObjects
  WL 'ME_4849284D0067' '4849284D0067.pas.ms.script' // Standard
  WL 'ME_484A470100DD' '484A470100DD.pas.ms.script' // Standard
  WL 'ME_49A58A1A03C4' '49A58A1A03C4.pas.ms.script' // k2PrimObjects
  WL 'ME_4AB0C3C60310' '4AB0C3C60310.pas.ms.script' // Sys
  WL 'ME_52669BFC024E' '52669BFC024E.pas.ms.script' // CoreTypes
  WL 'ME_53B15D5603E3' '53B15D5603E3.pas.ms.script' // TagHolder
- ) .SequenceCode.It
+ )
  ; // Depends
- : Generators
- @ (
- gen_pas.script
- gen_pas.script.runner
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\cs'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\cs'
  CONST pas.script:Path 'shared\models\NewSchool\Scripts\53EDB01E0287.pas.ms.script'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
  CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\53EDB01E0287.pas.ms.script.runner'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_53EDB01E0287 CourtDecisionSabCheckerParams

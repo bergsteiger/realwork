@@ -165,6 +165,7 @@ ref; // ME_50C8533B0077
 
 : ME_53CF4F68B6DB
  CONST UID '53CF4F68B6DB'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_4F8EC88A01F2 // MouseInputPack
@@ -185,7 +186,7 @@ ref; // ME_53CF4F68B6DB
  : Parent ME_4F8EC875027E // MouseInput
  ;
  : Dependencies
-   @ ( ME_4F967B48010A // 
+   Seq: ( ME_4F967B48010A // 
  ME_4F967B4B0348 // l
  ME_4F967D0300AF // 
  ME_4F967D060072 // 
@@ -198,19 +199,18 @@ ref; // ME_53CF4F68B6DB
  ME_50C853380020 // 
  ME_50C8533B0077 // 
  ME_53CF4F68B6DB // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  CONST "ifndef" 'NoScripts'
  CONST "needs script" 'undefined'
  CONST "no class name" 'undefined'
  CONST "no hands" false
  CONST "no_pop" 'undefined'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\ScriptEngine'
  CONST intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\MouseInputPack.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\ScriptEngine'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_4F8EC88A01F2 MouseInputPack
 
@@ -238,20 +238,20 @@ ref; // ME_54D4C52D0365
  : Parent ME_4F8EC875027E // MouseInput
  ;
  : Dependencies
-   @ ( ME_54D4C52D0365 // 
- ) .SequenceCode.It
+   Seq: ( ME_54D4C52D0365 // 
+ )
  ; // Dependencies
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\ScriptEngine'
  CONST intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\kwSendInputSupportUses.imp.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\ScriptEngine'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
  CONST extprop:pas:TypeName '_kwSendInputSupportUses_'
+ CONST extprop:pas:UnitName 'kwSendInputSupportUses.imp'
 
 ref; // ME_54D4C520030A kwSendInputSupportUses
 
@@ -280,8 +280,8 @@ ref; // ME_50C865EC02F0 aCtx
  : Target WL 'ME_4F7197540233' '4AB0C3F60375.pas.ms.script' // TInput
  ;
  : Parameters
-   @ ( ME_50C865EC02F0 // aCtx
- ) .SequenceCode.It
+   Seq: ( ME_50C865EC02F0 // aCtx
+ )
  ; // Parameters
 
 ref; // ME_4F71A8B800EA DoIt
@@ -297,8 +297,8 @@ ref; // ME_4F71A8B800EA DoIt
  : Parent ME_4F71A8080094 // TkwSendInputSupport
  ;
  : Operations
-   @ ( ME_4F71A8B800EA // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_4F71A8B800EA // DoIt
+ )
  ; // Operations
 
 ref; // ME_4F71A8960347 GetInputStruct
@@ -306,6 +306,7 @@ ref; // ME_4F71A8960347 GetInputStruct
 : ME_E01481C7991E
  CONST UID 'E01481C7991E'
  CONST Name 'Ini_Reg_Class'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Регистрация TkwSendInputSupport' ;
@@ -349,36 +350,38 @@ ref; // ME_4DAEEDE10285_ME_4F71A8080094 DoDoIt
  : Parent ME_4F8EC875027E // MouseInput
  ;
  : Inherits
-   @ ( WL 'ME_53EDC0E701BC' '4F3E3F5F0160.pas.ms.script' // TtfwRegisterableWord
- ) .SequenceCode.It
+   Seq: ( WL 'ME_53EDC0E701BC' '4F3E3F5F0160.pas.ms.script' // TtfwRegisterableWord
+ )
  ; // Inherits
  : Implements
-   @ ( ME_54D4C520030A // kwSendInputSupportUses
- ) .SequenceCode.It
+   Seq: ( ME_54D4C520030A // kwSendInputSupportUses
+ )
  ; // Implements
  : Operations
-   @ ( ME_4F71A8960347 // GetInputStruct
+   Seq: ( ME_4F71A8960347 // GetInputStruct
  ME_E01481C7991E // Ini_Reg_Class
- ) .SequenceCode.It
+ )
  ; // Operations
  : Implemented
-   @ ( ME_4DAEEDE10285_ME_4F71A8080094 // DoDoIt
- ) .SequenceCode.It
+   Seq: ( ME_4DAEEDE10285_ME_4F71A8080094 // DoDoIt
+ )
  ; // Implemented
  : Dependencies
-   @ ( ME_50C8680200CF // 
- ) .SequenceCode.It
+   Seq: ( ME_50C8680200CF // 
+ )
  ; // Dependencies
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\ScriptEngine'
  CONST intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\kwSendInputSupport.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\ScriptEngine'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'SendInputSupport'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'kwSendInputSupport'
 
 ref; // ME_4F71A8080094 TkwSendInputSupport
 
@@ -410,8 +413,8 @@ ref; // ME_4F967C1202F6 DoIt
  : Parent ME_4F967BAD0127 // TkwMouseUpDownSupport
  ;
  : Operations
-   @ ( ME_4F967C1202F6 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_4F967C1202F6 // DoIt
+ )
  ; // Operations
 
 ref; // ME_4F967BED0186 GetMouseEventFlag
@@ -419,6 +422,7 @@ ref; // ME_4F967BED0186 GetMouseEventFlag
 : ME_C9DA4892FD1A
  CONST UID 'C9DA4892FD1A'
  CONST Name 'Ini_Reg_Class'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Регистрация TkwMouseUpDownSupport' ;
@@ -462,38 +466,41 @@ ref; // ME_4F71A8960347_ME_4F967BAD0127 GetInputStruct
  : Parent ME_4F8EC875027E // MouseInput
  ;
  : Inherits
-   @ ( ME_4F71A8080094 // TkwSendInputSupport
- ) .SequenceCode.It
+   Seq: ( ME_4F71A8080094 // TkwSendInputSupport
+ )
  ; // Inherits
  : Operations
-   @ ( ME_4F967BED0186 // GetMouseEventFlag
+   Seq: ( ME_4F967BED0186 // GetMouseEventFlag
  ME_C9DA4892FD1A // Ini_Reg_Class
- ) .SequenceCode.It
+ )
  ; // Operations
  : Implemented
-   @ ( ME_4F71A8960347_ME_4F967BAD0127 // GetInputStruct
- ) .SequenceCode.It
+   Seq: ( ME_4F71A8960347_ME_4F967BAD0127 // GetInputStruct
+ )
  ; // Implemented
  : Dependencies
-   @ ( ME_4F967C820382 // 
- ) .SequenceCode.It
+   Seq: ( ME_4F967C820382 // 
+ )
  ; // Dependencies
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\ScriptEngine'
  CONST intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\kwMouseUpDownSupport.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\ScriptEngine'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'MouseUpDownSupport'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'kwMouseUpDownSupport'
 
 ref; // ME_4F967BAD0127 TkwMouseUpDownSupport
 
 : ME_7D6453213869
  CONST UID '7D6453213869'
  CONST Name 'Ini_Reg'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Регистрация Mouse_LeftUp' ;
@@ -535,38 +542,41 @@ ref; // ME_4DB0614603C8_ME_4F71C14601E6 GetWordNameForRegister
  : Parent ME_4F8EC875027E // MouseInput
  ;
  : Inherits
-   @ ( ME_4F967BAD0127 // TkwMouseUpDownSupport
- ) .SequenceCode.It
+   Seq: ( ME_4F967BAD0127 // TkwMouseUpDownSupport
+ )
  ; // Inherits
  : Operations
-   @ ( ME_7D6453213869 // Ini_Reg
- ) .SequenceCode.It
+   Seq: ( ME_7D6453213869 // Ini_Reg
+ )
  ; // Operations
  : Implemented
-   @ ( ME_4F967BED0186_ME_4F71C14601E6 // GetMouseEventFlag
- ) .SequenceCode.It
+   Seq: ( ME_4F967BED0186_ME_4F71C14601E6 // GetMouseEventFlag
+ )
  ; // Implemented
  : Overridden
-   @ ( ME_4DB0614603C8_ME_4F71C14601E6 // GetWordNameForRegister
- ) .SequenceCode.It
+   Seq: ( ME_4DB0614603C8_ME_4F71C14601E6 // GetWordNameForRegister
+ )
  ; // Overridden
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\ScriptEngine'
  CONST intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\kwMouseLeftUp.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\ScriptEngine'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
  CONST extprop:pas:TypeName 'TkwMouseLeftUp'
+ CONST extprop:rc:SelfName 'MouseLeftUp'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'kwMouseLeftUp'
 
 ref; // ME_4F71C14601E6 Mouse_LeftUp
 
 : ME_43E72A4AD379
  CONST UID '43E72A4AD379'
  CONST Name 'Ini_Reg'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Регистрация Mouse_RightDown' ;
@@ -608,38 +618,41 @@ ref; // ME_4DB0614603C8_ME_4F967CAE02C4 GetWordNameForRegister
  : Parent ME_4F8EC875027E // MouseInput
  ;
  : Inherits
-   @ ( ME_4F967BAD0127 // TkwMouseUpDownSupport
- ) .SequenceCode.It
+   Seq: ( ME_4F967BAD0127 // TkwMouseUpDownSupport
+ )
  ; // Inherits
  : Operations
-   @ ( ME_43E72A4AD379 // Ini_Reg
- ) .SequenceCode.It
+   Seq: ( ME_43E72A4AD379 // Ini_Reg
+ )
  ; // Operations
  : Implemented
-   @ ( ME_4F967BED0186_ME_4F967CAE02C4 // GetMouseEventFlag
- ) .SequenceCode.It
+   Seq: ( ME_4F967BED0186_ME_4F967CAE02C4 // GetMouseEventFlag
+ )
  ; // Implemented
  : Overridden
-   @ ( ME_4DB0614603C8_ME_4F967CAE02C4 // GetWordNameForRegister
- ) .SequenceCode.It
+   Seq: ( ME_4DB0614603C8_ME_4F967CAE02C4 // GetWordNameForRegister
+ )
  ; // Overridden
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\ScriptEngine'
  CONST intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\kwMouseRightDown.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\ScriptEngine'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
  CONST extprop:pas:TypeName 'TkwMouseRightDown'
+ CONST extprop:rc:SelfName 'MouseRightDown'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'kwMouseRightDown'
 
 ref; // ME_4F967CAE02C4 Mouse_RightDown
 
 : ME_5C2C3A50665A
  CONST UID '5C2C3A50665A'
  CONST Name 'Ini_Reg'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Регистрация Mouse_RightUp' ;
@@ -681,38 +694,41 @@ ref; // ME_4DB0614603C8_ME_4F967CBF016D GetWordNameForRegister
  : Parent ME_4F8EC875027E // MouseInput
  ;
  : Inherits
-   @ ( ME_4F967BAD0127 // TkwMouseUpDownSupport
- ) .SequenceCode.It
+   Seq: ( ME_4F967BAD0127 // TkwMouseUpDownSupport
+ )
  ; // Inherits
  : Operations
-   @ ( ME_5C2C3A50665A // Ini_Reg
- ) .SequenceCode.It
+   Seq: ( ME_5C2C3A50665A // Ini_Reg
+ )
  ; // Operations
  : Implemented
-   @ ( ME_4F967BED0186_ME_4F967CBF016D // GetMouseEventFlag
- ) .SequenceCode.It
+   Seq: ( ME_4F967BED0186_ME_4F967CBF016D // GetMouseEventFlag
+ )
  ; // Implemented
  : Overridden
-   @ ( ME_4DB0614603C8_ME_4F967CBF016D // GetWordNameForRegister
- ) .SequenceCode.It
+   Seq: ( ME_4DB0614603C8_ME_4F967CBF016D // GetWordNameForRegister
+ )
  ; // Overridden
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\ScriptEngine'
  CONST intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\kwMouseRightUp.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\ScriptEngine'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
  CONST extprop:pas:TypeName 'TkwMouseRightUp'
+ CONST extprop:rc:SelfName 'MouseRightUp'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'kwMouseRightUp'
 
 ref; // ME_4F967CBF016D Mouse_RightUp
 
 : ME_87C0A1BCB83C
  CONST UID '87C0A1BCB83C'
  CONST Name 'Ini_Reg'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Регистрация Mouse_MiddleUp' ;
@@ -754,38 +770,41 @@ ref; // ME_4DB0614603C8_ME_4F967CDF0244 GetWordNameForRegister
  : Parent ME_4F8EC875027E // MouseInput
  ;
  : Inherits
-   @ ( ME_4F967BAD0127 // TkwMouseUpDownSupport
- ) .SequenceCode.It
+   Seq: ( ME_4F967BAD0127 // TkwMouseUpDownSupport
+ )
  ; // Inherits
  : Operations
-   @ ( ME_87C0A1BCB83C // Ini_Reg
- ) .SequenceCode.It
+   Seq: ( ME_87C0A1BCB83C // Ini_Reg
+ )
  ; // Operations
  : Implemented
-   @ ( ME_4F967BED0186_ME_4F967CDF0244 // GetMouseEventFlag
- ) .SequenceCode.It
+   Seq: ( ME_4F967BED0186_ME_4F967CDF0244 // GetMouseEventFlag
+ )
  ; // Implemented
  : Overridden
-   @ ( ME_4DB0614603C8_ME_4F967CDF0244 // GetWordNameForRegister
- ) .SequenceCode.It
+   Seq: ( ME_4DB0614603C8_ME_4F967CDF0244 // GetWordNameForRegister
+ )
  ; // Overridden
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\ScriptEngine'
  CONST intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\kwMouseMiddleUp.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\ScriptEngine'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
  CONST extprop:pas:TypeName 'TkwMouseMiddleUp'
+ CONST extprop:rc:SelfName 'MouseMiddleUp'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'kwMouseMiddleUp'
 
 ref; // ME_4F967CDF0244 Mouse_MiddleUp
 
 : ME_CA24403B133E
  CONST UID 'CA24403B133E'
  CONST Name 'Ini_Reg'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Регистрация Mouse_MiddleDown' ;
@@ -827,38 +846,41 @@ ref; // ME_4DB0614603C8_ME_4F967CF70162 GetWordNameForRegister
  : Parent ME_4F8EC875027E // MouseInput
  ;
  : Inherits
-   @ ( ME_4F967BAD0127 // TkwMouseUpDownSupport
- ) .SequenceCode.It
+   Seq: ( ME_4F967BAD0127 // TkwMouseUpDownSupport
+ )
  ; // Inherits
  : Operations
-   @ ( ME_CA24403B133E // Ini_Reg
- ) .SequenceCode.It
+   Seq: ( ME_CA24403B133E // Ini_Reg
+ )
  ; // Operations
  : Implemented
-   @ ( ME_4F967BED0186_ME_4F967CF70162 // GetMouseEventFlag
- ) .SequenceCode.It
+   Seq: ( ME_4F967BED0186_ME_4F967CF70162 // GetMouseEventFlag
+ )
  ; // Implemented
  : Overridden
-   @ ( ME_4DB0614603C8_ME_4F967CF70162 // GetWordNameForRegister
- ) .SequenceCode.It
+   Seq: ( ME_4DB0614603C8_ME_4F967CF70162 // GetWordNameForRegister
+ )
  ; // Overridden
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\ScriptEngine'
  CONST intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\kwMouseMiddleDown.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\ScriptEngine'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
  CONST extprop:pas:TypeName 'TkwMouseMiddleDown'
+ CONST extprop:rc:SelfName 'MouseMiddleDown'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'kwMouseMiddleDown'
 
 ref; // ME_4F967CF70162 Mouse_MiddleDown
 
 : ME_F88B71548DF7
  CONST UID 'F88B71548DF7'
  CONST Name 'Ini_Reg'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Регистрация mouse_GetCursorIndex' ;
@@ -944,27 +966,27 @@ ref; // ME_4DB0614603C8_ME_4EEB67C500AE GetWordNameForRegister
  : Parent ME_4F8EC875027E // MouseInput
  ;
  : Inherits
-   @ ( WL 'ME_53EDC0E701BC' '4F3E3F5F0160.pas.ms.script' // TtfwRegisterableWord
- ) .SequenceCode.It
+   Seq: ( WL 'ME_53EDC0E701BC' '4F3E3F5F0160.pas.ms.script' // TtfwRegisterableWord
+ )
  ; // Inherits
  : Operations
-   @ ( ME_F88B71548DF7 // Ini_Reg
- ) .SequenceCode.It
+   Seq: ( ME_F88B71548DF7 // Ini_Reg
+ )
  ; // Operations
  : Implemented
-   @ ( ME_4DAEEDE10285_ME_4EEB67C500AE // DoDoIt
- ) .SequenceCode.It
+   Seq: ( ME_4DAEEDE10285_ME_4EEB67C500AE // DoDoIt
+ )
  ; // Implemented
  : Overridden
-   @ ( ME_4DB0614603C8_ME_4EEB67C500AE // GetWordNameForRegister
- ) .SequenceCode.It
+   Seq: ( ME_4DB0614603C8_ME_4EEB67C500AE // GetWordNameForRegister
+ )
  ; // Overridden
  : Dependencies
-   @ ( ME_4EEB6804034D // 
+   Seq: ( ME_4EEB6804034D // 
  ME_4EEB6810018F // 
  ME_4EEB681B01B2 // 
  ME_4EF0956E0258 // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  CONST "author" 'Костицын М.'
  CONST "needs InstanceR" 'undefined'
@@ -972,19 +994,22 @@ ref; // ME_4DB0614603C8_ME_4EEB67C500AE GetWordNameForRegister
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
  CONST "started" '16.12.2011'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\ScriptEngine'
  CONST intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\kwMouseGetCursorIndex.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\ScriptEngine'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
  CONST extprop:pas:TypeName 'TkwMouseGetCursorIndex'
+ CONST extprop:rc:SelfName 'MouseGetCursorIndex'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'kwMouseGetCursorIndex'
 
 ref; // ME_4EEB67C500AE mouse_GetCursorIndex
 
 : ME_057A89D80501
  CONST UID '057A89D80501'
  CONST Name 'Ini_Reg'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Регистрация mouse_GetCursorNameByIndex' ;
@@ -1037,42 +1062,45 @@ ref; // ME_4DB0614603C8_ME_4EF09324028B GetWordNameForRegister
  : Parent ME_4F8EC875027E // MouseInput
  ;
  : Inherits
-   @ ( WL 'ME_53EDC0E701BC' '4F3E3F5F0160.pas.ms.script' // TtfwRegisterableWord
- ) .SequenceCode.It
+   Seq: ( WL 'ME_53EDC0E701BC' '4F3E3F5F0160.pas.ms.script' // TtfwRegisterableWord
+ )
  ; // Inherits
  : Operations
-   @ ( ME_057A89D80501 // Ini_Reg
- ) .SequenceCode.It
+   Seq: ( ME_057A89D80501 // Ini_Reg
+ )
  ; // Operations
  : Implemented
-   @ ( ME_4DAEEDE10285_ME_4EF09324028B // DoDoIt
- ) .SequenceCode.It
+   Seq: ( ME_4DAEEDE10285_ME_4EF09324028B // DoDoIt
+ )
  ; // Implemented
  : Overridden
-   @ ( ME_4DB0614603C8_ME_4EF09324028B // GetWordNameForRegister
- ) .SequenceCode.It
+   Seq: ( ME_4DB0614603C8_ME_4EF09324028B // GetWordNameForRegister
+ )
  ; // Overridden
  : Dependencies
-   @ ( ME_4F22B19D0060 // 
- ) .SequenceCode.It
+   Seq: ( ME_4F22B19D0060 // 
+ )
  ; // Dependencies
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\ScriptEngine'
  CONST intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\kwMouseGetCursorNameByIndex.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\ScriptEngine'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
  CONST extprop:pas:TypeName 'TkwMouseGetCursorNameByIndex'
+ CONST extprop:rc:SelfName 'MouseGetCursorNameByIndex'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'kwMouseGetCursorNameByIndex'
 
 ref; // ME_4EF09324028B mouse_GetCursorNameByIndex
 
 : ME_DA5F7AA510AE
  CONST UID 'DA5F7AA510AE'
  CONST Name 'Ini_Reg'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Регистрация mouse_GetCursorPosition' ;
@@ -1125,42 +1153,45 @@ ref; // ME_4DB0614603C8_ME_4EF0937D000A GetWordNameForRegister
  : Parent ME_4F8EC875027E // MouseInput
  ;
  : Inherits
-   @ ( WL 'ME_53EDC0E701BC' '4F3E3F5F0160.pas.ms.script' // TtfwRegisterableWord
- ) .SequenceCode.It
+   Seq: ( WL 'ME_53EDC0E701BC' '4F3E3F5F0160.pas.ms.script' // TtfwRegisterableWord
+ )
  ; // Inherits
  : Operations
-   @ ( ME_DA5F7AA510AE // Ini_Reg
- ) .SequenceCode.It
+   Seq: ( ME_DA5F7AA510AE // Ini_Reg
+ )
  ; // Operations
  : Implemented
-   @ ( ME_4DAEEDE10285_ME_4EF0937D000A // DoDoIt
- ) .SequenceCode.It
+   Seq: ( ME_4DAEEDE10285_ME_4EF0937D000A // DoDoIt
+ )
  ; // Implemented
  : Overridden
-   @ ( ME_4DB0614603C8_ME_4EF0937D000A // GetWordNameForRegister
- ) .SequenceCode.It
+   Seq: ( ME_4DB0614603C8_ME_4EF0937D000A // GetWordNameForRegister
+ )
  ; // Overridden
  : Dependencies
-   @ ( ME_4F22A7BC0324 // 
- ) .SequenceCode.It
+   Seq: ( ME_4F22A7BC0324 // 
+ )
  ; // Dependencies
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\ScriptEngine'
  CONST intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\kwMouseGetCursorPosition.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\ScriptEngine'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
  CONST extprop:pas:TypeName 'TkwMouseGetCursorPosition'
+ CONST extprop:rc:SelfName 'MouseGetCursorPosition'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'kwMouseGetCursorPosition'
 
 ref; // ME_4EF0937D000A mouse_GetCursorPosition
 
 : ME_3D163EA60050
  CONST UID '3D163EA60050'
  CONST Name 'Ini_Reg'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Регистрация mouse_SetCursorPosition' ;
@@ -1213,36 +1244,38 @@ ref; // ME_4DB0614603C8_ME_4EF0939D025E GetWordNameForRegister
  : Parent ME_4F8EC875027E // MouseInput
  ;
  : Inherits
-   @ ( WL 'ME_53EDC0E701BC' '4F3E3F5F0160.pas.ms.script' // TtfwRegisterableWord
- ) .SequenceCode.It
+   Seq: ( WL 'ME_53EDC0E701BC' '4F3E3F5F0160.pas.ms.script' // TtfwRegisterableWord
+ )
  ; // Inherits
  : Operations
-   @ ( ME_3D163EA60050 // Ini_Reg
- ) .SequenceCode.It
+   Seq: ( ME_3D163EA60050 // Ini_Reg
+ )
  ; // Operations
  : Implemented
-   @ ( ME_4DAEEDE10285_ME_4EF0939D025E // DoDoIt
- ) .SequenceCode.It
+   Seq: ( ME_4DAEEDE10285_ME_4EF0939D025E // DoDoIt
+ )
  ; // Implemented
  : Overridden
-   @ ( ME_4DB0614603C8_ME_4EF0939D025E // GetWordNameForRegister
- ) .SequenceCode.It
+   Seq: ( ME_4DB0614603C8_ME_4EF0939D025E // GetWordNameForRegister
+ )
  ; // Overridden
  : Dependencies
-   @ ( ME_4F22AC5E01A7 // 
- ) .SequenceCode.It
+   Seq: ( ME_4F22AC5E01A7 // 
+ )
  ; // Dependencies
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\ScriptEngine'
  CONST intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\kwMouseSetCursorPosition.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\ScriptEngine'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
  CONST extprop:pas:TypeName 'TkwMouseSetCursorPosition'
+ CONST extprop:rc:SelfName 'MouseSetCursorPosition'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'kwMouseSetCursorPosition'
 
 ref; // ME_4EF0939D025E mouse_SetCursorPosition
 
@@ -1271,8 +1304,8 @@ ref; // ME_50C86608000D aCtx
  : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
  ;
  : Parameters
-   @ ( ME_50C86608000D // aCtx
- ) .SequenceCode.It
+   Seq: ( ME_50C86608000D // aCtx
+ )
  ; // Parameters
 
 ref; // ME_50C861810289 DoIt
@@ -1288,8 +1321,8 @@ ref; // ME_50C861810289 DoIt
  : Parent ME_50C852B30225 // TkwMouseWheelSupport
  ;
  : Operations
-   @ ( ME_50C861810289 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_50C861810289 // DoIt
+ )
  ; // Operations
 
 ref; // ME_50C861750031 GetLineCount
@@ -1297,6 +1330,7 @@ ref; // ME_50C861750031 GetLineCount
 : ME_AFF0E94B50C4
  CONST UID 'AFF0E94B50C4'
  CONST Name 'Ini_Reg_Class'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Регистрация TkwMouseWheelSupport' ;
@@ -1340,38 +1374,41 @@ ref; // ME_4F71A8960347_ME_50C852B30225 GetInputStruct
  : Parent ME_4F8EC875027E // MouseInput
  ;
  : Inherits
-   @ ( ME_4F71A8080094 // TkwSendInputSupport
- ) .SequenceCode.It
+   Seq: ( ME_4F71A8080094 // TkwSendInputSupport
+ )
  ; // Inherits
  : Operations
-   @ ( ME_50C861750031 // GetLineCount
+   Seq: ( ME_50C861750031 // GetLineCount
  ME_AFF0E94B50C4 // Ini_Reg_Class
- ) .SequenceCode.It
+ )
  ; // Operations
  : Implemented
-   @ ( ME_4F71A8960347_ME_50C852B30225 // GetInputStruct
- ) .SequenceCode.It
+   Seq: ( ME_4F71A8960347_ME_50C852B30225 // GetInputStruct
+ )
  ; // Implemented
  : Dependencies
-   @ ( ME_50C852DA019F // 
- ) .SequenceCode.It
+   Seq: ( ME_50C852DA019F // 
+ )
  ; // Dependencies
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\ScriptEngine'
  CONST intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\kwMouseWheelSupport.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\ScriptEngine'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'MouseWheelSupport'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'kwMouseWheelSupport'
 
 ref; // ME_50C852B30225 TkwMouseWheelSupport
 
 : ME_FBC805234963
  CONST UID 'FBC805234963'
  CONST Name 'Ini_Reg'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Регистрация Mouse_WheelUp' ;
@@ -1413,38 +1450,41 @@ ref; // ME_4DB0614603C8_ME_50C8531900E4 GetWordNameForRegister
  : Parent ME_4F8EC875027E // MouseInput
  ;
  : Inherits
-   @ ( ME_50C852B30225 // TkwMouseWheelSupport
- ) .SequenceCode.It
+   Seq: ( ME_50C852B30225 // TkwMouseWheelSupport
+ )
  ; // Inherits
  : Operations
-   @ ( ME_FBC805234963 // Ini_Reg
- ) .SequenceCode.It
+   Seq: ( ME_FBC805234963 // Ini_Reg
+ )
  ; // Operations
  : Implemented
-   @ ( ME_50C861750031_ME_50C8531900E4 // GetLineCount
- ) .SequenceCode.It
+   Seq: ( ME_50C861750031_ME_50C8531900E4 // GetLineCount
+ )
  ; // Implemented
  : Overridden
-   @ ( ME_4DB0614603C8_ME_50C8531900E4 // GetWordNameForRegister
- ) .SequenceCode.It
+   Seq: ( ME_4DB0614603C8_ME_50C8531900E4 // GetWordNameForRegister
+ )
  ; // Overridden
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\ScriptEngine'
  CONST intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\kwMouseWheelUp.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\ScriptEngine'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
  CONST extprop:pas:TypeName 'TkwMouseWheelUp'
+ CONST extprop:rc:SelfName 'MouseWheelUp'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'kwMouseWheelUp'
 
 ref; // ME_50C8531900E4 Mouse_WheelUp
 
 : ME_FCA0D57A9E7B
  CONST UID 'FCA0D57A9E7B'
  CONST Name 'Ini_Reg'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Регистрация Mouse_WheelDown' ;
@@ -1486,38 +1526,41 @@ ref; // ME_4DB0614603C8_ME_50C8532700B0 GetWordNameForRegister
  : Parent ME_4F8EC875027E // MouseInput
  ;
  : Inherits
-   @ ( ME_50C852B30225 // TkwMouseWheelSupport
- ) .SequenceCode.It
+   Seq: ( ME_50C852B30225 // TkwMouseWheelSupport
+ )
  ; // Inherits
  : Operations
-   @ ( ME_FCA0D57A9E7B // Ini_Reg
- ) .SequenceCode.It
+   Seq: ( ME_FCA0D57A9E7B // Ini_Reg
+ )
  ; // Operations
  : Implemented
-   @ ( ME_50C861750031_ME_50C8532700B0 // GetLineCount
- ) .SequenceCode.It
+   Seq: ( ME_50C861750031_ME_50C8532700B0 // GetLineCount
+ )
  ; // Implemented
  : Overridden
-   @ ( ME_4DB0614603C8_ME_50C8532700B0 // GetWordNameForRegister
- ) .SequenceCode.It
+   Seq: ( ME_4DB0614603C8_ME_50C8532700B0 // GetWordNameForRegister
+ )
  ; // Overridden
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\ScriptEngine'
  CONST intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\kwMouseWheelDown.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\ScriptEngine'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
  CONST extprop:pas:TypeName 'TkwMouseWheelDown'
+ CONST extprop:rc:SelfName 'MouseWheelDown'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'kwMouseWheelDown'
 
 ref; // ME_50C8532700B0 Mouse_WheelDown
 
 : ME_EF62C380425B
  CONST UID 'EF62C380425B'
  CONST Name 'Ini_Reg'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Регистрация Mouse_LeftDown' ;
@@ -1559,32 +1602,34 @@ ref; // ME_4DB0614603C8_ME_4F71C11F02F2 GetWordNameForRegister
  : Parent ME_4F8EC875027E // MouseInput
  ;
  : Inherits
-   @ ( ME_4F967BAD0127 // TkwMouseUpDownSupport
- ) .SequenceCode.It
+   Seq: ( ME_4F967BAD0127 // TkwMouseUpDownSupport
+ )
  ; // Inherits
  : Operations
-   @ ( ME_EF62C380425B // Ini_Reg
- ) .SequenceCode.It
+   Seq: ( ME_EF62C380425B // Ini_Reg
+ )
  ; // Operations
  : Implemented
-   @ ( ME_4F967BED0186_ME_4F71C11F02F2 // GetMouseEventFlag
- ) .SequenceCode.It
+   Seq: ( ME_4F967BED0186_ME_4F71C11F02F2 // GetMouseEventFlag
+ )
  ; // Implemented
  : Overridden
-   @ ( ME_4DB0614603C8_ME_4F71C11F02F2 // GetWordNameForRegister
- ) .SequenceCode.It
+   Seq: ( ME_4DB0614603C8_ME_4F71C11F02F2 // GetWordNameForRegister
+ )
  ; // Overridden
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\ScriptEngine'
  CONST intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\kwMouseLeftDown.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\ScriptEngine'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
  CONST extprop:pas:TypeName 'TkwMouseLeftDown'
+ CONST extprop:rc:SelfName 'MouseLeftDown'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'kwMouseLeftDown'
 
 ref; // ME_4F71C11F02F2 Mouse_LeftDown
 
@@ -1598,7 +1643,7 @@ ref; // ME_4F71C11F02F2 Mouse_LeftDown
  : Parent WL 'ME_4E1F0EB100C4' '4E1F0EB100C4.pas.ms.script' // ScriptEngine
  ;
  : Children
-   @ ( ME_4F8EC88A01F2 // MouseInputPack
+   Seq: ( ME_4F8EC88A01F2 // MouseInputPack
  ME_54D4C520030A // kwSendInputSupportUses
  ME_4F71A8080094 // TkwSendInputSupport
  ME_4F967BAD0127 // TkwMouseUpDownSupport
@@ -1615,10 +1660,10 @@ ref; // ME_4F71C11F02F2 Mouse_LeftDown
  ME_50C8531900E4 // Mouse_WheelUp
  ME_50C8532700B0 // Mouse_WheelDown
  ME_4F71C11F02F2 // Mouse_LeftDown
- ) .SequenceCode.It
+ )
  ; // Children
  : Depends
-   @ ( WL 'ME_476F78840219' '476F78840219.pas.ms.script' // Messages
+   Seq: ( WL 'ME_476F78840219' '476F78840219.pas.ms.script' // Messages
  WL 'ME_47913B47006E' '47913B47006E.pas.ms.script' // l3CoreObjects
  WL 'ME_4799D29F033F' '4799D29F033F.pas.ms.script' // Implementation
  WL 'ME_4AB0C3C60310' '4AB0C3C60310.pas.ms.script' // Sys
@@ -1627,16 +1672,14 @@ ref; // ME_4F71C11F02F2 Mouse_LeftDown
  WL 'ME_4DAF19F600C5' '4DAF19F600C5.pas.ms.script' // tfwScriptingInterfaces
  WL 'ME_4F3E3F5F0160' '4F3E3F5F0160.pas.ms.script' // PrimitiveWords
  WL 'ME_55BA28CE0290' '55BA28CE0290.pas.ms.script' // tfwScriptingTypes
- ) .SequenceCode.It
+ )
  ; // Depends
  CONST "ifndef" 'NoScripts'
- : Generators
- @ (
- gen_pas.script
- gen_pas.script.runner
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\ScriptEngine'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\ScriptEngine'
  CONST pas.script:Path 'shared\models\NewSchool\Scripts\4F8EC875027E.pas.ms.script'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
  CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\4F8EC875027E.pas.ms.script.runner'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_4F8EC875027E MouseInput

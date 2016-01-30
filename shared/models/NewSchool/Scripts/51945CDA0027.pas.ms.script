@@ -10,15 +10,15 @@ INCLUDE 'ElementsRTTI.ms.dict'
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
  : Children
-   @ ( WL 'ME_55F29ABD02C2' '55F29ABD02C2.pas.ms.script' // ArchiDBTests
+   Seq: ( WL 'ME_55F29ABD02C2' '55F29ABD02C2.pas.ms.script' // ArchiDBTests
  WL 'ME_55ED4FE10372' '55ED4FE10372.pas.ms.script' // SimpleTests
  WL 'ME_519465D90095' '519465D90095.pas.ms.script' // ImportExportTestLibrary
  WL 'ME_51946564017F' '51946564017F.pas.ms.script' // ImportExport
  WL 'ME_36C7C32193CF' '36C7C32193CF.pas.ms.script' // ReleaseImportExport
- ) .SequenceCode.It
+ )
  ; // Children
  : Depends
-   @ ( WL 'ME_4677DDBD0193' '4677DDBD0193.pas.ms.script' // Shared Delphi
+   Seq: ( WL 'ME_4677DDBD0193' '4677DDBD0193.pas.ms.script' // Shared Delphi
  WL 'ME_469F3E37025A' '469F3E37025A.pas.ms.script' // Rtl
  WL 'ME_4790D09A0378' '4790D09A0378.pas.ms.script' // L3
  WL 'ME_47913B47006E' '47913B47006E.pas.ms.script' // l3CoreObjects
@@ -34,13 +34,11 @@ INCLUDE 'ElementsRTTI.ms.dict'
  WL 'ME_4CA0BB31027B' '4CA0BB31027B.pas.ms.script' // BridgeToKviaCORBA
  WL 'ME_4DEF302C0007' '4DEF302C0007.pas.ms.script' // ScriptEngine
  WL 'ME_4E1F0EB100C4' '4E1F0EB100C4.pas.ms.script' // ScriptEngine
+ WL 'ME_4E5BC50E02E1' '4E5BC50E02E1.pas.ms.script' // Shared Delphi Требования к низкоуровневым библиотекам
  WL 'ME_5130499D0080' '5130499D0080.pas.ms.script' // DUnit Script Support
  WL 'ME_5130776E01BE' '5130776E01BE.pas.ms.script' // DUnitKeyWordsSupport
- WL 'ME_561FCFDC007C' '561FCFDC007C.pas.ms.script' // Templates
- WL 'ME_5623B27D02CF' '5623B27D02CF.pas.ms.script' // Shared Delphi Core And Low Level
- WL 'ME_56263D2100DB' '56263D2100DB.pas.ms.script' // Shared Delphi Libraries
  WL 'ME_562E251101C2' '562E251101C2.pas.ms.script' // Shared Delphi Rtl
- ) .SequenceCode.It
+ )
  ; // Depends
  CONST "Full MDP" false
  CONST "create project" true
@@ -55,16 +53,17 @@ INCLUDE 'ElementsRTTI.ms.dict'
  CONST "space key" 'archi'
  CONST "space name" 'Архивариус'
  : Generators
- @ (
- gen_forth_structure
- gen_intf.pas
+ Seq: (
  gen_pas.script
  gen_pas.script.runner
- ) .SequenceCode.It
+ )
  ; // Generators
- CONST forth_structure:Path 'shared\models\NewSchool\archi$ImportExprortTest\archi$ImportExprortTest.model.script'
- CONST intf.pas:Path 'archi\source\projects\archi$ImportExprortTest_prj.info'
+ CONST dfm:PathOnly '\archi\source\projects'
+ CONST intf.pas:PathOnly '\archi\source\projects'
  CONST pas.script:Path 'shared\models\NewSchool\Scripts\51945CDA0027.pas.ms.script'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
  CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\51945CDA0027.pas.ms.script.runner'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\archi\source\projects'
 
 ref; // ME_51945CDA0027 archi$ImportExprortTest

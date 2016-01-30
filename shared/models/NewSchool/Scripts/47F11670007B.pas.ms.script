@@ -15,6 +15,12 @@ FORWARD ME_47F11670007B
  CONST Abstraction at_regular
  : Parent ME_47F11670007B // k2InternalInterfaces
  ;
+ CONST dfm:PathOnly '\common\components\rtl\Garant\K2'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\K2'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'FilerSource'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_47F116A600A9 Ik2FilerSource
 
@@ -30,9 +36,15 @@ ref; // ME_47F116A600A9 Ik2FilerSource
  : Parent ME_47F11670007B // k2InternalInterfaces
  ;
  : Inherits
-   @ ( ME_47F116A600A9 // Ik2FilerSource
- ) .SequenceCode.It
+   Seq: ( ME_47F116A600A9 // Ik2FilerSource
+ )
  ; // Inherits
+ CONST dfm:PathOnly '\common\components\rtl\Garant\K2'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\K2'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'FilerSource2'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_4A25410C0355 Ik2FilerSource2
 
@@ -47,24 +59,21 @@ ref; // ME_4A25410C0355 Ik2FilerSource2
  : Parent WL 'ME_4677E16A022A' '4677E16A022A.pas.ms.script' // K2
  ;
  : Children
-   @ ( ME_47F116A600A9 // Ik2FilerSource
+   Seq: ( ME_47F116A600A9 // Ik2FilerSource
  ME_4A25410C0355 // Ik2FilerSource2
- ) .SequenceCode.It
+ )
  ; // Children
  CONST "author" 'Ëþëèí À.Â.'
  CONST "finished" false
  CONST "is namespace" true
  CONST "no hands" false
  CONST "started" '27.09.1999 12:58'
- : Generators
- @ (
- gen_intf.pas
- gen_pas.script
- gen_pas.script.runner
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\K2'
  CONST intf.pas:Path 'common\components\rtl\Garant\K2\NOT_FINISHED_k2InternalInterfaces.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\K2'
  CONST pas.script:Path 'shared\models\NewSchool\Scripts\47F11670007B.pas.ms.script'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
  CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\47F11670007B.pas.ms.script.runner'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_47F11670007B k2InternalInterfaces

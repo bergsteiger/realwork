@@ -1,0 +1,177 @@
+// MainForm 4F7C1E2803C5 Unit Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4F7C1E2803C5
+
+: ME_4F7C1E890190
+ CONST UID '4F7C1E890190'
+ CONST Name 'MPrimMainOptions'
+ CONST Class class_Class
+ : Stereotype st_MixInMirror ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_4F7C1E2803C5 // MainForm
+ ;
+ : Inherits
+   Seq: ( WL 'ME_4C8A210E018C' '4986ECDF01F4.pas.ms.script' // PrimMainOptions
+ )
+ ; // Inherits
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View'
+
+ref; // ME_4F7C1E890190 MPrimMainOptions
+
+FORWARD ME_4F7C1E96000A
+
+: ME_4F7C1F0901CB
+ CONST UID '4F7C1F0901CB'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4F7C1E96000A // AdminAndMonitoringsMainForm
+ ;
+ : Target WL 'ME_47F260EC02C7' '521C9DA50125.pas.ms.script' // StdRes
+ ;
+
+ref; // ME_4F7C1F0901CB 
+
+: ME_4F7C1F3A0237
+ CONST UID '4F7C1F3A0237'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4F7C1E96000A // AdminAndMonitoringsMainForm
+ ;
+ : Target WL 'ME_4E01F29C0139' '47D0E1500033.pas.ms.script' // vcmSettings
+ ;
+
+ref; // ME_4F7C1F3A0237 
+
+: ME_4F7C1F87022A
+ CONST UID '4F7C1F87022A'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4F7C1E96000A // AdminAndMonitoringsMainForm
+ ;
+ : Target WL 'ME_47E11FC3021E' '4799D29F033F.pas.ms.script' // Controls
+ ;
+
+ref; // ME_4F7C1F87022A 
+
+: ME_4F7C1F8F0294
+ CONST UID '4F7C1F8F0294'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4F7C1E96000A // AdminAndMonitoringsMainForm
+ ;
+ : Target WL 'ME_47E13C6B0341' '4799D29F033F.pas.ms.script' // Forms
+ ;
+
+ref; // ME_4F7C1F8F0294 
+
+: ME_49803F5503AA_ME_4F7C1E96000A
+ CONST UID '49803F5503AA'
+ CONST Name 'DoInit'
+ : Original WL 'ME_49803F5503AA' '4AADF9450143.pas.ms.script' // DoInit
+ ;
+ : Implementor ME_4F7C1E96000A // AdminAndMonitoringsMainForm
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_49803F5503AA_ME_4F7C1E96000A DoInit
+
+: ME_4F7B0815025A_ME_4F7C1E96000A
+ CONST UID '4F7B0815025A'
+ CONST Name 'LoadSettings'
+ : Original WL 'ME_4F7B0815025A' '4F6B660100D5.pas.ms.script' // LoadSettings
+ ;
+ : Implementor ME_4F7C1E96000A // AdminAndMonitoringsMainForm
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_4F7B0815025A_ME_4F7C1E96000A LoadSettings
+
+: ME_4F7C1E96000A
+ CONST UID '4F7C1E96000A'
+ CONST Name 'AdminAndMonitoringsMainForm'
+ CONST Class class_Class
+ : Stereotype st_Impurity ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_4F7C1E2803C5 // MainForm
+ ;
+ : Implements
+   Seq: ( ME_4F7C1E890190 // MPrimMainOptions
+ )
+ ; // Implements
+ : Overridden
+   Seq: ( ME_49803F5503AA_ME_4F7C1E96000A // DoInit
+ ME_4F7B0815025A_ME_4F7C1E96000A // LoadSettings
+ )
+ ; // Overridden
+ : Dependencies
+   Seq: ( ME_4F7C1F0901CB // 
+ ME_4F7C1F3A0237 // 
+ ME_4F7C1F87022A // 
+ ME_4F7C1F8F0294 // 
+ )
+ ; // Dependencies
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ : Generators
+ Seq: (
+ gen_intf.pas
+ )
+ ; // Generators
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View'
+ CONST intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\AdminAndMonitoringsMainForm.imp.pas'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View'
+ CONST extprop:pas:TypeName '_AdminAndMonitoringsMainForm_'
+ CONST extprop:pas:UnitName 'AdminAndMonitoringsMainForm.imp'
+
+ref; // ME_4F7C1E96000A AdminAndMonitoringsMainForm
+
+: ME_4F7C1E2803C5
+ CONST UID '4F7C1E2803C5'
+ CONST Name 'MainForm'
+ CONST Class class_Category
+ : Stereotype st_Unit ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent WL 'ME_4F7C1DF701C7' '4F7C1DF701C7.pas.ms.script' // View
+ ;
+ : Children
+   Seq: ( ME_4F7C1E890190 // MPrimMainOptions
+ ME_4F7C1E96000A // AdminAndMonitoringsMainForm
+ )
+ ; // Children
+ : Depends
+   Seq: ( WL 'ME_4799D29F033F' '4799D29F033F.pas.ms.script' // Implementation
+ WL 'ME_47D0E1500033' '47D0E1500033.pas.ms.script' // Implementation
+ WL 'ME_48F747EC0073' '48F747EC0073.pas.ms.script' // Common
+ WL 'ME_4986ECDF01F4' '4986ECDF01F4.pas.ms.script' // View
+ WL 'ME_521C9DA50125' '521C9DA50125.pas.ms.script' // Application Resources
+ )
+ ; // Depends
+ : Generators
+ Seq: (
+ gen_pas.script
+ gen_pas.script.runner
+ )
+ ; // Generators
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View'
+ CONST pas.script:Path 'shared\models\NewSchool\Scripts\4F7C1E2803C5.pas.ms.script'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\4F7C1E2803C5.pas.ms.script.runner'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View'
+
+ref; // ME_4F7C1E2803C5 MainForm

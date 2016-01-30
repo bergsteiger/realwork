@@ -9,6 +9,7 @@ FORWARD ME_509A5CCB022A
 : ME_E1711FEC1213
  CONST UID 'E1711FEC1213'
  CONST Name 'Ini_Reg'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Регистрация LoadFromFile' ;
@@ -26,6 +27,7 @@ ref; // ME_E1711FEC1213 Ini_Reg
  ;
  : Implementor ME_509A5CCB022A // LoadFromFile
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_4DAEEDE10285_ME_509A5CCB022A DoDoIt
 
 : ME_4DB0614603C8_ME_509A5CCB022A
@@ -35,6 +37,7 @@ ref; // ME_4DAEEDE10285_ME_509A5CCB022A DoDoIt
  ;
  : Implementor ME_509A5CCB022A // LoadFromFile
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4DB0614603C8_ME_509A5CCB022A GetWordNameForRegister
 
 : ME_509A5CCB022A
@@ -49,36 +52,44 @@ ref; // ME_4DB0614603C8_ME_509A5CCB022A GetWordNameForRegister
  : Parent ME_509A5CB50110 // SupportWords
  ;
  : Inherits
-   @ ( WL 'ME_53EDC0E701BC' '4F3E3F5F0160.pas.ms.script' // TtfwRegisterableWord
- ) .SequenceCode.It
+   Seq: ( WL 'ME_53EDC0E701BC' '4F3E3F5F0160.pas.ms.script' // TtfwRegisterableWord
+ )
  ; // Inherits
  : Implements
-   @ ( WL 'ME_509B4CC20221' '4E2955E50377.pas.ms.script' // LoadUnits
- ) .SequenceCode.It
+   Seq: ( WL 'ME_509B4CC20221' '4E2955E50377.pas.ms.script' // LoadUnits
+ )
  ; // Implements
  : Operations
-   @ ( ME_E1711FEC1213 // Ini_Reg
- ) .SequenceCode.It
+   Seq: ( ME_E1711FEC1213 // Ini_Reg
+ )
  ; // Operations
  : Implemented
-   @ ( ME_4DAEEDE10285_ME_509A5CCB022A // DoDoIt
- ) .SequenceCode.It
+   Seq: ( ME_4DAEEDE10285_ME_509A5CCB022A // DoDoIt
+ )
  ; // Implemented
  : Overridden
-   @ ( ME_4DB0614603C8_ME_509A5CCB022A // GetWordNameForRegister
- ) .SequenceCode.It
+   Seq: ( ME_4DB0614603C8_ME_509A5CCB022A // GetWordNameForRegister
+ )
  ; // Overridden
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
  : Generators
- @ (
+ Seq: (
  gen_intf.pas
- ) .SequenceCode.It
+ )
  ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\Keywords4Daily'
  CONST intf.pas:Path 'common\components\rtl\Garant\Keywords4Daily\kwLoadFromFile.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\Keywords4Daily'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\common\components\rtl\Garant\Keywords4Daily'
  CONST extprop:pas:TypeName 'TkwLoadFromFile'
+ CONST extprop:rc:SelfName 'LoadFromFile'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'kwLoadFromFile'
 
 ref; // ME_509A5CCB022A LoadFromFile
 
@@ -123,6 +134,7 @@ ref; // ME_509B9A9F02E3
 
 : ME_DEEBB12A3121
  CONST UID 'DEEBB12A3121'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_509A5D0D0141 // SupportKeyWords
@@ -143,11 +155,11 @@ ref; // ME_DEEBB12A3121
  : Parent ME_509A5CB50110 // SupportWords
  ;
  : Dependencies
-   @ ( ME_509A5D18026B // 
+   Seq: ( ME_509A5D18026B // 
  ME_509B8C6B00EE // 
  ME_509B9A9F02E3 // 
  ME_DEEBB12A3121 // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  CONST "ifndef" 'NoScripts'
  CONST "needs script" 'undefined'
@@ -155,17 +167,23 @@ ref; // ME_DEEBB12A3121
  CONST "no hands" false
  CONST "no_pop" 'undefined'
  : Generators
- @ (
+ Seq: (
  gen_intf.pas
- ) .SequenceCode.It
+ )
  ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\Keywords4Daily'
  CONST intf.pas:Path 'common\components\rtl\Garant\Keywords4Daily\SupportKeyWords.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\Keywords4Daily'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\common\components\rtl\Garant\Keywords4Daily'
 
 ref; // ME_509A5D0D0141 SupportKeyWords
 
 : ME_7E94DA15205F
  CONST UID '7E94DA15205F'
  CONST Name 'Ini_Reg'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Регистрация SetFontSize' ;
@@ -205,6 +223,7 @@ ref; // ME_509B9AEC03D3
  ;
  : Implementor ME_509B8C5A0200 // SetFontSize
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_4DAEEDE10285_ME_509B8C5A0200 DoDoIt
 
 : ME_4DB0614603C8_ME_509B8C5A0200
@@ -214,6 +233,7 @@ ref; // ME_4DAEEDE10285_ME_509B8C5A0200 DoDoIt
  ;
  : Implementor ME_509B8C5A0200 // SetFontSize
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4DB0614603C8_ME_509B8C5A0200 GetWordNameForRegister
 
 : ME_509B8C5A0200
@@ -228,43 +248,52 @@ ref; // ME_4DB0614603C8_ME_509B8C5A0200 GetWordNameForRegister
  : Parent ME_509A5CB50110 // SupportWords
  ;
  : Inherits
-   @ ( WL 'ME_53EDC0E701BC' '4F3E3F5F0160.pas.ms.script' // TtfwRegisterableWord
- ) .SequenceCode.It
+   Seq: ( WL 'ME_53EDC0E701BC' '4F3E3F5F0160.pas.ms.script' // TtfwRegisterableWord
+ )
  ; // Inherits
  : Operations
-   @ ( ME_7E94DA15205F // Ini_Reg
- ) .SequenceCode.It
+   Seq: ( ME_7E94DA15205F // Ini_Reg
+ )
  ; // Operations
  : Implemented
-   @ ( ME_4DAEEDE10285_ME_509B8C5A0200 // DoDoIt
- ) .SequenceCode.It
+   Seq: ( ME_4DAEEDE10285_ME_509B8C5A0200 // DoDoIt
+ )
  ; // Implemented
  : Overridden
-   @ ( ME_4DB0614603C8_ME_509B8C5A0200 // GetWordNameForRegister
- ) .SequenceCode.It
+   Seq: ( ME_4DB0614603C8_ME_509B8C5A0200 // GetWordNameForRegister
+ )
  ; // Overridden
  : Dependencies
-   @ ( ME_509B92AC027B // 
+   Seq: ( ME_509B92AC027B // 
  ME_509B9AEC03D3 // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
  : Generators
- @ (
+ Seq: (
  gen_intf.pas
- ) .SequenceCode.It
+ )
  ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\Keywords4Daily'
  CONST intf.pas:Path 'common\components\rtl\Garant\Keywords4Daily\kwSetFontSize.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\Keywords4Daily'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\common\components\rtl\Garant\Keywords4Daily'
  CONST extprop:pas:TypeName 'TkwSetFontSize'
+ CONST extprop:rc:SelfName 'SetFontSize'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'kwSetFontSize'
 
 ref; // ME_509B8C5A0200 SetFontSize
 
 : ME_C12BBF9E85AA
  CONST UID 'C12BBF9E85AA'
  CONST Name 'Ini_Reg'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Регистрация GetFontSize' ;
@@ -304,6 +333,7 @@ ref; // ME_509B9AE3017C
  ;
  : Implementor ME_509B9A8A0270 // GetFontSize
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_4DAEEDE10285_ME_509B9A8A0270 DoDoIt
 
 : ME_4DB0614603C8_ME_509B9A8A0270
@@ -313,6 +343,7 @@ ref; // ME_4DAEEDE10285_ME_509B9A8A0270 DoDoIt
  ;
  : Implementor ME_509B9A8A0270 // GetFontSize
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4DB0614603C8_ME_509B9A8A0270 GetWordNameForRegister
 
 : ME_509B9A8A0270
@@ -327,37 +358,45 @@ ref; // ME_4DB0614603C8_ME_509B9A8A0270 GetWordNameForRegister
  : Parent ME_509A5CB50110 // SupportWords
  ;
  : Inherits
-   @ ( WL 'ME_53EDC0E701BC' '4F3E3F5F0160.pas.ms.script' // TtfwRegisterableWord
- ) .SequenceCode.It
+   Seq: ( WL 'ME_53EDC0E701BC' '4F3E3F5F0160.pas.ms.script' // TtfwRegisterableWord
+ )
  ; // Inherits
  : Operations
-   @ ( ME_C12BBF9E85AA // Ini_Reg
- ) .SequenceCode.It
+   Seq: ( ME_C12BBF9E85AA // Ini_Reg
+ )
  ; // Operations
  : Implemented
-   @ ( ME_4DAEEDE10285_ME_509B9A8A0270 // DoDoIt
- ) .SequenceCode.It
+   Seq: ( ME_4DAEEDE10285_ME_509B9A8A0270 // DoDoIt
+ )
  ; // Implemented
  : Overridden
-   @ ( ME_4DB0614603C8_ME_509B9A8A0270 // GetWordNameForRegister
- ) .SequenceCode.It
+   Seq: ( ME_4DB0614603C8_ME_509B9A8A0270 // GetWordNameForRegister
+ )
  ; // Overridden
  : Dependencies
-   @ ( ME_509B9AC5027F // 
+   Seq: ( ME_509B9AC5027F // 
  ME_509B9AE3017C // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
  : Generators
- @ (
+ Seq: (
  gen_intf.pas
- ) .SequenceCode.It
+ )
  ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\Keywords4Daily'
  CONST intf.pas:Path 'common\components\rtl\Garant\Keywords4Daily\kwGetFontSize.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\Keywords4Daily'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\common\components\rtl\Garant\Keywords4Daily'
  CONST extprop:pas:TypeName 'TkwGetFontSize'
+ CONST extprop:rc:SelfName 'GetFontSize'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'kwGetFontSize'
 
 ref; // ME_509B9A8A0270 GetFontSize
 
@@ -371,28 +410,33 @@ ref; // ME_509B9A8A0270 GetFontSize
  : Parent WL 'ME_509A5C8903C7' '509A5C8903C7.pas.ms.script' // Keywords4Daily
  ;
  : Children
-   @ ( ME_509A5CCB022A // LoadFromFile
+   Seq: ( ME_509A5CCB022A // LoadFromFile
  ME_509A5D0D0141 // SupportKeyWords
  ME_509B8C5A0200 // SetFontSize
  ME_509B9A8A0270 // GetFontSize
- ) .SequenceCode.It
+ )
  ; // Children
  : Depends
-   @ ( WL 'ME_47ECB2870309' '47ECB2870309.pas.ms.script' // StyleTable
+   Seq: ( WL 'ME_47ECB2870309' '47ECB2870309.pas.ms.script' // StyleTable
  WL 'ME_4AB0C3C60310' '4AB0C3C60310.pas.ms.script' // Sys
  WL 'ME_4E2955E50377' '4E2955E50377.pas.ms.script' // AutoTestSupport
  WL 'ME_4F3E3F5F0160' '4F3E3F5F0160.pas.ms.script' // PrimitiveWords
  WL 'ME_55BA28CE0290' '55BA28CE0290.pas.ms.script' // tfwScriptingTypes
- ) .SequenceCode.It
+ )
  ; // Depends
  CONST "ifndef" 'NoScripts'
  : Generators
- @ (
+ Seq: (
  gen_pas.script
  gen_pas.script.runner
- ) .SequenceCode.It
+ )
  ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\Keywords4Daily'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\Keywords4Daily'
  CONST pas.script:Path 'shared\models\NewSchool\Scripts\509A5CB50110.pas.ms.script'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
  CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\509A5CB50110.pas.ms.script.runner'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\common\components\rtl\Garant\Keywords4Daily'
 
 ref; // ME_509A5CB50110 SupportWords

@@ -1,0 +1,34 @@
+// Форматы обмена 4836C4E2003A Requirements Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+: ME_4836C4E2003A
+ CONST UID '4836C4E2003A'
+ CONST Name 'Форматы обмена'
+ CONST Class class_Category
+ : Stereotype st_Requirements ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent WL 'ME_4677DDBD0193' '4677DDBD0193.pas.ms.script' // Shared Delphi
+ ;
+ : Children
+   Seq: ( WL 'ME_4BBB34C600E6' '4BBB34C600E6.pas.ms.script' // NSRC
+ WL 'ME_4AF46057003D' '4AF46057003D.pas.ms.script' // RTF
+ WL 'ME_4836C56901A6' '4836C56901A6.pas.ms.script' // NSRC+
+ )
+ ; // Children
+ : Depends
+   Seq: ( WL 'ME_4797632D0273' '4797632D0273.pas.ms.script' // Everest
+ WL 'ME_4E36644A0023' '4E36644A0023.pas.ms.script' // Стандартные компоненты
+ )
+ ; // Depends
+ CONST cpp:PathOnly '\common\components'
+ CONST dfm:PathOnly '\common\components'
+ CONST h:PathOnly '\common\components'
+ CONST intf.pas:PathOnly '\common\components'
+ CONST pas.script:Path 'shared\models\NewSchool\Scripts\4836C4E2003A.pas.ms.script'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\4836C4E2003A.pas.ms.script.runner'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+
+ref; // ME_4836C4E2003A Форматы обмена

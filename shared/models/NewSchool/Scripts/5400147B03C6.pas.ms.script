@@ -11,6 +11,7 @@ FORWARD ME_540018DD025D
 : ME_72978561B074
  CONST UID '72978561B074'
  CONST Name 'DoIt'
+ CONST IsSummoned true
  CONST Class class_Operation
  %SUMMARY 'Сигнатура метода gtRect' ;
  CONST Visibility PublicAccess
@@ -31,8 +32,8 @@ ref; // ME_72978561B074 DoIt
  : Parent ME_540014C10254 // gtUtils3
  ;
  : Operations
-   @ ( ME_72978561B074 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_72978561B074 // DoIt
+ )
  ; // Operations
 
 ref; // ME_540018DD025D gtRect
@@ -48,17 +49,16 @@ ref; // ME_540018DD025D gtRect
  : Parent ME_5400147B03C6 // RTL
  ;
  : Operations
-   @ ( ME_540018DD025D // gtRect
- ) .SequenceCode.It
+   Seq: ( ME_540018DD025D // gtRect
+ )
  ; // Operations
  CONST "finished" false
  CONST "no hands" false
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\external\gnotice_Shared\Source\Rtl'
  CONST intf.pas:Path 'common\components\rtl\external\gnotice_Shared\Source\Rtl\NOT_FINISHED_gtUtils3.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\external\gnotice_Shared\Source\Rtl'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_540014C10254 gtUtils3
 
@@ -72,17 +72,15 @@ ref; // ME_540014C10254 gtUtils3
  : Parent WL 'ME_5400141B00BE' '5400141B00BE.pas.ms.script' // gnotice_Shared
  ;
  : Children
-   @ ( ME_540014C10254 // gtUtils3
- ) .SequenceCode.It
+   Seq: ( ME_540014C10254 // gtUtils3
+ )
  ; // Children
  CONST "path prefix" '/Source/Rtl'
- : Generators
- @ (
- gen_pas.script
- gen_pas.script.runner
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\external\gnotice_Shared\Source\Rtl'
+ CONST intf.pas:PathOnly '\common\components\rtl\external\gnotice_Shared\Source\Rtl'
  CONST pas.script:Path 'shared\models\NewSchool\Scripts\5400147B03C6.pas.ms.script'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
  CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\5400147B03C6.pas.ms.script.runner'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_5400147B03C6 RTL

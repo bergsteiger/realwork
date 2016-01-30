@@ -77,13 +77,18 @@ ref; // ME_47C695F40267 ev_stDocument
  : Parent ME_47C695A10172 // evTypes
  ;
  : Attributes
-   @ ( ME_47C695E10071 // ev_stChar
+   Seq: ( ME_47C695E10071 // ev_stChar
  ME_47C695E60129 // ev_stWord
  ME_47C695EB0062 // ev_stLine
  ME_47C695EF01D4 // ev_stPara
  ME_47C695F40267 // ev_stDocument
- ) .SequenceCode.It
+ )
  ; // Attributes
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_47C695D90332 TevSelectTarget
 
@@ -221,7 +226,7 @@ ref; // ME_47C6CB14013C ev_soDocumentPart
  : Parent ME_47C695A10172 // evTypes
  ;
  : Attributes
-   @ ( ME_47C6CAE10282 // ev_soFind
+   Seq: ( ME_47C6CAE10282 // ev_soFind
  ME_47C6CAE80116 // ev_soBackward
  ME_47C6CAEE0175 // ev_soMatchCase
  ME_47C6CAF40274 // ev_soGlobal
@@ -231,8 +236,13 @@ ref; // ME_47C6CB14013C ev_soDocumentPart
  ME_47C6CB080366 // ev_soSelText
  ME_47C6CB0E005B // ev_soConfirm
  ME_47C6CB14013C // ev_soDocumentPart
- ) .SequenceCode.It
+ )
  ; // Attributes
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_47C6CAC503DE TevSearchOptionEx
 
@@ -248,9 +258,13 @@ ref; // ME_47C6CAC503DE TevSearchOptionEx
  : Parent ME_47C695A10172 // evTypes
  ;
  : Inherits
-   @ ( ME_47C6CAC503DE // TevSearchOptionEx
- ) .SequenceCode.It
+   Seq: ( ME_47C6CAC503DE // TevSearchOptionEx
+ )
  ; // Inherits
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_47C6CB200166 TevSearchOptionSetEx
 
@@ -269,6 +283,7 @@ FORWARD ME_47C6CB380359
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value 'ev_soFind'
 
 ref; // ME_47C6CB4C015C ev_soFind
 
@@ -285,6 +300,7 @@ ref; // ME_47C6CB4C015C ev_soFind
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value 'ev_soConfirm'
 
 ref; // ME_47C6CB510004 ev_soConfirm
 
@@ -300,15 +316,19 @@ ref; // ME_47C6CB510004 ev_soConfirm
  : Parent ME_47C695A10172 // evTypes
  ;
  : Inherits
-   @ ( ME_47C6CAC503DE // TevSearchOptionEx
- ) .SequenceCode.It
+   Seq: ( ME_47C6CAC503DE // TevSearchOptionEx
+ )
  ; // Inherits
  : Attributes
-   @ ( ME_47C6CB4C015C // ev_soFind
+   Seq: ( ME_47C6CB4C015C // ev_soFind
  ME_47C6CB510004 // ev_soConfirm
- ) .SequenceCode.It
+ )
  ; // Attributes
  CONST "spell names" false
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_47C6CB380359 TevSearchOption
 
@@ -324,9 +344,13 @@ ref; // ME_47C6CB380359 TevSearchOption
  : Parent ME_47C695A10172 // evTypes
  ;
  : Inherits
-   @ ( ME_47C6CB380359 // TevSearchOption
- ) .SequenceCode.It
+   Seq: ( ME_47C6CB380359 // TevSearchOption
+ )
  ; // Inherits
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_47C6CB5C0032 TevSearchOptionSet
 
@@ -341,6 +365,10 @@ ref; // ME_47C6CB5C0032 TevSearchOptionSet
  : Parent ME_47C695A10172 // evTypes
  ;
  CONST "spell names" false
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_483E708900B4 Clipboard Formats
 
@@ -453,7 +481,7 @@ ref; // ME_499167BC0198 pcDownRight
  : Parent ME_47C695A10172 // evTypes
  ;
  : Attributes
-   @ ( ME_4991679603C6 // pcUpLeftFirst
+   Seq: ( ME_4991679603C6 // pcUpLeftFirst
  ME_4991679D010A // pcUpRightFirst
  ME_499167A10355 // pcDownLeftFirst
  ME_499167A70003 // pcDownRightFirst
@@ -461,8 +489,13 @@ ref; // ME_499167BC0198 pcDownRight
  ME_499167B00088 // pcUpRight
  ME_499167B5028B // pcDownLeft
  ME_499167BC0198 // pcDownRight
- ) .SequenceCode.It
+ )
  ; // Attributes
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_4991678A008A TevPageColontituls
 
@@ -478,9 +511,14 @@ ref; // ME_4991678A008A TevPageColontituls
  : Parent ME_47C695A10172 // evTypes
  ;
  : Inherits
-   @ ( WL 'ME_46A449A301E3' '4677FBA70343.pas.ms.script' // Tl3ClipboardFormat
- ) .SequenceCode.It
+   Seq: ( WL 'ME_46A449A301E3' '4677FBA70343.pas.ms.script' // Tl3ClipboardFormat
+ )
  ; // Inherits
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_47F0C76F0397 TevFormat
 
@@ -494,6 +532,10 @@ ref; // ME_47F0C76F0397 TevFormat
  CONST Abstraction at_regular
  : Parent ME_47C695A10172 // evTypes
  ;
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_5110DBDD0004 TevStyleId
 
@@ -507,6 +549,10 @@ ref; // ME_5110DBDD0004 TevStyleId
  CONST Abstraction at_regular
  : Parent ME_47C695A10172 // evTypes
  ;
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_547DB7240282 TevPixel
 
@@ -521,7 +567,7 @@ ref; // ME_547DB7240282 TevPixel
  : Parent WL 'ME_4797632D0273' '4797632D0273.pas.ms.script' // Everest
  ;
  : Children
-   @ ( ME_47C695D90332 // TevSelectTarget
+   Seq: ( ME_47C695D90332 // TevSelectTarget
  ME_47C6CAC503DE // TevSearchOptionEx
  ME_47C6CB200166 // TevSearchOptionSetEx
  ME_47C6CB380359 // TevSearchOption
@@ -530,30 +576,27 @@ ref; // ME_547DB7240282 TevPixel
  ME_47F0C76F0397 // TevFormat
  ME_5110DBDD0004 // TevStyleId
  ME_547DB7240282 // TevPixel
- ) .SequenceCode.It
+ )
  ; // Children
  : Constants
-   @ ( ME_483E708900B4 // Clipboard Formats
- ) .SequenceCode.It
+   Seq: ( ME_483E708900B4 // Clipboard Formats
+ )
  ; // Constants
  : Depends
-   @ ( WL 'ME_4677FBA70343' '4677FBA70343.pas.ms.script' // l3Interfaces
- ) .SequenceCode.It
+   Seq: ( WL 'ME_4677FBA70343' '4677FBA70343.pas.ms.script' // l3Interfaces
+ )
  ; // Depends
  CONST "author" 'Ëþëèí À.Â.'
  CONST "finished" false
  CONST "is namespace" true
  CONST "no hands" false
  CONST "started" '11.12.96'
- : Generators
- @ (
- gen_intf.pas
- gen_pas.script
- gen_pas.script.runner
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest'
  CONST intf.pas:Path 'common\components\gui\Garant\Everest\NOT_FINISHED_evTypes.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest'
  CONST pas.script:Path 'shared\models\NewSchool\Scripts\47C695A10172.pas.ms.script'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
  CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\47C695A10172.pas.ms.script.runner'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_47C695A10172 evTypes

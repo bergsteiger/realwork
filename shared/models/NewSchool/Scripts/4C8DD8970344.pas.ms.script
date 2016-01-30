@@ -12,12 +12,12 @@ INCLUDE 'ElementsRTTI.ms.dict'
  : Parent WL 'ME_4C8DD86C03C8' '4C8DD86C03C8.pas.ms.script' // VCMCustomization
  ;
  : Children
-   @ ( WL 'ME_4C8DD8B8006C' '4C8DD8B8006C.pas.ms.script' // TasksPanel
+   Seq: ( WL 'ME_4C8DD8B8006C' '4C8DD8B8006C.pas.ms.script' // TasksPanel
  WL 'ME_4C8E33F40186' '4C8E33F40186.pas.ms.script' // ToolbarMenu
- ) .SequenceCode.It
+ )
  ; // Children
  : Depends
-   @ ( WL 'ME_4677FBA70343' '4677FBA70343.pas.ms.script' // l3Interfaces
+   Seq: ( WL 'ME_4677FBA70343' '4677FBA70343.pas.ms.script' // l3Interfaces
  WL 'ME_4682595B0268' '4682595B0268.pas.ms.script' // l3TreeInterfaces
  WL 'ME_4767743E00E5' '4767743E00E5.pas.ms.script' // TypInfo
  WL 'ME_4790B4F00236' '4790B4F00236.pas.ms.script' // AFW
@@ -45,23 +45,17 @@ INCLUDE 'ElementsRTTI.ms.dict'
  WL 'ME_55BA28CE0290' '55BA28CE0290.pas.ms.script' // tfwScriptingTypes
  WL 'ME_55CCADD2013D' '55CCADD2013D.pas.ms.script' // ClassLikeMapping
  WL 'ME_561F9F7D02A7' '561F9F7D02A7.pas.ms.script' // ScriptEngine
- ) .SequenceCode.It
+ )
  ; // Depends
  CONST "exec mode" 'concluded'
  CONST "gui" 'prj'
  CONST "is namespace" true
  CONST "vendor" 'none'
- : Generators
- @ (
- gen_forth_structure
- gen_intf.pas
- gen_pas.script
- gen_pas.script.runner
- ) .SequenceCode.It
- ; // Generators
- CONST forth_structure:Path 'shared\models\NewSchool\Shared Delphi Operations\VCMCustomization\View\View.model.script'
- CONST intf.pas:Path 'common\components\gui\Garant\VCM\View\VCMCustomization_View_vcmlib.info'
+ CONST dfm:PathOnly '\common\components\gui\Garant\VCM\View'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\VCM\View'
  CONST pas.script:Path 'shared\models\NewSchool\Scripts\4C8DD8970344.pas.ms.script'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
  CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\4C8DD8970344.pas.ms.script.runner'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_4C8DD8970344 View

@@ -27,8 +27,8 @@ ref; // ME_4CA0D26000B2 info
  : Parent ME_4CA0D1770172 // TORBInitializer
  ;
  : Parameters
-   @ ( ME_4CA0D26000B2 // info
- ) .SequenceCode.It
+   Seq: ( ME_4CA0D26000B2 // info
+ )
  ; // Parameters
 
 ref; // ME_4CA0D24C02B9 pre__init
@@ -52,8 +52,8 @@ ref; // ME_4CA0D279035D info
  : Parent ME_4CA0D1770172 // TORBInitializer
  ;
  : Parameters
-   @ ( ME_4CA0D279035D // info
- ) .SequenceCode.It
+   Seq: ( ME_4CA0D279035D // info
+ )
  ; // Parameters
 
 ref; // ME_4CA0D27000D5 post__init
@@ -69,15 +69,21 @@ ref; // ME_4CA0D27000D5 post__init
  : Parent ME_4CA0D16702D5 // pi
  ;
  : Operations
-   @ ( ME_4CA0D24C02B9 // pre__init
+   Seq: ( ME_4CA0D24C02B9 // pre__init
  ME_4CA0D27000D5 // post__init
- ) .SequenceCode.It
+ )
  ; // Operations
  CONST "finished" false
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
+ CONST dfm:PathOnly '\common\components\rtl\external\MTDOrb\src\idl'
+ CONST intf.pas:PathOnly '\common\components\rtl\external\MTDOrb\src\idl'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'ORBInitializer'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_4CA0D1770172 TORBInitializer
 
@@ -118,18 +124,24 @@ ref; // ME_4CA0D3AD017C __get__name
  : Parent ME_4CA0D16702D5 // pi
  ;
  : Inherits
-   @ ( WL 'ME_4CA0D369004C' '4CA0D33A02D6.pas.ms.script' // TLocalORBObject
- ) .SequenceCode.It
+   Seq: ( WL 'ME_4CA0D369004C' '4CA0D33A02D6.pas.ms.script' // TLocalORBObject
+ )
  ; // Inherits
  : Operations
-   @ ( ME_4CA0D39501A8 // __destroy
+   Seq: ( ME_4CA0D39501A8 // __destroy
  ME_4CA0D3AD017C // __get__name
- ) .SequenceCode.It
+ )
  ; // Operations
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
+ CONST dfm:PathOnly '\common\components\rtl\external\MTDOrb\src\idl'
+ CONST intf.pas:PathOnly '\common\components\rtl\external\MTDOrb\src\idl'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'Interceptor'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_4CA0D3170323 TInterceptor
 
@@ -154,8 +166,8 @@ ref; // ME_4CA0D4290350 ri
  : Parent ME_4CA0D3070257 // TClientRequestInterceptor
  ;
  : Parameters
-   @ ( ME_4CA0D4290350 // ri
- ) .SequenceCode.It
+   Seq: ( ME_4CA0D4290350 // ri
+ )
  ; // Parameters
 
 ref; // ME_4CA0D42302FC send__request
@@ -179,8 +191,8 @@ ref; // ME_4CA0D43A00BB ri
  : Parent ME_4CA0D3070257 // TClientRequestInterceptor
  ;
  : Parameters
-   @ ( ME_4CA0D43A00BB // ri
- ) .SequenceCode.It
+   Seq: ( ME_4CA0D43A00BB // ri
+ )
  ; // Parameters
 
 ref; // ME_4CA0D43401E5 send__poll
@@ -204,8 +216,8 @@ ref; // ME_4CA0D45B004D ri
  : Parent ME_4CA0D3070257 // TClientRequestInterceptor
  ;
  : Parameters
-   @ ( ME_4CA0D45B004D // ri
- ) .SequenceCode.It
+   Seq: ( ME_4CA0D45B004D // ri
+ )
  ; // Parameters
 
 ref; // ME_4CA0D44F0352 receive__reply
@@ -229,8 +241,8 @@ ref; // ME_4CA0D47101E7 ri
  : Parent ME_4CA0D3070257 // TClientRequestInterceptor
  ;
  : Parameters
-   @ ( ME_4CA0D47101E7 // ri
- ) .SequenceCode.It
+   Seq: ( ME_4CA0D47101E7 // ri
+ )
  ; // Parameters
 
 ref; // ME_4CA0D46502E4 receive__exception
@@ -254,8 +266,8 @@ ref; // ME_4CA0D4860134 ri
  : Parent ME_4CA0D3070257 // TClientRequestInterceptor
  ;
  : Parameters
-   @ ( ME_4CA0D4860134 // ri
- ) .SequenceCode.It
+   Seq: ( ME_4CA0D4860134 // ri
+ )
  ; // Parameters
 
 ref; // ME_4CA0D47C037F receive__other
@@ -271,22 +283,28 @@ ref; // ME_4CA0D47C037F receive__other
  : Parent ME_4CA0D16702D5 // pi
  ;
  : Inherits
-   @ ( ME_4CA0D3170323 // TInterceptor
- ) .SequenceCode.It
+   Seq: ( ME_4CA0D3170323 // TInterceptor
+ )
  ; // Inherits
  : Operations
-   @ ( ME_4CA0D42302FC // send__request
+   Seq: ( ME_4CA0D42302FC // send__request
  ME_4CA0D43401E5 // send__poll
  ME_4CA0D44F0352 // receive__reply
  ME_4CA0D46502E4 // receive__exception
  ME_4CA0D47C037F // receive__other
- ) .SequenceCode.It
+ )
  ; // Operations
  CONST "finished" false
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
+ CONST dfm:PathOnly '\common\components\rtl\external\MTDOrb\src\idl'
+ CONST intf.pas:PathOnly '\common\components\rtl\external\MTDOrb\src\idl'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'ClientRequestInterceptor'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_4CA0D3070257 TClientRequestInterceptor
 
@@ -301,19 +319,18 @@ ref; // ME_4CA0D3070257 TClientRequestInterceptor
  : Parent ME_4CA0D13D017F // idl
  ;
  : Children
-   @ ( ME_4CA0D1770172 // TORBInitializer
+   Seq: ( ME_4CA0D1770172 // TORBInitializer
  ME_4CA0D3170323 // TInterceptor
  ME_4CA0D3070257 // TClientRequestInterceptor
- ) .SequenceCode.It
+ )
  ; // Children
  CONST "finished" false
  CONST "no hands" false
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\external\MTDOrb\src\idl'
  CONST intf.pas:Path 'common\components\rtl\external\MTDOrb\src\idl\NOT_FINISHED_pi.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\external\MTDOrb\src\idl'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_4CA0D16702D5 pi
 
@@ -333,6 +350,12 @@ FORWARD ME_4CA1C51D0182
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
+ CONST dfm:PathOnly '\common\components\rtl\external\MTDOrb\src\idl'
+ CONST intf.pas:PathOnly '\common\components\rtl\external\MTDOrb\src\idl'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'NamingContext'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_4CA1C5300391 TNamingContext
 
@@ -347,17 +370,16 @@ ref; // ME_4CA1C5300391 TNamingContext
  : Parent ME_4CA0D13D017F // idl
  ;
  : Children
-   @ ( ME_4CA1C5300391 // TNamingContext
- ) .SequenceCode.It
+   Seq: ( ME_4CA1C5300391 // TNamingContext
+ )
  ; // Children
  CONST "finished" false
  CONST "no hands" false
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\external\MTDOrb\src\idl'
  CONST intf.pas:Path 'common\components\rtl\external\MTDOrb\src\idl\NOT_FINISHED_CosNaming.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\external\MTDOrb\src\idl'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_4CA1C51D0182 CosNaming
 
@@ -374,6 +396,12 @@ FORWARD ME_4CA1CBA90131
  CONST Abstraction at_regular
  : Parent ME_4CA1CBA90131 // CosNaming_int
  ;
+ CONST dfm:PathOnly '\common\components\rtl\external\MTDOrb\src\idl'
+ CONST intf.pas:PathOnly '\common\components\rtl\external\MTDOrb\src\idl'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'NamingContext'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_4CA1C7DB0156 INamingContext
 
@@ -387,6 +415,10 @@ ref; // ME_4CA1C7DB0156 INamingContext
  CONST Abstraction at_regular
  : Parent ME_4CA1CBA90131 // CosNaming_int
  ;
+ CONST dfm:PathOnly '\common\components\rtl\external\MTDOrb\src\idl'
+ CONST intf.pas:PathOnly '\common\components\rtl\external\MTDOrb\src\idl'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_4CA1CBF401AD TName
 
@@ -401,18 +433,17 @@ ref; // ME_4CA1CBF401AD TName
  : Parent ME_4CA0D13D017F // idl
  ;
  : Children
-   @ ( ME_4CA1C7DB0156 // INamingContext
+   Seq: ( ME_4CA1C7DB0156 // INamingContext
  ME_4CA1CBF401AD // TName
- ) .SequenceCode.It
+ )
  ; // Children
  CONST "finished" false
  CONST "no hands" false
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\external\MTDOrb\src\idl'
  CONST intf.pas:Path 'common\components\rtl\external\MTDOrb\src\idl\NOT_FINISHED_CosNaming_int.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\external\MTDOrb\src\idl'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_4CA1CBA90131 CosNaming_int
 
@@ -426,25 +457,23 @@ ref; // ME_4CA1CBA90131 CosNaming_int
  : Parent WL 'ME_4CA0BEBC011E' '4CA0BEBC011E.pas.ms.script' // MTDOrb
  ;
  : Children
-   @ ( ME_4CA0D16702D5 // pi
+   Seq: ( ME_4CA0D16702D5 // pi
  ME_4CA1C51D0182 // CosNaming
  ME_4CA1CBA90131 // CosNaming_int
- ) .SequenceCode.It
+ )
  ; // Children
  : Depends
-   @ ( WL 'ME_4AB0C3C60310' '4AB0C3C60310.pas.ms.script' // Sys
+   Seq: ( WL 'ME_4AB0C3C60310' '4AB0C3C60310.pas.ms.script' // Sys
  WL 'ME_4CA0D1FB01E0' '4CA0D1FB01E0.pas.ms.script' // pi_int
  WL 'ME_4CA0D33A02D6' '4CA0D33A02D6.pas.ms.script' // orb
- ) .SequenceCode.It
+ )
  ; // Depends
  CONST "path prefix" '/src/idl'
- : Generators
- @ (
- gen_pas.script
- gen_pas.script.runner
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\external\MTDOrb\src\idl'
+ CONST intf.pas:PathOnly '\common\components\rtl\external\MTDOrb\src\idl'
  CONST pas.script:Path 'shared\models\NewSchool\Scripts\4CA0D13D017F.pas.ms.script'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
  CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\4CA0D13D017F.pas.ms.script.runner'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_4CA0D13D017F idl

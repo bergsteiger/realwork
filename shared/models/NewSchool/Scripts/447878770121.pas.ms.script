@@ -1,0 +1,67 @@
+// GCI 447878770121 Library Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+: ME_447878770121
+ CONST UID '447878770121'
+ CONST Name 'GCI'
+ CONST Class class_Category
+ : Stereotype st_Library ;
+ %SUMMARY 'Garant Common Interfaces - общие интерфейсы повторного использования' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent WL 'ME_45ED6F0303D2' '45ED6F0303D2.pas.ms.script' // shared
+ ;
+ : Children
+   Seq: ( WL 'ME_4423F94903C8' '4423F94903C8.pas.ms.script' // IO
+ WL 'ME_4427F7CF02CE' '4427F7CF02CE.pas.ms.script' // IO_i
+ WL 'ME_4869FBFC02A4' '4869FBFC02A4.pas.ms.script' // Unicode
+ WL 'ME_486A059F005F' '486A059F005F.pas.ms.script' // UnicodeHelper_i
+ )
+ ; // Children
+ CONST "exec mode" 'concluded'
+ CONST "gui" 'tie'
+ CONST "is namespace" true
+ CONST "need UC" true
+ CONST "vendor" '/Garant'
+ : Generators
+ Seq: (
+ gen_cpp
+ gen_h
+ gen_mpc
+ gen_mpc.dll
+ gen_pas.script
+ gen_pas.script.runner
+ )
+ ; // Generators
+ CONST cpp:Path 'shared\GCI\LibHome.cpp'
+ CONST cpp:PathOnly '\shared\GCI'
+ CONST dfm:PathOnly '\shared\GCI'
+ CONST dll.cpp:PathOnly '\shared\GCI'
+ CONST dll.h:PathOnly '\shared\GCI'
+ CONST fctr.cpp:PathOnly '\shared\GCI'
+ CONST fctr.h:PathOnly '\shared\GCI'
+ CONST h:Path 'shared\GCI\LibHome.h'
+ CONST h:PathOnly '\shared\GCI'
+ CONST i.h:PathOnly '\shared\GCI'
+ CONST idl:PathOnly '\shared'
+ CONST idl_ami:PathOnly '\shared'
+ CONST intf.pas:PathOnly '\shared\tie\Garant\GCI'
+ CONST mpc:Path 'shared\project\GCI.mpc'
+ CONST mpc:PathOnly '\shared\project'
+ CONST mpc.dll:Path 'shared\project\GCI_tie.mpc'
+ CONST mpc.dll:PathOnly '\shared\project'
+ CONST mpc2:PathOnly '\shared\project'
+ CONST pas:PathOnly '\shared\GCI'
+ CONST pas.script:Path 'shared\models\NewSchool\Scripts\447878770121.pas.ms.script'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\447878770121.pas.ms.script.runner'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc:PathOnly '\shared\GCI'
+ CONST rc.script.pas:PathOnly '\shared\GCI'
+ CONST s.ini:PathOnly '\shared\project'
+ CONST s.reg:PathOnly '\shared\project'
+ CONST vi.rc:PathOnly '\shared'
+ CONST vi.rch:PathOnly '\shared'
+
+ref; // ME_447878770121 GCI

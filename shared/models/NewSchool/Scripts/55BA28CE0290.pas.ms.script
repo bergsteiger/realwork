@@ -15,9 +15,15 @@ FORWARD ME_55BA28CE0290
  : Parent ME_55BA28CE0290 // tfwScriptingTypes
  ;
  : Inherits
-   @ ( WL 'ME_55BF2B000047' '55BF29CB003B.pas.ms.script' // TtfwValueTypes
- ) .SequenceCode.It
+   Seq: ( WL 'ME_55BF2B000047' '55BF29CB003B.pas.ms.script' // TtfwValueTypes
+ )
  ; // Inherits
+ CONST dfm:PathOnly '\common\components\rtl\Garant\ScriptEngine'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\ScriptEngine'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'ValueTypes'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_55B2644E01DD TtfwValueTypes
 
@@ -40,6 +46,7 @@ FORWARD ME_55153C2C036F
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value '(Kind : tkUnknown; Name : ''VOID'')'
 
 ref; // ME_55153C3E0349 tfw_tiVoid
 
@@ -60,6 +67,7 @@ ref; // ME_55153C3E0349 tfw_tiVoid
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value '(Kind : tkUnknown; Name : ''TClass'')'
 
 ref; // ME_55155D9C0114 tfw_tiClassRef
 
@@ -80,6 +88,7 @@ ref; // ME_55155D9C0114 tfw_tiClassRef
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value '(Kind : tkUnknown; Name : ''Struct'')'
 
 ref; // ME_55156397012B tfw_tiStruct
 
@@ -100,6 +109,7 @@ ref; // ME_55156397012B tfw_tiStruct
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value '(Kind : tkUnknown; Name : ''STRING'')'
 
 ref; // ME_5515641C03AC tfw_tiString
 
@@ -120,6 +130,7 @@ ref; // ME_5515641C03AC tfw_tiString
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value '(Kind : tkUnknown; Name : ''W-STRING'')'
 
 ref; // ME_55B626BB0211 tfw_tiWString
 
@@ -140,6 +151,7 @@ ref; // ME_55B626BB0211 tfw_tiWString
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value '(Kind : tkUnknown; Name : ''NIL'')'
 
 ref; // ME_55BF16A50211 tfw_tiNil
 
@@ -160,6 +172,7 @@ ref; // ME_55BF16A50211 tfw_tiNil
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value '(Kind : tkUnknown; Name : ''ANY'')'
 
 ref; // ME_55BF5539022A tfw_tiAny
 
@@ -196,21 +209,25 @@ ref; // ME_560D259303CC
  : Parent ME_55BA28CE0290 // tfwScriptingTypes
  ;
  : Attributes
-   @ ( ME_55153C3E0349 // tfw_tiVoid
+   Seq: ( ME_55153C3E0349 // tfw_tiVoid
  ME_55155D9C0114 // tfw_tiClassRef
  ME_55156397012B // tfw_tiStruct
  ME_5515641C03AC // tfw_tiString
  ME_55B626BB0211 // tfw_tiWString
  ME_55BF16A50211 // tfw_tiNil
  ME_55BF5539022A // tfw_tiAny
- ) .SequenceCode.It
+ )
  ; // Attributes
  : Dependencies
-   @ ( ME_55BF23B90306 // 
+   Seq: ( ME_55BF23B90306 // 
  ME_560D259303CC // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  CONST "spell names" false
+ CONST dfm:PathOnly '\common\components\rtl\Garant\ScriptEngine'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\ScriptEngine'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_55153C2C036F TypeInfoExt
 
@@ -324,19 +341,6 @@ ref; // ME_4F44DC5C009C Redefineable
 
 ref; // ME_4F44DC6B0398 Sealed
 
-: ME_4F4E0A1B034B
- CONST UID '4F4E0A1B034B'
- CONST Name 'CanBeMerged'
- CONST Class class_Attribute
- %SUMMARY 'Одноимённые слова с одинаковыми стереотипами МОГУТ склеиваться в одно, как например %CHILDREN.' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- CONST LinkType lt_agr
- : Parent ME_4DCACBEA006D // TtfwWordModifier
- ;
-
-ref; // ME_4F4E0A1B034B CanBeMerged
-
 : ME_52E91C0B02ED
  CONST UID '52E91C0B02ED'
  CONST Name 'RightWordRef'
@@ -420,7 +424,7 @@ ref; // ME_558D35250286 Caller
  : Parent ME_55BA28CE0290 // tfwScriptingTypes
  ;
  : Attributes
-   @ ( ME_4F367D2E02B5 // Virtual
+   Seq: ( ME_4F367D2E02B5 // Virtual
  ME_4F37B185038D // Abstract
  ME_4F37B1930126 // Final
  ME_4F37B19D021E // Summoned
@@ -429,17 +433,21 @@ ref; // ME_558D35250286 Caller
  ME_4F41FED40006 // Redefinition
  ME_4F44DC5C009C // Redefineable
  ME_4F44DC6B0398 // Sealed
- ME_4F4E0A1B034B // CanBeMerged
  ME_52E91C0B02ED // RightWordRef
  ME_53E35E1A02E5 // LeftWordRef
  ME_53ECD72A0273 // Immediate
  ME_53ED94FF018A // Inline
  ME_5575BC640181 // TreatUnknownAsString
  ME_558D35250286 // Caller
- ) .SequenceCode.It
+ )
  ; // Attributes
  CONST "children prefix" 'wm'
  CONST "elements prefix" 'tfw'
+ CONST dfm:PathOnly '\common\components\rtl\Garant\ScriptEngine'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\ScriptEngine'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:isAcceptableForScripts true
  CONST extprop:pas:ElementPrefixBase 'tfw'
  CONST extprop:pas:ElementPrefix 'tfw_wm'
 
@@ -456,9 +464,13 @@ ref; // ME_4DCACBEA006D TtfwWordModifier
  : Parent ME_55BA28CE0290 // tfwScriptingTypes
  ;
  : Inherits
-   @ ( ME_4DCACBEA006D // TtfwWordModifier
- ) .SequenceCode.It
+   Seq: ( ME_4DCACBEA006D // TtfwWordModifier
+ )
  ; // Inherits
+ CONST dfm:PathOnly '\common\components\rtl\Garant\ScriptEngine'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\ScriptEngine'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_4DCACC5A0290 TtfwWordModifiers
 
@@ -523,14 +535,19 @@ ref; // ME_4F3D14CF001E Public
  : Parent ME_55BA28CE0290 // tfwScriptingTypes
  ;
  : Attributes
-   @ ( ME_55BA4BAF0116 // None
+   Seq: ( ME_55BA4BAF0116 // None
  ME_4DCACC3D01F1 // Private
  ME_4F3D14C6007C // Protected
  ME_4F3D14CF001E // Public
- ) .SequenceCode.It
+ )
  ; // Attributes
  CONST "children prefix" 'at'
  CONST "elements prefix" 'tfw'
+ CONST dfm:PathOnly '\common\components\rtl\Garant\ScriptEngine'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\ScriptEngine'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:isAcceptableForScripts true
  CONST extprop:pas:ElementPrefixBase 'tfw'
  CONST extprop:pas:ElementPrefix 'tfw_at'
 
@@ -597,14 +614,19 @@ ref; // ME_4F44DBBD0072 Reference
  : Parent ME_55BA28CE0290 // tfwScriptingTypes
  ;
  : Attributes
-   @ ( ME_55C23C97010D // None
+   Seq: ( ME_55C23C97010D // None
  ME_4F44DBB102AB // Aggregation
  ME_4F44DBC90291 // Link
  ME_4F44DBBD0072 // Reference
- ) .SequenceCode.It
+ )
  ; // Attributes
  CONST "children prefix" 'lt'
  CONST "elements prefix" 'tfw'
+ CONST dfm:PathOnly '\common\components\rtl\Garant\ScriptEngine'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\ScriptEngine'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:isAcceptableForScripts true
  CONST extprop:pas:ElementPrefixBase 'tfw'
  CONST extprop:pas:ElementPrefix 'tfw_lt'
 
@@ -692,8 +714,8 @@ ref; // ME_52C1662000BC DoIt
  : Parent ME_52C15D690329 // TtfwWordInfoRec
  ;
  : Operations
-   @ ( ME_52C1662000BC // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_52C1662000BC // DoIt
+ )
  ; // Operations
 
 ref; // ME_52C1617803A0 E
@@ -724,8 +746,8 @@ ref; // ME_55716CB7039E DoIt
  : Parent ME_52C15D690329 // TtfwWordInfoRec
  ;
  : Operations
-   @ ( ME_55716CB7039E // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_55716CB7039E // DoIt
+ )
  ; // Operations
 
 ref; // ME_55716CAC0395 Empty
@@ -753,8 +775,8 @@ ref; // ME_5591372B001C aModifier
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
  : Parameters
-   @ ( ME_5591372B001C // aModifier
- ) .SequenceCode.It
+   Seq: ( ME_5591372B001C // aModifier
+ )
  ; // Parameters
 
 ref; // ME_5591371F0016 DoIt
@@ -770,8 +792,8 @@ ref; // ME_5591371F0016 DoIt
  : Parent ME_52C15D690329 // TtfwWordInfoRec
  ;
  : Operations
-   @ ( ME_5591371F0016 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_5591371F0016 // DoIt
+ )
  ; // Operations
 
 ref; // ME_559137130242 Has$1
@@ -799,8 +821,8 @@ ref; // ME_55B253D700B6 anOther
  : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
  ;
  : Parameters
-   @ ( ME_55B253D700B6 // anOther
- ) .SequenceCode.It
+   Seq: ( ME_55B253D700B6 // anOther
+ )
  ; // Parameters
 
 ref; // ME_55B253C900D3 DoIt
@@ -827,12 +849,12 @@ ref; // ME_55BB99A700F1
  : Parent ME_52C15D690329 // TtfwWordInfoRec
  ;
  : Operations
-   @ ( ME_55B253C900D3 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_55B253C900D3 // DoIt
+ )
  ; // Operations
  : Dependencies
-   @ ( ME_55BB99A700F1 // 
- ) .SequenceCode.It
+   Seq: ( ME_55BB99A700F1 // 
+ )
  ; // Dependencies
 
 ref; // ME_55B253BE0033 Compare
@@ -888,11 +910,11 @@ ref; // ME_55C23CB00075 aLinkType
  : Parent ME_55B265FD0005 // C$1
  ;
  : Parameters
-   @ ( ME_55B2662003D2 // aTypes
+   Seq: ( ME_55B2662003D2 // aTypes
  ME_55B266210008 // aModifiers
  ME_55BA4CE601B2 // anAccess
  ME_55C23CB00075 // aLinkType
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_55B2660A01E9 DoIt
@@ -908,8 +930,8 @@ ref; // ME_55B2660A01E9 DoIt
  : Parent ME_52C15D690329 // TtfwWordInfoRec
  ;
  : Operations
-   @ ( ME_55B2660A01E9 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_55B2660A01E9 // DoIt
+ )
  ; // Operations
 
 ref; // ME_55B265FD0005 C$1
@@ -937,8 +959,8 @@ ref; // ME_55B2722101BA aType
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
  : Parameters
-   @ ( ME_55B2722101BA // aType
- ) .SequenceCode.It
+   Seq: ( ME_55B2722101BA // aType
+ )
  ; // Parameters
 
 ref; // ME_55B26BE60082 DoIt
@@ -954,8 +976,8 @@ ref; // ME_55B26BE60082 DoIt
  : Parent ME_52C15D690329 // TtfwWordInfoRec
  ;
  : Operations
-   @ ( ME_55B26BE60082 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_55B26BE60082 // DoIt
+ )
  ; // Operations
 
 ref; // ME_55B26BCB01BA Has$2
@@ -983,8 +1005,8 @@ ref; // ME_55BA4C5F02E8 anAccess
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
  : Parameters
-   @ ( ME_55BA4C5F02E8 // anAccess
- ) .SequenceCode.It
+   Seq: ( ME_55BA4C5F02E8 // anAccess
+ )
  ; // Parameters
 
 ref; // ME_55BA4C51004B DoIt
@@ -1000,8 +1022,8 @@ ref; // ME_55BA4C51004B DoIt
  : Parent ME_52C15D690329 // TtfwWordInfoRec
  ;
  : Operations
-   @ ( ME_55BA4C51004B // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_55BA4C51004B // DoIt
+ )
  ; // Operations
 
 ref; // ME_55BA4C430110 Has$3
@@ -1043,12 +1065,12 @@ ref; // ME_55BF05B5002D
  : Parent ME_52C15D690329 // TtfwWordInfoRec
  ;
  : Operations
-   @ ( ME_55BEFF4302C0 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_55BEFF4302C0 // DoIt
+ )
  ; // Operations
  : Dependencies
-   @ ( ME_55BF05B5002D // 
- ) .SequenceCode.It
+   Seq: ( ME_55BF05B5002D // 
+ )
  ; // Dependencies
 
 ref; // ME_55BEFF3A0168 TypeName
@@ -1076,8 +1098,8 @@ ref; // ME_55C23DB1032C aLinkType
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
  : Parameters
-   @ ( ME_55C23DB1032C // aLinkType
- ) .SequenceCode.It
+   Seq: ( ME_55C23DB1032C // aLinkType
+ )
  ; // Parameters
 
 ref; // ME_55C23DAA02F1 DoIt
@@ -1093,8 +1115,8 @@ ref; // ME_55C23DAA02F1 DoIt
  : Parent ME_52C15D690329 // TtfwWordInfoRec
  ;
  : Operations
-   @ ( ME_55C23DAA02F1 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_55C23DAA02F1 // DoIt
+ )
  ; // Operations
 
 ref; // ME_55C23DA10124 Has$4
@@ -1111,14 +1133,14 @@ ref; // ME_55C23DA10124 Has$4
  : Parent ME_55BA28CE0290 // tfwScriptingTypes
  ;
  : Attributes
-   @ ( ME_55BB8DF003DE // rAccessType
+   Seq: ( ME_55BB8DF003DE // rAccessType
  ME_52C15D8903AA // rModifiers
  ME_55BB991D021E // rTypeModifiers
  ME_55C23C860086 // rLinkType
- ) .SequenceCode.It
+ )
  ; // Attributes
  : Operations
-   @ ( ME_52C1617803A0 // E
+   Seq: ( ME_52C1617803A0 // E
  ME_55716CAC0395 // Empty
  ME_559137130242 // Has$1
  ME_55B253BE0033 // Compare
@@ -1127,13 +1149,18 @@ ref; // ME_55C23DA10124 Has$4
  ME_55BA4C430110 // Has$3
  ME_55BEFF3A0168 // TypeName
  ME_55C23DA10124 // Has$4
- ) .SequenceCode.It
+ )
  ; // Operations
  : Injected
-   @ ( WL 'ME_55BEFFCC013F' '4DAF19F600C5.pas.ms.script' // 
- ) .SequenceCode.It
+   Seq: ( WL 'ME_55BEFFCC013F' '4DAF19F600C5.pas.ms.script' // 
+ )
  ; // Injected
  CONST "not treat as record for XE4" 'undefined'
+ CONST dfm:PathOnly '\common\components\rtl\Garant\ScriptEngine'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\ScriptEngine'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'WordInfoRec'
 
 ref; // ME_52C15D690329 TtfwWordInfoRec
 
@@ -1148,10 +1175,14 @@ ref; // ME_52C15D690329 TtfwWordInfoRec
  : Parent ME_55BA28CE0290 // tfwScriptingTypes
  ;
  : Inherits
-   @ ( ME_52C15D690329 // TtfwWordInfoRec
- ) .SequenceCode.It
+   Seq: ( ME_52C15D690329 // TtfwWordInfoRec
+ )
  ; // Inherits
  CONST "isPointer" true
+ CONST dfm:PathOnly '\common\components\rtl\Garant\ScriptEngine'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\ScriptEngine'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_55C34B350281 PtfwWordInfoRec
 
@@ -1165,39 +1196,36 @@ ref; // ME_55C34B350281 PtfwWordInfoRec
  : Parent WL 'ME_54CF97B10370' '54CF97B10370.pas.ms.script' // ScriptEngine$Core
  ;
  : Children
-   @ ( ME_55B2644E01DD // TtfwValueTypes
+   Seq: ( ME_55B2644E01DD // TtfwValueTypes
  ME_4DCACBEA006D // TtfwWordModifier
  ME_4DCACC5A0290 // TtfwWordModifiers
  ME_55BA4B91000E // TtfwAccessType
  ME_55C23C6C00AD // TtfwLinkType
  ME_52C15D690329 // TtfwWordInfoRec
  ME_55C34B350281 // PtfwWordInfoRec
- ) .SequenceCode.It
+ )
  ; // Children
  : Constants
-   @ ( ME_55153C2C036F // TypeInfoExt
- ) .SequenceCode.It
+   Seq: ( ME_55153C2C036F // TypeInfoExt
+ )
  ; // Constants
  : Depends
-   @ ( WL 'ME_4767743E00E5' '4767743E00E5.pas.ms.script' // TypInfo
+   Seq: ( WL 'ME_4767743E00E5' '4767743E00E5.pas.ms.script' // TypInfo
  WL 'ME_47913B47006E' '47913B47006E.pas.ms.script' // l3CoreObjects
  WL 'ME_54B90AC6014B' '54B90AC6014B.pas.ms.script' // StringUtils
  WL 'ME_55BB9712001F' '55BB9712001F.pas.ms.script' // tfwScriptingExceptions
  WL 'ME_55BF153300A4' '55BF153300A4.pas.ms.script' // tfwTypeInfo
  WL 'ME_55BF29CB003B' '55BF29CB003B.pas.ms.script' // TypeInfoCache
- ) .SequenceCode.It
+ )
  ; // Depends
  CONST "is namespace" true
  CONST "no hands" false
- : Generators
- @ (
- gen_intf.pas
- gen_pas.script
- gen_pas.script.runner
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\ScriptEngine'
  CONST intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\tfwScriptingTypes.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\ScriptEngine'
  CONST pas.script:Path 'shared\models\NewSchool\Scripts\55BA28CE0290.pas.ms.script'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
  CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\55BA28CE0290.pas.ms.script.runner'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_55BA28CE0290 tfwScriptingTypes

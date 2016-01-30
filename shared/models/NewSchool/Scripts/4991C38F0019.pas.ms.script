@@ -1,0 +1,447 @@
+// DataAdapterInterfaces 4991C38F0019 Interfaces Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4991C38F0019
+
+FORWARD ME_4991C3C10331
+
+: ME_4991C3CD0077
+ CONST UID '4991C3CD0077'
+ CONST Name 'Updated'
+ CONST Class class_Operation
+ %SUMMARY 'данные адаптера были обновлен' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_4991C3C10331 // InsDataAdapterListener
+ ;
+
+ref; // ME_4991C3CD0077 Updated
+
+: ME_4991C3C10331
+ CONST UID '4991C3C10331'
+ CONST GUID 'FF1A9777-1D65-4D93-84E5-48F29F5B1F83'
+ CONST Name 'InsDataAdapterListener'
+ CONST Class class_Class
+ : Stereotype st_Facet ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Слушатель событий данных адаптера' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4991C38F0019 // DataAdapterInterfaces
+ ;
+ : Inherits
+   Seq: ( WL 'ME_4680CF330338' '4677FBA70343.pas.ms.script' // Il3Notify
+ )
+ ; // Inherits
+ : Operations
+   Seq: ( ME_4991C3CD0077 // Updated
+ )
+ ; // Operations
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Model'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Model'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\Model'
+ CONST extprop:rc:SelfName 'DataAdapterListener'
+ CONST extprop:rc:isAcceptableForScripts true
+
+ref; // ME_4991C3C10331 InsDataAdapterListener
+
+FORWARD ME_4991C4280185
+
+: ME_4991C42D02FF
+ CONST UID '4991C42D02FF'
+ CONST Name 'tmwNone'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_4991C4280185 // TTMWarningType
+ ;
+
+ref; // ME_4991C42D02FF tmwNone
+
+: ME_4991C4320119
+ CONST UID '4991C4320119'
+ CONST Name 'tmwError'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_4991C4280185 // TTMWarningType
+ ;
+
+ref; // ME_4991C4320119 tmwError
+
+: ME_4991C4360236
+ CONST UID '4991C4360236'
+ CONST Name 'tmwWarning'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_4991C4280185 // TTMWarningType
+ ;
+
+ref; // ME_4991C4360236 tmwWarning
+
+: ME_4991C4280185
+ CONST UID '4991C4280185'
+ CONST Name 'TTMWarningType'
+ CONST Class class_Class
+ : Stereotype st_Enum ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4991C38F0019 // DataAdapterInterfaces
+ ;
+ : Attributes
+   Seq: ( ME_4991C42D02FF // tmwNone
+ ME_4991C4320119 // tmwError
+ ME_4991C4360236 // tmwWarning
+ )
+ ; // Attributes
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Model'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Model'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\Model'
+ CONST extprop:rc:isAcceptableForScripts true
+
+ref; // ME_4991C4280185 TTMWarningType
+
+FORWARD ME_4991C3E402FD
+
+: ME_4991C54201B3
+ CONST UID '4991C54201B3'
+ CONST Name 'IsOn'
+ CONST Class class_Attribute
+ : Stereotype st_readonly::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_lnk
+ : Parent ME_4991C3E402FD // InsTimeMachine
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+ CONST "pm" true
+
+ref; // ME_4991C54201B3 IsOn
+
+: ME_4991C50D010B
+ CONST UID '4991C50D010B'
+ CONST Name 'Date'
+ CONST Class class_Attribute
+ : Stereotype st_property::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_lnk
+ : Parent ME_4991C3E402FD // InsTimeMachine
+ ;
+ : Target WL 'ME_456EA6F00109' '456EA56002BF.pas.ms.script' // Date
+ ;
+ CONST "pm" true
+
+ref; // ME_4991C50D010B Date
+
+: ME_4991C52C03DD
+ CONST UID '4991C52C03DD'
+ CONST Name 'DateStr'
+ CONST Class class_Attribute
+ : Stereotype st_readonly::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_lnk
+ : Parent ME_4991C3E402FD // InsTimeMachine
+ ;
+ : Target WL 'ME_46780DA40383' '4677FBA70343.pas.ms.script' // Il3CString
+ ;
+ CONST "pm" true
+
+ref; // ME_4991C52C03DD DateStr
+
+: ME_4991C56403B0
+ CONST UID '4991C56403B0'
+ CONST Name 'NotSureHelp'
+ CONST Class class_Attribute
+ : Stereotype st_readonly::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_lnk
+ : Parent ME_4991C3E402FD // InsTimeMachine
+ ;
+ : Target WL 'ME_45EEB6520191' '4570511E038A.pas.ms.script' // Document
+ ;
+ CONST "pm" true
+
+ref; // ME_4991C56403B0 NotSureHelp
+
+: ME_4991C3F40251
+ CONST UID '4991C3F40251'
+ CONST Name 'aDocument'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_45EEB6520191' '4570511E038A.pas.ms.script' // Document
+ ;
+
+ref; // ME_4991C3F40251 aDocument
+
+: ME_4991C3EE032D
+ CONST UID '4991C3EE032D'
+ CONST Name 'HasTimeMachineWarning'
+ CONST Class class_Operation
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_4991C3E402FD // InsTimeMachine
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+ : Parameters
+   Seq: ( ME_4991C3F40251 // aDocument
+ )
+ ; // Parameters
+
+ref; // ME_4991C3EE032D HasTimeMachineWarning
+
+: ME_4991C45B02AF
+ CONST UID '4991C45B02AF'
+ CONST Name 'aDocument'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_45EEB6520191' '4570511E038A.pas.ms.script' // Document
+ ;
+
+ref; // ME_4991C45B02AF aDocument
+
+: ME_4991C45B02CE
+ CONST UID '4991C45B02CE'
+ CONST Name 'aWarning'
+ CONST Class class_Parameter
+ : Stereotype st_out ;
+ : Target WL 'ME_46780DA40383' '4677FBA70343.pas.ms.script' // Il3CString
+ ;
+
+ref; // ME_4991C45B02CE aWarning
+
+: ME_4991C4510277
+ CONST UID '4991C4510277'
+ CONST Name 'GetTimeMachineWarning'
+ CONST Class class_Operation
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_4991C3E402FD // InsTimeMachine
+ ;
+ : Target ME_4991C4280185 // TTMWarningType
+ ;
+ : Parameters
+   Seq: ( ME_4991C45B02AF // aDocument
+ ME_4991C45B02CE // aWarning
+ )
+ ; // Parameters
+
+ref; // ME_4991C4510277 GetTimeMachineWarning
+
+: ME_4991C47702A0
+ CONST UID '4991C47702A0'
+ CONST Name 'aDocument'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_45EEB6520191' '4570511E038A.pas.ms.script' // Document
+ ;
+
+ref; // ME_4991C47702A0 aDocument
+
+: ME_4991C47200DD
+ CONST UID '4991C47200DD'
+ CONST Name 'HasNotSureWarning'
+ CONST Class class_Operation
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_4991C3E402FD // InsTimeMachine
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+ : Parameters
+   Seq: ( ME_4991C47702A0 // aDocument
+ )
+ ; // Parameters
+
+ref; // ME_4991C47200DD HasNotSureWarning
+
+: ME_4991C48A0167
+ CONST UID '4991C48A0167'
+ CONST Name 'aDocument'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_45EEB6520191' '4570511E038A.pas.ms.script' // Document
+ ;
+
+ref; // ME_4991C48A0167 aDocument
+
+: ME_4991C48A018A
+ CONST UID '4991C48A018A'
+ CONST Name 'aComment'
+ CONST Class class_Parameter
+ : Stereotype st_out ;
+ : Target WL 'ME_46780DA40383' '4677FBA70343.pas.ms.script' // Il3CString
+ ;
+
+ref; // ME_4991C48A018A aComment
+
+: ME_4991C47C03DF
+ CONST UID '4991C47C03DF'
+ CONST Name 'GetNotSureWarning'
+ CONST Class class_Operation
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_4991C3E402FD // InsTimeMachine
+ ;
+ : Target WL 'ME_46780DA40383' '4677FBA70343.pas.ms.script' // Il3CString
+ ;
+ : Parameters
+   Seq: ( ME_4991C48A0167 // aDocument
+ ME_4991C48A018A // aComment
+ )
+ ; // Parameters
+
+ref; // ME_4991C47C03DF GetNotSureWarning
+
+: ME_4991C4D50328
+ CONST UID '4991C4D50328'
+ CONST Name 'aDocument'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_45EEB6520191' '4570511E038A.pas.ms.script' // Document
+ ;
+
+ref; // ME_4991C4D50328 aDocument
+
+: ME_4991C4CE0320
+ CONST UID '4991C4CE0320'
+ CONST Name 'CorrectDocumentEdition'
+ CONST Class class_Operation
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_4991C3E402FD // InsTimeMachine
+ ;
+ : Target WL 'ME_45EEB6520191' '4570511E038A.pas.ms.script' // Document
+ ;
+ : Parameters
+   Seq: ( ME_4991C4D50328 // aDocument
+ )
+ ; // Parameters
+
+ref; // ME_4991C4CE0320 CorrectDocumentEdition
+
+: ME_4991C4E50063
+ CONST UID '4991C4E50063'
+ CONST Name 'StayInCurrentRedaction'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+ CONST Value false
+ : ValueType WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+ CONST extprop:pas:Value false
+
+ref; // ME_4991C4E50063 StayInCurrentRedaction
+
+: ME_4991C4E201AB
+ CONST UID '4991C4E201AB'
+ CONST Name 'SwitchOff'
+ CONST Class class_Operation
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_4991C3E402FD // InsTimeMachine
+ ;
+ : Parameters
+   Seq: ( ME_4991C4E50063 // StayInCurrentRedaction
+ )
+ ; // Parameters
+
+ref; // ME_4991C4E201AB SwitchOff
+
+: ME_4991C3E402FD
+ CONST UID '4991C3E402FD'
+ CONST GUID '02F64798-095B-406B-B75D-A4D4C9FE7C7E'
+ CONST Name 'InsTimeMachine'
+ CONST Class class_Class
+ : Stereotype st_Facet ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4991C38F0019 // DataAdapterInterfaces
+ ;
+ : Attributes
+   Seq: ( ME_4991C54201B3 // IsOn
+ ME_4991C50D010B // Date
+ ME_4991C52C03DD // DateStr
+ ME_4991C56403B0 // NotSureHelp
+ )
+ ; // Attributes
+ : Operations
+   Seq: ( ME_4991C3EE032D // HasTimeMachineWarning
+ ME_4991C4510277 // GetTimeMachineWarning
+ ME_4991C47200DD // HasNotSureWarning
+ ME_4991C47C03DF // GetNotSureWarning
+ ME_4991C4CE0320 // CorrectDocumentEdition
+ ME_4991C4E201AB // SwitchOff
+ )
+ ; // Operations
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Model'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Model'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\Model'
+ CONST extprop:rc:SelfName 'TimeMachine'
+ CONST extprop:rc:isAcceptableForScripts true
+
+ref; // ME_4991C3E402FD InsTimeMachine
+
+: ME_4991C38F0019
+ CONST UID '4991C38F0019'
+ CONST Name 'DataAdapterInterfaces'
+ CONST Class class_Category
+ : Stereotype st_Interfaces ;
+ %SUMMARY 'Работа с адаптером' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent WL 'ME_47E9EEC60260' '47E9EEC60260.pas.ms.script' // Model
+ ;
+ : Children
+   Seq: ( ME_4991C3C10331 // InsDataAdapterListener
+ ME_4991C4280185 // TTMWarningType
+ ME_4991C3E402FD // InsTimeMachine
+ )
+ ; // Children
+ : Depends
+   Seq: ( WL 'ME_456EA56002BF' '456EA56002BF.pas.ms.script' // BaseTypes
+ WL 'ME_4570511E038A' '4570511E038A.pas.ms.script' // Document
+ WL 'ME_4677FBA70343' '4677FBA70343.pas.ms.script' // l3Interfaces
+ WL 'ME_4AB0C3C60310' '4AB0C3C60310.pas.ms.script' // Sys
+ )
+ ; // Depends
+ CONST "author" 'Люлин А.В.'
+ CONST "ifndef" 'Admin,Monitorings'
+ CONST "is namespace" true
+ CONST "no hands" true
+ CONST "started" '10.02.2009 21:13'
+ : Generators
+ Seq: (
+ gen_intf.pas
+ gen_pas.script
+ gen_pas.script.runner
+ )
+ ; // Generators
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Model'
+ CONST intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\Model\DataAdapterInterfaces.pas'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Model'
+ CONST pas.script:Path 'shared\models\NewSchool\Scripts\4991C38F0019.pas.ms.script'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\4991C38F0019.pas.ms.script.runner'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\Model'
+
+ref; // ME_4991C38F0019 DataAdapterInterfaces

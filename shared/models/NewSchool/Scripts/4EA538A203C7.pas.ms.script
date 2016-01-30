@@ -15,19 +15,27 @@ FORWARD ME_4EA538A203C7
  : Parent ME_4EA538A203C7 // MultyFileTests
  ;
  : Inherits
-   @ ( WL 'ME_4EA515800122' '4EA5156C00C8.pas.ms.script' // TCustomFolderTestSuite
- ) .SequenceCode.It
+   Seq: ( WL 'ME_4EA515800122' '4EA5156C00C8.pas.ms.script' // TCustomFolderTestSuite
+ )
  ; // Inherits
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
  : Generators
- @ (
+ Seq: (
  gen_intf.pas
- ) .SequenceCode.It
+ )
  ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\Archi_Tests'
  CONST intf.pas:Path 'common\components\rtl\Garant\Archi_Tests\K294595323Suite.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\Archi_Tests'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\common\components\rtl\Garant\Archi_Tests'
+ CONST extprop:rc:SelfName 'K294595323Suite'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'K294595323Suite'
 
 ref; // ME_4EA538D60064 TK294595323Suite
 
@@ -41,21 +49,26 @@ ref; // ME_4EA538D60064 TK294595323Suite
  : Parent WL 'ME_4D53DEED0062' '4D53DEED0062.pas.ms.script' // Archi Tests
  ;
  : Children
-   @ ( ME_4EA538D60064 // TK294595323Suite
- ) .SequenceCode.It
+   Seq: ( ME_4EA538D60064 // TK294595323Suite
+ )
  ; // Children
  : Depends
-   @ ( WL 'ME_4D53DE3F00D1' '4D53DE3F00D1.pas.ms.script' // Filters
+   Seq: ( WL 'ME_4D53DE3F00D1' '4D53DE3F00D1.pas.ms.script' // Filters
  WL 'ME_4EA5156C00C8' '4EA5156C00C8.pas.ms.script' // FolderTestSupport
- ) .SequenceCode.It
+ )
  ; // Depends
  : Generators
- @ (
+ Seq: (
  gen_pas.script
  gen_pas.script.runner
- ) .SequenceCode.It
+ )
  ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\Archi_Tests'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\Archi_Tests'
  CONST pas.script:Path 'shared\models\NewSchool\Scripts\4EA538A203C7.pas.ms.script'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
  CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\4EA538A203C7.pas.ms.script.runner'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\common\components\rtl\Garant\Archi_Tests'
 
 ref; // ME_4EA538A203C7 MultyFileTests

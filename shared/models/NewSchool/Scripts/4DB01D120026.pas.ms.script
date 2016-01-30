@@ -1,0 +1,201 @@
+// ScriptEngine 4DB01D120026 Unit Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4DB01D120026
+
+FORWARD ME_4DAF061B02B8
+
+: ME_4DAF06D50098
+ CONST UID '4DAF06D50098'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4DAF061B02B8 // TF1ScriptEngine
+ ;
+ : Target WL 'ME_4DAF069D0072' '4DB01F3800EB.pas.ms.script' // AttributeSearch
+ ;
+
+ref; // ME_4DAF06D50098 
+
+: ME_4DAF149C0352
+ CONST UID '4DAF149C0352'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4DAF061B02B8 // TF1ScriptEngine
+ ;
+ : Target WL 'ME_4DAF1471030D' '4DB01F3800EB.pas.ms.script' // MainMenu
+ ;
+
+ref; // ME_4DAF149C0352 
+
+: ME_4DAF1E0A0163
+ CONST UID '4DAF1E0A0163'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4DAF061B02B8 // TF1ScriptEngine
+ ;
+ : Target WL 'ME_4DAF1DD9017F' '4DB01F3800EB.pas.ms.script' // Ok
+ ;
+
+ref; // ME_4DAF1E0A0163 
+
+: ME_4DB00B250066
+ CONST UID '4DB00B250066'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4DAF061B02B8 // TF1ScriptEngine
+ ;
+ : Target WL 'ME_4DB00AF302F0' '4DB01F3800EB.pas.ms.script' // OpenDocument
+ ;
+
+ref; // ME_4DB00B250066 
+
+: ME_4DCA55AB00DE
+ CONST UID '4DCA55AB00DE'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4DAF061B02B8 // TF1ScriptEngine
+ ;
+ : Target WL 'ME_4DCA54B9020D' '4DCA5495025F.pas.ms.script' // F1ShellWordsPack
+ ;
+
+ref; // ME_4DCA55AB00DE 
+
+: ME_4E203E5A0214
+ CONST UID '4E203E5A0214'
+ CONST Class class_Dependency
+ : Stereotype st_injects::Dependency ;
+ : Parent ME_4DAF061B02B8 // TF1ScriptEngine
+ ;
+ : Target WL 'ME_4A8199550084' '4A815BFF0168.pas.ms.script' // nsHyperLinkProcessor
+ ;
+ CONST "injects as" 'interface'
+
+ref; // ME_4E203E5A0214 
+
+: ME_5130D8B703C4
+ CONST UID '5130D8B703C4'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4DAF061B02B8 // TF1ScriptEngine
+ ;
+ : Target WL 'ME_5130D80002C1' '5130BE6E037B.pas.ms.script' // TreeViewWordsPack
+ ;
+
+ref; // ME_5130D8B703C4 
+
+: ME_5135F1A60382
+ CONST UID '5135F1A60382'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4DAF061B02B8 // TF1ScriptEngine
+ ;
+ : Target WL 'ME_5135EFD80062' '5135EFBE03D9.pas.ms.script' // Integration
+ ;
+
+ref; // ME_5135F1A60382 
+
+: ME_53B533EA02CF
+ CONST UID '53B533EA02CF'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4DAF061B02B8 // TF1ScriptEngine
+ ;
+ : Target WL 'ME_53B533CE01B6' '53B5334701E8.pas.ms.script' // InterfacedNodeWordsPack
+ ;
+
+ref; // ME_53B533EA02CF 
+
+: ME_4DAF061B02B8
+ CONST UID '4DAF061B02B8'
+ CONST Name 'TF1ScriptEngine'
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4DB01D120026 // ScriptEngine
+ ;
+ : Inherits
+   Seq: ( WL 'ME_4DEF306102FF' '4DEF302C0007.pas.ms.script' // TtfwScriptEngineEX
+ )
+ ; // Inherits
+ : Implements
+   Seq: ( WL 'ME_4DB7EAEB004D' '4DB01F3800EB.pas.ms.script' // F1WordsUser
+ )
+ ; // Implements
+ : Dependencies
+   Seq: ( ME_4DAF06D50098 // 
+ ME_4DAF149C0352 // 
+ ME_4DAF1E0A0163 // 
+ ME_4DB00B250066 // 
+ ME_4DCA55AB00DE // 
+ ME_4E203E5A0214 // 
+ ME_5130D8B703C4 // 
+ ME_5135F1A60382 // 
+ ME_53B533EA02CF // 
+ )
+ ; // Dependencies
+ CONST "author" 'Ëþëèí À.Â.'
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" true
+ CONST "register in scripts" 'undefined'
+ CONST "started" '20.04.2011 20:14'
+ : Generators
+ Seq: (
+ gen_intf.pas
+ )
+ ; // Generators
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\ScriptEngine'
+ CONST intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\ScriptEngine\F1ScriptEngine.pas'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\ScriptEngine'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\ScriptEngine'
+ CONST extprop:rc:SelfName 'F1ScriptEngine'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'F1ScriptEngine'
+
+ref; // ME_4DAF061B02B8 TF1ScriptEngine
+
+: ME_4DB01D120026
+ CONST UID '4DB01D120026'
+ CONST Name 'ScriptEngine'
+ CONST Class class_Category
+ : Stereotype st_Unit ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent WL 'ME_4E202E250348' '4E202E250348.pas.ms.script' // ScriptEngine
+ ;
+ : Children
+   Seq: ( ME_4DAF061B02B8 // TF1ScriptEngine
+ )
+ ; // Children
+ : Depends
+   Seq: ( WL 'ME_4A815BFF0168' '4A815BFF0168.pas.ms.script' // Navigation
+ WL 'ME_4DA318AB0254' '4DA318AB0254.pas.ms.script' // TestsTuning
+ WL 'ME_4DAEEA14018A' '4DAEEA14018A.pas.ms.script' // Scripting Axiomatics
+ WL 'ME_4DB01F3800EB' '4DB01F3800EB.pas.ms.script' // Words
+ WL 'ME_4DCA5495025F' '4DCA5495025F.pas.ms.script' // F1 Shell Words
+ WL 'ME_4DEF302C0007' '4DEF302C0007.pas.ms.script' // ScriptEngine
+ WL 'ME_5130BE6E037B' '5130BE6E037B.pas.ms.script' // TreeViewWords
+ WL 'ME_5135EFBE03D9' '5135EFBE03D9.pas.ms.script' // Integration
+ WL 'ME_53B5334701E8' '53B5334701E8.pas.ms.script' // InterfacedNodeWords
+ )
+ ; // Depends
+ : Generators
+ Seq: (
+ gen_pas.script
+ gen_pas.script.runner
+ )
+ ; // Generators
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\ScriptEngine'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\ScriptEngine'
+ CONST pas.script:Path 'shared\models\NewSchool\Scripts\4DB01D120026.pas.ms.script'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\4DB01D120026.pas.ms.script.runner'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\ScriptEngine'
+
+ref; // ME_4DB01D120026 ScriptEngine

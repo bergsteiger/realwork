@@ -1,0 +1,430 @@
+// CommonNotifications 54F5D55D00C6 Unit Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_54F5D55D00C6
+
+FORWARD ME_54F5D5E002E0
+
+FORWARD ME_54F5D8820129
+
+FORWARD ME_54F5D89D02FD
+
+: ME_33445792575D
+ CONST UID '33445792575D'
+ CONST Name 'DoIt'
+ CONST IsSummoned true
+ CONST Class class_Operation
+ %SUMMARY 'Сигнатура метода ServerDownNotification' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_54F5D89D02FD // ServerDownNotification
+ ;
+
+ref; // ME_33445792575D DoIt
+
+: ME_54F5D89D02FD
+ CONST UID '54F5D89D02FD'
+ CONST Name 'ServerDownNotification'
+ CONST Class class_Class
+ : Stereotype st_facetmethod ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_54F5D8820129 // If1NotificationListener
+ ;
+ : Operations
+   Seq: ( ME_33445792575D // DoIt
+ )
+ ; // Operations
+
+ref; // ME_54F5D89D02FD ServerDownNotification
+
+: ME_54F5D8820129
+ CONST UID '54F5D8820129'
+ CONST GUID '6F16A3C8-E77F-4C61-820E-2FECBC8A2999'
+ CONST Name 'If1NotificationListener'
+ CONST Class class_Class
+ : Stereotype st_Facet ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_54F5D5E002E0 // Tf1NotificationManager
+ ;
+ : Operations
+   Seq: ( ME_54F5D89D02FD // ServerDownNotification
+ )
+ ; // Operations
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\View'
+ CONST extprop:rc:SelfName 'f1NotificationListener'
+ CONST extprop:rc:isAcceptableForScripts true
+
+ref; // ME_54F5D8820129 If1NotificationListener
+
+FORWARD ME_54F5D8B60392
+
+: ME_54F5D9170267
+ CONST UID '54F5D9170267'
+ CONST Name 'ItemType'
+ CONST Class class_Attribute
+ : Stereotype st_impurity_value::Attribute ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_agr
+ : Parent ME_54F5D8B60392 // Tf1NotificationList
+ ;
+ : Target ME_54F5D8820129 // If1NotificationListener
+ ;
+
+ref; // ME_54F5D9170267 ItemType
+
+: ME_54F5D8B60392
+ CONST UID '54F5D8B60392'
+ CONST Name 'Tf1NotificationList'
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_54F5D5E002E0 // Tf1NotificationManager
+ ;
+ : Inherits
+   Seq: ( WL 'ME_4A54DD4E036F' '47913B47006E.pas.ms.script' // Tl3ProtoDataContainer
+ )
+ ; // Inherits
+ : Implements
+   Seq: ( WL 'ME_47B57D830369' '47913B47006E.pas.ms.script' // l3InterfaceRefList
+ )
+ ; // Implements
+ : Attributes
+   Seq: ( ME_54F5D9170267 // ItemType
+ )
+ ; // Attributes
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\View'
+ CONST extprop:rc:SelfName 'f1NotificationList'
+ CONST extprop:rc:isAcceptableForScripts true
+
+ref; // ME_54F5D8B60392 Tf1NotificationList
+
+: ME_54F5D8C3022B
+ CONST UID '54F5D8C3022B'
+ CONST Name 'List'
+ CONST Class class_Attribute
+ : Stereotype st_readonly::Attribute ;
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_agr
+ : Parent ME_54F5D5E002E0 // Tf1NotificationManager
+ ;
+ : Target ME_54F5D8B60392 // Tf1NotificationList
+ ;
+ CONST "needs field" true
+ CONST "pm" true
+
+ref; // ME_54F5D8C3022B List
+
+: ME_201FB9901DFA
+ CONST UID '201FB9901DFA'
+ CONST Name 'f_List'
+ CONST IsSummoned true
+ CONST Class class_Attribute
+ %SUMMARY 'Поле для свойства List' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_ref
+ : Parent ME_54F5D5E002E0 // Tf1NotificationManager
+ ;
+ : Target ME_54F5D8B60392 // Tf1NotificationList
+ ;
+
+ref; // ME_201FB9901DFA f_List
+
+FORWARD ME_54F5D9540254
+
+: ME_54F5D9810353
+ CONST UID '54F5D9810353'
+ CONST Name 'aListener'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target ME_54F5D8820129 // If1NotificationListener
+ ;
+
+ref; // ME_54F5D9810353 aListener
+
+: ME_54F5D9790040
+ CONST UID '54F5D9790040'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_54F5D9540254 // AddListener
+ ;
+ : Parameters
+   Seq: ( ME_54F5D9810353 // aListener
+ )
+ ; // Parameters
+
+ref; // ME_54F5D9790040 DoIt
+
+: ME_54F5D9540254
+ CONST UID '54F5D9540254'
+ CONST Name 'AddListener'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_54F5D5E002E0 // Tf1NotificationManager
+ ;
+ : Operations
+   Seq: ( ME_54F5D9790040 // DoIt
+ )
+ ; // Operations
+ CONST "is static" true
+
+ref; // ME_54F5D9540254 AddListener
+
+FORWARD ME_54F5D987008A
+
+: ME_521907EBB6E7
+ CONST UID '521907EBB6E7'
+ CONST Name 'aListener'
+ CONST IsSummoned true
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target ME_54F5D8820129 // If1NotificationListener
+ ;
+
+ref; // ME_521907EBB6E7 aListener
+
+: ME_F95E8B67A7C4
+ CONST UID 'F95E8B67A7C4'
+ CONST Name 'DoIt'
+ CONST IsSummoned true
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_54F5D987008A // RemoveListener
+ ;
+ : Parameters
+   Seq: ( ME_521907EBB6E7 // aListener
+ )
+ ; // Parameters
+
+ref; // ME_F95E8B67A7C4 DoIt
+
+: ME_54F5D987008A
+ CONST UID '54F5D987008A'
+ CONST Name 'RemoveListener'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_54F5D5E002E0 // Tf1NotificationManager
+ ;
+ : Inherits
+   Seq: ( ME_54F5D9540254 // AddListener
+ )
+ ; // Inherits
+ : Operations
+   Seq: ( ME_F95E8B67A7C4 // DoIt
+ )
+ ; // Operations
+ CONST "is static" true
+
+ref; // ME_54F5D987008A RemoveListener
+
+FORWARD ME_54F5D9F70383
+
+: ME_0B46DCFF6F4A
+ CONST UID '0B46DCFF6F4A'
+ CONST Name 'DoIt'
+ CONST IsSummoned true
+ CONST Class class_Operation
+ %SUMMARY 'Сигнатура метода ServerDown' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_54F5D9F70383 // ServerDown
+ ;
+
+ref; // ME_0B46DCFF6F4A DoIt
+
+: ME_54F5D9F70383
+ CONST UID '54F5D9F70383'
+ CONST Name 'ServerDown'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_54F5D5E002E0 // Tf1NotificationManager
+ ;
+ : Operations
+   Seq: ( ME_0B46DCFF6F4A // DoIt
+ )
+ ; // Operations
+ CONST "is static" true
+
+ref; // ME_54F5D9F70383 ServerDown
+
+FORWARD ME_54F5E7BD01ED
+
+: ME_54F5E7C90309
+ CONST UID '54F5E7C90309'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_54F5E7BD01ED // Exists
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+
+ref; // ME_54F5E7C90309 DoIt
+
+: ME_54F5E7BD01ED
+ CONST UID '54F5E7BD01ED'
+ CONST Name 'Exists'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_54F5D5E002E0 // Tf1NotificationManager
+ ;
+ : Operations
+   Seq: ( ME_54F5E7C90309 // DoIt
+ )
+ ; // Operations
+ CONST "is static" true
+
+ref; // ME_54F5E7BD01ED Exists
+
+: ME_54F5DA300119
+ CONST UID '54F5DA300119'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_54F5D5E002E0 // Tf1NotificationManager
+ ;
+ : Target WL 'ME_47877EB202FB' '4AB0C3C60310.pas.ms.script' // SysUtils
+ ;
+
+ref; // ME_54F5DA300119 
+
+: ME_479731C50290_ME_54F5D5E002E0
+ CONST UID '479731C50290'
+ CONST Name 'Cleanup'
+ : Original WL 'ME_479731C50290' '51612EBB02F5.pas.ms.script' // Cleanup
+ ;
+ : Implementor ME_54F5D5E002E0 // Tf1NotificationManager
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_479731C50290_ME_54F5D5E002E0 Cleanup
+
+: ME_54F5D5E002E0
+ CONST UID '54F5D5E002E0'
+ CONST Name 'Tf1NotificationManager'
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_54F5D55D00C6 // CommonNotifications
+ ;
+ : Inherits
+   Seq: ( WL 'ME_4A54DD4E036F' '47913B47006E.pas.ms.script' // Tl3ProtoDataContainer
+ )
+ ; // Inherits
+ : Attributes
+   Seq: ( ME_54F5D8C3022B // List
+ ME_201FB9901DFA // f_List
+ )
+ ; // Attributes
+ : Operations
+   Seq: ( ME_54F5D9540254 // AddListener
+ ME_54F5D987008A // RemoveListener
+ ME_54F5D9F70383 // ServerDown
+ ME_54F5E7BD01ED // Exists
+ )
+ ; // Operations
+ : Overridden
+   Seq: ( ME_479731C50290_ME_54F5D5E002E0 // Cleanup
+ )
+ ; // Overridden
+ : Children
+   Seq: ( ME_54F5D8820129 // If1NotificationListener
+ ME_54F5D8B60392 // Tf1NotificationList
+ )
+ ; // Children
+ : Dependencies
+   Seq: ( ME_54F5DA300119 // 
+ )
+ ; // Dependencies
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ CONST "singleton" true
+ : Generators
+ Seq: (
+ gen_intf.pas
+ )
+ ; // Generators
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View'
+ CONST intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\f1NotificationManager.pas'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\View'
+ CONST extprop:rc:SelfName 'f1NotificationManager'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'f1NotificationManager'
+
+ref; // ME_54F5D5E002E0 Tf1NotificationManager
+
+: ME_54F5D55D00C6
+ CONST UID '54F5D55D00C6'
+ CONST Name 'CommonNotifications'
+ CONST Class class_Category
+ : Stereotype st_Unit ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent WL 'ME_4986ECDF01F4' '4986ECDF01F4.pas.ms.script' // View
+ ;
+ : Children
+   Seq: ( ME_54F5D5E002E0 // Tf1NotificationManager
+ )
+ ; // Children
+ : Depends
+   Seq: ( WL 'ME_47913B47006E' '47913B47006E.pas.ms.script' // l3CoreObjects
+ WL 'ME_4AB0C3C60310' '4AB0C3C60310.pas.ms.script' // Sys
+ )
+ ; // Depends
+ : Generators
+ Seq: (
+ gen_pas.script
+ gen_pas.script.runner
+ )
+ ; // Generators
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View'
+ CONST pas.script:Path 'shared\models\NewSchool\Scripts\54F5D55D00C6.pas.ms.script'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\54F5D55D00C6.pas.ms.script.runner'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\View'
+
+ref; // ME_54F5D55D00C6 CommonNotifications

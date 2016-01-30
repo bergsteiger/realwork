@@ -32,8 +32,8 @@ ref; // ME_54BE4B67035C DoIt
  : Parent ME_54BE4A4902B9 // TeeTextParaCursor
  ;
  : Operations
-   @ ( ME_54BE4B67035C // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_54BE4B67035C // DoIt
+ )
  ; // Operations
 
 ref; // ME_54BE4B260181 Editor
@@ -61,8 +61,8 @@ ref; // ME_54BE4B98039C aView
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
  : Parameters
-   @ ( ME_54BE4B98039C // aView
- ) .SequenceCode.It
+   Seq: ( ME_54BE4B98039C // aView
+ )
  ; // Parameters
 
 ref; // ME_54BE4B940071 DoIt
@@ -78,8 +78,8 @@ ref; // ME_54BE4B940071 DoIt
  : Parent ME_54BE4A4902B9 // TeeTextParaCursor
  ;
  : Operations
-   @ ( ME_54BE4B940071 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_54BE4B940071 // DoIt
+ )
  ; // Operations
 
 ref; // ME_54BE4B830300 IsReadOnly
@@ -107,8 +107,8 @@ ref; // ME_54BE4BF9035B aView
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
  : Parameters
-   @ ( ME_54BE4BF9035B // aView
- ) .SequenceCode.It
+   Seq: ( ME_54BE4BF9035B // aView
+ )
  ; // Parameters
 
 ref; // ME_54BE4BF10109 DoIt
@@ -124,8 +124,8 @@ ref; // ME_54BE4BF10109 DoIt
  : Parent ME_54BE4A4902B9 // TeeTextParaCursor
  ;
  : Operations
-   @ ( ME_54BE4BF10109 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_54BE4BF10109 // DoIt
+ )
  ; // Operations
 
 ref; // ME_54BE4BE30128 ShowComments
@@ -261,6 +261,7 @@ ref; // ME_54BE5EEF03B8
  ;
  : Implementor ME_54BE4A4902B9 // TeeTextParaCursor
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_49DEFB410161_ME_54BE4A4902B9 DoJoinWith
 
 : ME_49DEFB770015_ME_54BE4A4902B9
@@ -270,6 +271,7 @@ ref; // ME_49DEFB410161_ME_54BE4A4902B9 DoJoinWith
  ;
  : Implementor ME_54BE4A4902B9 // TeeTextParaCursor
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_49DEFB770015_ME_54BE4A4902B9 DoSplit
 
 : ME_4A38F71601D6_ME_54BE4A4902B9
@@ -279,6 +281,7 @@ ref; // ME_49DEFB770015_ME_54BE4A4902B9 DoSplit
  ;
  : Implementor ME_54BE4A4902B9 // TeeTextParaCursor
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4A38F71601D6_ME_54BE4A4902B9 DoInsertString
 
 : ME_4A38F748002D_ME_54BE4A4902B9
@@ -288,6 +291,7 @@ ref; // ME_4A38F71601D6_ME_54BE4A4902B9 DoInsertString
  ;
  : Implementor ME_54BE4A4902B9 // TeeTextParaCursor
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4A38F748002D_ME_54BE4A4902B9 DoDeleteString
 
 : ME_4A3A61DC00AB_ME_54BE4A4902B9
@@ -297,6 +301,7 @@ ref; // ME_4A38F748002D_ME_54BE4A4902B9 DoDeleteString
  ;
  : Implementor ME_54BE4A4902B9 // TeeTextParaCursor
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4A3A61DC00AB_ME_54BE4A4902B9 GetInevDataFormattingModify
 
 : ME_54BE4A4902B9
@@ -310,25 +315,25 @@ ref; // ME_4A3A61DC00AB_ME_54BE4A4902B9 GetInevDataFormattingModify
  : Parent ME_54BE4A3A005B // Cursors
  ;
  : Inherits
-   @ ( WL 'ME_49DF7D98029A' '47E3DF460095.pas.ms.script' // TevTextParaCursor
- ) .SequenceCode.It
+   Seq: ( WL 'ME_49DF7D98029A' '47E3DF460095.pas.ms.script' // TevTextParaCursor
+ )
  ; // Inherits
  : Operations
-   @ ( ME_54BE4B260181 // Editor
+   Seq: ( ME_54BE4B260181 // Editor
  ME_54BE4B830300 // IsReadOnly
  ME_54BE4BE30128 // ShowComments
- ) .SequenceCode.It
+ )
  ; // Operations
  : Overridden
-   @ ( ME_49DEFB410161_ME_54BE4A4902B9 // DoJoinWith
+   Seq: ( ME_49DEFB410161_ME_54BE4A4902B9 // DoJoinWith
  ME_49DEFB770015_ME_54BE4A4902B9 // DoSplit
  ME_4A38F71601D6_ME_54BE4A4902B9 // DoInsertString
  ME_4A38F748002D_ME_54BE4A4902B9 // DoDeleteString
  ME_4A3A61DC00AB_ME_54BE4A4902B9 // GetInevDataFormattingModify
- ) .SequenceCode.It
+ )
  ; // Overridden
  : Dependencies
-   @ ( ME_54BE4C450032 // 
+   Seq: ( ME_54BE4C450032 // 
  ME_54BE525C0357 // 
  ME_54BE5C1D02E5 // 
  ME_54BE5C3303D5 // 
@@ -339,18 +344,20 @@ ref; // ME_4A3A61DC00AB_ME_54BE4A4902B9 GetInevDataFormattingModify
  ME_54BE5DF40242 // 
  ME_54BE5E2B0212 // 
  ME_54BE5EEF03B8 // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest_Engine'
  CONST intf.pas:Path 'common\components\gui\Garant\Everest_Engine\eeTextParaCursor.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest_Engine'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'eeTextParaCursor'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'eeTextParaCursor'
 
 ref; // ME_54BE4A4902B9 TeeTextParaCursor
 
@@ -377,8 +384,8 @@ ref; // ME_54BE4C7100DB aPara
  : Target WL 'ME_4A8C09B70219' '4912DD020283.pas.ms.script' // IeeEditor
  ;
  : Parameters
-   @ ( ME_54BE4C7100DB // aPara
- ) .SequenceCode.It
+   Seq: ( ME_54BE4C7100DB // aPara
+ )
  ; // Parameters
 
 ref; // ME_54BE4C6B0360 DoIt
@@ -394,8 +401,8 @@ ref; // ME_54BE4C6B0360 DoIt
  : Parent ME_54BE4C0B0137 // eeCursorTools
  ;
  : Operations
-   @ ( ME_54BE4C6B0360 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_54BE4C6B0360 // DoIt
+ )
  ; // Operations
 
 ref; // ME_54BE4C5B0165 eeEditorByPara
@@ -433,9 +440,9 @@ ref; // ME_54BE4CCC0257 aPara
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
  : Parameters
-   @ ( ME_54BE4CCC0223 // aView
+   Seq: ( ME_54BE4CCC0223 // aView
  ME_54BE4CCC0257 // aPara
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_54BE4CBB014A DoIt
@@ -495,15 +502,15 @@ ref; // ME_54BE4F040005
  : Parent ME_54BE4C0B0137 // eeCursorTools
  ;
  : Operations
-   @ ( ME_54BE4CBB014A // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_54BE4CBB014A // DoIt
+ )
  ; // Operations
  : Dependencies
-   @ ( ME_54BE4D860188 // 
+   Seq: ( ME_54BE4D860188 // 
  ME_54BE4E8B03D6 // 
  ME_54BE4EC003BE // 
  ME_54BE4F040005 // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
 
 ref; // ME_54BE4CA1027C eeIsReadOnlyPara
@@ -519,17 +526,16 @@ ref; // ME_54BE4CA1027C eeIsReadOnlyPara
  : Parent ME_54BE4A3A005B // Cursors
  ;
  : Operations
-   @ ( ME_54BE4C5B0165 // eeEditorByPara
+   Seq: ( ME_54BE4C5B0165 // eeEditorByPara
  ME_54BE4CA1027C // eeIsReadOnlyPara
- ) .SequenceCode.It
+ )
  ; // Operations
  CONST "no hands" false
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest_Engine'
  CONST intf.pas:Path 'common\components\gui\Garant\Everest_Engine\eeCursorTools.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest_Engine'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_54BE4C0B0137 eeCursorTools
 
@@ -576,6 +582,7 @@ ref; // ME_54BE5F98016F
  ;
  : Implementor ME_54BE505F0038 // TeeTextCursorPair
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4A29477801BF_ME_54BE505F0038 DoGetFont
 
 : ME_4A3A61DC00AB_ME_54BE505F0038
@@ -585,6 +592,7 @@ ref; // ME_4A29477801BF_ME_54BE505F0038 DoGetFont
  ;
  : Implementor ME_54BE505F0038 // TeeTextCursorPair
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4A3A61DC00AB_ME_54BE505F0038 GetInevDataFormattingModify
 
 : ME_54BE505F0038
@@ -598,30 +606,32 @@ ref; // ME_4A3A61DC00AB_ME_54BE505F0038 GetInevDataFormattingModify
  : Parent ME_54BE4A3A005B // Cursors
  ;
  : Inherits
-   @ ( WL 'ME_53D64B570304' '47E3DF460095.pas.ms.script' // TevTextCursorPair
- ) .SequenceCode.It
+   Seq: ( WL 'ME_53D64B570304' '47E3DF460095.pas.ms.script' // TevTextCursorPair
+ )
  ; // Inherits
  : Overridden
-   @ ( ME_4A29477801BF_ME_54BE505F0038 // DoGetFont
+   Seq: ( ME_4A29477801BF_ME_54BE505F0038 // DoGetFont
  ME_4A3A61DC00AB_ME_54BE505F0038 // GetInevDataFormattingModify
- ) .SequenceCode.It
+ )
  ; // Overridden
  : Dependencies
-   @ ( ME_54BE526A02CF // 
+   Seq: ( ME_54BE526A02CF // 
  ME_54BE5F4E00B0 // 
  ME_54BE5F98016F // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest_Engine'
  CONST intf.pas:Path 'common\components\gui\Garant\Everest_Engine\eeTextCursorPair.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest_Engine'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'eeTextCursorPair'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'eeTextCursorPair'
 
 ref; // ME_54BE505F0038 TeeTextCursorPair
 
@@ -650,23 +660,25 @@ ref; // ME_54BE5277018F
  : Parent ME_54BE4A3A005B // Cursors
  ;
  : Inherits
-   @ ( WL 'ME_4A4C8EC4019F' '4A3A233900C9.pas.ms.script' // TevDocumentCursor
- ) .SequenceCode.It
+   Seq: ( WL 'ME_4A4C8EC4019F' '4A3A233900C9.pas.ms.script' // TevDocumentCursor
+ )
  ; // Inherits
  : Dependencies
-   @ ( ME_54BE5277018F // 
- ) .SequenceCode.It
+   Seq: ( ME_54BE5277018F // 
+ )
  ; // Dependencies
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest_Engine'
  CONST intf.pas:Path 'common\components\gui\Garant\Everest_Engine\eeDocumentCursor.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest_Engine'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'eeDocumentCursor'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'eeDocumentCursor'
 
 ref; // ME_54BE50B902CB TeeDocumentCursor
 
@@ -746,6 +758,7 @@ ref; // ME_54BE63610318
  ;
  : Implementor ME_54BE50DC0032 // TeeDocumentCursorPair
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4A3A8BEE029F_ME_54BE50DC0032 DoInsertStream
 
 : ME_54BE50DC0032
@@ -759,32 +772,34 @@ ref; // ME_4A3A8BEE029F_ME_54BE50DC0032 DoInsertStream
  : Parent ME_54BE4A3A005B // Cursors
  ;
  : Inherits
-   @ ( WL 'ME_4A2D2DA90232' '4A3A233900C9.pas.ms.script' // TevDocumentCursorPair
- ) .SequenceCode.It
+   Seq: ( WL 'ME_4A2D2DA90232' '4A3A233900C9.pas.ms.script' // TevDocumentCursorPair
+ )
  ; // Inherits
  : Overridden
-   @ ( ME_4A3A8BEE029F_ME_54BE50DC0032 // DoInsertStream
- ) .SequenceCode.It
+   Seq: ( ME_4A3A8BEE029F_ME_54BE50DC0032 // DoInsertStream
+ )
  ; // Overridden
  : Dependencies
-   @ ( ME_54BE52830056 // 
+   Seq: ( ME_54BE52830056 // 
  ME_54BE6081016D // 
  ME_54BE608E03A5 // 
  ME_54BE62930373 // 
  ME_54BE62DB0339 // 
  ME_54BE63610318 // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest_Engine'
  CONST intf.pas:Path 'common\components\gui\Garant\Everest_Engine\eeDocumentCursorPair.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest_Engine'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'eeDocumentCursorPair'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'eeDocumentCursorPair'
 
 ref; // ME_54BE50DC0032 TeeDocumentCursorPair
 
@@ -798,15 +813,15 @@ ref; // ME_54BE50DC0032 TeeDocumentCursorPair
  : Parent WL 'ME_4680E7D50168' '4680E7D50168.pas.ms.script' // Everest Engine
  ;
  : Children
-   @ ( ME_54BE4A4902B9 // TeeTextParaCursor
+   Seq: ( ME_54BE4A4902B9 // TeeTextParaCursor
  ME_54BE4C0B0137 // eeCursorTools
  ME_54BE505F0038 // TeeTextCursorPair
  ME_54BE50B902CB // TeeDocumentCursor
  ME_54BE50DC0032 // TeeDocumentCursorPair
- ) .SequenceCode.It
+ )
  ; // Children
  : Depends
-   @ ( WL 'ME_476BE0350329' '476BE0350329.pas.ms.script' // Styles
+   Seq: ( WL 'ME_476BE0350329' '476BE0350329.pas.ms.script' // Styles
  WL 'ME_47C5207602D1' '47C5207602D1.pas.ms.script' // nevTools
  WL 'ME_47E3DF460095' '47E3DF460095.pas.ms.script' // Cursors
  WL 'ME_47F1F38601A3' '47F1F38601A3.pas.ms.script' // ParaUtils
@@ -820,15 +835,13 @@ ref; // ME_54BE50DC0032 TeeDocumentCursorPair
  WL 'ME_4A3A233900C9' '4A3A233900C9.pas.ms.script' // ParaList Cursors
  WL 'ME_4AB0C3C60310' '4AB0C3C60310.pas.ms.script' // Sys
  WL 'ME_4AB112DF005B' '4AB112DF005B.pas.ms.script' // EVD
- ) .SequenceCode.It
+ )
  ; // Depends
- : Generators
- @ (
- gen_pas.script
- gen_pas.script.runner
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest_Engine'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest_Engine'
  CONST pas.script:Path 'shared\models\NewSchool\Scripts\54BE4A3A005B.pas.ms.script'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
  CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\54BE4A3A005B.pas.ms.script.runner'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_54BE4A3A005B Cursors

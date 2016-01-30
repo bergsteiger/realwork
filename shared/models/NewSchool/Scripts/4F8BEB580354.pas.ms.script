@@ -53,11 +53,16 @@ ref; // ME_4FD06F7D001B bpp4
  : Parent ME_4F8BEB580354 // vtInterfaces
  ;
  : Attributes
-   @ ( ME_4FD06F6E0255 // bpp24
+   Seq: ( ME_4FD06F6E0255 // bpp24
  ME_4FD06F75008E // bpp8
  ME_4FD06F7D001B // bpp4
- ) .SequenceCode.It
+ )
  ; // Attributes
+ CONST dfm:PathOnly '\common\components\gui\Garant\VT'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\VT'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_4FD06F5A01D8 TvtPILBpp
 
@@ -110,11 +115,16 @@ ref; // ME_4FD06F47025A ps24x24
  : Parent ME_4F8BEB580354 // vtInterfaces
  ;
  : Attributes
-   @ ( ME_4FD06F340178 // ps16x16
+   Seq: ( ME_4FD06F340178 // ps16x16
  ME_4FD06F3C001C // ps32x32
  ME_4FD06F47025A // ps24x24
- ) .SequenceCode.It
+ )
  ; // Attributes
+ CONST dfm:PathOnly '\common\components\gui\Garant\VT'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\VT'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_4FD06F1F020E TvtPILSize
 
@@ -129,9 +139,13 @@ ref; // ME_4FD06F1F020E TvtPILSize
  : Parent ME_4F8BEB580354 // vtInterfaces
  ;
  : Inherits
-   @ ( ME_4FD06F1F020E // TvtPILSize
- ) .SequenceCode.It
+   Seq: ( ME_4FD06F1F020E // TvtPILSize
+ )
  ; // Inherits
+ CONST dfm:PathOnly '\common\components\gui\Garant\VT'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\VT'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_4FD06FF6027F TvtPILSizes
 
@@ -178,10 +192,10 @@ ref; // ME_53282DB6020F aBpp
  : Parent ME_53282D3E0350 // SaveImageToStream
  ;
  : Parameters
-   @ ( ME_53282DB601DD // aStream
+   Seq: ( ME_53282DB601DD // aStream
  ME_53282DB601F6 // aIndex
  ME_53282DB6020F // aBpp
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_53282D8A02D8 DoIt
@@ -197,8 +211,8 @@ ref; // ME_53282D8A02D8 DoIt
  : Parent ME_4F950C5102A8 // IvtFlashImageList
  ;
  : Operations
-   @ ( ME_53282D8A02D8 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_53282D8A02D8 // DoIt
+ )
  ; // Operations
 
 ref; // ME_53282D3E0350 SaveImageToStream
@@ -253,6 +267,7 @@ ref; // ME_4F950E74033F Index
  CONST Value true
  : ValueType WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
+ CONST extprop:pas:Value true
 
 ref; // ME_4F950E740392 Enabled
 
@@ -266,6 +281,7 @@ ref; // ME_4F950E740392 Enabled
  CONST Value true
  : ValueType WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
+ CONST extprop:pas:Value true
 
 ref; // ME_4F950E750008 HalfTransparent
 
@@ -278,13 +294,13 @@ ref; // ME_4F950E750008 HalfTransparent
  : Parent ME_4F950C5102A8 // IvtFlashImageList
  ;
  : Parameters
-   @ ( ME_4F950E74024D // Canvas
+   Seq: ( ME_4F950E74024D // Canvas
  ME_4F950E74029B // X
  ME_4F950E7402F5 // Y
  ME_4F950E74033F // Index
  ME_4F950E740392 // Enabled
  ME_4F950E750008 // HalfTransparent
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_4F950C6D03BE Draw
@@ -301,10 +317,16 @@ ref; // ME_4F950C6D03BE Draw
  : Parent ME_4F8BEB580354 // vtInterfaces
  ;
  : Operations
-   @ ( ME_53282D3E0350 // SaveImageToStream
+   Seq: ( ME_53282D3E0350 // SaveImageToStream
  ME_4F950C6D03BE // Draw
- ) .SequenceCode.It
+ )
  ; // Operations
+ CONST dfm:PathOnly '\common\components\gui\Garant\VT'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\VT'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'FlashImageList'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_4F950C5102A8 IvtFlashImageList
 
@@ -318,30 +340,27 @@ ref; // ME_4F950C5102A8 IvtFlashImageList
  : Parent WL 'ME_4FD078CD00F6' '4FD078CD00F6.pas.ms.script' // VT$ImgList
  ;
  : Children
-   @ ( ME_4FD06F5A01D8 // TvtPILBpp
+   Seq: ( ME_4FD06F5A01D8 // TvtPILBpp
  ME_4FD06F1F020E // TvtPILSize
  ME_4FD06FF6027F // TvtPILSizes
  ME_4F950C5102A8 // IvtFlashImageList
- ) .SequenceCode.It
+ )
  ; // Children
  : Depends
-   @ ( WL 'ME_4799D29F033F' '4799D29F033F.pas.ms.script' // Implementation
+   Seq: ( WL 'ME_4799D29F033F' '4799D29F033F.pas.ms.script' // Implementation
  WL 'ME_4AB0997B00A2' '4AB0997B00A2.pas.ms.script' // Common
  WL 'ME_4AB0C3C60310' '4AB0C3C60310.pas.ms.script' // Sys
  WL 'ME_55C4AEC801CA' '55C4AEC801CA.pas.ms.script' // Graphics
- ) .SequenceCode.It
+ )
  ; // Depends
  CONST "is namespace" true
  CONST "no hands" false
- : Generators
- @ (
- gen_intf.pas
- gen_pas.script
- gen_pas.script.runner
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\VT'
  CONST intf.pas:Path 'common\components\gui\Garant\VT\vtInterfaces.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\VT'
  CONST pas.script:Path 'shared\models\NewSchool\Scripts\4F8BEB580354.pas.ms.script'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
  CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\4F8BEB580354.pas.ms.script.runner'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_4F8BEB580354 vtInterfaces

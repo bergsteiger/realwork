@@ -75,10 +75,10 @@ ref; // ME_541FFFFE00A0 aBaseName
  : Parent ME_541FFFCB03B7 // Create
  ;
  : Parameters
-   @ ( ME_541FFFFE0080 // CreateSuspended
+   Seq: ( ME_541FFFFE0080 // CreateSuspended
  ME_541FFFFE0090 // aDataPath
  ME_541FFFFE00A0 // aBaseName
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_541FFFD600AA DoIt
@@ -94,8 +94,8 @@ ref; // ME_541FFFD600AA DoIt
  : Parent ME_541957650320 // TDataBaseTester
  ;
  : Operations
-   @ ( ME_541FFFD600AA // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_541FFFD600AA // DoIt
+ )
  ; // Operations
 
 ref; // ME_541FFFCB03B7 Create
@@ -121,8 +121,8 @@ ref; // ME_542003F9024D aDB
  : Parent ME_542003B40317 // DoBase
  ;
  : Parameters
-   @ ( ME_542003F9024D // aDB
- ) .SequenceCode.It
+   Seq: ( ME_542003F9024D // aDB
+ )
  ; // Parameters
 
 ref; // ME_542003F302ED DoIt
@@ -138,8 +138,8 @@ ref; // ME_542003F302ED DoIt
  : Parent ME_541957650320 // TDataBaseTester
  ;
  : Operations
-   @ ( ME_542003F302ED // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_542003F302ED // DoIt
+ )
  ; // Operations
 
 ref; // ME_542003B40317 DoBase
@@ -228,6 +228,7 @@ ref; // ME_54200DB1031F
  ;
  : Implementor ME_541957650320 // TDataBaseTester
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_4FFFDF740099_ME_541957650320 Execute
 
 : ME_541957650320
@@ -241,43 +242,51 @@ ref; // ME_4FFFDF740099_ME_541957650320 Execute
  : Parent ME_5419575202DB // DataBaseTestUtils
  ;
  : Inherits
-   @ ( WL 'ME_4FFFDF4601F9' '4AB0997B00A2.pas.ms.script' // TThread
- ) .SequenceCode.It
+   Seq: ( WL 'ME_4FFFDF4601F9' '4AB0997B00A2.pas.ms.script' // TThread
+ )
  ; // Inherits
  : Attributes
-   @ ( ME_541FFF93008C // f_DataPath
+   Seq: ( ME_541FFF93008C // f_DataPath
  ME_541FFFAC039A // f_BasePath
- ) .SequenceCode.It
+ )
  ; // Attributes
  : Operations
-   @ ( ME_541FFFCB03B7 // Create
+   Seq: ( ME_541FFFCB03B7 // Create
  ME_542003B40317 // DoBase
- ) .SequenceCode.It
+ )
  ; // Operations
  : Implemented
-   @ ( ME_4FFFDF740099_ME_541957650320 // Execute
- ) .SequenceCode.It
+   Seq: ( ME_4FFFDF740099_ME_541957650320 // Execute
+ )
  ; // Implemented
  : Dependencies
-   @ ( ME_541C2D740268 // 
+   Seq: ( ME_541C2D740268 // 
  ME_541C2DED008D // 
  ME_542009A400BE // 
  ME_542009D10396 // 
  ME_54200A3A00C8 // 
  ME_54200A8C01F3 // 
  ME_54200DB1031F // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
  : Generators
- @ (
+ Seq: (
  gen_intf.pas
- ) .SequenceCode.It
+ )
  ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\Abstract_Archi_Tests'
  CONST intf.pas:Path 'common\components\rtl\Garant\Abstract_Archi_Tests\DataBaseTester.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\Abstract_Archi_Tests'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\common\components\rtl\Garant\Abstract_Archi_Tests'
+ CONST extprop:rc:SelfName 'DataBaseTester'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'DataBaseTester'
 
 ref; // ME_541957650320 TDataBaseTester
 
@@ -291,11 +300,11 @@ ref; // ME_541957650320 TDataBaseTester
  : Parent WL 'ME_4D53DDBE00EE' '4D53DDBE00EE.pas.ms.script' // Abstract Archi Tests
  ;
  : Children
-   @ ( ME_541957650320 // TDataBaseTester
- ) .SequenceCode.It
+   Seq: ( ME_541957650320 // TDataBaseTester
+ )
  ; // Children
  : Depends
-   @ ( WL 'ME_4678193C009C' '4678193C009C.pas.ms.script' // l3Types
+   Seq: ( WL 'ME_4678193C009C' '4678193C009C.pas.ms.script' // l3Types
  WL 'ME_4720831F012D' '4720831F012D.pas.ms.script' // m3DBInterfaces
  WL 'ME_4720862F0238' '4720862F0238.pas.ms.script' // m3StorageInterfaces
  WL 'ME_4742C9DB033A' '4742C9DB033A.pas.ms.script' // m3DB
@@ -303,15 +312,20 @@ ref; // ME_541957650320 TDataBaseTester
  WL 'ME_47D0290B016D' '47D0290B016D.pas.ms.script' // l3Utils
  WL 'ME_4AB0997B00A2' '4AB0997B00A2.pas.ms.script' // Common
  WL 'ME_4AB0C3C60310' '4AB0C3C60310.pas.ms.script' // Sys
- ) .SequenceCode.It
+ )
  ; // Depends
  : Generators
- @ (
+ Seq: (
  gen_pas.script
  gen_pas.script.runner
- ) .SequenceCode.It
+ )
  ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\Abstract_Archi_Tests'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\Abstract_Archi_Tests'
  CONST pas.script:Path 'shared\models\NewSchool\Scripts\5419575202DB.pas.ms.script'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
  CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\5419575202DB.pas.ms.script.runner'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\common\components\rtl\Garant\Abstract_Archi_Tests'
 
 ref; // ME_5419575202DB DataBaseTestUtils

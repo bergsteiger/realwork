@@ -43,6 +43,7 @@ ref; // ME_51DAEAC80178
 
 : ME_DB0783CC8110
  CONST UID 'DB0783CC8110'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_51DAE6E20300 // MemorySizeTest
@@ -63,30 +64,37 @@ ref; // ME_DB0783CC8110
  : Parent ME_51DAE6B102EB // Memory
  ;
  : Inherits
-   @ ( WL 'ME_4B2A0DDE028B' '4B2A0D6A0077.pas.ms.script' // TTestCase
- ) .SequenceCode.It
+   Seq: ( WL 'ME_4B2A0DDE028B' '4B2A0D6A0077.pas.ms.script' // TTestCase
+ )
  ; // Inherits
  : Operations
-   @ ( ME_51DAE7030012 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_51DAE7030012 // DoIt
+ )
  ; // Operations
  : Dependencies
-   @ ( ME_51DAE6ED0180 // 
+   Seq: ( ME_51DAE6ED0180 // 
  ME_51DAEAC80178 // 
  ME_DB0783CC8110 // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
  : Generators
- @ (
+ Seq: (
  gen_intf.pas
- ) .SequenceCode.It
+ )
  ; // Generators
+ CONST dfm:PathOnly '\common\components\SandBox'
  CONST intf.pas:Path 'common\components\SandBox\MemorySizeTest.pas'
+ CONST intf.pas:PathOnly '\common\components\SandBox'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\common\components\SandBox'
  CONST extprop:pas:TypeName 'TMemorySizeTest'
+ CONST extprop:rc:SelfName 'MemorySizeTest'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_51DAE6E20300 MemorySizeTest
 
@@ -100,22 +108,27 @@ ref; // ME_51DAE6E20300 MemorySizeTest
  : Parent WL 'ME_5155865B01B6' '5155865B01B6.pas.ms.script' // SandBoxTest
  ;
  : Children
-   @ ( ME_51DAE6E20300 // MemorySizeTest
- ) .SequenceCode.It
+   Seq: ( ME_51DAE6E20300 // MemorySizeTest
+ )
  ; // Children
  : Depends
-   @ ( WL 'ME_4AB0C3C60310' '4AB0C3C60310.pas.ms.script' // Sys
+   Seq: ( WL 'ME_4AB0C3C60310' '4AB0C3C60310.pas.ms.script' // Sys
  WL 'ME_4B2A0D6A0077' '4B2A0D6A0077.pas.ms.script' // Source
  WL 'ME_51DAD7EA02D0' '51DAD7EA02D0.pas.ms.script' // MemoryUtils
- ) .SequenceCode.It
+ )
  ; // Depends
  : Generators
- @ (
+ Seq: (
  gen_pas.script
  gen_pas.script.runner
- ) .SequenceCode.It
+ )
  ; // Generators
+ CONST dfm:PathOnly '\common\components\SandBox'
+ CONST intf.pas:PathOnly '\common\components\SandBox'
  CONST pas.script:Path 'shared\models\NewSchool\Scripts\51DAE6B102EB.pas.ms.script'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
  CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\51DAE6B102EB.pas.ms.script.runner'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\common\components\SandBox'
 
 ref; // ME_51DAE6B102EB Memory

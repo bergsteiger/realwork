@@ -1,0 +1,829 @@
+// SynchroView 4D39A65E01AF VCMForms Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4D39A65E01AF
+
+FORWARD ME_4979E75C00C7
+
+FORWARD ME_4B150F140142
+
+: ME_4B150F4400A8
+ CONST UID '4B150F4400A8'
+ CONST Name 'aList'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_45EEDB730265' '45700BFD0251.pas.ms.script' // DynList
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_4B150F4400A8 aList
+
+: ME_4B150F39031A
+ CONST UID '4B150F39031A'
+ CONST Name 'Log'
+ CONST Class class_Operation
+ : Stereotype st_static::Operation ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_4B150F140142 // TnsSynchroviewActivateEvent
+ ;
+ : Parameters
+   Seq: ( ME_4B150F4400A8 // aList
+ )
+ ; // Parameters
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_4B150F39031A Log
+
+: ME_4B150F550148
+ CONST UID '4B150F550148'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4B150F140142 // TnsSynchroviewActivateEvent
+ ;
+ : Target WL 'ME_45ED58FF0201' '45ED58CF03E6.pas.ms.script' // LogEvent
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_4B150F550148 
+
+: ME_4B150F140142
+ CONST UID '4B150F140142'
+ CONST Name 'TnsSynchroviewActivateEvent'
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_4979E75C00C7 // PrimSynchroView
+ ;
+ : Inherits
+   Seq: ( WL 'ME_4B0A6109010C' '4B0A60DF01F2.pas.ms.script' // TnsLogEvent
+ )
+ ; // Inherits
+ : Operations
+   Seq: ( ME_4B150F39031A // Log
+ )
+ ; // Operations
+ : Dependencies
+   Seq: ( ME_4B150F550148 // 
+ )
+ ; // Dependencies
+ CONST "UseNewGen" 'undefined'
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\View'
+
+ref; // ME_4B150F140142 TnsSynchroviewActivateEvent
+
+FORWARD ME_4C8619720088
+
+: ME_52821A27026A
+ CONST UID '52821A27026A'
+ CONST Name 'Child'
+ CONST Class class_Class
+ : Stereotype st_VCMFormZone ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4979E75C00C7 // PrimSynchroView
+ ;
+ : Inherits
+   Seq: ( ME_4C8619720088 // DocView
+ )
+ ; // Inherits
+ CONST "CanClose" 'undefined'
+ CONST "MergeBottomTollbarWithContainer" false
+ CONST "MergeTopTollbarWithContainer" true
+ CONST "Need UC" 'undefined'
+ CONST "UseNewGen" 'undefined'
+ CONST "ZoneType" 'Child'
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\View'
+
+ref; // ME_52821A27026A Child
+
+: ME_4C8619720088
+ CONST UID '4C8619720088'
+ CONST Name 'DocView'
+ CONST Class class_Class
+ : Stereotype st_Control ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_4979E75C00C7 // PrimSynchroView
+ ;
+ : Inherits
+   Seq: ( WL 'ME_4A7961A701CF' '4A7960CC03A4.pas.ms.script' // TvtPanel
+ )
+ ; // Inherits
+ CONST "ControlClass" 'TvtPanel'
+ CONST "UseNewGen" 'undefined'
+ CONST "need Caption" 'undefined'
+ CONST "pm" true
+ CONST "put to dfm" false
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\View'
+
+ref; // ME_4C8619720088 DocView
+
+: ME_4979E8BD0187
+ CONST UID '4979E8BD0187'
+ CONST Class class_Attribute
+ : Stereotype st_ViewArea::Attribute ;
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_lnk
+ : Parent ME_4979E75C00C7 // PrimSynchroView
+ ;
+ : Target WL 'ME_4922AC8B022E' '4D1B444C015E.pas.ms.script' // IdsSynchroView
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_4979E8BD0187 
+
+: ME_4979E97B03D3
+ CONST UID '4979E97B03D3'
+ CONST Name 'sdsList'
+ CONST Class class_Attribute
+ : Stereotype st_UseCase::Attribute ;
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_lnk
+ : Parent ME_4979E75C00C7 // PrimSynchroView
+ ;
+ : Target WL 'ME_4922A6C502D3' '4D1B444C015E.pas.ms.script' // IsdsList
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_4979E97B03D3 sdsList
+
+: ME_07FF8EE4A104
+ CONST UID '07FF8EE4A104'
+ CONST Name 'f_DocView'
+ CONST IsSummoned true
+ CONST Class class_Attribute
+ %SUMMARY 'Поле для свойства DocView' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_ref
+ : Parent ME_4979E75C00C7 // PrimSynchroView
+ ;
+ : Target WL 'ME_4A7961A701CF' '4A7960CC03A4.pas.ms.script' // TvtPanel
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_07FF8EE4A104 f_DocView
+
+: ME_CA056E85F523
+ CONST UID 'CA056E85F523'
+ CONST Name 'Ini_Reg_Class'
+ CONST IsSummoned true
+ CONST Class class_Operation
+ : Stereotype st_ini::Operation ;
+ %SUMMARY 'Регистрация PrimSynchroView' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_4979E75C00C7 // PrimSynchroView
+ ;
+ CONST "UseNewGen" 'undefined'
+ CONST "ifndef" 'NoScripts'
+
+ref; // ME_CA056E85F523 Ini_Reg_Class
+
+: ME_4B150F470093
+ CONST UID '4B150F470093'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4979E75C00C7 // PrimSynchroView
+ ;
+ : Target ME_4B150F140142 // TnsSynchroviewActivateEvent
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_4B150F470093 
+
+: ME_4BD6C13300F0
+ CONST UID '4BD6C13300F0'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4979E75C00C7 // PrimSynchroView
+ ;
+ : Target WL 'ME_4AE836C303BC' '4F71AD0E01FE.pas.ms.script' // Switcher$SetCaption
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_4BD6C13300F0 
+
+: ME_52821AB602C4
+ CONST UID '52821AB602C4'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4979E75C00C7 // PrimSynchroView
+ ;
+ : Target WL 'ME_47E13C6B0341' '4799D29F033F.pas.ms.script' // Forms
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_52821AB602C4 
+
+: ME_52821AB90268
+ CONST UID '52821AB90268'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4979E75C00C7 // PrimSynchroView
+ ;
+ : Target WL 'ME_47E11FC3021E' '4799D29F033F.pas.ms.script' // Controls
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_52821AB90268 
+
+: ME_4A69D2CDCFC3
+ CONST UID '4A69D2CDCFC3'
+ CONST IsSummoned true
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4979E75C00C7 // PrimSynchroView
+ ;
+ : Target WL 'ME_561F9F9400BC' '561F9F7D02A7.pas.ms.script' // TtfwClassRef
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_4A69D2CDCFC3 
+
+: ME_497F16AC015A_ME_4979E75C00C7
+ CONST UID '497F16AC015A'
+ CONST Name 'DoTabActivate'
+ : Original WL 'ME_497F16AC015A' '4A7C0BB70162.pas.ms.script' // DoTabActivate
+ ;
+ : Implementor ME_4979E75C00C7 // PrimSynchroView
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "UseNewGen" 'undefined'
+ref; // ME_497F16AC015A_ME_4979E75C00C7 DoTabActivate
+
+: ME_4AE9E3CC03C7_ME_4979E75C00C7
+ CONST UID '4AE9E3CC03C7'
+ CONST Name 'BecomeActive'
+ : Original WL 'ME_4AE9E3CC03C7' '4A9807DB01A5.pas.ms.script' // BecomeActive
+ ;
+ : Implementor ME_4979E75C00C7 // PrimSynchroView
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "AutoFocus" false
+ CONST "AutoLock" false
+ CONST "LongProcess" false
+ CONST "Needs Broadcast" false
+ CONST "UseNewGen" 'undefined'
+ CONST "has states" false
+ CONST "is FormActivate" false
+ CONST "is query" true
+ CONST "no prefix" false
+ref; // ME_4AE9E3CC03C7_ME_4979E75C00C7 BecomeActive
+
+: ME_F5C4A5904D01_ME_4979E75C00C7
+ CONST UID 'F5C4A5904D01'
+ CONST Name 'svSynchroViewQueryClose'
+ : Original WL 'ME_F5C4A5904D01' '4A7C0BB70162.pas.ms.script' // svSynchroViewQueryClose
+ ;
+ : Implementor ME_4979E75C00C7 // PrimSynchroView
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "UseNewGen" 'undefined'
+ref; // ME_F5C4A5904D01_ME_4979E75C00C7 svSynchroViewQueryClose
+
+: ME_4A8E8F2E0195_ME_4979E75C00C7
+ CONST UID '4A8E8F2E0195'
+ CONST Name 'InitControls'
+ : Original WL 'ME_4A8E8F2E0195' '5000041101C8.pas.ms.script' // InitControls
+ ;
+ : Implementor ME_4979E75C00C7 // PrimSynchroView
+ ;
+ CONST OpKind opkind_Overridden
+ CONST "UseNewGen" 'undefined'
+ref; // ME_4A8E8F2E0195_ME_4979E75C00C7 InitControls
+
+: ME_4979E75C00C7
+ CONST UID '4979E75C00C7'
+ CONST Name 'PrimSynchroView'
+ CONST Class class_Class
+ : Stereotype st_VCMContainer ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Синхронный просмотр' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4D39A65E01AF // SynchroView
+ ;
+ : Implements
+   Seq: ( WL 'ME_497F0F17036D' '4A7C0BB70162.pas.ms.script' // PageControlNotification
+ WL 'ME_4A82BCFA02EF' '4AADF9450143.pas.ms.script' // MvcmEntityForm
+ WL 'ME_4AE9E3C2031C' '4A9807DB01A5.pas.ms.script' // SynchroView
+ WL 'ME_4FFBDD570171' '4A7C0BB70162.pas.ms.script' // SynchroViewUserTypes
+ )
+ ; // Implements
+ : Attributes
+   Seq: ( ME_4C8619720088 // DocView
+ ME_4979E8BD0187 // 
+ ME_4979E97B03D3 // sdsList
+ ME_07FF8EE4A104 // f_DocView
+ )
+ ; // Attributes
+ : Operations
+   Seq: ( ME_CA056E85F523 // Ini_Reg_Class
+ )
+ ; // Operations
+ : Implemented
+   Seq: ( ME_497F16AC015A_ME_4979E75C00C7 // DoTabActivate
+ ME_4AE9E3CC03C7_ME_4979E75C00C7 // BecomeActive
+ ME_F5C4A5904D01_ME_4979E75C00C7 // svSynchroViewQueryClose
+ )
+ ; // Implemented
+ : Overridden
+   Seq: ( ME_4A8E8F2E0195_ME_4979E75C00C7 // InitControls
+ )
+ ; // Overridden
+ : Children
+   Seq: ( ME_4B150F140142 // TnsSynchroviewActivateEvent
+ ME_52821A27026A // Child
+ )
+ ; // Children
+ : Dependencies
+   Seq: ( ME_4B150F470093 // 
+ ME_4BD6C13300F0 // 
+ ME_52821AB602C4 // 
+ ME_52821AB90268 // 
+ ME_4A69D2CDCFC3 // 
+ )
+ ; // Dependencies
+ CONST "NeedsHackRef" false
+ CONST "UseNewGen" 'undefined'
+ CONST "ZoneType" 'Child'
+ CONST "author" 'Люлин А.В.'
+ CONST "base wnd class" 'CWnd'
+ CONST "finished dfm" true
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" true
+ CONST "register in scripts" 'undefined'
+ CONST "resizeable" false
+ CONST "restrict form def" 'undefined'
+ CONST "started" '23.01.2009 18:51'
+ : Generators
+ Seq: (
+ gen_intf.pas
+ )
+ ; // Generators
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View'
+ CONST intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\PrimSynchroView_Form.pas'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\View'
+ CONST extprop:pas:TypeName 'TPrimSynchroViewForm'
+ CONST extprop:pas:UnitName 'PrimSynchroView_Form'
+
+ref; // ME_4979E75C00C7 PrimSynchroView
+
+FORWARD ME_4C8604040234
+
+FORWARD ME_4C860B4801E9
+
+: ME_4C860B7603A3
+ CONST UID '4C860B7603A3'
+ CONST Name 'aParams'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_4683E07E004B' '467BAB7F021E.pas.ms.script' // IvcmTestParamsPrim
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_4C860B7603A3 aParams
+
+: ME_4C860B7603CA
+ CONST UID '4C860B7603CA'
+ CONST Name 'aId'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_4922AD840185' '47EA07FA02CE.pas.ms.script' // TnsUserCRListId
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_4C860B7603CA aId
+
+: ME_4C860B6502A4
+ CONST UID '4C860B6502A4'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_4C860B4801E9 // MakeUserCRListCaption
+ ;
+ : Parameters
+   Seq: ( ME_4C860B7603A3 // aParams
+ ME_4C860B7603CA // aId
+ )
+ ; // Parameters
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_4C860B6502A4 DoIt
+
+: ME_4C860D75021B
+ CONST UID '4C860D75021B'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4C860B4801E9 // MakeUserCRListCaption
+ ;
+ : Target WL 'ME_4AA7F1CB012C' '47D0E1500033.pas.ms.script' // vcmConstString
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_4C860D75021B 
+
+: ME_4C860B4801E9
+ CONST UID '4C860B4801E9'
+ CONST Name 'MakeUserCRListCaption'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_final
+ : Parent ME_4C8604040234 // PrimSynchroViewOptions
+ ;
+ : Operations
+   Seq: ( ME_4C860B6502A4 // DoIt
+ )
+ ; // Operations
+ : Dependencies
+   Seq: ( ME_4C860D75021B // 
+ )
+ ; // Dependencies
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_4C860B4801E9 MakeUserCRListCaption
+
+: ME_1CEA1D4B3297
+ CONST UID '1CEA1D4B3297'
+ CONST Name 'Ini_Reg_Class'
+ CONST IsSummoned true
+ CONST Class class_Operation
+ : Stereotype st_ini::Operation ;
+ %SUMMARY 'Регистрация PrimSynchroViewOptions' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_4C8604040234 // PrimSynchroViewOptions
+ ;
+ CONST "UseNewGen" 'undefined'
+ CONST "ifndef" 'NoScripts'
+
+ref; // ME_1CEA1D4B3297 Ini_Reg_Class
+
+: ME_4C86088B004E
+ CONST UID '4C86088B004E'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4C8604040234 // PrimSynchroViewOptions
+ ;
+ : Target WL 'ME_47752AF90375' '47750CE700D0.pas.ms.script' // afwFacade
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_4C86088B004E 
+
+: ME_4C86179F0077
+ CONST UID '4C86179F0077'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4C8604040234 // PrimSynchroViewOptions
+ ;
+ : Target WL 'ME_4AEF281F0394' '4A9807DB01A5.pas.ms.script' // List
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_4C86179F0077 
+
+: ME_4F09E33F7E7E
+ CONST UID '4F09E33F7E7E'
+ CONST IsSummoned true
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4C8604040234 // PrimSynchroViewOptions
+ ;
+ : Target WL 'ME_561F9F9400BC' '561F9F7D02A7.pas.ms.script' // TtfwClassRef
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_4F09E33F7E7E 
+
+: ME_4C86050B01DB_ME_4C8604040234
+ CONST UID '4C86050B01DB'
+ CONST Name 'ShowText'
+ : Original WL 'ME_4C86050B01DB' '498874B90391.pas.ms.script' // ShowText
+ ;
+ : Implementor ME_4C8604040234 // PrimSynchroViewOptions
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "AutoFocus" false
+ CONST "AutoLock" true
+ CONST "LongProcess" false
+ CONST "ShowInContextMenu" true
+ CONST "ShowInToolbar" true
+ CONST "UseNewGen" 'undefined'
+ CONST "has states" false
+ CONST "is FormActivate" false
+ CONST "is query" false
+ CONST "no prefix" true
+ref; // ME_4C86050B01DB_ME_4C8604040234 ShowText
+
+: ME_4C860527005A_ME_4C8604040234
+ CONST UID '4C860527005A'
+ CONST Name 'Annotation'
+ : Original WL 'ME_4C860527005A' '498874B90391.pas.ms.script' // Annotation
+ ;
+ : Implementor ME_4C8604040234 // PrimSynchroViewOptions
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "AutoFocus" false
+ CONST "AutoLock" false
+ CONST "LongProcess" false
+ CONST "ShowInContextMenu" true
+ CONST "ShowInToolbar" true
+ CONST "UseNewGen" 'undefined'
+ CONST "has states" false
+ CONST "is FormActivate" false
+ CONST "is query" false
+ CONST "no prefix" false
+ref; // ME_4C860527005A_ME_4C8604040234 Annotation
+
+: ME_4C8605460347_ME_4C8604040234
+ CONST UID '4C8605460347'
+ CONST Name 'ShowAttributes'
+ : Original WL 'ME_4C8605460347' '498874B90391.pas.ms.script' // ShowAttributes
+ ;
+ : Implementor ME_4C8604040234 // PrimSynchroViewOptions
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "AutoFocus" false
+ CONST "AutoLock" true
+ CONST "LongProcess" false
+ CONST "ShowInContextMenu" true
+ CONST "ShowInToolbar" true
+ CONST "UseNewGen" 'undefined'
+ CONST "has states" false
+ CONST "is FormActivate" false
+ CONST "is query" false
+ CONST "no prefix" true
+ref; // ME_4C8605460347_ME_4C8604040234 ShowAttributes
+
+: ME_4C86056702CB_ME_4C8604040234
+ CONST UID '4C86056702CB'
+ CONST Name 'ShowRelated'
+ : Original WL 'ME_4C86056702CB' '498874B90391.pas.ms.script' // ShowRelated
+ ;
+ : Implementor ME_4C8604040234 // PrimSynchroViewOptions
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "AutoFocus" false
+ CONST "AutoLock" true
+ CONST "LongProcess" false
+ CONST "ShowInContextMenu" true
+ CONST "ShowInToolbar" true
+ CONST "UseNewGen" 'undefined'
+ CONST "has states" false
+ CONST "is FormActivate" false
+ CONST "is query" false
+ CONST "no prefix" true
+ref; // ME_4C86056702CB_ME_4C8604040234 ShowRelated
+
+: ME_4C8605850067_ME_4C8604040234
+ CONST UID '4C8605850067'
+ CONST Name 'ShowUserCRList1'
+ : Original WL 'ME_4C8605850067' '498874B90391.pas.ms.script' // ShowUserCRList1
+ ;
+ : Implementor ME_4C8604040234 // PrimSynchroViewOptions
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "AutoFocus" false
+ CONST "AutoLock" true
+ CONST "LongProcess" false
+ CONST "ShowInContextMenu" true
+ CONST "ShowInToolbar" true
+ CONST "UseNewGen" 'undefined'
+ CONST "has states" false
+ CONST "is FormActivate" false
+ CONST "is query" false
+ CONST "no prefix" true
+ref; // ME_4C8605850067_ME_4C8604040234 ShowUserCRList1
+
+: ME_4C8605A2018B_ME_4C8604040234
+ CONST UID '4C8605A2018B'
+ CONST Name 'ShowUserCRList2'
+ : Original WL 'ME_4C8605A2018B' '498874B90391.pas.ms.script' // ShowUserCRList2
+ ;
+ : Implementor ME_4C8604040234 // PrimSynchroViewOptions
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "AutoFocus" false
+ CONST "AutoLock" true
+ CONST "LongProcess" false
+ CONST "ShowInContextMenu" true
+ CONST "ShowInToolbar" true
+ CONST "UseNewGen" 'undefined'
+ CONST "has states" false
+ CONST "is FormActivate" false
+ CONST "is query" false
+ CONST "no prefix" true
+ref; // ME_4C8605A2018B_ME_4C8604040234 ShowUserCRList2
+
+: ME_4C8605BF03B0_ME_4C8604040234
+ CONST UID '4C8605BF03B0'
+ CONST Name 'SimilarDocuments'
+ : Original WL 'ME_4C8605BF03B0' '498874B90391.pas.ms.script' // SimilarDocuments
+ ;
+ : Implementor ME_4C8604040234 // PrimSynchroViewOptions
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "AutoFocus" false
+ CONST "AutoLock" false
+ CONST "LongProcess" false
+ CONST "ShowInContextMenu" true
+ CONST "ShowInToolbar" true
+ CONST "UseNewGen" 'undefined'
+ CONST "has states" false
+ CONST "is FormActivate" false
+ CONST "is query" false
+ CONST "no prefix" false
+ref; // ME_4C8605BF03B0_ME_4C8604040234 SimilarDocuments
+
+: ME_4AC497FD00A2_ME_4C8604040234
+ CONST UID '4AC497FD00A2'
+ CONST Name 'DoGetTabInfo'
+ : Original WL 'ME_4AC497FD00A2' '4AADF9450143.pas.ms.script' // DoGetTabInfo
+ ;
+ : Implementor ME_4C8604040234 // PrimSynchroViewOptions
+ ;
+ CONST OpKind opkind_Overridden
+ CONST "UseNewGen" 'undefined'
+ref; // ME_4AC497FD00A2_ME_4C8604040234 DoGetTabInfo
+
+: ME_4C52E8030278_ME_4C8604040234
+ CONST UID '4C52E8030278'
+ CONST Name 'PageActive'
+ : Original WL 'ME_4C52E8030278' '4AADF9450143.pas.ms.script' // PageActive
+ ;
+ : Implementor ME_4C8604040234 // PrimSynchroViewOptions
+ ;
+ CONST OpKind opkind_Overridden
+ CONST "UseNewGen" 'undefined'
+ref; // ME_4C52E8030278_ME_4C8604040234 PageActive
+
+: ME_4C52E81603A9_ME_4C8604040234
+ CONST UID '4C52E81603A9'
+ CONST Name 'PageInactive'
+ : Original WL 'ME_4C52E81603A9' '4AADF9450143.pas.ms.script' // PageInactive
+ ;
+ : Implementor ME_4C8604040234 // PrimSynchroViewOptions
+ ;
+ CONST OpKind opkind_Overridden
+ CONST "UseNewGen" 'undefined'
+ref; // ME_4C52E81603A9_ME_4C8604040234 PageInactive
+
+: ME_4C8604040234
+ CONST UID '4C8604040234'
+ CONST Name 'PrimSynchroViewOptions'
+ CONST Class class_Class
+ : Stereotype st_VCMContainer ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Синхронный просмотр' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4D39A65E01AF // SynchroView
+ ;
+ : Inherits
+   Seq: ( ME_4979E75C00C7 // PrimSynchroView
+ )
+ ; // Inherits
+ : Implements
+   Seq: ( WL 'ME_4C8604F7032C' '498874B90391.pas.ms.script' // SynchroView
+ )
+ ; // Implements
+ : Operations
+   Seq: ( ME_4C860B4801E9 // MakeUserCRListCaption
+ ME_1CEA1D4B3297 // Ini_Reg_Class
+ )
+ ; // Operations
+ : Implemented
+   Seq: ( ME_4C86050B01DB_ME_4C8604040234 // ShowText
+ ME_4C860527005A_ME_4C8604040234 // Annotation
+ ME_4C8605460347_ME_4C8604040234 // ShowAttributes
+ ME_4C86056702CB_ME_4C8604040234 // ShowRelated
+ ME_4C8605850067_ME_4C8604040234 // ShowUserCRList1
+ ME_4C8605A2018B_ME_4C8604040234 // ShowUserCRList2
+ ME_4C8605BF03B0_ME_4C8604040234 // SimilarDocuments
+ )
+ ; // Implemented
+ : Overridden
+   Seq: ( ME_4AC497FD00A2_ME_4C8604040234 // DoGetTabInfo
+ ME_4C52E8030278_ME_4C8604040234 // PageActive
+ ME_4C52E81603A9_ME_4C8604040234 // PageInactive
+ )
+ ; // Overridden
+ : Dependencies
+   Seq: ( ME_4C86088B004E // 
+ ME_4C86179F0077 // 
+ ME_4F09E33F7E7E // 
+ )
+ ; // Dependencies
+ CONST "NeedsHackRef" true
+ CONST "UseNewGen" 'undefined'
+ CONST "ZoneType" 'Child'
+ CONST "author" 'Люлин А.В.'
+ CONST "base wnd class" 'CWnd'
+ CONST "finished dfm" true
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" true
+ CONST "register in scripts" 'undefined'
+ CONST "resizeable" false
+ CONST "restrict form def" 'undefined'
+ CONST "started" '07.09.2010 13:21'
+ : Generators
+ Seq: (
+ gen_intf.pas
+ )
+ ; // Generators
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View'
+ CONST intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\PrimSynchroViewOptions_Form.pas'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\View'
+ CONST extprop:pas:TypeName 'TPrimSynchroViewOptionsForm'
+ CONST extprop:pas:UnitName 'PrimSynchroViewOptions_Form'
+
+ref; // ME_4C8604040234 PrimSynchroViewOptions
+
+: ME_4D39A65E01AF
+ CONST UID '4D39A65E01AF'
+ CONST Name 'SynchroView'
+ CONST Class class_Category
+ : Stereotype st_VCMForms ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent WL 'ME_4A9F76D70283' '4A9F76D70283.pas.ms.script' // View
+ ;
+ : Children
+   Seq: ( ME_4979E75C00C7 // PrimSynchroView
+ ME_4C8604040234 // PrimSynchroViewOptions
+ )
+ ; // Children
+ : Depends
+   Seq: ( WL 'ME_45700BFD0251' '45700BFD0251.pas.ms.script' // DynamicDocList
+ WL 'ME_45ED58CF03E6' '45ED58CF03E6.pas.ms.script' // Logging
+ WL 'ME_467BAB7F021E' '467BAB7F021E.pas.ms.script' // vcmExternalInterfaces
+ WL 'ME_47750CE700D0' '47750CE700D0.pas.ms.script' // afwFacade
+ WL 'ME_4799D29F033F' '4799D29F033F.pas.ms.script' // Implementation
+ WL 'ME_47D0E1500033' '47D0E1500033.pas.ms.script' // Implementation
+ WL 'ME_47EA07FA02CE' '47EA07FA02CE.pas.ms.script' // bsTypes
+ WL 'ME_491B305A0096' '491B305A0096.pas.ms.script' // DocumentAndListInterfaces
+ WL 'ME_498874B90391' '498874B90391.pas.ms.script' // Strange
+ WL 'ME_4A7960CC03A4' '4A7960CC03A4.pas.ms.script' //  Panels
+ WL 'ME_4A7C0BB70162' '4A7C0BB70162.pas.ms.script' // Base Forms
+ WL 'ME_4A8EC95E015F' '4A8EC95E015F.pas.ms.script' // InternalOperations
+ WL 'ME_4A9807DB01A5' '4A9807DB01A5.pas.ms.script' // Strange
+ WL 'ME_4AADF9450143' '4AADF9450143.pas.ms.script' // Visual
+ WL 'ME_4B0A60DF01F2' '4B0A60DF01F2.pas.ms.script' // Logging
+ WL 'ME_4D1B444C015E' '4D1B444C015E.pas.ms.script' // WorkWithListInterfaces
+ WL 'ME_4F71AD0E01FE' '4F71AD0E01FE.pas.ms.script' // InternalOperations
+ WL 'ME_561F9F7D02A7' '561F9F7D02A7.pas.ms.script' // ScriptEngine
+ )
+ ; // Depends
+ CONST "UseNewGen" 'undefined'
+ : Generators
+ Seq: (
+ gen_pas.script
+ gen_pas.script.runner
+ )
+ ; // Generators
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View'
+ CONST pas.script:Path 'shared\models\NewSchool\Scripts\4D39A65E01AF.pas.ms.script'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\4D39A65E01AF.pas.ms.script.runner'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\View'
+
+ref; // ME_4D39A65E01AF SynchroView

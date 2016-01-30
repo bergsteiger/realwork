@@ -1,0 +1,49 @@
+// InternetAgent 49EC6D0903DD VCMControllers Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+: ME_49EC6D0903DD
+ CONST UID '49EC6D0903DD'
+ CONST Name 'InternetAgent'
+ CONST Class class_Category
+ : Stereotype st_VCMControllers ;
+ %SUMMARY '[$124453728]' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent WL 'ME_4A9691FD01BB' '4A9691FD01BB.pas.ms.script' // InternetAgent
+ ;
+ : Children
+   Seq: ( WL 'ME_49EC6D9000EE' '49EC6D9000EE.pas.ms.script' // InternetAgentInterfaces
+ WL 'ME_49EC6DB703E5' '49EC6DB703E5.pas.ms.script' // InternetAgent
+ )
+ ; // Children
+ : Depends
+   Seq: ( WL 'ME_4677FBA70343' '4677FBA70343.pas.ms.script' // l3Interfaces
+ WL 'ME_469F3E37025A' '469F3E37025A.pas.ms.script' // Rtl
+ WL 'ME_4790C3B8021E' '4790C3B8021E.pas.ms.script' // VCM
+ WL 'ME_4790D09A0378' '4790D09A0378.pas.ms.script' // L3
+ WL 'ME_4982BE090383' '4982BE090383.pas.ms.script' // vcmControllers
+ WL 'ME_4E2F0E1B03BB' '4E2F0E1B03BB.pas.ms.script' // L3$Domain
+ WL 'ME_54B90AC6014B' '54B90AC6014B.pas.ms.script' // StringUtils
+ )
+ ; // Depends
+ CONST "UseNewGen" 'undefined'
+ CONST "exec mode" 'concluded'
+ CONST "gui" 'prj'
+ CONST "is namespace" true
+ CONST "vendor" 'none'
+ : Generators
+ Seq: (
+ gen_pas.script
+ gen_pas.script.runner
+ )
+ ; // Generators
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\InternetAgent'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\InternetAgent'
+ CONST pas.script:Path 'shared\models\NewSchool\Scripts\49EC6D0903DD.pas.ms.script'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\49EC6D0903DD.pas.ms.script.runner'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\InternetAgent'
+
+ref; // ME_49EC6D0903DD InternetAgent

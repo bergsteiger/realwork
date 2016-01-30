@@ -29,8 +29,8 @@ ref; // ME_4C8DDE9C03BA aParams
  : Parent ME_4C8DDE6B01A6 // DoBack
  ;
  : Parameters
-   @ ( ME_4C8DDE9C03BA // aParams
- ) .SequenceCode.It
+   Seq: ( ME_4C8DDE9C03BA // aParams
+ )
  ; // Parameters
 
 ref; // ME_4C8DDE97021C DoIt
@@ -46,8 +46,8 @@ ref; // ME_4C8DDE97021C DoIt
  : Parent ME_4ADDD3030251 // OfficeLikeMain
  ;
  : Operations
-   @ ( ME_4C8DDE97021C // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_4C8DDE97021C // DoIt
+ )
  ; // Operations
 
 ref; // ME_4C8DDE6B01A6 DoBack
@@ -73,8 +73,8 @@ ref; // ME_4C8DDEBA0062 aParams
  : Parent ME_4C8DDEA5007E // DoForward
  ;
  : Parameters
-   @ ( ME_4C8DDEBA0062 // aParams
- ) .SequenceCode.It
+   Seq: ( ME_4C8DDEBA0062 // aParams
+ )
  ; // Parameters
 
 ref; // ME_4C8DDEB30144 DoIt
@@ -90,8 +90,8 @@ ref; // ME_4C8DDEB30144 DoIt
  : Parent ME_4ADDD3030251 // OfficeLikeMain
  ;
  : Operations
-   @ ( ME_4C8DDEB30144 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_4C8DDEB30144 // DoIt
+ )
  ; // Operations
 
 ref; // ME_4C8DDEA5007E DoForward
@@ -125,6 +125,7 @@ ref; // ME_4ADDD5A30139 AskMayExit
 : ME_D13C657F0D90
  CONST UID 'D13C657F0D90'
  CONST Name 'Ini_Reg_Class'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Регистрация OfficeLikeMain' ;
@@ -171,6 +172,7 @@ ref; // ME_51E69B3D019F
 
 : ME_FB03CE265926
  CONST UID 'FB03CE265926'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_4ADDD3030251 // OfficeLikeMain
@@ -187,6 +189,7 @@ ref; // ME_FB03CE265926
  ;
  : Implementor ME_4ADDD3030251 // OfficeLikeMain
  ;
+ CONST OpKind opkind_Implemented
  CONST "AutoFocus" false
  CONST "AutoLock" false
  CONST "LongProcess" false
@@ -205,6 +208,7 @@ ref; // ME_4ADDD377028F_ME_4ADDD3030251 Exit
  ;
  : Implementor ME_4ADDD3030251 // OfficeLikeMain
  ;
+ CONST OpKind opkind_Implemented
  CONST "AutoFocus" false
  CONST "AutoLock" false
  CONST "LongProcess" false
@@ -223,6 +227,7 @@ ref; // ME_4ADDDC550118_ME_4ADDD3030251 Back
  ;
  : Implementor ME_4ADDD3030251 // OfficeLikeMain
  ;
+ CONST OpKind opkind_Implemented
  CONST "AutoFocus" false
  CONST "AutoLock" false
  CONST "LongProcess" false
@@ -241,6 +246,7 @@ ref; // ME_4ADDDC630097_ME_4ADDD3030251 Forward
  ;
  : Implementor ME_4ADDD3030251 // OfficeLikeMain
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_47D1602000C6_ME_4ADDD3030251 Create
 
 : ME_4ADDD3030251
@@ -254,38 +260,38 @@ ref; // ME_47D1602000C6_ME_4ADDD3030251 Create
  : Parent ME_4ADDCE970294 // OfficeLike
  ;
  : Inherits
-   @ ( WL 'ME_49525C7A0114' '4AADF9450143.pas.ms.script' // TvcmMainForm
- ) .SequenceCode.It
+   Seq: ( WL 'ME_49525C7A0114' '4AADF9450143.pas.ms.script' // TvcmMainForm
+ )
  ; // Inherits
  : Implements
-   @ ( WL 'ME_4A8ED77F0142' '494F898C013E.pas.ms.script' // Common
+   Seq: ( WL 'ME_4A8ED77F0142' '494F898C013E.pas.ms.script' // Common
  WL 'ME_4ADDDC4C0255' '494F898C013E.pas.ms.script' // History
- ) .SequenceCode.It
+ )
  ; // Implements
  : Operations
-   @ ( ME_4C8DDE6B01A6 // DoBack
+   Seq: ( ME_4C8DDE6B01A6 // DoBack
  ME_4C8DDEA5007E // DoForward
  ME_4ADDD31E0091 // NeedTerminateOnExit
  ME_4ADDD5A30139 // AskMayExit
  ME_D13C657F0D90 // Ini_Reg_Class
- ) .SequenceCode.It
+ )
  ; // Operations
  : Implemented
-   @ ( ME_4ADDD377028F_ME_4ADDD3030251 // Exit
+   Seq: ( ME_4ADDD377028F_ME_4ADDD3030251 // Exit
  ME_4ADDDC550118_ME_4ADDD3030251 // Back
  ME_4ADDDC630097_ME_4ADDD3030251 // Forward
- ) .SequenceCode.It
+ )
  ; // Implemented
  : Overridden
-   @ ( ME_47D1602000C6_ME_4ADDD3030251 // Create
- ) .SequenceCode.It
+   Seq: ( ME_47D1602000C6_ME_4ADDD3030251 // Create
+ )
  ; // Overridden
  : Dependencies
-   @ ( ME_4ADDD8B00259 // 
+   Seq: ( ME_4ADDD8B00259 // 
  ME_51E69A8100F0 // 
  ME_51E69B3D019F // 
  ME_FB03CE265926 // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  CONST "NeedsHackRef" true
  CONST "ZoneType" 'Any'
@@ -297,13 +303,15 @@ ref; // ME_47D1602000C6_ME_4ADDD3030251 Create
  CONST "register in scripts" 'undefined'
  CONST "resizeable" false
  CONST "restrict form def" 'undefined'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\VCM\UserInteraction'
  CONST intf.pas:Path 'common\components\gui\Garant\VCM\UserInteraction\OfficeLikeMain_Form.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\VCM\UserInteraction'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
  CONST extprop:pas:TypeName 'TOfficeLikeMainForm'
+ CONST extprop:rc:SelfName 'OfficeLikeMainForm'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'OfficeLikeMain_Form'
 
 ref; // ME_4ADDD3030251 OfficeLikeMain
 
@@ -351,30 +359,32 @@ ref; // ME_51E69B74019F
  : Parent ME_4954C0500033 // UserInteraction
  ;
  : Inherits
-   @ ( WL 'ME_4AB22E140136' '50883A2E00B3.pas.ms.script' // TvcmApplication
- ) .SequenceCode.It
+   Seq: ( WL 'ME_4AB22E140136' '50883A2E00B3.pas.ms.script' // TvcmApplication
+ )
  ; // Inherits
  : Children
-   @ ( ME_4ADDD3030251 // OfficeLikeMain
- ) .SequenceCode.It
+   Seq: ( ME_4ADDD3030251 // OfficeLikeMain
+ )
  ; // Children
  : Dependencies
-   @ ( ME_4C8E34A2037E // 
+   Seq: ( ME_4C8E34A2037E // 
  ME_51E69AC400CF // 
  ME_51E69B74019F // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\VCM\UserInteraction'
  CONST intf.pas:Path 'common\components\gui\Garant\VCM\UserInteraction\OfficeLikeRes.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\VCM\UserInteraction'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
  CONST extprop:pas:TypeName 'TOfficeLikeRes'
+ CONST extprop:rc:SelfName 'OfficeLikeRes'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'OfficeLikeRes'
 
 ref; // ME_4ADDCE970294 OfficeLike
 
@@ -389,7 +399,7 @@ ref; // ME_4ADDCE970294 OfficeLike
  : Parent WL 'ME_4954C00703D0' '4954C00703D0.pas.ms.script' // OfficeLike
  ;
  : Children
-   @ ( ME_4ADDCE970294 // OfficeLike
+   Seq: ( ME_4ADDCE970294 // OfficeLike
  WL 'ME_494F898C013E' '494F898C013E.pas.ms.script' // Usual
  WL 'ME_495127DD017C' '495127DD017C.pas.ms.script' // Text
  WL 'ME_4A8AD3C70195' '4A8AD3C70195.pas.ms.script' // Result
@@ -398,10 +408,10 @@ ref; // ME_4ADDCE970294 OfficeLike
  WL 'ME_4BDAF7510113' '4BDAF7510113.pas.ms.script' // Tree
  WL 'ME_4F6B421102FB' '4F6B421102FB.pas.ms.script' // WindowsListSupport
  WL 'ME_4F6B439D0095' '4F6B439D0095.pas.ms.script' // System
- ) .SequenceCode.It
+ )
  ; // Children
  : Depends
-   @ ( WL 'ME_4677FBA70343' '4677FBA70343.pas.ms.script' // l3Interfaces
+   Seq: ( WL 'ME_4677FBA70343' '4677FBA70343.pas.ms.script' // l3Interfaces
  WL 'ME_467BAB7F021E' '467BAB7F021E.pas.ms.script' // vcmExternalInterfaces
  WL 'ME_46A5E026007E' '46A5E026007E.pas.ms.script' // l3Core
  WL 'ME_4790C3B8021E' '4790C3B8021E.pas.ms.script' // VCM
@@ -419,23 +429,17 @@ ref; // ME_4ADDCE970294 OfficeLike
  WL 'ME_50883A2E00B3' '50883A2E00B3.pas.ms.script' // Application
  WL 'ME_54B90AC6014B' '54B90AC6014B.pas.ms.script' // StringUtils
  WL 'ME_561F9F7D02A7' '561F9F7D02A7.pas.ms.script' // ScriptEngine
- ) .SequenceCode.It
+ )
  ; // Depends
  CONST "exec mode" 'concluded'
  CONST "gui" 'prj'
  CONST "is namespace" true
  CONST "vendor" 'none'
- : Generators
- @ (
- gen_forth_structure
- gen_intf.pas
- gen_pas.script
- gen_pas.script.runner
- ) .SequenceCode.It
- ; // Generators
- CONST forth_structure:Path 'shared\models\NewSchool\Shared Delphi Operations\OfficeLike\UserInteraction\UserInteraction.model.script'
- CONST intf.pas:Path 'common\components\gui\Garant\VCM\UserInteraction\OfficeLike_UserInteraction_vcmlib.info'
+ CONST dfm:PathOnly '\common\components\gui\Garant\VCM\UserInteraction'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\VCM\UserInteraction'
  CONST pas.script:Path 'shared\models\NewSchool\Scripts\4954C0500033.pas.ms.script'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
  CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\4954C0500033.pas.ms.script.runner'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_4954C0500033 UserInteraction

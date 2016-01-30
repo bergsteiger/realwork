@@ -79,13 +79,18 @@ ref; // ME_50220C0A0015 sbalLeft
  : Parent ME_50220B0E0061 // TvtScrollBar
  ;
  : Attributes
-   @ ( ME_50220BEA0361 // sbalNone
+   Seq: ( ME_50220BEA0361 // sbalNone
  ME_50220BF003DA // sbalTop
  ME_50220BF7034B // sbalRight
  ME_50220BFF021E // sbalBottom
  ME_50220C0A0015 // sbalLeft
- ) .SequenceCode.It
+ )
  ; // Attributes
+ CONST dfm:PathOnly '\common\components\gui\Garant\VT'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\VT'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_50220BCB013C TvtScrollBarAlign
 
@@ -264,6 +269,7 @@ ref; // ME_50220FB9004A OnScroll
 : ME_B40A3F77E333
  CONST UID 'B40A3F77E333'
  CONST Name 'f_SmallChange'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY 'Поле для свойства SmallChange' ;
  CONST Visibility PrivateAccess
@@ -273,12 +279,14 @@ ref; // ME_50220FB9004A OnScroll
  ;
  : Target WL 'ME_50220CFD0326' '4799D29F033F.pas.ms.script' // TScrollBarInc
  ;
+ CONST extprop:clearViaProperty 'SmallChange'
 
 ref; // ME_B40A3F77E333 f_SmallChange
 
 : ME_22E3610850D9
  CONST UID '22E3610850D9'
  CONST Name 'f_LargeChange'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY 'Поле для свойства LargeChange' ;
  CONST Visibility PrivateAccess
@@ -288,12 +296,14 @@ ref; // ME_B40A3F77E333 f_SmallChange
  ;
  : Target WL 'ME_50220CFD0326' '4799D29F033F.pas.ms.script' // TScrollBarInc
  ;
+ CONST extprop:clearViaProperty 'LargeChange'
 
 ref; // ME_22E3610850D9 f_LargeChange
 
 : ME_BEB4D842ED59
  CONST UID 'BEB4D842ED59'
  CONST Name 'f_Min'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY 'Поле для свойства Min' ;
  CONST Visibility PrivateAccess
@@ -303,12 +313,14 @@ ref; // ME_22E3610850D9 f_LargeChange
  ;
  : Target WL 'ME_450A61050251' '3DBFDB23006E.pas.ms.script' // integer
  ;
+ CONST extprop:clearViaProperty 'Min'
 
 ref; // ME_BEB4D842ED59 f_Min
 
 : ME_A4C51D081E04
  CONST UID 'A4C51D081E04'
  CONST Name 'f_Max'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY 'Поле для свойства Max' ;
  CONST Visibility PrivateAccess
@@ -318,12 +330,14 @@ ref; // ME_BEB4D842ED59 f_Min
  ;
  : Target WL 'ME_450A61050251' '3DBFDB23006E.pas.ms.script' // integer
  ;
+ CONST extprop:clearViaProperty 'Max'
 
 ref; // ME_A4C51D081E04 f_Max
 
 : ME_E9ED64B65E92
  CONST UID 'E9ED64B65E92'
  CONST Name 'f_Position'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY 'Поле для свойства Position' ;
  CONST Visibility PrivateAccess
@@ -333,12 +347,14 @@ ref; // ME_A4C51D081E04 f_Max
  ;
  : Target WL 'ME_450A61050251' '3DBFDB23006E.pas.ms.script' // integer
  ;
+ CONST extprop:clearViaProperty 'Position'
 
 ref; // ME_E9ED64B65E92 f_Position
 
 : ME_BA4641A32649
  CONST UID 'BA4641A32649'
  CONST Name 'f_PageSize'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY 'Поле для свойства PageSize' ;
  CONST Visibility PrivateAccess
@@ -348,12 +364,14 @@ ref; // ME_E9ED64B65E92 f_Position
  ;
  : Target WL 'ME_450A61050251' '3DBFDB23006E.pas.ms.script' // integer
  ;
+ CONST extprop:clearViaProperty 'PageSize'
 
 ref; // ME_BA4641A32649 f_PageSize
 
 : ME_BB7A5128FA77
  CONST UID 'BB7A5128FA77'
  CONST Name 'f_OnChange'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY 'Поле для свойства OnChange' ;
  CONST Visibility PrivateAccess
@@ -363,12 +381,14 @@ ref; // ME_BA4641A32649 f_PageSize
  ;
  : Target WL 'ME_47881B22005A' '4AB0997B00A2.pas.ms.script' // TNotifyEvent
  ;
+ CONST extprop:clearViaProperty 'OnChange'
 
 ref; // ME_BB7A5128FA77 f_OnChange
 
 : ME_6CD12BEDD817
  CONST UID '6CD12BEDD817'
  CONST Name 'f_OnScroll'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY 'Поле для свойства OnScroll' ;
  CONST Visibility PrivateAccess
@@ -378,6 +398,7 @@ ref; // ME_BB7A5128FA77 f_OnChange
  ;
  : Target WL 'ME_50220F69008D' '4799D29F033F.pas.ms.script' // TScrollEvent
  ;
+ CONST extprop:clearViaProperty 'OnScroll'
 
 ref; // ME_6CD12BEDD817 f_OnScroll
 
@@ -412,9 +433,9 @@ ref; // ME_502210F500E6 ScrollPos
  : Parent ME_502210E20375 // DoScroll
  ;
  : Parameters
-   @ ( ME_502210F500BD // ScrollCode
+   Seq: ( ME_502210F500BD // ScrollCode
  ME_502210F500E6 // ScrollPos
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_502210F10211 DoIt
@@ -430,8 +451,8 @@ ref; // ME_502210F10211 DoIt
  : Parent ME_50220B0E0061 // TvtScrollBar
  ;
  : Operations
-   @ ( ME_502210F10211 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_502210F10211 // DoIt
+ )
  ; // Operations
 
 ref; // ME_502210E20375 DoScroll
@@ -441,6 +462,7 @@ FORWARD ME_50221120038F
 : ME_E22F8A17EBEC
  CONST UID 'E22F8A17EBEC'
  CONST Name 'DoIt'
+ CONST IsSummoned true
  CONST Class class_Operation
  %SUMMARY 'Сигнатура метода DoChange' ;
  CONST Visibility PublicAccess
@@ -461,8 +483,8 @@ ref; // ME_E22F8A17EBEC DoIt
  : Parent ME_50220B0E0061 // TvtScrollBar
  ;
  : Operations
-   @ ( ME_E22F8A17EBEC // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_E22F8A17EBEC // DoIt
+ )
  ; // Operations
 
 ref; // ME_50221120038F DoChange
@@ -508,10 +530,10 @@ ref; // ME_5022114A0025 AMax
  : Parent ME_502211340371 // SetParams
  ;
  : Parameters
-   @ ( ME_50221149035F // APosition
+   Seq: ( ME_50221149035F // APosition
  ME_5022114903A9 // AMin
  ME_5022114A0025 // AMax
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_5022113D0001 DoIt
@@ -527,8 +549,8 @@ ref; // ME_5022113D0001 DoIt
  : Parent ME_50220B0E0061 // TvtScrollBar
  ;
  : Operations
-   @ ( ME_5022113D0001 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_5022113D0001 // DoIt
+ )
  ; // Operations
 
 ref; // ME_502211340371 SetParams
@@ -554,8 +576,8 @@ ref; // ME_5022116A0257 Msg
  : Parent ME_5022115C02AE // DoWMScroll
  ;
  : Parameters
-   @ ( ME_5022116A0257 // Msg
- ) .SequenceCode.It
+   Seq: ( ME_5022116A0257 // Msg
+ )
  ; // Parameters
 
 ref; // ME_502211670261 DoIt
@@ -571,8 +593,8 @@ ref; // ME_502211670261 DoIt
  : Parent ME_50220B0E0061 // TvtScrollBar
  ;
  : Operations
-   @ ( ME_502211670261 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_502211670261 // DoIt
+ )
  ; // Operations
 
 ref; // ME_5022115C02AE DoWMScroll
@@ -603,8 +625,8 @@ ref; // ME_505894FD0388 DoIt
  : Parent ME_50220B0E0061 // TvtScrollBar
  ;
  : Operations
-   @ ( ME_505894FD0388 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_505894FD0388 // DoIt
+ )
  ; // Operations
 
 ref; // ME_505894EC0371 InUpdating
@@ -629,8 +651,8 @@ ref; // ME_502228E60103 Msg
  : Parent ME_50220B0E0061 // TvtScrollBar
  ;
  : Parameters
-   @ ( ME_502228E60103 // Msg
- ) .SequenceCode.It
+   Seq: ( ME_502228E60103 // Msg
+ )
  ; // Parameters
  CONST "Message ID" 'WM_HSCROLL'
 
@@ -656,8 +678,8 @@ ref; // ME_5022290503AD Msg
  : Parent ME_50220B0E0061 // TvtScrollBar
  ;
  : Parameters
-   @ ( ME_5022290503AD // Msg
- ) .SequenceCode.It
+   Seq: ( ME_5022290503AD // Msg
+ )
  ; // Parameters
  CONST "Message ID" 'WM_VSCROLL'
 
@@ -666,6 +688,7 @@ ref; // ME_502228F70076 WMVScroll
 : ME_47487D1B286B
  CONST UID '47487D1B286B'
  CONST Name 'Ini_Reg_Class'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Регистрация TvtScrollBar' ;
@@ -712,6 +735,7 @@ ref; // ME_505894C60267
 
 : ME_6B8B2216CB31
  CONST UID '6B8B2216CB31'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_50220B0E0061 // TvtScrollBar
@@ -728,6 +752,7 @@ ref; // ME_6B8B2216CB31
  ;
  : Implementor ME_50220B0E0061 // TvtScrollBar
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_47D1602000C6_ME_50220B0E0061 Create
 
 : ME_47E136A80191_ME_50220B0E0061
@@ -737,6 +762,7 @@ ref; // ME_47D1602000C6_ME_50220B0E0061 Create
  ;
  : Implementor ME_50220B0E0061 // TvtScrollBar
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_47E136A80191_ME_50220B0E0061 WndProc
 
 : ME_48C7925A02E5_ME_50220B0E0061
@@ -746,6 +772,7 @@ ref; // ME_47E136A80191_ME_50220B0E0061 WndProc
  ;
  : Implementor ME_50220B0E0061 // TvtScrollBar
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_48C7925A02E5_ME_50220B0E0061 CreateParams
 
 : ME_4A97E78202FC_ME_50220B0E0061
@@ -755,6 +782,7 @@ ref; // ME_48C7925A02E5_ME_50220B0E0061 CreateParams
  ;
  : Implementor ME_50220B0E0061 // TvtScrollBar
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4A97E78202FC_ME_50220B0E0061 SetParent
 
 : ME_4CC8414403B8_ME_50220B0E0061
@@ -764,6 +792,7 @@ ref; // ME_4A97E78202FC_ME_50220B0E0061 SetParent
  ;
  : Implementor ME_50220B0E0061 // TvtScrollBar
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4CC8414403B8_ME_50220B0E0061 CreateWnd
 
 : ME_4F2A599E0283_ME_50220B0E0061
@@ -773,6 +802,7 @@ ref; // ME_4CC8414403B8_ME_50220B0E0061 CreateWnd
  ;
  : Implementor ME_50220B0E0061 // TvtScrollBar
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4F2A599E0283_ME_50220B0E0061 SetBounds
 
 : ME_5022104B03A6_ME_50220B0E0061
@@ -782,6 +812,7 @@ ref; // ME_4F2A599E0283_ME_50220B0E0061 SetBounds
  ;
  : Implementor ME_50220B0E0061 // TvtScrollBar
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_5022104B03A6_ME_50220B0E0061 RequestAlign
 
 : ME_50220B0E0061
@@ -795,11 +826,11 @@ ref; // ME_5022104B03A6_ME_50220B0E0061 RequestAlign
  : Parent ME_50220AA101CA // Scrollbar
  ;
  : Inherits
-   @ ( WL 'ME_47E124E90272' '4799D29F033F.pas.ms.script' // TWinControl
- ) .SequenceCode.It
+   Seq: ( WL 'ME_47E124E90272' '4799D29F033F.pas.ms.script' // TWinControl
+ )
  ; // Inherits
  : Attributes
-   @ ( ME_50220C6501B2 // ScrollBarKind
+   Seq: ( ME_50220C6501B2 // ScrollBarKind
  ME_50220D2E023F // SmallChange
  ME_50220D5300F9 // LargeChange
  ME_50220D98014D // Align
@@ -817,10 +848,10 @@ ref; // ME_5022104B03A6_ME_50220B0E0061 RequestAlign
  ME_BA4641A32649 // f_PageSize
  ME_BB7A5128FA77 // f_OnChange
  ME_6CD12BEDD817 // f_OnScroll
- ) .SequenceCode.It
+ )
  ; // Attributes
  : Operations
-   @ ( ME_502210E20375 // DoScroll
+   Seq: ( ME_502210E20375 // DoScroll
  ME_50221120038F // DoChange
  ME_502211340371 // SetParams
  ME_5022115C02AE // DoWMScroll
@@ -828,28 +859,28 @@ ref; // ME_5022104B03A6_ME_50220B0E0061 RequestAlign
  ME_502228CB009D // WMHScroll
  ME_502228F70076 // WMVScroll
  ME_47487D1B286B // Ini_Reg_Class
- ) .SequenceCode.It
+ )
  ; // Operations
  : Overridden
-   @ ( ME_47D1602000C6_ME_50220B0E0061 // Create
+   Seq: ( ME_47D1602000C6_ME_50220B0E0061 // Create
  ME_47E136A80191_ME_50220B0E0061 // WndProc
  ME_48C7925A02E5_ME_50220B0E0061 // CreateParams
  ME_4A97E78202FC_ME_50220B0E0061 // SetParent
  ME_4CC8414403B8_ME_50220B0E0061 // CreateWnd
  ME_4F2A599E0283_ME_50220B0E0061 // SetBounds
  ME_5022104B03A6_ME_50220B0E0061 // RequestAlign
- ) .SequenceCode.It
+ )
  ; // Overridden
  : Children
-   @ ( ME_50220BCB013C // TvtScrollBarAlign
- ) .SequenceCode.It
+   Seq: ( ME_50220BCB013C // TvtScrollBarAlign
+ )
  ; // Children
  : Dependencies
-   @ ( ME_5022124C00CA // 
+   Seq: ( ME_5022124C00CA // 
  ME_50222C9B00F7 // 
  ME_505894C60267 // 
  ME_6B8B2216CB31 // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  CONST "author" 'Костицын'
  CONST "base wnd class" 'CWnd'
@@ -858,12 +889,14 @@ ref; // ME_5022104B03A6_ME_50220B0E0061 RequestAlign
  CONST "no hands" true
  CONST "register in scripts" 'undefined'
  CONST "started" '07.08.12'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\VT'
  CONST intf.pas:Path 'common\components\gui\Garant\VT\vtScrollBar.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\VT'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'ScrollBar'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'vtScrollBar'
 
 ref; // ME_50220B0E0061 TvtScrollBar
 
@@ -877,11 +910,11 @@ ref; // ME_50220B0E0061 TvtScrollBar
  : Parent WL 'ME_467A75D90346' '467A75D90346.pas.ms.script' // VT
  ;
  : Children
-   @ ( ME_50220B0E0061 // TvtScrollBar
- ) .SequenceCode.It
+   Seq: ( ME_50220B0E0061 // TvtScrollBar
+ )
  ; // Children
  : Depends
-   @ ( WL 'ME_476F78840219' '476F78840219.pas.ms.script' // Messages
+   Seq: ( WL 'ME_476F78840219' '476F78840219.pas.ms.script' // Messages
  WL 'ME_47750CE700D0' '47750CE700D0.pas.ms.script' // afwFacade
  WL 'ME_4799D29F033F' '4799D29F033F.pas.ms.script' // Implementation
  WL 'ME_4AB0997B00A2' '4AB0997B00A2.pas.ms.script' // Common
@@ -889,15 +922,13 @@ ref; // ME_50220B0E0061 TvtScrollBar
  WL 'ME_4AB0C3F60375' '4AB0C3F60375.pas.ms.script' // Win
  WL 'ME_55C4AF3F02EE' '55C4AF3F02EE.pas.ms.script' // Consts
  WL 'ME_561F9F7D02A7' '561F9F7D02A7.pas.ms.script' // ScriptEngine
- ) .SequenceCode.It
+ )
  ; // Depends
- : Generators
- @ (
- gen_pas.script
- gen_pas.script.runner
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\VT'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\VT'
  CONST pas.script:Path 'shared\models\NewSchool\Scripts\50220AA101CA.pas.ms.script'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
  CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\50220AA101CA.pas.ms.script.runner'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_50220AA101CA Scrollbar

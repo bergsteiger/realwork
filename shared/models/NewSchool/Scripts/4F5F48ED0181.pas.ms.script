@@ -9,6 +9,7 @@ FORWARD ME_4F5F490D030B
 : ME_1E89AD846418
  CONST UID '1E89AD846418'
  CONST Name 'Ini_Reg'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Регистрация CheckOutputWithInput' ;
@@ -50,33 +51,35 @@ ref; // ME_4DB0614603C8_ME_4F5F490D030B GetWordNameForRegister
  : Parent ME_4F5F48ED0181 // EtalonsWorking
  ;
  : Inherits
-   @ ( WL 'ME_53EDC0E701BC' '4F3E3F5F0160.pas.ms.script' // TtfwRegisterableWord
- ) .SequenceCode.It
+   Seq: ( WL 'ME_53EDC0E701BC' '4F3E3F5F0160.pas.ms.script' // TtfwRegisterableWord
+ )
  ; // Inherits
  : Operations
-   @ ( ME_1E89AD846418 // Ini_Reg
- ) .SequenceCode.It
+   Seq: ( ME_1E89AD846418 // Ini_Reg
+ )
  ; // Operations
  : Implemented
-   @ ( ME_4DAEEDE10285_ME_4F5F490D030B // DoDoIt
- ) .SequenceCode.It
+   Seq: ( ME_4DAEEDE10285_ME_4F5F490D030B // DoDoIt
+ )
  ; // Implemented
  : Overridden
-   @ ( ME_4DB0614603C8_ME_4F5F490D030B // GetWordNameForRegister
- ) .SequenceCode.It
+   Seq: ( ME_4DB0614603C8_ME_4F5F490D030B // GetWordNameForRegister
+ )
  ; // Overridden
  CONST "NameForScript" 'tests:CheckOutputWithInput'
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\ScriptEngine'
  CONST intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\kwCheckOutputWithInput.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\ScriptEngine'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
  CONST extprop:pas:TypeName 'TkwCheckOutputWithInput'
+ CONST extprop:rc:SelfName 'CheckOutputWithInput'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'kwCheckOutputWithInput'
 
 ref; // ME_4F5F490D030B CheckOutputWithInput
 
@@ -85,6 +88,7 @@ FORWARD ME_4DD547B70001
 : ME_D9126304C173
  CONST UID 'D9126304C173'
  CONST Name 'Ini_Reg'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Регистрация CheckEtalon' ;
@@ -126,20 +130,20 @@ ref; // ME_4DB0614603C8_ME_4DD547B70001 GetWordNameForRegister
  : Parent ME_4F5F48ED0181 // EtalonsWorking
  ;
  : Inherits
-   @ ( WL 'ME_53EDC0E701BC' '4F3E3F5F0160.pas.ms.script' // TtfwRegisterableWord
- ) .SequenceCode.It
+   Seq: ( WL 'ME_53EDC0E701BC' '4F3E3F5F0160.pas.ms.script' // TtfwRegisterableWord
+ )
  ; // Inherits
  : Operations
-   @ ( ME_D9126304C173 // Ini_Reg
- ) .SequenceCode.It
+   Seq: ( ME_D9126304C173 // Ini_Reg
+ )
  ; // Operations
  : Implemented
-   @ ( ME_4DAEEDE10285_ME_4DD547B70001 // DoDoIt
- ) .SequenceCode.It
+   Seq: ( ME_4DAEEDE10285_ME_4DD547B70001 // DoDoIt
+ )
  ; // Implemented
  : Overridden
-   @ ( ME_4DB0614603C8_ME_4DD547B70001 // GetWordNameForRegister
- ) .SequenceCode.It
+   Seq: ( ME_4DB0614603C8_ME_4DD547B70001 // GetWordNameForRegister
+ )
  ; // Overridden
  CONST "NameForScript" 'tests:CheckEtalon'
  CONST "author" 'Люлин А.В.'
@@ -148,23 +152,28 @@ ref; // ME_4DB0614603C8_ME_4DD547B70001 GetWordNameForRegister
  CONST "no hands" true
  CONST "register in scripts" 'undefined'
  CONST "started" '19.05.2011 20:39'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\ScriptEngine'
  CONST intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\kwCheckEtalon.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\ScriptEngine'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
  CONST extprop:pas:TypeName 'TkwCheckEtalon'
+ CONST extprop:rc:SelfName 'CheckEtalon'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'kwCheckEtalon'
 
 ref; // ME_4DD547B70001 CheckEtalon
 
 FORWARD ME_4F5F495003E0
+
+FORWARD ME_555F531D0312
 
 FORWARD ME_60A242C872F7
 
 : ME_C345ADAA4ABB
  CONST UID 'C345ADAA4ABB'
  CONST Name 'Ini_Reg'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Регистрация EtalonNeeds64' ;
@@ -177,6 +186,7 @@ ref; // ME_C345ADAA4ABB Ini_Reg
 
 : ME_C3AC357404FC
  CONST UID 'C3AC357404FC'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_60A242C872F7 // EtalonNeeds64
@@ -188,6 +198,7 @@ ref; // ME_C3AC357404FC
 
 : ME_47BAD8739BCD
  CONST UID '47BAD8739BCD'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_60A242C872F7 // EtalonNeeds64
@@ -199,6 +210,7 @@ ref; // ME_47BAD8739BCD
 
 : ME_0D55FEE4E333
  CONST UID '0D55FEE4E333'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_60A242C872F7 // EtalonNeeds64
@@ -251,6 +263,7 @@ ref; // ME_559687E6025A_ME_60A242C872F7 GetAllParamsCount
 : ME_60A242C872F7
  CONST UID '60A242C872F7'
  CONST Name 'EtalonNeeds64'
+ CONST IsSummoned true
  CONST Class class_Class
  : Stereotype st_ScriptKeyword ;
  CONST Kind kind_NormalClass
@@ -260,43 +273,54 @@ ref; // ME_559687E6025A_ME_60A242C872F7 GetAllParamsCount
  : Parent ME_4F5F495003E0 // EtalonsWorkingPack
  ;
  : Inherits
-   @ ( WL 'ME_561BAC4B0005' '55CCADD2013D.pas.ms.script' // TtfwGlobalKeyWord
- ) .SequenceCode.It
+   Seq: ( WL 'ME_561BAC4B0005' '55CCADD2013D.pas.ms.script' // TtfwGlobalKeyWord
+ )
  ; // Inherits
  : Operations
-   @ ( ME_C345ADAA4ABB // Ini_Reg
- ) .SequenceCode.It
+   Seq: ( ME_C345ADAA4ABB // Ini_Reg
+ )
  ; // Operations
  : Implemented
-   @ ( ME_4DAEEDE10285_ME_60A242C872F7 // DoDoIt
- ) .SequenceCode.It
+   Seq: ( ME_4DAEEDE10285_ME_60A242C872F7 // DoDoIt
+ )
  ; // Implemented
  : Overridden
-   @ ( ME_4DB0614603C8_ME_60A242C872F7 // GetWordNameForRegister
+   Seq: ( ME_4DB0614603C8_ME_60A242C872F7 // GetWordNameForRegister
  ME_551544E2001A_ME_60A242C872F7 // GetResultTypeInfo
  ME_559687E6025A_ME_60A242C872F7 // GetAllParamsCount
- ) .SequenceCode.It
+ )
  ; // Overridden
  : Dependencies
-   @ ( ME_C3AC357404FC // 
+   Seq: ( ME_C3AC357404FC // 
  ME_47BAD8739BCD // 
  ME_0D55FEE4E333 // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  CONST "NameForScript" 'EtalonNeeds64'
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
+ CONST dfm:PathOnly '\common\components\rtl\Garant\ScriptEngine'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\ScriptEngine'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
  CONST extprop:pas:TypeName 'TkwEtalonNeeds64'
+ CONST extprop:rc:SelfName 'EtalonNeeds64'
+ CONST extprop:rc:isAcceptableForScripts true
+ : SpelledFor ME_555F531D0312 // EtalonNeeds64
+ ;
 
 ref; // ME_60A242C872F7 EtalonNeeds64
+
+FORWARD ME_555F53390367
 
 FORWARD ME_116A432ADCB1
 
 : ME_298E86FA9596
  CONST UID '298E86FA9596'
  CONST Name 'Ini_Reg'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Регистрация EtalonNeedsComputerName' ;
@@ -309,6 +333,7 @@ ref; // ME_298E86FA9596 Ini_Reg
 
 : ME_B7A20CB7CB33
  CONST UID 'B7A20CB7CB33'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_116A432ADCB1 // EtalonNeedsComputerName
@@ -320,6 +345,7 @@ ref; // ME_B7A20CB7CB33
 
 : ME_05EFADB165DF
  CONST UID '05EFADB165DF'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_116A432ADCB1 // EtalonNeedsComputerName
@@ -331,6 +357,7 @@ ref; // ME_05EFADB165DF
 
 : ME_040757A4FB1C
  CONST UID '040757A4FB1C'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_116A432ADCB1 // EtalonNeedsComputerName
@@ -383,6 +410,7 @@ ref; // ME_559687E6025A_ME_116A432ADCB1 GetAllParamsCount
 : ME_116A432ADCB1
  CONST UID '116A432ADCB1'
  CONST Name 'EtalonNeedsComputerName'
+ CONST IsSummoned true
  CONST Class class_Class
  : Stereotype st_ScriptKeyword ;
  CONST Kind kind_NormalClass
@@ -392,43 +420,54 @@ ref; // ME_559687E6025A_ME_116A432ADCB1 GetAllParamsCount
  : Parent ME_4F5F495003E0 // EtalonsWorkingPack
  ;
  : Inherits
-   @ ( WL 'ME_561BAC4B0005' '55CCADD2013D.pas.ms.script' // TtfwGlobalKeyWord
- ) .SequenceCode.It
+   Seq: ( WL 'ME_561BAC4B0005' '55CCADD2013D.pas.ms.script' // TtfwGlobalKeyWord
+ )
  ; // Inherits
  : Operations
-   @ ( ME_298E86FA9596 // Ini_Reg
- ) .SequenceCode.It
+   Seq: ( ME_298E86FA9596 // Ini_Reg
+ )
  ; // Operations
  : Implemented
-   @ ( ME_4DAEEDE10285_ME_116A432ADCB1 // DoDoIt
- ) .SequenceCode.It
+   Seq: ( ME_4DAEEDE10285_ME_116A432ADCB1 // DoDoIt
+ )
  ; // Implemented
  : Overridden
-   @ ( ME_4DB0614603C8_ME_116A432ADCB1 // GetWordNameForRegister
+   Seq: ( ME_4DB0614603C8_ME_116A432ADCB1 // GetWordNameForRegister
  ME_551544E2001A_ME_116A432ADCB1 // GetResultTypeInfo
  ME_559687E6025A_ME_116A432ADCB1 // GetAllParamsCount
- ) .SequenceCode.It
+ )
  ; // Overridden
  : Dependencies
-   @ ( ME_B7A20CB7CB33 // 
+   Seq: ( ME_B7A20CB7CB33 // 
  ME_05EFADB165DF // 
  ME_040757A4FB1C // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  CONST "NameForScript" 'EtalonNeedsComputerName'
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
+ CONST dfm:PathOnly '\common\components\rtl\Garant\ScriptEngine'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\ScriptEngine'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
  CONST extprop:pas:TypeName 'TkwEtalonNeedsComputerName'
+ CONST extprop:rc:SelfName 'EtalonNeedsComputerName'
+ CONST extprop:rc:isAcceptableForScripts true
+ : SpelledFor ME_555F53390367 // EtalonNeedsComputerName
+ ;
 
 ref; // ME_116A432ADCB1 EtalonNeedsComputerName
+
+FORWARD ME_555F534D01A0
 
 FORWARD ME_4A371D758055
 
 : ME_1B150DA140D6
  CONST UID '1B150DA140D6'
  CONST Name 'Ini_Reg'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Регистрация EtalonNeedsOSName' ;
@@ -441,6 +480,7 @@ ref; // ME_1B150DA140D6 Ini_Reg
 
 : ME_EEFBEBBC9436
  CONST UID 'EEFBEBBC9436'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_4A371D758055 // EtalonNeedsOSName
@@ -452,6 +492,7 @@ ref; // ME_EEFBEBBC9436
 
 : ME_EBAD716D6660
  CONST UID 'EBAD716D6660'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_4A371D758055 // EtalonNeedsOSName
@@ -463,6 +504,7 @@ ref; // ME_EBAD716D6660
 
 : ME_DAE52913F6DF
  CONST UID 'DAE52913F6DF'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_4A371D758055 // EtalonNeedsOSName
@@ -515,6 +557,7 @@ ref; // ME_559687E6025A_ME_4A371D758055 GetAllParamsCount
 : ME_4A371D758055
  CONST UID '4A371D758055'
  CONST Name 'EtalonNeedsOSName'
+ CONST IsSummoned true
  CONST Class class_Class
  : Stereotype st_ScriptKeyword ;
  CONST Kind kind_NormalClass
@@ -524,43 +567,54 @@ ref; // ME_559687E6025A_ME_4A371D758055 GetAllParamsCount
  : Parent ME_4F5F495003E0 // EtalonsWorkingPack
  ;
  : Inherits
-   @ ( WL 'ME_561BAC4B0005' '55CCADD2013D.pas.ms.script' // TtfwGlobalKeyWord
- ) .SequenceCode.It
+   Seq: ( WL 'ME_561BAC4B0005' '55CCADD2013D.pas.ms.script' // TtfwGlobalKeyWord
+ )
  ; // Inherits
  : Operations
-   @ ( ME_1B150DA140D6 // Ini_Reg
- ) .SequenceCode.It
+   Seq: ( ME_1B150DA140D6 // Ini_Reg
+ )
  ; // Operations
  : Implemented
-   @ ( ME_4DAEEDE10285_ME_4A371D758055 // DoDoIt
- ) .SequenceCode.It
+   Seq: ( ME_4DAEEDE10285_ME_4A371D758055 // DoDoIt
+ )
  ; // Implemented
  : Overridden
-   @ ( ME_4DB0614603C8_ME_4A371D758055 // GetWordNameForRegister
+   Seq: ( ME_4DB0614603C8_ME_4A371D758055 // GetWordNameForRegister
  ME_551544E2001A_ME_4A371D758055 // GetResultTypeInfo
  ME_559687E6025A_ME_4A371D758055 // GetAllParamsCount
- ) .SequenceCode.It
+ )
  ; // Overridden
  : Dependencies
-   @ ( ME_EEFBEBBC9436 // 
+   Seq: ( ME_EEFBEBBC9436 // 
  ME_EBAD716D6660 // 
  ME_DAE52913F6DF // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  CONST "NameForScript" 'EtalonNeedsOSName'
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
+ CONST dfm:PathOnly '\common\components\rtl\Garant\ScriptEngine'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\ScriptEngine'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
  CONST extprop:pas:TypeName 'TkwEtalonNeedsOSName'
+ CONST extprop:rc:SelfName 'EtalonNeedsOSName'
+ CONST extprop:rc:isAcceptableForScripts true
+ : SpelledFor ME_555F534D01A0 // EtalonNeedsOSName
+ ;
 
 ref; // ME_4A371D758055 EtalonNeedsOSName
+
+FORWARD ME_555F535F00CE
 
 FORWARD ME_DECF86D5A261
 
 : ME_5EDA57F6759C
  CONST UID '5EDA57F6759C'
  CONST Name 'Ini_Reg'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Регистрация EtalonNeedsXE' ;
@@ -573,6 +627,7 @@ ref; // ME_5EDA57F6759C Ini_Reg
 
 : ME_EB701D1CE9CF
  CONST UID 'EB701D1CE9CF'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_DECF86D5A261 // EtalonNeedsXE
@@ -584,6 +639,7 @@ ref; // ME_EB701D1CE9CF
 
 : ME_C5899A33B6CF
  CONST UID 'C5899A33B6CF'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_DECF86D5A261 // EtalonNeedsXE
@@ -595,6 +651,7 @@ ref; // ME_C5899A33B6CF
 
 : ME_EE9C5350BCCD
  CONST UID 'EE9C5350BCCD'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_DECF86D5A261 // EtalonNeedsXE
@@ -647,6 +704,7 @@ ref; // ME_559687E6025A_ME_DECF86D5A261 GetAllParamsCount
 : ME_DECF86D5A261
  CONST UID 'DECF86D5A261'
  CONST Name 'EtalonNeedsXE'
+ CONST IsSummoned true
  CONST Class class_Class
  : Stereotype st_ScriptKeyword ;
  CONST Kind kind_NormalClass
@@ -656,35 +714,43 @@ ref; // ME_559687E6025A_ME_DECF86D5A261 GetAllParamsCount
  : Parent ME_4F5F495003E0 // EtalonsWorkingPack
  ;
  : Inherits
-   @ ( WL 'ME_561BAC4B0005' '55CCADD2013D.pas.ms.script' // TtfwGlobalKeyWord
- ) .SequenceCode.It
+   Seq: ( WL 'ME_561BAC4B0005' '55CCADD2013D.pas.ms.script' // TtfwGlobalKeyWord
+ )
  ; // Inherits
  : Operations
-   @ ( ME_5EDA57F6759C // Ini_Reg
- ) .SequenceCode.It
+   Seq: ( ME_5EDA57F6759C // Ini_Reg
+ )
  ; // Operations
  : Implemented
-   @ ( ME_4DAEEDE10285_ME_DECF86D5A261 // DoDoIt
- ) .SequenceCode.It
+   Seq: ( ME_4DAEEDE10285_ME_DECF86D5A261 // DoDoIt
+ )
  ; // Implemented
  : Overridden
-   @ ( ME_4DB0614603C8_ME_DECF86D5A261 // GetWordNameForRegister
+   Seq: ( ME_4DB0614603C8_ME_DECF86D5A261 // GetWordNameForRegister
  ME_551544E2001A_ME_DECF86D5A261 // GetResultTypeInfo
  ME_559687E6025A_ME_DECF86D5A261 // GetAllParamsCount
- ) .SequenceCode.It
+ )
  ; // Overridden
  : Dependencies
-   @ ( ME_EB701D1CE9CF // 
+   Seq: ( ME_EB701D1CE9CF // 
  ME_C5899A33B6CF // 
  ME_EE9C5350BCCD // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  CONST "NameForScript" 'EtalonNeedsXE'
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
+ CONST dfm:PathOnly '\common\components\rtl\Garant\ScriptEngine'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\ScriptEngine'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
  CONST extprop:pas:TypeName 'TkwEtalonNeedsXE'
+ CONST extprop:rc:SelfName 'EtalonNeedsXE'
+ CONST extprop:rc:isAcceptableForScripts true
+ : SpelledFor ME_555F535F00CE // EtalonNeedsXE
+ ;
 
 ref; // ME_DECF86D5A261 EtalonNeedsXE
 
@@ -696,6 +762,8 @@ ref; // ME_DECF86D5A261 EtalonNeedsXE
  CONST Visibility PublicAccess
  CONST Abstraction at_final
  : Parent ME_4F5F495003E0 // EtalonsWorkingPack
+ ;
+ : Speller ME_60A242C872F7 // EtalonNeeds64
  ;
 
 ref; // ME_555F531D0312 EtalonNeeds64
@@ -709,6 +777,8 @@ ref; // ME_555F531D0312 EtalonNeeds64
  CONST Abstraction at_final
  : Parent ME_4F5F495003E0 // EtalonsWorkingPack
  ;
+ : Speller ME_116A432ADCB1 // EtalonNeedsComputerName
+ ;
 
 ref; // ME_555F53390367 EtalonNeedsComputerName
 
@@ -721,6 +791,8 @@ ref; // ME_555F53390367 EtalonNeedsComputerName
  CONST Abstraction at_final
  : Parent ME_4F5F495003E0 // EtalonsWorkingPack
  ;
+ : Speller ME_4A371D758055 // EtalonNeedsOSName
+ ;
 
 ref; // ME_555F534D01A0 EtalonNeedsOSName
 
@@ -732,6 +804,8 @@ ref; // ME_555F534D01A0 EtalonNeedsOSName
  CONST Visibility PublicAccess
  CONST Abstraction at_final
  : Parent ME_4F5F495003E0 // EtalonsWorkingPack
+ ;
+ : Speller ME_DECF86D5A261 // EtalonNeedsXE
  ;
 
 ref; // ME_555F535F00CE EtalonNeedsXE
@@ -784,6 +858,7 @@ ref; // ME_555F52E402EC
 
 : ME_6FD9A840F480
  CONST UID '6FD9A840F480'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_4F5F495003E0 // EtalonsWorkingPack
@@ -804,44 +879,44 @@ ref; // ME_6FD9A840F480
  : Parent ME_4F5F48ED0181 // EtalonsWorking
  ;
  : Operations
-   @ ( ME_555F531D0312 // EtalonNeeds64
+   Seq: ( ME_555F531D0312 // EtalonNeeds64
  ME_555F53390367 // EtalonNeedsComputerName
  ME_555F534D01A0 // EtalonNeedsOSName
  ME_555F535F00CE // EtalonNeedsXE
- ) .SequenceCode.It
+ )
  ; // Operations
  : Children
-   @ ( ME_60A242C872F7 // EtalonNeeds64
+   Seq: ( ME_60A242C872F7 // EtalonNeeds64
  ME_116A432ADCB1 // EtalonNeedsComputerName
  ME_4A371D758055 // EtalonNeedsOSName
  ME_DECF86D5A261 // EtalonNeedsXE
- ) .SequenceCode.It
+ )
  ; // Children
  : Dependencies
-   @ ( ME_4F5F49570039 // 
+   Seq: ( ME_4F5F49570039 // 
  ME_4F5F495C0259 // 
  ME_53FC35A40121 // 
  ME_555F52E402EC // 
  ME_6FD9A840F480 // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  CONST "ifndef" 'NoScripts'
  CONST "needs script" 'undefined'
  CONST "no class name" 'undefined'
  CONST "no hands" false
  CONST "no_pop" 'undefined'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\ScriptEngine'
  CONST intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\EtalonsWorkingPack.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\ScriptEngine'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_4F5F495003E0 EtalonsWorkingPack
 
 : ME_DEB2A6CEA1DA
  CONST UID 'DEB2A6CEA1DA'
  CONST Name 'Ini_Reg'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Регистрация test_ResolveInputFilePath' ;
@@ -884,32 +959,34 @@ ref; // ME_4DB0614603C8_ME_53FC3551023F GetWordNameForRegister
  : Parent ME_4F5F48ED0181 // EtalonsWorking
  ;
  : Inherits
-   @ ( WL 'ME_53EDC0E701BC' '4F3E3F5F0160.pas.ms.script' // TtfwRegisterableWord
- ) .SequenceCode.It
+   Seq: ( WL 'ME_53EDC0E701BC' '4F3E3F5F0160.pas.ms.script' // TtfwRegisterableWord
+ )
  ; // Inherits
  : Operations
-   @ ( ME_DEB2A6CEA1DA // Ini_Reg
- ) .SequenceCode.It
+   Seq: ( ME_DEB2A6CEA1DA // Ini_Reg
+ )
  ; // Operations
  : Implemented
-   @ ( ME_4DAEEDE10285_ME_53FC3551023F // DoDoIt
- ) .SequenceCode.It
+   Seq: ( ME_4DAEEDE10285_ME_53FC3551023F // DoDoIt
+ )
  ; // Implemented
  : Overridden
-   @ ( ME_4DB0614603C8_ME_53FC3551023F // GetWordNameForRegister
- ) .SequenceCode.It
+   Seq: ( ME_4DB0614603C8_ME_53FC3551023F // GetWordNameForRegister
+ )
  ; // Overridden
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\ScriptEngine'
  CONST intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\kwTestResolveInputFilePath.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\ScriptEngine'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
  CONST extprop:pas:TypeName 'TkwTestResolveInputFilePath'
+ CONST extprop:rc:SelfName 'TestResolveInputFilePath'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'kwTestResolveInputFilePath'
 
 ref; // ME_53FC3551023F test_ResolveInputFilePath
 
@@ -923,14 +1000,14 @@ ref; // ME_53FC3551023F test_ResolveInputFilePath
  : Parent WL 'ME_4E1F0EB100C4' '4E1F0EB100C4.pas.ms.script' // ScriptEngine
  ;
  : Children
-   @ ( ME_4F5F490D030B // CheckOutputWithInput
+   Seq: ( ME_4F5F490D030B // CheckOutputWithInput
  ME_4DD547B70001 // CheckEtalon
  ME_4F5F495003E0 // EtalonsWorkingPack
  ME_53FC3551023F // test_ResolveInputFilePath
- ) .SequenceCode.It
+ )
  ; // Children
  : Depends
-   @ ( WL 'ME_4767743E00E5' '4767743E00E5.pas.ms.script' // TypInfo
+   Seq: ( WL 'ME_4767743E00E5' '4767743E00E5.pas.ms.script' // TypInfo
  WL 'ME_4AB0C3C60310' '4AB0C3C60310.pas.ms.script' // Sys
  WL 'ME_4DAEEA14018A' '4DAEEA14018A.pas.ms.script' // Scripting Axiomatics
  WL 'ME_4DAF19F600C5' '4DAF19F600C5.pas.ms.script' // tfwScriptingInterfaces
@@ -938,16 +1015,14 @@ ref; // ME_53FC3551023F test_ResolveInputFilePath
  WL 'ME_555F498C03BA' '555F498C03BA.pas.ms.script' // EtalonsServices
  WL 'ME_55BA28CE0290' '55BA28CE0290.pas.ms.script' // tfwScriptingTypes
  WL 'ME_55CCADD2013D' '55CCADD2013D.pas.ms.script' // ClassLikeMapping
- ) .SequenceCode.It
+ )
  ; // Depends
  CONST "ifndef" 'NoScripts'
- : Generators
- @ (
- gen_pas.script
- gen_pas.script.runner
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\ScriptEngine'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\ScriptEngine'
  CONST pas.script:Path 'shared\models\NewSchool\Scripts\4F5F48ED0181.pas.ms.script'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
  CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\4F5F48ED0181.pas.ms.script.runner'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_4F5F48ED0181 EtalonsWorking

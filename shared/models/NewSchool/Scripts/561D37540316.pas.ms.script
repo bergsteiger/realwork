@@ -13,19 +13,20 @@ INCLUDE 'ElementsRTTI.ms.dict'
  : Parent WL 'ME_4B63155B0328' '4B63155B0328.pas.ms.script' // MDProcess$ForDelphi
  ;
  : Children
-   @ ( WL 'ME_561D3D9C03C2' '561D3D9C03C2.pas.ms.script' // Core
+   Seq: ( WL 'ME_561D3D9C03C2' '561D3D9C03C2.pas.ms.script' // Core
  WL 'ME_561D3DA401FE' '561D3DA401FE.pas.ms.script' // Containers
  WL 'ME_561D3DAD017D' '561D3DAD017D.pas.ms.script' // Strings
- ) .SequenceCode.It
+ )
  ; // Children
  CONST "path prefix" 'components/rtl/Garant'
- : Generators
- @ (
- gen_pas.script
- gen_pas.script.runner
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\MDProcess'
+ CONST intf.pas:PathOnly '\MDProcess\components\rtl\Garant\L3'
+ CONST mda:PathOnly '\MDProcess'
+ CONST mda.inc:PathOnly '\MDProcess'
  CONST pas.script:Path 'shared\models\NewSchool\Scripts\561D37540316.pas.ms.script'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
  CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\561D37540316.pas.ms.script.runner'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST tpi.script:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_561D37540316 L3$Interface

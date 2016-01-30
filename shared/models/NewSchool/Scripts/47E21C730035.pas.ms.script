@@ -15,9 +15,9 @@ FORWARD ME_47E21C730035
  : Parent ME_47E21C730035 // l3VCLExtensions
  ;
  : Inherits
-   @ ( WL 'ME_47A0ACE90008' '47BB24D30205.pas.ms.script' // l3Castable
+   Seq: ( WL 'ME_47A0ACE90008' '47BB24D30205.pas.ms.script' // l3Castable
  WL 'ME_47E21A8A0324' '4AB0997B00A2.pas.ms.script' // TStrings
- ) .SequenceCode.It
+ )
  ; // Inherits
  CONST "author" 'Люлин А.В.'
  CONST "needs InstanceR" 'undefined'
@@ -25,12 +25,14 @@ FORWARD ME_47E21C730035
  CONST "no hands" true
  CONST "register in scripts" 'undefined'
  CONST "started" '20.03.2008 11:16'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\L3'
  CONST intf.pas:Path 'common\components\rtl\Garant\L3\l3CastableStrings.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\L3'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'CastableStrings'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'l3CastableStrings'
 
 ref; // ME_47E21D07033A Tl3CastableStrings
 
@@ -128,23 +130,23 @@ ref; // ME_47E21BC40258_ME_47E21D500381 PutObject
  : Parent ME_47E21C730035 // l3VCLExtensions
  ;
  : Inherits
-   @ ( WL 'ME_47913F970159' '47913B47006E.pas.ms.script' // l3Unknown
+   Seq: ( WL 'ME_47913F970159' '47913B47006E.pas.ms.script' // l3Unknown
  ME_47E21D07033A // Tl3CastableStrings
- ) .SequenceCode.It
+ )
  ; // Inherits
  : Implemented
-   @ ( ME_47E21AB50104_ME_47E21D500381 // Clear
+   Seq: ( ME_47E21AB50104_ME_47E21D500381 // Clear
  ME_47E21AD40366_ME_47E21D500381 // Insert
  ME_47E21AF20186_ME_47E21D500381 // Get
  ME_47E21B0A0167_ME_47E21D500381 // Put
  ME_47E21B2403D5_ME_47E21D500381 // GetCount
- ) .SequenceCode.It
+ )
  ; // Implemented
  : Overridden
-   @ ( ME_47A6FEE600FC_ME_47E21D500381 // IsCacheable
+   Seq: ( ME_47A6FEE600FC_ME_47E21D500381 // IsCacheable
  ME_47E21BAA029A_ME_47E21D500381 // GetObject
  ME_47E21BC40258_ME_47E21D500381 // PutObject
- ) .SequenceCode.It
+ )
  ; // Overridden
  CONST "author" 'Люлин А.В.'
  CONST "needs InstanceR" 'undefined'
@@ -152,12 +154,14 @@ ref; // ME_47E21BC40258_ME_47E21D500381 PutObject
  CONST "no hands" true
  CONST "register in scripts" 'undefined'
  CONST "started" '29.12.2006 14:25'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\L3'
  CONST intf.pas:Path 'common\components\rtl\Garant\L3\l3VCLStringsItems.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\L3'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'VCLStringsItems'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'l3VCLStringsItems'
 
 ref; // ME_47E21D500381 Tl3VCLStringsItems
 
@@ -174,13 +178,19 @@ FORWARD ME_48721EA10381
  : Parent ME_48721EA10381 // l3VCLStrings
  ;
  : Inherits
-   @ ( ME_47E21D500381 // Tl3VCLStringsItems
- ) .SequenceCode.It
+   Seq: ( ME_47E21D500381 // Tl3VCLStringsItems
+ )
  ; // Inherits
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
+ CONST dfm:PathOnly '\common\components\rtl\Garant\L3'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\L3'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'StringsItems'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_48721ED80234 Tl3StringsItems
 
@@ -445,16 +455,16 @@ ref; // ME_46A47B1C0255_ME_48721EFE0178 Sorted
  : Parent ME_48721EA10381 // l3VCLStrings
  ;
  : Inherits
-   @ ( WL 'ME_4773DCE302FF' '47913B47006E.pas.ms.script' // Tl3StringList
- ) .SequenceCode.It
+   Seq: ( WL 'ME_4773DCE302FF' '47913B47006E.pas.ms.script' // Tl3StringList
+ )
  ; // Inherits
  : Implements
-   @ ( WL 'ME_46A4745301A3' '4677FBA70343.pas.ms.script' // Il3Strings
+   Seq: ( WL 'ME_46A4745301A3' '4677FBA70343.pas.ms.script' // Il3Strings
  WL 'ME_46A4756D00CC' '4677FBA70343.pas.ms.script' // Il3StringsEx
- ) .SequenceCode.It
+ )
  ; // Implements
  : Implemented
-   @ ( ME_46A4746A03AF_ME_48721EFE0178 // Items
+   Seq: ( ME_46A4746A03AF_ME_48721EFE0178 // Items
  ME_46A475C4004F_ME_48721EFE0178 // Assign
  ME_46A475D701AB_ME_48721EFE0178 // Assign
  ME_46A476330239_ME_48721EFE0178 // Items
@@ -478,12 +488,18 @@ ref; // ME_46A47B1C0255_ME_48721EFE0178 Sorted
  ME_46A47A5B035C_ME_48721EFE0178 // ItemC
  ME_46A47AF8022B_ME_48721EFE0178 // Objects
  ME_46A47B1C0255_ME_48721EFE0178 // Sorted
- ) .SequenceCode.It
+ )
  ; // Implemented
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
+ CONST dfm:PathOnly '\common\components\rtl\Garant\L3'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\L3'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'Strings'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_48721EFE0178 Tl3CustomStrings
 
@@ -498,13 +514,19 @@ ref; // ME_48721EFE0178 Tl3CustomStrings
  : Parent ME_48721EA10381 // l3VCLStrings
  ;
  : Inherits
-   @ ( ME_48721EFE0178 // Tl3CustomStrings
- ) .SequenceCode.It
+   Seq: ( ME_48721EFE0178 // Tl3CustomStrings
+ )
  ; // Inherits
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
+ CONST dfm:PathOnly '\common\components\rtl\Garant\L3'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\L3'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'Strings'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_48721F730220 Tl3Strings
 
@@ -519,21 +541,21 @@ ref; // ME_48721F730220 Tl3Strings
  : Parent ME_47E21C730035 // l3VCLExtensions
  ;
  : Children
-   @ ( ME_48721ED80234 // Tl3StringsItems
+   Seq: ( ME_48721ED80234 // Tl3StringsItems
  ME_48721EFE0178 // Tl3CustomStrings
  ME_48721F730220 // Tl3Strings
- ) .SequenceCode.It
+ )
  ; // Children
  CONST "author" 'Люлин А.В.'
  CONST "finished" false
  CONST "no hands" false
  CONST "started" '29.12.2006 13:48'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\L3'
  CONST intf.pas:Path 'common\components\rtl\Garant\L3\NOT_FINISHED_l3VCLStrings.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\L3'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'VCLStrings'
 
 ref; // ME_48721EA10381 l3VCLStrings
 
@@ -547,25 +569,23 @@ ref; // ME_48721EA10381 l3VCLStrings
  : Parent WL 'ME_54F5AAED0073' '54F5AAED0073.pas.ms.script' // L3$Visual
  ;
  : Children
-   @ ( ME_47E21D07033A // Tl3CastableStrings
+   Seq: ( ME_47E21D07033A // Tl3CastableStrings
  ME_47E21D500381 // Tl3VCLStringsItems
  ME_48721EA10381 // l3VCLStrings
- ) .SequenceCode.It
+ )
  ; // Children
  : Depends
-   @ ( WL 'ME_4677FBA70343' '4677FBA70343.pas.ms.script' // l3Interfaces
+   Seq: ( WL 'ME_4677FBA70343' '4677FBA70343.pas.ms.script' // l3Interfaces
  WL 'ME_47913B47006E' '47913B47006E.pas.ms.script' // l3CoreObjects
  WL 'ME_47BB24D30205' '47BB24D30205.pas.ms.script' // Стандартные примеси
  WL 'ME_4AB0997B00A2' '4AB0997B00A2.pas.ms.script' // Common
- ) .SequenceCode.It
+ )
  ; // Depends
- : Generators
- @ (
- gen_pas.script
- gen_pas.script.runner
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\L3'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\L3'
  CONST pas.script:Path 'shared\models\NewSchool\Scripts\47E21C730035.pas.ms.script'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
  CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\47E21C730035.pas.ms.script.runner'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_47E21C730035 l3VCLExtensions

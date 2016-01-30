@@ -43,8 +43,8 @@ ref; // ME_4F4FD85C007C aFileName
  : Parent ME_4F4FD849026C // CreateRead
  ;
  : Parameters
-   @ ( ME_4F4FD85C007C // aFileName
- ) .SequenceCode.It
+   Seq: ( ME_4F4FD85C007C // aFileName
+ )
  ; // Parameters
 
 ref; // ME_4F4FD85202B5 DoIt
@@ -60,8 +60,8 @@ ref; // ME_4F4FD85202B5 DoIt
  : Parent ME_4F4FD77B03CC // TtfwFile
  ;
  : Operations
-   @ ( ME_4F4FD85202B5 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_4F4FD85202B5 // DoIt
+ )
  ; // Operations
 
 ref; // ME_4F4FD849026C CreateRead
@@ -87,8 +87,8 @@ ref; // ME_4F4FD88403DE aFileName
  : Parent ME_4F4FD85F033A // CreateWrite
  ;
  : Parameters
-   @ ( ME_4F4FD88403DE // aFileName
- ) .SequenceCode.It
+   Seq: ( ME_4F4FD88403DE // aFileName
+ )
  ; // Parameters
 
 ref; // ME_4F4FD8800331 DoIt
@@ -104,8 +104,8 @@ ref; // ME_4F4FD8800331 DoIt
  : Parent ME_4F4FD77B03CC // TtfwFile
  ;
  : Operations
-   @ ( ME_4F4FD8800331 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_4F4FD8800331 // DoIt
+ )
  ; // Operations
 
 ref; // ME_4F4FD85F033A CreateWrite
@@ -115,6 +115,7 @@ FORWARD ME_4F4FD88C01B2
 : ME_96C6C5C2D2C0
  CONST UID '96C6C5C2D2C0'
  CONST Name 'aFileName'
+ CONST IsSummoned true
  CONST Class class_Parameter
  : Stereotype st_in ;
  : Target WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
@@ -125,6 +126,7 @@ ref; // ME_96C6C5C2D2C0 aFileName
 : ME_5924CD0048E0
  CONST UID '5924CD0048E0'
  CONST Name 'DoIt'
+ CONST IsSummoned true
  CONST Class class_Operation
  %SUMMARY 'Сигнатура фабрики TtfwFile.MakeRead' ;
  CONST Visibility PrivateAccess
@@ -134,8 +136,8 @@ ref; // ME_96C6C5C2D2C0 aFileName
  : Target WL 'ME_4F4E4E7101D6' '4DAF19F600C5.pas.ms.script' // ItfwFile
  ;
  : Parameters
-   @ ( ME_96C6C5C2D2C0 // aFileName
- ) .SequenceCode.It
+   Seq: ( ME_96C6C5C2D2C0 // aFileName
+ )
  ; // Parameters
 
 ref; // ME_5924CD0048E0 DoIt
@@ -151,16 +153,16 @@ ref; // ME_5924CD0048E0 DoIt
  : Parent ME_4F4FD77B03CC // TtfwFile
  ;
  : Inherits
-   @ ( ME_4F4FD849026C // CreateRead
- ) .SequenceCode.It
+   Seq: ( ME_4F4FD849026C // CreateRead
+ )
  ; // Inherits
  : Implements
-   @ ( WL 'ME_4F4E4E7101D6' '4DAF19F600C5.pas.ms.script' // ItfwFile
- ) .SequenceCode.It
+   Seq: ( WL 'ME_4F4E4E7101D6' '4DAF19F600C5.pas.ms.script' // ItfwFile
+ )
  ; // Implements
  : Operations
-   @ ( ME_5924CD0048E0 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_5924CD0048E0 // DoIt
+ )
  ; // Operations
  CONST "check nil" false
  CONST "need AfterCreate" 'undefined'
@@ -174,6 +176,7 @@ FORWARD ME_4F4FD89C00DB
 : ME_82AF9852D2D9
  CONST UID '82AF9852D2D9'
  CONST Name 'aFileName'
+ CONST IsSummoned true
  CONST Class class_Parameter
  : Stereotype st_in ;
  : Target WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
@@ -184,6 +187,7 @@ ref; // ME_82AF9852D2D9 aFileName
 : ME_A7F24F8402CD
  CONST UID 'A7F24F8402CD'
  CONST Name 'DoIt'
+ CONST IsSummoned true
  CONST Class class_Operation
  %SUMMARY 'Сигнатура фабрики TtfwFile.MakeWrite' ;
  CONST Visibility PrivateAccess
@@ -193,8 +197,8 @@ ref; // ME_82AF9852D2D9 aFileName
  : Target WL 'ME_4F4E4E7101D6' '4DAF19F600C5.pas.ms.script' // ItfwFile
  ;
  : Parameters
-   @ ( ME_82AF9852D2D9 // aFileName
- ) .SequenceCode.It
+   Seq: ( ME_82AF9852D2D9 // aFileName
+ )
  ; // Parameters
 
 ref; // ME_A7F24F8402CD DoIt
@@ -210,16 +214,16 @@ ref; // ME_A7F24F8402CD DoIt
  : Parent ME_4F4FD77B03CC // TtfwFile
  ;
  : Inherits
-   @ ( ME_4F4FD85F033A // CreateWrite
- ) .SequenceCode.It
+   Seq: ( ME_4F4FD85F033A // CreateWrite
+ )
  ; // Inherits
  : Implements
-   @ ( WL 'ME_4F4E4E7101D6' '4DAF19F600C5.pas.ms.script' // ItfwFile
- ) .SequenceCode.It
+   Seq: ( WL 'ME_4F4E4E7101D6' '4DAF19F600C5.pas.ms.script' // ItfwFile
+ )
  ; // Implements
  : Operations
-   @ ( ME_A7F24F8402CD // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_A7F24F8402CD // DoIt
+ )
  ; // Operations
  CONST "check nil" false
  CONST "need AfterCreate" 'undefined'
@@ -372,26 +376,26 @@ ref; // ME_479731C50290_ME_4F4FD77B03CC Cleanup
  : Parent ME_4F4FD7EA00EB // FileProcessingPack
  ;
  : Inherits
-   @ ( WL 'ME_4AE5CA2D0034' '47913B47006E.pas.ms.script' // Tl3CProtoObject
- ) .SequenceCode.It
+   Seq: ( WL 'ME_4AE5CA2D0034' '47913B47006E.pas.ms.script' // Tl3CProtoObject
+ )
  ; // Inherits
  : Implements
-   @ ( WL 'ME_4F4E4E7101D6' '4DAF19F600C5.pas.ms.script' // ItfwFile
- ) .SequenceCode.It
+   Seq: ( WL 'ME_4F4E4E7101D6' '4DAF19F600C5.pas.ms.script' // ItfwFile
+ )
  ; // Implements
  : Attributes
-   @ ( ME_4F4FD78A01EF // f_Filer
- ) .SequenceCode.It
+   Seq: ( ME_4F4FD78A01EF // f_Filer
+ )
  ; // Attributes
  : Operations
-   @ ( ME_4F4FD849026C // CreateRead
+   Seq: ( ME_4F4FD849026C // CreateRead
  ME_4F4FD85F033A // CreateWrite
  ME_4F4FD88C01B2 // MakeRead
  ME_4F4FD89C00DB // MakeWrite
- ) .SequenceCode.It
+ )
  ; // Operations
  : Implemented
-   @ ( ME_4F4E4E7E0350_ME_4F4FD77B03CC // ReadLn
+   Seq: ( ME_4F4E4E7E0350_ME_4F4FD77B03CC // ReadLn
  ME_4F4E4EA7007D_ME_4F4FD77B03CC // WriteLn
  ME_4F4FDC540264_ME_4F4FD77B03CC // WriteChar
  ME_4F4FE16A0269_ME_4F4FD77B03CC // ReadWStrLn
@@ -400,22 +404,28 @@ ref; // ME_479731C50290_ME_4F4FD77B03CC Cleanup
  ME_4F50821201E7_ME_4F4FD77B03CC // EOF
  ME_52E23B7A00EC_ME_4F4FD77B03CC // ForEach
  ME_52E23BB102FA_ME_4F4FD77B03CC // ForEachBack
- ) .SequenceCode.It
+ )
  ; // Implemented
  : Overridden
-   @ ( ME_479731C50290_ME_4F4FD77B03CC // Cleanup
- ) .SequenceCode.It
+   Seq: ( ME_479731C50290_ME_4F4FD77B03CC // Cleanup
+ )
  ; // Overridden
  : Dependencies
-   @ ( ME_4F4FD7BB0384 // 
+   Seq: ( ME_4F4FD7BB0384 // 
  ME_4F4FD8DA01C1 // 
  ME_4F4FD9E7017E // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
+ CONST dfm:PathOnly '\common\components\rtl\Garant\ScriptEngine'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\ScriptEngine'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'File'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_4F4FD77B03CC TtfwFile
 
@@ -424,6 +434,7 @@ FORWARD ME_23408B0EC0B1
 : ME_82C2DE9B18DD
  CONST UID '82C2DE9B18DD'
  CONST Name 'RegAxiom'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Регистрация скриптованой аксиоматики' ;
@@ -448,6 +459,7 @@ ref; // ME_55B7A3AF0359_ME_23408B0EC0B1 ResName
 : ME_23408B0EC0B1
  CONST UID '23408B0EC0B1'
  CONST Name 'TFileProcessingPackResNameGetter'
+ CONST IsSummoned true
  CONST Class class_Class
  : Stereotype st_SimpleClass ;
  CONST Kind kind_NormalClass
@@ -457,30 +469,39 @@ ref; // ME_55B7A3AF0359_ME_23408B0EC0B1 ResName
  : Parent ME_4F4FD7EA00EB // FileProcessingPack
  ;
  : Inherits
-   @ ( WL 'ME_55B7A33101AF' '55B7A3160128.pas.ms.script' // TtfwAxiomaticsResNameGetter
- ) .SequenceCode.It
+   Seq: ( WL 'ME_55B7A33101AF' '55B7A3160128.pas.ms.script' // TtfwAxiomaticsResNameGetter
+ )
  ; // Inherits
  : Operations
-   @ ( ME_82C2DE9B18DD // RegAxiom
- ) .SequenceCode.It
+   Seq: ( ME_82C2DE9B18DD // RegAxiom
+ )
  ; // Operations
  : Implemented
-   @ ( ME_55B7A3AF0359_ME_23408B0EC0B1 // ResName
- ) .SequenceCode.It
+   Seq: ( ME_55B7A3AF0359_ME_23408B0EC0B1 // ResName
+ )
  ; // Implemented
  CONST "need UC" true
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
+ CONST dfm:PathOnly '\common\components\rtl\Garant\ScriptEngine'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\ScriptEngine'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'FileProcessingPackResNameGetter'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_23408B0EC0B1 TFileProcessingPackResNameGetter
+
+FORWARD ME_55B5FB4B0008
 
 FORWARD ME_E10DA0D7493D
 
 : ME_B8B6FBF3069E
  CONST UID 'B8B6FBF3069E'
  CONST Name 'aCtx'
+ CONST IsSummoned true
  CONST Class class_Parameter
  : Stereotype st_in ;
  : Target WL 'ME_4DB0091E033E' '4DAF19F600C5.pas.ms.script' // TtfwContext
@@ -491,6 +512,7 @@ ref; // ME_B8B6FBF3069E aCtx
 : ME_B8B6FBF3069F
  CONST UID 'B8B6FBF3069F'
  CONST Name 'aName'
+ CONST IsSummoned true
  CONST Class class_Parameter
  : Stereotype st_in ;
  : Target WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
@@ -501,6 +523,7 @@ ref; // ME_B8B6FBF3069F aName
 : ME_1138E576E816
  CONST UID '1138E576E816'
  CONST Name 'OpenRead'
+ CONST IsSummoned true
  CONST Class class_Operation
  %SUMMARY 'Реализация слова скрипта File:OpenRead' ;
  CONST Visibility PrivateAccess
@@ -510,9 +533,9 @@ ref; // ME_B8B6FBF3069F aName
  : Target WL 'ME_4F4E4E7101D6' '4DAF19F600C5.pas.ms.script' // ItfwFile
  ;
  : Parameters
-   @ ( ME_B8B6FBF3069E // aCtx
+   Seq: ( ME_B8B6FBF3069E // aCtx
  ME_B8B6FBF3069F // aName
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_1138E576E816 OpenRead
@@ -520,6 +543,7 @@ ref; // ME_1138E576E816 OpenRead
 : ME_E0FFE1BCEEE5
  CONST UID 'E0FFE1BCEEE5'
  CONST Name 'Ini_Reg'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Регистрация File_OpenRead' ;
@@ -532,6 +556,7 @@ ref; // ME_E0FFE1BCEEE5 Ini_Reg
 
 : ME_3CC28F4A2D4E
  CONST UID '3CC28F4A2D4E'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_E10DA0D7493D // File_OpenRead
@@ -543,6 +568,7 @@ ref; // ME_3CC28F4A2D4E
 
 : ME_DA2F4444C8AB
  CONST UID 'DA2F4444C8AB'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_E10DA0D7493D // File_OpenRead
@@ -554,6 +580,7 @@ ref; // ME_DA2F4444C8AB
 
 : ME_D1CE3ACDE145
  CONST UID 'D1CE3ACDE145'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_E10DA0D7493D // File_OpenRead
@@ -616,6 +643,7 @@ ref; // ME_5617F4D00243_ME_E10DA0D7493D ParamsTypes
 : ME_E10DA0D7493D
  CONST UID 'E10DA0D7493D'
  CONST Name 'File_OpenRead'
+ CONST IsSummoned true
  CONST Class class_Class
  : Stereotype st_ScriptKeyword ;
  CONST Kind kind_NormalClass
@@ -625,45 +653,56 @@ ref; // ME_5617F4D00243_ME_E10DA0D7493D ParamsTypes
  : Parent ME_4F4FD7EA00EB // FileProcessingPack
  ;
  : Inherits
-   @ ( WL 'ME_53EDC0E701BC' '4F3E3F5F0160.pas.ms.script' // TtfwRegisterableWord
- ) .SequenceCode.It
+   Seq: ( WL 'ME_53EDC0E701BC' '4F3E3F5F0160.pas.ms.script' // TtfwRegisterableWord
+ )
  ; // Inherits
  : Operations
-   @ ( ME_1138E576E816 // OpenRead
+   Seq: ( ME_1138E576E816 // OpenRead
  ME_E0FFE1BCEEE5 // Ini_Reg
- ) .SequenceCode.It
+ )
  ; // Operations
  : Implemented
-   @ ( ME_4DAEEDE10285_ME_E10DA0D7493D // DoDoIt
- ) .SequenceCode.It
+   Seq: ( ME_4DAEEDE10285_ME_E10DA0D7493D // DoDoIt
+ )
  ; // Implemented
  : Overridden
-   @ ( ME_4DB0614603C8_ME_E10DA0D7493D // GetWordNameForRegister
+   Seq: ( ME_4DB0614603C8_ME_E10DA0D7493D // GetWordNameForRegister
  ME_551544E2001A_ME_E10DA0D7493D // GetResultTypeInfo
  ME_559687E6025A_ME_E10DA0D7493D // GetAllParamsCount
  ME_5617F4D00243_ME_E10DA0D7493D // ParamsTypes
- ) .SequenceCode.It
+ )
  ; // Overridden
  : Dependencies
-   @ ( ME_3CC28F4A2D4E // 
+   Seq: ( ME_3CC28F4A2D4E // 
  ME_DA2F4444C8AB // 
  ME_D1CE3ACDE145 // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  CONST "NameForScript" 'File:OpenRead'
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
+ CONST dfm:PathOnly '\common\components\rtl\Garant\ScriptEngine'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\ScriptEngine'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
  CONST extprop:pas:TypeName 'TkwFileOpenRead'
+ CONST extprop:rc:SelfName 'FileOpenRead'
+ CONST extprop:rc:isAcceptableForScripts true
+ : SpelledFor ME_55B5FB4B0008 // OpenRead
+ ;
 
 ref; // ME_E10DA0D7493D File_OpenRead
+
+FORWARD ME_55B5FB780316
 
 FORWARD ME_1CA3472F7177
 
 : ME_D450B1FC58F0
  CONST UID 'D450B1FC58F0'
  CONST Name 'aCtx'
+ CONST IsSummoned true
  CONST Class class_Parameter
  : Stereotype st_in ;
  : Target WL 'ME_4DB0091E033E' '4DAF19F600C5.pas.ms.script' // TtfwContext
@@ -674,6 +713,7 @@ ref; // ME_D450B1FC58F0 aCtx
 : ME_D450B1FC58F1
  CONST UID 'D450B1FC58F1'
  CONST Name 'aName'
+ CONST IsSummoned true
  CONST Class class_Parameter
  : Stereotype st_in ;
  : Target WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
@@ -684,6 +724,7 @@ ref; // ME_D450B1FC58F1 aName
 : ME_C3A7BCE24C3B
  CONST UID 'C3A7BCE24C3B'
  CONST Name 'OpenWrite'
+ CONST IsSummoned true
  CONST Class class_Operation
  %SUMMARY 'Реализация слова скрипта File:OpenWrite' ;
  CONST Visibility PrivateAccess
@@ -693,9 +734,9 @@ ref; // ME_D450B1FC58F1 aName
  : Target WL 'ME_4F4E4E7101D6' '4DAF19F600C5.pas.ms.script' // ItfwFile
  ;
  : Parameters
-   @ ( ME_D450B1FC58F0 // aCtx
+   Seq: ( ME_D450B1FC58F0 // aCtx
  ME_D450B1FC58F1 // aName
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_C3A7BCE24C3B OpenWrite
@@ -703,6 +744,7 @@ ref; // ME_C3A7BCE24C3B OpenWrite
 : ME_DEA2F5073DC7
  CONST UID 'DEA2F5073DC7'
  CONST Name 'Ini_Reg'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Регистрация File_OpenWrite' ;
@@ -715,6 +757,7 @@ ref; // ME_DEA2F5073DC7 Ini_Reg
 
 : ME_F84ECB198E78
  CONST UID 'F84ECB198E78'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_1CA3472F7177 // File_OpenWrite
@@ -726,6 +769,7 @@ ref; // ME_F84ECB198E78
 
 : ME_D78640103B79
  CONST UID 'D78640103B79'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_1CA3472F7177 // File_OpenWrite
@@ -737,6 +781,7 @@ ref; // ME_D78640103B79
 
 : ME_CDE768654982
  CONST UID 'CDE768654982'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_1CA3472F7177 // File_OpenWrite
@@ -799,6 +844,7 @@ ref; // ME_5617F4D00243_ME_1CA3472F7177 ParamsTypes
 : ME_1CA3472F7177
  CONST UID '1CA3472F7177'
  CONST Name 'File_OpenWrite'
+ CONST IsSummoned true
  CONST Class class_Class
  : Stereotype st_ScriptKeyword ;
  CONST Kind kind_NormalClass
@@ -808,45 +854,56 @@ ref; // ME_5617F4D00243_ME_1CA3472F7177 ParamsTypes
  : Parent ME_4F4FD7EA00EB // FileProcessingPack
  ;
  : Inherits
-   @ ( WL 'ME_53EDC0E701BC' '4F3E3F5F0160.pas.ms.script' // TtfwRegisterableWord
- ) .SequenceCode.It
+   Seq: ( WL 'ME_53EDC0E701BC' '4F3E3F5F0160.pas.ms.script' // TtfwRegisterableWord
+ )
  ; // Inherits
  : Operations
-   @ ( ME_C3A7BCE24C3B // OpenWrite
+   Seq: ( ME_C3A7BCE24C3B // OpenWrite
  ME_DEA2F5073DC7 // Ini_Reg
- ) .SequenceCode.It
+ )
  ; // Operations
  : Implemented
-   @ ( ME_4DAEEDE10285_ME_1CA3472F7177 // DoDoIt
- ) .SequenceCode.It
+   Seq: ( ME_4DAEEDE10285_ME_1CA3472F7177 // DoDoIt
+ )
  ; // Implemented
  : Overridden
-   @ ( ME_4DB0614603C8_ME_1CA3472F7177 // GetWordNameForRegister
+   Seq: ( ME_4DB0614603C8_ME_1CA3472F7177 // GetWordNameForRegister
  ME_551544E2001A_ME_1CA3472F7177 // GetResultTypeInfo
  ME_559687E6025A_ME_1CA3472F7177 // GetAllParamsCount
  ME_5617F4D00243_ME_1CA3472F7177 // ParamsTypes
- ) .SequenceCode.It
+ )
  ; // Overridden
  : Dependencies
-   @ ( ME_F84ECB198E78 // 
+   Seq: ( ME_F84ECB198E78 // 
  ME_D78640103B79 // 
  ME_CDE768654982 // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  CONST "NameForScript" 'File:OpenWrite'
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
+ CONST dfm:PathOnly '\common\components\rtl\Garant\ScriptEngine'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\ScriptEngine'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
  CONST extprop:pas:TypeName 'TkwFileOpenWrite'
+ CONST extprop:rc:SelfName 'FileOpenWrite'
+ CONST extprop:rc:isAcceptableForScripts true
+ : SpelledFor ME_55B5FB780316 // OpenWrite
+ ;
 
 ref; // ME_1CA3472F7177 File_OpenWrite
+
+FORWARD ME_55B5FB9E01EF
 
 FORWARD ME_2B33C78BBAB9
 
 : ME_536F545A5ADB
  CONST UID '536F545A5ADB'
  CONST Name 'aCtx'
+ CONST IsSummoned true
  CONST Class class_Parameter
  : Stereotype st_in ;
  : Target WL 'ME_4DB0091E033E' '4DAF19F600C5.pas.ms.script' // TtfwContext
@@ -857,6 +914,7 @@ ref; // ME_536F545A5ADB aCtx
 : ME_536F545A5ADC
  CONST UID '536F545A5ADC'
  CONST Name 'aFile'
+ CONST IsSummoned true
  CONST Class class_Parameter
  : Stereotype st_in ;
  : Target WL 'ME_4F4E4E7101D6' '4DAF19F600C5.pas.ms.script' // ItfwFile
@@ -867,6 +925,7 @@ ref; // ME_536F545A5ADC aFile
 : ME_509E2E3CFD11
  CONST UID '509E2E3CFD11'
  CONST Name 'EOF'
+ CONST IsSummoned true
  CONST Class class_Operation
  %SUMMARY 'Реализация слова скрипта File:EOF' ;
  CONST Visibility PrivateAccess
@@ -876,9 +935,9 @@ ref; // ME_536F545A5ADC aFile
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
  : Parameters
-   @ ( ME_536F545A5ADB // aCtx
+   Seq: ( ME_536F545A5ADB // aCtx
  ME_536F545A5ADC // aFile
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_509E2E3CFD11 EOF
@@ -886,6 +945,7 @@ ref; // ME_509E2E3CFD11 EOF
 : ME_5575B11DBBA0
  CONST UID '5575B11DBBA0'
  CONST Name 'Ini_Reg'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Регистрация File_EOF' ;
@@ -898,6 +958,7 @@ ref; // ME_5575B11DBBA0 Ini_Reg
 
 : ME_6D8935B5BC9F
  CONST UID '6D8935B5BC9F'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_2B33C78BBAB9 // File_EOF
@@ -909,6 +970,7 @@ ref; // ME_6D8935B5BC9F
 
 : ME_FA0D4E5D6CB0
  CONST UID 'FA0D4E5D6CB0'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_2B33C78BBAB9 // File_EOF
@@ -920,6 +982,7 @@ ref; // ME_FA0D4E5D6CB0
 
 : ME_36175CD2A2B8
  CONST UID '36175CD2A2B8'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_2B33C78BBAB9 // File_EOF
@@ -982,6 +1045,7 @@ ref; // ME_5617F4D00243_ME_2B33C78BBAB9 ParamsTypes
 : ME_2B33C78BBAB9
  CONST UID '2B33C78BBAB9'
  CONST Name 'File_EOF'
+ CONST IsSummoned true
  CONST Class class_Class
  : Stereotype st_ScriptKeyword ;
  CONST Kind kind_NormalClass
@@ -991,45 +1055,56 @@ ref; // ME_5617F4D00243_ME_2B33C78BBAB9 ParamsTypes
  : Parent ME_4F4FD7EA00EB // FileProcessingPack
  ;
  : Inherits
-   @ ( WL 'ME_55CCAE000335' '55CCADD2013D.pas.ms.script' // TtfwClassLike
- ) .SequenceCode.It
+   Seq: ( WL 'ME_55CCAE000335' '55CCADD2013D.pas.ms.script' // TtfwClassLike
+ )
  ; // Inherits
  : Operations
-   @ ( ME_509E2E3CFD11 // EOF
+   Seq: ( ME_509E2E3CFD11 // EOF
  ME_5575B11DBBA0 // Ini_Reg
- ) .SequenceCode.It
+ )
  ; // Operations
  : Implemented
-   @ ( ME_4DAEEDE10285_ME_2B33C78BBAB9 // DoDoIt
- ) .SequenceCode.It
+   Seq: ( ME_4DAEEDE10285_ME_2B33C78BBAB9 // DoDoIt
+ )
  ; // Implemented
  : Overridden
-   @ ( ME_4DB0614603C8_ME_2B33C78BBAB9 // GetWordNameForRegister
+   Seq: ( ME_4DB0614603C8_ME_2B33C78BBAB9 // GetWordNameForRegister
  ME_551544E2001A_ME_2B33C78BBAB9 // GetResultTypeInfo
  ME_559687E6025A_ME_2B33C78BBAB9 // GetAllParamsCount
  ME_5617F4D00243_ME_2B33C78BBAB9 // ParamsTypes
- ) .SequenceCode.It
+ )
  ; // Overridden
  : Dependencies
-   @ ( ME_6D8935B5BC9F // 
+   Seq: ( ME_6D8935B5BC9F // 
  ME_FA0D4E5D6CB0 // 
  ME_36175CD2A2B8 // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  CONST "NameForScript" 'File:EOF'
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
+ CONST dfm:PathOnly '\common\components\rtl\Garant\ScriptEngine'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\ScriptEngine'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
  CONST extprop:pas:TypeName 'TkwFileEOF'
+ CONST extprop:rc:SelfName 'FileEOF'
+ CONST extprop:rc:isAcceptableForScripts true
+ : SpelledFor ME_55B5FB9E01EF // EOF
+ ;
 
 ref; // ME_2B33C78BBAB9 File_EOF
+
+FORWARD ME_55B5FBE20353
 
 FORWARD ME_324E0BCF3B98
 
 : ME_A1668C8AE965
  CONST UID 'A1668C8AE965'
  CONST Name 'aCtx'
+ CONST IsSummoned true
  CONST Class class_Parameter
  : Stereotype st_in ;
  : Target WL 'ME_4DB0091E033E' '4DAF19F600C5.pas.ms.script' // TtfwContext
@@ -1040,6 +1115,7 @@ ref; // ME_A1668C8AE965 aCtx
 : ME_A1668C8AE966
  CONST UID 'A1668C8AE966'
  CONST Name 'aFile'
+ CONST IsSummoned true
  CONST Class class_Parameter
  : Stereotype st_in ;
  : Target WL 'ME_4F4E4E7101D6' '4DAF19F600C5.pas.ms.script' // ItfwFile
@@ -1050,6 +1126,7 @@ ref; // ME_A1668C8AE966 aFile
 : ME_47F929C35E76
  CONST UID '47F929C35E76'
  CONST Name 'ReadLn'
+ CONST IsSummoned true
  CONST Class class_Operation
  %SUMMARY 'Реализация слова скрипта File:ReadLn' ;
  CONST Visibility PrivateAccess
@@ -1059,9 +1136,9 @@ ref; // ME_A1668C8AE966 aFile
  : Target WL 'ME_46780DA40383' '4677FBA70343.pas.ms.script' // Il3CString
  ;
  : Parameters
-   @ ( ME_A1668C8AE965 // aCtx
+   Seq: ( ME_A1668C8AE965 // aCtx
  ME_A1668C8AE966 // aFile
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_47F929C35E76 ReadLn
@@ -1069,6 +1146,7 @@ ref; // ME_47F929C35E76 ReadLn
 : ME_3D77EB02465F
  CONST UID '3D77EB02465F'
  CONST Name 'Ini_Reg'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Регистрация File_ReadLn' ;
@@ -1081,6 +1159,7 @@ ref; // ME_3D77EB02465F Ini_Reg
 
 : ME_DD3698057889
  CONST UID 'DD3698057889'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_324E0BCF3B98 // File_ReadLn
@@ -1092,6 +1171,7 @@ ref; // ME_DD3698057889
 
 : ME_9B653BF052AF
  CONST UID '9B653BF052AF'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_324E0BCF3B98 // File_ReadLn
@@ -1103,6 +1183,7 @@ ref; // ME_9B653BF052AF
 
 : ME_D509904B219D
  CONST UID 'D509904B219D'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_324E0BCF3B98 // File_ReadLn
@@ -1165,6 +1246,7 @@ ref; // ME_5617F4D00243_ME_324E0BCF3B98 ParamsTypes
 : ME_324E0BCF3B98
  CONST UID '324E0BCF3B98'
  CONST Name 'File_ReadLn'
+ CONST IsSummoned true
  CONST Class class_Class
  : Stereotype st_ScriptKeyword ;
  CONST Kind kind_NormalClass
@@ -1174,45 +1256,56 @@ ref; // ME_5617F4D00243_ME_324E0BCF3B98 ParamsTypes
  : Parent ME_4F4FD7EA00EB // FileProcessingPack
  ;
  : Inherits
-   @ ( WL 'ME_55CCAE000335' '55CCADD2013D.pas.ms.script' // TtfwClassLike
- ) .SequenceCode.It
+   Seq: ( WL 'ME_55CCAE000335' '55CCADD2013D.pas.ms.script' // TtfwClassLike
+ )
  ; // Inherits
  : Operations
-   @ ( ME_47F929C35E76 // ReadLn
+   Seq: ( ME_47F929C35E76 // ReadLn
  ME_3D77EB02465F // Ini_Reg
- ) .SequenceCode.It
+ )
  ; // Operations
  : Implemented
-   @ ( ME_4DAEEDE10285_ME_324E0BCF3B98 // DoDoIt
- ) .SequenceCode.It
+   Seq: ( ME_4DAEEDE10285_ME_324E0BCF3B98 // DoDoIt
+ )
  ; // Implemented
  : Overridden
-   @ ( ME_4DB0614603C8_ME_324E0BCF3B98 // GetWordNameForRegister
+   Seq: ( ME_4DB0614603C8_ME_324E0BCF3B98 // GetWordNameForRegister
  ME_551544E2001A_ME_324E0BCF3B98 // GetResultTypeInfo
  ME_559687E6025A_ME_324E0BCF3B98 // GetAllParamsCount
  ME_5617F4D00243_ME_324E0BCF3B98 // ParamsTypes
- ) .SequenceCode.It
+ )
  ; // Overridden
  : Dependencies
-   @ ( ME_DD3698057889 // 
+   Seq: ( ME_DD3698057889 // 
  ME_9B653BF052AF // 
  ME_D509904B219D // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  CONST "NameForScript" 'File:ReadLn'
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
+ CONST dfm:PathOnly '\common\components\rtl\Garant\ScriptEngine'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\ScriptEngine'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
  CONST extprop:pas:TypeName 'TkwFileReadLn'
+ CONST extprop:rc:SelfName 'FileReadLn'
+ CONST extprop:rc:isAcceptableForScripts true
+ : SpelledFor ME_55B5FBE20353 // ReadLn
+ ;
 
 ref; // ME_324E0BCF3B98 File_ReadLn
+
+FORWARD ME_55B5FBFE02E9
 
 FORWARD ME_D6A86D931B42
 
 : ME_42BE65FA8BC7
  CONST UID '42BE65FA8BC7'
  CONST Name 'aCtx'
+ CONST IsSummoned true
  CONST Class class_Parameter
  : Stereotype st_in ;
  : Target WL 'ME_4DB0091E033E' '4DAF19F600C5.pas.ms.script' // TtfwContext
@@ -1223,6 +1316,7 @@ ref; // ME_42BE65FA8BC7 aCtx
 : ME_42BE65FA8BC8
  CONST UID '42BE65FA8BC8'
  CONST Name 'aFile'
+ CONST IsSummoned true
  CONST Class class_Parameter
  : Stereotype st_in ;
  : Target WL 'ME_4F4E4E7101D6' '4DAF19F600C5.pas.ms.script' // ItfwFile
@@ -1233,6 +1327,7 @@ ref; // ME_42BE65FA8BC8 aFile
 : ME_42BE65FA8BC9
  CONST UID '42BE65FA8BC9'
  CONST Name 'aValue'
+ CONST IsSummoned true
  CONST Class class_Parameter
  : Stereotype st_in ;
  : Target WL 'ME_46780DA40383' '4677FBA70343.pas.ms.script' // Il3CString
@@ -1243,6 +1338,7 @@ ref; // ME_42BE65FA8BC9 aValue
 : ME_7E6964328B7F
  CONST UID '7E6964328B7F'
  CONST Name 'WriteLn'
+ CONST IsSummoned true
  CONST Class class_Operation
  %SUMMARY 'Реализация слова скрипта File:WriteLn' ;
  CONST Visibility PrivateAccess
@@ -1250,10 +1346,10 @@ ref; // ME_42BE65FA8BC9 aValue
  : Parent ME_D6A86D931B42 // File_WriteLn
  ;
  : Parameters
-   @ ( ME_42BE65FA8BC7 // aCtx
+   Seq: ( ME_42BE65FA8BC7 // aCtx
  ME_42BE65FA8BC8 // aFile
  ME_42BE65FA8BC9 // aValue
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_7E6964328B7F WriteLn
@@ -1261,6 +1357,7 @@ ref; // ME_7E6964328B7F WriteLn
 : ME_1922F264801E
  CONST UID '1922F264801E'
  CONST Name 'Ini_Reg'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Регистрация File_WriteLn' ;
@@ -1273,6 +1370,7 @@ ref; // ME_1922F264801E Ini_Reg
 
 : ME_1B721129443A
  CONST UID '1B721129443A'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_D6A86D931B42 // File_WriteLn
@@ -1284,6 +1382,7 @@ ref; // ME_1B721129443A
 
 : ME_0A8C7ABDABD9
  CONST UID '0A8C7ABDABD9'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_D6A86D931B42 // File_WriteLn
@@ -1295,6 +1394,7 @@ ref; // ME_0A8C7ABDABD9
 
 : ME_38026090A03F
  CONST UID '38026090A03F'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_D6A86D931B42 // File_WriteLn
@@ -1357,6 +1457,7 @@ ref; // ME_5617F4D00243_ME_D6A86D931B42 ParamsTypes
 : ME_D6A86D931B42
  CONST UID 'D6A86D931B42'
  CONST Name 'File_WriteLn'
+ CONST IsSummoned true
  CONST Class class_Class
  : Stereotype st_ScriptKeyword ;
  CONST Kind kind_NormalClass
@@ -1366,45 +1467,56 @@ ref; // ME_5617F4D00243_ME_D6A86D931B42 ParamsTypes
  : Parent ME_4F4FD7EA00EB // FileProcessingPack
  ;
  : Inherits
-   @ ( WL 'ME_55CCAE000335' '55CCADD2013D.pas.ms.script' // TtfwClassLike
- ) .SequenceCode.It
+   Seq: ( WL 'ME_55CCAE000335' '55CCADD2013D.pas.ms.script' // TtfwClassLike
+ )
  ; // Inherits
  : Operations
-   @ ( ME_7E6964328B7F // WriteLn
+   Seq: ( ME_7E6964328B7F // WriteLn
  ME_1922F264801E // Ini_Reg
- ) .SequenceCode.It
+ )
  ; // Operations
  : Implemented
-   @ ( ME_4DAEEDE10285_ME_D6A86D931B42 // DoDoIt
- ) .SequenceCode.It
+   Seq: ( ME_4DAEEDE10285_ME_D6A86D931B42 // DoDoIt
+ )
  ; // Implemented
  : Overridden
-   @ ( ME_4DB0614603C8_ME_D6A86D931B42 // GetWordNameForRegister
+   Seq: ( ME_4DB0614603C8_ME_D6A86D931B42 // GetWordNameForRegister
  ME_551544E2001A_ME_D6A86D931B42 // GetResultTypeInfo
  ME_559687E6025A_ME_D6A86D931B42 // GetAllParamsCount
  ME_5617F4D00243_ME_D6A86D931B42 // ParamsTypes
- ) .SequenceCode.It
+ )
  ; // Overridden
  : Dependencies
-   @ ( ME_1B721129443A // 
+   Seq: ( ME_1B721129443A // 
  ME_0A8C7ABDABD9 // 
  ME_38026090A03F // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  CONST "NameForScript" 'File:WriteLn'
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
+ CONST dfm:PathOnly '\common\components\rtl\Garant\ScriptEngine'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\ScriptEngine'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
  CONST extprop:pas:TypeName 'TkwFileWriteLn'
+ CONST extprop:rc:SelfName 'FileWriteLn'
+ CONST extprop:rc:isAcceptableForScripts true
+ : SpelledFor ME_55B5FBFE02E9 // WriteLn
+ ;
 
 ref; // ME_D6A86D931B42 File_WriteLn
+
+FORWARD ME_55B5FC1C0184
 
 FORWARD ME_B530B64F8857
 
 : ME_7174A32E8AFB
  CONST UID '7174A32E8AFB'
  CONST Name 'aCtx'
+ CONST IsSummoned true
  CONST Class class_Parameter
  : Stereotype st_in ;
  : Target WL 'ME_4DB0091E033E' '4DAF19F600C5.pas.ms.script' // TtfwContext
@@ -1415,6 +1527,7 @@ ref; // ME_7174A32E8AFB aCtx
 : ME_7174A32E8AFC
  CONST UID '7174A32E8AFC'
  CONST Name 'aFile'
+ CONST IsSummoned true
  CONST Class class_Parameter
  : Stereotype st_in ;
  : Target WL 'ME_4F4E4E7101D6' '4DAF19F600C5.pas.ms.script' // ItfwFile
@@ -1425,6 +1538,7 @@ ref; // ME_7174A32E8AFC aFile
 : ME_7174A32E8AFD
  CONST UID '7174A32E8AFD'
  CONST Name 'aValue'
+ CONST IsSummoned true
  CONST Class class_Parameter
  : Stereotype st_in ;
  : Target WL 'ME_482C48430205' '4AB0C3C60310.pas.ms.script' // Char
@@ -1435,6 +1549,7 @@ ref; // ME_7174A32E8AFD aValue
 : ME_8B2200CCBE22
  CONST UID '8B2200CCBE22'
  CONST Name 'WriteChar'
+ CONST IsSummoned true
  CONST Class class_Operation
  %SUMMARY 'Реализация слова скрипта File:WriteChar' ;
  CONST Visibility PrivateAccess
@@ -1442,10 +1557,10 @@ ref; // ME_7174A32E8AFD aValue
  : Parent ME_B530B64F8857 // File_WriteChar
  ;
  : Parameters
-   @ ( ME_7174A32E8AFB // aCtx
+   Seq: ( ME_7174A32E8AFB // aCtx
  ME_7174A32E8AFC // aFile
  ME_7174A32E8AFD // aValue
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_8B2200CCBE22 WriteChar
@@ -1453,6 +1568,7 @@ ref; // ME_8B2200CCBE22 WriteChar
 : ME_9A3D8ED1702D
  CONST UID '9A3D8ED1702D'
  CONST Name 'Ini_Reg'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Регистрация File_WriteChar' ;
@@ -1465,6 +1581,7 @@ ref; // ME_9A3D8ED1702D Ini_Reg
 
 : ME_14057B03B951
  CONST UID '14057B03B951'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_B530B64F8857 // File_WriteChar
@@ -1476,6 +1593,7 @@ ref; // ME_14057B03B951
 
 : ME_2183B0DFB559
  CONST UID '2183B0DFB559'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_B530B64F8857 // File_WriteChar
@@ -1487,6 +1605,7 @@ ref; // ME_2183B0DFB559
 
 : ME_D6E37FF7226C
  CONST UID 'D6E37FF7226C'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_B530B64F8857 // File_WriteChar
@@ -1549,6 +1668,7 @@ ref; // ME_5617F4D00243_ME_B530B64F8857 ParamsTypes
 : ME_B530B64F8857
  CONST UID 'B530B64F8857'
  CONST Name 'File_WriteChar'
+ CONST IsSummoned true
  CONST Class class_Class
  : Stereotype st_ScriptKeyword ;
  CONST Kind kind_NormalClass
@@ -1558,45 +1678,56 @@ ref; // ME_5617F4D00243_ME_B530B64F8857 ParamsTypes
  : Parent ME_4F4FD7EA00EB // FileProcessingPack
  ;
  : Inherits
-   @ ( WL 'ME_55CCAE000335' '55CCADD2013D.pas.ms.script' // TtfwClassLike
- ) .SequenceCode.It
+   Seq: ( WL 'ME_55CCAE000335' '55CCADD2013D.pas.ms.script' // TtfwClassLike
+ )
  ; // Inherits
  : Operations
-   @ ( ME_8B2200CCBE22 // WriteChar
+   Seq: ( ME_8B2200CCBE22 // WriteChar
  ME_9A3D8ED1702D // Ini_Reg
- ) .SequenceCode.It
+ )
  ; // Operations
  : Implemented
-   @ ( ME_4DAEEDE10285_ME_B530B64F8857 // DoDoIt
- ) .SequenceCode.It
+   Seq: ( ME_4DAEEDE10285_ME_B530B64F8857 // DoDoIt
+ )
  ; // Implemented
  : Overridden
-   @ ( ME_4DB0614603C8_ME_B530B64F8857 // GetWordNameForRegister
+   Seq: ( ME_4DB0614603C8_ME_B530B64F8857 // GetWordNameForRegister
  ME_551544E2001A_ME_B530B64F8857 // GetResultTypeInfo
  ME_559687E6025A_ME_B530B64F8857 // GetAllParamsCount
  ME_5617F4D00243_ME_B530B64F8857 // ParamsTypes
- ) .SequenceCode.It
+ )
  ; // Overridden
  : Dependencies
-   @ ( ME_14057B03B951 // 
+   Seq: ( ME_14057B03B951 // 
  ME_2183B0DFB559 // 
  ME_D6E37FF7226C // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  CONST "NameForScript" 'File:WriteChar'
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
+ CONST dfm:PathOnly '\common\components\rtl\Garant\ScriptEngine'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\ScriptEngine'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
  CONST extprop:pas:TypeName 'TkwFileWriteChar'
+ CONST extprop:rc:SelfName 'FileWriteChar'
+ CONST extprop:rc:isAcceptableForScripts true
+ : SpelledFor ME_55B5FC1C0184 // WriteChar
+ ;
 
 ref; // ME_B530B64F8857 File_WriteChar
+
+FORWARD ME_55B5FC500169
 
 FORWARD ME_0016E31D4F5B
 
 : ME_8390B94E0508
  CONST UID '8390B94E0508'
  CONST Name 'aCtx'
+ CONST IsSummoned true
  CONST Class class_Parameter
  : Stereotype st_in ;
  : Target WL 'ME_4DB0091E033E' '4DAF19F600C5.pas.ms.script' // TtfwContext
@@ -1607,6 +1738,7 @@ ref; // ME_8390B94E0508 aCtx
 : ME_8390B94E0509
  CONST UID '8390B94E0509'
  CONST Name 'aFile'
+ CONST IsSummoned true
  CONST Class class_Parameter
  : Stereotype st_in ;
  : Target WL 'ME_4F4E4E7101D6' '4DAF19F600C5.pas.ms.script' // ItfwFile
@@ -1617,6 +1749,7 @@ ref; // ME_8390B94E0509 aFile
 : ME_8390B94E050A
  CONST UID '8390B94E050A'
  CONST Name 'aValue'
+ CONST IsSummoned true
  CONST Class class_Parameter
  : Stereotype st_in ;
  : Target WL 'ME_46780DA40383' '4677FBA70343.pas.ms.script' // Il3CString
@@ -1627,6 +1760,7 @@ ref; // ME_8390B94E050A aValue
 : ME_BF1D3E215CF5
  CONST UID 'BF1D3E215CF5'
  CONST Name 'WriteStr'
+ CONST IsSummoned true
  CONST Class class_Operation
  %SUMMARY 'Реализация слова скрипта File:WriteStr' ;
  CONST Visibility PrivateAccess
@@ -1634,10 +1768,10 @@ ref; // ME_8390B94E050A aValue
  : Parent ME_0016E31D4F5B // File_WriteStr
  ;
  : Parameters
-   @ ( ME_8390B94E0508 // aCtx
+   Seq: ( ME_8390B94E0508 // aCtx
  ME_8390B94E0509 // aFile
  ME_8390B94E050A // aValue
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_BF1D3E215CF5 WriteStr
@@ -1645,6 +1779,7 @@ ref; // ME_BF1D3E215CF5 WriteStr
 : ME_B82FFC1FEC0E
  CONST UID 'B82FFC1FEC0E'
  CONST Name 'Ini_Reg'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Регистрация File_WriteStr' ;
@@ -1657,6 +1792,7 @@ ref; // ME_B82FFC1FEC0E Ini_Reg
 
 : ME_D434287B218A
  CONST UID 'D434287B218A'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_0016E31D4F5B // File_WriteStr
@@ -1668,6 +1804,7 @@ ref; // ME_D434287B218A
 
 : ME_4660DD87C1F2
  CONST UID '4660DD87C1F2'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_0016E31D4F5B // File_WriteStr
@@ -1679,6 +1816,7 @@ ref; // ME_4660DD87C1F2
 
 : ME_20BC22E4C422
  CONST UID '20BC22E4C422'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_0016E31D4F5B // File_WriteStr
@@ -1741,6 +1879,7 @@ ref; // ME_5617F4D00243_ME_0016E31D4F5B ParamsTypes
 : ME_0016E31D4F5B
  CONST UID '0016E31D4F5B'
  CONST Name 'File_WriteStr'
+ CONST IsSummoned true
  CONST Class class_Class
  : Stereotype st_ScriptKeyword ;
  CONST Kind kind_NormalClass
@@ -1750,45 +1889,56 @@ ref; // ME_5617F4D00243_ME_0016E31D4F5B ParamsTypes
  : Parent ME_4F4FD7EA00EB // FileProcessingPack
  ;
  : Inherits
-   @ ( WL 'ME_55CCAE000335' '55CCADD2013D.pas.ms.script' // TtfwClassLike
- ) .SequenceCode.It
+   Seq: ( WL 'ME_55CCAE000335' '55CCADD2013D.pas.ms.script' // TtfwClassLike
+ )
  ; // Inherits
  : Operations
-   @ ( ME_BF1D3E215CF5 // WriteStr
+   Seq: ( ME_BF1D3E215CF5 // WriteStr
  ME_B82FFC1FEC0E // Ini_Reg
- ) .SequenceCode.It
+ )
  ; // Operations
  : Implemented
-   @ ( ME_4DAEEDE10285_ME_0016E31D4F5B // DoDoIt
- ) .SequenceCode.It
+   Seq: ( ME_4DAEEDE10285_ME_0016E31D4F5B // DoDoIt
+ )
  ; // Implemented
  : Overridden
-   @ ( ME_4DB0614603C8_ME_0016E31D4F5B // GetWordNameForRegister
+   Seq: ( ME_4DB0614603C8_ME_0016E31D4F5B // GetWordNameForRegister
  ME_551544E2001A_ME_0016E31D4F5B // GetResultTypeInfo
  ME_559687E6025A_ME_0016E31D4F5B // GetAllParamsCount
  ME_5617F4D00243_ME_0016E31D4F5B // ParamsTypes
- ) .SequenceCode.It
+ )
  ; // Overridden
  : Dependencies
-   @ ( ME_D434287B218A // 
+   Seq: ( ME_D434287B218A // 
  ME_4660DD87C1F2 // 
  ME_20BC22E4C422 // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  CONST "NameForScript" 'File:WriteStr'
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
+ CONST dfm:PathOnly '\common\components\rtl\Garant\ScriptEngine'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\ScriptEngine'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
  CONST extprop:pas:TypeName 'TkwFileWriteStr'
+ CONST extprop:rc:SelfName 'FileWriteStr'
+ CONST extprop:rc:isAcceptableForScripts true
+ : SpelledFor ME_55B5FC500169 // WriteStr
+ ;
 
 ref; // ME_0016E31D4F5B File_WriteStr
+
+FORWARD ME_55B6044A038E
 
 FORWARD ME_4D96B2094588
 
 : ME_8B8FC4E2CDED
  CONST UID '8B8FC4E2CDED'
  CONST Name 'aCtx'
+ CONST IsSummoned true
  CONST Class class_Parameter
  : Stereotype st_in ;
  : Target WL 'ME_4DB0091E033E' '4DAF19F600C5.pas.ms.script' // TtfwContext
@@ -1799,6 +1949,7 @@ ref; // ME_8B8FC4E2CDED aCtx
 : ME_8B8FC4E2CDEE
  CONST UID '8B8FC4E2CDEE'
  CONST Name 'aWord'
+ CONST IsSummoned true
  CONST Class class_Parameter
  : Stereotype st_in ;
  : Target WL 'ME_4DAEED140007' '4DAF19F600C5.pas.ms.script' // TtfwWord
@@ -1809,6 +1960,7 @@ ref; // ME_8B8FC4E2CDEE aWord
 : ME_8B8FC4E2CDEF
  CONST UID '8B8FC4E2CDEF'
  CONST Name 'aFile'
+ CONST IsSummoned true
  CONST Class class_Parameter
  : Stereotype st_in ;
  : Target WL 'ME_4F4E4E7101D6' '4DAF19F600C5.pas.ms.script' // ItfwFile
@@ -1819,6 +1971,7 @@ ref; // ME_8B8FC4E2CDEF aFile
 : ME_B66526463736
  CONST UID 'B66526463736'
  CONST Name 'ReadLines'
+ CONST IsSummoned true
  CONST Class class_Operation
  %SUMMARY 'Реализация слова скрипта File:ReadLines' ;
  CONST Visibility PrivateAccess
@@ -1826,10 +1979,10 @@ ref; // ME_8B8FC4E2CDEF aFile
  : Parent ME_4D96B2094588 // File_ReadLines
  ;
  : Parameters
-   @ ( ME_8B8FC4E2CDED // aCtx
+   Seq: ( ME_8B8FC4E2CDED // aCtx
  ME_8B8FC4E2CDEE // aWord
  ME_8B8FC4E2CDEF // aFile
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_B66526463736 ReadLines
@@ -1837,6 +1990,7 @@ ref; // ME_B66526463736 ReadLines
 : ME_43861293E0D5
  CONST UID '43861293E0D5'
  CONST Name 'Ini_Reg'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Регистрация File_ReadLines' ;
@@ -1849,6 +2003,7 @@ ref; // ME_43861293E0D5 Ini_Reg
 
 : ME_20C497E96488
  CONST UID '20C497E96488'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_4D96B2094588 // File_ReadLines
@@ -1860,6 +2015,7 @@ ref; // ME_20C497E96488
 
 : ME_41F39B2C65D6
  CONST UID '41F39B2C65D6'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_4D96B2094588 // File_ReadLines
@@ -1871,6 +2027,7 @@ ref; // ME_41F39B2C65D6
 
 : ME_3823EF9DAF71
  CONST UID '3823EF9DAF71'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_4D96B2094588 // File_ReadLines
@@ -1943,6 +2100,7 @@ ref; // ME_5617F4D00243_ME_4D96B2094588 ParamsTypes
 : ME_4D96B2094588
  CONST UID '4D96B2094588'
  CONST Name 'File_ReadLines'
+ CONST IsSummoned true
  CONST Class class_Class
  : Stereotype st_ScriptKeyword ;
  CONST Kind kind_NormalClass
@@ -1952,43 +2110,54 @@ ref; // ME_5617F4D00243_ME_4D96B2094588 ParamsTypes
  : Parent ME_4F4FD7EA00EB // FileProcessingPack
  ;
  : Inherits
-   @ ( WL 'ME_5512E4070106' '54F079B5035C.pas.ms.script' // TtfwWordWorkerEx
- ) .SequenceCode.It
+   Seq: ( WL 'ME_5512E4070106' '54F079B5035C.pas.ms.script' // TtfwWordWorkerEx
+ )
  ; // Inherits
  : Operations
-   @ ( ME_B66526463736 // ReadLines
+   Seq: ( ME_B66526463736 // ReadLines
  ME_43861293E0D5 // Ini_Reg
- ) .SequenceCode.It
+ )
  ; // Operations
  : Overridden
-   @ ( ME_4DB0614603C8_ME_4D96B2094588 // GetWordNameForRegister
+   Seq: ( ME_4DB0614603C8_ME_4D96B2094588 // GetWordNameForRegister
  ME_52E9282B0271_ME_4D96B2094588 // RightParamsCount
  ME_5512949D0048_ME_4D96B2094588 // DoRun
  ME_551544E2001A_ME_4D96B2094588 // GetResultTypeInfo
  ME_559687E6025A_ME_4D96B2094588 // GetAllParamsCount
  ME_5617F4D00243_ME_4D96B2094588 // ParamsTypes
- ) .SequenceCode.It
+ )
  ; // Overridden
  : Dependencies
-   @ ( ME_20C497E96488 // 
+   Seq: ( ME_20C497E96488 // 
  ME_41F39B2C65D6 // 
  ME_3823EF9DAF71 // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  CONST "NameForScript" 'File:ReadLines'
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
+ CONST dfm:PathOnly '\common\components\rtl\Garant\ScriptEngine'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\ScriptEngine'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
  CONST extprop:pas:TypeName 'TkwFileReadLines'
+ CONST extprop:rc:SelfName 'FileReadLines'
+ CONST extprop:rc:isAcceptableForScripts true
+ : SpelledFor ME_55B6044A038E // ReadLines
+ ;
 
 ref; // ME_4D96B2094588 File_ReadLines
+
+FORWARD ME_55B60993020B
 
 FORWARD ME_12D9E8420555
 
 : ME_83D187EE5D49
  CONST UID '83D187EE5D49'
  CONST Name 'aCtx'
+ CONST IsSummoned true
  CONST Class class_Parameter
  : Stereotype st_in ;
  : Target WL 'ME_4DB0091E033E' '4DAF19F600C5.pas.ms.script' // TtfwContext
@@ -1999,6 +2168,7 @@ ref; // ME_83D187EE5D49 aCtx
 : ME_83D187EE5D4A
  CONST UID '83D187EE5D4A'
  CONST Name 'aFile'
+ CONST IsSummoned true
  CONST Class class_Parameter
  : Stereotype st_in ;
  : Target WL 'ME_4F4E4E7101D6' '4DAF19F600C5.pas.ms.script' // ItfwFile
@@ -2009,6 +2179,7 @@ ref; // ME_83D187EE5D4A aFile
 : ME_83D187EE5D4B
  CONST UID '83D187EE5D4B'
  CONST Name 'aValue'
+ CONST IsSummoned true
  CONST Class class_Parameter
  : Stereotype st_in ;
  : Target WL 'ME_4DB00A510300' '55BF153300A4.pas.ms.script' // TtfwStackValue
@@ -2019,6 +2190,7 @@ ref; // ME_83D187EE5D4B aValue
 : ME_EA5DBDC19650
  CONST UID 'EA5DBDC19650'
  CONST Name 'WriteWStr'
+ CONST IsSummoned true
  CONST Class class_Operation
  %SUMMARY 'Реализация слова скрипта File:WriteWStr' ;
  CONST Visibility PrivateAccess
@@ -2026,10 +2198,10 @@ ref; // ME_83D187EE5D4B aValue
  : Parent ME_12D9E8420555 // File_WriteWStr
  ;
  : Parameters
-   @ ( ME_83D187EE5D49 // aCtx
+   Seq: ( ME_83D187EE5D49 // aCtx
  ME_83D187EE5D4A // aFile
  ME_83D187EE5D4B // aValue
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_EA5DBDC19650 WriteWStr
@@ -2037,6 +2209,7 @@ ref; // ME_EA5DBDC19650 WriteWStr
 : ME_BF6E5B5D6E1D
  CONST UID 'BF6E5B5D6E1D'
  CONST Name 'Ini_Reg'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Регистрация File_WriteWStr' ;
@@ -2049,6 +2222,7 @@ ref; // ME_BF6E5B5D6E1D Ini_Reg
 
 : ME_B06A52B5130E
  CONST UID 'B06A52B5130E'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_12D9E8420555 // File_WriteWStr
@@ -2060,6 +2234,7 @@ ref; // ME_B06A52B5130E
 
 : ME_F2613BFACA9A
  CONST UID 'F2613BFACA9A'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_12D9E8420555 // File_WriteWStr
@@ -2071,6 +2246,7 @@ ref; // ME_F2613BFACA9A
 
 : ME_FA15BF4340F5
  CONST UID 'FA15BF4340F5'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_12D9E8420555 // File_WriteWStr
@@ -2133,6 +2309,7 @@ ref; // ME_5617F4D00243_ME_12D9E8420555 ParamsTypes
 : ME_12D9E8420555
  CONST UID '12D9E8420555'
  CONST Name 'File_WriteWStr'
+ CONST IsSummoned true
  CONST Class class_Class
  : Stereotype st_ScriptKeyword ;
  CONST Kind kind_NormalClass
@@ -2142,45 +2319,56 @@ ref; // ME_5617F4D00243_ME_12D9E8420555 ParamsTypes
  : Parent ME_4F4FD7EA00EB // FileProcessingPack
  ;
  : Inherits
-   @ ( WL 'ME_55CCAE000335' '55CCADD2013D.pas.ms.script' // TtfwClassLike
- ) .SequenceCode.It
+   Seq: ( WL 'ME_55CCAE000335' '55CCADD2013D.pas.ms.script' // TtfwClassLike
+ )
  ; // Inherits
  : Operations
-   @ ( ME_EA5DBDC19650 // WriteWStr
+   Seq: ( ME_EA5DBDC19650 // WriteWStr
  ME_BF6E5B5D6E1D // Ini_Reg
- ) .SequenceCode.It
+ )
  ; // Operations
  : Implemented
-   @ ( ME_4DAEEDE10285_ME_12D9E8420555 // DoDoIt
- ) .SequenceCode.It
+   Seq: ( ME_4DAEEDE10285_ME_12D9E8420555 // DoDoIt
+ )
  ; // Implemented
  : Overridden
-   @ ( ME_4DB0614603C8_ME_12D9E8420555 // GetWordNameForRegister
+   Seq: ( ME_4DB0614603C8_ME_12D9E8420555 // GetWordNameForRegister
  ME_551544E2001A_ME_12D9E8420555 // GetResultTypeInfo
  ME_559687E6025A_ME_12D9E8420555 // GetAllParamsCount
  ME_5617F4D00243_ME_12D9E8420555 // ParamsTypes
- ) .SequenceCode.It
+ )
  ; // Overridden
  : Dependencies
-   @ ( ME_B06A52B5130E // 
+   Seq: ( ME_B06A52B5130E // 
  ME_F2613BFACA9A // 
  ME_FA15BF4340F5 // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  CONST "NameForScript" 'File:WriteWStr'
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
+ CONST dfm:PathOnly '\common\components\rtl\Garant\ScriptEngine'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\ScriptEngine'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
  CONST extprop:pas:TypeName 'TkwFileWriteWStr'
+ CONST extprop:rc:SelfName 'FileWriteWStr'
+ CONST extprop:rc:isAcceptableForScripts true
+ : SpelledFor ME_55B60993020B // WriteWStr
+ ;
 
 ref; // ME_12D9E8420555 File_WriteWStr
+
+FORWARD ME_55B618940267
 
 FORWARD ME_6F89E50D4B41
 
 : ME_8312DD87CC94
  CONST UID '8312DD87CC94'
  CONST Name 'aCtx'
+ CONST IsSummoned true
  CONST Class class_Parameter
  : Stereotype st_in ;
  : Target WL 'ME_4DB0091E033E' '4DAF19F600C5.pas.ms.script' // TtfwContext
@@ -2191,6 +2379,7 @@ ref; // ME_8312DD87CC94 aCtx
 : ME_8312DD87CC95
  CONST UID '8312DD87CC95'
  CONST Name 'aFile'
+ CONST IsSummoned true
  CONST Class class_Parameter
  : Stereotype st_in ;
  : Target WL 'ME_4F4E4E7101D6' '4DAF19F600C5.pas.ms.script' // ItfwFile
@@ -2201,6 +2390,7 @@ ref; // ME_8312DD87CC95 aFile
 : ME_062B42A458F5
  CONST UID '062B42A458F5'
  CONST Name 'ReadWStrLn'
+ CONST IsSummoned true
  CONST Class class_Operation
  %SUMMARY 'Реализация слова скрипта File:ReadWStrLn' ;
  CONST Visibility PrivateAccess
@@ -2210,9 +2400,9 @@ ref; // ME_8312DD87CC95 aFile
  : Target WL 'ME_47209E670266' '4678193C009C.pas.ms.script' // Tl3PCharLen
  ;
  : Parameters
-   @ ( ME_8312DD87CC94 // aCtx
+   Seq: ( ME_8312DD87CC94 // aCtx
  ME_8312DD87CC95 // aFile
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_062B42A458F5 ReadWStrLn
@@ -2220,6 +2410,7 @@ ref; // ME_062B42A458F5 ReadWStrLn
 : ME_87391B3F2203
  CONST UID '87391B3F2203'
  CONST Name 'Ini_Reg'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Регистрация File_ReadWStrLn' ;
@@ -2232,6 +2423,7 @@ ref; // ME_87391B3F2203 Ini_Reg
 
 : ME_08C13520397A
  CONST UID '08C13520397A'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_6F89E50D4B41 // File_ReadWStrLn
@@ -2243,6 +2435,7 @@ ref; // ME_08C13520397A
 
 : ME_A8EBF4BBFD3C
  CONST UID 'A8EBF4BBFD3C'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_6F89E50D4B41 // File_ReadWStrLn
@@ -2254,6 +2447,7 @@ ref; // ME_A8EBF4BBFD3C
 
 : ME_9BA292F15150
  CONST UID '9BA292F15150'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_6F89E50D4B41 // File_ReadWStrLn
@@ -2316,6 +2510,7 @@ ref; // ME_5617F4D00243_ME_6F89E50D4B41 ParamsTypes
 : ME_6F89E50D4B41
  CONST UID '6F89E50D4B41'
  CONST Name 'File_ReadWStrLn'
+ CONST IsSummoned true
  CONST Class class_Class
  : Stereotype st_ScriptKeyword ;
  CONST Kind kind_NormalClass
@@ -2325,45 +2520,56 @@ ref; // ME_5617F4D00243_ME_6F89E50D4B41 ParamsTypes
  : Parent ME_4F4FD7EA00EB // FileProcessingPack
  ;
  : Inherits
-   @ ( WL 'ME_55CCAE000335' '55CCADD2013D.pas.ms.script' // TtfwClassLike
- ) .SequenceCode.It
+   Seq: ( WL 'ME_55CCAE000335' '55CCADD2013D.pas.ms.script' // TtfwClassLike
+ )
  ; // Inherits
  : Operations
-   @ ( ME_062B42A458F5 // ReadWStrLn
+   Seq: ( ME_062B42A458F5 // ReadWStrLn
  ME_87391B3F2203 // Ini_Reg
- ) .SequenceCode.It
+ )
  ; // Operations
  : Implemented
-   @ ( ME_4DAEEDE10285_ME_6F89E50D4B41 // DoDoIt
- ) .SequenceCode.It
+   Seq: ( ME_4DAEEDE10285_ME_6F89E50D4B41 // DoDoIt
+ )
  ; // Implemented
  : Overridden
-   @ ( ME_4DB0614603C8_ME_6F89E50D4B41 // GetWordNameForRegister
+   Seq: ( ME_4DB0614603C8_ME_6F89E50D4B41 // GetWordNameForRegister
  ME_551544E2001A_ME_6F89E50D4B41 // GetResultTypeInfo
  ME_559687E6025A_ME_6F89E50D4B41 // GetAllParamsCount
  ME_5617F4D00243_ME_6F89E50D4B41 // ParamsTypes
- ) .SequenceCode.It
+ )
  ; // Overridden
  : Dependencies
-   @ ( ME_08C13520397A // 
+   Seq: ( ME_08C13520397A // 
  ME_A8EBF4BBFD3C // 
  ME_9BA292F15150 // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  CONST "NameForScript" 'File:ReadWStrLn'
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
+ CONST dfm:PathOnly '\common\components\rtl\Garant\ScriptEngine'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\ScriptEngine'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
  CONST extprop:pas:TypeName 'TkwFileReadWStrLn'
+ CONST extprop:rc:SelfName 'FileReadWStrLn'
+ CONST extprop:rc:isAcceptableForScripts true
+ : SpelledFor ME_55B618940267 // ReadWStrLn
+ ;
 
 ref; // ME_6F89E50D4B41 File_ReadWStrLn
+
+FORWARD ME_55B618AB03C3
 
 FORWARD ME_2C287EC9B0C3
 
 : ME_C5FC34AACDA1
  CONST UID 'C5FC34AACDA1'
  CONST Name 'aCtx'
+ CONST IsSummoned true
  CONST Class class_Parameter
  : Stereotype st_in ;
  : Target WL 'ME_4DB0091E033E' '4DAF19F600C5.pas.ms.script' // TtfwContext
@@ -2374,6 +2580,7 @@ ref; // ME_C5FC34AACDA1 aCtx
 : ME_C5FC34AACDA2
  CONST UID 'C5FC34AACDA2'
  CONST Name 'aFile'
+ CONST IsSummoned true
  CONST Class class_Parameter
  : Stereotype st_in ;
  : Target WL 'ME_4F4E4E7101D6' '4DAF19F600C5.pas.ms.script' // ItfwFile
@@ -2384,6 +2591,7 @@ ref; // ME_C5FC34AACDA2 aFile
 : ME_C5FC34AACDA3
  CONST UID 'C5FC34AACDA3'
  CONST Name 'aValue'
+ CONST IsSummoned true
  CONST Class class_Parameter
  : Stereotype st_in ;
  : Target WL 'ME_4DB00A510300' '55BF153300A4.pas.ms.script' // TtfwStackValue
@@ -2394,6 +2602,7 @@ ref; // ME_C5FC34AACDA3 aValue
 : ME_5BB0C2B29FB4
  CONST UID '5BB0C2B29FB4'
  CONST Name 'WriteWStrLn'
+ CONST IsSummoned true
  CONST Class class_Operation
  %SUMMARY 'Реализация слова скрипта File:WriteWStrLn' ;
  CONST Visibility PrivateAccess
@@ -2401,10 +2610,10 @@ ref; // ME_C5FC34AACDA3 aValue
  : Parent ME_2C287EC9B0C3 // File_WriteWStrLn
  ;
  : Parameters
-   @ ( ME_C5FC34AACDA1 // aCtx
+   Seq: ( ME_C5FC34AACDA1 // aCtx
  ME_C5FC34AACDA2 // aFile
  ME_C5FC34AACDA3 // aValue
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_5BB0C2B29FB4 WriteWStrLn
@@ -2412,6 +2621,7 @@ ref; // ME_5BB0C2B29FB4 WriteWStrLn
 : ME_8A7E1292B61D
  CONST UID '8A7E1292B61D'
  CONST Name 'Ini_Reg'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Регистрация File_WriteWStrLn' ;
@@ -2424,6 +2634,7 @@ ref; // ME_8A7E1292B61D Ini_Reg
 
 : ME_AAEFFE32D4D2
  CONST UID 'AAEFFE32D4D2'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_2C287EC9B0C3 // File_WriteWStrLn
@@ -2435,6 +2646,7 @@ ref; // ME_AAEFFE32D4D2
 
 : ME_51629A10E3FD
  CONST UID '51629A10E3FD'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_2C287EC9B0C3 // File_WriteWStrLn
@@ -2446,6 +2658,7 @@ ref; // ME_51629A10E3FD
 
 : ME_B5AC871E7B81
  CONST UID 'B5AC871E7B81'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_2C287EC9B0C3 // File_WriteWStrLn
@@ -2508,6 +2721,7 @@ ref; // ME_5617F4D00243_ME_2C287EC9B0C3 ParamsTypes
 : ME_2C287EC9B0C3
  CONST UID '2C287EC9B0C3'
  CONST Name 'File_WriteWStrLn'
+ CONST IsSummoned true
  CONST Class class_Class
  : Stereotype st_ScriptKeyword ;
  CONST Kind kind_NormalClass
@@ -2517,45 +2731,56 @@ ref; // ME_5617F4D00243_ME_2C287EC9B0C3 ParamsTypes
  : Parent ME_4F4FD7EA00EB // FileProcessingPack
  ;
  : Inherits
-   @ ( WL 'ME_55CCAE000335' '55CCADD2013D.pas.ms.script' // TtfwClassLike
- ) .SequenceCode.It
+   Seq: ( WL 'ME_55CCAE000335' '55CCADD2013D.pas.ms.script' // TtfwClassLike
+ )
  ; // Inherits
  : Operations
-   @ ( ME_5BB0C2B29FB4 // WriteWStrLn
+   Seq: ( ME_5BB0C2B29FB4 // WriteWStrLn
  ME_8A7E1292B61D // Ini_Reg
- ) .SequenceCode.It
+ )
  ; // Operations
  : Implemented
-   @ ( ME_4DAEEDE10285_ME_2C287EC9B0C3 // DoDoIt
- ) .SequenceCode.It
+   Seq: ( ME_4DAEEDE10285_ME_2C287EC9B0C3 // DoDoIt
+ )
  ; // Implemented
  : Overridden
-   @ ( ME_4DB0614603C8_ME_2C287EC9B0C3 // GetWordNameForRegister
+   Seq: ( ME_4DB0614603C8_ME_2C287EC9B0C3 // GetWordNameForRegister
  ME_551544E2001A_ME_2C287EC9B0C3 // GetResultTypeInfo
  ME_559687E6025A_ME_2C287EC9B0C3 // GetAllParamsCount
  ME_5617F4D00243_ME_2C287EC9B0C3 // ParamsTypes
- ) .SequenceCode.It
+ )
  ; // Overridden
  : Dependencies
-   @ ( ME_AAEFFE32D4D2 // 
+   Seq: ( ME_AAEFFE32D4D2 // 
  ME_51629A10E3FD // 
  ME_B5AC871E7B81 // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  CONST "NameForScript" 'File:WriteWStrLn'
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
+ CONST dfm:PathOnly '\common\components\rtl\Garant\ScriptEngine'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\ScriptEngine'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
  CONST extprop:pas:TypeName 'TkwFileWriteWStrLn'
+ CONST extprop:rc:SelfName 'FileWriteWStrLn'
+ CONST extprop:rc:isAcceptableForScripts true
+ : SpelledFor ME_55B618AB03C3 // WriteWStrLn
+ ;
 
 ref; // ME_2C287EC9B0C3 File_WriteWStrLn
+
+FORWARD ME_55B6047F005B
 
 FORWARD ME_01A4D246A0C9
 
 : ME_6367E0F07BF8
  CONST UID '6367E0F07BF8'
  CONST Name 'aCtx'
+ CONST IsSummoned true
  CONST Class class_Parameter
  : Stereotype st_in ;
  : Target WL 'ME_4DB0091E033E' '4DAF19F600C5.pas.ms.script' // TtfwContext
@@ -2566,6 +2791,7 @@ ref; // ME_6367E0F07BF8 aCtx
 : ME_6367E0F07BF9
  CONST UID '6367E0F07BF9'
  CONST Name 'aName'
+ CONST IsSummoned true
  CONST Class class_Parameter
  : Stereotype st_in ;
  : Target WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
@@ -2576,6 +2802,7 @@ ref; // ME_6367E0F07BF9 aName
 : ME_8A54E0B1468F
  CONST UID '8A54E0B1468F'
  CONST Name 'DeleteFile'
+ CONST IsSummoned true
  CONST Class class_Operation
  %SUMMARY 'Реализация слова скрипта DeleteFile' ;
  CONST Visibility PrivateAccess
@@ -2585,9 +2812,9 @@ ref; // ME_6367E0F07BF9 aName
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
  : Parameters
-   @ ( ME_6367E0F07BF8 // aCtx
+   Seq: ( ME_6367E0F07BF8 // aCtx
  ME_6367E0F07BF9 // aName
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_8A54E0B1468F DeleteFile
@@ -2595,6 +2822,7 @@ ref; // ME_8A54E0B1468F DeleteFile
 : ME_2FABA6A2B192
  CONST UID '2FABA6A2B192'
  CONST Name 'Ini_Reg'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Регистрация DeleteFile' ;
@@ -2607,6 +2835,7 @@ ref; // ME_2FABA6A2B192 Ini_Reg
 
 : ME_2A38542D94DB
  CONST UID '2A38542D94DB'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_01A4D246A0C9 // DeleteFile
@@ -2618,6 +2847,7 @@ ref; // ME_2A38542D94DB
 
 : ME_6491797EB48C
  CONST UID '6491797EB48C'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_01A4D246A0C9 // DeleteFile
@@ -2629,6 +2859,7 @@ ref; // ME_6491797EB48C
 
 : ME_7F174EABA12C
  CONST UID '7F174EABA12C'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_01A4D246A0C9 // DeleteFile
@@ -2691,6 +2922,7 @@ ref; // ME_5617F4D00243_ME_01A4D246A0C9 ParamsTypes
 : ME_01A4D246A0C9
  CONST UID '01A4D246A0C9'
  CONST Name 'DeleteFile'
+ CONST IsSummoned true
  CONST Class class_Class
  : Stereotype st_ScriptKeyword ;
  CONST Kind kind_NormalClass
@@ -2700,45 +2932,56 @@ ref; // ME_5617F4D00243_ME_01A4D246A0C9 ParamsTypes
  : Parent ME_4F4FD7EA00EB // FileProcessingPack
  ;
  : Inherits
-   @ ( WL 'ME_561BAC4B0005' '55CCADD2013D.pas.ms.script' // TtfwGlobalKeyWord
- ) .SequenceCode.It
+   Seq: ( WL 'ME_561BAC4B0005' '55CCADD2013D.pas.ms.script' // TtfwGlobalKeyWord
+ )
  ; // Inherits
  : Operations
-   @ ( ME_8A54E0B1468F // DeleteFile
+   Seq: ( ME_8A54E0B1468F // DeleteFile
  ME_2FABA6A2B192 // Ini_Reg
- ) .SequenceCode.It
+ )
  ; // Operations
  : Implemented
-   @ ( ME_4DAEEDE10285_ME_01A4D246A0C9 // DoDoIt
- ) .SequenceCode.It
+   Seq: ( ME_4DAEEDE10285_ME_01A4D246A0C9 // DoDoIt
+ )
  ; // Implemented
  : Overridden
-   @ ( ME_4DB0614603C8_ME_01A4D246A0C9 // GetWordNameForRegister
+   Seq: ( ME_4DB0614603C8_ME_01A4D246A0C9 // GetWordNameForRegister
  ME_551544E2001A_ME_01A4D246A0C9 // GetResultTypeInfo
  ME_559687E6025A_ME_01A4D246A0C9 // GetAllParamsCount
  ME_5617F4D00243_ME_01A4D246A0C9 // ParamsTypes
- ) .SequenceCode.It
+ )
  ; // Overridden
  : Dependencies
-   @ ( ME_2A38542D94DB // 
+   Seq: ( ME_2A38542D94DB // 
  ME_6491797EB48C // 
  ME_7F174EABA12C // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  CONST "NameForScript" 'DeleteFile'
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
+ CONST dfm:PathOnly '\common\components\rtl\Garant\ScriptEngine'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\ScriptEngine'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
  CONST extprop:pas:TypeName 'TkwDeleteFile'
+ CONST extprop:rc:SelfName 'DeleteFile'
+ CONST extprop:rc:isAcceptableForScripts true
+ : SpelledFor ME_55B6047F005B // DeleteFile
+ ;
 
 ref; // ME_01A4D246A0C9 DeleteFile
+
+FORWARD ME_55B6049F0019
 
 FORWARD ME_269C162F0F47
 
 : ME_A70341D2C9A9
  CONST UID 'A70341D2C9A9'
  CONST Name 'aCtx'
+ CONST IsSummoned true
  CONST Class class_Parameter
  : Stereotype st_in ;
  : Target WL 'ME_4DB0091E033E' '4DAF19F600C5.pas.ms.script' // TtfwContext
@@ -2749,6 +2992,7 @@ ref; // ME_A70341D2C9A9 aCtx
 : ME_A70341D2C9AA
  CONST UID 'A70341D2C9AA'
  CONST Name 'aNewName'
+ CONST IsSummoned true
  CONST Class class_Parameter
  : Stereotype st_in ;
  : Target WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
@@ -2759,6 +3003,7 @@ ref; // ME_A70341D2C9AA aNewName
 : ME_A70341D2C9AB
  CONST UID 'A70341D2C9AB'
  CONST Name 'anOldName'
+ CONST IsSummoned true
  CONST Class class_Parameter
  : Stereotype st_in ;
  : Target WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
@@ -2769,6 +3014,7 @@ ref; // ME_A70341D2C9AB anOldName
 : ME_4B30612C1E84
  CONST UID '4B30612C1E84'
  CONST Name 'RenameFile'
+ CONST IsSummoned true
  CONST Class class_Operation
  %SUMMARY 'Реализация слова скрипта RenameFile' ;
  CONST Visibility PrivateAccess
@@ -2778,10 +3024,10 @@ ref; // ME_A70341D2C9AB anOldName
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
  : Parameters
-   @ ( ME_A70341D2C9A9 // aCtx
+   Seq: ( ME_A70341D2C9A9 // aCtx
  ME_A70341D2C9AA // aNewName
  ME_A70341D2C9AB // anOldName
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_4B30612C1E84 RenameFile
@@ -2789,6 +3035,7 @@ ref; // ME_4B30612C1E84 RenameFile
 : ME_403F9F9FCAF8
  CONST UID '403F9F9FCAF8'
  CONST Name 'Ini_Reg'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Регистрация RenameFile' ;
@@ -2801,6 +3048,7 @@ ref; // ME_403F9F9FCAF8 Ini_Reg
 
 : ME_DB8E64F9AF81
  CONST UID 'DB8E64F9AF81'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_269C162F0F47 // RenameFile
@@ -2812,6 +3060,7 @@ ref; // ME_DB8E64F9AF81
 
 : ME_7BC9D919B191
  CONST UID '7BC9D919B191'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_269C162F0F47 // RenameFile
@@ -2823,6 +3072,7 @@ ref; // ME_7BC9D919B191
 
 : ME_3A432B98E8BC
  CONST UID '3A432B98E8BC'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_269C162F0F47 // RenameFile
@@ -2885,6 +3135,7 @@ ref; // ME_5617F4D00243_ME_269C162F0F47 ParamsTypes
 : ME_269C162F0F47
  CONST UID '269C162F0F47'
  CONST Name 'RenameFile'
+ CONST IsSummoned true
  CONST Class class_Class
  : Stereotype st_ScriptKeyword ;
  CONST Kind kind_NormalClass
@@ -2894,45 +3145,56 @@ ref; // ME_5617F4D00243_ME_269C162F0F47 ParamsTypes
  : Parent ME_4F4FD7EA00EB // FileProcessingPack
  ;
  : Inherits
-   @ ( WL 'ME_561BAC4B0005' '55CCADD2013D.pas.ms.script' // TtfwGlobalKeyWord
- ) .SequenceCode.It
+   Seq: ( WL 'ME_561BAC4B0005' '55CCADD2013D.pas.ms.script' // TtfwGlobalKeyWord
+ )
  ; // Inherits
  : Operations
-   @ ( ME_4B30612C1E84 // RenameFile
+   Seq: ( ME_4B30612C1E84 // RenameFile
  ME_403F9F9FCAF8 // Ini_Reg
- ) .SequenceCode.It
+ )
  ; // Operations
  : Implemented
-   @ ( ME_4DAEEDE10285_ME_269C162F0F47 // DoDoIt
- ) .SequenceCode.It
+   Seq: ( ME_4DAEEDE10285_ME_269C162F0F47 // DoDoIt
+ )
  ; // Implemented
  : Overridden
-   @ ( ME_4DB0614603C8_ME_269C162F0F47 // GetWordNameForRegister
+   Seq: ( ME_4DB0614603C8_ME_269C162F0F47 // GetWordNameForRegister
  ME_551544E2001A_ME_269C162F0F47 // GetResultTypeInfo
  ME_559687E6025A_ME_269C162F0F47 // GetAllParamsCount
  ME_5617F4D00243_ME_269C162F0F47 // ParamsTypes
- ) .SequenceCode.It
+ )
  ; // Overridden
  : Dependencies
-   @ ( ME_DB8E64F9AF81 // 
+   Seq: ( ME_DB8E64F9AF81 // 
  ME_7BC9D919B191 // 
  ME_3A432B98E8BC // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  CONST "NameForScript" 'RenameFile'
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
+ CONST dfm:PathOnly '\common\components\rtl\Garant\ScriptEngine'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\ScriptEngine'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
  CONST extprop:pas:TypeName 'TkwRenameFile'
+ CONST extprop:rc:SelfName 'RenameFile'
+ CONST extprop:rc:isAcceptableForScripts true
+ : SpelledFor ME_55B6049F0019 // RenameFile
+ ;
 
 ref; // ME_269C162F0F47 RenameFile
+
+FORWARD ME_55B604FC0108
 
 FORWARD ME_5478B1531C0E
 
 : ME_C9C84373C900
  CONST UID 'C9C84373C900'
  CONST Name 'aCtx'
+ CONST IsSummoned true
  CONST Class class_Parameter
  : Stereotype st_in ;
  : Target WL 'ME_4DB0091E033E' '4DAF19F600C5.pas.ms.script' // TtfwContext
@@ -2943,6 +3205,7 @@ ref; // ME_C9C84373C900 aCtx
 : ME_C9C84373C901
  CONST UID 'C9C84373C901'
  CONST Name 'aSourceDir'
+ CONST IsSummoned true
  CONST Class class_Parameter
  : Stereotype st_in ;
  : Target WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
@@ -2953,6 +3216,7 @@ ref; // ME_C9C84373C901 aSourceDir
 : ME_C9C84373C902
  CONST UID 'C9C84373C902'
  CONST Name 'aDestDir'
+ CONST IsSummoned true
  CONST Class class_Parameter
  : Stereotype st_in ;
  : Target WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
@@ -2963,6 +3227,7 @@ ref; // ME_C9C84373C902 aDestDir
 : ME_C9C84373C903
  CONST UID 'C9C84373C903'
  CONST Name 'aFileMask'
+ CONST IsSummoned true
  CONST Class class_Parameter
  : Stereotype st_in ;
  : Target WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
@@ -2973,6 +3238,7 @@ ref; // ME_C9C84373C903 aFileMask
 : ME_B545E742BFBB
  CONST UID 'B545E742BFBB'
  CONST Name 'CopyFilesByMask'
+ CONST IsSummoned true
  CONST Class class_Operation
  %SUMMARY 'Реализация слова скрипта CopyFilesByMask' ;
  CONST Visibility PrivateAccess
@@ -2980,11 +3246,11 @@ ref; // ME_C9C84373C903 aFileMask
  : Parent ME_5478B1531C0E // CopyFilesByMask
  ;
  : Parameters
-   @ ( ME_C9C84373C900 // aCtx
+   Seq: ( ME_C9C84373C900 // aCtx
  ME_C9C84373C901 // aSourceDir
  ME_C9C84373C902 // aDestDir
  ME_C9C84373C903 // aFileMask
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_B545E742BFBB CopyFilesByMask
@@ -2992,6 +3258,7 @@ ref; // ME_B545E742BFBB CopyFilesByMask
 : ME_0D5A59A4ACC5
  CONST UID '0D5A59A4ACC5'
  CONST Name 'Ini_Reg'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Регистрация CopyFilesByMask' ;
@@ -3004,6 +3271,7 @@ ref; // ME_0D5A59A4ACC5 Ini_Reg
 
 : ME_B6BB0CEA1EC1
  CONST UID 'B6BB0CEA1EC1'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_5478B1531C0E // CopyFilesByMask
@@ -3015,6 +3283,7 @@ ref; // ME_B6BB0CEA1EC1
 
 : ME_B4D46FB8EBA9
  CONST UID 'B4D46FB8EBA9'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_5478B1531C0E // CopyFilesByMask
@@ -3026,6 +3295,7 @@ ref; // ME_B4D46FB8EBA9
 
 : ME_A8C7AF9983E8
  CONST UID 'A8C7AF9983E8'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_5478B1531C0E // CopyFilesByMask
@@ -3088,6 +3358,7 @@ ref; // ME_5617F4D00243_ME_5478B1531C0E ParamsTypes
 : ME_5478B1531C0E
  CONST UID '5478B1531C0E'
  CONST Name 'CopyFilesByMask'
+ CONST IsSummoned true
  CONST Class class_Class
  : Stereotype st_ScriptKeyword ;
  CONST Kind kind_NormalClass
@@ -3097,45 +3368,56 @@ ref; // ME_5617F4D00243_ME_5478B1531C0E ParamsTypes
  : Parent ME_4F4FD7EA00EB // FileProcessingPack
  ;
  : Inherits
-   @ ( WL 'ME_561BAC4B0005' '55CCADD2013D.pas.ms.script' // TtfwGlobalKeyWord
- ) .SequenceCode.It
+   Seq: ( WL 'ME_561BAC4B0005' '55CCADD2013D.pas.ms.script' // TtfwGlobalKeyWord
+ )
  ; // Inherits
  : Operations
-   @ ( ME_B545E742BFBB // CopyFilesByMask
+   Seq: ( ME_B545E742BFBB // CopyFilesByMask
  ME_0D5A59A4ACC5 // Ini_Reg
- ) .SequenceCode.It
+ )
  ; // Operations
  : Implemented
-   @ ( ME_4DAEEDE10285_ME_5478B1531C0E // DoDoIt
- ) .SequenceCode.It
+   Seq: ( ME_4DAEEDE10285_ME_5478B1531C0E // DoDoIt
+ )
  ; // Implemented
  : Overridden
-   @ ( ME_4DB0614603C8_ME_5478B1531C0E // GetWordNameForRegister
+   Seq: ( ME_4DB0614603C8_ME_5478B1531C0E // GetWordNameForRegister
  ME_551544E2001A_ME_5478B1531C0E // GetResultTypeInfo
  ME_559687E6025A_ME_5478B1531C0E // GetAllParamsCount
  ME_5617F4D00243_ME_5478B1531C0E // ParamsTypes
- ) .SequenceCode.It
+ )
  ; // Overridden
  : Dependencies
-   @ ( ME_B6BB0CEA1EC1 // 
+   Seq: ( ME_B6BB0CEA1EC1 // 
  ME_B4D46FB8EBA9 // 
  ME_A8C7AF9983E8 // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  CONST "NameForScript" 'CopyFilesByMask'
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
+ CONST dfm:PathOnly '\common\components\rtl\Garant\ScriptEngine'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\ScriptEngine'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
  CONST extprop:pas:TypeName 'TkwCopyFilesByMask'
+ CONST extprop:rc:SelfName 'CopyFilesByMask'
+ CONST extprop:rc:isAcceptableForScripts true
+ : SpelledFor ME_55B604FC0108 // CopyFilesByMask
+ ;
 
 ref; // ME_5478B1531C0E CopyFilesByMask
+
+FORWARD ME_55B605890120
 
 FORWARD ME_C4E46637B80B
 
 : ME_96B63225E863
  CONST UID '96B63225E863'
  CONST Name 'aCtx'
+ CONST IsSummoned true
  CONST Class class_Parameter
  : Stereotype st_in ;
  : Target WL 'ME_4DB0091E033E' '4DAF19F600C5.pas.ms.script' // TtfwContext
@@ -3146,6 +3428,7 @@ ref; // ME_96B63225E863 aCtx
 : ME_96B63225E864
  CONST UID '96B63225E864'
  CONST Name 'aSourceFile'
+ CONST IsSummoned true
  CONST Class class_Parameter
  : Stereotype st_in ;
  : Target WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
@@ -3156,6 +3439,7 @@ ref; // ME_96B63225E864 aSourceFile
 : ME_96B63225E865
  CONST UID '96B63225E865'
  CONST Name 'aDestFile'
+ CONST IsSummoned true
  CONST Class class_Parameter
  : Stereotype st_in ;
  : Target WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
@@ -3166,6 +3450,7 @@ ref; // ME_96B63225E865 aDestFile
 : ME_96B63225E866
  CONST UID '96B63225E866'
  CONST Name 'aCopyMode'
+ CONST IsSummoned true
  CONST Class class_Parameter
  : Stereotype st_in ;
  : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
@@ -3176,6 +3461,7 @@ ref; // ME_96B63225E866 aCopyMode
 : ME_7B442954EEE8
  CONST UID '7B442954EEE8'
  CONST Name 'CopyFile'
+ CONST IsSummoned true
  CONST Class class_Operation
  %SUMMARY 'Реализация слова скрипта CopyFile' ;
  CONST Visibility PrivateAccess
@@ -3183,11 +3469,11 @@ ref; // ME_96B63225E866 aCopyMode
  : Parent ME_C4E46637B80B // CopyFile
  ;
  : Parameters
-   @ ( ME_96B63225E863 // aCtx
+   Seq: ( ME_96B63225E863 // aCtx
  ME_96B63225E864 // aSourceFile
  ME_96B63225E865 // aDestFile
  ME_96B63225E866 // aCopyMode
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_7B442954EEE8 CopyFile
@@ -3195,6 +3481,7 @@ ref; // ME_7B442954EEE8 CopyFile
 : ME_79DDAED2CADB
  CONST UID '79DDAED2CADB'
  CONST Name 'Ini_Reg'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Регистрация CopyFile' ;
@@ -3207,6 +3494,7 @@ ref; // ME_79DDAED2CADB Ini_Reg
 
 : ME_10047668F17D
  CONST UID '10047668F17D'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_C4E46637B80B // CopyFile
@@ -3218,6 +3506,7 @@ ref; // ME_10047668F17D
 
 : ME_473DC1787774
  CONST UID '473DC1787774'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_C4E46637B80B // CopyFile
@@ -3229,6 +3518,7 @@ ref; // ME_473DC1787774
 
 : ME_B34ABBA2ED4F
  CONST UID 'B34ABBA2ED4F'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_C4E46637B80B // CopyFile
@@ -3291,6 +3581,7 @@ ref; // ME_5617F4D00243_ME_C4E46637B80B ParamsTypes
 : ME_C4E46637B80B
  CONST UID 'C4E46637B80B'
  CONST Name 'CopyFile'
+ CONST IsSummoned true
  CONST Class class_Class
  : Stereotype st_ScriptKeyword ;
  CONST Kind kind_NormalClass
@@ -3300,45 +3591,56 @@ ref; // ME_5617F4D00243_ME_C4E46637B80B ParamsTypes
  : Parent ME_4F4FD7EA00EB // FileProcessingPack
  ;
  : Inherits
-   @ ( WL 'ME_561BAC4B0005' '55CCADD2013D.pas.ms.script' // TtfwGlobalKeyWord
- ) .SequenceCode.It
+   Seq: ( WL 'ME_561BAC4B0005' '55CCADD2013D.pas.ms.script' // TtfwGlobalKeyWord
+ )
  ; // Inherits
  : Operations
-   @ ( ME_7B442954EEE8 // CopyFile
+   Seq: ( ME_7B442954EEE8 // CopyFile
  ME_79DDAED2CADB // Ini_Reg
- ) .SequenceCode.It
+ )
  ; // Operations
  : Implemented
-   @ ( ME_4DAEEDE10285_ME_C4E46637B80B // DoDoIt
- ) .SequenceCode.It
+   Seq: ( ME_4DAEEDE10285_ME_C4E46637B80B // DoDoIt
+ )
  ; // Implemented
  : Overridden
-   @ ( ME_4DB0614603C8_ME_C4E46637B80B // GetWordNameForRegister
+   Seq: ( ME_4DB0614603C8_ME_C4E46637B80B // GetWordNameForRegister
  ME_551544E2001A_ME_C4E46637B80B // GetResultTypeInfo
  ME_559687E6025A_ME_C4E46637B80B // GetAllParamsCount
  ME_5617F4D00243_ME_C4E46637B80B // ParamsTypes
- ) .SequenceCode.It
+ )
  ; // Overridden
  : Dependencies
-   @ ( ME_10047668F17D // 
+   Seq: ( ME_10047668F17D // 
  ME_473DC1787774 // 
  ME_B34ABBA2ED4F // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  CONST "NameForScript" 'CopyFile'
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
+ CONST dfm:PathOnly '\common\components\rtl\Garant\ScriptEngine'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\ScriptEngine'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
  CONST extprop:pas:TypeName 'TkwCopyFile'
+ CONST extprop:rc:SelfName 'CopyFile'
+ CONST extprop:rc:isAcceptableForScripts true
+ : SpelledFor ME_55B605890120 // CopyFile
+ ;
 
 ref; // ME_C4E46637B80B CopyFile
+
+FORWARD ME_55B606A70227
 
 FORWARD ME_C77B92459A8E
 
 : ME_64D500CD433D
  CONST UID '64D500CD433D'
  CONST Name 'aCtx'
+ CONST IsSummoned true
  CONST Class class_Parameter
  : Stereotype st_in ;
  : Target WL 'ME_4DB0091E033E' '4DAF19F600C5.pas.ms.script' // TtfwContext
@@ -3349,6 +3651,7 @@ ref; // ME_64D500CD433D aCtx
 : ME_64D500CD433E
  CONST UID '64D500CD433E'
  CONST Name 'aName'
+ CONST IsSummoned true
  CONST Class class_Parameter
  : Stereotype st_in ;
  : Target WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
@@ -3359,6 +3662,7 @@ ref; // ME_64D500CD433E aName
 : ME_4475F8181332
  CONST UID '4475F8181332'
  CONST Name 'PureDir'
+ CONST IsSummoned true
  CONST Class class_Operation
  %SUMMARY 'Реализация слова скрипта PureDir' ;
  CONST Visibility PrivateAccess
@@ -3366,9 +3670,9 @@ ref; // ME_64D500CD433E aName
  : Parent ME_C77B92459A8E // PureDir
  ;
  : Parameters
-   @ ( ME_64D500CD433D // aCtx
+   Seq: ( ME_64D500CD433D // aCtx
  ME_64D500CD433E // aName
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_4475F8181332 PureDir
@@ -3376,6 +3680,7 @@ ref; // ME_4475F8181332 PureDir
 : ME_37A77C5509F7
  CONST UID '37A77C5509F7'
  CONST Name 'Ini_Reg'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Регистрация PureDir' ;
@@ -3388,6 +3693,7 @@ ref; // ME_37A77C5509F7 Ini_Reg
 
 : ME_4D3B3DC62F04
  CONST UID '4D3B3DC62F04'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_C77B92459A8E // PureDir
@@ -3399,6 +3705,7 @@ ref; // ME_4D3B3DC62F04
 
 : ME_CD8A4E319BA6
  CONST UID 'CD8A4E319BA6'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_C77B92459A8E // PureDir
@@ -3410,6 +3717,7 @@ ref; // ME_CD8A4E319BA6
 
 : ME_376D4D8CC006
  CONST UID '376D4D8CC006'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_C77B92459A8E // PureDir
@@ -3472,6 +3780,7 @@ ref; // ME_5617F4D00243_ME_C77B92459A8E ParamsTypes
 : ME_C77B92459A8E
  CONST UID 'C77B92459A8E'
  CONST Name 'PureDir'
+ CONST IsSummoned true
  CONST Class class_Class
  : Stereotype st_ScriptKeyword ;
  CONST Kind kind_NormalClass
@@ -3481,45 +3790,56 @@ ref; // ME_5617F4D00243_ME_C77B92459A8E ParamsTypes
  : Parent ME_4F4FD7EA00EB // FileProcessingPack
  ;
  : Inherits
-   @ ( WL 'ME_561BAC4B0005' '55CCADD2013D.pas.ms.script' // TtfwGlobalKeyWord
- ) .SequenceCode.It
+   Seq: ( WL 'ME_561BAC4B0005' '55CCADD2013D.pas.ms.script' // TtfwGlobalKeyWord
+ )
  ; // Inherits
  : Operations
-   @ ( ME_4475F8181332 // PureDir
+   Seq: ( ME_4475F8181332 // PureDir
  ME_37A77C5509F7 // Ini_Reg
- ) .SequenceCode.It
+ )
  ; // Operations
  : Implemented
-   @ ( ME_4DAEEDE10285_ME_C77B92459A8E // DoDoIt
- ) .SequenceCode.It
+   Seq: ( ME_4DAEEDE10285_ME_C77B92459A8E // DoDoIt
+ )
  ; // Implemented
  : Overridden
-   @ ( ME_4DB0614603C8_ME_C77B92459A8E // GetWordNameForRegister
+   Seq: ( ME_4DB0614603C8_ME_C77B92459A8E // GetWordNameForRegister
  ME_551544E2001A_ME_C77B92459A8E // GetResultTypeInfo
  ME_559687E6025A_ME_C77B92459A8E // GetAllParamsCount
  ME_5617F4D00243_ME_C77B92459A8E // ParamsTypes
- ) .SequenceCode.It
+ )
  ; // Overridden
  : Dependencies
-   @ ( ME_4D3B3DC62F04 // 
+   Seq: ( ME_4D3B3DC62F04 // 
  ME_CD8A4E319BA6 // 
  ME_376D4D8CC006 // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  CONST "NameForScript" 'PureDir'
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
+ CONST dfm:PathOnly '\common\components\rtl\Garant\ScriptEngine'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\ScriptEngine'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
  CONST extprop:pas:TypeName 'TkwPureDir'
+ CONST extprop:rc:SelfName 'PureDir'
+ CONST extprop:rc:isAcceptableForScripts true
+ : SpelledFor ME_55B606A70227 // PureDir
+ ;
 
 ref; // ME_C77B92459A8E PureDir
+
+FORWARD ME_55B606F1003D
 
 FORWARD ME_E5B04DD6635F
 
 : ME_5288ACAB44AB
  CONST UID '5288ACAB44AB'
  CONST Name 'aCtx'
+ CONST IsSummoned true
  CONST Class class_Parameter
  : Stereotype st_in ;
  : Target WL 'ME_4DB0091E033E' '4DAF19F600C5.pas.ms.script' // TtfwContext
@@ -3530,6 +3850,7 @@ ref; // ME_5288ACAB44AB aCtx
 : ME_5288ACAB44AC
  CONST UID '5288ACAB44AC'
  CONST Name 'aDirName'
+ CONST IsSummoned true
  CONST Class class_Parameter
  : Stereotype st_in ;
  : Target WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
@@ -3540,6 +3861,7 @@ ref; // ME_5288ACAB44AC aDirName
 : ME_5288ACAB44AD
  CONST UID '5288ACAB44AD'
  CONST Name 'aMask'
+ CONST IsSummoned true
  CONST Class class_Parameter
  : Stereotype st_in ;
  : Target WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
@@ -3550,6 +3872,7 @@ ref; // ME_5288ACAB44AD aMask
 : ME_4757446F5D1B
  CONST UID '4757446F5D1B'
  CONST Name 'DeleteFilesByMask'
+ CONST IsSummoned true
  CONST Class class_Operation
  %SUMMARY 'Реализация слова скрипта DeleteFilesByMask' ;
  CONST Visibility PrivateAccess
@@ -3557,10 +3880,10 @@ ref; // ME_5288ACAB44AD aMask
  : Parent ME_E5B04DD6635F // DeleteFilesByMask
  ;
  : Parameters
-   @ ( ME_5288ACAB44AB // aCtx
+   Seq: ( ME_5288ACAB44AB // aCtx
  ME_5288ACAB44AC // aDirName
  ME_5288ACAB44AD // aMask
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_4757446F5D1B DeleteFilesByMask
@@ -3568,6 +3891,7 @@ ref; // ME_4757446F5D1B DeleteFilesByMask
 : ME_8FF88FBB358F
  CONST UID '8FF88FBB358F'
  CONST Name 'Ini_Reg'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Регистрация DeleteFilesByMask' ;
@@ -3580,6 +3904,7 @@ ref; // ME_8FF88FBB358F Ini_Reg
 
 : ME_1C3F45692421
  CONST UID '1C3F45692421'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_E5B04DD6635F // DeleteFilesByMask
@@ -3591,6 +3916,7 @@ ref; // ME_1C3F45692421
 
 : ME_0432A33426A2
  CONST UID '0432A33426A2'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_E5B04DD6635F // DeleteFilesByMask
@@ -3602,6 +3928,7 @@ ref; // ME_0432A33426A2
 
 : ME_3B24630940EB
  CONST UID '3B24630940EB'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_E5B04DD6635F // DeleteFilesByMask
@@ -3664,6 +3991,7 @@ ref; // ME_5617F4D00243_ME_E5B04DD6635F ParamsTypes
 : ME_E5B04DD6635F
  CONST UID 'E5B04DD6635F'
  CONST Name 'DeleteFilesByMask'
+ CONST IsSummoned true
  CONST Class class_Class
  : Stereotype st_ScriptKeyword ;
  CONST Kind kind_NormalClass
@@ -3673,45 +4001,56 @@ ref; // ME_5617F4D00243_ME_E5B04DD6635F ParamsTypes
  : Parent ME_4F4FD7EA00EB // FileProcessingPack
  ;
  : Inherits
-   @ ( WL 'ME_561BAC4B0005' '55CCADD2013D.pas.ms.script' // TtfwGlobalKeyWord
- ) .SequenceCode.It
+   Seq: ( WL 'ME_561BAC4B0005' '55CCADD2013D.pas.ms.script' // TtfwGlobalKeyWord
+ )
  ; // Inherits
  : Operations
-   @ ( ME_4757446F5D1B // DeleteFilesByMask
+   Seq: ( ME_4757446F5D1B // DeleteFilesByMask
  ME_8FF88FBB358F // Ini_Reg
- ) .SequenceCode.It
+ )
  ; // Operations
  : Implemented
-   @ ( ME_4DAEEDE10285_ME_E5B04DD6635F // DoDoIt
- ) .SequenceCode.It
+   Seq: ( ME_4DAEEDE10285_ME_E5B04DD6635F // DoDoIt
+ )
  ; // Implemented
  : Overridden
-   @ ( ME_4DB0614603C8_ME_E5B04DD6635F // GetWordNameForRegister
+   Seq: ( ME_4DB0614603C8_ME_E5B04DD6635F // GetWordNameForRegister
  ME_551544E2001A_ME_E5B04DD6635F // GetResultTypeInfo
  ME_559687E6025A_ME_E5B04DD6635F // GetAllParamsCount
  ME_5617F4D00243_ME_E5B04DD6635F // ParamsTypes
- ) .SequenceCode.It
+ )
  ; // Overridden
  : Dependencies
-   @ ( ME_1C3F45692421 // 
+   Seq: ( ME_1C3F45692421 // 
  ME_0432A33426A2 // 
  ME_3B24630940EB // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  CONST "NameForScript" 'DeleteFilesByMask'
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
+ CONST dfm:PathOnly '\common\components\rtl\Garant\ScriptEngine'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\ScriptEngine'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
  CONST extprop:pas:TypeName 'TkwDeleteFilesByMask'
+ CONST extprop:rc:SelfName 'DeleteFilesByMask'
+ CONST extprop:rc:isAcceptableForScripts true
+ : SpelledFor ME_55B606F1003D // DeleteFilesByMask
+ ;
 
 ref; // ME_E5B04DD6635F DeleteFilesByMask
+
+FORWARD ME_55B6075302CC
 
 FORWARD ME_F43FC392309A
 
 : ME_ECB4CE5CDC7B
  CONST UID 'ECB4CE5CDC7B'
  CONST Name 'aCtx'
+ CONST IsSummoned true
  CONST Class class_Parameter
  : Stereotype st_in ;
  : Target WL 'ME_4DB0091E033E' '4DAF19F600C5.pas.ms.script' // TtfwContext
@@ -3722,6 +4061,7 @@ ref; // ME_ECB4CE5CDC7B aCtx
 : ME_ECB4CE5CDC7C
  CONST UID 'ECB4CE5CDC7C'
  CONST Name 'aDirName'
+ CONST IsSummoned true
  CONST Class class_Parameter
  : Stereotype st_in ;
  : Target WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
@@ -3732,6 +4072,7 @@ ref; // ME_ECB4CE5CDC7C aDirName
 : ME_ECB4CE5CDC7D
  CONST UID 'ECB4CE5CDC7D'
  CONST Name 'aFileMask'
+ CONST IsSummoned true
  CONST Class class_Parameter
  : Stereotype st_in ;
  : Target WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
@@ -3742,6 +4083,7 @@ ref; // ME_ECB4CE5CDC7D aFileMask
 : ME_ECB4CE5CDC7E
  CONST UID 'ECB4CE5CDC7E'
  CONST Name 'aProc'
+ CONST IsSummoned true
  CONST Class class_Parameter
  : Stereotype st_in ;
  : Target WL 'ME_4DAEED140007' '4DAF19F600C5.pas.ms.script' // TtfwWord
@@ -3752,6 +4094,7 @@ ref; // ME_ECB4CE5CDC7E aProc
 : ME_332776E818ED
  CONST UID '332776E818ED'
  CONST Name 'ProcessFilesWithMask'
+ CONST IsSummoned true
  CONST Class class_Operation
  %SUMMARY 'Реализация слова скрипта ProcessFilesWithMask' ;
  CONST Visibility PrivateAccess
@@ -3759,11 +4102,11 @@ ref; // ME_ECB4CE5CDC7E aProc
  : Parent ME_F43FC392309A // ProcessFilesWithMask
  ;
  : Parameters
-   @ ( ME_ECB4CE5CDC7B // aCtx
+   Seq: ( ME_ECB4CE5CDC7B // aCtx
  ME_ECB4CE5CDC7C // aDirName
  ME_ECB4CE5CDC7D // aFileMask
  ME_ECB4CE5CDC7E // aProc
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_332776E818ED ProcessFilesWithMask
@@ -3771,6 +4114,7 @@ ref; // ME_332776E818ED ProcessFilesWithMask
 : ME_88B126F48A4E
  CONST UID '88B126F48A4E'
  CONST Name 'Ini_Reg'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Регистрация ProcessFilesWithMask' ;
@@ -3783,6 +4127,7 @@ ref; // ME_88B126F48A4E Ini_Reg
 
 : ME_EB64565E7631
  CONST UID 'EB64565E7631'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_F43FC392309A // ProcessFilesWithMask
@@ -3794,6 +4139,7 @@ ref; // ME_EB64565E7631
 
 : ME_48F7700880E9
  CONST UID '48F7700880E9'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_F43FC392309A // ProcessFilesWithMask
@@ -3805,6 +4151,7 @@ ref; // ME_48F7700880E9
 
 : ME_F49787E5125A
  CONST UID 'F49787E5125A'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_F43FC392309A // ProcessFilesWithMask
@@ -3867,6 +4214,7 @@ ref; // ME_5617F4D00243_ME_F43FC392309A ParamsTypes
 : ME_F43FC392309A
  CONST UID 'F43FC392309A'
  CONST Name 'ProcessFilesWithMask'
+ CONST IsSummoned true
  CONST Class class_Class
  : Stereotype st_ScriptKeyword ;
  CONST Kind kind_NormalClass
@@ -3876,45 +4224,56 @@ ref; // ME_5617F4D00243_ME_F43FC392309A ParamsTypes
  : Parent ME_4F4FD7EA00EB // FileProcessingPack
  ;
  : Inherits
-   @ ( WL 'ME_561BAC4B0005' '55CCADD2013D.pas.ms.script' // TtfwGlobalKeyWord
- ) .SequenceCode.It
+   Seq: ( WL 'ME_561BAC4B0005' '55CCADD2013D.pas.ms.script' // TtfwGlobalKeyWord
+ )
  ; // Inherits
  : Operations
-   @ ( ME_332776E818ED // ProcessFilesWithMask
+   Seq: ( ME_332776E818ED // ProcessFilesWithMask
  ME_88B126F48A4E // Ini_Reg
- ) .SequenceCode.It
+ )
  ; // Operations
  : Implemented
-   @ ( ME_4DAEEDE10285_ME_F43FC392309A // DoDoIt
- ) .SequenceCode.It
+   Seq: ( ME_4DAEEDE10285_ME_F43FC392309A // DoDoIt
+ )
  ; // Implemented
  : Overridden
-   @ ( ME_4DB0614603C8_ME_F43FC392309A // GetWordNameForRegister
+   Seq: ( ME_4DB0614603C8_ME_F43FC392309A // GetWordNameForRegister
  ME_551544E2001A_ME_F43FC392309A // GetResultTypeInfo
  ME_559687E6025A_ME_F43FC392309A // GetAllParamsCount
  ME_5617F4D00243_ME_F43FC392309A // ParamsTypes
- ) .SequenceCode.It
+ )
  ; // Overridden
  : Dependencies
-   @ ( ME_EB64565E7631 // 
+   Seq: ( ME_EB64565E7631 // 
  ME_48F7700880E9 // 
  ME_F49787E5125A // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  CONST "NameForScript" 'ProcessFilesWithMask'
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
+ CONST dfm:PathOnly '\common\components\rtl\Garant\ScriptEngine'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\ScriptEngine'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
  CONST extprop:pas:TypeName 'TkwProcessFilesWithMask'
+ CONST extprop:rc:SelfName 'ProcessFilesWithMask'
+ CONST extprop:rc:isAcceptableForScripts true
+ : SpelledFor ME_55B6075302CC // ProcessFilesWithMask
+ ;
 
 ref; // ME_F43FC392309A ProcessFilesWithMask
+
+FORWARD ME_55B607D400E0
 
 FORWARD ME_4D6340E72B1A
 
 : ME_FD3C5A811403
  CONST UID 'FD3C5A811403'
  CONST Name 'aCtx'
+ CONST IsSummoned true
  CONST Class class_Parameter
  : Stereotype st_in ;
  : Target WL 'ME_4DB0091E033E' '4DAF19F600C5.pas.ms.script' // TtfwContext
@@ -3925,6 +4284,7 @@ ref; // ME_FD3C5A811403 aCtx
 : ME_FD3C5A811404
  CONST UID 'FD3C5A811404'
  CONST Name 'aDirName'
+ CONST IsSummoned true
  CONST Class class_Parameter
  : Stereotype st_in ;
  : Target WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
@@ -3935,6 +4295,7 @@ ref; // ME_FD3C5A811404 aDirName
 : ME_FD3C5A811405
  CONST UID 'FD3C5A811405'
  CONST Name 'aProc'
+ CONST IsSummoned true
  CONST Class class_Parameter
  : Stereotype st_in ;
  : Target WL 'ME_4DAEED140007' '4DAF19F600C5.pas.ms.script' // TtfwWord
@@ -3945,6 +4306,7 @@ ref; // ME_FD3C5A811405 aProc
 : ME_3A2CA042D20F
  CONST UID '3A2CA042D20F'
  CONST Name 'ProcessSubDirs'
+ CONST IsSummoned true
  CONST Class class_Operation
  %SUMMARY 'Реализация слова скрипта ProcessSubDirs' ;
  CONST Visibility PrivateAccess
@@ -3952,10 +4314,10 @@ ref; // ME_FD3C5A811405 aProc
  : Parent ME_4D6340E72B1A // ProcessSubDirs
  ;
  : Parameters
-   @ ( ME_FD3C5A811403 // aCtx
+   Seq: ( ME_FD3C5A811403 // aCtx
  ME_FD3C5A811404 // aDirName
  ME_FD3C5A811405 // aProc
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_3A2CA042D20F ProcessSubDirs
@@ -3963,6 +4325,7 @@ ref; // ME_3A2CA042D20F ProcessSubDirs
 : ME_3D14180B388A
  CONST UID '3D14180B388A'
  CONST Name 'Ini_Reg'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Регистрация ProcessSubDirs' ;
@@ -3975,6 +4338,7 @@ ref; // ME_3D14180B388A Ini_Reg
 
 : ME_FB73AC4E62B0
  CONST UID 'FB73AC4E62B0'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_4D6340E72B1A // ProcessSubDirs
@@ -3986,6 +4350,7 @@ ref; // ME_FB73AC4E62B0
 
 : ME_C7E895303B46
  CONST UID 'C7E895303B46'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_4D6340E72B1A // ProcessSubDirs
@@ -3997,6 +4362,7 @@ ref; // ME_C7E895303B46
 
 : ME_61DC9D988A49
  CONST UID '61DC9D988A49'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_4D6340E72B1A // ProcessSubDirs
@@ -4059,6 +4425,7 @@ ref; // ME_5617F4D00243_ME_4D6340E72B1A ParamsTypes
 : ME_4D6340E72B1A
  CONST UID '4D6340E72B1A'
  CONST Name 'ProcessSubDirs'
+ CONST IsSummoned true
  CONST Class class_Class
  : Stereotype st_ScriptKeyword ;
  CONST Kind kind_NormalClass
@@ -4068,45 +4435,56 @@ ref; // ME_5617F4D00243_ME_4D6340E72B1A ParamsTypes
  : Parent ME_4F4FD7EA00EB // FileProcessingPack
  ;
  : Inherits
-   @ ( WL 'ME_561BAC4B0005' '55CCADD2013D.pas.ms.script' // TtfwGlobalKeyWord
- ) .SequenceCode.It
+   Seq: ( WL 'ME_561BAC4B0005' '55CCADD2013D.pas.ms.script' // TtfwGlobalKeyWord
+ )
  ; // Inherits
  : Operations
-   @ ( ME_3A2CA042D20F // ProcessSubDirs
+   Seq: ( ME_3A2CA042D20F // ProcessSubDirs
  ME_3D14180B388A // Ini_Reg
- ) .SequenceCode.It
+ )
  ; // Operations
  : Implemented
-   @ ( ME_4DAEEDE10285_ME_4D6340E72B1A // DoDoIt
- ) .SequenceCode.It
+   Seq: ( ME_4DAEEDE10285_ME_4D6340E72B1A // DoDoIt
+ )
  ; // Implemented
  : Overridden
-   @ ( ME_4DB0614603C8_ME_4D6340E72B1A // GetWordNameForRegister
+   Seq: ( ME_4DB0614603C8_ME_4D6340E72B1A // GetWordNameForRegister
  ME_551544E2001A_ME_4D6340E72B1A // GetResultTypeInfo
  ME_559687E6025A_ME_4D6340E72B1A // GetAllParamsCount
  ME_5617F4D00243_ME_4D6340E72B1A // ParamsTypes
- ) .SequenceCode.It
+ )
  ; // Overridden
  : Dependencies
-   @ ( ME_FB73AC4E62B0 // 
+   Seq: ( ME_FB73AC4E62B0 // 
  ME_C7E895303B46 // 
  ME_61DC9D988A49 // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  CONST "NameForScript" 'ProcessSubDirs'
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
+ CONST dfm:PathOnly '\common\components\rtl\Garant\ScriptEngine'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\ScriptEngine'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
  CONST extprop:pas:TypeName 'TkwProcessSubDirs'
+ CONST extprop:rc:SelfName 'ProcessSubDirs'
+ CONST extprop:rc:isAcceptableForScripts true
+ : SpelledFor ME_55B607D400E0 // ProcessSubDirs
+ ;
 
 ref; // ME_4D6340E72B1A ProcessSubDirs
+
+FORWARD ME_56420DAD0276
 
 FORWARD ME_E2551B3D7813
 
 : ME_14289ECCD221
  CONST UID '14289ECCD221'
  CONST Name 'aCtx'
+ CONST IsSummoned true
  CONST Class class_Parameter
  : Stereotype st_in ;
  : Target WL 'ME_4DB0091E033E' '4DAF19F600C5.pas.ms.script' // TtfwContext
@@ -4117,6 +4495,7 @@ ref; // ME_14289ECCD221 aCtx
 : ME_14289ECCD222
  CONST UID '14289ECCD222'
  CONST Name 'aFileName'
+ CONST IsSummoned true
  CONST Class class_Parameter
  : Stereotype st_in ;
  : Target WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
@@ -4127,6 +4506,7 @@ ref; // ME_14289ECCD222 aFileName
 : ME_DEA5A01CE3B1
  CONST UID 'DEA5A01CE3B1'
  CONST Name 'FileSize'
+ CONST IsSummoned true
  CONST Class class_Operation
  %SUMMARY 'Реализация слова скрипта FileSize' ;
  CONST Visibility PrivateAccess
@@ -4136,9 +4516,9 @@ ref; // ME_14289ECCD222 aFileName
  : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
  ;
  : Parameters
-   @ ( ME_14289ECCD221 // aCtx
+   Seq: ( ME_14289ECCD221 // aCtx
  ME_14289ECCD222 // aFileName
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_DEA5A01CE3B1 FileSize
@@ -4146,6 +4526,7 @@ ref; // ME_DEA5A01CE3B1 FileSize
 : ME_E17A5DC7C593
  CONST UID 'E17A5DC7C593'
  CONST Name 'Ini_Reg'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Регистрация FileSize' ;
@@ -4158,6 +4539,7 @@ ref; // ME_E17A5DC7C593 Ini_Reg
 
 : ME_FD788AAB8ACC
  CONST UID 'FD788AAB8ACC'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_E2551B3D7813 // FileSize
@@ -4169,6 +4551,7 @@ ref; // ME_FD788AAB8ACC
 
 : ME_6EB9C2F22284
  CONST UID '6EB9C2F22284'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_E2551B3D7813 // FileSize
@@ -4180,6 +4563,7 @@ ref; // ME_6EB9C2F22284
 
 : ME_1F52F6F8675E
  CONST UID '1F52F6F8675E'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_E2551B3D7813 // FileSize
@@ -4242,6 +4626,7 @@ ref; // ME_5617F4D00243_ME_E2551B3D7813 ParamsTypes
 : ME_E2551B3D7813
  CONST UID 'E2551B3D7813'
  CONST Name 'FileSize'
+ CONST IsSummoned true
  CONST Class class_Class
  : Stereotype st_ScriptKeyword ;
  CONST Kind kind_NormalClass
@@ -4251,45 +4636,56 @@ ref; // ME_5617F4D00243_ME_E2551B3D7813 ParamsTypes
  : Parent ME_4F4FD7EA00EB // FileProcessingPack
  ;
  : Inherits
-   @ ( WL 'ME_561BAC4B0005' '55CCADD2013D.pas.ms.script' // TtfwGlobalKeyWord
- ) .SequenceCode.It
+   Seq: ( WL 'ME_561BAC4B0005' '55CCADD2013D.pas.ms.script' // TtfwGlobalKeyWord
+ )
  ; // Inherits
  : Operations
-   @ ( ME_DEA5A01CE3B1 // FileSize
+   Seq: ( ME_DEA5A01CE3B1 // FileSize
  ME_E17A5DC7C593 // Ini_Reg
- ) .SequenceCode.It
+ )
  ; // Operations
  : Implemented
-   @ ( ME_4DAEEDE10285_ME_E2551B3D7813 // DoDoIt
- ) .SequenceCode.It
+   Seq: ( ME_4DAEEDE10285_ME_E2551B3D7813 // DoDoIt
+ )
  ; // Implemented
  : Overridden
-   @ ( ME_4DB0614603C8_ME_E2551B3D7813 // GetWordNameForRegister
+   Seq: ( ME_4DB0614603C8_ME_E2551B3D7813 // GetWordNameForRegister
  ME_551544E2001A_ME_E2551B3D7813 // GetResultTypeInfo
  ME_559687E6025A_ME_E2551B3D7813 // GetAllParamsCount
  ME_5617F4D00243_ME_E2551B3D7813 // ParamsTypes
- ) .SequenceCode.It
+ )
  ; // Overridden
  : Dependencies
-   @ ( ME_FD788AAB8ACC // 
+   Seq: ( ME_FD788AAB8ACC // 
  ME_6EB9C2F22284 // 
  ME_1F52F6F8675E // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  CONST "NameForScript" 'FileSize'
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
+ CONST dfm:PathOnly '\common\components\rtl\Garant\ScriptEngine'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\ScriptEngine'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
  CONST extprop:pas:TypeName 'TkwFileSize'
+ CONST extprop:rc:SelfName 'FileSize'
+ CONST extprop:rc:isAcceptableForScripts true
+ : SpelledFor ME_56420DAD0276 // FileSize
+ ;
 
 ref; // ME_E2551B3D7813 FileSize
+
+FORWARD ME_56420DEC002D
 
 FORWARD ME_CF832D7F4CA1
 
 : ME_C84F463EC8FA
  CONST UID 'C84F463EC8FA'
  CONST Name 'aCtx'
+ CONST IsSummoned true
  CONST Class class_Parameter
  : Stereotype st_in ;
  : Target WL 'ME_4DB0091E033E' '4DAF19F600C5.pas.ms.script' // TtfwContext
@@ -4300,6 +4696,7 @@ ref; // ME_C84F463EC8FA aCtx
 : ME_C84F463EC8FB
  CONST UID 'C84F463EC8FB'
  CONST Name 'aFile1'
+ CONST IsSummoned true
  CONST Class class_Parameter
  : Stereotype st_in ;
  : Target WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
@@ -4310,6 +4707,7 @@ ref; // ME_C84F463EC8FB aFile1
 : ME_C84F463EC8FC
  CONST UID 'C84F463EC8FC'
  CONST Name 'aFile2'
+ CONST IsSummoned true
  CONST Class class_Parameter
  : Stereotype st_in ;
  : Target WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
@@ -4320,6 +4718,7 @@ ref; // ME_C84F463EC8FC aFile2
 : ME_C84F463EC8FD
  CONST UID 'C84F463EC8FD'
  CONST Name 'aHeaderBegin'
+ CONST IsSummoned true
  CONST Class class_Parameter
  : Stereotype st_in ;
  : Target WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
@@ -4330,6 +4729,7 @@ ref; // ME_C84F463EC8FD aHeaderBegin
 : ME_6C5EFAFC54B2
  CONST UID '6C5EFAFC54B2'
  CONST Name 'CompareFiles'
+ CONST IsSummoned true
  CONST Class class_Operation
  %SUMMARY 'Реализация слова скрипта CompareFiles' ;
  CONST Visibility PrivateAccess
@@ -4339,11 +4739,11 @@ ref; // ME_C84F463EC8FD aHeaderBegin
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
  : Parameters
-   @ ( ME_C84F463EC8FA // aCtx
+   Seq: ( ME_C84F463EC8FA // aCtx
  ME_C84F463EC8FB // aFile1
  ME_C84F463EC8FC // aFile2
  ME_C84F463EC8FD // aHeaderBegin
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_6C5EFAFC54B2 CompareFiles
@@ -4351,6 +4751,7 @@ ref; // ME_6C5EFAFC54B2 CompareFiles
 : ME_A27B79B34C0A
  CONST UID 'A27B79B34C0A'
  CONST Name 'Ini_Reg'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Регистрация CompareFiles' ;
@@ -4363,6 +4764,7 @@ ref; // ME_A27B79B34C0A Ini_Reg
 
 : ME_1D7D4F74069D
  CONST UID '1D7D4F74069D'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_CF832D7F4CA1 // CompareFiles
@@ -4374,6 +4776,7 @@ ref; // ME_1D7D4F74069D
 
 : ME_93558C1AEA85
  CONST UID '93558C1AEA85'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_CF832D7F4CA1 // CompareFiles
@@ -4385,6 +4788,7 @@ ref; // ME_93558C1AEA85
 
 : ME_AB97A49C8F4E
  CONST UID 'AB97A49C8F4E'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_CF832D7F4CA1 // CompareFiles
@@ -4447,6 +4851,7 @@ ref; // ME_5617F4D00243_ME_CF832D7F4CA1 ParamsTypes
 : ME_CF832D7F4CA1
  CONST UID 'CF832D7F4CA1'
  CONST Name 'CompareFiles'
+ CONST IsSummoned true
  CONST Class class_Class
  : Stereotype st_ScriptKeyword ;
  CONST Kind kind_NormalClass
@@ -4456,37 +4861,45 @@ ref; // ME_5617F4D00243_ME_CF832D7F4CA1 ParamsTypes
  : Parent ME_4F4FD7EA00EB // FileProcessingPack
  ;
  : Inherits
-   @ ( WL 'ME_561BAC4B0005' '55CCADD2013D.pas.ms.script' // TtfwGlobalKeyWord
- ) .SequenceCode.It
+   Seq: ( WL 'ME_561BAC4B0005' '55CCADD2013D.pas.ms.script' // TtfwGlobalKeyWord
+ )
  ; // Inherits
  : Operations
-   @ ( ME_6C5EFAFC54B2 // CompareFiles
+   Seq: ( ME_6C5EFAFC54B2 // CompareFiles
  ME_A27B79B34C0A // Ini_Reg
- ) .SequenceCode.It
+ )
  ; // Operations
  : Implemented
-   @ ( ME_4DAEEDE10285_ME_CF832D7F4CA1 // DoDoIt
- ) .SequenceCode.It
+   Seq: ( ME_4DAEEDE10285_ME_CF832D7F4CA1 // DoDoIt
+ )
  ; // Implemented
  : Overridden
-   @ ( ME_4DB0614603C8_ME_CF832D7F4CA1 // GetWordNameForRegister
+   Seq: ( ME_4DB0614603C8_ME_CF832D7F4CA1 // GetWordNameForRegister
  ME_551544E2001A_ME_CF832D7F4CA1 // GetResultTypeInfo
  ME_559687E6025A_ME_CF832D7F4CA1 // GetAllParamsCount
  ME_5617F4D00243_ME_CF832D7F4CA1 // ParamsTypes
- ) .SequenceCode.It
+ )
  ; // Overridden
  : Dependencies
-   @ ( ME_1D7D4F74069D // 
+   Seq: ( ME_1D7D4F74069D // 
  ME_93558C1AEA85 // 
  ME_AB97A49C8F4E // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  CONST "NameForScript" 'CompareFiles'
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
+ CONST dfm:PathOnly '\common\components\rtl\Garant\ScriptEngine'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\ScriptEngine'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
  CONST extprop:pas:TypeName 'TkwCompareFiles'
+ CONST extprop:rc:SelfName 'CompareFiles'
+ CONST extprop:rc:isAcceptableForScripts true
+ : SpelledFor ME_56420DEC002D // CompareFiles
+ ;
 
 ref; // ME_CF832D7F4CA1 CompareFiles
 
@@ -4510,12 +4923,14 @@ ref; // ME_55B5FB5F0397 aName
  : Parent ME_4F4FD7EA00EB // FileProcessingPack
  ;
  : Parameters
-   @ ( ME_55B5FB5F0397 // aName
- ) .SequenceCode.It
+   Seq: ( ME_55B5FB5F0397 // aName
+ )
  ; // Parameters
  CONST "bind params" 'undefined'
  CONST "lvalue" 'undefined'
  CONST "mapped" 'undefined'
+ : Speller ME_E10DA0D7493D // File_OpenRead
+ ;
 
 ref; // ME_55B5FB4B0008 OpenRead
 
@@ -4539,12 +4954,14 @@ ref; // ME_55B5FB8200DD aName
  : Parent ME_4F4FD7EA00EB // FileProcessingPack
  ;
  : Parameters
-   @ ( ME_55B5FB8200DD // aName
- ) .SequenceCode.It
+   Seq: ( ME_55B5FB8200DD // aName
+ )
  ; // Parameters
  CONST "bind params" 'undefined'
  CONST "lvalue" 'undefined'
  CONST "mapped" 'undefined'
+ : Speller ME_1CA3472F7177 // File_OpenWrite
+ ;
 
 ref; // ME_55B5FB780316 OpenWrite
 
@@ -4562,6 +4979,8 @@ ref; // ME_55B5FB780316 OpenWrite
  CONST "bind params" 'undefined'
  CONST "lvalue" 'undefined'
  CONST "mapped" 'undefined'
+ : Speller ME_2B33C78BBAB9 // File_EOF
+ ;
 
 ref; // ME_55B5FB9E01EF EOF
 
@@ -4579,6 +4998,8 @@ ref; // ME_55B5FB9E01EF EOF
  CONST "bind params" 'undefined'
  CONST "lvalue" 'undefined'
  CONST "mapped" 'undefined'
+ : Speller ME_324E0BCF3B98 // File_ReadLn
+ ;
 
 ref; // ME_55B5FBE20353 ReadLn
 
@@ -4602,12 +5023,14 @@ ref; // ME_55B5FC080154 aValue
  : Parent ME_4F4FD7EA00EB // FileProcessingPack
  ;
  : Parameters
-   @ ( ME_55B5FC080154 // aValue
- ) .SequenceCode.It
+   Seq: ( ME_55B5FC080154 // aValue
+ )
  ; // Parameters
  CONST "bind params" 'undefined'
  CONST "lvalue" 'undefined'
  CONST "mapped" 'undefined'
+ : Speller ME_D6A86D931B42 // File_WriteLn
+ ;
 
 ref; // ME_55B5FBFE02E9 WriteLn
 
@@ -4631,12 +5054,14 @@ ref; // ME_55B5FC220390 aValue
  : Parent ME_4F4FD7EA00EB // FileProcessingPack
  ;
  : Parameters
-   @ ( ME_55B5FC220390 // aValue
- ) .SequenceCode.It
+   Seq: ( ME_55B5FC220390 // aValue
+ )
  ; // Parameters
  CONST "bind params" 'undefined'
  CONST "lvalue" 'undefined'
  CONST "mapped" 'undefined'
+ : Speller ME_B530B64F8857 // File_WriteChar
+ ;
 
 ref; // ME_55B5FC1C0184 WriteChar
 
@@ -4660,12 +5085,14 @@ ref; // ME_55B5FC5A007D aValue
  : Parent ME_4F4FD7EA00EB // FileProcessingPack
  ;
  : Parameters
-   @ ( ME_55B5FC5A007D // aValue
- ) .SequenceCode.It
+   Seq: ( ME_55B5FC5A007D // aValue
+ )
  ; // Parameters
  CONST "bind params" 'undefined'
  CONST "lvalue" 'undefined'
  CONST "mapped" 'undefined'
+ : Speller ME_0016E31D4F5B // File_WriteStr
+ ;
 
 ref; // ME_55B5FC500169 WriteStr
 
@@ -4682,6 +5109,8 @@ ref; // ME_55B5FC500169 WriteStr
  CONST "bind params" 'undefined'
  CONST "lvalue" 'undefined'
  CONST "mapped" 'undefined'
+ : Speller ME_4D96B2094588 // File_ReadLines
+ ;
 
 ref; // ME_55B6044A038E ReadLines
 
@@ -4707,9 +5136,11 @@ ref; // ME_55B6048C02D6 aName
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
  : Parameters
-   @ ( ME_55B6048C02D6 // aName
- ) .SequenceCode.It
+   Seq: ( ME_55B6048C02D6 // aName
+ )
  ; // Parameters
+ : Speller ME_01A4D246A0C9 // DeleteFile
+ ;
 
 ref; // ME_55B6047F005B DeleteFile
 
@@ -4746,10 +5177,12 @@ ref; // ME_55B604D3017B anOldName
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
  : Parameters
-   @ ( ME_55B604D30106 // aNewName
+   Seq: ( ME_55B604D30106 // aNewName
  ME_55B604D3017B // anOldName
- ) .SequenceCode.It
+ )
  ; // Parameters
+ : Speller ME_269C162F0F47 // RenameFile
+ ;
 
 ref; // ME_55B6049F0019 RenameFile
 
@@ -4794,11 +5227,13 @@ ref; // ME_55B6055E03AE aFileMask
  : Parent ME_4F4FD7EA00EB // FileProcessingPack
  ;
  : Parameters
-   @ ( ME_55B6055E02D4 // aSourceDir
+   Seq: ( ME_55B6055E02D4 // aSourceDir
  ME_55B6055E034A // aDestDir
  ME_55B6055E03AE // aFileMask
- ) .SequenceCode.It
+ )
  ; // Parameters
+ : Speller ME_5478B1531C0E // CopyFilesByMask
+ ;
 
 ref; // ME_55B604FC0108 CopyFilesByMask
 
@@ -4843,11 +5278,13 @@ ref; // ME_55B605E30140 aCopyMode
  : Parent ME_4F4FD7EA00EB // FileProcessingPack
  ;
  : Parameters
-   @ ( ME_55B605E30082 // aSourceFile
+   Seq: ( ME_55B605E30082 // aSourceFile
  ME_55B605E300DC // aDestFile
  ME_55B605E30140 // aCopyMode
- ) .SequenceCode.It
+ )
  ; // Parameters
+ : Speller ME_C4E46637B80B // CopyFile
+ ;
 
 ref; // ME_55B605890120 CopyFile
 
@@ -4872,9 +5309,11 @@ ref; // ME_55B606CD001A aName
  : Parent ME_4F4FD7EA00EB // FileProcessingPack
  ;
  : Parameters
-   @ ( ME_55B606CD001A // aName
- ) .SequenceCode.It
+   Seq: ( ME_55B606CD001A // aName
+ )
  ; // Parameters
+ : Speller ME_C77B92459A8E // PureDir
+ ;
 
 ref; // ME_55B606A70227 PureDir
 
@@ -4909,10 +5348,12 @@ ref; // ME_55B6071B0092 aMask
  : Parent ME_4F4FD7EA00EB // FileProcessingPack
  ;
  : Parameters
-   @ ( ME_55B6071B0030 // aDirName
+   Seq: ( ME_55B6071B0030 // aDirName
  ME_55B6071B0092 // aMask
- ) .SequenceCode.It
+ )
  ; // Parameters
+ : Speller ME_E5B04DD6635F // DeleteFilesByMask
+ ;
 
 ref; // ME_55B606F1003D DeleteFilesByMask
 
@@ -4957,11 +5398,13 @@ ref; // ME_55B607B10103 aProc
  : Parent ME_4F4FD7EA00EB // FileProcessingPack
  ;
  : Parameters
-   @ ( ME_55B607B003D6 // aDirName
+   Seq: ( ME_55B607B003D6 // aDirName
  ME_55B607B100A9 // aFileMask
  ME_55B607B10103 // aProc
- ) .SequenceCode.It
+ )
  ; // Parameters
+ : Speller ME_F43FC392309A // ProcessFilesWithMask
+ ;
 
 ref; // ME_55B6075302CC ProcessFilesWithMask
 
@@ -4996,10 +5439,12 @@ ref; // ME_55B608020035 aProc
  : Parent ME_4F4FD7EA00EB // FileProcessingPack
  ;
  : Parameters
-   @ ( ME_55B6080103A0 // aDirName
+   Seq: ( ME_55B6080103A0 // aDirName
  ME_55B608020035 // aProc
- ) .SequenceCode.It
+ )
  ; // Parameters
+ : Speller ME_4D6340E72B1A // ProcessSubDirs
+ ;
 
 ref; // ME_55B607D400E0 ProcessSubDirs
 
@@ -5023,12 +5468,14 @@ ref; // ME_55B609A3029D aValue
  : Parent ME_4F4FD7EA00EB // FileProcessingPack
  ;
  : Parameters
-   @ ( ME_55B609A3029D // aValue
- ) .SequenceCode.It
+   Seq: ( ME_55B609A3029D // aValue
+ )
  ; // Parameters
  CONST "bind params" 'undefined'
  CONST "lvalue" 'undefined'
  CONST "mapped" 'undefined'
+ : Speller ME_12D9E8420555 // File_WriteWStr
+ ;
 
 ref; // ME_55B60993020B WriteWStr
 
@@ -5046,6 +5493,8 @@ ref; // ME_55B60993020B WriteWStr
  CONST "bind params" 'undefined'
  CONST "lvalue" 'undefined'
  CONST "mapped" 'undefined'
+ : Speller ME_6F89E50D4B41 // File_ReadWStrLn
+ ;
 
 ref; // ME_55B618940267 ReadWStrLn
 
@@ -5069,12 +5518,14 @@ ref; // ME_55B618BA0311 aValue
  : Parent ME_4F4FD7EA00EB // FileProcessingPack
  ;
  : Parameters
-   @ ( ME_55B618BA0311 // aValue
- ) .SequenceCode.It
+   Seq: ( ME_55B618BA0311 // aValue
+ )
  ; // Parameters
  CONST "bind params" 'undefined'
  CONST "lvalue" 'undefined'
  CONST "mapped" 'undefined'
+ : Speller ME_2C287EC9B0C3 // File_WriteWStrLn
+ ;
 
 ref; // ME_55B618AB03C3 WriteWStrLn
 
@@ -5100,9 +5551,11 @@ ref; // ME_56420DC20183 aFileName
  : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
  ;
  : Parameters
-   @ ( ME_56420DC20183 // aFileName
- ) .SequenceCode.It
+   Seq: ( ME_56420DC20183 // aFileName
+ )
  ; // Parameters
+ : Speller ME_E2551B3D7813 // FileSize
+ ;
 
 ref; // ME_56420DAD0276 FileSize
 
@@ -5148,17 +5601,20 @@ ref; // ME_56420E36015C aHeaderBegin
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
  : Parameters
-   @ ( ME_56420E360080 // aFile1
+   Seq: ( ME_56420E360080 // aFile1
  ME_56420E3600EE // aFile2
  ME_56420E36015C // aHeaderBegin
- ) .SequenceCode.It
+ )
  ; // Parameters
+ : Speller ME_CF832D7F4CA1 // CompareFiles
+ ;
 
 ref; // ME_56420DEC002D CompareFiles
 
 : ME_BB97D362E6D9
  CONST UID 'BB97D362E6D9'
- CONST Name 'Reg_TtfwContext'
+ CONST Name 'Reg_Type_TtfwContext'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Регистрация типа TtfwContext' ;
@@ -5166,12 +5622,15 @@ ref; // ME_56420DEC002D CompareFiles
  CONST Abstraction at_final
  : Parent ME_4F4FD7EA00EB // FileProcessingPack
  ;
+ : SpelledFor WL 'ME_4DB0091E033E' '4DAF19F600C5.pas.ms.script' // TtfwContext
+ ;
 
-ref; // ME_BB97D362E6D9 Reg_TtfwContext
+ref; // ME_BB97D362E6D9 Reg_Type_TtfwContext
 
 : ME_01B218FC8731
  CONST UID '01B218FC8731'
- CONST Name 'Reg_String'
+ CONST Name 'Reg_Type_String'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Регистрация типа String' ;
@@ -5179,12 +5638,15 @@ ref; // ME_BB97D362E6D9 Reg_TtfwContext
  CONST Abstraction at_final
  : Parent ME_4F4FD7EA00EB // FileProcessingPack
  ;
+ : SpelledFor WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
+ ;
 
-ref; // ME_01B218FC8731 Reg_String
+ref; // ME_01B218FC8731 Reg_Type_String
 
 : ME_863CD57592B9
  CONST UID '863CD57592B9'
- CONST Name 'Reg_ItfwFile'
+ CONST Name 'Reg_Type_ItfwFile'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Регистрация типа ItfwFile' ;
@@ -5192,12 +5654,15 @@ ref; // ME_01B218FC8731 Reg_String
  CONST Abstraction at_final
  : Parent ME_4F4FD7EA00EB // FileProcessingPack
  ;
+ : SpelledFor WL 'ME_4F4E4E7101D6' '4DAF19F600C5.pas.ms.script' // ItfwFile
+ ;
 
-ref; // ME_863CD57592B9 Reg_ItfwFile
+ref; // ME_863CD57592B9 Reg_Type_ItfwFile
 
 : ME_0E41E9619769
  CONST UID '0E41E9619769'
- CONST Name 'Reg_Boolean'
+ CONST Name 'Reg_Type_Boolean'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Регистрация типа Boolean' ;
@@ -5205,12 +5670,15 @@ ref; // ME_863CD57592B9 Reg_ItfwFile
  CONST Abstraction at_final
  : Parent ME_4F4FD7EA00EB // FileProcessingPack
  ;
+ : SpelledFor WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
 
-ref; // ME_0E41E9619769 Reg_Boolean
+ref; // ME_0E41E9619769 Reg_Type_Boolean
 
 : ME_2A323C40F54A
  CONST UID '2A323C40F54A'
- CONST Name 'Reg_Il3CString'
+ CONST Name 'Reg_Type_Il3CString'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Регистрация типа Il3CString' ;
@@ -5218,12 +5686,15 @@ ref; // ME_0E41E9619769 Reg_Boolean
  CONST Abstraction at_final
  : Parent ME_4F4FD7EA00EB // FileProcessingPack
  ;
+ : SpelledFor WL 'ME_46780DA40383' '4677FBA70343.pas.ms.script' // Il3CString
+ ;
 
-ref; // ME_2A323C40F54A Reg_Il3CString
+ref; // ME_2A323C40F54A Reg_Type_Il3CString
 
 : ME_6B1A465A25A2
  CONST UID '6B1A465A25A2'
- CONST Name 'Reg_Char'
+ CONST Name 'Reg_Type_Char'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Регистрация типа Char' ;
@@ -5231,12 +5702,15 @@ ref; // ME_2A323C40F54A Reg_Il3CString
  CONST Abstraction at_final
  : Parent ME_4F4FD7EA00EB // FileProcessingPack
  ;
+ : SpelledFor WL 'ME_482C48430205' '4AB0C3C60310.pas.ms.script' // Char
+ ;
 
-ref; // ME_6B1A465A25A2 Reg_Char
+ref; // ME_6B1A465A25A2 Reg_Type_Char
 
 : ME_6BBE0D172FE8
  CONST UID '6BBE0D172FE8'
- CONST Name 'Reg_TtfwWord'
+ CONST Name 'Reg_Type_TtfwWord'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Регистрация типа TtfwWord' ;
@@ -5244,12 +5718,15 @@ ref; // ME_6B1A465A25A2 Reg_Char
  CONST Abstraction at_final
  : Parent ME_4F4FD7EA00EB // FileProcessingPack
  ;
+ : SpelledFor WL 'ME_4DAEED140007' '4DAF19F600C5.pas.ms.script' // TtfwWord
+ ;
 
-ref; // ME_6BBE0D172FE8 Reg_TtfwWord
+ref; // ME_6BBE0D172FE8 Reg_Type_TtfwWord
 
 : ME_12229A4119F2
  CONST UID '12229A4119F2'
- CONST Name 'Reg_TtfwStackValue'
+ CONST Name 'Reg_Type_TtfwStackValue'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Регистрация типа TtfwStackValue' ;
@@ -5257,12 +5734,15 @@ ref; // ME_6BBE0D172FE8 Reg_TtfwWord
  CONST Abstraction at_final
  : Parent ME_4F4FD7EA00EB // FileProcessingPack
  ;
+ : SpelledFor WL 'ME_4DB00A510300' '55BF153300A4.pas.ms.script' // TtfwStackValue
+ ;
 
-ref; // ME_12229A4119F2 Reg_TtfwStackValue
+ref; // ME_12229A4119F2 Reg_Type_TtfwStackValue
 
 : ME_4B781ED1D278
  CONST UID '4B781ED1D278'
- CONST Name 'Reg_Tl3PCharLen'
+ CONST Name 'Reg_Type_Tl3PCharLen'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Регистрация типа Tl3PCharLen' ;
@@ -5270,12 +5750,15 @@ ref; // ME_12229A4119F2 Reg_TtfwStackValue
  CONST Abstraction at_final
  : Parent ME_4F4FD7EA00EB // FileProcessingPack
  ;
+ : SpelledFor WL 'ME_47209E670266' '4678193C009C.pas.ms.script' // Tl3PCharLen
+ ;
 
-ref; // ME_4B781ED1D278 Reg_Tl3PCharLen
+ref; // ME_4B781ED1D278 Reg_Type_Tl3PCharLen
 
 : ME_A7A3BE0B4503
  CONST UID 'A7A3BE0B4503'
- CONST Name 'Reg_Integer'
+ CONST Name 'Reg_Type_Integer'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Регистрация типа Integer' ;
@@ -5283,8 +5766,10 @@ ref; // ME_4B781ED1D278 Reg_Tl3PCharLen
  CONST Abstraction at_final
  : Parent ME_4F4FD7EA00EB // FileProcessingPack
  ;
+ : SpelledFor WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
 
-ref; // ME_A7A3BE0B4503 Reg_Integer
+ref; // ME_A7A3BE0B4503 Reg_Type_Integer
 
 : ME_55B5FAD602C0
  CONST UID '55B5FAD602C0'
@@ -5398,6 +5883,7 @@ ref; // ME_56420DE10149
 
 : ME_D235D35E71DC
  CONST UID 'D235D35E71DC'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_4F4FD7EA00EB // FileProcessingPack
@@ -5409,6 +5895,7 @@ ref; // ME_D235D35E71DC
 
 : ME_271DF7812CF0
  CONST UID '271DF7812CF0'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_4F4FD7EA00EB // FileProcessingPack
@@ -5519,11 +6006,11 @@ ref; // ME_52E23BB102FA_ME_4F4FD7EA00EB ForEachBack
  : Parent ME_4F4FD6CC0295 // FileProcessing
  ;
  : Implements
-   @ ( WL 'ME_4F4E4E7101D6' '4DAF19F600C5.pas.ms.script' // ItfwFile
- ) .SequenceCode.It
+   Seq: ( WL 'ME_4F4E4E7101D6' '4DAF19F600C5.pas.ms.script' // ItfwFile
+ )
  ; // Implements
  : Operations
-   @ ( ME_55B5FB4B0008 // OpenRead
+   Seq: ( ME_55B5FB4B0008 // OpenRead
  ME_55B5FB780316 // OpenWrite
  ME_55B5FB9E01EF // EOF
  ME_55B5FBE20353 // ReadLn
@@ -5544,20 +6031,20 @@ ref; // ME_52E23BB102FA_ME_4F4FD7EA00EB ForEachBack
  ME_55B618AB03C3 // WriteWStrLn
  ME_56420DAD0276 // FileSize
  ME_56420DEC002D // CompareFiles
- ME_BB97D362E6D9 // Reg_TtfwContext
- ME_01B218FC8731 // Reg_String
- ME_863CD57592B9 // Reg_ItfwFile
- ME_0E41E9619769 // Reg_Boolean
- ME_2A323C40F54A // Reg_Il3CString
- ME_6B1A465A25A2 // Reg_Char
- ME_6BBE0D172FE8 // Reg_TtfwWord
- ME_12229A4119F2 // Reg_TtfwStackValue
- ME_4B781ED1D278 // Reg_Tl3PCharLen
- ME_A7A3BE0B4503 // Reg_Integer
- ) .SequenceCode.It
+ ME_BB97D362E6D9 // Reg_Type_TtfwContext
+ ME_01B218FC8731 // Reg_Type_String
+ ME_863CD57592B9 // Reg_Type_ItfwFile
+ ME_0E41E9619769 // Reg_Type_Boolean
+ ME_2A323C40F54A // Reg_Type_Il3CString
+ ME_6B1A465A25A2 // Reg_Type_Char
+ ME_6BBE0D172FE8 // Reg_Type_TtfwWord
+ ME_12229A4119F2 // Reg_Type_TtfwStackValue
+ ME_4B781ED1D278 // Reg_Type_Tl3PCharLen
+ ME_A7A3BE0B4503 // Reg_Type_Integer
+ )
  ; // Operations
  : Implemented
-   @ ( ME_4F4E4E7E0350_ME_4F4FD7EA00EB // ReadLn
+   Seq: ( ME_4F4E4E7E0350_ME_4F4FD7EA00EB // ReadLn
  ME_4F4E4EA7007D_ME_4F4FD7EA00EB // WriteLn
  ME_4F4FDC540264_ME_4F4FD7EA00EB // WriteChar
  ME_4F4FE16A0269_ME_4F4FD7EA00EB // ReadWStrLn
@@ -5566,10 +6053,10 @@ ref; // ME_52E23BB102FA_ME_4F4FD7EA00EB ForEachBack
  ME_4F50821201E7_ME_4F4FD7EA00EB // EOF
  ME_52E23B7A00EC_ME_4F4FD7EA00EB // ForEach
  ME_52E23BB102FA_ME_4F4FD7EA00EB // ForEachBack
- ) .SequenceCode.It
+ )
  ; // Implemented
  : Children
-   @ ( ME_4F4FD77B03CC // TtfwFile
+   Seq: ( ME_4F4FD77B03CC // TtfwFile
  ME_23408B0EC0B1 // TFileProcessingPackResNameGetter
  ME_E10DA0D7493D // File_OpenRead
  ME_1CA3472F7177 // File_OpenWrite
@@ -5592,10 +6079,10 @@ ref; // ME_52E23BB102FA_ME_4F4FD7EA00EB ForEachBack
  ME_4D6340E72B1A // ProcessSubDirs
  ME_E2551B3D7813 // FileSize
  ME_CF832D7F4CA1 // CompareFiles
- ) .SequenceCode.It
+ )
  ; // Children
  : Dependencies
-   @ ( ME_55B5FAD602C0 // 
+   Seq: ( ME_55B5FAD602C0 // 
  ME_55B5FAF602A4 // 
  ME_55B5FC6D01FE // 
  ME_55B5FCBC0256 // 
@@ -5607,25 +6094,18 @@ ref; // ME_52E23BB102FA_ME_4F4FD7EA00EB ForEachBack
  ME_56420DE10149 // 
  ME_D235D35E71DC // 
  ME_271DF7812CF0 // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  CONST "ifndef" 'NoScripts'
  CONST "needs script" true
  CONST "no class name" 'undefined'
  CONST "no hands" false
  CONST "no_pop" true
- : Generators
- @ (
- gen_intf.pas
- gen_rc.pas
- gen_rc.script.pas
- gen_res.cmd.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\ScriptEngine'
  CONST intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\FileProcessingPack.pas'
- CONST rc.pas:Path 'common\components\rtl\Garant\ScriptEngine\FileProcessingPack.rc'
- CONST rc.script.pas:Path 'common\components\rtl\Garant\ScriptEngine\FileProcessingPack.rc.script'
- CONST res.cmd.pas:Path 'common\components\rtl\Garant\ScriptEngine\FileProcessingPack.res.cmd'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\ScriptEngine'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_4F4FD7EA00EB FileProcessingPack
 
@@ -5639,11 +6119,11 @@ ref; // ME_4F4FD7EA00EB FileProcessingPack
  : Parent WL 'ME_551175240043' '551175240043.pas.ms.script' // ScriptEngine$Axiomatics
  ;
  : Children
-   @ ( ME_4F4FD7EA00EB // FileProcessingPack
- ) .SequenceCode.It
+   Seq: ( ME_4F4FD7EA00EB // FileProcessingPack
+ )
  ; // Children
  : Depends
-   @ ( WL 'ME_4677FBA70343' '4677FBA70343.pas.ms.script' // l3Interfaces
+   Seq: ( WL 'ME_4677FBA70343' '4677FBA70343.pas.ms.script' // l3Interfaces
  WL 'ME_4678193C009C' '4678193C009C.pas.ms.script' // l3Types
  WL 'ME_4767743E00E5' '4767743E00E5.pas.ms.script' // TypInfo
  WL 'ME_47913B47006E' '47913B47006E.pas.ms.script' // l3CoreObjects
@@ -5658,16 +6138,14 @@ ref; // ME_4F4FD7EA00EB FileProcessingPack
  WL 'ME_55BA28CE0290' '55BA28CE0290.pas.ms.script' // tfwScriptingTypes
  WL 'ME_55BF153300A4' '55BF153300A4.pas.ms.script' // tfwTypeInfo
  WL 'ME_55CCADD2013D' '55CCADD2013D.pas.ms.script' // ClassLikeMapping
- ) .SequenceCode.It
+ )
  ; // Depends
  CONST "ifndef" 'NoScripts'
- : Generators
- @ (
- gen_pas.script
- gen_pas.script.runner
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\ScriptEngine'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\ScriptEngine'
  CONST pas.script:Path 'shared\models\NewSchool\Scripts\4F4FD6CC0295.pas.ms.script'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
  CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\4F4FD6CC0295.pas.ms.script.runner'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_4F4FD6CC0295 FileProcessing

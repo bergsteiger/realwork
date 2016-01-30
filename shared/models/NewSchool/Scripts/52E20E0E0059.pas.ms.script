@@ -37,9 +37,9 @@ ref; // ME_52E2163B0219 aCtx
  : Parent ME_52E20FD6017C // DoWithImageEn
  ;
  : Parameters
-   @ ( ME_52E2163B0209 // aControl
+   Seq: ( ME_52E2163B0209 // aControl
  ME_52E2163B0219 // aCtx
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_52E2102002AA DoIt
@@ -55,8 +55,8 @@ ref; // ME_52E2102002AA DoIt
  : Parent ME_52E20F060237 // TkwImageEnControl
  ;
  : Operations
-   @ ( ME_52E2102002AA // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_52E2102002AA // DoIt
+ )
  ; // Operations
 
 ref; // ME_52E20FD6017C DoWithImageEn
@@ -64,6 +64,7 @@ ref; // ME_52E20FD6017C DoWithImageEn
 : ME_E128D386216B
  CONST UID 'E128D386216B'
  CONST Name 'Ini_Reg_Class'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Регистрация TkwImageEnControl' ;
@@ -82,6 +83,7 @@ ref; // ME_E128D386216B Ini_Reg_Class
  ;
  : Implementor ME_52E20F060237 // TkwImageEnControl
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_4F212C3A015A_ME_52E20F060237 DoControl
 
 : ME_52E20F060237
@@ -95,28 +97,30 @@ ref; // ME_4F212C3A015A_ME_52E20F060237 DoControl
  : Parent ME_52E20E0E0059 // ImageEnView
  ;
  : Inherits
-   @ ( WL 'ME_4F212C120371' '54DB92D203C9.pas.ms.script' // kwControlFromStackWord
- ) .SequenceCode.It
+   Seq: ( WL 'ME_4F212C120371' '54DB92D203C9.pas.ms.script' // kwControlFromStackWord
+ )
  ; // Inherits
  : Operations
-   @ ( ME_52E20FD6017C // DoWithImageEn
+   Seq: ( ME_52E20FD6017C // DoWithImageEn
  ME_E128D386216B // Ini_Reg_Class
- ) .SequenceCode.It
+ )
  ; // Operations
  : Implemented
-   @ ( ME_4F212C3A015A_ME_52E20F060237 // DoControl
- ) .SequenceCode.It
+   Seq: ( ME_4F212C3A015A_ME_52E20F060237 // DoControl
+ )
  ; // Implemented
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\ScriptEngine'
  CONST intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\kwImageEnControl.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\ScriptEngine'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'ImageEnControl'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'kwImageEnControl'
 
 ref; // ME_52E20F060237 TkwImageEnControl
 
@@ -161,6 +165,7 @@ ref; // ME_54F47EE30065
 
 : ME_0FC9E2AEC13A
  CONST UID '0FC9E2AEC13A'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_52E20EB3004D // ImageEnPack
@@ -181,29 +186,29 @@ ref; // ME_0FC9E2AEC13A
  : Parent ME_52E20E0E0059 // ImageEnView
  ;
  : Dependencies
-   @ ( ME_52E20EBE02EF // 
+   Seq: ( ME_52E20EBE02EF // 
  ME_54F4642100D0 // 
  ME_54F47EE30065 // 
  ME_0FC9E2AEC13A // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  CONST "ifndef" 'NoScripts'
  CONST "needs script" 'undefined'
  CONST "no class name" 'undefined'
  CONST "no hands" false
  CONST "no_pop" 'undefined'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\ScriptEngine'
  CONST intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\ImageEnPack.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\ScriptEngine'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_52E20EB3004D ImageEnPack
 
 : ME_D4125D4C2FFA
  CONST UID 'D4125D4C2FFA'
  CONST Name 'Ini_Reg'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Регистрация ImageEnViewer_SaveBitmap' ;
@@ -232,6 +237,7 @@ ref; // ME_52E5E9F30266
  ;
  : Implementor ME_52E20E70006F // ImageEnViewer_SaveBitmap
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_52E20FD6017C_ME_52E20E70006F DoWithImageEn
 
 : ME_4DB0614603C8_ME_52E20E70006F
@@ -241,6 +247,7 @@ ref; // ME_52E20FD6017C_ME_52E20E70006F DoWithImageEn
  ;
  : Implementor ME_52E20E70006F // ImageEnViewer_SaveBitmap
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4DB0614603C8_ME_52E20E70006F GetWordNameForRegister
 
 : ME_52E20E70006F
@@ -255,42 +262,45 @@ ref; // ME_4DB0614603C8_ME_52E20E70006F GetWordNameForRegister
  : Parent ME_52E20E0E0059 // ImageEnView
  ;
  : Inherits
-   @ ( ME_52E20F060237 // TkwImageEnControl
- ) .SequenceCode.It
+   Seq: ( ME_52E20F060237 // TkwImageEnControl
+ )
  ; // Inherits
  : Operations
-   @ ( ME_D4125D4C2FFA // Ini_Reg
- ) .SequenceCode.It
+   Seq: ( ME_D4125D4C2FFA // Ini_Reg
+ )
  ; // Operations
  : Implemented
-   @ ( ME_52E20FD6017C_ME_52E20E70006F // DoWithImageEn
- ) .SequenceCode.It
+   Seq: ( ME_52E20FD6017C_ME_52E20E70006F // DoWithImageEn
+ )
  ; // Implemented
  : Overridden
-   @ ( ME_4DB0614603C8_ME_52E20E70006F // GetWordNameForRegister
- ) .SequenceCode.It
+   Seq: ( ME_4DB0614603C8_ME_52E20E70006F // GetWordNameForRegister
+ )
  ; // Overridden
  : Dependencies
-   @ ( ME_52E5E9F30266 // 
- ) .SequenceCode.It
+   Seq: ( ME_52E5E9F30266 // 
+ )
  ; // Dependencies
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\ScriptEngine'
  CONST intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\kwImageEnViewerSaveBitmap.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\ScriptEngine'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
  CONST extprop:pas:TypeName 'TkwImageEnViewerSaveBitmap'
+ CONST extprop:rc:SelfName 'ImageEnViewerSaveBitmap'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'kwImageEnViewerSaveBitmap'
 
 ref; // ME_52E20E70006F ImageEnViewer_SaveBitmap
 
 : ME_176FB88EADAA
  CONST UID '176FB88EADAA'
  CONST Name 'Ini_Reg_Class'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Регистрация TImageEnViewRegistrator' ;
@@ -304,6 +314,7 @@ ref; // ME_176FB88EADAA Ini_Reg_Class
 
 : ME_E173CBCBB5F7
  CONST UID 'E173CBCBB5F7'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_54F47ECF0071 // TImageEnViewRegistrator
@@ -324,27 +335,29 @@ ref; // ME_E173CBCBB5F7
  : Parent ME_52E20E0E0059 // ImageEnView
  ;
  : Inherits
-   @ ( WL 'ME_4ACDBC6101A6' '4ACDBC26003C.pas.ms.script' // TImageEnView
- ) .SequenceCode.It
+   Seq: ( WL 'ME_4ACDBC6101A6' '4ACDBC26003C.pas.ms.script' // TImageEnView
+ )
  ; // Inherits
  : Operations
-   @ ( ME_176FB88EADAA // Ini_Reg_Class
- ) .SequenceCode.It
+   Seq: ( ME_176FB88EADAA // Ini_Reg_Class
+ )
  ; // Operations
  : Dependencies
-   @ ( ME_E173CBCBB5F7 // 
- ) .SequenceCode.It
+   Seq: ( ME_E173CBCBB5F7 // 
+ )
  ; // Dependencies
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\ScriptEngine'
  CONST intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\ImageEnViewRegistrator.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\ScriptEngine'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'ImageEnViewRegistrator'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'ImageEnViewRegistrator'
 
 ref; // ME_54F47ECF0071 TImageEnViewRegistrator
 
@@ -358,29 +371,27 @@ ref; // ME_54F47ECF0071 TImageEnViewRegistrator
  : Parent WL 'ME_54F47D8D007E' '54F47D8D007E.pas.ms.script' // ScriptEngine$ImageEn
  ;
  : Children
-   @ ( ME_52E20F060237 // TkwImageEnControl
+   Seq: ( ME_52E20F060237 // TkwImageEnControl
  ME_52E20EB3004D // ImageEnPack
  ME_52E20E70006F // ImageEnViewer_SaveBitmap
  ME_54F47ECF0071 // TImageEnViewRegistrator
- ) .SequenceCode.It
+ )
  ; // Children
  : Depends
-   @ ( WL 'ME_4AB0C3C60310' '4AB0C3C60310.pas.ms.script' // Sys
+   Seq: ( WL 'ME_4AB0C3C60310' '4AB0C3C60310.pas.ms.script' // Sys
  WL 'ME_4ACDBC26003C' '4ACDBC26003C.pas.ms.script' // Source
  WL 'ME_4DAF19F600C5' '4DAF19F600C5.pas.ms.script' // tfwScriptingInterfaces
  WL 'ME_54DB92D203C9' '54DB92D203C9.pas.ms.script' // VCL bindings
  WL 'ME_55BA28CE0290' '55BA28CE0290.pas.ms.script' // tfwScriptingTypes
  WL 'ME_561F9F7D02A7' '561F9F7D02A7.pas.ms.script' // ScriptEngine
- ) .SequenceCode.It
+ )
  ; // Depends
  CONST "ifndef" 'NoScripts'
- : Generators
- @ (
- gen_pas.script
- gen_pas.script.runner
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\ScriptEngine'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\ScriptEngine'
  CONST pas.script:Path 'shared\models\NewSchool\Scripts\52E20E0E0059.pas.ms.script'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
  CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\52E20E0E0059.pas.ms.script.runner'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_52E20E0E0059 ImageEnView

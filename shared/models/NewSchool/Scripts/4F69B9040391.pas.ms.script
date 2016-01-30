@@ -357,6 +357,7 @@ ref; // ME_558A60490161
 
 : ME_BFDBB4AD11B1
  CONST UID 'BFDBB4AD11B1'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_4F69B966010B // VCMWordsPack
@@ -377,7 +378,7 @@ ref; // ME_BFDBB4AD11B1
  : Parent ME_4F69B9040391 // VCMWords
  ;
  : Dependencies
-   @ ( ME_4F69B9A5022F // 
+   Seq: ( ME_4F69B9A5022F // 
  ME_4F69B9B9011E // 
  ME_4F69BC32032A // 
  ME_4F69BC39004A // 
@@ -405,19 +406,18 @@ ref; // ME_BFDBB4AD11B1
  ME_558A602D0376 // 
  ME_558A60490161 // 
  ME_BFDBB4AD11B1 // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  CONST "ifndef" 'NoScripts'
  CONST "needs script" 'undefined'
  CONST "no class name" 'undefined'
  CONST "no hands" false
  CONST "no_pop" 'undefined'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\VCM\implementation\Scripting'
  CONST intf.pas:Path 'common\components\gui\Garant\VCM\implementation\Scripting\VCMWordsPack.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\VCM\implementation\Scripting'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_4F69B966010B VCMWordsPack
 
@@ -489,12 +489,12 @@ ref; // ME_4E0319E5007A
  : Parent ME_4F69B9040391 // VCMWords
  ;
  : Dependencies
-   @ ( ME_4DB94A980228 // 
+   Seq: ( ME_4DB94A980228 // 
  ME_4DB94AD60214 // 
  ME_4DBA9C9D024A // 
  ME_4DBAA38500CB // 
  ME_4E0319E5007A // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  CONST "author" 'Люлин А.В.'
  CONST "ifndef" 'NoVCM'
@@ -503,19 +503,20 @@ ref; // ME_4E0319E5007A
  CONST "no hands" true
  CONST "register in scripts" 'undefined'
  CONST "started" '28.04.2011 15:07'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\VCM\implementation\Scripting'
  CONST intf.pas:Path 'common\components\gui\Garant\VCM\implementation\Scripting\VCMWord.imp.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\VCM\implementation\Scripting'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
  CONST extprop:pas:TypeName '_VCMWord_'
+ CONST extprop:pas:UnitName 'VCMWord.imp'
 
 ref; // ME_4DB94A660083 VCMWord
 
 : ME_0321480A1331
  CONST UID '0321480A1331'
  CONST Name 'Ini_Reg'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Регистрация vcm_Dispatcher_Unlock' ;
@@ -533,6 +534,7 @@ ref; // ME_0321480A1331 Ini_Reg
  ;
  : Implementor ME_4F69B9AD0040 // vcm_Dispatcher_Unlock
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_4DAEEDE10285_ME_4F69B9AD0040 DoDoIt
 
 : ME_4DB0614603C8_ME_4F69B9AD0040
@@ -542,6 +544,7 @@ ref; // ME_4DAEEDE10285_ME_4F69B9AD0040 DoDoIt
  ;
  : Implementor ME_4F69B9AD0040 // vcm_Dispatcher_Unlock
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4DB0614603C8_ME_4F69B9AD0040 GetWordNameForRegister
 
 : ME_4F69B9AD0040
@@ -555,42 +558,45 @@ ref; // ME_4DB0614603C8_ME_4F69B9AD0040 GetWordNameForRegister
  : Parent ME_4F69B9040391 // VCMWords
  ;
  : Inherits
-   @ ( WL 'ME_53EDC0E701BC' '4F3E3F5F0160.pas.ms.script' // TtfwRegisterableWord
- ) .SequenceCode.It
+   Seq: ( WL 'ME_53EDC0E701BC' '4F3E3F5F0160.pas.ms.script' // TtfwRegisterableWord
+ )
  ; // Inherits
  : Implements
-   @ ( ME_4DB94A660083 // VCMWord
- ) .SequenceCode.It
+   Seq: ( ME_4DB94A660083 // VCMWord
+ )
  ; // Implements
  : Operations
-   @ ( ME_0321480A1331 // Ini_Reg
- ) .SequenceCode.It
+   Seq: ( ME_0321480A1331 // Ini_Reg
+ )
  ; // Operations
  : Implemented
-   @ ( ME_4DAEEDE10285_ME_4F69B9AD0040 // DoDoIt
- ) .SequenceCode.It
+   Seq: ( ME_4DAEEDE10285_ME_4F69B9AD0040 // DoDoIt
+ )
  ; // Implemented
  : Overridden
-   @ ( ME_4DB0614603C8_ME_4F69B9AD0040 // GetWordNameForRegister
- ) .SequenceCode.It
+   Seq: ( ME_4DB0614603C8_ME_4F69B9AD0040 // GetWordNameForRegister
+ )
  ; // Overridden
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\VCM\implementation\Scripting'
  CONST intf.pas:Path 'common\components\gui\Garant\VCM\implementation\Scripting\kwVcmDispatcherUnlock.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\VCM\implementation\Scripting'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
  CONST extprop:pas:TypeName 'TkwVcmDispatcherUnlock'
+ CONST extprop:rc:SelfName 'VcmDispatcherUnlock'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'kwVcmDispatcherUnlock'
 
 ref; // ME_4F69B9AD0040 vcm_Dispatcher_Unlock
 
 : ME_591D37D7C79A
  CONST UID '591D37D7C79A'
  CONST Name 'Ini_Reg'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Регистрация vcm_Dispatcher_BeginOp' ;
@@ -608,6 +614,7 @@ ref; // ME_591D37D7C79A Ini_Reg
  ;
  : Implementor ME_4F69BC1C02CC // vcm_Dispatcher_BeginOp
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_4DAEEDE10285_ME_4F69BC1C02CC DoDoIt
 
 : ME_4DB0614603C8_ME_4F69BC1C02CC
@@ -617,6 +624,7 @@ ref; // ME_4DAEEDE10285_ME_4F69BC1C02CC DoDoIt
  ;
  : Implementor ME_4F69BC1C02CC // vcm_Dispatcher_BeginOp
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4DB0614603C8_ME_4F69BC1C02CC GetWordNameForRegister
 
 : ME_4F69BC1C02CC
@@ -630,42 +638,45 @@ ref; // ME_4DB0614603C8_ME_4F69BC1C02CC GetWordNameForRegister
  : Parent ME_4F69B9040391 // VCMWords
  ;
  : Inherits
-   @ ( WL 'ME_53EDC0E701BC' '4F3E3F5F0160.pas.ms.script' // TtfwRegisterableWord
- ) .SequenceCode.It
+   Seq: ( WL 'ME_53EDC0E701BC' '4F3E3F5F0160.pas.ms.script' // TtfwRegisterableWord
+ )
  ; // Inherits
  : Implements
-   @ ( ME_4DB94A660083 // VCMWord
- ) .SequenceCode.It
+   Seq: ( ME_4DB94A660083 // VCMWord
+ )
  ; // Implements
  : Operations
-   @ ( ME_591D37D7C79A // Ini_Reg
- ) .SequenceCode.It
+   Seq: ( ME_591D37D7C79A // Ini_Reg
+ )
  ; // Operations
  : Implemented
-   @ ( ME_4DAEEDE10285_ME_4F69BC1C02CC // DoDoIt
- ) .SequenceCode.It
+   Seq: ( ME_4DAEEDE10285_ME_4F69BC1C02CC // DoDoIt
+ )
  ; // Implemented
  : Overridden
-   @ ( ME_4DB0614603C8_ME_4F69BC1C02CC // GetWordNameForRegister
- ) .SequenceCode.It
+   Seq: ( ME_4DB0614603C8_ME_4F69BC1C02CC // GetWordNameForRegister
+ )
  ; // Overridden
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\VCM\implementation\Scripting'
  CONST intf.pas:Path 'common\components\gui\Garant\VCM\implementation\Scripting\kwVcmDispatcherBeginOp.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\VCM\implementation\Scripting'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
  CONST extprop:pas:TypeName 'TkwVcmDispatcherBeginOp'
+ CONST extprop:rc:SelfName 'VcmDispatcherBeginOp'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'kwVcmDispatcherBeginOp'
 
 ref; // ME_4F69BC1C02CC vcm_Dispatcher_BeginOp
 
 : ME_6FD4B6AB4987
  CONST UID '6FD4B6AB4987'
  CONST Name 'Ini_Reg'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Регистрация vcm_Dispatcher_EndOp' ;
@@ -683,6 +694,7 @@ ref; // ME_6FD4B6AB4987 Ini_Reg
  ;
  : Implementor ME_4F69BC2601EB // vcm_Dispatcher_EndOp
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_4DAEEDE10285_ME_4F69BC2601EB DoDoIt
 
 : ME_4DB0614603C8_ME_4F69BC2601EB
@@ -692,6 +704,7 @@ ref; // ME_4DAEEDE10285_ME_4F69BC2601EB DoDoIt
  ;
  : Implementor ME_4F69BC2601EB // vcm_Dispatcher_EndOp
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4DB0614603C8_ME_4F69BC2601EB GetWordNameForRegister
 
 : ME_4F69BC2601EB
@@ -705,42 +718,45 @@ ref; // ME_4DB0614603C8_ME_4F69BC2601EB GetWordNameForRegister
  : Parent ME_4F69B9040391 // VCMWords
  ;
  : Inherits
-   @ ( WL 'ME_53EDC0E701BC' '4F3E3F5F0160.pas.ms.script' // TtfwRegisterableWord
- ) .SequenceCode.It
+   Seq: ( WL 'ME_53EDC0E701BC' '4F3E3F5F0160.pas.ms.script' // TtfwRegisterableWord
+ )
  ; // Inherits
  : Implements
-   @ ( ME_4DB94A660083 // VCMWord
- ) .SequenceCode.It
+   Seq: ( ME_4DB94A660083 // VCMWord
+ )
  ; // Implements
  : Operations
-   @ ( ME_6FD4B6AB4987 // Ini_Reg
- ) .SequenceCode.It
+   Seq: ( ME_6FD4B6AB4987 // Ini_Reg
+ )
  ; // Operations
  : Implemented
-   @ ( ME_4DAEEDE10285_ME_4F69BC2601EB // DoDoIt
- ) .SequenceCode.It
+   Seq: ( ME_4DAEEDE10285_ME_4F69BC2601EB // DoDoIt
+ )
  ; // Implemented
  : Overridden
-   @ ( ME_4DB0614603C8_ME_4F69BC2601EB // GetWordNameForRegister
- ) .SequenceCode.It
+   Seq: ( ME_4DB0614603C8_ME_4F69BC2601EB // GetWordNameForRegister
+ )
  ; // Overridden
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\VCM\implementation\Scripting'
  CONST intf.pas:Path 'common\components\gui\Garant\VCM\implementation\Scripting\kwVcmDispatcherEndOp.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\VCM\implementation\Scripting'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
  CONST extprop:pas:TypeName 'TkwVcmDispatcherEndOp'
+ CONST extprop:rc:SelfName 'VcmDispatcherEndOp'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'kwVcmDispatcherEndOp'
 
 ref; // ME_4F69BC2601EB vcm_Dispatcher_EndOp
 
 : ME_FE0F64A663C0
  CONST UID 'FE0F64A663C0'
  CONST Name 'Ini_Reg'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Регистрация vcm_History_GetBackCount' ;
@@ -758,6 +774,7 @@ ref; // ME_FE0F64A663C0 Ini_Reg
  ;
  : Implementor ME_4FC4C90B002D // vcm_History_GetBackCount
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_4DAEEDE10285_ME_4FC4C90B002D DoDoIt
 
 : ME_4DB0614603C8_ME_4FC4C90B002D
@@ -767,6 +784,7 @@ ref; // ME_4DAEEDE10285_ME_4FC4C90B002D DoDoIt
  ;
  : Implementor ME_4FC4C90B002D // vcm_History_GetBackCount
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4DB0614603C8_ME_4FC4C90B002D GetWordNameForRegister
 
 : ME_4FC4C90B002D
@@ -780,42 +798,45 @@ ref; // ME_4DB0614603C8_ME_4FC4C90B002D GetWordNameForRegister
  : Parent ME_4F69B9040391 // VCMWords
  ;
  : Inherits
-   @ ( WL 'ME_53EDC0E701BC' '4F3E3F5F0160.pas.ms.script' // TtfwRegisterableWord
- ) .SequenceCode.It
+   Seq: ( WL 'ME_53EDC0E701BC' '4F3E3F5F0160.pas.ms.script' // TtfwRegisterableWord
+ )
  ; // Inherits
  : Implements
-   @ ( ME_4DB94A660083 // VCMWord
- ) .SequenceCode.It
+   Seq: ( ME_4DB94A660083 // VCMWord
+ )
  ; // Implements
  : Operations
-   @ ( ME_FE0F64A663C0 // Ini_Reg
- ) .SequenceCode.It
+   Seq: ( ME_FE0F64A663C0 // Ini_Reg
+ )
  ; // Operations
  : Implemented
-   @ ( ME_4DAEEDE10285_ME_4FC4C90B002D // DoDoIt
- ) .SequenceCode.It
+   Seq: ( ME_4DAEEDE10285_ME_4FC4C90B002D // DoDoIt
+ )
  ; // Implemented
  : Overridden
-   @ ( ME_4DB0614603C8_ME_4FC4C90B002D // GetWordNameForRegister
- ) .SequenceCode.It
+   Seq: ( ME_4DB0614603C8_ME_4FC4C90B002D // GetWordNameForRegister
+ )
  ; // Overridden
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\VCM\implementation\Scripting'
  CONST intf.pas:Path 'common\components\gui\Garant\VCM\implementation\Scripting\kwVcmHistoryGetBackCount.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\VCM\implementation\Scripting'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
  CONST extprop:pas:TypeName 'TkwVcmHistoryGetBackCount'
+ CONST extprop:rc:SelfName 'VcmHistoryGetBackCount'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'kwVcmHistoryGetBackCount'
 
 ref; // ME_4FC4C90B002D vcm_History_GetBackCount
 
 : ME_8D6F3BA96DF6
  CONST UID '8D6F3BA96DF6'
  CONST Name 'Ini_Reg'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Регистрация vcm_History_GetBackItem' ;
@@ -833,6 +854,7 @@ ref; // ME_8D6F3BA96DF6 Ini_Reg
  ;
  : Implementor ME_4FC4C928013F // vcm_History_GetBackItem
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_4DAEEDE10285_ME_4FC4C928013F DoDoIt
 
 : ME_4DB0614603C8_ME_4FC4C928013F
@@ -842,6 +864,7 @@ ref; // ME_4DAEEDE10285_ME_4FC4C928013F DoDoIt
  ;
  : Implementor ME_4FC4C928013F // vcm_History_GetBackItem
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4DB0614603C8_ME_4FC4C928013F GetWordNameForRegister
 
 : ME_4FC4C928013F
@@ -855,42 +878,45 @@ ref; // ME_4DB0614603C8_ME_4FC4C928013F GetWordNameForRegister
  : Parent ME_4F69B9040391 // VCMWords
  ;
  : Inherits
-   @ ( WL 'ME_53EDC0E701BC' '4F3E3F5F0160.pas.ms.script' // TtfwRegisterableWord
- ) .SequenceCode.It
+   Seq: ( WL 'ME_53EDC0E701BC' '4F3E3F5F0160.pas.ms.script' // TtfwRegisterableWord
+ )
  ; // Inherits
  : Implements
-   @ ( ME_4DB94A660083 // VCMWord
- ) .SequenceCode.It
+   Seq: ( ME_4DB94A660083 // VCMWord
+ )
  ; // Implements
  : Operations
-   @ ( ME_8D6F3BA96DF6 // Ini_Reg
- ) .SequenceCode.It
+   Seq: ( ME_8D6F3BA96DF6 // Ini_Reg
+ )
  ; // Operations
  : Implemented
-   @ ( ME_4DAEEDE10285_ME_4FC4C928013F // DoDoIt
- ) .SequenceCode.It
+   Seq: ( ME_4DAEEDE10285_ME_4FC4C928013F // DoDoIt
+ )
  ; // Implemented
  : Overridden
-   @ ( ME_4DB0614603C8_ME_4FC4C928013F // GetWordNameForRegister
- ) .SequenceCode.It
+   Seq: ( ME_4DB0614603C8_ME_4FC4C928013F // GetWordNameForRegister
+ )
  ; // Overridden
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\VCM\implementation\Scripting'
  CONST intf.pas:Path 'common\components\gui\Garant\VCM\implementation\Scripting\kwVcmHistoryGetBackItem.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\VCM\implementation\Scripting'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
  CONST extprop:pas:TypeName 'TkwVcmHistoryGetBackItem'
+ CONST extprop:rc:SelfName 'VcmHistoryGetBackItem'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'kwVcmHistoryGetBackItem'
 
 ref; // ME_4FC4C928013F vcm_History_GetBackItem
 
 : ME_4AE12FA80929
  CONST UID '4AE12FA80929'
  CONST Name 'Ini_Reg'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Регистрация vcm_History_GetForwardCount' ;
@@ -908,6 +934,7 @@ ref; // ME_4AE12FA80929 Ini_Reg
  ;
  : Implementor ME_4FC4CEF40288 // vcm_History_GetForwardCount
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_4DAEEDE10285_ME_4FC4CEF40288 DoDoIt
 
 : ME_4DB0614603C8_ME_4FC4CEF40288
@@ -917,6 +944,7 @@ ref; // ME_4DAEEDE10285_ME_4FC4CEF40288 DoDoIt
  ;
  : Implementor ME_4FC4CEF40288 // vcm_History_GetForwardCount
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4DB0614603C8_ME_4FC4CEF40288 GetWordNameForRegister
 
 : ME_4FC4CEF40288
@@ -930,42 +958,45 @@ ref; // ME_4DB0614603C8_ME_4FC4CEF40288 GetWordNameForRegister
  : Parent ME_4F69B9040391 // VCMWords
  ;
  : Inherits
-   @ ( WL 'ME_53EDC0E701BC' '4F3E3F5F0160.pas.ms.script' // TtfwRegisterableWord
- ) .SequenceCode.It
+   Seq: ( WL 'ME_53EDC0E701BC' '4F3E3F5F0160.pas.ms.script' // TtfwRegisterableWord
+ )
  ; // Inherits
  : Implements
-   @ ( ME_4DB94A660083 // VCMWord
- ) .SequenceCode.It
+   Seq: ( ME_4DB94A660083 // VCMWord
+ )
  ; // Implements
  : Operations
-   @ ( ME_4AE12FA80929 // Ini_Reg
- ) .SequenceCode.It
+   Seq: ( ME_4AE12FA80929 // Ini_Reg
+ )
  ; // Operations
  : Implemented
-   @ ( ME_4DAEEDE10285_ME_4FC4CEF40288 // DoDoIt
- ) .SequenceCode.It
+   Seq: ( ME_4DAEEDE10285_ME_4FC4CEF40288 // DoDoIt
+ )
  ; // Implemented
  : Overridden
-   @ ( ME_4DB0614603C8_ME_4FC4CEF40288 // GetWordNameForRegister
- ) .SequenceCode.It
+   Seq: ( ME_4DB0614603C8_ME_4FC4CEF40288 // GetWordNameForRegister
+ )
  ; // Overridden
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\VCM\implementation\Scripting'
  CONST intf.pas:Path 'common\components\gui\Garant\VCM\implementation\Scripting\kwVcmHistoryGetForwardCount.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\VCM\implementation\Scripting'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
  CONST extprop:pas:TypeName 'TkwVcmHistoryGetForwardCount'
+ CONST extprop:rc:SelfName 'VcmHistoryGetForwardCount'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'kwVcmHistoryGetForwardCount'
 
 ref; // ME_4FC4CEF40288 vcm_History_GetForwardCount
 
 : ME_F96FD698244D
  CONST UID 'F96FD698244D'
  CONST Name 'Ini_Reg'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Регистрация vcm_History_GetForwardItem' ;
@@ -983,6 +1014,7 @@ ref; // ME_F96FD698244D Ini_Reg
  ;
  : Implementor ME_4FC4CF150163 // vcm_History_GetForwardItem
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_4DAEEDE10285_ME_4FC4CF150163 DoDoIt
 
 : ME_4DB0614603C8_ME_4FC4CF150163
@@ -992,6 +1024,7 @@ ref; // ME_4DAEEDE10285_ME_4FC4CF150163 DoDoIt
  ;
  : Implementor ME_4FC4CF150163 // vcm_History_GetForwardItem
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4DB0614603C8_ME_4FC4CF150163 GetWordNameForRegister
 
 : ME_4FC4CF150163
@@ -1005,36 +1038,38 @@ ref; // ME_4DB0614603C8_ME_4FC4CF150163 GetWordNameForRegister
  : Parent ME_4F69B9040391 // VCMWords
  ;
  : Inherits
-   @ ( WL 'ME_53EDC0E701BC' '4F3E3F5F0160.pas.ms.script' // TtfwRegisterableWord
- ) .SequenceCode.It
+   Seq: ( WL 'ME_53EDC0E701BC' '4F3E3F5F0160.pas.ms.script' // TtfwRegisterableWord
+ )
  ; // Inherits
  : Implements
-   @ ( ME_4DB94A660083 // VCMWord
- ) .SequenceCode.It
+   Seq: ( ME_4DB94A660083 // VCMWord
+ )
  ; // Implements
  : Operations
-   @ ( ME_F96FD698244D // Ini_Reg
- ) .SequenceCode.It
+   Seq: ( ME_F96FD698244D // Ini_Reg
+ )
  ; // Operations
  : Implemented
-   @ ( ME_4DAEEDE10285_ME_4FC4CF150163 // DoDoIt
- ) .SequenceCode.It
+   Seq: ( ME_4DAEEDE10285_ME_4FC4CF150163 // DoDoIt
+ )
  ; // Implemented
  : Overridden
-   @ ( ME_4DB0614603C8_ME_4FC4CF150163 // GetWordNameForRegister
- ) .SequenceCode.It
+   Seq: ( ME_4DB0614603C8_ME_4FC4CF150163 // GetWordNameForRegister
+ )
  ; // Overridden
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\VCM\implementation\Scripting'
  CONST intf.pas:Path 'common\components\gui\Garant\VCM\implementation\Scripting\kwVcmHistoryGetForwardItem.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\VCM\implementation\Scripting'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
  CONST extprop:pas:TypeName 'TkwVcmHistoryGetForwardItem'
+ CONST extprop:rc:SelfName 'VcmHistoryGetForwardItem'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'kwVcmHistoryGetForwardItem'
 
 ref; // ME_4FC4CF150163 vcm_History_GetForwardItem
 
@@ -1071,9 +1106,9 @@ ref; // ME_5230188702A2 aCtx
  : Parent ME_5230185F0140 // DoParams
  ;
  : Parameters
-   @ ( ME_523018870287 // aParams
+   Seq: ( ME_523018870287 // aParams
  ME_5230188702A2 // aCtx
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_523018830380 DoIt
@@ -1089,8 +1124,8 @@ ref; // ME_523018830380 DoIt
  : Parent ME_5230182A02A3 // OperationParamWordPrim
  ;
  : Operations
-   @ ( ME_523018830380 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_523018830380 // DoIt
+ )
  ; // Operations
 
 ref; // ME_5230185F0140 DoParams
@@ -1098,6 +1133,7 @@ ref; // ME_5230185F0140 DoParams
 : ME_6313C4AE7015
  CONST UID '6313C4AE7015'
  CONST Name 'Ini_Reg_Class'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Регистрация OperationParamWordPrim' ;
@@ -1116,6 +1152,7 @@ ref; // ME_6313C4AE7015 Ini_Reg_Class
  ;
  : Implementor ME_5230182A02A3 // OperationParamWordPrim
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_4DAEEDE10285_ME_5230182A02A3 DoDoIt
 
 : ME_5230182A02A3
@@ -1129,29 +1166,31 @@ ref; // ME_4DAEEDE10285_ME_5230182A02A3 DoDoIt
  : Parent ME_4F69B9040391 // VCMWords
  ;
  : Inherits
-   @ ( WL 'ME_53EDC0E701BC' '4F3E3F5F0160.pas.ms.script' // TtfwRegisterableWord
- ) .SequenceCode.It
+   Seq: ( WL 'ME_53EDC0E701BC' '4F3E3F5F0160.pas.ms.script' // TtfwRegisterableWord
+ )
  ; // Inherits
  : Operations
-   @ ( ME_5230185F0140 // DoParams
+   Seq: ( ME_5230185F0140 // DoParams
  ME_6313C4AE7015 // Ini_Reg_Class
- ) .SequenceCode.It
+ )
  ; // Operations
  : Implemented
-   @ ( ME_4DAEEDE10285_ME_5230182A02A3 // DoDoIt
- ) .SequenceCode.It
+   Seq: ( ME_4DAEEDE10285_ME_5230182A02A3 // DoDoIt
+ )
  ; // Implemented
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\VCM\implementation\Scripting'
  CONST intf.pas:Path 'common\components\gui\Garant\VCM\implementation\Scripting\kwOperationParamWordPrim.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\VCM\implementation\Scripting'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
  CONST extprop:pas:TypeName 'TkwOperationParamWordPrim'
+ CONST extprop:rc:SelfName 'OperationParamWordPrim'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'kwOperationParamWordPrim'
 
 ref; // ME_5230182A02A3 OperationParamWordPrim
 
@@ -1183,8 +1222,8 @@ ref; // ME_52301527009A DoIt
  : Parent ME_5230147B0151 // OperationParamWord
  ;
  : Operations
-   @ ( ME_52301527009A // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_52301527009A // DoIt
+ )
  ; // Operations
 
 ref; // ME_5230151C02BA Flag
@@ -1192,6 +1231,7 @@ ref; // ME_5230151C02BA Flag
 : ME_428C063B76B9
  CONST UID '428C063B76B9'
  CONST Name 'Ini_Reg_Class'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Регистрация OperationParamWord' ;
@@ -1221,6 +1261,7 @@ ref; // ME_523014F6022D
  ;
  : Implementor ME_5230147B0151 // OperationParamWord
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_5230185F0140_ME_5230147B0151 DoParams
 
 : ME_5230147B0151
@@ -1234,39 +1275,42 @@ ref; // ME_5230185F0140_ME_5230147B0151 DoParams
  : Parent ME_4F69B9040391 // VCMWords
  ;
  : Inherits
-   @ ( ME_5230182A02A3 // OperationParamWordPrim
- ) .SequenceCode.It
+   Seq: ( ME_5230182A02A3 // OperationParamWordPrim
+ )
  ; // Inherits
  : Operations
-   @ ( ME_5230151C02BA // Flag
+   Seq: ( ME_5230151C02BA // Flag
  ME_428C063B76B9 // Ini_Reg_Class
- ) .SequenceCode.It
+ )
  ; // Operations
  : Implemented
-   @ ( ME_5230185F0140_ME_5230147B0151 // DoParams
- ) .SequenceCode.It
+   Seq: ( ME_5230185F0140_ME_5230147B0151 // DoParams
+ )
  ; // Implemented
  : Dependencies
-   @ ( ME_523014F6022D // 
- ) .SequenceCode.It
+   Seq: ( ME_523014F6022D // 
+ )
  ; // Dependencies
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\VCM\implementation\Scripting'
  CONST intf.pas:Path 'common\components\gui\Garant\VCM\implementation\Scripting\kwOperationParamWord.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\VCM\implementation\Scripting'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
  CONST extprop:pas:TypeName 'TkwOperationParamWord'
+ CONST extprop:rc:SelfName 'OperationParamWord'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'kwOperationParamWord'
 
 ref; // ME_5230147B0151 OperationParamWord
 
 : ME_DB256FC40C0B
  CONST UID 'DB256FC40C0B'
  CONST Name 'Ini_Reg'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Регистрация vcm_op_Visible' ;
@@ -1284,6 +1328,7 @@ ref; // ME_DB256FC40C0B Ini_Reg
  ;
  : Implementor ME_523014D3003C // vcm_op_Visible
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_5230151C02BA_ME_523014D3003C Flag
 
 : ME_4DB0614603C8_ME_523014D3003C
@@ -1293,6 +1338,7 @@ ref; // ME_5230151C02BA_ME_523014D3003C Flag
  ;
  : Implementor ME_523014D3003C // vcm_op_Visible
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4DB0614603C8_ME_523014D3003C GetWordNameForRegister
 
 : ME_523014D3003C
@@ -1306,38 +1352,41 @@ ref; // ME_4DB0614603C8_ME_523014D3003C GetWordNameForRegister
  : Parent ME_4F69B9040391 // VCMWords
  ;
  : Inherits
-   @ ( ME_5230147B0151 // OperationParamWord
- ) .SequenceCode.It
+   Seq: ( ME_5230147B0151 // OperationParamWord
+ )
  ; // Inherits
  : Operations
-   @ ( ME_DB256FC40C0B // Ini_Reg
- ) .SequenceCode.It
+   Seq: ( ME_DB256FC40C0B // Ini_Reg
+ )
  ; // Operations
  : Implemented
-   @ ( ME_5230151C02BA_ME_523014D3003C // Flag
- ) .SequenceCode.It
+   Seq: ( ME_5230151C02BA_ME_523014D3003C // Flag
+ )
  ; // Implemented
  : Overridden
-   @ ( ME_4DB0614603C8_ME_523014D3003C // GetWordNameForRegister
- ) .SequenceCode.It
+   Seq: ( ME_4DB0614603C8_ME_523014D3003C // GetWordNameForRegister
+ )
  ; // Overridden
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\VCM\implementation\Scripting'
  CONST intf.pas:Path 'common\components\gui\Garant\VCM\implementation\Scripting\kwVcmOpVisible.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\VCM\implementation\Scripting'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
  CONST extprop:pas:TypeName 'TkwVcmOpVisible'
+ CONST extprop:rc:SelfName 'VcmOpVisible'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'kwVcmOpVisible'
 
 ref; // ME_523014D3003C vcm_op_Visible
 
 : ME_F26FCBC31DB7
  CONST UID 'F26FCBC31DB7'
  CONST Name 'Ini_Reg'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Регистрация vcm_op_Checked' ;
@@ -1355,6 +1404,7 @@ ref; // ME_F26FCBC31DB7 Ini_Reg
  ;
  : Implementor ME_5230153303B8 // vcm_op_Checked
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_5230151C02BA_ME_5230153303B8 Flag
 
 : ME_4DB0614603C8_ME_5230153303B8
@@ -1364,6 +1414,7 @@ ref; // ME_5230151C02BA_ME_5230153303B8 Flag
  ;
  : Implementor ME_5230153303B8 // vcm_op_Checked
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4DB0614603C8_ME_5230153303B8 GetWordNameForRegister
 
 : ME_5230153303B8
@@ -1377,38 +1428,41 @@ ref; // ME_4DB0614603C8_ME_5230153303B8 GetWordNameForRegister
  : Parent ME_4F69B9040391 // VCMWords
  ;
  : Inherits
-   @ ( ME_5230147B0151 // OperationParamWord
- ) .SequenceCode.It
+   Seq: ( ME_5230147B0151 // OperationParamWord
+ )
  ; // Inherits
  : Operations
-   @ ( ME_F26FCBC31DB7 // Ini_Reg
- ) .SequenceCode.It
+   Seq: ( ME_F26FCBC31DB7 // Ini_Reg
+ )
  ; // Operations
  : Implemented
-   @ ( ME_5230151C02BA_ME_5230153303B8 // Flag
- ) .SequenceCode.It
+   Seq: ( ME_5230151C02BA_ME_5230153303B8 // Flag
+ )
  ; // Implemented
  : Overridden
-   @ ( ME_4DB0614603C8_ME_5230153303B8 // GetWordNameForRegister
- ) .SequenceCode.It
+   Seq: ( ME_4DB0614603C8_ME_5230153303B8 // GetWordNameForRegister
+ )
  ; // Overridden
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\VCM\implementation\Scripting'
  CONST intf.pas:Path 'common\components\gui\Garant\VCM\implementation\Scripting\kwVcmOpChecked.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\VCM\implementation\Scripting'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
  CONST extprop:pas:TypeName 'TkwVcmOpChecked'
+ CONST extprop:rc:SelfName 'VcmOpChecked'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'kwVcmOpChecked'
 
 ref; // ME_5230153303B8 vcm_op_Checked
 
 : ME_BCBD169DD7D2
  CONST UID 'BCBD169DD7D2'
  CONST Name 'Ini_Reg'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Регистрация vcm_op_Default' ;
@@ -1426,6 +1480,7 @@ ref; // ME_BCBD169DD7D2 Ini_Reg
  ;
  : Implementor ME_5230156001B9 // vcm_op_Default
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_5230151C02BA_ME_5230156001B9 Flag
 
 : ME_4DB0614603C8_ME_5230156001B9
@@ -1435,6 +1490,7 @@ ref; // ME_5230151C02BA_ME_5230156001B9 Flag
  ;
  : Implementor ME_5230156001B9 // vcm_op_Default
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4DB0614603C8_ME_5230156001B9 GetWordNameForRegister
 
 : ME_5230156001B9
@@ -1448,38 +1504,41 @@ ref; // ME_4DB0614603C8_ME_5230156001B9 GetWordNameForRegister
  : Parent ME_4F69B9040391 // VCMWords
  ;
  : Inherits
-   @ ( ME_5230147B0151 // OperationParamWord
- ) .SequenceCode.It
+   Seq: ( ME_5230147B0151 // OperationParamWord
+ )
  ; // Inherits
  : Operations
-   @ ( ME_BCBD169DD7D2 // Ini_Reg
- ) .SequenceCode.It
+   Seq: ( ME_BCBD169DD7D2 // Ini_Reg
+ )
  ; // Operations
  : Implemented
-   @ ( ME_5230151C02BA_ME_5230156001B9 // Flag
- ) .SequenceCode.It
+   Seq: ( ME_5230151C02BA_ME_5230156001B9 // Flag
+ )
  ; // Implemented
  : Overridden
-   @ ( ME_4DB0614603C8_ME_5230156001B9 // GetWordNameForRegister
- ) .SequenceCode.It
+   Seq: ( ME_4DB0614603C8_ME_5230156001B9 // GetWordNameForRegister
+ )
  ; // Overridden
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\VCM\implementation\Scripting'
  CONST intf.pas:Path 'common\components\gui\Garant\VCM\implementation\Scripting\kwVcmOpDefault.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\VCM\implementation\Scripting'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
  CONST extprop:pas:TypeName 'TkwVcmOpDefault'
+ CONST extprop:rc:SelfName 'VcmOpDefault'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'kwVcmOpDefault'
 
 ref; // ME_5230156001B9 vcm_op_Default
 
 : ME_68076EA4B122
  CONST UID '68076EA4B122'
  CONST Name 'Ini_Reg'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Регистрация vcm_op_Caption' ;
@@ -1497,6 +1556,7 @@ ref; // ME_68076EA4B122 Ini_Reg
  ;
  : Implementor ME_5230180F029A // vcm_op_Caption
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_5230185F0140_ME_5230180F029A DoParams
 
 : ME_4DB0614603C8_ME_5230180F029A
@@ -1506,6 +1566,7 @@ ref; // ME_5230185F0140_ME_5230180F029A DoParams
  ;
  : Implementor ME_5230180F029A // vcm_op_Caption
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4DB0614603C8_ME_5230180F029A GetWordNameForRegister
 
 : ME_5230180F029A
@@ -1519,38 +1580,41 @@ ref; // ME_4DB0614603C8_ME_5230180F029A GetWordNameForRegister
  : Parent ME_4F69B9040391 // VCMWords
  ;
  : Inherits
-   @ ( ME_5230182A02A3 // OperationParamWordPrim
- ) .SequenceCode.It
+   Seq: ( ME_5230182A02A3 // OperationParamWordPrim
+ )
  ; // Inherits
  : Operations
-   @ ( ME_68076EA4B122 // Ini_Reg
- ) .SequenceCode.It
+   Seq: ( ME_68076EA4B122 // Ini_Reg
+ )
  ; // Operations
  : Implemented
-   @ ( ME_5230185F0140_ME_5230180F029A // DoParams
- ) .SequenceCode.It
+   Seq: ( ME_5230185F0140_ME_5230180F029A // DoParams
+ )
  ; // Implemented
  : Overridden
-   @ ( ME_4DB0614603C8_ME_5230180F029A // GetWordNameForRegister
- ) .SequenceCode.It
+   Seq: ( ME_4DB0614603C8_ME_5230180F029A // GetWordNameForRegister
+ )
  ; // Overridden
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\VCM\implementation\Scripting'
  CONST intf.pas:Path 'common\components\gui\Garant\VCM\implementation\Scripting\kwVcmOpCaption.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\VCM\implementation\Scripting'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
  CONST extprop:pas:TypeName 'TkwVcmOpCaption'
+ CONST extprop:rc:SelfName 'VcmOpCaption'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'kwVcmOpCaption'
 
 ref; // ME_5230180F029A vcm_op_Caption
 
 : ME_82001B362003
  CONST UID '82001B362003'
  CONST Name 'Ini_Reg'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Регистрация vcm_op_Enabled' ;
@@ -1568,6 +1632,7 @@ ref; // ME_82001B362003 Ini_Reg
  ;
  : Implementor ME_523014A301F2 // vcm_op_Enabled
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_5230151C02BA_ME_523014A301F2 Flag
 
 : ME_4DB0614603C8_ME_523014A301F2
@@ -1577,6 +1642,7 @@ ref; // ME_5230151C02BA_ME_523014A301F2 Flag
  ;
  : Implementor ME_523014A301F2 // vcm_op_Enabled
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4DB0614603C8_ME_523014A301F2 GetWordNameForRegister
 
 : ME_523014A301F2
@@ -1590,38 +1656,41 @@ ref; // ME_4DB0614603C8_ME_523014A301F2 GetWordNameForRegister
  : Parent ME_4F69B9040391 // VCMWords
  ;
  : Inherits
-   @ ( ME_5230147B0151 // OperationParamWord
- ) .SequenceCode.It
+   Seq: ( ME_5230147B0151 // OperationParamWord
+ )
  ; // Inherits
  : Operations
-   @ ( ME_82001B362003 // Ini_Reg
- ) .SequenceCode.It
+   Seq: ( ME_82001B362003 // Ini_Reg
+ )
  ; // Operations
  : Implemented
-   @ ( ME_5230151C02BA_ME_523014A301F2 // Flag
- ) .SequenceCode.It
+   Seq: ( ME_5230151C02BA_ME_523014A301F2 // Flag
+ )
  ; // Implemented
  : Overridden
-   @ ( ME_4DB0614603C8_ME_523014A301F2 // GetWordNameForRegister
- ) .SequenceCode.It
+   Seq: ( ME_4DB0614603C8_ME_523014A301F2 // GetWordNameForRegister
+ )
  ; // Overridden
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\VCM\implementation\Scripting'
  CONST intf.pas:Path 'common\components\gui\Garant\VCM\implementation\Scripting\kwVcmOpEnabled.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\VCM\implementation\Scripting'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
  CONST extprop:pas:TypeName 'TkwVcmOpEnabled'
+ CONST extprop:rc:SelfName 'VcmOpEnabled'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'kwVcmOpEnabled'
 
 ref; // ME_523014A301F2 vcm_op_Enabled
 
 : ME_ECEEE8E0A681
  CONST UID 'ECEEE8E0A681'
  CONST Name 'Ini_Reg'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Регистрация vcm_op_Hint' ;
@@ -1639,6 +1708,7 @@ ref; // ME_ECEEE8E0A681 Ini_Reg
  ;
  : Implementor ME_5230189600D2 // vcm_op_Hint
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_5230185F0140_ME_5230189600D2 DoParams
 
 : ME_4DB0614603C8_ME_5230189600D2
@@ -1648,6 +1718,7 @@ ref; // ME_5230185F0140_ME_5230189600D2 DoParams
  ;
  : Implementor ME_5230189600D2 // vcm_op_Hint
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4DB0614603C8_ME_5230189600D2 GetWordNameForRegister
 
 : ME_5230189600D2
@@ -1661,38 +1732,41 @@ ref; // ME_4DB0614603C8_ME_5230189600D2 GetWordNameForRegister
  : Parent ME_4F69B9040391 // VCMWords
  ;
  : Inherits
-   @ ( ME_5230182A02A3 // OperationParamWordPrim
- ) .SequenceCode.It
+   Seq: ( ME_5230182A02A3 // OperationParamWordPrim
+ )
  ; // Inherits
  : Operations
-   @ ( ME_ECEEE8E0A681 // Ini_Reg
- ) .SequenceCode.It
+   Seq: ( ME_ECEEE8E0A681 // Ini_Reg
+ )
  ; // Operations
  : Implemented
-   @ ( ME_5230185F0140_ME_5230189600D2 // DoParams
- ) .SequenceCode.It
+   Seq: ( ME_5230185F0140_ME_5230189600D2 // DoParams
+ )
  ; // Implemented
  : Overridden
-   @ ( ME_4DB0614603C8_ME_5230189600D2 // GetWordNameForRegister
- ) .SequenceCode.It
+   Seq: ( ME_4DB0614603C8_ME_5230189600D2 // GetWordNameForRegister
+ )
  ; // Overridden
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\VCM\implementation\Scripting'
  CONST intf.pas:Path 'common\components\gui\Garant\VCM\implementation\Scripting\kwVcmOpHint.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\VCM\implementation\Scripting'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
  CONST extprop:pas:TypeName 'TkwVcmOpHint'
+ CONST extprop:rc:SelfName 'VcmOpHint'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'kwVcmOpHint'
 
 ref; // ME_5230189600D2 vcm_op_Hint
 
 : ME_502EFFA39523
  CONST UID '502EFFA39523'
  CONST Name 'Ini_Reg'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Регистрация vcm_op_ImageIndex' ;
@@ -1710,6 +1784,7 @@ ref; // ME_502EFFA39523 Ini_Reg
  ;
  : Implementor ME_523018AA0227 // vcm_op_ImageIndex
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_5230185F0140_ME_523018AA0227 DoParams
 
 : ME_4DB0614603C8_ME_523018AA0227
@@ -1719,6 +1794,7 @@ ref; // ME_5230185F0140_ME_523018AA0227 DoParams
  ;
  : Implementor ME_523018AA0227 // vcm_op_ImageIndex
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4DB0614603C8_ME_523018AA0227 GetWordNameForRegister
 
 : ME_523018AA0227
@@ -1732,38 +1808,41 @@ ref; // ME_4DB0614603C8_ME_523018AA0227 GetWordNameForRegister
  : Parent ME_4F69B9040391 // VCMWords
  ;
  : Inherits
-   @ ( ME_5230182A02A3 // OperationParamWordPrim
- ) .SequenceCode.It
+   Seq: ( ME_5230182A02A3 // OperationParamWordPrim
+ )
  ; // Inherits
  : Operations
-   @ ( ME_502EFFA39523 // Ini_Reg
- ) .SequenceCode.It
+   Seq: ( ME_502EFFA39523 // Ini_Reg
+ )
  ; // Operations
  : Implemented
-   @ ( ME_5230185F0140_ME_523018AA0227 // DoParams
- ) .SequenceCode.It
+   Seq: ( ME_5230185F0140_ME_523018AA0227 // DoParams
+ )
  ; // Implemented
  : Overridden
-   @ ( ME_4DB0614603C8_ME_523018AA0227 // GetWordNameForRegister
- ) .SequenceCode.It
+   Seq: ( ME_4DB0614603C8_ME_523018AA0227 // GetWordNameForRegister
+ )
  ; // Overridden
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\VCM\implementation\Scripting'
  CONST intf.pas:Path 'common\components\gui\Garant\VCM\implementation\Scripting\kwVcmOpImageIndex.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\VCM\implementation\Scripting'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
  CONST extprop:pas:TypeName 'TkwVcmOpImageIndex'
+ CONST extprop:rc:SelfName 'VcmOpImageIndex'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'kwVcmOpImageIndex'
 
 ref; // ME_523018AA0227 vcm_op_ImageIndex
 
 : ME_469DD830A0BC
  CONST UID '469DD830A0BC'
  CONST Name 'Ini_Reg'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Регистрация vcm_op_Shortcut' ;
@@ -1781,6 +1860,7 @@ ref; // ME_469DD830A0BC Ini_Reg
  ;
  : Implementor ME_523018BE02F9 // vcm_op_Shortcut
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_5230185F0140_ME_523018BE02F9 DoParams
 
 : ME_4DB0614603C8_ME_523018BE02F9
@@ -1790,6 +1870,7 @@ ref; // ME_5230185F0140_ME_523018BE02F9 DoParams
  ;
  : Implementor ME_523018BE02F9 // vcm_op_Shortcut
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4DB0614603C8_ME_523018BE02F9 GetWordNameForRegister
 
 : ME_523018BE02F9
@@ -1803,38 +1884,41 @@ ref; // ME_4DB0614603C8_ME_523018BE02F9 GetWordNameForRegister
  : Parent ME_4F69B9040391 // VCMWords
  ;
  : Inherits
-   @ ( ME_5230182A02A3 // OperationParamWordPrim
- ) .SequenceCode.It
+   Seq: ( ME_5230182A02A3 // OperationParamWordPrim
+ )
  ; // Inherits
  : Operations
-   @ ( ME_469DD830A0BC // Ini_Reg
- ) .SequenceCode.It
+   Seq: ( ME_469DD830A0BC // Ini_Reg
+ )
  ; // Operations
  : Implemented
-   @ ( ME_5230185F0140_ME_523018BE02F9 // DoParams
- ) .SequenceCode.It
+   Seq: ( ME_5230185F0140_ME_523018BE02F9 // DoParams
+ )
  ; // Implemented
  : Overridden
-   @ ( ME_4DB0614603C8_ME_523018BE02F9 // GetWordNameForRegister
- ) .SequenceCode.It
+   Seq: ( ME_4DB0614603C8_ME_523018BE02F9 // GetWordNameForRegister
+ )
  ; // Overridden
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\VCM\implementation\Scripting'
  CONST intf.pas:Path 'common\components\gui\Garant\VCM\implementation\Scripting\kwVcmOpShortcut.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\VCM\implementation\Scripting'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
  CONST extprop:pas:TypeName 'TkwVcmOpShortcut'
+ CONST extprop:rc:SelfName 'VcmOpShortcut'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'kwVcmOpShortcut'
 
 ref; // ME_523018BE02F9 vcm_op_Shortcut
 
 : ME_9FC660929074
  CONST UID '9FC660929074'
  CONST Name 'Ini_Reg'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Регистрация vcm_op_LongHint' ;
@@ -1852,6 +1936,7 @@ ref; // ME_9FC660929074 Ini_Reg
  ;
  : Implementor ME_52301B0C0177 // vcm_op_LongHint
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_5230185F0140_ME_52301B0C0177 DoParams
 
 : ME_4DB0614603C8_ME_52301B0C0177
@@ -1861,6 +1946,7 @@ ref; // ME_5230185F0140_ME_52301B0C0177 DoParams
  ;
  : Implementor ME_52301B0C0177 // vcm_op_LongHint
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4DB0614603C8_ME_52301B0C0177 GetWordNameForRegister
 
 : ME_52301B0C0177
@@ -1874,32 +1960,34 @@ ref; // ME_4DB0614603C8_ME_52301B0C0177 GetWordNameForRegister
  : Parent ME_4F69B9040391 // VCMWords
  ;
  : Inherits
-   @ ( ME_5230182A02A3 // OperationParamWordPrim
- ) .SequenceCode.It
+   Seq: ( ME_5230182A02A3 // OperationParamWordPrim
+ )
  ; // Inherits
  : Operations
-   @ ( ME_9FC660929074 // Ini_Reg
- ) .SequenceCode.It
+   Seq: ( ME_9FC660929074 // Ini_Reg
+ )
  ; // Operations
  : Implemented
-   @ ( ME_5230185F0140_ME_52301B0C0177 // DoParams
- ) .SequenceCode.It
+   Seq: ( ME_5230185F0140_ME_52301B0C0177 // DoParams
+ )
  ; // Implemented
  : Overridden
-   @ ( ME_4DB0614603C8_ME_52301B0C0177 // GetWordNameForRegister
- ) .SequenceCode.It
+   Seq: ( ME_4DB0614603C8_ME_52301B0C0177 // GetWordNameForRegister
+ )
  ; // Overridden
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\VCM\implementation\Scripting'
  CONST intf.pas:Path 'common\components\gui\Garant\VCM\implementation\Scripting\kwVcmOpLongHint.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\VCM\implementation\Scripting'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
  CONST extprop:pas:TypeName 'TkwVcmOpLongHint'
+ CONST extprop:rc:SelfName 'VcmOpLongHint'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'kwVcmOpLongHint'
 
 ref; // ME_52301B0C0177 vcm_op_LongHint
 
@@ -2036,11 +2124,11 @@ ref; // ME_5374BE580388
  : Parent ME_4F69B9040391 // VCMWords
  ;
  : Operations
-   @ ( ME_52B16BBF00B4 // new_ini_op
- ) .SequenceCode.It
+   Seq: ( ME_52B16BBF00B4 // new_ini_op
+ )
  ; // Operations
  : Dependencies
-   @ ( ME_52B16C7601BF // 
+   Seq: ( ME_52B16C7601BF // 
  ME_52B16D9E0223 // 
  ME_52B183290085 // 
  ME_52B183300021 // 
@@ -2050,21 +2138,21 @@ ref; // ME_5374BE580388
  ME_5374B1DB0303 // 
  ME_5374B2410350 // 
  ME_5374BE580388 // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  CONST "no hands" false
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\VCM\implementation\Scripting'
  CONST intf.pas:Path 'common\components\gui\Garant\VCM\implementation\Scripting\RegisterVcmControls.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\VCM\implementation\Scripting'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_52B16BA20032 RegisterVcmControls
 
 : ME_5132A3C40D51
  CONST UID '5132A3C40D51'
  CONST Name 'Ini_Reg'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Регистрация vcm_History_DeleteBackItem' ;
@@ -2082,6 +2170,7 @@ ref; // ME_5132A3C40D51 Ini_Reg
  ;
  : Implementor ME_4E82CEBA0299 // vcm_History_DeleteBackItem
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_4DAEEDE10285_ME_4E82CEBA0299 DoDoIt
 
 : ME_4DB0614603C8_ME_4E82CEBA0299
@@ -2091,6 +2180,7 @@ ref; // ME_4DAEEDE10285_ME_4E82CEBA0299 DoDoIt
  ;
  : Implementor ME_4E82CEBA0299 // vcm_History_DeleteBackItem
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4DB0614603C8_ME_4E82CEBA0299 GetWordNameForRegister
 
 : ME_4E82CEBA0299
@@ -2105,24 +2195,24 @@ ref; // ME_4DB0614603C8_ME_4E82CEBA0299 GetWordNameForRegister
  : Parent ME_4F69B9040391 // VCMWords
  ;
  : Inherits
-   @ ( WL 'ME_53EDC0E701BC' '4F3E3F5F0160.pas.ms.script' // TtfwRegisterableWord
- ) .SequenceCode.It
+   Seq: ( WL 'ME_53EDC0E701BC' '4F3E3F5F0160.pas.ms.script' // TtfwRegisterableWord
+ )
  ; // Inherits
  : Implements
-   @ ( ME_4DB94A660083 // VCMWord
- ) .SequenceCode.It
+   Seq: ( ME_4DB94A660083 // VCMWord
+ )
  ; // Implements
  : Operations
-   @ ( ME_5132A3C40D51 // Ini_Reg
- ) .SequenceCode.It
+   Seq: ( ME_5132A3C40D51 // Ini_Reg
+ )
  ; // Operations
  : Implemented
-   @ ( ME_4DAEEDE10285_ME_4E82CEBA0299 // DoDoIt
- ) .SequenceCode.It
+   Seq: ( ME_4DAEEDE10285_ME_4E82CEBA0299 // DoDoIt
+ )
  ; // Implemented
  : Overridden
-   @ ( ME_4DB0614603C8_ME_4E82CEBA0299 // GetWordNameForRegister
- ) .SequenceCode.It
+   Seq: ( ME_4DB0614603C8_ME_4E82CEBA0299 // GetWordNameForRegister
+ )
  ; // Overridden
  CONST "author" 'Люлин А.В.'
  CONST "ifndef" 'NoVCM'
@@ -2131,19 +2221,22 @@ ref; // ME_4DB0614603C8_ME_4E82CEBA0299 GetWordNameForRegister
  CONST "no hands" true
  CONST "register in scripts" 'undefined'
  CONST "started" '28.09.2011 11:37'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\VCM\implementation\Scripting'
  CONST intf.pas:Path 'common\components\gui\Garant\VCM\implementation\Scripting\kwVcmHistoryDeleteBackItem.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\VCM\implementation\Scripting'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
  CONST extprop:pas:TypeName 'TkwVcmHistoryDeleteBackItem'
+ CONST extprop:rc:SelfName 'VcmHistoryDeleteBackItem'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'kwVcmHistoryDeleteBackItem'
 
 ref; // ME_4E82CEBA0299 vcm_History_DeleteBackItem
 
 : ME_A558245E2746
  CONST UID 'A558245E2746'
  CONST Name 'Ini_Reg'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Регистрация vcm_FindForm' ;
@@ -2172,6 +2265,7 @@ ref; // ME_4F2168A500CB
  ;
  : Implementor ME_4F215ADB00AF // vcm_FindForm
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_4DAEEDE10285_ME_4F215ADB00AF DoDoIt
 
 : ME_4DB0614603C8_ME_4F215ADB00AF
@@ -2181,6 +2275,7 @@ ref; // ME_4DAEEDE10285_ME_4F215ADB00AF DoDoIt
  ;
  : Implementor ME_4F215ADB00AF // vcm_FindForm
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4DB0614603C8_ME_4F215ADB00AF GetWordNameForRegister
 
 : ME_4F215ADB00AF
@@ -2194,47 +2289,50 @@ ref; // ME_4DB0614603C8_ME_4F215ADB00AF GetWordNameForRegister
  : Parent ME_4F69B9040391 // VCMWords
  ;
  : Inherits
-   @ ( WL 'ME_53EDC0E701BC' '4F3E3F5F0160.pas.ms.script' // TtfwRegisterableWord
- ) .SequenceCode.It
+   Seq: ( WL 'ME_53EDC0E701BC' '4F3E3F5F0160.pas.ms.script' // TtfwRegisterableWord
+ )
  ; // Inherits
  : Implements
-   @ ( ME_4DB94A660083 // VCMWord
- ) .SequenceCode.It
+   Seq: ( ME_4DB94A660083 // VCMWord
+ )
  ; // Implements
  : Operations
-   @ ( ME_A558245E2746 // Ini_Reg
- ) .SequenceCode.It
+   Seq: ( ME_A558245E2746 // Ini_Reg
+ )
  ; // Operations
  : Implemented
-   @ ( ME_4DAEEDE10285_ME_4F215ADB00AF // DoDoIt
- ) .SequenceCode.It
+   Seq: ( ME_4DAEEDE10285_ME_4F215ADB00AF // DoDoIt
+ )
  ; // Implemented
  : Overridden
-   @ ( ME_4DB0614603C8_ME_4F215ADB00AF // GetWordNameForRegister
- ) .SequenceCode.It
+   Seq: ( ME_4DB0614603C8_ME_4F215ADB00AF // GetWordNameForRegister
+ )
  ; // Overridden
  : Dependencies
-   @ ( ME_4F2168A500CB // 
- ) .SequenceCode.It
+   Seq: ( ME_4F2168A500CB // 
+ )
  ; // Dependencies
  CONST "ifndef" 'NoVCM'
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\VCM\implementation\Scripting'
  CONST intf.pas:Path 'common\components\gui\Garant\VCM\implementation\Scripting\kwVcmFindForm.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\VCM\implementation\Scripting'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
  CONST extprop:pas:TypeName 'TkwVcmFindForm'
+ CONST extprop:rc:SelfName 'VcmFindForm'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'kwVcmFindForm'
 
 ref; // ME_4F215ADB00AF vcm_FindForm
 
 : ME_AE090677B4AA
  CONST UID 'AE090677B4AA'
  CONST Name 'Ini_Reg'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Регистрация vcm_History_Clear' ;
@@ -2252,6 +2350,7 @@ ref; // ME_AE090677B4AA Ini_Reg
  ;
  : Implementor ME_52F4D3CF01ED // vcm_History_Clear
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_4DAEEDE10285_ME_52F4D3CF01ED DoDoIt
 
 : ME_4DB0614603C8_ME_52F4D3CF01ED
@@ -2261,6 +2360,7 @@ ref; // ME_4DAEEDE10285_ME_52F4D3CF01ED DoDoIt
  ;
  : Implementor ME_52F4D3CF01ED // vcm_History_Clear
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4DB0614603C8_ME_52F4D3CF01ED GetWordNameForRegister
 
 : ME_52F4D3CF01ED
@@ -2274,42 +2374,45 @@ ref; // ME_4DB0614603C8_ME_52F4D3CF01ED GetWordNameForRegister
  : Parent ME_4F69B9040391 // VCMWords
  ;
  : Inherits
-   @ ( WL 'ME_53EDC0E701BC' '4F3E3F5F0160.pas.ms.script' // TtfwRegisterableWord
- ) .SequenceCode.It
+   Seq: ( WL 'ME_53EDC0E701BC' '4F3E3F5F0160.pas.ms.script' // TtfwRegisterableWord
+ )
  ; // Inherits
  : Implements
-   @ ( ME_4DB94A660083 // VCMWord
- ) .SequenceCode.It
+   Seq: ( ME_4DB94A660083 // VCMWord
+ )
  ; // Implements
  : Operations
-   @ ( ME_AE090677B4AA // Ini_Reg
- ) .SequenceCode.It
+   Seq: ( ME_AE090677B4AA // Ini_Reg
+ )
  ; // Operations
  : Implemented
-   @ ( ME_4DAEEDE10285_ME_52F4D3CF01ED // DoDoIt
- ) .SequenceCode.It
+   Seq: ( ME_4DAEEDE10285_ME_52F4D3CF01ED // DoDoIt
+ )
  ; // Implemented
  : Overridden
-   @ ( ME_4DB0614603C8_ME_52F4D3CF01ED // GetWordNameForRegister
- ) .SequenceCode.It
+   Seq: ( ME_4DB0614603C8_ME_52F4D3CF01ED // GetWordNameForRegister
+ )
  ; // Overridden
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\VCM\implementation\Scripting'
  CONST intf.pas:Path 'common\components\gui\Garant\VCM\implementation\Scripting\kwVcmHistoryClear.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\VCM\implementation\Scripting'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
  CONST extprop:pas:TypeName 'TkwVcmHistoryClear'
+ CONST extprop:rc:SelfName 'VcmHistoryClear'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'kwVcmHistoryClear'
 
 ref; // ME_52F4D3CF01ED vcm_History_Clear
 
 : ME_87B92345D621
  CONST UID '87B92345D621'
  CONST Name 'Ini_Reg'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Регистрация vcm_History_DeleteForwardItem' ;
@@ -2327,6 +2430,7 @@ ref; // ME_87B92345D621 Ini_Reg
  ;
  : Implementor ME_53DA56FB028B // vcm_History_DeleteForwardItem
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_4DAEEDE10285_ME_53DA56FB028B DoDoIt
 
 : ME_4DB0614603C8_ME_53DA56FB028B
@@ -2336,6 +2440,7 @@ ref; // ME_4DAEEDE10285_ME_53DA56FB028B DoDoIt
  ;
  : Implementor ME_53DA56FB028B // vcm_History_DeleteForwardItem
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4DB0614603C8_ME_53DA56FB028B GetWordNameForRegister
 
 : ME_53DA56FB028B
@@ -2349,43 +2454,46 @@ ref; // ME_4DB0614603C8_ME_53DA56FB028B GetWordNameForRegister
  : Parent ME_4F69B9040391 // VCMWords
  ;
  : Inherits
-   @ ( WL 'ME_53EDC0E701BC' '4F3E3F5F0160.pas.ms.script' // TtfwRegisterableWord
- ) .SequenceCode.It
+   Seq: ( WL 'ME_53EDC0E701BC' '4F3E3F5F0160.pas.ms.script' // TtfwRegisterableWord
+ )
  ; // Inherits
  : Implements
-   @ ( ME_4DB94A660083 // VCMWord
- ) .SequenceCode.It
+   Seq: ( ME_4DB94A660083 // VCMWord
+ )
  ; // Implements
  : Operations
-   @ ( ME_87B92345D621 // Ini_Reg
- ) .SequenceCode.It
+   Seq: ( ME_87B92345D621 // Ini_Reg
+ )
  ; // Operations
  : Implemented
-   @ ( ME_4DAEEDE10285_ME_53DA56FB028B // DoDoIt
- ) .SequenceCode.It
+   Seq: ( ME_4DAEEDE10285_ME_53DA56FB028B // DoDoIt
+ )
  ; // Implemented
  : Overridden
-   @ ( ME_4DB0614603C8_ME_53DA56FB028B // GetWordNameForRegister
- ) .SequenceCode.It
+   Seq: ( ME_4DB0614603C8_ME_53DA56FB028B // GetWordNameForRegister
+ )
  ; // Overridden
  CONST "ifndef" 'NoVCM'
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\VCM\implementation\Scripting'
  CONST intf.pas:Path 'common\components\gui\Garant\VCM\implementation\Scripting\kwVcmHistoryDeleteForwardItem.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\VCM\implementation\Scripting'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
  CONST extprop:pas:TypeName 'TkwVcmHistoryDeleteForwardItem'
+ CONST extprop:rc:SelfName 'VcmHistoryDeleteForwardItem'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'kwVcmHistoryDeleteForwardItem'
 
 ref; // ME_53DA56FB028B vcm_History_DeleteForwardItem
 
 : ME_1E86902E10B9
  CONST UID '1E86902E10B9'
  CONST Name 'Ini_Reg'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Регистрация vcm_Dispatcher_Lock' ;
@@ -2403,6 +2511,7 @@ ref; // ME_1E86902E10B9 Ini_Reg
  ;
  : Implementor ME_4F69B99001E0 // vcm_Dispatcher_Lock
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_4DAEEDE10285_ME_4F69B99001E0 DoDoIt
 
 : ME_4DB0614603C8_ME_4F69B99001E0
@@ -2412,6 +2521,7 @@ ref; // ME_4DAEEDE10285_ME_4F69B99001E0 DoDoIt
  ;
  : Implementor ME_4F69B99001E0 // vcm_Dispatcher_Lock
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4DB0614603C8_ME_4F69B99001E0 GetWordNameForRegister
 
 : ME_4F69B99001E0
@@ -2425,42 +2535,45 @@ ref; // ME_4DB0614603C8_ME_4F69B99001E0 GetWordNameForRegister
  : Parent ME_4F69B9040391 // VCMWords
  ;
  : Inherits
-   @ ( WL 'ME_53EDC0E701BC' '4F3E3F5F0160.pas.ms.script' // TtfwRegisterableWord
- ) .SequenceCode.It
+   Seq: ( WL 'ME_53EDC0E701BC' '4F3E3F5F0160.pas.ms.script' // TtfwRegisterableWord
+ )
  ; // Inherits
  : Implements
-   @ ( ME_4DB94A660083 // VCMWord
- ) .SequenceCode.It
+   Seq: ( ME_4DB94A660083 // VCMWord
+ )
  ; // Implements
  : Operations
-   @ ( ME_1E86902E10B9 // Ini_Reg
- ) .SequenceCode.It
+   Seq: ( ME_1E86902E10B9 // Ini_Reg
+ )
  ; // Operations
  : Implemented
-   @ ( ME_4DAEEDE10285_ME_4F69B99001E0 // DoDoIt
- ) .SequenceCode.It
+   Seq: ( ME_4DAEEDE10285_ME_4F69B99001E0 // DoDoIt
+ )
  ; // Implemented
  : Overridden
-   @ ( ME_4DB0614603C8_ME_4F69B99001E0 // GetWordNameForRegister
- ) .SequenceCode.It
+   Seq: ( ME_4DB0614603C8_ME_4F69B99001E0 // GetWordNameForRegister
+ )
  ; // Overridden
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\VCM\implementation\Scripting'
  CONST intf.pas:Path 'common\components\gui\Garant\VCM\implementation\Scripting\kwVcmDispatcherLock.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\VCM\implementation\Scripting'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
  CONST extprop:pas:TypeName 'TkwVcmDispatcherLock'
+ CONST extprop:rc:SelfName 'VcmDispatcherLock'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'kwVcmDispatcherLock'
 
 ref; // ME_4F69B99001E0 vcm_Dispatcher_Lock
 
 : ME_C8CA47627EA0
  CONST UID 'C8CA47627EA0'
  CONST Name 'Ini_Reg'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Регистрация TryFocusOnForm' ;
@@ -2544,6 +2657,7 @@ ref; // ME_507BFCF30127
  ;
  : Implementor ME_507BDC31028B // TryFocusOnForm
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_4DAEEDE10285_ME_507BDC31028B DoDoIt
 
 : ME_4DB0614603C8_ME_507BDC31028B
@@ -2553,6 +2667,7 @@ ref; // ME_4DAEEDE10285_ME_507BDC31028B DoDoIt
  ;
  : Implementor ME_507BDC31028B // TryFocusOnForm
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4DB0614603C8_ME_507BDC31028B GetWordNameForRegister
 
 : ME_507BDC31028B
@@ -2566,52 +2681,55 @@ ref; // ME_4DB0614603C8_ME_507BDC31028B GetWordNameForRegister
  : Parent ME_4F69B9040391 // VCMWords
  ;
  : Inherits
-   @ ( WL 'ME_53EDC0E701BC' '4F3E3F5F0160.pas.ms.script' // TtfwRegisterableWord
- ) .SequenceCode.It
+   Seq: ( WL 'ME_53EDC0E701BC' '4F3E3F5F0160.pas.ms.script' // TtfwRegisterableWord
+ )
  ; // Inherits
  : Implements
-   @ ( ME_4DB94A660083 // VCMWord
- ) .SequenceCode.It
+   Seq: ( ME_4DB94A660083 // VCMWord
+ )
  ; // Implements
  : Operations
-   @ ( ME_C8CA47627EA0 // Ini_Reg
- ) .SequenceCode.It
+   Seq: ( ME_C8CA47627EA0 // Ini_Reg
+ )
  ; // Operations
  : Implemented
-   @ ( ME_4DAEEDE10285_ME_507BDC31028B // DoDoIt
- ) .SequenceCode.It
+   Seq: ( ME_4DAEEDE10285_ME_507BDC31028B // DoDoIt
+ )
  ; // Implemented
  : Overridden
-   @ ( ME_4DB0614603C8_ME_507BDC31028B // GetWordNameForRegister
- ) .SequenceCode.It
+   Seq: ( ME_4DB0614603C8_ME_507BDC31028B // GetWordNameForRegister
+ )
  ; // Overridden
  : Dependencies
-   @ ( ME_507BF935030F // 
+   Seq: ( ME_507BF935030F // 
  ME_507BFA24031F // 
  ME_507BFAB50082 // 
  ME_507BFB2003C8 // 
  ME_507BFC6902A3 // 
  ME_507BFCF30127 // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  CONST "ifndef" 'NoVCM'
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\VCM\implementation\Scripting'
  CONST intf.pas:Path 'common\components\gui\Garant\VCM\implementation\Scripting\kwTryFocusOnForm.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\VCM\implementation\Scripting'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
  CONST extprop:pas:TypeName 'TkwTryFocusOnForm'
+ CONST extprop:rc:SelfName 'TryFocusOnForm'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'kwTryFocusOnForm'
 
 ref; // ME_507BDC31028B TryFocusOnForm
 
 : ME_276FFFEFA9A0
  CONST UID '276FFFEFA9A0'
  CONST Name 'Ini_Reg'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Регистрация object_Create' ;
@@ -2662,6 +2780,7 @@ ref; // ME_509CE0EC01D8
  ;
  : Implementor ME_4E29311F0055 // object_Create
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_4DAEEDE10285_ME_4E29311F0055 DoDoIt
 
 : ME_4DB0614603C8_ME_4E29311F0055
@@ -2671,6 +2790,7 @@ ref; // ME_4DAEEDE10285_ME_4E29311F0055 DoDoIt
  ;
  : Implementor ME_4E29311F0055 // object_Create
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4DB0614603C8_ME_4E29311F0055 GetWordNameForRegister
 
 : ME_4E29311F0055
@@ -2685,30 +2805,30 @@ ref; // ME_4DB0614603C8_ME_4E29311F0055 GetWordNameForRegister
  : Parent ME_4F69B9040391 // VCMWords
  ;
  : Inherits
-   @ ( WL 'ME_53EDC0E701BC' '4F3E3F5F0160.pas.ms.script' // TtfwRegisterableWord
- ) .SequenceCode.It
+   Seq: ( WL 'ME_53EDC0E701BC' '4F3E3F5F0160.pas.ms.script' // TtfwRegisterableWord
+ )
  ; // Inherits
  : Implements
-   @ ( ME_4DB94A660083 // VCMWord
- ) .SequenceCode.It
+   Seq: ( ME_4DB94A660083 // VCMWord
+ )
  ; // Implements
  : Operations
-   @ ( ME_276FFFEFA9A0 // Ini_Reg
- ) .SequenceCode.It
+   Seq: ( ME_276FFFEFA9A0 // Ini_Reg
+ )
  ; // Operations
  : Implemented
-   @ ( ME_4DAEEDE10285_ME_4E29311F0055 // DoDoIt
- ) .SequenceCode.It
+   Seq: ( ME_4DAEEDE10285_ME_4E29311F0055 // DoDoIt
+ )
  ; // Implemented
  : Overridden
-   @ ( ME_4DB0614603C8_ME_4E29311F0055 // GetWordNameForRegister
- ) .SequenceCode.It
+   Seq: ( ME_4DB0614603C8_ME_4E29311F0055 // GetWordNameForRegister
+ )
  ; // Overridden
  : Dependencies
-   @ ( ME_509CD614001E // 
+   Seq: ( ME_509CD614001E // 
  ME_509CDA2F03E0 // 
  ME_509CE0EC01D8 // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  CONST "NameForScript" '.Create'
  CONST "ifndef" 'NoVCM'
@@ -2716,19 +2836,22 @@ ref; // ME_4DB0614603C8_ME_4E29311F0055 GetWordNameForRegister
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\VCM\implementation\Scripting'
  CONST intf.pas:Path 'common\components\gui\Garant\VCM\implementation\Scripting\kwObjectCreate.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\VCM\implementation\Scripting'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
  CONST extprop:pas:TypeName 'TkwObjectCreate'
+ CONST extprop:rc:SelfName 'ObjectCreate'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'kwObjectCreate'
 
 ref; // ME_4E29311F0055 object_Create
 
 : ME_FE38BFB352D6
  CONST UID 'FE38BFB352D6'
  CONST Name 'Ini_Reg'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Регистрация vcm_Dispatcher_LockInOp' ;
@@ -2746,6 +2869,7 @@ ref; // ME_FE38BFB352D6 Ini_Reg
  ;
  : Implementor ME_558A5FF8002C // vcm_Dispatcher_LockInOp
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_4DAEEDE10285_ME_558A5FF8002C DoDoIt
 
 : ME_4DB0614603C8_ME_558A5FF8002C
@@ -2755,6 +2879,7 @@ ref; // ME_4DAEEDE10285_ME_558A5FF8002C DoDoIt
  ;
  : Implementor ME_558A5FF8002C // vcm_Dispatcher_LockInOp
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4DB0614603C8_ME_558A5FF8002C GetWordNameForRegister
 
 : ME_558A5FF8002C
@@ -2768,42 +2893,45 @@ ref; // ME_4DB0614603C8_ME_558A5FF8002C GetWordNameForRegister
  : Parent ME_4F69B9040391 // VCMWords
  ;
  : Inherits
-   @ ( WL 'ME_53EDC0E701BC' '4F3E3F5F0160.pas.ms.script' // TtfwRegisterableWord
- ) .SequenceCode.It
+   Seq: ( WL 'ME_53EDC0E701BC' '4F3E3F5F0160.pas.ms.script' // TtfwRegisterableWord
+ )
  ; // Inherits
  : Implements
-   @ ( ME_4DB94A660083 // VCMWord
- ) .SequenceCode.It
+   Seq: ( ME_4DB94A660083 // VCMWord
+ )
  ; // Implements
  : Operations
-   @ ( ME_FE38BFB352D6 // Ini_Reg
- ) .SequenceCode.It
+   Seq: ( ME_FE38BFB352D6 // Ini_Reg
+ )
  ; // Operations
  : Implemented
-   @ ( ME_4DAEEDE10285_ME_558A5FF8002C // DoDoIt
- ) .SequenceCode.It
+   Seq: ( ME_4DAEEDE10285_ME_558A5FF8002C // DoDoIt
+ )
  ; // Implemented
  : Overridden
-   @ ( ME_4DB0614603C8_ME_558A5FF8002C // GetWordNameForRegister
- ) .SequenceCode.It
+   Seq: ( ME_4DB0614603C8_ME_558A5FF8002C // GetWordNameForRegister
+ )
  ; // Overridden
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\VCM\implementation\Scripting'
  CONST intf.pas:Path 'common\components\gui\Garant\VCM\implementation\Scripting\kwVcmDispatcherLockInOp.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\VCM\implementation\Scripting'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
  CONST extprop:pas:TypeName 'TkwVcmDispatcherLockInOp'
+ CONST extprop:rc:SelfName 'VcmDispatcherLockInOp'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'kwVcmDispatcherLockInOp'
 
 ref; // ME_558A5FF8002C vcm_Dispatcher_LockInOp
 
 : ME_C3C4EE2362D5
  CONST UID 'C3C4EE2362D5'
  CONST Name 'Ini_Reg'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Регистрация vcm_Dispatcher_UnlockInOp' ;
@@ -2821,6 +2949,7 @@ ref; // ME_C3C4EE2362D5 Ini_Reg
  ;
  : Implementor ME_558A60390336 // vcm_Dispatcher_UnlockInOp
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_4DAEEDE10285_ME_558A60390336 DoDoIt
 
 : ME_4DB0614603C8_ME_558A60390336
@@ -2830,6 +2959,7 @@ ref; // ME_4DAEEDE10285_ME_558A60390336 DoDoIt
  ;
  : Implementor ME_558A60390336 // vcm_Dispatcher_UnlockInOp
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4DB0614603C8_ME_558A60390336 GetWordNameForRegister
 
 : ME_558A60390336
@@ -2843,36 +2973,38 @@ ref; // ME_4DB0614603C8_ME_558A60390336 GetWordNameForRegister
  : Parent ME_4F69B9040391 // VCMWords
  ;
  : Inherits
-   @ ( WL 'ME_53EDC0E701BC' '4F3E3F5F0160.pas.ms.script' // TtfwRegisterableWord
- ) .SequenceCode.It
+   Seq: ( WL 'ME_53EDC0E701BC' '4F3E3F5F0160.pas.ms.script' // TtfwRegisterableWord
+ )
  ; // Inherits
  : Implements
-   @ ( ME_4DB94A660083 // VCMWord
- ) .SequenceCode.It
+   Seq: ( ME_4DB94A660083 // VCMWord
+ )
  ; // Implements
  : Operations
-   @ ( ME_C3C4EE2362D5 // Ini_Reg
- ) .SequenceCode.It
+   Seq: ( ME_C3C4EE2362D5 // Ini_Reg
+ )
  ; // Operations
  : Implemented
-   @ ( ME_4DAEEDE10285_ME_558A60390336 // DoDoIt
- ) .SequenceCode.It
+   Seq: ( ME_4DAEEDE10285_ME_558A60390336 // DoDoIt
+ )
  ; // Implemented
  : Overridden
-   @ ( ME_4DB0614603C8_ME_558A60390336 // GetWordNameForRegister
- ) .SequenceCode.It
+   Seq: ( ME_4DB0614603C8_ME_558A60390336 // GetWordNameForRegister
+ )
  ; // Overridden
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\VCM\implementation\Scripting'
  CONST intf.pas:Path 'common\components\gui\Garant\VCM\implementation\Scripting\kwVcmDispatcherUnlockInOp.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\VCM\implementation\Scripting'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
  CONST extprop:pas:TypeName 'TkwVcmDispatcherUnlockInOp'
+ CONST extprop:rc:SelfName 'VcmDispatcherUnlockInOp'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'kwVcmDispatcherUnlockInOp'
 
 ref; // ME_558A60390336 vcm_Dispatcher_UnlockInOp
 
@@ -2886,7 +3018,7 @@ ref; // ME_558A60390336 vcm_Dispatcher_UnlockInOp
  : Parent WL 'ME_4E200FC9003B' '4E200FC9003B.pas.ms.script' // VCM$Scripting
  ;
  : Children
-   @ ( ME_4F69B966010B // VCMWordsPack
+   Seq: ( ME_4F69B966010B // VCMWordsPack
  ME_4DB94A660083 // VCMWord
  ME_4F69B9AD0040 // vcm_Dispatcher_Unlock
  ME_4F69BC1C02CC // vcm_Dispatcher_BeginOp
@@ -2916,10 +3048,10 @@ ref; // ME_558A60390336 vcm_Dispatcher_UnlockInOp
  ME_4E29311F0055 // object_Create
  ME_558A5FF8002C // vcm_Dispatcher_LockInOp
  ME_558A60390336 // vcm_Dispatcher_UnlockInOp
- ) .SequenceCode.It
+ )
  ; // Children
  : Depends
-   @ ( WL 'ME_467BAB7F021E' '467BAB7F021E.pas.ms.script' // vcmExternalInterfaces
+   Seq: ( WL 'ME_467BAB7F021E' '467BAB7F021E.pas.ms.script' // vcmExternalInterfaces
  WL 'ME_4683F37902CF' '4683F37902CF.pas.ms.script' // vcmInterfaces
  WL 'ME_47750CE700D0' '47750CE700D0.pas.ms.script' // afwFacade
  WL 'ME_4799D29F033F' '4799D29F033F.pas.ms.script' // Implementation
@@ -2937,17 +3069,15 @@ ref; // ME_558A60390336 vcm_Dispatcher_UnlockInOp
  WL 'ME_521C9DA50125' '521C9DA50125.pas.ms.script' // Application Resources
  WL 'ME_53288DFA03A7' '53288DFA03A7.pas.ms.script' // NewReminders
  WL 'ME_55BA28CE0290' '55BA28CE0290.pas.ms.script' // tfwScriptingTypes
- ) .SequenceCode.It
+ )
  ; // Depends
  CONST "ifndef" 'NoVCM'
  CONST "path prefix" '/implementation/Scripting'
- : Generators
- @ (
- gen_pas.script
- gen_pas.script.runner
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\VCM\implementation\Scripting'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\VCM\implementation\Scripting'
  CONST pas.script:Path 'shared\models\NewSchool\Scripts\4F69B9040391.pas.ms.script'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
  CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\4F69B9040391.pas.ms.script.runner'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_4F69B9040391 VCMWords

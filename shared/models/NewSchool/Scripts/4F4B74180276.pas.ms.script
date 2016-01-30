@@ -56,6 +56,7 @@ ref; // ME_4BED7D6E0098 aFI
  CONST Value true
  : ValueType WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
+ CONST extprop:pas:Value true
 
 ref; // ME_4E54C668024F CorrectItalic
 
@@ -71,12 +72,12 @@ ref; // ME_4E54C668024F CorrectItalic
  : Target WL 'ME_476BF8E202B0' '4678209200A6.pas.ms.script' // InevFont
  ;
  : Parameters
-   @ ( ME_4E563DE3035F // aView
+   Seq: ( ME_4E563DE3035F // aView
  ME_5343F4B302D4 // Para
  ME_476BFAD001E5 // IsSegment
  ME_4BED7D6E0098 // aFI
  ME_4E54C668024F // CorrectItalic
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_476BFAA60313 GetObjRealFont
@@ -131,6 +132,7 @@ ref; // ME_486CBF1E036B aParentFI
  CONST Value true
  : ValueType WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
+ CONST extprop:pas:Value true
 
 ref; // ME_4E54C66D0228 CorrectItalic
 
@@ -146,12 +148,12 @@ ref; // ME_4E54C66D0228 CorrectItalic
  : Target WL 'ME_476BF8E202B0' '4678209200A6.pas.ms.script' // InevFont
  ;
  : Parameters
-   @ ( ME_4E563DEB012E // aView
+   Seq: ( ME_4E563DEB012E // aView
  ME_4E53CC90001D // Para
  ME_486CBF1E02E8 // IsSegment
  ME_486CBF1E036B // aParentFI
  ME_4E54C66D0228 // CorrectItalic
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_486CB85C01FD GetObjIFont
@@ -167,10 +169,14 @@ ref; // ME_486CB85C01FD GetObjIFont
  : Parent ME_4F4B74180276 // nevGarbageInterfaces
  ;
  : Operations
-   @ ( ME_476BFAA60313 // GetObjRealFont
+   Seq: ( ME_476BFAA60313 // GetObjRealFont
  ME_486CB85C01FD // GetObjIFont
- ) .SequenceCode.It
+ )
  ; // Operations
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_4E7202E403E1 MnevFontTool
 
@@ -183,6 +189,7 @@ FORWARD ME_467D2AA900F1
  ;
  : Implementor ME_467D2AA900F1 // InevFontTool
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_476BFAA60313_ME_467D2AA900F1 GetObjRealFont
 
 : ME_486CB85C01FD_ME_467D2AA900F1
@@ -192,6 +199,7 @@ ref; // ME_476BFAA60313_ME_467D2AA900F1 GetObjRealFont
  ;
  : Implementor ME_467D2AA900F1 // InevFontTool
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_486CB85C01FD_ME_467D2AA900F1 GetObjIFont
 
 : ME_467D2AA900F1
@@ -207,18 +215,24 @@ ref; // ME_486CB85C01FD_ME_467D2AA900F1 GetObjIFont
  : Parent ME_4F4B74180276 // nevGarbageInterfaces
  ;
  : Inherits
-   @ ( WL 'ME_467D2A5403B6' '467823B7002C.pas.ms.script' // IafwFontCache
- ) .SequenceCode.It
+   Seq: ( WL 'ME_467D2A5403B6' '467823B7002C.pas.ms.script' // IafwFontCache
+ )
  ; // Inherits
  : Implements
-   @ ( ME_4E7202E403E1 // MnevFontTool
- ) .SequenceCode.It
+   Seq: ( ME_4E7202E403E1 // MnevFontTool
+ )
  ; // Implements
  : Implemented
-   @ ( ME_476BFAA60313_ME_467D2AA900F1 // GetObjRealFont
+   Seq: ( ME_476BFAA60313_ME_467D2AA900F1 // GetObjRealFont
  ME_486CB85C01FD_ME_467D2AA900F1 // GetObjIFont
- ) .SequenceCode.It
+ )
  ; // Implemented
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'FontTool'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_467D2AA900F1 InevFontTool
 
@@ -232,27 +246,24 @@ ref; // ME_467D2AA900F1 InevFontTool
  : Parent WL 'ME_4797632D0273' '4797632D0273.pas.ms.script' // Everest
  ;
  : Children
-   @ ( ME_4E7202E403E1 // MnevFontTool
+   Seq: ( ME_4E7202E403E1 // MnevFontTool
  ME_467D2AA900F1 // InevFontTool
- ) .SequenceCode.It
+ )
  ; // Children
  : Depends
-   @ ( WL 'ME_4678209200A6' '4678209200A6.pas.ms.script' // nevBase
+   Seq: ( WL 'ME_4678209200A6' '4678209200A6.pas.ms.script' // nevBase
  WL 'ME_467823B7002C' '467823B7002C.pas.ms.script' // afwInterfaces
  WL 'ME_4AB0C3C60310' '4AB0C3C60310.pas.ms.script' // Sys
- ) .SequenceCode.It
+ )
  ; // Depends
  CONST "is namespace" true
  CONST "no hands" false
- : Generators
- @ (
- gen_intf.pas
- gen_pas.script
- gen_pas.script.runner
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest'
  CONST intf.pas:Path 'common\components\gui\Garant\Everest\nevGarbageInterfaces.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest'
  CONST pas.script:Path 'shared\models\NewSchool\Scripts\4F4B74180276.pas.ms.script'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
  CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\4F4B74180276.pas.ms.script.runner'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_4F4B74180276 nevGarbageInterfaces

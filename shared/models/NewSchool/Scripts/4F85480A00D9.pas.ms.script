@@ -6,11 +6,14 @@ FORWARD ME_4F85480A00D9
 
 FORWARD ME_4F854878032F
 
+FORWARD ME_55192F7C0078
+
 FORWARD ME_CB65D7FF1E6C
 
 : ME_E361E6937668
  CONST UID 'E361E6937668'
  CONST Name 'aCtx'
+ CONST IsSummoned true
  CONST Class class_Parameter
  : Stereotype st_in ;
  : Target WL 'ME_4DB0091E033E' '4DAF19F600C5.pas.ms.script' // TtfwContext
@@ -21,6 +24,7 @@ ref; // ME_E361E6937668 aCtx
 : ME_E361E6937669
  CONST UID 'E361E6937669'
  CONST Name 'aWnd'
+ CONST IsSummoned true
  CONST Class class_Parameter
  : Stereotype st_in ;
  : Target WL 'ME_46A465F9028C' '4AB0C3F60375.pas.ms.script' // THandle
@@ -31,6 +35,7 @@ ref; // ME_E361E6937669 aWnd
 : ME_51F7DBC755B8
  CONST UID '51F7DBC755B8'
  CONST Name 'wnd_IsVisible'
+ CONST IsSummoned true
  CONST Class class_Operation
  %SUMMARY 'Реализация слова скрипта wnd:IsVisible' ;
  CONST Visibility PrivateAccess
@@ -40,9 +45,9 @@ ref; // ME_E361E6937669 aWnd
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
  : Parameters
-   @ ( ME_E361E6937668 // aCtx
+   Seq: ( ME_E361E6937668 // aCtx
  ME_E361E6937669 // aWnd
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_51F7DBC755B8 wnd_IsVisible
@@ -50,6 +55,7 @@ ref; // ME_51F7DBC755B8 wnd_IsVisible
 : ME_D899004F0834
  CONST UID 'D899004F0834'
  CONST Name 'Ini_Reg'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Регистрация wnd_IsVisible' ;
@@ -62,6 +68,7 @@ ref; // ME_D899004F0834 Ini_Reg
 
 : ME_CE6F7CCFCDF4
  CONST UID 'CE6F7CCFCDF4'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_CB65D7FF1E6C // wnd_IsVisible
@@ -73,6 +80,7 @@ ref; // ME_CE6F7CCFCDF4
 
 : ME_A5EE6DD50677
  CONST UID 'A5EE6DD50677'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_CB65D7FF1E6C // wnd_IsVisible
@@ -84,6 +92,7 @@ ref; // ME_A5EE6DD50677
 
 : ME_D4B8E8E98A70
  CONST UID 'D4B8E8E98A70'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_CB65D7FF1E6C // wnd_IsVisible
@@ -146,6 +155,7 @@ ref; // ME_5617F4D00243_ME_CB65D7FF1E6C ParamsTypes
 : ME_CB65D7FF1E6C
  CONST UID 'CB65D7FF1E6C'
  CONST Name 'wnd_IsVisible'
+ CONST IsSummoned true
  CONST Class class_Class
  : Stereotype st_ScriptKeyword ;
  CONST Kind kind_NormalClass
@@ -155,45 +165,56 @@ ref; // ME_5617F4D00243_ME_CB65D7FF1E6C ParamsTypes
  : Parent ME_4F854878032F // WinUtilsPack
  ;
  : Inherits
-   @ ( WL 'ME_561BAC4B0005' '55CCADD2013D.pas.ms.script' // TtfwGlobalKeyWord
- ) .SequenceCode.It
+   Seq: ( WL 'ME_561BAC4B0005' '55CCADD2013D.pas.ms.script' // TtfwGlobalKeyWord
+ )
  ; // Inherits
  : Operations
-   @ ( ME_51F7DBC755B8 // wnd_IsVisible
+   Seq: ( ME_51F7DBC755B8 // wnd_IsVisible
  ME_D899004F0834 // Ini_Reg
- ) .SequenceCode.It
+ )
  ; // Operations
  : Implemented
-   @ ( ME_4DAEEDE10285_ME_CB65D7FF1E6C // DoDoIt
- ) .SequenceCode.It
+   Seq: ( ME_4DAEEDE10285_ME_CB65D7FF1E6C // DoDoIt
+ )
  ; // Implemented
  : Overridden
-   @ ( ME_4DB0614603C8_ME_CB65D7FF1E6C // GetWordNameForRegister
+   Seq: ( ME_4DB0614603C8_ME_CB65D7FF1E6C // GetWordNameForRegister
  ME_551544E2001A_ME_CB65D7FF1E6C // GetResultTypeInfo
  ME_559687E6025A_ME_CB65D7FF1E6C // GetAllParamsCount
  ME_5617F4D00243_ME_CB65D7FF1E6C // ParamsTypes
- ) .SequenceCode.It
+ )
  ; // Overridden
  : Dependencies
-   @ ( ME_CE6F7CCFCDF4 // 
+   Seq: ( ME_CE6F7CCFCDF4 // 
  ME_A5EE6DD50677 // 
  ME_D4B8E8E98A70 // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  CONST "NameForScript" 'wnd:IsVisible'
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
+ CONST dfm:PathOnly '\common\components\rtl\Garant\ScriptEngine'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\ScriptEngine'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
  CONST extprop:pas:TypeName 'TkwWndIsVisible'
+ CONST extprop:rc:SelfName 'WndIsVisible'
+ CONST extprop:rc:isAcceptableForScripts true
+ : SpelledFor ME_55192F7C0078 // wnd_IsVisible
+ ;
 
 ref; // ME_CB65D7FF1E6C wnd_IsVisible
+
+FORWARD ME_55192F980349
 
 FORWARD ME_455E9214E4B7
 
 : ME_A3486D34E16F
  CONST UID 'A3486D34E16F'
  CONST Name 'aCtx'
+ CONST IsSummoned true
  CONST Class class_Parameter
  : Stereotype st_in ;
  : Target WL 'ME_4DB0091E033E' '4DAF19F600C5.pas.ms.script' // TtfwContext
@@ -204,6 +225,7 @@ ref; // ME_A3486D34E16F aCtx
 : ME_A3486D34E170
  CONST UID 'A3486D34E170'
  CONST Name 'aWnd'
+ CONST IsSummoned true
  CONST Class class_Parameter
  : Stereotype st_in ;
  : Target WL 'ME_46A465F9028C' '4AB0C3F60375.pas.ms.script' // THandle
@@ -214,6 +236,7 @@ ref; // ME_A3486D34E170 aWnd
 : ME_E554A2B1DE10
  CONST UID 'E554A2B1DE10'
  CONST Name 'wnd_GetClassName'
+ CONST IsSummoned true
  CONST Class class_Operation
  %SUMMARY 'Реализация слова скрипта wnd:GetClassName' ;
  CONST Visibility PrivateAccess
@@ -223,9 +246,9 @@ ref; // ME_A3486D34E170 aWnd
  : Target WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
  ;
  : Parameters
-   @ ( ME_A3486D34E16F // aCtx
+   Seq: ( ME_A3486D34E16F // aCtx
  ME_A3486D34E170 // aWnd
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_E554A2B1DE10 wnd_GetClassName
@@ -233,6 +256,7 @@ ref; // ME_E554A2B1DE10 wnd_GetClassName
 : ME_3AC29E03A197
  CONST UID '3AC29E03A197'
  CONST Name 'Ini_Reg'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Регистрация wnd_GetClassName' ;
@@ -245,6 +269,7 @@ ref; // ME_3AC29E03A197 Ini_Reg
 
 : ME_440B880B632B
  CONST UID '440B880B632B'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_455E9214E4B7 // wnd_GetClassName
@@ -256,6 +281,7 @@ ref; // ME_440B880B632B
 
 : ME_C4C9565908A6
  CONST UID 'C4C9565908A6'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_455E9214E4B7 // wnd_GetClassName
@@ -267,6 +293,7 @@ ref; // ME_C4C9565908A6
 
 : ME_0A9079C7382D
  CONST UID '0A9079C7382D'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_455E9214E4B7 // wnd_GetClassName
@@ -329,6 +356,7 @@ ref; // ME_5617F4D00243_ME_455E9214E4B7 ParamsTypes
 : ME_455E9214E4B7
  CONST UID '455E9214E4B7'
  CONST Name 'wnd_GetClassName'
+ CONST IsSummoned true
  CONST Class class_Class
  : Stereotype st_ScriptKeyword ;
  CONST Kind kind_NormalClass
@@ -338,45 +366,56 @@ ref; // ME_5617F4D00243_ME_455E9214E4B7 ParamsTypes
  : Parent ME_4F854878032F // WinUtilsPack
  ;
  : Inherits
-   @ ( WL 'ME_561BAC4B0005' '55CCADD2013D.pas.ms.script' // TtfwGlobalKeyWord
- ) .SequenceCode.It
+   Seq: ( WL 'ME_561BAC4B0005' '55CCADD2013D.pas.ms.script' // TtfwGlobalKeyWord
+ )
  ; // Inherits
  : Operations
-   @ ( ME_E554A2B1DE10 // wnd_GetClassName
+   Seq: ( ME_E554A2B1DE10 // wnd_GetClassName
  ME_3AC29E03A197 // Ini_Reg
- ) .SequenceCode.It
+ )
  ; // Operations
  : Implemented
-   @ ( ME_4DAEEDE10285_ME_455E9214E4B7 // DoDoIt
- ) .SequenceCode.It
+   Seq: ( ME_4DAEEDE10285_ME_455E9214E4B7 // DoDoIt
+ )
  ; // Implemented
  : Overridden
-   @ ( ME_4DB0614603C8_ME_455E9214E4B7 // GetWordNameForRegister
+   Seq: ( ME_4DB0614603C8_ME_455E9214E4B7 // GetWordNameForRegister
  ME_551544E2001A_ME_455E9214E4B7 // GetResultTypeInfo
  ME_559687E6025A_ME_455E9214E4B7 // GetAllParamsCount
  ME_5617F4D00243_ME_455E9214E4B7 // ParamsTypes
- ) .SequenceCode.It
+ )
  ; // Overridden
  : Dependencies
-   @ ( ME_440B880B632B // 
+   Seq: ( ME_440B880B632B // 
  ME_C4C9565908A6 // 
  ME_0A9079C7382D // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  CONST "NameForScript" 'wnd:GetClassName'
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
+ CONST dfm:PathOnly '\common\components\rtl\Garant\ScriptEngine'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\ScriptEngine'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
  CONST extprop:pas:TypeName 'TkwWndGetClassName'
+ CONST extprop:rc:SelfName 'WndGetClassName'
+ CONST extprop:rc:isAcceptableForScripts true
+ : SpelledFor ME_55192F980349 // wnd_GetClassName
+ ;
 
 ref; // ME_455E9214E4B7 wnd_GetClassName
+
+FORWARD ME_55192FAF01D3
 
 FORWARD ME_6ECBEE6894B8
 
 : ME_1BCAC1ECE671
  CONST UID '1BCAC1ECE671'
  CONST Name 'aCtx'
+ CONST IsSummoned true
  CONST Class class_Parameter
  : Stereotype st_in ;
  : Target WL 'ME_4DB0091E033E' '4DAF19F600C5.pas.ms.script' // TtfwContext
@@ -387,6 +426,7 @@ ref; // ME_1BCAC1ECE671 aCtx
 : ME_1BCAC1ECE672
  CONST UID '1BCAC1ECE672'
  CONST Name 'aWnd'
+ CONST IsSummoned true
  CONST Class class_Parameter
  : Stereotype st_in ;
  : Target WL 'ME_46A465F9028C' '4AB0C3F60375.pas.ms.script' // THandle
@@ -397,6 +437,7 @@ ref; // ME_1BCAC1ECE672 aWnd
 : ME_38FB07665775
  CONST UID '38FB07665775'
  CONST Name 'wnd_GetWindowText'
+ CONST IsSummoned true
  CONST Class class_Operation
  %SUMMARY 'Реализация слова скрипта wnd:GetWindowText' ;
  CONST Visibility PrivateAccess
@@ -406,9 +447,9 @@ ref; // ME_1BCAC1ECE672 aWnd
  : Target WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
  ;
  : Parameters
-   @ ( ME_1BCAC1ECE671 // aCtx
+   Seq: ( ME_1BCAC1ECE671 // aCtx
  ME_1BCAC1ECE672 // aWnd
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_38FB07665775 wnd_GetWindowText
@@ -416,6 +457,7 @@ ref; // ME_38FB07665775 wnd_GetWindowText
 : ME_43B8B61FEBB3
  CONST UID '43B8B61FEBB3'
  CONST Name 'Ini_Reg'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Регистрация wnd_GetWindowText' ;
@@ -428,6 +470,7 @@ ref; // ME_43B8B61FEBB3 Ini_Reg
 
 : ME_DE68FB18E6FF
  CONST UID 'DE68FB18E6FF'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_6ECBEE6894B8 // wnd_GetWindowText
@@ -439,6 +482,7 @@ ref; // ME_DE68FB18E6FF
 
 : ME_8B1C12A17D5D
  CONST UID '8B1C12A17D5D'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_6ECBEE6894B8 // wnd_GetWindowText
@@ -450,6 +494,7 @@ ref; // ME_8B1C12A17D5D
 
 : ME_8A4411D5215D
  CONST UID '8A4411D5215D'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_6ECBEE6894B8 // wnd_GetWindowText
@@ -512,6 +557,7 @@ ref; // ME_5617F4D00243_ME_6ECBEE6894B8 ParamsTypes
 : ME_6ECBEE6894B8
  CONST UID '6ECBEE6894B8'
  CONST Name 'wnd_GetWindowText'
+ CONST IsSummoned true
  CONST Class class_Class
  : Stereotype st_ScriptKeyword ;
  CONST Kind kind_NormalClass
@@ -521,45 +567,56 @@ ref; // ME_5617F4D00243_ME_6ECBEE6894B8 ParamsTypes
  : Parent ME_4F854878032F // WinUtilsPack
  ;
  : Inherits
-   @ ( WL 'ME_561BAC4B0005' '55CCADD2013D.pas.ms.script' // TtfwGlobalKeyWord
- ) .SequenceCode.It
+   Seq: ( WL 'ME_561BAC4B0005' '55CCADD2013D.pas.ms.script' // TtfwGlobalKeyWord
+ )
  ; // Inherits
  : Operations
-   @ ( ME_38FB07665775 // wnd_GetWindowText
+   Seq: ( ME_38FB07665775 // wnd_GetWindowText
  ME_43B8B61FEBB3 // Ini_Reg
- ) .SequenceCode.It
+ )
  ; // Operations
  : Implemented
-   @ ( ME_4DAEEDE10285_ME_6ECBEE6894B8 // DoDoIt
- ) .SequenceCode.It
+   Seq: ( ME_4DAEEDE10285_ME_6ECBEE6894B8 // DoDoIt
+ )
  ; // Implemented
  : Overridden
-   @ ( ME_4DB0614603C8_ME_6ECBEE6894B8 // GetWordNameForRegister
+   Seq: ( ME_4DB0614603C8_ME_6ECBEE6894B8 // GetWordNameForRegister
  ME_551544E2001A_ME_6ECBEE6894B8 // GetResultTypeInfo
  ME_559687E6025A_ME_6ECBEE6894B8 // GetAllParamsCount
  ME_5617F4D00243_ME_6ECBEE6894B8 // ParamsTypes
- ) .SequenceCode.It
+ )
  ; // Overridden
  : Dependencies
-   @ ( ME_DE68FB18E6FF // 
+   Seq: ( ME_DE68FB18E6FF // 
  ME_8B1C12A17D5D // 
  ME_8A4411D5215D // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  CONST "NameForScript" 'wnd:GetWindowText'
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
+ CONST dfm:PathOnly '\common\components\rtl\Garant\ScriptEngine'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\ScriptEngine'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
  CONST extprop:pas:TypeName 'TkwWndGetWindowText'
+ CONST extprop:rc:SelfName 'WndGetWindowText'
+ CONST extprop:rc:isAcceptableForScripts true
+ : SpelledFor ME_55192FAF01D3 // wnd_GetWindowText
+ ;
 
 ref; // ME_6ECBEE6894B8 wnd_GetWindowText
+
+FORWARD ME_5519300102ED
 
 FORWARD ME_B3B5EA3F1514
 
 : ME_0D916CB63BDB
  CONST UID '0D916CB63BDB'
  CONST Name 'aCtx'
+ CONST IsSummoned true
  CONST Class class_Parameter
  : Stereotype st_in ;
  : Target WL 'ME_4DB0091E033E' '4DAF19F600C5.pas.ms.script' // TtfwContext
@@ -570,6 +627,7 @@ ref; // ME_0D916CB63BDB aCtx
 : ME_0D916CB63BDC
  CONST UID '0D916CB63BDC'
  CONST Name 'aWnd'
+ CONST IsSummoned true
  CONST Class class_Parameter
  : Stereotype st_in ;
  : Target WL 'ME_46A465F9028C' '4AB0C3F60375.pas.ms.script' // THandle
@@ -580,6 +638,7 @@ ref; // ME_0D916CB63BDC aWnd
 : ME_EF73ED47DC1E
  CONST UID 'EF73ED47DC1E'
  CONST Name 'wnd_CloseWindow'
+ CONST IsSummoned true
  CONST Class class_Operation
  %SUMMARY 'Реализация слова скрипта wnd:CloseWindow' ;
  CONST Visibility PrivateAccess
@@ -587,9 +646,9 @@ ref; // ME_0D916CB63BDC aWnd
  : Parent ME_B3B5EA3F1514 // wnd_CloseWindow
  ;
  : Parameters
-   @ ( ME_0D916CB63BDB // aCtx
+   Seq: ( ME_0D916CB63BDB // aCtx
  ME_0D916CB63BDC // aWnd
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_EF73ED47DC1E wnd_CloseWindow
@@ -597,6 +656,7 @@ ref; // ME_EF73ED47DC1E wnd_CloseWindow
 : ME_3272CE73502F
  CONST UID '3272CE73502F'
  CONST Name 'Ini_Reg'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Регистрация wnd_CloseWindow' ;
@@ -609,6 +669,7 @@ ref; // ME_3272CE73502F Ini_Reg
 
 : ME_798A20A3CC15
  CONST UID '798A20A3CC15'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_B3B5EA3F1514 // wnd_CloseWindow
@@ -620,6 +681,7 @@ ref; // ME_798A20A3CC15
 
 : ME_9F3593216EC1
  CONST UID '9F3593216EC1'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_B3B5EA3F1514 // wnd_CloseWindow
@@ -631,6 +693,7 @@ ref; // ME_9F3593216EC1
 
 : ME_5292DAE393A3
  CONST UID '5292DAE393A3'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_B3B5EA3F1514 // wnd_CloseWindow
@@ -693,6 +756,7 @@ ref; // ME_5617F4D00243_ME_B3B5EA3F1514 ParamsTypes
 : ME_B3B5EA3F1514
  CONST UID 'B3B5EA3F1514'
  CONST Name 'wnd_CloseWindow'
+ CONST IsSummoned true
  CONST Class class_Class
  : Stereotype st_ScriptKeyword ;
  CONST Kind kind_NormalClass
@@ -702,45 +766,56 @@ ref; // ME_5617F4D00243_ME_B3B5EA3F1514 ParamsTypes
  : Parent ME_4F854878032F // WinUtilsPack
  ;
  : Inherits
-   @ ( WL 'ME_561BAC4B0005' '55CCADD2013D.pas.ms.script' // TtfwGlobalKeyWord
- ) .SequenceCode.It
+   Seq: ( WL 'ME_561BAC4B0005' '55CCADD2013D.pas.ms.script' // TtfwGlobalKeyWord
+ )
  ; // Inherits
  : Operations
-   @ ( ME_EF73ED47DC1E // wnd_CloseWindow
+   Seq: ( ME_EF73ED47DC1E // wnd_CloseWindow
  ME_3272CE73502F // Ini_Reg
- ) .SequenceCode.It
+ )
  ; // Operations
  : Implemented
-   @ ( ME_4DAEEDE10285_ME_B3B5EA3F1514 // DoDoIt
- ) .SequenceCode.It
+   Seq: ( ME_4DAEEDE10285_ME_B3B5EA3F1514 // DoDoIt
+ )
  ; // Implemented
  : Overridden
-   @ ( ME_4DB0614603C8_ME_B3B5EA3F1514 // GetWordNameForRegister
+   Seq: ( ME_4DB0614603C8_ME_B3B5EA3F1514 // GetWordNameForRegister
  ME_551544E2001A_ME_B3B5EA3F1514 // GetResultTypeInfo
  ME_559687E6025A_ME_B3B5EA3F1514 // GetAllParamsCount
  ME_5617F4D00243_ME_B3B5EA3F1514 // ParamsTypes
- ) .SequenceCode.It
+ )
  ; // Overridden
  : Dependencies
-   @ ( ME_798A20A3CC15 // 
+   Seq: ( ME_798A20A3CC15 // 
  ME_9F3593216EC1 // 
  ME_5292DAE393A3 // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  CONST "NameForScript" 'wnd:CloseWindow'
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
+ CONST dfm:PathOnly '\common\components\rtl\Garant\ScriptEngine'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\ScriptEngine'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
  CONST extprop:pas:TypeName 'TkwWndCloseWindow'
+ CONST extprop:rc:SelfName 'WndCloseWindow'
+ CONST extprop:rc:isAcceptableForScripts true
+ : SpelledFor ME_5519300102ED // wnd_CloseWindow
+ ;
 
 ref; // ME_B3B5EA3F1514 wnd_CloseWindow
+
+FORWARD ME_55193045008D
 
 FORWARD ME_C09FEECC1053
 
 : ME_8B9A85A1A8F4
  CONST UID '8B9A85A1A8F4'
  CONST Name 'aCtx'
+ CONST IsSummoned true
  CONST Class class_Parameter
  : Stereotype st_in ;
  : Target WL 'ME_4DB0091E033E' '4DAF19F600C5.pas.ms.script' // TtfwContext
@@ -751,6 +826,7 @@ ref; // ME_8B9A85A1A8F4 aCtx
 : ME_8B9A85A1A8F5
  CONST UID '8B9A85A1A8F5'
  CONST Name 'aWnd'
+ CONST IsSummoned true
  CONST Class class_Parameter
  : Stereotype st_in ;
  : Target WL 'ME_46A465F9028C' '4AB0C3F60375.pas.ms.script' // THandle
@@ -761,6 +837,7 @@ ref; // ME_8B9A85A1A8F5 aWnd
 : ME_7F8BF12C6C7F
  CONST UID '7F8BF12C6C7F'
  CONST Name 'wnd_WindowIsMine'
+ CONST IsSummoned true
  CONST Class class_Operation
  %SUMMARY 'Реализация слова скрипта wnd:WindowIsMine' ;
  CONST Visibility PrivateAccess
@@ -770,9 +847,9 @@ ref; // ME_8B9A85A1A8F5 aWnd
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
  : Parameters
-   @ ( ME_8B9A85A1A8F4 // aCtx
+   Seq: ( ME_8B9A85A1A8F4 // aCtx
  ME_8B9A85A1A8F5 // aWnd
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_7F8BF12C6C7F wnd_WindowIsMine
@@ -780,6 +857,7 @@ ref; // ME_7F8BF12C6C7F wnd_WindowIsMine
 : ME_9F27A4CDC53F
  CONST UID '9F27A4CDC53F'
  CONST Name 'Ini_Reg'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Регистрация wnd_WindowIsMine' ;
@@ -792,6 +870,7 @@ ref; // ME_9F27A4CDC53F Ini_Reg
 
 : ME_8C5E93948A93
  CONST UID '8C5E93948A93'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_C09FEECC1053 // wnd_WindowIsMine
@@ -803,6 +882,7 @@ ref; // ME_8C5E93948A93
 
 : ME_641C90893011
  CONST UID '641C90893011'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_C09FEECC1053 // wnd_WindowIsMine
@@ -814,6 +894,7 @@ ref; // ME_641C90893011
 
 : ME_31D9CEDCBA4A
  CONST UID '31D9CEDCBA4A'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_C09FEECC1053 // wnd_WindowIsMine
@@ -876,6 +957,7 @@ ref; // ME_5617F4D00243_ME_C09FEECC1053 ParamsTypes
 : ME_C09FEECC1053
  CONST UID 'C09FEECC1053'
  CONST Name 'wnd_WindowIsMine'
+ CONST IsSummoned true
  CONST Class class_Class
  : Stereotype st_ScriptKeyword ;
  CONST Kind kind_NormalClass
@@ -885,45 +967,56 @@ ref; // ME_5617F4D00243_ME_C09FEECC1053 ParamsTypes
  : Parent ME_4F854878032F // WinUtilsPack
  ;
  : Inherits
-   @ ( WL 'ME_561BAC4B0005' '55CCADD2013D.pas.ms.script' // TtfwGlobalKeyWord
- ) .SequenceCode.It
+   Seq: ( WL 'ME_561BAC4B0005' '55CCADD2013D.pas.ms.script' // TtfwGlobalKeyWord
+ )
  ; // Inherits
  : Operations
-   @ ( ME_7F8BF12C6C7F // wnd_WindowIsMine
+   Seq: ( ME_7F8BF12C6C7F // wnd_WindowIsMine
  ME_9F27A4CDC53F // Ini_Reg
- ) .SequenceCode.It
+ )
  ; // Operations
  : Implemented
-   @ ( ME_4DAEEDE10285_ME_C09FEECC1053 // DoDoIt
- ) .SequenceCode.It
+   Seq: ( ME_4DAEEDE10285_ME_C09FEECC1053 // DoDoIt
+ )
  ; // Implemented
  : Overridden
-   @ ( ME_4DB0614603C8_ME_C09FEECC1053 // GetWordNameForRegister
+   Seq: ( ME_4DB0614603C8_ME_C09FEECC1053 // GetWordNameForRegister
  ME_551544E2001A_ME_C09FEECC1053 // GetResultTypeInfo
  ME_559687E6025A_ME_C09FEECC1053 // GetAllParamsCount
  ME_5617F4D00243_ME_C09FEECC1053 // ParamsTypes
- ) .SequenceCode.It
+ )
  ; // Overridden
  : Dependencies
-   @ ( ME_8C5E93948A93 // 
+   Seq: ( ME_8C5E93948A93 // 
  ME_641C90893011 // 
  ME_31D9CEDCBA4A // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  CONST "NameForScript" 'wnd:WindowIsMine'
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
+ CONST dfm:PathOnly '\common\components\rtl\Garant\ScriptEngine'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\ScriptEngine'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
  CONST extprop:pas:TypeName 'TkwWndWindowIsMine'
+ CONST extprop:rc:SelfName 'WndWindowIsMine'
+ CONST extprop:rc:isAcceptableForScripts true
+ : SpelledFor ME_55193045008D // wnd_WindowIsMine
+ ;
 
 ref; // ME_C09FEECC1053 wnd_WindowIsMine
+
+FORWARD ME_5519307103E4
 
 FORWARD ME_1C5511E4225D
 
 : ME_C90E9342E43A
  CONST UID 'C90E9342E43A'
  CONST Name 'aCtx'
+ CONST IsSummoned true
  CONST Class class_Parameter
  : Stereotype st_in ;
  : Target WL 'ME_4DB0091E033E' '4DAF19F600C5.pas.ms.script' // TtfwContext
@@ -934,6 +1027,7 @@ ref; // ME_C90E9342E43A aCtx
 : ME_C90E9342E43B
  CONST UID 'C90E9342E43B'
  CONST Name 'aWnd'
+ CONST IsSummoned true
  CONST Class class_Parameter
  : Stereotype st_in ;
  : Target WL 'ME_46A465F9028C' '4AB0C3F60375.pas.ms.script' // THandle
@@ -944,6 +1038,7 @@ ref; // ME_C90E9342E43B aWnd
 : ME_D113CC850E0F
  CONST UID 'D113CC850E0F'
  CONST Name 'wnd_SetForeground'
+ CONST IsSummoned true
  CONST Class class_Operation
  %SUMMARY 'Реализация слова скрипта wnd:SetForeground' ;
  CONST Visibility PrivateAccess
@@ -951,9 +1046,9 @@ ref; // ME_C90E9342E43B aWnd
  : Parent ME_1C5511E4225D // wnd_SetForeground
  ;
  : Parameters
-   @ ( ME_C90E9342E43A // aCtx
+   Seq: ( ME_C90E9342E43A // aCtx
  ME_C90E9342E43B // aWnd
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_D113CC850E0F wnd_SetForeground
@@ -961,6 +1056,7 @@ ref; // ME_D113CC850E0F wnd_SetForeground
 : ME_1A99B273ACCA
  CONST UID '1A99B273ACCA'
  CONST Name 'Ini_Reg'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Регистрация wnd_SetForeground' ;
@@ -973,6 +1069,7 @@ ref; // ME_1A99B273ACCA Ini_Reg
 
 : ME_5B23006FC37F
  CONST UID '5B23006FC37F'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_1C5511E4225D // wnd_SetForeground
@@ -984,6 +1081,7 @@ ref; // ME_5B23006FC37F
 
 : ME_D7C78A9818EF
  CONST UID 'D7C78A9818EF'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_1C5511E4225D // wnd_SetForeground
@@ -995,6 +1093,7 @@ ref; // ME_D7C78A9818EF
 
 : ME_B9861279CEAD
  CONST UID 'B9861279CEAD'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_1C5511E4225D // wnd_SetForeground
@@ -1057,6 +1156,7 @@ ref; // ME_5617F4D00243_ME_1C5511E4225D ParamsTypes
 : ME_1C5511E4225D
  CONST UID '1C5511E4225D'
  CONST Name 'wnd_SetForeground'
+ CONST IsSummoned true
  CONST Class class_Class
  : Stereotype st_ScriptKeyword ;
  CONST Kind kind_NormalClass
@@ -1066,45 +1166,56 @@ ref; // ME_5617F4D00243_ME_1C5511E4225D ParamsTypes
  : Parent ME_4F854878032F // WinUtilsPack
  ;
  : Inherits
-   @ ( WL 'ME_561BAC4B0005' '55CCADD2013D.pas.ms.script' // TtfwGlobalKeyWord
- ) .SequenceCode.It
+   Seq: ( WL 'ME_561BAC4B0005' '55CCADD2013D.pas.ms.script' // TtfwGlobalKeyWord
+ )
  ; // Inherits
  : Operations
-   @ ( ME_D113CC850E0F // wnd_SetForeground
+   Seq: ( ME_D113CC850E0F // wnd_SetForeground
  ME_1A99B273ACCA // Ini_Reg
- ) .SequenceCode.It
+ )
  ; // Operations
  : Implemented
-   @ ( ME_4DAEEDE10285_ME_1C5511E4225D // DoDoIt
- ) .SequenceCode.It
+   Seq: ( ME_4DAEEDE10285_ME_1C5511E4225D // DoDoIt
+ )
  ; // Implemented
  : Overridden
-   @ ( ME_4DB0614603C8_ME_1C5511E4225D // GetWordNameForRegister
+   Seq: ( ME_4DB0614603C8_ME_1C5511E4225D // GetWordNameForRegister
  ME_551544E2001A_ME_1C5511E4225D // GetResultTypeInfo
  ME_559687E6025A_ME_1C5511E4225D // GetAllParamsCount
  ME_5617F4D00243_ME_1C5511E4225D // ParamsTypes
- ) .SequenceCode.It
+ )
  ; // Overridden
  : Dependencies
-   @ ( ME_5B23006FC37F // 
+   Seq: ( ME_5B23006FC37F // 
  ME_D7C78A9818EF // 
  ME_B9861279CEAD // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  CONST "NameForScript" 'wnd:SetForeground'
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
+ CONST dfm:PathOnly '\common\components\rtl\Garant\ScriptEngine'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\ScriptEngine'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
  CONST extprop:pas:TypeName 'TkwWndSetForeground'
+ CONST extprop:rc:SelfName 'WndSetForeground'
+ CONST extprop:rc:isAcceptableForScripts true
+ : SpelledFor ME_5519307103E4 // wnd_SetForeground
+ ;
 
 ref; // ME_1C5511E4225D wnd_SetForeground
+
+FORWARD ME_551930A001DF
 
 FORWARD ME_A893626FB9A5
 
 : ME_0C42CD4B9B8F
  CONST UID '0C42CD4B9B8F'
  CONST Name 'aCtx'
+ CONST IsSummoned true
  CONST Class class_Parameter
  : Stereotype st_in ;
  : Target WL 'ME_4DB0091E033E' '4DAF19F600C5.pas.ms.script' // TtfwContext
@@ -1115,6 +1226,7 @@ ref; // ME_0C42CD4B9B8F aCtx
 : ME_0C42CD4B9B90
  CONST UID '0C42CD4B9B90'
  CONST Name 'aWnd'
+ CONST IsSummoned true
  CONST Class class_Parameter
  : Stereotype st_in ;
  : Target WL 'ME_46A465F9028C' '4AB0C3F60375.pas.ms.script' // THandle
@@ -1125,6 +1237,7 @@ ref; // ME_0C42CD4B9B90 aWnd
 : ME_38530DA9DB57
  CONST UID '38530DA9DB57'
  CONST Name 'WinTreeGetCurrentText'
+ CONST IsSummoned true
  CONST Class class_Operation
  %SUMMARY 'Реализация слова скрипта WinTreeGetCurrentText' ;
  CONST Visibility PrivateAccess
@@ -1134,9 +1247,9 @@ ref; // ME_0C42CD4B9B90 aWnd
  : Target WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
  ;
  : Parameters
-   @ ( ME_0C42CD4B9B8F // aCtx
+   Seq: ( ME_0C42CD4B9B8F // aCtx
  ME_0C42CD4B9B90 // aWnd
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_38530DA9DB57 WinTreeGetCurrentText
@@ -1144,6 +1257,7 @@ ref; // ME_38530DA9DB57 WinTreeGetCurrentText
 : ME_90DA5296A6A3
  CONST UID '90DA5296A6A3'
  CONST Name 'Ini_Reg'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Регистрация WinTreeGetCurrentText' ;
@@ -1156,6 +1270,7 @@ ref; // ME_90DA5296A6A3 Ini_Reg
 
 : ME_EA2D0D43FDA0
  CONST UID 'EA2D0D43FDA0'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_A893626FB9A5 // WinTreeGetCurrentText
@@ -1167,6 +1282,7 @@ ref; // ME_EA2D0D43FDA0
 
 : ME_90FBC99BA8AA
  CONST UID '90FBC99BA8AA'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_A893626FB9A5 // WinTreeGetCurrentText
@@ -1178,6 +1294,7 @@ ref; // ME_90FBC99BA8AA
 
 : ME_AF92190EAED1
  CONST UID 'AF92190EAED1'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_A893626FB9A5 // WinTreeGetCurrentText
@@ -1240,6 +1357,7 @@ ref; // ME_5617F4D00243_ME_A893626FB9A5 ParamsTypes
 : ME_A893626FB9A5
  CONST UID 'A893626FB9A5'
  CONST Name 'WinTreeGetCurrentText'
+ CONST IsSummoned true
  CONST Class class_Class
  : Stereotype st_ScriptKeyword ;
  CONST Kind kind_NormalClass
@@ -1249,45 +1367,56 @@ ref; // ME_5617F4D00243_ME_A893626FB9A5 ParamsTypes
  : Parent ME_4F854878032F // WinUtilsPack
  ;
  : Inherits
-   @ ( WL 'ME_561BAC4B0005' '55CCADD2013D.pas.ms.script' // TtfwGlobalKeyWord
- ) .SequenceCode.It
+   Seq: ( WL 'ME_561BAC4B0005' '55CCADD2013D.pas.ms.script' // TtfwGlobalKeyWord
+ )
  ; // Inherits
  : Operations
-   @ ( ME_38530DA9DB57 // WinTreeGetCurrentText
+   Seq: ( ME_38530DA9DB57 // WinTreeGetCurrentText
  ME_90DA5296A6A3 // Ini_Reg
- ) .SequenceCode.It
+ )
  ; // Operations
  : Implemented
-   @ ( ME_4DAEEDE10285_ME_A893626FB9A5 // DoDoIt
- ) .SequenceCode.It
+   Seq: ( ME_4DAEEDE10285_ME_A893626FB9A5 // DoDoIt
+ )
  ; // Implemented
  : Overridden
-   @ ( ME_4DB0614603C8_ME_A893626FB9A5 // GetWordNameForRegister
+   Seq: ( ME_4DB0614603C8_ME_A893626FB9A5 // GetWordNameForRegister
  ME_551544E2001A_ME_A893626FB9A5 // GetResultTypeInfo
  ME_559687E6025A_ME_A893626FB9A5 // GetAllParamsCount
  ME_5617F4D00243_ME_A893626FB9A5 // ParamsTypes
- ) .SequenceCode.It
+ )
  ; // Overridden
  : Dependencies
-   @ ( ME_EA2D0D43FDA0 // 
+   Seq: ( ME_EA2D0D43FDA0 // 
  ME_90FBC99BA8AA // 
  ME_AF92190EAED1 // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  CONST "NameForScript" 'WinTreeGetCurrentText'
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
+ CONST dfm:PathOnly '\common\components\rtl\Garant\ScriptEngine'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\ScriptEngine'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
  CONST extprop:pas:TypeName 'TkwWinTreeGetCurrentText'
+ CONST extprop:rc:SelfName 'WinTreeGetCurrentText'
+ CONST extprop:rc:isAcceptableForScripts true
+ : SpelledFor ME_551930A001DF // WinTreeGetCurrentText
+ ;
 
 ref; // ME_A893626FB9A5 WinTreeGetCurrentText
+
+FORWARD ME_551941E30047
 
 FORWARD ME_BB2233135443
 
 : ME_8E4F8DFFA880
  CONST UID '8E4F8DFFA880'
  CONST Name 'aCtx'
+ CONST IsSummoned true
  CONST Class class_Parameter
  : Stereotype st_in ;
  : Target WL 'ME_4DB0091E033E' '4DAF19F600C5.pas.ms.script' // TtfwContext
@@ -1298,6 +1427,7 @@ ref; // ME_8E4F8DFFA880 aCtx
 : ME_8E4F8DFFA881
  CONST UID '8E4F8DFFA881'
  CONST Name 'aWnd'
+ CONST IsSummoned true
  CONST Class class_Parameter
  : Stereotype st_in ;
  : Target WL 'ME_46A465F9028C' '4AB0C3F60375.pas.ms.script' // THandle
@@ -1308,6 +1438,7 @@ ref; // ME_8E4F8DFFA881 aWnd
 : ME_8E4F8DFFA882
  CONST UID '8E4F8DFFA882'
  CONST Name 'aLambda'
+ CONST IsSummoned true
  CONST Class class_Parameter
  : Stereotype st_in ;
  : Target WL 'ME_4DAEED140007' '4DAF19F600C5.pas.ms.script' // TtfwWord
@@ -1318,6 +1449,7 @@ ref; // ME_8E4F8DFFA882 aLambda
 : ME_885E0A0E618E
  CONST UID '885E0A0E618E'
  CONST Name 'IterateChildWindows'
+ CONST IsSummoned true
  CONST Class class_Operation
  %SUMMARY 'Реализация слова скрипта IterateChildWindows' ;
  CONST Visibility PrivateAccess
@@ -1325,10 +1457,10 @@ ref; // ME_8E4F8DFFA882 aLambda
  : Parent ME_BB2233135443 // IterateChildWindows
  ;
  : Parameters
-   @ ( ME_8E4F8DFFA880 // aCtx
+   Seq: ( ME_8E4F8DFFA880 // aCtx
  ME_8E4F8DFFA881 // aWnd
  ME_8E4F8DFFA882 // aLambda
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_885E0A0E618E IterateChildWindows
@@ -1336,6 +1468,7 @@ ref; // ME_885E0A0E618E IterateChildWindows
 : ME_0970C36BBB19
  CONST UID '0970C36BBB19'
  CONST Name 'Ini_Reg'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Регистрация IterateChildWindows' ;
@@ -1348,6 +1481,7 @@ ref; // ME_0970C36BBB19 Ini_Reg
 
 : ME_3ADCE7C58801
  CONST UID '3ADCE7C58801'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_BB2233135443 // IterateChildWindows
@@ -1359,6 +1493,7 @@ ref; // ME_3ADCE7C58801
 
 : ME_D0B37524BBF6
  CONST UID 'D0B37524BBF6'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_BB2233135443 // IterateChildWindows
@@ -1370,6 +1505,7 @@ ref; // ME_D0B37524BBF6
 
 : ME_89868FFE400C
  CONST UID '89868FFE400C'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_BB2233135443 // IterateChildWindows
@@ -1432,6 +1568,7 @@ ref; // ME_5617F4D00243_ME_BB2233135443 ParamsTypes
 : ME_BB2233135443
  CONST UID 'BB2233135443'
  CONST Name 'IterateChildWindows'
+ CONST IsSummoned true
  CONST Class class_Class
  : Stereotype st_ScriptKeyword ;
  CONST Kind kind_NormalClass
@@ -1441,45 +1578,56 @@ ref; // ME_5617F4D00243_ME_BB2233135443 ParamsTypes
  : Parent ME_4F854878032F // WinUtilsPack
  ;
  : Inherits
-   @ ( WL 'ME_561BAC4B0005' '55CCADD2013D.pas.ms.script' // TtfwGlobalKeyWord
- ) .SequenceCode.It
+   Seq: ( WL 'ME_561BAC4B0005' '55CCADD2013D.pas.ms.script' // TtfwGlobalKeyWord
+ )
  ; // Inherits
  : Operations
-   @ ( ME_885E0A0E618E // IterateChildWindows
+   Seq: ( ME_885E0A0E618E // IterateChildWindows
  ME_0970C36BBB19 // Ini_Reg
- ) .SequenceCode.It
+ )
  ; // Operations
  : Implemented
-   @ ( ME_4DAEEDE10285_ME_BB2233135443 // DoDoIt
- ) .SequenceCode.It
+   Seq: ( ME_4DAEEDE10285_ME_BB2233135443 // DoDoIt
+ )
  ; // Implemented
  : Overridden
-   @ ( ME_4DB0614603C8_ME_BB2233135443 // GetWordNameForRegister
+   Seq: ( ME_4DB0614603C8_ME_BB2233135443 // GetWordNameForRegister
  ME_551544E2001A_ME_BB2233135443 // GetResultTypeInfo
  ME_559687E6025A_ME_BB2233135443 // GetAllParamsCount
  ME_5617F4D00243_ME_BB2233135443 // ParamsTypes
- ) .SequenceCode.It
+ )
  ; // Overridden
  : Dependencies
-   @ ( ME_3ADCE7C58801 // 
+   Seq: ( ME_3ADCE7C58801 // 
  ME_D0B37524BBF6 // 
  ME_89868FFE400C // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  CONST "NameForScript" 'IterateChildWindows'
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
+ CONST dfm:PathOnly '\common\components\rtl\Garant\ScriptEngine'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\ScriptEngine'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
  CONST extprop:pas:TypeName 'TkwIterateChildWindows'
+ CONST extprop:rc:SelfName 'IterateChildWindows'
+ CONST extprop:rc:isAcceptableForScripts true
+ : SpelledFor ME_551941E30047 // IterateChildWindows
+ ;
 
 ref; // ME_BB2233135443 IterateChildWindows
+
+FORWARD ME_5519427E00F3
 
 FORWARD ME_2EB6B5E4913F
 
 : ME_016B6CD7AB32
  CONST UID '016B6CD7AB32'
  CONST Name 'aCtx'
+ CONST IsSummoned true
  CONST Class class_Parameter
  : Stereotype st_in ;
  : Target WL 'ME_4DB0091E033E' '4DAF19F600C5.pas.ms.script' // TtfwContext
@@ -1490,6 +1638,7 @@ ref; // ME_016B6CD7AB32 aCtx
 : ME_016B6CD7AB33
  CONST UID '016B6CD7AB33'
  CONST Name 'aLambda'
+ CONST IsSummoned true
  CONST Class class_Parameter
  : Stereotype st_in ;
  : Target WL 'ME_4DAEED140007' '4DAF19F600C5.pas.ms.script' // TtfwWord
@@ -1500,6 +1649,7 @@ ref; // ME_016B6CD7AB33 aLambda
 : ME_0BC1915B6BEB
  CONST UID '0BC1915B6BEB'
  CONST Name 'IterateWindows'
+ CONST IsSummoned true
  CONST Class class_Operation
  %SUMMARY 'Реализация слова скрипта IterateWindows' ;
  CONST Visibility PrivateAccess
@@ -1507,9 +1657,9 @@ ref; // ME_016B6CD7AB33 aLambda
  : Parent ME_2EB6B5E4913F // IterateWindows
  ;
  : Parameters
-   @ ( ME_016B6CD7AB32 // aCtx
+   Seq: ( ME_016B6CD7AB32 // aCtx
  ME_016B6CD7AB33 // aLambda
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_0BC1915B6BEB IterateWindows
@@ -1517,6 +1667,7 @@ ref; // ME_0BC1915B6BEB IterateWindows
 : ME_6B9314E91AB9
  CONST UID '6B9314E91AB9'
  CONST Name 'Ini_Reg'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Регистрация IterateWindows' ;
@@ -1529,6 +1680,7 @@ ref; // ME_6B9314E91AB9 Ini_Reg
 
 : ME_2A8CFF29DCF3
  CONST UID '2A8CFF29DCF3'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_2EB6B5E4913F // IterateWindows
@@ -1540,6 +1692,7 @@ ref; // ME_2A8CFF29DCF3
 
 : ME_B8195EE78B24
  CONST UID 'B8195EE78B24'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_2EB6B5E4913F // IterateWindows
@@ -1551,6 +1704,7 @@ ref; // ME_B8195EE78B24
 
 : ME_6685A755F044
  CONST UID '6685A755F044'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_2EB6B5E4913F // IterateWindows
@@ -1613,6 +1767,7 @@ ref; // ME_5617F4D00243_ME_2EB6B5E4913F ParamsTypes
 : ME_2EB6B5E4913F
  CONST UID '2EB6B5E4913F'
  CONST Name 'IterateWindows'
+ CONST IsSummoned true
  CONST Class class_Class
  : Stereotype st_ScriptKeyword ;
  CONST Kind kind_NormalClass
@@ -1622,45 +1777,56 @@ ref; // ME_5617F4D00243_ME_2EB6B5E4913F ParamsTypes
  : Parent ME_4F854878032F // WinUtilsPack
  ;
  : Inherits
-   @ ( WL 'ME_561BAC4B0005' '55CCADD2013D.pas.ms.script' // TtfwGlobalKeyWord
- ) .SequenceCode.It
+   Seq: ( WL 'ME_561BAC4B0005' '55CCADD2013D.pas.ms.script' // TtfwGlobalKeyWord
+ )
  ; // Inherits
  : Operations
-   @ ( ME_0BC1915B6BEB // IterateWindows
+   Seq: ( ME_0BC1915B6BEB // IterateWindows
  ME_6B9314E91AB9 // Ini_Reg
- ) .SequenceCode.It
+ )
  ; // Operations
  : Implemented
-   @ ( ME_4DAEEDE10285_ME_2EB6B5E4913F // DoDoIt
- ) .SequenceCode.It
+   Seq: ( ME_4DAEEDE10285_ME_2EB6B5E4913F // DoDoIt
+ )
  ; // Implemented
  : Overridden
-   @ ( ME_4DB0614603C8_ME_2EB6B5E4913F // GetWordNameForRegister
+   Seq: ( ME_4DB0614603C8_ME_2EB6B5E4913F // GetWordNameForRegister
  ME_551544E2001A_ME_2EB6B5E4913F // GetResultTypeInfo
  ME_559687E6025A_ME_2EB6B5E4913F // GetAllParamsCount
  ME_5617F4D00243_ME_2EB6B5E4913F // ParamsTypes
- ) .SequenceCode.It
+ )
  ; // Overridden
  : Dependencies
-   @ ( ME_2A8CFF29DCF3 // 
+   Seq: ( ME_2A8CFF29DCF3 // 
  ME_B8195EE78B24 // 
  ME_6685A755F044 // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  CONST "NameForScript" 'IterateWindows'
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
+ CONST dfm:PathOnly '\common\components\rtl\Garant\ScriptEngine'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\ScriptEngine'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
  CONST extprop:pas:TypeName 'TkwIterateWindows'
+ CONST extprop:rc:SelfName 'IterateWindows'
+ CONST extprop:rc:isAcceptableForScripts true
+ : SpelledFor ME_5519427E00F3 // IterateWindows
+ ;
 
 ref; // ME_2EB6B5E4913F IterateWindows
+
+FORWARD ME_551943280118
 
 FORWARD ME_2D01DE64792B
 
 : ME_3F5B756CE402
  CONST UID '3F5B756CE402'
  CONST Name 'aCtx'
+ CONST IsSummoned true
  CONST Class class_Parameter
  : Stereotype st_in ;
  : Target WL 'ME_4DB0091E033E' '4DAF19F600C5.pas.ms.script' // TtfwContext
@@ -1671,6 +1837,7 @@ ref; // ME_3F5B756CE402 aCtx
 : ME_3F5B756CE403
  CONST UID '3F5B756CE403'
  CONST Name 'aPoint'
+ CONST IsSummoned true
  CONST Class class_Parameter
  : Stereotype st_in ;
  : Target WL 'ME_4739AD110072' '4728A7020026.pas.ms.script' // TPoint
@@ -1681,6 +1848,7 @@ ref; // ME_3F5B756CE403 aPoint
 : ME_6FFCD3ADC6FE
  CONST UID '6FFCD3ADC6FE'
  CONST Name 'WindowFromPoint'
+ CONST IsSummoned true
  CONST Class class_Operation
  %SUMMARY 'Реализация слова скрипта WindowFromPoint' ;
  CONST Visibility PrivateAccess
@@ -1690,9 +1858,9 @@ ref; // ME_3F5B756CE403 aPoint
  : Target WL 'ME_46A465F9028C' '4AB0C3F60375.pas.ms.script' // THandle
  ;
  : Parameters
-   @ ( ME_3F5B756CE402 // aCtx
+   Seq: ( ME_3F5B756CE402 // aCtx
  ME_3F5B756CE403 // aPoint
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_6FFCD3ADC6FE WindowFromPoint
@@ -1700,6 +1868,7 @@ ref; // ME_6FFCD3ADC6FE WindowFromPoint
 : ME_A8A947B9870A
  CONST UID 'A8A947B9870A'
  CONST Name 'Ini_Reg'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Регистрация WindowFromPoint' ;
@@ -1712,6 +1881,7 @@ ref; // ME_A8A947B9870A Ini_Reg
 
 : ME_6AB1E2A8BAEB
  CONST UID '6AB1E2A8BAEB'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_2D01DE64792B // WindowFromPoint
@@ -1723,6 +1893,7 @@ ref; // ME_6AB1E2A8BAEB
 
 : ME_9C60A753B74D
  CONST UID '9C60A753B74D'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_2D01DE64792B // WindowFromPoint
@@ -1734,6 +1905,7 @@ ref; // ME_9C60A753B74D
 
 : ME_9E321760AF4D
  CONST UID '9E321760AF4D'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_2D01DE64792B // WindowFromPoint
@@ -1796,6 +1968,7 @@ ref; // ME_5617F4D00243_ME_2D01DE64792B ParamsTypes
 : ME_2D01DE64792B
  CONST UID '2D01DE64792B'
  CONST Name 'WindowFromPoint'
+ CONST IsSummoned true
  CONST Class class_Class
  : Stereotype st_ScriptKeyword ;
  CONST Kind kind_NormalClass
@@ -1805,45 +1978,56 @@ ref; // ME_5617F4D00243_ME_2D01DE64792B ParamsTypes
  : Parent ME_4F854878032F // WinUtilsPack
  ;
  : Inherits
-   @ ( WL 'ME_561BAC4B0005' '55CCADD2013D.pas.ms.script' // TtfwGlobalKeyWord
- ) .SequenceCode.It
+   Seq: ( WL 'ME_561BAC4B0005' '55CCADD2013D.pas.ms.script' // TtfwGlobalKeyWord
+ )
  ; // Inherits
  : Operations
-   @ ( ME_6FFCD3ADC6FE // WindowFromPoint
+   Seq: ( ME_6FFCD3ADC6FE // WindowFromPoint
  ME_A8A947B9870A // Ini_Reg
- ) .SequenceCode.It
+ )
  ; // Operations
  : Implemented
-   @ ( ME_4DAEEDE10285_ME_2D01DE64792B // DoDoIt
- ) .SequenceCode.It
+   Seq: ( ME_4DAEEDE10285_ME_2D01DE64792B // DoDoIt
+ )
  ; // Implemented
  : Overridden
-   @ ( ME_4DB0614603C8_ME_2D01DE64792B // GetWordNameForRegister
+   Seq: ( ME_4DB0614603C8_ME_2D01DE64792B // GetWordNameForRegister
  ME_551544E2001A_ME_2D01DE64792B // GetResultTypeInfo
  ME_559687E6025A_ME_2D01DE64792B // GetAllParamsCount
  ME_5617F4D00243_ME_2D01DE64792B // ParamsTypes
- ) .SequenceCode.It
+ )
  ; // Overridden
  : Dependencies
-   @ ( ME_6AB1E2A8BAEB // 
+   Seq: ( ME_6AB1E2A8BAEB // 
  ME_9C60A753B74D // 
  ME_9E321760AF4D // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  CONST "NameForScript" 'WindowFromPoint'
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
+ CONST dfm:PathOnly '\common\components\rtl\Garant\ScriptEngine'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\ScriptEngine'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
  CONST extprop:pas:TypeName 'TkwWindowFromPoint'
+ CONST extprop:rc:SelfName 'WindowFromPoint'
+ CONST extprop:rc:isAcceptableForScripts true
+ : SpelledFor ME_551943280118 // WindowFromPoint
+ ;
 
 ref; // ME_2D01DE64792B WindowFromPoint
+
+FORWARD ME_5519434F0000
 
 FORWARD ME_CB29543BBB60
 
 : ME_23A8886E3B95
  CONST UID '23A8886E3B95'
  CONST Name 'aCtx'
+ CONST IsSummoned true
  CONST Class class_Parameter
  : Stereotype st_in ;
  : Target WL 'ME_4DB0091E033E' '4DAF19F600C5.pas.ms.script' // TtfwContext
@@ -1854,6 +2038,7 @@ ref; // ME_23A8886E3B95 aCtx
 : ME_5CBACAD0EDFA
  CONST UID '5CBACAD0EDFA'
  CONST Name 'GetForegroundWindow'
+ CONST IsSummoned true
  CONST Class class_Operation
  %SUMMARY 'Реализация слова скрипта GetForegroundWindow' ;
  CONST Visibility PrivateAccess
@@ -1863,8 +2048,8 @@ ref; // ME_23A8886E3B95 aCtx
  : Target WL 'ME_46A465F9028C' '4AB0C3F60375.pas.ms.script' // THandle
  ;
  : Parameters
-   @ ( ME_23A8886E3B95 // aCtx
- ) .SequenceCode.It
+   Seq: ( ME_23A8886E3B95 // aCtx
+ )
  ; // Parameters
 
 ref; // ME_5CBACAD0EDFA GetForegroundWindow
@@ -1872,6 +2057,7 @@ ref; // ME_5CBACAD0EDFA GetForegroundWindow
 : ME_8EB14AECE56A
  CONST UID '8EB14AECE56A'
  CONST Name 'Ini_Reg'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Регистрация GetForegroundWindow' ;
@@ -1884,6 +2070,7 @@ ref; // ME_8EB14AECE56A Ini_Reg
 
 : ME_60A9433C60D6
  CONST UID '60A9433C60D6'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_CB29543BBB60 // GetForegroundWindow
@@ -1895,6 +2082,7 @@ ref; // ME_60A9433C60D6
 
 : ME_75563E5F47E7
  CONST UID '75563E5F47E7'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_CB29543BBB60 // GetForegroundWindow
@@ -1906,6 +2094,7 @@ ref; // ME_75563E5F47E7
 
 : ME_3093AC5A4939
  CONST UID '3093AC5A4939'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_CB29543BBB60 // GetForegroundWindow
@@ -1968,6 +2157,7 @@ ref; // ME_5617F4D00243_ME_CB29543BBB60 ParamsTypes
 : ME_CB29543BBB60
  CONST UID 'CB29543BBB60'
  CONST Name 'GetForegroundWindow'
+ CONST IsSummoned true
  CONST Class class_Class
  : Stereotype st_ScriptKeyword ;
  CONST Kind kind_NormalClass
@@ -1977,45 +2167,56 @@ ref; // ME_5617F4D00243_ME_CB29543BBB60 ParamsTypes
  : Parent ME_4F854878032F // WinUtilsPack
  ;
  : Inherits
-   @ ( WL 'ME_561BAC4B0005' '55CCADD2013D.pas.ms.script' // TtfwGlobalKeyWord
- ) .SequenceCode.It
+   Seq: ( WL 'ME_561BAC4B0005' '55CCADD2013D.pas.ms.script' // TtfwGlobalKeyWord
+ )
  ; // Inherits
  : Operations
-   @ ( ME_5CBACAD0EDFA // GetForegroundWindow
+   Seq: ( ME_5CBACAD0EDFA // GetForegroundWindow
  ME_8EB14AECE56A // Ini_Reg
- ) .SequenceCode.It
+ )
  ; // Operations
  : Implemented
-   @ ( ME_4DAEEDE10285_ME_CB29543BBB60 // DoDoIt
- ) .SequenceCode.It
+   Seq: ( ME_4DAEEDE10285_ME_CB29543BBB60 // DoDoIt
+ )
  ; // Implemented
  : Overridden
-   @ ( ME_4DB0614603C8_ME_CB29543BBB60 // GetWordNameForRegister
+   Seq: ( ME_4DB0614603C8_ME_CB29543BBB60 // GetWordNameForRegister
  ME_551544E2001A_ME_CB29543BBB60 // GetResultTypeInfo
  ME_559687E6025A_ME_CB29543BBB60 // GetAllParamsCount
  ME_5617F4D00243_ME_CB29543BBB60 // ParamsTypes
- ) .SequenceCode.It
+ )
  ; // Overridden
  : Dependencies
-   @ ( ME_60A9433C60D6 // 
+   Seq: ( ME_60A9433C60D6 // 
  ME_75563E5F47E7 // 
  ME_3093AC5A4939 // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  CONST "NameForScript" 'GetForegroundWindow'
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
+ CONST dfm:PathOnly '\common\components\rtl\Garant\ScriptEngine'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\ScriptEngine'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
  CONST extprop:pas:TypeName 'TkwGetForegroundWindow'
+ CONST extprop:rc:SelfName 'GetForegroundWindow'
+ CONST extprop:rc:isAcceptableForScripts true
+ : SpelledFor ME_5519434F0000 // GetForegroundWindow
+ ;
 
 ref; // ME_CB29543BBB60 GetForegroundWindow
+
+FORWARD ME_551943860248
 
 FORWARD ME_0FB930B944B8
 
 : ME_E66F95F6BBC5
  CONST UID 'E66F95F6BBC5'
  CONST Name 'aCtx'
+ CONST IsSummoned true
  CONST Class class_Parameter
  : Stereotype st_in ;
  : Target WL 'ME_4DB0091E033E' '4DAF19F600C5.pas.ms.script' // TtfwContext
@@ -2026,6 +2227,7 @@ ref; // ME_E66F95F6BBC5 aCtx
 : ME_E66F95F6BBC6
  CONST UID 'E66F95F6BBC6'
  CONST Name 'aCaption'
+ CONST IsSummoned true
  CONST Class class_Parameter
  : Stereotype st_in ;
  : Target WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
@@ -2036,6 +2238,7 @@ ref; // ME_E66F95F6BBC6 aCaption
 : ME_84D6BB2A5250
  CONST UID '84D6BB2A5250'
  CONST Name 'FindWindowByCaption'
+ CONST IsSummoned true
  CONST Class class_Operation
  %SUMMARY 'Реализация слова скрипта FindWindowByCaption' ;
  CONST Visibility PrivateAccess
@@ -2045,9 +2248,9 @@ ref; // ME_E66F95F6BBC6 aCaption
  : Target WL 'ME_46A465F9028C' '4AB0C3F60375.pas.ms.script' // THandle
  ;
  : Parameters
-   @ ( ME_E66F95F6BBC5 // aCtx
+   Seq: ( ME_E66F95F6BBC5 // aCtx
  ME_E66F95F6BBC6 // aCaption
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_84D6BB2A5250 FindWindowByCaption
@@ -2055,6 +2258,7 @@ ref; // ME_84D6BB2A5250 FindWindowByCaption
 : ME_74E6C60B96C4
  CONST UID '74E6C60B96C4'
  CONST Name 'Ini_Reg'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Регистрация FindWindowByCaption' ;
@@ -2067,6 +2271,7 @@ ref; // ME_74E6C60B96C4 Ini_Reg
 
 : ME_CBE38D9BD9E0
  CONST UID 'CBE38D9BD9E0'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_0FB930B944B8 // FindWindowByCaption
@@ -2078,6 +2283,7 @@ ref; // ME_CBE38D9BD9E0
 
 : ME_1AF50C0BE0EE
  CONST UID '1AF50C0BE0EE'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_0FB930B944B8 // FindWindowByCaption
@@ -2089,6 +2295,7 @@ ref; // ME_1AF50C0BE0EE
 
 : ME_1E64EE83BBEC
  CONST UID '1E64EE83BBEC'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_0FB930B944B8 // FindWindowByCaption
@@ -2151,6 +2358,7 @@ ref; // ME_5617F4D00243_ME_0FB930B944B8 ParamsTypes
 : ME_0FB930B944B8
  CONST UID '0FB930B944B8'
  CONST Name 'FindWindowByCaption'
+ CONST IsSummoned true
  CONST Class class_Class
  : Stereotype st_ScriptKeyword ;
  CONST Kind kind_NormalClass
@@ -2160,45 +2368,56 @@ ref; // ME_5617F4D00243_ME_0FB930B944B8 ParamsTypes
  : Parent ME_4F854878032F // WinUtilsPack
  ;
  : Inherits
-   @ ( WL 'ME_561BAC4B0005' '55CCADD2013D.pas.ms.script' // TtfwGlobalKeyWord
- ) .SequenceCode.It
+   Seq: ( WL 'ME_561BAC4B0005' '55CCADD2013D.pas.ms.script' // TtfwGlobalKeyWord
+ )
  ; // Inherits
  : Operations
-   @ ( ME_84D6BB2A5250 // FindWindowByCaption
+   Seq: ( ME_84D6BB2A5250 // FindWindowByCaption
  ME_74E6C60B96C4 // Ini_Reg
- ) .SequenceCode.It
+ )
  ; // Operations
  : Implemented
-   @ ( ME_4DAEEDE10285_ME_0FB930B944B8 // DoDoIt
- ) .SequenceCode.It
+   Seq: ( ME_4DAEEDE10285_ME_0FB930B944B8 // DoDoIt
+ )
  ; // Implemented
  : Overridden
-   @ ( ME_4DB0614603C8_ME_0FB930B944B8 // GetWordNameForRegister
+   Seq: ( ME_4DB0614603C8_ME_0FB930B944B8 // GetWordNameForRegister
  ME_551544E2001A_ME_0FB930B944B8 // GetResultTypeInfo
  ME_559687E6025A_ME_0FB930B944B8 // GetAllParamsCount
  ME_5617F4D00243_ME_0FB930B944B8 // ParamsTypes
- ) .SequenceCode.It
+ )
  ; // Overridden
  : Dependencies
-   @ ( ME_CBE38D9BD9E0 // 
+   Seq: ( ME_CBE38D9BD9E0 // 
  ME_1AF50C0BE0EE // 
  ME_1E64EE83BBEC // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  CONST "NameForScript" 'FindWindowByCaption'
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
+ CONST dfm:PathOnly '\common\components\rtl\Garant\ScriptEngine'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\ScriptEngine'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
  CONST extprop:pas:TypeName 'TkwFindWindowByCaption'
+ CONST extprop:rc:SelfName 'FindWindowByCaption'
+ CONST extprop:rc:isAcceptableForScripts true
+ : SpelledFor ME_551943860248 // FindWindowByCaption
+ ;
 
 ref; // ME_0FB930B944B8 FindWindowByCaption
+
+FORWARD ME_551943FD0148
 
 FORWARD ME_DDDEEE94C045
 
 : ME_6776BC698DC0
  CONST UID '6776BC698DC0'
  CONST Name 'aCtx'
+ CONST IsSummoned true
  CONST Class class_Parameter
  : Stereotype st_in ;
  : Target WL 'ME_4DB0091E033E' '4DAF19F600C5.pas.ms.script' // TtfwContext
@@ -2209,6 +2428,7 @@ ref; // ME_6776BC698DC0 aCtx
 : ME_6776BC698DC1
  CONST UID '6776BC698DC1'
  CONST Name 'aValue'
+ CONST IsSummoned true
  CONST Class class_Parameter
  : Stereotype st_in ;
  : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
@@ -2219,6 +2439,7 @@ ref; // ME_6776BC698DC1 aValue
 : ME_FFB533EE4DD1
  CONST UID 'FFB533EE4DD1'
  CONST Name 'SetFuzzInPercent'
+ CONST IsSummoned true
  CONST Class class_Operation
  %SUMMARY 'Реализация слова скрипта SetFuzzInPercent' ;
  CONST Visibility PrivateAccess
@@ -2226,9 +2447,9 @@ ref; // ME_6776BC698DC1 aValue
  : Parent ME_DDDEEE94C045 // SetFuzzInPercent
  ;
  : Parameters
-   @ ( ME_6776BC698DC0 // aCtx
+   Seq: ( ME_6776BC698DC0 // aCtx
  ME_6776BC698DC1 // aValue
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_FFB533EE4DD1 SetFuzzInPercent
@@ -2236,6 +2457,7 @@ ref; // ME_FFB533EE4DD1 SetFuzzInPercent
 : ME_87556A10543C
  CONST UID '87556A10543C'
  CONST Name 'Ini_Reg'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Регистрация SetFuzzInPercent' ;
@@ -2248,6 +2470,7 @@ ref; // ME_87556A10543C Ini_Reg
 
 : ME_BE7DF0A2FAEF
  CONST UID 'BE7DF0A2FAEF'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_DDDEEE94C045 // SetFuzzInPercent
@@ -2259,6 +2482,7 @@ ref; // ME_BE7DF0A2FAEF
 
 : ME_812DC4A96076
  CONST UID '812DC4A96076'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_DDDEEE94C045 // SetFuzzInPercent
@@ -2270,6 +2494,7 @@ ref; // ME_812DC4A96076
 
 : ME_4668153CEAAF
  CONST UID '4668153CEAAF'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_DDDEEE94C045 // SetFuzzInPercent
@@ -2332,6 +2557,7 @@ ref; // ME_5617F4D00243_ME_DDDEEE94C045 ParamsTypes
 : ME_DDDEEE94C045
  CONST UID 'DDDEEE94C045'
  CONST Name 'SetFuzzInPercent'
+ CONST IsSummoned true
  CONST Class class_Class
  : Stereotype st_ScriptKeyword ;
  CONST Kind kind_NormalClass
@@ -2341,45 +2567,56 @@ ref; // ME_5617F4D00243_ME_DDDEEE94C045 ParamsTypes
  : Parent ME_4F854878032F // WinUtilsPack
  ;
  : Inherits
-   @ ( WL 'ME_561BAC4B0005' '55CCADD2013D.pas.ms.script' // TtfwGlobalKeyWord
- ) .SequenceCode.It
+   Seq: ( WL 'ME_561BAC4B0005' '55CCADD2013D.pas.ms.script' // TtfwGlobalKeyWord
+ )
  ; // Inherits
  : Operations
-   @ ( ME_FFB533EE4DD1 // SetFuzzInPercent
+   Seq: ( ME_FFB533EE4DD1 // SetFuzzInPercent
  ME_87556A10543C // Ini_Reg
- ) .SequenceCode.It
+ )
  ; // Operations
  : Implemented
-   @ ( ME_4DAEEDE10285_ME_DDDEEE94C045 // DoDoIt
- ) .SequenceCode.It
+   Seq: ( ME_4DAEEDE10285_ME_DDDEEE94C045 // DoDoIt
+ )
  ; // Implemented
  : Overridden
-   @ ( ME_4DB0614603C8_ME_DDDEEE94C045 // GetWordNameForRegister
+   Seq: ( ME_4DB0614603C8_ME_DDDEEE94C045 // GetWordNameForRegister
  ME_551544E2001A_ME_DDDEEE94C045 // GetResultTypeInfo
  ME_559687E6025A_ME_DDDEEE94C045 // GetAllParamsCount
  ME_5617F4D00243_ME_DDDEEE94C045 // ParamsTypes
- ) .SequenceCode.It
+ )
  ; // Overridden
  : Dependencies
-   @ ( ME_BE7DF0A2FAEF // 
+   Seq: ( ME_BE7DF0A2FAEF // 
  ME_812DC4A96076 // 
  ME_4668153CEAAF // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  CONST "NameForScript" 'SetFuzzInPercent'
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
+ CONST dfm:PathOnly '\common\components\rtl\Garant\ScriptEngine'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\ScriptEngine'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
  CONST extprop:pas:TypeName 'TkwSetFuzzInPercent'
+ CONST extprop:rc:SelfName 'SetFuzzInPercent'
+ CONST extprop:rc:isAcceptableForScripts true
+ : SpelledFor ME_551943FD0148 // SetFuzzInPercent
+ ;
 
 ref; // ME_DDDEEE94C045 SetFuzzInPercent
+
+FORWARD ME_551D5FE00397
 
 FORWARD ME_F5071C676120
 
 : ME_BC2F4E15A03B
  CONST UID 'BC2F4E15A03B'
  CONST Name 'aCtx'
+ CONST IsSummoned true
  CONST Class class_Parameter
  : Stereotype st_in ;
  : Target WL 'ME_4DB0091E033E' '4DAF19F600C5.pas.ms.script' // TtfwContext
@@ -2390,6 +2627,7 @@ ref; // ME_BC2F4E15A03B aCtx
 : ME_4EDF1B6456EE
  CONST UID '4EDF1B6456EE'
  CONST Name 'desktop_Height'
+ CONST IsSummoned true
  CONST Class class_Operation
  %SUMMARY 'Реализация слова скрипта desktop:Height' ;
  CONST Visibility PrivateAccess
@@ -2399,8 +2637,8 @@ ref; // ME_BC2F4E15A03B aCtx
  : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
  ;
  : Parameters
-   @ ( ME_BC2F4E15A03B // aCtx
- ) .SequenceCode.It
+   Seq: ( ME_BC2F4E15A03B // aCtx
+ )
  ; // Parameters
 
 ref; // ME_4EDF1B6456EE desktop_Height
@@ -2408,6 +2646,7 @@ ref; // ME_4EDF1B6456EE desktop_Height
 : ME_51260C0DAD58
  CONST UID '51260C0DAD58'
  CONST Name 'Ini_Reg'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Регистрация desktop_Height' ;
@@ -2420,6 +2659,7 @@ ref; // ME_51260C0DAD58 Ini_Reg
 
 : ME_4C1B76827849
  CONST UID '4C1B76827849'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_F5071C676120 // desktop_Height
@@ -2431,6 +2671,7 @@ ref; // ME_4C1B76827849
 
 : ME_A8777E425F6E
  CONST UID 'A8777E425F6E'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_F5071C676120 // desktop_Height
@@ -2442,6 +2683,7 @@ ref; // ME_A8777E425F6E
 
 : ME_E0E5369803CD
  CONST UID 'E0E5369803CD'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_F5071C676120 // desktop_Height
@@ -2504,6 +2746,7 @@ ref; // ME_5617F4D00243_ME_F5071C676120 ParamsTypes
 : ME_F5071C676120
  CONST UID 'F5071C676120'
  CONST Name 'desktop_Height'
+ CONST IsSummoned true
  CONST Class class_Class
  : Stereotype st_ScriptKeyword ;
  CONST Kind kind_NormalClass
@@ -2513,45 +2756,56 @@ ref; // ME_5617F4D00243_ME_F5071C676120 ParamsTypes
  : Parent ME_4F854878032F // WinUtilsPack
  ;
  : Inherits
-   @ ( WL 'ME_561BAC4B0005' '55CCADD2013D.pas.ms.script' // TtfwGlobalKeyWord
- ) .SequenceCode.It
+   Seq: ( WL 'ME_561BAC4B0005' '55CCADD2013D.pas.ms.script' // TtfwGlobalKeyWord
+ )
  ; // Inherits
  : Operations
-   @ ( ME_4EDF1B6456EE // desktop_Height
+   Seq: ( ME_4EDF1B6456EE // desktop_Height
  ME_51260C0DAD58 // Ini_Reg
- ) .SequenceCode.It
+ )
  ; // Operations
  : Implemented
-   @ ( ME_4DAEEDE10285_ME_F5071C676120 // DoDoIt
- ) .SequenceCode.It
+   Seq: ( ME_4DAEEDE10285_ME_F5071C676120 // DoDoIt
+ )
  ; // Implemented
  : Overridden
-   @ ( ME_4DB0614603C8_ME_F5071C676120 // GetWordNameForRegister
+   Seq: ( ME_4DB0614603C8_ME_F5071C676120 // GetWordNameForRegister
  ME_551544E2001A_ME_F5071C676120 // GetResultTypeInfo
  ME_559687E6025A_ME_F5071C676120 // GetAllParamsCount
  ME_5617F4D00243_ME_F5071C676120 // ParamsTypes
- ) .SequenceCode.It
+ )
  ; // Overridden
  : Dependencies
-   @ ( ME_4C1B76827849 // 
+   Seq: ( ME_4C1B76827849 // 
  ME_A8777E425F6E // 
  ME_E0E5369803CD // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  CONST "NameForScript" 'desktop:Height'
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
+ CONST dfm:PathOnly '\common\components\rtl\Garant\ScriptEngine'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\ScriptEngine'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
  CONST extprop:pas:TypeName 'TkwDesktopHeight'
+ CONST extprop:rc:SelfName 'DesktopHeight'
+ CONST extprop:rc:isAcceptableForScripts true
+ : SpelledFor ME_551D5FE00397 // desktop_Height
+ ;
 
 ref; // ME_F5071C676120 desktop_Height
+
+FORWARD ME_551D5FF00393
 
 FORWARD ME_F2D32D266DD0
 
 : ME_E6ECBD9832E4
  CONST UID 'E6ECBD9832E4'
  CONST Name 'aCtx'
+ CONST IsSummoned true
  CONST Class class_Parameter
  : Stereotype st_in ;
  : Target WL 'ME_4DB0091E033E' '4DAF19F600C5.pas.ms.script' // TtfwContext
@@ -2562,6 +2816,7 @@ ref; // ME_E6ECBD9832E4 aCtx
 : ME_EC4EA52ACE49
  CONST UID 'EC4EA52ACE49'
  CONST Name 'desktop_Width'
+ CONST IsSummoned true
  CONST Class class_Operation
  %SUMMARY 'Реализация слова скрипта desktop:Width' ;
  CONST Visibility PrivateAccess
@@ -2571,8 +2826,8 @@ ref; // ME_E6ECBD9832E4 aCtx
  : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
  ;
  : Parameters
-   @ ( ME_E6ECBD9832E4 // aCtx
- ) .SequenceCode.It
+   Seq: ( ME_E6ECBD9832E4 // aCtx
+ )
  ; // Parameters
 
 ref; // ME_EC4EA52ACE49 desktop_Width
@@ -2580,6 +2835,7 @@ ref; // ME_EC4EA52ACE49 desktop_Width
 : ME_A7BE5F07F8E9
  CONST UID 'A7BE5F07F8E9'
  CONST Name 'Ini_Reg'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Регистрация desktop_Width' ;
@@ -2592,6 +2848,7 @@ ref; // ME_A7BE5F07F8E9 Ini_Reg
 
 : ME_F9EEF3688C50
  CONST UID 'F9EEF3688C50'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_F2D32D266DD0 // desktop_Width
@@ -2603,6 +2860,7 @@ ref; // ME_F9EEF3688C50
 
 : ME_928383EA60A6
  CONST UID '928383EA60A6'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_F2D32D266DD0 // desktop_Width
@@ -2614,6 +2872,7 @@ ref; // ME_928383EA60A6
 
 : ME_F12848F96930
  CONST UID 'F12848F96930'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_F2D32D266DD0 // desktop_Width
@@ -2676,6 +2935,7 @@ ref; // ME_5617F4D00243_ME_F2D32D266DD0 ParamsTypes
 : ME_F2D32D266DD0
  CONST UID 'F2D32D266DD0'
  CONST Name 'desktop_Width'
+ CONST IsSummoned true
  CONST Class class_Class
  : Stereotype st_ScriptKeyword ;
  CONST Kind kind_NormalClass
@@ -2685,45 +2945,56 @@ ref; // ME_5617F4D00243_ME_F2D32D266DD0 ParamsTypes
  : Parent ME_4F854878032F // WinUtilsPack
  ;
  : Inherits
-   @ ( WL 'ME_561BAC4B0005' '55CCADD2013D.pas.ms.script' // TtfwGlobalKeyWord
- ) .SequenceCode.It
+   Seq: ( WL 'ME_561BAC4B0005' '55CCADD2013D.pas.ms.script' // TtfwGlobalKeyWord
+ )
  ; // Inherits
  : Operations
-   @ ( ME_EC4EA52ACE49 // desktop_Width
+   Seq: ( ME_EC4EA52ACE49 // desktop_Width
  ME_A7BE5F07F8E9 // Ini_Reg
- ) .SequenceCode.It
+ )
  ; // Operations
  : Implemented
-   @ ( ME_4DAEEDE10285_ME_F2D32D266DD0 // DoDoIt
- ) .SequenceCode.It
+   Seq: ( ME_4DAEEDE10285_ME_F2D32D266DD0 // DoDoIt
+ )
  ; // Implemented
  : Overridden
-   @ ( ME_4DB0614603C8_ME_F2D32D266DD0 // GetWordNameForRegister
+   Seq: ( ME_4DB0614603C8_ME_F2D32D266DD0 // GetWordNameForRegister
  ME_551544E2001A_ME_F2D32D266DD0 // GetResultTypeInfo
  ME_559687E6025A_ME_F2D32D266DD0 // GetAllParamsCount
  ME_5617F4D00243_ME_F2D32D266DD0 // ParamsTypes
- ) .SequenceCode.It
+ )
  ; // Overridden
  : Dependencies
-   @ ( ME_F9EEF3688C50 // 
+   Seq: ( ME_F9EEF3688C50 // 
  ME_928383EA60A6 // 
  ME_F12848F96930 // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  CONST "NameForScript" 'desktop:Width'
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
+ CONST dfm:PathOnly '\common\components\rtl\Garant\ScriptEngine'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\ScriptEngine'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
  CONST extprop:pas:TypeName 'TkwDesktopWidth'
+ CONST extprop:rc:SelfName 'DesktopWidth'
+ CONST extprop:rc:isAcceptableForScripts true
+ : SpelledFor ME_551D5FF00393 // desktop_Width
+ ;
 
 ref; // ME_F2D32D266DD0 desktop_Width
+
+FORWARD ME_551D5FFF03A1
 
 FORWARD ME_44BBDAE720F0
 
 : ME_2C093A9E0AD7
  CONST UID '2C093A9E0AD7'
  CONST Name 'aCtx'
+ CONST IsSummoned true
  CONST Class class_Parameter
  : Stereotype st_in ;
  : Target WL 'ME_4DB0091E033E' '4DAF19F600C5.pas.ms.script' // TtfwContext
@@ -2734,6 +3005,7 @@ ref; // ME_2C093A9E0AD7 aCtx
 : ME_2C093A9E0AD8
  CONST UID '2C093A9E0AD8'
  CONST Name 'anIndex'
+ CONST IsSummoned true
  CONST Class class_Parameter
  : Stereotype st_in ;
  : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
@@ -2744,6 +3016,7 @@ ref; // ME_2C093A9E0AD8 anIndex
 : ME_FF7BA1B0E345
  CONST UID 'FF7BA1B0E345'
  CONST Name 'screen_Width'
+ CONST IsSummoned true
  CONST Class class_Operation
  %SUMMARY 'Реализация слова скрипта screen:Width' ;
  CONST Visibility PrivateAccess
@@ -2753,9 +3026,9 @@ ref; // ME_2C093A9E0AD8 anIndex
  : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
  ;
  : Parameters
-   @ ( ME_2C093A9E0AD7 // aCtx
+   Seq: ( ME_2C093A9E0AD7 // aCtx
  ME_2C093A9E0AD8 // anIndex
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_FF7BA1B0E345 screen_Width
@@ -2763,6 +3036,7 @@ ref; // ME_FF7BA1B0E345 screen_Width
 : ME_FA3C9292C7DD
  CONST UID 'FA3C9292C7DD'
  CONST Name 'Ini_Reg'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Регистрация screen_Width' ;
@@ -2775,6 +3049,7 @@ ref; // ME_FA3C9292C7DD Ini_Reg
 
 : ME_CA0F16AF34A9
  CONST UID 'CA0F16AF34A9'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_44BBDAE720F0 // screen_Width
@@ -2786,6 +3061,7 @@ ref; // ME_CA0F16AF34A9
 
 : ME_40D604E70DBF
  CONST UID '40D604E70DBF'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_44BBDAE720F0 // screen_Width
@@ -2797,6 +3073,7 @@ ref; // ME_40D604E70DBF
 
 : ME_4555AB49CAE7
  CONST UID '4555AB49CAE7'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_44BBDAE720F0 // screen_Width
@@ -2859,6 +3136,7 @@ ref; // ME_5617F4D00243_ME_44BBDAE720F0 ParamsTypes
 : ME_44BBDAE720F0
  CONST UID '44BBDAE720F0'
  CONST Name 'screen_Width'
+ CONST IsSummoned true
  CONST Class class_Class
  : Stereotype st_ScriptKeyword ;
  CONST Kind kind_NormalClass
@@ -2868,45 +3146,56 @@ ref; // ME_5617F4D00243_ME_44BBDAE720F0 ParamsTypes
  : Parent ME_4F854878032F // WinUtilsPack
  ;
  : Inherits
-   @ ( WL 'ME_561BAC4B0005' '55CCADD2013D.pas.ms.script' // TtfwGlobalKeyWord
- ) .SequenceCode.It
+   Seq: ( WL 'ME_561BAC4B0005' '55CCADD2013D.pas.ms.script' // TtfwGlobalKeyWord
+ )
  ; // Inherits
  : Operations
-   @ ( ME_FF7BA1B0E345 // screen_Width
+   Seq: ( ME_FF7BA1B0E345 // screen_Width
  ME_FA3C9292C7DD // Ini_Reg
- ) .SequenceCode.It
+ )
  ; // Operations
  : Implemented
-   @ ( ME_4DAEEDE10285_ME_44BBDAE720F0 // DoDoIt
- ) .SequenceCode.It
+   Seq: ( ME_4DAEEDE10285_ME_44BBDAE720F0 // DoDoIt
+ )
  ; // Implemented
  : Overridden
-   @ ( ME_4DB0614603C8_ME_44BBDAE720F0 // GetWordNameForRegister
+   Seq: ( ME_4DB0614603C8_ME_44BBDAE720F0 // GetWordNameForRegister
  ME_551544E2001A_ME_44BBDAE720F0 // GetResultTypeInfo
  ME_559687E6025A_ME_44BBDAE720F0 // GetAllParamsCount
  ME_5617F4D00243_ME_44BBDAE720F0 // ParamsTypes
- ) .SequenceCode.It
+ )
  ; // Overridden
  : Dependencies
-   @ ( ME_CA0F16AF34A9 // 
+   Seq: ( ME_CA0F16AF34A9 // 
  ME_40D604E70DBF // 
  ME_4555AB49CAE7 // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  CONST "NameForScript" 'screen:Width'
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
+ CONST dfm:PathOnly '\common\components\rtl\Garant\ScriptEngine'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\ScriptEngine'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
  CONST extprop:pas:TypeName 'TkwScreenWidth'
+ CONST extprop:rc:SelfName 'ScreenWidth'
+ CONST extprop:rc:isAcceptableForScripts true
+ : SpelledFor ME_551D5FFF03A1 // screen_Width
+ ;
 
 ref; // ME_44BBDAE720F0 screen_Width
+
+FORWARD ME_551D60220051
 
 FORWARD ME_91E516864416
 
 : ME_F62F81366F4E
  CONST UID 'F62F81366F4E'
  CONST Name 'aCtx'
+ CONST IsSummoned true
  CONST Class class_Parameter
  : Stereotype st_in ;
  : Target WL 'ME_4DB0091E033E' '4DAF19F600C5.pas.ms.script' // TtfwContext
@@ -2917,6 +3206,7 @@ ref; // ME_F62F81366F4E aCtx
 : ME_F62F81366F4F
  CONST UID 'F62F81366F4F'
  CONST Name 'anIndex'
+ CONST IsSummoned true
  CONST Class class_Parameter
  : Stereotype st_in ;
  : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
@@ -2927,6 +3217,7 @@ ref; // ME_F62F81366F4F anIndex
 : ME_726789FBF9F7
  CONST UID '726789FBF9F7'
  CONST Name 'screen_Height'
+ CONST IsSummoned true
  CONST Class class_Operation
  %SUMMARY 'Реализация слова скрипта screen:Height' ;
  CONST Visibility PrivateAccess
@@ -2936,9 +3227,9 @@ ref; // ME_F62F81366F4F anIndex
  : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
  ;
  : Parameters
-   @ ( ME_F62F81366F4E // aCtx
+   Seq: ( ME_F62F81366F4E // aCtx
  ME_F62F81366F4F // anIndex
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_726789FBF9F7 screen_Height
@@ -2946,6 +3237,7 @@ ref; // ME_726789FBF9F7 screen_Height
 : ME_7ACB12532DBC
  CONST UID '7ACB12532DBC'
  CONST Name 'Ini_Reg'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Регистрация screen_Height' ;
@@ -2958,6 +3250,7 @@ ref; // ME_7ACB12532DBC Ini_Reg
 
 : ME_3018A0593436
  CONST UID '3018A0593436'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_91E516864416 // screen_Height
@@ -2969,6 +3262,7 @@ ref; // ME_3018A0593436
 
 : ME_021ECAE664EE
  CONST UID '021ECAE664EE'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_91E516864416 // screen_Height
@@ -2980,6 +3274,7 @@ ref; // ME_021ECAE664EE
 
 : ME_58B917E7C532
  CONST UID '58B917E7C532'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_91E516864416 // screen_Height
@@ -3042,6 +3337,7 @@ ref; // ME_5617F4D00243_ME_91E516864416 ParamsTypes
 : ME_91E516864416
  CONST UID '91E516864416'
  CONST Name 'screen_Height'
+ CONST IsSummoned true
  CONST Class class_Class
  : Stereotype st_ScriptKeyword ;
  CONST Kind kind_NormalClass
@@ -3051,45 +3347,56 @@ ref; // ME_5617F4D00243_ME_91E516864416 ParamsTypes
  : Parent ME_4F854878032F // WinUtilsPack
  ;
  : Inherits
-   @ ( WL 'ME_561BAC4B0005' '55CCADD2013D.pas.ms.script' // TtfwGlobalKeyWord
- ) .SequenceCode.It
+   Seq: ( WL 'ME_561BAC4B0005' '55CCADD2013D.pas.ms.script' // TtfwGlobalKeyWord
+ )
  ; // Inherits
  : Operations
-   @ ( ME_726789FBF9F7 // screen_Height
+   Seq: ( ME_726789FBF9F7 // screen_Height
  ME_7ACB12532DBC // Ini_Reg
- ) .SequenceCode.It
+ )
  ; // Operations
  : Implemented
-   @ ( ME_4DAEEDE10285_ME_91E516864416 // DoDoIt
- ) .SequenceCode.It
+   Seq: ( ME_4DAEEDE10285_ME_91E516864416 // DoDoIt
+ )
  ; // Implemented
  : Overridden
-   @ ( ME_4DB0614603C8_ME_91E516864416 // GetWordNameForRegister
+   Seq: ( ME_4DB0614603C8_ME_91E516864416 // GetWordNameForRegister
  ME_551544E2001A_ME_91E516864416 // GetResultTypeInfo
  ME_559687E6025A_ME_91E516864416 // GetAllParamsCount
  ME_5617F4D00243_ME_91E516864416 // ParamsTypes
- ) .SequenceCode.It
+ )
  ; // Overridden
  : Dependencies
-   @ ( ME_3018A0593436 // 
+   Seq: ( ME_3018A0593436 // 
  ME_021ECAE664EE // 
  ME_58B917E7C532 // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  CONST "NameForScript" 'screen:Height'
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
+ CONST dfm:PathOnly '\common\components\rtl\Garant\ScriptEngine'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\ScriptEngine'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
  CONST extprop:pas:TypeName 'TkwScreenHeight'
+ CONST extprop:rc:SelfName 'ScreenHeight'
+ CONST extprop:rc:isAcceptableForScripts true
+ : SpelledFor ME_551D60220051 // screen_Height
+ ;
 
 ref; // ME_91E516864416 screen_Height
+
+FORWARD ME_551D605302AE
 
 FORWARD ME_3832249557A1
 
 : ME_9E4ECBE36FB7
  CONST UID '9E4ECBE36FB7'
  CONST Name 'aCtx'
+ CONST IsSummoned true
  CONST Class class_Parameter
  : Stereotype st_in ;
  : Target WL 'ME_4DB0091E033E' '4DAF19F600C5.pas.ms.script' // TtfwContext
@@ -3100,6 +3407,7 @@ ref; // ME_9E4ECBE36FB7 aCtx
 : ME_91F8A1F3931B
  CONST UID '91F8A1F3931B'
  CONST Name 'MainScreen_Width'
+ CONST IsSummoned true
  CONST Class class_Operation
  %SUMMARY 'Реализация слова скрипта MainScreen:Width' ;
  CONST Visibility PrivateAccess
@@ -3109,8 +3417,8 @@ ref; // ME_9E4ECBE36FB7 aCtx
  : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
  ;
  : Parameters
-   @ ( ME_9E4ECBE36FB7 // aCtx
- ) .SequenceCode.It
+   Seq: ( ME_9E4ECBE36FB7 // aCtx
+ )
  ; // Parameters
 
 ref; // ME_91F8A1F3931B MainScreen_Width
@@ -3118,6 +3426,7 @@ ref; // ME_91F8A1F3931B MainScreen_Width
 : ME_6BB40255F14C
  CONST UID '6BB40255F14C'
  CONST Name 'Ini_Reg'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Регистрация MainScreen_Width' ;
@@ -3130,6 +3439,7 @@ ref; // ME_6BB40255F14C Ini_Reg
 
 : ME_96E1B03974B6
  CONST UID '96E1B03974B6'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_3832249557A1 // MainScreen_Width
@@ -3141,6 +3451,7 @@ ref; // ME_96E1B03974B6
 
 : ME_000FE05393C9
  CONST UID '000FE05393C9'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_3832249557A1 // MainScreen_Width
@@ -3152,6 +3463,7 @@ ref; // ME_000FE05393C9
 
 : ME_514172736F1B
  CONST UID '514172736F1B'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_3832249557A1 // MainScreen_Width
@@ -3214,6 +3526,7 @@ ref; // ME_5617F4D00243_ME_3832249557A1 ParamsTypes
 : ME_3832249557A1
  CONST UID '3832249557A1'
  CONST Name 'MainScreen_Width'
+ CONST IsSummoned true
  CONST Class class_Class
  : Stereotype st_ScriptKeyword ;
  CONST Kind kind_NormalClass
@@ -3223,45 +3536,56 @@ ref; // ME_5617F4D00243_ME_3832249557A1 ParamsTypes
  : Parent ME_4F854878032F // WinUtilsPack
  ;
  : Inherits
-   @ ( WL 'ME_561BAC4B0005' '55CCADD2013D.pas.ms.script' // TtfwGlobalKeyWord
- ) .SequenceCode.It
+   Seq: ( WL 'ME_561BAC4B0005' '55CCADD2013D.pas.ms.script' // TtfwGlobalKeyWord
+ )
  ; // Inherits
  : Operations
-   @ ( ME_91F8A1F3931B // MainScreen_Width
+   Seq: ( ME_91F8A1F3931B // MainScreen_Width
  ME_6BB40255F14C // Ini_Reg
- ) .SequenceCode.It
+ )
  ; // Operations
  : Implemented
-   @ ( ME_4DAEEDE10285_ME_3832249557A1 // DoDoIt
- ) .SequenceCode.It
+   Seq: ( ME_4DAEEDE10285_ME_3832249557A1 // DoDoIt
+ )
  ; // Implemented
  : Overridden
-   @ ( ME_4DB0614603C8_ME_3832249557A1 // GetWordNameForRegister
+   Seq: ( ME_4DB0614603C8_ME_3832249557A1 // GetWordNameForRegister
  ME_551544E2001A_ME_3832249557A1 // GetResultTypeInfo
  ME_559687E6025A_ME_3832249557A1 // GetAllParamsCount
  ME_5617F4D00243_ME_3832249557A1 // ParamsTypes
- ) .SequenceCode.It
+ )
  ; // Overridden
  : Dependencies
-   @ ( ME_96E1B03974B6 // 
+   Seq: ( ME_96E1B03974B6 // 
  ME_000FE05393C9 // 
  ME_514172736F1B // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  CONST "NameForScript" 'MainScreen:Width'
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
+ CONST dfm:PathOnly '\common\components\rtl\Garant\ScriptEngine'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\ScriptEngine'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
  CONST extprop:pas:TypeName 'TkwMainScreenWidth'
+ CONST extprop:rc:SelfName 'MainScreenWidth'
+ CONST extprop:rc:isAcceptableForScripts true
+ : SpelledFor ME_551D605302AE // MainScreen_Width
+ ;
 
 ref; // ME_3832249557A1 MainScreen_Width
+
+FORWARD ME_551D606401C1
 
 FORWARD ME_8022C1F2B088
 
 : ME_7373F7705BB7
  CONST UID '7373F7705BB7'
  CONST Name 'aCtx'
+ CONST IsSummoned true
  CONST Class class_Parameter
  : Stereotype st_in ;
  : Target WL 'ME_4DB0091E033E' '4DAF19F600C5.pas.ms.script' // TtfwContext
@@ -3272,6 +3596,7 @@ ref; // ME_7373F7705BB7 aCtx
 : ME_8218EB203DB0
  CONST UID '8218EB203DB0'
  CONST Name 'MainScreen_Height'
+ CONST IsSummoned true
  CONST Class class_Operation
  %SUMMARY 'Реализация слова скрипта MainScreen:Height' ;
  CONST Visibility PrivateAccess
@@ -3281,8 +3606,8 @@ ref; // ME_7373F7705BB7 aCtx
  : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
  ;
  : Parameters
-   @ ( ME_7373F7705BB7 // aCtx
- ) .SequenceCode.It
+   Seq: ( ME_7373F7705BB7 // aCtx
+ )
  ; // Parameters
 
 ref; // ME_8218EB203DB0 MainScreen_Height
@@ -3290,6 +3615,7 @@ ref; // ME_8218EB203DB0 MainScreen_Height
 : ME_85D56997B13D
  CONST UID '85D56997B13D'
  CONST Name 'Ini_Reg'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Регистрация MainScreen_Height' ;
@@ -3302,6 +3628,7 @@ ref; // ME_85D56997B13D Ini_Reg
 
 : ME_17AB5C92C087
  CONST UID '17AB5C92C087'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_8022C1F2B088 // MainScreen_Height
@@ -3313,6 +3640,7 @@ ref; // ME_17AB5C92C087
 
 : ME_A97BF1C1D36C
  CONST UID 'A97BF1C1D36C'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_8022C1F2B088 // MainScreen_Height
@@ -3324,6 +3652,7 @@ ref; // ME_A97BF1C1D36C
 
 : ME_811CF28DF6A9
  CONST UID '811CF28DF6A9'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_8022C1F2B088 // MainScreen_Height
@@ -3386,6 +3715,7 @@ ref; // ME_5617F4D00243_ME_8022C1F2B088 ParamsTypes
 : ME_8022C1F2B088
  CONST UID '8022C1F2B088'
  CONST Name 'MainScreen_Height'
+ CONST IsSummoned true
  CONST Class class_Class
  : Stereotype st_ScriptKeyword ;
  CONST Kind kind_NormalClass
@@ -3395,45 +3725,56 @@ ref; // ME_5617F4D00243_ME_8022C1F2B088 ParamsTypes
  : Parent ME_4F854878032F // WinUtilsPack
  ;
  : Inherits
-   @ ( WL 'ME_561BAC4B0005' '55CCADD2013D.pas.ms.script' // TtfwGlobalKeyWord
- ) .SequenceCode.It
+   Seq: ( WL 'ME_561BAC4B0005' '55CCADD2013D.pas.ms.script' // TtfwGlobalKeyWord
+ )
  ; // Inherits
  : Operations
-   @ ( ME_8218EB203DB0 // MainScreen_Height
+   Seq: ( ME_8218EB203DB0 // MainScreen_Height
  ME_85D56997B13D // Ini_Reg
- ) .SequenceCode.It
+ )
  ; // Operations
  : Implemented
-   @ ( ME_4DAEEDE10285_ME_8022C1F2B088 // DoDoIt
- ) .SequenceCode.It
+   Seq: ( ME_4DAEEDE10285_ME_8022C1F2B088 // DoDoIt
+ )
  ; // Implemented
  : Overridden
-   @ ( ME_4DB0614603C8_ME_8022C1F2B088 // GetWordNameForRegister
+   Seq: ( ME_4DB0614603C8_ME_8022C1F2B088 // GetWordNameForRegister
  ME_551544E2001A_ME_8022C1F2B088 // GetResultTypeInfo
  ME_559687E6025A_ME_8022C1F2B088 // GetAllParamsCount
  ME_5617F4D00243_ME_8022C1F2B088 // ParamsTypes
- ) .SequenceCode.It
+ )
  ; // Overridden
  : Dependencies
-   @ ( ME_17AB5C92C087 // 
+   Seq: ( ME_17AB5C92C087 // 
  ME_A97BF1C1D36C // 
  ME_811CF28DF6A9 // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  CONST "NameForScript" 'MainScreen:Height'
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
+ CONST dfm:PathOnly '\common\components\rtl\Garant\ScriptEngine'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\ScriptEngine'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
  CONST extprop:pas:TypeName 'TkwMainScreenHeight'
+ CONST extprop:rc:SelfName 'MainScreenHeight'
+ CONST extprop:rc:isAcceptableForScripts true
+ : SpelledFor ME_551D606401C1 // MainScreen_Height
+ ;
 
 ref; // ME_8022C1F2B088 MainScreen_Height
+
+FORWARD ME_551D607202D0
 
 FORWARD ME_4C862EA2F8C6
 
 : ME_151FC6DE3C36
  CONST UID '151FC6DE3C36'
  CONST Name 'aCtx'
+ CONST IsSummoned true
  CONST Class class_Parameter
  : Stereotype st_in ;
  : Target WL 'ME_4DB0091E033E' '4DAF19F600C5.pas.ms.script' // TtfwContext
@@ -3444,6 +3785,7 @@ ref; // ME_151FC6DE3C36 aCtx
 : ME_D8F53100D31F
  CONST UID 'D8F53100D31F'
  CONST Name 'ScreenCount'
+ CONST IsSummoned true
  CONST Class class_Operation
  %SUMMARY 'Реализация слова скрипта ScreenCount' ;
  CONST Visibility PrivateAccess
@@ -3453,8 +3795,8 @@ ref; // ME_151FC6DE3C36 aCtx
  : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
  ;
  : Parameters
-   @ ( ME_151FC6DE3C36 // aCtx
- ) .SequenceCode.It
+   Seq: ( ME_151FC6DE3C36 // aCtx
+ )
  ; // Parameters
 
 ref; // ME_D8F53100D31F ScreenCount
@@ -3462,6 +3804,7 @@ ref; // ME_D8F53100D31F ScreenCount
 : ME_00A067225C9F
  CONST UID '00A067225C9F'
  CONST Name 'Ini_Reg'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Регистрация ScreenCount' ;
@@ -3474,6 +3817,7 @@ ref; // ME_00A067225C9F Ini_Reg
 
 : ME_15CFFE08E9C2
  CONST UID '15CFFE08E9C2'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_4C862EA2F8C6 // ScreenCount
@@ -3485,6 +3829,7 @@ ref; // ME_15CFFE08E9C2
 
 : ME_31AD6C854A9B
  CONST UID '31AD6C854A9B'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_4C862EA2F8C6 // ScreenCount
@@ -3496,6 +3841,7 @@ ref; // ME_31AD6C854A9B
 
 : ME_684DC9168C4E
  CONST UID '684DC9168C4E'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_4C862EA2F8C6 // ScreenCount
@@ -3558,6 +3904,7 @@ ref; // ME_5617F4D00243_ME_4C862EA2F8C6 ParamsTypes
 : ME_4C862EA2F8C6
  CONST UID '4C862EA2F8C6'
  CONST Name 'ScreenCount'
+ CONST IsSummoned true
  CONST Class class_Class
  : Stereotype st_ScriptKeyword ;
  CONST Kind kind_NormalClass
@@ -3567,45 +3914,56 @@ ref; // ME_5617F4D00243_ME_4C862EA2F8C6 ParamsTypes
  : Parent ME_4F854878032F // WinUtilsPack
  ;
  : Inherits
-   @ ( WL 'ME_561BAC4B0005' '55CCADD2013D.pas.ms.script' // TtfwGlobalKeyWord
- ) .SequenceCode.It
+   Seq: ( WL 'ME_561BAC4B0005' '55CCADD2013D.pas.ms.script' // TtfwGlobalKeyWord
+ )
  ; // Inherits
  : Operations
-   @ ( ME_D8F53100D31F // ScreenCount
+   Seq: ( ME_D8F53100D31F // ScreenCount
  ME_00A067225C9F // Ini_Reg
- ) .SequenceCode.It
+ )
  ; // Operations
  : Implemented
-   @ ( ME_4DAEEDE10285_ME_4C862EA2F8C6 // DoDoIt
- ) .SequenceCode.It
+   Seq: ( ME_4DAEEDE10285_ME_4C862EA2F8C6 // DoDoIt
+ )
  ; // Implemented
  : Overridden
-   @ ( ME_4DB0614603C8_ME_4C862EA2F8C6 // GetWordNameForRegister
+   Seq: ( ME_4DB0614603C8_ME_4C862EA2F8C6 // GetWordNameForRegister
  ME_551544E2001A_ME_4C862EA2F8C6 // GetResultTypeInfo
  ME_559687E6025A_ME_4C862EA2F8C6 // GetAllParamsCount
  ME_5617F4D00243_ME_4C862EA2F8C6 // ParamsTypes
- ) .SequenceCode.It
+ )
  ; // Overridden
  : Dependencies
-   @ ( ME_15CFFE08E9C2 // 
+   Seq: ( ME_15CFFE08E9C2 // 
  ME_31AD6C854A9B // 
  ME_684DC9168C4E // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  CONST "NameForScript" 'ScreenCount'
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
+ CONST dfm:PathOnly '\common\components\rtl\Garant\ScriptEngine'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\ScriptEngine'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
  CONST extprop:pas:TypeName 'TkwScreenCount'
+ CONST extprop:rc:SelfName 'ScreenCount'
+ CONST extprop:rc:isAcceptableForScripts true
+ : SpelledFor ME_551D607202D0 // ScreenCount
+ ;
 
 ref; // ME_4C862EA2F8C6 ScreenCount
+
+FORWARD ME_551D60A60370
 
 FORWARD ME_22E2D41E5FCD
 
 : ME_B199FA81C153
  CONST UID 'B199FA81C153'
  CONST Name 'aCtx'
+ CONST IsSummoned true
  CONST Class class_Parameter
  : Stereotype st_in ;
  : Target WL 'ME_4DB0091E033E' '4DAF19F600C5.pas.ms.script' // TtfwContext
@@ -3616,6 +3974,7 @@ ref; // ME_B199FA81C153 aCtx
 : ME_B199FA81C154
  CONST UID 'B199FA81C154'
  CONST Name 'aWnd'
+ CONST IsSummoned true
  CONST Class class_Parameter
  : Stereotype st_in ;
  : Target WL 'ME_4DB00A510300' '55BF153300A4.pas.ms.script' // TtfwStackValue
@@ -3626,6 +3985,7 @@ ref; // ME_B199FA81C154 aWnd
 : ME_7734C551216C
  CONST UID '7734C551216C'
  CONST Name 'AskWindowToCloseItself'
+ CONST IsSummoned true
  CONST Class class_Operation
  %SUMMARY 'Реализация слова скрипта AskWindowToCloseItself' ;
  CONST Visibility PrivateAccess
@@ -3633,9 +3993,9 @@ ref; // ME_B199FA81C154 aWnd
  : Parent ME_22E2D41E5FCD // AskWindowToCloseItself
  ;
  : Parameters
-   @ ( ME_B199FA81C153 // aCtx
+   Seq: ( ME_B199FA81C153 // aCtx
  ME_B199FA81C154 // aWnd
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_7734C551216C AskWindowToCloseItself
@@ -3643,6 +4003,7 @@ ref; // ME_7734C551216C AskWindowToCloseItself
 : ME_F93F8DF32997
  CONST UID 'F93F8DF32997'
  CONST Name 'Ini_Reg'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Регистрация AskWindowToCloseItself' ;
@@ -3655,6 +4016,7 @@ ref; // ME_F93F8DF32997 Ini_Reg
 
 : ME_0F4EC77A2E1E
  CONST UID '0F4EC77A2E1E'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_22E2D41E5FCD // AskWindowToCloseItself
@@ -3666,6 +4028,7 @@ ref; // ME_0F4EC77A2E1E
 
 : ME_527902C83954
  CONST UID '527902C83954'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_22E2D41E5FCD // AskWindowToCloseItself
@@ -3677,6 +4040,7 @@ ref; // ME_527902C83954
 
 : ME_5C0B4FE1817C
  CONST UID '5C0B4FE1817C'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_22E2D41E5FCD // AskWindowToCloseItself
@@ -3739,6 +4103,7 @@ ref; // ME_5617F4D00243_ME_22E2D41E5FCD ParamsTypes
 : ME_22E2D41E5FCD
  CONST UID '22E2D41E5FCD'
  CONST Name 'AskWindowToCloseItself'
+ CONST IsSummoned true
  CONST Class class_Class
  : Stereotype st_ScriptKeyword ;
  CONST Kind kind_NormalClass
@@ -3748,45 +4113,56 @@ ref; // ME_5617F4D00243_ME_22E2D41E5FCD ParamsTypes
  : Parent ME_4F854878032F // WinUtilsPack
  ;
  : Inherits
-   @ ( WL 'ME_561BAC4B0005' '55CCADD2013D.pas.ms.script' // TtfwGlobalKeyWord
- ) .SequenceCode.It
+   Seq: ( WL 'ME_561BAC4B0005' '55CCADD2013D.pas.ms.script' // TtfwGlobalKeyWord
+ )
  ; // Inherits
  : Operations
-   @ ( ME_7734C551216C // AskWindowToCloseItself
+   Seq: ( ME_7734C551216C // AskWindowToCloseItself
  ME_F93F8DF32997 // Ini_Reg
- ) .SequenceCode.It
+ )
  ; // Operations
  : Implemented
-   @ ( ME_4DAEEDE10285_ME_22E2D41E5FCD // DoDoIt
- ) .SequenceCode.It
+   Seq: ( ME_4DAEEDE10285_ME_22E2D41E5FCD // DoDoIt
+ )
  ; // Implemented
  : Overridden
-   @ ( ME_4DB0614603C8_ME_22E2D41E5FCD // GetWordNameForRegister
+   Seq: ( ME_4DB0614603C8_ME_22E2D41E5FCD // GetWordNameForRegister
  ME_551544E2001A_ME_22E2D41E5FCD // GetResultTypeInfo
  ME_559687E6025A_ME_22E2D41E5FCD // GetAllParamsCount
  ME_5617F4D00243_ME_22E2D41E5FCD // ParamsTypes
- ) .SequenceCode.It
+ )
  ; // Overridden
  : Dependencies
-   @ ( ME_0F4EC77A2E1E // 
+   Seq: ( ME_0F4EC77A2E1E // 
  ME_527902C83954 // 
  ME_5C0B4FE1817C // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  CONST "NameForScript" 'AskWindowToCloseItself'
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
+ CONST dfm:PathOnly '\common\components\rtl\Garant\ScriptEngine'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\ScriptEngine'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
  CONST extprop:pas:TypeName 'TkwAskWindowToCloseItself'
+ CONST extprop:rc:SelfName 'AskWindowToCloseItself'
+ CONST extprop:rc:isAcceptableForScripts true
+ : SpelledFor ME_551D60A60370 // AskWindowToCloseItself
+ ;
 
 ref; // ME_22E2D41E5FCD AskWindowToCloseItself
+
+FORWARD ME_551D6A28026C
 
 FORWARD ME_D7673935EC18
 
 : ME_44B70F4B99A5
  CONST UID '44B70F4B99A5'
  CONST Name 'aCtx'
+ CONST IsSummoned true
  CONST Class class_Parameter
  : Stereotype st_in ;
  : Target WL 'ME_4DB0091E033E' '4DAF19F600C5.pas.ms.script' // TtfwContext
@@ -3797,6 +4173,7 @@ ref; // ME_44B70F4B99A5 aCtx
 : ME_44B70F4B99A6
  CONST UID '44B70F4B99A6'
  CONST Name 'aWnd'
+ CONST IsSummoned true
  CONST Class class_Parameter
  : Stereotype st_in ;
  : Target WL 'ME_46A465F9028C' '4AB0C3F60375.pas.ms.script' // THandle
@@ -3807,6 +4184,7 @@ ref; // ME_44B70F4B99A6 aWnd
 : ME_44B70F4B99A7
  CONST UID '44B70F4B99A7'
  CONST Name 'aLeft'
+ CONST IsSummoned true
  CONST Class class_Parameter
  : Stereotype st_in ;
  : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
@@ -3817,6 +4195,7 @@ ref; // ME_44B70F4B99A7 aLeft
 : ME_44B70F4B99A8
  CONST UID '44B70F4B99A8'
  CONST Name 'aTop'
+ CONST IsSummoned true
  CONST Class class_Parameter
  : Stereotype st_in ;
  : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
@@ -3827,6 +4206,7 @@ ref; // ME_44B70F4B99A8 aTop
 : ME_44B70F4B99A9
  CONST UID '44B70F4B99A9'
  CONST Name 'aWidth'
+ CONST IsSummoned true
  CONST Class class_Parameter
  : Stereotype st_in ;
  : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
@@ -3837,6 +4217,7 @@ ref; // ME_44B70F4B99A9 aWidth
 : ME_44B70F4B99AA
  CONST UID '44B70F4B99AA'
  CONST Name 'aHeight'
+ CONST IsSummoned true
  CONST Class class_Parameter
  : Stereotype st_in ;
  : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
@@ -3847,6 +4228,7 @@ ref; // ME_44B70F4B99AA aHeight
 : ME_44B70F4B99AB
  CONST UID '44B70F4B99AB'
  CONST Name 'aFileName'
+ CONST IsSummoned true
  CONST Class class_Parameter
  : Stereotype st_in ;
  : Target WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
@@ -3857,6 +4239,7 @@ ref; // ME_44B70F4B99AB aFileName
 : ME_E3689417D97C
  CONST UID 'E3689417D97C'
  CONST Name 'ScreenShot2File'
+ CONST IsSummoned true
  CONST Class class_Operation
  %SUMMARY 'Реализация слова скрипта ScreenShot2File' ;
  CONST Visibility PrivateAccess
@@ -3864,14 +4247,14 @@ ref; // ME_44B70F4B99AB aFileName
  : Parent ME_D7673935EC18 // ScreenShot2File
  ;
  : Parameters
-   @ ( ME_44B70F4B99A5 // aCtx
+   Seq: ( ME_44B70F4B99A5 // aCtx
  ME_44B70F4B99A6 // aWnd
  ME_44B70F4B99A7 // aLeft
  ME_44B70F4B99A8 // aTop
  ME_44B70F4B99A9 // aWidth
  ME_44B70F4B99AA // aHeight
  ME_44B70F4B99AB // aFileName
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_E3689417D97C ScreenShot2File
@@ -3879,6 +4262,7 @@ ref; // ME_E3689417D97C ScreenShot2File
 : ME_EBCA0742164B
  CONST UID 'EBCA0742164B'
  CONST Name 'Ini_Reg'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Регистрация ScreenShot2File' ;
@@ -3891,6 +4275,7 @@ ref; // ME_EBCA0742164B Ini_Reg
 
 : ME_97C805063105
  CONST UID '97C805063105'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_D7673935EC18 // ScreenShot2File
@@ -3902,6 +4287,7 @@ ref; // ME_97C805063105
 
 : ME_2A8E89849C38
  CONST UID '2A8E89849C38'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_D7673935EC18 // ScreenShot2File
@@ -3913,6 +4299,7 @@ ref; // ME_2A8E89849C38
 
 : ME_E6C215699CFC
  CONST UID 'E6C215699CFC'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_D7673935EC18 // ScreenShot2File
@@ -3975,6 +4362,7 @@ ref; // ME_5617F4D00243_ME_D7673935EC18 ParamsTypes
 : ME_D7673935EC18
  CONST UID 'D7673935EC18'
  CONST Name 'ScreenShot2File'
+ CONST IsSummoned true
  CONST Class class_Class
  : Stereotype st_ScriptKeyword ;
  CONST Kind kind_NormalClass
@@ -3984,45 +4372,56 @@ ref; // ME_5617F4D00243_ME_D7673935EC18 ParamsTypes
  : Parent ME_4F854878032F // WinUtilsPack
  ;
  : Inherits
-   @ ( WL 'ME_561BAC4B0005' '55CCADD2013D.pas.ms.script' // TtfwGlobalKeyWord
- ) .SequenceCode.It
+   Seq: ( WL 'ME_561BAC4B0005' '55CCADD2013D.pas.ms.script' // TtfwGlobalKeyWord
+ )
  ; // Inherits
  : Operations
-   @ ( ME_E3689417D97C // ScreenShot2File
+   Seq: ( ME_E3689417D97C // ScreenShot2File
  ME_EBCA0742164B // Ini_Reg
- ) .SequenceCode.It
+ )
  ; // Operations
  : Implemented
-   @ ( ME_4DAEEDE10285_ME_D7673935EC18 // DoDoIt
- ) .SequenceCode.It
+   Seq: ( ME_4DAEEDE10285_ME_D7673935EC18 // DoDoIt
+ )
  ; // Implemented
  : Overridden
-   @ ( ME_4DB0614603C8_ME_D7673935EC18 // GetWordNameForRegister
+   Seq: ( ME_4DB0614603C8_ME_D7673935EC18 // GetWordNameForRegister
  ME_551544E2001A_ME_D7673935EC18 // GetResultTypeInfo
  ME_559687E6025A_ME_D7673935EC18 // GetAllParamsCount
  ME_5617F4D00243_ME_D7673935EC18 // ParamsTypes
- ) .SequenceCode.It
+ )
  ; // Overridden
  : Dependencies
-   @ ( ME_97C805063105 // 
+   Seq: ( ME_97C805063105 // 
  ME_2A8E89849C38 // 
  ME_E6C215699CFC // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  CONST "NameForScript" 'ScreenShot2File'
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
+ CONST dfm:PathOnly '\common\components\rtl\Garant\ScriptEngine'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\ScriptEngine'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
  CONST extprop:pas:TypeName 'TkwScreenShot2File'
+ CONST extprop:rc:SelfName 'ScreenShot2File'
+ CONST extprop:rc:isAcceptableForScripts true
+ : SpelledFor ME_551D6A28026C // ScreenShot2File
+ ;
 
 ref; // ME_D7673935EC18 ScreenShot2File
+
+FORWARD ME_551D6A850205
 
 FORWARD ME_13CADBEDE41C
 
 : ME_D4EC3249EF0D
  CONST UID 'D4EC3249EF0D'
  CONST Name 'aCtx'
+ CONST IsSummoned true
  CONST Class class_Parameter
  : Stereotype st_in ;
  : Target WL 'ME_4DB0091E033E' '4DAF19F600C5.pas.ms.script' // TtfwContext
@@ -4033,6 +4432,7 @@ ref; // ME_D4EC3249EF0D aCtx
 : ME_D4EC3249EF0E
  CONST UID 'D4EC3249EF0E'
  CONST Name 'aWnd'
+ CONST IsSummoned true
  CONST Class class_Parameter
  : Stereotype st_in ;
  : Target WL 'ME_46A465F9028C' '4AB0C3F60375.pas.ms.script' // THandle
@@ -4043,6 +4443,7 @@ ref; // ME_D4EC3249EF0E aWnd
 : ME_D4EC3249EF0F
  CONST UID 'D4EC3249EF0F'
  CONST Name 'aLeft'
+ CONST IsSummoned true
  CONST Class class_Parameter
  : Stereotype st_in ;
  : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
@@ -4053,6 +4454,7 @@ ref; // ME_D4EC3249EF0F aLeft
 : ME_D4EC3249EF10
  CONST UID 'D4EC3249EF10'
  CONST Name 'aTop'
+ CONST IsSummoned true
  CONST Class class_Parameter
  : Stereotype st_in ;
  : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
@@ -4063,6 +4465,7 @@ ref; // ME_D4EC3249EF10 aTop
 : ME_D4EC3249EF11
  CONST UID 'D4EC3249EF11'
  CONST Name 'aWidth'
+ CONST IsSummoned true
  CONST Class class_Parameter
  : Stereotype st_in ;
  : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
@@ -4073,6 +4476,7 @@ ref; // ME_D4EC3249EF11 aWidth
 : ME_D4EC3249EF12
  CONST UID 'D4EC3249EF12'
  CONST Name 'aHeight'
+ CONST IsSummoned true
  CONST Class class_Parameter
  : Stereotype st_in ;
  : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
@@ -4083,6 +4487,7 @@ ref; // ME_D4EC3249EF12 aHeight
 : ME_D4EC3249EF13
  CONST UID 'D4EC3249EF13'
  CONST Name 'aFileName'
+ CONST IsSummoned true
  CONST Class class_Parameter
  : Stereotype st_in ;
  : Target WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
@@ -4093,6 +4498,7 @@ ref; // ME_D4EC3249EF13 aFileName
 : ME_8B949444F0A6
  CONST UID '8B949444F0A6'
  CONST Name 'ScreenShot2FileWithCheck'
+ CONST IsSummoned true
  CONST Class class_Operation
  %SUMMARY 'Реализация слова скрипта ScreenShot2FileWithCheck' ;
  CONST Visibility PrivateAccess
@@ -4100,14 +4506,14 @@ ref; // ME_D4EC3249EF13 aFileName
  : Parent ME_13CADBEDE41C // ScreenShot2FileWithCheck
  ;
  : Parameters
-   @ ( ME_D4EC3249EF0D // aCtx
+   Seq: ( ME_D4EC3249EF0D // aCtx
  ME_D4EC3249EF0E // aWnd
  ME_D4EC3249EF0F // aLeft
  ME_D4EC3249EF10 // aTop
  ME_D4EC3249EF11 // aWidth
  ME_D4EC3249EF12 // aHeight
  ME_D4EC3249EF13 // aFileName
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_8B949444F0A6 ScreenShot2FileWithCheck
@@ -4115,6 +4521,7 @@ ref; // ME_8B949444F0A6 ScreenShot2FileWithCheck
 : ME_6C3D5BC2CAFA
  CONST UID '6C3D5BC2CAFA'
  CONST Name 'Ini_Reg'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Регистрация ScreenShot2FileWithCheck' ;
@@ -4127,6 +4534,7 @@ ref; // ME_6C3D5BC2CAFA Ini_Reg
 
 : ME_0D3C3601D643
  CONST UID '0D3C3601D643'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_13CADBEDE41C // ScreenShot2FileWithCheck
@@ -4138,6 +4546,7 @@ ref; // ME_0D3C3601D643
 
 : ME_94131E6865A3
  CONST UID '94131E6865A3'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_13CADBEDE41C // ScreenShot2FileWithCheck
@@ -4149,6 +4558,7 @@ ref; // ME_94131E6865A3
 
 : ME_160EB7D75646
  CONST UID '160EB7D75646'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_13CADBEDE41C // ScreenShot2FileWithCheck
@@ -4211,6 +4621,7 @@ ref; // ME_5617F4D00243_ME_13CADBEDE41C ParamsTypes
 : ME_13CADBEDE41C
  CONST UID '13CADBEDE41C'
  CONST Name 'ScreenShot2FileWithCheck'
+ CONST IsSummoned true
  CONST Class class_Class
  : Stereotype st_ScriptKeyword ;
  CONST Kind kind_NormalClass
@@ -4220,37 +4631,45 @@ ref; // ME_5617F4D00243_ME_13CADBEDE41C ParamsTypes
  : Parent ME_4F854878032F // WinUtilsPack
  ;
  : Inherits
-   @ ( WL 'ME_561BAC4B0005' '55CCADD2013D.pas.ms.script' // TtfwGlobalKeyWord
- ) .SequenceCode.It
+   Seq: ( WL 'ME_561BAC4B0005' '55CCADD2013D.pas.ms.script' // TtfwGlobalKeyWord
+ )
  ; // Inherits
  : Operations
-   @ ( ME_8B949444F0A6 // ScreenShot2FileWithCheck
+   Seq: ( ME_8B949444F0A6 // ScreenShot2FileWithCheck
  ME_6C3D5BC2CAFA // Ini_Reg
- ) .SequenceCode.It
+ )
  ; // Operations
  : Implemented
-   @ ( ME_4DAEEDE10285_ME_13CADBEDE41C // DoDoIt
- ) .SequenceCode.It
+   Seq: ( ME_4DAEEDE10285_ME_13CADBEDE41C // DoDoIt
+ )
  ; // Implemented
  : Overridden
-   @ ( ME_4DB0614603C8_ME_13CADBEDE41C // GetWordNameForRegister
+   Seq: ( ME_4DB0614603C8_ME_13CADBEDE41C // GetWordNameForRegister
  ME_551544E2001A_ME_13CADBEDE41C // GetResultTypeInfo
  ME_559687E6025A_ME_13CADBEDE41C // GetAllParamsCount
  ME_5617F4D00243_ME_13CADBEDE41C // ParamsTypes
- ) .SequenceCode.It
+ )
  ; // Overridden
  : Dependencies
-   @ ( ME_0D3C3601D643 // 
+   Seq: ( ME_0D3C3601D643 // 
  ME_94131E6865A3 // 
  ME_160EB7D75646 // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  CONST "NameForScript" 'ScreenShot2FileWithCheck'
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
+ CONST dfm:PathOnly '\common\components\rtl\Garant\ScriptEngine'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\ScriptEngine'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
  CONST extprop:pas:TypeName 'TkwScreenShot2FileWithCheck'
+ CONST extprop:rc:SelfName 'ScreenShot2FileWithCheck'
+ CONST extprop:rc:isAcceptableForScripts true
+ : SpelledFor ME_551D6A850205 // ScreenShot2FileWithCheck
+ ;
 
 ref; // ME_13CADBEDE41C ScreenShot2FileWithCheck
 
@@ -4287,9 +4706,9 @@ ref; // ME_510AB683036F aData
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
  : Parameters
-   @ ( ME_510AB6830353 // hWindow
+   Seq: ( ME_510AB6830353 // hWindow
  ME_510AB683036F // aData
- ) .SequenceCode.It
+ )
  ; // Parameters
  CONST "calling conventions" 'stdcall'
 
@@ -4306,8 +4725,8 @@ ref; // ME_510AB64C0093 DoIt
  : Parent ME_4F854878032F // WinUtilsPack
  ;
  : Operations
-   @ ( ME_510AB64C0093 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_510AB64C0093 // DoIt
+ )
  ; // Operations
 
 ref; // ME_510AB608018E IterateWindowsMethod
@@ -4383,13 +4802,13 @@ ref; // ME_551D69F3021E aCaller
  : Parent ME_551D697C0023 // MakeScreenshot
  ;
  : Parameters
-   @ ( ME_551D69F3014C // aWnd
+   Seq: ( ME_551D69F3014C // aWnd
  ME_551D69F3016A // aRect
  ME_551D69F30192 // aFileName
  ME_551D69F301A6 // aWithCheck
  ME_551D69F301F6 // aCtx
  ME_551D69F3021E // aCaller
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_551D69EE0033 DoIt
@@ -4405,8 +4824,8 @@ ref; // ME_551D69EE0033 DoIt
  : Parent ME_4F854878032F // WinUtilsPack
  ;
  : Operations
-   @ ( ME_551D69EE0033 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_551D69EE0033 // DoIt
+ )
  ; // Operations
 
 ref; // ME_551D697C0023 MakeScreenshot
@@ -4433,9 +4852,11 @@ ref; // ME_55192F91026F aWnd
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
  : Parameters
-   @ ( ME_55192F91026F // aWnd
- ) .SequenceCode.It
+   Seq: ( ME_55192F91026F // aWnd
+ )
  ; // Parameters
+ : Speller ME_CB65D7FF1E6C // wnd_IsVisible
+ ;
 
 ref; // ME_55192F7C0078 wnd_IsVisible
 
@@ -4461,9 +4882,11 @@ ref; // ME_55192FA901C7 aWnd
  : Target WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
  ;
  : Parameters
-   @ ( ME_55192FA901C7 // aWnd
- ) .SequenceCode.It
+   Seq: ( ME_55192FA901C7 // aWnd
+ )
  ; // Parameters
+ : Speller ME_455E9214E4B7 // wnd_GetClassName
+ ;
 
 ref; // ME_55192F980349 wnd_GetClassName
 
@@ -4489,9 +4912,11 @@ ref; // ME_55192FC301A7 aWnd
  : Target WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
  ;
  : Parameters
-   @ ( ME_55192FC301A7 // aWnd
- ) .SequenceCode.It
+   Seq: ( ME_55192FC301A7 // aWnd
+ )
  ; // Parameters
+ : Speller ME_6ECBEE6894B8 // wnd_GetWindowText
+ ;
 
 ref; // ME_55192FAF01D3 wnd_GetWindowText
 
@@ -4515,9 +4940,11 @@ ref; // ME_5519301001B0 aWnd
  : Parent ME_4F854878032F // WinUtilsPack
  ;
  : Parameters
-   @ ( ME_5519301001B0 // aWnd
- ) .SequenceCode.It
+   Seq: ( ME_5519301001B0 // aWnd
+ )
  ; // Parameters
+ : Speller ME_B3B5EA3F1514 // wnd_CloseWindow
+ ;
 
 ref; // ME_5519300102ED wnd_CloseWindow
 
@@ -4543,9 +4970,11 @@ ref; // ME_55193057011D aWnd
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
  : Parameters
-   @ ( ME_55193057011D // aWnd
- ) .SequenceCode.It
+   Seq: ( ME_55193057011D // aWnd
+ )
  ; // Parameters
+ : Speller ME_C09FEECC1053 // wnd_WindowIsMine
+ ;
 
 ref; // ME_55193045008D wnd_WindowIsMine
 
@@ -4569,9 +4998,11 @@ ref; // ME_5519308C01C5 aWnd
  : Parent ME_4F854878032F // WinUtilsPack
  ;
  : Parameters
-   @ ( ME_5519308C01C5 // aWnd
- ) .SequenceCode.It
+   Seq: ( ME_5519308C01C5 // aWnd
+ )
  ; // Parameters
+ : Speller ME_1C5511E4225D // wnd_SetForeground
+ ;
 
 ref; // ME_5519307103E4 wnd_SetForeground
 
@@ -4597,9 +5028,11 @@ ref; // ME_551930B80295 aWnd
  : Target WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
  ;
  : Parameters
-   @ ( ME_551930B80295 // aWnd
- ) .SequenceCode.It
+   Seq: ( ME_551930B80295 // aWnd
+ )
  ; // Parameters
+ : Speller ME_A893626FB9A5 // WinTreeGetCurrentText
+ ;
 
 ref; // ME_551930A001DF WinTreeGetCurrentText
 
@@ -4633,10 +5066,12 @@ ref; // ME_551942B80015 aLambda
  : Parent ME_4F854878032F // WinUtilsPack
  ;
  : Parameters
-   @ ( ME_551942B703B5 // aWnd
+   Seq: ( ME_551942B703B5 // aWnd
  ME_551942B80015 // aLambda
- ) .SequenceCode.It
+ )
  ; // Parameters
+ : Speller ME_BB2233135443 // IterateChildWindows
+ ;
 
 ref; // ME_551941E30047 IterateChildWindows
 
@@ -4660,9 +5095,11 @@ ref; // ME_5519429C0205 aLambda
  : Parent ME_4F854878032F // WinUtilsPack
  ;
  : Parameters
-   @ ( ME_5519429C0205 // aLambda
- ) .SequenceCode.It
+   Seq: ( ME_5519429C0205 // aLambda
+ )
  ; // Parameters
+ : Speller ME_2EB6B5E4913F // IterateWindows
+ ;
 
 ref; // ME_5519427E00F3 IterateWindows
 
@@ -4688,9 +5125,11 @@ ref; // ME_55194333032B aPoint
  : Target WL 'ME_46A465F9028C' '4AB0C3F60375.pas.ms.script' // THandle
  ;
  : Parameters
-   @ ( ME_55194333032B // aPoint
- ) .SequenceCode.It
+   Seq: ( ME_55194333032B // aPoint
+ )
  ; // Parameters
+ : Speller ME_2D01DE64792B // WindowFromPoint
+ ;
 
 ref; // ME_551943280118 WindowFromPoint
 
@@ -4704,6 +5143,8 @@ ref; // ME_551943280118 WindowFromPoint
  : Parent ME_4F854878032F // WinUtilsPack
  ;
  : Target WL 'ME_46A465F9028C' '4AB0C3F60375.pas.ms.script' // THandle
+ ;
+ : Speller ME_CB29543BBB60 // GetForegroundWindow
  ;
 
 ref; // ME_5519434F0000 GetForegroundWindow
@@ -4730,9 +5171,11 @@ ref; // ME_55194397033B aCaption
  : Target WL 'ME_46A465F9028C' '4AB0C3F60375.pas.ms.script' // THandle
  ;
  : Parameters
-   @ ( ME_55194397033B // aCaption
- ) .SequenceCode.It
+   Seq: ( ME_55194397033B // aCaption
+ )
  ; // Parameters
+ : Speller ME_0FB930B944B8 // FindWindowByCaption
+ ;
 
 ref; // ME_551943860248 FindWindowByCaption
 
@@ -4756,9 +5199,11 @@ ref; // ME_551944070113 aValue
  : Parent ME_4F854878032F // WinUtilsPack
  ;
  : Parameters
-   @ ( ME_551944070113 // aValue
- ) .SequenceCode.It
+   Seq: ( ME_551944070113 // aValue
+ )
  ; // Parameters
+ : Speller ME_DDDEEE94C045 // SetFuzzInPercent
+ ;
 
 ref; // ME_551943FD0148 SetFuzzInPercent
 
@@ -4773,6 +5218,8 @@ ref; // ME_551943FD0148 SetFuzzInPercent
  ;
  : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
  ;
+ : Speller ME_F5071C676120 // desktop_Height
+ ;
 
 ref; // ME_551D5FE00397 desktop_Height
 
@@ -4786,6 +5233,8 @@ ref; // ME_551D5FE00397 desktop_Height
  : Parent ME_4F854878032F // WinUtilsPack
  ;
  : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+ : Speller ME_F2D32D266DD0 // desktop_Width
  ;
 
 ref; // ME_551D5FF00393 desktop_Width
@@ -4812,9 +5261,11 @@ ref; // ME_551D601903AB anIndex
  : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
  ;
  : Parameters
-   @ ( ME_551D601903AB // anIndex
- ) .SequenceCode.It
+   Seq: ( ME_551D601903AB // anIndex
+ )
  ; // Parameters
+ : Speller ME_44BBDAE720F0 // screen_Width
+ ;
 
 ref; // ME_551D5FFF03A1 screen_Width
 
@@ -4840,9 +5291,11 @@ ref; // ME_551D602D0236 anIndex
  : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
  ;
  : Parameters
-   @ ( ME_551D602D0236 // anIndex
- ) .SequenceCode.It
+   Seq: ( ME_551D602D0236 // anIndex
+ )
  ; // Parameters
+ : Speller ME_91E516864416 // screen_Height
+ ;
 
 ref; // ME_551D60220051 screen_Height
 
@@ -4856,6 +5309,8 @@ ref; // ME_551D60220051 screen_Height
  : Parent ME_4F854878032F // WinUtilsPack
  ;
  : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+ : Speller ME_3832249557A1 // MainScreen_Width
  ;
 
 ref; // ME_551D605302AE MainScreen_Width
@@ -4871,6 +5326,8 @@ ref; // ME_551D605302AE MainScreen_Width
  ;
  : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
  ;
+ : Speller ME_8022C1F2B088 // MainScreen_Height
+ ;
 
 ref; // ME_551D606401C1 MainScreen_Height
 
@@ -4884,6 +5341,8 @@ ref; // ME_551D606401C1 MainScreen_Height
  : Parent ME_4F854878032F // WinUtilsPack
  ;
  : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+ : Speller ME_4C862EA2F8C6 // ScreenCount
  ;
 
 ref; // ME_551D607202D0 ScreenCount
@@ -4908,9 +5367,11 @@ ref; // ME_551D60B402D3 aWnd
  : Parent ME_4F854878032F // WinUtilsPack
  ;
  : Parameters
-   @ ( ME_551D60B402D3 // aWnd
- ) .SequenceCode.It
+   Seq: ( ME_551D60B402D3 // aWnd
+ )
  ; // Parameters
+ : Speller ME_22E2D41E5FCD // AskWindowToCloseItself
+ ;
 
 ref; // ME_551D60A60370 AskWindowToCloseItself
 
@@ -4985,14 +5446,16 @@ ref; // ME_551D6A740201 aFileName
  : Parent ME_4F854878032F // WinUtilsPack
  ;
  : Parameters
-   @ ( ME_551D6A74002B // aWnd
+   Seq: ( ME_551D6A74002B // aWnd
  ME_551D6A740085 // aLeft
  ME_551D6A7400E9 // aTop
  ME_551D6A740143 // aWidth
  ME_551D6A74019D // aHeight
  ME_551D6A740201 // aFileName
- ) .SequenceCode.It
+ )
  ; // Parameters
+ : Speller ME_D7673935EC18 // ScreenShot2File
+ ;
 
 ref; // ME_551D6A28026C ScreenShot2File
 
@@ -5067,20 +5530,23 @@ ref; // ME_551D6A8F032E aFileName
  : Parent ME_4F854878032F // WinUtilsPack
  ;
  : Parameters
-   @ ( ME_551D6A8F0144 // aWnd
+   Seq: ( ME_551D6A8F0144 // aWnd
  ME_551D6A8F019E // aLeft
  ME_551D6A8F0202 // aTop
  ME_551D6A8F0266 // aWidth
  ME_551D6A8F02CA // aHeight
  ME_551D6A8F032E // aFileName
- ) .SequenceCode.It
+ )
  ; // Parameters
+ : Speller ME_13CADBEDE41C // ScreenShot2FileWithCheck
+ ;
 
 ref; // ME_551D6A850205 ScreenShot2FileWithCheck
 
 : ME_1398781D88C1
  CONST UID '1398781D88C1'
- CONST Name 'Reg_TtfwContext'
+ CONST Name 'Reg_Type_TtfwContext'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Регистрация типа TtfwContext' ;
@@ -5088,12 +5554,15 @@ ref; // ME_551D6A850205 ScreenShot2FileWithCheck
  CONST Abstraction at_final
  : Parent ME_4F854878032F // WinUtilsPack
  ;
+ : SpelledFor WL 'ME_4DB0091E033E' '4DAF19F600C5.pas.ms.script' // TtfwContext
+ ;
 
-ref; // ME_1398781D88C1 Reg_TtfwContext
+ref; // ME_1398781D88C1 Reg_Type_TtfwContext
 
 : ME_B4E7D4F24C01
  CONST UID 'B4E7D4F24C01'
- CONST Name 'Reg_THandle'
+ CONST Name 'Reg_Type_THandle'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Регистрация типа THandle' ;
@@ -5101,12 +5570,15 @@ ref; // ME_1398781D88C1 Reg_TtfwContext
  CONST Abstraction at_final
  : Parent ME_4F854878032F // WinUtilsPack
  ;
+ : SpelledFor WL 'ME_46A465F9028C' '4AB0C3F60375.pas.ms.script' // THandle
+ ;
 
-ref; // ME_B4E7D4F24C01 Reg_THandle
+ref; // ME_B4E7D4F24C01 Reg_Type_THandle
 
 : ME_34DEDBA82941
  CONST UID '34DEDBA82941'
- CONST Name 'Reg_Boolean'
+ CONST Name 'Reg_Type_Boolean'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Регистрация типа Boolean' ;
@@ -5114,12 +5586,15 @@ ref; // ME_B4E7D4F24C01 Reg_THandle
  CONST Abstraction at_final
  : Parent ME_4F854878032F // WinUtilsPack
  ;
+ : SpelledFor WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
 
-ref; // ME_34DEDBA82941 Reg_Boolean
+ref; // ME_34DEDBA82941 Reg_Type_Boolean
 
 : ME_44F64598CB1A
  CONST UID '44F64598CB1A'
- CONST Name 'Reg_String'
+ CONST Name 'Reg_Type_String'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Регистрация типа String' ;
@@ -5127,12 +5602,15 @@ ref; // ME_34DEDBA82941 Reg_Boolean
  CONST Abstraction at_final
  : Parent ME_4F854878032F // WinUtilsPack
  ;
+ : SpelledFor WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
+ ;
 
-ref; // ME_44F64598CB1A Reg_String
+ref; // ME_44F64598CB1A Reg_Type_String
 
 : ME_83A521635864
  CONST UID '83A521635864'
- CONST Name 'Reg_TtfwWord'
+ CONST Name 'Reg_Type_TtfwWord'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Регистрация типа TtfwWord' ;
@@ -5140,12 +5618,15 @@ ref; // ME_44F64598CB1A Reg_String
  CONST Abstraction at_final
  : Parent ME_4F854878032F // WinUtilsPack
  ;
+ : SpelledFor WL 'ME_4DAEED140007' '4DAF19F600C5.pas.ms.script' // TtfwWord
+ ;
 
-ref; // ME_83A521635864 Reg_TtfwWord
+ref; // ME_83A521635864 Reg_Type_TtfwWord
 
 : ME_A42E472155E7
  CONST UID 'A42E472155E7'
- CONST Name 'Reg_TPoint'
+ CONST Name 'Reg_Type_TPoint'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Регистрация типа TPoint' ;
@@ -5153,12 +5634,15 @@ ref; // ME_83A521635864 Reg_TtfwWord
  CONST Abstraction at_final
  : Parent ME_4F854878032F // WinUtilsPack
  ;
+ : SpelledFor WL 'ME_4739AD110072' '4728A7020026.pas.ms.script' // TPoint
+ ;
 
-ref; // ME_A42E472155E7 Reg_TPoint
+ref; // ME_A42E472155E7 Reg_Type_TPoint
 
 : ME_2330DFE3B8E8
  CONST UID '2330DFE3B8E8'
- CONST Name 'Reg_Integer'
+ CONST Name 'Reg_Type_Integer'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Регистрация типа Integer' ;
@@ -5166,12 +5650,15 @@ ref; // ME_A42E472155E7 Reg_TPoint
  CONST Abstraction at_final
  : Parent ME_4F854878032F // WinUtilsPack
  ;
+ : SpelledFor WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
 
-ref; // ME_2330DFE3B8E8 Reg_Integer
+ref; // ME_2330DFE3B8E8 Reg_Type_Integer
 
 : ME_FB564B14A037
  CONST UID 'FB564B14A037'
- CONST Name 'Reg_TtfwStackValue'
+ CONST Name 'Reg_Type_TtfwStackValue'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Регистрация типа TtfwStackValue' ;
@@ -5179,8 +5666,10 @@ ref; // ME_2330DFE3B8E8 Reg_Integer
  CONST Abstraction at_final
  : Parent ME_4F854878032F // WinUtilsPack
  ;
+ : SpelledFor WL 'ME_4DB00A510300' '55BF153300A4.pas.ms.script' // TtfwStackValue
+ ;
 
-ref; // ME_FB564B14A037 Reg_TtfwStackValue
+ref; // ME_FB564B14A037 Reg_Type_TtfwStackValue
 
 : ME_55192FE403A1
  CONST UID '55192FE403A1'
@@ -5305,6 +5794,7 @@ ref; // ME_55241157010C
 
 : ME_277788E99F2A
  CONST UID '277788E99F2A'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_4F854878032F // WinUtilsPack
@@ -5316,6 +5806,7 @@ ref; // ME_277788E99F2A
 
 : ME_DBB231AE5E3D
  CONST UID 'DBB231AE5E3D'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_4F854878032F // WinUtilsPack
@@ -5336,7 +5827,7 @@ ref; // ME_DBB231AE5E3D
  : Parent ME_4F85480A00D9 // WinUtils
  ;
  : Operations
-   @ ( ME_510AB608018E // IterateWindowsMethod
+   Seq: ( ME_510AB608018E // IterateWindowsMethod
  ME_551D697C0023 // MakeScreenshot
  ME_55192F7C0078 // wnd_IsVisible
  ME_55192F980349 // wnd_GetClassName
@@ -5361,18 +5852,18 @@ ref; // ME_DBB231AE5E3D
  ME_551D60A60370 // AskWindowToCloseItself
  ME_551D6A28026C // ScreenShot2File
  ME_551D6A850205 // ScreenShot2FileWithCheck
- ME_1398781D88C1 // Reg_TtfwContext
- ME_B4E7D4F24C01 // Reg_THandle
- ME_34DEDBA82941 // Reg_Boolean
- ME_44F64598CB1A // Reg_String
- ME_83A521635864 // Reg_TtfwWord
- ME_A42E472155E7 // Reg_TPoint
- ME_2330DFE3B8E8 // Reg_Integer
- ME_FB564B14A037 // Reg_TtfwStackValue
- ) .SequenceCode.It
+ ME_1398781D88C1 // Reg_Type_TtfwContext
+ ME_B4E7D4F24C01 // Reg_Type_THandle
+ ME_34DEDBA82941 // Reg_Type_Boolean
+ ME_44F64598CB1A // Reg_Type_String
+ ME_83A521635864 // Reg_Type_TtfwWord
+ ME_A42E472155E7 // Reg_Type_TPoint
+ ME_2330DFE3B8E8 // Reg_Type_Integer
+ ME_FB564B14A037 // Reg_Type_TtfwStackValue
+ )
  ; // Operations
  : Children
-   @ ( ME_CB65D7FF1E6C // wnd_IsVisible
+   Seq: ( ME_CB65D7FF1E6C // wnd_IsVisible
  ME_455E9214E4B7 // wnd_GetClassName
  ME_6ECBEE6894B8 // wnd_GetWindowText
  ME_B3B5EA3F1514 // wnd_CloseWindow
@@ -5395,10 +5886,10 @@ ref; // ME_DBB231AE5E3D
  ME_22E2D41E5FCD // AskWindowToCloseItself
  ME_D7673935EC18 // ScreenShot2File
  ME_13CADBEDE41C // ScreenShot2FileWithCheck
- ) .SequenceCode.It
+ )
  ; // Children
  : Dependencies
-   @ ( ME_55192FE403A1 // 
+   Seq: ( ME_55192FE403A1 // 
  ME_55192FE902D0 // 
  ME_5519302F01C9 // 
  ME_5519414302FF // 
@@ -5411,19 +5902,18 @@ ref; // ME_DBB231AE5E3D
  ME_55241157010C // 
  ME_277788E99F2A // 
  ME_DBB231AE5E3D // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  CONST "ifndef" 'NoScripts'
  CONST "needs script" 'undefined'
  CONST "no class name" 'undefined'
  CONST "no hands" false
  CONST "no_pop" 'undefined'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\ScriptEngine'
  CONST intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\WinUtilsPack.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\ScriptEngine'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_4F854878032F WinUtilsPack
 
@@ -5437,27 +5927,25 @@ ref; // ME_4F854878032F WinUtilsPack
  : Parent WL 'ME_54DB92A80279' '54DB92A80279.pas.ms.script' // ScriptEngine$RTLandVCL
  ;
  : Children
-   @ ( ME_4F854878032F // WinUtilsPack
- ) .SequenceCode.It
+   Seq: ( ME_4F854878032F // WinUtilsPack
+ )
  ; // Children
  : Depends
-   @ ( WL 'ME_47913B47006E' '47913B47006E.pas.ms.script' // l3CoreObjects
+   Seq: ( WL 'ME_47913B47006E' '47913B47006E.pas.ms.script' // l3CoreObjects
  WL 'ME_4799D29F033F' '4799D29F033F.pas.ms.script' // Implementation
  WL 'ME_47D0290B016D' '47D0290B016D.pas.ms.script' // l3Utils
  WL 'ME_4AB0C3F60375' '4AB0C3F60375.pas.ms.script' // Win
  WL 'ME_4DAF19F600C5' '4DAF19F600C5.pas.ms.script' // tfwScriptingInterfaces
  WL 'ME_55001317029B' '55001317029B.pas.ms.script' // VCLHelpers
  WL 'ME_552405FA0066' '552405FA0066.pas.ms.script' // ScreenShots
- ) .SequenceCode.It
+ )
  ; // Depends
  CONST "ifndef" 'NoScripts,NoWindows'
- : Generators
- @ (
- gen_pas.script
- gen_pas.script.runner
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\ScriptEngine'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\ScriptEngine'
  CONST pas.script:Path 'shared\models\NewSchool\Scripts\4F85480A00D9.pas.ms.script'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
  CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\4F85480A00D9.pas.ms.script.runner'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_4F85480A00D9 WinUtils

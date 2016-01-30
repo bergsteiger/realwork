@@ -50,8 +50,8 @@ ref; // ME_54779C5F02BC Index
  : Target WL 'ME_5477971800CE' '5477970600C6.pas.ms.script' // TvcmMenuForChromeLikeItemWrap
  ;
  : Attributes
-   @ ( ME_54779C5F02BC // Index
- ) .SequenceCode.It
+   Seq: ( ME_54779C5F02BC // Index
+ )
  ; // Attributes
 
 ref; // ME_54779C5903A7 Items
@@ -67,22 +67,22 @@ ref; // ME_54779C5903A7 Items
  : Parent ME_53D125AE02CB // ChromeLike
  ;
  : Inherits
-   @ ( WL 'ME_545C51CB0171' '533D53FF00C2.pas.ms.script' // TvcmBaseMenuForChromeLike
- ) .SequenceCode.It
+   Seq: ( WL 'ME_545C51CB0171' '533D53FF00C2.pas.ms.script' // TvcmBaseMenuForChromeLike
+ )
  ; // Inherits
  : Attributes
-   @ ( ME_547769DD0375 // ItemCount
+   Seq: ( ME_547769DD0375 // ItemCount
  ME_54779C5903A7 // Items
- ) .SequenceCode.It
+ )
  ; // Attributes
  CONST "ifndef" 'NoTabs'
  CONST "is friend" true
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\VCM'
  CONST intf.pas:Path 'common\components\gui\Garant\VCM\vcmBaseMenuForChromeLike_p.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\VCM'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:pas:UnitName 'vcmBaseMenuForChromeLike_p'
 
 ref; // ME_54776921001A TvcmBaseMenuForChromeLike
 
@@ -132,8 +132,8 @@ ref; // ME_551D540B020E Index
  : Target WL 'ME_5507F22E0057' '533E6F73014E.pas.ms.script' // TChromeLikeTab
  ;
  : Attributes
-   @ ( ME_551D540B020E // Index
- ) .SequenceCode.It
+   Seq: ( ME_551D540B020E // Index
+ )
  ; // Attributes
 
 ref; // ME_551D5407013B Tabs
@@ -149,21 +149,21 @@ ref; // ME_551D5407013B Tabs
  : Parent ME_53D125AE02CB // ChromeLike
  ;
  : Inherits
-   @ ( WL 'ME_5507EFFD01FE' '533E6F73014E.pas.ms.script' // TChromeLikeTabSetControl
- ) .SequenceCode.It
+   Seq: ( WL 'ME_5507EFFD01FE' '533E6F73014E.pas.ms.script' // TChromeLikeTabSetControl
+ )
  ; // Inherits
  : Attributes
-   @ ( ME_551D543A00E5 // TabCount
+   Seq: ( ME_551D543A00E5 // TabCount
  ME_551D5407013B // Tabs
- ) .SequenceCode.It
+ )
  ; // Attributes
  CONST "is friend" false
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\VCM'
  CONST intf.pas:Path 'common\components\gui\Garant\VCM\ChromeLikeTabSetControl_p.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\VCM'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:pas:UnitName 'ChromeLikeTabSetControl_p'
 
 ref; // ME_551D53DB0049 TChromeLikeTabSetControl
 
@@ -255,24 +255,24 @@ ref; // ME_551D72CA0359 PositionRect
  : Parent ME_53D125AE02CB // ChromeLike
  ;
  : Inherits
-   @ ( WL 'ME_5507F22E0057' '533E6F73014E.pas.ms.script' // TChromeLikeTab
- ) .SequenceCode.It
+   Seq: ( WL 'ME_5507F22E0057' '533E6F73014E.pas.ms.script' // TChromeLikeTab
+ )
  ; // Inherits
  : Attributes
-   @ ( ME_551D692303AB // Text
+   Seq: ( ME_551D692303AB // Text
  ME_551D693400A4 // IsSelected
  ME_551D69B60184 // Visible
  ME_551D69EA00CA // Hint
  ME_551D72CA0359 // PositionRect
- ) .SequenceCode.It
+ )
  ; // Attributes
  CONST "is friend" false
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\VCM'
  CONST intf.pas:Path 'common\components\gui\Garant\VCM\ChromeLikeTab_p.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\VCM'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:pas:UnitName 'ChromeLikeTab_p'
 
 ref; // ME_551D67AC02C4 TChromeLikeTab
 
@@ -286,28 +286,26 @@ ref; // ME_551D67AC02C4 TChromeLikeTab
  : Parent WL 'ME_499AA43A012F' '499AA43A012F.pas.ms.script' // VCMTest
  ;
  : Children
-   @ ( ME_54776921001A // TvcmBaseMenuForChromeLike
+   Seq: ( ME_54776921001A // TvcmBaseMenuForChromeLike
  ME_551D53DB0049 // TChromeLikeTabSetControl
  ME_551D67AC02C4 // TChromeLikeTab
- ) .SequenceCode.It
+ )
  ; // Children
  : Depends
-   @ ( WL 'ME_4799D29F033F' '4799D29F033F.pas.ms.script' // Implementation
+   Seq: ( WL 'ME_4799D29F033F' '4799D29F033F.pas.ms.script' // Implementation
  WL 'ME_4AB0C3C60310' '4AB0C3C60310.pas.ms.script' // Sys
  WL 'ME_533D53FF00C2' '533D53FF00C2.pas.ms.script' // Visual$ChromeLike
  WL 'ME_533E6F73014E' '533E6F73014E.pas.ms.script' // ChromeLikeTabSet
  WL 'ME_5477970600C6' '5477970600C6.pas.ms.script' // Wrap
- ) .SequenceCode.It
+ )
  ; // Depends
  CONST "defines" 'vcmDefine.inc'
  CONST "ifndef" 'NoTabs'
- : Generators
- @ (
- gen_pas.script
- gen_pas.script.runner
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\VCM'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\VCM'
  CONST pas.script:Path 'shared\models\NewSchool\Scripts\53D125AE02CB.pas.ms.script'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
  CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\53D125AE02CB.pas.ms.script.runner'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_53D125AE02CB ChromeLike

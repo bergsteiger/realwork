@@ -66,6 +66,7 @@ ref; // ME_4F192C0903BB PhaseStr
 : ME_05D217A40379
  CONST UID '05D217A40379'
  CONST Name 'f_BaseName'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY 'Поле для свойства BaseName' ;
  CONST Visibility PrivateAccess
@@ -75,12 +76,14 @@ ref; // ME_4F192C0903BB PhaseStr
  ;
  : Target WL 'ME_477113FB020B' '4AB0C3C60310.pas.ms.script' // TFileName
  ;
+ CONST extprop:clearViaProperty 'BaseName'
 
 ref; // ME_05D217A40379 f_BaseName
 
 : ME_2698917B0E01
  CONST UID '2698917B0E01'
  CONST Name 'f_DirName'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY 'Поле для свойства DirName' ;
  CONST Visibility PrivateAccess
@@ -90,12 +93,14 @@ ref; // ME_05D217A40379 f_BaseName
  ;
  : Target WL 'ME_477113FB020B' '4AB0C3C60310.pas.ms.script' // TFileName
  ;
+ CONST extprop:clearViaProperty 'DirName'
 
 ref; // ME_2698917B0E01 f_DirName
 
 : ME_7D04DB0B0D7B
  CONST UID '7D04DB0B0D7B'
  CONST Name 'f_PhaseStr'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY 'Поле для свойства PhaseStr' ;
  CONST Visibility PrivateAccess
@@ -128,8 +133,8 @@ ref; // ME_4F1921260395 aFilesMeter
  : Parent ME_4F19108601F3 // Tm3StorageIndexAdapter
  ;
  : Parameters
-   @ ( ME_4F1921260395 // aFilesMeter
- ) .SequenceCode.It
+   Seq: ( ME_4F1921260395 // aFilesMeter
+ )
  ; // Parameters
 
 ref; // ME_4F191143015F DoBuildIndex
@@ -137,6 +142,7 @@ ref; // ME_4F191143015F DoBuildIndex
 : ME_5C3FD771340E
  CONST UID '5C3FD771340E'
  CONST Name 'Exists'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_static::Operation ;
  %SUMMARY 'Проверяет создан экземпляр синглетона или нет' ;
@@ -146,6 +152,7 @@ ref; // ME_4F191143015F DoBuildIndex
  ;
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
+ CONST extprop:pas:Value false
 
 ref; // ME_5C3FD771340E Exists
 
@@ -204,41 +211,43 @@ ref; // ME_4F1927A3022D
  : Parent ME_4F19106E00E3 // m3TetsSupport
  ;
  : Inherits
-   @ ( WL 'ME_49E7754802A9' '47913B47006E.pas.ms.script' // Tl3ProtoObject
- ) .SequenceCode.It
+   Seq: ( WL 'ME_49E7754802A9' '47913B47006E.pas.ms.script' // Tl3ProtoObject
+ )
  ; // Inherits
  : Attributes
-   @ ( ME_4F1915E30150 // BaseName
+   Seq: ( ME_4F1915E30150 // BaseName
  ME_4F191795019D // DirName
  ME_4F192C0903BB // PhaseStr
  ME_05D217A40379 // f_BaseName
  ME_2698917B0E01 // f_DirName
  ME_7D04DB0B0D7B // f_PhaseStr
- ) .SequenceCode.It
+ )
  ; // Attributes
  : Operations
-   @ ( ME_4F191143015F // DoBuildIndex
+   Seq: ( ME_4F191143015F // DoBuildIndex
  ME_5C3FD771340E // Exists
- ) .SequenceCode.It
+ )
  ; // Operations
  : Dependencies
-   @ ( ME_4F191CE300BF // 
+   Seq: ( ME_4F191CE300BF // 
  ME_4F191E8D00B6 // 
  ME_4F19205A01C9 // 
  ME_4F1927A3022D // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
  CONST "singleton" true
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\TestsSupport'
  CONST intf.pas:Path 'common\components\rtl\Garant\TestsSupport\m3StorageIndexAdapter.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\TestsSupport'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'm3StorageIndexAdapter'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'm3StorageIndexAdapter'
 
 ref; // ME_4F19108601F3 Tm3StorageIndexAdapter
 
@@ -252,26 +261,24 @@ ref; // ME_4F19108601F3 Tm3StorageIndexAdapter
  : Parent WL 'ME_4F19102600B0' '4F19102600B0.pas.ms.script' // TestsSupport
  ;
  : Children
-   @ ( ME_4F19108601F3 // Tm3StorageIndexAdapter
- ) .SequenceCode.It
+   Seq: ( ME_4F19108601F3 // Tm3StorageIndexAdapter
+ )
  ; // Children
  : Depends
-   @ ( WL 'ME_4678193C009C' '4678193C009C.pas.ms.script' // l3Types
+   Seq: ( WL 'ME_4678193C009C' '4678193C009C.pas.ms.script' // l3Types
  WL 'ME_4720862F0238' '4720862F0238.pas.ms.script' // m3StorageInterfaces
  WL 'ME_476BBF330336' '476BBF330336.pas.ms.script' // m4DBInterfaces
  WL 'ME_47913B47006E' '47913B47006E.pas.ms.script' // l3CoreObjects
  WL 'ME_47D0290B016D' '47D0290B016D.pas.ms.script' // l3Utils
  WL 'ME_4AB0C3C60310' '4AB0C3C60310.pas.ms.script' // Sys
  WL 'ME_4AB37BE502EA' '4AB37BE502EA.pas.ms.script' // Dict
- ) .SequenceCode.It
+ )
  ; // Depends
- : Generators
- @ (
- gen_pas.script
- gen_pas.script.runner
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\TestsSupport'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\TestsSupport'
  CONST pas.script:Path 'shared\models\NewSchool\Scripts\4F19106E00E3.pas.ms.script'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
  CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\4F19106E00E3.pas.ms.script.runner'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_4F19106E00E3 m3TetsSupport

@@ -210,8 +210,8 @@ ref; // ME_510261DC001E anIndex
  : Target ME_508EBD7703BF // TnscTasksPanelHideField
  ;
  : Attributes
-   @ ( ME_510261DC001E // anIndex
- ) .SequenceCode.It
+   Seq: ( ME_510261DC001E // anIndex
+ )
  ; // Attributes
  CONST "pm" true
 
@@ -253,6 +253,7 @@ ref; // ME_510288E102AC Grid
 : ME_5551C0078056
  CONST UID '5551C0078056'
  CONST Name 'f_TasksPanel'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY 'Поле для свойства TasksPanel' ;
  CONST Visibility PrivateAccess
@@ -262,12 +263,14 @@ ref; // ME_510288E102AC Grid
  ;
  : Target WL 'ME_4992FF9A0273' '49940C8E00DA.pas.ms.script' // IvcmCustOps
  ;
+ CONST extprop:clearViaProperty 'TasksPanel'
 
 ref; // ME_5551C0078056 f_TasksPanel
 
 : ME_9918F693D322
  CONST UID '9918F693D322'
  CONST Name 'f_GroupImages'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY 'Поле для свойства GroupImages' ;
  CONST Visibility PrivateAccess
@@ -277,12 +280,14 @@ ref; // ME_5551C0078056 f_TasksPanel
  ;
  : Target WL 'ME_473DA2AF0168' '4799D29F033F.pas.ms.script' // TCustomImageList
  ;
+ CONST extprop:clearViaProperty 'GroupImages'
 
 ref; // ME_9918F693D322 f_GroupImages
 
 : ME_98E1BF95DB09
  CONST UID '98E1BF95DB09'
  CONST Name 'f_CollapseGroupImage'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY 'Поле для свойства CollapseGroupImage' ;
  CONST Visibility PrivateAccess
@@ -292,12 +297,14 @@ ref; // ME_9918F693D322 f_GroupImages
  ;
  : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
  ;
+ CONST extprop:clearViaProperty 'CollapseGroupImage'
 
 ref; // ME_98E1BF95DB09 f_CollapseGroupImage
 
 : ME_9E7A2BD91EA2
  CONST UID '9E7A2BD91EA2'
  CONST Name 'f_ExpandGroupImage'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY 'Поле для свойства ExpandGroupImage' ;
  CONST Visibility PrivateAccess
@@ -307,12 +314,14 @@ ref; // ME_98E1BF95DB09 f_CollapseGroupImage
  ;
  : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
  ;
+ CONST extprop:clearViaProperty 'ExpandGroupImage'
 
 ref; // ME_9E7A2BD91EA2 f_ExpandGroupImage
 
 : ME_FB4BBCD8CF5E
  CONST UID 'FB4BBCD8CF5E'
  CONST Name 'f_GroupColor'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY 'Поле для свойства GroupColor' ;
  CONST Visibility PrivateAccess
@@ -322,12 +331,14 @@ ref; // ME_9E7A2BD91EA2 f_ExpandGroupImage
  ;
  : Target WL 'ME_46A44A2F01C7' '55C4AEC801CA.pas.ms.script' // TColor
  ;
+ CONST extprop:clearViaProperty 'GroupColor'
 
 ref; // ME_FB4BBCD8CF5E f_GroupColor
 
 : ME_EA4C852427CB
  CONST UID 'EA4C852427CB'
  CONST Name 'f_ImageList'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY 'Поле для свойства ImageList' ;
  CONST Visibility PrivateAccess
@@ -337,12 +348,14 @@ ref; // ME_FB4BBCD8CF5E f_GroupColor
  ;
  : Target WL 'ME_473DA2AF0168' '4799D29F033F.pas.ms.script' // TCustomImageList
  ;
+ CONST extprop:clearViaProperty 'ImageList'
 
 ref; // ME_EA4C852427CB f_ImageList
 
 : ME_E2BD23C9FE6E
  CONST UID 'E2BD23C9FE6E'
  CONST Name 'f_OnOperationExecute'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY 'Поле для свойства OnOperationExecute' ;
  CONST Visibility PrivateAccess
@@ -352,12 +365,14 @@ ref; // ME_EA4C852427CB f_ImageList
  ;
  : Target WL 'ME_47881B22005A' '4AB0997B00A2.pas.ms.script' // TNotifyEvent
  ;
+ CONST extprop:clearViaProperty 'OnOperationExecute'
 
 ref; // ME_E2BD23C9FE6E f_OnOperationExecute
 
 : ME_ED43DFCAF09F
  CONST UID 'ED43DFCAF09F'
  CONST Name 'f_TabTable'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY 'Поле для свойства TabTable' ;
  CONST Visibility PrivateAccess
@@ -373,6 +388,7 @@ ref; // ME_ED43DFCAF09F f_TabTable
 : ME_E08F868CAFE5
  CONST UID 'E08F868CAFE5'
  CONST Name 'f_Grid'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY 'Поле для свойства Grid' ;
  CONST Visibility PrivateAccess
@@ -390,6 +406,7 @@ FORWARD ME_508EBB6A02D9
 : ME_01C561F5F250
  CONST UID '01C561F5F250'
  CONST Name 'DoIt'
+ CONST IsSummoned true
  CONST Class class_Operation
  %SUMMARY 'Сигнатура метода DoOperationExecute' ;
  CONST Visibility PublicAccess
@@ -410,8 +427,8 @@ ref; // ME_01C561F5F250 DoIt
  : Parent ME_508EBA08009F // TnscCustomTasksPanelView
  ;
  : Operations
-   @ ( ME_01C561F5F250 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_01C561F5F250 // DoIt
+ )
  ; // Operations
 
 ref; // ME_508EBB6A02D9 DoOperationExecute
@@ -421,6 +438,7 @@ FORWARD ME_508EBB7A001F
 : ME_2B4068B7988B
  CONST UID '2B4068B7988B'
  CONST Name 'DoIt'
+ CONST IsSummoned true
  CONST Class class_Operation
  %SUMMARY 'Сигнатура метода MakeTasksPanel' ;
  CONST Visibility PublicAccess
@@ -441,8 +459,8 @@ ref; // ME_2B4068B7988B DoIt
  : Parent ME_508EBA08009F // TnscCustomTasksPanelView
  ;
  : Operations
-   @ ( ME_2B4068B7988B // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_2B4068B7988B // DoIt
+ )
  ; // Operations
 
 ref; // ME_508EBB7A001F MakeTasksPanel
@@ -468,8 +486,8 @@ ref; // ME_508EBBBD022E aHideField
  : Parent ME_508EBBB1038A // RemoveGroup
  ;
  : Parameters
-   @ ( ME_508EBBBD022E // aHideField
- ) .SequenceCode.It
+   Seq: ( ME_508EBBBD022E // aHideField
+ )
  ; // Parameters
 
 ref; // ME_508EBBB9035D DoIt
@@ -485,8 +503,8 @@ ref; // ME_508EBBB9035D DoIt
  : Parent ME_508EBA08009F // TnscCustomTasksPanelView
  ;
  : Operations
-   @ ( ME_508EBBB9035D // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_508EBBB9035D // DoIt
+ )
  ; // Operations
 
 ref; // ME_508EBBB1038A RemoveGroup
@@ -517,8 +535,8 @@ ref; // ME_508EBBCE01D2 DoIt
  : Parent ME_508EBA08009F // TnscCustomTasksPanelView
  ;
  : Operations
-   @ ( ME_508EBBCE01D2 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_508EBBCE01D2 // DoIt
+ )
  ; // Operations
 
 ref; // ME_508EBBC80102 SortGroups
@@ -528,6 +546,7 @@ FORWARD ME_508EBC8B0298
 : ME_BC1D6841BF5C
  CONST UID 'BC1D6841BF5C'
  CONST Name 'DoIt'
+ CONST IsSummoned true
  CONST Class class_Operation
  %SUMMARY 'Сигнатура метода DefineActiveControl' ;
  CONST Visibility PublicAccess
@@ -548,8 +567,8 @@ ref; // ME_BC1D6841BF5C DoIt
  : Parent ME_508EBA08009F // TnscCustomTasksPanelView
  ;
  : Operations
-   @ ( ME_BC1D6841BF5C // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_BC1D6841BF5C // DoIt
+ )
  ; // Operations
 
 ref; // ME_508EBC8B0298 DefineActiveControl
@@ -559,6 +578,7 @@ FORWARD ME_508EBB87010C
 : ME_7F4B8064113F
  CONST UID '7F4B8064113F'
  CONST Name 'DoIt'
+ CONST IsSummoned true
  CONST Class class_Operation
  %SUMMARY 'Сигнатура метода MakeTabTable' ;
  CONST Visibility PublicAccess
@@ -579,8 +599,8 @@ ref; // ME_7F4B8064113F DoIt
  : Parent ME_508EBA08009F // TnscCustomTasksPanelView
  ;
  : Operations
-   @ ( ME_7F4B8064113F // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_7F4B8064113F // DoIt
+ )
  ; // Operations
 
 ref; // ME_508EBB87010C MakeTabTable
@@ -597,6 +617,7 @@ FORWARD ME_508EBB960031
  CONST Value false
  : ValueType WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
+ CONST extprop:pas:Value false
 
 ref; // ME_508EBBA702CD aRecalc
 
@@ -609,8 +630,8 @@ ref; // ME_508EBBA702CD aRecalc
  : Parent ME_508EBB960031 // ArrangeGrid
  ;
  : Parameters
-   @ ( ME_508EBBA702CD // aRecalc
- ) .SequenceCode.It
+   Seq: ( ME_508EBBA702CD // aRecalc
+ )
  ; // Parameters
 
 ref; // ME_508EBB9D006C DoIt
@@ -626,8 +647,8 @@ ref; // ME_508EBB9D006C DoIt
  : Parent ME_508EBA08009F // TnscCustomTasksPanelView
  ;
  : Operations
-   @ ( ME_508EBB9D006C // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_508EBB9D006C // DoIt
+ )
  ; // Operations
 
 ref; // ME_508EBB960031 ArrangeGrid
@@ -653,8 +674,8 @@ ref; // ME_508EBB2600CF aGroup
  : Parent ME_508EBB16008E // AddGroup
  ;
  : Parameters
-   @ ( ME_508EBB2600CF // aGroup
- ) .SequenceCode.It
+   Seq: ( ME_508EBB2600CF // aGroup
+ )
  ; // Parameters
 
 ref; // ME_508EBB2301F3 DoIt
@@ -670,8 +691,8 @@ ref; // ME_508EBB2301F3 DoIt
  : Parent ME_508EBA08009F // TnscCustomTasksPanelView
  ;
  : Operations
-   @ ( ME_508EBB2301F3 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_508EBB2301F3 // DoIt
+ )
  ; // Operations
 
 ref; // ME_508EBB16008E AddGroup
@@ -697,8 +718,8 @@ ref; // ME_508EBB3E0284 aSender
  : Parent ME_508EBB35000D // GrideSizeChanged
  ;
  : Parameters
-   @ ( ME_508EBB3E0284 // aSender
- ) .SequenceCode.It
+   Seq: ( ME_508EBB3E0284 // aSender
+ )
  ; // Parameters
 
 ref; // ME_508EBB3B0114 DoIt
@@ -714,8 +735,8 @@ ref; // ME_508EBB3B0114 DoIt
  : Parent ME_508EBA08009F // TnscCustomTasksPanelView
  ;
  : Operations
-   @ ( ME_508EBB3B0114 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_508EBB3B0114 // DoIt
+ )
  ; // Operations
 
 ref; // ME_508EBB35000D GrideSizeChanged
@@ -725,6 +746,7 @@ FORWARD ME_508EBB4E0337
 : ME_C7DE41E99484
  CONST UID 'C7DE41E99484'
  CONST Name 'DoIt'
+ CONST IsSummoned true
  CONST Class class_Operation
  %SUMMARY 'Сигнатура метода LockView' ;
  CONST Visibility PublicAccess
@@ -745,8 +767,8 @@ ref; // ME_C7DE41E99484 DoIt
  : Parent ME_508EBA08009F // TnscCustomTasksPanelView
  ;
  : Operations
-   @ ( ME_C7DE41E99484 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_C7DE41E99484 // DoIt
+ )
  ; // Operations
 
 ref; // ME_508EBB4E0337 LockView
@@ -756,6 +778,7 @@ FORWARD ME_508EBB5B038C
 : ME_ECEE8D0D24C9
  CONST UID 'ECEE8D0D24C9'
  CONST Name 'DoIt'
+ CONST IsSummoned true
  CONST Class class_Operation
  %SUMMARY 'Сигнатура метода UnlockView' ;
  CONST Visibility PublicAccess
@@ -776,8 +799,8 @@ ref; // ME_ECEE8D0D24C9 DoIt
  : Parent ME_508EBA08009F // TnscCustomTasksPanelView
  ;
  : Operations
-   @ ( ME_ECEE8D0D24C9 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_ECEE8D0D24C9 // DoIt
+ )
  ; // Operations
 
 ref; // ME_508EBB5B038C UnlockView
@@ -802,8 +825,8 @@ ref; // ME_508EBABD01D0 aMessage
  : Parent ME_508EBA08009F // TnscCustomTasksPanelView
  ;
  : Parameters
-   @ ( ME_508EBABD01D0 // aMessage
- ) .SequenceCode.It
+   Seq: ( ME_508EBABD01D0 // aMessage
+ )
  ; // Parameters
  CONST "Message ID" 'WM_ERASEBKGND'
 
@@ -812,6 +835,7 @@ ref; // ME_508EBAB102AA WMEraseBkGnd
 : ME_7DC59DAAEE61
  CONST UID '7DC59DAAEE61'
  CONST Name 'Ini_Reg_Class'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Регистрация TnscCustomTasksPanelView' ;
@@ -825,6 +849,7 @@ ref; // ME_7DC59DAAEE61 Ini_Reg_Class
 
 : ME_3619B053E4E4
  CONST UID '3619B053E4E4'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_508EBA08009F // TnscCustomTasksPanelView
@@ -841,6 +866,7 @@ ref; // ME_3619B053E4E4
  ;
  : Implementor ME_508EBA08009F // TnscCustomTasksPanelView
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_467D2CB10135_ME_508EBA08009F StyleTableChanged
 
 : ME_46A4504B03C4_ME_508EBA08009F
@@ -850,6 +876,7 @@ ref; // ME_467D2CB10135_ME_508EBA08009F StyleTableChanged
  ;
  : Implementor ME_508EBA08009F // TnscCustomTasksPanelView
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_46A4504B03C4_ME_508EBA08009F Notify
 
 : ME_46A450C703AE_ME_508EBA08009F
@@ -859,6 +886,7 @@ ref; // ME_46A4504B03C4_ME_508EBA08009F Notify
  ;
  : Implementor ME_508EBA08009F // TnscCustomTasksPanelView
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_46A450C703AE_ME_508EBA08009F TaskPanelNotify
 
 : ME_479731C50290_ME_508EBA08009F
@@ -868,6 +896,7 @@ ref; // ME_46A450C703AE_ME_508EBA08009F TaskPanelNotify
  ;
  : Implementor ME_508EBA08009F // TnscCustomTasksPanelView
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_479731C50290_ME_508EBA08009F Cleanup
 
 : ME_47D1602000C6_ME_508EBA08009F
@@ -877,6 +906,7 @@ ref; // ME_479731C50290_ME_508EBA08009F Cleanup
  ;
  : Implementor ME_508EBA08009F // TnscCustomTasksPanelView
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_47D1602000C6_ME_508EBA08009F Create
 
 : ME_48C6C044025E_ME_508EBA08009F
@@ -886,6 +916,7 @@ ref; // ME_47D1602000C6_ME_508EBA08009F Create
  ;
  : Implementor ME_508EBA08009F // TnscCustomTasksPanelView
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_48C6C044025E_ME_508EBA08009F Paint
 
 : ME_4CC8417A0288_ME_508EBA08009F
@@ -895,6 +926,7 @@ ref; // ME_48C6C044025E_ME_508EBA08009F Paint
  ;
  : Implementor ME_508EBA08009F // TnscCustomTasksPanelView
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4CC8417A0288_ME_508EBA08009F Resize
 
 : ME_5000565C019C_ME_508EBA08009F
@@ -904,6 +936,7 @@ ref; // ME_4CC8417A0288_ME_508EBA08009F Resize
  ;
  : Implementor ME_508EBA08009F // TnscCustomTasksPanelView
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_5000565C019C_ME_508EBA08009F ClearFields
 
 : ME_508EBA08009F
@@ -917,17 +950,17 @@ ref; // ME_5000565C019C_ME_508EBA08009F ClearFields
  : Parent ME_4D3424C203C2 // TnscTasksPanelView
  ;
  : Inherits
-   @ ( WL 'ME_467BA96E003C' '467BA8C8017E.pas.ms.script' // TafwControl
- ) .SequenceCode.It
+   Seq: ( WL 'ME_467BA96E003C' '467BA8C8017E.pas.ms.script' // TafwControl
+ )
  ; // Inherits
  : Implements
-   @ ( WL 'ME_467D2C8F0172' '467823B7002C.pas.ms.script' // IafwStyleTableSpy
+   Seq: ( WL 'ME_467D2C8F0172' '467823B7002C.pas.ms.script' // IafwStyleTableSpy
  WL 'ME_4680CF1A0364' '4677FBA70343.pas.ms.script' // Il3ItemNotifyRecipient
  WL 'ME_46A450A102C3' '49940C8E00DA.pas.ms.script' // IvcmTaskPanelNotifyRecipient
- ) .SequenceCode.It
+ )
  ; // Implements
  : Attributes
-   @ ( ME_508EB28F03DA // TasksPanel
+   Seq: ( ME_508EB28F03DA // TasksPanel
  ME_508EB30E0238 // GroupImages
  ME_508EB3370349 // CollapseGroupImage
  ME_508EB34A0109 // ExpandGroupImage
@@ -949,10 +982,10 @@ ref; // ME_5000565C019C_ME_508EBA08009F ClearFields
  ME_E2BD23C9FE6E // f_OnOperationExecute
  ME_ED43DFCAF09F // f_TabTable
  ME_E08F868CAFE5 // f_Grid
- ) .SequenceCode.It
+ )
  ; // Attributes
  : Operations
-   @ ( ME_508EBB6A02D9 // DoOperationExecute
+   Seq: ( ME_508EBB6A02D9 // DoOperationExecute
  ME_508EBB7A001F // MakeTasksPanel
  ME_508EBBB1038A // RemoveGroup
  ME_508EBBC80102 // SortGroups
@@ -965,35 +998,41 @@ ref; // ME_5000565C019C_ME_508EBA08009F ClearFields
  ME_508EBB5B038C // UnlockView
  ME_508EBAB102AA // WMEraseBkGnd
  ME_7DC59DAAEE61 // Ini_Reg_Class
- ) .SequenceCode.It
+ )
  ; // Operations
  : Implemented
-   @ ( ME_467D2CB10135_ME_508EBA08009F // StyleTableChanged
+   Seq: ( ME_467D2CB10135_ME_508EBA08009F // StyleTableChanged
  ME_46A4504B03C4_ME_508EBA08009F // Notify
  ME_46A450C703AE_ME_508EBA08009F // TaskPanelNotify
- ) .SequenceCode.It
+ )
  ; // Implemented
  : Overridden
-   @ ( ME_479731C50290_ME_508EBA08009F // Cleanup
+   Seq: ( ME_479731C50290_ME_508EBA08009F // Cleanup
  ME_47D1602000C6_ME_508EBA08009F // Create
  ME_48C6C044025E_ME_508EBA08009F // Paint
  ME_4CC8417A0288_ME_508EBA08009F // Resize
  ME_5000565C019C_ME_508EBA08009F // ClearFields
- ) .SequenceCode.It
+ )
  ; // Overridden
  : Dependencies
-   @ ( ME_3619B053E4E4 // 
- ) .SequenceCode.It
+   Seq: ( ME_3619B053E4E4 // 
+ )
  ; // Dependencies
  : Forwarded
-   @ ( ME_508EBD7703BF // TnscTasksPanelHideField
- ) .SequenceCode.It
+   Seq: ( ME_508EBD7703BF // TnscTasksPanelHideField
+ )
  ; // Forwarded
  CONST "base wnd class" 'CWnd'
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" true
+ CONST dfm:PathOnly '\common\components\gui\Garant\Nemesis'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Nemesis'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'TasksPanelView'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_508EBA08009F TnscCustomTasksPanelView
 
@@ -1012,6 +1051,7 @@ FORWARD ME_508EBCED008B
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value 5
 
 ref; // ME_508EBD0001C8 c_CaptionIndent
 
@@ -1028,6 +1068,7 @@ ref; // ME_508EBD0001C8 c_CaptionIndent
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value 5
 
 ref; // ME_508EBD0C017E c_TopClientIndent
 
@@ -1042,11 +1083,15 @@ ref; // ME_508EBD0C017E c_TopClientIndent
  : Parent ME_508EBD7703BF // TnscTasksPanelHideField
  ;
  : Attributes
-   @ ( ME_508EBD0001C8 // c_CaptionIndent
+   Seq: ( ME_508EBD0001C8 // c_CaptionIndent
  ME_508EBD0C017E // c_TopClientIndent
- ) .SequenceCode.It
+ )
  ; // Attributes
  CONST "spell names" false
+ CONST dfm:PathOnly '\common\components\gui\Garant\Nemesis'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Nemesis'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_508EBCED008B Константы настройки скрываемого поля.
 
@@ -1212,6 +1257,7 @@ ref; // ME_508F878A00C1 f_HeaderSpeedButton
 : ME_444ED0ACADA5
  CONST UID '444ED0ACADA5'
  CONST Name 'f_Group'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY 'Поле для свойства Group' ;
  CONST Visibility PrivateAccess
@@ -1221,12 +1267,14 @@ ref; // ME_508F878A00C1 f_HeaderSpeedButton
  ;
  : Target WL 'ME_4992FD1902A5' '49940C8E00DA.pas.ms.script' // IvcmCustOpsGroup
  ;
+ CONST extprop:clearViaProperty 'Group'
 
 ref; // ME_444ED0ACADA5 f_Group
 
 : ME_743E02CA71C3
  CONST UID '743E02CA71C3'
  CONST Name 'f_View'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY 'Поле для свойства View' ;
  CONST Visibility PrivateAccess
@@ -1236,12 +1284,14 @@ ref; // ME_444ED0ACADA5 f_Group
  ;
  : Target ME_508EBA08009F // TnscCustomTasksPanelView
  ;
+ CONST extprop:clearViaProperty 'View'
 
 ref; // ME_743E02CA71C3 f_View
 
 : ME_95EB860F8533
  CONST UID '95EB860F8533'
  CONST Name 'f_TasksPanel'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY 'Поле для свойства TasksPanel' ;
  CONST Visibility PrivateAccess
@@ -1251,6 +1301,7 @@ ref; // ME_743E02CA71C3 f_View
  ;
  : Target WL 'ME_4992FF9A0273' '49940C8E00DA.pas.ms.script' // IvcmCustOps
  ;
+ CONST extprop:clearViaProperty 'TasksPanel'
 
 ref; // ME_95EB860F8533 f_TasksPanel
 
@@ -1259,6 +1310,7 @@ FORWARD ME_508F860C0236
 : ME_AF8981956C6B
  CONST UID 'AF8981956C6B'
  CONST Name 'DoIt'
+ CONST IsSummoned true
  CONST Class class_Operation
  %SUMMARY 'Сигнатура метода RefreshContent' ;
  CONST Visibility PublicAccess
@@ -1279,8 +1331,8 @@ ref; // ME_AF8981956C6B DoIt
  : Parent ME_508EBD7703BF // TnscTasksPanelHideField
  ;
  : Operations
-   @ ( ME_AF8981956C6B // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_AF8981956C6B // DoIt
+ )
  ; // Operations
  CONST "ifdef" 'HideFieldVgSceneStyle'
 
@@ -1291,6 +1343,7 @@ FORWARD ME_508F861E00EF
 : ME_84066F4ED0AD
  CONST UID '84066F4ED0AD'
  CONST Name 'DoIt'
+ CONST IsSummoned true
  CONST Class class_Operation
  %SUMMARY 'Сигнатура метода SetBitmapButton' ;
  CONST Visibility PublicAccess
@@ -1311,8 +1364,8 @@ ref; // ME_84066F4ED0AD DoIt
  : Parent ME_508EBD7703BF // TnscTasksPanelHideField
  ;
  : Operations
-   @ ( ME_84066F4ED0AD // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_84066F4ED0AD // DoIt
+ )
  ; // Operations
  CONST "ifdef" 'HideFieldVgSceneStyle'
 
@@ -1339,8 +1392,8 @@ ref; // ME_508F863500DE aSender
  : Parent ME_508F862C0013 // DoOnClick
  ;
  : Parameters
-   @ ( ME_508F863500DE // aSender
- ) .SequenceCode.It
+   Seq: ( ME_508F863500DE // aSender
+ )
  ; // Parameters
 
 ref; // ME_508F863200A6 DoIt
@@ -1356,8 +1409,8 @@ ref; // ME_508F863200A6 DoIt
  : Parent ME_508EBD7703BF // TnscTasksPanelHideField
  ;
  : Operations
-   @ ( ME_508F863200A6 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_508F863200A6 // DoIt
+ )
  ; // Operations
  CONST "ifdef" 'HideFieldVgSceneStyle'
 
@@ -1389,8 +1442,8 @@ ref; // ME_508F91980081 DoIt
  : Parent ME_508EBD7703BF // TnscTasksPanelHideField
  ;
  : Operations
-   @ ( ME_508F91980081 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_508F91980081 // DoIt
+ )
  ; // Operations
 
 ref; // ME_508F91900101 MakeSettingFromTasksPanel
@@ -1416,8 +1469,8 @@ ref; // ME_508F91B502D2 aSubscribe
  : Parent ME_508F91A5032C // Subscribe
  ;
  : Parameters
-   @ ( ME_508F91B502D2 // aSubscribe
- ) .SequenceCode.It
+   Seq: ( ME_508F91B502D2 // aSubscribe
+ )
  ; // Parameters
 
 ref; // ME_508F91AD018B DoIt
@@ -1433,8 +1486,8 @@ ref; // ME_508F91AD018B DoIt
  : Parent ME_508EBD7703BF // TnscTasksPanelHideField
  ;
  : Operations
-   @ ( ME_508F91AD018B // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_508F91AD018B // DoIt
+ )
  ; // Operations
 
 ref; // ME_508F91A5032C Subscribe
@@ -1444,6 +1497,7 @@ FORWARD ME_508F91D100B8
 : ME_F4D3A26A30E8
  CONST UID 'F4D3A26A30E8'
  CONST Name 'DoIt'
+ CONST IsSummoned true
  CONST Class class_Operation
  %SUMMARY 'Сигнатура метода UpdateCaption' ;
  CONST Visibility PublicAccess
@@ -1464,8 +1518,8 @@ ref; // ME_F4D3A26A30E8 DoIt
  : Parent ME_508EBD7703BF // TnscTasksPanelHideField
  ;
  : Operations
-   @ ( ME_F4D3A26A30E8 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_F4D3A26A30E8 // DoIt
+ )
  ; // Operations
 
 ref; // ME_508F91D100B8 UpdateCaption
@@ -1501,9 +1555,9 @@ ref; // ME_508F96C800D7 aGroup
  : Parent ME_508F96B20262 // Create
  ;
  : Parameters
-   @ ( ME_508F96C800BA // AOwner
+   Seq: ( ME_508F96C800BA // AOwner
  ME_508F96C800D7 // aGroup
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_508F96C4029D DoIt
@@ -1519,8 +1573,8 @@ ref; // ME_508F96C4029D DoIt
  : Parent ME_508EBD7703BF // TnscTasksPanelHideField
  ;
  : Operations
-   @ ( ME_508F96C4029D // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_508F96C4029D // DoIt
+ )
  ; // Operations
 
 ref; // ME_508F96B20262 Create
@@ -1545,8 +1599,8 @@ ref; // ME_5492D72002D3 aMsg
  : Parent ME_508EBD7703BF // TnscTasksPanelHideField
  ;
  : Parameters
-   @ ( ME_5492D72002D3 // aMsg
- ) .SequenceCode.It
+   Seq: ( ME_5492D72002D3 // aMsg
+ )
  ; // Parameters
  CONST "Message ID" 'afw_CM_TEXTCHANGED'
 
@@ -1555,6 +1609,7 @@ ref; // ME_5492D70402F7 AFWCMTextChanged
 : ME_204D55856420
  CONST UID '204D55856420'
  CONST Name 'Ini_Reg_Class'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Регистрация TnscTasksPanelHideField' ;
@@ -1678,6 +1733,7 @@ ref; // ME_508FF75401FD
 
 : ME_481E49C4BDED
  CONST UID '481E49C4BDED'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_508EBD7703BF // TnscTasksPanelHideField
@@ -1694,6 +1750,7 @@ ref; // ME_481E49C4BDED
  ;
  : Implementor ME_508EBD7703BF // TnscTasksPanelHideField
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_46A4504B03C4_ME_508EBD7703BF Notify
 
 : ME_479731C50290_ME_508EBD7703BF
@@ -1703,6 +1760,7 @@ ref; // ME_46A4504B03C4_ME_508EBD7703BF Notify
  ;
  : Implementor ME_508EBD7703BF // TnscTasksPanelHideField
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_479731C50290_ME_508EBD7703BF Cleanup
 
 : ME_48C6C044025E_ME_508EBD7703BF
@@ -1712,6 +1770,7 @@ ref; // ME_479731C50290_ME_508EBD7703BF Cleanup
  ;
  : Implementor ME_508EBD7703BF // TnscTasksPanelHideField
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_48C6C044025E_ME_508EBD7703BF Paint
 
 : ME_4A97E78202FC_ME_508EBD7703BF
@@ -1721,6 +1780,7 @@ ref; // ME_48C6C044025E_ME_508EBD7703BF Paint
  ;
  : Implementor ME_508EBD7703BF // TnscTasksPanelHideField
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4A97E78202FC_ME_508EBD7703BF SetParent
 
 : ME_4CC8417A0288_ME_508EBD7703BF
@@ -1730,6 +1790,7 @@ ref; // ME_4A97E78202FC_ME_508EBD7703BF SetParent
  ;
  : Implementor ME_508EBD7703BF // TnscTasksPanelHideField
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4CC8417A0288_ME_508EBD7703BF Resize
 
 : ME_5000565C019C_ME_508EBD7703BF
@@ -1739,6 +1800,7 @@ ref; // ME_4CC8417A0288_ME_508EBD7703BF Resize
  ;
  : Implementor ME_508EBD7703BF // TnscTasksPanelHideField
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_5000565C019C_ME_508EBD7703BF ClearFields
 
 : ME_508F957E0283_ME_508EBD7703BF
@@ -1748,6 +1810,7 @@ ref; // ME_5000565C019C_ME_508EBD7703BF ClearFields
  ;
  : Implementor ME_508EBD7703BF // TnscTasksPanelHideField
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_508F957E0283_ME_508EBD7703BF AdjustClientRect
 
 : ME_508F96700139_ME_508EBD7703BF
@@ -1757,6 +1820,7 @@ ref; // ME_508F957E0283_ME_508EBD7703BF AdjustClientRect
  ;
  : Implementor ME_508EBD7703BF // TnscTasksPanelHideField
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_508F96700139_ME_508EBD7703BF DoStateChanged
 
 : ME_51124356016F_ME_508EBD7703BF
@@ -1766,6 +1830,7 @@ ref; // ME_508F96700139_ME_508EBD7703BF DoStateChanged
  ;
  : Implementor ME_508EBD7703BF // TnscTasksPanelHideField
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_51124356016F_ME_508EBD7703BF DoStyleTableChanged
 
 : ME_5295F76F02C5_ME_508EBD7703BF
@@ -1775,6 +1840,7 @@ ref; // ME_51124356016F_ME_508EBD7703BF DoStyleTableChanged
  ;
  : Implementor ME_508EBD7703BF // TnscTasksPanelHideField
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_5295F76F02C5_ME_508EBD7703BF HideControl
 
 : ME_508EBD7703BF
@@ -1788,15 +1854,15 @@ ref; // ME_5295F76F02C5_ME_508EBD7703BF HideControl
  : Parent ME_4D3424C203C2 // TnscTasksPanelView
  ;
  : Inherits
-   @ ( WL 'ME_4AC9C67300A2' '4AC9B14A02E3.pas.ms.script' // TnscHideField
- ) .SequenceCode.It
+   Seq: ( WL 'ME_4AC9C67300A2' '4AC9B14A02E3.pas.ms.script' // TnscHideField
+ )
  ; // Inherits
  : Implements
-   @ ( WL 'ME_4680CF1A0364' '4677FBA70343.pas.ms.script' // Il3ItemNotifyRecipient
- ) .SequenceCode.It
+   Seq: ( WL 'ME_4680CF1A0364' '4677FBA70343.pas.ms.script' // Il3ItemNotifyRecipient
+ )
  ; // Implements
  : Attributes
-   @ ( ME_508F852D0128 // Group
+   Seq: ( ME_508F852D0128 // Group
  ME_508F85410324 // View
  ME_508F854F035E // TasksPanel
  ME_508F872B0134 // f_HeaderScene
@@ -1809,10 +1875,10 @@ ref; // ME_5295F76F02C5_ME_508EBD7703BF HideControl
  ME_444ED0ACADA5 // f_Group
  ME_743E02CA71C3 // f_View
  ME_95EB860F8533 // f_TasksPanel
- ) .SequenceCode.It
+ )
  ; // Attributes
  : Operations
-   @ ( ME_508F860C0236 // RefreshContent
+   Seq: ( ME_508F860C0236 // RefreshContent
  ME_508F861E00EF // SetBitmapButton
  ME_508F862C0013 // DoOnClick
  ME_508F91900101 // MakeSettingFromTasksPanel
@@ -1821,14 +1887,14 @@ ref; // ME_5295F76F02C5_ME_508EBD7703BF HideControl
  ME_508F96B20262 // Create
  ME_5492D70402F7 // AFWCMTextChanged
  ME_204D55856420 // Ini_Reg_Class
- ) .SequenceCode.It
+ )
  ; // Operations
  : Implemented
-   @ ( ME_46A4504B03C4_ME_508EBD7703BF // Notify
- ) .SequenceCode.It
+   Seq: ( ME_46A4504B03C4_ME_508EBD7703BF // Notify
+ )
  ; // Implemented
  : Overridden
-   @ ( ME_479731C50290_ME_508EBD7703BF // Cleanup
+   Seq: ( ME_479731C50290_ME_508EBD7703BF // Cleanup
  ME_48C6C044025E_ME_508EBD7703BF // Paint
  ME_4A97E78202FC_ME_508EBD7703BF // SetParent
  ME_4CC8417A0288_ME_508EBD7703BF // Resize
@@ -1837,14 +1903,14 @@ ref; // ME_5295F76F02C5_ME_508EBD7703BF HideControl
  ME_508F96700139_ME_508EBD7703BF // DoStateChanged
  ME_51124356016F_ME_508EBD7703BF // DoStyleTableChanged
  ME_5295F76F02C5_ME_508EBD7703BF // HideControl
- ) .SequenceCode.It
+ )
  ; // Overridden
  : Constants
-   @ ( ME_508EBCED008B // Константы настройки скрываемого поля.
- ) .SequenceCode.It
+   Seq: ( ME_508EBCED008B // Константы настройки скрываемого поля.
+ )
  ; // Constants
  : Dependencies
-   @ ( ME_508FEDFD0084 // 
+   Seq: ( ME_508FEDFD0084 // 
  ME_508FEE930017 // 
  ME_508FF0850294 // 
  ME_508FF11702E7 // 
@@ -1855,13 +1921,19 @@ ref; // ME_5295F76F02C5_ME_508EBD7703BF HideControl
  ME_508FF683036D // 
  ME_508FF75401FD // 
  ME_481E49C4BDED // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  CONST "base wnd class" 'CWnd'
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" true
+ CONST dfm:PathOnly '\common\components\gui\Garant\Nemesis'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Nemesis'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'TasksPanelHideField'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_508EBD7703BF TnscTasksPanelHideField
 
@@ -1882,6 +1954,7 @@ FORWARD ME_508EBD25030E
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value 10
 
 ref; // ME_508EBD320026 c_ItemIndent
 
@@ -1898,6 +1971,7 @@ ref; // ME_508EBD320026 c_ItemIndent
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value 6
 
 ref; // ME_508EBD3A030E c_RowIndent
 
@@ -1912,11 +1986,15 @@ ref; // ME_508EBD3A030E c_RowIndent
  : Parent ME_508EBD870312 // TnscTasksPanelTreeView
  ;
  : Attributes
-   @ ( ME_508EBD320026 // c_ItemIndent
+   Seq: ( ME_508EBD320026 // c_ItemIndent
  ME_508EBD3A030E // c_RowIndent
- ) .SequenceCode.It
+ )
  ; // Attributes
  CONST "spell names" false
+ CONST dfm:PathOnly '\common\components\gui\Garant\Nemesis'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Nemesis'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_508EBD25030E Константы настройки компонента дерева.
 
@@ -1990,6 +2068,7 @@ ref; // ME_508F7E570254 f_CursorItem
 : ME_0E0E8867823E
  CONST UID '0E0E8867823E'
  CONST Name 'f_Group'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY 'Поле для свойства Group' ;
  CONST Visibility PrivateAccess
@@ -1999,12 +2078,14 @@ ref; // ME_508F7E570254 f_CursorItem
  ;
  : Target WL 'ME_4992FD1902A5' '49940C8E00DA.pas.ms.script' // IvcmCustOpsGroup
  ;
+ CONST extprop:clearViaProperty 'Group'
 
 ref; // ME_0E0E8867823E f_Group
 
 : ME_276CCEB4D995
  CONST UID '276CCEB4D995'
  CONST Name 'f_PopupMenu'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY 'Поле для свойства PopupMenu' ;
  CONST Visibility PrivateAccess
@@ -2020,6 +2101,7 @@ ref; // ME_276CCEB4D995 f_PopupMenu
 : ME_A14D717E6533
  CONST UID 'A14D717E6533'
  CONST Name 'f_View'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY 'Поле для свойства View' ;
  CONST Visibility PrivateAccess
@@ -2029,6 +2111,7 @@ ref; // ME_276CCEB4D995 f_PopupMenu
  ;
  : Target ME_508EBA08009F // TnscCustomTasksPanelView
  ;
+ CONST extprop:clearViaProperty 'View'
 
 ref; // ME_A14D717E6533 f_View
 
@@ -2053,8 +2136,8 @@ ref; // ME_508F7E7A034F aOp
  : Parent ME_508F7E6E004B // AddOp
  ;
  : Parameters
-   @ ( ME_508F7E7A034F // aOp
- ) .SequenceCode.It
+   Seq: ( ME_508F7E7A034F // aOp
+ )
  ; // Parameters
 
 ref; // ME_508F7E77025C DoIt
@@ -2070,8 +2153,8 @@ ref; // ME_508F7E77025C DoIt
  : Parent ME_508EBD870312 // TnscTasksPanelTreeView
  ;
  : Operations
-   @ ( ME_508F7E77025C // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_508F7E77025C // DoIt
+ )
  ; // Operations
 
 ref; // ME_508F7E6E004B AddOp
@@ -2081,6 +2164,7 @@ FORWARD ME_508F7E8400C4
 : ME_EE1AC02B9E1B
  CONST UID 'EE1AC02B9E1B'
  CONST Name 'DoIt'
+ CONST IsSummoned true
  CONST Class class_Operation
  %SUMMARY 'Сигнатура метода AddOps' ;
  CONST Visibility PublicAccess
@@ -2101,8 +2185,8 @@ ref; // ME_EE1AC02B9E1B DoIt
  : Parent ME_508EBD870312 // TnscTasksPanelTreeView
  ;
  : Operations
-   @ ( ME_EE1AC02B9E1B // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_EE1AC02B9E1B // DoIt
+ )
  ; // Operations
 
 ref; // ME_508F7E8400C4 AddOps
@@ -2112,6 +2196,7 @@ FORWARD ME_508F7E930197
 : ME_F2BFC14FAF3F
  CONST UID 'F2BFC14FAF3F'
  CONST Name 'DoIt'
+ CONST IsSummoned true
  CONST Class class_Operation
  %SUMMARY 'Сигнатура метода SortChilds' ;
  CONST Visibility PublicAccess
@@ -2132,8 +2217,8 @@ ref; // ME_F2BFC14FAF3F DoIt
  : Parent ME_508EBD870312 // TnscTasksPanelTreeView
  ;
  : Operations
-   @ ( ME_F2BFC14FAF3F // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_F2BFC14FAF3F // DoIt
+ )
  ; // Operations
 
 ref; // ME_508F7E930197 SortChilds
@@ -2161,8 +2246,8 @@ ref; // ME_508F7EB80167 aItemIndex
  : Target WL 'ME_47E7626B0083' '4799D29F033F.pas.ms.script' // TCustomAction
  ;
  : Parameters
-   @ ( ME_508F7EB80167 // aItemIndex
- ) .SequenceCode.It
+   Seq: ( ME_508F7EB80167 // aItemIndex
+ )
  ; // Parameters
 
 ref; // ME_508F7EAB0108 DoIt
@@ -2178,8 +2263,8 @@ ref; // ME_508F7EAB0108 DoIt
  : Parent ME_508EBD870312 // TnscTasksPanelTreeView
  ;
  : Operations
-   @ ( ME_508F7EAB0108 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_508F7EAB0108 // DoIt
+ )
  ; // Operations
 
 ref; // ME_508F7EA501A1 ItemAction
@@ -2217,9 +2302,9 @@ ref; // ME_508F7FFD026E aIndex
  : Target WL 'ME_4E788E98006B' '4799D29F033F.pas.ms.script' // TCursor
  ;
  : Parameters
-   @ ( ME_508F7FFD0254 // aSender
+   Seq: ( ME_508F7FFD0254 // aSender
  ME_508F7FFD026E // aIndex
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_508F7FF8025D DoIt
@@ -2235,8 +2320,8 @@ ref; // ME_508F7FF8025D DoIt
  : Parent ME_508EBD870312 // TnscTasksPanelTreeView
  ;
  : Operations
-   @ ( ME_508F7FF8025D // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_508F7FF8025D // DoIt
+ )
  ; // Operations
 
 ref; // ME_508F7FED005E DoOnGetCursor
@@ -2272,9 +2357,9 @@ ref; // ME_509132750076 aGroup
  : Parent ME_50913263038F // Create
  ;
  : Parameters
-   @ ( ME_509132750056 // AOwner
+   Seq: ( ME_509132750056 // AOwner
  ME_509132750076 // aGroup
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_5091326C0210 DoIt
@@ -2290,8 +2375,8 @@ ref; // ME_5091326C0210 DoIt
  : Parent ME_508EBD870312 // TnscTasksPanelTreeView
  ;
  : Operations
-   @ ( ME_5091326C0210 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_5091326C0210 // DoIt
+ )
  ; // Operations
 
 ref; // ME_50913263038F Create
@@ -2299,6 +2384,7 @@ ref; // ME_50913263038F Create
 : ME_5CC684109D71
  CONST UID '5CC684109D71'
  CONST Name 'Ini_Reg_Class'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Регистрация TnscTasksPanelTreeView' ;
@@ -2573,6 +2659,7 @@ ref; // ME_515DA5D60249
 
 : ME_4AAABF0041EB
  CONST UID '4AAABF0041EB'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_508EBD870312 // TnscTasksPanelTreeView
@@ -2589,6 +2676,7 @@ ref; // ME_4AAABF0041EB
  ;
  : Implementor ME_508EBD870312 // TnscTasksPanelTreeView
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_46A450C703AE_ME_508EBD870312 TaskPanelNotify
 
 : ME_479731C50290_ME_508EBD870312
@@ -2598,6 +2686,7 @@ ref; // ME_46A450C703AE_ME_508EBD870312 TaskPanelNotify
  ;
  : Implementor ME_508EBD870312 // TnscTasksPanelTreeView
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_479731C50290_ME_508EBD870312 Cleanup
 
 : ME_4F71E1460089_ME_508EBD870312
@@ -2607,6 +2696,7 @@ ref; // ME_479731C50290_ME_508EBD870312 Cleanup
  ;
  : Implementor ME_508EBD870312 // TnscTasksPanelTreeView
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4F71E1460089_ME_508EBD870312 SetParent
 
 : ME_4F884F39020F_ME_508EBD870312
@@ -2616,6 +2706,7 @@ ref; // ME_4F71E1460089_ME_508EBD870312 SetParent
  ;
  : Implementor ME_508EBD870312 // TnscTasksPanelTreeView
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4F884F39020F_ME_508EBD870312 InitiateAction
 
 : ME_5000565C019C_ME_508EBD870312
@@ -2625,6 +2716,7 @@ ref; // ME_4F884F39020F_ME_508EBD870312 InitiateAction
  ;
  : Implementor ME_508EBD870312 // TnscTasksPanelTreeView
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_5000565C019C_ME_508EBD870312 ClearFields
 
 : ME_508F7F930094_ME_508EBD870312
@@ -2634,6 +2726,7 @@ ref; // ME_5000565C019C_ME_508EBD870312 ClearFields
  ;
  : Implementor ME_508EBD870312 // TnscTasksPanelTreeView
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_508F7F930094_ME_508EBD870312 DoIsCommandPublished
 
 : ME_508F81110075_ME_508EBD870312
@@ -2643,6 +2736,7 @@ ref; // ME_508F7F930094_ME_508EBD870312 DoIsCommandPublished
  ;
  : Implementor ME_508EBD870312 // TnscTasksPanelTreeView
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_508F81110075_ME_508EBD870312 DoOnGetItemImageIndex
 
 : ME_508F81C1004D_ME_508EBD870312
@@ -2652,6 +2746,7 @@ ref; // ME_508F81110075_ME_508EBD870312 DoOnGetItemImageIndex
  ;
  : Implementor ME_508EBD870312 // TnscTasksPanelTreeView
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_508F81C1004D_ME_508EBD870312 DoOnActionElement
 
 : ME_508F825303E4_ME_508EBD870312
@@ -2661,6 +2756,7 @@ ref; // ME_508F81C1004D_ME_508EBD870312 DoOnActionElement
  ;
  : Implementor ME_508EBD870312 // TnscTasksPanelTreeView
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_508F825303E4_ME_508EBD870312 DoOnGetItemStyle
 
 : ME_508F83890058_ME_508EBD870312
@@ -2670,6 +2766,7 @@ ref; // ME_508F825303E4_ME_508EBD870312 DoOnGetItemStyle
  ;
  : Implementor ME_508EBD870312 // TnscTasksPanelTreeView
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_508F83890058_ME_508EBD870312 DoOnGetItemImageState
 
 : ME_508EBD870312
@@ -2683,39 +2780,39 @@ ref; // ME_508F83890058_ME_508EBD870312 DoOnGetItemImageState
  : Parent ME_4D3424C203C2 // TnscTasksPanelView
  ;
  : Inherits
-   @ ( WL 'ME_499C26240034' '499C2614028C.pas.ms.script' // TnscTreeView
- ) .SequenceCode.It
+   Seq: ( WL 'ME_499C26240034' '499C2614028C.pas.ms.script' // TnscTreeView
+ )
  ; // Inherits
  : Implements
-   @ ( WL 'ME_46A450A102C3' '49940C8E00DA.pas.ms.script' // IvcmTaskPanelNotifyRecipient
- ) .SequenceCode.It
+   Seq: ( WL 'ME_46A450A102C3' '49940C8E00DA.pas.ms.script' // IvcmTaskPanelNotifyRecipient
+ )
  ; // Implements
  : Attributes
-   @ ( ME_508F7DB303BA // Group
+   Seq: ( ME_508F7DB303BA // Group
  ME_508F7DD70004 // PopupMenu
  ME_508F7E01009A // View
  ME_508F7E570254 // f_CursorItem
  ME_0E0E8867823E // f_Group
  ME_276CCEB4D995 // f_PopupMenu
  ME_A14D717E6533 // f_View
- ) .SequenceCode.It
+ )
  ; // Attributes
  : Operations
-   @ ( ME_508F7E6E004B // AddOp
+   Seq: ( ME_508F7E6E004B // AddOp
  ME_508F7E8400C4 // AddOps
  ME_508F7E930197 // SortChilds
  ME_508F7EA501A1 // ItemAction
  ME_508F7FED005E // DoOnGetCursor
  ME_50913263038F // Create
  ME_5CC684109D71 // Ini_Reg_Class
- ) .SequenceCode.It
+ )
  ; // Operations
  : Implemented
-   @ ( ME_46A450C703AE_ME_508EBD870312 // TaskPanelNotify
- ) .SequenceCode.It
+   Seq: ( ME_46A450C703AE_ME_508EBD870312 // TaskPanelNotify
+ )
  ; // Implemented
  : Overridden
-   @ ( ME_479731C50290_ME_508EBD870312 // Cleanup
+   Seq: ( ME_479731C50290_ME_508EBD870312 // Cleanup
  ME_4F71E1460089_ME_508EBD870312 // SetParent
  ME_4F884F39020F_ME_508EBD870312 // InitiateAction
  ME_5000565C019C_ME_508EBD870312 // ClearFields
@@ -2724,14 +2821,14 @@ ref; // ME_508F83890058_ME_508EBD870312 DoOnGetItemImageState
  ME_508F81C1004D_ME_508EBD870312 // DoOnActionElement
  ME_508F825303E4_ME_508EBD870312 // DoOnGetItemStyle
  ME_508F83890058_ME_508EBD870312 // DoOnGetItemImageState
- ) .SequenceCode.It
+ )
  ; // Overridden
  : Constants
-   @ ( ME_508EBD25030E // Константы настройки компонента дерева.
- ) .SequenceCode.It
+   Seq: ( ME_508EBD25030E // Константы настройки компонента дерева.
+ )
  ; // Constants
  : Dependencies
-   @ ( ME_508FD78303A9 // 
+   Seq: ( ME_508FD78303A9 // 
  ME_508FD7A4009F // 
  ME_508FE2740269 // 
  ME_508FE27F013B // 
@@ -2755,13 +2852,19 @@ ref; // ME_508F83890058_ME_508EBD870312 DoOnGetItemImageState
  ME_51029248013F // 
  ME_515DA5D60249 // 
  ME_4AAABF0041EB // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  CONST "base wnd class" 'CWnd'
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" true
+ CONST dfm:PathOnly '\common\components\gui\Garant\Nemesis'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Nemesis'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'TasksPanelTreeView'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_508EBD870312 TnscTasksPanelTreeView
 
@@ -2780,6 +2883,7 @@ ref; // ME_54D50DBA0137 RegisterControls
 : ME_2B0310EFD7AF
  CONST UID '2B0310EFD7AF'
  CONST Name 'Ini_Reg_Class'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Регистрация TnscTasksPanelView' ;
@@ -2991,6 +3095,7 @@ ref; // ME_54D50D8C0307
 
 : ME_8E20E1661064
  CONST UID '8E20E1661064'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_4D3424C203C2 // TnscTasksPanelView
@@ -3011,22 +3116,22 @@ ref; // ME_8E20E1661064
  : Parent ME_4D3424960025 // TasksPanel
  ;
  : Inherits
-   @ ( ME_508EBA08009F // TnscCustomTasksPanelView
- ) .SequenceCode.It
+   Seq: ( ME_508EBA08009F // TnscCustomTasksPanelView
+ )
  ; // Inherits
  : Operations
-   @ ( ME_54D50DBA0137 // RegisterControls
+   Seq: ( ME_54D50DBA0137 // RegisterControls
  ME_2B0310EFD7AF // Ini_Reg_Class
- ) .SequenceCode.It
+ )
  ; // Operations
  : Children
-   @ ( ME_508EBA08009F // TnscCustomTasksPanelView
+   Seq: ( ME_508EBA08009F // TnscCustomTasksPanelView
  ME_508EBD7703BF // TnscTasksPanelHideField
  ME_508EBD870312 // TnscTasksPanelTreeView
- ) .SequenceCode.It
+ )
  ; // Children
  : Dependencies
-   @ ( ME_508F7CF300FB // 
+   Seq: ( ME_508F7CF300FB // 
  ME_508F7CF803BE // 
  ME_508F7CFB01D2 // 
  ME_508F7CFE01A0 // 
@@ -3045,11 +3150,11 @@ ref; // ME_8E20E1661064
  ME_50913A550225 // 
  ME_54D50D8C0307 // 
  ME_8E20E1661064 // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  : Injected
-   @ ( WL 'ME_B4E85053313F' '510134290310.pas.ms.script' // 
- ) .SequenceCode.It
+   Seq: ( WL 'ME_B4E85053313F' '510134290310.pas.ms.script' // 
+ )
  ; // Injected
  CONST "author" 'Морозов М.'
  CONST "base wnd class" 'CWnd'
@@ -3058,12 +3163,14 @@ ref; // ME_8E20E1661064
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" true
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\Nemesis'
  CONST intf.pas:Path 'common\components\gui\Garant\Nemesis\nscTasksPanelView.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Nemesis'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'TaskPanel'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'nscTasksPanelView'
 
 ref; // ME_4D3424C203C2 TnscTasksPanelView
 
@@ -3130,9 +3237,9 @@ ref; // ME_4D3432BD021E aControl
  : Parent ME_4D34323402E0 // C
  ;
  : Parameters
-   @ ( ME_4D3432BD01DA // aCaption
+   Seq: ( ME_4D3432BD01DA // aCaption
  ME_4D3432BD021E // aControl
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_4D3432850346 DoIt
@@ -3148,8 +3255,8 @@ ref; // ME_4D3432850346 DoIt
  : Parent ME_4D34320903B4 // TnscTasksPanelGroupDesc
  ;
  : Operations
-   @ ( ME_4D3432850346 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_4D3432850346 // DoIt
+ )
  ; // Operations
 
 ref; // ME_4D34323402E0 C
@@ -3177,8 +3284,8 @@ ref; // ME_4D343FFE003D anOther
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
  : Parameters
-   @ ( ME_4D343FFE003D // anOther
- ) .SequenceCode.It
+   Seq: ( ME_4D343FFE003D // anOther
+ )
  ; // Parameters
 
 ref; // ME_4D343FF5020F DoIt
@@ -3205,12 +3312,12 @@ ref; // ME_4D3440F5017A
  : Parent ME_4D34320903B4 // TnscTasksPanelGroupDesc
  ;
  : Operations
-   @ ( ME_4D343FF5020F // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_4D343FF5020F // DoIt
+ )
  ; // Operations
  : Dependencies
-   @ ( ME_4D3440F5017A // 
- ) .SequenceCode.It
+   Seq: ( ME_4D3440F5017A // 
+ )
  ; // Dependencies
 
 ref; // ME_4D343FED023A EQ
@@ -3226,16 +3333,21 @@ ref; // ME_4D343FED023A EQ
  : Parent ME_4D343AFE00DD // TnscTasksPanelGroupDescList
  ;
  : Attributes
-   @ ( ME_4D343215029B // rCaption
+   Seq: ( ME_4D343215029B // rCaption
  ME_4D34321E00B0 // rControl
- ) .SequenceCode.It
+ )
  ; // Attributes
  : Operations
-   @ ( ME_4D34323402E0 // C
+   Seq: ( ME_4D34323402E0 // C
  ME_4D343FED023A // EQ
- ) .SequenceCode.It
+ )
  ; // Operations
  CONST "not treat as record for XE4" 'undefined'
+ CONST dfm:PathOnly '\common\components\gui\Garant\Nemesis'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Nemesis'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'TasksPanelGroupDesc'
 
 ref; // ME_4D34320903B4 TnscTasksPanelGroupDesc
 
@@ -3261,6 +3373,7 @@ ref; // ME_4D343B1B034C ItemType
  ;
  : Implementor ME_4D343AFE00DD // TnscTasksPanelGroupDescList
  ;
+ CONST OpKind opkind_Implemented
  CONST "ifdef" 'l3Items_NeedsAssignItem'
  CONST "ifndef" 'l3Items_NoSort'
 ref; // ME_47B2C42A0163_ME_4D343AFE00DD AssignItem
@@ -3272,6 +3385,7 @@ ref; // ME_47B2C42A0163_ME_4D343AFE00DD AssignItem
  ;
  : Implementor ME_4D343AFE00DD // TnscTasksPanelGroupDescList
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_47B99D4503A2_ME_4D343AFE00DD CompareExistingItems
 
 : ME_4D343AFE00DD
@@ -3285,22 +3399,22 @@ ref; // ME_47B99D4503A2_ME_4D343AFE00DD CompareExistingItems
  : Parent ME_4D3424960025 // TasksPanel
  ;
  : Inherits
-   @ ( WL 'ME_4A54DD4E036F' '47913B47006E.pas.ms.script' // Tl3ProtoDataContainer
+   Seq: ( WL 'ME_4A54DD4E036F' '47913B47006E.pas.ms.script' // Tl3ProtoDataContainer
  WL 'ME_4B223DB5024B' '47913B47006E.pas.ms.script' // l3RecordWithEQList
- ) .SequenceCode.It
+ )
  ; // Inherits
  : Attributes
-   @ ( ME_4D343B1B034C // ItemType
- ) .SequenceCode.It
+   Seq: ( ME_4D343B1B034C // ItemType
+ )
  ; // Attributes
  : Implemented
-   @ ( ME_47B2C42A0163_ME_4D343AFE00DD // AssignItem
+   Seq: ( ME_47B2C42A0163_ME_4D343AFE00DD // AssignItem
  ME_47B99D4503A2_ME_4D343AFE00DD // CompareExistingItems
- ) .SequenceCode.It
+ )
  ; // Implemented
  : Children
-   @ ( ME_4D34320903B4 // TnscTasksPanelGroupDesc
- ) .SequenceCode.It
+   Seq: ( ME_4D34320903B4 // TnscTasksPanelGroupDesc
+ )
  ; // Children
  CONST "author" 'Люлин А.В.'
  CONST "needs InstanceR" 'undefined'
@@ -3308,12 +3422,14 @@ ref; // ME_47B99D4503A2_ME_4D343AFE00DD CompareExistingItems
  CONST "no hands" true
  CONST "register in scripts" 'undefined'
  CONST "started" '17.01.2011 15:50'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\Nemesis'
  CONST intf.pas:Path 'common\components\gui\Garant\Nemesis\nscTasksPanelGroupDescList.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Nemesis'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'TasksPanelGroupDescList'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'nscTasksPanelGroupDescList'
 
 ref; // ME_4D343AFE00DD TnscTasksPanelGroupDescList
 
@@ -3368,8 +3484,8 @@ ref; // ME_4D343C4C0217 aGroups
  : Parent ME_4D343C3502B5 // Create
  ;
  : Parameters
-   @ ( ME_4D343C4C0217 // aGroups
- ) .SequenceCode.It
+   Seq: ( ME_4D343C4C0217 // aGroups
+ )
  ; // Parameters
 
 ref; // ME_4D343C480254 DoIt
@@ -3385,8 +3501,8 @@ ref; // ME_4D343C480254 DoIt
  : Parent ME_4D3430A7028D // TnscTasksPanelGroupsIterator
  ;
  : Operations
-   @ ( ME_4D343C480254 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_4D343C480254 // DoIt
+ )
  ; // Operations
 
 ref; // ME_4D343C3502B5 Create
@@ -3396,6 +3512,7 @@ FORWARD ME_4D343C540158
 : ME_047B25E7A19E
  CONST UID '047B25E7A19E'
  CONST Name 'aGroups'
+ CONST IsSummoned true
  CONST Class class_Parameter
  : Stereotype st_in ;
  : Target ME_4D343AFE00DD // TnscTasksPanelGroupDescList
@@ -3406,6 +3523,7 @@ ref; // ME_047B25E7A19E aGroups
 : ME_29BDC007E320
  CONST UID '29BDC007E320'
  CONST Name 'DoIt'
+ CONST IsSummoned true
  CONST Class class_Operation
  %SUMMARY 'Сигнатура фабрики TnscTasksPanelGroupsIterator.Make' ;
  CONST Visibility PrivateAccess
@@ -3415,8 +3533,8 @@ ref; // ME_047B25E7A19E aGroups
  : Target WL 'ME_4992FE7D0230' '49940C8E00DA.pas.ms.script' // IvcmCustOpsGroupsIterator
  ;
  : Parameters
-   @ ( ME_047B25E7A19E // aGroups
- ) .SequenceCode.It
+   Seq: ( ME_047B25E7A19E // aGroups
+ )
  ; // Parameters
 
 ref; // ME_29BDC007E320 DoIt
@@ -3432,16 +3550,16 @@ ref; // ME_29BDC007E320 DoIt
  : Parent ME_4D3430A7028D // TnscTasksPanelGroupsIterator
  ;
  : Inherits
-   @ ( ME_4D343C3502B5 // Create
- ) .SequenceCode.It
+   Seq: ( ME_4D343C3502B5 // Create
+ )
  ; // Inherits
  : Implements
-   @ ( WL 'ME_4992FE7D0230' '49940C8E00DA.pas.ms.script' // IvcmCustOpsGroupsIterator
- ) .SequenceCode.It
+   Seq: ( WL 'ME_4992FE7D0230' '49940C8E00DA.pas.ms.script' // IvcmCustOpsGroupsIterator
+ )
  ; // Implements
  : Operations
-   @ ( ME_29BDC007E320 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_29BDC007E320 // DoIt
+ )
  ; // Operations
  CONST "check nil" false
  CONST "need AfterCreate" 'undefined'
@@ -3492,6 +3610,7 @@ ref; // ME_4D344BBD0203
  ;
  : Implementor ME_4D3430A7028D // TnscTasksPanelGroupsIterator
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_4992FE89024F_ME_4D3430A7028D Next
 
 : ME_479731C50290_ME_4D3430A7028D
@@ -3501,6 +3620,7 @@ ref; // ME_4992FE89024F_ME_4D3430A7028D Next
  ;
  : Implementor ME_4D3430A7028D // TnscTasksPanelGroupsIterator
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_479731C50290_ME_4D3430A7028D Cleanup
 
 : ME_4D3430A7028D
@@ -3514,36 +3634,36 @@ ref; // ME_479731C50290_ME_4D3430A7028D Cleanup
  : Parent ME_4D3424960025 // TasksPanel
  ;
  : Inherits
-   @ ( WL 'ME_49E7754802A9' '47913B47006E.pas.ms.script' // Tl3ProtoObject
- ) .SequenceCode.It
+   Seq: ( WL 'ME_49E7754802A9' '47913B47006E.pas.ms.script' // Tl3ProtoObject
+ )
  ; // Inherits
  : Implements
-   @ ( WL 'ME_4992FE7D0230' '49940C8E00DA.pas.ms.script' // IvcmCustOpsGroupsIterator
- ) .SequenceCode.It
+   Seq: ( WL 'ME_4992FE7D0230' '49940C8E00DA.pas.ms.script' // IvcmCustOpsGroupsIterator
+ )
  ; // Implements
  : Attributes
-   @ ( ME_4D343BE002F6 // f_Groups
+   Seq: ( ME_4D343BE002F6 // f_Groups
  ME_4D343EA801CF // f_Current
- ) .SequenceCode.It
+ )
  ; // Attributes
  : Operations
-   @ ( ME_4D343C3502B5 // Create
+   Seq: ( ME_4D343C3502B5 // Create
  ME_4D343C540158 // Make
- ) .SequenceCode.It
+ )
  ; // Operations
  : Implemented
-   @ ( ME_4992FE89024F_ME_4D3430A7028D // Next
- ) .SequenceCode.It
+   Seq: ( ME_4992FE89024F_ME_4D3430A7028D // Next
+ )
  ; // Implemented
  : Overridden
-   @ ( ME_479731C50290_ME_4D3430A7028D // Cleanup
- ) .SequenceCode.It
+   Seq: ( ME_479731C50290_ME_4D3430A7028D // Cleanup
+ )
  ; // Overridden
  : Dependencies
-   @ ( ME_4D3431390271 // 
+   Seq: ( ME_4D3431390271 // 
  ME_4D343C06006B // 
  ME_4D344BBD0203 // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  CONST "author" 'Люлин А.В.'
  CONST "needs InstanceR" 'undefined'
@@ -3551,12 +3671,14 @@ ref; // ME_479731C50290_ME_4D3430A7028D Cleanup
  CONST "no hands" true
  CONST "register in scripts" 'undefined'
  CONST "started" '17.01.2011 15:06'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\Nemesis'
  CONST intf.pas:Path 'common\components\gui\Garant\Nemesis\nscTasksPanelGroupsIterator.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Nemesis'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'TasksPanelGroupsIterator'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'nscTasksPanelGroupsIterator'
 
 ref; // ME_4D3430A7028D TnscTasksPanelGroupsIterator
 
@@ -3619,9 +3741,9 @@ ref; // ME_4D34570B0140 aDesc
  : Parent ME_4D3454300132 // Create
  ;
  : Parameters
-   @ ( ME_4D34685F00A2 // anID
+   Seq: ( ME_4D34685F00A2 // anID
  ME_4D34570B0140 // aDesc
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_4D34543A0366 DoIt
@@ -3637,8 +3759,8 @@ ref; // ME_4D34543A0366 DoIt
  : Parent ME_4D34310D0115 // TnscTasksPanelGroup
  ;
  : Operations
-   @ ( ME_4D34543A0366 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_4D34543A0366 // DoIt
+ )
  ; // Operations
 
 ref; // ME_4D3454300132 Create
@@ -3648,6 +3770,7 @@ FORWARD ME_4D34544900CF
 : ME_0E2502C5A1B4
  CONST UID '0E2502C5A1B4'
  CONST Name 'anID'
+ CONST IsSummoned true
  CONST Class class_Parameter
  : Stereotype st_in ;
  : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
@@ -3658,6 +3781,7 @@ ref; // ME_0E2502C5A1B4 anID
 : ME_096737E4165B
  CONST UID '096737E4165B'
  CONST Name 'aDesc'
+ CONST IsSummoned true
  CONST Class class_Parameter
  : Stereotype st_in ;
  : Target ME_4D34320903B4 // TnscTasksPanelGroupDesc
@@ -3668,6 +3792,7 @@ ref; // ME_096737E4165B aDesc
 : ME_8FA3E95E454E
  CONST UID '8FA3E95E454E'
  CONST Name 'DoIt'
+ CONST IsSummoned true
  CONST Class class_Operation
  %SUMMARY 'Сигнатура фабрики TnscTasksPanelGroup.Make' ;
  CONST Visibility PrivateAccess
@@ -3677,9 +3802,9 @@ ref; // ME_096737E4165B aDesc
  : Target WL 'ME_4992FD1902A5' '49940C8E00DA.pas.ms.script' // IvcmCustOpsGroup
  ;
  : Parameters
-   @ ( ME_0E2502C5A1B4 // anID
+   Seq: ( ME_0E2502C5A1B4 // anID
  ME_096737E4165B // aDesc
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_8FA3E95E454E DoIt
@@ -3695,16 +3820,16 @@ ref; // ME_8FA3E95E454E DoIt
  : Parent ME_4D34310D0115 // TnscTasksPanelGroup
  ;
  : Inherits
-   @ ( ME_4D3454300132 // Create
- ) .SequenceCode.It
+   Seq: ( ME_4D3454300132 // Create
+ )
  ; // Inherits
  : Implements
-   @ ( WL 'ME_4992FD1902A5' '49940C8E00DA.pas.ms.script' // IvcmCustOpsGroup
- ) .SequenceCode.It
+   Seq: ( WL 'ME_4992FD1902A5' '49940C8E00DA.pas.ms.script' // IvcmCustOpsGroup
+ )
  ; // Implements
  : Operations
-   @ ( ME_8FA3E95E454E // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_8FA3E95E454E // DoIt
+ )
  ; // Operations
  CONST "check nil" false
  CONST "need AfterCreate" 'undefined'
@@ -3720,6 +3845,7 @@ ref; // ME_4D34544900CF Make
  ;
  : Implementor ME_4D34310D0115 // TnscTasksPanelGroup
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" true
 ref; // ME_4992FD01012E_ME_4D34310D0115 Position
 
@@ -3730,6 +3856,7 @@ ref; // ME_4992FD01012E_ME_4D34310D0115 Position
  ;
  : Implementor ME_4D34310D0115 // TnscTasksPanelGroup
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_4992FD32031B_ME_4D34310D0115 AddOperation
 
 : ME_4992FD530270_ME_4D34310D0115
@@ -3739,6 +3866,7 @@ ref; // ME_4992FD32031B_ME_4D34310D0115 AddOperation
  ;
  : Implementor ME_4D34310D0115 // TnscTasksPanelGroup
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" true
 ref; // ME_4992FD530270_ME_4D34310D0115 Operations
 
@@ -3749,6 +3877,7 @@ ref; // ME_4992FD530270_ME_4D34310D0115 Operations
  ;
  : Implementor ME_4D34310D0115 // TnscTasksPanelGroup
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" true
 ref; // ME_4992FD8302D9_ME_4D34310D0115 RepGroup
 
@@ -3759,6 +3888,7 @@ ref; // ME_4992FD8302D9_ME_4D34310D0115 RepGroup
  ;
  : Implementor ME_4D34310D0115 // TnscTasksPanelGroup
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" true
 ref; // ME_4992FF4F02E2_ME_4D34310D0115 Caption
 
@@ -3769,6 +3899,7 @@ ref; // ME_4992FF4F02E2_ME_4D34310D0115 Caption
  ;
  : Implementor ME_4D34310D0115 // TnscTasksPanelGroup
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" true
 ref; // ME_4992FF64034E_ME_4D34310D0115 Id
 
@@ -3779,6 +3910,7 @@ ref; // ME_4992FF64034E_ME_4D34310D0115 Id
  ;
  : Implementor ME_4D34310D0115 // TnscTasksPanelGroup
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" false
 ref; // ME_4D346D3403BD_ME_4D34310D0115 IsLinkToExistingControl
 
@@ -3789,6 +3921,7 @@ ref; // ME_4D346D3403BD_ME_4D34310D0115 IsLinkToExistingControl
  ;
  : Implementor ME_4D34310D0115 // TnscTasksPanelGroup
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" false
 ref; // ME_4D346D830170_ME_4D34310D0115 Control
 
@@ -3799,6 +3932,7 @@ ref; // ME_4D346D830170_ME_4D34310D0115 Control
  ;
  : Implementor ME_4D34310D0115 // TnscTasksPanelGroup
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_5000565C019C_ME_4D34310D0115 ClearFields
 
 : ME_4D34310D0115
@@ -3812,26 +3946,26 @@ ref; // ME_5000565C019C_ME_4D34310D0115 ClearFields
  : Parent ME_4D3424960025 // TasksPanel
  ;
  : Inherits
-   @ ( WL 'ME_4D3436B2011A' '4D34368500D4.pas.ms.script' // TvcmCustOpsNotifier
- ) .SequenceCode.It
+   Seq: ( WL 'ME_4D3436B2011A' '4D34368500D4.pas.ms.script' // TvcmCustOpsNotifier
+ )
  ; // Inherits
  : Implements
-   @ ( WL 'ME_4992FD1902A5' '49940C8E00DA.pas.ms.script' // IvcmCustOpsGroup
+   Seq: ( WL 'ME_4992FD1902A5' '49940C8E00DA.pas.ms.script' // IvcmCustOpsGroup
  WL 'ME_4992FD760178' '49940C8E00DA.pas.ms.script' // IvcmCustOpsRepGroup
- ) .SequenceCode.It
+ )
  ; // Implements
  : Attributes
-   @ ( ME_4D34541400F3 // f_Desc
+   Seq: ( ME_4D34541400F3 // f_Desc
  ME_4D34684D00DD // f_ID
- ) .SequenceCode.It
+ )
  ; // Attributes
  : Operations
-   @ ( ME_4D3454300132 // Create
+   Seq: ( ME_4D3454300132 // Create
  ME_4D34544900CF // Make
- ) .SequenceCode.It
+ )
  ; // Operations
  : Implemented
-   @ ( ME_4992FD01012E_ME_4D34310D0115 // Position
+   Seq: ( ME_4992FD01012E_ME_4D34310D0115 // Position
  ME_4992FD32031B_ME_4D34310D0115 // AddOperation
  ME_4992FD530270_ME_4D34310D0115 // Operations
  ME_4992FD8302D9_ME_4D34310D0115 // RepGroup
@@ -3839,11 +3973,11 @@ ref; // ME_5000565C019C_ME_4D34310D0115 ClearFields
  ME_4992FF64034E_ME_4D34310D0115 // Id
  ME_4D346D3403BD_ME_4D34310D0115 // IsLinkToExistingControl
  ME_4D346D830170_ME_4D34310D0115 // Control
- ) .SequenceCode.It
+ )
  ; // Implemented
  : Overridden
-   @ ( ME_5000565C019C_ME_4D34310D0115 // ClearFields
- ) .SequenceCode.It
+   Seq: ( ME_5000565C019C_ME_4D34310D0115 // ClearFields
+ )
  ; // Overridden
  CONST "author" 'Люлин А.В.'
  CONST "needs InstanceR" 'undefined'
@@ -3851,12 +3985,14 @@ ref; // ME_5000565C019C_ME_4D34310D0115 ClearFields
  CONST "no hands" true
  CONST "register in scripts" 'undefined'
  CONST "started" '17.01.2011 15:08'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\Nemesis'
  CONST intf.pas:Path 'common\components\gui\Garant\Nemesis\nscTasksPanelGroup.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Nemesis'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'TasksPanelGroup'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'nscTasksPanelGroup'
 
 ref; // ME_4D34310D0115 TnscTasksPanelGroup
 
@@ -3888,10 +4024,14 @@ ref; // ME_4D3433050296
  : Parent ME_4D342DED0196 // TnscTasksPanel
  ;
  : Attributes
-   @ ( ME_4D3433050296 // 
- ) .SequenceCode.It
+   Seq: ( ME_4D3433050296 // 
+ )
  ; // Attributes
  CONST "array type" 'open'
+ CONST dfm:PathOnly '\common\components\gui\Garant\Nemesis'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Nemesis'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_4D3432F30178 TnscTasksPanelGroupDescArray$open
 
@@ -3954,9 +4094,9 @@ ref; // ME_4D3433FB0310 aGroups
  : Parent ME_4D34335B0113 // Create
  ;
  : Parameters
-   @ ( ME_4D3464CE031B // aBaseSettingId
+   Seq: ( ME_4D3464CE031B // aBaseSettingId
  ME_4D3433FB0310 // aGroups
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_4D3433650295 DoIt
@@ -3972,8 +4112,8 @@ ref; // ME_4D3433650295 DoIt
  : Parent ME_4D342DED0196 // TnscTasksPanel
  ;
  : Operations
-   @ ( ME_4D3433650295 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_4D3433650295 // DoIt
+ )
  ; // Operations
 
 ref; // ME_4D34335B0113 Create
@@ -3983,6 +4123,7 @@ FORWARD ME_4D34340A00D1
 : ME_FF3625B36595
  CONST UID 'FF3625B36595'
  CONST Name 'aBaseSettingId'
+ CONST IsSummoned true
  CONST Class class_Parameter
  : Stereotype st_in ;
  : Target WL 'ME_473D9E950032' '467823B7002C.pas.ms.script' // TafwSettingId
@@ -3993,6 +4134,7 @@ ref; // ME_FF3625B36595 aBaseSettingId
 : ME_D5CD950E1ED6
  CONST UID 'D5CD950E1ED6'
  CONST Name 'aGroups'
+ CONST IsSummoned true
  CONST Class class_Parameter
  : Stereotype st_in ;
  : Target ME_4D3432F30178 // TnscTasksPanelGroupDescArray$open
@@ -4003,6 +4145,7 @@ ref; // ME_D5CD950E1ED6 aGroups
 : ME_2D50A2697721
  CONST UID '2D50A2697721'
  CONST Name 'DoIt'
+ CONST IsSummoned true
  CONST Class class_Operation
  %SUMMARY 'Сигнатура фабрики TnscTasksPanel.Make' ;
  CONST Visibility PrivateAccess
@@ -4012,9 +4155,9 @@ ref; // ME_D5CD950E1ED6 aGroups
  : Target WL 'ME_4992FF9A0273' '49940C8E00DA.pas.ms.script' // IvcmCustOps
  ;
  : Parameters
-   @ ( ME_FF3625B36595 // aBaseSettingId
+   Seq: ( ME_FF3625B36595 // aBaseSettingId
  ME_D5CD950E1ED6 // aGroups
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_2D50A2697721 DoIt
@@ -4030,16 +4173,16 @@ ref; // ME_2D50A2697721 DoIt
  : Parent ME_4D342DED0196 // TnscTasksPanel
  ;
  : Inherits
-   @ ( ME_4D34335B0113 // Create
- ) .SequenceCode.It
+   Seq: ( ME_4D34335B0113 // Create
+ )
  ; // Inherits
  : Implements
-   @ ( WL 'ME_4992FF9A0273' '49940C8E00DA.pas.ms.script' // IvcmCustOps
- ) .SequenceCode.It
+   Seq: ( WL 'ME_4992FF9A0273' '49940C8E00DA.pas.ms.script' // IvcmCustOps
+ )
  ; // Implements
  : Operations
-   @ ( ME_2D50A2697721 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_2D50A2697721 // DoIt
+ )
  ; // Operations
  CONST "check nil" false
  CONST "need AfterCreate" 'undefined'
@@ -4088,6 +4231,7 @@ ref; // ME_4D34446C00E1
  ;
  : Implementor ME_4D342DED0196 // TnscTasksPanel
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_4992FFB7015F_ME_4D342DED0196 AddRepGroup
 
 : ME_4992FFC802A3_ME_4D342DED0196
@@ -4097,6 +4241,7 @@ ref; // ME_4992FFB7015F_ME_4D342DED0196 AddRepGroup
  ;
  : Implementor ME_4D342DED0196 // TnscTasksPanel
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_4992FFC802A3_ME_4D342DED0196 DeleteRepGroup
 
 : ME_4992FFD700FC_ME_4D342DED0196
@@ -4106,6 +4251,7 @@ ref; // ME_4992FFC802A3_ME_4D342DED0196 DeleteRepGroup
  ;
  : Implementor ME_4D342DED0196 // TnscTasksPanel
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_4992FFD700FC_ME_4D342DED0196 AddGroup
 
 : ME_4992FFEF01FB_ME_4D342DED0196
@@ -4115,6 +4261,7 @@ ref; // ME_4992FFD700FC_ME_4D342DED0196 AddGroup
  ;
  : Implementor ME_4D342DED0196 // TnscTasksPanel
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_4992FFEF01FB_ME_4D342DED0196 Refresh
 
 : ME_4993000E000A_ME_4D342DED0196
@@ -4124,6 +4271,7 @@ ref; // ME_4992FFEF01FB_ME_4D342DED0196 Refresh
  ;
  : Implementor ME_4D342DED0196 // TnscTasksPanel
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" true
 ref; // ME_4993000E000A_ME_4D342DED0196 RepGroupsOperations
 
@@ -4134,6 +4282,7 @@ ref; // ME_4993000E000A_ME_4D342DED0196 RepGroupsOperations
  ;
  : Implementor ME_4D342DED0196 // TnscTasksPanel
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" true
 ref; // ME_4993002B01F4_ME_4D342DED0196 RepGroups
 
@@ -4144,6 +4293,7 @@ ref; // ME_4993002B01F4_ME_4D342DED0196 RepGroups
  ;
  : Implementor ME_4D342DED0196 // TnscTasksPanel
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" true
 ref; // ME_4993004300B5_ME_4D342DED0196 Groups
 
@@ -4154,6 +4304,7 @@ ref; // ME_4993004300B5_ME_4D342DED0196 Groups
  ;
  : Implementor ME_4D342DED0196 // TnscTasksPanel
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" true
 ref; // ME_49930056007C_ME_4D342DED0196 BaseSettingId
 
@@ -4164,6 +4315,7 @@ ref; // ME_49930056007C_ME_4D342DED0196 BaseSettingId
  ;
  : Implementor ME_4D342DED0196 // TnscTasksPanel
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" true
 ref; // ME_4F619F340358_ME_4D342DED0196 EnableSaveToSettings
 
@@ -4174,6 +4326,7 @@ ref; // ME_4F619F340358_ME_4D342DED0196 EnableSaveToSettings
  ;
  : Implementor ME_4D342DED0196 // TnscTasksPanel
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_479731C50290_ME_4D342DED0196 Cleanup
 
 : ME_4D342DED0196
@@ -4188,25 +4341,25 @@ ref; // ME_479731C50290_ME_4D342DED0196 Cleanup
  : Parent ME_4D3424960025 // TasksPanel
  ;
  : Inherits
-   @ ( WL 'ME_4D3436B2011A' '4D34368500D4.pas.ms.script' // TvcmCustOpsNotifier
- ) .SequenceCode.It
+   Seq: ( WL 'ME_4D3436B2011A' '4D34368500D4.pas.ms.script' // TvcmCustOpsNotifier
+ )
  ; // Inherits
  : Implements
-   @ ( WL 'ME_4992FF9A0273' '49940C8E00DA.pas.ms.script' // IvcmCustOps
- ) .SequenceCode.It
+   Seq: ( WL 'ME_4992FF9A0273' '49940C8E00DA.pas.ms.script' // IvcmCustOps
+ )
  ; // Implements
  : Attributes
-   @ ( ME_4D343B330373 // f_Groups
+   Seq: ( ME_4D343B330373 // f_Groups
  ME_4D34649201B2 // f_BaseSettingId
- ) .SequenceCode.It
+ )
  ; // Attributes
  : Operations
-   @ ( ME_4D34335B0113 // Create
+   Seq: ( ME_4D34335B0113 // Create
  ME_4D34340A00D1 // Make
- ) .SequenceCode.It
+ )
  ; // Operations
  : Implemented
-   @ ( ME_4992FFB7015F_ME_4D342DED0196 // AddRepGroup
+   Seq: ( ME_4992FFB7015F_ME_4D342DED0196 // AddRepGroup
  ME_4992FFC802A3_ME_4D342DED0196 // DeleteRepGroup
  ME_4992FFD700FC_ME_4D342DED0196 // AddGroup
  ME_4992FFEF01FB_ME_4D342DED0196 // Refresh
@@ -4215,21 +4368,21 @@ ref; // ME_479731C50290_ME_4D342DED0196 Cleanup
  ME_4993004300B5_ME_4D342DED0196 // Groups
  ME_49930056007C_ME_4D342DED0196 // BaseSettingId
  ME_4F619F340358_ME_4D342DED0196 // EnableSaveToSettings
- ) .SequenceCode.It
+ )
  ; // Implemented
  : Overridden
-   @ ( ME_479731C50290_ME_4D342DED0196 // Cleanup
- ) .SequenceCode.It
+   Seq: ( ME_479731C50290_ME_4D342DED0196 // Cleanup
+ )
  ; // Overridden
  : Children
-   @ ( ME_4D3432F30178 // TnscTasksPanelGroupDescArray$open
- ) .SequenceCode.It
+   Seq: ( ME_4D3432F30178 // TnscTasksPanelGroupDescArray$open
+ )
  ; // Children
  : Dependencies
-   @ ( ME_4D3430C50178 // 
+   Seq: ( ME_4D3430C50178 // 
  ME_4D343B7101A3 // 
  ME_4D34446C00E1 // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  CONST "author" 'Люлин А.В.'
  CONST "needs InstanceR" 'undefined'
@@ -4237,12 +4390,14 @@ ref; // ME_479731C50290_ME_4D342DED0196 Cleanup
  CONST "no hands" true
  CONST "register in scripts" 'undefined'
  CONST "started" '11.01.2011 14:54'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\Nemesis'
  CONST intf.pas:Path 'common\components\gui\Garant\Nemesis\nscTasksPanel.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Nemesis'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'TasksPanel'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'nscTasksPanel'
 
 ref; // ME_4D342DED0196 TnscTasksPanel
 
@@ -4259,6 +4414,7 @@ ref; // ME_4D342DED0196 TnscTasksPanel
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value 'vcm_otCombo'
 
 ref; // ME_509143DA02F3 a
 
@@ -4275,6 +4431,7 @@ ref; // ME_509143DA02F3 a
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value 'vcm_otButtonCombo'
 
 ref; // ME_5091599F026C b
 
@@ -4291,6 +4448,7 @@ ref; // ME_5091599F026C b
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value 'vcm_otMenuButtonCombo'
 
 ref; // ME_509159A800BD c
 
@@ -4307,6 +4465,7 @@ ref; // ME_509159A800BD c
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value 'vcm_otButtonPopup'
 
 ref; // ME_509159BE00E7 d
 
@@ -4321,17 +4480,21 @@ ref; // ME_509159BE00E7 d
  : Parent ME_508EBD970342 // TnscTasksPanelActionLink
  ;
  : Inherits
-   @ ( WL 'ME_4683CC350070' '467BAB7F021E.pas.ms.script' // TvcmOperationType
- ) .SequenceCode.It
+   Seq: ( WL 'ME_4683CC350070' '467BAB7F021E.pas.ms.script' // TvcmOperationType
+ )
  ; // Inherits
  : Attributes
-   @ ( ME_509143DA02F3 // a
+   Seq: ( ME_509143DA02F3 // a
  ME_5091599F026C // b
  ME_509159A800BD // c
  ME_509159BE00E7 // d
- ) .SequenceCode.It
+ )
  ; // Attributes
  CONST "spell names" false
+ CONST dfm:PathOnly '\common\components\gui\Garant\Nemesis'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Nemesis'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_5091431F011C c_ComboOperations
 
@@ -4385,6 +4548,7 @@ ref; // ME_508FDE9800D3 f_Op
 : ME_E419453952D9
  CONST UID 'E419453952D9'
  CONST Name 'f_Tree'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY 'Поле для свойства Tree' ;
  CONST Visibility PrivateAccess
@@ -4438,10 +4602,10 @@ ref; // ME_508F9B520042 aOp
  : Parent ME_508F9B3C00DE // Create
  ;
  : Parameters
-   @ ( ME_508F9B520012 // aAction
+   Seq: ( ME_508F9B520012 // aAction
  ME_508F9B52002A // aTree
  ME_508F9B520042 // aOp
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_508F9B4F02B1 Create
@@ -4457,8 +4621,8 @@ ref; // ME_508F9B4F02B1 Create
  : Parent ME_508EBD970342 // TnscTasksPanelActionLink
  ;
  : Operations
-   @ ( ME_508F9B4F02B1 // Create
- ) .SequenceCode.It
+   Seq: ( ME_508F9B4F02B1 // Create
+ )
  ; // Operations
 
 ref; // ME_508F9B3C00DE Create
@@ -4484,8 +4648,8 @@ ref; // ME_508F9BC900C7 aValue
  : Parent ME_508F9BB7012D // ValidateCaption
  ;
  : Parameters
-   @ ( ME_508F9BC900C7 // aValue
- ) .SequenceCode.It
+   Seq: ( ME_508F9BC900C7 // aValue
+ )
  ; // Parameters
 
 ref; // ME_508F9BC203D0 DoIt
@@ -4501,8 +4665,8 @@ ref; // ME_508F9BC203D0 DoIt
  : Parent ME_508EBD970342 // TnscTasksPanelActionLink
  ;
  : Operations
-   @ ( ME_508F9BC203D0 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_508F9BC203D0 // DoIt
+ )
  ; // Operations
 
 ref; // ME_508F9BB7012D ValidateCaption
@@ -4591,6 +4755,7 @@ ref; // ME_50912E1E023F
  ;
  : Implementor ME_508EBD970342 // TnscTasksPanelActionLink
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_508F991B003B_ME_508EBD970342 SetCaption
 
 : ME_508F99340058_ME_508EBD970342
@@ -4600,6 +4765,7 @@ ref; // ME_508F991B003B_ME_508EBD970342 SetCaption
  ;
  : Implementor ME_508EBD970342 // TnscTasksPanelActionLink
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_508F99340058_ME_508EBD970342 SetEnabled
 
 : ME_508F997C0142_ME_508EBD970342
@@ -4609,6 +4775,7 @@ ref; // ME_508F99340058_ME_508EBD970342 SetEnabled
  ;
  : Implementor ME_508EBD970342 // TnscTasksPanelActionLink
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_508F997C0142_ME_508EBD970342 SetImageIndex
 
 : ME_508F99970386_ME_508EBD970342
@@ -4618,6 +4785,7 @@ ref; // ME_508F997C0142_ME_508EBD970342 SetImageIndex
  ;
  : Implementor ME_508EBD970342 // TnscTasksPanelActionLink
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_508F99970386_ME_508EBD970342 SetVisible
 
 : ME_508EBD970342
@@ -4631,52 +4799,54 @@ ref; // ME_508F99970386_ME_508EBD970342 SetVisible
  : Parent ME_4D3424960025 // TasksPanel
  ;
  : Inherits
-   @ ( WL 'ME_508F9823023D' '4799D29F033F.pas.ms.script' // TActionLink
- ) .SequenceCode.It
+   Seq: ( WL 'ME_508F9823023D' '4799D29F033F.pas.ms.script' // TActionLink
+ )
  ; // Inherits
  : Attributes
-   @ ( ME_508F9B8800A7 // Tree
+   Seq: ( ME_508F9B8800A7 // Tree
  ME_508F9BA30314 // Op
  ME_508FDE9800D3 // f_Op
  ME_E419453952D9 // f_Tree
- ) .SequenceCode.It
+ )
  ; // Attributes
  : Operations
-   @ ( ME_508F9B3C00DE // Create
+   Seq: ( ME_508F9B3C00DE // Create
  ME_508F9BB7012D // ValidateCaption
- ) .SequenceCode.It
+ )
  ; // Operations
  : Overridden
-   @ ( ME_508F991B003B_ME_508EBD970342 // SetCaption
+   Seq: ( ME_508F991B003B_ME_508EBD970342 // SetCaption
  ME_508F99340058_ME_508EBD970342 // SetEnabled
  ME_508F997C0142_ME_508EBD970342 // SetImageIndex
  ME_508F99970386_ME_508EBD970342 // SetVisible
- ) .SequenceCode.It
+ )
  ; // Overridden
  : Children
-   @ ( ME_5091431F011C // c_ComboOperations
- ) .SequenceCode.It
+   Seq: ( ME_5091431F011C // c_ComboOperations
+ )
  ; // Children
  : Dependencies
-   @ ( ME_508FD9A503B8 // 
+   Seq: ( ME_508FD9A503B8 // 
  ME_508FD9C001EF // 
  ME_508FD9DC0307 // 
  ME_508FDB3501AF // 
  ME_508FDD4A005E // 
  ME_508FDDAF0316 // 
  ME_50912E1E023F // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\Nemesis'
  CONST intf.pas:Path 'common\components\gui\Garant\Nemesis\nscTasksPanelActionLink.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Nemesis'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'TasksPanelActionLink'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'nscTasksPanelActionLink'
 
 ref; // ME_508EBD970342 TnscTasksPanelActionLink
 
@@ -4719,6 +4889,7 @@ ref; // ME_508F9FDB0080 Link
 : ME_54824B89FB91
  CONST UID '54824B89FB91'
  CONST Name 'f_Op'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY 'Поле для свойства Op' ;
  CONST Visibility PrivateAccess
@@ -4728,12 +4899,14 @@ ref; // ME_508F9FDB0080 Link
  ;
  : Target WL 'ME_4992FDB10225' '49940C8E00DA.pas.ms.script' // IvcmCustOpsGroupOperation
  ;
+ CONST extprop:clearViaProperty 'Op'
 
 ref; // ME_54824B89FB91 f_Op
 
 : ME_466DE3D85C77
  CONST UID '466DE3D85C77'
  CONST Name 'f_Link'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY 'Поле для свойства Link' ;
  CONST Visibility PrivateAccess
@@ -4743,6 +4916,7 @@ ref; // ME_54824B89FB91 f_Op
  ;
  : Target ME_508EBD970342 // TnscTasksPanelActionLink
  ;
+ CONST extprop:clearViaProperty 'Link'
 
 ref; // ME_466DE3D85C77 f_Link
 
@@ -4767,8 +4941,8 @@ ref; // ME_508FE30C020D aOp
  : Parent ME_508FE2F30143 // Create
  ;
  : Parameters
-   @ ( ME_508FE30C020D // aOp
- ) .SequenceCode.It
+   Seq: ( ME_508FE30C020D // aOp
+ )
  ; // Parameters
 
 ref; // ME_508FE309015D Create
@@ -4784,8 +4958,8 @@ ref; // ME_508FE309015D Create
  : Parent ME_508EBDA900AE // TnscTasksPanelOperationNode
  ;
  : Operations
-   @ ( ME_508FE309015D // Create
- ) .SequenceCode.It
+   Seq: ( ME_508FE309015D // Create
+ )
  ; // Operations
 
 ref; // ME_508FE2F30143 Create
@@ -4795,6 +4969,7 @@ FORWARD ME_508FE3110060
 : ME_5A8ED3D3CF65
  CONST UID '5A8ED3D3CF65'
  CONST Name 'aOp'
+ CONST IsSummoned true
  CONST Class class_Parameter
  : Stereotype st_in ;
  : Target WL 'ME_4992FDB10225' '49940C8E00DA.pas.ms.script' // IvcmCustOpsGroupOperation
@@ -4805,6 +4980,7 @@ ref; // ME_5A8ED3D3CF65 aOp
 : ME_D415C14FF863
  CONST UID 'D415C14FF863'
  CONST Name 'Create'
+ CONST IsSummoned true
  CONST Class class_Operation
  %SUMMARY 'Сигнатура фабрики TnscTasksPanelOperationNode.Make' ;
  CONST Visibility PrivateAccess
@@ -4814,8 +4990,8 @@ ref; // ME_5A8ED3D3CF65 aOp
  : Target WL 'ME_499C1A4E03C8' '499C1A100121.pas.ms.script' // InscOperationNode
  ;
  : Parameters
-   @ ( ME_5A8ED3D3CF65 // aOp
- ) .SequenceCode.It
+   Seq: ( ME_5A8ED3D3CF65 // aOp
+ )
  ; // Parameters
 
 ref; // ME_D415C14FF863 Create
@@ -4831,16 +5007,16 @@ ref; // ME_D415C14FF863 Create
  : Parent ME_508EBDA900AE // TnscTasksPanelOperationNode
  ;
  : Inherits
-   @ ( ME_508FE2F30143 // Create
- ) .SequenceCode.It
+   Seq: ( ME_508FE2F30143 // Create
+ )
  ; // Inherits
  : Implements
-   @ ( WL 'ME_499C1A4E03C8' '499C1A100121.pas.ms.script' // InscOperationNode
- ) .SequenceCode.It
+   Seq: ( WL 'ME_499C1A4E03C8' '499C1A100121.pas.ms.script' // InscOperationNode
+ )
  ; // Implements
  : Operations
-   @ ( ME_D415C14FF863 // Create
- ) .SequenceCode.It
+   Seq: ( ME_D415C14FF863 // Create
+ )
  ; // Operations
  CONST "check nil" false
  CONST "need AfterCreate" 'undefined'
@@ -4889,6 +5065,7 @@ ref; // ME_508FE3620097
  ;
  : Implementor ME_508EBDA900AE // TnscTasksPanelOperationNode
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_46A4504B03C4_ME_508EBDA900AE Notify
 
 : ME_499C1A5C03B4_ME_508EBDA900AE
@@ -4898,6 +5075,7 @@ ref; // ME_46A4504B03C4_ME_508EBDA900AE Notify
  ;
  : Implementor ME_508EBDA900AE // TnscTasksPanelOperationNode
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_499C1A5C03B4_ME_508EBDA900AE CaptionChanged
 
 : ME_499C1AA001FF_ME_508EBDA900AE
@@ -4907,6 +5085,7 @@ ref; // ME_499C1A5C03B4_ME_508EBDA900AE CaptionChanged
  ;
  : Implementor ME_508EBDA900AE // TnscTasksPanelOperationNode
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" true
 ref; // ME_499C1AA001FF_ME_508EBDA900AE Op
 
@@ -4917,6 +5096,7 @@ ref; // ME_499C1AA001FF_ME_508EBDA900AE Op
  ;
  : Implementor ME_508EBDA900AE // TnscTasksPanelOperationNode
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_479731C50290_ME_508EBDA900AE Cleanup
 
 : ME_5000565C019C_ME_508EBDA900AE
@@ -4926,6 +5106,7 @@ ref; // ME_479731C50290_ME_508EBDA900AE Cleanup
  ;
  : Implementor ME_508EBDA900AE // TnscTasksPanelOperationNode
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_5000565C019C_ME_508EBDA900AE ClearFields
 
 : ME_508EBDA900AE
@@ -4939,53 +5120,55 @@ ref; // ME_5000565C019C_ME_508EBDA900AE ClearFields
  : Parent ME_4D3424960025 // TasksPanel
  ;
  : Inherits
-   @ ( WL 'ME_4ADDDF9B0101' '47E246C90144.pas.ms.script' // Tl3UsualNode
- ) .SequenceCode.It
+   Seq: ( WL 'ME_4ADDDF9B0101' '47E246C90144.pas.ms.script' // Tl3UsualNode
+ )
  ; // Inherits
  : Implements
-   @ ( WL 'ME_4680CF1A0364' '4677FBA70343.pas.ms.script' // Il3ItemNotifyRecipient
+   Seq: ( WL 'ME_4680CF1A0364' '4677FBA70343.pas.ms.script' // Il3ItemNotifyRecipient
  WL 'ME_499C1A4E03C8' '499C1A100121.pas.ms.script' // InscOperationNode
- ) .SequenceCode.It
+ )
  ; // Implements
  : Attributes
-   @ ( ME_508F9FC4011C // Op
+   Seq: ( ME_508F9FC4011C // Op
  ME_508F9FDB0080 // Link
  ME_54824B89FB91 // f_Op
  ME_466DE3D85C77 // f_Link
- ) .SequenceCode.It
+ )
  ; // Attributes
  : Operations
-   @ ( ME_508FE2F30143 // Create
+   Seq: ( ME_508FE2F30143 // Create
  ME_508FE3110060 // Make
- ) .SequenceCode.It
+ )
  ; // Operations
  : Implemented
-   @ ( ME_46A4504B03C4_ME_508EBDA900AE // Notify
+   Seq: ( ME_46A4504B03C4_ME_508EBDA900AE // Notify
  ME_499C1A5C03B4_ME_508EBDA900AE // CaptionChanged
  ME_499C1AA001FF_ME_508EBDA900AE // Op
- ) .SequenceCode.It
+ )
  ; // Implemented
  : Overridden
-   @ ( ME_479731C50290_ME_508EBDA900AE // Cleanup
+   Seq: ( ME_479731C50290_ME_508EBDA900AE // Cleanup
  ME_5000565C019C_ME_508EBDA900AE // ClearFields
- ) .SequenceCode.It
+ )
  ; // Overridden
  : Dependencies
-   @ ( ME_508FE1CA03BE // 
+   Seq: ( ME_508FE1CA03BE // 
  ME_508FE236007F // 
  ME_508FE3620097 // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\Nemesis'
  CONST intf.pas:Path 'common\components\gui\Garant\Nemesis\nscTasksPanelOperationNode.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Nemesis'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'TasksPanelOperationNode'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'nscTasksPanelOperationNode'
 
 ref; // ME_508EBDA900AE TnscTasksPanelOperationNode
 
@@ -5015,8 +5198,8 @@ ref; // ME_508F979F0383 DoIt
  : Parent ME_508EBDB503D2 // TnscTasksPanelRootNode
  ;
  : Operations
-   @ ( ME_508F979F0383 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_508F979F0383 // DoIt
+ )
  ; // Operations
  CONST "is static" true
 
@@ -5062,6 +5245,7 @@ ref; // ME_508FE72A0129
  ;
  : Implementor ME_508EBDB503D2 // TnscTasksPanelRootNode
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_54C8E03003CD_ME_508EBDB503D2 DoCompareChild
 
 : ME_508EBDB503D2
@@ -5075,33 +5259,35 @@ ref; // ME_54C8E03003CD_ME_508EBDB503D2 DoCompareChild
  : Parent ME_4D3424960025 // TasksPanel
  ;
  : Inherits
-   @ ( WL 'ME_4ADDE1F000E2' '47E246C90144.pas.ms.script' // Tl3RootNode
- ) .SequenceCode.It
+   Seq: ( WL 'ME_4ADDE1F000E2' '47E246C90144.pas.ms.script' // Tl3RootNode
+ )
  ; // Inherits
  : Operations
-   @ ( ME_508F978501B3 // Make
- ) .SequenceCode.It
+   Seq: ( ME_508F978501B3 // Make
+ )
  ; // Operations
  : Overridden
-   @ ( ME_54C8E03003CD_ME_508EBDB503D2 // DoCompareChild
- ) .SequenceCode.It
+   Seq: ( ME_54C8E03003CD_ME_508EBDB503D2 // DoCompareChild
+ )
  ; // Overridden
  : Dependencies
-   @ ( ME_508FE6A100B4 // 
+   Seq: ( ME_508FE6A100B4 // 
  ME_508FE6A401BB // 
  ME_508FE72A0129 // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\Nemesis'
  CONST intf.pas:Path 'common\components\gui\Garant\Nemesis\nscTasksPanelRootNode.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Nemesis'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'TasksPanelRootNode'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'nscTasksPanelRootNode'
 
 ref; // ME_508EBDB503D2 TnscTasksPanelRootNode
 
@@ -5120,6 +5306,7 @@ FORWARD ME_50912DF30214
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value 10
 
 ref; // ME_50912DF30215 c_ItemIndent
 
@@ -5136,6 +5323,7 @@ ref; // ME_50912DF30215 c_ItemIndent
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value 6
 
 ref; // ME_50912DF30216 c_RowIndent
 
@@ -5152,6 +5340,7 @@ ref; // ME_50912DF30216 c_RowIndent
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value 'vcm_ComboOperations + [vcm_otCombo]'
 
 ref; // ME_50912DF30217 c_ComboOperations
 
@@ -5166,12 +5355,16 @@ ref; // ME_50912DF30217 c_ComboOperations
  : Parent ME_4D3424960025 // TasksPanel
  ;
  : Attributes
-   @ ( ME_50912DF30215 // c_ItemIndent
+   Seq: ( ME_50912DF30215 // c_ItemIndent
  ME_50912DF30216 // c_RowIndent
  ME_50912DF30217 // c_ComboOperations
- ) .SequenceCode.It
+ )
  ; // Attributes
  CONST "spell names" false
+ CONST dfm:PathOnly '\common\components\gui\Garant\Nemesis'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Nemesis'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_50912DF30214 Константы настройки компонента дерева.
 
@@ -5186,7 +5379,7 @@ ref; // ME_50912DF30214 Константы настройки компонента дерева.
  : Parent WL 'ME_490838AA02D0' '490838AA02D0.pas.ms.script' // Nemesis
  ;
  : Children
-   @ ( ME_4D3424C203C2 // TnscTasksPanelView
+   Seq: ( ME_4D3424C203C2 // TnscTasksPanelView
  ME_4D343AFE00DD // TnscTasksPanelGroupDescList
  ME_4D3430A7028D // TnscTasksPanelGroupsIterator
  ME_4D34310D0115 // TnscTasksPanelGroup
@@ -5194,14 +5387,14 @@ ref; // ME_50912DF30214 Константы настройки компонента дерева.
  ME_508EBD970342 // TnscTasksPanelActionLink
  ME_508EBDA900AE // TnscTasksPanelOperationNode
  ME_508EBDB503D2 // TnscTasksPanelRootNode
- ) .SequenceCode.It
+ )
  ; // Children
  : Constants
-   @ ( ME_50912DF30214 // Константы настройки компонента дерева.
- ) .SequenceCode.It
+   Seq: ( ME_50912DF30214 // Константы настройки компонента дерева.
+ )
  ; // Constants
  : Depends
-   @ ( WL 'ME_4677FBA70343' '4677FBA70343.pas.ms.script' // l3Interfaces
+   Seq: ( WL 'ME_4677FBA70343' '4677FBA70343.pas.ms.script' // l3Interfaces
  WL 'ME_467823B7002C' '467823B7002C.pas.ms.script' // afwInterfaces
  WL 'ME_467BA8C8017E' '467BA8C8017E.pas.ms.script' // afwControl
  WL 'ME_467BAB7F021E' '467BAB7F021E.pas.ms.script' // vcmExternalInterfaces
@@ -5246,15 +5439,13 @@ ref; // ME_50912DF30214 Константы настройки компонента дерева.
  WL 'ME_54B90AC6014B' '54B90AC6014B.pas.ms.script' // StringUtils
  WL 'ME_55C4AEC801CA' '55C4AEC801CA.pas.ms.script' // Graphics
  WL 'ME_561F9F7D02A7' '561F9F7D02A7.pas.ms.script' // ScriptEngine
- ) .SequenceCode.It
+ )
  ; // Depends
- : Generators
- @ (
- gen_pas.script
- gen_pas.script.runner
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\Nemesis'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Nemesis'
  CONST pas.script:Path 'shared\models\NewSchool\Scripts\4D3424960025.pas.ms.script'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
  CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\4D3424960025.pas.ms.script.runner'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_4D3424960025 TasksPanel

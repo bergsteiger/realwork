@@ -1,0 +1,1600 @@
+// UnderControlImpl 4B9A347B0217 Unit Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4B9A347B0217
+
+FORWARD ME_4B9A34C4007A
+
+: ME_4B9E1D6301C7
+ CONST UID '4B9E1D6301C7'
+ CONST Name 'f_HasControlStatus'
+ CONST Class class_Attribute
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_4B9A34C4007A // UnderControlBehaviour
+ ;
+ : Target WL 'ME_491BF08F035F' '4678193C009C.pas.ms.script' // Tl3Bool
+ ;
+
+ref; // ME_4B9E1D6301C7 f_HasControlStatus
+
+: ME_4B9A37C90253
+ CONST UID '4B9A37C90253'
+ CONST Name 'DoGetControllable'
+ CONST Class class_Operation
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_abstract
+ : Parent ME_4B9A34C4007A // UnderControlBehaviour
+ ;
+ : Target WL 'ME_45EEC17501B5' '45EEAA800226.pas.ms.script' // Controllable
+ ;
+
+ref; // ME_4B9A37C90253 DoGetControllable
+
+: ME_4BA09E450045
+ CONST UID '4BA09E450045'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4B9A34C4007A // UnderControlBehaviour
+ ;
+ : Target WL 'ME_480F78BC0146' '47D0290B016D.pas.ms.script' // l3Utils
+ ;
+
+ref; // ME_4BA09E450045 
+
+: ME_4B9A2F660115_ME_4B9A34C4007A
+ CONST UID '4B9A2F660115'
+ CONST Name 'ClearControlStatus'
+ : Original WL 'ME_4B9A2F660115' '4B9A1E7F0036.pas.ms.script' // ClearControlStatus
+ ;
+ : Implementor ME_4B9A34C4007A // UnderControlBehaviour
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_4B9A2F660115_ME_4B9A34C4007A ClearControlStatus
+
+: ME_4B9A2F95007C_ME_4B9A34C4007A
+ CONST UID '4B9A2F95007C'
+ CONST Name 'HasControlStatus'
+ : Original WL 'ME_4B9A2F95007C' '4B9A1E7F0036.pas.ms.script' // HasControlStatus
+ ;
+ : Implementor ME_4B9A34C4007A // UnderControlBehaviour
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "pm" false
+ref; // ME_4B9A2F95007C_ME_4B9A34C4007A HasControlStatus
+
+: ME_4B9A2FB102EE_ME_4B9A34C4007A
+ CONST UID '4B9A2FB102EE'
+ CONST Name 'Controllable'
+ : Original WL 'ME_4B9A2FB102EE' '4B9A1E7F0036.pas.ms.script' // Controllable
+ ;
+ : Implementor ME_4B9A34C4007A // UnderControlBehaviour
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "pm" false
+ref; // ME_4B9A2FB102EE_ME_4B9A34C4007A Controllable
+
+: ME_4B9A2FD30344_ME_4B9A34C4007A
+ CONST UID '4B9A2FD30344'
+ CONST Name 'ControlStatus'
+ : Original WL 'ME_4B9A2FD30344' '4B9A1E7F0036.pas.ms.script' // ControlStatus
+ ;
+ : Implementor ME_4B9A34C4007A // UnderControlBehaviour
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "pm" false
+ref; // ME_4B9A2FD30344_ME_4B9A34C4007A ControlStatus
+
+: ME_47EA4E9002C6_ME_4B9A34C4007A
+ CONST UID '47EA4E9002C6'
+ CONST Name 'FinishDataUpdate'
+ : Original WL 'ME_47EA4E9002C6' '47EA4BB502F9.pas.ms.script' // FinishDataUpdate
+ ;
+ : Implementor ME_4B9A34C4007A // UnderControlBehaviour
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_47EA4E9002C6_ME_4B9A34C4007A FinishDataUpdate
+
+: ME_4B9A34C4007A
+ CONST UID '4B9A34C4007A'
+ CONST Name 'UnderControlBehaviour'
+ CONST Class class_Class
+ : Stereotype st_Impurity ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4B9A347B0217 // UnderControlImpl
+ ;
+ : Inherits
+   Seq: ( WL 'ME_47EA4BEF0140' '47EA4BB502F9.pas.ms.script' // afwApplicationDataUpdate
+ )
+ ; // Inherits
+ : Implements
+   Seq: ( WL 'ME_4B9A2AB603D4' '4B9A1E7F0036.pas.ms.script' // IucpUnderControl
+ )
+ ; // Implements
+ : Attributes
+   Seq: ( ME_4B9E1D6301C7 // f_HasControlStatus
+ )
+ ; // Attributes
+ : Operations
+   Seq: ( ME_4B9A37C90253 // DoGetControllable
+ )
+ ; // Operations
+ : Implemented
+   Seq: ( ME_4B9A2F660115_ME_4B9A34C4007A // ClearControlStatus
+ ME_4B9A2F95007C_ME_4B9A34C4007A // HasControlStatus
+ ME_4B9A2FB102EE_ME_4B9A34C4007A // Controllable
+ ME_4B9A2FD30344_ME_4B9A34C4007A // ControlStatus
+ )
+ ; // Implemented
+ : Overridden
+   Seq: ( ME_47EA4E9002C6_ME_4B9A34C4007A // FinishDataUpdate
+ )
+ ; // Overridden
+ : Dependencies
+   Seq: ( ME_4BA09E450045 // 
+ )
+ ; // Dependencies
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ : Generators
+ Seq: (
+ gen_intf.pas
+ )
+ ; // Generators
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\UnderControl'
+ CONST intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\UnderControl\UnderControlBehaviour.imp.pas'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\UnderControl'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\UnderControl'
+ CONST extprop:pas:TypeName '_UnderControlBehaviour_'
+ CONST extprop:pas:UnitName 'UnderControlBehaviour.imp'
+
+ref; // ME_4B9A34C4007A UnderControlBehaviour
+
+FORWARD ME_4E7C528C00BE
+
+FORWARD ME_4E7C554A0284
+
+: ME_4E7C555A023F
+ CONST UID '4E7C555A023F'
+ CONST Name 'StatusChanged'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_4E7C554A0284 // Local
+ ;
+ CONST Value '''Статус документа на контроле изменился:  %s  Подробнее [см. в справке|script:оп::Документ_Справка_к_документу] к документу'''
+ CONST "AutoInc" false
+ CONST "forced type" 'none'
+ CONST "is define" false
+ CONST extprop:pas:Value '''Статус документа на контроле изменился:  %s  Подробнее [см. в справке|script:оп::Документ_Справка_к_документу] к документу'''
+
+ref; // ME_4E7C555A023F StatusChanged
+
+: ME_4E7C55820338
+ CONST UID '4E7C55820338'
+ CONST Name 'DeletedStatusChanged'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_4E7C554A0284 // Local
+ ;
+ CONST Value '''Статус документа на контроле изменился:  %s'''
+ CONST "AutoInc" false
+ CONST "forced type" 'none'
+ CONST "is define" false
+ CONST extprop:pas:Value '''Статус документа на контроле изменился:  %s'''
+
+ref; // ME_4E7C55820338 DeletedStatusChanged
+
+: ME_4E7C583D0264
+ CONST UID '4E7C583D0264'
+ CONST Name 'Deleted'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_4E7C554A0284 // Local
+ ;
+ CONST Value '''удален'''
+ CONST "AutoInc" false
+ CONST "forced type" 'none'
+ CONST "is define" false
+ CONST extprop:pas:Value '''удален'''
+
+ref; // ME_4E7C583D0264 Deleted
+
+: ME_4E7C586B0222
+ CONST UID '4E7C586B0222'
+ CONST Name 'Active'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_4E7C554A0284 // Local
+ ;
+ CONST Value '''вступил в силу'''
+ CONST "AutoInc" false
+ CONST "forced type" 'none'
+ CONST "is define" false
+ CONST extprop:pas:Value '''вступил в силу'''
+
+ref; // ME_4E7C586B0222 Active
+
+: ME_4E7C589D01BA
+ CONST UID '4E7C589D01BA'
+ CONST Name 'Changed'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_4E7C554A0284 // Local
+ ;
+ CONST Value '''изменен'''
+ CONST "AutoInc" false
+ CONST "forced type" 'none'
+ CONST "is define" false
+ CONST extprop:pas:Value '''изменен'''
+
+ref; // ME_4E7C589D01BA Changed
+
+: ME_4E7C58C300DE
+ CONST UID '4E7C58C300DE'
+ CONST Name 'Abolished'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_4E7C554A0284 // Local
+ ;
+ CONST Value '''утратил силу'''
+ CONST "AutoInc" false
+ CONST "forced type" 'none'
+ CONST "is define" false
+ CONST extprop:pas:Value '''утратил силу'''
+
+ref; // ME_4E7C58C300DE Abolished
+
+: ME_4E7C58E8008D
+ CONST UID '4E7C58E8008D'
+ CONST Name 'Registered'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_4E7C554A0284 // Local
+ ;
+ CONST Value '''зарегистрирован в Минюсте РФ'''
+ CONST "AutoInc" false
+ CONST "forced type" 'none'
+ CONST "is define" false
+ CONST extprop:pas:Value '''зарегистрирован в Минюсте РФ'''
+
+ref; // ME_4E7C58E8008D Registered
+
+: ME_4E7C5914002D
+ CONST UID '4E7C5914002D'
+ CONST Name 'NotRegistered'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_4E7C554A0284 // Local
+ ;
+ CONST Value '''отказано в регистрации в Минюсте РФ'''
+ CONST "AutoInc" false
+ CONST "forced type" 'none'
+ CONST "is define" false
+ CONST extprop:pas:Value '''отказано в регистрации в Минюсте РФ'''
+
+ref; // ME_4E7C5914002D NotRegistered
+
+: ME_4E7C95F10128
+ CONST UID '4E7C95F10128'
+ CONST Name 'Document'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_4E7C554A0284 // Local
+ ;
+ CONST Value '''Документ'''
+ CONST "AutoInc" false
+ CONST "forced type" 'none'
+ CONST "is define" false
+ CONST extprop:pas:Value '''Документ'''
+
+ref; // ME_4E7C95F10128 Document
+
+: ME_4E7C95FF0021
+ CONST UID '4E7C95FF0021'
+ CONST Name 'Documentu'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_4E7C554A0284 // Local
+ ;
+ CONST Value '''Документу'''
+ CONST "AutoInc" false
+ CONST "forced type" 'none'
+ CONST "is define" false
+ CONST extprop:pas:Value '''Документу'''
+
+ref; // ME_4E7C95FF0021 Documentu
+
+: ME_4E7C9F7303CD
+ CONST UID '4E7C9F7303CD'
+ CONST Name 'DocumentEvents'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_4E7C554A0284 // Local
+ ;
+ CONST Value '''С документом произошло несколько событий:'''
+ CONST "AutoInc" false
+ CONST "forced type" 'none'
+ CONST "is define" false
+ CONST extprop:pas:Value '''С документом произошло несколько событий:'''
+
+ref; // ME_4E7C9F7303CD DocumentEvents
+
+: ME_4E7C554A0284
+ CONST UID '4E7C554A0284'
+ CONST Name 'Local'
+ CONST Class class_Class
+ : Stereotype st_LocalConst ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_4E7C528C00BE // ControlStatusUtils
+ ;
+ : Attributes
+   Seq: ( ME_4E7C555A023F // StatusChanged
+ ME_4E7C55820338 // DeletedStatusChanged
+ ME_4E7C583D0264 // Deleted
+ ME_4E7C586B0222 // Active
+ ME_4E7C589D01BA // Changed
+ ME_4E7C58C300DE // Abolished
+ ME_4E7C58E8008D // Registered
+ ME_4E7C5914002D // NotRegistered
+ ME_4E7C95F10128 // Document
+ ME_4E7C95FF0021 // Documentu
+ ME_4E7C9F7303CD // DocumentEvents
+ )
+ ; // Attributes
+ CONST "Need map interface" false
+ CONST "Need mapping support" false
+ CONST "children prefix" 'cs'
+ CONST "spell names" false
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\UnderControl'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\UnderControl'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\UnderControl'
+ CONST extprop:pas:ElementPrefix 'cs'
+
+ref; // ME_4E7C554A0284 Local
+
+FORWARD ME_4E7C9AAD02BE
+
+FORWARD ME_4E7C9AC2004B
+
+FORWARD ME_4E9E77B50184
+
+: ME_4E9E77D70291
+ CONST UID '4E9E77D70291'
+ CONST Name 'OpenInternetVersion'
+ CONST Class class_Class
+ : Stereotype st_Choice ;
+ CONST Kind kind_NormalClass
+ %SUMMARY '''Открыть интернет-версию''' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4E9E77B50184 // Choices
+ ;
+ CONST "AutoInc" false
+ CONST "forced type" 'none'
+ CONST "is define" false
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\UnderControl'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\UnderControl'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\UnderControl'
+
+ref; // ME_4E9E77D70291 OpenInternetVersion
+
+: ME_4E9E77F903E0
+ CONST UID '4E9E77F903E0'
+ CONST Name 'StayInCurrentEdition'
+ CONST Class class_Class
+ : Stereotype st_Choice ;
+ CONST Kind kind_NormalClass
+ %SUMMARY '''Остаться в текущей редакции''' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4E9E77B50184 // Choices
+ ;
+ CONST "AutoInc" false
+ CONST "forced type" 'none'
+ CONST "is define" false
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\UnderControl'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\UnderControl'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\UnderControl'
+
+ref; // ME_4E9E77F903E0 StayInCurrentEdition
+
+: ME_4E9E77B50184
+ CONST UID '4E9E77B50184'
+ CONST Name 'Choices'
+ CONST Class class_Class
+ : Stereotype st_Choices ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_4E7C9AC2004B // InActualDocumentAction
+ ;
+ : Children
+   Seq: ( ME_4E9E77D70291 // OpenInternetVersion
+ ME_4E9E77F903E0 // StayInCurrentEdition
+ )
+ ; // Children
+ CONST "Need map interface" false
+ CONST "Need mapping support" false
+ CONST "spell names" false
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\UnderControl'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\UnderControl'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\UnderControl'
+
+ref; // ME_4E9E77B50184 Choices
+
+: ME_4E9E785B038F
+ CONST UID '4E9E785B038F'
+ CONST Class class_Attribute
+ : Stereotype st_DefaultChoice::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_ref
+ : Parent ME_4E7C9AC2004B // InActualDocumentAction
+ ;
+ : Target ME_4E9E77F903E0 // StayInCurrentEdition
+ ;
+
+ref; // ME_4E9E785B038F 
+
+: ME_4E7C9AC2004B
+ CONST UID '4E7C9AC2004B'
+ CONST Name 'InActualDocumentAction'
+ CONST Class class_Class
+ : Stereotype st_Message ;
+ CONST Kind kind_NormalClass
+ %SUMMARY '''%s '' + #13#10 +'#13#10'''Актуальная информация представлена в интернет-версии системы ГАРАНТ''' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4E7C9AAD02BE // Messages
+ ;
+ : Attributes
+   Seq: ( ME_4E9E785B038F // 
+ )
+ ; // Attributes
+ : Children
+   Seq: ( ME_4E9E77B50184 // Choices
+ )
+ ; // Children
+ CONST "AutoInc" false
+ CONST "CheckCaption" 'Не оповещать об изменениях в этом документе в пределах сеанса'
+ CONST "DlgType" 'Confirmation'
+ CONST "NeedCheck" false
+ CONST "forced type" 'none'
+ CONST "is define" false
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\UnderControl'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\UnderControl'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\UnderControl'
+
+ref; // ME_4E7C9AC2004B InActualDocumentAction
+
+: ME_6DCA37526FE0
+ CONST UID '6DCA37526FE0'
+ CONST Name 'InActualDocumentAction_CheckCaption'
+ CONST IsSummoned true
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_4E7C9AAD02BE // Messages
+ ;
+ CONST Value '''Не оповещать об изменениях в этом документе в пределах сеанса'''
+ CONST "AutoInc" false
+ CONST "forced type" 'none'
+ CONST "is define" false
+ CONST extprop:pas:Value '''Не оповещать об изменениях в этом документе в пределах сеанса'''
+
+ref; // ME_6DCA37526FE0 InActualDocumentAction_CheckCaption
+
+: ME_4E7C9AAD02BE
+ CONST UID '4E7C9AAD02BE'
+ CONST Name 'Messages'
+ CONST Class class_Class
+ : Stereotype st_LocalConst ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_4E7C528C00BE // ControlStatusUtils
+ ;
+ : Attributes
+   Seq: ( ME_6DCA37526FE0 // InActualDocumentAction_CheckCaption
+ )
+ ; // Attributes
+ : Children
+   Seq: ( ME_4E7C9AC2004B // InActualDocumentAction
+ )
+ ; // Children
+ CONST "Need map interface" false
+ CONST "Need mapping support" false
+ CONST "spell names" false
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\UnderControl'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\UnderControl'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\UnderControl'
+
+ref; // ME_4E7C9AAD02BE Messages
+
+FORWARD ME_BB12F0DF7C6B
+
+: ME_1B38A8E8ADEB
+ CONST UID '1B38A8E8ADEB'
+ CONST Name 'StatusChanged'
+ CONST IsSummoned true
+ CONST Class class_Attribute
+ %SUMMARY '''Статус документа на контроле изменился:  %s  Подробнее [см. в справке|script:оп::Документ_Справка_к_документу] к документу''' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_BB12F0DF7C6B // LCImplLocal
+ ;
+ : Target WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
+ ;
+ CONST Value '(rS : -1; rLocalized : false; rKey : ''csStatusChanged''; rValue : ''Статус документа на контроле изменился:  %s  Подробнее [см. в справке|script:оп::Документ_Справка_к_документу] к документу'')'
+ : ValueType WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
+ ;
+ CONST "AutoInc" false
+ CONST "forced type" 'none'
+ CONST "is define" false
+ CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''csStatusChanged''; rValue : ''Статус документа на контроле изменился:  %s  Подробнее [см. в справке|script:оп::Документ_Справка_к_документу] к документу'')'
+
+ref; // ME_1B38A8E8ADEB StatusChanged
+
+: ME_785E5AFA545B
+ CONST UID '785E5AFA545B'
+ CONST Name 'DeletedStatusChanged'
+ CONST IsSummoned true
+ CONST Class class_Attribute
+ %SUMMARY '''Статус документа на контроле изменился:  %s''' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_BB12F0DF7C6B // LCImplLocal
+ ;
+ : Target WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
+ ;
+ CONST Value '(rS : -1; rLocalized : false; rKey : ''csDeletedStatusChanged''; rValue : ''Статус документа на контроле изменился:  %s'')'
+ : ValueType WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
+ ;
+ CONST "AutoInc" false
+ CONST "forced type" 'none'
+ CONST "is define" false
+ CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''csDeletedStatusChanged''; rValue : ''Статус документа на контроле изменился:  %s'')'
+
+ref; // ME_785E5AFA545B DeletedStatusChanged
+
+: ME_AC00531063DF
+ CONST UID 'AC00531063DF'
+ CONST Name 'Deleted'
+ CONST IsSummoned true
+ CONST Class class_Attribute
+ %SUMMARY '''удален''' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_BB12F0DF7C6B // LCImplLocal
+ ;
+ : Target WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
+ ;
+ CONST Value '(rS : -1; rLocalized : false; rKey : ''csDeleted''; rValue : ''удален'')'
+ : ValueType WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
+ ;
+ CONST "AutoInc" false
+ CONST "forced type" 'none'
+ CONST "is define" false
+ CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''csDeleted''; rValue : ''удален'')'
+
+ref; // ME_AC00531063DF Deleted
+
+: ME_4D9B91DE9EED
+ CONST UID '4D9B91DE9EED'
+ CONST Name 'Active'
+ CONST IsSummoned true
+ CONST Class class_Attribute
+ %SUMMARY '''вступил в силу''' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_BB12F0DF7C6B // LCImplLocal
+ ;
+ : Target WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
+ ;
+ CONST Value '(rS : -1; rLocalized : false; rKey : ''csActive''; rValue : ''вступил в силу'')'
+ : ValueType WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
+ ;
+ CONST "AutoInc" false
+ CONST "forced type" 'none'
+ CONST "is define" false
+ CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''csActive''; rValue : ''вступил в силу'')'
+
+ref; // ME_4D9B91DE9EED Active
+
+: ME_A8523E3546A5
+ CONST UID 'A8523E3546A5'
+ CONST Name 'Changed'
+ CONST IsSummoned true
+ CONST Class class_Attribute
+ %SUMMARY '''изменен''' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_BB12F0DF7C6B // LCImplLocal
+ ;
+ : Target WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
+ ;
+ CONST Value '(rS : -1; rLocalized : false; rKey : ''csChanged''; rValue : ''изменен'')'
+ : ValueType WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
+ ;
+ CONST "AutoInc" false
+ CONST "forced type" 'none'
+ CONST "is define" false
+ CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''csChanged''; rValue : ''изменен'')'
+
+ref; // ME_A8523E3546A5 Changed
+
+: ME_4EED42B157CC
+ CONST UID '4EED42B157CC'
+ CONST Name 'Abolished'
+ CONST IsSummoned true
+ CONST Class class_Attribute
+ %SUMMARY '''утратил силу''' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_BB12F0DF7C6B // LCImplLocal
+ ;
+ : Target WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
+ ;
+ CONST Value '(rS : -1; rLocalized : false; rKey : ''csAbolished''; rValue : ''утратил силу'')'
+ : ValueType WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
+ ;
+ CONST "AutoInc" false
+ CONST "forced type" 'none'
+ CONST "is define" false
+ CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''csAbolished''; rValue : ''утратил силу'')'
+
+ref; // ME_4EED42B157CC Abolished
+
+: ME_36BAF6381D87
+ CONST UID '36BAF6381D87'
+ CONST Name 'Registered'
+ CONST IsSummoned true
+ CONST Class class_Attribute
+ %SUMMARY '''зарегистрирован в Минюсте РФ''' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_BB12F0DF7C6B // LCImplLocal
+ ;
+ : Target WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
+ ;
+ CONST Value '(rS : -1; rLocalized : false; rKey : ''csRegistered''; rValue : ''зарегистрирован в Минюсте РФ'')'
+ : ValueType WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
+ ;
+ CONST "AutoInc" false
+ CONST "forced type" 'none'
+ CONST "is define" false
+ CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''csRegistered''; rValue : ''зарегистрирован в Минюсте РФ'')'
+
+ref; // ME_36BAF6381D87 Registered
+
+: ME_8561CA04B06A
+ CONST UID '8561CA04B06A'
+ CONST Name 'NotRegistered'
+ CONST IsSummoned true
+ CONST Class class_Attribute
+ %SUMMARY '''отказано в регистрации в Минюсте РФ''' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_BB12F0DF7C6B // LCImplLocal
+ ;
+ : Target WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
+ ;
+ CONST Value '(rS : -1; rLocalized : false; rKey : ''csNotRegistered''; rValue : ''отказано в регистрации в Минюсте РФ'')'
+ : ValueType WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
+ ;
+ CONST "AutoInc" false
+ CONST "forced type" 'none'
+ CONST "is define" false
+ CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''csNotRegistered''; rValue : ''отказано в регистрации в Минюсте РФ'')'
+
+ref; // ME_8561CA04B06A NotRegistered
+
+: ME_90776B738198
+ CONST UID '90776B738198'
+ CONST Name 'Document'
+ CONST IsSummoned true
+ CONST Class class_Attribute
+ %SUMMARY '''Документ''' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_BB12F0DF7C6B // LCImplLocal
+ ;
+ : Target WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
+ ;
+ CONST Value '(rS : -1; rLocalized : false; rKey : ''csDocument''; rValue : ''Документ'')'
+ : ValueType WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
+ ;
+ CONST "AutoInc" false
+ CONST "forced type" 'none'
+ CONST "is define" false
+ CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''csDocument''; rValue : ''Документ'')'
+
+ref; // ME_90776B738198 Document
+
+: ME_527551D88C50
+ CONST UID '527551D88C50'
+ CONST Name 'Documentu'
+ CONST IsSummoned true
+ CONST Class class_Attribute
+ %SUMMARY '''Документу''' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_BB12F0DF7C6B // LCImplLocal
+ ;
+ : Target WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
+ ;
+ CONST Value '(rS : -1; rLocalized : false; rKey : ''csDocumentu''; rValue : ''Документу'')'
+ : ValueType WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
+ ;
+ CONST "AutoInc" false
+ CONST "forced type" 'none'
+ CONST "is define" false
+ CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''csDocumentu''; rValue : ''Документу'')'
+
+ref; // ME_527551D88C50 Documentu
+
+: ME_A5C919926BC6
+ CONST UID 'A5C919926BC6'
+ CONST Name 'DocumentEvents'
+ CONST IsSummoned true
+ CONST Class class_Attribute
+ %SUMMARY '''С документом произошло несколько событий:''' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_BB12F0DF7C6B // LCImplLocal
+ ;
+ : Target WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
+ ;
+ CONST Value '(rS : -1; rLocalized : false; rKey : ''csDocumentEvents''; rValue : ''С документом произошло несколько событий:'')'
+ : ValueType WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
+ ;
+ CONST "AutoInc" false
+ CONST "forced type" 'none'
+ CONST "is define" false
+ CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''csDocumentEvents''; rValue : ''С документом произошло несколько событий:'')'
+
+ref; // ME_A5C919926BC6 DocumentEvents
+
+: ME_BB12F0DF7C6B
+ CONST UID 'BB12F0DF7C6B'
+ CONST Name 'LCImplLocal'
+ CONST IsSummoned true
+ CONST Class class_Class
+ : Stereotype st_Constants ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Локализуемые строки Local' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ : Parent ME_4E7C528C00BE // ControlStatusUtils
+ ;
+ : Attributes
+   Seq: ( ME_1B38A8E8ADEB // StatusChanged
+ ME_785E5AFA545B // DeletedStatusChanged
+ ME_AC00531063DF // Deleted
+ ME_4D9B91DE9EED // Active
+ ME_A8523E3546A5 // Changed
+ ME_4EED42B157CC // Abolished
+ ME_36BAF6381D87 // Registered
+ ME_8561CA04B06A // NotRegistered
+ ME_90776B738198 // Document
+ ME_527551D88C50 // Documentu
+ ME_A5C919926BC6 // DocumentEvents
+ )
+ ; // Attributes
+ CONST "children prefix" 'cs'
+ CONST "elements prefix" 'str'
+ CONST "spell names" false
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\UnderControl'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\UnderControl'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\UnderControl'
+ CONST extprop:pas:ElementPrefixBase 'str'
+ CONST extprop:pas:ElementPrefix 'str_cs'
+
+ref; // ME_BB12F0DF7C6B LCImplLocal
+
+FORWARD ME_73E880B109D3
+
+: ME_BC6AF7071962
+ CONST UID 'BC6AF7071962'
+ CONST Name 'InActualDocumentAction_Choice_OpenInternetVersion'
+ CONST IsSummoned true
+ CONST Class class_Attribute
+ %SUMMARY '''Открыть интернет-версию''' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_73E880B109D3 // LCImpl_InActualDocumentAction_Choices
+ ;
+ : Target WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
+ ;
+ CONST Value '(rS : -1; rLocalized : false; rKey : ''InActualDocumentAction_Choice_OpenInternetVersion''; rValue : ''Открыть интернет-версию'')'
+ : ValueType WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
+ ;
+ CONST "AutoInc" false
+ CONST "forced type" 'none'
+ CONST "is define" false
+ CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''InActualDocumentAction_Choice_OpenInternetVersion''; rValue : ''Открыть интернет-версию'')'
+
+ref; // ME_BC6AF7071962 InActualDocumentAction_Choice_OpenInternetVersion
+
+: ME_40F0A9C57DE1
+ CONST UID '40F0A9C57DE1'
+ CONST Name 'InActualDocumentAction_Choice_StayInCurrentEdition'
+ CONST IsSummoned true
+ CONST Class class_Attribute
+ %SUMMARY '''Остаться в текущей редакции''' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_73E880B109D3 // LCImpl_InActualDocumentAction_Choices
+ ;
+ : Target WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
+ ;
+ CONST Value '(rS : -1; rLocalized : false; rKey : ''InActualDocumentAction_Choice_StayInCurrentEdition''; rValue : ''Остаться в текущей редакции'')'
+ : ValueType WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
+ ;
+ CONST "AutoInc" false
+ CONST "forced type" 'none'
+ CONST "is define" false
+ CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''InActualDocumentAction_Choice_StayInCurrentEdition''; rValue : ''Остаться в текущей редакции'')'
+
+ref; // ME_40F0A9C57DE1 InActualDocumentAction_Choice_StayInCurrentEdition
+
+: ME_73E880B109D3
+ CONST UID '73E880B109D3'
+ CONST Name 'LCImpl_InActualDocumentAction_Choices'
+ CONST IsSummoned true
+ CONST Class class_Class
+ : Stereotype st_Constants ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Варианты выбора для диалога InActualDocumentAction' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ : Parent ME_4E7C528C00BE // ControlStatusUtils
+ ;
+ : Attributes
+   Seq: ( ME_BC6AF7071962 // InActualDocumentAction_Choice_OpenInternetVersion
+ ME_40F0A9C57DE1 // InActualDocumentAction_Choice_StayInCurrentEdition
+ )
+ ; // Attributes
+ CONST "elements prefix" 'str'
+ CONST "spell names" false
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\UnderControl'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\UnderControl'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\UnderControl'
+ CONST extprop:pas:ElementPrefixBase 'str'
+ CONST extprop:pas:ElementPrefix 'str_'
+
+ref; // ME_73E880B109D3 LCImpl_InActualDocumentAction_Choices
+
+FORWARD ME_BB1F465D8814
+
+: ME_40C3803B46F0
+ CONST UID '40C3803B46F0'
+ CONST Name 'InActualDocumentAction'
+ CONST IsSummoned true
+ CONST Class class_Attribute
+ %SUMMARY '''%s '' + #13#10 +'#13#10'''Актуальная информация представлена в интернет-версии системы ГАРАНТ''' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_BB1F465D8814 // LCImplMessages
+ ;
+ : Target WL 'ME_4E01D1E002AE' '4F9BDEEE01BC.pas.ms.script' // Tl3MessageID
+ ;
+ CONST Value '(rS : -1; rLocalized : false; rKey : ''InActualDocumentAction''; rValue : ''%s '' + #13#10 +'#13#10'''Актуальная информация представлена в интернет-версии системы ГАРАНТ'')'
+ : ValueType WL 'ME_4E01D1E002AE' '4F9BDEEE01BC.pas.ms.script' // Tl3MessageID
+ ;
+ CONST "AutoInc" false
+ CONST "forced type" 'none'
+ CONST "is define" false
+ CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''InActualDocumentAction''; rValue : ''%s '' + #13#10 +'#13#10'''Актуальная информация представлена в интернет-версии системы ГАРАНТ'')'
+
+ref; // ME_40C3803B46F0 InActualDocumentAction
+
+: ME_D44774EBE521
+ CONST UID 'D44774EBE521'
+ CONST Name 'InActualDocumentAction_CheckCaption'
+ CONST IsSummoned true
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_BB1F465D8814 // LCImplMessages
+ ;
+ : Target WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
+ ;
+ CONST Value '(rS : -1; rLocalized : false; rKey : ''InActualDocumentAction_CheckCaption''; rValue : ''Не оповещать об изменениях в этом документе в пределах сеанса'')'
+ : ValueType WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
+ ;
+ CONST "AutoInc" false
+ CONST "forced type" 'none'
+ CONST "is define" false
+ CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''InActualDocumentAction_CheckCaption''; rValue : ''Не оповещать об изменениях в этом документе в пределах сеанса'')'
+
+ref; // ME_D44774EBE521 InActualDocumentAction_CheckCaption
+
+: ME_BB1F465D8814
+ CONST UID 'BB1F465D8814'
+ CONST Name 'LCImplMessages'
+ CONST IsSummoned true
+ CONST Class class_Class
+ : Stereotype st_Constants ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Локализуемые строки Messages' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4E7C528C00BE // ControlStatusUtils
+ ;
+ : Attributes
+   Seq: ( ME_40C3803B46F0 // InActualDocumentAction
+ ME_D44774EBE521 // InActualDocumentAction_CheckCaption
+ )
+ ; // Attributes
+ CONST "elements prefix" 'str'
+ CONST "spell names" false
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\UnderControl'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\UnderControl'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\UnderControl'
+ CONST extprop:pas:ElementPrefixBase 'str'
+ CONST extprop:pas:ElementPrefix 'str_'
+
+ref; // ME_BB1F465D8814 LCImplMessages
+
+FORWARD ME_4E7C52D400DA
+
+: ME_4E7C530202C6
+ CONST UID '4E7C530202C6'
+ CONST Name 'aStatus'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+
+ref; // ME_4E7C530202C6 aStatus
+
+: ME_4E7C9F4F03BE
+ CONST UID '4E7C9F4F03BE'
+ CONST Name 'aNeedPrefix'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+
+ref; // ME_4E7C9F4F03BE aNeedPrefix
+
+: ME_4E7C52F00357
+ CONST UID '4E7C52F00357'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_4E7C52D400DA // bsControlStatusHint
+ ;
+ : Target WL 'ME_46780DA40383' '4677FBA70343.pas.ms.script' // Il3CString
+ ;
+ : Parameters
+   Seq: ( ME_4E7C530202C6 // aStatus
+ ME_4E7C9F4F03BE // aNeedPrefix
+ )
+ ; // Parameters
+
+ref; // ME_4E7C52F00357 DoIt
+
+: ME_4E7C56D8037D
+ CONST UID '4E7C56D8037D'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4E7C52D400DA // bsControlStatusHint
+ ;
+ : Target WL 'ME_45F118A10361' '45EEAA800226.pas.ms.script' // ControlStatus
+ ;
+
+ref; // ME_4E7C56D8037D 
+
+: ME_4E7C5712031A
+ CONST UID '4E7C5712031A'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4E7C52D400DA // bsControlStatusHint
+ ;
+ : Target WL 'ME_4ADF0823017C' '54B90AC6014B.pas.ms.script' // l3IsNil
+ ;
+
+ref; // ME_4E7C5712031A 
+
+: ME_4E7C575E0107
+ CONST UID '4E7C575E0107'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4E7C52D400DA // bsControlStatusHint
+ ;
+ : Target WL 'ME_4AC0B9CF018A' '47D0E1500033.pas.ms.script' // vcmCStr
+ ;
+
+ref; // ME_4E7C575E0107 
+
+: ME_4E7C57B600F2
+ CONST UID '4E7C57B600F2'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4E7C52D400DA // bsControlStatusHint
+ ;
+ : Target WL 'ME_47F260EC02C7' '521C9DA50125.pas.ms.script' // StdRes
+ ;
+
+ref; // ME_4E7C57B600F2 
+
+: ME_4E7C95E902E1
+ CONST UID '4E7C95E902E1'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4E7C52D400DA // bsControlStatusHint
+ ;
+ : Target WL 'ME_47F2612701D0' '47D0290B016D.pas.ms.script' // l3Bits
+ ;
+
+ref; // ME_4E7C95E902E1 
+
+: ME_4E7C9FC002FB
+ CONST UID '4E7C9FC002FB'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4E7C52D400DA // bsControlStatusHint
+ ;
+ : Target WL 'ME_4AA7888B0076' '47913B47006E.pas.ms.script' // l3CStr
+ ;
+
+ref; // ME_4E7C9FC002FB 
+
+: ME_4E7C52D400DA
+ CONST UID '4E7C52D400DA'
+ CONST Name 'bsControlStatusHint'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'возвращает хинт для статуса изменения объекта на контроле' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_4E7C528C00BE // ControlStatusUtils
+ ;
+ : Operations
+   Seq: ( ME_4E7C52F00357 // DoIt
+ )
+ ; // Operations
+ : Dependencies
+   Seq: ( ME_4E7C56D8037D // 
+ ME_4E7C5712031A // 
+ ME_4E7C575E0107 // 
+ ME_4E7C57B600F2 // 
+ ME_4E7C95E902E1 // 
+ ME_4E7C9FC002FB // 
+ )
+ ; // Dependencies
+
+ref; // ME_4E7C52D400DA bsControlStatusHint
+
+FORWARD ME_4E7C531601A3
+
+: ME_4E7C5405006D
+ CONST UID '4E7C5405006D'
+ CONST Name 'aUC'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_4B9A2AB603D4' '4B9A1E7F0036.pas.ms.script' // IucpUnderControl
+ ;
+
+ref; // ME_4E7C5405006D aUC
+
+: ME_4E7C53FC018B
+ CONST UID '4E7C53FC018B'
+ CONST Name 'DoI'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_4E7C531601A3 // bsFullControlStatusHint
+ ;
+ : Target WL 'ME_46780DA40383' '4677FBA70343.pas.ms.script' // Il3CString
+ ;
+ : Parameters
+   Seq: ( ME_4E7C5405006D // aUC
+ )
+ ; // Parameters
+
+ref; // ME_4E7C53FC018B DoI
+
+: ME_4E7C531601A3
+ CONST UID '4E7C531601A3'
+ CONST Name 'bsFullControlStatusHint'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'возвращает хинт для статуса изменения объекта на контроле' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_4E7C528C00BE // ControlStatusUtils
+ ;
+ : Operations
+   Seq: ( ME_4E7C53FC018B // DoI
+ )
+ ; // Operations
+
+ref; // ME_4E7C531601A3 bsFullControlStatusHint
+
+: ME_84FC90BF51A0
+ CONST UID '84FC90BF51A0'
+ CONST Name 'Init_Str_StatusChanged'
+ CONST IsSummoned true
+ CONST Class class_Operation
+ : Stereotype st_ini::Operation ;
+ %SUMMARY 'Инициализация str_csStatusChanged' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_4E7C528C00BE // ControlStatusUtils
+ ;
+ : Speller ME_4E7C555A023F // StatusChanged
+ ;
+ : SpelledFor ME_1B38A8E8ADEB // StatusChanged
+ ;
+
+ref; // ME_84FC90BF51A0 Init_Str_StatusChanged
+
+: ME_0802E51162A6
+ CONST UID '0802E51162A6'
+ CONST Name 'Init_Str_DeletedStatusChanged'
+ CONST IsSummoned true
+ CONST Class class_Operation
+ : Stereotype st_ini::Operation ;
+ %SUMMARY 'Инициализация str_csDeletedStatusChanged' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_4E7C528C00BE // ControlStatusUtils
+ ;
+ : Speller ME_4E7C55820338 // DeletedStatusChanged
+ ;
+ : SpelledFor ME_785E5AFA545B // DeletedStatusChanged
+ ;
+
+ref; // ME_0802E51162A6 Init_Str_DeletedStatusChanged
+
+: ME_519D7BEE02D4
+ CONST UID '519D7BEE02D4'
+ CONST Name 'Init_Str_Deleted'
+ CONST IsSummoned true
+ CONST Class class_Operation
+ : Stereotype st_ini::Operation ;
+ %SUMMARY 'Инициализация str_csDeleted' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_4E7C528C00BE // ControlStatusUtils
+ ;
+ : Speller ME_4E7C583D0264 // Deleted
+ ;
+ : SpelledFor ME_AC00531063DF // Deleted
+ ;
+
+ref; // ME_519D7BEE02D4 Init_Str_Deleted
+
+: ME_2E8B97DCFB28
+ CONST UID '2E8B97DCFB28'
+ CONST Name 'Init_Str_Active'
+ CONST IsSummoned true
+ CONST Class class_Operation
+ : Stereotype st_ini::Operation ;
+ %SUMMARY 'Инициализация str_csActive' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_4E7C528C00BE // ControlStatusUtils
+ ;
+ : Speller ME_4E7C586B0222 // Active
+ ;
+ : SpelledFor ME_4D9B91DE9EED // Active
+ ;
+
+ref; // ME_2E8B97DCFB28 Init_Str_Active
+
+: ME_FADC1D53F082
+ CONST UID 'FADC1D53F082'
+ CONST Name 'Init_Str_Changed'
+ CONST IsSummoned true
+ CONST Class class_Operation
+ : Stereotype st_ini::Operation ;
+ %SUMMARY 'Инициализация str_csChanged' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_4E7C528C00BE // ControlStatusUtils
+ ;
+ : Speller ME_4E7C589D01BA // Changed
+ ;
+ : SpelledFor ME_A8523E3546A5 // Changed
+ ;
+
+ref; // ME_FADC1D53F082 Init_Str_Changed
+
+: ME_411B448CCAE8
+ CONST UID '411B448CCAE8'
+ CONST Name 'Init_Str_Abolished'
+ CONST IsSummoned true
+ CONST Class class_Operation
+ : Stereotype st_ini::Operation ;
+ %SUMMARY 'Инициализация str_csAbolished' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_4E7C528C00BE // ControlStatusUtils
+ ;
+ : Speller ME_4E7C58C300DE // Abolished
+ ;
+ : SpelledFor ME_4EED42B157CC // Abolished
+ ;
+
+ref; // ME_411B448CCAE8 Init_Str_Abolished
+
+: ME_E0F4A2900CE1
+ CONST UID 'E0F4A2900CE1'
+ CONST Name 'Init_Str_Registered'
+ CONST IsSummoned true
+ CONST Class class_Operation
+ : Stereotype st_ini::Operation ;
+ %SUMMARY 'Инициализация str_csRegistered' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_4E7C528C00BE // ControlStatusUtils
+ ;
+ : Speller ME_4E7C58E8008D // Registered
+ ;
+ : SpelledFor ME_36BAF6381D87 // Registered
+ ;
+
+ref; // ME_E0F4A2900CE1 Init_Str_Registered
+
+: ME_0268EAE85CC6
+ CONST UID '0268EAE85CC6'
+ CONST Name 'Init_Str_NotRegistered'
+ CONST IsSummoned true
+ CONST Class class_Operation
+ : Stereotype st_ini::Operation ;
+ %SUMMARY 'Инициализация str_csNotRegistered' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_4E7C528C00BE // ControlStatusUtils
+ ;
+ : Speller ME_4E7C5914002D // NotRegistered
+ ;
+ : SpelledFor ME_8561CA04B06A // NotRegistered
+ ;
+
+ref; // ME_0268EAE85CC6 Init_Str_NotRegistered
+
+: ME_10065802647B
+ CONST UID '10065802647B'
+ CONST Name 'Init_Str_Document'
+ CONST IsSummoned true
+ CONST Class class_Operation
+ : Stereotype st_ini::Operation ;
+ %SUMMARY 'Инициализация str_csDocument' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_4E7C528C00BE // ControlStatusUtils
+ ;
+ : Speller ME_4E7C95F10128 // Document
+ ;
+ : SpelledFor ME_90776B738198 // Document
+ ;
+
+ref; // ME_10065802647B Init_Str_Document
+
+: ME_631D15571B2A
+ CONST UID '631D15571B2A'
+ CONST Name 'Init_Str_Documentu'
+ CONST IsSummoned true
+ CONST Class class_Operation
+ : Stereotype st_ini::Operation ;
+ %SUMMARY 'Инициализация str_csDocumentu' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_4E7C528C00BE // ControlStatusUtils
+ ;
+ : Speller ME_4E7C95FF0021 // Documentu
+ ;
+ : SpelledFor ME_527551D88C50 // Documentu
+ ;
+
+ref; // ME_631D15571B2A Init_Str_Documentu
+
+: ME_F3BCB5FD1767
+ CONST UID 'F3BCB5FD1767'
+ CONST Name 'Init_Str_DocumentEvents'
+ CONST IsSummoned true
+ CONST Class class_Operation
+ : Stereotype st_ini::Operation ;
+ %SUMMARY 'Инициализация str_csDocumentEvents' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_4E7C528C00BE // ControlStatusUtils
+ ;
+ : Speller ME_4E7C9F7303CD // DocumentEvents
+ ;
+ : SpelledFor ME_A5C919926BC6 // DocumentEvents
+ ;
+
+ref; // ME_F3BCB5FD1767 Init_Str_DocumentEvents
+
+: ME_AA0FC427771B
+ CONST UID 'AA0FC427771B'
+ CONST Name 'Init_Str_InActualDocumentAction_Choice_OpenInternetVersion'
+ CONST IsSummoned true
+ CONST Class class_Operation
+ : Stereotype st_ini::Operation ;
+ %SUMMARY 'Инициализация str_InActualDocumentAction_Choice_OpenInternetVersion' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_4E7C528C00BE // ControlStatusUtils
+ ;
+ : Speller ME_4E9E77D70291 // OpenInternetVersion
+ ;
+ : SpelledFor ME_BC6AF7071962 // InActualDocumentAction_Choice_OpenInternetVersion
+ ;
+
+ref; // ME_AA0FC427771B Init_Str_InActualDocumentAction_Choice_OpenInternetVersion
+
+: ME_5A3B9BE1F18E
+ CONST UID '5A3B9BE1F18E'
+ CONST Name 'Init_Str_InActualDocumentAction_Choice_StayInCurrentEdition'
+ CONST IsSummoned true
+ CONST Class class_Operation
+ : Stereotype st_ini::Operation ;
+ %SUMMARY 'Инициализация str_InActualDocumentAction_Choice_StayInCurrentEdition' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_4E7C528C00BE // ControlStatusUtils
+ ;
+ : Speller ME_4E9E77F903E0 // StayInCurrentEdition
+ ;
+ : SpelledFor ME_40F0A9C57DE1 // InActualDocumentAction_Choice_StayInCurrentEdition
+ ;
+
+ref; // ME_5A3B9BE1F18E Init_Str_InActualDocumentAction_Choice_StayInCurrentEdition
+
+: ME_40C510CFD6F2
+ CONST UID '40C510CFD6F2'
+ CONST Name 'Init_Str_InActualDocumentAction'
+ CONST IsSummoned true
+ CONST Class class_Operation
+ : Stereotype st_ini::Operation ;
+ %SUMMARY 'Инициализация str_InActualDocumentAction' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_4E7C528C00BE // ControlStatusUtils
+ ;
+ : Speller ME_4E7C9AC2004B // InActualDocumentAction
+ ;
+ : SpelledFor ME_40C3803B46F0 // InActualDocumentAction
+ ;
+
+ref; // ME_40C510CFD6F2 Init_Str_InActualDocumentAction
+
+: ME_1B6C1E83917C
+ CONST UID '1B6C1E83917C'
+ CONST Name 'Init_Str_InActualDocumentAction_CheckCaption'
+ CONST IsSummoned true
+ CONST Class class_Operation
+ : Stereotype st_ini::Operation ;
+ %SUMMARY 'Инициализация str_InActualDocumentAction_CheckCaption' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_4E7C528C00BE // ControlStatusUtils
+ ;
+ : Speller ME_6DCA37526FE0 // InActualDocumentAction_CheckCaption
+ ;
+ : SpelledFor ME_D44774EBE521 // InActualDocumentAction_CheckCaption
+ ;
+
+ref; // ME_1B6C1E83917C Init_Str_InActualDocumentAction_CheckCaption
+
+: ME_F66B07F838ED
+ CONST UID 'F66B07F838ED'
+ CONST IsSummoned true
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4E7C528C00BE // ControlStatusUtils
+ ;
+ : Target WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
+ ;
+
+ref; // ME_F66B07F838ED 
+
+: ME_AB1EEAB8FA7B
+ CONST UID 'AB1EEAB8FA7B'
+ CONST IsSummoned true
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4E7C528C00BE // ControlStatusUtils
+ ;
+ : Target WL 'ME_4E01D1E002AE' '4F9BDEEE01BC.pas.ms.script' // Tl3MessageID
+ ;
+
+ref; // ME_AB1EEAB8FA7B 
+
+: ME_DE3D6F5F1396
+ CONST UID 'DE3D6F5F1396'
+ CONST IsSummoned true
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4E7C528C00BE // ControlStatusUtils
+ ;
+ : Target WL 'ME_4AB0EE02004E' '4799D29F033F.pas.ms.script' // Dialogs
+ ;
+
+ref; // ME_DE3D6F5F1396 
+
+: ME_4E7C528C00BE
+ CONST UID '4E7C528C00BE'
+ CONST Name 'ControlStatusUtils'
+ CONST Class class_Class
+ : Stereotype st_UtilityPack ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_4B9A347B0217 // UnderControlImpl
+ ;
+ : Implements
+   Seq: ( WL 'ME_4E7C455C0147' '48561FA8027F.pas.ms.script' // Сообщение об изменении документа в МГО должно зависеть от статуса документа
+ )
+ ; // Implements
+ : Operations
+   Seq: ( ME_4E7C52D400DA // bsControlStatusHint
+ ME_4E7C531601A3 // bsFullControlStatusHint
+ ME_84FC90BF51A0 // Init_Str_StatusChanged
+ ME_0802E51162A6 // Init_Str_DeletedStatusChanged
+ ME_519D7BEE02D4 // Init_Str_Deleted
+ ME_2E8B97DCFB28 // Init_Str_Active
+ ME_FADC1D53F082 // Init_Str_Changed
+ ME_411B448CCAE8 // Init_Str_Abolished
+ ME_E0F4A2900CE1 // Init_Str_Registered
+ ME_0268EAE85CC6 // Init_Str_NotRegistered
+ ME_10065802647B // Init_Str_Document
+ ME_631D15571B2A // Init_Str_Documentu
+ ME_F3BCB5FD1767 // Init_Str_DocumentEvents
+ ME_AA0FC427771B // Init_Str_InActualDocumentAction_Choice_OpenInternetVersion
+ ME_5A3B9BE1F18E // Init_Str_InActualDocumentAction_Choice_StayInCurrentEdition
+ ME_40C510CFD6F2 // Init_Str_InActualDocumentAction
+ ME_1B6C1E83917C // Init_Str_InActualDocumentAction_CheckCaption
+ )
+ ; // Operations
+ : Constants
+   Seq: ( ME_4E7C554A0284 // Local
+ ME_4E7C9AAD02BE // Messages
+ ME_BB12F0DF7C6B // LCImplLocal
+ ME_73E880B109D3 // LCImpl_InActualDocumentAction_Choices
+ ME_BB1F465D8814 // LCImplMessages
+ )
+ ; // Constants
+ : Dependencies
+   Seq: ( ME_F66B07F838ED // 
+ ME_AB1EEAB8FA7B // 
+ ME_DE3D6F5F1396 // 
+ )
+ ; // Dependencies
+ CONST "no hands" false
+ : Generators
+ Seq: (
+ gen_intf.pas
+ )
+ ; // Generators
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\UnderControl'
+ CONST intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\UnderControl\ControlStatusUtils.pas'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\UnderControl'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\UnderControl'
+
+ref; // ME_4E7C528C00BE ControlStatusUtils
+
+: ME_4B9A347B0217
+ CONST UID '4B9A347B0217'
+ CONST Name 'UnderControlImpl'
+ CONST Class class_Category
+ : Stereotype st_Unit ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent WL 'ME_4BA08E8D00CD' '4BA08E8D00CD.pas.ms.script' // UnderControl$Resetter
+ ;
+ : Children
+   Seq: ( ME_4B9A34C4007A // UnderControlBehaviour
+ ME_4E7C528C00BE // ControlStatusUtils
+ )
+ ; // Children
+ : Depends
+   Seq: ( WL 'ME_45EEAA800226' '45EEAA800226.pas.ms.script' // UnderControl
+ WL 'ME_4677FBA70343' '4677FBA70343.pas.ms.script' // l3Interfaces
+ WL 'ME_4678193C009C' '4678193C009C.pas.ms.script' // l3Types
+ WL 'ME_47913B47006E' '47913B47006E.pas.ms.script' // l3CoreObjects
+ WL 'ME_4799D29F033F' '4799D29F033F.pas.ms.script' // Implementation
+ WL 'ME_47D0290B016D' '47D0290B016D.pas.ms.script' // l3Utils
+ WL 'ME_47D0E1500033' '47D0E1500033.pas.ms.script' // Implementation
+ WL 'ME_47EA4BB502F9' '47EA4BB502F9.pas.ms.script' // afwMixIns
+ WL 'ME_48561FA8027F' '48561FA8027F.pas.ms.script' // Версии системы
+ WL 'ME_48F747EC0073' '48F747EC0073.pas.ms.script' // Common
+ WL 'ME_4AB0C3C60310' '4AB0C3C60310.pas.ms.script' // Sys
+ WL 'ME_4B9A1E7F0036' '4B9A1E7F0036.pas.ms.script' // UnderControlInterfaces
+ WL 'ME_521C9DA50125' '521C9DA50125.pas.ms.script' // Application Resources
+ WL 'ME_54B90AC6014B' '54B90AC6014B.pas.ms.script' // StringUtils
+ )
+ ; // Depends
+ : Generators
+ Seq: (
+ gen_pas.script
+ gen_pas.script.runner
+ )
+ ; // Generators
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\UnderControl'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\UnderControl'
+ CONST pas.script:Path 'shared\models\NewSchool\Scripts\4B9A347B0217.pas.ms.script'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\4B9A347B0217.pas.ms.script.runner'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\UnderControl'
+
+ref; // ME_4B9A347B0217 UnderControlImpl

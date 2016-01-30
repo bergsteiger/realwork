@@ -86,6 +86,7 @@ ref; // ME_4E24223A0083 aSelEnd
  CONST Value false
  : ValueType WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
+ CONST extprop:pas:Value false
 
 ref; // ME_4E24223A00F0 DoInverse
 
@@ -98,12 +99,12 @@ ref; // ME_4E24223A00F0 DoInverse
  : Parent ME_4E2421C5016E // InternalPaintNode
  ;
  : Parameters
-   @ ( ME_5343D6010097 // aCanvas
+   Seq: ( ME_5343D6010097 // aCanvas
  ME_4E242239036E // aWidth
  ME_4E24223903E1 // aSelStart
  ME_4E24223A0083 // aSelEnd
  ME_4E24223A00F0 // DoInverse
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_4E2421D10034 DoIt
@@ -141,13 +142,13 @@ ref; // ME_4E24280A01F1
  : Parent ME_4E2412DF02EA // TevNodePainter
  ;
  : Operations
-   @ ( ME_4E2421D10034 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_4E2421D10034 // DoIt
+ )
  ; // Operations
  : Dependencies
-   @ ( ME_4E2427C902CB // 
+   Seq: ( ME_4E2427C902CB // 
  ME_4E24280A01F1 // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
 
 ref; // ME_4E2421C5016E InternalPaintNode
@@ -185,9 +186,9 @@ ref; // ME_5343D5F80189 aCanvas
  : Target WL 'ME_47C699120129' '47C5207602D1.pas.ms.script' // InevObjectList
  ;
  : Parameters
-   @ ( ME_4E24226C0247 // aLimitWidth
+   Seq: ( ME_4E24226C0247 // aLimitWidth
  ME_5343D5F80189 // aCanvas
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_4E24225C02CB DoIt
@@ -203,8 +204,8 @@ ref; // ME_4E24225C02CB DoIt
  : Parent ME_4E2412DF02EA // TevNodePainter
  ;
  : Operations
-   @ ( ME_4E24225C02CB // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_4E24225C02CB // DoIt
+ )
  ; // Operations
 
 ref; // ME_4E242246000E GetDocument
@@ -229,8 +230,8 @@ ref; // ME_5343D5E3032B aTag
  : Parent ME_4E2412DF02EA // TevNodePainter
  ;
  : Parameters
-   @ ( ME_5343D5E3032B // aTag
- ) .SequenceCode.It
+   Seq: ( ME_5343D5E3032B // aTag
+ )
  ; // Parameters
 
 ref; // ME_4E2413DD0113 Create
@@ -257,8 +258,8 @@ ref; // ME_5343D5EC01B7 aTag
  : Target WL 'ME_476BFDB0033D' '467C0CAA02AB.pas.ms.script' // Il3NodePainter
  ;
  : Parameters
-   @ ( ME_5343D5EC01B7 // aTag
- ) .SequenceCode.It
+   Seq: ( ME_5343D5EC01B7 // aTag
+ )
  ; // Parameters
 
 ref; // ME_4E2413EB01DB Make
@@ -360,6 +361,7 @@ ref; // ME_4E2432120163
  ;
  : Implementor ME_4E2412DF02EA // TevNodePainter
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_476BFDCF003A_ME_4E2412DF02EA PaintNode
 
 : ME_476BFDE5038B_ME_4E2412DF02EA
@@ -369,6 +371,7 @@ ref; // ME_476BFDCF003A_ME_4E2412DF02EA PaintNode
  ;
  : Implementor ME_4E2412DF02EA // TevNodePainter
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_476BFDE5038B_ME_4E2412DF02EA CalcHeight
 
 : ME_49C0DC1201F9_ME_4E2412DF02EA
@@ -378,6 +381,7 @@ ref; // ME_476BFDE5038B_ME_4E2412DF02EA CalcHeight
  ;
  : Implementor ME_4E2412DF02EA // TevNodePainter
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_49C0DC1201F9_ME_4E2412DF02EA HintSupported
 
 : ME_49C0E568031B_ME_4E2412DF02EA
@@ -387,6 +391,7 @@ ref; // ME_49C0DC1201F9_ME_4E2412DF02EA HintSupported
  ;
  : Implementor ME_4E2412DF02EA // TevNodePainter
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_49C0E568031B_ME_4E2412DF02EA GetItemTextIndent
 
 : ME_479731C50290_ME_4E2412DF02EA
@@ -396,6 +401,7 @@ ref; // ME_49C0E568031B_ME_4E2412DF02EA GetItemTextIndent
  ;
  : Implementor ME_4E2412DF02EA // TevNodePainter
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_479731C50290_ME_4E2412DF02EA Cleanup
 
 : ME_4E2412DF02EA
@@ -410,38 +416,38 @@ ref; // ME_479731C50290_ME_4E2412DF02EA Cleanup
  : Parent ME_4E24128E002C // PaintedNode
  ;
  : Inherits
-   @ ( WL 'ME_46780E690001' '47913B47006E.pas.ms.script' // Tl3CacheableBase
- ) .SequenceCode.It
+   Seq: ( WL 'ME_46780E690001' '47913B47006E.pas.ms.script' // Tl3CacheableBase
+ )
  ; // Inherits
  : Implements
-   @ ( WL 'ME_476BFDB0033D' '467C0CAA02AB.pas.ms.script' // Il3NodePainter
- ) .SequenceCode.It
+   Seq: ( WL 'ME_476BFDB0033D' '467C0CAA02AB.pas.ms.script' // Il3NodePainter
+ )
  ; // Implements
  : Attributes
-   @ ( ME_4E243C000076 // f_Tag
+   Seq: ( ME_4E243C000076 // f_Tag
  ME_4E243C0A0369 // f_Document
- ) .SequenceCode.It
+ )
  ; // Attributes
  : Operations
-   @ ( ME_4E2421C5016E // InternalPaintNode
+   Seq: ( ME_4E2421C5016E // InternalPaintNode
  ME_4E242246000E // GetDocument
  ME_4E2413DD0113 // Create
  ME_4E2413EB01DB // Make
- ) .SequenceCode.It
+ )
  ; // Operations
  : Implemented
-   @ ( ME_476BFDCF003A_ME_4E2412DF02EA // PaintNode
+   Seq: ( ME_476BFDCF003A_ME_4E2412DF02EA // PaintNode
  ME_476BFDE5038B_ME_4E2412DF02EA // CalcHeight
  ME_49C0DC1201F9_ME_4E2412DF02EA // HintSupported
  ME_49C0E568031B_ME_4E2412DF02EA // GetItemTextIndent
- ) .SequenceCode.It
+ )
  ; // Implemented
  : Overridden
-   @ ( ME_479731C50290_ME_4E2412DF02EA // Cleanup
- ) .SequenceCode.It
+   Seq: ( ME_479731C50290_ME_4E2412DF02EA // Cleanup
+ )
  ; // Overridden
  : Dependencies
-   @ ( ME_4E241E3E039E // 
+   Seq: ( ME_4E241E3E039E // 
  ME_4E241E570088 // 
  ME_4E241EC302E4 // 
  ME_4E24204B0007 // 
@@ -449,18 +455,20 @@ ref; // ME_479731C50290_ME_4E2412DF02EA Cleanup
  ME_4E242A150085 // 
  ME_4E24316E02D5 // 
  ME_4E2432120163 // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest'
  CONST intf.pas:Path 'common\components\gui\Garant\Everest\evNodePainter.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'NodePainter'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'evNodePainter'
 
 ref; // ME_4E2412DF02EA TevNodePainter
 
@@ -508,9 +516,9 @@ ref; // ME_565D99410340 aCanvas
  : Parent ME_4E24140802B9 // TnevNodeView
  ;
  : Parameters
-   @ ( ME_565D99410318 // aNode
+   Seq: ( ME_565D99410318 // aNode
  ME_565D99410340 // aCanvas
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_4E241455003A Create
@@ -547,9 +555,9 @@ ref; // ME_565D9947028C aCanvas
  : Target WL 'ME_47C5B97302B2' '47C5207602D1.pas.ms.script' // InevView
  ;
  : Parameters
-   @ ( ME_565D9947025A // aNode
+   Seq: ( ME_565D9947025A // aNode
  ME_565D9947028C // aCanvas
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_4E241480025C Make
@@ -572,6 +580,7 @@ ref; // ME_4E24248B0194
  ;
  : Implementor ME_4E24140802B9 // TnevNodeView
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_479731C50290_ME_4E24140802B9 Cleanup
 
 : ME_565F0492012D_ME_4E24140802B9
@@ -581,6 +590,7 @@ ref; // ME_479731C50290_ME_4E24140802B9 Cleanup
  ;
  : Implementor ME_4E24140802B9 // TnevNodeView
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_565F0492012D_ME_4E24140802B9 GetNeedTotalRecalc
 
 : ME_4E24140802B9
@@ -594,37 +604,39 @@ ref; // ME_565F0492012D_ME_4E24140802B9 GetNeedTotalRecalc
  : Parent ME_4E24128E002C // PaintedNode
  ;
  : Inherits
-   @ ( WL 'ME_48120C1C0060' '4811D4EC0237.pas.ms.script' // TnevBaseDetachedView
- ) .SequenceCode.It
+   Seq: ( WL 'ME_48120C1C0060' '4811D4EC0237.pas.ms.script' // TnevBaseDetachedView
+ )
  ; // Inherits
  : Attributes
-   @ ( ME_4E242585007C // f_Holder
- ) .SequenceCode.It
+   Seq: ( ME_4E242585007C // f_Holder
+ )
  ; // Attributes
  : Operations
-   @ ( ME_4E241455003A // Create
+   Seq: ( ME_4E241455003A // Create
  ME_4E241480025C // Make
- ) .SequenceCode.It
+ )
  ; // Operations
  : Overridden
-   @ ( ME_479731C50290_ME_4E24140802B9 // Cleanup
+   Seq: ( ME_479731C50290_ME_4E24140802B9 // Cleanup
  ME_565F0492012D_ME_4E24140802B9 // GetNeedTotalRecalc
- ) .SequenceCode.It
+ )
  ; // Overridden
  : Dependencies
-   @ ( ME_4E24248B0194 // 
- ) .SequenceCode.It
+   Seq: ( ME_4E24248B0194 // 
+ )
  ; // Dependencies
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest'
  CONST intf.pas:Path 'common\components\gui\Garant\Everest\nevNodeView.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'NodeView'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'nevNodeView'
 
 ref; // ME_4E24140802B9 TnevNodeView
 
@@ -670,6 +682,7 @@ ref; // ME_4E24352D00DE
  ;
  : Implementor ME_4E24151202E1 // TevParaDrawNode
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_469F9FD9025D_ME_4E24151202E1 SetTag
 
 : ME_48F8AD980361_ME_4E24151202E1
@@ -679,6 +692,7 @@ ref; // ME_469F9FD9025D_ME_4E24151202E1 SetTag
  ;
  : Implementor ME_4E24151202E1 // TevParaDrawNode
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_48F8AD980361_ME_4E24151202E1 Store
 
 : ME_4A60B23E00C3_ME_4E24151202E1
@@ -688,6 +702,7 @@ ref; // ME_48F8AD980361_ME_4E24151202E1 Store
  ;
  : Implementor ME_4E24151202E1 // TevParaDrawNode
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4A60B23E00C3_ME_4E24151202E1 COMQueryInterface
 
 : ME_4E24151202E1
@@ -701,39 +716,41 @@ ref; // ME_4A60B23E00C3_ME_4E24151202E1 COMQueryInterface
  : Parent ME_4E24128E002C // PaintedNode
  ;
  : Inherits
-   @ ( WL 'ME_47F268A703E7' '47F086170200.pas.ms.script' // TevParaNode
- ) .SequenceCode.It
+   Seq: ( WL 'ME_47F268A703E7' '47F086170200.pas.ms.script' // TevParaNode
+ )
  ; // Inherits
  : Implements
-   @ ( WL 'ME_469F9FCC00E1' '4678137501EA.pas.ms.script' // Ik2TagBoxContainer
+   Seq: ( WL 'ME_469F9FCC00E1' '4678137501EA.pas.ms.script' // Ik2TagBoxContainer
  WL 'ME_48F8AD8900A9' '47C5207602D1.pas.ms.script' // IevTreeDataObject
- ) .SequenceCode.It
+ )
  ; // Implements
  : Implemented
-   @ ( ME_469F9FD9025D_ME_4E24151202E1 // SetTag
+   Seq: ( ME_469F9FD9025D_ME_4E24151202E1 // SetTag
  ME_48F8AD980361_ME_4E24151202E1 // Store
- ) .SequenceCode.It
+ )
  ; // Implemented
  : Overridden
-   @ ( ME_4A60B23E00C3_ME_4E24151202E1 // COMQueryInterface
- ) .SequenceCode.It
+   Seq: ( ME_4A60B23E00C3_ME_4E24151202E1 // COMQueryInterface
+ )
  ; // Overridden
  : Dependencies
-   @ ( ME_4E24151A0138 // 
+   Seq: ( ME_4E24151A0138 // 
  ME_4E2433B400AC // 
  ME_4E24352D00DE // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest'
  CONST intf.pas:Path 'common\components\gui\Garant\Everest\evParaDrawNode.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'ParaDrawNode'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'evParaDrawNode'
 
 ref; // ME_4E24151202E1 TevParaDrawNode
 
@@ -748,13 +765,13 @@ ref; // ME_4E24151202E1 TevParaDrawNode
  : Parent WL 'ME_4797632D0273' '4797632D0273.pas.ms.script' // Everest
  ;
  : Children
-   @ ( ME_4E2412DF02EA // TevNodePainter
+   Seq: ( ME_4E2412DF02EA // TevNodePainter
  ME_4E24140802B9 // TnevNodeView
  ME_4E24151202E1 // TevParaDrawNode
- ) .SequenceCode.It
+ )
  ; // Children
  : Depends
-   @ ( WL 'ME_4678137501EA' '4678137501EA.pas.ms.script' // k2Interfaces
+   Seq: ( WL 'ME_4678137501EA' '4678137501EA.pas.ms.script' // k2Interfaces
  WL 'ME_467C0CAA02AB' '467C0CAA02AB.pas.ms.script' // l3InternalInterfaces
  WL 'ME_473C3BEE0334' '473C3BEE0334.pas.ms.script' // l3Canvas
  WL 'ME_476BEA0B0103' '476BEA0B0103.pas.ms.script' // evConst
@@ -768,15 +785,13 @@ ref; // ME_4E24151202E1 TevParaDrawNode
  WL 'ME_48492FC0029D' '48492FC0029D.pas.ms.script' // Standard
  WL 'ME_49D2080D020C' '49D2080D020C.pas.ms.script' // nevRealTools
  WL 'ME_4AB0C3C60310' '4AB0C3C60310.pas.ms.script' // Sys
- ) .SequenceCode.It
+ )
  ; // Depends
- : Generators
- @ (
- gen_pas.script
- gen_pas.script.runner
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest'
  CONST pas.script:Path 'shared\models\NewSchool\Scripts\4E24128E002C.pas.ms.script'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
  CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\4E24128E002C.pas.ms.script.runner'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_4E24128E002C PaintedNode

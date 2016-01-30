@@ -12,9 +12,9 @@ INCLUDE 'ElementsRTTI.ms.dict'
  : Parent WL 'ME_4B30CC420206' '4B30CC420206.pas.ms.script' // Shared Delphi Testing Framework
  ;
  : Children
-   @ ( WL 'ME_4CA1BFF9036D' '4CA1BFF9036D.pas.ms.script' // Contents_int
+   Seq: ( WL 'ME_4CA1BFF9036D' '4CA1BFF9036D.pas.ms.script' // Contents_int
  WL 'ME_4CA1D154012C' '4CA1D154012C.pas.ms.script' // Impl
- ) .SequenceCode.It
+ )
  ; // Children
  CONST "exec mode" 'concluded'
  CONST "gui" 'rtl'
@@ -22,17 +22,11 @@ INCLUDE 'ElementsRTTI.ms.dict'
  CONST "ifndef" 'NotTunedDUnit'
  CONST "is namespace" true
  CONST "vendor" '/Garant'
- : Generators
- @ (
- gen_forth_structure
- gen_intf.pas
- gen_pas.script
- gen_pas.script.runner
- ) .SequenceCode.It
- ; // Generators
- CONST forth_structure:Path 'shared\models\NewSchool\Shared Delphi Testing Framework\ServerGate\ServerGate.model.script'
- CONST intf.pas:Path 'common\components\rtl\Garant\ServerGate\ServerGate_lib.info'
+ CONST dfm:PathOnly '\common\components\rtl\Garant\ServerGate'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\ServerGate'
  CONST pas.script:Path 'shared\models\NewSchool\Scripts\4CA1BFBC0259.pas.ms.script'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
  CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\4CA1BFBC0259.pas.ms.script.runner'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_4CA1BFBC0259 ServerGate

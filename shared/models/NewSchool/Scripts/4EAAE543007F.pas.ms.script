@@ -1,0 +1,41 @@
+// View 4EAAE543007F VCMViews Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+: ME_4EAAE543007F
+ CONST UID '4EAAE543007F'
+ CONST Name 'View'
+ CONST Class class_Category
+ : Stereotype st_VCMViews ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent WL 'ME_49549627008C' '49549627008C.pas.ms.script' // LegalDomain
+ ;
+ : Children
+   Seq: ( WL 'ME_4EAAE5A1005E' '4EAAE5A1005E.pas.ms.script' // DocumentNotifications
+ )
+ ; // Children
+ : Depends
+   Seq: ( WL 'ME_4683F37902CF' '4683F37902CF.pas.ms.script' // vcmInterfaces
+ WL 'ME_4790C3B8021E' '4790C3B8021E.pas.ms.script' // VCM
+ )
+ ; // Depends
+ CONST "exec mode" 'concluded'
+ CONST "gui" 'prj'
+ CONST "is namespace" true
+ CONST "vendor" 'none'
+ : Generators
+ Seq: (
+ gen_pas.script
+ gen_pas.script.runner
+ )
+ ; // Generators
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View'
+ CONST pas.script:Path 'shared\models\NewSchool\Scripts\4EAAE543007F.pas.ms.script'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\4EAAE543007F.pas.ms.script.runner'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\View'
+
+ref; // ME_4EAAE543007F View

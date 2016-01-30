@@ -1,0 +1,1127 @@
+// ScalingSupport 5278E45101D3 VCMControls Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_5278E45101D3
+
+FORWARD ME_4BB367D502F5
+
+: ME_4BB368030073
+ CONST UID '4BB368030073'
+ CONST Name 'Unknown'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_4BB367D502F5 // TCanChangeScale
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_4BB368030073 Unknown
+
+: ME_4BB3680F00ED
+ CONST UID '4BB3680F00ED'
+ CONST Name 'No'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_4BB367D502F5 // TCanChangeScale
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_4BB3680F00ED No
+
+: ME_4BB368180094
+ CONST UID '4BB368180094'
+ CONST Name 'Yes'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_4BB367D502F5 // TCanChangeScale
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_4BB368180094 Yes
+
+: ME_5284C1F900BA
+ CONST UID '5284C1F900BA'
+ CONST Name 'YesIfPossible'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_4BB367D502F5 // TCanChangeScale
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_5284C1F900BA YesIfPossible
+
+: ME_4BB367D502F5
+ CONST UID '4BB367D502F5'
+ CONST Name 'TCanChangeScale'
+ CONST Class class_Class
+ : Stereotype st_Enum ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_5278E45101D3 // ScalingSupport
+ ;
+ : Attributes
+   Seq: ( ME_4BB368030073 // Unknown
+ ME_4BB3680F00ED // No
+ ME_4BB368180094 // Yes
+ ME_5284C1F900BA // YesIfPossible
+ )
+ ; // Attributes
+ CONST "UseNewGen" 'undefined'
+ CONST "children prefix" 'ccs'
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\View'
+ CONST extprop:pas:ElementPrefix 'ccs'
+
+ref; // ME_4BB367D502F5 TCanChangeScale
+
+FORWARD ME_4BB32B8400B0
+
+: ME_4BB32C1401C0
+ CONST UID '4BB32C1401C0'
+ CONST Name 'ChangeScale'
+ CONST Class class_Operation
+ : Stereotype st_InternalOperation::Operation ;
+ %SUMMARY 'Изменить масштаб' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_4BB32B8400B0 // Scalable
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+ CONST "AutoFocus" false
+ CONST "AutoLock" false
+ CONST "LongProcess" false
+ CONST "Needs Broadcast" false
+ CONST "UseNewGen" 'undefined'
+ CONST "has states" false
+ CONST "is FormActivate" false
+ CONST "is query" true
+ CONST "no prefix" false
+
+ref; // ME_4BB32C1401C0 ChangeScale
+
+: ME_4BB366A901D7
+ CONST UID '4BB366A901D7'
+ CONST Name 'CanChangeScale'
+ CONST Class class_Operation
+ : Stereotype st_InternalOperation::Operation ;
+ %SUMMARY 'Масштабирование запрещено' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_4BB32B8400B0 // Scalable
+ ;
+ : Target ME_4BB367D502F5 // TCanChangeScale
+ ;
+ CONST "AutoFocus" false
+ CONST "AutoLock" false
+ CONST "LongProcess" false
+ CONST "Needs Broadcast" false
+ CONST "UseNewGen" 'undefined'
+ CONST "has states" false
+ CONST "is FormActivate" false
+ CONST "is query" true
+ CONST "no prefix" false
+
+ref; // ME_4BB366A901D7 CanChangeScale
+
+: ME_4BB32B8400B0
+ CONST UID '4BB32B8400B0'
+ CONST Name 'Scalable'
+ CONST Class class_Class
+ : Stereotype st_VCMFacet ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Масштабируемый объект' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_5278E45101D3 // ScalingSupport
+ ;
+ : Operations
+   Seq: ( ME_4BB32C1401C0 // ChangeScale
+ ME_4BB366A901D7 // CanChangeScale
+ )
+ ; // Operations
+ CONST "UseNewGen" 'undefined'
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\View'
+
+ref; // ME_4BB32B8400B0 Scalable
+
+FORWARD ME_48D5798D16B4
+
+: ME_24A6D91049DE
+ CONST UID '24A6D91049DE'
+ CONST Name 'Inc'
+ CONST IsSummoned true
+ CONST Class class_Attribute
+ : Stereotype st_readonly::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_agr
+ : Parent ME_48D5798D16B4 // IScalable_ChangeScale_Params
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+ CONST "UseNewGen" 'undefined'
+ CONST "pm" false
+
+ref; // ME_24A6D91049DE Inc
+
+: ME_90C7E6911559
+ CONST UID '90C7E6911559'
+ CONST Name 'ResultValue'
+ CONST IsSummoned true
+ CONST Class class_Attribute
+ : Stereotype st_property::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_agr
+ : Parent ME_48D5798D16B4 // IScalable_ChangeScale_Params
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+ CONST "UseNewGen" 'undefined'
+ CONST "pm" false
+
+ref; // ME_90C7E6911559 ResultValue
+
+: ME_48D5798D16B4
+ CONST UID '48D5798D16B4'
+ CONST GUID '9E4E6D77-C687-4BAE-BB0F-50404EDCFC48'
+ CONST Name 'IScalable_ChangeScale_Params'
+ CONST IsSummoned true
+ CONST Class class_Class
+ : Stereotype st_Facet ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Параметры для операции Scalable.ChangeScale' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_5278E45101D3 // ScalingSupport
+ ;
+ : Attributes
+   Seq: ( ME_24A6D91049DE // Inc
+ ME_90C7E6911559 // ResultValue
+ )
+ ; // Attributes
+ CONST "UseNewGen" 'undefined'
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\View'
+
+ref; // ME_48D5798D16B4 IScalable_ChangeScale_Params
+
+FORWARD ME_81AD64B9BA03
+
+: ME_ECE65BDC8403
+ CONST UID 'ECE65BDC8403'
+ CONST Name 'f_Inc'
+ CONST IsSummoned true
+ CONST Class class_Attribute
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_ref
+ : Parent ME_81AD64B9BA03 // TScalable_ChangeScale_Params
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_ECE65BDC8403 f_Inc
+
+: ME_40125EEE81B5
+ CONST UID '40125EEE81B5'
+ CONST Name 'f_ResultValue'
+ CONST IsSummoned true
+ CONST Class class_Attribute
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_ref
+ : Parent ME_81AD64B9BA03 // TScalable_ChangeScale_Params
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_40125EEE81B5 f_ResultValue
+
+: ME_BEF0359444BC
+ CONST UID 'BEF0359444BC'
+ CONST Name 'aInc'
+ CONST IsSummoned true
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_BEF0359444BC aInc
+
+: ME_985CBC63003D
+ CONST UID '985CBC63003D'
+ CONST Name 'Create'
+ CONST IsSummoned true
+ CONST Class class_Operation
+ : Stereotype st_ctor::Operation ;
+ %SUMMARY 'Конструктор TScalable_ChangeScale_Params' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_81AD64B9BA03 // TScalable_ChangeScale_Params
+ ;
+ : Parameters
+   Seq: ( ME_BEF0359444BC // aInc
+ )
+ ; // Parameters
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_985CBC63003D Create
+
+: ME_042357E9B4C2
+ CONST UID '042357E9B4C2'
+ CONST Name 'aInc'
+ CONST IsSummoned true
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_042357E9B4C2 aInc
+
+: ME_63F84ED339C3
+ CONST UID '63F84ED339C3'
+ CONST Name 'Make'
+ CONST IsSummoned true
+ CONST Class class_Operation
+ : Stereotype st_factory::Operation ;
+ %SUMMARY 'Фабрика TScalable_ChangeScale_Params' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_81AD64B9BA03 // TScalable_ChangeScale_Params
+ ;
+ : Parameters
+   Seq: ( ME_042357E9B4C2 // aInc
+ )
+ ; // Parameters
+ CONST "UseNewGen" 'undefined'
+ CONST "check nil" false
+ CONST "need AfterCreate" 'undefined'
+ CONST "need Aggregate" 'undefined'
+ CONST "need As" false
+
+ref; // ME_63F84ED339C3 Make
+
+: ME_24A6D91049DE_ME_81AD64B9BA03
+ CONST UID '24A6D91049DE'
+ CONST Name 'Inc'
+ : Original ME_24A6D91049DE // Inc
+ ;
+ : Implementor ME_81AD64B9BA03 // TScalable_ChangeScale_Params
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "UseNewGen" 'undefined'
+ CONST "pm" false
+ref; // ME_24A6D91049DE_ME_81AD64B9BA03 Inc
+
+: ME_90C7E6911559_ME_81AD64B9BA03
+ CONST UID '90C7E6911559'
+ CONST Name 'ResultValue'
+ : Original ME_90C7E6911559 // ResultValue
+ ;
+ : Implementor ME_81AD64B9BA03 // TScalable_ChangeScale_Params
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "UseNewGen" 'undefined'
+ CONST "pm" false
+ref; // ME_90C7E6911559_ME_81AD64B9BA03 ResultValue
+
+: ME_81AD64B9BA03
+ CONST UID '81AD64B9BA03'
+ CONST Name 'TScalable_ChangeScale_Params'
+ CONST IsSummoned true
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Реализация IScalable_ChangeScale_Params' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ : Parent ME_5278E45101D3 // ScalingSupport
+ ;
+ : Inherits
+   Seq: ( WL 'ME_4AE5CA2D0034' '47913B47006E.pas.ms.script' // Tl3CProtoObject
+ )
+ ; // Inherits
+ : Implements
+   Seq: ( ME_48D5798D16B4 // IScalable_ChangeScale_Params
+ )
+ ; // Implements
+ : Attributes
+   Seq: ( ME_ECE65BDC8403 // f_Inc
+ ME_40125EEE81B5 // f_ResultValue
+ )
+ ; // Attributes
+ : Operations
+   Seq: ( ME_985CBC63003D // Create
+ ME_63F84ED339C3 // Make
+ )
+ ; // Operations
+ : Implemented
+   Seq: ( ME_24A6D91049DE_ME_81AD64B9BA03 // Inc
+ ME_90C7E6911559_ME_81AD64B9BA03 // ResultValue
+ )
+ ; // Implemented
+ CONST "UseNewGen" 'undefined'
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\View'
+
+ref; // ME_81AD64B9BA03 TScalable_ChangeScale_Params
+
+FORWARD ME_25951C257B97
+
+: ME_0A08F2A8E6B8
+ CONST UID '0A08F2A8E6B8'
+ CONST Name 'aTarget'
+ CONST IsSummoned true
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_4991AD08005B' '4683F37902CF.pas.ms.script' // IvcmEntity
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_0A08F2A8E6B8 aTarget
+
+: ME_0A08F2A8E6B9
+ CONST UID '0A08F2A8E6B9'
+ CONST Name 'aInc'
+ CONST IsSummoned true
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_0A08F2A8E6B9 aInc
+
+: ME_8A812A227C0E
+ CONST UID '8A812A227C0E'
+ CONST Name 'Call'
+ CONST IsSummoned true
+ CONST Class class_Operation
+ : Stereotype st_static::Operation ;
+ %SUMMARY 'Вызов операции Scalable.ChangeScale у сущности' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_25951C257B97 // Op_Scalable_ChangeScale
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+ : Parameters
+   Seq: ( ME_0A08F2A8E6B8 // aTarget
+ ME_0A08F2A8E6B9 // aInc
+ )
+ ; // Parameters
+ CONST "UseNewGen" 'undefined'
+ CONST extprop:pas:Value false
+
+ref; // ME_8A812A227C0E Call
+
+: ME_F743807DC772
+ CONST UID 'F743807DC772'
+ CONST Name 'aTarget'
+ CONST IsSummoned true
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_49930CC501C9' '4683F37902CF.pas.ms.script' // IvcmAggregate
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_F743807DC772 aTarget
+
+: ME_F743807DC773
+ CONST UID 'F743807DC773'
+ CONST Name 'aInc'
+ CONST IsSummoned true
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_F743807DC773 aInc
+
+: ME_BAC0EA12065E
+ CONST UID 'BAC0EA12065E'
+ CONST Name 'Call'
+ CONST IsSummoned true
+ CONST Class class_Operation
+ : Stereotype st_static::Operation ;
+ %SUMMARY 'Вызов операции Scalable.ChangeScale у агрегации' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_25951C257B97 // Op_Scalable_ChangeScale
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+ : Parameters
+   Seq: ( ME_F743807DC772 // aTarget
+ ME_F743807DC773 // aInc
+ )
+ ; // Parameters
+ CONST "UseNewGen" 'undefined'
+ CONST extprop:pas:Value false
+
+ref; // ME_BAC0EA12065E Call
+
+: ME_3EE071083BCA
+ CONST UID '3EE071083BCA'
+ CONST Name 'aTarget'
+ CONST IsSummoned true
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_4914746C019E' '4683F37902CF.pas.ms.script' // IvcmEntityForm
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_3EE071083BCA aTarget
+
+: ME_3EE071083BCB
+ CONST UID '3EE071083BCB'
+ CONST Name 'aInc'
+ CONST IsSummoned true
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_3EE071083BCB aInc
+
+: ME_9BE14DE7BF75
+ CONST UID '9BE14DE7BF75'
+ CONST Name 'Call'
+ CONST IsSummoned true
+ CONST Class class_Operation
+ : Stereotype st_static::Operation ;
+ %SUMMARY 'Вызов операции Scalable.ChangeScale у формы' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_25951C257B97 // Op_Scalable_ChangeScale
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+ : Parameters
+   Seq: ( ME_3EE071083BCA // aTarget
+ ME_3EE071083BCB // aInc
+ )
+ ; // Parameters
+ CONST "UseNewGen" 'undefined'
+ CONST extprop:pas:Value false
+
+ref; // ME_9BE14DE7BF75 Call
+
+: ME_90778562DEA5
+ CONST UID '90778562DEA5'
+ CONST Name 'aTarget'
+ CONST IsSummoned true
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_49525C400141' '4683F37902CF.pas.ms.script' // IvcmContainer
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_90778562DEA5 aTarget
+
+: ME_90778562DEA6
+ CONST UID '90778562DEA6'
+ CONST Name 'aInc'
+ CONST IsSummoned true
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_90778562DEA6 aInc
+
+: ME_3EC6914F2E31
+ CONST UID '3EC6914F2E31'
+ CONST Name 'Call'
+ CONST IsSummoned true
+ CONST Class class_Operation
+ : Stereotype st_static::Operation ;
+ %SUMMARY 'Вызов операции Scalable.ChangeScale у контейнера' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_25951C257B97 // Op_Scalable_ChangeScale
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+ : Parameters
+   Seq: ( ME_90778562DEA5 // aTarget
+ ME_90778562DEA6 // aInc
+ )
+ ; // Parameters
+ CONST "UseNewGen" 'undefined'
+ CONST extprop:pas:Value false
+
+ref; // ME_3EC6914F2E31 Call
+
+: ME_25951C257B97
+ CONST UID '25951C257B97'
+ CONST Name 'Op_Scalable_ChangeScale'
+ CONST IsSummoned true
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Класс для вызова операции Scalable.ChangeScale' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_5278E45101D3 // ScalingSupport
+ ;
+ : Operations
+   Seq: ( ME_8A812A227C0E // Call
+ ME_BAC0EA12065E // Call
+ ME_9BE14DE7BF75 // Call
+ ME_3EC6914F2E31 // Call
+ )
+ ; // Operations
+ CONST "UseNewGen" 'undefined'
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\View'
+
+ref; // ME_25951C257B97 Op_Scalable_ChangeScale
+
+FORWARD ME_9AB4F5A8F13B
+
+: ME_3EFDB3BD4B04
+ CONST UID '3EFDB3BD4B04'
+ CONST Name 'nInc'
+ CONST IsSummoned true
+ CONST Class class_Attribute
+ : Stereotype st_readonly::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_agr
+ : Parent ME_9AB4F5A8F13B // IScalable_CanChangeScale_Params
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+ CONST "UseNewGen" 'undefined'
+ CONST "pm" false
+
+ref; // ME_3EFDB3BD4B04 nInc
+
+: ME_AF00B961C300
+ CONST UID 'AF00B961C300'
+ CONST Name 'ResultValue'
+ CONST IsSummoned true
+ CONST Class class_Attribute
+ : Stereotype st_property::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_agr
+ : Parent ME_9AB4F5A8F13B // IScalable_CanChangeScale_Params
+ ;
+ : Target ME_4BB367D502F5 // TCanChangeScale
+ ;
+ CONST "UseNewGen" 'undefined'
+ CONST "pm" false
+
+ref; // ME_AF00B961C300 ResultValue
+
+: ME_9AB4F5A8F13B
+ CONST UID '9AB4F5A8F13B'
+ CONST GUID '4065276A-A0EE-41AB-A50F-3B65D3263E75'
+ CONST Name 'IScalable_CanChangeScale_Params'
+ CONST IsSummoned true
+ CONST Class class_Class
+ : Stereotype st_Facet ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Параметры для операции Scalable.CanChangeScale' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_5278E45101D3 // ScalingSupport
+ ;
+ : Attributes
+   Seq: ( ME_3EFDB3BD4B04 // nInc
+ ME_AF00B961C300 // ResultValue
+ )
+ ; // Attributes
+ CONST "UseNewGen" 'undefined'
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\View'
+
+ref; // ME_9AB4F5A8F13B IScalable_CanChangeScale_Params
+
+FORWARD ME_1753199D1976
+
+: ME_B1D892AE755D
+ CONST UID 'B1D892AE755D'
+ CONST Name 'f_nInc'
+ CONST IsSummoned true
+ CONST Class class_Attribute
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_ref
+ : Parent ME_1753199D1976 // TScalable_CanChangeScale_Params
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_B1D892AE755D f_nInc
+
+: ME_37D9E304E4B9
+ CONST UID '37D9E304E4B9'
+ CONST Name 'f_ResultValue'
+ CONST IsSummoned true
+ CONST Class class_Attribute
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_ref
+ : Parent ME_1753199D1976 // TScalable_CanChangeScale_Params
+ ;
+ : Target ME_4BB367D502F5 // TCanChangeScale
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_37D9E304E4B9 f_ResultValue
+
+: ME_F6EE650D524E
+ CONST UID 'F6EE650D524E'
+ CONST Name 'anInc'
+ CONST IsSummoned true
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_F6EE650D524E anInc
+
+: ME_8A9EA0F03618
+ CONST UID '8A9EA0F03618'
+ CONST Name 'Create'
+ CONST IsSummoned true
+ CONST Class class_Operation
+ : Stereotype st_ctor::Operation ;
+ %SUMMARY 'Конструктор TScalable_CanChangeScale_Params' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_1753199D1976 // TScalable_CanChangeScale_Params
+ ;
+ : Parameters
+   Seq: ( ME_F6EE650D524E // anInc
+ )
+ ; // Parameters
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_8A9EA0F03618 Create
+
+: ME_54CF0711ADE1
+ CONST UID '54CF0711ADE1'
+ CONST Name 'anInc'
+ CONST IsSummoned true
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_54CF0711ADE1 anInc
+
+: ME_3A5A503FE0E9
+ CONST UID '3A5A503FE0E9'
+ CONST Name 'Make'
+ CONST IsSummoned true
+ CONST Class class_Operation
+ : Stereotype st_factory::Operation ;
+ %SUMMARY 'Фабрика TScalable_CanChangeScale_Params' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_1753199D1976 // TScalable_CanChangeScale_Params
+ ;
+ : Parameters
+   Seq: ( ME_54CF0711ADE1 // anInc
+ )
+ ; // Parameters
+ CONST "UseNewGen" 'undefined'
+ CONST "check nil" false
+ CONST "need AfterCreate" 'undefined'
+ CONST "need Aggregate" 'undefined'
+ CONST "need As" false
+
+ref; // ME_3A5A503FE0E9 Make
+
+: ME_3EFDB3BD4B04_ME_1753199D1976
+ CONST UID '3EFDB3BD4B04'
+ CONST Name 'nInc'
+ : Original ME_3EFDB3BD4B04 // nInc
+ ;
+ : Implementor ME_1753199D1976 // TScalable_CanChangeScale_Params
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "UseNewGen" 'undefined'
+ CONST "pm" false
+ref; // ME_3EFDB3BD4B04_ME_1753199D1976 nInc
+
+: ME_AF00B961C300_ME_1753199D1976
+ CONST UID 'AF00B961C300'
+ CONST Name 'ResultValue'
+ : Original ME_AF00B961C300 // ResultValue
+ ;
+ : Implementor ME_1753199D1976 // TScalable_CanChangeScale_Params
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "UseNewGen" 'undefined'
+ CONST "pm" false
+ref; // ME_AF00B961C300_ME_1753199D1976 ResultValue
+
+: ME_1753199D1976
+ CONST UID '1753199D1976'
+ CONST Name 'TScalable_CanChangeScale_Params'
+ CONST IsSummoned true
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Реализация IScalable_CanChangeScale_Params' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ : Parent ME_5278E45101D3 // ScalingSupport
+ ;
+ : Inherits
+   Seq: ( WL 'ME_4AE5CA2D0034' '47913B47006E.pas.ms.script' // Tl3CProtoObject
+ )
+ ; // Inherits
+ : Implements
+   Seq: ( ME_9AB4F5A8F13B // IScalable_CanChangeScale_Params
+ )
+ ; // Implements
+ : Attributes
+   Seq: ( ME_B1D892AE755D // f_nInc
+ ME_37D9E304E4B9 // f_ResultValue
+ )
+ ; // Attributes
+ : Operations
+   Seq: ( ME_8A9EA0F03618 // Create
+ ME_3A5A503FE0E9 // Make
+ )
+ ; // Operations
+ : Implemented
+   Seq: ( ME_3EFDB3BD4B04_ME_1753199D1976 // nInc
+ ME_AF00B961C300_ME_1753199D1976 // ResultValue
+ )
+ ; // Implemented
+ CONST "UseNewGen" 'undefined'
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\View'
+
+ref; // ME_1753199D1976 TScalable_CanChangeScale_Params
+
+FORWARD ME_8565FBAA5A84
+
+: ME_A06167EE1E0A
+ CONST UID 'A06167EE1E0A'
+ CONST Name 'aTarget'
+ CONST IsSummoned true
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_4991AD08005B' '4683F37902CF.pas.ms.script' // IvcmEntity
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_A06167EE1E0A aTarget
+
+: ME_A06167EE1E0B
+ CONST UID 'A06167EE1E0B'
+ CONST Name 'anInc'
+ CONST IsSummoned true
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_A06167EE1E0B anInc
+
+: ME_0225FE012A4D
+ CONST UID '0225FE012A4D'
+ CONST Name 'Call'
+ CONST IsSummoned true
+ CONST Class class_Operation
+ : Stereotype st_static::Operation ;
+ %SUMMARY 'Вызов операции Scalable.CanChangeScale у сущности' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_8565FBAA5A84 // Op_Scalable_CanChangeScale
+ ;
+ : Target ME_4BB367D502F5 // TCanChangeScale
+ ;
+ : Parameters
+   Seq: ( ME_A06167EE1E0A // aTarget
+ ME_A06167EE1E0B // anInc
+ )
+ ; // Parameters
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_0225FE012A4D Call
+
+: ME_EC54D2C1F112
+ CONST UID 'EC54D2C1F112'
+ CONST Name 'aTarget'
+ CONST IsSummoned true
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_49930CC501C9' '4683F37902CF.pas.ms.script' // IvcmAggregate
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_EC54D2C1F112 aTarget
+
+: ME_EC54D2C1F113
+ CONST UID 'EC54D2C1F113'
+ CONST Name 'anInc'
+ CONST IsSummoned true
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_EC54D2C1F113 anInc
+
+: ME_3265BDEFB49D
+ CONST UID '3265BDEFB49D'
+ CONST Name 'Call'
+ CONST IsSummoned true
+ CONST Class class_Operation
+ : Stereotype st_static::Operation ;
+ %SUMMARY 'Вызов операции Scalable.CanChangeScale у агрегации' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_8565FBAA5A84 // Op_Scalable_CanChangeScale
+ ;
+ : Target ME_4BB367D502F5 // TCanChangeScale
+ ;
+ : Parameters
+   Seq: ( ME_EC54D2C1F112 // aTarget
+ ME_EC54D2C1F113 // anInc
+ )
+ ; // Parameters
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_3265BDEFB49D Call
+
+: ME_879AABCC38AE
+ CONST UID '879AABCC38AE'
+ CONST Name 'aTarget'
+ CONST IsSummoned true
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_4914746C019E' '4683F37902CF.pas.ms.script' // IvcmEntityForm
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_879AABCC38AE aTarget
+
+: ME_879AABCC38AF
+ CONST UID '879AABCC38AF'
+ CONST Name 'anInc'
+ CONST IsSummoned true
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_879AABCC38AF anInc
+
+: ME_3B35EDE07BB7
+ CONST UID '3B35EDE07BB7'
+ CONST Name 'Call'
+ CONST IsSummoned true
+ CONST Class class_Operation
+ : Stereotype st_static::Operation ;
+ %SUMMARY 'Вызов операции Scalable.CanChangeScale у формы' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_8565FBAA5A84 // Op_Scalable_CanChangeScale
+ ;
+ : Target ME_4BB367D502F5 // TCanChangeScale
+ ;
+ : Parameters
+   Seq: ( ME_879AABCC38AE // aTarget
+ ME_879AABCC38AF // anInc
+ )
+ ; // Parameters
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_3B35EDE07BB7 Call
+
+: ME_EDB9E3B89895
+ CONST UID 'EDB9E3B89895'
+ CONST Name 'aTarget'
+ CONST IsSummoned true
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_49525C400141' '4683F37902CF.pas.ms.script' // IvcmContainer
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_EDB9E3B89895 aTarget
+
+: ME_EDB9E3B89896
+ CONST UID 'EDB9E3B89896'
+ CONST Name 'anInc'
+ CONST IsSummoned true
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_EDB9E3B89896 anInc
+
+: ME_6D9C781FFBF0
+ CONST UID '6D9C781FFBF0'
+ CONST Name 'Call'
+ CONST IsSummoned true
+ CONST Class class_Operation
+ : Stereotype st_static::Operation ;
+ %SUMMARY 'Вызов операции Scalable.CanChangeScale у контейнера' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_8565FBAA5A84 // Op_Scalable_CanChangeScale
+ ;
+ : Target ME_4BB367D502F5 // TCanChangeScale
+ ;
+ : Parameters
+   Seq: ( ME_EDB9E3B89895 // aTarget
+ ME_EDB9E3B89896 // anInc
+ )
+ ; // Parameters
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_6D9C781FFBF0 Call
+
+: ME_8565FBAA5A84
+ CONST UID '8565FBAA5A84'
+ CONST Name 'Op_Scalable_CanChangeScale'
+ CONST IsSummoned true
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Класс для вызова операции Scalable.CanChangeScale' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_5278E45101D3 // ScalingSupport
+ ;
+ : Operations
+   Seq: ( ME_0225FE012A4D // Call
+ ME_3265BDEFB49D // Call
+ ME_3B35EDE07BB7 // Call
+ ME_6D9C781FFBF0 // Call
+ )
+ ; // Operations
+ CONST "UseNewGen" 'undefined'
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\View'
+
+ref; // ME_8565FBAA5A84 Op_Scalable_CanChangeScale
+
+: ME_5278E45101D3
+ CONST UID '5278E45101D3'
+ CONST Name 'ScalingSupport'
+ CONST Class class_Category
+ : Stereotype st_VCMControls ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent WL 'ME_4A78013D01CD' '4A78013D01CD.pas.ms.script' // View$For F1 and Monitorings
+ ;
+ : Children
+   Seq: ( ME_4BB367D502F5 // TCanChangeScale
+ ME_4BB32B8400B0 // Scalable
+ ME_48D5798D16B4 // IScalable_ChangeScale_Params
+ ME_81AD64B9BA03 // TScalable_ChangeScale_Params
+ ME_25951C257B97 // Op_Scalable_ChangeScale
+ ME_9AB4F5A8F13B // IScalable_CanChangeScale_Params
+ ME_1753199D1976 // TScalable_CanChangeScale_Params
+ ME_8565FBAA5A84 // Op_Scalable_CanChangeScale
+ )
+ ; // Children
+ : Depends
+   Seq: ( WL 'ME_4914746C019E' '4683F37902CF.pas.ms.script' // IvcmEntityForm
+ WL 'ME_49525C400141' '4683F37902CF.pas.ms.script' // IvcmContainer
+ WL 'ME_4991AD08005B' '4683F37902CF.pas.ms.script' // IvcmEntity
+ WL 'ME_49930CC501C9' '4683F37902CF.pas.ms.script' // IvcmAggregate
+ WL 'ME_4AB0C3C60310' '4AB0C3C60310.pas.ms.script' // Sys
+ WL 'ME_4AE5CA2D0034' '47913B47006E.pas.ms.script' // Tl3CProtoObject
+ )
+ ; // Depends
+ CONST "UseNewGen" 'undefined'
+ CONST "is namespace" true
+ CONST "no hands" false
+ : Generators
+ Seq: (
+ gen_intf.pas
+ gen_pas.script
+ gen_pas.script.runner
+ )
+ ; // Generators
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View'
+ CONST intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\Search_ScalingSupport_Controls.pas'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View'
+ CONST pas.script:Path 'shared\models\NewSchool\Scripts\5278E45101D3.pas.ms.script'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\5278E45101D3.pas.ms.script.runner'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\View'
+ CONST extprop:pas:UnitName 'Search_ScalingSupport_Controls'
+
+ref; // ME_5278E45101D3 ScalingSupport

@@ -1,0 +1,180 @@
+// ChatTypes 4A66B9840002 Interfaces Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4A66B9840002
+
+FORWARD ME_4A66B9D20178
+
+: ME_4A66BA0A0073
+ CONST UID '4A66BA0A0073'
+ CONST Name 'ctActive'
+ CONST Class class_Attribute
+ %SUMMARY 'Залогинен' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_4A66B9D20178 // TnsContactType
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_4A66BA0A0073 ctActive
+
+: ME_4A66BA230145
+ CONST UID '4A66BA230145'
+ CONST Name 'ctInactive'
+ CONST Class class_Attribute
+ %SUMMARY 'Отлогинен' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_4A66B9D20178 // TnsContactType
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_4A66BA230145 ctInactive
+
+: ME_4A66B9D20178
+ CONST UID '4A66B9D20178'
+ CONST Name 'TnsContactType'
+ CONST Class class_Class
+ : Stereotype st_Enum ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Тип активности контакта' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4A66B9840002 // ChatTypes
+ ;
+ : Attributes
+   Seq: ( ME_4A66BA0A0073 // ctActive
+ ME_4A66BA230145 // ctInactive
+ )
+ ; // Attributes
+ CONST "UseNewGen" 'undefined'
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Chat'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Chat'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\Chat'
+
+ref; // ME_4A66B9D20178 TnsContactType
+
+FORWARD ME_4A66BA3A0268
+
+: ME_4A66BA650020
+ CONST UID '4A66BA650020'
+ CONST Name 'clftNone'
+ CONST Class class_Attribute
+ %SUMMARY 'Все контакты' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_4A66BA3A0268 // TContactListFilterTypes
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_4A66BA650020 clftNone
+
+: ME_4A66BA7C02F8
+ CONST UID '4A66BA7C02F8'
+ CONST Name 'clftActive'
+ CONST Class class_Attribute
+ %SUMMARY 'Только залогиненные' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_4A66BA3A0268 // TContactListFilterTypes
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_4A66BA7C02F8 clftActive
+
+: ME_4A66BA3A0268
+ CONST UID '4A66BA3A0268'
+ CONST Name 'TContactListFilterTypes'
+ CONST Class class_Class
+ : Stereotype st_Enum ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Тип фильтра списка контактов' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4A66B9840002 // ChatTypes
+ ;
+ : Attributes
+   Seq: ( ME_4A66BA650020 // clftNone
+ ME_4A66BA7C02F8 // clftActive
+ )
+ ; // Attributes
+ CONST "UseNewGen" 'undefined'
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Chat'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Chat'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\Chat'
+
+ref; // ME_4A66BA3A0268 TContactListFilterTypes
+
+: ME_4A66BABA015C
+ CONST UID '4A66BABA015C'
+ CONST Name 'TbsUserID'
+ CONST Class class_Class
+ : Stereotype st_Typedef ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'ID пользователя' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4A66B9840002 // ChatTypes
+ ;
+ : Inherits
+   Seq: ( WL 'ME_49DC72D80235' '456EA56002BF.pas.ms.script' // Uid
+ )
+ ; // Inherits
+ CONST "UseNewGen" 'undefined'
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Chat'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Chat'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\Chat'
+
+ref; // ME_4A66BABA015C TbsUserID
+
+: ME_4A66B9840002
+ CONST UID '4A66B9840002'
+ CONST Name 'ChatTypes'
+ CONST Class class_Category
+ : Stereotype st_Interfaces ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent WL 'ME_4A66B91A01E4' '4A66B91A01E4.pas.ms.script' // Chat
+ ;
+ : Children
+   Seq: ( ME_4A66B9D20178 // TnsContactType
+ ME_4A66BA3A0268 // TContactListFilterTypes
+ ME_4A66BABA015C // TbsUserID
+ )
+ ; // Children
+ : Depends
+   Seq: ( WL 'ME_456EA56002BF' '456EA56002BF.pas.ms.script' // BaseTypes
+ WL 'ME_45EEAA96039C' '45EEAA96039C.pas.ms.script' // Security
+ )
+ ; // Depends
+ CONST "UseNewGen" 'undefined'
+ CONST "is namespace" true
+ CONST "no hands" false
+ : Generators
+ Seq: (
+ gen_intf.pas
+ gen_pas.script
+ gen_pas.script.runner
+ )
+ ; // Generators
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Chat'
+ CONST intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\Chat\ChatTypes.pas'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Chat'
+ CONST pas.script:Path 'shared\models\NewSchool\Scripts\4A66B9840002.pas.ms.script'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\4A66B9840002.pas.ms.script.runner'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\Chat'
+
+ref; // ME_4A66B9840002 ChatTypes

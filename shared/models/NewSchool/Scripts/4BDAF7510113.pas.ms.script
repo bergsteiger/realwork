@@ -81,11 +81,15 @@ ref; // ME_4BDAF7B803CF Wrap
  : Parent ME_4BDAF7510113 // Tree
  ;
  : Operations
-   @ ( ME_4BDAF7880236 // ExpandAll
+   Seq: ( ME_4BDAF7880236 // ExpandAll
  ME_4BDAF7A2005C // CollapseAll
  ME_4BDAF7B803CF // Wrap
- ) .SequenceCode.It
+ )
  ; // Operations
+ CONST dfm:PathOnly '\common\components\gui\Garant\VCM\UserInteraction'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\VCM\UserInteraction'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_4BDAF7790158 Tree
 
@@ -100,20 +104,18 @@ ref; // ME_4BDAF7790158 Tree
  : Parent WL 'ME_4954C0500033' '4954C0500033.pas.ms.script' // UserInteraction
  ;
  : Children
-   @ ( ME_4BDAF7790158 // Tree
- ) .SequenceCode.It
+   Seq: ( ME_4BDAF7790158 // Tree
+ )
  ; // Children
  CONST "is namespace" true
  CONST "no hands" false
- : Generators
- @ (
- gen_intf.pas
- gen_pas.script
- gen_pas.script.runner
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\VCM\UserInteraction'
  CONST intf.pas:Path 'common\components\gui\Garant\VCM\UserInteraction\OfficeLike_Tree_Controls.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\VCM\UserInteraction'
  CONST pas.script:Path 'shared\models\NewSchool\Scripts\4BDAF7510113.pas.ms.script'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
  CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\4BDAF7510113.pas.ms.script.runner'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:pas:UnitName 'OfficeLike_Tree_Controls'
 
 ref; // ME_4BDAF7510113 Tree

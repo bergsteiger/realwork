@@ -21,6 +21,12 @@ FORWARD ME_4AC9B15903E7
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
+ CONST dfm:PathOnly '\common\components\gui\Garant\Nemesis'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Nemesis'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'ArrangeGrid'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_4AC9DA070125 TnscArrangeGrid
 
@@ -29,6 +35,7 @@ FORWARD ME_4AC9B17D0364
 : ME_7E7F9225CC54
  CONST UID '7E7F9225CC54'
  CONST Name 'DoIt'
+ CONST IsSummoned true
  CONST Class class_Operation
  %SUMMARY 'Сигнатура метода agArrangeGrid' ;
  CONST Visibility PublicAccess
@@ -49,8 +56,8 @@ ref; // ME_7E7F9225CC54 DoIt
  : Parent ME_4AC9B15903E7 // nscArrangeGrid
  ;
  : Operations
-   @ ( ME_7E7F9225CC54 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_7E7F9225CC54 // DoIt
+ )
  ; // Operations
 
 ref; // ME_4AC9B17D0364 agArrangeGrid
@@ -66,21 +73,21 @@ ref; // ME_4AC9B17D0364 agArrangeGrid
  : Parent ME_4AC9B14A02E3 // Grid
  ;
  : Operations
-   @ ( ME_4AC9B17D0364 // agArrangeGrid
- ) .SequenceCode.It
+   Seq: ( ME_4AC9B17D0364 // agArrangeGrid
+ )
  ; // Operations
  : Children
-   @ ( ME_4AC9DA070125 // TnscArrangeGrid
- ) .SequenceCode.It
+   Seq: ( ME_4AC9DA070125 // TnscArrangeGrid
+ )
  ; // Children
  CONST "finished" false
  CONST "no hands" false
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\Nemesis'
  CONST intf.pas:Path 'common\components\gui\Garant\Nemesis\NOT_FINISHED_nscArrangeGrid.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Nemesis'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'ArrangeGrid'
 
 ref; // ME_4AC9B15903E7 nscArrangeGrid
 
@@ -104,6 +111,7 @@ FORWARD ME_51128AF10257
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value '''State'''
 
 ref; // ME_51128AF502F9 cstidState
 
@@ -118,10 +126,14 @@ ref; // ME_51128AF502F9 cstidState
  : Parent ME_4E732E0B0308 // TnscCustomHideField
  ;
  : Attributes
-   @ ( ME_51128AF502F9 // cstidState
- ) .SequenceCode.It
+   Seq: ( ME_51128AF502F9 // cstidState
+ )
  ; // Attributes
  CONST "spell names" false
+ CONST dfm:PathOnly '\common\components\gui\Garant\Nemesis'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Nemesis'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_51128AF10257 TnscHideField const
 
@@ -146,6 +158,7 @@ ref; // ME_51125768008D SettingId
 : ME_85B894C175BA
  CONST UID '85B894C175BA'
  CONST Name 'f_SettingId'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY 'Поле для свойства SettingId' ;
  CONST Visibility PrivateAccess
@@ -155,6 +168,7 @@ ref; // ME_51125768008D SettingId
  ;
  : Target WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
  ;
+ CONST extprop:clearViaProperty 'SettingId'
 
 ref; // ME_85B894C175BA f_SettingId
 
@@ -181,8 +195,8 @@ ref; // ME_511258E7004C aSettingId
  : Target WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
  ;
  : Parameters
-   @ ( ME_511258E7004C // aSettingId
- ) .SequenceCode.It
+   Seq: ( ME_511258E7004C // aSettingId
+ )
  ; // Parameters
 
 ref; // ME_511258E202FD DoIt
@@ -198,8 +212,8 @@ ref; // ME_511258E202FD DoIt
  : Parent ME_4E732E0B0308 // TnscCustomHideField
  ;
  : Operations
-   @ ( ME_511258E202FD // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_511258E202FD // DoIt
+ )
  ; // Operations
 
 ref; // ME_511258C60285 MakeSettingId
@@ -207,6 +221,7 @@ ref; // ME_511258C60285 MakeSettingId
 : ME_704562C84A3F
  CONST UID '704562C84A3F'
  CONST Name 'SettingIdStored'
+ CONST IsSummoned true
  CONST Class class_Operation
  %SUMMARY '"Функция определяющая, что свойство SettingId сохраняется"' ;
  CONST Visibility ProtectedAccess
@@ -221,6 +236,7 @@ ref; // ME_704562C84A3F SettingIdStored
 : ME_5134404B436A
  CONST UID '5134404B436A'
  CONST Name 'Ini_Reg_Class'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Регистрация TnscCustomHideField' ;
@@ -256,6 +272,7 @@ ref; // ME_511259D80003
 
 : ME_5C8241B866EA
  CONST UID '5C8241B866EA'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_4E732E0B0308 // TnscCustomHideField
@@ -272,6 +289,7 @@ ref; // ME_5C8241B866EA
  ;
  : Implementor ME_4E732E0B0308 // TnscCustomHideField
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4F9A5C410274_ME_4E732E0B0308 LoadSettings
 
 : ME_4F9A5C530398_ME_4E732E0B0308
@@ -281,6 +299,7 @@ ref; // ME_4F9A5C410274_ME_4E732E0B0308 LoadSettings
  ;
  : Implementor ME_4E732E0B0308 // TnscCustomHideField
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4F9A5C530398_ME_4E732E0B0308 SaveSettings
 
 : ME_4F9AB1780087_ME_4E732E0B0308
@@ -290,6 +309,7 @@ ref; // ME_4F9A5C530398_ME_4E732E0B0308 SaveSettings
  ;
  : Implementor ME_4E732E0B0308 // TnscCustomHideField
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4F9AB1780087_ME_4E732E0B0308 DoLoadState
 
 : ME_4F9AB19F020B_ME_4E732E0B0308
@@ -299,6 +319,7 @@ ref; // ME_4F9AB1780087_ME_4E732E0B0308 DoLoadState
  ;
  : Implementor ME_4E732E0B0308 // TnscCustomHideField
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4F9AB19F020B_ME_4E732E0B0308 DoSaveState
 
 : ME_4E732E0B0308
@@ -312,46 +333,52 @@ ref; // ME_4F9AB19F020B_ME_4E732E0B0308 DoSaveState
  : Parent ME_4AC9C67300A2 // TnscHideField
  ;
  : Inherits
-   @ ( WL 'ME_4E732D7F0082' '4E732D5D02FE.pas.ms.script' // TvtHideField
- ) .SequenceCode.It
+   Seq: ( WL 'ME_4E732D7F0082' '4E732D5D02FE.pas.ms.script' // TvtHideField
+ )
  ; // Inherits
  : Implements
-   @ ( WL 'ME_4F9A6F66035C' '53288DFA03A7.pas.ms.script' // nsUnknownComponentWithIvcmState
- ) .SequenceCode.It
+   Seq: ( WL 'ME_4F9A6F66035C' '53288DFA03A7.pas.ms.script' // nsUnknownComponentWithIvcmState
+ )
  ; // Implements
  : Attributes
-   @ ( ME_51125768008D // SettingId
+   Seq: ( ME_51125768008D // SettingId
  ME_85B894C175BA // f_SettingId
- ) .SequenceCode.It
+ )
  ; // Attributes
  : Operations
-   @ ( ME_511258C60285 // MakeSettingId
+   Seq: ( ME_511258C60285 // MakeSettingId
  ME_704562C84A3F // SettingIdStored
  ME_5134404B436A // Ini_Reg_Class
- ) .SequenceCode.It
+ )
  ; // Operations
  : Overridden
-   @ ( ME_4F9A5C410274_ME_4E732E0B0308 // LoadSettings
+   Seq: ( ME_4F9A5C410274_ME_4E732E0B0308 // LoadSettings
  ME_4F9A5C530398_ME_4E732E0B0308 // SaveSettings
  ME_4F9AB1780087_ME_4E732E0B0308 // DoLoadState
  ME_4F9AB19F020B_ME_4E732E0B0308 // DoSaveState
- ) .SequenceCode.It
+ )
  ; // Overridden
  : Constants
-   @ ( ME_51128AF10257 // TnscHideField const
- ) .SequenceCode.It
+   Seq: ( ME_51128AF10257 // TnscHideField const
+ )
  ; // Constants
  : Dependencies
-   @ ( ME_511259BA02EB // 
+   Seq: ( ME_511259BA02EB // 
  ME_511259D80003 // 
  ME_5C8241B866EA // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  CONST "base wnd class" 'CWnd'
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
+ CONST dfm:PathOnly '\common\components\gui\Garant\Nemesis'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Nemesis'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'HideField'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_4E732E0B0308 TnscCustomHideField
 
@@ -385,9 +412,15 @@ ref; // ME_51124F310001 State
  : Parent ME_4AC9C67300A2 // TnscHideField
  ;
  : Attributes
-   @ ( ME_51124F310001 // State
- ) .SequenceCode.It
+   Seq: ( ME_51124F310001 // State
+ )
  ; // Attributes
+ CONST dfm:PathOnly '\common\components\gui\Garant\Nemesis'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Nemesis'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'HideFieldState'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_51124ED90007 InscHideFieldState
 
@@ -415,6 +448,7 @@ ref; // ME_5112508D00D7 State
 : ME_3E0D54921B28
  CONST UID '3E0D54921B28'
  CONST Name 'f_State'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY 'Поле для свойства State' ;
  CONST Visibility PrivateAccess
@@ -424,6 +458,7 @@ ref; // ME_5112508D00D7 State
  ;
  : Target WL 'ME_4E733DE40275' '4E732D5D02FE.pas.ms.script' // ThfState
  ;
+ CONST extprop:clearViaProperty 'State'
 
 ref; // ME_3E0D54921B28 f_State
 
@@ -453,8 +488,8 @@ ref; // ME_5112763701A7 DoIt
  : Parent ME_51124F6C00F0 // TnscHideFieldState
  ;
  : Operations
-   @ ( ME_5112763701A7 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_5112763701A7 // DoIt
+ )
  ; // Operations
  CONST "check nil" false
  CONST "need AfterCreate" 'undefined'
@@ -470,6 +505,7 @@ ref; // ME_5112514B013D Make
  ;
  : Implementor ME_51124F6C00F0 // TnscHideFieldState
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" true
 ref; // ME_51124F310001_ME_51124F6C00F0 State
 
@@ -480,6 +516,7 @@ ref; // ME_51124F310001_ME_51124F6C00F0 State
  ;
  : Implementor ME_51124F6C00F0 // TnscHideFieldState
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_479731C50290_ME_51124F6C00F0 Cleanup
 
 : ME_51124F6C00F0
@@ -493,40 +530,47 @@ ref; // ME_479731C50290_ME_51124F6C00F0 Cleanup
  : Parent ME_4AC9C67300A2 // TnscHideField
  ;
  : Inherits
-   @ ( WL 'ME_49E7754802A9' '47913B47006E.pas.ms.script' // Tl3ProtoObject
- ) .SequenceCode.It
+   Seq: ( WL 'ME_49E7754802A9' '47913B47006E.pas.ms.script' // Tl3ProtoObject
+ )
  ; // Inherits
  : Implements
-   @ ( ME_51124ED90007 // InscHideFieldState
- ) .SequenceCode.It
+   Seq: ( ME_51124ED90007 // InscHideFieldState
+ )
  ; // Implements
  : Attributes
-   @ ( ME_5112508D00D7 // State
+   Seq: ( ME_5112508D00D7 // State
  ME_3E0D54921B28 // f_State
- ) .SequenceCode.It
+ )
  ; // Attributes
  : Operations
-   @ ( ME_5112514B013D // Make
- ) .SequenceCode.It
+   Seq: ( ME_5112514B013D // Make
+ )
  ; // Operations
  : Implemented
-   @ ( ME_51124F310001_ME_51124F6C00F0 // State
- ) .SequenceCode.It
+   Seq: ( ME_51124F310001_ME_51124F6C00F0 // State
+ )
  ; // Implemented
  : Overridden
-   @ ( ME_479731C50290_ME_51124F6C00F0 // Cleanup
- ) .SequenceCode.It
+   Seq: ( ME_479731C50290_ME_51124F6C00F0 // Cleanup
+ )
  ; // Overridden
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
+ CONST dfm:PathOnly '\common\components\gui\Garant\Nemesis'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Nemesis'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'HideFieldState'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_51124F6C00F0 TnscHideFieldState
 
 : ME_4D157A312064
  CONST UID '4D157A312064'
  CONST Name 'Ini_Reg_Class'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Регистрация TnscHideField' ;
@@ -540,6 +584,7 @@ ref; // ME_4D157A312064 Ini_Reg_Class
 
 : ME_BBD2174C098B
  CONST UID 'BBD2174C098B'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_4AC9C67300A2 // TnscHideField
@@ -560,22 +605,22 @@ ref; // ME_BBD2174C098B
  : Parent ME_4AC9B14A02E3 // Grid
  ;
  : Inherits
-   @ ( ME_4E732E0B0308 // TnscCustomHideField
- ) .SequenceCode.It
+   Seq: ( ME_4E732E0B0308 // TnscCustomHideField
+ )
  ; // Inherits
  : Operations
-   @ ( ME_4D157A312064 // Ini_Reg_Class
- ) .SequenceCode.It
+   Seq: ( ME_4D157A312064 // Ini_Reg_Class
+ )
  ; // Operations
  : Children
-   @ ( ME_4E732E0B0308 // TnscCustomHideField
+   Seq: ( ME_4E732E0B0308 // TnscCustomHideField
  ME_51124ED90007 // InscHideFieldState
  ME_51124F6C00F0 // TnscHideFieldState
- ) .SequenceCode.It
+ )
  ; // Children
  : Dependencies
-   @ ( ME_BBD2174C098B // 
- ) .SequenceCode.It
+   Seq: ( ME_BBD2174C098B // 
+ )
  ; // Dependencies
  CONST "base wnd class" 'CWnd'
  CONST "need UC" true
@@ -583,12 +628,14 @@ ref; // ME_BBD2174C098B
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\Nemesis'
  CONST intf.pas:Path 'common\components\gui\Garant\Nemesis\nscHideField.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Nemesis'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'HideField'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'nscHideField'
 
 ref; // ME_4AC9C67300A2 TnscHideField
 
@@ -607,12 +654,14 @@ ref; // ME_4AC9C67300A2 TnscHideField
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\Nemesis'
  CONST intf.pas:Path 'common\components\gui\Garant\Nemesis\NOT_FINISHED_nscTabTable.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Nemesis'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'TabTable'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'nscTabTable'
 
 ref; // ME_4AC9CB12015D TnscTabTable
 
@@ -633,6 +682,12 @@ FORWARD ME_4AC9DB95006B
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
+ CONST dfm:PathOnly '\common\components\gui\Garant\Nemesis'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Nemesis'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'HideFieldCell'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_4AC9D9F9028E TnscHideFieldCell
 
@@ -658,8 +713,8 @@ ref; // ME_4ACA318803CB aControl
  : Parent ME_4ACA309200D3 // TagControlCell
  ;
  : Parameters
-   @ ( ME_4ACA318803CB // aControl
- ) .SequenceCode.It
+   Seq: ( ME_4ACA318803CB // aControl
+ )
  ; // Parameters
 
 ref; // ME_4ACA31830369 Create
@@ -675,14 +730,20 @@ ref; // ME_4ACA31830369 Create
  : Parent ME_4AC9DB95006B // nscArrangeGridCell
  ;
  : Operations
-   @ ( ME_4ACA31830369 // Create
- ) .SequenceCode.It
+   Seq: ( ME_4ACA31830369 // Create
+ )
  ; // Operations
  CONST "finished" false
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
+ CONST dfm:PathOnly '\common\components\gui\Garant\Nemesis'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Nemesis'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'agControlCell'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_4ACA309200D3 TagControlCell
 
@@ -698,18 +759,18 @@ ref; // ME_4ACA309200D3 TagControlCell
  : Parent ME_4AC9B14A02E3 // Grid
  ;
  : Children
-   @ ( ME_4AC9D9F9028E // TnscHideFieldCell
+   Seq: ( ME_4AC9D9F9028E // TnscHideFieldCell
  ME_4ACA309200D3 // TagControlCell
- ) .SequenceCode.It
+ )
  ; // Children
  CONST "finished" false
  CONST "no hands" false
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\Nemesis'
  CONST intf.pas:Path 'common\components\gui\Garant\Nemesis\NOT_FINISHED_nscArrangeGridCell.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Nemesis'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'ArrangeGridCell'
 
 ref; // ME_4AC9DB95006B nscArrangeGridCell
 
@@ -722,6 +783,7 @@ FORWARD ME_4ACA30C3014C
  ;
  : Implementor ME_4ACA30C3014C // TnscFixedHeightControlCell
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4ACA31830369_ME_4ACA30C3014C Create
 
 : ME_4ACA30C3014C
@@ -736,12 +798,12 @@ ref; // ME_4ACA31830369_ME_4ACA30C3014C Create
  : Parent ME_4AC9B14A02E3 // Grid
  ;
  : Inherits
-   @ ( ME_4ACA309200D3 // TagControlCell
- ) .SequenceCode.It
+   Seq: ( ME_4ACA309200D3 // TagControlCell
+ )
  ; // Inherits
  : Overridden
-   @ ( ME_4ACA31830369_ME_4ACA30C3014C // Create
- ) .SequenceCode.It
+   Seq: ( ME_4ACA31830369_ME_4ACA30C3014C // Create
+ )
  ; // Overridden
  CONST "author" 'Люлин А.В.'
  CONST "needs InstanceR" 'undefined'
@@ -749,12 +811,14 @@ ref; // ME_4ACA31830369_ME_4ACA30C3014C Create
  CONST "no hands" true
  CONST "register in scripts" 'undefined'
  CONST "started" '05.10.2009 21:45'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\Nemesis'
  CONST intf.pas:Path 'common\components\gui\Garant\Nemesis\nscFixedHeightControlCell.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Nemesis'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'FixedHeightControlCell'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'nscFixedHeightControlCell'
 
 ref; // ME_4ACA30C3014C TnscFixedHeightControlCell
 
@@ -767,6 +831,7 @@ FORWARD ME_4ACA39B902E9
  ;
  : Implementor ME_4ACA39B902E9 // TnscFixedWidthControlCell
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4ACA31830369_ME_4ACA39B902E9 Create
 
 : ME_4ACA39B902E9
@@ -781,12 +846,12 @@ ref; // ME_4ACA31830369_ME_4ACA39B902E9 Create
  : Parent ME_4AC9B14A02E3 // Grid
  ;
  : Inherits
-   @ ( ME_4ACA309200D3 // TagControlCell
- ) .SequenceCode.It
+   Seq: ( ME_4ACA309200D3 // TagControlCell
+ )
  ; // Inherits
  : Overridden
-   @ ( ME_4ACA31830369_ME_4ACA39B902E9 // Create
- ) .SequenceCode.It
+   Seq: ( ME_4ACA31830369_ME_4ACA39B902E9 // Create
+ )
  ; // Overridden
  CONST "author" 'Люлин А.В.'
  CONST "needs InstanceR" 'undefined'
@@ -794,12 +859,14 @@ ref; // ME_4ACA31830369_ME_4ACA39B902E9 Create
  CONST "no hands" true
  CONST "register in scripts" 'undefined'
  CONST "started" '05.10.2009 22:24'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\Nemesis'
  CONST intf.pas:Path 'common\components\gui\Garant\Nemesis\nscFixedWidthControlCell.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Nemesis'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'FixedWidthControlCell'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'nscFixedWidthControlCell'
 
 ref; // ME_4ACA39B902E9 TnscFixedWidthControlCell
 
@@ -820,6 +887,12 @@ FORWARD ME_4AD59B96038C
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
+ CONST dfm:PathOnly '\common\components\gui\Garant\Nemesis'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Nemesis'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'TreeViewTabCell'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_4AD59BA401C1 TnscTreeViewTabCell
 
@@ -834,17 +907,17 @@ ref; // ME_4AD59BA401C1 TnscTreeViewTabCell
  : Parent ME_4AC9B14A02E3 // Grid
  ;
  : Children
-   @ ( ME_4AD59BA401C1 // TnscTreeViewTabCell
- ) .SequenceCode.It
+   Seq: ( ME_4AD59BA401C1 // TnscTreeViewTabCell
+ )
  ; // Children
  CONST "finished" false
  CONST "no hands" false
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\Nemesis'
  CONST intf.pas:Path 'common\components\gui\Garant\Nemesis\NOT_FINISHED_nscTabTableCell.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Nemesis'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'TabTableCell'
 
 ref; // ME_4AD59B96038C nscTabTableCell
 
@@ -861,13 +934,19 @@ FORWARD ME_530495650309
  : Parent ME_530495650309 // nscFormWithArrangeGrid
  ;
  : Inherits
-   @ ( WL 'ME_47E1201703C3' '4799D29F033F.pas.ms.script' // TControl
- ) .SequenceCode.It
+   Seq: ( WL 'ME_47E1201703C3' '4799D29F033F.pas.ms.script' // TControl
+ )
  ; // Inherits
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
+ CONST dfm:PathOnly '\common\components\gui\Garant\Nemesis'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Nemesis'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'HackControl'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_5305A6C50214 THackControl
 
@@ -904,6 +983,7 @@ FORWARD ME_5304958A00B1
 : ME_357444A05A07
  CONST UID '357444A05A07'
  CONST Name 'DoIt'
+ CONST IsSummoned true
  CONST Class class_Operation
  %SUMMARY 'Сигнатура метода BuildGrid' ;
  CONST Visibility PublicAccess
@@ -924,8 +1004,8 @@ ref; // ME_357444A05A07 DoIt
  : Parent ME_530495650309 // nscFormWithArrangeGrid
  ;
  : Operations
-   @ ( ME_357444A05A07 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_357444A05A07 // DoIt
+ )
  ; // Operations
 
 ref; // ME_5304958A00B1 BuildGrid
@@ -935,6 +1015,7 @@ FORWARD ME_530495F40209
 : ME_E5B09B8326CC
  CONST UID 'E5B09B8326CC'
  CONST Name 'DoIt'
+ CONST IsSummoned true
  CONST Class class_Operation
  %SUMMARY 'Сигнатура метода ArrangeGrid' ;
  CONST Visibility PublicAccess
@@ -955,8 +1036,8 @@ ref; // ME_E5B09B8326CC DoIt
  : Parent ME_530495650309 // nscFormWithArrangeGrid
  ;
  : Operations
-   @ ( ME_E5B09B8326CC // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_E5B09B8326CC // DoIt
+ )
  ; // Operations
 
 ref; // ME_530495F40209 ArrangeGrid
@@ -966,6 +1047,7 @@ FORWARD ME_5304960402E1
 : ME_256B541A04B2
  CONST UID '256B541A04B2'
  CONST Name 'DoIt'
+ CONST IsSummoned true
  CONST Class class_Operation
  %SUMMARY 'Сигнатура метода RecalcGrid' ;
  CONST Visibility PublicAccess
@@ -986,8 +1068,8 @@ ref; // ME_256B541A04B2 DoIt
  : Parent ME_530495650309 // nscFormWithArrangeGrid
  ;
  : Operations
-   @ ( ME_256B541A04B2 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_256B541A04B2 // DoIt
+ )
  ; // Operations
 
 ref; // ME_5304960402E1 RecalcGrid
@@ -1018,8 +1100,8 @@ ref; // ME_530496A000F1 DoIt
  : Parent ME_530495650309 // nscFormWithArrangeGrid
  ;
  : Operations
-   @ ( ME_530496A000F1 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_530496A000F1 // DoIt
+ )
  ; // Operations
 
 ref; // ME_530496230291 GridParentControl
@@ -1050,8 +1132,8 @@ ref; // ME_530496CE0178 DoIt
  : Parent ME_530495650309 // nscFormWithArrangeGrid
  ;
  : Operations
-   @ ( ME_530496CE0178 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_530496CE0178 // DoIt
+ )
  ; // Operations
 
 ref; // ME_530496BF0361 DoBuildGrid
@@ -1077,8 +1159,8 @@ ref; // ME_53049F8301C2 aGrid
  : Parent ME_5304972201A1 // DoRecalcGrid
  ;
  : Parameters
-   @ ( ME_53049F8301C2 // aGrid
- ) .SequenceCode.It
+   Seq: ( ME_53049F8301C2 // aGrid
+ )
  ; // Parameters
 
 ref; // ME_53049F7A0085 DoIt
@@ -1094,8 +1176,8 @@ ref; // ME_53049F7A0085 DoIt
  : Parent ME_530495650309 // nscFormWithArrangeGrid
  ;
  : Operations
-   @ ( ME_53049F7A0085 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_53049F7A0085 // DoIt
+ )
  ; // Operations
 
 ref; // ME_5304972201A1 DoRecalcGrid
@@ -1121,8 +1203,8 @@ ref; // ME_5304AC580073 aSender
  : Parent ME_5304AC3C01D4 // GridSizeChanged
  ;
  : Parameters
-   @ ( ME_5304AC580073 // aSender
- ) .SequenceCode.It
+   Seq: ( ME_5304AC580073 // aSender
+ )
  ; // Parameters
 
 ref; // ME_5304AC51031E DoIt
@@ -1138,8 +1220,8 @@ ref; // ME_5304AC51031E DoIt
  : Parent ME_530495650309 // nscFormWithArrangeGrid
  ;
  : Operations
-   @ ( ME_5304AC51031E // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_5304AC51031E // DoIt
+ )
  ; // Operations
 
 ref; // ME_5304AC3C01D4 GridSizeChanged
@@ -1165,8 +1247,8 @@ ref; // ME_5305A7C80035 aSender
  : Parent ME_5305A79C02E4 // GridParentControlResize
  ;
  : Parameters
-   @ ( ME_5305A7C80035 // aSender
- ) .SequenceCode.It
+   Seq: ( ME_5305A7C80035 // aSender
+ )
  ; // Parameters
 
 ref; // ME_5305A7BB005C DoIt
@@ -1182,8 +1264,8 @@ ref; // ME_5305A7BB005C DoIt
  : Parent ME_530495650309 // nscFormWithArrangeGrid
  ;
  : Operations
-   @ ( ME_5305A7BB005C // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_5305A7BB005C // DoIt
+ )
  ; // Operations
 
 ref; // ME_5305A79C02E4 GridParentControlResize
@@ -1239,6 +1321,7 @@ ref; // ME_5305A789012E
  ;
  : Implementor ME_530495650309 // nscFormWithArrangeGrid
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_479731C50290_ME_530495650309 Cleanup
 
 : ME_4B0E845502C1_ME_530495650309
@@ -1248,6 +1331,7 @@ ref; // ME_479731C50290_ME_530495650309 Cleanup
  ;
  : Implementor ME_530495650309 // nscFormWithArrangeGrid
  ;
+ CONST OpKind opkind_Overridden
  CONST "ifdef" 'l3HackedVCL'
 ref; // ME_4B0E845502C1_ME_530495650309 NeedAutoScroll
 
@@ -1262,16 +1346,16 @@ ref; // ME_4B0E845502C1_ME_530495650309 NeedAutoScroll
  : Parent ME_4AC9B14A02E3 // Grid
  ;
  : Implements
-   @ ( WL 'ME_4A82BCFA02EF' '4AADF9450143.pas.ms.script' // MvcmEntityForm
- ) .SequenceCode.It
+   Seq: ( WL 'ME_4A82BCFA02EF' '4AADF9450143.pas.ms.script' // MvcmEntityForm
+ )
  ; // Implements
  : Attributes
-   @ ( ME_53049FA40023 // f_Grid
+   Seq: ( ME_53049FA40023 // f_Grid
  ME_5304ACA500F4 // f_ArrangeCount
- ) .SequenceCode.It
+ )
  ; // Attributes
  : Operations
-   @ ( ME_5304958A00B1 // BuildGrid
+   Seq: ( ME_5304958A00B1 // BuildGrid
  ME_530495F40209 // ArrangeGrid
  ME_5304960402E1 // RecalcGrid
  ME_530496230291 // GridParentControl
@@ -1279,35 +1363,35 @@ ref; // ME_4B0E845502C1_ME_530495650309 NeedAutoScroll
  ME_5304972201A1 // DoRecalcGrid
  ME_5304AC3C01D4 // GridSizeChanged
  ME_5305A79C02E4 // GridParentControlResize
- ) .SequenceCode.It
+ )
  ; // Operations
  : Overridden
-   @ ( ME_479731C50290_ME_530495650309 // Cleanup
+   Seq: ( ME_479731C50290_ME_530495650309 // Cleanup
  ME_4B0E845502C1_ME_530495650309 // NeedAutoScroll
- ) .SequenceCode.It
+ )
  ; // Overridden
  : Children
-   @ ( ME_5305A6C50214 // THackControl
- ) .SequenceCode.It
+   Seq: ( ME_5305A6C50214 // THackControl
+ )
  ; // Children
  : Dependencies
-   @ ( ME_5304A46A0253 // 
+   Seq: ( ME_5304A46A0253 // 
  ME_5304A4E303BB // 
  ME_5304A50600BB // 
  ME_5305A789012E // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\Nemesis'
  CONST intf.pas:Path 'common\components\gui\Garant\Nemesis\nscFormWithArrangeGrid.imp.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Nemesis'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
  CONST extprop:pas:TypeName '_nscFormWithArrangeGrid_'
+ CONST extprop:pas:UnitName 'nscFormWithArrangeGrid.imp'
 
 ref; // ME_530495650309 nscFormWithArrangeGrid
 
@@ -1321,7 +1405,7 @@ ref; // ME_530495650309 nscFormWithArrangeGrid
  : Parent WL 'ME_490838AA02D0' '490838AA02D0.pas.ms.script' // Nemesis
  ;
  : Children
-   @ ( ME_4AC9B15903E7 // nscArrangeGrid
+   Seq: ( ME_4AC9B15903E7 // nscArrangeGrid
  ME_4AC9C67300A2 // TnscHideField
  ME_4AC9CB12015D // TnscTabTable
  ME_4AC9DB95006B // nscArrangeGridCell
@@ -1329,10 +1413,10 @@ ref; // ME_530495650309 nscFormWithArrangeGrid
  ME_4ACA39B902E9 // TnscFixedWidthControlCell
  ME_4AD59B96038C // nscTabTableCell
  ME_530495650309 // nscFormWithArrangeGrid
- ) .SequenceCode.It
+ )
  ; // Children
  : Depends
-   @ ( WL 'ME_47913B47006E' '47913B47006E.pas.ms.script' // l3CoreObjects
+   Seq: ( WL 'ME_47913B47006E' '47913B47006E.pas.ms.script' // l3CoreObjects
  WL 'ME_4799D29F033F' '4799D29F033F.pas.ms.script' // Implementation
  WL 'ME_47EA0C8D0351' '47EA0C8D0351.pas.ms.script' // afwConsts
  WL 'ME_4AADF9450143' '4AADF9450143.pas.ms.script' // Visual
@@ -1342,15 +1426,13 @@ ref; // ME_530495650309 nscFormWithArrangeGrid
  WL 'ME_4E732D5D02FE' '4E732D5D02FE.pas.ms.script' // HideFields
  WL 'ME_53288DFA03A7' '53288DFA03A7.pas.ms.script' // NewReminders
  WL 'ME_561F9F7D02A7' '561F9F7D02A7.pas.ms.script' // ScriptEngine
- ) .SequenceCode.It
+ )
  ; // Depends
- : Generators
- @ (
- gen_pas.script
- gen_pas.script.runner
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\Nemesis'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Nemesis'
  CONST pas.script:Path 'shared\models\NewSchool\Scripts\4AC9B14A02E3.pas.ms.script'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
  CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\4AC9B14A02E3.pas.ms.script.runner'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_4AC9B14A02E3 Grid

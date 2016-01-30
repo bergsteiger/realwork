@@ -90,6 +90,7 @@ ref; // ME_51238F56033F
  ;
  : Implementor ME_4F79CD9F015F // VCMAppTester
  ;
+ CONST OpKind opkind_Overridden
  CONST "is static" true
 ref; // ME_52F2269B0373_ME_4F79CD9F015F BeforeApplicationRun
 
@@ -105,38 +106,38 @@ ref; // ME_52F2269B0373_ME_4F79CD9F015F BeforeApplicationRun
  : Parent ME_4F79CD2603DF // AppTestingSupport
  ;
  : Inherits
-   @ ( WL 'ME_52F21A610247' '51309A4A02FB.pas.ms.script' // GUIAppTester
- ) .SequenceCode.It
+   Seq: ( WL 'ME_52F21A610247' '51309A4A02FB.pas.ms.script' // GUIAppTester
+ )
  ; // Inherits
  : Implements
-   @ ( WL 'ME_523040FB01AA' '50883A2E00B3.pas.ms.script' // MvcmApplication
- ) .SequenceCode.It
+   Seq: ( WL 'ME_523040FB01AA' '50883A2E00B3.pas.ms.script' // MvcmApplication
+ )
  ; // Implements
  : Overridden
-   @ ( ME_52F2269B0373_ME_4F79CD9F015F // BeforeApplicationRun
- ) .SequenceCode.It
+   Seq: ( ME_52F2269B0373_ME_4F79CD9F015F // BeforeApplicationRun
+ )
  ; // Overridden
  : Dependencies
-   @ ( ME_4F79CF960087 // 
+   Seq: ( ME_4F79CF960087 // 
  ME_4F79CFC901AB // 
  ME_4F79D00200F7 // 
  ME_4F79D07902E1 // 
  ME_4F79D5FE0054 // 
  ME_51238BA9026E // 
  ME_51238F56033F // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\VCM\AppTesting'
  CONST intf.pas:Path 'common\components\gui\Garant\VCM\AppTesting\VCMAppTester.imp.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\VCM\AppTesting'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
  CONST extprop:pas:TypeName '_VCMAppTester_'
+ CONST extprop:pas:UnitName 'VCMAppTester.imp'
 
 ref; // ME_4F79CD9F015F VCMAppTester
 
@@ -150,11 +151,11 @@ ref; // ME_4F79CD9F015F VCMAppTester
  : Parent WL 'ME_4F79CCD4016C' '4F79CCD4016C.pas.ms.script' // VCM$ Applications Testing
  ;
  : Children
-   @ ( ME_4F79CD9F015F // VCMAppTester
- ) .SequenceCode.It
+   Seq: ( ME_4F79CD9F015F // VCMAppTester
+ )
  ; // Children
  : Depends
-   @ ( WL 'ME_47913B47006E' '47913B47006E.pas.ms.script' // l3CoreObjects
+   Seq: ( WL 'ME_47913B47006E' '47913B47006E.pas.ms.script' // l3CoreObjects
  WL 'ME_4799D29F033F' '4799D29F033F.pas.ms.script' // Implementation
  WL 'ME_4B2A0D6A0077' '4B2A0D6A0077.pas.ms.script' // Source
  WL 'ME_4B2A112B011A' '4B2A112B011A.pas.ms.script' // Source
@@ -165,16 +166,14 @@ ref; // ME_4F79CD9F015F VCMAppTester
  WL 'ME_50883A2E00B3' '50883A2E00B3.pas.ms.script' // Application
  WL 'ME_51309A4A02FB' '51309A4A02FB.pas.ms.script' // Tests Res Common
  WL 'ME_528E3DE20137' '528E3DE20137.pas.ms.script' // Component Info
- ) .SequenceCode.It
+ )
  ; // Depends
  CONST "path prefix" '/AppTesting'
- : Generators
- @ (
- gen_pas.script
- gen_pas.script.runner
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\VCM\AppTesting'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\VCM\AppTesting'
  CONST pas.script:Path 'shared\models\NewSchool\Scripts\4F79CD2603DF.pas.ms.script'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
  CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\4F79CD2603DF.pas.ms.script.runner'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_4F79CD2603DF AppTestingSupport

@@ -1,0 +1,488 @@
+// Rubricator 4AA7A7EB0328 ControllerUnit Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4AA7A7EB0328
+
+FORWARD ME_46836A280235
+
+: ME_46836AC503B7
+ CONST UID '46836AC503B7'
+ CONST Name 'f_FrozenRoot'
+ CONST Class class_Attribute
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_ref
+ : Parent ME_46836A280235 // TnsRubricatorList
+ ;
+ : Target WL 'ME_45EEB95901C5' '457450470167.pas.ms.script' // NodeBase
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_46836AC503B7 f_FrozenRoot
+
+: ME_4E73878200DD
+ CONST UID '4E73878200DD'
+ CONST Name 'f_RootToKeep'
+ CONST Class class_Attribute
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_ref
+ : Parent ME_46836A280235 // TnsRubricatorList
+ ;
+ : Target WL 'ME_45EEB95901C5' '457450470167.pas.ms.script' // NodeBase
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_4E73878200DD f_RootToKeep
+
+: ME_4E7AFFD20303
+ CONST UID '4E7AFFD20303'
+ CONST Name 'f_MenuSectionItemToKeep'
+ CONST Class class_Attribute
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_ref
+ : Parent ME_46836A280235 // TnsRubricatorList
+ ;
+ : Target WL 'ME_4E36C7D80396' '4DD24BD40021.pas.ms.script' // SectionItem
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_4E7AFFD20303 f_MenuSectionItemToKeep
+
+FORWARD ME_4E7387AE0021
+
+: ME_4E738803029C
+ CONST UID '4E738803029C'
+ CONST Name 'aRoot'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_45EEB95901C5' '457450470167.pas.ms.script' // NodeBase
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_4E738803029C aRoot
+
+: ME_4E7388030316
+ CONST UID '4E7388030316'
+ CONST Name 'aRootToKeep'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_45EEB95901C5' '457450470167.pas.ms.script' // NodeBase
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_4E7388030316 aRootToKeep
+
+: ME_4E7B00060083
+ CONST UID '4E7B00060083'
+ CONST Name 'aMenuSectionItemToKeep'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_4E36C7D80396' '4DD24BD40021.pas.ms.script' // SectionItem
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_4E7B00060083 aMenuSectionItemToKeep
+
+: ME_4E7387DF02FB
+ CONST UID '4E7387DF02FB'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_4E7387AE0021 // CreateKeeped
+ ;
+ : Parameters
+   Seq: ( ME_4E738803029C // aRoot
+ ME_4E7388030316 // aRootToKeep
+ ME_4E7B00060083 // aMenuSectionItemToKeep
+ )
+ ; // Parameters
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_4E7387DF02FB DoIt
+
+: ME_4E7387AE0021
+ CONST UID '4E7387AE0021'
+ CONST Name 'CreateKeeped'
+ CONST Class class_Class
+ : Stereotype st_Constructor ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_46836A280235 // TnsRubricatorList
+ ;
+ : Operations
+   Seq: ( ME_4E7387DF02FB // DoIt
+ )
+ ; // Operations
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_4E7387AE0021 CreateKeeped
+
+FORWARD ME_4E7387D50196
+
+: ME_BCF0EEC03A97
+ CONST UID 'BCF0EEC03A97'
+ CONST Name 'aRoot'
+ CONST IsSummoned true
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_45EEB95901C5' '457450470167.pas.ms.script' // NodeBase
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_BCF0EEC03A97 aRoot
+
+: ME_1ACA91192E88
+ CONST UID '1ACA91192E88'
+ CONST Name 'aRootToKeep'
+ CONST IsSummoned true
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_45EEB95901C5' '457450470167.pas.ms.script' // NodeBase
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_1ACA91192E88 aRootToKeep
+
+: ME_98BC36AC0FCD
+ CONST UID '98BC36AC0FCD'
+ CONST Name 'aMenuSectionItemToKeep'
+ CONST IsSummoned true
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_4E36C7D80396' '4DD24BD40021.pas.ms.script' // SectionItem
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_98BC36AC0FCD aMenuSectionItemToKeep
+
+: ME_ED328313DB18
+ CONST UID 'ED328313DB18'
+ CONST Name 'DoIt'
+ CONST IsSummoned true
+ CONST Class class_Operation
+ %SUMMARY 'Сигнатура фабрики TnsRubricatorList.Make' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_4E7387D50196 // Make
+ ;
+ : Target WL 'ME_4E7AFF400116' '4E7AFECB03CB.pas.ms.script' // InsRubricatorTree
+ ;
+ : Parameters
+   Seq: ( ME_BCF0EEC03A97 // aRoot
+ ME_1ACA91192E88 // aRootToKeep
+ ME_98BC36AC0FCD // aMenuSectionItemToKeep
+ )
+ ; // Parameters
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_ED328313DB18 DoIt
+
+: ME_4E7387D50196
+ CONST UID '4E7387D50196'
+ CONST Name 'Make'
+ CONST Class class_Class
+ : Stereotype st_Factory ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_46836A280235 // TnsRubricatorList
+ ;
+ : Inherits
+   Seq: ( ME_4E7387AE0021 // CreateKeeped
+ )
+ ; // Inherits
+ : Implements
+   Seq: ( WL 'ME_4E7AFF400116' '4E7AFECB03CB.pas.ms.script' // InsRubricatorTree
+ )
+ ; // Implements
+ : Operations
+   Seq: ( ME_ED328313DB18 // DoIt
+ )
+ ; // Operations
+ CONST "UseNewGen" 'undefined'
+ CONST "check nil" false
+ CONST "need AfterCreate" 'undefined'
+ CONST "need Aggregate" 'undefined'
+ CONST "need As" false
+
+ref; // ME_4E7387D50196 Make
+
+: ME_4908839502DB
+ CONST UID '4908839502DB'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_46836A280235 // TnsRubricatorList
+ ;
+ : Target WL 'ME_490724F202F5' '4907236C0171.pas.ms.script' // TnsRubricatorCache
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_4908839502DB 
+
+: ME_490884EC0385
+ CONST UID '490884EC0385'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_46836A280235 // TnsRubricatorList
+ ;
+ : Target WL 'ME_47F60E8E019C' '4908A8A20107.pas.ms.script' // nsNodes
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_490884EC0385 
+
+: ME_490885240168
+ CONST UID '490885240168'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_46836A280235 // TnsRubricatorList
+ ;
+ : Target WL 'ME_47F25BC801DB' '47D0E1500033.pas.ms.script' // vcmBase
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_490885240168 
+
+: ME_490885F20054
+ CONST UID '490885F20054'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_46836A280235 // TnsRubricatorList
+ ;
+ : Target WL 'ME_490885C402F8' '521C9DA50125.pas.ms.script' // Messages
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_490885F20054 
+
+: ME_4908873902BC
+ CONST UID '4908873902BC'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_46836A280235 // TnsRubricatorList
+ ;
+ : Target WL 'ME_476BF22B03E1' '476BF10A0280.pas.ms.script' // Il3Node
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_4908873902BC 
+
+: ME_4908875803DA
+ CONST UID '4908875803DA'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_46836A280235 // TnsRubricatorList
+ ;
+ : Target WL 'ME_468274930190' '4682595B0268.pas.ms.script' // Il3SimpleRootNode
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_4908875803DA 
+
+: ME_490887860339
+ CONST UID '490887860339'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_46836A280235 // TnsRubricatorList
+ ;
+ : Target WL 'ME_48FF63BC0129' '47F2170002B2.pas.ms.script' // TnsResetTreeStatus
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_490887860339 
+
+: ME_490887BA01EA
+ CONST UID '490887BA01EA'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_46836A280235 // TnsRubricatorList
+ ;
+ : Target WL 'ME_47877EB202FB' '4AB0C3C60310.pas.ms.script' // SysUtils
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_490887BA01EA 
+
+: ME_48FF64F60078_ME_46836A280235
+ CONST UID '48FF64F60078'
+ CONST Name 'ReAqurieUnfilteredRoot'
+ : Original WL 'ME_48FF64F60078' '48FD8B2702F6.pas.ms.script' // ReAqurieUnfilteredRoot
+ ;
+ : Implementor ME_46836A280235 // TnsRubricatorList
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "UseNewGen" 'undefined'
+ref; // ME_48FF64F60078_ME_46836A280235 ReAqurieUnfilteredRoot
+
+: ME_4E7AFF540238_ME_46836A280235
+ CONST UID '4E7AFF540238'
+ CONST Name 'RootToKeep'
+ : Original WL 'ME_4E7AFF540238' '4E7AFECB03CB.pas.ms.script' // RootToKeep
+ ;
+ : Implementor ME_46836A280235 // TnsRubricatorList
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "UseNewGen" 'undefined'
+ CONST "pm" false
+ref; // ME_4E7AFF540238_ME_46836A280235 RootToKeep
+
+: ME_4E7AFFA700A6_ME_46836A280235
+ CONST UID '4E7AFFA700A6'
+ CONST Name 'MenuSectionItemToKeep'
+ : Original WL 'ME_4E7AFFA700A6' '4E7AFECB03CB.pas.ms.script' // MenuSectionItemToKeep
+ ;
+ : Implementor ME_46836A280235 // TnsRubricatorList
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "UseNewGen" 'undefined'
+ CONST "pm" false
+ref; // ME_4E7AFFA700A6_ME_46836A280235 MenuSectionItemToKeep
+
+: ME_48FDD9270194_ME_46836A280235
+ CONST UID '48FDD9270194'
+ CONST Name 'Create'
+ : Original WL 'ME_48FDD9270194' '48FD8B2702F6.pas.ms.script' // Create
+ ;
+ : Implementor ME_46836A280235 // TnsRubricatorList
+ ;
+ CONST OpKind opkind_Overridden
+ CONST "UseNewGen" 'undefined'
+ref; // ME_48FDD9270194_ME_46836A280235 Create
+
+: ME_5000565C019C_ME_46836A280235
+ CONST UID '5000565C019C'
+ CONST Name 'ClearFields'
+ : Original WL 'ME_5000565C019C' '47913B47006E.pas.ms.script' // ClearFields
+ ;
+ : Implementor ME_46836A280235 // TnsRubricatorList
+ ;
+ CONST OpKind opkind_Overridden
+ CONST "UseNewGen" 'undefined'
+ref; // ME_5000565C019C_ME_46836A280235 ClearFields
+
+: ME_46836A280235
+ CONST UID '46836A280235'
+ CONST Name 'TnsRubricatorList'
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Структура "одноуровневое дерево" для узла рубрикатора' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4AA7A7EB0328 // Rubricator
+ ;
+ : Inherits
+   Seq: ( WL 'ME_4683692B0105' '48FD8B2702F6.pas.ms.script' // TnsOneLevelTreeStruct
+ )
+ ; // Inherits
+ : Implements
+   Seq: ( WL 'ME_4E70D70C0055' '48563BA400A9.pas.ms.script' // Основное меню должно уметь зависеть от должности пользователя
+ WL 'ME_4E7AFF400116' '4E7AFECB03CB.pas.ms.script' // InsRubricatorTree
+ )
+ ; // Implements
+ : Attributes
+   Seq: ( ME_46836AC503B7 // f_FrozenRoot
+ ME_4E73878200DD // f_RootToKeep
+ ME_4E7AFFD20303 // f_MenuSectionItemToKeep
+ )
+ ; // Attributes
+ : Operations
+   Seq: ( ME_4E7387AE0021 // CreateKeeped
+ ME_4E7387D50196 // Make
+ )
+ ; // Operations
+ : Implemented
+   Seq: ( ME_48FF64F60078_ME_46836A280235 // ReAqurieUnfilteredRoot
+ ME_4E7AFF540238_ME_46836A280235 // RootToKeep
+ ME_4E7AFFA700A6_ME_46836A280235 // MenuSectionItemToKeep
+ )
+ ; // Implemented
+ : Overridden
+   Seq: ( ME_48FDD9270194_ME_46836A280235 // Create
+ ME_5000565C019C_ME_46836A280235 // ClearFields
+ )
+ ; // Overridden
+ : Dependencies
+   Seq: ( ME_4908839502DB // 
+ ME_490884EC0385 // 
+ ME_490885240168 // 
+ ME_490885F20054 // 
+ ME_4908873902BC // 
+ ME_4908875803DA // 
+ ME_490887860339 // 
+ ME_490887BA01EA // 
+ )
+ ; // Dependencies
+ CONST "UseNewGen" 'undefined'
+ CONST "author" 'Никитин А.'
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" true
+ CONST "register in scripts" 'undefined'
+ CONST "started" '2003/06/10 12:57:53'
+ : Generators
+ Seq: (
+ gen_intf.pas
+ )
+ ; // Generators
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Rubricator'
+ CONST intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\Rubricator\nsRubricatorList.pas'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Rubricator'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\Rubricator'
+ CONST extprop:pas:UnitName 'nsRubricatorList'
+
+ref; // ME_46836A280235 TnsRubricatorList
+
+: ME_4AA7A7EB0328
+ CONST UID '4AA7A7EB0328'
+ CONST Name 'Rubricator'
+ CONST Class class_Category
+ : Stereotype st_ControllerUnit ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent WL 'ME_4AA7A7D903AE' '4AA7A7D903AE.pas.ms.script' // Rubricator
+ ;
+ : Children
+   Seq: ( ME_46836A280235 // TnsRubricatorList
+ )
+ ; // Children
+ : Depends
+   Seq: ( WL 'ME_457450470167' '457450470167.pas.ms.script' // DynamicTree
+ WL 'ME_4682595B0268' '4682595B0268.pas.ms.script' // l3TreeInterfaces
+ WL 'ME_476BF10A0280' '476BF10A0280.pas.ms.script' // l3Tree_TLB
+ WL 'ME_47D0E1500033' '47D0E1500033.pas.ms.script' // Implementation
+ WL 'ME_47F2170002B2' '47F2170002B2.pas.ms.script' // nsTypes
+ WL 'ME_48563BA400A9' '48563BA400A9.pas.ms.script' // Навигация
+ WL 'ME_48F747EC0073' '48F747EC0073.pas.ms.script' // Common
+ WL 'ME_48FD8B2702F6' '48FD8B2702F6.pas.ms.script' // Tree
+ WL 'ME_4907236C0171' '4907236C0171.pas.ms.script' // Rubricator
+ WL 'ME_4908A8A20107' '4908A8A20107.pas.ms.script' // OldTree
+ WL 'ME_4AB0C3C60310' '4AB0C3C60310.pas.ms.script' // Sys
+ WL 'ME_4DD24BD40021' '4DD24BD40021.pas.ms.script' // MainMenu
+ WL 'ME_4E7AFECB03CB' '4E7AFECB03CB.pas.ms.script' // RubricatorInterfaces
+ WL 'ME_521C9DA50125' '521C9DA50125.pas.ms.script' // Application Resources
+ )
+ ; // Depends
+ CONST "UseNewGen" 'undefined'
+ : Generators
+ Seq: (
+ gen_pas.script
+ gen_pas.script.runner
+ )
+ ; // Generators
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Rubricator'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Rubricator'
+ CONST pas.script:Path 'shared\models\NewSchool\Scripts\4AA7A7EB0328.pas.ms.script'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\4AA7A7EB0328.pas.ms.script.runner'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\Rubricator'
+
+ref; // ME_4AA7A7EB0328 Rubricator

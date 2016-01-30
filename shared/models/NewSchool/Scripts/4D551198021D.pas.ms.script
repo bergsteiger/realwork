@@ -28,6 +28,7 @@ ref; // ME_4D55121700BA ItemType
  ;
  : Implementor ME_4D5511DB011D // TvgSceneList
  ;
+ CONST OpKind opkind_Implemented
  CONST "ifndef" 'l3Items_IsAtomic'
 ref; // ME_47B07CF403D0_ME_4D5511DB011D IsSameItems
 
@@ -38,6 +39,7 @@ ref; // ME_47B07CF403D0_ME_4D5511DB011D IsSameItems
  ;
  : Implementor ME_4D5511DB011D // TvgSceneList
  ;
+ CONST OpKind opkind_Implemented
  CONST "ifdef" 'l3Items_NeedsAssignItem'
  CONST "ifndef" 'l3Items_NoSort'
 ref; // ME_47B2C42A0163_ME_4D5511DB011D AssignItem
@@ -49,6 +51,7 @@ ref; // ME_47B2C42A0163_ME_4D5511DB011D AssignItem
  ;
  : Implementor ME_4D5511DB011D // TvgSceneList
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_47B99D4503A2_ME_4D5511DB011D CompareExistingItems
 
 : ME_4D5511DB011D
@@ -62,19 +65,19 @@ ref; // ME_47B99D4503A2_ME_4D5511DB011D CompareExistingItems
  : Parent ME_4D551198021D // lulin1
  ;
  : Inherits
-   @ ( WL 'ME_4A54DD4E036F' '47913B47006E.pas.ms.script' // Tl3ProtoDataContainer
+   Seq: ( WL 'ME_4A54DD4E036F' '47913B47006E.pas.ms.script' // Tl3ProtoDataContainer
  WL 'ME_4A6FFCC00354' '47913B47006E.pas.ms.script' // l3InterfacePtrListPrim
- ) .SequenceCode.It
+ )
  ; // Inherits
  : Attributes
-   @ ( ME_4D55121700BA // ItemType
- ) .SequenceCode.It
+   Seq: ( ME_4D55121700BA // ItemType
+ )
  ; // Attributes
  : Implemented
-   @ ( ME_47B07CF403D0_ME_4D5511DB011D // IsSameItems
+   Seq: ( ME_47B07CF403D0_ME_4D5511DB011D // IsSameItems
  ME_47B2C42A0163_ME_4D5511DB011D // AssignItem
  ME_47B99D4503A2_ME_4D5511DB011D // CompareExistingItems
- ) .SequenceCode.It
+ )
  ; // Implemented
  CONST "author" 'Ëþëèí À.Â.'
  CONST "needs InstanceR" 'undefined'
@@ -82,12 +85,14 @@ ref; // ME_47B99D4503A2_ME_4D5511DB011D CompareExistingItems
  CONST "no hands" true
  CONST "register in scripts" 'undefined'
  CONST "started" '11.02.2011 13:39'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\external\VGScene'
  CONST intf.pas:Path 'common\components\rtl\external\VGScene\vgSceneList.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\external\VGScene'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'SceneList'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'vgSceneList'
 
 ref; // ME_4D5511DB011D TvgSceneList
 
@@ -101,21 +106,19 @@ ref; // ME_4D5511DB011D TvgSceneList
  : Parent WL 'ME_4CFCE4F203CE' '4CFCE4F203CE.pas.ms.script' // VGScene
  ;
  : Children
-   @ ( ME_4D5511DB011D // TvgSceneList
- ) .SequenceCode.It
+   Seq: ( ME_4D5511DB011D // TvgSceneList
+ )
  ; // Children
  : Depends
-   @ ( WL 'ME_47913B47006E' '47913B47006E.pas.ms.script' // l3CoreObjects
+   Seq: ( WL 'ME_47913B47006E' '47913B47006E.pas.ms.script' // l3CoreObjects
  WL 'ME_4D550C220363' '4D550C220363.pas.ms.script' // vgInterfaces
- ) .SequenceCode.It
+ )
  ; // Depends
- : Generators
- @ (
- gen_pas.script
- gen_pas.script.runner
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\external\VGScene'
+ CONST intf.pas:PathOnly '\common\components\rtl\external\VGScene'
  CONST pas.script:Path 'shared\models\NewSchool\Scripts\4D551198021D.pas.ms.script'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
  CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\4D551198021D.pas.ms.script.runner'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_4D551198021D lulin1

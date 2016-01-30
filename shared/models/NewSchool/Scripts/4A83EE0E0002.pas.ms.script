@@ -29,6 +29,7 @@ ref; // ME_5538D2910363 OnEndTextPrint
 : ME_419186A44A31
  CONST UID '419186A44A31'
  CONST Name 'f_OnEndTextPrint'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY 'Поле для свойства OnEndTextPrint' ;
  CONST Visibility PrivateAccess
@@ -38,6 +39,7 @@ ref; // ME_5538D2910363 OnEndTextPrint
  ;
  : Target WL 'ME_47881B22005A' '4AB0997B00A2.pas.ms.script' // TNotifyEvent
  ;
+ CONST extprop:clearViaProperty 'OnEndTextPrint'
 
 ref; // ME_419186A44A31 f_OnEndTextPrint
 
@@ -55,6 +57,7 @@ ref; // ME_5538D2D2035B EndTextPrint
 : ME_54C241AA3B2B
  CONST UID '54C241AA3B2B'
  CONST Name 'Ini_Reg_Class'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Регистрация TCustomComboTree' ;
@@ -68,6 +71,7 @@ ref; // ME_54C241AA3B2B Ini_Reg_Class
 
 : ME_581572AA8795
  CONST UID '581572AA8795'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_5538D1CB00A7 // TCustomComboTree
@@ -84,6 +88,7 @@ ref; // ME_581572AA8795
  ;
  : Implementor ME_5538D1CB00A7 // TCustomComboTree
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_482AE42802AE_ME_5538D1CB00A7 Change
 
 : ME_53EE0A730393_ME_5538D1CB00A7
@@ -93,6 +98,7 @@ ref; // ME_482AE42802AE_ME_5538D1CB00A7 Change
  ;
  : Implementor ME_5538D1CB00A7 // TCustomComboTree
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_53EE0A730393_ME_5538D1CB00A7 ProcessTreeSelect
 
 : ME_5538D1CB00A7
@@ -106,39 +112,46 @@ ref; // ME_53EE0A730393_ME_5538D1CB00A7 ProcessTreeSelect
  : Parent ME_4A83EE2702B6 // TvtComboBoxQS
  ;
  : Inherits
-   @ ( WL 'ME_55B780E60398' '48297E42011A.pas.ms.script' // TvtComboTree
- ) .SequenceCode.It
+   Seq: ( WL 'ME_55B780E60398' '48297E42011A.pas.ms.script' // TvtComboTree
+ )
  ; // Inherits
  : Attributes
-   @ ( ME_5538D2910363 // OnEndTextPrint
+   Seq: ( ME_5538D2910363 // OnEndTextPrint
  ME_419186A44A31 // f_OnEndTextPrint
- ) .SequenceCode.It
+ )
  ; // Attributes
  : Operations
-   @ ( ME_5538D2D2035B // EndTextPrint
+   Seq: ( ME_5538D2D2035B // EndTextPrint
  ME_54C241AA3B2B // Ini_Reg_Class
- ) .SequenceCode.It
+ )
  ; // Operations
  : Overridden
-   @ ( ME_482AE42802AE_ME_5538D1CB00A7 // Change
+   Seq: ( ME_482AE42802AE_ME_5538D1CB00A7 // Change
  ME_53EE0A730393_ME_5538D1CB00A7 // ProcessTreeSelect
- ) .SequenceCode.It
+ )
  ; // Overridden
  : Dependencies
-   @ ( ME_581572AA8795 // 
- ) .SequenceCode.It
+   Seq: ( ME_581572AA8795 // 
+ )
  ; // Dependencies
  CONST "base wnd class" 'CWnd'
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
+ CONST dfm:PathOnly '\common\components\gui\Garant\VT'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\VT'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'ComboTree'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_5538D1CB00A7 TCustomComboTree
 
 : ME_8FA4E24B11B6
  CONST UID '8FA4E24B11B6'
  CONST Name 'Ini_Reg_Class'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Регистрация TvtComboBoxQS' ;
@@ -152,6 +165,7 @@ ref; // ME_8FA4E24B11B6 Ini_Reg_Class
 
 : ME_FDF25C9B69B1
  CONST UID 'FDF25C9B69B1'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_4A83EE2702B6 // TvtComboBoxQS
@@ -172,20 +186,20 @@ ref; // ME_FDF25C9B69B1
  : Parent ME_4A83EE0E0002 // Combos
  ;
  : Inherits
-   @ ( ME_5538D1CB00A7 // TCustomComboTree
- ) .SequenceCode.It
+   Seq: ( ME_5538D1CB00A7 // TCustomComboTree
+ )
  ; // Inherits
  : Operations
-   @ ( ME_8FA4E24B11B6 // Ini_Reg_Class
- ) .SequenceCode.It
+   Seq: ( ME_8FA4E24B11B6 // Ini_Reg_Class
+ )
  ; // Operations
  : Children
-   @ ( ME_5538D1CB00A7 // TCustomComboTree
- ) .SequenceCode.It
+   Seq: ( ME_5538D1CB00A7 // TCustomComboTree
+ )
  ; // Children
  : Dependencies
-   @ ( ME_FDF25C9B69B1 // 
- ) .SequenceCode.It
+   Seq: ( ME_FDF25C9B69B1 // 
+ )
  ; // Dependencies
  CONST "base wnd class" 'CWnd'
  CONST "need UC" true
@@ -193,12 +207,14 @@ ref; // ME_FDF25C9B69B1
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\VT'
  CONST intf.pas:Path 'common\components\gui\Garant\VT\vtComboBoxQS.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\VT'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'ComboBoxQS'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'vtComboBoxQS'
 
 ref; // ME_4A83EE2702B6 TvtComboBoxQS
 
@@ -227,8 +243,8 @@ ref; // ME_52A9AF600102 Accept
  : Parent ME_52A9AF500143 // DoCloseUp
  ;
  : Parameters
-   @ ( ME_52A9AF600102 // Accept
- ) .SequenceCode.It
+   Seq: ( ME_52A9AF600102 // Accept
+ )
  ; // Parameters
 
 ref; // ME_52A9AF5E00FF DoIt
@@ -244,8 +260,8 @@ ref; // ME_52A9AF5E00FF DoIt
  : Parent ME_52A9AD5F0269 // TvtSimpleCustomCombo
  ;
  : Operations
-   @ ( ME_52A9AF5E00FF // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_52A9AF5E00FF // DoIt
+ )
  ; // Operations
 
 ref; // ME_52A9AF500143 DoCloseUp
@@ -293,10 +309,10 @@ ref; // ME_554CA1C0022A aCount
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
  : Parameters
-   @ ( ME_554CA1C001F8 // Cmd
+   Seq: ( ME_554CA1C001F8 // Cmd
  ME_554CA1C00216 // aForce
  ME_554CA1C0022A // aCount
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_554CA1B7001B DoIt
@@ -312,8 +328,8 @@ ref; // ME_554CA1B7001B DoIt
  : Parent ME_52A9AD5F0269 // TvtSimpleCustomCombo
  ;
  : Operations
-   @ ( ME_554CA1B7001B // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_554CA1B7001B // DoIt
+ )
  ; // Operations
 
 ref; // ME_554CA18500FB ProcessCommand
@@ -323,6 +339,7 @@ FORWARD ME_554CBBA3004E
 : ME_7F65AA4508D1
  CONST UID '7F65AA4508D1'
  CONST Name 'DoIt'
+ CONST IsSummoned true
  CONST Class class_Operation
  %SUMMARY 'Сигнатура метода UpdateButtonPosition' ;
  CONST Visibility PublicAccess
@@ -343,8 +360,8 @@ ref; // ME_7F65AA4508D1 DoIt
  : Parent ME_52A9AD5F0269 // TvtSimpleCustomCombo
  ;
  : Operations
-   @ ( ME_7F65AA4508D1 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_7F65AA4508D1 // DoIt
+ )
  ; // Operations
  CONST "ifdef" 'Delphi7'
 
@@ -355,6 +372,7 @@ FORWARD ME_554CBC32006E
 : ME_058065FC3623
  CONST UID '058065FC3623'
  CONST Name 'DoIt'
+ CONST IsSummoned true
  CONST Class class_Operation
  %SUMMARY 'Сигнатура метода DropDown' ;
  CONST Visibility PublicAccess
@@ -375,8 +393,8 @@ ref; // ME_058065FC3623 DoIt
  : Parent ME_52A9AD5F0269 // TvtSimpleCustomCombo
  ;
  : Operations
-   @ ( ME_058065FC3623 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_058065FC3623 // DoIt
+ )
  ; // Operations
 
 ref; // ME_554CBC32006E DropDown
@@ -402,8 +420,8 @@ ref; // ME_554CBC5103E2 Accept
  : Parent ME_554CBC4500ED // CloseUp
  ;
  : Parameters
-   @ ( ME_554CBC5103E2 // Accept
- ) .SequenceCode.It
+   Seq: ( ME_554CBC5103E2 // Accept
+ )
  ; // Parameters
 
 ref; // ME_554CBC4F01B5 DoIt
@@ -419,8 +437,8 @@ ref; // ME_554CBC4F01B5 DoIt
  : Parent ME_52A9AD5F0269 // TvtSimpleCustomCombo
  ;
  : Operations
-   @ ( ME_554CBC4F01B5 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_554CBC4F01B5 // DoIt
+ )
  ; // Operations
 
 ref; // ME_554CBC4500ED CloseUp
@@ -428,6 +446,7 @@ ref; // ME_554CBC4500ED CloseUp
 : ME_1E4DE8F604FF
  CONST UID '1E4DE8F604FF'
  CONST Name 'Ini_Reg_Class'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Регистрация TvtSimpleCustomCombo' ;
@@ -441,6 +460,7 @@ ref; // ME_1E4DE8F604FF Ini_Reg_Class
 
 : ME_B0639298EE4F
  CONST UID 'B0639298EE4F'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_52A9AD5F0269 // TvtSimpleCustomCombo
@@ -461,30 +481,36 @@ ref; // ME_B0639298EE4F
  : Parent ME_51B5C8CB00A0 // vtCombo
  ;
  : Inherits
-   @ ( WL 'ME_52A9ADCB0092' '4799D29F033F.pas.ms.script' // TCustomMaskEdit
- ) .SequenceCode.It
+   Seq: ( WL 'ME_52A9ADCB0092' '4799D29F033F.pas.ms.script' // TCustomMaskEdit
+ )
  ; // Inherits
  : Implements
-   @ ( WL 'ME_47913F970159' '47913B47006E.pas.ms.script' // l3Unknown
- ) .SequenceCode.It
+   Seq: ( WL 'ME_47913F970159' '47913B47006E.pas.ms.script' // l3Unknown
+ )
  ; // Implements
  : Operations
-   @ ( ME_52A9AF500143 // DoCloseUp
+   Seq: ( ME_52A9AF500143 // DoCloseUp
  ME_554CA18500FB // ProcessCommand
  ME_554CBBA3004E // UpdateButtonPosition
  ME_554CBC32006E // DropDown
  ME_554CBC4500ED // CloseUp
  ME_1E4DE8F604FF // Ini_Reg_Class
- ) .SequenceCode.It
+ )
  ; // Operations
  : Dependencies
-   @ ( ME_B0639298EE4F // 
- ) .SequenceCode.It
+   Seq: ( ME_B0639298EE4F // 
+ )
  ; // Dependencies
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
+ CONST dfm:PathOnly '\common\components\gui\Garant\VT'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\VT'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'SimpleCustomCombo'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_52A9AD5F0269 TvtSimpleCustomCombo
 
@@ -516,8 +542,8 @@ ref; // ME_554CA908032A DoIt
  : Parent ME_52A9AD500267 // TvtCustomCombo
  ;
  : Operations
-   @ ( ME_554CA908032A // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_554CA908032A // DoIt
+ )
  ; // Operations
 
 ref; // ME_554CA8F903AE GetDropDownContainer
@@ -525,6 +551,7 @@ ref; // ME_554CA8F903AE GetDropDownContainer
 : ME_98A2BD634904
  CONST UID '98A2BD634904'
  CONST Name 'Ini_Reg_Class'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Регистрация TvtCustomCombo' ;
@@ -538,6 +565,7 @@ ref; // ME_98A2BD634904 Ini_Reg_Class
 
 : ME_3AEABA2E927A
  CONST UID '3AEABA2E927A'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_52A9AD500267 // TvtCustomCombo
@@ -558,22 +586,28 @@ ref; // ME_3AEABA2E927A
  : Parent ME_51B5C8CB00A0 // vtCombo
  ;
  : Inherits
-   @ ( ME_52A9AD5F0269 // TvtSimpleCustomCombo
- ) .SequenceCode.It
+   Seq: ( ME_52A9AD5F0269 // TvtSimpleCustomCombo
+ )
  ; // Inherits
  : Operations
-   @ ( ME_554CA8F903AE // GetDropDownContainer
+   Seq: ( ME_554CA8F903AE // GetDropDownContainer
  ME_98A2BD634904 // Ini_Reg_Class
- ) .SequenceCode.It
+ )
  ; // Operations
  : Dependencies
-   @ ( ME_3AEABA2E927A // 
- ) .SequenceCode.It
+   Seq: ( ME_3AEABA2E927A // 
+ )
  ; // Dependencies
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
+ CONST dfm:PathOnly '\common\components\gui\Garant\VT'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\VT'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'Combo'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_52A9AD500267 TvtCustomCombo
 
@@ -588,18 +622,18 @@ ref; // ME_52A9AD500267 TvtCustomCombo
  : Parent ME_4A83EE0E0002 // Combos
  ;
  : Children
-   @ ( ME_52A9AD5F0269 // TvtSimpleCustomCombo
+   Seq: ( ME_52A9AD5F0269 // TvtSimpleCustomCombo
  ME_52A9AD500267 // TvtCustomCombo
- ) .SequenceCode.It
+ )
  ; // Children
  CONST "finished" false
  CONST "no hands" false
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\VT'
  CONST intf.pas:Path 'common\components\gui\Garant\VT\NOT_FINISHED_vtCombo.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\VT'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'Combo'
 
 ref; // ME_51B5C8CB00A0 vtCombo
 
@@ -722,7 +756,7 @@ ref; // ME_5538E6BE0205 cbNoName
  : Parent ME_5270BBC702C7 // TvtColorBox
  ;
  : Attributes
-   @ ( ME_5538E6500082 // cbStandardColors
+   Seq: ( ME_5538E6500082 // cbStandardColors
  ME_5538E660030A // cbExtendedColors
  ME_5538E6700384 // cbSystemColors
  ME_5538E67E00CB // cbIncludeNone
@@ -730,8 +764,13 @@ ref; // ME_5538E6BE0205 cbNoName
  ME_5538E69F03AB // cbCustomColor
  ME_5538E6AF031E // cbPrettyNames
  ME_5538E6BE0205 // cbNoName
- ) .SequenceCode.It
+ )
  ; // Attributes
+ CONST dfm:PathOnly '\common\components\gui\Garant\VT'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\VT'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_5538E639019E TvtColorBoxStyles
 
@@ -746,9 +785,13 @@ ref; // ME_5538E639019E TvtColorBoxStyles
  : Parent ME_5270BBC702C7 // TvtColorBox
  ;
  : Inherits
-   @ ( ME_5538E639019E // TvtColorBoxStyles
- ) .SequenceCode.It
+   Seq: ( ME_5538E639019E // TvtColorBoxStyles
+ )
  ; // Inherits
+ CONST dfm:PathOnly '\common\components\gui\Garant\VT'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\VT'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_5538E6D503B4 TvtColorBoxStyle
 
@@ -800,8 +843,8 @@ ref; // ME_5538F06D01D0 anIndex
  : Target WL 'ME_46A44A2F01C7' '55C4AEC801CA.pas.ms.script' // TColor
  ;
  : Attributes
-   @ ( ME_5538F06D01D0 // anIndex
- ) .SequenceCode.It
+   Seq: ( ME_5538F06D01D0 // anIndex
+ )
  ; // Attributes
  CONST "pm" true
 
@@ -836,8 +879,8 @@ ref; // ME_5538F0B9016F anIndex
  : Target WL 'ME_46780DA40383' '4677FBA70343.pas.ms.script' // Il3CString
  ;
  : Attributes
-   @ ( ME_5538F0B9016F // anIndex
- ) .SequenceCode.It
+   Seq: ( ME_5538F0B9016F // anIndex
+ )
  ; // Attributes
  CONST "pm" true
 
@@ -925,6 +968,7 @@ ref; // ME_5538F3550015 f_LockPickCustomColor
 : ME_319B32BE988B
  CONST UID '319B32BE988B'
  CONST Name 'f_ColorStyle'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY 'Поле для свойства ColorStyle' ;
  CONST Visibility PrivateAccess
@@ -934,12 +978,14 @@ ref; // ME_5538F3550015 f_LockPickCustomColor
  ;
  : Target ME_5538E6D503B4 // TvtColorBoxStyle
  ;
+ CONST extprop:clearViaProperty 'ColorStyle'
 
 ref; // ME_319B32BE988B f_ColorStyle
 
 : ME_E44E346756EE
  CONST UID 'E44E346756EE'
  CONST Name 'f_Selected'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY 'Поле для свойства Selected' ;
  CONST Visibility PrivateAccess
@@ -949,12 +995,14 @@ ref; // ME_319B32BE988B f_ColorStyle
  ;
  : Target WL 'ME_46A44A2F01C7' '55C4AEC801CA.pas.ms.script' // TColor
  ;
+ CONST extprop:clearViaProperty 'Selected'
 
 ref; // ME_E44E346756EE f_Selected
 
 : ME_4513A01B53EB
  CONST UID '4513A01B53EB'
  CONST Name 'f_DefaultColorColor'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY 'Поле для свойства DefaultColorColor' ;
  CONST Visibility PrivateAccess
@@ -964,12 +1012,14 @@ ref; // ME_E44E346756EE f_Selected
  ;
  : Target WL 'ME_46A44A2F01C7' '55C4AEC801CA.pas.ms.script' // TColor
  ;
+ CONST extprop:clearViaProperty 'DefaultColorColor'
 
 ref; // ME_4513A01B53EB f_DefaultColorColor
 
 : ME_4BB42D663E41
  CONST UID '4BB42D663E41'
  CONST Name 'f_NoneColorColor'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY 'Поле для свойства NoneColorColor' ;
  CONST Visibility PrivateAccess
@@ -979,6 +1029,7 @@ ref; // ME_4513A01B53EB f_DefaultColorColor
  ;
  : Target WL 'ME_46A44A2F01C7' '55C4AEC801CA.pas.ms.script' // TColor
  ;
+ CONST extprop:clearViaProperty 'NoneColorColor'
 
 ref; // ME_4BB42D663E41 f_NoneColorColor
 
@@ -1003,8 +1054,8 @@ ref; // ME_5538F38F0091 aName
  : Parent ME_5538F3810270 // ColorCallBack
  ;
  : Parameters
-   @ ( ME_5538F38F0091 // aName
- ) .SequenceCode.It
+   Seq: ( ME_5538F38F0091 // aName
+ )
  ; // Parameters
 
 ref; // ME_5538F38900B4 DoIt
@@ -1020,8 +1071,8 @@ ref; // ME_5538F38900B4 DoIt
  : Parent ME_5538E709017E // TvtCustomColorBox
  ;
  : Operations
-   @ ( ME_5538F38900B4 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_5538F38900B4 // DoIt
+ )
  ; // Operations
 
 ref; // ME_5538F3810270 ColorCallBack
@@ -1049,8 +1100,8 @@ ref; // ME_5538F3A402D0 aColor
  : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
  ;
  : Parameters
-   @ ( ME_5538F3A402D0 // aColor
- ) .SequenceCode.It
+   Seq: ( ME_5538F3A402D0 // aColor
+ )
  ; // Parameters
 
 ref; // ME_5538F3A20155 DoIt
@@ -1066,8 +1117,8 @@ ref; // ME_5538F3A20155 DoIt
  : Parent ME_5538E709017E // TvtCustomColorBox
  ;
  : Operations
-   @ ( ME_5538F3A20155 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_5538F3A20155 // DoIt
+ )
  ; // Operations
 
 ref; // ME_5538F39B01D0 IndexOfColor
@@ -1098,8 +1149,8 @@ ref; // ME_5538F3C20062 DoIt
  : Parent ME_5538E709017E // TvtCustomColorBox
  ;
  : Operations
-   @ ( ME_5538F3C20062 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_5538F3C20062 // DoIt
+ )
  ; // Operations
 
 ref; // ME_5538F3B8006F PickCustomColor
@@ -1109,6 +1160,7 @@ FORWARD ME_5538F3D60102
 : ME_513287710525
  CONST UID '513287710525'
  CONST Name 'DoIt'
+ CONST IsSummoned true
  CONST Class class_Operation
  %SUMMARY 'Сигнатура метода PopulateList' ;
  CONST Visibility PublicAccess
@@ -1129,8 +1181,8 @@ ref; // ME_513287710525 DoIt
  : Parent ME_5538E709017E // TvtCustomColorBox
  ;
  : Operations
-   @ ( ME_513287710525 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_513287710525 // DoIt
+ )
  ; // Operations
 
 ref; // ME_5538F3D60102 PopulateList
@@ -1161,8 +1213,8 @@ ref; // ME_5538F3EF0075 DoIt
  : Parent ME_5538E709017E // TvtCustomColorBox
  ;
  : Operations
-   @ ( ME_5538F3EF0075 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_5538F3EF0075 // DoIt
+ )
  ; // Operations
 
 ref; // ME_5538F3E80193 DrawNames
@@ -1170,6 +1222,7 @@ ref; // ME_5538F3E80193 DrawNames
 : ME_24F72726941C
  CONST UID '24F72726941C'
  CONST Name 'Ini_Reg_Class'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Регистрация TvtCustomColorBox' ;
@@ -1183,6 +1236,7 @@ ref; // ME_24F72726941C Ini_Reg_Class
 
 : ME_42B5046E6B53
  CONST UID '42B5046E6B53'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_5538E709017E // TvtCustomColorBox
@@ -1199,6 +1253,7 @@ ref; // ME_42B5046E6B53
  ;
  : Implementor ME_5538E709017E // TvtCustomColorBox
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_47D1602000C6_ME_5538E709017E Create
 
 : ME_482AE42802AE_ME_5538E709017E
@@ -1208,6 +1263,7 @@ ref; // ME_47D1602000C6_ME_5538E709017E Create
  ;
  : Implementor ME_5538E709017E // TvtCustomColorBox
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_482AE42802AE_ME_5538E709017E Change
 
 : ME_484516C00214_ME_5538E709017E
@@ -1217,6 +1273,7 @@ ref; // ME_482AE42802AE_ME_5538E709017E Change
  ;
  : Implementor ME_5538E709017E // TvtCustomColorBox
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_484516C00214_ME_5538E709017E Loaded
 
 : ME_4CC8414403B8_ME_5538E709017E
@@ -1226,6 +1283,7 @@ ref; // ME_484516C00214_ME_5538E709017E Loaded
  ;
  : Implementor ME_5538E709017E // TvtCustomColorBox
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4CC8414403B8_ME_5538E709017E CreateWnd
 
 : ME_53EE012C0211_ME_5538E709017E
@@ -1235,6 +1293,7 @@ ref; // ME_4CC8414403B8_ME_5538E709017E CreateWnd
  ;
  : Implementor ME_5538E709017E // TvtCustomColorBox
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_53EE012C0211_ME_5538E709017E RecreateTreeIfNeeded
 
 : ME_53EE0A730393_ME_5538E709017E
@@ -1244,6 +1303,7 @@ ref; // ME_53EE012C0211_ME_5538E709017E RecreateTreeIfNeeded
  ;
  : Implementor ME_5538E709017E // TvtCustomColorBox
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_53EE0A730393_ME_5538E709017E ProcessTreeSelect
 
 : ME_53F45F9F030D_ME_5538E709017E
@@ -1253,6 +1313,7 @@ ref; // ME_53EE0A730393_ME_5538E709017E ProcessTreeSelect
  ;
  : Implementor ME_5538E709017E // TvtCustomColorBox
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_53F45F9F030D_ME_5538E709017E DoCreateStrings
 
 : ME_5538F4D60240_ME_5538E709017E
@@ -1262,6 +1323,7 @@ ref; // ME_53F45F9F030D_ME_5538E709017E DoCreateStrings
  ;
  : Implementor ME_5538E709017E // TvtCustomColorBox
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_5538F4D60240_ME_5538E709017E DoDrawDocument
 
 : ME_5538E709017E
@@ -1275,11 +1337,11 @@ ref; // ME_5538F4D60240_ME_5538E709017E DoDrawDocument
  : Parent ME_5270BBC702C7 // TvtColorBox
  ;
  : Inherits
-   @ ( WL 'ME_55B780E60398' '48297E42011A.pas.ms.script' // TvtComboTree
- ) .SequenceCode.It
+   Seq: ( WL 'ME_55B780E60398' '48297E42011A.pas.ms.script' // TvtComboTree
+ )
  ; // Inherits
  : Attributes
-   @ ( ME_5538EF8B0385 // ColorStyle
+   Seq: ( ME_5538EF8B0385 // ColorStyle
  ME_5538F01F01D6 // Colors
  ME_5538F0A00111 // ColorNames
  ME_5538F0F4031D // Selected
@@ -1291,19 +1353,19 @@ ref; // ME_5538F4D60240_ME_5538E709017E DoDrawDocument
  ME_E44E346756EE // f_Selected
  ME_4513A01B53EB // f_DefaultColorColor
  ME_4BB42D663E41 // f_NoneColorColor
- ) .SequenceCode.It
+ )
  ; // Attributes
  : Operations
-   @ ( ME_5538F3810270 // ColorCallBack
+   Seq: ( ME_5538F3810270 // ColorCallBack
  ME_5538F39B01D0 // IndexOfColor
  ME_5538F3B8006F // PickCustomColor
  ME_5538F3D60102 // PopulateList
  ME_5538F3E80193 // DrawNames
  ME_24F72726941C // Ini_Reg_Class
- ) .SequenceCode.It
+ )
  ; // Operations
  : Overridden
-   @ ( ME_47D1602000C6_ME_5538E709017E // Create
+   Seq: ( ME_47D1602000C6_ME_5538E709017E // Create
  ME_482AE42802AE_ME_5538E709017E // Change
  ME_484516C00214_ME_5538E709017E // Loaded
  ME_4CC8414403B8_ME_5538E709017E // CreateWnd
@@ -1311,17 +1373,23 @@ ref; // ME_5538F4D60240_ME_5538E709017E DoDrawDocument
  ME_53EE0A730393_ME_5538E709017E // ProcessTreeSelect
  ME_53F45F9F030D_ME_5538E709017E // DoCreateStrings
  ME_5538F4D60240_ME_5538E709017E // DoDrawDocument
- ) .SequenceCode.It
+ )
  ; // Overridden
  : Dependencies
-   @ ( ME_42B5046E6B53 // 
- ) .SequenceCode.It
+   Seq: ( ME_42B5046E6B53 // 
+ )
  ; // Dependencies
  CONST "base wnd class" 'CWnd'
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
+ CONST dfm:PathOnly '\common\components\gui\Garant\VT'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\VT'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'ColorBox'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_5538E709017E TvtCustomColorBox
 
@@ -1340,6 +1408,7 @@ FORWARD ME_5538E74100C3
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value 'TColor($FF000000)'
 
 ref; // ME_5538E75000FA NoColorSelected
 
@@ -1354,16 +1423,22 @@ ref; // ME_5538E75000FA NoColorSelected
  : Parent ME_5270BBC702C7 // TvtColorBox
  ;
  : Attributes
-   @ ( ME_5538E75000FA // NoColorSelected
- ) .SequenceCode.It
+   Seq: ( ME_5538E75000FA // NoColorSelected
+ )
  ; // Attributes
  CONST "spell names" false
+ CONST dfm:PathOnly '\common\components\gui\Garant\VT'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\VT'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'ColorBox Consts'
 
 ref; // ME_5538E74100C3 vtColorBox Consts
 
 : ME_FD3F0B5FE8EF
  CONST UID 'FD3F0B5FE8EF'
  CONST Name 'Ini_Reg_Class'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Регистрация TvtColorBox' ;
@@ -1434,6 +1509,7 @@ ref; // ME_553908140014
 
 : ME_7F502889CCA5
  CONST UID '7F502889CCA5'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_5270BBC702C7 // TvtColorBox
@@ -1454,31 +1530,31 @@ ref; // ME_7F502889CCA5
  : Parent ME_4A83EE0E0002 // Combos
  ;
  : Inherits
-   @ ( ME_5538E709017E // TvtCustomColorBox
- ) .SequenceCode.It
+   Seq: ( ME_5538E709017E // TvtCustomColorBox
+ )
  ; // Inherits
  : Operations
-   @ ( ME_FD3F0B5FE8EF // Ini_Reg_Class
- ) .SequenceCode.It
+   Seq: ( ME_FD3F0B5FE8EF // Ini_Reg_Class
+ )
  ; // Operations
  : Children
-   @ ( ME_5538E639019E // TvtColorBoxStyles
+   Seq: ( ME_5538E639019E // TvtColorBoxStyles
  ME_5538E6D503B4 // TvtColorBoxStyle
  ME_5538E709017E // TvtCustomColorBox
- ) .SequenceCode.It
+ )
  ; // Children
  : Constants
-   @ ( ME_5538E74100C3 // vtColorBox Consts
- ) .SequenceCode.It
+   Seq: ( ME_5538E74100C3 // vtColorBox Consts
+ )
  ; // Constants
  : Dependencies
-   @ ( ME_5539067D0136 // 
+   Seq: ( ME_5539067D0136 // 
  ME_5539068302A3 // 
  ME_5539068600B3 // 
  ME_553906880245 // 
  ME_553908140014 // 
  ME_7F502889CCA5 // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  CONST "base wnd class" 'CWnd'
  CONST "need UC" true
@@ -1486,12 +1562,14 @@ ref; // ME_7F502889CCA5
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\VT'
  CONST intf.pas:Path 'common\components\gui\Garant\VT\vtColorBox.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\VT'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'ColorBox'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'vtColorBox'
 
 ref; // ME_5270BBC702C7 TvtColorBox
 
@@ -1510,12 +1588,14 @@ ref; // ME_5270BBC702C7 TvtColorBox
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\VT'
  CONST intf.pas:Path 'common\components\gui\Garant\VT\NOT_FINISHED_vtColorBoxStrings.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\VT'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'ColorBoxStrings'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'vtColorBoxStrings'
 
 ref; // ME_553907A4021C TvtColorBoxStrings
 
@@ -1530,14 +1610,14 @@ ref; // ME_553907A4021C TvtColorBoxStrings
  : Parent WL 'ME_467A75D90346' '467A75D90346.pas.ms.script' // VT
  ;
  : Children
-   @ ( ME_4A83EE2702B6 // TvtComboBoxQS
+   Seq: ( ME_4A83EE2702B6 // TvtComboBoxQS
  ME_51B5C8CB00A0 // vtCombo
  ME_5270BBC702C7 // TvtColorBox
  ME_553907A4021C // TvtColorBoxStrings
- ) .SequenceCode.It
+ )
  ; // Children
  : Depends
-   @ ( WL 'ME_4677FBA70343' '4677FBA70343.pas.ms.script' // l3Interfaces
+   Seq: ( WL 'ME_4677FBA70343' '4677FBA70343.pas.ms.script' // l3Interfaces
  WL 'ME_47913B47006E' '47913B47006E.pas.ms.script' // l3CoreObjects
  WL 'ME_4799D29F033F' '4799D29F033F.pas.ms.script' // Implementation
  WL 'ME_47AC75550330' '47AC75550330.pas.ms.script' // k2Tags
@@ -1547,15 +1627,13 @@ ref; // ME_553907A4021C TvtColorBoxStrings
  WL 'ME_55C4AEC801CA' '55C4AEC801CA.pas.ms.script' // Graphics
  WL 'ME_55C4AF3F02EE' '55C4AF3F02EE.pas.ms.script' // Consts
  WL 'ME_561F9F7D02A7' '561F9F7D02A7.pas.ms.script' // ScriptEngine
- ) .SequenceCode.It
+ )
  ; // Depends
- : Generators
- @ (
- gen_pas.script
- gen_pas.script.runner
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\VT'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\VT'
  CONST pas.script:Path 'shared\models\NewSchool\Scripts\4A83EE0E0002.pas.ms.script'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
  CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\4A83EE0E0002.pas.ms.script.runner'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_4A83EE0E0002 Combos

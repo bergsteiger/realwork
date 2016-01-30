@@ -12,15 +12,15 @@ INCLUDE 'ElementsRTTI.ms.dict'
  : Parent WL 'ME_49B923B60333' '49B923B60333.pas.ms.script' // Shared Delphi Tests
  ;
  : Children
-   @ ( WL 'ME_4EA538A203C7' '4EA538A203C7.pas.ms.script' // MultyFileTests
+   Seq: ( WL 'ME_4EA538A203C7' '4EA538A203C7.pas.ms.script' // MultyFileTests
  WL 'ME_4E2EB28F02F6' '4E2EB28F02F6.pas.ms.script' // Tags
  WL 'ME_4D53DF0D03B0' '4D53DF0D03B0.pas.ms.script' // Filters
  WL 'ME_4F19349400A2' '4F19349400A2.pas.ms.script' // DBTests
  WL 'ME_4FA138560235' '4FA138560235.pas.ms.script' // Storage
- ) .SequenceCode.It
+ )
  ; // Children
  : Depends
-   @ ( WL 'ME_4677E16A022A' '4677E16A022A.pas.ms.script' // K2
+   Seq: ( WL 'ME_4677E16A022A' '4677E16A022A.pas.ms.script' // K2
  WL 'ME_4684F91300DD' '4684F91300DD.pas.ms.script' // Vcl
  WL 'ME_469F3E37025A' '469F3E37025A.pas.ms.script' // Rtl
  WL 'ME_4790C3B8021E' '4790C3B8021E.pas.ms.script' // VCM
@@ -29,7 +29,7 @@ INCLUDE 'ElementsRTTI.ms.dict'
  WL 'ME_4B30C5FF0172' '4B30C5FF0172.pas.ms.script' // TestFormsTest
  WL 'ME_4D02561D01C8' '4D02561D01C8.pas.ms.script' // Abstract Tests
  WL 'ME_4D53DDBE00EE' '4D53DDBE00EE.pas.ms.script' // Abstract Archi Tests
- ) .SequenceCode.It
+ )
  ; // Depends
  CONST "defines" 'TestDefine.inc.pas'
  CONST "exec mode" 'concluded'
@@ -37,14 +37,17 @@ INCLUDE 'ElementsRTTI.ms.dict'
  CONST "is namespace" true
  CONST "vendor" '/Garant'
  : Generators
- @ (
- gen_forth_structure
+ Seq: (
  gen_pas.script
  gen_pas.script.runner
- ) .SequenceCode.It
+ )
  ; // Generators
- CONST forth_structure:Path 'shared\models\NewSchool\Shared Delphi Tests\Archi Tests\Archi Tests.model.script'
+ CONST dfm:PathOnly '\common\components\rtl\Garant\Archi_Tests'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\Archi_Tests'
  CONST pas.script:Path 'shared\models\NewSchool\Scripts\4D53DEED0062.pas.ms.script'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
  CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\4D53DEED0062.pas.ms.script.runner'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\common\components\rtl\Garant\Archi_Tests'
 
 ref; // ME_4D53DEED0062 Archi Tests

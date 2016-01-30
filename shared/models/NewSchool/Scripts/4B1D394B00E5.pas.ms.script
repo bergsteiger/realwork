@@ -1,0 +1,457 @@
+// PrimListInterfaces 4B1D394B00E5 Interfaces Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4B1D394B00E5
+
+FORWARD ME_47F274F101E1
+
+: ME_4B1D10CB029F
+ CONST UID '4B1D10CB029F'
+ CONST Name 'OpenFrom'
+ CONST Class class_Attribute
+ : Stereotype st_readonly::Attribute ;
+ %SUMMARY 'откуда был открыт список' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_lnk
+ : Parent ME_47F274F101E1 // IdeDocumentList
+ ;
+ : Target WL 'ME_47F2134C0390' '47EA07FA02CE.pas.ms.script' // TbsListOpenFrom
+ ;
+ CONST "pm" true
+
+ref; // ME_4B1D10CB029F OpenFrom
+
+: ME_56A5C84E02B0
+ CONST UID '56A5C84E02B0'
+ CONST Name 'IsChanged'
+ CONST Class class_Attribute
+ : Stereotype st_readonly::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_lnk
+ : Parent ME_47F274F101E1 // IdeDocumentList
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+ CONST "pm" true
+
+ref; // ME_56A5C84E02B0 IsChanged
+
+: ME_4B1D108603DD
+ CONST UID '4B1D108603DD'
+ CONST Name 'aNewList'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_45EEDB730265' '45700BFD0251.pas.ms.script' // DynList
+ ;
+
+ref; // ME_4B1D108603DD aNewList
+
+: ME_4B67FF7701AD
+ CONST UID '4B67FF7701AD'
+ CONST Name 'aNodeForPositioning'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_468259900322' '4682595B0268.pas.ms.script' // Il3SimpleNode
+ ;
+
+ref; // ME_4B67FF7701AD aNodeForPositioning
+
+: ME_4B1D107F02EB
+ CONST UID '4B1D107F02EB'
+ CONST Name 'CloneWithReplace'
+ CONST Class class_Operation
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_47F274F101E1 // IdeDocumentList
+ ;
+ : Target ME_47F274F101E1 // IdeDocumentList
+ ;
+ : Parameters
+   Seq: ( ME_4B1D108603DD // aNewList
+ ME_4B67FF7701AD // aNodeForPositioning
+ )
+ ; // Parameters
+
+ref; // ME_4B1D107F02EB CloneWithReplace
+
+: ME_4B1D0FB101BA_ME_47F274F101E1
+ CONST UID '4B1D0FB101BA'
+ CONST Name 'List'
+ : Original WL 'ME_4B1D0FB101BA' '4B1D3D250382.pas.ms.script' // List
+ ;
+ : Implementor ME_47F274F101E1 // IdeDocumentList
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "pm" true
+ref; // ME_4B1D0FB101BA_ME_47F274F101E1 List
+
+: ME_4B1D0FCD01D2_ME_47F274F101E1
+ CONST UID '4B1D0FCD01D2'
+ CONST Name 'TimeMachineOff'
+ : Original WL 'ME_4B1D0FCD01D2' '4B1D3D250382.pas.ms.script' // TimeMachineOff
+ ;
+ : Implementor ME_47F274F101E1 // IdeDocumentList
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "pm" true
+ref; // ME_4B1D0FCD01D2_ME_47F274F101E1 TimeMachineOff
+
+: ME_4B1D100202D0_ME_47F274F101E1
+ CONST UID '4B1D100202D0'
+ CONST Name 'WhatDoingIfOneDoc'
+ : Original WL 'ME_4B1D100202D0' '4B1D3D250382.pas.ms.script' // WhatDoingIfOneDoc
+ ;
+ : Implementor ME_47F274F101E1 // IdeDocumentList
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "pm" true
+ref; // ME_4B1D100202D0_ME_47F274F101E1 WhatDoingIfOneDoc
+
+: ME_4B1D102C004A_ME_47F274F101E1
+ CONST UID '4B1D102C004A'
+ CONST Name 'NodeForPositioning'
+ : Original WL 'ME_4B1D102C004A' '4B1D3D250382.pas.ms.script' // NodeForPositioning
+ ;
+ : Implementor ME_47F274F101E1 // IdeDocumentList
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "pm" true
+ref; // ME_4B1D102C004A_ME_47F274F101E1 NodeForPositioning
+
+: ME_4B1D104E02FA_ME_47F274F101E1
+ CONST UID '4B1D104E02FA'
+ CONST Name 'SearchInfo'
+ : Original WL 'ME_4B1D104E02FA' '4B1D3D250382.pas.ms.script' // SearchInfo
+ ;
+ : Implementor ME_47F274F101E1 // IdeDocumentList
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "pm" true
+ref; // ME_4B1D104E02FA_ME_47F274F101E1 SearchInfo
+
+: ME_560BC82C0143_ME_47F274F101E1
+ CONST UID '560BC82C0143'
+ CONST Name 'AllDocumentsFiltered'
+ : Original WL 'ME_560BC82C0143' '4B1D3D250382.pas.ms.script' // AllDocumentsFiltered
+ ;
+ : Implementor ME_47F274F101E1 // IdeDocumentList
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "pm" true
+ref; // ME_560BC82C0143_ME_47F274F101E1 AllDocumentsFiltered
+
+: ME_562485D00025_ME_47F274F101E1
+ CONST UID '562485D00025'
+ CONST Name 'NeedApplyPermanentFilters'
+ : Original WL 'ME_562485D00025' '4B1D3D250382.pas.ms.script' // NeedApplyPermanentFilters
+ ;
+ : Implementor ME_47F274F101E1 // IdeDocumentList
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "pm" true
+ref; // ME_562485D00025_ME_47F274F101E1 NeedApplyPermanentFilters
+
+: ME_569DDAE500DD_ME_47F274F101E1
+ CONST UID '569DDAE500DD'
+ CONST Name 'IsChanged'
+ : Original WL 'ME_569DDAE500DD' '4B1D3D250382.pas.ms.script' // IsChanged
+ ;
+ : Implementor ME_47F274F101E1 // IdeDocumentList
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "pm" true
+ref; // ME_569DDAE500DD_ME_47F274F101E1 IsChanged
+
+: ME_47F274F101E1
+ CONST UID '47F274F101E1'
+ CONST GUID '8A2B09DF-1DF5-40E9-981D-44110CC01ACC'
+ CONST Name 'IdeDocumentList'
+ CONST Class class_Class
+ : Stereotype st_Facet ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Интерфейс обмена данными с бизнес объектов формы "enList"' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4B1D394B00E5 // PrimListInterfaces
+ ;
+ : Inherits
+   Seq: ( WL 'ME_47F20DEA0340' '4B1D3D250382.pas.ms.script' // IdeList
+ )
+ ; // Inherits
+ : Attributes
+   Seq: ( ME_4B1D10CB029F // OpenFrom
+ ME_56A5C84E02B0 // IsChanged
+ )
+ ; // Attributes
+ : Operations
+   Seq: ( ME_4B1D107F02EB // CloneWithReplace
+ )
+ ; // Operations
+ : Implemented
+   Seq: ( ME_4B1D0FB101BA_ME_47F274F101E1 // List
+ ME_4B1D0FCD01D2_ME_47F274F101E1 // TimeMachineOff
+ ME_4B1D100202D0_ME_47F274F101E1 // WhatDoingIfOneDoc
+ ME_4B1D102C004A_ME_47F274F101E1 // NodeForPositioning
+ ME_4B1D104E02FA_ME_47F274F101E1 // SearchInfo
+ ME_560BC82C0143_ME_47F274F101E1 // AllDocumentsFiltered
+ ME_562485D00025_ME_47F274F101E1 // NeedApplyPermanentFilters
+ ME_569DDAE500DD_ME_47F274F101E1 // IsChanged
+ )
+ ; // Implemented
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\BusinessInterfaces'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\BusinessInterfaces'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\BusinessInterfaces'
+ CONST extprop:rc:SelfName 'deDocumentList'
+ CONST extprop:rc:isAcceptableForScripts true
+
+ref; // ME_47F274F101E1 IdeDocumentList
+
+FORWARD ME_492D74C60183
+
+: ME_4B1D1100018E
+ CONST UID '4B1D1100018E'
+ CONST Name 'ListType'
+ CONST Class class_Attribute
+ : Stereotype st_readonly::Attribute ;
+ %SUMMARY 'тип списка корреспонденты/респонденты' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_lnk
+ : Parent ME_492D74C60183 // IdeDocumentListCR
+ ;
+ : Target WL 'ME_47F1CDD203D9' '47EA07FA02CE.pas.ms.script' // TlstCRType
+ ;
+ CONST "pm" true
+
+ref; // ME_4B1D1100018E ListType
+
+: ME_4B1D1135025F
+ CONST UID '4B1D1135025F'
+ CONST Name 'Category'
+ CONST Class class_Attribute
+ : Stereotype st_readonly::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_lnk
+ : Parent ME_492D74C60183 // IdeDocumentListCR
+ ;
+ : Target WL 'ME_45EEB95901C5' '457450470167.pas.ms.script' // NodeBase
+ ;
+ CONST "pm" true
+
+ref; // ME_4B1D1135025F Category
+
+: ME_4B1D0FB101BA_ME_492D74C60183
+ CONST UID '4B1D0FB101BA'
+ CONST Name 'List'
+ : Original WL 'ME_4B1D0FB101BA' '4B1D3D250382.pas.ms.script' // List
+ ;
+ : Implementor ME_492D74C60183 // IdeDocumentListCR
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "pm" true
+ref; // ME_4B1D0FB101BA_ME_492D74C60183 List
+
+: ME_4B1D0FCD01D2_ME_492D74C60183
+ CONST UID '4B1D0FCD01D2'
+ CONST Name 'TimeMachineOff'
+ : Original WL 'ME_4B1D0FCD01D2' '4B1D3D250382.pas.ms.script' // TimeMachineOff
+ ;
+ : Implementor ME_492D74C60183 // IdeDocumentListCR
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "pm" true
+ref; // ME_4B1D0FCD01D2_ME_492D74C60183 TimeMachineOff
+
+: ME_4B1D100202D0_ME_492D74C60183
+ CONST UID '4B1D100202D0'
+ CONST Name 'WhatDoingIfOneDoc'
+ : Original WL 'ME_4B1D100202D0' '4B1D3D250382.pas.ms.script' // WhatDoingIfOneDoc
+ ;
+ : Implementor ME_492D74C60183 // IdeDocumentListCR
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "pm" true
+ref; // ME_4B1D100202D0_ME_492D74C60183 WhatDoingIfOneDoc
+
+: ME_4B1D102C004A_ME_492D74C60183
+ CONST UID '4B1D102C004A'
+ CONST Name 'NodeForPositioning'
+ : Original WL 'ME_4B1D102C004A' '4B1D3D250382.pas.ms.script' // NodeForPositioning
+ ;
+ : Implementor ME_492D74C60183 // IdeDocumentListCR
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "pm" true
+ref; // ME_4B1D102C004A_ME_492D74C60183 NodeForPositioning
+
+: ME_4B1D104E02FA_ME_492D74C60183
+ CONST UID '4B1D104E02FA'
+ CONST Name 'SearchInfo'
+ : Original WL 'ME_4B1D104E02FA' '4B1D3D250382.pas.ms.script' // SearchInfo
+ ;
+ : Implementor ME_492D74C60183 // IdeDocumentListCR
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "pm" true
+ref; // ME_4B1D104E02FA_ME_492D74C60183 SearchInfo
+
+: ME_4B1D107F02EB_ME_492D74C60183
+ CONST UID '4B1D107F02EB'
+ CONST Name 'CloneWithReplace'
+ : Original ME_4B1D107F02EB // CloneWithReplace
+ ;
+ : Implementor ME_492D74C60183 // IdeDocumentListCR
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_4B1D107F02EB_ME_492D74C60183 CloneWithReplace
+
+: ME_4B1D10CB029F_ME_492D74C60183
+ CONST UID '4B1D10CB029F'
+ CONST Name 'OpenFrom'
+ : Original ME_4B1D10CB029F // OpenFrom
+ ;
+ : Implementor ME_492D74C60183 // IdeDocumentListCR
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "pm" true
+ref; // ME_4B1D10CB029F_ME_492D74C60183 OpenFrom
+
+: ME_560BC82C0143_ME_492D74C60183
+ CONST UID '560BC82C0143'
+ CONST Name 'AllDocumentsFiltered'
+ : Original WL 'ME_560BC82C0143' '4B1D3D250382.pas.ms.script' // AllDocumentsFiltered
+ ;
+ : Implementor ME_492D74C60183 // IdeDocumentListCR
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "pm" true
+ref; // ME_560BC82C0143_ME_492D74C60183 AllDocumentsFiltered
+
+: ME_562485D00025_ME_492D74C60183
+ CONST UID '562485D00025'
+ CONST Name 'NeedApplyPermanentFilters'
+ : Original WL 'ME_562485D00025' '4B1D3D250382.pas.ms.script' // NeedApplyPermanentFilters
+ ;
+ : Implementor ME_492D74C60183 // IdeDocumentListCR
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "pm" true
+ref; // ME_562485D00025_ME_492D74C60183 NeedApplyPermanentFilters
+
+: ME_569DDAE500DD_ME_492D74C60183
+ CONST UID '569DDAE500DD'
+ CONST Name 'IsChanged'
+ : Original WL 'ME_569DDAE500DD' '4B1D3D250382.pas.ms.script' // IsChanged
+ ;
+ : Implementor ME_492D74C60183 // IdeDocumentListCR
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "pm" true
+ref; // ME_569DDAE500DD_ME_492D74C60183 IsChanged
+
+: ME_56A5C84E02B0_ME_492D74C60183
+ CONST UID '56A5C84E02B0'
+ CONST Name 'IsChanged'
+ : Original ME_56A5C84E02B0 // IsChanged
+ ;
+ : Implementor ME_492D74C60183 // IdeDocumentListCR
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "pm" true
+ref; // ME_56A5C84E02B0_ME_492D74C60183 IsChanged
+
+: ME_492D74C60183
+ CONST UID '492D74C60183'
+ CONST GUID 'FD9E2F10-E823-4053-A72F-6D39EF7BDA6E'
+ CONST Name 'IdeDocumentListCR'
+ CONST Class class_Class
+ : Stereotype st_Facet ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Данные для инициализации списока для корреспондентов/респондентов' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4B1D394B00E5 // PrimListInterfaces
+ ;
+ : Inherits
+   Seq: ( ME_47F274F101E1 // IdeDocumentList
+ )
+ ; // Inherits
+ : Attributes
+   Seq: ( ME_4B1D1100018E // ListType
+ ME_4B1D1135025F // Category
+ )
+ ; // Attributes
+ : Implemented
+   Seq: ( ME_4B1D0FB101BA_ME_492D74C60183 // List
+ ME_4B1D0FCD01D2_ME_492D74C60183 // TimeMachineOff
+ ME_4B1D100202D0_ME_492D74C60183 // WhatDoingIfOneDoc
+ ME_4B1D102C004A_ME_492D74C60183 // NodeForPositioning
+ ME_4B1D104E02FA_ME_492D74C60183 // SearchInfo
+ ME_4B1D107F02EB_ME_492D74C60183 // CloneWithReplace
+ ME_4B1D10CB029F_ME_492D74C60183 // OpenFrom
+ ME_560BC82C0143_ME_492D74C60183 // AllDocumentsFiltered
+ ME_562485D00025_ME_492D74C60183 // NeedApplyPermanentFilters
+ ME_569DDAE500DD_ME_492D74C60183 // IsChanged
+ ME_56A5C84E02B0_ME_492D74C60183 // IsChanged
+ )
+ ; // Implemented
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\BusinessInterfaces'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\BusinessInterfaces'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\BusinessInterfaces'
+ CONST extprop:rc:SelfName 'deDocumentListCR'
+ CONST extprop:rc:isAcceptableForScripts true
+
+ref; // ME_492D74C60183 IdeDocumentListCR
+
+: ME_4B1D394B00E5
+ CONST UID '4B1D394B00E5'
+ CONST Name 'PrimListInterfaces'
+ CONST Class class_Category
+ : Stereotype st_Interfaces ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent WL 'ME_4D1B64E70031' '4D1B64E70031.pas.ms.script' // BusinessInterfaces
+ ;
+ : Children
+   Seq: ( ME_47F274F101E1 // IdeDocumentList
+ ME_492D74C60183 // IdeDocumentListCR
+ )
+ ; // Children
+ : Depends
+   Seq: ( WL 'ME_45700BFD0251' '45700BFD0251.pas.ms.script' // DynamicDocList
+ WL 'ME_457450470167' '457450470167.pas.ms.script' // DynamicTree
+ WL 'ME_4682595B0268' '4682595B0268.pas.ms.script' // l3TreeInterfaces
+ WL 'ME_47EA07FA02CE' '47EA07FA02CE.pas.ms.script' // bsTypes
+ WL 'ME_4AB0C3C60310' '4AB0C3C60310.pas.ms.script' // Sys
+ WL 'ME_4B1D3D250382' '4B1D3D250382.pas.ms.script' // PrimPrimListInterfaces
+ )
+ ; // Depends
+ CONST "author" 'Люлин А.В.'
+ CONST "is namespace" true
+ CONST "no hands" true
+ CONST "started" '07.12.2009 20:20'
+ : Generators
+ Seq: (
+ gen_intf.pas
+ gen_pas.script
+ gen_pas.script.runner
+ )
+ ; // Generators
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\BusinessInterfaces'
+ CONST intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\BusinessInterfaces\PrimListInterfaces.pas'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\BusinessInterfaces'
+ CONST pas.script:Path 'shared\models\NewSchool\Scripts\4B1D394B00E5.pas.ms.script'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\4B1D394B00E5.pas.ms.script.runner'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\BusinessInterfaces'
+
+ref; // ME_4B1D394B00E5 PrimListInterfaces

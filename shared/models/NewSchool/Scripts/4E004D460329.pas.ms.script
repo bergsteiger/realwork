@@ -1,0 +1,703 @@
+// DocumentContainer 4E004D460329 Unit Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4E004D460329
+
+FORWARD ME_4E007C3803DC
+
+: ME_4E007CAA032D
+ CONST UID '4E007CAA032D'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4E007C3803DC // TarDocumentContainer
+ ;
+ : Target WL 'ME_4E004E2F0251' '4E004DEB0324.pas.ms.script' // TarHAFPainer
+ ;
+
+ref; // ME_4E007CAA032D 
+
+FORWARD ME_535F5A0E0098
+
+: ME_535F5A68007B
+ CONST UID '535F5A68007B'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4E007C3803DC // TarDocumentContainer
+ ;
+ : Target ME_535F5A0E0098 // TarSubImplementation
+ ;
+
+ref; // ME_535F5A68007B 
+
+: ME_47F27721012A_ME_4E007C3803DC
+ CONST UID '47F27721012A'
+ CONST Name 'DoGetSubEx'
+ : Original WL 'ME_47F27721012A' '47F086170200.pas.ms.script' // DoGetSubEx
+ ;
+ : Implementor ME_4E007C3803DC // TarDocumentContainer
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_47F27721012A_ME_4E007C3803DC DoGetSubEx
+
+: ME_47F35CAC00E4_ME_4E007C3803DC
+ CONST UID '47F35CAC00E4'
+ CONST Name 'HAFPainterClass'
+ : Original WL 'ME_47F35CAC00E4' '47F086170200.pas.ms.script' // HAFPainterClass
+ ;
+ : Implementor ME_4E007C3803DC // TarDocumentContainer
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_47F35CAC00E4_ME_4E007C3803DC HAFPainterClass
+
+: ME_4E007C3803DC
+ CONST UID '4E007C3803DC'
+ CONST Name 'TarDocumentContainer'
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4E004D460329 // DocumentContainer
+ ;
+ : Inherits
+   Seq: ( WL 'ME_47F34F00021C' '47F086170200.pas.ms.script' // TnevPrintableDocumentContainer
+ )
+ ; // Inherits
+ : Overridden
+   Seq: ( ME_47F27721012A_ME_4E007C3803DC // DoGetSubEx
+ ME_47F35CAC00E4_ME_4E007C3803DC // HAFPainterClass
+ )
+ ; // Overridden
+ : Dependencies
+   Seq: ( ME_4E007CAA032D // 
+ ME_535F5A68007B // 
+ )
+ ; // Dependencies
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ : Generators
+ Seq: (
+ gen_intf.pas
+ )
+ ; // Generators
+ CONST dfm:PathOnly '\archi\source\projects\Archi\Editor'
+ CONST intf.pas:Path 'archi\source\projects\Archi\Editor\arDocumentContainer.pas'
+ CONST intf.pas:PathOnly '\archi\source\projects\Archi\Editor'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\archi\source\projects\Archi\Editor'
+ CONST extprop:rc:SelfName 'arDocumentContainer'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'arDocumentContainer'
+
+ref; // ME_4E007C3803DC TarDocumentContainer
+
+FORWARD ME_4E004D900171
+
+FORWARD ME_52738BEE00C9
+
+: ME_52738C07012D
+ CONST UID '52738C07012D'
+ CONST Name 'cnUndefAACSubID'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_52738BEE00C9 // Defaults
+ ;
+ CONST Value '-1'
+ CONST "AutoInc" false
+ CONST "forced type" 'none'
+ CONST "is define" false
+ CONST extprop:pas:Value '-1'
+
+ref; // ME_52738C07012D cnUndefAACSubID
+
+: ME_52738BEE00C9
+ CONST UID '52738BEE00C9'
+ CONST Name 'Defaults'
+ CONST Class class_Class
+ : Stereotype st_Constants ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4E004D900171 // TarDocumentContainerWithContentsTree
+ ;
+ : Attributes
+   Seq: ( ME_52738C07012D // cnUndefAACSubID
+ )
+ ; // Attributes
+ CONST "spell names" false
+ CONST dfm:PathOnly '\archi\source\projects\Archi\Editor'
+ CONST intf.pas:PathOnly '\archi\source\projects\Archi\Editor'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\archi\source\projects\Archi\Editor'
+
+ref; // ME_52738BEE00C9 Defaults
+
+: ME_4E0064AA0302
+ CONST UID '4E0064AA0302'
+ CONST Name 'f_ContentsTree'
+ CONST Class class_Attribute
+ %SUMMARY 'Дерево оглавления.' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_4E004D900171 // TarDocumentContainerWithContentsTree
+ ;
+ : Target WL 'ME_476BF13201C4' '476BF10A0280.pas.ms.script' // Il3Tree
+ ;
+
+ref; // ME_4E0064AA0302 f_ContentsTree
+
+: ME_52738BA7013D
+ CONST UID '52738BA7013D'
+ CONST Name 'f_RightSubID'
+ CONST Class class_Attribute
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_4E004D900171 // TarDocumentContainerWithContentsTree
+ ;
+ : Target WL 'ME_47BB29D40117' '47913B47006E.pas.ms.script' // Tl3LongintList
+ ;
+
+ref; // ME_52738BA7013D f_RightSubID
+
+: ME_560BD476013A
+ CONST UID '560BD476013A'
+ CONST Name 'f_LeftSubID'
+ CONST Class class_Attribute
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_4E004D900171 // TarDocumentContainerWithContentsTree
+ ;
+ : Target WL 'ME_47BB29D40117' '47913B47006E.pas.ms.script' // Tl3LongintList
+ ;
+
+ref; // ME_560BD476013A f_LeftSubID
+
+FORWARD ME_4E0056E503BE
+
+: ME_4E0056FC00E8
+ CONST UID '4E0056FC00E8'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_4E0056E503BE // MakeContentsTree
+ ;
+
+ref; // ME_4E0056FC00E8 DoIt
+
+: ME_4E0056E503BE
+ CONST UID '4E0056E503BE'
+ CONST Name 'MakeContentsTree'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Создать, если нужно, дерево оглваления.' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_4E004D900171 // TarDocumentContainerWithContentsTree
+ ;
+ : Operations
+   Seq: ( ME_4E0056FC00E8 // DoIt
+ )
+ ; // Operations
+
+ref; // ME_4E0056E503BE MakeContentsTree
+
+: ME_4E0059A302DF
+ CONST UID '4E0059A302DF'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4E004D900171 // TarDocumentContainerWithContentsTree
+ ;
+ : Target WL 'ME_4DFEEEA000DA' '4DFEEE4A017D.pas.ms.script' // TevContentsTree
+ ;
+
+ref; // ME_4E0059A302DF 
+
+: ME_4E005A1902DA
+ CONST UID '4E005A1902DA'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4E004D900171 // TarDocumentContainerWithContentsTree
+ ;
+ : Target WL 'ME_4A2627EA0145' '47F088300159.pas.ms.script' // InevContentsNodeFilter
+ ;
+
+ref; // ME_4E005A1902DA 
+
+: ME_4E005A56034B
+ CONST UID '4E005A56034B'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4E004D900171 // TarDocumentContainerWithContentsTree
+ ;
+ : Target WL 'ME_48EDB1DC023D' '47C5207602D1.pas.ms.script' // InevSubChangeListener
+ ;
+
+ref; // ME_4E005A56034B 
+
+: ME_4E005C050004
+ CONST UID '4E005C050004'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4E004D900171 // TarDocumentContainerWithContentsTree
+ ;
+ : Target WL 'ME_4ADEE49C02DF' '4AB0C3C60310.pas.ms.script' // Supports
+ ;
+
+ref; // ME_4E005C050004 
+
+: ME_4E25535502F7
+ CONST UID '4E25535502F7'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4E004D900171 // TarDocumentContainerWithContentsTree
+ ;
+ : Target WL 'ME_4E005E5500A7' '4E255287019F.pas.ms.script' // ContentsTreeConst
+ ;
+
+ref; // ME_4E25535502F7 
+
+: ME_4EB22DC50030
+ CONST UID '4EB22DC50030'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4E004D900171 // TarDocumentContainerWithContentsTree
+ ;
+ : Target WL 'ME_47F0B9190003' '4678193C009C.pas.ms.script' // Notify Consts
+ ;
+
+ref; // ME_4EB22DC50030 
+
+: ME_4EB22DF9016F
+ CONST UID '4EB22DF9016F'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4E004D900171 // TarDocumentContainerWithContentsTree
+ ;
+ : Target WL 'ME_4857A87D0337' '48492FC0029D.pas.ms.script' // Block
+ ;
+
+ref; // ME_4EB22DF9016F 
+
+: ME_4EB230040383
+ CONST UID '4EB230040383'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4E004D900171 // TarDocumentContainerWithContentsTree
+ ;
+ : Target WL 'ME_47C69EBC00A8' '47AC75550330.pas.ms.script' // Tk2TagID
+ ;
+
+ref; // ME_4EB230040383 
+
+: ME_52739848039C
+ CONST UID '52739848039C'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4E004D900171 // TarDocumentContainerWithContentsTree
+ ;
+ : Target WL 'ME_484F95C1026A' '484A470100DD.pas.ms.script' // Sub
+ ;
+
+ref; // ME_52739848039C 
+
+: ME_52738B050043_ME_4E004D900171
+ CONST UID '52738B050043'
+ CONST Name 'HasAACBlock'
+ : Original WL 'ME_52738B050043' '52E788B40110.pas.ms.script' // HasAACBlock
+ ;
+ : Implementor ME_4E004D900171 // TarDocumentContainerWithContentsTree
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_52738B050043_ME_4E004D900171 HasAACBlock
+
+: ME_52738B2F02B7_ME_4E004D900171
+ CONST UID '52738B2F02B7'
+ CONST Name 'SetBlockKind'
+ : Original WL 'ME_52738B2F02B7' '52E788B40110.pas.ms.script' // SetBlockKind
+ ;
+ : Implementor ME_4E004D900171 // TarDocumentContainerWithContentsTree
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_52738B2F02B7_ME_4E004D900171 SetBlockKind
+
+: ME_479731C50290_ME_4E004D900171
+ CONST UID '479731C50290'
+ CONST Name 'Cleanup'
+ : Original WL 'ME_479731C50290' '51612EBB02F5.pas.ms.script' // Cleanup
+ ;
+ : Implementor ME_4E004D900171 // TarDocumentContainerWithContentsTree
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_479731C50290_ME_4E004D900171 Cleanup
+
+: ME_47A042E100E2_ME_4E004D900171
+ CONST UID '47A042E100E2'
+ CONST Name 'InitFields'
+ : Original WL 'ME_47A042E100E2' '47913B47006E.pas.ms.script' // InitFields
+ ;
+ : Implementor ME_4E004D900171 // TarDocumentContainerWithContentsTree
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_47A042E100E2_ME_4E004D900171 InitFields
+
+: ME_47F0BA6E0019_ME_4E004D900171
+ CONST UID '47F0BA6E0019'
+ CONST Name 'SendTOCCreatedNotify'
+ : Original WL 'ME_47F0BA6E0019' '47F086170200.pas.ms.script' // SendTOCCreatedNotify
+ ;
+ : Implementor ME_4E004D900171 // TarDocumentContainerWithContentsTree
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_47F0BA6E0019_ME_4E004D900171 SendTOCCreatedNotify
+
+: ME_47F226170180_ME_4E004D900171
+ CONST UID '47F226170180'
+ CONST Name 'DoBeforeFinishAtom1'
+ : Original WL 'ME_47F226170180' '47F086170200.pas.ms.script' // DoBeforeFinishAtom1
+ ;
+ : Implementor ME_4E004D900171 // TarDocumentContainerWithContentsTree
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_47F226170180_ME_4E004D900171 DoBeforeFinishAtom1
+
+: ME_47F2802003C4_ME_4E004D900171
+ CONST UID '47F2802003C4'
+ CONST Name 'GetContentsTree'
+ : Original WL 'ME_47F2802003C4' '47F086170200.pas.ms.script' // GetContentsTree
+ ;
+ : Implementor ME_4E004D900171 // TarDocumentContainerWithContentsTree
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_47F2802003C4_ME_4E004D900171 GetContentsTree
+
+: ME_49184A180301_ME_4E004D900171
+ CONST UID '49184A180301'
+ CONST Name 'DoPropChanged'
+ : Original WL 'ME_49184A180301' '481DB8210016.pas.ms.script' // DoPropChanged
+ ;
+ : Implementor ME_4E004D900171 // TarDocumentContainerWithContentsTree
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_49184A180301_ME_4E004D900171 DoPropChanged
+
+: ME_527384840253_ME_4E004D900171
+ CONST UID '527384840253'
+ CONST Name 'SubDeleted'
+ : Original WL 'ME_527384840253' '47F086170200.pas.ms.script' // SubDeleted
+ ;
+ : Implementor ME_4E004D900171 // TarDocumentContainerWithContentsTree
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_527384840253_ME_4E004D900171 SubDeleted
+
+: ME_4E004D900171
+ CONST UID '4E004D900171'
+ CONST Name 'TarDocumentContainerWithContentsTree'
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4E004D460329 // DocumentContainer
+ ;
+ : Inherits
+   Seq: ( ME_4E007C3803DC // TarDocumentContainer
+ )
+ ; // Inherits
+ : Implements
+   Seq: ( WL 'ME_52738AF30116' '52E788B40110.pas.ms.script' // IarCheckLeftOrRightBlock
+ )
+ ; // Implements
+ : Attributes
+   Seq: ( ME_4E0064AA0302 // f_ContentsTree
+ ME_52738BA7013D // f_RightSubID
+ ME_560BD476013A // f_LeftSubID
+ )
+ ; // Attributes
+ : Operations
+   Seq: ( ME_4E0056E503BE // MakeContentsTree
+ )
+ ; // Operations
+ : Implemented
+   Seq: ( ME_52738B050043_ME_4E004D900171 // HasAACBlock
+ ME_52738B2F02B7_ME_4E004D900171 // SetBlockKind
+ )
+ ; // Implemented
+ : Overridden
+   Seq: ( ME_479731C50290_ME_4E004D900171 // Cleanup
+ ME_47A042E100E2_ME_4E004D900171 // InitFields
+ ME_47F0BA6E0019_ME_4E004D900171 // SendTOCCreatedNotify
+ ME_47F226170180_ME_4E004D900171 // DoBeforeFinishAtom1
+ ME_47F2802003C4_ME_4E004D900171 // GetContentsTree
+ ME_49184A180301_ME_4E004D900171 // DoPropChanged
+ ME_527384840253_ME_4E004D900171 // SubDeleted
+ )
+ ; // Overridden
+ : Constants
+   Seq: ( ME_52738BEE00C9 // Defaults
+ )
+ ; // Constants
+ : Dependencies
+   Seq: ( ME_4E0059A302DF // 
+ ME_4E005A1902DA // 
+ ME_4E005A56034B // 
+ ME_4E005C050004 // 
+ ME_4E25535502F7 // 
+ ME_4EB22DC50030 // 
+ ME_4EB22DF9016F // 
+ ME_4EB230040383 // 
+ ME_52739848039C // 
+ )
+ ; // Dependencies
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ : Generators
+ Seq: (
+ gen_intf.pas
+ )
+ ; // Generators
+ CONST dfm:PathOnly '\archi\source\projects\Archi\Editor'
+ CONST intf.pas:Path 'archi\source\projects\Archi\Editor\arDocumentContainerWithContentsTree.pas'
+ CONST intf.pas:PathOnly '\archi\source\projects\Archi\Editor'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\archi\source\projects\Archi\Editor'
+ CONST extprop:rc:SelfName 'arDocumentContainerWithContentsTree'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'arDocumentContainerWithContentsTree'
+
+ref; // ME_4E004D900171 TarDocumentContainerWithContentsTree
+
+FORWARD ME_4F9501970235
+
+: ME_4F95052403E6
+ CONST UID '4F95052403E6'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4F9501970235 // TarSpravkaDocumentContainer
+ ;
+ : Target WL 'ME_476BE0660328' '476BE0350329.pas.ms.script' // Standard
+ ;
+
+ref; // ME_4F95052403E6 
+
+: ME_47F35245009A_ME_4F9501970235
+ CONST UID '47F35245009A'
+ CONST Name 'MakeProcessor'
+ : Original WL 'ME_47F35245009A' '47F086170200.pas.ms.script' // MakeProcessor
+ ;
+ : Implementor ME_4F9501970235 // TarSpravkaDocumentContainer
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_47F35245009A_ME_4F9501970235 MakeProcessor
+
+: ME_4F9501970235
+ CONST UID '4F9501970235'
+ CONST Name 'TarSpravkaDocumentContainer'
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4E004D460329 // DocumentContainer
+ ;
+ : Inherits
+   Seq: ( ME_4E007C3803DC // TarDocumentContainer
+ )
+ ; // Inherits
+ : Overridden
+   Seq: ( ME_47F35245009A_ME_4F9501970235 // MakeProcessor
+ )
+ ; // Overridden
+ : Dependencies
+   Seq: ( ME_4F95052403E6 // 
+ )
+ ; // Dependencies
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ : Generators
+ Seq: (
+ gen_intf.pas
+ )
+ ; // Generators
+ CONST dfm:PathOnly '\archi\source\projects\Archi\Editor'
+ CONST intf.pas:Path 'archi\source\projects\Archi\Editor\arSpravkaDocumentContainer.pas'
+ CONST intf.pas:PathOnly '\archi\source\projects\Archi\Editor'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\archi\source\projects\Archi\Editor'
+ CONST extprop:rc:SelfName 'arSpravkaDocumentContainer'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'arSpravkaDocumentContainer'
+
+ref; // ME_4F9501970235 TarSpravkaDocumentContainer
+
+: ME_535F62880048
+ CONST UID '535F62880048'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_535F5A0E0098 // TarSubImplementation
+ ;
+ : Target WL 'ME_535F623501D9' '519A10AF03DE.pas.ms.script' // SubFlagsCont
+ ;
+
+ref; // ME_535F62880048 
+
+: ME_535F62C2023C
+ CONST UID '535F62C2023C'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_535F5A0E0098 // TarSubImplementation
+ ;
+ : Target WL 'ME_47C69EBC00A8' '47AC75550330.pas.ms.script' // Tk2TagID
+ ;
+
+ref; // ME_535F62C2023C 
+
+: ME_535F657A02B7
+ CONST UID '535F657A02B7'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_535F5A0E0098 // TarSubImplementation
+ ;
+ : Target WL 'ME_535F655902D1' '47D0290B016D.pas.ms.script' // l3SetBit
+ ;
+
+ref; // ME_535F657A02B7 
+
+: ME_535F69DB00D3
+ CONST UID '535F69DB00D3'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_535F5A0E0098 // TarSubImplementation
+ ;
+ : Target WL 'ME_4857A87D0337' '48492FC0029D.pas.ms.script' // Block
+ ;
+
+ref; // ME_535F69DB00D3 
+
+: ME_535F5A7D00BB_ME_535F5A0E0098
+ CONST UID '535F5A7D00BB'
+ CONST Name 'DoGetFlags'
+ : Original WL 'ME_535F5A7D00BB' '47F086170200.pas.ms.script' // DoGetFlags
+ ;
+ : Implementor ME_535F5A0E0098 // TarSubImplementation
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_535F5A7D00BB_ME_535F5A0E0098 DoGetFlags
+
+: ME_535F5A0E0098
+ CONST UID '535F5A0E0098'
+ CONST Name 'TarSubImplementation'
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4E004D460329 // DocumentContainer
+ ;
+ : Inherits
+   Seq: ( WL 'ME_4C9B0A3D0184' '47F086170200.pas.ms.script' // TevSubImplementation
+ )
+ ; // Inherits
+ : Overridden
+   Seq: ( ME_535F5A7D00BB_ME_535F5A0E0098 // DoGetFlags
+ )
+ ; // Overridden
+ : Dependencies
+   Seq: ( ME_535F62880048 // 
+ ME_535F62C2023C // 
+ ME_535F657A02B7 // 
+ ME_535F69DB00D3 // 
+ )
+ ; // Dependencies
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ : Generators
+ Seq: (
+ gen_intf.pas
+ )
+ ; // Generators
+ CONST dfm:PathOnly '\archi\source\projects\Archi\Editor'
+ CONST intf.pas:Path 'archi\source\projects\Archi\Editor\arSubImplementation.pas'
+ CONST intf.pas:PathOnly '\archi\source\projects\Archi\Editor'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\archi\source\projects\Archi\Editor'
+ CONST extprop:rc:SelfName 'arSubImplementation'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'arSubImplementation'
+
+ref; // ME_535F5A0E0098 TarSubImplementation
+
+: ME_4E004D460329
+ CONST UID '4E004D460329'
+ CONST Name 'DocumentContainer'
+ CONST Class class_Category
+ : Stereotype st_Unit ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent WL 'ME_4E004D0B033A' '4E004D0B033A.pas.ms.script' // Editor
+ ;
+ : Children
+   Seq: ( ME_4E007C3803DC // TarDocumentContainer
+ ME_4E004D900171 // TarDocumentContainerWithContentsTree
+ ME_4F9501970235 // TarSpravkaDocumentContainer
+ ME_535F5A0E0098 // TarSubImplementation
+ )
+ ; // Children
+ : Depends
+   Seq: ( WL 'ME_4678193C009C' '4678193C009C.pas.ms.script' // l3Types
+ WL 'ME_4682595B0268' '4682595B0268.pas.ms.script' // l3TreeInterfaces
+ WL 'ME_469D0AC7005E' '469D0AC7005E.pas.ms.script' // Types
+ WL 'ME_476BE0350329' '476BE0350329.pas.ms.script' // Styles
+ WL 'ME_476BF10A0280' '476BF10A0280.pas.ms.script' // l3Tree_TLB
+ WL 'ME_47913B47006E' '47913B47006E.pas.ms.script' // l3CoreObjects
+ WL 'ME_47AC75550330' '47AC75550330.pas.ms.script' // k2Tags
+ WL 'ME_47C5207602D1' '47C5207602D1.pas.ms.script' // nevTools
+ WL 'ME_47D0290B016D' '47D0290B016D.pas.ms.script' // l3Utils
+ WL 'ME_47F086170200' '47F086170200.pas.ms.script' // DocumentContainers
+ WL 'ME_47F088300159' '47F088300159.pas.ms.script' // evInternalInterfaces
+ WL 'ME_48492FC0029D' '48492FC0029D.pas.ms.script' // Standard
+ WL 'ME_484A470100DD' '484A470100DD.pas.ms.script' // Standard
+ WL 'ME_4AB0C3C60310' '4AB0C3C60310.pas.ms.script' // Sys
+ WL 'ME_4DFEEE4A017D' '4DFEEE4A017D.pas.ms.script' // ContentsTree
+ WL 'ME_4E004DEB0324' '4E004DEB0324.pas.ms.script' // Printing
+ WL 'ME_4E255287019F' '4E255287019F.pas.ms.script' // arConst
+ WL 'ME_519A10AF03DE' '519A10AF03DE.pas.ms.script' // dt_Const
+ WL 'ME_52E788B40110' '52E788B40110.pas.ms.script' // arCommonTypes
+ )
+ ; // Depends
+ : Generators
+ Seq: (
+ gen_pas.script
+ gen_pas.script.runner
+ )
+ ; // Generators
+ CONST dfm:PathOnly '\archi\source\projects\Archi\Editor'
+ CONST intf.pas:PathOnly '\archi\source\projects\Archi\Editor'
+ CONST pas.script:Path 'shared\models\NewSchool\Scripts\4E004D460329.pas.ms.script'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\4E004D460329.pas.ms.script.runner'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\archi\source\projects\Archi\Editor'
+
+ref; // ME_4E004D460329 DocumentContainer

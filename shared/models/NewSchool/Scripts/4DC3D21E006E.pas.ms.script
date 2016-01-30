@@ -30,8 +30,8 @@ ref; // ME_4DC3D30203BF DoIt
  : Parent ME_4DC3D2590217 // TCustomInsiderScripter
  ;
  : Operations
-   @ ( ME_4DC3D30203BF // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_4DC3D30203BF // DoIt
+ )
  ; // Operations
 
 ref; // ME_4DC3D2E00153 Run
@@ -96,6 +96,7 @@ ref; // ME_5506FEC703BD
 
 : ME_018DBE345891
  CONST UID '018DBE345891'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_4DC3D2590217 // TCustomInsiderScripter
@@ -112,6 +113,7 @@ ref; // ME_018DBE345891
  ;
  : Implementor ME_4DC3D2590217 // TCustomInsiderScripter
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4C937013031D_ME_4DC3D2590217 GetFolder
 
 : ME_4DAED6F60146_ME_4DC3D2590217
@@ -121,6 +123,7 @@ ref; // ME_4C937013031D_ME_4DC3D2590217 GetFolder
  ;
  : Implementor ME_4DC3D2590217 // TCustomInsiderScripter
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4DAED6F60146_ME_4DC3D2590217 GetModelElementGUID
 
 : ME_4DC263E8038F_ME_4DC3D2590217
@@ -130,6 +133,7 @@ ref; // ME_4DAED6F60146_ME_4DC3D2590217 GetModelElementGUID
  ;
  : Implementor ME_4DC3D2590217 // TCustomInsiderScripter
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4DC263E8038F_ME_4DC3D2590217 GetScriptName
 
 : ME_4DCA41A20364_ME_4DC3D2590217
@@ -139,6 +143,7 @@ ref; // ME_4DC263E8038F_ME_4DC3D2590217 GetScriptName
  ;
  : Implementor ME_4DC3D2590217 // TCustomInsiderScripter
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4DCA41A20364_ME_4DC3D2590217 FileNameForOutput
 
 : ME_4DC3D2590217
@@ -152,39 +157,41 @@ ref; // ME_4DCA41A20364_ME_4DC3D2590217 FileNameForOutput
  : Parent ME_4DC3D21E006E // ScriptTestUnit
  ;
  : Inherits
-   @ ( WL 'ME_4DAECE5D0060' '4B30FC850092.pas.ms.script' // TvcmInsiderTest
- ) .SequenceCode.It
+   Seq: ( WL 'ME_4DAECE5D0060' '4B30FC850092.pas.ms.script' // TvcmInsiderTest
+ )
  ; // Inherits
  : Operations
-   @ ( ME_4DC3D2E00153 // Run
+   Seq: ( ME_4DC3D2E00153 // Run
  ME_4DC3D3150155 // DoIt
  ME_4DC3DE630030 // Prepare
- ) .SequenceCode.It
+ )
  ; // Operations
  : Overridden
-   @ ( ME_4C937013031D_ME_4DC3D2590217 // GetFolder
+   Seq: ( ME_4C937013031D_ME_4DC3D2590217 // GetFolder
  ME_4DAED6F60146_ME_4DC3D2590217 // GetModelElementGUID
  ME_4DC263E8038F_ME_4DC3D2590217 // GetScriptName
  ME_4DCA41A20364_ME_4DC3D2590217 // FileNameForOutput
- ) .SequenceCode.It
+ )
  ; // Overridden
  : Dependencies
-   @ ( ME_5501A45D03A8 // 
+   Seq: ( ME_5501A45D03A8 // 
  ME_5506FE66032F // 
  ME_5506FEC703BD // 
  ME_018DBE345891 // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\ScriptTestLibrary'
  CONST intf.pas:Path 'common\components\rtl\Garant\ScriptTestLibrary\CustomInsiderScripter.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\ScriptTestLibrary'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'InsiderScripter'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'CustomInsiderScripter'
 
 ref; // ME_4DC3D2590217 TCustomInsiderScripter
 
@@ -198,24 +205,22 @@ ref; // ME_4DC3D2590217 TCustomInsiderScripter
  : Parent WL 'ME_4DC3D1BC0060' '4DC3D1BC0060.pas.ms.script' // ScriptTestLibrary
  ;
  : Children
-   @ ( ME_4DC3D2590217 // TCustomInsiderScripter
- ) .SequenceCode.It
+   Seq: ( ME_4DC3D2590217 // TCustomInsiderScripter
+ )
  ; // Children
  : Depends
-   @ ( WL 'ME_4B2A0D6A0077' '4B2A0D6A0077.pas.ms.script' // Source
+   Seq: ( WL 'ME_4B2A0D6A0077' '4B2A0D6A0077.pas.ms.script' // Source
  WL 'ME_4B30FC850092' '4B30FC850092.pas.ms.script' // VCM_TFW
  WL 'ME_550198F60382' '550198F60382.pas.ms.script' // VCMHelpers
  WL 'ME_5506D079035B' '5506D079035B.pas.ms.script' // AFWServices
  WL 'ME_5506D09003AB' '5506D09003AB.pas.ms.script' // EverestServices
- ) .SequenceCode.It
+ )
  ; // Depends
- : Generators
- @ (
- gen_pas.script
- gen_pas.script.runner
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\ScriptTestLibrary'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\ScriptTestLibrary'
  CONST pas.script:Path 'shared\models\NewSchool\Scripts\4DC3D21E006E.pas.ms.script'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
  CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\4DC3D21E006E.pas.ms.script.runner'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_4DC3D21E006E ScriptTestUnit

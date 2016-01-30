@@ -27,8 +27,8 @@ ref; // ME_537F6332037F aPipe
  : Parent ME_537F63170355 // TCsReplyProc
  ;
  : Parameters
-   @ ( ME_537F6332037F // aPipe
- ) .SequenceCode.It
+   Seq: ( ME_537F6332037F // aPipe
+ )
  ; // Parameters
 
 ref; // ME_537F632E0101 DoIt
@@ -44,10 +44,14 @@ ref; // ME_537F632E0101 DoIt
  : Parent ME_537F6306025B // TCsProcWithId
  ;
  : Operations
-   @ ( ME_537F632E0101 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_537F632E0101 // DoIt
+ )
  ; // Operations
  CONST "of object" true
+ CONST dfm:PathOnly '\common\components\rtl\Garant\cs'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\cs'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_537F63170355 TCsReplyProc
 
@@ -110,9 +114,9 @@ ref; // ME_537F63C500C5 aProc
  : Parent ME_537F63B40386 // Create
  ;
  : Parameters
-   @ ( ME_537F63C5009E // aQueryId
+   Seq: ( ME_537F63C5009E // aQueryId
  ME_537F63C500C5 // aProc
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_537F63C10100 DoIt
@@ -128,8 +132,8 @@ ref; // ME_537F63C10100 DoIt
  : Parent ME_537F6306025B // TCsProcWithId
  ;
  : Operations
-   @ ( ME_537F63C10100 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_537F63C10100 // DoIt
+ )
  ; // Operations
 
 ref; // ME_537F63B40386 Create
@@ -145,32 +149,34 @@ ref; // ME_537F63B40386 Create
  : Parent ME_538DA26C020A // ServerSide
  ;
  : Inherits
-   @ ( WL 'ME_52FBB30A01C6' '52FBB2FC0386.pas.ms.script' // TCsObject
- ) .SequenceCode.It
+   Seq: ( WL 'ME_52FBB30A01C6' '52FBB2FC0386.pas.ms.script' // TCsObject
+ )
  ; // Inherits
  : Attributes
-   @ ( ME_537F639102DF // QueryId
+   Seq: ( ME_537F639102DF // QueryId
  ME_537F63A1001E // Proc
- ) .SequenceCode.It
+ )
  ; // Attributes
  : Operations
-   @ ( ME_537F63B40386 // Create
- ) .SequenceCode.It
+   Seq: ( ME_537F63B40386 // Create
+ )
  ; // Operations
  : Children
-   @ ( ME_537F63170355 // TCsReplyProc
- ) .SequenceCode.It
+   Seq: ( ME_537F63170355 // TCsReplyProc
+ )
  ; // Children
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\cs'
  CONST intf.pas:Path 'common\components\rtl\Garant\cs\CsProcWithId.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\cs'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'CsProcWithId'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'CsProcWithId'
 
 ref; // ME_537F6306025B TCsProcWithId
 
@@ -198,6 +204,7 @@ ref; // ME_537F63EC035D ItemType
  ;
  : Implementor ME_537F63D60108 // TCsProcWithIdList
  ;
+ CONST OpKind opkind_Implemented
  CONST "ifdef" 'l3Items_NeedsAssignItem'
  CONST "ifndef" 'l3Items_NoSort'
 ref; // ME_47B2C42A0163_ME_537F63D60108 AssignItem
@@ -209,6 +216,7 @@ ref; // ME_47B2C42A0163_ME_537F63D60108 AssignItem
  ;
  : Implementor ME_537F63D60108 // TCsProcWithIdList
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_47B99D4503A2_ME_537F63D60108 CompareExistingItems
 
 : ME_537F63D60108
@@ -222,29 +230,31 @@ ref; // ME_47B99D4503A2_ME_537F63D60108 CompareExistingItems
  : Parent ME_538DA26C020A // ServerSide
  ;
  : Inherits
-   @ ( WL 'ME_47B99E920196' '47913B47006E.pas.ms.script' // l3UncomparabeObjectRefList
+   Seq: ( WL 'ME_47B99E920196' '47913B47006E.pas.ms.script' // l3UncomparabeObjectRefList
  WL 'ME_4A54DD4E036F' '47913B47006E.pas.ms.script' // Tl3ProtoDataContainer
- ) .SequenceCode.It
+ )
  ; // Inherits
  : Attributes
-   @ ( ME_537F63EC035D // ItemType
- ) .SequenceCode.It
+   Seq: ( ME_537F63EC035D // ItemType
+ )
  ; // Attributes
  : Implemented
-   @ ( ME_47B2C42A0163_ME_537F63D60108 // AssignItem
+   Seq: ( ME_47B2C42A0163_ME_537F63D60108 // AssignItem
  ME_47B99D4503A2_ME_537F63D60108 // CompareExistingItems
- ) .SequenceCode.It
+ )
  ; // Implemented
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\cs'
  CONST intf.pas:Path 'common\components\rtl\Garant\cs\CsProcWithIdList.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\cs'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'CsProcWithIdList'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'CsProcWithIdList'
 
 ref; // ME_537F63D60108 TCsProcWithIdList
 
@@ -302,8 +312,8 @@ ref; // ME_53959A7B028D DoIt
  : Parent ME_537F645C01D1 // TCsReplyProceduresPrim
  ;
  : Operations
-   @ ( ME_53959A7B028D // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_53959A7B028D // DoIt
+ )
  ; // Operations
 
 ref; // ME_53959A720000 Create
@@ -331,8 +341,8 @@ ref; // ME_53959AD20374 aQueryId
  : Target ME_537F6306025B // TCsProcWithId
  ;
  : Parameters
-   @ ( ME_53959AD20374 // aQueryId
- ) .SequenceCode.It
+   Seq: ( ME_53959AD20374 // aQueryId
+ )
  ; // Parameters
 
 ref; // ME_53959ACF011C DoIt
@@ -348,8 +358,8 @@ ref; // ME_53959ACF011C DoIt
  : Parent ME_537F645C01D1 // TCsReplyProceduresPrim
  ;
  : Operations
-   @ ( ME_53959ACF011C // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_53959ACF011C // DoIt
+ )
  ; // Operations
 
 ref; // ME_53959ABC03D4 ListItemBy
@@ -377,8 +387,8 @@ ref; // ME_53959B3000BB aQueryId
  : Target ME_537F63170355 // TCsReplyProc
  ;
  : Parameters
-   @ ( ME_53959B3000BB // aQueryId
- ) .SequenceCode.It
+   Seq: ( ME_53959B3000BB // aQueryId
+ )
  ; // Parameters
 
 ref; // ME_53959B2C0049 DoIt
@@ -394,8 +404,8 @@ ref; // ME_53959B2C0049 DoIt
  : Parent ME_537F645C01D1 // TCsReplyProceduresPrim
  ;
  : Operations
-   @ ( ME_53959B2C0049 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_53959B2C0049 // DoIt
+ )
  ; // Operations
 
 ref; // ME_53959B1400E0 ProcBy
@@ -440,6 +450,7 @@ ref; // ME_53959B740196
  ;
  : Implementor ME_537F645C01D1 // TCsReplyProceduresPrim
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_479731C50290_ME_537F645C01D1 Cleanup
 
 : ME_537F645C01D1
@@ -454,40 +465,42 @@ ref; // ME_479731C50290_ME_537F645C01D1 Cleanup
  : Parent ME_538DA26C020A // ServerSide
  ;
  : Inherits
-   @ ( WL 'ME_52FBB30A01C6' '52FBB2FC0386.pas.ms.script' // TCsObject
- ) .SequenceCode.It
+   Seq: ( WL 'ME_52FBB30A01C6' '52FBB2FC0386.pas.ms.script' // TCsObject
+ )
  ; // Inherits
  : Attributes
-   @ ( ME_537F64680304 // f_List
+   Seq: ( ME_537F64680304 // f_List
  ME_53959A4900AA // f_Synchronizer
- ) .SequenceCode.It
+ )
  ; // Attributes
  : Operations
-   @ ( ME_53959A720000 // Create
+   Seq: ( ME_53959A720000 // Create
  ME_53959ABC03D4 // ListItemBy
  ME_53959B1400E0 // ProcBy
- ) .SequenceCode.It
+ )
  ; // Operations
  : Overridden
-   @ ( ME_479731C50290_ME_537F645C01D1 // Cleanup
- ) .SequenceCode.It
+   Seq: ( ME_479731C50290_ME_537F645C01D1 // Cleanup
+ )
  ; // Overridden
  : Dependencies
-   @ ( ME_53959AA3034F // 
+   Seq: ( ME_53959AA3034F // 
  ME_53959B4D0242 // 
  ME_53959B740196 // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\cs'
  CONST intf.pas:Path 'common\components\rtl\Garant\cs\CsReplyProceduresPrim.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\cs'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'CsReplyProceduresPrim'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'CsReplyProceduresPrim'
 
 ref; // ME_537F645C01D1 TCsReplyProceduresPrim
 
@@ -517,20 +530,22 @@ ref; // ME_538DEC060357
  : Parent ME_538DA26C020A // ServerSide
  ;
  : Dependencies
-   @ ( ME_538DEC060357 // 
- ) .SequenceCode.It
+   Seq: ( ME_538DEC060357 // 
+ )
  ; // Dependencies
  CONST "finished" false
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\cs'
  CONST intf.pas:Path 'common\components\rtl\Garant\cs\NOT_FINISHED_CsReply.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\cs'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'CsReply'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'CsReply'
 
 ref; // ME_538DEBDF0374 TCsReply
 
@@ -557,8 +572,8 @@ ref; // ME_538DEC740276 aQueryId
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
  : Parameters
-   @ ( ME_538DEC740276 // aQueryId
- ) .SequenceCode.It
+   Seq: ( ME_538DEC740276 // aQueryId
+ )
  ; // Parameters
 
 ref; // ME_538DEC6C027B DoIt
@@ -574,10 +589,14 @@ ref; // ME_538DEC6C027B DoIt
  : Parent ME_538DEBEA032D // TCsReplyTool
  ;
  : Operations
-   @ ( ME_538DEC6C027B // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_538DEC6C027B // DoIt
+ )
  ; // Operations
  CONST "of object" true
+ CONST dfm:PathOnly '\common\components\rtl\Garant\cs'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\cs'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_538DEC3F03C7 TcsProcessQueryProc
 
@@ -642,12 +661,12 @@ ref; // ME_538DF003015A theClientId
  : Parent ME_538DEC9601CC // ProcessQuery
  ;
  : Parameters
-   @ ( ME_538DECF001F6 // aPipe
+   Seq: ( ME_538DECF001F6 // aPipe
  ME_538DECF0020D // aProcessQueryProc
  ME_538DEDA503BD // aReplyProcedures
  ME_538DECF00223 // aLogMessages
  ME_538DF003015A // theClientId
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_538DECB70355 DoIt
@@ -729,17 +748,17 @@ ref; // ME_538DF02701F6
  : Parent ME_538DEBEA032D // TCsReplyTool
  ;
  : Operations
-   @ ( ME_538DECB70355 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_538DECB70355 // DoIt
+ )
  ; // Operations
  : Dependencies
-   @ ( ME_538DED02009C // 
+   Seq: ( ME_538DED02009C // 
  ME_538DED250185 // 
  ME_538DED7400B8 // 
  ME_538DED88026C // 
  ME_538DEDFE017A // 
  ME_538DF02701F6 // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  CONST "is static" true
 
@@ -756,23 +775,25 @@ ref; // ME_538DEC9601CC ProcessQuery
  : Parent ME_538DA26C020A // ServerSide
  ;
  : Operations
-   @ ( ME_538DEC9601CC // ProcessQuery
- ) .SequenceCode.It
+   Seq: ( ME_538DEC9601CC // ProcessQuery
+ )
  ; // Operations
  : Children
-   @ ( ME_538DEC3F03C7 // TcsProcessQueryProc
- ) .SequenceCode.It
+   Seq: ( ME_538DEC3F03C7 // TcsProcessQueryProc
+ )
  ; // Children
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\cs'
  CONST intf.pas:Path 'common\components\rtl\Garant\cs\CsReplyTool.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\cs'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'CsReplyTool'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'CsReplyTool'
 
 ref; // ME_538DEBEA032D TCsReplyTool
 
@@ -809,9 +830,9 @@ ref; // ME_53959AFD0142 aProc
  : Parent ME_53959AE3018D // Register
  ;
  : Parameters
-   @ ( ME_53959AFD012B // aQueryId
+   Seq: ( ME_53959AFD012B // aQueryId
  ME_53959AFD0142 // aProc
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_53959AF80329 DoIt
@@ -871,15 +892,15 @@ ref; // ME_5395CCF9011D
  : Parent ME_5395C8DC03A7 // TCsReplyProceduresWithRegistering
  ;
  : Operations
-   @ ( ME_53959AF80329 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_53959AF80329 // DoIt
+ )
  ; // Operations
  : Dependencies
-   @ ( ME_5395C9EC02D5 // 
+   Seq: ( ME_5395C9EC02D5 // 
  ME_5395CA1F025B // 
  ME_5395CA2400BF // 
  ME_5395CCF9011D // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
 
 ref; // ME_53959AE3018D Register
@@ -908,8 +929,8 @@ ref; // ME_53BFBB88021E DoIt
  : Parent ME_5395C8DC03A7 // TCsReplyProceduresWithRegistering
  ;
  : Operations
-   @ ( ME_53BFBB88021E // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_53BFBB88021E // DoIt
+ )
  ; // Operations
 
 ref; // ME_53BFBB81029F UnregisterAll
@@ -925,24 +946,26 @@ ref; // ME_53BFBB81029F UnregisterAll
  : Parent ME_538DA26C020A // ServerSide
  ;
  : Inherits
-   @ ( ME_537F645C01D1 // TCsReplyProceduresPrim
- ) .SequenceCode.It
+   Seq: ( ME_537F645C01D1 // TCsReplyProceduresPrim
+ )
  ; // Inherits
  : Operations
-   @ ( ME_53959AE3018D // Register
+   Seq: ( ME_53959AE3018D // Register
  ME_53BFBB81029F // UnregisterAll
- ) .SequenceCode.It
+ )
  ; // Operations
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\cs'
  CONST intf.pas:Path 'common\components\rtl\Garant\cs\CsReplyProceduresWithRegistering.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\cs'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'CsReplyProceduresWithRegistering'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'CsReplyProceduresWithRegistering'
 
 ref; // ME_5395C8DC03A7 TCsReplyProceduresWithRegistering
 
@@ -972,24 +995,26 @@ ref; // ME_5395BFA90075
  : Parent ME_538DA26C020A // ServerSide
  ;
  : Inherits
-   @ ( WL 'ME_52FBB30A01C6' '52FBB2FC0386.pas.ms.script' // TCsObject
- ) .SequenceCode.It
+   Seq: ( WL 'ME_52FBB30A01C6' '52FBB2FC0386.pas.ms.script' // TCsObject
+ )
  ; // Inherits
  : Dependencies
-   @ ( ME_5395BFA90075 // 
- ) .SequenceCode.It
+   Seq: ( ME_5395BFA90075 // 
+ )
  ; // Dependencies
  CONST "finished" false
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\cs'
  CONST intf.pas:Path 'common\components\rtl\Garant\cs\NOT_FINISHED_CsQueryExecutor.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\cs'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'CsQueryExecutor'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'CsQueryExecutor'
 
 ref; // ME_5395BF930007 TCsQueryExecutor
 
@@ -1017,30 +1042,33 @@ ref; // ME_5395BFDE00E3
  : Parent ME_538DA26C020A // ServerSide
  ;
  : Inherits
-   @ ( WL 'ME_52FBB30A01C6' '52FBB2FC0386.pas.ms.script' // TCsObject
- ) .SequenceCode.It
+   Seq: ( WL 'ME_52FBB30A01C6' '52FBB2FC0386.pas.ms.script' // TCsObject
+ )
  ; // Inherits
  : Dependencies
-   @ ( ME_5395BFDE00E3 // 
- ) .SequenceCode.It
+   Seq: ( ME_5395BFDE00E3 // 
+ )
  ; // Dependencies
  CONST "finished" false
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\cs'
  CONST intf.pas:Path 'common\components\rtl\Garant\cs\NOT_FINISHED_CsServer.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\cs'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'CsServer'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'CsServer'
 
 ref; // ME_5395BFCE0389 TCsServer
 
 : ME_9CCDD2F7DCC6
  CONST UID '9CCDD2F7DCC6'
  CONST Name 'Exists'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_static::Operation ;
  %SUMMARY 'Проверяет создан экземпляр синглетона или нет' ;
@@ -1050,6 +1078,7 @@ ref; // ME_5395BFCE0389 TCsServer
  ;
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
+ CONST extprop:pas:Value false
 
 ref; // ME_9CCDD2F7DCC6 Exists
 
@@ -1065,24 +1094,26 @@ ref; // ME_9CCDD2F7DCC6 Exists
  : Parent ME_538DA26C020A // ServerSide
  ;
  : Inherits
-   @ ( ME_5395C8DC03A7 // TCsReplyProceduresWithRegistering
- ) .SequenceCode.It
+   Seq: ( ME_5395C8DC03A7 // TCsReplyProceduresWithRegistering
+ )
  ; // Inherits
  : Operations
-   @ ( ME_9CCDD2F7DCC6 // Exists
- ) .SequenceCode.It
+   Seq: ( ME_9CCDD2F7DCC6 // Exists
+ )
  ; // Operations
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
  CONST "singleton" true
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\cs'
  CONST intf.pas:Path 'common\components\rtl\Garant\cs\CsReplyProcedures.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\cs'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'CsReplyProcedures'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'CsReplyProcedures'
 
 ref; // ME_5395B29D0177 TCsReplyProcedures
 
@@ -1093,6 +1124,7 @@ FORWARD ME_550806D90113
 : ME_DBE20F5CF12C
  CONST UID 'DBE20F5CF12C'
  CONST Name 'DoIt'
+ CONST IsSummoned true
  CONST Class class_Operation
  %SUMMARY 'Сигнатура фабрики TncsServerParamsStorage.Make' ;
  CONST Visibility PrivateAccess
@@ -1115,16 +1147,16 @@ ref; // ME_DBE20F5CF12C DoIt
  : Parent ME_5507E70200AF // TncsServerParamsStorage
  ;
  : Inherits
-   @ ( WL 'ME_516D582B011F' '4AB0C3C60310.pas.ms.script' // Create
- ) .SequenceCode.It
+   Seq: ( WL 'ME_516D582B011F' '4AB0C3C60310.pas.ms.script' // Create
+ )
  ; // Inherits
  : Implements
-   @ ( WL 'ME_5507D90F00D2' '5432518A0316.pas.ms.script' // IdaParamsStorage
- ) .SequenceCode.It
+   Seq: ( WL 'ME_5507D90F00D2' '5432518A0316.pas.ms.script' // IdaParamsStorage
+ )
  ; // Implements
  : Operations
-   @ ( ME_DBE20F5CF12C // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_DBE20F5CF12C // DoIt
+ )
  ; // Operations
  CONST "check nil" false
  CONST "need AfterCreate" 'undefined'
@@ -1283,6 +1315,7 @@ ref; // ME_55DF03AF0015
  ;
  : Implementor ME_5507E70200AF // TncsServerParamsStorage
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" false
 ref; // ME_5507D9B100F7_ME_5507E70200AF ProviderKey
 
@@ -1293,6 +1326,7 @@ ref; // ME_5507D9B100F7_ME_5507E70200AF ProviderKey
  ;
  : Implementor ME_5507E70200AF // TncsServerParamsStorage
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_55095596033F_ME_5507E70200AF InitStorage
 
 : ME_550963930391_ME_5507E70200AF
@@ -1302,6 +1336,7 @@ ref; // ME_55095596033F_ME_5507E70200AF InitStorage
  ;
  : Implementor ME_5507E70200AF // TncsServerParamsStorage
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" false
 ref; // ME_550963930391_ME_5507E70200AF Login
 
@@ -1312,6 +1347,7 @@ ref; // ME_550963930391_ME_5507E70200AF Login
  ;
  : Implementor ME_5507E70200AF // TncsServerParamsStorage
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" false
 ref; // ME_550963A60121_ME_5507E70200AF Password
 
@@ -1322,6 +1358,7 @@ ref; // ME_550963A60121_ME_5507E70200AF Password
  ;
  : Implementor ME_5507E70200AF // TncsServerParamsStorage
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" false
 ref; // ME_550963BC00B0_ME_5507E70200AF DocStoragePath
 
@@ -1332,6 +1369,7 @@ ref; // ME_550963BC00B0_ME_5507E70200AF DocStoragePath
  ;
  : Implementor ME_5507E70200AF // TncsServerParamsStorage
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" false
 ref; // ME_550963CF0092_ME_5507E70200AF DocImagePath
 
@@ -1342,6 +1380,7 @@ ref; // ME_550963CF0092_ME_5507E70200AF DocImagePath
  ;
  : Implementor ME_5507E70200AF // TncsServerParamsStorage
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" false
 ref; // ME_550963EB02F8_ME_5507E70200AF HomeDirPath
 
@@ -1352,6 +1391,7 @@ ref; // ME_550963EB02F8_ME_5507E70200AF HomeDirPath
  ;
  : Implementor ME_5507E70200AF // TncsServerParamsStorage
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" false
 ref; // ME_550981E5026A_ME_5507E70200AF StationName
 
@@ -1362,6 +1402,7 @@ ref; // ME_550981E5026A_ME_5507E70200AF StationName
  ;
  : Implementor ME_5507E70200AF // TncsServerParamsStorage
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" false
 ref; // ME_550981FF0138_ME_5507E70200AF TablePath
 
@@ -1372,6 +1413,7 @@ ref; // ME_550981FF0138_ME_5507E70200AF TablePath
  ;
  : Implementor ME_5507E70200AF // TncsServerParamsStorage
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" false
 ref; // ME_550982210098_ME_5507E70200AF LockPath
 
@@ -1382,6 +1424,7 @@ ref; // ME_550982210098_ME_5507E70200AF LockPath
  ;
  : Implementor ME_5507E70200AF // TncsServerParamsStorage
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" false
 ref; // ME_550982360334_ME_5507E70200AF TempPath
 
@@ -1392,6 +1435,7 @@ ref; // ME_550982360334_ME_5507E70200AF TempPath
  ;
  : Implementor ME_5507E70200AF // TncsServerParamsStorage
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_5512621F0352_ME_5507E70200AF StationErrorMessage
 
 : ME_551262410001_ME_5507E70200AF
@@ -1401,6 +1445,7 @@ ref; // ME_5512621F0352_ME_5507E70200AF StationErrorMessage
  ;
  : Implementor ME_5507E70200AF // TncsServerParamsStorage
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_551262410001_ME_5507E70200AF TablePathErrorMessage
 
 : ME_551262530061_ME_5507E70200AF
@@ -1410,6 +1455,7 @@ ref; // ME_551262410001_ME_5507E70200AF TablePathErrorMessage
  ;
  : Implementor ME_5507E70200AF // TncsServerParamsStorage
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_551262530061_ME_5507E70200AF LockPathErrorMessage
 
 : ME_5515121F0358_ME_5507E70200AF
@@ -1419,6 +1465,7 @@ ref; // ME_551262530061_ME_5507E70200AF LockPathErrorMessage
  ;
  : Implementor ME_5507E70200AF // TncsServerParamsStorage
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_5515121F0358_ME_5507E70200AF OuterConfigEdit
 
 : ME_551512370064_ME_5507E70200AF
@@ -1428,6 +1475,7 @@ ref; // ME_5515121F0358_ME_5507E70200AF OuterConfigEdit
  ;
  : Implementor ME_5507E70200AF // TncsServerParamsStorage
  ;
+ CONST OpKind opkind_Implemented
  CONST "force overload" true
 ref; // ME_551512370064_ME_5507E70200AF BuildConfig
 
@@ -1442,20 +1490,20 @@ ref; // ME_551512370064_ME_5507E70200AF BuildConfig
  : Parent ME_538DA26C020A // ServerSide
  ;
  : Inherits
-   @ ( WL 'ME_49E7754802A9' '47913B47006E.pas.ms.script' // Tl3ProtoObject
- ) .SequenceCode.It
+   Seq: ( WL 'ME_49E7754802A9' '47913B47006E.pas.ms.script' // Tl3ProtoObject
+ )
  ; // Inherits
  : Implements
-   @ ( WL 'ME_5507D90F00D2' '5432518A0316.pas.ms.script' // IdaParamsStorage
+   Seq: ( WL 'ME_5507D90F00D2' '5432518A0316.pas.ms.script' // IdaParamsStorage
  WL 'ME_550981CC01F6' '550981B402B9.pas.ms.script' // IhtParamsStorage
- ) .SequenceCode.It
+ )
  ; // Implements
  : Operations
-   @ ( ME_550806D90113 // Make
- ) .SequenceCode.It
+   Seq: ( ME_550806D90113 // Make
+ )
  ; // Operations
  : Implemented
-   @ ( ME_5507D9B100F7_ME_5507E70200AF // ProviderKey
+   Seq: ( ME_5507D9B100F7_ME_5507E70200AF // ProviderKey
  ME_55095596033F_ME_5507E70200AF // InitStorage
  ME_550963930391_ME_5507E70200AF // Login
  ME_550963A60121_ME_5507E70200AF // Password
@@ -1471,10 +1519,10 @@ ref; // ME_551512370064_ME_5507E70200AF BuildConfig
  ME_551262530061_ME_5507E70200AF // LockPathErrorMessage
  ME_5515121F0358_ME_5507E70200AF // OuterConfigEdit
  ME_551512370064_ME_5507E70200AF // BuildConfig
- ) .SequenceCode.It
+ )
  ; // Implemented
  : Dependencies
-   @ ( ME_55093AF703A8 // 
+   Seq: ( ME_55093AF703A8 // 
  ME_550979E70256 // 
  ME_55097F35022D // 
  ME_55099066031E // 
@@ -1487,18 +1535,20 @@ ref; // ME_551512370064_ME_5507E70200AF BuildConfig
  ME_55229A1B02CE // 
  ME_55DF03AA02AD // 
  ME_55DF03AF0015 // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\cs'
  CONST intf.pas:Path 'common\components\rtl\Garant\cs\ncsServerParamsStorage.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\cs'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'ncsServerParamsStorage'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'ncsServerParamsStorage'
 
 ref; // ME_5507E70200AF TncsServerParamsStorage
 
@@ -1512,7 +1562,7 @@ ref; // ME_5507E70200AF TncsServerParamsStorage
  : Parent WL 'ME_52F8C27F01AB' '52F8C27F01AB.pas.ms.script' // cs
  ;
  : Children
-   @ ( ME_537F6306025B // TCsProcWithId
+   Seq: ( ME_537F6306025B // TCsProcWithId
  ME_537F63D60108 // TCsProcWithIdList
  ME_537F645C01D1 // TCsReplyProceduresPrim
  ME_538DEBDF0374 // TCsReply
@@ -1522,10 +1572,10 @@ ref; // ME_5507E70200AF TncsServerParamsStorage
  ME_5395BFCE0389 // TCsServer
  ME_5395B29D0177 // TCsReplyProcedures
  ME_5507E70200AF // TncsServerParamsStorage
- ) .SequenceCode.It
+ )
  ; // Children
  : Depends
-   @ ( WL 'ME_4767743E00E5' '4767743E00E5.pas.ms.script' // TypInfo
+   Seq: ( WL 'ME_4767743E00E5' '4767743E00E5.pas.ms.script' // TypInfo
  WL 'ME_47913B47006E' '47913B47006E.pas.ms.script' // l3CoreObjects
  WL 'ME_47D0290B016D' '47D0290B016D.pas.ms.script' // l3Utils
  WL 'ME_484A470100DD' '484A470100DD.pas.ms.script' // Standard
@@ -1538,16 +1588,14 @@ ref; // ME_5507E70200AF TncsServerParamsStorage
  WL 'ME_54F9AF550087' '54F9AF550087.pas.ms.script' // Provider
  WL 'ME_550981B402B9' '550981B402B9.pas.ms.script' // htInterfaces
  WL 'ME_55D6CF3B014B' '55D6CF3B014B.pas.ms.script' // Provider
- ) .SequenceCode.It
+ )
  ; // Depends
  CONST "ifdef" 'AppServerSide'
- : Generators
- @ (
- gen_pas.script
- gen_pas.script.runner
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\cs'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\cs'
  CONST pas.script:Path 'shared\models\NewSchool\Scripts\538DA26C020A.pas.ms.script'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
  CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\538DA26C020A.pas.ms.script.runner'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_538DA26C020A ServerSide

@@ -162,6 +162,7 @@ ref; // ME_5548AB640115
 
 : ME_72AF829CCEF4
  CONST UID '72AF829CCEF4'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_54EDDCAC016A // evSchemaWordsPack
@@ -182,7 +183,7 @@ ref; // ME_72AF829CCEF4
  : Parent ME_54EDDC8A013D // SchemaWords
  ;
  : Dependencies
-   @ ( ME_54EDDCB700FF // 
+   Seq: ( ME_54EDDCB700FF // 
  ME_54EDDCB80217 // 
  ME_54EDDCB90312 // 
  ME_54EDDCBC0011 // 
@@ -195,19 +196,19 @@ ref; // ME_72AF829CCEF4
  ME_552D192E0349 // 
  ME_5548AB640115 // 
  ME_72AF829CCEF4 // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  CONST "ifndef" 'NoScripts'
  CONST "needs script" 'undefined'
  CONST "no class name" 'undefined'
  CONST "no hands" false
  CONST "no_pop" 'undefined'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\ScriptEngine'
  CONST intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\evSchemaWordsPack.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\ScriptEngine'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'SchemaWordsPack'
 
 ref; // ME_54EDDCAC016A evSchemaWordsPack
 
@@ -232,8 +233,8 @@ ref; // ME_53C7DADF010B aSender
  : Parent ME_53C7C3DC0014 // RegisterSchema
  ;
  : Parameters
-   @ ( ME_53C7DADF010B // aSender
- ) .SequenceCode.It
+   Seq: ( ME_53C7DADF010B // aSender
+ )
  ; // Parameters
 
 ref; // ME_53C7C3EA00D2 DoIt
@@ -403,11 +404,11 @@ ref; // ME_53C7F09F034A
  : Parent ME_53C7C38A011C // TkwRegisterSchema
  ;
  : Operations
-   @ ( ME_53C7C3EA00D2 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_53C7C3EA00D2 // DoIt
+ )
  ; // Operations
  : Dependencies
-   @ ( ME_53C7C438027A // 
+   Seq: ( ME_53C7C438027A // 
  ME_53C7C4580169 // 
  ME_53C7C49F01F9 // 
  ME_53C7C4E80241 // 
@@ -421,7 +422,7 @@ ref; // ME_53C7F09F034A
  ME_53C7E91303CF // 
  ME_53C7ECA802B3 // 
  ME_53C7F09F034A // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  CONST "is static" true
 
@@ -450,26 +451,29 @@ ref; // ME_53C7C3B90110 Ini
  : Parent ME_54EDDC8A013D // SchemaWords
  ;
  : Operations
-   @ ( ME_53C7C3DC0014 // RegisterSchema
+   Seq: ( ME_53C7C3DC0014 // RegisterSchema
  ME_53C7C3B90110 // Ini
- ) .SequenceCode.It
+ )
  ; // Operations
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\ScriptEngine'
  CONST intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\kwRegisterSchema.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\ScriptEngine'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'RegisterSchema'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'kwRegisterSchema'
 
 ref; // ME_53C7C38A011C TkwRegisterSchema
 
 : ME_850E82A662BE
  CONST UID '850E82A662BE'
  CONST Name 'Ini_Reg'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Регистрация StyleTable_SaveToFile' ;
@@ -531,6 +535,7 @@ ref; // ME_4DCA8C9E00FB
  ;
  : Implementor ME_4DCA8B9D033E // StyleTable_SaveToFile
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_4DAEEDE10285_ME_4DCA8B9D033E DoDoIt
 
 : ME_4DB0614603C8_ME_4DCA8B9D033E
@@ -540,6 +545,7 @@ ref; // ME_4DAEEDE10285_ME_4DCA8B9D033E DoDoIt
  ;
  : Implementor ME_4DCA8B9D033E // StyleTable_SaveToFile
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4DB0614603C8_ME_4DCA8B9D033E GetWordNameForRegister
 
 : ME_4DCA8B9D033E
@@ -553,27 +559,27 @@ ref; // ME_4DB0614603C8_ME_4DCA8B9D033E GetWordNameForRegister
  : Parent ME_54EDDC8A013D // SchemaWords
  ;
  : Inherits
-   @ ( WL 'ME_53EDC0E701BC' '4F3E3F5F0160.pas.ms.script' // TtfwRegisterableWord
- ) .SequenceCode.It
+   Seq: ( WL 'ME_53EDC0E701BC' '4F3E3F5F0160.pas.ms.script' // TtfwRegisterableWord
+ )
  ; // Inherits
  : Operations
-   @ ( ME_850E82A662BE // Ini_Reg
- ) .SequenceCode.It
+   Seq: ( ME_850E82A662BE // Ini_Reg
+ )
  ; // Operations
  : Implemented
-   @ ( ME_4DAEEDE10285_ME_4DCA8B9D033E // DoDoIt
- ) .SequenceCode.It
+   Seq: ( ME_4DAEEDE10285_ME_4DCA8B9D033E // DoDoIt
+ )
  ; // Implemented
  : Overridden
-   @ ( ME_4DB0614603C8_ME_4DCA8B9D033E // GetWordNameForRegister
- ) .SequenceCode.It
+   Seq: ( ME_4DB0614603C8_ME_4DCA8B9D033E // GetWordNameForRegister
+ )
  ; // Overridden
  : Dependencies
-   @ ( ME_4DCA8C110043 // 
+   Seq: ( ME_4DCA8C110043 // 
  ME_4DCA8C440259 // 
  ME_4DCA8C870351 // 
  ME_4DCA8C9E00FB // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  CONST "author" 'Люлин А.В.'
  CONST "needs InstanceR" 'undefined'
@@ -581,19 +587,22 @@ ref; // ME_4DB0614603C8_ME_4DCA8B9D033E GetWordNameForRegister
  CONST "no hands" true
  CONST "register in scripts" 'undefined'
  CONST "started" '11.05.2011 17:14'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\ScriptEngine'
  CONST intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\kwStyleTableSaveToFile.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\ScriptEngine'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
  CONST extprop:pas:TypeName 'TkwStyleTableSaveToFile'
+ CONST extprop:rc:SelfName 'StyleTableSaveToFile'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'kwStyleTableSaveToFile'
 
 ref; // ME_4DCA8B9D033E StyleTable_SaveToFile
 
 : ME_0F95D6F3534B
  CONST UID '0F95D6F3534B'
  CONST Name 'Ini_Reg'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Регистрация StyleTable_Changing' ;
@@ -622,6 +631,7 @@ ref; // ME_4E68CCF50200
  ;
  : Implementor ME_4E68CC1B01C9 // StyleTable_Changing
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_4DAEEDE10285_ME_4E68CC1B01C9 DoDoIt
 
 : ME_4DB0614603C8_ME_4E68CC1B01C9
@@ -631,6 +641,7 @@ ref; // ME_4DAEEDE10285_ME_4E68CC1B01C9 DoDoIt
  ;
  : Implementor ME_4E68CC1B01C9 // StyleTable_Changing
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4DB0614603C8_ME_4E68CC1B01C9 GetWordNameForRegister
 
 : ME_4E68CC1B01C9
@@ -644,24 +655,24 @@ ref; // ME_4DB0614603C8_ME_4E68CC1B01C9 GetWordNameForRegister
  : Parent ME_54EDDC8A013D // SchemaWords
  ;
  : Inherits
-   @ ( WL 'ME_53EDC0E701BC' '4F3E3F5F0160.pas.ms.script' // TtfwRegisterableWord
- ) .SequenceCode.It
+   Seq: ( WL 'ME_53EDC0E701BC' '4F3E3F5F0160.pas.ms.script' // TtfwRegisterableWord
+ )
  ; // Inherits
  : Operations
-   @ ( ME_0F95D6F3534B // Ini_Reg
- ) .SequenceCode.It
+   Seq: ( ME_0F95D6F3534B // Ini_Reg
+ )
  ; // Operations
  : Implemented
-   @ ( ME_4DAEEDE10285_ME_4E68CC1B01C9 // DoDoIt
- ) .SequenceCode.It
+   Seq: ( ME_4DAEEDE10285_ME_4E68CC1B01C9 // DoDoIt
+ )
  ; // Implemented
  : Overridden
-   @ ( ME_4DB0614603C8_ME_4E68CC1B01C9 // GetWordNameForRegister
- ) .SequenceCode.It
+   Seq: ( ME_4DB0614603C8_ME_4E68CC1B01C9 // GetWordNameForRegister
+ )
  ; // Overridden
  : Dependencies
-   @ ( ME_4E68CCF50200 // 
- ) .SequenceCode.It
+   Seq: ( ME_4E68CCF50200 // 
+ )
  ; // Dependencies
  CONST "author" 'Люлин А.В.'
  CONST "needs InstanceR" 'undefined'
@@ -669,19 +680,22 @@ ref; // ME_4DB0614603C8_ME_4E68CC1B01C9 GetWordNameForRegister
  CONST "no hands" true
  CONST "register in scripts" 'undefined'
  CONST "started" '08.09.2011 18:07'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\ScriptEngine'
  CONST intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\kwStyleTableChanging.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\ScriptEngine'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
  CONST extprop:pas:TypeName 'TkwStyleTableChanging'
+ CONST extprop:rc:SelfName 'StyleTableChanging'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'kwStyleTableChanging'
 
 ref; // ME_4E68CC1B01C9 StyleTable_Changing
 
 : ME_251C34772216
  CONST UID '251C34772216'
  CONST Name 'Ini_Reg'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Регистрация StyleTable_Changed' ;
@@ -710,6 +724,7 @@ ref; // ME_4E68CCE90252
  ;
  : Implementor ME_4E68CC460163 // StyleTable_Changed
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_4DAEEDE10285_ME_4E68CC460163 DoDoIt
 
 : ME_4DB0614603C8_ME_4E68CC460163
@@ -719,6 +734,7 @@ ref; // ME_4DAEEDE10285_ME_4E68CC460163 DoDoIt
  ;
  : Implementor ME_4E68CC460163 // StyleTable_Changed
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4DB0614603C8_ME_4E68CC460163 GetWordNameForRegister
 
 : ME_4E68CC460163
@@ -732,24 +748,24 @@ ref; // ME_4DB0614603C8_ME_4E68CC460163 GetWordNameForRegister
  : Parent ME_54EDDC8A013D // SchemaWords
  ;
  : Inherits
-   @ ( WL 'ME_53EDC0E701BC' '4F3E3F5F0160.pas.ms.script' // TtfwRegisterableWord
- ) .SequenceCode.It
+   Seq: ( WL 'ME_53EDC0E701BC' '4F3E3F5F0160.pas.ms.script' // TtfwRegisterableWord
+ )
  ; // Inherits
  : Operations
-   @ ( ME_251C34772216 // Ini_Reg
- ) .SequenceCode.It
+   Seq: ( ME_251C34772216 // Ini_Reg
+ )
  ; // Operations
  : Implemented
-   @ ( ME_4DAEEDE10285_ME_4E68CC460163 // DoDoIt
- ) .SequenceCode.It
+   Seq: ( ME_4DAEEDE10285_ME_4E68CC460163 // DoDoIt
+ )
  ; // Implemented
  : Overridden
-   @ ( ME_4DB0614603C8_ME_4E68CC460163 // GetWordNameForRegister
- ) .SequenceCode.It
+   Seq: ( ME_4DB0614603C8_ME_4E68CC460163 // GetWordNameForRegister
+ )
  ; // Overridden
  : Dependencies
-   @ ( ME_4E68CCE90252 // 
- ) .SequenceCode.It
+   Seq: ( ME_4E68CCE90252 // 
+ )
  ; // Dependencies
  CONST "author" 'Люлин А.В.'
  CONST "needs InstanceR" 'undefined'
@@ -757,19 +773,22 @@ ref; // ME_4DB0614603C8_ME_4E68CC460163 GetWordNameForRegister
  CONST "no hands" true
  CONST "register in scripts" 'undefined'
  CONST "started" '08.09.2011 18:08'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\ScriptEngine'
  CONST intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\kwStyleTableChanged.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\ScriptEngine'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
  CONST extprop:pas:TypeName 'TkwStyleTableChanged'
+ CONST extprop:rc:SelfName 'StyleTableChanged'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'kwStyleTableChanged'
 
 ref; // ME_4E68CC460163 StyleTable_Changed
 
 : ME_2E7BE4A5735C
  CONST UID '2E7BE4A5735C'
  CONST Name 'Ini_Reg'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Регистрация EvdBin2EvdTxt' ;
@@ -842,6 +861,7 @@ ref; // ME_52E146DC00F7
  ;
  : Implementor ME_52DEAB2F00A1 // EvdBin2EvdTxt
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_4DAEEDE10285_ME_52DEAB2F00A1 DoDoIt
 
 : ME_4DB0614603C8_ME_52DEAB2F00A1
@@ -851,6 +871,7 @@ ref; // ME_4DAEEDE10285_ME_52DEAB2F00A1 DoDoIt
  ;
  : Implementor ME_52DEAB2F00A1 // EvdBin2EvdTxt
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4DB0614603C8_ME_52DEAB2F00A1 GetWordNameForRegister
 
 : ME_52DEAB2F00A1
@@ -864,40 +885,42 @@ ref; // ME_4DB0614603C8_ME_52DEAB2F00A1 GetWordNameForRegister
  : Parent ME_54EDDC8A013D // SchemaWords
  ;
  : Inherits
-   @ ( WL 'ME_4DD0CE0E02AA' '54F0744B0141.pas.ms.script' // TtfwSysUtilsWord
- ) .SequenceCode.It
+   Seq: ( WL 'ME_4DD0CE0E02AA' '54F0744B0141.pas.ms.script' // TtfwSysUtilsWord
+ )
  ; // Inherits
  : Operations
-   @ ( ME_2E7BE4A5735C // Ini_Reg
- ) .SequenceCode.It
+   Seq: ( ME_2E7BE4A5735C // Ini_Reg
+ )
  ; // Operations
  : Implemented
-   @ ( ME_4DAEEDE10285_ME_52DEAB2F00A1 // DoDoIt
- ) .SequenceCode.It
+   Seq: ( ME_4DAEEDE10285_ME_52DEAB2F00A1 // DoDoIt
+ )
  ; // Implemented
  : Overridden
-   @ ( ME_4DB0614603C8_ME_52DEAB2F00A1 // GetWordNameForRegister
- ) .SequenceCode.It
+   Seq: ( ME_4DB0614603C8_ME_52DEAB2F00A1 // GetWordNameForRegister
+ )
  ; // Overridden
  : Dependencies
-   @ ( ME_52E1462D0065 // 
+   Seq: ( ME_52E1462D0065 // 
  ME_52E1466700DE // 
  ME_52E1467E0154 // 
  ME_52E146B10169 // 
  ME_52E146DC00F7 // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\ScriptEngine'
  CONST intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\kwEvdBin2EvdTxt.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\ScriptEngine'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
  CONST extprop:pas:TypeName 'TkwEvdBin2EvdTxt'
+ CONST extprop:rc:SelfName 'EvdBin2EvdTxt'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'kwEvdBin2EvdTxt'
 
 ref; // ME_52DEAB2F00A1 EvdBin2EvdTxt
 
@@ -929,8 +952,8 @@ ref; // ME_54D2311702ED DoIt
  : Parent ME_5052EB370166 // TtfwClipboardFormatWord
  ;
  : Operations
-   @ ( ME_54D2311702ED // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_54D2311702ED // DoIt
+ )
  ; // Operations
 
 ref; // ME_54D231000227 GetFormat
@@ -938,6 +961,7 @@ ref; // ME_54D231000227 GetFormat
 : ME_7DA1DB365CDF
  CONST UID '7DA1DB365CDF'
  CONST Name 'Ini_Reg_Class'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Регистрация TtfwClipboardFormatWord' ;
@@ -967,6 +991,7 @@ ref; // ME_5052EBA303C8
  ;
  : Implementor ME_5052EB370166 // TtfwClipboardFormatWord
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_4DAEEDE10285_ME_5052EB370166 DoDoIt
 
 : ME_5052EB370166
@@ -980,38 +1005,41 @@ ref; // ME_4DAEEDE10285_ME_5052EB370166 DoDoIt
  : Parent ME_54EDDC8A013D // SchemaWords
  ;
  : Inherits
-   @ ( WL 'ME_53EDC0E701BC' '4F3E3F5F0160.pas.ms.script' // TtfwRegisterableWord
- ) .SequenceCode.It
+   Seq: ( WL 'ME_53EDC0E701BC' '4F3E3F5F0160.pas.ms.script' // TtfwRegisterableWord
+ )
  ; // Inherits
  : Operations
-   @ ( ME_54D231000227 // GetFormat
+   Seq: ( ME_54D231000227 // GetFormat
  ME_7DA1DB365CDF // Ini_Reg_Class
- ) .SequenceCode.It
+ )
  ; // Operations
  : Implemented
-   @ ( ME_4DAEEDE10285_ME_5052EB370166 // DoDoIt
- ) .SequenceCode.It
+   Seq: ( ME_4DAEEDE10285_ME_5052EB370166 // DoDoIt
+ )
  ; // Implemented
  : Dependencies
-   @ ( ME_5052EBA303C8 // 
- ) .SequenceCode.It
+   Seq: ( ME_5052EBA303C8 // 
+ )
  ; // Dependencies
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\ScriptEngine'
  CONST intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\tfwClipboardFormatWord.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\ScriptEngine'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'ClipboardFormatWord'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'tfwClipboardFormatWord'
 
 ref; // ME_5052EB370166 TtfwClipboardFormatWord
 
 : ME_C0BE3F4ED8F1
  CONST UID 'C0BE3F4ED8F1'
  CONST Name 'Ini_Reg'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Регистрация CF_XML' ;
@@ -1029,6 +1057,7 @@ ref; // ME_C0BE3F4ED8F1 Ini_Reg
  ;
  : Implementor ME_4FF436960135 // CF_XML
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_54D231000227_ME_4FF436960135 GetFormat
 
 : ME_4DB0614603C8_ME_4FF436960135
@@ -1038,6 +1067,7 @@ ref; // ME_54D231000227_ME_4FF436960135 GetFormat
  ;
  : Implementor ME_4FF436960135 // CF_XML
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4DB0614603C8_ME_4FF436960135 GetWordNameForRegister
 
 : ME_4FF436960135
@@ -1051,39 +1081,42 @@ ref; // ME_4DB0614603C8_ME_4FF436960135 GetWordNameForRegister
  : Parent ME_54EDDC8A013D // SchemaWords
  ;
  : Inherits
-   @ ( ME_5052EB370166 // TtfwClipboardFormatWord
- ) .SequenceCode.It
+   Seq: ( ME_5052EB370166 // TtfwClipboardFormatWord
+ )
  ; // Inherits
  : Operations
-   @ ( ME_C0BE3F4ED8F1 // Ini_Reg
- ) .SequenceCode.It
+   Seq: ( ME_C0BE3F4ED8F1 // Ini_Reg
+ )
  ; // Operations
  : Implemented
-   @ ( ME_54D231000227_ME_4FF436960135 // GetFormat
- ) .SequenceCode.It
+   Seq: ( ME_54D231000227_ME_4FF436960135 // GetFormat
+ )
  ; // Implemented
  : Overridden
-   @ ( ME_4DB0614603C8_ME_4FF436960135 // GetWordNameForRegister
- ) .SequenceCode.It
+   Seq: ( ME_4DB0614603C8_ME_4FF436960135 // GetWordNameForRegister
+ )
  ; // Overridden
  CONST "NameForScript" 'CF_XML'
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\ScriptEngine'
  CONST intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\kwCFXML.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\ScriptEngine'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
  CONST extprop:pas:TypeName 'TkwCFXML'
+ CONST extprop:rc:SelfName 'CFXML'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'kwCFXML'
 
 ref; // ME_4FF436960135 CF_XML
 
 : ME_A4C037CA467A
  CONST UID 'A4C037CA467A'
  CONST Name 'Ini_Reg'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Регистрация CF_EVEREST' ;
@@ -1101,6 +1134,7 @@ ref; // ME_A4C037CA467A Ini_Reg
  ;
  : Implementor ME_5052EB1003B3 // CF_EVEREST
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_54D231000227_ME_5052EB1003B3 GetFormat
 
 : ME_4DB0614603C8_ME_5052EB1003B3
@@ -1110,6 +1144,7 @@ ref; // ME_54D231000227_ME_5052EB1003B3 GetFormat
  ;
  : Implementor ME_5052EB1003B3 // CF_EVEREST
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4DB0614603C8_ME_5052EB1003B3 GetWordNameForRegister
 
 : ME_5052EB1003B3
@@ -1123,39 +1158,42 @@ ref; // ME_4DB0614603C8_ME_5052EB1003B3 GetWordNameForRegister
  : Parent ME_54EDDC8A013D // SchemaWords
  ;
  : Inherits
-   @ ( ME_5052EB370166 // TtfwClipboardFormatWord
- ) .SequenceCode.It
+   Seq: ( ME_5052EB370166 // TtfwClipboardFormatWord
+ )
  ; // Inherits
  : Operations
-   @ ( ME_A4C037CA467A // Ini_Reg
- ) .SequenceCode.It
+   Seq: ( ME_A4C037CA467A // Ini_Reg
+ )
  ; // Operations
  : Implemented
-   @ ( ME_54D231000227_ME_5052EB1003B3 // GetFormat
- ) .SequenceCode.It
+   Seq: ( ME_54D231000227_ME_5052EB1003B3 // GetFormat
+ )
  ; // Implemented
  : Overridden
-   @ ( ME_4DB0614603C8_ME_5052EB1003B3 // GetWordNameForRegister
- ) .SequenceCode.It
+   Seq: ( ME_4DB0614603C8_ME_5052EB1003B3 // GetWordNameForRegister
+ )
  ; // Overridden
  CONST "NameForScript" 'CF_EVEREST'
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\ScriptEngine'
  CONST intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\kwCFEVEREST.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\ScriptEngine'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
  CONST extprop:pas:TypeName 'TkwCFEVEREST'
+ CONST extprop:rc:SelfName 'CFEVEREST'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'kwCFEVEREST'
 
 ref; // ME_5052EB1003B3 CF_EVEREST
 
 : ME_CF2818002C6C
  CONST UID 'CF2818002C6C'
  CONST Name 'Ini_Reg'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Регистрация CF_RTF' ;
@@ -1173,6 +1211,7 @@ ref; // ME_CF2818002C6C Ini_Reg
  ;
  : Implementor ME_5291E204016B // CF_RTF
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_54D231000227_ME_5291E204016B GetFormat
 
 : ME_4DB0614603C8_ME_5291E204016B
@@ -1182,6 +1221,7 @@ ref; // ME_54D231000227_ME_5291E204016B GetFormat
  ;
  : Implementor ME_5291E204016B // CF_RTF
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4DB0614603C8_ME_5291E204016B GetWordNameForRegister
 
 : ME_5291E204016B
@@ -1195,39 +1235,42 @@ ref; // ME_4DB0614603C8_ME_5291E204016B GetWordNameForRegister
  : Parent ME_54EDDC8A013D // SchemaWords
  ;
  : Inherits
-   @ ( ME_5052EB370166 // TtfwClipboardFormatWord
- ) .SequenceCode.It
+   Seq: ( ME_5052EB370166 // TtfwClipboardFormatWord
+ )
  ; // Inherits
  : Operations
-   @ ( ME_CF2818002C6C // Ini_Reg
- ) .SequenceCode.It
+   Seq: ( ME_CF2818002C6C // Ini_Reg
+ )
  ; // Operations
  : Implemented
-   @ ( ME_54D231000227_ME_5291E204016B // GetFormat
- ) .SequenceCode.It
+   Seq: ( ME_54D231000227_ME_5291E204016B // GetFormat
+ )
  ; // Implemented
  : Overridden
-   @ ( ME_4DB0614603C8_ME_5291E204016B // GetWordNameForRegister
- ) .SequenceCode.It
+   Seq: ( ME_4DB0614603C8_ME_5291E204016B // GetWordNameForRegister
+ )
  ; // Overridden
  CONST "NameForScript" 'CF_RTF'
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\ScriptEngine'
  CONST intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\kwCFRTF.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\ScriptEngine'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
  CONST extprop:pas:TypeName 'TkwCFRTF'
+ CONST extprop:rc:SelfName 'CFRTF'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'kwCFRTF'
 
 ref; // ME_5291E204016B CF_RTF
 
 : ME_8F9E72E901EC
  CONST UID '8F9E72E901EC'
  CONST Name 'Ini_Reg'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Регистрация CF_EVERESTBIN' ;
@@ -1245,6 +1288,7 @@ ref; // ME_8F9E72E901EC Ini_Reg
  ;
  : Implementor ME_52E11B1F02E7 // CF_EVERESTBIN
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_54D231000227_ME_52E11B1F02E7 GetFormat
 
 : ME_4DB0614603C8_ME_52E11B1F02E7
@@ -1254,6 +1298,7 @@ ref; // ME_54D231000227_ME_52E11B1F02E7 GetFormat
  ;
  : Implementor ME_52E11B1F02E7 // CF_EVERESTBIN
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4DB0614603C8_ME_52E11B1F02E7 GetWordNameForRegister
 
 : ME_52E11B1F02E7
@@ -1267,39 +1312,42 @@ ref; // ME_4DB0614603C8_ME_52E11B1F02E7 GetWordNameForRegister
  : Parent ME_54EDDC8A013D // SchemaWords
  ;
  : Inherits
-   @ ( ME_5052EB370166 // TtfwClipboardFormatWord
- ) .SequenceCode.It
+   Seq: ( ME_5052EB370166 // TtfwClipboardFormatWord
+ )
  ; // Inherits
  : Operations
-   @ ( ME_8F9E72E901EC // Ini_Reg
- ) .SequenceCode.It
+   Seq: ( ME_8F9E72E901EC // Ini_Reg
+ )
  ; // Operations
  : Implemented
-   @ ( ME_54D231000227_ME_52E11B1F02E7 // GetFormat
- ) .SequenceCode.It
+   Seq: ( ME_54D231000227_ME_52E11B1F02E7 // GetFormat
+ )
  ; // Implemented
  : Overridden
-   @ ( ME_4DB0614603C8_ME_52E11B1F02E7 // GetWordNameForRegister
- ) .SequenceCode.It
+   Seq: ( ME_4DB0614603C8_ME_52E11B1F02E7 // GetWordNameForRegister
+ )
  ; // Overridden
  CONST "NameForScript" 'CF_EVERESTBIN'
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\ScriptEngine'
  CONST intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\kwCFEVERESTBIN.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\ScriptEngine'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
  CONST extprop:pas:TypeName 'TkwCFEVERESTBIN'
+ CONST extprop:rc:SelfName 'CFEVERESTBIN'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'kwCFEVERESTBIN'
 
 ref; // ME_52E11B1F02E7 CF_EVERESTBIN
 
 : ME_EAB47BCDA3D2
  CONST UID 'EAB47BCDA3D2'
  CONST Name 'Ini_Reg'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Регистрация CF_HTML' ;
@@ -1317,6 +1365,7 @@ ref; // ME_EAB47BCDA3D2 Ini_Reg
  ;
  : Implementor ME_4FF436880055 // CF_HTML
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_54D231000227_ME_4FF436880055 GetFormat
 
 : ME_4DB0614603C8_ME_4FF436880055
@@ -1326,6 +1375,7 @@ ref; // ME_54D231000227_ME_4FF436880055 GetFormat
  ;
  : Implementor ME_4FF436880055 // CF_HTML
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4DB0614603C8_ME_4FF436880055 GetWordNameForRegister
 
 : ME_4FF436880055
@@ -1339,39 +1389,42 @@ ref; // ME_4DB0614603C8_ME_4FF436880055 GetWordNameForRegister
  : Parent ME_54EDDC8A013D // SchemaWords
  ;
  : Inherits
-   @ ( ME_5052EB370166 // TtfwClipboardFormatWord
- ) .SequenceCode.It
+   Seq: ( ME_5052EB370166 // TtfwClipboardFormatWord
+ )
  ; // Inherits
  : Operations
-   @ ( ME_EAB47BCDA3D2 // Ini_Reg
- ) .SequenceCode.It
+   Seq: ( ME_EAB47BCDA3D2 // Ini_Reg
+ )
  ; // Operations
  : Implemented
-   @ ( ME_54D231000227_ME_4FF436880055 // GetFormat
- ) .SequenceCode.It
+   Seq: ( ME_54D231000227_ME_4FF436880055 // GetFormat
+ )
  ; // Implemented
  : Overridden
-   @ ( ME_4DB0614603C8_ME_4FF436880055 // GetWordNameForRegister
- ) .SequenceCode.It
+   Seq: ( ME_4DB0614603C8_ME_4FF436880055 // GetWordNameForRegister
+ )
  ; // Overridden
  CONST "NameForScript" 'CF_HTML'
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\ScriptEngine'
  CONST intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\kwCFHTML.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\ScriptEngine'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
  CONST extprop:pas:TypeName 'TkwCFHTML'
+ CONST extprop:rc:SelfName 'CFHTML'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'kwCFHTML'
 
 ref; // ME_4FF436880055 CF_HTML
 
 : ME_A5C9A453EB86
  CONST UID 'A5C9A453EB86'
  CONST Name 'Ini_Reg'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Регистрация CF_PDF' ;
@@ -1389,6 +1442,7 @@ ref; // ME_A5C9A453EB86 Ini_Reg
  ;
  : Implementor ME_5548AB5A0050 // CF_PDF
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_54D231000227_ME_5548AB5A0050 GetFormat
 
 : ME_4DB0614603C8_ME_5548AB5A0050
@@ -1398,6 +1452,7 @@ ref; // ME_54D231000227_ME_5548AB5A0050 GetFormat
  ;
  : Implementor ME_5548AB5A0050 // CF_PDF
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4DB0614603C8_ME_5548AB5A0050 GetWordNameForRegister
 
 : ME_5548AB5A0050
@@ -1411,33 +1466,35 @@ ref; // ME_4DB0614603C8_ME_5548AB5A0050 GetWordNameForRegister
  : Parent ME_54EDDC8A013D // SchemaWords
  ;
  : Inherits
-   @ ( ME_5052EB370166 // TtfwClipboardFormatWord
- ) .SequenceCode.It
+   Seq: ( ME_5052EB370166 // TtfwClipboardFormatWord
+ )
  ; // Inherits
  : Operations
-   @ ( ME_A5C9A453EB86 // Ini_Reg
- ) .SequenceCode.It
+   Seq: ( ME_A5C9A453EB86 // Ini_Reg
+ )
  ; // Operations
  : Implemented
-   @ ( ME_54D231000227_ME_5548AB5A0050 // GetFormat
- ) .SequenceCode.It
+   Seq: ( ME_54D231000227_ME_5548AB5A0050 // GetFormat
+ )
  ; // Implemented
  : Overridden
-   @ ( ME_4DB0614603C8_ME_5548AB5A0050 // GetWordNameForRegister
- ) .SequenceCode.It
+   Seq: ( ME_4DB0614603C8_ME_5548AB5A0050 // GetWordNameForRegister
+ )
  ; // Overridden
  CONST "NameForScript" 'CF_PDF'
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\ScriptEngine'
  CONST intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\kwCFPDF.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\ScriptEngine'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
  CONST extprop:pas:TypeName 'TkwCFPDF'
+ CONST extprop:rc:SelfName 'CFPDF'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'kwCFPDF'
 
 ref; // ME_5548AB5A0050 CF_PDF
 
@@ -1451,7 +1508,7 @@ ref; // ME_5548AB5A0050 CF_PDF
  : Parent WL 'ME_54ECA252008F' '54ECA252008F.pas.ms.script' // ScriptEngine$Everest
  ;
  : Children
-   @ ( ME_54EDDCAC016A // evSchemaWordsPack
+   Seq: ( ME_54EDDCAC016A // evSchemaWordsPack
  ME_53C7C38A011C // TkwRegisterSchema
  ME_4DCA8B9D033E // StyleTable_SaveToFile
  ME_4E68CC1B01C9 // StyleTable_Changing
@@ -1464,10 +1521,10 @@ ref; // ME_5548AB5A0050 CF_PDF
  ME_52E11B1F02E7 // CF_EVERESTBIN
  ME_4FF436880055 // CF_HTML
  ME_5548AB5A0050 // CF_PDF
- ) .SequenceCode.It
+ )
  ; // Children
  : Depends
-   @ ( WL 'ME_4677FBA70343' '4677FBA70343.pas.ms.script' // l3Interfaces
+   Seq: ( WL 'ME_4677FBA70343' '4677FBA70343.pas.ms.script' // l3Interfaces
  WL 'ME_4678193C009C' '4678193C009C.pas.ms.script' // l3Types
  WL 'ME_469D0AC7005E' '469D0AC7005E.pas.ms.script' // Types
  WL 'ME_4767743E00E5' '4767743E00E5.pas.ms.script' // TypInfo
@@ -1488,16 +1545,14 @@ ref; // ME_5548AB5A0050 CF_PDF
  WL 'ME_53C7C3100231' '53C7C3100231.pas.ms.script' // ConstantsRegistration
  WL 'ME_54F0744B0141' '54F0744B0141.pas.ms.script' // WordsTemplates
  WL 'ME_55BA28CE0290' '55BA28CE0290.pas.ms.script' // tfwScriptingTypes
- ) .SequenceCode.It
+ )
  ; // Depends
  CONST "ifndef" 'NoScripts'
- : Generators
- @ (
- gen_pas.script
- gen_pas.script.runner
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\ScriptEngine'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\ScriptEngine'
  CONST pas.script:Path 'shared\models\NewSchool\Scripts\54EDDC8A013D.pas.ms.script'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
  CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\54EDDC8A013D.pas.ms.script.runner'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_54EDDC8A013D SchemaWords

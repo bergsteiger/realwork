@@ -1,0 +1,1639 @@
+// BaseSearch 4ACF3E400050 Unit Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4ACF3E400050
+
+FORWARD ME_4901FC9F0096
+
+: ME_4AA4D6A4010A
+ CONST UID '4AA4D6A4010A'
+ CONST Name 'f_PromptForDoc'
+ CONST Class class_Attribute
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_4901FC9F0096 // TnsBaseSearchPromptFilters
+ ;
+ : Target WL 'ME_4AA4D4EB0005' '4A9F98B901A5.pas.ms.script' // InsPromptForDocFilter
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_4AA4D6A4010A f_PromptForDoc
+
+: ME_4901FCE301AE
+ CONST UID '4901FCE301AE'
+ CONST Name 'f_Leaf'
+ CONST Class class_Attribute
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_4901FC9F0096 // TnsBaseSearchPromptFilters
+ ;
+ : Target WL 'ME_4901F73E01D0' '4A9F98B901A5.pas.ms.script' // InsCutToLeafFilter
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_4901FCE301AE f_Leaf
+
+FORWARD ME_4901FD0A034A
+
+: ME_4901FD690289
+ CONST UID '4901FD690289'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4901FC9F0096 // TnsBaseSearchPromptFilters
+ ;
+ : Target ME_4901FD0A034A // TnsCutToLeafFilter
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_4901FD690289 
+
+: ME_4901FD860235
+ CONST UID '4901FD860235'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4901FC9F0096 // TnsBaseSearchPromptFilters
+ ;
+ : Target WL 'ME_47877EB202FB' '4AB0C3C60310.pas.ms.script' // SysUtils
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_4901FD860235 
+
+FORWARD ME_4AA4D6CF02A9
+
+: ME_4AA4D70F010B
+ CONST UID '4AA4D70F010B'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4901FC9F0096 // TnsBaseSearchPromptFilters
+ ;
+ : Target ME_4AA4D6CF02A9 // TnsPromptForDocFilter
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_4AA4D70F010B 
+
+: ME_4901F76E0360_ME_4901FC9F0096
+ CONST UID '4901F76E0360'
+ CONST Name 'Leaf'
+ : Original WL 'ME_4901F76E0360' '4A9F98B901A5.pas.ms.script' // Leaf
+ ;
+ : Implementor ME_4901FC9F0096 // TnsBaseSearchPromptFilters
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "UseNewGen" 'undefined'
+ CONST "pm" true
+ref; // ME_4901F76E0360_ME_4901FC9F0096 Leaf
+
+: ME_4901F789034B_ME_4901FC9F0096
+ CONST UID '4901F789034B'
+ CONST Name 'SetLeaf'
+ : Original WL 'ME_4901F789034B' '4A9F98B901A5.pas.ms.script' // SetLeaf
+ ;
+ : Implementor ME_4901FC9F0096 // TnsBaseSearchPromptFilters
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "UseNewGen" 'undefined'
+ref; // ME_4901F789034B_ME_4901FC9F0096 SetLeaf
+
+: ME_4AA4D5710363_ME_4901FC9F0096
+ CONST UID '4AA4D5710363'
+ CONST Name 'ForDoc'
+ : Original WL 'ME_4AA4D5710363' '4A9F98B901A5.pas.ms.script' // ForDoc
+ ;
+ : Implementor ME_4901FC9F0096 // TnsBaseSearchPromptFilters
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "UseNewGen" 'undefined'
+ CONST "pm" false
+ref; // ME_4AA4D5710363_ME_4901FC9F0096 ForDoc
+
+: ME_4AA4D7930085_ME_4901FC9F0096
+ CONST UID '4AA4D7930085'
+ CONST Name 'SetPromptForDoc'
+ : Original WL 'ME_4AA4D7930085' '4A9F98B901A5.pas.ms.script' // SetPromptForDoc
+ ;
+ : Implementor ME_4901FC9F0096 // TnsBaseSearchPromptFilters
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "UseNewGen" 'undefined'
+ref; // ME_4AA4D7930085_ME_4901FC9F0096 SetPromptForDoc
+
+: ME_479731C50290_ME_4901FC9F0096
+ CONST UID '479731C50290'
+ CONST Name 'Cleanup'
+ : Original WL 'ME_479731C50290' '51612EBB02F5.pas.ms.script' // Cleanup
+ ;
+ : Implementor ME_4901FC9F0096 // TnsBaseSearchPromptFilters
+ ;
+ CONST OpKind opkind_Overridden
+ CONST "UseNewGen" 'undefined'
+ref; // ME_479731C50290_ME_4901FC9F0096 Cleanup
+
+: ME_48FF4F47010F_ME_4901FC9F0096
+ CONST UID '48FF4F47010F'
+ CONST Name 'Create'
+ : Original WL 'ME_48FF4F47010F' '47E246C90144.pas.ms.script' // Create
+ ;
+ : Implementor ME_4901FC9F0096 // TnsBaseSearchPromptFilters
+ ;
+ CONST OpKind opkind_Overridden
+ CONST "UseNewGen" 'undefined'
+ref; // ME_48FF4F47010F_ME_4901FC9F0096 Create
+
+: ME_4901FC9F0096
+ CONST UID '4901FC9F0096'
+ CONST Name 'TnsBaseSearchPromptFilters'
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Коллеги, это что?' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4ACF3E400050 // BaseSearch
+ ;
+ : Inherits
+   Seq: ( WL 'ME_48FF4EC501F6' '47E246C90144.pas.ms.script' // Tl3TreeFilters
+ )
+ ; // Inherits
+ : Implements
+   Seq: ( WL 'ME_4901F75A0378' '4A9F98B901A5.pas.ms.script' // InsBaseSearchPromptFilters
+ )
+ ; // Implements
+ : Attributes
+   Seq: ( ME_4AA4D6A4010A // f_PromptForDoc
+ ME_4901FCE301AE // f_Leaf
+ )
+ ; // Attributes
+ : Implemented
+   Seq: ( ME_4901F76E0360_ME_4901FC9F0096 // Leaf
+ ME_4901F789034B_ME_4901FC9F0096 // SetLeaf
+ ME_4AA4D5710363_ME_4901FC9F0096 // ForDoc
+ ME_4AA4D7930085_ME_4901FC9F0096 // SetPromptForDoc
+ )
+ ; // Implemented
+ : Overridden
+   Seq: ( ME_479731C50290_ME_4901FC9F0096 // Cleanup
+ ME_48FF4F47010F_ME_4901FC9F0096 // Create
+ )
+ ; // Overridden
+ : Dependencies
+   Seq: ( ME_4901FD690289 // 
+ ME_4901FD860235 // 
+ ME_4AA4D70F010B // 
+ )
+ ; // Dependencies
+ CONST "UseNewGen" 'undefined'
+ CONST "author" 'Лукьянец Р.В.'
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ CONST "started" '2008/06/25 08:04:46'
+ : Generators
+ Seq: (
+ gen_intf.pas
+ )
+ ; // Generators
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View'
+ CONST intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\nsBaseSearchPromptFilters.pas'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\View'
+ CONST extprop:pas:UnitName 'nsBaseSearchPromptFilters'
+
+ref; // ME_4901FC9F0096 TnsBaseSearchPromptFilters
+
+: ME_4AA4D6F900C1
+ CONST UID '4AA4D6F900C1'
+ CONST Name 'f_DocNum'
+ CONST Class class_Attribute
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_4AA4D6CF02A9 // TnsPromptForDocFilter
+ ;
+ : Target WL 'ME_47BC524C0245' '4AB0C3C60310.pas.ms.script' // LongWord
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_4AA4D6F900C1 f_DocNum
+
+: ME_4AA4D7310335
+ CONST UID '4AA4D7310335'
+ CONST Name 'aDocNum'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_47BC524C0245' '4AB0C3C60310.pas.ms.script' // LongWord
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_4AA4D7310335 aDocNum
+
+: ME_4AA4D72303A9
+ CONST UID '4AA4D72303A9'
+ CONST Name 'Create'
+ CONST Class class_Operation
+ : Stereotype st_ctor::Operation ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_4AA4D6CF02A9 // TnsPromptForDocFilter
+ ;
+ : Parameters
+   Seq: ( ME_4AA4D7310335 // aDocNum
+ )
+ ; // Parameters
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_4AA4D72303A9 Create
+
+: ME_4AA4D7490215
+ CONST UID '4AA4D7490215'
+ CONST Name 'aDocNum'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_47BC524C0245' '4AB0C3C60310.pas.ms.script' // LongWord
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_4AA4D7490215 aDocNum
+
+: ME_4AA4D73C0111
+ CONST UID '4AA4D73C0111'
+ CONST Name 'Make'
+ CONST Class class_Operation
+ : Stereotype st_factory::Operation ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_4AA4D6CF02A9 // TnsPromptForDocFilter
+ ;
+ : Parameters
+   Seq: ( ME_4AA4D7490215 // aDocNum
+ )
+ ; // Parameters
+ CONST "UseNewGen" 'undefined'
+ CONST "check nil" false
+ CONST "need AfterCreate" 'undefined'
+ CONST "need Aggregate" 'undefined'
+ CONST "need As" false
+
+ref; // ME_4AA4D73C0111 Make
+
+: ME_4AA4D5150176_ME_4AA4D6CF02A9
+ CONST UID '4AA4D5150176'
+ CONST Name 'InternalDocNumber'
+ : Original WL 'ME_4AA4D5150176' '4A9F98B901A5.pas.ms.script' // InternalDocNumber
+ ;
+ : Implementor ME_4AA4D6CF02A9 // TnsPromptForDocFilter
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "UseNewGen" 'undefined'
+ CONST "pm" false
+ref; // ME_4AA4D5150176_ME_4AA4D6CF02A9 InternalDocNumber
+
+: ME_4AA4D6CF02A9
+ CONST UID '4AA4D6CF02A9'
+ CONST Name 'TnsPromptForDocFilter'
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4ACF3E400050 // BaseSearch
+ ;
+ : Inherits
+   Seq: ( WL 'ME_46780E690001' '47913B47006E.pas.ms.script' // Tl3CacheableBase
+ )
+ ; // Inherits
+ : Implements
+   Seq: ( WL 'ME_4AA4D4EB0005' '4A9F98B901A5.pas.ms.script' // InsPromptForDocFilter
+ )
+ ; // Implements
+ : Attributes
+   Seq: ( ME_4AA4D6F900C1 // f_DocNum
+ )
+ ; // Attributes
+ : Operations
+   Seq: ( ME_4AA4D72303A9 // Create
+ ME_4AA4D73C0111 // Make
+ )
+ ; // Operations
+ : Implemented
+   Seq: ( ME_4AA4D5150176_ME_4AA4D6CF02A9 // InternalDocNumber
+ )
+ ; // Implemented
+ CONST "UseNewGen" 'undefined'
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ : Generators
+ Seq: (
+ gen_intf.pas
+ )
+ ; // Generators
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View'
+ CONST intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\nsPromptForDocFilter.pas'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\View'
+ CONST extprop:pas:UnitName 'nsPromptForDocFilter'
+
+ref; // ME_4AA4D6CF02A9 TnsPromptForDocFilter
+
+: ME_4901FDA10273
+ CONST UID '4901FDA10273'
+ CONST Name 'f_LeafCount'
+ CONST Class class_Attribute
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_4901FD0A034A // TnsCutToLeafFilter
+ ;
+ : Target WL 'ME_47BC524C0245' '4AB0C3C60310.pas.ms.script' // LongWord
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_4901FDA10273 f_LeafCount
+
+: ME_4901FD430385
+ CONST UID '4901FD430385'
+ CONST Name 'aCount'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_47BC524C0245' '4AB0C3C60310.pas.ms.script' // LongWord
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_4901FD430385 aCount
+
+: ME_4901FD3E03AD
+ CONST UID '4901FD3E03AD'
+ CONST Name 'Create'
+ CONST Class class_Operation
+ : Stereotype st_ctor::Operation ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_4901FD0A034A // TnsCutToLeafFilter
+ ;
+ : Parameters
+   Seq: ( ME_4901FD430385 // aCount
+ )
+ ; // Parameters
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_4901FD3E03AD Create
+
+: ME_4901FD540170
+ CONST UID '4901FD540170'
+ CONST Name 'aCount'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_47BC524C0245' '4AB0C3C60310.pas.ms.script' // LongWord
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_4901FD540170 aCount
+
+: ME_4901FD4B00E8
+ CONST UID '4901FD4B00E8'
+ CONST Name 'Make'
+ CONST Class class_Operation
+ : Stereotype st_factory::Operation ;
+ %SUMMARY 'Создаёт фильтр' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_4901FD0A034A // TnsCutToLeafFilter
+ ;
+ : Parameters
+   Seq: ( ME_4901FD540170 // aCount
+ )
+ ; // Parameters
+ CONST "UseNewGen" 'undefined'
+ CONST "check nil" false
+ CONST "need AfterCreate" 'undefined'
+ CONST "need Aggregate" 'undefined'
+ CONST "need As" false
+
+ref; // ME_4901FD4B00E8 Make
+
+: ME_4901F74E0224_ME_4901FD0A034A
+ CONST UID '4901F74E0224'
+ CONST Name 'LeafCount'
+ : Original WL 'ME_4901F74E0224' '4A9F98B901A5.pas.ms.script' // LeafCount
+ ;
+ : Implementor ME_4901FD0A034A // TnsCutToLeafFilter
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "UseNewGen" 'undefined'
+ CONST "pm" true
+ref; // ME_4901F74E0224_ME_4901FD0A034A LeafCount
+
+: ME_4901FD0A034A
+ CONST UID '4901FD0A034A'
+ CONST Name 'TnsCutToLeafFilter'
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Коллеги, это что?' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4ACF3E400050 // BaseSearch
+ ;
+ : Inherits
+   Seq: ( WL 'ME_46780E690001' '47913B47006E.pas.ms.script' // Tl3CacheableBase
+ )
+ ; // Inherits
+ : Implements
+   Seq: ( WL 'ME_4901F73E01D0' '4A9F98B901A5.pas.ms.script' // InsCutToLeafFilter
+ )
+ ; // Implements
+ : Attributes
+   Seq: ( ME_4901FDA10273 // f_LeafCount
+ )
+ ; // Attributes
+ : Operations
+   Seq: ( ME_4901FD3E03AD // Create
+ ME_4901FD4B00E8 // Make
+ )
+ ; // Operations
+ : Implemented
+   Seq: ( ME_4901F74E0224_ME_4901FD0A034A // LeafCount
+ )
+ ; // Implemented
+ CONST "UseNewGen" 'undefined'
+ CONST "author" 'Лукьянец Р.В.'
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" true
+ CONST "register in scripts" 'undefined'
+ CONST "started" '2008/06/25 08:04:46'
+ : Generators
+ Seq: (
+ gen_intf.pas
+ )
+ ; // Generators
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View'
+ CONST intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\nsCutToLeafFilter.pas'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\View'
+ CONST extprop:pas:UnitName 'nsCutToLeafFilter'
+
+ref; // ME_4901FD0A034A TnsCutToLeafFilter
+
+FORWARD ME_4906D1790319
+
+: ME_4906D3210181
+ CONST UID '4906D3210181'
+ CONST Name 'EPromptTreeNotFound'
+ CONST Class class_Class
+ : Stereotype st_Exception ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Подсказки не найдены' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4906D1790319 // TnsBaseSearchPromptTreeBase
+ ;
+ : Inherits
+   Seq: ( WL 'ME_4787A405013D' '4AB0C3C60310.pas.ms.script' // Exception
+ )
+ ; // Inherits
+ CONST "UseNewGen" 'undefined'
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\View'
+
+ref; // ME_4906D3210181 EPromptTreeNotFound
+
+FORWARD ME_4906D35400AD
+
+: ME_4906D361037F
+ CONST UID '4906D361037F'
+ CONST Name 'c_CutCount'
+ CONST Class class_Attribute
+ %SUMMARY 'Коллеги, это что?' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_4906D35400AD // Constants
+ ;
+ CONST Value 7
+ CONST "AutoInc" false
+ CONST "UseNewGen" 'undefined'
+ CONST "forced type" 'none'
+ CONST "is define" false
+ CONST extprop:pas:Value 7
+
+ref; // ME_4906D361037F c_CutCount
+
+: ME_4906D35400AD
+ CONST UID '4906D35400AD'
+ CONST Name 'Constants'
+ CONST Class class_Class
+ : Stereotype st_Constants ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Внутрение константы' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ : Parent ME_4906D1790319 // TnsBaseSearchPromptTreeBase
+ ;
+ : Attributes
+   Seq: ( ME_4906D361037F // c_CutCount
+ )
+ ; // Attributes
+ CONST "UseNewGen" 'undefined'
+ CONST "spell names" false
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\View'
+
+ref; // ME_4906D35400AD Constants
+
+FORWARD ME_52B1DD5901CE
+
+FORWARD ME_555DAC3101FD
+
+: ME_555DC79901D3
+ CONST UID '555DC79901D3'
+ CONST Name 'aText'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_555DC79901D3 aText
+
+: ME_555DC79901F1
+ CONST UID '555DC79901F1'
+ CONST Name 'aDoc'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_555DC79901F1 aDoc
+
+: ME_555DC78401EF
+ CONST UID '555DC78401EF'
+ CONST Name 'Log'
+ CONST Class class_Operation
+ : Stereotype st_static::Operation ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_555DAC3101FD // TnsOpenDocumentFromBaseSearchPromptEvent
+ ;
+ : Parameters
+   Seq: ( ME_555DC79901D3 // aText
+ ME_555DC79901F1 // aDoc
+ )
+ ; // Parameters
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_555DC78401EF Log
+
+: ME_555DAF070298
+ CONST UID '555DAF070298'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_555DAC3101FD // TnsOpenDocumentFromBaseSearchPromptEvent
+ ;
+ : Target WL 'ME_45ED58FF0201' '45ED58CF03E6.pas.ms.script' // LogEvent
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_555DAF070298 
+
+: ME_555DAC3101FD
+ CONST UID '555DAC3101FD'
+ CONST Name 'TnsOpenDocumentFromBaseSearchPromptEvent'
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_52B1DD5901CE // TnsBaseSearchPromptRoot
+ ;
+ : Inherits
+   Seq: ( WL 'ME_4B0A6109010C' '4B0A60DF01F2.pas.ms.script' // TnsLogEvent
+ )
+ ; // Inherits
+ : Operations
+   Seq: ( ME_555DC78401EF // Log
+ )
+ ; // Operations
+ : Dependencies
+   Seq: ( ME_555DAF070298 // 
+ )
+ ; // Dependencies
+ CONST "UseNewGen" 'undefined'
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\View'
+
+ref; // ME_555DAC3101FD TnsOpenDocumentFromBaseSearchPromptEvent
+
+: ME_52B1DDA402C8
+ CONST UID '52B1DDA402C8'
+ CONST Name 'Para'
+ CONST Class class_Attribute
+ : Stereotype st_readonly::Attribute ;
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_agr
+ : Parent ME_52B1DD5901CE // TnsBaseSearchPromptRoot
+ ;
+ : Target WL 'ME_534572370056' '47913B47006E.pas.ms.script' // Tl3Tag
+ ;
+ CONST "UseNewGen" 'undefined'
+ CONST "needs field" true
+ CONST "pm" true
+
+ref; // ME_52B1DDA402C8 Para
+
+: ME_52B9848003C4
+ CONST UID '52B9848003C4'
+ CONST Name 'f_Doc'
+ CONST Class class_Attribute
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_52B1DD5901CE // TnsBaseSearchPromptRoot
+ ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_52B9848003C4 f_Doc
+
+: ME_52B984890049
+ CONST UID '52B984890049'
+ CONST Name 'f_Sub'
+ CONST Class class_Attribute
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_52B1DD5901CE // TnsBaseSearchPromptRoot
+ ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_52B984890049 f_Sub
+
+: ME_555DD76D0011
+ CONST UID '555DD76D0011'
+ CONST Name 'f_Text'
+ CONST Class class_Attribute
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_52B1DD5901CE // TnsBaseSearchPromptRoot
+ ;
+ : Target WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_555DD76D0011 f_Text
+
+: ME_970C21DE0D78
+ CONST UID '970C21DE0D78'
+ CONST Name 'f_Para'
+ CONST IsSummoned true
+ CONST Class class_Attribute
+ %SUMMARY 'Поле для свойства Para' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_ref
+ : Parent ME_52B1DD5901CE // TnsBaseSearchPromptRoot
+ ;
+ : Target WL 'ME_534572370056' '47913B47006E.pas.ms.script' // Tl3Tag
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_970C21DE0D78 f_Para
+
+: ME_52B1DFA200B4
+ CONST UID '52B1DFA200B4'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_52B1DD5901CE // TnsBaseSearchPromptRoot
+ ;
+ : Target WL 'ME_4E2412DF02EA' '4E24128E002C.pas.ms.script' // TevNodePainter
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_52B1DFA200B4 
+
+: ME_52B1DFA402A7
+ CONST UID '52B1DFA402A7'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_52B1DD5901CE // TnsBaseSearchPromptRoot
+ ;
+ : Target WL 'ME_47AB1FDE03E4' '47913B47006E.pas.ms.script' // l3Memory
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_52B1DFA402A7 
+
+: ME_52B1DFA60339
+ CONST UID '52B1DFA60339'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_52B1DD5901CE // TnsBaseSearchPromptRoot
+ ;
+ : Target WL 'ME_47A080670100' '47913B47006E.pas.ms.script' // l3Stream
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_52B1DFA60339 
+
+: ME_52B1DFA90072
+ CONST UID '52B1DFA90072'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_52B1DD5901CE // TnsBaseSearchPromptRoot
+ ;
+ : Target WL 'ME_4D6BB1E0012D' '482D6E13011F.pas.ms.script' // TevCustomWikiReader
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_52B1DFA90072 
+
+: ME_52B1DFAB006A
+ CONST UID '52B1DFAB006A'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_52B1DD5901CE // TnsBaseSearchPromptRoot
+ ;
+ : Target WL 'ME_476BFDB0033D' '467C0CAA02AB.pas.ms.script' // Il3NodePainter
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_52B1DFAB006A 
+
+: ME_52B1DFAD01DC
+ CONST UID '52B1DFAD01DC'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_52B1DD5901CE // TnsBaseSearchPromptRoot
+ ;
+ : Target WL 'ME_47ECA82403AC' '47ECA80B000D.pas.ms.script' // Tk2DocumentBuffer
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_52B1DFAD01DC 
+
+: ME_52B33BAD0002
+ CONST UID '52B33BAD0002'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_52B1DD5901CE // TnsBaseSearchPromptRoot
+ ;
+ : Target WL 'ME_46780D0003AF' '4677FBA70343.pas.ms.script' // Tl3WString
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_52B33BAD0002 
+
+: ME_52B46BD201BF
+ CONST UID '52B46BD201BF'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_52B1DD5901CE // TnsBaseSearchPromptRoot
+ ;
+ : Target WL 'ME_47C69EBC00A8' '47AC75550330.pas.ms.script' // Tk2TagID
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_52B46BD201BF 
+
+: ME_52B46BFE030B
+ CONST UID '52B46BFE030B'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_52B1DD5901CE // TnsBaseSearchPromptRoot
+ ;
+ : Target WL 'ME_4860FD880077' '48492FC0029D.pas.ms.script' // TextStyle
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_52B46BFE030B 
+
+: ME_52B46C6B0133
+ CONST UID '52B46C6B0133'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_52B1DD5901CE // TnsBaseSearchPromptRoot
+ ;
+ : Target WL 'ME_484CDAC302F7' '469D0AC7005E.pas.ms.script' // Sub Layers
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_52B46C6B0133 
+
+: ME_52B46C9A0336
+ CONST UID '52B46C9A0336'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_52B1DD5901CE // TnsBaseSearchPromptRoot
+ ;
+ : Target WL 'ME_47AC7BD90281' '47AC7B760263.pas.ms.script' // Tag Consts
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_52B46C9A0336 
+
+: ME_52B9771F0004
+ CONST UID '52B9771F0004'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_52B1DD5901CE // TnsBaseSearchPromptRoot
+ ;
+ : Target WL 'ME_4BA763B0004B' '47F2170002B2.pas.ms.script' // bsTypesNew
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_52B9771F0004 
+
+: ME_52B977210390
+ CONST UID '52B977210390'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_52B1DD5901CE // TnsBaseSearchPromptRoot
+ ;
+ : Target WL 'ME_490C47C70210' '48F747EC0073.pas.ms.script' // nsUtils
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_52B977210390 
+
+: ME_53C8016102E2
+ CONST UID '53C8016102E2'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_52B1DD5901CE // TnsBaseSearchPromptRoot
+ ;
+ : Target WL 'ME_47F25BC801DB' '47D0E1500033.pas.ms.script' // vcmBase
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_53C8016102E2 
+
+: ME_52B9761F024B_ME_52B1DD5901CE
+ CONST UID '52B9761F024B'
+ CONST Name 'OpenDocument'
+ : Original WL 'ME_52B9761F024B' '490838E10313.pas.ms.script' // OpenDocument
+ ;
+ : Implementor ME_52B1DD5901CE // TnsBaseSearchPromptRoot
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "UseNewGen" 'undefined'
+ref; // ME_52B9761F024B_ME_52B1DD5901CE OpenDocument
+
+: ME_52B977E30154_ME_52B1DD5901CE
+ CONST UID '52B977E30154'
+ CONST Name 'IsLinkOnDocument'
+ : Original WL 'ME_52B977E30154' '490838E10313.pas.ms.script' // IsLinkOnDocument
+ ;
+ : Implementor ME_52B1DD5901CE // TnsBaseSearchPromptRoot
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "UseNewGen" 'undefined'
+ref; // ME_52B977E30154_ME_52B1DD5901CE IsLinkOnDocument
+
+: ME_479731C50290_ME_52B1DD5901CE
+ CONST UID '479731C50290'
+ CONST Name 'Cleanup'
+ : Original WL 'ME_479731C50290' '51612EBB02F5.pas.ms.script' // Cleanup
+ ;
+ : Implementor ME_52B1DD5901CE // TnsBaseSearchPromptRoot
+ ;
+ CONST OpKind opkind_Overridden
+ CONST "UseNewGen" 'undefined'
+ref; // ME_479731C50290_ME_52B1DD5901CE Cleanup
+
+: ME_4A60B23E00C3_ME_52B1DD5901CE
+ CONST UID '4A60B23E00C3'
+ CONST Name 'COMQueryInterface'
+ : Original WL 'ME_4A60B23E00C3' '47BB24D30205.pas.ms.script' // COMQueryInterface
+ ;
+ : Implementor ME_52B1DD5901CE // TnsBaseSearchPromptRoot
+ ;
+ CONST OpKind opkind_Overridden
+ CONST "UseNewGen" 'undefined'
+ref; // ME_4A60B23E00C3_ME_52B1DD5901CE COMQueryInterface
+
+: ME_52B1DD5901CE
+ CONST UID '52B1DD5901CE'
+ CONST Name 'TnsBaseSearchPromptRoot'
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4906D1790319 // TnsBaseSearchPromptTreeBase
+ ;
+ : Inherits
+   Seq: ( WL 'ME_468275200341' '48FD8B2702F6.pas.ms.script' // TnsINodeRootWrap
+ )
+ ; // Inherits
+ : Implements
+   Seq: ( WL 'ME_52B333A8015C' '490838E10313.pas.ms.script' // InscBaseSearchPromptNode
+ )
+ ; // Implements
+ : Attributes
+   Seq: ( ME_52B1DDA402C8 // Para
+ ME_52B9848003C4 // f_Doc
+ ME_52B984890049 // f_Sub
+ ME_555DD76D0011 // f_Text
+ ME_970C21DE0D78 // f_Para
+ )
+ ; // Attributes
+ : Implemented
+   Seq: ( ME_52B9761F024B_ME_52B1DD5901CE // OpenDocument
+ ME_52B977E30154_ME_52B1DD5901CE // IsLinkOnDocument
+ )
+ ; // Implemented
+ : Overridden
+   Seq: ( ME_479731C50290_ME_52B1DD5901CE // Cleanup
+ ME_4A60B23E00C3_ME_52B1DD5901CE // COMQueryInterface
+ )
+ ; // Overridden
+ : Children
+   Seq: ( ME_555DAC3101FD // TnsOpenDocumentFromBaseSearchPromptEvent
+ )
+ ; // Children
+ : Dependencies
+   Seq: ( ME_52B1DFA200B4 // 
+ ME_52B1DFA402A7 // 
+ ME_52B1DFA60339 // 
+ ME_52B1DFA90072 // 
+ ME_52B1DFAB006A // 
+ ME_52B1DFAD01DC // 
+ ME_52B33BAD0002 // 
+ ME_52B46BD201BF // 
+ ME_52B46BFE030B // 
+ ME_52B46C6B0133 // 
+ ME_52B46C9A0336 // 
+ ME_52B9771F0004 // 
+ ME_52B977210390 // 
+ ME_53C8016102E2 // 
+ )
+ ; // Dependencies
+ CONST "UseNewGen" 'undefined'
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\View'
+
+ref; // ME_52B1DD5901CE TnsBaseSearchPromptRoot
+
+: ME_4906D20B0185
+ CONST UID '4906D20B0185'
+ CONST Name 'Create'
+ CONST Class class_Operation
+ : Stereotype st_ctor::Operation ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_4906D1790319 // TnsBaseSearchPromptTreeBase
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_4906D20B0185 Create
+
+: ME_4906D21E035B
+ CONST UID '4906D21E035B'
+ CONST Name 'Make'
+ CONST Class class_Operation
+ : Stereotype st_static::Operation ;
+ %SUMMARY 'Создаёт дерево подсказок' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_4906D1790319 // TnsBaseSearchPromptTreeBase
+ ;
+ : Target WL 'ME_46825CC00249' '4682595B0268.pas.ms.script' // Il3SimpleTree
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_4906D21E035B Make
+
+: ME_4906D3AC02FA
+ CONST UID '4906D3AC02FA'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4906D1790319 // TnsBaseSearchPromptTreeBase
+ ;
+ : Target WL 'ME_48FF556602BA' '48F747EC0073.pas.ms.script' // DataAdapter
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_4906D3AC02FA 
+
+FORWARD ME_4906D40F0363
+
+: ME_4906D4340317
+ CONST UID '4906D4340317'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4906D1790319 // TnsBaseSearchPromptTreeBase
+ ;
+ : Target ME_4906D40F0363 // TnsPromptContextFilterParams
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_4906D4340317 
+
+: ME_4906D4990233
+ CONST UID '4906D4990233'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4906D1790319 // TnsBaseSearchPromptTreeBase
+ ;
+ : Target ME_4901FC9F0096 // TnsBaseSearchPromptFilters
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_4906D4990233 
+
+: ME_4906D4C4037B
+ CONST UID '4906D4C4037B'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4906D1790319 // TnsBaseSearchPromptTreeBase
+ ;
+ : Target WL 'ME_47877EB202FB' '4AB0C3C60310.pas.ms.script' // SysUtils
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_4906D4C4037B 
+
+: ME_4906D5CB01B8
+ CONST UID '4906D5CB01B8'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4906D1790319 // TnsBaseSearchPromptTreeBase
+ ;
+ : Target ME_4901FD0A034A // TnsCutToLeafFilter
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_4906D5CB01B8 
+
+: ME_4906D64602E0
+ CONST UID '4906D64602E0'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4906D1790319 // TnsBaseSearchPromptTreeBase
+ ;
+ : Target WL 'ME_48FF569700F6' '47F2170002B2.pas.ms.script' // StringRoutines
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_4906D64602E0 
+
+: ME_4906D67D0277
+ CONST UID '4906D67D0277'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4906D1790319 // TnsBaseSearchPromptTreeBase
+ ;
+ : Target WL 'ME_47FB50E4008E' '48F747EC0073.pas.ms.script' // nsConst
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_4906D67D0277 
+
+: ME_4906D6B60389
+ CONST UID '4906D6B60389'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4906D1790319 // TnsBaseSearchPromptTreeBase
+ ;
+ : Target WL 'ME_456EB454018E' '456EA56002BF.pas.ms.script' // CanNotFindData
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_4906D6B60389 
+
+: ME_4AA4D7550387
+ CONST UID '4AA4D7550387'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4906D1790319 // TnsBaseSearchPromptTreeBase
+ ;
+ : Target ME_4AA4D6CF02A9 // TnsPromptForDocFilter
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_4AA4D7550387 
+
+: ME_4ACF459E00AF
+ CONST UID '4ACF459E00AF'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4906D1790319 // TnsBaseSearchPromptTreeBase
+ ;
+ : Target WL 'ME_4901F75A0378' '4A9F98B901A5.pas.ms.script' // InsBaseSearchPromptFilters
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_4ACF459E00AF 
+
+: ME_48FF64F60078_ME_4906D1790319
+ CONST UID '48FF64F60078'
+ CONST Name 'ReAqurieUnfilteredRoot'
+ : Original WL 'ME_48FF64F60078' '48FD8B2702F6.pas.ms.script' // ReAqurieUnfilteredRoot
+ ;
+ : Implementor ME_4906D1790319 // TnsBaseSearchPromptTreeBase
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "UseNewGen" 'undefined'
+ref; // ME_48FF64F60078_ME_4906D1790319 ReAqurieUnfilteredRoot
+
+: ME_48FEE3640227_ME_4906D1790319
+ CONST UID '48FEE3640227'
+ CONST Name 'RootNodeClass'
+ : Original WL 'ME_48FEE3640227' '48FD8B2702F6.pas.ms.script' // RootNodeClass
+ ;
+ : Implementor ME_4906D1790319 // TnsBaseSearchPromptTreeBase
+ ;
+ CONST OpKind opkind_Overridden
+ CONST "UseNewGen" 'undefined'
+ref; // ME_48FEE3640227_ME_4906D1790319 RootNodeClass
+
+: ME_48FF4C25031E_ME_4906D1790319
+ CONST UID '48FF4C25031E'
+ CONST Name 'MakeFilters'
+ : Original WL 'ME_48FF4C25031E' '48FD8B2702F6.pas.ms.script' // MakeFilters
+ ;
+ : Implementor ME_4906D1790319 // TnsBaseSearchPromptTreeBase
+ ;
+ CONST OpKind opkind_Overridden
+ CONST "UseNewGen" 'undefined'
+ref; // ME_48FF4C25031E_ME_4906D1790319 MakeFilters
+
+: ME_48FF520E03A0_ME_4906D1790319
+ CONST UID '48FF520E03A0'
+ CONST Name 'FillFilters'
+ : Original WL 'ME_48FF520E03A0' '48FD8B2702F6.pas.ms.script' // FillFilters
+ ;
+ : Implementor ME_4906D1790319 // TnsBaseSearchPromptTreeBase
+ ;
+ CONST OpKind opkind_Overridden
+ CONST "UseNewGen" 'undefined'
+ref; // ME_48FF520E03A0_ME_4906D1790319 FillFilters
+
+: ME_48FF52670038_ME_4906D1790319
+ CONST UID '48FF52670038'
+ CONST Name 'MakeContextFilterParams'
+ : Original WL 'ME_48FF52670038' '48FD8B2702F6.pas.ms.script' // MakeContextFilterParams
+ ;
+ : Implementor ME_4906D1790319 // TnsBaseSearchPromptTreeBase
+ ;
+ CONST OpKind opkind_Overridden
+ CONST "UseNewGen" 'undefined'
+ref; // ME_48FF52670038_ME_4906D1790319 MakeContextFilterParams
+
+: ME_4906D1790319
+ CONST UID '4906D1790319'
+ CONST Name 'TnsBaseSearchPromptTreeBase'
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Дерево подсказок для БП' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4ACF3E400050 // BaseSearch
+ ;
+ : Inherits
+   Seq: ( WL 'ME_468361010204' '48FD8B2702F6.pas.ms.script' // TnsDataResetTreeStruct
+ )
+ ; // Inherits
+ : Operations
+   Seq: ( ME_4906D20B0185 // Create
+ ME_4906D21E035B // Make
+ )
+ ; // Operations
+ : Implemented
+   Seq: ( ME_48FF64F60078_ME_4906D1790319 // ReAqurieUnfilteredRoot
+ )
+ ; // Implemented
+ : Overridden
+   Seq: ( ME_48FEE3640227_ME_4906D1790319 // RootNodeClass
+ ME_48FF4C25031E_ME_4906D1790319 // MakeFilters
+ ME_48FF520E03A0_ME_4906D1790319 // FillFilters
+ ME_48FF52670038_ME_4906D1790319 // MakeContextFilterParams
+ )
+ ; // Overridden
+ : Children
+   Seq: ( ME_4906D3210181 // EPromptTreeNotFound
+ ME_52B1DD5901CE // TnsBaseSearchPromptRoot
+ )
+ ; // Children
+ : Constants
+   Seq: ( ME_4906D35400AD // Constants
+ )
+ ; // Constants
+ : Dependencies
+   Seq: ( ME_4906D3AC02FA // 
+ ME_4906D4340317 // 
+ ME_4906D4990233 // 
+ ME_4906D4C4037B // 
+ ME_4906D5CB01B8 // 
+ ME_4906D64602E0 // 
+ ME_4906D67D0277 // 
+ ME_4906D6B60389 // 
+ ME_4AA4D7550387 // 
+ ME_4ACF459E00AF // 
+ )
+ ; // Dependencies
+ CONST "UseNewGen" 'undefined'
+ CONST "author" 'Лукьянец Р.В.'
+ CONST "ifndef" 'Admin,Monitorings'
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" true
+ CONST "register in scripts" 'undefined'
+ CONST "started" '2008/06/25 08:04:46'
+ : Generators
+ Seq: (
+ gen_intf.pas
+ )
+ ; // Generators
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View'
+ CONST intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\nsBaseSearchPromptTreeBase.pas'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\View'
+ CONST extprop:pas:UnitName 'nsBaseSearchPromptTreeBase'
+
+ref; // ME_4906D1790319 TnsBaseSearchPromptTreeBase
+
+FORWARD ME_4906D9DE02FA
+
+: ME_4906DA290069
+ CONST UID '4906DA290069'
+ CONST Name 'Make'
+ CONST Class class_Operation
+ : Stereotype st_factory::Operation ;
+ %SUMMARY 'Создаёт дерево подсказок' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_4906D9DE02FA // TnsBaseSearchPromptTree
+ ;
+ : Target WL 'ME_46825CC00249' '4682595B0268.pas.ms.script' // Il3SimpleTree
+ ;
+ CONST "UseNewGen" 'undefined'
+ CONST "check nil" false
+ CONST "need AfterCreate" 'undefined'
+ CONST "need Aggregate" 'undefined'
+ CONST "need As" false
+
+ref; // ME_4906DA290069 Make
+
+: ME_9BFA8BFFFD05
+ CONST UID '9BFA8BFFFD05'
+ CONST Name 'Exists'
+ CONST IsSummoned true
+ CONST Class class_Operation
+ : Stereotype st_static::Operation ;
+ %SUMMARY 'Проверяет создан экземпляр синглетона или нет' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_4906D9DE02FA // TnsBaseSearchPromptTree
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+ CONST "UseNewGen" 'undefined'
+ CONST extprop:pas:Value false
+
+ref; // ME_9BFA8BFFFD05 Exists
+
+: ME_4906D9DE02FA
+ CONST UID '4906D9DE02FA'
+ CONST Name 'TnsBaseSearchPromptTree'
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Дерево подсказок. Синглетон' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4ACF3E400050 // BaseSearch
+ ;
+ : Inherits
+   Seq: ( ME_4906D1790319 // TnsBaseSearchPromptTreeBase
+ )
+ ; // Inherits
+ : Operations
+   Seq: ( ME_4906DA290069 // Make
+ ME_9BFA8BFFFD05 // Exists
+ )
+ ; // Operations
+ CONST "UseNewGen" 'undefined'
+ CONST "author" 'Лукьянец Р.В.'
+ CONST "ifndef" 'Admin,Monitorings'
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" true
+ CONST "register in scripts" 'undefined'
+ CONST "singleton" true
+ CONST "started" '2008/06/25 08:04:46'
+ : Generators
+ Seq: (
+ gen_intf.pas
+ )
+ ; // Generators
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View'
+ CONST intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\nsBaseSearchPromptTree.pas'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\View'
+ CONST extprop:pas:UnitName 'nsBaseSearchPromptTree'
+
+ref; // ME_4906D9DE02FA TnsBaseSearchPromptTree
+
+: ME_49089F94017B
+ CONST UID '49089F94017B'
+ CONST Name 'f_Subscribers'
+ CONST Class class_Attribute
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_4906D40F0363 // TnsPromptContextFilterParams
+ ;
+ : Target WL 'ME_49089895038A' '48FD8B2702F6.pas.ms.script' // TIl3ContextFilterParamsNotifierPtrList
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_49089F94017B f_Subscribers
+
+: ME_49089FE50092
+ CONST UID '49089FE50092'
+ CONST Name 'Make'
+ CONST Class class_Operation
+ : Stereotype st_factory::Operation ;
+ %SUMMARY 'Создаёт дерево' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_4906D40F0363 // TnsPromptContextFilterParams
+ ;
+ : Target WL 'ME_47724E7F0261' '4682595B0268.pas.ms.script' // Il3ContextFilterParams
+ ;
+ CONST "UseNewGen" 'undefined'
+ CONST "check nil" false
+ CONST "need AfterCreate" 'undefined'
+ CONST "need Aggregate" 'undefined'
+ CONST "need As" false
+
+ref; // ME_49089FE50092 Make
+
+: ME_49089FF80356
+ CONST UID '49089FF80356'
+ CONST Name 'NotifySubscribers'
+ CONST Class class_Operation
+ %SUMMARY 'Уведомляет подписчиков, о чём?' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_4906D40F0363 // TnsPromptContextFilterParams
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_49089FF80356 NotifySubscribers
+
+: ME_4908A015007F
+ CONST UID '4908A015007F'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4906D40F0363 // TnsPromptContextFilterParams
+ ;
+ : Target WL 'ME_47877EB202FB' '4AB0C3C60310.pas.ms.script' // SysUtils
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_4908A015007F 
+
+: ME_47724E930100_ME_4906D40F0363
+ CONST UID '47724E930100'
+ CONST Name 'WordPosition'
+ : Original WL 'ME_47724E930100' '4682595B0268.pas.ms.script' // WordPosition
+ ;
+ : Implementor ME_4906D40F0363 // TnsPromptContextFilterParams
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "UseNewGen" 'undefined'
+ref; // ME_47724E930100_ME_4906D40F0363 WordPosition
+
+: ME_47724E9D014D_ME_4906D40F0363
+ CONST UID '47724E9D014D'
+ CONST Name 'WordOrder'
+ : Original WL 'ME_47724E9D014D' '4682595B0268.pas.ms.script' // WordOrder
+ ;
+ : Implementor ME_4906D40F0363 // TnsPromptContextFilterParams
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "UseNewGen" 'undefined'
+ref; // ME_47724E9D014D_ME_4906D40F0363 WordOrder
+
+: ME_47724EA70354_ME_4906D40F0363
+ CONST UID '47724EA70354'
+ CONST Name 'TreeLevelDist'
+ : Original WL 'ME_47724EA70354' '4682595B0268.pas.ms.script' // TreeLevelDist
+ ;
+ : Implementor ME_4906D40F0363 // TnsPromptContextFilterParams
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "UseNewGen" 'undefined'
+ref; // ME_47724EA70354_ME_4906D40F0363 TreeLevelDist
+
+: ME_47724F120028_ME_4906D40F0363
+ CONST UID '47724F120028'
+ CONST Name 'Subscribe'
+ : Original WL 'ME_47724F120028' '4682595B0268.pas.ms.script' // Subscribe
+ ;
+ : Implementor ME_4906D40F0363 // TnsPromptContextFilterParams
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "UseNewGen" 'undefined'
+ref; // ME_47724F120028_ME_4906D40F0363 Subscribe
+
+: ME_47724F1E0180_ME_4906D40F0363
+ CONST UID '47724F1E0180'
+ CONST Name 'UnSubscribe'
+ : Original WL 'ME_47724F1E0180' '4682595B0268.pas.ms.script' // UnSubscribe
+ ;
+ : Implementor ME_4906D40F0363 // TnsPromptContextFilterParams
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "UseNewGen" 'undefined'
+ref; // ME_47724F1E0180_ME_4906D40F0363 UnSubscribe
+
+: ME_479731C50290_ME_4906D40F0363
+ CONST UID '479731C50290'
+ CONST Name 'Cleanup'
+ : Original WL 'ME_479731C50290' '51612EBB02F5.pas.ms.script' // Cleanup
+ ;
+ : Implementor ME_4906D40F0363 // TnsPromptContextFilterParams
+ ;
+ CONST OpKind opkind_Overridden
+ CONST "UseNewGen" 'undefined'
+ref; // ME_479731C50290_ME_4906D40F0363 Cleanup
+
+: ME_4906D40F0363
+ CONST UID '4906D40F0363'
+ CONST Name 'TnsPromptContextFilterParams'
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Коллеги, это что?' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4ACF3E400050 // BaseSearch
+ ;
+ : Inherits
+   Seq: ( WL 'ME_46780E690001' '47913B47006E.pas.ms.script' // Tl3CacheableBase
+ )
+ ; // Inherits
+ : Implements
+   Seq: ( WL 'ME_46835CB60115' '4682595B0268.pas.ms.script' // Il3ContextFilterParamsNotifySource
+ WL 'ME_47724E7F0261' '4682595B0268.pas.ms.script' // Il3ContextFilterParams
+ )
+ ; // Implements
+ : Attributes
+   Seq: ( ME_49089F94017B // f_Subscribers
+ )
+ ; // Attributes
+ : Operations
+   Seq: ( ME_49089FE50092 // Make
+ ME_49089FF80356 // NotifySubscribers
+ )
+ ; // Operations
+ : Implemented
+   Seq: ( ME_47724E930100_ME_4906D40F0363 // WordPosition
+ ME_47724E9D014D_ME_4906D40F0363 // WordOrder
+ ME_47724EA70354_ME_4906D40F0363 // TreeLevelDist
+ ME_47724F120028_ME_4906D40F0363 // Subscribe
+ ME_47724F1E0180_ME_4906D40F0363 // UnSubscribe
+ )
+ ; // Implemented
+ : Overridden
+   Seq: ( ME_479731C50290_ME_4906D40F0363 // Cleanup
+ )
+ ; // Overridden
+ : Dependencies
+   Seq: ( ME_4908A015007F // 
+ )
+ ; // Dependencies
+ CONST "UseNewGen" 'undefined'
+ CONST "author" 'Лукьянец Р.В.'
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" true
+ CONST "register in scripts" 'undefined'
+ CONST "started" '2008/06/25 08:04:46'
+ : Generators
+ Seq: (
+ gen_intf.pas
+ )
+ ; // Generators
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View'
+ CONST intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\nsPromptContextFilterParams.pas'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\View'
+ CONST extprop:pas:UnitName 'nsPromptContextFilterParams'
+
+ref; // ME_4906D40F0363 TnsPromptContextFilterParams
+
+: ME_4ACF3E400050
+ CONST UID '4ACF3E400050'
+ CONST Name 'BaseSearch'
+ CONST Class class_Category
+ : Stereotype st_Unit ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent WL 'ME_4A78013D01CD' '4A78013D01CD.pas.ms.script' // View$For F1 and Monitorings
+ ;
+ : Children
+   Seq: ( ME_4901FC9F0096 // TnsBaseSearchPromptFilters
+ ME_4AA4D6CF02A9 // TnsPromptForDocFilter
+ ME_4901FD0A034A // TnsCutToLeafFilter
+ ME_4906D1790319 // TnsBaseSearchPromptTreeBase
+ ME_4906D9DE02FA // TnsBaseSearchPromptTree
+ ME_4906D40F0363 // TnsPromptContextFilterParams
+ )
+ ; // Children
+ : Depends
+   Seq: ( WL 'ME_456EA56002BF' '456EA56002BF.pas.ms.script' // BaseTypes
+ WL 'ME_45ED58CF03E6' '45ED58CF03E6.pas.ms.script' // Logging
+ WL 'ME_4677FBA70343' '4677FBA70343.pas.ms.script' // l3Interfaces
+ WL 'ME_4678137501EA' '4678137501EA.pas.ms.script' // k2Interfaces
+ WL 'ME_4678193C009C' '4678193C009C.pas.ms.script' // l3Types
+ WL 'ME_467823B7002C' '467823B7002C.pas.ms.script' // afwInterfaces
+ WL 'ME_467BAB7F021E' '467BAB7F021E.pas.ms.script' // vcmExternalInterfaces
+ WL 'ME_467C0CAA02AB' '467C0CAA02AB.pas.ms.script' // l3InternalInterfaces
+ WL 'ME_4682595B0268' '4682595B0268.pas.ms.script' // l3TreeInterfaces
+ WL 'ME_469D0AC7005E' '469D0AC7005E.pas.ms.script' // Types
+ WL 'ME_47750CE700D0' '47750CE700D0.pas.ms.script' // afwFacade
+ WL 'ME_47913B47006E' '47913B47006E.pas.ms.script' // l3CoreObjects
+ WL 'ME_47AC75550330' '47AC75550330.pas.ms.script' // k2Tags
+ WL 'ME_47AC7B760263' '47AC7B760263.pas.ms.script' // k2Const
+ WL 'ME_47D0E1500033' '47D0E1500033.pas.ms.script' // Implementation
+ WL 'ME_47E246C90144' '47E246C90144.pas.ms.script' // l3Trees
+ WL 'ME_47ECA80B000D' '47ECA80B000D.pas.ms.script' // Generators
+ WL 'ME_47F2170002B2' '47F2170002B2.pas.ms.script' // nsTypes
+ WL 'ME_482D6E13011F' '482D6E13011F.pas.ms.script' // Readers
+ WL 'ME_48492FC0029D' '48492FC0029D.pas.ms.script' // Standard
+ WL 'ME_48F747EC0073' '48F747EC0073.pas.ms.script' // Common
+ WL 'ME_48FD8B2702F6' '48FD8B2702F6.pas.ms.script' // Tree
+ WL 'ME_490838E10313' '490838E10313.pas.ms.script' // nscNewInterfaces
+ WL 'ME_4A9F98B901A5' '4A9F98B901A5.pas.ms.script' // BaseSearchInterfaces
+ WL 'ME_4AB0C3C60310' '4AB0C3C60310.pas.ms.script' // Sys
+ WL 'ME_4B0A60DF01F2' '4B0A60DF01F2.pas.ms.script' // Logging
+ WL 'ME_4E24128E002C' '4E24128E002C.pas.ms.script' // PaintedNode
+ WL 'ME_54F9F6FB0143' '54F9F6FB0143.pas.ms.script' // ContextHistoryInterfaces
+ )
+ ; // Depends
+ CONST "UseNewGen" 'undefined'
+ : Generators
+ Seq: (
+ gen_pas.script
+ gen_pas.script.runner
+ )
+ ; // Generators
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View'
+ CONST pas.script:Path 'shared\models\NewSchool\Scripts\4ACF3E400050.pas.ms.script'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\4ACF3E400050.pas.ms.script.runner'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\View'
+
+ref; // ME_4ACF3E400050 BaseSearch

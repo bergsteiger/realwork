@@ -91,6 +91,7 @@ ref; // ME_523839FD00D5
 
 : ME_B92AA6B99808
  CONST UID 'B92AA6B99808'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_52382EB9003F // AppConfigTestMixin
@@ -107,6 +108,7 @@ ref; // ME_B92AA6B99808
  ;
  : Implementor ME_52382EB9003F // AppConfigTestMixin
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_479731C50290_ME_52382EB9003F Cleanup
 
 : ME_52382EB9003F
@@ -120,38 +122,45 @@ ref; // ME_479731C50290_ME_52382EB9003F Cleanup
  : Parent ME_51D52B240123 // AppConfig
  ;
  : Implements
-   @ ( WL 'ME_4A5CB93700CF' '47913B47006E.pas.ms.script' // Ml3Unknown
- ) .SequenceCode.It
+   Seq: ( WL 'ME_4A5CB93700CF' '47913B47006E.pas.ms.script' // Ml3Unknown
+ )
  ; // Implements
  : Attributes
-   @ ( ME_52382FA5035C // f_Config
+   Seq: ( ME_52382FA5035C // f_Config
  ME_52382FBC011A // f_ConfigStorage
- ) .SequenceCode.It
+ )
  ; // Attributes
  : Overridden
-   @ ( ME_479731C50290_ME_52382EB9003F // Cleanup
- ) .SequenceCode.It
+   Seq: ( ME_479731C50290_ME_52382EB9003F // Cleanup
+ )
  ; // Overridden
  : Dependencies
-   @ ( ME_52382F4E03C0 // 
+   Seq: ( ME_52382F4E03C0 // 
  ME_52382F560230 // 
  ME_52382F620118 // 
  ME_52382F6602D7 // 
  ME_523839FD00D5 // 
  ME_B92AA6B99808 // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
  : Generators
- @ (
+ Seq: (
  gen_intf.pas
- ) .SequenceCode.It
+ )
  ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\Daily'
  CONST intf.pas:Path 'common\components\rtl\Garant\Daily\AppConfigTestMixin.imp.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\Daily'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\common\components\rtl\Garant\Daily'
  CONST extprop:pas:TypeName '_AppConfigTestMixin_'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'AppConfigTestMixin.imp'
 
 ref; // ME_52382EB9003F AppConfigTestMixin
 
@@ -203,6 +212,7 @@ ref; // ME_51DA66D20081
 
 : ME_28EA4689EFC1
  CONST UID '28EA4689EFC1'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_51D52B6301DD // TAppConfigBaseTest
@@ -219,6 +229,7 @@ ref; // ME_28EA4689EFC1
  ;
  : Implementor ME_51D52B6301DD // TAppConfigBaseTest
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4C08CF700318_ME_51D52B6301DD FormExtent
 
 : ME_4C08D61F0231_ME_51D52B6301DD
@@ -228,6 +239,7 @@ ref; // ME_4C08CF700318_ME_51D52B6301DD FormExtent
  ;
  : Implementor ME_51D52B6301DD // TAppConfigBaseTest
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4C08D61F0231_ME_51D52B6301DD FormMade
 
 : ME_4C937013031D_ME_51D52B6301DD
@@ -237,6 +249,7 @@ ref; // ME_4C08D61F0231_ME_51D52B6301DD FormMade
  ;
  : Implementor ME_51D52B6301DD // TAppConfigBaseTest
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4C937013031D_ME_51D52B6301DD GetFolder
 
 : ME_4DAED6F60146_ME_51D52B6301DD
@@ -246,6 +259,7 @@ ref; // ME_4C937013031D_ME_51D52B6301DD GetFolder
  ;
  : Implementor ME_51D52B6301DD // TAppConfigBaseTest
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4DAED6F60146_ME_51D52B6301DD GetModelElementGUID
 
 : ME_51D5464D033C_ME_51D52B6301DD
@@ -255,6 +269,7 @@ ref; // ME_4DAED6F60146_ME_51D52B6301DD GetModelElementGUID
  ;
  : Implementor ME_51D52B6301DD // TAppConfigBaseTest
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_51D5464D033C_ME_51D52B6301DD CheckControl
 
 : ME_51D52B6301DD
@@ -269,36 +284,44 @@ ref; // ME_51D5464D033C_ME_51D52B6301DD CheckControl
  : Parent ME_51D52B240123 // AppConfig
  ;
  : Inherits
-   @ ( WL 'ME_51D5285300B7' '51D528280220.pas.ms.script' // TEmptyFormTest
+   Seq: ( WL 'ME_51D5285300B7' '51D528280220.pas.ms.script' // TEmptyFormTest
  ME_52382EB9003F // AppConfigTestMixin
- ) .SequenceCode.It
+ )
  ; // Inherits
  : Overridden
-   @ ( ME_4C08CF700318_ME_51D52B6301DD // FormExtent
+   Seq: ( ME_4C08CF700318_ME_51D52B6301DD // FormExtent
  ME_4C08D61F0231_ME_51D52B6301DD // FormMade
  ME_4C937013031D_ME_51D52B6301DD // GetFolder
  ME_4DAED6F60146_ME_51D52B6301DD // GetModelElementGUID
  ME_51D5464D033C_ME_51D52B6301DD // CheckControl
- ) .SequenceCode.It
+ )
  ; // Overridden
  : Dependencies
-   @ ( ME_51D5599D037C // 
+   Seq: ( ME_51D5599D037C // 
  ME_51DA666A01E6 // 
  ME_51DA66940039 // 
  ME_51DA66D20081 // 
  ME_28EA4689EFC1 // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
  : Generators
- @ (
+ Seq: (
  gen_intf.pas
- ) .SequenceCode.It
+ )
  ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\Daily'
  CONST intf.pas:Path 'common\components\rtl\Garant\Daily\AppConfigBaseTest.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\Daily'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\common\components\rtl\Garant\Daily'
+ CONST extprop:rc:SelfName 'AppConfigBaseTest'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'AppConfigBaseTest'
 
 ref; // ME_51D52B6301DD TAppConfigBaseTest
 
@@ -361,6 +384,7 @@ ref; // ME_523846270351
 
 : ME_3E76C4B8A0D8
  CONST UID '3E76C4B8A0D8'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_523831AC00C6 // LostNodeAppConfigTest
@@ -377,6 +401,7 @@ ref; // ME_3E76C4B8A0D8
  ;
  : Implementor ME_523831AC00C6 // LostNodeAppConfigTest
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_479731C50290_ME_523831AC00C6 Cleanup
 
 : ME_4C08CF700318_ME_523831AC00C6
@@ -386,6 +411,7 @@ ref; // ME_479731C50290_ME_523831AC00C6 Cleanup
  ;
  : Implementor ME_523831AC00C6 // LostNodeAppConfigTest
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4C08CF700318_ME_523831AC00C6 FormExtent
 
 : ME_4C08D61F0231_ME_523831AC00C6
@@ -395,6 +421,7 @@ ref; // ME_4C08CF700318_ME_523831AC00C6 FormExtent
  ;
  : Implementor ME_523831AC00C6 // LostNodeAppConfigTest
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4C08D61F0231_ME_523831AC00C6 FormMade
 
 : ME_4C937013031D_ME_523831AC00C6
@@ -404,6 +431,7 @@ ref; // ME_4C08D61F0231_ME_523831AC00C6 FormMade
  ;
  : Implementor ME_523831AC00C6 // LostNodeAppConfigTest
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4C937013031D_ME_523831AC00C6 GetFolder
 
 : ME_4DAED6F60146_ME_523831AC00C6
@@ -413,6 +441,7 @@ ref; // ME_4C937013031D_ME_523831AC00C6 GetFolder
  ;
  : Implementor ME_523831AC00C6 // LostNodeAppConfigTest
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4DAED6F60146_ME_523831AC00C6 GetModelElementGUID
 
 : ME_51D5464D033C_ME_523831AC00C6
@@ -422,6 +451,7 @@ ref; // ME_4DAED6F60146_ME_523831AC00C6 GetModelElementGUID
  ;
  : Implementor ME_523831AC00C6 // LostNodeAppConfigTest
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_51D5464D033C_ME_523831AC00C6 CheckControl
 
 : ME_523831AC00C6
@@ -435,39 +465,46 @@ ref; // ME_51D5464D033C_ME_523831AC00C6 CheckControl
  : Parent ME_51D52B240123 // AppConfig
  ;
  : Inherits
-   @ ( WL 'ME_51D5285300B7' '51D528280220.pas.ms.script' // TEmptyFormTest
+   Seq: ( WL 'ME_51D5285300B7' '51D528280220.pas.ms.script' // TEmptyFormTest
  ME_52382EB9003F // AppConfigTestMixin
- ) .SequenceCode.It
+ )
  ; // Inherits
  : Overridden
-   @ ( ME_479731C50290_ME_523831AC00C6 // Cleanup
+   Seq: ( ME_479731C50290_ME_523831AC00C6 // Cleanup
  ME_4C08CF700318_ME_523831AC00C6 // FormExtent
  ME_4C08D61F0231_ME_523831AC00C6 // FormMade
  ME_4C937013031D_ME_523831AC00C6 // GetFolder
  ME_4DAED6F60146_ME_523831AC00C6 // GetModelElementGUID
  ME_51D5464D033C_ME_523831AC00C6 // CheckControl
- ) .SequenceCode.It
+ )
  ; // Overridden
  : Dependencies
-   @ ( ME_5238449D0388 // 
+   Seq: ( ME_5238449D0388 // 
  ME_523844BF00F5 // 
  ME_523844CF0374 // 
  ME_52384502008A // 
  ME_523846270351 // 
  ME_3E76C4B8A0D8 // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
  : Generators
- @ (
+ Seq: (
  gen_intf.pas
- ) .SequenceCode.It
+ )
  ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\Daily'
  CONST intf.pas:Path 'common\components\rtl\Garant\Daily\LostNodeAppConfigTest.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\Daily'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\common\components\rtl\Garant\Daily'
  CONST extprop:pas:TypeName 'TLostNodeAppConfigTest'
+ CONST extprop:rc:SelfName 'LostNodeAppConfigTest'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_523831AC00C6 LostNodeAppConfigTest
 
@@ -481,13 +518,13 @@ ref; // ME_523831AC00C6 LostNodeAppConfigTest
  : Parent WL 'ME_4B2A15810261' '4B2A15810261.pas.ms.script' // DailyTest
  ;
  : Children
-   @ ( ME_52382EB9003F // AppConfigTestMixin
+   Seq: ( ME_52382EB9003F // AppConfigTestMixin
  ME_51D52B6301DD // TAppConfigBaseTest
  ME_523831AC00C6 // LostNodeAppConfigTest
- ) .SequenceCode.It
+ )
  ; // Children
  : Depends
-   @ ( WL 'ME_476F78840219' '476F78840219.pas.ms.script' // Messages
+   Seq: ( WL 'ME_476F78840219' '476F78840219.pas.ms.script' // Messages
  WL 'ME_47913B47006E' '47913B47006E.pas.ms.script' // l3CoreObjects
  WL 'ME_4AB0C3C60310' '4AB0C3C60310.pas.ms.script' // Sys
  WL 'ME_4AB0C3F60375' '4AB0C3F60375.pas.ms.script' // Win
@@ -497,15 +534,20 @@ ref; // ME_523831AC00C6 LostNodeAppConfigTest
  WL 'ME_51D518E70109' '51D518E70109.pas.ms.script' // ddConfigStorages
  WL 'ME_51D528280220' '51D528280220.pas.ms.script' // EmptyFormTests
  WL 'ME_51D54BB60329' '51D54BB60329.pas.ms.script' // AppConfigUtils
- ) .SequenceCode.It
+ )
  ; // Depends
  : Generators
- @ (
+ Seq: (
  gen_pas.script
  gen_pas.script.runner
- ) .SequenceCode.It
+ )
  ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\Daily'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\Daily'
  CONST pas.script:Path 'shared\models\NewSchool\Scripts\51D52B240123.pas.ms.script'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
  CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\51D52B240123.pas.ms.script.runner'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\common\components\rtl\Garant\Daily'
 
 ref; // ME_51D52B240123 AppConfig

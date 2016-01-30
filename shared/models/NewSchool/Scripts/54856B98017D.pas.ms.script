@@ -1,0 +1,347 @@
+// CoreExecutors 54856B98017D Unit Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_54856B98017D
+
+FORWARD ME_54748D2A0111
+
+: ME_54748DC603B2
+ CONST UID '54748DC603B2'
+ CONST Name 'TaskList'
+ CONST Class class_Attribute
+ : Stereotype st_readonly::Attribute ;
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_54748D2A0111 // TalcuExecutorWithTaskList
+ ;
+ : Target WL 'ME_52FA3DB401BE' '53A05123034C.pas.ms.script' // TalcuTaskList
+ ;
+ CONST "pm" true
+ CONST "reads field" true
+
+ref; // ME_54748DC603B2 TaskList
+
+: ME_A619678E42BF
+ CONST UID 'A619678E42BF'
+ CONST Name 'f_TaskList'
+ CONST IsSummoned true
+ CONST Class class_Attribute
+ %SUMMARY 'Поле для свойства TaskList' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_ref
+ : Parent ME_54748D2A0111 // TalcuExecutorWithTaskList
+ ;
+ : Target WL 'ME_52FA3DB401BE' '53A05123034C.pas.ms.script' // TalcuTaskList
+ ;
+
+ref; // ME_A619678E42BF f_TaskList
+
+FORWARD ME_5465DA0F0245
+
+: ME_5465DA2A021A
+ CONST UID '5465DA2A021A'
+ CONST Name 'aTaskList'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_52FA3DB401BE' '53A05123034C.pas.ms.script' // TalcuTaskList
+ ;
+
+ref; // ME_5465DA2A021A aTaskList
+
+: ME_5465DA180311
+ CONST UID '5465DA180311'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_5465DA0F0245 // Create
+ ;
+ : Parameters
+   Seq: ( ME_5465DA2A021A // aTaskList
+ )
+ ; // Parameters
+
+ref; // ME_5465DA180311 DoIt
+
+: ME_5465DA0F0245
+ CONST UID '5465DA0F0245'
+ CONST Name 'Create'
+ CONST Class class_Class
+ : Stereotype st_Constructor ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_54748D2A0111 // TalcuExecutorWithTaskList
+ ;
+ : Operations
+   Seq: ( ME_5465DA180311 // DoIt
+ )
+ ; // Operations
+
+ref; // ME_5465DA0F0245 Create
+
+: ME_54748E4A0129
+ CONST UID '54748E4A0129'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_54748D2A0111 // TalcuExecutorWithTaskList
+ ;
+ : Target WL 'ME_4ADC58F703CF' '4AB0C3C60310.pas.ms.script' // FreeAndNil
+ ;
+
+ref; // ME_54748E4A0129 
+
+: ME_479731C50290_ME_54748D2A0111
+ CONST UID '479731C50290'
+ CONST Name 'Cleanup'
+ : Original WL 'ME_479731C50290' '51612EBB02F5.pas.ms.script' // Cleanup
+ ;
+ : Implementor ME_54748D2A0111 // TalcuExecutorWithTaskList
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_479731C50290_ME_54748D2A0111 Cleanup
+
+: ME_54748D2A0111
+ CONST UID '54748D2A0111'
+ CONST Name 'TalcuExecutorWithTaskList'
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_54856B98017D // CoreExecutors
+ ;
+ : Inherits
+   Seq: ( WL 'ME_49E7754802A9' '47913B47006E.pas.ms.script' // Tl3ProtoObject
+ )
+ ; // Inherits
+ : Attributes
+   Seq: ( ME_54748DC603B2 // TaskList
+ ME_A619678E42BF // f_TaskList
+ )
+ ; // Attributes
+ : Operations
+   Seq: ( ME_5465DA0F0245 // Create
+ )
+ ; // Operations
+ : Overridden
+   Seq: ( ME_479731C50290_ME_54748D2A0111 // Cleanup
+ )
+ ; // Overridden
+ : Dependencies
+   Seq: ( ME_54748E4A0129 // 
+ )
+ ; // Dependencies
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ : Generators
+ Seq: (
+ gen_intf.pas
+ )
+ ; // Generators
+ CONST dfm:PathOnly '\archi\source\projects\PipeInAuto\Tasks'
+ CONST intf.pas:Path 'archi\source\projects\PipeInAuto\Tasks\alcuExecutorWithTaskList.pas'
+ CONST intf.pas:PathOnly '\archi\source\projects\PipeInAuto\Tasks'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\archi\source\projects\PipeInAuto\Tasks'
+ CONST extprop:rc:SelfName 'alcuExecutorWithTaskList'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'alcuExecutorWithTaskList'
+
+ref; // ME_54748D2A0111 TalcuExecutorWithTaskList
+
+FORWARD ME_54856E500154
+
+: ME_54856EEA01E2
+ CONST UID '54856EEA01E2'
+ CONST Name 'IncomingList'
+ CONST Class class_Attribute
+ : Stereotype st_readonly::Attribute ;
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_54856E500154 // TalcuExecutorWithIncomingTaskList
+ ;
+ : Target WL 'ME_52FA5F460142' '52F8C298005C.pas.ms.script' // TddServerTaskList
+ ;
+ CONST "pm" true
+ CONST "reads field" true
+
+ref; // ME_54856EEA01E2 IncomingList
+
+: ME_7BC671BBC246
+ CONST UID '7BC671BBC246'
+ CONST Name 'f_IncomingList'
+ CONST IsSummoned true
+ CONST Class class_Attribute
+ %SUMMARY 'Поле для свойства IncomingList' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_ref
+ : Parent ME_54856E500154 // TalcuExecutorWithIncomingTaskList
+ ;
+ : Target WL 'ME_52FA5F460142' '52F8C298005C.pas.ms.script' // TddServerTaskList
+ ;
+
+ref; // ME_7BC671BBC246 f_IncomingList
+
+FORWARD ME_54856F0B019F
+
+: ME_54856F2802E8
+ CONST UID '54856F2802E8'
+ CONST Name 'aList'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_52FA5F460142' '52F8C298005C.pas.ms.script' // TddServerTaskList
+ ;
+
+ref; // ME_54856F2802E8 aList
+
+: ME_54856F160027
+ CONST UID '54856F160027'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_54856F0B019F // Create
+ ;
+ : Parameters
+   Seq: ( ME_54856F2802E8 // aList
+ )
+ ; // Parameters
+
+ref; // ME_54856F160027 DoIt
+
+: ME_54856F0B019F
+ CONST UID '54856F0B019F'
+ CONST Name 'Create'
+ CONST Class class_Class
+ : Stereotype st_Constructor ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_54856E500154 // TalcuExecutorWithIncomingTaskList
+ ;
+ : Operations
+   Seq: ( ME_54856F160027 // DoIt
+ )
+ ; // Operations
+
+ref; // ME_54856F0B019F Create
+
+: ME_54856EA002F9
+ CONST UID '54856EA002F9'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_54856E500154 // TalcuExecutorWithIncomingTaskList
+ ;
+ : Target WL 'ME_4ADC58F703CF' '4AB0C3C60310.pas.ms.script' // FreeAndNil
+ ;
+
+ref; // ME_54856EA002F9 
+
+: ME_479731C50290_ME_54856E500154
+ CONST UID '479731C50290'
+ CONST Name 'Cleanup'
+ : Original WL 'ME_479731C50290' '51612EBB02F5.pas.ms.script' // Cleanup
+ ;
+ : Implementor ME_54856E500154 // TalcuExecutorWithIncomingTaskList
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_479731C50290_ME_54856E500154 Cleanup
+
+: ME_54856E500154
+ CONST UID '54856E500154'
+ CONST Name 'TalcuExecutorWithIncomingTaskList'
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_54856B98017D // CoreExecutors
+ ;
+ : Inherits
+   Seq: ( WL 'ME_49E7754802A9' '47913B47006E.pas.ms.script' // Tl3ProtoObject
+ )
+ ; // Inherits
+ : Attributes
+   Seq: ( ME_54856EEA01E2 // IncomingList
+ ME_7BC671BBC246 // f_IncomingList
+ )
+ ; // Attributes
+ : Operations
+   Seq: ( ME_54856F0B019F // Create
+ )
+ ; // Operations
+ : Overridden
+   Seq: ( ME_479731C50290_ME_54856E500154 // Cleanup
+ )
+ ; // Overridden
+ : Dependencies
+   Seq: ( ME_54856EA002F9 // 
+ )
+ ; // Dependencies
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ : Generators
+ Seq: (
+ gen_intf.pas
+ )
+ ; // Generators
+ CONST dfm:PathOnly '\archi\source\projects\PipeInAuto\Tasks'
+ CONST intf.pas:Path 'archi\source\projects\PipeInAuto\Tasks\alcuExecutorWithIncomingTaskList.pas'
+ CONST intf.pas:PathOnly '\archi\source\projects\PipeInAuto\Tasks'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\archi\source\projects\PipeInAuto\Tasks'
+ CONST extprop:rc:SelfName 'alcuExecutorWithIncomingTaskList'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'alcuExecutorWithIncomingTaskList'
+
+ref; // ME_54856E500154 TalcuExecutorWithIncomingTaskList
+
+: ME_54856B98017D
+ CONST UID '54856B98017D'
+ CONST Name 'CoreExecutors'
+ CONST Class class_Category
+ : Stereotype st_Unit ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent WL 'ME_52FA3D9502BD' '52FA3D9502BD.pas.ms.script' // Tasks
+ ;
+ : Children
+   Seq: ( ME_54748D2A0111 // TalcuExecutorWithTaskList
+ ME_54856E500154 // TalcuExecutorWithIncomingTaskList
+ )
+ ; // Children
+ : Depends
+   Seq: ( WL 'ME_47913B47006E' '47913B47006E.pas.ms.script' // l3CoreObjects
+ WL 'ME_4AB0C3C60310' '4AB0C3C60310.pas.ms.script' // Sys
+ WL 'ME_52F8C298005C' '52F8C298005C.pas.ms.script' // Tasks
+ WL 'ME_53A05123034C' '53A05123034C.pas.ms.script' // TasksLists
+ WL 'ME_544E0148010D' '544E0148010D.pas.ms.script' // Messages
+ )
+ ; // Depends
+ : Generators
+ Seq: (
+ gen_pas.script
+ gen_pas.script.runner
+ )
+ ; // Generators
+ CONST dfm:PathOnly '\archi\source\projects\PipeInAuto\Tasks'
+ CONST intf.pas:PathOnly '\archi\source\projects\PipeInAuto\Tasks'
+ CONST pas.script:Path 'shared\models\NewSchool\Scripts\54856B98017D.pas.ms.script'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\54856B98017D.pas.ms.script.runner'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\archi\source\projects\PipeInAuto\Tasks'
+
+ref; // ME_54856B98017D CoreExecutors

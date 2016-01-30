@@ -28,8 +28,8 @@ ref; // ME_48EEED1A02A4 anEditor
  : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
  ;
  : Parameters
-   @ ( ME_48EEED1A02A4 // anEditor
- ) .SequenceCode.It
+   Seq: ( ME_48EEED1A02A4 // anEditor
+ )
  ; // Parameters
 
 ref; // ME_48EEED050239 evGetMostInnerPos
@@ -56,8 +56,8 @@ ref; // ME_48EEED370264 anEditor
  : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
  ;
  : Parameters
-   @ ( ME_48EEED370264 // anEditor
- ) .SequenceCode.It
+   Seq: ( ME_48EEED370264 // anEditor
+ )
  ; // Parameters
 
 ref; // ME_48EEED27002F evGetMostInnerEntryPos
@@ -84,8 +84,8 @@ ref; // ME_48EEED630064 anEditor
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
  : Parameters
-   @ ( ME_48EEED630064 // anEditor
- ) .SequenceCode.It
+   Seq: ( ME_48EEED630064 // anEditor
+ )
  ; // Parameters
 
 ref; // ME_48EEED52016E evCursorInSel
@@ -112,8 +112,8 @@ ref; // ME_48EEED86004B anEditor
  : Target WL 'ME_48EEEC1502AA' '48EEE9330072.pas.ms.script' // TnevBaseCursor
  ;
  : Parameters
-   @ ( ME_48EEED86004B // anEditor
- ) .SequenceCode.It
+   Seq: ( ME_48EEED86004B // anEditor
+ )
  ; // Parameters
 
 ref; // ME_48EEED730106 evMostInnerCursor
@@ -140,8 +140,8 @@ ref; // ME_48EEEDB2032F anEditor
  : Target WL 'ME_48EEEC030354' '48EEE9330072.pas.ms.script' // TnevCursor
  ;
  : Parameters
-   @ ( ME_48EEEDB2032F // anEditor
- ) .SequenceCode.It
+   Seq: ( ME_48EEEDB2032F // anEditor
+ )
  ; // Parameters
 
 ref; // ME_48EEEDA301B2 evCloneCursor
@@ -166,8 +166,8 @@ ref; // ME_48EEEDC5035F aCursor
  : Parent ME_48EEE8A503AB // evFacadeCursor
  ;
  : Parameters
-   @ ( ME_48EEEDC5035F // aCursor
- ) .SequenceCode.It
+   Seq: ( ME_48EEEDC5035F // aCursor
+ )
  ; // Parameters
 
 ref; // ME_48EEEDBC02F0 evFreeCursor
@@ -201,9 +201,9 @@ ref; // ME_48EEEDDD000D aCursor
  : Parent ME_48EEE8A503AB // evFacadeCursor
  ;
  : Parameters
-   @ ( ME_48EEEDDC03B6 // anEditor
+   Seq: ( ME_48EEEDDC03B6 // anEditor
  ME_48EEEDDD000D // aCursor
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_48EEEDD200CA evSelectPoint
@@ -240,9 +240,9 @@ ref; // ME_48EEEDF902BD aCursor
  : Target WL 'ME_48EEEC1502AA' '48EEE9330072.pas.ms.script' // TnevBaseCursor
  ;
  : Parameters
-   @ ( ME_48EEEDF9028E // anEditor
+   Seq: ( ME_48EEEDF9028E // anEditor
  ME_48EEEDF902BD // aCursor
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_48EEEDE302E0 evGetChildCursor
@@ -291,7 +291,7 @@ ref; // ME_48F2F29F01D6
  : Parent ME_48EEE7AE0313 // evFacade
  ;
  : Operations
-   @ ( ME_48EEED050239 // evGetMostInnerPos
+   Seq: ( ME_48EEED050239 // evGetMostInnerPos
  ME_48EEED27002F // evGetMostInnerEntryPos
  ME_48EEED52016E // evCursorInSel
  ME_48EEED730106 // evMostInnerCursor
@@ -299,21 +299,21 @@ ref; // ME_48F2F29F01D6
  ME_48EEEDBC02F0 // evFreeCursor
  ME_48EEEDD200CA // evSelectPoint
  ME_48EEEDE302E0 // evGetChildCursor
- ) .SequenceCode.It
+ )
  ; // Operations
  : Dependencies
-   @ ( ME_48EEEF100271 // 
+   Seq: ( ME_48EEEF100271 // 
  ME_48EEEF140289 // 
  ME_48F2F29F01D6 // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  CONST "no hands" false
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\EverestCommon'
  CONST intf.pas:Path 'common\components\gui\Garant\EverestCommon\evFacadeCursor.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\EverestCommon'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'FacadeCursor'
 
 ref; // ME_48EEE8A503AB evFacadeCursor
 
@@ -360,10 +360,10 @@ ref; // ME_5321D50102C2 aLen
  : Parent ME_5321D4830213 // evAssignSelection
  ;
  : Parameters
-   @ ( ME_5321D5010255 // aMemo
+   Seq: ( ME_5321D5010255 // aMemo
  ME_5321D5010284 // aPos
  ME_5321D50102C2 // aLen
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_5321D4A501A2 DoIt
@@ -379,9 +379,10 @@ ref; // ME_5321D4A501A2 DoIt
  : Parent ME_48EEF8240298 // evFacadeSelection
  ;
  : Operations
-   @ ( ME_5321D4A501A2 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_5321D4A501A2 // DoIt
+ )
  ; // Operations
+ CONST extprop:rc:SelfName 'AssignSelection'
 
 ref; // ME_5321D4830213 evAssignSelection
 
@@ -406,8 +407,8 @@ ref; // ME_48EEF87B02EE anEditor
  : Target WL 'ME_48EEEC6402D2' '48EEE9330072.pas.ms.script' // TnevIRange
  ;
  : Parameters
-   @ ( ME_48EEF87B02EE // anEditor
- ) .SequenceCode.It
+   Seq: ( ME_48EEF87B02EE // anEditor
+ )
  ; // Parameters
 
 ref; // ME_48EEF86903A7 evGetSel
@@ -451,10 +452,10 @@ ref; // ME_48F2EA5802CA aCurrStr
  : Parent ME_48EEF8240298 // evFacadeSelection
  ;
  : Parameters
-   @ ( ME_48F2EA58025D // aMemo
+   Seq: ( ME_48F2EA58025D // aMemo
  ME_48F2EA58029C // aPos
  ME_48F2EA5802CA // aCurrStr
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_48EEF88901CE evAssignSelection
@@ -480,8 +481,8 @@ ref; // ME_4A6844B1027D aRange
  : Target WL 'ME_452257A0036F' '3DBFDB23006E.pas.ms.script' // a-string
  ;
  : Parameters
-   @ ( ME_4A6844B1027D // aRange
- ) .SequenceCode.It
+   Seq: ( ME_4A6844B1027D // aRange
+ )
  ; // Parameters
 
 ref; // ME_48EEF8A0019A evGetSelString
@@ -527,10 +528,10 @@ ref; // ME_4A6844A8027A aBlock
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
  : Parameters
-   @ ( ME_4A6844A801C9 // aView
+   Seq: ( ME_4A6844A801C9 // aView
  ME_4A6844A80208 // Container
  ME_4A6844A8027A // aBlock
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_48EEF92400B1 evDeleteBlockEX
@@ -565,6 +566,7 @@ ref; // ME_48EEFCF4023C aSaveBlock
  CONST Value 'nil'
  : ValueType WL 'ME_48EEEC030354' '48EEE9330072.pas.ms.script' // TnevCursor
  ;
+ CONST extprop:pas:Value 'nil'
 
 ref; // ME_48EEFCF4026B aCheckCursor
 
@@ -577,10 +579,10 @@ ref; // ME_48EEFCF4026B aCheckCursor
  : Parent ME_48EEF8240298 // evFacadeSelection
  ;
  : Parameters
-   @ ( ME_48EEFCF4020E // anEditor
+   Seq: ( ME_48EEFCF4020E // anEditor
  ME_48EEFCF4023C // aSaveBlock
  ME_48EEFCF4026B // aCheckCursor
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_48EEFCF1031C evSaveBlock
@@ -604,8 +606,8 @@ ref; // ME_48EEFD000074 anEditor
  : Parent ME_48EEF8240298 // evFacadeSelection
  ;
  : Parameters
-   @ ( ME_48EEFD000074 // anEditor
- ) .SequenceCode.It
+   Seq: ( ME_48EEFD000074 // anEditor
+ )
  ; // Parameters
 
 ref; // ME_48EEFCFD0192 evUnselect
@@ -629,8 +631,8 @@ ref; // ME_48EEFD3D01B7 aSaveBlock
  : Parent ME_48EEF8240298 // evFacadeSelection
  ;
  : Parameters
-   @ ( ME_48EEFD3D01B7 // aSaveBlock
- ) .SequenceCode.It
+   Seq: ( ME_48EEFD3D01B7 // aSaveBlock
+ )
  ; // Parameters
 
 ref; // ME_48EEFD3B00D0 evFreeBlock
@@ -666,9 +668,9 @@ ref; // ME_48F86F2A01B0 anEditor
  : Target WL 'ME_48EEEC3C00B6' '48EEE9330072.pas.ms.script' // InevCommonPoint
  ;
  : Parameters
-   @ ( ME_4A6844BC00DE // aBlock
+   Seq: ( ME_4A6844BC00DE // aBlock
  ME_48F86F2A01B0 // anEditor
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_48F2F0CA02E4 evMostInnerFromBlock
@@ -704,9 +706,9 @@ ref; // ME_49B0D30C03CA anEditor
  : Target WL 'ME_47C5B54401B2' '47C5207602D1.pas.ms.script' // InevRange
  ;
  : Parameters
-   @ ( ME_4A6844C10228 // aBlock
+   Seq: ( ME_4A6844C10228 // aBlock
  ME_49B0D30C03CA // anEditor
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_49B0D2EC01FC evGetBottomChildBlock
@@ -740,9 +742,9 @@ ref; // ME_4BEBBD0A01E9 aFilter
  : Parent ME_48EEF8240298 // evFacadeSelection
  ;
  : Parameters
-   @ ( ME_4BEBBD0A01B2 // anEditor
+   Seq: ( ME_4BEBBD0A01B2 // anEditor
  ME_4BEBBD0A01E9 // aFilter
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_4BEBBCE00119 evRangeInsertFrom
@@ -769,8 +771,8 @@ ref; // ME_4C334078038E anEditor
  : Target WL 'ME_48EEEC8A013B' '48EEE9330072.pas.ms.script' // InevTagSelection
  ;
  : Parameters
-   @ ( ME_4C334078038E // anEditor
- ) .SequenceCode.It
+   Seq: ( ME_4C334078038E // anEditor
+ )
  ; // Parameters
 
 ref; // ME_4C332D2F008B evGetMostInnerRange
@@ -874,7 +876,7 @@ ref; // ME_52C147980041
  : Parent ME_48EEE7AE0313 // evFacade
  ;
  : Operations
-   @ ( ME_5321D4830213 // evAssignSelection
+   Seq: ( ME_5321D4830213 // evAssignSelection
  ME_48EEF86903A7 // evGetSel
  ME_48EEF88901CE // evAssignSelection
  ME_48EEF8A0019A // evGetSelString
@@ -886,10 +888,10 @@ ref; // ME_52C147980041
  ME_49B0D2EC01FC // evGetBottomChildBlock
  ME_4BEBBCE00119 // evRangeInsertFrom
  ME_4C332D2F008B // evGetMostInnerRange
- ) .SequenceCode.It
+ )
  ; // Operations
  : Dependencies
-   @ ( ME_48F2ECDC02C7 // 
+   Seq: ( ME_48F2ECDC02C7 // 
  ME_48F5C36C0096 // 
  ME_49B0D52901FA // 
  ME_4BEBBDDC00E2 // 
@@ -897,15 +899,15 @@ ref; // ME_52C147980041
  ME_52C141160121 // 
  ME_52C144DE037E // 
  ME_52C147980041 // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  CONST "no hands" false
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\EverestCommon'
  CONST intf.pas:Path 'common\components\gui\Garant\EverestCommon\evFacadeSelection.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\EverestCommon'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'FacadeSelection'
 
 ref; // ME_48EEF8240298 evFacadeSelection
 
@@ -942,9 +944,9 @@ ref; // ME_48EEF906018D aSub
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
  : Parameters
-   @ ( ME_48EEF906016E // anEditor
+   Seq: ( ME_48EEF906016E // anEditor
  ME_48EEF906018D // aSub
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_48EEF8EA0247 evDeleteSub
@@ -970,8 +972,8 @@ ref; // ME_48EEF979019F aTextSource
  : Target WL 'ME_47C6A79702F3' '47C5207602D1.pas.ms.script' // InevSubList
  ;
  : Parameters
-   @ ( ME_48EEF979019F // aTextSource
- ) .SequenceCode.It
+   Seq: ( ME_48EEF979019F // aTextSource
+ )
  ; // Parameters
 
 ref; // ME_48EEF96A02C0 evGetSubList
@@ -995,8 +997,8 @@ ref; // ME_48EEFA6A00A4 anEditor
  : Parent ME_48EEF8D0004A // evFacadeSub
  ;
  : Parameters
-   @ ( ME_48EEFA6A00A4 // anEditor
- ) .SequenceCode.It
+   Seq: ( ME_48EEFA6A00A4 // anEditor
+ )
  ; // Parameters
 
 ref; // ME_48EEFA60019E evDeleteAllDocumentParts
@@ -1022,8 +1024,8 @@ ref; // ME_48EEFB11033F anEditor
  : Target WL 'ME_47C6B03200AF' '47C5207602D1.pas.ms.script' // IevSub
  ;
  : Parameters
-   @ ( ME_48EEFB11033F // anEditor
- ) .SequenceCode.It
+   Seq: ( ME_48EEFB11033F // anEditor
+ )
  ; // Parameters
 
 ref; // ME_48EEFB0F0332 evNewSub
@@ -1049,8 +1051,8 @@ ref; // ME_48EEFB1E03E5 anEditor
  : Target WL 'ME_47C6B03200AF' '47C5207602D1.pas.ms.script' // IevSub
  ;
  : Parameters
-   @ ( ME_48EEFB1E03E5 // anEditor
- ) .SequenceCode.It
+   Seq: ( ME_48EEFB1E03E5 // anEditor
+ )
  ; // Parameters
 
 ref; // ME_48EEFB1C005F evCurrentSub
@@ -1084,9 +1086,9 @@ ref; // ME_48EEFD47031D aGoToSubID
  : Parent ME_48EEF8D0004A // evFacadeSub
  ;
  : Parameters
-   @ ( ME_48EEFD4702EF // anEditor
+   Seq: ( ME_48EEFD4702EF // anEditor
  ME_48EEFD47031D // aGoToSubID
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_48EEFD46016A evSubSelect
@@ -1159,29 +1161,29 @@ ref; // ME_53185A9D00C3
  : Parent ME_48EEE7AE0313 // evFacade
  ;
  : Operations
-   @ ( ME_48EEF8EA0247 // evDeleteSub
+   Seq: ( ME_48EEF8EA0247 // evDeleteSub
  ME_48EEF96A02C0 // evGetSubList
  ME_48EEFA60019E // evDeleteAllDocumentParts
  ME_48EEFB0F0332 // evNewSub
  ME_48EEFB1C005F // evCurrentSub
  ME_48EEFD46016A // evSubSelect
- ) .SequenceCode.It
+ )
  ; // Operations
  : Dependencies
-   @ ( ME_48EF31A60028 // 
+   Seq: ( ME_48EF31A60028 // 
  ME_48EF52D1006B // 
  ME_48EF534C0198 // 
  ME_48EF5A8601AE // 
  ME_53185A9D00C3 // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  CONST "no hands" false
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\EverestCommon'
  CONST intf.pas:Path 'common\components\gui\Garant\EverestCommon\evFacadeSub.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\EverestCommon'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'FacadeSub'
 
 ref; // ME_48EEF8D0004A evFacadeSub
 
@@ -1226,10 +1228,10 @@ ref; // ME_48F33D640247 aCursor
  : Parent ME_48EEF98B01FF // evFacadeUtils
  ;
  : Parameters
-   @ ( ME_48F33D6401DA // aTextSource
+   Seq: ( ME_48F33D6401DA // aTextSource
  ME_48F33D640218 // aReader
  ME_48F33D640247 // aCursor
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_48EEF9F20194 evInsertFile
@@ -1263,9 +1265,9 @@ ref; // ME_48F33D7401B1 aReader
  : Parent ME_48EEF98B01FF // evFacadeUtils
  ;
  : Parameters
-   @ ( ME_48F33D740182 // anEditor
+   Seq: ( ME_48F33D740182 // anEditor
  ME_48F33D7401B1 // aReader
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_48EEFA2400D7 evInsertFile
@@ -1289,8 +1291,8 @@ ref; // ME_48EEFB5002E9 aGen
  : Parent ME_48EEF98B01FF // evFacadeUtils
  ;
  : Parameters
-   @ ( ME_48EEFB5002E9 // aGen
- ) .SequenceCode.It
+   Seq: ( ME_48EEFB5002E9 // aGen
+ )
  ; // Parameters
 
 ref; // ME_48EEFB4F0184 evFreeGenerator
@@ -1324,9 +1326,9 @@ ref; // ME_48F33ECD0118 G
  : Parent ME_48EEF98B01FF // evFacadeUtils
  ;
  : Parameters
-   @ ( ME_48F33ECD00DA // aTextSource
+   Seq: ( ME_48F33ECD00DA // aTextSource
  ME_48F33ECD0118 // G
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_48EEFCDD03A9 evReadDataEX
@@ -1370,10 +1372,10 @@ ref; // ME_48F2EAB20112 aText
  : Parent ME_48EEF98B01FF // evFacadeUtils
  ;
  : Parameters
-   @ ( ME_48F2EAB200A5 // aMemo
+   Seq: ( ME_48F2EAB200A5 // aMemo
  ME_48F2EAB200E3 // aRange
  ME_48F2EAB20112 // aText
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_48EEFD9903E1 evInsertText2Memo
@@ -1407,9 +1409,9 @@ ref; // ME_48EEFDA40259 aValue
  : Parent ME_48EEF98B01FF // evFacadeUtils
  ;
  : Parameters
-   @ ( ME_48EEFDA4022A // aMemo
+   Seq: ( ME_48EEFDA4022A // aMemo
  ME_48EEFDA40259 // aValue
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_48EEFDA30103 evSetPlainTextFlag
@@ -1436,8 +1438,8 @@ ref; // ME_48EF2BB70232 aTextSource
  : Target WL 'ME_48EEEA480069' '48EEE9330072.pas.ms.script' // TevGenerator
  ;
  : Parameters
-   @ ( ME_48EF2BB70232 // aTextSource
- ) .SequenceCode.It
+   Seq: ( ME_48EF2BB70232 // aTextSource
+ )
  ; // Parameters
 
 ref; // ME_48EF2BA000E0 evGetNewTextGenerator
@@ -1464,8 +1466,8 @@ ref; // ME_48EF2BCF017F anEditor
  : Target WL 'ME_48EEEA480069' '48EEE9330072.pas.ms.script' // TevGenerator
  ;
  : Parameters
-   @ ( ME_48EF2BCF017F // anEditor
- ) .SequenceCode.It
+   Seq: ( ME_48EF2BCF017F // anEditor
+ )
  ; // Parameters
 
 ref; // ME_48EF2BC503A1 evGetNewTextGenerator
@@ -1519,11 +1521,11 @@ ref; // ME_492E54CE0025 aFlag
  : Parent ME_48EEF98B01FF // evFacadeUtils
  ;
  : Parameters
-   @ ( ME_492E54CD0333 // aWriter
+   Seq: ( ME_492E54CD0333 // aWriter
  ME_492E54CD0381 // aTree
  ME_492E54CD03BF // aLevelTag
  ME_492E54CE0025 // aFlag
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_492E544E0315 evStoreTreeDataObject
@@ -1558,9 +1560,9 @@ ref; // ME_4BB320880051 aClear
  : Parent ME_48EEF98B01FF // evFacadeUtils
  ;
  : Parameters
-   @ ( ME_4BB320880003 // anEditor
+   Seq: ( ME_4BB320880003 // anEditor
  ME_4BB320880051 // aClear
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_4BB3202300B5 evSetExcludeWords
@@ -1587,8 +1589,8 @@ ref; // ME_4BB320C20264 anEditor
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
  : Parameters
-   @ ( ME_4BB320C20264 // anEditor
- ) .SequenceCode.It
+   Seq: ( ME_4BB320C20264 // anEditor
+ )
  ; // Parameters
 
 ref; // ME_4BB320970039 evNeedExcludeWords
@@ -1692,7 +1694,7 @@ ref; // ME_540591030389
  : Parent ME_48EEE7AE0313 // evFacade
  ;
  : Operations
-   @ ( ME_48EEF9F20194 // evInsertFile
+   Seq: ( ME_48EEF9F20194 // evInsertFile
  ME_48EEFA2400D7 // evInsertFile
  ME_48EEFB4F0184 // evFreeGenerator
  ME_48EEFCDD03A9 // evReadDataEX
@@ -1703,10 +1705,10 @@ ref; // ME_540591030389
  ME_492E544E0315 // evStoreTreeDataObject
  ME_4BB3202300B5 // evSetExcludeWords
  ME_4BB320970039 // evNeedExcludeWords
- ) .SequenceCode.It
+ )
  ; // Operations
  : Dependencies
-   @ ( ME_48F2F4AF0279 // 
+   Seq: ( ME_48F2F4AF0279 // 
  ME_48F343F000DC // 
  ME_492E55050394 // 
  ME_492E55E10129 // 
@@ -1714,15 +1716,15 @@ ref; // ME_540591030389
  ME_492E570D03D4 // 
  ME_4BB320160211 // 
  ME_540591030389 // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  CONST "no hands" false
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\EverestCommon'
  CONST intf.pas:Path 'common\components\gui\Garant\EverestCommon\evFacadeUtils.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\EverestCommon'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'FacadeUtils'
 
 ref; // ME_48EEF98B01FF evFacadeUtils
 
@@ -1749,8 +1751,8 @@ ref; // ME_5343D61703DB aPara
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
  : Parameters
-   @ ( ME_5343D61703DB // aPara
- ) .SequenceCode.It
+   Seq: ( ME_5343D61703DB // aPara
+ )
  ; // Parameters
 
 ref; // ME_48EEFA40027D evInvalidatePara
@@ -1786,9 +1788,9 @@ ref; // ME_48F86EE90216 anEditor
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
  : Parameters
-   @ ( ME_5343D61E0335 // aBlock
+   Seq: ( ME_5343D61E0335 // aBlock
  ME_48F86EE90216 // anEditor
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_48EEFB7400DB evCheckInTable
@@ -1812,8 +1814,8 @@ ref; // ME_48EEFBD00046 aTextSource
  : Parent ME_48EEF9D8031A // evFacadeGUI
  ;
  : Parameters
-   @ ( ME_48EEFBD00046 // aTextSource
- ) .SequenceCode.It
+   Seq: ( ME_48EEFBD00046 // aTextSource
+ )
  ; // Parameters
 
 ref; // ME_48EEFBCD02EA evUnformatAll
@@ -1839,8 +1841,8 @@ ref; // ME_48EEFCD400AC anEditor
  : Target WL 'ME_4739AD110072' '4728A7020026.pas.ms.script' // TPoint
  ;
  : Parameters
-   @ ( ME_48EEFCD400AC // anEditor
- ) .SequenceCode.It
+   Seq: ( ME_48EEFCD400AC // anEditor
+ )
  ; // Parameters
 
 ref; // ME_48EEFCD2037C evMouseLP2DP
@@ -1900,26 +1902,26 @@ ref; // ME_49D0FCA001E9
  : Parent ME_48EEE7AE0313 // evFacade
  ;
  : Operations
-   @ ( ME_48EEFA40027D // evInvalidatePara
+   Seq: ( ME_48EEFA40027D // evInvalidatePara
  ME_48EEFB7400DB // evCheckInTable
  ME_48EEFBCD02EA // evUnformatAll
  ME_48EEFCD2037C // evMouseLP2DP
- ) .SequenceCode.It
+ )
  ; // Operations
  : Dependencies
-   @ ( ME_48F2EFF30222 // 
+   Seq: ( ME_48F2EFF30222 // 
  ME_48F5EBF800C2 // 
  ME_49AE8AC00163 // 
  ME_49D0FCA001E9 // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  CONST "no hands" false
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\EverestCommon'
  CONST intf.pas:Path 'common\components\gui\Garant\EverestCommon\evFacadeGUI.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\EverestCommon'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'FacadeGUI'
 
 ref; // ME_48EEF9D8031A evFacadeGUI
 
@@ -1946,8 +1948,8 @@ ref; // ME_48EEFC1A0052 aTextSource
  : Target WL 'ME_48EEEBA300DE' '48EEE9330072.pas.ms.script' // TnevCustomUndoBuffer
  ;
  : Parameters
-   @ ( ME_48EEFC1A0052 // aTextSource
- ) .SequenceCode.It
+   Seq: ( ME_48EEFC1A0052 // aTextSource
+ )
  ; // Parameters
 
 ref; // ME_48EEFC180229 evGetUndoBuffer
@@ -1973,8 +1975,8 @@ ref; // ME_48EEFC5A03B2 aTextSource
  : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
  ;
  : Parameters
-   @ ( ME_48EEFC5A03B2 // aTextSource
- ) .SequenceCode.It
+   Seq: ( ME_48EEFC5A03B2 // aTextSource
+ )
  ; // Parameters
 
 ref; // ME_48EEFC5A0393 evGetBruttoCharCount
@@ -2000,8 +2002,8 @@ ref; // ME_48EEFC710320 aTextSource
  : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
  ;
  : Parameters
-   @ ( ME_48EEFC710320 // aTextSource
- ) .SequenceCode.It
+   Seq: ( ME_48EEFC710320 // aTextSource
+ )
  ; // Parameters
 
 ref; // ME_48EEFC710310 evGetBruttoCharLimit
@@ -2027,8 +2029,8 @@ ref; // ME_48EEFC750367 aTextSource
  : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
  ;
  : Parameters
-   @ ( ME_48EEFC750367 // aTextSource
- ) .SequenceCode.It
+   Seq: ( ME_48EEFC750367 // aTextSource
+ )
  ; // Parameters
 
 ref; // ME_48EEFC750348 evGetNettoCharCount
@@ -2054,8 +2056,8 @@ ref; // ME_48EEFC790267 anEditor
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
  : Parameters
-   @ ( ME_48EEFC790267 // anEditor
- ) .SequenceCode.It
+   Seq: ( ME_48EEFC790267 // anEditor
+ )
  ; // Parameters
 
 ref; // ME_48EEFC790248 evGetShowDocumentParts
@@ -2081,8 +2083,8 @@ ref; // ME_48EEFC7C03D9 aTextSource
  : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
  ;
  : Parameters
-   @ ( ME_48EEFC7C03D9 // aTextSource
- ) .SequenceCode.It
+   Seq: ( ME_48EEFC7C03D9 // aTextSource
+ )
  ; // Parameters
 
 ref; // ME_48EEFC7C03C9 evGetTextParaCount
@@ -2116,9 +2118,9 @@ ref; // ME_48EEFC8C0046 aTextSource
  : Parent ME_48EEFBF70249 // evFacadTextSource
  ;
  : Parameters
-   @ ( ME_48EEFC8C0007 // anEditor
+   Seq: ( ME_48EEFC8C0007 // anEditor
  ME_48EEFC8C0046 // aTextSource
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_48EEFC8B03E0 evInsertFrom
@@ -2152,9 +2154,9 @@ ref; // ME_48EEFC9001E4 aValue
  : Parent ME_48EEFBF70249 // evFacadTextSource
  ;
  : Parameters
-   @ ( ME_48EEFC9001B6 // aTextSource
+   Seq: ( ME_48EEFC9001B6 // aTextSource
  ME_48EEFC9001E4 // aValue
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_48EEFC900196 evSetBruttoCharLimit
@@ -2188,9 +2190,9 @@ ref; // ME_48EEFC930385 aValue
  : Parent ME_48EEFBF70249 // evFacadTextSource
  ;
  : Parameters
-   @ ( ME_48EEFC930356 // aTextSource
+   Seq: ( ME_48EEFC930356 // aTextSource
  ME_48EEFC930385 // aValue
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_48EEFC930337 evSetNettoCharCountEvent
@@ -2234,10 +2236,10 @@ ref; // ME_48EEFC97019C aValue
  : Parent ME_48EEFBF70249 // evFacadTextSource
  ;
  : Parameters
-   @ ( ME_48EEFC97011F // anEditor
+   Seq: ( ME_48EEFC97011F // anEditor
  ME_48EEFC97015D // aTextSource
  ME_48EEFC97019C // aValue
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_48EEFC970100 evSetShowDocumentParts
@@ -2271,9 +2273,9 @@ ref; // ME_48EEFCA803DF aCount
  : Parent ME_48EEFBF70249 // evFacadTextSource
  ;
  : Parameters
-   @ ( ME_48EEFCA80391 // aTextSource
+   Seq: ( ME_48EEFCA80391 // aTextSource
  ME_48EEFCA803DF // aCount
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_48EEFCA80353 evSetTextParaLimit
@@ -2308,6 +2310,7 @@ ref; // ME_48F2EA9D0153 aStr
  CONST Value 'cf_Text'
  : ValueType WL 'ME_46A449A301E3' '4677FBA70343.pas.ms.script' // Tl3ClipboardFormat
  ;
+ CONST extprop:pas:Value 'cf_Text'
 
 ref; // ME_48F2EA9D0191 aFormat
 
@@ -2320,10 +2323,10 @@ ref; // ME_48F2EA9D0191 aFormat
  : Parent ME_48EEFBF70249 // evFacadTextSource
  ;
  : Parameters
-   @ ( ME_48F2EA9D0105 // aTextSource
+   Seq: ( ME_48F2EA9D0105 // aTextSource
  ME_48F2EA9D0153 // aStr
  ME_48F2EA9D0191 // aFormat
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_48EEFD580285 evAddStringToTextSource
@@ -2394,7 +2397,7 @@ ref; // ME_4BBDE22303B2
  : Parent ME_48EEE7AE0313 // evFacade
  ;
  : Operations
-   @ ( ME_48EEFC180229 // evGetUndoBuffer
+   Seq: ( ME_48EEFC180229 // evGetUndoBuffer
  ME_48EEFC5A0393 // evGetBruttoCharCount
  ME_48EEFC710310 // evGetBruttoCharLimit
  ME_48EEFC750348 // evGetNettoCharCount
@@ -2406,23 +2409,23 @@ ref; // ME_4BBDE22303B2
  ME_48EEFC970100 // evSetShowDocumentParts
  ME_48EEFCA80353 // evSetTextParaLimit
  ME_48EEFD580285 // evAddStringToTextSource
- ) .SequenceCode.It
+ )
  ; // Operations
  : Dependencies
-   @ ( ME_48EF34A3006B // 
+   Seq: ( ME_48EF34A3006B // 
  ME_48EF35DA0335 // 
  ME_48EF406801DA // 
  ME_48EF5C3B0342 // 
  ME_4BBDE22303B2 // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  CONST "no hands" false
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\EverestCommon'
  CONST intf.pas:Path 'common\components\gui\Garant\EverestCommon\evFacadTextSource.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\EverestCommon'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'FacadTextSource'
 
 ref; // ME_48EEFBF70249 evFacadTextSource
 
@@ -2449,19 +2452,19 @@ ref; // ME_4A263B280094 evL2SubA
  : Parent ME_48EEE7AE0313 // evFacade
  ;
  : Operations
-   @ ( ME_4A263B280094 // evL2SubA
- ) .SequenceCode.It
+   Seq: ( ME_4A263B280094 // evL2SubA
+ )
  ; // Operations
  CONST "author" 'Ëþëèí À.Â.'
  CONST "finished" false
  CONST "no hands" false
  CONST "started" '03.06.2009 11:09'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\EverestCommon'
  CONST intf.pas:Path 'common\components\gui\Garant\EverestCommon\NOT_FINISHED_evStubs.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\EverestCommon'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'Stubs'
 
 ref; // ME_4A2621920255 evStubs
 
@@ -2475,17 +2478,17 @@ ref; // ME_4A2621920255 evStubs
  : Parent WL 'ME_48EEE54C0072' '48EEE54C0072.pas.ms.script' // EverestCommon
  ;
  : Children
-   @ ( ME_48EEE8A503AB // evFacadeCursor
+   Seq: ( ME_48EEE8A503AB // evFacadeCursor
  ME_48EEF8240298 // evFacadeSelection
  ME_48EEF8D0004A // evFacadeSub
  ME_48EEF98B01FF // evFacadeUtils
  ME_48EEF9D8031A // evFacadeGUI
  ME_48EEFBF70249 // evFacadTextSource
  ME_4A2621920255 // evStubs
- ) .SequenceCode.It
+ )
  ; // Children
  : Depends
-   @ ( WL 'ME_4677FBA70343' '4677FBA70343.pas.ms.script' // l3Interfaces
+   Seq: ( WL 'ME_4677FBA70343' '4677FBA70343.pas.ms.script' // l3Interfaces
  WL 'ME_4678137501EA' '4678137501EA.pas.ms.script' // k2Interfaces
  WL 'ME_4678209200A6' '4678209200A6.pas.ms.script' // nevBase
  WL 'ME_469D0AC7005E' '469D0AC7005E.pas.ms.script' // Types
@@ -2513,15 +2516,13 @@ ref; // ME_4A2621920255 evStubs
  WL 'ME_4AB0C3C60310' '4AB0C3C60310.pas.ms.script' // Sys
  WL 'ME_4B324F930103' '4B324F930103.pas.ms.script' // Filters
  WL 'ME_54B90AC6014B' '54B90AC6014B.pas.ms.script' // StringUtils
- ) .SequenceCode.It
+ )
  ; // Depends
- : Generators
- @ (
- gen_pas.script
- gen_pas.script.runner
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\EverestCommon'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\EverestCommon'
  CONST pas.script:Path 'shared\models\NewSchool\Scripts\48EEE7AE0313.pas.ms.script'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
  CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\48EEE7AE0313.pas.ms.script.runner'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_48EEE7AE0313 evFacade

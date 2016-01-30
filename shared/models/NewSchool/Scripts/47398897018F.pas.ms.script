@@ -79,13 +79,18 @@ ref; // ME_4739B9160012 ecLine
  : Parent ME_4739B8DE0134 // ExprDraw
  ;
  : Attributes
-   @ ( ME_4739B8F90223 // ecPoints
+   Seq: ( ME_4739B8F90223 // ecPoints
  ME_4739B8FF0330 // ecVector
  ME_4739B90702D7 // ecCap
  ME_4739B90F001C // ecTilde
  ME_4739B9160012 // ecLine
- ) .SequenceCode.It
+ )
  ; // Attributes
+ CONST dfm:PathOnly '\common\components\rtl\external\Expr'
+ CONST intf.pas:PathOnly '\common\components\rtl\external\Expr'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_4739B8EE00D3 TExprCapStyle
 
@@ -162,13 +167,18 @@ ref; // ME_4739B93E0222 ebModule
  : Parent ME_4739B8DE0134 // ExprDraw
  ;
  : Attributes
-   @ ( ME_4739B92601CE // ebNone
+   Seq: ( ME_4739B92601CE // ebNone
  ME_4739B92D0336 // ebRound
  ME_4739B933003C // ebSquare
  ME_4739B939003A // ebFigure
  ME_4739B93E0222 // ebModule
- ) .SequenceCode.It
+ )
  ; // Attributes
+ CONST dfm:PathOnly '\common\components\rtl\external\Expr'
+ CONST intf.pas:PathOnly '\common\components\rtl\external\Expr'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_4739B91F0296 TExprBracket
 
@@ -221,11 +231,16 @@ ref; // ME_4739B95C0167 evBottom
  : Parent ME_4739B8DE0134 // ExprDraw
  ;
  : Attributes
-   @ ( ME_4739B9520221 // evTop
+   Seq: ( ME_4739B9520221 // evTop
  ME_4739B957035F // evCenter
  ME_4739B95C0167 // evBottom
- ) .SequenceCode.It
+ )
  ; // Attributes
+ CONST dfm:PathOnly '\common\components\rtl\external\Expr'
+ CONST intf.pas:PathOnly '\common\components\rtl\external\Expr'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_4739B946031E TExprVertAlign
 
@@ -278,11 +293,16 @@ ref; // ME_4739B9790317 ehRight
  : Parent ME_4739B8DE0134 // ExprDraw
  ;
  : Attributes
-   @ ( ME_4739B96E02FE // ehLeft
+   Seq: ( ME_4739B96E02FE // ehLeft
  ME_4739B97500B9 // ehCenter
  ME_4739B9790317 // ehRight
- ) .SequenceCode.It
+ )
  ; // Attributes
+ CONST dfm:PathOnly '\common\components\rtl\external\Expr'
+ CONST intf.pas:PathOnly '\common\components\rtl\external\Expr'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_4739B965021E TExprHorAlign
 
@@ -323,10 +343,15 @@ ref; // ME_4739B99102CC eoBottom
  : Parent ME_4739B8DE0134 // ExprDraw
  ;
  : Attributes
-   @ ( ME_4739B98C0275 // eoTop
+   Seq: ( ME_4739B98C0275 // eoTop
  ME_4739B99102CC // eoBottom
- ) .SequenceCode.It
+ )
  ; // Attributes
+ CONST dfm:PathOnly '\common\components\rtl\external\Expr'
+ CONST intf.pas:PathOnly '\common\components\rtl\external\Expr'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_4739B98301BD TExprOrigin
 
@@ -487,7 +512,7 @@ ref; // ME_4739B9E303C4 tcSymbolHeight
  : Parent ME_4739B8DE0134 // ExprDraw
  ;
  : Attributes
-   @ ( ME_4739B9A60131 // tcWidth
+   Seq: ( ME_4739B9A60131 // tcWidth
  ME_4739B9AB0323 // tcHeight
  ME_4739B9B20374 // tcPowerXPos
  ME_4739B9B80033 // tcPowerYPos
@@ -499,8 +524,13 @@ ref; // ME_4739B9E303C4 tcSymbolHeight
  ME_4739B9D703DB // tcMidlineDn
  ME_4739B9DD03A7 // tcSymbolWidth
  ME_4739B9E303C4 // tcSymbolHeight
- ) .SequenceCode.It
+ )
  ; // Attributes
+ CONST dfm:PathOnly '\common\components\rtl\external\Expr'
+ CONST intf.pas:PathOnly '\common\components\rtl\external\Expr'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_4739B99C03D6 Tl3ExprMetric
 
@@ -782,6 +812,7 @@ ref; // ME_473DB97D0187 CapDY
 : ME_D27F17BF7EF3
  CONST UID 'D27F17BF7EF3'
  CONST Name 'f_Next'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY 'Поле для свойства Next' ;
  CONST Visibility PrivateAccess
@@ -791,12 +822,14 @@ ref; // ME_473DB97D0187 CapDY
  ;
  : Target ME_47398921031E // Tl3Expr
  ;
+ CONST extprop:clearViaProperty 'Next'
 
 ref; // ME_D27F17BF7EF3 f_Next
 
 : ME_3709C0D41282
  CONST UID '3709C0D41282'
  CONST Name 'f_Font'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY 'Поле для свойства Font' ;
  CONST Visibility PrivateAccess
@@ -806,12 +839,14 @@ ref; // ME_D27F17BF7EF3 f_Next
  ;
  : Target WL 'ME_46A61523001B' '4677FBA70343.pas.ms.script' // TFont
  ;
+ CONST extprop:clearViaProperty 'Font'
 
 ref; // ME_3709C0D41282 f_Font
 
 : ME_676E2F4164C5
  CONST UID '676E2F4164C5'
  CONST Name 'f_Canvas'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY 'Поле для свойства Canvas' ;
  CONST Visibility PrivateAccess
@@ -821,6 +856,7 @@ ref; // ME_3709C0D41282 f_Font
  ;
  : Target WL 'ME_46A46A030333' '556F09AA036E.pas.ms.script' // TCanvas
  ;
+ CONST extprop:clearViaProperty 'Canvas'
 
 ref; // ME_676E2F4164C5 f_Canvas
 
@@ -869,8 +905,8 @@ ref; // ME_473DB9AC00DA aValue
  : Parent ME_47398921031E // Tl3Expr
  ;
  : Parameters
-   @ ( ME_473DB9AC00DA // aValue
- ) .SequenceCode.It
+   Seq: ( ME_473DB9AC00DA // aValue
+ )
  ; // Parameters
 
 ref; // ME_473DB9A80279 AddNext
@@ -938,11 +974,11 @@ ref; // ME_473DBBBE0209 VertAlign
  : Parent ME_47398921031E // Tl3Expr
  ;
  : Parameters
-   @ ( ME_473DBBBE00E6 // X
+   Seq: ( ME_473DBBBE00E6 // X
  ME_473DBBBE0140 // Y
  ME_473DBBBE01A4 // HorAlign
  ME_473DBBBE0209 // VertAlign
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_473DBBB100F1 Draw
@@ -959,11 +995,11 @@ ref; // ME_473DBBB100F1 Draw
  : Parent ME_4739B8DE0134 // ExprDraw
  ;
  : Inherits
-   @ ( WL 'ME_46780CCE037B' '47913B47006E.pas.ms.script' // Tl3Base
- ) .SequenceCode.It
+   Seq: ( WL 'ME_46780CCE037B' '47913B47006E.pas.ms.script' // Tl3Base
+ )
  ; // Inherits
  : Attributes
-   @ ( ME_473DB85F009F // Next
+   Seq: ( ME_473DB85F009F // Next
  ME_473DB86E0051 // Color
  ME_473DB87F03DA // Font
  ME_473DB88D0113 // Canvas
@@ -981,20 +1017,26 @@ ref; // ME_473DBBB100F1 Draw
  ME_D27F17BF7EF3 // f_Next
  ME_3709C0D41282 // f_Font
  ME_676E2F4164C5 // f_Canvas
- ) .SequenceCode.It
+ )
  ; // Attributes
  : Operations
-   @ ( ME_473DB9890039 // FTType
+   Seq: ( ME_473DB9890039 // FTType
  ME_473DB99802C6 // Create
  ME_473DB9A80279 // AddNext
  ME_473DB9B700A4 // CutOff
  ME_473DBBB100F1 // Draw
- ) .SequenceCode.It
+ )
  ; // Operations
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
+ CONST dfm:PathOnly '\common\components\rtl\external\Expr'
+ CONST intf.pas:PathOnly '\common\components\rtl\external\Expr'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'Expr'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_47398921031E Tl3Expr
 
@@ -1010,13 +1052,19 @@ ref; // ME_47398921031E Tl3Expr
  : Parent ME_4739B8DE0134 // ExprDraw
  ;
  : Inherits
-   @ ( ME_47398921031E // Tl3Expr
- ) .SequenceCode.It
+   Seq: ( ME_47398921031E // Tl3Expr
+ )
  ; // Inherits
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
+ CONST dfm:PathOnly '\common\components\rtl\external\Expr'
+ CONST intf.pas:PathOnly '\common\components\rtl\external\Expr'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'ExprStrokes'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_47399A520177 TExprStrokes
 
@@ -1032,13 +1080,19 @@ ref; // ME_47399A520177 TExprStrokes
  : Parent ME_4739B8DE0134 // ExprDraw
  ;
  : Inherits
-   @ ( ME_47398921031E // Tl3Expr
- ) .SequenceCode.It
+   Seq: ( ME_47398921031E // Tl3Expr
+ )
  ; // Inherits
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
+ CONST dfm:PathOnly '\common\components\rtl\external\Expr'
+ CONST intf.pas:PathOnly '\common\components\rtl\external\Expr'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'ExprSpace'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_47399A2E00CB TExprSpace
 
@@ -1054,13 +1108,19 @@ ref; // ME_47399A2E00CB TExprSpace
  : Parent ME_4739B8DE0134 // ExprDraw
  ;
  : Inherits
-   @ ( ME_47398921031E // Tl3Expr
- ) .SequenceCode.It
+   Seq: ( ME_47398921031E // Tl3Expr
+ )
  ; // Inherits
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
+ CONST dfm:PathOnly '\common\components\rtl\external\Expr'
+ CONST intf.pas:PathOnly '\common\components\rtl\external\Expr'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'ExprNumber'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_473998E4017B TExprNumber
 
@@ -1076,13 +1136,19 @@ ref; // ME_473998E4017B TExprNumber
  : Parent ME_4739B8DE0134 // ExprDraw
  ;
  : Inherits
-   @ ( ME_473998E4017B // TExprNumber
- ) .SequenceCode.It
+   Seq: ( ME_473998E4017B // TExprNumber
+ )
  ; // Inherits
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
+ CONST dfm:PathOnly '\common\components\rtl\external\Expr'
+ CONST intf.pas:PathOnly '\common\components\rtl\external\Expr'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'ExprExpNumber'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_473998FB0319 TExprExpNumber
 
@@ -1098,13 +1164,19 @@ ref; // ME_473998FB0319 TExprExpNumber
  : Parent ME_4739B8DE0134 // ExprDraw
  ;
  : Inherits
-   @ ( ME_47398921031E // Tl3Expr
- ) .SequenceCode.It
+   Seq: ( ME_47398921031E // Tl3Expr
+ )
  ; // Inherits
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
+ CONST dfm:PathOnly '\common\components\rtl\external\Expr'
+ CONST intf.pas:PathOnly '\common\components\rtl\external\Expr'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'ExprEmpty'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_47399A7700D0 TExprEmpty
 
@@ -1120,13 +1192,19 @@ ref; // ME_47399A7700D0 TExprEmpty
  : Parent ME_4739B8DE0134 // ExprDraw
  ;
  : Inherits
-   @ ( ME_47398921031E // Tl3Expr
- ) .SequenceCode.It
+   Seq: ( ME_47398921031E // Tl3Expr
+ )
  ; // Inherits
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
+ CONST dfm:PathOnly '\common\components\rtl\external\Expr'
+ CONST intf.pas:PathOnly '\common\components\rtl\external\Expr'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'ExprSimple'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_473993380340 TExprSimple
 
@@ -1142,13 +1220,19 @@ ref; // ME_473993380340 TExprSimple
  : Parent ME_4739B8DE0134 // ExprDraw
  ;
  : Inherits
-   @ ( ME_473993380340 // TExprSimple
- ) .SequenceCode.It
+   Seq: ( ME_473993380340 // TExprSimple
+ )
  ; // Inherits
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
+ CONST dfm:PathOnly '\common\components\rtl\external\Expr'
+ CONST intf.pas:PathOnly '\common\components\rtl\external\Expr'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'ExprFuncName'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_4739954A032E TExprFuncName
 
@@ -1164,13 +1248,19 @@ ref; // ME_4739954A032E TExprFuncName
  : Parent ME_4739B8DE0134 // ExprDraw
  ;
  : Inherits
-   @ ( ME_473993380340 // TExprSimple
- ) .SequenceCode.It
+   Seq: ( ME_473993380340 // TExprSimple
+ )
  ; // Inherits
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
+ CONST dfm:PathOnly '\common\components\rtl\external\Expr'
+ CONST intf.pas:PathOnly '\common\components\rtl\external\Expr'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'ExprCustomText'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_47399382013D TExprCustomText
 
@@ -1186,13 +1276,19 @@ ref; // ME_47399382013D TExprCustomText
  : Parent ME_4739B8DE0134 // ExprDraw
  ;
  : Inherits
-   @ ( ME_473993380340 // TExprSimple
- ) .SequenceCode.It
+   Seq: ( ME_473993380340 // TExprSimple
+ )
  ; // Inherits
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
+ CONST dfm:PathOnly '\common\components\rtl\external\Expr'
+ CONST intf.pas:PathOnly '\common\components\rtl\external\Expr'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'ExprVar'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_4739935C00B7 TExprVar
 
@@ -1208,13 +1304,19 @@ ref; // ME_4739935C00B7 TExprVar
  : Parent ME_4739B8DE0134 // ExprDraw
  ;
  : Inherits
-   @ ( ME_473993380340 // TExprSimple
- ) .SequenceCode.It
+   Seq: ( ME_473993380340 // TExprSimple
+ )
  ; // Inherits
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
+ CONST dfm:PathOnly '\common\components\rtl\external\Expr'
+ CONST intf.pas:PathOnly '\common\components\rtl\external\Expr'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'ExprAsterix'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_47399A04020B TExprAsterix
 
@@ -1230,13 +1332,19 @@ ref; // ME_47399A04020B TExprAsterix
  : Parent ME_4739B8DE0134 // ExprDraw
  ;
  : Inherits
-   @ ( ME_47398921031E // Tl3Expr
- ) .SequenceCode.It
+   Seq: ( ME_47398921031E // Tl3Expr
+ )
  ; // Inherits
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
+ CONST dfm:PathOnly '\common\components\rtl\external\Expr'
+ CONST intf.pas:PathOnly '\common\components\rtl\external\Expr'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'ExprParent'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_473992790377 TExprParent
 
@@ -1252,13 +1360,19 @@ ref; // ME_473992790377 TExprParent
  : Parent ME_4739B8DE0134 // ExprDraw
  ;
  : Inherits
-   @ ( ME_473992790377 // TExprParent
- ) .SequenceCode.It
+   Seq: ( ME_473992790377 // TExprParent
+ )
  ; // Inherits
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
+ CONST dfm:PathOnly '\common\components\rtl\external\Expr'
+ CONST intf.pas:PathOnly '\common\components\rtl\external\Expr'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'ExprCap'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_47399961009E TExprCap
 
@@ -1274,13 +1388,19 @@ ref; // ME_47399961009E TExprCap
  : Parent ME_4739B8DE0134 // ExprDraw
  ;
  : Inherits
-   @ ( ME_473992790377 // TExprParent
- ) .SequenceCode.It
+   Seq: ( ME_473992790377 // TExprParent
+ )
  ; // Inherits
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
+ CONST dfm:PathOnly '\common\components\rtl\external\Expr'
+ CONST intf.pas:PathOnly '\common\components\rtl\external\Expr'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'ExprMatrix'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_473999B10393 TExprMatrix
 
@@ -1296,13 +1416,19 @@ ref; // ME_473999B10393 TExprMatrix
  : Parent ME_4739B8DE0134 // ExprDraw
  ;
  : Inherits
-   @ ( ME_473992790377 // TExprParent
- ) .SequenceCode.It
+   Seq: ( ME_473992790377 // TExprParent
+ )
  ; // Inherits
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
+ CONST dfm:PathOnly '\common\components\rtl\external\Expr'
+ CONST intf.pas:PathOnly '\common\components\rtl\external\Expr'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'ExprCase'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_473999DF02DA TExprCase
 
@@ -1318,13 +1444,19 @@ ref; // ME_473999DF02DA TExprCase
  : Parent ME_4739B8DE0134 // ExprDraw
  ;
  : Inherits
-   @ ( ME_473992790377 // TExprParent
- ) .SequenceCode.It
+   Seq: ( ME_473992790377 // TExprParent
+ )
  ; // Inherits
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
+ CONST dfm:PathOnly '\common\components\rtl\external\Expr'
+ CONST intf.pas:PathOnly '\common\components\rtl\external\Expr'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'ExprStand'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_4739997600EF TExprStand
 
@@ -1340,13 +1472,19 @@ ref; // ME_4739997600EF TExprStand
  : Parent ME_4739B8DE0134 // ExprDraw
  ;
  : Inherits
-   @ ( ME_47398921031E // Tl3Expr
- ) .SequenceCode.It
+   Seq: ( ME_47398921031E // Tl3Expr
+ )
  ; // Inherits
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
+ CONST dfm:PathOnly '\common\components\rtl\external\Expr'
+ CONST intf.pas:PathOnly '\common\components\rtl\external\Expr'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'ExprExtSymbol'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_4739965A00A4 TExprExtSymbol
 
@@ -1362,13 +1500,19 @@ ref; // ME_4739965A00A4 TExprExtSymbol
  : Parent ME_4739B8DE0134 // ExprDraw
  ;
  : Inherits
-   @ ( ME_4739965A00A4 // TExprExtSymbol
- ) .SequenceCode.It
+   Seq: ( ME_4739965A00A4 // TExprExtSymbol
+ )
  ; // Inherits
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
+ CONST dfm:PathOnly '\common\components\rtl\external\Expr'
+ CONST intf.pas:PathOnly '\common\components\rtl\external\Expr'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'ExprPlank'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_4739969A0146 TExprPlank
 
@@ -1384,13 +1528,19 @@ ref; // ME_4739969A0146 TExprPlank
  : Parent ME_4739B8DE0134 // ExprDraw
  ;
  : Inherits
-   @ ( ME_4739965A00A4 // TExprExtSymbol
- ) .SequenceCode.It
+   Seq: ( ME_4739965A00A4 // TExprExtSymbol
+ )
  ; // Inherits
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
+ CONST dfm:PathOnly '\common\components\rtl\external\Expr'
+ CONST intf.pas:PathOnly '\common\components\rtl\external\Expr'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'ExprNabla'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_473996CE0029 TExprNabla
 
@@ -1406,13 +1556,19 @@ ref; // ME_473996CE0029 TExprNabla
  : Parent ME_4739B8DE0134 // ExprDraw
  ;
  : Inherits
-   @ ( ME_4739965A00A4 // TExprExtSymbol
- ) .SequenceCode.It
+   Seq: ( ME_4739965A00A4 // TExprExtSymbol
+ )
  ; // Inherits
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
+ CONST dfm:PathOnly '\common\components\rtl\external\Expr'
+ CONST intf.pas:PathOnly '\common\components\rtl\external\Expr'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'ExprLambda'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_473996AF01D3 TExprLambda
 
@@ -1428,13 +1584,19 @@ ref; // ME_473996AF01D3 TExprLambda
  : Parent ME_4739B8DE0134 // ExprDraw
  ;
  : Inherits
-   @ ( ME_4739965A00A4 // TExprExtSymbol
- ) .SequenceCode.It
+   Seq: ( ME_4739965A00A4 // TExprExtSymbol
+ )
  ; // Inherits
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
+ CONST dfm:PathOnly '\common\components\rtl\external\Expr'
+ CONST intf.pas:PathOnly '\common\components\rtl\external\Expr'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'ExprComma'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_473996E50086 TExprComma
 
@@ -1450,13 +1612,19 @@ ref; // ME_473996E50086 TExprComma
  : Parent ME_4739B8DE0134 // ExprDraw
  ;
  : Inherits
-   @ ( ME_4739965A00A4 // TExprExtSymbol
- ) .SequenceCode.It
+   Seq: ( ME_4739965A00A4 // TExprExtSymbol
+ )
  ; // Inherits
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
+ CONST dfm:PathOnly '\common\components\rtl\external\Expr'
+ CONST intf.pas:PathOnly '\common\components\rtl\external\Expr'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'ExprSign'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_4739970400F9 TExprSign
 
@@ -1472,13 +1640,19 @@ ref; // ME_4739970400F9 TExprSign
  : Parent ME_4739B8DE0134 // ExprDraw
  ;
  : Inherits
-   @ ( ME_473992790377 // TExprParent
- ) .SequenceCode.It
+   Seq: ( ME_473992790377 // TExprParent
+ )
  ; // Inherits
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
+ CONST dfm:PathOnly '\common\components\rtl\external\Expr'
+ CONST intf.pas:PathOnly '\common\components\rtl\external\Expr'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'ExprChain'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_473993BF02B8 TExprChain
 
@@ -1494,13 +1668,19 @@ ref; // ME_473993BF02B8 TExprChain
  : Parent ME_4739B8DE0134 // ExprDraw
  ;
  : Inherits
-   @ ( ME_473992790377 // TExprParent
- ) .SequenceCode.It
+   Seq: ( ME_473992790377 // TExprParent
+ )
  ; // Inherits
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
+ CONST dfm:PathOnly '\common\components\rtl\external\Expr'
+ CONST intf.pas:PathOnly '\common\components\rtl\external\Expr'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'ExprBigParent'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_473992A0026F TExprBigParent
 
@@ -1516,13 +1696,19 @@ ref; // ME_473992A0026F TExprBigParent
  : Parent ME_4739B8DE0134 // ExprDraw
  ;
  : Inherits
-   @ ( ME_473992790377 // TExprParent
- ) .SequenceCode.It
+   Seq: ( ME_473992790377 // TExprParent
+ )
  ; // Inherits
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
+ CONST dfm:PathOnly '\common\components\rtl\external\Expr'
+ CONST intf.pas:PathOnly '\common\components\rtl\external\Expr'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'ExprLim'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_473995B3016C TExprLim
 
@@ -1538,13 +1724,19 @@ ref; // ME_473995B3016C TExprLim
  : Parent ME_4739B8DE0134 // ExprDraw
  ;
  : Inherits
-   @ ( ME_473992790377 // TExprParent
- ) .SequenceCode.It
+   Seq: ( ME_473992790377 // TExprParent
+ )
  ; // Inherits
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
+ CONST dfm:PathOnly '\common\components\rtl\external\Expr'
+ CONST intf.pas:PathOnly '\common\components\rtl\external\Expr'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'ExprTwinParent'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_473992DB0101 TExprTwinParent
 
@@ -1560,13 +1752,19 @@ ref; // ME_473992DB0101 TExprTwinParent
  : Parent ME_4739B8DE0134 // ExprDraw
  ;
  : Inherits
-   @ ( ME_473992DB0101 // TExprTwinParent
- ) .SequenceCode.It
+   Seq: ( ME_473992DB0101 // TExprTwinParent
+ )
  ; // Inherits
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
+ CONST dfm:PathOnly '\common\components\rtl\external\Expr'
+ CONST intf.pas:PathOnly '\common\components\rtl\external\Expr'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'ExprIndex'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_4739992901CA TExprIndex
 
@@ -1582,13 +1780,19 @@ ref; // ME_4739992901CA TExprIndex
  : Parent ME_4739B8DE0134 // ExprDraw
  ;
  : Inherits
-   @ ( ME_473992DB0101 // TExprTwinParent
- ) .SequenceCode.It
+   Seq: ( ME_473992DB0101 // TExprTwinParent
+ )
  ; // Inherits
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
+ CONST dfm:PathOnly '\common\components\rtl\external\Expr'
+ CONST intf.pas:PathOnly '\common\components\rtl\external\Expr'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'ExprGroupOp'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_4739930C03E7 TExprGroupOp
 
@@ -1604,13 +1808,19 @@ ref; // ME_4739930C03E7 TExprGroupOp
  : Parent ME_4739B8DE0134 // ExprDraw
  ;
  : Inherits
-   @ ( ME_4739930C03E7 // TExprGroupOp
- ) .SequenceCode.It
+   Seq: ( ME_4739930C03E7 // TExprGroupOp
+ )
  ; // Inherits
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
+ CONST dfm:PathOnly '\common\components\rtl\external\Expr'
+ CONST intf.pas:PathOnly '\common\components\rtl\external\Expr'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'ExprIntegral'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_473996280034 TExprIntegral
 
@@ -1626,13 +1836,19 @@ ref; // ME_473996280034 TExprIntegral
  : Parent ME_4739B8DE0134 // ExprDraw
  ;
  : Inherits
-   @ ( ME_4739930C03E7 // TExprGroupOp
- ) .SequenceCode.It
+   Seq: ( ME_4739930C03E7 // TExprGroupOp
+ )
  ; // Inherits
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
+ CONST dfm:PathOnly '\common\components\rtl\external\Expr'
+ CONST intf.pas:PathOnly '\common\components\rtl\external\Expr'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'ExprSumma'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_473995D00381 TExprSumma
 
@@ -1648,13 +1864,19 @@ ref; // ME_473995D00381 TExprSumma
  : Parent ME_4739B8DE0134 // ExprDraw
  ;
  : Inherits
-   @ ( ME_4739930C03E7 // TExprGroupOp
- ) .SequenceCode.It
+   Seq: ( ME_4739930C03E7 // TExprGroupOp
+ )
  ; // Inherits
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
+ CONST dfm:PathOnly '\common\components\rtl\external\Expr'
+ CONST intf.pas:PathOnly '\common\components\rtl\external\Expr'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'ExprProd'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_473995EB02D5 TExprProd
 
@@ -1670,13 +1892,19 @@ ref; // ME_473995EB02D5 TExprProd
  : Parent ME_4739B8DE0134 // ExprDraw
  ;
  : Inherits
-   @ ( ME_4739930C03E7 // TExprGroupOp
- ) .SequenceCode.It
+   Seq: ( ME_4739930C03E7 // TExprGroupOp
+ )
  ; // Inherits
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
+ CONST dfm:PathOnly '\common\components\rtl\external\Expr'
+ CONST intf.pas:PathOnly '\common\components\rtl\external\Expr'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'ExprCirc'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_4739960700AF TExprCirc
 
@@ -1692,13 +1920,19 @@ ref; // ME_4739960700AF TExprCirc
  : Parent ME_4739B8DE0134 // ExprDraw
  ;
  : Inherits
-   @ ( ME_473993BF02B8 // TExprChain
- ) .SequenceCode.It
+   Seq: ( ME_473993BF02B8 // TExprChain
+ )
  ; // Inherits
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
+ CONST dfm:PathOnly '\common\components\rtl\external\Expr'
+ CONST intf.pas:PathOnly '\common\components\rtl\external\Expr'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'ExprBracketed'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_473993DA02C1 TExprBracketed
 
@@ -1714,13 +1948,19 @@ ref; // ME_473993DA02C1 TExprBracketed
  : Parent ME_4739B8DE0134 // ExprDraw
  ;
  : Inherits
-   @ ( ME_473992A0026F // TExprBigParent
- ) .SequenceCode.It
+   Seq: ( ME_473992A0026F // TExprBigParent
+ )
  ; // Inherits
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
+ CONST dfm:PathOnly '\common\components\rtl\external\Expr'
+ CONST intf.pas:PathOnly '\common\components\rtl\external\Expr'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'ExprRatio'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_473994B1005D TExprRatio
 
@@ -1736,13 +1976,19 @@ ref; // ME_473994B1005D TExprRatio
  : Parent ME_4739B8DE0134 // ExprDraw
  ;
  : Inherits
-   @ ( ME_473992A0026F // TExprBigParent
- ) .SequenceCode.It
+   Seq: ( ME_473992A0026F // TExprBigParent
+ )
  ; // Inherits
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
+ CONST dfm:PathOnly '\common\components\rtl\external\Expr'
+ CONST intf.pas:PathOnly '\common\components\rtl\external\Expr'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'ExprRoot'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_473994CA0211 TExprRoot
 
@@ -1758,13 +2004,19 @@ ref; // ME_473994CA0211 TExprRoot
  : Parent ME_4739B8DE0134 // ExprDraw
  ;
  : Inherits
-   @ ( ME_473992A0026F // TExprBigParent
- ) .SequenceCode.It
+   Seq: ( ME_473992A0026F // TExprBigParent
+ )
  ; // Inherits
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
+ CONST dfm:PathOnly '\common\components\rtl\external\Expr'
+ CONST intf.pas:PathOnly '\common\components\rtl\external\Expr'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'ExprAtValue'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_47399501038D TExprAtValue
 
@@ -1780,13 +2032,19 @@ ref; // ME_47399501038D TExprAtValue
  : Parent ME_4739B8DE0134 // ExprDraw
  ;
  : Inherits
-   @ ( ME_473992A0026F // TExprBigParent
- ) .SequenceCode.It
+   Seq: ( ME_473992A0026F // TExprBigParent
+ )
  ; // Inherits
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
+ CONST dfm:PathOnly '\common\components\rtl\external\Expr'
+ CONST intf.pas:PathOnly '\common\components\rtl\external\Expr'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'ExprCommonFunc'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_4739951F0246 TExprCommonFunc
 
@@ -1802,13 +2060,19 @@ ref; // ME_4739951F0246 TExprCommonFunc
  : Parent ME_4739B8DE0134 // ExprDraw
  ;
  : Inherits
-   @ ( ME_4739951F0246 // TExprCommonFunc
- ) .SequenceCode.It
+   Seq: ( ME_4739951F0246 // TExprCommonFunc
+ )
  ; // Inherits
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
+ CONST dfm:PathOnly '\common\components\rtl\external\Expr'
+ CONST intf.pas:PathOnly '\common\components\rtl\external\Expr'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'ExprFunc'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_4739957100B3 TExprFunc
 
@@ -1824,13 +2088,19 @@ ref; // ME_4739957100B3 TExprFunc
  : Parent ME_4739B8DE0134 // ExprDraw
  ;
  : Inherits
-   @ ( ME_473993DA02C1 // TExprBracketed
- ) .SequenceCode.It
+   Seq: ( ME_473993DA02C1 // TExprBracketed
+ )
  ; // Inherits
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
+ CONST dfm:PathOnly '\common\components\rtl\external\Expr'
+ CONST intf.pas:PathOnly '\common\components\rtl\external\Expr'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'ExprRound'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_473994010258 TExprRound
 
@@ -1846,13 +2116,19 @@ ref; // ME_473994010258 TExprRound
  : Parent ME_4739B8DE0134 // ExprDraw
  ;
  : Inherits
-   @ ( ME_473993DA02C1 // TExprBracketed
- ) .SequenceCode.It
+   Seq: ( ME_473993DA02C1 // TExprBracketed
+ )
  ; // Inherits
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
+ CONST dfm:PathOnly '\common\components\rtl\external\Expr'
+ CONST intf.pas:PathOnly '\common\components\rtl\external\Expr'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'ExprArgument'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_4739941802AC TExprArgument
 
@@ -1868,13 +2144,19 @@ ref; // ME_4739941802AC TExprArgument
  : Parent ME_4739B8DE0134 // ExprDraw
  ;
  : Inherits
-   @ ( ME_473993DA02C1 // TExprBracketed
- ) .SequenceCode.It
+   Seq: ( ME_473993DA02C1 // TExprBracketed
+ )
  ; // Inherits
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
+ CONST dfm:PathOnly '\common\components\rtl\external\Expr'
+ CONST intf.pas:PathOnly '\common\components\rtl\external\Expr'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'ExprBase'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_473994720341 TExprBase
 
@@ -1892,6 +2174,12 @@ ref; // ME_473994720341 TExprBase
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
+ CONST dfm:PathOnly '\common\components\rtl\external\Expr'
+ CONST intf.pas:PathOnly '\common\components\rtl\external\Expr'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'ExprContainer'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_53075F9902B4 TExprContainer
 
@@ -1917,7 +2205,7 @@ ref; // ME_4D4949EA03C5
  : Parent ME_47398897018F // ExprDraw
  ;
  : Children
-   @ ( ME_4739B8EE00D3 // TExprCapStyle
+   Seq: ( ME_4739B8EE00D3 // TExprCapStyle
  ME_4739B91F0296 // TExprBracket
  ME_4739B946031E // TExprVertAlign
  ME_4739B965021E // TExprHorAlign
@@ -1965,20 +2253,19 @@ ref; // ME_4D4949EA03C5
  ME_4739941802AC // TExprArgument
  ME_473994720341 // TExprBase
  ME_53075F9902B4 // TExprContainer
- ) .SequenceCode.It
+ )
  ; // Children
  : Dependencies
-   @ ( ME_4D4949EA03C5 // 
- ) .SequenceCode.It
+   Seq: ( ME_4D4949EA03C5 // 
+ )
  ; // Dependencies
  CONST "finished" false
  CONST "no hands" false
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\external\Expr'
  CONST intf.pas:Path 'common\components\rtl\external\Expr\NOT_FINISHED_ExprDraw.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\external\Expr'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_4739B8DE0134 ExprDraw
 
@@ -1993,25 +2280,23 @@ ref; // ME_4739B8DE0134 ExprDraw
  : Parent WL 'ME_473987420315' '473987420315.pas.ms.script' // Expr
  ;
  : Children
-   @ ( ME_4739B8DE0134 // ExprDraw
- ) .SequenceCode.It
+   Seq: ( ME_4739B8DE0134 // ExprDraw
+ )
  ; // Children
  : Depends
-   @ ( WL 'ME_4677FBA70343' '4677FBA70343.pas.ms.script' // l3Interfaces
+   Seq: ( WL 'ME_4677FBA70343' '4677FBA70343.pas.ms.script' // l3Interfaces
  WL 'ME_46A5E026007E' '46A5E026007E.pas.ms.script' // l3Core
  WL 'ME_4739AB8601AA' '4739AB8601AA.pas.ms.script' // l3Drawer
  WL 'ME_47913B47006E' '47913B47006E.pas.ms.script' // l3CoreObjects
  WL 'ME_4AB0C3C60310' '4AB0C3C60310.pas.ms.script' // Sys
  WL 'ME_556F09AA036E' '556F09AA036E.pas.ms.script' // l3PrinterInterfaces
- ) .SequenceCode.It
+ )
  ; // Depends
- : Generators
- @ (
- gen_pas.script
- gen_pas.script.runner
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\external\Expr'
+ CONST intf.pas:PathOnly '\common\components\rtl\external\Expr'
  CONST pas.script:Path 'shared\models\NewSchool\Scripts\47398897018F.pas.ms.script'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
  CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\47398897018F.pas.ms.script.runner'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_47398897018F ExprDraw

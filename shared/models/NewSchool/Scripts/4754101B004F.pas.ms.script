@@ -16,20 +16,22 @@ FORWARD ME_4754101B004F
  : Parent ME_4754101B004F // OvcBase
  ;
  : Inherits
-   @ ( WL 'ME_47541E17024E' '47913B47006E.pas.ms.script' // Tl3InterfacedComponent
- ) .SequenceCode.It
+   Seq: ( WL 'ME_47541E17024E' '47913B47006E.pas.ms.script' // Tl3InterfacedComponent
+ )
  ; // Inherits
  CONST "finished" false
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\external\Orpheus'
  CONST intf.pas:Path 'common\components\rtl\external\Orpheus\NOT_FINISHED_OvcController.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\external\Orpheus'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'OvcController'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'OvcController'
 
 ref; // ME_475415C50224 TOvcController
 
@@ -53,6 +55,7 @@ ref; // ME_475416990003 Controller
 : ME_795EEB6A33AB
  CONST UID '795EEB6A33AB'
  CONST Name 'Ini_Reg_Class'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Регистрация TOvcBase' ;
@@ -66,6 +69,7 @@ ref; // ME_795EEB6A33AB Ini_Reg_Class
 
 : ME_E825044EA968
  CONST UID 'E825044EA968'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_475410380119 // TOvcBase
@@ -87,20 +91,20 @@ ref; // ME_E825044EA968
  : Parent ME_4754101B004F // OvcBase
  ;
  : Inherits
-   @ ( WL 'ME_47E1388A03A7' '4799D29F033F.pas.ms.script' // TCustomControl
- ) .SequenceCode.It
+   Seq: ( WL 'ME_47E1388A03A7' '4799D29F033F.pas.ms.script' // TCustomControl
+ )
  ; // Inherits
  : Attributes
-   @ ( ME_475416990003 // Controller
- ) .SequenceCode.It
+   Seq: ( ME_475416990003 // Controller
+ )
  ; // Attributes
  : Operations
-   @ ( ME_795EEB6A33AB // Ini_Reg_Class
- ) .SequenceCode.It
+   Seq: ( ME_795EEB6A33AB // Ini_Reg_Class
+ )
  ; // Operations
  : Dependencies
-   @ ( ME_E825044EA968 // 
- ) .SequenceCode.It
+   Seq: ( ME_E825044EA968 // 
+ )
  ; // Dependencies
  CONST "base wnd class" 'CWnd'
  CONST "finished" false
@@ -108,12 +112,14 @@ ref; // ME_E825044EA968
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\external\Orpheus'
  CONST intf.pas:Path 'common\components\rtl\external\Orpheus\NOT_FINISHED_OvcBase.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\external\Orpheus'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'OvcBase'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'OvcBase'
 
 ref; // ME_475410380119 TOvcBase
 
@@ -134,6 +140,12 @@ FORWARD ME_5150530901CE
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
+ CONST dfm:PathOnly '\common\components\rtl\external\Orpheus'
+ CONST intf.pas:PathOnly '\common\components\rtl\external\Orpheus'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'OvcColors'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_514C8A3B0262 TOvcColors
 
@@ -148,17 +160,16 @@ ref; // ME_514C8A3B0262 TOvcColors
  : Parent ME_4754101B004F // OvcBase
  ;
  : Children
-   @ ( ME_514C8A3B0262 // TOvcColors
- ) .SequenceCode.It
+   Seq: ( ME_514C8A3B0262 // TOvcColors
+ )
  ; // Children
  CONST "finished" false
  CONST "no hands" false
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\external\Orpheus'
  CONST intf.pas:Path 'common\components\rtl\external\Orpheus\NOT_FINISHED_OvcColor.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\external\Orpheus'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_5150530901CE OvcColor
 
@@ -174,12 +185,11 @@ ref; // ME_5150530901CE OvcColor
  ;
  CONST "finished" false
  CONST "no hands" false
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\external\Orpheus'
  CONST intf.pas:Path 'common\components\rtl\external\Orpheus\NOT_FINISHED_OvcData.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\external\Orpheus'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_5159566B0063 OvcData
 
@@ -195,12 +205,11 @@ ref; // ME_5159566B0063 OvcData
  ;
  CONST "finished" false
  CONST "no hands" false
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\external\Orpheus'
  CONST intf.pas:Path 'common\components\rtl\external\Orpheus\NOT_FINISHED_OvcExcpt.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\external\Orpheus'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_515956AC0167 OvcExcpt
 
@@ -215,27 +224,25 @@ ref; // ME_515956AC0167 OvcExcpt
  : Parent WL 'ME_47540FF802AC' '47540FF802AC.pas.ms.script' // Orpheus
  ;
  : Children
-   @ ( ME_475415C50224 // TOvcController
+   Seq: ( ME_475415C50224 // TOvcController
  ME_475410380119 // TOvcBase
  ME_5150530901CE // OvcColor
  ME_5159566B0063 // OvcData
  ME_515956AC0167 // OvcExcpt
- ) .SequenceCode.It
+ )
  ; // Children
  : Depends
-   @ ( WL 'ME_47541DF90101' '47541DF90101.pas.ms.script' // l3InterfacedComponent
+   Seq: ( WL 'ME_47541DF90101' '47541DF90101.pas.ms.script' // l3InterfacedComponent
  WL 'ME_47913B47006E' '47913B47006E.pas.ms.script' // l3CoreObjects
  WL 'ME_4799D29F033F' '4799D29F033F.pas.ms.script' // Implementation
  WL 'ME_561F9F7D02A7' '561F9F7D02A7.pas.ms.script' // ScriptEngine
- ) .SequenceCode.It
+ )
  ; // Depends
- : Generators
- @ (
- gen_pas.script
- gen_pas.script.runner
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\external\Orpheus'
+ CONST intf.pas:PathOnly '\common\components\rtl\external\Orpheus'
  CONST pas.script:Path 'shared\models\NewSchool\Scripts\4754101B004F.pas.ms.script'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
  CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\4754101B004F.pas.ms.script.runner'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_4754101B004F OvcBase

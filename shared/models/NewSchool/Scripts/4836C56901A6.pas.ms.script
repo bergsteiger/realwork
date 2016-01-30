@@ -1,0 +1,61 @@
+// NSRC+ 4836C56901A6 UseCases Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4836C56901A6
+
+FORWARD ME_4836C5E303B9
+
+: ME_4836C5E303B9
+ CONST UID '4836C5E303B9'
+ CONST Name 'Выливка в формат NSRC+'
+ CONST Class class_Class
+ : Stereotype st_UseCase ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4836C56901A6 // NSRC+
+ ;
+ : Depends
+   Seq: ( WL 'ME_4836C450038D' '47ECACA70141.pas.ms.script' // TevSimpleTextPainter
+ WL 'ME_4836CFF1028E' '47ECACA70141.pas.ms.script' // TevNSRCPlusWriter
+ )
+ ; // Depends
+ CONST cpp:PathOnly '\common\components'
+ CONST dfm:PathOnly '\common\components'
+ CONST h:PathOnly '\common\components'
+ CONST intf.pas:PathOnly '\common\components'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+
+ref; // ME_4836C5E303B9 Выливка в формат NSRC+
+
+: ME_4836C56901A6
+ CONST UID '4836C56901A6'
+ CONST Name 'NSRC+'
+ CONST Class class_Category
+ : Stereotype st_UseCases ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent WL 'ME_4836C4E2003A' '4836C4E2003A.pas.ms.script' // Форматы обмена
+ ;
+ : Children
+   Seq: ( ME_4836C5E303B9 // Выливка в формат NSRC+
+ )
+ ; // Children
+ : Depends
+   Seq: ( WL 'ME_47ECACA70141' '47ECACA70141.pas.ms.script' // Generators
+ WL 'ME_4BBB34C600E6' '4BBB34C600E6.pas.ms.script' // NSRC
+ WL 'ME_4F266203018F' '4F266203018F.pas.ms.script' // NSRC
+ )
+ ; // Depends
+ CONST cpp:PathOnly '\common\components'
+ CONST dfm:PathOnly '\common\components'
+ CONST h:PathOnly '\common\components'
+ CONST intf.pas:PathOnly '\common\components'
+ CONST pas.script:Path 'shared\models\NewSchool\Scripts\4836C56901A6.pas.ms.script'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\4836C56901A6.pas.ms.script.runner'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+
+ref; // ME_4836C56901A6 NSRC+

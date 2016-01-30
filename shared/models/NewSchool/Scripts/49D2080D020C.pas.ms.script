@@ -16,10 +16,16 @@ FORWARD ME_49D2080D020C
  : Parent ME_49D2080D020C // nevRealTools
  ;
  : Inherits
-   @ ( WL 'ME_47C52228029C' '47C5207602D1.pas.ms.script' // InevBase
- ) .SequenceCode.It
+   Seq: ( WL 'ME_47C52228029C' '47C5207602D1.pas.ms.script' // InevBase
+ )
  ; // Inherits
  CONST "is default ancestor" true
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest\new'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'BaseTool'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_49D20910019D InevBaseTool
 
@@ -84,12 +90,17 @@ ref; // ME_4A585DF90027 rNeedBottom
  : Parent ME_47C697030322 // InevDrawingShape
  ;
  : Attributes
-   @ ( ME_4A4B25E203AA // rView
+   Seq: ( ME_4A4B25E203AA // rView
  ME_4A4B260902ED // rCanvas
  ME_4A585DF90027 // rNeedBottom
- ) .SequenceCode.It
+ )
  ; // Attributes
  CONST "not treat as record for XE4" 'undefined'
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest\new'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'ShapeArea'
 
 ref; // ME_47FA2B4E0022 TnevShapeArea
 
@@ -167,12 +178,16 @@ ref; // ME_4CD803E902A5 rCellBottom
  : Parent ME_47C697030322 // InevDrawingShape
  ;
  : Attributes
-   @ ( ME_47FA3B9D02B6 // rMap
+   Seq: ( ME_47FA3B9D02B6 // rMap
  ME_47FA3BAE00E1 // rBottom
  ME_4A81105300A7 // rCalculatedHeight
  ME_4CD803E902A5 // rCellBottom
- ) .SequenceCode.It
+ )
  ; // Attributes
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest\new'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_47FA3B72006E TnevShapeInfo
 
@@ -310,7 +325,7 @@ ref; // ME_4BC5AAD50074 rCheckSelection
  : Parent ME_47C697030322 // InevDrawingShape
  ;
  : Attributes
-   @ ( ME_47FA29EA0357 // rTop
+   Seq: ( ME_47FA29EA0357 // rTop
  ME_47FA2A060311 // rCaret
  ME_47FA2A2502DA // rSelection
  ME_4A8110740323 // rPrevHeight
@@ -318,8 +333,12 @@ ref; // ME_4BC5AAD50074 rCheckSelection
  ME_4AEC2ED40350 // rFake
  ME_4BBB0CF90297 // rCheckCaret
  ME_4BC5AAD50074 // rCheckSelection
- ) .SequenceCode.It
+ )
  ; // Attributes
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest\new'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_47FA29CC0055 TnevShapePoints
 
@@ -381,20 +400,25 @@ ref; // ME_4A4DD45400DE
  : Parent ME_47C697030322 // InevDrawingShape
  ;
  : Inherits
-   @ ( ME_47FA2B4E0022 // TnevShapeArea
- ) .SequenceCode.It
+   Seq: ( ME_47FA2B4E0022 // TnevShapeArea
+ )
  ; // Inherits
  : Operations
-   @ ( ME_4A4B359D0072 // Init
+   Seq: ( ME_4A4B359D0072 // Init
  ME_4A4B35A1004C // Init
  ME_4A4B35A400CE // Free
- ) .SequenceCode.It
+ )
  ; // Operations
  : Dependencies
-   @ ( ME_4A4DD45400DE // 
- ) .SequenceCode.It
+   Seq: ( ME_4A4DD45400DE // 
+ )
  ; // Dependencies
  CONST "not treat as record for XE4" 'undefined'
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest\new'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'ShapeAreaEx'
 
 ref; // ME_4A4B3579038F TnevShapeAreaEx
 
@@ -410,10 +434,14 @@ ref; // ME_4A4B3579038F TnevShapeAreaEx
  : Parent ME_47C697030322 // InevDrawingShape
  ;
  : Inherits
-   @ ( ME_47FA2B4E0022 // TnevShapeArea
- ) .SequenceCode.It
+   Seq: ( ME_47FA2B4E0022 // TnevShapeArea
+ )
  ; // Inherits
  CONST "isPointer" true
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest\new'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_4A4B3696016B PnevShapeArea
 
@@ -458,10 +486,10 @@ ref; // ME_47FA4B7A0176 theInfo
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
  : Parameters
-   @ ( ME_47FA4B7A0114 // anArea
+   Seq: ( ME_47FA4B7A0114 // anArea
  ME_47FA4B7A0145 // aPoints
  ME_47FA4B7A0176 // theInfo
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_47C6972A036C Draw
@@ -473,6 +501,7 @@ ref; // ME_47C6972A036C Draw
  ;
  : Implementor ME_47C697030322 // InevDrawingShape
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" false
 ref; // ME_4E25BC360220_ME_47C697030322 Obj
 
@@ -489,25 +518,31 @@ ref; // ME_4E25BC360220_ME_47C697030322 Obj
  : Parent ME_49D2080D020C // nevRealTools
  ;
  : Inherits
-   @ ( WL 'ME_4E25BC1903C9' '47C5207602D1.pas.ms.script' // InevTool
- ) .SequenceCode.It
+   Seq: ( WL 'ME_4E25BC1903C9' '47C5207602D1.pas.ms.script' // InevTool
+ )
  ; // Inherits
  : Operations
-   @ ( ME_47C6972A036C // Draw
- ) .SequenceCode.It
+   Seq: ( ME_47C6972A036C // Draw
+ )
  ; // Operations
  : Implemented
-   @ ( ME_4E25BC360220_ME_47C697030322 // Obj
- ) .SequenceCode.It
+   Seq: ( ME_4E25BC360220_ME_47C697030322 // Obj
+ )
  ; // Implemented
  : Children
-   @ ( ME_47FA2B4E0022 // TnevShapeArea
+   Seq: ( ME_47FA2B4E0022 // TnevShapeArea
  ME_47FA3B72006E // TnevShapeInfo
  ME_47FA29CC0055 // TnevShapePoints
  ME_4A4B3579038F // TnevShapeAreaEx
  ME_4A4B3696016B // PnevShapeArea
- ) .SequenceCode.It
+ )
  ; // Children
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest\new'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'DrawingShape'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_47C697030322 InevDrawingShape
 
@@ -551,10 +586,15 @@ ref; // ME_47C7DBF10070 ev_pmCell
  : Parent ME_47C7DC2801FB // IevPainter
  ;
  : Attributes
-   @ ( ME_47C7DBEB037E // ev_pmUsial
+   Seq: ( ME_47C7DBEB037E // ev_pmUsial
  ME_47C7DBF10070 // ev_pmCell
- ) .SequenceCode.It
+ )
  ; // Attributes
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest\new'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_47C7DBE0022A TevParaMarkStyle
 
@@ -590,9 +630,9 @@ ref; // ME_4FD8737B02A4 aSelection
  : Parent ME_47C7DE24022A // InevPaintersHolder
  ;
  : Parameters
-   @ ( ME_4FD8737B0265 // aChildMap
+   Seq: ( ME_4FD8737B0265 // aChildMap
  ME_4FD8737B02A4 // aSelection
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_47C7DE3200E4 RemeberSelPart
@@ -616,8 +656,8 @@ ref; // ME_47C7DE47009D aHeight
  : Parent ME_47C7DE24022A // InevPaintersHolder
  ;
  : Parameters
-   @ ( ME_47C7DE47009D // aHeight
- ) .SequenceCode.It
+   Seq: ( ME_47C7DE47009D // aHeight
+ )
  ; // Parameters
 
 ref; // ME_47C7DE42020F SetHeight
@@ -635,10 +675,16 @@ ref; // ME_47C7DE42020F SetHeight
  : Parent ME_47C7DC2801FB // IevPainter
  ;
  : Operations
-   @ ( ME_47C7DE3200E4 // RemeberSelPart
+   Seq: ( ME_47C7DE3200E4 // RemeberSelPart
  ME_47C7DE42020F // SetHeight
- ) .SequenceCode.It
+ )
  ; // Operations
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest\new'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'PaintersHolder'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_47C7DE24022A InevPaintersHolder
 
@@ -695,11 +741,16 @@ ref; // ME_4ABB4C520350 nev_NeedAdd
  : Parent ME_47C7DC2801FB // IevPainter
  ;
  : Attributes
-   @ ( ME_4ABB4C1901AC // nev_None
+   Seq: ( ME_4ABB4C1901AC // nev_None
  ME_4ABB4C4003C6 // nev_CheckOnly
  ME_4ABB4C520350 // nev_NeedAdd
- ) .SequenceCode.It
+ )
  ; // Attributes
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest\new'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_4ABB4BC20136 TnevCheckType
 
@@ -725,6 +776,7 @@ ref; // ME_53550F3C028F aPara
  CONST Value 'nev_None'
  : ValueType ME_4ABB4BC20136 // TnevCheckType
  ;
+ CONST extprop:pas:Value 'nev_None'
 
 ref; // ME_4ABB4C8E00D0 aCheckType
 
@@ -737,9 +789,9 @@ ref; // ME_4ABB4C8E00D0 aCheckType
  : Parent ME_49CB6B81028D // IevTablePainter
  ;
  : Parameters
-   @ ( ME_53550F3C028F // aPara
+   Seq: ( ME_53550F3C028F // aPara
  ME_4ABB4C8E00D0 // aCheckType
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_49CB6BE30032 CheckCell
@@ -798,10 +850,10 @@ ref; // ME_4C458F0A0230 aForLines
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
  : Parameters
-   @ ( ME_53550F470067 // aPara
+   Seq: ( ME_53550F470067 // aPara
  ME_4C458F0A020B // anPID
  ME_4C458F0A0230 // aForLines
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_49CB6C2E02E2 WasPainted
@@ -832,12 +884,18 @@ ref; // ME_52B2EF99032C HasOwnStyle
  : Parent ME_47C7DC2801FB // IevPainter
  ;
  : Operations
-   @ ( ME_49CB6BE30032 // CheckCell
+   Seq: ( ME_49CB6BE30032 // CheckCell
  ME_49CB6C1A02DF // CalcOffset
  ME_49CB6C2E02E2 // WasPainted
  ME_52B2EF99032C // HasOwnStyle
- ) .SequenceCode.It
+ )
  ; // Operations
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest\new'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'TablePainter'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_49CB6B81028D IevTablePainter
 
@@ -875,9 +933,9 @@ ref; // ME_4C774EBC0286 aCanvas
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
  : Parameters
-   @ ( ME_4C774EBC0242 // aFI
+   Seq: ( ME_4C774EBC0242 // aFI
  ME_4C774EBC0286 // aCanvas
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_4C774E7D01CD CheckChildren
@@ -901,8 +959,8 @@ ref; // ME_4D9AF0DB039C aDelta
  : Parent ME_4C774E380004 // IevTableRowPainter
  ;
  : Parameters
-   @ ( ME_4D9AF0DB039C // aDelta
- ) .SequenceCode.It
+   Seq: ( ME_4D9AF0DB039C // aDelta
+ )
  ; // Parameters
 
 ref; // ME_4D9AF0D00093 CorrectTopDelta
@@ -947,12 +1005,18 @@ ref; // ME_50A2210D0105 GetTopAnchor4Row
  : Parent ME_47C7DC2801FB // IevPainter
  ;
  : Operations
-   @ ( ME_4C774E7D01CD // CheckChildren
+   Seq: ( ME_4C774E7D01CD // CheckChildren
  ME_4D9AF0D00093 // CorrectTopDelta
  ME_4D9AFB1202F9 // IsTopAnchorAtStart
  ME_50A2210D0105 // GetTopAnchor4Row
- ) .SequenceCode.It
+ )
  ; // Operations
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest\new'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'TableRowPainter'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_4C774E380004 IevTableRowPainter
 
@@ -1110,8 +1174,8 @@ ref; // ME_50A5EF2400BF aPara
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
  : Parameters
-   @ ( ME_50A5EF2400BF // aPara
- ) .SequenceCode.It
+   Seq: ( ME_50A5EF2400BF // aPara
+ )
  ; // Parameters
 
 ref; // ME_50A5EEEA0040 IsSelectedOneWholePara
@@ -1123,6 +1187,7 @@ ref; // ME_50A5EEEA0040 IsSelectedOneWholePara
  ;
  : Implementor ME_47C7DC2801FB // IevPainter
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_47C6972A036C_ME_47C7DC2801FB Draw
 
 : ME_4E25BC360220_ME_47C7DC2801FB
@@ -1132,6 +1197,7 @@ ref; // ME_47C6972A036C_ME_47C7DC2801FB Draw
  ;
  : Implementor ME_47C7DC2801FB // IevPainter
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" false
 ref; // ME_4E25BC360220_ME_47C7DC2801FB Obj
 
@@ -1148,11 +1214,11 @@ ref; // ME_4E25BC360220_ME_47C7DC2801FB Obj
  : Parent ME_49D2080D020C // nevRealTools
  ;
  : Inherits
-   @ ( ME_47C697030322 // InevDrawingShape
- ) .SequenceCode.It
+   Seq: ( ME_47C697030322 // InevDrawingShape
+ )
  ; // Inherits
  : Attributes
-   @ ( ME_47C7DD07029E // CurrentBlock
+   Seq: ( ME_47C7DD07029E // CurrentBlock
  ME_47C7DD2E007F // DrawingTopmostChild
  ME_47C7DD4500A5 // DrawingLastChild
  ME_47C7DDD702A7 // ParaMarkStyle
@@ -1160,25 +1226,31 @@ ref; // ME_4E25BC360220_ME_47C7DC2801FB Obj
  ME_49DB945D01A4 // PaintersHolder
  ME_49DCA7D10326 // TablePainter
  ME_4C774ECF0308 // TableRowPainter
- ) .SequenceCode.It
+ )
  ; // Attributes
  : Operations
-   @ ( ME_50A5EEEA0040 // IsSelectedOneWholePara
- ) .SequenceCode.It
+   Seq: ( ME_50A5EEEA0040 // IsSelectedOneWholePara
+ )
  ; // Operations
  : Implemented
-   @ ( ME_47C6972A036C_ME_47C7DC2801FB // Draw
+   Seq: ( ME_47C6972A036C_ME_47C7DC2801FB // Draw
  ME_4E25BC360220_ME_47C7DC2801FB // Obj
- ) .SequenceCode.It
+ )
  ; // Implemented
  : Children
-   @ ( ME_47C7DBE0022A // TevParaMarkStyle
+   Seq: ( ME_47C7DBE0022A // TevParaMarkStyle
  ME_47C7DE24022A // InevPaintersHolder
  ME_4ABB4BC20136 // TnevCheckType
  ME_49CB6B81028D // IevTablePainter
  ME_4C774E380004 // IevTableRowPainter
- ) .SequenceCode.It
+ )
  ; // Children
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest\new'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'Painter'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_47C7DC2801FB IevPainter
 
@@ -1193,19 +1265,20 @@ ref; // ME_47C7DC2801FB IevPainter
  : Parent WL 'ME_4797632D0273' '4797632D0273.pas.ms.script' // Everest
  ;
  : Children
-   @ ( ME_49D20910019D // InevBaseTool
+   Seq: ( ME_49D20910019D // InevBaseTool
  ME_47C697030322 // InevDrawingShape
  ME_47C7DC2801FB // IevPainter
- ) .SequenceCode.It
+ )
  ; // Children
  : Depends
-   @ ( WL 'ME_4678193C009C' '4678193C009C.pas.ms.script' // l3Types
+   Seq: ( WL 'ME_4678193C009C' '4678193C009C.pas.ms.script' // l3Types
  WL 'ME_4678209200A6' '4678209200A6.pas.ms.script' // nevBase
  WL 'ME_467C0CAA02AB' '467C0CAA02AB.pas.ms.script' // l3InternalInterfaces
  WL 'ME_47913B47006E' '47913B47006E.pas.ms.script' // l3CoreObjects
  WL 'ME_47C5207602D1' '47C5207602D1.pas.ms.script' // nevTools
  WL 'ME_4AB0C3C60310' '4AB0C3C60310.pas.ms.script' // Sys
- ) .SequenceCode.It
+ WL 'ME_4E5CF70B01E2' '4E5CF70B01E2.pas.ms.script' // Требования к редактору Эверест
+ )
  ; // Depends
  CONST "author" 'Люлин А.В.'
  CONST "defines" 'nevDefine.inc'
@@ -1213,15 +1286,12 @@ ref; // ME_47C7DC2801FB IevPainter
  CONST "no hands" true
  CONST "path prefix" '/new'
  CONST "started" '31.03.2009 16:12'
- : Generators
- @ (
- gen_intf.pas
- gen_pas.script
- gen_pas.script.runner
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest'
  CONST intf.pas:Path 'common\components\gui\Garant\Everest\new\nevRealTools.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest\new'
  CONST pas.script:Path 'shared\models\NewSchool\Scripts\49D2080D020C.pas.ms.script'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
  CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\49D2080D020C.pas.ms.script.runner'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_49D2080D020C nevRealTools

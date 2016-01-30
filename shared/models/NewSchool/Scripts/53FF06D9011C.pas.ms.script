@@ -27,8 +27,8 @@ ref; // ME_53FF0A4402AF aOrientation
  : Parent ME_53FF08DF0074 // IddPDFDoc
  ;
  : Parameters
-   @ ( ME_53FF0A4402AF // aOrientation
- ) .SequenceCode.It
+   Seq: ( ME_53FF0A4402AF // aOrientation
+ )
  ; // Parameters
 
 ref; // ME_53FF090F032F NewPage
@@ -57,10 +57,16 @@ ref; // ME_53FF091B01DF EndDoc
  : Parent ME_53FF071F01E3 // ddPDFExporter
  ;
  : Operations
-   @ ( ME_53FF090F032F // NewPage
+   Seq: ( ME_53FF090F032F // NewPage
  ME_53FF091B01DF // EndDoc
- ) .SequenceCode.It
+ )
  ; // Operations
+ CONST dfm:PathOnly '\common\components\rtl\Garant\dd'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\dd'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'ddPDFDoc'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_53FF08DF0074 IddPDFDoc
 
@@ -112,9 +118,9 @@ ref; // ME_53FF107F0127 aPrinter
  : Parent ME_53FF077501B7 // TddPDFCanvas
  ;
  : Parameters
-   @ ( ME_53FF107F0117 // anExpoter
+   Seq: ( ME_53FF107F0117 // anExpoter
  ME_53FF107F0127 // aPrinter
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_53FF0CB80082 Create
@@ -126,6 +132,7 @@ ref; // ME_53FF0CB80082 Create
  ;
  : Implementor ME_53FF077501B7 // TddPDFCanvas
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_478E40D30089_ME_53FF077501B7 IsPreview
 
 : ME_479731C50290_ME_53FF077501B7
@@ -135,6 +142,7 @@ ref; // ME_478E40D30089_ME_53FF077501B7 IsPreview
  ;
  : Implementor ME_53FF077501B7 // TddPDFCanvas
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_479731C50290_ME_53FF077501B7 Cleanup
 
 : ME_4797837E0112_ME_53FF077501B7
@@ -144,6 +152,7 @@ ref; // ME_479731C50290_ME_53FF077501B7 Cleanup
  ;
  : Implementor ME_53FF077501B7 // TddPDFCanvas
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4797837E0112_ME_53FF077501B7 DoEndPaint
 
 : ME_47DFBEC80085_ME_53FF077501B7
@@ -153,6 +162,7 @@ ref; // ME_4797837E0112_ME_53FF077501B7 DoEndPaint
  ;
  : Implementor ME_53FF077501B7 // TddPDFCanvas
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_47DFBEC80085_ME_53FF077501B7 DoStartPage
 
 : ME_47DFCAAF0249_ME_53FF077501B7
@@ -162,6 +172,7 @@ ref; // ME_47DFBEC80085_ME_53FF077501B7 DoStartPage
  ;
  : Implementor ME_53FF077501B7 // TddPDFCanvas
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_47DFCAAF0249_ME_53FF077501B7 FillRectPrim
 
 : ME_47DFCAEE0007_ME_53FF077501B7
@@ -171,6 +182,7 @@ ref; // ME_47DFCAAF0249_ME_53FF077501B7 FillRectPrim
  ;
  : Implementor ME_53FF077501B7 // TddPDFCanvas
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_47DFCAEE0007_ME_53FF077501B7 DoFillForeRect
 
 : ME_54B4DDF502DD_ME_53FF077501B7
@@ -180,6 +192,7 @@ ref; // ME_47DFCAEE0007_ME_53FF077501B7 DoFillForeRect
  ;
  : Implementor ME_53FF077501B7 // TddPDFCanvas
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_54B4DDF502DD_ME_53FF077501B7 DoStartDrawAAC
 
 : ME_54B4DE1700CA_ME_53FF077501B7
@@ -189,6 +202,7 @@ ref; // ME_54B4DDF502DD_ME_53FF077501B7 DoStartDrawAAC
  ;
  : Implementor ME_53FF077501B7 // TddPDFCanvas
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_54B4DE1700CA_ME_53FF077501B7 DoEndDrawAAC
 
 : ME_53FF077501B7
@@ -203,19 +217,19 @@ ref; // ME_54B4DE1700CA_ME_53FF077501B7 DoEndDrawAAC
  : Parent ME_53FF071F01E3 // ddPDFExporter
  ;
  : Inherits
-   @ ( WL 'ME_473C3D830066' '473C3BEE0334.pas.ms.script' // Tl3Canvas
- ) .SequenceCode.It
+   Seq: ( WL 'ME_473C3D830066' '473C3BEE0334.pas.ms.script' // Tl3Canvas
+ )
  ; // Inherits
  : Attributes
-   @ ( ME_53FF093200A8 // f_PDFDoc
- ) .SequenceCode.It
+   Seq: ( ME_53FF093200A8 // f_PDFDoc
+ )
  ; // Attributes
  : Operations
-   @ ( ME_53FF0CB80082 // Create
- ) .SequenceCode.It
+   Seq: ( ME_53FF0CB80082 // Create
+ )
  ; // Operations
  : Overridden
-   @ ( ME_478E40D30089_ME_53FF077501B7 // IsPreview
+   Seq: ( ME_478E40D30089_ME_53FF077501B7 // IsPreview
  ME_479731C50290_ME_53FF077501B7 // Cleanup
  ME_4797837E0112_ME_53FF077501B7 // DoEndPaint
  ME_47DFBEC80085_ME_53FF077501B7 // DoStartPage
@@ -223,16 +237,22 @@ ref; // ME_54B4DE1700CA_ME_53FF077501B7 DoEndDrawAAC
  ME_47DFCAEE0007_ME_53FF077501B7 // DoFillForeRect
  ME_54B4DDF502DD_ME_53FF077501B7 // DoStartDrawAAC
  ME_54B4DE1700CA_ME_53FF077501B7 // DoEndDrawAAC
- ) .SequenceCode.It
+ )
  ; // Overridden
  : Forwarded
-   @ ( ME_53FF07670079 // TddPDFExporter
- ) .SequenceCode.It
+   Seq: ( ME_53FF07670079 // TddPDFExporter
+ )
  ; // Forwarded
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
+ CONST dfm:PathOnly '\common\components\rtl\Garant\dd'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\dd'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'ddPDFCanvas'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_53FF077501B7 TddPDFCanvas
 
@@ -313,6 +333,7 @@ ref; // ME_5463435F02E2 f_Orientation
 : ME_AA1AEECB3356
  CONST UID 'AA1AEECB3356'
  CONST Name 'f_Canvas'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY 'Поле для свойства Canvas' ;
  CONST Visibility PrivateAccess
@@ -349,8 +370,8 @@ ref; // ME_53FF1439023A DoIt
  : Parent ME_53FF07670079 // TddPDFExporter
  ;
  : Operations
-   @ ( ME_53FF1439023A // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_53FF1439023A // DoIt
+ )
  ; // Operations
 
 ref; // ME_53FF142B018D CheckMetaFile
@@ -379,8 +400,8 @@ ref; // ME_53FF145B0354 DoIt
  : Parent ME_53FF07670079 // TddPDFExporter
  ;
  : Operations
-   @ ( ME_53FF145B0354 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_53FF145B0354 // DoIt
+ )
  ; // Operations
 
 ref; // ME_53FF145301E1 ClearMetaFile
@@ -409,8 +430,8 @@ ref; // ME_54002D4F0140 DoIt
  : Parent ME_53FF07670079 // TddPDFExporter
  ;
  : Operations
-   @ ( ME_54002D4F0140 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_54002D4F0140 // DoIt
+ )
  ; // Operations
 
 ref; // ME_53FF146A00A3 CreatePDFEngine
@@ -439,8 +460,8 @@ ref; // ME_53FF149D01CA DoIt
  : Parent ME_53FF07670079 // TddPDFExporter
  ;
  : Operations
-   @ ( ME_53FF149D01CA // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_53FF149D01CA // DoIt
+ )
  ; // Operations
 
 ref; // ME_53FF149700F5 DeInitPDFEngine
@@ -466,8 +487,8 @@ ref; // ME_53FF2B160086 aPrinter
  : Parent ME_53FF14F40039 // CreateCanvas
  ;
  : Parameters
-   @ ( ME_53FF2B160086 // aPrinter
- ) .SequenceCode.It
+   Seq: ( ME_53FF2B160086 // aPrinter
+ )
  ; // Parameters
 
 ref; // ME_53FF15020104 DoIt
@@ -483,8 +504,8 @@ ref; // ME_53FF15020104 DoIt
  : Parent ME_53FF07670079 // TddPDFExporter
  ;
  : Operations
-   @ ( ME_53FF15020104 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_53FF15020104 // DoIt
+ )
  ; // Operations
 
 ref; // ME_53FF14F40039 CreateCanvas
@@ -513,8 +534,8 @@ ref; // ME_53FF16D30394 DoIt
  : Parent ME_53FF07670079 // TddPDFExporter
  ;
  : Operations
-   @ ( ME_53FF16D30394 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_53FF16D30394 // DoIt
+ )
  ; // Operations
 
 ref; // ME_53FF16C2017E DropMetaFile2PDF
@@ -540,8 +561,8 @@ ref; // ME_54002F2D02B9 aFileStream
  : Parent ME_53FF174601A7 // Create
  ;
  : Parameters
-   @ ( ME_54002F2D02B9 // aFileStream
- ) .SequenceCode.It
+   Seq: ( ME_54002F2D02B9 // aFileStream
+ )
  ; // Parameters
 
 ref; // ME_53FF175201C5 DoIt
@@ -557,8 +578,8 @@ ref; // ME_53FF175201C5 DoIt
  : Parent ME_53FF07670079 // TddPDFExporter
  ;
  : Operations
-   @ ( ME_53FF175201C5 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_53FF175201C5 // DoIt
+ )
  ; // Operations
 
 ref; // ME_53FF174601A7 Create
@@ -586,8 +607,8 @@ ref; // ME_53FF2E4201B8 aPrinter
  : Target WL 'ME_4727449A00A2' '467C0CAA02AB.pas.ms.script' // Il3Canvas
  ;
  : Parameters
-   @ ( ME_53FF2E4201B8 // aPrinter
- ) .SequenceCode.It
+   Seq: ( ME_53FF2E4201B8 // aPrinter
+ )
  ; // Parameters
 
 ref; // ME_53FF2E190050 DoIt
@@ -603,8 +624,8 @@ ref; // ME_53FF2E190050 DoIt
  : Parent ME_53FF07670079 // TddPDFExporter
  ;
  : Operations
-   @ ( ME_53FF2E190050 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_53FF2E190050 // DoIt
+ )
  ; // Operations
 
 ref; // ME_53FF2DAF030C GetCanvas
@@ -704,6 +725,7 @@ ref; // ME_54B4DFB403BA
  ;
  : Implementor ME_53FF07670079 // TddPDFExporter
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_53FF090F032F_ME_53FF07670079 NewPage
 
 : ME_53FF091B01DF_ME_53FF07670079
@@ -713,6 +735,7 @@ ref; // ME_53FF090F032F_ME_53FF07670079 NewPage
  ;
  : Implementor ME_53FF07670079 // TddPDFExporter
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_53FF091B01DF_ME_53FF07670079 EndDoc
 
 : ME_479731C50290_ME_53FF07670079
@@ -722,6 +745,7 @@ ref; // ME_53FF091B01DF_ME_53FF07670079 EndDoc
  ;
  : Implementor ME_53FF07670079 // TddPDFExporter
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_479731C50290_ME_53FF07670079 Cleanup
 
 : ME_53FF07670079
@@ -736,24 +760,24 @@ ref; // ME_479731C50290_ME_53FF07670079 Cleanup
  : Parent ME_53FF071F01E3 // ddPDFExporter
  ;
  : Inherits
-   @ ( WL 'ME_47BC391D0259' '47913B47006E.pas.ms.script' // Tl3SimpleObject
- ) .SequenceCode.It
+   Seq: ( WL 'ME_47BC391D0259' '47913B47006E.pas.ms.script' // Tl3SimpleObject
+ )
  ; // Inherits
  : Implements
-   @ ( ME_53FF08DF0074 // IddPDFDoc
- ) .SequenceCode.It
+   Seq: ( ME_53FF08DF0074 // IddPDFDoc
+ )
  ; // Implements
  : Attributes
-   @ ( ME_53FF0B94012E // Canvas
+   Seq: ( ME_53FF0B94012E // Canvas
  ME_53FF22520184 // f_Metafile
  ME_54002FE201A9 // f_Stream
  ME_546337B4038A // f_PDFEngine
  ME_5463435F02E2 // f_Orientation
  ME_AA1AEECB3356 // f_Canvas
- ) .SequenceCode.It
+ )
  ; // Attributes
  : Operations
-   @ ( ME_53FF142B018D // CheckMetaFile
+   Seq: ( ME_53FF142B018D // CheckMetaFile
  ME_53FF145301E1 // ClearMetaFile
  ME_53FF146A00A3 // CreatePDFEngine
  ME_53FF149700F5 // DeInitPDFEngine
@@ -761,19 +785,19 @@ ref; // ME_479731C50290_ME_53FF07670079 Cleanup
  ME_53FF16C2017E // DropMetaFile2PDF
  ME_53FF174601A7 // Create
  ME_53FF2DAF030C // GetCanvas
- ) .SequenceCode.It
+ )
  ; // Operations
  : Implemented
-   @ ( ME_53FF090F032F_ME_53FF07670079 // NewPage
+   Seq: ( ME_53FF090F032F_ME_53FF07670079 // NewPage
  ME_53FF091B01DF_ME_53FF07670079 // EndDoc
- ) .SequenceCode.It
+ )
  ; // Implemented
  : Overridden
-   @ ( ME_479731C50290_ME_53FF07670079 // Cleanup
- ) .SequenceCode.It
+   Seq: ( ME_479731C50290_ME_53FF07670079 // Cleanup
+ )
  ; // Overridden
  : Dependencies
-   @ ( ME_53FF249302CB // 
+   Seq: ( ME_53FF249302CB // 
  ME_53FF27D503D5 // 
  ME_54361A8A01C6 // 
  ME_546474BA002A // 
@@ -781,12 +805,18 @@ ref; // ME_479731C50290_ME_53FF07670079 Cleanup
  ME_5485ABEE01BC // 
  ME_5485AEB9017E // 
  ME_54B4DFB403BA // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
+ CONST dfm:PathOnly '\common\components\rtl\Garant\dd'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\dd'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'ddPDFExporter'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_53FF07670079 TddPDFExporter
 
@@ -802,18 +832,17 @@ ref; // ME_53FF07670079 TddPDFExporter
  : Parent ME_53FF06D9011C // PDFSupport
  ;
  : Children
-   @ ( ME_53FF08DF0074 // IddPDFDoc
+   Seq: ( ME_53FF08DF0074 // IddPDFDoc
  ME_53FF077501B7 // TddPDFCanvas
  ME_53FF07670079 // TddPDFExporter
- ) .SequenceCode.It
+ )
  ; // Children
  CONST "no hands" false
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\dd'
  CONST intf.pas:Path 'common\components\rtl\Garant\dd\ddPDFExporter.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\dd'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_53FF071F01E3 ddPDFExporter
 
@@ -828,11 +857,11 @@ ref; // ME_53FF071F01E3 ddPDFExporter
  : Parent WL 'ME_4677E18600C2' '4677E18600C2.pas.ms.script' // dd
  ;
  : Children
-   @ ( ME_53FF071F01E3 // ddPDFExporter
- ) .SequenceCode.It
+   Seq: ( ME_53FF071F01E3 // ddPDFExporter
+ )
  ; // Children
  : Depends
-   @ ( WL 'ME_467C0CAA02AB' '467C0CAA02AB.pas.ms.script' // l3InternalInterfaces
+   Seq: ( WL 'ME_467C0CAA02AB' '467C0CAA02AB.pas.ms.script' // l3InternalInterfaces
  WL 'ME_473C3BEE0334' '473C3BEE0334.pas.ms.script' // l3Canvas
  WL 'ME_47913B47006E' '47913B47006E.pas.ms.script' // l3CoreObjects
  WL 'ME_4799D29F033F' '4799D29F033F.pas.ms.script' // Implementation
@@ -847,15 +876,13 @@ ref; // ME_53FF071F01E3 ddPDFExporter
  WL 'ME_556F09AA036E' '556F09AA036E.pas.ms.script' // l3PrinterInterfaces
  WL 'ME_55C4AEB903E1' '55C4AEB903E1.pas.ms.script' // Printing
  WL 'ME_55C4AEC801CA' '55C4AEC801CA.pas.ms.script' // Graphics
- ) .SequenceCode.It
+ )
  ; // Depends
- : Generators
- @ (
- gen_pas.script
- gen_pas.script.runner
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\dd'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\dd'
  CONST pas.script:Path 'shared\models\NewSchool\Scripts\53FF06D9011C.pas.ms.script'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
  CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\53FF06D9011C.pas.ms.script.runner'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_53FF06D9011C PDFSupport

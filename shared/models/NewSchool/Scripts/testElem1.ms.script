@@ -1,0 +1,97 @@
+USES
+ params.ms.dict
+ axiom_push.ms.dict
+ core.ms.dict
+ ElementsRTTI.ms.dict
+ Generation.ms.dict
+;
+
+: A
+ CONST UID 'xxxA'
+; // A
+
+: B
+ CONST UID 'xxxB'
+; // B
+
+: C
+; // C
+
+: D
+ CONST Name 'NameD'
+; // D
+
+kind_NormalClass ValueToKey .
+'a' ValueToKey .
+true ValueToKey .
+false ValueToKey .
+[ true ] ValueToKey .
+[ false ] ValueToKey .
+[ false true ] ValueToKey .
+[ true false ] ValueToKey .
+[ 'a' true false 'b' ] ValueToKey .
+@ A ValueToKey .
+@ B ValueToKey .
+[ @ A ] ValueToKey .
+[ @ B ] ValueToKey .
+[ @ A @ B ] ValueToKey .
+[ @ A [ @ B ] ] ValueToKey .
+[ [ @ A @ B ] ] ValueToKey .
+123 ValueToKey .
+kind_NormalClass ValueToKey .
+@ C ValueToKey .
+[empty] ValueToKey .
+[] ValueToKey .
+[ ] ValueToKey .
+@ () ValueToKey .
+@ ( ) ValueToKey .
+@ D ValueToKey .
+
+@ A .UID .
+@ B .UID .
+
+VAR X
+
+STRING elem_func fA
+ Cached:
+ (
+  X
+ )
+ >>> Result
+; // fA
+
+'A' >>> X
+@ A .fA .
+'B' >>> X
+@ A .fA .
+@ B .fA .
+'C' >>> X
+@ B .fA .
+@ C .fA .
+
+STRING elem_func fB
+  IN aSecond
+ aSecond :Cached:
+ (
+  [ Self .UIDEx X aSecond ] strings:Cat
+ )
+ >>> Result
+; // fB
+
+'A' >>> X
+@ A 'a' .fB .
+@ B 'a' .fB .
+@ C 'a' .fB .
+@ D 'a' .fB .
+
+'B' >>> X
+@ A 'b' .fB .
+@ B 'c' .fB .
+@ C 'c' .fB .
+@ D 'c' .fB .
+
+'C' >>> X
+@ A 'd' .fB .
+@ B 'd' .fB .
+@ C 'e' .fB .
+@ D 'e' .fB .

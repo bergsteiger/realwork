@@ -85,6 +85,7 @@ ref; // ME_52DE4645017F
 
 : ME_D40AABC1A017
  CONST UID 'D40AABC1A017'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_4D46BBB60035 // OutlinerWithEVDStyleNodes
@@ -101,6 +102,7 @@ ref; // ME_D40AABC1A017
  ;
  : Implementor ME_4D46BBB60035 // OutlinerWithEVDStyleNodes
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4C08CF700318_ME_4D46BBB60035 FormExtent
 
 : ME_4C08D61F0231_ME_4D46BBB60035
@@ -110,6 +112,7 @@ ref; // ME_4C08CF700318_ME_4D46BBB60035 FormExtent
  ;
  : Implementor ME_4D46BBB60035 // OutlinerWithEVDStyleNodes
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4C08D61F0231_ME_4D46BBB60035 FormMade
 
 : ME_4C937013031D_ME_4D46BBB60035
@@ -119,6 +122,7 @@ ref; // ME_4C08D61F0231_ME_4D46BBB60035 FormMade
  ;
  : Implementor ME_4D46BBB60035 // OutlinerWithEVDStyleNodes
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4C937013031D_ME_4D46BBB60035 GetFolder
 
 : ME_4D46E22801EB_ME_4D46BBB60035
@@ -128,6 +132,7 @@ ref; // ME_4C937013031D_ME_4D46BBB60035 GetFolder
  ;
  : Implementor ME_4D46BBB60035 // OutlinerWithEVDStyleNodes
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4D46E22801EB_ME_4D46BBB60035 Load
 
 : ME_4DAED6F60146_ME_4D46BBB60035
@@ -137,6 +142,7 @@ ref; // ME_4D46E22801EB_ME_4D46BBB60035 Load
  ;
  : Implementor ME_4D46BBB60035 // OutlinerWithEVDStyleNodes
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4DAED6F60146_ME_4D46BBB60035 GetModelElementGUID
 
 : ME_4D46BBB60035
@@ -150,19 +156,19 @@ ref; // ME_4DAED6F60146_ME_4D46BBB60035 GetModelElementGUID
  : Parent ME_4D46BB480253 // OutlinerTests
  ;
  : Inherits
-   @ ( WL 'ME_4D46B552013B' '4D46B4E403E0.pas.ms.script' // OutlinerTest
- ) .SequenceCode.It
+   Seq: ( WL 'ME_4D46B552013B' '4D46B4E403E0.pas.ms.script' // OutlinerTest
+ )
  ; // Inherits
  : Overridden
-   @ ( ME_4C08CF700318_ME_4D46BBB60035 // FormExtent
+   Seq: ( ME_4C08CF700318_ME_4D46BBB60035 // FormExtent
  ME_4C08D61F0231_ME_4D46BBB60035 // FormMade
  ME_4C937013031D_ME_4D46BBB60035 // GetFolder
  ME_4D46E22801EB_ME_4D46BBB60035 // Load
  ME_4DAED6F60146_ME_4D46BBB60035 // GetModelElementGUID
- ) .SequenceCode.It
+ )
  ; // Overridden
  : Dependencies
-   @ ( ME_4D46EDDC01E0 // 
+   Seq: ( ME_4D46EDDC01E0 // 
  ME_4D46F0E60202 // 
  ME_4D46F1C80337 // 
  ME_4D46F40301D5 // 
@@ -170,19 +176,26 @@ ref; // ME_4DAED6F60146_ME_4D46BBB60035 GetModelElementGUID
  ME_4D46FCB80095 // 
  ME_52DE4645017F // 
  ME_D40AABC1A017 // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
  : Generators
- @ (
+ Seq: (
  gen_intf.pas
- ) .SequenceCode.It
+ )
  ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\Daily'
  CONST intf.pas:Path 'common\components\rtl\Garant\Daily\OutlinerWithEVDStyleNodes.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\Daily'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\common\components\rtl\Garant\Daily'
  CONST extprop:pas:TypeName 'TOutlinerWithEVDStyleNodes'
+ CONST extprop:rc:SelfName 'OutlinerWithEVDStyleNodes'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_4D46BBB60035 OutlinerWithEVDStyleNodes
 
@@ -197,11 +210,11 @@ ref; // ME_4D46BBB60035 OutlinerWithEVDStyleNodes
  : Parent WL 'ME_4B2A15810261' '4B2A15810261.pas.ms.script' // DailyTest
  ;
  : Children
-   @ ( ME_4D46BBB60035 // OutlinerWithEVDStyleNodes
- ) .SequenceCode.It
+   Seq: ( ME_4D46BBB60035 // OutlinerWithEVDStyleNodes
+ )
  ; // Children
  : Depends
-   @ ( WL 'ME_47913B47006E' '47913B47006E.pas.ms.script' // l3CoreObjects
+   Seq: ( WL 'ME_47913B47006E' '47913B47006E.pas.ms.script' // l3CoreObjects
  WL 'ME_47AC75550330' '47AC75550330.pas.ms.script' // k2Tags
  WL 'ME_47D036150077' '47D036150077.pas.ms.script' // l3ControlsTypes
  WL 'ME_47ECACA70141' '47ECACA70141.pas.ms.script' // Generators
@@ -210,15 +223,20 @@ ref; // ME_4D46BBB60035 OutlinerWithEVDStyleNodes
  WL 'ME_4B2A0D6A0077' '4B2A0D6A0077.pas.ms.script' // Source
  WL 'ME_4D46B4E403E0' '4D46B4E403E0.pas.ms.script' // OutlinerTests
  WL 'ME_54B90AC6014B' '54B90AC6014B.pas.ms.script' // StringUtils
- ) .SequenceCode.It
+ )
  ; // Depends
  : Generators
- @ (
+ Seq: (
  gen_pas.script
  gen_pas.script.runner
- ) .SequenceCode.It
+ )
  ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\Daily'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\Daily'
  CONST pas.script:Path 'shared\models\NewSchool\Scripts\4D46BB480253.pas.ms.script'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
  CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\4D46BB480253.pas.ms.script.runner'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\common\components\rtl\Garant\Daily'
 
 ref; // ME_4D46BB480253 OutlinerTests

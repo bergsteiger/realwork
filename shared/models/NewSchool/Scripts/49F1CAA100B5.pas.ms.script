@@ -19,6 +19,7 @@ FORWARD ME_553A2B570033
  : Parent ME_553A2B570033 // InternalBrowserURLArr
  ;
  CONST Value '''www.garant.ru'''
+ CONST extprop:pas:Value '''www.garant.ru'''
 
 ref; // ME_553A2BE0020B GarantMainURL
 
@@ -33,8 +34,24 @@ ref; // ME_553A2BE0020B GarantMainURL
  : Parent ME_553A2B570033 // InternalBrowserURLArr
  ;
  CONST Value '''mirror2.garant.ru'''
+ CONST extprop:pas:Value '''mirror2.garant.ru'''
 
 ref; // ME_55543C180070 BooksAndImagesURL
+
+: ME_569F64FA0009
+ CONST UID '569F64FA0009'
+ CONST Name 'ForumURL'
+ CONST Class class_Attribute
+ %SUMMARY 'Форум' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_ref
+ : Parent ME_553A2B570033 // InternalBrowserURLArr
+ ;
+ CONST Value '''forum.garant.ru'''
+ CONST extprop:pas:Value '''forum.garant.ru'''
+
+ref; // ME_569F64FA0009 ForumURL
 
 : ME_553A2B570033
  CONST UID '553A2B570033'
@@ -48,16 +65,21 @@ ref; // ME_55543C180070 BooksAndImagesURL
  : Parent ME_49EEF16603C9 // nsInternetUtils
  ;
  : Inherits
-   @ ( WL 'ME_483C2FA400B1' '4AB0C3C60310.pas.ms.script' // AnsiString
- ) .SequenceCode.It
+   Seq: ( WL 'ME_483C2FA400B1' '4AB0C3C60310.pas.ms.script' // AnsiString
+ )
  ; // Inherits
  : Attributes
-   @ ( ME_553A2BE0020B // GarantMainURL
+   Seq: ( ME_553A2BE0020B // GarantMainURL
  ME_55543C180070 // BooksAndImagesURL
- ) .SequenceCode.It
+ ME_569F64FA0009 // ForumURL
+ )
  ; // Attributes
  CONST "Need map interface" false
  CONST "Need mapping support" false
+ CONST dfm:PathOnly '\common\components\gui\Garant\Nemesis'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Nemesis'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_553A2B570033 InternalBrowserURLArr
 
@@ -84,8 +106,8 @@ ref; // ME_49EEF21F01DC anURL
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
  : Parameters
-   @ ( ME_49EEF21F01DC // anURL
- ) .SequenceCode.It
+   Seq: ( ME_49EEF21F01DC // anURL
+ )
  ; // Parameters
 
 ref; // ME_49EEF20E0004 DoIt
@@ -124,13 +146,13 @@ ref; // ME_49EEF56C03DC
  : Parent ME_49EEF16603C9 // nsInternetUtils
  ;
  : Operations
-   @ ( ME_49EEF20E0004 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_49EEF20E0004 // DoIt
+ )
  ; // Operations
  : Dependencies
-   @ ( ME_49EEF2050269 // 
+   Seq: ( ME_49EEF2050269 // 
  ME_49EEF56C03DC // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
 
 ref; // ME_49EEF1BA019B IsGarantURL
@@ -158,8 +180,8 @@ ref; // ME_4BEBC3A403D3 anURL
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
  : Parameters
-   @ ( ME_4BEBC3A403D3 // anURL
- ) .SequenceCode.It
+   Seq: ( ME_4BEBC3A403D3 // anURL
+ )
  ; // Parameters
 
 ref; // ME_4BEBC3A001E7 DoIt
@@ -187,12 +209,12 @@ ref; // ME_4BEBC3C50219
  : Parent ME_49EEF16603C9 // nsInternetUtils
  ;
  : Operations
-   @ ( ME_4BEBC3A001E7 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_4BEBC3A001E7 // DoIt
+ )
  ; // Operations
  : Dependencies
-   @ ( ME_4BEBC3C50219 // 
- ) .SequenceCode.It
+   Seq: ( ME_4BEBC3C50219 // 
+ )
  ; // Dependencies
 
 ref; // ME_4BEBC370007F IsLocalDocumentURL
@@ -240,10 +262,10 @@ ref; // ME_4BEBC86600E8 SubID
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
  : Parameters
-   @ ( ME_4BEBC866009A // anURL
+   Seq: ( ME_4BEBC866009A // anURL
  ME_4BEBC86600C9 // DocID
  ME_4BEBC86600E8 // SubID
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_4BEBC83F009A DoIt
@@ -326,17 +348,17 @@ ref; // ME_4BEC025A033A
  : Parent ME_49EEF16603C9 // nsInternetUtils
  ;
  : Operations
-   @ ( ME_4BEBC83F009A // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_4BEBC83F009A // DoIt
+ )
  ; // Operations
  : Dependencies
-   @ ( ME_4BEBC4380086 // 
+   Seq: ( ME_4BEBC4380086 // 
  ME_4BEBF6C5034C // 
  ME_4BEBF6DA0388 // 
  ME_4BEBF7DD010F // 
  ME_4BEC00D202DF // 
  ME_4BEC025A033A // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
 
 ref; // ME_4BEBC4090016 ParseLocalDocumentURL
@@ -364,8 +386,8 @@ ref; // ME_52315C0E036E anURL
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
  : Parameters
-   @ ( ME_52315C0E036E // anURL
- ) .SequenceCode.It
+   Seq: ( ME_52315C0E036E // anURL
+ )
  ; // Parameters
 
 ref; // ME_52315C000354 DoIt
@@ -392,12 +414,12 @@ ref; // ME_52315C5E03BE
  : Parent ME_49EEF16603C9 // nsInternetUtils
  ;
  : Operations
-   @ ( ME_52315C000354 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_52315C000354 // DoIt
+ )
  ; // Operations
  : Dependencies
-   @ ( ME_52315C5E03BE // 
- ) .SequenceCode.It
+   Seq: ( ME_52315C5E03BE // 
+ )
  ; // Dependencies
 
 ref; // ME_52315BE902FD IsContractConstructorURL
@@ -425,8 +447,8 @@ ref; // ME_523ADD6F00E5 anURL
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
  : Parameters
-   @ ( ME_523ADD6F00E5 // anURL
- ) .SequenceCode.It
+   Seq: ( ME_523ADD6F00E5 // anURL
+ )
  ; // Parameters
 
 ref; // ME_523ADD630258 DoIt
@@ -453,12 +475,12 @@ ref; // ME_523ADD7A0115
  : Parent ME_49EEF16603C9 // nsInternetUtils
  ;
  : Operations
-   @ ( ME_523ADD630258 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_523ADD630258 // DoIt
+ )
  ; // Operations
  : Dependencies
-   @ ( ME_523ADD7A0115 // 
- ) .SequenceCode.It
+   Seq: ( ME_523ADD7A0115 // 
+ )
  ; // Dependencies
 
 ref; // ME_523ADD1803CC IsMobileGarantOnlineURL
@@ -486,8 +508,8 @@ ref; // ME_523FE5A60244 anURL
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
  : Parameters
-   @ ( ME_523FE5A60244 // anURL
- ) .SequenceCode.It
+   Seq: ( ME_523FE5A60244 // anURL
+ )
  ; // Parameters
 
 ref; // ME_523FE59C020B DoIt
@@ -503,8 +525,8 @@ ref; // ME_523FE59C020B DoIt
  : Parent ME_49EEF16603C9 // nsInternetUtils
  ;
  : Operations
-   @ ( ME_523FE59C020B // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_523FE59C020B // DoIt
+ )
  ; // Operations
 
 ref; // ME_523FE5580232 NeedOpenLinkInExternalBrowser
@@ -532,8 +554,8 @@ ref; // ME_524E58D10271 anURL
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
  : Parameters
-   @ ( ME_524E58D10271 // anURL
- ) .SequenceCode.It
+   Seq: ( ME_524E58D10271 // anURL
+ )
  ; // Parameters
 
 ref; // ME_524E58C7008E Dot
@@ -560,12 +582,12 @@ ref; // ME_524E58E700BA
  : Parent ME_49EEF16603C9 // nsInternetUtils
  ;
  : Operations
-   @ ( ME_524E58C7008E // Dot
- ) .SequenceCode.It
+   Seq: ( ME_524E58C7008E // Dot
+ )
  ; // Operations
  : Dependencies
-   @ ( ME_524E58E700BA // 
- ) .SequenceCode.It
+   Seq: ( ME_524E58E700BA // 
+ )
  ; // Dependencies
 
 ref; // ME_524E5895037F IsObtainRequisitesForMobileAccessURL
@@ -593,8 +615,8 @@ ref; // ME_5524E8FF0080 anURL
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
  : Parameters
-   @ ( ME_5524E8FF0080 // anURL
- ) .SequenceCode.It
+   Seq: ( ME_5524E8FF0080 // anURL
+ )
  ; // Parameters
 
 ref; // ME_5524E8F402BE DoIt
@@ -621,12 +643,12 @@ ref; // ME_5524E8EE018E
  : Parent ME_49EEF16603C9 // nsInternetUtils
  ;
  : Operations
-   @ ( ME_5524E8F402BE // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_5524E8F402BE // DoIt
+ )
  ; // Operations
  : Dependencies
-   @ ( ME_5524E8EE018E // 
- ) .SequenceCode.It
+   Seq: ( ME_5524E8EE018E // 
+ )
  ; // Dependencies
 
 ref; // ME_5524E8BE0065 IsMunicipalDecisionsArchiveURL
@@ -654,8 +676,8 @@ ref; // ME_553A272302CF anURL
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
  : Parameters
-   @ ( ME_553A272302CF // anURL
- ) .SequenceCode.It
+   Seq: ( ME_553A272302CF // anURL
+ )
  ; // Parameters
 
 ref; // ME_553A271B012A DoIt
@@ -671,8 +693,8 @@ ref; // ME_553A271B012A DoIt
  : Parent ME_49EEF16603C9 // nsInternetUtils
  ;
  : Operations
-   @ ( ME_553A271B012A // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_553A271B012A // DoIt
+ )
  ; // Operations
 
 ref; // ME_553A26CA015B NeedOpenLinkInInternalBrowser
@@ -689,7 +711,7 @@ ref; // ME_553A26CA015B NeedOpenLinkInInternalBrowser
  : Parent ME_49F1CAA100B5 // Internet
  ;
  : Operations
-   @ ( ME_49EEF1BA019B // IsGarantURL
+   Seq: ( ME_49EEF1BA019B // IsGarantURL
  ME_4BEBC370007F // IsLocalDocumentURL
  ME_4BEBC4090016 // ParseLocalDocumentURL
  ME_52315BE902FD // IsContractConstructorURL
@@ -698,22 +720,22 @@ ref; // ME_553A26CA015B NeedOpenLinkInInternalBrowser
  ME_524E5895037F // IsObtainRequisitesForMobileAccessURL
  ME_5524E8BE0065 // IsMunicipalDecisionsArchiveURL
  ME_553A26CA015B // NeedOpenLinkInInternalBrowser
- ) .SequenceCode.It
+ )
  ; // Operations
  : Constants
-   @ ( ME_553A2B570033 // InternalBrowserURLArr
- ) .SequenceCode.It
+   Seq: ( ME_553A2B570033 // InternalBrowserURLArr
+ )
  ; // Constants
  CONST "author" 'Люлин А.В.'
  CONST "children prefix" 'ns'
  CONST "no hands" true
  CONST "started" '22.04.2009 14:29'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\Nemesis'
  CONST intf.pas:Path 'common\components\gui\Garant\Nemesis\nsInternetUtils.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Nemesis'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'InternetUtils'
  CONST extprop:pas:ElementPrefix 'ns'
 
 ref; // ME_49EEF16603C9 nsInternetUtils
@@ -729,26 +751,24 @@ ref; // ME_49EEF16603C9 nsInternetUtils
  : Parent WL 'ME_490838AA02D0' '490838AA02D0.pas.ms.script' // Nemesis
  ;
  : Children
-   @ ( ME_49EEF16603C9 // nsInternetUtils
- ) .SequenceCode.It
+   Seq: ( ME_49EEF16603C9 // nsInternetUtils
+ )
  ; // Children
  : Depends
-   @ ( WL 'ME_4677FBA70343' '4677FBA70343.pas.ms.script' // l3Interfaces
+   Seq: ( WL 'ME_4677FBA70343' '4677FBA70343.pas.ms.script' // l3Interfaces
  WL 'ME_4678193C009C' '4678193C009C.pas.ms.script' // l3Types
  WL 'ME_47913B47006E' '47913B47006E.pas.ms.script' // l3CoreObjects
  WL 'ME_47A1D4C201E8' '47A1D4C201E8.pas.ms.script' // l3Const
  WL 'ME_47EA946A0315' '47EA946A0315.pas.ms.script' // l3Misc
  WL 'ME_4AB0C3C60310' '4AB0C3C60310.pas.ms.script' // Sys
  WL 'ME_54B90AC6014B' '54B90AC6014B.pas.ms.script' // StringUtils
- ) .SequenceCode.It
+ )
  ; // Depends
- : Generators
- @ (
- gen_pas.script
- gen_pas.script.runner
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\Nemesis'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Nemesis'
  CONST pas.script:Path 'shared\models\NewSchool\Scripts\49F1CAA100B5.pas.ms.script'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
  CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\49F1CAA100B5.pas.ms.script.runner'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_49F1CAA100B5 Internet

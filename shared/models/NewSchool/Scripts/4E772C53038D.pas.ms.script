@@ -1,0 +1,28 @@
+// Требования к Панели управления сервером 4E772C53038D Requirements Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+: ME_4E772C53038D
+ CONST UID '4E772C53038D'
+ CONST Name 'Требования к Панели управления сервером'
+ CONST Class class_Category
+ : Stereotype st_Requirements ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent WL 'ME_4E7727A101CF' '4E7727A101CF.pas.ms.script' // archi$AutoPipeServer$Garant
+ ;
+ : Generators
+ Seq: (
+ gen_pas.script
+ gen_pas.script.runner
+ )
+ ; // Generators
+ CONST dfm:PathOnly '\archi\source\projects\PipeInAuto'
+ CONST intf.pas:PathOnly '\archi\source\projects\PipeInAuto'
+ CONST pas.script:Path 'shared\models\NewSchool\Scripts\4E772C53038D.pas.ms.script'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\4E772C53038D.pas.ms.script.runner'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\archi\source\projects\PipeInAuto'
+
+ref; // ME_4E772C53038D Требования к Панели управления сервером

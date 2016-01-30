@@ -40,9 +40,9 @@ ref; // ME_4C500DB90108
  : Parent ME_4C500D470030 // MixIns
  ;
  : Dependencies
-   @ ( ME_4C500DB2025B // 
+   Seq: ( ME_4C500DB2025B // 
  ME_4C500DB90108 // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  CONST "author" 'Ëþëèí À.Â.'
  CONST "needs InstanceR" 'undefined'
@@ -50,13 +50,13 @@ ref; // ME_4C500DB90108
  CONST "no hands" true
  CONST "register in scripts" 'undefined'
  CONST "started" '28.07.2010 14:59'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest\EditorUsers'
  CONST intf.pas:Path 'common\components\gui\Garant\Everest\EditorUsers\CursorMover.imp.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest\EditorUsers'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
  CONST extprop:pas:TypeName '_CursorMover_'
+ CONST extprop:pas:UnitName 'CursorMover.imp'
 
 ref; // ME_4C500D6101D8 CursorMover
 
@@ -92,9 +92,9 @@ ref; // ME_4C4FE8FA0069 anOp
  : Parent ME_4C9210B70244 // Navigator
  ;
  : Parameters
-   @ ( ME_4C4FE6AF0398 // aText
+   Seq: ( ME_4C4FE6AF0398 // aText
  ME_4C4FE8FA0069 // anOp
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_4C4FE56300FB Navigate
@@ -110,20 +110,20 @@ ref; // ME_4C4FE56300FB Navigate
  : Parent ME_4C500D470030 // MixIns
  ;
  : Operations
-   @ ( ME_4C4FE56300FB // Navigate
- ) .SequenceCode.It
+   Seq: ( ME_4C4FE56300FB // Navigate
+ )
  ; // Operations
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest\EditorUsers'
  CONST intf.pas:Path 'common\components\gui\Garant\Everest\EditorUsers\Navigator.imp.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest\EditorUsers'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
  CONST extprop:pas:TypeName '_Navigator_'
+ CONST extprop:pas:UnitName 'Navigator.imp'
 
 ref; // ME_4C9210B70244 Navigator
 
@@ -162,21 +162,21 @@ ref; // ME_4CE2960B02C7
  : Parent ME_4C500D470030 // MixIns
  ;
  : Dependencies
-   @ ( ME_4CE295BA025D // 
+   Seq: ( ME_4CE295BA025D // 
  ME_4CE2960B02C7 // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest\EditorUsers'
  CONST intf.pas:Path 'common\components\gui\Garant\Everest\EditorUsers\ScrollSupport.imp.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest\EditorUsers'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
  CONST extprop:pas:TypeName '_ScrollSupport_'
+ CONST extprop:pas:UnitName 'ScrollSupport.imp'
 
 ref; // ME_4CE2958803D0 ScrollSupport
 
@@ -214,9 +214,9 @@ ref; // ME_4C9B25A50391 aDocument
  : Target WL 'ME_47C520D80305' '47C5207602D1.pas.ms.script' // InevPara
  ;
  : Parameters
-   @ ( ME_4C9B256700AD // aView
+   Seq: ( ME_4C9B256700AD // aView
  ME_4C9B25A50391 // aDocument
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_4BF4E6A00093 GetInnerPara
@@ -243,8 +243,8 @@ ref; // ME_4C9B25C5031C aMap
  : Target WL 'ME_4727456300E7' '472745450206.pas.ms.script' // Tl3Point
  ;
  : Parameters
-   @ ( ME_4C9B25C5031C // aMap
- ) .SequenceCode.It
+   Seq: ( ME_4C9B25C5031C // aMap
+ )
  ; // Parameters
 
 ref; // ME_4C3C927B027E GetPoint
@@ -271,8 +271,8 @@ ref; // ME_4CED03CA031D aText
  : Target WL 'ME_4727456300E7' '472745450206.pas.ms.script' // Tl3Point
  ;
  : Parameters
-   @ ( ME_4CED03CA031D // aText
- ) .SequenceCode.It
+   Seq: ( ME_4CED03CA031D // aText
+ )
  ; // Parameters
 
 ref; // ME_4CED034C0356 TranslatePara2Point
@@ -289,22 +289,22 @@ ref; // ME_4CED034C0356 TranslatePara2Point
  : Parent ME_4C500D470030 // MixIns
  ;
  : Operations
-   @ ( ME_4BF4E6A00093 // GetInnerPara
+   Seq: ( ME_4BF4E6A00093 // GetInnerPara
  ME_4C3C927B027E // GetPoint
  ME_4CED034C0356 // TranslatePara2Point
- ) .SequenceCode.It
+ )
  ; // Operations
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest\EditorUsers'
  CONST intf.pas:Path 'common\components\gui\Garant\Everest\EditorUsers\Para2Point.imp.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest\EditorUsers'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
  CONST extprop:pas:TypeName '_Para2Point_'
+ CONST extprop:pas:UnitName 'Para2Point.imp'
 
 ref; // ME_4CED0194038A Para2Point
 
@@ -330,8 +330,8 @@ ref; // ME_4D413E0F028E aText
  : Parent ME_4D4137E30326 // SelectOperation
  ;
  : Parameters
-   @ ( ME_4D413E0F028E // aText
- ) .SequenceCode.It
+   Seq: ( ME_4D413E0F028E // aText
+ )
  ; // Parameters
 
 ref; // ME_4D41388401C4 SelectPara
@@ -356,8 +356,8 @@ ref; // ME_4D413E090375 aText
  : Parent ME_4D4137E30326 // SelectOperation
  ;
  : Parameters
-   @ ( ME_4D413E090375 // aText
- ) .SequenceCode.It
+   Seq: ( ME_4D413E090375 // aText
+ )
  ; // Parameters
 
 ref; // ME_4D4138A60088 SelectDocument
@@ -385,25 +385,25 @@ ref; // ME_4D41387A03C1
  : Parent ME_4C500D470030 // MixIns
  ;
  : Operations
-   @ ( ME_4D41388401C4 // SelectPara
+   Seq: ( ME_4D41388401C4 // SelectPara
  ME_4D4138A60088 // SelectDocument
- ) .SequenceCode.It
+ )
  ; // Operations
  : Dependencies
-   @ ( ME_4D41387A03C1 // 
- ) .SequenceCode.It
+   Seq: ( ME_4D41387A03C1 // 
+ )
  ; // Dependencies
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest\EditorUsers'
  CONST intf.pas:Path 'common\components\gui\Garant\Everest\EditorUsers\SelectOperation.imp.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest\EditorUsers'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
  CONST extprop:pas:TypeName '_SelectOperation_'
+ CONST extprop:pas:UnitName 'SelectOperation.imp'
 
 ref; // ME_4D4137E30326 SelectOperation
 
@@ -451,10 +451,10 @@ ref; // ME_4E3786CF0178 aMoveLeft
  : Target WL 'ME_48E2665A0259' '4A1FCBA0014C.pas.ms.script' // IevHotSpot
  ;
  : Parameters
-   @ ( ME_4E3786CF010B // aText
+   Seq: ( ME_4E3786CF010B // aText
  ME_4E3786CF0149 // aPoint
  ME_4E3786CF0178 // aMoveLeft
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_4D53D37F00AE GetHotSpot
@@ -493,25 +493,25 @@ ref; // ME_4D53E0710297
  : Parent ME_4C500D470030 // MixIns
  ;
  : Operations
-   @ ( ME_4D53D37F00AE // GetHotSpot
- ) .SequenceCode.It
+   Seq: ( ME_4D53D37F00AE // GetHotSpot
+ )
  ; // Operations
  : Dependencies
-   @ ( ME_4D53DE4F0273 // 
+   Seq: ( ME_4D53DE4F0273 // 
  ME_4D53E0710297 // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest\EditorUsers'
  CONST intf.pas:Path 'common\components\gui\Garant\Everest\EditorUsers\HotSpotTools.imp.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest\EditorUsers'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
  CONST extprop:pas:TypeName '_HotSpotTools_'
+ CONST extprop:pas:UnitName 'HotSpotTools.imp'
 
 ref; // ME_4D53D342026E HotSpotTools
 
@@ -543,8 +543,8 @@ ref; // ME_4EF42D2D011D DoIt
  : Parent ME_4D6E5ECF0236 // MouseClickSupport
  ;
  : Operations
-   @ ( ME_4EF42D2D011D // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_4EF42D2D011D // DoIt
+ )
  ; // Operations
 
 ref; // ME_4EF42D190011 GetKeyData
@@ -568,8 +568,8 @@ ref; // ME_4EF456D40323 aControl
  : Parent ME_4D6E5ECF0236 // MouseClickSupport
  ;
  : Parameters
-   @ ( ME_4EF456D40323 // aControl
- ) .SequenceCode.It
+   Seq: ( ME_4EF456D40323 // aControl
+ )
  ; // Parameters
 
 ref; // ME_4D6E5F1900B1 MakeClick
@@ -604,9 +604,9 @@ ref; // ME_4D6E5F5003E3 Y
  : Parent ME_4D6E5ECF0236 // MouseClickSupport
  ;
  : Parameters
-   @ ( ME_4D6E5F5003B3 // X
+   Seq: ( ME_4D6E5F5003B3 // X
  ME_4D6E5F5003E3 // Y
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_4D6E5F340304 GetDeltaXY
@@ -656,28 +656,28 @@ ref; // ME_4D6E60FD0251
  : Parent ME_4C500D470030 // MixIns
  ;
  : Operations
-   @ ( ME_4EF42D190011 // GetKeyData
+   Seq: ( ME_4EF42D190011 // GetKeyData
  ME_4D6E5F1900B1 // MakeClick
  ME_4D6E5F340304 // GetDeltaXY
- ) .SequenceCode.It
+ )
  ; // Operations
  : Dependencies
-   @ ( ME_4D6E5FCE0218 // 
+   Seq: ( ME_4D6E5FCE0218 // 
  ME_4D6E604F0013 // 
  ME_4D6E60FD0251 // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest\EditorUsers'
  CONST intf.pas:Path 'common\components\gui\Garant\Everest\EditorUsers\MouseClickSupport.imp.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest\EditorUsers'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
  CONST extprop:pas:TypeName '_MouseClickSupport_'
+ CONST extprop:pas:UnitName 'MouseClickSupport.imp'
 
 ref; // ME_4D6E5ECF0236 MouseClickSupport
 
@@ -712,9 +712,9 @@ ref; // ME_4DDF77C20357 aNeedMouseUp
  : Parent ME_4DDF61B503D1 // MouseClickOnPoint
  ;
  : Parameters
-   @ ( ME_4E2EDFDC028C // aText
+   Seq: ( ME_4E2EDFDC028C // aText
  ME_4DDF77C20357 // aNeedMouseUp
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_4DDF64120066 ClickOnPoint
@@ -731,25 +731,25 @@ ref; // ME_4DDF64120066 ClickOnPoint
  : Parent ME_4C500D470030 // MixIns
  ;
  : Implements
-   @ ( ME_4CED0194038A // Para2Point
+   Seq: ( ME_4CED0194038A // Para2Point
  ME_4D53D342026E // HotSpotTools
- ) .SequenceCode.It
+ )
  ; // Implements
  : Operations
-   @ ( ME_4DDF64120066 // ClickOnPoint
- ) .SequenceCode.It
+   Seq: ( ME_4DDF64120066 // ClickOnPoint
+ )
  ; // Operations
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest\EditorUsers'
  CONST intf.pas:Path 'common\components\gui\Garant\Everest\EditorUsers\MouseClickOnPoint.imp.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest\EditorUsers'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
  CONST extprop:pas:TypeName '_MouseClickOnPoint_'
+ CONST extprop:pas:UnitName 'MouseClickOnPoint.imp'
 
 ref; // ME_4DDF61B503D1 MouseClickOnPoint
 
@@ -776,8 +776,8 @@ ref; // ME_5232D5D100DB aText
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
  : Parameters
-   @ ( ME_5232D5D100DB // aText
- ) .SequenceCode.It
+   Seq: ( ME_5232D5D100DB // aText
+ )
  ; // Parameters
 
 ref; // ME_4DE7456800BE CheckCollapsed
@@ -789,6 +789,7 @@ ref; // ME_4DE7456800BE CheckCollapsed
  ;
  : Implementor ME_4DE7451703C8 // ClickOnCommentHeader
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4C3C927B027E_ME_4DE7451703C8 GetPoint
 
 : ME_4DE7451703C8
@@ -802,28 +803,28 @@ ref; // ME_4C3C927B027E_ME_4DE7451703C8 GetPoint
  : Parent ME_4C500D470030 // MixIns
  ;
  : Inherits
-   @ ( ME_4DDF61B503D1 // MouseClickOnPoint
- ) .SequenceCode.It
+   Seq: ( ME_4DDF61B503D1 // MouseClickOnPoint
+ )
  ; // Inherits
  : Operations
-   @ ( ME_4DE7456800BE // CheckCollapsed
- ) .SequenceCode.It
+   Seq: ( ME_4DE7456800BE // CheckCollapsed
+ )
  ; // Operations
  : Overridden
-   @ ( ME_4C3C927B027E_ME_4DE7451703C8 // GetPoint
- ) .SequenceCode.It
+   Seq: ( ME_4C3C927B027E_ME_4DE7451703C8 // GetPoint
+ )
  ; // Overridden
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest\EditorUsers'
  CONST intf.pas:Path 'common\components\gui\Garant\Everest\EditorUsers\ClickOnCommentHeader.imp.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest\EditorUsers'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
  CONST extprop:pas:TypeName '_ClickOnCommentHeader_'
+ CONST extprop:pas:UnitName 'ClickOnCommentHeader.imp'
 
 ref; // ME_4DE7451703C8 ClickOnCommentHeader
 
@@ -851,20 +852,20 @@ ref; // ME_4DF1E14701F1
  : Parent ME_4C500D470030 // MixIns
  ;
  : Dependencies
-   @ ( ME_4DF1E14701F1 // 
- ) .SequenceCode.It
+   Seq: ( ME_4DF1E14701F1 // 
+ )
  ; // Dependencies
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest\EditorUsers'
  CONST intf.pas:Path 'common\components\gui\Garant\Everest\EditorUsers\PrintRowCompare.imp.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest\EditorUsers'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
  CONST extprop:pas:TypeName '_PrintRowCompare_'
+ CONST extprop:pas:UnitName 'PrintRowCompare.imp'
 
 ref; // ME_4DF1E0DC0289 PrintRowCompare
 
@@ -891,8 +892,8 @@ ref; // ME_4E32C9FF03D9 aText
  : Parent ME_4E32C9D70275 // SelectColumn
  ;
  : Parameters
-   @ ( ME_4E32C9FF03D9 // aText
- ) .SequenceCode.It
+   Seq: ( ME_4E32C9FF03D9 // aText
+ )
  ; // Parameters
 
 ref; // ME_4E32C9F001A8 DoIt
@@ -908,8 +909,8 @@ ref; // ME_4E32C9F001A8 DoIt
  : Parent ME_4E32C9540390 // ColumnResizeByMouse
  ;
  : Operations
-   @ ( ME_4E32C9F001A8 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_4E32C9F001A8 // DoIt
+ )
  ; // Operations
 
 ref; // ME_4E32C9D70275 SelectColumn
@@ -940,8 +941,8 @@ ref; // ME_4E32CA27009A DoIt
  : Parent ME_4E32C9540390 // ColumnResizeByMouse
  ;
  : Operations
-   @ ( ME_4E32CA27009A // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_4E32CA27009A // DoIt
+ )
  ; // Operations
 
 ref; // ME_4E32CA120170 GetKeys
@@ -977,9 +978,9 @@ ref; // ME_4E32CA570141 aRow
  : Parent ME_4E32CA35008A // GetColumnAndRow
  ;
  : Parameters
-   @ ( ME_4E32CA570121 // aCol
+   Seq: ( ME_4E32CA570121 // aCol
  ME_4E32CA570141 // aRow
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_4E32CA450015 DoIt
@@ -995,8 +996,8 @@ ref; // ME_4E32CA450015 DoIt
  : Parent ME_4E32C9540390 // ColumnResizeByMouse
  ;
  : Operations
-   @ ( ME_4E32CA450015 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_4E32CA450015 // DoIt
+ )
  ; // Operations
 
 ref; // ME_4E32CA35008A GetColumnAndRow
@@ -1027,8 +1028,8 @@ ref; // ME_4E32CA70023E DoIt
  : Parent ME_4E32C9540390 // ColumnResizeByMouse
  ;
  : Operations
-   @ ( ME_4E32CA70023E // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_4E32CA70023E // DoIt
+ )
  ; // Operations
 
 ref; // ME_4E32CA5E0115 GetDelta
@@ -1040,6 +1041,7 @@ ref; // ME_4E32CA5E0115 GetDelta
  ;
  : Implementor ME_4E32C9540390 // ColumnResizeByMouse
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4BF4E6A00093_ME_4E32C9540390 GetInnerPara
 
 : ME_4C3C927B027E_ME_4E32C9540390
@@ -1049,6 +1051,7 @@ ref; // ME_4BF4E6A00093_ME_4E32C9540390 GetInnerPara
  ;
  : Implementor ME_4E32C9540390 // ColumnResizeByMouse
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4C3C927B027E_ME_4E32C9540390 GetPoint
 
 : ME_4E32C9540390
@@ -1062,33 +1065,33 @@ ref; // ME_4C3C927B027E_ME_4E32C9540390 GetPoint
  : Parent ME_4C500D470030 // MixIns
  ;
  : Inherits
-   @ ( ME_4CED0194038A // Para2Point
+   Seq: ( ME_4CED0194038A // Para2Point
  ME_4D53D342026E // HotSpotTools
- ) .SequenceCode.It
+ )
  ; // Inherits
  : Operations
-   @ ( ME_4E32C9D70275 // SelectColumn
+   Seq: ( ME_4E32C9D70275 // SelectColumn
  ME_4E32CA120170 // GetKeys
  ME_4E32CA35008A // GetColumnAndRow
  ME_4E32CA5E0115 // GetDelta
- ) .SequenceCode.It
+ )
  ; // Operations
  : Overridden
-   @ ( ME_4BF4E6A00093_ME_4E32C9540390 // GetInnerPara
+   Seq: ( ME_4BF4E6A00093_ME_4E32C9540390 // GetInnerPara
  ME_4C3C927B027E_ME_4E32C9540390 // GetPoint
- ) .SequenceCode.It
+ )
  ; // Overridden
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest\EditorUsers'
  CONST intf.pas:Path 'common\components\gui\Garant\Everest\EditorUsers\ColumnResizeByMouse.imp.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest\EditorUsers'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
  CONST extprop:pas:TypeName '_ColumnResizeByMouse_'
+ CONST extprop:pas:UnitName 'ColumnResizeByMouse.imp'
 
 ref; // ME_4E32C9540390 ColumnResizeByMouse
 
@@ -1117,8 +1120,8 @@ ref; // ME_4E97EF1D0049 aText
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
  : Parameters
-   @ ( ME_4E97EF1D0049 // aText
- ) .SequenceCode.It
+   Seq: ( ME_4E97EF1D0049 // aText
+ )
  ; // Parameters
 
 ref; // ME_4E97EEE903B0 DoIt
@@ -1134,8 +1137,8 @@ ref; // ME_4E97EEE903B0 DoIt
  : Parent ME_4E97EE2D00D7 // CellSelectionByMouse
  ;
  : Operations
-   @ ( ME_4E97EEE903B0 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_4E97EEE903B0 // DoIt
+ )
  ; // Operations
 
 ref; // ME_4E97EEAA0320 SelectCell
@@ -1158,6 +1161,7 @@ ref; // ME_4E980EBE010C
  ;
  : Implementor ME_4E97EE2D00D7 // CellSelectionByMouse
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4C3C927B027E_ME_4E97EE2D00D7 GetPoint
 
 : ME_4E97EE2D00D7
@@ -1171,33 +1175,33 @@ ref; // ME_4C3C927B027E_ME_4E97EE2D00D7 GetPoint
  : Parent ME_4C500D470030 // MixIns
  ;
  : Inherits
-   @ ( ME_4CED0194038A // Para2Point
+   Seq: ( ME_4CED0194038A // Para2Point
  ME_4D53D342026E // HotSpotTools
- ) .SequenceCode.It
+ )
  ; // Inherits
  : Operations
-   @ ( ME_4E97EEAA0320 // SelectCell
- ) .SequenceCode.It
+   Seq: ( ME_4E97EEAA0320 // SelectCell
+ )
  ; // Operations
  : Overridden
-   @ ( ME_4C3C927B027E_ME_4E97EE2D00D7 // GetPoint
- ) .SequenceCode.It
+   Seq: ( ME_4C3C927B027E_ME_4E97EE2D00D7 // GetPoint
+ )
  ; // Overridden
  : Dependencies
-   @ ( ME_4E980EBE010C // 
- ) .SequenceCode.It
+   Seq: ( ME_4E980EBE010C // 
+ )
  ; // Dependencies
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest\EditorUsers'
  CONST intf.pas:Path 'common\components\gui\Garant\Everest\EditorUsers\CellSelectionByMouse.imp.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest\EditorUsers'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
  CONST extprop:pas:TypeName '_CellSelectionByMouse_'
+ CONST extprop:pas:UnitName 'CellSelectionByMouse.imp'
 
 ref; // ME_4E97EE2D00D7 CellSelectionByMouse
 
@@ -1212,7 +1216,7 @@ ref; // ME_4E97EE2D00D7 CellSelectionByMouse
  : Parent WL 'ME_4E2EE37B0097' '4E2EE37B0097.pas.ms.script' // Everest$EditorUsers
  ;
  : Children
-   @ ( ME_4C500D6101D8 // CursorMover
+   Seq: ( ME_4C500D6101D8 // CursorMover
  ME_4C9210B70244 // Navigator
  ME_4CE2958803D0 // ScrollSupport
  ME_4CED0194038A // Para2Point
@@ -1224,10 +1228,10 @@ ref; // ME_4E97EE2D00D7 CellSelectionByMouse
  ME_4DF1E0DC0289 // PrintRowCompare
  ME_4E32C9540390 // ColumnResizeByMouse
  ME_4E97EE2D00D7 // CellSelectionByMouse
- ) .SequenceCode.It
+ )
  ; // Children
  : Depends
-   @ ( WL 'ME_467C0CAA02AB' '467C0CAA02AB.pas.ms.script' // l3InternalInterfaces
+   Seq: ( WL 'ME_467C0CAA02AB' '467C0CAA02AB.pas.ms.script' // l3InternalInterfaces
  WL 'ME_472745450206' '472745450206.pas.ms.script' // l3Units
  WL 'ME_4728A7020026' '4728A7020026.pas.ms.script' // Types
  WL 'ME_476BEA0B0103' '476BEA0B0103.pas.ms.script' // evConst
@@ -1246,16 +1250,14 @@ ref; // ME_4E97EE2D00D7 CellSelectionByMouse
  WL 'ME_4AB0997B00A2' '4AB0997B00A2.pas.ms.script' // Common
  WL 'ME_4AB0C3C60310' '4AB0C3C60310.pas.ms.script' // Sys
  WL 'ME_4AB0C3F60375' '4AB0C3F60375.pas.ms.script' // Win
- ) .SequenceCode.It
+ )
  ; // Depends
  CONST "path prefix" '/EditorUsers'
- : Generators
- @ (
- gen_pas.script
- gen_pas.script.runner
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest\EditorUsers'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest\EditorUsers'
  CONST pas.script:Path 'shared\models\NewSchool\Scripts\4C500D470030.pas.ms.script'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
  CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\4C500D470030.pas.ms.script.runner'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_4C500D470030 MixIns

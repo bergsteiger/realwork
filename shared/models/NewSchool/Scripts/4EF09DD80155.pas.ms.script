@@ -1,0 +1,32 @@
+// Требования 4EF09DD80155 Requirements Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+: ME_4EF09DD80155
+ CONST UID '4EF09DD80155'
+ CONST Name 'Требования'
+ CONST Class class_Category
+ : Stereotype st_Requirements ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent WL 'ME_49B800BB0239' '49B800BB0239.pas.ms.script' // Shared Delphi Tools
+ ;
+ : Children
+   Seq: ( WL 'ME_4EF09DE80211' '4EF09DE80211.pas.ms.script' // Поддержка формул
+ )
+ ; // Children
+ : Generators
+ Seq: (
+ gen_pas.script
+ gen_pas.script.runner
+ )
+ ; // Generators
+ CONST dfm:PathOnly '\common\components'
+ CONST intf.pas:PathOnly '\common\components'
+ CONST pas.script:Path 'shared\models\NewSchool\Scripts\4EF09DD80155.pas.ms.script'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\4EF09DD80155.pas.ms.script.runner'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\common\components'
+
+ref; // ME_4EF09DD80155 Требования

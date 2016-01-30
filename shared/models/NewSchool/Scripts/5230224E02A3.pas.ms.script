@@ -11,11 +11,11 @@ INCLUDE 'ElementsRTTI.ms.dict'
  CONST Visibility PublicAccess
  CONST Abstraction at_final
  : Children
-   @ ( WL 'ME_523023C2008D' '523023C2008D.pas.ms.script' // VCMSandBox
- ) .SequenceCode.It
+   Seq: ( WL 'ME_523023C2008D' '523023C2008D.pas.ms.script' // VCMSandBox
+ )
  ; // Children
  : Depends
-   @ ( WL 'ME_469F3E37025A' '469F3E37025A.pas.ms.script' // Rtl
+   Seq: ( WL 'ME_469F3E37025A' '469F3E37025A.pas.ms.script' // Rtl
  WL 'ME_4790D09A0378' '4790D09A0378.pas.ms.script' // L3
  WL 'ME_47913B47006E' '47913B47006E.pas.ms.script' // l3CoreObjects
  WL 'ME_4AB0C3C60310' '4AB0C3C60310.pas.ms.script' // Sys
@@ -31,7 +31,7 @@ INCLUDE 'ElementsRTTI.ms.dict'
  WL 'ME_5130776E01BE' '5130776E01BE.pas.ms.script' // DUnitKeyWordsSupport
  WL 'ME_521648D102D3' '521648D102D3.pas.ms.script' // Shared Delphi Sand Box$App
  WL 'ME_562E251101C2' '562E251101C2.pas.ms.script' // Shared Delphi Rtl
- ) .SequenceCode.It
+ )
  ; // Depends
  CONST "Full MDP" false
  CONST "create project" true
@@ -46,16 +46,17 @@ INCLUDE 'ElementsRTTI.ms.dict'
  CONST "space key" 'SHD'
  CONST "space name" 'Shared (delphi)'
  : Generators
- @ (
- gen_forth_structure
- gen_intf.pas
+ Seq: (
  gen_pas.script
  gen_pas.script.runner
- ) .SequenceCode.It
+ )
  ; // Generators
- CONST forth_structure:Path 'shared\models\NewSchool\Shared Delphi Sand Box$TestApp\Shared Delphi Sand Box$TestApp.model.script'
- CONST intf.pas:Path 'common\components\SandBox\VCM\common Sand Box$TestApp_prj.info'
+ CONST dfm:PathOnly '\common\components\SandBox\VCM'
+ CONST intf.pas:PathOnly '\common\components\SandBox\VCM'
  CONST pas.script:Path 'shared\models\NewSchool\Scripts\5230224E02A3.pas.ms.script'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
  CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\5230224E02A3.pas.ms.script.runner'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\common\components\SandBox\VCM'
 
 ref; // ME_5230224E02A3 Shared Delphi Sand Box$TestApp

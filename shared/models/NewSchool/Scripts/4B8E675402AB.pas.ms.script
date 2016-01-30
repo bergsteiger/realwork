@@ -21,6 +21,7 @@ FORWARD ME_4B8E67CE0000
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value '''Все файлы|*.*'''
 
 ref; // ME_4B8E67ED0304 DefaultOpenDlgFilter
 
@@ -35,13 +36,17 @@ ref; // ME_4B8E67ED0304 DefaultOpenDlgFilter
  : Parent ME_4B8E6793024B // vtDialogsRes
  ;
  : Attributes
-   @ ( ME_4B8E67ED0304 // DefaultOpenDlgFilter
- ) .SequenceCode.It
+   Seq: ( ME_4B8E67ED0304 // DefaultOpenDlgFilter
+ )
  ; // Attributes
  CONST "Need map interface" false
  CONST "Need mapping support" false
  CONST "children prefix" 'vt'
  CONST "spell names" false
+ CONST dfm:PathOnly '\common\components\gui\Garant\VT'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\VT'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
  CONST extprop:pas:ElementPrefix 'vt'
 
 ref; // ME_4B8E67CE0000 TvtMiscMessages
@@ -61,6 +66,7 @@ FORWARD ME_4B8E6EE901BF
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value '''Warning'''
 
 ref; // ME_4B8E6EFE014E Warning
 
@@ -77,6 +83,7 @@ ref; // ME_4B8E6EFE014E Warning
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value '''Error'''
 
 ref; // ME_4B8E6F0B02FB Error
 
@@ -93,6 +100,7 @@ ref; // ME_4B8E6F0B02FB Error
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value '''Information'''
 
 ref; // ME_4B8E6F1800D2 Information
 
@@ -109,6 +117,7 @@ ref; // ME_4B8E6F1800D2 Information
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value '''Confirm'''
 
 ref; // ME_4B8E6F260141 Confirm
 
@@ -123,17 +132,21 @@ ref; // ME_4B8E6F260141 Confirm
  : Parent ME_4B8E6793024B // vtDialogsRes
  ;
  : Attributes
-   @ ( ME_4B8E6EFE014E // Warning
+   Seq: ( ME_4B8E6EFE014E // Warning
  ME_4B8E6F0B02FB // Error
  ME_4B8E6F1800D2 // Information
  ME_4B8E6F260141 // Confirm
- ) .SequenceCode.It
+ )
  ; // Attributes
  CONST "Need map interface" false
  CONST "Need mapping support" false
  CONST "children prefix" 'vtMsgDlg'
  CONST "ifndef" 'Nemesis'
  CONST "spell names" false
+ CONST dfm:PathOnly '\common\components\gui\Garant\VT'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\VT'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
  CONST extprop:pas:ElementPrefix 'vtMsgDlg'
 
 ref; // ME_4B8E6EE901BF MsgDlg
@@ -153,6 +166,7 @@ FORWARD ME_4B8E6F3901D5
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value '''Предупреждение'''
 
 ref; // ME_4B8E6F6802FD Warning
 
@@ -169,6 +183,7 @@ ref; // ME_4B8E6F6802FD Warning
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value '''Ошибка'''
 
 ref; // ME_4B8E6F73005D Error
 
@@ -185,6 +200,7 @@ ref; // ME_4B8E6F73005D Error
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value '''Информация'''
 
 ref; // ME_4B8E6F800141 Information
 
@@ -201,6 +217,7 @@ ref; // ME_4B8E6F800141 Information
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value '''Подтверждение'''
 
 ref; // ME_4B8E6F8D0149 Confirm
 
@@ -215,17 +232,21 @@ ref; // ME_4B8E6F8D0149 Confirm
  : Parent ME_4B8E6793024B // vtDialogsRes
  ;
  : Attributes
-   @ ( ME_4B8E6F6802FD // Warning
+   Seq: ( ME_4B8E6F6802FD // Warning
  ME_4B8E6F73005D // Error
  ME_4B8E6F800141 // Information
  ME_4B8E6F8D0149 // Confirm
- ) .SequenceCode.It
+ )
  ; // Attributes
  CONST "Need map interface" false
  CONST "Need mapping support" false
  CONST "children prefix" 'vtMsgDlg'
  CONST "ifdef" 'Nemesis'
  CONST "spell names" false
+ CONST dfm:PathOnly '\common\components\gui\Garant\VT'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\VT'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
  CONST extprop:pas:ElementPrefix 'vtMsgDlg'
 
 ref; // ME_4B8E6F3901D5 MsgDlgNemesis
@@ -245,6 +266,7 @@ FORWARD ME_4B8E728300D1
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value ''''''
 
 ref; // ME_4B8E728D02CC Custom
 
@@ -259,13 +281,17 @@ ref; // ME_4B8E728D02CC Custom
  : Parent ME_4B8E6793024B // vtDialogsRes
  ;
  : Attributes
-   @ ( ME_4B8E728D02CC // Custom
- ) .SequenceCode.It
+   Seq: ( ME_4B8E728D02CC // Custom
+ )
  ; // Attributes
  CONST "Need map interface" false
  CONST "Need mapping support" false
  CONST "children prefix" 'vtMsgDlg'
  CONST "spell names" false
+ CONST dfm:PathOnly '\common\components\gui\Garant\VT'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\VT'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
  CONST extprop:pas:ElementPrefix 'vtMsgDlg'
 
 ref; // ME_4B8E728300D1 Custom
@@ -285,6 +311,7 @@ FORWARD ME_4B8E84E802EC
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value '''&Да'''
 
 ref; // ME_4B8E84FF0240 Yes
 
@@ -301,6 +328,7 @@ ref; // ME_4B8E84FF0240 Yes
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value '''&Нет'''
 
 ref; // ME_4B8E85090245 No
 
@@ -317,6 +345,7 @@ ref; // ME_4B8E85090245 No
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value '''OK'''
 
 ref; // ME_4B8E8515015A OK
 
@@ -333,6 +362,7 @@ ref; // ME_4B8E8515015A OK
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value '''&Отмена'''
 
 ref; // ME_4B8E85200324 Cancel
 
@@ -349,6 +379,7 @@ ref; // ME_4B8E85200324 Cancel
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value '''&Прервать'''
 
 ref; // ME_4B8E85C002BB Abort
 
@@ -365,6 +396,7 @@ ref; // ME_4B8E85C002BB Abort
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value '''Пов&торить'''
 
 ref; // ME_4B8E85D10254 Retry
 
@@ -381,6 +413,7 @@ ref; // ME_4B8E85D10254 Retry
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value '''&Игнорировать'''
 
 ref; // ME_4B8E85DB0050 Ignore
 
@@ -397,6 +430,7 @@ ref; // ME_4B8E85DB0050 Ignore
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value '''&Все'''
 
 ref; // ME_4B8E85E50222 All
 
@@ -413,6 +447,7 @@ ref; // ME_4B8E85E50222 All
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value '''&Нет для всех'''
 
 ref; // ME_4B8E85F801FE NoToAll
 
@@ -429,6 +464,7 @@ ref; // ME_4B8E85F801FE NoToAll
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value '''&Да для всех'''
 
 ref; // ME_4B8E860403E1 YesToAll
 
@@ -445,6 +481,7 @@ ref; // ME_4B8E860403E1 YesToAll
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value '''&Справка'''
 
 ref; // ME_4B8E86100123 Help
 
@@ -459,7 +496,7 @@ ref; // ME_4B8E86100123 Help
  : Parent ME_4B8E6793024B // vtDialogsRes
  ;
  : Attributes
-   @ ( ME_4B8E84FF0240 // Yes
+   Seq: ( ME_4B8E84FF0240 // Yes
  ME_4B8E85090245 // No
  ME_4B8E8515015A // OK
  ME_4B8E85200324 // Cancel
@@ -470,12 +507,16 @@ ref; // ME_4B8E86100123 Help
  ME_4B8E85F801FE // NoToAll
  ME_4B8E860403E1 // YesToAll
  ME_4B8E86100123 // Help
- ) .SequenceCode.It
+ )
  ; // Attributes
  CONST "Need map interface" false
  CONST "Need mapping support" false
  CONST "children prefix" 'vtMsgDlg'
  CONST "spell names" false
+ CONST dfm:PathOnly '\common\components\gui\Garant\VT'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\VT'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
  CONST extprop:pas:ElementPrefix 'vtMsgDlg'
 
 ref; // ME_4B8E84E802EC MsgDlgButtons
@@ -485,6 +526,7 @@ FORWARD ME_609C00BC9FEF
 : ME_F2634B0D416D
  CONST UID 'F2634B0D416D'
  CONST Name 'DefaultOpenDlgFilter'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY '''Все файлы|*.*''' ;
  CONST Visibility PublicAccess
@@ -500,12 +542,14 @@ FORWARD ME_609C00BC9FEF
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''vtDefaultOpenDlgFilter''; rValue : ''Все файлы|*.*'')'
 
 ref; // ME_F2634B0D416D DefaultOpenDlgFilter
 
 : ME_609C00BC9FEF
  CONST UID '609C00BC9FEF'
  CONST Name 'LCImplTvtMiscMessages'
+ CONST IsSummoned true
  CONST Class class_Class
  : Stereotype st_Constants ;
  CONST Kind kind_NormalClass
@@ -515,12 +559,16 @@ ref; // ME_F2634B0D416D DefaultOpenDlgFilter
  : Parent ME_4B8E6793024B // vtDialogsRes
  ;
  : Attributes
-   @ ( ME_F2634B0D416D // DefaultOpenDlgFilter
- ) .SequenceCode.It
+   Seq: ( ME_F2634B0D416D // DefaultOpenDlgFilter
+ )
  ; // Attributes
  CONST "children prefix" 'vt'
  CONST "elements prefix" 'str'
  CONST "spell names" false
+ CONST dfm:PathOnly '\common\components\gui\Garant\VT'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\VT'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
  CONST extprop:pas:ElementPrefixBase 'str'
  CONST extprop:pas:ElementPrefix 'str_vt'
 
@@ -531,6 +579,7 @@ FORWARD ME_C8318EF842F8
 : ME_54AE1517D281
  CONST UID '54AE1517D281'
  CONST Name 'Warning'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY '''Warning''' ;
  CONST Visibility PublicAccess
@@ -546,12 +595,14 @@ FORWARD ME_C8318EF842F8
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''vtMsgDlgWarning''; rValue : ''Warning'')'
 
 ref; // ME_54AE1517D281 Warning
 
 : ME_3A4C0499FAB1
  CONST UID '3A4C0499FAB1'
  CONST Name 'Error'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY '''Error''' ;
  CONST Visibility PublicAccess
@@ -567,12 +618,14 @@ ref; // ME_54AE1517D281 Warning
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''vtMsgDlgError''; rValue : ''Error'')'
 
 ref; // ME_3A4C0499FAB1 Error
 
 : ME_4D18F93FA68B
  CONST UID '4D18F93FA68B'
  CONST Name 'Information'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY '''Information''' ;
  CONST Visibility PublicAccess
@@ -588,12 +641,14 @@ ref; // ME_3A4C0499FAB1 Error
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''vtMsgDlgInformation''; rValue : ''Information'')'
 
 ref; // ME_4D18F93FA68B Information
 
 : ME_EFC83245675F
  CONST UID 'EFC83245675F'
  CONST Name 'Confirm'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY '''Confirm''' ;
  CONST Visibility PublicAccess
@@ -609,12 +664,14 @@ ref; // ME_4D18F93FA68B Information
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''vtMsgDlgConfirm''; rValue : ''Confirm'')'
 
 ref; // ME_EFC83245675F Confirm
 
 : ME_C8318EF842F8
  CONST UID 'C8318EF842F8'
  CONST Name 'LCImplMsgDlg'
+ CONST IsSummoned true
  CONST Class class_Class
  : Stereotype st_Constants ;
  CONST Kind kind_NormalClass
@@ -624,16 +681,20 @@ ref; // ME_EFC83245675F Confirm
  : Parent ME_4B8E6793024B // vtDialogsRes
  ;
  : Attributes
-   @ ( ME_54AE1517D281 // Warning
+   Seq: ( ME_54AE1517D281 // Warning
  ME_3A4C0499FAB1 // Error
  ME_4D18F93FA68B // Information
  ME_EFC83245675F // Confirm
- ) .SequenceCode.It
+ )
  ; // Attributes
  CONST "children prefix" 'vtMsgDlg'
  CONST "elements prefix" 'str'
  CONST "ifndef" 'Nemesis'
  CONST "spell names" false
+ CONST dfm:PathOnly '\common\components\gui\Garant\VT'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\VT'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
  CONST extprop:pas:ElementPrefixBase 'str'
  CONST extprop:pas:ElementPrefix 'str_vtMsgDlg'
 
@@ -644,6 +705,7 @@ FORWARD ME_9FCC522908D2
 : ME_1B68576FAA41
  CONST UID '1B68576FAA41'
  CONST Name 'Warning'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY '''Предупреждение''' ;
  CONST Visibility PublicAccess
@@ -659,12 +721,14 @@ FORWARD ME_9FCC522908D2
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''vtMsgDlgWarning''; rValue : ''Предупреждение'')'
 
 ref; // ME_1B68576FAA41 Warning
 
 : ME_5B72CA52E447
  CONST UID '5B72CA52E447'
  CONST Name 'Error'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY '''Ошибка''' ;
  CONST Visibility PublicAccess
@@ -680,12 +744,14 @@ ref; // ME_1B68576FAA41 Warning
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''vtMsgDlgError''; rValue : ''Ошибка'')'
 
 ref; // ME_5B72CA52E447 Error
 
 : ME_7B5A9AB51F0E
  CONST UID '7B5A9AB51F0E'
  CONST Name 'Information'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY '''Информация''' ;
  CONST Visibility PublicAccess
@@ -701,12 +767,14 @@ ref; // ME_5B72CA52E447 Error
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''vtMsgDlgInformation''; rValue : ''Информация'')'
 
 ref; // ME_7B5A9AB51F0E Information
 
 : ME_A7E308EBD3C1
  CONST UID 'A7E308EBD3C1'
  CONST Name 'Confirm'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY '''Подтверждение''' ;
  CONST Visibility PublicAccess
@@ -722,12 +790,14 @@ ref; // ME_7B5A9AB51F0E Information
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''vtMsgDlgConfirm''; rValue : ''Подтверждение'')'
 
 ref; // ME_A7E308EBD3C1 Confirm
 
 : ME_9FCC522908D2
  CONST UID '9FCC522908D2'
  CONST Name 'LCImplMsgDlgNemesis'
+ CONST IsSummoned true
  CONST Class class_Class
  : Stereotype st_Constants ;
  CONST Kind kind_NormalClass
@@ -737,16 +807,20 @@ ref; // ME_A7E308EBD3C1 Confirm
  : Parent ME_4B8E6793024B // vtDialogsRes
  ;
  : Attributes
-   @ ( ME_1B68576FAA41 // Warning
+   Seq: ( ME_1B68576FAA41 // Warning
  ME_5B72CA52E447 // Error
  ME_7B5A9AB51F0E // Information
  ME_A7E308EBD3C1 // Confirm
- ) .SequenceCode.It
+ )
  ; // Attributes
  CONST "children prefix" 'vtMsgDlg'
  CONST "elements prefix" 'str'
  CONST "ifdef" 'Nemesis'
  CONST "spell names" false
+ CONST dfm:PathOnly '\common\components\gui\Garant\VT'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\VT'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
  CONST extprop:pas:ElementPrefixBase 'str'
  CONST extprop:pas:ElementPrefix 'str_vtMsgDlg'
 
@@ -757,6 +831,7 @@ FORWARD ME_05A51E809210
 : ME_6E45B7366823
  CONST UID '6E45B7366823'
  CONST Name 'Custom'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY '''''' ;
  CONST Visibility PublicAccess
@@ -772,12 +847,14 @@ FORWARD ME_05A51E809210
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''vtMsgDlgCustom''; rValue : '''')'
 
 ref; // ME_6E45B7366823 Custom
 
 : ME_05A51E809210
  CONST UID '05A51E809210'
  CONST Name 'LCImplCustom'
+ CONST IsSummoned true
  CONST Class class_Class
  : Stereotype st_Constants ;
  CONST Kind kind_NormalClass
@@ -787,12 +864,16 @@ ref; // ME_6E45B7366823 Custom
  : Parent ME_4B8E6793024B // vtDialogsRes
  ;
  : Attributes
-   @ ( ME_6E45B7366823 // Custom
- ) .SequenceCode.It
+   Seq: ( ME_6E45B7366823 // Custom
+ )
  ; // Attributes
  CONST "children prefix" 'vtMsgDlg'
  CONST "elements prefix" 'str'
  CONST "spell names" false
+ CONST dfm:PathOnly '\common\components\gui\Garant\VT'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\VT'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
  CONST extprop:pas:ElementPrefixBase 'str'
  CONST extprop:pas:ElementPrefix 'str_vtMsgDlg'
 
@@ -803,6 +884,7 @@ FORWARD ME_7B1D579EFA30
 : ME_A737A1E260E7
  CONST UID 'A737A1E260E7'
  CONST Name 'Yes'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY '''&Да''' ;
  CONST Visibility PublicAccess
@@ -818,12 +900,14 @@ FORWARD ME_7B1D579EFA30
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''vtMsgDlgYes''; rValue : ''&Да'')'
 
 ref; // ME_A737A1E260E7 Yes
 
 : ME_C50791090295
  CONST UID 'C50791090295'
  CONST Name 'No'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY '''&Нет''' ;
  CONST Visibility PublicAccess
@@ -839,12 +923,14 @@ ref; // ME_A737A1E260E7 Yes
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''vtMsgDlgNo''; rValue : ''&Нет'')'
 
 ref; // ME_C50791090295 No
 
 : ME_C23DCB97751A
  CONST UID 'C23DCB97751A'
  CONST Name 'OK'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY '''OK''' ;
  CONST Visibility PublicAccess
@@ -860,12 +946,14 @@ ref; // ME_C50791090295 No
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''vtMsgDlgOK''; rValue : ''OK'')'
 
 ref; // ME_C23DCB97751A OK
 
 : ME_D939681AB3BC
  CONST UID 'D939681AB3BC'
  CONST Name 'Cancel'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY '''&Отмена''' ;
  CONST Visibility PublicAccess
@@ -881,12 +969,14 @@ ref; // ME_C23DCB97751A OK
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''vtMsgDlgCancel''; rValue : ''&Отмена'')'
 
 ref; // ME_D939681AB3BC Cancel
 
 : ME_E3AC85806997
  CONST UID 'E3AC85806997'
  CONST Name 'Abort'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY '''&Прервать''' ;
  CONST Visibility PublicAccess
@@ -902,12 +992,14 @@ ref; // ME_D939681AB3BC Cancel
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''vtMsgDlgAbort''; rValue : ''&Прервать'')'
 
 ref; // ME_E3AC85806997 Abort
 
 : ME_69CA9A6CE1B5
  CONST UID '69CA9A6CE1B5'
  CONST Name 'Retry'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY '''Пов&торить''' ;
  CONST Visibility PublicAccess
@@ -923,12 +1015,14 @@ ref; // ME_E3AC85806997 Abort
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''vtMsgDlgRetry''; rValue : ''Пов&торить'')'
 
 ref; // ME_69CA9A6CE1B5 Retry
 
 : ME_2E728515D0DC
  CONST UID '2E728515D0DC'
  CONST Name 'Ignore'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY '''&Игнорировать''' ;
  CONST Visibility PublicAccess
@@ -944,12 +1038,14 @@ ref; // ME_69CA9A6CE1B5 Retry
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''vtMsgDlgIgnore''; rValue : ''&Игнорировать'')'
 
 ref; // ME_2E728515D0DC Ignore
 
 : ME_3D95E95A1C37
  CONST UID '3D95E95A1C37'
  CONST Name 'All'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY '''&Все''' ;
  CONST Visibility PublicAccess
@@ -965,12 +1061,14 @@ ref; // ME_2E728515D0DC Ignore
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''vtMsgDlgAll''; rValue : ''&Все'')'
 
 ref; // ME_3D95E95A1C37 All
 
 : ME_E1FA5643E367
  CONST UID 'E1FA5643E367'
  CONST Name 'NoToAll'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY '''&Нет для всех''' ;
  CONST Visibility PublicAccess
@@ -986,12 +1084,14 @@ ref; // ME_3D95E95A1C37 All
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''vtMsgDlgNoToAll''; rValue : ''&Нет для всех'')'
 
 ref; // ME_E1FA5643E367 NoToAll
 
 : ME_B3EE8AC23FDD
  CONST UID 'B3EE8AC23FDD'
  CONST Name 'YesToAll'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY '''&Да для всех''' ;
  CONST Visibility PublicAccess
@@ -1007,12 +1107,14 @@ ref; // ME_E1FA5643E367 NoToAll
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''vtMsgDlgYesToAll''; rValue : ''&Да для всех'')'
 
 ref; // ME_B3EE8AC23FDD YesToAll
 
 : ME_34948F5A3B35
  CONST UID '34948F5A3B35'
  CONST Name 'Help'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY '''&Справка''' ;
  CONST Visibility PublicAccess
@@ -1028,12 +1130,14 @@ ref; // ME_B3EE8AC23FDD YesToAll
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''vtMsgDlgHelp''; rValue : ''&Справка'')'
 
 ref; // ME_34948F5A3B35 Help
 
 : ME_7B1D579EFA30
  CONST UID '7B1D579EFA30'
  CONST Name 'LCImplMsgDlgButtons'
+ CONST IsSummoned true
  CONST Class class_Class
  : Stereotype st_Constants ;
  CONST Kind kind_NormalClass
@@ -1043,7 +1147,7 @@ ref; // ME_34948F5A3B35 Help
  : Parent ME_4B8E6793024B // vtDialogsRes
  ;
  : Attributes
-   @ ( ME_A737A1E260E7 // Yes
+   Seq: ( ME_A737A1E260E7 // Yes
  ME_C50791090295 // No
  ME_C23DCB97751A // OK
  ME_D939681AB3BC // Cancel
@@ -1054,11 +1158,15 @@ ref; // ME_34948F5A3B35 Help
  ME_E1FA5643E367 // NoToAll
  ME_B3EE8AC23FDD // YesToAll
  ME_34948F5A3B35 // Help
- ) .SequenceCode.It
+ )
  ; // Attributes
  CONST "children prefix" 'vtMsgDlg'
  CONST "elements prefix" 'str'
  CONST "spell names" false
+ CONST dfm:PathOnly '\common\components\gui\Garant\VT'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\VT'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
  CONST extprop:pas:ElementPrefixBase 'str'
  CONST extprop:pas:ElementPrefix 'str_vtMsgDlg'
 
@@ -1066,7 +1174,8 @@ ref; // ME_7B1D579EFA30 LCImplMsgDlgButtons
 
 : ME_CD3C67ACD63B
  CONST UID 'CD3C67ACD63B'
- CONST Name 'Init_DefaultOpenDlgFilter'
+ CONST Name 'Init_Str_DefaultOpenDlgFilter'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Инициализация str_vtDefaultOpenDlgFilter' ;
@@ -1074,12 +1183,17 @@ ref; // ME_7B1D579EFA30 LCImplMsgDlgButtons
  CONST Abstraction at_final
  : Parent ME_4B8E6793024B // vtDialogsRes
  ;
+ : Speller ME_4B8E67ED0304 // DefaultOpenDlgFilter
+ ;
+ : SpelledFor ME_F2634B0D416D // DefaultOpenDlgFilter
+ ;
 
-ref; // ME_CD3C67ACD63B Init_DefaultOpenDlgFilter
+ref; // ME_CD3C67ACD63B Init_Str_DefaultOpenDlgFilter
 
 : ME_BC662DEE2B85
  CONST UID 'BC662DEE2B85'
- CONST Name 'Init_Warning'
+ CONST Name 'Init_Str_Warning'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Инициализация str_vtMsgDlgWarning' ;
@@ -1088,12 +1202,17 @@ ref; // ME_CD3C67ACD63B Init_DefaultOpenDlgFilter
  : Parent ME_4B8E6793024B // vtDialogsRes
  ;
  CONST "ifndef" 'Nemesis'
+ : Speller ME_4B8E6EFE014E // Warning
+ ;
+ : SpelledFor ME_54AE1517D281 // Warning
+ ;
 
-ref; // ME_BC662DEE2B85 Init_Warning
+ref; // ME_BC662DEE2B85 Init_Str_Warning
 
 : ME_CDDB693AFEDA
  CONST UID 'CDDB693AFEDA'
- CONST Name 'Init_Error'
+ CONST Name 'Init_Str_Error'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Инициализация str_vtMsgDlgError' ;
@@ -1102,12 +1221,17 @@ ref; // ME_BC662DEE2B85 Init_Warning
  : Parent ME_4B8E6793024B // vtDialogsRes
  ;
  CONST "ifndef" 'Nemesis'
+ : Speller ME_4B8E6F0B02FB // Error
+ ;
+ : SpelledFor ME_3A4C0499FAB1 // Error
+ ;
 
-ref; // ME_CDDB693AFEDA Init_Error
+ref; // ME_CDDB693AFEDA Init_Str_Error
 
 : ME_865BDAD51D76
  CONST UID '865BDAD51D76'
- CONST Name 'Init_Information'
+ CONST Name 'Init_Str_Information'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Инициализация str_vtMsgDlgInformation' ;
@@ -1116,12 +1240,17 @@ ref; // ME_CDDB693AFEDA Init_Error
  : Parent ME_4B8E6793024B // vtDialogsRes
  ;
  CONST "ifndef" 'Nemesis'
+ : Speller ME_4B8E6F1800D2 // Information
+ ;
+ : SpelledFor ME_4D18F93FA68B // Information
+ ;
 
-ref; // ME_865BDAD51D76 Init_Information
+ref; // ME_865BDAD51D76 Init_Str_Information
 
 : ME_000B0D70C0FB
  CONST UID '000B0D70C0FB'
- CONST Name 'Init_Confirm'
+ CONST Name 'Init_Str_Confirm'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Инициализация str_vtMsgDlgConfirm' ;
@@ -1130,12 +1259,17 @@ ref; // ME_865BDAD51D76 Init_Information
  : Parent ME_4B8E6793024B // vtDialogsRes
  ;
  CONST "ifndef" 'Nemesis'
+ : Speller ME_4B8E6F260141 // Confirm
+ ;
+ : SpelledFor ME_EFC83245675F // Confirm
+ ;
 
-ref; // ME_000B0D70C0FB Init_Confirm
+ref; // ME_000B0D70C0FB Init_Str_Confirm
 
 : ME_7AF5D853EB14
  CONST UID '7AF5D853EB14'
- CONST Name 'Init_Warning'
+ CONST Name 'Init_Str_Warning'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Инициализация str_vtMsgDlgWarning' ;
@@ -1144,12 +1278,17 @@ ref; // ME_000B0D70C0FB Init_Confirm
  : Parent ME_4B8E6793024B // vtDialogsRes
  ;
  CONST "ifdef" 'Nemesis'
+ : Speller ME_4B8E6F6802FD // Warning
+ ;
+ : SpelledFor ME_1B68576FAA41 // Warning
+ ;
 
-ref; // ME_7AF5D853EB14 Init_Warning
+ref; // ME_7AF5D853EB14 Init_Str_Warning
 
 : ME_16869896A1E8
  CONST UID '16869896A1E8'
- CONST Name 'Init_Error'
+ CONST Name 'Init_Str_Error'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Инициализация str_vtMsgDlgError' ;
@@ -1158,12 +1297,17 @@ ref; // ME_7AF5D853EB14 Init_Warning
  : Parent ME_4B8E6793024B // vtDialogsRes
  ;
  CONST "ifdef" 'Nemesis'
+ : Speller ME_4B8E6F73005D // Error
+ ;
+ : SpelledFor ME_5B72CA52E447 // Error
+ ;
 
-ref; // ME_16869896A1E8 Init_Error
+ref; // ME_16869896A1E8 Init_Str_Error
 
 : ME_609A6298EEA8
  CONST UID '609A6298EEA8'
- CONST Name 'Init_Information'
+ CONST Name 'Init_Str_Information'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Инициализация str_vtMsgDlgInformation' ;
@@ -1172,12 +1316,17 @@ ref; // ME_16869896A1E8 Init_Error
  : Parent ME_4B8E6793024B // vtDialogsRes
  ;
  CONST "ifdef" 'Nemesis'
+ : Speller ME_4B8E6F800141 // Information
+ ;
+ : SpelledFor ME_7B5A9AB51F0E // Information
+ ;
 
-ref; // ME_609A6298EEA8 Init_Information
+ref; // ME_609A6298EEA8 Init_Str_Information
 
 : ME_15B270249129
  CONST UID '15B270249129'
- CONST Name 'Init_Confirm'
+ CONST Name 'Init_Str_Confirm'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Инициализация str_vtMsgDlgConfirm' ;
@@ -1186,12 +1335,17 @@ ref; // ME_609A6298EEA8 Init_Information
  : Parent ME_4B8E6793024B // vtDialogsRes
  ;
  CONST "ifdef" 'Nemesis'
+ : Speller ME_4B8E6F8D0149 // Confirm
+ ;
+ : SpelledFor ME_A7E308EBD3C1 // Confirm
+ ;
 
-ref; // ME_15B270249129 Init_Confirm
+ref; // ME_15B270249129 Init_Str_Confirm
 
 : ME_947E9B4A5DC5
  CONST UID '947E9B4A5DC5'
- CONST Name 'Init_Custom'
+ CONST Name 'Init_Str_Custom'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Инициализация str_vtMsgDlgCustom' ;
@@ -1199,12 +1353,17 @@ ref; // ME_15B270249129 Init_Confirm
  CONST Abstraction at_final
  : Parent ME_4B8E6793024B // vtDialogsRes
  ;
+ : Speller ME_4B8E728D02CC // Custom
+ ;
+ : SpelledFor ME_6E45B7366823 // Custom
+ ;
 
-ref; // ME_947E9B4A5DC5 Init_Custom
+ref; // ME_947E9B4A5DC5 Init_Str_Custom
 
 : ME_4D93FCAB32D3
  CONST UID '4D93FCAB32D3'
- CONST Name 'Init_Yes'
+ CONST Name 'Init_Str_Yes'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Инициализация str_vtMsgDlgYes' ;
@@ -1212,12 +1371,17 @@ ref; // ME_947E9B4A5DC5 Init_Custom
  CONST Abstraction at_final
  : Parent ME_4B8E6793024B // vtDialogsRes
  ;
+ : Speller ME_4B8E84FF0240 // Yes
+ ;
+ : SpelledFor ME_A737A1E260E7 // Yes
+ ;
 
-ref; // ME_4D93FCAB32D3 Init_Yes
+ref; // ME_4D93FCAB32D3 Init_Str_Yes
 
 : ME_71EF9193D69F
  CONST UID '71EF9193D69F'
- CONST Name 'Init_No'
+ CONST Name 'Init_Str_No'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Инициализация str_vtMsgDlgNo' ;
@@ -1225,12 +1389,17 @@ ref; // ME_4D93FCAB32D3 Init_Yes
  CONST Abstraction at_final
  : Parent ME_4B8E6793024B // vtDialogsRes
  ;
+ : Speller ME_4B8E85090245 // No
+ ;
+ : SpelledFor ME_C50791090295 // No
+ ;
 
-ref; // ME_71EF9193D69F Init_No
+ref; // ME_71EF9193D69F Init_Str_No
 
 : ME_CF7CF8F2BB16
  CONST UID 'CF7CF8F2BB16'
- CONST Name 'Init_OK'
+ CONST Name 'Init_Str_OK'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Инициализация str_vtMsgDlgOK' ;
@@ -1238,12 +1407,17 @@ ref; // ME_71EF9193D69F Init_No
  CONST Abstraction at_final
  : Parent ME_4B8E6793024B // vtDialogsRes
  ;
+ : Speller ME_4B8E8515015A // OK
+ ;
+ : SpelledFor ME_C23DCB97751A // OK
+ ;
 
-ref; // ME_CF7CF8F2BB16 Init_OK
+ref; // ME_CF7CF8F2BB16 Init_Str_OK
 
 : ME_B3D2F87EF901
  CONST UID 'B3D2F87EF901'
- CONST Name 'Init_Cancel'
+ CONST Name 'Init_Str_Cancel'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Инициализация str_vtMsgDlgCancel' ;
@@ -1251,12 +1425,17 @@ ref; // ME_CF7CF8F2BB16 Init_OK
  CONST Abstraction at_final
  : Parent ME_4B8E6793024B // vtDialogsRes
  ;
+ : Speller ME_4B8E85200324 // Cancel
+ ;
+ : SpelledFor ME_D939681AB3BC // Cancel
+ ;
 
-ref; // ME_B3D2F87EF901 Init_Cancel
+ref; // ME_B3D2F87EF901 Init_Str_Cancel
 
 : ME_339E89FC5C4B
  CONST UID '339E89FC5C4B'
- CONST Name 'Init_Abort'
+ CONST Name 'Init_Str_Abort'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Инициализация str_vtMsgDlgAbort' ;
@@ -1264,12 +1443,17 @@ ref; // ME_B3D2F87EF901 Init_Cancel
  CONST Abstraction at_final
  : Parent ME_4B8E6793024B // vtDialogsRes
  ;
+ : Speller ME_4B8E85C002BB // Abort
+ ;
+ : SpelledFor ME_E3AC85806997 // Abort
+ ;
 
-ref; // ME_339E89FC5C4B Init_Abort
+ref; // ME_339E89FC5C4B Init_Str_Abort
 
 : ME_BE546B0172FD
  CONST UID 'BE546B0172FD'
- CONST Name 'Init_Retry'
+ CONST Name 'Init_Str_Retry'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Инициализация str_vtMsgDlgRetry' ;
@@ -1277,12 +1461,17 @@ ref; // ME_339E89FC5C4B Init_Abort
  CONST Abstraction at_final
  : Parent ME_4B8E6793024B // vtDialogsRes
  ;
+ : Speller ME_4B8E85D10254 // Retry
+ ;
+ : SpelledFor ME_69CA9A6CE1B5 // Retry
+ ;
 
-ref; // ME_BE546B0172FD Init_Retry
+ref; // ME_BE546B0172FD Init_Str_Retry
 
 : ME_C89C2AAAF71D
  CONST UID 'C89C2AAAF71D'
- CONST Name 'Init_Ignore'
+ CONST Name 'Init_Str_Ignore'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Инициализация str_vtMsgDlgIgnore' ;
@@ -1290,12 +1479,17 @@ ref; // ME_BE546B0172FD Init_Retry
  CONST Abstraction at_final
  : Parent ME_4B8E6793024B // vtDialogsRes
  ;
+ : Speller ME_4B8E85DB0050 // Ignore
+ ;
+ : SpelledFor ME_2E728515D0DC // Ignore
+ ;
 
-ref; // ME_C89C2AAAF71D Init_Ignore
+ref; // ME_C89C2AAAF71D Init_Str_Ignore
 
 : ME_301E351BA5D0
  CONST UID '301E351BA5D0'
- CONST Name 'Init_All'
+ CONST Name 'Init_Str_All'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Инициализация str_vtMsgDlgAll' ;
@@ -1303,12 +1497,17 @@ ref; // ME_C89C2AAAF71D Init_Ignore
  CONST Abstraction at_final
  : Parent ME_4B8E6793024B // vtDialogsRes
  ;
+ : Speller ME_4B8E85E50222 // All
+ ;
+ : SpelledFor ME_3D95E95A1C37 // All
+ ;
 
-ref; // ME_301E351BA5D0 Init_All
+ref; // ME_301E351BA5D0 Init_Str_All
 
 : ME_4F9998B4CB5F
  CONST UID '4F9998B4CB5F'
- CONST Name 'Init_NoToAll'
+ CONST Name 'Init_Str_NoToAll'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Инициализация str_vtMsgDlgNoToAll' ;
@@ -1316,12 +1515,17 @@ ref; // ME_301E351BA5D0 Init_All
  CONST Abstraction at_final
  : Parent ME_4B8E6793024B // vtDialogsRes
  ;
+ : Speller ME_4B8E85F801FE // NoToAll
+ ;
+ : SpelledFor ME_E1FA5643E367 // NoToAll
+ ;
 
-ref; // ME_4F9998B4CB5F Init_NoToAll
+ref; // ME_4F9998B4CB5F Init_Str_NoToAll
 
 : ME_02A969004E4C
  CONST UID '02A969004E4C'
- CONST Name 'Init_YesToAll'
+ CONST Name 'Init_Str_YesToAll'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Инициализация str_vtMsgDlgYesToAll' ;
@@ -1329,12 +1533,17 @@ ref; // ME_4F9998B4CB5F Init_NoToAll
  CONST Abstraction at_final
  : Parent ME_4B8E6793024B // vtDialogsRes
  ;
+ : Speller ME_4B8E860403E1 // YesToAll
+ ;
+ : SpelledFor ME_B3EE8AC23FDD // YesToAll
+ ;
 
-ref; // ME_02A969004E4C Init_YesToAll
+ref; // ME_02A969004E4C Init_Str_YesToAll
 
 : ME_7AA9145F4774
  CONST UID '7AA9145F4774'
- CONST Name 'Init_Help'
+ CONST Name 'Init_Str_Help'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Инициализация str_vtMsgDlgHelp' ;
@@ -1342,11 +1551,16 @@ ref; // ME_02A969004E4C Init_YesToAll
  CONST Abstraction at_final
  : Parent ME_4B8E6793024B // vtDialogsRes
  ;
+ : Speller ME_4B8E86100123 // Help
+ ;
+ : SpelledFor ME_34948F5A3B35 // Help
+ ;
 
-ref; // ME_7AA9145F4774 Init_Help
+ref; // ME_7AA9145F4774 Init_Str_Help
 
 : ME_000F4D4014D8
  CONST UID '000F4D4014D8'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_4B8E6793024B // vtDialogsRes
@@ -1358,6 +1572,7 @@ ref; // ME_000F4D4014D8
 
 : ME_FBD4C1E8CDEE
  CONST UID 'FBD4C1E8CDEE'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_4B8E6793024B // vtDialogsRes
@@ -1378,31 +1593,31 @@ ref; // ME_FBD4C1E8CDEE
  : Parent ME_4B8E675402AB // Dialogs
  ;
  : Operations
-   @ ( ME_CD3C67ACD63B // Init_DefaultOpenDlgFilter
- ME_BC662DEE2B85 // Init_Warning
- ME_CDDB693AFEDA // Init_Error
- ME_865BDAD51D76 // Init_Information
- ME_000B0D70C0FB // Init_Confirm
- ME_7AF5D853EB14 // Init_Warning
- ME_16869896A1E8 // Init_Error
- ME_609A6298EEA8 // Init_Information
- ME_15B270249129 // Init_Confirm
- ME_947E9B4A5DC5 // Init_Custom
- ME_4D93FCAB32D3 // Init_Yes
- ME_71EF9193D69F // Init_No
- ME_CF7CF8F2BB16 // Init_OK
- ME_B3D2F87EF901 // Init_Cancel
- ME_339E89FC5C4B // Init_Abort
- ME_BE546B0172FD // Init_Retry
- ME_C89C2AAAF71D // Init_Ignore
- ME_301E351BA5D0 // Init_All
- ME_4F9998B4CB5F // Init_NoToAll
- ME_02A969004E4C // Init_YesToAll
- ME_7AA9145F4774 // Init_Help
- ) .SequenceCode.It
+   Seq: ( ME_CD3C67ACD63B // Init_Str_DefaultOpenDlgFilter
+ ME_BC662DEE2B85 // Init_Str_Warning
+ ME_CDDB693AFEDA // Init_Str_Error
+ ME_865BDAD51D76 // Init_Str_Information
+ ME_000B0D70C0FB // Init_Str_Confirm
+ ME_7AF5D853EB14 // Init_Str_Warning
+ ME_16869896A1E8 // Init_Str_Error
+ ME_609A6298EEA8 // Init_Str_Information
+ ME_15B270249129 // Init_Str_Confirm
+ ME_947E9B4A5DC5 // Init_Str_Custom
+ ME_4D93FCAB32D3 // Init_Str_Yes
+ ME_71EF9193D69F // Init_Str_No
+ ME_CF7CF8F2BB16 // Init_Str_OK
+ ME_B3D2F87EF901 // Init_Str_Cancel
+ ME_339E89FC5C4B // Init_Str_Abort
+ ME_BE546B0172FD // Init_Str_Retry
+ ME_C89C2AAAF71D // Init_Str_Ignore
+ ME_301E351BA5D0 // Init_Str_All
+ ME_4F9998B4CB5F // Init_Str_NoToAll
+ ME_02A969004E4C // Init_Str_YesToAll
+ ME_7AA9145F4774 // Init_Str_Help
+ )
  ; // Operations
  : Constants
-   @ ( ME_4B8E67CE0000 // TvtMiscMessages
+   Seq: ( ME_4B8E67CE0000 // TvtMiscMessages
  ME_4B8E6EE901BF // MsgDlg
  ME_4B8E6F3901D5 // MsgDlgNemesis
  ME_4B8E728300D1 // Custom
@@ -1412,22 +1627,22 @@ ref; // ME_FBD4C1E8CDEE
  ME_9FCC522908D2 // LCImplMsgDlgNemesis
  ME_05A51E809210 // LCImplCustom
  ME_7B1D579EFA30 // LCImplMsgDlgButtons
- ) .SequenceCode.It
+ )
  ; // Constants
  : Dependencies
-   @ ( ME_000F4D4014D8 // 
+   Seq: ( ME_000F4D4014D8 // 
  ME_FBD4C1E8CDEE // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  CONST "author" 'Люлин А.В.'
  CONST "no hands" true
  CONST "started" '03.03.2010 16:43'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\VT'
  CONST intf.pas:Path 'common\components\gui\Garant\VT\vtDialogsRes.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\VT'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'DialogsRes'
 
 ref; // ME_4B8E6793024B vtDialogsRes
 
@@ -1460,8 +1675,8 @@ ref; // ME_4DCAD2CD0135 DoIt
  : Parent ME_4C37236E02A1 // TvtSaveDialog
  ;
  : Operations
-   @ ( ME_4DCAD2CD0135 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_4DCAD2CD0135 // DoIt
+ )
  ; // Operations
 
 ref; // ME_4DCAD2B2008F GetFileNameForAdjust
@@ -1490,8 +1705,8 @@ ref; // ME_4DCBAAF80368 DoIt
  : Parent ME_4C37236E02A1 // TvtSaveDialog
  ;
  : Operations
-   @ ( ME_4DCBAAF80368 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_4DCBAAF80368 // DoIt
+ )
  ; // Operations
 
 ref; // ME_4DCAD9560008 FirstCorrectFileName
@@ -1518,8 +1733,8 @@ ref; // ME_4DCBC9ED0318 aFileName
  : Parent ME_4DCBC96000E3 // SetAdjustedFileName
  ;
  : Parameters
-   @ ( ME_4DCBC9ED0318 // aFileName
- ) .SequenceCode.It
+   Seq: ( ME_4DCBC9ED0318 // aFileName
+ )
  ; // Parameters
 
 ref; // ME_4DCBC9B90049 DoIt
@@ -1536,8 +1751,8 @@ ref; // ME_4DCBC9B90049 DoIt
  : Parent ME_4C37236E02A1 // TvtSaveDialog
  ;
  : Operations
-   @ ( ME_4DCBC9B90049 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_4DCBC9B90049 // DoIt
+ )
  ; // Operations
 
 ref; // ME_4DCBC96000E3 SetAdjustedFileName
@@ -1564,30 +1779,32 @@ ref; // ME_4DD668280154
  : Parent ME_4B8E675402AB // Dialogs
  ;
  : Inherits
-   @ ( WL 'ME_4DCC0BE20198' '4799D29F033F.pas.ms.script' // TSaveDialog
- ) .SequenceCode.It
+   Seq: ( WL 'ME_4DCC0BE20198' '4799D29F033F.pas.ms.script' // TSaveDialog
+ )
  ; // Inherits
  : Operations
-   @ ( ME_4DCAD2B2008F // GetFileNameForAdjust
+   Seq: ( ME_4DCAD2B2008F // GetFileNameForAdjust
  ME_4DCAD9560008 // FirstCorrectFileName
  ME_4DCBC96000E3 // SetAdjustedFileName
- ) .SequenceCode.It
+ )
  ; // Operations
  : Dependencies
-   @ ( ME_4DD668280154 // 
- ) .SequenceCode.It
+   Seq: ( ME_4DD668280154 // 
+ )
  ; // Dependencies
  CONST "finished" false
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\VT'
  CONST intf.pas:Path 'common\components\gui\Garant\VT\NOT_FINISHED_vtSaveDialog.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\VT'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'SaveDialog'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'vtSaveDialog'
 
 ref; // ME_4C37236E02A1 TvtSaveDialog
 
@@ -1604,13 +1821,19 @@ FORWARD ME_4D494D090395
  : Parent ME_4D494D090395 // vtVGSceneRes
  ;
  : Inherits
-   @ ( WL 'ME_4AAA214A0250' '4AB0997B00A2.pas.ms.script' // TDataModule
- ) .SequenceCode.It
+   Seq: ( WL 'ME_4AAA214A0250' '4AB0997B00A2.pas.ms.script' // TDataModule
+ )
  ; // Inherits
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
+ CONST dfm:PathOnly '\common\components\gui\Garant\VT'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\VT'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'VGSceneResources'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_4D557516038D TvtVGSceneResources
 
@@ -1625,18 +1848,18 @@ ref; // ME_4D557516038D TvtVGSceneResources
  : Parent ME_4B8E675402AB // Dialogs
  ;
  : Children
-   @ ( ME_4D557516038D // TvtVGSceneResources
- ) .SequenceCode.It
+   Seq: ( ME_4D557516038D // TvtVGSceneResources
+ )
  ; // Children
  CONST "finished" false
  CONST "ifndef" 'NoVGScene'
  CONST "no hands" false
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\VT'
  CONST intf.pas:Path 'common\components\gui\Garant\VT\NOT_FINISHED_vtVGSceneRes.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\VT'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'VGSceneRes'
 
 ref; // ME_4D494D090395 vtVGSceneRes
 
@@ -1680,8 +1903,8 @@ ref; // ME_4D5E5A6B0246 DoIt
  : Parent ME_4D494D3601A8 // TvtVGButton
  ;
  : Operations
-   @ ( ME_4D5E5A6B0246 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_4D5E5A6B0246 // DoIt
+ )
  ; // Operations
 
 ref; // ME_4D5E5A63025B UpdateDuplicateButton
@@ -1689,6 +1912,7 @@ ref; // ME_4D5E5A63025B UpdateDuplicateButton
 : ME_DF49753073E7
  CONST UID 'DF49753073E7'
  CONST Name 'Ini_Reg_Class'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Регистрация TvtVGButton' ;
@@ -1702,6 +1926,7 @@ ref; // ME_DF49753073E7 Ini_Reg_Class
 
 : ME_CE58CBD802A7
  CONST UID 'CE58CBD802A7'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_4D494D3601A8 // TvtVGButton
@@ -1718,6 +1943,7 @@ ref; // ME_CE58CBD802A7
  ;
  : Implementor ME_4D494D3601A8 // TvtVGButton
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_47D1602000C6_ME_4D494D3601A8 Create
 
 : ME_4D5E5ACA029B_ME_4D494D3601A8
@@ -1727,6 +1953,7 @@ ref; // ME_47D1602000C6_ME_4D494D3601A8 Create
  ;
  : Implementor ME_4D494D3601A8 // TvtVGButton
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4D5E5ACA029B_ME_4D494D3601A8 SetText
 
 : ME_4D5E5B530342_ME_4D494D3601A8
@@ -1736,6 +1963,7 @@ ref; // ME_4D5E5ACA029B_ME_4D494D3601A8 SetText
  ;
  : Implementor ME_4D494D3601A8 // TvtVGButton
  ;
+ CONST OpKind opkind_Overridden
  CONST "needs field" true
  CONST "pm" true
  CONST "reads field" true
@@ -1748,6 +1976,7 @@ ref; // ME_4D5E5B530342_ME_4D494D3601A8 ModalResult
  ;
  : Implementor ME_4D494D3601A8 // TvtVGButton
  ;
+ CONST OpKind opkind_Overridden
  CONST "needs field" true
  CONST "pm" true
  CONST "reads field" true
@@ -1760,6 +1989,7 @@ ref; // ME_4D5E5BB000A5_ME_4D494D3601A8 OnClick
  ;
  : Implementor ME_4D494D3601A8 // TvtVGButton
  ;
+ CONST OpKind opkind_Overridden
  CONST "needs field" true
  CONST "pm" true
  CONST "reads field" true
@@ -1772,6 +2002,7 @@ ref; // ME_4D5E5C0A01E6_ME_4D494D3601A8 Default
  ;
  : Implementor ME_4D494D3601A8 // TvtVGButton
  ;
+ CONST OpKind opkind_Overridden
  CONST "needs field" true
  CONST "pm" true
  CONST "reads field" true
@@ -1788,42 +2019,44 @@ ref; // ME_4D5E5C27000E_ME_4D494D3601A8 Cancel
  : Parent ME_4B8E675402AB // Dialogs
  ;
  : Inherits
-   @ ( WL 'ME_4CFF5690033D' '4CFCE51A00B0.pas.ms.script' // TvgButton
- ) .SequenceCode.It
+   Seq: ( WL 'ME_4CFF5690033D' '4CFCE51A00B0.pas.ms.script' // TvgButton
+ )
  ; // Inherits
  : Attributes
-   @ ( ME_4D5E5A570158 // f_DuplicateButton
- ) .SequenceCode.It
+   Seq: ( ME_4D5E5A570158 // f_DuplicateButton
+ )
  ; // Attributes
  : Operations
-   @ ( ME_4D5E5A63025B // UpdateDuplicateButton
+   Seq: ( ME_4D5E5A63025B // UpdateDuplicateButton
  ME_DF49753073E7 // Ini_Reg_Class
- ) .SequenceCode.It
+ )
  ; // Operations
  : Overridden
-   @ ( ME_47D1602000C6_ME_4D494D3601A8 // Create
+   Seq: ( ME_47D1602000C6_ME_4D494D3601A8 // Create
  ME_4D5E5ACA029B_ME_4D494D3601A8 // SetText
  ME_4D5E5B530342_ME_4D494D3601A8 // ModalResult
  ME_4D5E5BB000A5_ME_4D494D3601A8 // OnClick
  ME_4D5E5C0A01E6_ME_4D494D3601A8 // Default
  ME_4D5E5C27000E_ME_4D494D3601A8 // Cancel
- ) .SequenceCode.It
+ )
  ; // Overridden
  : Dependencies
-   @ ( ME_CE58CBD802A7 // 
- ) .SequenceCode.It
+   Seq: ( ME_CE58CBD802A7 // 
+ )
  ; // Dependencies
  CONST "ifndef" 'NoVGScene'
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\VT'
  CONST intf.pas:Path 'common\components\gui\Garant\VT\vtVGButton.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\VT'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'VGButton'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'vtVGButton'
 
 ref; // ME_4D494D3601A8 TvtVGButton
 
@@ -1839,12 +2072,12 @@ ref; // ME_4D494D3601A8 TvtVGButton
  ;
  CONST "finished" false
  CONST "no hands" false
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\VT'
  CONST intf.pas:Path 'common\components\gui\Garant\VT\NOT_FINISHED_vtF1InterfaceConst.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\VT'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'F1InterfaceConst'
 
 ref; // ME_4D494DA003B6 vtF1InterfaceConst
 
@@ -1855,6 +2088,7 @@ FORWARD ME_4D99E1E7012A
 : ME_D5E283EFDCED
  CONST UID 'D5E283EFDCED'
  CONST Name 'DoIt'
+ CONST IsSummoned true
  CONST Class class_Operation
  %SUMMARY 'Сигнатура метода vtGetDlgBtnCaption' ;
  CONST Visibility PublicAccess
@@ -1875,9 +2109,10 @@ ref; // ME_D5E283EFDCED DoIt
  : Parent ME_4D99E1B401B5 // vtDialogsResEx
  ;
  : Operations
-   @ ( ME_D5E283EFDCED // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_D5E283EFDCED // DoIt
+ )
  ; // Operations
+ CONST extprop:rc:SelfName 'GetDlgBtnCaption'
 
 ref; // ME_4D99E1E7012A vtGetDlgBtnCaption
 
@@ -1886,6 +2121,7 @@ FORWARD ME_4D99E2050245
 : ME_19C715E29836
  CONST UID '19C715E29836'
  CONST Name 'DoIt'
+ CONST IsSummoned true
  CONST Class class_Operation
  %SUMMARY 'Сигнатура метода vtGetDlgBtnResult' ;
  CONST Visibility PublicAccess
@@ -1906,9 +2142,10 @@ ref; // ME_19C715E29836 DoIt
  : Parent ME_4D99E1B401B5 // vtDialogsResEx
  ;
  : Operations
-   @ ( ME_19C715E29836 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_19C715E29836 // DoIt
+ )
  ; // Operations
+ CONST extprop:rc:SelfName 'GetDlgBtnResult'
 
 ref; // ME_4D99E2050245 vtGetDlgBtnResult
 
@@ -1934,24 +2171,24 @@ ref; // ME_4D99E1DD02C7
  : Parent ME_4B8E675402AB // Dialogs
  ;
  : Operations
-   @ ( ME_4D99E1E7012A // vtGetDlgBtnCaption
+   Seq: ( ME_4D99E1E7012A // vtGetDlgBtnCaption
  ME_4D99E2050245 // vtGetDlgBtnResult
- ) .SequenceCode.It
+ )
  ; // Operations
  : Dependencies
-   @ ( ME_4D99E1DD02C7 // 
- ) .SequenceCode.It
+   Seq: ( ME_4D99E1DD02C7 // 
+ )
  ; // Dependencies
  CONST "author" 'Люлин А.В.'
  CONST "finished" false
  CONST "no hands" false
  CONST "started" '04.04.2011 19:20'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\VT'
  CONST intf.pas:Path 'common\components\gui\Garant\VT\NOT_FINISHED_vtDialogsResEx.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\VT'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'DialogsResEx'
 
 ref; // ME_4D99E1B401B5 vtDialogsResEx
 
@@ -1968,12 +2205,12 @@ ref; // ME_4D99E1B401B5 vtDialogsResEx
  CONST "finished" false
  CONST "ifndef" 'Nemesis'
  CONST "no hands" false
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\VT'
  CONST intf.pas:Path 'common\components\gui\Garant\VT\NOT_FINISHED_vtDialogs.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\VT'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'Dialogs'
 
 ref; // ME_4D99F7C003E0 vtDialogs
 
@@ -1987,31 +2224,29 @@ ref; // ME_4D99F7C003E0 vtDialogs
  : Parent WL 'ME_4D4927B5008B' '4D4927B5008B.pas.ms.script' // VT$Core
  ;
  : Children
-   @ ( ME_4B8E6793024B // vtDialogsRes
+   Seq: ( ME_4B8E6793024B // vtDialogsRes
  ME_4C37236E02A1 // TvtSaveDialog
  ME_4D494D090395 // vtVGSceneRes
  ME_4D494D3601A8 // TvtVGButton
  ME_4D494DA003B6 // vtF1InterfaceConst
  ME_4D99E1B401B5 // vtDialogsResEx
  ME_4D99F7C003E0 // vtDialogs
- ) .SequenceCode.It
+ )
  ; // Children
  : Depends
-   @ ( WL 'ME_47913B47006E' '47913B47006E.pas.ms.script' // l3CoreObjects
+   Seq: ( WL 'ME_47913B47006E' '47913B47006E.pas.ms.script' // l3CoreObjects
  WL 'ME_4799D29F033F' '4799D29F033F.pas.ms.script' // Implementation
  WL 'ME_4AB0997B00A2' '4AB0997B00A2.pas.ms.script' // Common
  WL 'ME_4AB0C3C60310' '4AB0C3C60310.pas.ms.script' // Sys
  WL 'ME_4CFCE51A00B0' '4CFCE51A00B0.pas.ms.script' // Impl
  WL 'ME_561F9F7D02A7' '561F9F7D02A7.pas.ms.script' // ScriptEngine
- ) .SequenceCode.It
+ )
  ; // Depends
- : Generators
- @ (
- gen_pas.script
- gen_pas.script.runner
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\VT'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\VT'
  CONST pas.script:Path 'shared\models\NewSchool\Scripts\4B8E675402AB.pas.ms.script'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
  CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\4B8E675402AB.pas.ms.script.runner'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_4B8E675402AB Dialogs

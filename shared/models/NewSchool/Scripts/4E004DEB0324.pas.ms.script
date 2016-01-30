@@ -1,0 +1,113 @@
+// Printing 4E004DEB0324 Unit Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4E004DEB0324
+
+: ME_4E004E2F0251
+ CONST UID '4E004E2F0251'
+ CONST Name 'TarHAFPainer'
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4E004DEB0324 // Printing
+ ;
+ : Inherits
+   Seq: ( WL 'ME_47F352A30004' '47EA968D0155.pas.ms.script' // TevHAFPainterEx
+ )
+ ; // Inherits
+ CONST "finished" false
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ : Generators
+ Seq: (
+ gen_intf.pas
+ )
+ ; // Generators
+ CONST dfm:PathOnly '\archi\source\projects\Archi\Editor'
+ CONST intf.pas:Path 'archi\source\projects\Archi\Editor\NOT_FINISHED_arHAFPainer.pas'
+ CONST intf.pas:PathOnly '\archi\source\projects\Archi\Editor'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\archi\source\projects\Archi\Editor'
+ CONST extprop:rc:SelfName 'arHAFPainer'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'arHAFPainer'
+
+ref; // ME_4E004E2F0251 TarHAFPainer
+
+: ME_4E004EA70057
+ CONST UID '4E004EA70057'
+ CONST Name 'TarMacroReplacer'
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4E004DEB0324 // Printing
+ ;
+ : Inherits
+   Seq: ( WL 'ME_4C2215040200' '47EA968D0155.pas.ms.script' // TevCustomHAFMacroReplacer
+ )
+ ; // Inherits
+ CONST "finished" false
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ : Generators
+ Seq: (
+ gen_intf.pas
+ )
+ ; // Generators
+ CONST dfm:PathOnly '\archi\source\projects\Archi\Editor'
+ CONST intf.pas:Path 'archi\source\projects\Archi\Editor\NOT_FINISHED_arMacroReplacer.pas'
+ CONST intf.pas:PathOnly '\archi\source\projects\Archi\Editor'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\archi\source\projects\Archi\Editor'
+ CONST extprop:rc:SelfName 'arMacroReplacer'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'arMacroReplacer'
+
+ref; // ME_4E004EA70057 TarMacroReplacer
+
+: ME_4E004DEB0324
+ CONST UID '4E004DEB0324'
+ CONST Name 'Printing'
+ CONST Class class_Category
+ : Stereotype st_Unit ;
+ %SUMMARY 'Поддержка печати в Арчи' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent WL 'ME_4E004D0B033A' '4E004D0B033A.pas.ms.script' // Editor
+ ;
+ : Children
+   Seq: ( ME_4E004E2F0251 // TarHAFPainer
+ ME_4E004EA70057 // TarMacroReplacer
+ )
+ ; // Children
+ : Depends
+   Seq: ( WL 'ME_47EA968D0155' '47EA968D0155.pas.ms.script' // Printing
+ )
+ ; // Depends
+ CONST "finished" false
+ : Generators
+ Seq: (
+ gen_pas.script
+ gen_pas.script.runner
+ )
+ ; // Generators
+ CONST dfm:PathOnly '\archi\source\projects\Archi\Editor'
+ CONST intf.pas:PathOnly '\archi\source\projects\Archi\Editor'
+ CONST pas.script:Path 'shared\models\NewSchool\Scripts\4E004DEB0324.pas.ms.script'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\4E004DEB0324.pas.ms.script.runner'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\archi\source\projects\Archi\Editor'
+
+ref; // ME_4E004DEB0324 Printing

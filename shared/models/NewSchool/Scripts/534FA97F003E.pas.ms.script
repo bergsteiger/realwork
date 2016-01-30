@@ -6,11 +6,14 @@ FORWARD ME_534FA97F003E
 
 FORWARD ME_534FA99B02BB
 
+FORWARD ME_5500482D01F1
+
 FORWARD ME_1C5F9BBE1179
 
 : ME_A4FC7DA13279
  CONST UID 'A4FC7DA13279'
  CONST Name 'aCtx'
+ CONST IsSummoned true
  CONST Class class_Parameter
  : Stereotype st_in ;
  : Target WL 'ME_4DB0091E033E' '4DAF19F600C5.pas.ms.script' // TtfwContext
@@ -21,6 +24,7 @@ ref; // ME_A4FC7DA13279 aCtx
 : ME_A4FC7DA1327A
  CONST UID 'A4FC7DA1327A'
  CONST Name 'aReminder'
+ CONST IsSummoned true
  CONST Class class_Parameter
  : Stereotype st_in ;
  : Target WL 'ME_532973740186' '53288DFA03A7.pas.ms.script' // TvgReminder
@@ -31,6 +35,7 @@ ref; // ME_A4FC7DA1327A aReminder
 : ME_F2A8E1383778
  CONST UID 'F2A8E1383778'
  CONST Name 'Click'
+ CONST IsSummoned true
  CONST Class class_Operation
  %SUMMARY 'Реализация слова скрипта pop:Reminder:Click' ;
  CONST Visibility PrivateAccess
@@ -38,9 +43,9 @@ ref; // ME_A4FC7DA1327A aReminder
  : Parent ME_1C5F9BBE1179 // pop_Reminder_Click
  ;
  : Parameters
-   @ ( ME_A4FC7DA13279 // aCtx
+   Seq: ( ME_A4FC7DA13279 // aCtx
  ME_A4FC7DA1327A // aReminder
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_F2A8E1383778 Click
@@ -48,6 +53,7 @@ ref; // ME_F2A8E1383778 Click
 : ME_8C330FF76466
  CONST UID '8C330FF76466'
  CONST Name 'Ini_Reg'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Регистрация pop_Reminder_Click' ;
@@ -60,6 +66,7 @@ ref; // ME_8C330FF76466 Ini_Reg
 
 : ME_C2B4A64EFF48
  CONST UID 'C2B4A64EFF48'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_1C5F9BBE1179 // pop_Reminder_Click
@@ -71,6 +78,7 @@ ref; // ME_C2B4A64EFF48
 
 : ME_612C9A46AC70
  CONST UID '612C9A46AC70'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_1C5F9BBE1179 // pop_Reminder_Click
@@ -82,6 +90,7 @@ ref; // ME_612C9A46AC70
 
 : ME_F43035BD3610
  CONST UID 'F43035BD3610'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_1C5F9BBE1179 // pop_Reminder_Click
@@ -98,6 +107,7 @@ ref; // ME_F43035BD3610
  ;
  : Implementor ME_1C5F9BBE1179 // pop_Reminder_Click
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_4DAEEDE10285_ME_1C5F9BBE1179 DoDoIt
 
 : ME_4DB0614603C8_ME_1C5F9BBE1179
@@ -107,6 +117,7 @@ ref; // ME_4DAEEDE10285_ME_1C5F9BBE1179 DoDoIt
  ;
  : Implementor ME_1C5F9BBE1179 // pop_Reminder_Click
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4DB0614603C8_ME_1C5F9BBE1179 GetWordNameForRegister
 
 : ME_551544E2001A_ME_1C5F9BBE1179
@@ -116,6 +127,7 @@ ref; // ME_4DB0614603C8_ME_1C5F9BBE1179 GetWordNameForRegister
  ;
  : Implementor ME_1C5F9BBE1179 // pop_Reminder_Click
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_551544E2001A_ME_1C5F9BBE1179 GetResultTypeInfo
 
 : ME_559687E6025A_ME_1C5F9BBE1179
@@ -125,6 +137,7 @@ ref; // ME_551544E2001A_ME_1C5F9BBE1179 GetResultTypeInfo
  ;
  : Implementor ME_1C5F9BBE1179 // pop_Reminder_Click
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_559687E6025A_ME_1C5F9BBE1179 GetAllParamsCount
 
 : ME_5617F4D00243_ME_1C5F9BBE1179
@@ -134,11 +147,13 @@ ref; // ME_559687E6025A_ME_1C5F9BBE1179 GetAllParamsCount
  ;
  : Implementor ME_1C5F9BBE1179 // pop_Reminder_Click
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_5617F4D00243_ME_1C5F9BBE1179 ParamsTypes
 
 : ME_1C5F9BBE1179
  CONST UID '1C5F9BBE1179'
  CONST Name 'pop_Reminder_Click'
+ CONST IsSummoned true
  CONST Class class_Class
  : Stereotype st_ScriptKeyword ;
  CONST Kind kind_NormalClass
@@ -148,45 +163,56 @@ ref; // ME_5617F4D00243_ME_1C5F9BBE1179 ParamsTypes
  : Parent ME_534FA99B02BB // ReminderWordsPack
  ;
  : Inherits
-   @ ( WL 'ME_55CCAE000335' '55CCADD2013D.pas.ms.script' // TtfwClassLike
- ) .SequenceCode.It
+   Seq: ( WL 'ME_55CCAE000335' '55CCADD2013D.pas.ms.script' // TtfwClassLike
+ )
  ; // Inherits
  : Operations
-   @ ( ME_F2A8E1383778 // Click
+   Seq: ( ME_F2A8E1383778 // Click
  ME_8C330FF76466 // Ini_Reg
- ) .SequenceCode.It
+ )
  ; // Operations
  : Implemented
-   @ ( ME_4DAEEDE10285_ME_1C5F9BBE1179 // DoDoIt
- ) .SequenceCode.It
+   Seq: ( ME_4DAEEDE10285_ME_1C5F9BBE1179 // DoDoIt
+ )
  ; // Implemented
  : Overridden
-   @ ( ME_4DB0614603C8_ME_1C5F9BBE1179 // GetWordNameForRegister
+   Seq: ( ME_4DB0614603C8_ME_1C5F9BBE1179 // GetWordNameForRegister
  ME_551544E2001A_ME_1C5F9BBE1179 // GetResultTypeInfo
  ME_559687E6025A_ME_1C5F9BBE1179 // GetAllParamsCount
  ME_5617F4D00243_ME_1C5F9BBE1179 // ParamsTypes
- ) .SequenceCode.It
+ )
  ; // Overridden
  : Dependencies
-   @ ( ME_C2B4A64EFF48 // 
+   Seq: ( ME_C2B4A64EFF48 // 
  ME_612C9A46AC70 // 
  ME_F43035BD3610 // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  CONST "NameForScript" 'pop:Reminder:Click'
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
+ CONST dfm:PathOnly '\common\components\rtl\Garant\ScriptEngine'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\ScriptEngine'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
  CONST extprop:pas:TypeName 'TkwPopReminderClick'
+ CONST extprop:rc:SelfName 'PopReminderClick'
+ CONST extprop:rc:isAcceptableForScripts true
+ : SpelledFor ME_5500482D01F1 // Click
+ ;
 
 ref; // ME_1C5F9BBE1179 pop_Reminder_Click
+
+FORWARD ME_55004A3A0131
 
 FORWARD ME_0442CDEB32BC
 
 : ME_73FB4B53747A
  CONST UID '73FB4B53747A'
  CONST Name 'aCtx'
+ CONST IsSummoned true
  CONST Class class_Parameter
  : Stereotype st_in ;
  : Target WL 'ME_4DB0091E033E' '4DAF19F600C5.pas.ms.script' // TtfwContext
@@ -197,6 +223,7 @@ ref; // ME_73FB4B53747A aCtx
 : ME_73FB4B53747B
  CONST UID '73FB4B53747B'
  CONST Name 'aReminder'
+ CONST IsSummoned true
  CONST Class class_Parameter
  : Stereotype st_in ;
  : Target WL 'ME_532973740186' '53288DFA03A7.pas.ms.script' // TvgReminder
@@ -207,6 +234,7 @@ ref; // ME_73FB4B53747B aReminder
 : ME_73FB4B53747C
  CONST UID '73FB4B53747C'
  CONST Name 'aDelta'
+ CONST IsSummoned true
  CONST Class class_Parameter
  : Stereotype st_in ;
  : Target WL 'ME_4739AD110072' '4728A7020026.pas.ms.script' // TPoint
@@ -217,6 +245,7 @@ ref; // ME_73FB4B53747C aDelta
 : ME_2ABDE4AD9F20
  CONST UID '2ABDE4AD9F20'
  CONST Name 'Move'
+ CONST IsSummoned true
  CONST Class class_Operation
  %SUMMARY 'Реализация слова скрипта pop:Reminder:Move' ;
  CONST Visibility PrivateAccess
@@ -224,10 +253,10 @@ ref; // ME_73FB4B53747C aDelta
  : Parent ME_0442CDEB32BC // pop_Reminder_Move
  ;
  : Parameters
-   @ ( ME_73FB4B53747A // aCtx
+   Seq: ( ME_73FB4B53747A // aCtx
  ME_73FB4B53747B // aReminder
  ME_73FB4B53747C // aDelta
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_2ABDE4AD9F20 Move
@@ -235,6 +264,7 @@ ref; // ME_2ABDE4AD9F20 Move
 : ME_01F764FDF0C8
  CONST UID '01F764FDF0C8'
  CONST Name 'Ini_Reg'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Регистрация pop_Reminder_Move' ;
@@ -247,6 +277,7 @@ ref; // ME_01F764FDF0C8 Ini_Reg
 
 : ME_A89444ADB325
  CONST UID 'A89444ADB325'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_0442CDEB32BC // pop_Reminder_Move
@@ -258,6 +289,7 @@ ref; // ME_A89444ADB325
 
 : ME_89EDC3EAAA56
  CONST UID '89EDC3EAAA56'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_0442CDEB32BC // pop_Reminder_Move
@@ -269,6 +301,7 @@ ref; // ME_89EDC3EAAA56
 
 : ME_9286C3A6809A
  CONST UID '9286C3A6809A'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_0442CDEB32BC // pop_Reminder_Move
@@ -285,6 +318,7 @@ ref; // ME_9286C3A6809A
  ;
  : Implementor ME_0442CDEB32BC // pop_Reminder_Move
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_4DAEEDE10285_ME_0442CDEB32BC DoDoIt
 
 : ME_4DB0614603C8_ME_0442CDEB32BC
@@ -294,6 +328,7 @@ ref; // ME_4DAEEDE10285_ME_0442CDEB32BC DoDoIt
  ;
  : Implementor ME_0442CDEB32BC // pop_Reminder_Move
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4DB0614603C8_ME_0442CDEB32BC GetWordNameForRegister
 
 : ME_551544E2001A_ME_0442CDEB32BC
@@ -303,6 +338,7 @@ ref; // ME_4DB0614603C8_ME_0442CDEB32BC GetWordNameForRegister
  ;
  : Implementor ME_0442CDEB32BC // pop_Reminder_Move
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_551544E2001A_ME_0442CDEB32BC GetResultTypeInfo
 
 : ME_559687E6025A_ME_0442CDEB32BC
@@ -312,6 +348,7 @@ ref; // ME_551544E2001A_ME_0442CDEB32BC GetResultTypeInfo
  ;
  : Implementor ME_0442CDEB32BC // pop_Reminder_Move
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_559687E6025A_ME_0442CDEB32BC GetAllParamsCount
 
 : ME_5617F4D00243_ME_0442CDEB32BC
@@ -321,11 +358,13 @@ ref; // ME_559687E6025A_ME_0442CDEB32BC GetAllParamsCount
  ;
  : Implementor ME_0442CDEB32BC // pop_Reminder_Move
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_5617F4D00243_ME_0442CDEB32BC ParamsTypes
 
 : ME_0442CDEB32BC
  CONST UID '0442CDEB32BC'
  CONST Name 'pop_Reminder_Move'
+ CONST IsSummoned true
  CONST Class class_Class
  : Stereotype st_ScriptKeyword ;
  CONST Kind kind_NormalClass
@@ -335,45 +374,56 @@ ref; // ME_5617F4D00243_ME_0442CDEB32BC ParamsTypes
  : Parent ME_534FA99B02BB // ReminderWordsPack
  ;
  : Inherits
-   @ ( WL 'ME_55CCAE000335' '55CCADD2013D.pas.ms.script' // TtfwClassLike
- ) .SequenceCode.It
+   Seq: ( WL 'ME_55CCAE000335' '55CCADD2013D.pas.ms.script' // TtfwClassLike
+ )
  ; // Inherits
  : Operations
-   @ ( ME_2ABDE4AD9F20 // Move
+   Seq: ( ME_2ABDE4AD9F20 // Move
  ME_01F764FDF0C8 // Ini_Reg
- ) .SequenceCode.It
+ )
  ; // Operations
  : Implemented
-   @ ( ME_4DAEEDE10285_ME_0442CDEB32BC // DoDoIt
- ) .SequenceCode.It
+   Seq: ( ME_4DAEEDE10285_ME_0442CDEB32BC // DoDoIt
+ )
  ; // Implemented
  : Overridden
-   @ ( ME_4DB0614603C8_ME_0442CDEB32BC // GetWordNameForRegister
+   Seq: ( ME_4DB0614603C8_ME_0442CDEB32BC // GetWordNameForRegister
  ME_551544E2001A_ME_0442CDEB32BC // GetResultTypeInfo
  ME_559687E6025A_ME_0442CDEB32BC // GetAllParamsCount
  ME_5617F4D00243_ME_0442CDEB32BC // ParamsTypes
- ) .SequenceCode.It
+ )
  ; // Overridden
  : Dependencies
-   @ ( ME_A89444ADB325 // 
+   Seq: ( ME_A89444ADB325 // 
  ME_89EDC3EAAA56 // 
  ME_9286C3A6809A // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  CONST "NameForScript" 'pop:Reminder:Move'
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
+ CONST dfm:PathOnly '\common\components\rtl\Garant\ScriptEngine'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\ScriptEngine'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
  CONST extprop:pas:TypeName 'TkwPopReminderMove'
+ CONST extprop:rc:SelfName 'PopReminderMove'
+ CONST extprop:rc:isAcceptableForScripts true
+ : SpelledFor ME_55004A3A0131 // Move
+ ;
 
 ref; // ME_0442CDEB32BC pop_Reminder_Move
+
+FORWARD ME_55004A7901B4
 
 FORWARD ME_649B596A6C75
 
 : ME_4A444BF95BDD
  CONST UID '4A444BF95BDD'
  CONST Name 'aCtx'
+ CONST IsSummoned true
  CONST Class class_Parameter
  : Stereotype st_in ;
  : Target WL 'ME_4DB0091E033E' '4DAF19F600C5.pas.ms.script' // TtfwContext
@@ -384,6 +434,7 @@ ref; // ME_4A444BF95BDD aCtx
 : ME_4A444BF95BDE
  CONST UID '4A444BF95BDE'
  CONST Name 'aReminder'
+ CONST IsSummoned true
  CONST Class class_Parameter
  : Stereotype st_in ;
  : Target WL 'ME_532973740186' '53288DFA03A7.pas.ms.script' // TvgReminder
@@ -394,6 +445,7 @@ ref; // ME_4A444BF95BDE aReminder
 : ME_963C245EE80F
  CONST UID '963C245EE80F'
  CONST Name 'FindEditor'
+ CONST IsSummoned true
  CONST Class class_Operation
  %SUMMARY 'Реализация слова скрипта pop:Reminder:FindEditor' ;
  CONST Visibility PrivateAccess
@@ -403,9 +455,9 @@ ref; // ME_4A444BF95BDE aReminder
  : Target WL 'ME_479878FA0103' '4AB0997B00A2.pas.ms.script' // TComponent
  ;
  : Parameters
-   @ ( ME_4A444BF95BDD // aCtx
+   Seq: ( ME_4A444BF95BDD // aCtx
  ME_4A444BF95BDE // aReminder
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_963C245EE80F FindEditor
@@ -413,6 +465,7 @@ ref; // ME_963C245EE80F FindEditor
 : ME_07F7D01AB8EA
  CONST UID '07F7D01AB8EA'
  CONST Name 'Ini_Reg'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Регистрация pop_Reminder_FindEditor' ;
@@ -425,6 +478,7 @@ ref; // ME_07F7D01AB8EA Ini_Reg
 
 : ME_CFD9D2873468
  CONST UID 'CFD9D2873468'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_649B596A6C75 // pop_Reminder_FindEditor
@@ -436,6 +490,7 @@ ref; // ME_CFD9D2873468
 
 : ME_3AC7E431B57A
  CONST UID '3AC7E431B57A'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_649B596A6C75 // pop_Reminder_FindEditor
@@ -447,6 +502,7 @@ ref; // ME_3AC7E431B57A
 
 : ME_1CC20A561F86
  CONST UID '1CC20A561F86'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_649B596A6C75 // pop_Reminder_FindEditor
@@ -463,6 +519,7 @@ ref; // ME_1CC20A561F86
  ;
  : Implementor ME_649B596A6C75 // pop_Reminder_FindEditor
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_4DAEEDE10285_ME_649B596A6C75 DoDoIt
 
 : ME_4DB0614603C8_ME_649B596A6C75
@@ -472,6 +529,7 @@ ref; // ME_4DAEEDE10285_ME_649B596A6C75 DoDoIt
  ;
  : Implementor ME_649B596A6C75 // pop_Reminder_FindEditor
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4DB0614603C8_ME_649B596A6C75 GetWordNameForRegister
 
 : ME_551544E2001A_ME_649B596A6C75
@@ -481,6 +539,7 @@ ref; // ME_4DB0614603C8_ME_649B596A6C75 GetWordNameForRegister
  ;
  : Implementor ME_649B596A6C75 // pop_Reminder_FindEditor
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_551544E2001A_ME_649B596A6C75 GetResultTypeInfo
 
 : ME_559687E6025A_ME_649B596A6C75
@@ -490,6 +549,7 @@ ref; // ME_551544E2001A_ME_649B596A6C75 GetResultTypeInfo
  ;
  : Implementor ME_649B596A6C75 // pop_Reminder_FindEditor
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_559687E6025A_ME_649B596A6C75 GetAllParamsCount
 
 : ME_5617F4D00243_ME_649B596A6C75
@@ -499,11 +559,13 @@ ref; // ME_559687E6025A_ME_649B596A6C75 GetAllParamsCount
  ;
  : Implementor ME_649B596A6C75 // pop_Reminder_FindEditor
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_5617F4D00243_ME_649B596A6C75 ParamsTypes
 
 : ME_649B596A6C75
  CONST UID '649B596A6C75'
  CONST Name 'pop_Reminder_FindEditor'
+ CONST IsSummoned true
  CONST Class class_Class
  : Stereotype st_ScriptKeyword ;
  CONST Kind kind_NormalClass
@@ -513,45 +575,56 @@ ref; // ME_5617F4D00243_ME_649B596A6C75 ParamsTypes
  : Parent ME_534FA99B02BB // ReminderWordsPack
  ;
  : Inherits
-   @ ( WL 'ME_55CCAE000335' '55CCADD2013D.pas.ms.script' // TtfwClassLike
- ) .SequenceCode.It
+   Seq: ( WL 'ME_55CCAE000335' '55CCADD2013D.pas.ms.script' // TtfwClassLike
+ )
  ; // Inherits
  : Operations
-   @ ( ME_963C245EE80F // FindEditor
+   Seq: ( ME_963C245EE80F // FindEditor
  ME_07F7D01AB8EA // Ini_Reg
- ) .SequenceCode.It
+ )
  ; // Operations
  : Implemented
-   @ ( ME_4DAEEDE10285_ME_649B596A6C75 // DoDoIt
- ) .SequenceCode.It
+   Seq: ( ME_4DAEEDE10285_ME_649B596A6C75 // DoDoIt
+ )
  ; // Implemented
  : Overridden
-   @ ( ME_4DB0614603C8_ME_649B596A6C75 // GetWordNameForRegister
+   Seq: ( ME_4DB0614603C8_ME_649B596A6C75 // GetWordNameForRegister
  ME_551544E2001A_ME_649B596A6C75 // GetResultTypeInfo
  ME_559687E6025A_ME_649B596A6C75 // GetAllParamsCount
  ME_5617F4D00243_ME_649B596A6C75 // ParamsTypes
- ) .SequenceCode.It
+ )
  ; // Overridden
  : Dependencies
-   @ ( ME_CFD9D2873468 // 
+   Seq: ( ME_CFD9D2873468 // 
  ME_3AC7E431B57A // 
  ME_1CC20A561F86 // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  CONST "NameForScript" 'pop:Reminder:FindEditor'
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
+ CONST dfm:PathOnly '\common\components\rtl\Garant\ScriptEngine'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\ScriptEngine'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
  CONST extprop:pas:TypeName 'TkwPopReminderFindEditor'
+ CONST extprop:rc:SelfName 'PopReminderFindEditor'
+ CONST extprop:rc:isAcceptableForScripts true
+ : SpelledFor ME_55004A7901B4 // FindEditor
+ ;
 
 ref; // ME_649B596A6C75 pop_Reminder_FindEditor
+
+FORWARD ME_55004A9B02E5
 
 FORWARD ME_C1FAEFF176B2
 
 : ME_5135917856D0
  CONST UID '5135917856D0'
  CONST Name 'aCtx'
+ CONST IsSummoned true
  CONST Class class_Parameter
  : Stereotype st_in ;
  : Target WL 'ME_4DB0091E033E' '4DAF19F600C5.pas.ms.script' // TtfwContext
@@ -562,6 +635,7 @@ ref; // ME_5135917856D0 aCtx
 : ME_5135917856D1
  CONST UID '5135917856D1'
  CONST Name 'aReminder'
+ CONST IsSummoned true
  CONST Class class_Parameter
  : Stereotype st_in ;
  : Target WL 'ME_532973740186' '53288DFA03A7.pas.ms.script' // TvgReminder
@@ -572,6 +646,7 @@ ref; // ME_5135917856D1 aReminder
 : ME_BC5BE2E8AB9C
  CONST UID 'BC5BE2E8AB9C'
  CONST Name 'GetPopupMenu'
+ CONST IsSummoned true
  CONST Class class_Operation
  %SUMMARY 'Реализация слова скрипта pop:Reminder:GetPopupMenu' ;
  CONST Visibility PrivateAccess
@@ -581,9 +656,9 @@ ref; // ME_5135917856D1 aReminder
  : Target WL 'ME_47E7ABCB0296' '4799D29F033F.pas.ms.script' // TMenuItem
  ;
  : Parameters
-   @ ( ME_5135917856D0 // aCtx
+   Seq: ( ME_5135917856D0 // aCtx
  ME_5135917856D1 // aReminder
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_BC5BE2E8AB9C GetPopupMenu
@@ -591,6 +666,7 @@ ref; // ME_BC5BE2E8AB9C GetPopupMenu
 : ME_2E4A79FC4516
  CONST UID '2E4A79FC4516'
  CONST Name 'Ini_Reg'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Регистрация pop_Reminder_GetPopupMenu' ;
@@ -603,6 +679,7 @@ ref; // ME_2E4A79FC4516 Ini_Reg
 
 : ME_08F4E20A7680
  CONST UID '08F4E20A7680'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_C1FAEFF176B2 // pop_Reminder_GetPopupMenu
@@ -614,6 +691,7 @@ ref; // ME_08F4E20A7680
 
 : ME_A82F507D99DC
  CONST UID 'A82F507D99DC'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_C1FAEFF176B2 // pop_Reminder_GetPopupMenu
@@ -625,6 +703,7 @@ ref; // ME_A82F507D99DC
 
 : ME_0A958A61B6F7
  CONST UID '0A958A61B6F7'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_C1FAEFF176B2 // pop_Reminder_GetPopupMenu
@@ -641,6 +720,7 @@ ref; // ME_0A958A61B6F7
  ;
  : Implementor ME_C1FAEFF176B2 // pop_Reminder_GetPopupMenu
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_4DAEEDE10285_ME_C1FAEFF176B2 DoDoIt
 
 : ME_4DB0614603C8_ME_C1FAEFF176B2
@@ -650,6 +730,7 @@ ref; // ME_4DAEEDE10285_ME_C1FAEFF176B2 DoDoIt
  ;
  : Implementor ME_C1FAEFF176B2 // pop_Reminder_GetPopupMenu
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4DB0614603C8_ME_C1FAEFF176B2 GetWordNameForRegister
 
 : ME_551544E2001A_ME_C1FAEFF176B2
@@ -659,6 +740,7 @@ ref; // ME_4DB0614603C8_ME_C1FAEFF176B2 GetWordNameForRegister
  ;
  : Implementor ME_C1FAEFF176B2 // pop_Reminder_GetPopupMenu
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_551544E2001A_ME_C1FAEFF176B2 GetResultTypeInfo
 
 : ME_559687E6025A_ME_C1FAEFF176B2
@@ -668,6 +750,7 @@ ref; // ME_551544E2001A_ME_C1FAEFF176B2 GetResultTypeInfo
  ;
  : Implementor ME_C1FAEFF176B2 // pop_Reminder_GetPopupMenu
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_559687E6025A_ME_C1FAEFF176B2 GetAllParamsCount
 
 : ME_5617F4D00243_ME_C1FAEFF176B2
@@ -677,11 +760,13 @@ ref; // ME_559687E6025A_ME_C1FAEFF176B2 GetAllParamsCount
  ;
  : Implementor ME_C1FAEFF176B2 // pop_Reminder_GetPopupMenu
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_5617F4D00243_ME_C1FAEFF176B2 ParamsTypes
 
 : ME_C1FAEFF176B2
  CONST UID 'C1FAEFF176B2'
  CONST Name 'pop_Reminder_GetPopupMenu'
+ CONST IsSummoned true
  CONST Class class_Class
  : Stereotype st_ScriptKeyword ;
  CONST Kind kind_NormalClass
@@ -691,45 +776,56 @@ ref; // ME_5617F4D00243_ME_C1FAEFF176B2 ParamsTypes
  : Parent ME_534FA99B02BB // ReminderWordsPack
  ;
  : Inherits
-   @ ( WL 'ME_55CCAE000335' '55CCADD2013D.pas.ms.script' // TtfwClassLike
- ) .SequenceCode.It
+   Seq: ( WL 'ME_55CCAE000335' '55CCADD2013D.pas.ms.script' // TtfwClassLike
+ )
  ; // Inherits
  : Operations
-   @ ( ME_BC5BE2E8AB9C // GetPopupMenu
+   Seq: ( ME_BC5BE2E8AB9C // GetPopupMenu
  ME_2E4A79FC4516 // Ini_Reg
- ) .SequenceCode.It
+ )
  ; // Operations
  : Implemented
-   @ ( ME_4DAEEDE10285_ME_C1FAEFF176B2 // DoDoIt
- ) .SequenceCode.It
+   Seq: ( ME_4DAEEDE10285_ME_C1FAEFF176B2 // DoDoIt
+ )
  ; // Implemented
  : Overridden
-   @ ( ME_4DB0614603C8_ME_C1FAEFF176B2 // GetWordNameForRegister
+   Seq: ( ME_4DB0614603C8_ME_C1FAEFF176B2 // GetWordNameForRegister
  ME_551544E2001A_ME_C1FAEFF176B2 // GetResultTypeInfo
  ME_559687E6025A_ME_C1FAEFF176B2 // GetAllParamsCount
  ME_5617F4D00243_ME_C1FAEFF176B2 // ParamsTypes
- ) .SequenceCode.It
+ )
  ; // Overridden
  : Dependencies
-   @ ( ME_08F4E20A7680 // 
+   Seq: ( ME_08F4E20A7680 // 
  ME_A82F507D99DC // 
  ME_0A958A61B6F7 // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  CONST "NameForScript" 'pop:Reminder:GetPopupMenu'
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
+ CONST dfm:PathOnly '\common\components\rtl\Garant\ScriptEngine'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\ScriptEngine'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
  CONST extprop:pas:TypeName 'TkwPopReminderGetPopupMenu'
+ CONST extprop:rc:SelfName 'PopReminderGetPopupMenu'
+ CONST extprop:rc:isAcceptableForScripts true
+ : SpelledFor ME_55004A9B02E5 // GetPopupMenu
+ ;
 
 ref; // ME_C1FAEFF176B2 pop_Reminder_GetPopupMenu
+
+FORWARD ME_C1A312713560
 
 FORWARD ME_A580AA2892B6
 
 : ME_2F50D5F0FF2A
  CONST UID '2F50D5F0FF2A'
  CONST Name 'aCtx'
+ CONST IsSummoned true
  CONST Class class_Parameter
  : Stereotype st_in ;
  : Target WL 'ME_4DB0091E033E' '4DAF19F600C5.pas.ms.script' // TtfwContext
@@ -740,6 +836,7 @@ ref; // ME_2F50D5F0FF2A aCtx
 : ME_2F50D5F0FF2B
  CONST UID '2F50D5F0FF2B'
  CONST Name 'aReminder'
+ CONST IsSummoned true
  CONST Class class_Parameter
  : Stereotype st_in ;
  : Target WL 'ME_532973740186' '53288DFA03A7.pas.ms.script' // TvgReminder
@@ -750,6 +847,7 @@ ref; // ME_2F50D5F0FF2B aReminder
 : ME_5CFFEF151E73
  CONST UID '5CFFEF151E73'
  CONST Name 'ImageIndex'
+ CONST IsSummoned true
  CONST Class class_Operation
  %SUMMARY 'Реализация слова скрипта pop:Reminder:ImageIndex' ;
  CONST Visibility PrivateAccess
@@ -759,9 +857,9 @@ ref; // ME_2F50D5F0FF2B aReminder
  : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
  ;
  : Parameters
-   @ ( ME_2F50D5F0FF2A // aCtx
+   Seq: ( ME_2F50D5F0FF2A // aCtx
  ME_2F50D5F0FF2B // aReminder
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_5CFFEF151E73 ImageIndex
@@ -769,6 +867,7 @@ ref; // ME_5CFFEF151E73 ImageIndex
 : ME_DADB1F3C7065
  CONST UID 'DADB1F3C7065'
  CONST Name 'Ini_Reg'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Регистрация pop_Reminder_ImageIndex' ;
@@ -781,6 +880,7 @@ ref; // ME_DADB1F3C7065 Ini_Reg
 
 : ME_17D1189CC8CE
  CONST UID '17D1189CC8CE'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_A580AA2892B6 // pop_Reminder_ImageIndex
@@ -792,6 +892,7 @@ ref; // ME_17D1189CC8CE
 
 : ME_A5362E978898
  CONST UID 'A5362E978898'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_A580AA2892B6 // pop_Reminder_ImageIndex
@@ -803,6 +904,7 @@ ref; // ME_A5362E978898
 
 : ME_345FAEFDFBD0
  CONST UID '345FAEFDFBD0'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_A580AA2892B6 // pop_Reminder_ImageIndex
@@ -819,6 +921,7 @@ ref; // ME_345FAEFDFBD0
  ;
  : Implementor ME_A580AA2892B6 // pop_Reminder_ImageIndex
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_4DAEEDE10285_ME_A580AA2892B6 DoDoIt
 
 : ME_4DB0614603C8_ME_A580AA2892B6
@@ -828,6 +931,7 @@ ref; // ME_4DAEEDE10285_ME_A580AA2892B6 DoDoIt
  ;
  : Implementor ME_A580AA2892B6 // pop_Reminder_ImageIndex
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4DB0614603C8_ME_A580AA2892B6 GetWordNameForRegister
 
 : ME_52D00B00031A_ME_A580AA2892B6
@@ -837,6 +941,7 @@ ref; // ME_4DB0614603C8_ME_A580AA2892B6 GetWordNameForRegister
  ;
  : Implementor ME_A580AA2892B6 // pop_Reminder_ImageIndex
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_52D00B00031A_ME_A580AA2892B6 SetValuePrim
 
 : ME_551544E2001A_ME_A580AA2892B6
@@ -846,6 +951,7 @@ ref; // ME_52D00B00031A_ME_A580AA2892B6 SetValuePrim
  ;
  : Implementor ME_A580AA2892B6 // pop_Reminder_ImageIndex
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_551544E2001A_ME_A580AA2892B6 GetResultTypeInfo
 
 : ME_559687E6025A_ME_A580AA2892B6
@@ -855,6 +961,7 @@ ref; // ME_551544E2001A_ME_A580AA2892B6 GetResultTypeInfo
  ;
  : Implementor ME_A580AA2892B6 // pop_Reminder_ImageIndex
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_559687E6025A_ME_A580AA2892B6 GetAllParamsCount
 
 : ME_5617F4D00243_ME_A580AA2892B6
@@ -864,11 +971,13 @@ ref; // ME_559687E6025A_ME_A580AA2892B6 GetAllParamsCount
  ;
  : Implementor ME_A580AA2892B6 // pop_Reminder_ImageIndex
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_5617F4D00243_ME_A580AA2892B6 ParamsTypes
 
 : ME_A580AA2892B6
  CONST UID 'A580AA2892B6'
  CONST Name 'pop_Reminder_ImageIndex'
+ CONST IsSummoned true
  CONST Class class_Class
  : Stereotype st_ScriptKeyword ;
  CONST Kind kind_NormalClass
@@ -878,46 +987,57 @@ ref; // ME_5617F4D00243_ME_A580AA2892B6 ParamsTypes
  : Parent ME_534FA99B02BB // ReminderWordsPack
  ;
  : Inherits
-   @ ( WL 'ME_5619169603BE' '55CCADD2013D.pas.ms.script' // TtfwPropertyLike
- ) .SequenceCode.It
+   Seq: ( WL 'ME_5619169603BE' '55CCADD2013D.pas.ms.script' // TtfwPropertyLike
+ )
  ; // Inherits
  : Operations
-   @ ( ME_5CFFEF151E73 // ImageIndex
+   Seq: ( ME_5CFFEF151E73 // ImageIndex
  ME_DADB1F3C7065 // Ini_Reg
- ) .SequenceCode.It
+ )
  ; // Operations
  : Implemented
-   @ ( ME_4DAEEDE10285_ME_A580AA2892B6 // DoDoIt
- ) .SequenceCode.It
+   Seq: ( ME_4DAEEDE10285_ME_A580AA2892B6 // DoDoIt
+ )
  ; // Implemented
  : Overridden
-   @ ( ME_4DB0614603C8_ME_A580AA2892B6 // GetWordNameForRegister
+   Seq: ( ME_4DB0614603C8_ME_A580AA2892B6 // GetWordNameForRegister
  ME_52D00B00031A_ME_A580AA2892B6 // SetValuePrim
  ME_551544E2001A_ME_A580AA2892B6 // GetResultTypeInfo
  ME_559687E6025A_ME_A580AA2892B6 // GetAllParamsCount
  ME_5617F4D00243_ME_A580AA2892B6 // ParamsTypes
- ) .SequenceCode.It
+ )
  ; // Overridden
  : Dependencies
-   @ ( ME_17D1189CC8CE // 
+   Seq: ( ME_17D1189CC8CE // 
  ME_A5362E978898 // 
  ME_345FAEFDFBD0 // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  CONST "NameForScript" 'pop:Reminder:ImageIndex'
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
+ CONST dfm:PathOnly '\common\components\rtl\Garant\ScriptEngine'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\ScriptEngine'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
  CONST extprop:pas:TypeName 'TkwPopReminderImageIndex'
+ CONST extprop:rc:SelfName 'PopReminderImageIndex'
+ CONST extprop:rc:isAcceptableForScripts true
+ : SpelledFor ME_C1A312713560 // ImageIndex
+ ;
 
 ref; // ME_A580AA2892B6 pop_Reminder_ImageIndex
+
+FORWARD ME_87F5BE791240
 
 FORWARD ME_03823097F08B
 
 : ME_B0DC0CAA9A29
  CONST UID 'B0DC0CAA9A29'
  CONST Name 'aCtx'
+ CONST IsSummoned true
  CONST Class class_Parameter
  : Stereotype st_in ;
  : Target WL 'ME_4DB0091E033E' '4DAF19F600C5.pas.ms.script' // TtfwContext
@@ -928,6 +1048,7 @@ ref; // ME_B0DC0CAA9A29 aCtx
 : ME_B0DC0CAA9A2A
  CONST UID 'B0DC0CAA9A2A'
  CONST Name 'aReminder'
+ CONST IsSummoned true
  CONST Class class_Parameter
  : Stereotype st_in ;
  : Target WL 'ME_532973740186' '53288DFA03A7.pas.ms.script' // TvgReminder
@@ -938,6 +1059,7 @@ ref; // ME_B0DC0CAA9A2A aReminder
 : ME_2AADE74ECABD
  CONST UID '2AADE74ECABD'
  CONST Name 'UserType'
+ CONST IsSummoned true
  CONST Class class_Operation
  %SUMMARY 'Реализация слова скрипта pop:Reminder:UserType' ;
  CONST Visibility PrivateAccess
@@ -947,9 +1069,9 @@ ref; // ME_B0DC0CAA9A2A aReminder
  : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
  ;
  : Parameters
-   @ ( ME_B0DC0CAA9A29 // aCtx
+   Seq: ( ME_B0DC0CAA9A29 // aCtx
  ME_B0DC0CAA9A2A // aReminder
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_2AADE74ECABD UserType
@@ -957,6 +1079,7 @@ ref; // ME_2AADE74ECABD UserType
 : ME_75B7C0EF62B9
  CONST UID '75B7C0EF62B9'
  CONST Name 'Ini_Reg'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Регистрация pop_Reminder_UserType' ;
@@ -969,6 +1092,7 @@ ref; // ME_75B7C0EF62B9 Ini_Reg
 
 : ME_2D8C3299B76B
  CONST UID '2D8C3299B76B'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_03823097F08B // pop_Reminder_UserType
@@ -980,6 +1104,7 @@ ref; // ME_2D8C3299B76B
 
 : ME_00A5173BE380
  CONST UID '00A5173BE380'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_03823097F08B // pop_Reminder_UserType
@@ -991,6 +1116,7 @@ ref; // ME_00A5173BE380
 
 : ME_15024F7DCCE9
  CONST UID '15024F7DCCE9'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_03823097F08B // pop_Reminder_UserType
@@ -1007,6 +1133,7 @@ ref; // ME_15024F7DCCE9
  ;
  : Implementor ME_03823097F08B // pop_Reminder_UserType
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_4DAEEDE10285_ME_03823097F08B DoDoIt
 
 : ME_4DB0614603C8_ME_03823097F08B
@@ -1016,6 +1143,7 @@ ref; // ME_4DAEEDE10285_ME_03823097F08B DoDoIt
  ;
  : Implementor ME_03823097F08B // pop_Reminder_UserType
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4DB0614603C8_ME_03823097F08B GetWordNameForRegister
 
 : ME_52D00B00031A_ME_03823097F08B
@@ -1025,6 +1153,7 @@ ref; // ME_4DB0614603C8_ME_03823097F08B GetWordNameForRegister
  ;
  : Implementor ME_03823097F08B // pop_Reminder_UserType
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_52D00B00031A_ME_03823097F08B SetValuePrim
 
 : ME_551544E2001A_ME_03823097F08B
@@ -1034,6 +1163,7 @@ ref; // ME_52D00B00031A_ME_03823097F08B SetValuePrim
  ;
  : Implementor ME_03823097F08B // pop_Reminder_UserType
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_551544E2001A_ME_03823097F08B GetResultTypeInfo
 
 : ME_559687E6025A_ME_03823097F08B
@@ -1043,6 +1173,7 @@ ref; // ME_551544E2001A_ME_03823097F08B GetResultTypeInfo
  ;
  : Implementor ME_03823097F08B // pop_Reminder_UserType
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_559687E6025A_ME_03823097F08B GetAllParamsCount
 
 : ME_5617F4D00243_ME_03823097F08B
@@ -1052,11 +1183,13 @@ ref; // ME_559687E6025A_ME_03823097F08B GetAllParamsCount
  ;
  : Implementor ME_03823097F08B // pop_Reminder_UserType
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_5617F4D00243_ME_03823097F08B ParamsTypes
 
 : ME_03823097F08B
  CONST UID '03823097F08B'
  CONST Name 'pop_Reminder_UserType'
+ CONST IsSummoned true
  CONST Class class_Class
  : Stereotype st_ScriptKeyword ;
  CONST Kind kind_NormalClass
@@ -1066,46 +1199,57 @@ ref; // ME_5617F4D00243_ME_03823097F08B ParamsTypes
  : Parent ME_534FA99B02BB // ReminderWordsPack
  ;
  : Inherits
-   @ ( WL 'ME_5619169603BE' '55CCADD2013D.pas.ms.script' // TtfwPropertyLike
- ) .SequenceCode.It
+   Seq: ( WL 'ME_5619169603BE' '55CCADD2013D.pas.ms.script' // TtfwPropertyLike
+ )
  ; // Inherits
  : Operations
-   @ ( ME_2AADE74ECABD // UserType
+   Seq: ( ME_2AADE74ECABD // UserType
  ME_75B7C0EF62B9 // Ini_Reg
- ) .SequenceCode.It
+ )
  ; // Operations
  : Implemented
-   @ ( ME_4DAEEDE10285_ME_03823097F08B // DoDoIt
- ) .SequenceCode.It
+   Seq: ( ME_4DAEEDE10285_ME_03823097F08B // DoDoIt
+ )
  ; // Implemented
  : Overridden
-   @ ( ME_4DB0614603C8_ME_03823097F08B // GetWordNameForRegister
+   Seq: ( ME_4DB0614603C8_ME_03823097F08B // GetWordNameForRegister
  ME_52D00B00031A_ME_03823097F08B // SetValuePrim
  ME_551544E2001A_ME_03823097F08B // GetResultTypeInfo
  ME_559687E6025A_ME_03823097F08B // GetAllParamsCount
  ME_5617F4D00243_ME_03823097F08B // ParamsTypes
- ) .SequenceCode.It
+ )
  ; // Overridden
  : Dependencies
-   @ ( ME_2D8C3299B76B // 
+   Seq: ( ME_2D8C3299B76B // 
  ME_00A5173BE380 // 
  ME_15024F7DCCE9 // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  CONST "NameForScript" 'pop:Reminder:UserType'
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
+ CONST dfm:PathOnly '\common\components\rtl\Garant\ScriptEngine'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\ScriptEngine'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
  CONST extprop:pas:TypeName 'TkwPopReminderUserType'
+ CONST extprop:rc:SelfName 'PopReminderUserType'
+ CONST extprop:rc:isAcceptableForScripts true
+ : SpelledFor ME_87F5BE791240 // UserType
+ ;
 
 ref; // ME_03823097F08B pop_Reminder_UserType
+
+FORWARD ME_C9DABDBEC583
 
 FORWARD ME_B5B73476616C
 
 : ME_020D3D343A72
  CONST UID '020D3D343A72'
  CONST Name 'aCtx'
+ CONST IsSummoned true
  CONST Class class_Parameter
  : Stereotype st_in ;
  : Target WL 'ME_4DB0091E033E' '4DAF19F600C5.pas.ms.script' // TtfwContext
@@ -1116,6 +1260,7 @@ ref; // ME_020D3D343A72 aCtx
 : ME_020D3D343A73
  CONST UID '020D3D343A73'
  CONST Name 'aReminder'
+ CONST IsSummoned true
  CONST Class class_Parameter
  : Stereotype st_in ;
  : Target WL 'ME_532973740186' '53288DFA03A7.pas.ms.script' // TvgReminder
@@ -1126,6 +1271,7 @@ ref; // ME_020D3D343A73 aReminder
 : ME_17481393F146
  CONST UID '17481393F146'
  CONST Name 'IsBaloonVisible'
+ CONST IsSummoned true
  CONST Class class_Operation
  %SUMMARY 'Реализация слова скрипта pop:Reminder:IsBaloonVisible' ;
  CONST Visibility PrivateAccess
@@ -1135,9 +1281,9 @@ ref; // ME_020D3D343A73 aReminder
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
  : Parameters
-   @ ( ME_020D3D343A72 // aCtx
+   Seq: ( ME_020D3D343A72 // aCtx
  ME_020D3D343A73 // aReminder
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_17481393F146 IsBaloonVisible
@@ -1145,6 +1291,7 @@ ref; // ME_17481393F146 IsBaloonVisible
 : ME_866C5DCD193A
  CONST UID '866C5DCD193A'
  CONST Name 'Ini_Reg'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Регистрация pop_Reminder_IsBaloonVisible' ;
@@ -1157,6 +1304,7 @@ ref; // ME_866C5DCD193A Ini_Reg
 
 : ME_AF98F85A701B
  CONST UID 'AF98F85A701B'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_B5B73476616C // pop_Reminder_IsBaloonVisible
@@ -1168,6 +1316,7 @@ ref; // ME_AF98F85A701B
 
 : ME_62BE1629BFF2
  CONST UID '62BE1629BFF2'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_B5B73476616C // pop_Reminder_IsBaloonVisible
@@ -1179,6 +1328,7 @@ ref; // ME_62BE1629BFF2
 
 : ME_0DC58580E450
  CONST UID '0DC58580E450'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_B5B73476616C // pop_Reminder_IsBaloonVisible
@@ -1195,6 +1345,7 @@ ref; // ME_0DC58580E450
  ;
  : Implementor ME_B5B73476616C // pop_Reminder_IsBaloonVisible
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_4DAEEDE10285_ME_B5B73476616C DoDoIt
 
 : ME_4DB0614603C8_ME_B5B73476616C
@@ -1204,6 +1355,7 @@ ref; // ME_4DAEEDE10285_ME_B5B73476616C DoDoIt
  ;
  : Implementor ME_B5B73476616C // pop_Reminder_IsBaloonVisible
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4DB0614603C8_ME_B5B73476616C GetWordNameForRegister
 
 : ME_52D00B00031A_ME_B5B73476616C
@@ -1213,6 +1365,7 @@ ref; // ME_4DB0614603C8_ME_B5B73476616C GetWordNameForRegister
  ;
  : Implementor ME_B5B73476616C // pop_Reminder_IsBaloonVisible
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_52D00B00031A_ME_B5B73476616C SetValuePrim
 
 : ME_551544E2001A_ME_B5B73476616C
@@ -1222,6 +1375,7 @@ ref; // ME_52D00B00031A_ME_B5B73476616C SetValuePrim
  ;
  : Implementor ME_B5B73476616C // pop_Reminder_IsBaloonVisible
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_551544E2001A_ME_B5B73476616C GetResultTypeInfo
 
 : ME_559687E6025A_ME_B5B73476616C
@@ -1231,6 +1385,7 @@ ref; // ME_551544E2001A_ME_B5B73476616C GetResultTypeInfo
  ;
  : Implementor ME_B5B73476616C // pop_Reminder_IsBaloonVisible
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_559687E6025A_ME_B5B73476616C GetAllParamsCount
 
 : ME_5617F4D00243_ME_B5B73476616C
@@ -1240,11 +1395,13 @@ ref; // ME_559687E6025A_ME_B5B73476616C GetAllParamsCount
  ;
  : Implementor ME_B5B73476616C // pop_Reminder_IsBaloonVisible
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_5617F4D00243_ME_B5B73476616C ParamsTypes
 
 : ME_B5B73476616C
  CONST UID 'B5B73476616C'
  CONST Name 'pop_Reminder_IsBaloonVisible'
+ CONST IsSummoned true
  CONST Class class_Class
  : Stereotype st_ScriptKeyword ;
  CONST Kind kind_NormalClass
@@ -1254,46 +1411,57 @@ ref; // ME_5617F4D00243_ME_B5B73476616C ParamsTypes
  : Parent ME_534FA99B02BB // ReminderWordsPack
  ;
  : Inherits
-   @ ( WL 'ME_5619169603BE' '55CCADD2013D.pas.ms.script' // TtfwPropertyLike
- ) .SequenceCode.It
+   Seq: ( WL 'ME_5619169603BE' '55CCADD2013D.pas.ms.script' // TtfwPropertyLike
+ )
  ; // Inherits
  : Operations
-   @ ( ME_17481393F146 // IsBaloonVisible
+   Seq: ( ME_17481393F146 // IsBaloonVisible
  ME_866C5DCD193A // Ini_Reg
- ) .SequenceCode.It
+ )
  ; // Operations
  : Implemented
-   @ ( ME_4DAEEDE10285_ME_B5B73476616C // DoDoIt
- ) .SequenceCode.It
+   Seq: ( ME_4DAEEDE10285_ME_B5B73476616C // DoDoIt
+ )
  ; // Implemented
  : Overridden
-   @ ( ME_4DB0614603C8_ME_B5B73476616C // GetWordNameForRegister
+   Seq: ( ME_4DB0614603C8_ME_B5B73476616C // GetWordNameForRegister
  ME_52D00B00031A_ME_B5B73476616C // SetValuePrim
  ME_551544E2001A_ME_B5B73476616C // GetResultTypeInfo
  ME_559687E6025A_ME_B5B73476616C // GetAllParamsCount
  ME_5617F4D00243_ME_B5B73476616C // ParamsTypes
- ) .SequenceCode.It
+ )
  ; // Overridden
  : Dependencies
-   @ ( ME_AF98F85A701B // 
+   Seq: ( ME_AF98F85A701B // 
  ME_62BE1629BFF2 // 
  ME_0DC58580E450 // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  CONST "NameForScript" 'pop:Reminder:IsBaloonVisible'
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
+ CONST dfm:PathOnly '\common\components\rtl\Garant\ScriptEngine'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\ScriptEngine'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
  CONST extprop:pas:TypeName 'TkwPopReminderIsBaloonVisible'
+ CONST extprop:rc:SelfName 'PopReminderIsBaloonVisible'
+ CONST extprop:rc:isAcceptableForScripts true
+ : SpelledFor ME_C9DABDBEC583 // IsBaloonVisible
+ ;
 
 ref; // ME_B5B73476616C pop_Reminder_IsBaloonVisible
+
+FORWARD ME_6805FFA6DE0C
 
 FORWARD ME_86556B367D77
 
 : ME_745B1E2044C3
  CONST UID '745B1E2044C3'
  CONST Name 'aCtx'
+ CONST IsSummoned true
  CONST Class class_Parameter
  : Stereotype st_in ;
  : Target WL 'ME_4DB0091E033E' '4DAF19F600C5.pas.ms.script' // TtfwContext
@@ -1304,6 +1472,7 @@ ref; // ME_745B1E2044C3 aCtx
 : ME_745B1E2044C4
  CONST UID '745B1E2044C4'
  CONST Name 'aReminder'
+ CONST IsSummoned true
  CONST Class class_Parameter
  : Stereotype st_in ;
  : Target WL 'ME_532973740186' '53288DFA03A7.pas.ms.script' // TvgReminder
@@ -1314,6 +1483,7 @@ ref; // ME_745B1E2044C4 aReminder
 : ME_51D228A026B4
  CONST UID '51D228A026B4'
  CONST Name 'Visible'
+ CONST IsSummoned true
  CONST Class class_Operation
  %SUMMARY 'Реализация слова скрипта pop:Reminder:Visible' ;
  CONST Visibility PrivateAccess
@@ -1323,9 +1493,9 @@ ref; // ME_745B1E2044C4 aReminder
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
  : Parameters
-   @ ( ME_745B1E2044C3 // aCtx
+   Seq: ( ME_745B1E2044C3 // aCtx
  ME_745B1E2044C4 // aReminder
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_51D228A026B4 Visible
@@ -1333,6 +1503,7 @@ ref; // ME_51D228A026B4 Visible
 : ME_C7F8EEB70F35
  CONST UID 'C7F8EEB70F35'
  CONST Name 'Ini_Reg'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Регистрация pop_Reminder_Visible' ;
@@ -1345,6 +1516,7 @@ ref; // ME_C7F8EEB70F35 Ini_Reg
 
 : ME_0654100CE1E4
  CONST UID '0654100CE1E4'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_86556B367D77 // pop_Reminder_Visible
@@ -1356,6 +1528,7 @@ ref; // ME_0654100CE1E4
 
 : ME_5D1820316B42
  CONST UID '5D1820316B42'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_86556B367D77 // pop_Reminder_Visible
@@ -1367,6 +1540,7 @@ ref; // ME_5D1820316B42
 
 : ME_799DCE747A9B
  CONST UID '799DCE747A9B'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_86556B367D77 // pop_Reminder_Visible
@@ -1383,6 +1557,7 @@ ref; // ME_799DCE747A9B
  ;
  : Implementor ME_86556B367D77 // pop_Reminder_Visible
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_4DAEEDE10285_ME_86556B367D77 DoDoIt
 
 : ME_4DB0614603C8_ME_86556B367D77
@@ -1392,6 +1567,7 @@ ref; // ME_4DAEEDE10285_ME_86556B367D77 DoDoIt
  ;
  : Implementor ME_86556B367D77 // pop_Reminder_Visible
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4DB0614603C8_ME_86556B367D77 GetWordNameForRegister
 
 : ME_52D00B00031A_ME_86556B367D77
@@ -1401,6 +1577,7 @@ ref; // ME_4DB0614603C8_ME_86556B367D77 GetWordNameForRegister
  ;
  : Implementor ME_86556B367D77 // pop_Reminder_Visible
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_52D00B00031A_ME_86556B367D77 SetValuePrim
 
 : ME_551544E2001A_ME_86556B367D77
@@ -1410,6 +1587,7 @@ ref; // ME_52D00B00031A_ME_86556B367D77 SetValuePrim
  ;
  : Implementor ME_86556B367D77 // pop_Reminder_Visible
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_551544E2001A_ME_86556B367D77 GetResultTypeInfo
 
 : ME_559687E6025A_ME_86556B367D77
@@ -1419,6 +1597,7 @@ ref; // ME_551544E2001A_ME_86556B367D77 GetResultTypeInfo
  ;
  : Implementor ME_86556B367D77 // pop_Reminder_Visible
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_559687E6025A_ME_86556B367D77 GetAllParamsCount
 
 : ME_5617F4D00243_ME_86556B367D77
@@ -1428,11 +1607,13 @@ ref; // ME_559687E6025A_ME_86556B367D77 GetAllParamsCount
  ;
  : Implementor ME_86556B367D77 // pop_Reminder_Visible
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_5617F4D00243_ME_86556B367D77 ParamsTypes
 
 : ME_86556B367D77
  CONST UID '86556B367D77'
  CONST Name 'pop_Reminder_Visible'
+ CONST IsSummoned true
  CONST Class class_Class
  : Stereotype st_ScriptKeyword ;
  CONST Kind kind_NormalClass
@@ -1442,46 +1623,57 @@ ref; // ME_5617F4D00243_ME_86556B367D77 ParamsTypes
  : Parent ME_534FA99B02BB // ReminderWordsPack
  ;
  : Inherits
-   @ ( WL 'ME_5619169603BE' '55CCADD2013D.pas.ms.script' // TtfwPropertyLike
- ) .SequenceCode.It
+   Seq: ( WL 'ME_5619169603BE' '55CCADD2013D.pas.ms.script' // TtfwPropertyLike
+ )
  ; // Inherits
  : Operations
-   @ ( ME_51D228A026B4 // Visible
+   Seq: ( ME_51D228A026B4 // Visible
  ME_C7F8EEB70F35 // Ini_Reg
- ) .SequenceCode.It
+ )
  ; // Operations
  : Implemented
-   @ ( ME_4DAEEDE10285_ME_86556B367D77 // DoDoIt
- ) .SequenceCode.It
+   Seq: ( ME_4DAEEDE10285_ME_86556B367D77 // DoDoIt
+ )
  ; // Implemented
  : Overridden
-   @ ( ME_4DB0614603C8_ME_86556B367D77 // GetWordNameForRegister
+   Seq: ( ME_4DB0614603C8_ME_86556B367D77 // GetWordNameForRegister
  ME_52D00B00031A_ME_86556B367D77 // SetValuePrim
  ME_551544E2001A_ME_86556B367D77 // GetResultTypeInfo
  ME_559687E6025A_ME_86556B367D77 // GetAllParamsCount
  ME_5617F4D00243_ME_86556B367D77 // ParamsTypes
- ) .SequenceCode.It
+ )
  ; // Overridden
  : Dependencies
-   @ ( ME_0654100CE1E4 // 
+   Seq: ( ME_0654100CE1E4 // 
  ME_5D1820316B42 // 
  ME_799DCE747A9B // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  CONST "NameForScript" 'pop:Reminder:Visible'
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
+ CONST dfm:PathOnly '\common\components\rtl\Garant\ScriptEngine'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\ScriptEngine'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
  CONST extprop:pas:TypeName 'TkwPopReminderVisible'
+ CONST extprop:rc:SelfName 'PopReminderVisible'
+ CONST extprop:rc:isAcceptableForScripts true
+ : SpelledFor ME_6805FFA6DE0C // Visible
+ ;
 
 ref; // ME_86556B367D77 pop_Reminder_Visible
+
+FORWARD ME_70CB88304E9B
 
 FORWARD ME_53BA7E6BD35A
 
 : ME_D84E0D7EB986
  CONST UID 'D84E0D7EB986'
  CONST Name 'aCtx'
+ CONST IsSummoned true
  CONST Class class_Parameter
  : Stereotype st_in ;
  : Target WL 'ME_4DB0091E033E' '4DAF19F600C5.pas.ms.script' // TtfwContext
@@ -1492,6 +1684,7 @@ ref; // ME_D84E0D7EB986 aCtx
 : ME_D84E0D7EB987
  CONST UID 'D84E0D7EB987'
  CONST Name 'aReminder'
+ CONST IsSummoned true
  CONST Class class_Parameter
  : Stereotype st_in ;
  : Target WL 'ME_532973740186' '53288DFA03A7.pas.ms.script' // TvgReminder
@@ -1502,6 +1695,7 @@ ref; // ME_D84E0D7EB987 aReminder
 : ME_EEDF43F40E05
  CONST UID 'EEDF43F40E05'
  CONST Name 'Name'
+ CONST IsSummoned true
  CONST Class class_Operation
  %SUMMARY 'Реализация слова скрипта pop:Reminder:Name' ;
  CONST Visibility PrivateAccess
@@ -1511,9 +1705,9 @@ ref; // ME_D84E0D7EB987 aReminder
  : Target WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
  ;
  : Parameters
-   @ ( ME_D84E0D7EB986 // aCtx
+   Seq: ( ME_D84E0D7EB986 // aCtx
  ME_D84E0D7EB987 // aReminder
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_EEDF43F40E05 Name
@@ -1521,6 +1715,7 @@ ref; // ME_EEDF43F40E05 Name
 : ME_61B2788EE6CB
  CONST UID '61B2788EE6CB'
  CONST Name 'Ini_Reg'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Регистрация pop_Reminder_Name' ;
@@ -1533,6 +1728,7 @@ ref; // ME_61B2788EE6CB Ini_Reg
 
 : ME_52B293EF3470
  CONST UID '52B293EF3470'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_53BA7E6BD35A // pop_Reminder_Name
@@ -1544,6 +1740,7 @@ ref; // ME_52B293EF3470
 
 : ME_81F9022613C1
  CONST UID '81F9022613C1'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_53BA7E6BD35A // pop_Reminder_Name
@@ -1555,6 +1752,7 @@ ref; // ME_81F9022613C1
 
 : ME_398E94CBC52C
  CONST UID '398E94CBC52C'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_53BA7E6BD35A // pop_Reminder_Name
@@ -1571,6 +1769,7 @@ ref; // ME_398E94CBC52C
  ;
  : Implementor ME_53BA7E6BD35A // pop_Reminder_Name
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_4DAEEDE10285_ME_53BA7E6BD35A DoDoIt
 
 : ME_4DB0614603C8_ME_53BA7E6BD35A
@@ -1580,6 +1779,7 @@ ref; // ME_4DAEEDE10285_ME_53BA7E6BD35A DoDoIt
  ;
  : Implementor ME_53BA7E6BD35A // pop_Reminder_Name
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4DB0614603C8_ME_53BA7E6BD35A GetWordNameForRegister
 
 : ME_52D00B00031A_ME_53BA7E6BD35A
@@ -1589,6 +1789,7 @@ ref; // ME_4DB0614603C8_ME_53BA7E6BD35A GetWordNameForRegister
  ;
  : Implementor ME_53BA7E6BD35A // pop_Reminder_Name
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_52D00B00031A_ME_53BA7E6BD35A SetValuePrim
 
 : ME_551544E2001A_ME_53BA7E6BD35A
@@ -1598,6 +1799,7 @@ ref; // ME_52D00B00031A_ME_53BA7E6BD35A SetValuePrim
  ;
  : Implementor ME_53BA7E6BD35A // pop_Reminder_Name
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_551544E2001A_ME_53BA7E6BD35A GetResultTypeInfo
 
 : ME_559687E6025A_ME_53BA7E6BD35A
@@ -1607,6 +1809,7 @@ ref; // ME_551544E2001A_ME_53BA7E6BD35A GetResultTypeInfo
  ;
  : Implementor ME_53BA7E6BD35A // pop_Reminder_Name
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_559687E6025A_ME_53BA7E6BD35A GetAllParamsCount
 
 : ME_5617F4D00243_ME_53BA7E6BD35A
@@ -1616,11 +1819,13 @@ ref; // ME_559687E6025A_ME_53BA7E6BD35A GetAllParamsCount
  ;
  : Implementor ME_53BA7E6BD35A // pop_Reminder_Name
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_5617F4D00243_ME_53BA7E6BD35A ParamsTypes
 
 : ME_53BA7E6BD35A
  CONST UID '53BA7E6BD35A'
  CONST Name 'pop_Reminder_Name'
+ CONST IsSummoned true
  CONST Class class_Class
  : Stereotype st_ScriptKeyword ;
  CONST Kind kind_NormalClass
@@ -1630,46 +1835,57 @@ ref; // ME_5617F4D00243_ME_53BA7E6BD35A ParamsTypes
  : Parent ME_534FA99B02BB // ReminderWordsPack
  ;
  : Inherits
-   @ ( WL 'ME_5619169603BE' '55CCADD2013D.pas.ms.script' // TtfwPropertyLike
- ) .SequenceCode.It
+   Seq: ( WL 'ME_5619169603BE' '55CCADD2013D.pas.ms.script' // TtfwPropertyLike
+ )
  ; // Inherits
  : Operations
-   @ ( ME_EEDF43F40E05 // Name
+   Seq: ( ME_EEDF43F40E05 // Name
  ME_61B2788EE6CB // Ini_Reg
- ) .SequenceCode.It
+ )
  ; // Operations
  : Implemented
-   @ ( ME_4DAEEDE10285_ME_53BA7E6BD35A // DoDoIt
- ) .SequenceCode.It
+   Seq: ( ME_4DAEEDE10285_ME_53BA7E6BD35A // DoDoIt
+ )
  ; // Implemented
  : Overridden
-   @ ( ME_4DB0614603C8_ME_53BA7E6BD35A // GetWordNameForRegister
+   Seq: ( ME_4DB0614603C8_ME_53BA7E6BD35A // GetWordNameForRegister
  ME_52D00B00031A_ME_53BA7E6BD35A // SetValuePrim
  ME_551544E2001A_ME_53BA7E6BD35A // GetResultTypeInfo
  ME_559687E6025A_ME_53BA7E6BD35A // GetAllParamsCount
  ME_5617F4D00243_ME_53BA7E6BD35A // ParamsTypes
- ) .SequenceCode.It
+ )
  ; // Overridden
  : Dependencies
-   @ ( ME_52B293EF3470 // 
+   Seq: ( ME_52B293EF3470 // 
  ME_81F9022613C1 // 
  ME_398E94CBC52C // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  CONST "NameForScript" 'pop:Reminder:Name'
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
+ CONST dfm:PathOnly '\common\components\rtl\Garant\ScriptEngine'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\ScriptEngine'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
  CONST extprop:pas:TypeName 'TkwPopReminderName'
+ CONST extprop:rc:SelfName 'PopReminderName'
+ CONST extprop:rc:isAcceptableForScripts true
+ : SpelledFor ME_70CB88304E9B // Name
+ ;
 
 ref; // ME_53BA7E6BD35A pop_Reminder_Name
+
+FORWARD ME_37548DB9FC4C
 
 FORWARD ME_41F02D480F88
 
 : ME_D4B82B9EA2B3
  CONST UID 'D4B82B9EA2B3'
  CONST Name 'aCtx'
+ CONST IsSummoned true
  CONST Class class_Parameter
  : Stereotype st_in ;
  : Target WL 'ME_4DB0091E033E' '4DAF19F600C5.pas.ms.script' // TtfwContext
@@ -1680,6 +1896,7 @@ ref; // ME_D4B82B9EA2B3 aCtx
 : ME_D4B82B9EA2B4
  CONST UID 'D4B82B9EA2B4'
  CONST Name 'aReminder'
+ CONST IsSummoned true
  CONST Class class_Parameter
  : Stereotype st_in ;
  : Target WL 'ME_532973740186' '53288DFA03A7.pas.ms.script' // TvgReminder
@@ -1690,6 +1907,7 @@ ref; // ME_D4B82B9EA2B4 aReminder
 : ME_5223957A2E07
  CONST UID '5223957A2E07'
  CONST Name 'Flash'
+ CONST IsSummoned true
  CONST Class class_Operation
  %SUMMARY 'Реализация слова скрипта pop:Reminder:Flash' ;
  CONST Visibility PrivateAccess
@@ -1699,9 +1917,9 @@ ref; // ME_D4B82B9EA2B4 aReminder
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
  : Parameters
-   @ ( ME_D4B82B9EA2B3 // aCtx
+   Seq: ( ME_D4B82B9EA2B3 // aCtx
  ME_D4B82B9EA2B4 // aReminder
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_5223957A2E07 Flash
@@ -1709,6 +1927,7 @@ ref; // ME_5223957A2E07 Flash
 : ME_D3465489475E
  CONST UID 'D3465489475E'
  CONST Name 'Ini_Reg'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Регистрация pop_Reminder_Flash' ;
@@ -1721,6 +1940,7 @@ ref; // ME_D3465489475E Ini_Reg
 
 : ME_86E2F754B840
  CONST UID '86E2F754B840'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_41F02D480F88 // pop_Reminder_Flash
@@ -1732,6 +1952,7 @@ ref; // ME_86E2F754B840
 
 : ME_8A45B0D89D72
  CONST UID '8A45B0D89D72'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_41F02D480F88 // pop_Reminder_Flash
@@ -1743,6 +1964,7 @@ ref; // ME_8A45B0D89D72
 
 : ME_FEDB7649C09B
  CONST UID 'FEDB7649C09B'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_41F02D480F88 // pop_Reminder_Flash
@@ -1759,6 +1981,7 @@ ref; // ME_FEDB7649C09B
  ;
  : Implementor ME_41F02D480F88 // pop_Reminder_Flash
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_4DAEEDE10285_ME_41F02D480F88 DoDoIt
 
 : ME_4DB0614603C8_ME_41F02D480F88
@@ -1768,6 +1991,7 @@ ref; // ME_4DAEEDE10285_ME_41F02D480F88 DoDoIt
  ;
  : Implementor ME_41F02D480F88 // pop_Reminder_Flash
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4DB0614603C8_ME_41F02D480F88 GetWordNameForRegister
 
 : ME_52D00B00031A_ME_41F02D480F88
@@ -1777,6 +2001,7 @@ ref; // ME_4DB0614603C8_ME_41F02D480F88 GetWordNameForRegister
  ;
  : Implementor ME_41F02D480F88 // pop_Reminder_Flash
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_52D00B00031A_ME_41F02D480F88 SetValuePrim
 
 : ME_551544E2001A_ME_41F02D480F88
@@ -1786,6 +2011,7 @@ ref; // ME_52D00B00031A_ME_41F02D480F88 SetValuePrim
  ;
  : Implementor ME_41F02D480F88 // pop_Reminder_Flash
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_551544E2001A_ME_41F02D480F88 GetResultTypeInfo
 
 : ME_559687E6025A_ME_41F02D480F88
@@ -1795,6 +2021,7 @@ ref; // ME_551544E2001A_ME_41F02D480F88 GetResultTypeInfo
  ;
  : Implementor ME_41F02D480F88 // pop_Reminder_Flash
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_559687E6025A_ME_41F02D480F88 GetAllParamsCount
 
 : ME_5617F4D00243_ME_41F02D480F88
@@ -1804,11 +2031,13 @@ ref; // ME_559687E6025A_ME_41F02D480F88 GetAllParamsCount
  ;
  : Implementor ME_41F02D480F88 // pop_Reminder_Flash
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_5617F4D00243_ME_41F02D480F88 ParamsTypes
 
 : ME_41F02D480F88
  CONST UID '41F02D480F88'
  CONST Name 'pop_Reminder_Flash'
+ CONST IsSummoned true
  CONST Class class_Class
  : Stereotype st_ScriptKeyword ;
  CONST Kind kind_NormalClass
@@ -1818,46 +2047,57 @@ ref; // ME_5617F4D00243_ME_41F02D480F88 ParamsTypes
  : Parent ME_534FA99B02BB // ReminderWordsPack
  ;
  : Inherits
-   @ ( WL 'ME_5619169603BE' '55CCADD2013D.pas.ms.script' // TtfwPropertyLike
- ) .SequenceCode.It
+   Seq: ( WL 'ME_5619169603BE' '55CCADD2013D.pas.ms.script' // TtfwPropertyLike
+ )
  ; // Inherits
  : Operations
-   @ ( ME_5223957A2E07 // Flash
+   Seq: ( ME_5223957A2E07 // Flash
  ME_D3465489475E // Ini_Reg
- ) .SequenceCode.It
+ )
  ; // Operations
  : Implemented
-   @ ( ME_4DAEEDE10285_ME_41F02D480F88 // DoDoIt
- ) .SequenceCode.It
+   Seq: ( ME_4DAEEDE10285_ME_41F02D480F88 // DoDoIt
+ )
  ; // Implemented
  : Overridden
-   @ ( ME_4DB0614603C8_ME_41F02D480F88 // GetWordNameForRegister
+   Seq: ( ME_4DB0614603C8_ME_41F02D480F88 // GetWordNameForRegister
  ME_52D00B00031A_ME_41F02D480F88 // SetValuePrim
  ME_551544E2001A_ME_41F02D480F88 // GetResultTypeInfo
  ME_559687E6025A_ME_41F02D480F88 // GetAllParamsCount
  ME_5617F4D00243_ME_41F02D480F88 // ParamsTypes
- ) .SequenceCode.It
+ )
  ; // Overridden
  : Dependencies
-   @ ( ME_86E2F754B840 // 
+   Seq: ( ME_86E2F754B840 // 
  ME_8A45B0D89D72 // 
  ME_FEDB7649C09B // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  CONST "NameForScript" 'pop:Reminder:Flash'
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
+ CONST dfm:PathOnly '\common\components\rtl\Garant\ScriptEngine'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\ScriptEngine'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
  CONST extprop:pas:TypeName 'TkwPopReminderFlash'
+ CONST extprop:rc:SelfName 'PopReminderFlash'
+ CONST extprop:rc:isAcceptableForScripts true
+ : SpelledFor ME_37548DB9FC4C // Flash
+ ;
 
 ref; // ME_41F02D480F88 pop_Reminder_Flash
+
+FORWARD ME_963DF9269ADB
 
 FORWARD ME_4910B3AB2F0F
 
 : ME_8C6E34E5A95E
  CONST UID '8C6E34E5A95E'
  CONST Name 'aCtx'
+ CONST IsSummoned true
  CONST Class class_Parameter
  : Stereotype st_in ;
  : Target WL 'ME_4DB0091E033E' '4DAF19F600C5.pas.ms.script' // TtfwContext
@@ -1868,6 +2108,7 @@ ref; // ME_8C6E34E5A95E aCtx
 : ME_8C6E34E5A95F
  CONST UID '8C6E34E5A95F'
  CONST Name 'aReminder'
+ CONST IsSummoned true
  CONST Class class_Parameter
  : Stereotype st_in ;
  : Target WL 'ME_532973740186' '53288DFA03A7.pas.ms.script' // TvgReminder
@@ -1878,6 +2119,7 @@ ref; // ME_8C6E34E5A95F aReminder
 : ME_C4047A8567A8
  CONST UID 'C4047A8567A8'
  CONST Name 'TextBackColor'
+ CONST IsSummoned true
  CONST Class class_Operation
  %SUMMARY 'Реализация слова скрипта pop:Reminder:TextBackColor' ;
  CONST Visibility PrivateAccess
@@ -1887,9 +2129,9 @@ ref; // ME_8C6E34E5A95F aReminder
  : Target WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
  ;
  : Parameters
-   @ ( ME_8C6E34E5A95E // aCtx
+   Seq: ( ME_8C6E34E5A95E // aCtx
  ME_8C6E34E5A95F // aReminder
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_C4047A8567A8 TextBackColor
@@ -1897,6 +2139,7 @@ ref; // ME_C4047A8567A8 TextBackColor
 : ME_9FE281808B90
  CONST UID '9FE281808B90'
  CONST Name 'Ini_Reg'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Регистрация pop_Reminder_TextBackColor' ;
@@ -1909,6 +2152,7 @@ ref; // ME_9FE281808B90 Ini_Reg
 
 : ME_3D55B378B175
  CONST UID '3D55B378B175'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_4910B3AB2F0F // pop_Reminder_TextBackColor
@@ -1920,6 +2164,7 @@ ref; // ME_3D55B378B175
 
 : ME_5A07B4393B14
  CONST UID '5A07B4393B14'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_4910B3AB2F0F // pop_Reminder_TextBackColor
@@ -1931,6 +2176,7 @@ ref; // ME_5A07B4393B14
 
 : ME_DCA97CF332FB
  CONST UID 'DCA97CF332FB'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_4910B3AB2F0F // pop_Reminder_TextBackColor
@@ -1947,6 +2193,7 @@ ref; // ME_DCA97CF332FB
  ;
  : Implementor ME_4910B3AB2F0F // pop_Reminder_TextBackColor
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_4DAEEDE10285_ME_4910B3AB2F0F DoDoIt
 
 : ME_4DB0614603C8_ME_4910B3AB2F0F
@@ -1956,6 +2203,7 @@ ref; // ME_4DAEEDE10285_ME_4910B3AB2F0F DoDoIt
  ;
  : Implementor ME_4910B3AB2F0F // pop_Reminder_TextBackColor
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4DB0614603C8_ME_4910B3AB2F0F GetWordNameForRegister
 
 : ME_52D00B00031A_ME_4910B3AB2F0F
@@ -1965,6 +2213,7 @@ ref; // ME_4DB0614603C8_ME_4910B3AB2F0F GetWordNameForRegister
  ;
  : Implementor ME_4910B3AB2F0F // pop_Reminder_TextBackColor
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_52D00B00031A_ME_4910B3AB2F0F SetValuePrim
 
 : ME_551544E2001A_ME_4910B3AB2F0F
@@ -1974,6 +2223,7 @@ ref; // ME_52D00B00031A_ME_4910B3AB2F0F SetValuePrim
  ;
  : Implementor ME_4910B3AB2F0F // pop_Reminder_TextBackColor
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_551544E2001A_ME_4910B3AB2F0F GetResultTypeInfo
 
 : ME_559687E6025A_ME_4910B3AB2F0F
@@ -1983,6 +2233,7 @@ ref; // ME_551544E2001A_ME_4910B3AB2F0F GetResultTypeInfo
  ;
  : Implementor ME_4910B3AB2F0F // pop_Reminder_TextBackColor
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_559687E6025A_ME_4910B3AB2F0F GetAllParamsCount
 
 : ME_5617F4D00243_ME_4910B3AB2F0F
@@ -1992,11 +2243,13 @@ ref; // ME_559687E6025A_ME_4910B3AB2F0F GetAllParamsCount
  ;
  : Implementor ME_4910B3AB2F0F // pop_Reminder_TextBackColor
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_5617F4D00243_ME_4910B3AB2F0F ParamsTypes
 
 : ME_4910B3AB2F0F
  CONST UID '4910B3AB2F0F'
  CONST Name 'pop_Reminder_TextBackColor'
+ CONST IsSummoned true
  CONST Class class_Class
  : Stereotype st_ScriptKeyword ;
  CONST Kind kind_NormalClass
@@ -2006,46 +2259,57 @@ ref; // ME_5617F4D00243_ME_4910B3AB2F0F ParamsTypes
  : Parent ME_534FA99B02BB // ReminderWordsPack
  ;
  : Inherits
-   @ ( WL 'ME_5619169603BE' '55CCADD2013D.pas.ms.script' // TtfwPropertyLike
- ) .SequenceCode.It
+   Seq: ( WL 'ME_5619169603BE' '55CCADD2013D.pas.ms.script' // TtfwPropertyLike
+ )
  ; // Inherits
  : Operations
-   @ ( ME_C4047A8567A8 // TextBackColor
+   Seq: ( ME_C4047A8567A8 // TextBackColor
  ME_9FE281808B90 // Ini_Reg
- ) .SequenceCode.It
+ )
  ; // Operations
  : Implemented
-   @ ( ME_4DAEEDE10285_ME_4910B3AB2F0F // DoDoIt
- ) .SequenceCode.It
+   Seq: ( ME_4DAEEDE10285_ME_4910B3AB2F0F // DoDoIt
+ )
  ; // Implemented
  : Overridden
-   @ ( ME_4DB0614603C8_ME_4910B3AB2F0F // GetWordNameForRegister
+   Seq: ( ME_4DB0614603C8_ME_4910B3AB2F0F // GetWordNameForRegister
  ME_52D00B00031A_ME_4910B3AB2F0F // SetValuePrim
  ME_551544E2001A_ME_4910B3AB2F0F // GetResultTypeInfo
  ME_559687E6025A_ME_4910B3AB2F0F // GetAllParamsCount
  ME_5617F4D00243_ME_4910B3AB2F0F // ParamsTypes
- ) .SequenceCode.It
+ )
  ; // Overridden
  : Dependencies
-   @ ( ME_3D55B378B175 // 
+   Seq: ( ME_3D55B378B175 // 
  ME_5A07B4393B14 // 
  ME_DCA97CF332FB // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  CONST "NameForScript" 'pop:Reminder:TextBackColor'
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
+ CONST dfm:PathOnly '\common\components\rtl\Garant\ScriptEngine'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\ScriptEngine'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
  CONST extprop:pas:TypeName 'TkwPopReminderTextBackColor'
+ CONST extprop:rc:SelfName 'PopReminderTextBackColor'
+ CONST extprop:rc:isAcceptableForScripts true
+ : SpelledFor ME_963DF9269ADB // TextBackColor
+ ;
 
 ref; // ME_4910B3AB2F0F pop_Reminder_TextBackColor
+
+FORWARD ME_96216B659E7A
 
 FORWARD ME_01DFD9EDE9C7
 
 : ME_5DD706A71917
  CONST UID '5DD706A71917'
  CONST Name 'aCtx'
+ CONST IsSummoned true
  CONST Class class_Parameter
  : Stereotype st_in ;
  : Target WL 'ME_4DB0091E033E' '4DAF19F600C5.pas.ms.script' // TtfwContext
@@ -2056,6 +2320,7 @@ ref; // ME_5DD706A71917 aCtx
 : ME_5DD706A71918
  CONST UID '5DD706A71918'
  CONST Name 'aReminder'
+ CONST IsSummoned true
  CONST Class class_Parameter
  : Stereotype st_in ;
  : Target WL 'ME_532973740186' '53288DFA03A7.pas.ms.script' // TvgReminder
@@ -2066,6 +2331,7 @@ ref; // ME_5DD706A71918 aReminder
 : ME_5FAB78F3A8B1
  CONST UID '5FAB78F3A8B1'
  CONST Name 'ShowHint'
+ CONST IsSummoned true
  CONST Class class_Operation
  %SUMMARY 'Реализация слова скрипта pop:Reminder:ShowHint' ;
  CONST Visibility PrivateAccess
@@ -2075,9 +2341,9 @@ ref; // ME_5DD706A71918 aReminder
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
  : Parameters
-   @ ( ME_5DD706A71917 // aCtx
+   Seq: ( ME_5DD706A71917 // aCtx
  ME_5DD706A71918 // aReminder
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_5FAB78F3A8B1 ShowHint
@@ -2085,6 +2351,7 @@ ref; // ME_5FAB78F3A8B1 ShowHint
 : ME_679B3D156CF1
  CONST UID '679B3D156CF1'
  CONST Name 'Ini_Reg'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Регистрация pop_Reminder_ShowHint' ;
@@ -2097,6 +2364,7 @@ ref; // ME_679B3D156CF1 Ini_Reg
 
 : ME_5681255B68FD
  CONST UID '5681255B68FD'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_01DFD9EDE9C7 // pop_Reminder_ShowHint
@@ -2108,6 +2376,7 @@ ref; // ME_5681255B68FD
 
 : ME_F1F7467B1D61
  CONST UID 'F1F7467B1D61'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_01DFD9EDE9C7 // pop_Reminder_ShowHint
@@ -2119,6 +2388,7 @@ ref; // ME_F1F7467B1D61
 
 : ME_8DE00B4FFB23
  CONST UID '8DE00B4FFB23'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_01DFD9EDE9C7 // pop_Reminder_ShowHint
@@ -2135,6 +2405,7 @@ ref; // ME_8DE00B4FFB23
  ;
  : Implementor ME_01DFD9EDE9C7 // pop_Reminder_ShowHint
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_4DAEEDE10285_ME_01DFD9EDE9C7 DoDoIt
 
 : ME_4DB0614603C8_ME_01DFD9EDE9C7
@@ -2144,6 +2415,7 @@ ref; // ME_4DAEEDE10285_ME_01DFD9EDE9C7 DoDoIt
  ;
  : Implementor ME_01DFD9EDE9C7 // pop_Reminder_ShowHint
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4DB0614603C8_ME_01DFD9EDE9C7 GetWordNameForRegister
 
 : ME_52D00B00031A_ME_01DFD9EDE9C7
@@ -2153,6 +2425,7 @@ ref; // ME_4DB0614603C8_ME_01DFD9EDE9C7 GetWordNameForRegister
  ;
  : Implementor ME_01DFD9EDE9C7 // pop_Reminder_ShowHint
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_52D00B00031A_ME_01DFD9EDE9C7 SetValuePrim
 
 : ME_551544E2001A_ME_01DFD9EDE9C7
@@ -2162,6 +2435,7 @@ ref; // ME_52D00B00031A_ME_01DFD9EDE9C7 SetValuePrim
  ;
  : Implementor ME_01DFD9EDE9C7 // pop_Reminder_ShowHint
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_551544E2001A_ME_01DFD9EDE9C7 GetResultTypeInfo
 
 : ME_559687E6025A_ME_01DFD9EDE9C7
@@ -2171,6 +2445,7 @@ ref; // ME_551544E2001A_ME_01DFD9EDE9C7 GetResultTypeInfo
  ;
  : Implementor ME_01DFD9EDE9C7 // pop_Reminder_ShowHint
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_559687E6025A_ME_01DFD9EDE9C7 GetAllParamsCount
 
 : ME_5617F4D00243_ME_01DFD9EDE9C7
@@ -2180,11 +2455,13 @@ ref; // ME_559687E6025A_ME_01DFD9EDE9C7 GetAllParamsCount
  ;
  : Implementor ME_01DFD9EDE9C7 // pop_Reminder_ShowHint
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_5617F4D00243_ME_01DFD9EDE9C7 ParamsTypes
 
 : ME_01DFD9EDE9C7
  CONST UID '01DFD9EDE9C7'
  CONST Name 'pop_Reminder_ShowHint'
+ CONST IsSummoned true
  CONST Class class_Class
  : Stereotype st_ScriptKeyword ;
  CONST Kind kind_NormalClass
@@ -2194,46 +2471,57 @@ ref; // ME_5617F4D00243_ME_01DFD9EDE9C7 ParamsTypes
  : Parent ME_534FA99B02BB // ReminderWordsPack
  ;
  : Inherits
-   @ ( WL 'ME_5619169603BE' '55CCADD2013D.pas.ms.script' // TtfwPropertyLike
- ) .SequenceCode.It
+   Seq: ( WL 'ME_5619169603BE' '55CCADD2013D.pas.ms.script' // TtfwPropertyLike
+ )
  ; // Inherits
  : Operations
-   @ ( ME_5FAB78F3A8B1 // ShowHint
+   Seq: ( ME_5FAB78F3A8B1 // ShowHint
  ME_679B3D156CF1 // Ini_Reg
- ) .SequenceCode.It
+ )
  ; // Operations
  : Implemented
-   @ ( ME_4DAEEDE10285_ME_01DFD9EDE9C7 // DoDoIt
- ) .SequenceCode.It
+   Seq: ( ME_4DAEEDE10285_ME_01DFD9EDE9C7 // DoDoIt
+ )
  ; // Implemented
  : Overridden
-   @ ( ME_4DB0614603C8_ME_01DFD9EDE9C7 // GetWordNameForRegister
+   Seq: ( ME_4DB0614603C8_ME_01DFD9EDE9C7 // GetWordNameForRegister
  ME_52D00B00031A_ME_01DFD9EDE9C7 // SetValuePrim
  ME_551544E2001A_ME_01DFD9EDE9C7 // GetResultTypeInfo
  ME_559687E6025A_ME_01DFD9EDE9C7 // GetAllParamsCount
  ME_5617F4D00243_ME_01DFD9EDE9C7 // ParamsTypes
- ) .SequenceCode.It
+ )
  ; // Overridden
  : Dependencies
-   @ ( ME_5681255B68FD // 
+   Seq: ( ME_5681255B68FD // 
  ME_F1F7467B1D61 // 
  ME_8DE00B4FFB23 // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  CONST "NameForScript" 'pop:Reminder:ShowHint'
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
+ CONST dfm:PathOnly '\common\components\rtl\Garant\ScriptEngine'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\ScriptEngine'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
  CONST extprop:pas:TypeName 'TkwPopReminderShowHint'
+ CONST extprop:rc:SelfName 'PopReminderShowHint'
+ CONST extprop:rc:isAcceptableForScripts true
+ : SpelledFor ME_96216B659E7A // ShowHint
+ ;
 
 ref; // ME_01DFD9EDE9C7 pop_Reminder_ShowHint
+
+FORWARD ME_F266CCD7EA5A
 
 FORWARD ME_D817B4A59BC2
 
 : ME_CDFCAF1432B3
  CONST UID 'CDFCAF1432B3'
  CONST Name 'aCtx'
+ CONST IsSummoned true
  CONST Class class_Parameter
  : Stereotype st_in ;
  : Target WL 'ME_4DB0091E033E' '4DAF19F600C5.pas.ms.script' // TtfwContext
@@ -2244,6 +2532,7 @@ ref; // ME_CDFCAF1432B3 aCtx
 : ME_CDFCAF1432B4
  CONST UID 'CDFCAF1432B4'
  CONST Name 'aReminder'
+ CONST IsSummoned true
  CONST Class class_Parameter
  : Stereotype st_in ;
  : Target WL 'ME_532973740186' '53288DFA03A7.pas.ms.script' // TvgReminder
@@ -2254,6 +2543,7 @@ ref; // ME_CDFCAF1432B4 aReminder
 : ME_87E221BFC87E
  CONST UID '87E221BFC87E'
  CONST Name 'Caption'
+ CONST IsSummoned true
  CONST Class class_Operation
  %SUMMARY 'Реализация слова скрипта pop:Reminder:Caption' ;
  CONST Visibility PrivateAccess
@@ -2263,9 +2553,9 @@ ref; // ME_CDFCAF1432B4 aReminder
  : Target WL 'ME_46780DA40383' '4677FBA70343.pas.ms.script' // Il3CString
  ;
  : Parameters
-   @ ( ME_CDFCAF1432B3 // aCtx
+   Seq: ( ME_CDFCAF1432B3 // aCtx
  ME_CDFCAF1432B4 // aReminder
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_87E221BFC87E Caption
@@ -2273,6 +2563,7 @@ ref; // ME_87E221BFC87E Caption
 : ME_14F3BE4DA753
  CONST UID '14F3BE4DA753'
  CONST Name 'Ini_Reg'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Регистрация pop_Reminder_Caption' ;
@@ -2285,6 +2576,7 @@ ref; // ME_14F3BE4DA753 Ini_Reg
 
 : ME_8F330949851F
  CONST UID '8F330949851F'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_D817B4A59BC2 // pop_Reminder_Caption
@@ -2296,6 +2588,7 @@ ref; // ME_8F330949851F
 
 : ME_486F851D5BB6
  CONST UID '486F851D5BB6'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_D817B4A59BC2 // pop_Reminder_Caption
@@ -2307,6 +2600,7 @@ ref; // ME_486F851D5BB6
 
 : ME_C32CD7930839
  CONST UID 'C32CD7930839'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_D817B4A59BC2 // pop_Reminder_Caption
@@ -2323,6 +2617,7 @@ ref; // ME_C32CD7930839
  ;
  : Implementor ME_D817B4A59BC2 // pop_Reminder_Caption
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_4DAEEDE10285_ME_D817B4A59BC2 DoDoIt
 
 : ME_4DB0614603C8_ME_D817B4A59BC2
@@ -2332,6 +2627,7 @@ ref; // ME_4DAEEDE10285_ME_D817B4A59BC2 DoDoIt
  ;
  : Implementor ME_D817B4A59BC2 // pop_Reminder_Caption
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4DB0614603C8_ME_D817B4A59BC2 GetWordNameForRegister
 
 : ME_52D00B00031A_ME_D817B4A59BC2
@@ -2341,6 +2637,7 @@ ref; // ME_4DB0614603C8_ME_D817B4A59BC2 GetWordNameForRegister
  ;
  : Implementor ME_D817B4A59BC2 // pop_Reminder_Caption
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_52D00B00031A_ME_D817B4A59BC2 SetValuePrim
 
 : ME_551544E2001A_ME_D817B4A59BC2
@@ -2350,6 +2647,7 @@ ref; // ME_52D00B00031A_ME_D817B4A59BC2 SetValuePrim
  ;
  : Implementor ME_D817B4A59BC2 // pop_Reminder_Caption
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_551544E2001A_ME_D817B4A59BC2 GetResultTypeInfo
 
 : ME_559687E6025A_ME_D817B4A59BC2
@@ -2359,6 +2657,7 @@ ref; // ME_551544E2001A_ME_D817B4A59BC2 GetResultTypeInfo
  ;
  : Implementor ME_D817B4A59BC2 // pop_Reminder_Caption
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_559687E6025A_ME_D817B4A59BC2 GetAllParamsCount
 
 : ME_5617F4D00243_ME_D817B4A59BC2
@@ -2368,11 +2667,13 @@ ref; // ME_559687E6025A_ME_D817B4A59BC2 GetAllParamsCount
  ;
  : Implementor ME_D817B4A59BC2 // pop_Reminder_Caption
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_5617F4D00243_ME_D817B4A59BC2 ParamsTypes
 
 : ME_D817B4A59BC2
  CONST UID 'D817B4A59BC2'
  CONST Name 'pop_Reminder_Caption'
+ CONST IsSummoned true
  CONST Class class_Class
  : Stereotype st_ScriptKeyword ;
  CONST Kind kind_NormalClass
@@ -2382,46 +2683,57 @@ ref; // ME_5617F4D00243_ME_D817B4A59BC2 ParamsTypes
  : Parent ME_534FA99B02BB // ReminderWordsPack
  ;
  : Inherits
-   @ ( WL 'ME_5619169603BE' '55CCADD2013D.pas.ms.script' // TtfwPropertyLike
- ) .SequenceCode.It
+   Seq: ( WL 'ME_5619169603BE' '55CCADD2013D.pas.ms.script' // TtfwPropertyLike
+ )
  ; // Inherits
  : Operations
-   @ ( ME_87E221BFC87E // Caption
+   Seq: ( ME_87E221BFC87E // Caption
  ME_14F3BE4DA753 // Ini_Reg
- ) .SequenceCode.It
+ )
  ; // Operations
  : Implemented
-   @ ( ME_4DAEEDE10285_ME_D817B4A59BC2 // DoDoIt
- ) .SequenceCode.It
+   Seq: ( ME_4DAEEDE10285_ME_D817B4A59BC2 // DoDoIt
+ )
  ; // Implemented
  : Overridden
-   @ ( ME_4DB0614603C8_ME_D817B4A59BC2 // GetWordNameForRegister
+   Seq: ( ME_4DB0614603C8_ME_D817B4A59BC2 // GetWordNameForRegister
  ME_52D00B00031A_ME_D817B4A59BC2 // SetValuePrim
  ME_551544E2001A_ME_D817B4A59BC2 // GetResultTypeInfo
  ME_559687E6025A_ME_D817B4A59BC2 // GetAllParamsCount
  ME_5617F4D00243_ME_D817B4A59BC2 // ParamsTypes
- ) .SequenceCode.It
+ )
  ; // Overridden
  : Dependencies
-   @ ( ME_8F330949851F // 
+   Seq: ( ME_8F330949851F // 
  ME_486F851D5BB6 // 
  ME_C32CD7930839 // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  CONST "NameForScript" 'pop:Reminder:Caption'
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
+ CONST dfm:PathOnly '\common\components\rtl\Garant\ScriptEngine'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\ScriptEngine'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
  CONST extprop:pas:TypeName 'TkwPopReminderCaption'
+ CONST extprop:rc:SelfName 'PopReminderCaption'
+ CONST extprop:rc:isAcceptableForScripts true
+ : SpelledFor ME_F266CCD7EA5A // Caption
+ ;
 
 ref; // ME_D817B4A59BC2 pop_Reminder_Caption
+
+FORWARD ME_4F400F407364
 
 FORWARD ME_3D456BE889E3
 
 : ME_E7851A23A2B9
  CONST UID 'E7851A23A2B9'
  CONST Name 'aCtx'
+ CONST IsSummoned true
  CONST Class class_Parameter
  : Stereotype st_in ;
  : Target WL 'ME_4DB0091E033E' '4DAF19F600C5.pas.ms.script' // TtfwContext
@@ -2432,6 +2744,7 @@ ref; // ME_E7851A23A2B9 aCtx
 : ME_E7851A23A2BA
  CONST UID 'E7851A23A2BA'
  CONST Name 'aReminder'
+ CONST IsSummoned true
  CONST Class class_Parameter
  : Stereotype st_in ;
  : Target WL 'ME_532973740186' '53288DFA03A7.pas.ms.script' // TvgReminder
@@ -2442,6 +2755,7 @@ ref; // ME_E7851A23A2BA aReminder
 : ME_34D2B1DAA1D5
  CONST UID '34D2B1DAA1D5'
  CONST Name 'Hint'
+ CONST IsSummoned true
  CONST Class class_Operation
  %SUMMARY 'Реализация слова скрипта pop:Reminder:Hint' ;
  CONST Visibility PrivateAccess
@@ -2451,9 +2765,9 @@ ref; // ME_E7851A23A2BA aReminder
  : Target WL 'ME_46780DA40383' '4677FBA70343.pas.ms.script' // Il3CString
  ;
  : Parameters
-   @ ( ME_E7851A23A2B9 // aCtx
+   Seq: ( ME_E7851A23A2B9 // aCtx
  ME_E7851A23A2BA // aReminder
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_34D2B1DAA1D5 Hint
@@ -2461,6 +2775,7 @@ ref; // ME_34D2B1DAA1D5 Hint
 : ME_3983BBF84F87
  CONST UID '3983BBF84F87'
  CONST Name 'Ini_Reg'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Регистрация pop_Reminder_Hint' ;
@@ -2473,6 +2788,7 @@ ref; // ME_3983BBF84F87 Ini_Reg
 
 : ME_B2D0606F870F
  CONST UID 'B2D0606F870F'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_3D456BE889E3 // pop_Reminder_Hint
@@ -2484,6 +2800,7 @@ ref; // ME_B2D0606F870F
 
 : ME_72B25C344721
  CONST UID '72B25C344721'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_3D456BE889E3 // pop_Reminder_Hint
@@ -2495,6 +2812,7 @@ ref; // ME_72B25C344721
 
 : ME_9D8286BF5762
  CONST UID '9D8286BF5762'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_3D456BE889E3 // pop_Reminder_Hint
@@ -2511,6 +2829,7 @@ ref; // ME_9D8286BF5762
  ;
  : Implementor ME_3D456BE889E3 // pop_Reminder_Hint
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_4DAEEDE10285_ME_3D456BE889E3 DoDoIt
 
 : ME_4DB0614603C8_ME_3D456BE889E3
@@ -2520,6 +2839,7 @@ ref; // ME_4DAEEDE10285_ME_3D456BE889E3 DoDoIt
  ;
  : Implementor ME_3D456BE889E3 // pop_Reminder_Hint
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4DB0614603C8_ME_3D456BE889E3 GetWordNameForRegister
 
 : ME_52D00B00031A_ME_3D456BE889E3
@@ -2529,6 +2849,7 @@ ref; // ME_4DB0614603C8_ME_3D456BE889E3 GetWordNameForRegister
  ;
  : Implementor ME_3D456BE889E3 // pop_Reminder_Hint
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_52D00B00031A_ME_3D456BE889E3 SetValuePrim
 
 : ME_551544E2001A_ME_3D456BE889E3
@@ -2538,6 +2859,7 @@ ref; // ME_52D00B00031A_ME_3D456BE889E3 SetValuePrim
  ;
  : Implementor ME_3D456BE889E3 // pop_Reminder_Hint
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_551544E2001A_ME_3D456BE889E3 GetResultTypeInfo
 
 : ME_559687E6025A_ME_3D456BE889E3
@@ -2547,6 +2869,7 @@ ref; // ME_551544E2001A_ME_3D456BE889E3 GetResultTypeInfo
  ;
  : Implementor ME_3D456BE889E3 // pop_Reminder_Hint
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_559687E6025A_ME_3D456BE889E3 GetAllParamsCount
 
 : ME_5617F4D00243_ME_3D456BE889E3
@@ -2556,11 +2879,13 @@ ref; // ME_559687E6025A_ME_3D456BE889E3 GetAllParamsCount
  ;
  : Implementor ME_3D456BE889E3 // pop_Reminder_Hint
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_5617F4D00243_ME_3D456BE889E3 ParamsTypes
 
 : ME_3D456BE889E3
  CONST UID '3D456BE889E3'
  CONST Name 'pop_Reminder_Hint'
+ CONST IsSummoned true
  CONST Class class_Class
  : Stereotype st_ScriptKeyword ;
  CONST Kind kind_NormalClass
@@ -2570,46 +2895,57 @@ ref; // ME_5617F4D00243_ME_3D456BE889E3 ParamsTypes
  : Parent ME_534FA99B02BB // ReminderWordsPack
  ;
  : Inherits
-   @ ( WL 'ME_5619169603BE' '55CCADD2013D.pas.ms.script' // TtfwPropertyLike
- ) .SequenceCode.It
+   Seq: ( WL 'ME_5619169603BE' '55CCADD2013D.pas.ms.script' // TtfwPropertyLike
+ )
  ; // Inherits
  : Operations
-   @ ( ME_34D2B1DAA1D5 // Hint
+   Seq: ( ME_34D2B1DAA1D5 // Hint
  ME_3983BBF84F87 // Ini_Reg
- ) .SequenceCode.It
+ )
  ; // Operations
  : Implemented
-   @ ( ME_4DAEEDE10285_ME_3D456BE889E3 // DoDoIt
- ) .SequenceCode.It
+   Seq: ( ME_4DAEEDE10285_ME_3D456BE889E3 // DoDoIt
+ )
  ; // Implemented
  : Overridden
-   @ ( ME_4DB0614603C8_ME_3D456BE889E3 // GetWordNameForRegister
+   Seq: ( ME_4DB0614603C8_ME_3D456BE889E3 // GetWordNameForRegister
  ME_52D00B00031A_ME_3D456BE889E3 // SetValuePrim
  ME_551544E2001A_ME_3D456BE889E3 // GetResultTypeInfo
  ME_559687E6025A_ME_3D456BE889E3 // GetAllParamsCount
  ME_5617F4D00243_ME_3D456BE889E3 // ParamsTypes
- ) .SequenceCode.It
+ )
  ; // Overridden
  : Dependencies
-   @ ( ME_B2D0606F870F // 
+   Seq: ( ME_B2D0606F870F // 
  ME_72B25C344721 // 
  ME_9D8286BF5762 // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  CONST "NameForScript" 'pop:Reminder:Hint'
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
+ CONST dfm:PathOnly '\common\components\rtl\Garant\ScriptEngine'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\ScriptEngine'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
  CONST extprop:pas:TypeName 'TkwPopReminderHint'
+ CONST extprop:rc:SelfName 'PopReminderHint'
+ CONST extprop:rc:isAcceptableForScripts true
+ : SpelledFor ME_4F400F407364 // Hint
+ ;
 
 ref; // ME_3D456BE889E3 pop_Reminder_Hint
+
+FORWARD ME_C46E09B84480
 
 FORWARD ME_27F1AE8E8012
 
 : ME_FA370549573F
  CONST UID 'FA370549573F'
  CONST Name 'aCtx'
+ CONST IsSummoned true
  CONST Class class_Parameter
  : Stereotype st_in ;
  : Target WL 'ME_4DB0091E033E' '4DAF19F600C5.pas.ms.script' // TtfwContext
@@ -2620,6 +2956,7 @@ ref; // ME_FA370549573F aCtx
 : ME_FA3705495740
  CONST UID 'FA3705495740'
  CONST Name 'aReminder'
+ CONST IsSummoned true
  CONST Class class_Parameter
  : Stereotype st_in ;
  : Target WL 'ME_532973740186' '53288DFA03A7.pas.ms.script' // TvgReminder
@@ -2630,6 +2967,7 @@ ref; // ME_FA3705495740 aReminder
 : ME_59E14B85260B
  CONST UID '59E14B85260B'
  CONST Name 'PopupForm'
+ CONST IsSummoned true
  CONST Class class_Operation
  %SUMMARY 'Реализация слова скрипта pop:Reminder:PopupForm' ;
  CONST Visibility PrivateAccess
@@ -2639,9 +2977,9 @@ ref; // ME_FA3705495740 aReminder
  : Target WL 'ME_4D9058880214' '4D90513F009C.pas.ms.script' // TvtPopupFormModelPart
  ;
  : Parameters
-   @ ( ME_FA370549573F // aCtx
+   Seq: ( ME_FA370549573F // aCtx
  ME_FA3705495740 // aReminder
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_59E14B85260B PopupForm
@@ -2649,6 +2987,7 @@ ref; // ME_59E14B85260B PopupForm
 : ME_7F1CDBA1883A
  CONST UID '7F1CDBA1883A'
  CONST Name 'Ini_Reg'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Регистрация pop_Reminder_PopupForm' ;
@@ -2661,6 +3000,7 @@ ref; // ME_7F1CDBA1883A Ini_Reg
 
 : ME_2B5916A11BA7
  CONST UID '2B5916A11BA7'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_27F1AE8E8012 // pop_Reminder_PopupForm
@@ -2672,6 +3012,7 @@ ref; // ME_2B5916A11BA7
 
 : ME_35BA00D74F5A
  CONST UID '35BA00D74F5A'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_27F1AE8E8012 // pop_Reminder_PopupForm
@@ -2683,6 +3024,7 @@ ref; // ME_35BA00D74F5A
 
 : ME_8773F00A05DD
  CONST UID '8773F00A05DD'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_27F1AE8E8012 // pop_Reminder_PopupForm
@@ -2699,6 +3041,7 @@ ref; // ME_8773F00A05DD
  ;
  : Implementor ME_27F1AE8E8012 // pop_Reminder_PopupForm
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_4DAEEDE10285_ME_27F1AE8E8012 DoDoIt
 
 : ME_4DB0614603C8_ME_27F1AE8E8012
@@ -2708,6 +3051,7 @@ ref; // ME_4DAEEDE10285_ME_27F1AE8E8012 DoDoIt
  ;
  : Implementor ME_27F1AE8E8012 // pop_Reminder_PopupForm
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4DB0614603C8_ME_27F1AE8E8012 GetWordNameForRegister
 
 : ME_52D00B00031A_ME_27F1AE8E8012
@@ -2717,6 +3061,7 @@ ref; // ME_4DB0614603C8_ME_27F1AE8E8012 GetWordNameForRegister
  ;
  : Implementor ME_27F1AE8E8012 // pop_Reminder_PopupForm
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_52D00B00031A_ME_27F1AE8E8012 SetValuePrim
 
 : ME_551544E2001A_ME_27F1AE8E8012
@@ -2726,6 +3071,7 @@ ref; // ME_52D00B00031A_ME_27F1AE8E8012 SetValuePrim
  ;
  : Implementor ME_27F1AE8E8012 // pop_Reminder_PopupForm
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_551544E2001A_ME_27F1AE8E8012 GetResultTypeInfo
 
 : ME_559687E6025A_ME_27F1AE8E8012
@@ -2735,6 +3081,7 @@ ref; // ME_551544E2001A_ME_27F1AE8E8012 GetResultTypeInfo
  ;
  : Implementor ME_27F1AE8E8012 // pop_Reminder_PopupForm
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_559687E6025A_ME_27F1AE8E8012 GetAllParamsCount
 
 : ME_5617F4D00243_ME_27F1AE8E8012
@@ -2744,11 +3091,13 @@ ref; // ME_559687E6025A_ME_27F1AE8E8012 GetAllParamsCount
  ;
  : Implementor ME_27F1AE8E8012 // pop_Reminder_PopupForm
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_5617F4D00243_ME_27F1AE8E8012 ParamsTypes
 
 : ME_27F1AE8E8012
  CONST UID '27F1AE8E8012'
  CONST Name 'pop_Reminder_PopupForm'
+ CONST IsSummoned true
  CONST Class class_Class
  : Stereotype st_ScriptKeyword ;
  CONST Kind kind_NormalClass
@@ -2758,38 +3107,46 @@ ref; // ME_5617F4D00243_ME_27F1AE8E8012 ParamsTypes
  : Parent ME_534FA99B02BB // ReminderWordsPack
  ;
  : Inherits
-   @ ( WL 'ME_5619169603BE' '55CCADD2013D.pas.ms.script' // TtfwPropertyLike
- ) .SequenceCode.It
+   Seq: ( WL 'ME_5619169603BE' '55CCADD2013D.pas.ms.script' // TtfwPropertyLike
+ )
  ; // Inherits
  : Operations
-   @ ( ME_59E14B85260B // PopupForm
+   Seq: ( ME_59E14B85260B // PopupForm
  ME_7F1CDBA1883A // Ini_Reg
- ) .SequenceCode.It
+ )
  ; // Operations
  : Implemented
-   @ ( ME_4DAEEDE10285_ME_27F1AE8E8012 // DoDoIt
- ) .SequenceCode.It
+   Seq: ( ME_4DAEEDE10285_ME_27F1AE8E8012 // DoDoIt
+ )
  ; // Implemented
  : Overridden
-   @ ( ME_4DB0614603C8_ME_27F1AE8E8012 // GetWordNameForRegister
+   Seq: ( ME_4DB0614603C8_ME_27F1AE8E8012 // GetWordNameForRegister
  ME_52D00B00031A_ME_27F1AE8E8012 // SetValuePrim
  ME_551544E2001A_ME_27F1AE8E8012 // GetResultTypeInfo
  ME_559687E6025A_ME_27F1AE8E8012 // GetAllParamsCount
  ME_5617F4D00243_ME_27F1AE8E8012 // ParamsTypes
- ) .SequenceCode.It
+ )
  ; // Overridden
  : Dependencies
-   @ ( ME_2B5916A11BA7 // 
+   Seq: ( ME_2B5916A11BA7 // 
  ME_35BA00D74F5A // 
  ME_8773F00A05DD // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  CONST "NameForScript" 'pop:Reminder:PopupForm'
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
+ CONST dfm:PathOnly '\common\components\rtl\Garant\ScriptEngine'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\ScriptEngine'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
  CONST extprop:pas:TypeName 'TkwPopReminderPopupForm'
+ CONST extprop:rc:SelfName 'PopReminderPopupForm'
+ CONST extprop:rc:isAcceptableForScripts true
+ : SpelledFor ME_C46E09B84480 // PopupForm
+ ;
 
 ref; // ME_27F1AE8E8012 pop_Reminder_PopupForm
 
@@ -2981,6 +3338,8 @@ ref; // ME_550049B10042 PopupForm
  CONST "bind params" 'undefined'
  CONST "lvalue" 'undefined'
  CONST "mapped" true
+ : Speller ME_1C5F9BBE1179 // pop_Reminder_Click
+ ;
 
 ref; // ME_5500482D01F1 Click
 
@@ -3004,12 +3363,14 @@ ref; // ME_55004A510180 aDelta
  : Parent ME_534FA99B02BB // ReminderWordsPack
  ;
  : Parameters
-   @ ( ME_55004A510180 // aDelta
- ) .SequenceCode.It
+   Seq: ( ME_55004A510180 // aDelta
+ )
  ; // Parameters
  CONST "bind params" 'undefined'
  CONST "lvalue" 'undefined'
  CONST "mapped" 'undefined'
+ : Speller ME_0442CDEB32BC // pop_Reminder_Move
+ ;
 
 ref; // ME_55004A3A0131 Move
 
@@ -3027,6 +3388,8 @@ ref; // ME_55004A3A0131 Move
  CONST "bind params" 'undefined'
  CONST "lvalue" 'undefined'
  CONST "mapped" 'undefined'
+ : Speller ME_649B596A6C75 // pop_Reminder_FindEditor
+ ;
 
 ref; // ME_55004A7901B4 FindEditor
 
@@ -3044,12 +3407,15 @@ ref; // ME_55004A7901B4 FindEditor
  CONST "bind params" 'undefined'
  CONST "lvalue" 'undefined'
  CONST "mapped" 'undefined'
+ : Speller ME_C1FAEFF176B2 // pop_Reminder_GetPopupMenu
+ ;
 
 ref; // ME_55004A9B02E5 GetPopupMenu
 
 : ME_C1A312713560
  CONST UID 'C1A312713560'
  CONST Name 'ImageIndex'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_keyword::Operation ;
  CONST Visibility PublicAccess
@@ -3061,12 +3427,15 @@ ref; // ME_55004A9B02E5 GetPopupMenu
  CONST "bind params" 'undefined'
  CONST "lvalue" 'undefined'
  CONST "mapped" true
+ : Speller ME_A580AA2892B6 // pop_Reminder_ImageIndex
+ ;
 
 ref; // ME_C1A312713560 ImageIndex
 
 : ME_87F5BE791240
  CONST UID '87F5BE791240'
  CONST Name 'UserType'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_keyword::Operation ;
  CONST Visibility PublicAccess
@@ -3078,12 +3447,15 @@ ref; // ME_C1A312713560 ImageIndex
  CONST "bind params" 'undefined'
  CONST "lvalue" 'undefined'
  CONST "mapped" true
+ : Speller ME_03823097F08B // pop_Reminder_UserType
+ ;
 
 ref; // ME_87F5BE791240 UserType
 
 : ME_C9DABDBEC583
  CONST UID 'C9DABDBEC583'
  CONST Name 'IsBaloonVisible'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_keyword::Operation ;
  CONST Visibility PublicAccess
@@ -3095,12 +3467,15 @@ ref; // ME_87F5BE791240 UserType
  CONST "bind params" 'undefined'
  CONST "lvalue" 'undefined'
  CONST "mapped" 'undefined'
+ : Speller ME_B5B73476616C // pop_Reminder_IsBaloonVisible
+ ;
 
 ref; // ME_C9DABDBEC583 IsBaloonVisible
 
 : ME_6805FFA6DE0C
  CONST UID '6805FFA6DE0C'
  CONST Name 'Visible'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_keyword::Operation ;
  CONST Visibility PublicAccess
@@ -3112,12 +3487,15 @@ ref; // ME_C9DABDBEC583 IsBaloonVisible
  CONST "bind params" 'undefined'
  CONST "lvalue" 'undefined'
  CONST "mapped" true
+ : Speller ME_86556B367D77 // pop_Reminder_Visible
+ ;
 
 ref; // ME_6805FFA6DE0C Visible
 
 : ME_70CB88304E9B
  CONST UID '70CB88304E9B'
  CONST Name 'Name'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_keyword::Operation ;
  CONST Visibility PublicAccess
@@ -3129,12 +3507,15 @@ ref; // ME_6805FFA6DE0C Visible
  CONST "bind params" 'undefined'
  CONST "lvalue" 'undefined'
  CONST "mapped" true
+ : Speller ME_53BA7E6BD35A // pop_Reminder_Name
+ ;
 
 ref; // ME_70CB88304E9B Name
 
 : ME_37548DB9FC4C
  CONST UID '37548DB9FC4C'
  CONST Name 'Flash'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_keyword::Operation ;
  CONST Visibility PublicAccess
@@ -3146,12 +3527,15 @@ ref; // ME_70CB88304E9B Name
  CONST "bind params" 'undefined'
  CONST "lvalue" 'undefined'
  CONST "mapped" true
+ : Speller ME_41F02D480F88 // pop_Reminder_Flash
+ ;
 
 ref; // ME_37548DB9FC4C Flash
 
 : ME_963DF9269ADB
  CONST UID '963DF9269ADB'
  CONST Name 'TextBackColor'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_keyword::Operation ;
  CONST Visibility PublicAccess
@@ -3163,12 +3547,15 @@ ref; // ME_37548DB9FC4C Flash
  CONST "bind params" 'undefined'
  CONST "lvalue" 'undefined'
  CONST "mapped" 'undefined'
+ : Speller ME_4910B3AB2F0F // pop_Reminder_TextBackColor
+ ;
 
 ref; // ME_963DF9269ADB TextBackColor
 
 : ME_96216B659E7A
  CONST UID '96216B659E7A'
  CONST Name 'ShowHint'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_keyword::Operation ;
  CONST Visibility PublicAccess
@@ -3180,12 +3567,15 @@ ref; // ME_963DF9269ADB TextBackColor
  CONST "bind params" 'undefined'
  CONST "lvalue" 'undefined'
  CONST "mapped" true
+ : Speller ME_01DFD9EDE9C7 // pop_Reminder_ShowHint
+ ;
 
 ref; // ME_96216B659E7A ShowHint
 
 : ME_F266CCD7EA5A
  CONST UID 'F266CCD7EA5A'
  CONST Name 'Caption'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_keyword::Operation ;
  CONST Visibility PublicAccess
@@ -3197,12 +3587,15 @@ ref; // ME_96216B659E7A ShowHint
  CONST "bind params" 'undefined'
  CONST "lvalue" 'undefined'
  CONST "mapped" true
+ : Speller ME_D817B4A59BC2 // pop_Reminder_Caption
+ ;
 
 ref; // ME_F266CCD7EA5A Caption
 
 : ME_4F400F407364
  CONST UID '4F400F407364'
  CONST Name 'Hint'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_keyword::Operation ;
  CONST Visibility PublicAccess
@@ -3214,12 +3607,15 @@ ref; // ME_F266CCD7EA5A Caption
  CONST "bind params" 'undefined'
  CONST "lvalue" 'undefined'
  CONST "mapped" true
+ : Speller ME_3D456BE889E3 // pop_Reminder_Hint
+ ;
 
 ref; // ME_4F400F407364 Hint
 
 : ME_C46E09B84480
  CONST UID 'C46E09B84480'
  CONST Name 'PopupForm'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_keyword::Operation ;
  CONST Visibility PublicAccess
@@ -3231,12 +3627,15 @@ ref; // ME_4F400F407364 Hint
  CONST "bind params" 'undefined'
  CONST "lvalue" 'undefined'
  CONST "mapped" true
+ : Speller ME_27F1AE8E8012 // pop_Reminder_PopupForm
+ ;
 
 ref; // ME_C46E09B84480 PopupForm
 
 : ME_CB39C315EE56
  CONST UID 'CB39C315EE56'
- CONST Name 'Reg_TtfwContext'
+ CONST Name 'Reg_Type_TtfwContext'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Регистрация типа TtfwContext' ;
@@ -3244,12 +3643,15 @@ ref; // ME_C46E09B84480 PopupForm
  CONST Abstraction at_final
  : Parent ME_534FA99B02BB // ReminderWordsPack
  ;
+ : SpelledFor WL 'ME_4DB0091E033E' '4DAF19F600C5.pas.ms.script' // TtfwContext
+ ;
 
-ref; // ME_CB39C315EE56 Reg_TtfwContext
+ref; // ME_CB39C315EE56 Reg_Type_TtfwContext
 
 : ME_364DD005F4F5
  CONST UID '364DD005F4F5'
- CONST Name 'Reg_TvgReminder'
+ CONST Name 'Reg_Type_TvgReminder'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Регистрация типа TvgReminder' ;
@@ -3257,12 +3659,15 @@ ref; // ME_CB39C315EE56 Reg_TtfwContext
  CONST Abstraction at_final
  : Parent ME_534FA99B02BB // ReminderWordsPack
  ;
+ : SpelledFor WL 'ME_532973740186' '53288DFA03A7.pas.ms.script' // TvgReminder
+ ;
 
-ref; // ME_364DD005F4F5 Reg_TvgReminder
+ref; // ME_364DD005F4F5 Reg_Type_TvgReminder
 
 : ME_15EF77D703CB
  CONST UID '15EF77D703CB'
- CONST Name 'Reg_TPoint'
+ CONST Name 'Reg_Type_TPoint'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Регистрация типа TPoint' ;
@@ -3270,12 +3675,15 @@ ref; // ME_364DD005F4F5 Reg_TvgReminder
  CONST Abstraction at_final
  : Parent ME_534FA99B02BB // ReminderWordsPack
  ;
+ : SpelledFor WL 'ME_4739AD110072' '4728A7020026.pas.ms.script' // TPoint
+ ;
 
-ref; // ME_15EF77D703CB Reg_TPoint
+ref; // ME_15EF77D703CB Reg_Type_TPoint
 
 : ME_8FBB30ABCAD5
  CONST UID '8FBB30ABCAD5'
- CONST Name 'Reg_TComponent'
+ CONST Name 'Reg_Type_TComponent'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Регистрация типа TComponent' ;
@@ -3283,12 +3691,15 @@ ref; // ME_15EF77D703CB Reg_TPoint
  CONST Abstraction at_final
  : Parent ME_534FA99B02BB // ReminderWordsPack
  ;
+ : SpelledFor WL 'ME_479878FA0103' '4AB0997B00A2.pas.ms.script' // TComponent
+ ;
 
-ref; // ME_8FBB30ABCAD5 Reg_TComponent
+ref; // ME_8FBB30ABCAD5 Reg_Type_TComponent
 
 : ME_7C72B16C3199
  CONST UID '7C72B16C3199'
- CONST Name 'Reg_TMenuItem'
+ CONST Name 'Reg_Type_TMenuItem'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Регистрация типа TMenuItem' ;
@@ -3296,12 +3707,15 @@ ref; // ME_8FBB30ABCAD5 Reg_TComponent
  CONST Abstraction at_final
  : Parent ME_534FA99B02BB // ReminderWordsPack
  ;
+ : SpelledFor WL 'ME_47E7ABCB0296' '4799D29F033F.pas.ms.script' // TMenuItem
+ ;
 
-ref; // ME_7C72B16C3199 Reg_TMenuItem
+ref; // ME_7C72B16C3199 Reg_Type_TMenuItem
 
 : ME_4B57F7839AB7
  CONST UID '4B57F7839AB7'
- CONST Name 'Reg_Integer'
+ CONST Name 'Reg_Type_Integer'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Регистрация типа Integer' ;
@@ -3309,12 +3723,15 @@ ref; // ME_7C72B16C3199 Reg_TMenuItem
  CONST Abstraction at_final
  : Parent ME_534FA99B02BB // ReminderWordsPack
  ;
+ : SpelledFor WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
 
-ref; // ME_4B57F7839AB7 Reg_Integer
+ref; // ME_4B57F7839AB7 Reg_Type_Integer
 
 : ME_D2885CC4DA22
  CONST UID 'D2885CC4DA22'
- CONST Name 'Reg_Boolean'
+ CONST Name 'Reg_Type_Boolean'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Регистрация типа Boolean' ;
@@ -3322,12 +3739,15 @@ ref; // ME_4B57F7839AB7 Reg_Integer
  CONST Abstraction at_final
  : Parent ME_534FA99B02BB // ReminderWordsPack
  ;
+ : SpelledFor WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
 
-ref; // ME_D2885CC4DA22 Reg_Boolean
+ref; // ME_D2885CC4DA22 Reg_Type_Boolean
 
 : ME_61B2435EAD06
  CONST UID '61B2435EAD06'
- CONST Name 'Reg_String'
+ CONST Name 'Reg_Type_String'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Регистрация типа String' ;
@@ -3335,12 +3755,15 @@ ref; // ME_D2885CC4DA22 Reg_Boolean
  CONST Abstraction at_final
  : Parent ME_534FA99B02BB // ReminderWordsPack
  ;
+ : SpelledFor WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
+ ;
 
-ref; // ME_61B2435EAD06 Reg_String
+ref; // ME_61B2435EAD06 Reg_Type_String
 
 : ME_4875E7034B13
  CONST UID '4875E7034B13'
- CONST Name 'Reg_Il3CString'
+ CONST Name 'Reg_Type_Il3CString'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Регистрация типа Il3CString' ;
@@ -3348,12 +3771,15 @@ ref; // ME_61B2435EAD06 Reg_String
  CONST Abstraction at_final
  : Parent ME_534FA99B02BB // ReminderWordsPack
  ;
+ : SpelledFor WL 'ME_46780DA40383' '4677FBA70343.pas.ms.script' // Il3CString
+ ;
 
-ref; // ME_4875E7034B13 Reg_Il3CString
+ref; // ME_4875E7034B13 Reg_Type_Il3CString
 
 : ME_9846C600A9FD
  CONST UID '9846C600A9FD'
- CONST Name 'Reg_TvtPopupFormModelPart'
+ CONST Name 'Reg_Type_TvtPopupFormModelPart'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Регистрация типа TvtPopupFormModelPart' ;
@@ -3361,8 +3787,10 @@ ref; // ME_4875E7034B13 Reg_Il3CString
  CONST Abstraction at_final
  : Parent ME_534FA99B02BB // ReminderWordsPack
  ;
+ : SpelledFor WL 'ME_4D9058880214' '4D90513F009C.pas.ms.script' // TvtPopupFormModelPart
+ ;
 
-ref; // ME_9846C600A9FD Reg_TvtPopupFormModelPart
+ref; // ME_9846C600A9FD Reg_Type_TvtPopupFormModelPart
 
 : ME_54EC5757010F
  CONST UID '54EC5757010F'
@@ -3423,6 +3851,7 @@ ref; // ME_5500585302D1
 
 : ME_3B869AE8C969
  CONST UID '3B869AE8C969'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_534FA99B02BB // ReminderWordsPack
@@ -3434,6 +3863,7 @@ ref; // ME_3B869AE8C969
 
 : ME_BBD01A2872C6
  CONST UID 'BBD01A2872C6'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_injects::Dependency ;
  : Parent ME_534FA99B02BB // ReminderWordsPack
@@ -3445,6 +3875,7 @@ ref; // ME_BBD01A2872C6
 
 : ME_F34FCBA2F553
  CONST UID 'F34FCBA2F553'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_534FA99B02BB // ReminderWordsPack
@@ -3465,11 +3896,11 @@ ref; // ME_F34FCBA2F553
  : Parent ME_534FA97F003E // ReminderWords
  ;
  : Inherits
-   @ ( WL 'ME_532973740186' '53288DFA03A7.pas.ms.script' // TvgReminder
- ) .SequenceCode.It
+   Seq: ( WL 'ME_532973740186' '53288DFA03A7.pas.ms.script' // TvgReminder
+ )
  ; // Inherits
  : Attributes
-   @ ( ME_5500472C0286 // ImageIndex
+   Seq: ( ME_5500472C0286 // ImageIndex
  ME_55004753008E // UserType
  ME_550047F201E5 // IsBaloonVisible
  ME_5500480F0084 // Visible
@@ -3480,10 +3911,10 @@ ref; // ME_F34FCBA2F553
  ME_5500492F02EB // Caption
  ME_5500495B02A3 // Hint
  ME_550049B10042 // PopupForm
- ) .SequenceCode.It
+ )
  ; // Attributes
  : Operations
-   @ ( ME_5500482D01F1 // Click
+   Seq: ( ME_5500482D01F1 // Click
  ME_55004A3A0131 // Move
  ME_55004A7901B4 // FindEditor
  ME_55004A9B02E5 // GetPopupMenu
@@ -3498,20 +3929,20 @@ ref; // ME_F34FCBA2F553
  ME_F266CCD7EA5A // Caption
  ME_4F400F407364 // Hint
  ME_C46E09B84480 // PopupForm
- ME_CB39C315EE56 // Reg_TtfwContext
- ME_364DD005F4F5 // Reg_TvgReminder
- ME_15EF77D703CB // Reg_TPoint
- ME_8FBB30ABCAD5 // Reg_TComponent
- ME_7C72B16C3199 // Reg_TMenuItem
- ME_4B57F7839AB7 // Reg_Integer
- ME_D2885CC4DA22 // Reg_Boolean
- ME_61B2435EAD06 // Reg_String
- ME_4875E7034B13 // Reg_Il3CString
- ME_9846C600A9FD // Reg_TvtPopupFormModelPart
- ) .SequenceCode.It
+ ME_CB39C315EE56 // Reg_Type_TtfwContext
+ ME_364DD005F4F5 // Reg_Type_TvgReminder
+ ME_15EF77D703CB // Reg_Type_TPoint
+ ME_8FBB30ABCAD5 // Reg_Type_TComponent
+ ME_7C72B16C3199 // Reg_Type_TMenuItem
+ ME_4B57F7839AB7 // Reg_Type_Integer
+ ME_D2885CC4DA22 // Reg_Type_Boolean
+ ME_61B2435EAD06 // Reg_Type_String
+ ME_4875E7034B13 // Reg_Type_Il3CString
+ ME_9846C600A9FD // Reg_Type_TvtPopupFormModelPart
+ )
  ; // Operations
  : Children
-   @ ( ME_1C5F9BBE1179 // pop_Reminder_Click
+   Seq: ( ME_1C5F9BBE1179 // pop_Reminder_Click
  ME_0442CDEB32BC // pop_Reminder_Move
  ME_649B596A6C75 // pop_Reminder_FindEditor
  ME_C1FAEFF176B2 // pop_Reminder_GetPopupMenu
@@ -3526,10 +3957,10 @@ ref; // ME_F34FCBA2F553
  ME_D817B4A59BC2 // pop_Reminder_Caption
  ME_3D456BE889E3 // pop_Reminder_Hint
  ME_27F1AE8E8012 // pop_Reminder_PopupForm
- ) .SequenceCode.It
+ )
  ; // Children
  : Dependencies
-   @ ( ME_54EC5757010F // 
+   Seq: ( ME_54EC5757010F // 
  ME_54EC57BB01C9 // 
  ME_550046ED0287 // 
  ME_55005742035D // 
@@ -3537,25 +3968,25 @@ ref; // ME_F34FCBA2F553
  ME_3B869AE8C969 // 
  ME_BBD01A2872C6 // 
  ME_F34FCBA2F553 // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  CONST "ifndef" 'NoScripts'
  CONST "needs script" 'undefined'
  CONST "no class name" 'undefined'
  CONST "no hands" false
  CONST "no_pop" 'undefined'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\ScriptEngine'
  CONST intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\ReminderWordsPack.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\ScriptEngine'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_534FA99B02BB ReminderWordsPack
 
 : ME_EA750BB5E3DF
  CONST UID 'EA750BB5E3DF'
  CONST Name 'TvgRemindersLineFriend'
+ CONST IsSummoned true
  CONST Class class_Class
  : Stereotype st_SimpleClass ;
  CONST Kind kind_NormalClass
@@ -3565,22 +3996,31 @@ ref; // ME_534FA99B02BB ReminderWordsPack
  : Parent ME_550057160010 // RemindersLineWordsPack
  ;
  : Inherits
-   @ ( WL 'ME_532322D901A3' '53288DFA03A7.pas.ms.script' // TvgRemindersLine
- ) .SequenceCode.It
+   Seq: ( WL 'ME_532322D901A3' '53288DFA03A7.pas.ms.script' // TvgRemindersLine
+ )
  ; // Inherits
  CONST "ifndef" 'NoVGScene'
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" false
+ CONST dfm:PathOnly '\common\components\rtl\Garant\ScriptEngine'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\ScriptEngine'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'RemindersLineFriend'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_EA750BB5E3DF TvgRemindersLineFriend
+
+FORWARD ME_5500582C0070
 
 FORWARD ME_9653AE4CDED4
 
 : ME_FE2596F02361
  CONST UID 'FE2596F02361'
  CONST Name 'aCtx'
+ CONST IsSummoned true
  CONST Class class_Parameter
  : Stereotype st_in ;
  : Target WL 'ME_4DB0091E033E' '4DAF19F600C5.pas.ms.script' // TtfwContext
@@ -3591,6 +4031,7 @@ ref; // ME_FE2596F02361 aCtx
 : ME_FE2596F02362
  CONST UID 'FE2596F02362'
  CONST Name 'aRemindersLine'
+ CONST IsSummoned true
  CONST Class class_Parameter
  : Stereotype st_in ;
  : Target WL 'ME_532322D901A3' '53288DFA03A7.pas.ms.script' // TvgRemindersLine
@@ -3601,6 +4042,7 @@ ref; // ME_FE2596F02362 aRemindersLine
 : ME_FE2596F02363
  CONST UID 'FE2596F02363'
  CONST Name 'aPoint'
+ CONST IsSummoned true
  CONST Class class_Parameter
  : Stereotype st_in ;
  : Target WL 'ME_4739AD110072' '4728A7020026.pas.ms.script' // TPoint
@@ -3611,6 +4053,7 @@ ref; // ME_FE2596F02363 aPoint
 : ME_49A3CD754B3E
  CONST UID '49A3CD754B3E'
  CONST Name 'ClientToScreen'
+ CONST IsSummoned true
  CONST Class class_Operation
  %SUMMARY 'Реализация слова скрипта pop:RemindersLine:ClientToScreen' ;
  CONST Visibility PrivateAccess
@@ -3620,10 +4063,10 @@ ref; // ME_FE2596F02363 aPoint
  : Target WL 'ME_4739AD110072' '4728A7020026.pas.ms.script' // TPoint
  ;
  : Parameters
-   @ ( ME_FE2596F02361 // aCtx
+   Seq: ( ME_FE2596F02361 // aCtx
  ME_FE2596F02362 // aRemindersLine
  ME_FE2596F02363 // aPoint
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_49A3CD754B3E ClientToScreen
@@ -3631,6 +4074,7 @@ ref; // ME_49A3CD754B3E ClientToScreen
 : ME_EFDE9D53C573
  CONST UID 'EFDE9D53C573'
  CONST Name 'Ini_Reg'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Регистрация pop_RemindersLine_ClientToScreen' ;
@@ -3643,6 +4087,7 @@ ref; // ME_EFDE9D53C573 Ini_Reg
 
 : ME_E69CB4FE969C
  CONST UID 'E69CB4FE969C'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_9653AE4CDED4 // pop_RemindersLine_ClientToScreen
@@ -3654,6 +4099,7 @@ ref; // ME_E69CB4FE969C
 
 : ME_0D45DC6BBB77
  CONST UID '0D45DC6BBB77'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_9653AE4CDED4 // pop_RemindersLine_ClientToScreen
@@ -3665,6 +4111,7 @@ ref; // ME_0D45DC6BBB77
 
 : ME_889961F071B8
  CONST UID '889961F071B8'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_9653AE4CDED4 // pop_RemindersLine_ClientToScreen
@@ -3681,6 +4128,7 @@ ref; // ME_889961F071B8
  ;
  : Implementor ME_9653AE4CDED4 // pop_RemindersLine_ClientToScreen
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_4DAEEDE10285_ME_9653AE4CDED4 DoDoIt
 
 : ME_4DB0614603C8_ME_9653AE4CDED4
@@ -3690,6 +4138,7 @@ ref; // ME_4DAEEDE10285_ME_9653AE4CDED4 DoDoIt
  ;
  : Implementor ME_9653AE4CDED4 // pop_RemindersLine_ClientToScreen
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4DB0614603C8_ME_9653AE4CDED4 GetWordNameForRegister
 
 : ME_551544E2001A_ME_9653AE4CDED4
@@ -3699,6 +4148,7 @@ ref; // ME_4DB0614603C8_ME_9653AE4CDED4 GetWordNameForRegister
  ;
  : Implementor ME_9653AE4CDED4 // pop_RemindersLine_ClientToScreen
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_551544E2001A_ME_9653AE4CDED4 GetResultTypeInfo
 
 : ME_559687E6025A_ME_9653AE4CDED4
@@ -3708,6 +4158,7 @@ ref; // ME_551544E2001A_ME_9653AE4CDED4 GetResultTypeInfo
  ;
  : Implementor ME_9653AE4CDED4 // pop_RemindersLine_ClientToScreen
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_559687E6025A_ME_9653AE4CDED4 GetAllParamsCount
 
 : ME_5617F4D00243_ME_9653AE4CDED4
@@ -3717,11 +4168,13 @@ ref; // ME_559687E6025A_ME_9653AE4CDED4 GetAllParamsCount
  ;
  : Implementor ME_9653AE4CDED4 // pop_RemindersLine_ClientToScreen
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_5617F4D00243_ME_9653AE4CDED4 ParamsTypes
 
 : ME_9653AE4CDED4
  CONST UID '9653AE4CDED4'
  CONST Name 'pop_RemindersLine_ClientToScreen'
+ CONST IsSummoned true
  CONST Class class_Class
  : Stereotype st_ScriptKeyword ;
  CONST Kind kind_NormalClass
@@ -3731,45 +4184,56 @@ ref; // ME_5617F4D00243_ME_9653AE4CDED4 ParamsTypes
  : Parent ME_550057160010 // RemindersLineWordsPack
  ;
  : Inherits
-   @ ( WL 'ME_55CCAE000335' '55CCADD2013D.pas.ms.script' // TtfwClassLike
- ) .SequenceCode.It
+   Seq: ( WL 'ME_55CCAE000335' '55CCADD2013D.pas.ms.script' // TtfwClassLike
+ )
  ; // Inherits
  : Operations
-   @ ( ME_49A3CD754B3E // ClientToScreen
+   Seq: ( ME_49A3CD754B3E // ClientToScreen
  ME_EFDE9D53C573 // Ini_Reg
- ) .SequenceCode.It
+ )
  ; // Operations
  : Implemented
-   @ ( ME_4DAEEDE10285_ME_9653AE4CDED4 // DoDoIt
- ) .SequenceCode.It
+   Seq: ( ME_4DAEEDE10285_ME_9653AE4CDED4 // DoDoIt
+ )
  ; // Implemented
  : Overridden
-   @ ( ME_4DB0614603C8_ME_9653AE4CDED4 // GetWordNameForRegister
+   Seq: ( ME_4DB0614603C8_ME_9653AE4CDED4 // GetWordNameForRegister
  ME_551544E2001A_ME_9653AE4CDED4 // GetResultTypeInfo
  ME_559687E6025A_ME_9653AE4CDED4 // GetAllParamsCount
  ME_5617F4D00243_ME_9653AE4CDED4 // ParamsTypes
- ) .SequenceCode.It
+ )
  ; // Overridden
  : Dependencies
-   @ ( ME_E69CB4FE969C // 
+   Seq: ( ME_E69CB4FE969C // 
  ME_0D45DC6BBB77 // 
  ME_889961F071B8 // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  CONST "NameForScript" 'pop:RemindersLine:ClientToScreen'
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
+ CONST dfm:PathOnly '\common\components\rtl\Garant\ScriptEngine'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\ScriptEngine'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
  CONST extprop:pas:TypeName 'TkwPopRemindersLineClientToScreen'
+ CONST extprop:rc:SelfName 'PopRemindersLineClientToScreen'
+ CONST extprop:rc:isAcceptableForScripts true
+ : SpelledFor ME_5500582C0070 // ClientToScreen
+ ;
 
 ref; // ME_9653AE4CDED4 pop_RemindersLine_ClientToScreen
+
+FORWARD ME_550058BD036F
 
 FORWARD ME_FF04F6E03205
 
 : ME_C00F467E86E7
  CONST UID 'C00F467E86E7'
  CONST Name 'aCtx'
+ CONST IsSummoned true
  CONST Class class_Parameter
  : Stereotype st_in ;
  : Target WL 'ME_4DB0091E033E' '4DAF19F600C5.pas.ms.script' // TtfwContext
@@ -3780,6 +4244,7 @@ ref; // ME_C00F467E86E7 aCtx
 : ME_C00F467E86E8
  CONST UID 'C00F467E86E8'
  CONST Name 'aRemindersLine'
+ CONST IsSummoned true
  CONST Class class_Parameter
  : Stereotype st_in ;
  : Target WL 'ME_532322D901A3' '53288DFA03A7.pas.ms.script' // TvgRemindersLine
@@ -3790,6 +4255,7 @@ ref; // ME_C00F467E86E8 aRemindersLine
 : ME_C00F467E86E9
  CONST UID 'C00F467E86E9'
  CONST Name 'anIndex'
+ CONST IsSummoned true
  CONST Class class_Parameter
  : Stereotype st_in ;
  : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
@@ -3800,6 +4266,7 @@ ref; // ME_C00F467E86E9 anIndex
 : ME_E8E2745918DB
  CONST UID 'E8E2745918DB'
  CONST Name 'GetReminder'
+ CONST IsSummoned true
  CONST Class class_Operation
  %SUMMARY 'Реализация слова скрипта pop:RemindersLine:GetReminder' ;
  CONST Visibility PrivateAccess
@@ -3809,10 +4276,10 @@ ref; // ME_C00F467E86E9 anIndex
  : Target WL 'ME_532973740186' '53288DFA03A7.pas.ms.script' // TvgReminder
  ;
  : Parameters
-   @ ( ME_C00F467E86E7 // aCtx
+   Seq: ( ME_C00F467E86E7 // aCtx
  ME_C00F467E86E8 // aRemindersLine
  ME_C00F467E86E9 // anIndex
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_E8E2745918DB GetReminder
@@ -3820,6 +4287,7 @@ ref; // ME_E8E2745918DB GetReminder
 : ME_77A1FDDC9CCA
  CONST UID '77A1FDDC9CCA'
  CONST Name 'Ini_Reg'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Регистрация pop_RemindersLine_GetReminder' ;
@@ -3832,6 +4300,7 @@ ref; // ME_77A1FDDC9CCA Ini_Reg
 
 : ME_E0F2A09DE532
  CONST UID 'E0F2A09DE532'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_FF04F6E03205 // pop_RemindersLine_GetReminder
@@ -3843,6 +4312,7 @@ ref; // ME_E0F2A09DE532
 
 : ME_C40BEA332E7B
  CONST UID 'C40BEA332E7B'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_FF04F6E03205 // pop_RemindersLine_GetReminder
@@ -3854,6 +4324,7 @@ ref; // ME_C40BEA332E7B
 
 : ME_39ACC54DACDB
  CONST UID '39ACC54DACDB'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_FF04F6E03205 // pop_RemindersLine_GetReminder
@@ -3870,6 +4341,7 @@ ref; // ME_39ACC54DACDB
  ;
  : Implementor ME_FF04F6E03205 // pop_RemindersLine_GetReminder
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_4DAEEDE10285_ME_FF04F6E03205 DoDoIt
 
 : ME_4DB0614603C8_ME_FF04F6E03205
@@ -3879,6 +4351,7 @@ ref; // ME_4DAEEDE10285_ME_FF04F6E03205 DoDoIt
  ;
  : Implementor ME_FF04F6E03205 // pop_RemindersLine_GetReminder
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4DB0614603C8_ME_FF04F6E03205 GetWordNameForRegister
 
 : ME_551544E2001A_ME_FF04F6E03205
@@ -3888,6 +4361,7 @@ ref; // ME_4DB0614603C8_ME_FF04F6E03205 GetWordNameForRegister
  ;
  : Implementor ME_FF04F6E03205 // pop_RemindersLine_GetReminder
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_551544E2001A_ME_FF04F6E03205 GetResultTypeInfo
 
 : ME_559687E6025A_ME_FF04F6E03205
@@ -3897,6 +4371,7 @@ ref; // ME_551544E2001A_ME_FF04F6E03205 GetResultTypeInfo
  ;
  : Implementor ME_FF04F6E03205 // pop_RemindersLine_GetReminder
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_559687E6025A_ME_FF04F6E03205 GetAllParamsCount
 
 : ME_5617F4D00243_ME_FF04F6E03205
@@ -3906,11 +4381,13 @@ ref; // ME_559687E6025A_ME_FF04F6E03205 GetAllParamsCount
  ;
  : Implementor ME_FF04F6E03205 // pop_RemindersLine_GetReminder
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_5617F4D00243_ME_FF04F6E03205 ParamsTypes
 
 : ME_FF04F6E03205
  CONST UID 'FF04F6E03205'
  CONST Name 'pop_RemindersLine_GetReminder'
+ CONST IsSummoned true
  CONST Class class_Class
  : Stereotype st_ScriptKeyword ;
  CONST Kind kind_NormalClass
@@ -3920,45 +4397,56 @@ ref; // ME_5617F4D00243_ME_FF04F6E03205 ParamsTypes
  : Parent ME_550057160010 // RemindersLineWordsPack
  ;
  : Inherits
-   @ ( WL 'ME_55CCAE000335' '55CCADD2013D.pas.ms.script' // TtfwClassLike
- ) .SequenceCode.It
+   Seq: ( WL 'ME_55CCAE000335' '55CCADD2013D.pas.ms.script' // TtfwClassLike
+ )
  ; // Inherits
  : Operations
-   @ ( ME_E8E2745918DB // GetReminder
+   Seq: ( ME_E8E2745918DB // GetReminder
  ME_77A1FDDC9CCA // Ini_Reg
- ) .SequenceCode.It
+ )
  ; // Operations
  : Implemented
-   @ ( ME_4DAEEDE10285_ME_FF04F6E03205 // DoDoIt
- ) .SequenceCode.It
+   Seq: ( ME_4DAEEDE10285_ME_FF04F6E03205 // DoDoIt
+ )
  ; // Implemented
  : Overridden
-   @ ( ME_4DB0614603C8_ME_FF04F6E03205 // GetWordNameForRegister
+   Seq: ( ME_4DB0614603C8_ME_FF04F6E03205 // GetWordNameForRegister
  ME_551544E2001A_ME_FF04F6E03205 // GetResultTypeInfo
  ME_559687E6025A_ME_FF04F6E03205 // GetAllParamsCount
  ME_5617F4D00243_ME_FF04F6E03205 // ParamsTypes
- ) .SequenceCode.It
+ )
  ; // Overridden
  : Dependencies
-   @ ( ME_E0F2A09DE532 // 
+   Seq: ( ME_E0F2A09DE532 // 
  ME_C40BEA332E7B // 
  ME_39ACC54DACDB // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  CONST "NameForScript" 'pop:RemindersLine:GetReminder'
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
+ CONST dfm:PathOnly '\common\components\rtl\Garant\ScriptEngine'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\ScriptEngine'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
  CONST extprop:pas:TypeName 'TkwPopRemindersLineGetReminder'
+ CONST extprop:rc:SelfName 'PopRemindersLineGetReminder'
+ CONST extprop:rc:isAcceptableForScripts true
+ : SpelledFor ME_550058BD036F // GetReminder
+ ;
 
 ref; // ME_FF04F6E03205 pop_RemindersLine_GetReminder
+
+FORWARD ME_0641D684732E
 
 FORWARD ME_F126CBF8C36E
 
 : ME_C1238B3602B2
  CONST UID 'C1238B3602B2'
  CONST Name 'aCtx'
+ CONST IsSummoned true
  CONST Class class_Parameter
  : Stereotype st_in ;
  : Target WL 'ME_4DB0091E033E' '4DAF19F600C5.pas.ms.script' // TtfwContext
@@ -3969,6 +4457,7 @@ ref; // ME_C1238B3602B2 aCtx
 : ME_C1238B3602B3
  CONST UID 'C1238B3602B3'
  CONST Name 'aRemindersLine'
+ CONST IsSummoned true
  CONST Class class_Parameter
  : Stereotype st_in ;
  : Target WL 'ME_532322D901A3' '53288DFA03A7.pas.ms.script' // TvgRemindersLine
@@ -3979,6 +4468,7 @@ ref; // ME_C1238B3602B3 aRemindersLine
 : ME_098686462F4C
  CONST UID '098686462F4C'
  CONST Name 'AbsLeft'
+ CONST IsSummoned true
  CONST Class class_Operation
  %SUMMARY 'Реализация слова скрипта pop:RemindersLine:AbsLeft' ;
  CONST Visibility PrivateAccess
@@ -3988,9 +4478,9 @@ ref; // ME_C1238B3602B3 aRemindersLine
  : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
  ;
  : Parameters
-   @ ( ME_C1238B3602B2 // aCtx
+   Seq: ( ME_C1238B3602B2 // aCtx
  ME_C1238B3602B3 // aRemindersLine
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_098686462F4C AbsLeft
@@ -3998,6 +4488,7 @@ ref; // ME_098686462F4C AbsLeft
 : ME_C02018171F28
  CONST UID 'C02018171F28'
  CONST Name 'Ini_Reg'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Регистрация pop_RemindersLine_AbsLeft' ;
@@ -4010,6 +4501,7 @@ ref; // ME_C02018171F28 Ini_Reg
 
 : ME_E6E0DEE7B324
  CONST UID 'E6E0DEE7B324'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_F126CBF8C36E // pop_RemindersLine_AbsLeft
@@ -4021,6 +4513,7 @@ ref; // ME_E6E0DEE7B324
 
 : ME_DEB7A21671E3
  CONST UID 'DEB7A21671E3'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_F126CBF8C36E // pop_RemindersLine_AbsLeft
@@ -4032,6 +4525,7 @@ ref; // ME_DEB7A21671E3
 
 : ME_C7CFD7E515E1
  CONST UID 'C7CFD7E515E1'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_F126CBF8C36E // pop_RemindersLine_AbsLeft
@@ -4048,6 +4542,7 @@ ref; // ME_C7CFD7E515E1
  ;
  : Implementor ME_F126CBF8C36E // pop_RemindersLine_AbsLeft
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_4DAEEDE10285_ME_F126CBF8C36E DoDoIt
 
 : ME_4DB0614603C8_ME_F126CBF8C36E
@@ -4057,6 +4552,7 @@ ref; // ME_4DAEEDE10285_ME_F126CBF8C36E DoDoIt
  ;
  : Implementor ME_F126CBF8C36E // pop_RemindersLine_AbsLeft
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4DB0614603C8_ME_F126CBF8C36E GetWordNameForRegister
 
 : ME_52D00B00031A_ME_F126CBF8C36E
@@ -4066,6 +4562,7 @@ ref; // ME_4DB0614603C8_ME_F126CBF8C36E GetWordNameForRegister
  ;
  : Implementor ME_F126CBF8C36E // pop_RemindersLine_AbsLeft
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_52D00B00031A_ME_F126CBF8C36E SetValuePrim
 
 : ME_551544E2001A_ME_F126CBF8C36E
@@ -4075,6 +4572,7 @@ ref; // ME_52D00B00031A_ME_F126CBF8C36E SetValuePrim
  ;
  : Implementor ME_F126CBF8C36E // pop_RemindersLine_AbsLeft
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_551544E2001A_ME_F126CBF8C36E GetResultTypeInfo
 
 : ME_559687E6025A_ME_F126CBF8C36E
@@ -4084,6 +4582,7 @@ ref; // ME_551544E2001A_ME_F126CBF8C36E GetResultTypeInfo
  ;
  : Implementor ME_F126CBF8C36E // pop_RemindersLine_AbsLeft
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_559687E6025A_ME_F126CBF8C36E GetAllParamsCount
 
 : ME_5617F4D00243_ME_F126CBF8C36E
@@ -4093,11 +4592,13 @@ ref; // ME_559687E6025A_ME_F126CBF8C36E GetAllParamsCount
  ;
  : Implementor ME_F126CBF8C36E // pop_RemindersLine_AbsLeft
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_5617F4D00243_ME_F126CBF8C36E ParamsTypes
 
 : ME_F126CBF8C36E
  CONST UID 'F126CBF8C36E'
  CONST Name 'pop_RemindersLine_AbsLeft'
+ CONST IsSummoned true
  CONST Class class_Class
  : Stereotype st_ScriptKeyword ;
  CONST Kind kind_NormalClass
@@ -4107,46 +4608,57 @@ ref; // ME_5617F4D00243_ME_F126CBF8C36E ParamsTypes
  : Parent ME_550057160010 // RemindersLineWordsPack
  ;
  : Inherits
-   @ ( WL 'ME_5619169603BE' '55CCADD2013D.pas.ms.script' // TtfwPropertyLike
- ) .SequenceCode.It
+   Seq: ( WL 'ME_5619169603BE' '55CCADD2013D.pas.ms.script' // TtfwPropertyLike
+ )
  ; // Inherits
  : Operations
-   @ ( ME_098686462F4C // AbsLeft
+   Seq: ( ME_098686462F4C // AbsLeft
  ME_C02018171F28 // Ini_Reg
- ) .SequenceCode.It
+ )
  ; // Operations
  : Implemented
-   @ ( ME_4DAEEDE10285_ME_F126CBF8C36E // DoDoIt
- ) .SequenceCode.It
+   Seq: ( ME_4DAEEDE10285_ME_F126CBF8C36E // DoDoIt
+ )
  ; // Implemented
  : Overridden
-   @ ( ME_4DB0614603C8_ME_F126CBF8C36E // GetWordNameForRegister
+   Seq: ( ME_4DB0614603C8_ME_F126CBF8C36E // GetWordNameForRegister
  ME_52D00B00031A_ME_F126CBF8C36E // SetValuePrim
  ME_551544E2001A_ME_F126CBF8C36E // GetResultTypeInfo
  ME_559687E6025A_ME_F126CBF8C36E // GetAllParamsCount
  ME_5617F4D00243_ME_F126CBF8C36E // ParamsTypes
- ) .SequenceCode.It
+ )
  ; // Overridden
  : Dependencies
-   @ ( ME_E6E0DEE7B324 // 
+   Seq: ( ME_E6E0DEE7B324 // 
  ME_DEB7A21671E3 // 
  ME_C7CFD7E515E1 // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  CONST "NameForScript" 'pop:RemindersLine:AbsLeft'
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
+ CONST dfm:PathOnly '\common\components\rtl\Garant\ScriptEngine'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\ScriptEngine'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
  CONST extprop:pas:TypeName 'TkwPopRemindersLineAbsLeft'
+ CONST extprop:rc:SelfName 'PopRemindersLineAbsLeft'
+ CONST extprop:rc:isAcceptableForScripts true
+ : SpelledFor ME_0641D684732E // AbsLeft
+ ;
 
 ref; // ME_F126CBF8C36E pop_RemindersLine_AbsLeft
+
+FORWARD ME_1FF1E3F5AC48
 
 FORWARD ME_1F4F64719530
 
 : ME_9865D6D874D8
  CONST UID '9865D6D874D8'
  CONST Name 'aCtx'
+ CONST IsSummoned true
  CONST Class class_Parameter
  : Stereotype st_in ;
  : Target WL 'ME_4DB0091E033E' '4DAF19F600C5.pas.ms.script' // TtfwContext
@@ -4157,6 +4669,7 @@ ref; // ME_9865D6D874D8 aCtx
 : ME_9865D6D874D9
  CONST UID '9865D6D874D9'
  CONST Name 'aRemindersLine'
+ CONST IsSummoned true
  CONST Class class_Parameter
  : Stereotype st_in ;
  : Target WL 'ME_532322D901A3' '53288DFA03A7.pas.ms.script' // TvgRemindersLine
@@ -4167,6 +4680,7 @@ ref; // ME_9865D6D874D9 aRemindersLine
 : ME_0D9680EB1A19
  CONST UID '0D9680EB1A19'
  CONST Name 'AbsTop'
+ CONST IsSummoned true
  CONST Class class_Operation
  %SUMMARY 'Реализация слова скрипта pop:RemindersLine:AbsTop' ;
  CONST Visibility PrivateAccess
@@ -4176,9 +4690,9 @@ ref; // ME_9865D6D874D9 aRemindersLine
  : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
  ;
  : Parameters
-   @ ( ME_9865D6D874D8 // aCtx
+   Seq: ( ME_9865D6D874D8 // aCtx
  ME_9865D6D874D9 // aRemindersLine
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_0D9680EB1A19 AbsTop
@@ -4186,6 +4700,7 @@ ref; // ME_0D9680EB1A19 AbsTop
 : ME_C6CA4852D112
  CONST UID 'C6CA4852D112'
  CONST Name 'Ini_Reg'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Регистрация pop_RemindersLine_AbsTop' ;
@@ -4198,6 +4713,7 @@ ref; // ME_C6CA4852D112 Ini_Reg
 
 : ME_85208405F7D7
  CONST UID '85208405F7D7'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_1F4F64719530 // pop_RemindersLine_AbsTop
@@ -4209,6 +4725,7 @@ ref; // ME_85208405F7D7
 
 : ME_D175E3129B42
  CONST UID 'D175E3129B42'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_1F4F64719530 // pop_RemindersLine_AbsTop
@@ -4220,6 +4737,7 @@ ref; // ME_D175E3129B42
 
 : ME_8D8E558D07DD
  CONST UID '8D8E558D07DD'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_1F4F64719530 // pop_RemindersLine_AbsTop
@@ -4236,6 +4754,7 @@ ref; // ME_8D8E558D07DD
  ;
  : Implementor ME_1F4F64719530 // pop_RemindersLine_AbsTop
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_4DAEEDE10285_ME_1F4F64719530 DoDoIt
 
 : ME_4DB0614603C8_ME_1F4F64719530
@@ -4245,6 +4764,7 @@ ref; // ME_4DAEEDE10285_ME_1F4F64719530 DoDoIt
  ;
  : Implementor ME_1F4F64719530 // pop_RemindersLine_AbsTop
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4DB0614603C8_ME_1F4F64719530 GetWordNameForRegister
 
 : ME_52D00B00031A_ME_1F4F64719530
@@ -4254,6 +4774,7 @@ ref; // ME_4DB0614603C8_ME_1F4F64719530 GetWordNameForRegister
  ;
  : Implementor ME_1F4F64719530 // pop_RemindersLine_AbsTop
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_52D00B00031A_ME_1F4F64719530 SetValuePrim
 
 : ME_551544E2001A_ME_1F4F64719530
@@ -4263,6 +4784,7 @@ ref; // ME_52D00B00031A_ME_1F4F64719530 SetValuePrim
  ;
  : Implementor ME_1F4F64719530 // pop_RemindersLine_AbsTop
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_551544E2001A_ME_1F4F64719530 GetResultTypeInfo
 
 : ME_559687E6025A_ME_1F4F64719530
@@ -4272,6 +4794,7 @@ ref; // ME_551544E2001A_ME_1F4F64719530 GetResultTypeInfo
  ;
  : Implementor ME_1F4F64719530 // pop_RemindersLine_AbsTop
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_559687E6025A_ME_1F4F64719530 GetAllParamsCount
 
 : ME_5617F4D00243_ME_1F4F64719530
@@ -4281,11 +4804,13 @@ ref; // ME_559687E6025A_ME_1F4F64719530 GetAllParamsCount
  ;
  : Implementor ME_1F4F64719530 // pop_RemindersLine_AbsTop
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_5617F4D00243_ME_1F4F64719530 ParamsTypes
 
 : ME_1F4F64719530
  CONST UID '1F4F64719530'
  CONST Name 'pop_RemindersLine_AbsTop'
+ CONST IsSummoned true
  CONST Class class_Class
  : Stereotype st_ScriptKeyword ;
  CONST Kind kind_NormalClass
@@ -4295,46 +4820,57 @@ ref; // ME_5617F4D00243_ME_1F4F64719530 ParamsTypes
  : Parent ME_550057160010 // RemindersLineWordsPack
  ;
  : Inherits
-   @ ( WL 'ME_5619169603BE' '55CCADD2013D.pas.ms.script' // TtfwPropertyLike
- ) .SequenceCode.It
+   Seq: ( WL 'ME_5619169603BE' '55CCADD2013D.pas.ms.script' // TtfwPropertyLike
+ )
  ; // Inherits
  : Operations
-   @ ( ME_0D9680EB1A19 // AbsTop
+   Seq: ( ME_0D9680EB1A19 // AbsTop
  ME_C6CA4852D112 // Ini_Reg
- ) .SequenceCode.It
+ )
  ; // Operations
  : Implemented
-   @ ( ME_4DAEEDE10285_ME_1F4F64719530 // DoDoIt
- ) .SequenceCode.It
+   Seq: ( ME_4DAEEDE10285_ME_1F4F64719530 // DoDoIt
+ )
  ; // Implemented
  : Overridden
-   @ ( ME_4DB0614603C8_ME_1F4F64719530 // GetWordNameForRegister
+   Seq: ( ME_4DB0614603C8_ME_1F4F64719530 // GetWordNameForRegister
  ME_52D00B00031A_ME_1F4F64719530 // SetValuePrim
  ME_551544E2001A_ME_1F4F64719530 // GetResultTypeInfo
  ME_559687E6025A_ME_1F4F64719530 // GetAllParamsCount
  ME_5617F4D00243_ME_1F4F64719530 // ParamsTypes
- ) .SequenceCode.It
+ )
  ; // Overridden
  : Dependencies
-   @ ( ME_85208405F7D7 // 
+   Seq: ( ME_85208405F7D7 // 
  ME_D175E3129B42 // 
  ME_8D8E558D07DD // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  CONST "NameForScript" 'pop:RemindersLine:AbsTop'
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
+ CONST dfm:PathOnly '\common\components\rtl\Garant\ScriptEngine'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\ScriptEngine'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
  CONST extprop:pas:TypeName 'TkwPopRemindersLineAbsTop'
+ CONST extprop:rc:SelfName 'PopRemindersLineAbsTop'
+ CONST extprop:rc:isAcceptableForScripts true
+ : SpelledFor ME_1FF1E3F5AC48 // AbsTop
+ ;
 
 ref; // ME_1F4F64719530 pop_RemindersLine_AbsTop
+
+FORWARD ME_062BCA81F7FC
 
 FORWARD ME_445623FA8275
 
 : ME_0D4C8D38AF38
  CONST UID '0D4C8D38AF38'
  CONST Name 'aCtx'
+ CONST IsSummoned true
  CONST Class class_Parameter
  : Stereotype st_in ;
  : Target WL 'ME_4DB0091E033E' '4DAF19F600C5.pas.ms.script' // TtfwContext
@@ -4345,6 +4881,7 @@ ref; // ME_0D4C8D38AF38 aCtx
 : ME_0D4C8D38AF39
  CONST UID '0D4C8D38AF39'
  CONST Name 'aRemindersLine'
+ CONST IsSummoned true
  CONST Class class_Parameter
  : Stereotype st_in ;
  : Target WL 'ME_532322D901A3' '53288DFA03A7.pas.ms.script' // TvgRemindersLine
@@ -4355,6 +4892,7 @@ ref; // ME_0D4C8D38AF39 aRemindersLine
 : ME_8837FD9CBC1A
  CONST UID '8837FD9CBC1A'
  CONST Name 'Count'
+ CONST IsSummoned true
  CONST Class class_Operation
  %SUMMARY 'Реализация слова скрипта pop:RemindersLine:Count' ;
  CONST Visibility PrivateAccess
@@ -4364,9 +4902,9 @@ ref; // ME_0D4C8D38AF39 aRemindersLine
  : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
  ;
  : Parameters
-   @ ( ME_0D4C8D38AF38 // aCtx
+   Seq: ( ME_0D4C8D38AF38 // aCtx
  ME_0D4C8D38AF39 // aRemindersLine
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_8837FD9CBC1A Count
@@ -4374,6 +4912,7 @@ ref; // ME_8837FD9CBC1A Count
 : ME_31779196C476
  CONST UID '31779196C476'
  CONST Name 'Ini_Reg'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Регистрация pop_RemindersLine_Count' ;
@@ -4386,6 +4925,7 @@ ref; // ME_31779196C476 Ini_Reg
 
 : ME_38D6EC97EB60
  CONST UID '38D6EC97EB60'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_445623FA8275 // pop_RemindersLine_Count
@@ -4397,6 +4937,7 @@ ref; // ME_38D6EC97EB60
 
 : ME_DC4E5B42C0AD
  CONST UID 'DC4E5B42C0AD'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_445623FA8275 // pop_RemindersLine_Count
@@ -4408,6 +4949,7 @@ ref; // ME_DC4E5B42C0AD
 
 : ME_A7C61837E785
  CONST UID 'A7C61837E785'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_445623FA8275 // pop_RemindersLine_Count
@@ -4424,6 +4966,7 @@ ref; // ME_A7C61837E785
  ;
  : Implementor ME_445623FA8275 // pop_RemindersLine_Count
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_4DAEEDE10285_ME_445623FA8275 DoDoIt
 
 : ME_4DB0614603C8_ME_445623FA8275
@@ -4433,6 +4976,7 @@ ref; // ME_4DAEEDE10285_ME_445623FA8275 DoDoIt
  ;
  : Implementor ME_445623FA8275 // pop_RemindersLine_Count
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4DB0614603C8_ME_445623FA8275 GetWordNameForRegister
 
 : ME_52D00B00031A_ME_445623FA8275
@@ -4442,6 +4986,7 @@ ref; // ME_4DB0614603C8_ME_445623FA8275 GetWordNameForRegister
  ;
  : Implementor ME_445623FA8275 // pop_RemindersLine_Count
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_52D00B00031A_ME_445623FA8275 SetValuePrim
 
 : ME_551544E2001A_ME_445623FA8275
@@ -4451,6 +4996,7 @@ ref; // ME_52D00B00031A_ME_445623FA8275 SetValuePrim
  ;
  : Implementor ME_445623FA8275 // pop_RemindersLine_Count
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_551544E2001A_ME_445623FA8275 GetResultTypeInfo
 
 : ME_559687E6025A_ME_445623FA8275
@@ -4460,6 +5006,7 @@ ref; // ME_551544E2001A_ME_445623FA8275 GetResultTypeInfo
  ;
  : Implementor ME_445623FA8275 // pop_RemindersLine_Count
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_559687E6025A_ME_445623FA8275 GetAllParamsCount
 
 : ME_5617F4D00243_ME_445623FA8275
@@ -4469,11 +5016,13 @@ ref; // ME_559687E6025A_ME_445623FA8275 GetAllParamsCount
  ;
  : Implementor ME_445623FA8275 // pop_RemindersLine_Count
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_5617F4D00243_ME_445623FA8275 ParamsTypes
 
 : ME_445623FA8275
  CONST UID '445623FA8275'
  CONST Name 'pop_RemindersLine_Count'
+ CONST IsSummoned true
  CONST Class class_Class
  : Stereotype st_ScriptKeyword ;
  CONST Kind kind_NormalClass
@@ -4483,46 +5032,57 @@ ref; // ME_5617F4D00243_ME_445623FA8275 ParamsTypes
  : Parent ME_550057160010 // RemindersLineWordsPack
  ;
  : Inherits
-   @ ( WL 'ME_5619169603BE' '55CCADD2013D.pas.ms.script' // TtfwPropertyLike
- ) .SequenceCode.It
+   Seq: ( WL 'ME_5619169603BE' '55CCADD2013D.pas.ms.script' // TtfwPropertyLike
+ )
  ; // Inherits
  : Operations
-   @ ( ME_8837FD9CBC1A // Count
+   Seq: ( ME_8837FD9CBC1A // Count
  ME_31779196C476 // Ini_Reg
- ) .SequenceCode.It
+ )
  ; // Operations
  : Implemented
-   @ ( ME_4DAEEDE10285_ME_445623FA8275 // DoDoIt
- ) .SequenceCode.It
+   Seq: ( ME_4DAEEDE10285_ME_445623FA8275 // DoDoIt
+ )
  ; // Implemented
  : Overridden
-   @ ( ME_4DB0614603C8_ME_445623FA8275 // GetWordNameForRegister
+   Seq: ( ME_4DB0614603C8_ME_445623FA8275 // GetWordNameForRegister
  ME_52D00B00031A_ME_445623FA8275 // SetValuePrim
  ME_551544E2001A_ME_445623FA8275 // GetResultTypeInfo
  ME_559687E6025A_ME_445623FA8275 // GetAllParamsCount
  ME_5617F4D00243_ME_445623FA8275 // ParamsTypes
- ) .SequenceCode.It
+ )
  ; // Overridden
  : Dependencies
-   @ ( ME_38D6EC97EB60 // 
+   Seq: ( ME_38D6EC97EB60 // 
  ME_DC4E5B42C0AD // 
  ME_A7C61837E785 // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  CONST "NameForScript" 'pop:RemindersLine:Count'
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
+ CONST dfm:PathOnly '\common\components\rtl\Garant\ScriptEngine'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\ScriptEngine'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
  CONST extprop:pas:TypeName 'TkwPopRemindersLineCount'
+ CONST extprop:rc:SelfName 'PopRemindersLineCount'
+ CONST extprop:rc:isAcceptableForScripts true
+ : SpelledFor ME_062BCA81F7FC // Count
+ ;
 
 ref; // ME_445623FA8275 pop_RemindersLine_Count
+
+FORWARD ME_B8B536109782
 
 FORWARD ME_760507B09407
 
 : ME_E5CAA18A5A8A
  CONST UID 'E5CAA18A5A8A'
  CONST Name 'aCtx'
+ CONST IsSummoned true
  CONST Class class_Parameter
  : Stereotype st_in ;
  : Target WL 'ME_4DB0091E033E' '4DAF19F600C5.pas.ms.script' // TtfwContext
@@ -4533,6 +5093,7 @@ ref; // ME_E5CAA18A5A8A aCtx
 : ME_E5CAA18A5A8B
  CONST UID 'E5CAA18A5A8B'
  CONST Name 'aRemindersLine'
+ CONST IsSummoned true
  CONST Class class_Parameter
  : Stereotype st_in ;
  : Target WL 'ME_532322D901A3' '53288DFA03A7.pas.ms.script' // TvgRemindersLine
@@ -4543,6 +5104,7 @@ ref; // ME_E5CAA18A5A8B aRemindersLine
 : ME_90CD34A37938
  CONST UID '90CD34A37938'
  CONST Name 'Height'
+ CONST IsSummoned true
  CONST Class class_Operation
  %SUMMARY 'Реализация слова скрипта pop:RemindersLine:Height' ;
  CONST Visibility PrivateAccess
@@ -4552,9 +5114,9 @@ ref; // ME_E5CAA18A5A8B aRemindersLine
  : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
  ;
  : Parameters
-   @ ( ME_E5CAA18A5A8A // aCtx
+   Seq: ( ME_E5CAA18A5A8A // aCtx
  ME_E5CAA18A5A8B // aRemindersLine
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_90CD34A37938 Height
@@ -4562,6 +5124,7 @@ ref; // ME_90CD34A37938 Height
 : ME_59DB0733E94B
  CONST UID '59DB0733E94B'
  CONST Name 'Ini_Reg'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Регистрация pop_RemindersLine_Height' ;
@@ -4574,6 +5137,7 @@ ref; // ME_59DB0733E94B Ini_Reg
 
 : ME_E6A8D2B7D889
  CONST UID 'E6A8D2B7D889'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_760507B09407 // pop_RemindersLine_Height
@@ -4585,6 +5149,7 @@ ref; // ME_E6A8D2B7D889
 
 : ME_81AE0BC693C8
  CONST UID '81AE0BC693C8'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_760507B09407 // pop_RemindersLine_Height
@@ -4596,6 +5161,7 @@ ref; // ME_81AE0BC693C8
 
 : ME_7D0DCADB3397
  CONST UID '7D0DCADB3397'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_760507B09407 // pop_RemindersLine_Height
@@ -4612,6 +5178,7 @@ ref; // ME_7D0DCADB3397
  ;
  : Implementor ME_760507B09407 // pop_RemindersLine_Height
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_4DAEEDE10285_ME_760507B09407 DoDoIt
 
 : ME_4DB0614603C8_ME_760507B09407
@@ -4621,6 +5188,7 @@ ref; // ME_4DAEEDE10285_ME_760507B09407 DoDoIt
  ;
  : Implementor ME_760507B09407 // pop_RemindersLine_Height
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4DB0614603C8_ME_760507B09407 GetWordNameForRegister
 
 : ME_52D00B00031A_ME_760507B09407
@@ -4630,6 +5198,7 @@ ref; // ME_4DB0614603C8_ME_760507B09407 GetWordNameForRegister
  ;
  : Implementor ME_760507B09407 // pop_RemindersLine_Height
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_52D00B00031A_ME_760507B09407 SetValuePrim
 
 : ME_551544E2001A_ME_760507B09407
@@ -4639,6 +5208,7 @@ ref; // ME_52D00B00031A_ME_760507B09407 SetValuePrim
  ;
  : Implementor ME_760507B09407 // pop_RemindersLine_Height
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_551544E2001A_ME_760507B09407 GetResultTypeInfo
 
 : ME_559687E6025A_ME_760507B09407
@@ -4648,6 +5218,7 @@ ref; // ME_551544E2001A_ME_760507B09407 GetResultTypeInfo
  ;
  : Implementor ME_760507B09407 // pop_RemindersLine_Height
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_559687E6025A_ME_760507B09407 GetAllParamsCount
 
 : ME_5617F4D00243_ME_760507B09407
@@ -4657,11 +5228,13 @@ ref; // ME_559687E6025A_ME_760507B09407 GetAllParamsCount
  ;
  : Implementor ME_760507B09407 // pop_RemindersLine_Height
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_5617F4D00243_ME_760507B09407 ParamsTypes
 
 : ME_760507B09407
  CONST UID '760507B09407'
  CONST Name 'pop_RemindersLine_Height'
+ CONST IsSummoned true
  CONST Class class_Class
  : Stereotype st_ScriptKeyword ;
  CONST Kind kind_NormalClass
@@ -4671,46 +5244,57 @@ ref; // ME_5617F4D00243_ME_760507B09407 ParamsTypes
  : Parent ME_550057160010 // RemindersLineWordsPack
  ;
  : Inherits
-   @ ( WL 'ME_5619169603BE' '55CCADD2013D.pas.ms.script' // TtfwPropertyLike
- ) .SequenceCode.It
+   Seq: ( WL 'ME_5619169603BE' '55CCADD2013D.pas.ms.script' // TtfwPropertyLike
+ )
  ; // Inherits
  : Operations
-   @ ( ME_90CD34A37938 // Height
+   Seq: ( ME_90CD34A37938 // Height
  ME_59DB0733E94B // Ini_Reg
- ) .SequenceCode.It
+ )
  ; // Operations
  : Implemented
-   @ ( ME_4DAEEDE10285_ME_760507B09407 // DoDoIt
- ) .SequenceCode.It
+   Seq: ( ME_4DAEEDE10285_ME_760507B09407 // DoDoIt
+ )
  ; // Implemented
  : Overridden
-   @ ( ME_4DB0614603C8_ME_760507B09407 // GetWordNameForRegister
+   Seq: ( ME_4DB0614603C8_ME_760507B09407 // GetWordNameForRegister
  ME_52D00B00031A_ME_760507B09407 // SetValuePrim
  ME_551544E2001A_ME_760507B09407 // GetResultTypeInfo
  ME_559687E6025A_ME_760507B09407 // GetAllParamsCount
  ME_5617F4D00243_ME_760507B09407 // ParamsTypes
- ) .SequenceCode.It
+ )
  ; // Overridden
  : Dependencies
-   @ ( ME_E6A8D2B7D889 // 
+   Seq: ( ME_E6A8D2B7D889 // 
  ME_81AE0BC693C8 // 
  ME_7D0DCADB3397 // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  CONST "NameForScript" 'pop:RemindersLine:Height'
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
+ CONST dfm:PathOnly '\common\components\rtl\Garant\ScriptEngine'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\ScriptEngine'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
  CONST extprop:pas:TypeName 'TkwPopRemindersLineHeight'
+ CONST extprop:rc:SelfName 'PopRemindersLineHeight'
+ CONST extprop:rc:isAcceptableForScripts true
+ : SpelledFor ME_B8B536109782 // Height
+ ;
 
 ref; // ME_760507B09407 pop_RemindersLine_Height
+
+FORWARD ME_104C1ED229FA
 
 FORWARD ME_52CD5A5422A8
 
 : ME_D2A846CDF2DE
  CONST UID 'D2A846CDF2DE'
  CONST Name 'aCtx'
+ CONST IsSummoned true
  CONST Class class_Parameter
  : Stereotype st_in ;
  : Target WL 'ME_4DB0091E033E' '4DAF19F600C5.pas.ms.script' // TtfwContext
@@ -4721,6 +5305,7 @@ ref; // ME_D2A846CDF2DE aCtx
 : ME_D2A846CDF2DF
  CONST UID 'D2A846CDF2DF'
  CONST Name 'aRemindersLine'
+ CONST IsSummoned true
  CONST Class class_Parameter
  : Stereotype st_in ;
  : Target WL 'ME_532322D901A3' '53288DFA03A7.pas.ms.script' // TvgRemindersLine
@@ -4731,6 +5316,7 @@ ref; // ME_D2A846CDF2DF aRemindersLine
 : ME_CE96AE07E93B
  CONST UID 'CE96AE07E93B'
  CONST Name 'Left'
+ CONST IsSummoned true
  CONST Class class_Operation
  %SUMMARY 'Реализация слова скрипта pop:RemindersLine:Left' ;
  CONST Visibility PrivateAccess
@@ -4740,9 +5326,9 @@ ref; // ME_D2A846CDF2DF aRemindersLine
  : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
  ;
  : Parameters
-   @ ( ME_D2A846CDF2DE // aCtx
+   Seq: ( ME_D2A846CDF2DE // aCtx
  ME_D2A846CDF2DF // aRemindersLine
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_CE96AE07E93B Left
@@ -4750,6 +5336,7 @@ ref; // ME_CE96AE07E93B Left
 : ME_9222C2999DE1
  CONST UID '9222C2999DE1'
  CONST Name 'Ini_Reg'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Регистрация pop_RemindersLine_Left' ;
@@ -4762,6 +5349,7 @@ ref; // ME_9222C2999DE1 Ini_Reg
 
 : ME_6D226EE8FAC0
  CONST UID '6D226EE8FAC0'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_52CD5A5422A8 // pop_RemindersLine_Left
@@ -4773,6 +5361,7 @@ ref; // ME_6D226EE8FAC0
 
 : ME_51E7CD17495B
  CONST UID '51E7CD17495B'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_52CD5A5422A8 // pop_RemindersLine_Left
@@ -4784,6 +5373,7 @@ ref; // ME_51E7CD17495B
 
 : ME_1F97B31D37CD
  CONST UID '1F97B31D37CD'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_52CD5A5422A8 // pop_RemindersLine_Left
@@ -4800,6 +5390,7 @@ ref; // ME_1F97B31D37CD
  ;
  : Implementor ME_52CD5A5422A8 // pop_RemindersLine_Left
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_4DAEEDE10285_ME_52CD5A5422A8 DoDoIt
 
 : ME_4DB0614603C8_ME_52CD5A5422A8
@@ -4809,6 +5400,7 @@ ref; // ME_4DAEEDE10285_ME_52CD5A5422A8 DoDoIt
  ;
  : Implementor ME_52CD5A5422A8 // pop_RemindersLine_Left
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4DB0614603C8_ME_52CD5A5422A8 GetWordNameForRegister
 
 : ME_52D00B00031A_ME_52CD5A5422A8
@@ -4818,6 +5410,7 @@ ref; // ME_4DB0614603C8_ME_52CD5A5422A8 GetWordNameForRegister
  ;
  : Implementor ME_52CD5A5422A8 // pop_RemindersLine_Left
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_52D00B00031A_ME_52CD5A5422A8 SetValuePrim
 
 : ME_551544E2001A_ME_52CD5A5422A8
@@ -4827,6 +5420,7 @@ ref; // ME_52D00B00031A_ME_52CD5A5422A8 SetValuePrim
  ;
  : Implementor ME_52CD5A5422A8 // pop_RemindersLine_Left
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_551544E2001A_ME_52CD5A5422A8 GetResultTypeInfo
 
 : ME_559687E6025A_ME_52CD5A5422A8
@@ -4836,6 +5430,7 @@ ref; // ME_551544E2001A_ME_52CD5A5422A8 GetResultTypeInfo
  ;
  : Implementor ME_52CD5A5422A8 // pop_RemindersLine_Left
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_559687E6025A_ME_52CD5A5422A8 GetAllParamsCount
 
 : ME_5617F4D00243_ME_52CD5A5422A8
@@ -4845,11 +5440,13 @@ ref; // ME_559687E6025A_ME_52CD5A5422A8 GetAllParamsCount
  ;
  : Implementor ME_52CD5A5422A8 // pop_RemindersLine_Left
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_5617F4D00243_ME_52CD5A5422A8 ParamsTypes
 
 : ME_52CD5A5422A8
  CONST UID '52CD5A5422A8'
  CONST Name 'pop_RemindersLine_Left'
+ CONST IsSummoned true
  CONST Class class_Class
  : Stereotype st_ScriptKeyword ;
  CONST Kind kind_NormalClass
@@ -4859,46 +5456,57 @@ ref; // ME_5617F4D00243_ME_52CD5A5422A8 ParamsTypes
  : Parent ME_550057160010 // RemindersLineWordsPack
  ;
  : Inherits
-   @ ( WL 'ME_5619169603BE' '55CCADD2013D.pas.ms.script' // TtfwPropertyLike
- ) .SequenceCode.It
+   Seq: ( WL 'ME_5619169603BE' '55CCADD2013D.pas.ms.script' // TtfwPropertyLike
+ )
  ; // Inherits
  : Operations
-   @ ( ME_CE96AE07E93B // Left
+   Seq: ( ME_CE96AE07E93B // Left
  ME_9222C2999DE1 // Ini_Reg
- ) .SequenceCode.It
+ )
  ; // Operations
  : Implemented
-   @ ( ME_4DAEEDE10285_ME_52CD5A5422A8 // DoDoIt
- ) .SequenceCode.It
+   Seq: ( ME_4DAEEDE10285_ME_52CD5A5422A8 // DoDoIt
+ )
  ; // Implemented
  : Overridden
-   @ ( ME_4DB0614603C8_ME_52CD5A5422A8 // GetWordNameForRegister
+   Seq: ( ME_4DB0614603C8_ME_52CD5A5422A8 // GetWordNameForRegister
  ME_52D00B00031A_ME_52CD5A5422A8 // SetValuePrim
  ME_551544E2001A_ME_52CD5A5422A8 // GetResultTypeInfo
  ME_559687E6025A_ME_52CD5A5422A8 // GetAllParamsCount
  ME_5617F4D00243_ME_52CD5A5422A8 // ParamsTypes
- ) .SequenceCode.It
+ )
  ; // Overridden
  : Dependencies
-   @ ( ME_6D226EE8FAC0 // 
+   Seq: ( ME_6D226EE8FAC0 // 
  ME_51E7CD17495B // 
  ME_1F97B31D37CD // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  CONST "NameForScript" 'pop:RemindersLine:Left'
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
+ CONST dfm:PathOnly '\common\components\rtl\Garant\ScriptEngine'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\ScriptEngine'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
  CONST extprop:pas:TypeName 'TkwPopRemindersLineLeft'
+ CONST extprop:rc:SelfName 'PopRemindersLineLeft'
+ CONST extprop:rc:isAcceptableForScripts true
+ : SpelledFor ME_104C1ED229FA // Left
+ ;
 
 ref; // ME_52CD5A5422A8 pop_RemindersLine_Left
+
+FORWARD ME_3722BD8B8F28
 
 FORWARD ME_E47F2394242D
 
 : ME_125E9D706503
  CONST UID '125E9D706503'
  CONST Name 'aCtx'
+ CONST IsSummoned true
  CONST Class class_Parameter
  : Stereotype st_in ;
  : Target WL 'ME_4DB0091E033E' '4DAF19F600C5.pas.ms.script' // TtfwContext
@@ -4909,6 +5517,7 @@ ref; // ME_125E9D706503 aCtx
 : ME_125E9D706504
  CONST UID '125E9D706504'
  CONST Name 'aRemindersLine'
+ CONST IsSummoned true
  CONST Class class_Parameter
  : Stereotype st_in ;
  : Target WL 'ME_532322D901A3' '53288DFA03A7.pas.ms.script' // TvgRemindersLine
@@ -4919,6 +5528,7 @@ ref; // ME_125E9D706504 aRemindersLine
 : ME_E071319A2497
  CONST UID 'E071319A2497'
  CONST Name 'Top'
+ CONST IsSummoned true
  CONST Class class_Operation
  %SUMMARY 'Реализация слова скрипта pop:RemindersLine:Top' ;
  CONST Visibility PrivateAccess
@@ -4928,9 +5538,9 @@ ref; // ME_125E9D706504 aRemindersLine
  : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
  ;
  : Parameters
-   @ ( ME_125E9D706503 // aCtx
+   Seq: ( ME_125E9D706503 // aCtx
  ME_125E9D706504 // aRemindersLine
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_E071319A2497 Top
@@ -4938,6 +5548,7 @@ ref; // ME_E071319A2497 Top
 : ME_C4D0D814AD04
  CONST UID 'C4D0D814AD04'
  CONST Name 'Ini_Reg'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Регистрация pop_RemindersLine_Top' ;
@@ -4950,6 +5561,7 @@ ref; // ME_C4D0D814AD04 Ini_Reg
 
 : ME_F4CC9FFF0183
  CONST UID 'F4CC9FFF0183'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_E47F2394242D // pop_RemindersLine_Top
@@ -4961,6 +5573,7 @@ ref; // ME_F4CC9FFF0183
 
 : ME_D4AAD45C7E84
  CONST UID 'D4AAD45C7E84'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_E47F2394242D // pop_RemindersLine_Top
@@ -4972,6 +5585,7 @@ ref; // ME_D4AAD45C7E84
 
 : ME_68E63F0DB034
  CONST UID '68E63F0DB034'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_E47F2394242D // pop_RemindersLine_Top
@@ -4988,6 +5602,7 @@ ref; // ME_68E63F0DB034
  ;
  : Implementor ME_E47F2394242D // pop_RemindersLine_Top
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_4DAEEDE10285_ME_E47F2394242D DoDoIt
 
 : ME_4DB0614603C8_ME_E47F2394242D
@@ -4997,6 +5612,7 @@ ref; // ME_4DAEEDE10285_ME_E47F2394242D DoDoIt
  ;
  : Implementor ME_E47F2394242D // pop_RemindersLine_Top
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4DB0614603C8_ME_E47F2394242D GetWordNameForRegister
 
 : ME_52D00B00031A_ME_E47F2394242D
@@ -5006,6 +5622,7 @@ ref; // ME_4DB0614603C8_ME_E47F2394242D GetWordNameForRegister
  ;
  : Implementor ME_E47F2394242D // pop_RemindersLine_Top
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_52D00B00031A_ME_E47F2394242D SetValuePrim
 
 : ME_551544E2001A_ME_E47F2394242D
@@ -5015,6 +5632,7 @@ ref; // ME_52D00B00031A_ME_E47F2394242D SetValuePrim
  ;
  : Implementor ME_E47F2394242D // pop_RemindersLine_Top
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_551544E2001A_ME_E47F2394242D GetResultTypeInfo
 
 : ME_559687E6025A_ME_E47F2394242D
@@ -5024,6 +5642,7 @@ ref; // ME_551544E2001A_ME_E47F2394242D GetResultTypeInfo
  ;
  : Implementor ME_E47F2394242D // pop_RemindersLine_Top
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_559687E6025A_ME_E47F2394242D GetAllParamsCount
 
 : ME_5617F4D00243_ME_E47F2394242D
@@ -5033,11 +5652,13 @@ ref; // ME_559687E6025A_ME_E47F2394242D GetAllParamsCount
  ;
  : Implementor ME_E47F2394242D // pop_RemindersLine_Top
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_5617F4D00243_ME_E47F2394242D ParamsTypes
 
 : ME_E47F2394242D
  CONST UID 'E47F2394242D'
  CONST Name 'pop_RemindersLine_Top'
+ CONST IsSummoned true
  CONST Class class_Class
  : Stereotype st_ScriptKeyword ;
  CONST Kind kind_NormalClass
@@ -5047,46 +5668,57 @@ ref; // ME_5617F4D00243_ME_E47F2394242D ParamsTypes
  : Parent ME_550057160010 // RemindersLineWordsPack
  ;
  : Inherits
-   @ ( WL 'ME_5619169603BE' '55CCADD2013D.pas.ms.script' // TtfwPropertyLike
- ) .SequenceCode.It
+   Seq: ( WL 'ME_5619169603BE' '55CCADD2013D.pas.ms.script' // TtfwPropertyLike
+ )
  ; // Inherits
  : Operations
-   @ ( ME_E071319A2497 // Top
+   Seq: ( ME_E071319A2497 // Top
  ME_C4D0D814AD04 // Ini_Reg
- ) .SequenceCode.It
+ )
  ; // Operations
  : Implemented
-   @ ( ME_4DAEEDE10285_ME_E47F2394242D // DoDoIt
- ) .SequenceCode.It
+   Seq: ( ME_4DAEEDE10285_ME_E47F2394242D // DoDoIt
+ )
  ; // Implemented
  : Overridden
-   @ ( ME_4DB0614603C8_ME_E47F2394242D // GetWordNameForRegister
+   Seq: ( ME_4DB0614603C8_ME_E47F2394242D // GetWordNameForRegister
  ME_52D00B00031A_ME_E47F2394242D // SetValuePrim
  ME_551544E2001A_ME_E47F2394242D // GetResultTypeInfo
  ME_559687E6025A_ME_E47F2394242D // GetAllParamsCount
  ME_5617F4D00243_ME_E47F2394242D // ParamsTypes
- ) .SequenceCode.It
+ )
  ; // Overridden
  : Dependencies
-   @ ( ME_F4CC9FFF0183 // 
+   Seq: ( ME_F4CC9FFF0183 // 
  ME_D4AAD45C7E84 // 
  ME_68E63F0DB034 // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  CONST "NameForScript" 'pop:RemindersLine:Top'
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
+ CONST dfm:PathOnly '\common\components\rtl\Garant\ScriptEngine'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\ScriptEngine'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
  CONST extprop:pas:TypeName 'TkwPopRemindersLineTop'
+ CONST extprop:rc:SelfName 'PopRemindersLineTop'
+ CONST extprop:rc:isAcceptableForScripts true
+ : SpelledFor ME_3722BD8B8F28 // Top
+ ;
 
 ref; // ME_E47F2394242D pop_RemindersLine_Top
+
+FORWARD ME_E53E3CB7238C
 
 FORWARD ME_002E70A99E5D
 
 : ME_6B220A87F3B6
  CONST UID '6B220A87F3B6'
  CONST Name 'aCtx'
+ CONST IsSummoned true
  CONST Class class_Parameter
  : Stereotype st_in ;
  : Target WL 'ME_4DB0091E033E' '4DAF19F600C5.pas.ms.script' // TtfwContext
@@ -5097,6 +5729,7 @@ ref; // ME_6B220A87F3B6 aCtx
 : ME_6B220A87F3B7
  CONST UID '6B220A87F3B7'
  CONST Name 'aRemindersLine'
+ CONST IsSummoned true
  CONST Class class_Parameter
  : Stereotype st_in ;
  : Target WL 'ME_532322D901A3' '53288DFA03A7.pas.ms.script' // TvgRemindersLine
@@ -5107,6 +5740,7 @@ ref; // ME_6B220A87F3B7 aRemindersLine
 : ME_F41481B972B5
  CONST UID 'F41481B972B5'
  CONST Name 'Visible'
+ CONST IsSummoned true
  CONST Class class_Operation
  %SUMMARY 'Реализация слова скрипта pop:RemindersLine:Visible' ;
  CONST Visibility PrivateAccess
@@ -5116,9 +5750,9 @@ ref; // ME_6B220A87F3B7 aRemindersLine
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
  : Parameters
-   @ ( ME_6B220A87F3B6 // aCtx
+   Seq: ( ME_6B220A87F3B6 // aCtx
  ME_6B220A87F3B7 // aRemindersLine
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_F41481B972B5 Visible
@@ -5126,6 +5760,7 @@ ref; // ME_F41481B972B5 Visible
 : ME_1B945DB87B86
  CONST UID '1B945DB87B86'
  CONST Name 'Ini_Reg'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Регистрация pop_RemindersLine_Visible' ;
@@ -5138,6 +5773,7 @@ ref; // ME_1B945DB87B86 Ini_Reg
 
 : ME_52A45F8DC610
  CONST UID '52A45F8DC610'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_002E70A99E5D // pop_RemindersLine_Visible
@@ -5149,6 +5785,7 @@ ref; // ME_52A45F8DC610
 
 : ME_18491A567023
  CONST UID '18491A567023'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_002E70A99E5D // pop_RemindersLine_Visible
@@ -5160,6 +5797,7 @@ ref; // ME_18491A567023
 
 : ME_9AD1CE9FA193
  CONST UID '9AD1CE9FA193'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_002E70A99E5D // pop_RemindersLine_Visible
@@ -5176,6 +5814,7 @@ ref; // ME_9AD1CE9FA193
  ;
  : Implementor ME_002E70A99E5D // pop_RemindersLine_Visible
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_4DAEEDE10285_ME_002E70A99E5D DoDoIt
 
 : ME_4DB0614603C8_ME_002E70A99E5D
@@ -5185,6 +5824,7 @@ ref; // ME_4DAEEDE10285_ME_002E70A99E5D DoDoIt
  ;
  : Implementor ME_002E70A99E5D // pop_RemindersLine_Visible
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4DB0614603C8_ME_002E70A99E5D GetWordNameForRegister
 
 : ME_52D00B00031A_ME_002E70A99E5D
@@ -5194,6 +5834,7 @@ ref; // ME_4DB0614603C8_ME_002E70A99E5D GetWordNameForRegister
  ;
  : Implementor ME_002E70A99E5D // pop_RemindersLine_Visible
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_52D00B00031A_ME_002E70A99E5D SetValuePrim
 
 : ME_551544E2001A_ME_002E70A99E5D
@@ -5203,6 +5844,7 @@ ref; // ME_52D00B00031A_ME_002E70A99E5D SetValuePrim
  ;
  : Implementor ME_002E70A99E5D // pop_RemindersLine_Visible
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_551544E2001A_ME_002E70A99E5D GetResultTypeInfo
 
 : ME_559687E6025A_ME_002E70A99E5D
@@ -5212,6 +5854,7 @@ ref; // ME_551544E2001A_ME_002E70A99E5D GetResultTypeInfo
  ;
  : Implementor ME_002E70A99E5D // pop_RemindersLine_Visible
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_559687E6025A_ME_002E70A99E5D GetAllParamsCount
 
 : ME_5617F4D00243_ME_002E70A99E5D
@@ -5221,11 +5864,13 @@ ref; // ME_559687E6025A_ME_002E70A99E5D GetAllParamsCount
  ;
  : Implementor ME_002E70A99E5D // pop_RemindersLine_Visible
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_5617F4D00243_ME_002E70A99E5D ParamsTypes
 
 : ME_002E70A99E5D
  CONST UID '002E70A99E5D'
  CONST Name 'pop_RemindersLine_Visible'
+ CONST IsSummoned true
  CONST Class class_Class
  : Stereotype st_ScriptKeyword ;
  CONST Kind kind_NormalClass
@@ -5235,46 +5880,57 @@ ref; // ME_5617F4D00243_ME_002E70A99E5D ParamsTypes
  : Parent ME_550057160010 // RemindersLineWordsPack
  ;
  : Inherits
-   @ ( WL 'ME_5619169603BE' '55CCADD2013D.pas.ms.script' // TtfwPropertyLike
- ) .SequenceCode.It
+   Seq: ( WL 'ME_5619169603BE' '55CCADD2013D.pas.ms.script' // TtfwPropertyLike
+ )
  ; // Inherits
  : Operations
-   @ ( ME_F41481B972B5 // Visible
+   Seq: ( ME_F41481B972B5 // Visible
  ME_1B945DB87B86 // Ini_Reg
- ) .SequenceCode.It
+ )
  ; // Operations
  : Implemented
-   @ ( ME_4DAEEDE10285_ME_002E70A99E5D // DoDoIt
- ) .SequenceCode.It
+   Seq: ( ME_4DAEEDE10285_ME_002E70A99E5D // DoDoIt
+ )
  ; // Implemented
  : Overridden
-   @ ( ME_4DB0614603C8_ME_002E70A99E5D // GetWordNameForRegister
+   Seq: ( ME_4DB0614603C8_ME_002E70A99E5D // GetWordNameForRegister
  ME_52D00B00031A_ME_002E70A99E5D // SetValuePrim
  ME_551544E2001A_ME_002E70A99E5D // GetResultTypeInfo
  ME_559687E6025A_ME_002E70A99E5D // GetAllParamsCount
  ME_5617F4D00243_ME_002E70A99E5D // ParamsTypes
- ) .SequenceCode.It
+ )
  ; // Overridden
  : Dependencies
-   @ ( ME_52A45F8DC610 // 
+   Seq: ( ME_52A45F8DC610 // 
  ME_18491A567023 // 
  ME_9AD1CE9FA193 // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  CONST "NameForScript" 'pop:RemindersLine:Visible'
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
+ CONST dfm:PathOnly '\common\components\rtl\Garant\ScriptEngine'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\ScriptEngine'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
  CONST extprop:pas:TypeName 'TkwPopRemindersLineVisible'
+ CONST extprop:rc:SelfName 'PopRemindersLineVisible'
+ CONST extprop:rc:isAcceptableForScripts true
+ : SpelledFor ME_E53E3CB7238C // Visible
+ ;
 
 ref; // ME_002E70A99E5D pop_RemindersLine_Visible
+
+FORWARD ME_B1192E4F770A
 
 FORWARD ME_ECE9F55BFC1D
 
 : ME_58C7D422C423
  CONST UID '58C7D422C423'
  CONST Name 'aCtx'
+ CONST IsSummoned true
  CONST Class class_Parameter
  : Stereotype st_in ;
  : Target WL 'ME_4DB0091E033E' '4DAF19F600C5.pas.ms.script' // TtfwContext
@@ -5285,6 +5941,7 @@ ref; // ME_58C7D422C423 aCtx
 : ME_58C7D422C424
  CONST UID '58C7D422C424'
  CONST Name 'aRemindersLine'
+ CONST IsSummoned true
  CONST Class class_Parameter
  : Stereotype st_in ;
  : Target WL 'ME_532322D901A3' '53288DFA03A7.pas.ms.script' // TvgRemindersLine
@@ -5295,6 +5952,7 @@ ref; // ME_58C7D422C424 aRemindersLine
 : ME_F370C7CB88F6
  CONST UID 'F370C7CB88F6'
  CONST Name 'Width'
+ CONST IsSummoned true
  CONST Class class_Operation
  %SUMMARY 'Реализация слова скрипта pop:RemindersLine:Width' ;
  CONST Visibility PrivateAccess
@@ -5304,9 +5962,9 @@ ref; // ME_58C7D422C424 aRemindersLine
  : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
  ;
  : Parameters
-   @ ( ME_58C7D422C423 // aCtx
+   Seq: ( ME_58C7D422C423 // aCtx
  ME_58C7D422C424 // aRemindersLine
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_F370C7CB88F6 Width
@@ -5314,6 +5972,7 @@ ref; // ME_F370C7CB88F6 Width
 : ME_C4293DF4F0DE
  CONST UID 'C4293DF4F0DE'
  CONST Name 'Ini_Reg'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Регистрация pop_RemindersLine_Width' ;
@@ -5326,6 +5985,7 @@ ref; // ME_C4293DF4F0DE Ini_Reg
 
 : ME_E92F5C9811F4
  CONST UID 'E92F5C9811F4'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_ECE9F55BFC1D // pop_RemindersLine_Width
@@ -5337,6 +5997,7 @@ ref; // ME_E92F5C9811F4
 
 : ME_90CD8255979C
  CONST UID '90CD8255979C'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_ECE9F55BFC1D // pop_RemindersLine_Width
@@ -5348,6 +6009,7 @@ ref; // ME_90CD8255979C
 
 : ME_1E71F08CCF1B
  CONST UID '1E71F08CCF1B'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_ECE9F55BFC1D // pop_RemindersLine_Width
@@ -5364,6 +6026,7 @@ ref; // ME_1E71F08CCF1B
  ;
  : Implementor ME_ECE9F55BFC1D // pop_RemindersLine_Width
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_4DAEEDE10285_ME_ECE9F55BFC1D DoDoIt
 
 : ME_4DB0614603C8_ME_ECE9F55BFC1D
@@ -5373,6 +6036,7 @@ ref; // ME_4DAEEDE10285_ME_ECE9F55BFC1D DoDoIt
  ;
  : Implementor ME_ECE9F55BFC1D // pop_RemindersLine_Width
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4DB0614603C8_ME_ECE9F55BFC1D GetWordNameForRegister
 
 : ME_52D00B00031A_ME_ECE9F55BFC1D
@@ -5382,6 +6046,7 @@ ref; // ME_4DB0614603C8_ME_ECE9F55BFC1D GetWordNameForRegister
  ;
  : Implementor ME_ECE9F55BFC1D // pop_RemindersLine_Width
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_52D00B00031A_ME_ECE9F55BFC1D SetValuePrim
 
 : ME_551544E2001A_ME_ECE9F55BFC1D
@@ -5391,6 +6056,7 @@ ref; // ME_52D00B00031A_ME_ECE9F55BFC1D SetValuePrim
  ;
  : Implementor ME_ECE9F55BFC1D // pop_RemindersLine_Width
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_551544E2001A_ME_ECE9F55BFC1D GetResultTypeInfo
 
 : ME_559687E6025A_ME_ECE9F55BFC1D
@@ -5400,6 +6066,7 @@ ref; // ME_551544E2001A_ME_ECE9F55BFC1D GetResultTypeInfo
  ;
  : Implementor ME_ECE9F55BFC1D // pop_RemindersLine_Width
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_559687E6025A_ME_ECE9F55BFC1D GetAllParamsCount
 
 : ME_5617F4D00243_ME_ECE9F55BFC1D
@@ -5409,11 +6076,13 @@ ref; // ME_559687E6025A_ME_ECE9F55BFC1D GetAllParamsCount
  ;
  : Implementor ME_ECE9F55BFC1D // pop_RemindersLine_Width
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_5617F4D00243_ME_ECE9F55BFC1D ParamsTypes
 
 : ME_ECE9F55BFC1D
  CONST UID 'ECE9F55BFC1D'
  CONST Name 'pop_RemindersLine_Width'
+ CONST IsSummoned true
  CONST Class class_Class
  : Stereotype st_ScriptKeyword ;
  CONST Kind kind_NormalClass
@@ -5423,38 +6092,46 @@ ref; // ME_5617F4D00243_ME_ECE9F55BFC1D ParamsTypes
  : Parent ME_550057160010 // RemindersLineWordsPack
  ;
  : Inherits
-   @ ( WL 'ME_5619169603BE' '55CCADD2013D.pas.ms.script' // TtfwPropertyLike
- ) .SequenceCode.It
+   Seq: ( WL 'ME_5619169603BE' '55CCADD2013D.pas.ms.script' // TtfwPropertyLike
+ )
  ; // Inherits
  : Operations
-   @ ( ME_F370C7CB88F6 // Width
+   Seq: ( ME_F370C7CB88F6 // Width
  ME_C4293DF4F0DE // Ini_Reg
- ) .SequenceCode.It
+ )
  ; // Operations
  : Implemented
-   @ ( ME_4DAEEDE10285_ME_ECE9F55BFC1D // DoDoIt
- ) .SequenceCode.It
+   Seq: ( ME_4DAEEDE10285_ME_ECE9F55BFC1D // DoDoIt
+ )
  ; // Implemented
  : Overridden
-   @ ( ME_4DB0614603C8_ME_ECE9F55BFC1D // GetWordNameForRegister
+   Seq: ( ME_4DB0614603C8_ME_ECE9F55BFC1D // GetWordNameForRegister
  ME_52D00B00031A_ME_ECE9F55BFC1D // SetValuePrim
  ME_551544E2001A_ME_ECE9F55BFC1D // GetResultTypeInfo
  ME_559687E6025A_ME_ECE9F55BFC1D // GetAllParamsCount
  ME_5617F4D00243_ME_ECE9F55BFC1D // ParamsTypes
- ) .SequenceCode.It
+ )
  ; // Overridden
  : Dependencies
-   @ ( ME_E92F5C9811F4 // 
+   Seq: ( ME_E92F5C9811F4 // 
  ME_90CD8255979C // 
  ME_1E71F08CCF1B // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  CONST "NameForScript" 'pop:RemindersLine:Width'
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
+ CONST dfm:PathOnly '\common\components\rtl\Garant\ScriptEngine'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\ScriptEngine'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
  CONST extprop:pas:TypeName 'TkwPopRemindersLineWidth'
+ CONST extprop:rc:SelfName 'PopRemindersLineWidth'
+ CONST extprop:rc:isAcceptableForScripts true
+ : SpelledFor ME_B1192E4F770A // Width
+ ;
 
 ref; // ME_ECE9F55BFC1D pop_RemindersLine_Width
 
@@ -5608,12 +6285,14 @@ ref; // ME_5500583800CF aPoint
  : Target WL 'ME_4739AD110072' '4728A7020026.pas.ms.script' // TPoint
  ;
  : Parameters
-   @ ( ME_5500583800CF // aPoint
- ) .SequenceCode.It
+   Seq: ( ME_5500583800CF // aPoint
+ )
  ; // Parameters
  CONST "bind params" 'undefined'
  CONST "lvalue" 'undefined'
  CONST "mapped" 'undefined'
+ : Speller ME_9653AE4CDED4 // pop_RemindersLine_ClientToScreen
+ ;
 
 ref; // ME_5500582C0070 ClientToScreen
 
@@ -5639,18 +6318,21 @@ ref; // ME_550058E602AE anIndex
  : Target WL 'ME_532973740186' '53288DFA03A7.pas.ms.script' // TvgReminder
  ;
  : Parameters
-   @ ( ME_550058E602AE // anIndex
- ) .SequenceCode.It
+   Seq: ( ME_550058E602AE // anIndex
+ )
  ; // Parameters
  CONST "bind params" 'undefined'
  CONST "lvalue" 'undefined'
  CONST "mapped" 'undefined'
+ : Speller ME_FF04F6E03205 // pop_RemindersLine_GetReminder
+ ;
 
 ref; // ME_550058BD036F GetReminder
 
 : ME_0641D684732E
  CONST UID '0641D684732E'
  CONST Name 'AbsLeft'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_keyword::Operation ;
  CONST Visibility PublicAccess
@@ -5662,12 +6344,15 @@ ref; // ME_550058BD036F GetReminder
  CONST "bind params" 'undefined'
  CONST "lvalue" 'undefined'
  CONST "mapped" true
+ : Speller ME_F126CBF8C36E // pop_RemindersLine_AbsLeft
+ ;
 
 ref; // ME_0641D684732E AbsLeft
 
 : ME_1FF1E3F5AC48
  CONST UID '1FF1E3F5AC48'
  CONST Name 'AbsTop'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_keyword::Operation ;
  CONST Visibility PublicAccess
@@ -5679,12 +6364,15 @@ ref; // ME_0641D684732E AbsLeft
  CONST "bind params" 'undefined'
  CONST "lvalue" 'undefined'
  CONST "mapped" true
+ : Speller ME_1F4F64719530 // pop_RemindersLine_AbsTop
+ ;
 
 ref; // ME_1FF1E3F5AC48 AbsTop
 
 : ME_062BCA81F7FC
  CONST UID '062BCA81F7FC'
  CONST Name 'Count'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_keyword::Operation ;
  CONST Visibility PublicAccess
@@ -5696,12 +6384,15 @@ ref; // ME_1FF1E3F5AC48 AbsTop
  CONST "bind params" 'undefined'
  CONST "lvalue" 'undefined'
  CONST "mapped" true
+ : Speller ME_445623FA8275 // pop_RemindersLine_Count
+ ;
 
 ref; // ME_062BCA81F7FC Count
 
 : ME_B8B536109782
  CONST UID 'B8B536109782'
  CONST Name 'Height'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_keyword::Operation ;
  CONST Visibility PublicAccess
@@ -5713,12 +6404,15 @@ ref; // ME_062BCA81F7FC Count
  CONST "bind params" 'undefined'
  CONST "lvalue" 'undefined'
  CONST "mapped" true
+ : Speller ME_760507B09407 // pop_RemindersLine_Height
+ ;
 
 ref; // ME_B8B536109782 Height
 
 : ME_104C1ED229FA
  CONST UID '104C1ED229FA'
  CONST Name 'Left'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_keyword::Operation ;
  CONST Visibility PublicAccess
@@ -5730,12 +6424,15 @@ ref; // ME_B8B536109782 Height
  CONST "bind params" 'undefined'
  CONST "lvalue" 'undefined'
  CONST "mapped" true
+ : Speller ME_52CD5A5422A8 // pop_RemindersLine_Left
+ ;
 
 ref; // ME_104C1ED229FA Left
 
 : ME_3722BD8B8F28
  CONST UID '3722BD8B8F28'
  CONST Name 'Top'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_keyword::Operation ;
  CONST Visibility PublicAccess
@@ -5747,12 +6444,15 @@ ref; // ME_104C1ED229FA Left
  CONST "bind params" 'undefined'
  CONST "lvalue" 'undefined'
  CONST "mapped" true
+ : Speller ME_E47F2394242D // pop_RemindersLine_Top
+ ;
 
 ref; // ME_3722BD8B8F28 Top
 
 : ME_E53E3CB7238C
  CONST UID 'E53E3CB7238C'
  CONST Name 'Visible'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_keyword::Operation ;
  CONST Visibility PublicAccess
@@ -5764,12 +6464,15 @@ ref; // ME_3722BD8B8F28 Top
  CONST "bind params" 'undefined'
  CONST "lvalue" 'undefined'
  CONST "mapped" 'undefined'
+ : Speller ME_002E70A99E5D // pop_RemindersLine_Visible
+ ;
 
 ref; // ME_E53E3CB7238C Visible
 
 : ME_B1192E4F770A
  CONST UID 'B1192E4F770A'
  CONST Name 'Width'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_keyword::Operation ;
  CONST Visibility PublicAccess
@@ -5781,12 +6484,15 @@ ref; // ME_E53E3CB7238C Visible
  CONST "bind params" 'undefined'
  CONST "lvalue" 'undefined'
  CONST "mapped" true
+ : Speller ME_ECE9F55BFC1D // pop_RemindersLine_Width
+ ;
 
 ref; // ME_B1192E4F770A Width
 
 : ME_EE212DDD9A8B
  CONST UID 'EE212DDD9A8B'
- CONST Name 'Reg_TtfwContext'
+ CONST Name 'Reg_Type_TtfwContext'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Регистрация типа TtfwContext' ;
@@ -5794,12 +6500,15 @@ ref; // ME_B1192E4F770A Width
  CONST Abstraction at_final
  : Parent ME_550057160010 // RemindersLineWordsPack
  ;
+ : SpelledFor WL 'ME_4DB0091E033E' '4DAF19F600C5.pas.ms.script' // TtfwContext
+ ;
 
-ref; // ME_EE212DDD9A8B Reg_TtfwContext
+ref; // ME_EE212DDD9A8B Reg_Type_TtfwContext
 
 : ME_4138E434A184
  CONST UID '4138E434A184'
- CONST Name 'Reg_TvgRemindersLine'
+ CONST Name 'Reg_Type_TvgRemindersLine'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Регистрация типа TvgRemindersLine' ;
@@ -5807,12 +6516,15 @@ ref; // ME_EE212DDD9A8B Reg_TtfwContext
  CONST Abstraction at_final
  : Parent ME_550057160010 // RemindersLineWordsPack
  ;
+ : SpelledFor WL 'ME_532322D901A3' '53288DFA03A7.pas.ms.script' // TvgRemindersLine
+ ;
 
-ref; // ME_4138E434A184 Reg_TvgRemindersLine
+ref; // ME_4138E434A184 Reg_Type_TvgRemindersLine
 
 : ME_F6CBDCE65679
  CONST UID 'F6CBDCE65679'
- CONST Name 'Reg_TPoint'
+ CONST Name 'Reg_Type_TPoint'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Регистрация типа TPoint' ;
@@ -5820,12 +6532,15 @@ ref; // ME_4138E434A184 Reg_TvgRemindersLine
  CONST Abstraction at_final
  : Parent ME_550057160010 // RemindersLineWordsPack
  ;
+ : SpelledFor WL 'ME_4739AD110072' '4728A7020026.pas.ms.script' // TPoint
+ ;
 
-ref; // ME_F6CBDCE65679 Reg_TPoint
+ref; // ME_F6CBDCE65679 Reg_Type_TPoint
 
 : ME_12397D2C23CA
  CONST UID '12397D2C23CA'
- CONST Name 'Reg_Integer'
+ CONST Name 'Reg_Type_Integer'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Регистрация типа Integer' ;
@@ -5833,12 +6548,15 @@ ref; // ME_F6CBDCE65679 Reg_TPoint
  CONST Abstraction at_final
  : Parent ME_550057160010 // RemindersLineWordsPack
  ;
+ : SpelledFor WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
 
-ref; // ME_12397D2C23CA Reg_Integer
+ref; // ME_12397D2C23CA Reg_Type_Integer
 
 : ME_0C186C0F8896
  CONST UID '0C186C0F8896'
- CONST Name 'Reg_TvgReminder'
+ CONST Name 'Reg_Type_TvgReminder'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Регистрация типа TvgReminder' ;
@@ -5846,12 +6564,15 @@ ref; // ME_12397D2C23CA Reg_Integer
  CONST Abstraction at_final
  : Parent ME_550057160010 // RemindersLineWordsPack
  ;
+ : SpelledFor WL 'ME_532973740186' '53288DFA03A7.pas.ms.script' // TvgReminder
+ ;
 
-ref; // ME_0C186C0F8896 Reg_TvgReminder
+ref; // ME_0C186C0F8896 Reg_Type_TvgReminder
 
 : ME_A03124C980DE
  CONST UID 'A03124C980DE'
- CONST Name 'Reg_Boolean'
+ CONST Name 'Reg_Type_Boolean'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Регистрация типа Boolean' ;
@@ -5859,8 +6580,10 @@ ref; // ME_0C186C0F8896 Reg_TvgReminder
  CONST Abstraction at_final
  : Parent ME_550057160010 // RemindersLineWordsPack
  ;
+ : SpelledFor WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
 
-ref; // ME_A03124C980DE Reg_Boolean
+ref; // ME_A03124C980DE Reg_Type_Boolean
 
 : ME_5500586700F8
  CONST UID '5500586700F8'
@@ -5875,6 +6598,7 @@ ref; // ME_5500586700F8
 
 : ME_EA667749DC72
  CONST UID 'EA667749DC72'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_550057160010 // RemindersLineWordsPack
@@ -5886,6 +6610,7 @@ ref; // ME_EA667749DC72
 
 : ME_2DB5871F8286
  CONST UID '2DB5871F8286'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_injects::Dependency ;
  : Parent ME_550057160010 // RemindersLineWordsPack
@@ -5897,6 +6622,7 @@ ref; // ME_2DB5871F8286
 
 : ME_07C2A8BE37ED
  CONST UID '07C2A8BE37ED'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_550057160010 // RemindersLineWordsPack
@@ -5917,11 +6643,11 @@ ref; // ME_07C2A8BE37ED
  : Parent ME_534FA97F003E // ReminderWords
  ;
  : Inherits
-   @ ( WL 'ME_532322D901A3' '53288DFA03A7.pas.ms.script' // TvgRemindersLine
- ) .SequenceCode.It
+   Seq: ( WL 'ME_532322D901A3' '53288DFA03A7.pas.ms.script' // TvgRemindersLine
+ )
  ; // Inherits
  : Attributes
-   @ ( ME_550057D90308 // AbsLeft
+   Seq: ( ME_550057D90308 // AbsLeft
  ME_550058000031 // AbsTop
  ME_5500589000F1 // Count
  ME_550058F902C7 // Height
@@ -5929,10 +6655,10 @@ ref; // ME_07C2A8BE37ED
  ME_55005938018E // Top
  ME_55005964029E // Visible
  ME_550059880227 // Width
- ) .SequenceCode.It
+ )
  ; // Attributes
  : Operations
-   @ ( ME_5500582C0070 // ClientToScreen
+   Seq: ( ME_5500582C0070 // ClientToScreen
  ME_550058BD036F // GetReminder
  ME_0641D684732E // AbsLeft
  ME_1FF1E3F5AC48 // AbsTop
@@ -5942,16 +6668,16 @@ ref; // ME_07C2A8BE37ED
  ME_3722BD8B8F28 // Top
  ME_E53E3CB7238C // Visible
  ME_B1192E4F770A // Width
- ME_EE212DDD9A8B // Reg_TtfwContext
- ME_4138E434A184 // Reg_TvgRemindersLine
- ME_F6CBDCE65679 // Reg_TPoint
- ME_12397D2C23CA // Reg_Integer
- ME_0C186C0F8896 // Reg_TvgReminder
- ME_A03124C980DE // Reg_Boolean
- ) .SequenceCode.It
+ ME_EE212DDD9A8B // Reg_Type_TtfwContext
+ ME_4138E434A184 // Reg_Type_TvgRemindersLine
+ ME_F6CBDCE65679 // Reg_Type_TPoint
+ ME_12397D2C23CA // Reg_Type_Integer
+ ME_0C186C0F8896 // Reg_Type_TvgReminder
+ ME_A03124C980DE // Reg_Type_Boolean
+ )
  ; // Operations
  : Children
-   @ ( ME_EA750BB5E3DF // TvgRemindersLineFriend
+   Seq: ( ME_EA750BB5E3DF // TvgRemindersLineFriend
  ME_9653AE4CDED4 // pop_RemindersLine_ClientToScreen
  ME_FF04F6E03205 // pop_RemindersLine_GetReminder
  ME_F126CBF8C36E // pop_RemindersLine_AbsLeft
@@ -5962,26 +6688,25 @@ ref; // ME_07C2A8BE37ED
  ME_E47F2394242D // pop_RemindersLine_Top
  ME_002E70A99E5D // pop_RemindersLine_Visible
  ME_ECE9F55BFC1D // pop_RemindersLine_Width
- ) .SequenceCode.It
+ )
  ; // Children
  : Dependencies
-   @ ( ME_5500586700F8 // 
+   Seq: ( ME_5500586700F8 // 
  ME_EA667749DC72 // 
  ME_2DB5871F8286 // 
  ME_07C2A8BE37ED // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  CONST "ifndef" 'NoScripts'
  CONST "needs script" 'undefined'
  CONST "no class name" 'undefined'
  CONST "no hands" false
  CONST "no_pop" 'undefined'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\ScriptEngine'
  CONST intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\RemindersLineWordsPack.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\ScriptEngine'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_550057160010 RemindersLineWordsPack
 
@@ -5995,12 +6720,12 @@ ref; // ME_550057160010 RemindersLineWordsPack
  : Parent WL 'ME_54EC57FA0285' '54EC57FA0285.pas.ms.script' // ScriptEngine$VT
  ;
  : Children
-   @ ( ME_534FA99B02BB // ReminderWordsPack
+   Seq: ( ME_534FA99B02BB // ReminderWordsPack
  ME_550057160010 // RemindersLineWordsPack
- ) .SequenceCode.It
+ )
  ; // Children
  : Depends
-   @ ( WL 'ME_4677FBA70343' '4677FBA70343.pas.ms.script' // l3Interfaces
+   Seq: ( WL 'ME_4677FBA70343' '4677FBA70343.pas.ms.script' // l3Interfaces
  WL 'ME_4728A7020026' '4728A7020026.pas.ms.script' // Types
  WL 'ME_4767743E00E5' '4767743E00E5.pas.ms.script' // TypInfo
  WL 'ME_4799D29F033F' '4799D29F033F.pas.ms.script' // Implementation
@@ -6013,16 +6738,14 @@ ref; // ME_550057160010 RemindersLineWordsPack
  WL 'ME_5527F81C020E' '5527F81C020E.pas.ms.script' // TypesRegistration
  WL 'ME_55BA28CE0290' '55BA28CE0290.pas.ms.script' // tfwScriptingTypes
  WL 'ME_55CCADD2013D' '55CCADD2013D.pas.ms.script' // ClassLikeMapping
- ) .SequenceCode.It
+ )
  ; // Depends
  CONST "ifndef" 'NoVGScene,NoVCM'
- : Generators
- @ (
- gen_pas.script
- gen_pas.script.runner
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\ScriptEngine'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\ScriptEngine'
  CONST pas.script:Path 'shared\models\NewSchool\Scripts\534FA97F003E.pas.ms.script'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
  CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\534FA97F003E.pas.ms.script.runner'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_534FA97F003E ReminderWords

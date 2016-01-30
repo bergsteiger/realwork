@@ -1,0 +1,98 @@
+// DocumentListFromFile 4DA44AAD00AD VCMUseCase Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4DA44AAD00AD
+
+: ME_4DA44B030054
+ CONST UID '4DA44B030054'
+ CONST Name 'DocumentListFromFile'
+ CONST Class class_Class
+ : Stereotype st_VCMUseCaseRealization ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Список документов из файла' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_4DA44AAD00AD // DocumentListFromFile
+ ;
+ : Inherits
+   Seq: ( WL 'ME_4DA44B2C01BB' '4DA44B170176.pas.ms.script' // PrimDocumentListFromFile
+ )
+ ; // Inherits
+ : Implements
+   Seq: ( WL 'ME_484CE5E503D4' '484CE48E02E6.pas.ms.script' // Просмотр списка
+ )
+ ; // Implements
+ CONST "UseNewGen" 'undefined'
+ CONST "author" 'Люлин А.В.'
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" true
+ CONST "register in scripts" 'undefined'
+ CONST "started" '12.04.2011 16:54'
+ : Generators
+ Seq: (
+ gen_intf.pas
+ )
+ ; // Generators
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View'
+ CONST intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\moDocumentListFromFile.pas'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant'
+ CONST extprop:pas:TypeName 'Tmo_DocumentListFromFile'
+ CONST extprop:pas:UnitName 'moDocumentListFromFile'
+
+ref; // ME_4DA44B030054 DocumentListFromFile
+
+: ME_4DA44AAD00AD
+ CONST UID '4DA44AAD00AD'
+ CONST Name 'DocumentListFromFile'
+ CONST Class class_Category
+ : Stereotype st_VCMUseCase ;
+ %SUMMARY '{RequestLink:195757811}.' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent WL 'ME_4C851735010B' '4C851735010B.pas.ms.script' // F1 Интерфейсные элементы
+ ;
+ : Children
+   Seq: ( ME_4DA44B030054 // DocumentListFromFile
+ WL 'ME_4DA44ADF034E' '4DA44ADF034E.pas.ms.script' // View
+ )
+ ; // Children
+ : Depends
+   Seq: ( WL 'ME_456EA3D2031C' '456EA3D2031C.pas.ms.script' // GblAdapterLib
+ WL 'ME_4684F91300DD' '4684F91300DD.pas.ms.script' // Vcl
+ WL 'ME_4790B4F00236' '4790B4F00236.pas.ms.script' // AFW
+ WL 'ME_4790C3B8021E' '4790C3B8021E.pas.ms.script' // VCM
+ WL 'ME_4790D09A0378' '4790D09A0378.pas.ms.script' // L3
+ WL 'ME_481EF5C4020D' '481EF5C4020D.pas.ms.script' // Оболочка
+ WL 'ME_484CE48E02E6' '484CE48E02E6.pas.ms.script' // Списки
+ WL 'ME_491DCA2C00A9' '491DCA2C00A9.pas.ms.script' // Search
+ WL 'ME_49549627008C' '49549627008C.pas.ms.script' // LegalDomain
+ WL 'ME_49B1511700CA' '49B1511700CA.pas.ms.script' // Shared Delphi Core
+ WL 'ME_4A92C561015D' '4A92C561015D.pas.ms.script' // Common
+ WL 'ME_4A9FFD3F01AD' '4A9FFD3F01AD.pas.ms.script' // Search
+ WL 'ME_4D1B64E70031' '4D1B64E70031.pas.ms.script' // BusinessInterfaces
+ WL 'ME_4E13416D0227' '4E13416D0227.pas.ms.script' // VCM$Visual
+ WL 'ME_4E200FC9003B' '4E200FC9003B.pas.ms.script' // VCM$Scripting
+ WL 'ME_562E251101C2' '562E251101C2.pas.ms.script' // Shared Delphi Rtl
+ )
+ ; // Depends
+ CONST "UseNewGen" 'undefined'
+ : Generators
+ Seq: (
+ gen_pas.script
+ gen_pas.script.runner
+ )
+ ; // Generators
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis'
+ CONST pas.script:Path 'shared\models\NewSchool\Scripts\4DA44AAD00AD.pas.ms.script'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\4DA44AAD00AD.pas.ms.script.runner'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant'
+
+ref; // ME_4DA44AAD00AD DocumentListFromFile

@@ -1,0 +1,1194 @@
+// IO 4423F94903C8 Interfaces Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4423F94903C8
+
+: ME_443E3D76031C
+ CONST UID '443E3D76031C'
+ CONST Name 'OperationError'
+ CONST Class class_Class
+ : Stereotype st_Exception ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Во время выполнения операции copy_to один из потоков, участвовавших в операции перешёл в некорректное состояние.' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4423F94903C8 // IO
+ ;
+ CONST cpp:PathOnly '\shared\GCI\IO'
+ CONST dfm:PathOnly '\shared\GCI'
+ CONST dll.cpp:PathOnly '\shared\GCI\IO'
+ CONST dll.h:PathOnly '\shared\GCI\IO'
+ CONST fctr.cpp:PathOnly '\shared\GCI\IO'
+ CONST fctr.h:PathOnly '\shared\GCI\IO'
+ CONST h:PathOnly '\shared\GCI\IO'
+ CONST i.h:PathOnly '\shared\GCI\IO'
+ CONST idl:PathOnly '\shared'
+ CONST idl_ami:PathOnly '\shared'
+ CONST intf.pas:PathOnly '\shared\tie\Garant\GCI'
+ CONST mpc:PathOnly '\shared\project'
+ CONST mpc.dll:PathOnly '\shared\project'
+ CONST mpc2:PathOnly '\shared\project'
+ CONST pas:PathOnly '\shared\GCI'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc:PathOnly '\shared\GCI'
+ CONST rc.script.pas:PathOnly '\shared\GCI'
+ CONST s.ini:PathOnly '\shared\project'
+ CONST s.reg:PathOnly '\shared\project'
+ CONST vi.rc:PathOnly '\shared'
+ CONST vi.rch:PathOnly '\shared'
+
+ref; // ME_443E3D76031C OperationError
+
+: ME_476645080087
+ CONST UID '476645080087'
+ CONST Name 'NotImplemented'
+ CONST Class class_Class
+ : Stereotype st_Exception ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'функция не реализована' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4423F94903C8 // IO
+ ;
+ CONST cpp:PathOnly '\shared\GCI\IO'
+ CONST dfm:PathOnly '\shared\GCI'
+ CONST dll.cpp:PathOnly '\shared\GCI\IO'
+ CONST dll.h:PathOnly '\shared\GCI\IO'
+ CONST fctr.cpp:PathOnly '\shared\GCI\IO'
+ CONST fctr.h:PathOnly '\shared\GCI\IO'
+ CONST h:PathOnly '\shared\GCI\IO'
+ CONST i.h:PathOnly '\shared\GCI\IO'
+ CONST idl:PathOnly '\shared'
+ CONST idl_ami:PathOnly '\shared'
+ CONST intf.pas:PathOnly '\shared\tie\Garant\GCI'
+ CONST mpc:PathOnly '\shared\project'
+ CONST mpc.dll:PathOnly '\shared\project'
+ CONST mpc2:PathOnly '\shared\project'
+ CONST pas:PathOnly '\shared\GCI'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc:PathOnly '\shared\GCI'
+ CONST rc.script.pas:PathOnly '\shared\GCI'
+ CONST s.ini:PathOnly '\shared\project'
+ CONST s.reg:PathOnly '\shared\project'
+ CONST vi.rc:PathOnly '\shared'
+ CONST vi.rch:PathOnly '\shared'
+
+ref; // ME_476645080087 NotImplemented
+
+FORWARD ME_431841610361
+
+: ME_43184161036F
+ CONST UID '43184161036F'
+ CONST Name 'length'
+ CONST Class class_Attribute
+ : Stereotype st_readonly::Attribute ;
+ %SUMMARY 'длинна текстовой строки' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_agr
+ : Parent ME_431841610361 // String
+ ;
+ : Target WL 'ME_3DBFFDE101CA' '3DBFDB23006E.pas.ms.script' // unsigned long
+ ;
+ CONST "pm" false
+
+ref; // ME_43184161036F length
+
+: ME_431841610370
+ CONST UID '431841610370'
+ CONST Name 'maximum'
+ CONST Class class_Attribute
+ : Stereotype st_property::Attribute ;
+ %SUMMARY 'размер аллоцированого буфера, для хранения текстовой строки' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_agr
+ : Parent ME_431841610361 // String
+ ;
+ : Target WL 'ME_3DBFFDE101CA' '3DBFDB23006E.pas.ms.script' // unsigned long
+ ;
+ CONST "pm" false
+
+ref; // ME_431841610370 maximum
+
+: ME_431841610371
+ CONST UID '431841610371'
+ CONST Name 'data'
+ CONST Class class_Attribute
+ : Stereotype st_readonly::Attribute ;
+ %SUMMARY 'указатель на начало аллоцированного буфера (строки)' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_agr
+ : Parent ME_431841610361 // String
+ ;
+ : Target WL 'ME_3DBFFE240068' '3DBFDB23006E.pas.ms.script' // string
+ ;
+ CONST "pm" false
+
+ref; // ME_431841610371 data
+
+: ME_431860270052
+ CONST UID '431860270052'
+ CONST Name 'code_page'
+ CONST Class class_Attribute
+ : Stereotype st_property::Attribute ;
+ %SUMMARY 'кодовая страница' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_agr
+ : Parent ME_431841610361 // String
+ ;
+ : Target WL 'ME_3DBFFD5402AE' '3DBFDB23006E.pas.ms.script' // short
+ ;
+ CONST "pm" false
+
+ref; // ME_431860270052 code_page
+
+: ME_46138E0E02EE
+ CONST UID '46138E0E02EE'
+ CONST Name 'str'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_3DBFFE240068' '3DBFDB23006E.pas.ms.script' // string
+ ;
+
+ref; // ME_46138E0E02EE str
+
+: ME_461384D70213
+ CONST UID '461384D70213'
+ CONST Name 'make'
+ CONST Class class_Operation
+ : Stereotype st_factory::Operation ;
+ %SUMMARY 'фабрика, копирует строку' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_431841610361 // String
+ ;
+ : Parameters
+   Seq: ( ME_46138E0E02EE // str
+ )
+ ; // Parameters
+ CONST "const_type" 'read-write'
+
+ref; // ME_461384D70213 make
+
+: ME_461388250203
+ CONST UID '461388250203'
+ CONST Name 'str'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_3DBFFE240068' '3DBFDB23006E.pas.ms.script' // string
+ ;
+
+ref; // ME_461388250203 str
+
+: ME_46138825031C
+ CONST UID '46138825031C'
+ CONST Name 'code_page'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_3DBFFD5402AE' '3DBFDB23006E.pas.ms.script' // short
+ ;
+
+ref; // ME_46138825031C code_page
+
+: ME_433105CC02D0
+ CONST UID '433105CC02D0'
+ CONST Name 'create'
+ CONST Class class_Operation
+ : Stereotype st_factory::Operation ;
+ %SUMMARY 'фабрика, копирует строку' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_431841610361 // String
+ ;
+ : Parameters
+   Seq: ( ME_461388250203 // str
+ ME_46138825031C // code_page
+ )
+ ; // Parameters
+ CONST "const_type" 'read-write'
+ CONST "dll export" false
+
+ref; // ME_433105CC02D0 create
+
+: ME_46138E12030D
+ CONST UID '46138E12030D'
+ CONST Name 'str'
+ CONST Class class_Parameter
+ : Stereotype st_inout ;
+ : Target WL 'ME_3DBFFE240068' '3DBFDB23006E.pas.ms.script' // string
+ ;
+
+ref; // ME_46138E12030D str
+
+: ME_46138E12038A
+ CONST UID '46138E12038A'
+ CONST Name 'code_page'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_3DBFFD5402AE' '3DBFDB23006E.pas.ms.script' // short
+ ;
+
+ref; // ME_46138E12038A code_page
+
+: ME_4613871A00EA
+ CONST UID '4613871A00EA'
+ CONST Name 'take'
+ CONST Class class_Operation
+ : Stereotype st_factory::Operation ;
+ %SUMMARY 'Захватывает переданную строку. Память под передаваемый аргумент str ДОЛЖНА БЫТЬ ВЫДЕЛЕНА оператором new[], так как в деструкторе вызывается оператор delete[].' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_431841610361 // String
+ ;
+ : Parameters
+   Seq: ( ME_46138E12030D // str
+ ME_46138E12038A // code_page
+ )
+ ; // Parameters
+ CONST "const_type" 'read-write'
+ CONST "dll export" false
+
+ref; // ME_4613871A00EA take
+
+: ME_43184161036B
+ CONST UID '43184161036B'
+ CONST Name 'maximum'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_3DBFFDE101CA' '3DBFDB23006E.pas.ms.script' // unsigned long
+ ;
+
+ref; // ME_43184161036B maximum
+
+: ME_43184161036A
+ CONST UID '43184161036A'
+ CONST Name 'alloc'
+ CONST Class class_Operation
+ : Stereotype st_factory::Operation ;
+ %SUMMARY 'создает пустую строку, с преалоцированным буфером указанного размера' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_431841610361 // String
+ ;
+ : Parameters
+   Seq: ( ME_43184161036B // maximum
+ )
+ ; // Parameters
+ CONST "const_type" 'read-write'
+
+ref; // ME_43184161036A alloc
+
+: ME_431841610364
+ CONST UID '431841610364'
+ CONST Name 'str'
+ CONST Class class_Parameter
+ : Stereotype st_inout ;
+ : Target WL 'ME_3DBFFE240068' '3DBFDB23006E.pas.ms.script' // string
+ ;
+
+ref; // ME_431841610364 str
+
+: ME_431841610365
+ CONST UID '431841610365'
+ CONST Name 'maximum'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_3DBFFDE101CA' '3DBFDB23006E.pas.ms.script' // unsigned long
+ ;
+
+ref; // ME_431841610365 maximum
+
+: ME_431841610363
+ CONST UID '431841610363'
+ CONST Name 'reset'
+ CONST Class class_Operation
+ : Stereotype st_chg::Operation ;
+ %SUMMARY 'Захватывает переданную строку. Если аргумент, задающий длину, меньше чем strlen(str) + 1, то длина строки принимается равной длине строки + 1. Память под передаваемый аргумент str ДОЛЖНА БЫТЬ ВЫДЕЛЕНА оператором new[], так как в деструкторе вызывается оператор delete[].' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_431841610361 // String
+ ;
+ : Parameters
+   Seq: ( ME_431841610364 // str
+ ME_431841610365 // maximum
+ )
+ ; // Parameters
+ CONST "dll export" false
+
+ref; // ME_431841610363 reset
+
+: ME_431841610367
+ CONST UID '431841610367'
+ CONST Name 'str'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_3DBFFE240068' '3DBFDB23006E.pas.ms.script' // string
+ ;
+
+ref; // ME_431841610367 str
+
+: ME_431841610366
+ CONST UID '431841610366'
+ CONST Name 'reset'
+ CONST Class class_Operation
+ : Stereotype st_chg::Operation ;
+ %SUMMARY 'устанавливает значение строки равное переданному (переданная строка копируеться)' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_431841610361 // String
+ ;
+ : Parameters
+   Seq: ( ME_431841610367 // str
+ )
+ ; // Parameters
+
+ref; // ME_431841610366 reset
+
+: ME_431841610362
+ CONST UID '431841610362'
+ CONST Name 'strdup'
+ CONST Class class_Operation
+ %SUMMARY 'возвращает бинарную копию строки' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_431841610361 // String
+ ;
+ : Target ME_431841610361 // String
+ ;
+
+ref; // ME_431841610362 strdup
+
+: ME_452A4C430090
+ CONST UID '452A4C430090'
+ CONST Name 'str'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_3DBFFE240068' '3DBFDB23006E.pas.ms.script' // string
+ ;
+
+ref; // ME_452A4C430090 str
+
+: ME_43185CB60312
+ CONST UID '43185CB60312'
+ CONST Name 'add'
+ CONST Class class_Operation
+ : Stereotype st_chg::Operation ;
+ %SUMMARY 'добавляет к строке переданную подстроку, возвращает указатель на свой буфер' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_431841610361 // String
+ ;
+ : Target WL 'ME_3DBFFE240068' '3DBFDB23006E.pas.ms.script' // string
+ ;
+ CONST TargetStereotype 'const,cached'
+ : Parameters
+   Seq: ( ME_452A4C430090 // str
+ )
+ ; // Parameters
+
+ref; // ME_43185CB60312 add
+
+: ME_452A4C460294
+ CONST UID '452A4C460294'
+ CONST Name 'str'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target ME_431841610361 // String
+ ;
+
+ref; // ME_452A4C460294 str
+
+: ME_43185CF2021E
+ CONST UID '43185CF2021E'
+ CONST Name 'add'
+ CONST Class class_Operation
+ : Stereotype st_chg::Operation ;
+ %SUMMARY 'добавляет к строке переданную подстроку, возвращает указатель на свой буфер' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_431841610361 // String
+ ;
+ : Target WL 'ME_3DBFFE240068' '3DBFDB23006E.pas.ms.script' // string
+ ;
+ CONST TargetStereotype 'const,cached'
+ : Parameters
+   Seq: ( ME_452A4C460294 // str
+ )
+ ; // Parameters
+
+ref; // ME_43185CF2021E add
+
+: ME_43185E9F0170
+ CONST UID '43185E9F0170'
+ CONST Name 'str'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_3DBFFE240068' '3DBFDB23006E.pas.ms.script' // string
+ ;
+
+ref; // ME_43185E9F0170 str
+
+: ME_43185E8E0375
+ CONST UID '43185E8E0375'
+ CONST Name 'join'
+ CONST Class class_Operation
+ %SUMMARY 'возвращает новую строку равную объединению текущей и переданной' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_431841610361 // String
+ ;
+ : Target WL 'ME_3DBFFE240068' '3DBFDB23006E.pas.ms.script' // string
+ ;
+ : Parameters
+   Seq: ( ME_43185E9F0170 // str
+ )
+ ; // Parameters
+ CONST "dll export" false
+
+ref; // ME_43185E8E0375 join
+
+: ME_43185EC8033C
+ CONST UID '43185EC8033C'
+ CONST Name 'str'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target ME_431841610361 // String
+ ;
+
+ref; // ME_43185EC8033C str
+
+: ME_43185EB40008
+ CONST UID '43185EB40008'
+ CONST Name 'join'
+ CONST Class class_Operation
+ %SUMMARY 'возвращает новую строку равную объединению текущей и переданной' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_431841610361 // String
+ ;
+ : Target WL 'ME_3DBFFE240068' '3DBFDB23006E.pas.ms.script' // string
+ ;
+ : Parameters
+   Seq: ( ME_43185EC8033C // str
+ )
+ ; // Parameters
+ CONST "dll export" false
+
+ref; // ME_43185EB40008 join
+
+: ME_431841610361
+ CONST UID '431841610361'
+ CONST GUID '952E8D0E-1685-49D2-BFDB-D854F4BF0156'
+ CONST Name 'String'
+ CONST Class class_Class
+ : Stereotype st_Interface ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Интерфейс для работы со строками. Предпочтительно использовать именно этот тип для работы со всеми строковыми данными.' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_4423F94903C8 // IO
+ ;
+ : Attributes
+   Seq: ( ME_43184161036F // length
+ ME_431841610370 // maximum
+ ME_431841610371 // data
+ ME_431860270052 // code_page
+ )
+ ; // Attributes
+ : Operations
+   Seq: ( ME_461384D70213 // make
+ ME_433105CC02D0 // create
+ ME_4613871A00EA // take
+ ME_43184161036A // alloc
+ ME_431841610363 // reset
+ ME_431841610366 // reset
+ ME_431841610362 // strdup
+ ME_43185CB60312 // add
+ ME_43185CF2021E // add
+ ME_43185E8E0375 // join
+ ME_43185EB40008 // join
+ )
+ ; // Operations
+ CONST "single impl" false
+ CONST cpp:PathOnly '\shared\GCI\IO'
+ CONST dfm:PathOnly '\shared\GCI'
+ CONST dll.cpp:PathOnly '\shared\GCI\IO'
+ CONST dll.h:PathOnly '\shared\GCI\IO'
+ CONST fctr.cpp:PathOnly '\shared\GCI\IO'
+ CONST fctr.h:PathOnly '\shared\GCI\IO'
+ CONST h:PathOnly '\shared\GCI\IO'
+ CONST i.h:PathOnly '\shared\GCI\IO'
+ CONST idl:PathOnly '\shared'
+ CONST idl_ami:PathOnly '\shared'
+ CONST intf.pas:PathOnly '\shared\tie\Garant\GCI'
+ CONST mpc:PathOnly '\shared\project'
+ CONST mpc.dll:PathOnly '\shared\project'
+ CONST mpc2:PathOnly '\shared\project'
+ CONST pas:PathOnly '\shared\GCI'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc:PathOnly '\shared\GCI'
+ CONST rc.script.pas:PathOnly '\shared\GCI'
+ CONST s.ini:PathOnly '\shared\project'
+ CONST s.reg:PathOnly '\shared\project'
+ CONST vi.rc:PathOnly '\shared'
+ CONST vi.rch:PathOnly '\shared'
+ CONST extprop:pas:TypeName 'IString'
+ CONST extprop:rc:SelfName 'String'
+ CONST extprop:rc:isAcceptableForScripts true
+
+ref; // ME_431841610361 String
+
+FORWARD ME_47626A9C017A
+
+: ME_4762721801C2
+ CONST UID '4762721801C2'
+ CONST Name 'SSD_BEGIN'
+ CONST Class class_Attribute
+ %SUMMARY 'смещение относительно начала потока' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_47626A9C017A // StreamSeekDirection
+ ;
+
+ref; // ME_4762721801C2 SSD_BEGIN
+
+: ME_476272450399
+ CONST UID '476272450399'
+ CONST Name 'SSD_CURRENT'
+ CONST Class class_Attribute
+ %SUMMARY 'смещение относительнотекущей позиции в потоке' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_47626A9C017A // StreamSeekDirection
+ ;
+
+ref; // ME_476272450399 SSD_CURRENT
+
+: ME_476272640187
+ CONST UID '476272640187'
+ CONST Name 'SSD_END'
+ CONST Class class_Attribute
+ %SUMMARY 'смещение относительно конца потока' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_47626A9C017A // StreamSeekDirection
+ ;
+
+ref; // ME_476272640187 SSD_END
+
+: ME_47626A9C017A
+ CONST UID '47626A9C017A'
+ CONST Name 'StreamSeekDirection'
+ CONST Class class_Class
+ : Stereotype st_Enum ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'точка от которой считается смещение. Константы должны совпадать по значению с MSDN-овскими' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4423F94903C8 // IO
+ ;
+ : Attributes
+   Seq: ( ME_4762721801C2 // SSD_BEGIN
+ ME_476272450399 // SSD_CURRENT
+ ME_476272640187 // SSD_END
+ )
+ ; // Attributes
+ CONST "force usage" true
+ CONST cpp:PathOnly '\shared\GCI\IO'
+ CONST dfm:PathOnly '\shared\GCI'
+ CONST dll.cpp:PathOnly '\shared\GCI\IO'
+ CONST dll.h:PathOnly '\shared\GCI\IO'
+ CONST fctr.cpp:PathOnly '\shared\GCI\IO'
+ CONST fctr.h:PathOnly '\shared\GCI\IO'
+ CONST h:PathOnly '\shared\GCI\IO'
+ CONST i.h:PathOnly '\shared\GCI\IO'
+ CONST idl:PathOnly '\shared'
+ CONST idl_ami:PathOnly '\shared'
+ CONST intf.pas:PathOnly '\shared\tie\Garant\GCI'
+ CONST mpc:PathOnly '\shared\project'
+ CONST mpc.dll:PathOnly '\shared\project'
+ CONST mpc2:PathOnly '\shared\project'
+ CONST pas:PathOnly '\shared\GCI'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc:PathOnly '\shared\GCI'
+ CONST rc.script.pas:PathOnly '\shared\GCI'
+ CONST s.ini:PathOnly '\shared\project'
+ CONST s.reg:PathOnly '\shared\project'
+ CONST vi.rc:PathOnly '\shared'
+ CONST vi.rch:PathOnly '\shared'
+ CONST extprop:pas:TypeName 'TStreamSeekDirection'
+ CONST extprop:rc:isAcceptableForScripts true
+
+ref; // ME_47626A9C017A StreamSeekDirection
+
+FORWARD ME_4423FB5903D8
+
+: ME_442807A00138
+ CONST UID '442807A00138'
+ CONST Name 'make'
+ CONST Class class_Operation
+ : Stereotype st_factory::Operation ;
+ %SUMMARY 'Создает пустой поток' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_4423FB5903D8 // Stream
+ ;
+ CONST "const_type" 'read-write'
+
+ref; // ME_442807A00138 make
+
+: ME_44312A7F030D
+ CONST UID '44312A7F030D'
+ CONST Name 'path'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_3DBFFE240068' '3DBFDB23006E.pas.ms.script' // string
+ ;
+
+ref; // ME_44312A7F030D path
+
+: ME_44312A6F0128
+ CONST UID '44312A6F0128'
+ CONST Name 'make'
+ CONST Class class_Operation
+ : Stereotype st_factory::Operation ;
+ %SUMMARY 'Создает поток связанный с файлом' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_4423FB5903D8 // Stream
+ ;
+ : Parameters
+   Seq: ( ME_44312A7F030D // path
+ )
+ ; // Parameters
+ CONST "const_type" 'read-write'
+
+ref; // ME_44312A6F0128 make
+
+: ME_4630810E0148
+ CONST UID '4630810E0148'
+ CONST Name 'buffer'
+ CONST Class class_Parameter
+ : Stereotype st_inout ;
+ : Target WL 'ME_3ECB343C024C' '3DBFDB23006E.pas.ms.script' // pointer
+ ;
+
+ref; // ME_4630810E0148 buffer
+
+: ME_4630810E01A5
+ CONST UID '4630810E01A5'
+ CONST Name 'size'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_3DBFFDE101CA' '3DBFDB23006E.pas.ms.script' // unsigned long
+ ;
+
+ref; // ME_4630810E01A5 size
+
+: ME_4423FC9C0290
+ CONST UID '4423FC9C0290'
+ CONST Name 'read'
+ CONST Class class_Operation
+ : Stereotype st_chg::Operation ;
+ %SUMMARY 'Прочесть данные из потока, возвращает количество прочитанных байтов.' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_4423FB5903D8 // Stream
+ ;
+ : Target WL 'ME_3DBFFDE101CA' '3DBFDB23006E.pas.ms.script' // unsigned long
+ ;
+ : CanRaise
+   Seq: ( ME_443E3D76031C // OperationError
+ )
+ ; // CanRaise
+ : Parameters
+   Seq: ( ME_4630810E0148 // buffer
+ ME_4630810E01A5 // size
+ )
+ ; // Parameters
+
+ref; // ME_4423FC9C0290 read
+
+: ME_4424019B0251
+ CONST UID '4424019B0251'
+ CONST Name 'buffer'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_3ECB343C024C' '3DBFDB23006E.pas.ms.script' // pointer
+ ;
+
+ref; // ME_4424019B0251 buffer
+
+: ME_4424019B02BF
+ CONST UID '4424019B02BF'
+ CONST Name 'size'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_3DBFFDE101CA' '3DBFDB23006E.pas.ms.script' // unsigned long
+ ;
+
+ref; // ME_4424019B02BF size
+
+: ME_4423FCA20232
+ CONST UID '4423FCA20232'
+ CONST Name 'write'
+ CONST Class class_Operation
+ : Stereotype st_chg::Operation ;
+ %SUMMARY 'Записать данные в поток. Возвращает количество записанных байтов.' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_4423FB5903D8 // Stream
+ ;
+ : Target WL 'ME_3DBFFDE101CA' '3DBFDB23006E.pas.ms.script' // unsigned long
+ ;
+ : Parameters
+   Seq: ( ME_4424019B0251 // buffer
+ ME_4424019B02BF // size
+ )
+ ; // Parameters
+
+ref; // ME_4423FCA20232 write
+
+: ME_46308108033C
+ CONST UID '46308108033C'
+ CONST Name 'offset'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_3DBFFD7002C2' '3DBFDB23006E.pas.ms.script' // long
+ ;
+
+ref; // ME_46308108033C offset
+
+: ME_463081080399
+ CONST UID '463081080399'
+ CONST Name 'whence'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_3DBFFDE101CA' '3DBFDB23006E.pas.ms.script' // unsigned long
+ ;
+
+ref; // ME_463081080399 whence
+
+: ME_4423FCA9030D
+ CONST UID '4423FCA9030D'
+ CONST Name 'seek'
+ CONST Class class_Operation
+ : Stereotype st_chg::Operation ;
+ %SUMMARY 'Переместить маркер потока. Возвращает число байт от начала потока.' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_4423FB5903D8 // Stream
+ ;
+ : Target WL 'ME_3DBFFDE101CA' '3DBFDB23006E.pas.ms.script' // unsigned long
+ ;
+ : CanRaise
+   Seq: ( ME_443E3D76031C // OperationError
+ ME_476645080087 // NotImplemented
+ )
+ ; // CanRaise
+ : Parameters
+   Seq: ( ME_46308108033C // offset
+ ME_463081080399 // whence
+ )
+ ; // Parameters
+
+ref; // ME_4423FCA9030D seek
+
+: ME_443E3A7D0148
+ CONST UID '443E3A7D0148'
+ CONST Name 'dst'
+ CONST Class class_Parameter
+ : Stereotype st_inout ;
+ : Target ME_4423FB5903D8 // Stream
+ ;
+
+ref; // ME_443E3A7D0148 dst
+
+: ME_44240DE502DE
+ CONST UID '44240DE502DE'
+ CONST Name 'size'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_3DBFFDE101CA' '3DBFDB23006E.pas.ms.script' // unsigned long
+ ;
+
+ref; // ME_44240DE502DE size
+
+: ME_44240DE5033C
+ CONST UID '44240DE5033C'
+ CONST Name 'actually_read'
+ CONST Class class_Parameter
+ : Stereotype st_out ;
+ : Target WL 'ME_3DBFFDF10213' '3DBFDB23006E.pas.ms.script' // unsigned long long
+ ;
+
+ref; // ME_44240DE5033C actually_read
+
+: ME_452A0C6502C2
+ CONST UID '452A0C6502C2'
+ CONST Name 'actually_written'
+ CONST Class class_Parameter
+ : Stereotype st_out ;
+ : Target WL 'ME_3DBFFDF10213' '3DBFDB23006E.pas.ms.script' // unsigned long long
+ ;
+
+ref; // ME_452A0C6502C2 actually_written
+
+: ME_4423FCB4029F
+ CONST UID '4423FCB4029F'
+ CONST Name 'copy_to'
+ CONST Class class_Operation
+ : Stereotype st_chg::Operation ;
+ %SUMMARY 'Копирует данные из одного потока в другой.' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_4423FB5903D8 // Stream
+ ;
+ : CanRaise
+   Seq: ( ME_443E3D76031C // OperationError
+ )
+ ; // CanRaise
+ : Parameters
+   Seq: ( ME_443E3A7D0148 // dst
+ ME_44240DE502DE // size
+ ME_44240DE5033C // actually_read
+ ME_452A0C6502C2 // actually_written
+ )
+ ; // Parameters
+
+ref; // ME_4423FCB4029F copy_to
+
+: ME_4433789401B5
+ CONST UID '4433789401B5'
+ CONST Name 'eof'
+ CONST Class class_Operation
+ %SUMMARY 'Функция возвращает true если достигнут конец потока.' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_4423FB5903D8 // Stream
+ ;
+ : Target WL 'ME_3DBFFE100240' '3DBFDB23006E.pas.ms.script' // boolean
+ ;
+
+ref; // ME_4433789401B5 eof
+
+: ME_443E262F007D
+ CONST UID '443E262F007D'
+ CONST Name 'bad'
+ CONST Class class_Operation
+ %SUMMARY 'Если возвращается true, дальнейшая работа с потоком невозможна' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_4423FB5903D8 // Stream
+ ;
+ : Target WL 'ME_3DBFFE100240' '3DBFDB23006E.pas.ms.script' // boolean
+ ;
+
+ref; // ME_443E262F007D bad
+
+: ME_48BFB53E00B5
+ CONST UID '48BFB53E00B5'
+ CONST Name 'clear'
+ CONST Class class_Operation
+ : Stereotype st_chg::Operation ;
+ %SUMMARY 'Чистит флаги потока' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_4423FB5903D8 // Stream
+ ;
+ CONST "dll export" false
+
+ref; // ME_48BFB53E00B5 clear
+
+: ME_4423FB5903D8
+ CONST UID '4423FB5903D8'
+ CONST GUID 'D99F458B-CF9F-4286-AD02-59ABA1662465'
+ CONST Name 'Stream'
+ CONST Class class_Class
+ : Stereotype st_Interface ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Интерфейс для работы с потоком' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_4423F94903C8 // IO
+ ;
+ : Operations
+   Seq: ( ME_442807A00138 // make
+ ME_44312A6F0128 // make
+ ME_4423FC9C0290 // read
+ ME_4423FCA20232 // write
+ ME_4423FCA9030D // seek
+ ME_4423FCB4029F // copy_to
+ ME_4433789401B5 // eof
+ ME_443E262F007D // bad
+ ME_48BFB53E00B5 // clear
+ )
+ ; // Operations
+ CONST "native definition" 'DLL outside'
+ CONST "single impl" false
+ CONST cpp:PathOnly '\shared\GCI\IO'
+ CONST dfm:PathOnly '\shared\GCI'
+ CONST dll.cpp:PathOnly '\shared\GCI\IO'
+ CONST dll.h:PathOnly '\shared\GCI\IO'
+ CONST fctr.cpp:PathOnly '\shared\GCI\IO'
+ CONST fctr.h:PathOnly '\shared\GCI\IO'
+ CONST h:PathOnly '\shared\GCI\IO'
+ CONST i.h:PathOnly '\shared\GCI\IO'
+ CONST idl:PathOnly '\shared'
+ CONST idl_ami:PathOnly '\shared'
+ CONST intf.pas:PathOnly '\shared\tie\Garant\GCI'
+ CONST mpc:PathOnly '\shared\project'
+ CONST mpc.dll:PathOnly '\shared\project'
+ CONST mpc2:PathOnly '\shared\project'
+ CONST pas:PathOnly '\shared\GCI'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc:PathOnly '\shared\GCI'
+ CONST rc.script.pas:PathOnly '\shared\GCI'
+ CONST s.ini:PathOnly '\shared\project'
+ CONST s.reg:PathOnly '\shared\project'
+ CONST vi.rc:PathOnly '\shared'
+ CONST vi.rch:PathOnly '\shared'
+ CONST extprop:pas:TypeName 'IStream'
+ CONST extprop:rc:SelfName 'Stream'
+ CONST extprop:rc:isAcceptableForScripts true
+
+ref; // ME_4423FB5903D8 Stream
+
+FORWARD ME_4E182EED0047
+
+: ME_4E182F330350
+ CONST UID '4E182F330350'
+ CONST Name 'day'
+ CONST Class class_Attribute
+ %SUMMARY 'день в месяце (1-31)' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_agr
+ : Parent ME_4E182EED0047 // DateTimeBox
+ ;
+ : Target WL 'ME_3DBFFD5402AE' '3DBFDB23006E.pas.ms.script' // short
+ ;
+
+ref; // ME_4E182F330350 day
+
+: ME_4E182FA3015F
+ CONST UID '4E182FA3015F'
+ CONST Name 'mounth'
+ CONST Class class_Attribute
+ %SUMMARY 'месяц в году (1-12)' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_agr
+ : Parent ME_4E182EED0047 // DateTimeBox
+ ;
+ : Target WL 'ME_3DBFFD5402AE' '3DBFDB23006E.pas.ms.script' // short
+ ;
+
+ref; // ME_4E182FA3015F mounth
+
+: ME_4E182FCB0343
+ CONST UID '4E182FCB0343'
+ CONST Name 'year'
+ CONST Class class_Attribute
+ %SUMMARY 'год' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_agr
+ : Parent ME_4E182EED0047 // DateTimeBox
+ ;
+ : Target WL 'ME_3DBFFD5402AE' '3DBFDB23006E.pas.ms.script' // short
+ ;
+
+ref; // ME_4E182FCB0343 year
+
+: ME_4E182FE8015F
+ CONST UID '4E182FE8015F'
+ CONST Name 'hour'
+ CONST Class class_Attribute
+ %SUMMARY 'час (0-23)' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_agr
+ : Parent ME_4E182EED0047 // DateTimeBox
+ ;
+ : Target WL 'ME_3DBFFD5402AE' '3DBFDB23006E.pas.ms.script' // short
+ ;
+
+ref; // ME_4E182FE8015F hour
+
+: ME_4E18301200B7
+ CONST UID '4E18301200B7'
+ CONST Name 'minute'
+ CONST Class class_Attribute
+ %SUMMARY 'минута в часе (0-59)' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_agr
+ : Parent ME_4E182EED0047 // DateTimeBox
+ ;
+ : Target WL 'ME_3DBFFD5402AE' '3DBFDB23006E.pas.ms.script' // short
+ ;
+
+ref; // ME_4E18301200B7 minute
+
+: ME_4E18304202F7
+ CONST UID '4E18304202F7'
+ CONST Name 'second'
+ CONST Class class_Attribute
+ %SUMMARY 'секунда в минуте (0-59)' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_agr
+ : Parent ME_4E182EED0047 // DateTimeBox
+ ;
+ : Target WL 'ME_3DBFFD5402AE' '3DBFDB23006E.pas.ms.script' // short
+ ;
+
+ref; // ME_4E18304202F7 second
+
+: ME_4E1830700040
+ CONST UID '4E1830700040'
+ CONST Name 'millisecond'
+ CONST Class class_Attribute
+ %SUMMARY 'миллисекунды (0-999)' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_agr
+ : Parent ME_4E182EED0047 // DateTimeBox
+ ;
+ : Target WL 'ME_3DBFFD5402AE' '3DBFDB23006E.pas.ms.script' // short
+ ;
+
+ref; // ME_4E1830700040 millisecond
+
+: ME_4E182EED0047
+ CONST UID '4E182EED0047'
+ CONST Name 'DateTimeBox'
+ CONST Class class_Class
+ : Stereotype st_Struct ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'для универсальной передачи времени между разными языками, платформами.' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4423F94903C8 // IO
+ ;
+ : Attributes
+   Seq: ( ME_4E182F330350 // day
+ ME_4E182FA3015F // mounth
+ ME_4E182FCB0343 // year
+ ME_4E182FE8015F // hour
+ ME_4E18301200B7 // minute
+ ME_4E18304202F7 // second
+ ME_4E1830700040 // millisecond
+ )
+ ; // Attributes
+ CONST cpp:PathOnly '\shared\GCI\IO'
+ CONST dfm:PathOnly '\shared\GCI'
+ CONST dll.cpp:PathOnly '\shared\GCI\IO'
+ CONST dll.h:PathOnly '\shared\GCI\IO'
+ CONST fctr.cpp:PathOnly '\shared\GCI\IO'
+ CONST fctr.h:PathOnly '\shared\GCI\IO'
+ CONST h:PathOnly '\shared\GCI\IO'
+ CONST i.h:PathOnly '\shared\GCI\IO'
+ CONST idl:PathOnly '\shared'
+ CONST idl_ami:PathOnly '\shared'
+ CONST intf.pas:PathOnly '\shared\tie\Garant\GCI'
+ CONST mpc:PathOnly '\shared\project'
+ CONST mpc.dll:PathOnly '\shared\project'
+ CONST mpc2:PathOnly '\shared\project'
+ CONST pas:PathOnly '\shared\GCI'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc:PathOnly '\shared\GCI'
+ CONST rc.script.pas:PathOnly '\shared\GCI'
+ CONST s.ini:PathOnly '\shared\project'
+ CONST s.reg:PathOnly '\shared\project'
+ CONST vi.rc:PathOnly '\shared'
+ CONST vi.rch:PathOnly '\shared'
+ CONST extprop:pas:TypeName 'TDateTimeBox'
+
+ref; // ME_4E182EED0047 DateTimeBox
+
+: ME_4423F94903C8
+ CONST UID '4423F94903C8'
+ CONST Name 'IO'
+ CONST Class class_Category
+ : Stereotype st_Interfaces ;
+ %SUMMARY 'пакет интерфейсов ввода-вывода' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent WL 'ME_447878770121' '447878770121.pas.ms.script' // GCI
+ ;
+ : Children
+   Seq: ( ME_443E3D76031C // OperationError
+ ME_476645080087 // NotImplemented
+ ME_431841610361 // String
+ ME_47626A9C017A // StreamSeekDirection
+ ME_4423FB5903D8 // Stream
+ ME_4E182EED0047 // DateTimeBox
+ )
+ ; // Children
+ CONST "is namespace" true
+ CONST "no hands" false
+ : Generators
+ Seq: (
+ gen_cpp
+ gen_dll.cpp
+ gen_dll.h
+ gen_fctr.cpp
+ gen_fctr.h
+ gen_h
+ gen_intf.pas
+ gen_pas
+ gen_pas.script
+ gen_pas.script.runner
+ )
+ ; // Generators
+ CONST cpp:Path 'shared\GCI\IO\IO.cpp'
+ CONST cpp:PathOnly '\shared\GCI\IO'
+ CONST dfm:PathOnly '\shared\GCI'
+ CONST dll.cpp:Path 'shared\GCI\IO\IO_tie.cpp'
+ CONST dll.cpp:PathOnly '\shared\GCI\IO'
+ CONST dll.h:Path 'shared\GCI\IO\IO_tie.h'
+ CONST dll.h:PathOnly '\shared\GCI\IO'
+ CONST fctr.cpp:Path 'shared\GCI\IO\IOFactories.cpp'
+ CONST fctr.cpp:PathOnly '\shared\GCI\IO'
+ CONST fctr.h:Path 'shared\GCI\IO\IOFactories.h'
+ CONST fctr.h:PathOnly '\shared\GCI\IO'
+ CONST h:Path 'shared\GCI\IO\IO.h'
+ CONST h:PathOnly '\shared\GCI\IO'
+ CONST i.h:PathOnly '\shared\GCI\IO'
+ CONST idl:PathOnly '\shared'
+ CONST idl_ami:PathOnly '\shared'
+ CONST intf.pas:Path 'shared\tie\Garant\GCI\IOUnit.pas'
+ CONST intf.pas:PathOnly '\shared\tie\Garant\GCI'
+ CONST mpc:PathOnly '\shared\project'
+ CONST mpc.dll:PathOnly '\shared\project'
+ CONST mpc2:PathOnly '\shared\project'
+ CONST pas:Path 'shared\GCI\IOUnit.pas'
+ CONST pas:PathOnly '\shared\GCI'
+ CONST pas.script:Path 'shared\models\NewSchool\Scripts\4423F94903C8.pas.ms.script'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\4423F94903C8.pas.ms.script.runner'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc:PathOnly '\shared\GCI'
+ CONST rc.script.pas:PathOnly '\shared\GCI'
+ CONST s.ini:PathOnly '\shared\project'
+ CONST s.reg:PathOnly '\shared\project'
+ CONST vi.rc:PathOnly '\shared'
+ CONST vi.rch:PathOnly '\shared'
+ CONST extprop:pas:UnitName 'IOUnit'
+
+ref; // ME_4423F94903C8 IO

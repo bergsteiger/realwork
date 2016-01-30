@@ -1,0 +1,775 @@
+// DictionLikeForms 4F5DB66F02F7 VCMForms Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4F5DB66F02F7
+
+FORWARD ME_4F5DB67E02FA
+
+FORWARD ME_4D77A52C0374
+
+FORWARD ME_3092DFBFE887
+
+: ME_BB4A79555590
+ CONST UID 'BB4A79555590'
+ CONST Name 'slqtDictionName'
+ CONST IsSummoned true
+ CONST Class class_Attribute
+ %SUMMARY 'Строковый идентификатор пользовательского типа "Толковый словарь"' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_3092DFBFE887 // slqtDictionConstants
+ ;
+ CONST Value '''slqtDiction'''
+ CONST "AutoInc" false
+ CONST "UseNewGen" 'undefined'
+ CONST "forced type" 'none'
+ CONST "is define" false
+ CONST extprop:pas:Value '''slqtDiction'''
+
+ref; // ME_BB4A79555590 slqtDictionName
+
+: ME_8EEF7B3B85BA
+ CONST UID '8EEF7B3B85BA'
+ CONST Name 'slqtDiction'
+ CONST IsSummoned true
+ CONST Class class_Attribute
+ %SUMMARY 'Толковый словарь' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_3092DFBFE887 // slqtDictionConstants
+ ;
+ : Target WL 'ME_47F2534B010F' '499EAAE502A8.pas.ms.script' // TvcmUserType
+ ;
+ CONST Value 0
+ : ValueType WL 'ME_47F2534B010F' '499EAAE502A8.pas.ms.script' // TvcmUserType
+ ;
+ CONST "AutoInc" false
+ CONST "UseNewGen" 'undefined'
+ CONST "forced type" 'none'
+ CONST "is define" true
+ CONST extprop:pas:Value 'TvcmUserType(0)'
+
+ref; // ME_8EEF7B3B85BA slqtDiction
+
+: ME_3092DFBFE887
+ CONST UID '3092DFBFE887'
+ CONST Name 'slqtDictionConstants'
+ CONST IsSummoned true
+ CONST Class class_Class
+ : Stereotype st_Constants ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Константы для типа формы slqtDiction' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4D77A52C0374 // slqtDiction
+ ;
+ : Attributes
+   Seq: ( ME_BB4A79555590 // slqtDictionName
+ ME_8EEF7B3B85BA // slqtDiction
+ )
+ ; // Attributes
+ CONST "UseNewGen" 'undefined'
+ CONST "spell names" false
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\View'
+
+ref; // ME_3092DFBFE887 slqtDictionConstants
+
+FORWARD ME_43AB039DAFE1
+
+: ME_6E01E3C555A5
+ CONST UID '6E01E3C555A5'
+ CONST Name 'Ini_Reg'
+ CONST IsSummoned true
+ CONST Class class_Operation
+ : Stereotype st_ini::Operation ;
+ %SUMMARY 'Регистрация Tkw_FormUserType_slqtDiction' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_43AB039DAFE1 // Tkw_FormUserType_slqtDiction
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_6E01E3C555A5 Ini_Reg
+
+: ME_4DB0614603C8_ME_43AB039DAFE1
+ CONST UID '4DB0614603C8'
+ CONST Name 'GetWordNameForRegister'
+ : Original WL 'ME_4DB0614603C8' '4F3E3F5F0160.pas.ms.script' // GetWordNameForRegister
+ ;
+ : Implementor ME_43AB039DAFE1 // Tkw_FormUserType_slqtDiction
+ ;
+ CONST OpKind opkind_Overridden
+ CONST "UseNewGen" 'undefined'
+ref; // ME_4DB0614603C8_ME_43AB039DAFE1 GetWordNameForRegister
+
+: ME_4EE1DC8903BB_ME_43AB039DAFE1
+ CONST UID '4EE1DC8903BB'
+ CONST Name 'GetInteger'
+ : Original WL 'ME_4EE1DC8903BB' '4F3E3F5F0160.pas.ms.script' // GetInteger
+ ;
+ : Implementor ME_43AB039DAFE1 // Tkw_FormUserType_slqtDiction
+ ;
+ CONST OpKind opkind_Overridden
+ CONST "UseNewGen" 'undefined'
+ref; // ME_4EE1DC8903BB_ME_43AB039DAFE1 GetInteger
+
+: ME_43AB039DAFE1
+ CONST UID '43AB039DAFE1'
+ CONST Name 'Tkw_FormUserType_slqtDiction'
+ CONST IsSummoned true
+ CONST Class class_Class
+ : Stereotype st_ScriptKeyword ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Слово словаря для типа формы slqtDiction' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_4D77A52C0374 // slqtDiction
+ ;
+ : Inherits
+   Seq: ( WL 'ME_4EE1DBBB013C' '4F3E3F5F0160.pas.ms.script' // TtfwInteger
+ )
+ ; // Inherits
+ : Operations
+   Seq: ( ME_6E01E3C555A5 // Ini_Reg
+ )
+ ; // Operations
+ : Overridden
+   Seq: ( ME_4DB0614603C8_ME_43AB039DAFE1 // GetWordNameForRegister
+ ME_4EE1DC8903BB_ME_43AB039DAFE1 // GetInteger
+ )
+ ; // Overridden
+ CONST "NameForScript" 'тип_формы::slqtDiction'
+ CONST "UseNewGen" 'undefined'
+ CONST "ifndef" 'NoScripts'
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\View'
+
+ref; // ME_43AB039DAFE1 Tkw_FormUserType_slqtDiction
+
+: ME_4D77A52C0374
+ CONST UID '4D77A52C0374'
+ CONST Name 'slqtDiction'
+ CONST Class class_Class
+ : Stereotype st_UserType ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Толковый словарь' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_4F5DB67E02FA // DictionContainerUserTypes
+ ;
+ : Children
+   Seq: ( ME_43AB039DAFE1 // Tkw_FormUserType_slqtDiction
+ )
+ ; // Children
+ : Constants
+   Seq: ( ME_3092DFBFE887 // slqtDictionConstants
+ )
+ ; // Constants
+ CONST "CanClose" 'undefined'
+ CONST "CanHaveToolbars" 'undefined'
+ CONST "ImageIndex" 60
+ CONST "NeedOnQueryClose" false
+ CONST "NeedOnQueryMaximized" false
+ CONST "NeedOnQueryOpen" false
+ CONST "UseNewGen" 'undefined'
+ CONST "VisibleToUser" true
+ CONST "Weight" '-1'
+ : Generators
+ Seq: (
+ gen_intf.pas
+ )
+ ; // Generators
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View'
+ CONST intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\DictionContainerUserTypes_slqtDiction_UserType.pas'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\View'
+ CONST extprop:pas:UnitName 'DictionContainerUserTypes_slqtDiction_UserType'
+
+ref; // ME_4D77A52C0374 slqtDiction
+
+FORWARD ME_4D81EE030156
+
+FORWARD ME_E80662B2CFE5
+
+: ME_1F2691620C7A
+ CONST UID '1F2691620C7A'
+ CONST Name 'slqtMedicDictionName'
+ CONST IsSummoned true
+ CONST Class class_Attribute
+ %SUMMARY 'Строковый идентификатор пользовательского типа "Словарь медицинских терминов"' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_E80662B2CFE5 // slqtMedicDictionConstants
+ ;
+ CONST Value '''slqtMedicDiction'''
+ CONST "AutoInc" false
+ CONST "UseNewGen" 'undefined'
+ CONST "forced type" 'none'
+ CONST "is define" false
+ CONST extprop:pas:Value '''slqtMedicDiction'''
+
+ref; // ME_1F2691620C7A slqtMedicDictionName
+
+: ME_4C17038EC107
+ CONST UID '4C17038EC107'
+ CONST Name 'slqtMedicDiction'
+ CONST IsSummoned true
+ CONST Class class_Attribute
+ %SUMMARY 'Словарь медицинских терминов' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_E80662B2CFE5 // slqtMedicDictionConstants
+ ;
+ : Target WL 'ME_47F2534B010F' '499EAAE502A8.pas.ms.script' // TvcmUserType
+ ;
+ CONST Value 'slqtDiction'
+ : ValueType WL 'ME_47F2534B010F' '499EAAE502A8.pas.ms.script' // TvcmUserType
+ ;
+ CONST "AutoInc" false
+ CONST "UseNewGen" 'undefined'
+ CONST "forced type" 'none'
+ CONST "is define" true
+ CONST "suffix expr" '+ 1'
+ CONST extprop:pas:Value 'TvcmUserType(slqtDiction + 1)'
+
+ref; // ME_4C17038EC107 slqtMedicDiction
+
+: ME_E80662B2CFE5
+ CONST UID 'E80662B2CFE5'
+ CONST Name 'slqtMedicDictionConstants'
+ CONST IsSummoned true
+ CONST Class class_Class
+ : Stereotype st_Constants ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Константы для типа формы slqtMedicDiction' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4D81EE030156 // slqtMedicDiction
+ ;
+ : Attributes
+   Seq: ( ME_1F2691620C7A // slqtMedicDictionName
+ ME_4C17038EC107 // slqtMedicDiction
+ )
+ ; // Attributes
+ CONST "UseNewGen" 'undefined'
+ CONST "spell names" false
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\View'
+
+ref; // ME_E80662B2CFE5 slqtMedicDictionConstants
+
+FORWARD ME_6959F067223A
+
+: ME_FDA96EEFD152
+ CONST UID 'FDA96EEFD152'
+ CONST Name 'Ini_Reg'
+ CONST IsSummoned true
+ CONST Class class_Operation
+ : Stereotype st_ini::Operation ;
+ %SUMMARY 'Регистрация Tkw_FormUserType_slqtMedicDiction' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_6959F067223A // Tkw_FormUserType_slqtMedicDiction
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_FDA96EEFD152 Ini_Reg
+
+: ME_4DB0614603C8_ME_6959F067223A
+ CONST UID '4DB0614603C8'
+ CONST Name 'GetWordNameForRegister'
+ : Original WL 'ME_4DB0614603C8' '4F3E3F5F0160.pas.ms.script' // GetWordNameForRegister
+ ;
+ : Implementor ME_6959F067223A // Tkw_FormUserType_slqtMedicDiction
+ ;
+ CONST OpKind opkind_Overridden
+ CONST "UseNewGen" 'undefined'
+ref; // ME_4DB0614603C8_ME_6959F067223A GetWordNameForRegister
+
+: ME_4EE1DC8903BB_ME_6959F067223A
+ CONST UID '4EE1DC8903BB'
+ CONST Name 'GetInteger'
+ : Original WL 'ME_4EE1DC8903BB' '4F3E3F5F0160.pas.ms.script' // GetInteger
+ ;
+ : Implementor ME_6959F067223A // Tkw_FormUserType_slqtMedicDiction
+ ;
+ CONST OpKind opkind_Overridden
+ CONST "UseNewGen" 'undefined'
+ref; // ME_4EE1DC8903BB_ME_6959F067223A GetInteger
+
+: ME_6959F067223A
+ CONST UID '6959F067223A'
+ CONST Name 'Tkw_FormUserType_slqtMedicDiction'
+ CONST IsSummoned true
+ CONST Class class_Class
+ : Stereotype st_ScriptKeyword ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Слово словаря для типа формы slqtMedicDiction' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_4D81EE030156 // slqtMedicDiction
+ ;
+ : Inherits
+   Seq: ( WL 'ME_4EE1DBBB013C' '4F3E3F5F0160.pas.ms.script' // TtfwInteger
+ )
+ ; // Inherits
+ : Operations
+   Seq: ( ME_FDA96EEFD152 // Ini_Reg
+ )
+ ; // Operations
+ : Overridden
+   Seq: ( ME_4DB0614603C8_ME_6959F067223A // GetWordNameForRegister
+ ME_4EE1DC8903BB_ME_6959F067223A // GetInteger
+ )
+ ; // Overridden
+ CONST "NameForScript" 'тип_формы::slqtMedicDiction'
+ CONST "UseNewGen" 'undefined'
+ CONST "ifndef" 'NoScripts'
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\View'
+
+ref; // ME_6959F067223A Tkw_FormUserType_slqtMedicDiction
+
+: ME_4D81EE030156
+ CONST UID '4D81EE030156'
+ CONST Name 'slqtMedicDiction'
+ CONST Class class_Class
+ : Stereotype st_UserType ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Словарь медицинских терминов' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_4F5DB67E02FA // DictionContainerUserTypes
+ ;
+ : Inherits
+   Seq: ( ME_4D77A52C0374 // slqtDiction
+ )
+ ; // Inherits
+ : Children
+   Seq: ( ME_6959F067223A // Tkw_FormUserType_slqtMedicDiction
+ )
+ ; // Children
+ : Constants
+   Seq: ( ME_E80662B2CFE5 // slqtMedicDictionConstants
+ )
+ ; // Constants
+ CONST "CanClose" 'undefined'
+ CONST "CanHaveToolbars" 'undefined'
+ CONST "ImageIndex" 182
+ CONST "NeedOnQueryClose" false
+ CONST "NeedOnQueryMaximized" false
+ CONST "NeedOnQueryOpen" false
+ CONST "UseNewGen" 'undefined'
+ CONST "VisibleToUser" true
+ CONST "Weight" '-1'
+ : Generators
+ Seq: (
+ gen_intf.pas
+ )
+ ; // Generators
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View'
+ CONST intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\DictionContainerUserTypes_slqtMedicDiction_UserType.pas'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\View'
+ CONST extprop:pas:UnitName 'DictionContainerUserTypes_slqtMedicDiction_UserType'
+
+ref; // ME_4D81EE030156 slqtMedicDiction
+
+FORWARD ME_E2195BA62EA5
+
+: ME_33304F3A7D1E
+ CONST UID '33304F3A7D1E'
+ CONST Name 'slqtDictionCaption'
+ CONST IsSummoned true
+ CONST Class class_Attribute
+ %SUMMARY 'Заголовок пользовательского типа "Толковый словарь"' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_E2195BA62EA5 // slqtDictionLocalConstants
+ ;
+ CONST Value '''Толковый словарь'''
+ CONST "AutoInc" false
+ CONST "UseNewGen" 'undefined'
+ CONST "forced type" 'none'
+ CONST "is define" false
+ CONST extprop:pas:Value '''Толковый словарь'''
+
+ref; // ME_33304F3A7D1E slqtDictionCaption
+
+: ME_E2195BA62EA5
+ CONST UID 'E2195BA62EA5'
+ CONST Name 'slqtDictionLocalConstants'
+ CONST IsSummoned true
+ CONST Class class_Class
+ : Stereotype st_LocalConst ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Локализуемые константы для типа формы slqtDiction' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_4F5DB67E02FA // DictionContainerUserTypes
+ ;
+ : Attributes
+   Seq: ( ME_33304F3A7D1E // slqtDictionCaption
+ )
+ ; // Attributes
+ CONST "Need map interface" false
+ CONST "Need mapping support" false
+ CONST "UseNewGen" 'undefined'
+ CONST "spell names" false
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\View'
+
+ref; // ME_E2195BA62EA5 slqtDictionLocalConstants
+
+FORWARD ME_36B82680F867
+
+: ME_9966ECF6DB33
+ CONST UID '9966ECF6DB33'
+ CONST Name 'slqtDictionCaption'
+ CONST IsSummoned true
+ CONST Class class_Attribute
+ %SUMMARY 'Заголовок пользовательского типа "Толковый словарь"' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_36B82680F867 // LCImplslqtDictionLocalConstants
+ ;
+ : Target WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
+ ;
+ CONST Value '(rS : -1; rLocalized : false; rKey : ''slqtDictionCaption''; rValue : ''Толковый словарь'')'
+ : ValueType WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
+ ;
+ CONST "AutoInc" false
+ CONST "UseNewGen" 'undefined'
+ CONST "forced type" 'none'
+ CONST "is define" false
+ CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''slqtDictionCaption''; rValue : ''Толковый словарь'')'
+
+ref; // ME_9966ECF6DB33 slqtDictionCaption
+
+: ME_36B82680F867
+ CONST UID '36B82680F867'
+ CONST Name 'LCImplslqtDictionLocalConstants'
+ CONST IsSummoned true
+ CONST Class class_Class
+ : Stereotype st_Constants ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Локализуемые строки slqtDictionLocalConstants' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ : Parent ME_4F5DB67E02FA // DictionContainerUserTypes
+ ;
+ : Attributes
+   Seq: ( ME_9966ECF6DB33 // slqtDictionCaption
+ )
+ ; // Attributes
+ CONST "UseNewGen" 'undefined'
+ CONST "elements prefix" 'str'
+ CONST "spell names" false
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\View'
+ CONST extprop:pas:ElementPrefixBase 'str'
+ CONST extprop:pas:ElementPrefix 'str_'
+
+ref; // ME_36B82680F867 LCImplslqtDictionLocalConstants
+
+FORWARD ME_1CF60B599A9D
+
+: ME_D65190DBC4B2
+ CONST UID 'D65190DBC4B2'
+ CONST Name 'slqtMedicDictionCaption'
+ CONST IsSummoned true
+ CONST Class class_Attribute
+ %SUMMARY 'Заголовок пользовательского типа "Словарь медицинских терминов"' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_1CF60B599A9D // slqtMedicDictionLocalConstants
+ ;
+ CONST Value '''Словарь медицинских терминов'''
+ CONST "AutoInc" false
+ CONST "UseNewGen" 'undefined'
+ CONST "forced type" 'none'
+ CONST "is define" false
+ CONST extprop:pas:Value '''Словарь медицинских терминов'''
+
+ref; // ME_D65190DBC4B2 slqtMedicDictionCaption
+
+: ME_1CF60B599A9D
+ CONST UID '1CF60B599A9D'
+ CONST Name 'slqtMedicDictionLocalConstants'
+ CONST IsSummoned true
+ CONST Class class_Class
+ : Stereotype st_LocalConst ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Локализуемые константы для типа формы slqtMedicDiction' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_4F5DB67E02FA // DictionContainerUserTypes
+ ;
+ : Attributes
+   Seq: ( ME_D65190DBC4B2 // slqtMedicDictionCaption
+ )
+ ; // Attributes
+ CONST "Need map interface" false
+ CONST "Need mapping support" false
+ CONST "UseNewGen" 'undefined'
+ CONST "spell names" false
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\View'
+
+ref; // ME_1CF60B599A9D slqtMedicDictionLocalConstants
+
+FORWARD ME_44D17CD41CAA
+
+: ME_6290182D0A79
+ CONST UID '6290182D0A79'
+ CONST Name 'slqtMedicDictionCaption'
+ CONST IsSummoned true
+ CONST Class class_Attribute
+ %SUMMARY 'Заголовок пользовательского типа "Словарь медицинских терминов"' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_44D17CD41CAA // LCImplslqtMedicDictionLocalConstants
+ ;
+ : Target WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
+ ;
+ CONST Value '(rS : -1; rLocalized : false; rKey : ''slqtMedicDictionCaption''; rValue : ''Словарь медицинских терминов'')'
+ : ValueType WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
+ ;
+ CONST "AutoInc" false
+ CONST "UseNewGen" 'undefined'
+ CONST "forced type" 'none'
+ CONST "is define" false
+ CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''slqtMedicDictionCaption''; rValue : ''Словарь медицинских терминов'')'
+
+ref; // ME_6290182D0A79 slqtMedicDictionCaption
+
+: ME_44D17CD41CAA
+ CONST UID '44D17CD41CAA'
+ CONST Name 'LCImplslqtMedicDictionLocalConstants'
+ CONST IsSummoned true
+ CONST Class class_Class
+ : Stereotype st_Constants ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Локализуемые строки slqtMedicDictionLocalConstants' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ : Parent ME_4F5DB67E02FA // DictionContainerUserTypes
+ ;
+ : Attributes
+   Seq: ( ME_6290182D0A79 // slqtMedicDictionCaption
+ )
+ ; // Attributes
+ CONST "UseNewGen" 'undefined'
+ CONST "elements prefix" 'str'
+ CONST "spell names" false
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\View'
+ CONST extprop:pas:ElementPrefixBase 'str'
+ CONST extprop:pas:ElementPrefix 'str_'
+
+ref; // ME_44D17CD41CAA LCImplslqtMedicDictionLocalConstants
+
+: ME_D3B0E2BCEC75
+ CONST UID 'D3B0E2BCEC75'
+ CONST Name 'Init_Str_slqtDictionCaption'
+ CONST IsSummoned true
+ CONST Class class_Operation
+ : Stereotype st_ini::Operation ;
+ %SUMMARY 'Инициализация str_slqtDictionCaption' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_4F5DB67E02FA // DictionContainerUserTypes
+ ;
+ CONST "UseNewGen" 'undefined'
+ : Speller ME_33304F3A7D1E // slqtDictionCaption
+ ;
+ : SpelledFor ME_9966ECF6DB33 // slqtDictionCaption
+ ;
+
+ref; // ME_D3B0E2BCEC75 Init_Str_slqtDictionCaption
+
+: ME_5BCA4A697567
+ CONST UID '5BCA4A697567'
+ CONST Name 'Init_Str_slqtMedicDictionCaption'
+ CONST IsSummoned true
+ CONST Class class_Operation
+ : Stereotype st_ini::Operation ;
+ %SUMMARY 'Инициализация str_slqtMedicDictionCaption' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_4F5DB67E02FA // DictionContainerUserTypes
+ ;
+ CONST "UseNewGen" 'undefined'
+ : Speller ME_D65190DBC4B2 // slqtMedicDictionCaption
+ ;
+ : SpelledFor ME_6290182D0A79 // slqtMedicDictionCaption
+ ;
+
+ref; // ME_5BCA4A697567 Init_Str_slqtMedicDictionCaption
+
+: ME_2D8F8C2EEAF0
+ CONST UID '2D8F8C2EEAF0'
+ CONST IsSummoned true
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4F5DB67E02FA // DictionContainerUserTypes
+ ;
+ : Target WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_2D8F8C2EEAF0 
+
+: ME_28EFE377027A
+ CONST UID '28EFE377027A'
+ CONST IsSummoned true
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4F5DB67E02FA // DictionContainerUserTypes
+ ;
+ : Target WL 'ME_4E01D1E002AE' '4F9BDEEE01BC.pas.ms.script' // Tl3MessageID
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_28EFE377027A 
+
+: ME_4F5DB67E02FA
+ CONST UID '4F5DB67E02FA'
+ CONST Name 'DictionContainerUserTypes'
+ CONST Class class_Class
+ : Stereotype st_VCMForm ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_4F5DB66F02F7 // DictionLikeForms
+ ;
+ : Operations
+   Seq: ( ME_D3B0E2BCEC75 // Init_Str_slqtDictionCaption
+ ME_5BCA4A697567 // Init_Str_slqtMedicDictionCaption
+ )
+ ; // Operations
+ : Children
+   Seq: ( ME_4D77A52C0374 // slqtDiction
+ ME_4D81EE030156 // slqtMedicDiction
+ )
+ ; // Children
+ : Constants
+   Seq: ( ME_E2195BA62EA5 // slqtDictionLocalConstants
+ ME_36B82680F867 // LCImplslqtDictionLocalConstants
+ ME_1CF60B599A9D // slqtMedicDictionLocalConstants
+ ME_44D17CD41CAA // LCImplslqtMedicDictionLocalConstants
+ )
+ ; // Constants
+ : Dependencies
+   Seq: ( ME_2D8F8C2EEAF0 // 
+ ME_28EFE377027A // 
+ )
+ ; // Dependencies
+ CONST "NeedsHackRef" true
+ CONST "UseNewGen" 'undefined'
+ CONST "ZoneType" 'Any'
+ CONST "base wnd class" 'CWnd'
+ CONST "finished dfm" true
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ CONST "resizeable" false
+ CONST "restrict form def" 'undefined'
+ : Generators
+ Seq: (
+ gen_intf.pas
+ )
+ ; // Generators
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View'
+ CONST intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\DictionContainerUserTypes.imp.pas'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\View'
+ CONST extprop:pas:TypeName '_DictionContainerUserTypes_'
+ CONST extprop:pas:UnitName 'DictionContainerUserTypes.imp'
+
+ref; // ME_4F5DB67E02FA DictionContainerUserTypes
+
+: ME_4F5DB66F02F7
+ CONST UID '4F5DB66F02F7'
+ CONST Name 'DictionLikeForms'
+ CONST Class class_Category
+ : Stereotype st_VCMForms ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent WL 'ME_4F5DB66602DC' '4F5DB66602DC.pas.ms.script' // View
+ ;
+ : Children
+   Seq: ( ME_4F5DB67E02FA // DictionContainerUserTypes
+ )
+ ; // Children
+ : Depends
+   Seq: ( WL 'ME_499EAAE502A8' '499EAAE502A8.pas.ms.script' // vcmUserControls
+ WL 'ME_4F3E3F5F0160' '4F3E3F5F0160.pas.ms.script' // PrimitiveWords
+ WL 'ME_4F9BDEEE01BC' '4F9BDEEE01BC.pas.ms.script' // Поддержка локализованных сообщений
+ )
+ ; // Depends
+ CONST "UseNewGen" 'undefined'
+ : Generators
+ Seq: (
+ gen_pas.script
+ gen_pas.script.runner
+ )
+ ; // Generators
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View'
+ CONST pas.script:Path 'shared\models\NewSchool\Scripts\4F5DB66F02F7.pas.ms.script'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\4F5DB66F02F7.pas.ms.script.runner'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\View'
+
+ref; // ME_4F5DB66F02F7 DictionLikeForms

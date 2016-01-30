@@ -12,30 +12,25 @@ INCLUDE 'ElementsRTTI.ms.dict'
  : Parent WL 'ME_4E256A300117' '4E256A300117.pas.ms.script' // Shared Delphi TestComplete Wrappers
  ;
  : Children
-   @ ( WL 'ME_536B6ADF02D2' '536B6ADF02D2.pas.ms.script' // Impl
- ) .SequenceCode.It
+   Seq: ( WL 'ME_536B6ADF02D2' '536B6ADF02D2.pas.ms.script' // Impl
+ )
  ; // Children
  : Depends
-   @ ( WL 'ME_469F3E37025A' '469F3E37025A.pas.ms.script' // Rtl
+   Seq: ( WL 'ME_469F3E37025A' '469F3E37025A.pas.ms.script' // Rtl
  WL 'ME_4CFCE4F203CE' '4CFCE4F203CE.pas.ms.script' // VGScene
- ) .SequenceCode.It
+ )
  ; // Depends
  CONST "exec mode" 'concluded'
  CONST "gui" 'rtl'
  CONST "ifndef" 'NoVGScene'
  CONST "is namespace" true
  CONST "vendor" '/external'
- : Generators
- @ (
- gen_forth_structure
- gen_intf.pas
- gen_pas.script
- gen_pas.script.runner
- ) .SequenceCode.It
- ; // Generators
- CONST forth_structure:Path 'shared\models\NewSchool\Shared Delphi TestComplete Wrappers\VGSceneTest\VGSceneTest.model.script'
+ CONST dfm:PathOnly '\common\components\rtl\external\VGScene'
  CONST intf.pas:Path 'common\components\rtl\external\VGScene\VGSceneTest.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\external\VGScene'
  CONST pas.script:Path 'shared\models\NewSchool\Scripts\536B6A5E0136.pas.ms.script'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
  CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\536B6A5E0136.pas.ms.script.runner'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_536B6A5E0136 VGSceneTest

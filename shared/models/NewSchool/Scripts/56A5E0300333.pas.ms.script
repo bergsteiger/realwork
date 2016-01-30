@@ -1,0 +1,196 @@
+// Belarus 56A5E0300333 Unit Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_56A5E0300333
+
+FORWARD ME_56A5E3010270
+
+FORWARD ME_56A5E48102A9
+
+: ME_56A5E4D7033A
+ CONST UID '56A5E4D7033A'
+ CONST Name 'rNum'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_agr
+ : Parent ME_56A5E48102A9 // TarBelaDateNumRec
+ ;
+ : Target WL 'ME_46780DA40383' '4677FBA70343.pas.ms.script' // Il3CString
+ ;
+
+ref; // ME_56A5E4D7033A rNum
+
+: ME_56A5E531022C
+ CONST UID '56A5E531022C'
+ CONST Name 'rDate'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_agr
+ : Parent ME_56A5E48102A9 // TarBelaDateNumRec
+ ;
+ : Target WL 'ME_4E8EDFCA01C0' '47D0290B016D.pas.ms.script' // TStDate
+ ;
+
+ref; // ME_56A5E531022C rDate
+
+: ME_56A5E48102A9
+ CONST UID '56A5E48102A9'
+ CONST Name 'TarBelaDateNumRec'
+ CONST Class class_Class
+ : Stereotype st_Struct ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_56A5E3010270 // TarBelaDateNumList
+ ;
+ : Attributes
+   Seq: ( ME_56A5E4D7033A // rNum
+ ME_56A5E531022C // rDate
+ )
+ ; // Attributes
+ CONST dfm:PathOnly '\common\components\rtl\Garant\ar'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\ar'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+
+ref; // ME_56A5E48102A9 TarBelaDateNumRec
+
+: ME_56A5E54501E0
+ CONST UID '56A5E54501E0'
+ CONST Name 'ItemType'
+ CONST Class class_Attribute
+ : Stereotype st_impurity_value::Attribute ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_agr
+ : Parent ME_56A5E3010270 // TarBelaDateNumList
+ ;
+ : Target ME_56A5E48102A9 // TarBelaDateNumRec
+ ;
+
+ref; // ME_56A5E54501E0 ItemType
+
+: ME_56A5EFFB032D
+ CONST UID '56A5EFFB032D'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_56A5E3010270 // TarBelaDateNumList
+ ;
+ : Target WL 'ME_47878E0E0191' '54B90AC6014B.pas.ms.script' // l3String
+ ;
+
+ref; // ME_56A5EFFB032D 
+
+: ME_47B07CF403D0_ME_56A5E3010270
+ CONST UID '47B07CF403D0'
+ CONST Name 'IsSameItems'
+ : Original WL 'ME_47B07CF403D0' '47913B47006E.pas.ms.script' // IsSameItems
+ ;
+ : Implementor ME_56A5E3010270 // TarBelaDateNumList
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "ifndef" 'l3Items_IsAtomic'
+ref; // ME_47B07CF403D0_ME_56A5E3010270 IsSameItems
+
+: ME_47B2C42A0163_ME_56A5E3010270
+ CONST UID '47B2C42A0163'
+ CONST Name 'AssignItem'
+ : Original WL 'ME_47B2C42A0163' '47913B47006E.pas.ms.script' // AssignItem
+ ;
+ : Implementor ME_56A5E3010270 // TarBelaDateNumList
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "ifdef" 'l3Items_NeedsAssignItem'
+ CONST "ifndef" 'l3Items_NoSort'
+ref; // ME_47B2C42A0163_ME_56A5E3010270 AssignItem
+
+: ME_47B99D4503A2_ME_56A5E3010270
+ CONST UID '47B99D4503A2'
+ CONST Name 'CompareExistingItems'
+ : Original WL 'ME_47B99D4503A2' '47BB24D30205.pas.ms.script' // CompareExistingItems
+ ;
+ : Implementor ME_56A5E3010270 // TarBelaDateNumList
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_47B99D4503A2_ME_56A5E3010270 CompareExistingItems
+
+: ME_56A5E3010270
+ CONST UID '56A5E3010270'
+ CONST Name 'TarBelaDateNumList'
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_56A5E0300333 // Belarus
+ ;
+ : Inherits
+   Seq: ( WL 'ME_4A54DD4E036F' '47913B47006E.pas.ms.script' // Tl3ProtoDataContainer
+ WL 'ME_4B223ADC02BF' '47913B47006E.pas.ms.script' // l3RecordListPrim
+ )
+ ; // Inherits
+ : Attributes
+   Seq: ( ME_56A5E54501E0 // ItemType
+ )
+ ; // Attributes
+ : Implemented
+   Seq: ( ME_47B07CF403D0_ME_56A5E3010270 // IsSameItems
+ ME_47B2C42A0163_ME_56A5E3010270 // AssignItem
+ ME_47B99D4503A2_ME_56A5E3010270 // CompareExistingItems
+ )
+ ; // Implemented
+ : Children
+   Seq: ( ME_56A5E48102A9 // TarBelaDateNumRec
+ )
+ ; // Children
+ : Dependencies
+   Seq: ( ME_56A5EFFB032D // 
+ )
+ ; // Dependencies
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ CONST dfm:PathOnly '\common\components\rtl\Garant\ar'
+ CONST intf.pas:Path 'common\components\rtl\Garant\ar\arBelaDateNumList.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\ar'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'arBelaDateNumList'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'arBelaDateNumList'
+
+ref; // ME_56A5E3010270 TarBelaDateNumList
+
+: ME_56A5E0300333
+ CONST UID '56A5E0300333'
+ CONST Name 'Belarus'
+ CONST Class class_Category
+ : Stereotype st_Unit ;
+ %SUMMARY 'Решения для перемывщика белорусского законодательства' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent WL 'ME_56A5DF1C0123' '56A5DF1C0123.pas.ms.script' // ar
+ ;
+ : Children
+   Seq: ( ME_56A5E3010270 // TarBelaDateNumList
+ )
+ ; // Children
+ : Depends
+   Seq: ( WL 'ME_4677FBA70343' '4677FBA70343.pas.ms.script' // l3Interfaces
+ WL 'ME_47913B47006E' '47913B47006E.pas.ms.script' // l3CoreObjects
+ WL 'ME_47D0290B016D' '47D0290B016D.pas.ms.script' // l3Utils
+ WL 'ME_54B90AC6014B' '54B90AC6014B.pas.ms.script' // StringUtils
+ )
+ ; // Depends
+ CONST dfm:PathOnly '\common\components\rtl\Garant\ar'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\ar'
+ CONST pas.script:Path 'shared\models\NewSchool\Scripts\56A5E0300333.pas.ms.script'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\56A5E0300333.pas.ms.script.runner'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+
+ref; // ME_56A5E0300333 Belarus

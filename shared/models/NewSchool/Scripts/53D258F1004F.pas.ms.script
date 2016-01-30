@@ -8,6 +8,7 @@ FORWARD ME_485678B701BD
 
 : ME_506E2F133643
  CONST UID '506E2F133643'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_485678B701BD // TevPara
@@ -19,6 +20,7 @@ ref; // ME_506E2F133643
 
 : ME_F28F16C0FA35
  CONST UID 'F28F16C0FA35'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_485678B701BD // TevPara
@@ -30,6 +32,7 @@ ref; // ME_F28F16C0FA35
 
 : ME_50C139F1DF2B
  CONST UID '50C139F1DF2B'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_485678B701BD // TevPara
@@ -41,6 +44,7 @@ ref; // ME_50C139F1DF2B
 
 : ME_A770A90E4F4B
  CONST UID 'A770A90E4F4B'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_485678B701BD // TevPara
@@ -52,6 +56,7 @@ ref; // ME_A770A90E4F4B
 
 : ME_285A375BCB6B
  CONST UID '285A375BCB6B'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_485678B701BD // TevPara
@@ -63,6 +68,7 @@ ref; // ME_285A375BCB6B
 
 : ME_065B70B1AF0F
  CONST UID '065B70B1AF0F'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_485678B701BD // TevPara
@@ -74,6 +80,7 @@ ref; // ME_065B70B1AF0F
 
 : ME_1F6B6BBF9AA1
  CONST UID '1F6B6BBF9AA1'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_485678B701BD // TevPara
@@ -85,6 +92,7 @@ ref; // ME_1F6B6BBF9AA1
 
 : ME_D7E8411CDB26
  CONST UID 'D7E8411CDB26'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_485678B701BD // TevPara
@@ -96,6 +104,7 @@ ref; // ME_D7E8411CDB26
 
 : ME_8C019F5FB69A
  CONST UID '8C019F5FB69A'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_485678B701BD // TevPara
@@ -107,6 +116,7 @@ ref; // ME_8C019F5FB69A
 
 : ME_3E5F5CE7B2F2
  CONST UID '3E5F5CE7B2F2'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_485678B701BD // TevPara
@@ -123,6 +133,7 @@ ref; // ME_3E5F5CE7B2F2
  ;
  : Implementor ME_485678B701BD // TevPara
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4D63D26D033F_ME_485678B701BD QueryTool
 
 : ME_53CCBDA5026D_ME_485678B701BD
@@ -132,6 +143,7 @@ ref; // ME_4D63D26D033F_ME_485678B701BD QueryTool
  ;
  : Implementor ME_485678B701BD // TevPara
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_53CCBDA5026D_ME_485678B701BD COMQueryTool
 
 : ME_485678B701BD
@@ -146,20 +158,20 @@ ref; // ME_53CCBDA5026D_ME_485678B701BD COMQueryTool
  : Parent ME_53D258F1004F // InterfaceFactories
  ;
  : Inherits
-   @ ( WL 'ME_53D8DFA400E2' '48492FC0029D.pas.ms.script' // TevParaInterfaceFactoryPrim
- ) .SequenceCode.It
+   Seq: ( WL 'ME_53D8DFA400E2' '48492FC0029D.pas.ms.script' // TevParaInterfaceFactoryPrim
+ )
  ; // Inherits
  : Implements
-   @ ( WL 'ME_484FC278000E' '484A470100DD.pas.ms.script' // Para
- ) .SequenceCode.It
+   Seq: ( WL 'ME_484FC278000E' '484A470100DD.pas.ms.script' // Para
+ )
  ; // Implements
  : Overridden
-   @ ( ME_4D63D26D033F_ME_485678B701BD // QueryTool
+   Seq: ( ME_4D63D26D033F_ME_485678B701BD // QueryTool
  ME_53CCBDA5026D_ME_485678B701BD // COMQueryTool
- ) .SequenceCode.It
+ )
  ; // Overridden
  : Dependencies
-   @ ( ME_506E2F133643 // 
+   Seq: ( ME_506E2F133643 // 
  ME_F28F16C0FA35 // 
  ME_50C139F1DF2B // 
  ME_A770A90E4F4B // 
@@ -169,10 +181,10 @@ ref; // ME_53CCBDA5026D_ME_485678B701BD COMQueryTool
  ME_D7E8411CDB26 // 
  ME_8C019F5FB69A // 
  ME_3E5F5CE7B2F2 // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  : Injected
-   @ ( WL 'ME_4DDFB5E701DE' '48CE0A0A03B4.pas.ms.script' // 
+   Seq: ( WL 'ME_4DDFB5E701DE' '48CE0A0A03B4.pas.ms.script' // 
  WL 'ME_53D8DF6102A0' '47E3DF460095.pas.ms.script' // 
  WL 'ME_53D8DF8102E1' '47E3DF460095.pas.ms.script' // 
  WL 'ME_53D8ED320136' '47E3DF460095.pas.ms.script' // 
@@ -182,19 +194,21 @@ ref; // ME_53CCBDA5026D_ME_485678B701BD COMQueryTool
  WL 'ME_53D8EF340243' '4A3B771101D5.pas.ms.script' // 
  WL 'ME_53D8EFA002FA' '49DCBC09029B.pas.ms.script' // 
  WL 'ME_53D8F0440229' '48CE0A0A03B4.pas.ms.script' // 
- ) .SequenceCode.It
+ )
  ; // Injected
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest'
  CONST intf.pas:Path 'common\components\gui\Garant\Everest\evPara_InterfaceFactory.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
  CONST extprop:pas:TypeName 'TevParaInterfaceFactory'
+ CONST extprop:rc:SelfName 'ParaInterfaceFactory'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'evPara_InterfaceFactory'
 
 ref; // ME_485678B701BD TevPara
 
@@ -202,6 +216,7 @@ FORWARD ME_48579EA1011D
 
 : ME_FE6E86CAA9DD
  CONST UID 'FE6E86CAA9DD'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_48579EA1011D // TevParaList
@@ -213,6 +228,7 @@ ref; // ME_FE6E86CAA9DD
 
 : ME_C32A184E6BBC
  CONST UID 'C32A184E6BBC'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_48579EA1011D // TevParaList
@@ -224,6 +240,7 @@ ref; // ME_C32A184E6BBC
 
 : ME_0C3FBB0BF342
  CONST UID '0C3FBB0BF342'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_48579EA1011D // TevParaList
@@ -235,6 +252,7 @@ ref; // ME_0C3FBB0BF342
 
 : ME_E9596E48FE5B
  CONST UID 'E9596E48FE5B'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_48579EA1011D // TevParaList
@@ -246,6 +264,7 @@ ref; // ME_E9596E48FE5B
 
 : ME_057C1E9CC49F
  CONST UID '057C1E9CC49F'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_48579EA1011D // TevParaList
@@ -257,6 +276,7 @@ ref; // ME_057C1E9CC49F
 
 : ME_029BC4C7F9D4
  CONST UID '029BC4C7F9D4'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_48579EA1011D // TevParaList
@@ -268,6 +288,7 @@ ref; // ME_029BC4C7F9D4
 
 : ME_9D1CED3F19A2
  CONST UID '9D1CED3F19A2'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_48579EA1011D // TevParaList
@@ -279,6 +300,7 @@ ref; // ME_9D1CED3F19A2
 
 : ME_A3FB3252188F
  CONST UID 'A3FB3252188F'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_48579EA1011D // TevParaList
@@ -290,6 +312,7 @@ ref; // ME_A3FB3252188F
 
 : ME_2134561B4D3E
  CONST UID '2134561B4D3E'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_48579EA1011D // TevParaList
@@ -306,6 +329,7 @@ ref; // ME_2134561B4D3E
  ;
  : Implementor ME_48579EA1011D // TevParaList
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4D63D26D033F_ME_48579EA1011D QueryTool
 
 : ME_53CCBDA5026D_ME_48579EA1011D
@@ -315,6 +339,7 @@ ref; // ME_4D63D26D033F_ME_48579EA1011D QueryTool
  ;
  : Implementor ME_48579EA1011D // TevParaList
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_53CCBDA5026D_ME_48579EA1011D COMQueryTool
 
 : ME_48579EA1011D
@@ -329,20 +354,20 @@ ref; // ME_53CCBDA5026D_ME_48579EA1011D COMQueryTool
  : Parent ME_53D258F1004F // InterfaceFactories
  ;
  : Inherits
-   @ ( ME_485678B701BD // TevPara
- ) .SequenceCode.It
+   Seq: ( ME_485678B701BD // TevPara
+ )
  ; // Inherits
  : Implements
-   @ ( WL 'ME_48579E4A003C' '48492FC0029D.pas.ms.script' // ParaList
- ) .SequenceCode.It
+   Seq: ( WL 'ME_48579E4A003C' '48492FC0029D.pas.ms.script' // ParaList
+ )
  ; // Implements
  : Overridden
-   @ ( ME_4D63D26D033F_ME_48579EA1011D // QueryTool
+   Seq: ( ME_4D63D26D033F_ME_48579EA1011D // QueryTool
  ME_53CCBDA5026D_ME_48579EA1011D // COMQueryTool
- ) .SequenceCode.It
+ )
  ; // Overridden
  : Dependencies
-   @ ( ME_FE6E86CAA9DD // 
+   Seq: ( ME_FE6E86CAA9DD // 
  ME_C32A184E6BBC // 
  ME_0C3FBB0BF342 // 
  ME_E9596E48FE5B // 
@@ -351,29 +376,31 @@ ref; // ME_53CCBDA5026D_ME_48579EA1011D COMQueryTool
  ME_9D1CED3F19A2 // 
  ME_A3FB3252188F // 
  ME_2134561B4D3E // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  : Injected
-   @ ( WL 'ME_4D63CD4E023F' '4A3A233900C9.pas.ms.script' // 
+   Seq: ( WL 'ME_4D63CD4E023F' '4A3A233900C9.pas.ms.script' // 
  WL 'ME_4DD67B0802E0' '49DCC860038B.pas.ms.script' // 
  WL 'ME_4DDFB5FB027D' '48CE0A0A03B4.pas.ms.script' // 
  WL 'ME_53D77F9F02A4' '4A3A233900C9.pas.ms.script' // 
  WL 'ME_53D77FD402F3' '4A3B771101D5.pas.ms.script' // 
  WL 'ME_53D78060021A' '4A267EE3017B.pas.ms.script' // 
  WL 'ME_53D780ED0109' '48CE0A0A03B4.pas.ms.script' // 
- ) .SequenceCode.It
+ )
  ; // Injected
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest'
  CONST intf.pas:Path 'common\components\gui\Garant\Everest\evParaList_InterfaceFactory.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
  CONST extprop:pas:TypeName 'TevParaListInterfaceFactory'
+ CONST extprop:rc:SelfName 'ParaListInterfaceFactory'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'evParaList_InterfaceFactory'
 
 ref; // ME_48579EA1011D TevParaList
 
@@ -381,6 +408,7 @@ FORWARD ME_4857E163036B
 
 : ME_2AEE47117B57
  CONST UID '2AEE47117B57'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_4857E163036B // TevTable
@@ -392,6 +420,7 @@ ref; // ME_2AEE47117B57
 
 : ME_A32270CE6E0E
  CONST UID 'A32270CE6E0E'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_4857E163036B // TevTable
@@ -403,6 +432,7 @@ ref; // ME_A32270CE6E0E
 
 : ME_720669177E6D
  CONST UID '720669177E6D'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_4857E163036B // TevTable
@@ -414,6 +444,7 @@ ref; // ME_720669177E6D
 
 : ME_1530A0C74CB0
  CONST UID '1530A0C74CB0'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_4857E163036B // TevTable
@@ -425,6 +456,7 @@ ref; // ME_1530A0C74CB0
 
 : ME_7D3F1909A1A7
  CONST UID '7D3F1909A1A7'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_4857E163036B // TevTable
@@ -436,6 +468,7 @@ ref; // ME_7D3F1909A1A7
 
 : ME_C6B678C7EFF5
  CONST UID 'C6B678C7EFF5'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_4857E163036B // TevTable
@@ -447,6 +480,7 @@ ref; // ME_C6B678C7EFF5
 
 : ME_1CEF90A5E482
  CONST UID '1CEF90A5E482'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_4857E163036B // TevTable
@@ -458,6 +492,7 @@ ref; // ME_1CEF90A5E482
 
 : ME_C047BD256470
  CONST UID 'C047BD256470'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_4857E163036B // TevTable
@@ -469,6 +504,7 @@ ref; // ME_C047BD256470
 
 : ME_8B40D9CDDA94
  CONST UID '8B40D9CDDA94'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_4857E163036B // TevTable
@@ -480,6 +516,7 @@ ref; // ME_8B40D9CDDA94
 
 : ME_AB7CDAF9775F
  CONST UID 'AB7CDAF9775F'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_4857E163036B // TevTable
@@ -496,6 +533,7 @@ ref; // ME_AB7CDAF9775F
  ;
  : Implementor ME_4857E163036B // TevTable
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4D63D26D033F_ME_4857E163036B QueryTool
 
 : ME_53CCBDA5026D_ME_4857E163036B
@@ -505,6 +543,7 @@ ref; // ME_4D63D26D033F_ME_4857E163036B QueryTool
  ;
  : Implementor ME_4857E163036B // TevTable
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_53CCBDA5026D_ME_4857E163036B COMQueryTool
 
 : ME_4857E163036B
@@ -519,20 +558,20 @@ ref; // ME_53CCBDA5026D_ME_4857E163036B COMQueryTool
  : Parent ME_53D258F1004F // InterfaceFactories
  ;
  : Inherits
-   @ ( ME_48579EA1011D // TevParaList
- ) .SequenceCode.It
+   Seq: ( ME_48579EA1011D // TevParaList
+ )
  ; // Inherits
  : Implements
-   @ ( WL 'ME_4857D48E00F4' '48492FC0029D.pas.ms.script' // Table
- ) .SequenceCode.It
+   Seq: ( WL 'ME_4857D48E00F4' '48492FC0029D.pas.ms.script' // Table
+ )
  ; // Implements
  : Overridden
-   @ ( ME_4D63D26D033F_ME_4857E163036B // QueryTool
+   Seq: ( ME_4D63D26D033F_ME_4857E163036B // QueryTool
  ME_53CCBDA5026D_ME_4857E163036B // COMQueryTool
- ) .SequenceCode.It
+ )
  ; // Overridden
  : Dependencies
-   @ ( ME_2AEE47117B57 // 
+   Seq: ( ME_2AEE47117B57 // 
  ME_A32270CE6E0E // 
  ME_720669177E6D // 
  ME_1530A0C74CB0 // 
@@ -542,29 +581,31 @@ ref; // ME_53CCBDA5026D_ME_4857E163036B COMQueryTool
  ME_C047BD256470 // 
  ME_8B40D9CDDA94 // 
  ME_AB7CDAF9775F // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  : Injected
-   @ ( WL 'ME_4DD67A8D02FF' '49DCC860038B.pas.ms.script' // 
+   Seq: ( WL 'ME_4DD67A8D02FF' '49DCC860038B.pas.ms.script' // 
  WL 'ME_53D26CE400D5' '4A3A233900C9.pas.ms.script' // 
  WL 'ME_53D26D090145' '4A3A233900C9.pas.ms.script' // 
  WL 'ME_53D671FF000C' '48CE0A0A03B4.pas.ms.script' // 
  WL 'ME_53D67266024A' '4A3B771101D5.pas.ms.script' // 
  WL 'ME_53D673E103CF' '4A267EE3017B.pas.ms.script' // 
  WL 'ME_53D6748201B0' '48CE0A0A03B4.pas.ms.script' // 
- ) .SequenceCode.It
+ )
  ; // Injected
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest'
  CONST intf.pas:Path 'common\components\gui\Garant\Everest\evTable_InterfaceFactory.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
  CONST extprop:pas:TypeName 'TevTableInterfaceFactory'
+ CONST extprop:rc:SelfName 'TableInterfaceFactory'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'evTable_InterfaceFactory'
 
 ref; // ME_4857E163036B TevTable
 
@@ -572,6 +613,7 @@ FORWARD ME_4857B637007C
 
 : ME_B3863251705B
  CONST UID 'B3863251705B'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_4857B637007C // TevDocument
@@ -583,6 +625,7 @@ ref; // ME_B3863251705B
 
 : ME_FE277ADCF787
  CONST UID 'FE277ADCF787'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_4857B637007C // TevDocument
@@ -594,6 +637,7 @@ ref; // ME_FE277ADCF787
 
 : ME_381DE7ED01B4
  CONST UID '381DE7ED01B4'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_4857B637007C // TevDocument
@@ -605,6 +649,7 @@ ref; // ME_381DE7ED01B4
 
 : ME_51B2C915F48D
  CONST UID '51B2C915F48D'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_4857B637007C // TevDocument
@@ -616,6 +661,7 @@ ref; // ME_51B2C915F48D
 
 : ME_0E9494666D11
  CONST UID '0E9494666D11'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_4857B637007C // TevDocument
@@ -627,6 +673,7 @@ ref; // ME_0E9494666D11
 
 : ME_74C204A88DA2
  CONST UID '74C204A88DA2'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_4857B637007C // TevDocument
@@ -638,6 +685,7 @@ ref; // ME_74C204A88DA2
 
 : ME_C51ED6EB7992
  CONST UID 'C51ED6EB7992'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_4857B637007C // TevDocument
@@ -649,6 +697,7 @@ ref; // ME_C51ED6EB7992
 
 : ME_23E7CE35EEBB
  CONST UID '23E7CE35EEBB'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_4857B637007C // TevDocument
@@ -665,6 +714,7 @@ ref; // ME_23E7CE35EEBB
  ;
  : Implementor ME_4857B637007C // TevDocument
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4D63D26D033F_ME_4857B637007C QueryTool
 
 : ME_53CCBDA5026D_ME_4857B637007C
@@ -674,6 +724,7 @@ ref; // ME_4D63D26D033F_ME_4857B637007C QueryTool
  ;
  : Implementor ME_4857B637007C // TevDocument
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_53CCBDA5026D_ME_4857B637007C COMQueryTool
 
 : ME_4857B637007C
@@ -688,20 +739,20 @@ ref; // ME_53CCBDA5026D_ME_4857B637007C COMQueryTool
  : Parent ME_53D258F1004F // InterfaceFactories
  ;
  : Inherits
-   @ ( ME_48579EA1011D // TevParaList
- ) .SequenceCode.It
+   Seq: ( ME_48579EA1011D // TevParaList
+ )
  ; // Inherits
  : Implements
-   @ ( WL 'ME_4857B5260267' '48492FC0029D.pas.ms.script' // Document
- ) .SequenceCode.It
+   Seq: ( WL 'ME_4857B5260267' '48492FC0029D.pas.ms.script' // Document
+ )
  ; // Implements
  : Overridden
-   @ ( ME_4D63D26D033F_ME_4857B637007C // QueryTool
+   Seq: ( ME_4D63D26D033F_ME_4857B637007C // QueryTool
  ME_53CCBDA5026D_ME_4857B637007C // COMQueryTool
- ) .SequenceCode.It
+ )
  ; // Overridden
  : Dependencies
-   @ ( ME_B3863251705B // 
+   Seq: ( ME_B3863251705B // 
  ME_FE277ADCF787 // 
  ME_381DE7ED01B4 // 
  ME_51B2C915F48D // 
@@ -709,28 +760,30 @@ ref; // ME_53CCBDA5026D_ME_4857B637007C COMQueryTool
  ME_74C204A88DA2 // 
  ME_C51ED6EB7992 // 
  ME_23E7CE35EEBB // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  : Injected
-   @ ( WL 'ME_4DD67B9502B0' '49DCC860038B.pas.ms.script' // 
+   Seq: ( WL 'ME_4DD67B9502B0' '49DCC860038B.pas.ms.script' // 
  WL 'ME_4E6E381F03A3' '4A267EE3017B.pas.ms.script' // 
  WL 'ME_53D26D44000D' '4A3A233900C9.pas.ms.script' // 
  WL 'ME_53D26D690025' '4A3A233900C9.pas.ms.script' // 
  WL 'ME_53D26DC60154' '48CE0A0A03B4.pas.ms.script' // 
  WL 'ME_53D26EC8036A' '48CE0A0A03B4.pas.ms.script' // 
- ) .SequenceCode.It
+ )
  ; // Injected
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest'
  CONST intf.pas:Path 'common\components\gui\Garant\Everest\evDocument_InterfaceFactory.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
  CONST extprop:pas:TypeName 'TevDocumentInterfaceFactory'
+ CONST extprop:rc:SelfName 'DocumentInterfaceFactory'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'evDocument_InterfaceFactory'
 
 ref; // ME_4857B637007C TevDocument
 
@@ -738,6 +791,7 @@ FORWARD ME_4857CDBF0197
 
 : ME_2DA6C5CD0557
  CONST UID '2DA6C5CD0557'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_4857CDBF0197 // TevTableCell
@@ -749,6 +803,7 @@ ref; // ME_2DA6C5CD0557
 
 : ME_14FDFD615387
  CONST UID '14FDFD615387'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_4857CDBF0197 // TevTableCell
@@ -760,6 +815,7 @@ ref; // ME_14FDFD615387
 
 : ME_2B3509427B8A
  CONST UID '2B3509427B8A'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_4857CDBF0197 // TevTableCell
@@ -771,6 +827,7 @@ ref; // ME_2B3509427B8A
 
 : ME_07067B0B5DE9
  CONST UID '07067B0B5DE9'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_4857CDBF0197 // TevTableCell
@@ -782,6 +839,7 @@ ref; // ME_07067B0B5DE9
 
 : ME_A26BE3431B80
  CONST UID 'A26BE3431B80'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_4857CDBF0197 // TevTableCell
@@ -793,6 +851,7 @@ ref; // ME_A26BE3431B80
 
 : ME_52BFAEDB55CF
  CONST UID '52BFAEDB55CF'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_4857CDBF0197 // TevTableCell
@@ -804,6 +863,7 @@ ref; // ME_52BFAEDB55CF
 
 : ME_284DC7EEE8E9
  CONST UID '284DC7EEE8E9'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_4857CDBF0197 // TevTableCell
@@ -815,6 +875,7 @@ ref; // ME_284DC7EEE8E9
 
 : ME_5425572127D8
  CONST UID '5425572127D8'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_4857CDBF0197 // TevTableCell
@@ -826,6 +887,7 @@ ref; // ME_5425572127D8
 
 : ME_EAA5DD304C66
  CONST UID 'EAA5DD304C66'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_4857CDBF0197 // TevTableCell
@@ -842,6 +904,7 @@ ref; // ME_EAA5DD304C66
  ;
  : Implementor ME_4857CDBF0197 // TevTableCell
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4D63D26D033F_ME_4857CDBF0197 QueryTool
 
 : ME_53CCBDA5026D_ME_4857CDBF0197
@@ -851,6 +914,7 @@ ref; // ME_4D63D26D033F_ME_4857CDBF0197 QueryTool
  ;
  : Implementor ME_4857CDBF0197 // TevTableCell
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_53CCBDA5026D_ME_4857CDBF0197 COMQueryTool
 
 : ME_4857CDBF0197
@@ -865,20 +929,20 @@ ref; // ME_53CCBDA5026D_ME_4857CDBF0197 COMQueryTool
  : Parent ME_53D258F1004F // InterfaceFactories
  ;
  : Inherits
-   @ ( ME_48579EA1011D // TevParaList
- ) .SequenceCode.It
+   Seq: ( ME_48579EA1011D // TevParaList
+ )
  ; // Inherits
  : Implements
-   @ ( WL 'ME_4857CD8D0093' '48492FC0029D.pas.ms.script' // TableCell
- ) .SequenceCode.It
+   Seq: ( WL 'ME_4857CD8D0093' '48492FC0029D.pas.ms.script' // TableCell
+ )
  ; // Implements
  : Overridden
-   @ ( ME_4D63D26D033F_ME_4857CDBF0197 // QueryTool
+   Seq: ( ME_4D63D26D033F_ME_4857CDBF0197 // QueryTool
  ME_53CCBDA5026D_ME_4857CDBF0197 // COMQueryTool
- ) .SequenceCode.It
+ )
  ; // Overridden
  : Dependencies
-   @ ( ME_2DA6C5CD0557 // 
+   Seq: ( ME_2DA6C5CD0557 // 
  ME_14FDFD615387 // 
  ME_2B3509427B8A // 
  ME_07067B0B5DE9 // 
@@ -887,28 +951,30 @@ ref; // ME_53CCBDA5026D_ME_4857CDBF0197 COMQueryTool
  ME_284DC7EEE8E9 // 
  ME_5425572127D8 // 
  ME_EAA5DD304C66 // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  : Injected
-   @ ( WL 'ME_4DD67B1F037F' '49DCC860038B.pas.ms.script' // 
+   Seq: ( WL 'ME_4DD67B1F037F' '49DCC860038B.pas.ms.script' // 
  WL 'ME_53D242CB0323' '48CE0A0A03B4.pas.ms.script' // 
  WL 'ME_53D243390241' '4A267EE3017B.pas.ms.script' // 
  WL 'ME_53D2444301FF' '4A3B771101D5.pas.ms.script' // 
  WL 'ME_53D267570300' '4A3A233900C9.pas.ms.script' // 
  WL 'ME_53D2677702A8' '4A3A233900C9.pas.ms.script' // 
- ) .SequenceCode.It
+ )
  ; // Injected
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest'
  CONST intf.pas:Path 'common\components\gui\Garant\Everest\evTableCell_InterfaceFactory.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
  CONST extprop:pas:TypeName 'TevTableCellInterfaceFactory'
+ CONST extprop:rc:SelfName 'TableCellInterfaceFactory'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'evTableCell_InterfaceFactory'
 
 ref; // ME_4857CDBF0197 TevTableCell
 
@@ -916,6 +982,7 @@ FORWARD ME_4857EA320141
 
 : ME_A1050ECB67A8
  CONST UID 'A1050ECB67A8'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_4857EA320141 // TevReqCell
@@ -932,6 +999,7 @@ ref; // ME_A1050ECB67A8
  ;
  : Implementor ME_4857EA320141 // TevReqCell
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4D63D26D033F_ME_4857EA320141 QueryTool
 
 : ME_53CCBDA5026D_ME_4857EA320141
@@ -941,6 +1009,7 @@ ref; // ME_4D63D26D033F_ME_4857EA320141 QueryTool
  ;
  : Implementor ME_4857EA320141 // TevReqCell
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_53CCBDA5026D_ME_4857EA320141 COMQueryTool
 
 : ME_4857EA320141
@@ -954,38 +1023,40 @@ ref; // ME_53CCBDA5026D_ME_4857EA320141 COMQueryTool
  : Parent ME_53D258F1004F // InterfaceFactories
  ;
  : Inherits
-   @ ( ME_4857CDBF0197 // TevTableCell
- ) .SequenceCode.It
+   Seq: ( ME_4857CDBF0197 // TevTableCell
+ )
  ; // Inherits
  : Implements
-   @ ( WL 'ME_4857E9EE024A' '48492FC0029D.pas.ms.script' // ReqCell
- ) .SequenceCode.It
+   Seq: ( WL 'ME_4857E9EE024A' '48492FC0029D.pas.ms.script' // ReqCell
+ )
  ; // Implements
  : Overridden
-   @ ( ME_4D63D26D033F_ME_4857EA320141 // QueryTool
+   Seq: ( ME_4D63D26D033F_ME_4857EA320141 // QueryTool
  ME_53CCBDA5026D_ME_4857EA320141 // COMQueryTool
- ) .SequenceCode.It
+ )
  ; // Overridden
  : Dependencies
-   @ ( ME_A1050ECB67A8 // 
- ) .SequenceCode.It
+   Seq: ( ME_A1050ECB67A8 // 
+ )
  ; // Dependencies
  : Injected
-   @ ( WL 'ME_53D0C08900B3' '4A3A233900C9.pas.ms.script' // 
+   Seq: ( WL 'ME_53D0C08900B3' '4A3A233900C9.pas.ms.script' // 
  WL 'ME_53D0C16103A9' '4A267EE3017B.pas.ms.script' // 
- ) .SequenceCode.It
+ )
  ; // Injected
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest'
  CONST intf.pas:Path 'common\components\gui\Garant\Everest\evReqCell_InterfaceFactory.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
  CONST extprop:pas:TypeName 'TevReqCellInterfaceFactory'
+ CONST extprop:rc:SelfName 'ReqCellInterfaceFactory'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'evReqCell_InterfaceFactory'
 
 ref; // ME_4857EA320141 TevReqCell
 
@@ -993,6 +1064,7 @@ FORWARD ME_4857AA550220
 
 : ME_D90B0C371CF2
  CONST UID 'D90B0C371CF2'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_4857AA550220 // TevBlock
@@ -1004,6 +1076,7 @@ ref; // ME_D90B0C371CF2
 
 : ME_653C574D1171
  CONST UID '653C574D1171'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_4857AA550220 // TevBlock
@@ -1015,6 +1088,7 @@ ref; // ME_653C574D1171
 
 : ME_C93ABD042A21
  CONST UID 'C93ABD042A21'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_4857AA550220 // TevBlock
@@ -1026,6 +1100,7 @@ ref; // ME_C93ABD042A21
 
 : ME_45738CF1F887
  CONST UID '45738CF1F887'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_4857AA550220 // TevBlock
@@ -1037,6 +1112,7 @@ ref; // ME_45738CF1F887
 
 : ME_C50D3609C35F
  CONST UID 'C50D3609C35F'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_4857AA550220 // TevBlock
@@ -1048,6 +1124,7 @@ ref; // ME_C50D3609C35F
 
 : ME_AAAE95516EAF
  CONST UID 'AAAE95516EAF'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_4857AA550220 // TevBlock
@@ -1059,6 +1136,7 @@ ref; // ME_AAAE95516EAF
 
 : ME_F85D29D77B15
  CONST UID 'F85D29D77B15'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_4857AA550220 // TevBlock
@@ -1070,6 +1148,7 @@ ref; // ME_F85D29D77B15
 
 : ME_C7FB6DFF62C5
  CONST UID 'C7FB6DFF62C5'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_4857AA550220 // TevBlock
@@ -1086,6 +1165,7 @@ ref; // ME_C7FB6DFF62C5
  ;
  : Implementor ME_4857AA550220 // TevBlock
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4D63D26D033F_ME_4857AA550220 QueryTool
 
 : ME_53CCBDA5026D_ME_4857AA550220
@@ -1095,6 +1175,7 @@ ref; // ME_4D63D26D033F_ME_4857AA550220 QueryTool
  ;
  : Implementor ME_4857AA550220 // TevBlock
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_53CCBDA5026D_ME_4857AA550220 COMQueryTool
 
 : ME_4857AA550220
@@ -1109,20 +1190,20 @@ ref; // ME_53CCBDA5026D_ME_4857AA550220 COMQueryTool
  : Parent ME_53D258F1004F // InterfaceFactories
  ;
  : Inherits
-   @ ( ME_48579EA1011D // TevParaList
- ) .SequenceCode.It
+   Seq: ( ME_48579EA1011D // TevParaList
+ )
  ; // Inherits
  : Implements
-   @ ( WL 'ME_4857A87D0337' '48492FC0029D.pas.ms.script' // Block
- ) .SequenceCode.It
+   Seq: ( WL 'ME_4857A87D0337' '48492FC0029D.pas.ms.script' // Block
+ )
  ; // Implements
  : Overridden
-   @ ( ME_4D63D26D033F_ME_4857AA550220 // QueryTool
+   Seq: ( ME_4D63D26D033F_ME_4857AA550220 // QueryTool
  ME_53CCBDA5026D_ME_4857AA550220 // COMQueryTool
- ) .SequenceCode.It
+ )
  ; // Overridden
  : Dependencies
-   @ ( ME_D90B0C371CF2 // 
+   Seq: ( ME_D90B0C371CF2 // 
  ME_653C574D1171 // 
  ME_C93ABD042A21 // 
  ME_45738CF1F887 // 
@@ -1130,28 +1211,30 @@ ref; // ME_53CCBDA5026D_ME_4857AA550220 COMQueryTool
  ME_AAAE95516EAF // 
  ME_F85D29D77B15 // 
  ME_C7FB6DFF62C5 // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  : Injected
-   @ ( WL 'ME_4D63CD69029E' '4A3A233900C9.pas.ms.script' // 
+   Seq: ( WL 'ME_4D63CD69029E' '4A3A233900C9.pas.ms.script' // 
  WL 'ME_4DD67AED00FD' '49DCC860038B.pas.ms.script' // 
  WL 'ME_4E1423F30055' '4A267EE3017B.pas.ms.script' // 
  WL 'ME_53D669700172' '4A3A233900C9.pas.ms.script' // 
  WL 'ME_53D669A80159' '4A3B771101D5.pas.ms.script' // 
  WL 'ME_53D66A6E0219' '48CE0A0A03B4.pas.ms.script' // 
- ) .SequenceCode.It
+ )
  ; // Injected
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest'
  CONST intf.pas:Path 'common\components\gui\Garant\Everest\evBlock_InterfaceFactory.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
  CONST extprop:pas:TypeName 'TevBlockInterfaceFactory'
+ CONST extprop:rc:SelfName 'BlockInterfaceFactory'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'evBlock_InterfaceFactory'
 
 ref; // ME_4857AA550220 TevBlock
 
@@ -1159,6 +1242,7 @@ FORWARD ME_4857D32B011E
 
 : ME_19B4F1E39DF3
  CONST UID '19B4F1E39DF3'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_4857D32B011E // TevTableRow
@@ -1170,6 +1254,7 @@ ref; // ME_19B4F1E39DF3
 
 : ME_6229E38BFBD9
  CONST UID '6229E38BFBD9'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_4857D32B011E // TevTableRow
@@ -1181,6 +1266,7 @@ ref; // ME_6229E38BFBD9
 
 : ME_3D467F860BA4
  CONST UID '3D467F860BA4'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_4857D32B011E // TevTableRow
@@ -1192,6 +1278,7 @@ ref; // ME_3D467F860BA4
 
 : ME_92E05B145662
  CONST UID '92E05B145662'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_4857D32B011E // TevTableRow
@@ -1203,6 +1290,7 @@ ref; // ME_92E05B145662
 
 : ME_EDBE4A7F0F86
  CONST UID 'EDBE4A7F0F86'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_4857D32B011E // TevTableRow
@@ -1214,6 +1302,7 @@ ref; // ME_EDBE4A7F0F86
 
 : ME_899F4ECC7C4D
  CONST UID '899F4ECC7C4D'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_4857D32B011E // TevTableRow
@@ -1225,6 +1314,7 @@ ref; // ME_899F4ECC7C4D
 
 : ME_11CA32F06FCC
  CONST UID '11CA32F06FCC'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_4857D32B011E // TevTableRow
@@ -1236,6 +1326,7 @@ ref; // ME_11CA32F06FCC
 
 : ME_323A291B90BC
  CONST UID '323A291B90BC'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_4857D32B011E // TevTableRow
@@ -1247,6 +1338,7 @@ ref; // ME_323A291B90BC
 
 : ME_0F875AD8D0EE
  CONST UID '0F875AD8D0EE'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_4857D32B011E // TevTableRow
@@ -1258,6 +1350,7 @@ ref; // ME_0F875AD8D0EE
 
 : ME_905EA2A56C12
  CONST UID '905EA2A56C12'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_4857D32B011E // TevTableRow
@@ -1269,6 +1362,7 @@ ref; // ME_905EA2A56C12
 
 : ME_8C2D7ED9DA40
  CONST UID '8C2D7ED9DA40'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_4857D32B011E // TevTableRow
@@ -1285,6 +1379,7 @@ ref; // ME_8C2D7ED9DA40
  ;
  : Implementor ME_4857D32B011E // TevTableRow
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4D63D26D033F_ME_4857D32B011E QueryTool
 
 : ME_53CCBDA5026D_ME_4857D32B011E
@@ -1294,6 +1389,7 @@ ref; // ME_4D63D26D033F_ME_4857D32B011E QueryTool
  ;
  : Implementor ME_4857D32B011E // TevTableRow
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_53CCBDA5026D_ME_4857D32B011E COMQueryTool
 
 : ME_4857D32B011E
@@ -1307,20 +1403,20 @@ ref; // ME_53CCBDA5026D_ME_4857D32B011E COMQueryTool
  : Parent ME_53D258F1004F // InterfaceFactories
  ;
  : Inherits
-   @ ( ME_48579EA1011D // TevParaList
- ) .SequenceCode.It
+   Seq: ( ME_48579EA1011D // TevParaList
+ )
  ; // Inherits
  : Implements
-   @ ( WL 'ME_4857D2F8006D' '48492FC0029D.pas.ms.script' // TableRow
- ) .SequenceCode.It
+   Seq: ( WL 'ME_4857D2F8006D' '48492FC0029D.pas.ms.script' // TableRow
+ )
  ; // Implements
  : Overridden
-   @ ( ME_4D63D26D033F_ME_4857D32B011E // QueryTool
+   Seq: ( ME_4D63D26D033F_ME_4857D32B011E // QueryTool
  ME_53CCBDA5026D_ME_4857D32B011E // COMQueryTool
- ) .SequenceCode.It
+ )
  ; // Overridden
  : Dependencies
-   @ ( ME_19B4F1E39DF3 // 
+   Seq: ( ME_19B4F1E39DF3 // 
  ME_6229E38BFBD9 // 
  ME_3D467F860BA4 // 
  ME_92E05B145662 // 
@@ -1331,10 +1427,10 @@ ref; // ME_53CCBDA5026D_ME_4857D32B011E COMQueryTool
  ME_0F875AD8D0EE // 
  ME_905EA2A56C12 // 
  ME_8C2D7ED9DA40 // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  : Injected
-   @ ( WL 'ME_4DD67B4C01B4' '49DCC860038B.pas.ms.script' // 
+   Seq: ( WL 'ME_4DD67B4C01B4' '49DCC860038B.pas.ms.script' // 
  WL 'ME_4DDFB60B0204' '48CE0A0A03B4.pas.ms.script' // 
  WL 'ME_53D23D3A035B' '4A267EE3017B.pas.ms.script' // 
  WL 'ME_53D67560029F' '4A3A233900C9.pas.ms.script' // 
@@ -1342,19 +1438,21 @@ ref; // ME_53CCBDA5026D_ME_4857D32B011E COMQueryTool
  WL 'ME_53D6762F0013' '4A3B771101D5.pas.ms.script' // 
  WL 'ME_53D676B6037B' '47E3DF460095.pas.ms.script' // 
  WL 'ME_53D676ED0144' '47E3DF460095.pas.ms.script' // 
- ) .SequenceCode.It
+ )
  ; // Injected
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest'
  CONST intf.pas:Path 'common\components\gui\Garant\Everest\evTableRow_InterfaceFactory.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
  CONST extprop:pas:TypeName 'TevTableRowInterfaceFactory'
+ CONST extprop:rc:SelfName 'TableRowInterfaceFactory'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'evTableRow_InterfaceFactory'
 
 ref; // ME_4857D32B011E TevTableRow
 
@@ -1362,6 +1460,7 @@ FORWARD ME_48567B6E010E
 
 : ME_43B6F84979BB
  CONST UID '43B6F84979BB'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_48567B6E010E // TevLeafPara
@@ -1373,6 +1472,7 @@ ref; // ME_43B6F84979BB
 
 : ME_E8D429E4FB0B
  CONST UID 'E8D429E4FB0B'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_48567B6E010E // TevLeafPara
@@ -1384,6 +1484,7 @@ ref; // ME_E8D429E4FB0B
 
 : ME_97ACA5D804F8
  CONST UID '97ACA5D804F8'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_48567B6E010E // TevLeafPara
@@ -1395,6 +1496,7 @@ ref; // ME_97ACA5D804F8
 
 : ME_A45B46C3E2B7
  CONST UID 'A45B46C3E2B7'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_48567B6E010E // TevLeafPara
@@ -1406,6 +1508,7 @@ ref; // ME_A45B46C3E2B7
 
 : ME_A52D9087AA52
  CONST UID 'A52D9087AA52'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_48567B6E010E // TevLeafPara
@@ -1417,6 +1520,7 @@ ref; // ME_A52D9087AA52
 
 : ME_908D0F1033A9
  CONST UID '908D0F1033A9'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_48567B6E010E // TevLeafPara
@@ -1433,6 +1537,7 @@ ref; // ME_908D0F1033A9
  ;
  : Implementor ME_48567B6E010E // TevLeafPara
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4D63D26D033F_ME_48567B6E010E QueryTool
 
 : ME_53CCBDA5026D_ME_48567B6E010E
@@ -1442,6 +1547,7 @@ ref; // ME_4D63D26D033F_ME_48567B6E010E QueryTool
  ;
  : Implementor ME_48567B6E010E // TevLeafPara
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_53CCBDA5026D_ME_48567B6E010E COMQueryTool
 
 : ME_48567B6E010E
@@ -1455,46 +1561,48 @@ ref; // ME_53CCBDA5026D_ME_48567B6E010E COMQueryTool
  : Parent ME_53D258F1004F // InterfaceFactories
  ;
  : Inherits
-   @ ( ME_485678B701BD // TevPara
- ) .SequenceCode.It
+   Seq: ( ME_485678B701BD // TevPara
+ )
  ; // Inherits
  : Implements
-   @ ( WL 'ME_485669C9009D' '484A470100DD.pas.ms.script' // LeafPara
- ) .SequenceCode.It
+   Seq: ( WL 'ME_485669C9009D' '484A470100DD.pas.ms.script' // LeafPara
+ )
  ; // Implements
  : Overridden
-   @ ( ME_4D63D26D033F_ME_48567B6E010E // QueryTool
+   Seq: ( ME_4D63D26D033F_ME_48567B6E010E // QueryTool
  ME_53CCBDA5026D_ME_48567B6E010E // COMQueryTool
- ) .SequenceCode.It
+ )
  ; // Overridden
  : Dependencies
-   @ ( ME_43B6F84979BB // 
+   Seq: ( ME_43B6F84979BB // 
  ME_E8D429E4FB0B // 
  ME_97ACA5D804F8 // 
  ME_A45B46C3E2B7 // 
  ME_A52D9087AA52 // 
  ME_908D0F1033A9 // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  : Injected
-   @ ( WL 'ME_4DDFB24401AD' '48CE0A0A03B4.pas.ms.script' // 
+   Seq: ( WL 'ME_4DDFB24401AD' '48CE0A0A03B4.pas.ms.script' // 
  WL 'ME_53D26C57009E' '47E3DF460095.pas.ms.script' // 
  WL 'ME_53D7D1FB020F' '47E3DF460095.pas.ms.script' // 
  WL 'ME_53D7D2310353' '4A3B771101D5.pas.ms.script' // 
  WL 'ME_53D7D2C1020D' '48CE0A0A03B4.pas.ms.script' // 
- ) .SequenceCode.It
+ )
  ; // Injected
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest'
  CONST intf.pas:Path 'common\components\gui\Garant\Everest\evLeafPara_InterfaceFactory.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
  CONST extprop:pas:TypeName 'TevLeafParaInterfaceFactory'
+ CONST extprop:rc:SelfName 'LeafParaInterfaceFactory'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'evLeafPara_InterfaceFactory'
 
 ref; // ME_48567B6E010E TevLeafPara
 
@@ -1502,6 +1610,7 @@ FORWARD ME_48567B940173
 
 : ME_5826D7AAEB61
  CONST UID '5826D7AAEB61'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_48567B940173 // TevSolidPara
@@ -1518,6 +1627,7 @@ ref; // ME_5826D7AAEB61
  ;
  : Implementor ME_48567B940173 // TevSolidPara
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4D63D26D033F_ME_48567B940173 QueryTool
 
 : ME_53CCBDA5026D_ME_48567B940173
@@ -1527,6 +1637,7 @@ ref; // ME_4D63D26D033F_ME_48567B940173 QueryTool
  ;
  : Implementor ME_48567B940173 // TevSolidPara
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_53CCBDA5026D_ME_48567B940173 COMQueryTool
 
 : ME_48567B940173
@@ -1540,35 +1651,37 @@ ref; // ME_53CCBDA5026D_ME_48567B940173 COMQueryTool
  : Parent ME_53D258F1004F // InterfaceFactories
  ;
  : Inherits
-   @ ( ME_48567B6E010E // TevLeafPara
- ) .SequenceCode.It
+   Seq: ( ME_48567B6E010E // TevLeafPara
+ )
  ; // Inherits
  : Overridden
-   @ ( ME_4D63D26D033F_ME_48567B940173 // QueryTool
+   Seq: ( ME_4D63D26D033F_ME_48567B940173 // QueryTool
  ME_53CCBDA5026D_ME_48567B940173 // COMQueryTool
- ) .SequenceCode.It
+ )
  ; // Overridden
  : Dependencies
-   @ ( ME_5826D7AAEB61 // 
- ) .SequenceCode.It
+   Seq: ( ME_5826D7AAEB61 // 
+ )
  ; // Dependencies
  : Injected
-   @ ( WL 'ME_53D2420F01D3' '47E3DF460095.pas.ms.script' // 
+   Seq: ( WL 'ME_53D2420F01D3' '47E3DF460095.pas.ms.script' // 
  WL 'ME_53D2422D029B' '4A3B771101D5.pas.ms.script' // 
  WL 'ME_53D26C9001F6' '47E3DF460095.pas.ms.script' // 
- ) .SequenceCode.It
+ )
  ; // Injected
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest'
  CONST intf.pas:Path 'common\components\gui\Garant\Everest\evSolidPara_InterfaceFactory.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
  CONST extprop:pas:TypeName 'TevSolidParaInterfaceFactory'
+ CONST extprop:rc:SelfName 'SolidParaInterfaceFactory'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'evSolidPara_InterfaceFactory'
 
 ref; // ME_48567B940173 TevSolidPara
 
@@ -1576,6 +1689,7 @@ FORWARD ME_48567BA50307
 
 : ME_3477AE867EA8
  CONST UID '3477AE867EA8'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_48567BA50307 // TevPageBreak
@@ -1587,6 +1701,7 @@ ref; // ME_3477AE867EA8
 
 : ME_C97D32AC42DB
  CONST UID 'C97D32AC42DB'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_48567BA50307 // TevPageBreak
@@ -1598,6 +1713,7 @@ ref; // ME_C97D32AC42DB
 
 : ME_BD0722741D4C
  CONST UID 'BD0722741D4C'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_48567BA50307 // TevPageBreak
@@ -1614,6 +1730,7 @@ ref; // ME_BD0722741D4C
  ;
  : Implementor ME_48567BA50307 // TevPageBreak
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4D63D26D033F_ME_48567BA50307 QueryTool
 
 : ME_53CCBDA5026D_ME_48567BA50307
@@ -1623,6 +1740,7 @@ ref; // ME_4D63D26D033F_ME_48567BA50307 QueryTool
  ;
  : Implementor ME_48567BA50307 // TevPageBreak
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_53CCBDA5026D_ME_48567BA50307 COMQueryTool
 
 : ME_48567BA50307
@@ -1637,41 +1755,43 @@ ref; // ME_53CCBDA5026D_ME_48567BA50307 COMQueryTool
  : Parent ME_53D258F1004F // InterfaceFactories
  ;
  : Inherits
-   @ ( ME_48567B940173 // TevSolidPara
- ) .SequenceCode.It
+   Seq: ( ME_48567B940173 // TevSolidPara
+ )
  ; // Inherits
  : Implements
-   @ ( WL 'ME_48566A8103C1' '484A470100DD.pas.ms.script' // PageBreak
- ) .SequenceCode.It
+   Seq: ( WL 'ME_48566A8103C1' '484A470100DD.pas.ms.script' // PageBreak
+ )
  ; // Implements
  : Overridden
-   @ ( ME_4D63D26D033F_ME_48567BA50307 // QueryTool
+   Seq: ( ME_4D63D26D033F_ME_48567BA50307 // QueryTool
  ME_53CCBDA5026D_ME_48567BA50307 // COMQueryTool
- ) .SequenceCode.It
+ )
  ; // Overridden
  : Dependencies
-   @ ( ME_3477AE867EA8 // 
+   Seq: ( ME_3477AE867EA8 // 
  ME_C97D32AC42DB // 
  ME_BD0722741D4C // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  : Injected
-   @ ( WL 'ME_4DD67C0A0292' '4804A24003C1.pas.ms.script' // 
+   Seq: ( WL 'ME_4DD67C0A0292' '4804A24003C1.pas.ms.script' // 
  WL 'ME_53D09E860141' '47E3DF460095.pas.ms.script' // 
  WL 'ME_53D0AF910359' '4A3B771101D5.pas.ms.script' // 
- ) .SequenceCode.It
+ )
  ; // Injected
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest'
  CONST intf.pas:Path 'common\components\gui\Garant\Everest\evPageBreak_InterfaceFactory.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
  CONST extprop:pas:TypeName 'TevPageBreakInterfaceFactory'
+ CONST extprop:rc:SelfName 'PageBreakInterfaceFactory'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'evPageBreak_InterfaceFactory'
 
 ref; // ME_48567BA50307 TevPageBreak
 
@@ -1679,6 +1799,7 @@ FORWARD ME_48567BD10027
 
 : ME_BE889DDD5E5C
  CONST UID 'BE889DDD5E5C'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_48567BD10027 // TevSectionBreak
@@ -1690,6 +1811,7 @@ ref; // ME_BE889DDD5E5C
 
 : ME_A08F1BF0053F
  CONST UID 'A08F1BF0053F'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_48567BD10027 // TevSectionBreak
@@ -1701,6 +1823,7 @@ ref; // ME_A08F1BF0053F
 
 : ME_F90DD45885F8
  CONST UID 'F90DD45885F8'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_48567BD10027 // TevSectionBreak
@@ -1717,6 +1840,7 @@ ref; // ME_F90DD45885F8
  ;
  : Implementor ME_48567BD10027 // TevSectionBreak
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_53CCBDA5026D_ME_48567BD10027 COMQueryTool
 
 : ME_48567BD10027
@@ -1731,39 +1855,41 @@ ref; // ME_53CCBDA5026D_ME_48567BD10027 COMQueryTool
  : Parent ME_53D258F1004F // InterfaceFactories
  ;
  : Inherits
-   @ ( ME_48567BA50307 // TevPageBreak
- ) .SequenceCode.It
+   Seq: ( ME_48567BA50307 // TevPageBreak
+ )
  ; // Inherits
  : Implements
-   @ ( WL 'ME_485673BA0364' '484A470100DD.pas.ms.script' // SectionBreak
- ) .SequenceCode.It
+   Seq: ( WL 'ME_485673BA0364' '484A470100DD.pas.ms.script' // SectionBreak
+ )
  ; // Implements
  : Overridden
-   @ ( ME_53CCBDA5026D_ME_48567BD10027 // COMQueryTool
- ) .SequenceCode.It
+   Seq: ( ME_53CCBDA5026D_ME_48567BD10027 // COMQueryTool
+ )
  ; // Overridden
  : Dependencies
-   @ ( ME_BE889DDD5E5C // 
+   Seq: ( ME_BE889DDD5E5C // 
  ME_A08F1BF0053F // 
  ME_F90DD45885F8 // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  : Injected
-   @ ( WL 'ME_4DD67BFD008A' '4804A24003C1.pas.ms.script' // 
+   Seq: ( WL 'ME_4DD67BFD008A' '4804A24003C1.pas.ms.script' // 
  WL 'ME_53D0B0F1024F' '4A267EE3017B.pas.ms.script' // 
- ) .SequenceCode.It
+ )
  ; // Injected
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest'
  CONST intf.pas:Path 'common\components\gui\Garant\Everest\evSectionBreak_InterfaceFactory.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
  CONST extprop:pas:TypeName 'TevSectionBreakInterfaceFactory'
+ CONST extprop:rc:SelfName 'SectionBreakInterfaceFactory'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'evSectionBreak_InterfaceFactory'
 
 ref; // ME_48567BD10027 TevSectionBreak
 
@@ -1779,12 +1905,12 @@ ref; // ME_48567BD10027 TevSectionBreak
  : Parent ME_53D258F1004F // InterfaceFactories
  ;
  : Inherits
-   @ ( ME_485678B701BD // TevPara
- ) .SequenceCode.It
+   Seq: ( ME_485678B701BD // TevPara
+ )
  ; // Inherits
  : Implements
-   @ ( WL 'ME_4858EE130209' '48492FC0029D.pas.ms.script' // List
- ) .SequenceCode.It
+   Seq: ( WL 'ME_4858EE130209' '48492FC0029D.pas.ms.script' // List
+ )
  ; // Implements
  CONST "author" 'Ëþëèí À.Â.'
  CONST "finished" false
@@ -1794,13 +1920,15 @@ ref; // ME_48567BD10027 TevSectionBreak
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
  CONST "started" '18.06.2008 15:13'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest'
  CONST intf.pas:Path 'common\components\gui\Garant\Everest\NOT_FINISHED_evList_InterfaceFactory.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
  CONST extprop:pas:TypeName 'TevListInterfaceFactory'
+ CONST extprop:rc:SelfName 'ListInterfaceFactory'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'evList_InterfaceFactory'
 
 ref; // ME_4858EE3A00A3 TevList
 
@@ -1808,6 +1936,7 @@ FORWARD ME_4857D1860221
 
 : ME_29381B4E8F34
  CONST UID '29381B4E8F34'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_4857D1860221 // TevSBSCell
@@ -1819,6 +1948,7 @@ ref; // ME_29381B4E8F34
 
 : ME_0587684BD8E0
  CONST UID '0587684BD8E0'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_4857D1860221 // TevSBSCell
@@ -1835,6 +1965,7 @@ ref; // ME_0587684BD8E0
  ;
  : Implementor ME_4857D1860221 // TevSBSCell
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_53CCBDA5026D_ME_4857D1860221 COMQueryTool
 
 : ME_4857D1860221
@@ -1848,37 +1979,39 @@ ref; // ME_53CCBDA5026D_ME_4857D1860221 COMQueryTool
  : Parent ME_53D258F1004F // InterfaceFactories
  ;
  : Inherits
-   @ ( ME_4857CDBF0197 // TevTableCell
- ) .SequenceCode.It
+   Seq: ( ME_4857CDBF0197 // TevTableCell
+ )
  ; // Inherits
  : Implements
-   @ ( WL 'ME_4857D15D029B' '48492FC0029D.pas.ms.script' // SBSCell
- ) .SequenceCode.It
+   Seq: ( WL 'ME_4857D15D029B' '48492FC0029D.pas.ms.script' // SBSCell
+ )
  ; // Implements
  : Overridden
-   @ ( ME_53CCBDA5026D_ME_4857D1860221 // COMQueryTool
- ) .SequenceCode.It
+   Seq: ( ME_53CCBDA5026D_ME_4857D1860221 // COMQueryTool
+ )
  ; // Overridden
  : Dependencies
-   @ ( ME_29381B4E8F34 // 
+   Seq: ( ME_29381B4E8F34 // 
  ME_0587684BD8E0 // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  : Injected
-   @ ( WL 'ME_4DD67B33029F' '49DCC860038B.pas.ms.script' // 
- ) .SequenceCode.It
+   Seq: ( WL 'ME_4DD67B33029F' '49DCC860038B.pas.ms.script' // 
+ )
  ; // Injected
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest'
  CONST intf.pas:Path 'common\components\gui\Garant\Everest\evSBSCell_InterfaceFactory.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
  CONST extprop:pas:TypeName 'TevSBSCellInterfaceFactory'
+ CONST extprop:rc:SelfName 'SBSCellInterfaceFactory'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'evSBSCell_InterfaceFactory'
 
 ref; // ME_4857D1860221 TevSBSCell
 
@@ -1886,6 +2019,7 @@ FORWARD ME_48577C150116
 
 : ME_F6537198AAE8
  CONST UID 'F6537198AAE8'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_48577C150116 // TevTextPara
@@ -1897,6 +2031,7 @@ ref; // ME_F6537198AAE8
 
 : ME_ECB79314FF4A
  CONST UID 'ECB79314FF4A'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_48577C150116 // TevTextPara
@@ -1908,6 +2043,7 @@ ref; // ME_ECB79314FF4A
 
 : ME_1587B7FBE400
  CONST UID '1587B7FBE400'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_48577C150116 // TevTextPara
@@ -1919,6 +2055,7 @@ ref; // ME_1587B7FBE400
 
 : ME_7A7F1272566F
  CONST UID '7A7F1272566F'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_48577C150116 // TevTextPara
@@ -1930,6 +2067,7 @@ ref; // ME_7A7F1272566F
 
 : ME_31DFC52C3843
  CONST UID '31DFC52C3843'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_48577C150116 // TevTextPara
@@ -1941,6 +2079,7 @@ ref; // ME_31DFC52C3843
 
 : ME_92EAF636E1BA
  CONST UID '92EAF636E1BA'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_48577C150116 // TevTextPara
@@ -1952,6 +2091,7 @@ ref; // ME_92EAF636E1BA
 
 : ME_FA60FEBF0E05
  CONST UID 'FA60FEBF0E05'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_48577C150116 // TevTextPara
@@ -1963,6 +2103,7 @@ ref; // ME_FA60FEBF0E05
 
 : ME_C17B677C2E50
  CONST UID 'C17B677C2E50'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_48577C150116 // TevTextPara
@@ -1974,6 +2115,7 @@ ref; // ME_C17B677C2E50
 
 : ME_B8B6C78A38C4
  CONST UID 'B8B6C78A38C4'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_48577C150116 // TevTextPara
@@ -1985,6 +2127,7 @@ ref; // ME_B8B6C78A38C4
 
 : ME_5AE3D899CA62
  CONST UID '5AE3D899CA62'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_48577C150116 // TevTextPara
@@ -1996,6 +2139,7 @@ ref; // ME_5AE3D899CA62
 
 : ME_B9C4F16212B7
  CONST UID 'B9C4F16212B7'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_48577C150116 // TevTextPara
@@ -2007,6 +2151,7 @@ ref; // ME_B9C4F16212B7
 
 : ME_B4ED7D317B15
  CONST UID 'B4ED7D317B15'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_48577C150116 // TevTextPara
@@ -2023,6 +2168,7 @@ ref; // ME_B4ED7D317B15
  ;
  : Implementor ME_48577C150116 // TevTextPara
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4D63D26D033F_ME_48577C150116 QueryTool
 
 : ME_53CCBDA5026D_ME_48577C150116
@@ -2032,6 +2178,7 @@ ref; // ME_4D63D26D033F_ME_48577C150116 QueryTool
  ;
  : Implementor ME_48577C150116 // TevTextPara
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_53CCBDA5026D_ME_48577C150116 COMQueryTool
 
 : ME_48577C150116
@@ -2045,20 +2192,20 @@ ref; // ME_53CCBDA5026D_ME_48577C150116 COMQueryTool
  : Parent ME_53D258F1004F // InterfaceFactories
  ;
  : Inherits
-   @ ( ME_48567B6E010E // TevLeafPara
- ) .SequenceCode.It
+   Seq: ( ME_48567B6E010E // TevLeafPara
+ )
  ; // Inherits
  : Implements
-   @ ( WL 'ME_485683750360' '48492FC0029D.pas.ms.script' // TextPara
- ) .SequenceCode.It
+   Seq: ( WL 'ME_485683750360' '48492FC0029D.pas.ms.script' // TextPara
+ )
  ; // Implements
  : Overridden
-   @ ( ME_4D63D26D033F_ME_48577C150116 // QueryTool
+   Seq: ( ME_4D63D26D033F_ME_48577C150116 // QueryTool
  ME_53CCBDA5026D_ME_48577C150116 // COMQueryTool
- ) .SequenceCode.It
+ )
  ; // Overridden
  : Dependencies
-   @ ( ME_F6537198AAE8 // 
+   Seq: ( ME_F6537198AAE8 // 
  ME_ECB79314FF4A // 
  ME_1587B7FBE400 // 
  ME_7A7F1272566F // 
@@ -2070,10 +2217,10 @@ ref; // ME_53CCBDA5026D_ME_48577C150116 COMQueryTool
  ME_5AE3D899CA62 // 
  ME_B9C4F16212B7 // 
  ME_B4ED7D317B15 // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  : Injected
-   @ ( WL 'ME_4D63CDCD00C0' '47E3DF460095.pas.ms.script' // 
+   Seq: ( WL 'ME_4D63CDCD00C0' '47E3DF460095.pas.ms.script' // 
  WL 'ME_4DD67BBE0275' '4804A24003C1.pas.ms.script' // 
  WL 'ME_4DDFB5D1010F' '48CE0A0A03B4.pas.ms.script' // 
  WL 'ME_53D78C350085' '47E3DF460095.pas.ms.script' // 
@@ -2082,19 +2229,21 @@ ref; // ME_53CCBDA5026D_ME_48577C150116 COMQueryTool
  WL 'ME_53D78E14003A' '48CE0A0A03B4.pas.ms.script' // 
  WL 'ME_53D78E3D0362' '4A3B771101D5.pas.ms.script' // 
  WL 'ME_53D78FBB03BE' '48CE0A0A03B4.pas.ms.script' // 
- ) .SequenceCode.It
+ )
  ; // Injected
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest'
  CONST intf.pas:Path 'common\components\gui\Garant\Everest\evTextPara_InterfaceFactory.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
  CONST extprop:pas:TypeName 'TevTextParaInterfaceFactory'
+ CONST extprop:rc:SelfName 'TextParaInterfaceFactory'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'evTextPara_InterfaceFactory'
 
 ref; // ME_48577C150116 TevTextPara
 
@@ -2102,6 +2251,7 @@ FORWARD ME_4D6E6BA90279
 
 : ME_84FA47980B1B
  CONST UID '84FA47980B1B'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_4D6E6BA90279 // TevAutoreferatDocument
@@ -2118,6 +2268,7 @@ ref; // ME_84FA47980B1B
  ;
  : Implementor ME_4D6E6BA90279 // TevAutoreferatDocument
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_53CCBDA5026D_ME_4D6E6BA90279 COMQueryTool
 
 : ME_4D6E6BA90279
@@ -2131,24 +2282,24 @@ ref; // ME_53CCBDA5026D_ME_4D6E6BA90279 COMQueryTool
  : Parent ME_53D258F1004F // InterfaceFactories
  ;
  : Inherits
-   @ ( ME_4857B637007C // TevDocument
- ) .SequenceCode.It
+   Seq: ( ME_4857B637007C // TevDocument
+ )
  ; // Inherits
  : Implements
-   @ ( WL 'ME_4D6E6B66010A' '48492FC0029D.pas.ms.script' // AutoreferatDocument
- ) .SequenceCode.It
+   Seq: ( WL 'ME_4D6E6B66010A' '48492FC0029D.pas.ms.script' // AutoreferatDocument
+ )
  ; // Implements
  : Overridden
-   @ ( ME_53CCBDA5026D_ME_4D6E6BA90279 // COMQueryTool
- ) .SequenceCode.It
+   Seq: ( ME_53CCBDA5026D_ME_4D6E6BA90279 // COMQueryTool
+ )
  ; // Overridden
  : Dependencies
-   @ ( ME_84FA47980B1B // 
- ) .SequenceCode.It
+   Seq: ( ME_84FA47980B1B // 
+ )
  ; // Dependencies
  : Injected
-   @ ( WL 'ME_53CE2B1B0220' '4A3B771101D5.pas.ms.script' // 
- ) .SequenceCode.It
+   Seq: ( WL 'ME_53CE2B1B0220' '4A3B771101D5.pas.ms.script' // 
+ )
  ; // Injected
  CONST "author" 'Ëþëèí À.Â.'
  CONST "needs InstanceR" 'undefined'
@@ -2156,13 +2307,15 @@ ref; // ME_53CCBDA5026D_ME_4D6E6BA90279 COMQueryTool
  CONST "no hands" true
  CONST "register in scripts" 'undefined'
  CONST "started" '02.03.2011 19:09'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest'
  CONST intf.pas:Path 'common\components\gui\Garant\Everest\evAutoreferatDocument_InterfaceFactory.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
  CONST extprop:pas:TypeName 'TevAutoreferatDocumentInterfaceFactory'
+ CONST extprop:rc:SelfName 'AutoreferatDocumentInterfaceFactory'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'evAutoreferatDocument_InterfaceFactory'
 
 ref; // ME_4D6E6BA90279 TevAutoreferatDocument
 
@@ -2170,6 +2323,7 @@ FORWARD ME_485807480091
 
 : ME_B5542752CBEE
  CONST UID 'B5542752CBEE'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_485807480091 // TevControlsBlock
@@ -2181,6 +2335,7 @@ ref; // ME_B5542752CBEE
 
 : ME_9CB1D2C11DFA
  CONST UID '9CB1D2C11DFA'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_485807480091 // TevControlsBlock
@@ -2192,6 +2347,7 @@ ref; // ME_9CB1D2C11DFA
 
 : ME_7BA99B9DF82E
  CONST UID '7BA99B9DF82E'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_485807480091 // TevControlsBlock
@@ -2203,6 +2359,7 @@ ref; // ME_7BA99B9DF82E
 
 : ME_EA8667CB9A0D
  CONST UID 'EA8667CB9A0D'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_485807480091 // TevControlsBlock
@@ -2214,6 +2371,7 @@ ref; // ME_EA8667CB9A0D
 
 : ME_E398238FF918
  CONST UID 'E398238FF918'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_485807480091 // TevControlsBlock
@@ -2225,6 +2383,7 @@ ref; // ME_E398238FF918
 
 : ME_C1F61B560FD4
  CONST UID 'C1F61B560FD4'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_485807480091 // TevControlsBlock
@@ -2236,6 +2395,7 @@ ref; // ME_C1F61B560FD4
 
 : ME_480571449852
  CONST UID '480571449852'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_485807480091 // TevControlsBlock
@@ -2247,6 +2407,7 @@ ref; // ME_480571449852
 
 : ME_FFCD89A50CB3
  CONST UID 'FFCD89A50CB3'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_485807480091 // TevControlsBlock
@@ -2258,6 +2419,7 @@ ref; // ME_FFCD89A50CB3
 
 : ME_3564C434D0D9
  CONST UID '3564C434D0D9'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_485807480091 // TevControlsBlock
@@ -2269,6 +2431,7 @@ ref; // ME_3564C434D0D9
 
 : ME_5036FB3D7A8B
  CONST UID '5036FB3D7A8B'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_485807480091 // TevControlsBlock
@@ -2280,6 +2443,7 @@ ref; // ME_5036FB3D7A8B
 
 : ME_29F59E9D9AAF
  CONST UID '29F59E9D9AAF'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_485807480091 // TevControlsBlock
@@ -2291,6 +2455,7 @@ ref; // ME_29F59E9D9AAF
 
 : ME_021B86151354
  CONST UID '021B86151354'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_485807480091 // TevControlsBlock
@@ -2302,6 +2467,7 @@ ref; // ME_021B86151354
 
 : ME_196C082A7433
  CONST UID '196C082A7433'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_485807480091 // TevControlsBlock
@@ -2318,6 +2484,7 @@ ref; // ME_196C082A7433
  ;
  : Implementor ME_485807480091 // TevControlsBlock
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4D63D26D033F_ME_485807480091 QueryTool
 
 : ME_53CCBDA5026D_ME_485807480091
@@ -2327,6 +2494,7 @@ ref; // ME_4D63D26D033F_ME_485807480091 QueryTool
  ;
  : Implementor ME_485807480091 // TevControlsBlock
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_53CCBDA5026D_ME_485807480091 COMQueryTool
 
 : ME_485807480091
@@ -2341,20 +2509,20 @@ ref; // ME_53CCBDA5026D_ME_485807480091 COMQueryTool
  : Parent ME_53D258F1004F // InterfaceFactories
  ;
  : Inherits
-   @ ( ME_4857AA550220 // TevBlock
- ) .SequenceCode.It
+   Seq: ( ME_4857AA550220 // TevBlock
+ )
  ; // Inherits
  : Implements
-   @ ( WL 'ME_485806FC032D' '48492FC0029D.pas.ms.script' // ControlsBlock
- ) .SequenceCode.It
+   Seq: ( WL 'ME_485806FC032D' '48492FC0029D.pas.ms.script' // ControlsBlock
+ )
  ; // Implements
  : Overridden
-   @ ( ME_4D63D26D033F_ME_485807480091 // QueryTool
+   Seq: ( ME_4D63D26D033F_ME_485807480091 // QueryTool
  ME_53CCBDA5026D_ME_485807480091 // COMQueryTool
- ) .SequenceCode.It
+ )
  ; // Overridden
  : Dependencies
-   @ ( ME_B5542752CBEE // 
+   Seq: ( ME_B5542752CBEE // 
  ME_9CB1D2C11DFA // 
  ME_7BA99B9DF82E // 
  ME_EA8667CB9A0D // 
@@ -2367,28 +2535,30 @@ ref; // ME_53CCBDA5026D_ME_485807480091 COMQueryTool
  ME_29F59E9D9AAF // 
  ME_021B86151354 // 
  ME_196C082A7433 // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  : Injected
-   @ ( WL 'ME_4DD67AA80086' '49DCC860038B.pas.ms.script' // 
+   Seq: ( WL 'ME_4DD67AA80086' '49DCC860038B.pas.ms.script' // 
  WL 'ME_4DDFB6770095' '48CE0A0A03B4.pas.ms.script' // 
  WL 'ME_4E6E385C0084' '4A267EE3017B.pas.ms.script' // 
  WL 'ME_53D0E1040268' '4A3A233900C9.pas.ms.script' // 
  WL 'ME_53D6375D0205' '48CE0A0A03B4.pas.ms.script' // 
  WL 'ME_53D63840017D' '48CE0A0A03B4.pas.ms.script' // 
- ) .SequenceCode.It
+ )
  ; // Injected
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest'
  CONST intf.pas:Path 'common\components\gui\Garant\Everest\evControlsBlock_InterfaceFactory.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
  CONST extprop:pas:TypeName 'TevControlsBlockInterfaceFactory'
+ CONST extprop:rc:SelfName 'ControlsBlockInterfaceFactory'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'evControlsBlock_InterfaceFactory'
 
 ref; // ME_485807480091 TevControlsBlock
 
@@ -2396,6 +2566,7 @@ FORWARD ME_4858000901EF
 
 : ME_D8A08FCB386E
  CONST UID 'D8A08FCB386E'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_4858000901EF // TevControlPara
@@ -2407,6 +2578,7 @@ ref; // ME_D8A08FCB386E
 
 : ME_B54A1E8A20C1
  CONST UID 'B54A1E8A20C1'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_4858000901EF // TevControlPara
@@ -2418,6 +2590,7 @@ ref; // ME_B54A1E8A20C1
 
 : ME_09191A2D0052
  CONST UID '09191A2D0052'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_4858000901EF // TevControlPara
@@ -2429,6 +2602,7 @@ ref; // ME_09191A2D0052
 
 : ME_894735DE3D50
  CONST UID '894735DE3D50'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_4858000901EF // TevControlPara
@@ -2440,6 +2614,7 @@ ref; // ME_894735DE3D50
 
 : ME_AB7F39C9915D
  CONST UID 'AB7F39C9915D'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_4858000901EF // TevControlPara
@@ -2451,6 +2626,7 @@ ref; // ME_AB7F39C9915D
 
 : ME_9BAA1C3BF40F
  CONST UID '9BAA1C3BF40F'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_4858000901EF // TevControlPara
@@ -2462,6 +2638,7 @@ ref; // ME_9BAA1C3BF40F
 
 : ME_C3AC26F7BAE8
  CONST UID 'C3AC26F7BAE8'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_4858000901EF // TevControlPara
@@ -2473,6 +2650,7 @@ ref; // ME_C3AC26F7BAE8
 
 : ME_A5632225BBFD
  CONST UID 'A5632225BBFD'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_4858000901EF // TevControlPara
@@ -2484,6 +2662,7 @@ ref; // ME_A5632225BBFD
 
 : ME_6A7B76AAF812
  CONST UID '6A7B76AAF812'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_4858000901EF // TevControlPara
@@ -2495,6 +2674,7 @@ ref; // ME_6A7B76AAF812
 
 : ME_385DD7A61E49
  CONST UID '385DD7A61E49'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_4858000901EF // TevControlPara
@@ -2506,6 +2686,7 @@ ref; // ME_385DD7A61E49
 
 : ME_80EC8FEE89F6
  CONST UID '80EC8FEE89F6'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_4858000901EF // TevControlPara
@@ -2517,6 +2698,7 @@ ref; // ME_80EC8FEE89F6
 
 : ME_8F9D829872ED
  CONST UID '8F9D829872ED'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_4858000901EF // TevControlPara
@@ -2528,6 +2710,7 @@ ref; // ME_8F9D829872ED
 
 : ME_83DDB051B4F0
  CONST UID '83DDB051B4F0'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_4858000901EF // TevControlPara
@@ -2539,6 +2722,7 @@ ref; // ME_83DDB051B4F0
 
 : ME_AAD528E5B71F
  CONST UID 'AAD528E5B71F'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_4858000901EF // TevControlPara
@@ -2550,6 +2734,7 @@ ref; // ME_AAD528E5B71F
 
 : ME_2E4290FDA0CA
  CONST UID '2E4290FDA0CA'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_4858000901EF // TevControlPara
@@ -2561,6 +2746,7 @@ ref; // ME_2E4290FDA0CA
 
 : ME_57E80FA5041C
  CONST UID '57E80FA5041C'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_4858000901EF // TevControlPara
@@ -2572,6 +2758,7 @@ ref; // ME_57E80FA5041C
 
 : ME_C0C37EA03713
  CONST UID 'C0C37EA03713'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_4858000901EF // TevControlPara
@@ -2583,6 +2770,7 @@ ref; // ME_C0C37EA03713
 
 : ME_262F4FFF688B
  CONST UID '262F4FFF688B'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_4858000901EF // TevControlPara
@@ -2599,6 +2787,7 @@ ref; // ME_262F4FFF688B
  ;
  : Implementor ME_4858000901EF // TevControlPara
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4D63D26D033F_ME_4858000901EF QueryTool
 
 : ME_53CCBDA5026D_ME_4858000901EF
@@ -2608,6 +2797,7 @@ ref; // ME_4D63D26D033F_ME_4858000901EF QueryTool
  ;
  : Implementor ME_4858000901EF // TevControlPara
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_53CCBDA5026D_ME_4858000901EF COMQueryTool
 
 : ME_4858000901EF
@@ -2621,20 +2811,20 @@ ref; // ME_53CCBDA5026D_ME_4858000901EF COMQueryTool
  : Parent ME_53D258F1004F // InterfaceFactories
  ;
  : Inherits
-   @ ( ME_48577C150116 // TevTextPara
- ) .SequenceCode.It
+   Seq: ( ME_48577C150116 // TevTextPara
+ )
  ; // Inherits
  : Implements
-   @ ( WL 'ME_4857923F0186' '48492FC0029D.pas.ms.script' // ControlPara
- ) .SequenceCode.It
+   Seq: ( WL 'ME_4857923F0186' '48492FC0029D.pas.ms.script' // ControlPara
+ )
  ; // Implements
  : Overridden
-   @ ( ME_4D63D26D033F_ME_4858000901EF // QueryTool
+   Seq: ( ME_4D63D26D033F_ME_4858000901EF // QueryTool
  ME_53CCBDA5026D_ME_4858000901EF // COMQueryTool
- ) .SequenceCode.It
+ )
  ; // Overridden
  : Dependencies
-   @ ( ME_D8A08FCB386E // 
+   Seq: ( ME_D8A08FCB386E // 
  ME_B54A1E8A20C1 // 
  ME_09191A2D0052 // 
  ME_894735DE3D50 // 
@@ -2652,29 +2842,31 @@ ref; // ME_53CCBDA5026D_ME_4858000901EF COMQueryTool
  ME_57E80FA5041C // 
  ME_C0C37EA03713 // 
  ME_262F4FFF688B // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  : Injected
-   @ ( WL 'ME_4D6649840041' '4804A24003C1.pas.ms.script' // 
+   Seq: ( WL 'ME_4D6649840041' '4804A24003C1.pas.ms.script' // 
  WL 'ME_4DDFB63E03A1' '48CE0A0A03B4.pas.ms.script' // 
  WL 'ME_53D64B0F029D' '47E3DF460095.pas.ms.script' // 
  WL 'ME_53D64B8A02A8' '47E3DF460095.pas.ms.script' // 
  WL 'ME_53D64C2400A7' '4A267EE3017B.pas.ms.script' // 
  WL 'ME_53D64CF00096' '48CE0A0A03B4.pas.ms.script' // 
  WL 'ME_53D652AC00BC' '48CE0A0A03B4.pas.ms.script' // 
- ) .SequenceCode.It
+ )
  ; // Injected
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest'
  CONST intf.pas:Path 'common\components\gui\Garant\Everest\evControlPara_InterfaceFactory.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
  CONST extprop:pas:TypeName 'TevControlParaInterfaceFactory'
+ CONST extprop:rc:SelfName 'ControlParaInterfaceFactory'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'evControlPara_InterfaceFactory'
 
 ref; // ME_4858000901EF TevControlPara
 
@@ -2682,6 +2874,7 @@ FORWARD ME_4857C9F90189
 
 : ME_B531393D7E14
  CONST UID 'B531393D7E14'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_4857C9F90189 // TevCommentPara
@@ -2693,6 +2886,7 @@ ref; // ME_B531393D7E14
 
 : ME_4927AC1C28F8
  CONST UID '4927AC1C28F8'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_4857C9F90189 // TevCommentPara
@@ -2704,6 +2898,7 @@ ref; // ME_4927AC1C28F8
 
 : ME_65EF6D369921
  CONST UID '65EF6D369921'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_4857C9F90189 // TevCommentPara
@@ -2715,6 +2910,7 @@ ref; // ME_65EF6D369921
 
 : ME_3B5C16C21031
  CONST UID '3B5C16C21031'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_4857C9F90189 // TevCommentPara
@@ -2726,6 +2922,7 @@ ref; // ME_3B5C16C21031
 
 : ME_27CEFDA23FBE
  CONST UID '27CEFDA23FBE'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_4857C9F90189 // TevCommentPara
@@ -2737,6 +2934,7 @@ ref; // ME_27CEFDA23FBE
 
 : ME_3F641BEBB904
  CONST UID '3F641BEBB904'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_4857C9F90189 // TevCommentPara
@@ -2748,6 +2946,7 @@ ref; // ME_3F641BEBB904
 
 : ME_250167FBCB44
  CONST UID '250167FBCB44'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_4857C9F90189 // TevCommentPara
@@ -2764,6 +2963,7 @@ ref; // ME_250167FBCB44
  ;
  : Implementor ME_4857C9F90189 // TevCommentPara
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4D63D26D033F_ME_4857C9F90189 QueryTool
 
 : ME_53CCBDA5026D_ME_4857C9F90189
@@ -2773,6 +2973,7 @@ ref; // ME_4D63D26D033F_ME_4857C9F90189 QueryTool
  ;
  : Implementor ME_4857C9F90189 // TevCommentPara
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_53CCBDA5026D_ME_4857C9F90189 COMQueryTool
 
 : ME_4857C9F90189
@@ -2786,47 +2987,49 @@ ref; // ME_53CCBDA5026D_ME_4857C9F90189 COMQueryTool
  : Parent ME_53D258F1004F // InterfaceFactories
  ;
  : Inherits
-   @ ( ME_4857AA550220 // TevBlock
- ) .SequenceCode.It
+   Seq: ( ME_4857AA550220 // TevBlock
+ )
  ; // Inherits
  : Implements
-   @ ( WL 'ME_4857C9C20131' '48492FC0029D.pas.ms.script' // CommentPara
- ) .SequenceCode.It
+   Seq: ( WL 'ME_4857C9C20131' '48492FC0029D.pas.ms.script' // CommentPara
+ )
  ; // Implements
  : Overridden
-   @ ( ME_4D63D26D033F_ME_4857C9F90189 // QueryTool
+   Seq: ( ME_4D63D26D033F_ME_4857C9F90189 // QueryTool
  ME_53CCBDA5026D_ME_4857C9F90189 // COMQueryTool
- ) .SequenceCode.It
+ )
  ; // Overridden
  : Dependencies
-   @ ( ME_B531393D7E14 // 
+   Seq: ( ME_B531393D7E14 // 
  ME_4927AC1C28F8 // 
  ME_65EF6D369921 // 
  ME_3B5C16C21031 // 
  ME_27CEFDA23FBE // 
  ME_3F641BEBB904 // 
  ME_250167FBCB44 // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  : Injected
-   @ ( WL 'ME_4D63CD800374' '4A3A233900C9.pas.ms.script' // 
+   Seq: ( WL 'ME_4D63CD800374' '4A3A233900C9.pas.ms.script' // 
  WL 'ME_4DD67AD7018C' '49DCC860038B.pas.ms.script' // 
  WL 'ME_53D245FF03E3' '4A3A233900C9.pas.ms.script' // 
  WL 'ME_53D2468D02EB' '48CE0A0A03B4.pas.ms.script' // 
  WL 'ME_53D247720141' '4A267EE3017B.pas.ms.script' // 
- ) .SequenceCode.It
+ )
  ; // Injected
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest'
  CONST intf.pas:Path 'common\components\gui\Garant\Everest\evCommentPara_InterfaceFactory.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
  CONST extprop:pas:TypeName 'TevCommentParaInterfaceFactory'
+ CONST extprop:rc:SelfName 'CommentParaInterfaceFactory'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'evCommentPara_InterfaceFactory'
 
 ref; // ME_4857C9F90189 TevCommentPara
 
@@ -2834,6 +3037,7 @@ FORWARD ME_4857EAD30281
 
 : ME_0626BAE6331F
  CONST UID '0626BAE6331F'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_4857EAD30281 // TevReqRow
@@ -2845,6 +3049,7 @@ ref; // ME_0626BAE6331F
 
 : ME_00859314149C
  CONST UID '00859314149C'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_4857EAD30281 // TevReqRow
@@ -2856,6 +3061,7 @@ ref; // ME_00859314149C
 
 : ME_C8B41A6BF7BA
  CONST UID 'C8B41A6BF7BA'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_4857EAD30281 // TevReqRow
@@ -2867,6 +3073,7 @@ ref; // ME_C8B41A6BF7BA
 
 : ME_3E722367B733
  CONST UID '3E722367B733'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_4857EAD30281 // TevReqRow
@@ -2878,6 +3085,7 @@ ref; // ME_3E722367B733
 
 : ME_98454C2605B6
  CONST UID '98454C2605B6'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_4857EAD30281 // TevReqRow
@@ -2894,6 +3102,7 @@ ref; // ME_98454C2605B6
  ;
  : Implementor ME_4857EAD30281 // TevReqRow
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_53CCBDA5026D_ME_4857EAD30281 COMQueryTool
 
 : ME_4857EAD30281
@@ -2907,42 +3116,44 @@ ref; // ME_53CCBDA5026D_ME_4857EAD30281 COMQueryTool
  : Parent ME_53D258F1004F // InterfaceFactories
  ;
  : Inherits
-   @ ( ME_4857D32B011E // TevTableRow
- ) .SequenceCode.It
+   Seq: ( ME_4857D32B011E // TevTableRow
+ )
  ; // Inherits
  : Implements
-   @ ( WL 'ME_4857EA97011D' '48492FC0029D.pas.ms.script' // ReqRow
- ) .SequenceCode.It
+   Seq: ( WL 'ME_4857EA97011D' '48492FC0029D.pas.ms.script' // ReqRow
+ )
  ; // Implements
  : Overridden
-   @ ( ME_53CCBDA5026D_ME_4857EAD30281 // COMQueryTool
- ) .SequenceCode.It
+   Seq: ( ME_53CCBDA5026D_ME_4857EAD30281 // COMQueryTool
+ )
  ; // Overridden
  : Dependencies
-   @ ( ME_0626BAE6331F // 
+   Seq: ( ME_0626BAE6331F // 
  ME_00859314149C // 
  ME_C8B41A6BF7BA // 
  ME_3E722367B733 // 
  ME_98454C2605B6 // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  : Injected
-   @ ( WL 'ME_53D667F403CC' '49DCC860038B.pas.ms.script' // 
+   Seq: ( WL 'ME_53D667F403CC' '49DCC860038B.pas.ms.script' // 
  WL 'ME_53D6687F003B' '4A267EE3017B.pas.ms.script' // 
  WL 'ME_53D668FB01EB' '48CE0A0A03B4.pas.ms.script' // 
- ) .SequenceCode.It
+ )
  ; // Injected
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest'
  CONST intf.pas:Path 'common\components\gui\Garant\Everest\evReqRow_InterfaceFactory.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
  CONST extprop:pas:TypeName 'TevReqRowInterfaceFactory'
+ CONST extprop:rc:SelfName 'ReqRowInterfaceFactory'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'evReqRow_InterfaceFactory'
 
 ref; // ME_4857EAD30281 TevReqRow
 
@@ -2950,6 +3161,7 @@ FORWARD ME_4857D3F1028D
 
 : ME_1EE2CD9FE2B0
  CONST UID '1EE2CD9FE2B0'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_4857D3F1028D // TevSBSRow
@@ -2966,6 +3178,7 @@ ref; // ME_1EE2CD9FE2B0
  ;
  : Implementor ME_4857D3F1028D // TevSBSRow
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4D63D26D033F_ME_4857D3F1028D QueryTool
 
 : ME_53CCBDA5026D_ME_4857D3F1028D
@@ -2975,6 +3188,7 @@ ref; // ME_4D63D26D033F_ME_4857D3F1028D QueryTool
  ;
  : Implementor ME_4857D3F1028D // TevSBSRow
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_53CCBDA5026D_ME_4857D3F1028D COMQueryTool
 
 : ME_4857D3F1028D
@@ -2988,38 +3202,40 @@ ref; // ME_53CCBDA5026D_ME_4857D3F1028D COMQueryTool
  : Parent ME_53D258F1004F // InterfaceFactories
  ;
  : Inherits
-   @ ( ME_4857D32B011E // TevTableRow
- ) .SequenceCode.It
+   Seq: ( ME_4857D32B011E // TevTableRow
+ )
  ; // Inherits
  : Implements
-   @ ( WL 'ME_4857D3C103AB' '48492FC0029D.pas.ms.script' // SBSRow
- ) .SequenceCode.It
+   Seq: ( WL 'ME_4857D3C103AB' '48492FC0029D.pas.ms.script' // SBSRow
+ )
  ; // Implements
  : Overridden
-   @ ( ME_4D63D26D033F_ME_4857D3F1028D // QueryTool
+   Seq: ( ME_4D63D26D033F_ME_4857D3F1028D // QueryTool
  ME_53CCBDA5026D_ME_4857D3F1028D // COMQueryTool
- ) .SequenceCode.It
+ )
  ; // Overridden
  : Dependencies
-   @ ( ME_1EE2CD9FE2B0 // 
- ) .SequenceCode.It
+   Seq: ( ME_1EE2CD9FE2B0 // 
+ )
  ; // Dependencies
  : Injected
-   @ ( WL 'ME_53D0FC460257' '4A3A233900C9.pas.ms.script' // 
+   Seq: ( WL 'ME_53D0FC460257' '4A3A233900C9.pas.ms.script' // 
  WL 'ME_53D0FD230146' '4A267EE3017B.pas.ms.script' // 
- ) .SequenceCode.It
+ )
  ; // Injected
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest'
  CONST intf.pas:Path 'common\components\gui\Garant\Everest\evSBSRow_InterfaceFactory.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
  CONST extprop:pas:TypeName 'TevSBSRowInterfaceFactory'
+ CONST extprop:rc:SelfName 'SBSRowInterfaceFactory'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'evSBSRow_InterfaceFactory'
 
 ref; // ME_4857D3F1028D TevSBSRow
 
@@ -3027,6 +3243,7 @@ FORWARD ME_4D63C1860228
 
 : ME_7F13E117B84B
  CONST UID '7F13E117B84B'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_4D63C1860228 // TevReqGroup
@@ -3038,6 +3255,7 @@ ref; // ME_7F13E117B84B
 
 : ME_2C9E0F6B13D0
  CONST UID '2C9E0F6B13D0'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_4D63C1860228 // TevReqGroup
@@ -3049,6 +3267,7 @@ ref; // ME_2C9E0F6B13D0
 
 : ME_F533F942FBA4
  CONST UID 'F533F942FBA4'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_4D63C1860228 // TevReqGroup
@@ -3065,6 +3284,7 @@ ref; // ME_F533F942FBA4
  ;
  : Implementor ME_4D63C1860228 // TevReqGroup
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_53CCBDA5026D_ME_4D63C1860228 COMQueryTool
 
 : ME_4D63C1860228
@@ -3079,27 +3299,27 @@ ref; // ME_53CCBDA5026D_ME_4D63C1860228 COMQueryTool
  : Parent ME_53D258F1004F // InterfaceFactories
  ;
  : Inherits
-   @ ( ME_4857E163036B // TevTable
- ) .SequenceCode.It
+   Seq: ( ME_4857E163036B // TevTable
+ )
  ; // Inherits
  : Implements
-   @ ( WL 'ME_4D63B8AF035D' '48492FC0029D.pas.ms.script' // ReqGroup
- ) .SequenceCode.It
+   Seq: ( WL 'ME_4D63B8AF035D' '48492FC0029D.pas.ms.script' // ReqGroup
+ )
  ; // Implements
  : Overridden
-   @ ( ME_53CCBDA5026D_ME_4D63C1860228 // COMQueryTool
- ) .SequenceCode.It
+   Seq: ( ME_53CCBDA5026D_ME_4D63C1860228 // COMQueryTool
+ )
  ; // Overridden
  : Dependencies
-   @ ( ME_7F13E117B84B // 
+   Seq: ( ME_7F13E117B84B // 
  ME_2C9E0F6B13D0 // 
  ME_F533F942FBA4 // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  : Injected
-   @ ( WL 'ME_53CE5EEC03CB' '4A267EE3017B.pas.ms.script' // 
+   Seq: ( WL 'ME_53CE5EEC03CB' '4A267EE3017B.pas.ms.script' // 
  WL 'ME_53CE5F4E0122' '49DCC860038B.pas.ms.script' // 
- ) .SequenceCode.It
+ )
  ; // Injected
  CONST "author" 'Ëþëèí À.Â.'
  CONST "needs InstanceR" 'undefined'
@@ -3107,13 +3327,15 @@ ref; // ME_53CCBDA5026D_ME_4D63C1860228 COMQueryTool
  CONST "no hands" true
  CONST "register in scripts" 'undefined'
  CONST "started" '22.02.2011 17:01'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest'
  CONST intf.pas:Path 'common\components\gui\Garant\Everest\evReqGroup_InterfaceFactory.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
  CONST extprop:pas:TypeName 'TevReqGroupInterfaceFactory'
+ CONST extprop:rc:SelfName 'ReqGroupInterfaceFactory'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'evReqGroup_InterfaceFactory'
 
 ref; // ME_4D63C1860228 TevReqGroup
 
@@ -3126,6 +3348,7 @@ FORWARD ME_4857E8F003A2
  ;
  : Implementor ME_4857E8F003A2 // TevQueryCard
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4D63D26D033F_ME_4857E8F003A2 QueryTool
 
 : ME_4857E8F003A2
@@ -3140,32 +3363,34 @@ ref; // ME_4D63D26D033F_ME_4857E8F003A2 QueryTool
  : Parent ME_53D258F1004F // InterfaceFactories
  ;
  : Inherits
-   @ ( ME_4857B637007C // TevDocument
- ) .SequenceCode.It
+   Seq: ( ME_4857B637007C // TevDocument
+ )
  ; // Inherits
  : Implements
-   @ ( WL 'ME_4857E8A90137' '48492FC0029D.pas.ms.script' // QueryCard
- ) .SequenceCode.It
+   Seq: ( WL 'ME_4857E8A90137' '48492FC0029D.pas.ms.script' // QueryCard
+ )
  ; // Implements
  : Overridden
-   @ ( ME_4D63D26D033F_ME_4857E8F003A2 // QueryTool
- ) .SequenceCode.It
+   Seq: ( ME_4D63D26D033F_ME_4857E8F003A2 // QueryTool
+ )
  ; // Overridden
  : Injected
-   @ ( WL 'ME_53D0D8FE00E7' '4A3A233900C9.pas.ms.script' // 
- ) .SequenceCode.It
+   Seq: ( WL 'ME_53D0D8FE00E7' '4A3A233900C9.pas.ms.script' // 
+ )
  ; // Injected
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest'
  CONST intf.pas:Path 'common\components\gui\Garant\Everest\evQueryCard_InterfaceFactory.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
  CONST extprop:pas:TypeName 'TevQueryCardInterfaceFactory'
+ CONST extprop:rc:SelfName 'QueryCardInterfaceFactory'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'evQueryCard_InterfaceFactory'
 
 ref; // ME_4857E8F003A2 TevQueryCard
 
@@ -3173,6 +3398,7 @@ FORWARD ME_4857934201E3
 
 : ME_5ECA636B8176
  CONST UID '5ECA636B8176'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_4857934201E3 // TevFormula
@@ -3184,6 +3410,7 @@ ref; // ME_5ECA636B8176
 
 : ME_E0D565D49F5D
  CONST UID 'E0D565D49F5D'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_4857934201E3 // TevFormula
@@ -3195,6 +3422,7 @@ ref; // ME_E0D565D49F5D
 
 : ME_E10E1D33518B
  CONST UID 'E10E1D33518B'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_4857934201E3 // TevFormula
@@ -3206,6 +3434,7 @@ ref; // ME_E10E1D33518B
 
 : ME_A1BAE7DD4A82
  CONST UID 'A1BAE7DD4A82'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_4857934201E3 // TevFormula
@@ -3217,6 +3446,7 @@ ref; // ME_A1BAE7DD4A82
 
 : ME_563CC531FD8D
  CONST UID '563CC531FD8D'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_4857934201E3 // TevFormula
@@ -3228,6 +3458,7 @@ ref; // ME_563CC531FD8D
 
 : ME_491B5F0E6ED7
  CONST UID '491B5F0E6ED7'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_4857934201E3 // TevFormula
@@ -3239,6 +3470,7 @@ ref; // ME_491B5F0E6ED7
 
 : ME_F77BA85C28BC
  CONST UID 'F77BA85C28BC'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_4857934201E3 // TevFormula
@@ -3255,6 +3487,7 @@ ref; // ME_F77BA85C28BC
  ;
  : Implementor ME_4857934201E3 // TevFormula
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4D63D26D033F_ME_4857934201E3 QueryTool
 
 : ME_53CCBDA5026D_ME_4857934201E3
@@ -3264,6 +3497,7 @@ ref; // ME_4D63D26D033F_ME_4857934201E3 QueryTool
  ;
  : Implementor ME_4857934201E3 // TevFormula
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_53CCBDA5026D_ME_4857934201E3 COMQueryTool
 
 : ME_4857934201E3
@@ -3277,45 +3511,47 @@ ref; // ME_53CCBDA5026D_ME_4857934201E3 COMQueryTool
  : Parent ME_53D258F1004F // InterfaceFactories
  ;
  : Inherits
-   @ ( ME_48577C150116 // TevTextPara
- ) .SequenceCode.It
+   Seq: ( ME_48577C150116 // TevTextPara
+ )
  ; // Inherits
  : Implements
-   @ ( WL 'ME_4857926501CB' '48492FC0029D.pas.ms.script' // Formula
- ) .SequenceCode.It
+   Seq: ( WL 'ME_4857926501CB' '48492FC0029D.pas.ms.script' // Formula
+ )
  ; // Implements
  : Overridden
-   @ ( ME_4D63D26D033F_ME_4857934201E3 // QueryTool
+   Seq: ( ME_4D63D26D033F_ME_4857934201E3 // QueryTool
  ME_53CCBDA5026D_ME_4857934201E3 // COMQueryTool
- ) .SequenceCode.It
+ )
  ; // Overridden
  : Dependencies
-   @ ( ME_5ECA636B8176 // 
+   Seq: ( ME_5ECA636B8176 // 
  ME_E0D565D49F5D // 
  ME_E10E1D33518B // 
  ME_A1BAE7DD4A82 // 
  ME_563CC531FD8D // 
  ME_491B5F0E6ED7 // 
  ME_F77BA85C28BC // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  : Injected
-   @ ( WL 'ME_4DD67BEC00A2' '4804A24003C1.pas.ms.script' // 
+   Seq: ( WL 'ME_4DD67BEC00A2' '4804A24003C1.pas.ms.script' // 
  WL 'ME_4DDFB65C028F' '48CE0A0A03B4.pas.ms.script' // 
  WL 'ME_53D0F7390059' '47E3DF460095.pas.ms.script' // 
- ) .SequenceCode.It
+ )
  ; // Injected
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest'
  CONST intf.pas:Path 'common\components\gui\Garant\Everest\evFormula_InterfaceFactory.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
  CONST extprop:pas:TypeName 'TevFormulaInterfaceFactory'
+ CONST extprop:rc:SelfName 'FormulaInterfaceFactory'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'evFormula_InterfaceFactory'
 
 ref; // ME_4857934201E3 TevFormula
 
@@ -3323,6 +3559,7 @@ FORWARD ME_4858137901EF
 
 : ME_9D15DAB87AEE
  CONST UID '9D15DAB87AEE'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_4858137901EF // TevBitmapPara
@@ -3334,6 +3571,7 @@ ref; // ME_9D15DAB87AEE
 
 : ME_6CC58CE7A91C
  CONST UID '6CC58CE7A91C'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_4858137901EF // TevBitmapPara
@@ -3345,6 +3583,7 @@ ref; // ME_6CC58CE7A91C
 
 : ME_4846C7DCEC17
  CONST UID '4846C7DCEC17'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_4858137901EF // TevBitmapPara
@@ -3361,6 +3600,7 @@ ref; // ME_4846C7DCEC17
  ;
  : Implementor ME_4858137901EF // TevBitmapPara
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4D63D26D033F_ME_4858137901EF QueryTool
 
 : ME_53CCBDA5026D_ME_4858137901EF
@@ -3370,6 +3610,7 @@ ref; // ME_4D63D26D033F_ME_4858137901EF QueryTool
  ;
  : Implementor ME_4858137901EF // TevBitmapPara
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_53CCBDA5026D_ME_4858137901EF COMQueryTool
 
 : ME_4858137901EF
@@ -3384,41 +3625,43 @@ ref; // ME_53CCBDA5026D_ME_4858137901EF COMQueryTool
  : Parent ME_53D258F1004F // InterfaceFactories
  ;
  : Inherits
-   @ ( ME_48567B940173 // TevSolidPara
- ) .SequenceCode.It
+   Seq: ( ME_48567B940173 // TevSolidPara
+ )
  ; // Inherits
  : Implements
-   @ ( WL 'ME_4858116B0355' '48492FC0029D.pas.ms.script' // BitmapPara
- ) .SequenceCode.It
+   Seq: ( WL 'ME_4858116B0355' '48492FC0029D.pas.ms.script' // BitmapPara
+ )
  ; // Implements
  : Overridden
-   @ ( ME_4D63D26D033F_ME_4858137901EF // QueryTool
+   Seq: ( ME_4D63D26D033F_ME_4858137901EF // QueryTool
  ME_53CCBDA5026D_ME_4858137901EF // COMQueryTool
- ) .SequenceCode.It
+ )
  ; // Overridden
  : Dependencies
-   @ ( ME_9D15DAB87AEE // 
+   Seq: ( ME_9D15DAB87AEE // 
  ME_6CC58CE7A91C // 
  ME_4846C7DCEC17 // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  : Injected
-   @ ( WL 'ME_4D63CDEC02D6' '47E3DF460095.pas.ms.script' // 
+   Seq: ( WL 'ME_4D63CDEC02D6' '47E3DF460095.pas.ms.script' // 
  WL 'ME_4DD67C2A01F6' '4804A24003C1.pas.ms.script' // 
  WL 'ME_53D0F16E0303' '4A3B771101D5.pas.ms.script' // 
- ) .SequenceCode.It
+ )
  ; // Injected
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest'
  CONST intf.pas:Path 'common\components\gui\Garant\Everest\evBitmapPara_InterfaceFactory.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
  CONST extprop:pas:TypeName 'TevBitmapParaInterfaceFactory'
+ CONST extprop:rc:SelfName 'BitmapParaInterfaceFactory'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'evBitmapPara_InterfaceFactory'
 
 ref; // ME_4858137901EF TevBitmapPara
 
@@ -3426,6 +3669,7 @@ FORWARD ME_4857E36301AD
 
 : ME_9CA844C8FE9C
  CONST UID '9CA844C8FE9C'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_4857E36301AD // TevSBS
@@ -3437,6 +3681,7 @@ ref; // ME_9CA844C8FE9C
 
 : ME_8DB5136A0CCF
  CONST UID '8DB5136A0CCF'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_4857E36301AD // TevSBS
@@ -3453,6 +3698,7 @@ ref; // ME_8DB5136A0CCF
  ;
  : Implementor ME_4857E36301AD // TevSBS
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_53CCBDA5026D_ME_4857E36301AD COMQueryTool
 
 : ME_4857E36301AD
@@ -3466,37 +3712,39 @@ ref; // ME_53CCBDA5026D_ME_4857E36301AD COMQueryTool
  : Parent ME_53D258F1004F // InterfaceFactories
  ;
  : Inherits
-   @ ( ME_4857E163036B // TevTable
- ) .SequenceCode.It
+   Seq: ( ME_4857E163036B // TevTable
+ )
  ; // Inherits
  : Implements
-   @ ( WL 'ME_4857E2A70175' '48492FC0029D.pas.ms.script' // SBS
- ) .SequenceCode.It
+   Seq: ( WL 'ME_4857E2A70175' '48492FC0029D.pas.ms.script' // SBS
+ )
  ; // Implements
  : Overridden
-   @ ( ME_53CCBDA5026D_ME_4857E36301AD // COMQueryTool
- ) .SequenceCode.It
+   Seq: ( ME_53CCBDA5026D_ME_4857E36301AD // COMQueryTool
+ )
  ; // Overridden
  : Dependencies
-   @ ( ME_9CA844C8FE9C // 
+   Seq: ( ME_9CA844C8FE9C // 
  ME_8DB5136A0CCF // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  : Injected
-   @ ( WL 'ME_53D0D8400038' '49DCC860038B.pas.ms.script' // 
- ) .SequenceCode.It
+   Seq: ( WL 'ME_53D0D8400038' '49DCC860038B.pas.ms.script' // 
+ )
  ; // Injected
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest'
  CONST intf.pas:Path 'common\components\gui\Garant\Everest\evSBS_InterfaceFactory.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
  CONST extprop:pas:TypeName 'TevSBSInterfaceFactory'
+ CONST extprop:rc:SelfName 'SBSInterfaceFactory'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'evSBS_InterfaceFactory'
 
 ref; // ME_4857E36301AD TevSBS
 
@@ -3510,7 +3758,7 @@ ref; // ME_4857E36301AD TevSBS
  : Parent WL 'ME_4797632D0273' '4797632D0273.pas.ms.script' // Everest
  ;
  : Children
-   @ ( ME_485678B701BD // TevPara
+   Seq: ( ME_485678B701BD // TevPara
  ME_48579EA1011D // TevParaList
  ME_4857E163036B // TevTable
  ME_4857B637007C // TevDocument
@@ -3536,10 +3784,10 @@ ref; // ME_4857E36301AD TevSBS
  ME_4857934201E3 // TevFormula
  ME_4858137901EF // TevBitmapPara
  ME_4857E36301AD // TevSBS
- ) .SequenceCode.It
+ )
  ; // Children
  : Depends
-   @ ( WL 'ME_4677FBA70343' '4677FBA70343.pas.ms.script' // l3Interfaces
+   Seq: ( WL 'ME_4677FBA70343' '4677FBA70343.pas.ms.script' // l3Interfaces
  WL 'ME_4678209200A6' '4678209200A6.pas.ms.script' // nevBase
  WL 'ME_47C5207602D1' '47C5207602D1.pas.ms.script' // nevTools
  WL 'ME_47CD5C7602CD' '47CD5C7602CD.pas.ms.script' // evQueryCardInt
@@ -3548,16 +3796,14 @@ ref; // ME_4857E36301AD TevSBS
  WL 'ME_484A470100DD' '484A470100DD.pas.ms.script' // Standard
  WL 'ME_49D2080D020C' '49D2080D020C.pas.ms.script' // nevRealTools
  WL 'ME_4A1FCBA0014C' '4A1FCBA0014C.pas.ms.script' // nevGUIInterfaces
- ) .SequenceCode.It
+ )
  ; // Depends
  CONST "ifdef" 'k2ForEditor'
- : Generators
- @ (
- gen_pas.script
- gen_pas.script.runner
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest'
  CONST pas.script:Path 'shared\models\NewSchool\Scripts\53D258F1004F.pas.ms.script'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
  CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\53D258F1004F.pas.ms.script.runner'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_53D258F1004F InterfaceFactories

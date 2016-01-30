@@ -1,0 +1,108 @@
+// InternetAgent 4A9691FD01BB VCMUseCase Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4A9691FD01BB
+
+: ME_49F6E8F90153
+ CONST UID '49F6E8F90153'
+ CONST Name 'InternetAgent'
+ CONST Class class_Class
+ : Stereotype st_VCMUseCaseRealization ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Интернет-агент' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_4A9691FD01BB // InternetAgent
+ ;
+ : Inherits
+   Seq: ( WL 'ME_49EC739C0100' '49EC7167004C.pas.ms.script' // PrimInternetAgent$FP
+ )
+ ; // Inherits
+ : Implements
+   Seq: ( WL 'ME_49FE7E780022' '484F80CF0274.pas.ms.script' // Новости онлайн
+ )
+ ; // Implements
+ CONST "UseNewGen" 'undefined'
+ CONST "author" 'Люлин А.В.'
+ CONST "ifndef" 'Admin,Monitorings'
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" true
+ CONST "register in scripts" 'undefined'
+ : Generators
+ Seq: (
+ gen_intf.pas
+ )
+ ; // Generators
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View'
+ CONST intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\moInternetAgent.pas'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant'
+ CONST extprop:pas:TypeName 'Tmo_InternetAgent'
+ CONST extprop:pas:UnitName 'moInternetAgent'
+
+ref; // ME_49F6E8F90153 InternetAgent$UC
+
+: ME_4A9691FD01BB
+ CONST UID '4A9691FD01BB'
+ CONST Name 'InternetAgent'
+ CONST Class class_Category
+ : Stereotype st_VCMUseCase ;
+ %SUMMARY '[$146901332]' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent WL 'ME_4AC2470103B2' '4AC2470103B2.pas.ms.script' // F1 Встроенные продукты
+ ;
+ : Children
+   Seq: ( ME_49F6E8F90153 // InternetAgent$UC
+ WL 'ME_49EC6D0903DD' '49EC6D0903DD.pas.ms.script' // InternetAgent
+ WL 'ME_4A969297010D' '4A969297010D.pas.ms.script' // View
+ )
+ ; // Children
+ : Depends
+   Seq: ( WL 'ME_456EA3D2031C' '456EA3D2031C.pas.ms.script' // GblAdapterLib
+ WL 'ME_4684F91300DD' '4684F91300DD.pas.ms.script' // Vcl
+ WL 'ME_4790B4F00236' '4790B4F00236.pas.ms.script' // AFW
+ WL 'ME_4790C3B8021E' '4790C3B8021E.pas.ms.script' // VCM
+ WL 'ME_4790D09A0378' '4790D09A0378.pas.ms.script' // L3
+ WL 'ME_4797632D0273' '4797632D0273.pas.ms.script' // Everest
+ WL 'ME_481EF5C4020D' '481EF5C4020D.pas.ms.script' // Оболочка
+ WL 'ME_483E96C10305' '483E96C10305.pas.ms.script' // Internet
+ WL 'ME_484F80CF0274' '484F80CF0274.pas.ms.script' // Встроенные продукты
+ WL 'ME_490838AA02D0' '490838AA02D0.pas.ms.script' // Nemesis
+ WL 'ME_49549627008C' '49549627008C.pas.ms.script' // LegalDomain
+ WL 'ME_4954C00703D0' '4954C00703D0.pas.ms.script' // OfficeLike
+ WL 'ME_49B1511700CA' '49B1511700CA.pas.ms.script' // Shared Delphi Core
+ WL 'ME_4A78010000B7' '4A78010000B7.pas.ms.script' // Search
+ WL 'ME_4A7C095601DA' '4A7C095601DA.pas.ms.script' // Base Operations
+ WL 'ME_4A92C561015D' '4A92C561015D.pas.ms.script' // Common
+ WL 'ME_4B63155B0328' '4B63155B0328.pas.ms.script' // MDProcess$ForDelphi
+ WL 'ME_4D5E61FC01F0' '4D5E61FC01F0.pas.ms.script' // AFW$Core
+ WL 'ME_4E13416D0227' '4E13416D0227.pas.ms.script' // VCM$Visual
+ WL 'ME_4E200FC9003B' '4E200FC9003B.pas.ms.script' // VCM$Scripting
+ WL 'ME_4E2F0E1B03BB' '4E2F0E1B03BB.pas.ms.script' // L3$Domain
+ WL 'ME_4F6B65EA0392' '4F6B65EA0392.pas.ms.script' // F1Like
+ WL 'ME_54CF97B10370' '54CF97B10370.pas.ms.script' // ScriptEngine$Core
+ WL 'ME_54DB92A80279' '54DB92A80279.pas.ms.script' // ScriptEngine$RTLandVCL
+ WL 'ME_562E251101C2' '562E251101C2.pas.ms.script' // Shared Delphi Rtl
+ )
+ ; // Depends
+ CONST "UseNewGen" 'undefined'
+ : Generators
+ Seq: (
+ gen_pas.script
+ gen_pas.script.runner
+ )
+ ; // Generators
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis'
+ CONST pas.script:Path 'shared\models\NewSchool\Scripts\4A9691FD01BB.pas.ms.script'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\4A9691FD01BB.pas.ms.script.runner'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant'
+
+ref; // ME_4A9691FD01BB InternetAgent

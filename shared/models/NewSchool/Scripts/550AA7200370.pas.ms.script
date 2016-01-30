@@ -1,0 +1,238 @@
+// InpharmMainMenuControllerRealization 550AA7200370 ControllerUnit Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_550AA7200370
+
+FORWARD ME_550AAEE001B7
+
+: ME_016CD173C388
+ CONST UID '016CD173C388'
+ CONST Name 'SetType'
+ CONST IsSummoned true
+ CONST Class class_Attribute
+ : Stereotype st_impurity_value::Attribute ;
+ %SUMMARY 'Реальный интерфейс контроллера прецедента для TsdsInpharmMainMenu' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_lnk
+ : Parent ME_550AAEE001B7 // TsdsInpharmMainMenu
+ ;
+ : Target WL 'ME_550AA65C0212' '4AC241AC01FC.pas.ms.script' // IsdsInpharmMainMenu
+ ;
+
+ref; // ME_016CD173C388 SetType
+
+: ME_0864523B7906
+ CONST UID '0864523B7906'
+ CONST Name 'f_dsInpharmMainMenuData'
+ CONST IsSummoned true
+ CONST Class class_Attribute
+ %SUMMARY 'Поле для области вывода dsInpharmMainMenuData' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_ref
+ : Parent ME_550AAEE001B7 // TsdsInpharmMainMenu
+ ;
+ : Target WL 'ME_4982B4D00032' '4982BE090383.pas.ms.script' // IvcmViewAreaControllerRef
+ ;
+
+ref; // ME_0864523B7906 f_dsInpharmMainMenuData
+
+FORWARD ME_550C0DA5022E
+
+: ME_550C0DC2012C
+ CONST UID '550C0DC2012C'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_550AAEE001B7 // TsdsInpharmMainMenu
+ ;
+ : Target ME_550C0DA5022E // TdsInpharmMainMenu
+ ;
+
+ref; // ME_550C0DC2012C 
+
+: ME_550C0D1A00CC_ME_550AAEE001B7
+ CONST UID '550C0D1A00CC'
+ CONST Name 'dsInpharmMainMenuData'
+ : Original WL 'ME_550C0D1A00CC' '4AC241AC01FC.pas.ms.script' // dsInpharmMainMenuData
+ ;
+ : Implementor ME_550AAEE001B7 // TsdsInpharmMainMenu
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "Need Has" 'undefined'
+ CONST "is reference" 'undefined'
+ CONST "pm" true
+ CONST "required" 'undefined'
+ref; // ME_550C0D1A00CC_ME_550AAEE001B7 dsInpharmMainMenuData
+
+: ME_4938F7E702B7_ME_550AAEE001B7
+ CONST UID '4938F7E702B7'
+ CONST Name 'ClearAreas'
+ : Original WL 'ME_4938F7E702B7' '47D0E1500033.pas.ms.script' // ClearAreas
+ ;
+ : Implementor ME_550AAEE001B7 // TsdsInpharmMainMenu
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_4938F7E702B7_ME_550AAEE001B7 ClearAreas
+
+: ME_550AAEE001B7
+ CONST UID '550AAEE001B7'
+ CONST Name 'TsdsInpharmMainMenu'
+ CONST Class class_Class
+ : Stereotype st_UseCaseControllerImp ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_550AA7200370 // InpharmMainMenuControllerRealization
+ ;
+ : Inherits
+   Seq: ( WL 'ME_494778CD004F' '47D0E1500033.pas.ms.script' // vcmTinyUseCaseController
+ )
+ ; // Inherits
+ : Implements
+   Seq: ( WL 'ME_550AA65C0212' '4AC241AC01FC.pas.ms.script' // IsdsInpharmMainMenu
+ )
+ ; // Implements
+ : Attributes
+   Seq: ( ME_016CD173C388 // SetType
+ ME_0864523B7906 // f_dsInpharmMainMenuData
+ )
+ ; // Attributes
+ : Implemented
+   Seq: ( ME_550C0D1A00CC_ME_550AAEE001B7 // dsInpharmMainMenuData
+ )
+ ; // Implemented
+ : Overridden
+   Seq: ( ME_4938F7E702B7_ME_550AAEE001B7 // ClearAreas
+ )
+ ; // Overridden
+ : Dependencies
+   Seq: ( ME_550C0DC2012C // 
+ )
+ ; // Dependencies
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ : Generators
+ Seq: (
+ gen_intf.pas
+ )
+ ; // Generators
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\InpharmControllers'
+ CONST intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\InpharmControllers\sdsInpharmMainMenu.pas'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\InpharmControllers'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\InpharmControllers'
+ CONST extprop:rc:SelfName 'sdsInpharmMainMenu'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'sdsInpharmMainMenu'
+
+ref; // ME_550AAEE001B7 TsdsInpharmMainMenu
+
+: ME_55113FC40368
+ CONST UID '55113FC40368'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_550C0DA5022E // TdsInpharmMainMenu
+ ;
+ : Target WL 'ME_48FF556602BA' '48F747EC0073.pas.ms.script' // DataAdapter
+ ;
+
+ref; // ME_55113FC40368 
+
+: ME_55097FF5008E_ME_550C0DA5022E
+ CONST UID '55097FF5008E'
+ CONST Name 'GetIsDataAvailable'
+ : Original WL 'ME_55097FF5008E' '47D0E1500033.pas.ms.script' // GetIsDataAvailable
+ ;
+ : Implementor ME_550C0DA5022E // TdsInpharmMainMenu
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_55097FF5008E_ME_550C0DA5022E GetIsDataAvailable
+
+: ME_550C0DA5022E
+ CONST UID '550C0DA5022E'
+ CONST Name 'TdsInpharmMainMenu'
+ CONST Class class_Class
+ : Stereotype st_ViewAreaControllerImp ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_550AA7200370 // InpharmMainMenuControllerRealization
+ ;
+ : Inherits
+   Seq: ( WL 'ME_47ECE94D03D4' '47D0E1500033.pas.ms.script' // vcmFormDataSourcePrim
+ )
+ ; // Inherits
+ : Implements
+   Seq: ( WL 'ME_550C0CF90324' '4AC241AC01FC.pas.ms.script' // IdsInpharmMainMenu
+ )
+ ; // Implements
+ : Overridden
+   Seq: ( ME_55097FF5008E_ME_550C0DA5022E // GetIsDataAvailable
+ )
+ ; // Overridden
+ : Dependencies
+   Seq: ( ME_55113FC40368 // 
+ )
+ ; // Dependencies
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ : Generators
+ Seq: (
+ gen_intf.pas
+ )
+ ; // Generators
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\InpharmControllers'
+ CONST intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\InpharmControllers\dsInpharmMainMenu.pas'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\InpharmControllers'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\InpharmControllers'
+ CONST extprop:rc:SelfName 'dsInpharmMainMenu'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'dsInpharmMainMenu'
+
+ref; // ME_550C0DA5022E TdsInpharmMainMenu
+
+: ME_550AA7200370
+ CONST UID '550AA7200370'
+ CONST Name 'InpharmMainMenuControllerRealization'
+ CONST Class class_Category
+ : Stereotype st_ControllerUnit ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent WL 'ME_550AA6E1017D' '550AA6E1017D.pas.ms.script' // InpharmControllers
+ ;
+ : Children
+   Seq: ( ME_550AAEE001B7 // TsdsInpharmMainMenu
+ ME_550C0DA5022E // TdsInpharmMainMenu
+ )
+ ; // Children
+ : Depends
+   Seq: ( WL 'ME_47D0E1500033' '47D0E1500033.pas.ms.script' // Implementation
+ WL 'ME_48F747EC0073' '48F747EC0073.pas.ms.script' // Common
+ WL 'ME_4982BE090383' '4982BE090383.pas.ms.script' // vcmControllers
+ WL 'ME_4AC241AC01FC' '4AC241AC01FC.pas.ms.script' // InpharmInterfaces
+ )
+ ; // Depends
+ : Generators
+ Seq: (
+ gen_pas.script
+ gen_pas.script.runner
+ )
+ ; // Generators
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\InpharmControllers'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\InpharmControllers'
+ CONST pas.script:Path 'shared\models\NewSchool\Scripts\550AA7200370.pas.ms.script'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\550AA7200370.pas.ms.script.runner'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\InpharmControllers'
+
+ref; // ME_550AA7200370 InpharmMainMenuControllerRealization

@@ -21,6 +21,7 @@ FORWARD ME_47CD3486030A
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value '''Сохранение текста'''
 
 ref; // ME_47CD348D01AE SaveText
 
@@ -37,6 +38,7 @@ ref; // ME_47CD348D01AE SaveText
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value '''Сохранение текста в формате "%s"'''
 
 ref; // ME_47CD34920275 SaveFormattedText
 
@@ -53,6 +55,7 @@ ref; // ME_47CD34920275 SaveFormattedText
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value '''Справка: %s'''
 
 ref; // ME_47CD34970114 Reference
 
@@ -69,6 +72,7 @@ ref; // ME_47CD34970114 Reference
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value '''Страница %d из %d'''
 
 ref; // ME_47CD349C0145 PageCounter
 
@@ -85,6 +89,7 @@ ref; // ME_47CD349C0145 PageCounter
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value '''Документ %d из %d'''
 
 ref; // ME_47CD34A00328 DocumentCount
 
@@ -101,6 +106,7 @@ ref; // ME_47CD34A00328 DocumentCount
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value '''Документ %d из %d, выделено %d'''
 
 ref; // ME_47CD34A501D9 DocumentCountInt
 
@@ -117,6 +123,7 @@ ref; // ME_47CD34A501D9 DocumentCountInt
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value ''' Мой комментарий '''
 
 ref; // ME_47CD34AA0299 Comment
 
@@ -133,6 +140,7 @@ ref; // ME_47CD34AA0299 Comment
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value '''Замена'''
 
 ref; // ME_47CD34B00258 Replace
 
@@ -149,6 +157,7 @@ ref; // ME_47CD34B00258 Replace
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value '''%s (фрагмент)'''
 
 ref; // ME_47CD34B50222 Fragment
 
@@ -165,6 +174,7 @@ ref; // ME_47CD34B50222 Fragment
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value '''Поиск'''
 
 ref; // ME_47CD34BE011B Search
 
@@ -181,6 +191,7 @@ ref; // ME_47CD34BE011B Search
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value '''Выполняется длительная операция...'''
 
 ref; // ME_47CD34C8025C LongOperation
 
@@ -197,6 +208,7 @@ ref; // ME_47CD34C8025C LongOperation
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value ''' Мой комментарий '''
 
 ref; // ME_47CD34D201FA CommentFolder
 
@@ -213,6 +225,7 @@ ref; // ME_47CD34D201FA CommentFolder
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value '''Аннотация: %s'''
 
 ref; // ME_49588AC40083 Annotation
 
@@ -229,6 +242,7 @@ ref; // ME_49588AC40083 Annotation
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value '''Хронология судебного дела: %s'''
 
 ref; // ME_53BFF4A803C8 Chronology
 
@@ -245,6 +259,7 @@ ref; // ME_53BFF4A803C8 Chronology
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value '''Перевод: %s'''
 
 ref; // ME_49588AD10252 Translation
 
@@ -261,6 +276,7 @@ ref; // ME_49588AD10252 Translation
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value ''' Комментарий ГАРАНТа '''
 
 ref; // ME_4B346EDF03B8 JurorComment
 
@@ -277,6 +293,7 @@ ref; // ME_4B346EDF03B8 JurorComment
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value '''Комментарий ГАРАНТа'''
 
 ref; // ME_4B34908702AD JurorCommentDecorate
 
@@ -293,6 +310,7 @@ ref; // ME_4B34908702AD JurorCommentDecorate
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value '''Оглавление'''
 
 ref; // ME_4B8BDF1A0286 TOC
 
@@ -309,6 +327,7 @@ ref; // ME_4B8BDF1A0286 TOC
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value '''Объем распечатки в листах: %d'''
 
 ref; // ME_4CC6C78E036A PageCounterNew
 
@@ -323,7 +342,7 @@ ref; // ME_4CC6C78E036A PageCounterNew
  : Parent ME_4B8BA52200D8 // nevInterfaces
  ;
  : Attributes
-   @ ( ME_47CD348D01AE // SaveText
+   Seq: ( ME_47CD348D01AE // SaveText
  ME_47CD34920275 // SaveFormattedText
  ME_47CD34970114 // Reference
  ME_47CD349C0145 // PageCounter
@@ -342,12 +361,16 @@ ref; // ME_4CC6C78E036A PageCounterNew
  ME_4B34908702AD // JurorCommentDecorate
  ME_4B8BDF1A0286 // TOC
  ME_4CC6C78E036A // PageCounterNew
- ) .SequenceCode.It
+ )
  ; // Attributes
  CONST "Need map interface" false
  CONST "Need mapping support" false
  CONST "children prefix" 'nevmm'
  CONST "spell names" false
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest\new'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest\new'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
  CONST extprop:pas:ElementPrefix 'nevmm'
 
 ref; // ME_47CD3486030A TnevMiscMessages
@@ -367,6 +390,7 @@ FORWARD ME_47CD34DE0298
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value '''ANSI-текст'''
 
 ref; // ME_47CD374A02BB ANSI
 
@@ -383,6 +407,7 @@ ref; // ME_47CD374A02BB ANSI
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value '''Unicode-текст'''
 
 ref; // ME_47CD374F0192 Unicode
 
@@ -399,6 +424,7 @@ ref; // ME_47CD374F0192 Unicode
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value '''OEM-текст'''
 
 ref; // ME_47CD375400C8 OEM
 
@@ -416,6 +442,7 @@ ref; // ME_47CD375400C8 OEM
  CONST "forced type" 'none'
  CONST "ifdef" 'evMyEditor'
  CONST "is define" false
+ CONST extprop:pas:Value '''Моего редактора'''
 
 ref; // ME_47CD3759002B ThyEditor
 
@@ -433,6 +460,7 @@ ref; // ME_47CD3759002B ThyEditor
  CONST "forced type" 'none'
  CONST "ifdef" 'Nemesis'
  CONST "is define" false
+ CONST extprop:pas:Value '''Документ ГАРАНТа'''
 
 ref; // ME_47CD375D0317 Garant
 
@@ -450,6 +478,7 @@ ref; // ME_47CD375D0317 Garant
  CONST "forced type" 'none'
  CONST "ifndef" 'Nemesis'
  CONST "is define" false
+ CONST extprop:pas:Value '''Эверест (binary)'''
 
 ref; // ME_47CD376201C3 EverestBin
 
@@ -467,6 +496,7 @@ ref; // ME_47CD376201C3 EverestBin
  CONST "forced type" 'none'
  CONST "ifndef" 'Nemesis'
  CONST "is define" false
+ CONST extprop:pas:Value '''Эверест'''
 
 ref; // ME_47CD37670110 Everest
 
@@ -483,6 +513,7 @@ ref; // ME_47CD37670110 Everest
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value '''RTF'''
 
 ref; // ME_47CD376C002D Rtf
 
@@ -497,7 +528,7 @@ ref; // ME_47CD376C002D Rtf
  : Parent ME_4B8BA52200D8 // nevInterfaces
  ;
  : Attributes
-   @ ( ME_47CD374A02BB // ANSI
+   Seq: ( ME_47CD374A02BB // ANSI
  ME_47CD374F0192 // Unicode
  ME_47CD375400C8 // OEM
  ME_47CD3759002B // ThyEditor
@@ -505,12 +536,16 @@ ref; // ME_47CD376C002D Rtf
  ME_47CD376201C3 // EverestBin
  ME_47CD37670110 // Everest
  ME_47CD376C002D // Rtf
- ) .SequenceCode.It
+ )
  ; // Attributes
  CONST "Need map interface" false
  CONST "Need mapping support" false
  CONST "children prefix" 'nevtf'
  CONST "spell names" false
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest\new'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest\new'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
  CONST extprop:pas:ElementPrefix 'nevtf'
 
 ref; // ME_47CD34DE0298 TnevTextFormats
@@ -530,6 +565,7 @@ FORWARD ME_47CD37D9035A
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value ''', %d секунд осталось'''
 
 ref; // ME_47CD3882037E TimeLeft
 
@@ -546,6 +582,7 @@ ref; // ME_47CD3882037E TimeLeft
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value '''Подсчет числа страниц... %d (~%d)'''
 
 ref; // ME_47CD388802CD Counting
 
@@ -562,6 +599,7 @@ ref; // ME_47CD388802CD Counting
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value '''Подготовка просмотра печати... %d страниц подготовлено'''
 
 ref; // ME_47CD388D011B Preparing
 
@@ -578,6 +616,7 @@ ref; // ME_47CD388D011B Preparing
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value '''Подготовка просмотра печати... %d страниц из %s%d подготовлено'''
 
 ref; // ME_47CD38920007 PreparingExt
 
@@ -594,6 +633,7 @@ ref; // ME_47CD38920007 PreparingExt
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value '''Печать документа'''
 
 ref; // ME_47CD38960093 Printing
 
@@ -610,6 +650,7 @@ ref; // ME_47CD38960093 Printing
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value '''Список документов'''
 
 ref; // ME_47CD389A02F0 DocumentList
 
@@ -626,6 +667,7 @@ ref; // ME_47CD389A02F0 DocumentList
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value '''%s Страниц: %s Напечатан: %s'''
 
 ref; // ME_47CD38B1002C DefaultColontitul
 
@@ -642,6 +684,7 @@ ref; // ME_47CD38B1002C DefaultColontitul
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value '''Не определен'''
 
 ref; // ME_47CD38B50390 UndefinedSize
 
@@ -658,6 +701,7 @@ ref; // ME_47CD38B50390 UndefinedSize
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value '''Не определен'''
 
 ref; // ME_47CD38BB0162 UndefinedTopic
 
@@ -674,6 +718,7 @@ ref; // ME_47CD38BB0162 UndefinedTopic
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value '''Обработка текста'''
 
 ref; // ME_47CD38BF028B ProcessText
 
@@ -690,6 +735,7 @@ ref; // ME_47CD38BF028B ProcessText
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value '''Обработка просмотра печати'''
 
 ref; // ME_47CD38C402CE ProcessPreview
 
@@ -704,7 +750,7 @@ ref; // ME_47CD38C402CE ProcessPreview
  : Parent ME_4B8BA52200D8 // nevInterfaces
  ;
  : Attributes
-   @ ( ME_47CD3882037E // TimeLeft
+   Seq: ( ME_47CD3882037E // TimeLeft
  ME_47CD388802CD // Counting
  ME_47CD388D011B // Preparing
  ME_47CD38920007 // PreparingExt
@@ -715,12 +761,16 @@ ref; // ME_47CD38C402CE ProcessPreview
  ME_47CD38BB0162 // UndefinedTopic
  ME_47CD38BF028B // ProcessText
  ME_47CD38C402CE // ProcessPreview
- ) .SequenceCode.It
+ )
  ; // Attributes
  CONST "Need map interface" false
  CONST "Need mapping support" false
  CONST "children prefix" 'nevpm'
  CONST "spell names" false
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest\new'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest\new'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
  CONST extprop:pas:ElementPrefix 'nevpm'
 
 ref; // ME_47CD37D9035A TnevPrintMessages
@@ -740,6 +790,7 @@ FORWARD ME_47CD377B006E
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value '''Развернуть комментарий'''
 
 ref; // ME_47CD378203D6 Expand
 
@@ -756,6 +807,7 @@ ref; // ME_47CD378203D6 Expand
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value '''Свернуть комментарий'''
 
 ref; // ME_47CD37880034 Collapse
 
@@ -772,6 +824,7 @@ ref; // ME_47CD37880034 Collapse
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value '''Выделить комментарий'''
 
 ref; // ME_47CD378C014B Select
 
@@ -788,6 +841,7 @@ ref; // ME_47CD378C014B Select
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value '''Переместить комментарий'''
 
 ref; // ME_47CD3791001F Move
 
@@ -804,6 +858,7 @@ ref; // ME_47CD3791001F Move
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value '''Изменить верхнюю границу комментария'''
 
 ref; // ME_47CD3795031C ChangeTopBorder
 
@@ -820,6 +875,7 @@ ref; // ME_47CD3795031C ChangeTopBorder
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value '''Изменить нижнюю границу комментария'''
 
 ref; // ME_47CD379B01DC ChangeBottomBorder
 
@@ -836,6 +892,7 @@ ref; // ME_47CD379B01DC ChangeBottomBorder
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value '''Свойства комментария'''
 
 ref; // ME_47CD37A001BC Properties
 
@@ -850,19 +907,23 @@ ref; // ME_47CD37A001BC Properties
  : Parent ME_4B8BA52200D8 // nevInterfaces
  ;
  : Attributes
-   @ ( ME_47CD378203D6 // Expand
+   Seq: ( ME_47CD378203D6 // Expand
  ME_47CD37880034 // Collapse
  ME_47CD378C014B // Select
  ME_47CD3791001F // Move
  ME_47CD3795031C // ChangeTopBorder
  ME_47CD379B01DC // ChangeBottomBorder
  ME_47CD37A001BC // Properties
- ) .SequenceCode.It
+ )
  ; // Attributes
  CONST "Need map interface" false
  CONST "Need mapping support" false
  CONST "children prefix" 'nevcph'
  CONST "spell names" false
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest\new'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest\new'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
  CONST extprop:pas:ElementPrefix 'nevcph'
 
 ref; // ME_47CD377B006E TnevCommentParaHint
@@ -882,6 +943,7 @@ FORWARD ME_47CD38D20192
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value '''Отменить'''
 
 ref; // ME_47CD38DC01CE Undo
 
@@ -898,6 +960,7 @@ ref; // ME_47CD38DC01CE Undo
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value '''Вырезать'''
 
 ref; // ME_47CD38E0034E Cut
 
@@ -914,6 +977,7 @@ ref; // ME_47CD38E0034E Cut
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value '''Копировать'''
 
 ref; // ME_47CD38E5030A Copy
 
@@ -930,6 +994,7 @@ ref; // ME_47CD38E5030A Copy
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value '''Вставить'''
 
 ref; // ME_47CD38E903BD Paste
 
@@ -946,6 +1011,7 @@ ref; // ME_47CD38E903BD Paste
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value '''Удалить'''
 
 ref; // ME_47CD38F0019D Delete
 
@@ -960,17 +1026,21 @@ ref; // ME_47CD38F0019D Delete
  : Parent ME_4B8BA52200D8 // nevInterfaces
  ;
  : Attributes
-   @ ( ME_47CD38DC01CE // Undo
+   Seq: ( ME_47CD38DC01CE // Undo
  ME_47CD38E0034E // Cut
  ME_47CD38E5030A // Copy
  ME_47CD38E903BD // Paste
  ME_47CD38F0019D // Delete
- ) .SequenceCode.It
+ )
  ; // Attributes
  CONST "Need map interface" false
  CONST "Need mapping support" false
  CONST "children prefix" 'nevmcm'
  CONST "spell names" false
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest\new'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest\new'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
  CONST extprop:pas:ElementPrefix 'nevmcm'
 
 ref; // ME_47CD38D20192 TnevMemoContextMenu
@@ -990,6 +1060,7 @@ FORWARD ME_47CD37AC0317
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value '''Развернуть блок'''
 
 ref; // ME_47CD37B200E3 Expand
 
@@ -1006,6 +1077,7 @@ ref; // ME_47CD37B200E3 Expand
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value '''Свернуть блок'''
 
 ref; // ME_47CD37B601C8 Collapse
 
@@ -1022,6 +1094,7 @@ ref; // ME_47CD37B601C8 Collapse
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value '''Выделить блок'''
 
 ref; // ME_47CD37BA02DF Select
 
@@ -1038,6 +1111,7 @@ ref; // ME_47CD37BA02DF Select
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value '''Переместить блок'''
 
 ref; // ME_47CD37BE02CA Move
 
@@ -1054,6 +1128,7 @@ ref; // ME_47CD37BE02CA Move
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value '''Изменить верхнюю границу блока'''
 
 ref; // ME_47CD37C30047 ChangeTopBorder
 
@@ -1070,6 +1145,7 @@ ref; // ME_47CD37C30047 ChangeTopBorder
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value '''Изменить нижнюю границу блока'''
 
 ref; // ME_47CD37C8011B ChangeBottomBorder
 
@@ -1086,6 +1162,7 @@ ref; // ME_47CD37C8011B ChangeBottomBorder
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value '''Свойства блока'''
 
 ref; // ME_47CD37CC0217 Properties
 
@@ -1100,19 +1177,23 @@ ref; // ME_47CD37CC0217 Properties
  : Parent ME_4B8BA52200D8 // nevInterfaces
  ;
  : Attributes
-   @ ( ME_47CD37B200E3 // Expand
+   Seq: ( ME_47CD37B200E3 // Expand
  ME_47CD37B601C8 // Collapse
  ME_47CD37BA02DF // Select
  ME_47CD37BE02CA // Move
  ME_47CD37C30047 // ChangeTopBorder
  ME_47CD37C8011B // ChangeBottomBorder
  ME_47CD37CC0217 // Properties
- ) .SequenceCode.It
+ )
  ; // Attributes
  CONST "Need map interface" false
  CONST "Need mapping support" false
  CONST "children prefix" 'nevdph'
  CONST "spell names" false
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest\new'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest\new'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
  CONST extprop:pas:ElementPrefix 'nevdph'
 
 ref; // ME_47CD37AC0317 TnevDocumentPartHint
@@ -1132,6 +1213,7 @@ FORWARD ME_47CD393F00A2
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value '''Параметры раздела.'''
 
 ref; // ME_47CD394502DC BlockParams
 
@@ -1148,6 +1230,7 @@ ref; // ME_47CD394502DC BlockParams
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value '''Ячейка таблицы'''
 
 ref; // ME_47CD394B00C7 TableCell
 
@@ -1164,6 +1247,7 @@ ref; // ME_47CD394B00C7 TableCell
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value '''Размер таблицы'''
 
 ref; // ME_47CD3950017F TableSize
 
@@ -1180,6 +1264,7 @@ ref; // ME_47CD3950017F TableSize
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value '''Размер столбца'''
 
 ref; // ME_47CD39560351 ColumnSize
 
@@ -1196,6 +1281,7 @@ ref; // ME_47CD39560351 ColumnSize
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value '''Колонка таблицы'''
 
 ref; // ME_47CD395B008B TableColumn
 
@@ -1212,6 +1298,7 @@ ref; // ME_47CD395B008B TableColumn
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value '''Строка таблицы'''
 
 ref; // ME_47CD395F00CA TableRow
 
@@ -1228,6 +1315,7 @@ ref; // ME_47CD395F00CA TableRow
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value '''Левая граница ссылки'''
 
 ref; // ME_47CD396301E5 LeftHyperlinkBorder
 
@@ -1244,6 +1332,7 @@ ref; // ME_47CD396301E5 LeftHyperlinkBorder
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value '''Правая граница ссылки'''
 
 ref; // ME_47CD3968016F RightHyperlinkBorder
 
@@ -1258,7 +1347,7 @@ ref; // ME_47CD3968016F RightHyperlinkBorder
  : Parent ME_4B8BA52200D8 // nevInterfaces
  ;
  : Attributes
-   @ ( ME_47CD394502DC // BlockParams
+   Seq: ( ME_47CD394502DC // BlockParams
  ME_47CD394B00C7 // TableCell
  ME_47CD3950017F // TableSize
  ME_47CD39560351 // ColumnSize
@@ -1266,12 +1355,16 @@ ref; // ME_47CD3968016F RightHyperlinkBorder
  ME_47CD395F00CA // TableRow
  ME_47CD396301E5 // LeftHyperlinkBorder
  ME_47CD3968016F // RightHyperlinkBorder
- ) .SequenceCode.It
+ )
  ; // Attributes
  CONST "Need map interface" false
  CONST "Need mapping support" false
  CONST "children prefix" 'nevmhh'
  CONST "spell names" false
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest\new'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest\new'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
  CONST extprop:pas:ElementPrefix 'nevmhh'
 
 ref; // ME_47CD393F00A2 TnevMiscHotspotHints
@@ -1291,6 +1384,7 @@ FORWARD ME_47CD397402BE
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value '''Левый отступ'''
 
 ref; // ME_47CD397A0364 LeftIndent
 
@@ -1307,6 +1401,7 @@ ref; // ME_47CD397A0364 LeftIndent
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value '''Правый отступ'''
 
 ref; // ME_47CD397F0305 RightIndent
 
@@ -1323,6 +1418,7 @@ ref; // ME_47CD397F0305 RightIndent
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value '''Отступ красной строки'''
 
 ref; // ME_47CD398402E3 RedLineIndent
 
@@ -1339,6 +1435,7 @@ ref; // ME_47CD398402E3 RedLineIndent
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value '''Размер ячейки'''
 
 ref; // ME_47CD3989015D CellSize
 
@@ -1355,6 +1452,7 @@ ref; // ME_47CD3989015D CellSize
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value '''Отступ таблицы'''
 
 ref; // ME_47CD398E00A5 TableIndent
 
@@ -1371,6 +1469,7 @@ ref; // ME_47CD398E00A5 TableIndent
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value '''Размер бумаги'''
 
 ref; // ME_47CD399202A8 PaperSize
 
@@ -1387,6 +1486,7 @@ ref; // ME_47CD399202A8 PaperSize
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value '''Левое поле'''
 
 ref; // ME_47CD399603E0 LeftDocMargin
 
@@ -1403,6 +1503,7 @@ ref; // ME_47CD399603E0 LeftDocMargin
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value '''Правое поле'''
 
 ref; // ME_47CD399B0375 RightDocMargin
 
@@ -1419,6 +1520,7 @@ ref; // ME_47CD399B0375 RightDocMargin
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value '''По разделителю'''
 
 ref; // ME_48DCB1D9035A TabIndent
 
@@ -1434,7 +1536,7 @@ ref; // ME_48DCB1D9035A TabIndent
  : Parent ME_4B8BA52200D8 // nevInterfaces
  ;
  : Attributes
-   @ ( ME_47CD397A0364 // LeftIndent
+   Seq: ( ME_47CD397A0364 // LeftIndent
  ME_47CD397F0305 // RightIndent
  ME_47CD398402E3 // RedLineIndent
  ME_47CD3989015D // CellSize
@@ -1443,12 +1545,16 @@ ref; // ME_48DCB1D9035A TabIndent
  ME_47CD399603E0 // LeftDocMargin
  ME_47CD399B0375 // RightDocMargin
  ME_48DCB1D9035A // TabIndent
- ) .SequenceCode.It
+ )
  ; // Attributes
  CONST "Need map interface" false
  CONST "Need mapping support" false
  CONST "children prefix" 'nevmh'
  CONST "spell names" false
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest\new'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest\new'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
  CONST extprop:pas:ElementPrefix 'nevmh'
 
 ref; // ME_47CD397402BE TnevMarkerHint
@@ -1458,6 +1564,7 @@ FORWARD ME_588A363EF940
 : ME_F33CF8508880
  CONST UID 'F33CF8508880'
  CONST Name 'SaveText'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY '''Сохранение текста''' ;
  CONST Visibility PublicAccess
@@ -1473,12 +1580,14 @@ FORWARD ME_588A363EF940
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''nevmmSaveText''; rValue : ''Сохранение текста'')'
 
 ref; // ME_F33CF8508880 SaveText
 
 : ME_814101EE9E93
  CONST UID '814101EE9E93'
  CONST Name 'SaveFormattedText'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY '''Сохранение текста в формате "%s"''' ;
  CONST Visibility PublicAccess
@@ -1494,12 +1603,14 @@ ref; // ME_F33CF8508880 SaveText
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''nevmmSaveFormattedText''; rValue : ''Сохранение текста в формате "%s"'')'
 
 ref; // ME_814101EE9E93 SaveFormattedText
 
 : ME_E996F2FF96C6
  CONST UID 'E996F2FF96C6'
  CONST Name 'Reference'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY '''Справка: %s''' ;
  CONST Visibility PublicAccess
@@ -1515,12 +1626,14 @@ ref; // ME_814101EE9E93 SaveFormattedText
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''nevmmReference''; rValue : ''Справка: %s'')'
 
 ref; // ME_E996F2FF96C6 Reference
 
 : ME_7561B7601AF0
  CONST UID '7561B7601AF0'
  CONST Name 'PageCounter'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY '''Страница %d из %d''' ;
  CONST Visibility PublicAccess
@@ -1536,12 +1649,14 @@ ref; // ME_E996F2FF96C6 Reference
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''nevmmPageCounter''; rValue : ''Страница %d из %d'')'
 
 ref; // ME_7561B7601AF0 PageCounter
 
 : ME_96CED57414A9
  CONST UID '96CED57414A9'
  CONST Name 'DocumentCount'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY '''Документ %d из %d''' ;
  CONST Visibility PublicAccess
@@ -1557,12 +1672,14 @@ ref; // ME_7561B7601AF0 PageCounter
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''nevmmDocumentCount''; rValue : ''Документ %d из %d'')'
 
 ref; // ME_96CED57414A9 DocumentCount
 
 : ME_F12B300810EF
  CONST UID 'F12B300810EF'
  CONST Name 'DocumentCountInt'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY '''Документ %d из %d, выделено %d''' ;
  CONST Visibility PublicAccess
@@ -1578,12 +1695,14 @@ ref; // ME_96CED57414A9 DocumentCount
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''nevmmDocumentCountInt''; rValue : ''Документ %d из %d, выделено %d'')'
 
 ref; // ME_F12B300810EF DocumentCountInt
 
 : ME_01F85EDF54CE
  CONST UID '01F85EDF54CE'
  CONST Name 'Comment'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY ''' Мой комментарий ''' ;
  CONST Visibility PublicAccess
@@ -1599,12 +1718,14 @@ ref; // ME_F12B300810EF DocumentCountInt
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''nevmmComment''; rValue : '' Мой комментарий '')'
 
 ref; // ME_01F85EDF54CE Comment
 
 : ME_4AFC7E909CE6
  CONST UID '4AFC7E909CE6'
  CONST Name 'Replace'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY '''Замена''' ;
  CONST Visibility PublicAccess
@@ -1620,12 +1741,14 @@ ref; // ME_01F85EDF54CE Comment
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''nevmmReplace''; rValue : ''Замена'')'
 
 ref; // ME_4AFC7E909CE6 Replace
 
 : ME_D41005F98CAC
  CONST UID 'D41005F98CAC'
  CONST Name 'Fragment'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY '''%s (фрагмент)''' ;
  CONST Visibility PublicAccess
@@ -1641,12 +1764,14 @@ ref; // ME_4AFC7E909CE6 Replace
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''nevmmFragment''; rValue : ''%s (фрагмент)'')'
 
 ref; // ME_D41005F98CAC Fragment
 
 : ME_43DCFDFB5065
  CONST UID '43DCFDFB5065'
  CONST Name 'Search'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY '''Поиск''' ;
  CONST Visibility PublicAccess
@@ -1662,12 +1787,14 @@ ref; // ME_D41005F98CAC Fragment
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''nevmmSearch''; rValue : ''Поиск'')'
 
 ref; // ME_43DCFDFB5065 Search
 
 : ME_06231CC34ABA
  CONST UID '06231CC34ABA'
  CONST Name 'LongOperation'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY '''Выполняется длительная операция...''' ;
  CONST Visibility PublicAccess
@@ -1683,12 +1810,14 @@ ref; // ME_43DCFDFB5065 Search
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''nevmmLongOperation''; rValue : ''Выполняется длительная операция...'')'
 
 ref; // ME_06231CC34ABA LongOperation
 
 : ME_19C21E432B9E
  CONST UID '19C21E432B9E'
  CONST Name 'CommentFolder'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY ''' Мой комментарий ''' ;
  CONST Visibility PublicAccess
@@ -1704,12 +1833,14 @@ ref; // ME_06231CC34ABA LongOperation
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''nevmmCommentFolder''; rValue : '' Мой комментарий '')'
 
 ref; // ME_19C21E432B9E CommentFolder
 
 : ME_C35374AC6FED
  CONST UID 'C35374AC6FED'
  CONST Name 'Annotation'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY '''Аннотация: %s''' ;
  CONST Visibility PublicAccess
@@ -1725,12 +1856,14 @@ ref; // ME_19C21E432B9E CommentFolder
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''nevmmAnnotation''; rValue : ''Аннотация: %s'')'
 
 ref; // ME_C35374AC6FED Annotation
 
 : ME_90BADC513D76
  CONST UID '90BADC513D76'
  CONST Name 'Chronology'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY '''Хронология судебного дела: %s''' ;
  CONST Visibility PublicAccess
@@ -1746,12 +1879,14 @@ ref; // ME_C35374AC6FED Annotation
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''nevmmChronology''; rValue : ''Хронология судебного дела: %s'')'
 
 ref; // ME_90BADC513D76 Chronology
 
 : ME_7C5BC44EA792
  CONST UID '7C5BC44EA792'
  CONST Name 'Translation'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY '''Перевод: %s''' ;
  CONST Visibility PublicAccess
@@ -1767,12 +1902,14 @@ ref; // ME_90BADC513D76 Chronology
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''nevmmTranslation''; rValue : ''Перевод: %s'')'
 
 ref; // ME_7C5BC44EA792 Translation
 
 : ME_7E5A263FD277
  CONST UID '7E5A263FD277'
  CONST Name 'JurorComment'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY ''' Комментарий ГАРАНТа ''' ;
  CONST Visibility PublicAccess
@@ -1788,12 +1925,14 @@ ref; // ME_7C5BC44EA792 Translation
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''nevmmJurorComment''; rValue : '' Комментарий ГАРАНТа '')'
 
 ref; // ME_7E5A263FD277 JurorComment
 
 : ME_40C1C0F0DA26
  CONST UID '40C1C0F0DA26'
  CONST Name 'JurorCommentDecorate'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY '''Комментарий ГАРАНТа''' ;
  CONST Visibility PublicAccess
@@ -1809,12 +1948,14 @@ ref; // ME_7E5A263FD277 JurorComment
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''nevmmJurorCommentDecorate''; rValue : ''Комментарий ГАРАНТа'')'
 
 ref; // ME_40C1C0F0DA26 JurorCommentDecorate
 
 : ME_3468D60093E0
  CONST UID '3468D60093E0'
  CONST Name 'TOC'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY '''Оглавление''' ;
  CONST Visibility PublicAccess
@@ -1830,12 +1971,14 @@ ref; // ME_40C1C0F0DA26 JurorCommentDecorate
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''nevmmTOC''; rValue : ''Оглавление'')'
 
 ref; // ME_3468D60093E0 TOC
 
 : ME_AF5EDF52F60D
  CONST UID 'AF5EDF52F60D'
  CONST Name 'PageCounterNew'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY '''Объем распечатки в листах: %d''' ;
  CONST Visibility PublicAccess
@@ -1851,12 +1994,14 @@ ref; // ME_3468D60093E0 TOC
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''nevmmPageCounterNew''; rValue : ''Объем распечатки в листах: %d'')'
 
 ref; // ME_AF5EDF52F60D PageCounterNew
 
 : ME_588A363EF940
  CONST UID '588A363EF940'
  CONST Name 'LCImplTnevMiscMessages'
+ CONST IsSummoned true
  CONST Class class_Class
  : Stereotype st_Constants ;
  CONST Kind kind_NormalClass
@@ -1866,7 +2011,7 @@ ref; // ME_AF5EDF52F60D PageCounterNew
  : Parent ME_4B8BA52200D8 // nevInterfaces
  ;
  : Attributes
-   @ ( ME_F33CF8508880 // SaveText
+   Seq: ( ME_F33CF8508880 // SaveText
  ME_814101EE9E93 // SaveFormattedText
  ME_E996F2FF96C6 // Reference
  ME_7561B7601AF0 // PageCounter
@@ -1885,11 +2030,15 @@ ref; // ME_AF5EDF52F60D PageCounterNew
  ME_40C1C0F0DA26 // JurorCommentDecorate
  ME_3468D60093E0 // TOC
  ME_AF5EDF52F60D // PageCounterNew
- ) .SequenceCode.It
+ )
  ; // Attributes
  CONST "children prefix" 'nevmm'
  CONST "elements prefix" 'str'
  CONST "spell names" false
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest\new'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest\new'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
  CONST extprop:pas:ElementPrefixBase 'str'
  CONST extprop:pas:ElementPrefix 'str_nevmm'
 
@@ -1900,6 +2049,7 @@ FORWARD ME_2A4DAD35108E
 : ME_FFA6F8FB0A33
  CONST UID 'FFA6F8FB0A33'
  CONST Name 'ANSI'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY '''ANSI-текст''' ;
  CONST Visibility PublicAccess
@@ -1915,12 +2065,14 @@ FORWARD ME_2A4DAD35108E
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''nevtfANSI''; rValue : ''ANSI-текст'')'
 
 ref; // ME_FFA6F8FB0A33 ANSI
 
 : ME_0C760F34965F
  CONST UID '0C760F34965F'
  CONST Name 'Unicode'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY '''Unicode-текст''' ;
  CONST Visibility PublicAccess
@@ -1936,12 +2088,14 @@ ref; // ME_FFA6F8FB0A33 ANSI
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''nevtfUnicode''; rValue : ''Unicode-текст'')'
 
 ref; // ME_0C760F34965F Unicode
 
 : ME_8BE999E3D796
  CONST UID '8BE999E3D796'
  CONST Name 'OEM'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY '''OEM-текст''' ;
  CONST Visibility PublicAccess
@@ -1957,12 +2111,14 @@ ref; // ME_0C760F34965F Unicode
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''nevtfOEM''; rValue : ''OEM-текст'')'
 
 ref; // ME_8BE999E3D796 OEM
 
 : ME_25505705ADFA
  CONST UID '25505705ADFA'
  CONST Name 'ThyEditor'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY '''Моего редактора''' ;
  CONST Visibility PublicAccess
@@ -1979,12 +2135,14 @@ ref; // ME_8BE999E3D796 OEM
  CONST "forced type" 'none'
  CONST "ifdef" 'evMyEditor'
  CONST "is define" false
+ CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''nevtfThyEditor''; rValue : ''Моего редактора'')'
 
 ref; // ME_25505705ADFA ThyEditor
 
 : ME_64340EC34712
  CONST UID '64340EC34712'
  CONST Name 'Garant'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY '''Документ ГАРАНТа''' ;
  CONST Visibility PublicAccess
@@ -2001,12 +2159,14 @@ ref; // ME_25505705ADFA ThyEditor
  CONST "forced type" 'none'
  CONST "ifdef" 'Nemesis'
  CONST "is define" false
+ CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''nevtfGarant''; rValue : ''Документ ГАРАНТа'')'
 
 ref; // ME_64340EC34712 Garant
 
 : ME_85553527B355
  CONST UID '85553527B355'
  CONST Name 'EverestBin'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY '''Эверест (binary)''' ;
  CONST Visibility PublicAccess
@@ -2023,12 +2183,14 @@ ref; // ME_64340EC34712 Garant
  CONST "forced type" 'none'
  CONST "ifndef" 'Nemesis'
  CONST "is define" false
+ CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''nevtfEverestBin''; rValue : ''Эверест (binary)'')'
 
 ref; // ME_85553527B355 EverestBin
 
 : ME_E8FEDA575CA5
  CONST UID 'E8FEDA575CA5'
  CONST Name 'Everest'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY '''Эверест''' ;
  CONST Visibility PublicAccess
@@ -2045,12 +2207,14 @@ ref; // ME_85553527B355 EverestBin
  CONST "forced type" 'none'
  CONST "ifndef" 'Nemesis'
  CONST "is define" false
+ CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''nevtfEverest''; rValue : ''Эверест'')'
 
 ref; // ME_E8FEDA575CA5 Everest
 
 : ME_5D31E30F68A8
  CONST UID '5D31E30F68A8'
  CONST Name 'Rtf'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY '''RTF''' ;
  CONST Visibility PublicAccess
@@ -2066,12 +2230,14 @@ ref; // ME_E8FEDA575CA5 Everest
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''nevtfRtf''; rValue : ''RTF'')'
 
 ref; // ME_5D31E30F68A8 Rtf
 
 : ME_2A4DAD35108E
  CONST UID '2A4DAD35108E'
  CONST Name 'LCImplTnevTextFormats'
+ CONST IsSummoned true
  CONST Class class_Class
  : Stereotype st_Constants ;
  CONST Kind kind_NormalClass
@@ -2081,7 +2247,7 @@ ref; // ME_5D31E30F68A8 Rtf
  : Parent ME_4B8BA52200D8 // nevInterfaces
  ;
  : Attributes
-   @ ( ME_FFA6F8FB0A33 // ANSI
+   Seq: ( ME_FFA6F8FB0A33 // ANSI
  ME_0C760F34965F // Unicode
  ME_8BE999E3D796 // OEM
  ME_25505705ADFA // ThyEditor
@@ -2089,11 +2255,15 @@ ref; // ME_5D31E30F68A8 Rtf
  ME_85553527B355 // EverestBin
  ME_E8FEDA575CA5 // Everest
  ME_5D31E30F68A8 // Rtf
- ) .SequenceCode.It
+ )
  ; // Attributes
  CONST "children prefix" 'nevtf'
  CONST "elements prefix" 'str'
  CONST "spell names" false
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest\new'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest\new'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
  CONST extprop:pas:ElementPrefixBase 'str'
  CONST extprop:pas:ElementPrefix 'str_nevtf'
 
@@ -2104,6 +2274,7 @@ FORWARD ME_09323758FA2C
 : ME_4EB9D5F7CF91
  CONST UID '4EB9D5F7CF91'
  CONST Name 'TimeLeft'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY ''', %d секунд осталось''' ;
  CONST Visibility PublicAccess
@@ -2119,12 +2290,14 @@ FORWARD ME_09323758FA2C
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''nevpmTimeLeft''; rValue : '', %d секунд осталось'')'
 
 ref; // ME_4EB9D5F7CF91 TimeLeft
 
 : ME_BE4AED200D8C
  CONST UID 'BE4AED200D8C'
  CONST Name 'Counting'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY '''Подсчет числа страниц... %d (~%d)''' ;
  CONST Visibility PublicAccess
@@ -2140,12 +2313,14 @@ ref; // ME_4EB9D5F7CF91 TimeLeft
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''nevpmCounting''; rValue : ''Подсчет числа страниц... %d (~%d)'')'
 
 ref; // ME_BE4AED200D8C Counting
 
 : ME_A8D0B3B86F39
  CONST UID 'A8D0B3B86F39'
  CONST Name 'Preparing'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY '''Подготовка просмотра печати... %d страниц подготовлено''' ;
  CONST Visibility PublicAccess
@@ -2161,12 +2336,14 @@ ref; // ME_BE4AED200D8C Counting
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''nevpmPreparing''; rValue : ''Подготовка просмотра печати... %d страниц подготовлено'')'
 
 ref; // ME_A8D0B3B86F39 Preparing
 
 : ME_1D8C41649AE7
  CONST UID '1D8C41649AE7'
  CONST Name 'PreparingExt'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY '''Подготовка просмотра печати... %d страниц из %s%d подготовлено''' ;
  CONST Visibility PublicAccess
@@ -2182,12 +2359,14 @@ ref; // ME_A8D0B3B86F39 Preparing
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''nevpmPreparingExt''; rValue : ''Подготовка просмотра печати... %d страниц из %s%d подготовлено'')'
 
 ref; // ME_1D8C41649AE7 PreparingExt
 
 : ME_E14C82B96F46
  CONST UID 'E14C82B96F46'
  CONST Name 'Printing'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY '''Печать документа''' ;
  CONST Visibility PublicAccess
@@ -2203,12 +2382,14 @@ ref; // ME_1D8C41649AE7 PreparingExt
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''nevpmPrinting''; rValue : ''Печать документа'')'
 
 ref; // ME_E14C82B96F46 Printing
 
 : ME_1AA29BAC837F
  CONST UID '1AA29BAC837F'
  CONST Name 'DocumentList'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY '''Список документов''' ;
  CONST Visibility PublicAccess
@@ -2224,12 +2405,14 @@ ref; // ME_E14C82B96F46 Printing
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''nevpmDocumentList''; rValue : ''Список документов'')'
 
 ref; // ME_1AA29BAC837F DocumentList
 
 : ME_47D1467FD38E
  CONST UID '47D1467FD38E'
  CONST Name 'DefaultColontitul'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY '''%s Страниц: %s Напечатан: %s''' ;
  CONST Visibility PublicAccess
@@ -2245,12 +2428,14 @@ ref; // ME_1AA29BAC837F DocumentList
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''nevpmDefaultColontitul''; rValue : ''%s Страниц: %s Напечатан: %s'')'
 
 ref; // ME_47D1467FD38E DefaultColontitul
 
 : ME_FB7347DA5CE8
  CONST UID 'FB7347DA5CE8'
  CONST Name 'UndefinedSize'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY '''Не определен''' ;
  CONST Visibility PublicAccess
@@ -2266,12 +2451,14 @@ ref; // ME_47D1467FD38E DefaultColontitul
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''nevpmUndefinedSize''; rValue : ''Не определен'')'
 
 ref; // ME_FB7347DA5CE8 UndefinedSize
 
 : ME_EF6A36F0AE31
  CONST UID 'EF6A36F0AE31'
  CONST Name 'UndefinedTopic'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY '''Не определен''' ;
  CONST Visibility PublicAccess
@@ -2287,12 +2474,14 @@ ref; // ME_FB7347DA5CE8 UndefinedSize
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''nevpmUndefinedTopic''; rValue : ''Не определен'')'
 
 ref; // ME_EF6A36F0AE31 UndefinedTopic
 
 : ME_461C85A1B77B
  CONST UID '461C85A1B77B'
  CONST Name 'ProcessText'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY '''Обработка текста''' ;
  CONST Visibility PublicAccess
@@ -2308,12 +2497,14 @@ ref; // ME_EF6A36F0AE31 UndefinedTopic
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''nevpmProcessText''; rValue : ''Обработка текста'')'
 
 ref; // ME_461C85A1B77B ProcessText
 
 : ME_522874E40204
  CONST UID '522874E40204'
  CONST Name 'ProcessPreview'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY '''Обработка просмотра печати''' ;
  CONST Visibility PublicAccess
@@ -2329,12 +2520,14 @@ ref; // ME_461C85A1B77B ProcessText
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''nevpmProcessPreview''; rValue : ''Обработка просмотра печати'')'
 
 ref; // ME_522874E40204 ProcessPreview
 
 : ME_09323758FA2C
  CONST UID '09323758FA2C'
  CONST Name 'LCImplTnevPrintMessages'
+ CONST IsSummoned true
  CONST Class class_Class
  : Stereotype st_Constants ;
  CONST Kind kind_NormalClass
@@ -2344,7 +2537,7 @@ ref; // ME_522874E40204 ProcessPreview
  : Parent ME_4B8BA52200D8 // nevInterfaces
  ;
  : Attributes
-   @ ( ME_4EB9D5F7CF91 // TimeLeft
+   Seq: ( ME_4EB9D5F7CF91 // TimeLeft
  ME_BE4AED200D8C // Counting
  ME_A8D0B3B86F39 // Preparing
  ME_1D8C41649AE7 // PreparingExt
@@ -2355,11 +2548,15 @@ ref; // ME_522874E40204 ProcessPreview
  ME_EF6A36F0AE31 // UndefinedTopic
  ME_461C85A1B77B // ProcessText
  ME_522874E40204 // ProcessPreview
- ) .SequenceCode.It
+ )
  ; // Attributes
  CONST "children prefix" 'nevpm'
  CONST "elements prefix" 'str'
  CONST "spell names" false
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest\new'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest\new'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
  CONST extprop:pas:ElementPrefixBase 'str'
  CONST extprop:pas:ElementPrefix 'str_nevpm'
 
@@ -2370,6 +2567,7 @@ FORWARD ME_2A6552C363ED
 : ME_6065D5585A59
  CONST UID '6065D5585A59'
  CONST Name 'Expand'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY '''Развернуть комментарий''' ;
  CONST Visibility PublicAccess
@@ -2385,12 +2583,14 @@ FORWARD ME_2A6552C363ED
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''nevcphExpand''; rValue : ''Развернуть комментарий'')'
 
 ref; // ME_6065D5585A59 Expand
 
 : ME_E889724A7B52
  CONST UID 'E889724A7B52'
  CONST Name 'Collapse'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY '''Свернуть комментарий''' ;
  CONST Visibility PublicAccess
@@ -2406,12 +2606,14 @@ ref; // ME_6065D5585A59 Expand
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''nevcphCollapse''; rValue : ''Свернуть комментарий'')'
 
 ref; // ME_E889724A7B52 Collapse
 
 : ME_4CF113194967
  CONST UID '4CF113194967'
  CONST Name 'Select'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY '''Выделить комментарий''' ;
  CONST Visibility PublicAccess
@@ -2427,12 +2629,14 @@ ref; // ME_E889724A7B52 Collapse
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''nevcphSelect''; rValue : ''Выделить комментарий'')'
 
 ref; // ME_4CF113194967 Select
 
 : ME_7821F0329ADA
  CONST UID '7821F0329ADA'
  CONST Name 'Move'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY '''Переместить комментарий''' ;
  CONST Visibility PublicAccess
@@ -2448,12 +2652,14 @@ ref; // ME_4CF113194967 Select
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''nevcphMove''; rValue : ''Переместить комментарий'')'
 
 ref; // ME_7821F0329ADA Move
 
 : ME_8292E18C7350
  CONST UID '8292E18C7350'
  CONST Name 'ChangeTopBorder'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY '''Изменить верхнюю границу комментария''' ;
  CONST Visibility PublicAccess
@@ -2469,12 +2675,14 @@ ref; // ME_7821F0329ADA Move
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''nevcphChangeTopBorder''; rValue : ''Изменить верхнюю границу комментария'')'
 
 ref; // ME_8292E18C7350 ChangeTopBorder
 
 : ME_BEF4176D5585
  CONST UID 'BEF4176D5585'
  CONST Name 'ChangeBottomBorder'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY '''Изменить нижнюю границу комментария''' ;
  CONST Visibility PublicAccess
@@ -2490,12 +2698,14 @@ ref; // ME_8292E18C7350 ChangeTopBorder
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''nevcphChangeBottomBorder''; rValue : ''Изменить нижнюю границу комментария'')'
 
 ref; // ME_BEF4176D5585 ChangeBottomBorder
 
 : ME_F83F84539792
  CONST UID 'F83F84539792'
  CONST Name 'Properties'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY '''Свойства комментария''' ;
  CONST Visibility PublicAccess
@@ -2511,12 +2721,14 @@ ref; // ME_BEF4176D5585 ChangeBottomBorder
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''nevcphProperties''; rValue : ''Свойства комментария'')'
 
 ref; // ME_F83F84539792 Properties
 
 : ME_2A6552C363ED
  CONST UID '2A6552C363ED'
  CONST Name 'LCImplTnevCommentParaHint'
+ CONST IsSummoned true
  CONST Class class_Class
  : Stereotype st_Constants ;
  CONST Kind kind_NormalClass
@@ -2526,18 +2738,22 @@ ref; // ME_F83F84539792 Properties
  : Parent ME_4B8BA52200D8 // nevInterfaces
  ;
  : Attributes
-   @ ( ME_6065D5585A59 // Expand
+   Seq: ( ME_6065D5585A59 // Expand
  ME_E889724A7B52 // Collapse
  ME_4CF113194967 // Select
  ME_7821F0329ADA // Move
  ME_8292E18C7350 // ChangeTopBorder
  ME_BEF4176D5585 // ChangeBottomBorder
  ME_F83F84539792 // Properties
- ) .SequenceCode.It
+ )
  ; // Attributes
  CONST "children prefix" 'nevcph'
  CONST "elements prefix" 'str'
  CONST "spell names" false
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest\new'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest\new'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
  CONST extprop:pas:ElementPrefixBase 'str'
  CONST extprop:pas:ElementPrefix 'str_nevcph'
 
@@ -2548,6 +2764,7 @@ FORWARD ME_9A343A9B1748
 : ME_F4363775A818
  CONST UID 'F4363775A818'
  CONST Name 'Undo'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY '''Отменить''' ;
  CONST Visibility PublicAccess
@@ -2563,12 +2780,14 @@ FORWARD ME_9A343A9B1748
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''nevmcmUndo''; rValue : ''Отменить'')'
 
 ref; // ME_F4363775A818 Undo
 
 : ME_D3852CA1A62D
  CONST UID 'D3852CA1A62D'
  CONST Name 'Cut'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY '''Вырезать''' ;
  CONST Visibility PublicAccess
@@ -2584,12 +2803,14 @@ ref; // ME_F4363775A818 Undo
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''nevmcmCut''; rValue : ''Вырезать'')'
 
 ref; // ME_D3852CA1A62D Cut
 
 : ME_0C1939C7DBD0
  CONST UID '0C1939C7DBD0'
  CONST Name 'Copy'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY '''Копировать''' ;
  CONST Visibility PublicAccess
@@ -2605,12 +2826,14 @@ ref; // ME_D3852CA1A62D Cut
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''nevmcmCopy''; rValue : ''Копировать'')'
 
 ref; // ME_0C1939C7DBD0 Copy
 
 : ME_1418ED68F19C
  CONST UID '1418ED68F19C'
  CONST Name 'Paste'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY '''Вставить''' ;
  CONST Visibility PublicAccess
@@ -2626,12 +2849,14 @@ ref; // ME_0C1939C7DBD0 Copy
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''nevmcmPaste''; rValue : ''Вставить'')'
 
 ref; // ME_1418ED68F19C Paste
 
 : ME_1F1A758CDC74
  CONST UID '1F1A758CDC74'
  CONST Name 'Delete'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY '''Удалить''' ;
  CONST Visibility PublicAccess
@@ -2647,12 +2872,14 @@ ref; // ME_1418ED68F19C Paste
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''nevmcmDelete''; rValue : ''Удалить'')'
 
 ref; // ME_1F1A758CDC74 Delete
 
 : ME_9A343A9B1748
  CONST UID '9A343A9B1748'
  CONST Name 'LCImplTnevMemoContextMenu'
+ CONST IsSummoned true
  CONST Class class_Class
  : Stereotype st_Constants ;
  CONST Kind kind_NormalClass
@@ -2662,16 +2889,20 @@ ref; // ME_1F1A758CDC74 Delete
  : Parent ME_4B8BA52200D8 // nevInterfaces
  ;
  : Attributes
-   @ ( ME_F4363775A818 // Undo
+   Seq: ( ME_F4363775A818 // Undo
  ME_D3852CA1A62D // Cut
  ME_0C1939C7DBD0 // Copy
  ME_1418ED68F19C // Paste
  ME_1F1A758CDC74 // Delete
- ) .SequenceCode.It
+ )
  ; // Attributes
  CONST "children prefix" 'nevmcm'
  CONST "elements prefix" 'str'
  CONST "spell names" false
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest\new'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest\new'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
  CONST extprop:pas:ElementPrefixBase 'str'
  CONST extprop:pas:ElementPrefix 'str_nevmcm'
 
@@ -2682,6 +2913,7 @@ FORWARD ME_F9AE5753EB87
 : ME_F5FF7A68A37C
  CONST UID 'F5FF7A68A37C'
  CONST Name 'Expand'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY '''Развернуть блок''' ;
  CONST Visibility PublicAccess
@@ -2697,12 +2929,14 @@ FORWARD ME_F9AE5753EB87
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''nevdphExpand''; rValue : ''Развернуть блок'')'
 
 ref; // ME_F5FF7A68A37C Expand
 
 : ME_65FCF81E821E
  CONST UID '65FCF81E821E'
  CONST Name 'Collapse'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY '''Свернуть блок''' ;
  CONST Visibility PublicAccess
@@ -2718,12 +2952,14 @@ ref; // ME_F5FF7A68A37C Expand
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''nevdphCollapse''; rValue : ''Свернуть блок'')'
 
 ref; // ME_65FCF81E821E Collapse
 
 : ME_736781684AB0
  CONST UID '736781684AB0'
  CONST Name 'Select'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY '''Выделить блок''' ;
  CONST Visibility PublicAccess
@@ -2739,12 +2975,14 @@ ref; // ME_65FCF81E821E Collapse
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''nevdphSelect''; rValue : ''Выделить блок'')'
 
 ref; // ME_736781684AB0 Select
 
 : ME_E08E5B7CAEAD
  CONST UID 'E08E5B7CAEAD'
  CONST Name 'Move'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY '''Переместить блок''' ;
  CONST Visibility PublicAccess
@@ -2760,12 +2998,14 @@ ref; // ME_736781684AB0 Select
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''nevdphMove''; rValue : ''Переместить блок'')'
 
 ref; // ME_E08E5B7CAEAD Move
 
 : ME_6EBB5F7A4994
  CONST UID '6EBB5F7A4994'
  CONST Name 'ChangeTopBorder'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY '''Изменить верхнюю границу блока''' ;
  CONST Visibility PublicAccess
@@ -2781,12 +3021,14 @@ ref; // ME_E08E5B7CAEAD Move
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''nevdphChangeTopBorder''; rValue : ''Изменить верхнюю границу блока'')'
 
 ref; // ME_6EBB5F7A4994 ChangeTopBorder
 
 : ME_7C441707116F
  CONST UID '7C441707116F'
  CONST Name 'ChangeBottomBorder'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY '''Изменить нижнюю границу блока''' ;
  CONST Visibility PublicAccess
@@ -2802,12 +3044,14 @@ ref; // ME_6EBB5F7A4994 ChangeTopBorder
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''nevdphChangeBottomBorder''; rValue : ''Изменить нижнюю границу блока'')'
 
 ref; // ME_7C441707116F ChangeBottomBorder
 
 : ME_65B3B242BD8F
  CONST UID '65B3B242BD8F'
  CONST Name 'Properties'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY '''Свойства блока''' ;
  CONST Visibility PublicAccess
@@ -2823,12 +3067,14 @@ ref; // ME_7C441707116F ChangeBottomBorder
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''nevdphProperties''; rValue : ''Свойства блока'')'
 
 ref; // ME_65B3B242BD8F Properties
 
 : ME_F9AE5753EB87
  CONST UID 'F9AE5753EB87'
  CONST Name 'LCImplTnevDocumentPartHint'
+ CONST IsSummoned true
  CONST Class class_Class
  : Stereotype st_Constants ;
  CONST Kind kind_NormalClass
@@ -2838,18 +3084,22 @@ ref; // ME_65B3B242BD8F Properties
  : Parent ME_4B8BA52200D8 // nevInterfaces
  ;
  : Attributes
-   @ ( ME_F5FF7A68A37C // Expand
+   Seq: ( ME_F5FF7A68A37C // Expand
  ME_65FCF81E821E // Collapse
  ME_736781684AB0 // Select
  ME_E08E5B7CAEAD // Move
  ME_6EBB5F7A4994 // ChangeTopBorder
  ME_7C441707116F // ChangeBottomBorder
  ME_65B3B242BD8F // Properties
- ) .SequenceCode.It
+ )
  ; // Attributes
  CONST "children prefix" 'nevdph'
  CONST "elements prefix" 'str'
  CONST "spell names" false
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest\new'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest\new'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
  CONST extprop:pas:ElementPrefixBase 'str'
  CONST extprop:pas:ElementPrefix 'str_nevdph'
 
@@ -2860,6 +3110,7 @@ FORWARD ME_43A4B84CEA2B
 : ME_D813193C1C36
  CONST UID 'D813193C1C36'
  CONST Name 'BlockParams'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY '''Параметры раздела.''' ;
  CONST Visibility PublicAccess
@@ -2875,12 +3126,14 @@ FORWARD ME_43A4B84CEA2B
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''nevmhhBlockParams''; rValue : ''Параметры раздела.'')'
 
 ref; // ME_D813193C1C36 BlockParams
 
 : ME_34C9D641BA93
  CONST UID '34C9D641BA93'
  CONST Name 'TableCell'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY '''Ячейка таблицы''' ;
  CONST Visibility PublicAccess
@@ -2896,12 +3149,14 @@ ref; // ME_D813193C1C36 BlockParams
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''nevmhhTableCell''; rValue : ''Ячейка таблицы'')'
 
 ref; // ME_34C9D641BA93 TableCell
 
 : ME_6CD39D3E7617
  CONST UID '6CD39D3E7617'
  CONST Name 'TableSize'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY '''Размер таблицы''' ;
  CONST Visibility PublicAccess
@@ -2917,12 +3172,14 @@ ref; // ME_34C9D641BA93 TableCell
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''nevmhhTableSize''; rValue : ''Размер таблицы'')'
 
 ref; // ME_6CD39D3E7617 TableSize
 
 : ME_30D778EF9AD8
  CONST UID '30D778EF9AD8'
  CONST Name 'ColumnSize'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY '''Размер столбца''' ;
  CONST Visibility PublicAccess
@@ -2938,12 +3195,14 @@ ref; // ME_6CD39D3E7617 TableSize
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''nevmhhColumnSize''; rValue : ''Размер столбца'')'
 
 ref; // ME_30D778EF9AD8 ColumnSize
 
 : ME_7E05DEE6F026
  CONST UID '7E05DEE6F026'
  CONST Name 'TableColumn'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY '''Колонка таблицы''' ;
  CONST Visibility PublicAccess
@@ -2959,12 +3218,14 @@ ref; // ME_30D778EF9AD8 ColumnSize
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''nevmhhTableColumn''; rValue : ''Колонка таблицы'')'
 
 ref; // ME_7E05DEE6F026 TableColumn
 
 : ME_43C228A0616D
  CONST UID '43C228A0616D'
  CONST Name 'TableRow'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY '''Строка таблицы''' ;
  CONST Visibility PublicAccess
@@ -2980,12 +3241,14 @@ ref; // ME_7E05DEE6F026 TableColumn
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''nevmhhTableRow''; rValue : ''Строка таблицы'')'
 
 ref; // ME_43C228A0616D TableRow
 
 : ME_9652247E96F6
  CONST UID '9652247E96F6'
  CONST Name 'LeftHyperlinkBorder'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY '''Левая граница ссылки''' ;
  CONST Visibility PublicAccess
@@ -3001,12 +3264,14 @@ ref; // ME_43C228A0616D TableRow
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''nevmhhLeftHyperlinkBorder''; rValue : ''Левая граница ссылки'')'
 
 ref; // ME_9652247E96F6 LeftHyperlinkBorder
 
 : ME_A9D2FDDC10B1
  CONST UID 'A9D2FDDC10B1'
  CONST Name 'RightHyperlinkBorder'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY '''Правая граница ссылки''' ;
  CONST Visibility PublicAccess
@@ -3022,12 +3287,14 @@ ref; // ME_9652247E96F6 LeftHyperlinkBorder
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''nevmhhRightHyperlinkBorder''; rValue : ''Правая граница ссылки'')'
 
 ref; // ME_A9D2FDDC10B1 RightHyperlinkBorder
 
 : ME_43A4B84CEA2B
  CONST UID '43A4B84CEA2B'
  CONST Name 'LCImplTnevMiscHotspotHints'
+ CONST IsSummoned true
  CONST Class class_Class
  : Stereotype st_Constants ;
  CONST Kind kind_NormalClass
@@ -3037,7 +3304,7 @@ ref; // ME_A9D2FDDC10B1 RightHyperlinkBorder
  : Parent ME_4B8BA52200D8 // nevInterfaces
  ;
  : Attributes
-   @ ( ME_D813193C1C36 // BlockParams
+   Seq: ( ME_D813193C1C36 // BlockParams
  ME_34C9D641BA93 // TableCell
  ME_6CD39D3E7617 // TableSize
  ME_30D778EF9AD8 // ColumnSize
@@ -3045,11 +3312,15 @@ ref; // ME_A9D2FDDC10B1 RightHyperlinkBorder
  ME_43C228A0616D // TableRow
  ME_9652247E96F6 // LeftHyperlinkBorder
  ME_A9D2FDDC10B1 // RightHyperlinkBorder
- ) .SequenceCode.It
+ )
  ; // Attributes
  CONST "children prefix" 'nevmhh'
  CONST "elements prefix" 'str'
  CONST "spell names" false
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest\new'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest\new'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
  CONST extprop:pas:ElementPrefixBase 'str'
  CONST extprop:pas:ElementPrefix 'str_nevmhh'
 
@@ -3060,6 +3331,7 @@ FORWARD ME_98A68C8D8C01
 : ME_19F92D03926A
  CONST UID '19F92D03926A'
  CONST Name 'LeftIndent'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY '''Левый отступ''' ;
  CONST Visibility PublicAccess
@@ -3075,12 +3347,14 @@ FORWARD ME_98A68C8D8C01
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''nevmhLeftIndent''; rValue : ''Левый отступ'')'
 
 ref; // ME_19F92D03926A LeftIndent
 
 : ME_FA2DB3E1A5DE
  CONST UID 'FA2DB3E1A5DE'
  CONST Name 'RightIndent'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY '''Правый отступ''' ;
  CONST Visibility PublicAccess
@@ -3096,12 +3370,14 @@ ref; // ME_19F92D03926A LeftIndent
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''nevmhRightIndent''; rValue : ''Правый отступ'')'
 
 ref; // ME_FA2DB3E1A5DE RightIndent
 
 : ME_D662C6939142
  CONST UID 'D662C6939142'
  CONST Name 'RedLineIndent'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY '''Отступ красной строки''' ;
  CONST Visibility PublicAccess
@@ -3117,12 +3393,14 @@ ref; // ME_FA2DB3E1A5DE RightIndent
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''nevmhRedLineIndent''; rValue : ''Отступ красной строки'')'
 
 ref; // ME_D662C6939142 RedLineIndent
 
 : ME_0912095F1456
  CONST UID '0912095F1456'
  CONST Name 'CellSize'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY '''Размер ячейки''' ;
  CONST Visibility PublicAccess
@@ -3138,12 +3416,14 @@ ref; // ME_D662C6939142 RedLineIndent
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''nevmhCellSize''; rValue : ''Размер ячейки'')'
 
 ref; // ME_0912095F1456 CellSize
 
 : ME_46790B1FF694
  CONST UID '46790B1FF694'
  CONST Name 'TableIndent'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY '''Отступ таблицы''' ;
  CONST Visibility PublicAccess
@@ -3159,12 +3439,14 @@ ref; // ME_0912095F1456 CellSize
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''nevmhTableIndent''; rValue : ''Отступ таблицы'')'
 
 ref; // ME_46790B1FF694 TableIndent
 
 : ME_210A7E9DC9FE
  CONST UID '210A7E9DC9FE'
  CONST Name 'PaperSize'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY '''Размер бумаги''' ;
  CONST Visibility PublicAccess
@@ -3180,12 +3462,14 @@ ref; // ME_46790B1FF694 TableIndent
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''nevmhPaperSize''; rValue : ''Размер бумаги'')'
 
 ref; // ME_210A7E9DC9FE PaperSize
 
 : ME_B15E21AFA0FF
  CONST UID 'B15E21AFA0FF'
  CONST Name 'LeftDocMargin'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY '''Левое поле''' ;
  CONST Visibility PublicAccess
@@ -3201,12 +3485,14 @@ ref; // ME_210A7E9DC9FE PaperSize
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''nevmhLeftDocMargin''; rValue : ''Левое поле'')'
 
 ref; // ME_B15E21AFA0FF LeftDocMargin
 
 : ME_74BC9585DD56
  CONST UID '74BC9585DD56'
  CONST Name 'RightDocMargin'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY '''Правое поле''' ;
  CONST Visibility PublicAccess
@@ -3222,12 +3508,14 @@ ref; // ME_B15E21AFA0FF LeftDocMargin
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''nevmhRightDocMargin''; rValue : ''Правое поле'')'
 
 ref; // ME_74BC9585DD56 RightDocMargin
 
 : ME_B8D79483EB8A
  CONST UID 'B8D79483EB8A'
  CONST Name 'TabIndent'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY '''По разделителю''' ;
  CONST Visibility PublicAccess
@@ -3243,12 +3531,14 @@ ref; // ME_74BC9585DD56 RightDocMargin
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''nevmhTabIndent''; rValue : ''По разделителю'')'
 
 ref; // ME_B8D79483EB8A TabIndent
 
 : ME_98A68C8D8C01
  CONST UID '98A68C8D8C01'
  CONST Name 'LCImplTnevMarkerHint'
+ CONST IsSummoned true
  CONST Class class_Class
  : Stereotype st_Constants ;
  CONST Kind kind_NormalClass
@@ -3258,7 +3548,7 @@ ref; // ME_B8D79483EB8A TabIndent
  : Parent ME_4B8BA52200D8 // nevInterfaces
  ;
  : Attributes
-   @ ( ME_19F92D03926A // LeftIndent
+   Seq: ( ME_19F92D03926A // LeftIndent
  ME_FA2DB3E1A5DE // RightIndent
  ME_D662C6939142 // RedLineIndent
  ME_0912095F1456 // CellSize
@@ -3267,11 +3557,15 @@ ref; // ME_B8D79483EB8A TabIndent
  ME_B15E21AFA0FF // LeftDocMargin
  ME_74BC9585DD56 // RightDocMargin
  ME_B8D79483EB8A // TabIndent
- ) .SequenceCode.It
+ )
  ; // Attributes
  CONST "children prefix" 'nevmh'
  CONST "elements prefix" 'str'
  CONST "spell names" false
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest\new'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest\new'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
  CONST extprop:pas:ElementPrefixBase 'str'
  CONST extprop:pas:ElementPrefix 'str_nevmh'
 
@@ -3279,7 +3573,8 @@ ref; // ME_98A68C8D8C01 LCImplTnevMarkerHint
 
 : ME_3DB7B0D51676
  CONST UID '3DB7B0D51676'
- CONST Name 'Init_SaveText'
+ CONST Name 'Init_Str_SaveText'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Инициализация str_nevmmSaveText' ;
@@ -3287,12 +3582,17 @@ ref; // ME_98A68C8D8C01 LCImplTnevMarkerHint
  CONST Abstraction at_final
  : Parent ME_4B8BA52200D8 // nevInterfaces
  ;
+ : Speller ME_47CD348D01AE // SaveText
+ ;
+ : SpelledFor ME_F33CF8508880 // SaveText
+ ;
 
-ref; // ME_3DB7B0D51676 Init_SaveText
+ref; // ME_3DB7B0D51676 Init_Str_SaveText
 
 : ME_038E91438429
  CONST UID '038E91438429'
- CONST Name 'Init_SaveFormattedText'
+ CONST Name 'Init_Str_SaveFormattedText'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Инициализация str_nevmmSaveFormattedText' ;
@@ -3300,12 +3600,17 @@ ref; // ME_3DB7B0D51676 Init_SaveText
  CONST Abstraction at_final
  : Parent ME_4B8BA52200D8 // nevInterfaces
  ;
+ : Speller ME_47CD34920275 // SaveFormattedText
+ ;
+ : SpelledFor ME_814101EE9E93 // SaveFormattedText
+ ;
 
-ref; // ME_038E91438429 Init_SaveFormattedText
+ref; // ME_038E91438429 Init_Str_SaveFormattedText
 
 : ME_1AD9220E27EF
  CONST UID '1AD9220E27EF'
- CONST Name 'Init_Reference'
+ CONST Name 'Init_Str_Reference'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Инициализация str_nevmmReference' ;
@@ -3313,12 +3618,17 @@ ref; // ME_038E91438429 Init_SaveFormattedText
  CONST Abstraction at_final
  : Parent ME_4B8BA52200D8 // nevInterfaces
  ;
+ : Speller ME_47CD34970114 // Reference
+ ;
+ : SpelledFor ME_E996F2FF96C6 // Reference
+ ;
 
-ref; // ME_1AD9220E27EF Init_Reference
+ref; // ME_1AD9220E27EF Init_Str_Reference
 
 : ME_71BA42E1B08F
  CONST UID '71BA42E1B08F'
- CONST Name 'Init_PageCounter'
+ CONST Name 'Init_Str_PageCounter'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Инициализация str_nevmmPageCounter' ;
@@ -3326,12 +3636,17 @@ ref; // ME_1AD9220E27EF Init_Reference
  CONST Abstraction at_final
  : Parent ME_4B8BA52200D8 // nevInterfaces
  ;
+ : Speller ME_47CD349C0145 // PageCounter
+ ;
+ : SpelledFor ME_7561B7601AF0 // PageCounter
+ ;
 
-ref; // ME_71BA42E1B08F Init_PageCounter
+ref; // ME_71BA42E1B08F Init_Str_PageCounter
 
 : ME_66BF11F7E990
  CONST UID '66BF11F7E990'
- CONST Name 'Init_DocumentCount'
+ CONST Name 'Init_Str_DocumentCount'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Инициализация str_nevmmDocumentCount' ;
@@ -3339,12 +3654,17 @@ ref; // ME_71BA42E1B08F Init_PageCounter
  CONST Abstraction at_final
  : Parent ME_4B8BA52200D8 // nevInterfaces
  ;
+ : Speller ME_47CD34A00328 // DocumentCount
+ ;
+ : SpelledFor ME_96CED57414A9 // DocumentCount
+ ;
 
-ref; // ME_66BF11F7E990 Init_DocumentCount
+ref; // ME_66BF11F7E990 Init_Str_DocumentCount
 
 : ME_4BE19FDF4A07
  CONST UID '4BE19FDF4A07'
- CONST Name 'Init_DocumentCountInt'
+ CONST Name 'Init_Str_DocumentCountInt'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Инициализация str_nevmmDocumentCountInt' ;
@@ -3352,12 +3672,17 @@ ref; // ME_66BF11F7E990 Init_DocumentCount
  CONST Abstraction at_final
  : Parent ME_4B8BA52200D8 // nevInterfaces
  ;
+ : Speller ME_47CD34A501D9 // DocumentCountInt
+ ;
+ : SpelledFor ME_F12B300810EF // DocumentCountInt
+ ;
 
-ref; // ME_4BE19FDF4A07 Init_DocumentCountInt
+ref; // ME_4BE19FDF4A07 Init_Str_DocumentCountInt
 
 : ME_D7660E310DFB
  CONST UID 'D7660E310DFB'
- CONST Name 'Init_Comment'
+ CONST Name 'Init_Str_Comment'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Инициализация str_nevmmComment' ;
@@ -3365,12 +3690,17 @@ ref; // ME_4BE19FDF4A07 Init_DocumentCountInt
  CONST Abstraction at_final
  : Parent ME_4B8BA52200D8 // nevInterfaces
  ;
+ : Speller ME_47CD34AA0299 // Comment
+ ;
+ : SpelledFor ME_01F85EDF54CE // Comment
+ ;
 
-ref; // ME_D7660E310DFB Init_Comment
+ref; // ME_D7660E310DFB Init_Str_Comment
 
 : ME_D40B01759A7B
  CONST UID 'D40B01759A7B'
- CONST Name 'Init_Replace'
+ CONST Name 'Init_Str_Replace'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Инициализация str_nevmmReplace' ;
@@ -3378,12 +3708,17 @@ ref; // ME_D7660E310DFB Init_Comment
  CONST Abstraction at_final
  : Parent ME_4B8BA52200D8 // nevInterfaces
  ;
+ : Speller ME_47CD34B00258 // Replace
+ ;
+ : SpelledFor ME_4AFC7E909CE6 // Replace
+ ;
 
-ref; // ME_D40B01759A7B Init_Replace
+ref; // ME_D40B01759A7B Init_Str_Replace
 
 : ME_4D3E27729526
  CONST UID '4D3E27729526'
- CONST Name 'Init_Fragment'
+ CONST Name 'Init_Str_Fragment'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Инициализация str_nevmmFragment' ;
@@ -3391,12 +3726,17 @@ ref; // ME_D40B01759A7B Init_Replace
  CONST Abstraction at_final
  : Parent ME_4B8BA52200D8 // nevInterfaces
  ;
+ : Speller ME_47CD34B50222 // Fragment
+ ;
+ : SpelledFor ME_D41005F98CAC // Fragment
+ ;
 
-ref; // ME_4D3E27729526 Init_Fragment
+ref; // ME_4D3E27729526 Init_Str_Fragment
 
 : ME_26D57392DF2B
  CONST UID '26D57392DF2B'
- CONST Name 'Init_Search'
+ CONST Name 'Init_Str_Search'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Инициализация str_nevmmSearch' ;
@@ -3404,12 +3744,17 @@ ref; // ME_4D3E27729526 Init_Fragment
  CONST Abstraction at_final
  : Parent ME_4B8BA52200D8 // nevInterfaces
  ;
+ : Speller ME_47CD34BE011B // Search
+ ;
+ : SpelledFor ME_43DCFDFB5065 // Search
+ ;
 
-ref; // ME_26D57392DF2B Init_Search
+ref; // ME_26D57392DF2B Init_Str_Search
 
 : ME_B47FEE8397E4
  CONST UID 'B47FEE8397E4'
- CONST Name 'Init_LongOperation'
+ CONST Name 'Init_Str_LongOperation'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Инициализация str_nevmmLongOperation' ;
@@ -3417,12 +3762,17 @@ ref; // ME_26D57392DF2B Init_Search
  CONST Abstraction at_final
  : Parent ME_4B8BA52200D8 // nevInterfaces
  ;
+ : Speller ME_47CD34C8025C // LongOperation
+ ;
+ : SpelledFor ME_06231CC34ABA // LongOperation
+ ;
 
-ref; // ME_B47FEE8397E4 Init_LongOperation
+ref; // ME_B47FEE8397E4 Init_Str_LongOperation
 
 : ME_BB3CCDE41DA5
  CONST UID 'BB3CCDE41DA5'
- CONST Name 'Init_CommentFolder'
+ CONST Name 'Init_Str_CommentFolder'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Инициализация str_nevmmCommentFolder' ;
@@ -3430,12 +3780,17 @@ ref; // ME_B47FEE8397E4 Init_LongOperation
  CONST Abstraction at_final
  : Parent ME_4B8BA52200D8 // nevInterfaces
  ;
+ : Speller ME_47CD34D201FA // CommentFolder
+ ;
+ : SpelledFor ME_19C21E432B9E // CommentFolder
+ ;
 
-ref; // ME_BB3CCDE41DA5 Init_CommentFolder
+ref; // ME_BB3CCDE41DA5 Init_Str_CommentFolder
 
 : ME_26CB3AE69D07
  CONST UID '26CB3AE69D07'
- CONST Name 'Init_Annotation'
+ CONST Name 'Init_Str_Annotation'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Инициализация str_nevmmAnnotation' ;
@@ -3443,12 +3798,17 @@ ref; // ME_BB3CCDE41DA5 Init_CommentFolder
  CONST Abstraction at_final
  : Parent ME_4B8BA52200D8 // nevInterfaces
  ;
+ : Speller ME_49588AC40083 // Annotation
+ ;
+ : SpelledFor ME_C35374AC6FED // Annotation
+ ;
 
-ref; // ME_26CB3AE69D07 Init_Annotation
+ref; // ME_26CB3AE69D07 Init_Str_Annotation
 
 : ME_028B979DCE1B
  CONST UID '028B979DCE1B'
- CONST Name 'Init_Chronology'
+ CONST Name 'Init_Str_Chronology'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Инициализация str_nevmmChronology' ;
@@ -3456,12 +3816,17 @@ ref; // ME_26CB3AE69D07 Init_Annotation
  CONST Abstraction at_final
  : Parent ME_4B8BA52200D8 // nevInterfaces
  ;
+ : Speller ME_53BFF4A803C8 // Chronology
+ ;
+ : SpelledFor ME_90BADC513D76 // Chronology
+ ;
 
-ref; // ME_028B979DCE1B Init_Chronology
+ref; // ME_028B979DCE1B Init_Str_Chronology
 
 : ME_24F9074BFE88
  CONST UID '24F9074BFE88'
- CONST Name 'Init_Translation'
+ CONST Name 'Init_Str_Translation'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Инициализация str_nevmmTranslation' ;
@@ -3469,12 +3834,17 @@ ref; // ME_028B979DCE1B Init_Chronology
  CONST Abstraction at_final
  : Parent ME_4B8BA52200D8 // nevInterfaces
  ;
+ : Speller ME_49588AD10252 // Translation
+ ;
+ : SpelledFor ME_7C5BC44EA792 // Translation
+ ;
 
-ref; // ME_24F9074BFE88 Init_Translation
+ref; // ME_24F9074BFE88 Init_Str_Translation
 
 : ME_923ED897FA53
  CONST UID '923ED897FA53'
- CONST Name 'Init_JurorComment'
+ CONST Name 'Init_Str_JurorComment'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Инициализация str_nevmmJurorComment' ;
@@ -3482,12 +3852,17 @@ ref; // ME_24F9074BFE88 Init_Translation
  CONST Abstraction at_final
  : Parent ME_4B8BA52200D8 // nevInterfaces
  ;
+ : Speller ME_4B346EDF03B8 // JurorComment
+ ;
+ : SpelledFor ME_7E5A263FD277 // JurorComment
+ ;
 
-ref; // ME_923ED897FA53 Init_JurorComment
+ref; // ME_923ED897FA53 Init_Str_JurorComment
 
 : ME_A63B9AAB4089
  CONST UID 'A63B9AAB4089'
- CONST Name 'Init_JurorCommentDecorate'
+ CONST Name 'Init_Str_JurorCommentDecorate'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Инициализация str_nevmmJurorCommentDecorate' ;
@@ -3495,12 +3870,17 @@ ref; // ME_923ED897FA53 Init_JurorComment
  CONST Abstraction at_final
  : Parent ME_4B8BA52200D8 // nevInterfaces
  ;
+ : Speller ME_4B34908702AD // JurorCommentDecorate
+ ;
+ : SpelledFor ME_40C1C0F0DA26 // JurorCommentDecorate
+ ;
 
-ref; // ME_A63B9AAB4089 Init_JurorCommentDecorate
+ref; // ME_A63B9AAB4089 Init_Str_JurorCommentDecorate
 
 : ME_26BC65A43071
  CONST UID '26BC65A43071'
- CONST Name 'Init_TOC'
+ CONST Name 'Init_Str_TOC'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Инициализация str_nevmmTOC' ;
@@ -3508,12 +3888,17 @@ ref; // ME_A63B9AAB4089 Init_JurorCommentDecorate
  CONST Abstraction at_final
  : Parent ME_4B8BA52200D8 // nevInterfaces
  ;
+ : Speller ME_4B8BDF1A0286 // TOC
+ ;
+ : SpelledFor ME_3468D60093E0 // TOC
+ ;
 
-ref; // ME_26BC65A43071 Init_TOC
+ref; // ME_26BC65A43071 Init_Str_TOC
 
 : ME_61AE97A542F8
  CONST UID '61AE97A542F8'
- CONST Name 'Init_PageCounterNew'
+ CONST Name 'Init_Str_PageCounterNew'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Инициализация str_nevmmPageCounterNew' ;
@@ -3521,12 +3906,17 @@ ref; // ME_26BC65A43071 Init_TOC
  CONST Abstraction at_final
  : Parent ME_4B8BA52200D8 // nevInterfaces
  ;
+ : Speller ME_4CC6C78E036A // PageCounterNew
+ ;
+ : SpelledFor ME_AF5EDF52F60D // PageCounterNew
+ ;
 
-ref; // ME_61AE97A542F8 Init_PageCounterNew
+ref; // ME_61AE97A542F8 Init_Str_PageCounterNew
 
 : ME_AA0671CD3239
  CONST UID 'AA0671CD3239'
- CONST Name 'Init_ANSI'
+ CONST Name 'Init_Str_ANSI'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Инициализация str_nevtfANSI' ;
@@ -3534,12 +3924,17 @@ ref; // ME_61AE97A542F8 Init_PageCounterNew
  CONST Abstraction at_final
  : Parent ME_4B8BA52200D8 // nevInterfaces
  ;
+ : Speller ME_47CD374A02BB // ANSI
+ ;
+ : SpelledFor ME_FFA6F8FB0A33 // ANSI
+ ;
 
-ref; // ME_AA0671CD3239 Init_ANSI
+ref; // ME_AA0671CD3239 Init_Str_ANSI
 
 : ME_505D793F8822
  CONST UID '505D793F8822'
- CONST Name 'Init_Unicode'
+ CONST Name 'Init_Str_Unicode'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Инициализация str_nevtfUnicode' ;
@@ -3547,12 +3942,17 @@ ref; // ME_AA0671CD3239 Init_ANSI
  CONST Abstraction at_final
  : Parent ME_4B8BA52200D8 // nevInterfaces
  ;
+ : Speller ME_47CD374F0192 // Unicode
+ ;
+ : SpelledFor ME_0C760F34965F // Unicode
+ ;
 
-ref; // ME_505D793F8822 Init_Unicode
+ref; // ME_505D793F8822 Init_Str_Unicode
 
 : ME_4016886C4641
  CONST UID '4016886C4641'
- CONST Name 'Init_OEM'
+ CONST Name 'Init_Str_OEM'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Инициализация str_nevtfOEM' ;
@@ -3560,12 +3960,17 @@ ref; // ME_505D793F8822 Init_Unicode
  CONST Abstraction at_final
  : Parent ME_4B8BA52200D8 // nevInterfaces
  ;
+ : Speller ME_47CD375400C8 // OEM
+ ;
+ : SpelledFor ME_8BE999E3D796 // OEM
+ ;
 
-ref; // ME_4016886C4641 Init_OEM
+ref; // ME_4016886C4641 Init_Str_OEM
 
 : ME_65F42E828D0B
  CONST UID '65F42E828D0B'
- CONST Name 'Init_ThyEditor'
+ CONST Name 'Init_Str_ThyEditor'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Инициализация str_nevtfThyEditor' ;
@@ -3574,12 +3979,17 @@ ref; // ME_4016886C4641 Init_OEM
  : Parent ME_4B8BA52200D8 // nevInterfaces
  ;
  CONST "ifdef" 'evMyEditor'
+ : Speller ME_47CD3759002B // ThyEditor
+ ;
+ : SpelledFor ME_25505705ADFA // ThyEditor
+ ;
 
-ref; // ME_65F42E828D0B Init_ThyEditor
+ref; // ME_65F42E828D0B Init_Str_ThyEditor
 
 : ME_B477E136581D
  CONST UID 'B477E136581D'
- CONST Name 'Init_Garant'
+ CONST Name 'Init_Str_Garant'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Инициализация str_nevtfGarant' ;
@@ -3588,12 +3998,17 @@ ref; // ME_65F42E828D0B Init_ThyEditor
  : Parent ME_4B8BA52200D8 // nevInterfaces
  ;
  CONST "ifdef" 'Nemesis'
+ : Speller ME_47CD375D0317 // Garant
+ ;
+ : SpelledFor ME_64340EC34712 // Garant
+ ;
 
-ref; // ME_B477E136581D Init_Garant
+ref; // ME_B477E136581D Init_Str_Garant
 
 : ME_7B0CE8C2F7E3
  CONST UID '7B0CE8C2F7E3'
- CONST Name 'Init_EverestBin'
+ CONST Name 'Init_Str_EverestBin'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Инициализация str_nevtfEverestBin' ;
@@ -3602,12 +4017,17 @@ ref; // ME_B477E136581D Init_Garant
  : Parent ME_4B8BA52200D8 // nevInterfaces
  ;
  CONST "ifndef" 'Nemesis'
+ : Speller ME_47CD376201C3 // EverestBin
+ ;
+ : SpelledFor ME_85553527B355 // EverestBin
+ ;
 
-ref; // ME_7B0CE8C2F7E3 Init_EverestBin
+ref; // ME_7B0CE8C2F7E3 Init_Str_EverestBin
 
 : ME_D6A85D368303
  CONST UID 'D6A85D368303'
- CONST Name 'Init_Everest'
+ CONST Name 'Init_Str_Everest'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Инициализация str_nevtfEverest' ;
@@ -3616,12 +4036,17 @@ ref; // ME_7B0CE8C2F7E3 Init_EverestBin
  : Parent ME_4B8BA52200D8 // nevInterfaces
  ;
  CONST "ifndef" 'Nemesis'
+ : Speller ME_47CD37670110 // Everest
+ ;
+ : SpelledFor ME_E8FEDA575CA5 // Everest
+ ;
 
-ref; // ME_D6A85D368303 Init_Everest
+ref; // ME_D6A85D368303 Init_Str_Everest
 
 : ME_2EB088B936CF
  CONST UID '2EB088B936CF'
- CONST Name 'Init_Rtf'
+ CONST Name 'Init_Str_Rtf'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Инициализация str_nevtfRtf' ;
@@ -3629,12 +4054,17 @@ ref; // ME_D6A85D368303 Init_Everest
  CONST Abstraction at_final
  : Parent ME_4B8BA52200D8 // nevInterfaces
  ;
+ : Speller ME_47CD376C002D // Rtf
+ ;
+ : SpelledFor ME_5D31E30F68A8 // Rtf
+ ;
 
-ref; // ME_2EB088B936CF Init_Rtf
+ref; // ME_2EB088B936CF Init_Str_Rtf
 
 : ME_BB96CA8AAF3D
  CONST UID 'BB96CA8AAF3D'
- CONST Name 'Init_TimeLeft'
+ CONST Name 'Init_Str_TimeLeft'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Инициализация str_nevpmTimeLeft' ;
@@ -3642,12 +4072,17 @@ ref; // ME_2EB088B936CF Init_Rtf
  CONST Abstraction at_final
  : Parent ME_4B8BA52200D8 // nevInterfaces
  ;
+ : Speller ME_47CD3882037E // TimeLeft
+ ;
+ : SpelledFor ME_4EB9D5F7CF91 // TimeLeft
+ ;
 
-ref; // ME_BB96CA8AAF3D Init_TimeLeft
+ref; // ME_BB96CA8AAF3D Init_Str_TimeLeft
 
 : ME_68E57B13E0CF
  CONST UID '68E57B13E0CF'
- CONST Name 'Init_Counting'
+ CONST Name 'Init_Str_Counting'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Инициализация str_nevpmCounting' ;
@@ -3655,12 +4090,17 @@ ref; // ME_BB96CA8AAF3D Init_TimeLeft
  CONST Abstraction at_final
  : Parent ME_4B8BA52200D8 // nevInterfaces
  ;
+ : Speller ME_47CD388802CD // Counting
+ ;
+ : SpelledFor ME_BE4AED200D8C // Counting
+ ;
 
-ref; // ME_68E57B13E0CF Init_Counting
+ref; // ME_68E57B13E0CF Init_Str_Counting
 
 : ME_E3E58B4AF8CE
  CONST UID 'E3E58B4AF8CE'
- CONST Name 'Init_Preparing'
+ CONST Name 'Init_Str_Preparing'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Инициализация str_nevpmPreparing' ;
@@ -3668,12 +4108,17 @@ ref; // ME_68E57B13E0CF Init_Counting
  CONST Abstraction at_final
  : Parent ME_4B8BA52200D8 // nevInterfaces
  ;
+ : Speller ME_47CD388D011B // Preparing
+ ;
+ : SpelledFor ME_A8D0B3B86F39 // Preparing
+ ;
 
-ref; // ME_E3E58B4AF8CE Init_Preparing
+ref; // ME_E3E58B4AF8CE Init_Str_Preparing
 
 : ME_B47B7BCBE1A9
  CONST UID 'B47B7BCBE1A9'
- CONST Name 'Init_PreparingExt'
+ CONST Name 'Init_Str_PreparingExt'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Инициализация str_nevpmPreparingExt' ;
@@ -3681,12 +4126,17 @@ ref; // ME_E3E58B4AF8CE Init_Preparing
  CONST Abstraction at_final
  : Parent ME_4B8BA52200D8 // nevInterfaces
  ;
+ : Speller ME_47CD38920007 // PreparingExt
+ ;
+ : SpelledFor ME_1D8C41649AE7 // PreparingExt
+ ;
 
-ref; // ME_B47B7BCBE1A9 Init_PreparingExt
+ref; // ME_B47B7BCBE1A9 Init_Str_PreparingExt
 
 : ME_CF6592348516
  CONST UID 'CF6592348516'
- CONST Name 'Init_Printing'
+ CONST Name 'Init_Str_Printing'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Инициализация str_nevpmPrinting' ;
@@ -3694,12 +4144,17 @@ ref; // ME_B47B7BCBE1A9 Init_PreparingExt
  CONST Abstraction at_final
  : Parent ME_4B8BA52200D8 // nevInterfaces
  ;
+ : Speller ME_47CD38960093 // Printing
+ ;
+ : SpelledFor ME_E14C82B96F46 // Printing
+ ;
 
-ref; // ME_CF6592348516 Init_Printing
+ref; // ME_CF6592348516 Init_Str_Printing
 
 : ME_A80FBA062E3F
  CONST UID 'A80FBA062E3F'
- CONST Name 'Init_DocumentList'
+ CONST Name 'Init_Str_DocumentList'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Инициализация str_nevpmDocumentList' ;
@@ -3707,12 +4162,17 @@ ref; // ME_CF6592348516 Init_Printing
  CONST Abstraction at_final
  : Parent ME_4B8BA52200D8 // nevInterfaces
  ;
+ : Speller ME_47CD389A02F0 // DocumentList
+ ;
+ : SpelledFor ME_1AA29BAC837F // DocumentList
+ ;
 
-ref; // ME_A80FBA062E3F Init_DocumentList
+ref; // ME_A80FBA062E3F Init_Str_DocumentList
 
 : ME_5F2CB7316DAB
  CONST UID '5F2CB7316DAB'
- CONST Name 'Init_DefaultColontitul'
+ CONST Name 'Init_Str_DefaultColontitul'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Инициализация str_nevpmDefaultColontitul' ;
@@ -3720,12 +4180,17 @@ ref; // ME_A80FBA062E3F Init_DocumentList
  CONST Abstraction at_final
  : Parent ME_4B8BA52200D8 // nevInterfaces
  ;
+ : Speller ME_47CD38B1002C // DefaultColontitul
+ ;
+ : SpelledFor ME_47D1467FD38E // DefaultColontitul
+ ;
 
-ref; // ME_5F2CB7316DAB Init_DefaultColontitul
+ref; // ME_5F2CB7316DAB Init_Str_DefaultColontitul
 
 : ME_2E11CFB4A4FC
  CONST UID '2E11CFB4A4FC'
- CONST Name 'Init_UndefinedSize'
+ CONST Name 'Init_Str_UndefinedSize'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Инициализация str_nevpmUndefinedSize' ;
@@ -3733,12 +4198,17 @@ ref; // ME_5F2CB7316DAB Init_DefaultColontitul
  CONST Abstraction at_final
  : Parent ME_4B8BA52200D8 // nevInterfaces
  ;
+ : Speller ME_47CD38B50390 // UndefinedSize
+ ;
+ : SpelledFor ME_FB7347DA5CE8 // UndefinedSize
+ ;
 
-ref; // ME_2E11CFB4A4FC Init_UndefinedSize
+ref; // ME_2E11CFB4A4FC Init_Str_UndefinedSize
 
 : ME_D9AFB3397ACE
  CONST UID 'D9AFB3397ACE'
- CONST Name 'Init_UndefinedTopic'
+ CONST Name 'Init_Str_UndefinedTopic'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Инициализация str_nevpmUndefinedTopic' ;
@@ -3746,12 +4216,17 @@ ref; // ME_2E11CFB4A4FC Init_UndefinedSize
  CONST Abstraction at_final
  : Parent ME_4B8BA52200D8 // nevInterfaces
  ;
+ : Speller ME_47CD38BB0162 // UndefinedTopic
+ ;
+ : SpelledFor ME_EF6A36F0AE31 // UndefinedTopic
+ ;
 
-ref; // ME_D9AFB3397ACE Init_UndefinedTopic
+ref; // ME_D9AFB3397ACE Init_Str_UndefinedTopic
 
 : ME_E8865D13B34D
  CONST UID 'E8865D13B34D'
- CONST Name 'Init_ProcessText'
+ CONST Name 'Init_Str_ProcessText'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Инициализация str_nevpmProcessText' ;
@@ -3759,12 +4234,17 @@ ref; // ME_D9AFB3397ACE Init_UndefinedTopic
  CONST Abstraction at_final
  : Parent ME_4B8BA52200D8 // nevInterfaces
  ;
+ : Speller ME_47CD38BF028B // ProcessText
+ ;
+ : SpelledFor ME_461C85A1B77B // ProcessText
+ ;
 
-ref; // ME_E8865D13B34D Init_ProcessText
+ref; // ME_E8865D13B34D Init_Str_ProcessText
 
 : ME_8784A947D324
  CONST UID '8784A947D324'
- CONST Name 'Init_ProcessPreview'
+ CONST Name 'Init_Str_ProcessPreview'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Инициализация str_nevpmProcessPreview' ;
@@ -3772,12 +4252,17 @@ ref; // ME_E8865D13B34D Init_ProcessText
  CONST Abstraction at_final
  : Parent ME_4B8BA52200D8 // nevInterfaces
  ;
+ : Speller ME_47CD38C402CE // ProcessPreview
+ ;
+ : SpelledFor ME_522874E40204 // ProcessPreview
+ ;
 
-ref; // ME_8784A947D324 Init_ProcessPreview
+ref; // ME_8784A947D324 Init_Str_ProcessPreview
 
 : ME_C1050C894211
  CONST UID 'C1050C894211'
- CONST Name 'Init_Expand'
+ CONST Name 'Init_Str_Expand'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Инициализация str_nevcphExpand' ;
@@ -3785,12 +4270,17 @@ ref; // ME_8784A947D324 Init_ProcessPreview
  CONST Abstraction at_final
  : Parent ME_4B8BA52200D8 // nevInterfaces
  ;
+ : Speller ME_47CD378203D6 // Expand
+ ;
+ : SpelledFor ME_6065D5585A59 // Expand
+ ;
 
-ref; // ME_C1050C894211 Init_Expand
+ref; // ME_C1050C894211 Init_Str_Expand
 
 : ME_B49505B3E5E3
  CONST UID 'B49505B3E5E3'
- CONST Name 'Init_Collapse'
+ CONST Name 'Init_Str_Collapse'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Инициализация str_nevcphCollapse' ;
@@ -3798,12 +4288,17 @@ ref; // ME_C1050C894211 Init_Expand
  CONST Abstraction at_final
  : Parent ME_4B8BA52200D8 // nevInterfaces
  ;
+ : Speller ME_47CD37880034 // Collapse
+ ;
+ : SpelledFor ME_E889724A7B52 // Collapse
+ ;
 
-ref; // ME_B49505B3E5E3 Init_Collapse
+ref; // ME_B49505B3E5E3 Init_Str_Collapse
 
 : ME_1AD239A861D5
  CONST UID '1AD239A861D5'
- CONST Name 'Init_Select'
+ CONST Name 'Init_Str_Select'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Инициализация str_nevcphSelect' ;
@@ -3811,12 +4306,17 @@ ref; // ME_B49505B3E5E3 Init_Collapse
  CONST Abstraction at_final
  : Parent ME_4B8BA52200D8 // nevInterfaces
  ;
+ : Speller ME_47CD378C014B // Select
+ ;
+ : SpelledFor ME_4CF113194967 // Select
+ ;
 
-ref; // ME_1AD239A861D5 Init_Select
+ref; // ME_1AD239A861D5 Init_Str_Select
 
 : ME_24BE08C74139
  CONST UID '24BE08C74139'
- CONST Name 'Init_Move'
+ CONST Name 'Init_Str_Move'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Инициализация str_nevcphMove' ;
@@ -3824,12 +4324,17 @@ ref; // ME_1AD239A861D5 Init_Select
  CONST Abstraction at_final
  : Parent ME_4B8BA52200D8 // nevInterfaces
  ;
+ : Speller ME_47CD3791001F // Move
+ ;
+ : SpelledFor ME_7821F0329ADA // Move
+ ;
 
-ref; // ME_24BE08C74139 Init_Move
+ref; // ME_24BE08C74139 Init_Str_Move
 
 : ME_3EE7700E337B
  CONST UID '3EE7700E337B'
- CONST Name 'Init_ChangeTopBorder'
+ CONST Name 'Init_Str_ChangeTopBorder'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Инициализация str_nevcphChangeTopBorder' ;
@@ -3837,12 +4342,17 @@ ref; // ME_24BE08C74139 Init_Move
  CONST Abstraction at_final
  : Parent ME_4B8BA52200D8 // nevInterfaces
  ;
+ : Speller ME_47CD3795031C // ChangeTopBorder
+ ;
+ : SpelledFor ME_8292E18C7350 // ChangeTopBorder
+ ;
 
-ref; // ME_3EE7700E337B Init_ChangeTopBorder
+ref; // ME_3EE7700E337B Init_Str_ChangeTopBorder
 
 : ME_C27C42C34243
  CONST UID 'C27C42C34243'
- CONST Name 'Init_ChangeBottomBorder'
+ CONST Name 'Init_Str_ChangeBottomBorder'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Инициализация str_nevcphChangeBottomBorder' ;
@@ -3850,12 +4360,17 @@ ref; // ME_3EE7700E337B Init_ChangeTopBorder
  CONST Abstraction at_final
  : Parent ME_4B8BA52200D8 // nevInterfaces
  ;
+ : Speller ME_47CD379B01DC // ChangeBottomBorder
+ ;
+ : SpelledFor ME_BEF4176D5585 // ChangeBottomBorder
+ ;
 
-ref; // ME_C27C42C34243 Init_ChangeBottomBorder
+ref; // ME_C27C42C34243 Init_Str_ChangeBottomBorder
 
 : ME_9AC40AE7B66B
  CONST UID '9AC40AE7B66B'
- CONST Name 'Init_Properties'
+ CONST Name 'Init_Str_Properties'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Инициализация str_nevcphProperties' ;
@@ -3863,12 +4378,17 @@ ref; // ME_C27C42C34243 Init_ChangeBottomBorder
  CONST Abstraction at_final
  : Parent ME_4B8BA52200D8 // nevInterfaces
  ;
+ : Speller ME_47CD37A001BC // Properties
+ ;
+ : SpelledFor ME_F83F84539792 // Properties
+ ;
 
-ref; // ME_9AC40AE7B66B Init_Properties
+ref; // ME_9AC40AE7B66B Init_Str_Properties
 
 : ME_322B60281AA9
  CONST UID '322B60281AA9'
- CONST Name 'Init_Undo'
+ CONST Name 'Init_Str_Undo'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Инициализация str_nevmcmUndo' ;
@@ -3876,12 +4396,17 @@ ref; // ME_9AC40AE7B66B Init_Properties
  CONST Abstraction at_final
  : Parent ME_4B8BA52200D8 // nevInterfaces
  ;
+ : Speller ME_47CD38DC01CE // Undo
+ ;
+ : SpelledFor ME_F4363775A818 // Undo
+ ;
 
-ref; // ME_322B60281AA9 Init_Undo
+ref; // ME_322B60281AA9 Init_Str_Undo
 
 : ME_D2704553B93A
  CONST UID 'D2704553B93A'
- CONST Name 'Init_Cut'
+ CONST Name 'Init_Str_Cut'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Инициализация str_nevmcmCut' ;
@@ -3889,12 +4414,17 @@ ref; // ME_322B60281AA9 Init_Undo
  CONST Abstraction at_final
  : Parent ME_4B8BA52200D8 // nevInterfaces
  ;
+ : Speller ME_47CD38E0034E // Cut
+ ;
+ : SpelledFor ME_D3852CA1A62D // Cut
+ ;
 
-ref; // ME_D2704553B93A Init_Cut
+ref; // ME_D2704553B93A Init_Str_Cut
 
 : ME_B63834B7B363
  CONST UID 'B63834B7B363'
- CONST Name 'Init_Copy'
+ CONST Name 'Init_Str_Copy'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Инициализация str_nevmcmCopy' ;
@@ -3902,12 +4432,17 @@ ref; // ME_D2704553B93A Init_Cut
  CONST Abstraction at_final
  : Parent ME_4B8BA52200D8 // nevInterfaces
  ;
+ : Speller ME_47CD38E5030A // Copy
+ ;
+ : SpelledFor ME_0C1939C7DBD0 // Copy
+ ;
 
-ref; // ME_B63834B7B363 Init_Copy
+ref; // ME_B63834B7B363 Init_Str_Copy
 
 : ME_BF9864D4F027
  CONST UID 'BF9864D4F027'
- CONST Name 'Init_Paste'
+ CONST Name 'Init_Str_Paste'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Инициализация str_nevmcmPaste' ;
@@ -3915,12 +4450,17 @@ ref; // ME_B63834B7B363 Init_Copy
  CONST Abstraction at_final
  : Parent ME_4B8BA52200D8 // nevInterfaces
  ;
+ : Speller ME_47CD38E903BD // Paste
+ ;
+ : SpelledFor ME_1418ED68F19C // Paste
+ ;
 
-ref; // ME_BF9864D4F027 Init_Paste
+ref; // ME_BF9864D4F027 Init_Str_Paste
 
 : ME_A558C75F6357
  CONST UID 'A558C75F6357'
- CONST Name 'Init_Delete'
+ CONST Name 'Init_Str_Delete'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Инициализация str_nevmcmDelete' ;
@@ -3928,12 +4468,17 @@ ref; // ME_BF9864D4F027 Init_Paste
  CONST Abstraction at_final
  : Parent ME_4B8BA52200D8 // nevInterfaces
  ;
+ : Speller ME_47CD38F0019D // Delete
+ ;
+ : SpelledFor ME_1F1A758CDC74 // Delete
+ ;
 
-ref; // ME_A558C75F6357 Init_Delete
+ref; // ME_A558C75F6357 Init_Str_Delete
 
 : ME_524A17A44E64
  CONST UID '524A17A44E64'
- CONST Name 'Init_Expand'
+ CONST Name 'Init_Str_Expand'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Инициализация str_nevdphExpand' ;
@@ -3941,12 +4486,17 @@ ref; // ME_A558C75F6357 Init_Delete
  CONST Abstraction at_final
  : Parent ME_4B8BA52200D8 // nevInterfaces
  ;
+ : Speller ME_47CD37B200E3 // Expand
+ ;
+ : SpelledFor ME_F5FF7A68A37C // Expand
+ ;
 
-ref; // ME_524A17A44E64 Init_Expand
+ref; // ME_524A17A44E64 Init_Str_Expand
 
 : ME_E172B1C73409
  CONST UID 'E172B1C73409'
- CONST Name 'Init_Collapse'
+ CONST Name 'Init_Str_Collapse'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Инициализация str_nevdphCollapse' ;
@@ -3954,12 +4504,17 @@ ref; // ME_524A17A44E64 Init_Expand
  CONST Abstraction at_final
  : Parent ME_4B8BA52200D8 // nevInterfaces
  ;
+ : Speller ME_47CD37B601C8 // Collapse
+ ;
+ : SpelledFor ME_65FCF81E821E // Collapse
+ ;
 
-ref; // ME_E172B1C73409 Init_Collapse
+ref; // ME_E172B1C73409 Init_Str_Collapse
 
 : ME_F94202093F58
  CONST UID 'F94202093F58'
- CONST Name 'Init_Select'
+ CONST Name 'Init_Str_Select'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Инициализация str_nevdphSelect' ;
@@ -3967,12 +4522,17 @@ ref; // ME_E172B1C73409 Init_Collapse
  CONST Abstraction at_final
  : Parent ME_4B8BA52200D8 // nevInterfaces
  ;
+ : Speller ME_47CD37BA02DF // Select
+ ;
+ : SpelledFor ME_736781684AB0 // Select
+ ;
 
-ref; // ME_F94202093F58 Init_Select
+ref; // ME_F94202093F58 Init_Str_Select
 
 : ME_97C8F253AB3B
  CONST UID '97C8F253AB3B'
- CONST Name 'Init_Move'
+ CONST Name 'Init_Str_Move'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Инициализация str_nevdphMove' ;
@@ -3980,12 +4540,17 @@ ref; // ME_F94202093F58 Init_Select
  CONST Abstraction at_final
  : Parent ME_4B8BA52200D8 // nevInterfaces
  ;
+ : Speller ME_47CD37BE02CA // Move
+ ;
+ : SpelledFor ME_E08E5B7CAEAD // Move
+ ;
 
-ref; // ME_97C8F253AB3B Init_Move
+ref; // ME_97C8F253AB3B Init_Str_Move
 
 : ME_1BFC860CAC69
  CONST UID '1BFC860CAC69'
- CONST Name 'Init_ChangeTopBorder'
+ CONST Name 'Init_Str_ChangeTopBorder'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Инициализация str_nevdphChangeTopBorder' ;
@@ -3993,12 +4558,17 @@ ref; // ME_97C8F253AB3B Init_Move
  CONST Abstraction at_final
  : Parent ME_4B8BA52200D8 // nevInterfaces
  ;
+ : Speller ME_47CD37C30047 // ChangeTopBorder
+ ;
+ : SpelledFor ME_6EBB5F7A4994 // ChangeTopBorder
+ ;
 
-ref; // ME_1BFC860CAC69 Init_ChangeTopBorder
+ref; // ME_1BFC860CAC69 Init_Str_ChangeTopBorder
 
 : ME_9DB0FA10FFA6
  CONST UID '9DB0FA10FFA6'
- CONST Name 'Init_ChangeBottomBorder'
+ CONST Name 'Init_Str_ChangeBottomBorder'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Инициализация str_nevdphChangeBottomBorder' ;
@@ -4006,12 +4576,17 @@ ref; // ME_1BFC860CAC69 Init_ChangeTopBorder
  CONST Abstraction at_final
  : Parent ME_4B8BA52200D8 // nevInterfaces
  ;
+ : Speller ME_47CD37C8011B // ChangeBottomBorder
+ ;
+ : SpelledFor ME_7C441707116F // ChangeBottomBorder
+ ;
 
-ref; // ME_9DB0FA10FFA6 Init_ChangeBottomBorder
+ref; // ME_9DB0FA10FFA6 Init_Str_ChangeBottomBorder
 
 : ME_496B9DDDA383
  CONST UID '496B9DDDA383'
- CONST Name 'Init_Properties'
+ CONST Name 'Init_Str_Properties'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Инициализация str_nevdphProperties' ;
@@ -4019,12 +4594,17 @@ ref; // ME_9DB0FA10FFA6 Init_ChangeBottomBorder
  CONST Abstraction at_final
  : Parent ME_4B8BA52200D8 // nevInterfaces
  ;
+ : Speller ME_47CD37CC0217 // Properties
+ ;
+ : SpelledFor ME_65B3B242BD8F // Properties
+ ;
 
-ref; // ME_496B9DDDA383 Init_Properties
+ref; // ME_496B9DDDA383 Init_Str_Properties
 
 : ME_B00A16BBCC48
  CONST UID 'B00A16BBCC48'
- CONST Name 'Init_BlockParams'
+ CONST Name 'Init_Str_BlockParams'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Инициализация str_nevmhhBlockParams' ;
@@ -4032,12 +4612,17 @@ ref; // ME_496B9DDDA383 Init_Properties
  CONST Abstraction at_final
  : Parent ME_4B8BA52200D8 // nevInterfaces
  ;
+ : Speller ME_47CD394502DC // BlockParams
+ ;
+ : SpelledFor ME_D813193C1C36 // BlockParams
+ ;
 
-ref; // ME_B00A16BBCC48 Init_BlockParams
+ref; // ME_B00A16BBCC48 Init_Str_BlockParams
 
 : ME_DD23DEA25236
  CONST UID 'DD23DEA25236'
- CONST Name 'Init_TableCell'
+ CONST Name 'Init_Str_TableCell'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Инициализация str_nevmhhTableCell' ;
@@ -4045,12 +4630,17 @@ ref; // ME_B00A16BBCC48 Init_BlockParams
  CONST Abstraction at_final
  : Parent ME_4B8BA52200D8 // nevInterfaces
  ;
+ : Speller ME_47CD394B00C7 // TableCell
+ ;
+ : SpelledFor ME_34C9D641BA93 // TableCell
+ ;
 
-ref; // ME_DD23DEA25236 Init_TableCell
+ref; // ME_DD23DEA25236 Init_Str_TableCell
 
 : ME_30DF49A2335B
  CONST UID '30DF49A2335B'
- CONST Name 'Init_TableSize'
+ CONST Name 'Init_Str_TableSize'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Инициализация str_nevmhhTableSize' ;
@@ -4058,12 +4648,17 @@ ref; // ME_DD23DEA25236 Init_TableCell
  CONST Abstraction at_final
  : Parent ME_4B8BA52200D8 // nevInterfaces
  ;
+ : Speller ME_47CD3950017F // TableSize
+ ;
+ : SpelledFor ME_6CD39D3E7617 // TableSize
+ ;
 
-ref; // ME_30DF49A2335B Init_TableSize
+ref; // ME_30DF49A2335B Init_Str_TableSize
 
 : ME_25DB7B2E88AF
  CONST UID '25DB7B2E88AF'
- CONST Name 'Init_ColumnSize'
+ CONST Name 'Init_Str_ColumnSize'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Инициализация str_nevmhhColumnSize' ;
@@ -4071,12 +4666,17 @@ ref; // ME_30DF49A2335B Init_TableSize
  CONST Abstraction at_final
  : Parent ME_4B8BA52200D8 // nevInterfaces
  ;
+ : Speller ME_47CD39560351 // ColumnSize
+ ;
+ : SpelledFor ME_30D778EF9AD8 // ColumnSize
+ ;
 
-ref; // ME_25DB7B2E88AF Init_ColumnSize
+ref; // ME_25DB7B2E88AF Init_Str_ColumnSize
 
 : ME_1F2E8827F5E9
  CONST UID '1F2E8827F5E9'
- CONST Name 'Init_TableColumn'
+ CONST Name 'Init_Str_TableColumn'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Инициализация str_nevmhhTableColumn' ;
@@ -4084,12 +4684,17 @@ ref; // ME_25DB7B2E88AF Init_ColumnSize
  CONST Abstraction at_final
  : Parent ME_4B8BA52200D8 // nevInterfaces
  ;
+ : Speller ME_47CD395B008B // TableColumn
+ ;
+ : SpelledFor ME_7E05DEE6F026 // TableColumn
+ ;
 
-ref; // ME_1F2E8827F5E9 Init_TableColumn
+ref; // ME_1F2E8827F5E9 Init_Str_TableColumn
 
 : ME_7CC396363BBD
  CONST UID '7CC396363BBD'
- CONST Name 'Init_TableRow'
+ CONST Name 'Init_Str_TableRow'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Инициализация str_nevmhhTableRow' ;
@@ -4097,12 +4702,17 @@ ref; // ME_1F2E8827F5E9 Init_TableColumn
  CONST Abstraction at_final
  : Parent ME_4B8BA52200D8 // nevInterfaces
  ;
+ : Speller ME_47CD395F00CA // TableRow
+ ;
+ : SpelledFor ME_43C228A0616D // TableRow
+ ;
 
-ref; // ME_7CC396363BBD Init_TableRow
+ref; // ME_7CC396363BBD Init_Str_TableRow
 
 : ME_A8A8353B2F43
  CONST UID 'A8A8353B2F43'
- CONST Name 'Init_LeftHyperlinkBorder'
+ CONST Name 'Init_Str_LeftHyperlinkBorder'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Инициализация str_nevmhhLeftHyperlinkBorder' ;
@@ -4110,12 +4720,17 @@ ref; // ME_7CC396363BBD Init_TableRow
  CONST Abstraction at_final
  : Parent ME_4B8BA52200D8 // nevInterfaces
  ;
+ : Speller ME_47CD396301E5 // LeftHyperlinkBorder
+ ;
+ : SpelledFor ME_9652247E96F6 // LeftHyperlinkBorder
+ ;
 
-ref; // ME_A8A8353B2F43 Init_LeftHyperlinkBorder
+ref; // ME_A8A8353B2F43 Init_Str_LeftHyperlinkBorder
 
 : ME_8FCF74243C60
  CONST UID '8FCF74243C60'
- CONST Name 'Init_RightHyperlinkBorder'
+ CONST Name 'Init_Str_RightHyperlinkBorder'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Инициализация str_nevmhhRightHyperlinkBorder' ;
@@ -4123,12 +4738,17 @@ ref; // ME_A8A8353B2F43 Init_LeftHyperlinkBorder
  CONST Abstraction at_final
  : Parent ME_4B8BA52200D8 // nevInterfaces
  ;
+ : Speller ME_47CD3968016F // RightHyperlinkBorder
+ ;
+ : SpelledFor ME_A9D2FDDC10B1 // RightHyperlinkBorder
+ ;
 
-ref; // ME_8FCF74243C60 Init_RightHyperlinkBorder
+ref; // ME_8FCF74243C60 Init_Str_RightHyperlinkBorder
 
 : ME_C70B35CC8430
  CONST UID 'C70B35CC8430'
- CONST Name 'Init_LeftIndent'
+ CONST Name 'Init_Str_LeftIndent'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Инициализация str_nevmhLeftIndent' ;
@@ -4136,12 +4756,17 @@ ref; // ME_8FCF74243C60 Init_RightHyperlinkBorder
  CONST Abstraction at_final
  : Parent ME_4B8BA52200D8 // nevInterfaces
  ;
+ : Speller ME_47CD397A0364 // LeftIndent
+ ;
+ : SpelledFor ME_19F92D03926A // LeftIndent
+ ;
 
-ref; // ME_C70B35CC8430 Init_LeftIndent
+ref; // ME_C70B35CC8430 Init_Str_LeftIndent
 
 : ME_B1C9F155CB38
  CONST UID 'B1C9F155CB38'
- CONST Name 'Init_RightIndent'
+ CONST Name 'Init_Str_RightIndent'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Инициализация str_nevmhRightIndent' ;
@@ -4149,12 +4774,17 @@ ref; // ME_C70B35CC8430 Init_LeftIndent
  CONST Abstraction at_final
  : Parent ME_4B8BA52200D8 // nevInterfaces
  ;
+ : Speller ME_47CD397F0305 // RightIndent
+ ;
+ : SpelledFor ME_FA2DB3E1A5DE // RightIndent
+ ;
 
-ref; // ME_B1C9F155CB38 Init_RightIndent
+ref; // ME_B1C9F155CB38 Init_Str_RightIndent
 
 : ME_066933E42514
  CONST UID '066933E42514'
- CONST Name 'Init_RedLineIndent'
+ CONST Name 'Init_Str_RedLineIndent'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Инициализация str_nevmhRedLineIndent' ;
@@ -4162,12 +4792,17 @@ ref; // ME_B1C9F155CB38 Init_RightIndent
  CONST Abstraction at_final
  : Parent ME_4B8BA52200D8 // nevInterfaces
  ;
+ : Speller ME_47CD398402E3 // RedLineIndent
+ ;
+ : SpelledFor ME_D662C6939142 // RedLineIndent
+ ;
 
-ref; // ME_066933E42514 Init_RedLineIndent
+ref; // ME_066933E42514 Init_Str_RedLineIndent
 
 : ME_CF2B1ED4E59F
  CONST UID 'CF2B1ED4E59F'
- CONST Name 'Init_CellSize'
+ CONST Name 'Init_Str_CellSize'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Инициализация str_nevmhCellSize' ;
@@ -4175,12 +4810,17 @@ ref; // ME_066933E42514 Init_RedLineIndent
  CONST Abstraction at_final
  : Parent ME_4B8BA52200D8 // nevInterfaces
  ;
+ : Speller ME_47CD3989015D // CellSize
+ ;
+ : SpelledFor ME_0912095F1456 // CellSize
+ ;
 
-ref; // ME_CF2B1ED4E59F Init_CellSize
+ref; // ME_CF2B1ED4E59F Init_Str_CellSize
 
 : ME_E3FEC4B4DE6C
  CONST UID 'E3FEC4B4DE6C'
- CONST Name 'Init_TableIndent'
+ CONST Name 'Init_Str_TableIndent'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Инициализация str_nevmhTableIndent' ;
@@ -4188,12 +4828,17 @@ ref; // ME_CF2B1ED4E59F Init_CellSize
  CONST Abstraction at_final
  : Parent ME_4B8BA52200D8 // nevInterfaces
  ;
+ : Speller ME_47CD398E00A5 // TableIndent
+ ;
+ : SpelledFor ME_46790B1FF694 // TableIndent
+ ;
 
-ref; // ME_E3FEC4B4DE6C Init_TableIndent
+ref; // ME_E3FEC4B4DE6C Init_Str_TableIndent
 
 : ME_8A047B48D5F1
  CONST UID '8A047B48D5F1'
- CONST Name 'Init_PaperSize'
+ CONST Name 'Init_Str_PaperSize'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Инициализация str_nevmhPaperSize' ;
@@ -4201,12 +4846,17 @@ ref; // ME_E3FEC4B4DE6C Init_TableIndent
  CONST Abstraction at_final
  : Parent ME_4B8BA52200D8 // nevInterfaces
  ;
+ : Speller ME_47CD399202A8 // PaperSize
+ ;
+ : SpelledFor ME_210A7E9DC9FE // PaperSize
+ ;
 
-ref; // ME_8A047B48D5F1 Init_PaperSize
+ref; // ME_8A047B48D5F1 Init_Str_PaperSize
 
 : ME_C5A639B00970
  CONST UID 'C5A639B00970'
- CONST Name 'Init_LeftDocMargin'
+ CONST Name 'Init_Str_LeftDocMargin'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Инициализация str_nevmhLeftDocMargin' ;
@@ -4214,12 +4864,17 @@ ref; // ME_8A047B48D5F1 Init_PaperSize
  CONST Abstraction at_final
  : Parent ME_4B8BA52200D8 // nevInterfaces
  ;
+ : Speller ME_47CD399603E0 // LeftDocMargin
+ ;
+ : SpelledFor ME_B15E21AFA0FF // LeftDocMargin
+ ;
 
-ref; // ME_C5A639B00970 Init_LeftDocMargin
+ref; // ME_C5A639B00970 Init_Str_LeftDocMargin
 
 : ME_1FD11E150984
  CONST UID '1FD11E150984'
- CONST Name 'Init_RightDocMargin'
+ CONST Name 'Init_Str_RightDocMargin'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Инициализация str_nevmhRightDocMargin' ;
@@ -4227,12 +4882,17 @@ ref; // ME_C5A639B00970 Init_LeftDocMargin
  CONST Abstraction at_final
  : Parent ME_4B8BA52200D8 // nevInterfaces
  ;
+ : Speller ME_47CD399B0375 // RightDocMargin
+ ;
+ : SpelledFor ME_74BC9585DD56 // RightDocMargin
+ ;
 
-ref; // ME_1FD11E150984 Init_RightDocMargin
+ref; // ME_1FD11E150984 Init_Str_RightDocMargin
 
 : ME_1B59FC98937F
  CONST UID '1B59FC98937F'
- CONST Name 'Init_TabIndent'
+ CONST Name 'Init_Str_TabIndent'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Инициализация str_nevmhTabIndent' ;
@@ -4240,11 +4900,16 @@ ref; // ME_1FD11E150984 Init_RightDocMargin
  CONST Abstraction at_final
  : Parent ME_4B8BA52200D8 // nevInterfaces
  ;
+ : Speller ME_48DCB1D9035A // TabIndent
+ ;
+ : SpelledFor ME_B8D79483EB8A // TabIndent
+ ;
 
-ref; // ME_1B59FC98937F Init_TabIndent
+ref; // ME_1B59FC98937F Init_Str_TabIndent
 
 : ME_5743A5B75A94
  CONST UID '5743A5B75A94'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_4B8BA52200D8 // nevInterfaces
@@ -4256,6 +4921,7 @@ ref; // ME_5743A5B75A94
 
 : ME_7E2D415E21A1
  CONST UID '7E2D415E21A1'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_4B8BA52200D8 // nevInterfaces
@@ -4276,84 +4942,84 @@ ref; // ME_7E2D415E21A1
  : Parent ME_47CD3441002F // nevInterfaces
  ;
  : Operations
-   @ ( ME_3DB7B0D51676 // Init_SaveText
- ME_038E91438429 // Init_SaveFormattedText
- ME_1AD9220E27EF // Init_Reference
- ME_71BA42E1B08F // Init_PageCounter
- ME_66BF11F7E990 // Init_DocumentCount
- ME_4BE19FDF4A07 // Init_DocumentCountInt
- ME_D7660E310DFB // Init_Comment
- ME_D40B01759A7B // Init_Replace
- ME_4D3E27729526 // Init_Fragment
- ME_26D57392DF2B // Init_Search
- ME_B47FEE8397E4 // Init_LongOperation
- ME_BB3CCDE41DA5 // Init_CommentFolder
- ME_26CB3AE69D07 // Init_Annotation
- ME_028B979DCE1B // Init_Chronology
- ME_24F9074BFE88 // Init_Translation
- ME_923ED897FA53 // Init_JurorComment
- ME_A63B9AAB4089 // Init_JurorCommentDecorate
- ME_26BC65A43071 // Init_TOC
- ME_61AE97A542F8 // Init_PageCounterNew
- ME_AA0671CD3239 // Init_ANSI
- ME_505D793F8822 // Init_Unicode
- ME_4016886C4641 // Init_OEM
- ME_65F42E828D0B // Init_ThyEditor
- ME_B477E136581D // Init_Garant
- ME_7B0CE8C2F7E3 // Init_EverestBin
- ME_D6A85D368303 // Init_Everest
- ME_2EB088B936CF // Init_Rtf
- ME_BB96CA8AAF3D // Init_TimeLeft
- ME_68E57B13E0CF // Init_Counting
- ME_E3E58B4AF8CE // Init_Preparing
- ME_B47B7BCBE1A9 // Init_PreparingExt
- ME_CF6592348516 // Init_Printing
- ME_A80FBA062E3F // Init_DocumentList
- ME_5F2CB7316DAB // Init_DefaultColontitul
- ME_2E11CFB4A4FC // Init_UndefinedSize
- ME_D9AFB3397ACE // Init_UndefinedTopic
- ME_E8865D13B34D // Init_ProcessText
- ME_8784A947D324 // Init_ProcessPreview
- ME_C1050C894211 // Init_Expand
- ME_B49505B3E5E3 // Init_Collapse
- ME_1AD239A861D5 // Init_Select
- ME_24BE08C74139 // Init_Move
- ME_3EE7700E337B // Init_ChangeTopBorder
- ME_C27C42C34243 // Init_ChangeBottomBorder
- ME_9AC40AE7B66B // Init_Properties
- ME_322B60281AA9 // Init_Undo
- ME_D2704553B93A // Init_Cut
- ME_B63834B7B363 // Init_Copy
- ME_BF9864D4F027 // Init_Paste
- ME_A558C75F6357 // Init_Delete
- ME_524A17A44E64 // Init_Expand
- ME_E172B1C73409 // Init_Collapse
- ME_F94202093F58 // Init_Select
- ME_97C8F253AB3B // Init_Move
- ME_1BFC860CAC69 // Init_ChangeTopBorder
- ME_9DB0FA10FFA6 // Init_ChangeBottomBorder
- ME_496B9DDDA383 // Init_Properties
- ME_B00A16BBCC48 // Init_BlockParams
- ME_DD23DEA25236 // Init_TableCell
- ME_30DF49A2335B // Init_TableSize
- ME_25DB7B2E88AF // Init_ColumnSize
- ME_1F2E8827F5E9 // Init_TableColumn
- ME_7CC396363BBD // Init_TableRow
- ME_A8A8353B2F43 // Init_LeftHyperlinkBorder
- ME_8FCF74243C60 // Init_RightHyperlinkBorder
- ME_C70B35CC8430 // Init_LeftIndent
- ME_B1C9F155CB38 // Init_RightIndent
- ME_066933E42514 // Init_RedLineIndent
- ME_CF2B1ED4E59F // Init_CellSize
- ME_E3FEC4B4DE6C // Init_TableIndent
- ME_8A047B48D5F1 // Init_PaperSize
- ME_C5A639B00970 // Init_LeftDocMargin
- ME_1FD11E150984 // Init_RightDocMargin
- ME_1B59FC98937F // Init_TabIndent
- ) .SequenceCode.It
+   Seq: ( ME_3DB7B0D51676 // Init_Str_SaveText
+ ME_038E91438429 // Init_Str_SaveFormattedText
+ ME_1AD9220E27EF // Init_Str_Reference
+ ME_71BA42E1B08F // Init_Str_PageCounter
+ ME_66BF11F7E990 // Init_Str_DocumentCount
+ ME_4BE19FDF4A07 // Init_Str_DocumentCountInt
+ ME_D7660E310DFB // Init_Str_Comment
+ ME_D40B01759A7B // Init_Str_Replace
+ ME_4D3E27729526 // Init_Str_Fragment
+ ME_26D57392DF2B // Init_Str_Search
+ ME_B47FEE8397E4 // Init_Str_LongOperation
+ ME_BB3CCDE41DA5 // Init_Str_CommentFolder
+ ME_26CB3AE69D07 // Init_Str_Annotation
+ ME_028B979DCE1B // Init_Str_Chronology
+ ME_24F9074BFE88 // Init_Str_Translation
+ ME_923ED897FA53 // Init_Str_JurorComment
+ ME_A63B9AAB4089 // Init_Str_JurorCommentDecorate
+ ME_26BC65A43071 // Init_Str_TOC
+ ME_61AE97A542F8 // Init_Str_PageCounterNew
+ ME_AA0671CD3239 // Init_Str_ANSI
+ ME_505D793F8822 // Init_Str_Unicode
+ ME_4016886C4641 // Init_Str_OEM
+ ME_65F42E828D0B // Init_Str_ThyEditor
+ ME_B477E136581D // Init_Str_Garant
+ ME_7B0CE8C2F7E3 // Init_Str_EverestBin
+ ME_D6A85D368303 // Init_Str_Everest
+ ME_2EB088B936CF // Init_Str_Rtf
+ ME_BB96CA8AAF3D // Init_Str_TimeLeft
+ ME_68E57B13E0CF // Init_Str_Counting
+ ME_E3E58B4AF8CE // Init_Str_Preparing
+ ME_B47B7BCBE1A9 // Init_Str_PreparingExt
+ ME_CF6592348516 // Init_Str_Printing
+ ME_A80FBA062E3F // Init_Str_DocumentList
+ ME_5F2CB7316DAB // Init_Str_DefaultColontitul
+ ME_2E11CFB4A4FC // Init_Str_UndefinedSize
+ ME_D9AFB3397ACE // Init_Str_UndefinedTopic
+ ME_E8865D13B34D // Init_Str_ProcessText
+ ME_8784A947D324 // Init_Str_ProcessPreview
+ ME_C1050C894211 // Init_Str_Expand
+ ME_B49505B3E5E3 // Init_Str_Collapse
+ ME_1AD239A861D5 // Init_Str_Select
+ ME_24BE08C74139 // Init_Str_Move
+ ME_3EE7700E337B // Init_Str_ChangeTopBorder
+ ME_C27C42C34243 // Init_Str_ChangeBottomBorder
+ ME_9AC40AE7B66B // Init_Str_Properties
+ ME_322B60281AA9 // Init_Str_Undo
+ ME_D2704553B93A // Init_Str_Cut
+ ME_B63834B7B363 // Init_Str_Copy
+ ME_BF9864D4F027 // Init_Str_Paste
+ ME_A558C75F6357 // Init_Str_Delete
+ ME_524A17A44E64 // Init_Str_Expand
+ ME_E172B1C73409 // Init_Str_Collapse
+ ME_F94202093F58 // Init_Str_Select
+ ME_97C8F253AB3B // Init_Str_Move
+ ME_1BFC860CAC69 // Init_Str_ChangeTopBorder
+ ME_9DB0FA10FFA6 // Init_Str_ChangeBottomBorder
+ ME_496B9DDDA383 // Init_Str_Properties
+ ME_B00A16BBCC48 // Init_Str_BlockParams
+ ME_DD23DEA25236 // Init_Str_TableCell
+ ME_30DF49A2335B // Init_Str_TableSize
+ ME_25DB7B2E88AF // Init_Str_ColumnSize
+ ME_1F2E8827F5E9 // Init_Str_TableColumn
+ ME_7CC396363BBD // Init_Str_TableRow
+ ME_A8A8353B2F43 // Init_Str_LeftHyperlinkBorder
+ ME_8FCF74243C60 // Init_Str_RightHyperlinkBorder
+ ME_C70B35CC8430 // Init_Str_LeftIndent
+ ME_B1C9F155CB38 // Init_Str_RightIndent
+ ME_066933E42514 // Init_Str_RedLineIndent
+ ME_CF2B1ED4E59F // Init_Str_CellSize
+ ME_E3FEC4B4DE6C // Init_Str_TableIndent
+ ME_8A047B48D5F1 // Init_Str_PaperSize
+ ME_C5A639B00970 // Init_Str_LeftDocMargin
+ ME_1FD11E150984 // Init_Str_RightDocMargin
+ ME_1B59FC98937F // Init_Str_TabIndent
+ )
  ; // Operations
  : Constants
-   @ ( ME_47CD3486030A // TnevMiscMessages
+   Seq: ( ME_47CD3486030A // TnevMiscMessages
  ME_47CD34DE0298 // TnevTextFormats
  ME_47CD37D9035A // TnevPrintMessages
  ME_47CD377B006E // TnevCommentParaHint
@@ -4369,22 +5035,22 @@ ref; // ME_7E2D415E21A1
  ME_F9AE5753EB87 // LCImplTnevDocumentPartHint
  ME_43A4B84CEA2B // LCImplTnevMiscHotspotHints
  ME_98A68C8D8C01 // LCImplTnevMarkerHint
- ) .SequenceCode.It
+ )
  ; // Constants
  : Dependencies
-   @ ( ME_5743A5B75A94 // 
+   Seq: ( ME_5743A5B75A94 // 
  ME_7E2D415E21A1 // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  CONST "author" 'Люлин А.В.'
  CONST "no hands" true
  CONST "started" '01.03.2010 14:30'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest\new'
  CONST intf.pas:Path 'common\components\gui\Garant\Everest\new\nevInterfaces.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest\new'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'Interfaces'
 
 ref; // ME_4B8BA52200D8 nevInterfaces
 
@@ -4398,19 +5064,17 @@ ref; // ME_4B8BA52200D8 nevInterfaces
  : Parent WL 'ME_4797632D0273' '4797632D0273.pas.ms.script' // Everest
  ;
  : Children
-   @ ( ME_4B8BA52200D8 // nevInterfaces
- ) .SequenceCode.It
+   Seq: ( ME_4B8BA52200D8 // nevInterfaces
+ )
  ; // Children
  CONST "defines" 'nevDefine.inc'
  CONST "is namespace" true
  CONST "path prefix" '/new'
- : Generators
- @ (
- gen_pas.script
- gen_pas.script.runner
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest\new'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest\new'
  CONST pas.script:Path 'shared\models\NewSchool\Scripts\47CD3441002F.pas.ms.script'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
  CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\47CD3441002F.pas.ms.script.runner'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_47CD3441002F nevInterfaces

@@ -473,6 +473,7 @@ ref; // ME_4CC6A35900D0 PagesInfo
 : ME_950D5081DD26
  CONST UID '950D5081DD26'
  CONST Name 'f_Preview'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY 'Поле для свойства Preview' ;
  CONST Visibility PrivateAccess
@@ -488,6 +489,7 @@ ref; // ME_950D5081DD26 f_Preview
 : ME_22077EC1C534
  CONST UID '22077EC1C534'
  CONST Name 'f_Text'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY 'Поле для свойства Text' ;
  CONST Visibility PrivateAccess
@@ -503,6 +505,7 @@ ref; // ME_22077EC1C534 f_Text
 : ME_BB23394C64E8
  CONST UID 'BB23394C64E8'
  CONST Name 'f_Printer'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY 'Поле для свойства Printer' ;
  CONST Visibility PrivateAccess
@@ -512,12 +515,14 @@ ref; // ME_22077EC1C534 f_Text
  ;
  : Target WL 'ME_47750D8F0051' '467823B7002C.pas.ms.script' // IafwPrinter
  ;
+ CONST extprop:clearViaProperty 'Printer'
 
 ref; // ME_BB23394C64E8 f_Printer
 
 : ME_D79A166F06FD
  CONST UID 'D79A166F06FD'
  CONST Name 'f_Processor'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY 'Поле для свойства Processor' ;
  CONST Visibility PrivateAccess
@@ -533,6 +538,7 @@ ref; // ME_D79A166F06FD f_Processor
 : ME_26929EF02299
  CONST UID '26929EF02299'
  CONST Name 'f_PagesInfo'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY 'Поле для свойства PagesInfo' ;
  CONST Visibility PrivateAccess
@@ -960,10 +966,10 @@ ref; // ME_4A8115FD0251 aPrevHeight
  : Target WL 'ME_47FA3B72006E' '49D2080D020C.pas.ms.script' // TnevShapeInfo
  ;
  : Parameters
-   @ ( ME_4A8115FD020E // aPara
+   Seq: ( ME_4A8115FD020E // aPara
  ME_4A8115FD022F // aTop
  ME_4A8115FD0251 // aPrevHeight
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_49CB7D030322 DoIt
@@ -980,8 +986,8 @@ ref; // ME_49CB7D030322 DoIt
  : Parent ME_49CB801A037F // DocumentPrint
  ;
  : Operations
-   @ ( ME_49CB7D030322 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_49CB7D030322 // DoIt
+ )
  ; // Operations
 
 ref; // ME_49CB7CF103B6 PrintPara
@@ -1013,8 +1019,8 @@ ref; // ME_49CB8C9B0237 DoIt
  : Parent ME_49CB801A037F // DocumentPrint
  ;
  : Operations
-   @ ( ME_49CB8C9B0237 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_49CB8C9B0237 // DoIt
+ )
  ; // Operations
 
 ref; // ME_49CB8C8B02C7 DocumentHeight
@@ -1058,8 +1064,8 @@ ref; // ME_53F7021F00ED anAnchor
  : Parent ME_49CB8FF602C5 // SkipSectionBreak
  ;
  : Parameters
-   @ ( ME_53F7021F00ED // anAnchor
- ) .SequenceCode.It
+   Seq: ( ME_53F7021F00ED // anAnchor
+ )
  ; // Parameters
 
 ref; // ME_49CB90000060 DoIt
@@ -1075,12 +1081,12 @@ ref; // ME_49CB90000060 DoIt
  : Parent ME_49CB8D7B02A2 // CheckSectionBreak
  ;
  : Attributes
-   @ ( ME_49CB900D01CC // Line
- ) .SequenceCode.It
+   Seq: ( ME_49CB900D01CC // Line
+ )
  ; // Attributes
  : Operations
-   @ ( ME_49CB90000060 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_49CB90000060 // DoIt
+ )
  ; // Operations
 
 ref; // ME_49CB8FF602C5 SkipSectionBreak
@@ -1140,15 +1146,15 @@ ref; // ME_4C0D06F80291
  : Parent ME_49CB801A037F // DocumentPrint
  ;
  : Operations
-   @ ( ME_49CB8FF602C5 // SkipSectionBreak
+   Seq: ( ME_49CB8FF602C5 // SkipSectionBreak
  ME_49CB8D8A00E5 // DoIt
- ) .SequenceCode.It
+ )
  ; // Operations
  : Dependencies
-   @ ( ME_49CBCF0C0247 // 
+   Seq: ( ME_49CBCF0C0247 // 
  ME_49CBCF3C0098 // 
  ME_4C0D06F80291 // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
 
 ref; // ME_49CB8D7B02A2 CheckSectionBreak
@@ -1192,10 +1198,10 @@ ref; // ME_49CB8041010C aProgress
  : Parent ME_49CB801A037F // DocumentPrint
  ;
  : Parameters
-   @ ( ME_4A585CBD01EE // anArea
+   Seq: ( ME_4A585CBD01EE // anArea
  ME_49CB804100ED // aDocument
  ME_49CB8041010C // aProgress
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_49CB802E01D8 DoIt
@@ -1245,7 +1251,7 @@ ref; // ME_4BE3D76A012E
  : Parent ME_49CB4BD701C9 // DoPrint
  ;
  : Attributes
-   @ ( ME_49CB81370284 // Aborted
+   Seq: ( ME_49CB81370284 // Aborted
  ME_49CB81530206 // PaperWidth
  ME_49CB8162024A // Info
  ME_49CB817E0375 // Width2Print
@@ -1260,20 +1266,20 @@ ref; // ME_4BE3D76A012E
  ME_4BE3D79B03C0 // DisableUnformat
  ME_4F2AA8ED03BE // WidthExtent
  ME_4F2AA8FA00CE // HeightExtent
- ) .SequenceCode.It
+ )
  ; // Attributes
  : Operations
-   @ ( ME_49CB7CF103B6 // PrintPara
+   Seq: ( ME_49CB7CF103B6 // PrintPara
  ME_49CB8C8B02C7 // DocumentHeight
  ME_49CB8D7B02A2 // CheckSectionBreak
  ME_49CB802E01D8 // DoIt
- ) .SequenceCode.It
+ )
  ; // Operations
  : Dependencies
-   @ ( ME_49CBCEEB0109 // 
+   Seq: ( ME_49CBCEEB0109 // 
  ME_49CBCF4E004F // 
  ME_4BE3D76A012E // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
 
 ref; // ME_49CB801A037F DocumentPrint
@@ -1298,6 +1304,7 @@ ref; // ME_49CB4D15017E aCanvas
  CONST Value 'nil'
  : ValueType WL 'ME_473C571F02A2' '473C569D0287.pas.ms.script' // TafwPrintPagesArray
  ;
+ CONST extprop:pas:Value 'nil'
 
 ref; // ME_49CB4D15019D aPagesArray
 
@@ -1312,10 +1319,14 @@ ref; // ME_49CB4D15019D aPagesArray
  ;
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
+ : CanRaise
+   Seq: ( WL 'ME_4918674B0142' '48452B7D0314.pas.ms.script' // EevInvalidPrintMargins
+ )
+ ; // CanRaise
  : Parameters
-   @ ( ME_49CB4D15017E // aCanvas
+   Seq: ( ME_49CB4D15017E // aCanvas
  ME_49CB4D15019D // aPagesArray
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_49CB4C590150 DoIt
@@ -1409,29 +1420,29 @@ ref; // ME_53D6108403CC
  : Parent ME_47EA97410130 // TevDocumentPreviewPrim
  ;
  : Attributes
-   @ ( ME_49CB738B019D // Width
+   Seq: ( ME_49CB738B019D // Width
  ME_4A585D0B03DA // Area
  ME_4A585D3E005A // Ind
  ME_4A585D5A0033 // Canvas
  ME_4A585D7C0217 // Printer
  ME_4A585DA600D6 // View
  ME_4A585DC3030D // Text
- ) .SequenceCode.It
+ )
  ; // Attributes
  : Operations
-   @ ( ME_49CB801A037F // DocumentPrint
+   Seq: ( ME_49CB801A037F // DocumentPrint
  ME_49CB4C590150 // DoIt
- ) .SequenceCode.It
+ )
  ; // Operations
  : Dependencies
-   @ ( ME_49CBC0560367 // 
+   Seq: ( ME_49CBC0560367 // 
  ME_49CBC1D20154 // 
  ME_49CBC2050399 // 
  ME_49CBC2510371 // 
  ME_49CBCECE0167 // 
  ME_47ECD8C70150 // 
  ME_53D6108403CC // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
 
 ref; // ME_49CB4BD701C9 DoPrint
@@ -1569,22 +1580,22 @@ ref; // ME_49CBCE2602CE
  : Parent ME_47EA97410130 // TevDocumentPreviewPrim
  ;
  : Attributes
-   @ ( ME_49CBC41A00B2 // Buffer
+   Seq: ( ME_49CBC41A00B2 // Buffer
  ME_49CBC548034C // Generator
  ME_49CBC563035F // Pack
- ) .SequenceCode.It
+ )
  ; // Attributes
  : Operations
-   @ ( ME_49CBC3D40240 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_49CBC3D40240 // DoIt
+ )
  ; // Operations
  : Dependencies
-   @ ( ME_49CBC5960149 // 
+   Seq: ( ME_49CBC5960149 // 
  ME_49CBC5C603DC // 
  ME_49CBC60C0034 // 
  ME_47ECAD6A03E0 // 
  ME_49CBCE2602CE // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
 
 ref; // ME_49CBC3B1026E GetText
@@ -1689,9 +1700,9 @@ ref; // ME_49CBC94C02AF aCounter
  : Target WL 'ME_473C51AC0260' '467823B7002C.pas.ms.script' // IafwPreviewCanvas
  ;
  : Parameters
-   @ ( ME_4CC6ADD40286 // aPagesInfo
+   Seq: ( ME_4CC6ADD40286 // aPagesInfo
  ME_49CBC94C02AF // aCounter
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_49CBC93602C9 DoIt
@@ -1708,15 +1719,15 @@ ref; // ME_49CBC93602C9 DoIt
  : Parent ME_47EA97410130 // TevDocumentPreviewPrim
  ;
  : Attributes
-   @ ( ME_49CBC9B50057 // Max
+   Seq: ( ME_49CBC9B50057 // Max
  ME_49CBC9BC0069 // PageHeight
  ME_49CBC97F029F // PreviewCanvas
  ME_49CBC9A002AE // Text
- ) .SequenceCode.It
+ )
  ; // Attributes
  : Operations
-   @ ( ME_49CBC93602C9 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_49CBC93602C9 // DoIt
+ )
  ; // Operations
 
 ref; // ME_49CBC90C017F GetPreviewCanvas
@@ -1785,17 +1796,17 @@ ref; // ME_49CBCBB70167
  : Parent ME_47EA97410130 // TevDocumentPreviewPrim
  ;
  : Attributes
-   @ ( ME_49CBCB4E0117 // Wnd
- ) .SequenceCode.It
+   Seq: ( ME_49CBCB4E0117 // Wnd
+ )
  ; // Attributes
  : Operations
-   @ ( ME_49CBCAEC03E5 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_49CBCAEC03E5 // DoIt
+ )
  ; // Operations
  : Dependencies
-   @ ( ME_49CBCB2703DC // 
+   Seq: ( ME_49CBCB2703DC // 
  ME_49CBCBB70167 // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
 
 ref; // ME_49CBCAB8037B TryClose
@@ -1825,8 +1836,8 @@ ref; // ME_49CCF81501B1 DoIt
  : Parent ME_47EA97410130 // TevDocumentPreviewPrim
  ;
  : Operations
-   @ ( ME_49CCF81501B1 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_49CCF81501B1 // DoIt
+ )
  ; // Operations
 
 ref; // ME_49CCF80301C7 AbortPreviewPrepare
@@ -1873,12 +1884,12 @@ ref; // ME_49CCF9710035 DoIt
  : Parent ME_47EA97410130 // TevDocumentPreviewPrim
  ;
  : Attributes
-   @ ( ME_49CCF9D7017C // Preview
- ) .SequenceCode.It
+   Seq: ( ME_49CCF9D7017C // Preview
+ )
  ; // Attributes
  : Operations
-   @ ( ME_49CCF9710035 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_49CCF9710035 // DoIt
+ )
  ; // Operations
 
 ref; // ME_49CCF962005D CurrentPageForUpdate
@@ -1925,12 +1936,12 @@ ref; // ME_49CCFADA01AD DoIt
  : Parent ME_47EA97410130 // TevDocumentPreviewPrim
  ;
  : Attributes
-   @ ( ME_49CCFB120083 // Index
- ) .SequenceCode.It
+   Seq: ( ME_49CCFB120083 // Index
+ )
  ; // Attributes
  : Operations
-   @ ( ME_49CCFADA01AD // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_49CCFADA01AD // DoIt
+ )
  ; // Operations
 
 ref; // ME_49CCFAD0019C GetPreviewForCurrentPage
@@ -1975,12 +1986,12 @@ ref; // ME_49CCFCA2017F DoIt
  : Parent ME_47EA97410130 // TevDocumentPreviewPrim
  ;
  : Attributes
-   @ ( ME_49CCFCB101FE // Idx
- ) .SequenceCode.It
+   Seq: ( ME_49CCFCB101FE // Idx
+ )
  ; // Attributes
  : Operations
-   @ ( ME_49CCFCA2017F // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_49CCFCA2017F // DoIt
+ )
  ; // Operations
 
 ref; // ME_49CCFC8403A6 NotifyPreviewSubscribers
@@ -2006,8 +2017,8 @@ ref; // ME_49CCFF35018D theGenerator
  : Parent ME_49CCFF22004A // DoSetFilters
  ;
  : Parameters
-   @ ( ME_49CCFF35018D // theGenerator
- ) .SequenceCode.It
+   Seq: ( ME_49CCFF35018D // theGenerator
+ )
  ; // Parameters
 
 ref; // ME_49CCFF3000A2 DoIt
@@ -2056,14 +2067,14 @@ ref; // ME_49CCFF750107
  : Parent ME_47EA97410130 // TevDocumentPreviewPrim
  ;
  : Operations
-   @ ( ME_49CCFF3000A2 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_49CCFF3000A2 // DoIt
+ )
  ; // Operations
  : Dependencies
-   @ ( ME_47ECBAE6009D // 
+   Seq: ( ME_47ECBAE6009D // 
  ME_47ECB9230348 // 
  ME_49CCFF750107 // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
 
 ref; // ME_49CCFF22004A DoSetFilters
@@ -2094,8 +2105,8 @@ ref; // ME_4B7E6CE201E9 DoIt
  : Parent ME_47EA97410130 // TevDocumentPreviewPrim
  ;
  : Operations
-   @ ( ME_4B7E6CE201E9 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_4B7E6CE201E9 // DoIt
+ )
  ; // Operations
 
 ref; // ME_4B7E6CC30112 HasPreviewBuilder
@@ -2132,6 +2143,7 @@ ref; // ME_4CB57D5F01A9 aKey
  CONST Value 'nil'
  : ValueType WL 'ME_47EA99B10005' '467823B7002C.pas.ms.script' // IafwHAFPainter
  ;
+ CONST extprop:pas:Value 'nil'
 
 ref; // ME_4CB57D5F01D0 aHAF
 
@@ -2144,10 +2156,10 @@ ref; // ME_4CB57D5F01D0 aHAF
  : Parent ME_4CB57D480244 // Create
  ;
  : Parameters
-   @ ( ME_4CB57D5F0184 // aText
+   Seq: ( ME_4CB57D5F0184 // aText
  ME_4CB57D5F01A9 // aKey
  ME_4CB57D5F01D0 // aHAF
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_4CB57D5A0117 Create
@@ -2163,8 +2175,8 @@ ref; // ME_4CB57D5A0117 Create
  : Parent ME_47EA97410130 // TevDocumentPreviewPrim
  ;
  : Operations
-   @ ( ME_4CB57D5A0117 // Create
- ) .SequenceCode.It
+   Seq: ( ME_4CB57D5A0117 // Create
+ )
  ; // Operations
 
 ref; // ME_4CB57D480244 Create
@@ -2201,6 +2213,7 @@ ref; // ME_4CB57D8002C6 aKey
  CONST Value 'nil'
  : ValueType WL 'ME_47EA99B10005' '467823B7002C.pas.ms.script' // IafwHAFPainter
  ;
+ CONST extprop:pas:Value 'nil'
 
 ref; // ME_4CB57D8002EB aHAF
 
@@ -2213,10 +2226,10 @@ ref; // ME_4CB57D8002EB aHAF
  : Parent ME_4CB57D6601C4 // Create$1
  ;
  : Parameters
-   @ ( ME_4CB57D8002A0 // aText
+   Seq: ( ME_4CB57D8002A0 // aText
  ME_4CB57D8002C6 // aKey
  ME_4CB57D8002EB // aHAF
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_4CB57D73013D Create
@@ -2232,8 +2245,8 @@ ref; // ME_4CB57D73013D Create
  : Parent ME_47EA97410130 // TevDocumentPreviewPrim
  ;
  : Operations
-   @ ( ME_4CB57D73013D // Create
- ) .SequenceCode.It
+   Seq: ( ME_4CB57D73013D // Create
+ )
  ; // Operations
 
 ref; // ME_4CB57D6601C4 Create$1
@@ -2259,8 +2272,8 @@ ref; // ME_4CB5E9BC01B1 aView
  : Parent ME_4CB5E99001D6 // UnformatView
  ;
  : Parameters
-   @ ( ME_4CB5E9BC01B1 // aView
- ) .SequenceCode.It
+   Seq: ( ME_4CB5E9BC01B1 // aView
+ )
  ; // Parameters
 
 ref; // ME_4CB5E9B1029C DoIt
@@ -2277,8 +2290,8 @@ ref; // ME_4CB5E9B1029C DoIt
  : Parent ME_47EA97410130 // TevDocumentPreviewPrim
  ;
  : Operations
-   @ ( ME_4CB5E9B1029C // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_4CB5E9B1029C // DoIt
+ )
  ; // Operations
 
 ref; // ME_4CB5E99001D6 UnformatView
@@ -2304,8 +2317,8 @@ ref; // ME_53FF03AB0387 aCanvas
  : Parent ME_53FF037803DA // Print2PDF
  ;
  : Parameters
-   @ ( ME_53FF03AB0387 // aCanvas
- ) .SequenceCode.It
+   Seq: ( ME_53FF03AB0387 // aCanvas
+ )
  ; // Parameters
 
 ref; // ME_53FF039202A9 DoIt
@@ -2321,8 +2334,8 @@ ref; // ME_53FF039202A9 DoIt
  : Parent ME_47EA97410130 // TevDocumentPreviewPrim
  ;
  : Operations
-   @ ( ME_53FF039202A9 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_53FF039202A9 // DoIt
+ )
  ; // Operations
 
 ref; // ME_53FF037803DA Print2PDF
@@ -2346,8 +2359,8 @@ ref; // ME_47ECAB8002BA theGenerator
  : Parent ME_47EA97410130 // TevDocumentPreviewPrim
  ;
  : Parameters
-   @ ( ME_47ECAB8002BA // theGenerator
- ) .SequenceCode.It
+   Seq: ( ME_47ECAB8002BA // theGenerator
+ )
  ; // Parameters
 
 ref; // ME_47ECAB7602A2 SetFilters
@@ -2397,8 +2410,8 @@ ref; // ME_47ECAFFC016B anIndex
  : Target WL 'ME_4CC6A3D403D7' '467823B7002C.pas.ms.script' // TafwPagesInfo
  ;
  : Parameters
-   @ ( ME_47ECAFFC016B // anIndex
- ) .SequenceCode.It
+   Seq: ( ME_47ECAFFC016B // anIndex
+ )
  ; // Parameters
 
 ref; // ME_47ECAFF802EA PrePrint
@@ -2442,10 +2455,10 @@ ref; // ME_47ECDB8303E2 aMsg
  : Parent ME_47EA97410130 // TevDocumentPreviewPrim
  ;
  : Parameters
-   @ ( ME_47ECDB8302D2 // aState
+   Seq: ( ME_47ECDB8302D2 // aState
  ME_47ECDB83035B // aValue
  ME_47ECDB8303E2 // aMsg
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_47ECDB670389 ProgressProcEv
@@ -2469,8 +2482,8 @@ ref; // ME_47ECE7FA0092 Aborted
  : Parent ME_47EA97410130 // TevDocumentPreviewPrim
  ;
  : Parameters
-   @ ( ME_47ECE7FA0092 // Aborted
- ) .SequenceCode.It
+   Seq: ( ME_47ECE7FA0092 // Aborted
+ )
  ; // Parameters
 
 ref; // ME_47ECE7EC02A0 CheckAborted
@@ -2496,8 +2509,8 @@ ref; // ME_47ECFAD801AD aSettingId
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
  : Parameters
-   @ ( ME_47ECFAD801AD // aSettingId
- ) .SequenceCode.It
+   Seq: ( ME_47ECFAD801AD // aSettingId
+ )
  ; // Parameters
 
 ref; // ME_47ECFAD101B9 IsSettingAffectsUs
@@ -2850,6 +2863,7 @@ ref; // ME_553F41710137
  ;
  : Implementor ME_47EA97410130 // TevDocumentPreviewPrim
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_473D8C450198_ME_47EA97410130 DocumentName
 
 : ME_473D8C5C0187_ME_47EA97410130
@@ -2859,6 +2873,7 @@ ref; // ME_473D8C450198_ME_47EA97410130 DocumentName
  ;
  : Implementor ME_47EA97410130 // TevDocumentPreviewPrim
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_473D8C5C0187_ME_47EA97410130 InProcess
 
 : ME_473D8C6C0266_ME_47EA97410130
@@ -2868,6 +2883,7 @@ ref; // ME_473D8C5C0187_ME_47EA97410130 InProcess
  ;
  : Implementor ME_47EA97410130 // TevDocumentPreviewPrim
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_473D8C6C0266_ME_47EA97410130 InPagesCounting
 
 : ME_473D8C7C01B5_ME_47EA97410130
@@ -2877,6 +2893,7 @@ ref; // ME_473D8C6C0266_ME_47EA97410130 InPagesCounting
  ;
  : Implementor ME_47EA97410130 // TevDocumentPreviewPrim
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_473D8C7C01B5_ME_47EA97410130 InUpdate
 
 : ME_473D8C90022C_ME_47EA97410130
@@ -2886,6 +2903,7 @@ ref; // ME_473D8C7C01B5_ME_47EA97410130 InUpdate
  ;
  : Implementor ME_47EA97410130 // TevDocumentPreviewPrim
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_473D8C90022C_ME_47EA97410130 InPrinting
 
 : ME_473D8CA002D9_ME_47EA97410130
@@ -2895,6 +2913,7 @@ ref; // ME_473D8C90022C_ME_47EA97410130 InPrinting
  ;
  : Implementor ME_47EA97410130 // TevDocumentPreviewPrim
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_473D8CA002D9_ME_47EA97410130 Update
 
 : ME_473D8CAF028B_ME_47EA97410130
@@ -2904,6 +2923,7 @@ ref; // ME_473D8CA002D9_ME_47EA97410130 Update
  ;
  : Implementor ME_47EA97410130 // TevDocumentPreviewPrim
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_473D8CAF028B_ME_47EA97410130 Print
 
 : ME_473D8CE9007C_ME_47EA97410130
@@ -2913,6 +2933,7 @@ ref; // ME_473D8CAF028B_ME_47EA97410130 Print
  ;
  : Implementor ME_47EA97410130 // TevDocumentPreviewPrim
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_473D8CE9007C_ME_47EA97410130 Stop
 
 : ME_473D8CF80037_ME_47EA97410130
@@ -2922,6 +2943,7 @@ ref; // ME_473D8CE9007C_ME_47EA97410130 Stop
  ;
  : Implementor ME_47EA97410130 // TevDocumentPreviewPrim
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_473D8CF80037_ME_47EA97410130 Stopped
 
 : ME_473D8D0A01D7_ME_47EA97410130
@@ -2931,6 +2953,7 @@ ref; // ME_473D8CF80037_ME_47EA97410130 Stopped
  ;
  : Implementor ME_47EA97410130 // TevDocumentPreviewPrim
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_473D8D0A01D7_ME_47EA97410130 CloseRequested
 
 : ME_473D8D1E01B8_ME_47EA97410130
@@ -2940,6 +2963,7 @@ ref; // ME_473D8D0A01D7_ME_47EA97410130 CloseRequested
  ;
  : Implementor ME_47EA97410130 // TevDocumentPreviewPrim
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_473D8D1E01B8_ME_47EA97410130 PreviewResetting
 
 : ME_473D8D3800B1_ME_47EA97410130
@@ -2949,6 +2973,7 @@ ref; // ME_473D8D1E01B8_ME_47EA97410130 PreviewResetting
  ;
  : Implementor ME_47EA97410130 // TevDocumentPreviewPrim
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_473D8D3800B1_ME_47EA97410130 SetCurrentPage
 
 : ME_473D8D4A019D_ME_47EA97410130
@@ -2958,6 +2983,7 @@ ref; // ME_473D8D3800B1_ME_47EA97410130 SetCurrentPage
  ;
  : Implementor ME_47EA97410130 // TevDocumentPreviewPrim
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_473D8D4A019D_ME_47EA97410130 SetCurrentPagePara
 
 : ME_473D8D5D032B_ME_47EA97410130
@@ -2967,6 +2993,7 @@ ref; // ME_473D8D4A019D_ME_47EA97410130 SetCurrentPagePara
  ;
  : Implementor ME_47EA97410130 // TevDocumentPreviewPrim
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_473D8D5D032B_ME_47EA97410130 SetCurrentPageNumber
 
 : ME_473D8D72010F_ME_47EA97410130
@@ -2976,6 +3003,7 @@ ref; // ME_473D8D5D032B_ME_47EA97410130 SetCurrentPageNumber
  ;
  : Implementor ME_47EA97410130 // TevDocumentPreviewPrim
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_473D8D72010F_ME_47EA97410130 CurrentPage
 
 : ME_473D8D830163_ME_47EA97410130
@@ -2985,6 +3013,7 @@ ref; // ME_473D8D72010F_ME_47EA97410130 CurrentPage
  ;
  : Implementor ME_47EA97410130 // TevDocumentPreviewPrim
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_473D8D830163_ME_47EA97410130 HasCurrentPage
 
 : ME_473D8DB10141_ME_47EA97410130
@@ -2994,6 +3023,7 @@ ref; // ME_473D8D830163_ME_47EA97410130 HasCurrentPage
  ;
  : Implementor ME_47EA97410130 // TevDocumentPreviewPrim
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" true
 ref; // ME_473D8DB10141_ME_47EA97410130 HasText
 
@@ -3004,6 +3034,7 @@ ref; // ME_473D8DB10141_ME_47EA97410130 HasText
  ;
  : Implementor ME_47EA97410130 // TevDocumentPreviewPrim
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_475E827F01CB_ME_47EA97410130 Subscribe
 
 : ME_475E828B0231_ME_47EA97410130
@@ -3013,6 +3044,7 @@ ref; // ME_475E827F01CB_ME_47EA97410130 Subscribe
  ;
  : Implementor ME_47EA97410130 // TevDocumentPreviewPrim
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_475E828B0231_ME_47EA97410130 UnSubscribe
 
 : ME_47EA993A0208_ME_47EA97410130
@@ -3022,6 +3054,7 @@ ref; // ME_475E828B0231_ME_47EA97410130 UnSubscribe
  ;
  : Implementor ME_47EA97410130 // TevDocumentPreviewPrim
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" true
 ref; // ME_47EA993A0208_ME_47EA97410130 HAFMacroReplacer
 
@@ -3032,6 +3065,7 @@ ref; // ME_47EA993A0208_ME_47EA97410130 HAFMacroReplacer
  ;
  : Implementor ME_47EA97410130 // TevDocumentPreviewPrim
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" false
 ref; // ME_47ED128D02A7_ME_47EA97410130 Preview
 
@@ -3042,6 +3076,7 @@ ref; // ME_47ED128D02A7_ME_47EA97410130 Preview
  ;
  : Implementor ME_47EA97410130 // TevDocumentPreviewPrim
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_4918253C0297_ME_47EA97410130 DoInvalidateShape
 
 : ME_491829480128_ME_47EA97410130
@@ -3051,6 +3086,7 @@ ref; // ME_4918253C0297_ME_47EA97410130 DoInvalidateShape
  ;
  : Implementor ME_47EA97410130 // TevDocumentPreviewPrim
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_491829480128_ME_47EA97410130 GetTagReader
 
 : ME_491829620101_ME_47EA97410130
@@ -3060,6 +3096,7 @@ ref; // ME_491829480128_ME_47EA97410130 GetTagReader
  ;
  : Implementor ME_47EA97410130 // TevDocumentPreviewPrim
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_491829620101_ME_47EA97410130 GetTagWriter
 
 : ME_494F76F60234_ME_47EA97410130
@@ -3069,6 +3106,7 @@ ref; // ME_491829620101_ME_47EA97410130 GetTagWriter
  ;
  : Implementor ME_47EA97410130 // TevDocumentPreviewPrim
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" false
 ref; // ME_494F76F60234_ME_47EA97410130 CacheKey
 
@@ -3079,6 +3117,7 @@ ref; // ME_494F76F60234_ME_47EA97410130 CacheKey
  ;
  : Implementor ME_47EA97410130 // TevDocumentPreviewPrim
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_49CCA2480360_ME_47EA97410130 DoGetStatusInfo
 
 : ME_5229D8390137_ME_47EA97410130
@@ -3088,6 +3127,7 @@ ref; // ME_49CCA2480360_ME_47EA97410130 DoGetStatusInfo
  ;
  : Implementor ME_47EA97410130 // TevDocumentPreviewPrim
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_5229D8390137_ME_47EA97410130 IsAborted
 
 : ME_479731C50290_ME_47EA97410130
@@ -3097,6 +3137,7 @@ ref; // ME_5229D8390137_ME_47EA97410130 IsAborted
  ;
  : Implementor ME_47EA97410130 // TevDocumentPreviewPrim
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_479731C50290_ME_47EA97410130 Cleanup
 
 : ME_47EA863A035C_ME_47EA97410130
@@ -3106,6 +3147,7 @@ ref; // ME_479731C50290_ME_47EA97410130 Cleanup
  ;
  : Implementor ME_47EA97410130 // TevDocumentPreviewPrim
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_47EA863A035C_ME_47EA97410130 DoSettingChanged
 
 : ME_47EA8B9601FE_ME_47EA97410130
@@ -3115,6 +3157,7 @@ ref; // ME_47EA863A035C_ME_47EA97410130 DoSettingChanged
  ;
  : Implementor ME_47EA97410130 // TevDocumentPreviewPrim
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_47EA8B9601FE_ME_47EA97410130 SettingsReplaceFinish
 
 : ME_48185EEB0234_ME_47EA97410130
@@ -3124,6 +3167,7 @@ ref; // ME_47EA8B9601FE_ME_47EA97410130 SettingsReplaceFinish
  ;
  : Implementor ME_47EA97410130 // TevDocumentPreviewPrim
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_48185EEB0234_ME_47EA97410130 GetObj
 
 : ME_49182CD402C9_ME_47EA97410130
@@ -3133,6 +3177,7 @@ ref; // ME_48185EEB0234_ME_47EA97410130 GetObj
  ;
  : Implementor ME_47EA97410130 // TevDocumentPreviewPrim
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_49182CD402C9_ME_47EA97410130 UnformatAll
 
 : ME_49CCA4C90343_ME_47EA97410130
@@ -3142,6 +3187,7 @@ ref; // ME_49182CD402C9_ME_47EA97410130 UnformatAll
  ;
  : Implementor ME_47EA97410130 // TevDocumentPreviewPrim
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_49CCA4C90343_ME_47EA97410130 NeedUpdateOnUnsubscribe
 
 : ME_4A485B710126_ME_47EA97410130
@@ -3151,6 +3197,7 @@ ref; // ME_49CCA4C90343_ME_47EA97410130 NeedUpdateOnUnsubscribe
  ;
  : Implementor ME_47EA97410130 // TevDocumentPreviewPrim
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4A485B710126_ME_47EA97410130 DoStyleTableChanged
 
 : ME_5000565C019C_ME_47EA97410130
@@ -3160,6 +3207,7 @@ ref; // ME_4A485B710126_ME_47EA97410130 DoStyleTableChanged
  ;
  : Implementor ME_47EA97410130 // TevDocumentPreviewPrim
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_5000565C019C_ME_47EA97410130 ClearFields
 
 : ME_47EA97410130
@@ -3174,21 +3222,21 @@ ref; // ME_5000565C019C_ME_47EA97410130 ClearFields
  : Parent ME_47EA968D0155 // Printing
  ;
  : Inherits
-   @ ( WL 'ME_47EA85E7005B' '47EA4BB502F9.pas.ms.script' // afwSettingChanged
+   Seq: ( WL 'ME_47EA85E7005B' '47EA4BB502F9.pas.ms.script' // afwSettingChanged
  WL 'ME_47EA8AEF0077' '47EA4BB502F9.pas.ms.script' // afwSettingsReplace
  WL 'ME_48185C4002DC' '481DB8210016.pas.ms.script' // TnevObjectHolderPrim
  WL 'ME_49CCA20A0092' '47EA4BB502F9.pas.ms.script' // afwStatusElement
- ) .SequenceCode.It
+ )
  ; // Inherits
  : Implements
-   @ ( WL 'ME_467BB4640328' '467823B7002C.pas.ms.script' // IafwDocumentPreview
+   Seq: ( WL 'ME_467BB4640328' '467823B7002C.pas.ms.script' // IafwDocumentPreview
  WL 'ME_475E823D0144' '467823B7002C.pas.ms.script' // IafwPreviewNotificationSource
  WL 'ME_47EA9906018D' '47C5207602D1.pas.ms.script' // IevDocumentPreviewInfo
  WL 'ME_5229D7DD016C' '467C0CAA02AB.pas.ms.script' // Il3AbortChecker
- ) .SequenceCode.It
+ )
  ; // Implements
  : Attributes
-   @ ( ME_47EB82040062 // Preview
+   Seq: ( ME_47EB82040062 // Preview
  ME_47EB8227023D // Text
  ME_47EB823F010A // Printer
  ME_47EB8280024B // Processor
@@ -3225,10 +3273,10 @@ ref; // ME_5000565C019C_ME_47EA97410130 ClearFields
  ME_BB23394C64E8 // f_Printer
  ME_D79A166F06FD // f_Processor
  ME_26929EF02299 // f_PagesInfo
- ) .SequenceCode.It
+ )
  ; // Attributes
  : Operations
-   @ ( ME_49CB4BD701C9 // DoPrint
+   Seq: ( ME_49CB4BD701C9 // DoPrint
  ME_49CBC3B1026E // GetText
  ME_49CBC90C017F // GetPreviewCanvas
  ME_49CBCAB8037B // TryClose
@@ -3251,10 +3299,10 @@ ref; // ME_5000565C019C_ME_47EA97410130 ClearFields
  ME_47ECFAD101B9 // IsSettingAffectsUs
  ME_48FD8A1C0307 // AfterPrint
  ME_4A2E97A4021B // NeedAddBlockNames
- ) .SequenceCode.It
+ )
  ; // Operations
  : Implemented
-   @ ( ME_473D8C450198_ME_47EA97410130 // DocumentName
+   Seq: ( ME_473D8C450198_ME_47EA97410130 // DocumentName
  ME_473D8C5C0187_ME_47EA97410130 // InProcess
  ME_473D8C6C0266_ME_47EA97410130 // InPagesCounting
  ME_473D8C7C01B5_ME_47EA97410130 // InUpdate
@@ -3281,10 +3329,10 @@ ref; // ME_5000565C019C_ME_47EA97410130 ClearFields
  ME_494F76F60234_ME_47EA97410130 // CacheKey
  ME_49CCA2480360_ME_47EA97410130 // DoGetStatusInfo
  ME_5229D8390137_ME_47EA97410130 // IsAborted
- ) .SequenceCode.It
+ )
  ; // Implemented
  : Overridden
-   @ ( ME_479731C50290_ME_47EA97410130 // Cleanup
+   Seq: ( ME_479731C50290_ME_47EA97410130 // Cleanup
  ME_47EA863A035C_ME_47EA97410130 // DoSettingChanged
  ME_47EA8B9601FE_ME_47EA97410130 // SettingsReplaceFinish
  ME_48185EEB0234_ME_47EA97410130 // GetObj
@@ -3292,10 +3340,10 @@ ref; // ME_5000565C019C_ME_47EA97410130 ClearFields
  ME_49CCA4C90343_ME_47EA97410130 // NeedUpdateOnUnsubscribe
  ME_4A485B710126_ME_47EA97410130 // DoStyleTableChanged
  ME_5000565C019C_ME_47EA97410130 // ClearFields
- ) .SequenceCode.It
+ )
  ; // Overridden
  : Dependencies
-   @ ( ME_47ECAD0B02B7 // 
+   Seq: ( ME_47ECAD0B02B7 // 
  ME_47ECADFA02AC // 
  ME_47ECB0AB02CD // 
  ME_47ECE22E02A3 // 
@@ -3323,7 +3371,7 @@ ref; // ME_5000565C019C_ME_47EA97410130 ClearFields
  ME_4F72F5C40012 // 
  ME_5239A05D0133 // 
  ME_553F41710137 // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  CONST "author" 'Люлин А.В.'
  CONST "needs InstanceR" 'undefined'
@@ -3331,12 +3379,14 @@ ref; // ME_5000565C019C_ME_47EA97410130 ClearFields
  CONST "no hands" true
  CONST "register in scripts" 'undefined'
  CONST "started" '10.12.2004 17:36'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest'
  CONST intf.pas:Path 'common\components\gui\Garant\Everest\evDocumentPreviewPrim.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'DocumentPreviewPrim'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'evDocumentPreviewPrim'
 
 ref; // ME_47EA97410130 TevDocumentPreviewPrim
 
@@ -3360,6 +3410,7 @@ ref; // ME_480DECB9008B
  ;
  : Implementor ME_47FA06400313 // TevMultiDocumentPreview
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_480DE6420179_ME_47FA06400313 GetDocumentName
 
 : ME_47FA06400313
@@ -3374,16 +3425,16 @@ ref; // ME_480DE6420179_ME_47FA06400313 GetDocumentName
  : Parent ME_47EA968D0155 // Printing
  ;
  : Inherits
-   @ ( WL 'ME_480DE55C0315' '474144E20301.pas.ms.script' // TafwMultiDocumentPreview
- ) .SequenceCode.It
+   Seq: ( WL 'ME_480DE55C0315' '474144E20301.pas.ms.script' // TafwMultiDocumentPreview
+ )
  ; // Inherits
  : Overridden
-   @ ( ME_480DE6420179_ME_47FA06400313 // GetDocumentName
- ) .SequenceCode.It
+   Seq: ( ME_480DE6420179_ME_47FA06400313 // GetDocumentName
+ )
  ; // Overridden
  : Dependencies
-   @ ( ME_480DECB9008B // 
- ) .SequenceCode.It
+   Seq: ( ME_480DECB9008B // 
+ )
  ; // Dependencies
  CONST "author" 'Люлин А.В.'
  CONST "needs InstanceR" 'undefined'
@@ -3391,12 +3442,14 @@ ref; // ME_480DE6420179_ME_47FA06400313 GetDocumentName
  CONST "no hands" true
  CONST "register in scripts" 'undefined'
  CONST "started" '02.03.2005 13:17'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest'
  CONST intf.pas:Path 'common\components\gui\Garant\Everest\evMultiDocumentPreview.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'MultiDocumentPreview'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'evMultiDocumentPreview'
 
 ref; // ME_47FA06400313 TevMultiDocumentPreview
 
@@ -3495,12 +3548,12 @@ ref; // ME_4A81158301DE aPrevHeight
  : Target WL 'ME_47FA3B72006E' '49D2080D020C.pas.ms.script' // TnevShapeInfo
  ;
  : Parameters
-   @ ( ME_4A81158300B9 // anArea
+   Seq: ( ME_4A81158300B9 // anArea
  ME_4A81158300F0 // aPara
  ME_4A8115830128 // aTop
  ME_4A8115830161 // aBlock
  ME_4A81158301DE // aPrevHeight
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_49CCC0720088 DoIt
@@ -3517,13 +3570,13 @@ ref; // ME_49CCC0720088 DoIt
  : Parent ME_481D76A4005D // evParaDrawTools
  ;
  : Attributes
-   @ ( ME_49CCC1020080 // Painter
+   Seq: ( ME_49CCC1020080 // Painter
  ME_49CCC12301D2 // Points
- ) .SequenceCode.It
+ )
  ; // Attributes
  : Operations
-   @ ( ME_49CCC0720088 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_49CCC0720088 // DoIt
+ )
  ; // Operations
 
 ref; // ME_49CCC052009F EvDrawPara
@@ -3540,18 +3593,18 @@ ref; // ME_49CCC052009F EvDrawPara
  : Parent ME_47EA968D0155 // Printing
  ;
  : Operations
-   @ ( ME_49CCC052009F // EvDrawPara
- ) .SequenceCode.It
+   Seq: ( ME_49CCC052009F // EvDrawPara
+ )
  ; // Operations
  CONST "author" 'Люлин А.В.'
  CONST "no hands" true
  CONST "started" '13.01.2004 18:57'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest'
  CONST intf.pas:Path 'common\components\gui\Garant\Everest\evParaDrawTools.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'ParaDrawTools'
 
 ref; // ME_481D76A4005D evParaDrawTools
 
@@ -3570,12 +3623,14 @@ ref; // ME_481D76A4005D evParaDrawTools
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest'
  CONST intf.pas:Path 'common\components\gui\Garant\Everest\NOT_FINISHED_evCustomHAFMacroReplacer.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'HAFMacroReplacer'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'evCustomHAFMacroReplacer'
 
 ref; // ME_4C2215040200 TevCustomHAFMacroReplacer
 
@@ -3586,6 +3641,7 @@ FORWARD ME_4CB57DAE016D
 : ME_BE4B0C558C44
  CONST UID 'BE4B0C558C44'
  CONST Name 'aText'
+ CONST IsSummoned true
  CONST Class class_Parameter
  : Stereotype st_in ;
  : Target WL 'ME_47C68BEF02B9' '47C5207602D1.pas.ms.script' // InevStorable
@@ -3596,6 +3652,7 @@ ref; // ME_BE4B0C558C44 aText
 : ME_5D040C6AC562
  CONST UID '5D040C6AC562'
  CONST Name 'aKey'
+ CONST IsSummoned true
  CONST Class class_Parameter
  : Stereotype st_in ;
  : Target WL 'ME_494F75DF001B' '4678209200A6.pas.ms.script' // TevPreviewCacheKey
@@ -3606,6 +3663,7 @@ ref; // ME_5D040C6AC562 aKey
 : ME_CD97AD4C6EC4
  CONST UID 'CD97AD4C6EC4'
  CONST Name 'aHAF'
+ CONST IsSummoned true
  CONST Class class_Parameter
  : Stereotype st_in ;
  : Target WL 'ME_47EA99B10005' '467823B7002C.pas.ms.script' // IafwHAFPainter
@@ -3613,12 +3671,14 @@ ref; // ME_5D040C6AC562 aKey
  CONST Value 'nil'
  : ValueType WL 'ME_47EA99B10005' '467823B7002C.pas.ms.script' // IafwHAFPainter
  ;
+ CONST extprop:pas:Value 'nil'
 
 ref; // ME_CD97AD4C6EC4 aHAF
 
 : ME_38BB81BC1516
  CONST UID '38BB81BC1516'
  CONST Name 'Create'
+ CONST IsSummoned true
  CONST Class class_Operation
  %SUMMARY 'Сигнатура фабрики TevDocumentPreview.Make' ;
  CONST Visibility PrivateAccess
@@ -3628,10 +3688,10 @@ ref; // ME_CD97AD4C6EC4 aHAF
  : Target WL 'ME_467BB4640328' '467823B7002C.pas.ms.script' // IafwDocumentPreview
  ;
  : Parameters
-   @ ( ME_BE4B0C558C44 // aText
+   Seq: ( ME_BE4B0C558C44 // aText
  ME_5D040C6AC562 // aKey
  ME_CD97AD4C6EC4 // aHAF
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_38BB81BC1516 Create
@@ -3647,16 +3707,16 @@ ref; // ME_38BB81BC1516 Create
  : Parent ME_49CBD11A02CF // TevDocumentPreview
  ;
  : Inherits
-   @ ( ME_4CB57D480244 // Create
- ) .SequenceCode.It
+   Seq: ( ME_4CB57D480244 // Create
+ )
  ; // Inherits
  : Implements
-   @ ( WL 'ME_467BB4640328' '467823B7002C.pas.ms.script' // IafwDocumentPreview
- ) .SequenceCode.It
+   Seq: ( WL 'ME_467BB4640328' '467823B7002C.pas.ms.script' // IafwDocumentPreview
+ )
  ; // Implements
  : Operations
-   @ ( ME_38BB81BC1516 // Create
- ) .SequenceCode.It
+   Seq: ( ME_38BB81BC1516 // Create
+ )
  ; // Operations
  CONST "check nil" false
  CONST "need AfterCreate" 'undefined'
@@ -3670,6 +3730,7 @@ FORWARD ME_4CB57DE400D3
 : ME_95077A65A9DF
  CONST UID '95077A65A9DF'
  CONST Name 'aText'
+ CONST IsSummoned true
  CONST Class class_Parameter
  : Stereotype st_in ;
  : Target WL 'ME_4CB57C920381' '47C5207602D1.pas.ms.script' // InevDocumentProvider
@@ -3680,6 +3741,7 @@ ref; // ME_95077A65A9DF aText
 : ME_99AF94EF4A6E
  CONST UID '99AF94EF4A6E'
  CONST Name 'aKey'
+ CONST IsSummoned true
  CONST Class class_Parameter
  : Stereotype st_in ;
  : Target WL 'ME_494F75DF001B' '4678209200A6.pas.ms.script' // TevPreviewCacheKey
@@ -3690,6 +3752,7 @@ ref; // ME_99AF94EF4A6E aKey
 : ME_FAC2F38A42A4
  CONST UID 'FAC2F38A42A4'
  CONST Name 'aHAF'
+ CONST IsSummoned true
  CONST Class class_Parameter
  : Stereotype st_in ;
  : Target WL 'ME_47EA99B10005' '467823B7002C.pas.ms.script' // IafwHAFPainter
@@ -3697,12 +3760,14 @@ ref; // ME_99AF94EF4A6E aKey
  CONST Value 'nil'
  : ValueType WL 'ME_47EA99B10005' '467823B7002C.pas.ms.script' // IafwHAFPainter
  ;
+ CONST extprop:pas:Value 'nil'
 
 ref; // ME_FAC2F38A42A4 aHAF
 
 : ME_701CDF9A0D51
  CONST UID '701CDF9A0D51'
  CONST Name 'Create'
+ CONST IsSummoned true
  CONST Class class_Operation
  %SUMMARY 'Сигнатура фабрики TevDocumentPreview.Make$1' ;
  CONST Visibility PrivateAccess
@@ -3712,10 +3777,10 @@ ref; // ME_FAC2F38A42A4 aHAF
  : Target WL 'ME_467BB4640328' '467823B7002C.pas.ms.script' // IafwDocumentPreview
  ;
  : Parameters
-   @ ( ME_95077A65A9DF // aText
+   Seq: ( ME_95077A65A9DF // aText
  ME_99AF94EF4A6E // aKey
  ME_FAC2F38A42A4 // aHAF
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_701CDF9A0D51 Create
@@ -3731,16 +3796,16 @@ ref; // ME_701CDF9A0D51 Create
  : Parent ME_49CBD11A02CF // TevDocumentPreview
  ;
  : Inherits
-   @ ( ME_4CB57D6601C4 // Create$1
- ) .SequenceCode.It
+   Seq: ( ME_4CB57D6601C4 // Create$1
+ )
  ; // Inherits
  : Implements
-   @ ( WL 'ME_467BB4640328' '467823B7002C.pas.ms.script' // IafwDocumentPreview
- ) .SequenceCode.It
+   Seq: ( WL 'ME_467BB4640328' '467823B7002C.pas.ms.script' // IafwDocumentPreview
+ )
  ; // Implements
  : Operations
-   @ ( ME_701CDF9A0D51 // Create
- ) .SequenceCode.It
+   Seq: ( ME_701CDF9A0D51 // Create
+ )
  ; // Operations
  CONST "check nil" false
  CONST "need AfterCreate" 'undefined'
@@ -3781,6 +3846,7 @@ ref; // ME_4CB583450103 aKey
  CONST Value 'nil'
  : ValueType WL 'ME_47EA99B10005' '467823B7002C.pas.ms.script' // IafwHAFPainter
  ;
+ CONST extprop:pas:Value 'nil'
 
 ref; // ME_4CB583450120 aHAF
 
@@ -3795,10 +3861,10 @@ ref; // ME_4CB583450120 aHAF
  : Target WL 'ME_467BB4640328' '467823B7002C.pas.ms.script' // IafwDocumentPreview
  ;
  : Parameters
-   @ ( ME_4CB5834500E4 // aText
+   Seq: ( ME_4CB5834500E4 // aText
  ME_4CB583450103 // aKey
  ME_4CB583450120 // aHAF
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_4CB5834203D1 Make
@@ -3814,8 +3880,8 @@ ref; // ME_4CB5834203D1 Make
  : Parent ME_49CBD11A02CF // TevDocumentPreview
  ;
  : Operations
-   @ ( ME_4CB5834203D1 // Make
- ) .SequenceCode.It
+   Seq: ( ME_4CB5834203D1 // Make
+ )
  ; // Operations
  CONST "is static" true
 
@@ -3833,25 +3899,27 @@ ref; // ME_4CB58335014E Make$2
  : Parent ME_47EA968D0155 // Printing
  ;
  : Inherits
-   @ ( ME_47EA97410130 // TevDocumentPreviewPrim
- ) .SequenceCode.It
+   Seq: ( ME_47EA97410130 // TevDocumentPreviewPrim
+ )
  ; // Inherits
  : Operations
-   @ ( ME_4CB57DAE016D // Make
+   Seq: ( ME_4CB57DAE016D // Make
  ME_4CB57DE400D3 // Make$1
  ME_4CB58335014E // Make$2
- ) .SequenceCode.It
+ )
  ; // Operations
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest'
  CONST intf.pas:Path 'common\components\gui\Garant\Everest\evDocumentPreview.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'DocumentPreview'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'evDocumentPreview'
 
 ref; // ME_49CBD11A02CF TevDocumentPreview
 
@@ -3895,6 +3963,7 @@ ref; // ME_5243CB3A0332 MacroReplacer
 : ME_10B3464C0D20
  CONST UID '10B3464C0D20'
  CONST Name 'f_PagesCount'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY 'Поле для свойства PagesCount' ;
  CONST Visibility PrivateAccess
@@ -3904,12 +3973,14 @@ ref; // ME_5243CB3A0332 MacroReplacer
  ;
  : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
  ;
+ CONST extprop:clearViaProperty 'PagesCount'
 
 ref; // ME_10B3464C0D20 f_PagesCount
 
 : ME_AE7AB4983433
  CONST UID 'AE7AB4983433'
  CONST Name 'f_MacroReplacer'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY 'Поле для свойства MacroReplacer' ;
  CONST Visibility PrivateAccess
@@ -3945,8 +4016,8 @@ ref; // ME_5243CCAE0306 aCanvas
  : Target WL 'ME_46780DA40383' '4677FBA70343.pas.ms.script' // Il3CString
  ;
  : Parameters
-   @ ( ME_5243CCAE0306 // aCanvas
- ) .SequenceCode.It
+   Seq: ( ME_5243CCAE0306 // aCanvas
+ )
  ; // Parameters
 
 ref; // ME_5243CCAC00B4 DoIt
@@ -3962,8 +4033,8 @@ ref; // ME_5243CCAC00B4 DoIt
  : Parent ME_4C22178C0102 // TevHAFPainter
  ;
  : Operations
-   @ ( ME_5243CCAC00B4 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_5243CCAC00B4 // DoIt
+ )
  ; // Operations
 
 ref; // ME_5243CC9F00C7 MacroDocCurrentPage
@@ -3994,8 +4065,8 @@ ref; // ME_5243CCC300D0 DoIt
  : Parent ME_4C22178C0102 // TevHAFPainter
  ;
  : Operations
-   @ ( ME_5243CCC300D0 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_5243CCC300D0 // DoIt
+ )
  ; // Operations
 
 ref; // ME_5243CCBB0100 MacroDocPagesCount
@@ -4021,8 +4092,8 @@ ref; // ME_5243CD0903DB aMacroReplacer
  : Parent ME_5243CCEE0271 // Create
  ;
  : Parameters
-   @ ( ME_5243CD0903DB // aMacroReplacer
- ) .SequenceCode.It
+   Seq: ( ME_5243CD0903DB // aMacroReplacer
+ )
  ; // Parameters
 
 ref; // ME_5243CD0600AE DoIt
@@ -4038,8 +4109,8 @@ ref; // ME_5243CD0600AE DoIt
  : Parent ME_4C22178C0102 // TevHAFPainter
  ;
  : Operations
-   @ ( ME_5243CD0600AE // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_5243CD0600AE // DoIt
+ )
  ; // Operations
 
 ref; // ME_5243CCEE0271 Create
@@ -4049,6 +4120,7 @@ FORWARD ME_5243CD17020A
 : ME_F44B2E48A51D
  CONST UID 'F44B2E48A51D'
  CONST Name 'aMacroReplacer'
+ CONST IsSummoned true
  CONST Class class_Parameter
  : Stereotype st_in ;
  : Target WL 'ME_49539CF5018B' '467C0CAA02AB.pas.ms.script' // Il3HAFMacroReplacer
@@ -4059,6 +4131,7 @@ ref; // ME_F44B2E48A51D aMacroReplacer
 : ME_B47F5CA51604
  CONST UID 'B47F5CA51604'
  CONST Name 'DoIt'
+ CONST IsSummoned true
  CONST Class class_Operation
  %SUMMARY 'Сигнатура фабрики TevHAFPainter.Make' ;
  CONST Visibility PrivateAccess
@@ -4066,8 +4139,8 @@ ref; // ME_F44B2E48A51D aMacroReplacer
  : Parent ME_5243CD17020A // Make
  ;
  : Parameters
-   @ ( ME_F44B2E48A51D // aMacroReplacer
- ) .SequenceCode.It
+   Seq: ( ME_F44B2E48A51D // aMacroReplacer
+ )
  ; // Parameters
 
 ref; // ME_B47F5CA51604 DoIt
@@ -4083,12 +4156,12 @@ ref; // ME_B47F5CA51604 DoIt
  : Parent ME_4C22178C0102 // TevHAFPainter
  ;
  : Inherits
-   @ ( ME_5243CCEE0271 // Create
- ) .SequenceCode.It
+   Seq: ( ME_5243CCEE0271 // Create
+ )
  ; // Inherits
  : Operations
-   @ ( ME_B47F5CA51604 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_B47F5CA51604 // DoIt
+ )
  ; // Operations
  CONST "check nil" false
  CONST "need AfterCreate" 'undefined'
@@ -4138,10 +4211,10 @@ ref; // ME_5243CD9C03A0 aTop
  : Parent ME_5243CD850286 // TuneHeader
  ;
  : Parameters
-   @ ( ME_5243CD9C030C // aCanvas
+   Seq: ( ME_5243CD9C030C // aCanvas
  ME_5243CD9C034C // aHeader
  ME_5243CD9C03A0 // aTop
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_5243CD9A0008 DoIt
@@ -4157,8 +4230,8 @@ ref; // ME_5243CD9A0008 DoIt
  : Parent ME_4C22178C0102 // TevHAFPainter
  ;
  : Operations
-   @ ( ME_5243CD9A0008 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_5243CD9A0008 // DoIt
+ )
  ; // Operations
 
 ref; // ME_5243CD850286 TuneHeader
@@ -4189,8 +4262,8 @@ ref; // ME_5243DA3001A9 DoIt
  : Parent ME_4C22178C0102 // TevHAFPainter
  ;
  : Operations
-   @ ( ME_5243DA3001A9 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_5243DA3001A9 // DoIt
+ )
  ; // Operations
 
 ref; // ME_5243DA2102ED DoNeedPagesCount
@@ -4380,6 +4453,7 @@ ref; // ME_52BC39A202CB
  ;
  : Implementor ME_4C22178C0102 // TevHAFPainter
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_4728C10B0096_ME_4C22178C0102 DocumentName
 
 : ME_4728C12F0048_ME_4C22178C0102
@@ -4389,6 +4463,7 @@ ref; // ME_4728C10B0096_ME_4C22178C0102 DocumentName
  ;
  : Implementor ME_4C22178C0102 // TevHAFPainter
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_4728C12F0048_ME_4C22178C0102 NeedPagesCount
 
 : ME_4728C140024B_ME_4C22178C0102
@@ -4398,6 +4473,7 @@ ref; // ME_4728C12F0048_ME_4C22178C0102 NeedPagesCount
  ;
  : Implementor ME_4C22178C0102 // TevHAFPainter
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_4728C140024B_ME_4C22178C0102 SetPagesCount
 
 : ME_4728C1490398_ME_4C22178C0102
@@ -4407,6 +4483,7 @@ ref; // ME_4728C140024B_ME_4C22178C0102 SetPagesCount
  ;
  : Implementor ME_4C22178C0102 // TevHAFPainter
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_4728C1490398_ME_4C22178C0102 StartPage
 
 : ME_49539D77008C_ME_4C22178C0102
@@ -4416,6 +4493,7 @@ ref; // ME_4728C1490398_ME_4C22178C0102 StartPage
  ;
  : Implementor ME_4C22178C0102 // TevHAFPainter
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" false
 ref; // ME_49539D77008C_ME_4C22178C0102 MacroReplacer
 
@@ -4426,6 +4504,7 @@ ref; // ME_49539D77008C_ME_4C22178C0102 MacroReplacer
  ;
  : Implementor ME_4C22178C0102 // TevHAFPainter
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_479731C50290_ME_4C22178C0102 Cleanup
 
 : ME_5000565C019C_ME_4C22178C0102
@@ -4435,6 +4514,7 @@ ref; // ME_479731C50290_ME_4C22178C0102 Cleanup
  ;
  : Implementor ME_4C22178C0102 // TevHAFPainter
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_5000565C019C_ME_4C22178C0102 ClearFields
 
 : ME_4C22178C0102
@@ -4448,44 +4528,44 @@ ref; // ME_5000565C019C_ME_4C22178C0102 ClearFields
  : Parent ME_47EA968D0155 // Printing
  ;
  : Inherits
-   @ ( WL 'ME_49E7754802A9' '47913B47006E.pas.ms.script' // Tl3ProtoObject
- ) .SequenceCode.It
+   Seq: ( WL 'ME_49E7754802A9' '47913B47006E.pas.ms.script' // Tl3ProtoObject
+ )
  ; // Inherits
  : Implements
-   @ ( WL 'ME_4728C0FF02A2' '467C0CAA02AB.pas.ms.script' // Il3HAFPainter
- ) .SequenceCode.It
+   Seq: ( WL 'ME_4728C0FF02A2' '467C0CAA02AB.pas.ms.script' // Il3HAFPainter
+ )
  ; // Implements
  : Attributes
-   @ ( ME_5243CB170207 // PagesCount
+   Seq: ( ME_5243CB170207 // PagesCount
  ME_5243CB3A0332 // MacroReplacer
  ME_10B3464C0D20 // f_PagesCount
  ME_AE7AB4983433 // f_MacroReplacer
- ) .SequenceCode.It
+ )
  ; // Attributes
  : Operations
-   @ ( ME_5243CC9F00C7 // MacroDocCurrentPage
+   Seq: ( ME_5243CC9F00C7 // MacroDocCurrentPage
  ME_5243CCBB0100 // MacroDocPagesCount
  ME_5243CCEE0271 // Create
  ME_5243CD17020A // Make
  ME_5243CD850286 // TuneHeader
  ME_5243DA2102ED // DoNeedPagesCount
- ) .SequenceCode.It
+ )
  ; // Operations
  : Implemented
-   @ ( ME_4728C10B0096_ME_4C22178C0102 // DocumentName
+   Seq: ( ME_4728C10B0096_ME_4C22178C0102 // DocumentName
  ME_4728C12F0048_ME_4C22178C0102 // NeedPagesCount
  ME_4728C140024B_ME_4C22178C0102 // SetPagesCount
  ME_4728C1490398_ME_4C22178C0102 // StartPage
  ME_49539D77008C_ME_4C22178C0102 // MacroReplacer
- ) .SequenceCode.It
+ )
  ; // Implemented
  : Overridden
-   @ ( ME_479731C50290_ME_4C22178C0102 // Cleanup
+   Seq: ( ME_479731C50290_ME_4C22178C0102 // Cleanup
  ME_5000565C019C_ME_4C22178C0102 // ClearFields
- ) .SequenceCode.It
+ )
  ; // Overridden
  : Dependencies
-   @ ( ME_5243DFC1017F // 
+   Seq: ( ME_5243DFC1017F // 
  ME_5243E00B0339 // 
  ME_5243E03400D9 // 
  ME_5243E05C0163 // 
@@ -4501,18 +4581,20 @@ ref; // ME_5000565C019C_ME_4C22178C0102 ClearFields
  ME_5243E60002EF // 
  ME_5243E65400CA // 
  ME_52BC39A202CB // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest'
  CONST intf.pas:Path 'common\components\gui\Garant\Everest\evHAFPainter.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'HAFPainter'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'evHAFPainter'
 
 ref; // ME_4C22178C0102 TevHAFPainter
 
@@ -4527,20 +4609,22 @@ ref; // ME_4C22178C0102 TevHAFPainter
  : Parent ME_47EA968D0155 // Printing
  ;
  : Inherits
-   @ ( ME_4C2215040200 // TevCustomHAFMacroReplacer
- ) .SequenceCode.It
+   Seq: ( ME_4C2215040200 // TevCustomHAFMacroReplacer
+ )
  ; // Inherits
  CONST "finished" false
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest'
  CONST intf.pas:Path 'common\components\gui\Garant\Everest\NOT_FINISHED_evFormatHAFMacroReplacer.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'FormatHAFMacroReplacer'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'evFormatHAFMacroReplacer'
 
 ref; // ME_4954878B03CF TevFormatHAFMacroReplacer
 
@@ -4572,14 +4656,18 @@ ref; // ME_4C22155A004B
  : Parent ME_4C22137E025C // evHAFPainterEx
  ;
  : Inherits
-   @ ( WL 'ME_4991678A008A' '47C695A10172.pas.ms.script' // TevPageColontituls
- ) .SequenceCode.It
+   Seq: ( WL 'ME_4991678A008A' '47C695A10172.pas.ms.script' // TevPageColontituls
+ )
  ; // Inherits
  : Attributes
-   @ ( ME_4C22155A004B // 
- ) .SequenceCode.It
+   Seq: ( ME_4C22155A004B // 
+ )
  ; // Attributes
  CONST "array type" 'dynamic'
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_4C22153801DC TevColontituls
 
@@ -4604,8 +4692,8 @@ ref; // ME_5243EF4100BE theColontituls
  : Parent ME_4C22149F02C9 // TevReadColontitulsEvent
  ;
  : Parameters
-   @ ( ME_5243EF4100BE // theColontituls
- ) .SequenceCode.It
+   Seq: ( ME_5243EF4100BE // theColontituls
+ )
  ; // Parameters
 
 ref; // ME_5243EF3A014D DoIt
@@ -4621,10 +4709,14 @@ ref; // ME_5243EF3A014D DoIt
  : Parent ME_4C22137E025C // evHAFPainterEx
  ;
  : Operations
-   @ ( ME_5243EF3A014D // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_5243EF3A014D // DoIt
+ )
  ; // Operations
  CONST "of object" true
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_4C22149F02C9 TevReadColontitulsEvent
 
@@ -4667,8 +4759,8 @@ ref; // ME_5243E961032D aSettingId
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
  : Parameters
-   @ ( ME_5243E961032D // aSettingId
- ) .SequenceCode.It
+   Seq: ( ME_5243E961032D // aSettingId
+ )
  ; // Parameters
 
 ref; // ME_5243E95E0128 DoIt
@@ -4684,8 +4776,8 @@ ref; // ME_5243E95E0128 DoIt
  : Parent ME_47F352A30004 // TevHAFPainterEx
  ;
  : Operations
-   @ ( ME_5243E95E0128 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_5243E95E0128 // DoIt
+ )
  ; // Operations
 
 ref; // ME_5243E95503E4 IsSettingAffectsUs
@@ -4695,6 +4787,7 @@ FORWARD ME_5243E9AE0230
 : ME_6F40C99C268C
  CONST UID '6F40C99C268C'
  CONST Name 'DoIt'
+ CONST IsSummoned true
  CONST Class class_Operation
  %SUMMARY 'Сигнатура метода ReadColontitulSettings' ;
  CONST Visibility PublicAccess
@@ -4715,8 +4808,8 @@ ref; // ME_6F40C99C268C DoIt
  : Parent ME_47F352A30004 // TevHAFPainterEx
  ;
  : Operations
-   @ ( ME_6F40C99C268C // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_6F40C99C268C // DoIt
+ )
  ; // Operations
 
 ref; // ME_5243E9AE0230 ReadColontitulSettings
@@ -4747,8 +4840,8 @@ ref; // ME_53EDC0E300B9 DoIt
  : Parent ME_47F352A30004 // TevHAFPainterEx
  ;
  : Operations
-   @ ( ME_53EDC0E300B9 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_53EDC0E300B9 // DoIt
+ )
  ; // Operations
 
 ref; // ME_53EDC0B8024A GetAppTitle
@@ -4760,6 +4853,7 @@ ref; // ME_53EDC0B8024A GetAppTitle
  ;
  : Implementor ME_47F352A30004 // TevHAFPainterEx
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_5243CD850286_ME_47F352A30004 TuneHeader
 
 : ME_479731C50290_ME_47F352A30004
@@ -4769,6 +4863,7 @@ ref; // ME_5243CD850286_ME_47F352A30004 TuneHeader
  ;
  : Implementor ME_47F352A30004 // TevHAFPainterEx
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_479731C50290_ME_47F352A30004 Cleanup
 
 : ME_47EA863A035C_ME_47F352A30004
@@ -4778,6 +4873,7 @@ ref; // ME_479731C50290_ME_47F352A30004 Cleanup
  ;
  : Implementor ME_47F352A30004 // TevHAFPainterEx
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_47EA863A035C_ME_47F352A30004 DoSettingChanged
 
 : ME_47EA8B9601FE_ME_47F352A30004
@@ -4787,6 +4883,7 @@ ref; // ME_47EA863A035C_ME_47F352A30004 DoSettingChanged
  ;
  : Implementor ME_47F352A30004 // TevHAFPainterEx
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_47EA8B9601FE_ME_47F352A30004 SettingsReplaceFinish
 
 : ME_5243CCEE0271_ME_47F352A30004
@@ -4796,6 +4893,7 @@ ref; // ME_47EA8B9601FE_ME_47F352A30004 SettingsReplaceFinish
  ;
  : Implementor ME_47F352A30004 // TevHAFPainterEx
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_5243CCEE0271_ME_47F352A30004 Create
 
 : ME_5243DA2102ED_ME_47F352A30004
@@ -4805,6 +4903,7 @@ ref; // ME_5243CCEE0271_ME_47F352A30004 Create
  ;
  : Implementor ME_47F352A30004 // TevHAFPainterEx
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_5243DA2102ED_ME_47F352A30004 DoNeedPagesCount
 
 : ME_47F352A30004
@@ -4818,35 +4917,35 @@ ref; // ME_5243DA2102ED_ME_47F352A30004 DoNeedPagesCount
  : Parent ME_4C22137E025C // evHAFPainterEx
  ;
  : Inherits
-   @ ( ME_4C22178C0102 // TevHAFPainter
- ) .SequenceCode.It
+   Seq: ( ME_4C22178C0102 // TevHAFPainter
+ )
  ; // Inherits
  : Implements
-   @ ( WL 'ME_47EA85E7005B' '47EA4BB502F9.pas.ms.script' // afwSettingChanged
+   Seq: ( WL 'ME_47EA85E7005B' '47EA4BB502F9.pas.ms.script' // afwSettingChanged
  WL 'ME_47EA8AEF0077' '47EA4BB502F9.pas.ms.script' // afwSettingsReplace
- ) .SequenceCode.It
+ )
  ; // Implements
  : Attributes
-   @ ( ME_5243E92502D8 // f_Colontituls
- ) .SequenceCode.It
+   Seq: ( ME_5243E92502D8 // f_Colontituls
+ )
  ; // Attributes
  : Operations
-   @ ( ME_5243E95503E4 // IsSettingAffectsUs
+   Seq: ( ME_5243E95503E4 // IsSettingAffectsUs
  ME_5243E9AE0230 // ReadColontitulSettings
  ME_53EDC0B8024A // GetAppTitle
- ) .SequenceCode.It
+ )
  ; // Operations
  : Implemented
-   @ ( ME_5243CD850286_ME_47F352A30004 // TuneHeader
- ) .SequenceCode.It
+   Seq: ( ME_5243CD850286_ME_47F352A30004 // TuneHeader
+ )
  ; // Implemented
  : Overridden
-   @ ( ME_479731C50290_ME_47F352A30004 // Cleanup
+   Seq: ( ME_479731C50290_ME_47F352A30004 // Cleanup
  ME_47EA863A035C_ME_47F352A30004 // DoSettingChanged
  ME_47EA8B9601FE_ME_47F352A30004 // SettingsReplaceFinish
  ME_5243CCEE0271_ME_47F352A30004 // Create
  ME_5243DA2102ED_ME_47F352A30004 // DoNeedPagesCount
- ) .SequenceCode.It
+ )
  ; // Overridden
  CONST "author" 'Люлин А.В.'
  CONST "finished" false
@@ -4855,6 +4954,12 @@ ref; // ME_5243DA2102ED_ME_47F352A30004 DoNeedPagesCount
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
  CONST "started" '28.12.2004 19:02'
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'HAFPainterEx'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_47F352A30004 TevHAFPainterEx
 
@@ -4993,17 +5098,17 @@ ref; // ME_5243F39301A8
  : Parent ME_47EA968D0155 // Printing
  ;
  : Attributes
-   @ ( ME_5243E9D90327 // g_OnReadColontituls
- ) .SequenceCode.It
+   Seq: ( ME_5243E9D90327 // g_OnReadColontituls
+ )
  ; // Attributes
  : Children
-   @ ( ME_4C22153801DC // TevColontituls
+   Seq: ( ME_4C22153801DC // TevColontituls
  ME_4C22149F02C9 // TevReadColontitulsEvent
  ME_47F352A30004 // TevHAFPainterEx
- ) .SequenceCode.It
+ )
  ; // Children
  : Dependencies
-   @ ( ME_5243F1EE010D // 
+   Seq: ( ME_5243F1EE010D // 
  ME_5243F1F202E9 // 
  ME_5243F1F9010B // 
  ME_5243F1FC009A // 
@@ -5013,15 +5118,15 @@ ref; // ME_5243F39301A8
  ME_5243F38C03A6 // 
  ME_5243F39001AB // 
  ME_5243F39301A8 // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  CONST "no hands" false
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest'
  CONST intf.pas:Path 'common\components\gui\Garant\Everest\evHAFPainterEx.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'HAFPainterEx'
 
 ref; // ME_4C22137E025C evHAFPainterEx
 
@@ -5037,12 +5142,12 @@ ref; // ME_4C22137E025C evHAFPainterEx
  ;
  CONST "finished" false
  CONST "no hands" false
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest'
  CONST intf.pas:Path 'common\components\gui\Garant\Everest\NOT_FINISHED_evHAFPainterMacros.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'HAFPainterMacros'
 
 ref; // ME_4C88DA310019 evHAFPainterMacros
 
@@ -5132,8 +5237,8 @@ ref; // ME_4CB57EC8020E aStorable
  : Parent ME_4CB57EB40216 // Create
  ;
  : Parameters
-   @ ( ME_4CB57EC8020E // aStorable
- ) .SequenceCode.It
+   Seq: ( ME_4CB57EC8020E // aStorable
+ )
  ; // Parameters
 
 ref; // ME_4CB57EBB02EA DoIt
@@ -5149,8 +5254,8 @@ ref; // ME_4CB57EBB02EA DoIt
  : Parent ME_4CB57E560195 // TnevDocumentProvider
  ;
  : Operations
-   @ ( ME_4CB57EBB02EA // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_4CB57EBB02EA // DoIt
+ )
  ; // Operations
 
 ref; // ME_4CB57EB40216 Create
@@ -5160,6 +5265,7 @@ FORWARD ME_4CB57EDA0325
 : ME_CC28D91F4B1D
  CONST UID 'CC28D91F4B1D'
  CONST Name 'aStorable'
+ CONST IsSummoned true
  CONST Class class_Parameter
  : Stereotype st_in ;
  : Target WL 'ME_47C68BEF02B9' '47C5207602D1.pas.ms.script' // InevStorable
@@ -5170,6 +5276,7 @@ ref; // ME_CC28D91F4B1D aStorable
 : ME_E61808BA9105
  CONST UID 'E61808BA9105'
  CONST Name 'DoIt'
+ CONST IsSummoned true
  CONST Class class_Operation
  %SUMMARY 'Сигнатура фабрики TnevDocumentProvider.Make' ;
  CONST Visibility PrivateAccess
@@ -5179,8 +5286,8 @@ ref; // ME_CC28D91F4B1D aStorable
  : Target WL 'ME_4CB57C920381' '47C5207602D1.pas.ms.script' // InevDocumentProvider
  ;
  : Parameters
-   @ ( ME_CC28D91F4B1D // aStorable
- ) .SequenceCode.It
+   Seq: ( ME_CC28D91F4B1D // aStorable
+ )
  ; // Parameters
 
 ref; // ME_E61808BA9105 DoIt
@@ -5196,16 +5303,16 @@ ref; // ME_E61808BA9105 DoIt
  : Parent ME_4CB57E560195 // TnevDocumentProvider
  ;
  : Inherits
-   @ ( ME_4CB57EB40216 // Create
- ) .SequenceCode.It
+   Seq: ( ME_4CB57EB40216 // Create
+ )
  ; // Inherits
  : Implements
-   @ ( WL 'ME_4CB57C920381' '47C5207602D1.pas.ms.script' // InevDocumentProvider
- ) .SequenceCode.It
+   Seq: ( WL 'ME_4CB57C920381' '47C5207602D1.pas.ms.script' // InevDocumentProvider
+ )
  ; // Implements
  : Operations
-   @ ( ME_E61808BA9105 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_E61808BA9105 // DoIt
+ )
  ; // Operations
  CONST "check nil" false
  CONST "need AfterCreate" 'undefined'
@@ -5243,6 +5350,7 @@ ref; // ME_4D1893E9038E
  ;
  : Implementor ME_4CB57E560195 // TnevDocumentProvider
  ;
+ CONST OpKind opkind_Implemented
  CONST "force overload" true
 ref; // ME_47C68BFD011C_ME_4CB57E560195 Store
 
@@ -5253,6 +5361,7 @@ ref; // ME_47C68BFD011C_ME_4CB57E560195 Store
  ;
  : Implementor ME_4CB57E560195 // TnevDocumentProvider
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" false
 ref; // ME_4CB5897501F9_ME_4CB57E560195 CanProvideOriginalDocument
 
@@ -5263,6 +5372,7 @@ ref; // ME_4CB5897501F9_ME_4CB57E560195 CanProvideOriginalDocument
  ;
  : Implementor ME_4CB57E560195 // TnevDocumentProvider
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" false
 ref; // ME_4D1882B00158_ME_4CB57E560195 PageSetup
 
@@ -5273,6 +5383,7 @@ ref; // ME_4D1882B00158_ME_4CB57E560195 PageSetup
  ;
  : Implementor ME_4CB57E560195 // TnevDocumentProvider
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" false
 ref; // ME_5343C5D2028A_ME_4CB57E560195 OriginalDocument
 
@@ -5283,6 +5394,7 @@ ref; // ME_5343C5D2028A_ME_4CB57E560195 OriginalDocument
  ;
  : Implementor ME_4CB57E560195 // TnevDocumentProvider
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_5000565C019C_ME_4CB57E560195 ClearFields
 
 : ME_4CB57E560195
@@ -5296,40 +5408,40 @@ ref; // ME_5000565C019C_ME_4CB57E560195 ClearFields
  : Parent ME_47EA968D0155 // Printing
  ;
  : Inherits
-   @ ( WL 'ME_49E7754802A9' '47913B47006E.pas.ms.script' // Tl3ProtoObject
- ) .SequenceCode.It
+   Seq: ( WL 'ME_49E7754802A9' '47913B47006E.pas.ms.script' // Tl3ProtoObject
+ )
  ; // Inherits
  : Implements
-   @ ( WL 'ME_4CB57C920381' '47C5207602D1.pas.ms.script' // InevDocumentProvider
- ) .SequenceCode.It
+   Seq: ( WL 'ME_4CB57C920381' '47C5207602D1.pas.ms.script' // InevDocumentProvider
+ )
  ; // Implements
  : Attributes
-   @ ( ME_4CB57EA70257 // f_Storable
+   Seq: ( ME_4CB57EA70257 // f_Storable
  ME_4CB589C80045 // CanProvideOriginalDocument
  ME_4CB589F902EA // OriginalDocument
  ME_4D18832500B4 // PageSetup
- ) .SequenceCode.It
+ )
  ; // Attributes
  : Operations
-   @ ( ME_4CB57EB40216 // Create
+   Seq: ( ME_4CB57EB40216 // Create
  ME_4CB57EDA0325 // Make
- ) .SequenceCode.It
+ )
  ; // Operations
  : Implemented
-   @ ( ME_47C68BFD011C_ME_4CB57E560195 // Store
+   Seq: ( ME_47C68BFD011C_ME_4CB57E560195 // Store
  ME_4CB5897501F9_ME_4CB57E560195 // CanProvideOriginalDocument
  ME_4D1882B00158_ME_4CB57E560195 // PageSetup
  ME_5343C5D2028A_ME_4CB57E560195 // OriginalDocument
- ) .SequenceCode.It
+ )
  ; // Implemented
  : Overridden
-   @ ( ME_5000565C019C_ME_4CB57E560195 // ClearFields
- ) .SequenceCode.It
+   Seq: ( ME_5000565C019C_ME_4CB57E560195 // ClearFields
+ )
  ; // Overridden
  : Dependencies
-   @ ( ME_4D1886260173 // 
+   Seq: ( ME_4D1886260173 // 
  ME_4D1893E9038E // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  CONST "author" 'Люлин А.В.'
  CONST "needs InstanceR" 'undefined'
@@ -5337,12 +5449,14 @@ ref; // ME_5000565C019C_ME_4CB57E560195 ClearFields
  CONST "no hands" true
  CONST "register in scripts" 'undefined'
  CONST "started" '13.10.2010 13:39'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest'
  CONST intf.pas:Path 'common\components\gui\Garant\Everest\nevDocumentProvider.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'DocumentProvider'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'nevDocumentProvider'
 
 ref; // ME_4CB57E560195 TnevDocumentProvider
 
@@ -5393,9 +5507,9 @@ ref; // ME_4CB586560377 aDocument
  : Parent ME_4CB586450301 // Create
  ;
  : Parameters
-   @ ( ME_4CB58656035B // aStorable
+   Seq: ( ME_4CB58656035B // aStorable
  ME_4CB586560377 // aDocument
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_4CB5864E0303 DoIt
@@ -5411,8 +5525,8 @@ ref; // ME_4CB5864E0303 DoIt
  : Parent ME_4CB586140150 // TnevDocumentProviderEx
  ;
  : Operations
-   @ ( ME_4CB5864E0303 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_4CB5864E0303 // DoIt
+ )
  ; // Operations
 
 ref; // ME_4CB586450301 Create
@@ -5422,6 +5536,7 @@ FORWARD ME_4CB58669004B
 : ME_9B55CB628A7C
  CONST UID '9B55CB628A7C'
  CONST Name 'aStorable'
+ CONST IsSummoned true
  CONST Class class_Parameter
  : Stereotype st_in ;
  : Target WL 'ME_47C68BEF02B9' '47C5207602D1.pas.ms.script' // InevStorable
@@ -5432,6 +5547,7 @@ ref; // ME_9B55CB628A7C aStorable
 : ME_6B651107CDEC
  CONST UID '6B651107CDEC'
  CONST Name 'aDocument'
+ CONST IsSummoned true
  CONST Class class_Parameter
  : Stereotype st_in ;
  : Target WL 'ME_532031160122' '47913B47006E.pas.ms.script' // Tl3Variant
@@ -5442,6 +5558,7 @@ ref; // ME_6B651107CDEC aDocument
 : ME_84A11E5FE13C
  CONST UID '84A11E5FE13C'
  CONST Name 'DoIt'
+ CONST IsSummoned true
  CONST Class class_Operation
  %SUMMARY 'Сигнатура фабрики TnevDocumentProviderEx.Make' ;
  CONST Visibility PrivateAccess
@@ -5451,9 +5568,9 @@ ref; // ME_6B651107CDEC aDocument
  : Target WL 'ME_4CB57C920381' '47C5207602D1.pas.ms.script' // InevDocumentProvider
  ;
  : Parameters
-   @ ( ME_9B55CB628A7C // aStorable
+   Seq: ( ME_9B55CB628A7C // aStorable
  ME_6B651107CDEC // aDocument
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_84A11E5FE13C DoIt
@@ -5469,16 +5586,16 @@ ref; // ME_84A11E5FE13C DoIt
  : Parent ME_4CB586140150 // TnevDocumentProviderEx
  ;
  : Inherits
-   @ ( ME_4CB586450301 // Create
- ) .SequenceCode.It
+   Seq: ( ME_4CB586450301 // Create
+ )
  ; // Inherits
  : Implements
-   @ ( WL 'ME_4CB57C920381' '47C5207602D1.pas.ms.script' // InevDocumentProvider
- ) .SequenceCode.It
+   Seq: ( WL 'ME_4CB57C920381' '47C5207602D1.pas.ms.script' // InevDocumentProvider
+ )
  ; // Implements
  : Operations
-   @ ( ME_84A11E5FE13C // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_84A11E5FE13C // DoIt
+ )
  ; // Operations
  CONST "check nil" false
  CONST "need AfterCreate" 'undefined'
@@ -5549,6 +5666,7 @@ ref; // ME_5347DFBA0243
  ;
  : Implementor ME_4CB586140150 // TnevDocumentProviderEx
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" true
 ref; // ME_473D8F8602AE_ME_4CB586140150 Margins
 
@@ -5559,6 +5677,7 @@ ref; // ME_473D8F8602AE_ME_4CB586140150 Margins
  ;
  : Implementor ME_4CB586140150 // TnevDocumentProviderEx
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" true
 ref; // ME_473D8F9202F2_ME_4CB586140150 Orientation
 
@@ -5569,6 +5688,7 @@ ref; // ME_473D8F9202F2_ME_4CB586140150 Orientation
  ;
  : Implementor ME_4CB586140150 // TnevDocumentProviderEx
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_479731C50290_ME_4CB586140150 Cleanup
 
 : ME_4CB589C80045_ME_4CB586140150
@@ -5578,6 +5698,7 @@ ref; // ME_479731C50290_ME_4CB586140150 Cleanup
  ;
  : Implementor ME_4CB586140150 // TnevDocumentProviderEx
  ;
+ CONST OpKind opkind_Overridden
  CONST "needs field" false
  CONST "pm" true
 ref; // ME_4CB589C80045_ME_4CB586140150 CanProvideOriginalDocument
@@ -5589,6 +5710,7 @@ ref; // ME_4CB589C80045_ME_4CB586140150 CanProvideOriginalDocument
  ;
  : Implementor ME_4CB586140150 // TnevDocumentProviderEx
  ;
+ CONST OpKind opkind_Overridden
  CONST "needs field" false
  CONST "pm" true
 ref; // ME_4CB589F902EA_ME_4CB586140150 OriginalDocument
@@ -5600,6 +5722,7 @@ ref; // ME_4CB589F902EA_ME_4CB586140150 OriginalDocument
  ;
  : Implementor ME_4CB586140150 // TnevDocumentProviderEx
  ;
+ CONST OpKind opkind_Overridden
  CONST "needs field" false
  CONST "pm" true
 ref; // ME_4D18832500B4_ME_4CB586140150 PageSetup
@@ -5615,41 +5738,41 @@ ref; // ME_4D18832500B4_ME_4CB586140150 PageSetup
  : Parent ME_47EA968D0155 // Printing
  ;
  : Inherits
-   @ ( ME_4CB57E560195 // TnevDocumentProvider
- ) .SequenceCode.It
+   Seq: ( ME_4CB57E560195 // TnevDocumentProvider
+ )
  ; // Inherits
  : Implements
-   @ ( WL 'ME_473D8F0C021D' '467823B7002C.pas.ms.script' // IafwPageSetup
- ) .SequenceCode.It
+   Seq: ( WL 'ME_473D8F0C021D' '467823B7002C.pas.ms.script' // IafwPageSetup
+ )
  ; // Implements
  : Attributes
-   @ ( ME_4CB586860331 // f_Document
- ) .SequenceCode.It
+   Seq: ( ME_4CB586860331 // f_Document
+ )
  ; // Attributes
  : Operations
-   @ ( ME_4CB586450301 // Create
+   Seq: ( ME_4CB586450301 // Create
  ME_4CB58669004B // Make
- ) .SequenceCode.It
+ )
  ; // Operations
  : Implemented
-   @ ( ME_473D8F8602AE_ME_4CB586140150 // Margins
+   Seq: ( ME_473D8F8602AE_ME_4CB586140150 // Margins
  ME_473D8F9202F2_ME_4CB586140150 // Orientation
- ) .SequenceCode.It
+ )
  ; // Implemented
  : Overridden
-   @ ( ME_479731C50290_ME_4CB586140150 // Cleanup
+   Seq: ( ME_479731C50290_ME_4CB586140150 // Cleanup
  ME_4CB589C80045_ME_4CB586140150 // CanProvideOriginalDocument
  ME_4CB589F902EA_ME_4CB586140150 // OriginalDocument
  ME_4D18832500B4_ME_4CB586140150 // PageSetup
- ) .SequenceCode.It
+ )
  ; // Overridden
  : Dependencies
-   @ ( ME_4D1887B6001F // 
+   Seq: ( ME_4D1887B6001F // 
  ME_4D18895A01CA // 
  ME_4D1893E50296 // 
  ME_4D18B01E019B // 
  ME_5347DFBA0243 // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  CONST "author" 'Люлин А.В.'
  CONST "needs InstanceR" 'undefined'
@@ -5657,12 +5780,14 @@ ref; // ME_4D18832500B4_ME_4CB586140150 PageSetup
  CONST "no hands" true
  CONST "register in scripts" 'undefined'
  CONST "started" '13.10.2010 14:12'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest'
  CONST intf.pas:Path 'common\components\gui\Garant\Everest\nevDocumentProviderEx.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'DocumentProviderEx'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'nevDocumentProviderEx'
 
 ref; // ME_4CB586140150 TnevDocumentProviderEx
 
@@ -5681,12 +5806,14 @@ ref; // ME_4CB586140150 TnevDocumentProviderEx
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest'
  CONST intf.pas:Path 'common\components\gui\Garant\Everest\NOT_FINISHED_evBitmapDataObject.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'BitmapDataObject'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'evBitmapDataObject'
 
 ref; // ME_4CDACFDB00AB TevBitmapDataObject
 
@@ -5716,18 +5843,18 @@ ref; // ME_4D18943C033F OldBehaviourForK235875079
  : Parent ME_47EA968D0155 // Printing
  ;
  : Attributes
-   @ ( ME_4D18943C033F // OldBehaviourForK235875079
- ) .SequenceCode.It
+   Seq: ( ME_4D18943C033F // OldBehaviourForK235875079
+ )
  ; // Attributes
  CONST "author" 'Люлин А.В.'
  CONST "no hands" true
  CONST "started" '27.12.2010 16:25'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest'
  CONST intf.pas:Path 'common\components\gui\Garant\Everest\evPreviewForTestsTuning.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'PreviewForTestsTuning'
 
 ref; // ME_4D1893A20013 evPreviewForTestsTuning
 
@@ -5759,8 +5886,8 @@ ref; // ME_4F72F9E6011E DoIt
  : Parent ME_4F72F0A30036 // TevCustomPrintDataSaver
  ;
  : Operations
-   @ ( ME_4F72F9E6011E // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_4F72F9E6011E // DoIt
+ )
  ; // Operations
 
 ref; // ME_4F72F9CD022D GetPanel
@@ -5789,8 +5916,8 @@ ref; // ME_4F746D00025C DoIt
  : Parent ME_4F72F0A30036 // TevCustomPrintDataSaver
  ;
  : Operations
-   @ ( ME_4F746D00025C // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_4F746D00025C // DoIt
+ )
  ; // Operations
 
 ref; // ME_4F746CEA001D CheckResult
@@ -5821,8 +5948,8 @@ ref; // ME_4F7967DC0061 DoIt
  : Parent ME_4F72F0A30036 // TevCustomPrintDataSaver
  ;
  : Operations
-   @ ( ME_4F7967DC0061 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_4F7967DC0061 // DoIt
+ )
  ; // Operations
 
 ref; // ME_4F7967A8006B IsWaitingPrint
@@ -5848,8 +5975,8 @@ ref; // ME_4F7974EE00DE aSaver
  : Parent ME_4F7972A6004D // SetPrintDataSaver
  ;
  : Parameters
-   @ ( ME_4F7974EE00DE // aSaver
- ) .SequenceCode.It
+   Seq: ( ME_4F7974EE00DE // aSaver
+ )
  ; // Parameters
 
 ref; // ME_4F7973590188 DoIt
@@ -5865,8 +5992,8 @@ ref; // ME_4F7973590188 DoIt
  : Parent ME_4F72F0A30036 // TevCustomPrintDataSaver
  ;
  : Operations
-   @ ( ME_4F7973590188 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_4F7973590188 // DoIt
+ )
  ; // Operations
  CONST "is static" true
 
@@ -5883,20 +6010,26 @@ ref; // ME_4F7972A6004D SetPrintDataSaver
  : Parent ME_4F72F4E202FB // evCustomPrintDataSaver
  ;
  : Inherits
-   @ ( WL 'ME_49E7754802A9' '47913B47006E.pas.ms.script' // Tl3ProtoObject
- ) .SequenceCode.It
+   Seq: ( WL 'ME_49E7754802A9' '47913B47006E.pas.ms.script' // Tl3ProtoObject
+ )
  ; // Inherits
  : Operations
-   @ ( ME_4F72F9CD022D // GetPanel
+   Seq: ( ME_4F72F9CD022D // GetPanel
  ME_4F746CEA001D // CheckResult
  ME_4F7967A8006B // IsWaitingPrint
  ME_4F7972A6004D // SetPrintDataSaver
- ) .SequenceCode.It
+ )
  ; // Operations
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'PrintDataSaver'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_4F72F0A30036 TevCustomPrintDataSaver
 
@@ -5925,21 +6058,21 @@ ref; // ME_4F72F51A0206 g_PrintDataSaver
  : Parent ME_47EA968D0155 // Printing
  ;
  : Attributes
-   @ ( ME_4F72F51A0206 // g_PrintDataSaver
- ) .SequenceCode.It
+   Seq: ( ME_4F72F51A0206 // g_PrintDataSaver
+ )
  ; // Attributes
  : Children
-   @ ( ME_4F72F0A30036 // TevCustomPrintDataSaver
- ) .SequenceCode.It
+   Seq: ( ME_4F72F0A30036 // TevCustomPrintDataSaver
+ )
  ; // Children
  CONST "ifdef" 'InsiderTest'
  CONST "no hands" false
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest'
  CONST intf.pas:Path 'common\components\gui\Garant\Everest\evCustomPrintDataSaver.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'PrintDataSaver'
 
 ref; // ME_4F72F4E202FB evCustomPrintDataSaver
 
@@ -6009,6 +6142,7 @@ ref; // ME_541153A7026F
  ;
  : Implementor ME_53FEE940022B // TevPDFWriter
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_53FEE4FE01CB_ME_53FEE940022B ExportPDF
 
 : ME_53FEE940022B
@@ -6022,31 +6156,33 @@ ref; // ME_53FEE4FE01CB_ME_53FEE940022B ExportPDF
  : Parent ME_47EA968D0155 // Printing
  ;
  : Inherits
-   @ ( WL 'ME_53FED6EF027B' '47ECACA70141.pas.ms.script' // TevCustomPDFWriter
- ) .SequenceCode.It
+   Seq: ( WL 'ME_53FED6EF027B' '47ECACA70141.pas.ms.script' // TevCustomPDFWriter
+ )
  ; // Inherits
  : Implemented
-   @ ( ME_53FEE4FE01CB_ME_53FEE940022B // ExportPDF
- ) .SequenceCode.It
+   Seq: ( ME_53FEE4FE01CB_ME_53FEE940022B // ExportPDF
+ )
  ; // Implemented
  : Dependencies
-   @ ( ME_53FEE9700328 // 
+   Seq: ( ME_53FEE9700328 // 
  ME_53FEEEED0101 // 
  ME_53FF121200D1 // 
  ME_541149F0029E // 
  ME_541153A7026F // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest'
  CONST intf.pas:Path 'common\components\gui\Garant\Everest\evPDFWriter.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'PDFWriter'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'evPDFWriter'
 
 ref; // ME_53FEE940022B TevPDFWriter
 
@@ -6057,6 +6193,7 @@ ref; // ME_53FEE940022B TevPDFWriter
  ;
  : Implementor ME_541149B203E1 // TnevDocumentProvider4PDF
  ;
+ CONST OpKind opkind_Overridden
  CONST "needs field" false
  CONST "pm" true
 ref; // ME_4CB589C80045_ME_541149B203E1 CanProvideOriginalDocument
@@ -6068,6 +6205,7 @@ ref; // ME_4CB589C80045_ME_541149B203E1 CanProvideOriginalDocument
  ;
  : Implementor ME_541149B203E1 // TnevDocumentProvider4PDF
  ;
+ CONST OpKind opkind_Overridden
  CONST "needs field" false
  CONST "pm" true
 ref; // ME_4D18832500B4_ME_541149B203E1 PageSetup
@@ -6083,24 +6221,26 @@ ref; // ME_4D18832500B4_ME_541149B203E1 PageSetup
  : Parent ME_47EA968D0155 // Printing
  ;
  : Inherits
-   @ ( ME_4CB586140150 // TnevDocumentProviderEx
- ) .SequenceCode.It
+   Seq: ( ME_4CB586140150 // TnevDocumentProviderEx
+ )
  ; // Inherits
  : Overridden
-   @ ( ME_4CB589C80045_ME_541149B203E1 // CanProvideOriginalDocument
+   Seq: ( ME_4CB589C80045_ME_541149B203E1 // CanProvideOriginalDocument
  ME_4D18832500B4_ME_541149B203E1 // PageSetup
- ) .SequenceCode.It
+ )
  ; // Overridden
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest'
  CONST intf.pas:Path 'common\components\gui\Garant\Everest\nevDocumentProvider4PDF.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'DocumentProvider4PDF'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'nevDocumentProvider4PDF'
 
 ref; // ME_541149B203E1 TnevDocumentProvider4PDF
 
@@ -6115,7 +6255,7 @@ ref; // ME_541149B203E1 TnevDocumentProvider4PDF
  : Parent WL 'ME_4797632D0273' '4797632D0273.pas.ms.script' // Everest
  ;
  : Children
-   @ ( ME_47EA97410130 // TevDocumentPreviewPrim
+   Seq: ( ME_47EA97410130 // TevDocumentPreviewPrim
  ME_47FA06400313 // TevMultiDocumentPreview
  ME_481D76A4005D // evParaDrawTools
  ME_4C2215040200 // TevCustomHAFMacroReplacer
@@ -6131,10 +6271,10 @@ ref; // ME_541149B203E1 TnevDocumentProvider4PDF
  ME_4F72F4E202FB // evCustomPrintDataSaver
  ME_53FEE940022B // TevPDFWriter
  ME_541149B203E1 // TnevDocumentProvider4PDF
- ) .SequenceCode.It
+ )
  ; // Children
  : Depends
-   @ ( WL 'ME_4677FBA70343' '4677FBA70343.pas.ms.script' // l3Interfaces
+   Seq: ( WL 'ME_4677FBA70343' '4677FBA70343.pas.ms.script' // l3Interfaces
  WL 'ME_4678137501EA' '4678137501EA.pas.ms.script' // k2Interfaces
  WL 'ME_4678209200A6' '4678209200A6.pas.ms.script' // nevBase
  WL 'ME_467823B7002C' '467823B7002C.pas.ms.script' // afwInterfaces
@@ -6187,15 +6327,13 @@ ref; // ME_541149B203E1 TnevDocumentProvider4PDF
  WL 'ME_54B90AC6014B' '54B90AC6014B.pas.ms.script' // StringUtils
  WL 'ME_556F09AA036E' '556F09AA036E.pas.ms.script' // l3PrinterInterfaces
  WL 'ME_55C4AEC801CA' '55C4AEC801CA.pas.ms.script' // Graphics
- ) .SequenceCode.It
+ )
  ; // Depends
- : Generators
- @ (
- gen_pas.script
- gen_pas.script.runner
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest'
  CONST pas.script:Path 'shared\models\NewSchool\Scripts\47EA968D0155.pas.ms.script'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
  CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\47EA968D0155.pas.ms.script.runner'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_47EA968D0155 Printing

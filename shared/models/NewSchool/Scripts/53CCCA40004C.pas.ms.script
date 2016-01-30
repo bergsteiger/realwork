@@ -1,0 +1,194 @@
+// BaseEngine 53CCCA40004C Unit Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_53CCCA40004C
+
+: ME_53CCCA5B036F
+ CONST UID '53CCCA5B036F'
+ CONST Name 'TalcuBaseEngine'
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_53CCCA40004C // BaseEngine
+ ;
+ CONST "finished" false
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ : Generators
+ Seq: (
+ gen_intf.pas
+ )
+ ; // Generators
+ CONST dfm:PathOnly '\archi\source\projects\PipeInAuto\Server'
+ CONST intf.pas:Path 'archi\source\projects\PipeInAuto\Server\NOT_FINISHED_alcuBaseEngine.pas'
+ CONST intf.pas:PathOnly '\archi\source\projects\PipeInAuto\Server'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\archi\source\projects\PipeInAuto\Server'
+ CONST extprop:rc:SelfName 'alcuBaseEngine'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'alcuBaseEngine'
+
+ref; // ME_53CCCA5B036F TalcuBaseEngine
+
+FORWARD ME_53CE4F2F008D
+
+: ME_53CE4F5F0206
+ CONST UID '53CE4F5F0206'
+ CONST Name 'BaseEngine'
+ CONST Class class_Attribute
+ : Stereotype st_property::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_53CE4F2F008D // TalcuBaseEngineHolder
+ ;
+ : Target ME_53CCCA5B036F // TalcuBaseEngine
+ ;
+ CONST "pm" true
+ CONST "reads field" true
+
+ref; // ME_53CE4F5F0206 BaseEngine
+
+: ME_26BEBB61E3C4
+ CONST UID '26BEBB61E3C4'
+ CONST Name 'f_BaseEngine'
+ CONST IsSummoned true
+ CONST Class class_Attribute
+ %SUMMARY 'Поле для свойства BaseEngine' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_ref
+ : Parent ME_53CE4F2F008D // TalcuBaseEngineHolder
+ ;
+ : Target ME_53CCCA5B036F // TalcuBaseEngine
+ ;
+ CONST extprop:clearViaProperty 'BaseEngine'
+
+ref; // ME_26BEBB61E3C4 f_BaseEngine
+
+: ME_561CCA19026B
+ CONST UID '561CCA19026B'
+ CONST Name 'IsBaseLocked'
+ CONST Class class_Operation
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_53CE4F2F008D // TalcuBaseEngineHolder
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+
+ref; // ME_561CCA19026B IsBaseLocked
+
+: ME_53CE578B0132
+ CONST UID '53CE578B0132'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_53CE4F2F008D // TalcuBaseEngineHolder
+ ;
+ : Target WL 'ME_4ADC58F703CF' '4AB0C3C60310.pas.ms.script' // FreeAndNil
+ ;
+
+ref; // ME_53CE578B0132 
+
+: ME_479731C50290_ME_53CE4F2F008D
+ CONST UID '479731C50290'
+ CONST Name 'Cleanup'
+ : Original WL 'ME_479731C50290' '51612EBB02F5.pas.ms.script' // Cleanup
+ ;
+ : Implementor ME_53CE4F2F008D // TalcuBaseEngineHolder
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_479731C50290_ME_53CE4F2F008D Cleanup
+
+: ME_53CE4F2F008D
+ CONST UID '53CE4F2F008D'
+ CONST Name 'TalcuBaseEngineHolder'
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_53CCCA40004C // BaseEngine
+ ;
+ : Inherits
+   Seq: ( WL 'ME_49E7754802A9' '47913B47006E.pas.ms.script' // Tl3ProtoObject
+ )
+ ; // Inherits
+ : Attributes
+   Seq: ( ME_53CE4F5F0206 // BaseEngine
+ ME_26BEBB61E3C4 // f_BaseEngine
+ )
+ ; // Attributes
+ : Operations
+   Seq: ( ME_561CCA19026B // IsBaseLocked
+ )
+ ; // Operations
+ : Overridden
+   Seq: ( ME_479731C50290_ME_53CE4F2F008D // Cleanup
+ )
+ ; // Overridden
+ : Dependencies
+   Seq: ( ME_53CE578B0132 // 
+ )
+ ; // Dependencies
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ : Generators
+ Seq: (
+ gen_intf.pas
+ )
+ ; // Generators
+ CONST dfm:PathOnly '\archi\source\projects\PipeInAuto\Server'
+ CONST intf.pas:Path 'archi\source\projects\PipeInAuto\Server\alcuBaseEngineHolder.pas'
+ CONST intf.pas:PathOnly '\archi\source\projects\PipeInAuto\Server'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\archi\source\projects\PipeInAuto\Server'
+ CONST extprop:rc:SelfName 'alcuBaseEngineHolder'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'alcuBaseEngineHolder'
+
+ref; // ME_53CE4F2F008D TalcuBaseEngineHolder
+
+: ME_53CCCA40004C
+ CONST UID '53CCCA40004C'
+ CONST Name 'BaseEngine'
+ CONST Class class_Category
+ : Stereotype st_Unit ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent WL 'ME_53CCC1D8036D' '53CCC1D8036D.pas.ms.script' // Server
+ ;
+ : Children
+   Seq: ( ME_53CCCA5B036F // TalcuBaseEngine
+ ME_53CE4F2F008D // TalcuBaseEngineHolder
+ )
+ ; // Children
+ : Depends
+   Seq: ( WL 'ME_47913B47006E' '47913B47006E.pas.ms.script' // l3CoreObjects
+ WL 'ME_4AB0C3C60310' '4AB0C3C60310.pas.ms.script' // Sys
+ )
+ ; // Depends
+ : Generators
+ Seq: (
+ gen_pas.script
+ gen_pas.script.runner
+ )
+ ; // Generators
+ CONST dfm:PathOnly '\archi\source\projects\PipeInAuto\Server'
+ CONST intf.pas:PathOnly '\archi\source\projects\PipeInAuto\Server'
+ CONST pas.script:Path 'shared\models\NewSchool\Scripts\53CCCA40004C.pas.ms.script'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\53CCCA40004C.pas.ms.script.runner'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\archi\source\projects\PipeInAuto\Server'
+
+ref; // ME_53CCCA40004C BaseEngine

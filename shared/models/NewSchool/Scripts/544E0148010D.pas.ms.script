@@ -11,6 +11,7 @@ FORWARD ME_544E07C6034D
 : ME_A8CE837D53E8
  CONST UID 'A8CE837D53E8'
  CONST Name 'ServerHost'
+ CONST IsSummoned true
  CONST Class class_Attribute
  : Stereotype st_property::Attribute ;
  CONST Visibility PublicAccess
@@ -27,6 +28,7 @@ ref; // ME_A8CE837D53E8 ServerHost
 : ME_F242EF9D067F
  CONST UID 'F242EF9D067F'
  CONST Name 'Login'
+ CONST IsSummoned true
  CONST Class class_Attribute
  : Stereotype st_property::Attribute ;
  CONST Visibility PublicAccess
@@ -43,6 +45,7 @@ ref; // ME_F242EF9D067F Login
 : ME_1E446BBD08F0
  CONST UID '1E446BBD08F0'
  CONST Name 'Password'
+ CONST IsSummoned true
  CONST Class class_Attribute
  : Stereotype st_property::Attribute ;
  CONST Visibility PublicAccess
@@ -59,6 +62,7 @@ ref; // ME_1E446BBD08F0 Password
 : ME_25BE68E15A6A
  CONST UID '25BE68E15A6A'
  CONST Name 'ServerPort'
+ CONST IsSummoned true
  CONST Class class_Attribute
  : Stereotype st_property::Attribute ;
  CONST Visibility PublicAccess
@@ -74,6 +78,7 @@ ref; // ME_25BE68E15A6A ServerPort
 
 : ME_2D8817CF2761
  CONST UID '2D8817CF2761'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_544E07C6034D // TncsLoginMessage
@@ -90,6 +95,7 @@ ref; // ME_2D8817CF2761
  ;
  : Implementor ME_544E07C6034D // TncsLoginMessage
  ;
+ CONST OpKind opkind_Overridden
  CONST "is static" true
 ref; // ME_53AC03EE01FD_ME_544E07C6034D GetTaggedDataType
 
@@ -104,38 +110,40 @@ ref; // ME_53AC03EE01FD_ME_544E07C6034D GetTaggedDataType
  : Parent ME_544E0148010D // Messages
  ;
  : Inherits
-   @ ( ME_544E079E0253 // TncsMessage
- ) .SequenceCode.It
+   Seq: ( ME_544E079E0253 // TncsMessage
+ )
  ; // Inherits
  : Implements
-   @ ( WL 'ME_544E02580378' '484A470100DD.pas.ms.script' // csLogin
- ) .SequenceCode.It
+   Seq: ( WL 'ME_544E02580378' '484A470100DD.pas.ms.script' // csLogin
+ )
  ; // Implements
  : Attributes
-   @ ( ME_A8CE837D53E8 // ServerHost
+   Seq: ( ME_A8CE837D53E8 // ServerHost
  ME_F242EF9D067F // Login
  ME_1E446BBD08F0 // Password
  ME_25BE68E15A6A // ServerPort
- ) .SequenceCode.It
+ )
  ; // Attributes
  : Overridden
-   @ ( ME_53AC03EE01FD_ME_544E07C6034D // GetTaggedDataType
- ) .SequenceCode.It
+   Seq: ( ME_53AC03EE01FD_ME_544E07C6034D // GetTaggedDataType
+ )
  ; // Overridden
  : Dependencies
-   @ ( ME_2D8817CF2761 // 
- ) .SequenceCode.It
+   Seq: ( ME_2D8817CF2761 // 
+ )
  ; // Dependencies
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\cs'
  CONST intf.pas:Path 'common\components\rtl\Garant\cs\ncsLoginMessage.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\cs'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'ncsLoginMessage'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'ncsLoginMessage'
 
 ref; // ME_544E07C6034D TncsLoginMessage
 
@@ -174,6 +182,7 @@ ref; // ME_5450AE6C031E
  ;
  : Implementor ME_544F977F036B // TncsPriorityMessageList
  ;
+ CONST OpKind opkind_Implemented
  CONST "ifdef" 'l3Items_NeedsAssignItem'
  CONST "ifndef" 'l3Items_NoSort'
 ref; // ME_47B2C42A0163_ME_544F977F036B AssignItem
@@ -185,6 +194,7 @@ ref; // ME_47B2C42A0163_ME_544F977F036B AssignItem
  ;
  : Implementor ME_544F977F036B // TncsPriorityMessageList
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_47B99D4503A2_ME_544F977F036B CompareExistingItems
 
 : ME_544F977F036B
@@ -199,36 +209,38 @@ ref; // ME_47B99D4503A2_ME_544F977F036B CompareExistingItems
  : Parent ME_544E0148010D // Messages
  ;
  : Inherits
-   @ ( WL 'ME_4A54DD4E036F' '47913B47006E.pas.ms.script' // Tl3ProtoDataContainer
- ) .SequenceCode.It
+   Seq: ( WL 'ME_4A54DD4E036F' '47913B47006E.pas.ms.script' // Tl3ProtoDataContainer
+ )
  ; // Inherits
  : Implements
-   @ ( WL 'ME_47B99E920196' '47913B47006E.pas.ms.script' // l3UncomparabeObjectRefList
- ) .SequenceCode.It
+   Seq: ( WL 'ME_47B99E920196' '47913B47006E.pas.ms.script' // l3UncomparabeObjectRefList
+ )
  ; // Implements
  : Attributes
-   @ ( ME_544F98080257 // ItemType
- ) .SequenceCode.It
+   Seq: ( ME_544F98080257 // ItemType
+ )
  ; // Attributes
  : Implemented
-   @ ( ME_47B2C42A0163_ME_544F977F036B // AssignItem
+   Seq: ( ME_47B2C42A0163_ME_544F977F036B // AssignItem
  ME_47B99D4503A2_ME_544F977F036B // CompareExistingItems
- ) .SequenceCode.It
+ )
  ; // Implemented
  : Dependencies
-   @ ( ME_5450AE6C031E // 
- ) .SequenceCode.It
+   Seq: ( ME_5450AE6C031E // 
+ )
  ; // Dependencies
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\cs'
  CONST intf.pas:Path 'common\components\rtl\Garant\cs\ncsPriorityMessageList.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\cs'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'ncsPriorityMessageList'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'ncsPriorityMessageList'
 
 ref; // ME_544F977F036B TncsPriorityMessageList
 
@@ -282,6 +294,7 @@ ref; // ME_544F98B70016 f_DataReadyEvent
 : ME_2A87B6CE23AF
  CONST UID '2A87B6CE23AF'
  CONST Name 'f_Processing'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY 'Поле для свойства Processing' ;
  CONST Visibility PrivateAccess
@@ -291,6 +304,7 @@ ref; // ME_544F98B70016 f_DataReadyEvent
  ;
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
+ CONST extprop:clearViaProperty 'Processing'
 
 ref; // ME_2A87B6CE23AF f_Processing
 
@@ -299,6 +313,7 @@ FORWARD ME_5451F97902B8
 : ME_39B4E76A5671
  CONST UID '39B4E76A5671'
  CONST Name 'DoIt'
+ CONST IsSummoned true
  CONST Class class_Operation
  %SUMMARY 'Сигнатура метода SignalMessageReady' ;
  CONST Visibility PublicAccess
@@ -319,8 +334,8 @@ ref; // ME_39B4E76A5671 DoIt
  : Parent ME_544E3C54031D // TncsMessageQueue
  ;
  : Operations
-   @ ( ME_39B4E76A5671 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_39B4E76A5671 // DoIt
+ )
  ; // Operations
 
 ref; // ME_5451F97902B8 SignalMessageReady
@@ -344,8 +359,8 @@ ref; // ME_544E3E0101A1 aMessage
  : Parent ME_544E3C54031D // TncsMessageQueue
  ;
  : Parameters
-   @ ( ME_544E3E0101A1 // aMessage
- ) .SequenceCode.It
+   Seq: ( ME_544E3E0101A1 // aMessage
+ )
  ; // Parameters
 
 ref; // ME_544E3DE3032D Push
@@ -360,6 +375,7 @@ ref; // ME_544E3DE3032D Push
  CONST Value 'INFINITE'
  : ValueType WL 'ME_483C21B0003E' '4AB0C3F60375.pas.ms.script' // Timeouts
  ;
+ CONST extprop:pas:Value 'INFINITE'
 
 ref; // ME_545220540371 aTimeOut
 
@@ -374,8 +390,8 @@ ref; // ME_545220540371 aTimeOut
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
  : Parameters
-   @ ( ME_545220540371 // aTimeOut
- ) .SequenceCode.It
+   Seq: ( ME_545220540371 // aTimeOut
+ )
  ; // Parameters
 
 ref; // ME_5452022F026A WaitForMessage
@@ -402,8 +418,8 @@ ref; // ME_545202900301 theMessage
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
  : Parameters
-   @ ( ME_545202900301 // theMessage
- ) .SequenceCode.It
+   Seq: ( ME_545202900301 // theMessage
+ )
  ; // Parameters
 
 ref; // ME_545202810200 ExtractMessage
@@ -448,6 +464,7 @@ ref; // ME_5450D7950321
  ;
  : Implementor ME_544E3C54031D // TncsMessageQueue
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_479731C50290_ME_544E3C54031D Cleanup
 
 : ME_47A042E100E2_ME_544E3C54031D
@@ -457,6 +474,7 @@ ref; // ME_479731C50290_ME_544E3C54031D Cleanup
  ;
  : Implementor ME_544E3C54031D // TncsMessageQueue
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_47A042E100E2_ME_544E3C54031D InitFields
 
 : ME_544E3C54031D
@@ -470,48 +488,50 @@ ref; // ME_47A042E100E2_ME_544E3C54031D InitFields
  : Parent ME_544E0148010D // Messages
  ;
  : Inherits
-   @ ( WL 'ME_49E7754802A9' '47913B47006E.pas.ms.script' // Tl3ProtoObject
- ) .SequenceCode.It
+   Seq: ( WL 'ME_49E7754802A9' '47913B47006E.pas.ms.script' // Tl3ProtoObject
+ )
  ; // Inherits
  : Implements
-   @ ( WL 'ME_53A03846011C' '53A038340371.pas.ms.script' // l3CriticalSectionHolder
- ) .SequenceCode.It
+   Seq: ( WL 'ME_53A03846011C' '53A038340371.pas.ms.script' // l3CriticalSectionHolder
+ )
  ; // Implements
  : Attributes
-   @ ( ME_545A157B02C2 // Processing
+   Seq: ( ME_545A157B02C2 // Processing
  ME_544F981C03B5 // f_Data
  ME_544F98B70016 // f_DataReadyEvent
  ME_2A87B6CE23AF // f_Processing
- ) .SequenceCode.It
+ )
  ; // Attributes
  : Operations
-   @ ( ME_5451F97902B8 // SignalMessageReady
+   Seq: ( ME_5451F97902B8 // SignalMessageReady
  ME_544E3DE3032D // Push
  ME_5452022F026A // WaitForMessage
  ME_545202810200 // ExtractMessage
- ) .SequenceCode.It
+ )
  ; // Operations
  : Overridden
-   @ ( ME_479731C50290_ME_544E3C54031D // Cleanup
+   Seq: ( ME_479731C50290_ME_544E3C54031D // Cleanup
  ME_47A042E100E2_ME_544E3C54031D // InitFields
- ) .SequenceCode.It
+ )
  ; // Overridden
  : Dependencies
-   @ ( ME_5450B0EF02BD // 
+   Seq: ( ME_5450B0EF02BD // 
  ME_5450D0510367 // 
  ME_5450D7950321 // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\cs'
  CONST intf.pas:Path 'common\components\rtl\Garant\cs\ncsMessageQueue.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\cs'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'ncsMessageQueue'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'ncsMessageQueue'
 
 ref; // ME_544E3C54031D TncsMessageQueue
 
@@ -537,6 +557,7 @@ ref; // ME_5450EA090093 Queue
 : ME_820D39A2F0B6
  CONST UID '820D39A2F0B6'
  CONST Name 'f_Queue'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY 'Поле для свойства Queue' ;
  CONST Visibility PrivateAccess
@@ -570,8 +591,8 @@ ref; // ME_5450EAE301E1 anQueue
  : Parent ME_5450EAAA0367 // Create
  ;
  : Parameters
-   @ ( ME_5450EAE301E1 // anQueue
- ) .SequenceCode.It
+   Seq: ( ME_5450EAE301E1 // anQueue
+ )
  ; // Parameters
 
 ref; // ME_5450EAC70263 DoIt
@@ -587,8 +608,8 @@ ref; // ME_5450EAC70263 DoIt
  : Parent ME_5452248C02B8 // TncsTransporterThread
  ;
  : Operations
-   @ ( ME_5450EAC70263 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_5450EAC70263 // DoIt
+ )
  ; // Operations
 
 ref; // ME_5450EAAA0367 Create
@@ -619,8 +640,8 @@ ref; // ME_5459DBA700DB DoIt
  : Parent ME_5452248C02B8 // TncsTransporterThread
  ;
  : Operations
-   @ ( ME_5459DBA700DB // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_5459DBA700DB // DoIt
+ )
  ; // Operations
 
 ref; // ME_5459DB98029C TerminatedConnection
@@ -643,6 +664,7 @@ ref; // ME_54523C2D01FF
  ;
  : Implementor ME_5452248C02B8 // TncsTransporterThread
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_4911B69E037D_ME_5452248C02B8 DoExecute
 
 : ME_479731C50290_ME_5452248C02B8
@@ -652,6 +674,7 @@ ref; // ME_4911B69E037D_ME_5452248C02B8 DoExecute
  ;
  : Implementor ME_5452248C02B8 // TncsTransporterThread
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_479731C50290_ME_5452248C02B8 Cleanup
 
 : ME_5452248C02B8
@@ -665,41 +688,43 @@ ref; // ME_479731C50290_ME_5452248C02B8 Cleanup
  : Parent ME_544E0148010D // Messages
  ;
  : Inherits
-   @ ( WL 'ME_4911B24C01F6' '47913B47006E.pas.ms.script' // Tl3ThreadContainer
- ) .SequenceCode.It
+   Seq: ( WL 'ME_4911B24C01F6' '47913B47006E.pas.ms.script' // Tl3ThreadContainer
+ )
  ; // Inherits
  : Attributes
-   @ ( ME_5450EA090093 // Queue
+   Seq: ( ME_5450EA090093 // Queue
  ME_820D39A2F0B6 // f_Queue
- ) .SequenceCode.It
+ )
  ; // Attributes
  : Operations
-   @ ( ME_5450EAAA0367 // Create
+   Seq: ( ME_5450EAAA0367 // Create
  ME_5459DB98029C // TerminatedConnection
- ) .SequenceCode.It
+ )
  ; // Operations
  : Implemented
-   @ ( ME_4911B69E037D_ME_5452248C02B8 // DoExecute
- ) .SequenceCode.It
+   Seq: ( ME_4911B69E037D_ME_5452248C02B8 // DoExecute
+ )
  ; // Implemented
  : Overridden
-   @ ( ME_479731C50290_ME_5452248C02B8 // Cleanup
- ) .SequenceCode.It
+   Seq: ( ME_479731C50290_ME_5452248C02B8 // Cleanup
+ )
  ; // Overridden
  : Dependencies
-   @ ( ME_54523C2D01FF // 
- ) .SequenceCode.It
+   Seq: ( ME_54523C2D01FF // 
+ )
  ; // Dependencies
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\cs'
  CONST intf.pas:Path 'common\components\rtl\Garant\cs\ncsTransporterThread.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\cs'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'ncsTransporterThread'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'ncsTransporterThread'
 
 ref; // ME_5452248C02B8 TncsTransporterThread
 
@@ -725,6 +750,7 @@ ref; // ME_545224C80036 IOHandler
 : ME_932BE204ACB1
  CONST UID '932BE204ACB1'
  CONST Name 'f_IOHandler'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY 'Поле для свойства IOHandler' ;
  CONST Visibility PrivateAccess
@@ -734,6 +760,7 @@ ref; // ME_545224C80036 IOHandler
  ;
  : Target WL 'ME_538DDC890328' '52FBB2FC0386.pas.ms.script' // TcsIdIOHandlerAbstractAdapter
  ;
+ CONST extprop:clearViaProperty 'IOHandler'
 
 ref; // ME_932BE204ACB1 f_IOHandler
 
@@ -742,6 +769,7 @@ FORWARD ME_545B3DEA0268
 : ME_8DF648F79B54
  CONST UID '8DF648F79B54'
  CONST Name 'DoIt'
+ CONST IsSummoned true
  CONST Class class_Operation
  %SUMMARY 'Сигнатура метода ReleaseIOHandler' ;
  CONST Visibility PublicAccess
@@ -762,8 +790,8 @@ ref; // ME_8DF648F79B54 DoIt
  : Parent ME_5460B6230039 // TncsTransporterIOThread
  ;
  : Operations
-   @ ( ME_8DF648F79B54 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_8DF648F79B54 // DoIt
+ )
  ; // Operations
 
 ref; // ME_545B3DEA0268 ReleaseIOHandler
@@ -786,6 +814,7 @@ ref; // ME_5460BE3D03E2
  ;
  : Implementor ME_5460B6230039 // TncsTransporterIOThread
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_479731C50290_ME_5460B6230039 Cleanup
 
 : ME_5459DB98029C_ME_5460B6230039
@@ -795,6 +824,7 @@ ref; // ME_479731C50290_ME_5460B6230039 Cleanup
  ;
  : Implementor ME_5460B6230039 // TncsTransporterIOThread
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_5459DB98029C_ME_5460B6230039 TerminatedConnection
 
 : ME_5460B6230039
@@ -808,37 +838,39 @@ ref; // ME_5459DB98029C_ME_5460B6230039 TerminatedConnection
  : Parent ME_544E0148010D // Messages
  ;
  : Inherits
-   @ ( ME_5452248C02B8 // TncsTransporterThread
- ) .SequenceCode.It
+   Seq: ( ME_5452248C02B8 // TncsTransporterThread
+ )
  ; // Inherits
  : Attributes
-   @ ( ME_545224C80036 // IOHandler
+   Seq: ( ME_545224C80036 // IOHandler
  ME_932BE204ACB1 // f_IOHandler
- ) .SequenceCode.It
+ )
  ; // Attributes
  : Operations
-   @ ( ME_545B3DEA0268 // ReleaseIOHandler
- ) .SequenceCode.It
+   Seq: ( ME_545B3DEA0268 // ReleaseIOHandler
+ )
  ; // Operations
  : Overridden
-   @ ( ME_479731C50290_ME_5460B6230039 // Cleanup
+   Seq: ( ME_479731C50290_ME_5460B6230039 // Cleanup
  ME_5459DB98029C_ME_5460B6230039 // TerminatedConnection
- ) .SequenceCode.It
+ )
  ; // Overridden
  : Dependencies
-   @ ( ME_5460BE3D03E2 // 
- ) .SequenceCode.It
+   Seq: ( ME_5460BE3D03E2 // 
+ )
  ; // Dependencies
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\cs'
  CONST intf.pas:Path 'common\components\rtl\Garant\cs\ncsTransporterIOThread.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\cs'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'ncsTransporterIOThread'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'ncsTransporterIOThread'
 
 ref; // ME_5460B6230039 TncsTransporterIOThread
 
@@ -859,6 +891,7 @@ FORWARD ME_5453828F0059
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value 300
 
 ref; // ME_545382B4034A c_ReadTimeout
 
@@ -873,10 +906,14 @@ ref; // ME_545382B4034A c_ReadTimeout
  : Parent ME_54534F1A00BF // TncsReceiveThread
  ;
  : Attributes
-   @ ( ME_545382B4034A // c_ReadTimeout
- ) .SequenceCode.It
+   Seq: ( ME_545382B4034A // c_ReadTimeout
+ )
  ; // Attributes
  CONST "spell names" false
+ CONST dfm:PathOnly '\common\components\rtl\Garant\cs'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\cs'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_5453828F0059 ThreadTimeouts
 
@@ -979,6 +1016,7 @@ ref; // ME_548AC9510214
  ;
  : Implementor ME_54534F1A00BF // TncsReceiveThread
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4911B69E037D_ME_54534F1A00BF DoExecute
 
 : ME_54534F1A00BF
@@ -992,19 +1030,19 @@ ref; // ME_4911B69E037D_ME_54534F1A00BF DoExecute
  : Parent ME_544E0148010D // Messages
  ;
  : Inherits
-   @ ( ME_5460B6230039 // TncsTransporterIOThread
- ) .SequenceCode.It
+   Seq: ( ME_5460B6230039 // TncsTransporterIOThread
+ )
  ; // Inherits
  : Overridden
-   @ ( ME_4911B69E037D_ME_54534F1A00BF // DoExecute
- ) .SequenceCode.It
+   Seq: ( ME_4911B69E037D_ME_54534F1A00BF // DoExecute
+ )
  ; // Overridden
  : Constants
-   @ ( ME_5453828F0059 // ThreadTimeouts
- ) .SequenceCode.It
+   Seq: ( ME_5453828F0059 // ThreadTimeouts
+ )
  ; // Constants
  : Dependencies
-   @ ( ME_5453795603AE // 
+   Seq: ( ME_5453795603AE // 
  ME_5453795B02A8 // 
  ME_545388B80110 // 
  ME_54538F000128 // 
@@ -1012,18 +1050,20 @@ ref; // ME_4911B69E037D_ME_54534F1A00BF DoExecute
  ME_545B8147003C // 
  ME_546306C60283 // 
  ME_548AC9510214 // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\cs'
  CONST intf.pas:Path 'common\components\rtl\Garant\cs\ncsReceiveThread.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\cs'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'ncsReceiveThread'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'ncsReceiveThread'
 
 ref; // ME_54534F1A00BF TncsReceiveThread
 
@@ -1080,6 +1120,7 @@ ref; // ME_5463228D00A9 f_Event
 : ME_27C2B26992C3
  CONST UID '27C2B26992C3'
  CONST Name 'f_Message'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY 'Поле для свойства Message' ;
  CONST Visibility PrivateAccess
@@ -1095,6 +1136,7 @@ ref; // ME_27C2B26992C3 f_Message
 : ME_05DEC867B990
  CONST UID '05DEC867B990'
  CONST Name 'f_Reply'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY 'Поле для свойства Reply' ;
  CONST Visibility PrivateAccess
@@ -1104,6 +1146,7 @@ ref; // ME_27C2B26992C3 f_Message
  ;
  : Target ME_544E079E0253 // TncsMessage
  ;
+ CONST extprop:clearViaProperty 'Reply'
 
 ref; // ME_05DEC867B990 f_Reply
 
@@ -1128,8 +1171,8 @@ ref; // ME_5461D8E50366 aMessage
  : Parent ME_5461D8CE0020 // Create
  ;
  : Parameters
-   @ ( ME_5461D8E50366 // aMessage
- ) .SequenceCode.It
+   Seq: ( ME_5461D8E50366 // aMessage
+ )
  ; // Parameters
 
 ref; // ME_5461D8D70179 DoIt
@@ -1145,8 +1188,8 @@ ref; // ME_5461D8D70179 DoIt
  : Parent ME_5461D6C30025 // TncsReplyDescription
  ;
  : Operations
-   @ ( ME_5461D8D70179 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_5461D8D70179 // DoIt
+ )
  ; // Operations
 
 ref; // ME_5461D8CE0020 Create
@@ -1156,6 +1199,7 @@ FORWARD ME_5463220800C9
 : ME_C1FD0A58B390
  CONST UID 'C1FD0A58B390'
  CONST Name 'DoIt'
+ CONST IsSummoned true
  CONST Class class_Operation
  %SUMMARY 'Сигнатура метода RequestEvent' ;
  CONST Visibility PublicAccess
@@ -1187,12 +1231,12 @@ ref; // ME_54633E840128
  : Parent ME_5461D6C30025 // TncsReplyDescription
  ;
  : Operations
-   @ ( ME_C1FD0A58B390 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_C1FD0A58B390 // DoIt
+ )
  ; // Operations
  : Dependencies
-   @ ( ME_54633E840128 // 
- ) .SequenceCode.It
+   Seq: ( ME_54633E840128 // 
+ )
  ; // Dependencies
 
 ref; // ME_5463220800C9 RequestEvent
@@ -1209,6 +1253,7 @@ FORWARD ME_546335030341
  CONST Value 'INFINITE'
  : ValueType WL 'ME_483C21B0003E' '4AB0C3F60375.pas.ms.script' // Timeouts
  ;
+ CONST extprop:pas:Value 'INFINITE'
 
 ref; // ME_54633B0002A6 aTimeOut
 
@@ -1223,8 +1268,8 @@ ref; // ME_54633B0002A6 aTimeOut
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
  : Parameters
-   @ ( ME_54633B0002A6 // aTimeOut
- ) .SequenceCode.It
+   Seq: ( ME_54633B0002A6 // aTimeOut
+ )
  ; // Parameters
 
 ref; // ME_546335100360 DoIt
@@ -1240,8 +1285,8 @@ ref; // ME_546335100360 DoIt
  : Parent ME_5461D6C30025 // TncsReplyDescription
  ;
  : Operations
-   @ ( ME_546335100360 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_546335100360 // DoIt
+ )
  ; // Operations
 
 ref; // ME_546335030341 WaitForReply
@@ -1251,6 +1296,7 @@ FORWARD ME_5464AAB30031
 : ME_52271C321839
  CONST UID '52271C321839'
  CONST Name 'DoIt'
+ CONST IsSummoned true
  CONST Class class_Operation
  %SUMMARY 'Сигнатура метода AbortWait' ;
  CONST Visibility PublicAccess
@@ -1271,8 +1317,8 @@ ref; // ME_52271C321839 DoIt
  : Parent ME_5461D6C30025 // TncsReplyDescription
  ;
  : Operations
-   @ ( ME_52271C321839 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_52271C321839 // DoIt
+ )
  ; // Operations
 
 ref; // ME_5464AAB30031 AbortWait
@@ -1306,6 +1352,7 @@ ref; // ME_5463354D01FF
  ;
  : Implementor ME_5461D6C30025 // TncsReplyDescription
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_479731C50290_ME_5461D6C30025 Cleanup
 
 : ME_5461D6C30025
@@ -1319,43 +1366,45 @@ ref; // ME_479731C50290_ME_5461D6C30025 Cleanup
  : Parent ME_544E0148010D // Messages
  ;
  : Inherits
-   @ ( WL 'ME_49E7754802A9' '47913B47006E.pas.ms.script' // Tl3ProtoObject
- ) .SequenceCode.It
+   Seq: ( WL 'ME_49E7754802A9' '47913B47006E.pas.ms.script' // Tl3ProtoObject
+ )
  ; // Inherits
  : Attributes
-   @ ( ME_5461D95F00E6 // Message
+   Seq: ( ME_5461D95F00E6 // Message
  ME_5461D977016B // Reply
  ME_5463228D00A9 // f_Event
  ME_27C2B26992C3 // f_Message
  ME_05DEC867B990 // f_Reply
- ) .SequenceCode.It
+ )
  ; // Attributes
  : Operations
-   @ ( ME_5461D8CE0020 // Create
+   Seq: ( ME_5461D8CE0020 // Create
  ME_5463220800C9 // RequestEvent
  ME_546335030341 // WaitForReply
  ME_5464AAB30031 // AbortWait
- ) .SequenceCode.It
+ )
  ; // Operations
  : Overridden
-   @ ( ME_479731C50290_ME_5461D6C30025 // Cleanup
- ) .SequenceCode.It
+   Seq: ( ME_479731C50290_ME_5461D6C30025 // Cleanup
+ )
  ; // Overridden
  : Dependencies
-   @ ( ME_5461FCBB01A1 // 
+   Seq: ( ME_5461FCBB01A1 // 
  ME_5463354D01FF // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\cs'
  CONST intf.pas:Path 'common\components\rtl\Garant\cs\ncsReplyDescription.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\cs'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'ncsReplyDescription'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'ncsReplyDescription'
 
 ref; // ME_5461D6C30025 TncsReplyDescription
 
@@ -1448,8 +1497,8 @@ ref; // ME_5464B4F800B5 aMessage
  : Parent ME_5464B4730055 // IncsTransporter
  ;
  : Parameters
-   @ ( ME_5464B4F800B5 // aMessage
- ) .SequenceCode.It
+   Seq: ( ME_5464B4F800B5 // aMessage
+ )
  ; // Parameters
 
 ref; // ME_5464B4E900DA Send
@@ -1484,6 +1533,7 @@ ref; // ME_547C4DC0010E theReply
  CONST Value 'INFINITE'
  : ValueType WL 'ME_483C21B0003E' '4AB0C3F60375.pas.ms.script' // Timeouts
  ;
+ CONST extprop:pas:Value 'INFINITE'
 
 ref; // ME_547C4DC0014D aTimeOut
 
@@ -1498,10 +1548,10 @@ ref; // ME_547C4DC0014D aTimeOut
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
  : Parameters
-   @ ( ME_547C4DC000DF // aMessage
+   Seq: ( ME_547C4DC000DF // aMessage
  ME_547C4DC0010E // theReply
  ME_547C4DC0014D // aTimeOut
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_5464B52F02D5 WaitForReply
@@ -1518,17 +1568,23 @@ ref; // ME_5464B52F02D5 WaitForReply
  : Parent ME_5460A4DB018A // ncsMessageInterfaces
  ;
  : Attributes
-   @ ( ME_5465AB2B00CA // Connected
+   Seq: ( ME_5465AB2B00CA // Connected
  ME_546608F101DE // ClientID
  ME_5486B96A0025 // Processing
  ME_548FEF4F002E // SessionID
- ) .SequenceCode.It
+ )
  ; // Attributes
  : Operations
-   @ ( ME_5464B4E900DA // Send
+   Seq: ( ME_5464B4E900DA // Send
  ME_5464B52F02D5 // WaitForReply
- ) .SequenceCode.It
+ )
  ; // Operations
+ CONST dfm:PathOnly '\common\components\rtl\Garant\cs'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\cs'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'ncsTransporter'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_5464B4730055 IncsTransporter
 
@@ -1593,9 +1649,9 @@ ref; // ME_5464B78E0275 aTransporter
  : Parent ME_5464B3AA0087 // C
  ;
  : Parameters
-   @ ( ME_5464B3D00211 // aMessage
+   Seq: ( ME_5464B3D00211 // aMessage
  ME_5464B78E0275 // aTransporter
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_5464B3B5000D DoIt
@@ -1611,8 +1667,8 @@ ref; // ME_5464B3B5000D DoIt
  : Parent ME_5464B37E01ED // TncsExecuteContext
  ;
  : Operations
-   @ ( ME_5464B3B5000D // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_5464B3B5000D // DoIt
+ )
  ; // Operations
 
 ref; // ME_5464B3AA0087 C
@@ -1628,15 +1684,20 @@ ref; // ME_5464B3AA0087 C
  : Parent ME_5460A4DB018A // ncsMessageInterfaces
  ;
  : Attributes
-   @ ( ME_5464B4A20373 // rMessage
+   Seq: ( ME_5464B4A20373 // rMessage
  ME_5464B4B80072 // rTransporter
- ) .SequenceCode.It
+ )
  ; // Attributes
  : Operations
-   @ ( ME_5464B3AA0087 // C
- ) .SequenceCode.It
+   Seq: ( ME_5464B3AA0087 // C
+ )
  ; // Operations
  CONST "not treat as record for XE4" 'undefined'
+ CONST dfm:PathOnly '\common\components\rtl\Garant\cs'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\cs'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'ncsExecuteContext'
 
 ref; // ME_5464B37E01ED TncsExecuteContext
 
@@ -1661,8 +1722,8 @@ ref; // ME_5464B3F4039B aContext
  : Parent ME_5460731E025E // IncsExecutor
  ;
  : Parameters
-   @ ( ME_5464B3F4039B // aContext
- ) .SequenceCode.It
+   Seq: ( ME_5464B3F4039B // aContext
+ )
  ; // Parameters
 
 ref; // ME_54607DDC0159 Execute
@@ -1679,9 +1740,15 @@ ref; // ME_54607DDC0159 Execute
  : Parent ME_5460A4DB018A // ncsMessageInterfaces
  ;
  : Operations
-   @ ( ME_54607DDC0159 // Execute
- ) .SequenceCode.It
+   Seq: ( ME_54607DDC0159 // Execute
+ )
  ; // Operations
+ CONST dfm:PathOnly '\common\components\rtl\Garant\cs'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\cs'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'ncsExecutor'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_5460731E025E IncsExecutor
 
@@ -1708,8 +1775,8 @@ ref; // ME_5460A53E01D7 aMessage
  : Target ME_5460731E025E // IncsExecutor
  ;
  : Parameters
-   @ ( ME_5460A53E01D7 // aMessage
- ) .SequenceCode.It
+   Seq: ( ME_5460A53E01D7 // aMessage
+ )
  ; // Parameters
 
 ref; // ME_546082B801F3 MakeExecutor
@@ -1726,9 +1793,15 @@ ref; // ME_546082B801F3 MakeExecutor
  : Parent ME_5460A4DB018A // ncsMessageInterfaces
  ;
  : Operations
-   @ ( ME_546082B801F3 // MakeExecutor
- ) .SequenceCode.It
+   Seq: ( ME_546082B801F3 // MakeExecutor
+ )
  ; // Operations
+ CONST dfm:PathOnly '\common\components\rtl\Garant\cs'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\cs'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'ncsMessageExecutorFactory'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_5460829B0384 IncsMessageExecutorFactory
 
@@ -1743,10 +1816,15 @@ ref; // ME_5460829B0384 IncsMessageExecutorFactory
  : Parent ME_5460A4DB018A // ncsMessageInterfaces
  ;
  : Inherits
-   @ ( ME_5460829B0384 // IncsMessageExecutorFactory
- ) .SequenceCode.It
+   Seq: ( ME_5460829B0384 // IncsMessageExecutorFactory
+ )
  ; // Inherits
  CONST "isPointer" true
+ CONST dfm:PathOnly '\common\components\rtl\Garant\cs'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\cs'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_5460C1A00144 PIncsMessageExecutorFactory
 
@@ -1791,10 +1869,10 @@ ref; // ME_548FEFC000C2 aSessionID
  : Parent ME_5465A598039E // IncsClientTransporter
  ;
  : Parameters
-   @ ( ME_5451F5060233 // aServerHost
+   Seq: ( ME_5451F5060233 // aServerHost
  ME_5451F5060262 // aServerPort
  ME_548FEFC000C2 // aSessionID
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_544A1FD802E9 Connect
@@ -1809,6 +1887,7 @@ ref; // ME_544A1FD802E9 Connect
  CONST Value false
  : ValueType WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
+ CONST extprop:pas:Value false
 
 ref; // ME_547C1A5702EF Immidiate
 
@@ -1822,8 +1901,8 @@ ref; // ME_547C1A5702EF Immidiate
  : Parent ME_5465A598039E // IncsClientTransporter
  ;
  : Parameters
-   @ ( ME_547C1A5702EF // Immidiate
- ) .SequenceCode.It
+   Seq: ( ME_547C1A5702EF // Immidiate
+ )
  ; // Parameters
 
 ref; // ME_544A1FF00062 Disconnect
@@ -1835,6 +1914,7 @@ ref; // ME_544A1FF00062 Disconnect
  ;
  : Implementor ME_5465A598039E // IncsClientTransporter
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_5464B4E900DA_ME_5465A598039E Send
 
 : ME_5464B52F02D5_ME_5465A598039E
@@ -1844,6 +1924,7 @@ ref; // ME_5464B4E900DA_ME_5465A598039E Send
  ;
  : Implementor ME_5465A598039E // IncsClientTransporter
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_5464B52F02D5_ME_5465A598039E WaitForReply
 
 : ME_5465AB2B00CA_ME_5465A598039E
@@ -1853,6 +1934,7 @@ ref; // ME_5464B52F02D5_ME_5465A598039E WaitForReply
  ;
  : Implementor ME_5465A598039E // IncsClientTransporter
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" false
 ref; // ME_5465AB2B00CA_ME_5465A598039E Connected
 
@@ -1863,6 +1945,7 @@ ref; // ME_5465AB2B00CA_ME_5465A598039E Connected
  ;
  : Implementor ME_5465A598039E // IncsClientTransporter
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" false
 ref; // ME_546608F101DE_ME_5465A598039E ClientID
 
@@ -1873,6 +1956,7 @@ ref; // ME_546608F101DE_ME_5465A598039E ClientID
  ;
  : Implementor ME_5465A598039E // IncsClientTransporter
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" false
 ref; // ME_5486B96A0025_ME_5465A598039E Processing
 
@@ -1883,6 +1967,7 @@ ref; // ME_5486B96A0025_ME_5465A598039E Processing
  ;
  : Implementor ME_5465A598039E // IncsClientTransporter
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" false
 ref; // ME_548FEF4F002E_ME_5465A598039E SessionID
 
@@ -1898,23 +1983,29 @@ ref; // ME_548FEF4F002E_ME_5465A598039E SessionID
  : Parent ME_5460A4DB018A // ncsMessageInterfaces
  ;
  : Inherits
-   @ ( ME_5464B4730055 // IncsTransporter
- ) .SequenceCode.It
+   Seq: ( ME_5464B4730055 // IncsTransporter
+ )
  ; // Inherits
  : Operations
-   @ ( ME_544A1FD802E9 // Connect
+   Seq: ( ME_544A1FD802E9 // Connect
  ME_544A1FF00062 // Disconnect
- ) .SequenceCode.It
+ )
  ; // Operations
  : Implemented
-   @ ( ME_5464B4E900DA_ME_5465A598039E // Send
+   Seq: ( ME_5464B4E900DA_ME_5465A598039E // Send
  ME_5464B52F02D5_ME_5465A598039E // WaitForReply
  ME_5465AB2B00CA_ME_5465A598039E // Connected
  ME_546608F101DE_ME_5465A598039E // ClientID
  ME_5486B96A0025_ME_5465A598039E // Processing
  ME_548FEF4F002E_ME_5465A598039E // SessionID
- ) .SequenceCode.It
+ )
  ; // Implemented
+ CONST dfm:PathOnly '\common\components\rtl\Garant\cs'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\cs'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'ncsClientTransporter'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_5465A598039E IncsClientTransporter
 
@@ -1955,8 +2046,8 @@ ref; // ME_5492AD2202E7 IsMainSocket
  : Parent ME_5465A5AB0324 // IncsServerTransporter
  ;
  : Parameters
-   @ ( ME_5492AD2202E7 // IsMainSocket
- ) .SequenceCode.It
+   Seq: ( ME_5492AD2202E7 // IsMainSocket
+ )
  ; // Parameters
 
 ref; // ME_545335BF0283 ProcessMessages
@@ -1971,6 +2062,7 @@ ref; // ME_545335BF0283 ProcessMessages
  CONST Value true
  : ValueType WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
+ CONST extprop:pas:Value true
 
 ref; // ME_545CC00401A7 WaitForTermination
 
@@ -1983,8 +2075,8 @@ ref; // ME_545CC00401A7 WaitForTermination
  : Parent ME_5465A5AB0324 // IncsServerTransporter
  ;
  : Parameters
-   @ ( ME_545CC00401A7 // WaitForTermination
- ) .SequenceCode.It
+   Seq: ( ME_545CC00401A7 // WaitForTermination
+ )
  ; // Parameters
 
 ref; // ME_5459D46D01FE Terminate
@@ -2008,8 +2100,8 @@ ref; // ME_54918100017A aHandler
  : Parent ME_5465A5AB0324 // IncsServerTransporter
  ;
  : Parameters
-   @ ( ME_54918100017A // aHandler
- ) .SequenceCode.It
+   Seq: ( ME_54918100017A // aHandler
+ )
  ; // Parameters
 
 ref; // ME_549180E701E0 RegisterSendBackHandler
@@ -2021,6 +2113,7 @@ ref; // ME_549180E701E0 RegisterSendBackHandler
  ;
  : Implementor ME_5465A5AB0324 // IncsServerTransporter
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_5464B4E900DA_ME_5465A5AB0324 Send
 
 : ME_5464B52F02D5_ME_5465A5AB0324
@@ -2030,6 +2123,7 @@ ref; // ME_5464B4E900DA_ME_5465A5AB0324 Send
  ;
  : Implementor ME_5465A5AB0324 // IncsServerTransporter
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_5464B52F02D5_ME_5465A5AB0324 WaitForReply
 
 : ME_5465AB2B00CA_ME_5465A5AB0324
@@ -2039,6 +2133,7 @@ ref; // ME_5464B52F02D5_ME_5465A5AB0324 WaitForReply
  ;
  : Implementor ME_5465A5AB0324 // IncsServerTransporter
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" false
 ref; // ME_5465AB2B00CA_ME_5465A5AB0324 Connected
 
@@ -2049,6 +2144,7 @@ ref; // ME_5465AB2B00CA_ME_5465A5AB0324 Connected
  ;
  : Implementor ME_5465A5AB0324 // IncsServerTransporter
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" false
 ref; // ME_546608F101DE_ME_5465A5AB0324 ClientID
 
@@ -2059,6 +2155,7 @@ ref; // ME_546608F101DE_ME_5465A5AB0324 ClientID
  ;
  : Implementor ME_5465A5AB0324 // IncsServerTransporter
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" false
 ref; // ME_5486B96A0025_ME_5465A5AB0324 Processing
 
@@ -2069,6 +2166,7 @@ ref; // ME_5486B96A0025_ME_5465A5AB0324 Processing
  ;
  : Implementor ME_5465A5AB0324 // IncsServerTransporter
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" false
 ref; // ME_548FEF4F002E_ME_5465A5AB0324 SessionID
 
@@ -2084,28 +2182,34 @@ ref; // ME_548FEF4F002E_ME_5465A5AB0324 SessionID
  : Parent ME_5460A4DB018A // ncsMessageInterfaces
  ;
  : Inherits
-   @ ( ME_5464B4730055 // IncsTransporter
- ) .SequenceCode.It
+   Seq: ( ME_5464B4730055 // IncsTransporter
+ )
  ; // Inherits
  : Attributes
-   @ ( ME_5459E3150030 // Terminated
- ) .SequenceCode.It
+   Seq: ( ME_5459E3150030 // Terminated
+ )
  ; // Attributes
  : Operations
-   @ ( ME_545335BF0283 // ProcessMessages
+   Seq: ( ME_545335BF0283 // ProcessMessages
  ME_5459D46D01FE // Terminate
  ME_549180E701E0 // RegisterSendBackHandler
- ) .SequenceCode.It
+ )
  ; // Operations
  : Implemented
-   @ ( ME_5464B4E900DA_ME_5465A5AB0324 // Send
+   Seq: ( ME_5464B4E900DA_ME_5465A5AB0324 // Send
  ME_5464B52F02D5_ME_5465A5AB0324 // WaitForReply
  ME_5465AB2B00CA_ME_5465A5AB0324 // Connected
  ME_546608F101DE_ME_5465A5AB0324 // ClientID
  ME_5486B96A0025_ME_5465A5AB0324 // Processing
  ME_548FEF4F002E_ME_5465A5AB0324 // SessionID
- ) .SequenceCode.It
+ )
  ; // Implemented
+ CONST dfm:PathOnly '\common\components\rtl\Garant\cs'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\cs'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'ncsServerTransporter'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_5465A5AB0324 IncsServerTransporter
 
@@ -2146,10 +2250,15 @@ ref; // ME_5490038D0132 ncs_skReceive
  : Parent ME_5460A4DB018A // ncsMessageInterfaces
  ;
  : Attributes
-   @ ( ME_5490037B017D // ncs_skSend
+   Seq: ( ME_5490037B017D // ncs_skSend
  ME_5490038D0132 // ncs_skReceive
- ) .SequenceCode.It
+ )
  ; // Attributes
+ CONST dfm:PathOnly '\common\components\rtl\Garant\cs'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\cs'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_5490036B0204 TncsSocketKind
 
@@ -2164,7 +2273,7 @@ ref; // ME_5490036B0204 TncsSocketKind
  : Parent ME_544E0148010D // Messages
  ;
  : Children
-   @ ( ME_5464B4730055 // IncsTransporter
+   Seq: ( ME_5464B4730055 // IncsTransporter
  ME_5464B37E01ED // TncsExecuteContext
  ME_5460731E025E // IncsExecutor
  ME_5460829B0384 // IncsMessageExecutorFactory
@@ -2172,15 +2281,14 @@ ref; // ME_5490036B0204 TncsSocketKind
  ME_5465A598039E // IncsClientTransporter
  ME_5465A5AB0324 // IncsServerTransporter
  ME_5490036B0204 // TncsSocketKind
- ) .SequenceCode.It
+ )
  ; // Children
  CONST "no hands" false
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\cs'
  CONST intf.pas:Path 'common\components\rtl\Garant\cs\ncsMessageInterfaces.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\cs'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_5460A4DB018A ncsMessageInterfaces
 
@@ -2207,8 +2315,8 @@ ref; // ME_545201E602F7 aMessage
  : Parent ME_545201B70046 // Send
  ;
  : Parameters
-   @ ( ME_545201E602F7 // aMessage
- ) .SequenceCode.It
+   Seq: ( ME_545201E602F7 // aMessage
+ )
  ; // Parameters
 
 ref; // ME_545201DF0064 DoIt
@@ -2246,13 +2354,13 @@ ref; // ME_54523FC602CF
  : Parent ME_5450E9A0034A // TncsSendThread
  ;
  : Operations
-   @ ( ME_545201DF0064 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_545201DF0064 // DoIt
+ )
  ; // Operations
  : Dependencies
-   @ ( ME_54523F9A03D0 // 
+   Seq: ( ME_54523F9A03D0 // 
  ME_54523FC602CF // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
 
 ref; // ME_545201B70046 Send
@@ -2286,6 +2394,7 @@ ref; // ME_548AC9640012
  ;
  : Implementor ME_5450E9A0034A // TncsSendThread
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4911B69E037D_ME_5450E9A0034A DoExecute
 
 : ME_5450E9A0034A
@@ -2299,32 +2408,34 @@ ref; // ME_4911B69E037D_ME_5450E9A0034A DoExecute
  : Parent ME_544E0148010D // Messages
  ;
  : Inherits
-   @ ( ME_5460B6230039 // TncsTransporterIOThread
- ) .SequenceCode.It
+   Seq: ( ME_5460B6230039 // TncsTransporterIOThread
+ )
  ; // Inherits
  : Operations
-   @ ( ME_545201B70046 // Send
- ) .SequenceCode.It
+   Seq: ( ME_545201B70046 // Send
+ )
  ; // Operations
  : Overridden
-   @ ( ME_4911B69E037D_ME_5450E9A0034A // DoExecute
- ) .SequenceCode.It
+   Seq: ( ME_4911B69E037D_ME_5450E9A0034A // DoExecute
+ )
  ; // Overridden
  : Dependencies
-   @ ( ME_5450F0BE03BA // 
+   Seq: ( ME_5450F0BE03BA // 
  ME_548AC9640012 // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\cs'
  CONST intf.pas:Path 'common\components\rtl\Garant\cs\ncsSendThread.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\cs'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'ncsSendThread'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'ncsSendThread'
 
 ref; // ME_5450E9A0034A TncsSendThread
 
@@ -2333,6 +2444,7 @@ FORWARD ME_5453986402AC
 : ME_1D5377CCDA1F
  CONST UID '1D5377CCDA1F'
  CONST Name 'Kind'
+ CONST IsSummoned true
  CONST Class class_Attribute
  : Stereotype st_property::Attribute ;
  %SUMMARY 'На сообщение должен быть послан ответ' ;
@@ -2350,6 +2462,7 @@ ref; // ME_1D5377CCDA1F Kind
 : ME_304530FC54C4
  CONST UID '304530FC54C4'
  CONST Name 'MessageID'
+ CONST IsSummoned true
  CONST Class class_Attribute
  : Stereotype st_property::Attribute ;
  %SUMMARY 'Уникальный ключ по котороу ищется сообщение во всяких списках' ;
@@ -2367,6 +2480,7 @@ ref; // ME_304530FC54C4 MessageID
 : ME_0872C343F429
  CONST UID '0872C343F429'
  CONST Name 'TimeStamp'
+ CONST IsSummoned true
  CONST Class class_Attribute
  : Stereotype st_property::Attribute ;
  CONST Visibility PublicAccess
@@ -2393,6 +2507,7 @@ ref; // ME_5450A0370225
 
 : ME_91C93869A6DD
  CONST UID '91C93869A6DD'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_544E079E0253 // TncsMessage
@@ -2409,6 +2524,7 @@ ref; // ME_91C93869A6DD
  ;
  : Implementor ME_544E079E0253 // TncsMessage
  ;
+ CONST OpKind opkind_Implemented
  CONST "is static" true
 ref; // ME_53AC03EE01FD_ME_544E079E0253 GetTaggedDataType
 
@@ -2419,6 +2535,7 @@ ref; // ME_53AC03EE01FD_ME_544E079E0253 GetTaggedDataType
  ;
  : Implementor ME_544E079E0253 // TncsMessage
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_47A042E100E2_ME_544E079E0253 InitFields
 
 : ME_549413590379_ME_544E079E0253
@@ -2428,6 +2545,7 @@ ref; // ME_47A042E100E2_ME_544E079E0253 InitFields
  ;
  : Implementor ME_544E079E0253 // TncsMessage
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_549413590379_ME_544E079E0253 NeedSendRawDataAsBinary
 
 : ME_544E079E0253
@@ -2441,38 +2559,44 @@ ref; // ME_549413590379_ME_544E079E0253 NeedSendRawDataAsBinary
  : Parent ME_5453986402AC // ncsMessage
  ;
  : Inherits
-   @ ( WL 'ME_534572370056' '47913B47006E.pas.ms.script' // Tl3Tag
- ) .SequenceCode.It
+   Seq: ( WL 'ME_534572370056' '47913B47006E.pas.ms.script' // Tl3Tag
+ )
  ; // Inherits
  : Implements
-   @ ( WL 'ME_53AC01CD0335' '53B15D5603E3.pas.ms.script' // evdTagHolder
+   Seq: ( WL 'ME_53AC01CD0335' '53B15D5603E3.pas.ms.script' // evdTagHolder
  WL 'ME_544E01AA03BA' '484A470100DD.pas.ms.script' // csMessage
- ) .SequenceCode.It
+ )
  ; // Implements
  : Attributes
-   @ ( ME_1D5377CCDA1F // Kind
+   Seq: ( ME_1D5377CCDA1F // Kind
  ME_304530FC54C4 // MessageID
  ME_0872C343F429 // TimeStamp
- ) .SequenceCode.It
+ )
  ; // Attributes
  : Implemented
-   @ ( ME_53AC03EE01FD_ME_544E079E0253 // GetTaggedDataType
- ) .SequenceCode.It
+   Seq: ( ME_53AC03EE01FD_ME_544E079E0253 // GetTaggedDataType
+ )
  ; // Implemented
  : Overridden
-   @ ( ME_47A042E100E2_ME_544E079E0253 // InitFields
+   Seq: ( ME_47A042E100E2_ME_544E079E0253 // InitFields
  ME_549413590379_ME_544E079E0253 // NeedSendRawDataAsBinary
- ) .SequenceCode.It
+ )
  ; // Overridden
  : Dependencies
-   @ ( ME_5450A0370225 // 
+   Seq: ( ME_5450A0370225 // 
  ME_91C93869A6DD // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
+ CONST dfm:PathOnly '\common\components\rtl\Garant\cs'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\cs'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'ncsMessage'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_544E079E0253 TncsMessage
 
@@ -2487,10 +2611,16 @@ ref; // ME_544E079E0253 TncsMessage
  : Parent ME_5453986402AC // ncsMessage
  ;
  : Inherits
-   @ ( ME_544E079E0253 // TncsMessage
- ) .SequenceCode.It
+   Seq: ( ME_544E079E0253 // TncsMessage
+ )
  ; // Inherits
  CONST "isClassRef" true
+ CONST dfm:PathOnly '\common\components\rtl\Garant\cs'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\cs'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'ncsMessageClass'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_5453989A0161 TncsMessageClass
 
@@ -2505,13 +2635,19 @@ ref; // ME_5453989A0161 TncsMessageClass
  : Parent ME_5453986402AC // ncsMessage
  ;
  : Inherits
-   @ ( ME_544E079E0253 // TncsMessage
- ) .SequenceCode.It
+   Seq: ( ME_544E079E0253 // TncsMessage
+ )
  ; // Inherits
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
+ CONST dfm:PathOnly '\common\components\rtl\Garant\cs'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\cs'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'ncsInvalidMessage'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_54649C7C00E7 TncsInvalidMessage
 
@@ -2537,8 +2673,8 @@ ref; // ME_547831E30313 aMessage
  : Parent ME_547831BD02E5 // TncsReply
  ;
  : Parameters
-   @ ( ME_547831E30313 // aMessage
- ) .SequenceCode.It
+   Seq: ( ME_547831E30313 // aMessage
+ )
  ; // Parameters
 
 ref; // ME_547831D300BE Create
@@ -2554,17 +2690,23 @@ ref; // ME_547831D300BE Create
  : Parent ME_5453986402AC // ncsMessage
  ;
  : Inherits
-   @ ( ME_544E079E0253 // TncsMessage
- ) .SequenceCode.It
+   Seq: ( ME_544E079E0253 // TncsMessage
+ )
  ; // Inherits
  : Operations
-   @ ( ME_547831D300BE // Create
- ) .SequenceCode.It
+   Seq: ( ME_547831D300BE // Create
+ )
  ; // Operations
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
+ CONST dfm:PathOnly '\common\components\rtl\Garant\cs'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\cs'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'ncsReply'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_547831BD02E5 TncsReply
 
@@ -2572,6 +2714,7 @@ FORWARD ME_547C1F31030C
 
 : ME_0A46FBDFB1A7
  CONST UID '0A46FBDFB1A7'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_547C1F31030C // TncsDIsconnect
@@ -2588,6 +2731,7 @@ ref; // ME_0A46FBDFB1A7
  ;
  : Implementor ME_547C1F31030C // TncsDIsconnect
  ;
+ CONST OpKind opkind_Overridden
  CONST "is static" true
 ref; // ME_53AC03EE01FD_ME_547C1F31030C GetTaggedDataType
 
@@ -2602,25 +2746,31 @@ ref; // ME_53AC03EE01FD_ME_547C1F31030C GetTaggedDataType
  : Parent ME_5453986402AC // ncsMessage
  ;
  : Inherits
-   @ ( ME_544E079E0253 // TncsMessage
- ) .SequenceCode.It
+   Seq: ( ME_544E079E0253 // TncsMessage
+ )
  ; // Inherits
  : Implements
-   @ ( WL 'ME_547C1CD001E3' '484A470100DD.pas.ms.script' // csDIsconnect
- ) .SequenceCode.It
+   Seq: ( WL 'ME_547C1CD001E3' '484A470100DD.pas.ms.script' // csDIsconnect
+ )
  ; // Implements
  : Overridden
-   @ ( ME_53AC03EE01FD_ME_547C1F31030C // GetTaggedDataType
- ) .SequenceCode.It
+   Seq: ( ME_53AC03EE01FD_ME_547C1F31030C // GetTaggedDataType
+ )
  ; // Overridden
  : Dependencies
-   @ ( ME_0A46FBDFB1A7 // 
- ) .SequenceCode.It
+   Seq: ( ME_0A46FBDFB1A7 // 
+ )
  ; // Dependencies
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
+ CONST dfm:PathOnly '\common\components\rtl\Garant\cs'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\cs'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'ncsDIsconnect'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_547C1F31030C TncsDIsconnect
 
@@ -2628,6 +2778,7 @@ FORWARD ME_547C1F3F025A
 
 : ME_116652CD4897
  CONST UID '116652CD4897'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_547C1F3F025A // TncsDIsconnectReply
@@ -2644,6 +2795,7 @@ ref; // ME_116652CD4897
  ;
  : Implementor ME_547C1F3F025A // TncsDIsconnectReply
  ;
+ CONST OpKind opkind_Overridden
  CONST "is static" true
 ref; // ME_53AC03EE01FD_ME_547C1F3F025A GetTaggedDataType
 
@@ -2658,25 +2810,31 @@ ref; // ME_53AC03EE01FD_ME_547C1F3F025A GetTaggedDataType
  : Parent ME_5453986402AC // ncsMessage
  ;
  : Inherits
-   @ ( ME_547831BD02E5 // TncsReply
- ) .SequenceCode.It
+   Seq: ( ME_547831BD02E5 // TncsReply
+ )
  ; // Inherits
  : Implements
-   @ ( WL 'ME_547C1CE20205' '484A470100DD.pas.ms.script' // csDIsconnectReply
- ) .SequenceCode.It
+   Seq: ( WL 'ME_547C1CE20205' '484A470100DD.pas.ms.script' // csDIsconnectReply
+ )
  ; // Implements
  : Overridden
-   @ ( ME_53AC03EE01FD_ME_547C1F3F025A // GetTaggedDataType
- ) .SequenceCode.It
+   Seq: ( ME_53AC03EE01FD_ME_547C1F3F025A // GetTaggedDataType
+ )
  ; // Overridden
  : Dependencies
-   @ ( ME_116652CD4897 // 
- ) .SequenceCode.It
+   Seq: ( ME_116652CD4897 // 
+ )
  ; // Dependencies
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
+ CONST dfm:PathOnly '\common\components\rtl\Garant\cs'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\cs'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'ncsDIsconnectReply'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_547C1F3F025A TncsDIsconnectReply
 
@@ -2691,21 +2849,20 @@ ref; // ME_547C1F3F025A TncsDIsconnectReply
  : Parent ME_544E0148010D // Messages
  ;
  : Children
-   @ ( ME_544E079E0253 // TncsMessage
+   Seq: ( ME_544E079E0253 // TncsMessage
  ME_5453989A0161 // TncsMessageClass
  ME_54649C7C00E7 // TncsInvalidMessage
  ME_547831BD02E5 // TncsReply
  ME_547C1F31030C // TncsDIsconnect
  ME_547C1F3F025A // TncsDIsconnectReply
- ) .SequenceCode.It
+ )
  ; // Children
  CONST "no hands" false
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\cs'
  CONST intf.pas:Path 'common\components\rtl\Garant\cs\ncsMessage.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\cs'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_5453986402AC ncsMessage
 
@@ -2733,6 +2890,7 @@ ref; // ME_54539F2201C3 ItemType
  ;
  : Implementor ME_54539F0C00AD // TncsMessageClassList
  ;
+ CONST OpKind opkind_Implemented
  CONST "ifndef" 'l3Items_IsAtomic'
 ref; // ME_47B07CF403D0_ME_54539F0C00AD IsSameItems
 
@@ -2743,6 +2901,7 @@ ref; // ME_47B07CF403D0_ME_54539F0C00AD IsSameItems
  ;
  : Implementor ME_54539F0C00AD // TncsMessageClassList
  ;
+ CONST OpKind opkind_Implemented
  CONST "ifdef" 'l3Items_NeedsAssignItem'
  CONST "ifndef" 'l3Items_NoSort'
 ref; // ME_47B2C42A0163_ME_54539F0C00AD AssignItem
@@ -2754,6 +2913,7 @@ ref; // ME_47B2C42A0163_ME_54539F0C00AD AssignItem
  ;
  : Implementor ME_54539F0C00AD // TncsMessageClassList
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_47B99D4503A2_ME_54539F0C00AD CompareExistingItems
 
 : ME_54539F0C00AD
@@ -2767,33 +2927,35 @@ ref; // ME_47B99D4503A2_ME_54539F0C00AD CompareExistingItems
  : Parent ME_544E0148010D // Messages
  ;
  : Inherits
-   @ ( WL 'ME_4A54DD4E036F' '47913B47006E.pas.ms.script' // Tl3ProtoDataContainer
- ) .SequenceCode.It
+   Seq: ( WL 'ME_4A54DD4E036F' '47913B47006E.pas.ms.script' // Tl3ProtoDataContainer
+ )
  ; // Inherits
  : Implements
-   @ ( WL 'ME_47B5782902DA' '47913B47006E.pas.ms.script' // l3PtrList
- ) .SequenceCode.It
+   Seq: ( WL 'ME_47B5782902DA' '47913B47006E.pas.ms.script' // l3PtrList
+ )
  ; // Implements
  : Attributes
-   @ ( ME_54539F2201C3 // ItemType
- ) .SequenceCode.It
+   Seq: ( ME_54539F2201C3 // ItemType
+ )
  ; // Attributes
  : Implemented
-   @ ( ME_47B07CF403D0_ME_54539F0C00AD // IsSameItems
+   Seq: ( ME_47B07CF403D0_ME_54539F0C00AD // IsSameItems
  ME_47B2C42A0163_ME_54539F0C00AD // AssignItem
  ME_47B99D4503A2_ME_54539F0C00AD // CompareExistingItems
- ) .SequenceCode.It
+ )
  ; // Implemented
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\cs'
  CONST intf.pas:Path 'common\components\rtl\Garant\cs\ncsMessageClassList.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\cs'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'ncsMessageClassList'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'ncsMessageClassList'
 
 ref; // ME_54539F0C00AD TncsMessageClassList
 
@@ -2830,8 +2992,8 @@ ref; // ME_545B868002AF aClass
  : Parent ME_54539F4702B1 // TncsMessageFactory
  ;
  : Parameters
-   @ ( ME_545B868002AF // aClass
- ) .SequenceCode.It
+   Seq: ( ME_545B868002AF // aClass
+ )
  ; // Parameters
 
 ref; // ME_545A23D30081 Register
@@ -2855,8 +3017,8 @@ ref; // ME_545B86850353 aClass
  : Parent ME_54539F4702B1 // TncsMessageFactory
  ;
  : Parameters
-   @ ( ME_545B86850353 // aClass
- ) .SequenceCode.It
+   Seq: ( ME_545B86850353 // aClass
+ )
  ; // Parameters
 
 ref; // ME_545A23FB02E0 UnRegister
@@ -2882,8 +3044,8 @@ ref; // ME_545A242C01AB aMessageTag
  : Target ME_5453989A0161 // TncsMessageClass
  ;
  : Parameters
-   @ ( ME_545A242C01AB // aMessageTag
- ) .SequenceCode.It
+   Seq: ( ME_545A242C01AB // aMessageTag
+ )
  ; // Parameters
 
 ref; // ME_545A24130098 Find
@@ -2910,8 +3072,8 @@ ref; // ME_545B86710018 aStream
  : Target ME_544E079E0253 // TncsMessage
  ;
  : Parameters
-   @ ( ME_545B86710018 // aStream
- ) .SequenceCode.It
+   Seq: ( ME_545B86710018 // aStream
+ )
  ; // Parameters
 
 ref; // ME_54538B990208 MakeFromEVD
@@ -2938,8 +3100,8 @@ ref; // ME_545B8677028E aData
  : Target ME_544E079E0253 // TncsMessage
  ;
  : Parameters
-   @ ( ME_545B8677028E // aData
- ) .SequenceCode.It
+   Seq: ( ME_545B8677028E // aData
+ )
  ; // Parameters
 
 ref; // ME_54538F64032E MakeFromTaggedData
@@ -2947,6 +3109,7 @@ ref; // ME_54538F64032E MakeFromTaggedData
 : ME_82122AAFE250
  CONST UID '82122AAFE250'
  CONST Name 'Exists'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_static::Operation ;
  %SUMMARY 'Проверяет создан экземпляр синглетона или нет' ;
@@ -2956,6 +3119,7 @@ ref; // ME_54538F64032E MakeFromTaggedData
  ;
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
+ CONST extprop:pas:Value false
 
 ref; // ME_82122AAFE250 Exists
 
@@ -2988,6 +3152,7 @@ ref; // ME_545A2BAB00FD
  ;
  : Implementor ME_54539F4702B1 // TncsMessageFactory
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_479731C50290_ME_54539F4702B1 Cleanup
 
 : ME_47A042E100E2_ME_54539F4702B1
@@ -2997,6 +3162,7 @@ ref; // ME_479731C50290_ME_54539F4702B1 Cleanup
  ;
  : Implementor ME_54539F4702B1 // TncsMessageFactory
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_47A042E100E2_ME_54539F4702B1 InitFields
 
 : ME_54539F4702B1
@@ -3010,43 +3176,45 @@ ref; // ME_47A042E100E2_ME_54539F4702B1 InitFields
  : Parent ME_544E0148010D // Messages
  ;
  : Inherits
-   @ ( WL 'ME_49E7754802A9' '47913B47006E.pas.ms.script' // Tl3ProtoObject
- ) .SequenceCode.It
+   Seq: ( WL 'ME_49E7754802A9' '47913B47006E.pas.ms.script' // Tl3ProtoObject
+ )
  ; // Inherits
  : Attributes
-   @ ( ME_54539F5D03D6 // f_List
- ) .SequenceCode.It
+   Seq: ( ME_54539F5D03D6 // f_List
+ )
  ; // Attributes
  : Operations
-   @ ( ME_545A23D30081 // Register
+   Seq: ( ME_545A23D30081 // Register
  ME_545A23FB02E0 // UnRegister
  ME_545A24130098 // Find
  ME_54538B990208 // MakeFromEVD
  ME_54538F64032E // MakeFromTaggedData
  ME_82122AAFE250 // Exists
- ) .SequenceCode.It
+ )
  ; // Operations
  : Overridden
-   @ ( ME_479731C50290_ME_54539F4702B1 // Cleanup
+   Seq: ( ME_479731C50290_ME_54539F4702B1 // Cleanup
  ME_47A042E100E2_ME_54539F4702B1 // InitFields
- ) .SequenceCode.It
+ )
  ; // Overridden
  : Dependencies
-   @ ( ME_545A292E0276 // 
+   Seq: ( ME_545A292E0276 // 
  ME_545A2BAB00FD // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
  CONST "singleton" true
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\cs'
  CONST intf.pas:Path 'common\components\rtl\Garant\cs\ncsMessageFactory.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\cs'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'ncsMessageFactory'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'ncsMessageFactory'
 
 ref; // ME_54539F4702B1 TncsMessageFactory
 
@@ -3062,6 +3230,11 @@ FORWARD ME_545CBE61008B
  CONST Abstraction at_final
  : Parent ME_545CBE61008B // TncsServerTransporterList
  ;
+ CONST dfm:PathOnly '\common\components\rtl\Garant\cs'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\cs'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'Items_NoSort'
 
 ref; // ME_545CC4210322 l3Items_NoSort
 
@@ -3091,31 +3264,33 @@ ref; // ME_545CBE9103D8 ItemType
  : Parent ME_544E0148010D // Messages
  ;
  : Inherits
-   @ ( WL 'ME_4A54DD4E036F' '47913B47006E.pas.ms.script' // Tl3ProtoDataContainer
- ) .SequenceCode.It
+   Seq: ( WL 'ME_4A54DD4E036F' '47913B47006E.pas.ms.script' // Tl3ProtoDataContainer
+ )
  ; // Inherits
  : Implements
-   @ ( WL 'ME_47B57D830369' '47913B47006E.pas.ms.script' // l3InterfaceRefList
- ) .SequenceCode.It
+   Seq: ( WL 'ME_47B57D830369' '47913B47006E.pas.ms.script' // l3InterfaceRefList
+ )
  ; // Implements
  : Attributes
-   @ ( ME_545CBE9103D8 // ItemType
- ) .SequenceCode.It
+   Seq: ( ME_545CBE9103D8 // ItemType
+ )
  ; // Attributes
  : Children
-   @ ( ME_545CC4210322 // l3Items_NoSort
- ) .SequenceCode.It
+   Seq: ( ME_545CC4210322 // l3Items_NoSort
+ )
  ; // Children
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\cs'
  CONST intf.pas:Path 'common\components\rtl\Garant\cs\ncsServerTransporterList.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\cs'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'ncsServerTransporterList'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'ncsServerTransporterList'
 
 ref; // ME_545CBE61008B TncsServerTransporterList
 
@@ -3154,8 +3329,8 @@ ref; // ME_545CBF9100D6 aTransporter
  : Parent ME_545CBED90193 // TncsServerTransporterPool
  ;
  : Parameters
-   @ ( ME_545CBF9100D6 // aTransporter
- ) .SequenceCode.It
+   Seq: ( ME_545CBF9100D6 // aTransporter
+ )
  ; // Parameters
 
 ref; // ME_545CBF760027 Register
@@ -3179,8 +3354,8 @@ ref; // ME_545CBF9B00D6 aTransporter
  : Parent ME_545CBED90193 // TncsServerTransporterPool
  ;
  : Parameters
-   @ ( ME_545CBF9B00D6 // aTransporter
- ) .SequenceCode.It
+   Seq: ( ME_545CBF9B00D6 // aTransporter
+ )
  ; // Parameters
 
 ref; // ME_545CBF9602E1 UnRegister
@@ -3203,6 +3378,7 @@ ref; // ME_545CBFA2006D TerminateAll
  ;
  : Implementor ME_545CBED90193 // TncsServerTransporterPool
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_479731C50290_ME_545CBED90193 Cleanup
 
 : ME_47A042E100E2_ME_545CBED90193
@@ -3212,6 +3388,7 @@ ref; // ME_479731C50290_ME_545CBED90193 Cleanup
  ;
  : Implementor ME_545CBED90193 // TncsServerTransporterPool
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_47A042E100E2_ME_545CBED90193 InitFields
 
 : ME_545CBED90193
@@ -3225,38 +3402,40 @@ ref; // ME_47A042E100E2_ME_545CBED90193 InitFields
  : Parent ME_544E0148010D // Messages
  ;
  : Inherits
-   @ ( WL 'ME_49E7754802A9' '47913B47006E.pas.ms.script' // Tl3ProtoObject
- ) .SequenceCode.It
+   Seq: ( WL 'ME_49E7754802A9' '47913B47006E.pas.ms.script' // Tl3ProtoObject
+ )
  ; // Inherits
  : Implements
-   @ ( WL 'ME_53A03846011C' '53A038340371.pas.ms.script' // l3CriticalSectionHolder
- ) .SequenceCode.It
+   Seq: ( WL 'ME_53A03846011C' '53A038340371.pas.ms.script' // l3CriticalSectionHolder
+ )
  ; // Implements
  : Attributes
-   @ ( ME_545CBF0E0186 // f_Data
- ) .SequenceCode.It
+   Seq: ( ME_545CBF0E0186 // f_Data
+ )
  ; // Attributes
  : Operations
-   @ ( ME_545CBF760027 // Register
+   Seq: ( ME_545CBF760027 // Register
  ME_545CBF9602E1 // UnRegister
  ME_545CBFA2006D // TerminateAll
- ) .SequenceCode.It
+ )
  ; // Operations
  : Overridden
-   @ ( ME_479731C50290_ME_545CBED90193 // Cleanup
+   Seq: ( ME_479731C50290_ME_545CBED90193 // Cleanup
  ME_47A042E100E2_ME_545CBED90193 // InitFields
- ) .SequenceCode.It
+ )
  ; // Overridden
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\cs'
  CONST intf.pas:Path 'common\components\rtl\Garant\cs\ncsServerTransporterPool.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\cs'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'ncsServerTransporterPool'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'ncsServerTransporterPool'
 
 ref; // ME_545CBED90193 TncsServerTransporterPool
 
@@ -3284,6 +3463,7 @@ ref; // ME_5461D7260382 ItemType
  ;
  : Implementor ME_5461D6FC00F7 // TncsReplyDecsriptionList
  ;
+ CONST OpKind opkind_Implemented
  CONST "ifdef" 'l3Items_NeedsAssignItem'
  CONST "ifndef" 'l3Items_NoSort'
 ref; // ME_47B2C42A0163_ME_5461D6FC00F7 AssignItem
@@ -3295,6 +3475,7 @@ ref; // ME_47B2C42A0163_ME_5461D6FC00F7 AssignItem
  ;
  : Implementor ME_5461D6FC00F7 // TncsReplyDecsriptionList
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_47B99D4503A2_ME_5461D6FC00F7 CompareExistingItems
 
 : ME_5461D6FC00F7
@@ -3308,32 +3489,34 @@ ref; // ME_47B99D4503A2_ME_5461D6FC00F7 CompareExistingItems
  : Parent ME_544E0148010D // Messages
  ;
  : Inherits
-   @ ( WL 'ME_4A54DD4E036F' '47913B47006E.pas.ms.script' // Tl3ProtoDataContainer
- ) .SequenceCode.It
+   Seq: ( WL 'ME_4A54DD4E036F' '47913B47006E.pas.ms.script' // Tl3ProtoDataContainer
+ )
  ; // Inherits
  : Implements
-   @ ( WL 'ME_47B99E920196' '47913B47006E.pas.ms.script' // l3UncomparabeObjectRefList
- ) .SequenceCode.It
+   Seq: ( WL 'ME_47B99E920196' '47913B47006E.pas.ms.script' // l3UncomparabeObjectRefList
+ )
  ; // Implements
  : Attributes
-   @ ( ME_5461D7260382 // ItemType
- ) .SequenceCode.It
+   Seq: ( ME_5461D7260382 // ItemType
+ )
  ; // Attributes
  : Implemented
-   @ ( ME_47B2C42A0163_ME_5461D6FC00F7 // AssignItem
+   Seq: ( ME_47B2C42A0163_ME_5461D6FC00F7 // AssignItem
  ME_47B99D4503A2_ME_5461D6FC00F7 // CompareExistingItems
- ) .SequenceCode.It
+ )
  ; // Implemented
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\cs'
  CONST intf.pas:Path 'common\components\rtl\Garant\cs\ncsReplyDecsriptionList.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\cs'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'ncsReplyDecsriptionList'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'ncsReplyDecsriptionList'
 
 ref; // ME_5461D6FC00F7 TncsReplyDecsriptionList
 
@@ -3365,27 +3548,29 @@ ref; // ME_54609BE1031F ItemType
  : Parent ME_544E0148010D // Messages
  ;
  : Inherits
-   @ ( WL 'ME_4A54DD4E036F' '47913B47006E.pas.ms.script' // Tl3ProtoDataContainer
- ) .SequenceCode.It
+   Seq: ( WL 'ME_4A54DD4E036F' '47913B47006E.pas.ms.script' // Tl3ProtoDataContainer
+ )
  ; // Inherits
  : Implements
-   @ ( WL 'ME_47B57D630029' '47913B47006E.pas.ms.script' // l3InterfacePtrList
- ) .SequenceCode.It
+   Seq: ( WL 'ME_47B57D630029' '47913B47006E.pas.ms.script' // l3InterfacePtrList
+ )
  ; // Implements
  : Attributes
-   @ ( ME_54609BE1031F // ItemType
- ) .SequenceCode.It
+   Seq: ( ME_54609BE1031F // ItemType
+ )
  ; // Attributes
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\cs'
  CONST intf.pas:Path 'common\components\rtl\Garant\cs\ncsExecutorFactoryList.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\cs'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'ncsExecutorFactoryList'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'ncsExecutorFactoryList'
 
 ref; // ME_54609BB100BB TncsExecutorFactoryList
 
@@ -3398,6 +3583,7 @@ FORWARD ME_5464A4DE0181
 : ME_D4AA126BFCDF
  CONST UID 'D4AA126BFCDF'
  CONST Name 'DoIt'
+ CONST IsSummoned true
  CONST Class class_Operation
  %SUMMARY 'Сигнатура метода Create' ;
  CONST Visibility PublicAccess
@@ -3418,8 +3604,8 @@ ref; // ME_D4AA126BFCDF DoIt
  : Parent ME_5464A0E40234 // TncsInvalidExecutor
  ;
  : Operations
-   @ ( ME_D4AA126BFCDF // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_D4AA126BFCDF // DoIt
+ )
  ; // Operations
 
 ref; // ME_5464A4DE0181 Create
@@ -3429,6 +3615,7 @@ FORWARD ME_5464A4E9009C
 : ME_A09DDE350E62
  CONST UID 'A09DDE350E62'
  CONST Name 'DoIt'
+ CONST IsSummoned true
  CONST Class class_Operation
  %SUMMARY 'Сигнатура фабрики TncsInvalidExecutor.Make' ;
  CONST Visibility PrivateAccess
@@ -3451,16 +3638,16 @@ ref; // ME_A09DDE350E62 DoIt
  : Parent ME_5464A0E40234 // TncsInvalidExecutor
  ;
  : Inherits
-   @ ( ME_5464A4DE0181 // Create
- ) .SequenceCode.It
+   Seq: ( ME_5464A4DE0181 // Create
+ )
  ; // Inherits
  : Implements
-   @ ( ME_5460731E025E // IncsExecutor
- ) .SequenceCode.It
+   Seq: ( ME_5460731E025E // IncsExecutor
+ )
  ; // Implements
  : Operations
-   @ ( ME_A09DDE350E62 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_A09DDE350E62 // DoIt
+ )
  ; // Operations
  CONST "check nil" false
  CONST "need AfterCreate" 'undefined'
@@ -3476,6 +3663,7 @@ ref; // ME_5464A4E9009C Make
  ;
  : Implementor ME_5464A0E40234 // TncsInvalidExecutor
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_54607DDC0159_ME_5464A0E40234 Execute
 
 : ME_5464A0E40234
@@ -3489,26 +3677,32 @@ ref; // ME_54607DDC0159_ME_5464A0E40234 Execute
  : Parent ME_54607384020A // TncsMessageExecutorFactory
  ;
  : Inherits
-   @ ( WL 'ME_49E7754802A9' '47913B47006E.pas.ms.script' // Tl3ProtoObject
- ) .SequenceCode.It
+   Seq: ( WL 'ME_49E7754802A9' '47913B47006E.pas.ms.script' // Tl3ProtoObject
+ )
  ; // Inherits
  : Implements
-   @ ( ME_5460731E025E // IncsExecutor
- ) .SequenceCode.It
+   Seq: ( ME_5460731E025E // IncsExecutor
+ )
  ; // Implements
  : Operations
-   @ ( ME_5464A4DE0181 // Create
+   Seq: ( ME_5464A4DE0181 // Create
  ME_5464A4E9009C // Make
- ) .SequenceCode.It
+ )
  ; // Operations
  : Implemented
-   @ ( ME_54607DDC0159_ME_5464A0E40234 // Execute
- ) .SequenceCode.It
+   Seq: ( ME_54607DDC0159_ME_5464A0E40234 // Execute
+ )
  ; // Implemented
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
+ CONST dfm:PathOnly '\common\components\rtl\Garant\cs'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\cs'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'ncsInvalidExecutor'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_5464A0E40234 TncsInvalidExecutor
 
@@ -3554,6 +3748,7 @@ ref; // ME_547C1FE10204
  ;
  : Implementor ME_547C1FB30097 // TncsDisconnectExecutor
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_54607DDC0159_ME_547C1FB30097 Execute
 
 : ME_546082B801F3_ME_547C1FB30097
@@ -3563,6 +3758,7 @@ ref; // ME_54607DDC0159_ME_547C1FB30097 Execute
  ;
  : Implementor ME_547C1FB30097 // TncsDisconnectExecutor
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_546082B801F3_ME_547C1FB30097 MakeExecutor
 
 : ME_547C1FB30097
@@ -3576,29 +3772,35 @@ ref; // ME_546082B801F3_ME_547C1FB30097 MakeExecutor
  : Parent ME_54607384020A // TncsMessageExecutorFactory
  ;
  : Inherits
-   @ ( WL 'ME_49E7754802A9' '47913B47006E.pas.ms.script' // Tl3ProtoObject
- ) .SequenceCode.It
+   Seq: ( WL 'ME_49E7754802A9' '47913B47006E.pas.ms.script' // Tl3ProtoObject
+ )
  ; // Inherits
  : Implements
-   @ ( ME_5460731E025E // IncsExecutor
+   Seq: ( ME_5460731E025E // IncsExecutor
  ME_5460829B0384 // IncsMessageExecutorFactory
- ) .SequenceCode.It
+ )
  ; // Implements
  : Implemented
-   @ ( ME_54607DDC0159_ME_547C1FB30097 // Execute
+   Seq: ( ME_54607DDC0159_ME_547C1FB30097 // Execute
  ME_546082B801F3_ME_547C1FB30097 // MakeExecutor
- ) .SequenceCode.It
+ )
  ; // Implemented
  : Dependencies
-   @ ( ME_547C1FD9007B // 
+   Seq: ( ME_547C1FD9007B // 
  ME_547C1FDD03A0 // 
  ME_547C1FE10204 // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
+ CONST dfm:PathOnly '\common\components\rtl\Garant\cs'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\cs'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'ncsDisconnectExecutor'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_547C1FB30097 TncsDisconnectExecutor
 
@@ -3649,8 +3851,8 @@ ref; // ME_546083260154 aFactory
  : Parent ME_54607384020A // TncsMessageExecutorFactory
  ;
  : Parameters
-   @ ( ME_546083260154 // aFactory
- ) .SequenceCode.It
+   Seq: ( ME_546083260154 // aFactory
+ )
  ; // Parameters
 
 ref; // ME_5460830D0295 Register
@@ -3674,8 +3876,8 @@ ref; // ME_5460832F028E aFactory
  : Parent ME_54607384020A // TncsMessageExecutorFactory
  ;
  : Parameters
-   @ ( ME_5460832F028E // aFactory
- ) .SequenceCode.It
+   Seq: ( ME_5460832F028E // aFactory
+ )
  ; // Parameters
 
 ref; // ME_5460832C0080 UnRegister
@@ -3701,8 +3903,8 @@ ref; // ME_5460B06B03DE aMessage
  : Target ME_5460731E025E // IncsExecutor
  ;
  : Parameters
-   @ ( ME_5460B06B03DE // aMessage
- ) .SequenceCode.It
+   Seq: ( ME_5460B06B03DE // aMessage
+ )
  ; // Parameters
 
 ref; // ME_5460AEC800B8 MakeExecutor
@@ -3710,6 +3912,7 @@ ref; // ME_5460AEC800B8 MakeExecutor
 : ME_BFE6B1A8F541
  CONST UID 'BFE6B1A8F541'
  CONST Name 'Exists'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_static::Operation ;
  %SUMMARY 'Проверяет создан экземпляр синглетона или нет' ;
@@ -3719,6 +3922,7 @@ ref; // ME_5460AEC800B8 MakeExecutor
  ;
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
+ CONST extprop:pas:Value false
 
 ref; // ME_BFE6B1A8F541 Exists
 
@@ -3762,6 +3966,7 @@ ref; // ME_5464C855013F
  ;
  : Implementor ME_54607384020A // TncsMessageExecutorFactory
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_479731C50290_ME_54607384020A Cleanup
 
 : ME_47A042E100E2_ME_54607384020A
@@ -3771,6 +3976,7 @@ ref; // ME_479731C50290_ME_54607384020A Cleanup
  ;
  : Implementor ME_54607384020A // TncsMessageExecutorFactory
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_47A042E100E2_ME_54607384020A InitFields
 
 : ME_54607384020A
@@ -3784,48 +3990,50 @@ ref; // ME_47A042E100E2_ME_54607384020A InitFields
  : Parent ME_544E0148010D // Messages
  ;
  : Inherits
-   @ ( WL 'ME_49E7754802A9' '47913B47006E.pas.ms.script' // Tl3ProtoObject
- ) .SequenceCode.It
+   Seq: ( WL 'ME_49E7754802A9' '47913B47006E.pas.ms.script' // Tl3ProtoObject
+ )
  ; // Inherits
  : Attributes
-   @ ( ME_54609BF500ED // f_List
+   Seq: ( ME_54609BF500ED // f_List
  ME_547C200B02EA // f_DisconnectExecutor
- ) .SequenceCode.It
+ )
  ; // Attributes
  : Operations
-   @ ( ME_5460830D0295 // Register
+   Seq: ( ME_5460830D0295 // Register
  ME_5460832C0080 // UnRegister
  ME_5460AEC800B8 // MakeExecutor
  ME_BFE6B1A8F541 // Exists
- ) .SequenceCode.It
+ )
  ; // Operations
  : Overridden
-   @ ( ME_479731C50290_ME_54607384020A // Cleanup
+   Seq: ( ME_479731C50290_ME_54607384020A // Cleanup
  ME_47A042E100E2_ME_54607384020A // InitFields
- ) .SequenceCode.It
+ )
  ; // Overridden
  : Children
-   @ ( ME_5464A0E40234 // TncsInvalidExecutor
+   Seq: ( ME_5464A0E40234 // TncsInvalidExecutor
  ME_547C1FB30097 // TncsDisconnectExecutor
- ) .SequenceCode.It
+ )
  ; // Children
  : Dependencies
-   @ ( ME_5460A810027B // 
+   Seq: ( ME_5460A810027B // 
  ME_5460C4460031 // 
  ME_5464C855013F // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
  CONST "singleton" true
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\cs'
  CONST intf.pas:Path 'common\components\rtl\Garant\cs\ncsMessageExecutorFactory.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\cs'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'ncsMessageExecutorFactory'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'ncsMessageExecutorFactory'
 
 ref; // ME_54607384020A TncsMessageExecutorFactory
 
@@ -3868,8 +4076,8 @@ ref; // ME_54633ECE02CA aMessage
  : Target ME_5461D6C30025 // TncsReplyDescription
  ;
  : Parameters
-   @ ( ME_54633ECE02CA // aMessage
- ) .SequenceCode.It
+   Seq: ( ME_54633ECE02CA // aMessage
+ )
  ; // Parameters
 
 ref; // ME_54633EB6031C DoIt
@@ -3885,8 +4093,8 @@ ref; // ME_54633EB6031C DoIt
  : Parent ME_5461D9EE0244 // TncsReplyWaiter
  ;
  : Operations
-   @ ( ME_54633EB6031C // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_54633EB6031C // DoIt
+ )
  ; // Operations
 
 ref; // ME_54633EAE039A FindDesc
@@ -3910,8 +4118,8 @@ ref; // ME_54630A360321 aMessage
  : Parent ME_5461D9EE0244 // TncsReplyWaiter
  ;
  : Parameters
-   @ ( ME_54630A360321 // aMessage
- ) .SequenceCode.It
+   Seq: ( ME_54630A360321 // aMessage
+ )
  ; // Parameters
 
 ref; // ME_54630A1F0046 SubmitReply
@@ -3935,8 +4143,8 @@ ref; // ME_54630A4F0322 aMessage
  : Parent ME_5461D9EE0244 // TncsReplyWaiter
  ;
  : Parameters
-   @ ( ME_54630A4F0322 // aMessage
- ) .SequenceCode.It
+   Seq: ( ME_54630A4F0322 // aMessage
+ )
  ; // Parameters
 
 ref; // ME_54630A3E001D SubmitMessage
@@ -3982,6 +4190,7 @@ ref; // ME_547C4DD20037 theReply
  CONST Value 'INFINITE'
  : ValueType WL 'ME_483C21B0003E' '4AB0C3F60375.pas.ms.script' // Timeouts
  ;
+ CONST extprop:pas:Value 'INFINITE'
 
 ref; // ME_547C4DD20056 aTimeOut
 
@@ -3996,10 +4205,10 @@ ref; // ME_547C4DD20056 aTimeOut
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
  : Parameters
-   @ ( ME_547C4DD20008 // aMessage
+   Seq: ( ME_547C4DD20008 // aMessage
  ME_547C4DD20037 // theReply
  ME_547C4DD20056 // aTimeOut
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_54630A80027D WaitForReply
@@ -4044,6 +4253,7 @@ ref; // ME_54634144025A
  ;
  : Implementor ME_5461D9EE0244 // TncsReplyWaiter
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_479731C50290_ME_5461D9EE0244 Cleanup
 
 : ME_47A042E100E2_ME_5461D9EE0244
@@ -4053,6 +4263,7 @@ ref; // ME_479731C50290_ME_5461D9EE0244 Cleanup
  ;
  : Implementor ME_5461D9EE0244 // TncsReplyWaiter
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_47A042E100E2_ME_5461D9EE0244 InitFields
 
 : ME_5461D9EE0244
@@ -4066,46 +4277,48 @@ ref; // ME_47A042E100E2_ME_5461D9EE0244 InitFields
  : Parent ME_544E0148010D // Messages
  ;
  : Inherits
-   @ ( WL 'ME_49E7754802A9' '47913B47006E.pas.ms.script' // Tl3ProtoObject
- ) .SequenceCode.It
+   Seq: ( WL 'ME_49E7754802A9' '47913B47006E.pas.ms.script' // Tl3ProtoObject
+ )
  ; // Inherits
  : Implements
-   @ ( WL 'ME_53A03846011C' '53A038340371.pas.ms.script' // l3CriticalSectionHolder
- ) .SequenceCode.It
+   Seq: ( WL 'ME_53A03846011C' '53A038340371.pas.ms.script' // l3CriticalSectionHolder
+ )
  ; // Implements
  : Attributes
-   @ ( ME_5461DA210250 // f_List
- ) .SequenceCode.It
+   Seq: ( ME_5461DA210250 // f_List
+ )
  ; // Attributes
  : Operations
-   @ ( ME_54633EAE039A // FindDesc
+   Seq: ( ME_54633EAE039A // FindDesc
  ME_54630A1F0046 // SubmitReply
  ME_54630A3E001D // SubmitMessage
  ME_54630A7102CD // Clear
  ME_54630A80027D // WaitForReply
- ) .SequenceCode.It
+ )
  ; // Operations
  : Overridden
-   @ ( ME_479731C50290_ME_5461D9EE0244 // Cleanup
+   Seq: ( ME_479731C50290_ME_5461D9EE0244 // Cleanup
  ME_47A042E100E2_ME_5461D9EE0244 // InitFields
- ) .SequenceCode.It
+ )
  ; // Overridden
  : Dependencies
-   @ ( ME_5461FC9C0368 // 
+   Seq: ( ME_5461FC9C0368 // 
  ME_5463131A0008 // 
  ME_54634144025A // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\cs'
  CONST intf.pas:Path 'common\components\rtl\Garant\cs\ncsReplyWaiter.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\cs'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'ncsReplyWaiter'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'ncsReplyWaiter'
 
 ref; // ME_5461D9EE0244 TncsReplyWaiter
 
@@ -4162,6 +4375,7 @@ ref; // ME_5464BE030256 Transporter
 : ME_F3CEF15315A8
  CONST UID 'F3CEF15315A8'
  CONST Name 'f_ReplyWaiter'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY 'Поле для свойства ReplyWaiter' ;
  CONST Visibility PrivateAccess
@@ -4195,8 +4409,8 @@ ref; // ME_5460681F01B0 aMessage
  : Parent ME_5460680D0277 // ProcessMessage
  ;
  : Parameters
-   @ ( ME_5460681F01B0 // aMessage
- ) .SequenceCode.It
+   Seq: ( ME_5460681F01B0 // aMessage
+ )
  ; // Parameters
 
 ref; // ME_5460681B02B0 DoIt
@@ -4289,18 +4503,18 @@ ref; // ME_547848860360
  : Parent ME_546061CE03DA // TncsProcessThread
  ;
  : Operations
-   @ ( ME_5460681B02B0 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_5460681B02B0 // DoIt
+ )
  ; // Operations
  : Dependencies
-   @ ( ME_54606E1A0207 // 
+   Seq: ( ME_54606E1A0207 // 
  ME_5460734B00FE // 
  ME_546073DF01D8 // 
  ME_5460797F01C3 // 
  ME_54784861030C // 
  ME_54784865026A // 
  ME_547848860360 // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
 
 ref; // ME_5460680D0277 ProcessMessage
@@ -4346,10 +4560,10 @@ ref; // ME_5493FA0C0300 aWaiter
  : Parent ME_5464BDC203B1 // Create
  ;
  : Parameters
-   @ ( ME_5464BDEF00E1 // anQueue
+   Seq: ( ME_5464BDEF00E1 // anQueue
  ME_5464BDEF00F1 // aTransporter
  ME_5493FA0C0300 // aWaiter
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_5464BDCD0296 DoIt
@@ -4365,8 +4579,8 @@ ref; // ME_5464BDCD0296 DoIt
  : Parent ME_546061CE03DA // TncsProcessThread
  ;
  : Operations
-   @ ( ME_5464BDCD0296 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_5464BDCD0296 // DoIt
+ )
  ; // Operations
 
 ref; // ME_5464BDC203B1 Create
@@ -4389,6 +4603,7 @@ ref; // ME_5462046F018C
  ;
  : Implementor ME_546061CE03DA // TncsProcessThread
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_479731C50290_ME_546061CE03DA Cleanup
 
 : ME_4911B69E037D_ME_546061CE03DA
@@ -4398,6 +4613,7 @@ ref; // ME_479731C50290_ME_546061CE03DA Cleanup
  ;
  : Implementor ME_546061CE03DA // TncsProcessThread
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4911B69E037D_ME_546061CE03DA DoExecute
 
 : ME_546061CE03DA
@@ -4411,40 +4627,42 @@ ref; // ME_4911B69E037D_ME_546061CE03DA DoExecute
  : Parent ME_544E0148010D // Messages
  ;
  : Inherits
-   @ ( ME_5452248C02B8 // TncsTransporterThread
- ) .SequenceCode.It
+   Seq: ( ME_5452248C02B8 // TncsTransporterThread
+ )
  ; // Inherits
  : Attributes
-   @ ( ME_5461D7EA00E4 // ReplyWaiter
+   Seq: ( ME_5461D7EA00E4 // ReplyWaiter
  ME_5464BDA603BD // f_Transporter
  ME_5464BE030256 // Transporter
  ME_F3CEF15315A8 // f_ReplyWaiter
- ) .SequenceCode.It
+ )
  ; // Attributes
  : Operations
-   @ ( ME_5460680D0277 // ProcessMessage
+   Seq: ( ME_5460680D0277 // ProcessMessage
  ME_5464BDC203B1 // Create
- ) .SequenceCode.It
+ )
  ; // Operations
  : Overridden
-   @ ( ME_479731C50290_ME_546061CE03DA // Cleanup
+   Seq: ( ME_479731C50290_ME_546061CE03DA // Cleanup
  ME_4911B69E037D_ME_546061CE03DA // DoExecute
- ) .SequenceCode.It
+ )
  ; // Overridden
  : Dependencies
-   @ ( ME_5462046F018C // 
- ) .SequenceCode.It
+   Seq: ( ME_5462046F018C // 
+ )
  ; // Dependencies
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\cs'
  CONST intf.pas:Path 'common\components\rtl\Garant\cs\ncsProcessThread.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\cs'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'ncsProcessThread'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'ncsProcessThread'
 
 ref; // ME_546061CE03DA TncsProcessThread
 
@@ -4476,14 +4694,18 @@ ref; // ME_5491708B03B6
  : Parent ME_544A09EE005F // TncsTransporter
  ;
  : Inherits
-   @ ( ME_5490036B0204 // TncsSocketKind
- ) .SequenceCode.It
+   Seq: ( ME_5490036B0204 // TncsSocketKind
+ )
  ; // Inherits
  : Attributes
-   @ ( ME_5491708B03B6 // 
- ) .SequenceCode.It
+   Seq: ( ME_5491708B03B6 // 
+ )
  ; // Attributes
  CONST "array type" 'dynamic'
+ CONST dfm:PathOnly '\common\components\rtl\Garant\cs'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\cs'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_54917076009C TncsIOHandlerArray
 
@@ -4567,8 +4789,8 @@ ref; // ME_5491703C03A8 SocketKind
  : Target WL 'ME_538DDC890328' '52FBB2FC0386.pas.ms.script' // TcsIdIOHandlerAbstractAdapter
  ;
  : Attributes
-   @ ( ME_5491703C03A8 // SocketKind
- ) .SequenceCode.It
+   Seq: ( ME_5491703C03A8 // SocketKind
+ )
  ; // Attributes
  CONST "pm" true
 
@@ -4688,6 +4910,7 @@ ref; // ME_5491709C03AC f_IOHandlers
 : ME_E29F67C9278B
  CONST UID 'E29F67C9278B'
  CONST Name 'f_SendQueue'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY 'Поле для свойства SendQueue' ;
  CONST Visibility PrivateAccess
@@ -4703,6 +4926,7 @@ ref; // ME_E29F67C9278B f_SendQueue
 : ME_AE6A73B404AC
  CONST UID 'AE6A73B404AC'
  CONST Name 'f_ReceiveQueue'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY 'Поле для свойства ReceiveQueue' ;
  CONST Visibility PrivateAccess
@@ -4718,6 +4942,7 @@ ref; // ME_AE6A73B404AC f_ReceiveQueue
 : ME_7AEE0D8FFAF8
  CONST UID '7AEE0D8FFAF8'
  CONST Name 'f_SendThread'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY 'Поле для свойства SendThread' ;
  CONST Visibility PrivateAccess
@@ -4733,6 +4958,7 @@ ref; // ME_7AEE0D8FFAF8 f_SendThread
 : ME_390A99709FD8
  CONST UID '390A99709FD8'
  CONST Name 'f_ReceiveThread'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY 'Поле для свойства ReceiveThread' ;
  CONST Visibility PrivateAccess
@@ -4748,6 +4974,7 @@ ref; // ME_390A99709FD8 f_ReceiveThread
 : ME_9BEF39A01DE1
  CONST UID '9BEF39A01DE1'
  CONST Name 'f_ProcessThread'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY 'Поле для свойства ProcessThread' ;
  CONST Visibility PrivateAccess
@@ -4763,6 +4990,7 @@ ref; // ME_9BEF39A01DE1 f_ProcessThread
 : ME_43D5E38812CC
  CONST UID '43D5E38812CC'
  CONST Name 'f_ReplyWaiter'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY 'Поле для свойства ReplyWaiter' ;
  CONST Visibility PrivateAccess
@@ -4778,6 +5006,7 @@ ref; // ME_43D5E38812CC f_ReplyWaiter
 : ME_2397A2F9DDB1
  CONST UID '2397A2F9DDB1'
  CONST Name 'f_IntSessionID'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY 'Поле для свойства IntSessionID' ;
  CONST Visibility PrivateAccess
@@ -4787,6 +5016,7 @@ ref; // ME_43D5E38812CC f_ReplyWaiter
  ;
  : Target WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
  ;
+ CONST extprop:clearViaProperty 'IntSessionID'
 
 ref; // ME_2397A2F9DDB1 f_IntSessionID
 
@@ -4811,8 +5041,8 @@ ref; // ME_54533B2900CE aValue
  : Parent ME_54533B010030 // SetConnected
  ;
  : Parameters
-   @ ( ME_54533B2900CE // aValue
- ) .SequenceCode.It
+   Seq: ( ME_54533B2900CE // aValue
+ )
  ; // Parameters
 
 ref; // ME_54533B1701F2 DoIt
@@ -4828,8 +5058,8 @@ ref; // ME_54533B1701F2 DoIt
  : Parent ME_544A09EE005F // TncsTransporter
  ;
  : Operations
-   @ ( ME_54533B1701F2 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_54533B1701F2 // DoIt
+ )
  ; // Operations
 
 ref; // ME_54533B010030 SetConnected
@@ -4839,6 +5069,7 @@ FORWARD ME_5459C7E00125
 : ME_178FCCEED7C4
  CONST UID '178FCCEED7C4'
  CONST Name 'DoIt'
+ CONST IsSummoned true
  CONST Class class_Operation
  %SUMMARY 'Сигнатура метода StartProcessing' ;
  CONST Visibility PublicAccess
@@ -4859,8 +5090,8 @@ ref; // ME_178FCCEED7C4 DoIt
  : Parent ME_544A09EE005F // TncsTransporter
  ;
  : Operations
-   @ ( ME_178FCCEED7C4 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_178FCCEED7C4 // DoIt
+ )
  ; // Operations
 
 ref; // ME_5459C7E00125 StartProcessing
@@ -4886,8 +5117,8 @@ ref; // ME_545B3E250102 WaitForThreads
  : Parent ME_5459C803038D // StopProcessing
  ;
  : Parameters
-   @ ( ME_545B3E250102 // WaitForThreads
- ) .SequenceCode.It
+   Seq: ( ME_545B3E250102 // WaitForThreads
+ )
  ; // Parameters
 
 ref; // ME_545B3E120323 DoIt
@@ -4903,8 +5134,8 @@ ref; // ME_545B3E120323 DoIt
  : Parent ME_544A09EE005F // TncsTransporter
  ;
  : Operations
-   @ ( ME_545B3E120323 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_545B3E120323 // DoIt
+ )
  ; // Operations
 
 ref; // ME_5459C803038D StopProcessing
@@ -4914,6 +5145,7 @@ FORWARD ME_5477033C03D0
 : ME_A6A7B60F1DF2
  CONST UID 'A6A7B60F1DF2'
  CONST Name 'DoIt'
+ CONST IsSummoned true
  CONST Class class_Operation
  %SUMMARY 'Сигнатура метода HandShake' ;
  CONST Visibility PublicAccess
@@ -4934,8 +5166,8 @@ ref; // ME_A6A7B60F1DF2 DoIt
  : Parent ME_544A09EE005F // TncsTransporter
  ;
  : Operations
-   @ ( ME_A6A7B60F1DF2 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_A6A7B60F1DF2 // DoIt
+ )
  ; // Operations
 
 ref; // ME_5477033C03D0 HandShake
@@ -4966,8 +5198,8 @@ ref; // ME_549175D702CD DoIt
  : Parent ME_544A09EE005F // TncsTransporter
  ;
  : Operations
-   @ ( ME_549175D702CD // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_549175D702CD // DoIt
+ )
  ; // Operations
 
 ref; // ME_549175C4030A HandShakeKind
@@ -4977,6 +5209,7 @@ FORWARD ME_5492C5F703AA
 : ME_8A8BAA04A4CE
  CONST UID '8A8BAA04A4CE'
  CONST Name 'DoIt'
+ CONST IsSummoned true
  CONST Class class_Operation
  %SUMMARY 'Сигнатура метода TransportStarted' ;
  CONST Visibility PublicAccess
@@ -4997,8 +5230,8 @@ ref; // ME_8A8BAA04A4CE DoIt
  : Parent ME_544A09EE005F // TncsTransporter
  ;
  : Operations
-   @ ( ME_8A8BAA04A4CE // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_8A8BAA04A4CE // DoIt
+ )
  ; // Operations
 
 ref; // ME_5492C5F703AA TransportStarted
@@ -5043,6 +5276,7 @@ ref; // ME_5463161F0105
  ;
  : Implementor ME_544A09EE005F // TncsTransporter
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_5464B4E900DA_ME_544A09EE005F Send
 
 : ME_5464B52F02D5_ME_544A09EE005F
@@ -5052,6 +5286,7 @@ ref; // ME_5464B4E900DA_ME_544A09EE005F Send
  ;
  : Implementor ME_544A09EE005F // TncsTransporter
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_5464B52F02D5_ME_544A09EE005F WaitForReply
 
 : ME_5465AB2B00CA_ME_544A09EE005F
@@ -5061,6 +5296,7 @@ ref; // ME_5464B52F02D5_ME_544A09EE005F WaitForReply
  ;
  : Implementor ME_544A09EE005F // TncsTransporter
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" false
 ref; // ME_5465AB2B00CA_ME_544A09EE005F Connected
 
@@ -5071,6 +5307,7 @@ ref; // ME_5465AB2B00CA_ME_544A09EE005F Connected
  ;
  : Implementor ME_544A09EE005F // TncsTransporter
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" false
 ref; // ME_546608F101DE_ME_544A09EE005F ClientID
 
@@ -5081,6 +5318,7 @@ ref; // ME_546608F101DE_ME_544A09EE005F ClientID
  ;
  : Implementor ME_544A09EE005F // TncsTransporter
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" false
 ref; // ME_5486B96A0025_ME_544A09EE005F Processing
 
@@ -5091,6 +5329,7 @@ ref; // ME_5486B96A0025_ME_544A09EE005F Processing
  ;
  : Implementor ME_544A09EE005F // TncsTransporter
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" false
 ref; // ME_548FEF4F002E_ME_544A09EE005F SessionID
 
@@ -5101,6 +5340,7 @@ ref; // ME_548FEF4F002E_ME_544A09EE005F SessionID
  ;
  : Implementor ME_544A09EE005F // TncsTransporter
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_479731C50290_ME_544A09EE005F Cleanup
 
 : ME_47A042E100E2_ME_544A09EE005F
@@ -5110,6 +5350,7 @@ ref; // ME_479731C50290_ME_544A09EE005F Cleanup
  ;
  : Implementor ME_544A09EE005F // TncsTransporter
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_47A042E100E2_ME_544A09EE005F InitFields
 
 : ME_544A09EE005F
@@ -5123,16 +5364,16 @@ ref; // ME_47A042E100E2_ME_544A09EE005F InitFields
  : Parent ME_544E0148010D // Messages
  ;
  : Inherits
-   @ ( WL 'ME_49E7754802A9' '47913B47006E.pas.ms.script' // Tl3ProtoObject
- ) .SequenceCode.It
+   Seq: ( WL 'ME_49E7754802A9' '47913B47006E.pas.ms.script' // Tl3ProtoObject
+ )
  ; // Inherits
  : Implements
-   @ ( WL 'ME_53A03846011C' '53A038340371.pas.ms.script' // l3CriticalSectionHolder
+   Seq: ( WL 'ME_53A03846011C' '53A038340371.pas.ms.script' // l3CriticalSectionHolder
  ME_5464B4730055 // IncsTransporter
- ) .SequenceCode.It
+ )
  ; // Implements
  : Attributes
-   @ ( ME_5450AB4D02E2 // SendQueue
+   Seq: ( ME_5450AB4D02E2 // SendQueue
  ME_5450AB6A00A2 // ReceiveQueue
  ME_5450EA6D02B3 // SendThread
  ME_545225640060 // IOHandlers
@@ -5150,51 +5391,53 @@ ref; // ME_47A042E100E2_ME_544A09EE005F InitFields
  ME_9BEF39A01DE1 // f_ProcessThread
  ME_43D5E38812CC // f_ReplyWaiter
  ME_2397A2F9DDB1 // f_IntSessionID
- ) .SequenceCode.It
+ )
  ; // Attributes
  : Operations
-   @ ( ME_54533B010030 // SetConnected
+   Seq: ( ME_54533B010030 // SetConnected
  ME_5459C7E00125 // StartProcessing
  ME_5459C803038D // StopProcessing
  ME_5477033C03D0 // HandShake
  ME_549175C4030A // HandShakeKind
  ME_5492C5F703AA // TransportStarted
- ) .SequenceCode.It
+ )
  ; // Operations
  : Implemented
-   @ ( ME_5464B4E900DA_ME_544A09EE005F // Send
+   Seq: ( ME_5464B4E900DA_ME_544A09EE005F // Send
  ME_5464B52F02D5_ME_544A09EE005F // WaitForReply
  ME_5465AB2B00CA_ME_544A09EE005F // Connected
  ME_546608F101DE_ME_544A09EE005F // ClientID
  ME_5486B96A0025_ME_544A09EE005F // Processing
  ME_548FEF4F002E_ME_544A09EE005F // SessionID
- ) .SequenceCode.It
+ )
  ; // Implemented
  : Overridden
-   @ ( ME_479731C50290_ME_544A09EE005F // Cleanup
+   Seq: ( ME_479731C50290_ME_544A09EE005F // Cleanup
  ME_47A042E100E2_ME_544A09EE005F // InitFields
- ) .SequenceCode.It
+ )
  ; // Overridden
  : Children
-   @ ( ME_54917076009C // TncsIOHandlerArray
- ) .SequenceCode.It
+   Seq: ( ME_54917076009C // TncsIOHandlerArray
+ )
  ; // Children
  : Dependencies
-   @ ( ME_5450A0AC017E // 
+   Seq: ( ME_5450A0AC017E // 
  ME_5450DC780347 // 
  ME_5463161F0105 // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\cs'
  CONST intf.pas:Path 'common\components\rtl\Garant\cs\ncsTransporter.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\cs'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'ncsTransporter'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'ncsTransporter'
 
 ref; // ME_544A09EE005F TncsTransporter
 
@@ -5215,6 +5458,7 @@ FORWARD ME_544DF67C0075
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value '10 * 1000'
 
 ref; // ME_544DF69502E9 c_ClientConnectTimeout
 
@@ -5231,6 +5475,7 @@ ref; // ME_544DF69502E9 c_ClientConnectTimeout
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value '{$IFDEF CsDebug} 1000 * 1000 {$ELSE} 10 * 1000 {$ENDIF}'
 
 ref; // ME_544DF6C40248 c_ClientReadTimeout
 
@@ -5246,11 +5491,15 @@ ref; // ME_544DF6C40248 c_ClientReadTimeout
  : Parent ME_544A0A0D0239 // TncsClientTransporter
  ;
  : Attributes
-   @ ( ME_544DF69502E9 // c_ClientConnectTimeout
+   Seq: ( ME_544DF69502E9 // c_ClientConnectTimeout
  ME_544DF6C40248 // c_ClientReadTimeout
- ) .SequenceCode.It
+ )
  ; // Attributes
  CONST "spell names" false
+ CONST dfm:PathOnly '\common\components\rtl\Garant\cs'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\cs'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_544DF67C0075 TimeoutConsts
 
@@ -5280,14 +5529,18 @@ ref; // ME_549164000118
  : Parent ME_544A0A0D0239 // TncsClientTransporter
  ;
  : Inherits
-   @ ( ME_5490036B0204 // TncsSocketKind
- ) .SequenceCode.It
+   Seq: ( ME_5490036B0204 // TncsSocketKind
+ )
  ; // Inherits
  : Attributes
-   @ ( ME_549164000118 // 
- ) .SequenceCode.It
+   Seq: ( ME_549164000118 // 
+ )
  ; // Attributes
  CONST "array type" 'dynamic'
+ CONST dfm:PathOnly '\common\components\rtl\Garant\cs'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\cs'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_549163F102D4 TncsClientArray
 
@@ -5310,6 +5563,7 @@ FORWARD ME_54522FCE0023
 : ME_3909291F76B7
  CONST UID '3909291F76B7'
  CONST Name 'DoIt'
+ CONST IsSummoned true
  CONST Class class_Operation
  %SUMMARY 'Сигнатура метода TransportConnected' ;
  CONST Visibility PublicAccess
@@ -5330,8 +5584,8 @@ ref; // ME_3909291F76B7 DoIt
  : Parent ME_544A0A0D0239 // TncsClientTransporter
  ;
  : Operations
-   @ ( ME_3909291F76B7 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_3909291F76B7 // DoIt
+ )
  ; // Operations
 
 ref; // ME_54522FCE0023 TransportConnected
@@ -5341,6 +5595,7 @@ FORWARD ME_545B400202AF
 : ME_D863C5CBBD66
  CONST UID 'D863C5CBBD66'
  CONST Name 'ASender'
+ CONST IsSummoned true
  CONST Class class_Parameter
  : Stereotype st_in ;
  : Target WL 'ME_4807745602C8' '4AB0C3C60310.pas.ms.script' // TObject
@@ -5351,6 +5606,7 @@ ref; // ME_D863C5CBBD66 ASender
 : ME_EF59D01D3EBB
  CONST UID 'EF59D01D3EBB'
  CONST Name 'AStatus'
+ CONST IsSummoned true
  CONST Class class_Parameter
  : Stereotype st_const ;
  : Target WL 'ME_545B3EE3029E' '537F464A0198.pas.ms.script' // TIdStatus
@@ -5361,6 +5617,7 @@ ref; // ME_EF59D01D3EBB AStatus
 : ME_3F41A35723E2
  CONST UID '3F41A35723E2'
  CONST Name 'AStatusText'
+ CONST IsSummoned true
  CONST Class class_Parameter
  : Stereotype st_const ;
  : Target WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
@@ -5371,16 +5628,17 @@ ref; // ME_3F41A35723E2 AStatusText
 : ME_2055A706176C
  CONST UID '2055A706176C'
  CONST Name 'DoIt'
+ CONST IsSummoned true
  CONST Class class_Operation
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
  : Parent ME_545B400202AF // SendTransportStatus
  ;
  : Parameters
-   @ ( ME_D863C5CBBD66 // ASender
+   Seq: ( ME_D863C5CBBD66 // ASender
  ME_EF59D01D3EBB // AStatus
  ME_3F41A35723E2 // AStatusText
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_2055A706176C DoIt
@@ -5396,12 +5654,12 @@ ref; // ME_2055A706176C DoIt
  : Parent ME_544A0A0D0239 // TncsClientTransporter
  ;
  : Inherits
-   @ ( WL 'ME_545B3F72015E' '537F464A0198.pas.ms.script' // TIdStatusEvent
- ) .SequenceCode.It
+   Seq: ( WL 'ME_545B3F72015E' '537F464A0198.pas.ms.script' // TIdStatusEvent
+ )
  ; // Inherits
  : Operations
-   @ ( ME_2055A706176C // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_2055A706176C // DoIt
+ )
  ; // Operations
 
 ref; // ME_545B400202AF SendTransportStatus
@@ -5411,6 +5669,7 @@ FORWARD ME_5465A71E02F2
 : ME_1F56C9FD2405
  CONST UID '1F56C9FD2405'
  CONST Name 'DoIt'
+ CONST IsSummoned true
  CONST Class class_Operation
  %SUMMARY 'Сигнатура метода Create' ;
  CONST Visibility PublicAccess
@@ -5431,8 +5690,8 @@ ref; // ME_1F56C9FD2405 DoIt
  : Parent ME_544A0A0D0239 // TncsClientTransporter
  ;
  : Operations
-   @ ( ME_1F56C9FD2405 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_1F56C9FD2405 // DoIt
+ )
  ; // Operations
 
 ref; // ME_5465A71E02F2 Create
@@ -5442,6 +5701,7 @@ FORWARD ME_5465A72C00CA
 : ME_13EBD7486226
  CONST UID '13EBD7486226'
  CONST Name 'DoIt'
+ CONST IsSummoned true
  CONST Class class_Operation
  %SUMMARY 'Сигнатура фабрики TncsClientTransporter.Make' ;
  CONST Visibility PrivateAccess
@@ -5464,16 +5724,16 @@ ref; // ME_13EBD7486226 DoIt
  : Parent ME_544A0A0D0239 // TncsClientTransporter
  ;
  : Inherits
-   @ ( ME_5465A71E02F2 // Create
- ) .SequenceCode.It
+   Seq: ( ME_5465A71E02F2 // Create
+ )
  ; // Inherits
  : Implements
-   @ ( ME_5465A598039E // IncsClientTransporter
- ) .SequenceCode.It
+   Seq: ( ME_5465A598039E // IncsClientTransporter
+ )
  ; // Implements
  : Operations
-   @ ( ME_13EBD7486226 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_13EBD7486226 // DoIt
+ )
  ; // Operations
  CONST "check nil" false
  CONST "need AfterCreate" 'undefined'
@@ -5487,6 +5747,7 @@ FORWARD ME_5491684203A6
 : ME_FB30AC3AC458
  CONST UID 'FB30AC3AC458'
  CONST Name 'ASender'
+ CONST IsSummoned true
  CONST Class class_Parameter
  : Stereotype st_in ;
  : Target WL 'ME_4807745602C8' '4AB0C3C60310.pas.ms.script' // TObject
@@ -5497,6 +5758,7 @@ ref; // ME_FB30AC3AC458 ASender
 : ME_6E33F82F498B
  CONST UID '6E33F82F498B'
  CONST Name 'AStatus'
+ CONST IsSummoned true
  CONST Class class_Parameter
  : Stereotype st_const ;
  : Target WL 'ME_545B3EE3029E' '537F464A0198.pas.ms.script' // TIdStatus
@@ -5507,6 +5769,7 @@ ref; // ME_6E33F82F498B AStatus
 : ME_6C359CD56226
  CONST UID '6C359CD56226'
  CONST Name 'AStatusText'
+ CONST IsSummoned true
  CONST Class class_Parameter
  : Stereotype st_const ;
  : Target WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
@@ -5517,16 +5780,17 @@ ref; // ME_6C359CD56226 AStatusText
 : ME_E19EF1C54335
  CONST UID 'E19EF1C54335'
  CONST Name 'DoIt'
+ CONST IsSummoned true
  CONST Class class_Operation
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
  : Parent ME_5491684203A6 // ReceiveTransportStatus
  ;
  : Parameters
-   @ ( ME_FB30AC3AC458 // ASender
+   Seq: ( ME_FB30AC3AC458 // ASender
  ME_6E33F82F498B // AStatus
  ME_6C359CD56226 // AStatusText
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_E19EF1C54335 DoIt
@@ -5542,12 +5806,12 @@ ref; // ME_E19EF1C54335 DoIt
  : Parent ME_544A0A0D0239 // TncsClientTransporter
  ;
  : Inherits
-   @ ( WL 'ME_545B3F72015E' '537F464A0198.pas.ms.script' // TIdStatusEvent
- ) .SequenceCode.It
+   Seq: ( WL 'ME_545B3F72015E' '537F464A0198.pas.ms.script' // TIdStatusEvent
+ )
  ; // Inherits
  : Operations
-   @ ( ME_E19EF1C54335 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_E19EF1C54335 // DoIt
+ )
  ; // Operations
 
 ref; // ME_5491684203A6 ReceiveTransportStatus
@@ -5557,6 +5821,7 @@ FORWARD ME_549279980264
 : ME_2AABD500F271
  CONST UID '2AABD500F271'
  CONST Name 'DoIt'
+ CONST IsSummoned true
  CONST Class class_Operation
  %SUMMARY 'Сигнатура метода BeforeSendHandshake' ;
  CONST Visibility PublicAccess
@@ -5577,8 +5842,8 @@ ref; // ME_2AABD500F271 DoIt
  : Parent ME_544A0A0D0239 // TncsClientTransporter
  ;
  : Operations
-   @ ( ME_2AABD500F271 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_2AABD500F271 // DoIt
+ )
  ; // Operations
 
 ref; // ME_549279980264 BeforeSendHandshake
@@ -5588,6 +5853,7 @@ FORWARD ME_549279B300D5
 : ME_8B5B641F41AF
  CONST UID '8B5B641F41AF'
  CONST Name 'DoIt'
+ CONST IsSummoned true
  CONST Class class_Operation
  %SUMMARY 'Сигнатура метода BeforeReceiveHandshake' ;
  CONST Visibility PublicAccess
@@ -5608,8 +5874,8 @@ ref; // ME_8B5B641F41AF DoIt
  : Parent ME_544A0A0D0239 // TncsClientTransporter
  ;
  : Operations
-   @ ( ME_8B5B641F41AF // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_8B5B641F41AF // DoIt
+ )
  ; // Operations
 
 ref; // ME_549279B300D5 BeforeReceiveHandshake
@@ -5709,6 +5975,7 @@ ref; // ME_547C1F9900B0
  ;
  : Implementor ME_544A0A0D0239 // TncsClientTransporter
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_544A1FD802E9_ME_544A0A0D0239 Connect
 
 : ME_544A1FF00062_ME_544A0A0D0239
@@ -5718,6 +5985,7 @@ ref; // ME_544A1FD802E9_ME_544A0A0D0239 Connect
  ;
  : Implementor ME_544A0A0D0239 // TncsClientTransporter
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_544A1FF00062_ME_544A0A0D0239 Disconnect
 
 : ME_5477033C03D0_ME_544A0A0D0239
@@ -5727,6 +5995,7 @@ ref; // ME_544A1FF00062_ME_544A0A0D0239 Disconnect
  ;
  : Implementor ME_544A0A0D0239 // TncsClientTransporter
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_5477033C03D0_ME_544A0A0D0239 HandShake
 
 : ME_549175C4030A_ME_544A0A0D0239
@@ -5736,6 +6005,7 @@ ref; // ME_5477033C03D0_ME_544A0A0D0239 HandShake
  ;
  : Implementor ME_544A0A0D0239 // TncsClientTransporter
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_549175C4030A_ME_544A0A0D0239 HandShakeKind
 
 : ME_479731C50290_ME_544A0A0D0239
@@ -5745,6 +6015,7 @@ ref; // ME_549175C4030A_ME_544A0A0D0239 HandShakeKind
  ;
  : Implementor ME_544A0A0D0239 // TncsClientTransporter
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_479731C50290_ME_544A0A0D0239 Cleanup
 
 : ME_47A042E100E2_ME_544A0A0D0239
@@ -5754,6 +6025,7 @@ ref; // ME_479731C50290_ME_544A0A0D0239 Cleanup
  ;
  : Implementor ME_544A0A0D0239 // TncsClientTransporter
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_47A042E100E2_ME_544A0A0D0239 InitFields
 
 : ME_544A0A0D0239
@@ -5767,49 +6039,49 @@ ref; // ME_47A042E100E2_ME_544A0A0D0239 InitFields
  : Parent ME_544E0148010D // Messages
  ;
  : Inherits
-   @ ( ME_544A09EE005F // TncsTransporter
- ) .SequenceCode.It
+   Seq: ( ME_544A09EE005F // TncsTransporter
+ )
  ; // Inherits
  : Implements
-   @ ( ME_5465A598039E // IncsClientTransporter
- ) .SequenceCode.It
+   Seq: ( ME_5465A598039E // IncsClientTransporter
+ )
  ; // Implements
  : Attributes
-   @ ( ME_544A21B400E4 // f_TCPClients
- ) .SequenceCode.It
+   Seq: ( ME_544A21B400E4 // f_TCPClients
+ )
  ; // Attributes
  : Operations
-   @ ( ME_54522FCE0023 // TransportConnected
+   Seq: ( ME_54522FCE0023 // TransportConnected
  ME_545B400202AF // SendTransportStatus
  ME_5465A71E02F2 // Create
  ME_5465A72C00CA // Make
  ME_5491684203A6 // ReceiveTransportStatus
  ME_549279980264 // BeforeSendHandshake
  ME_549279B300D5 // BeforeReceiveHandshake
- ) .SequenceCode.It
+ )
  ; // Operations
  : Implemented
-   @ ( ME_544A1FD802E9_ME_544A0A0D0239 // Connect
+   Seq: ( ME_544A1FD802E9_ME_544A0A0D0239 // Connect
  ME_544A1FF00062_ME_544A0A0D0239 // Disconnect
  ME_5477033C03D0_ME_544A0A0D0239 // HandShake
  ME_549175C4030A_ME_544A0A0D0239 // HandShakeKind
- ) .SequenceCode.It
+ )
  ; // Implemented
  : Overridden
-   @ ( ME_479731C50290_ME_544A0A0D0239 // Cleanup
+   Seq: ( ME_479731C50290_ME_544A0A0D0239 // Cleanup
  ME_47A042E100E2_ME_544A0A0D0239 // InitFields
- ) .SequenceCode.It
+ )
  ; // Overridden
  : Children
-   @ ( ME_549163F102D4 // TncsClientArray
- ) .SequenceCode.It
+   Seq: ( ME_549163F102D4 // TncsClientArray
+ )
  ; // Children
  : Constants
-   @ ( ME_544DF67C0075 // TimeoutConsts
- ) .SequenceCode.It
+   Seq: ( ME_544DF67C0075 // TimeoutConsts
+ )
  ; // Constants
  : Dependencies
-   @ ( ME_544DFC0D0116 // 
+   Seq: ( ME_544DFC0D0116 // 
  ME_544E2CC40195 // 
  ME_544E37D9032B // 
  ME_54522D8300D7 // 
@@ -5817,18 +6089,20 @@ ref; // ME_47A042E100E2_ME_544A0A0D0239 InitFields
  ME_547C1F8E038F // 
  ME_547C1F9501A1 // 
  ME_547C1F9900B0 // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\cs'
  CONST intf.pas:Path 'common\components\rtl\Garant\cs\ncsClientTransporter.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\cs'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'ncsClientTransporter'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'ncsClientTransporter'
 
 ref; // ME_544A0A0D0239 TncsClientTransporter
 
@@ -5865,9 +6139,9 @@ ref; // ME_549279210267 aSessionID
  : Parent ME_5465A67802C1 // Create
  ;
  : Parameters
-   @ ( ME_5465A68D0008 // anIOHandler
+   Seq: ( ME_5465A68D0008 // anIOHandler
  ME_549279210267 // aSessionID
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_5465A6860144 DoIt
@@ -5883,8 +6157,8 @@ ref; // ME_5465A6860144 DoIt
  : Parent ME_544A0A21036B // TncsServerTransporter
  ;
  : Operations
-   @ ( ME_5465A6860144 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_5465A6860144 // DoIt
+ )
  ; // Operations
 
 ref; // ME_5465A67802C1 Create
@@ -5894,6 +6168,7 @@ FORWARD ME_5465A69A028C
 : ME_15390B0AF932
  CONST UID '15390B0AF932'
  CONST Name 'anIOHandler'
+ CONST IsSummoned true
  CONST Class class_Parameter
  : Stereotype st_in ;
  : Target WL 'ME_538DDC890328' '52FBB2FC0386.pas.ms.script' // TcsIdIOHandlerAbstractAdapter
@@ -5904,6 +6179,7 @@ ref; // ME_15390B0AF932 anIOHandler
 : ME_DCFE41DED483
  CONST UID 'DCFE41DED483'
  CONST Name 'aSessionID'
+ CONST IsSummoned true
  CONST Class class_Parameter
  : Stereotype st_in ;
  : Target WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
@@ -5914,6 +6190,7 @@ ref; // ME_DCFE41DED483 aSessionID
 : ME_D2193189965F
  CONST UID 'D2193189965F'
  CONST Name 'DoIt'
+ CONST IsSummoned true
  CONST Class class_Operation
  %SUMMARY 'Сигнатура фабрики TncsServerTransporter.IntMake' ;
  CONST Visibility PrivateAccess
@@ -5923,9 +6200,9 @@ ref; // ME_DCFE41DED483 aSessionID
  : Target ME_5465A5AB0324 // IncsServerTransporter
  ;
  : Parameters
-   @ ( ME_15390B0AF932 // anIOHandler
+   Seq: ( ME_15390B0AF932 // anIOHandler
  ME_DCFE41DED483 // aSessionID
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_D2193189965F DoIt
@@ -5941,16 +6218,16 @@ ref; // ME_D2193189965F DoIt
  : Parent ME_544A0A21036B // TncsServerTransporter
  ;
  : Inherits
-   @ ( ME_5465A67802C1 // Create
- ) .SequenceCode.It
+   Seq: ( ME_5465A67802C1 // Create
+ )
  ; // Inherits
  : Implements
-   @ ( ME_5465A5AB0324 // IncsServerTransporter
- ) .SequenceCode.It
+   Seq: ( ME_5465A5AB0324 // IncsServerTransporter
+ )
  ; // Implements
  : Operations
-   @ ( ME_D2193189965F // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_D2193189965F // DoIt
+ )
  ; // Operations
  CONST "check nil" false
  CONST "need AfterCreate" 'undefined'
@@ -5992,9 +6269,9 @@ ref; // ME_5492AB220174 IsMainSocket
  : Target ME_5465A5AB0324 // IncsServerTransporter
  ;
  : Parameters
-   @ ( ME_54919595031C // anIOHandler
+   Seq: ( ME_54919595031C // anIOHandler
  ME_5492AB220174 // IsMainSocket
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_549195830367 DoIt
@@ -6010,8 +6287,8 @@ ref; // ME_549195830367 DoIt
  : Parent ME_544A0A21036B // TncsServerTransporter
  ;
  : Operations
-   @ ( ME_549195830367 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_549195830367 // DoIt
+ )
  ; // Operations
  CONST "is static" true
 
@@ -6048,6 +6325,7 @@ ref; // ME_5491802100DD
  ;
  : Implementor ME_544A0A21036B // TncsServerTransporter
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_545335BF0283_ME_544A0A21036B ProcessMessages
 
 : ME_5459D46D01FE_ME_544A0A21036B
@@ -6057,6 +6335,7 @@ ref; // ME_545335BF0283_ME_544A0A21036B ProcessMessages
  ;
  : Implementor ME_544A0A21036B // TncsServerTransporter
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_5459D46D01FE_ME_544A0A21036B Terminate
 
 : ME_5459E3150030_ME_544A0A21036B
@@ -6066,6 +6345,7 @@ ref; // ME_5459D46D01FE_ME_544A0A21036B Terminate
  ;
  : Implementor ME_544A0A21036B // TncsServerTransporter
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" false
 ref; // ME_5459E3150030_ME_544A0A21036B Terminated
 
@@ -6076,6 +6356,7 @@ ref; // ME_5459E3150030_ME_544A0A21036B Terminated
  ;
  : Implementor ME_544A0A21036B // TncsServerTransporter
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_5477033C03D0_ME_544A0A21036B HandShake
 
 : ME_549175C4030A_ME_544A0A21036B
@@ -6085,6 +6366,7 @@ ref; // ME_5477033C03D0_ME_544A0A21036B HandShake
  ;
  : Implementor ME_544A0A21036B // TncsServerTransporter
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_549175C4030A_ME_544A0A21036B HandShakeKind
 
 : ME_549180E701E0_ME_544A0A21036B
@@ -6094,6 +6376,7 @@ ref; // ME_549175C4030A_ME_544A0A21036B HandShakeKind
  ;
  : Implementor ME_544A0A21036B // TncsServerTransporter
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_549180E701E0_ME_544A0A21036B RegisterSendBackHandler
 
 : ME_479731C50290_ME_544A0A21036B
@@ -6103,6 +6386,7 @@ ref; // ME_549180E701E0_ME_544A0A21036B RegisterSendBackHandler
  ;
  : Implementor ME_544A0A21036B // TncsServerTransporter
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_479731C50290_ME_544A0A21036B Cleanup
 
 : ME_5492C5F703AA_ME_544A0A21036B
@@ -6112,6 +6396,7 @@ ref; // ME_479731C50290_ME_544A0A21036B Cleanup
  ;
  : Implementor ME_544A0A21036B // TncsServerTransporter
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_5492C5F703AA_ME_544A0A21036B TransportStarted
 
 : ME_544A0A21036B
@@ -6125,48 +6410,50 @@ ref; // ME_5492C5F703AA_ME_544A0A21036B TransportStarted
  : Parent ME_544E0148010D // Messages
  ;
  : Inherits
-   @ ( ME_544A09EE005F // TncsTransporter
- ) .SequenceCode.It
+   Seq: ( ME_544A09EE005F // TncsTransporter
+ )
  ; // Inherits
  : Implements
-   @ ( ME_5465A5AB0324 // IncsServerTransporter
- ) .SequenceCode.It
+   Seq: ( ME_5465A5AB0324 // IncsServerTransporter
+ )
  ; // Implements
  : Operations
-   @ ( ME_5465A67802C1 // Create
+   Seq: ( ME_5465A67802C1 // Create
  ME_5465A69A028C // IntMake
  ME_549195670058 // Make
- ) .SequenceCode.It
+ )
  ; // Operations
  : Implemented
-   @ ( ME_545335BF0283_ME_544A0A21036B // ProcessMessages
+   Seq: ( ME_545335BF0283_ME_544A0A21036B // ProcessMessages
  ME_5459D46D01FE_ME_544A0A21036B // Terminate
  ME_5459E3150030_ME_544A0A21036B // Terminated
  ME_5477033C03D0_ME_544A0A21036B // HandShake
  ME_549175C4030A_ME_544A0A21036B // HandShakeKind
  ME_549180E701E0_ME_544A0A21036B // RegisterSendBackHandler
- ) .SequenceCode.It
+ )
  ; // Implemented
  : Overridden
-   @ ( ME_479731C50290_ME_544A0A21036B // Cleanup
+   Seq: ( ME_479731C50290_ME_544A0A21036B // Cleanup
  ME_5492C5F703AA_ME_544A0A21036B // TransportStarted
- ) .SequenceCode.It
+ )
  ; // Overridden
  : Dependencies
-   @ ( ME_5453360B0132 // 
+   Seq: ( ME_5453360B0132 // 
  ME_5491802100DD // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\cs'
  CONST intf.pas:Path 'common\components\rtl\Garant\cs\ncsServerTransporter.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\cs'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'ncsServerTransporter'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'ncsServerTransporter'
 
 ref; // ME_544A0A21036B TncsServerTransporter
 
@@ -6174,6 +6461,7 @@ FORWARD ME_54634A7902A1
 
 : ME_4AF09D5AED33
  CONST UID '4AF09D5AED33'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_54634A7902A1 // TncsLoginReply
@@ -6190,6 +6478,7 @@ ref; // ME_4AF09D5AED33
  ;
  : Implementor ME_54634A7902A1 // TncsLoginReply
  ;
+ CONST OpKind opkind_Overridden
  CONST "is static" true
 ref; // ME_53AC03EE01FD_ME_54634A7902A1 GetTaggedDataType
 
@@ -6204,31 +6493,33 @@ ref; // ME_53AC03EE01FD_ME_54634A7902A1 GetTaggedDataType
  : Parent ME_544E0148010D // Messages
  ;
  : Inherits
-   @ ( ME_547831BD02E5 // TncsReply
- ) .SequenceCode.It
+   Seq: ( ME_547831BD02E5 // TncsReply
+ )
  ; // Inherits
  : Implements
-   @ ( WL 'ME_5461EDFB01EB' '484A470100DD.pas.ms.script' // csLoginReply
- ) .SequenceCode.It
+   Seq: ( WL 'ME_5461EDFB01EB' '484A470100DD.pas.ms.script' // csLoginReply
+ )
  ; // Implements
  : Overridden
-   @ ( ME_53AC03EE01FD_ME_54634A7902A1 // GetTaggedDataType
- ) .SequenceCode.It
+   Seq: ( ME_53AC03EE01FD_ME_54634A7902A1 // GetTaggedDataType
+ )
  ; // Overridden
  : Dependencies
-   @ ( ME_4AF09D5AED33 // 
- ) .SequenceCode.It
+   Seq: ( ME_4AF09D5AED33 // 
+ )
  ; // Dependencies
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\cs'
  CONST intf.pas:Path 'common\components\rtl\Garant\cs\ncsLoginReply.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\cs'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'ncsLoginReply'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'ncsLoginReply'
 
 ref; // ME_54634A7902A1 TncsLoginReply
 
@@ -6239,6 +6530,7 @@ FORWARD ME_547C34E902C1
 : ME_6C1FB346A062
  CONST UID '6C1FB346A062'
  CONST Name 'DoIt'
+ CONST IsSummoned true
  CONST Class class_Operation
  %SUMMARY 'Сигнатура метода ncsServerRegister' ;
  CONST Visibility PublicAccess
@@ -6281,13 +6573,13 @@ ref; // ME_547C34F5033B
  : Parent ME_547C34C500F7 // nscMessagesReg
  ;
  : Operations
-   @ ( ME_6C1FB346A062 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_6C1FB346A062 // DoIt
+ )
  ; // Operations
  : Dependencies
-   @ ( ME_547C34F1018C // 
+   Seq: ( ME_547C34F1018C // 
  ME_547C34F5033B // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
 
 ref; // ME_547C34E902C1 ncsServerRegister
@@ -6297,6 +6589,7 @@ FORWARD ME_547C350000AA
 : ME_E7D7D333286D
  CONST UID 'E7D7D333286D'
  CONST Name 'DoIt'
+ CONST IsSummoned true
  CONST Class class_Operation
  %SUMMARY 'Сигнатура метода ncsClientRegister' ;
  CONST Visibility PublicAccess
@@ -6339,13 +6632,13 @@ ref; // ME_547C350E00F1
  : Parent ME_547C34C500F7 // nscMessagesReg
  ;
  : Operations
-   @ ( ME_E7D7D333286D // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_E7D7D333286D // DoIt
+ )
  ; // Operations
  : Dependencies
-   @ ( ME_547C3509029E // 
+   Seq: ( ME_547C3509029E // 
  ME_547C350E00F1 // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
 
 ref; // ME_547C350000AA ncsClientRegister
@@ -6361,17 +6654,17 @@ ref; // ME_547C350000AA ncsClientRegister
  : Parent ME_544E0148010D // Messages
  ;
  : Operations
-   @ ( ME_547C34E902C1 // ncsServerRegister
+   Seq: ( ME_547C34E902C1 // ncsServerRegister
  ME_547C350000AA // ncsClientRegister
- ) .SequenceCode.It
+ )
  ; // Operations
  CONST "no hands" false
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\cs'
  CONST intf.pas:Path 'common\components\rtl\Garant\cs\nscMessagesReg.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\cs'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'MessagesReg'
 
 ref; // ME_547C34C500F7 nscMessagesReg
 
@@ -6498,7 +6791,7 @@ ref; // ME_54C216BB03A8 g_WriteFile
  : Parent ME_544E0148010D // Messages
  ;
  : Attributes
-   @ ( ME_548AC830032D // g_SaveMessage
+   Seq: ( ME_548AC830032D // g_SaveMessage
  ME_548AC85F004C // g_LoadMessage
  ME_548AC871032C // g_SendMessage
  ME_548AC87E031F // g_ReveiveMessage
@@ -6506,15 +6799,14 @@ ref; // ME_54C216BB03A8 g_WriteFile
  ME_54C1F62E02A0 // g_ReceivePartFile
  ME_54C216A50244 // g_SaveControl
  ME_54C216BB03A8 // g_WriteFile
- ) .SequenceCode.It
+ )
  ; // Attributes
  CONST "no hands" false
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\cs'
  CONST intf.pas:Path 'common\components\rtl\Garant\cs\ncsProfile.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\cs'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_548AC7FB0046 ncsProfile
 
@@ -6546,27 +6838,29 @@ ref; // ME_5492D7DE03B9 ItemType
  : Parent ME_544E0148010D // Messages
  ;
  : Inherits
-   @ ( WL 'ME_4A54DD4E036F' '47913B47006E.pas.ms.script' // Tl3ProtoDataContainer
- ) .SequenceCode.It
+   Seq: ( WL 'ME_4A54DD4E036F' '47913B47006E.pas.ms.script' // Tl3ProtoDataContainer
+ )
  ; // Inherits
  : Implements
-   @ ( WL 'ME_47B57D630029' '47913B47006E.pas.ms.script' // l3InterfacePtrList
- ) .SequenceCode.It
+   Seq: ( WL 'ME_47B57D630029' '47913B47006E.pas.ms.script' // l3InterfacePtrList
+ )
  ; // Implements
  : Attributes
-   @ ( ME_5492D7DE03B9 // ItemType
- ) .SequenceCode.It
+   Seq: ( ME_5492D7DE03B9 // ItemType
+ )
  ; // Attributes
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\cs'
  CONST intf.pas:Path 'common\components\rtl\Garant\cs\ncsServerTransporterPtrList.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\cs'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'ncsServerTransporterPtrList'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'ncsServerTransporterPtrList'
 
 ref; // ME_5492D7AC0214 TncsServerTransporterPtrList
 
@@ -6603,8 +6897,8 @@ ref; // ME_5492D83900EF aTransporter
  : Parent ME_54917FF702A4 // TncsServerTransporterPtrPool
  ;
  : Parameters
-   @ ( ME_5492D83900EF // aTransporter
- ) .SequenceCode.It
+   Seq: ( ME_5492D83900EF // aTransporter
+ )
  ; // Parameters
 
 ref; // ME_5492D83203D7 Register
@@ -6628,8 +6922,8 @@ ref; // ME_5492D84C01FA aTransporter
  : Parent ME_54917FF702A4 // TncsServerTransporterPtrPool
  ;
  : Parameters
-   @ ( ME_5492D84C01FA // aTransporter
- ) .SequenceCode.It
+   Seq: ( ME_5492D84C01FA // aTransporter
+ )
  ; // Parameters
 
 ref; // ME_5492D8470118 UnRegister
@@ -6655,8 +6949,8 @@ ref; // ME_5492D86002D4 aSessionID
  : Target ME_5465A5AB0324 // IncsServerTransporter
  ;
  : Parameters
-   @ ( ME_5492D86002D4 // aSessionID
- ) .SequenceCode.It
+   Seq: ( ME_5492D86002D4 // aSessionID
+ )
  ; // Parameters
 
 ref; // ME_5492D85A0389 FindTransporter
@@ -6664,6 +6958,7 @@ ref; // ME_5492D85A0389 FindTransporter
 : ME_A4EAA9E5A208
  CONST UID 'A4EAA9E5A208'
  CONST Name 'Exists'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_static::Operation ;
  %SUMMARY 'Проверяет создан экземпляр синглетона или нет' ;
@@ -6673,6 +6968,7 @@ ref; // ME_5492D85A0389 FindTransporter
  ;
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
+ CONST extprop:pas:Value false
 
 ref; // ME_A4EAA9E5A208 Exists
 
@@ -6683,6 +6979,7 @@ ref; // ME_A4EAA9E5A208 Exists
  ;
  : Implementor ME_54917FF702A4 // TncsServerTransporterPtrPool
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_479731C50290_ME_54917FF702A4 Cleanup
 
 : ME_47A042E100E2_ME_54917FF702A4
@@ -6692,6 +6989,7 @@ ref; // ME_479731C50290_ME_54917FF702A4 Cleanup
  ;
  : Implementor ME_54917FF702A4 // TncsServerTransporterPtrPool
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_47A042E100E2_ME_54917FF702A4 InitFields
 
 : ME_54917FF702A4
@@ -6705,40 +7003,42 @@ ref; // ME_47A042E100E2_ME_54917FF702A4 InitFields
  : Parent ME_544E0148010D // Messages
  ;
  : Inherits
-   @ ( WL 'ME_49E7754802A9' '47913B47006E.pas.ms.script' // Tl3ProtoObject
- ) .SequenceCode.It
+   Seq: ( WL 'ME_49E7754802A9' '47913B47006E.pas.ms.script' // Tl3ProtoObject
+ )
  ; // Inherits
  : Implements
-   @ ( WL 'ME_53A03846011C' '53A038340371.pas.ms.script' // l3CriticalSectionHolder
- ) .SequenceCode.It
+   Seq: ( WL 'ME_53A03846011C' '53A038340371.pas.ms.script' // l3CriticalSectionHolder
+ )
  ; // Implements
  : Attributes
-   @ ( ME_5492D81C00D8 // f_Data
- ) .SequenceCode.It
+   Seq: ( ME_5492D81C00D8 // f_Data
+ )
  ; // Attributes
  : Operations
-   @ ( ME_5492D83203D7 // Register
+   Seq: ( ME_5492D83203D7 // Register
  ME_5492D8470118 // UnRegister
  ME_5492D85A0389 // FindTransporter
  ME_A4EAA9E5A208 // Exists
- ) .SequenceCode.It
+ )
  ; // Operations
  : Overridden
-   @ ( ME_479731C50290_ME_54917FF702A4 // Cleanup
+   Seq: ( ME_479731C50290_ME_54917FF702A4 // Cleanup
  ME_47A042E100E2_ME_54917FF702A4 // InitFields
- ) .SequenceCode.It
+ )
  ; // Overridden
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
  CONST "singleton" true
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\cs'
  CONST intf.pas:Path 'common\components\rtl\Garant\cs\ncsServerTransporterPtrPool.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\cs'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'ncsServerTransporterPtrPool'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'ncsServerTransporterPtrPool'
 
 ref; // ME_54917FF702A4 TncsServerTransporterPtrPool
 
@@ -6779,8 +7079,8 @@ ref; // ME_5481A10903D0 aQueryID
  : Parent ME_5481A0E30063 // Create
  ;
  : Parameters
-   @ ( ME_5481A10903D0 // aQueryID
- ) .SequenceCode.It
+   Seq: ( ME_5481A10903D0 // aQueryID
+ )
  ; // Parameters
 
 ref; // ME_5481A0F10108 DoIt
@@ -6796,8 +7096,8 @@ ref; // ME_5481A0F10108 DoIt
  : Parent ME_547708500384 // TncsCompatibilityClientTransporter
  ;
  : Operations
-   @ ( ME_5481A0F10108 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_5481A0F10108 // DoIt
+ )
  ; // Operations
 
 ref; // ME_5481A0E30063 Create
@@ -6807,6 +7107,7 @@ FORWARD ME_5481A13200D2
 : ME_CF7AE293F6F7
  CONST UID 'CF7AE293F6F7'
  CONST Name 'aQueryID'
+ CONST IsSummoned true
  CONST Class class_Parameter
  : Stereotype st_in ;
  : Target WL 'ME_537F63760334' '52FBB2FC0386.pas.ms.script' // TCsQueryId
@@ -6817,6 +7118,7 @@ ref; // ME_CF7AE293F6F7 aQueryID
 : ME_495C55834DAD
  CONST UID '495C55834DAD'
  CONST Name 'DoIt'
+ CONST IsSummoned true
  CONST Class class_Operation
  %SUMMARY 'Сигнатура фабрики TncsCompatibilityClientTransporter.Make' ;
  CONST Visibility PrivateAccess
@@ -6826,8 +7128,8 @@ ref; // ME_CF7AE293F6F7 aQueryID
  : Target ME_5465A598039E // IncsClientTransporter
  ;
  : Parameters
-   @ ( ME_CF7AE293F6F7 // aQueryID
- ) .SequenceCode.It
+   Seq: ( ME_CF7AE293F6F7 // aQueryID
+ )
  ; // Parameters
 
 ref; // ME_495C55834DAD DoIt
@@ -6843,16 +7145,16 @@ ref; // ME_495C55834DAD DoIt
  : Parent ME_547708500384 // TncsCompatibilityClientTransporter
  ;
  : Inherits
-   @ ( ME_5481A0E30063 // Create
- ) .SequenceCode.It
+   Seq: ( ME_5481A0E30063 // Create
+ )
  ; // Inherits
  : Implements
-   @ ( ME_5465A598039E // IncsClientTransporter
- ) .SequenceCode.It
+   Seq: ( ME_5465A598039E // IncsClientTransporter
+ )
  ; // Implements
  : Operations
-   @ ( ME_495C55834DAD // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_495C55834DAD // DoIt
+ )
  ; // Operations
  CONST "check nil" false
  CONST "need AfterCreate" 'undefined'
@@ -6879,6 +7181,7 @@ ref; // ME_547708AE00EC
  ;
  : Implementor ME_547708500384 // TncsCompatibilityClientTransporter
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_549279980264_ME_547708500384 BeforeSendHandshake
 
 : ME_549279B300D5_ME_547708500384
@@ -6888,6 +7191,7 @@ ref; // ME_549279980264_ME_547708500384 BeforeSendHandshake
  ;
  : Implementor ME_547708500384 // TncsCompatibilityClientTransporter
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_549279B300D5_ME_547708500384 BeforeReceiveHandshake
 
 : ME_547708500384
@@ -6901,37 +7205,39 @@ ref; // ME_549279B300D5_ME_547708500384 BeforeReceiveHandshake
  : Parent ME_544E0148010D // Messages
  ;
  : Inherits
-   @ ( ME_544A0A0D0239 // TncsClientTransporter
- ) .SequenceCode.It
+   Seq: ( ME_544A0A0D0239 // TncsClientTransporter
+ )
  ; // Inherits
  : Attributes
-   @ ( ME_5481A0B20013 // f_QueryID
- ) .SequenceCode.It
+   Seq: ( ME_5481A0B20013 // f_QueryID
+ )
  ; // Attributes
  : Operations
-   @ ( ME_5481A0E30063 // Create
+   Seq: ( ME_5481A0E30063 // Create
  ME_5481A13200D2 // Make
- ) .SequenceCode.It
+ )
  ; // Operations
  : Overridden
-   @ ( ME_549279980264_ME_547708500384 // BeforeSendHandshake
+   Seq: ( ME_549279980264_ME_547708500384 // BeforeSendHandshake
  ME_549279B300D5_ME_547708500384 // BeforeReceiveHandshake
- ) .SequenceCode.It
+ )
  ; // Overridden
  : Dependencies
-   @ ( ME_547708AE00EC // 
- ) .SequenceCode.It
+   Seq: ( ME_547708AE00EC // 
+ )
  ; // Dependencies
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\cs'
  CONST intf.pas:Path 'common\components\rtl\Garant\cs\ncsCompatibilityClientTransporter.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\cs'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'ncsCompatibilityClientTransporter'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'ncsCompatibilityClientTransporter'
 
 ref; // ME_547708500384 TncsCompatibilityClientTransporter
 
@@ -7003,6 +7309,7 @@ ref; // ME_54E334830061 IOHandler
 : ME_56A225C68BCE
  CONST UID '56A225C68BCE'
  CONST Name 'f_IntSessionID'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY 'Поле для свойства IntSessionID' ;
  CONST Visibility PrivateAccess
@@ -7012,12 +7319,14 @@ ref; // ME_54E334830061 IOHandler
  ;
  : Target WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
  ;
+ CONST extprop:clearViaProperty 'IntSessionID'
 
 ref; // ME_56A225C68BCE f_IntSessionID
 
 : ME_B0DD65F164C7
  CONST UID 'B0DD65F164C7'
  CONST Name 'f_IOHandler'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY 'Поле для свойства IOHandler' ;
  CONST Visibility PrivateAccess
@@ -7027,6 +7336,7 @@ ref; // ME_56A225C68BCE f_IntSessionID
  ;
  : Target WL 'ME_538DDC890328' '52FBB2FC0386.pas.ms.script' // TcsIdIOHandlerAbstractAdapter
  ;
+ CONST extprop:clearViaProperty 'IOHandler'
 
 ref; // ME_B0DD65F164C7 f_IOHandler
 
@@ -7051,8 +7361,8 @@ ref; // ME_54E334E6039D aValue
  : Parent ME_54E334CD02E9 // SetConnected
  ;
  : Parameters
-   @ ( ME_54E334E6039D // aValue
- ) .SequenceCode.It
+   Seq: ( ME_54E334E6039D // aValue
+ )
  ; // Parameters
 
 ref; // ME_54E334DA0249 DoIt
@@ -7068,8 +7378,8 @@ ref; // ME_54E334DA0249 DoIt
  : Parent ME_54E333CD0130 // TncsSynchroTransporter
  ;
  : Operations
-   @ ( ME_54E334DA0249 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_54E334DA0249 // DoIt
+ )
  ; // Operations
 
 ref; // ME_54E334CD02E9 SetConnected
@@ -7079,6 +7389,7 @@ FORWARD ME_54E334F5028C
 : ME_9ED7004765DE
  CONST UID '9ED7004765DE'
  CONST Name 'DoIt'
+ CONST IsSummoned true
  CONST Class class_Operation
  %SUMMARY 'Сигнатура метода StartProcessing' ;
  CONST Visibility PublicAccess
@@ -7099,8 +7410,8 @@ ref; // ME_9ED7004765DE DoIt
  : Parent ME_54E333CD0130 // TncsSynchroTransporter
  ;
  : Operations
-   @ ( ME_9ED7004765DE // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_9ED7004765DE // DoIt
+ )
  ; // Operations
 
 ref; // ME_54E334F5028C StartProcessing
@@ -7110,6 +7421,7 @@ FORWARD ME_54E3350B01CD
 : ME_59748589EAFE
  CONST UID '59748589EAFE'
  CONST Name 'DoIt'
+ CONST IsSummoned true
  CONST Class class_Operation
  %SUMMARY 'Сигнатура метода StopProcessing' ;
  CONST Visibility PublicAccess
@@ -7130,8 +7442,8 @@ ref; // ME_59748589EAFE DoIt
  : Parent ME_54E333CD0130 // TncsSynchroTransporter
  ;
  : Operations
-   @ ( ME_59748589EAFE // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_59748589EAFE // DoIt
+ )
  ; // Operations
 
 ref; // ME_54E3350B01CD StopProcessing
@@ -7141,6 +7453,7 @@ FORWARD ME_54E3353000D8
 : ME_3C2D040A2956
  CONST UID '3C2D040A2956'
  CONST Name 'DoIt'
+ CONST IsSummoned true
  CONST Class class_Operation
  %SUMMARY 'Сигнатура метода HandShake' ;
  CONST Visibility PublicAccess
@@ -7161,8 +7474,8 @@ ref; // ME_3C2D040A2956 DoIt
  : Parent ME_54E333CD0130 // TncsSynchroTransporter
  ;
  : Operations
-   @ ( ME_3C2D040A2956 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_3C2D040A2956 // DoIt
+ )
  ; // Operations
 
 ref; // ME_54E3353000D8 HandShake
@@ -7172,6 +7485,7 @@ FORWARD ME_54E335560020
 : ME_6DE12A456230
  CONST UID '6DE12A456230'
  CONST Name 'DoIt'
+ CONST IsSummoned true
  CONST Class class_Operation
  %SUMMARY 'Сигнатура метода TransportStarted' ;
  CONST Visibility PublicAccess
@@ -7192,8 +7506,8 @@ ref; // ME_6DE12A456230 DoIt
  : Parent ME_54E333CD0130 // TncsSynchroTransporter
  ;
  : Operations
-   @ ( ME_6DE12A456230 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_6DE12A456230 // DoIt
+ )
  ; // Operations
 
 ref; // ME_54E335560020 TransportStarted
@@ -7219,8 +7533,8 @@ ref; // ME_54E45D780172 aMessage
  : Parent ME_54E45D5E01D9 // ProcessMessage
  ;
  : Parameters
-   @ ( ME_54E45D780172 // aMessage
- ) .SequenceCode.It
+   Seq: ( ME_54E45D780172 // aMessage
+ )
  ; // Parameters
 
 ref; // ME_54E45D6B00CC DoIt
@@ -7236,8 +7550,8 @@ ref; // ME_54E45D6B00CC DoIt
  : Parent ME_54E333CD0130 // TncsSynchroTransporter
  ;
  : Operations
-   @ ( ME_54E45D6B00CC // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_54E45D6B00CC // DoIt
+ )
  ; // Operations
 
 ref; // ME_54E45D5E01D9 ProcessMessage
@@ -7348,6 +7662,7 @@ ref; // ME_54EC261601C5
  ;
  : Implementor ME_54E333CD0130 // TncsSynchroTransporter
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_5464B4E900DA_ME_54E333CD0130 Send
 
 : ME_5464B52F02D5_ME_54E333CD0130
@@ -7357,6 +7672,7 @@ ref; // ME_5464B4E900DA_ME_54E333CD0130 Send
  ;
  : Implementor ME_54E333CD0130 // TncsSynchroTransporter
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_5464B52F02D5_ME_54E333CD0130 WaitForReply
 
 : ME_5465AB2B00CA_ME_54E333CD0130
@@ -7366,6 +7682,7 @@ ref; // ME_5464B52F02D5_ME_54E333CD0130 WaitForReply
  ;
  : Implementor ME_54E333CD0130 // TncsSynchroTransporter
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" false
 ref; // ME_5465AB2B00CA_ME_54E333CD0130 Connected
 
@@ -7376,6 +7693,7 @@ ref; // ME_5465AB2B00CA_ME_54E333CD0130 Connected
  ;
  : Implementor ME_54E333CD0130 // TncsSynchroTransporter
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" false
 ref; // ME_546608F101DE_ME_54E333CD0130 ClientID
 
@@ -7386,6 +7704,7 @@ ref; // ME_546608F101DE_ME_54E333CD0130 ClientID
  ;
  : Implementor ME_54E333CD0130 // TncsSynchroTransporter
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" false
 ref; // ME_5486B96A0025_ME_54E333CD0130 Processing
 
@@ -7396,6 +7715,7 @@ ref; // ME_5486B96A0025_ME_54E333CD0130 Processing
  ;
  : Implementor ME_54E333CD0130 // TncsSynchroTransporter
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" false
 ref; // ME_548FEF4F002E_ME_54E333CD0130 SessionID
 
@@ -7406,6 +7726,7 @@ ref; // ME_548FEF4F002E_ME_54E333CD0130 SessionID
  ;
  : Implementor ME_54E333CD0130 // TncsSynchroTransporter
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_479731C50290_ME_54E333CD0130 Cleanup
 
 : ME_47A042E100E2_ME_54E333CD0130
@@ -7415,6 +7736,7 @@ ref; // ME_479731C50290_ME_54E333CD0130 Cleanup
  ;
  : Implementor ME_54E333CD0130 // TncsSynchroTransporter
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_47A042E100E2_ME_54E333CD0130 InitFields
 
 : ME_54E333CD0130
@@ -7428,47 +7750,47 @@ ref; // ME_47A042E100E2_ME_54E333CD0130 InitFields
  : Parent ME_544E0148010D // Messages
  ;
  : Inherits
-   @ ( WL 'ME_49E7754802A9' '47913B47006E.pas.ms.script' // Tl3ProtoObject
- ) .SequenceCode.It
+   Seq: ( WL 'ME_49E7754802A9' '47913B47006E.pas.ms.script' // Tl3ProtoObject
+ )
  ; // Inherits
  : Implements
-   @ ( ME_5464B4730055 // IncsTransporter
- ) .SequenceCode.It
+   Seq: ( ME_5464B4730055 // IncsTransporter
+ )
  ; // Implements
  : Attributes
-   @ ( ME_54E33448033C // IntSessionID
+   Seq: ( ME_54E33448033C // IntSessionID
  ME_54E3346203DE // f_ClientID
  ME_54E3347301B2 // f_Connected
  ME_54E334830061 // IOHandler
  ME_56A225C68BCE // f_IntSessionID
  ME_B0DD65F164C7 // f_IOHandler
- ) .SequenceCode.It
+ )
  ; // Attributes
  : Operations
-   @ ( ME_54E334CD02E9 // SetConnected
+   Seq: ( ME_54E334CD02E9 // SetConnected
  ME_54E334F5028C // StartProcessing
  ME_54E3350B01CD // StopProcessing
  ME_54E3353000D8 // HandShake
  ME_54E335560020 // TransportStarted
  ME_54E45D5E01D9 // ProcessMessage
- ) .SequenceCode.It
+ )
  ; // Operations
  : Implemented
-   @ ( ME_5464B4E900DA_ME_54E333CD0130 // Send
+   Seq: ( ME_5464B4E900DA_ME_54E333CD0130 // Send
  ME_5464B52F02D5_ME_54E333CD0130 // WaitForReply
  ME_5465AB2B00CA_ME_54E333CD0130 // Connected
  ME_546608F101DE_ME_54E333CD0130 // ClientID
  ME_5486B96A0025_ME_54E333CD0130 // Processing
  ME_548FEF4F002E_ME_54E333CD0130 // SessionID
- ) .SequenceCode.It
+ )
  ; // Implemented
  : Overridden
-   @ ( ME_479731C50290_ME_54E333CD0130 // Cleanup
+   Seq: ( ME_479731C50290_ME_54E333CD0130 // Cleanup
  ME_47A042E100E2_ME_54E333CD0130 // InitFields
- ) .SequenceCode.It
+ )
  ; // Overridden
  : Dependencies
-   @ ( ME_54E45D4D0010 // 
+   Seq: ( ME_54E45D4D0010 // 
  ME_54E45D500385 // 
  ME_54E45D9A015E // 
  ME_54E45DB9021F // 
@@ -7477,18 +7799,20 @@ ref; // ME_47A042E100E2_ME_54E333CD0130 InitFields
  ME_54E45DEA009C // 
  ME_54E4637B0261 // 
  ME_54EC261601C5 // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\cs'
  CONST intf.pas:Path 'common\components\rtl\Garant\cs\ncsSynchroTransporter.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\cs'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'ncsSynchroTransporter'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'ncsSynchroTransporter'
 
 ref; // ME_54E333CD0130 TncsSynchroTransporter
 
@@ -7513,6 +7837,7 @@ FORWARD ME_54E33A870172
 : ME_862671167DA3
  CONST UID '862671167DA3'
  CONST Name 'DoIt'
+ CONST IsSummoned true
  CONST Class class_Operation
  %SUMMARY 'Сигнатура метода Create' ;
  CONST Visibility PublicAccess
@@ -7533,8 +7858,8 @@ ref; // ME_862671167DA3 DoIt
  : Parent ME_54E339B500F7 // TncsSynchroClientTransporter
  ;
  : Operations
-   @ ( ME_862671167DA3 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_862671167DA3 // DoIt
+ )
  ; // Operations
 
 ref; // ME_54E33A870172 Create
@@ -7544,6 +7869,7 @@ FORWARD ME_54E33A920344
 : ME_E4A4A4C34FF3
  CONST UID 'E4A4A4C34FF3'
  CONST Name 'DoIt'
+ CONST IsSummoned true
  CONST Class class_Operation
  %SUMMARY 'Сигнатура фабрики TncsSynchroClientTransporter.Make' ;
  CONST Visibility PrivateAccess
@@ -7566,16 +7892,16 @@ ref; // ME_E4A4A4C34FF3 DoIt
  : Parent ME_54E339B500F7 // TncsSynchroClientTransporter
  ;
  : Inherits
-   @ ( ME_54E33A870172 // Create
- ) .SequenceCode.It
+   Seq: ( ME_54E33A870172 // Create
+ )
  ; // Inherits
  : Implements
-   @ ( ME_5465A598039E // IncsClientTransporter
- ) .SequenceCode.It
+   Seq: ( ME_5465A598039E // IncsClientTransporter
+ )
  ; // Implements
  : Operations
-   @ ( ME_E4A4A4C34FF3 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_E4A4A4C34FF3 // DoIt
+ )
  ; // Operations
  CONST "check nil" false
  CONST "need AfterCreate" 'undefined'
@@ -7589,6 +7915,7 @@ FORWARD ME_54E33B3A02CB
 : ME_19DBEB7D791C
  CONST UID '19DBEB7D791C'
  CONST Name 'ASender'
+ CONST IsSummoned true
  CONST Class class_Parameter
  : Stereotype st_in ;
  : Target WL 'ME_4807745602C8' '4AB0C3C60310.pas.ms.script' // TObject
@@ -7599,6 +7926,7 @@ ref; // ME_19DBEB7D791C ASender
 : ME_E5DEF80404EF
  CONST UID 'E5DEF80404EF'
  CONST Name 'AStatus'
+ CONST IsSummoned true
  CONST Class class_Parameter
  : Stereotype st_const ;
  : Target WL 'ME_545B3EE3029E' '537F464A0198.pas.ms.script' // TIdStatus
@@ -7609,6 +7937,7 @@ ref; // ME_E5DEF80404EF AStatus
 : ME_7BD7456C1F1E
  CONST UID '7BD7456C1F1E'
  CONST Name 'AStatusText'
+ CONST IsSummoned true
  CONST Class class_Parameter
  : Stereotype st_const ;
  : Target WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
@@ -7619,16 +7948,17 @@ ref; // ME_7BD7456C1F1E AStatusText
 : ME_205DA59B7639
  CONST UID '205DA59B7639'
  CONST Name 'DoIt'
+ CONST IsSummoned true
  CONST Class class_Operation
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
  : Parent ME_54E33B3A02CB // TransportStatus
  ;
  : Parameters
-   @ ( ME_19DBEB7D791C // ASender
+   Seq: ( ME_19DBEB7D791C // ASender
  ME_E5DEF80404EF // AStatus
  ME_7BD7456C1F1E // AStatusText
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_205DA59B7639 DoIt
@@ -7644,12 +7974,12 @@ ref; // ME_205DA59B7639 DoIt
  : Parent ME_54E339B500F7 // TncsSynchroClientTransporter
  ;
  : Inherits
-   @ ( WL 'ME_545B3F72015E' '537F464A0198.pas.ms.script' // TIdStatusEvent
- ) .SequenceCode.It
+   Seq: ( WL 'ME_545B3F72015E' '537F464A0198.pas.ms.script' // TIdStatusEvent
+ )
  ; // Inherits
  : Operations
-   @ ( ME_205DA59B7639 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_205DA59B7639 // DoIt
+ )
  ; // Operations
 
 ref; // ME_54E33B3A02CB TransportStatus
@@ -7659,6 +7989,7 @@ FORWARD ME_54E33B5E0245
 : ME_6662E852ACFF
  CONST UID '6662E852ACFF'
  CONST Name 'DoIt'
+ CONST IsSummoned true
  CONST Class class_Operation
  %SUMMARY 'Сигнатура метода TransportConnected' ;
  CONST Visibility PublicAccess
@@ -7679,8 +8010,8 @@ ref; // ME_6662E852ACFF DoIt
  : Parent ME_54E339B500F7 // TncsSynchroClientTransporter
  ;
  : Operations
-   @ ( ME_6662E852ACFF // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_6662E852ACFF // DoIt
+ )
  ; // Operations
 
 ref; // ME_54E33B5E0245 TransportConnected
@@ -7690,6 +8021,7 @@ FORWARD ME_54E33EA40163
 : ME_9367E3A2B13B
  CONST UID '9367E3A2B13B'
  CONST Name 'DoIt'
+ CONST IsSummoned true
  CONST Class class_Operation
  %SUMMARY 'Сигнатура метода BeforeHandshake' ;
  CONST Visibility PublicAccess
@@ -7710,8 +8042,8 @@ ref; // ME_9367E3A2B13B DoIt
  : Parent ME_54E339B500F7 // TncsSynchroClientTransporter
  ;
  : Operations
-   @ ( ME_9367E3A2B13B // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_9367E3A2B13B // DoIt
+ )
  ; // Operations
 
 ref; // ME_54E33EA40163 BeforeHandshake
@@ -7833,6 +8165,7 @@ ref; // ME_54E34E8302CE
  ;
  : Implementor ME_54E339B500F7 // TncsSynchroClientTransporter
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_544A1FD802E9_ME_54E339B500F7 Connect
 
 : ME_544A1FF00062_ME_54E339B500F7
@@ -7842,6 +8175,7 @@ ref; // ME_544A1FD802E9_ME_54E339B500F7 Connect
  ;
  : Implementor ME_54E339B500F7 // TncsSynchroClientTransporter
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_544A1FF00062_ME_54E339B500F7 Disconnect
 
 : ME_54E3353000D8_ME_54E339B500F7
@@ -7851,6 +8185,7 @@ ref; // ME_544A1FF00062_ME_54E339B500F7 Disconnect
  ;
  : Implementor ME_54E339B500F7 // TncsSynchroClientTransporter
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_54E3353000D8_ME_54E339B500F7 HandShake
 
 : ME_479731C50290_ME_54E339B500F7
@@ -7860,6 +8195,7 @@ ref; // ME_54E3353000D8_ME_54E339B500F7 HandShake
  ;
  : Implementor ME_54E339B500F7 // TncsSynchroClientTransporter
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_479731C50290_ME_54E339B500F7 Cleanup
 
 : ME_47A042E100E2_ME_54E339B500F7
@@ -7869,6 +8205,7 @@ ref; // ME_479731C50290_ME_54E339B500F7 Cleanup
  ;
  : Implementor ME_54E339B500F7 // TncsSynchroClientTransporter
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_47A042E100E2_ME_54E339B500F7 InitFields
 
 : ME_54E339B500F7
@@ -7882,38 +8219,38 @@ ref; // ME_47A042E100E2_ME_54E339B500F7 InitFields
  : Parent ME_544E0148010D // Messages
  ;
  : Inherits
-   @ ( ME_54E333CD0130 // TncsSynchroTransporter
- ) .SequenceCode.It
+   Seq: ( ME_54E333CD0130 // TncsSynchroTransporter
+ )
  ; // Inherits
  : Implements
-   @ ( ME_5465A598039E // IncsClientTransporter
- ) .SequenceCode.It
+   Seq: ( ME_5465A598039E // IncsClientTransporter
+ )
  ; // Implements
  : Attributes
-   @ ( ME_54E33B0E00EE // f_TCPClient
- ) .SequenceCode.It
+   Seq: ( ME_54E33B0E00EE // f_TCPClient
+ )
  ; // Attributes
  : Operations
-   @ ( ME_54E33A870172 // Create
+   Seq: ( ME_54E33A870172 // Create
  ME_54E33A920344 // Make
  ME_54E33B3A02CB // TransportStatus
  ME_54E33B5E0245 // TransportConnected
  ME_54E33EA40163 // BeforeHandshake
- ) .SequenceCode.It
+ )
  ; // Operations
  : Implemented
-   @ ( ME_544A1FD802E9_ME_54E339B500F7 // Connect
+   Seq: ( ME_544A1FD802E9_ME_54E339B500F7 // Connect
  ME_544A1FF00062_ME_54E339B500F7 // Disconnect
  ME_54E3353000D8_ME_54E339B500F7 // HandShake
- ) .SequenceCode.It
+ )
  ; // Implemented
  : Overridden
-   @ ( ME_479731C50290_ME_54E339B500F7 // Cleanup
+   Seq: ( ME_479731C50290_ME_54E339B500F7 // Cleanup
  ME_47A042E100E2_ME_54E339B500F7 // InitFields
- ) .SequenceCode.It
+ )
  ; // Overridden
  : Dependencies
-   @ ( ME_54E33B1D023D // 
+   Seq: ( ME_54E33B1D023D // 
  ME_54E33B220023 // 
  ME_54E34E64034C // 
  ME_54E34E6900C5 // 
@@ -7923,18 +8260,20 @@ ref; // ME_47A042E100E2_ME_54E339B500F7 InitFields
  ME_54E34E7B0116 // 
  ME_54E34E7F017D // 
  ME_54E34E8302CE // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\cs'
  CONST intf.pas:Path 'common\components\rtl\Garant\cs\ncsSynchroClientTransporter.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\cs'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'ncsSynchroClientTransporter'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'ncsSynchroClientTransporter'
 
 ref; // ME_54E339B500F7 TncsSynchroClientTransporter
 
@@ -7975,8 +8314,8 @@ ref; // ME_54E33E3F01E1 aQueryID
  : Parent ME_54E33E1A00B4 // Create
  ;
  : Parameters
-   @ ( ME_54E33E3F01E1 // aQueryID
- ) .SequenceCode.It
+   Seq: ( ME_54E33E3F01E1 // aQueryID
+ )
  ; // Parameters
 
 ref; // ME_54E33E3D00DB DoIt
@@ -7992,8 +8331,8 @@ ref; // ME_54E33E3D00DB DoIt
  : Parent ME_54E33DBC0063 // TncsSynchroCompatibilityClientTransporter
  ;
  : Operations
-   @ ( ME_54E33E3D00DB // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_54E33E3D00DB // DoIt
+ )
  ; // Operations
 
 ref; // ME_54E33E1A00B4 Create
@@ -8003,6 +8342,7 @@ FORWARD ME_54E33E23020D
 : ME_BB58DAED819F
  CONST UID 'BB58DAED819F'
  CONST Name 'aQueryID'
+ CONST IsSummoned true
  CONST Class class_Parameter
  : Stereotype st_in ;
  : Target WL 'ME_537F63760334' '52FBB2FC0386.pas.ms.script' // TCsQueryId
@@ -8013,6 +8353,7 @@ ref; // ME_BB58DAED819F aQueryID
 : ME_0AF6782B7F05
  CONST UID '0AF6782B7F05'
  CONST Name 'DoIt'
+ CONST IsSummoned true
  CONST Class class_Operation
  %SUMMARY 'Сигнатура фабрики TncsSynchroCompatibilityClientTransporter.Make' ;
  CONST Visibility PrivateAccess
@@ -8022,8 +8363,8 @@ ref; // ME_BB58DAED819F aQueryID
  : Target ME_5465A598039E // IncsClientTransporter
  ;
  : Parameters
-   @ ( ME_BB58DAED819F // aQueryID
- ) .SequenceCode.It
+   Seq: ( ME_BB58DAED819F // aQueryID
+ )
  ; // Parameters
 
 ref; // ME_0AF6782B7F05 DoIt
@@ -8039,16 +8380,16 @@ ref; // ME_0AF6782B7F05 DoIt
  : Parent ME_54E33DBC0063 // TncsSynchroCompatibilityClientTransporter
  ;
  : Inherits
-   @ ( ME_54E33E1A00B4 // Create
- ) .SequenceCode.It
+   Seq: ( ME_54E33E1A00B4 // Create
+ )
  ; // Inherits
  : Implements
-   @ ( ME_5465A598039E // IncsClientTransporter
- ) .SequenceCode.It
+   Seq: ( ME_5465A598039E // IncsClientTransporter
+ )
  ; // Implements
  : Operations
-   @ ( ME_0AF6782B7F05 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_0AF6782B7F05 // DoIt
+ )
  ; // Operations
  CONST "check nil" false
  CONST "need AfterCreate" 'undefined'
@@ -8075,6 +8416,7 @@ ref; // ME_54E355790184
  ;
  : Implementor ME_54E33DBC0063 // TncsSynchroCompatibilityClientTransporter
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_54E33EA40163_ME_54E33DBC0063 BeforeHandshake
 
 : ME_54E33DBC0063
@@ -8088,36 +8430,38 @@ ref; // ME_54E33EA40163_ME_54E33DBC0063 BeforeHandshake
  : Parent ME_544E0148010D // Messages
  ;
  : Inherits
-   @ ( ME_54E339B500F7 // TncsSynchroClientTransporter
- ) .SequenceCode.It
+   Seq: ( ME_54E339B500F7 // TncsSynchroClientTransporter
+ )
  ; // Inherits
  : Attributes
-   @ ( ME_54E33E0F03C2 // f_QueryID
- ) .SequenceCode.It
+   Seq: ( ME_54E33E0F03C2 // f_QueryID
+ )
  ; // Attributes
  : Operations
-   @ ( ME_54E33E1A00B4 // Create
+   Seq: ( ME_54E33E1A00B4 // Create
  ME_54E33E23020D // Make
- ) .SequenceCode.It
+ )
  ; // Operations
  : Overridden
-   @ ( ME_54E33EA40163_ME_54E33DBC0063 // BeforeHandshake
- ) .SequenceCode.It
+   Seq: ( ME_54E33EA40163_ME_54E33DBC0063 // BeforeHandshake
+ )
  ; // Overridden
  : Dependencies
-   @ ( ME_54E355790184 // 
- ) .SequenceCode.It
+   Seq: ( ME_54E355790184 // 
+ )
  ; // Dependencies
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\cs'
  CONST intf.pas:Path 'common\components\rtl\Garant\cs\ncsSynchroCompatibilityClientTransporter.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\cs'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'ncsSynchroCompatibilityClientTransporter'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'ncsSynchroCompatibilityClientTransporter'
 
 ref; // ME_54E33DBC0063 TncsSynchroCompatibilityClientTransporter
 
@@ -8154,9 +8498,9 @@ ref; // ME_54E591C4005B aSessionID
  : Parent ME_54E591B50054 // Create
  ;
  : Parameters
-   @ ( ME_54E591C4003C // anIOHandler
+   Seq: ( ME_54E591C4003C // anIOHandler
  ME_54E591C4005B // aSessionID
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_54E591C00274 DoIt
@@ -8172,8 +8516,8 @@ ref; // ME_54E591C00274 DoIt
  : Parent ME_54E47AE90373 // TncsSynchroServerTransporter
  ;
  : Operations
-   @ ( ME_54E591C00274 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_54E591C00274 // DoIt
+ )
  ; // Operations
 
 ref; // ME_54E591B50054 Create
@@ -8183,6 +8527,7 @@ FORWARD ME_54E591D102F6
 : ME_63B3F71DF29E
  CONST UID '63B3F71DF29E'
  CONST Name 'anIOHandler'
+ CONST IsSummoned true
  CONST Class class_Parameter
  : Stereotype st_in ;
  : Target WL 'ME_538DDC890328' '52FBB2FC0386.pas.ms.script' // TcsIdIOHandlerAbstractAdapter
@@ -8193,6 +8538,7 @@ ref; // ME_63B3F71DF29E anIOHandler
 : ME_68101AC0FD24
  CONST UID '68101AC0FD24'
  CONST Name 'aSessionID'
+ CONST IsSummoned true
  CONST Class class_Parameter
  : Stereotype st_in ;
  : Target WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
@@ -8203,6 +8549,7 @@ ref; // ME_68101AC0FD24 aSessionID
 : ME_D8F302F2A75D
  CONST UID 'D8F302F2A75D'
  CONST Name 'DoIt'
+ CONST IsSummoned true
  CONST Class class_Operation
  %SUMMARY 'Сигнатура фабрики TncsSynchroServerTransporter.IntMake' ;
  CONST Visibility PrivateAccess
@@ -8212,9 +8559,9 @@ ref; // ME_68101AC0FD24 aSessionID
  : Target ME_5465A5AB0324 // IncsServerTransporter
  ;
  : Parameters
-   @ ( ME_63B3F71DF29E // anIOHandler
+   Seq: ( ME_63B3F71DF29E // anIOHandler
  ME_68101AC0FD24 // aSessionID
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_D8F302F2A75D DoIt
@@ -8230,16 +8577,16 @@ ref; // ME_D8F302F2A75D DoIt
  : Parent ME_54E47AE90373 // TncsSynchroServerTransporter
  ;
  : Inherits
-   @ ( ME_54E591B50054 // Create
- ) .SequenceCode.It
+   Seq: ( ME_54E591B50054 // Create
+ )
  ; // Inherits
  : Implements
-   @ ( ME_5465A5AB0324 // IncsServerTransporter
- ) .SequenceCode.It
+   Seq: ( ME_5465A5AB0324 // IncsServerTransporter
+ )
  ; // Implements
  : Operations
-   @ ( ME_D8F302F2A75D // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_D8F302F2A75D // DoIt
+ )
  ; // Operations
  CONST "check nil" false
  CONST "need AfterCreate" 'undefined'
@@ -8271,8 +8618,8 @@ ref; // ME_54E5922801B3 anIOHandler
  : Target ME_5465A5AB0324 // IncsServerTransporter
  ;
  : Parameters
-   @ ( ME_54E5922801B3 // anIOHandler
- ) .SequenceCode.It
+   Seq: ( ME_54E5922801B3 // anIOHandler
+ )
  ; // Parameters
 
 ref; // ME_54E5921C031D DoIt
@@ -8288,8 +8635,8 @@ ref; // ME_54E5921C031D DoIt
  : Parent ME_54E47AE90373 // TncsSynchroServerTransporter
  ;
  : Operations
-   @ ( ME_54E5921C031D // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_54E5921C031D // DoIt
+ )
  ; // Operations
  CONST "is static" true
 
@@ -8412,6 +8759,7 @@ ref; // ME_54E49C38016A
  ;
  : Implementor ME_54E47AE90373 // TncsSynchroServerTransporter
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_545335BF0283_ME_54E47AE90373 ProcessMessages
 
 : ME_5459D46D01FE_ME_54E47AE90373
@@ -8421,6 +8769,7 @@ ref; // ME_545335BF0283_ME_54E47AE90373 ProcessMessages
  ;
  : Implementor ME_54E47AE90373 // TncsSynchroServerTransporter
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_5459D46D01FE_ME_54E47AE90373 Terminate
 
 : ME_5459E3150030_ME_54E47AE90373
@@ -8430,6 +8779,7 @@ ref; // ME_5459D46D01FE_ME_54E47AE90373 Terminate
  ;
  : Implementor ME_54E47AE90373 // TncsSynchroServerTransporter
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" false
 ref; // ME_5459E3150030_ME_54E47AE90373 Terminated
 
@@ -8440,6 +8790,7 @@ ref; // ME_5459E3150030_ME_54E47AE90373 Terminated
  ;
  : Implementor ME_54E47AE90373 // TncsSynchroServerTransporter
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_549180E701E0_ME_54E47AE90373 RegisterSendBackHandler
 
 : ME_54E3353000D8_ME_54E47AE90373
@@ -8449,6 +8800,7 @@ ref; // ME_549180E701E0_ME_54E47AE90373 RegisterSendBackHandler
  ;
  : Implementor ME_54E47AE90373 // TncsSynchroServerTransporter
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_54E3353000D8_ME_54E47AE90373 HandShake
 
 : ME_54E47AE90373
@@ -8462,29 +8814,29 @@ ref; // ME_54E3353000D8_ME_54E47AE90373 HandShake
  : Parent ME_544E0148010D // Messages
  ;
  : Inherits
-   @ ( ME_54E333CD0130 // TncsSynchroTransporter
- ) .SequenceCode.It
+   Seq: ( ME_54E333CD0130 // TncsSynchroTransporter
+ )
  ; // Inherits
  : Implements
-   @ ( ME_5465A5AB0324 // IncsServerTransporter
- ) .SequenceCode.It
+   Seq: ( ME_5465A5AB0324 // IncsServerTransporter
+ )
  ; // Implements
  : Operations
-   @ ( ME_54E591B50054 // Create
+   Seq: ( ME_54E591B50054 // Create
  ME_54E591D102F6 // IntMake
  ME_54E5920A003C // Make
- ) .SequenceCode.It
+ )
  ; // Operations
  : Implemented
-   @ ( ME_545335BF0283_ME_54E47AE90373 // ProcessMessages
+   Seq: ( ME_545335BF0283_ME_54E47AE90373 // ProcessMessages
  ME_5459D46D01FE_ME_54E47AE90373 // Terminate
  ME_5459E3150030_ME_54E47AE90373 // Terminated
  ME_549180E701E0_ME_54E47AE90373 // RegisterSendBackHandler
  ME_54E3353000D8_ME_54E47AE90373 // HandShake
- ) .SequenceCode.It
+ )
  ; // Implemented
  : Dependencies
-   @ ( ME_54E47B4D01CC // 
+   Seq: ( ME_54E47B4D01CC // 
  ME_54E48B7302B3 // 
  ME_54E48B7C017B // 
  ME_54E48BA50365 // 
@@ -8494,18 +8846,20 @@ ref; // ME_54E3353000D8_ME_54E47AE90373 HandShake
  ME_54E48F640365 // 
  ME_54E494630198 // 
  ME_54E49C38016A // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\cs'
  CONST intf.pas:Path 'common\components\rtl\Garant\cs\ncsSynchroServerTransporter.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\cs'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'ncsSynchroServerTransporter'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'ncsSynchroServerTransporter'
 
 ref; // ME_54E47AE90373 TncsSynchroServerTransporter
 
@@ -8519,7 +8873,7 @@ ref; // ME_54E47AE90373 TncsSynchroServerTransporter
  : Parent WL 'ME_52F8C27F01AB' '52F8C27F01AB.pas.ms.script' // cs
  ;
  : Children
-   @ ( ME_544E07C6034D // TncsLoginMessage
+   Seq: ( ME_544E07C6034D // TncsLoginMessage
  ME_544F977F036B // TncsPriorityMessageList
  ME_544E3C54031D // TncsMessageQueue
  ME_5452248C02B8 // TncsTransporterThread
@@ -8551,10 +8905,10 @@ ref; // ME_54E47AE90373 TncsSynchroServerTransporter
  ME_54E339B500F7 // TncsSynchroClientTransporter
  ME_54E33DBC0063 // TncsSynchroCompatibilityClientTransporter
  ME_54E47AE90373 // TncsSynchroServerTransporter
- ) .SequenceCode.It
+ )
  ; // Children
  : Depends
-   @ ( WL 'ME_4678193C009C' '4678193C009C.pas.ms.script' // l3Types
+   Seq: ( WL 'ME_4678193C009C' '4678193C009C.pas.ms.script' // l3Types
  WL 'ME_47913B47006E' '47913B47006E.pas.ms.script' // l3CoreObjects
  WL 'ME_47D0290B016D' '47D0290B016D.pas.ms.script' // l3Utils
  WL 'ME_4849284D0067' '4849284D0067.pas.ms.script' // Standard
@@ -8567,15 +8921,13 @@ ref; // ME_54E47AE90373 TncsSynchroServerTransporter
  WL 'ME_538DAE950337' '538DAE950337.pas.ms.script' // Core
  WL 'ME_53A038340371' '53A038340371.pas.ms.script' // MultiThread
  WL 'ME_53B15D5603E3' '53B15D5603E3.pas.ms.script' // TagHolder
- ) .SequenceCode.It
+ )
  ; // Depends
- : Generators
- @ (
- gen_pas.script
- gen_pas.script.runner
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\cs'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\cs'
  CONST pas.script:Path 'shared\models\NewSchool\Scripts\544E0148010D.pas.ms.script'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
  CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\544E0148010D.pas.ms.script.runner'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_544E0148010D Messages

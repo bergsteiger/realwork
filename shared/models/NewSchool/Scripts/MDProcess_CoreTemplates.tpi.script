@@ -7,13 +7,6 @@ INCLUDE 'classRelations.ms.dict'
  @SELF
 ; // gen_spell
 
-: gen_forth_structure
- CONST UID '4F368B80039E'
- CONST Name 'forth_structure'
- CONST Stereotype 'generator'
- @SELF
-; // gen_forth_structure
-
 : gen_wiki
  CONST UID '46E6D4BB0339'
  CONST Name 'wiki'
@@ -84,6 +77,13 @@ INCLUDE 'classRelations.ms.dict'
  @SELF
 ; // st_Actor
 
+: st_ClassDependency::Dependency
+ CONST UID '470475BF032C'
+ CONST Name 'ClassDependency::Dependency'
+ CONST Stereotype 'MDADependency'
+ @SELF
+; // st_ClassDependency::Dependency
+
 : st_UserNeeds
  CONST UID '470476510157'
  CONST Name 'UserNeeds'
@@ -107,28 +107,28 @@ INCLUDE 'classRelations.ms.dict'
 
 : st_include::Dependency
  CONST UID '470479110280'
- CONST Name 'include'
+ CONST Name 'include::Dependency'
  CONST Stereotype 'MDADependency'
  @SELF
 ; // st_include::Dependency
 
 : st_extend::Dependency Inherits ( st_include::Dependency )
  CONST UID '47047929006D'
- CONST Name 'extend'
+ CONST Name 'extend::Dependency'
  CONST Stereotype 'MDADependency'
  @SELF
 ; // st_extend::Dependency
 
 : st_notify::Dependency
  CONST UID '4704795200AB'
- CONST Name 'notify'
+ CONST Name 'notify::Dependency'
  CONST Stereotype 'MDADependency'
  @SELF
 ; // st_notify::Dependency
 
 : st_follow::Dependency
  CONST UID '48E35B39018E'
- CONST Name 'follow'
+ CONST Name 'follow::Dependency'
  CONST Stereotype 'MDADependency'
  @SELF
 ; // st_follow::Dependency
@@ -142,7 +142,7 @@ INCLUDE 'classRelations.ms.dict'
 
 : st_realized_by::Dependency
  CONST UID '4E9F0231024F'
- CONST Name 'realized_by'
+ CONST Name 'realized_by::Dependency'
  CONST Stereotype 'MDADependency'
  @SELF
 ; // st_realized_by::Dependency

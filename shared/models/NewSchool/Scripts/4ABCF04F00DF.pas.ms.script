@@ -1,0 +1,1036 @@
+// ConsultationDomainInterfaces 4ABCF04F00DF ControllerInterfaces Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4ABCF04F00DF
+
+: ME_499002C201C9
+ CONST UID '499002C201C9'
+ CONST Name 'SysDateTime'
+ CONST Class class_Class
+ : Stereotype st_Typedef ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4ABCF04F00DF // ConsultationDomainInterfaces
+ ;
+ : Inherits
+   Seq: ( WL 'ME_47272C8B0128' '4AB0C3C60310.pas.ms.script' // TDateTime
+ )
+ ; // Inherits
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Consultation'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Consultation'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\Consultation'
+
+ref; // ME_499002C201C9 SysDateTime
+
+FORWARD ME_491C422A0003
+
+: ME_491C424C019F
+ CONST UID '491C424C019F'
+ CONST Name 'Status'
+ CONST Class class_Attribute
+ : Stereotype st_readonly::Attribute ;
+ %SUMMARY 'статус консультации' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_lnk
+ : Parent ME_491C422A0003 // IbsConsultation
+ ;
+ : Target WL 'ME_491C3F2F000F' '47EA07FA02CE.pas.ms.script' // TbsConsultationStatuses
+ ;
+ CONST "pm" true
+
+ref; // ME_491C424C019F Status
+
+: ME_491C427502ED
+ CONST UID '491C427502ED'
+ CONST Name 'IsStatusChached'
+ CONST Class class_Attribute
+ : Stereotype st_property::Attribute ;
+ %SUMMARY 'является ли статус кешированным. Нужно чтобы при открытии'#13#10'             консультации снизить кол-во обращений к серверу' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_lnk
+ : Parent ME_491C422A0003 // IbsConsultation
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+ CONST "pm" true
+
+ref; // ME_491C427502ED IsStatusChached
+
+: ME_491C42A60032
+ CONST UID '491C42A60032'
+ CONST Name 'Data'
+ CONST Class class_Attribute
+ : Stereotype st_readonly::Attribute ;
+ %SUMMARY 'консультация' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_lnk
+ : Parent ME_491C422A0003 // IbsConsultation
+ ;
+ : Target WL 'ME_457008050157' '457007DB002E.pas.ms.script' // Consultation
+ ;
+ CONST "pm" true
+
+ref; // ME_491C42A60032 Data
+
+: ME_491C42C30267
+ CONST UID '491C42C30267'
+ CONST Name 'WasDeleted'
+ CONST Class class_Attribute
+ : Stereotype st_readonly::Attribute ;
+ %SUMMARY 'консультация была удалена' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_lnk
+ : Parent ME_491C422A0003 // IbsConsultation
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+ CONST "pm" true
+
+ref; // ME_491C42C30267 WasDeleted
+
+: ME_491C42EC02BC
+ CONST UID '491C42EC02BC'
+ CONST Name 'Id'
+ CONST Class class_Attribute
+ : Stereotype st_readonly::Attribute ;
+ %SUMMARY 'идентификатор консультации' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_lnk
+ : Parent ME_491C422A0003 // IbsConsultation
+ ;
+ : Target WL 'ME_46780DA40383' '4677FBA70343.pas.ms.script' // Il3CString
+ ;
+ CONST "pm" true
+
+ref; // ME_491C42EC02BC Id
+
+: ME_491C430C0132
+ CONST UID '491C430C0132'
+ CONST Name 'WasCreated'
+ CONST Class class_Attribute
+ : Stereotype st_readonly::Attribute ;
+ %SUMMARY 'дата создания' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_lnk
+ : Parent ME_491C422A0003 // IbsConsultation
+ ;
+ : Target ME_499002C201C9 // SysDateTime
+ ;
+ CONST "pm" true
+
+ref; // ME_491C430C0132 WasCreated
+
+: ME_491C431F01F8
+ CONST UID '491C431F01F8'
+ CONST Name 'WasModified'
+ CONST Class class_Attribute
+ : Stereotype st_readonly::Attribute ;
+ %SUMMARY 'дата изменения (устанавливается в момента изменения статуса'#13#10'             консультации)' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_lnk
+ : Parent ME_491C422A0003 // IbsConsultation
+ ;
+ : Target ME_499002C201C9 // SysDateTime
+ ;
+ CONST "pm" true
+
+ref; // ME_491C431F01F8 WasModified
+
+: ME_491C43420213
+ CONST UID '491C43420213'
+ CONST Name 'Caption'
+ CONST Class class_Attribute
+ : Stereotype st_readonly::Attribute ;
+ %SUMMARY 'название консультации' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_lnk
+ : Parent ME_491C422A0003 // IbsConsultation
+ ;
+ : Target WL 'ME_46780DA40383' '4677FBA70343.pas.ms.script' // Il3CString
+ ;
+ CONST "pm" true
+
+ref; // ME_491C43420213 Caption
+
+: ME_491C437500BB
+ CONST UID '491C437500BB'
+ CONST Name 'Text'
+ CONST Class class_Attribute
+ : Stereotype st_readonly::Attribute ;
+ %SUMMARY 'текст консультации отображаемый пользователю. Если у консультации'#13#10'             есть ответ, то показывается ответ, если нет, то показывается текст'#13#10'             запроса' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_lnk
+ : Parent ME_491C422A0003 // IbsConsultation
+ ;
+ : Target WL 'ME_45EEB6520191' '4570511E038A.pas.ms.script' // Document
+ ;
+ CONST "pm" true
+
+ref; // ME_491C437500BB Text
+
+: ME_491C42400193
+ CONST UID '491C42400193'
+ CONST Name 'RefreshText'
+ CONST Class class_Operation
+ %SUMMARY 'обновить текст. Необхоидимо при изменении состояния консультации' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_491C422A0003 // IbsConsultation
+ ;
+
+ref; // ME_491C42400193 RefreshText
+
+: ME_491C422A0003
+ CONST UID '491C422A0003'
+ CONST GUID '0E7541E5-05E6-4A9C-A10B-71A3253B3E8E'
+ CONST Name 'IbsConsultation'
+ CONST Class class_Class
+ : Stereotype st_Facet ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Консультация. Обертка сделана для удобства работы с удаленной консультацией, при работе с методами которой летит исключение EDeleted' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4ABCF04F00DF // ConsultationDomainInterfaces
+ ;
+ : Attributes
+   Seq: ( ME_491C424C019F // Status
+ ME_491C427502ED // IsStatusChached
+ ME_491C42A60032 // Data
+ ME_491C42C30267 // WasDeleted
+ ME_491C42EC02BC // Id
+ ME_491C430C0132 // WasCreated
+ ME_491C431F01F8 // WasModified
+ ME_491C43420213 // Caption
+ ME_491C437500BB // Text
+ )
+ ; // Attributes
+ : Operations
+   Seq: ( ME_491C42400193 // RefreshText
+ )
+ ; // Operations
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Consultation'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Consultation'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\Consultation'
+ CONST extprop:rc:SelfName 'bsConsultation'
+ CONST extprop:rc:isAcceptableForScripts true
+
+ref; // ME_491C422A0003 IbsConsultation
+
+: ME_492EB8EF0388
+ CONST UID '492EB8EF0388'
+ CONST Name 'EbsConsultationAlreadyConfirmed'
+ CONST Class class_Class
+ : Stereotype st_Exception ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Оплата консультации уже подтверждена/отвергнута' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4ABCF04F00DF // ConsultationDomainInterfaces
+ ;
+ : Inherits
+   Seq: ( WL 'ME_4787A405013D' '4AB0C3C60310.pas.ms.script' // Exception
+ )
+ ; // Inherits
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Consultation'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Consultation'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\Consultation'
+
+ref; // ME_492EB8EF0388 EbsConsultationAlreadyConfirmed
+
+: ME_492EB7F50331
+ CONST UID '492EB7F50331'
+ CONST Name 'EbsConsultationAlreadyMark'
+ CONST Class class_Class
+ : Stereotype st_Exception ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Консультация уже была оценена' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4ABCF04F00DF // ConsultationDomainInterfaces
+ ;
+ : Inherits
+   Seq: ( WL 'ME_4787A405013D' '4AB0C3C60310.pas.ms.script' // Exception
+ )
+ ; // Inherits
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Consultation'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Consultation'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\Consultation'
+
+ref; // ME_492EB7F50331 EbsConsultationAlreadyMark
+
+: ME_492EB8A4021E
+ CONST UID '492EB8A4021E'
+ CONST Name 'EbsConsultationWasDeleted'
+ CONST Class class_Class
+ : Stereotype st_Exception ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Консультация была удалена' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4ABCF04F00DF // ConsultationDomainInterfaces
+ ;
+ : Inherits
+   Seq: ( WL 'ME_4787A405013D' '4AB0C3C60310.pas.ms.script' // Exception
+ )
+ ; // Inherits
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Consultation'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Consultation'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\Consultation'
+
+ref; // ME_492EB8A4021E EbsConsultationWasDeleted
+
+: ME_492EB844004A
+ CONST UID '492EB844004A'
+ CONST Name 'EbsPaymentForbidden'
+ CONST Class class_Class
+ : Stereotype st_Exception ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Платные консультации для пользователя запрещены' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4ABCF04F00DF // ConsultationDomainInterfaces
+ ;
+ : Inherits
+   Seq: ( WL 'ME_4787A405013D' '4AB0C3C60310.pas.ms.script' // Exception
+ )
+ ; // Inherits
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Consultation'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Consultation'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\Consultation'
+
+ref; // ME_492EB844004A EbsPaymentForbidden
+
+FORWARD ME_491C3F68021E
+
+: ME_491C3FAA009D
+ CONST UID '491C3FAA009D'
+ CONST Name 'ShowingStatus'
+ CONST Class class_Attribute
+ : Stereotype st_readonly::Attribute ;
+ %SUMMARY 'отображаемый на экране статус консультации. Чтобы понять текст для'#13#10'             какого состояния консультации на экране отображается нельзя'#13#10'             получать статус у самой консультации, т.к. он на консультации не'#13#10'             кешируется и может поменяться пока консультация отображается на'#13#10'             экране. Например, открываем запрос на просмотр, далее приходит'#13#10'             уведомление, при этом статус консультации меняется' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_lnk
+ : Parent ME_491C3F68021E // IdsConsultation
+ ;
+ : Target WL 'ME_491C3F2F000F' '47EA07FA02CE.pas.ms.script' // TbsConsultationStatuses
+ ;
+ CONST "pm" true
+
+ref; // ME_491C3FAA009D ShowingStatus
+
+: ME_47EA04080292_ME_491C3F68021E
+ CONST UID '47EA04080292'
+ CONST Name 'HasDoc'
+ : Original WL 'ME_47EA04080292' '491B305A0096.pas.ms.script' // HasDoc
+ ;
+ : Implementor ME_491C3F68021E // IdsConsultation
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "pm" true
+ref; // ME_47EA04080292_ME_491C3F68021E HasDoc
+
+: ME_47EA042601D9_ME_491C3F68021E
+ CONST UID '47EA042601D9'
+ CONST Name 'CanWorkWithRedactions'
+ : Original WL 'ME_47EA042601D9' '491B305A0096.pas.ms.script' // CanWorkWithRedactions
+ ;
+ : Implementor ME_491C3F68021E // IdsConsultation
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "pm" true
+ref; // ME_47EA042601D9_ME_491C3F68021E CanWorkWithRedactions
+
+: ME_47EA04970339_ME_491C3F68021E
+ CONST UID '47EA04970339'
+ CONST Name 'HasPrevRedaction'
+ : Original WL 'ME_47EA04970339' '491B305A0096.pas.ms.script' // HasPrevRedaction
+ ;
+ : Implementor ME_491C3F68021E // IdsConsultation
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "pm" true
+ref; // ME_47EA04970339_ME_491C3F68021E HasPrevRedaction
+
+: ME_47EA04B400A1_ME_491C3F68021E
+ CONST UID '47EA04B400A1'
+ CONST Name 'HasNextRedaction'
+ : Original WL 'ME_47EA04B400A1' '491B305A0096.pas.ms.script' // HasNextRedaction
+ ;
+ : Implementor ME_491C3F68021E // IdsConsultation
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "pm" true
+ref; // ME_47EA04B400A1_ME_491C3F68021E HasNextRedaction
+
+: ME_47EA08690258_ME_491C3F68021E
+ CONST UID '47EA08690258'
+ CONST Name 'IsReadOnly'
+ : Original WL 'ME_47EA08690258' '491B305A0096.pas.ms.script' // IsReadOnly
+ ;
+ : Implementor ME_491C3F68021E // IdsConsultation
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "pm" true
+ref; // ME_47EA08690258_ME_491C3F68021E IsReadOnly
+
+: ME_47EA087C02BC_ME_491C3F68021E
+ CONST UID '47EA087C02BC'
+ CONST Name 'TimeMachineOff'
+ : Original WL 'ME_47EA087C02BC' '491B305A0096.pas.ms.script' // TimeMachineOff
+ ;
+ : Implementor ME_491C3F68021E // IdsConsultation
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "pm" true
+ref; // ME_47EA087C02BC_ME_491C3F68021E TimeMachineOff
+
+: ME_491B2D5A0200_ME_491C3F68021E
+ CONST UID '491B2D5A0200'
+ CONST Name 'Container'
+ : Original WL 'ME_491B2D5A0200' '491B305A0096.pas.ms.script' // Container
+ ;
+ : Implementor ME_491C3F68021E // IdsConsultation
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "pm" true
+ref; // ME_491B2D5A0200_ME_491C3F68021E Container
+
+: ME_491B2DB200CE_ME_491C3F68021E
+ CONST UID '491B2DB200CE'
+ CONST Name 'DocInfo'
+ : Original WL 'ME_491B2DB200CE' '491B305A0096.pas.ms.script' // DocInfo
+ ;
+ : Implementor ME_491C3F68021E // IdsConsultation
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "pm" true
+ref; // ME_491B2DB200CE_ME_491C3F68021E DocInfo
+
+: ME_491B2E63002B_ME_491C3F68021E
+ CONST UID '491B2E63002B'
+ CONST Name 'Language'
+ : Original WL 'ME_491B2E63002B' '491B305A0096.pas.ms.script' // Language
+ ;
+ : Implementor ME_491C3F68021E // IdsConsultation
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "pm" true
+ref; // ME_491B2E63002B_ME_491C3F68021E Language
+
+: ME_491B2E87000D_ME_491C3F68021E
+ CONST UID '491B2E87000D'
+ CONST Name 'IsDateCurrentRedationEmpty'
+ : Original WL 'ME_491B2E87000D' '491B305A0096.pas.ms.script' // IsDateCurrentRedationEmpty
+ ;
+ : Implementor ME_491C3F68021E // IdsConsultation
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "pm" true
+ref; // ME_491B2E87000D_ME_491C3F68021E IsDateCurrentRedationEmpty
+
+: ME_491B2F1601B0_ME_491C3F68021E
+ CONST UID '491B2F1601B0'
+ CONST Name 'IsActualRedation'
+ : Original WL 'ME_491B2F1601B0' '491B305A0096.pas.ms.script' // IsActualRedation
+ ;
+ : Implementor ME_491C3F68021E // IdsConsultation
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "pm" true
+ref; // ME_491B2F1601B0_ME_491C3F68021E IsActualRedation
+
+: ME_491B2F63002D_ME_491C3F68021E
+ CONST UID '491B2F63002D'
+ CONST Name 'MakeGotoPointData'
+ : Original WL 'ME_491B2F63002D' '491B305A0096.pas.ms.script' // MakeGotoPointData
+ ;
+ : Implementor ME_491C3F68021E // IdsConsultation
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_491B2F63002D_ME_491C3F68021E MakeGotoPointData
+
+: ME_491B2FE20181_ME_491C3F68021E
+ CONST UID '491B2FE20181'
+ CONST Name 'NewDocInfo'
+ : Original WL 'ME_491B2FE20181' '491B305A0096.pas.ms.script' // NewDocInfo
+ ;
+ : Implementor ME_491C3F68021E // IdsConsultation
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_491B2FE20181_ME_491C3F68021E NewDocInfo
+
+: ME_495894020347_ME_491C3F68021E
+ CONST UID '495894020347'
+ CONST Name 'PreviewCaleeArea'
+ : Original WL 'ME_495894020347' '491B305A0096.pas.ms.script' // PreviewCaleeArea
+ ;
+ : Implementor ME_491C3F68021E // IdsConsultation
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "pm" false
+ref; // ME_495894020347_ME_491C3F68021E PreviewCaleeArea
+
+: ME_4AE56DE80093_ME_491C3F68021E
+ CONST UID '4AE56DE80093'
+ CONST Name 'MakeHAFMacroReplacer'
+ : Original WL 'ME_4AE56DE80093' '491B305A0096.pas.ms.script' // MakeHAFMacroReplacer
+ ;
+ : Implementor ME_491C3F68021E // IdsConsultation
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_4AE56DE80093_ME_491C3F68021E MakeHAFMacroReplacer
+
+: ME_4AE575FA030B_ME_491C3F68021E
+ CONST UID '4AE575FA030B'
+ CONST Name 'MakeFilterInfo'
+ : Original WL 'ME_4AE575FA030B' '491B305A0096.pas.ms.script' // MakeFilterInfo
+ ;
+ : Implementor ME_491C3F68021E // IdsConsultation
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_4AE575FA030B_ME_491C3F68021E MakeFilterInfo
+
+: ME_500E5D3B02AF_ME_491C3F68021E
+ CONST UID '500E5D3B02AF'
+ CONST Name 'LikeState'
+ : Original WL 'ME_500E5D3B02AF' '491B305A0096.pas.ms.script' // LikeState
+ ;
+ : Implementor ME_491C3F68021E // IdsConsultation
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "pm" false
+ref; // ME_500E5D3B02AF_ME_491C3F68021E LikeState
+
+: ME_500E5D5D0268_ME_491C3F68021E
+ CONST UID '500E5D5D0268'
+ CONST Name 'AsLikeable'
+ : Original WL 'ME_500E5D5D0268' '491B305A0096.pas.ms.script' // AsLikeable
+ ;
+ : Implementor ME_491C3F68021E // IdsConsultation
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_500E5D5D0268_ME_491C3F68021E AsLikeable
+
+: ME_53D8C6EA038C_ME_491C3F68021E
+ CONST UID '53D8C6EA038C'
+ CONST Name 'GetDocumentShortName'
+ : Original WL 'ME_53D8C6EA038C' '491B305A0096.pas.ms.script' // GetDocumentShortName
+ ;
+ : Implementor ME_491C3F68021E // IdsConsultation
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_53D8C6EA038C_ME_491C3F68021E GetDocumentShortName
+
+: ME_54B3A7C7038F_ME_491C3F68021E
+ CONST UID '54B3A7C7038F'
+ CONST Name 'GetDocumentName'
+ : Original WL 'ME_54B3A7C7038F' '491B305A0096.pas.ms.script' // GetDocumentName
+ ;
+ : Implementor ME_491C3F68021E // IdsConsultation
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_54B3A7C7038F_ME_491C3F68021E GetDocumentName
+
+: ME_491C3F68021E
+ CONST UID '491C3F68021E'
+ CONST GUID '2BA5B54E-CFAD-47B8-9DAC-04914173BFD8'
+ CONST Name 'IdsConsultation'
+ CONST Class class_Class
+ : Stereotype st_ViewAreaController ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'БОС консультации' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4ABCF04F00DF // ConsultationDomainInterfaces
+ ;
+ : Inherits
+   Seq: ( WL 'ME_47EA0356011B' '491B305A0096.pas.ms.script' // IdsBaseDocument
+ )
+ ; // Inherits
+ : Attributes
+   Seq: ( ME_491C3FAA009D // ShowingStatus
+ )
+ ; // Attributes
+ : Implemented
+   Seq: ( ME_47EA04080292_ME_491C3F68021E // HasDoc
+ ME_47EA042601D9_ME_491C3F68021E // CanWorkWithRedactions
+ ME_47EA04970339_ME_491C3F68021E // HasPrevRedaction
+ ME_47EA04B400A1_ME_491C3F68021E // HasNextRedaction
+ ME_47EA08690258_ME_491C3F68021E // IsReadOnly
+ ME_47EA087C02BC_ME_491C3F68021E // TimeMachineOff
+ ME_491B2D5A0200_ME_491C3F68021E // Container
+ ME_491B2DB200CE_ME_491C3F68021E // DocInfo
+ ME_491B2E63002B_ME_491C3F68021E // Language
+ ME_491B2E87000D_ME_491C3F68021E // IsDateCurrentRedationEmpty
+ ME_491B2F1601B0_ME_491C3F68021E // IsActualRedation
+ ME_491B2F63002D_ME_491C3F68021E // MakeGotoPointData
+ ME_491B2FE20181_ME_491C3F68021E // NewDocInfo
+ ME_495894020347_ME_491C3F68021E // PreviewCaleeArea
+ ME_4AE56DE80093_ME_491C3F68021E // MakeHAFMacroReplacer
+ ME_4AE575FA030B_ME_491C3F68021E // MakeFilterInfo
+ ME_500E5D3B02AF_ME_491C3F68021E // LikeState
+ ME_500E5D5D0268_ME_491C3F68021E // AsLikeable
+ ME_53D8C6EA038C_ME_491C3F68021E // GetDocumentShortName
+ ME_54B3A7C7038F_ME_491C3F68021E // GetDocumentName
+ )
+ ; // Implemented
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Consultation'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Consultation'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\Consultation'
+ CONST extprop:rc:SelfName 'dsConsultation'
+ CONST extprop:rc:isAcceptableForScripts true
+
+ref; // ME_491C3F68021E IdsConsultation
+
+FORWARD ME_492164C302A6
+
+: ME_49216542034E
+ CONST UID '49216542034E'
+ CONST Name 'Mark'
+ CONST Class class_Attribute
+ : Stereotype st_property::Attribute ;
+ %SUMMARY 'оценка' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_lnk
+ : Parent ME_492164C302A6 // IdsConsultationMark
+ ;
+ : Target WL 'ME_4921639C00DB' '47EA07FA02CE.pas.ms.script' // TbsConsultationMark
+ ;
+ CONST "pm" true
+
+ref; // ME_49216542034E Mark
+
+: ME_49216552037B
+ CONST UID '49216552037B'
+ CONST Name 'Comment'
+ CONST Class class_Attribute
+ : Stereotype st_property::Attribute ;
+ %SUMMARY 'комментарий' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_lnk
+ : Parent ME_492164C302A6 // IdsConsultationMark
+ ;
+ : Target WL 'ME_46780D0003AF' '4677FBA70343.pas.ms.script' // Tl3WString
+ ;
+ CONST "pm" true
+
+ref; // ME_49216552037B Comment
+
+: ME_49216566017F
+ CONST UID '49216566017F'
+ CONST Name 'CanSend'
+ CONST Class class_Attribute
+ : Stereotype st_readonly::Attribute ;
+ %SUMMARY 'можно ли отправить оценку' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_lnk
+ : Parent ME_492164C302A6 // IdsConsultationMark
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+ CONST "pm" true
+
+ref; // ME_49216566017F CanSend
+
+: ME_49216508016D
+ CONST UID '49216508016D'
+ CONST Name 'Send'
+ CONST Class class_Operation
+ %SUMMARY 'послать оценку' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_492164C302A6 // IdsConsultationMark
+ ;
+
+ref; // ME_49216508016D Send
+
+: ME_492164C302A6
+ CONST UID '492164C302A6'
+ CONST GUID '20808CC0-584C-48C5-A167-7DEDB7D3C1BF'
+ CONST Name 'IdsConsultationMark'
+ CONST Class class_Class
+ : Stereotype st_ViewAreaController ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'БОС оценка консультации' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4ABCF04F00DF // ConsultationDomainInterfaces
+ ;
+ : Attributes
+   Seq: ( ME_49216542034E // Mark
+ ME_49216552037B // Comment
+ ME_49216566017F // CanSend
+ )
+ ; // Attributes
+ : Operations
+   Seq: ( ME_49216508016D // Send
+ )
+ ; // Operations
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Consultation'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Consultation'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\Consultation'
+ CONST extprop:rc:SelfName 'dsConsultationMark'
+ CONST extprop:rc:isAcceptableForScripts true
+
+ref; // ME_492164C302A6 IdsConsultationMark
+
+FORWARD ME_4921732002D9
+
+: ME_492EB71000D6
+ CONST UID '492EB71000D6'
+ CONST Name 'dsConsultation'
+ CONST Class class_Attribute
+ : Stereotype st_area::Attribute ;
+ %SUMMARY 'БО консультация' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_lnk
+ : Parent ME_4921732002D9 // IsdsConsultation
+ ;
+ : Target ME_491C3F68021E // IdsConsultation
+ ;
+ CONST "Need Has" 'undefined'
+ CONST "pm" true
+ CONST "required" 'undefined'
+
+ref; // ME_492EB71000D6 dsConsultation
+
+: ME_492EB77C0125
+ CONST UID '492EB77C0125'
+ CONST Name 'dsList'
+ CONST Class class_Attribute
+ : Stereotype st_area::Attribute ;
+ %SUMMARY 'БО список консультации' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_lnk
+ : Parent ME_4921732002D9 // IsdsConsultation
+ ;
+ : Target WL 'ME_47E9F032005A' '491B305A0096.pas.ms.script' // IdsDocumentList
+ ;
+ CONST "Need Has" 'undefined'
+ CONST "pm" true
+ CONST "required" 'undefined'
+
+ref; // ME_492EB77C0125 dsList
+
+FORWARD ME_492EB793009E
+
+: ME_492EB79D0335
+ CONST UID '492EB79D0335'
+ CONST Name 'aForce'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_492EB793009E // DSConsultationMark
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+
+ref; // ME_492EB79D0335 aForce
+
+: ME_492EB793009E
+ CONST UID '492EB793009E'
+ CONST Name 'DSConsultationMark'
+ CONST Class class_Attribute
+ : Stereotype st_area::Attribute ;
+ %SUMMARY 'БО оценка консультации' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_lnk
+ : Parent ME_4921732002D9 // IsdsConsultation
+ ;
+ : Target ME_492164C302A6 // IdsConsultationMark
+ ;
+ : Attributes
+   Seq: ( ME_492EB79D0335 // aForce
+ )
+ ; // Attributes
+ CONST "Need Has" 'undefined'
+ CONST "pm" true
+ CONST "required" 'undefined'
+
+ref; // ME_492EB793009E DSConsultationMark
+
+: ME_4F4E1E06038E
+ CONST UID '4F4E1E06038E'
+ CONST Name 'bsConsultation'
+ CONST Class class_Attribute
+ : Stereotype st_readonly::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_lnk
+ : Parent ME_4921732002D9 // IsdsConsultation
+ ;
+ : Target ME_491C422A0003 // IbsConsultation
+ ;
+ CONST "pm" false
+ CONST "reflectable" 'undefined'
+
+ref; // ME_4F4E1E06038E bsConsultation
+
+: ME_492EB7BA035E
+ CONST UID '492EB7BA035E'
+ CONST Name 'GiveMark'
+ CONST Class class_Operation
+ %SUMMARY 'дать оценку.'#13#10'           Возможные исключения:'#13#10'           - EbsConsultationAlreadyMark' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_4921732002D9 // IsdsConsultation
+ ;
+ : CanRaise
+   Seq: ( ME_492EB7F50331 // EbsConsultationAlreadyMark
+ ME_492EB8A4021E // EbsConsultationWasDeleted
+ )
+ ; // CanRaise
+
+ref; // ME_492EB7BA035E GiveMark
+
+: ME_492EB82F0391
+ CONST UID '492EB82F0391'
+ CONST Name 'NeedGiveMark'
+ CONST Class class_Operation
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_4921732002D9 // IsdsConsultation
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+
+ref; // ME_492EB82F0391 NeedGiveMark
+
+: ME_492EB86F0058
+ CONST UID '492EB86F0058'
+ CONST Name 'anAccept'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+
+ref; // ME_492EB86F0058 anAccept
+
+: ME_492EB8620306
+ CONST UID '492EB8620306'
+ CONST Name 'ConfirmPayment'
+ CONST Class class_Operation
+ %SUMMARY 'Подтвердить оплату консультации. Да/Нет;'#13#10'           Исключения:'#13#10'             - EbsPaymentForbidden' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_4921732002D9 // IsdsConsultation
+ ;
+ : CanRaise
+   Seq: ( ME_492EB844004A // EbsPaymentForbidden
+ ME_492EB8A4021E // EbsConsultationWasDeleted
+ ME_492EB8EF0388 // EbsConsultationAlreadyConfirmed
+ )
+ ; // CanRaise
+ : Parameters
+   Seq: ( ME_492EB86F0058 // anAccept
+ )
+ ; // Parameters
+
+ref; // ME_492EB8620306 ConfirmPayment
+
+: ME_492EB8820218
+ CONST UID '492EB8820218'
+ CONST Name 'UpdateAnswer'
+ CONST Class class_Operation
+ %SUMMARY 'перечитать ответ' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_4921732002D9 // IsdsConsultation
+ ;
+
+ref; // ME_492EB8820218 UpdateAnswer
+
+: ME_492EB91F0391
+ CONST UID '492EB91F0391'
+ CONST Name 'ListChanged'
+ CONST Class class_Operation
+ %SUMMARY 'список документов консультации изменен пользователем. Используется'#13#10'           при перезагрузке консультации' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_4921732002D9 // IsdsConsultation
+ ;
+
+ref; // ME_492EB91F0391 ListChanged
+
+: ME_492EB941035C
+ CONST UID '492EB941035C'
+ CONST Name 'aConsultation'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target ME_4921732002D9 // IsdsConsultation
+ ;
+
+ref; // ME_492EB941035C aConsultation
+
+: ME_492EB93700FF
+ CONST UID '492EB93700FF'
+ CONST Name 'ConsultationWasMarked'
+ CONST Class class_Operation
+ %SUMMARY 'консультация была оценена. Для случая когда консультацию оценили в'#13#10'           дереве, при этом эта же консультация открыта на экране и ее нужно'#13#10'           перечитать, чтобы ссылка оценить пропала' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_4921732002D9 // IsdsConsultation
+ ;
+ : Parameters
+   Seq: ( ME_492EB941035C // aConsultation
+ )
+ ; // Parameters
+
+ref; // ME_492EB93700FF ConsultationWasMarked
+
+: ME_492EBCE002E0
+ CONST UID '492EBCE002E0'
+ CONST Name 'MarkSended'
+ CONST Class class_Operation
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_4921732002D9 // IsdsConsultation
+ ;
+
+ref; // ME_492EBCE002E0 MarkSended
+
+: ME_492597A602F6_ME_4921732002D9
+ CONST UID '492597A602F6'
+ CONST Name 'MakeGotoPointData'
+ : Original WL 'ME_492597A602F6' '491B305A0096.pas.ms.script' // MakeGotoPointData
+ ;
+ : Implementor ME_4921732002D9 // IsdsConsultation
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_492597A602F6_ME_4921732002D9 MakeGotoPointData
+
+: ME_4921732002D9
+ CONST UID '4921732002D9'
+ CONST GUID '005BCE3D-3D26-4B47-80B4-BB7580EE147F'
+ CONST Name 'IsdsConsultation'
+ CONST Class class_Class
+ : Stereotype st_UseCaseController ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Бизнес объект прецедента "Консультация"' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4ABCF04F00DF // ConsultationDomainInterfaces
+ ;
+ : Implements
+   Seq: ( WL 'ME_4E92C3A5037B' '491B305A0096.pas.ms.script' // IsdsGotoPointDataMaker
+ WL 'ME_4E92C51C0028' '484E610E0335.pas.ms.script' // Консультации должны поддерживать ссылки на документы Гаранта
+ )
+ ; // Implements
+ : Attributes
+   Seq: ( ME_492EB71000D6 // dsConsultation
+ ME_492EB77C0125 // dsList
+ ME_492EB793009E // DSConsultationMark
+ ME_4F4E1E06038E // bsConsultation
+ )
+ ; // Attributes
+ : Operations
+   Seq: ( ME_492EB7BA035E // GiveMark
+ ME_492EB82F0391 // NeedGiveMark
+ ME_492EB8620306 // ConfirmPayment
+ ME_492EB8820218 // UpdateAnswer
+ ME_492EB91F0391 // ListChanged
+ ME_492EB93700FF // ConsultationWasMarked
+ ME_492EBCE002E0 // MarkSended
+ )
+ ; // Operations
+ : Implemented
+   Seq: ( ME_492597A602F6_ME_4921732002D9 // MakeGotoPointData
+ )
+ ; // Implemented
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Consultation'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Consultation'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\Consultation'
+ CONST extprop:rc:SelfName 'sdsConsultation'
+ CONST extprop:rc:isAcceptableForScripts true
+
+ref; // ME_4921732002D9 IsdsConsultation
+
+: ME_4ABCF04F00DF
+ CONST UID '4ABCF04F00DF'
+ CONST Name 'ConsultationDomainInterfaces'
+ CONST Class class_Category
+ : Stereotype st_ControllerInterfaces ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent WL 'ME_4ABCF16F01CD' '4ABCF16F01CD.pas.ms.script' // Consultation$Lib
+ ;
+ : Children
+   Seq: ( ME_499002C201C9 // SysDateTime
+ ME_491C422A0003 // IbsConsultation
+ ME_492EB8EF0388 // EbsConsultationAlreadyConfirmed
+ ME_492EB7F50331 // EbsConsultationAlreadyMark
+ ME_492EB8A4021E // EbsConsultationWasDeleted
+ ME_492EB844004A // EbsPaymentForbidden
+ ME_491C3F68021E // IdsConsultation
+ ME_492164C302A6 // IdsConsultationMark
+ ME_4921732002D9 // IsdsConsultation
+ )
+ ; // Children
+ : Depends
+   Seq: ( WL 'ME_457007DB002E' '457007DB002E.pas.ms.script' // Consulting
+ WL 'ME_4570511E038A' '4570511E038A.pas.ms.script' // Document
+ WL 'ME_4677FBA70343' '4677FBA70343.pas.ms.script' // l3Interfaces
+ WL 'ME_47EA07FA02CE' '47EA07FA02CE.pas.ms.script' // bsTypes
+ WL 'ME_484E610E0335' '484E610E0335.pas.ms.script' // Информационная поддержка
+ WL 'ME_491B305A0096' '491B305A0096.pas.ms.script' // DocumentAndListInterfaces
+ WL 'ME_4AB0C3C60310' '4AB0C3C60310.pas.ms.script' // Sys
+ )
+ ; // Depends
+ CONST "author" 'Люлин А.В.'
+ CONST "is namespace" true
+ CONST "no hands" true
+ CONST "started" '25.09.2009 20:31'
+ : Generators
+ Seq: (
+ gen_intf.pas
+ gen_pas.script
+ gen_pas.script.runner
+ )
+ ; // Generators
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Consultation'
+ CONST intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\Consultation\ConsultationDomainInterfaces.pas'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Consultation'
+ CONST pas.script:Path 'shared\models\NewSchool\Scripts\4ABCF04F00DF.pas.ms.script'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\4ABCF04F00DF.pas.ms.script.runner'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\Consultation'
+
+ref; // ME_4ABCF04F00DF ConsultationDomainInterfaces

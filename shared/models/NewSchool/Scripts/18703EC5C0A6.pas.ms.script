@@ -13,6 +13,7 @@ FORWARD ME_46C66075B1E8
  ;
  : Implementor ME_46C66075B1E8 // ReleaseItsLAW
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_4B7AB0B6016E_ME_46C66075B1E8 CommandLineKey
 
 : ME_4B7C0B43005B_ME_46C66075B1E8
@@ -22,6 +23,7 @@ ref; // ME_4B7AB0B6016E_ME_46C66075B1E8 CommandLineKey
  ;
  : Implementor ME_46C66075B1E8 // ReleaseItsLAW
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_4B7C0B43005B_ME_46C66075B1E8 TimesPage
 
 : ME_4B7C0B670215_ME_46C66075B1E8
@@ -31,11 +33,13 @@ ref; // ME_4B7C0B43005B_ME_46C66075B1E8 TimesPage
  ;
  : Implementor ME_46C66075B1E8 // ReleaseItsLAW
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_4B7C0B670215_ME_46C66075B1E8 ResultsPage
 
 : ME_46C66075B1E8
  CONST UID '46C66075B1E8'
  CONST Name 'ReleaseItsLAW'
+ CONST IsSummoned true
  CONST Class class_Class
  : Stereotype st_TestResults ;
  CONST Kind kind_NormalClass
@@ -45,14 +49,14 @@ ref; // ME_4B7C0B670215_ME_46C66075B1E8 ResultsPage
  : Parent ME_18703EC5C0A6 // ReleaseNewGen
  ;
  : Inherits
-   @ ( WL 'ME_4B7AAC7A031D' '4B2A112B011A.pas.ms.script' // TTestResultsPlace
- ) .SequenceCode.It
+   Seq: ( WL 'ME_4B7AAC7A031D' '4B2A112B011A.pas.ms.script' // TTestResultsPlace
+ )
  ; // Inherits
  : Implemented
-   @ ( ME_4B7AB0B6016E_ME_46C66075B1E8 // CommandLineKey
+   Seq: ( ME_4B7AB0B6016E_ME_46C66075B1E8 // CommandLineKey
  ME_4B7C0B43005B_ME_46C66075B1E8 // TimesPage
  ME_4B7C0B670215_ME_46C66075B1E8 // ResultsPage
- ) .SequenceCode.It
+ )
  ; // Implemented
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
@@ -60,18 +64,26 @@ ref; // ME_4B7C0B670215_ME_46C66075B1E8 ResultsPage
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
  : Generators
- @ (
+ Seq: (
  gen_intf.pas
- ) .SequenceCode.It
+ )
  ; // Generators
+ CONST dfm:PathOnly '\MDProcess'
  CONST intf.pas:Path 'MDProcess\NewGenTest\ReleaseItsLAW.pas'
+ CONST intf.pas:PathOnly '\MDProcess\NewGenTest'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\MDProcess'
  CONST extprop:pas:TypeName 'TReleaseItsLAW'
+ CONST extprop:rc:SelfName 'ReleaseItsLAW'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_46C66075B1E8 ReleaseItsLAW
 
 : ME_18703EC5C0A6
  CONST UID '18703EC5C0A6'
  CONST Name 'ReleaseNewGen'
+ CONST IsSummoned true
  CONST Class class_Category
  : Stereotype st_TestTarget ;
  %SUMMARY 'Тесты для НИР по новому генератору (релизный вариант)' ;
@@ -80,11 +92,11 @@ ref; // ME_46C66075B1E8 ReleaseItsLAW
  : Parent WL 'ME_4F5F65870086' '4F5F65870086.pas.ms.script' // MDProcess$NewGen
  ;
  : Children
-   @ ( ME_46C66075B1E8 // ReleaseItsLAW
- ) .SequenceCode.It
+   Seq: ( ME_46C66075B1E8 // ReleaseItsLAW
+ )
  ; // Children
  : Depends
-   @ ( WL 'ME_4773D64E036C' '47913B47006E.pas.ms.script' // l3Base
+   Seq: ( WL 'ME_4773D64E036C' '47913B47006E.pas.ms.script' // l3Base
  WL 'ME_4787A405013D' '4AB0C3C60310.pas.ms.script' // Exception
  WL 'ME_4B2A0D8A03A0' '4B2A0D6A0077.pas.ms.script' // TextTestRunner
  WL 'ME_4B2A0D9401CC' '4B2A0D6A0077.pas.ms.script' // GUITestRunner
@@ -95,7 +107,7 @@ ref; // ME_46C66075B1E8 ReleaseItsLAW
  WL 'ME_4DAECE5D0060' '4B30FC850092.pas.ms.script' // TvcmInsiderTest
  WL 'ME_4DC24756009A' '5130776E01BE.pas.ms.script' // TAutoTestsSuite
  WL 'ME_4DEF306102FF' '4DEF302C0007.pas.ms.script' // TtfwScriptEngineEX
- ) .SequenceCode.It
+ )
  ; // Depends
  CONST "CONFIG_UC" false
  CONST "console" false
@@ -105,14 +117,20 @@ ref; // ME_46C66075B1E8 ReleaseItsLAW
  CONST "no scripts" 'undefined'
  CONST "old format" false
  : Generators
- @ (
+ Seq: (
  gen_intf.pas
  gen_pas.script
  gen_pas.script.runner
- ) .SequenceCode.It
+ )
  ; // Generators
+ CONST dfm:PathOnly '\MDProcess'
  CONST intf.pas:Path 'MDProcess\NewGenTest\ReleaseNewGenTest.dpr'
+ CONST intf.pas:PathOnly '\MDProcess\NewGenTest'
  CONST pas.script:Path 'shared\models\NewSchool\Scripts\18703EC5C0A6.pas.ms.script'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
  CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\18703EC5C0A6.pas.ms.script.runner'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\MDProcess'
+ CONST extprop:pas:UnitName 'ReleaseNewGenTest'
 
 ref; // ME_18703EC5C0A6 ReleaseNewGen

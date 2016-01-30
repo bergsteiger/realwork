@@ -1,0 +1,223 @@
+// PharmFirmList 47E8DDB10253 Interfaces Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_47E8DDB10253
+
+FORWARD ME_47E8DE4300AE
+
+: ME_47E8F48C02C2
+ CONST UID '47E8F48C02C2'
+ CONST Name 'id'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+
+ref; // ME_47E8F48C02C2 id
+
+: ME_47E8E000004D
+ CONST UID '47E8E000004D'
+ CONST Name 'make'
+ CONST Class class_Operation
+ : Stereotype st_factory::Operation ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_47E8DE4300AE // PharmFirmListEntry
+ ;
+ : Parameters
+   Seq: ( ME_47E8F48C02C2 // id
+ )
+ ; // Parameters
+ CONST "const_type" 'read-write'
+ CONST "dll export" false
+
+ref; // ME_47E8E000004D make
+
+: ME_47E8E09A02D3
+ CONST UID '47E8E09A02D3'
+ CONST Name 'get_document'
+ CONST Class class_Operation
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_47E8DE4300AE // PharmFirmListEntry
+ ;
+ : Target WL 'ME_45EEB6520191' '4570511E038A.pas.ms.script' // Document
+ ;
+
+ref; // ME_47E8E09A02D3 get_document
+
+: ME_456EB3E10178_ME_47E8DE4300AE
+ CONST UID '456EB3E10178'
+ CONST Name 'save_to'
+ : Original WL 'ME_456EB3E10178' '456EA56002BF.pas.ms.script' // save_to
+ ;
+ : Implementor ME_47E8DE4300AE // PharmFirmListEntry
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_456EB3E10178_ME_47E8DE4300AE save_to
+
+: ME_456EB3E1017A_ME_47E8DE4300AE
+ CONST UID '456EB3E1017A'
+ CONST Name 'append_to'
+ : Original WL 'ME_456EB3E1017A' '456EA56002BF.pas.ms.script' // append_to
+ ;
+ : Implementor ME_47E8DE4300AE // PharmFirmListEntry
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_456EB3E1017A_ME_47E8DE4300AE append_to
+
+: ME_456EB3E1017C_ME_47E8DE4300AE
+ CONST UID '456EB3E1017C'
+ CONST Name 'is_saved'
+ : Original WL 'ME_456EB3E1017C' '456EA56002BF.pas.ms.script' // is_saved
+ ;
+ : Implementor ME_47E8DE4300AE // PharmFirmListEntry
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "pm" false
+ref; // ME_456EB3E1017C_ME_47E8DE4300AE is_saved
+
+: ME_456EB3E1017D_ME_47E8DE4300AE
+ CONST UID '456EB3E1017D'
+ CONST Name 'is_changed'
+ : Original WL 'ME_456EB3E1017D' '456EA56002BF.pas.ms.script' // is_changed
+ ;
+ : Implementor ME_47E8DE4300AE // PharmFirmListEntry
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "pm" false
+ref; // ME_456EB3E1017D_ME_47E8DE4300AE is_changed
+
+: ME_456EE084033C_ME_47E8DE4300AE
+ CONST UID '456EE084033C'
+ CONST Name 'eid'
+ : Original WL 'ME_456EE084033C' '456EA56002BF.pas.ms.script' // eid
+ ;
+ : Implementor ME_47E8DE4300AE // PharmFirmListEntry
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "pm" false
+ref; // ME_456EE084033C_ME_47E8DE4300AE eid
+
+: ME_47E8DE4300AE
+ CONST UID '47E8DE4300AE'
+ CONST GUID '7408C436-42FD-4AD7-879D-5C2625EFAE18'
+ CONST Name 'PharmFirmListEntry'
+ CONST Class class_Class
+ : Stereotype st_Interface ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Обертка для документа-фирмы из списка' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_47E8DDB10253 // PharmFirmList
+ ;
+ : Inherits
+   Seq: ( WL 'ME_456EB3E10177' '456EA56002BF.pas.ms.script' // EntityBase
+ )
+ ; // Inherits
+ : Operations
+   Seq: ( ME_47E8E000004D // make
+ ME_47E8E09A02D3 // get_document
+ )
+ ; // Operations
+ : Implemented
+   Seq: ( ME_456EB3E10178_ME_47E8DE4300AE // save_to
+ ME_456EB3E1017A_ME_47E8DE4300AE // append_to
+ ME_456EB3E1017C_ME_47E8DE4300AE // is_saved
+ ME_456EB3E1017D_ME_47E8DE4300AE // is_changed
+ ME_456EE084033C_ME_47E8DE4300AE // eid
+ )
+ ; // Implemented
+ CONST "single impl" false
+ CONST cpp:PathOnly '\garant6x\implementation\Garant\GblAdapterLib\PharmFirmList'
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GblAdapterLib'
+ CONST dll.cpp:PathOnly '\garant6x\implementation\Garant\GblAdapterLib\PharmFirmList'
+ CONST dll.h:PathOnly '\garant6x\implementation\Garant\GblAdapterLib\PharmFirmList'
+ CONST fctr.cpp:PathOnly '\garant6x\implementation\Garant\GblAdapterLib\PharmFirmList'
+ CONST fctr.h:PathOnly '\garant6x\implementation\Garant\GblAdapterLib\PharmFirmList'
+ CONST h:PathOnly '\garant6x\implementation\Garant\GblAdapterLib\PharmFirmList'
+ CONST i.h:PathOnly '\garant6x\implementation\Garant\GblAdapterLib\PharmFirmList'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\tie\Garant\GblAdapterLib'
+ CONST mpc:PathOnly '\garant6x\implementation\Garant\project'
+ CONST mpc2:PathOnly '\garant6x\implementation\Garant\project'
+ CONST pas:PathOnly '\garant6x\implementation\Garant\GblAdapterLib'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc:PathOnly '\garant6x\implementation\Garant\GblAdapterLib'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\GblAdapterLib'
+ CONST s.ini:PathOnly '\garant6x\implementation\Garant\project'
+ CONST s.reg:PathOnly '\garant6x\implementation\Garant\project'
+ CONST vi.rc:PathOnly '\garant6x\implementation\Garant'
+ CONST vi.rch:PathOnly '\garant6x\implementation\Garant'
+ CONST extprop:pas:TypeName 'IPharmFirmListEntry'
+ CONST extprop:rc:SelfName 'PharmFirmListEntry'
+ CONST extprop:rc:isAcceptableForScripts true
+
+ref; // ME_47E8DE4300AE PharmFirmListEntry
+
+: ME_47E8DDB10253
+ CONST UID '47E8DDB10253'
+ CONST Name 'PharmFirmList'
+ CONST Class class_Category
+ : Stereotype st_Interfaces ;
+ %SUMMARY 'Список фирм' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent WL 'ME_456EA3D2031C' '456EA3D2031C.pas.ms.script' // GblAdapterLib
+ ;
+ : Children
+   Seq: ( ME_47E8DE4300AE // PharmFirmListEntry
+ )
+ ; // Children
+ : Depends
+   Seq: ( WL 'ME_456EA56002BF' '456EA56002BF.pas.ms.script' // BaseTypes
+ WL 'ME_4570511E038A' '4570511E038A.pas.ms.script' // Document
+ )
+ ; // Depends
+ CONST "no hands" false
+ : Generators
+ Seq: (
+ gen_cpp
+ gen_dll.cpp
+ gen_dll.h
+ gen_fctr.cpp
+ gen_fctr.h
+ gen_h
+ gen_intf.pas
+ gen_pas
+ gen_pas.script
+ gen_pas.script.runner
+ )
+ ; // Generators
+ CONST cpp:Path 'garant6x\implementation\Garant\GblAdapterLib\PharmFirmList\PharmFirmList.cpp'
+ CONST cpp:PathOnly '\garant6x\implementation\Garant\GblAdapterLib\PharmFirmList'
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GblAdapterLib'
+ CONST dll.cpp:Path 'garant6x\implementation\Garant\GblAdapterLib\PharmFirmList\PharmFirmList_tie.cpp'
+ CONST dll.cpp:PathOnly '\garant6x\implementation\Garant\GblAdapterLib\PharmFirmList'
+ CONST dll.h:Path 'garant6x\implementation\Garant\GblAdapterLib\PharmFirmList\PharmFirmList_tie.h'
+ CONST dll.h:PathOnly '\garant6x\implementation\Garant\GblAdapterLib\PharmFirmList'
+ CONST fctr.cpp:Path 'garant6x\implementation\Garant\GblAdapterLib\PharmFirmList\PharmFirmListFactories.cpp'
+ CONST fctr.cpp:PathOnly '\garant6x\implementation\Garant\GblAdapterLib\PharmFirmList'
+ CONST fctr.h:Path 'garant6x\implementation\Garant\GblAdapterLib\PharmFirmList\PharmFirmListFactories.h'
+ CONST fctr.h:PathOnly '\garant6x\implementation\Garant\GblAdapterLib\PharmFirmList'
+ CONST h:Path 'garant6x\implementation\Garant\GblAdapterLib\PharmFirmList\PharmFirmList.h'
+ CONST h:PathOnly '\garant6x\implementation\Garant\GblAdapterLib\PharmFirmList'
+ CONST i.h:PathOnly '\garant6x\implementation\Garant\GblAdapterLib\PharmFirmList'
+ CONST intf.pas:Path 'garant6x\implementation\Garant\tie\Garant\GblAdapterLib\PharmFirmListUnit.pas'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\tie\Garant\GblAdapterLib'
+ CONST mpc:PathOnly '\garant6x\implementation\Garant\project'
+ CONST mpc2:PathOnly '\garant6x\implementation\Garant\project'
+ CONST pas:Path 'garant6x\implementation\Garant\GblAdapterLib\PharmFirmListUnit.pas'
+ CONST pas:PathOnly '\garant6x\implementation\Garant\GblAdapterLib'
+ CONST pas.script:Path 'shared\models\NewSchool\Scripts\47E8DDB10253.pas.ms.script'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\47E8DDB10253.pas.ms.script.runner'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc:PathOnly '\garant6x\implementation\Garant\GblAdapterLib'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\GblAdapterLib'
+ CONST s.ini:PathOnly '\garant6x\implementation\Garant\project'
+ CONST s.reg:PathOnly '\garant6x\implementation\Garant\project'
+ CONST vi.rc:PathOnly '\garant6x\implementation\Garant'
+ CONST vi.rch:PathOnly '\garant6x\implementation\Garant'
+ CONST extprop:pas:UnitName 'PharmFirmListUnit'
+
+ref; // ME_47E8DDB10253 PharmFirmList

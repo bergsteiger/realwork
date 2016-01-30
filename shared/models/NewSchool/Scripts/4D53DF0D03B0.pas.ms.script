@@ -19,6 +19,7 @@ ref; // ME_4EA5644C0099
 
 : ME_6E4296B559CB
  CONST UID '6E4296B559CB'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_4EA5382F006A // K294595323
@@ -35,6 +36,7 @@ ref; // ME_6E4296B559CB
  ;
  : Implementor ME_4EA5382F006A // K294595323
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4C937013031D_ME_4EA5382F006A GetFolder
 
 : ME_4DAED6F60146_ME_4EA5382F006A
@@ -44,6 +46,7 @@ ref; // ME_4C937013031D_ME_4EA5382F006A GetFolder
  ;
  : Implementor ME_4EA5382F006A // K294595323
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4DAED6F60146_ME_4EA5382F006A GetModelElementGUID
 
 : ME_4EA553E901DB_ME_4EA5382F006A
@@ -53,6 +56,7 @@ ref; // ME_4DAED6F60146_ME_4EA5382F006A GetModelElementGUID
  ;
  : Implementor ME_4EA5382F006A // K294595323
  ;
+ CONST OpKind opkind_Overridden
  CONST "is static" true
 ref; // ME_4EA553E901DB_ME_4EA5382F006A Suite
 
@@ -68,31 +72,38 @@ ref; // ME_4EA553E901DB_ME_4EA5382F006A Suite
  : Parent ME_4D53DF0D03B0 // Filters
  ;
  : Inherits
-   @ ( WL 'ME_4EA5222A020E' '4D53DE3F00D1.pas.ms.script' // AACFiltersTest
- ) .SequenceCode.It
+   Seq: ( WL 'ME_4EA5222A020E' '4D53DE3F00D1.pas.ms.script' // AACFiltersTest
+ )
  ; // Inherits
  : Overridden
-   @ ( ME_4C937013031D_ME_4EA5382F006A // GetFolder
+   Seq: ( ME_4C937013031D_ME_4EA5382F006A // GetFolder
  ME_4DAED6F60146_ME_4EA5382F006A // GetModelElementGUID
  ME_4EA553E901DB_ME_4EA5382F006A // Suite
- ) .SequenceCode.It
+ )
  ; // Overridden
  : Dependencies
-   @ ( ME_4EA5644C0099 // 
+   Seq: ( ME_4EA5644C0099 // 
  ME_6E4296B559CB // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
  : Generators
- @ (
+ Seq: (
  gen_intf.pas
- ) .SequenceCode.It
+ )
  ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\Archi_Tests'
  CONST intf.pas:Path 'common\components\rtl\Garant\Archi_Tests\K294595323.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\Archi_Tests'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\common\components\rtl\Garant\Archi_Tests'
  CONST extprop:pas:TypeName 'TK294595323'
+ CONST extprop:rc:SelfName 'K294595323'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_4EA5382F006A K294595323
 
@@ -106,22 +117,27 @@ ref; // ME_4EA5382F006A K294595323
  : Parent WL 'ME_4D53DEED0062' '4D53DEED0062.pas.ms.script' // Archi Tests
  ;
  : Children
-   @ ( ME_4EA5382F006A // K294595323
- ) .SequenceCode.It
+   Seq: ( ME_4EA5382F006A // K294595323
+ )
  ; // Children
  : Depends
-   @ ( WL 'ME_4B2A0D6A0077' '4B2A0D6A0077.pas.ms.script' // Source
+   Seq: ( WL 'ME_4B2A0D6A0077' '4B2A0D6A0077.pas.ms.script' // Source
  WL 'ME_4D53DE3F00D1' '4D53DE3F00D1.pas.ms.script' // Filters
  WL 'ME_4EA538A203C7' '4EA538A203C7.pas.ms.script' // MultyFileTests
- ) .SequenceCode.It
+ )
  ; // Depends
  : Generators
- @ (
+ Seq: (
  gen_pas.script
  gen_pas.script.runner
- ) .SequenceCode.It
+ )
  ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\Archi_Tests'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\Archi_Tests'
  CONST pas.script:Path 'shared\models\NewSchool\Scripts\4D53DF0D03B0.pas.ms.script'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
  CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\4D53DF0D03B0.pas.ms.script.runner'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\common\components\rtl\Garant\Archi_Tests'
 
 ref; // ME_4D53DF0D03B0 Filters

@@ -31,13 +31,19 @@ ref; // ME_491471F80112 DataChanged
  : Parent ME_49942FB2017D // vcmLocalInterfaces
  ;
  : Inherits
-   @ ( WL 'ME_4680CF330338' '4677FBA70343.pas.ms.script' // Il3Notify
- ) .SequenceCode.It
+   Seq: ( WL 'ME_4680CF330338' '4677FBA70343.pas.ms.script' // Il3Notify
+ )
  ; // Inherits
  : Operations
-   @ ( ME_491471F80112 // DataChanged
- ) .SequenceCode.It
+   Seq: ( ME_491471F80112 // DataChanged
+ )
  ; // Operations
+ CONST dfm:PathOnly '\common\components\gui\Garant\VCM'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\VCM\implementation'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'FormSetDataSourceListener'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_491471C8038F IvcmFormSetDataSourceListener
 
@@ -107,11 +113,17 @@ ref; // ME_4993035101C9 Pos
  : Parent ME_49942FB2017D // vcmLocalInterfaces
  ;
  : Attributes
-   @ ( ME_49930330017B // FullWidth
+   Seq: ( ME_49930330017B // FullWidth
  ME_4993033E03CC // FullHeight
  ME_4993035101C9 // Pos
- ) .SequenceCode.It
+ )
  ; // Attributes
+ CONST dfm:PathOnly '\common\components\gui\Garant\VCM'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\VCM\implementation'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'Dock'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_499303230362 IvcmDock
 
@@ -126,30 +138,27 @@ ref; // ME_499303230362 IvcmDock
  : Parent WL 'ME_4790C3B8021E' '4790C3B8021E.pas.ms.script' // VCM
  ;
  : Children
-   @ ( ME_491471C8038F // IvcmFormSetDataSourceListener
+   Seq: ( ME_491471C8038F // IvcmFormSetDataSourceListener
  ME_499303230362 // IvcmDock
- ) .SequenceCode.It
+ )
  ; // Children
  : Depends
-   @ ( WL 'ME_4677FBA70343' '4677FBA70343.pas.ms.script' // l3Interfaces
+   Seq: ( WL 'ME_4677FBA70343' '4677FBA70343.pas.ms.script' // l3Interfaces
  WL 'ME_499EAAE502A8' '499EAAE502A8.pas.ms.script' // vcmUserControls
  WL 'ME_4AB0C3C60310' '4AB0C3C60310.pas.ms.script' // Sys
- ) .SequenceCode.It
+ )
  ; // Depends
  CONST "author" 'Ëþëèí À.Â.'
  CONST "is namespace" true
  CONST "no hands" true
  CONST "path prefix" '/implementation'
  CONST "started" '12.02.2009 17:19'
- : Generators
- @ (
- gen_intf.pas
- gen_pas.script
- gen_pas.script.runner
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\VCM'
  CONST intf.pas:Path 'common\components\gui\Garant\VCM\implementation\vcmLocalInterfaces.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\VCM\implementation'
  CONST pas.script:Path 'shared\models\NewSchool\Scripts\49942FB2017D.pas.ms.script'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
  CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\49942FB2017D.pas.ms.script.runner'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_49942FB2017D vcmLocalInterfaces

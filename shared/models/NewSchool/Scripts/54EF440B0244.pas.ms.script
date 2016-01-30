@@ -12,20 +12,20 @@ INCLUDE 'ElementsRTTI.ms.dict'
  : Parent WL 'ME_4ABCC25A0322' '4ABCC25A0322.pas.ms.script' // Shared Delphi Low Level
  ;
  : Children
-   @ ( WL 'ME_54EF44350184' '54EF44350184.pas.ms.script' // l3SimpleNodeWords
+   Seq: ( WL 'ME_54EF44350184' '54EF44350184.pas.ms.script' // l3SimpleNodeWords
  WL 'ME_53B52E99013D' '53B52E99013D.pas.ms.script' // l3NodeWords
  WL 'ME_552CF42C0230' '552CF42C0230.pas.ms.script' // PictureEtalonsWorking
  WL 'ME_552D07E00278' '552D07E00278.pas.ms.script' // Autolink
  WL 'ME_5190B06F00C1' '5190B06F00C1.pas.ms.script' // FontKeywords
- ) .SequenceCode.It
+ )
  ; // Children
  : Depends
-   @ ( WL 'ME_469F3E37025A' '469F3E37025A.pas.ms.script' // Rtl
+   Seq: ( WL 'ME_469F3E37025A' '469F3E37025A.pas.ms.script' // Rtl
  WL 'ME_4790D09A0378' '4790D09A0378.pas.ms.script' // L3
  WL 'ME_4E2F0E1B03BB' '4E2F0E1B03BB.pas.ms.script' // L3$Domain
  WL 'ME_54CF97B10370' '54CF97B10370.pas.ms.script' // ScriptEngine$Core
  WL 'ME_550012C403C4' '550012C403C4.pas.ms.script' // L3$AFW
- ) .SequenceCode.It
+ )
  ; // Depends
  CONST "defines" 'seDefine.inc'
  CONST "exec mode" 'concluded'
@@ -33,17 +33,11 @@ INCLUDE 'ElementsRTTI.ms.dict'
  CONST "ifndef" 'NoScripts'
  CONST "is namespace" true
  CONST "vendor" '/Garant'
- : Generators
- @ (
- gen_forth_structure
- gen_intf.pas
- gen_pas.script
- gen_pas.script.runner
- ) .SequenceCode.It
- ; // Generators
- CONST forth_structure:Path 'shared\models\NewSchool\Shared Delphi Low Level\ScriptEngine$L3\ScriptEngine$L3.model.script'
- CONST intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\ScriptEngine$L3_lib.info'
+ CONST dfm:PathOnly '\common\components\rtl\Garant\ScriptEngine'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\ScriptEngine'
  CONST pas.script:Path 'shared\models\NewSchool\Scripts\54EF440B0244.pas.ms.script'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
  CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\54EF440B0244.pas.ms.script.runner'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_54EF440B0244 ScriptEngine$L3

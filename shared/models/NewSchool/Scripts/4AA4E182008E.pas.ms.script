@@ -1,0 +1,93 @@
+// ListInterfaces 4AA4E182008E Interfaces Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4AA4E182008E
+
+FORWARD ME_4AA4E1BB00D0
+
+: ME_4AA4E1DE03B2
+ CONST UID '4AA4E1DE03B2'
+ CONST Name 'ltDocument'
+ CONST Class class_Attribute
+ %SUMMARY 'Открыть сборку документ' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_4AA4E1BB00D0 // TbsLinkType
+ ;
+
+ref; // ME_4AA4E1DE03B2 ltDocument
+
+: ME_4AA4E1EB02E7
+ CONST UID '4AA4E1EB02E7'
+ CONST Name 'ltList'
+ CONST Class class_Attribute
+ %SUMMARY 'Открыть сборку список' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_4AA4E1BB00D0 // TbsLinkType
+ ;
+
+ref; // ME_4AA4E1EB02E7 ltList
+
+: ME_4AA4E1BB00D0
+ CONST UID '4AA4E1BB00D0'
+ CONST Name 'TbsLinkType'
+ CONST Class class_Class
+ : Stereotype st_Enum ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Тип ссылки на данные для сборки. Операция модуля использует этот тип для определения какую сборку необходимо создать' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4AA4E182008E // ListInterfaces
+ ;
+ : Attributes
+   Seq: ( ME_4AA4E1DE03B2 // ltDocument
+ ME_4AA4E1EB02E7 // ltList
+ )
+ ; // Attributes
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Business'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Business'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\Business'
+ CONST extprop:rc:isAcceptableForScripts true
+
+ref; // ME_4AA4E1BB00D0 TbsLinkType
+
+: ME_4AA4E182008E
+ CONST UID '4AA4E182008E'
+ CONST Name 'ListInterfaces'
+ CONST Class class_Category
+ : Stereotype st_Interfaces ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent WL 'ME_4680C57D01E9' '4680C57D01E9.pas.ms.script' // Business
+ ;
+ : Children
+   Seq: ( ME_4AA4E1BB00D0 // TbsLinkType
+ )
+ ; // Children
+ CONST "author" 'Люлин А.В.'
+ CONST "is namespace" true
+ CONST "no hands" true
+ CONST "started" '07.09.2009 14:34'
+ : Generators
+ Seq: (
+ gen_intf.pas
+ gen_pas.script
+ gen_pas.script.runner
+ )
+ ; // Generators
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Business'
+ CONST intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\Business\ListInterfaces.pas'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Business'
+ CONST pas.script:Path 'shared\models\NewSchool\Scripts\4AA4E182008E.pas.ms.script'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\4AA4E182008E.pas.ms.script.runner'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\Business'
+
+ref; // ME_4AA4E182008E ListInterfaces

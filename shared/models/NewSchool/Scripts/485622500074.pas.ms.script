@@ -1,0 +1,163 @@
+// Специальные возможности 485622500074 UseCases Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_485622500074
+
+: ME_485622AE0125
+ CONST UID '485622AE0125'
+ CONST Name 'Пользовательские логи'
+ CONST Class class_Class
+ : Stereotype st_UseCase ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Информация о событиях, записываемых в лог при работе пользователя' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_485622500074 // Специальные возможности
+ ;
+ CONST "UseNewGen" 'undefined'
+ CONST dfm:PathOnly '\garant6x\implementation\Garant'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant'
+
+ref; // ME_485622AE0125 Пользовательские логи
+
+: ME_485623000261
+ CONST UID '485623000261'
+ CONST Name 'Интеграция'
+ CONST Class class_Class
+ : Stereotype st_UseCase ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Библиотека интеграции для вызова F1 из внешних приложений.' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_485622500074 // Специальные возможности
+ ;
+ CONST "UseNewGen" 'undefined'
+ CONST dfm:PathOnly '\garant6x\implementation\Garant'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant'
+
+ref; // ME_485623000261 Интеграция
+
+FORWARD ME_485656110116
+
+: ME_485656110116
+ CONST UID '485656110116'
+ CONST Name 'Логи'
+ CONST Class class_Class
+ : Stereotype st_UseCase ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Логирование работы системы' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_485622500074 // Специальные возможности
+ ;
+ CONST "UseNewGen" 'undefined'
+ CONST dfm:PathOnly '\garant6x\implementation\Garant'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant'
+
+ref; // ME_485656110116 Логи
+
+: ME_48575FDF014F
+ CONST UID '48575FDF014F'
+ CONST Name 'Заливка-выливка настроек'
+ CONST Class class_Class
+ : Stereotype st_UseCase ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Механизм переноса и (или) резервного копирования настроек' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_485622500074 // Специальные возможности
+ ;
+ CONST "UseNewGen" 'undefined'
+ CONST dfm:PathOnly '\garant6x\implementation\Garant'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant'
+
+ref; // ME_48575FDF014F Заливка-выливка настроек
+
+: ME_4892F5D201C3
+ CONST UID '4892F5D201C3'
+ CONST Name 'INI-файл'
+ CONST Class class_Class
+ : Stereotype st_UseCase ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Описание опций, использующихся сервером параметры которых могут быть изменены' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_485622500074 // Специальные возможности
+ ;
+ CONST "UseNewGen" 'undefined'
+ CONST dfm:PathOnly '\garant6x\implementation\Garant'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant'
+
+ref; // ME_4892F5D201C3 INI-файл
+
+: ME_4CE38DF50341
+ CONST UID '4CE38DF50341'
+ CONST Name 'Интеграция из продуктов MS'
+ CONST Class class_Class
+ : Stereotype st_UseCase ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Возможность вызова приложения F1 из продуктов MS (Windows, Word, Outlook и т.п.)' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_485622500074 // Специальные возможности
+ ;
+ CONST "UseNewGen" 'undefined'
+ CONST dfm:PathOnly '\garant6x\implementation\Garant'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant'
+
+ref; // ME_4CE38DF50341 Интеграция из продуктов MS
+
+: ME_485622500074
+ CONST UID '485622500074'
+ CONST Name 'Специальные возможности'
+ CONST Class class_Category
+ : Stereotype st_UseCases ;
+ %SUMMARY 'Специальные возможности системы, не нужные простому пользователю' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent WL 'ME_48561E5A01F7' '48561E5A01F7.pas.ms.script' // Специальные версии и возможности
+ ;
+ : Children
+   Seq: ( ME_485622AE0125 // Пользовательские логи
+ ME_485623000261 // Интеграция
+ ME_485656110116 // Логи
+ ME_48575FDF014F // Заливка-выливка настроек
+ ME_4892F5D201C3 // INI-файл
+ ME_4CE38DF50341 // Интеграция из продуктов MS
+ )
+ ; // Children
+ CONST "UseNewGen" 'undefined'
+ : Generators
+ Seq: (
+ gen_pas.script
+ gen_pas.script.runner
+ )
+ ; // Generators
+ CONST dfm:PathOnly '\garant6x\implementation\Garant'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant'
+ CONST pas.script:Path 'shared\models\NewSchool\Scripts\485622500074.pas.ms.script'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\485622500074.pas.ms.script.runner'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant'
+
+ref; // ME_485622500074 Специальные возможности

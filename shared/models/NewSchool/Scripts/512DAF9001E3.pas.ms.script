@@ -1,0 +1,41 @@
+// EverestInsiderTests 512DAF9001E3 Library Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+: ME_512DAF9001E3
+ CONST UID '512DAF9001E3'
+ CONST Name 'EverestInsiderTests'
+ CONST Class class_Category
+ : Stereotype st_Library ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent WL 'ME_512D9B74008E' '512D9B74008E.pas.ms.script' // archi$EverestLite$TestSupport
+ ;
+ : Children
+   Seq: ( WL 'ME_512DAFB70392' '512DAFB70392.pas.ms.script' // EverestLiteInsiderTest
+ )
+ ; // Children
+ : Depends
+   Seq: ( WL 'ME_4DE7653F03E5' '4DE7653F03E5.pas.ms.script' // Archi Insider Test Support
+ WL 'ME_512D9BA302E0' '512D9BA302E0.pas.ms.script' // EverestTestSupport
+ )
+ ; // Depends
+ CONST "exec mode" 'concluded'
+ CONST "gui" 'prj'
+ CONST "is namespace" true
+ CONST "vendor" 'none'
+ : Generators
+ Seq: (
+ gen_pas.script
+ gen_pas.script.runner
+ )
+ ; // Generators
+ CONST dfm:PathOnly '\archi\source\projects\Everest\Lite\7.0\Express\EverestInsiderTests'
+ CONST intf.pas:PathOnly '\archi\source\projects\Everest\Lite\7.0\Express\EverestInsiderTests'
+ CONST pas.script:Path 'shared\models\NewSchool\Scripts\512DAF9001E3.pas.ms.script'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\512DAF9001E3.pas.ms.script.runner'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\archi\source\projects\Everest\Lite\7.0\Express\EverestInsiderTests'
+
+ref; // ME_512DAF9001E3 EverestInsiderTests

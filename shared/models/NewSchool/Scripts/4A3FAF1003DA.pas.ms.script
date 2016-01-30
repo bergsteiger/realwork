@@ -15,6 +15,10 @@ FORWARD ME_4A3FAF1003DA
  : Parent ME_4A3FAF1003DA // OvcCmd
  ;
  CONST "spell names" false
+ CONST dfm:PathOnly '\common\components\rtl\external\Orpheus'
+ CONST intf.pas:PathOnly '\common\components\rtl\external\Orpheus'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_4A3FAF1F00EC Command Tables
 
@@ -51,9 +55,9 @@ ref; // ME_515182080287 Command
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
  : Parameters
-   @ ( ME_515182080271 // Sender
+   Seq: ( ME_515182080271 // Sender
  ME_515182080287 // Command
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_515182020122 DoIt
@@ -69,10 +73,14 @@ ref; // ME_515182020122 DoIt
  : Parent ME_4A3FAF1003DA // OvcCmd
  ;
  : Operations
-   @ ( ME_515182020122 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_515182020122 // DoIt
+ )
  ; // Operations
  CONST "of object" true
+ CONST dfm:PathOnly '\common\components\rtl\external\Orpheus'
+ CONST intf.pas:PathOnly '\common\components\rtl\external\Orpheus'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_515181D600DD TUserCommandEvent
 
@@ -86,29 +94,26 @@ ref; // ME_515181D600DD TUserCommandEvent
  : Parent WL 'ME_47540FF802AC' '47540FF802AC.pas.ms.script' // Orpheus
  ;
  : Children
-   @ ( ME_515181D600DD // TUserCommandEvent
- ) .SequenceCode.It
+   Seq: ( ME_515181D600DD // TUserCommandEvent
+ )
  ; // Children
  : Constants
-   @ ( ME_4A3FAF1F00EC // Command Tables
- ) .SequenceCode.It
+   Seq: ( ME_4A3FAF1F00EC // Command Tables
+ )
  ; // Constants
  : Depends
-   @ ( WL 'ME_4AB0C3C60310' '4AB0C3C60310.pas.ms.script' // Sys
- ) .SequenceCode.It
+   Seq: ( WL 'ME_4AB0C3C60310' '4AB0C3C60310.pas.ms.script' // Sys
+ )
  ; // Depends
  CONST "finished" false
  CONST "is namespace" true
  CONST "no hands" false
- : Generators
- @ (
- gen_intf.pas
- gen_pas.script
- gen_pas.script.runner
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\external\Orpheus'
  CONST intf.pas:Path 'common\components\rtl\external\Orpheus\NOT_FINISHED_OvcCmd.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\external\Orpheus'
  CONST pas.script:Path 'shared\models\NewSchool\Scripts\4A3FAF1003DA.pas.ms.script'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
  CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\4A3FAF1003DA.pas.ms.script.runner'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_4A3FAF1003DA OvcCmd

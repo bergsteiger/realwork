@@ -1,0 +1,319 @@
+// WorkJournalInterfaces 4A825D5D0235 Interfaces Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4A825D5D0235
+
+FORWARD ME_4A825D920164
+
+: ME_4A825DBE0310
+ CONST UID '4A825DBE0310'
+ CONST Name 'MakeTree'
+ CONST Class class_Operation
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_4A825D920164 // IbsWorkJournal
+ ;
+ : Target WL 'ME_46825CC00249' '4682595B0268.pas.ms.script' // Il3SimpleTree
+ ;
+
+ref; // ME_4A825DBE0310 MakeTree
+
+: ME_4A825E760100
+ CONST UID '4A825E760100'
+ CONST Name 'Clear'
+ CONST Class class_Operation
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_4A825D920164 // IbsWorkJournal
+ ;
+
+ref; // ME_4A825E760100 Clear
+
+: ME_4A8260320107
+ CONST UID '4A8260320107'
+ CONST Name 'aQuery'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_45EEE145027B' '45EEAA8E034E.pas.ms.script' // Query
+ ;
+
+ref; // ME_4A8260320107 aQuery
+
+: ME_4A82602103A2
+ CONST UID '4A82602103A2'
+ CONST Name 'AddQuery'
+ CONST Class class_Operation
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_4A825D920164 // IbsWorkJournal
+ ;
+ : Parameters
+   Seq: ( ME_4A8260320107 // aQuery
+ )
+ ; // Parameters
+
+ref; // ME_4A82602103A2 AddQuery
+
+: ME_4A82604F029D
+ CONST UID '4A82604F029D'
+ CONST Name 'aBookMark'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_4A8A8F640192' '4570511E038A.pas.ms.script' // JournalBookmark
+ ;
+
+ref; // ME_4A82604F029D aBookMark
+
+: ME_4A826038019A
+ CONST UID '4A826038019A'
+ CONST Name 'AddBookMark'
+ CONST Class class_Operation
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_4A825D920164 // IbsWorkJournal
+ ;
+ : Parameters
+   Seq: ( ME_4A82604F029D // aBookMark
+ )
+ ; // Parameters
+
+ref; // ME_4A826038019A AddBookMark
+
+: ME_4A82622601AE
+ CONST UID '4A82622601AE'
+ CONST Name 'aQueryType'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_45EEE13200E5' '45EEAA8E034E.pas.ms.script' // QueryType
+ ;
+
+ref; // ME_4A82622601AE aQueryType
+
+: ME_4A82622601ED
+ CONST UID '4A82622601ED'
+ CONST Name 'aMaxCount'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46A618AF0053' '4AB0C3C60310.pas.ms.script' // Cardinal
+ ;
+
+ref; // ME_4A82622601ED aMaxCount
+
+: ME_4A8261F2003D
+ CONST UID '4A8261F2003D'
+ CONST Name 'MakeQueryHistory'
+ CONST Class class_Operation
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_4A825D920164 // IbsWorkJournal
+ ;
+ : Target WL 'ME_45EEE1BC02F7' '45EEAA8E034E.pas.ms.script' // QueryList
+ ;
+ : Parameters
+   Seq: ( ME_4A82622601AE // aQueryType
+ ME_4A82622601ED // aMaxCount
+ )
+ ; // Parameters
+
+ref; // ME_4A8261F2003D MakeQueryHistory
+
+: ME_4A826616009F
+ CONST UID '4A826616009F'
+ CONST Name 'ForInpharm'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+
+ref; // ME_4A826616009F ForInpharm
+
+: ME_4A82661600DE
+ CONST UID '4A82661600DE'
+ CONST Name 'aMaxCount'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46A618AF0053' '4AB0C3C60310.pas.ms.script' // Cardinal
+ ;
+
+ref; // ME_4A82661600DE aMaxCount
+
+: ME_4A82623302E1
+ CONST UID '4A82623302E1'
+ CONST Name 'MakeBookMarkHistory'
+ CONST Class class_Operation
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_4A825D920164 // IbsWorkJournal
+ ;
+ : Target WL 'ME_4A8A9DCF030D' '4570511E038A.pas.ms.script' // JournalBookmarkList
+ ;
+ : Parameters
+   Seq: ( ME_4A826616009F // ForInpharm
+ ME_4A82661600DE // aMaxCount
+ )
+ ; // Parameters
+
+ref; // ME_4A82623302E1 MakeBookMarkHistory
+
+: ME_4A8277A20390
+ CONST UID '4A8277A20390'
+ CONST Name 'aNode'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_468259900322' '4682595B0268.pas.ms.script' // Il3SimpleNode
+ ;
+
+ref; // ME_4A8277A20390 aNode
+
+: ME_4A8277980075
+ CONST UID '4A8277980075'
+ CONST Name 'Delete'
+ CONST Class class_Operation
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_4A825D920164 // IbsWorkJournal
+ ;
+ : Parameters
+   Seq: ( ME_4A8277A20390 // aNode
+ )
+ ; // Parameters
+
+ref; // ME_4A8277980075 Delete
+
+: ME_4A83AD690030
+ CONST UID '4A83AD690030'
+ CONST Name 'aListener'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_4A83AA5202C1' '4D7A05A000C1.pas.ms.script' // InsWorkJournalListener
+ ;
+
+ref; // ME_4A83AD690030 aListener
+
+: ME_4A83AD4402AC
+ CONST UID '4A83AD4402AC'
+ CONST Name 'RegisterListener'
+ CONST Class class_Operation
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_4A825D920164 // IbsWorkJournal
+ ;
+ : Parameters
+   Seq: ( ME_4A83AD690030 // aListener
+ )
+ ; // Parameters
+
+ref; // ME_4A83AD4402AC RegisterListener
+
+: ME_4A83AD750377
+ CONST UID '4A83AD750377'
+ CONST Name 'aListener'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_4A83AA5202C1' '4D7A05A000C1.pas.ms.script' // InsWorkJournalListener
+ ;
+
+ref; // ME_4A83AD750377 aListener
+
+: ME_4A83AD6D02B9
+ CONST UID '4A83AD6D02B9'
+ CONST Name 'UnRegisterListener'
+ CONST Class class_Operation
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_4A825D920164 // IbsWorkJournal
+ ;
+ : Parameters
+   Seq: ( ME_4A83AD750377 // aListener
+ )
+ ; // Parameters
+
+ref; // ME_4A83AD6D02B9 UnRegisterListener
+
+: ME_4A83ADA701C0
+ CONST UID '4A83ADA701C0'
+ CONST Name 'NotifyJournalShrinked'
+ CONST Class class_Operation
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_4A825D920164 // IbsWorkJournal
+ ;
+
+ref; // ME_4A83ADA701C0 NotifyJournalShrinked
+
+: ME_4A825D920164
+ CONST UID '4A825D920164'
+ CONST GUID '2E30D6B8-6A4D-42B6-8441-14BF7C617DBC'
+ CONST Name 'IbsWorkJournal'
+ CONST Class class_Class
+ : Stereotype st_Facet ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4A825D5D0235 // WorkJournalInterfaces
+ ;
+ : Operations
+   Seq: ( ME_4A825DBE0310 // MakeTree
+ ME_4A825E760100 // Clear
+ ME_4A82602103A2 // AddQuery
+ ME_4A826038019A // AddBookMark
+ ME_4A8261F2003D // MakeQueryHistory
+ ME_4A82623302E1 // MakeBookMarkHistory
+ ME_4A8277980075 // Delete
+ ME_4A83AD4402AC // RegisterListener
+ ME_4A83AD6D02B9 // UnRegisterListener
+ ME_4A83ADA701C0 // NotifyJournalShrinked
+ )
+ ; // Operations
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\View'
+ CONST extprop:rc:SelfName 'bsWorkJournal'
+ CONST extprop:rc:isAcceptableForScripts true
+
+ref; // ME_4A825D920164 IbsWorkJournal
+
+: ME_4A825D5D0235
+ CONST UID '4A825D5D0235'
+ CONST Name 'WorkJournalInterfaces'
+ CONST Class class_Category
+ : Stereotype st_Interfaces ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent WL 'ME_4A7C099B004F' '4A7C099B004F.pas.ms.script' // View
+ ;
+ : Children
+   Seq: ( ME_4A825D920164 // IbsWorkJournal
+ )
+ ; // Children
+ : Depends
+   Seq: ( WL 'ME_4570511E038A' '4570511E038A.pas.ms.script' // Document
+ WL 'ME_45EEAA8E034E' '45EEAA8E034E.pas.ms.script' // Search
+ WL 'ME_4682595B0268' '4682595B0268.pas.ms.script' // l3TreeInterfaces
+ WL 'ME_4A7FF5F301B2' '4A7FF5F301B2.pas.ms.script' // UserJournal
+ WL 'ME_4AB0C3C60310' '4AB0C3C60310.pas.ms.script' // Sys
+ WL 'ME_4D7A05A000C1' '4D7A05A000C1.pas.ms.script' // PrimWorkJournalInterfaces
+ )
+ ; // Depends
+ CONST "is namespace" true
+ CONST "no hands" false
+ : Generators
+ Seq: (
+ gen_intf.pas
+ gen_pas.script
+ gen_pas.script.runner
+ )
+ ; // Generators
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View'
+ CONST intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\WorkJournalInterfaces.pas'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View'
+ CONST pas.script:Path 'shared\models\NewSchool\Scripts\4A825D5D0235.pas.ms.script'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\4A825D5D0235.pas.ms.script.runner'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\View'
+
+ref; // ME_4A825D5D0235 WorkJournalInterfaces

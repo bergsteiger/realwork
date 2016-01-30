@@ -16,6 +16,10 @@ FORWARD ME_4E96DEF500AA
  CONST Abstraction at_regular
  : Parent ME_4E96DEF500AA // ddBaseAutoLinkDataSource
  ;
+ CONST dfm:PathOnly '\common\components\rtl\Garant\dd'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\dd'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_4E96DF22023F TddALDocRec
 
@@ -30,17 +34,16 @@ ref; // ME_4E96DF22023F TddALDocRec
  : Parent ME_4E96E0A803E1 // AutolinkTypes
  ;
  : Children
-   @ ( ME_4E96DF22023F // TddALDocRec
- ) .SequenceCode.It
+   Seq: ( ME_4E96DF22023F // TddALDocRec
+ )
  ; // Children
  CONST "finished" false
  CONST "no hands" false
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\dd'
  CONST intf.pas:Path 'common\components\rtl\Garant\dd\NOT_FINISHED_ddBaseAutoLinkDataSource.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\dd'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_4E96DEF500AA ddBaseAutoLinkDataSource
 
@@ -54,16 +57,14 @@ ref; // ME_4E96DEF500AA ddBaseAutoLinkDataSource
  : Parent WL 'ME_4677E18600C2' '4677E18600C2.pas.ms.script' // dd
  ;
  : Children
-   @ ( ME_4E96DEF500AA // ddBaseAutoLinkDataSource
- ) .SequenceCode.It
+   Seq: ( ME_4E96DEF500AA // ddBaseAutoLinkDataSource
+ )
  ; // Children
- : Generators
- @ (
- gen_pas.script
- gen_pas.script.runner
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\dd'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\dd'
  CONST pas.script:Path 'shared\models\NewSchool\Scripts\4E96E0A803E1.pas.ms.script'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
  CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\4E96E0A803E1.pas.ms.script.runner'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_4E96E0A803E1 AutolinkTypes

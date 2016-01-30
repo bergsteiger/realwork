@@ -17,10 +17,15 @@ FORWARD ME_4A3A237A01C0
  : Parent ME_4A3A237A01C0 // TevParaListCursorPrim
  ;
  : Inherits
-   @ ( ME_4A3A237A01C0 // TevParaListCursorPrim
- ) .SequenceCode.It
+   Seq: ( ME_4A3A237A01C0 // TevParaListCursorPrim
+ )
  ; // Inherits
  CONST "isPointer" true
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_4A3A3200036B PevParaListCursor
 
@@ -69,9 +74,9 @@ ref; // ME_4A3A37FE025F Context
  : Parent ME_4A3A37E003BB // OffsetPID
  ;
  : Parameters
-   @ ( ME_4A3A37FE023D // Delta
+   Seq: ( ME_4A3A37FE023D // Delta
  ME_4A3A37FE025F // Context
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_4A3A37F303B3 OffsetPID
@@ -87,8 +92,8 @@ ref; // ME_4A3A37F303B3 OffsetPID
  : Parent ME_4A3A237A01C0 // TevParaListCursorPrim
  ;
  : Operations
-   @ ( ME_4A3A37F303B3 // OffsetPID
- ) .SequenceCode.It
+   Seq: ( ME_4A3A37F303B3 // OffsetPID
+ )
  ; // Operations
 
 ref; // ME_4A3A37E003BB OffsetPID
@@ -133,12 +138,12 @@ ref; // ME_4A3A39D003B1 DoIt
  : Parent ME_4A3A237A01C0 // TevParaListCursorPrim
  ;
  : Attributes
-   @ ( ME_4A3A3A9D00A5 // Listener
- ) .SequenceCode.It
+   Seq: ( ME_4A3A3A9D00A5 // Listener
+ )
  ; // Attributes
  : Operations
-   @ ( ME_4A3A39D003B1 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_4A3A39D003B1 // DoIt
+ )
  ; // Operations
 
 ref; // ME_4A3A39CA022C ParaChanged
@@ -176,9 +181,9 @@ ref; // ME_4F50B3790093 aFI
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
  : Parameters
-   @ ( ME_4F50B3790043 // aCode
+   Seq: ( ME_4F50B3790043 // aCode
  ME_4F50B3790093 // aFI
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_4F50B3620056 DoIt
@@ -195,8 +200,8 @@ ref; // ME_4F50B3620056 DoIt
  : Parent ME_4A3A237A01C0 // TevParaListCursorPrim
  ;
  : Operations
-   @ ( ME_4F50B3620056 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_4F50B3620056 // DoIt
+ )
  ; // Operations
 
 ref; // ME_4F50B34C0260 NeedGotoHidden
@@ -224,8 +229,8 @@ ref; // ME_4FFC3B2401D5 aChildPID
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
  : Parameters
-   @ ( ME_4FFC3B2401D5 // aChildPID
- ) .SequenceCode.It
+   Seq: ( ME_4FFC3B2401D5 // aChildPID
+ )
  ; // Parameters
 
 ref; // ME_4FFC355A0305 DoIt
@@ -241,8 +246,8 @@ ref; // ME_4FFC355A0305 DoIt
  : Parent ME_4A3A237A01C0 // TevParaListCursorPrim
  ;
  : Operations
-   @ ( ME_4FFC355A0305 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_4FFC355A0305 // DoIt
+ )
  ; // Operations
 
 ref; // ME_4FFC353A03C4 CheckFirst
@@ -300,10 +305,10 @@ ref; // ME_4D5D164D011B aPara
  : Parent ME_4A3A237A01C0 // TevParaListCursorPrim
  ;
  : Parameters
-   @ ( ME_4D5D164D0080 // aView
+   Seq: ( ME_4D5D164D0080 // aView
  ME_4D5D164D00CE // anOpPack
  ME_4D5D164D011B // aPara
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_4D5D161A030C ChangePointByPara
@@ -458,6 +463,7 @@ ref; // ME_4D834A5100E7
  ;
  : Implementor ME_4A3A237A01C0 // TevParaListCursorPrim
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_4B1D16510174_ME_4A3A237A01C0 SetPID
 
 : ME_4B1D1957015A_ME_4A3A237A01C0
@@ -467,6 +473,7 @@ ref; // ME_4B1D16510174_ME_4A3A237A01C0 SetPID
  ;
  : Implementor ME_4A3A237A01C0 // TevParaListCursorPrim
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_4B1D1957015A_ME_4A3A237A01C0 GetPID
 
 : ME_479731C50290_ME_4A3A237A01C0
@@ -476,6 +483,7 @@ ref; // ME_4B1D1957015A_ME_4A3A237A01C0 GetPID
  ;
  : Implementor ME_4A3A237A01C0 // TevParaListCursorPrim
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_479731C50290_ME_4A3A237A01C0 Cleanup
 
 : ME_48CF73CE00B5_ME_4A3A237A01C0
@@ -485,6 +493,7 @@ ref; // ME_479731C50290_ME_4A3A237A01C0 Cleanup
  ;
  : Implementor ME_4A3A237A01C0 // TevParaListCursorPrim
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_48CF73CE00B5_ME_4A3A237A01C0 DoFire
 
 : ME_49DE40D30260_ME_4A3A237A01C0
@@ -494,6 +503,7 @@ ref; // ME_48CF73CE00B5_ME_4A3A237A01C0 DoFire
  ;
  : Implementor ME_4A3A237A01C0 // TevParaListCursorPrim
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_49DE40D30260_ME_4A3A237A01C0 SetInner
 
 : ME_49DEFB410161_ME_4A3A237A01C0
@@ -503,6 +513,7 @@ ref; // ME_49DE40D30260_ME_4A3A237A01C0 SetInner
  ;
  : Implementor ME_4A3A237A01C0 // TevParaListCursorPrim
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_49DEFB410161_ME_4A3A237A01C0 DoJoinWith
 
 : ME_49DEFB770015_ME_4A3A237A01C0
@@ -512,6 +523,7 @@ ref; // ME_49DEFB410161_ME_4A3A237A01C0 DoJoinWith
  ;
  : Implementor ME_4A3A237A01C0 // TevParaListCursorPrim
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_49DEFB770015_ME_4A3A237A01C0 DoSplit
 
 : ME_49DF4C6E0101_ME_4A3A237A01C0
@@ -521,6 +533,7 @@ ref; // ME_49DEFB770015_ME_4A3A237A01C0 DoSplit
  ;
  : Implementor ME_4A3A237A01C0 // TevParaListCursorPrim
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_49DF4C6E0101_ME_4A3A237A01C0 DoJoinWithNext
 
 : ME_49E3126B030A_ME_4A3A237A01C0
@@ -530,6 +543,7 @@ ref; // ME_49DF4C6E0101_ME_4A3A237A01C0 DoJoinWithNext
  ;
  : Implementor ME_4A3A237A01C0 // TevParaListCursorPrim
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_49E3126B030A_ME_4A3A237A01C0 DoSetEntryPoint
 
 : ME_49E31657038E_ME_4A3A237A01C0
@@ -539,6 +553,7 @@ ref; // ME_49E3126B030A_ME_4A3A237A01C0 DoSetEntryPoint
  ;
  : Implementor ME_4A3A237A01C0 // TevParaListCursorPrim
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_49E31657038E_ME_4A3A237A01C0 DoMovePrim
 
 : ME_49E343F60057_ME_4A3A237A01C0
@@ -548,6 +563,7 @@ ref; // ME_49E31657038E_ME_4A3A237A01C0 DoMovePrim
  ;
  : Implementor ME_4A3A237A01C0 // TevParaListCursorPrim
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_49E343F60057_ME_4A3A237A01C0 DoProcessMessage
 
 : ME_49E34A6301AC_ME_4A3A237A01C0
@@ -557,6 +573,7 @@ ref; // ME_49E343F60057_ME_4A3A237A01C0 DoProcessMessage
  ;
  : Implementor ME_4A3A237A01C0 // TevParaListCursorPrim
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_49E34A6301AC_ME_4A3A237A01C0 GetNeedWindowsCaret
 
 : ME_49E34DCB014D_ME_4A3A237A01C0
@@ -566,6 +583,7 @@ ref; // ME_49E34A6301AC_ME_4A3A237A01C0 GetNeedWindowsCaret
  ;
  : Implementor ME_4A3A237A01C0 // TevParaListCursorPrim
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_49E34DCB014D_ME_4A3A237A01C0 GetAtStart
 
 : ME_49E34DFB0259_ME_4A3A237A01C0
@@ -575,6 +593,7 @@ ref; // ME_49E34DCB014D_ME_4A3A237A01C0 GetAtStart
  ;
  : Implementor ME_4A3A237A01C0 // TevParaListCursorPrim
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_49E34DFB0259_ME_4A3A237A01C0 GetAtEnd
 
 : ME_49E34E9802B6_ME_4A3A237A01C0
@@ -584,6 +603,7 @@ ref; // ME_49E34DFB0259_ME_4A3A237A01C0 GetAtEnd
  ;
  : Implementor ME_4A3A237A01C0 // TevParaListCursorPrim
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_49E34E9802B6_ME_4A3A237A01C0 DoCheckPos
 
 : ME_49E34EDF0207_ME_4A3A237A01C0
@@ -593,6 +613,7 @@ ref; // ME_49E34E9802B6_ME_4A3A237A01C0 DoCheckPos
  ;
  : Implementor ME_4A3A237A01C0 // TevParaListCursorPrim
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_49E34EDF0207_ME_4A3A237A01C0 GetVertPosition
 
 : ME_49E3568201B9_ME_4A3A237A01C0
@@ -602,6 +623,7 @@ ref; // ME_49E34EDF0207_ME_4A3A237A01C0 GetVertPosition
  ;
  : Implementor ME_4A3A237A01C0 // TevParaListCursorPrim
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_49E3568201B9_ME_4A3A237A01C0 GetDeltaX
 
 : ME_49E358670168_ME_4A3A237A01C0
@@ -611,6 +633,7 @@ ref; // ME_49E3568201B9_ME_4A3A237A01C0 GetDeltaX
  ;
  : Implementor ME_4A3A237A01C0 // TevParaListCursorPrim
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_49E358670168_ME_4A3A237A01C0 DoCompare
 
 : ME_49E35A0402DB_ME_4A3A237A01C0
@@ -620,6 +643,7 @@ ref; // ME_49E358670168_ME_4A3A237A01C0 DoCompare
  ;
  : Implementor ME_4A3A237A01C0 // TevParaListCursorPrim
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_49E35A0402DB_ME_4A3A237A01C0 GetInner
 
 : ME_49E3662D028E_ME_4A3A237A01C0
@@ -629,6 +653,7 @@ ref; // ME_49E35A0402DB_ME_4A3A237A01C0 GetInner
  ;
  : Implementor ME_4A3A237A01C0 // TevParaListCursorPrim
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_49E3662D028E_ME_4A3A237A01C0 DoGetBlockLength
 
 : ME_4A29465701BC_ME_4A3A237A01C0
@@ -638,6 +663,7 @@ ref; // ME_49E3662D028E_ME_4A3A237A01C0 DoGetBlockLength
  ;
  : Implementor ME_4A3A237A01C0 // TevParaListCursorPrim
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4A29465701BC_ME_4A3A237A01C0 DoChangeParam
 
 : ME_4A38F52201BA_ME_4A3A237A01C0
@@ -647,6 +673,7 @@ ref; // ME_4A29465701BC_ME_4A3A237A01C0 DoChangeParam
  ;
  : Implementor ME_4A3A237A01C0 // TevParaListCursorPrim
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4A38F52201BA_ME_4A3A237A01C0 DoDeleteHyperlink
 
 : ME_4A38F59B0234_ME_4A3A237A01C0
@@ -656,6 +683,7 @@ ref; // ME_4A38F52201BA_ME_4A3A237A01C0 DoDeleteHyperlink
  ;
  : Implementor ME_4A3A237A01C0 // TevParaListCursorPrim
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4A38F59B0234_ME_4A3A237A01C0 DoInsertBreak
 
 : ME_4A38F69F0070_ME_4A3A237A01C0
@@ -665,6 +693,7 @@ ref; // ME_4A38F59B0234_ME_4A3A237A01C0 DoInsertBreak
  ;
  : Implementor ME_4A3A237A01C0 // TevParaListCursorPrim
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4A38F69F0070_ME_4A3A237A01C0 DoAddIndentMarker
 
 : ME_4A38F6CB003C_ME_4A3A237A01C0
@@ -674,6 +703,7 @@ ref; // ME_4A38F69F0070_ME_4A3A237A01C0 DoAddIndentMarker
  ;
  : Implementor ME_4A3A237A01C0 // TevParaListCursorPrim
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4A38F6CB003C_ME_4A3A237A01C0 DoDeleteIndentMarker
 
 : ME_4A38F71601D6_ME_4A3A237A01C0
@@ -683,6 +713,7 @@ ref; // ME_4A38F6CB003C_ME_4A3A237A01C0 DoDeleteIndentMarker
  ;
  : Implementor ME_4A3A237A01C0 // TevParaListCursorPrim
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4A38F71601D6_ME_4A3A237A01C0 DoInsertString
 
 : ME_4A38F748002D_ME_4A3A237A01C0
@@ -692,6 +723,7 @@ ref; // ME_4A38F71601D6_ME_4A3A237A01C0 DoInsertString
  ;
  : Implementor ME_4A3A237A01C0 // TevParaListCursorPrim
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4A38F748002D_ME_4A3A237A01C0 DoDeleteString
 
 : ME_4A38F7A40373_ME_4A3A237A01C0
@@ -701,6 +733,7 @@ ref; // ME_4A38F748002D_ME_4A3A237A01C0 DoDeleteString
  ;
  : Implementor ME_4A3A237A01C0 // TevParaListCursorPrim
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4A38F7A40373_ME_4A3A237A01C0 DoSetAtom
 
 : ME_4A38F7F5022C_ME_4A3A237A01C0
@@ -710,6 +743,7 @@ ref; // ME_4A38F7A40373_ME_4A3A237A01C0 DoSetAtom
  ;
  : Implementor ME_4A3A237A01C0 // TevParaListCursorPrim
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4A38F7F5022C_ME_4A3A237A01C0 DoDeleteChar
 
 : ME_4A3A2E170304_ME_4A3A237A01C0
@@ -719,6 +753,7 @@ ref; // ME_4A38F7F5022C_ME_4A3A237A01C0 DoDeleteChar
  ;
  : Implementor ME_4A3A237A01C0 // TevParaListCursorPrim
  ;
+ CONST OpKind opkind_Overridden
  CONST "needs field" false
  CONST "pm" true
 ref; // ME_4A3A2E170304_ME_4A3A237A01C0 HasInner
@@ -730,6 +765,7 @@ ref; // ME_4A3A2E170304_ME_4A3A237A01C0 HasInner
  ;
  : Implementor ME_4A3A237A01C0 // TevParaListCursorPrim
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4A60B23E00C3_ME_4A3A237A01C0 COMQueryInterface
 
 : ME_4BBB10FB015B_ME_4A3A237A01C0
@@ -739,6 +775,7 @@ ref; // ME_4A60B23E00C3_ME_4A3A237A01C0 COMQueryInterface
  ;
  : Implementor ME_4A3A237A01C0 // TevParaListCursorPrim
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4BBB10FB015B_ME_4A3A237A01C0 DoPartiallyVisible
 
 : ME_4A3A237A01C0
@@ -753,35 +790,35 @@ ref; // ME_4BBB10FB015B_ME_4A3A237A01C0 DoPartiallyVisible
  : Parent ME_4A3A233900C9 // ParaList Cursors
  ;
  : Inherits
-   @ ( WL 'ME_480F4E9301DE' '47C52679006D.pas.ms.script' // nevParaListTool
+   Seq: ( WL 'ME_480F4E9301DE' '47C52679006D.pas.ms.script' // nevParaListTool
  WL 'ME_49DE22650362' '47E3DF460095.pas.ms.script' // TevParaCursor
- ) .SequenceCode.It
+ )
  ; // Inherits
  : Implements
-   @ ( WL 'ME_4A5CD0CB0038' '47E3DF460095.pas.ms.script' // nevParaListViewBounds
+   Seq: ( WL 'ME_4A5CD0CB0038' '47E3DF460095.pas.ms.script' // nevParaListViewBounds
  WL 'ME_4B1CFCBA0170' '47E3DF460095.pas.ms.script' // nevParaListAnchorModify
- ) .SequenceCode.It
+ )
  ; // Implements
  : Attributes
-   @ ( ME_4A3A2CB802E0 // f_Child
- ) .SequenceCode.It
+   Seq: ( ME_4A3A2CB802E0 // f_Child
+ )
  ; // Attributes
  : Operations
-   @ ( ME_4A3A37E003BB // OffsetPID
+   Seq: ( ME_4A3A37E003BB // OffsetPID
  ME_4A3A39CA022C // ParaChanged
  ME_4F50B34C0260 // NeedGotoHidden
  ME_4FFC353A03C4 // CheckFirst
  ME_4C495DAA024B // CanRedraw
  ME_4D5D161A030C // ChangePointByPara
- ) .SequenceCode.It
+ )
  ; // Operations
  : Implemented
-   @ ( ME_4B1D16510174_ME_4A3A237A01C0 // SetPID
+   Seq: ( ME_4B1D16510174_ME_4A3A237A01C0 // SetPID
  ME_4B1D1957015A_ME_4A3A237A01C0 // GetPID
- ) .SequenceCode.It
+ )
  ; // Implemented
  : Overridden
-   @ ( ME_479731C50290_ME_4A3A237A01C0 // Cleanup
+   Seq: ( ME_479731C50290_ME_4A3A237A01C0 // Cleanup
  ME_48CF73CE00B5_ME_4A3A237A01C0 // DoFire
  ME_49DE40D30260_ME_4A3A237A01C0 // SetInner
  ME_49DEFB410161_ME_4A3A237A01C0 // DoJoinWith
@@ -811,14 +848,14 @@ ref; // ME_4BBB10FB015B_ME_4A3A237A01C0 DoPartiallyVisible
  ME_4A3A2E170304_ME_4A3A237A01C0 // HasInner
  ME_4A60B23E00C3_ME_4A3A237A01C0 // COMQueryInterface
  ME_4BBB10FB015B_ME_4A3A237A01C0 // DoPartiallyVisible
- ) .SequenceCode.It
+ )
  ; // Overridden
  : Children
-   @ ( ME_4A3A3200036B // PevParaListCursor
- ) .SequenceCode.It
+   Seq: ( ME_4A3A3200036B // PevParaListCursor
+ )
  ; // Children
  : Dependencies
-   @ ( ME_4A3A35F8015D // 
+   Seq: ( ME_4A3A35F8015D // 
  ME_4A3A364201B0 // 
  ME_4A3A364803D6 // 
  ME_4A3A366B011D // 
@@ -831,7 +868,7 @@ ref; // ME_4BBB10FB015B_ME_4A3A237A01C0 DoPartiallyVisible
  ME_4A3A3EC503CC // 
  ME_4A3A3F4D028B // 
  ME_4D834A5100E7 // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  CONST "author" 'Ëþëèí À.Â.'
  CONST "needs InstanceR" 'undefined'
@@ -839,12 +876,14 @@ ref; // ME_4BBB10FB015B_ME_4A3A237A01C0 DoPartiallyVisible
  CONST "no hands" true
  CONST "register in scripts" 'undefined'
  CONST "started" '16.12.2002 17:50'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest'
  CONST intf.pas:Path 'common\components\gui\Garant\Everest\evParaListCursorPrim.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'ParaListCursorPrim'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'evParaListCursorPrim'
 
 ref; // ME_4A3A237A01C0 TevParaListCursorPrim
 
@@ -857,6 +896,7 @@ FORWARD ME_4A3A4398010A
  ;
  : Implementor ME_4A3A4398010A // TevParaListCursorInsertable
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_48E4FEB90365_ME_4A3A4398010A DoIt
 
 : ME_4A3A4398010A
@@ -870,16 +910,16 @@ ref; // ME_48E4FEB90365_ME_4A3A4398010A DoIt
  : Parent ME_4A3A233900C9 // ParaList Cursors
  ;
  : Inherits
-   @ ( ME_4A3A237A01C0 // TevParaListCursorPrim
- ) .SequenceCode.It
+   Seq: ( ME_4A3A237A01C0 // TevParaListCursorPrim
+ )
  ; // Inherits
  : Implements
-   @ ( WL 'ME_48E4FEB001B3' '47C5207602D1.pas.ms.script' // IevOpInsertPara
- ) .SequenceCode.It
+   Seq: ( WL 'ME_48E4FEB001B3' '47C5207602D1.pas.ms.script' // IevOpInsertPara
+ )
  ; // Implements
  : Implemented
-   @ ( ME_48E4FEB90365_ME_4A3A4398010A // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_48E4FEB90365_ME_4A3A4398010A // DoIt
+ )
  ; // Implemented
  CONST "author" 'Ëþëèí À.Â.'
  CONST "needs InstanceR" 'undefined'
@@ -887,12 +927,14 @@ ref; // ME_48E4FEB90365_ME_4A3A4398010A DoIt
  CONST "no hands" true
  CONST "register in scripts" 'undefined'
  CONST "started" '18.06.2009 17:40'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest'
  CONST intf.pas:Path 'common\components\gui\Garant\Everest\evParaListCursorInsertable.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'ParaListCursorInsertable'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'evParaListCursorInsertable'
 
 ref; // ME_4A3A4398010A TevParaListCursorInsertable
 
@@ -1015,6 +1057,7 @@ ref; // ME_537A138B036A
  ;
  : Implementor ME_4A3A43F6003A // TevParaListCursorDeletable
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_48D0C21201B1_ME_4A3A43F6003A DoIt
 
 : ME_4A3A43F6003A
@@ -1028,19 +1071,19 @@ ref; // ME_48D0C21201B1_ME_4A3A43F6003A DoIt
  : Parent ME_4A3A233900C9 // ParaList Cursors
  ;
  : Inherits
-   @ ( ME_4A3A4398010A // TevParaListCursorInsertable
- ) .SequenceCode.It
+   Seq: ( ME_4A3A4398010A // TevParaListCursorInsertable
+ )
  ; // Inherits
  : Implements
-   @ ( WL 'ME_48D0C2010271' '47C5207602D1.pas.ms.script' // IevOpDeletePara
- ) .SequenceCode.It
+   Seq: ( WL 'ME_48D0C2010271' '47C5207602D1.pas.ms.script' // IevOpDeletePara
+ )
  ; // Implements
  : Implemented
-   @ ( ME_48D0C21201B1_ME_4A3A43F6003A // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_48D0C21201B1_ME_4A3A43F6003A // DoIt
+ )
  ; // Implemented
  : Dependencies
-   @ ( ME_4A3A460C03C8 // 
+   Seq: ( ME_4A3A460C03C8 // 
  ME_4A3A474E0312 // 
  ME_4A3A48DF037E // 
  ME_4A3A48EA024D // 
@@ -1050,7 +1093,7 @@ ref; // ME_48D0C21201B1_ME_4A3A43F6003A DoIt
  ME_4CA9C35E0199 // 
  ME_5346A3C803AD // 
  ME_537A138B036A // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  CONST "author" 'Ëþëèí À.Â.'
  CONST "needs InstanceR" 'undefined'
@@ -1058,12 +1101,14 @@ ref; // ME_48D0C21201B1_ME_4A3A43F6003A DoIt
  CONST "no hands" true
  CONST "register in scripts" 'undefined'
  CONST "started" '18.06.2009 17:43'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest'
  CONST intf.pas:Path 'common\components\gui\Garant\Everest\evParaListCursorDeletable.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'ParaListCursorDeletable'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'evParaListCursorDeletable'
 
 ref; // ME_4A3A43F6003A TevParaListCursorDeletable
 
@@ -1093,12 +1138,12 @@ ref; // ME_4D63CD4E023F
  : Parent ME_4A3A233900C9 // ParaList Cursors
  ;
  : Inherits
-   @ ( ME_4A3A43F6003A // TevParaListCursorDeletable
- ) .SequenceCode.It
+   Seq: ( ME_4A3A43F6003A // TevParaListCursorDeletable
+ )
  ; // Inherits
  : Dependencies
-   @ ( ME_4D63CD4E023F // 
- ) .SequenceCode.It
+   Seq: ( ME_4D63CD4E023F // 
+ )
  ; // Dependencies
  CONST "author" 'Ëþëèí À.Â.'
  CONST "needs InstanceR" 'undefined'
@@ -1106,12 +1151,14 @@ ref; // ME_4D63CD4E023F
  CONST "no hands" true
  CONST "register in scripts" 'undefined'
  CONST "started" '16.12.2002 17:50'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest'
  CONST intf.pas:Path 'common\components\gui\Garant\Everest\evParaListCursor.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'ParaListCursor'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'evParaListCursor'
 
 ref; // ME_4A3A444900B3 TevParaListCursor
 
@@ -1151,6 +1198,7 @@ ref; // ME_4A3FA3DB02DD aView
  CONST Value 'l3_bUnknown'
  : ValueType WL 'ME_491BF08F035F' '4678193C009C.pas.ms.script' // Tl3Bool
  ;
+ CONST extprop:pas:Value 'l3Types.l3_bUnknown'
 
 ref; // ME_4A3FA3DB02FB aExpandMode
 
@@ -1165,9 +1213,9 @@ ref; // ME_4A3FA3DB02FB aExpandMode
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
  : Parameters
-   @ ( ME_4A3FA3DB02DD // aView
+   Seq: ( ME_4A3FA3DB02DD // aView
  ME_4A3FA3DB02FB // aExpandMode
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_4A3FA3CC00CC ExpandOrCollapse
@@ -1191,8 +1239,8 @@ ref; // ME_4A3FA3F00283 aView
  : Parent ME_4A3FA3290296 // TevDocumentPartCursor
  ;
  : Parameters
-   @ ( ME_4A3FA3F00283 // aView
- ) .SequenceCode.It
+   Seq: ( ME_4A3FA3F00283 // aView
+ )
  ; // Parameters
 
 ref; // ME_4A3FA3EB01D5 AfterCollapsed
@@ -1218,8 +1266,8 @@ ref; // ME_4A3FA3FF002D aView
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
  : Parameters
-   @ ( ME_4A3FA3FF002D // aView
- ) .SequenceCode.It
+   Seq: ( ME_4A3FA3FF002D // aView
+ )
  ; // Parameters
 
 ref; // ME_4A3FA3FA0033 IsShowingDocumentParts
@@ -1320,6 +1368,7 @@ ref; // ME_556723190102
  ;
  : Implementor ME_4A3FA3290296 // TevDocumentPartCursor
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_479731C50290_ME_4A3FA3290296 Cleanup
 
 : ME_49E2F3E6036F_ME_4A3FA3290296
@@ -1329,6 +1378,7 @@ ref; // ME_479731C50290_ME_4A3FA3290296 Cleanup
  ;
  : Implementor ME_4A3FA3290296 // TevDocumentPartCursor
  ;
+ CONST OpKind opkind_Overridden
  CONST "needs field" false
  CONST "pm" true
 ref; // ME_49E2F3E6036F_ME_4A3FA3290296 ShowCollapsed
@@ -1340,6 +1390,7 @@ ref; // ME_49E2F3E6036F_ME_4A3FA3290296 ShowCollapsed
  ;
  : Implementor ME_4A3FA3290296 // TevDocumentPartCursor
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_49E31657038E_ME_4A3FA3290296 DoMovePrim
 
 : ME_49E343F60057_ME_4A3FA3290296
@@ -1349,6 +1400,7 @@ ref; // ME_49E31657038E_ME_4A3FA3290296 DoMovePrim
  ;
  : Implementor ME_4A3FA3290296 // TevDocumentPartCursor
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_49E343F60057_ME_4A3FA3290296 DoProcessMessage
 
 : ME_49E35A0402DB_ME_4A3FA3290296
@@ -1358,6 +1410,7 @@ ref; // ME_49E343F60057_ME_4A3FA3290296 DoProcessMessage
  ;
  : Implementor ME_4A3FA3290296 // TevDocumentPartCursor
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_49E35A0402DB_ME_4A3FA3290296 GetInner
 
 : ME_4A38AA5C019F_ME_4A3FA3290296
@@ -1367,6 +1420,7 @@ ref; // ME_49E35A0402DB_ME_4A3FA3290296 GetInner
  ;
  : Implementor ME_4A3FA3290296 // TevDocumentPartCursor
  ;
+ CONST OpKind opkind_Overridden
  CONST "ifdef" 'evNeedMarkers'
 ref; // ME_4A38AA5C019F_ME_4A3FA3290296 DoGetMarkers
 
@@ -1377,6 +1431,7 @@ ref; // ME_4A38AA5C019F_ME_4A3FA3290296 DoGetMarkers
  ;
  : Implementor ME_4A3FA3290296 // TevDocumentPartCursor
  ;
+ CONST OpKind opkind_Overridden
  CONST "needs field" false
  CONST "pm" true
 ref; // ME_4A3A2E170304_ME_4A3FA3290296 HasInner
@@ -1388,6 +1443,7 @@ ref; // ME_4A3A2E170304_ME_4A3FA3290296 HasInner
  ;
  : Implementor ME_4A3FA3290296 // TevDocumentPartCursor
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4A60B23E00C3_ME_4A3FA3290296 COMQueryInterface
 
 : ME_4AA785540310_ME_4A3FA3290296
@@ -1397,6 +1453,7 @@ ref; // ME_4A60B23E00C3_ME_4A3FA3290296 COMQueryInterface
  ;
  : Implementor ME_4A3FA3290296 // TevDocumentPartCursor
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4AA785540310_ME_4A3FA3290296 DoDiff
 
 : ME_4A3FA3290296
@@ -1411,21 +1468,21 @@ ref; // ME_4AA785540310_ME_4A3FA3290296 DoDiff
  : Parent ME_4A3A233900C9 // ParaList Cursors
  ;
  : Inherits
-   @ ( ME_4A3A444900B3 // TevParaListCursor
- ) .SequenceCode.It
+   Seq: ( ME_4A3A444900B3 // TevParaListCursor
+ )
  ; // Inherits
  : Attributes
-   @ ( ME_4A3FA52D0095 // f_ShowCollapsed
- ) .SequenceCode.It
+   Seq: ( ME_4A3FA52D0095 // f_ShowCollapsed
+ )
  ; // Attributes
  : Operations
-   @ ( ME_4A3FA3CC00CC // ExpandOrCollapse
+   Seq: ( ME_4A3FA3CC00CC // ExpandOrCollapse
  ME_4A3FA3EB01D5 // AfterCollapsed
  ME_4A3FA3FA0033 // IsShowingDocumentParts
- ) .SequenceCode.It
+ )
  ; // Operations
  : Overridden
-   @ ( ME_479731C50290_ME_4A3FA3290296 // Cleanup
+   Seq: ( ME_479731C50290_ME_4A3FA3290296 // Cleanup
  ME_49E2F3E6036F_ME_4A3FA3290296 // ShowCollapsed
  ME_49E31657038E_ME_4A3FA3290296 // DoMovePrim
  ME_49E343F60057_ME_4A3FA3290296 // DoProcessMessage
@@ -1434,10 +1491,10 @@ ref; // ME_4AA785540310_ME_4A3FA3290296 DoDiff
  ME_4A3A2E170304_ME_4A3FA3290296 // HasInner
  ME_4A60B23E00C3_ME_4A3FA3290296 // COMQueryInterface
  ME_4AA785540310_ME_4A3FA3290296 // DoDiff
- ) .SequenceCode.It
+ )
  ; // Overridden
  : Dependencies
-   @ ( ME_4A3FAB040095 // 
+   Seq: ( ME_4A3FAB040095 // 
  ME_4A3FAB36028D // 
  ME_4A3FAB5500B0 // 
  ME_4A3FAD7F0253 // 
@@ -1445,7 +1502,7 @@ ref; // ME_4AA785540310_ME_4A3FA3290296 DoDiff
  ME_4A3FAF4003C3 // 
  ME_4D63CD69029E // 
  ME_556723190102 // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  CONST "author" 'Ëþëèí À.Â.'
  CONST "needs InstanceR" 'undefined'
@@ -1453,12 +1510,14 @@ ref; // ME_4AA785540310_ME_4A3FA3290296 DoDiff
  CONST "no hands" true
  CONST "register in scripts" 'undefined'
  CONST "started" '16.12.2002 16:09'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest'
  CONST intf.pas:Path 'common\components\gui\Garant\Everest\evDocumentPartCursor.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'DocumentPartCursor'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'evDocumentPartCursor'
 
 ref; // ME_4A3FA3290296 TevDocumentPartCursor
 
@@ -1491,8 +1550,8 @@ ref; // ME_4A40E35C03BB DoIt
  : Parent ME_4A40E3070396 // TevControlsBlockCursor
  ;
  : Operations
-   @ ( ME_4A40E35C03BB // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_4A40E35C03BB // DoIt
+ )
  ; // Operations
 
 ref; // ME_4A40E33E0315 GetControl
@@ -1560,6 +1619,7 @@ ref; // ME_53D0E1040268
  ;
  : Implementor ME_4A40E3070396 // TevControlsBlockCursor
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_49E343F60057_ME_4A40E3070396 DoProcessMessage
 
 : ME_4A3FA3EB01D5_ME_4A40E3070396
@@ -1569,6 +1629,7 @@ ref; // ME_49E343F60057_ME_4A40E3070396 DoProcessMessage
  ;
  : Implementor ME_4A40E3070396 // TevControlsBlockCursor
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4A3FA3EB01D5_ME_4A40E3070396 AfterCollapsed
 
 : ME_4A3FA3FA0033_ME_4A40E3070396
@@ -1578,6 +1639,7 @@ ref; // ME_4A3FA3EB01D5_ME_4A40E3070396 AfterCollapsed
  ;
  : Implementor ME_4A40E3070396 // TevControlsBlockCursor
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4A3FA3FA0033_ME_4A40E3070396 IsShowingDocumentParts
 
 : ME_4A40E3070396
@@ -1591,37 +1653,39 @@ ref; // ME_4A3FA3FA0033_ME_4A40E3070396 IsShowingDocumentParts
  : Parent ME_4A3A233900C9 // ParaList Cursors
  ;
  : Inherits
-   @ ( ME_4A3FA3290296 // TevDocumentPartCursor
- ) .SequenceCode.It
+   Seq: ( ME_4A3FA3290296 // TevDocumentPartCursor
+ )
  ; // Inherits
  : Operations
-   @ ( ME_4A40E33E0315 // GetControl
- ) .SequenceCode.It
+   Seq: ( ME_4A40E33E0315 // GetControl
+ )
  ; // Operations
  : Overridden
-   @ ( ME_49E343F60057_ME_4A40E3070396 // DoProcessMessage
+   Seq: ( ME_49E343F60057_ME_4A40E3070396 // DoProcessMessage
  ME_4A3FA3EB01D5_ME_4A40E3070396 // AfterCollapsed
  ME_4A3FA3FA0033_ME_4A40E3070396 // IsShowingDocumentParts
- ) .SequenceCode.It
+ )
  ; // Overridden
  : Dependencies
-   @ ( ME_4A40E4FF013D // 
+   Seq: ( ME_4A40E4FF013D // 
  ME_4A40E50D003F // 
  ME_4A40E51E01D7 // 
  ME_4A40E5600154 // 
  ME_53D0E1040268 // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" true
  CONST "register in scripts" 'undefined'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest'
  CONST intf.pas:Path 'common\components\gui\Garant\Everest\evControlsBlockCursor.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'ControlsBlockCursor'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'evControlsBlockCursor'
 
 ref; // ME_4A40E3070396 TevControlsBlockCursor
 
@@ -1646,6 +1710,7 @@ ref; // ME_4D63CD800374
  ;
  : Implementor ME_4A40EB120375 // TevCommentParaCursor
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4A38F7F5022C_ME_4A40EB120375 DoDeleteChar
 
 : ME_4A3FA3FA0033_ME_4A40EB120375
@@ -1655,6 +1720,7 @@ ref; // ME_4A38F7F5022C_ME_4A40EB120375 DoDeleteChar
  ;
  : Implementor ME_4A40EB120375 // TevCommentParaCursor
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4A3FA3FA0033_ME_4A40EB120375 IsShowingDocumentParts
 
 : ME_4A40EB120375
@@ -1668,17 +1734,17 @@ ref; // ME_4A3FA3FA0033_ME_4A40EB120375 IsShowingDocumentParts
  : Parent ME_4A3A233900C9 // ParaList Cursors
  ;
  : Inherits
-   @ ( ME_4A3FA3290296 // TevDocumentPartCursor
- ) .SequenceCode.It
+   Seq: ( ME_4A3FA3290296 // TevDocumentPartCursor
+ )
  ; // Inherits
  : Overridden
-   @ ( ME_4A38F7F5022C_ME_4A40EB120375 // DoDeleteChar
+   Seq: ( ME_4A38F7F5022C_ME_4A40EB120375 // DoDeleteChar
  ME_4A3FA3FA0033_ME_4A40EB120375 // IsShowingDocumentParts
- ) .SequenceCode.It
+ )
  ; // Overridden
  : Dependencies
-   @ ( ME_4D63CD800374 // 
- ) .SequenceCode.It
+   Seq: ( ME_4D63CD800374 // 
+ )
  ; // Dependencies
  CONST "author" 'Ëþëèí À.Â.'
  CONST "needs InstanceR" 'undefined'
@@ -1686,12 +1752,14 @@ ref; // ME_4A3FA3FA0033_ME_4A40EB120375 IsShowingDocumentParts
  CONST "no hands" true
  CONST "register in scripts" 'undefined'
  CONST "started" '17.11.2004 14:07'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest'
  CONST intf.pas:Path 'common\components\gui\Garant\Everest\evCommentParaCursor.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'CommentParaCursor'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'evCommentParaCursor'
 
 ref; // ME_4A40EB120375 TevCommentParaCursor
 
@@ -1882,6 +1950,7 @@ ref; // ME_53D26D44000D
  ;
  : Implementor ME_4A4C8EC4019F // TevDocumentCursor
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_47FCCB6E018E_ME_4A4C8EC4019F LinkListener
 
 : ME_47FCCB7902AA_ME_4A4C8EC4019F
@@ -1891,6 +1960,7 @@ ref; // ME_47FCCB6E018E_ME_4A4C8EC4019F LinkListener
  ;
  : Implementor ME_4A4C8EC4019F // TevDocumentCursor
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_47FCCB7902AA_ME_4A4C8EC4019F UnlinkListener
 
 : ME_479731C50290_ME_4A4C8EC4019F
@@ -1900,6 +1970,7 @@ ref; // ME_47FCCB7902AA_ME_4A4C8EC4019F UnlinkListener
  ;
  : Implementor ME_4A4C8EC4019F // TevDocumentCursor
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_479731C50290_ME_4A4C8EC4019F Cleanup
 
 : ME_49E2F6CE0055_ME_4A4C8EC4019F
@@ -1909,6 +1980,7 @@ ref; // ME_479731C50290_ME_4A4C8EC4019F Cleanup
  ;
  : Implementor ME_4A4C8EC4019F // TevDocumentCursor
  ;
+ CONST OpKind opkind_Overridden
  CONST "needs field" false
  CONST "pm" true
 ref; // ME_49E2F6CE0055_ME_4A4C8EC4019F LinkedPoint
@@ -1920,6 +1992,7 @@ ref; // ME_49E2F6CE0055_ME_4A4C8EC4019F LinkedPoint
  ;
  : Implementor ME_4A4C8EC4019F // TevDocumentCursor
  ;
+ CONST OpKind opkind_Overridden
  CONST "needs field" false
  CONST "pm" true
 ref; // ME_49E3136001F0_ME_4A4C8EC4019F Listener
@@ -1931,6 +2004,7 @@ ref; // ME_49E3136001F0_ME_4A4C8EC4019F Listener
  ;
  : Implementor ME_4A4C8EC4019F // TevDocumentCursor
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_49E31657038E_ME_4A4C8EC4019F DoMovePrim
 
 : ME_4A38AA5C019F_ME_4A4C8EC4019F
@@ -1940,6 +2014,7 @@ ref; // ME_49E31657038E_ME_4A4C8EC4019F DoMovePrim
  ;
  : Implementor ME_4A4C8EC4019F // TevDocumentCursor
  ;
+ CONST OpKind opkind_Overridden
  CONST "ifdef" 'evNeedMarkers'
 ref; // ME_4A38AA5C019F_ME_4A4C8EC4019F DoGetMarkers
 
@@ -1950,6 +2025,7 @@ ref; // ME_4A38AA5C019F_ME_4A4C8EC4019F DoGetMarkers
  ;
  : Implementor ME_4A4C8EC4019F // TevDocumentCursor
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4A4C86B202B2_ME_4A4C8EC4019F DoDisableListener
 
 : ME_4A4C86C103BF_ME_4A4C8EC4019F
@@ -1959,6 +2035,7 @@ ref; // ME_4A4C86B202B2_ME_4A4C8EC4019F DoDisableListener
  ;
  : Implementor ME_4A4C8EC4019F // TevDocumentCursor
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4A4C86C103BF_ME_4A4C8EC4019F DoEnableListener
 
 : ME_4A60B23E00C3_ME_4A4C8EC4019F
@@ -1968,6 +2045,7 @@ ref; // ME_4A4C86C103BF_ME_4A4C8EC4019F DoEnableListener
  ;
  : Implementor ME_4A4C8EC4019F // TevDocumentCursor
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4A60B23E00C3_ME_4A4C8EC4019F COMQueryInterface
 
 : ME_4FFC353A03C4_ME_4A4C8EC4019F
@@ -1977,6 +2055,7 @@ ref; // ME_4A60B23E00C3_ME_4A4C8EC4019F COMQueryInterface
  ;
  : Implementor ME_4A4C8EC4019F // TevDocumentCursor
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4FFC353A03C4_ME_4A4C8EC4019F CheckFirst
 
 : ME_4A4C8EC4019F
@@ -1990,29 +2069,29 @@ ref; // ME_4FFC353A03C4_ME_4A4C8EC4019F CheckFirst
  : Parent ME_4A3A233900C9 // ParaList Cursors
  ;
  : Inherits
-   @ ( ME_4A3A444900B3 // TevParaListCursor
- ) .SequenceCode.It
+   Seq: ( ME_4A3A444900B3 // TevParaListCursor
+ )
  ; // Inherits
  : Implements
-   @ ( WL 'ME_47FCC5960296' '47C5207602D1.pas.ms.script' // InevLinkedPoint
- ) .SequenceCode.It
+   Seq: ( WL 'ME_47FCC5960296' '47C5207602D1.pas.ms.script' // InevLinkedPoint
+ )
  ; // Implements
  : Attributes
-   @ ( ME_4A4C8EFE02D7 // f_Listener
+   Seq: ( ME_4A4C8EFE02D7 // f_Listener
  ME_4A4C8F0B01BC // f_ListenerDisabled
- ) .SequenceCode.It
+ )
  ; // Attributes
  : Operations
-   @ ( ME_4BFFD9C80181 // CanInsertParaOnMove
- ) .SequenceCode.It
+   Seq: ( ME_4BFFD9C80181 // CanInsertParaOnMove
+ )
  ; // Operations
  : Implemented
-   @ ( ME_47FCCB6E018E_ME_4A4C8EC4019F // LinkListener
+   Seq: ( ME_47FCCB6E018E_ME_4A4C8EC4019F // LinkListener
  ME_47FCCB7902AA_ME_4A4C8EC4019F // UnlinkListener
- ) .SequenceCode.It
+ )
  ; // Implemented
  : Overridden
-   @ ( ME_479731C50290_ME_4A4C8EC4019F // Cleanup
+   Seq: ( ME_479731C50290_ME_4A4C8EC4019F // Cleanup
  ME_49E2F6CE0055_ME_4A4C8EC4019F // LinkedPoint
  ME_49E3136001F0_ME_4A4C8EC4019F // Listener
  ME_49E31657038E_ME_4A4C8EC4019F // DoMovePrim
@@ -2021,10 +2100,10 @@ ref; // ME_4FFC353A03C4_ME_4A4C8EC4019F CheckFirst
  ME_4A4C86C103BF_ME_4A4C8EC4019F // DoEnableListener
  ME_4A60B23E00C3_ME_4A4C8EC4019F // COMQueryInterface
  ME_4FFC353A03C4_ME_4A4C8EC4019F // CheckFirst
- ) .SequenceCode.It
+ )
  ; // Overridden
  : Dependencies
-   @ ( ME_4A4C8FA2038D // 
+   Seq: ( ME_4A4C8FA2038D // 
  ME_4A4C8FCA0156 // 
  ME_4A4C8FE90262 // 
  ME_4A4C900202CE // 
@@ -2036,7 +2115,7 @@ ref; // ME_4FFC353A03C4_ME_4A4C8EC4019F CheckFirst
  ME_4A8C0684013E // 
  ME_4FFC3B4C0309 // 
  ME_53D26D44000D // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  CONST "author" 'Ëþëèí À.Â.'
  CONST "needs InstanceR" 'undefined'
@@ -2044,12 +2123,14 @@ ref; // ME_4FFC353A03C4_ME_4A4C8EC4019F CheckFirst
  CONST "no hands" true
  CONST "register in scripts" 'undefined'
  CONST "started" '16.12.2002 16:33'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest'
  CONST intf.pas:Path 'common\components\gui\Garant\Everest\evDocumentCursor.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'DocumentCursor'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'evDocumentCursor'
 
 ref; // ME_4A4C8EC4019F TevDocumentCursor
 
@@ -2082,6 +2163,7 @@ ref; // ME_4ED329E50036
  ;
  : Implementor ME_4A4C8FD901F5 // TevDocumentRightMarginMarker
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4ECF8E2C007D_ME_4A4C8FD901F5 DoGetValue
 
 : ME_4ED31DEA0077_ME_4A4C8FD901F5
@@ -2091,6 +2173,7 @@ ref; // ME_4ECF8E2C007D_ME_4A4C8FD901F5 DoGetValue
  ;
  : Implementor ME_4A4C8FD901F5 // TevDocumentRightMarginMarker
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4ED31DEA0077_ME_4A4C8FD901F5 DoSetValue
 
 : ME_4A4C8FD901F5
@@ -2104,23 +2187,29 @@ ref; // ME_4ED31DEA0077_ME_4A4C8FD901F5 DoSetValue
  : Parent ME_4A4C8FC00259 // evDocumentMarkers
  ;
  : Inherits
-   @ ( WL 'ME_4A38AB2A00E2' '47E3DF460095.pas.ms.script' // TevMarker
- ) .SequenceCode.It
+   Seq: ( WL 'ME_4A38AB2A00E2' '47E3DF460095.pas.ms.script' // TevMarker
+ )
  ; // Inherits
  : Overridden
-   @ ( ME_4ECF8E2C007D_ME_4A4C8FD901F5 // DoGetValue
+   Seq: ( ME_4ECF8E2C007D_ME_4A4C8FD901F5 // DoGetValue
  ME_4ED31DEA0077_ME_4A4C8FD901F5 // DoSetValue
- ) .SequenceCode.It
+ )
  ; // Overridden
  : Dependencies
-   @ ( ME_4ED329AA02D6 // 
+   Seq: ( ME_4ED329AA02D6 // 
  ME_4ED329E50036 // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'DocumentRightMarginMarker'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_4A4C8FD901F5 TevDocumentRightMarginMarker
 
@@ -2135,16 +2224,16 @@ ref; // ME_4A4C8FD901F5 TevDocumentRightMarginMarker
  : Parent ME_4A3A233900C9 // ParaList Cursors
  ;
  : Children
-   @ ( ME_4A4C8FD901F5 // TevDocumentRightMarginMarker
- ) .SequenceCode.It
+   Seq: ( ME_4A4C8FD901F5 // TevDocumentRightMarginMarker
+ )
  ; // Children
  CONST "no hands" false
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest'
  CONST intf.pas:Path 'common\components\gui\Garant\Everest\evDocumentMarkers.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'DocumentMarkers'
 
 ref; // ME_4A4C8FC00259 evDocumentMarkers
 
@@ -2169,6 +2258,7 @@ ref; // ME_53D0D8FE00E7
  ;
  : Implementor ME_4BFFD963014E // TevQueryCardCursor
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4BFFD9C80181_ME_4BFFD963014E CanInsertParaOnMove
 
 : ME_4BFFD963014E
@@ -2182,16 +2272,16 @@ ref; // ME_4BFFD9C80181_ME_4BFFD963014E CanInsertParaOnMove
  : Parent ME_4A3A233900C9 // ParaList Cursors
  ;
  : Inherits
-   @ ( ME_4A4C8EC4019F // TevDocumentCursor
- ) .SequenceCode.It
+   Seq: ( ME_4A4C8EC4019F // TevDocumentCursor
+ )
  ; // Inherits
  : Overridden
-   @ ( ME_4BFFD9C80181_ME_4BFFD963014E // CanInsertParaOnMove
- ) .SequenceCode.It
+   Seq: ( ME_4BFFD9C80181_ME_4BFFD963014E // CanInsertParaOnMove
+ )
  ; // Overridden
  : Dependencies
-   @ ( ME_53D0D8FE00E7 // 
- ) .SequenceCode.It
+   Seq: ( ME_53D0D8FE00E7 // 
+ )
  ; // Dependencies
  CONST "author" 'Ëþëèí À.Â.'
  CONST "needs InstanceR" 'undefined'
@@ -2199,12 +2289,14 @@ ref; // ME_4BFFD9C80181_ME_4BFFD963014E CanInsertParaOnMove
  CONST "no hands" true
  CONST "register in scripts" 'undefined'
  CONST "started" '2008/04/14 13:46:35'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest'
  CONST intf.pas:Path 'common\components\gui\Garant\Everest\evQueryCardCursor.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'QueryCardCursor'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'evQueryCardCursor'
 
 ref; // ME_4BFFD963014E TevQueryCardCursor
 
@@ -2247,12 +2339,12 @@ ref; // ME_4ED4C71901E8
  : Parent ME_4ED4C5640359 // TevTableRowCursor
  ;
  : Operations
-   @ ( ME_4ED4C6CE0301 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_4ED4C6CE0301 // DoIt
+ )
  ; // Operations
  : Dependencies
-   @ ( ME_4ED4C71901E8 // 
- ) .SequenceCode.It
+   Seq: ( ME_4ED4C71901E8 // 
+ )
  ; // Dependencies
 
 ref; // ME_4ED4C5C40177 GetColumnMarkerClass
@@ -2331,6 +2423,7 @@ ref; // ME_53D67560029F
  ;
  : Implementor ME_4ED4C5640359 // TevTableRowCursor
  ;
+ CONST OpKind opkind_Overridden
  CONST "ifdef" 'evNeedMarkers'
 ref; // ME_4A38AA5C019F_ME_4ED4C5640359 DoGetMarkers
 
@@ -2341,6 +2434,7 @@ ref; // ME_4A38AA5C019F_ME_4ED4C5640359 DoGetMarkers
  ;
  : Implementor ME_4ED4C5640359 // TevTableRowCursor
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4AA785540310_ME_4ED4C5640359 DoDiff
 
 : ME_4BBB10FB015B_ME_4ED4C5640359
@@ -2350,6 +2444,7 @@ ref; // ME_4AA785540310_ME_4ED4C5640359 DoDiff
  ;
  : Implementor ME_4ED4C5640359 // TevTableRowCursor
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4BBB10FB015B_ME_4ED4C5640359 DoPartiallyVisible
 
 : ME_4ED4C5640359
@@ -2363,38 +2458,40 @@ ref; // ME_4BBB10FB015B_ME_4ED4C5640359 DoPartiallyVisible
  : Parent ME_4A3A233900C9 // ParaList Cursors
  ;
  : Inherits
-   @ ( ME_4A3A444900B3 // TevParaListCursor
- ) .SequenceCode.It
+   Seq: ( ME_4A3A444900B3 // TevParaListCursor
+ )
  ; // Inherits
  : Operations
-   @ ( ME_4ED4C5C40177 // GetColumnMarkerClass
- ) .SequenceCode.It
+   Seq: ( ME_4ED4C5C40177 // GetColumnMarkerClass
+ )
  ; // Operations
  : Overridden
-   @ ( ME_4A38AA5C019F_ME_4ED4C5640359 // DoGetMarkers
+   Seq: ( ME_4A38AA5C019F_ME_4ED4C5640359 // DoGetMarkers
  ME_4AA785540310_ME_4ED4C5640359 // DoDiff
  ME_4BBB10FB015B_ME_4ED4C5640359 // DoPartiallyVisible
- ) .SequenceCode.It
+ )
  ; // Overridden
  : Dependencies
-   @ ( ME_4ED4CD670341 // 
+   Seq: ( ME_4ED4CD670341 // 
  ME_4ED4CE44005D // 
  ME_4ED4CEA003D8 // 
  ME_4ED4CEB00301 // 
  ME_5346A440034B // 
  ME_53D67560029F // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest'
  CONST intf.pas:Path 'common\components\gui\Garant\Everest\evTableRowCursor.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'TableRowCursor'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'evTableRowCursor'
 
 ref; // ME_4ED4C5640359 TevTableRowCursor
 
@@ -2430,6 +2527,7 @@ ref; // ME_53D0FC460257
  ;
  : Implementor ME_4ED4C58100B1 // TevSBSRowCursor
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4ED4C5C40177_ME_4ED4C58100B1 GetColumnMarkerClass
 
 : ME_4ED4C58100B1
@@ -2443,28 +2541,30 @@ ref; // ME_4ED4C5C40177_ME_4ED4C58100B1 GetColumnMarkerClass
  : Parent ME_4A3A233900C9 // ParaList Cursors
  ;
  : Inherits
-   @ ( ME_4ED4C5640359 // TevTableRowCursor
- ) .SequenceCode.It
+   Seq: ( ME_4ED4C5640359 // TevTableRowCursor
+ )
  ; // Inherits
  : Overridden
-   @ ( ME_4ED4C5C40177_ME_4ED4C58100B1 // GetColumnMarkerClass
- ) .SequenceCode.It
+   Seq: ( ME_4ED4C5C40177_ME_4ED4C58100B1 // GetColumnMarkerClass
+ )
  ; // Overridden
  : Dependencies
-   @ ( ME_4ED4C73900F4 // 
+   Seq: ( ME_4ED4C73900F4 // 
  ME_53D0FC460257 // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest'
  CONST intf.pas:Path 'common\components\gui\Garant\Everest\evSBSRowCursor.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'SBSRowCursor'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'evSBSRowCursor'
 
 ref; // ME_4ED4C58100B1 TevSBSRowCursor
 
@@ -2587,6 +2687,7 @@ ref; // ME_5346A47502F3
  ;
  : Implementor ME_4EF9B83D010D // TevTableCursorPrim
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_4A26260A00E6_ME_4EF9B83D010D ChangeParam
 
 : ME_4A29465701BC_ME_4EF9B83D010D
@@ -2596,6 +2697,7 @@ ref; // ME_4A26260A00E6_ME_4EF9B83D010D ChangeParam
  ;
  : Implementor ME_4EF9B83D010D // TevTableCursorPrim
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4A29465701BC_ME_4EF9B83D010D DoChangeParam
 
 : ME_4A38AA5C019F_ME_4EF9B83D010D
@@ -2605,6 +2707,7 @@ ref; // ME_4A29465701BC_ME_4EF9B83D010D DoChangeParam
  ;
  : Implementor ME_4EF9B83D010D // TevTableCursorPrim
  ;
+ CONST OpKind opkind_Overridden
  CONST "ifdef" 'evNeedMarkers'
 ref; // ME_4A38AA5C019F_ME_4EF9B83D010D DoGetMarkers
 
@@ -2615,6 +2718,7 @@ ref; // ME_4A38AA5C019F_ME_4EF9B83D010D DoGetMarkers
  ;
  : Implementor ME_4EF9B83D010D // TevTableCursorPrim
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4A60B23E00C3_ME_4EF9B83D010D COMQueryInterface
 
 : ME_4EF9B83D010D
@@ -2628,25 +2732,25 @@ ref; // ME_4A60B23E00C3_ME_4EF9B83D010D COMQueryInterface
  : Parent ME_4A3A233900C9 // ParaList Cursors
  ;
  : Inherits
-   @ ( ME_4A3A444900B3 // TevParaListCursor
- ) .SequenceCode.It
+   Seq: ( ME_4A3A444900B3 // TevParaListCursor
+ )
  ; // Inherits
  : Implements
-   @ ( WL 'ME_4A2625FB03C2' '47F088300159.pas.ms.script' // IevChangeParamTool
- ) .SequenceCode.It
+   Seq: ( WL 'ME_4A2625FB03C2' '47F088300159.pas.ms.script' // IevChangeParamTool
+ )
  ; // Implements
  : Implemented
-   @ ( ME_4A26260A00E6_ME_4EF9B83D010D // ChangeParam
- ) .SequenceCode.It
+   Seq: ( ME_4A26260A00E6_ME_4EF9B83D010D // ChangeParam
+ )
  ; // Implemented
  : Overridden
-   @ ( ME_4A29465701BC_ME_4EF9B83D010D // DoChangeParam
+   Seq: ( ME_4A29465701BC_ME_4EF9B83D010D // DoChangeParam
  ME_4A38AA5C019F_ME_4EF9B83D010D // DoGetMarkers
  ME_4A60B23E00C3_ME_4EF9B83D010D // COMQueryInterface
- ) .SequenceCode.It
+ )
  ; // Overridden
  : Dependencies
-   @ ( ME_50DAB8630178 // 
+   Seq: ( ME_50DAB8630178 // 
  ME_50DAB8D1011E // 
  ME_50DAB97F0128 // 
  ME_50DABB3E0080 // 
@@ -2656,18 +2760,20 @@ ref; // ME_4A60B23E00C3_ME_4EF9B83D010D COMQueryInterface
  ME_50DABE0E02E2 // 
  ME_52BD3436001F // 
  ME_5346A47502F3 // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest'
  CONST intf.pas:Path 'common\components\gui\Garant\Everest\evTableCursorPrim.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'TableCursorPrim'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'evTableCursorPrim'
 
 ref; // ME_4EF9B83D010D TevTableCursorPrim
 
@@ -2766,9 +2872,9 @@ ref; // ME_4F50B33C00C7 aStart
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
  : Parameters
-   @ ( ME_4F50B33C00A9 // aView
+   Seq: ( ME_4F50B33C00A9 // aView
  ME_4F50B33C00C7 // aStart
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_4F50B3230081 DoIt
@@ -2785,8 +2891,8 @@ ref; // ME_4F50B3230081 DoIt
  : Parent ME_4EF9B84C0137 // TevTableCursor
  ;
  : Operations
-   @ ( ME_4F50B3230081 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_4F50B3230081 // DoIt
+ )
  ; // Operations
 
 ref; // ME_4F50B310020B CorrectPosition
@@ -2854,6 +2960,7 @@ ref; // ME_53D26CE400D5
  ;
  : Implementor ME_4EF9B84C0137 // TevTableCursor
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_479731C50290_ME_4EF9B84C0137 Cleanup
 
 : ME_47A042E100E2_ME_4EF9B84C0137
@@ -2863,6 +2970,7 @@ ref; // ME_479731C50290_ME_4EF9B84C0137 Cleanup
  ;
  : Implementor ME_4EF9B84C0137 // TevTableCursor
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_47A042E100E2_ME_4EF9B84C0137 InitFields
 
 : ME_49E31657038E_ME_4EF9B84C0137
@@ -2872,6 +2980,7 @@ ref; // ME_47A042E100E2_ME_4EF9B84C0137 InitFields
  ;
  : Implementor ME_4EF9B84C0137 // TevTableCursor
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_49E31657038E_ME_4EF9B84C0137 DoMovePrim
 
 : ME_4BE284D00262_ME_4EF9B84C0137
@@ -2881,6 +2990,7 @@ ref; // ME_49E31657038E_ME_4EF9B84C0137 DoMovePrim
  ;
  : Implementor ME_4EF9B84C0137 // TevTableCursor
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4BE284D00262_ME_4EF9B84C0137 DoAssignPointInt
 
 : ME_4C495DAA024B_ME_4EF9B84C0137
@@ -2890,6 +3000,7 @@ ref; // ME_4BE284D00262_ME_4EF9B84C0137 DoAssignPointInt
  ;
  : Implementor ME_4EF9B84C0137 // TevTableCursor
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4C495DAA024B_ME_4EF9B84C0137 CanRedraw
 
 : ME_4F50B34C0260_ME_4EF9B84C0137
@@ -2899,6 +3010,7 @@ ref; // ME_4C495DAA024B_ME_4EF9B84C0137 CanRedraw
  ;
  : Implementor ME_4EF9B84C0137 // TevTableCursor
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4F50B34C0260_ME_4EF9B84C0137 NeedGotoHidden
 
 : ME_4FFC353A03C4_ME_4EF9B84C0137
@@ -2908,6 +3020,7 @@ ref; // ME_4F50B34C0260_ME_4EF9B84C0137 NeedGotoHidden
  ;
  : Implementor ME_4EF9B84C0137 // TevTableCursor
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4FFC353A03C4_ME_4EF9B84C0137 CheckFirst
 
 : ME_50DAB0190074_ME_4EF9B84C0137
@@ -2917,6 +3030,7 @@ ref; // ME_4FFC353A03C4_ME_4EF9B84C0137 CheckFirst
  ;
  : Implementor ME_4EF9B84C0137 // TevTableCursor
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_50DAB0190074_ME_4EF9B84C0137 DoCorrectMoveRight
 
 : ME_4EF9B84C0137
@@ -2931,22 +3045,22 @@ ref; // ME_50DAB0190074_ME_4EF9B84C0137 DoCorrectMoveRight
  : Parent ME_4A3A233900C9 // ParaList Cursors
  ;
  : Inherits
-   @ ( ME_4EF9B83D010D // TevTableCursorPrim
- ) .SequenceCode.It
+   Seq: ( ME_4EF9B83D010D // TevTableCursorPrim
+ )
  ; // Inherits
  : Attributes
-   @ ( ME_4F50B2DD0177 // f_Offset
+   Seq: ( ME_4F50B2DD0177 // f_Offset
  ME_4F50B2F4038E // f_Width
  ME_50DAC5F702C6 // f_InnerPID
  ME_5110C21F01AD // f_IgnoreSetX
- ) .SequenceCode.It
+ )
  ; // Attributes
  : Operations
-   @ ( ME_4F50B310020B // CorrectPosition
- ) .SequenceCode.It
+   Seq: ( ME_4F50B310020B // CorrectPosition
+ )
  ; // Operations
  : Overridden
-   @ ( ME_479731C50290_ME_4EF9B84C0137 // Cleanup
+   Seq: ( ME_479731C50290_ME_4EF9B84C0137 // Cleanup
  ME_47A042E100E2_ME_4EF9B84C0137 // InitFields
  ME_49E31657038E_ME_4EF9B84C0137 // DoMovePrim
  ME_4BE284D00262_ME_4EF9B84C0137 // DoAssignPointInt
@@ -2954,26 +3068,28 @@ ref; // ME_50DAB0190074_ME_4EF9B84C0137 DoCorrectMoveRight
  ME_4F50B34C0260_ME_4EF9B84C0137 // NeedGotoHidden
  ME_4FFC353A03C4_ME_4EF9B84C0137 // CheckFirst
  ME_50DAB0190074_ME_4EF9B84C0137 // DoCorrectMoveRight
- ) .SequenceCode.It
+ )
  ; // Overridden
  : Dependencies
-   @ ( ME_4F50B62D01A1 // 
+   Seq: ( ME_4F50B62D01A1 // 
  ME_4F50B64F001B // 
  ME_4F5C976A00B4 // 
  ME_52BD34220087 // 
  ME_53D26CE400D5 // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest'
  CONST intf.pas:Path 'common\components\gui\Garant\Everest\evTableCursor.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'TableCursor'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'evTableCursor'
 
 ref; // ME_4EF9B84C0137 TevTableCursor
 
@@ -3053,6 +3169,7 @@ ref; // ME_53D267570300
  ;
  : Implementor ME_50DACE1F0334 // TevTableCellCursor
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_49E31657038E_ME_50DACE1F0334 DoMovePrim
 
 : ME_4A38AA5C019F_ME_50DACE1F0334
@@ -3062,6 +3179,7 @@ ref; // ME_49E31657038E_ME_50DACE1F0334 DoMovePrim
  ;
  : Implementor ME_50DACE1F0334 // TevTableCellCursor
  ;
+ CONST OpKind opkind_Overridden
  CONST "ifdef" 'evNeedMarkers'
 ref; // ME_4A38AA5C019F_ME_50DACE1F0334 DoGetMarkers
 
@@ -3072,6 +3190,7 @@ ref; // ME_4A38AA5C019F_ME_50DACE1F0334 DoGetMarkers
  ;
  : Implementor ME_50DACE1F0334 // TevTableCellCursor
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4D5D161A030C_ME_50DACE1F0334 ChangePointByPara
 
 : ME_50DACE1F0334
@@ -3085,34 +3204,36 @@ ref; // ME_4D5D161A030C_ME_50DACE1F0334 ChangePointByPara
  : Parent ME_4A3A233900C9 // ParaList Cursors
  ;
  : Inherits
-   @ ( ME_4A3A444900B3 // TevParaListCursor
- ) .SequenceCode.It
+   Seq: ( ME_4A3A444900B3 // TevParaListCursor
+ )
  ; // Inherits
  : Overridden
-   @ ( ME_49E31657038E_ME_50DACE1F0334 // DoMovePrim
+   Seq: ( ME_49E31657038E_ME_50DACE1F0334 // DoMovePrim
  ME_4A38AA5C019F_ME_50DACE1F0334 // DoGetMarkers
  ME_4D5D161A030C_ME_50DACE1F0334 // ChangePointByPara
- ) .SequenceCode.It
+ )
  ; // Overridden
  : Dependencies
-   @ ( ME_50DAD01D01E7 // 
+   Seq: ( ME_50DAD01D01E7 // 
  ME_50DAD049018C // 
  ME_50DAD07900C7 // 
  ME_50DAD0D3019A // 
  ME_52BD344C03C7 // 
  ME_53D267570300 // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest'
  CONST intf.pas:Path 'common\components\gui\Garant\Everest\evTableCellCursor.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'TableCellCursor'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'evTableCellCursor'
 
 ref; // ME_50DACE1F0334 TevTableCellCursor
 
@@ -3199,11 +3320,11 @@ ref; // ME_5108D4BD013E cParaFinish
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
  : Parameters
-   @ ( ME_5108D4BD00F0 // aChildPara
+   Seq: ( ME_5108D4BD00F0 // aChildPara
  ME_5108D4BD0100 // aPID
  ME_5108D4BD011F // cParaStart
  ME_5108D4BD013E // cParaFinish
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_5108D48E0251 DoIt
@@ -3219,8 +3340,8 @@ ref; // ME_5108D48E0251 DoIt
  : Parent ME_4A2D2D6E027B // TevParaListCursorPair
  ;
  : Operations
-   @ ( ME_5108D48E0251 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_5108D48E0251 // DoIt
+ )
  ; // Operations
 
 ref; // ME_5108D4820232 GetParaBlockBordersPrim
@@ -3266,10 +3387,10 @@ ref; // ME_52D80D690065 theFinish
  : Parent ME_52D80D430151 // ArrangeFoundCursors
  ;
  : Parameters
-   @ ( ME_52D80D690032 // anIndex
+   Seq: ( ME_52D80D690032 // anIndex
  ME_52D80D69004B // theStart
  ME_52D80D690065 // theFinish
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_52D80D61001E DoIt
@@ -3285,8 +3406,8 @@ ref; // ME_52D80D61001E DoIt
  : Parent ME_4A2D2D6E027B // TevParaListCursorPair
  ;
  : Operations
-   @ ( ME_52D80D61001E // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_52D80D61001E // DoIt
+ )
  ; // Operations
 
 ref; // ME_52D80D430151 ArrangeFoundCursors
@@ -3585,6 +3706,7 @@ ref; // ME_53D77F9F02A4
  ;
  : Implementor ME_4A2D2D6E027B // TevParaListCursorPair
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_479731C50290_ME_4A2D2D6E027B Cleanup
 
 : ME_48CF96D80241_ME_4A2D2D6E027B
@@ -3594,6 +3716,7 @@ ref; // ME_479731C50290_ME_4A2D2D6E027B Cleanup
  ;
  : Implementor ME_4A2D2D6E027B // TevParaListCursorPair
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_48CF96D80241_ME_4A2D2D6E027B DoIterateChildrenF
 
 : ME_49E3662D028E_ME_4A2D2D6E027B
@@ -3603,6 +3726,7 @@ ref; // ME_48CF96D80241_ME_4A2D2D6E027B DoIterateChildrenF
  ;
  : Implementor ME_4A2D2D6E027B // TevParaListCursorPair
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_49E3662D028E_ME_4A2D2D6E027B DoGetBlockLength
 
 : ME_4A2945060101_ME_4A2D2D6E027B
@@ -3612,6 +3736,7 @@ ref; // ME_49E3662D028E_ME_4A2D2D6E027B DoGetBlockLength
  ;
  : Implementor ME_4A2D2D6E027B // TevParaListCursorPair
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4A2945060101_ME_4A2D2D6E027B DoGetStyle
 
 : ME_4A29465701BC_ME_4A2D2D6E027B
@@ -3621,6 +3746,7 @@ ref; // ME_4A2945060101_ME_4A2D2D6E027B DoGetStyle
  ;
  : Implementor ME_4A2D2D6E027B // TevParaListCursorPair
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4A29465701BC_ME_4A2D2D6E027B DoChangeParam
 
 : ME_4A29477801BF_ME_4A2D2D6E027B
@@ -3630,6 +3756,7 @@ ref; // ME_4A29465701BC_ME_4A2D2D6E027B DoChangeParam
  ;
  : Implementor ME_4A2D2D6E027B // TevParaListCursorPair
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4A29477801BF_ME_4A2D2D6E027B DoGetFont
 
 : ME_4A38F52201BA_ME_4A2D2D6E027B
@@ -3639,6 +3766,7 @@ ref; // ME_4A29477801BF_ME_4A2D2D6E027B DoGetFont
  ;
  : Implementor ME_4A2D2D6E027B // TevParaListCursorPair
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4A38F52201BA_ME_4A2D2D6E027B DoDeleteHyperlink
 
 : ME_4A38F69F0070_ME_4A2D2D6E027B
@@ -3648,6 +3776,7 @@ ref; // ME_4A38F52201BA_ME_4A2D2D6E027B DoDeleteHyperlink
  ;
  : Implementor ME_4A2D2D6E027B // TevParaListCursorPair
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4A38F69F0070_ME_4A2D2D6E027B DoAddIndentMarker
 
 : ME_4A38F6CB003C_ME_4A2D2D6E027B
@@ -3657,6 +3786,7 @@ ref; // ME_4A38F69F0070_ME_4A2D2D6E027B DoAddIndentMarker
  ;
  : Implementor ME_4A2D2D6E027B // TevParaListCursorPair
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4A38F6CB003C_ME_4A2D2D6E027B DoDeleteIndentMarker
 
 : ME_4A38F71601D6_ME_4A2D2D6E027B
@@ -3666,6 +3796,7 @@ ref; // ME_4A38F6CB003C_ME_4A2D2D6E027B DoDeleteIndentMarker
  ;
  : Implementor ME_4A2D2D6E027B // TevParaListCursorPair
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4A38F71601D6_ME_4A2D2D6E027B DoInsertString
 
 : ME_4A38F7A40373_ME_4A2D2D6E027B
@@ -3675,6 +3806,7 @@ ref; // ME_4A38F71601D6_ME_4A2D2D6E027B DoInsertString
  ;
  : Implementor ME_4A2D2D6E027B // TevParaListCursorPair
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4A38F7A40373_ME_4A2D2D6E027B DoSetAtom
 
 : ME_4A3A8F8800AD_ME_4A2D2D6E027B
@@ -3684,6 +3816,7 @@ ref; // ME_4A38F7A40373_ME_4A2D2D6E027B DoSetAtom
  ;
  : Implementor ME_4A2D2D6E027B // TevParaListCursorPair
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4A3A8F8800AD_ME_4A2D2D6E027B DoDeleteSegments
 
 : ME_4A60B23E00C3_ME_4A2D2D6E027B
@@ -3693,6 +3826,7 @@ ref; // ME_4A3A8F8800AD_ME_4A2D2D6E027B DoDeleteSegments
  ;
  : Implementor ME_4A2D2D6E027B // TevParaListCursorPair
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4A60B23E00C3_ME_4A2D2D6E027B COMQueryInterface
 
 : ME_5108D53B0312_ME_4A2D2D6E027B
@@ -3702,6 +3836,7 @@ ref; // ME_4A60B23E00C3_ME_4A2D2D6E027B COMQueryInterface
  ;
  : Implementor ME_4A2D2D6E027B // TevParaListCursorPair
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_5108D53B0312_ME_4A2D2D6E027B DoInit
 
 : ME_5108D5CB0048_ME_4A2D2D6E027B
@@ -3711,6 +3846,7 @@ ref; // ME_5108D53B0312_ME_4A2D2D6E027B DoInit
  ;
  : Implementor ME_4A2D2D6E027B // TevParaListCursorPair
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_5108D5CB0048_ME_4A2D2D6E027B DoStore
 
 : ME_5108D66900C9_ME_4A2D2D6E027B
@@ -3720,6 +3856,7 @@ ref; // ME_5108D5CB0048_ME_4A2D2D6E027B DoStore
  ;
  : Implementor ME_4A2D2D6E027B // TevParaListCursorPair
  ;
+ CONST OpKind opkind_Overridden
  CONST "ifdef" 'evNeedEditableCursors'
 ref; // ME_5108D66900C9_ME_4A2D2D6E027B DoDelete
 
@@ -3730,6 +3867,7 @@ ref; // ME_5108D66900C9_ME_4A2D2D6E027B DoDelete
  ;
  : Implementor ME_4A2D2D6E027B // TevParaListCursorPair
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_52D79DFC0347_ME_4A2D2D6E027B DoGetChildSel
 
 : ME_52D79F3B0081_ME_4A2D2D6E027B
@@ -3739,6 +3877,7 @@ ref; // ME_52D79DFC0347_ME_4A2D2D6E027B DoGetChildSel
  ;
  : Implementor ME_4A2D2D6E027B // TevParaListCursorPair
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_52D79F3B0081_ME_4A2D2D6E027B SearchPrim
 
 : ME_52D79F9400EB_ME_4A2D2D6E027B
@@ -3748,6 +3887,7 @@ ref; // ME_52D79F3B0081_ME_4A2D2D6E027B SearchPrim
  ;
  : Implementor ME_4A2D2D6E027B // TevParaListCursorPair
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_52D79F9400EB_ME_4A2D2D6E027B IsSolid
 
 : ME_52D79FB703C9_ME_4A2D2D6E027B
@@ -3757,6 +3897,7 @@ ref; // ME_52D79F9400EB_ME_4A2D2D6E027B IsSolid
  ;
  : Implementor ME_4A2D2D6E027B // TevParaListCursorPair
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_52D79FB703C9_ME_4A2D2D6E027B IsCollapsed
 
 : ME_52D7A3F100E0_ME_4A2D2D6E027B
@@ -3766,6 +3907,7 @@ ref; // ME_52D79FB703C9_ME_4A2D2D6E027B IsCollapsed
  ;
  : Implementor ME_4A2D2D6E027B // TevParaListCursorPair
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_52D7A3F100E0_ME_4A2D2D6E027B DoBottomChildBlock
 
 : ME_52D7FCD700CF_ME_4A2D2D6E027B
@@ -3775,6 +3917,7 @@ ref; // ME_52D7A3F100E0_ME_4A2D2D6E027B DoBottomChildBlock
  ;
  : Implementor ME_4A2D2D6E027B // TevParaListCursorPair
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_52D7FCD700CF_ME_4A2D2D6E027B GetBlockBorders
 
 : ME_4A2D2D6E027B
@@ -3789,25 +3932,25 @@ ref; // ME_52D7FCD700CF_ME_4A2D2D6E027B GetBlockBorders
  : Parent ME_4A3A233900C9 // ParaList Cursors
  ;
  : Inherits
-   @ ( WL 'ME_4A2D2D5D0114' '47E3DF460095.pas.ms.script' // TevCursorPair
- ) .SequenceCode.It
+   Seq: ( WL 'ME_4A2D2D5D0114' '47E3DF460095.pas.ms.script' // TevCursorPair
+ )
  ; // Inherits
  : Implements
-   @ ( WL 'ME_480F4E9301DE' '47C52679006D.pas.ms.script' // nevParaListTool
- ) .SequenceCode.It
+   Seq: ( WL 'ME_480F4E9301DE' '47C52679006D.pas.ms.script' // nevParaListTool
+ )
  ; // Implements
  : Attributes
-   @ ( ME_52D80D1A0334 // f_ChildStart
+   Seq: ( ME_52D80D1A0334 // f_ChildStart
  ME_52D80D240252 // f_ChildFinish
- ) .SequenceCode.It
+ )
  ; // Attributes
  : Operations
-   @ ( ME_5108D4820232 // GetParaBlockBordersPrim
+   Seq: ( ME_5108D4820232 // GetParaBlockBordersPrim
  ME_52D80D430151 // ArrangeFoundCursors
- ) .SequenceCode.It
+ )
  ; // Operations
  : Overridden
-   @ ( ME_479731C50290_ME_4A2D2D6E027B // Cleanup
+   Seq: ( ME_479731C50290_ME_4A2D2D6E027B // Cleanup
  ME_48CF96D80241_ME_4A2D2D6E027B // DoIterateChildrenF
  ME_49E3662D028E_ME_4A2D2D6E027B // DoGetBlockLength
  ME_4A2945060101_ME_4A2D2D6E027B // DoGetStyle
@@ -3829,10 +3972,10 @@ ref; // ME_52D7FCD700CF_ME_4A2D2D6E027B GetBlockBorders
  ME_52D79FB703C9_ME_4A2D2D6E027B // IsCollapsed
  ME_52D7A3F100E0_ME_4A2D2D6E027B // DoBottomChildBlock
  ME_52D7FCD700CF_ME_4A2D2D6E027B // GetBlockBorders
- ) .SequenceCode.It
+ )
  ; // Overridden
  : Dependencies
-   @ ( ME_52D820C40349 // 
+   Seq: ( ME_52D820C40349 // 
  ME_52D820C702F6 // 
  ME_52D820ED0045 // 
  ME_52D820EF030A // 
@@ -3858,18 +4001,20 @@ ref; // ME_52D7FCD700CF_ME_4A2D2D6E027B GetBlockBorders
  ME_52D8233A02B9 // 
  ME_52D9376E039F // 
  ME_53D77F9F02A4 // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest'
  CONST intf.pas:Path 'common\components\gui\Garant\Everest\evParaListCursorPair.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'ParaListCursorPair'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'evParaListCursorPair'
 
 ref; // ME_4A2D2D6E027B TevParaListCursorPair
 
@@ -3966,12 +4111,12 @@ ref; // ME_5108DA7D0220 theBlock
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
  : Parameters
-   @ ( ME_537E0A0F0371 // aView
+   Seq: ( ME_537E0A0F0371 // aView
  ME_5346A4C9021B // aRow
  ME_5108DA7D01F2 // aStartOffset
  ME_5108DA7D0201 // aFinishOffset
  ME_5108DA7D0220 // theBlock
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_5108DA3C0052 DoIt
@@ -3988,8 +4133,8 @@ ref; // ME_5108DA3C0052 DoIt
  : Parent ME_5108D3850245 // TevTableCursorPair
  ;
  : Operations
-   @ ( ME_5108DA3C0052 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_5108DA3C0052 // DoIt
+ )
  ; // Operations
 
 ref; // ME_5108DA2B030A GetRowBlock
@@ -4156,6 +4301,7 @@ ref; // ME_53D26D090145
  ;
  : Implementor ME_5108D3850245 // TevTableCursorPair
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_47C7DB5401D7_ME_5108D3850245 GetRangeOffsets
 
 : ME_47C7DB7403D1_ME_5108D3850245
@@ -4165,6 +4311,7 @@ ref; // ME_47C7DB5401D7_ME_5108D3850245 GetRangeOffsets
  ;
  : Implementor ME_5108D3850245 // TevTableCursorPair
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_47C7DB7403D1_ME_5108D3850245 GetRangeBorders
 
 : ME_47C7DBA00306_ME_5108D3850245
@@ -4174,6 +4321,7 @@ ref; // ME_47C7DB7403D1_ME_5108D3850245 GetRangeBorders
  ;
  : Implementor ME_5108D3850245 // TevTableCursorPair
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_47C7DBA00306_ME_5108D3850245 Offset2Cells
 
 : ME_4A29465701BC_ME_5108D3850245
@@ -4183,6 +4331,7 @@ ref; // ME_47C7DBA00306_ME_5108D3850245 Offset2Cells
  ;
  : Implementor ME_5108D3850245 // TevTableCursorPair
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4A29465701BC_ME_5108D3850245 DoChangeParam
 
 : ME_5108D4820232_ME_5108D3850245
@@ -4192,6 +4341,7 @@ ref; // ME_4A29465701BC_ME_5108D3850245 DoChangeParam
  ;
  : Implementor ME_5108D3850245 // TevTableCursorPair
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_5108D4820232_ME_5108D3850245 GetParaBlockBordersPrim
 
 : ME_5108D53B0312_ME_5108D3850245
@@ -4201,6 +4351,7 @@ ref; // ME_5108D4820232_ME_5108D3850245 GetParaBlockBordersPrim
  ;
  : Implementor ME_5108D3850245 // TevTableCursorPair
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_5108D53B0312_ME_5108D3850245 DoInit
 
 : ME_5108D5CB0048_ME_5108D3850245
@@ -4210,6 +4361,7 @@ ref; // ME_5108D53B0312_ME_5108D3850245 DoInit
  ;
  : Implementor ME_5108D3850245 // TevTableCursorPair
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_5108D5CB0048_ME_5108D3850245 DoStore
 
 : ME_5108D66900C9_ME_5108D3850245
@@ -4219,6 +4371,7 @@ ref; // ME_5108D5CB0048_ME_5108D3850245 DoStore
  ;
  : Implementor ME_5108D3850245 // TevTableCursorPair
  ;
+ CONST OpKind opkind_Overridden
  CONST "ifdef" 'evNeedEditableCursors'
 ref; // ME_5108D66900C9_ME_5108D3850245 DoDelete
 
@@ -4229,6 +4382,7 @@ ref; // ME_5108D66900C9_ME_5108D3850245 DoDelete
  ;
  : Implementor ME_5108D3850245 // TevTableCursorPair
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_52D50EFA0317_ME_5108D3850245 GetStartOffset
 
 : ME_5108D3850245
@@ -4243,41 +4397,41 @@ ref; // ME_52D50EFA0317_ME_5108D3850245 GetStartOffset
  : Parent ME_4A3A233900C9 // ParaList Cursors
  ;
  : Inherits
-   @ ( ME_4A2D2D6E027B // TevParaListCursorPair
+   Seq: ( ME_4A2D2D6E027B // TevParaListCursorPair
  WL 'ME_5108E8A403B9' '47F1F38601A3.pas.ms.script' // DeletingRowCorrector
- ) .SequenceCode.It
+ )
  ; // Inherits
  : Implements
-   @ ( WL 'ME_47C7DB3E03C1' '47C5207602D1.pas.ms.script' // IevTableRange
+   Seq: ( WL 'ME_47C7DB3E03C1' '47C5207602D1.pas.ms.script' // IevTableRange
  WL 'ME_52B3FBE60105' '47F1F38601A3.pas.ms.script' // CheckWidthInDeletingColumn
- ) .SequenceCode.It
+ )
  ; // Implements
  : Attributes
-   @ ( ME_5108D8250188 // f_StartOffset
+   Seq: ( ME_5108D8250188 // f_StartOffset
  ME_5108D8370085 // f_FinishOffset
- ) .SequenceCode.It
+ )
  ; // Attributes
  : Operations
-   @ ( ME_5108DA2B030A // GetRowBlock
- ) .SequenceCode.It
+   Seq: ( ME_5108DA2B030A // GetRowBlock
+ )
  ; // Operations
  : Implemented
-   @ ( ME_47C7DB5401D7_ME_5108D3850245 // GetRangeOffsets
+   Seq: ( ME_47C7DB5401D7_ME_5108D3850245 // GetRangeOffsets
  ME_47C7DB7403D1_ME_5108D3850245 // GetRangeBorders
  ME_47C7DBA00306_ME_5108D3850245 // Offset2Cells
- ) .SequenceCode.It
+ )
  ; // Implemented
  : Overridden
-   @ ( ME_4A29465701BC_ME_5108D3850245 // DoChangeParam
+   Seq: ( ME_4A29465701BC_ME_5108D3850245 // DoChangeParam
  ME_5108D4820232_ME_5108D3850245 // GetParaBlockBordersPrim
  ME_5108D53B0312_ME_5108D3850245 // DoInit
  ME_5108D5CB0048_ME_5108D3850245 // DoStore
  ME_5108D66900C9_ME_5108D3850245 // DoDelete
  ME_52D50EFA0317_ME_5108D3850245 // GetStartOffset
- ) .SequenceCode.It
+ )
  ; // Overridden
  : Dependencies
-   @ ( ME_5108DD73018F // 
+   Seq: ( ME_5108DD73018F // 
  ME_5108DDA2012B // 
  ME_5108DDE800B2 // 
  ME_5108DE14021F // 
@@ -4291,18 +4445,20 @@ ref; // ME_52D50EFA0317_ME_5108D3850245 GetStartOffset
  ME_537E058E0367 // 
  ME_537E0A05011B // 
  ME_53D26D090145 // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest'
  CONST intf.pas:Path 'common\components\gui\Garant\Everest\evTableCursorPair.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'TableCursorPair'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'evTableCursorPair'
 
 ref; // ME_5108D3850245 TevTableCursorPair
 
@@ -4404,6 +4560,7 @@ ref; // ME_53D669700172
  ;
  : Implementor ME_4A2D2D8002FF // TevDocumentPartCursorPair
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_5108D5CB0048_ME_4A2D2D8002FF DoStore
 
 : ME_52D79FB703C9_ME_4A2D2D8002FF
@@ -4413,6 +4570,7 @@ ref; // ME_5108D5CB0048_ME_4A2D2D8002FF DoStore
  ;
  : Implementor ME_4A2D2D8002FF // TevDocumentPartCursorPair
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_52D79FB703C9_ME_4A2D2D8002FF IsCollapsed
 
 : ME_4A2D2D8002FF
@@ -4427,16 +4585,16 @@ ref; // ME_52D79FB703C9_ME_4A2D2D8002FF IsCollapsed
  : Parent ME_4A3A233900C9 // ParaList Cursors
  ;
  : Inherits
-   @ ( ME_4A2D2D6E027B // TevParaListCursorPair
- ) .SequenceCode.It
+   Seq: ( ME_4A2D2D6E027B // TevParaListCursorPair
+ )
  ; // Inherits
  : Overridden
-   @ ( ME_5108D5CB0048_ME_4A2D2D8002FF // DoStore
+   Seq: ( ME_5108D5CB0048_ME_4A2D2D8002FF // DoStore
  ME_52D79FB703C9_ME_4A2D2D8002FF // IsCollapsed
- ) .SequenceCode.It
+ )
  ; // Overridden
  : Dependencies
-   @ ( ME_52D925570289 // 
+   Seq: ( ME_52D925570289 // 
  ME_52D9255A024B // 
  ME_52D9255C0201 // 
  ME_52D9255E023B // 
@@ -4444,18 +4602,20 @@ ref; // ME_52D79FB703C9_ME_4A2D2D8002FF IsCollapsed
  ME_52D9256203C8 // 
  ME_53CCF27D033A // 
  ME_53D669700172 // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest'
  CONST intf.pas:Path 'common\components\gui\Garant\Everest\evDocumentPartCursorPair.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'DocumentPartCursorPair'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'evDocumentPartCursorPair'
 
 ref; // ME_4A2D2D8002FF TevDocumentPartCursorPair
 
@@ -4546,6 +4706,7 @@ ref; // ME_53D26D690025
  ;
  : Implementor ME_4A2D2DA90232 // TevDocumentCursorPair
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_5108D5CB0048_ME_4A2D2DA90232 DoStore
 
 : ME_5108D66900C9_ME_4A2D2DA90232
@@ -4555,6 +4716,7 @@ ref; // ME_5108D5CB0048_ME_4A2D2DA90232 DoStore
  ;
  : Implementor ME_4A2D2DA90232 // TevDocumentCursorPair
  ;
+ CONST OpKind opkind_Overridden
  CONST "ifdef" 'evNeedEditableCursors'
 ref; // ME_5108D66900C9_ME_4A2D2DA90232 DoDelete
 
@@ -4569,34 +4731,36 @@ ref; // ME_5108D66900C9_ME_4A2D2DA90232 DoDelete
  : Parent ME_4A3A233900C9 // ParaList Cursors
  ;
  : Inherits
-   @ ( ME_4A2D2D6E027B // TevParaListCursorPair
- ) .SequenceCode.It
+   Seq: ( ME_4A2D2D6E027B // TevParaListCursorPair
+ )
  ; // Inherits
  : Overridden
-   @ ( ME_5108D5CB0048_ME_4A2D2DA90232 // DoStore
+   Seq: ( ME_5108D5CB0048_ME_4A2D2DA90232 // DoStore
  ME_5108D66900C9_ME_4A2D2DA90232 // DoDelete
- ) .SequenceCode.It
+ )
  ; // Overridden
  : Dependencies
-   @ ( ME_52D92C07038F // 
+   Seq: ( ME_52D92C07038F // 
  ME_52D92C0B00F2 // 
  ME_52D92C0D01EC // 
  ME_52D92C0F023D // 
  ME_52D92C110273 // 
  ME_52D92C1302F5 // 
  ME_53D26D690025 // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest'
  CONST intf.pas:Path 'common\components\gui\Garant\Everest\evDocumentCursorPair.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'DocumentCursorPair'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'evDocumentCursorPair'
 
 ref; // ME_4A2D2DA90232 TevDocumentCursorPair
 
@@ -4632,6 +4796,7 @@ ref; // ME_53D2677702A8
  ;
  : Implementor ME_52E24FBF0273 // TevTableCellCursorPair
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4A38F7A40373_ME_52E24FBF0273 DoSetAtom
 
 : ME_52E24FBF0273
@@ -4646,28 +4811,30 @@ ref; // ME_4A38F7A40373_ME_52E24FBF0273 DoSetAtom
  : Parent ME_4A3A233900C9 // ParaList Cursors
  ;
  : Inherits
-   @ ( ME_4A2D2D6E027B // TevParaListCursorPair
- ) .SequenceCode.It
+   Seq: ( ME_4A2D2D6E027B // TevParaListCursorPair
+ )
  ; // Inherits
  : Overridden
-   @ ( ME_4A38F7A40373_ME_52E24FBF0273 // DoSetAtom
- ) .SequenceCode.It
+   Seq: ( ME_4A38F7A40373_ME_52E24FBF0273 // DoSetAtom
+ )
  ; // Overridden
  : Dependencies
-   @ ( ME_52E2506F0163 // 
+   Seq: ( ME_52E2506F0163 // 
  ME_53D2677702A8 // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest'
  CONST intf.pas:Path 'common\components\gui\Garant\Everest\evTableCellCursorPair.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'TableCellCursorPair'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'evTableCellCursorPair'
 
 ref; // ME_52E24FBF0273 TevTableCellCursorPair
 
@@ -4703,6 +4870,7 @@ ref; // ME_53D0C08900B3
  ;
  : Implementor ME_53D0BFE802C7 // TevReqCellCursor
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_49E31657038E_ME_53D0BFE802C7 DoMovePrim
 
 : ME_53D0BFE802C7
@@ -4716,28 +4884,30 @@ ref; // ME_49E31657038E_ME_53D0BFE802C7 DoMovePrim
  : Parent ME_4A3A233900C9 // ParaList Cursors
  ;
  : Inherits
-   @ ( ME_50DACE1F0334 // TevTableCellCursor
- ) .SequenceCode.It
+   Seq: ( ME_50DACE1F0334 // TevTableCellCursor
+ )
  ; // Inherits
  : Overridden
-   @ ( ME_49E31657038E_ME_53D0BFE802C7 // DoMovePrim
- ) .SequenceCode.It
+   Seq: ( ME_49E31657038E_ME_53D0BFE802C7 // DoMovePrim
+ )
  ; // Overridden
  : Dependencies
-   @ ( ME_53D0C05E00DB // 
+   Seq: ( ME_53D0C05E00DB // 
  ME_53D0C08900B3 // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest'
  CONST intf.pas:Path 'common\components\gui\Garant\Everest\evReqCellCursor.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'ReqCellCursor'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'evReqCellCursor'
 
 ref; // ME_53D0BFE802C7 TevReqCellCursor
 
@@ -4766,24 +4936,26 @@ ref; // ME_53D245FF03E3
  : Parent ME_4A3A233900C9 // ParaList Cursors
  ;
  : Inherits
-   @ ( ME_4A2D2D8002FF // TevDocumentPartCursorPair
- ) .SequenceCode.It
+   Seq: ( ME_4A2D2D8002FF // TevDocumentPartCursorPair
+ )
  ; // Inherits
  : Dependencies
-   @ ( ME_53D245FF03E3 // 
- ) .SequenceCode.It
+   Seq: ( ME_53D245FF03E3 // 
+ )
  ; // Dependencies
  CONST "finished" false
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest'
  CONST intf.pas:Path 'common\components\gui\Garant\Everest\NOT_FINISHED_evCommentParaCursorPair.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'CommentParaCursorPair'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'evCommentParaCursorPair'
 
 ref; // ME_53D245DF0285 TevCommentParaCursorPair
 
@@ -4812,24 +4984,26 @@ ref; // ME_53D675AC02C4
  : Parent ME_4A3A233900C9 // ParaList Cursors
  ;
  : Inherits
-   @ ( ME_4A2D2D6E027B // TevParaListCursorPair
- ) .SequenceCode.It
+   Seq: ( ME_4A2D2D6E027B // TevParaListCursorPair
+ )
  ; // Inherits
  : Dependencies
-   @ ( ME_53D675AC02C4 // 
- ) .SequenceCode.It
+   Seq: ( ME_53D675AC02C4 // 
+ )
  ; // Dependencies
  CONST "finished" false
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest'
  CONST intf.pas:Path 'common\components\gui\Garant\Everest\NOT_FINISHED_evTableRowCursorPair.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'TableRowCursorPair'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'evTableRowCursorPair'
 
 ref; // ME_53D6758E0352 TevTableRowCursorPair
 
@@ -4844,7 +5018,7 @@ ref; // ME_53D6758E0352 TevTableRowCursorPair
  : Parent WL 'ME_4797632D0273' '4797632D0273.pas.ms.script' // Everest
  ;
  : Children
-   @ ( ME_4A3A237A01C0 // TevParaListCursorPrim
+   Seq: ( ME_4A3A237A01C0 // TevParaListCursorPrim
  ME_4A3A4398010A // TevParaListCursorInsertable
  ME_4A3A43F6003A // TevParaListCursorDeletable
  ME_4A3A444900B3 // TevParaListCursor
@@ -4867,10 +5041,10 @@ ref; // ME_53D6758E0352 TevTableRowCursorPair
  ME_53D0BFE802C7 // TevReqCellCursor
  ME_53D245DF0285 // TevCommentParaCursorPair
  ME_53D6758E0352 // TevTableRowCursorPair
- ) .SequenceCode.It
+ )
  ; // Children
  : Depends
-   @ ( WL 'ME_4678137501EA' '4678137501EA.pas.ms.script' // k2Interfaces
+   Seq: ( WL 'ME_4678137501EA' '4678137501EA.pas.ms.script' // k2Interfaces
  WL 'ME_4678193C009C' '4678193C009C.pas.ms.script' // l3Types
  WL 'ME_4678209200A6' '4678209200A6.pas.ms.script' // nevBase
  WL 'ME_469D0AC7005E' '469D0AC7005E.pas.ms.script' // Types
@@ -4907,16 +5081,14 @@ ref; // ME_53D6758E0352 TevTableRowCursorPair
  WL 'ME_4AB0C3F60375' '4AB0C3F60375.pas.ms.script' // Win
  WL 'ME_537B83AD01F0' '537B83AD01F0.pas.ms.script' // l3Math
  WL 'ME_53D258F1004F' '53D258F1004F.pas.ms.script' // InterfaceFactories
- ) .SequenceCode.It
+ )
  ; // Depends
  CONST "ifdef" 'evUseVisibleCursors'
- : Generators
- @ (
- gen_pas.script
- gen_pas.script.runner
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest'
  CONST pas.script:Path 'shared\models\NewSchool\Scripts\4A3A233900C9.pas.ms.script'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
  CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\4A3A233900C9.pas.ms.script.runner'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_4A3A233900C9 ParaList Cursors

@@ -96,16 +96,22 @@ ref; // ME_490839F50038 NeedRefilterTree
  : Parent ME_490838E10313 // nscNewInterfaces
  ;
  : Attributes
-   @ ( ME_4908394101EB // Active
+   Seq: ( ME_4908394101EB // Active
  ME_4908395B027E // Context
  ME_4908396C014C // ActiveContext
  ME_4908397A033F // CaretPos
- ) .SequenceCode.It
+ )
  ; // Attributes
  : Operations
-   @ ( ME_490839F50038 // NeedRefilterTree
- ) .SequenceCode.It
+   Seq: ( ME_490839F50038 // NeedRefilterTree
+ )
  ; // Operations
+ CONST dfm:PathOnly '\common\components\gui\Garant\Nemesis'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Nemesis'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'ContextFilterState'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_4908393001C5 InscContextFilterState
 
@@ -151,10 +157,10 @@ ref; // ME_4B166857003B aState
  : Parent ME_490839920096 // InscContextFilterListener
  ;
  : Parameters
-   @ ( ME_4B1668560397 // aHandle
+   Seq: ( ME_4B1668560397 // aHandle
  ME_4B16685603E5 // aFilterName
  ME_4B166857003B // aState
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_490839BA0073 ContextCanBeChanged
@@ -178,8 +184,8 @@ ref; // ME_4B16685E02A0 aHandle
  : Parent ME_490839920096 // InscContextFilterListener
  ;
  : Parameters
-   @ ( ME_4B16685E02A0 // aHandle
- ) .SequenceCode.It
+   Seq: ( ME_4B16685E02A0 // aHandle
+ )
  ; // Parameters
 
 ref; // ME_4B165B44032D FilterRemoving
@@ -197,10 +203,16 @@ ref; // ME_4B165B44032D FilterRemoving
  : Parent ME_490838E10313 // nscNewInterfaces
  ;
  : Operations
-   @ ( ME_490839BA0073 // ContextCanBeChanged
+   Seq: ( ME_490839BA0073 // ContextCanBeChanged
  ME_4B165B44032D // FilterRemoving
- ) .SequenceCode.It
+ )
  ; // Operations
+ CONST dfm:PathOnly '\common\components\gui\Garant\Nemesis'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Nemesis'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'ContextFilterListener'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_490839920096 InscContextFilterListener
 
@@ -231,9 +243,15 @@ ref; // ME_496B781903E3 TabActivate
  : Parent ME_490838E10313 // nscNewInterfaces
  ;
  : Operations
-   @ ( ME_496B781903E3 // TabActivate
- ) .SequenceCode.It
+   Seq: ( ME_496B781903E3 // TabActivate
+ )
  ; // Operations
+ CONST dfm:PathOnly '\common\components\gui\Garant\Nemesis'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Nemesis'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'PageControlNotification'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_496B78080016 InscPageControlNotification
 
@@ -298,12 +316,17 @@ ref; // ME_498036100285 nsc_ttkError
  : Parent ME_490838E10313 // nscNewInterfaces
  ;
  : Attributes
-   @ ( ME_498035FF034C // nsc_ttkNone
+   Seq: ( ME_498035FF034C // nsc_ttkNone
  ME_498036040369 // nsc_ttkInformation
  ME_4980360B0392 // nsc_ttkWarning
  ME_498036100285 // nsc_ttkError
- ) .SequenceCode.It
+ )
  ; // Attributes
+ CONST dfm:PathOnly '\common\components\gui\Garant\Nemesis'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Nemesis'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_498035FA00E9 TnscToolTipKind
 
@@ -460,8 +483,8 @@ ref; // ME_50603893038C aServer
  : Parent ME_5060388903AB // SubscribeOnNotification
  ;
  : Parameters
-   @ ( ME_50603893038C // aServer
- ) .SequenceCode.It
+   Seq: ( ME_50603893038C // aServer
+ )
  ; // Parameters
 
 ref; // ME_50603891018D DoIt
@@ -477,8 +500,8 @@ ref; // ME_50603891018D DoIt
  : Parent ME_4980350B00FA // InscStatusBarItemDef
  ;
  : Operations
-   @ ( ME_50603891018D // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_50603891018D // DoIt
+ )
  ; // Operations
 
 ref; // ME_5060388903AB SubscribeOnNotification
@@ -495,7 +518,7 @@ ref; // ME_5060388903AB SubscribeOnNotification
  : Parent ME_490838E10313 // nscNewInterfaces
  ;
  : Attributes
-   @ ( ME_4980370D001D // Caption
+   Seq: ( ME_4980370D001D // Caption
  ME_4980371E0167 // UseToolTip
  ME_4980372D0191 // RequireAutoPopup
  ME_4980373B02B6 // AutoPopupTimeout
@@ -503,16 +526,22 @@ ref; // ME_5060388903AB SubscribeOnNotification
  ME_4ADC59C6003B // ShowCaption
  ME_4BCEAF1A00EE // Enabled
  ME_5060385E0190 // SubscribedList
- ) .SequenceCode.It
+ )
  ; // Attributes
  : Operations
-   @ ( ME_5060388903AB // SubscribeOnNotification
- ) .SequenceCode.It
+   Seq: ( ME_5060388903AB // SubscribeOnNotification
+ )
  ; // Operations
  : Forwarded
-   @ ( ME_498036360179 // InscStatusBarItemDefsList
- ) .SequenceCode.It
+   Seq: ( ME_498036360179 // InscStatusBarItemDefsList
+ )
  ; // Forwarded
+ CONST dfm:PathOnly '\common\components\gui\Garant\Nemesis'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Nemesis'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'StatusBarItemDef'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_4980350B00FA InscStatusBarItemDef
 
@@ -561,8 +590,8 @@ ref; // ME_4980368A0302 anIndex
  : Target ME_4980350B00FA // InscStatusBarItemDef
  ;
  : Attributes
-   @ ( ME_4980368A0302 // anIndex
- ) .SequenceCode.It
+   Seq: ( ME_4980368A0302 // anIndex
+ )
  ; // Attributes
  CONST "pm" true
 
@@ -587,8 +616,8 @@ ref; // ME_498036480167 aDef
  : Parent ME_498036360179 // InscStatusBarItemDefsList
  ;
  : Parameters
-   @ ( ME_498036480167 // aDef
- ) .SequenceCode.It
+   Seq: ( ME_498036480167 // aDef
+ )
  ; // Parameters
 
 ref; // ME_4980364202E5 Add
@@ -605,14 +634,20 @@ ref; // ME_4980364202E5 Add
  : Parent ME_490838E10313 // nscNewInterfaces
  ;
  : Attributes
-   @ ( ME_498036520375 // Count
+   Seq: ( ME_498036520375 // Count
  ME_4980367803E7 // Items
- ) .SequenceCode.It
+ )
  ; // Attributes
  : Operations
-   @ ( ME_4980364202E5 // Add
- ) .SequenceCode.It
+   Seq: ( ME_4980364202E5 // Add
+ )
  ; // Operations
+ CONST dfm:PathOnly '\common\components\gui\Garant\Nemesis'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Nemesis'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'StatusBarItemDefsList'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_498036360179 InscStatusBarItemDefsList
 
@@ -646,9 +681,15 @@ ref; // ME_498036B8002E Items
  : Parent ME_490838E10313 // nscNewInterfaces
  ;
  : Attributes
-   @ ( ME_498036B8002E // Items
- ) .SequenceCode.It
+   Seq: ( ME_498036B8002E // Items
+ )
  ; // Attributes
+ CONST dfm:PathOnly '\common\components\gui\Garant\Nemesis'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Nemesis'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'StatusBarItemsProvider'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_498036AD03AB InscStatusBarItemsProvider
 
@@ -673,8 +714,8 @@ ref; // ME_498036D800C7 aProvider
  : Parent ME_498036CB01D2 // InscStatusBarItemsVisualizer
  ;
  : Parameters
-   @ ( ME_498036D800C7 // aProvider
- ) .SequenceCode.It
+   Seq: ( ME_498036D800C7 // aProvider
+ )
  ; // Parameters
 
 ref; // ME_498036D4036F RegisterProvider
@@ -698,8 +739,8 @@ ref; // ME_498036E302BC aProvider
  : Parent ME_498036CB01D2 // InscStatusBarItemsVisualizer
  ;
  : Parameters
-   @ ( ME_498036E302BC // aProvider
- ) .SequenceCode.It
+   Seq: ( ME_498036E302BC // aProvider
+ )
  ; // Parameters
 
 ref; // ME_498036E00030 UnregisterProvider
@@ -716,10 +757,16 @@ ref; // ME_498036E00030 UnregisterProvider
  : Parent ME_490838E10313 // nscNewInterfaces
  ;
  : Operations
-   @ ( ME_498036D4036F // RegisterProvider
+   Seq: ( ME_498036D4036F // RegisterProvider
  ME_498036E00030 // UnregisterProvider
- ) .SequenceCode.It
+ )
  ; // Operations
+ CONST dfm:PathOnly '\common\components\gui\Garant\Nemesis'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Nemesis'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'StatusBarItemsVisualizer'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_498036CB01D2 InscStatusBarItemsVisualizer
 
@@ -748,6 +795,7 @@ ref; // ME_4FE9F49C0299 Operation
  ;
  : Implementor ME_4FE9F428027C // InscStatusBarOperationDef
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" false
 ref; // ME_4980370D001D_ME_4FE9F428027C Caption
 
@@ -758,6 +806,7 @@ ref; // ME_4980370D001D_ME_4FE9F428027C Caption
  ;
  : Implementor ME_4FE9F428027C // InscStatusBarOperationDef
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" false
 ref; // ME_4980371E0167_ME_4FE9F428027C UseToolTip
 
@@ -768,6 +817,7 @@ ref; // ME_4980371E0167_ME_4FE9F428027C UseToolTip
  ;
  : Implementor ME_4FE9F428027C // InscStatusBarOperationDef
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" false
 ref; // ME_4980372D0191_ME_4FE9F428027C RequireAutoPopup
 
@@ -778,6 +828,7 @@ ref; // ME_4980372D0191_ME_4FE9F428027C RequireAutoPopup
  ;
  : Implementor ME_4FE9F428027C // InscStatusBarOperationDef
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" false
 ref; // ME_4980373B02B6_ME_4FE9F428027C AutoPopupTimeout
 
@@ -788,6 +839,7 @@ ref; // ME_4980373B02B6_ME_4FE9F428027C AutoPopupTimeout
  ;
  : Implementor ME_4FE9F428027C // InscStatusBarOperationDef
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" false
 ref; // ME_4980374B0266_ME_4FE9F428027C TootTipKind
 
@@ -798,6 +850,7 @@ ref; // ME_4980374B0266_ME_4FE9F428027C TootTipKind
  ;
  : Implementor ME_4FE9F428027C // InscStatusBarOperationDef
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" false
 ref; // ME_4ADC59C6003B_ME_4FE9F428027C ShowCaption
 
@@ -808,6 +861,7 @@ ref; // ME_4ADC59C6003B_ME_4FE9F428027C ShowCaption
  ;
  : Implementor ME_4FE9F428027C // InscStatusBarOperationDef
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" false
 ref; // ME_4BCEAF1A00EE_ME_4FE9F428027C Enabled
 
@@ -818,6 +872,7 @@ ref; // ME_4BCEAF1A00EE_ME_4FE9F428027C Enabled
  ;
  : Implementor ME_4FE9F428027C // InscStatusBarOperationDef
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" false
 ref; // ME_5060385E0190_ME_4FE9F428027C SubscribedList
 
@@ -828,6 +883,7 @@ ref; // ME_5060385E0190_ME_4FE9F428027C SubscribedList
  ;
  : Implementor ME_4FE9F428027C // InscStatusBarOperationDef
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_5060388903AB_ME_4FE9F428027C SubscribeOnNotification
 
 : ME_4FE9F428027C
@@ -842,15 +898,15 @@ ref; // ME_5060388903AB_ME_4FE9F428027C SubscribeOnNotification
  : Parent ME_490838E10313 // nscNewInterfaces
  ;
  : Inherits
-   @ ( ME_4980350B00FA // InscStatusBarItemDef
- ) .SequenceCode.It
+   Seq: ( ME_4980350B00FA // InscStatusBarItemDef
+ )
  ; // Inherits
  : Attributes
-   @ ( ME_4FE9F49C0299 // Operation
- ) .SequenceCode.It
+   Seq: ( ME_4FE9F49C0299 // Operation
+ )
  ; // Attributes
  : Implemented
-   @ ( ME_4980370D001D_ME_4FE9F428027C // Caption
+   Seq: ( ME_4980370D001D_ME_4FE9F428027C // Caption
  ME_4980371E0167_ME_4FE9F428027C // UseToolTip
  ME_4980372D0191_ME_4FE9F428027C // RequireAutoPopup
  ME_4980373B02B6_ME_4FE9F428027C // AutoPopupTimeout
@@ -859,9 +915,15 @@ ref; // ME_5060388903AB_ME_4FE9F428027C SubscribeOnNotification
  ME_4BCEAF1A00EE_ME_4FE9F428027C // Enabled
  ME_5060385E0190_ME_4FE9F428027C // SubscribedList
  ME_5060388903AB_ME_4FE9F428027C // SubscribeOnNotification
- ) .SequenceCode.It
+ )
  ; // Implemented
  CONST "ifndef" 'NoVCM'
+ CONST dfm:PathOnly '\common\components\gui\Garant\Nemesis'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Nemesis'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'StatusBarOperationDef'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_4FE9F428027C InscStatusBarOperationDef
 
@@ -916,11 +978,16 @@ ref; // ME_4FF3151A02FA spRight
  : Parent ME_4FEC3BB5027F // InscStatusBarDelimiterDef
  ;
  : Attributes
-   @ ( ME_4FF315020158 // spLeft
+   Seq: ( ME_4FF315020158 // spLeft
  ME_4FF3151100F2 // spMiddle
  ME_4FF3151A02FA // spRight
- ) .SequenceCode.It
+ )
  ; // Attributes
+ CONST dfm:PathOnly '\common\components\gui\Garant\Nemesis'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Nemesis'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_4FF314BE007F TsbdSeparatorPos
 
@@ -979,6 +1046,7 @@ ref; // ME_4FF3159402B4 Width
  ;
  : Implementor ME_4FEC3BB5027F // InscStatusBarDelimiterDef
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" false
 ref; // ME_4980370D001D_ME_4FEC3BB5027F Caption
 
@@ -989,6 +1057,7 @@ ref; // ME_4980370D001D_ME_4FEC3BB5027F Caption
  ;
  : Implementor ME_4FEC3BB5027F // InscStatusBarDelimiterDef
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" false
 ref; // ME_4980371E0167_ME_4FEC3BB5027F UseToolTip
 
@@ -999,6 +1068,7 @@ ref; // ME_4980371E0167_ME_4FEC3BB5027F UseToolTip
  ;
  : Implementor ME_4FEC3BB5027F // InscStatusBarDelimiterDef
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" false
 ref; // ME_4980372D0191_ME_4FEC3BB5027F RequireAutoPopup
 
@@ -1009,6 +1079,7 @@ ref; // ME_4980372D0191_ME_4FEC3BB5027F RequireAutoPopup
  ;
  : Implementor ME_4FEC3BB5027F // InscStatusBarDelimiterDef
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" false
 ref; // ME_4980373B02B6_ME_4FEC3BB5027F AutoPopupTimeout
 
@@ -1019,6 +1090,7 @@ ref; // ME_4980373B02B6_ME_4FEC3BB5027F AutoPopupTimeout
  ;
  : Implementor ME_4FEC3BB5027F // InscStatusBarDelimiterDef
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" false
 ref; // ME_4980374B0266_ME_4FEC3BB5027F TootTipKind
 
@@ -1029,6 +1101,7 @@ ref; // ME_4980374B0266_ME_4FEC3BB5027F TootTipKind
  ;
  : Implementor ME_4FEC3BB5027F // InscStatusBarDelimiterDef
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" false
 ref; // ME_4ADC59C6003B_ME_4FEC3BB5027F ShowCaption
 
@@ -1039,6 +1112,7 @@ ref; // ME_4ADC59C6003B_ME_4FEC3BB5027F ShowCaption
  ;
  : Implementor ME_4FEC3BB5027F // InscStatusBarDelimiterDef
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" false
 ref; // ME_4BCEAF1A00EE_ME_4FEC3BB5027F Enabled
 
@@ -1049,6 +1123,7 @@ ref; // ME_4BCEAF1A00EE_ME_4FEC3BB5027F Enabled
  ;
  : Implementor ME_4FEC3BB5027F // InscStatusBarDelimiterDef
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" false
 ref; // ME_5060385E0190_ME_4FEC3BB5027F SubscribedList
 
@@ -1059,6 +1134,7 @@ ref; // ME_5060385E0190_ME_4FEC3BB5027F SubscribedList
  ;
  : Implementor ME_4FEC3BB5027F // InscStatusBarDelimiterDef
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_5060388903AB_ME_4FEC3BB5027F SubscribeOnNotification
 
 : ME_4FEC3BB5027F
@@ -1073,17 +1149,17 @@ ref; // ME_5060388903AB_ME_4FEC3BB5027F SubscribeOnNotification
  : Parent ME_490838E10313 // nscNewInterfaces
  ;
  : Inherits
-   @ ( ME_4980350B00FA // InscStatusBarItemDef
- ) .SequenceCode.It
+   Seq: ( ME_4980350B00FA // InscStatusBarItemDef
+ )
  ; // Inherits
  : Attributes
-   @ ( ME_4FF315450358 // SeparatorPos
+   Seq: ( ME_4FF315450358 // SeparatorPos
  ME_4FF3157D0385 // IsSeparatorVisible
  ME_4FF3159402B4 // Width
- ) .SequenceCode.It
+ )
  ; // Attributes
  : Implemented
-   @ ( ME_4980370D001D_ME_4FEC3BB5027F // Caption
+   Seq: ( ME_4980370D001D_ME_4FEC3BB5027F // Caption
  ME_4980371E0167_ME_4FEC3BB5027F // UseToolTip
  ME_4980372D0191_ME_4FEC3BB5027F // RequireAutoPopup
  ME_4980373B02B6_ME_4FEC3BB5027F // AutoPopupTimeout
@@ -1092,12 +1168,18 @@ ref; // ME_5060388903AB_ME_4FEC3BB5027F SubscribeOnNotification
  ME_4BCEAF1A00EE_ME_4FEC3BB5027F // Enabled
  ME_5060385E0190_ME_4FEC3BB5027F // SubscribedList
  ME_5060388903AB_ME_4FEC3BB5027F // SubscribeOnNotification
- ) .SequenceCode.It
+ )
  ; // Implemented
  : Children
-   @ ( ME_4FF314BE007F // TsbdSeparatorPos
- ) .SequenceCode.It
+   Seq: ( ME_4FF314BE007F // TsbdSeparatorPos
+ )
  ; // Children
+ CONST dfm:PathOnly '\common\components\gui\Garant\Nemesis'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Nemesis'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'StatusBarDelimiterDef'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_4FEC3BB5027F InscStatusBarDelimiterDef
 
@@ -1129,8 +1211,8 @@ ref; // ME_52B981250046 DoIt
  : Parent ME_52B333A8015C // InscBaseSearchPromptNode
  ;
  : Operations
-   @ ( ME_52B981250046 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_52B981250046 // DoIt
+ )
  ; // Operations
 
 ref; // ME_52B9761F024B OpenDocument
@@ -1161,8 +1243,8 @@ ref; // ME_52B978470198 DoIt
  : Parent ME_52B333A8015C // InscBaseSearchPromptNode
  ;
  : Operations
-   @ ( ME_52B978470198 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_52B978470198 // DoIt
+ )
  ; // Operations
 
 ref; // ME_52B977E30154 IsLinkOnDocument
@@ -1179,10 +1261,16 @@ ref; // ME_52B977E30154 IsLinkOnDocument
  : Parent ME_490838E10313 // nscNewInterfaces
  ;
  : Operations
-   @ ( ME_52B9761F024B // OpenDocument
+   Seq: ( ME_52B9761F024B // OpenDocument
  ME_52B977E30154 // IsLinkOnDocument
- ) .SequenceCode.It
+ )
  ; // Operations
+ CONST dfm:PathOnly '\common\components\gui\Garant\Nemesis'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Nemesis'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'BaseSearchPromptNode'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_52B333A8015C InscBaseSearchPromptNode
 
@@ -1197,7 +1285,7 @@ ref; // ME_52B333A8015C InscBaseSearchPromptNode
  : Parent WL 'ME_490838AA02D0' '490838AA02D0.pas.ms.script' // Nemesis
  ;
  : Children
-   @ ( ME_4908393001C5 // InscContextFilterState
+   Seq: ( ME_4908393001C5 // InscContextFilterState
  ME_490839920096 // InscContextFilterListener
  ME_496B78080016 // InscPageControlNotification
  ME_498035FA00E9 // TnscToolTipKind
@@ -1208,27 +1296,24 @@ ref; // ME_52B333A8015C InscBaseSearchPromptNode
  ME_4FE9F428027C // InscStatusBarOperationDef
  ME_4FEC3BB5027F // InscStatusBarDelimiterDef
  ME_52B333A8015C // InscBaseSearchPromptNode
- ) .SequenceCode.It
+ )
  ; // Children
  : Depends
-   @ ( WL 'ME_4677FBA70343' '4677FBA70343.pas.ms.script' // l3Interfaces
+   Seq: ( WL 'ME_4677FBA70343' '4677FBA70343.pas.ms.script' // l3Interfaces
  WL 'ME_467BAB7F021E' '467BAB7F021E.pas.ms.script' // vcmExternalInterfaces
  WL 'ME_4AB0C3C60310' '4AB0C3C60310.pas.ms.script' // Sys
- ) .SequenceCode.It
+ )
  ; // Depends
  CONST "author" 'Ëþëèí À.Â.'
  CONST "is namespace" true
  CONST "no hands" true
  CONST "started" '29.10.2008 13:20'
- : Generators
- @ (
- gen_intf.pas
- gen_pas.script
- gen_pas.script.runner
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\Nemesis'
  CONST intf.pas:Path 'common\components\gui\Garant\Nemesis\nscNewInterfaces.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Nemesis'
  CONST pas.script:Path 'shared\models\NewSchool\Scripts\490838E10313.pas.ms.script'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
  CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\490838E10313.pas.ms.script.runner'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_490838E10313 nscNewInterfaces

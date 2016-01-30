@@ -1,0 +1,262 @@
+// SearchProgressIndicator 4A38B397024A Interfaces Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4A38B397024A
+
+FORWARD ME_462748CD01A4
+
+: ME_462756630354
+ CONST UID '462756630354'
+ CONST Name 'search_manager'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+
+ref; // ME_462756630354 search_manager
+
+: ME_46274948003B
+ CONST UID '46274948003B'
+ CONST Name 'make'
+ CONST Class class_Operation
+ : Stereotype st_factory::Operation ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_462748CD01A4 // CancelSearch
+ ;
+ : Parameters
+   Seq: ( ME_462756630354 // search_manager
+ )
+ ; // Parameters
+ CONST "const_type" 'read-write'
+ CONST "dll export" false
+
+ref; // ME_46274948003B make
+
+: ME_45EEE00D032A_ME_462748CD01A4
+ CONST UID '45EEE00D032A'
+ CONST Name 'cancel_process'
+ : Original WL 'ME_45EEE00D032A' '45EEA87702A5.pas.ms.script' // cancel_process
+ ;
+ : Implementor ME_462748CD01A4 // CancelSearch
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_45EEE00D032A_ME_462748CD01A4 cancel_process
+
+: ME_462748CD01A4
+ CONST UID '462748CD01A4'
+ CONST GUID '77C1D94F-084E-4430-8FE6-796A9817D990'
+ CONST Name 'CancelSearch'
+ CONST Class class_Class
+ : Stereotype st_Interface ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4A38B397024A // SearchProgressIndicator
+ ;
+ : Inherits
+   Seq: ( WL 'ME_45EEE00D0329' '45EEA87702A5.pas.ms.script' // CancelLongProcess
+ )
+ ; // Inherits
+ : Operations
+   Seq: ( ME_46274948003B // make
+ )
+ ; // Operations
+ : Implemented
+   Seq: ( ME_45EEE00D032A_ME_462748CD01A4 // cancel_process
+ )
+ ; // Implemented
+ CONST "single impl" false
+ CONST cpp:PathOnly '\garant6x\implementation\Garant\GblAdapterLib\SearchProgressIndicator'
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GblAdapterLib'
+ CONST dll.cpp:PathOnly '\garant6x\implementation\Garant\GblAdapterLib\SearchProgressIndicator'
+ CONST dll.h:PathOnly '\garant6x\implementation\Garant\GblAdapterLib\SearchProgressIndicator'
+ CONST fctr.cpp:PathOnly '\garant6x\implementation\Garant\GblAdapterLib\SearchProgressIndicator'
+ CONST fctr.h:PathOnly '\garant6x\implementation\Garant\GblAdapterLib\SearchProgressIndicator'
+ CONST h:PathOnly '\garant6x\implementation\Garant\GblAdapterLib\SearchProgressIndicator'
+ CONST i.h:PathOnly '\garant6x\implementation\Garant\GblAdapterLib\SearchProgressIndicator'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\tie\Garant\GblAdapterLib'
+ CONST mpc:PathOnly '\garant6x\implementation\Garant\project'
+ CONST mpc2:PathOnly '\garant6x\implementation\Garant\project'
+ CONST pas:PathOnly '\garant6x\implementation\Garant\GblAdapterLib'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc:PathOnly '\garant6x\implementation\Garant\GblAdapterLib'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\GblAdapterLib'
+ CONST s.ini:PathOnly '\garant6x\implementation\Garant\project'
+ CONST s.reg:PathOnly '\garant6x\implementation\Garant\project'
+ CONST vi.rc:PathOnly '\garant6x\implementation\Garant'
+ CONST vi.rch:PathOnly '\garant6x\implementation\Garant'
+ CONST extprop:pas:TypeName 'ICancelSearch'
+ CONST extprop:rc:SelfName 'CancelSearch'
+ CONST extprop:rc:isAcceptableForScripts true
+
+ref; // ME_462748CD01A4 CancelSearch
+
+FORWARD ME_46273EF90166
+
+: ME_4627420703AE
+ CONST UID '4627420703AE'
+ CONST Name 'entity'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_456ECA9603A9' '456EA56002BF.pas.ms.script' // SearchEntity
+ ;
+
+ref; // ME_4627420703AE entity
+
+: ME_462741D0012E
+ CONST UID '462741D0012E'
+ CONST Name 'finish_process'
+ CONST Class class_Operation
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_46273EF90166 // ProgressIndicatorForSearch
+ ;
+ : Parameters
+   Seq: ( ME_4627420703AE // entity
+ )
+ ; // Parameters
+
+ref; // ME_462741D0012E finish_process
+
+: ME_45EEE00A025D_ME_46273EF90166
+ CONST UID '45EEE00A025D'
+ CONST Name 'set_current'
+ : Original WL 'ME_45EEE00A025D' '45EEA87702A5.pas.ms.script' // set_current
+ ;
+ : Implementor ME_46273EF90166 // ProgressIndicatorForSearch
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_45EEE00A025D_ME_46273EF90166 set_current
+
+: ME_45EEE02703C5_ME_46273EF90166
+ CONST UID '45EEE02703C5'
+ CONST Name 'max_count'
+ : Original WL 'ME_45EEE02703C5' '45EEA87702A5.pas.ms.script' // max_count
+ ;
+ : Implementor ME_46273EF90166 // ProgressIndicatorForSearch
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "pm" false
+ref; // ME_45EEE02703C5_ME_46273EF90166 max_count
+
+: ME_46273EF90166
+ CONST UID '46273EF90166'
+ CONST GUID 'C403A3AE-7807-49A8-807F-B2FEA60F7695'
+ CONST Name 'ProgressIndicatorForSearch'
+ CONST Class class_Class
+ : Stereotype st_Facet ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4A38B397024A // SearchProgressIndicator
+ ;
+ : Inherits
+   Seq: ( WL 'ME_45EEE00A024E' '45EEA87702A5.pas.ms.script' // ProgressIndicator
+ )
+ ; // Inherits
+ : Operations
+   Seq: ( ME_462741D0012E // finish_process
+ )
+ ; // Operations
+ : Implemented
+   Seq: ( ME_45EEE00A025D_ME_46273EF90166 // set_current
+ ME_45EEE02703C5_ME_46273EF90166 // max_count
+ )
+ ; // Implemented
+ CONST "call way" 'back'
+ CONST cpp:PathOnly '\garant6x\implementation\Garant\GblAdapterLib\SearchProgressIndicator'
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GblAdapterLib'
+ CONST dll.cpp:PathOnly '\garant6x\implementation\Garant\GblAdapterLib\SearchProgressIndicator'
+ CONST dll.h:PathOnly '\garant6x\implementation\Garant\GblAdapterLib\SearchProgressIndicator'
+ CONST fctr.cpp:PathOnly '\garant6x\implementation\Garant\GblAdapterLib\SearchProgressIndicator'
+ CONST fctr.h:PathOnly '\garant6x\implementation\Garant\GblAdapterLib\SearchProgressIndicator'
+ CONST h:PathOnly '\garant6x\implementation\Garant\GblAdapterLib\SearchProgressIndicator'
+ CONST i.h:PathOnly '\garant6x\implementation\Garant\GblAdapterLib\SearchProgressIndicator'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\tie\Garant\GblAdapterLib'
+ CONST mpc:PathOnly '\garant6x\implementation\Garant\project'
+ CONST mpc2:PathOnly '\garant6x\implementation\Garant\project'
+ CONST pas:PathOnly '\garant6x\implementation\Garant\GblAdapterLib'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc:PathOnly '\garant6x\implementation\Garant\GblAdapterLib'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\GblAdapterLib'
+ CONST s.ini:PathOnly '\garant6x\implementation\Garant\project'
+ CONST s.reg:PathOnly '\garant6x\implementation\Garant\project'
+ CONST vi.rc:PathOnly '\garant6x\implementation\Garant'
+ CONST vi.rch:PathOnly '\garant6x\implementation\Garant'
+ CONST extprop:pas:TypeName 'IProgressIndicatorForSearch'
+ CONST extprop:rc:SelfName 'ProgressIndicatorForSearch'
+ CONST extprop:rc:isAcceptableForScripts true
+
+ref; // ME_46273EF90166 ProgressIndicatorForSearch
+
+: ME_4A38B397024A
+ CONST UID '4A38B397024A'
+ CONST Name 'SearchProgressIndicator'
+ CONST Class class_Category
+ : Stereotype st_Interfaces ;
+ %SUMMARY 'Прогрессиндикаторы для поиска' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent WL 'ME_456EA3D2031C' '456EA3D2031C.pas.ms.script' // GblAdapterLib
+ ;
+ : Children
+   Seq: ( ME_462748CD01A4 // CancelSearch
+ ME_46273EF90166 // ProgressIndicatorForSearch
+ )
+ ; // Children
+ : Depends
+   Seq: ( WL 'ME_456EA56002BF' '456EA56002BF.pas.ms.script' // BaseTypes
+ WL 'ME_45EEA87702A5' '45EEA87702A5.pas.ms.script' // ProgressIndicatorSupport
+ )
+ ; // Depends
+ CONST "is namespace" true
+ CONST "no hands" false
+ : Generators
+ Seq: (
+ gen_cpp
+ gen_dll.cpp
+ gen_dll.h
+ gen_fctr.cpp
+ gen_fctr.h
+ gen_h
+ gen_intf.pas
+ gen_pas
+ gen_pas.script
+ gen_pas.script.runner
+ )
+ ; // Generators
+ CONST cpp:Path 'garant6x\implementation\Garant\GblAdapterLib\SearchProgressIndicator\SearchProgressIndicator.cpp'
+ CONST cpp:PathOnly '\garant6x\implementation\Garant\GblAdapterLib\SearchProgressIndicator'
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GblAdapterLib'
+ CONST dll.cpp:Path 'garant6x\implementation\Garant\GblAdapterLib\SearchProgressIndicator\SearchProgressIndicator_tie.cpp'
+ CONST dll.cpp:PathOnly '\garant6x\implementation\Garant\GblAdapterLib\SearchProgressIndicator'
+ CONST dll.h:Path 'garant6x\implementation\Garant\GblAdapterLib\SearchProgressIndicator\SearchProgressIndicator_tie.h'
+ CONST dll.h:PathOnly '\garant6x\implementation\Garant\GblAdapterLib\SearchProgressIndicator'
+ CONST fctr.cpp:Path 'garant6x\implementation\Garant\GblAdapterLib\SearchProgressIndicator\SearchProgressIndicatorFactories.cpp'
+ CONST fctr.cpp:PathOnly '\garant6x\implementation\Garant\GblAdapterLib\SearchProgressIndicator'
+ CONST fctr.h:Path 'garant6x\implementation\Garant\GblAdapterLib\SearchProgressIndicator\SearchProgressIndicatorFactories.h'
+ CONST fctr.h:PathOnly '\garant6x\implementation\Garant\GblAdapterLib\SearchProgressIndicator'
+ CONST h:Path 'garant6x\implementation\Garant\GblAdapterLib\SearchProgressIndicator\SearchProgressIndicator.h'
+ CONST h:PathOnly '\garant6x\implementation\Garant\GblAdapterLib\SearchProgressIndicator'
+ CONST i.h:PathOnly '\garant6x\implementation\Garant\GblAdapterLib\SearchProgressIndicator'
+ CONST intf.pas:Path 'garant6x\implementation\Garant\tie\Garant\GblAdapterLib\SearchProgressIndicatorUnit.pas'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\tie\Garant\GblAdapterLib'
+ CONST mpc:PathOnly '\garant6x\implementation\Garant\project'
+ CONST mpc2:PathOnly '\garant6x\implementation\Garant\project'
+ CONST pas:Path 'garant6x\implementation\Garant\GblAdapterLib\SearchProgressIndicatorUnit.pas'
+ CONST pas:PathOnly '\garant6x\implementation\Garant\GblAdapterLib'
+ CONST pas.script:Path 'shared\models\NewSchool\Scripts\4A38B397024A.pas.ms.script'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\4A38B397024A.pas.ms.script.runner'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc:PathOnly '\garant6x\implementation\Garant\GblAdapterLib'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\GblAdapterLib'
+ CONST s.ini:PathOnly '\garant6x\implementation\Garant\project'
+ CONST s.reg:PathOnly '\garant6x\implementation\Garant\project'
+ CONST vi.rc:PathOnly '\garant6x\implementation\Garant'
+ CONST vi.rch:PathOnly '\garant6x\implementation\Garant'
+ CONST extprop:pas:UnitName 'SearchProgressIndicatorUnit'
+
+ref; // ME_4A38B397024A SearchProgressIndicator

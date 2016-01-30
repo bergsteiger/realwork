@@ -1,0 +1,1353 @@
+// MainWindows 4DFB49C40350 Unit Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4DFB49C40350
+
+FORWARD ME_4DFB4AD800BA
+
+FORWARD ME_4DFB4B01001D
+
+: ME_54F584EF00DF
+ CONST UID '54F584EF00DF'
+ CONST Name 'f_PicImageViewer'
+ CONST Class class_Attribute
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_4DFB4B01001D // TDocEditorWindow
+ ;
+ : Target WL 'ME_4F8D787901C4' '4F8D7381019D.pas.ms.script' // TfrmImgViewer
+ ;
+
+ref; // ME_54F584EF00DF f_PicImageViewer
+
+FORWARD ME_4DFB4B4003B5
+
+: ME_4DFB4B6A0328
+ CONST UID '4DFB4B6A0328'
+ CONST Name 'aSubID'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_4DFB4CD10172' '47BC51FE018B.pas.ms.script' // TSubID
+ ;
+
+ref; // ME_4DFB4B6A0328 aSubID
+
+: ME_4DFB4B5A0199
+ CONST UID '4DFB4B5A0199'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_4DFB4B4003B5 // SubNameEdit
+ ;
+ : Parameters
+   Seq: ( ME_4DFB4B6A0328 // aSubID
+ )
+ ; // Parameters
+
+ref; // ME_4DFB4B5A0199 DoIt
+
+: ME_4DFB4B4003B5
+ CONST UID '4DFB4B4003B5'
+ CONST Name 'SubNameEdit'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_4DFB4B01001D // TDocEditorWindow
+ ;
+ : Operations
+   Seq: ( ME_4DFB4B5A0199 // DoIt
+ )
+ ; // Operations
+
+ref; // ME_4DFB4B4003B5 SubNameEdit
+
+: ME_4E203F1402DB
+ CONST UID '4E203F1402DB'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4DFB4B01001D // TDocEditorWindow
+ ;
+ : Target WL 'ME_4E202ADD0180' '4E202A4A01B6.pas.ms.script' // GetInsTextNode
+ ;
+
+ref; // ME_4E203F1402DB 
+
+: ME_4E2553930174
+ CONST UID '4E2553930174'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4DFB4B01001D // TDocEditorWindow
+ ;
+ : Target WL 'ME_4E005E5500A7' '4E255287019F.pas.ms.script' // ContentsTreeConst
+ ;
+
+ref; // ME_4E2553930174 
+
+: ME_4F576B6102CE
+ CONST UID '4F576B6102CE'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4DFB4B01001D // TDocEditorWindow
+ ;
+ : Target WL 'ME_4F5756E10027' '4E4B99A60349.pas.ms.script' // evEditFormula
+ ;
+
+ref; // ME_4F576B6102CE 
+
+: ME_4F696ECA0005
+ CONST UID '4F696ECA0005'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4DFB4B01001D // TDocEditorWindow
+ ;
+ : Target WL 'ME_4DCA3A7302B1' '4E4B99A60349.pas.ms.script' // evTableConverter
+ ;
+
+ref; // ME_4F696ECA0005 
+
+: ME_4DFB4B01001D
+ CONST UID '4DFB4B01001D'
+ CONST Name 'TDocEditorWindow'
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4DFB4AD800BA // Editwin
+ ;
+ : Attributes
+   Seq: ( ME_54F584EF00DF // f_PicImageViewer
+ )
+ ; // Attributes
+ : Operations
+   Seq: ( ME_4DFB4B4003B5 // SubNameEdit
+ )
+ ; // Operations
+ : Dependencies
+   Seq: ( ME_4E203F1402DB // 
+ ME_4E2553930174 // 
+ ME_4F576B6102CE // 
+ ME_4F696ECA0005 // 
+ )
+ ; // Dependencies
+ : Injected
+   Seq: ( WL 'ME_0936F83112BC' '4DE629810132.pas.ms.script' // 
+ )
+ ; // Injected
+ CONST "finished" false
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ CONST dfm:PathOnly '\archi\source\projects\Archi\Main'
+ CONST intf.pas:PathOnly '\archi\source\projects\Archi\Main'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\archi\source\projects\Archi\Main'
+ CONST extprop:rc:SelfName 'DocEditorWindow'
+ CONST extprop:rc:isAcceptableForScripts true
+
+ref; // ME_4DFB4B01001D TDocEditorWindow
+
+FORWARD ME_4E5C9CF900FF
+
+: ME_4E5C9D4502CA
+ CONST UID '4E5C9D4502CA'
+ CONST Name 'piName'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_4E5C9CF900FF // Pages Constants
+ ;
+ CONST Value 0
+ CONST "AutoInc" false
+ CONST "forced type" 'none'
+ CONST "is define" false
+ CONST extprop:pas:Value 0
+
+ref; // ME_4E5C9D4502CA piName
+
+: ME_4E5C9D5A0203
+ CONST UID '4E5C9D5A0203'
+ CONST Name 'piAttr'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_4E5C9CF900FF // Pages Constants
+ ;
+ CONST Value 1
+ CONST "AutoInc" false
+ CONST "forced type" 'none'
+ CONST "is define" false
+ CONST extprop:pas:Value 1
+
+ref; // ME_4E5C9D5A0203 piAttr
+
+: ME_4E5C9D6500E5
+ CONST UID '4E5C9D6500E5'
+ CONST Name 'piText'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_4E5C9CF900FF // Pages Constants
+ ;
+ CONST Value 2
+ CONST "AutoInc" false
+ CONST "forced type" 'none'
+ CONST "is define" false
+ CONST extprop:pas:Value 2
+
+ref; // ME_4E5C9D6500E5 piText
+
+: ME_4E5C9D70010C
+ CONST UID '4E5C9D70010C'
+ CONST Name 'piPicture'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_4E5C9CF900FF // Pages Constants
+ ;
+ CONST Value 3
+ CONST "AutoInc" false
+ CONST "forced type" 'none'
+ CONST "is define" false
+ CONST extprop:pas:Value 3
+
+ref; // ME_4E5C9D70010C piPicture
+
+: ME_4E5C9D7E03E1
+ CONST UID '4E5C9D7E03E1'
+ CONST Name 'piSprv'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_4E5C9CF900FF // Pages Constants
+ ;
+ CONST Value 4
+ CONST "AutoInc" false
+ CONST "forced type" 'none'
+ CONST "is define" false
+ CONST extprop:pas:Value 4
+
+ref; // ME_4E5C9D7E03E1 piSprv
+
+: ME_4E5C9D890204
+ CONST UID '4E5C9D890204'
+ CONST Name 'piAnno'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_4E5C9CF900FF // Pages Constants
+ ;
+ CONST Value 5
+ CONST "AutoInc" false
+ CONST "forced type" 'none'
+ CONST "is define" false
+ CONST extprop:pas:Value 5
+
+ref; // ME_4E5C9D890204 piAnno
+
+: ME_4E5C9D9403C3
+ CONST UID '4E5C9D9403C3'
+ CONST Name 'piClass'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_4E5C9CF900FF // Pages Constants
+ ;
+ CONST Value 6
+ CONST "AutoInc" false
+ CONST "forced type" 'none'
+ CONST "is define" false
+ CONST extprop:pas:Value 6
+
+ref; // ME_4E5C9D9403C3 piClass
+
+: ME_4E5C9D9F0036
+ CONST UID '4E5C9D9F0036'
+ CONST Name 'piSrcImage'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_4E5C9CF900FF // Pages Constants
+ ;
+ CONST Value 7
+ CONST "AutoInc" false
+ CONST "forced type" 'none'
+ CONST "is define" false
+ CONST extprop:pas:Value 7
+
+ref; // ME_4E5C9D9F0036 piSrcImage
+
+: ME_4E5C9DA80331
+ CONST UID '4E5C9DA80331'
+ CONST Name 'piSub'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_4E5C9CF900FF // Pages Constants
+ ;
+ CONST Value 8
+ CONST "AutoInc" false
+ CONST "forced type" 'none'
+ CONST "is define" false
+ CONST extprop:pas:Value 8
+
+ref; // ME_4E5C9DA80331 piSub
+
+: ME_4E5C9DB2014A
+ CONST UID '4E5C9DB2014A'
+ CONST Name 'piResp'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_4E5C9CF900FF // Pages Constants
+ ;
+ CONST Value 9
+ CONST "AutoInc" false
+ CONST "forced type" 'none'
+ CONST "is define" false
+ CONST extprop:pas:Value 9
+
+ref; // ME_4E5C9DB2014A piResp
+
+: ME_4E5C9DBC0211
+ CONST UID '4E5C9DBC0211'
+ CONST Name 'piCoresp'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_4E5C9CF900FF // Pages Constants
+ ;
+ CONST Value 10
+ CONST "AutoInc" false
+ CONST "forced type" 'none'
+ CONST "is define" false
+ CONST extprop:pas:Value 10
+
+ref; // ME_4E5C9DBC0211 piCoresp
+
+: ME_4E5C9DC40042
+ CONST UID '4E5C9DC40042'
+ CONST Name 'piVersion'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_4E5C9CF900FF // Pages Constants
+ ;
+ CONST Value 11
+ CONST "AutoInc" false
+ CONST "forced type" 'none'
+ CONST "is define" false
+ CONST extprop:pas:Value 11
+
+ref; // ME_4E5C9DC40042 piVersion
+
+: ME_4E5C9DCC0306
+ CONST UID '4E5C9DCC0306'
+ CONST Name 'piJourn'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_4E5C9CF900FF // Pages Constants
+ ;
+ CONST Value 12
+ CONST "AutoInc" false
+ CONST "forced type" 'none'
+ CONST "is define" false
+ CONST extprop:pas:Value 12
+
+ref; // ME_4E5C9DCC0306 piJourn
+
+: ME_4E5C9DD501F8
+ CONST UID '4E5C9DD501F8'
+ CONST Name 'piMax'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_4E5C9CF900FF // Pages Constants
+ ;
+ CONST Value 'piJourn'
+ CONST "AutoInc" false
+ CONST "forced type" 'none'
+ CONST "is define" false
+ CONST extprop:pas:Value 'piJourn'
+
+ref; // ME_4E5C9DD501F8 piMax
+
+: ME_4E5C9CF900FF
+ CONST UID '4E5C9CF900FF'
+ CONST Name 'Pages Constants'
+ CONST Class class_Class
+ : Stereotype st_Constants ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Номера вкладок' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4DFB4AD800BA // Editwin
+ ;
+ : Attributes
+   Seq: ( ME_4E5C9D4502CA // piName
+ ME_4E5C9D5A0203 // piAttr
+ ME_4E5C9D6500E5 // piText
+ ME_4E5C9D70010C // piPicture
+ ME_4E5C9D7E03E1 // piSprv
+ ME_4E5C9D890204 // piAnno
+ ME_4E5C9D9403C3 // piClass
+ ME_4E5C9D9F0036 // piSrcImage
+ ME_4E5C9DA80331 // piSub
+ ME_4E5C9DB2014A // piResp
+ ME_4E5C9DBC0211 // piCoresp
+ ME_4E5C9DC40042 // piVersion
+ ME_4E5C9DCC0306 // piJourn
+ ME_4E5C9DD501F8 // piMax
+ )
+ ; // Attributes
+ CONST "spell names" false
+ CONST dfm:PathOnly '\archi\source\projects\Archi\Main'
+ CONST intf.pas:PathOnly '\archi\source\projects\Archi\Main'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\archi\source\projects\Archi\Main'
+
+ref; // ME_4E5C9CF900FF Pages Constants
+
+FORWARD ME_52A7FD0E002D
+
+: ME_52A82D160169
+ CONST UID '52A82D160169'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4DFB4AD800BA // Editwin
+ ;
+ : Target ME_52A7FD0E002D // TarEditorDebugInfo
+ ;
+
+ref; // ME_52A82D160169 
+
+FORWARD ME_4E5C897703B1
+
+: ME_52A837010352
+ CONST UID '52A837010352'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4DFB4AD800BA // Editwin
+ ;
+ : Target ME_4E5C897703B1 // CustEditWin
+ ;
+
+ref; // ME_52A837010352 
+
+: ME_4DFB4AD800BA
+ CONST UID '4DFB4AD800BA'
+ CONST Name 'Editwin'
+ CONST Class class_Class
+ : Stereotype st_UtilityPack ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_4DFB49C40350 // MainWindows
+ ;
+ : Children
+   Seq: ( ME_4DFB4B01001D // TDocEditorWindow
+ )
+ ; // Children
+ : Constants
+   Seq: ( ME_4E5C9CF900FF // Pages Constants
+ )
+ ; // Constants
+ : Dependencies
+   Seq: ( ME_52A82D160169 // 
+ ME_52A837010352 // 
+ )
+ ; // Dependencies
+ CONST "finished" false
+ CONST "no hands" false
+ : Generators
+ Seq: (
+ gen_intf.pas
+ )
+ ; // Generators
+ CONST dfm:PathOnly '\archi\source\projects\Archi\Main'
+ CONST intf.pas:Path 'archi\source\projects\Archi\Main\NOT_FINISHED_Editwin.pas'
+ CONST intf.pas:PathOnly '\archi\source\projects\Archi\Main'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\archi\source\projects\Archi\Main'
+
+ref; // ME_4DFB4AD800BA Editwin
+
+FORWARD ME_4DFB4D3C01B5
+
+FORWARD ME_4DFB4D5E0084
+
+FORWARD ME_4E0ACCB4021C
+
+: ME_4E0ACCC00242
+ CONST UID '4E0ACCC00242'
+ CONST Name 'rDocType'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_agr
+ : Parent ME_4E0ACCB4021C // TNewDocParams
+ ;
+ : Target WL 'ME_4E0ACD7D020D' '47BC51FE018B.pas.ms.script' // TDocType
+ ;
+
+ref; // ME_4E0ACCC00242 rDocType
+
+: ME_4E0ACCD30292
+ CONST UID '4E0ACCD30292'
+ CONST Name 'rDocKind'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_agr
+ : Parent ME_4E0ACCB4021C // TNewDocParams
+ ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+
+ref; // ME_4E0ACCD30292 rDocKind
+
+: ME_4E0ACCDD019A
+ CONST UID '4E0ACCDD019A'
+ CONST Name 'rDocName'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_agr
+ : Parent ME_4E0ACCB4021C // TNewDocParams
+ ;
+ : Target WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
+ ;
+
+ref; // ME_4E0ACCDD019A rDocName
+
+: ME_4E0ACCFD01C0
+ CONST UID '4E0ACCFD01C0'
+ CONST Name 'rAnalyseFile'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_agr
+ : Parent ME_4E0ACCB4021C // TNewDocParams
+ ;
+ : Target WL 'ME_477113FB020B' '4AB0C3C60310.pas.ms.script' // TFileName
+ ;
+
+ref; // ME_4E0ACCFD01C0 rAnalyseFile
+
+: ME_4E0ACD0B00D6
+ CONST UID '4E0ACD0B00D6'
+ CONST Name 'rDocAddr'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_agr
+ : Parent ME_4E0ACCB4021C // TNewDocParams
+ ;
+ : Target WL 'ME_4E0ACE9A02C2' '4E0072500208.pas.ms.script' // TDocAddr
+ ;
+
+ref; // ME_4E0ACD0B00D6 rDocAddr
+
+: ME_4E0ACD1A000E
+ CONST UID '4E0ACD1A000E'
+ CONST Name 'rAnalyseLog'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_agr
+ : Parent ME_4E0ACCB4021C // TNewDocParams
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+
+ref; // ME_4E0ACD1A000E rAnalyseLog
+
+: ME_4E0ACCB4021C
+ CONST UID '4E0ACCB4021C'
+ CONST Name 'TNewDocParams'
+ CONST Class class_Class
+ : Stereotype st_Struct ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4DFB4D5E0084 // TMainForm
+ ;
+ : Attributes
+   Seq: ( ME_4E0ACCC00242 // rDocType
+ ME_4E0ACCD30292 // rDocKind
+ ME_4E0ACCDD019A // rDocName
+ ME_4E0ACCFD01C0 // rAnalyseFile
+ ME_4E0ACD0B00D6 // rDocAddr
+ ME_4E0ACD1A000E // rAnalyseLog
+ )
+ ; // Attributes
+ CONST dfm:PathOnly '\archi\source\projects\Archi\Main'
+ CONST intf.pas:PathOnly '\archi\source\projects\Archi\Main'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\archi\source\projects\Archi\Main'
+
+ref; // ME_4E0ACCB4021C TNewDocParams
+
+FORWARD ME_4E0AD05102F2
+
+: ME_4E0AD069008B
+ CONST UID '4E0AD069008B'
+ CONST Name 'aParams'
+ CONST Class class_Parameter
+ : Stereotype st_const ;
+ : Target ME_4E0ACCB4021C // TNewDocParams
+ ;
+
+ref; // ME_4E0AD069008B aParams
+
+: ME_4E0AD05C020C
+ CONST UID '4E0AD05C020C'
+ CONST Name 'Doit'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_4E0AD05102F2 // CreateNewDocumentFromFile
+ ;
+ : Parameters
+   Seq: ( ME_4E0AD069008B // aParams
+ )
+ ; // Parameters
+
+ref; // ME_4E0AD05C020C Doit
+
+: ME_4E0AD05102F2
+ CONST UID '4E0AD05102F2'
+ CONST Name 'CreateNewDocumentFromFile'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_4DFB4D5E0084 // TMainForm
+ ;
+ : Operations
+   Seq: ( ME_4E0AD05C020C // Doit
+ )
+ ; // Operations
+
+ref; // ME_4E0AD05102F2 CreateNewDocumentFromFile
+
+: ME_4E203EF603CB
+ CONST UID '4E203EF603CB'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4DFB4D5E0084 // TMainForm
+ ;
+ : Target WL 'ME_4E202ABC005B' '4E202A4A01B6.pas.ms.script' // TInsertTextDictForm
+ ;
+
+ref; // ME_4E203EF603CB 
+
+: ME_5549CAB8038C
+ CONST UID '5549CAB8038C'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4DFB4D5E0084 // TMainForm
+ ;
+ : Target WL 'ME_4F0C222F0080' '4E202A4A01B6.pas.ms.script' // TViewMailWin
+ ;
+
+ref; // ME_5549CAB8038C 
+
+: ME_4DFB4D5E0084
+ CONST UID '4DFB4D5E0084'
+ CONST Name 'TMainForm'
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4DFB4D3C01B5 // Main
+ ;
+ : Operations
+   Seq: ( ME_4E0AD05102F2 // CreateNewDocumentFromFile
+ )
+ ; // Operations
+ : Children
+   Seq: ( ME_4E0ACCB4021C // TNewDocParams
+ )
+ ; // Children
+ : Dependencies
+   Seq: ( ME_4E203EF603CB // 
+ ME_5549CAB8038C // 
+ )
+ ; // Dependencies
+ CONST "finished" false
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ CONST dfm:PathOnly '\archi\source\projects\Archi\Main'
+ CONST intf.pas:PathOnly '\archi\source\projects\Archi\Main'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\archi\source\projects\Archi\Main'
+ CONST extprop:rc:SelfName 'MainForm'
+ CONST extprop:rc:isAcceptableForScripts true
+
+ref; // ME_4DFB4D5E0084 TMainForm
+
+: ME_4DFB4D3C01B5
+ CONST UID '4DFB4D3C01B5'
+ CONST Name 'Main'
+ CONST Class class_Class
+ : Stereotype st_UtilityPack ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_4DFB49C40350 // MainWindows
+ ;
+ : Children
+   Seq: ( ME_4DFB4D5E0084 // TMainForm
+ )
+ ; // Children
+ CONST "finished" false
+ CONST "no hands" false
+ : Generators
+ Seq: (
+ gen_intf.pas
+ )
+ ; // Generators
+ CONST dfm:PathOnly '\archi\source\projects\Archi\Main'
+ CONST intf.pas:Path 'archi\source\projects\Archi\Main\NOT_FINISHED_Main.pas'
+ CONST intf.pas:PathOnly '\archi\source\projects\Archi\Main'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\archi\source\projects\Archi\Main'
+
+ref; // ME_4DFB4D3C01B5 Main
+
+FORWARD ME_4E00671D02B5
+
+: ME_4E00872A03E7
+ CONST UID '4E00872A03E7'
+ CONST Name 'aControl'
+ CONST Class class_Parameter
+ : Stereotype st_const ;
+ : Target WL 'ME_47C5BD7C0329' '47C5207602D1.pas.ms.script' // InevControl
+ ;
+
+ref; // ME_4E00872A03E7 aControl
+
+: ME_4E008700020B
+ CONST UID '4E008700020B'
+ CONST Name 'Make'
+ CONST Class class_Operation
+ : Stereotype st_static::Operation ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_4E00671D02B5 // TarContentsTreeWaiter
+ ;
+ : Target WL 'ME_47C6B2F701AA' '47C5207602D1.pas.ms.script' // InevWaiter
+ ;
+ : Parameters
+   Seq: ( ME_4E00872A03E7 // aControl
+ )
+ ; // Parameters
+
+ref; // ME_4E008700020B Make
+
+: ME_4E006AC4007F
+ CONST UID '4E006AC4007F'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4E00671D02B5 // TarContentsTreeWaiter
+ ;
+ : Target ME_4DFB4D3C01B5 // Main
+ ;
+
+ref; // ME_4E006AC4007F 
+
+: ME_4E006CCC03C4
+ CONST UID '4E006CCC03C4'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4E00671D02B5 // TarContentsTreeWaiter
+ ;
+ : Target ME_4DFB4AD800BA // Editwin
+ ;
+
+ref; // ME_4E006CCC03C4 
+
+: ME_4E0088C902E4
+ CONST UID '4E0088C902E4'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4E00671D02B5 // TarContentsTreeWaiter
+ ;
+ : Target WL 'ME_467D37E40254' '4677FBA70343.pas.ms.script' // Il3ToolOwner
+ ;
+
+ref; // ME_4E0088C902E4 
+
+: ME_4E00891601E2
+ CONST UID '4E00891601E2'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4E00671D02B5 // TarContentsTreeWaiter
+ ;
+ : Target WL 'ME_4DFF098B00CC' '47913B47006E.pas.ms.script' // l3Free
+ ;
+
+ref; // ME_4E00891601E2 
+
+: ME_47C6B3040133_ME_4E00671D02B5
+ CONST UID '47C6B3040133'
+ CONST Name 'TrySelect'
+ : Original WL 'ME_47C6B3040133' '47C5207602D1.pas.ms.script' // TrySelect
+ ;
+ : Implementor ME_4E00671D02B5 // TarContentsTreeWaiter
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_47C6B3040133_ME_4E00671D02B5 TrySelect
+
+: ME_47C6B30F0277_ME_4E00671D02B5
+ CONST UID '47C6B30F0277'
+ CONST Name 'TrySelectObj'
+ : Original WL 'ME_47C6B30F0277' '47C5207602D1.pas.ms.script' // TrySelectObj
+ ;
+ : Implementor ME_4E00671D02B5 // TarContentsTreeWaiter
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_47C6B30F0277_ME_4E00671D02B5 TrySelectObj
+
+: ME_4E00671D02B5
+ CONST UID '4E00671D02B5'
+ CONST Name 'TarContentsTreeWaiter'
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Ожидальщик окончания загрузки документа для подключения дерева.' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4DFB49C40350 // MainWindows
+ ;
+ : Inherits
+   Seq: ( WL 'ME_48E233B00094' '4B893514021E.pas.ms.script' // Tl3Tool
+ )
+ ; // Inherits
+ : Implements
+   Seq: ( WL 'ME_47C6B2F701AA' '47C5207602D1.pas.ms.script' // InevWaiter
+ )
+ ; // Implements
+ : Operations
+   Seq: ( ME_4E008700020B // Make
+ )
+ ; // Operations
+ : Implemented
+   Seq: ( ME_47C6B3040133_ME_4E00671D02B5 // TrySelect
+ ME_47C6B30F0277_ME_4E00671D02B5 // TrySelectObj
+ )
+ ; // Implemented
+ : Dependencies
+   Seq: ( ME_4E006AC4007F // 
+ ME_4E006CCC03C4 // 
+ ME_4E0088C902E4 // 
+ ME_4E00891601E2 // 
+ )
+ ; // Dependencies
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ : Generators
+ Seq: (
+ gen_intf.pas
+ )
+ ; // Generators
+ CONST dfm:PathOnly '\archi\source\projects\Archi\Main'
+ CONST intf.pas:Path 'archi\source\projects\Archi\Main\arContentsTreeWaiter.pas'
+ CONST intf.pas:PathOnly '\archi\source\projects\Archi\Main'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\archi\source\projects\Archi\Main'
+ CONST extprop:rc:SelfName 'arContentsTreeWaiter'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'arContentsTreeWaiter'
+
+ref; // ME_4E00671D02B5 TarContentsTreeWaiter
+
+FORWARD ME_4E5C8996022B
+
+FORWARD ME_4E5C89E1034B
+
+: ME_4E5C8A3D0217
+ CONST UID '4E5C8A3D0217'
+ CONST Name 'aMoniker'
+ CONST Class class_Parameter
+ : Stereotype st_const ;
+ : Target WL 'ME_47C5BD35000A' '4A23935A0282.pas.ms.script' // IevMoniker
+ ;
+
+ref; // ME_4E5C8A3D0217 aMoniker
+
+: ME_4E5C8A370195
+ CONST UID '4E5C8A370195'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_4E5C89E1034B // DocEditorJumpTo
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+ : Parameters
+   Seq: ( ME_4E5C8A3D0217 // aMoniker
+ )
+ ; // Parameters
+
+ref; // ME_4E5C8A370195 DoIt
+
+: ME_4E5C8BAA006F
+ CONST UID '4E5C8BAA006F'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4E5C89E1034B // DocEditorJumpTo
+ ;
+ : Target WL 'ME_4E5C7FB10117' '4E5C7E800347.pas.ms.script' // arOpenHyperLink
+ ;
+
+ref; // ME_4E5C8BAA006F 
+
+: ME_4E5C89E1034B
+ CONST UID '4E5C89E1034B'
+ CONST Name 'DocEditorJumpTo'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_final
+ : Parent ME_4E5C8996022B // TCustomEditorWindow
+ ;
+ : Operations
+   Seq: ( ME_4E5C8A370195 // DoIt
+ )
+ ; // Operations
+ : Dependencies
+   Seq: ( ME_4E5C8BAA006F // 
+ )
+ ; // Dependencies
+
+ref; // ME_4E5C89E1034B DocEditorJumpTo
+
+: ME_55C8D88A01BB
+ CONST UID '55C8D88A01BB'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4E5C8996022B // TCustomEditorWindow
+ ;
+ : Target WL 'ME_55C8D80A0304' '4DFB501A00F4.pas.ms.script' // D_spell
+ ;
+
+ref; // ME_55C8D88A01BB 
+
+: ME_4E5C8996022B
+ CONST UID '4E5C8996022B'
+ CONST Name 'TCustomEditorWindow'
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4E5C897703B1 // CustEditWin
+ ;
+ : Operations
+   Seq: ( ME_4E5C89E1034B // DocEditorJumpTo
+ )
+ ; // Operations
+ : Dependencies
+   Seq: ( ME_55C8D88A01BB // 
+ )
+ ; // Dependencies
+ CONST "finished" false
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ CONST dfm:PathOnly '\archi\source\projects\Archi\Main'
+ CONST intf.pas:PathOnly '\archi\source\projects\Archi\Main'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\archi\source\projects\Archi\Main'
+ CONST extprop:rc:SelfName 'EditorWindow'
+ CONST extprop:rc:isAcceptableForScripts true
+
+ref; // ME_4E5C8996022B TCustomEditorWindow
+
+: ME_4E5C897703B1
+ CONST UID '4E5C897703B1'
+ CONST Name 'CustEditWin'
+ CONST Class class_Class
+ : Stereotype st_UtilityPack ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_4DFB49C40350 // MainWindows
+ ;
+ : Children
+   Seq: ( ME_4E5C8996022B // TCustomEditorWindow
+ )
+ ; // Children
+ CONST "finished" false
+ CONST "no hands" false
+ : Generators
+ Seq: (
+ gen_intf.pas
+ )
+ ; // Generators
+ CONST dfm:PathOnly '\archi\source\projects\Archi\Main'
+ CONST intf.pas:Path 'archi\source\projects\Archi\Main\NOT_FINISHED_CustEditWin.pas'
+ CONST intf.pas:PathOnly '\archi\source\projects\Archi\Main'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\archi\source\projects\Archi\Main'
+
+ref; // ME_4E5C897703B1 CustEditWin
+
+FORWARD ME_4F0C21980347
+
+: ME_4F0C21BD01C3
+ CONST UID '4F0C21BD01C3'
+ CONST Name 'TObjectExplorerWin'
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4F0C21980347 // ObjExWin
+ ;
+ CONST "finished" false
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ CONST dfm:PathOnly '\archi\source\projects\Archi\Main'
+ CONST intf.pas:PathOnly '\archi\source\projects\Archi\Main'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\archi\source\projects\Archi\Main'
+ CONST extprop:rc:SelfName 'ObjectExplorerWin'
+ CONST extprop:rc:isAcceptableForScripts true
+
+ref; // ME_4F0C21BD01C3 TObjectExplorerWin
+
+: ME_4F0C21980347
+ CONST UID '4F0C21980347'
+ CONST Name 'ObjExWin'
+ CONST Class class_Class
+ : Stereotype st_UtilityPack ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_4DFB49C40350 // MainWindows
+ ;
+ : Children
+   Seq: ( ME_4F0C21BD01C3 // TObjectExplorerWin
+ )
+ ; // Children
+ CONST "finished" false
+ CONST "no hands" false
+ : Generators
+ Seq: (
+ gen_intf.pas
+ )
+ ; // Generators
+ CONST dfm:PathOnly '\archi\source\projects\Archi\Main'
+ CONST intf.pas:Path 'archi\source\projects\Archi\Main\NOT_FINISHED_ObjExWin.pas'
+ CONST intf.pas:PathOnly '\archi\source\projects\Archi\Main'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\archi\source\projects\Archi\Main'
+
+ref; // ME_4F0C21980347 ObjExWin
+
+: ME_52A81A6E009E
+ CONST UID '52A81A6E009E'
+ CONST Name 'InitInfo'
+ CONST Class class_Operation
+ : Stereotype st_ini::Operation ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_52A7FD0E002D // TarEditorDebugInfo
+ ;
+
+ref; // ME_52A81A6E009E InitInfo
+
+: ME_CC9B6030AE33
+ CONST UID 'CC9B6030AE33'
+ CONST Name 'Exists'
+ CONST IsSummoned true
+ CONST Class class_Operation
+ : Stereotype st_static::Operation ;
+ %SUMMARY 'Проверяет создан экземпляр синглетона или нет' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_52A7FD0E002D // TarEditorDebugInfo
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+ CONST extprop:pas:Value false
+
+ref; // ME_CC9B6030AE33 Exists
+
+: ME_52A8138701E4
+ CONST UID '52A8138701E4'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_52A7FD0E002D // TarEditorDebugInfo
+ ;
+ : Target ME_4DFB4D5E0084 // TMainForm
+ ;
+
+ref; // ME_52A8138701E4 
+
+: ME_52A81E7C0122
+ CONST UID '52A81E7C0122'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_52A7FD0E002D // TarEditorDebugInfo
+ ;
+ : Target ME_4E5C8996022B // TCustomEditorWindow
+ ;
+
+ref; // ME_52A81E7C0122 
+
+: ME_52A82EBC0234
+ CONST UID '52A82EBC0234'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_52A7FD0E002D // TarEditorDebugInfo
+ ;
+ : Target WL 'ME_47D00B7F0171' '4AB0C3F60375.pas.ms.script' // Key Codes
+ ;
+
+ref; // ME_52A82EBC0234 
+
+: ME_52A82F3E0385
+ CONST UID '52A82F3E0385'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_52A7FD0E002D // TarEditorDebugInfo
+ ;
+ : Target WL 'ME_47ECBD5D03BB' '476F78840219.pas.ms.script' // Msg Codes
+ ;
+
+ref; // ME_52A82F3E0385 
+
+: ME_52A8311C0021
+ CONST UID '52A8311C0021'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_52A7FD0E002D // TarEditorDebugInfo
+ ;
+ : Target WL 'ME_4F75B95B02BD' '4799D29F033F.pas.ms.script' // KeyDataToShiftState
+ ;
+
+ref; // ME_52A8311C0021 
+
+: ME_52A832EF00CD
+ CONST UID '52A832EF00CD'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_52A7FD0E002D // TarEditorDebugInfo
+ ;
+ : Target WL 'ME_478CF30500C1' '4AB0997B00A2.pas.ms.script' // Classes
+ ;
+
+ref; // ME_52A832EF00CD 
+
+: ME_52A835450116
+ CONST UID '52A835450116'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_52A7FD0E002D // TarEditorDebugInfo
+ ;
+ : Target WL 'ME_4F636139008F' '4F635E1901E5.pas.ms.script' // Tl3ListenersManager
+ ;
+
+ref; // ME_52A835450116 
+
+: ME_4F62032D0058_ME_52A7FD0E002D
+ CONST UID '4F62032D0058'
+ CONST Name 'GetMessageListenerNotify'
+ : Original WL 'ME_4F62032D0058' '4677FBA70343.pas.ms.script' // GetMessageListenerNotify
+ ;
+ : Implementor ME_52A7FD0E002D // TarEditorDebugInfo
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_4F62032D0058_ME_52A7FD0E002D GetMessageListenerNotify
+
+: ME_479731C50290_ME_52A7FD0E002D
+ CONST UID '479731C50290'
+ CONST Name 'Cleanup'
+ : Original WL 'ME_479731C50290' '51612EBB02F5.pas.ms.script' // Cleanup
+ ;
+ : Implementor ME_52A7FD0E002D // TarEditorDebugInfo
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_479731C50290_ME_52A7FD0E002D Cleanup
+
+: ME_47A042E100E2_ME_52A7FD0E002D
+ CONST UID '47A042E100E2'
+ CONST Name 'InitFields'
+ : Original WL 'ME_47A042E100E2' '47913B47006E.pas.ms.script' // InitFields
+ ;
+ : Implementor ME_52A7FD0E002D // TarEditorDebugInfo
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_47A042E100E2_ME_52A7FD0E002D InitFields
+
+: ME_52A7FD0E002D
+ CONST UID '52A7FD0E002D'
+ CONST Name 'TarEditorDebugInfo'
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Класс для вывода информаци о состоянии редактора в лог.' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4DFB49C40350 // MainWindows
+ ;
+ : Inherits
+   Seq: ( WL 'ME_49E7754802A9' '47913B47006E.pas.ms.script' // Tl3ProtoObject
+ )
+ ; // Inherits
+ : Implements
+   Seq: ( WL 'ME_4F62031400F6' '4677FBA70343.pas.ms.script' // Il3GetMessageListener
+ )
+ ; // Implements
+ : Operations
+   Seq: ( ME_52A81A6E009E // InitInfo
+ ME_CC9B6030AE33 // Exists
+ )
+ ; // Operations
+ : Implemented
+   Seq: ( ME_4F62032D0058_ME_52A7FD0E002D // GetMessageListenerNotify
+ )
+ ; // Implemented
+ : Overridden
+   Seq: ( ME_479731C50290_ME_52A7FD0E002D // Cleanup
+ ME_47A042E100E2_ME_52A7FD0E002D // InitFields
+ )
+ ; // Overridden
+ : Dependencies
+   Seq: ( ME_52A8138701E4 // 
+ ME_52A81E7C0122 // 
+ ME_52A82EBC0234 // 
+ ME_52A82F3E0385 // 
+ ME_52A8311C0021 // 
+ ME_52A832EF00CD // 
+ ME_52A835450116 // 
+ )
+ ; // Dependencies
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ CONST "singleton" true
+ : Generators
+ Seq: (
+ gen_intf.pas
+ )
+ ; // Generators
+ CONST dfm:PathOnly '\archi\source\projects\Archi\Main'
+ CONST intf.pas:Path 'archi\source\projects\Archi\Main\arEditorDebugInfo.pas'
+ CONST intf.pas:PathOnly '\archi\source\projects\Archi\Main'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\archi\source\projects\Archi\Main'
+ CONST extprop:rc:SelfName 'arEditorDebugInfo'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'arEditorDebugInfo'
+
+ref; // ME_52A7FD0E002D TarEditorDebugInfo
+
+: ME_4DFB49C40350
+ CONST UID '4DFB49C40350'
+ CONST Name 'MainWindows'
+ CONST Class class_Category
+ : Stereotype st_Unit ;
+ %SUMMARY 'Основные модули.' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent WL 'ME_4DFB490B0209' '4DFB490B0209.pas.ms.script' // Main
+ ;
+ : Children
+   Seq: ( ME_4DFB4AD800BA // Editwin
+ ME_4DFB4D3C01B5 // Main
+ ME_4E00671D02B5 // TarContentsTreeWaiter
+ ME_4E5C897703B1 // CustEditWin
+ ME_4F0C21980347 // ObjExWin
+ ME_52A7FD0E002D // TarEditorDebugInfo
+ )
+ ; // Children
+ : Depends
+   Seq: ( WL 'ME_4677FBA70343' '4677FBA70343.pas.ms.script' // l3Interfaces
+ WL 'ME_476F78840219' '476F78840219.pas.ms.script' // Messages
+ WL 'ME_47913B47006E' '47913B47006E.pas.ms.script' // l3CoreObjects
+ WL 'ME_4799D29F033F' '4799D29F033F.pas.ms.script' // Implementation
+ WL 'ME_47BC51FE018B' '47BC51FE018B.pas.ms.script' // dt_Types
+ WL 'ME_47C5207602D1' '47C5207602D1.pas.ms.script' // nevTools
+ WL 'ME_4A23935A0282' '4A23935A0282.pas.ms.script' // afwNavigation
+ WL 'ME_4AB0997B00A2' '4AB0997B00A2.pas.ms.script' // Common
+ WL 'ME_4AB0C3C60310' '4AB0C3C60310.pas.ms.script' // Sys
+ WL 'ME_4AB0C3F60375' '4AB0C3F60375.pas.ms.script' // Win
+ WL 'ME_4B893514021E' '4B893514021E.pas.ms.script' // Pretty Things
+ WL 'ME_4DFB501A00F4' '4DFB501A00F4.pas.ms.script' // CommonDialogs
+ WL 'ME_4E004D460329' '4E004D460329.pas.ms.script' // DocumentContainer
+ WL 'ME_4E0072500208' '4E0072500208.pas.ms.script' // DocIntf
+ WL 'ME_4E202A4A01B6' '4E202A4A01B6.pas.ms.script' // ChildWindow
+ WL 'ME_4E255287019F' '4E255287019F.pas.ms.script' // arConst
+ WL 'ME_4E4B607802DB' '4E4B607802DB.pas.ms.script' // Utils
+ WL 'ME_4E4B99A60349' '4E4B99A60349.pas.ms.script' // Tools
+ WL 'ME_4E5C7E800347' '4E5C7E800347.pas.ms.script' // Scripting Support
+ WL 'ME_4F635E1901E5' '4F635E1901E5.pas.ms.script' // l3Listeners
+ WL 'ME_4F8D7381019D' '4F8D7381019D.pas.ms.script' // Frames
+ )
+ ; // Depends
+ CONST "finished" false
+ : Generators
+ Seq: (
+ gen_pas.script
+ gen_pas.script.runner
+ )
+ ; // Generators
+ CONST dfm:PathOnly '\archi\source\projects\Archi\Main'
+ CONST intf.pas:PathOnly '\archi\source\projects\Archi\Main'
+ CONST pas.script:Path 'shared\models\NewSchool\Scripts\4DFB49C40350.pas.ms.script'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\4DFB49C40350.pas.ms.script.runner'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\archi\source\projects\Archi\Main'
+
+ref; // ME_4DFB49C40350 MainWindows

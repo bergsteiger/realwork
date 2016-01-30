@@ -28,6 +28,7 @@ ref; // ME_547CB49A021A Orientation
 : ME_CF4ECB4FC644
  CONST UID 'CF4ECB4FC644'
  CONST Name 'f_Orientation'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY 'Поле для свойства Orientation' ;
  CONST Visibility PrivateAccess
@@ -37,6 +38,7 @@ ref; // ME_547CB49A021A Orientation
  ;
  : Target WL 'ME_46A47DE80309' '4677FBA70343.pas.ms.script' // Tl3Orientation1
  ;
+ CONST extprop:clearViaProperty 'Orientation'
 
 ref; // ME_CF4ECB4FC644 f_Orientation
 
@@ -45,6 +47,7 @@ FORWARD ME_547CB4C800EA
 : ME_D73698249273
  CONST UID 'D73698249273'
  CONST Name 'DoIt'
+ CONST IsSummoned true
  CONST Class class_Operation
  %SUMMARY 'Сигнатура метода OrientationChanged' ;
  CONST Visibility PublicAccess
@@ -65,8 +68,8 @@ ref; // ME_D73698249273 DoIt
  : Parent ME_547CB3C6025E // TevCustomToolPanel
  ;
  : Operations
-   @ ( ME_D73698249273 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_D73698249273 // DoIt
+ )
  ; // Operations
 
 ref; // ME_547CB4C800EA OrientationChanged
@@ -92,8 +95,8 @@ ref; // ME_547CC3A20136 iD
  : Parent ME_547CC36E00D5 // DoScroll
  ;
  : Parameters
-   @ ( ME_547CC3A20136 // iD
- ) .SequenceCode.It
+   Seq: ( ME_547CC3A20136 // iD
+ )
  ; // Parameters
 
 ref; // ME_547CC3A1015B DoIt
@@ -109,8 +112,8 @@ ref; // ME_547CC3A1015B DoIt
  : Parent ME_547CB3C6025E // TevCustomToolPanel
  ;
  : Operations
-   @ ( ME_547CC3A1015B // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_547CC3A1015B // DoIt
+ )
  ; // Operations
 
 ref; // ME_547CC36E00D5 DoScroll
@@ -118,6 +121,7 @@ ref; // ME_547CC36E00D5 DoScroll
 : ME_7DA4EE0C41CC
  CONST UID '7DA4EE0C41CC'
  CONST Name 'Ini_Reg_Class'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Регистрация TevCustomToolPanel' ;
@@ -142,6 +146,7 @@ ref; // ME_547CB58B0351
 
 : ME_0F0C11027723
  CONST UID '0F0C11027723'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_547CB3C6025E // TevCustomToolPanel
@@ -158,6 +163,7 @@ ref; // ME_0F0C11027723
  ;
  : Implementor ME_547CB3C6025E // TevCustomToolPanel
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_547CA089003C_ME_547CB3C6025E Scroll
 
 : ME_547CA0940115_ME_547CB3C6025E
@@ -167,6 +173,7 @@ ref; // ME_547CA089003C_ME_547CB3C6025E Scroll
  ;
  : Implementor ME_547CB3C6025E // TevCustomToolPanel
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_547CA0940115_ME_547CB3C6025E Invalidate
 
 : ME_547CA0B40252_ME_547CB3C6025E
@@ -176,6 +183,7 @@ ref; // ME_547CA0940115_ME_547CB3C6025E Invalidate
  ;
  : Implementor ME_547CB3C6025E // TevCustomToolPanel
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" true
 ref; // ME_547CA0B40252_ME_547CB3C6025E Visible
 
@@ -191,39 +199,45 @@ ref; // ME_547CA0B40252_ME_547CB3C6025E Visible
  : Parent ME_547CB3B5032B // evToolPanel
  ;
  : Inherits
-   @ ( WL 'ME_50FD1AE5027A' '4A7960CC03A4.pas.ms.script' // TvtCustomPanel
- ) .SequenceCode.It
+   Seq: ( WL 'ME_50FD1AE5027A' '4A7960CC03A4.pas.ms.script' // TvtCustomPanel
+ )
  ; // Inherits
  : Implements
-   @ ( WL 'ME_547CA05403A0' '547C9F6D029C.pas.ms.script' // IevToolWindow
- ) .SequenceCode.It
+   Seq: ( WL 'ME_547CA05403A0' '547C9F6D029C.pas.ms.script' // IevToolWindow
+ )
  ; // Implements
  : Attributes
-   @ ( ME_547CB49A021A // Orientation
+   Seq: ( ME_547CB49A021A // Orientation
  ME_CF4ECB4FC644 // f_Orientation
- ) .SequenceCode.It
+ )
  ; // Attributes
  : Operations
-   @ ( ME_547CB4C800EA // OrientationChanged
+   Seq: ( ME_547CB4C800EA // OrientationChanged
  ME_547CC36E00D5 // DoScroll
  ME_7DA4EE0C41CC // Ini_Reg_Class
- ) .SequenceCode.It
+ )
  ; // Operations
  : Implemented
-   @ ( ME_547CA089003C_ME_547CB3C6025E // Scroll
+   Seq: ( ME_547CA089003C_ME_547CB3C6025E // Scroll
  ME_547CA0940115_ME_547CB3C6025E // Invalidate
  ME_547CA0B40252_ME_547CB3C6025E // Visible
- ) .SequenceCode.It
+ )
  ; // Implemented
  : Dependencies
-   @ ( ME_547CB58B0351 // 
+   Seq: ( ME_547CB58B0351 // 
  ME_0F0C11027723 // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'ToolPanel'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_547CB3C6025E TevCustomToolPanel
 
@@ -238,20 +252,20 @@ ref; // ME_547CB3C6025E TevCustomToolPanel
  : Parent ME_547CB376012F // ToolPanel
  ;
  : Inherits
-   @ ( ME_547CB3C6025E // TevCustomToolPanel
- ) .SequenceCode.It
+   Seq: ( ME_547CB3C6025E // TevCustomToolPanel
+ )
  ; // Inherits
  : Children
-   @ ( ME_547CB3C6025E // TevCustomToolPanel
- ) .SequenceCode.It
+   Seq: ( ME_547CB3C6025E // TevCustomToolPanel
+ )
  ; // Children
  CONST "no hands" false
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest'
  CONST intf.pas:Path 'common\components\gui\Garant\Everest\evToolPanel.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'ToolPanel'
 
 ref; // ME_547CB3B5032B evToolPanel
 
@@ -281,6 +295,7 @@ ref; // ME_547DA57802CD Control
 : ME_6A85831F28C3
  CONST UID '6A85831F28C3'
  CONST Name 'f_Control'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY 'Поле для свойства Control' ;
  CONST Visibility PrivateAccess
@@ -290,12 +305,14 @@ ref; // ME_547DA57802CD Control
  ;
  : Target WL 'ME_47E124E90272' '4799D29F033F.pas.ms.script' // TWinControl
  ;
+ CONST extprop:clearViaProperty 'Control'
 
 ref; // ME_6A85831F28C3 f_Control
 
 : ME_CF7CE46737C4
  CONST UID 'CF7CE46737C4'
  CONST Name 'Ini_Reg_Class'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Регистрация TevCustomLinkedToolPanel' ;
@@ -309,6 +326,7 @@ ref; // ME_CF7CE46737C4 Ini_Reg_Class
 
 : ME_899F081811C2
  CONST UID '899F081811C2'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_547DA51401F2 // TevCustomLinkedToolPanel
@@ -325,6 +343,7 @@ ref; // ME_899F081811C2
  ;
  : Implementor ME_547DA51401F2 // TevCustomLinkedToolPanel
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" true
 ref; // ME_547CA11F002F_ME_547DA51401F2 Control
 
@@ -335,6 +354,7 @@ ref; // ME_547CA11F002F_ME_547DA51401F2 Control
  ;
  : Implementor ME_547DA51401F2 // TevCustomLinkedToolPanel
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_515317860183_ME_547DA51401F2 MouseWheelHandler
 
 : ME_547DA51401F2
@@ -349,38 +369,44 @@ ref; // ME_515317860183_ME_547DA51401F2 MouseWheelHandler
  : Parent ME_547DA4F701F9 // evLinkedToolPanel
  ;
  : Inherits
-   @ ( ME_547CB3C6025E // TevCustomToolPanel
- ) .SequenceCode.It
+   Seq: ( ME_547CB3C6025E // TevCustomToolPanel
+ )
  ; // Inherits
  : Implements
-   @ ( WL 'ME_547CA0E40341' '547C9F6D029C.pas.ms.script' // IevLinkedToolWindow
- ) .SequenceCode.It
+   Seq: ( WL 'ME_547CA0E40341' '547C9F6D029C.pas.ms.script' // IevLinkedToolWindow
+ )
  ; // Implements
  : Attributes
-   @ ( ME_547DA57802CD // Control
+   Seq: ( ME_547DA57802CD // Control
  ME_6A85831F28C3 // f_Control
- ) .SequenceCode.It
+ )
  ; // Attributes
  : Operations
-   @ ( ME_CF7CE46737C4 // Ini_Reg_Class
- ) .SequenceCode.It
+   Seq: ( ME_CF7CE46737C4 // Ini_Reg_Class
+ )
  ; // Operations
  : Implemented
-   @ ( ME_547CA11F002F_ME_547DA51401F2 // Control
- ) .SequenceCode.It
+   Seq: ( ME_547CA11F002F_ME_547DA51401F2 // Control
+ )
  ; // Implemented
  : Overridden
-   @ ( ME_515317860183_ME_547DA51401F2 // MouseWheelHandler
- ) .SequenceCode.It
+   Seq: ( ME_515317860183_ME_547DA51401F2 // MouseWheelHandler
+ )
  ; // Overridden
  : Dependencies
-   @ ( ME_899F081811C2 // 
- ) .SequenceCode.It
+   Seq: ( ME_899F081811C2 // 
+ )
  ; // Dependencies
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'LinkedToolPanel'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_547DA51401F2 TevCustomLinkedToolPanel
 
@@ -395,16 +421,16 @@ ref; // ME_547DA51401F2 TevCustomLinkedToolPanel
  : Parent ME_547CB376012F // ToolPanel
  ;
  : Children
-   @ ( ME_547DA51401F2 // TevCustomLinkedToolPanel
- ) .SequenceCode.It
+   Seq: ( ME_547DA51401F2 // TevCustomLinkedToolPanel
+ )
  ; // Children
  CONST "no hands" false
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest'
  CONST intf.pas:Path 'common\components\gui\Garant\Everest\evLinkedToolPanel.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'LinkedToolPanel'
 
 ref; // ME_547DA4F701F9 evLinkedToolPanel
 
@@ -425,6 +451,7 @@ FORWARD ME_547DB0520224
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value 'Pred(High(Integer))'
 
 ref; // ME_547DB06C0054 DefColumn
 
@@ -441,6 +468,7 @@ ref; // ME_547DB06C0054 DefColumn
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value 5
 
 ref; // ME_547DB07500AA DefSubPanelWidth
 
@@ -459,6 +487,7 @@ ref; // ME_547DB07500AA DefSubPanelWidth
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value 'evDef.def_Zoom'
 
 ref; // ME_54806D8800A1 def_Zoom
 
@@ -473,12 +502,17 @@ ref; // ME_54806D8800A1 def_Zoom
  : Parent ME_547DB02F034B // TevSubPanel
  ;
  : Attributes
-   @ ( ME_547DB06C0054 // DefColumn
+   Seq: ( ME_547DB06C0054 // DefColumn
  ME_547DB07500AA // DefSubPanelWidth
  ME_54806D8800A1 // def_Zoom
- ) .SequenceCode.It
+ )
  ; // Attributes
  CONST "spell names" false
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'SubPn Public Consts'
 
 ref; // ME_547DB0520224 evSubPn Public Consts
 
@@ -556,13 +590,18 @@ ref; // ME_547DB0C003AB ev_sdtOwnerDraw
  : Parent ME_547DB02F034B // TevSubPanel
  ;
  : Attributes
-   @ ( ME_547DB0A70358 // ev_sdtNumber
+   Seq: ( ME_547DB0A70358 // ev_sdtNumber
  ME_547DB0AE01B0 // ev_sdtChar
  ME_547DB0B30358 // ev_sdtCharNumber
  ME_547DB0BA0109 // ev_sdtBitmap
  ME_547DB0C003AB // ev_sdtOwnerDraw
- ) .SequenceCode.It
+ )
  ; // Attributes
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_547DB08603D0 TevSubDrawType
 
@@ -617,11 +656,11 @@ ref; // ME_547DB1000091 aKind
  : Parent ME_547DB0DE005E // TevClickSubEvent
  ;
  : Parameters
-   @ ( ME_547DB100004C // Sender
+   Seq: ( ME_547DB100004C // Sender
  ME_547DB1000063 // SubType
  ME_547DB100007A // SubHandle
  ME_547DB1000091 // aKind
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_547DB0FB03B8 DoIt
@@ -637,10 +676,14 @@ ref; // ME_547DB0FB03B8 DoIt
  : Parent ME_547DB02F034B // TevSubPanel
  ;
  : Operations
-   @ ( ME_547DB0FB03B8 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_547DB0FB03B8 // DoIt
+ )
  ; // Operations
  CONST "of object" true
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_547DB0DE005E TevClickSubEvent
 
@@ -707,12 +750,12 @@ ref; // ME_547DB2E500F8 aLayer
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
  : Parameters
-   @ ( ME_547DB2E50096 // Sender
+   Seq: ( ME_547DB2E50096 // Sender
  ME_547DB2E500AF // Pt
  ME_547DB2E500C7 // R
  ME_547DB2E500E0 // aSub
  ME_547DB2E500F8 // aLayer
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_547DB2DB01AB DoIt
@@ -728,10 +771,14 @@ ref; // ME_547DB2DB01AB DoIt
  : Parent ME_547DB02F034B // TevSubPanel
  ;
  : Operations
-   @ ( ME_547DB2DB01AB // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_547DB2DB01AB // DoIt
+ )
  ; // Operations
  CONST "of object" true
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_547DB2C50226 TevMouseOverSubEvent
 
@@ -796,12 +843,12 @@ ref; // ME_547DB31900C7 SubHandle
  : Parent ME_547DB30C0329 // TevMenuSubEvent
  ;
  : Parameters
-   @ ( ME_547DB319006C // Sender
+   Seq: ( ME_547DB319006C // Sender
  ME_547DB3190083 // Pt
  ME_547DB319009A // R
  ME_547DB31900B0 // SubType
  ME_547DB31900C7 // SubHandle
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_547DB31503BB DoIt
@@ -817,10 +864,14 @@ ref; // ME_547DB31503BB DoIt
  : Parent ME_547DB02F034B // TevSubPanel
  ;
  : Operations
-   @ ( ME_547DB31503BB // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_547DB31503BB // DoIt
+ )
  ; // Operations
  CONST "of object" true
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_547DB30C0329 TevMenuSubEvent
 
@@ -885,12 +936,12 @@ ref; // ME_547DB34D027E Images
  : Parent ME_547DB33E029E // TevGetSubBitmapIndexEvent
  ;
  : Parameters
-   @ ( ME_547DB34D01BA // Sender
+   Seq: ( ME_547DB34D01BA // Sender
  ME_547DB34D01D3 // aSubType
  ME_547DB34D01FC // aSubHandle
  ME_547DB34D023D // Bitmap
  ME_547DB34D027E // Images
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_547DB3460144 DoIt
@@ -906,10 +957,14 @@ ref; // ME_547DB3460144 DoIt
  : Parent ME_547DB02F034B // TevSubPanel
  ;
  : Operations
-   @ ( ME_547DB3460144 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_547DB3460144 // DoIt
+ )
  ; // Operations
  CONST "of object" true
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_547DB33E029E TevGetSubBitmapIndexEvent
 
@@ -954,10 +1009,10 @@ ref; // ME_547DBB2E01B5 anIndex
  : Parent ME_547DBB1C018A // TevDefineBlockImageIndex
  ;
  : Parameters
-   @ ( ME_547DBB2E0182 // Sender
+   Seq: ( ME_547DBB2E0182 // Sender
  ME_547DBB2E019C // aSub
  ME_547DBB2E01B5 // anIndex
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_547DBB27033B DoIt
@@ -973,10 +1028,14 @@ ref; // ME_547DBB27033B DoIt
  : Parent ME_547DB02F034B // TevSubPanel
  ;
  : Operations
-   @ ( ME_547DBB27033B // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_547DBB27033B // DoIt
+ )
  ; // Operations
  CONST "of object" true
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_547DBB1C018A TevDefineBlockImageIndex
 
@@ -1253,6 +1312,7 @@ ref; // ME_54806C5B0270 f_Descriptors
 : ME_B0569DBA4637
  CONST UID 'B0569DBA4637'
  CONST Name 'f_BitmapIndex'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY 'Поле для свойства BitmapIndex' ;
  CONST Visibility PrivateAccess
@@ -1262,12 +1322,14 @@ ref; // ME_54806C5B0270 f_Descriptors
  ;
  : Target WL 'ME_4788207F0056' '4799D29F033F.pas.ms.script' // TImageIndex
  ;
+ CONST extprop:clearViaProperty 'BitmapIndex'
 
 ref; // ME_B0569DBA4637 f_BitmapIndex
 
 : ME_A215F1FC5E60
  CONST UID 'A215F1FC5E60'
  CONST Name 'f_BlockBitmapIndex'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY 'Поле для свойства BlockBitmapIndex' ;
  CONST Visibility PrivateAccess
@@ -1277,12 +1339,14 @@ ref; // ME_B0569DBA4637 f_BitmapIndex
  ;
  : Target WL 'ME_4788207F0056' '4799D29F033F.pas.ms.script' // TImageIndex
  ;
+ CONST extprop:clearViaProperty 'BlockBitmapIndex'
 
 ref; // ME_A215F1FC5E60 f_BlockBitmapIndex
 
 : ME_FB1FA41DA940
  CONST UID 'FB1FA41DA940'
  CONST Name 'f_DocumentBitmapIndex'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY 'Поле для свойства DocumentBitmapIndex' ;
  CONST Visibility PrivateAccess
@@ -1292,12 +1356,14 @@ ref; // ME_A215F1FC5E60 f_BlockBitmapIndex
  ;
  : Target WL 'ME_4788207F0056' '4799D29F033F.pas.ms.script' // TImageIndex
  ;
+ CONST extprop:clearViaProperty 'DocumentBitmapIndex'
 
 ref; // ME_FB1FA41DA940 f_DocumentBitmapIndex
 
 : ME_77C98A2DCEC9
  CONST UID '77C98A2DCEC9'
  CONST Name 'f_Font'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY 'Поле для свойства Font' ;
  CONST Visibility PrivateAccess
@@ -1307,12 +1373,14 @@ ref; // ME_FB1FA41DA940 f_DocumentBitmapIndex
  ;
  : Target WL 'ME_547DB5C300FE' '4E60BA4D00A6.pas.ms.script' // TevCustomFont
  ;
+ CONST extprop:clearViaProperty 'Font'
 
 ref; // ME_77C98A2DCEC9 f_Font
 
 : ME_E7A99F18E527
  CONST UID 'E7A99F18E527'
  CONST Name 'f_DrawType'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY 'Поле для свойства DrawType' ;
  CONST Visibility PrivateAccess
@@ -1322,12 +1390,14 @@ ref; // ME_77C98A2DCEC9 f_Font
  ;
  : Target ME_547DB08603D0 // TevSubDrawType
  ;
+ CONST extprop:clearViaProperty 'DrawType'
 
 ref; // ME_E7A99F18E527 f_DrawType
 
 : ME_1869A52BDD77
  CONST UID '1869A52BDD77'
  CONST Name 'f_NumberOffset'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY 'Поле для свойства NumberOffset' ;
  CONST Visibility PrivateAccess
@@ -1337,12 +1407,14 @@ ref; // ME_E7A99F18E527 f_DrawType
  ;
  : Target WL 'ME_476130E5023C' '4AB0C3C60310.pas.ms.script' // Byte
  ;
+ CONST extprop:clearViaProperty 'NumberOffset'
 
 ref; // ME_1869A52BDD77 f_NumberOffset
 
 : ME_9009514C737F
  CONST UID '9009514C737F'
  CONST Name 'f_Visible'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY 'Поле для свойства Visible' ;
  CONST Visibility PrivateAccess
@@ -1352,12 +1424,14 @@ ref; // ME_1869A52BDD77 f_NumberOffset
  ;
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
+ CONST extprop:clearViaProperty 'Visible'
 
 ref; // ME_9009514C737F f_Visible
 
 : ME_FD1E572E9A67
  CONST UID 'FD1E572E9A67'
  CONST Name 'f_Offset'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY 'Поле для свойства Offset' ;
  CONST Visibility PrivateAccess
@@ -1367,12 +1441,14 @@ ref; // ME_9009514C737F f_Visible
  ;
  : Target WL 'ME_547DB7240282' '47C695A10172.pas.ms.script' // TevPixel
  ;
+ CONST extprop:clearViaProperty 'Offset'
 
 ref; // ME_FD1E572E9A67 f_Offset
 
 : ME_33C6ABBEA81C
  CONST UID '33C6ABBEA81C'
  CONST Name 'f_Column'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY 'Поле для свойства Column' ;
  CONST Visibility PrivateAccess
@@ -1382,12 +1458,14 @@ ref; // ME_FD1E572E9A67 f_Offset
  ;
  : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
  ;
+ CONST extprop:clearViaProperty 'Column'
 
 ref; // ME_33C6ABBEA81C f_Column
 
 : ME_9755FE121D99
  CONST UID '9755FE121D99'
  CONST Name 'f_Cursor'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY 'Поле для свойства Cursor' ;
  CONST Visibility PrivateAccess
@@ -1397,12 +1475,14 @@ ref; // ME_33C6ABBEA81C f_Column
  ;
  : Target WL 'ME_4E788E98006B' '4799D29F033F.pas.ms.script' // TCursor
  ;
+ CONST extprop:clearViaProperty 'Cursor'
 
 ref; // ME_9755FE121D99 f_Cursor
 
 : ME_E5D6D02DA6F1
  CONST UID 'E5D6D02DA6F1'
  CONST Name 'f_OnGetBitmapIndex'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY 'Поле для свойства OnGetBitmapIndex' ;
  CONST Visibility PrivateAccess
@@ -1412,12 +1492,14 @@ ref; // ME_9755FE121D99 f_Cursor
  ;
  : Target ME_547DB33E029E // TevGetSubBitmapIndexEvent
  ;
+ CONST extprop:clearViaProperty 'OnGetBitmapIndex'
 
 ref; // ME_E5D6D02DA6F1 f_OnGetBitmapIndex
 
 : ME_F2C46FBD30C5
  CONST UID 'F2C46FBD30C5'
  CONST Name 'f_Images'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY 'Поле для свойства Images' ;
  CONST Visibility PrivateAccess
@@ -1427,6 +1509,7 @@ ref; // ME_E5D6D02DA6F1 f_OnGetBitmapIndex
  ;
  : Target WL 'ME_473DA2AF0168' '4799D29F033F.pas.ms.script' // TCustomImageList
  ;
+ CONST extprop:clearViaProperty 'Images'
 
 ref; // ME_F2C46FBD30C5 f_Images
 
@@ -1435,6 +1518,7 @@ FORWARD ME_547DB95F0282
 : ME_0562E2C65A5A
  CONST UID '0562E2C65A5A'
  CONST Name 'DoIt'
+ CONST IsSummoned true
  CONST Class class_Operation
  %SUMMARY 'Сигнатура метода CheckFont' ;
  CONST Visibility PublicAccess
@@ -1455,8 +1539,8 @@ ref; // ME_0562E2C65A5A DoIt
  : Parent ME_547DB3E001A5 // TevSubDescriptorPrim
  ;
  : Operations
-   @ ( ME_0562E2C65A5A // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_0562E2C65A5A // DoIt
+ )
  ; // Operations
 
 ref; // ME_547DB95F0282 CheckFont
@@ -1466,6 +1550,7 @@ FORWARD ME_547DB98F012C
 : ME_E80FBD910BFB
  CONST UID 'E80FBD910BFB'
  CONST Name 'DoIt'
+ CONST IsSummoned true
  CONST Class class_Operation
  %SUMMARY 'Сигнатура метода BuildColumns' ;
  CONST Visibility PublicAccess
@@ -1486,8 +1571,8 @@ ref; // ME_E80FBD910BFB DoIt
  : Parent ME_547DB3E001A5 // TevSubDescriptorPrim
  ;
  : Operations
-   @ ( ME_E80FBD910BFB // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_E80FBD910BFB // DoIt
+ )
  ; // Operations
 
 ref; // ME_547DB98F012C BuildColumns
@@ -1518,8 +1603,8 @@ ref; // ME_547DB9BC01F1 DoIt
  : Parent ME_547DB3E001A5 // TevSubDescriptorPrim
  ;
  : Operations
-   @ ( ME_547DB9BC01F1 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_547DB9BC01F1 // DoIt
+ )
  ; // Operations
 
 ref; // ME_547DB9B10138 VisibleDef
@@ -1545,8 +1630,8 @@ ref; // ME_547DF08901B6 anOwner
  : Parent ME_547DB9EC002E // Create
  ;
  : Parameters
-   @ ( ME_547DF08901B6 // anOwner
- ) .SequenceCode.It
+   Seq: ( ME_547DF08901B6 // anOwner
+ )
  ; // Parameters
 
 ref; // ME_547DB9F5024E DoIt
@@ -1562,8 +1647,8 @@ ref; // ME_547DB9F5024E DoIt
  : Parent ME_547DB3E001A5 // TevSubDescriptorPrim
  ;
  : Operations
-   @ ( ME_547DB9F5024E // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_547DB9F5024E // DoIt
+ )
  ; // Operations
 
 ref; // ME_547DB9EC002E Create
@@ -1571,6 +1656,7 @@ ref; // ME_547DB9EC002E Create
 : ME_B2038F885A9E
  CONST UID 'B2038F885A9E'
  CONST Name 'FontStored'
+ CONST IsSummoned true
  CONST Class class_Operation
  %SUMMARY '"Функция определяющая, что свойство Font сохраняется"' ;
  CONST Visibility ProtectedAccess
@@ -1585,6 +1671,7 @@ ref; // ME_B2038F885A9E FontStored
 : ME_64C973B9A48B
  CONST UID '64C973B9A48B'
  CONST Name 'VisibleStored'
+ CONST IsSummoned true
  CONST Class class_Operation
  %SUMMARY '"Функция определяющая, что свойство Visible сохраняется"' ;
  CONST Visibility ProtectedAccess
@@ -1599,6 +1686,7 @@ ref; // ME_64C973B9A48B VisibleStored
 : ME_D35547FF8400
  CONST UID 'D35547FF8400'
  CONST Name 'CursorStored'
+ CONST IsSummoned true
  CONST Class class_Operation
  %SUMMARY '"Функция определяющая, что свойство Cursor сохраняется"' ;
  CONST Visibility ProtectedAccess
@@ -1617,6 +1705,7 @@ ref; // ME_D35547FF8400 CursorStored
  ;
  : Implementor ME_547DB3E001A5 // TevSubDescriptorPrim
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" true
 ref; // ME_52FCC6CE00E2_ME_547DB3E001A5 Handle
 
@@ -1627,6 +1716,7 @@ ref; // ME_52FCC6CE00E2_ME_547DB3E001A5 Handle
  ;
  : Implementor ME_547DB3E001A5 // TevSubDescriptorPrim
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_52FCC73E00CC_ME_547DB3E001A5 CompareWith
 
 : ME_478CF34E02CE_ME_547DB3E001A5
@@ -1636,6 +1726,7 @@ ref; // ME_52FCC73E00CC_ME_547DB3E001A5 CompareWith
  ;
  : Implementor ME_547DB3E001A5 // TevSubDescriptorPrim
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_478CF34E02CE_ME_547DB3E001A5 Assign
 
 : ME_479731C50290_ME_547DB3E001A5
@@ -1645,6 +1736,7 @@ ref; // ME_478CF34E02CE_ME_547DB3E001A5 Assign
  ;
  : Implementor ME_547DB3E001A5 // TevSubDescriptorPrim
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_479731C50290_ME_547DB3E001A5 Cleanup
 
 : ME_480DD1890221_ME_547DB3E001A5
@@ -1654,6 +1746,7 @@ ref; // ME_479731C50290_ME_547DB3E001A5 Cleanup
  ;
  : Implementor ME_547DB3E001A5 // TevSubDescriptorPrim
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_480DD1890221_ME_547DB3E001A5 GetOwner
 
 : ME_547DB3E001A5
@@ -1667,11 +1760,11 @@ ref; // ME_480DD1890221_ME_547DB3E001A5 GetOwner
  : Parent ME_547DB02F034B // TevSubPanel
  ;
  : Inherits
-   @ ( WL 'ME_52FCC6C002D7' '4B8931DC0339.pas.ms.script' // Tl3ProtoPersistentWithHandle
- ) .SequenceCode.It
+   Seq: ( WL 'ME_52FCC6C002D7' '4B8931DC0339.pas.ms.script' // Tl3ProtoPersistentWithHandle
+ )
  ; // Inherits
  : Attributes
-   @ ( ME_547DB4C7022C // f_Handle
+   Seq: ( ME_547DB4C7022C // f_Handle
  ME_547DB4FB034B // BitmapIndex
  ME_547DB52702AA // BlockBitmapIndex
  ME_547DB553009D // DocumentBitmapIndex
@@ -1698,37 +1791,43 @@ ref; // ME_480DD1890221_ME_547DB3E001A5 GetOwner
  ME_9755FE121D99 // f_Cursor
  ME_E5D6D02DA6F1 // f_OnGetBitmapIndex
  ME_F2C46FBD30C5 // f_Images
- ) .SequenceCode.It
+ )
  ; // Attributes
  : Operations
-   @ ( ME_547DB95F0282 // CheckFont
+   Seq: ( ME_547DB95F0282 // CheckFont
  ME_547DB98F012C // BuildColumns
  ME_547DB9B10138 // VisibleDef
  ME_547DB9EC002E // Create
  ME_B2038F885A9E // FontStored
  ME_64C973B9A48B // VisibleStored
  ME_D35547FF8400 // CursorStored
- ) .SequenceCode.It
+ )
  ; // Operations
  : Implemented
-   @ ( ME_52FCC6CE00E2_ME_547DB3E001A5 // Handle
+   Seq: ( ME_52FCC6CE00E2_ME_547DB3E001A5 // Handle
  ME_52FCC73E00CC_ME_547DB3E001A5 // CompareWith
- ) .SequenceCode.It
+ )
  ; // Implemented
  : Overridden
-   @ ( ME_478CF34E02CE_ME_547DB3E001A5 // Assign
+   Seq: ( ME_478CF34E02CE_ME_547DB3E001A5 // Assign
  ME_479731C50290_ME_547DB3E001A5 // Cleanup
  ME_480DD1890221_ME_547DB3E001A5 // GetOwner
- ) .SequenceCode.It
+ )
  ; // Overridden
  : Forwarded
-   @ ( ME_547DB8BC03D3 // TevSubDescriptors
- ) .SequenceCode.It
+   Seq: ( ME_547DB8BC03D3 // TevSubDescriptors
+ )
  ; // Forwarded
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'SubDescriptorPrim'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_547DB3E001A5 TevSubDescriptorPrim
 
@@ -1737,6 +1836,7 @@ FORWARD ME_547DB364031F
 : ME_FE96EDF5D428
  CONST UID 'FE96EDF5D428'
  CONST Name 'Ini_Reg_Class'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Регистрация TevSubDescriptor' ;
@@ -1750,6 +1850,7 @@ ref; // ME_FE96EDF5D428 Ini_Reg_Class
 
 : ME_7F4154B01394
  CONST UID '7F4154B01394'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_547DB364031F // TevSubDescriptor
@@ -1771,26 +1872,32 @@ ref; // ME_7F4154B01394
  : Parent ME_547DB02F034B // TevSubPanel
  ;
  : Inherits
-   @ ( ME_547DB3E001A5 // TevSubDescriptorPrim
- ) .SequenceCode.It
+   Seq: ( ME_547DB3E001A5 // TevSubDescriptorPrim
+ )
  ; // Inherits
  : Operations
-   @ ( ME_FE96EDF5D428 // Ini_Reg_Class
- ) .SequenceCode.It
+   Seq: ( ME_FE96EDF5D428 // Ini_Reg_Class
+ )
  ; // Operations
  : Dependencies
-   @ ( ME_7F4154B01394 // 
- ) .SequenceCode.It
+   Seq: ( ME_7F4154B01394 // 
+ )
  ; // Dependencies
  : Injected
-   @ ( WL 'ME_54ECA21603BB' '52D643A301A9.pas.ms.script' // 
- ) .SequenceCode.It
+   Seq: ( WL 'ME_54ECA21603BB' '52D643A301A9.pas.ms.script' // 
+ )
  ; // Injected
  CONST "need UC" true
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" true
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'SubDescriptor'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_547DB364031F TevSubDescriptor
 
@@ -1835,6 +1942,7 @@ ref; // ME_548045F002D2 f_C
  ;
  : Implementor ME_548045A700CD // TevSubData
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_52FCC10F0202_ME_548045A700CD CompareWith
 
 : ME_548045A700CD
@@ -1848,22 +1956,28 @@ ref; // ME_52FCC10F0202_ME_548045A700CD CompareWith
  : Parent ME_547DC15100BC // TevCustomSubDescriptors
  ;
  : Inherits
-   @ ( WL 'ME_52FCC02A0232' '4B8931DC0339.pas.ms.script' // Tl3ProtoObjectWithHandle
- ) .SequenceCode.It
+   Seq: ( WL 'ME_52FCC02A0232' '4B8931DC0339.pas.ms.script' // Tl3ProtoObjectWithHandle
+ )
  ; // Inherits
  : Attributes
-   @ ( ME_548045DC017F // f_S
+   Seq: ( ME_548045DC017F // f_S
  ME_548045F002D2 // f_C
- ) .SequenceCode.It
+ )
  ; // Attributes
  : Implemented
-   @ ( ME_52FCC10F0202_ME_548045A700CD // CompareWith
- ) .SequenceCode.It
+   Seq: ( ME_52FCC10F0202_ME_548045A700CD // CompareWith
+ )
  ; // Implemented
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'SubData'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_548045A700CD TevSubData
 
@@ -1963,8 +2077,8 @@ ref; // ME_547DC2450246 Index
  : Target ME_547DB364031F // TevSubDescriptor
  ;
  : Attributes
-   @ ( ME_547DC2450246 // Index
- ) .SequenceCode.It
+   Seq: ( ME_547DC2450246 // Index
+ )
  ; // Attributes
  CONST "is default" true
  CONST "pm" true
@@ -2000,8 +2114,8 @@ ref; // ME_547DC3710225 Index
  : Target ME_547DBA30028E // TevSubLayerDescriptor
  ;
  : Attributes
-   @ ( ME_547DC3710225 // Index
- ) .SequenceCode.It
+   Seq: ( ME_547DC3710225 // Index
+ )
  ; // Attributes
  CONST "pm" true
 
@@ -2052,6 +2166,7 @@ ref; // ME_548055750226 f_Controls
 : ME_8A7FB770E8A6
  CONST UID '8A7FB770E8A6'
  CONST Name 'f_Images'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY 'Поле для свойства Images' ;
  CONST Visibility PrivateAccess
@@ -2061,12 +2176,14 @@ ref; // ME_548055750226 f_Controls
  ;
  : Target WL 'ME_473DA2AF0168' '4799D29F033F.pas.ms.script' // TCustomImageList
  ;
+ CONST extprop:clearViaProperty 'Images'
 
 ref; // ME_8A7FB770E8A6 f_Images
 
 : ME_A3C879339802
  CONST UID 'A3C879339802'
  CONST Name 'f_Cursor'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY 'Поле для свойства Cursor' ;
  CONST Visibility PrivateAccess
@@ -2076,12 +2193,14 @@ ref; // ME_8A7FB770E8A6 f_Images
  ;
  : Target WL 'ME_4E788E98006B' '4799D29F033F.pas.ms.script' // TCursor
  ;
+ CONST extprop:clearViaProperty 'Cursor'
 
 ref; // ME_A3C879339802 f_Cursor
 
 : ME_F64EB1E8D53E
  CONST UID 'F64EB1E8D53E'
  CONST Name 'f_OnDefineBlockIndex'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY 'Поле для свойства OnDefineBlockIndex' ;
  CONST Visibility PrivateAccess
@@ -2091,6 +2210,7 @@ ref; // ME_A3C879339802 f_Cursor
  ;
  : Target ME_547DBB1C018A // TevDefineBlockImageIndex
  ;
+ CONST extprop:clearViaProperty 'OnDefineBlockIndex'
 
 ref; // ME_F64EB1E8D53E f_OnDefineBlockIndex
 
@@ -2115,8 +2235,8 @@ ref; // ME_5480449C037F aControl
  : Parent ME_5480448A0305 // PlaceControl
  ;
  : Parameters
-   @ ( ME_5480449C037F // aControl
- ) .SequenceCode.It
+   Seq: ( ME_5480449C037F // aControl
+ )
  ; // Parameters
 
 ref; // ME_5480449601F9 DoIt
@@ -2132,8 +2252,8 @@ ref; // ME_5480449601F9 DoIt
  : Parent ME_547DC15100BC // TevCustomSubDescriptors
  ;
  : Operations
-   @ ( ME_5480449601F9 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_5480449601F9 // DoIt
+ )
  ; // Operations
 
 ref; // ME_5480448A0305 PlaceControl
@@ -2143,6 +2263,7 @@ FORWARD ME_548044A10171
 : ME_F264172E7DC3
  CONST UID 'F264172E7DC3'
  CONST Name 'DoIt'
+ CONST IsSummoned true
  CONST Class class_Operation
  %SUMMARY 'Сигнатура метода PlaceControls' ;
  CONST Visibility PublicAccess
@@ -2163,8 +2284,8 @@ ref; // ME_F264172E7DC3 DoIt
  : Parent ME_547DC15100BC // TevCustomSubDescriptors
  ;
  : Operations
-   @ ( ME_F264172E7DC3 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_F264172E7DC3 // DoIt
+ )
  ; // Operations
 
 ref; // ME_548044A10171 PlaceControls
@@ -2174,6 +2295,7 @@ FORWARD ME_548044CC019F
 : ME_E45774CC853C
  CONST UID 'E45774CC853C'
  CONST Name 'DoIt'
+ CONST IsSummoned true
  CONST Class class_Operation
  %SUMMARY 'Сигнатура метода BuildColumns' ;
  CONST Visibility PublicAccess
@@ -2194,8 +2316,8 @@ ref; // ME_E45774CC853C DoIt
  : Parent ME_547DC15100BC // TevCustomSubDescriptors
  ;
  : Operations
-   @ ( ME_E45774CC853C // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_E45774CC853C // DoIt
+ )
  ; // Operations
 
 ref; // ME_548044CC019F BuildColumns
@@ -2221,8 +2343,8 @@ ref; // ME_548044E703A9 aControl
  : Parent ME_548044DE033C // LinkControl
  ;
  : Parameters
-   @ ( ME_548044E703A9 // aControl
- ) .SequenceCode.It
+   Seq: ( ME_548044E703A9 // aControl
+ )
  ; // Parameters
 
 ref; // ME_548044E5016B DoIt
@@ -2238,8 +2360,8 @@ ref; // ME_548044E5016B DoIt
  : Parent ME_547DC15100BC // TevCustomSubDescriptors
  ;
  : Operations
-   @ ( ME_548044E5016B // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_548044E5016B // DoIt
+ )
  ; // Operations
 
 ref; // ME_548044DE033C LinkControl
@@ -2249,6 +2371,7 @@ FORWARD ME_548044EC0041
 : ME_CD089B0C4B24
  CONST UID 'CD089B0C4B24'
  CONST Name 'aControl'
+ CONST IsSummoned true
  CONST Class class_Parameter
  : Stereotype st_in ;
  : Target WL 'ME_47E1201703C3' '4799D29F033F.pas.ms.script' // TControl
@@ -2259,14 +2382,15 @@ ref; // ME_CD089B0C4B24 aControl
 : ME_5D4F48450705
  CONST UID '5D4F48450705'
  CONST Name 'DoIt'
+ CONST IsSummoned true
  CONST Class class_Operation
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
  : Parent ME_548044EC0041 // UnlinkControl
  ;
  : Parameters
-   @ ( ME_CD089B0C4B24 // aControl
- ) .SequenceCode.It
+   Seq: ( ME_CD089B0C4B24 // aControl
+ )
  ; // Parameters
 
 ref; // ME_5D4F48450705 DoIt
@@ -2282,12 +2406,12 @@ ref; // ME_5D4F48450705 DoIt
  : Parent ME_547DC15100BC // TevCustomSubDescriptors
  ;
  : Inherits
-   @ ( ME_548044DE033C // LinkControl
- ) .SequenceCode.It
+   Seq: ( ME_548044DE033C // LinkControl
+ )
  ; // Inherits
  : Operations
-   @ ( ME_5D4F48450705 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_5D4F48450705 // DoIt
+ )
  ; // Operations
 
 ref; // ME_548044EC0041 UnlinkControl
@@ -2325,9 +2449,9 @@ ref; // ME_5480450C004C aBitmapIndex
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
  : Parameters
-   @ ( ME_5480450C0031 // aSub
+   Seq: ( ME_5480450C0031 // aSub
  ME_5480450C004C // aBitmapIndex
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_548045090303 DoIt
@@ -2343,8 +2467,8 @@ ref; // ME_548045090303 DoIt
  : Parent ME_547DC15100BC // TevCustomSubDescriptors
  ;
  : Operations
-   @ ( ME_548045090303 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_548045090303 // DoIt
+ )
  ; // Operations
 
 ref; // ME_5480450001FA DefineBitmapIndex
@@ -2356,6 +2480,7 @@ ref; // ME_5480450001FA DefineBitmapIndex
  ;
  : Implementor ME_547DC15100BC // TevCustomSubDescriptors
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_479731C50290_ME_547DC15100BC Cleanup
 
 : ME_484516C00214_ME_547DC15100BC
@@ -2365,6 +2490,7 @@ ref; // ME_479731C50290_ME_547DC15100BC Cleanup
  ;
  : Implementor ME_547DC15100BC // TevCustomSubDescriptors
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_484516C00214_ME_547DC15100BC Loaded
 
 : ME_547DC15100BC
@@ -2379,11 +2505,11 @@ ref; // ME_484516C00214_ME_547DC15100BC Loaded
  : Parent ME_547DB02F034B // TevSubPanel
  ;
  : Inherits
-   @ ( WL 'ME_47541E17024E' '47913B47006E.pas.ms.script' // Tl3InterfacedComponent
- ) .SequenceCode.It
+   Seq: ( WL 'ME_47541E17024E' '47913B47006E.pas.ms.script' // Tl3InterfacedComponent
+ )
  ; // Inherits
  : Attributes
-   @ ( ME_547DC0E70186 // f_SubDescriptors
+   Seq: ( ME_547DC0E70186 // f_SubDescriptors
  ME_547DC10C03D0 // Images
  ME_547DC1320008 // Cursor
  ME_547DC18D023E // OnDefineBlockIndex
@@ -2395,34 +2521,40 @@ ref; // ME_484516C00214_ME_547DC15100BC Loaded
  ME_8A7FB770E8A6 // f_Images
  ME_A3C879339802 // f_Cursor
  ME_F64EB1E8D53E // f_OnDefineBlockIndex
- ) .SequenceCode.It
+ )
  ; // Attributes
  : Operations
-   @ ( ME_5480448A0305 // PlaceControl
+   Seq: ( ME_5480448A0305 // PlaceControl
  ME_548044A10171 // PlaceControls
  ME_548044CC019F // BuildColumns
  ME_548044DE033C // LinkControl
  ME_548044EC0041 // UnlinkControl
  ME_5480450001FA // DefineBitmapIndex
- ) .SequenceCode.It
+ )
  ; // Operations
  : Overridden
-   @ ( ME_479731C50290_ME_547DC15100BC // Cleanup
+   Seq: ( ME_479731C50290_ME_547DC15100BC // Cleanup
  ME_484516C00214_ME_547DC15100BC // Loaded
- ) .SequenceCode.It
+ )
  ; // Overridden
  : Children
-   @ ( ME_548045A700CD // TevSubData
- ) .SequenceCode.It
+   Seq: ( ME_548045A700CD // TevSubData
+ )
  ; // Children
  : Forwarded
-   @ ( ME_547DBA30028E // TevSubLayerDescriptor
- ) .SequenceCode.It
+   Seq: ( ME_547DBA30028E // TevSubLayerDescriptor
+ )
  ; // Forwarded
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'SubDescriptors'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_547DC15100BC TevCustomSubDescriptors
 
@@ -2449,18 +2581,24 @@ ref; // ME_547DC3C20055
  : Parent ME_547DB02F034B // TevSubPanel
  ;
  : Inherits
-   @ ( ME_547DC15100BC // TevCustomSubDescriptors
- ) .SequenceCode.It
+   Seq: ( ME_547DC15100BC // TevCustomSubDescriptors
+ )
  ; // Inherits
  : Dependencies
-   @ ( ME_547DC3C20055 // 
- ) .SequenceCode.It
+   Seq: ( ME_547DC3C20055 // 
+ )
  ; // Dependencies
  CONST "need UC" true
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'SubDescriptors'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_547DB8BC03D3 TevSubDescriptors
 
@@ -2475,10 +2613,15 @@ ref; // ME_547DB8BC03D3 TevSubDescriptors
  : Parent ME_547DB02F034B // TevSubPanel
  ;
  : Inherits
-   @ ( WL 'ME_4B87DC6C02F7' '4B87B5720153.pas.ms.script' // TevSubPanelSub
- ) .SequenceCode.It
+   Seq: ( WL 'ME_4B87DC6C02F7' '4B87B5720153.pas.ms.script' // TevSubPanelSub
+ )
  ; // Inherits
  CONST "isPointer" true
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_547DC67901CC PevSubPanelSub
 
@@ -2511,8 +2654,8 @@ ref; // ME_547DBAAD0039 Index
  : Target ME_547DB364031F // TevSubDescriptor
  ;
  : Attributes
-   @ ( ME_547DBAAD0039 // Index
- ) .SequenceCode.It
+   Seq: ( ME_547DBAAD0039 // Index
+ )
  ; // Attributes
  CONST "pm" true
 
@@ -2521,6 +2664,7 @@ ref; // ME_547DBA98011B Flags
 : ME_603BD1942DED
  CONST UID '603BD1942DED'
  CONST Name 'Ini_Reg_Class'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Регистрация TevSubLayerDescriptor' ;
@@ -2534,6 +2678,7 @@ ref; // ME_603BD1942DED Ini_Reg_Class
 
 : ME_9DD8B44F813D
  CONST UID '9DD8B44F813D'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_547DBA30028E // TevSubLayerDescriptor
@@ -2550,6 +2695,7 @@ ref; // ME_9DD8B44F813D
  ;
  : Implementor ME_547DBA30028E // TevSubLayerDescriptor
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_547DB9B10138_ME_547DBA30028E VisibleDef
 
 : ME_547DBA30028E
@@ -2564,30 +2710,36 @@ ref; // ME_547DB9B10138_ME_547DBA30028E VisibleDef
  : Parent ME_547DB02F034B // TevSubPanel
  ;
  : Inherits
-   @ ( ME_547DB364031F // TevSubDescriptor
- ) .SequenceCode.It
+   Seq: ( ME_547DB364031F // TevSubDescriptor
+ )
  ; // Inherits
  : Attributes
-   @ ( ME_547DBA98011B // Flags
- ) .SequenceCode.It
+   Seq: ( ME_547DBA98011B // Flags
+ )
  ; // Attributes
  : Operations
-   @ ( ME_603BD1942DED // Ini_Reg_Class
- ) .SequenceCode.It
+   Seq: ( ME_603BD1942DED // Ini_Reg_Class
+ )
  ; // Operations
  : Overridden
-   @ ( ME_547DB9B10138_ME_547DBA30028E // VisibleDef
- ) .SequenceCode.It
+   Seq: ( ME_547DB9B10138_ME_547DBA30028E // VisibleDef
+ )
  ; // Overridden
  : Dependencies
-   @ ( ME_9DD8B44F813D // 
- ) .SequenceCode.It
+   Seq: ( ME_9DD8B44F813D // 
+ )
  ; // Dependencies
  CONST "need UC" true
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'SubLayerDescriptor'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_547DBA30028E TevSubLayerDescriptor
 
@@ -2715,6 +2867,7 @@ ref; // ME_54806C0F00C7 SubDescriptors
 : ME_B917D46ADA54
  CONST UID 'B917D46ADA54'
  CONST Name 'f_Zoom'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY 'Поле для свойства Zoom' ;
  CONST Visibility PrivateAccess
@@ -2724,12 +2877,14 @@ ref; // ME_54806C0F00C7 SubDescriptors
  ;
  : Target WL 'ME_479F11C800E4' '4AB0C3C60310.pas.ms.script' // SmallInt
  ;
+ CONST extprop:clearViaProperty 'Zoom'
 
 ref; // ME_B917D46ADA54 f_Zoom
 
 : ME_BB13C813FCB3
  CONST UID 'BB13C813FCB3'
  CONST Name 'f_OnClickSub'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY 'Поле для свойства OnClickSub' ;
  CONST Visibility PrivateAccess
@@ -2739,12 +2894,14 @@ ref; // ME_B917D46ADA54 f_Zoom
  ;
  : Target ME_547DB0DE005E // TevClickSubEvent
  ;
+ CONST extprop:clearViaProperty 'OnClickSub'
 
 ref; // ME_BB13C813FCB3 f_OnClickSub
 
 : ME_B516A4DACFDA
  CONST UID 'B516A4DACFDA'
  CONST Name 'f_OnMenuSub'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY 'Поле для свойства OnMenuSub' ;
  CONST Visibility PrivateAccess
@@ -2754,12 +2911,14 @@ ref; // ME_BB13C813FCB3 f_OnClickSub
  ;
  : Target ME_547DB30C0329 // TevMenuSubEvent
  ;
+ CONST extprop:clearViaProperty 'OnMenuSub'
 
 ref; // ME_B516A4DACFDA f_OnMenuSub
 
 : ME_F11E548E7CF9
  CONST UID 'F11E548E7CF9'
  CONST Name 'f_OnMouseOverSub'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY 'Поле для свойства OnMouseOverSub' ;
  CONST Visibility PrivateAccess
@@ -2769,12 +2928,14 @@ ref; // ME_B516A4DACFDA f_OnMenuSub
  ;
  : Target ME_547DB2C50226 // TevMouseOverSubEvent
  ;
+ CONST extprop:clearViaProperty 'OnMouseOverSub'
 
 ref; // ME_F11E548E7CF9 f_OnMouseOverSub
 
 : ME_2F4DF9C75CC5
  CONST UID '2F4DF9C75CC5'
  CONST Name 'f_SubDescriptors'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY 'Поле для свойства SubDescriptors' ;
  CONST Visibility PrivateAccess
@@ -2784,6 +2945,7 @@ ref; // ME_F11E548E7CF9 f_OnMouseOverSub
  ;
  : Target ME_547DB8BC03D3 // TevSubDescriptors
  ;
+ CONST extprop:clearViaProperty 'SubDescriptors'
 
 ref; // ME_2F4DF9C75CC5 f_SubDescriptors
 
@@ -2828,10 +2990,10 @@ ref; // ME_547F0F0700E2 aKind
  : Parent ME_547DC9DE0050 // DoOnClickSub
  ;
  : Parameters
-   @ ( ME_547F0F0700AA // SubType
+   Seq: ( ME_547F0F0700AA // SubType
  ME_547F0F0700C6 // SubHandle
  ME_547F0F0700E2 // aKind
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_547F0F030096 DoIt
@@ -2847,8 +3009,8 @@ ref; // ME_547F0F030096 DoIt
  : Parent ME_547DC47400EC // TevCustomSubPanel
  ;
  : Operations
-   @ ( ME_547F0F030096 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_547F0F030096 // DoIt
+ )
  ; // Operations
 
 ref; // ME_547DC9DE0050 DoOnClickSub
@@ -2904,11 +3066,11 @@ ref; // ME_547F0F1A01F4 SubHandle
  : Parent ME_547DCA13008B // DoOnMenuSub
  ;
  : Parameters
-   @ ( ME_547F0F1A01A1 // Pt
+   Seq: ( ME_547F0F1A01A1 // Pt
  ME_547F0F1A01BD // R
  ME_547F0F1A01D9 // SubType
  ME_547F0F1A01F4 // SubHandle
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_547F0F170056 DoIt
@@ -2924,8 +3086,8 @@ ref; // ME_547F0F170056 DoIt
  : Parent ME_547DC47400EC // TevCustomSubPanel
  ;
  : Operations
-   @ ( ME_547F0F170056 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_547F0F170056 // DoIt
+ )
  ; // Operations
 
 ref; // ME_547DCA13008B DoOnMenuSub
@@ -2983,11 +3145,11 @@ ref; // ME_547F0F2A00A5 aLayer
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
  : Parameters
-   @ ( ME_547F0F2A0050 // Pt
+   Seq: ( ME_547F0F2A0050 // Pt
  ME_547F0F2A006C // R
  ME_547F0F2A0089 // aSub
  ME_547F0F2A00A5 // aLayer
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_547F0F260155 DoIt
@@ -3003,8 +3165,8 @@ ref; // ME_547F0F260155 DoIt
  : Parent ME_547DC47400EC // TevCustomSubPanel
  ;
  : Operations
-   @ ( ME_547F0F260155 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_547F0F260155 // DoIt
+ )
  ; // Operations
 
 ref; // ME_547DCA6C01A9 DoOnMouseOverSub
@@ -3060,11 +3222,11 @@ ref; // ME_547DCAFA0160 aRealPaint
  : Parent ME_547DCAF1011A // DrawSub
  ;
  : Parameters
-   @ ( ME_547DCAFA00D8 // aCanvas
+   Seq: ( ME_547DCAFA00D8 // aCanvas
  ME_547DCAFA00F2 // aSubDescr
  ME_547DCAFA0124 // aSub
  ME_547DCAFA0160 // aRealPaint
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_547DCAF7030F DoIt
@@ -3080,8 +3242,8 @@ ref; // ME_547DCAF7030F DoIt
  : Parent ME_547DC47400EC // TevCustomSubPanel
  ;
  : Operations
-   @ ( ME_547DCAF7030F // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_547DCAF7030F // DoIt
+ )
  ; // Operations
 
 ref; // ME_547DCAF1011A DrawSub
@@ -3107,8 +3269,8 @@ ref; // ME_547DCB1200D0 R
  : Parent ME_547DCB0901C7 // MakeSubRect
  ;
  : Parameters
-   @ ( ME_547DCB1200D0 // R
- ) .SequenceCode.It
+   Seq: ( ME_547DCB1200D0 // R
+ )
  ; // Parameters
 
 ref; // ME_547DCB0F03B5 DoIt
@@ -3124,8 +3286,8 @@ ref; // ME_547DCB0F03B5 DoIt
  : Parent ME_547DC47400EC // TevCustomSubPanel
  ;
  : Operations
-   @ ( ME_547DCB0F03B5 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_547DCB0F03B5 // DoIt
+ )
  ; // Operations
 
 ref; // ME_547DCB0901C7 MakeSubRect
@@ -3151,8 +3313,8 @@ ref; // ME_547DCB27022D Canvas
  : Parent ME_547DCB1D0037 // DrawSubs
  ;
  : Parameters
-   @ ( ME_547DCB27022D // Canvas
- ) .SequenceCode.It
+   Seq: ( ME_547DCB27022D // Canvas
+ )
  ; // Parameters
 
 ref; // ME_547DCB250266 DoIt
@@ -3168,8 +3330,8 @@ ref; // ME_547DCB250266 DoIt
  : Parent ME_547DC47400EC // TevCustomSubPanel
  ;
  : Operations
-   @ ( ME_547DCB250266 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_547DCB250266 // DoIt
+ )
  ; // Operations
 
 ref; // ME_547DCB1D0037 DrawSubs
@@ -3207,9 +3369,9 @@ ref; // ME_547DCB4402B1 P
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
  : Parameters
-   @ ( ME_547DCB440280 // SPS
+   Seq: ( ME_547DCB440280 // SPS
  ME_547DCB4402B1 // P
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_547DCB420099 DoIt
@@ -3225,8 +3387,8 @@ ref; // ME_547DCB420099 DoIt
  : Parent ME_547DC47400EC // TevCustomSubPanel
  ;
  : Operations
-   @ ( ME_547DCB420099 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_547DCB420099 // DoIt
+ )
  ; // Operations
 
 ref; // ME_547DCB3903BF ScrollSub
@@ -3282,11 +3444,11 @@ ref; // ME_547DCC0A0007 aSub
  : Parent ME_547DCC0002F9 // AddSub
  ;
  : Parameters
-   @ ( ME_547DCC090372 // CN
+   Seq: ( ME_547DCC090372 // CN
  ME_547DCC09038C // aR
  ME_547DCC0903A7 // aSubType
  ME_547DCC0A0007 // aSub
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_547DCC0701C6 DoIt
@@ -3302,8 +3464,8 @@ ref; // ME_547DCC0701C6 DoIt
  : Parent ME_547DC47400EC // TevCustomSubPanel
  ;
  : Operations
-   @ ( ME_547DCC0701C6 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_547DCC0701C6 // DoIt
+ )
  ; // Operations
 
 ref; // ME_547DCC0002F9 AddSub
@@ -3341,9 +3503,9 @@ ref; // ME_547DCC2D01EC aSubHandle
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
  : Parameters
-   @ ( ME_547DCC2D01A7 // aSubType
+   Seq: ( ME_547DCC2D01A7 // aSubType
  ME_547DCC2D01EC // aSubHandle
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_547DCC2B0100 DoIt
@@ -3359,8 +3521,8 @@ ref; // ME_547DCC2B0100 DoIt
  : Parent ME_547DC47400EC // TevCustomSubPanel
  ;
  : Operations
-   @ ( ME_547DCC2B0100 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_547DCC2B0100 // DoIt
+ )
  ; // Operations
 
 ref; // ME_547DCC2401CC DeleteSubPrim
@@ -3398,9 +3560,9 @@ ref; // ME_547DCCA102A5 st
  : Target WL 'ME_4B87DC6C02F7' '4B87B5720153.pas.ms.script' // TevSubPanelSub
  ;
  : Parameters
-   @ ( ME_547DCCA1025D // Pt
+   Seq: ( ME_547DCCA1025D // Pt
  ME_547DCCA102A5 // st
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_547DCC9F00C7 DoIt
@@ -3416,8 +3578,8 @@ ref; // ME_547DCC9F00C7 DoIt
  : Parent ME_547DC47400EC // TevCustomSubPanel
  ;
  : Operations
-   @ ( ME_547DCC9F00C7 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_547DCC9F00C7 // DoIt
+ )
  ; // Operations
 
 ref; // ME_547DCC9501A5 SubOnPoint
@@ -3475,11 +3637,11 @@ ref; // ME_547DCCC100D1 theFlag
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
  : Parameters
-   @ ( ME_547DCCC003DF // aX
+   Seq: ( ME_547DCCC003DF // aX
  ME_547DCCC1002A // aY
  ME_547DCCC10083 // theSub
  ME_547DCCC100D1 // theFlag
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_547DCCBF00EA DoIt
@@ -3495,8 +3657,8 @@ ref; // ME_547DCCBF00EA DoIt
  : Parent ME_547DC47400EC // TevCustomSubPanel
  ;
  : Operations
-   @ ( ME_547DCCBF00EA // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_547DCCBF00EA // DoIt
+ )
  ; // Operations
 
 ref; // ME_547DCCB901E2 CheckSubOnPoint$1
@@ -3544,10 +3706,10 @@ ref; // ME_547DCD0C01B0 theSub
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
  : Parameters
-   @ ( ME_547DCD0C0134 // aX
+   Seq: ( ME_547DCD0C0134 // aX
  ME_547DCD0C016C // aY
  ME_547DCD0C01B0 // theSub
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_547DCD070390 DoIt
@@ -3563,8 +3725,8 @@ ref; // ME_547DCD070390 DoIt
  : Parent ME_547DC47400EC // TevCustomSubPanel
  ;
  : Operations
-   @ ( ME_547DCD070390 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_547DCD070390 // DoIt
+ )
  ; // Operations
 
 ref; // ME_547DCCFF02B3 CheckSubOnPoint$2
@@ -3600,9 +3762,9 @@ ref; // ME_547DCD4C03D5 aSubHandle
  : Parent ME_547DCD45005F // DeleteSub
  ;
  : Parameters
-   @ ( ME_547DCD4C0399 // aSubType
+   Seq: ( ME_547DCD4C0399 // aSubType
  ME_547DCD4C03D5 // aSubHandle
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_547DCD4A03E5 DoIt
@@ -3618,8 +3780,8 @@ ref; // ME_547DCD4A03E5 DoIt
  : Parent ME_547DC47400EC // TevCustomSubPanel
  ;
  : Operations
-   @ ( ME_547DCD4A03E5 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_547DCD4A03E5 // DoIt
+ )
  ; // Operations
 
 ref; // ME_547DCD45005F DeleteSub
@@ -3650,8 +3812,8 @@ ref; // ME_547DCD7A02C1 DoIt
  : Parent ME_547DC47400EC // TevCustomSubPanel
  ;
  : Operations
-   @ ( ME_547DCD7A02C1 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_547DCD7A02C1 // DoIt
+ )
  ; // Operations
  CONST "ifndef" 'NoScripts'
 
@@ -3677,8 +3839,8 @@ ref; // ME_547DC94700A3 Msg
  : Parent ME_547DC47400EC // TevCustomSubPanel
  ;
  : Parameters
-   @ ( ME_547DC94700A3 // Msg
- ) .SequenceCode.It
+   Seq: ( ME_547DC94700A3 // Msg
+ )
  ; // Parameters
  CONST "Message ID" 'WM_LBUTTONDBLCLK'
 
@@ -3704,8 +3866,8 @@ ref; // ME_547DC9590039 Msg
  : Parent ME_547DC47400EC // TevCustomSubPanel
  ;
  : Parameters
-   @ ( ME_547DC9590039 // Msg
- ) .SequenceCode.It
+   Seq: ( ME_547DC9590039 // Msg
+ )
  ; // Parameters
  CONST "Message ID" 'WM_LBUTTONUP'
 
@@ -3731,8 +3893,8 @@ ref; // ME_547DC975024E Msg
  : Parent ME_547DC47400EC // TevCustomSubPanel
  ;
  : Parameters
-   @ ( ME_547DC975024E // Msg
- ) .SequenceCode.It
+   Seq: ( ME_547DC975024E // Msg
+ )
  ; // Parameters
  CONST "Message ID" 'WM_RBUTTONDOWN'
 
@@ -3758,8 +3920,8 @@ ref; // ME_547DC98903A0 Msg
  : Parent ME_547DC47400EC // TevCustomSubPanel
  ;
  : Parameters
-   @ ( ME_547DC98903A0 // Msg
- ) .SequenceCode.It
+   Seq: ( ME_547DC98903A0 // Msg
+ )
  ; // Parameters
  CONST "Message ID" 'WM_NCHITTEST'
 
@@ -3785,8 +3947,8 @@ ref; // ME_547DC9960308 Msg
  : Parent ME_547DC47400EC // TevCustomSubPanel
  ;
  : Parameters
-   @ ( ME_547DC9960308 // Msg
- ) .SequenceCode.It
+   Seq: ( ME_547DC9960308 // Msg
+ )
  ; // Parameters
  CONST "Message ID" 'WM_SETCURSOR'
 
@@ -3795,6 +3957,7 @@ ref; // ME_547DC9910354 WMSetCursor
 : ME_C5BCC928FE9C
  CONST UID 'C5BCC928FE9C'
  CONST Name 'SubDescriptorsStored'
+ CONST IsSummoned true
  CONST Class class_Operation
  %SUMMARY '"Функция определяющая, что свойство SubDescriptors сохраняется"' ;
  CONST Visibility ProtectedAccess
@@ -3809,6 +3972,7 @@ ref; // ME_C5BCC928FE9C SubDescriptorsStored
 : ME_1D1BA0CBDDF3
  CONST UID '1D1BA0CBDDF3'
  CONST Name 'Ini_Reg_Class'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Регистрация TevCustomSubPanel' ;
@@ -3844,6 +4008,7 @@ ref; // ME_5480A34A0086
 
 : ME_05C01110F436
  CONST UID '05C01110F436'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_547DC47400EC // TevCustomSubPanel
@@ -3860,6 +4025,7 @@ ref; // ME_05C01110F436
  ;
  : Implementor ME_547DC47400EC // TevCustomSubPanel
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_47C6B01A0301_ME_547DC47400EC ClearSubs
 
 : ME_47C6B0750334_ME_547DC47400EC
@@ -3869,6 +4035,7 @@ ref; // ME_47C6B01A0301_ME_547DC47400EC ClearSubs
  ;
  : Implementor ME_547DC47400EC // TevCustomSubPanel
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_47C6B0750334_ME_547DC47400EC NotifySubDeleted
 
 : ME_4A2627980257_ME_547DC47400EC
@@ -3878,6 +4045,7 @@ ref; // ME_47C6B0750334_ME_547DC47400EC NotifySubDeleted
  ;
  : Implementor ME_547DC47400EC // TevCustomSubPanel
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_4A2627980257_ME_547DC47400EC NotifyFlagsChange
 
 : ME_547CA1860092_ME_547DC47400EC
@@ -3887,6 +4055,7 @@ ref; // ME_4A2627980257_ME_547DC47400EC NotifyFlagsChange
  ;
  : Implementor ME_547DC47400EC // TevCustomSubPanel
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" true
 ref; // ME_547CA1860092_ME_547DC47400EC Zoom
 
@@ -3897,6 +4066,7 @@ ref; // ME_547CA1860092_ME_547DC47400EC Zoom
  ;
  : Implementor ME_547DC47400EC // TevCustomSubPanel
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_547CA1CA0126_ME_547DC47400EC NeedDrawSub
 
 : ME_479731C50290_ME_547DC47400EC
@@ -3906,6 +4076,7 @@ ref; // ME_547CA1CA0126_ME_547DC47400EC NeedDrawSub
  ;
  : Implementor ME_547DC47400EC // TevCustomSubPanel
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_479731C50290_ME_547DC47400EC Cleanup
 
 : ME_47D1602000C6_ME_547DC47400EC
@@ -3915,6 +4086,7 @@ ref; // ME_479731C50290_ME_547DC47400EC Cleanup
  ;
  : Implementor ME_547DC47400EC // TevCustomSubPanel
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_47D1602000C6_ME_547DC47400EC Create
 
 : ME_48C6C044025E_ME_547DC47400EC
@@ -3924,6 +4096,7 @@ ref; // ME_47D1602000C6_ME_547DC47400EC Create
  ;
  : Implementor ME_547DC47400EC // TevCustomSubPanel
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_48C6C044025E_ME_547DC47400EC Paint
 
 : ME_547CB4C800EA_ME_547DC47400EC
@@ -3933,6 +4106,7 @@ ref; // ME_48C6C044025E_ME_547DC47400EC Paint
  ;
  : Implementor ME_547DC47400EC // TevCustomSubPanel
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_547CB4C800EA_ME_547DC47400EC OrientationChanged
 
 : ME_547CC36E00D5_ME_547DC47400EC
@@ -3942,6 +4116,7 @@ ref; // ME_547CB4C800EA_ME_547DC47400EC OrientationChanged
  ;
  : Implementor ME_547DC47400EC // TevCustomSubPanel
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_547CC36E00D5_ME_547DC47400EC DoScroll
 
 : ME_547DC47400EC
@@ -3956,18 +4131,18 @@ ref; // ME_547CC36E00D5_ME_547DC47400EC DoScroll
  : Parent ME_547DB02F034B // TevSubPanel
  ;
  : Inherits
-   @ ( ME_547DA51401F2 // TevCustomLinkedToolPanel
- ) .SequenceCode.It
+   Seq: ( ME_547DA51401F2 // TevCustomLinkedToolPanel
+ )
  ; // Inherits
  : Implements
-   @ ( WL 'ME_47C6B00B0154' '47C5207602D1.pas.ms.script' // IevSubCache
+   Seq: ( WL 'ME_47C6B00B0154' '47C5207602D1.pas.ms.script' // IevSubCache
  WL 'ME_4A26278703E1' '47F088300159.pas.ms.script' // IevSubFlagsSpy
  WL 'ME_547CA15E035E' '547C9F6D029C.pas.ms.script' // IevZoomedLinkedToolWindow
  WL 'ME_547CA1B10228' '547C9F6D029C.pas.ms.script' // IevSubPanel
- ) .SequenceCode.It
+ )
  ; // Implements
  : Attributes
-   @ ( ME_547DC7A403A5 // f_HintSub
+   Seq: ( ME_547DC7A403A5 // f_HintSub
  ME_547DC7E50057 // Zoom
  ME_547DC85D02CA // f_Subs
  ME_547DC8D802A9 // OnClickSub
@@ -3979,10 +4154,10 @@ ref; // ME_547CC36E00D5_ME_547DC47400EC DoScroll
  ME_B516A4DACFDA // f_OnMenuSub
  ME_F11E548E7CF9 // f_OnMouseOverSub
  ME_2F4DF9C75CC5 // f_SubDescriptors
- ) .SequenceCode.It
+ )
  ; // Attributes
  : Operations
-   @ ( ME_547DC9DE0050 // DoOnClickSub
+   Seq: ( ME_547DC9DE0050 // DoOnClickSub
  ME_547DCA13008B // DoOnMenuSub
  ME_547DCA6C01A9 // DoOnMouseOverSub
  ME_547DCAF1011A // DrawSub
@@ -4003,39 +4178,45 @@ ref; // ME_547CC36E00D5_ME_547DC47400EC DoScroll
  ME_547DC9910354 // WMSetCursor
  ME_C5BCC928FE9C // SubDescriptorsStored
  ME_1D1BA0CBDDF3 // Ini_Reg_Class
- ) .SequenceCode.It
+ )
  ; // Operations
  : Implemented
-   @ ( ME_47C6B01A0301_ME_547DC47400EC // ClearSubs
+   Seq: ( ME_47C6B01A0301_ME_547DC47400EC // ClearSubs
  ME_47C6B0750334_ME_547DC47400EC // NotifySubDeleted
  ME_4A2627980257_ME_547DC47400EC // NotifyFlagsChange
  ME_547CA1860092_ME_547DC47400EC // Zoom
  ME_547CA1CA0126_ME_547DC47400EC // NeedDrawSub
- ) .SequenceCode.It
+ )
  ; // Implemented
  : Overridden
-   @ ( ME_479731C50290_ME_547DC47400EC // Cleanup
+   Seq: ( ME_479731C50290_ME_547DC47400EC // Cleanup
  ME_47D1602000C6_ME_547DC47400EC // Create
  ME_48C6C044025E_ME_547DC47400EC // Paint
  ME_547CB4C800EA_ME_547DC47400EC // OrientationChanged
  ME_547CC36E00D5_ME_547DC47400EC // DoScroll
- ) .SequenceCode.It
+ )
  ; // Overridden
  : Dependencies
-   @ ( ME_5480A28F0041 // 
+   Seq: ( ME_5480A28F0041 // 
  ME_5480A34A0086 // 
  ME_05C01110F436 // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  : Injected
-   @ ( WL 'ME_54ECA1BC02A5' '52D643A301A9.pas.ms.script' // 
- ) .SequenceCode.It
+   Seq: ( WL 'ME_54ECA1BC02A5' '52D643A301A9.pas.ms.script' // 
+ )
  ; // Injected
  CONST "base wnd class" 'CWnd'
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" true
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'SubPanel'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_547DC47400EC TevCustomSubPanel
 
@@ -4050,10 +4231,15 @@ ref; // ME_547DC47400EC TevCustomSubPanel
  : Parent ME_547DB02F034B // TevSubPanel
  ;
  : Inherits
-   @ ( WL 'ME_4B87B6A2008E' '4B87B5720153.pas.ms.script' // TevSubPanelSubArray
- ) .SequenceCode.It
+   Seq: ( WL 'ME_4B87B6A2008E' '4B87B5720153.pas.ms.script' // TevSubPanelSubArray
+ )
  ; // Inherits
  CONST "isPointer" true
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_5480456F00F9 PevSubPanelSubArray
 
@@ -4068,15 +4254,21 @@ ref; // ME_5480456F00F9 PevSubPanelSubArray
  : Parent ME_547DB02F034B // TevSubPanel
  ;
  : Inherits
-   @ ( WL 'ME_476C03270253' '469D0AC7005E.pas.ms.script' // SubPlace
- ) .SequenceCode.It
+   Seq: ( WL 'ME_476C03270253' '469D0AC7005E.pas.ms.script' // SubPlace
+ )
  ; // Inherits
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_54806D2102F0 TevSubPlace
 
 : ME_84D6EEC9ADC3
  CONST UID '84D6EEC9ADC3'
  CONST Name 'Ini_Reg_Class'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Регистрация TevSubPanel' ;
@@ -4213,6 +4405,7 @@ ref; // ME_5480705E00B9
 
 : ME_3467EDAAF0E6
  CONST UID '3467EDAAF0E6'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_547DB02F034B // TevSubPanel
@@ -4234,15 +4427,15 @@ ref; // ME_3467EDAAF0E6
  : Parent ME_547CB376012F // ToolPanel
  ;
  : Inherits
-   @ ( ME_547DC47400EC // TevCustomSubPanel
- ) .SequenceCode.It
+   Seq: ( ME_547DC47400EC // TevCustomSubPanel
+ )
  ; // Inherits
  : Operations
-   @ ( ME_84D6EEC9ADC3 // Ini_Reg_Class
- ) .SequenceCode.It
+   Seq: ( ME_84D6EEC9ADC3 // Ini_Reg_Class
+ )
  ; // Operations
  : Children
-   @ ( ME_547DB08603D0 // TevSubDrawType
+   Seq: ( ME_547DB08603D0 // TevSubDrawType
  ME_547DB0DE005E // TevClickSubEvent
  ME_547DB2C50226 // TevMouseOverSubEvent
  ME_547DB30C0329 // TevMenuSubEvent
@@ -4257,14 +4450,14 @@ ref; // ME_3467EDAAF0E6
  ME_547DC47400EC // TevCustomSubPanel
  ME_5480456F00F9 // PevSubPanelSubArray
  ME_54806D2102F0 // TevSubPlace
- ) .SequenceCode.It
+ )
  ; // Children
  : Constants
-   @ ( ME_547DB0520224 // evSubPn Public Consts
- ) .SequenceCode.It
+   Seq: ( ME_547DB0520224 // evSubPn Public Consts
+ )
  ; // Constants
  : Dependencies
-   @ ( ME_5480540A0294 // 
+   Seq: ( ME_5480540A0294 // 
  ME_548054270280 // 
  ME_5480563603CA // 
  ME_5480565B0245 // 
@@ -4276,7 +4469,7 @@ ref; // ME_3467EDAAF0E6
  ME_54806E3500A6 // 
  ME_5480705E00B9 // 
  ME_3467EDAAF0E6 // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  CONST "base wnd class" 'CWnd'
  CONST "need UC" true
@@ -4284,12 +4477,14 @@ ref; // ME_3467EDAAF0E6
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest'
  CONST intf.pas:Path 'common\components\gui\Garant\Everest\evSubPanel.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'SubPanel'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'evSubPanel'
 
 ref; // ME_547DB02F034B TevSubPanel
 
@@ -4304,9 +4499,15 @@ ref; // ME_547DB02F034B TevSubPanel
  : Parent ME_547DC5BA0275 // evSubPn
  ;
  : Inherits
-   @ ( ME_547DB02F034B // TevSubPanel
- ) .SequenceCode.It
+   Seq: ( ME_547DB02F034B // TevSubPanel
+ )
  ; // Inherits
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'SubPanel'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_5480721A0287 TevSubPanel
 
@@ -4321,9 +4522,15 @@ ref; // ME_5480721A0287 TevSubPanel
  : Parent ME_547DC5BA0275 // evSubPn
  ;
  : Inherits
-   @ ( ME_547DC47400EC // TevCustomSubPanel
- ) .SequenceCode.It
+   Seq: ( ME_547DC47400EC // TevCustomSubPanel
+ )
  ; // Inherits
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'SubPanel'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_548072270387 TevCustomSubPanel
 
@@ -4338,9 +4545,15 @@ ref; // ME_548072270387 TevCustomSubPanel
  : Parent ME_547DC5BA0275 // evSubPn
  ;
  : Inherits
-   @ ( ME_547DC15100BC // TevCustomSubDescriptors
- ) .SequenceCode.It
+   Seq: ( ME_547DC15100BC // TevCustomSubDescriptors
+ )
  ; // Inherits
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'SubDescriptors'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_54807238011C TevCustomSubDescriptors
 
@@ -4355,9 +4568,15 @@ ref; // ME_54807238011C TevCustomSubDescriptors
  : Parent ME_547DC5BA0275 // evSubPn
  ;
  : Inherits
-   @ ( ME_547DB364031F // TevSubDescriptor
- ) .SequenceCode.It
+   Seq: ( ME_547DB364031F // TevSubDescriptor
+ )
  ; // Inherits
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'SubDescriptor'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_548072430161 TevSubDescriptor
 
@@ -4372,9 +4591,15 @@ ref; // ME_548072430161 TevSubDescriptor
  : Parent ME_547DC5BA0275 // evSubPn
  ;
  : Inherits
-   @ ( ME_547DBA30028E // TevSubLayerDescriptor
- ) .SequenceCode.It
+   Seq: ( ME_547DBA30028E // TevSubLayerDescriptor
+ )
  ; // Inherits
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'SubLayerDescriptor'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_5480724D03C6 TevSubLayerDescriptor
 
@@ -4389,9 +4614,15 @@ ref; // ME_5480724D03C6 TevSubLayerDescriptor
  : Parent ME_547DC5BA0275 // evSubPn
  ;
  : Inherits
-   @ ( ME_547DB8BC03D3 // TevSubDescriptors
- ) .SequenceCode.It
+   Seq: ( ME_547DB8BC03D3 // TevSubDescriptors
+ )
  ; // Inherits
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'SubDescriptors'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_54807257034F TevSubDescriptors
 
@@ -4406,21 +4637,21 @@ ref; // ME_54807257034F TevSubDescriptors
  : Parent ME_547CB376012F // ToolPanel
  ;
  : Children
-   @ ( ME_5480721A0287 // TevSubPanel
+   Seq: ( ME_5480721A0287 // TevSubPanel
  ME_548072270387 // TevCustomSubPanel
  ME_54807238011C // TevCustomSubDescriptors
  ME_548072430161 // TevSubDescriptor
  ME_5480724D03C6 // TevSubLayerDescriptor
  ME_54807257034F // TevSubDescriptors
- ) .SequenceCode.It
+ )
  ; // Children
  CONST "no hands" false
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest'
  CONST intf.pas:Path 'common\components\gui\Garant\Everest\evSubPn.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'SubPn'
 
 ref; // ME_547DC5BA0275 evSubPn
 
@@ -4434,14 +4665,14 @@ ref; // ME_547DC5BA0275 evSubPn
  : Parent WL 'ME_4797632D0273' '4797632D0273.pas.ms.script' // Everest
  ;
  : Children
-   @ ( ME_547CB3B5032B // evToolPanel
+   Seq: ( ME_547CB3B5032B // evToolPanel
  ME_547DA4F701F9 // evLinkedToolPanel
  ME_547DB02F034B // TevSubPanel
  ME_547DC5BA0275 // evSubPn
- ) .SequenceCode.It
+ )
  ; // Children
  : Depends
-   @ ( WL 'ME_4677FBA70343' '4677FBA70343.pas.ms.script' // l3Interfaces
+   Seq: ( WL 'ME_4677FBA70343' '4677FBA70343.pas.ms.script' // l3Interfaces
  WL 'ME_4678193C009C' '4678193C009C.pas.ms.script' // l3Types
  WL 'ME_467823B7002C' '467823B7002C.pas.ms.script' // afwInterfaces
  WL 'ME_467C0CAA02AB' '467C0CAA02AB.pas.ms.script' // l3InternalInterfaces
@@ -4467,15 +4698,13 @@ ref; // ME_547DC5BA0275 evSubPn
  WL 'ME_547C9F6D029C' '547C9F6D029C.pas.ms.script' // evVisualInterfaces
  WL 'ME_54B90AC6014B' '54B90AC6014B.pas.ms.script' // StringUtils
  WL 'ME_561F9F7D02A7' '561F9F7D02A7.pas.ms.script' // ScriptEngine
- ) .SequenceCode.It
+ )
  ; // Depends
- : Generators
- @ (
- gen_pas.script
- gen_pas.script.runner
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest'
  CONST pas.script:Path 'shared\models\NewSchool\Scripts\547CB376012F.pas.ms.script'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
  CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\547CB376012F.pas.ms.script.runner'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_547CB376012F ToolPanel

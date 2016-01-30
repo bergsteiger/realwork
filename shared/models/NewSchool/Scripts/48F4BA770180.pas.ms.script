@@ -41,6 +41,7 @@ ref; // ME_52DE1BB20195 f_HyperlinkIndex
 : ME_8F39E0EBE20E
  CONST UID '8F39E0EBE20E'
  CONST Name 'f_BraceCount'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY 'Поле для свойства BraceCount' ;
  CONST Visibility PrivateAccess
@@ -79,8 +80,8 @@ ref; // ME_52DCDE56038C DoIt
  : Parent ME_52DCDDEE0371 // TddTextSegmentQueue
  ;
  : Operations
-   @ ( ME_52DCDE56038C // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_52DCDE56038C // DoIt
+ )
  ; // Operations
 
 ref; // ME_52DCDE4E003E Pop
@@ -106,8 +107,8 @@ ref; // ME_52DCDE7F0210 aTextSegment
  : Parent ME_52DCDE6801A9 // Push
  ;
  : Parameters
-   @ ( ME_52DCDE7F0210 // aTextSegment
- ) .SequenceCode.It
+   Seq: ( ME_52DCDE7F0210 // aTextSegment
+ )
  ; // Parameters
 
 ref; // ME_52DCDE720104 DoIt
@@ -123,8 +124,8 @@ ref; // ME_52DCDE720104 DoIt
  : Parent ME_52DCDDEE0371 // TddTextSegmentQueue
  ;
  : Operations
-   @ ( ME_52DCDE720104 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_52DCDE720104 // DoIt
+ )
  ; // Operations
 
 ref; // ME_52DCDE6801A9 Push
@@ -150,8 +151,8 @@ ref; // ME_52DCDEFE00E9 aValue
  : Parent ME_52DCDEEE0039 // IncBraceCount
  ;
  : Parameters
-   @ ( ME_52DCDEFE00E9 // aValue
- ) .SequenceCode.It
+   Seq: ( ME_52DCDEFE00E9 // aValue
+ )
  ; // Parameters
 
 ref; // ME_52DCDEF600CA DoIt
@@ -167,8 +168,8 @@ ref; // ME_52DCDEF600CA DoIt
  : Parent ME_52DCDDEE0371 // TddTextSegmentQueue
  ;
  : Operations
-   @ ( ME_52DCDEF600CA // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_52DCDEF600CA // DoIt
+ )
  ; // Operations
 
 ref; // ME_52DCDEEE0039 IncBraceCount
@@ -194,8 +195,8 @@ ref; // ME_52DCDF210193 aValue
  : Parent ME_52DCDF030006 // DecBraceCount
  ;
  : Parameters
-   @ ( ME_52DCDF210193 // aValue
- ) .SequenceCode.It
+   Seq: ( ME_52DCDF210193 // aValue
+ )
  ; // Parameters
 
 ref; // ME_52DCDF1000C1 DotIt
@@ -211,8 +212,8 @@ ref; // ME_52DCDF1000C1 DotIt
  : Parent ME_52DCDDEE0371 // TddTextSegmentQueue
  ;
  : Operations
-   @ ( ME_52DCDF1000C1 // DotIt
- ) .SequenceCode.It
+   Seq: ( ME_52DCDF1000C1 // DotIt
+ )
  ; // Operations
 
 ref; // ME_52DCDF030006 DecBraceCount
@@ -243,8 +244,8 @@ ref; // ME_52DD04B70090 DoIt
  : Parent ME_52DCDDEE0371 // TddTextSegmentQueue
  ;
  : Operations
-   @ ( ME_52DD04B70090 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_52DD04B70090 // DoIt
+ )
  ; // Operations
 
 ref; // ME_52DD04AD0004 PopLast
@@ -275,8 +276,8 @@ ref; // ME_52DE051002A4 DoIt
  : Parent ME_52DCDDEE0371 // TddTextSegmentQueue
  ;
  : Operations
-   @ ( ME_52DE051002A4 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_52DE051002A4 // DoIt
+ )
  ; // Operations
 
 ref; // ME_52DE04E903A9 GetHyperlink
@@ -302,8 +303,8 @@ ref; // ME_52DE1EEB015C aSeg
  : Parent ME_52DE1ECE0311 // ClearHyperlinkID
  ;
  : Parameters
-   @ ( ME_52DE1EEB015C // aSeg
- ) .SequenceCode.It
+   Seq: ( ME_52DE1EEB015C // aSeg
+ )
  ; // Parameters
 
 ref; // ME_52DE1ED80293 DoIt
@@ -319,8 +320,8 @@ ref; // ME_52DE1ED80293 DoIt
  : Parent ME_52DCDDEE0371 // TddTextSegmentQueue
  ;
  : Operations
-   @ ( ME_52DE1ED80293 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_52DE1ED80293 // DoIt
+ )
  ; // Operations
 
 ref; // ME_52DE1ECE0311 ClearHyperlinkID
@@ -350,8 +351,8 @@ ref; // ME_52DE21AB0030 DoIt
  : Parent ME_52DCDDEE0371 // TddTextSegmentQueue
  ;
  : Operations
-   @ ( ME_52DE21AB0030 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_52DE21AB0030 // DoIt
+ )
  ; // Operations
 
 ref; // ME_52DE217B02CB MoveHyperlinkToBottom
@@ -374,6 +375,7 @@ ref; // ME_54D9D68A030C
  ;
  : Implementor ME_52DCDDEE0371 // TddTextSegmentQueue
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_479731C50290_ME_52DCDDEE0371 Cleanup
 
 : ME_47A042E100E2_ME_52DCDDEE0371
@@ -383,6 +385,7 @@ ref; // ME_479731C50290_ME_52DCDDEE0371 Cleanup
  ;
  : Implementor ME_52DCDDEE0371 // TddTextSegmentQueue
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_47A042E100E2_ME_52DCDDEE0371 InitFields
 
 : ME_47B1C16D0188_ME_52DCDDEE0371
@@ -392,6 +395,7 @@ ref; // ME_47A042E100E2_ME_52DCDDEE0371 InitFields
  ;
  : Implementor ME_52DCDDEE0371 // TddTextSegmentQueue
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_47B1C16D0188_ME_52DCDDEE0371 Clear
 
 : ME_52DCDDEE0371
@@ -405,17 +409,17 @@ ref; // ME_47B1C16D0188_ME_52DCDDEE0371 Clear
  : Parent ME_48F4BA770180 // Writers
  ;
  : Inherits
-   @ ( WL 'ME_525D40F1024C' '4F6843C101D1.pas.ms.script' // TddTextSegmentsList
- ) .SequenceCode.It
+   Seq: ( WL 'ME_525D40F1024C' '4F6843C101D1.pas.ms.script' // TddTextSegmentsList
+ )
  ; // Inherits
  : Attributes
-   @ ( ME_52DCDEBC0067 // BraceCount
+   Seq: ( ME_52DCDEBC0067 // BraceCount
  ME_52DE1BB20195 // f_HyperlinkIndex
  ME_8F39E0EBE20E // f_BraceCount
- ) .SequenceCode.It
+ )
  ; // Attributes
  : Operations
-   @ ( ME_52DCDE4E003E // Pop
+   Seq: ( ME_52DCDE4E003E // Pop
  ME_52DCDE6801A9 // Push
  ME_52DCDEEE0039 // IncBraceCount
  ME_52DCDF030006 // DecBraceCount
@@ -423,28 +427,30 @@ ref; // ME_47B1C16D0188_ME_52DCDDEE0371 Clear
  ME_52DE04E903A9 // GetHyperlink
  ME_52DE1ECE0311 // ClearHyperlinkID
  ME_52DE217B02CB // MoveHyperlinkToBottom
- ) .SequenceCode.It
+ )
  ; // Operations
  : Overridden
-   @ ( ME_479731C50290_ME_52DCDDEE0371 // Cleanup
+   Seq: ( ME_479731C50290_ME_52DCDDEE0371 // Cleanup
  ME_47A042E100E2_ME_52DCDDEE0371 // InitFields
  ME_47B1C16D0188_ME_52DCDDEE0371 // Clear
- ) .SequenceCode.It
+ )
  ; // Overridden
  : Dependencies
-   @ ( ME_54D9D68A030C // 
- ) .SequenceCode.It
+   Seq: ( ME_54D9D68A030C // 
+ )
  ; // Dependencies
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\dd'
  CONST intf.pas:Path 'common\components\rtl\Garant\dd\ddTextSegmentQueue.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\dd'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'ddTextSegmentQueue'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'ddTextSegmentQueue'
 
 ref; // ME_52DCDDEE0371 TddTextSegmentQueue
 
@@ -476,8 +482,8 @@ ref; // ME_55BB1FD1003E DoIt
  : Parent ME_4F683DA30260 // TddDocumentGenerator
  ;
  : Operations
-   @ ( ME_55BB1FD1003E // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_55BB1FD1003E // DoIt
+ )
  ; // Operations
 
 ref; // ME_55BB1FC300A2 DoStartBlock
@@ -506,8 +512,8 @@ ref; // ME_55BB201C0252 DoIt
  : Parent ME_4F683DA30260 // TddDocumentGenerator
  ;
  : Operations
-   @ ( ME_55BB201C0252 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_55BB201C0252 // DoIt
+ )
  ; // Operations
 
 ref; // ME_55BB200700A0 DoCloseBlock
@@ -543,9 +549,9 @@ ref; // ME_55BB2DED0139 Value
  : Parent ME_55BB2C2E01BD // Apply2Sub
  ;
  : Parameters
-   @ ( ME_55BB2DED011A // AtomIndex
+   Seq: ( ME_55BB2DED011A // AtomIndex
  ME_55BB2DED0139 // Value
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_55BB2C4D02E2 DoIt
@@ -561,8 +567,8 @@ ref; // ME_55BB2C4D02E2 DoIt
  : Parent ME_4F683DA30260 // TddDocumentGenerator
  ;
  : Operations
-   @ ( ME_55BB2C4D02E2 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_55BB2C4D02E2 // DoIt
+ )
  ; // Operations
 
 ref; // ME_55BB2C2E01BD Apply2Sub
@@ -591,8 +597,8 @@ ref; // ME_55BB395C00FA DoIt
  : Parent ME_4F683DA30260 // TddDocumentGenerator
  ;
  : Operations
-   @ ( ME_55BB395C00FA // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_55BB395C00FA // DoIt
+ )
  ; // Operations
 
 ref; // ME_55BB394E0074 DoStartDocument
@@ -624,8 +630,8 @@ ref; // ME_55BB5AE503D0 DoIt
  : Parent ME_4F683DA30260 // TddDocumentGenerator
  ;
  : Operations
-   @ ( ME_55BB5AE503D0 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_55BB5AE503D0 // DoIt
+ )
  ; // Operations
 
 ref; // ME_55BB59B0034D NeedWritePara
@@ -657,8 +663,8 @@ ref; // ME_55BB59190294 DoIt
  : Parent ME_4F683DA30260 // TddDocumentGenerator
  ;
  : Operations
-   @ ( ME_55BB59190294 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_55BB59190294 // DoIt
+ )
  ; // Operations
 
 ref; // ME_55BB58F60134 BlockIndent
@@ -689,8 +695,8 @@ ref; // ME_55C092DB03CF DoIt
  : Parent ME_4F683DA30260 // TddDocumentGenerator
  ;
  : Operations
-   @ ( ME_55C092DB03CF // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_55C092DB03CF // DoIt
+ )
  ; // Operations
 
 ref; // ME_55C092BD009D IgnoreLeftIndent
@@ -716,8 +722,8 @@ ref; // ME_55E97B5B0395 aFromFilter
  : Parent ME_55E97B4602E4 // CheckFilterPara
  ;
  : Parameters
-   @ ( ME_55E97B5B0395 // aFromFilter
- ) .SequenceCode.It
+   Seq: ( ME_55E97B5B0395 // aFromFilter
+ )
  ; // Parameters
 
 ref; // ME_55E97B54012C DoIt
@@ -733,8 +739,8 @@ ref; // ME_55E97B54012C DoIt
  : Parent ME_4F683DA30260 // TddDocumentGenerator
  ;
  : Operations
-   @ ( ME_55E97B54012C // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_55E97B54012C // DoIt
+ )
  ; // Operations
 
 ref; // ME_55E97B4602E4 CheckFilterPara
@@ -750,11 +756,11 @@ ref; // ME_55E97B4602E4 CheckFilterPara
  : Parent ME_4E1C271501E5 // ddDocument
  ;
  : Inherits
-   @ ( WL 'ME_4836BFC9011E' '47ECA80B000D.pas.ms.script' // Tk2CustomFileGenerator
- ) .SequenceCode.It
+   Seq: ( WL 'ME_4836BFC9011E' '47ECA80B000D.pas.ms.script' // Tk2CustomFileGenerator
+ )
  ; // Inherits
  : Operations
-   @ ( ME_55BB1FC300A2 // DoStartBlock
+   Seq: ( ME_55BB1FC300A2 // DoStartBlock
  ME_55BB200700A0 // DoCloseBlock
  ME_55BB2C2E01BD // Apply2Sub
  ME_55BB394E0074 // DoStartDocument
@@ -762,13 +768,19 @@ ref; // ME_55E97B4602E4 CheckFilterPara
  ME_55BB58F60134 // BlockIndent
  ME_55C092BD009D // IgnoreLeftIndent
  ME_55E97B4602E4 // CheckFilterPara
- ) .SequenceCode.It
+ )
  ; // Operations
  CONST "finished" false
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
+ CONST dfm:PathOnly '\common\components\rtl\Garant\dd'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\dd'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'ddDocumentGenerator'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_4F683DA30260 TddDocumentGenerator
 
@@ -783,14 +795,20 @@ ref; // ME_4F683DA30260 TddDocumentGenerator
  : Parent ME_4E1C271501E5 // ddDocument
  ;
  : Inherits
-   @ ( WL 'ME_47879856035F' '47913B47006E.pas.ms.script' // Tl3_Base
- ) .SequenceCode.It
+   Seq: ( WL 'ME_47879856035F' '47913B47006E.pas.ms.script' // Tl3_Base
+ )
  ; // Inherits
  CONST "finished" false
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
+ CONST dfm:PathOnly '\common\components\rtl\Garant\dd'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\dd'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'ddDocument'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_4FACDE8A00C0 TddDocument
 
@@ -816,22 +834,21 @@ ref; // ME_4E1C27CE0200
  : Parent ME_48F4BA770180 // Writers
  ;
  : Children
-   @ ( ME_4F683DA30260 // TddDocumentGenerator
+   Seq: ( ME_4F683DA30260 // TddDocumentGenerator
  ME_4FACDE8A00C0 // TddDocument
- ) .SequenceCode.It
+ )
  ; // Children
  : Dependencies
-   @ ( ME_4E1C27CE0200 // 
- ) .SequenceCode.It
+   Seq: ( ME_4E1C27CE0200 // 
+ )
  ; // Dependencies
  CONST "finished" false
  CONST "no hands" false
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\dd'
  CONST intf.pas:Path 'common\components\rtl\Garant\dd\NOT_FINISHED_ddDocument.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\dd'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_4E1C271501E5 ddDocument
 
@@ -852,6 +869,7 @@ FORWARD ME_4B9E54E5031B
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value '''%s - Список множественных ссылок'''
 
 ref; // ME_4B9E552502AC MultiLinkTitle
 
@@ -866,13 +884,17 @@ ref; // ME_4B9E552502AC MultiLinkTitle
  : Parent ME_4B9E548D0157 // ddHTMLWriterRes
  ;
  : Attributes
-   @ ( ME_4B9E552502AC // MultiLinkTitle
- ) .SequenceCode.It
+   Seq: ( ME_4B9E552502AC // MultiLinkTitle
+ )
  ; // Attributes
  CONST "Need map interface" false
  CONST "Need mapping support" false
  CONST "children prefix" 'ddmm'
  CONST "spell names" false
+ CONST dfm:PathOnly '\common\components\rtl\Garant\dd'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\dd'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
  CONST extprop:pas:ElementPrefix 'ddmm'
 
 ref; // ME_4B9E54E5031B Local
@@ -882,6 +904,7 @@ FORWARD ME_B0DCDC17627A
 : ME_77BD0BF978F2
  CONST UID '77BD0BF978F2'
  CONST Name 'MultiLinkTitle'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY '''%s - Список множественных ссылок''' ;
  CONST Visibility PublicAccess
@@ -897,12 +920,14 @@ FORWARD ME_B0DCDC17627A
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''ddmmMultiLinkTitle''; rValue : ''%s - Список множественных ссылок'')'
 
 ref; // ME_77BD0BF978F2 MultiLinkTitle
 
 : ME_B0DCDC17627A
  CONST UID 'B0DCDC17627A'
  CONST Name 'LCImplLocal'
+ CONST IsSummoned true
  CONST Class class_Class
  : Stereotype st_Constants ;
  CONST Kind kind_NormalClass
@@ -912,12 +937,16 @@ ref; // ME_77BD0BF978F2 MultiLinkTitle
  : Parent ME_4B9E548D0157 // ddHTMLWriterRes
  ;
  : Attributes
-   @ ( ME_77BD0BF978F2 // MultiLinkTitle
- ) .SequenceCode.It
+   Seq: ( ME_77BD0BF978F2 // MultiLinkTitle
+ )
  ; // Attributes
  CONST "children prefix" 'ddmm'
  CONST "elements prefix" 'str'
  CONST "spell names" false
+ CONST dfm:PathOnly '\common\components\rtl\Garant\dd'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\dd'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
  CONST extprop:pas:ElementPrefixBase 'str'
  CONST extprop:pas:ElementPrefix 'str_ddmm'
 
@@ -925,7 +954,8 @@ ref; // ME_B0DCDC17627A LCImplLocal
 
 : ME_9AB46CB25029
  CONST UID '9AB46CB25029'
- CONST Name 'Init_MultiLinkTitle'
+ CONST Name 'Init_Str_MultiLinkTitle'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Инициализация str_ddmmMultiLinkTitle' ;
@@ -933,11 +963,16 @@ ref; // ME_B0DCDC17627A LCImplLocal
  CONST Abstraction at_final
  : Parent ME_4B9E548D0157 // ddHTMLWriterRes
  ;
+ : Speller ME_4B9E552502AC // MultiLinkTitle
+ ;
+ : SpelledFor ME_77BD0BF978F2 // MultiLinkTitle
+ ;
 
-ref; // ME_9AB46CB25029 Init_MultiLinkTitle
+ref; // ME_9AB46CB25029 Init_Str_MultiLinkTitle
 
 : ME_EBC71920CE5B
  CONST UID 'EBC71920CE5B'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_4B9E548D0157 // ddHTMLWriterRes
@@ -949,6 +984,7 @@ ref; // ME_EBC71920CE5B
 
 : ME_95838F47D299
  CONST UID '95838F47D299'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_4B9E548D0157 // ddHTMLWriterRes
@@ -969,28 +1005,27 @@ ref; // ME_95838F47D299
  : Parent ME_48F4BA770180 // Writers
  ;
  : Operations
-   @ ( ME_9AB46CB25029 // Init_MultiLinkTitle
- ) .SequenceCode.It
+   Seq: ( ME_9AB46CB25029 // Init_Str_MultiLinkTitle
+ )
  ; // Operations
  : Constants
-   @ ( ME_4B9E54E5031B // Local
+   Seq: ( ME_4B9E54E5031B // Local
  ME_B0DCDC17627A // LCImplLocal
- ) .SequenceCode.It
+ )
  ; // Constants
  : Dependencies
-   @ ( ME_EBC71920CE5B // 
+   Seq: ( ME_EBC71920CE5B // 
  ME_95838F47D299 // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  CONST "author" 'Люлин А.В.'
  CONST "no hands" true
  CONST "started" '15.03.2010 18:39'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\dd'
  CONST intf.pas:Path 'common\components\rtl\Garant\dd\ddHTMLWriterRes.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\dd'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_4B9E548D0157 ddHTMLWriterRes
 
@@ -1007,14 +1042,20 @@ FORWARD ME_4B9E545B0118
  : Parent ME_4B9E545B0118 // ddHTMLWriter
  ;
  : Inherits
-   @ ( ME_4F683DA30260 // TddDocumentGenerator
- ) .SequenceCode.It
+   Seq: ( ME_4F683DA30260 // TddDocumentGenerator
+ )
  ; // Inherits
  CONST "finished" false
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
+ CONST dfm:PathOnly '\common\components\rtl\Garant\dd'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\dd'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'ddHTMLGenerator'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_4B9E54770095 TddHTMLGenerator
 
@@ -1040,21 +1081,20 @@ ref; // ME_4B9E54A6001B
  : Parent ME_48F4BA770180 // Writers
  ;
  : Children
-   @ ( ME_4B9E54770095 // TddHTMLGenerator
- ) .SequenceCode.It
+   Seq: ( ME_4B9E54770095 // TddHTMLGenerator
+ )
  ; // Children
  : Dependencies
-   @ ( ME_4B9E54A6001B // 
- ) .SequenceCode.It
+   Seq: ( ME_4B9E54A6001B // 
+ )
  ; // Dependencies
  CONST "finished" false
  CONST "no hands" false
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\dd'
  CONST intf.pas:Path 'common\components\rtl\Garant\dd\NOT_FINISHED_ddHTMLWriter.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\dd'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_4B9E545B0118 ddHTMLWriter
 
@@ -1075,6 +1115,7 @@ FORWARD ME_52DCEB7702E8
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value 100000
 
 ref; // ME_52DCEB9100EA cnGarantMagicDocIDContant
 
@@ -1091,6 +1132,7 @@ ref; // ME_52DCEB9100EA cnGarantMagicDocIDContant
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value '''sub_'''
 
 ref; // ME_52DCEB9F03B1 subAlias
 
@@ -1105,11 +1147,15 @@ ref; // ME_52DCEB9F03B1 subAlias
  : Parent ME_52DCDD6201E9 // TddRTFSegmentWriter
  ;
  : Attributes
-   @ ( ME_52DCEB9100EA // cnGarantMagicDocIDContant
+   Seq: ( ME_52DCEB9100EA // cnGarantMagicDocIDContant
  ME_52DCEB9F03B1 // subAlias
- ) .SequenceCode.It
+ )
  ; // Attributes
  CONST "spell names" false
+ CONST dfm:PathOnly '\common\components\rtl\Garant\dd'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\dd'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_52DCEB7702E8 SegmentConsts
 
@@ -1149,6 +1195,7 @@ ref; // ME_52DCF3370367 Host
 : ME_3DB222F15A4D
  CONST UID '3DB222F15A4D'
  CONST Name 'f_Host'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY 'Поле для свойства Host' ;
  CONST Visibility PrivateAccess
@@ -1158,6 +1205,7 @@ ref; // ME_52DCF3370367 Host
  ;
  : Target WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
  ;
+ CONST extprop:clearViaProperty 'Host'
 
 ref; // ME_3DB222F15A4D f_Host
 
@@ -1192,9 +1240,9 @@ ref; // ME_52DCE0260016 anIndex
  : Parent ME_52DCDFF9033B // CheckFinishSegments
  ;
  : Parameters
-   @ ( ME_52DCE0260007 // aPara
+   Seq: ( ME_52DCE0260007 // aPara
  ME_52DCE0260016 // anIndex
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_52DCE00501B7 DoIt
@@ -1210,8 +1258,8 @@ ref; // ME_52DCE00501B7 DoIt
  : Parent ME_52DCDD6201E9 // TddRTFSegmentWriter
  ;
  : Operations
-   @ ( ME_52DCE00501B7 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_52DCE00501B7 // DoIt
+ )
  ; // Operations
 
 ref; // ME_52DCDFF9033B CheckFinishSegments
@@ -1259,10 +1307,10 @@ ref; // ME_52DCF291026D aStyle
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
  : Parameters
-   @ ( ME_52DCF291024D // aPara
+   Seq: ( ME_52DCF291024D // aPara
  ME_52DCF291025D // anIndex
  ME_52DCF291026D // aStyle
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_52DCE04B0229 DoIt
@@ -1278,8 +1326,8 @@ ref; // ME_52DCE04B0229 DoIt
  : Parent ME_52DCDD6201E9 // TddRTFSegmentWriter
  ;
  : Operations
-   @ ( ME_52DCE04B0229 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_52DCE04B0229 // DoIt
+ )
  ; // Operations
 
 ref; // ME_52DCE03E037C CheckObjectSegment
@@ -1315,9 +1363,9 @@ ref; // ME_52DCE0C702F9 aSeg
  : Parent ME_52DCE0AA0066 // CheckSegmentStart
  ;
  : Parameters
-   @ ( ME_52DCE0C702EA // aPara
+   Seq: ( ME_52DCE0C702EA // aPara
  ME_52DCE0C702F9 // aSeg
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_52DCE0B50275 DoIt
@@ -1333,8 +1381,8 @@ ref; // ME_52DCE0B50275 DoIt
  : Parent ME_52DCDD6201E9 // TddRTFSegmentWriter
  ;
  : Operations
-   @ ( ME_52DCE0B50275 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_52DCE0B50275 // DoIt
+ )
  ; // Operations
 
 ref; // ME_52DCE0AA0066 CheckSegmentStart
@@ -1360,8 +1408,8 @@ ref; // ME_52DCE0EF013E aSeg
  : Parent ME_52DCE0D60200 // CheckSegmentFinish
  ;
  : Parameters
-   @ ( ME_52DCE0EF013E // aSeg
- ) .SequenceCode.It
+   Seq: ( ME_52DCE0EF013E // aSeg
+ )
  ; // Parameters
 
 ref; // ME_52DCE0EA009B DoIt
@@ -1377,8 +1425,8 @@ ref; // ME_52DCE0EA009B DoIt
  : Parent ME_52DCDD6201E9 // TddRTFSegmentWriter
  ;
  : Operations
-   @ ( ME_52DCE0EA009B // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_52DCE0EA009B // DoIt
+ )
  ; // Operations
 
 ref; // ME_52DCE0D60200 CheckSegmentFinish
@@ -1414,9 +1462,9 @@ ref; // ME_52DCE1700193 anIndex
  : Parent ME_52DCE14F0228 // CheckStartSegments
  ;
  : Parameters
-   @ ( ME_52DCE1700183 // aPara
+   Seq: ( ME_52DCE1700183 // aPara
  ME_52DCE1700193 // anIndex
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_52DCE15D0255 DoIt
@@ -1432,8 +1480,8 @@ ref; // ME_52DCE15D0255 DoIt
  : Parent ME_52DCDD6201E9 // TddRTFSegmentWriter
  ;
  : Operations
-   @ ( ME_52DCE15D0255 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_52DCE15D0255 // DoIt
+ )
  ; // Operations
 
 ref; // ME_52DCE14F0228 CheckStartSegments
@@ -1481,10 +1529,10 @@ ref; // ME_55C09C0B0128 anIgnoreLeftIndent
  : Target WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
  ;
  : Parameters
-   @ ( ME_55C09C0B00E9 // aStyle
+   Seq: ( ME_55C09C0B00E9 // aStyle
  ME_55C09C0B0108 // aBlockIndent
  ME_55C09C0B0128 // anIgnoreLeftIndent
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_52DCEC16018B DoIt
@@ -1500,8 +1548,8 @@ ref; // ME_52DCEC16018B DoIt
  : Parent ME_52DCDD6201E9 // TddRTFSegmentWriter
  ;
  : Operations
-   @ ( ME_52DCEC16018B // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_52DCEC16018B // DoIt
+ )
  ; // Operations
 
 ref; // ME_52DCEC00024A Style2RTF
@@ -1538,6 +1586,7 @@ ref; // ME_535F9F50021B aParent
  CONST Value true
  : ValueType WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
+ CONST extprop:pas:Value true
 
 ref; // ME_535F9F50024A WithStyle
 
@@ -1552,10 +1601,10 @@ ref; // ME_535F9F50024A WithStyle
  : Target WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
  ;
  : Parameters
-   @ ( ME_535F9F5001FC // aCHP
+   Seq: ( ME_535F9F5001FC // aCHP
  ME_535F9F50021B // aParent
  ME_535F9F50024A // WithStyle
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_52DCEC5A0085 DoIt
@@ -1571,8 +1620,8 @@ ref; // ME_52DCEC5A0085 DoIt
  : Parent ME_52DCDD6201E9 // TddRTFSegmentWriter
  ;
  : Operations
-   @ ( ME_52DCEC5A0085 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_52DCEC5A0085 // DoIt
+ )
  ; // Operations
 
 ref; // ME_52DCEC4C0176 CHP2RTF
@@ -1610,9 +1659,9 @@ ref; // ME_52DCECBF0383 aCHP2
  : Target WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
  ;
  : Parameters
-   @ ( ME_52DCECBF0374 // aCHP1
+   Seq: ( ME_52DCECBF0374 // aCHP1
  ME_52DCECBF0383 // aCHP2
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_52DCECAC0019 DoIt
@@ -1628,8 +1677,8 @@ ref; // ME_52DCECAC0019 DoIt
  : Parent ME_52DCDD6201E9 // TddRTFSegmentWriter
  ;
  : Operations
-   @ ( ME_52DCECAC0019 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_52DCECAC0019 // DoIt
+ )
  ; // Operations
 
 ref; // ME_52DCEC9D0243 DIffCHP2RTF
@@ -1665,9 +1714,9 @@ ref; // ME_52DCF2F80350 aCHP
  : Parent ME_52DCF2D303E7 // WriteSegmentObject
  ;
  : Parameters
-   @ ( ME_52DCF2F80341 // aSegment
+   Seq: ( ME_52DCF2F80341 // aSegment
  ME_52DCF2F80350 // aCHP
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_52DCF2E40301 DoIt
@@ -1683,8 +1732,8 @@ ref; // ME_52DCF2E40301 DoIt
  : Parent ME_52DCDD6201E9 // TddRTFSegmentWriter
  ;
  : Operations
-   @ ( ME_52DCF2E40301 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_52DCF2E40301 // DoIt
+ )
  ; // Operations
 
 ref; // ME_52DCF2D303E7 WriteSegmentObject
@@ -1731,6 +1780,7 @@ ref; // ME_55C0969D0316 anIgnoreLeftIndent
  CONST Value true
  : ValueType WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
+ CONST extprop:pas:Value true
 
 ref; // ME_55C0969D0325 WithStyle
 
@@ -1745,11 +1795,11 @@ ref; // ME_55C0969D0325 WithStyle
  : Target WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
  ;
  : Parameters
-   @ ( ME_55C0969D02E7 // aPAP
+   Seq: ( ME_55C0969D02E7 // aPAP
  ME_55C0969D02F7 // aBlockIndent
  ME_55C0969D0316 // anIgnoreLeftIndent
  ME_55C0969D0325 // WithStyle
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_52DCF5520378 DoIt
@@ -1765,8 +1815,8 @@ ref; // ME_52DCF5520378 DoIt
  : Parent ME_52DCDD6201E9 // TddRTFSegmentWriter
  ;
  : Operations
-   @ ( ME_52DCF5520378 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_52DCF5520378 // DoIt
+ )
  ; // Operations
 
 ref; // ME_52DCF547032A PAP2RTF
@@ -1795,8 +1845,8 @@ ref; // ME_52DCFF98030E DoIt
  : Parent ME_52DCDD6201E9 // TddRTFSegmentWriter
  ;
  : Operations
-   @ ( ME_52DCFF98030E // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_52DCFF98030E // DoIt
+ )
  ; // Operations
 
 ref; // ME_52DCFF7B038B Init4Segments
@@ -1825,8 +1875,8 @@ ref; // ME_52DCFFC60229 DoIt
  : Parent ME_52DCDD6201E9 // TddRTFSegmentWriter
  ;
  : Operations
-   @ ( ME_52DCFFC60229 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_52DCFFC60229 // DoIt
+ )
  ; // Operations
 
 ref; // ME_52DCFFB701C4 DeInit4Segments
@@ -1862,9 +1912,9 @@ ref; // ME_542BCC4B0097 aWriteBarket
  : Parent ME_52DD022F0118 // IncBracesCount
  ;
  : Parameters
-   @ ( ME_542BCC4B0088 // aValue
+   Seq: ( ME_542BCC4B0088 // aValue
  ME_542BCC4B0097 // aWriteBarket
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_52DD023703AA DoIt
@@ -1880,8 +1930,8 @@ ref; // ME_52DD023703AA DoIt
  : Parent ME_52DCDD6201E9 // TddRTFSegmentWriter
  ;
  : Operations
-   @ ( ME_52DD023703AA // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_52DD023703AA // DoIt
+ )
  ; // Operations
 
 ref; // ME_52DD022F0118 IncBracesCount
@@ -1907,8 +1957,8 @@ ref; // ME_542BBE1D0263 aValue
  : Parent ME_52DD02450254 // DecBracesCount
  ;
  : Parameters
-   @ ( ME_542BBE1D0263 // aValue
- ) .SequenceCode.It
+   Seq: ( ME_542BBE1D0263 // aValue
+ )
  ; // Parameters
 
 ref; // ME_52DD02630188 DoIt
@@ -1924,8 +1974,8 @@ ref; // ME_52DD02630188 DoIt
  : Parent ME_52DCDD6201E9 // TddRTFSegmentWriter
  ;
  : Operations
-   @ ( ME_52DD02630188 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_52DD02630188 // DoIt
+ )
  ; // Operations
 
 ref; // ME_52DD02450254 DecBracesCount
@@ -1954,8 +2004,8 @@ ref; // ME_542BBAF90032 DoIt
  : Parent ME_52DCDD6201E9 // TddRTFSegmentWriter
  ;
  : Operations
-   @ ( ME_542BBAF90032 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_542BBAF90032 // DoIt
+ )
  ; // Operations
 
 ref; // ME_542BBAE00125 WriteOpenBarket
@@ -1984,8 +2034,8 @@ ref; // ME_542BBB1401EF DoIt
  : Parent ME_52DCDD6201E9 // TddRTFSegmentWriter
  ;
  : Operations
-   @ ( ME_542BBB1401EF // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_542BBB1401EF // DoIt
+ )
  ; // Operations
 
 ref; // ME_542BBB020308 WriteCloseBarket
@@ -2156,17 +2206,17 @@ ref; // ME_54D9DF54037B
  : Parent ME_48F4BA770180 // Writers
  ;
  : Inherits
-   @ ( ME_4F683DA30260 // TddDocumentGenerator
- ) .SequenceCode.It
+   Seq: ( ME_4F683DA30260 // TddDocumentGenerator
+ )
  ; // Inherits
  : Attributes
-   @ ( ME_52DCEBE902DA // f_TextSegmentQueue
+   Seq: ( ME_52DCEBE902DA // f_TextSegmentQueue
  ME_52DCF3370367 // Host
  ME_3DB222F15A4D // f_Host
- ) .SequenceCode.It
+ )
  ; // Attributes
  : Operations
-   @ ( ME_52DCDFF9033B // CheckFinishSegments
+   Seq: ( ME_52DCDFF9033B // CheckFinishSegments
  ME_52DCE03E037C // CheckObjectSegment
  ME_52DCE0AA0066 // CheckSegmentStart
  ME_52DCE0D60200 // CheckSegmentFinish
@@ -2182,14 +2232,14 @@ ref; // ME_54D9DF54037B
  ME_52DD02450254 // DecBracesCount
  ME_542BBAE00125 // WriteOpenBarket
  ME_542BBB020308 // WriteCloseBarket
- ) .SequenceCode.It
+ )
  ; // Operations
  : Constants
-   @ ( ME_52DCEB7702E8 // SegmentConsts
- ) .SequenceCode.It
+   Seq: ( ME_52DCEB7702E8 // SegmentConsts
+ )
  ; // Constants
  : Dependencies
-   @ ( ME_52DCE834004F // 
+   Seq: ( ME_52DCE834004F // 
  ME_52DCE85F037A // 
  ME_52DCE89003DB // 
  ME_52DCEEF20215 // 
@@ -2203,18 +2253,20 @@ ref; // ME_54D9DF54037B
  ME_54D9DABA0066 // 
  ME_54D9DCA102A0 // 
  ME_54D9DF54037B // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\dd'
  CONST intf.pas:Path 'common\components\rtl\Garant\dd\ddRTFSegmentWriter.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\dd'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'ddRTFSegmentWriter'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'ddRTFSegmentWriter'
 
 ref; // ME_52DCDD6201E9 TddRTFSegmentWriter
 
@@ -2282,6 +2334,7 @@ ref; // ME_55BB822F0125 ParaID
 : ME_536CB19C1ECB
  CONST UID '536CB19C1ECB'
  CONST Name 'f_StyleID'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY 'Поле для свойства StyleID' ;
  CONST Visibility PrivateAccess
@@ -2291,12 +2344,14 @@ ref; // ME_55BB822F0125 ParaID
  ;
  : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
  ;
+ CONST extprop:clearViaProperty 'StyleID'
 
 ref; // ME_536CB19C1ECB f_StyleID
 
 : ME_4C9D04493340
  CONST UID '4C9D04493340'
  CONST Name 'f_Collapsed'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY 'Поле для свойства Collapsed' ;
  CONST Visibility PrivateAccess
@@ -2306,12 +2361,14 @@ ref; // ME_536CB19C1ECB f_StyleID
  ;
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
+ CONST extprop:clearViaProperty 'Collapsed'
 
 ref; // ME_4C9D04493340 f_Collapsed
 
 : ME_61C7C8B8EFE5
  CONST UID '61C7C8B8EFE5'
  CONST Name 'f_ParaID'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY 'Поле для свойства ParaID' ;
  CONST Visibility PrivateAccess
@@ -2321,6 +2378,7 @@ ref; // ME_4C9D04493340 f_Collapsed
  ;
  : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
  ;
+ CONST extprop:clearViaProperty 'ParaID'
 
 ref; // ME_61C7C8B8EFE5 f_ParaID
 
@@ -2331,6 +2389,7 @@ ref; // ME_61C7C8B8EFE5 f_ParaID
  ;
  : Implementor ME_55BB29ED03B6 // TddBlockInfo
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_479731C50290_ME_55BB29ED03B6 Cleanup
 
 : ME_47A042E100E2_ME_55BB29ED03B6
@@ -2340,6 +2399,7 @@ ref; // ME_479731C50290_ME_55BB29ED03B6 Cleanup
  ;
  : Implementor ME_55BB29ED03B6 // TddBlockInfo
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_47A042E100E2_ME_55BB29ED03B6 InitFields
 
 : ME_55BB29ED03B6
@@ -2354,27 +2414,33 @@ ref; // ME_47A042E100E2_ME_55BB29ED03B6 InitFields
  : Parent ME_55BB1F310213 // TddRTFExpandedTextWriter
  ;
  : Inherits
-   @ ( WL 'ME_4A54DD4E036F' '47913B47006E.pas.ms.script' // Tl3ProtoDataContainer
- ) .SequenceCode.It
+   Seq: ( WL 'ME_4A54DD4E036F' '47913B47006E.pas.ms.script' // Tl3ProtoDataContainer
+ )
  ; // Inherits
  : Attributes
-   @ ( ME_55BB2A1801BD // StyleID
+   Seq: ( ME_55BB2A1801BD // StyleID
  ME_55BB2A220369 // Collapsed
  ME_55BB822F0125 // ParaID
  ME_536CB19C1ECB // f_StyleID
  ME_4C9D04493340 // f_Collapsed
  ME_61C7C8B8EFE5 // f_ParaID
- ) .SequenceCode.It
+ )
  ; // Attributes
  : Overridden
-   @ ( ME_479731C50290_ME_55BB29ED03B6 // Cleanup
+   Seq: ( ME_479731C50290_ME_55BB29ED03B6 // Cleanup
  ME_47A042E100E2_ME_55BB29ED03B6 // InitFields
- ) .SequenceCode.It
+ )
  ; // Overridden
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
+ CONST dfm:PathOnly '\common\components\rtl\Garant\dd'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\dd'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'ddBlockInfo'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_55BB29ED03B6 TddBlockInfo
 
@@ -2402,6 +2468,7 @@ ref; // ME_55BB2AFD005A ItemType
  ;
  : Implementor ME_55BB2AA70029 // TddBlockInfoStack
  ;
+ CONST OpKind opkind_Implemented
  CONST "ifdef" 'l3Items_NeedsAssignItem'
  CONST "ifndef" 'l3Items_NoSort'
 ref; // ME_47B2C42A0163_ME_55BB2AA70029 AssignItem
@@ -2413,6 +2480,7 @@ ref; // ME_47B2C42A0163_ME_55BB2AA70029 AssignItem
  ;
  : Implementor ME_55BB2AA70029 // TddBlockInfoStack
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_47B99D4503A2_ME_55BB2AA70029 CompareExistingItems
 
 : ME_55BB2AA70029
@@ -2426,23 +2494,29 @@ ref; // ME_47B99D4503A2_ME_55BB2AA70029 CompareExistingItems
  : Parent ME_55BB1F310213 // TddRTFExpandedTextWriter
  ;
  : Inherits
-   @ ( WL 'ME_47B99E920196' '47913B47006E.pas.ms.script' // l3UncomparabeObjectRefList
+   Seq: ( WL 'ME_47B99E920196' '47913B47006E.pas.ms.script' // l3UncomparabeObjectRefList
  WL 'ME_4A54DD4E036F' '47913B47006E.pas.ms.script' // Tl3ProtoDataContainer
- ) .SequenceCode.It
+ )
  ; // Inherits
  : Attributes
-   @ ( ME_55BB2AFD005A // ItemType
- ) .SequenceCode.It
+   Seq: ( ME_55BB2AFD005A // ItemType
+ )
  ; // Attributes
  : Implemented
-   @ ( ME_47B2C42A0163_ME_55BB2AA70029 // AssignItem
+   Seq: ( ME_47B2C42A0163_ME_55BB2AA70029 // AssignItem
  ME_47B99D4503A2_ME_55BB2AA70029 // CompareExistingItems
- ) .SequenceCode.It
+ )
  ; // Implemented
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
+ CONST dfm:PathOnly '\common\components\rtl\Garant\dd'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\dd'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'ddBlockInfoStack'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_55BB2AA70029 TddBlockInfoStack
 
@@ -2507,12 +2581,17 @@ ref; // ME_55BB531D00E9 dd_wsExpandedText
  : Parent ME_55BB1F310213 // TddRTFExpandedTextWriter
  ;
  : Attributes
-   @ ( ME_55BB4A8100B7 // dd_wsNone
+   Seq: ( ME_55BB4A8100B7 // dd_wsNone
  ME_55BB4A8602C2 // dd_wsCheckCollapsed
  ME_55BB4AC703D3 // dd_wsOtherStyle
  ME_55BB531D00E9 // dd_wsExpandedText
- ) .SequenceCode.It
+ )
  ; // Attributes
+ CONST dfm:PathOnly '\common\components\rtl\Garant\dd'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\dd'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_55BB4A610165 TddSyleEnum
 
@@ -2595,8 +2674,8 @@ ref; // ME_55BB663700A1 aStyle
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
  : Parameters
-   @ ( ME_55BB663700A1 // aStyle
- ) .SequenceCode.It
+   Seq: ( ME_55BB663700A1 // aStyle
+ )
  ; // Parameters
 
 ref; // ME_55BB65B7000D DoIt
@@ -2612,8 +2691,8 @@ ref; // ME_55BB65B7000D DoIt
  : Parent ME_55BB1F310213 // TddRTFExpandedTextWriter
  ;
  : Operations
-   @ ( ME_55BB65B7000D // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_55BB65B7000D // DoIt
+ )
  ; // Operations
 
 ref; // ME_55BB652A0311 NeedCheckCollapsed
@@ -2641,8 +2720,8 @@ ref; // ME_55BB661E027C aStyle
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
  : Parameters
-   @ ( ME_55BB661E027C // aStyle
- ) .SequenceCode.It
+   Seq: ( ME_55BB661E027C // aStyle
+ )
  ; // Parameters
 
 ref; // ME_55BB66120369 DoIt
@@ -2658,8 +2737,8 @@ ref; // ME_55BB66120369 DoIt
  : Parent ME_55BB1F310213 // TddRTFExpandedTextWriter
  ;
  : Operations
-   @ ( ME_55BB66120369 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_55BB66120369 // DoIt
+ )
  ; // Operations
 
 ref; // ME_55BB65F40177 NeedCorrectIndent
@@ -2687,8 +2766,8 @@ ref; // ME_55BF77230343 aStyleID
  : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
  ;
  : Parameters
-   @ ( ME_55BF77230343 // aStyleID
- ) .SequenceCode.It
+   Seq: ( ME_55BF77230343 // aStyleID
+ )
  ; // Parameters
 
 ref; // ME_55BF770F0019 DoIt
@@ -2704,8 +2783,8 @@ ref; // ME_55BF770F0019 DoIt
  : Parent ME_55BB1F310213 // TddRTFExpandedTextWriter
  ;
  : Operations
-   @ ( ME_55BF770F0019 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_55BF770F0019 // DoIt
+ )
  ; // Operations
 
 ref; // ME_55BF76DD00EB GetStyleLeftIndent
@@ -2783,6 +2862,7 @@ ref; // ME_55BF7BEB02C6
  ;
  : Implementor ME_55BB1F310213 // TddRTFExpandedTextWriter
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_479731C50290_ME_55BB1F310213 Cleanup
 
 : ME_4836D4650177_ME_55BB1F310213
@@ -2792,6 +2872,7 @@ ref; // ME_479731C50290_ME_55BB1F310213 Cleanup
  ;
  : Implementor ME_55BB1F310213 // TddRTFExpandedTextWriter
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4836D4650177_ME_55BB1F310213 StartChild
 
 : ME_55BB1FC300A2_ME_55BB1F310213
@@ -2801,6 +2882,7 @@ ref; // ME_4836D4650177_ME_55BB1F310213 StartChild
  ;
  : Implementor ME_55BB1F310213 // TddRTFExpandedTextWriter
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_55BB1FC300A2_ME_55BB1F310213 DoStartBlock
 
 : ME_55BB200700A0_ME_55BB1F310213
@@ -2810,6 +2892,7 @@ ref; // ME_55BB1FC300A2_ME_55BB1F310213 DoStartBlock
  ;
  : Implementor ME_55BB1F310213 // TddRTFExpandedTextWriter
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_55BB200700A0_ME_55BB1F310213 DoCloseBlock
 
 : ME_55BB2C2E01BD_ME_55BB1F310213
@@ -2819,6 +2902,7 @@ ref; // ME_55BB200700A0_ME_55BB1F310213 DoCloseBlock
  ;
  : Implementor ME_55BB1F310213 // TddRTFExpandedTextWriter
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_55BB2C2E01BD_ME_55BB1F310213 Apply2Sub
 
 : ME_55BB394E0074_ME_55BB1F310213
@@ -2828,6 +2912,7 @@ ref; // ME_55BB2C2E01BD_ME_55BB1F310213 Apply2Sub
  ;
  : Implementor ME_55BB1F310213 // TddRTFExpandedTextWriter
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_55BB394E0074_ME_55BB1F310213 DoStartDocument
 
 : ME_55BB58F60134_ME_55BB1F310213
@@ -2837,6 +2922,7 @@ ref; // ME_55BB394E0074_ME_55BB1F310213 DoStartDocument
  ;
  : Implementor ME_55BB1F310213 // TddRTFExpandedTextWriter
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_55BB58F60134_ME_55BB1F310213 BlockIndent
 
 : ME_55BB59B0034D_ME_55BB1F310213
@@ -2846,6 +2932,7 @@ ref; // ME_55BB58F60134_ME_55BB1F310213 BlockIndent
  ;
  : Implementor ME_55BB1F310213 // TddRTFExpandedTextWriter
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_55BB59B0034D_ME_55BB1F310213 NeedWritePara
 
 : ME_55C092BD009D_ME_55BB1F310213
@@ -2855,6 +2942,7 @@ ref; // ME_55BB59B0034D_ME_55BB1F310213 NeedWritePara
  ;
  : Implementor ME_55BB1F310213 // TddRTFExpandedTextWriter
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_55C092BD009D_ME_55BB1F310213 IgnoreLeftIndent
 
 : ME_55E97B4602E4_ME_55BB1F310213
@@ -2864,6 +2952,7 @@ ref; // ME_55C092BD009D_ME_55BB1F310213 IgnoreLeftIndent
  ;
  : Implementor ME_55BB1F310213 // TddRTFExpandedTextWriter
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_55E97B4602E4_ME_55BB1F310213 CheckFilterPara
 
 : ME_55BB1F310213
@@ -2877,24 +2966,24 @@ ref; // ME_55E97B4602E4_ME_55BB1F310213 CheckFilterPara
  : Parent ME_48F4BA770180 // Writers
  ;
  : Inherits
-   @ ( ME_52DCDD6201E9 // TddRTFSegmentWriter
- ) .SequenceCode.It
+   Seq: ( ME_52DCDD6201E9 // TddRTFSegmentWriter
+ )
  ; // Inherits
  : Attributes
-   @ ( ME_55BB2B20013B // f_BlockStack
+   Seq: ( ME_55BB2B20013B // f_BlockStack
  ME_55BB3C27015F // f_StyledSpace
  ME_55BB4AE10204 // f_FindStyle
  ME_55BF8891028F // f_AddBlockStyle
- ) .SequenceCode.It
+ )
  ; // Attributes
  : Operations
-   @ ( ME_55BB652A0311 // NeedCheckCollapsed
+   Seq: ( ME_55BB652A0311 // NeedCheckCollapsed
  ME_55BB65F40177 // NeedCorrectIndent
  ME_55BF76DD00EB // GetStyleLeftIndent
- ) .SequenceCode.It
+ )
  ; // Operations
  : Overridden
-   @ ( ME_479731C50290_ME_55BB1F310213 // Cleanup
+   Seq: ( ME_479731C50290_ME_55BB1F310213 // Cleanup
  ME_4836D4650177_ME_55BB1F310213 // StartChild
  ME_55BB1FC300A2_ME_55BB1F310213 // DoStartBlock
  ME_55BB200700A0_ME_55BB1F310213 // DoCloseBlock
@@ -2904,33 +2993,35 @@ ref; // ME_55E97B4602E4_ME_55BB1F310213 CheckFilterPara
  ME_55BB59B0034D_ME_55BB1F310213 // NeedWritePara
  ME_55C092BD009D_ME_55BB1F310213 // IgnoreLeftIndent
  ME_55E97B4602E4_ME_55BB1F310213 // CheckFilterPara
- ) .SequenceCode.It
+ )
  ; // Overridden
  : Children
-   @ ( ME_55BB29ED03B6 // TddBlockInfo
+   Seq: ( ME_55BB29ED03B6 // TddBlockInfo
  ME_55BB2AA70029 // TddBlockInfoStack
  ME_55BB4A610165 // TddSyleEnum
- ) .SequenceCode.It
+ )
  ; // Children
  : Dependencies
-   @ ( ME_55BB38F2021C // 
+   Seq: ( ME_55BB38F2021C // 
  ME_55BB41640238 // 
  ME_55BB42A90127 // 
  ME_55BB458E020D // 
  ME_55BF775602E2 // 
  ME_55BF7BEB02C6 // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\dd'
  CONST intf.pas:Path 'common\components\rtl\Garant\dd\ddRTFExpandedTextWriter.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\dd'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'ddRTFExpandedTextWriter'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'ddRTFExpandedTextWriter'
 
 ref; // ME_55BB1F310213 TddRTFExpandedTextWriter
 
@@ -2972,8 +3063,8 @@ ref; // ME_54169A050283 aValue
  : Parent ME_5416925A01A0 // Push
  ;
  : Parameters
-   @ ( ME_54169A050283 // aValue
- ) .SequenceCode.It
+   Seq: ( ME_54169A050283 // aValue
+ )
  ; // Parameters
 
 ref; // ME_5416926D0148 DoIt
@@ -2989,8 +3080,8 @@ ref; // ME_5416926D0148 DoIt
  : Parent ME_541690C10301 // TddFillAACStack
  ;
  : Operations
-   @ ( ME_5416926D0148 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_5416926D0148 // DoIt
+ )
  ; // Operations
 
 ref; // ME_5416925A01A0 Push
@@ -3021,8 +3112,8 @@ ref; // ME_5416929B01C5 DoIt
  : Parent ME_541690C10301 // TddFillAACStack
  ;
  : Operations
-   @ ( ME_5416929B01C5 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_5416929B01C5 // DoIt
+ )
  ; // Operations
 
 ref; // ME_54169293003D Pop
@@ -3053,8 +3144,8 @@ ref; // ME_541694D00190 DoIt
  : Parent ME_541690C10301 // TddFillAACStack
  ;
  : Operations
-   @ ( ME_541694D00190 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_541694D00190 // DoIt
+ )
  ; // Operations
 
 ref; // ME_541694B502B2 Peek
@@ -3070,30 +3161,32 @@ ref; // ME_541694B502B2 Peek
  : Parent ME_48F4BA770180 // Writers
  ;
  : Inherits
-   @ ( WL 'ME_47BC3A07027F' '47913B47006E.pas.ms.script' // Tl3SimpleDataContainer
+   Seq: ( WL 'ME_47BC3A07027F' '47913B47006E.pas.ms.script' // Tl3SimpleDataContainer
  WL 'ME_49142D7000F3' '47913B47006E.pas.ms.script' // l3EnumList
- ) .SequenceCode.It
+ )
  ; // Inherits
  : Attributes
-   @ ( ME_5416922A020D // ItemType
- ) .SequenceCode.It
+   Seq: ( ME_5416922A020D // ItemType
+ )
  ; // Attributes
  : Operations
-   @ ( ME_5416925A01A0 // Push
+   Seq: ( ME_5416925A01A0 // Push
  ME_54169293003D // Pop
  ME_541694B502B2 // Peek
- ) .SequenceCode.It
+ )
  ; // Operations
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\dd'
  CONST intf.pas:Path 'common\components\rtl\Garant\dd\ddFillAACStack.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\dd'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'ddFillAACStack'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'ddFillAACStack'
 
 ref; // ME_541690C10301 TddFillAACStack
 
@@ -3108,6 +3201,7 @@ FORWARD ME_52DCDACA038A
  ;
  : Implementor ME_52DCDACA038A // TCustomRTFObjectGenerator
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_52DCEC00024A_ME_52DCDACA038A Style2RTF
 
 : ME_52DCEC4C0176_ME_52DCDACA038A
@@ -3117,6 +3211,7 @@ ref; // ME_52DCEC00024A_ME_52DCDACA038A Style2RTF
  ;
  : Implementor ME_52DCDACA038A // TCustomRTFObjectGenerator
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_52DCEC4C0176_ME_52DCDACA038A CHP2RTF
 
 : ME_52DCEC9D0243_ME_52DCDACA038A
@@ -3126,6 +3221,7 @@ ref; // ME_52DCEC4C0176_ME_52DCDACA038A CHP2RTF
  ;
  : Implementor ME_52DCDACA038A // TCustomRTFObjectGenerator
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_52DCEC9D0243_ME_52DCDACA038A DIffCHP2RTF
 
 : ME_52DCF547032A_ME_52DCDACA038A
@@ -3135,6 +3231,7 @@ ref; // ME_52DCEC9D0243_ME_52DCDACA038A DIffCHP2RTF
  ;
  : Implementor ME_52DCDACA038A // TCustomRTFObjectGenerator
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_52DCF547032A_ME_52DCDACA038A PAP2RTF
 
 : ME_52DCDACA038A
@@ -3148,21 +3245,27 @@ ref; // ME_52DCF547032A_ME_52DCDACA038A PAP2RTF
  : Parent ME_48F4BA89000D // ddRTFWriter
  ;
  : Inherits
-   @ ( ME_55BB1F310213 // TddRTFExpandedTextWriter
- ) .SequenceCode.It
+   Seq: ( ME_55BB1F310213 // TddRTFExpandedTextWriter
+ )
  ; // Inherits
  : Implemented
-   @ ( ME_52DCEC00024A_ME_52DCDACA038A // Style2RTF
+   Seq: ( ME_52DCEC00024A_ME_52DCDACA038A // Style2RTF
  ME_52DCEC4C0176_ME_52DCDACA038A // CHP2RTF
  ME_52DCEC9D0243_ME_52DCDACA038A // DIffCHP2RTF
  ME_52DCF547032A_ME_52DCDACA038A // PAP2RTF
- ) .SequenceCode.It
+ )
  ; // Implemented
  CONST "finished" false
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
+ CONST dfm:PathOnly '\common\components\rtl\Garant\dd'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\dd'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'RTFObjectGenerator'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_52DCDACA038A TCustomRTFObjectGenerator
 
@@ -3177,14 +3280,20 @@ ref; // ME_52DCDACA038A TCustomRTFObjectGenerator
  : Parent ME_48F4BA89000D // ddRTFWriter
  ;
  : Inherits
-   @ ( ME_52DCDACA038A // TCustomRTFObjectGenerator
- ) .SequenceCode.It
+   Seq: ( ME_52DCDACA038A // TCustomRTFObjectGenerator
+ )
  ; // Inherits
  CONST "finished" false
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
+ CONST dfm:PathOnly '\common\components\rtl\Garant\dd'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\dd'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'RTFObjectGenerator'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_4B72BB480373 TevRTFObjectGenerator
 
@@ -3210,22 +3319,21 @@ ref; // ME_4E1C27BE0129
  : Parent ME_48F4BA770180 // Writers
  ;
  : Children
-   @ ( ME_52DCDACA038A // TCustomRTFObjectGenerator
+   Seq: ( ME_52DCDACA038A // TCustomRTFObjectGenerator
  ME_4B72BB480373 // TevRTFObjectGenerator
- ) .SequenceCode.It
+ )
  ; // Children
  : Dependencies
-   @ ( ME_4E1C27BE0129 // 
- ) .SequenceCode.It
+   Seq: ( ME_4E1C27BE0129 // 
+ )
  ; // Dependencies
  CONST "finished" false
  CONST "no hands" false
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\dd'
  CONST intf.pas:Path 'common\components\rtl\Garant\dd\NOT_FINISHED_ddRTFWriter.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\dd'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_48F4BA89000D ddRTFWriter
 
@@ -3239,7 +3347,7 @@ ref; // ME_48F4BA89000D ddRTFWriter
  : Parent WL 'ME_4677E18600C2' '4677E18600C2.pas.ms.script' // dd
  ;
  : Children
-   @ ( ME_52DCDDEE0371 // TddTextSegmentQueue
+   Seq: ( ME_52DCDDEE0371 // TddTextSegmentQueue
  ME_4E1C271501E5 // ddDocument
  ME_4B9E548D0157 // ddHTMLWriterRes
  ME_4B9E545B0118 // ddHTMLWriter
@@ -3247,10 +3355,10 @@ ref; // ME_48F4BA89000D ddRTFWriter
  ME_55BB1F310213 // TddRTFExpandedTextWriter
  ME_541690C10301 // TddFillAACStack
  ME_48F4BA89000D // ddRTFWriter
- ) .SequenceCode.It
+ )
  ; // Children
  : Depends
-   @ ( WL 'ME_4678137501EA' '4678137501EA.pas.ms.script' // k2Interfaces
+   Seq: ( WL 'ME_4678137501EA' '4678137501EA.pas.ms.script' // k2Interfaces
  WL 'ME_467FC43F01F9' '467FC43F01F9.pas.ms.script' // k2CoreObjects
  WL 'ME_469D0AC7005E' '469D0AC7005E.pas.ms.script' // Types
  WL 'ME_476BE0350329' '476BE0350329.pas.ms.script' // Styles
@@ -3263,15 +3371,13 @@ ref; // ME_48F4BA89000D ddRTFWriter
  WL 'ME_4AB0C3C60310' '4AB0C3C60310.pas.ms.script' // Sys
  WL 'ME_4F6843C101D1' '4F6843C101D1.pas.ms.script' // ddCommon
  WL 'ME_52CFA9D5031E' '52CFA9D5031E.pas.ms.script' // ddTypes
- ) .SequenceCode.It
+ )
  ; // Depends
- : Generators
- @ (
- gen_pas.script
- gen_pas.script.runner
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\dd'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\dd'
  CONST pas.script:Path 'shared\models\NewSchool\Scripts\48F4BA770180.pas.ms.script'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
  CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\48F4BA770180.pas.ms.script.runner'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_48F4BA770180 Writers

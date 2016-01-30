@@ -9,6 +9,7 @@ FORWARD ME_52B993FB000A
 : ME_F6CBF0A61203
  CONST UID 'F6CBF0A61203'
  CONST Name 'Ini_Reg_Class'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Регистрация TElXPThemedControl' ;
@@ -22,6 +23,7 @@ ref; // ME_F6CBF0A61203 Ini_Reg_Class
 
 : ME_996B78DEC54D
  CONST UID '996B78DEC54D'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_52B993FB000A // TElXPThemedControl
@@ -42,28 +44,30 @@ ref; // ME_996B78DEC54D
  : Parent ME_499ABF4F02A1 // elClone
  ;
  : Inherits
-   @ ( WL 'ME_48BBE37E00A2' '467BA8C8017E.pas.ms.script' // TafwCustomCommonControl
- ) .SequenceCode.It
+   Seq: ( WL 'ME_48BBE37E00A2' '467BA8C8017E.pas.ms.script' // TafwCustomCommonControl
+ )
  ; // Inherits
  : Operations
-   @ ( ME_F6CBF0A61203 // Ini_Reg_Class
- ) .SequenceCode.It
+   Seq: ( ME_F6CBF0A61203 // Ini_Reg_Class
+ )
  ; // Operations
  : Dependencies
-   @ ( ME_996B78DEC54D // 
- ) .SequenceCode.It
+   Seq: ( ME_996B78DEC54D // 
+ )
  ; // Dependencies
  CONST "finished" false
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\VT\elClone\Source'
  CONST intf.pas:Path 'common\components\gui\Garant\VT\elClone\Source\NOT_FINISHED_ElXPThemedControl.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\VT\elClone\Source'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'ElXPThemedControl'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'ElXPThemedControl'
 
 ref; // ME_52B993FB000A TElXPThemedControl
 
@@ -79,6 +83,11 @@ FORWARD ME_499ABF6E01B5
  CONST Abstraction at_regular
  : Parent ME_499ABF6E01B5 // ElPgCtl
  ;
+ CONST dfm:PathOnly '\common\components\gui\Garant\VT\elClone\Source'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\VT\elClone\Source'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_499ABF8400FF TElTabPosition
 
@@ -97,6 +106,12 @@ ref; // ME_499ABF8400FF TElTabPosition
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
+ CONST dfm:PathOnly '\common\components\gui\Garant\VT\elClone\Source'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\VT\elClone\Source'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'ElTabSheet'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_499ABF9802AC TElTabSheet
 
@@ -107,6 +122,7 @@ FORWARD ME_52B9A7B2027D
 : ME_9B180FFE55CF
  CONST UID '9B180FFE55CF'
  CONST Name 'DoIt'
+ CONST IsSummoned true
  CONST Class class_Operation
  %SUMMARY 'Сигнатура метода RequestTabPosition' ;
  CONST Visibility PublicAccess
@@ -127,8 +143,8 @@ ref; // ME_9B180FFE55CF DoIt
  : Parent ME_4E36C0C3014B // TElCustomPageControl
  ;
  : Operations
-   @ ( ME_9B180FFE55CF // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_9B180FFE55CF // DoIt
+ )
  ; // Operations
 
 ref; // ME_52B9A7B2027D RequestTabPosition
@@ -138,6 +154,7 @@ FORWARD ME_52B9A85201C2
 : ME_0618BA809CBA
  CONST UID '0618BA809CBA'
  CONST Name 'DoIt'
+ CONST IsSummoned true
  CONST Class class_Operation
  %SUMMARY 'Сигнатура метода DoActivePrevPage' ;
  CONST Visibility PublicAccess
@@ -158,8 +175,8 @@ ref; // ME_0618BA809CBA DoIt
  : Parent ME_4E36C0C3014B // TElCustomPageControl
  ;
  : Operations
-   @ ( ME_0618BA809CBA // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_0618BA809CBA // DoIt
+ )
  ; // Operations
 
 ref; // ME_52B9A85201C2 DoActivePrevPage
@@ -167,6 +184,7 @@ ref; // ME_52B9A85201C2 DoActivePrevPage
 : ME_23494F450182
  CONST UID '23494F450182'
  CONST Name 'Ini_Reg_Class'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Регистрация TElCustomPageControl' ;
@@ -180,6 +198,7 @@ ref; // ME_23494F450182 Ini_Reg_Class
 
 : ME_8CCCCEBDCA41
  CONST UID '8CCCCEBDCA41'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_4E36C0C3014B // TElCustomPageControl
@@ -200,28 +219,38 @@ ref; // ME_8CCCCEBDCA41
  : Parent ME_499ABF6E01B5 // ElPgCtl
  ;
  : Inherits
-   @ ( ME_52B993FB000A // TElXPThemedControl
- ) .SequenceCode.It
+   Seq: ( ME_52B993FB000A // TElXPThemedControl
+ )
  ; // Inherits
+ : Implements
+   Seq: ( WL 'ME_4E36C0310173' '4E36C0130013.pas.ms.script' // Возможность выполнения действия по нажатию на страницу, а не переключение на неё
+ )
+ ; // Implements
  : Operations
-   @ ( ME_52B9A7B2027D // RequestTabPosition
+   Seq: ( ME_52B9A7B2027D // RequestTabPosition
  ME_52B9A85201C2 // DoActivePrevPage
  ME_23494F450182 // Ini_Reg_Class
- ) .SequenceCode.It
+ )
  ; // Operations
  : Dependencies
-   @ ( ME_8CCCCEBDCA41 // 
- ) .SequenceCode.It
+   Seq: ( ME_8CCCCEBDCA41 // 
+ )
  ; // Dependencies
  : Injected
-   @ ( WL 'ME_E95BFC7A3A3A' '4F6094D80196.pas.ms.script' // 
- ) .SequenceCode.It
+   Seq: ( WL 'ME_E95BFC7A3A3A' '4F6094D80196.pas.ms.script' // 
+ )
  ; // Injected
  CONST "finished" false
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" true
+ CONST dfm:PathOnly '\common\components\gui\Garant\VT\elClone\Source'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\VT\elClone\Source'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'PageControl'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_4E36C0C3014B TElCustomPageControl
 
@@ -236,19 +265,18 @@ ref; // ME_4E36C0C3014B TElCustomPageControl
  : Parent ME_499ABF4F02A1 // elClone
  ;
  : Children
-   @ ( ME_499ABF8400FF // TElTabPosition
+   Seq: ( ME_499ABF8400FF // TElTabPosition
  ME_499ABF9802AC // TElTabSheet
  ME_4E36C0C3014B // TElCustomPageControl
- ) .SequenceCode.It
+ )
  ; // Children
  CONST "finished" false
  CONST "no hands" false
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\VT\elClone\Source'
  CONST intf.pas:Path 'common\components\gui\Garant\VT\elClone\Source\NOT_FINISHED_ElPgCtl.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\VT\elClone\Source'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_499ABF6E01B5 ElPgCtl
 
@@ -269,6 +297,7 @@ FORWARD ME_52BD7AF80057
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value 'WM_USER + 7435'
 
 ref; // ME_52BD7B0F00B2 PM_ACTIVEPREVPAGE
 
@@ -285,6 +314,7 @@ ref; // ME_52BD7B0F00B2 PM_ACTIVEPREVPAGE
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value 'WM_USER + 7436'
 
 ref; // ME_52BD7B180248 PM_ISACTIVECONTROL
 
@@ -301,6 +331,7 @@ ref; // ME_52BD7B180248 PM_ISACTIVECONTROL
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value 'WM_USER + 7437'
 
 ref; // ME_52BD7B2D0255 PM_SETACTIVEPAGEWITHCONTROL
 
@@ -317,6 +348,7 @@ ref; // ME_52BD7B2D0255 PM_SETACTIVEPAGEWITHCONTROL
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value 'WM_USER + 7438'
 
 ref; // ME_52BD7B3602C4 PM_ACTIVATEANDSHOW
 
@@ -333,6 +365,7 @@ ref; // ME_52BD7B3602C4 PM_ACTIVATEANDSHOW
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value 'WM_USER + 7439'
 
 ref; // ME_52BD7B3E0297 PM_SETFIRSTACTIVE
 
@@ -347,14 +380,18 @@ ref; // ME_52BD7B3E0297 PM_SETFIRSTACTIVE
  : Parent ME_52BD7A930246 // ElPgCtlConsts
  ;
  : Attributes
-   @ ( ME_52BD7B0F00B2 // PM_ACTIVEPREVPAGE
+   Seq: ( ME_52BD7B0F00B2 // PM_ACTIVEPREVPAGE
  ME_52BD7B180248 // PM_ISACTIVECONTROL
  ME_52BD7B2D0255 // PM_SETACTIVEPAGEWITHCONTROL
  ME_52BD7B3602C4 // PM_ACTIVATEANDSHOW
  ME_52BD7B3E0297 // PM_SETFIRSTACTIVE
- ) .SequenceCode.It
+ )
  ; // Attributes
  CONST "spell names" false
+ CONST dfm:PathOnly '\common\components\gui\Garant\VT\elClone\Source'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\VT\elClone\Source'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_52BD7AF80057 ElPgCtlConsts
 
@@ -380,21 +417,20 @@ ref; // ME_52BD8C190245
  : Parent ME_499ABF4F02A1 // elClone
  ;
  : Constants
-   @ ( ME_52BD7AF80057 // ElPgCtlConsts
- ) .SequenceCode.It
+   Seq: ( ME_52BD7AF80057 // ElPgCtlConsts
+ )
  ; // Constants
  : Dependencies
-   @ ( ME_52BD8C190245 // 
- ) .SequenceCode.It
+   Seq: ( ME_52BD8C190245 // 
+ )
  ; // Dependencies
  CONST "finished" false
  CONST "no hands" false
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\VT\elClone\Source'
  CONST intf.pas:Path 'common\components\gui\Garant\VT\elClone\Source\NOT_FINISHED_ElPgCtlConsts.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\VT\elClone\Source'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_52BD7A930246 ElPgCtlConsts
 
@@ -415,6 +451,7 @@ FORWARD ME_53EDD10102AA
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value '$B528'
 
 ref; // ME_53EDD18200D6 EL_THEMECHANGED
 
@@ -429,10 +466,14 @@ ref; // ME_53EDD18200D6 EL_THEMECHANGED
  : Parent ME_53EDD07F033C // ElUxTheme
  ;
  : Attributes
-   @ ( ME_53EDD18200D6 // EL_THEMECHANGED
- ) .SequenceCode.It
+   Seq: ( ME_53EDD18200D6 // EL_THEMECHANGED
+ )
  ; // Attributes
  CONST "spell names" false
+ CONST dfm:PathOnly '\common\components\gui\Garant\VT\elClone\Source'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\VT\elClone\Source'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_53EDD10102AA константы
 
@@ -447,17 +488,16 @@ ref; // ME_53EDD10102AA константы
  : Parent ME_499ABF4F02A1 // elClone
  ;
  : Constants
-   @ ( ME_53EDD10102AA // константы
- ) .SequenceCode.It
+   Seq: ( ME_53EDD10102AA // константы
+ )
  ; // Constants
  CONST "finished" false
  CONST "no hands" false
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\VT\elClone\Source'
  CONST intf.pas:Path 'common\components\gui\Garant\VT\elClone\Source\NOT_FINISHED_ElUxTheme.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\VT\elClone\Source'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_53EDD07F033C ElUxTheme
 
@@ -471,26 +511,25 @@ ref; // ME_53EDD07F033C ElUxTheme
  : Parent WL 'ME_467A75D90346' '467A75D90346.pas.ms.script' // VT
  ;
  : Children
-   @ ( ME_52B993FB000A // TElXPThemedControl
+   Seq: ( ME_52B993FB000A // TElXPThemedControl
  ME_499ABF6E01B5 // ElPgCtl
  ME_52BD7A930246 // ElPgCtlConsts
  ME_53EDD07F033C // ElUxTheme
- ) .SequenceCode.It
+ )
  ; // Children
  : Depends
-   @ ( WL 'ME_467BA8C8017E' '467BA8C8017E.pas.ms.script' // afwControl
+   Seq: ( WL 'ME_467BA8C8017E' '467BA8C8017E.pas.ms.script' // afwControl
  WL 'ME_476F78840219' '476F78840219.pas.ms.script' // Messages
+ WL 'ME_4E36C0130013' '4E36C0130013.pas.ms.script' // Контролы с закладками
  WL 'ME_561F9F7D02A7' '561F9F7D02A7.pas.ms.script' // ScriptEngine
- ) .SequenceCode.It
+ )
  ; // Depends
  CONST "path prefix" '/elClone/Source'
- : Generators
- @ (
- gen_pas.script
- gen_pas.script.runner
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\VT\elClone\Source'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\VT\elClone\Source'
  CONST pas.script:Path 'shared\models\NewSchool\Scripts\499ABF4F02A1.pas.ms.script'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
  CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\499ABF4F02A1.pas.ms.script.runner'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_499ABF4F02A1 elClone

@@ -16,6 +16,10 @@ FORWARD ME_4D555D3201E9
  CONST Abstraction at_final
  : Parent ME_4D555D3201E9 // TvgCustomGradientPoint
  ;
+ CONST dfm:PathOnly '\common\components\rtl\external\VGScene'
+ CONST intf.pas:PathOnly '\common\components\rtl\external\VGScene'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_4D55643301D2 _UnknownForDesign
 
@@ -29,6 +33,11 @@ ref; // ME_4D55643301D2 _UnknownForDesign
  CONST Abstraction at_final
  : Parent ME_4D555D3201E9 // TvgCustomGradientPoint
  ;
+ CONST dfm:PathOnly '\common\components\rtl\external\VGScene'
+ CONST intf.pas:PathOnly '\common\components\rtl\external\VGScene'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'Unknown_NoIUnknown'
 
 ref; // ME_4D5564490223 l3Unknown_NoIUnknown
 
@@ -90,6 +99,7 @@ ref; // ME_4D555E930177 Color
 : ME_840A83A3FE56
  CONST UID '840A83A3FE56'
  CONST Name 'f_IntColor'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY 'Поле для свойства IntColor' ;
  CONST Visibility PrivateAccess
@@ -99,12 +109,14 @@ ref; // ME_4D555E930177 Color
  ;
  : Target WL 'ME_4D555D65006D' '4D5420EC039D.pas.ms.script' // TvgColor
  ;
+ CONST extprop:clearViaProperty 'IntColor'
 
 ref; // ME_840A83A3FE56 f_IntColor
 
 : ME_F18482C35F3A
  CONST UID 'F18482C35F3A'
  CONST Name 'f_Offset'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY 'Поле для свойства Offset' ;
  CONST Visibility PrivateAccess
@@ -114,12 +126,14 @@ ref; // ME_840A83A3FE56 f_IntColor
  ;
  : Target WL 'ME_4D542256019C' '4AB0C3C60310.pas.ms.script' // single
  ;
+ CONST extprop:clearViaProperty 'Offset'
 
 ref; // ME_F18482C35F3A f_Offset
 
 : ME_81A7697EC7D3
  CONST UID '81A7697EC7D3'
  CONST Name 'Ini_Reg_Class'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Регистрация TvgCustomGradientPoint' ;
@@ -159,6 +173,7 @@ ref; // ME_4D5560150227
 
 : ME_50044F559945
  CONST UID '50044F559945'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_4D555D3201E9 // TvgCustomGradientPoint
@@ -175,6 +190,7 @@ ref; // ME_50044F559945
  ;
  : Implementor ME_4D555D3201E9 // TvgCustomGradientPoint
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_478CF34E02CE_ME_4D555D3201E9 Assign
 
 : ME_47A6FEE600FC_ME_4D555D3201E9
@@ -184,6 +200,7 @@ ref; // ME_478CF34E02CE_ME_4D555D3201E9 Assign
  ;
  : Implementor ME_4D555D3201E9 // TvgCustomGradientPoint
  ;
+ CONST OpKind opkind_Overridden
  CONST "ifndef" 'DesignTimeLibrary'
 ref; // ME_47A6FEE600FC_ME_4D555D3201E9 IsCacheable
 
@@ -194,6 +211,7 @@ ref; // ME_47A6FEE600FC_ME_4D555D3201E9 IsCacheable
  ;
  : Implementor ME_4D555D3201E9 // TvgCustomGradientPoint
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4D555CF50027_ME_4D555D3201E9 Create
 
 : ME_4D555D3201E9
@@ -207,50 +225,52 @@ ref; // ME_4D555CF50027_ME_4D555D3201E9 Create
  : Parent ME_4CFCE51A00B0 // Impl
  ;
  : Inherits
-   @ ( WL 'ME_47913F970159' '47913B47006E.pas.ms.script' // l3Unknown
+   Seq: ( WL 'ME_47913F970159' '47913B47006E.pas.ms.script' // l3Unknown
  WL 'ME_4D555B5B01E8' '4AB0997B00A2.pas.ms.script' // TCollectionItem
- ) .SequenceCode.It
+ )
  ; // Inherits
  : Attributes
-   @ ( ME_4D555E080266 // IntColor
+   Seq: ( ME_4D555E080266 // IntColor
  ME_4D555E79006C // Offset
  ME_4D555E930177 // Color
  ME_840A83A3FE56 // f_IntColor
  ME_F18482C35F3A // f_Offset
- ) .SequenceCode.It
+ )
  ; // Attributes
  : Operations
-   @ ( ME_81A7697EC7D3 // Ini_Reg_Class
- ) .SequenceCode.It
+   Seq: ( ME_81A7697EC7D3 // Ini_Reg_Class
+ )
  ; // Operations
  : Overridden
-   @ ( ME_478CF34E02CE_ME_4D555D3201E9 // Assign
+   Seq: ( ME_478CF34E02CE_ME_4D555D3201E9 // Assign
  ME_47A6FEE600FC_ME_4D555D3201E9 // IsCacheable
  ME_4D555CF50027_ME_4D555D3201E9 // Create
- ) .SequenceCode.It
+ )
  ; // Overridden
  : Children
-   @ ( ME_4D55643301D2 // _UnknownForDesign
+   Seq: ( ME_4D55643301D2 // _UnknownForDesign
  ME_4D5564490223 // l3Unknown_NoIUnknown
- ) .SequenceCode.It
+ )
  ; // Children
  : Dependencies
-   @ ( ME_4D55600E033F // 
+   Seq: ( ME_4D55600E033F // 
  ME_4D5560150227 // 
  ME_50044F559945 // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  CONST "need UC" true
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\external\VGScene'
  CONST intf.pas:Path 'common\components\rtl\external\VGScene\vgCustomGradientPoint.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\external\VGScene'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'GradientPoint'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'vgCustomGradientPoint'
 
 ref; // ME_4D555D3201E9 TvgCustomGradientPoint
 
@@ -259,6 +279,7 @@ FORWARD ME_4D555E3901BF
 : ME_CA3BBAF00BA3
  CONST UID 'CA3BBAF00BA3'
  CONST Name 'Ini_Reg_Class'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Регистрация TvgGradientPoint' ;
@@ -272,6 +293,7 @@ ref; // ME_CA3BBAF00BA3 Ini_Reg_Class
 
 : ME_19678FEA742F
  CONST UID '19678FEA742F'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_4D555E3901BF // TvgGradientPoint
@@ -292,28 +314,30 @@ ref; // ME_19678FEA742F
  : Parent ME_4CFCE51A00B0 // Impl
  ;
  : Inherits
-   @ ( ME_4D555D3201E9 // TvgCustomGradientPoint
- ) .SequenceCode.It
+   Seq: ( ME_4D555D3201E9 // TvgCustomGradientPoint
+ )
  ; // Inherits
  : Operations
-   @ ( ME_CA3BBAF00BA3 // Ini_Reg_Class
- ) .SequenceCode.It
+   Seq: ( ME_CA3BBAF00BA3 // Ini_Reg_Class
+ )
  ; // Operations
  : Dependencies
-   @ ( ME_19678FEA742F // 
- ) .SequenceCode.It
+   Seq: ( ME_19678FEA742F // 
+ )
  ; // Dependencies
  CONST "need UC" true
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\external\VGScene'
  CONST intf.pas:Path 'common\components\rtl\external\VGScene\vgGradientPoint.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\external\VGScene'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'GradientPoint'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'vgGradientPoint'
 
 ref; // ME_4D555E3901BF TvgGradientPoint
 
@@ -334,6 +358,12 @@ FORWARD ME_4CFE2C72021C
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
+ CONST dfm:PathOnly '\common\components\rtl\external\VGScene'
+ CONST intf.pas:PathOnly '\common\components\rtl\external\VGScene'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'Text'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_4CFE2C800399 TvgText
 
@@ -352,6 +382,12 @@ ref; // ME_4CFE2C800399 TvgText
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
+ CONST dfm:PathOnly '\common\components\rtl\external\VGScene'
+ CONST intf.pas:PathOnly '\common\components\rtl\external\VGScene'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'Rectangle'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_4D70E5440067 TvgRectangle
 
@@ -369,6 +405,12 @@ ref; // ME_4D70E5440067 TvgRectangle
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
+ CONST dfm:PathOnly '\common\components\rtl\external\VGScene'
+ CONST intf.pas:PathOnly '\common\components\rtl\external\VGScene'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'Image'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_5326E7230130 TvgImage
 
@@ -383,19 +425,19 @@ ref; // ME_5326E7230130 TvgImage
  : Parent ME_4CFCE51A00B0 // Impl
  ;
  : Children
-   @ ( ME_4CFE2C800399 // TvgText
+   Seq: ( ME_4CFE2C800399 // TvgText
  ME_4D70E5440067 // TvgRectangle
  ME_5326E7230130 // TvgImage
- ) .SequenceCode.It
+ )
  ; // Children
  CONST "finished" false
  CONST "no hands" false
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\external\VGScene'
  CONST intf.pas:Path 'common\components\rtl\external\VGScene\NOT_FINISHED_vg_objects.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\external\VGScene'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName '_objects'
 
 ref; // ME_4CFE2C72021C vg_objects
 
@@ -411,6 +453,10 @@ FORWARD ME_4D55623200CE
  CONST Abstraction at_final
  : Parent ME_4D55623200CE // TvgGradientPoints
  ;
+ CONST dfm:PathOnly '\common\components\rtl\external\VGScene'
+ CONST intf.pas:PathOnly '\common\components\rtl\external\VGScene'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_4D55645D000A _UnknownForDesign
 
@@ -424,6 +470,11 @@ ref; // ME_4D55645D000A _UnknownForDesign
  CONST Abstraction at_final
  : Parent ME_4D55623200CE // TvgGradientPoints
  ;
+ CONST dfm:PathOnly '\common\components\rtl\external\VGScene'
+ CONST intf.pas:PathOnly '\common\components\rtl\external\VGScene'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'Unknown_NoIUnknown'
 
 ref; // ME_4D55646500FE l3Unknown_NoIUnknown
 
@@ -456,8 +507,8 @@ ref; // ME_4D5562680091 anIndex
  : Target ME_4D555E3901BF // TvgGradientPoint
  ;
  : Attributes
-   @ ( ME_4D5562680091 // anIndex
- ) .SequenceCode.It
+   Seq: ( ME_4D5562680091 // anIndex
+ )
  ; // Attributes
  CONST "is default" true
  CONST "needs field" false
@@ -468,6 +519,7 @@ ref; // ME_4D55624903C3 Points
 : ME_2700353B9993
  CONST UID '2700353B9993'
  CONST Name 'Ini_Reg_Class'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Регистрация TvgGradientPoints' ;
@@ -481,6 +533,7 @@ ref; // ME_2700353B9993 Ini_Reg_Class
 
 : ME_F0B3ACEA43B4
  CONST UID 'F0B3ACEA43B4'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_4D55623200CE // TvgGradientPoints
@@ -497,6 +550,7 @@ ref; // ME_F0B3ACEA43B4
  ;
  : Implementor ME_4D55623200CE // TvgGradientPoints
  ;
+ CONST OpKind opkind_Overridden
  CONST "ifndef" 'DesignTimeLibrary'
 ref; // ME_47A6FEE600FC_ME_4D55623200CE IsCacheable
 
@@ -511,42 +565,44 @@ ref; // ME_47A6FEE600FC_ME_4D55623200CE IsCacheable
  : Parent ME_4CFCE51A00B0 // Impl
  ;
  : Inherits
-   @ ( WL 'ME_47913F970159' '47913B47006E.pas.ms.script' // l3Unknown
+   Seq: ( WL 'ME_47913F970159' '47913B47006E.pas.ms.script' // l3Unknown
  WL 'ME_4D555B78015F' '4AB0997B00A2.pas.ms.script' // TCollection
- ) .SequenceCode.It
+ )
  ; // Inherits
  : Attributes
-   @ ( ME_4D55624903C3 // Points
- ) .SequenceCode.It
+   Seq: ( ME_4D55624903C3 // Points
+ )
  ; // Attributes
  : Operations
-   @ ( ME_2700353B9993 // Ini_Reg_Class
- ) .SequenceCode.It
+   Seq: ( ME_2700353B9993 // Ini_Reg_Class
+ )
  ; // Operations
  : Overridden
-   @ ( ME_47A6FEE600FC_ME_4D55623200CE // IsCacheable
- ) .SequenceCode.It
+   Seq: ( ME_47A6FEE600FC_ME_4D55623200CE // IsCacheable
+ )
  ; // Overridden
  : Children
-   @ ( ME_4D55645D000A // _UnknownForDesign
+   Seq: ( ME_4D55645D000A // _UnknownForDesign
  ME_4D55646500FE // l3Unknown_NoIUnknown
- ) .SequenceCode.It
+ )
  ; // Children
  : Dependencies
-   @ ( ME_F0B3ACEA43B4 // 
- ) .SequenceCode.It
+   Seq: ( ME_F0B3ACEA43B4 // 
+ )
  ; // Dependencies
  CONST "need UC" true
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\external\VGScene'
  CONST intf.pas:Path 'common\components\rtl\external\VGScene\vgGradientPoints.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\external\VGScene'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'GradientPoints'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'vgGradientPoints'
 
 ref; // ME_4D55623200CE TvgGradientPoints
 
@@ -567,6 +623,12 @@ FORWARD ME_4CFFAE8902BD
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
+ CONST dfm:PathOnly '\common\components\rtl\external\VGScene'
+ CONST intf.pas:PathOnly '\common\components\rtl\external\VGScene'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'NonVGLayout'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_4CFFAE9802DF TvgNonVGLayout
 
@@ -585,6 +647,12 @@ ref; // ME_4CFFAE9802DF TvgNonVGLayout
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
+ CONST dfm:PathOnly '\common\components\rtl\external\VGScene'
+ CONST intf.pas:PathOnly '\common\components\rtl\external\VGScene'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'Layout'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_4CFFB1A00237 TvgLayout
 
@@ -599,18 +667,18 @@ ref; // ME_4CFFB1A00237 TvgLayout
  : Parent ME_4CFCE51A00B0 // Impl
  ;
  : Children
-   @ ( ME_4CFFAE9802DF // TvgNonVGLayout
+   Seq: ( ME_4CFFAE9802DF // TvgNonVGLayout
  ME_4CFFB1A00237 // TvgLayout
- ) .SequenceCode.It
+ )
  ; // Children
  CONST "finished" false
  CONST "no hands" false
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\external\VGScene'
  CONST intf.pas:Path 'common\components\rtl\external\VGScene\NOT_FINISHED_vg_layouts.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\external\VGScene'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName '_layouts'
 
 ref; // ME_4CFFAE8902BD vg_layouts
 
@@ -619,6 +687,7 @@ FORWARD ME_4D5E628602E6
 : ME_7158476F7EC6
  CONST UID '7158476F7EC6'
  CONST Name 'Ini_Reg_Class'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Регистрация TvgScenePrim' ;
@@ -632,6 +701,7 @@ ref; // ME_7158476F7EC6 Ini_Reg_Class
 
 : ME_78E8D83413CD
  CONST UID '78E8D83413CD'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_4D5E628602E6 // TvgScenePrim
@@ -652,17 +722,17 @@ ref; // ME_78E8D83413CD
  : Parent ME_4CFCE51A00B0 // Impl
  ;
  : Inherits
-   @ ( WL 'ME_49EF346400A4' '49EF33F700C2.pas.ms.script' // afwShortcutsHandler
+   Seq: ( WL 'ME_49EF346400A4' '49EF33F700C2.pas.ms.script' // afwShortcutsHandler
  WL 'ME_4D5416AC01D1' '4D52A63D0365.pas.ms.script' // TvgCustomControl
- ) .SequenceCode.It
+ )
  ; // Inherits
  : Operations
-   @ ( ME_7158476F7EC6 // Ini_Reg_Class
- ) .SequenceCode.It
+   Seq: ( ME_7158476F7EC6 // Ini_Reg_Class
+ )
  ; // Operations
  : Dependencies
-   @ ( ME_78E8D83413CD // 
- ) .SequenceCode.It
+   Seq: ( ME_78E8D83413CD // 
+ )
  ; // Dependencies
  CONST "author" 'Люлин А.В.'
  CONST "needs InstanceR" 'undefined'
@@ -670,12 +740,14 @@ ref; // ME_78E8D83413CD
  CONST "no hands" true
  CONST "register in scripts" 'undefined'
  CONST "started" '18.02.2011 15:14'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\external\VGScene'
  CONST intf.pas:Path 'common\components\rtl\external\VGScene\vgScenePrim.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\external\VGScene'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'ScenePrim'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'vgScenePrim'
 
 ref; // ME_4D5E628602E6 TvgScenePrim
 
@@ -693,6 +765,7 @@ FORWARD ME_4D552B230161
  ;
  : Target WL 'ME_4D5529D60358' '4D542052038D.pas.ms.script' // TvgObjectSortCompare
  ;
+ CONST extprop:pas:Value 'nil'
 
 ref; // ME_4D552B9F0084 f_CurrentComparer
 
@@ -730,8 +803,8 @@ ref; // ME_4D552BC1002B aComparer
  : Parent ME_4D552B230161 // TvgSortableObjectList
  ;
  : Parameters
-   @ ( ME_4D552BC1002B // aComparer
- ) .SequenceCode.It
+   Seq: ( ME_4D552BC1002B // aComparer
+ )
  ; // Parameters
 
 ref; // ME_4D552BB90144 Sort
@@ -743,6 +816,7 @@ ref; // ME_4D552BB90144 Sort
  ;
  : Implementor ME_4D552B230161 // TvgSortableObjectList
  ;
+ CONST OpKind opkind_Implemented
  CONST "ifndef" 'l3Items_IsAtomic'
 ref; // ME_47B07CF403D0_ME_4D552B230161 IsSameItems
 
@@ -753,6 +827,7 @@ ref; // ME_47B07CF403D0_ME_4D552B230161 IsSameItems
  ;
  : Implementor ME_4D552B230161 // TvgSortableObjectList
  ;
+ CONST OpKind opkind_Implemented
  CONST "ifdef" 'l3Items_NeedsAssignItem'
  CONST "ifndef" 'l3Items_NoSort'
 ref; // ME_47B2C42A0163_ME_4D552B230161 AssignItem
@@ -764,6 +839,7 @@ ref; // ME_47B2C42A0163_ME_4D552B230161 AssignItem
  ;
  : Implementor ME_4D552B230161 // TvgSortableObjectList
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_47B99D4503A2_ME_4D552B230161 CompareExistingItems
 
 : ME_4D552B230161
@@ -777,24 +853,24 @@ ref; // ME_47B99D4503A2_ME_4D552B230161 CompareExistingItems
  : Parent ME_4CFCE51A00B0 // Impl
  ;
  : Inherits
-   @ ( WL 'ME_47B5782902DA' '47913B47006E.pas.ms.script' // l3PtrList
+   Seq: ( WL 'ME_47B5782902DA' '47913B47006E.pas.ms.script' // l3PtrList
  WL 'ME_4A54DD4E036F' '47913B47006E.pas.ms.script' // Tl3ProtoDataContainer
- ) .SequenceCode.It
+ )
  ; // Inherits
  : Attributes
-   @ ( ME_4D552B9F0084 // f_CurrentComparer
+   Seq: ( ME_4D552B9F0084 // f_CurrentComparer
  ME_4D5EA0D20199 // ItemType
- ) .SequenceCode.It
+ )
  ; // Attributes
  : Operations
-   @ ( ME_4D552BB90144 // Sort
- ) .SequenceCode.It
+   Seq: ( ME_4D552BB90144 // Sort
+ )
  ; // Operations
  : Implemented
-   @ ( ME_47B07CF403D0_ME_4D552B230161 // IsSameItems
+   Seq: ( ME_47B07CF403D0_ME_4D552B230161 // IsSameItems
  ME_47B2C42A0163_ME_4D552B230161 // AssignItem
  ME_47B99D4503A2_ME_4D552B230161 // CompareExistingItems
- ) .SequenceCode.It
+ )
  ; // Implemented
  CONST "author" 'Люлин А.В.'
  CONST "needs InstanceR" 'undefined'
@@ -802,12 +878,14 @@ ref; // ME_47B99D4503A2_ME_4D552B230161 CompareExistingItems
  CONST "no hands" true
  CONST "register in scripts" 'undefined'
  CONST "started" '11.02.2011 15:27'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\external\VGScene'
  CONST intf.pas:Path 'common\components\rtl\external\VGScene\vgSortableObjectList.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\external\VGScene'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'SortableObjectList'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'vgSortableObjectList'
 
 ref; // ME_4D552B230161 TvgSortableObjectList
 
@@ -835,6 +913,7 @@ ref; // ME_4D5EA97903D6 ItemType
  ;
  : Implementor ME_4D5EA95401A8 // TvgCustomObjectList
  ;
+ CONST OpKind opkind_Implemented
  CONST "ifndef" 'l3Items_IsAtomic'
 ref; // ME_47B07CF403D0_ME_4D5EA95401A8 IsSameItems
 
@@ -845,6 +924,7 @@ ref; // ME_47B07CF403D0_ME_4D5EA95401A8 IsSameItems
  ;
  : Implementor ME_4D5EA95401A8 // TvgCustomObjectList
  ;
+ CONST OpKind opkind_Implemented
  CONST "ifdef" 'l3Items_NeedsAssignItem'
  CONST "ifndef" 'l3Items_NoSort'
 ref; // ME_47B2C42A0163_ME_4D5EA95401A8 AssignItem
@@ -856,6 +936,7 @@ ref; // ME_47B2C42A0163_ME_4D5EA95401A8 AssignItem
  ;
  : Implementor ME_4D5EA95401A8 // TvgCustomObjectList
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_47B99D4503A2_ME_4D5EA95401A8 CompareExistingItems
 
 : ME_4D5EA95401A8
@@ -869,19 +950,19 @@ ref; // ME_47B99D4503A2_ME_4D5EA95401A8 CompareExistingItems
  : Parent ME_4CFCE51A00B0 // Impl
  ;
  : Inherits
-   @ ( WL 'ME_47B5782902DA' '47913B47006E.pas.ms.script' // l3PtrList
+   Seq: ( WL 'ME_47B5782902DA' '47913B47006E.pas.ms.script' // l3PtrList
  WL 'ME_4A54DD4E036F' '47913B47006E.pas.ms.script' // Tl3ProtoDataContainer
- ) .SequenceCode.It
+ )
  ; // Inherits
  : Attributes
-   @ ( ME_4D5EA97903D6 // ItemType
- ) .SequenceCode.It
+   Seq: ( ME_4D5EA97903D6 // ItemType
+ )
  ; // Attributes
  : Implemented
-   @ ( ME_47B07CF403D0_ME_4D5EA95401A8 // IsSameItems
+   Seq: ( ME_47B07CF403D0_ME_4D5EA95401A8 // IsSameItems
  ME_47B2C42A0163_ME_4D5EA95401A8 // AssignItem
  ME_47B99D4503A2_ME_4D5EA95401A8 // CompareExistingItems
- ) .SequenceCode.It
+ )
  ; // Implemented
  CONST "author" 'Люлин А.В.'
  CONST "needs InstanceR" 'undefined'
@@ -889,12 +970,14 @@ ref; // ME_47B99D4503A2_ME_4D5EA95401A8 CompareExistingItems
  CONST "no hands" true
  CONST "register in scripts" 'undefined'
  CONST "started" '18.02.2011 20:16'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\external\VGScene'
  CONST intf.pas:Path 'common\components\rtl\external\VGScene\vgCustomObjectList.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\external\VGScene'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'ObjectList'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'vgCustomObjectList'
 
 ref; // ME_4D5EA95401A8 TvgCustomObjectList
 
@@ -949,8 +1032,8 @@ ref; // ME_4D5EA9DF0082 aList
  : Parent ME_4D5EA9B9016E // AddObjectsToList
  ;
  : Parameters
-   @ ( ME_4D5EA9DF0082 // aList
- ) .SequenceCode.It
+   Seq: ( ME_4D5EA9DF0082 // aList
+ )
  ; // Parameters
 
 ref; // ME_4D5EA9D60139 DoIt
@@ -966,8 +1049,8 @@ ref; // ME_4D5EA9D60139 DoIt
  : Parent ME_4D4956480326 // TvgObject
  ;
  : Operations
-   @ ( ME_4D5EA9D60139 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_4D5EA9D60139 // DoIt
+ )
  ; // Operations
 
 ref; // ME_4D5EA9B9016E AddObjectsToList
@@ -993,8 +1076,8 @@ ref; // ME_4D5EA9FA00F2 aList
  : Parent ME_4D5EA9E700D0 // AddControlsToList
  ;
  : Parameters
-   @ ( ME_4D5EA9FA00F2 // aList
- ) .SequenceCode.It
+   Seq: ( ME_4D5EA9FA00F2 // aList
+ )
  ; // Parameters
 
 ref; // ME_4D5EA9F80139 DoIt
@@ -1010,8 +1093,8 @@ ref; // ME_4D5EA9F80139 DoIt
  : Parent ME_4D4956480326 // TvgObject
  ;
  : Operations
-   @ ( ME_4D5EA9F80139 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_4D5EA9F80139 // DoIt
+ )
  ; // Operations
 
 ref; // ME_4D5EA9E700D0 AddControlsToList
@@ -1019,6 +1102,7 @@ ref; // ME_4D5EA9E700D0 AddControlsToList
 : ME_2A77DFB47E4C
  CONST UID '2A77DFB47E4C'
  CONST Name 'Ini_Reg_Class'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Регистрация TvgObject' ;
@@ -1032,6 +1116,7 @@ ref; // ME_2A77DFB47E4C Ini_Reg_Class
 
 : ME_D4C6AF7A9024
  CONST UID 'D4C6AF7A9024'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_4D4956480326 // TvgObject
@@ -1048,6 +1133,7 @@ ref; // ME_D4C6AF7A9024
  ;
  : Implementor ME_4D4956480326 // TvgObject
  ;
+ CONST OpKind opkind_Implemented
  CONST "needs field" false
  CONST "pm" true
 ref; // ME_4D5EAD10009D_ME_4D4956480326 IsVisual
@@ -1063,39 +1149,41 @@ ref; // ME_4D5EAD10009D_ME_4D4956480326 IsVisual
  : Parent ME_4CFCE51A00B0 // Impl
  ;
  : Inherits
-   @ ( WL 'ME_4D542078016E' '4D542052038D.pas.ms.script' // TvgCustomObject
- ) .SequenceCode.It
+   Seq: ( WL 'ME_4D542078016E' '4D542052038D.pas.ms.script' // TvgCustomObject
+ )
  ; // Inherits
  : Attributes
-   @ ( ME_4D52D8B402D0 // FNotifyList
+   Seq: ( ME_4D52D8B402D0 // FNotifyList
  ME_4D552B73025E // FChildren
- ) .SequenceCode.It
+ )
  ; // Attributes
  : Operations
-   @ ( ME_4D5EA9B9016E // AddObjectsToList
+   Seq: ( ME_4D5EA9B9016E // AddObjectsToList
  ME_4D5EA9E700D0 // AddControlsToList
  ME_2A77DFB47E4C // Ini_Reg_Class
- ) .SequenceCode.It
+ )
  ; // Operations
  : Implemented
-   @ ( ME_4D5EAD10009D_ME_4D4956480326 // IsVisual
- ) .SequenceCode.It
+   Seq: ( ME_4D5EAD10009D_ME_4D4956480326 // IsVisual
+ )
  ; // Implemented
  : Dependencies
-   @ ( ME_D4C6AF7A9024 // 
- ) .SequenceCode.It
+   Seq: ( ME_D4C6AF7A9024 // 
+ )
  ; // Dependencies
  CONST "finished" false
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" true
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\external\VGScene'
  CONST intf.pas:Path 'common\components\rtl\external\VGScene\NOT_FINISHED_vgObject.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\external\VGScene'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'Object'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'vgObject'
 
 ref; // ME_4D4956480326 TvgObject
 
@@ -1123,6 +1211,7 @@ ref; // ME_4D5EA24003C0 ItemType
  ;
  : Implementor ME_4D5EA20700F4 // TvgObjectList
  ;
+ CONST OpKind opkind_Implemented
  CONST "ifndef" 'l3Items_IsAtomic'
 ref; // ME_47B07CF403D0_ME_4D5EA20700F4 IsSameItems
 
@@ -1133,6 +1222,7 @@ ref; // ME_47B07CF403D0_ME_4D5EA20700F4 IsSameItems
  ;
  : Implementor ME_4D5EA20700F4 // TvgObjectList
  ;
+ CONST OpKind opkind_Implemented
  CONST "ifdef" 'l3Items_NeedsAssignItem'
  CONST "ifndef" 'l3Items_NoSort'
 ref; // ME_47B2C42A0163_ME_4D5EA20700F4 AssignItem
@@ -1144,6 +1234,7 @@ ref; // ME_47B2C42A0163_ME_4D5EA20700F4 AssignItem
  ;
  : Implementor ME_4D5EA20700F4 // TvgObjectList
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_47B99D4503A2_ME_4D5EA20700F4 CompareExistingItems
 
 : ME_4D5EA20700F4
@@ -1158,19 +1249,19 @@ ref; // ME_47B99D4503A2_ME_4D5EA20700F4 CompareExistingItems
  : Parent ME_4CFCE51A00B0 // Impl
  ;
  : Inherits
-   @ ( WL 'ME_47B5782902DA' '47913B47006E.pas.ms.script' // l3PtrList
+   Seq: ( WL 'ME_47B5782902DA' '47913B47006E.pas.ms.script' // l3PtrList
  WL 'ME_4A54DD4E036F' '47913B47006E.pas.ms.script' // Tl3ProtoDataContainer
- ) .SequenceCode.It
+ )
  ; // Inherits
  : Attributes
-   @ ( ME_4D5EA24003C0 // ItemType
- ) .SequenceCode.It
+   Seq: ( ME_4D5EA24003C0 // ItemType
+ )
  ; // Attributes
  : Implemented
-   @ ( ME_47B07CF403D0_ME_4D5EA20700F4 // IsSameItems
+   Seq: ( ME_47B07CF403D0_ME_4D5EA20700F4 // IsSameItems
  ME_47B2C42A0163_ME_4D5EA20700F4 // AssignItem
  ME_47B99D4503A2_ME_4D5EA20700F4 // CompareExistingItems
- ) .SequenceCode.It
+ )
  ; // Implemented
  CONST "author" 'Люлин А.В.'
  CONST "needs InstanceR" 'undefined'
@@ -1178,12 +1269,14 @@ ref; // ME_47B99D4503A2_ME_4D5EA20700F4 CompareExistingItems
  CONST "no hands" true
  CONST "register in scripts" 'undefined'
  CONST "started" '18.02.2011 19:45'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\external\VGScene'
  CONST intf.pas:Path 'common\components\rtl\external\VGScene\vgObjectList.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\external\VGScene'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'ObjectList'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'vgObjectList'
 
 ref; // ME_4D5EA20700F4 TvgObjectList
 
@@ -1198,20 +1291,22 @@ ref; // ME_4D5EA20700F4 TvgObjectList
  : Parent ME_4CFCE51A00B0 // Impl
  ;
  : Inherits
-   @ ( WL 'ME_4D52A6B50343' '4D52A63D0365.pas.ms.script' // TvgPersistent
- ) .SequenceCode.It
+   Seq: ( WL 'ME_4D52A6B50343' '4D52A63D0365.pas.ms.script' // TvgPersistent
+ )
  ; // Inherits
  CONST "finished" false
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\external\VGScene'
  CONST intf.pas:Path 'common\components\rtl\external\VGScene\NOT_FINISHED_vgBounds.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\external\VGScene'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'Bounds'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'vgBounds'
 
 ref; // ME_4D5EC22400DA TvgBounds
 
@@ -1220,6 +1315,7 @@ FORWARD ME_4D5E914F002C
 : ME_5627AC93C961
  CONST UID '5627AC93C961'
  CONST Name 'Ini_Reg_Class'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Регистрация TvgEffect' ;
@@ -1233,6 +1329,7 @@ ref; // ME_5627AC93C961 Ini_Reg_Class
 
 : ME_8094810B8B7B
  CONST UID '8094810B8B7B'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_4D5E914F002C // TvgEffect
@@ -1253,28 +1350,30 @@ ref; // ME_8094810B8B7B
  : Parent ME_4CFCE51A00B0 // Impl
  ;
  : Inherits
-   @ ( ME_4D4956480326 // TvgObject
- ) .SequenceCode.It
+   Seq: ( ME_4D4956480326 // TvgObject
+ )
  ; // Inherits
  : Operations
-   @ ( ME_5627AC93C961 // Ini_Reg_Class
- ) .SequenceCode.It
+   Seq: ( ME_5627AC93C961 // Ini_Reg_Class
+ )
  ; // Operations
  : Dependencies
-   @ ( ME_8094810B8B7B // 
- ) .SequenceCode.It
+   Seq: ( ME_8094810B8B7B // 
+ )
  ; // Dependencies
  CONST "finished" false
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\external\VGScene'
  CONST intf.pas:Path 'common\components\rtl\external\VGScene\NOT_FINISHED_vgEffect.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\external\VGScene'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'Effect'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'vgEffect'
 
 ref; // ME_4D5E914F002C TvgEffect
 
@@ -1289,20 +1388,22 @@ ref; // ME_4D5E914F002C TvgEffect
  : Parent ME_4CFCE51A00B0 // Impl
  ;
  : Inherits
-   @ ( WL 'ME_4D52A6B50343' '4D52A63D0365.pas.ms.script' // TvgPersistent
- ) .SequenceCode.It
+   Seq: ( WL 'ME_4D52A6B50343' '4D52A63D0365.pas.ms.script' // TvgPersistent
+ )
  ; // Inherits
  CONST "finished" false
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\external\VGScene'
  CONST intf.pas:Path 'common\components\rtl\external\VGScene\NOT_FINISHED_vgPosition.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\external\VGScene'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'Position'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'vgPosition'
 
 ref; // ME_4D5EC25B0067 TvgPosition
 
@@ -1407,6 +1508,7 @@ ref; // ME_4D5EC27D0219 Position
 : ME_A47A68F783AA
  CONST UID 'A47A68F783AA'
  CONST Name 'f_OnClick'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY 'Поле для свойства OnClick' ;
  CONST Visibility PrivateAccess
@@ -1416,12 +1518,14 @@ ref; // ME_4D5EC27D0219 Position
  ;
  : Target WL 'ME_47881B22005A' '4AB0997B00A2.pas.ms.script' // TNotifyEvent
  ;
+ CONST extprop:clearViaProperty 'OnClick'
 
 ref; // ME_A47A68F783AA f_OnClick
 
 : ME_E2B005F2ED07
  CONST UID 'E2B005F2ED07'
  CONST Name 'Ini_Reg_Class'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Регистрация TvgVisualObject' ;
@@ -1435,6 +1539,7 @@ ref; // ME_E2B005F2ED07 Ini_Reg_Class
 
 : ME_EE50B3F41D49
  CONST UID 'EE50B3F41D49'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_4D49562A01B7 // TvgVisualObject
@@ -1451,6 +1556,7 @@ ref; // ME_EE50B3F41D49
  ;
  : Implementor ME_4D49562A01B7 // TvgVisualObject
  ;
+ CONST OpKind opkind_Overridden
  CONST "needs field" false
  CONST "pm" true
 ref; // ME_4D5EAD10009D_ME_4D49562A01B7 IsVisual
@@ -1466,46 +1572,48 @@ ref; // ME_4D5EAD10009D_ME_4D49562A01B7 IsVisual
  : Parent ME_4CFCE51A00B0 // Impl
  ;
  : Inherits
-   @ ( ME_4D4956480326 // TvgObject
- ) .SequenceCode.It
+   Seq: ( ME_4D4956480326 // TvgObject
+ )
  ; // Inherits
  : Attributes
-   @ ( ME_4D5E5BB000A5 // OnClick
+   Seq: ( ME_4D5E5BB000A5 // OnClick
  ME_4D5EA2BC0109 // FTabList
  ME_4D5EB53101A4 // Align
  ME_4D5EB5860298 // DragMode
  ME_4D5EC23E012F // Margins
  ME_4D5EC27D0219 // Position
  ME_A47A68F783AA // f_OnClick
- ) .SequenceCode.It
+ )
  ; // Attributes
  : Operations
-   @ ( ME_E2B005F2ED07 // Ini_Reg_Class
- ) .SequenceCode.It
+   Seq: ( ME_E2B005F2ED07 // Ini_Reg_Class
+ )
  ; // Operations
  : Overridden
-   @ ( ME_4D5EAD10009D_ME_4D49562A01B7 // IsVisual
- ) .SequenceCode.It
+   Seq: ( ME_4D5EAD10009D_ME_4D49562A01B7 // IsVisual
+ )
  ; // Overridden
  : Dependencies
-   @ ( ME_EE50B3F41D49 // 
- ) .SequenceCode.It
+   Seq: ( ME_EE50B3F41D49 // 
+ )
  ; // Dependencies
  : Injected
-   @ ( WL 'ME_C311A03FEB0F' '506AC2F00283.pas.ms.script' // 
- ) .SequenceCode.It
+   Seq: ( WL 'ME_C311A03FEB0F' '506AC2F00283.pas.ms.script' // 
+ )
  ; // Injected
  CONST "finished" false
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" true
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\external\VGScene'
  CONST intf.pas:Path 'common\components\rtl\external\VGScene\NOT_FINISHED_vgVisualObject.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\external\VGScene'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'VisualObject'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'vgVisualObject'
 
 ref; // ME_4D49562A01B7 TvgVisualObject
 
@@ -1538,24 +1646,26 @@ ref; // ME_4D5EB94900A6 VisualObject
  : Parent ME_4CFCE51A00B0 // Impl
  ;
  : Inherits
-   @ ( WL 'ME_4D52A6B50343' '4D52A63D0365.pas.ms.script' // TvgPersistent
- ) .SequenceCode.It
+   Seq: ( WL 'ME_4D52A6B50343' '4D52A63D0365.pas.ms.script' // TvgPersistent
+ )
  ; // Inherits
  : Attributes
-   @ ( ME_4D5EB94900A6 // VisualObject
- ) .SequenceCode.It
+   Seq: ( ME_4D5EB94900A6 // VisualObject
+ )
  ; // Attributes
  CONST "finished" false
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\external\VGScene'
  CONST intf.pas:Path 'common\components\rtl\external\VGScene\NOT_FINISHED_vgVisual.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\external\VGScene'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'Visual'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'vgVisual'
 
 ref; // ME_4D5EB9330192 TvgVisual
 
@@ -1564,6 +1674,7 @@ FORWARD ME_4D5E913C007F
 : ME_55BF7F4C9571
  CONST UID '55BF7F4C9571'
  CONST Name 'Ini_Reg_Class'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Регистрация TvgAnimation' ;
@@ -1577,6 +1688,7 @@ ref; // ME_55BF7F4C9571 Ini_Reg_Class
 
 : ME_82E89B23D6D2
  CONST UID '82E89B23D6D2'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_4D5E913C007F // TvgAnimation
@@ -1597,28 +1709,30 @@ ref; // ME_82E89B23D6D2
  : Parent ME_4CFCE51A00B0 // Impl
  ;
  : Inherits
-   @ ( ME_4D4956480326 // TvgObject
- ) .SequenceCode.It
+   Seq: ( ME_4D4956480326 // TvgObject
+ )
  ; // Inherits
  : Operations
-   @ ( ME_55BF7F4C9571 // Ini_Reg_Class
- ) .SequenceCode.It
+   Seq: ( ME_55BF7F4C9571 // Ini_Reg_Class
+ )
  ; // Operations
  : Dependencies
-   @ ( ME_82E89B23D6D2 // 
- ) .SequenceCode.It
+   Seq: ( ME_82E89B23D6D2 // 
+ )
  ; // Dependencies
  CONST "finished" false
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\external\VGScene'
  CONST intf.pas:Path 'common\components\rtl\external\VGScene\NOT_FINISHED_vgAnimation.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\external\VGScene'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'Animation'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'vgAnimation'
 
 ref; // ME_4D5E913C007F TvgAnimation
 
@@ -1648,17 +1762,17 @@ ref; // ME_4D5EB39D03CB
  : Parent ME_4CFCE51A00B0 // Impl
  ;
  : Dependencies
-   @ ( ME_4D5EB39D03CB // 
- ) .SequenceCode.It
+   Seq: ( ME_4D5EB39D03CB // 
+ )
  ; // Dependencies
  CONST "finished" false
  CONST "no hands" false
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\external\VGScene'
  CONST intf.pas:Path 'common\components\rtl\external\VGScene\NOT_FINISHED_vg_extctrls.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\external\VGScene'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName '_extctrls'
 
 ref; // ME_4D5EB3940388 vg_extctrls
 
@@ -1675,6 +1789,11 @@ FORWARD ME_4CFE3E000371
  : Parent ME_4CFE3E000371 // vg_scene
  ;
  CONST "finished" false
+ CONST dfm:PathOnly '\common\components\rtl\external\VGScene'
+ CONST intf.pas:PathOnly '\common\components\rtl\external\VGScene'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_4CFE3E1302F5 TvgBrushStyle
 
@@ -1712,6 +1831,7 @@ ref; // ME_4D5EA31B005D ResourceList
 : ME_F43274311BCF
  CONST UID 'F43274311BCF'
  CONST Name 'Ini_Reg_Class'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Регистрация TvgCustomScene' ;
@@ -1725,6 +1845,7 @@ ref; // ME_F43274311BCF Ini_Reg_Class
 
 : ME_324F1E8FB88D
  CONST UID '324F1E8FB88D'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_4D54170F00D8 // TvgCustomScene
@@ -1741,6 +1862,7 @@ ref; // ME_324F1E8FB88D
  ;
  : Implementor ME_4D54170F00D8 // TvgCustomScene
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_4D550CFB029F_ME_4D54170F00D8 AddObject
 
 : ME_4D550D1300CE_ME_4D54170F00D8
@@ -1750,6 +1872,7 @@ ref; // ME_4D550CFB029F_ME_4D54170F00D8 AddObject
  ;
  : Implementor ME_4D54170F00D8 // TvgCustomScene
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_4D550D1300CE_ME_4D54170F00D8 RemoveObject
 
 : ME_4D550D1C01FC_ME_4D54170F00D8
@@ -1759,6 +1882,7 @@ ref; // ME_4D550D1300CE_ME_4D54170F00D8 RemoveObject
  ;
  : Implementor ME_4D54170F00D8 // TvgCustomScene
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_4D550D1C01FC_ME_4D54170F00D8 BeginDrag
 
 : ME_4D550D2D0250_ME_4D54170F00D8
@@ -1768,6 +1892,7 @@ ref; // ME_4D550D1C01FC_ME_4D54170F00D8 BeginDrag
  ;
  : Implementor ME_4D54170F00D8 // TvgCustomScene
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_4D550D2D0250_ME_4D54170F00D8 BeginResize
 
 : ME_4D550D3C0043_ME_4D54170F00D8
@@ -1777,6 +1902,7 @@ ref; // ME_4D550D2D0250_ME_4D54170F00D8 BeginResize
  ;
  : Implementor ME_4D54170F00D8 // TvgCustomScene
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_4D550D3C0043_ME_4D54170F00D8 AddUpdateRect
 
 : ME_4D550D4B00A9_ME_4D54170F00D8
@@ -1786,6 +1912,7 @@ ref; // ME_4D550D3C0043_ME_4D54170F00D8 AddUpdateRect
  ;
  : Implementor ME_4D54170F00D8 // TvgCustomScene
  ;
+ CONST OpKind opkind_Implemented
  CONST "ifdef" 'vgDesign'
 ref; // ME_4D550D4B00A9_ME_4D54170F00D8 InsertObject
 
@@ -1796,6 +1923,7 @@ ref; // ME_4D550D4B00A9_ME_4D54170F00D8 InsertObject
  ;
  : Implementor ME_4D54170F00D8 // TvgCustomScene
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_4D550D5F0167_ME_4D54170F00D8 GetActiveControl
 
 : ME_4D550D6A0205_ME_4D54170F00D8
@@ -1805,6 +1933,7 @@ ref; // ME_4D550D5F0167_ME_4D54170F00D8 GetActiveControl
  ;
  : Implementor ME_4D54170F00D8 // TvgCustomScene
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_4D550D6A0205_ME_4D54170F00D8 GetDisableUpdate
 
 : ME_4D550D780131_ME_4D54170F00D8
@@ -1814,6 +1943,7 @@ ref; // ME_4D550D6A0205_ME_4D54170F00D8 GetDisableUpdate
  ;
  : Implementor ME_4D54170F00D8 // TvgCustomScene
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_4D550D780131_ME_4D54170F00D8 SetDisableUpdate
 
 : ME_4D550D94001B_ME_4D54170F00D8
@@ -1823,6 +1953,7 @@ ref; // ME_4D550D780131_ME_4D54170F00D8 SetDisableUpdate
  ;
  : Implementor ME_4D54170F00D8 // TvgCustomScene
  ;
+ CONST OpKind opkind_Implemented
  CONST "ifdef" 'vgDesign'
 ref; // ME_4D550D94001B_ME_4D54170F00D8 GetDesignTime
 
@@ -1833,6 +1964,7 @@ ref; // ME_4D550D94001B_ME_4D54170F00D8 GetDesignTime
  ;
  : Implementor ME_4D54170F00D8 // TvgCustomScene
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_4D550DA002A9_ME_4D54170F00D8 GetCanvas
 
 : ME_4D550DB102FE_ME_4D54170F00D8
@@ -1842,6 +1974,7 @@ ref; // ME_4D550DA002A9_ME_4D54170F00D8 GetCanvas
  ;
  : Implementor ME_4D54170F00D8 // TvgCustomScene
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_4D550DB102FE_ME_4D54170F00D8 GetRoot
 
 : ME_4D550DBD026F_ME_4D54170F00D8
@@ -1851,6 +1984,7 @@ ref; // ME_4D550DB102FE_ME_4D54170F00D8 GetRoot
  ;
  : Implementor ME_4D54170F00D8 // TvgCustomScene
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_4D550DBD026F_ME_4D54170F00D8 GetOwner
 
 : ME_4D550DCB00CC_ME_4D54170F00D8
@@ -1860,6 +1994,7 @@ ref; // ME_4D550DBD026F_ME_4D54170F00D8 GetOwner
  ;
  : Implementor ME_4D54170F00D8 // TvgCustomScene
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_4D550DCB00CC_ME_4D54170F00D8 GetComponent
 
 : ME_4D550DDC0210_ME_4D54170F00D8
@@ -1869,6 +2004,7 @@ ref; // ME_4D550DCB00CC_ME_4D54170F00D8 GetComponent
  ;
  : Implementor ME_4D54170F00D8 // TvgCustomScene
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_4D550DDC0210_ME_4D54170F00D8 GetStyle
 
 : ME_4D550DF103B0_ME_4D54170F00D8
@@ -1878,6 +2014,7 @@ ref; // ME_4D550DDC0210_ME_4D54170F00D8 GetStyle
  ;
  : Implementor ME_4D54170F00D8 // TvgCustomScene
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_4D550DF103B0_ME_4D54170F00D8 SetStyle
 
 : ME_4D550DFE00F6_ME_4D54170F00D8
@@ -1887,6 +2024,7 @@ ref; // ME_4D550DF103B0_ME_4D54170F00D8 SetStyle
  ;
  : Implementor ME_4D54170F00D8 // TvgCustomScene
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_4D550DFE00F6_ME_4D54170F00D8 GetTransparency
 
 : ME_4D550E0F00A3_ME_4D54170F00D8
@@ -1896,6 +2034,7 @@ ref; // ME_4D550DFE00F6_ME_4D54170F00D8 GetTransparency
  ;
  : Implementor ME_4D54170F00D8 // TvgCustomScene
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_4D550E0F00A3_ME_4D54170F00D8 UpdateResource
 
 : ME_4D550E1C03A3_ME_4D54170F00D8
@@ -1905,6 +2044,7 @@ ref; // ME_4D550E0F00A3_ME_4D54170F00D8 UpdateResource
  ;
  : Implementor ME_4D54170F00D8 // TvgCustomScene
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_4D550E1C03A3_ME_4D54170F00D8 Notification
 
 : ME_4D550E2B0389_ME_4D54170F00D8
@@ -1914,6 +2054,7 @@ ref; // ME_4D550E1C03A3_ME_4D54170F00D8 Notification
  ;
  : Implementor ME_4D54170F00D8 // TvgCustomScene
  ;
+ CONST OpKind opkind_Implemented
  CONST "ifdef" 'vgDesign'
 ref; // ME_4D550E2B0389_ME_4D54170F00D8 GetSelected
 
@@ -1924,6 +2065,7 @@ ref; // ME_4D550E2B0389_ME_4D54170F00D8 GetSelected
  ;
  : Implementor ME_4D54170F00D8 // TvgCustomScene
  ;
+ CONST OpKind opkind_Implemented
  CONST "ifdef" 'vgDesign'
 ref; // ME_4D550E380297_ME_4D54170F00D8 GetDesignPlaceObject
 
@@ -1934,6 +2076,7 @@ ref; // ME_4D550E380297_ME_4D54170F00D8 GetDesignPlaceObject
  ;
  : Implementor ME_4D54170F00D8 // TvgCustomScene
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_4D550E470234_ME_4D54170F00D8 GetUpdateRectsCount
 
 : ME_4D550E5403DC_ME_4D54170F00D8
@@ -1943,6 +2086,7 @@ ref; // ME_4D550E470234_ME_4D54170F00D8 GetUpdateRectsCount
  ;
  : Implementor ME_4D54170F00D8 // TvgCustomScene
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_4D550E5403DC_ME_4D54170F00D8 GetUpdateRect
 
 : ME_4D550E600298_ME_4D54170F00D8
@@ -1952,6 +2096,7 @@ ref; // ME_4D550E5403DC_ME_4D54170F00D8 GetUpdateRect
  ;
  : Implementor ME_4D54170F00D8 // TvgCustomScene
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_4D550E600298_ME_4D54170F00D8 SetCaptured
 
 : ME_4D550E6B0247_ME_4D54170F00D8
@@ -1961,6 +2106,7 @@ ref; // ME_4D550E600298_ME_4D54170F00D8 SetCaptured
  ;
  : Implementor ME_4D54170F00D8 // TvgCustomScene
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_4D550E6B0247_ME_4D54170F00D8 GetCaptured
 
 : ME_4D550E7901D5_ME_4D54170F00D8
@@ -1970,6 +2116,7 @@ ref; // ME_4D550E6B0247_ME_4D54170F00D8 GetCaptured
  ;
  : Implementor ME_4D54170F00D8 // TvgCustomScene
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_4D550E7901D5_ME_4D54170F00D8 SetFocused
 
 : ME_4D550E8703BA_ME_4D54170F00D8
@@ -1979,6 +2126,7 @@ ref; // ME_4D550E7901D5_ME_4D54170F00D8 SetFocused
  ;
  : Implementor ME_4D54170F00D8 // TvgCustomScene
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_4D550E8703BA_ME_4D54170F00D8 GetFocused
 
 : ME_4D550E990086_ME_4D54170F00D8
@@ -1988,6 +2136,7 @@ ref; // ME_4D550E8703BA_ME_4D54170F00D8 GetFocused
  ;
  : Implementor ME_4D54170F00D8 // TvgCustomScene
  ;
+ CONST OpKind opkind_Implemented
  CONST "ifdef" 'vgDesign'
 ref; // ME_4D550E990086_ME_4D54170F00D8 SetDesignRoot
 
@@ -1998,6 +2147,7 @@ ref; // ME_4D550E990086_ME_4D54170F00D8 SetDesignRoot
  ;
  : Implementor ME_4D54170F00D8 // TvgCustomScene
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_4D550EA30324_ME_4D54170F00D8 GetMousePos
 
 : ME_4D550EB50056_ME_4D54170F00D8
@@ -2007,6 +2157,7 @@ ref; // ME_4D550EA30324_ME_4D54170F00D8 GetMousePos
  ;
  : Implementor ME_4D54170F00D8 // TvgCustomScene
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_4D550EB50056_ME_4D54170F00D8 LocalToScreen
 
 : ME_4D550EC50042_ME_4D54170F00D8
@@ -2016,6 +2167,7 @@ ref; // ME_4D550EB50056_ME_4D54170F00D8 LocalToScreen
  ;
  : Implementor ME_4D54170F00D8 // TvgCustomScene
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_4D550EC50042_ME_4D54170F00D8 BeginVCLDrag
 
 : ME_4D550ED5014D_ME_4D54170F00D8
@@ -2025,6 +2177,7 @@ ref; // ME_4D550EC50042_ME_4D54170F00D8 BeginVCLDrag
  ;
  : Implementor ME_4D54170F00D8 // TvgCustomScene
  ;
+ CONST OpKind opkind_Implemented
  CONST "ifdef" 'vgDesign'
 ref; // ME_4D550ED5014D_ME_4D54170F00D8 DoDesignSelect
 
@@ -2035,6 +2188,7 @@ ref; // ME_4D550ED5014D_ME_4D54170F00D8 DoDesignSelect
  ;
  : Implementor ME_4D54170F00D8 // TvgCustomScene
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_4D550EE303DA_ME_4D54170F00D8 GetAnimatedCaret
 
 : ME_4D550EF00002_ME_4D54170F00D8
@@ -2044,6 +2198,7 @@ ref; // ME_4D550EE303DA_ME_4D54170F00D8 GetAnimatedCaret
  ;
  : Implementor ME_4D54170F00D8 // TvgCustomScene
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_4D550EF00002_ME_4D54170F00D8 ShowKeyboardForControl
 
 : ME_4D550EFB034B_ME_4D54170F00D8
@@ -2053,6 +2208,7 @@ ref; // ME_4D550EF00002_ME_4D54170F00D8 ShowKeyboardForControl
  ;
  : Implementor ME_4D54170F00D8 // TvgCustomScene
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_4D550EFB034B_ME_4D54170F00D8 HideKeyboardForControl
 
 : ME_4D5D02B90284_ME_4D54170F00D8
@@ -2062,6 +2218,7 @@ ref; // ME_4D550EFB034B_ME_4D54170F00D8 HideKeyboardForControl
  ;
  : Implementor ME_4D54170F00D8 // TvgCustomScene
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_4D5D02B90284_ME_4D54170F00D8 DoTab
 
 : ME_4D5E7F6C0016_ME_4D54170F00D8
@@ -2071,6 +2228,7 @@ ref; // ME_4D5D02B90284_ME_4D54170F00D8 DoTab
  ;
  : Implementor ME_4D54170F00D8 // TvgCustomScene
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_4D5E7F6C0016_ME_4D54170F00D8 SetFocus
 
 : ME_4D5E7FD70051_ME_4D54170F00D8
@@ -2080,6 +2238,7 @@ ref; // ME_4D5E7F6C0016_ME_4D54170F00D8 SetFocus
  ;
  : Implementor ME_4D54170F00D8 // TvgCustomScene
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_4D5E7FD70051_ME_4D54170F00D8 UnicodeKeyDown
 
 : ME_4D6285E60219_ME_4D54170F00D8
@@ -2089,6 +2248,7 @@ ref; // ME_4D5E7FD70051_ME_4D54170F00D8 UnicodeKeyDown
  ;
  : Implementor ME_4D54170F00D8 // TvgCustomScene
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_4D6285E60219_ME_4D54170F00D8 IsAcceptableControlForTabNavigation
 
 : ME_4D8B889E03D0_ME_4D54170F00D8
@@ -2098,6 +2258,7 @@ ref; // ME_4D6285E60219_ME_4D54170F00D8 IsAcceptableControlForTabNavigation
  ;
  : Implementor ME_4D54170F00D8 // TvgCustomScene
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_4D8B889E03D0_ME_4D54170F00D8 FocusHook
 
 : ME_4DA724DD0394_ME_4D54170F00D8
@@ -2107,6 +2268,7 @@ ref; // ME_4D8B889E03D0_ME_4D54170F00D8 FocusHook
  ;
  : Implementor ME_4D54170F00D8 // TvgCustomScene
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_4DA724DD0394_ME_4D54170F00D8 ControlMessageHook
 
 : ME_533E81870210_ME_4D54170F00D8
@@ -2116,6 +2278,7 @@ ref; // ME_4DA724DD0394_ME_4D54170F00D8 ControlMessageHook
  ;
  : Implementor ME_4D54170F00D8 // TvgCustomScene
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_533E81870210_ME_4D54170F00D8 ScreenToLocal
 
 : ME_538DBFB202DE_ME_4D54170F00D8
@@ -2125,6 +2288,7 @@ ref; // ME_533E81870210_ME_4D54170F00D8 ScreenToLocal
  ;
  : Implementor ME_4D54170F00D8 // TvgCustomScene
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_538DBFB202DE_ME_4D54170F00D8 GetSceneControl
 
 : ME_4D54170F00D8
@@ -2138,24 +2302,24 @@ ref; // ME_538DBFB202DE_ME_4D54170F00D8 GetSceneControl
  : Parent ME_4CFE3E000371 // vg_scene
  ;
  : Inherits
-   @ ( ME_4D5E628602E6 // TvgScenePrim
- ) .SequenceCode.It
+   Seq: ( ME_4D5E628602E6 // TvgScenePrim
+ )
  ; // Inherits
  : Implements
-   @ ( WL 'ME_4D550C5B0341' '4D550C220363.pas.ms.script' // IvgScene
- ) .SequenceCode.It
+   Seq: ( WL 'ME_4D550C5B0341' '4D550C220363.pas.ms.script' // IvgScene
+ )
  ; // Implements
  : Attributes
-   @ ( ME_4D5EA2F3003C // FChildren
+   Seq: ( ME_4D5EA2F3003C // FChildren
  ME_4D5EA31B005D // ResourceList
- ) .SequenceCode.It
+ )
  ; // Attributes
  : Operations
-   @ ( ME_F43274311BCF // Ini_Reg_Class
- ) .SequenceCode.It
+   Seq: ( ME_F43274311BCF // Ini_Reg_Class
+ )
  ; // Operations
  : Implemented
-   @ ( ME_4D550CFB029F_ME_4D54170F00D8 // AddObject
+   Seq: ( ME_4D550CFB029F_ME_4D54170F00D8 // AddObject
  ME_4D550D1300CE_ME_4D54170F00D8 // RemoveObject
  ME_4D550D1C01FC_ME_4D54170F00D8 // BeginDrag
  ME_4D550D2D0250_ME_4D54170F00D8 // BeginResize
@@ -2198,16 +2362,22 @@ ref; // ME_538DBFB202DE_ME_4D54170F00D8 GetSceneControl
  ME_4DA724DD0394_ME_4D54170F00D8 // ControlMessageHook
  ME_533E81870210_ME_4D54170F00D8 // ScreenToLocal
  ME_538DBFB202DE_ME_4D54170F00D8 // GetSceneControl
- ) .SequenceCode.It
+ )
  ; // Implemented
  : Dependencies
-   @ ( ME_324F1E8FB88D // 
- ) .SequenceCode.It
+   Seq: ( ME_324F1E8FB88D // 
+ )
  ; // Dependencies
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
+ CONST dfm:PathOnly '\common\components\rtl\external\VGScene'
+ CONST intf.pas:PathOnly '\common\components\rtl\external\VGScene'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'Scene'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_4D54170F00D8 TvgCustomScene
 
@@ -2251,8 +2421,8 @@ ref; // ME_4F90009C026E new_operation
  : Parent ME_4D49560D0013 // TvgControl
  ;
  : Operations
-   @ ( ME_4F90009C026E // new_operation
- ) .SequenceCode.It
+   Seq: ( ME_4F90009C026E // new_operation
+ )
  ; // Operations
 
 ref; // ME_4F90008B02C6 ApplyStyle
@@ -2260,6 +2430,7 @@ ref; // ME_4F90008B02C6 ApplyStyle
 : ME_9380F2681038
  CONST UID '9380F2681038'
  CONST Name 'Ini_Reg_Class'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Регистрация TvgControl' ;
@@ -2273,6 +2444,7 @@ ref; // ME_9380F2681038 Ini_Reg_Class
 
 : ME_83B2D831ECAF
  CONST UID '83B2D831ECAF'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_4D49560D0013 // TvgControl
@@ -2293,26 +2465,32 @@ ref; // ME_83B2D831ECAF
  : Parent ME_4CFE3E000371 // vg_scene
  ;
  : Inherits
-   @ ( ME_4D49562A01B7 // TvgVisualObject
- ) .SequenceCode.It
+   Seq: ( ME_4D49562A01B7 // TvgVisualObject
+ )
  ; // Inherits
  : Attributes
-   @ ( ME_4D5EA27C017B // fBindingObjects
- ) .SequenceCode.It
+   Seq: ( ME_4D5EA27C017B // fBindingObjects
+ )
  ; // Attributes
  : Operations
-   @ ( ME_4F90008B02C6 // ApplyStyle
+   Seq: ( ME_4F90008B02C6 // ApplyStyle
  ME_9380F2681038 // Ini_Reg_Class
- ) .SequenceCode.It
+ )
  ; // Operations
  : Dependencies
-   @ ( ME_83B2D831ECAF // 
- ) .SequenceCode.It
+   Seq: ( ME_83B2D831ECAF // 
+ )
  ; // Dependencies
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
+ CONST dfm:PathOnly '\common\components\rtl\external\VGScene'
+ CONST intf.pas:PathOnly '\common\components\rtl\external\VGScene'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'Control'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_4D49560D0013 TvgControl
 
@@ -2327,14 +2505,20 @@ ref; // ME_4D49560D0013 TvgControl
  : Parent ME_4CFE3E000371 // vg_scene
  ;
  : Inherits
-   @ ( WL 'ME_4D5435820356' '4D542052038D.pas.ms.script' // TvgCustomCanvas
- ) .SequenceCode.It
+   Seq: ( WL 'ME_4D5435820356' '4D542052038D.pas.ms.script' // TvgCustomCanvas
+ )
  ; // Inherits
  CONST "finished" false
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
+ CONST dfm:PathOnly '\common\components\rtl\external\VGScene'
+ CONST intf.pas:PathOnly '\common\components\rtl\external\VGScene'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'Canvas'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_4D52A72302CE TvgCanvas
 
@@ -2365,17 +2549,23 @@ ref; // ME_4D55124D023C FSceneList
  : Parent ME_4CFE3E000371 // vg_scene
  ;
  : Inherits
-   @ ( WL 'ME_4D54299F035D' '4D542052038D.pas.ms.script' // TvgCustomResources
- ) .SequenceCode.It
+   Seq: ( WL 'ME_4D54299F035D' '4D542052038D.pas.ms.script' // TvgCustomResources
+ )
  ; // Inherits
  : Attributes
-   @ ( ME_4D55124D023C // FSceneList
- ) .SequenceCode.It
+   Seq: ( ME_4D55124D023C // FSceneList
+ )
  ; // Attributes
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
+ CONST dfm:PathOnly '\common\components\rtl\external\VGScene'
+ CONST intf.pas:PathOnly '\common\components\rtl\external\VGScene'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'Resources'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_4D52A8CB0057 TvgResources
 
@@ -2390,13 +2580,19 @@ ref; // ME_4D52A8CB0057 TvgResources
  : Parent ME_4CFE3E000371 // vg_scene
  ;
  : Inherits
-   @ ( WL 'ME_4D52A881018B' '4D52A63D0365.pas.ms.script' // TvgComponent
- ) .SequenceCode.It
+   Seq: ( WL 'ME_4D52A881018B' '4D52A63D0365.pas.ms.script' // TvgComponent
+ )
  ; // Inherits
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
+ CONST dfm:PathOnly '\common\components\rtl\external\VGScene'
+ CONST intf.pas:PathOnly '\common\components\rtl\external\VGScene'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'Lang'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_4D52A8DA0126 TvgLang
 
@@ -2411,13 +2607,19 @@ ref; // ME_4D52A8DA0126 TvgLang
  : Parent ME_4CFE3E000371 // vg_scene
  ;
  : Inherits
-   @ ( WL 'ME_4D52A881018B' '4D52A63D0365.pas.ms.script' // TvgComponent
- ) .SequenceCode.It
+   Seq: ( WL 'ME_4D52A881018B' '4D52A63D0365.pas.ms.script' // TvgComponent
+ )
  ; // Inherits
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
+ CONST dfm:PathOnly '\common\components\rtl\external\VGScene'
+ CONST intf.pas:PathOnly '\common\components\rtl\external\VGScene'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'Designer'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_4D52A8E9012B TvgDesigner
 
@@ -2432,13 +2634,19 @@ ref; // ME_4D52A8E9012B TvgDesigner
  : Parent ME_4CFE3E000371 // vg_scene
  ;
  : Inherits
-   @ ( WL 'ME_479878FA0103' '4AB0997B00A2.pas.ms.script' // TComponent
- ) .SequenceCode.It
+   Seq: ( WL 'ME_479878FA0103' '4AB0997B00A2.pas.ms.script' // TComponent
+ )
  ; // Inherits
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
+ CONST dfm:PathOnly '\common\components\rtl\external\VGScene'
+ CONST intf.pas:PathOnly '\common\components\rtl\external\VGScene'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'HackComponent'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_4D52A9000294 THackComponent
 
@@ -2447,6 +2655,7 @@ FORWARD ME_4CFFB562010C
 : ME_71A07A12CB3C
  CONST UID '71A07A12CB3C'
  CONST Name 'Ini_Reg_Class'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Регистрация TvgScene' ;
@@ -2471,6 +2680,7 @@ ref; // ME_5475D36C0186
 
 : ME_5E8310C30A26
  CONST UID '5E8310C30A26'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_4CFFB562010C // TvgScene
@@ -2491,23 +2701,29 @@ ref; // ME_5E8310C30A26
  : Parent ME_4CFE3E000371 // vg_scene
  ;
  : Inherits
-   @ ( ME_4D54170F00D8 // TvgCustomScene
- ) .SequenceCode.It
+   Seq: ( ME_4D54170F00D8 // TvgCustomScene
+ )
  ; // Inherits
  : Operations
-   @ ( ME_71A07A12CB3C // Ini_Reg_Class
- ) .SequenceCode.It
+   Seq: ( ME_71A07A12CB3C // Ini_Reg_Class
+ )
  ; // Operations
  : Dependencies
-   @ ( ME_5475D36C0186 // 
+   Seq: ( ME_5475D36C0186 // 
  ME_5E8310C30A26 // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  CONST "finished" false
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
+ CONST dfm:PathOnly '\common\components\rtl\external\VGScene'
+ CONST intf.pas:PathOnly '\common\components\rtl\external\VGScene'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'Scene'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_4CFFB562010C TvgScene
 
@@ -2522,9 +2738,13 @@ ref; // ME_4CFFB562010C TvgScene
  : Parent ME_4CFE3E000371 // vg_scene
  ;
  : Inherits
-   @ ( WL 'ME_4D5421A80032' '4D5420EC039D.pas.ms.script' // TvgRect
- ) .SequenceCode.It
+   Seq: ( WL 'ME_4D5421A80032' '4D5420EC039D.pas.ms.script' // TvgRect
+ )
  ; // Inherits
+ CONST dfm:PathOnly '\common\components\rtl\external\VGScene'
+ CONST intf.pas:PathOnly '\common\components\rtl\external\VGScene'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_4D5423D601B2 TvgRect
 
@@ -2539,9 +2759,13 @@ ref; // ME_4D5423D601B2 TvgRect
  : Parent ME_4CFE3E000371 // vg_scene
  ;
  : Inherits
-   @ ( WL 'ME_4D5422330322' '4D5420EC039D.pas.ms.script' // TvgPoint
- ) .SequenceCode.It
+   Seq: ( WL 'ME_4D5422330322' '4D5420EC039D.pas.ms.script' // TvgPoint
+ )
  ; // Inherits
+ CONST dfm:PathOnly '\common\components\rtl\external\VGScene'
+ CONST intf.pas:PathOnly '\common\components\rtl\external\VGScene'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_4D5423EE0336 TvgPoint
 
@@ -2556,9 +2780,15 @@ ref; // ME_4D5423EE0336 TvgPoint
  : Parent ME_4CFE3E000371 // vg_scene
  ;
  : Inherits
-   @ ( WL 'ME_4D550C5B0341' '4D550C220363.pas.ms.script' // IvgScene
- ) .SequenceCode.It
+   Seq: ( WL 'ME_4D550C5B0341' '4D550C220363.pas.ms.script' // IvgScene
+ )
  ; // Inherits
+ CONST dfm:PathOnly '\common\components\rtl\external\VGScene'
+ CONST intf.pas:PathOnly '\common\components\rtl\external\VGScene'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'Scene'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_4D550C71029A IvgScene
 
@@ -2573,9 +2803,14 @@ ref; // ME_4D550C71029A IvgScene
  : Parent ME_4CFE3E000371 // vg_scene
  ;
  : Inherits
-   @ ( WL 'ME_4D555D65006D' '4D5420EC039D.pas.ms.script' // TvgColor
- ) .SequenceCode.It
+   Seq: ( WL 'ME_4D555D65006D' '4D5420EC039D.pas.ms.script' // TvgColor
+ )
  ; // Inherits
+ CONST dfm:PathOnly '\common\components\rtl\external\VGScene'
+ CONST intf.pas:PathOnly '\common\components\rtl\external\VGScene'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_4D555DA6008B TvgColor
 
@@ -2590,9 +2825,14 @@ ref; // ME_4D555DA6008B TvgColor
  : Parent ME_4CFE3E000371 // vg_scene
  ;
  : Inherits
-   @ ( WL 'ME_4D555D8601D1' '4D5420EC039D.pas.ms.script' // PvgColor
- ) .SequenceCode.It
+   Seq: ( WL 'ME_4D555D8601D1' '4D5420EC039D.pas.ms.script' // PvgColor
+ )
  ; // Inherits
+ CONST dfm:PathOnly '\common\components\rtl\external\VGScene'
+ CONST intf.pas:PathOnly '\common\components\rtl\external\VGScene'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_4D555DB201B5 PvgColor
 
@@ -2607,9 +2847,15 @@ ref; // ME_4D555DB201B5 PvgColor
  : Parent ME_4CFE3E000371 // vg_scene
  ;
  : Inherits
-   @ ( ME_4D555E3901BF // TvgGradientPoint
- ) .SequenceCode.It
+   Seq: ( ME_4D555E3901BF // TvgGradientPoint
+ )
  ; // Inherits
+ CONST dfm:PathOnly '\common\components\rtl\external\VGScene'
+ CONST intf.pas:PathOnly '\common\components\rtl\external\VGScene'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'GradientPoint'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_4D555EFB0296 TvgGradientPoint
 
@@ -2624,9 +2870,15 @@ ref; // ME_4D555EFB0296 TvgGradientPoint
  : Parent ME_4CFE3E000371 // vg_scene
  ;
  : Inherits
-   @ ( ME_4D55623200CE // TvgGradientPoints
- ) .SequenceCode.It
+   Seq: ( ME_4D55623200CE // TvgGradientPoints
+ )
  ; // Inherits
+ CONST dfm:PathOnly '\common\components\rtl\external\VGScene'
+ CONST intf.pas:PathOnly '\common\components\rtl\external\VGScene'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'GradientPoints'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_4D5562880003 TvgGradientPoints
 
@@ -2659,18 +2911,24 @@ ref; // ME_4D5EB9AF02AE Visual
  : Parent ME_4CFE3E000371 // vg_scene
  ;
  : Inherits
-   @ ( WL 'ME_4D52A6B50343' '4D52A63D0365.pas.ms.script' // TvgPersistent
- ) .SequenceCode.It
+   Seq: ( WL 'ME_4D52A6B50343' '4D52A63D0365.pas.ms.script' // TvgPersistent
+ )
  ; // Inherits
  : Attributes
-   @ ( ME_4D5EB9AF02AE // Visual
- ) .SequenceCode.It
+   Seq: ( ME_4D5EB9AF02AE // Visual
+ )
  ; // Attributes
  CONST "finished" false
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
+ CONST dfm:PathOnly '\common\components\rtl\external\VGScene'
+ CONST intf.pas:PathOnly '\common\components\rtl\external\VGScene'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'Brush'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_4D5EB9810101 TvgBrush
 
@@ -2679,6 +2937,7 @@ FORWARD ME_4FC762770058
 : ME_AC67537BDAD5
  CONST UID 'AC67537BDAD5'
  CONST Name 'Ini_Reg_Class'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Регистрация TvgBackground' ;
@@ -2692,6 +2951,7 @@ ref; // ME_AC67537BDAD5 Ini_Reg_Class
 
 : ME_4C175A01A390
  CONST UID '4C175A01A390'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_4FC762770058 // TvgBackground
@@ -2712,27 +2972,34 @@ ref; // ME_4C175A01A390
  : Parent ME_4CFE3E000371 // vg_scene
  ;
  : Inherits
-   @ ( ME_4D49560D0013 // TvgControl
- ) .SequenceCode.It
+   Seq: ( ME_4D49560D0013 // TvgControl
+ )
  ; // Inherits
  : Operations
-   @ ( ME_AC67537BDAD5 // Ini_Reg_Class
- ) .SequenceCode.It
+   Seq: ( ME_AC67537BDAD5 // Ini_Reg_Class
+ )
  ; // Operations
  : Dependencies
-   @ ( ME_4C175A01A390 // 
- ) .SequenceCode.It
+   Seq: ( ME_4C175A01A390 // 
+ )
  ; // Dependencies
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
+ CONST dfm:PathOnly '\common\components\rtl\external\VGScene'
+ CONST intf.pas:PathOnly '\common\components\rtl\external\VGScene'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'Background'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_4FC762770058 TvgBackground
 
 : ME_841126AA4C89
  CONST UID '841126AA4C89'
  CONST Name 'DoIt'
+ CONST IsSummoned true
  CONST Class class_Operation
  %SUMMARY 'Сигнатура метода vgColorToStr' ;
  CONST Visibility PublicAccess
@@ -2753,15 +3020,17 @@ ref; // ME_841126AA4C89 DoIt
  : Parent ME_4CFE3E000371 // vg_scene
  ;
  : Operations
-   @ ( ME_841126AA4C89 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_841126AA4C89 // DoIt
+ )
  ; // Operations
+ CONST extprop:rc:SelfName 'ColorToStr'
 
 ref; // ME_4D555FED002F vgColorToStr
 
 : ME_BA3AF8DDF595
  CONST UID 'BA3AF8DDF595'
  CONST Name 'DoIt'
+ CONST IsSummoned true
  CONST Class class_Operation
  %SUMMARY 'Сигнатура метода vgStrToColor' ;
  CONST Visibility PublicAccess
@@ -2782,9 +3051,10 @@ ref; // ME_BA3AF8DDF595 DoIt
  : Parent ME_4CFE3E000371 // vg_scene
  ;
  : Operations
-   @ ( ME_BA3AF8DDF595 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_BA3AF8DDF595 // DoIt
+ )
  ; // Operations
+ CONST extprop:rc:SelfName 'StrToColor'
 
 ref; // ME_4D555FFC0179 vgStrToColor
 
@@ -2793,6 +3063,7 @@ FORWARD ME_4D5D148101F9
 : ME_E3B2856AAD63
  CONST UID 'E3B2856AAD63'
  CONST Name 'DoIt'
+ CONST IsSummoned true
  CONST Class class_Operation
  %SUMMARY 'Сигнатура метода vgDoTab' ;
  CONST Visibility PublicAccess
@@ -2813,9 +3084,10 @@ ref; // ME_E3B2856AAD63 DoIt
  : Parent ME_4CFE3E000371 // vg_scene
  ;
  : Operations
-   @ ( ME_E3B2856AAD63 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_E3B2856AAD63 // DoIt
+ )
  ; // Operations
+ CONST extprop:rc:SelfName 'DoTab'
 
 ref; // ME_4D5D148101F9 vgDoTab
 
@@ -2854,13 +3126,13 @@ ref; // ME_551ABD35033C
  : Parent ME_4CFCE51A00B0 // Impl
  ;
  : Operations
-   @ ( ME_4D555FED002F // vgColorToStr
+   Seq: ( ME_4D555FED002F // vgColorToStr
  ME_4D555FFC0179 // vgStrToColor
  ME_4D5D148101F9 // vgDoTab
- ) .SequenceCode.It
+ )
  ; // Operations
  : Children
-   @ ( ME_4CFE3E1302F5 // TvgBrushStyle
+   Seq: ( ME_4CFE3E1302F5 // TvgBrushStyle
  ME_4D54170F00D8 // TvgCustomScene
  ME_4D49560D0013 // TvgControl
  ME_4D52A72302CE // TvgCanvas
@@ -2878,21 +3150,21 @@ ref; // ME_551ABD35033C
  ME_4D5562880003 // TvgGradientPoints
  ME_4D5EB9810101 // TvgBrush
  ME_4FC762770058 // TvgBackground
- ) .SequenceCode.It
+ )
  ; // Children
  : Dependencies
-   @ ( ME_4D5EB3B50279 // 
+   Seq: ( ME_4D5EB3B50279 // 
  ME_551ABD35033C // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  CONST "finished" false
  CONST "no hands" false
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\external\VGScene'
  CONST intf.pas:Path 'common\components\rtl\external\VGScene\NOT_FINISHED_vg_scene.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\external\VGScene'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName '_scene'
 
 ref; // ME_4CFE3E000371 vg_scene
 
@@ -2913,6 +3185,12 @@ FORWARD ME_4CFCE531013A
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
+ CONST dfm:PathOnly '\common\components\rtl\external\VGScene'
+ CONST intf.pas:PathOnly '\common\components\rtl\external\VGScene'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'PathButton'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_4CFCE54B01B0 TvgPathButton
 
@@ -2931,6 +3209,12 @@ ref; // ME_4CFCE54B01B0 TvgPathButton
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
+ CONST dfm:PathOnly '\common\components\rtl\external\VGScene'
+ CONST intf.pas:PathOnly '\common\components\rtl\external\VGScene'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'CloseButton'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_4CFCE5A10367 TvgCloseButton
 
@@ -2939,6 +3223,7 @@ FORWARD ME_4CFCF4840379
 : ME_C2518132CB41
  CONST UID 'C2518132CB41'
  CONST Name 'Ini_Reg_Class'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Регистрация TvgRadioButton' ;
@@ -2952,6 +3237,7 @@ ref; // ME_C2518132CB41 Ini_Reg_Class
 
 : ME_6882B57A14C4
  CONST UID '6882B57A14C4'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_4CFCF4840379 // TvgRadioButton
@@ -2972,22 +3258,28 @@ ref; // ME_6882B57A14C4
  : Parent ME_4CFCE531013A // vg_controls
  ;
  : Operations
-   @ ( ME_C2518132CB41 // Ini_Reg_Class
- ) .SequenceCode.It
+   Seq: ( ME_C2518132CB41 // Ini_Reg_Class
+ )
  ; // Operations
  : Dependencies
-   @ ( ME_6882B57A14C4 // 
- ) .SequenceCode.It
+   Seq: ( ME_6882B57A14C4 // 
+ )
  ; // Dependencies
  : Injected
-   @ ( WL 'ME_54EC66040088' '506AC2F00283.pas.ms.script' // 
- ) .SequenceCode.It
+   Seq: ( WL 'ME_54EC66040088' '506AC2F00283.pas.ms.script' // 
+ )
  ; // Injected
  CONST "finished" false
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" true
+ CONST dfm:PathOnly '\common\components\rtl\external\VGScene'
+ CONST intf.pas:PathOnly '\common\components\rtl\external\VGScene'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'RadioButton'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_4CFCF4840379 TvgRadioButton
 
@@ -3014,8 +3306,8 @@ ref; // ME_4D5E5ADE0011 Value
  : Parent ME_4D5E5ACA029B // SetText
  ;
  : Parameters
-   @ ( ME_4D5E5ADE0011 // Value
- ) .SequenceCode.It
+   Seq: ( ME_4D5E5ADE0011 // Value
+ )
  ; // Parameters
 
 ref; // ME_4D5E5AD3030B DoIt
@@ -3031,8 +3323,8 @@ ref; // ME_4D5E5AD3030B DoIt
  : Parent ME_4D4955ED018F // TvgTextControl
  ;
  : Operations
-   @ ( ME_4D5E5AD3030B // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_4D5E5AD3030B // DoIt
+ )
  ; // Operations
 
 ref; // ME_4D5E5ACA029B SetText
@@ -3040,6 +3332,7 @@ ref; // ME_4D5E5ACA029B SetText
 : ME_C51BCBDB734D
  CONST UID 'C51BCBDB734D'
  CONST Name 'Ini_Reg_Class'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Регистрация TvgTextControl' ;
@@ -3053,6 +3346,7 @@ ref; // ME_C51BCBDB734D Ini_Reg_Class
 
 : ME_698211B07A02
  CONST UID '698211B07A02'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_4D4955ED018F // TvgTextControl
@@ -3073,22 +3367,28 @@ ref; // ME_698211B07A02
  : Parent ME_4CFCE531013A // vg_controls
  ;
  : Inherits
-   @ ( ME_4D49560D0013 // TvgControl
- ) .SequenceCode.It
+   Seq: ( ME_4D49560D0013 // TvgControl
+ )
  ; // Inherits
  : Operations
-   @ ( ME_4D5E5ACA029B // SetText
+   Seq: ( ME_4D5E5ACA029B // SetText
  ME_C51BCBDB734D // Ini_Reg_Class
- ) .SequenceCode.It
+ )
  ; // Operations
  : Dependencies
-   @ ( ME_698211B07A02 // 
- ) .SequenceCode.It
+   Seq: ( ME_698211B07A02 // 
+ )
  ; // Dependencies
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
+ CONST dfm:PathOnly '\common\components\rtl\external\VGScene'
+ CONST intf.pas:PathOnly '\common\components\rtl\external\VGScene'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'TextControl'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_4D4955ED018F TvgTextControl
 
@@ -3115,6 +3415,7 @@ ref; // ME_4D5E5B530342 ModalResult
 : ME_D2FB674CCDC7
  CONST UID 'D2FB674CCDC7'
  CONST Name 'f_ModalResult'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY 'Поле для свойства ModalResult' ;
  CONST Visibility PrivateAccess
@@ -3124,12 +3425,14 @@ ref; // ME_4D5E5B530342 ModalResult
  ;
  : Target WL 'ME_47FE430F0088' '4799D29F033F.pas.ms.script' // TModalResult
  ;
+ CONST extprop:clearViaProperty 'ModalResult'
 
 ref; // ME_D2FB674CCDC7 f_ModalResult
 
 : ME_DD50DCE2B580
  CONST UID 'DD50DCE2B580'
  CONST Name 'Ini_Reg_Class'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Регистрация TvgCustomButton' ;
@@ -3143,6 +3446,7 @@ ref; // ME_DD50DCE2B580 Ini_Reg_Class
 
 : ME_FE9E52A2A349
  CONST UID 'FE9E52A2A349'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_4D4955DB0282 // TvgCustomButton
@@ -3163,26 +3467,32 @@ ref; // ME_FE9E52A2A349
  : Parent ME_4CFCE531013A // vg_controls
  ;
  : Inherits
-   @ ( ME_4D4955ED018F // TvgTextControl
- ) .SequenceCode.It
+   Seq: ( ME_4D4955ED018F // TvgTextControl
+ )
  ; // Inherits
  : Attributes
-   @ ( ME_4D5E5B530342 // ModalResult
+   Seq: ( ME_4D5E5B530342 // ModalResult
  ME_D2FB674CCDC7 // f_ModalResult
- ) .SequenceCode.It
+ )
  ; // Attributes
  : Operations
-   @ ( ME_DD50DCE2B580 // Ini_Reg_Class
- ) .SequenceCode.It
+   Seq: ( ME_DD50DCE2B580 // Ini_Reg_Class
+ )
  ; // Operations
  : Dependencies
-   @ ( ME_FE9E52A2A349 // 
- ) .SequenceCode.It
+   Seq: ( ME_FE9E52A2A349 // 
+ )
  ; // Dependencies
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
+ CONST dfm:PathOnly '\common\components\rtl\external\VGScene'
+ CONST intf.pas:PathOnly '\common\components\rtl\external\VGScene'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'Button'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_4D4955DB0282 TvgCustomButton
 
@@ -3227,6 +3537,7 @@ ref; // ME_4D5E5C27000E Cancel
 : ME_2B7DA9C3ED44
  CONST UID '2B7DA9C3ED44'
  CONST Name 'f_Default'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY 'Поле для свойства Default' ;
  CONST Visibility PrivateAccess
@@ -3236,12 +3547,14 @@ ref; // ME_4D5E5C27000E Cancel
  ;
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
+ CONST extprop:clearViaProperty 'Default'
 
 ref; // ME_2B7DA9C3ED44 f_Default
 
 : ME_27C179334A69
  CONST UID '27C179334A69'
  CONST Name 'f_Cancel'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY 'Поле для свойства Cancel' ;
  CONST Visibility PrivateAccess
@@ -3251,12 +3564,14 @@ ref; // ME_2B7DA9C3ED44 f_Default
  ;
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
+ CONST extprop:clearViaProperty 'Cancel'
 
 ref; // ME_27C179334A69 f_Cancel
 
 : ME_3E5523569D86
  CONST UID '3E5523569D86'
  CONST Name 'Ini_Reg_Class'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Регистрация TvgButton' ;
@@ -3270,6 +3585,7 @@ ref; // ME_3E5523569D86 Ini_Reg_Class
 
 : ME_8E771EBE85B7
  CONST UID '8E771EBE85B7'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_4CFF5690033D // TvgButton
@@ -3290,29 +3606,35 @@ ref; // ME_8E771EBE85B7
  : Parent ME_4CFCE531013A // vg_controls
  ;
  : Inherits
-   @ ( ME_4D4955DB0282 // TvgCustomButton
- ) .SequenceCode.It
+   Seq: ( ME_4D4955DB0282 // TvgCustomButton
+ )
  ; // Inherits
  : Attributes
-   @ ( ME_4D5E5C0A01E6 // Default
+   Seq: ( ME_4D5E5C0A01E6 // Default
  ME_4D5E5C27000E // Cancel
  ME_2B7DA9C3ED44 // f_Default
  ME_27C179334A69 // f_Cancel
- ) .SequenceCode.It
+ )
  ; // Attributes
  : Operations
-   @ ( ME_3E5523569D86 // Ini_Reg_Class
- ) .SequenceCode.It
+   Seq: ( ME_3E5523569D86 // Ini_Reg_Class
+ )
  ; // Operations
  : Dependencies
-   @ ( ME_8E771EBE85B7 // 
- ) .SequenceCode.It
+   Seq: ( ME_8E771EBE85B7 // 
+ )
  ; // Dependencies
  CONST "finished" false
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
+ CONST dfm:PathOnly '\common\components\rtl\external\VGScene'
+ CONST intf.pas:PathOnly '\common\components\rtl\external\VGScene'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'Button'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_4CFF5690033D TvgButton
 
@@ -3330,6 +3652,12 @@ ref; // ME_4CFF5690033D TvgButton
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
+ CONST dfm:PathOnly '\common\components\rtl\external\VGScene'
+ CONST intf.pas:PathOnly '\common\components\rtl\external\VGScene'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'CheckBox'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_4F91672600DC TvgCheckBox
 
@@ -3338,6 +3666,7 @@ FORWARD ME_4FC76491011E
 : ME_62BBB280F721
  CONST UID '62BBB280F721'
  CONST Name 'Ini_Reg_Class'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Регистрация TvgPanel' ;
@@ -3351,6 +3680,7 @@ ref; // ME_62BBB280F721 Ini_Reg_Class
 
 : ME_45C0885728AC
  CONST UID '45C0885728AC'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_4FC76491011E // TvgPanel
@@ -3371,21 +3701,27 @@ ref; // ME_45C0885728AC
  : Parent ME_4CFCE531013A // vg_controls
  ;
  : Inherits
-   @ ( ME_4D49560D0013 // TvgControl
- ) .SequenceCode.It
+   Seq: ( ME_4D49560D0013 // TvgControl
+ )
  ; // Inherits
  : Operations
-   @ ( ME_62BBB280F721 // Ini_Reg_Class
- ) .SequenceCode.It
+   Seq: ( ME_62BBB280F721 // Ini_Reg_Class
+ )
  ; // Operations
  : Dependencies
-   @ ( ME_45C0885728AC // 
- ) .SequenceCode.It
+   Seq: ( ME_45C0885728AC // 
+ )
  ; // Dependencies
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
+ CONST dfm:PathOnly '\common\components\rtl\external\VGScene'
+ CONST intf.pas:PathOnly '\common\components\rtl\external\VGScene'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'Panel'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_4FC76491011E TvgPanel
 
@@ -3394,6 +3730,7 @@ FORWARD ME_4FC7649B002C
 : ME_200A4E73847E
  CONST UID '200A4E73847E'
  CONST Name 'Ini_Reg_Class'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Регистрация TvgCalloutPanel' ;
@@ -3407,6 +3744,7 @@ ref; // ME_200A4E73847E Ini_Reg_Class
 
 : ME_D86652FBABB3
  CONST UID 'D86652FBABB3'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_4FC7649B002C // TvgCalloutPanel
@@ -3427,21 +3765,27 @@ ref; // ME_D86652FBABB3
  : Parent ME_4CFCE531013A // vg_controls
  ;
  : Inherits
-   @ ( ME_4FC76491011E // TvgPanel
- ) .SequenceCode.It
+   Seq: ( ME_4FC76491011E // TvgPanel
+ )
  ; // Inherits
  : Operations
-   @ ( ME_200A4E73847E // Ini_Reg_Class
- ) .SequenceCode.It
+   Seq: ( ME_200A4E73847E // Ini_Reg_Class
+ )
  ; // Operations
  : Dependencies
-   @ ( ME_D86652FBABB3 // 
- ) .SequenceCode.It
+   Seq: ( ME_D86652FBABB3 // 
+ )
  ; // Dependencies
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
+ CONST dfm:PathOnly '\common\components\rtl\external\VGScene'
+ CONST intf.pas:PathOnly '\common\components\rtl\external\VGScene'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'CalloutPanel'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_4FC7649B002C TvgCalloutPanel
 
@@ -3456,7 +3800,7 @@ ref; // ME_4FC7649B002C TvgCalloutPanel
  : Parent ME_4CFCE51A00B0 // Impl
  ;
  : Children
-   @ ( ME_4CFCE54B01B0 // TvgPathButton
+   Seq: ( ME_4CFCE54B01B0 // TvgPathButton
  ME_4CFCE5A10367 // TvgCloseButton
  ME_4CFCF4840379 // TvgRadioButton
  ME_4D4955ED018F // TvgTextControl
@@ -3465,16 +3809,16 @@ ref; // ME_4FC7649B002C TvgCalloutPanel
  ME_4F91672600DC // TvgCheckBox
  ME_4FC76491011E // TvgPanel
  ME_4FC7649B002C // TvgCalloutPanel
- ) .SequenceCode.It
+ )
  ; // Children
  CONST "finished" false
  CONST "no hands" false
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\external\VGScene'
  CONST intf.pas:Path 'common\components\rtl\external\VGScene\NOT_FINISHED_vg_controls.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\external\VGScene'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName '_controls'
 
 ref; // ME_4CFCE531013A vg_controls
 
@@ -3500,6 +3844,7 @@ ref; // ME_4D5EA60D03A1 ItemType
  ;
  : Implementor ME_4D5EA5E5035E // TvgVisualObjectList
  ;
+ CONST OpKind opkind_Implemented
  CONST "ifndef" 'l3Items_IsAtomic'
 ref; // ME_47B07CF403D0_ME_4D5EA5E5035E IsSameItems
 
@@ -3510,6 +3855,7 @@ ref; // ME_47B07CF403D0_ME_4D5EA5E5035E IsSameItems
  ;
  : Implementor ME_4D5EA5E5035E // TvgVisualObjectList
  ;
+ CONST OpKind opkind_Implemented
  CONST "ifdef" 'l3Items_NeedsAssignItem'
  CONST "ifndef" 'l3Items_NoSort'
 ref; // ME_47B2C42A0163_ME_4D5EA5E5035E AssignItem
@@ -3521,6 +3867,7 @@ ref; // ME_47B2C42A0163_ME_4D5EA5E5035E AssignItem
  ;
  : Implementor ME_4D5EA5E5035E // TvgVisualObjectList
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_47B99D4503A2_ME_4D5EA5E5035E CompareExistingItems
 
 : ME_4D5EA5E5035E
@@ -3534,19 +3881,19 @@ ref; // ME_47B99D4503A2_ME_4D5EA5E5035E CompareExistingItems
  : Parent ME_4CFCE51A00B0 // Impl
  ;
  : Inherits
-   @ ( WL 'ME_47B5782902DA' '47913B47006E.pas.ms.script' // l3PtrList
+   Seq: ( WL 'ME_47B5782902DA' '47913B47006E.pas.ms.script' // l3PtrList
  WL 'ME_4A54DD4E036F' '47913B47006E.pas.ms.script' // Tl3ProtoDataContainer
- ) .SequenceCode.It
+ )
  ; // Inherits
  : Attributes
-   @ ( ME_4D5EA60D03A1 // ItemType
- ) .SequenceCode.It
+   Seq: ( ME_4D5EA60D03A1 // ItemType
+ )
  ; // Attributes
  : Implemented
-   @ ( ME_47B07CF403D0_ME_4D5EA5E5035E // IsSameItems
+   Seq: ( ME_47B07CF403D0_ME_4D5EA5E5035E // IsSameItems
  ME_47B2C42A0163_ME_4D5EA5E5035E // AssignItem
  ME_47B99D4503A2_ME_4D5EA5E5035E // CompareExistingItems
- ) .SequenceCode.It
+ )
  ; // Implemented
  CONST "author" 'Люлин А.В.'
  CONST "needs InstanceR" 'undefined'
@@ -3554,12 +3901,14 @@ ref; // ME_47B99D4503A2_ME_4D5EA5E5035E CompareExistingItems
  CONST "no hands" true
  CONST "register in scripts" 'undefined'
  CONST "started" '18.02.2011 20:01'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\external\VGScene'
  CONST intf.pas:Path 'common\components\rtl\external\VGScene\vgVisualObjectList.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\external\VGScene'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'VisualObjectList'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'vgVisualObjectList'
 
 ref; // ME_4D5EA5E5035E TvgVisualObjectList
 
@@ -3570,6 +3919,7 @@ FORWARD ME_4CFE0E4401D1
 : ME_374E9B00CD5C
  CONST UID '374E9B00CD5C'
  CONST Name 'Ini_Reg_Class'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Регистрация TvgStringComboBox' ;
@@ -3583,6 +3933,7 @@ ref; // ME_374E9B00CD5C Ini_Reg_Class
 
 : ME_9A2747EFCAE4
  CONST UID '9A2747EFCAE4'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_4CFE0E4401D1 // TvgStringComboBox
@@ -3603,22 +3954,28 @@ ref; // ME_9A2747EFCAE4
  : Parent ME_4CFE0E330363 // vg_listbox
  ;
  : Inherits
-   @ ( ME_4D4955ED018F // TvgTextControl
- ) .SequenceCode.It
+   Seq: ( ME_4D4955ED018F // TvgTextControl
+ )
  ; // Inherits
  : Operations
-   @ ( ME_374E9B00CD5C // Ini_Reg_Class
- ) .SequenceCode.It
+   Seq: ( ME_374E9B00CD5C // Ini_Reg_Class
+ )
  ; // Operations
  : Dependencies
-   @ ( ME_9A2747EFCAE4 // 
- ) .SequenceCode.It
+   Seq: ( ME_9A2747EFCAE4 // 
+ )
  ; // Dependencies
  CONST "finished" false
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
+ CONST dfm:PathOnly '\common\components\rtl\external\VGScene'
+ CONST intf.pas:PathOnly '\common\components\rtl\external\VGScene'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'StringComboBox'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_4CFE0E4401D1 TvgStringComboBox
 
@@ -3627,6 +3984,7 @@ FORWARD ME_4D3D71CE0254
 : ME_B4CE53B72C0F
  CONST UID 'B4CE53B72C0F'
  CONST Name 'Ini_Reg_Class'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Регистрация TvgComboBox' ;
@@ -3640,6 +3998,7 @@ ref; // ME_B4CE53B72C0F Ini_Reg_Class
 
 : ME_2281BA6E35C7
  CONST UID '2281BA6E35C7'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_4D3D71CE0254 // TvgComboBox
@@ -3660,26 +4019,32 @@ ref; // ME_2281BA6E35C7
  : Parent ME_4CFE0E330363 // vg_listbox
  ;
  : Inherits
-   @ ( ME_4D49560D0013 // TvgControl
- ) .SequenceCode.It
+   Seq: ( ME_4D49560D0013 // TvgControl
+ )
  ; // Inherits
  : Operations
-   @ ( ME_B4CE53B72C0F // Ini_Reg_Class
- ) .SequenceCode.It
+   Seq: ( ME_B4CE53B72C0F // Ini_Reg_Class
+ )
  ; // Operations
  : Dependencies
-   @ ( ME_2281BA6E35C7 // 
- ) .SequenceCode.It
+   Seq: ( ME_2281BA6E35C7 // 
+ )
  ; // Dependencies
  : Injected
-   @ ( WL 'ME_7B15BCFFD9FF' '506AC2F00283.pas.ms.script' // 
- ) .SequenceCode.It
+   Seq: ( WL 'ME_7B15BCFFD9FF' '506AC2F00283.pas.ms.script' // 
+ )
  ; // Injected
  CONST "finished" false
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
+ CONST dfm:PathOnly '\common\components\rtl\external\VGScene'
+ CONST intf.pas:PathOnly '\common\components\rtl\external\VGScene'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'ComboBox'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_4D3D71CE0254 TvgComboBox
 
@@ -3688,6 +4053,7 @@ FORWARD ME_4D49985C0087
 : ME_A3237655D225
  CONST UID 'A3237655D225'
  CONST Name 'Ini_Reg_Class'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Регистрация TvgListBoxItem' ;
@@ -3701,6 +4067,7 @@ ref; // ME_A3237655D225 Ini_Reg_Class
 
 : ME_2A18B2F075D8
  CONST UID '2A18B2F075D8'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_4D49985C0087 // TvgListBoxItem
@@ -3721,21 +4088,27 @@ ref; // ME_2A18B2F075D8
  : Parent ME_4CFE0E330363 // vg_listbox
  ;
  : Inherits
-   @ ( ME_4D4955ED018F // TvgTextControl
- ) .SequenceCode.It
+   Seq: ( ME_4D4955ED018F // TvgTextControl
+ )
  ; // Inherits
  : Operations
-   @ ( ME_A3237655D225 // Ini_Reg_Class
- ) .SequenceCode.It
+   Seq: ( ME_A3237655D225 // Ini_Reg_Class
+ )
  ; // Operations
  : Dependencies
-   @ ( ME_2A18B2F075D8 // 
- ) .SequenceCode.It
+   Seq: ( ME_2A18B2F075D8 // 
+ )
  ; // Dependencies
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
+ CONST dfm:PathOnly '\common\components\rtl\external\VGScene'
+ CONST intf.pas:PathOnly '\common\components\rtl\external\VGScene'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'ListBoxItem'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_4D49985C0087 TvgListBoxItem
 
@@ -3749,10 +4122,20 @@ ref; // ME_4D49985C0087 TvgListBoxItem
  CONST Abstraction at_regular
  : Parent ME_4CFE0E330363 // vg_listbox
  ;
+ : Implements
+   Seq: ( WL 'ME_4E650495010D' '4E650454009C.pas.ms.script' // Выпадающие списки должны уметь перемещать подсветку вслед за мышиным курсором
+ )
+ ; // Implements
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
+ CONST dfm:PathOnly '\common\components\rtl\external\VGScene'
+ CONST intf.pas:PathOnly '\common\components\rtl\external\VGScene'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'ListBox'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_4E65E22D010C TvgListBox
 
@@ -3767,20 +4150,20 @@ ref; // ME_4E65E22D010C TvgListBox
  : Parent ME_4CFCE51A00B0 // Impl
  ;
  : Children
-   @ ( ME_4CFE0E4401D1 // TvgStringComboBox
+   Seq: ( ME_4CFE0E4401D1 // TvgStringComboBox
  ME_4D3D71CE0254 // TvgComboBox
  ME_4D49985C0087 // TvgListBoxItem
  ME_4E65E22D010C // TvgListBox
- ) .SequenceCode.It
+ )
  ; // Children
  CONST "finished" false
  CONST "no hands" false
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\external\VGScene'
  CONST intf.pas:Path 'common\components\rtl\external\VGScene\NOT_FINISHED_vg_listbox.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\external\VGScene'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName '_listbox'
 
 ref; // ME_4CFE0E330363 vg_listbox
 
@@ -3791,6 +4174,7 @@ FORWARD ME_5326B4F301BF
 : ME_BEABC846A02F
  CONST UID 'BEABC846A02F'
  CONST Name 'Ini_Reg_Class'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Регистрация TvgBitmapObject' ;
@@ -3804,6 +4188,7 @@ ref; // ME_BEABC846A02F Ini_Reg_Class
 
 : ME_1E679EEAB767
  CONST UID '1E679EEAB767'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_5326B4F301BF // TvgBitmapObject
@@ -3824,21 +4209,27 @@ ref; // ME_1E679EEAB767
  : Parent ME_4D5415920189 // TvgBitmap
  ;
  : Inherits
-   @ ( ME_4D4956480326 // TvgObject
- ) .SequenceCode.It
+   Seq: ( ME_4D4956480326 // TvgObject
+ )
  ; // Inherits
  : Operations
-   @ ( ME_BEABC846A02F // Ini_Reg_Class
- ) .SequenceCode.It
+   Seq: ( ME_BEABC846A02F // Ini_Reg_Class
+ )
  ; // Operations
  : Dependencies
-   @ ( ME_1E679EEAB767 // 
- ) .SequenceCode.It
+   Seq: ( ME_1E679EEAB767 // 
+ )
  ; // Dependencies
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
+ CONST dfm:PathOnly '\common\components\rtl\external\VGScene'
+ CONST intf.pas:PathOnly '\common\components\rtl\external\VGScene'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'BitmapObject'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_5326B4F301BF TvgBitmapObject
 
@@ -3853,24 +4244,26 @@ ref; // ME_5326B4F301BF TvgBitmapObject
  : Parent ME_4CFCE51A00B0 // Impl
  ;
  : Inherits
-   @ ( WL 'ME_4D542A150195' '4D542052038D.pas.ms.script' // TvgCustomBitmap
- ) .SequenceCode.It
+   Seq: ( WL 'ME_4D542A150195' '4D542052038D.pas.ms.script' // TvgCustomBitmap
+ )
  ; // Inherits
  : Children
-   @ ( ME_5326B4F301BF // TvgBitmapObject
- ) .SequenceCode.It
+   Seq: ( ME_5326B4F301BF // TvgBitmapObject
+ )
  ; // Children
  CONST "finished" false
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\external\VGScene'
  CONST intf.pas:Path 'common\components\rtl\external\VGScene\NOT_FINISHED_vgBitmap.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\external\VGScene'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'Bitmap'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'vgBitmap'
 
 ref; // ME_4D5415920189 TvgBitmap
 
@@ -3885,20 +4278,22 @@ ref; // ME_4D5415920189 TvgBitmap
  : Parent ME_4CFCE51A00B0 // Impl
  ;
  : Inherits
-   @ ( WL 'ME_4D52A6B50343' '4D52A63D0365.pas.ms.script' // TvgPersistent
- ) .SequenceCode.It
+   Seq: ( WL 'ME_4D52A6B50343' '4D52A63D0365.pas.ms.script' // TvgPersistent
+ )
  ; // Inherits
  CONST "finished" false
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\external\VGScene'
  CONST intf.pas:Path 'common\components\rtl\external\VGScene\NOT_FINISHED_vgBrushBitmap.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\external\VGScene'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'BrushBitmap'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'vgBrushBitmap'
 
 ref; // ME_4D5EC60E0068 TvgBrushBitmap
 
@@ -3918,6 +4313,12 @@ FORWARD ME_53297E2801A1
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
+ CONST dfm:PathOnly '\common\components\rtl\external\VGScene'
+ CONST intf.pas:PathOnly '\common\components\rtl\external\VGScene'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'ImageList'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_53297E3902D5 TvgImageList
 
@@ -3932,17 +4333,17 @@ ref; // ME_53297E3902D5 TvgImageList
  : Parent ME_4CFCE51A00B0 // Impl
  ;
  : Children
-   @ ( ME_53297E3902D5 // TvgImageList
- ) .SequenceCode.It
+   Seq: ( ME_53297E3902D5 // TvgImageList
+ )
  ; // Children
  CONST "finished" false
  CONST "no hands" false
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\external\VGScene'
  CONST intf.pas:Path 'common\components\rtl\external\VGScene\NOT_FINISHED_vg_actions.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\external\VGScene'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName '_actions'
 
 ref; // ME_53297E2801A1 vg_actions
 
@@ -4003,6 +4404,7 @@ ref; // ME_533E70E500C8
  ;
  : Implementor ME_533E6FDD018D // TvgRectList
  ;
+ CONST OpKind opkind_Implemented
  CONST "ifndef" 'l3Items_IsAtomic'
 ref; // ME_47B07CF403D0_ME_533E6FDD018D IsSameItems
 
@@ -4013,6 +4415,7 @@ ref; // ME_47B07CF403D0_ME_533E6FDD018D IsSameItems
  ;
  : Implementor ME_533E6FDD018D // TvgRectList
  ;
+ CONST OpKind opkind_Implemented
  CONST "ifdef" 'l3Items_NeedsAssignItem'
  CONST "ifndef" 'l3Items_NoSort'
 ref; // ME_47B2C42A0163_ME_533E6FDD018D AssignItem
@@ -4024,6 +4427,7 @@ ref; // ME_47B2C42A0163_ME_533E6FDD018D AssignItem
  ;
  : Implementor ME_533E6FDD018D // TvgRectList
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_47B99D4503A2_ME_533E6FDD018D CompareExistingItems
 
 : ME_533E6FDD018D
@@ -4037,39 +4441,41 @@ ref; // ME_47B99D4503A2_ME_533E6FDD018D CompareExistingItems
  : Parent ME_4CFCE51A00B0 // Impl
  ;
  : Inherits
-   @ ( WL 'ME_4A54DD4E036F' '47913B47006E.pas.ms.script' // Tl3ProtoDataContainer
- ) .SequenceCode.It
+   Seq: ( WL 'ME_4A54DD4E036F' '47913B47006E.pas.ms.script' // Tl3ProtoDataContainer
+ )
  ; // Inherits
  : Implements
-   @ ( WL 'ME_4B223ADC02BF' '47913B47006E.pas.ms.script' // l3RecordListPrim
- ) .SequenceCode.It
+   Seq: ( WL 'ME_4B223ADC02BF' '47913B47006E.pas.ms.script' // l3RecordListPrim
+ )
  ; // Implements
  : Attributes
-   @ ( ME_533E706E000A // ItemType
- ) .SequenceCode.It
+   Seq: ( ME_533E706E000A // ItemType
+ )
  ; // Attributes
  : Implemented
-   @ ( ME_47B07CF403D0_ME_533E6FDD018D // IsSameItems
+   Seq: ( ME_47B07CF403D0_ME_533E6FDD018D // IsSameItems
  ME_47B2C42A0163_ME_533E6FDD018D // AssignItem
  ME_47B99D4503A2_ME_533E6FDD018D // CompareExistingItems
- ) .SequenceCode.It
+ )
  ; // Implemented
  : Dependencies
-   @ ( ME_533E70D50359 // 
+   Seq: ( ME_533E70D50359 // 
  ME_533E70E00321 // 
  ME_533E70E500C8 // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\external\VGScene'
  CONST intf.pas:Path 'common\components\rtl\external\VGScene\vgRectList.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\external\VGScene'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'RectList'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'vgRectList'
 
 ref; // ME_533E6FDD018D TvgRectList
 
@@ -4078,6 +4484,7 @@ FORWARD ME_551ABD0E013B
 : ME_635D6B94DFCC
  CONST UID '635D6B94DFCC'
  CONST Name 'bind'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Регистрация TvgGetComponentFromPointImpl' ;
@@ -4091,6 +4498,7 @@ ref; // ME_635D6B94DFCC bind
 : ME_CEA60D4CB2D9
  CONST UID 'CEA60D4CB2D9'
  CONST Name 'Exists'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_static::Operation ;
  %SUMMARY 'Проверяет создан экземпляр синглетона или нет' ;
@@ -4100,6 +4508,7 @@ ref; // ME_635D6B94DFCC bind
  ;
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
+ CONST extprop:pas:Value false
 
 ref; // ME_CEA60D4CB2D9 Exists
 
@@ -4121,6 +4530,7 @@ ref; // ME_551ACCA50238
  ;
  : Implementor ME_551ABD0E013B // TvgGetComponentFromPointImpl
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_77F02E022F3C_ME_551ABD0E013B GetComponent
 
 : ME_551ABD0E013B
@@ -4134,31 +4544,37 @@ ref; // ME_77F02E022F3C_ME_551ABD0E013B GetComponent
  : Parent ME_551ABCF10068 // vg_services
  ;
  : Inherits
-   @ ( WL 'ME_49E7754802A9' '47913B47006E.pas.ms.script' // Tl3ProtoObject
- ) .SequenceCode.It
+   Seq: ( WL 'ME_49E7754802A9' '47913B47006E.pas.ms.script' // Tl3ProtoObject
+ )
  ; // Inherits
  : Implements
-   @ ( WL 'ME_90623703A4D4' '55001317029B.pas.ms.script' // Il3GetComponentFromPointHelper
- ) .SequenceCode.It
+   Seq: ( WL 'ME_90623703A4D4' '55001317029B.pas.ms.script' // Il3GetComponentFromPointHelper
+ )
  ; // Implements
  : Operations
-   @ ( ME_635D6B94DFCC // bind
+   Seq: ( ME_635D6B94DFCC // bind
  ME_CEA60D4CB2D9 // Exists
- ) .SequenceCode.It
+ )
  ; // Operations
  : Implemented
-   @ ( ME_77F02E022F3C_ME_551ABD0E013B // GetComponent
- ) .SequenceCode.It
+   Seq: ( ME_77F02E022F3C_ME_551ABD0E013B // GetComponent
+ )
  ; // Implemented
  : Dependencies
-   @ ( ME_551ACCA50238 // 
- ) .SequenceCode.It
+   Seq: ( ME_551ACCA50238 // 
+ )
  ; // Dependencies
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
  CONST "singleton" true
+ CONST dfm:PathOnly '\common\components\rtl\external\VGScene'
+ CONST intf.pas:PathOnly '\common\components\rtl\external\VGScene'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'GetComponentFromPointImpl'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_551ABD0E013B TvgGetComponentFromPointImpl
 
@@ -4167,6 +4583,7 @@ FORWARD ME_551BCE070003
 : ME_14F744894DB1
  CONST UID '14F744894DB1'
  CONST Name 'bind'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Регистрация TvgFormatObjectInfoImpl' ;
@@ -4180,6 +4597,7 @@ ref; // ME_14F744894DB1 bind
 : ME_E73FBCF56189
  CONST UID 'E73FBCF56189'
  CONST Name 'Exists'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_static::Operation ;
  %SUMMARY 'Проверяет создан экземпляр синглетона или нет' ;
@@ -4189,6 +4607,7 @@ ref; // ME_14F744894DB1 bind
  ;
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
+ CONST extprop:pas:Value false
 
 ref; // ME_E73FBCF56189 Exists
 
@@ -4254,6 +4673,7 @@ ref; // ME_551BE908028E
  ;
  : Implementor ME_551BCE070003 // TvgFormatObjectInfoImpl
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_D4A861440DBF_ME_551BCE070003 Format
 
 : ME_551BCE070003
@@ -4267,35 +4687,41 @@ ref; // ME_D4A861440DBF_ME_551BCE070003 Format
  : Parent ME_551ABCF10068 // vg_services
  ;
  : Inherits
-   @ ( WL 'ME_49E7754802A9' '47913B47006E.pas.ms.script' // Tl3ProtoObject
- ) .SequenceCode.It
+   Seq: ( WL 'ME_49E7754802A9' '47913B47006E.pas.ms.script' // Tl3ProtoObject
+ )
  ; // Inherits
  : Implements
-   @ ( WL 'ME_5DD0A3AA9AB2' '55001317029B.pas.ms.script' // Il3FormatObjectInfoHelper
- ) .SequenceCode.It
+   Seq: ( WL 'ME_5DD0A3AA9AB2' '55001317029B.pas.ms.script' // Il3FormatObjectInfoHelper
+ )
  ; // Implements
  : Operations
-   @ ( ME_14F744894DB1 // bind
+   Seq: ( ME_14F744894DB1 // bind
  ME_E73FBCF56189 // Exists
- ) .SequenceCode.It
+ )
  ; // Operations
  : Implemented
-   @ ( ME_D4A861440DBF_ME_551BCE070003 // Format
- ) .SequenceCode.It
+   Seq: ( ME_D4A861440DBF_ME_551BCE070003 // Format
+ )
  ; // Implemented
  : Dependencies
-   @ ( ME_551BCE1702D0 // 
+   Seq: ( ME_551BCE1702D0 // 
  ME_551BCEFD03E6 // 
  ME_551BD0250273 // 
  ME_551BD05A0236 // 
  ME_551BE908028E // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
  CONST "singleton" true
+ CONST dfm:PathOnly '\common\components\rtl\external\VGScene'
+ CONST intf.pas:PathOnly '\common\components\rtl\external\VGScene'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'FormatObjectInfoImpl'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_551BCE070003 TvgFormatObjectInfoImpl
 
@@ -4304,6 +4730,7 @@ FORWARD ME_551C4D2300E5
 : ME_F7C4A295A940
  CONST UID 'F7C4A295A940'
  CONST Name 'bind'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Регистрация TvgIterateComponentsImpl' ;
@@ -4317,6 +4744,7 @@ ref; // ME_F7C4A295A940 bind
 : ME_CAD388D21A85
  CONST UID 'CAD388D21A85'
  CONST Name 'Exists'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_static::Operation ;
  %SUMMARY 'Проверяет создан экземпляр синглетона или нет' ;
@@ -4326,6 +4754,7 @@ ref; // ME_F7C4A295A940 bind
  ;
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
+ CONST extprop:pas:Value false
 
 ref; // ME_CAD388D21A85 Exists
 
@@ -4369,6 +4798,7 @@ ref; // ME_551C4D610171
  ;
  : Implementor ME_551C4D2300E5 // TvgIterateComponentsImpl
  ;
+ CONST OpKind opkind_Implemented
  CONST "needs index" 'undefined'
  CONST "needs result" 'undefined'
 ref; // ME_3410F441967F_ME_551C4D2300E5 IterateF
@@ -4384,33 +4814,39 @@ ref; // ME_3410F441967F_ME_551C4D2300E5 IterateF
  : Parent ME_551ABCF10068 // vg_services
  ;
  : Inherits
-   @ ( WL 'ME_49E7754802A9' '47913B47006E.pas.ms.script' // Tl3ProtoObject
- ) .SequenceCode.It
+   Seq: ( WL 'ME_49E7754802A9' '47913B47006E.pas.ms.script' // Tl3ProtoObject
+ )
  ; // Inherits
  : Implements
-   @ ( WL 'ME_7D793C9B4E2A' '55001317029B.pas.ms.script' // Il3IterateComponentParents
- ) .SequenceCode.It
+   Seq: ( WL 'ME_7D793C9B4E2A' '55001317029B.pas.ms.script' // Il3IterateComponentParents
+ )
  ; // Implements
  : Operations
-   @ ( ME_F7C4A295A940 // bind
+   Seq: ( ME_F7C4A295A940 // bind
  ME_CAD388D21A85 // Exists
- ) .SequenceCode.It
+ )
  ; // Operations
  : Implemented
-   @ ( ME_3410F441967F_ME_551C4D2300E5 // IterateF
- ) .SequenceCode.It
+   Seq: ( ME_3410F441967F_ME_551C4D2300E5 // IterateF
+ )
  ; // Implemented
  : Dependencies
-   @ ( ME_551C4D340171 // 
+   Seq: ( ME_551C4D340171 // 
  ME_551C4D46017C // 
  ME_551C4D610171 // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
  CONST "singleton" true
+ CONST dfm:PathOnly '\common\components\rtl\external\VGScene'
+ CONST intf.pas:PathOnly '\common\components\rtl\external\VGScene'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'IterateComponentsImpl'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_551C4D2300E5 TvgIterateComponentsImpl
 
@@ -4419,6 +4855,7 @@ FORWARD ME_55226D5F0212
 : ME_EADF30761AAB
  CONST UID 'EADF30761AAB'
  CONST Name 'bind'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Регистрация TvgGetCaptureImpl' ;
@@ -4432,6 +4869,7 @@ ref; // ME_EADF30761AAB bind
 : ME_2185E22D7EBA
  CONST UID '2185E22D7EBA'
  CONST Name 'Exists'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_static::Operation ;
  %SUMMARY 'Проверяет создан экземпляр синглетона или нет' ;
@@ -4441,6 +4879,7 @@ ref; // ME_EADF30761AAB bind
  ;
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
+ CONST extprop:pas:Value false
 
 ref; // ME_2185E22D7EBA Exists
 
@@ -4462,6 +4901,7 @@ ref; // ME_55226D830172
  ;
  : Implementor ME_55226D5F0212 // TvgGetCaptureImpl
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_FC96CEF34C46_ME_55226D5F0212 GetCapture
 
 : ME_55226D5F0212
@@ -4475,31 +4915,37 @@ ref; // ME_FC96CEF34C46_ME_55226D5F0212 GetCapture
  : Parent ME_551ABCF10068 // vg_services
  ;
  : Inherits
-   @ ( WL 'ME_49E7754802A9' '47913B47006E.pas.ms.script' // Tl3ProtoObject
- ) .SequenceCode.It
+   Seq: ( WL 'ME_49E7754802A9' '47913B47006E.pas.ms.script' // Tl3ProtoObject
+ )
  ; // Inherits
  : Implements
-   @ ( WL 'ME_23B04EF2BA04' '55001317029B.pas.ms.script' // Il3GetCaptureHelper
- ) .SequenceCode.It
+   Seq: ( WL 'ME_23B04EF2BA04' '55001317029B.pas.ms.script' // Il3GetCaptureHelper
+ )
  ; // Implements
  : Operations
-   @ ( ME_EADF30761AAB // bind
+   Seq: ( ME_EADF30761AAB // bind
  ME_2185E22D7EBA // Exists
- ) .SequenceCode.It
+ )
  ; // Operations
  : Implemented
-   @ ( ME_FC96CEF34C46_ME_55226D5F0212 // GetCapture
- ) .SequenceCode.It
+   Seq: ( ME_FC96CEF34C46_ME_55226D5F0212 // GetCapture
+ )
  ; // Implemented
  : Dependencies
-   @ ( ME_55226D830172 // 
- ) .SequenceCode.It
+   Seq: ( ME_55226D830172 // 
+ )
  ; // Dependencies
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
  CONST "singleton" true
+ CONST dfm:PathOnly '\common\components\rtl\external\VGScene'
+ CONST intf.pas:PathOnly '\common\components\rtl\external\VGScene'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'GetCaptureImpl'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_55226D5F0212 TvgGetCaptureImpl
 
@@ -4508,6 +4954,7 @@ FORWARD ME_5522D81901CB
 : ME_00AAD172BF27
  CONST UID '00AAD172BF27'
  CONST Name 'bind'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Регистрация TvgGetComponentBoundsImpl' ;
@@ -4521,6 +4968,7 @@ ref; // ME_00AAD172BF27 bind
 : ME_9267CDABE2EB
  CONST UID '9267CDABE2EB'
  CONST Name 'Exists'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_static::Operation ;
  %SUMMARY 'Проверяет создан экземпляр синглетона или нет' ;
@@ -4530,6 +4978,7 @@ ref; // ME_00AAD172BF27 bind
  ;
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
+ CONST extprop:pas:Value false
 
 ref; // ME_9267CDABE2EB Exists
 
@@ -4562,6 +5011,7 @@ ref; // ME_5523BFFB0314
  ;
  : Implementor ME_5522D81901CB // TvgGetComponentBoundsImpl
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_BB0BB5CAA29B_ME_5522D81901CB GetBounds
 
 : ME_5522D81901CB
@@ -4575,32 +5025,38 @@ ref; // ME_BB0BB5CAA29B_ME_5522D81901CB GetBounds
  : Parent ME_551ABCF10068 // vg_services
  ;
  : Inherits
-   @ ( WL 'ME_49E7754802A9' '47913B47006E.pas.ms.script' // Tl3ProtoObject
- ) .SequenceCode.It
+   Seq: ( WL 'ME_49E7754802A9' '47913B47006E.pas.ms.script' // Tl3ProtoObject
+ )
  ; // Inherits
  : Implements
-   @ ( WL 'ME_DFD91650A75C' '55001317029B.pas.ms.script' // Il3GetComponentBoundsHelper
- ) .SequenceCode.It
+   Seq: ( WL 'ME_DFD91650A75C' '55001317029B.pas.ms.script' // Il3GetComponentBoundsHelper
+ )
  ; // Implements
  : Operations
-   @ ( ME_00AAD172BF27 // bind
+   Seq: ( ME_00AAD172BF27 // bind
  ME_9267CDABE2EB // Exists
- ) .SequenceCode.It
+ )
  ; // Operations
  : Implemented
-   @ ( ME_BB0BB5CAA29B_ME_5522D81901CB // GetBounds
- ) .SequenceCode.It
+   Seq: ( ME_BB0BB5CAA29B_ME_5522D81901CB // GetBounds
+ )
  ; // Implemented
  : Dependencies
-   @ ( ME_5522D8520273 // 
+   Seq: ( ME_5522D8520273 // 
  ME_5523BFFB0314 // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
  CONST "singleton" true
+ CONST dfm:PathOnly '\common\components\rtl\external\VGScene'
+ CONST intf.pas:PathOnly '\common\components\rtl\external\VGScene'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'GetComponentBoundsImpl'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_5522D81901CB TvgGetComponentBoundsImpl
 
@@ -4648,26 +5104,26 @@ ref; // ME_551BCEB70353
  : Parent ME_4CFCE51A00B0 // Impl
  ;
  : Children
-   @ ( ME_551ABD0E013B // TvgGetComponentFromPointImpl
+   Seq: ( ME_551ABD0E013B // TvgGetComponentFromPointImpl
  ME_551BCE070003 // TvgFormatObjectInfoImpl
  ME_551C4D2300E5 // TvgIterateComponentsImpl
  ME_55226D5F0212 // TvgGetCaptureImpl
  ME_5522D81901CB // TvgGetComponentBoundsImpl
- ) .SequenceCode.It
+ )
  ; // Children
  : Dependencies
-   @ ( ME_551ABD3A002F // 
+   Seq: ( ME_551ABD3A002F // 
  ME_551BCEA80264 // 
  ME_551BCEB70353 // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  CONST "no hands" false
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\external\VGScene'
  CONST intf.pas:Path 'common\components\rtl\external\VGScene\vg_services.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\external\VGScene'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName '_services'
 
 ref; // ME_551ABCF10068 vg_services
 
@@ -4681,7 +5137,7 @@ ref; // ME_551ABCF10068 vg_services
  : Parent WL 'ME_4CFCE4F203CE' '4CFCE4F203CE.pas.ms.script' // VGScene
  ;
  : Children
-   @ ( ME_4D555D3201E9 // TvgCustomGradientPoint
+   Seq: ( ME_4D555D3201E9 // TvgCustomGradientPoint
  ME_4D555E3901BF // TvgGradientPoint
  ME_4CFE2C72021C // vg_objects
  ME_4D55623200CE // TvgGradientPoints
@@ -4707,10 +5163,10 @@ ref; // ME_551ABCF10068 vg_services
  ME_53297E2801A1 // vg_actions
  ME_533E6FDD018D // TvgRectList
  ME_551ABCF10068 // vg_services
- ) .SequenceCode.It
+ )
  ; // Children
  : Depends
-   @ ( WL 'ME_47913B47006E' '47913B47006E.pas.ms.script' // l3CoreObjects
+   Seq: ( WL 'ME_47913B47006E' '47913B47006E.pas.ms.script' // l3CoreObjects
  WL 'ME_4799D29F033F' '4799D29F033F.pas.ms.script' // Implementation
  WL 'ME_49EF33F700C2' '49EF33F700C2.pas.ms.script' // ControlsMixIns
  WL 'ME_4AB0997B00A2' '4AB0997B00A2.pas.ms.script' // Common
@@ -4721,18 +5177,17 @@ ref; // ME_551ABCF10068 vg_services
  WL 'ME_4D5420EC039D' '4D5420EC039D.pas.ms.script' // vgTypes
  WL 'ME_4D550C220363' '4D550C220363.pas.ms.script' // vgInterfaces
  WL 'ME_4D551198021D' '4D551198021D.pas.ms.script' // lulin1
+ WL 'ME_4E650454009C' '4E650454009C.pas.ms.script' // Требования к контролам VGScene
  WL 'ME_5012CA2D0012' '5012CA2D0012.pas.ms.script' // l3TestUtils
  WL 'ME_55001317029B' '55001317029B.pas.ms.script' // VCLHelpers
  WL 'ME_561F9F7D02A7' '561F9F7D02A7.pas.ms.script' // ScriptEngine
- ) .SequenceCode.It
+ )
  ; // Depends
- : Generators
- @ (
- gen_pas.script
- gen_pas.script.runner
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\external\VGScene'
+ CONST intf.pas:PathOnly '\common\components\rtl\external\VGScene'
  CONST pas.script:Path 'shared\models\NewSchool\Scripts\4CFCE51A00B0.pas.ms.script'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
  CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\4CFCE51A00B0.pas.ms.script.runner'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_4CFCE51A00B0 Impl

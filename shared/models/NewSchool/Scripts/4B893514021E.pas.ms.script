@@ -40,8 +40,8 @@ ref; // ME_48E23443017A anOwner
  : Parent ME_48E233B00094 // Tl3Tool
  ;
  : Parameters
-   @ ( ME_48E23443017A // anOwner
- ) .SequenceCode.It
+   Seq: ( ME_48E23443017A // anOwner
+ )
  ; // Parameters
 
 ref; // ME_48E2343E007B Create
@@ -88,29 +88,29 @@ ref; // ME_47A6FEE600FC_ME_48E233B00094 IsCacheable
  : Parent ME_4B893514021E // Pretty Things
  ;
  : Inherits
-   @ ( WL 'ME_4DD26D570378' '47913B47006E.pas.ms.script' // Tl3ProtoObjectWithCOMQI
- ) .SequenceCode.It
+   Seq: ( WL 'ME_4DD26D570378' '47913B47006E.pas.ms.script' // Tl3ProtoObjectWithCOMQI
+ )
  ; // Inherits
  : Implements
-   @ ( WL 'ME_46A5D3FD00B3' '4677FBA70343.pas.ms.script' // Il3Tool
- ) .SequenceCode.It
+   Seq: ( WL 'ME_46A5D3FD00B3' '4677FBA70343.pas.ms.script' // Il3Tool
+ )
  ; // Implements
  : Attributes
-   @ ( ME_48E2343202C4 // f_Owner
- ) .SequenceCode.It
+   Seq: ( ME_48E2343202C4 // f_Owner
+ )
  ; // Attributes
  : Operations
-   @ ( ME_48E2343E007B // Create
- ) .SequenceCode.It
+   Seq: ( ME_48E2343E007B // Create
+ )
  ; // Operations
  : Implemented
-   @ ( ME_46A5D4220369_ME_48E233B00094 // OwnerDead
- ) .SequenceCode.It
+   Seq: ( ME_46A5D4220369_ME_48E233B00094 // OwnerDead
+ )
  ; // Implemented
  : Overridden
-   @ ( ME_479731C50290_ME_48E233B00094 // Cleanup
+   Seq: ( ME_479731C50290_ME_48E233B00094 // Cleanup
  ME_47A6FEE600FC_ME_48E233B00094 // IsCacheable
- ) .SequenceCode.It
+ )
  ; // Overridden
  CONST "author" 'Ëþëèí À.Â.'
  CONST "needs InstanceR" 'undefined'
@@ -118,12 +118,14 @@ ref; // ME_47A6FEE600FC_ME_48E233B00094 IsCacheable
  CONST "no hands" true
  CONST "register in scripts" 'undefined'
  CONST "started" '28.01.2005 18:05'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\L3'
  CONST intf.pas:Path 'common\components\rtl\Garant\L3\l3Tool.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\L3'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'Tool'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'l3Tool'
 
 ref; // ME_48E233B00094 Tl3Tool
 
@@ -140,13 +142,19 @@ FORWARD ME_4B8BC148037A
  : Parent ME_4B8BC148037A // l3KeyWrd
  ;
  : Inherits
-   @ ( WL 'ME_4773DED9004C' '47913B47006E.pas.ms.script' // Tl3_String
- ) .SequenceCode.It
+   Seq: ( WL 'ME_4773DED9004C' '47913B47006E.pas.ms.script' // Tl3_String
+ )
  ; // Inherits
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
+ CONST dfm:PathOnly '\common\components\rtl\Garant\L3'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\L3'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'KeyWord'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_4B8BC15601E8 Tl3KeyWord
 
@@ -165,6 +173,12 @@ ref; // ME_4B8BC15601E8 Tl3KeyWord
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
+ CONST dfm:PathOnly '\common\components\rtl\Garant\L3'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\L3'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'KeyWords'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_4DAEF1E900D1 Tl3KeyWords
 
@@ -179,18 +193,18 @@ ref; // ME_4DAEF1E900D1 Tl3KeyWords
  : Parent ME_4B893514021E // Pretty Things
  ;
  : Children
-   @ ( ME_4B8BC15601E8 // Tl3KeyWord
+   Seq: ( ME_4B8BC15601E8 // Tl3KeyWord
  ME_4DAEF1E900D1 // Tl3KeyWords
- ) .SequenceCode.It
+ )
  ; // Children
  CONST "finished" false
  CONST "no hands" false
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\L3'
  CONST intf.pas:Path 'common\components\rtl\Garant\L3\NOT_FINISHED_l3KeyWrd.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\L3'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'KeyWrd'
 
 ref; // ME_4B8BC148037A l3KeyWrd
 
@@ -209,12 +223,14 @@ ref; // ME_4B8BC148037A l3KeyWrd
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\L3'
  CONST intf.pas:Path 'common\components\rtl\Garant\L3\NOT_FINISHED_l3GZipStream.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\L3'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'GZipStream'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'l3GZipStream'
 
 ref; // ME_4C74EE240075 Tl3GZipStream
 
@@ -229,24 +245,22 @@ ref; // ME_4C74EE240075 Tl3GZipStream
  : Parent WL 'ME_4790D09A0378' '4790D09A0378.pas.ms.script' // L3
  ;
  : Children
-   @ ( ME_48E233B00094 // Tl3Tool
+   Seq: ( ME_48E233B00094 // Tl3Tool
  ME_4B8BC148037A // l3KeyWrd
  ME_4C74EE240075 // Tl3GZipStream
- ) .SequenceCode.It
+ )
  ; // Children
  : Depends
-   @ ( WL 'ME_4677FBA70343' '4677FBA70343.pas.ms.script' // l3Interfaces
+   Seq: ( WL 'ME_4677FBA70343' '4677FBA70343.pas.ms.script' // l3Interfaces
  WL 'ME_47913B47006E' '47913B47006E.pas.ms.script' // l3CoreObjects
  WL 'ME_4AB0C3C60310' '4AB0C3C60310.pas.ms.script' // Sys
- ) .SequenceCode.It
+ )
  ; // Depends
- : Generators
- @ (
- gen_pas.script
- gen_pas.script.runner
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\L3'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\L3'
  CONST pas.script:Path 'shared\models\NewSchool\Scripts\4B893514021E.pas.ms.script'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
  CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\4B893514021E.pas.ms.script.runner'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_4B893514021E Pretty Things

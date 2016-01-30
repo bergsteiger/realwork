@@ -28,6 +28,7 @@ ref; // ME_47C527660134 ItemType
  ;
  : Implementor ME_47C5271101E3 // TnevParas
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" true
 ref; // ME_4BB08B8902F2_ME_47C5271101E3 Count
 
@@ -43,21 +44,21 @@ ref; // ME_4BB08B8902F2_ME_47C5271101E3 Count
  : Parent ME_47C52679006D // nevUtils
  ;
  : Inherits
-   @ ( WL 'ME_47B57D830369' '47913B47006E.pas.ms.script' // l3InterfaceRefList
+   Seq: ( WL 'ME_47B57D830369' '47913B47006E.pas.ms.script' // l3InterfaceRefList
  WL 'ME_4A54DD4E036F' '47913B47006E.pas.ms.script' // Tl3ProtoDataContainer
- ) .SequenceCode.It
+ )
  ; // Inherits
  : Implements
-   @ ( WL 'ME_47C5224F02E3' '47C5207602D1.pas.ms.script' // InevParas
- ) .SequenceCode.It
+   Seq: ( WL 'ME_47C5224F02E3' '47C5207602D1.pas.ms.script' // InevParas
+ )
  ; // Implements
  : Attributes
-   @ ( ME_47C527660134 // ItemType
- ) .SequenceCode.It
+   Seq: ( ME_47C527660134 // ItemType
+ )
  ; // Attributes
  : Implemented
-   @ ( ME_4BB08B8902F2_ME_47C5271101E3 // Count
- ) .SequenceCode.It
+   Seq: ( ME_4BB08B8902F2_ME_47C5271101E3 // Count
+ )
  ; // Implemented
  CONST "author" 'Люлин А.В.'
  CONST "needs InstanceR" 'undefined'
@@ -65,12 +66,14 @@ ref; // ME_4BB08B8902F2_ME_47C5271101E3 Count
  CONST "no hands" true
  CONST "register in scripts" 'undefined'
  CONST "started" '27.02.2008 12:02'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest\new'
  CONST intf.pas:Path 'common\components\gui\Garant\Everest\new\nevParas.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest\new'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'Paras'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'nevParas'
 
 ref; // ME_47C5271101E3 TnevParas
 
@@ -98,6 +101,7 @@ ref; // ME_47CC155C031F ItemType
  ;
  : Implementor ME_47CC15130269 // TevMarkersList
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" true
 ref; // ME_4BB08B8902F2_ME_47CC15130269 Count
 
@@ -112,21 +116,21 @@ ref; // ME_4BB08B8902F2_ME_47CC15130269 Count
  : Parent ME_47C52679006D // nevUtils
  ;
  : Inherits
-   @ ( WL 'ME_47B57D830369' '47913B47006E.pas.ms.script' // l3InterfaceRefList
+   Seq: ( WL 'ME_47B57D830369' '47913B47006E.pas.ms.script' // l3InterfaceRefList
  WL 'ME_4A54DD4E036F' '47913B47006E.pas.ms.script' // Tl3ProtoDataContainer
- ) .SequenceCode.It
+ )
  ; // Inherits
  : Implements
-   @ ( WL 'ME_47CC136B033A' '47C5207602D1.pas.ms.script' // IevMarkersList
- ) .SequenceCode.It
+   Seq: ( WL 'ME_47CC136B033A' '47C5207602D1.pas.ms.script' // IevMarkersList
+ )
  ; // Implements
  : Attributes
-   @ ( ME_47CC155C031F // ItemType
- ) .SequenceCode.It
+   Seq: ( ME_47CC155C031F // ItemType
+ )
  ; // Attributes
  : Implemented
-   @ ( ME_4BB08B8902F2_ME_47CC15130269 // Count
- ) .SequenceCode.It
+   Seq: ( ME_4BB08B8902F2_ME_47CC15130269 // Count
+ )
  ; // Implemented
  CONST "author" 'Люлин А.В.'
  CONST "needs InstanceR" 'undefined'
@@ -134,12 +138,14 @@ ref; // ME_4BB08B8902F2_ME_47CC15130269 Count
  CONST "no hands" true
  CONST "register in scripts" 'undefined'
  CONST "started" '03.03.2008 18:11'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest\new'
  CONST intf.pas:Path 'common\components\gui\Garant\Everest\new\evMarkersList.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest\new'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'MarkersList'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'evMarkersList'
 
 ref; // ME_47CC15130269 TevMarkersList
 
@@ -166,8 +172,8 @@ ref; // ME_47D00D080314 Action
  : Target WL 'ME_46A608F00301' '4AB0C3C60310.pas.ms.script' // Pointer
  ;
  : Parameters
-   @ ( ME_47D00D080314 // Action
- ) .SequenceCode.It
+   Seq: ( ME_47D00D080314 // Action
+ )
  ; // Parameters
 
 ref; // ME_47D00D00014B nevL2PIA
@@ -183,19 +189,19 @@ ref; // ME_47D00D00014B nevL2PIA
  : Parent ME_47C52679006D // nevUtils
  ;
  : Operations
-   @ ( ME_47D00D00014B // nevL2PIA
- ) .SequenceCode.It
+   Seq: ( ME_47D00D00014B // nevL2PIA
+ )
  ; // Operations
  CONST "author" 'Люлин А.В.'
  CONST "finished" false
  CONST "no hands" false
  CONST "started" '05.04.2005 20:32'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest\new'
  CONST intf.pas:Path 'common\components\gui\Garant\Everest\new\NOT_FINISHED_nevFacade.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest\new'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'Facade'
 
 ref; // ME_47D00CC20108 nevFacade
 
@@ -228,13 +234,13 @@ ref; // ME_480F8DDE027F ItemType
  : Parent ME_47C52679006D // nevUtils
  ;
  : Inherits
-   @ ( WL 'ME_47B57D830369' '47913B47006E.pas.ms.script' // l3InterfaceRefList
+   Seq: ( WL 'ME_47B57D830369' '47913B47006E.pas.ms.script' // l3InterfaceRefList
  WL 'ME_4A54DD4E036F' '47913B47006E.pas.ms.script' // Tl3ProtoDataContainer
- ) .SequenceCode.It
+ )
  ; // Inherits
  : Attributes
-   @ ( ME_480F8DDE027F // ItemType
- ) .SequenceCode.It
+   Seq: ( ME_480F8DDE027F // ItemType
+ )
  ; // Attributes
  CONST "author" 'Люлин А.В.'
  CONST "needs InstanceR" 'undefined'
@@ -242,12 +248,14 @@ ref; // ME_480F8DDE027F ItemType
  CONST "no hands" true
  CONST "register in scripts" 'undefined'
  CONST "started" '20.03.2008 16:09'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest\new'
  CONST intf.pas:Path 'common\components\gui\Garant\Everest\new\nevDocumentContainerListPrim.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest\new'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'DocumentContainerListPrim'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'nevDocumentContainerListPrim'
 
 ref; // ME_47E261D8019F TnevDocumentContainerListPrim
 
@@ -294,8 +302,8 @@ ref; // ME_4DD2682600C4 DoIt
  : Parent ME_47E26A16008E // TnevRangeList
  ;
  : Operations
-   @ ( ME_4DD2682600C4 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_4DD2682600C4 // DoIt
+ )
  ; // Operations
 
 ref; // ME_4DD2681E03BF Clone
@@ -307,6 +315,7 @@ ref; // ME_4DD2681E03BF Clone
  ;
  : Implementor ME_47E26A16008E // TnevRangeList
  ;
+ CONST OpKind opkind_Overridden
  CONST "ifndef" 'DesignTimeLibrary'
 ref; // ME_47A6FEE600FC_ME_47E26A16008E IsCacheable
 
@@ -322,21 +331,21 @@ ref; // ME_47A6FEE600FC_ME_47E26A16008E IsCacheable
  : Parent ME_47C52679006D // nevUtils
  ;
  : Inherits
-   @ ( WL 'ME_47B57D830369' '47913B47006E.pas.ms.script' // l3InterfaceRefList
+   Seq: ( WL 'ME_47B57D830369' '47913B47006E.pas.ms.script' // l3InterfaceRefList
  WL 'ME_4A54DD4E036F' '47913B47006E.pas.ms.script' // Tl3ProtoDataContainer
- ) .SequenceCode.It
+ )
  ; // Inherits
  : Attributes
-   @ ( ME_47E26A560032 // ItemType
- ) .SequenceCode.It
+   Seq: ( ME_47E26A560032 // ItemType
+ )
  ; // Attributes
  : Operations
-   @ ( ME_4DD2681E03BF // Clone
- ) .SequenceCode.It
+   Seq: ( ME_4DD2681E03BF // Clone
+ )
  ; // Operations
  : Overridden
-   @ ( ME_47A6FEE600FC_ME_47E26A16008E // IsCacheable
- ) .SequenceCode.It
+   Seq: ( ME_47A6FEE600FC_ME_47E26A16008E // IsCacheable
+ )
  ; // Overridden
  CONST "author" 'Люлин А.В.'
  CONST "needs InstanceR" 'undefined'
@@ -344,12 +353,14 @@ ref; // ME_47A6FEE600FC_ME_47E26A16008E IsCacheable
  CONST "no hands" true
  CONST "register in scripts" 'undefined'
  CONST "started" '20.03.2008 16:44'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest\new'
  CONST intf.pas:Path 'common\components\gui\Garant\Everest\new\nevRangeList.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest\new'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'RangeList'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'nevRangeList'
 
 ref; // ME_47E26A16008E TnevRangeList
 
@@ -377,6 +388,7 @@ ref; // ME_47E271FC0183 ItemType
  ;
  : Implementor ME_47E271DA01B1 // TnevBasePointList
  ;
+ CONST OpKind opkind_Overridden
  CONST "ifndef" 'DesignTimeLibrary'
 ref; // ME_47A6FEE600FC_ME_47E271DA01B1 IsCacheable
 
@@ -391,17 +403,17 @@ ref; // ME_47A6FEE600FC_ME_47E271DA01B1 IsCacheable
  : Parent ME_47C52679006D // nevUtils
  ;
  : Inherits
-   @ ( WL 'ME_47B57D830369' '47913B47006E.pas.ms.script' // l3InterfaceRefList
+   Seq: ( WL 'ME_47B57D830369' '47913B47006E.pas.ms.script' // l3InterfaceRefList
  WL 'ME_4A54DD4E036F' '47913B47006E.pas.ms.script' // Tl3ProtoDataContainer
- ) .SequenceCode.It
+ )
  ; // Inherits
  : Attributes
-   @ ( ME_47E271FC0183 // ItemType
- ) .SequenceCode.It
+   Seq: ( ME_47E271FC0183 // ItemType
+ )
  ; // Attributes
  : Overridden
-   @ ( ME_47A6FEE600FC_ME_47E271DA01B1 // IsCacheable
- ) .SequenceCode.It
+   Seq: ( ME_47A6FEE600FC_ME_47E271DA01B1 // IsCacheable
+ )
  ; // Overridden
  CONST "author" 'Люлин А.В.'
  CONST "needs InstanceR" 'undefined'
@@ -409,12 +421,14 @@ ref; // ME_47A6FEE600FC_ME_47E271DA01B1 IsCacheable
  CONST "no hands" true
  CONST "register in scripts" 'undefined'
  CONST "started" '20.03.2008 17:17'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest\new'
  CONST intf.pas:Path 'common\components\gui\Garant\Everest\new\nevBasePointList.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest\new'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'BasePointList'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'nevBasePointList'
 
 ref; // ME_47E271DA01B1 TnevBasePointList
 
@@ -442,6 +456,7 @@ ref; // ME_47E2752E03CD ItemType
  ;
  : Implementor ME_47E2750502E9 // TnevPointList
  ;
+ CONST OpKind opkind_Overridden
  CONST "ifndef" 'DesignTimeLibrary'
 ref; // ME_47A6FEE600FC_ME_47E2750502E9 IsCacheable
 
@@ -456,17 +471,17 @@ ref; // ME_47A6FEE600FC_ME_47E2750502E9 IsCacheable
  : Parent ME_47C52679006D // nevUtils
  ;
  : Inherits
-   @ ( WL 'ME_47B57D830369' '47913B47006E.pas.ms.script' // l3InterfaceRefList
+   Seq: ( WL 'ME_47B57D830369' '47913B47006E.pas.ms.script' // l3InterfaceRefList
  WL 'ME_4A54DD4E036F' '47913B47006E.pas.ms.script' // Tl3ProtoDataContainer
- ) .SequenceCode.It
+ )
  ; // Inherits
  : Attributes
-   @ ( ME_47E2752E03CD // ItemType
- ) .SequenceCode.It
+   Seq: ( ME_47E2752E03CD // ItemType
+ )
  ; // Attributes
  : Overridden
-   @ ( ME_47A6FEE600FC_ME_47E2750502E9 // IsCacheable
- ) .SequenceCode.It
+   Seq: ( ME_47A6FEE600FC_ME_47E2750502E9 // IsCacheable
+ )
  ; // Overridden
  CONST "author" 'Люлин А.В.'
  CONST "needs InstanceR" 'undefined'
@@ -474,12 +489,14 @@ ref; // ME_47A6FEE600FC_ME_47E2750502E9 IsCacheable
  CONST "no hands" true
  CONST "register in scripts" 'undefined'
  CONST "started" '20.03.2008 17:30'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest\new'
  CONST intf.pas:Path 'common\components\gui\Garant\Everest\new\nevPointList.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest\new'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'PointList'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'nevPointList'
 
 ref; // ME_47E2750502E9 TnevPointList
 
@@ -511,13 +528,13 @@ ref; // ME_47E7CDFD0040 ItemType
  : Parent ME_47C52679006D // nevUtils
  ;
  : Inherits
-   @ ( WL 'ME_47B57D830369' '47913B47006E.pas.ms.script' // l3InterfaceRefList
+   Seq: ( WL 'ME_47B57D830369' '47913B47006E.pas.ms.script' // l3InterfaceRefList
  WL 'ME_4A54DD4E036F' '47913B47006E.pas.ms.script' // Tl3ProtoDataContainer
- ) .SequenceCode.It
+ )
  ; // Inherits
  : Attributes
-   @ ( ME_47E7CDFD0040 // ItemType
- ) .SequenceCode.It
+   Seq: ( ME_47E7CDFD0040 // ItemType
+ )
  ; // Attributes
  CONST "author" 'Люлин А.В.'
  CONST "needs InstanceR" 'undefined'
@@ -525,12 +542,14 @@ ref; // ME_47E7CDFD0040 ItemType
  CONST "no hands" true
  CONST "register in scripts" 'undefined'
  CONST "started" '24.03.2008 18:51'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest\new'
  CONST intf.pas:Path 'common\components\gui\Garant\Everest\new\evSearcherList.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest\new'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'SearcherList'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'evSearcherList'
 
 ref; // ME_47E7CDD60349 TevSearcherList
 
@@ -563,13 +582,13 @@ ref; // ME_47E8FF710106 ItemType
  : Parent ME_47C52679006D // nevUtils
  ;
  : Inherits
-   @ ( WL 'ME_47B57D830369' '47913B47006E.pas.ms.script' // l3InterfaceRefList
+   Seq: ( WL 'ME_47B57D830369' '47913B47006E.pas.ms.script' // l3InterfaceRefList
  WL 'ME_4A54DD4E036F' '47913B47006E.pas.ms.script' // Tl3ProtoDataContainer
- ) .SequenceCode.It
+ )
  ; // Inherits
  : Attributes
-   @ ( ME_47E8FF710106 // ItemType
- ) .SequenceCode.It
+   Seq: ( ME_47E8FF710106 // ItemType
+ )
  ; // Attributes
  CONST "author" 'Люлин А.В.'
  CONST "needs InstanceR" 'undefined'
@@ -577,12 +596,14 @@ ref; // ME_47E8FF710106 ItemType
  CONST "no hands" true
  CONST "register in scripts" 'undefined'
  CONST "started" '25.03.2008 16:34'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest\new'
  CONST intf.pas:Path 'common\components\gui\Garant\Everest\new\nevViewList.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest\new'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'ViewList'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'nevViewList'
 
 ref; // ME_47E8FF3701E4 TnevViewList
 
@@ -615,13 +636,13 @@ ref; // ME_47E903FE033F ItemType
  : Parent ME_47C52679006D // nevUtils
  ;
  : Inherits
-   @ ( WL 'ME_47B57D830369' '47913B47006E.pas.ms.script' // l3InterfaceRefList
+   Seq: ( WL 'ME_47B57D830369' '47913B47006E.pas.ms.script' // l3InterfaceRefList
  WL 'ME_4A54DD4E036F' '47913B47006E.pas.ms.script' // Tl3ProtoDataContainer
- ) .SequenceCode.It
+ )
  ; // Inherits
  : Attributes
-   @ ( ME_47E903FE033F // ItemType
- ) .SequenceCode.It
+   Seq: ( ME_47E903FE033F // ItemType
+ )
  ; // Attributes
  CONST "author" 'Люлин А.В.'
  CONST "needs InstanceR" 'undefined'
@@ -629,12 +650,14 @@ ref; // ME_47E903FE033F ItemType
  CONST "no hands" true
  CONST "register in scripts" 'undefined'
  CONST "started" '25.03.2008 16:53'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest\new'
  CONST intf.pas:Path 'common\components\gui\Garant\Everest\new\nevTableCellList.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest\new'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'TableCellList'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'nevTableCellList'
 
 ref; // ME_47E903D2007F TnevTableCellList
 
@@ -678,17 +701,17 @@ ref; // ME_48046D0803DA StopAllPreviews
  : Parent ME_47C52679006D // nevUtils
  ;
  : Inherits
-   @ ( WL 'ME_47B57D830369' '47913B47006E.pas.ms.script' // l3InterfaceRefList
+   Seq: ( WL 'ME_47B57D830369' '47913B47006E.pas.ms.script' // l3InterfaceRefList
  WL 'ME_4A54DD4E036F' '47913B47006E.pas.ms.script' // Tl3ProtoDataContainer
- ) .SequenceCode.It
+ )
  ; // Inherits
  : Attributes
-   @ ( ME_47ED10D50188 // ItemType
- ) .SequenceCode.It
+   Seq: ( ME_47ED10D50188 // ItemType
+ )
  ; // Attributes
  : Operations
-   @ ( ME_48046D0803DA // StopAllPreviews
- ) .SequenceCode.It
+   Seq: ( ME_48046D0803DA // StopAllPreviews
+ )
  ; // Operations
  CONST "author" 'Люлин А.В.'
  CONST "needs InstanceR" 'undefined'
@@ -696,12 +719,14 @@ ref; // ME_48046D0803DA StopAllPreviews
  CONST "no hands" true
  CONST "register in scripts" 'undefined'
  CONST "started" '28.03.2008 18:37'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest\new'
  CONST intf.pas:Path 'common\components\gui\Garant\Everest\new\evDocumentPreviewInfoList.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest\new'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'DocumentPreviewInfoList'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'evDocumentPreviewInfoList'
 
 ref; // ME_47ED10AF024F TevDocumentPreviewInfoList
 
@@ -733,13 +758,13 @@ ref; // ME_47ED173E0371 ItemType
  : Parent ME_47C52679006D // nevUtils
  ;
  : Inherits
-   @ ( WL 'ME_47B57D830369' '47913B47006E.pas.ms.script' // l3InterfaceRefList
+   Seq: ( WL 'ME_47B57D830369' '47913B47006E.pas.ms.script' // l3InterfaceRefList
  WL 'ME_4A54DD4E036F' '47913B47006E.pas.ms.script' // Tl3ProtoDataContainer
- ) .SequenceCode.It
+ )
  ; // Inherits
  : Attributes
-   @ ( ME_47ED173E0371 // ItemType
- ) .SequenceCode.It
+   Seq: ( ME_47ED173E0371 // ItemType
+ )
  ; // Attributes
  CONST "author" 'Люлин А.В.'
  CONST "needs InstanceR" 'undefined'
@@ -747,12 +772,14 @@ ref; // ME_47ED173E0371 ItemType
  CONST "no hands" true
  CONST "register in scripts" 'undefined'
  CONST "started" '28.03.2008 19:05'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest\new'
  CONST intf.pas:Path 'common\components\gui\Garant\Everest\new\nevWaiterList.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest\new'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'WaiterList'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'nevWaiterList'
 
 ref; // ME_47ED17150259 TnevWaiterList
 
@@ -784,13 +811,13 @@ ref; // ME_47F4CE6D01C6 ItemType
  : Parent ME_47C52679006D // nevUtils
  ;
  : Inherits
-   @ ( WL 'ME_47B57D830369' '47913B47006E.pas.ms.script' // l3InterfaceRefList
+   Seq: ( WL 'ME_47B57D830369' '47913B47006E.pas.ms.script' // l3InterfaceRefList
  WL 'ME_4A54DD4E036F' '47913B47006E.pas.ms.script' // Tl3ProtoDataContainer
- ) .SequenceCode.It
+ )
  ; // Inherits
  : Attributes
-   @ ( ME_47F4CE6D01C6 // ItemType
- ) .SequenceCode.It
+   Seq: ( ME_47F4CE6D01C6 // ItemType
+ )
  ; // Attributes
  CONST "author" 'Люлин А.В.'
  CONST "needs InstanceR" 'undefined'
@@ -798,12 +825,14 @@ ref; // ME_47F4CE6D01C6 ItemType
  CONST "no hands" true
  CONST "register in scripts" 'undefined'
  CONST "started" '03.04.2008 16:31'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest\new'
  CONST intf.pas:Path 'common\components\gui\Garant\Everest\new\nevAnchorList.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest\new'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'AnchorList'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'nevAnchorList'
 
 ref; // ME_47F4CE1200E9 TnevAnchorList
 
@@ -820,6 +849,10 @@ FORWARD ME_480F48F301B9
  CONST Abstraction at_abstract
  : Parent ME_480F48F301B9 // nevParaXTool
  ;
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest\new'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest\new'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
  CONST extprop:pas:TypeName '_X_'
 
 ref; // ME_49D6242D0075 X
@@ -846,6 +879,7 @@ ref; // ME_49D6243C0357 ParaX
 : ME_E96DFBAF74B6
  CONST UID 'E96DFBAF74B6'
  CONST Name 'f_ParaX'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY 'Поле для свойства ParaX' ;
  CONST Visibility PrivateAccess
@@ -855,6 +889,7 @@ ref; // ME_49D6243C0357 ParaX
  ;
  : Target ME_49D6242D0075 // X
  ;
+ CONST extprop:clearViaProperty 'ParaX'
 
 ref; // ME_E96DFBAF74B6 f_ParaX
 
@@ -887,6 +922,7 @@ ref; // ME_49D6281300DB
  ;
  : Implementor ME_480F48F301B9 // nevParaXTool
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_48CE74A10014_ME_480F48F301B9 ClearTagCache
 
 : ME_49E75FA4010C_ME_480F48F301B9
@@ -896,6 +932,7 @@ ref; // ME_48CE74A10014_ME_480F48F301B9 ClearTagCache
  ;
  : Implementor ME_480F48F301B9 // nevParaXTool
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_49E75FA4010C_ME_480F48F301B9 SetTagQT
 
 : ME_480F48F301B9
@@ -910,27 +947,27 @@ ref; // ME_49E75FA4010C_ME_480F48F301B9 SetTagQT
  : Parent ME_47C52679006D // nevUtils
  ;
  : Implements
-   @ ( WL 'ME_508ADEB001A2' '467C182A01BE.pas.ms.script' // Mk2TagPointer
- ) .SequenceCode.It
+   Seq: ( WL 'ME_508ADEB001A2' '467C182A01BE.pas.ms.script' // Mk2TagPointer
+ )
  ; // Implements
  : Attributes
-   @ ( ME_49D6243C0357 // ParaX
+   Seq: ( ME_49D6243C0357 // ParaX
  ME_E96DFBAF74B6 // f_ParaX
- ) .SequenceCode.It
+ )
  ; // Attributes
  : Overridden
-   @ ( ME_48CE74A10014_ME_480F48F301B9 // ClearTagCache
+   Seq: ( ME_48CE74A10014_ME_480F48F301B9 // ClearTagCache
  ME_49E75FA4010C_ME_480F48F301B9 // SetTagQT
- ) .SequenceCode.It
+ )
  ; // Overridden
  : Children
-   @ ( ME_49D6242D0075 // X
- ) .SequenceCode.It
+   Seq: ( ME_49D6242D0075 // X
+ )
  ; // Children
  : Dependencies
-   @ ( ME_49D627EF0077 // 
+   Seq: ( ME_49D627EF0077 // 
  ME_49D6281300DB // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  CONST "author" 'Люлин А.В.'
  CONST "needs InstanceR" 'undefined'
@@ -938,13 +975,13 @@ ref; // ME_49E75FA4010C_ME_480F48F301B9 SetTagQT
  CONST "no hands" true
  CONST "register in scripts" 'undefined'
  CONST "started" '04.04.2005 15:22'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest\new'
  CONST intf.pas:Path 'common\components\gui\Garant\Everest\new\nevParaXTool.imp.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest\new'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
  CONST extprop:pas:TypeName '_nevParaXTool_'
+ CONST extprop:pas:UnitName 'nevParaXTool.imp'
 
 ref; // ME_480F48F301B9 nevParaXTool
 
@@ -986,6 +1023,7 @@ ref; // ME_47FE43650180
  ;
  : Implementor ME_47FE40A503CD // TnevConfirm
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_47C6CA4103BA_ME_47FE40A503CD ReplaceConfirm
 
 : ME_47C6CA560350_ME_47FE40A503CD
@@ -995,6 +1033,7 @@ ref; // ME_47C6CA4103BA_ME_47FE40A503CD ReplaceConfirm
  ;
  : Implementor ME_47FE40A503CD // TnevConfirm
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_47C6CA560350_ME_47FE40A503CD DeleteFoundRgn
 
 : ME_47C6CA5D033F_ME_47FE40A503CD
@@ -1004,6 +1043,7 @@ ref; // ME_47C6CA560350_ME_47FE40A503CD DeleteFoundRgn
  ;
  : Implementor ME_47FE40A503CD // TnevConfirm
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_47C6CA5D033F_ME_47FE40A503CD Update
 
 : ME_47DA7D8D02C3_ME_47FE40A503CD
@@ -1013,6 +1053,7 @@ ref; // ME_47C6CA5D033F_ME_47FE40A503CD Update
  ;
  : Implementor ME_47FE40A503CD // TnevConfirm
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" false
 ref; // ME_47DA7D8D02C3_ME_47FE40A503CD Progress
 
@@ -1023,6 +1064,7 @@ ref; // ME_47DA7D8D02C3_ME_47FE40A503CD Progress
  ;
  : Implementor ME_47FE40A503CD // TnevConfirm
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" false
 ref; // ME_47FE414200D2_ME_47FE40A503CD View
 
@@ -1037,28 +1079,28 @@ ref; // ME_47FE414200D2_ME_47FE40A503CD View
  : Parent ME_47C52679006D // nevUtils
  ;
  : Inherits
-   @ ( WL 'ME_49E7754802A9' '47913B47006E.pas.ms.script' // Tl3ProtoObject
- ) .SequenceCode.It
+   Seq: ( WL 'ME_49E7754802A9' '47913B47006E.pas.ms.script' // Tl3ProtoObject
+ )
  ; // Inherits
  : Implements
-   @ ( WL 'ME_47C69AE001F4' '47C5207602D1.pas.ms.script' // InevConfirm
- ) .SequenceCode.It
+   Seq: ( WL 'ME_47C69AE001F4' '47C5207602D1.pas.ms.script' // InevConfirm
+ )
  ; // Implements
  : Operations
-   @ ( ME_47FE41B803DA // Make
- ) .SequenceCode.It
+   Seq: ( ME_47FE41B803DA // Make
+ )
  ; // Operations
  : Implemented
-   @ ( ME_47C6CA4103BA_ME_47FE40A503CD // ReplaceConfirm
+   Seq: ( ME_47C6CA4103BA_ME_47FE40A503CD // ReplaceConfirm
  ME_47C6CA560350_ME_47FE40A503CD // DeleteFoundRgn
  ME_47C6CA5D033F_ME_47FE40A503CD // Update
  ME_47DA7D8D02C3_ME_47FE40A503CD // Progress
  ME_47FE414200D2_ME_47FE40A503CD // View
- ) .SequenceCode.It
+ )
  ; // Implemented
  : Dependencies
-   @ ( ME_47FE43650180 // 
- ) .SequenceCode.It
+   Seq: ( ME_47FE43650180 // 
+ )
  ; // Dependencies
  CONST "author" 'Люлин А.В.'
  CONST "needs InstanceR" 'undefined'
@@ -1066,12 +1108,14 @@ ref; // ME_47FE414200D2_ME_47FE40A503CD View
  CONST "no hands" true
  CONST "register in scripts" 'undefined'
  CONST "started" '10.04.2008 20:30'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest\new'
  CONST intf.pas:Path 'common\components\gui\Garant\Everest\new\nevConfirm.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest\new'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'Confirm'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'nevConfirm'
 
 ref; // ME_47FE40A503CD TnevConfirm
 
@@ -1098,8 +1142,8 @@ ref; // ME_480CA9ED0097 aParas
  : Target WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
  ;
  : Parameters
-   @ ( ME_480CA9ED0097 // aParas
- ) .SequenceCode.It
+   Seq: ( ME_480CA9ED0097 // aParas
+ )
  ; // Parameters
 
 ref; // ME_480CA9E3003D evGetPaperSizeName
@@ -1115,19 +1159,19 @@ ref; // ME_480CA9E3003D evGetPaperSizeName
  : Parent ME_47C52679006D // nevUtils
  ;
  : Operations
-   @ ( ME_480CA9E3003D // evGetPaperSizeName
- ) .SequenceCode.It
+   Seq: ( ME_480CA9E3003D // evGetPaperSizeName
+ )
  ; // Operations
  CONST "author" 'Люлин А.В.'
  CONST "finished" false
  CONST "no hands" false
  CONST "started" '16.04.2001 15:24'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest\new'
  CONST intf.pas:Path 'common\components\gui\Garant\Everest\new\NOT_FINISHED_evSectionPara.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest\new'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'SectionPara'
 
 ref; // ME_480CA9AD0198 evSectionPara
 
@@ -1171,16 +1215,16 @@ ref; // ME_47F5D970036A
  : Parent ME_47C52679006D // nevUtils
  ;
  : Inherits
-   @ ( ME_480F48F301B9 // nevParaXTool
- ) .SequenceCode.It
+   Seq: ( ME_480F48F301B9 // nevParaXTool
+ )
  ; // Inherits
  : Attributes
-   @ ( ME_49D249D300FA // X
- ) .SequenceCode.It
+   Seq: ( ME_49D249D300FA // X
+ )
  ; // Attributes
  : Dependencies
-   @ ( ME_47F5D970036A // 
- ) .SequenceCode.It
+   Seq: ( ME_47F5D970036A // 
+ )
  ; // Dependencies
  CONST "author" 'Люлин А.В.'
  CONST "needs InstanceR" 'undefined'
@@ -1188,13 +1232,13 @@ ref; // ME_47F5D970036A
  CONST "no hands" true
  CONST "register in scripts" 'undefined'
  CONST "started" '04.04.2008 11:05'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest\new'
  CONST intf.pas:Path 'common\components\gui\Garant\Everest\new\nevParaTool.imp.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest\new'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
  CONST extprop:pas:TypeName '_nevParaTool_'
+ CONST extprop:pas:UnitName 'nevParaTool.imp'
 
 ref; // ME_47F5D32F0059 nevParaTool
 
@@ -1238,16 +1282,16 @@ ref; // ME_480F4EB000F0
  : Parent ME_47C52679006D // nevUtils
  ;
  : Inherits
-   @ ( ME_480F48F301B9 // nevParaXTool
- ) .SequenceCode.It
+   Seq: ( ME_480F48F301B9 // nevParaXTool
+ )
  ; // Inherits
  : Attributes
-   @ ( ME_480F4EDD0024 // X
- ) .SequenceCode.It
+   Seq: ( ME_480F4EDD0024 // X
+ )
  ; // Attributes
  : Dependencies
-   @ ( ME_480F4EB000F0 // 
- ) .SequenceCode.It
+   Seq: ( ME_480F4EB000F0 // 
+ )
  ; // Dependencies
  CONST "author" 'Люлин А.В.'
  CONST "needs InstanceR" 'undefined'
@@ -1255,13 +1299,13 @@ ref; // ME_480F4EB000F0
  CONST "no hands" true
  CONST "register in scripts" 'undefined'
  CONST "started" '04.04.2005 15:22'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest\new'
  CONST intf.pas:Path 'common\components\gui\Garant\Everest\new\nevParaListTool.imp.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest\new'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
  CONST extprop:pas:TypeName '_nevParaListTool_'
+ CONST extprop:pas:UnitName 'nevParaListTool.imp'
 
 ref; // ME_480F4E9301DE nevParaListTool
 
@@ -1305,16 +1349,16 @@ ref; // ME_480F68B200B4
  : Parent ME_47C52679006D // nevUtils
  ;
  : Inherits
-   @ ( ME_480F48F301B9 // nevParaXTool
- ) .SequenceCode.It
+   Seq: ( ME_480F48F301B9 // nevParaXTool
+ )
  ; // Inherits
  : Attributes
-   @ ( ME_480F66F601E9 // X
- ) .SequenceCode.It
+   Seq: ( ME_480F66F601E9 // X
+ )
  ; // Attributes
  : Dependencies
-   @ ( ME_480F68B200B4 // 
- ) .SequenceCode.It
+   Seq: ( ME_480F68B200B4 // 
+ )
  ; // Dependencies
  CONST "author" 'Люлин А.В.'
  CONST "needs InstanceR" 'undefined'
@@ -1322,13 +1366,13 @@ ref; // ME_480F68B200B4
  CONST "no hands" true
  CONST "register in scripts" 'undefined'
  CONST "started" '04.04.2005 15:22'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest\new'
  CONST intf.pas:Path 'common\components\gui\Garant\Everest\new\nevTextParaTool.imp.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest\new'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
  CONST extprop:pas:TypeName '_nevTextParaTool_'
+ CONST extprop:pas:UnitName 'nevTextParaTool.imp'
 
 ref; // ME_480F66CA00DC nevTextParaTool
 
@@ -1345,6 +1389,10 @@ FORWARD ME_49E7612601CC
  CONST Abstraction at_abstract
  : Parent ME_49E7612601CC // nevTinyParaXTool
  ;
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest\new'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest\new'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
  CONST extprop:pas:TypeName '_X_'
 
 ref; // ME_49E762F90213 X
@@ -1370,6 +1418,7 @@ ref; // ME_49E763090291 ParaX
 : ME_C90ED990CB07
  CONST UID 'C90ED990CB07'
  CONST Name 'f_ParaX'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY 'Поле для свойства ParaX' ;
  CONST Visibility PrivateAccess
@@ -1402,8 +1451,8 @@ ref; // ME_49E769300380 aTag
  : Parent ME_49E7612601CC // nevTinyParaXTool
  ;
  : Parameters
-   @ ( ME_49E769300380 // aTag
- ) .SequenceCode.It
+   Seq: ( ME_49E769300380 // aTag
+ )
  ; // Parameters
 
 ref; // ME_49E7692B0058 Create
@@ -1426,6 +1475,7 @@ ref; // ME_49E765150393
  ;
  : Implementor ME_49E7612601CC // nevTinyParaXTool
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_479731C50290_ME_49E7612601CC Cleanup
 
 : ME_47A6FEE600FC_ME_49E7612601CC
@@ -1435,6 +1485,7 @@ ref; // ME_479731C50290_ME_49E7612601CC Cleanup
  ;
  : Implementor ME_49E7612601CC // nevTinyParaXTool
  ;
+ CONST OpKind opkind_Overridden
  CONST "ifndef" 'DesignTimeLibrary'
 ref; // ME_47A6FEE600FC_ME_49E7612601CC IsCacheable
 
@@ -1449,30 +1500,30 @@ ref; // ME_47A6FEE600FC_ME_49E7612601CC IsCacheable
  : Parent ME_47C52679006D // nevUtils
  ;
  : Inherits
-   @ ( WL 'ME_49E7754802A9' '47913B47006E.pas.ms.script' // Tl3ProtoObject
- ) .SequenceCode.It
+   Seq: ( WL 'ME_49E7754802A9' '47913B47006E.pas.ms.script' // Tl3ProtoObject
+ )
  ; // Inherits
  : Attributes
-   @ ( ME_49E763090291 // ParaX
+   Seq: ( ME_49E763090291 // ParaX
  ME_C90ED990CB07 // f_ParaX
- ) .SequenceCode.It
+ )
  ; // Attributes
  : Operations
-   @ ( ME_49E7692B0058 // Create
- ) .SequenceCode.It
+   Seq: ( ME_49E7692B0058 // Create
+ )
  ; // Operations
  : Overridden
-   @ ( ME_479731C50290_ME_49E7612601CC // Cleanup
+   Seq: ( ME_479731C50290_ME_49E7612601CC // Cleanup
  ME_47A6FEE600FC_ME_49E7612601CC // IsCacheable
- ) .SequenceCode.It
+ )
  ; // Overridden
  : Children
-   @ ( ME_49E762F90213 // X
- ) .SequenceCode.It
+   Seq: ( ME_49E762F90213 // X
+ )
  ; // Children
  : Dependencies
-   @ ( ME_49E765150393 // 
- ) .SequenceCode.It
+   Seq: ( ME_49E765150393 // 
+ )
  ; // Dependencies
  CONST "author" 'Люлин А.В.'
  CONST "needs InstanceR" 'undefined'
@@ -1480,13 +1531,13 @@ ref; // ME_47A6FEE600FC_ME_49E7612601CC IsCacheable
  CONST "no hands" true
  CONST "register in scripts" 'undefined'
  CONST "started" '16.04.2009 20:48'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest\new'
  CONST intf.pas:Path 'common\components\gui\Garant\Everest\new\nevTinyParaXTool.imp.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest\new'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
  CONST extprop:pas:TypeName '_nevTinyParaXTool_'
+ CONST extprop:pas:UnitName 'nevTinyParaXTool.imp'
 
 ref; // ME_49E7612601CC nevTinyParaXTool
 
@@ -1514,6 +1565,7 @@ ref; // ME_4A23953D024A ItemType
  ;
  : Implementor ME_4A23947103C0 // TnevFlatSubsList
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" true
 ref; // ME_4BB08B8902F2_ME_4A23947103C0 Count
 
@@ -1529,32 +1581,34 @@ ref; // ME_4BB08B8902F2_ME_4A23947103C0 Count
  : Parent ME_47C52679006D // nevUtils
  ;
  : Inherits
-   @ ( WL 'ME_47B57D830369' '47913B47006E.pas.ms.script' // l3InterfaceRefList
+   Seq: ( WL 'ME_47B57D830369' '47913B47006E.pas.ms.script' // l3InterfaceRefList
  WL 'ME_4A54DD4E036F' '47913B47006E.pas.ms.script' // Tl3ProtoDataContainer
- ) .SequenceCode.It
+ )
  ; // Inherits
  : Implements
-   @ ( WL 'ME_4A2393970155' '4A23913602C3.pas.ms.script' // InevFlatSubsList
- ) .SequenceCode.It
+   Seq: ( WL 'ME_4A2393970155' '4A23913602C3.pas.ms.script' // InevFlatSubsList
+ )
  ; // Implements
  : Attributes
-   @ ( ME_4A23953D024A // ItemType
- ) .SequenceCode.It
+   Seq: ( ME_4A23953D024A // ItemType
+ )
  ; // Attributes
  : Implemented
-   @ ( ME_4BB08B8902F2_ME_4A23947103C0 // Count
- ) .SequenceCode.It
+   Seq: ( ME_4BB08B8902F2_ME_4A23947103C0 // Count
+ )
  ; // Implemented
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest\new'
  CONST intf.pas:Path 'common\components\gui\Garant\Everest\new\nevFlatSubsList.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest\new'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'FlatSubsList'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'nevFlatSubsList'
 
 ref; // ME_4A23947103C0 TnevFlatSubsList
 
@@ -1592,9 +1646,9 @@ ref; // ME_4A23BBC4009B aRange
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
  : Parameters
-   @ ( ME_4A23BBC4006C // aList
+   Seq: ( ME_4A23BBC4006C // aList
  ME_4A23BBC4009B // aRange
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_4A23BB1700A7 nevAddRangeToList
@@ -1656,23 +1710,23 @@ ref; // ME_4A23C2DC0133
  : Parent ME_47C52679006D // nevUtils
  ;
  : Operations
-   @ ( ME_4A23BB1700A7 // nevAddRangeToList
- ) .SequenceCode.It
+   Seq: ( ME_4A23BB1700A7 // nevAddRangeToList
+ )
  ; // Operations
  : Dependencies
-   @ ( ME_4A23BF0D0394 // 
+   Seq: ( ME_4A23BF0D0394 // 
  ME_4A23BF8801B6 // 
  ME_4A23C1E000D3 // 
  ME_4A23C2DC0133 // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  CONST "no hands" false
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest\new'
  CONST intf.pas:Path 'common\components\gui\Garant\Everest\new\nevRangeListTools.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest\new'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'RangeListTools'
 
 ref; // ME_4A23BAEF006A nevRangeListTools
 
@@ -1698,17 +1752,17 @@ ref; // ME_4A263CAD0337 evCompareBlocks
  : Parent ME_47C52679006D // nevUtils
  ;
  : Operations
-   @ ( ME_4A263CAD0337 // evCompareBlocks
- ) .SequenceCode.It
+   Seq: ( ME_4A263CAD0337 // evCompareBlocks
+ )
  ; // Operations
  CONST "finished" false
  CONST "no hands" false
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest\new'
  CONST intf.pas:Path 'common\components\gui\Garant\Everest\new\NOT_FINISHED_evRangeTools.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest\new'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'RangeTools'
 
 ref; // ME_4A23BF6402DA evRangeTools
 
@@ -1746,9 +1800,9 @@ ref; // ME_4A2548C20061 Op
  : Parent ME_4A2548A402F0 // IevTextOpProcessor
  ;
  : Parameters
-   @ ( ME_4A2548C20041 // Text
+   Seq: ( ME_4A2548C20041 // Text
  ME_4A2548C20061 // Op
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_4A2548BA01A3 CheckTextOp
@@ -1783,9 +1837,9 @@ ref; // ME_4A2548D50280 Op
  : Parent ME_4A2548A402F0 // IevTextOpProcessor
  ;
  : Parameters
-   @ ( ME_4A2548D5025E // Text
+   Seq: ( ME_4A2548D5025E // Text
  ME_4A2548D50280 // Op
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_4A2548CD0213 TextOp
@@ -1803,10 +1857,16 @@ ref; // ME_4A2548CD0213 TextOp
  : Parent ME_4A2548350036 // evTextManipulationInterfaces
  ;
  : Operations
-   @ ( ME_4A2548BA01A3 // CheckTextOp
+   Seq: ( ME_4A2548BA01A3 // CheckTextOp
  ME_4A2548CD0213 // TextOp
- ) .SequenceCode.It
+ )
  ; // Operations
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest\new'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest\new'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'TextOpProcessor'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_4A2548A402F0 IevTextOpProcessor
 
@@ -1822,18 +1882,18 @@ ref; // ME_4A2548A402F0 IevTextOpProcessor
  : Parent ME_47C52679006D // nevUtils
  ;
  : Children
-   @ ( ME_4A2548A402F0 // IevTextOpProcessor
- ) .SequenceCode.It
+   Seq: ( ME_4A2548A402F0 // IevTextOpProcessor
+ )
  ; // Children
  CONST "author" 'Люлин А.В.'
  CONST "no hands" true
  CONST "started" '02.06.2009 19:43'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest\new'
  CONST intf.pas:Path 'common\components\gui\Garant\Everest\new\evTextManipulationInterfaces.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest\new'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'TextManipulationInterfaces'
 
 ref; // ME_4A2548350036 evTextManipulationInterfaces
 
@@ -1865,8 +1925,8 @@ ref; // ME_4DD2625D029C DoIt
  : Parent ME_4DD25B17012A // TnevDocumentContainerList
  ;
  : Operations
-   @ ( ME_4DD2625D029C // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_4DD2625D029C // DoIt
+ )
  ; // Operations
  CONST "is static" true
 
@@ -1890,6 +1950,7 @@ ref; // ME_4DD264060082
  ;
  : Implementor ME_4DD25B17012A // TnevDocumentContainerList
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_476144F90102_ME_4DD25B17012A Fire
 
 : ME_479731C50290_ME_4DD25B17012A
@@ -1899,6 +1960,7 @@ ref; // ME_476144F90102_ME_4DD25B17012A Fire
  ;
  : Implementor ME_4DD25B17012A // TnevDocumentContainerList
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_479731C50290_ME_4DD25B17012A Cleanup
 
 : ME_47A042E100E2_ME_4DD25B17012A
@@ -1908,6 +1970,7 @@ ref; // ME_479731C50290_ME_4DD25B17012A Cleanup
  ;
  : Implementor ME_4DD25B17012A // TnevDocumentContainerList
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_47A042E100E2_ME_4DD25B17012A InitFields
 
 : ME_47EA4E9002C6_ME_4DD25B17012A
@@ -1917,6 +1980,7 @@ ref; // ME_47A042E100E2_ME_4DD25B17012A InitFields
  ;
  : Implementor ME_4DD25B17012A // TnevDocumentContainerList
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_47EA4E9002C6_ME_4DD25B17012A FinishDataUpdate
 
 : ME_4DD25B17012A
@@ -1930,31 +1994,31 @@ ref; // ME_47EA4E9002C6_ME_4DD25B17012A FinishDataUpdate
  : Parent ME_47C52679006D // nevUtils
  ;
  : Inherits
-   @ ( ME_47E261D8019F // TnevDocumentContainerListPrim
- ) .SequenceCode.It
+   Seq: ( ME_47E261D8019F // TnevDocumentContainerListPrim
+ )
  ; // Inherits
  : Implements
-   @ ( WL 'ME_4678180D0371' '4678137501EA.pas.ms.script' // Ik2Listener
+   Seq: ( WL 'ME_4678180D0371' '4678137501EA.pas.ms.script' // Ik2Listener
  WL 'ME_47EA4BEF0140' '47EA4BB502F9.pas.ms.script' // afwApplicationDataUpdate
- ) .SequenceCode.It
+ )
  ; // Implements
  : Operations
-   @ ( ME_4DD26253028D // Exists
- ) .SequenceCode.It
+   Seq: ( ME_4DD26253028D // Exists
+ )
  ; // Operations
  : Implemented
-   @ ( ME_476144F90102_ME_4DD25B17012A // Fire
- ) .SequenceCode.It
+   Seq: ( ME_476144F90102_ME_4DD25B17012A // Fire
+ )
  ; // Implemented
  : Overridden
-   @ ( ME_479731C50290_ME_4DD25B17012A // Cleanup
+   Seq: ( ME_479731C50290_ME_4DD25B17012A // Cleanup
  ME_47A042E100E2_ME_4DD25B17012A // InitFields
  ME_47EA4E9002C6_ME_4DD25B17012A // FinishDataUpdate
- ) .SequenceCode.It
+ )
  ; // Overridden
  : Dependencies
-   @ ( ME_4DD264060082 // 
- ) .SequenceCode.It
+   Seq: ( ME_4DD264060082 // 
+ )
  ; // Dependencies
  CONST "author" 'Люлин А.В.'
  CONST "needs InstanceR" 'undefined'
@@ -1963,12 +2027,14 @@ ref; // ME_47EA4E9002C6_ME_4DD25B17012A FinishDataUpdate
  CONST "register in scripts" 'undefined'
  CONST "singleton" true
  CONST "started" '17.2011 15:25'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest\new'
  CONST intf.pas:Path 'common\components\gui\Garant\Everest\new\nevDocumentContainerList.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest\new'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'DocumentContainerList'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'nevDocumentContainerList'
 
 ref; // ME_4DD25B17012A TnevDocumentContainerList
 
@@ -2057,13 +2123,17 @@ ref; // ME_4DF86EDA02C6 rTopAnchorID
  : Parent ME_4DF1C6E90221 // PrintRowHeightsSpy
  ;
  : Attributes
-   @ ( ME_4DF1C8AA0274 // rTableID
+   Seq: ( ME_4DF1C8AA0274 // rTableID
  ME_4DF1C8BF0182 // rRowID
  ME_4DF1C8CC029E // rHeight
  ME_4DF20A1C0308 // rPage
  ME_4DF86EDA02C6 // rTopAnchorID
- ) .SequenceCode.It
+ )
  ; // Attributes
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest\new'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest\new'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_4DF1C87202AB TRowHeight
 
@@ -2091,6 +2161,7 @@ ref; // ME_4DF1C9450332 ItemType
  ;
  : Implementor ME_4DF1C7F20336 // TRowHeightsList
  ;
+ CONST OpKind opkind_Implemented
  CONST "ifndef" 'l3Items_IsAtomic'
 ref; // ME_47B07CF403D0_ME_4DF1C7F20336 IsSameItems
 
@@ -2101,6 +2172,7 @@ ref; // ME_47B07CF403D0_ME_4DF1C7F20336 IsSameItems
  ;
  : Implementor ME_4DF1C7F20336 // TRowHeightsList
  ;
+ CONST OpKind opkind_Implemented
  CONST "ifdef" 'l3Items_NeedsAssignItem'
  CONST "ifndef" 'l3Items_NoSort'
 ref; // ME_47B2C42A0163_ME_4DF1C7F20336 AssignItem
@@ -2112,6 +2184,7 @@ ref; // ME_47B2C42A0163_ME_4DF1C7F20336 AssignItem
  ;
  : Implementor ME_4DF1C7F20336 // TRowHeightsList
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_47B99D4503A2_ME_4DF1C7F20336 CompareExistingItems
 
 : ME_4DF1C7F20336
@@ -2125,24 +2198,30 @@ ref; // ME_47B99D4503A2_ME_4DF1C7F20336 CompareExistingItems
  : Parent ME_4DF1C6E90221 // PrintRowHeightsSpy
  ;
  : Inherits
-   @ ( WL 'ME_4A54DD4E036F' '47913B47006E.pas.ms.script' // Tl3ProtoDataContainer
+   Seq: ( WL 'ME_4A54DD4E036F' '47913B47006E.pas.ms.script' // Tl3ProtoDataContainer
  WL 'ME_4B223ADC02BF' '47913B47006E.pas.ms.script' // l3RecordListPrim
- ) .SequenceCode.It
+ )
  ; // Inherits
  : Attributes
-   @ ( ME_4DF1C9450332 // ItemType
- ) .SequenceCode.It
+   Seq: ( ME_4DF1C9450332 // ItemType
+ )
  ; // Attributes
  : Implemented
-   @ ( ME_47B07CF403D0_ME_4DF1C7F20336 // IsSameItems
+   Seq: ( ME_47B07CF403D0_ME_4DF1C7F20336 // IsSameItems
  ME_47B2C42A0163_ME_4DF1C7F20336 // AssignItem
  ME_47B99D4503A2_ME_4DF1C7F20336 // CompareExistingItems
- ) .SequenceCode.It
+ )
  ; // Implemented
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest\new'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest\new'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'RowHeightsList'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_4DF1C7F20336 TRowHeightsList
 
@@ -2196,8 +2275,8 @@ ref; // ME_4DF1D0B50160 aData
  : Parent ME_4DF1C7300012 // TPrintRowHeightsSpy
  ;
  : Parameters
-   @ ( ME_4DF1D0B50160 // aData
- ) .SequenceCode.It
+   Seq: ( ME_4DF1D0B50160 // aData
+ )
  ; // Parameters
 
 ref; // ME_4DF1C9B1012D AddRowData
@@ -2225,6 +2304,7 @@ ref; // ME_4DF1CA0803E2 ClearData
  ;
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
+ CONST extprop:pas:Value false
 
 ref; // ME_4DF1DB350207 Exists
 
@@ -2247,8 +2327,8 @@ ref; // ME_4DF86BDB006C aLogName
  : Parent ME_4DF1C7300012 // TPrintRowHeightsSpy
  ;
  : Parameters
-   @ ( ME_4DF86BDB006C // aLogName
- ) .SequenceCode.It
+   Seq: ( ME_4DF86BDB006C // aLogName
+ )
  ; // Parameters
 
 ref; // ME_4DF8692C0010 StartLogging
@@ -2282,6 +2362,7 @@ ref; // ME_4DF207B1028A
  ;
  : Implementor ME_4DF1C7300012 // TPrintRowHeightsSpy
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_479F2AFB0397_ME_4DF1C7300012 Release
 
 : ME_479F2B3302C1_ME_4DF1C7300012
@@ -2291,6 +2372,7 @@ ref; // ME_479F2AFB0397_ME_4DF1C7300012 Release
  ;
  : Implementor ME_4DF1C7300012 // TPrintRowHeightsSpy
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_479F2B3302C1_ME_4DF1C7300012 BeforeAddToCache
 
 : ME_4DF1C7300012
@@ -2305,36 +2387,42 @@ ref; // ME_479F2B3302C1_ME_4DF1C7300012 BeforeAddToCache
  : Parent ME_4DF1C6E90221 // PrintRowHeightsSpy
  ;
  : Inherits
-   @ ( WL 'ME_49E7754802A9' '47913B47006E.pas.ms.script' // Tl3ProtoObject
- ) .SequenceCode.It
+   Seq: ( WL 'ME_49E7754802A9' '47913B47006E.pas.ms.script' // Tl3ProtoObject
+ )
  ; // Inherits
  : Attributes
-   @ ( ME_4DF869DB00B6 // f_Filer
+   Seq: ( ME_4DF869DB00B6 // f_Filer
  ME_4DF1C96601D8 // f_RowHeights
- ) .SequenceCode.It
+ )
  ; // Attributes
  : Operations
-   @ ( ME_4DF1C9B1012D // AddRowData
+   Seq: ( ME_4DF1C9B1012D // AddRowData
  ME_4DF1CA0803E2 // ClearData
  ME_4DF1DB350207 // Exists
  ME_4DF8692C0010 // StartLogging
  ME_4DF869520107 // StopLogging
- ) .SequenceCode.It
+ )
  ; // Operations
  : Overridden
-   @ ( ME_479F2AFB0397_ME_4DF1C7300012 // Release
+   Seq: ( ME_479F2AFB0397_ME_4DF1C7300012 // Release
  ME_479F2B3302C1_ME_4DF1C7300012 // BeforeAddToCache
- ) .SequenceCode.It
+ )
  ; // Overridden
  : Dependencies
-   @ ( ME_4DF207B1028A // 
- ) .SequenceCode.It
+   Seq: ( ME_4DF207B1028A // 
+ )
  ; // Dependencies
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
  CONST "singleton" true
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest\new'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest\new'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'PrintRowHeightsSpy'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_4DF1C7300012 TPrintRowHeightsSpy
 
@@ -2350,19 +2438,18 @@ ref; // ME_4DF1C7300012 TPrintRowHeightsSpy
  : Parent ME_47C52679006D // nevUtils
  ;
  : Children
-   @ ( ME_4DF1C87202AB // TRowHeight
+   Seq: ( ME_4DF1C87202AB // TRowHeight
  ME_4DF1C7F20336 // TRowHeightsList
  ME_4DF1C7300012 // TPrintRowHeightsSpy
- ) .SequenceCode.It
+ )
  ; // Children
  CONST "ifdef" 'nsTest'
  CONST "no hands" false
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest\new'
  CONST intf.pas:Path 'common\components\gui\Garant\Everest\new\PrintRowHeightsSpy.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest\new'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_4DF1C6E90221 PrintRowHeightsSpy
 
@@ -2377,7 +2464,7 @@ ref; // ME_4DF1C6E90221 PrintRowHeightsSpy
  : Parent WL 'ME_4797632D0273' '4797632D0273.pas.ms.script' // Everest
  ;
  : Children
-   @ ( ME_47C5271101E3 // TnevParas
+   Seq: ( ME_47C5271101E3 // TnevParas
  ME_47CC15130269 // TevMarkersList
  ME_47D00CC20108 // nevFacade
  ME_47E261D8019F // TnevDocumentContainerListPrim
@@ -2403,10 +2490,10 @@ ref; // ME_4DF1C6E90221 PrintRowHeightsSpy
  ME_4A2548350036 // evTextManipulationInterfaces
  ME_4DD25B17012A // TnevDocumentContainerList
  ME_4DF1C6E90221 // PrintRowHeightsSpy
- ) .SequenceCode.It
+ )
  ; // Children
  : Depends
-   @ ( WL 'ME_4677FBA70343' '4677FBA70343.pas.ms.script' // l3Interfaces
+   Seq: ( WL 'ME_4677FBA70343' '4677FBA70343.pas.ms.script' // l3Interfaces
  WL 'ME_4678137501EA' '4678137501EA.pas.ms.script' // k2Interfaces
  WL 'ME_4678193C009C' '4678193C009C.pas.ms.script' // l3Types
  WL 'ME_467C182A01BE' '467C182A01BE.pas.ms.script' // k2TagTool
@@ -2425,16 +2512,14 @@ ref; // ME_4DF1C6E90221 PrintRowHeightsSpy
  WL 'ME_4A23913602C3' '4A23913602C3.pas.ms.script' // nevContainers
  WL 'ME_4AB0C3C60310' '4AB0C3C60310.pas.ms.script' // Sys
  WL 'ME_537B83AD01F0' '537B83AD01F0.pas.ms.script' // l3Math
- ) .SequenceCode.It
+ )
  ; // Depends
  CONST "path prefix" '/new'
- : Generators
- @ (
- gen_pas.script
- gen_pas.script.runner
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest\new'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest\new'
  CONST pas.script:Path 'shared\models\NewSchool\Scripts\47C52679006D.pas.ms.script'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
  CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\47C52679006D.pas.ms.script.runner'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_47C52679006D nevUtils

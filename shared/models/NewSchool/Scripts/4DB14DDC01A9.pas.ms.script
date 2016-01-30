@@ -41,9 +41,9 @@ ref; // ME_4DB1661901AB
  : Parent ME_4DB1629901E8 // tfwScriptDebugger
  ;
  : Dependencies
-   @ ( ME_4DB14E2D007D // 
+   Seq: ( ME_4DB14E2D007D // 
  ME_4DB1661901AB // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  CONST "author" 'Ëþëèí À.Â.'
  CONST "finished" false
@@ -52,6 +52,12 @@ ref; // ME_4DB1661901AB
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
  CONST "started" '22.04.2011 13:45'
+ CONST dfm:PathOnly '\common\components\rtl\Garant\DUnitTuning'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\DUnitTuning'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'ScriptDebugger_Form'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_4DB14E0A029D TtfwScriptDebugger_Form
 
@@ -66,19 +72,19 @@ ref; // ME_4DB14E0A029D TtfwScriptDebugger_Form
  : Parent ME_4DB14DDC01A9 // ScriptDebugger
  ;
  : Children
-   @ ( ME_4DB14E0A029D // TtfwScriptDebugger_Form
- ) .SequenceCode.It
+   Seq: ( ME_4DB14E0A029D // TtfwScriptDebugger_Form
+ )
  ; // Children
  CONST "author" 'Ëþëèí À.Â.'
  CONST "finished" false
  CONST "no hands" false
  CONST "started" '22.04.2011 15:12'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\DUnitTuning'
  CONST intf.pas:Path 'common\components\rtl\Garant\DUnitTuning\NOT_FINISHED_tfwScriptDebugger.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\DUnitTuning'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'ScriptDebugger'
 
 ref; // ME_4DB1629901E8 tfwScriptDebugger
 
@@ -92,24 +98,22 @@ ref; // ME_4DB1629901E8 tfwScriptDebugger
  : Parent WL 'ME_4B2A10C40309' '4B2A10C40309.pas.ms.script' // DUnitTuning
  ;
  : Children
-   @ ( ME_4DB1629901E8 // tfwScriptDebugger
- ) .SequenceCode.It
+   Seq: ( ME_4DB1629901E8 // tfwScriptDebugger
+ )
  ; // Children
  : Depends
-   @ ( WL 'ME_4B30FC850092' '4B30FC850092.pas.ms.script' // VCM_TFW
+   Seq: ( WL 'ME_4B30FC850092' '4B30FC850092.pas.ms.script' // VCM_TFW
  WL 'ME_4DAEEA14018A' '4DAEEA14018A.pas.ms.script' // Scripting Axiomatics
  WL 'ME_4DAF19F600C5' '4DAF19F600C5.pas.ms.script' // tfwScriptingInterfaces
- ) .SequenceCode.It
+ )
  ; // Depends
  CONST "ifdef" 'InsiderTest'
  CONST "ifndef" 'NoScripts'
- : Generators
- @ (
- gen_pas.script
- gen_pas.script.runner
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\DUnitTuning'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\DUnitTuning'
  CONST pas.script:Path 'shared\models\NewSchool\Scripts\4DB14DDC01A9.pas.ms.script'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
  CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\4DB14DDC01A9.pas.ms.script.runner'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_4DB14DDC01A9 ScriptDebugger

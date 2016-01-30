@@ -1,0 +1,1729 @@
+// Autoreferat 491C3ADB03A5 ControllerUnit Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_491C3ADB03A5
+
+FORWARD ME_491C3B8D00D8
+
+FORWARD ME_4CE6937D031D
+
+: ME_4CE693DF0188
+ CONST UID '4CE693DF0188'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_491C3B8D00D8 // TdsAutoreferat
+ ;
+ : Target ME_4CE6937D031D // TnsAutoreferatDocumentContainer
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_4CE693DF0188 
+
+: ME_491C263E03AF_ME_491C3B8D00D8
+ CONST UID '491C263E03AF'
+ CONST Name 'GetIsReadOnly'
+ : Original WL 'ME_491C263E03AF' '47EA50050263.pas.ms.script' // GetIsReadOnly
+ ;
+ : Implementor ME_491C3B8D00D8 // TdsAutoreferat
+ ;
+ CONST OpKind opkind_Overridden
+ CONST "UseNewGen" 'undefined'
+ref; // ME_491C263E03AF_ME_491C3B8D00D8 GetIsReadOnly
+
+: ME_491C264C02C2_ME_491C3B8D00D8
+ CONST UID '491C264C02C2'
+ CONST Name 'GetTimeMachineOff'
+ : Original WL 'ME_491C264C02C2' '47EA50050263.pas.ms.script' // GetTimeMachineOff
+ ;
+ : Implementor ME_491C3B8D00D8 // TdsAutoreferat
+ ;
+ CONST OpKind opkind_Overridden
+ CONST "UseNewGen" 'undefined'
+ref; // ME_491C264C02C2_ME_491C3B8D00D8 GetTimeMachineOff
+
+: ME_4C6AB38800F3_ME_491C3B8D00D8
+ CONST UID '4C6AB38800F3'
+ CONST Name 'MakeContainer'
+ : Original WL 'ME_4C6AB38800F3' '47EA50050263.pas.ms.script' // MakeContainer
+ ;
+ : Implementor ME_491C3B8D00D8 // TdsAutoreferat
+ ;
+ CONST OpKind opkind_Overridden
+ CONST "UseNewGen" 'undefined'
+ref; // ME_4C6AB38800F3_ME_491C3B8D00D8 MakeContainer
+
+: ME_491C3B8D00D8
+ CONST UID '491C3B8D00D8'
+ CONST Name 'TdsAutoreferat'
+ CONST Class class_Class
+ : Stereotype st_ViewAreaControllerImp ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Автореферат' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_491C3ADB03A5 // Autoreferat
+ ;
+ : Inherits
+   Seq: ( WL 'ME_4926CAF40166' '47EA50050263.pas.ms.script' // dsBaseDocument
+ )
+ ; // Inherits
+ : Overridden
+   Seq: ( ME_491C263E03AF_ME_491C3B8D00D8 // GetIsReadOnly
+ ME_491C264C02C2_ME_491C3B8D00D8 // GetTimeMachineOff
+ ME_4C6AB38800F3_ME_491C3B8D00D8 // MakeContainer
+ )
+ ; // Overridden
+ : Dependencies
+   Seq: ( ME_4CE693DF0188 // 
+ )
+ ; // Dependencies
+ CONST "UseNewGen" 'undefined'
+ CONST "author" 'Морозов М.А.'
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" true
+ CONST "register in scripts" 'undefined'
+ CONST "started" '06.10.2005 14.52'
+ : Generators
+ Seq: (
+ gen_intf.pas
+ )
+ ; // Generators
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Autoreferat'
+ CONST intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\Autoreferat\dsAutoreferat.pas'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Autoreferat'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\Autoreferat'
+ CONST extprop:pas:UnitName 'dsAutoreferat'
+
+ref; // ME_491C3B8D00D8 TdsAutoreferat
+
+FORWARD ME_492FDB1603A9
+
+: ME_494166980337
+ CONST UID '494166980337'
+ CONST Name 'SetDataType'
+ CONST Class class_Attribute
+ : Stereotype st_impurity_value::Attribute ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_agr
+ : Parent ME_492FDB1603A9 // TsdsAutoreferat
+ ;
+ : Target WL 'ME_47EB3BD9015F' '491B305A0096.pas.ms.script' // IdBaseDocument
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_494166980337 SetDataType
+
+: ME_4947B0ED0257
+ CONST UID '4947B0ED0257'
+ CONST Name 'InitDataType'
+ CONST Class class_Attribute
+ : Stereotype st_impurity_value::Attribute ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_agr
+ : Parent ME_492FDB1603A9 // TsdsAutoreferat
+ ;
+ : Target WL 'ME_47EA0784000D' '4B1FC2FF03CD.pas.ms.script' // IdeDocInfo
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_4947B0ED0257 InitDataType
+
+: ME_C66D5963BB53
+ CONST UID 'C66D5963BB53'
+ CONST Name 'SetType'
+ CONST IsSummoned true
+ CONST Class class_Attribute
+ : Stereotype st_impurity_value::Attribute ;
+ %SUMMARY 'Реальный интерфейс контроллера прецедента для TsdsAutoreferat' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_lnk
+ : Parent ME_492FDB1603A9 // TsdsAutoreferat
+ ;
+ : Target WL 'ME_492F071B02AC' '492F0586030C.pas.ms.script' // IsdsAutoreferat
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_C66D5963BB53 SetType
+
+: ME_2FEDB764C09C
+ CONST UID '2FEDB764C09C'
+ CONST Name 'f_MakeNewsLineFakeDS'
+ CONST IsSummoned true
+ CONST Class class_Attribute
+ %SUMMARY 'Поле для области вывода MakeNewsLineFakeDS' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_ref
+ : Parent ME_492FDB1603A9 // TsdsAutoreferat
+ ;
+ : Target WL 'ME_4982B4D00032' '4982BE090383.pas.ms.script' // IvcmViewAreaControllerRef
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_2FEDB764C09C f_MakeNewsLineFakeDS
+
+: ME_492FDB5A0045
+ CONST UID '492FDB5A0045'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_492FDB1603A9 // TsdsAutoreferat
+ ;
+ : Target ME_491C3B8D00D8 // TdsAutoreferat
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_492FDB5A0045 
+
+FORWARD ME_492FDE91018F
+
+: ME_492FDCBF00F3
+ CONST UID '492FDCBF00F3'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_492FDB1603A9 // TsdsAutoreferat
+ ;
+ : Target ME_492FDE91018F // TdsNewsLine
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_492FDCBF00F3 
+
+: ME_4B220CE40177
+ CONST UID '4B220CE40177'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_492FDB1603A9 // TsdsAutoreferat
+ ;
+ : Target WL 'ME_4B220C2B001F' '47EA50050263.pas.ms.script' // TdBaseDocument
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_4B220CE40177 
+
+: ME_53D7681800D2
+ CONST UID '53D7681800D2'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_492FDB1603A9 // TsdsAutoreferat
+ ;
+ : Target WL 'ME_53BA488F00D8' '53A402C7010D.pas.ms.script' // nsTabbedInterfaceTypes
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_53D7681800D2 
+
+: ME_47F3778403D9_ME_492FDB1603A9
+ CONST UID '47F3778403D9'
+ CONST Name 'MakeData'
+ : Original WL 'ME_47F3778403D9' '47D0E1500033.pas.ms.script' // MakeData
+ ;
+ : Implementor ME_492FDB1603A9 // TsdsAutoreferat
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "UseNewGen" 'undefined'
+ref; // ME_47F3778403D9_ME_492FDB1603A9 MakeData
+
+: ME_4925B1EC0100_ME_492FDB1603A9
+ CONST UID '4925B1EC0100'
+ CONST Name 'BaseDocumentClass'
+ : Original WL 'ME_4925B1EC0100' '47EA50050263.pas.ms.script' // BaseDocumentClass
+ ;
+ : Implementor ME_492FDB1603A9 // TsdsAutoreferat
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "UseNewGen" 'undefined'
+ref; // ME_4925B1EC0100_ME_492FDB1603A9 BaseDocumentClass
+
+: ME_492F060800A2_ME_492FDB1603A9
+ CONST UID '492F060800A2'
+ CONST Name 'MakeNewsLineFakeDS'
+ : Original WL 'ME_492F060800A2' '492F0586030C.pas.ms.script' // MakeNewsLineFakeDS
+ ;
+ : Implementor ME_492FDB1603A9 // TsdsAutoreferat
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "Need Has" 'undefined'
+ CONST "UseNewGen" 'undefined'
+ CONST "pm" true
+ CONST "required" 'undefined'
+ref; // ME_492F060800A2_ME_492FDB1603A9 MakeNewsLineFakeDS
+
+: ME_47F37DF001FE_ME_492FDB1603A9
+ CONST UID '47F37DF001FE'
+ CONST Name 'DataExchange'
+ : Original WL 'ME_47F37DF001FE' '47D0E1500033.pas.ms.script' // DataExchange
+ ;
+ : Implementor ME_492FDB1603A9 // TsdsAutoreferat
+ ;
+ CONST OpKind opkind_Overridden
+ CONST "UseNewGen" 'undefined'
+ref; // ME_47F37DF001FE_ME_492FDB1603A9 DataExchange
+
+: ME_4938F7E702B7_ME_492FDB1603A9
+ CONST UID '4938F7E702B7'
+ CONST Name 'ClearAreas'
+ : Original WL 'ME_4938F7E702B7' '47D0E1500033.pas.ms.script' // ClearAreas
+ ;
+ : Implementor ME_492FDB1603A9 // TsdsAutoreferat
+ ;
+ CONST OpKind opkind_Overridden
+ CONST "UseNewGen" 'undefined'
+ref; // ME_4938F7E702B7_ME_492FDB1603A9 ClearAreas
+
+: ME_53B3BF9C00EF_ME_492FDB1603A9
+ CONST UID '53B3BF9C00EF'
+ CONST Name 'DoGetFormSetImageIndex'
+ : Original WL 'ME_53B3BF9C00EF' '47D0E1500033.pas.ms.script' // DoGetFormSetImageIndex
+ ;
+ : Implementor ME_492FDB1603A9 // TsdsAutoreferat
+ ;
+ CONST OpKind opkind_Overridden
+ CONST "UseNewGen" 'undefined'
+ref; // ME_53B3BF9C00EF_ME_492FDB1603A9 DoGetFormSetImageIndex
+
+: ME_492FDB1603A9
+ CONST UID '492FDB1603A9'
+ CONST Name 'TsdsAutoreferat'
+ CONST Class class_Class
+ : Stereotype st_UseCaseControllerImp ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Бизнес объект сборки "Автореферат"' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_491C3ADB03A5 // Autoreferat
+ ;
+ : Inherits
+   Seq: ( WL 'ME_47EA106D035E' '47EA50050263.pas.ms.script' // sdsBaseDocument
+ )
+ ; // Inherits
+ : Implements
+   Seq: ( WL 'ME_492F071B02AC' '492F0586030C.pas.ms.script' // IsdsAutoreferat
+ )
+ ; // Implements
+ : Attributes
+   Seq: ( ME_494166980337 // SetDataType
+ ME_4947B0ED0257 // InitDataType
+ ME_C66D5963BB53 // SetType
+ ME_2FEDB764C09C // f_MakeNewsLineFakeDS
+ )
+ ; // Attributes
+ : Implemented
+   Seq: ( ME_47F3778403D9_ME_492FDB1603A9 // MakeData
+ ME_4925B1EC0100_ME_492FDB1603A9 // BaseDocumentClass
+ ME_492F060800A2_ME_492FDB1603A9 // MakeNewsLineFakeDS
+ )
+ ; // Implemented
+ : Overridden
+   Seq: ( ME_47F37DF001FE_ME_492FDB1603A9 // DataExchange
+ ME_4938F7E702B7_ME_492FDB1603A9 // ClearAreas
+ ME_53B3BF9C00EF_ME_492FDB1603A9 // DoGetFormSetImageIndex
+ )
+ ; // Overridden
+ : Dependencies
+   Seq: ( ME_492FDB5A0045 // 
+ ME_492FDCBF00F3 // 
+ ME_4B220CE40177 // 
+ ME_53D7681800D2 // 
+ )
+ ; // Dependencies
+ CONST "UseNewGen" 'undefined'
+ CONST "author" 'Морозов М.А.'
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" true
+ CONST "register in scripts" 'undefined'
+ CONST "started" '2005/10/06 12:32:24'
+ : Generators
+ Seq: (
+ gen_intf.pas
+ )
+ ; // Generators
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Autoreferat'
+ CONST intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\Autoreferat\sdsAutoreferat.pas'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Autoreferat'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\Autoreferat'
+ CONST extprop:pas:UnitName 'sdsAutoreferat'
+
+ref; // ME_492FDB1603A9 TsdsAutoreferat
+
+: ME_492FE27F0348
+ CONST UID '492FE27F0348'
+ CONST Name 'FormDataSourceType'
+ CONST Class class_Attribute
+ : Stereotype st_impurity_value::Attribute ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_agr
+ : Parent ME_492FDE91018F // TdsNewsLine
+ ;
+ : Target WL 'ME_492FDE16013B' '492F0586030C.pas.ms.script' // IdsNewsLine
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_492FE27F0348 FormDataSourceType
+
+: ME_552F96310012
+ CONST UID '552F96310012'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_492FDE91018F // TdsNewsLine
+ ;
+ : Target WL 'ME_48FF556602BA' '48F747EC0073.pas.ms.script' // DataAdapter
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_552F96310012 
+
+: ME_479731C50290_ME_492FDE91018F
+ CONST UID '479731C50290'
+ CONST Name 'Cleanup'
+ : Original WL 'ME_479731C50290' '51612EBB02F5.pas.ms.script' // Cleanup
+ ;
+ : Implementor ME_492FDE91018F // TdsNewsLine
+ ;
+ CONST OpKind opkind_Overridden
+ CONST "UseNewGen" 'undefined'
+ref; // ME_479731C50290_ME_492FDE91018F Cleanup
+
+: ME_55097FF5008E_ME_492FDE91018F
+ CONST UID '55097FF5008E'
+ CONST Name 'GetIsDataAvailable'
+ : Original WL 'ME_55097FF5008E' '47D0E1500033.pas.ms.script' // GetIsDataAvailable
+ ;
+ : Implementor ME_492FDE91018F // TdsNewsLine
+ ;
+ CONST OpKind opkind_Overridden
+ CONST "UseNewGen" 'undefined'
+ref; // ME_55097FF5008E_ME_492FDE91018F GetIsDataAvailable
+
+: ME_492FDE91018F
+ CONST UID '492FDE91018F'
+ CONST Name 'TdsNewsLine'
+ CONST Class class_Class
+ : Stereotype st_ViewAreaControllerImp ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Новостная лента' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_491C3ADB03A5 // Autoreferat
+ ;
+ : Inherits
+   Seq: ( WL 'ME_47ECE94D03D4' '47D0E1500033.pas.ms.script' // vcmFormDataSourcePrim
+ )
+ ; // Inherits
+ : Implements
+   Seq: ( WL 'ME_492FDE16013B' '492F0586030C.pas.ms.script' // IdsNewsLine
+ )
+ ; // Implements
+ : Attributes
+   Seq: ( ME_492FE27F0348 // FormDataSourceType
+ )
+ ; // Attributes
+ : Overridden
+   Seq: ( ME_479731C50290_ME_492FDE91018F // Cleanup
+ ME_55097FF5008E_ME_492FDE91018F // GetIsDataAvailable
+ )
+ ; // Overridden
+ : Dependencies
+   Seq: ( ME_552F96310012 // 
+ )
+ ; // Dependencies
+ CONST "UseNewGen" 'undefined'
+ CONST "author" 'Люлин А.В.'
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" true
+ CONST "register in scripts" 'undefined'
+ CONST "started" '28.11.2008 15:06'
+ : Generators
+ Seq: (
+ gen_intf.pas
+ )
+ ; // Generators
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Autoreferat'
+ CONST intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\Autoreferat\dsNewsLine.pas'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Autoreferat'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\Autoreferat'
+ CONST extprop:pas:UnitName 'dsNewsLine'
+
+ref; // ME_492FDE91018F TdsNewsLine
+
+: ME_4CE694170303
+ CONST UID '4CE694170303'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4CE6937D031D // TnsAutoreferatDocumentContainer
+ ;
+ : Target WL 'ME_4C5AA5CA02DF' '4570511E038A.pas.ms.script' // DocumentTextProvider
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_4CE694170303 
+
+: ME_4CE694F60218
+ CONST UID '4CE694F60218'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4CE6937D031D // TnsAutoreferatDocumentContainer
+ ;
+ : Target WL 'ME_4857B5260267' '48492FC0029D.pas.ms.script' // Document
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_4CE694F60218 
+
+: ME_4CE69B10002A
+ CONST UID '4CE69B10002A'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4CE6937D031D // TnsAutoreferatDocumentContainer
+ ;
+ : Target WL 'ME_4C6A750F024E' '467FC9F80281.pas.ms.script' // TnsF1DocumentTagNode
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_4CE69B10002A 
+
+: ME_4CE69B4E0106
+ CONST UID '4CE69B4E0106'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4CE6937D031D // TnsAutoreferatDocumentContainer
+ ;
+ : Target WL 'ME_4B1E8FAE0380' '48F747EC0073.pas.ms.script' // DefDataAdapter
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_4CE69B4E0106 
+
+: ME_4CE69D890370
+ CONST UID '4CE69D890370'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4CE6937D031D // TnsAutoreferatDocumentContainer
+ ;
+ : Target WL 'ME_47FB50E4008E' '48F747EC0073.pas.ms.script' // nsConst
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_4CE69D890370 
+
+: ME_4CE69DB5024E
+ CONST UID '4CE69DB5024E'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4CE6937D031D // TnsAutoreferatDocumentContainer
+ ;
+ : Target WL 'ME_45EEB6520191' '4570511E038A.pas.ms.script' // Document
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_4CE69DB5024E 
+
+: ME_4CE6A35B0292
+ CONST UID '4CE6A35B0292'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4CE6937D031D // TnsAutoreferatDocumentContainer
+ ;
+ : Target WL 'ME_47C69EBC00A8' '47AC75550330.pas.ms.script' // Tk2TagID
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_4CE6A35B0292 
+
+: ME_4D08D839027A
+ CONST UID '4D08D839027A'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4CE6937D031D // TnsAutoreferatDocumentContainer
+ ;
+ : Target WL 'ME_47ECA82403AC' '47ECA80B000D.pas.ms.script' // Tk2DocumentBuffer
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_4D08D839027A 
+
+: ME_4D08D87003DA
+ CONST UID '4D08D87003DA'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4CE6937D031D // TnsAutoreferatDocumentContainer
+ ;
+ : Target WL 'ME_483E80FA0312' '483E80C9025F.pas.ms.script' // TevdNativeReader
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_4D08D87003DA 
+
+: ME_4D08DF2201C5
+ CONST UID '4D08DF2201C5'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4CE6937D031D // TnsAutoreferatDocumentContainer
+ ;
+ : Target WL 'ME_4981AC0701C1' '4AB0997B00A2.pas.ms.script' // ComObj
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_4D08DF2201C5 
+
+: ME_4D08DF31023D
+ CONST UID '4D08DF31023D'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4CE6937D031D // TnsAutoreferatDocumentContainer
+ ;
+ : Target WL 'ME_46A5AFF103CA' '46A0E6C5023A.pas.ms.script' // IStream
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_4D08DF31023D 
+
+: ME_4D08DF800102
+ CONST UID '4D08DF800102'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4CE6937D031D // TnsAutoreferatDocumentContainer
+ ;
+ : Target WL 'ME_4C1B918900FD' '4C1B915E0261.pas.ms.script' // Ver
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_4D08DF800102 
+
+: ME_4D08E325033F
+ CONST UID '4D08E325033F'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4CE6937D031D // TnsAutoreferatDocumentContainer
+ ;
+ : Target WL 'ME_485669C9009D' '484A470100DD.pas.ms.script' // LeafPara
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_4D08E325033F 
+
+: ME_4D08E343021D
+ CONST UID '4D08E343021D'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4CE6937D031D // TnsAutoreferatDocumentContainer
+ ;
+ : Target WL 'ME_48579E4A003C' '48492FC0029D.pas.ms.script' // ParaList
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_4D08E343021D 
+
+: ME_4D08EEF00040
+ CONST UID '4D08EEF00040'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4CE6937D031D // TnsAutoreferatDocumentContainer
+ ;
+ : Target WL 'ME_485683750360' '48492FC0029D.pas.ms.script' // TextPara
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_4D08EEF00040 
+
+: ME_4D08EFC50292
+ CONST UID '4D08EFC50292'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4CE6937D031D // TnsAutoreferatDocumentContainer
+ ;
+ : Target WL 'ME_4799ED060093' '4799EC9300AF.pas.ms.script' // l3Defaults
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_4D08EFC50292 
+
+: ME_4D1092C503D8
+ CONST UID '4D1092C503D8'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4CE6937D031D // TnsAutoreferatDocumentContainer
+ ;
+ : Target WL 'ME_456EB454018E' '456EA56002BF.pas.ms.script' // CanNotFindData
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_4D1092C503D8 
+
+FORWARD ME_4D6E0C4A001F
+
+: ME_4D6E0CF50054
+ CONST UID '4D6E0CF50054'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4CE6937D031D // TnsAutoreferatDocumentContainer
+ ;
+ : Target ME_4D6E0C4A001F // TnsAnnotationHeaderTagNode
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_4D6E0CF50054 
+
+FORWARD ME_4D6E58B300D2
+
+: ME_4D6E58D701E1
+ CONST UID '4D6E58D701E1'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4CE6937D031D // TnsAutoreferatDocumentContainer
+ ;
+ : Target ME_4D6E58B300D2 // TnsF1AutoreferatDocumentTagNode
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_4D6E58D701E1 
+
+: ME_47F27DA80172_ME_4CE6937D031D
+ CONST UID '47F27DA80172'
+ CONST Name 'GetDocument'
+ : Original WL 'ME_47F27DA80172' '47F086170200.pas.ms.script' // GetDocument
+ ;
+ : Implementor ME_4CE6937D031D // TnsAutoreferatDocumentContainer
+ ;
+ CONST OpKind opkind_Overridden
+ CONST "UseNewGen" 'undefined'
+ref; // ME_47F27DA80172_ME_4CE6937D031D GetDocument
+
+: ME_4CE6937D031D
+ CONST UID '4CE6937D031D'
+ CONST Name 'TnsAutoreferatDocumentContainer'
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Контейнер документа для автореферата' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_491C3ADB03A5 // Autoreferat
+ ;
+ : Inherits
+   Seq: ( WL 'ME_4680E83D00C8' '4680E826036D.pas.ms.script' // TeeDocumentContainer
+ WL 'ME_4C6A955F00D6' '4C6A7BA001A5.pas.ms.script' // nsDocumentContainer
+ )
+ ; // Inherits
+ : Overridden
+   Seq: ( ME_47F27DA80172_ME_4CE6937D031D // GetDocument
+ )
+ ; // Overridden
+ : Dependencies
+   Seq: ( ME_4CE694170303 // 
+ ME_4CE694F60218 // 
+ ME_4CE69B10002A // 
+ ME_4CE69B4E0106 // 
+ ME_4CE69D890370 // 
+ ME_4CE69DB5024E // 
+ ME_4CE6A35B0292 // 
+ ME_4D08D839027A // 
+ ME_4D08D87003DA // 
+ ME_4D08DF2201C5 // 
+ ME_4D08DF31023D // 
+ ME_4D08DF800102 // 
+ ME_4D08E325033F // 
+ ME_4D08E343021D // 
+ ME_4D08EEF00040 // 
+ ME_4D08EFC50292 // 
+ ME_4D1092C503D8 // 
+ ME_4D6E0CF50054 // 
+ ME_4D6E58D701E1 // 
+ )
+ ; // Dependencies
+ CONST "UseNewGen" 'undefined'
+ CONST "author" 'Люлин А.В.'
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" true
+ CONST "register in scripts" 'undefined'
+ CONST "started" '19.11.2010 18:11'
+ : Generators
+ Seq: (
+ gen_intf.pas
+ )
+ ; // Generators
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Autoreferat'
+ CONST intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\Autoreferat\nsAutoreferatDocumentContainer.pas'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Autoreferat'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\Autoreferat'
+ CONST extprop:pas:UnitName 'nsAutoreferatDocumentContainer'
+
+ref; // ME_4CE6937D031D TnsAutoreferatDocumentContainer
+
+FORWARD ME_4D6E0CA20143
+
+: ME_4D6E0CCA00B7
+ CONST UID '4D6E0CCA00B7'
+ CONST Name 'anIndex'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_4D6E0CCA00B7 anIndex
+
+: ME_4D6E0CCA00EF
+ CONST UID '4D6E0CCA00EF'
+ CONST Name 'aLeafCount'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_4D6E0CCA00EF aLeafCount
+
+: ME_4D6E0CCA011C
+ CONST UID '4D6E0CCA011C'
+ CONST Name 'aDoc'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_45EEB6520191' '4570511E038A.pas.ms.script' // Document
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_4D6E0CCA011C aDoc
+
+: ME_4D6FA23601E0
+ CONST UID '4D6FA23601E0'
+ CONST Name 'anAnno'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_534572370056' '47913B47006E.pas.ms.script' // Tl3Tag
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_4D6FA23601E0 anAnno
+
+: ME_4D6E0CAA00B3
+ CONST UID '4D6E0CAA00B3'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_4D6E0CA20143 // Create
+ ;
+ : Parameters
+   Seq: ( ME_4D6E0CCA00B7 // anIndex
+ ME_4D6E0CCA00EF // aLeafCount
+ ME_4D6E0CCA011C // aDoc
+ ME_4D6FA23601E0 // anAnno
+ )
+ ; // Parameters
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_4D6E0CAA00B3 DoIt
+
+: ME_4D6E0CA20143
+ CONST UID '4D6E0CA20143'
+ CONST Name 'Create'
+ CONST Class class_Class
+ : Stereotype st_Constructor ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_4D6E0C4A001F // TnsAnnotationHeaderTagNode
+ ;
+ : Operations
+   Seq: ( ME_4D6E0CAA00B3 // DoIt
+ )
+ ; // Operations
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_4D6E0CA20143 Create
+
+FORWARD ME_4D6E0CDD033D
+
+: ME_535E66A40326
+ CONST UID '535E66A40326'
+ CONST Name 'anIndex'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_535E66A40326 anIndex
+
+: ME_535E66A40361
+ CONST UID '535E66A40361'
+ CONST Name 'aLeafCount'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_535E66A40361 aLeafCount
+
+: ME_535E66A40382
+ CONST UID '535E66A40382'
+ CONST Name 'aDoc'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_45EEB6520191' '4570511E038A.pas.ms.script' // Document
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_535E66A40382 aDoc
+
+: ME_535E66A403A4
+ CONST UID '535E66A403A4'
+ CONST Name 'anAnno'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_534572370056' '47913B47006E.pas.ms.script' // Tl3Tag
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_535E66A403A4 anAnno
+
+: ME_535E669E02D8
+ CONST UID '535E669E02D8'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_4D6E0CDD033D // Make
+ ;
+ : Target WL 'ME_5346BD53015A' '47913B47006E.pas.ms.script' // Il3TagRef
+ ;
+ : Parameters
+   Seq: ( ME_535E66A40326 // anIndex
+ ME_535E66A40361 // aLeafCount
+ ME_535E66A40382 // aDoc
+ ME_535E66A403A4 // anAnno
+ )
+ ; // Parameters
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_535E669E02D8 DoIt
+
+: ME_4D6E0CDD033D
+ CONST UID '4D6E0CDD033D'
+ CONST Name 'Make'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_4D6E0C4A001F // TnsAnnotationHeaderTagNode
+ ;
+ : Operations
+   Seq: ( ME_535E669E02D8 // DoIt
+ )
+ ; // Operations
+ CONST "UseNewGen" 'undefined'
+ CONST "is static" true
+
+ref; // ME_4D6E0CDD033D Make
+
+FORWARD ME_4D6E0D500395
+
+: ME_4D6E0D700068
+ CONST UID '4D6E0D700068'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4D6E0C4A001F // TnsAnnotationHeaderTagNode
+ ;
+ : Target ME_4D6E0D500395 // TnsAnnotationHeaderTagData
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_4D6E0D700068 
+
+: ME_4D6E12E601C8
+ CONST UID '4D6E12E601C8'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4D6E0C4A001F // TnsAnnotationHeaderTagNode
+ ;
+ : Target WL 'ME_47C69EBC00A8' '47AC75550330.pas.ms.script' // Tk2TagID
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_4D6E12E601C8 
+
+: ME_4CED5CEF011A_ME_4D6E0C4A001F
+ CONST UID '4CED5CEF011A'
+ CONST Name 'NodeChildrenCount'
+ : Original WL 'ME_4CED5CEF011A' '467FC9F80281.pas.ms.script' // NodeChildrenCount
+ ;
+ : Implementor ME_4D6E0C4A001F // TnsAnnotationHeaderTagNode
+ ;
+ CONST OpKind opkind_Overridden
+ CONST "UseNewGen" 'undefined'
+ref; // ME_4CED5CEF011A_ME_4D6E0C4A001F NodeChildrenCount
+
+: ME_5335815D03DC_ME_4D6E0C4A001F
+ CONST UID '5335815D03DC'
+ CONST Name 'ChildrenCount'
+ : Original WL 'ME_5335815D03DC' '47913B47006E.pas.ms.script' // ChildrenCount
+ ;
+ : Implementor ME_4D6E0C4A001F // TnsAnnotationHeaderTagNode
+ ;
+ CONST OpKind opkind_Overridden
+ CONST "UseNewGen" 'undefined'
+ CONST "pm" true
+ref; // ME_5335815D03DC_ME_4D6E0C4A001F ChildrenCount
+
+: ME_4D6E0C4A001F
+ CONST UID '4D6E0C4A001F'
+ CONST Name 'TnsAnnotationHeaderTagNode'
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_491C3ADB03A5 // Autoreferat
+ ;
+ : Inherits
+   Seq: ( WL 'ME_4C6A750F024E' '467FC9F80281.pas.ms.script' // TnsF1DocumentTagNode
+ )
+ ; // Inherits
+ : Operations
+   Seq: ( ME_4D6E0CA20143 // Create
+ ME_4D6E0CDD033D // Make
+ )
+ ; // Operations
+ : Overridden
+   Seq: ( ME_4CED5CEF011A_ME_4D6E0C4A001F // NodeChildrenCount
+ ME_5335815D03DC_ME_4D6E0C4A001F // ChildrenCount
+ )
+ ; // Overridden
+ : Dependencies
+   Seq: ( ME_4D6E0D700068 // 
+ ME_4D6E12E601C8 // 
+ )
+ ; // Dependencies
+ CONST "UseNewGen" 'undefined'
+ CONST "author" 'Люлин А.В.'
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" true
+ CONST "register in scripts" 'undefined'
+ CONST "started" '02.03.2011 12:22'
+ : Generators
+ Seq: (
+ gen_intf.pas
+ )
+ ; // Generators
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Autoreferat'
+ CONST intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\Autoreferat\nsAnnotationHeaderTagNode.pas'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Autoreferat'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\Autoreferat'
+ CONST extprop:pas:UnitName 'nsAnnotationHeaderTagNode'
+
+ref; // ME_4D6E0C4A001F TnsAnnotationHeaderTagNode
+
+: ME_4D6E0DE1028F
+ CONST UID '4D6E0DE1028F'
+ CONST Name 'f_Doc'
+ CONST Class class_Attribute
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_ref
+ : Parent ME_4D6E0D500395 // TnsAnnotationHeaderTagData
+ ;
+ : Target WL 'ME_45EEB6520191' '4570511E038A.pas.ms.script' // Document
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_4D6E0DE1028F f_Doc
+
+: ME_4D6E0E0000C7
+ CONST UID '4D6E0E0000C7'
+ CONST Name 'f_Index'
+ CONST Class class_Attribute
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_4D6E0D500395 // TnsAnnotationHeaderTagData
+ ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_4D6E0E0000C7 f_Index
+
+: ME_4D6FA25D00D1
+ CONST UID '4D6FA25D00D1'
+ CONST Name 'f_Anno'
+ CONST Class class_Attribute
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_ref
+ : Parent ME_4D6E0D500395 // TnsAnnotationHeaderTagData
+ ;
+ : Target WL 'ME_534572370056' '47913B47006E.pas.ms.script' // Tl3Tag
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_4D6FA25D00D1 f_Anno
+
+FORWARD ME_4D6E0DA7024B
+
+: ME_4D6E0DB1003F
+ CONST UID '4D6E0DB1003F'
+ CONST Name 'anIndex'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_4D6E0DB1003F anIndex
+
+: ME_4D6E0DB100A1
+ CONST UID '4D6E0DB100A1'
+ CONST Name 'aDoc'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_45EEB6520191' '4570511E038A.pas.ms.script' // Document
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_4D6E0DB100A1 aDoc
+
+: ME_4D6FA26C0294
+ CONST UID '4D6FA26C0294'
+ CONST Name 'anAnno'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_534572370056' '47913B47006E.pas.ms.script' // Tl3Tag
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_4D6FA26C0294 anAnno
+
+: ME_4D6E0DAF030D
+ CONST UID '4D6E0DAF030D'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_4D6E0DA7024B // Create
+ ;
+ : Parameters
+   Seq: ( ME_4D6E0DB1003F // anIndex
+ ME_4D6E0DB100A1 // aDoc
+ ME_4D6FA26C0294 // anAnno
+ )
+ ; // Parameters
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_4D6E0DAF030D DoIt
+
+: ME_4D6E0DA7024B
+ CONST UID '4D6E0DA7024B'
+ CONST Name 'Create'
+ CONST Class class_Class
+ : Stereotype st_Constructor ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_4D6E0D500395 // TnsAnnotationHeaderTagData
+ ;
+ : Operations
+   Seq: ( ME_4D6E0DAF030D // DoIt
+ )
+ ; // Operations
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_4D6E0DA7024B Create
+
+FORWARD ME_4D6E0DB90031
+
+: ME_B3EAFB72E881
+ CONST UID 'B3EAFB72E881'
+ CONST Name 'anIndex'
+ CONST IsSummoned true
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_B3EAFB72E881 anIndex
+
+: ME_BA3C2F9D8BCE
+ CONST UID 'BA3C2F9D8BCE'
+ CONST Name 'aDoc'
+ CONST IsSummoned true
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_45EEB6520191' '4570511E038A.pas.ms.script' // Document
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_BA3C2F9D8BCE aDoc
+
+: ME_53106E5D9980
+ CONST UID '53106E5D9980'
+ CONST Name 'anAnno'
+ CONST IsSummoned true
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_534572370056' '47913B47006E.pas.ms.script' // Tl3Tag
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_53106E5D9980 anAnno
+
+: ME_E99FD7D39F3C
+ CONST UID 'E99FD7D39F3C'
+ CONST Name 'DoIt'
+ CONST IsSummoned true
+ CONST Class class_Operation
+ %SUMMARY 'Сигнатура фабрики TnsAnnotationHeaderTagData.Make' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_4D6E0DB90031 // Make
+ ;
+ : Target WL 'ME_4C6E935500EF' '4C6E92E9016E.pas.ms.script' // If1TagDataProvider
+ ;
+ : Parameters
+   Seq: ( ME_B3EAFB72E881 // anIndex
+ ME_BA3C2F9D8BCE // aDoc
+ ME_53106E5D9980 // anAnno
+ )
+ ; // Parameters
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_E99FD7D39F3C DoIt
+
+: ME_4D6E0DB90031
+ CONST UID '4D6E0DB90031'
+ CONST Name 'Make'
+ CONST Class class_Class
+ : Stereotype st_Factory ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_4D6E0D500395 // TnsAnnotationHeaderTagData
+ ;
+ : Inherits
+   Seq: ( ME_4D6E0DA7024B // Create
+ )
+ ; // Inherits
+ : Implements
+   Seq: ( WL 'ME_4C6E935500EF' '4C6E92E9016E.pas.ms.script' // If1TagDataProvider
+ )
+ ; // Implements
+ : Operations
+   Seq: ( ME_E99FD7D39F3C // DoIt
+ )
+ ; // Operations
+ CONST "UseNewGen" 'undefined'
+ CONST "check nil" false
+ CONST "need AfterCreate" 'undefined'
+ CONST "need Aggregate" 'undefined'
+ CONST "need As" false
+
+ref; // ME_4D6E0DB90031 Make
+
+: ME_4D6E12FF0363
+ CONST UID '4D6E12FF0363'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4D6E0D500395 // TnsAnnotationHeaderTagData
+ ;
+ : Target WL 'ME_4857B5260267' '48492FC0029D.pas.ms.script' // Document
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_4D6E12FF0363 
+
+: ME_4D6E23E80359
+ CONST UID '4D6E23E80359'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4D6E0D500395 // TnsAnnotationHeaderTagData
+ ;
+ : Target WL 'ME_47C69EBC00A8' '47AC75550330.pas.ms.script' // Tk2TagID
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_4D6E23E80359 
+
+: ME_535E6615032F
+ CONST UID '535E6615032F'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4D6E0D500395 // TnsAnnotationHeaderTagData
+ ;
+ : Target WL 'ME_4ADC58F703CF' '4AB0C3C60310.pas.ms.script' // FreeAndNil
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_535E6615032F 
+
+: ME_4C6EA2B000F6_ME_4D6E0D500395
+ CONST UID '4C6EA2B000F6'
+ CONST Name 'Caption'
+ : Original WL 'ME_4C6EA2B000F6' '4C6E92E9016E.pas.ms.script' // Caption
+ ;
+ : Implementor ME_4D6E0D500395 // TnsAnnotationHeaderTagData
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "UseNewGen" 'undefined'
+ CONST "pm" false
+ref; // ME_4C6EA2B000F6_ME_4D6E0D500395 Caption
+
+: ME_4C6EA2D1023E_ME_4D6E0D500395
+ CONST UID '4C6EA2D1023E'
+ CONST Name 'Style'
+ : Original WL 'ME_4C6EA2D1023E' '4C6E92E9016E.pas.ms.script' // Style
+ ;
+ : Implementor ME_4D6E0D500395 // TnsAnnotationHeaderTagData
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "UseNewGen" 'undefined'
+ CONST "pm" false
+ref; // ME_4C6EA2D1023E_ME_4D6E0D500395 Style
+
+: ME_4C6EA2F700DA_ME_4D6E0D500395
+ CONST UID '4C6EA2F700DA'
+ CONST Name 'ExternalID'
+ : Original WL 'ME_4C6EA2F700DA' '4C6E92E9016E.pas.ms.script' // ExternalID
+ ;
+ : Implementor ME_4D6E0D500395 // TnsAnnotationHeaderTagData
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "UseNewGen" 'undefined'
+ CONST "pm" false
+ref; // ME_4C6EA2F700DA_ME_4D6E0D500395 ExternalID
+
+: ME_4C6EA8390114_ME_4D6E0D500395
+ CONST UID '4C6EA8390114'
+ CONST Name 'TypeID'
+ : Original WL 'ME_4C6EA8390114' '4C6E92E9016E.pas.ms.script' // TypeID
+ ;
+ : Implementor ME_4D6E0D500395 // TnsAnnotationHeaderTagData
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "UseNewGen" 'undefined'
+ CONST "pm" false
+ref; // ME_4C6EA8390114_ME_4D6E0D500395 TypeID
+
+: ME_4C6EAB57003B_ME_4D6E0D500395
+ CONST UID '4C6EAB57003B'
+ CONST Name 'wStyle'
+ : Original WL 'ME_4C6EAB57003B' '4C6E92E9016E.pas.ms.script' // wStyle
+ ;
+ : Implementor ME_4D6E0D500395 // TnsAnnotationHeaderTagData
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "UseNewGen" 'undefined'
+ CONST "pm" false
+ref; // ME_4C6EAB57003B_ME_4D6E0D500395 wStyle
+
+: ME_4C6EB42D017A_ME_4D6E0D500395
+ CONST UID '4C6EB42D017A'
+ CONST Name 'AllParaChildrenCount'
+ : Original WL 'ME_4C6EB42D017A' '4C6E92E9016E.pas.ms.script' // AllParaChildrenCount
+ ;
+ : Implementor ME_4D6E0D500395 // TnsAnnotationHeaderTagData
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "UseNewGen" 'undefined'
+ CONST "pm" false
+ref; // ME_4C6EB42D017A_ME_4D6E0D500395 AllParaChildrenCount
+
+: ME_4C6EB4470246_ME_4D6E0D500395
+ CONST UID '4C6EB4470246'
+ CONST Name 'ChildrenCount'
+ : Original WL 'ME_4C6EB4470246' '4C6E92E9016E.pas.ms.script' // ChildrenCount
+ ;
+ : Implementor ME_4D6E0D500395 // TnsAnnotationHeaderTagData
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "UseNewGen" 'undefined'
+ CONST "pm" false
+ref; // ME_4C6EB4470246_ME_4D6E0D500395 ChildrenCount
+
+: ME_4C6EB48D0004_ME_4D6E0D500395
+ CONST UID '4C6EB48D0004'
+ CONST Name 'CreateNewNode'
+ : Original WL 'ME_4C6EB48D0004' '4C6E92E9016E.pas.ms.script' // CreateNewNode
+ ;
+ : Implementor ME_4D6E0D500395 // TnsAnnotationHeaderTagData
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "UseNewGen" 'undefined'
+ref; // ME_4C6EB48D0004_ME_4D6E0D500395 CreateNewNode
+
+: ME_4C6EB4E70277_ME_4D6E0D500395
+ CONST UID '4C6EB4E70277'
+ CONST Name 'FirstChild'
+ : Original WL 'ME_4C6EB4E70277' '4C6E92E9016E.pas.ms.script' // FirstChild
+ ;
+ : Implementor ME_4D6E0D500395 // TnsAnnotationHeaderTagData
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "UseNewGen" 'undefined'
+ CONST "pm" false
+ref; // ME_4C6EB4E70277_ME_4D6E0D500395 FirstChild
+
+: ME_4C722FCA0397_ME_4D6E0D500395
+ CONST UID '4C722FCA0397'
+ CONST Name 'BuildSubs'
+ : Original WL 'ME_4C722FCA0397' '4C6E92E9016E.pas.ms.script' // BuildSubs
+ ;
+ : Implementor ME_4D6E0D500395 // TnsAnnotationHeaderTagData
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "UseNewGen" 'undefined'
+ref; // ME_4C722FCA0397_ME_4D6E0D500395 BuildSubs
+
+: ME_4C723CF1024D_ME_4D6E0D500395
+ CONST UID '4C723CF1024D'
+ CONST Name 'SiblingByIndex'
+ : Original WL 'ME_4C723CF1024D' '4C6E92E9016E.pas.ms.script' // SiblingByIndex
+ ;
+ : Implementor ME_4D6E0D500395 // TnsAnnotationHeaderTagData
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "UseNewGen" 'undefined'
+ CONST "pm" false
+ref; // ME_4C723CF1024D_ME_4D6E0D500395 SiblingByIndex
+
+: ME_4C7240410220_ME_4D6E0D500395
+ CONST UID '4C7240410220'
+ CONST Name 'Next'
+ : Original WL 'ME_4C7240410220' '4C6E92E9016E.pas.ms.script' // Next
+ ;
+ : Implementor ME_4D6E0D500395 // TnsAnnotationHeaderTagData
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "UseNewGen" 'undefined'
+ CONST "pm" false
+ref; // ME_4C7240410220_ME_4D6E0D500395 Next
+
+: ME_4C99D2C600BC_ME_4D6E0D500395
+ CONST UID '4C99D2C600BC'
+ CONST Name 'AsDocumentTextProvider'
+ : Original WL 'ME_4C99D2C600BC' '4C6E92E9016E.pas.ms.script' // AsDocumentTextProvider
+ ;
+ : Implementor ME_4D6E0D500395 // TnsAnnotationHeaderTagData
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "UseNewGen" 'undefined'
+ CONST "pm" false
+ref; // ME_4C99D2C600BC_ME_4D6E0D500395 AsDocumentTextProvider
+
+: ME_4CEFAFB700D1_ME_4D6E0D500395
+ CONST UID '4CEFAFB700D1'
+ CONST Name 'Comment'
+ : Original WL 'ME_4CEFAFB700D1' '4C6E92E9016E.pas.ms.script' // Comment
+ ;
+ : Implementor ME_4D6E0D500395 // TnsAnnotationHeaderTagData
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "UseNewGen" 'undefined'
+ CONST "pm" false
+ref; // ME_4CEFAFB700D1_ME_4D6E0D500395 Comment
+
+: ME_4D0F4C9E0379_ME_4D6E0D500395
+ CONST UID '4D0F4C9E0379'
+ CONST Name 'TechComment'
+ : Original WL 'ME_4D0F4C9E0379' '4C6E92E9016E.pas.ms.script' // TechComment
+ ;
+ : Implementor ME_4D6E0D500395 // TnsAnnotationHeaderTagData
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "UseNewGen" 'undefined'
+ CONST "pm" false
+ref; // ME_4D0F4C9E0379_ME_4D6E0D500395 TechComment
+
+: ME_4D6E5C270068_ME_4D6E0D500395
+ CONST UID '4D6E5C270068'
+ CONST Name 'IsProviderGot'
+ : Original WL 'ME_4D6E5C270068' '4C6E92E9016E.pas.ms.script' // IsProviderGot
+ ;
+ : Implementor ME_4D6E0D500395 // TnsAnnotationHeaderTagData
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "UseNewGen" 'undefined'
+ CONST "pm" false
+ref; // ME_4D6E5C270068_ME_4D6E0D500395 IsProviderGot
+
+: ME_479731C50290_ME_4D6E0D500395
+ CONST UID '479731C50290'
+ CONST Name 'Cleanup'
+ : Original WL 'ME_479731C50290' '51612EBB02F5.pas.ms.script' // Cleanup
+ ;
+ : Implementor ME_4D6E0D500395 // TnsAnnotationHeaderTagData
+ ;
+ CONST OpKind opkind_Overridden
+ CONST "UseNewGen" 'undefined'
+ref; // ME_479731C50290_ME_4D6E0D500395 Cleanup
+
+: ME_5000565C019C_ME_4D6E0D500395
+ CONST UID '5000565C019C'
+ CONST Name 'ClearFields'
+ : Original WL 'ME_5000565C019C' '47913B47006E.pas.ms.script' // ClearFields
+ ;
+ : Implementor ME_4D6E0D500395 // TnsAnnotationHeaderTagData
+ ;
+ CONST OpKind opkind_Overridden
+ CONST "UseNewGen" 'undefined'
+ref; // ME_5000565C019C_ME_4D6E0D500395 ClearFields
+
+: ME_4D6E0D500395
+ CONST UID '4D6E0D500395'
+ CONST Name 'TnsAnnotationHeaderTagData'
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_491C3ADB03A5 // Autoreferat
+ ;
+ : Inherits
+   Seq: ( WL 'ME_4AE5CA2D0034' '47913B47006E.pas.ms.script' // Tl3CProtoObject
+ )
+ ; // Inherits
+ : Implements
+   Seq: ( WL 'ME_4C6E935500EF' '4C6E92E9016E.pas.ms.script' // If1TagDataProvider
+ )
+ ; // Implements
+ : Attributes
+   Seq: ( ME_4D6E0DE1028F // f_Doc
+ ME_4D6E0E0000C7 // f_Index
+ ME_4D6FA25D00D1 // f_Anno
+ )
+ ; // Attributes
+ : Operations
+   Seq: ( ME_4D6E0DA7024B // Create
+ ME_4D6E0DB90031 // Make
+ )
+ ; // Operations
+ : Implemented
+   Seq: ( ME_4C6EA2B000F6_ME_4D6E0D500395 // Caption
+ ME_4C6EA2D1023E_ME_4D6E0D500395 // Style
+ ME_4C6EA2F700DA_ME_4D6E0D500395 // ExternalID
+ ME_4C6EA8390114_ME_4D6E0D500395 // TypeID
+ ME_4C6EAB57003B_ME_4D6E0D500395 // wStyle
+ ME_4C6EB42D017A_ME_4D6E0D500395 // AllParaChildrenCount
+ ME_4C6EB4470246_ME_4D6E0D500395 // ChildrenCount
+ ME_4C6EB48D0004_ME_4D6E0D500395 // CreateNewNode
+ ME_4C6EB4E70277_ME_4D6E0D500395 // FirstChild
+ ME_4C722FCA0397_ME_4D6E0D500395 // BuildSubs
+ ME_4C723CF1024D_ME_4D6E0D500395 // SiblingByIndex
+ ME_4C7240410220_ME_4D6E0D500395 // Next
+ ME_4C99D2C600BC_ME_4D6E0D500395 // AsDocumentTextProvider
+ ME_4CEFAFB700D1_ME_4D6E0D500395 // Comment
+ ME_4D0F4C9E0379_ME_4D6E0D500395 // TechComment
+ ME_4D6E5C270068_ME_4D6E0D500395 // IsProviderGot
+ )
+ ; // Implemented
+ : Overridden
+   Seq: ( ME_479731C50290_ME_4D6E0D500395 // Cleanup
+ ME_5000565C019C_ME_4D6E0D500395 // ClearFields
+ )
+ ; // Overridden
+ : Dependencies
+   Seq: ( ME_4D6E12FF0363 // 
+ ME_4D6E23E80359 // 
+ ME_535E6615032F // 
+ )
+ ; // Dependencies
+ CONST "UseNewGen" 'undefined'
+ CONST "author" 'Люлин А.В.'
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" true
+ CONST "register in scripts" 'undefined'
+ CONST "started" '02.03.2011 12:27'
+ : Generators
+ Seq: (
+ gen_intf.pas
+ )
+ ; // Generators
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Autoreferat'
+ CONST intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\Autoreferat\nsAnnotationHeaderTagData.pas'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Autoreferat'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\Autoreferat'
+ CONST extprop:pas:UnitName 'nsAnnotationHeaderTagData'
+
+ref; // ME_4D6E0D500395 TnsAnnotationHeaderTagData
+
+: ME_4D6E5E40036C
+ CONST UID '4D6E5E40036C'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4D6E58B300D2 // TnsF1AutoreferatDocumentTagNode
+ ;
+ : Target WL 'ME_47C69EBC00A8' '47AC75550330.pas.ms.script' // Tk2TagID
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_4D6E5E40036C 
+
+: ME_4D6E5F9602FC
+ CONST UID '4D6E5F9602FC'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4D6E58B300D2 // TnsF1AutoreferatDocumentTagNode
+ ;
+ : Target WL 'ME_4C6D1B070024' '4C6E92E9016E.pas.ms.script' // TnsNodeState
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_4D6E5F9602FC 
+
+: ME_4C6D1D450332_ME_4D6E58B300D2
+ CONST UID '4C6D1D450332'
+ CONST Name 'DoGetSubAtom'
+ : Original WL 'ME_4C6D1D450332' '467FC9F80281.pas.ms.script' // DoGetSubAtom
+ ;
+ : Implementor ME_4D6E58B300D2 // TnsF1AutoreferatDocumentTagNode
+ ;
+ CONST OpKind opkind_Overridden
+ CONST "UseNewGen" 'undefined'
+ref; // ME_4C6D1D450332_ME_4D6E58B300D2 DoGetSubAtom
+
+: ME_4CED5CEF011A_ME_4D6E58B300D2
+ CONST UID '4CED5CEF011A'
+ CONST Name 'NodeChildrenCount'
+ : Original WL 'ME_4CED5CEF011A' '467FC9F80281.pas.ms.script' // NodeChildrenCount
+ ;
+ : Implementor ME_4D6E58B300D2 // TnsF1AutoreferatDocumentTagNode
+ ;
+ CONST OpKind opkind_Overridden
+ CONST "UseNewGen" 'undefined'
+ref; // ME_4CED5CEF011A_ME_4D6E58B300D2 NodeChildrenCount
+
+: ME_4D6E58B300D2
+ CONST UID '4D6E58B300D2'
+ CONST Name 'TnsF1AutoreferatDocumentTagNode'
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_491C3ADB03A5 // Autoreferat
+ ;
+ : Inherits
+   Seq: ( WL 'ME_4C6A750F024E' '467FC9F80281.pas.ms.script' // TnsF1DocumentTagNode
+ )
+ ; // Inherits
+ : Overridden
+   Seq: ( ME_4C6D1D450332_ME_4D6E58B300D2 // DoGetSubAtom
+ ME_4CED5CEF011A_ME_4D6E58B300D2 // NodeChildrenCount
+ )
+ ; // Overridden
+ : Dependencies
+   Seq: ( ME_4D6E5E40036C // 
+ ME_4D6E5F9602FC // 
+ )
+ ; // Dependencies
+ CONST "UseNewGen" 'undefined'
+ CONST "author" 'Люлин А.В.'
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" true
+ CONST "register in scripts" 'undefined'
+ CONST "started" '02.03.2011 17:48'
+ : Generators
+ Seq: (
+ gen_intf.pas
+ )
+ ; // Generators
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Autoreferat'
+ CONST intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\Autoreferat\nsF1AutoreferatDocumentTagNode.pas'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Autoreferat'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\Autoreferat'
+ CONST extprop:pas:UnitName 'nsF1AutoreferatDocumentTagNode'
+
+ref; // ME_4D6E58B300D2 TnsF1AutoreferatDocumentTagNode
+
+: ME_491C3ADB03A5
+ CONST UID '491C3ADB03A5'
+ CONST Name 'Autoreferat'
+ CONST Class class_Category
+ : Stereotype st_ControllerUnit ;
+ %SUMMARY 'Работа с авторефератом' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent WL 'ME_49411E4001AB' '49411E4001AB.pas.ms.script' // Autoreferat
+ ;
+ : Children
+   Seq: ( ME_491C3B8D00D8 // TdsAutoreferat
+ ME_492FDB1603A9 // TsdsAutoreferat
+ ME_492FDE91018F // TdsNewsLine
+ ME_4CE6937D031D // TnsAutoreferatDocumentContainer
+ ME_4D6E0C4A001F // TnsAnnotationHeaderTagNode
+ ME_4D6E0D500395 // TnsAnnotationHeaderTagData
+ ME_4D6E58B300D2 // TnsF1AutoreferatDocumentTagNode
+ )
+ ; // Children
+ : Depends
+   Seq: ( WL 'ME_456EA56002BF' '456EA56002BF.pas.ms.script' // BaseTypes
+ WL 'ME_4570511E038A' '4570511E038A.pas.ms.script' // Document
+ WL 'ME_4678209200A6' '4678209200A6.pas.ms.script' // nevBase
+ WL 'ME_467FC9F80281' '467FC9F80281.pas.ms.script' // DocumentTagNodes
+ WL 'ME_4680E826036D' '4680E826036D.pas.ms.script' // eeDocumentContainer
+ WL 'ME_46A0E6C5023A' '46A0E6C5023A.pas.ms.script' // ActiveX
+ WL 'ME_47913B47006E' '47913B47006E.pas.ms.script' // l3CoreObjects
+ WL 'ME_4799EC9300AF' '4799EC9300AF.pas.ms.script' // l3Defaults
+ WL 'ME_47AC75550330' '47AC75550330.pas.ms.script' // k2Tags
+ WL 'ME_47D0E1500033' '47D0E1500033.pas.ms.script' // Implementation
+ WL 'ME_47EA50050263' '47EA50050263.pas.ms.script' // BaseDocument
+ WL 'ME_47ECA80B000D' '47ECA80B000D.pas.ms.script' // Generators
+ WL 'ME_483E80C9025F' '483E80C9025F.pas.ms.script' // Readers
+ WL 'ME_48492FC0029D' '48492FC0029D.pas.ms.script' // Standard
+ WL 'ME_484A470100DD' '484A470100DD.pas.ms.script' // Standard
+ WL 'ME_48F747EC0073' '48F747EC0073.pas.ms.script' // Common
+ WL 'ME_491B305A0096' '491B305A0096.pas.ms.script' // DocumentAndListInterfaces
+ WL 'ME_492F0586030C' '492F0586030C.pas.ms.script' // AutoreferatInterfaces
+ WL 'ME_4982BE090383' '4982BE090383.pas.ms.script' // vcmControllers
+ WL 'ME_4AB0997B00A2' '4AB0997B00A2.pas.ms.script' // Common
+ WL 'ME_4AB0C3C60310' '4AB0C3C60310.pas.ms.script' // Sys
+ WL 'ME_4B1FC2FF03CD' '4B1FC2FF03CD.pas.ms.script' // DocumentInterfaces
+ WL 'ME_4C1B915E0261' '4C1B915E0261.pas.ms.script' // Version Info
+ WL 'ME_4C6A7BA001A5' '4C6A7BA001A5.pas.ms.script' // F1DocumentContainers
+ WL 'ME_4C6E92E9016E' '4C6E92E9016E.pas.ms.script' // F1TagDataProviderInterface
+ WL 'ME_53A402C7010D' '53A402C7010D.pas.ms.script' // TabbedInterfaceSupport
+ )
+ ; // Depends
+ CONST "UseNewGen" 'undefined'
+ : Generators
+ Seq: (
+ gen_pas.script
+ gen_pas.script.runner
+ )
+ ; // Generators
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Autoreferat'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Autoreferat'
+ CONST pas.script:Path 'shared\models\NewSchool\Scripts\491C3ADB03A5.pas.ms.script'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\491C3ADB03A5.pas.ms.script.runner'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\Autoreferat'
+
+ref; // ME_491C3ADB03A5 Autoreferat

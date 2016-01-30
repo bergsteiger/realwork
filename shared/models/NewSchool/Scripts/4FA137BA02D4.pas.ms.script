@@ -40,8 +40,8 @@ ref; // ME_4FA1505A026F aDB
  : Parent ME_4FA150420241 // DoBase
  ;
  : Parameters
-   @ ( ME_4FA1505A026F // aDB
- ) .SequenceCode.It
+   Seq: ( ME_4FA1505A026F // aDB
+ )
  ; // Parameters
 
 ref; // ME_4FA1504D0389 DoIt
@@ -57,8 +57,8 @@ ref; // ME_4FA1504D0389 DoIt
  : Parent ME_4FA137DD03E4 // TArchiStorageTest
  ;
  : Operations
-   @ ( ME_4FA1504D0389 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_4FA1504D0389 // DoIt
+ )
  ; // Operations
 
 ref; // ME_4FA150420241 DoBase
@@ -89,8 +89,8 @@ ref; // ME_4FBB73940131 DoIt
  : Parent ME_4FA137DD03E4 // TArchiStorageTest
  ;
  : Operations
-   @ ( ME_4FBB73940131 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_4FBB73940131 // DoIt
+ )
  ; // Operations
 
 ref; // ME_4FBB73390387 NeedTestRenaming
@@ -207,6 +207,7 @@ ref; // ME_4FBB8EF10123
 
 : ME_3BD2D87A91FA
  CONST UID '3BD2D87A91FA'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_4FA137DD03E4 // TArchiStorageTest
@@ -223,6 +224,7 @@ ref; // ME_3BD2D87A91FA
  ;
  : Implementor ME_4FA137DD03E4 // TArchiStorageTest
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4C937013031D_ME_4FA137DD03E4 GetFolder
 
 : ME_4DAED6F60146_ME_4FA137DD03E4
@@ -232,6 +234,7 @@ ref; // ME_4C937013031D_ME_4FA137DD03E4 GetFolder
  ;
  : Implementor ME_4FA137DD03E4 // TArchiStorageTest
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4DAED6F60146_ME_4FA137DD03E4 GetModelElementGUID
 
 : ME_4FA164500031_ME_4FA137DD03E4
@@ -241,6 +244,7 @@ ref; // ME_4DAED6F60146_ME_4FA137DD03E4 GetModelElementGUID
  ;
  : Implementor ME_4FA137DD03E4 // TArchiStorageTest
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4FA164500031_ME_4FA137DD03E4 NeedCreateEtalonsWhileCheckingOutputWithInput
 
 : ME_4FA137DD03E4
@@ -254,23 +258,23 @@ ref; // ME_4FA164500031_ME_4FA137DD03E4 NeedCreateEtalonsWhileCheckingOutputWith
  : Parent ME_4FA137BA02D4 // Storage
  ;
  : Inherits
-   @ ( WL 'ME_4B2A11BC0255' '4B2A112B011A.pas.ms.script' // TBaseTest
- ) .SequenceCode.It
+   Seq: ( WL 'ME_4B2A11BC0255' '4B2A112B011A.pas.ms.script' // TBaseTest
+ )
  ; // Inherits
  : Operations
-   @ ( ME_4FA137EE02D3 // DoIt
+   Seq: ( ME_4FA137EE02D3 // DoIt
  ME_4FA150420241 // DoBase
  ME_4FBB73390387 // NeedTestRenaming
- ) .SequenceCode.It
+ )
  ; // Operations
  : Overridden
-   @ ( ME_4C937013031D_ME_4FA137DD03E4 // GetFolder
+   Seq: ( ME_4C937013031D_ME_4FA137DD03E4 // GetFolder
  ME_4DAED6F60146_ME_4FA137DD03E4 // GetModelElementGUID
  ME_4FA164500031_ME_4FA137DD03E4 // NeedCreateEtalonsWhileCheckingOutputWithInput
- ) .SequenceCode.It
+ )
  ; // Overridden
  : Dependencies
-   @ ( ME_4FA1383E01D7 // 
+   Seq: ( ME_4FA1383E01D7 // 
  ME_4FA145A0003B // 
  ME_4FA14BA800DB // 
  ME_4FA14BC60231 // 
@@ -281,18 +285,26 @@ ref; // ME_4FA164500031_ME_4FA137DD03E4 NeedCreateEtalonsWhileCheckingOutputWith
  ME_4FA15EE103C0 // 
  ME_4FBB8EF10123 // 
  ME_3BD2D87A91FA // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
  : Generators
- @ (
+ Seq: (
  gen_intf.pas
- ) .SequenceCode.It
+ )
  ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\Abstract_Archi_Tests'
  CONST intf.pas:Path 'common\components\rtl\Garant\Abstract_Archi_Tests\ArchiStorageTest.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\Abstract_Archi_Tests'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\common\components\rtl\Garant\Abstract_Archi_Tests'
+ CONST extprop:rc:SelfName 'ArchiStorageTest'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'ArchiStorageTest'
 
 ref; // ME_4FA137DD03E4 TArchiStorageTest
 
@@ -300,6 +312,7 @@ FORWARD ME_4FBB6C0D0366
 
 : ME_DDF89F04E086
  CONST UID 'DDF89F04E086'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_4FBB6C0D0366 // TArchiStorageTestWithRename
@@ -316,6 +329,7 @@ ref; // ME_DDF89F04E086
  ;
  : Implementor ME_4FBB6C0D0366 // TArchiStorageTestWithRename
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4C937013031D_ME_4FBB6C0D0366 GetFolder
 
 : ME_4DAED6F60146_ME_4FBB6C0D0366
@@ -325,6 +339,7 @@ ref; // ME_4C937013031D_ME_4FBB6C0D0366 GetFolder
  ;
  : Implementor ME_4FBB6C0D0366 // TArchiStorageTestWithRename
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4DAED6F60146_ME_4FBB6C0D0366 GetModelElementGUID
 
 : ME_4FBB73390387_ME_4FBB6C0D0366
@@ -334,6 +349,7 @@ ref; // ME_4DAED6F60146_ME_4FBB6C0D0366 GetModelElementGUID
  ;
  : Implementor ME_4FBB6C0D0366 // TArchiStorageTestWithRename
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4FBB73390387_ME_4FBB6C0D0366 NeedTestRenaming
 
 : ME_4FBB6C0D0366
@@ -347,29 +363,37 @@ ref; // ME_4FBB73390387_ME_4FBB6C0D0366 NeedTestRenaming
  : Parent ME_4FA137BA02D4 // Storage
  ;
  : Inherits
-   @ ( ME_4FA137DD03E4 // TArchiStorageTest
- ) .SequenceCode.It
+   Seq: ( ME_4FA137DD03E4 // TArchiStorageTest
+ )
  ; // Inherits
  : Overridden
-   @ ( ME_4C937013031D_ME_4FBB6C0D0366 // GetFolder
+   Seq: ( ME_4C937013031D_ME_4FBB6C0D0366 // GetFolder
  ME_4DAED6F60146_ME_4FBB6C0D0366 // GetModelElementGUID
  ME_4FBB73390387_ME_4FBB6C0D0366 // NeedTestRenaming
- ) .SequenceCode.It
+ )
  ; // Overridden
  : Dependencies
-   @ ( ME_DDF89F04E086 // 
- ) .SequenceCode.It
+   Seq: ( ME_DDF89F04E086 // 
+ )
  ; // Dependencies
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
  : Generators
- @ (
+ Seq: (
  gen_intf.pas
- ) .SequenceCode.It
+ )
  ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\Abstract_Archi_Tests'
  CONST intf.pas:Path 'common\components\rtl\Garant\Abstract_Archi_Tests\ArchiStorageTestWithRename.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\Abstract_Archi_Tests'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\common\components\rtl\Garant\Abstract_Archi_Tests'
+ CONST extprop:rc:SelfName 'ArchiStorageTestWithRename'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'ArchiStorageTestWithRename'
 
 ref; // ME_4FBB6C0D0366 TArchiStorageTestWithRename
 
@@ -383,12 +407,12 @@ ref; // ME_4FBB6C0D0366 TArchiStorageTestWithRename
  : Parent WL 'ME_4D53DDBE00EE' '4D53DDBE00EE.pas.ms.script' // Abstract Archi Tests
  ;
  : Children
-   @ ( ME_4FA137DD03E4 // TArchiStorageTest
+   Seq: ( ME_4FA137DD03E4 // TArchiStorageTest
  ME_4FBB6C0D0366 // TArchiStorageTestWithRename
- ) .SequenceCode.It
+ )
  ; // Children
  : Depends
-   @ ( WL 'ME_4677FBA70343' '4677FBA70343.pas.ms.script' // l3Interfaces
+   Seq: ( WL 'ME_4677FBA70343' '4677FBA70343.pas.ms.script' // l3Interfaces
  WL 'ME_4678193C009C' '4678193C009C.pas.ms.script' // l3Types
  WL 'ME_4720831F012D' '4720831F012D.pas.ms.script' // m3DBInterfaces
  WL 'ME_4720862F0238' '4720862F0238.pas.ms.script' // m3StorageInterfaces
@@ -400,15 +424,20 @@ ref; // ME_4FBB6C0D0366 TArchiStorageTestWithRename
  WL 'ME_4B2A0D6A0077' '4B2A0D6A0077.pas.ms.script' // Source
  WL 'ME_4B2A112B011A' '4B2A112B011A.pas.ms.script' // Source
  WL 'ME_5485B0D1026C' '5485B0D1026C.pas.ms.script' // Streams
- ) .SequenceCode.It
+ )
  ; // Depends
  : Generators
- @ (
+ Seq: (
  gen_pas.script
  gen_pas.script.runner
- ) .SequenceCode.It
+ )
  ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\Abstract_Archi_Tests'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\Abstract_Archi_Tests'
  CONST pas.script:Path 'shared\models\NewSchool\Scripts\4FA137BA02D4.pas.ms.script'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
  CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\4FA137BA02D4.pas.ms.script.runner'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\common\components\rtl\Garant\Abstract_Archi_Tests'
 
 ref; // ME_4FA137BA02D4 Storage

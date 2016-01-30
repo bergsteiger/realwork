@@ -1,0 +1,187 @@
+// Интерфейс Администратора 481F0CA6017E UseCases Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_481F0CA6017E
+
+: ME_481F0A680190
+ CONST UID '481F0A680190'
+ CONST Name 'Запрет создания учетной записи'
+ CONST Class class_Class
+ : Stereotype st_UseCase ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Запрет самостоятельного создания учетной записи для пользователей - при работе с интерфейсом Администратора запрещаем всем пользователям системы создавать *новые* учетные записи' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_481F0CA6017E // Интерфейс Администратора
+ ;
+ CONST "UseNewGen" 'undefined'
+ CONST dfm:PathOnly '\garant6x\implementation\Garant'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant'
+
+ref; // ME_481F0A680190 Запрет создания учетной записи
+
+: ME_481F0DEC0211
+ CONST UID '481F0DEC0211'
+ CONST Name 'Пакетные операции для пользователей'
+ CONST Class class_Class
+ : Stereotype st_UseCase ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Выполнение однотипной операции над несколькими учетными записями одновременно' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_481F0CA6017E // Интерфейс Администратора
+ ;
+ CONST "UseNewGen" 'undefined'
+ CONST dfm:PathOnly '\garant6x\implementation\Garant'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant'
+
+ref; // ME_481F0DEC0211 Пакетные операции для пользователей
+
+FORWARD ME_484F8C0C0359
+
+: ME_4E8079840038
+ CONST UID '4E8079840038'
+ CONST Name 'Возможность назначения пользователям общих фильтров в администраторе'
+ CONST Class class_Class
+ : Stereotype st_UseCaseRequirement ;
+ CONST Kind kind_NormalClass
+ %SUMMARY '{RequestLink:278826721}.' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_484F8C0C0359 // Администрирование пользователей
+ ;
+ CONST "UseNewGen" 'undefined'
+ CONST dfm:PathOnly '\garant6x\implementation\Garant'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant'
+
+ref; // ME_4E8079840038 Возможность назначения пользователям общих фильтров в администраторе
+
+: ME_484F8C0C0359
+ CONST UID '484F8C0C0359'
+ CONST Name 'Администрирование пользователей'
+ CONST Class class_Class
+ : Stereotype st_UseCase ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Работа со списком пользователей и изменение параметров их учетных записей' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_481F0CA6017E // Интерфейс Администратора
+ ;
+ : Children
+   Seq: ( ME_4E8079840038 // Возможность назначения пользователям общих фильтров в администраторе
+ )
+ ; // Children
+ CONST "UseNewGen" 'undefined'
+ CONST dfm:PathOnly '\garant6x\implementation\Garant'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant'
+
+ref; // ME_484F8C0C0359 Администрирование пользователей
+
+: ME_485651A90102
+ CONST UID '485651A90102'
+ CONST Name 'Привилегированные учетные записи'
+ CONST Class class_Class
+ : Stereotype st_UseCase ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Реализация привилегированных рабочих мест и учетных записей' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_481F0CA6017E // Интерфейс Администратора
+ ;
+ CONST "UseNewGen" 'undefined'
+ CONST dfm:PathOnly '\garant6x\implementation\Garant'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant'
+
+ref; // ME_485651A90102 Привилегированные учетные записи
+
+: ME_48608AEC0209
+ CONST UID '48608AEC0209'
+ CONST Name 'Ограничение спектра видимых пользователю баз '
+ CONST Class class_Class
+ : Stereotype st_UseCase ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Возможность администратора ограничить для конкретного пользователя(логина) спектр видимых ему баз' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_481F0CA6017E // Интерфейс Администратора
+ ;
+ CONST "UseNewGen" 'undefined'
+ CONST dfm:PathOnly '\garant6x\implementation\Garant'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant'
+
+ref; // ME_48608AEC0209 Ограничение спектра видимых пользователю баз 
+
+: ME_49EC49670160
+ CONST UID '49EC49670160'
+ CONST Name 'Группы пользователей'
+ CONST Class class_Class
+ : Stereotype st_UseCase ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Группировка пользователей в интерфейсе Администратора' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_481F0CA6017E // Интерфейс Администратора
+ ;
+ CONST "UseNewGen" 'undefined'
+ CONST dfm:PathOnly '\garant6x\implementation\Garant'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant'
+
+ref; // ME_49EC49670160 Группы пользователей
+
+: ME_481F0CA6017E
+ CONST UID '481F0CA6017E'
+ CONST Name 'Интерфейс Администратора'
+ CONST Class class_Category
+ : Stereotype st_UseCases ;
+ %SUMMARY 'Работа с интерфейсом администрирования пользовательских учетных записей и списком пользователей системы' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent WL 'ME_4E312E2502AE' '4E312E2502AE.pas.ms.script' // Требования
+ ;
+ : Children
+   Seq: ( ME_481F0A680190 // Запрет создания учетной записи
+ ME_481F0DEC0211 // Пакетные операции для пользователей
+ ME_484F8C0C0359 // Администрирование пользователей
+ ME_485651A90102 // Привилегированные учетные записи
+ ME_48608AEC0209 // Ограничение спектра видимых пользователю баз 
+ ME_49EC49670160 // Группы пользователей
+ )
+ ; // Children
+ CONST "UseNewGen" 'undefined'
+ : Generators
+ Seq: (
+ gen_pas.script
+ gen_pas.script.runner
+ )
+ ; // Generators
+ CONST dfm:PathOnly '\garant6x\implementation\Garant'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant'
+ CONST pas.script:Path 'shared\models\NewSchool\Scripts\481F0CA6017E.pas.ms.script'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\481F0CA6017E.pas.ms.script.runner'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant'
+
+ref; // ME_481F0CA6017E Интерфейс Администратора

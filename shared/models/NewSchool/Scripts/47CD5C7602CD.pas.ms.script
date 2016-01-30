@@ -15,10 +15,16 @@ FORWARD ME_47CD5C7602CD
  : Parent ME_47CD5C7602CD // evQueryCardInt
  ;
  : Inherits
-   @ ( WL 'ME_47C52228029C' '47C5207602D1.pas.ms.script' // InevBase
- ) .SequenceCode.It
+   Seq: ( WL 'ME_47C52228029C' '47C5207602D1.pas.ms.script' // InevBase
+ )
  ; // Inherits
  CONST "is default ancestor" true
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest\qf'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'Base'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_47CD5CD80103 InevBase
 
@@ -83,12 +89,17 @@ ref; // ME_47CD5D0400A4 ev_btDelete
  : Parent ME_47CD5C7602CD // evQueryCardInt
  ;
  : Attributes
-   @ ( ME_47CD5CF50205 // ev_btNone
+   Seq: ( ME_47CD5CF50205 // ev_btNone
  ME_47CD5CFB01B2 // ev_btLogical
  ME_47CD5D000014 // ev_btAdd
  ME_47CD5D0400A4 // ev_btDelete
- ) .SequenceCode.It
+ )
  ; // Attributes
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest\qf'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_47CD5CEE0318 TevButtonType
 
@@ -129,10 +140,15 @@ ref; // ME_47CD5D1C01D4 ev_cbDropDown
  : Parent ME_47CD5C7602CD // evQueryCardInt
  ;
  : Attributes
-   @ ( ME_47CD5D18016F // ev_cbFilterable
+   Seq: ( ME_47CD5D18016F // ev_cbFilterable
  ME_47CD5D1C01D4 // ev_cbDropDown
- ) .SequenceCode.It
+ )
  ; // Attributes
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest\qf'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_47CD5D0C02FD TevComboStyle
 
@@ -167,9 +183,15 @@ ref; // ME_47CD5D46015B Para
  : Parent ME_47CD5C7602CD // evQueryCardInt
  ;
  : Attributes
-   @ ( ME_47CD5D46015B // Para
- ) .SequenceCode.It
+   Seq: ( ME_47CD5D46015B // Para
+ )
  ; // Attributes
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest\qf'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'ParaTool'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_47CD5D2C00F9 IevCustomParaTool
 
@@ -214,6 +236,7 @@ ref; // ME_47CD5E1C00AE Collapsed
  ;
  : Implementor ME_47CD5DC20075 // IevDescriptionReq
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" false
 ref; // ME_47CD5D46015B_ME_47CD5DC20075 Para
 
@@ -229,18 +252,24 @@ ref; // ME_47CD5D46015B_ME_47CD5DC20075 Para
  : Parent ME_47CD5C7602CD // evQueryCardInt
  ;
  : Inherits
-   @ ( ME_47CD5D2C00F9 // IevCustomParaTool
- ) .SequenceCode.It
+   Seq: ( ME_47CD5D2C00F9 // IevCustomParaTool
+ )
  ; // Inherits
  : Attributes
-   @ ( ME_47CD5DF301FE // ReqName
+   Seq: ( ME_47CD5DF301FE // ReqName
  ME_47CD5E1C00AE // Collapsed
- ) .SequenceCode.It
+ )
  ; // Attributes
  : Implemented
-   @ ( ME_47CD5D46015B_ME_47CD5DC20075 // Para
- ) .SequenceCode.It
+   Seq: ( ME_47CD5D46015B_ME_47CD5DC20075 // Para
+ )
  ; // Implemented
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest\qf'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'DescriptionReq'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_47CD5DC20075 IevDescriptionReq
 
@@ -374,9 +403,9 @@ ref; // ME_47CD5EBA010C aValue
  : Parent ME_47CD5E5300D5 // IevCustomEditorControl
  ;
  : Parameters
-   @ ( ME_47CD5EBA00E9 // aIdent
+   Seq: ( ME_47CD5EBA00E9 // aIdent
  ME_47CD5EBA010C // aValue
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_47CD5EB4005D InitBoolProperty
@@ -400,6 +429,7 @@ ref; // ME_47CD5EC10294 UpperChange
  ;
  : Implementor ME_47CD5E5300D5 // IevCustomEditorControl
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" false
 ref; // ME_47CD5D46015B_ME_47CD5E5300D5 Para
 
@@ -416,31 +446,37 @@ ref; // ME_47CD5D46015B_ME_47CD5E5300D5 Para
  : Parent ME_47CD5C7602CD // evQueryCardInt
  ;
  : Inherits
-   @ ( ME_47CD5D2C00F9 // IevCustomParaTool
- ) .SequenceCode.It
+   Seq: ( ME_47CD5D2C00F9 // IevCustomParaTool
+ )
  ; // Inherits
  : Attributes
-   @ ( ME_47CD5EE900F7 // ControlName
+   Seq: ( ME_47CD5EE900F7 // ControlName
  ME_47CD5F19011F // ControlType
  ME_47CD5F3B03CA // Visible
  ME_47CD5F4F015B // Upper
- ) .SequenceCode.It
+ )
  ; // Attributes
  : Operations
-   @ ( ME_47CD5E7A027B // IsMultiline
+   Seq: ( ME_47CD5E7A027B // IsMultiline
  ME_47CD5E9B031F // GetControlIterator
  ME_47CD5EB4005D // InitBoolProperty
  ME_47CD5EC10294 // UpperChange
- ) .SequenceCode.It
+ )
  ; // Operations
  : Implemented
-   @ ( ME_47CD5D46015B_ME_47CD5E5300D5 // Para
- ) .SequenceCode.It
+   Seq: ( ME_47CD5D46015B_ME_47CD5E5300D5 // Para
+ )
  ; // Implemented
  : Forwarded
-   @ ( ME_47CD5E9201B2 // IevControlIterator
- ) .SequenceCode.It
+   Seq: ( ME_47CD5E9201B2 // IevControlIterator
+ )
  ; // Forwarded
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest\qf'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'EditorControl'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_47CD5E5300D5 IevCustomEditorControl
 
@@ -466,8 +502,8 @@ ref; // ME_47CD77A8005D OnlyFields
  : Target ME_47CD5E5300D5 // IevCustomEditorControl
  ;
  : Parameters
-   @ ( ME_47CD77A8005D // OnlyFields
- ) .SequenceCode.It
+   Seq: ( ME_47CD77A8005D // OnlyFields
+ )
  ; // Parameters
 
 ref; // ME_47CD77A200FE GetNextVisible
@@ -494,8 +530,8 @@ ref; // ME_47CD77B801EC OnlyFields
  : Target ME_47CD5E5300D5 // IevCustomEditorControl
  ;
  : Parameters
-   @ ( ME_47CD77B801EC // OnlyFields
- ) .SequenceCode.It
+   Seq: ( ME_47CD77B801EC // OnlyFields
+ )
  ; // Parameters
 
 ref; // ME_47CD77B1038D GetPrevVisible
@@ -512,10 +548,16 @@ ref; // ME_47CD77B1038D GetPrevVisible
  : Parent ME_47CD5C7602CD // evQueryCardInt
  ;
  : Operations
-   @ ( ME_47CD77A200FE // GetNextVisible
+   Seq: ( ME_47CD77A200FE // GetNextVisible
  ME_47CD77B1038D // GetPrevVisible
- ) .SequenceCode.It
+ )
  ; // Operations
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest\qf'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'ControlIterator'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_47CD5E9201B2 IevControlIterator
 
@@ -611,14 +653,19 @@ ref; // ME_47CFD52800AC ev_qtInpharm
  : Parent ME_47CD5C7602CD // evQueryCardInt
  ;
  : Attributes
-   @ ( ME_47CFD4F302D1 // ev_qtAttributeSearch
+   Seq: ( ME_47CFD4F302D1 // ev_qtAttributeSearch
  ME_47CFD4FF0212 // ev_qtLegistationReview
  ME_47CFD5090187 // ev_qtPostingsOrder
  ME_47CFD5130254 // ev_qtSearchWithLawSupport
  ME_47CFD51D0075 // ev_qtConsultations
  ME_47CFD52800AC // ev_qtInpharm
- ) .SequenceCode.It
+ )
  ; // Attributes
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest\qf'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_47CFD4E40336 TevQueryType
 
@@ -681,8 +728,8 @@ ref; // ME_47CD5FD702C5 aControl
  : Parent ME_47CD5FA60110 // IevAdapterModel
  ;
  : Parameters
-   @ ( ME_47CD5FD702C5 // aControl
- ) .SequenceCode.It
+   Seq: ( ME_47CD5FD702C5 // aControl
+ )
  ; // Parameters
 
 ref; // ME_47CD5FBC0170 LimitCharsReached
@@ -709,8 +756,8 @@ ref; // ME_47CD606700BC aReq
  : Target WL 'ME_476BF1DD0075' '4678209200A6.pas.ms.script' // InevSimpleTree
  ;
  : Parameters
-   @ ( ME_47CD606700BC // aReq
- ) .SequenceCode.It
+   Seq: ( ME_47CD606700BC // aReq
+ )
  ; // Parameters
 
 ref; // ME_47CD605F001E GetTreeFromAdapter
@@ -735,8 +782,8 @@ ref; // ME_47CD60B601FC aField
  : Parent ME_47CD5FA60110 // IevAdapterModel
  ;
  : Parameters
-   @ ( ME_47CD60B601FC // aField
- ) .SequenceCode.It
+   Seq: ( ME_47CD60B601FC // aField
+ )
  ; // Parameters
 
 ref; // ME_47CD60AF0052 EscPressed
@@ -762,8 +809,8 @@ ref; // ME_47CD9AB800B8 aReq
  : Target ME_47CD6044002F // IevModelListener
  ;
  : Parameters
-   @ ( ME_47CD9AB800B8 // aReq
- ) .SequenceCode.It
+   Seq: ( ME_47CD9AB800B8 // aReq
+ )
  ; // Parameters
 
 ref; // ME_47CD9AB2023F ModelListener
@@ -804,26 +851,32 @@ ref; // ME_4885BFB60314 NotifyContextWrong
  : Parent ME_47CD5C7602CD // evQueryCardInt
  ;
  : Attributes
-   @ ( ME_47CD60F50164 // HistoryList
- ) .SequenceCode.It
+   Seq: ( ME_47CD60F50164 // HistoryList
+ )
  ; // Attributes
  : Operations
-   @ ( ME_47CD5FAF01CE // FocusStartField
+   Seq: ( ME_47CD5FAF01CE // FocusStartField
  ME_47CD5FBC0170 // LimitCharsReached
  ME_47CD605F001E // GetTreeFromAdapter
  ME_47CD60AF0052 // EscPressed
  ME_47CD9AB2023F // ModelListener
  ME_486C765001F5 // GetPromptTreeFromAdapter
  ME_4885BFB60314 // NotifyContextWrong
- ) .SequenceCode.It
+ )
  ; // Operations
  : Forwarded
-   @ ( ME_47CD601B0048 // IevEditorControl
+   Seq: ( ME_47CD601B0048 // IevEditorControl
  ME_47CD6044002F // IevModelListener
  ME_47CD609F0273 // IevEditorFieldWithTree
  ME_47CD6644026F // IevReq
- ) .SequenceCode.It
+ )
  ; // Forwarded
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest\qf'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'AdapterModel'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_47CD5FA60110 IevAdapterModel
 
@@ -974,12 +1027,12 @@ ref; // ME_47CD77F00219 anInPara
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
  : Parameters
-   @ ( ME_47CD77F0017D // aView
+   Seq: ( ME_47CD77F0017D // aView
  ME_47CD77F001A4 // aPara
  ME_47CD77F001CA // aPt
  ME_47CD77F001F1 // aKeys
  ME_47CD77F00219 // anInPara
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_47CD77D60195 LMouseBtnUp
@@ -1056,13 +1109,13 @@ ref; // ME_47CD783000DA aMap
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
  : Parameters
-   @ ( ME_47CD782F03E6 // aView
+   Seq: ( ME_47CD782F03E6 // aView
  ME_47CD7830002A // aPara
  ME_47CD78300054 // aPt
  ME_47CD78300080 // aKeys
  ME_47CD783000AD // anInPara
  ME_47CD783000DA // aMap
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_47CD78150291 LMouseBtnDown
@@ -1109,10 +1162,10 @@ ref; // ME_47CD785801BA aPara
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
  : Parameters
-   @ ( ME_47CD7858015B // aView
+   Seq: ( ME_47CD7858015B // aView
  ME_47CD7858018B // aCmd
  ME_47CD785801BA // aPara
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_47CD784A00E0 KeyCommand
@@ -1169,10 +1222,10 @@ ref; // ME_480347190283 anOp
  : Parent ME_47CD601B0048 // IevEditorControl
  ;
  : Parameters
-   @ ( ME_4803471901C5 // aView
+   Seq: ( ME_4803471901C5 // aView
  ME_480347190223 // aPara
  ME_480347190283 // anOp
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_47CD786D0183 TextChange
@@ -1199,8 +1252,8 @@ ref; // ME_47CD78950106 aValue
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
  : Parameters
-   @ ( ME_47CD78950106 // aValue
- ) .SequenceCode.It
+   Seq: ( ME_47CD78950106 // aValue
+ )
  ; // Parameters
 
 ref; // ME_47CD788D010B GetHint
@@ -1225,8 +1278,8 @@ ref; // ME_48034A3D03B8 aView
  : Parent ME_47CD601B0048 // IevEditorControl
  ;
  : Parameters
-   @ ( ME_48034A3D03B8 // aView
- ) .SequenceCode.It
+   Seq: ( ME_48034A3D03B8 // aView
+ )
  ; // Parameters
 
 ref; // ME_47CD78A001D0 InsertRow
@@ -1241,6 +1294,7 @@ ref; // ME_47CD78A001D0 InsertRow
  CONST Value false
  : ValueType WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
+ CONST extprop:pas:Value false
 
 ref; // ME_47CD78B50068 aChangePara
 
@@ -1254,8 +1308,8 @@ ref; // ME_47CD78B50068 aChangePara
  : Parent ME_47CD601B0048 // IevEditorControl
  ;
  : Parameters
-   @ ( ME_47CD78B50068 // aChangePara
- ) .SequenceCode.It
+   Seq: ( ME_47CD78B50068 // aChangePara
+ )
  ; // Parameters
 
 ref; // ME_47CD78AD0097 SetFocus
@@ -1267,6 +1321,7 @@ ref; // ME_47CD78AD0097 SetFocus
  ;
  : Implementor ME_47CD601B0048 // IevEditorControl
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" false
 ref; // ME_47CD5D46015B_ME_47CD601B0048 Para
 
@@ -1277,6 +1332,7 @@ ref; // ME_47CD5D46015B_ME_47CD601B0048 Para
  ;
  : Implementor ME_47CD601B0048 // IevEditorControl
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_47CD5E7A027B_ME_47CD601B0048 IsMultiline
 
 : ME_47CD5E9B031F_ME_47CD601B0048
@@ -1286,6 +1342,7 @@ ref; // ME_47CD5E7A027B_ME_47CD601B0048 IsMultiline
  ;
  : Implementor ME_47CD601B0048 // IevEditorControl
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_47CD5E9B031F_ME_47CD601B0048 GetControlIterator
 
 : ME_47CD5EB4005D_ME_47CD601B0048
@@ -1295,6 +1352,7 @@ ref; // ME_47CD5E9B031F_ME_47CD601B0048 GetControlIterator
  ;
  : Implementor ME_47CD601B0048 // IevEditorControl
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_47CD5EB4005D_ME_47CD601B0048 InitBoolProperty
 
 : ME_47CD5EC10294_ME_47CD601B0048
@@ -1304,6 +1362,7 @@ ref; // ME_47CD5EB4005D_ME_47CD601B0048 InitBoolProperty
  ;
  : Implementor ME_47CD601B0048 // IevEditorControl
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_47CD5EC10294_ME_47CD601B0048 UpperChange
 
 : ME_47CD5EE900F7_ME_47CD601B0048
@@ -1313,6 +1372,7 @@ ref; // ME_47CD5EC10294_ME_47CD601B0048 UpperChange
  ;
  : Implementor ME_47CD601B0048 // IevEditorControl
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" false
 ref; // ME_47CD5EE900F7_ME_47CD601B0048 ControlName
 
@@ -1323,6 +1383,7 @@ ref; // ME_47CD5EE900F7_ME_47CD601B0048 ControlName
  ;
  : Implementor ME_47CD601B0048 // IevEditorControl
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" false
 ref; // ME_47CD5F19011F_ME_47CD601B0048 ControlType
 
@@ -1333,6 +1394,7 @@ ref; // ME_47CD5F19011F_ME_47CD601B0048 ControlType
  ;
  : Implementor ME_47CD601B0048 // IevEditorControl
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" false
 ref; // ME_47CD5F3B03CA_ME_47CD601B0048 Visible
 
@@ -1343,6 +1405,7 @@ ref; // ME_47CD5F3B03CA_ME_47CD601B0048 Visible
  ;
  : Implementor ME_47CD601B0048 // IevEditorControl
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" false
 ref; // ME_47CD5F4F015B_ME_47CD601B0048 Upper
 
@@ -1359,19 +1422,19 @@ ref; // ME_47CD5F4F015B_ME_47CD601B0048 Upper
  : Parent ME_47CD5C7602CD // evQueryCardInt
  ;
  : Inherits
-   @ ( ME_47CD5E5300D5 // IevCustomEditorControl
- ) .SequenceCode.It
+   Seq: ( ME_47CD5E5300D5 // IevCustomEditorControl
+ )
  ; // Inherits
  : Attributes
-   @ ( ME_47CD791D025D // Enabled
+   Seq: ( ME_47CD791D025D // Enabled
  ME_47CD792F0026 // MaxLength
  ME_47CD9B8E0009 // Caption
  ME_47CD78CB0304 // Field
  ME_47CD78FE0254 // Req
- ) .SequenceCode.It
+ )
  ; // Attributes
  : Operations
-   @ ( ME_47CD77D60195 // LMouseBtnUp
+   Seq: ( ME_47CD77D60195 // LMouseBtnUp
  ME_47CD78150291 // LMouseBtnDown
  ME_47CD784A00E0 // KeyCommand
  ME_47CD785F0300 // RememberState
@@ -1379,10 +1442,10 @@ ref; // ME_47CD5F4F015B_ME_47CD601B0048 Upper
  ME_47CD788D010B // GetHint
  ME_47CD78A001D0 // InsertRow
  ME_47CD78AD0097 // SetFocus
- ) .SequenceCode.It
+ )
  ; // Operations
  : Implemented
-   @ ( ME_47CD5D46015B_ME_47CD601B0048 // Para
+   Seq: ( ME_47CD5D46015B_ME_47CD601B0048 // Para
  ME_47CD5E7A027B_ME_47CD601B0048 // IsMultiline
  ME_47CD5E9B031F_ME_47CD601B0048 // GetControlIterator
  ME_47CD5EB4005D_ME_47CD601B0048 // InitBoolProperty
@@ -1391,12 +1454,18 @@ ref; // ME_47CD5F4F015B_ME_47CD601B0048 Upper
  ME_47CD5F19011F_ME_47CD601B0048 // ControlType
  ME_47CD5F3B03CA_ME_47CD601B0048 // Visible
  ME_47CD5F4F015B_ME_47CD601B0048 // Upper
- ) .SequenceCode.It
+ )
  ; // Implemented
  : Forwarded
-   @ ( ME_47CD608201FA // IevEditorControlField
- ) .SequenceCode.It
+   Seq: ( ME_47CD608201FA // IevEditorControlField
+ )
  ; // Forwarded
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest\qf'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'EditorControl'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_47CD601B0048 IevEditorControl
 
@@ -1434,8 +1503,8 @@ ref; // ME_47CD6129019E aValue
  : Target WL 'ME_46780DA40383' '4677FBA70343.pas.ms.script' // Il3CString
  ;
  : Parameters
-   @ ( ME_47CD6129019E // aValue
- ) .SequenceCode.It
+   Seq: ( ME_47CD6129019E // aValue
+ )
  ; // Parameters
 
 ref; // ME_47CD61200100 GetHint
@@ -1472,9 +1541,9 @@ ref; // ME_47CD618A0330 aImages
  : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
  ;
  : Parameters
-   @ ( ME_47CD618A0307 // Index
+   Seq: ( ME_47CD618A0307 // Index
  ME_47CD618A0330 // aImages
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_47CD617100AE GetImage
@@ -1511,9 +1580,9 @@ ref; // ME_47CD61A5022E aRslt
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
  : Parameters
-   @ ( ME_47CD61A50204 // aValue
+   Seq: ( ME_47CD61A50204 // aValue
  ME_47CD61A5022E // aRslt
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_47CD61990018 AnalyzeString
@@ -1540,8 +1609,8 @@ ref; // ME_47CD659A0147 aField
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
  : Parameters
-   @ ( ME_47CD659A0147 // aField
- ) .SequenceCode.It
+   Seq: ( ME_47CD659A0147 // aField
+ )
  ; // Parameters
 
 ref; // ME_47CD659200E3 CheckValue
@@ -1578,8 +1647,8 @@ ref; // ME_47CD661300CB aField
  : Parent ME_47CD6044002F // IevModelListener
  ;
  : Parameters
-   @ ( ME_47CD661300CB // aField
- ) .SequenceCode.It
+   Seq: ( ME_47CD661300CB // aField
+ )
  ; // Parameters
 
 ref; // ME_47CD6608039E AfterSetText
@@ -1622,7 +1691,7 @@ ref; // ME_47CD6629039E HyperLinkClick
  : Parent ME_47CD5C7602CD // evQueryCardInt
  ;
  : Operations
-   @ ( ME_47CD611402BF // EnterPressed
+   Seq: ( ME_47CD611402BF // EnterPressed
  ME_47CD61200100 // GetHint
  ME_47CD617100AE // GetImage
  ME_47CD61990018 // AnalyzeString
@@ -1631,8 +1700,14 @@ ref; // ME_47CD6629039E HyperLinkClick
  ME_47CD6608039E // AfterSetText
  ME_47CD661A0059 // IsEditEmpty
  ME_47CD6629039E // HyperLinkClick
- ) .SequenceCode.It
+ )
  ; // Operations
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest\qf'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'ModelListener'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_47CD6044002F IevModelListener
 
@@ -1731,8 +1806,8 @@ ref; // ME_4E9308D1010B DoIt
  : Parent ME_47CD608201FA // IevEditorControlField
  ;
  : Operations
-   @ ( ME_4E9308D1010B // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_4E9308D1010B // DoIt
+ )
  ; // Operations
 
 ref; // ME_4E9308B7007B SynchronizeSelectedValueWithText
@@ -1763,8 +1838,8 @@ ref; // ME_5016860901C8 DoIt
  : Parent ME_47CD608201FA // IevEditorControlField
  ;
  : Operations
-   @ ( ME_5016860901C8 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_5016860901C8 // DoIt
+ )
  ; // Operations
 
 ref; // ME_501685F70342 HasOtherField
@@ -1823,10 +1898,10 @@ ref; // ME_47CD7AE7003A aRslt
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
  : Parameters
-   @ ( ME_47CD7AE60380 // aValue
+   Seq: ( ME_47CD7AE60380 // aValue
  ME_47CD7AE603D1 // aPos
  ME_47CD7AE7003A // aRslt
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_47CD7AD60335 AnalyzeString
@@ -1865,6 +1940,7 @@ ref; // ME_47CD7B1B0256 aValue
  CONST Value true
  : ValueType WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
+ CONST extprop:pas:Value true
 
 ref; // ME_47CD7B1B02B2 aIsStart
 
@@ -1878,9 +1954,9 @@ ref; // ME_47CD7B1B02B2 aIsStart
  : Parent ME_47CD608201FA // IevEditorControlField
  ;
  : Parameters
-   @ ( ME_47CD7B1B0256 // aValue
+   Seq: ( ME_47CD7B1B0256 // aValue
  ME_47CD7B1B02B2 // aIsStart
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_47CD7B0F0260 InitOtherField
@@ -1921,8 +1997,8 @@ ref; // ME_47CD7B3E036B aButtonType
  : Target ME_47CD79B700DB // IevEditorControlButton
  ;
  : Parameters
-   @ ( ME_47CD7B3E036B // aButtonType
- ) .SequenceCode.It
+   Seq: ( ME_47CD7B3E036B // aButtonType
+ )
  ; // Parameters
 
 ref; // ME_47CD7B3301BA FindButton
@@ -1960,6 +2036,7 @@ ref; // ME_47CD7B5401A4 SelectAllOnFocus
  ;
  : Implementor ME_47CD608201FA // IevEditorControlField
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" false
 ref; // ME_47CD5D46015B_ME_47CD608201FA Para
 
@@ -1970,6 +2047,7 @@ ref; // ME_47CD5D46015B_ME_47CD608201FA Para
  ;
  : Implementor ME_47CD608201FA // IevEditorControlField
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_47CD5E7A027B_ME_47CD608201FA IsMultiline
 
 : ME_47CD5E9B031F_ME_47CD608201FA
@@ -1979,6 +2057,7 @@ ref; // ME_47CD5E7A027B_ME_47CD608201FA IsMultiline
  ;
  : Implementor ME_47CD608201FA // IevEditorControlField
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_47CD5E9B031F_ME_47CD608201FA GetControlIterator
 
 : ME_47CD5EB4005D_ME_47CD608201FA
@@ -1988,6 +2067,7 @@ ref; // ME_47CD5E9B031F_ME_47CD608201FA GetControlIterator
  ;
  : Implementor ME_47CD608201FA // IevEditorControlField
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_47CD5EB4005D_ME_47CD608201FA InitBoolProperty
 
 : ME_47CD5EC10294_ME_47CD608201FA
@@ -1997,6 +2077,7 @@ ref; // ME_47CD5EB4005D_ME_47CD608201FA InitBoolProperty
  ;
  : Implementor ME_47CD608201FA // IevEditorControlField
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_47CD5EC10294_ME_47CD608201FA UpperChange
 
 : ME_47CD5EE900F7_ME_47CD608201FA
@@ -2006,6 +2087,7 @@ ref; // ME_47CD5EC10294_ME_47CD608201FA UpperChange
  ;
  : Implementor ME_47CD608201FA // IevEditorControlField
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" false
 ref; // ME_47CD5EE900F7_ME_47CD608201FA ControlName
 
@@ -2016,6 +2098,7 @@ ref; // ME_47CD5EE900F7_ME_47CD608201FA ControlName
  ;
  : Implementor ME_47CD608201FA // IevEditorControlField
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" false
 ref; // ME_47CD5F19011F_ME_47CD608201FA ControlType
 
@@ -2026,6 +2109,7 @@ ref; // ME_47CD5F19011F_ME_47CD608201FA ControlType
  ;
  : Implementor ME_47CD608201FA // IevEditorControlField
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" false
 ref; // ME_47CD5F3B03CA_ME_47CD608201FA Visible
 
@@ -2036,6 +2120,7 @@ ref; // ME_47CD5F3B03CA_ME_47CD608201FA Visible
  ;
  : Implementor ME_47CD608201FA // IevEditorControlField
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" false
 ref; // ME_47CD5F4F015B_ME_47CD608201FA Upper
 
@@ -2046,6 +2131,7 @@ ref; // ME_47CD5F4F015B_ME_47CD608201FA Upper
  ;
  : Implementor ME_47CD608201FA // IevEditorControlField
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_47CD77D60195_ME_47CD608201FA LMouseBtnUp
 
 : ME_47CD78150291_ME_47CD608201FA
@@ -2055,6 +2141,7 @@ ref; // ME_47CD77D60195_ME_47CD608201FA LMouseBtnUp
  ;
  : Implementor ME_47CD608201FA // IevEditorControlField
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_47CD78150291_ME_47CD608201FA LMouseBtnDown
 
 : ME_47CD784A00E0_ME_47CD608201FA
@@ -2064,6 +2151,7 @@ ref; // ME_47CD78150291_ME_47CD608201FA LMouseBtnDown
  ;
  : Implementor ME_47CD608201FA // IevEditorControlField
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_47CD784A00E0_ME_47CD608201FA KeyCommand
 
 : ME_47CD785F0300_ME_47CD608201FA
@@ -2073,6 +2161,7 @@ ref; // ME_47CD784A00E0_ME_47CD608201FA KeyCommand
  ;
  : Implementor ME_47CD608201FA // IevEditorControlField
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_47CD785F0300_ME_47CD608201FA RememberState
 
 : ME_47CD786D0183_ME_47CD608201FA
@@ -2082,6 +2171,7 @@ ref; // ME_47CD785F0300_ME_47CD608201FA RememberState
  ;
  : Implementor ME_47CD608201FA // IevEditorControlField
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_47CD786D0183_ME_47CD608201FA TextChange
 
 : ME_47CD788D010B_ME_47CD608201FA
@@ -2091,6 +2181,7 @@ ref; // ME_47CD786D0183_ME_47CD608201FA TextChange
  ;
  : Implementor ME_47CD608201FA // IevEditorControlField
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_47CD788D010B_ME_47CD608201FA GetHint
 
 : ME_47CD78A001D0_ME_47CD608201FA
@@ -2100,6 +2191,7 @@ ref; // ME_47CD788D010B_ME_47CD608201FA GetHint
  ;
  : Implementor ME_47CD608201FA // IevEditorControlField
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_47CD78A001D0_ME_47CD608201FA InsertRow
 
 : ME_47CD78AD0097_ME_47CD608201FA
@@ -2109,6 +2201,7 @@ ref; // ME_47CD78A001D0_ME_47CD608201FA InsertRow
  ;
  : Implementor ME_47CD608201FA // IevEditorControlField
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_47CD78AD0097_ME_47CD608201FA SetFocus
 
 : ME_47CD78CB0304_ME_47CD608201FA
@@ -2118,6 +2211,7 @@ ref; // ME_47CD78AD0097_ME_47CD608201FA SetFocus
  ;
  : Implementor ME_47CD608201FA // IevEditorControlField
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" false
 ref; // ME_47CD78CB0304_ME_47CD608201FA Field
 
@@ -2128,6 +2222,7 @@ ref; // ME_47CD78CB0304_ME_47CD608201FA Field
  ;
  : Implementor ME_47CD608201FA // IevEditorControlField
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" false
 ref; // ME_47CD78FE0254_ME_47CD608201FA Req
 
@@ -2138,6 +2233,7 @@ ref; // ME_47CD78FE0254_ME_47CD608201FA Req
  ;
  : Implementor ME_47CD608201FA // IevEditorControlField
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" false
 ref; // ME_47CD791D025D_ME_47CD608201FA Enabled
 
@@ -2148,6 +2244,7 @@ ref; // ME_47CD791D025D_ME_47CD608201FA Enabled
  ;
  : Implementor ME_47CD608201FA // IevEditorControlField
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" false
 ref; // ME_47CD792F0026_ME_47CD608201FA MaxLength
 
@@ -2158,6 +2255,7 @@ ref; // ME_47CD792F0026_ME_47CD608201FA MaxLength
  ;
  : Implementor ME_47CD608201FA // IevEditorControlField
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" false
 ref; // ME_47CD9B8E0009_ME_47CD608201FA Caption
 
@@ -2174,18 +2272,18 @@ ref; // ME_47CD9B8E0009_ME_47CD608201FA Caption
  : Parent ME_47CD5C7602CD // evQueryCardInt
  ;
  : Inherits
-   @ ( ME_47CD601B0048 // IevEditorControl
- ) .SequenceCode.It
+   Seq: ( ME_47CD601B0048 // IevEditorControl
+ )
  ; // Inherits
  : Attributes
-   @ ( ME_47CD7B6E0380 // Text
+   Seq: ( ME_47CD7B6E0380 // Text
  ME_47CD7C1F03E3 // ErrorColor
  ME_47CD7C2E00E2 // Valid
  ME_47CEBBC50272 // ChildList
- ) .SequenceCode.It
+ )
  ; // Attributes
  : Operations
-   @ ( ME_4E9308B7007B // SynchronizeSelectedValueWithText
+   Seq: ( ME_4E9308B7007B // SynchronizeSelectedValueWithText
  ME_501685F70342 // HasOtherField
  ME_47CD7AC60335 // CheckDataText
  ME_47CD7AD60335 // AnalyzeString
@@ -2195,10 +2293,10 @@ ref; // ME_47CD9B8E0009_ME_47CD608201FA Caption
  ME_47CD7B3301BA // FindButton
  ME_47CD7B46001C // ClearText
  ME_47CD7B5401A4 // SelectAllOnFocus
- ) .SequenceCode.It
+ )
  ; // Operations
  : Implemented
-   @ ( ME_47CD5D46015B_ME_47CD608201FA // Para
+   Seq: ( ME_47CD5D46015B_ME_47CD608201FA // Para
  ME_47CD5E7A027B_ME_47CD608201FA // IsMultiline
  ME_47CD5E9B031F_ME_47CD608201FA // GetControlIterator
  ME_47CD5EB4005D_ME_47CD608201FA // InitBoolProperty
@@ -2220,13 +2318,19 @@ ref; // ME_47CD9B8E0009_ME_47CD608201FA Caption
  ME_47CD791D025D_ME_47CD608201FA // Enabled
  ME_47CD792F0026_ME_47CD608201FA // MaxLength
  ME_47CD9B8E0009_ME_47CD608201FA // Caption
- ) .SequenceCode.It
+ )
  ; // Implemented
  : Forwarded
-   @ ( ME_47CD79B700DB // IevEditorControlButton
+   Seq: ( ME_47CD79B700DB // IevEditorControlButton
  ME_47CEBB8802BE // IevEditorControlList
- ) .SequenceCode.It
+ )
  ; // Forwarded
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest\qf'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'EditorControlField'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_47CD608201FA IevEditorControlField
 
@@ -2418,8 +2522,8 @@ ref; // ME_47CD7C480240 aIndex
  : Parent ME_47CD609F0273 // IevEditorFieldWithTree
  ;
  : Parameters
-   @ ( ME_47CD7C480240 // aIndex
- ) .SequenceCode.It
+   Seq: ( ME_47CD7C480240 // aIndex
+ )
  ; // Parameters
 
 ref; // ME_47CD7C460280 SetNodeByIndex
@@ -2446,8 +2550,8 @@ ref; // ME_47CD7C5E03C5 aNode
  : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
  ;
  : Parameters
-   @ ( ME_47CD7C5E03C5 // aNode
- ) .SequenceCode.It
+   Seq: ( ME_47CD7C5E03C5 // aNode
+ )
  ; // Parameters
 
 ref; // ME_47CD7C53028D GetNodeIndex
@@ -2472,8 +2576,8 @@ ref; // ME_47CD7C770313 aNode
  : Parent ME_47CD609F0273 // IevEditorFieldWithTree
  ;
  : Parameters
-   @ ( ME_47CD7C770313 // aNode
- ) .SequenceCode.It
+   Seq: ( ME_47CD7C770313 // aNode
+ )
  ; // Parameters
 
 ref; // ME_47CD7C6C0211 ShowNode
@@ -2522,8 +2626,8 @@ ref; // ME_54E2F4C8032F aText
  : Parent ME_47CD609F0273 // IevEditorFieldWithTree
  ;
  : Parameters
-   @ ( ME_54E2F4C8032F // aText
- ) .SequenceCode.It
+   Seq: ( ME_54E2F4C8032F // aText
+ )
  ; // Parameters
 
 ref; // ME_54E2F4B6034D SetMaskText
@@ -2535,6 +2639,7 @@ ref; // ME_54E2F4B6034D SetMaskText
  ;
  : Implementor ME_47CD609F0273 // IevEditorFieldWithTree
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" false
 ref; // ME_47CD5D46015B_ME_47CD609F0273 Para
 
@@ -2545,6 +2650,7 @@ ref; // ME_47CD5D46015B_ME_47CD609F0273 Para
  ;
  : Implementor ME_47CD609F0273 // IevEditorFieldWithTree
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_47CD5E7A027B_ME_47CD609F0273 IsMultiline
 
 : ME_47CD5E9B031F_ME_47CD609F0273
@@ -2554,6 +2660,7 @@ ref; // ME_47CD5E7A027B_ME_47CD609F0273 IsMultiline
  ;
  : Implementor ME_47CD609F0273 // IevEditorFieldWithTree
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_47CD5E9B031F_ME_47CD609F0273 GetControlIterator
 
 : ME_47CD5EB4005D_ME_47CD609F0273
@@ -2563,6 +2670,7 @@ ref; // ME_47CD5E9B031F_ME_47CD609F0273 GetControlIterator
  ;
  : Implementor ME_47CD609F0273 // IevEditorFieldWithTree
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_47CD5EB4005D_ME_47CD609F0273 InitBoolProperty
 
 : ME_47CD5EC10294_ME_47CD609F0273
@@ -2572,6 +2680,7 @@ ref; // ME_47CD5EB4005D_ME_47CD609F0273 InitBoolProperty
  ;
  : Implementor ME_47CD609F0273 // IevEditorFieldWithTree
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_47CD5EC10294_ME_47CD609F0273 UpperChange
 
 : ME_47CD5EE900F7_ME_47CD609F0273
@@ -2581,6 +2690,7 @@ ref; // ME_47CD5EC10294_ME_47CD609F0273 UpperChange
  ;
  : Implementor ME_47CD609F0273 // IevEditorFieldWithTree
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" false
 ref; // ME_47CD5EE900F7_ME_47CD609F0273 ControlName
 
@@ -2591,6 +2701,7 @@ ref; // ME_47CD5EE900F7_ME_47CD609F0273 ControlName
  ;
  : Implementor ME_47CD609F0273 // IevEditorFieldWithTree
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" false
 ref; // ME_47CD5F19011F_ME_47CD609F0273 ControlType
 
@@ -2601,6 +2712,7 @@ ref; // ME_47CD5F19011F_ME_47CD609F0273 ControlType
  ;
  : Implementor ME_47CD609F0273 // IevEditorFieldWithTree
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" false
 ref; // ME_47CD5F3B03CA_ME_47CD609F0273 Visible
 
@@ -2611,6 +2723,7 @@ ref; // ME_47CD5F3B03CA_ME_47CD609F0273 Visible
  ;
  : Implementor ME_47CD609F0273 // IevEditorFieldWithTree
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" false
 ref; // ME_47CD5F4F015B_ME_47CD609F0273 Upper
 
@@ -2621,6 +2734,7 @@ ref; // ME_47CD5F4F015B_ME_47CD609F0273 Upper
  ;
  : Implementor ME_47CD609F0273 // IevEditorFieldWithTree
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_47CD77D60195_ME_47CD609F0273 LMouseBtnUp
 
 : ME_47CD78150291_ME_47CD609F0273
@@ -2630,6 +2744,7 @@ ref; // ME_47CD77D60195_ME_47CD609F0273 LMouseBtnUp
  ;
  : Implementor ME_47CD609F0273 // IevEditorFieldWithTree
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_47CD78150291_ME_47CD609F0273 LMouseBtnDown
 
 : ME_47CD784A00E0_ME_47CD609F0273
@@ -2639,6 +2754,7 @@ ref; // ME_47CD78150291_ME_47CD609F0273 LMouseBtnDown
  ;
  : Implementor ME_47CD609F0273 // IevEditorFieldWithTree
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_47CD784A00E0_ME_47CD609F0273 KeyCommand
 
 : ME_47CD785F0300_ME_47CD609F0273
@@ -2648,6 +2764,7 @@ ref; // ME_47CD784A00E0_ME_47CD609F0273 KeyCommand
  ;
  : Implementor ME_47CD609F0273 // IevEditorFieldWithTree
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_47CD785F0300_ME_47CD609F0273 RememberState
 
 : ME_47CD786D0183_ME_47CD609F0273
@@ -2657,6 +2774,7 @@ ref; // ME_47CD785F0300_ME_47CD609F0273 RememberState
  ;
  : Implementor ME_47CD609F0273 // IevEditorFieldWithTree
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_47CD786D0183_ME_47CD609F0273 TextChange
 
 : ME_47CD788D010B_ME_47CD609F0273
@@ -2666,6 +2784,7 @@ ref; // ME_47CD786D0183_ME_47CD609F0273 TextChange
  ;
  : Implementor ME_47CD609F0273 // IevEditorFieldWithTree
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_47CD788D010B_ME_47CD609F0273 GetHint
 
 : ME_47CD78A001D0_ME_47CD609F0273
@@ -2675,6 +2794,7 @@ ref; // ME_47CD788D010B_ME_47CD609F0273 GetHint
  ;
  : Implementor ME_47CD609F0273 // IevEditorFieldWithTree
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_47CD78A001D0_ME_47CD609F0273 InsertRow
 
 : ME_47CD78AD0097_ME_47CD609F0273
@@ -2684,6 +2804,7 @@ ref; // ME_47CD78A001D0_ME_47CD609F0273 InsertRow
  ;
  : Implementor ME_47CD609F0273 // IevEditorFieldWithTree
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_47CD78AD0097_ME_47CD609F0273 SetFocus
 
 : ME_47CD78CB0304_ME_47CD609F0273
@@ -2693,6 +2814,7 @@ ref; // ME_47CD78AD0097_ME_47CD609F0273 SetFocus
  ;
  : Implementor ME_47CD609F0273 // IevEditorFieldWithTree
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" false
 ref; // ME_47CD78CB0304_ME_47CD609F0273 Field
 
@@ -2703,6 +2825,7 @@ ref; // ME_47CD78CB0304_ME_47CD609F0273 Field
  ;
  : Implementor ME_47CD609F0273 // IevEditorFieldWithTree
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" false
 ref; // ME_47CD78FE0254_ME_47CD609F0273 Req
 
@@ -2713,6 +2836,7 @@ ref; // ME_47CD78FE0254_ME_47CD609F0273 Req
  ;
  : Implementor ME_47CD609F0273 // IevEditorFieldWithTree
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" false
 ref; // ME_47CD791D025D_ME_47CD609F0273 Enabled
 
@@ -2723,6 +2847,7 @@ ref; // ME_47CD791D025D_ME_47CD609F0273 Enabled
  ;
  : Implementor ME_47CD609F0273 // IevEditorFieldWithTree
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" false
 ref; // ME_47CD792F0026_ME_47CD609F0273 MaxLength
 
@@ -2733,6 +2858,7 @@ ref; // ME_47CD792F0026_ME_47CD609F0273 MaxLength
  ;
  : Implementor ME_47CD609F0273 // IevEditorFieldWithTree
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_47CD7AC60335_ME_47CD609F0273 CheckDataText
 
 : ME_47CD7AD60335_ME_47CD609F0273
@@ -2742,6 +2868,7 @@ ref; // ME_47CD7AC60335_ME_47CD609F0273 CheckDataText
  ;
  : Implementor ME_47CD609F0273 // IevEditorFieldWithTree
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_47CD7AD60335_ME_47CD609F0273 AnalyzeString
 
 : ME_47CD7AFA0334_ME_47CD609F0273
@@ -2751,6 +2878,7 @@ ref; // ME_47CD7AD60335_ME_47CD609F0273 AnalyzeString
  ;
  : Implementor ME_47CD609F0273 // IevEditorFieldWithTree
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_47CD7AFA0334_ME_47CD609F0273 IsClear
 
 : ME_47CD7B0F0260_ME_47CD609F0273
@@ -2760,6 +2888,7 @@ ref; // ME_47CD7AFA0334_ME_47CD609F0273 IsClear
  ;
  : Implementor ME_47CD609F0273 // IevEditorFieldWithTree
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_47CD7B0F0260_ME_47CD609F0273 InitOtherField
 
 : ME_47CD7B23002F_ME_47CD609F0273
@@ -2769,6 +2898,7 @@ ref; // ME_47CD7B0F0260_ME_47CD609F0273 InitOtherField
  ;
  : Implementor ME_47CD609F0273 // IevEditorFieldWithTree
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_47CD7B23002F_ME_47CD609F0273 IsFieldEmpty
 
 : ME_47CD7B3301BA_ME_47CD609F0273
@@ -2778,6 +2908,7 @@ ref; // ME_47CD7B23002F_ME_47CD609F0273 IsFieldEmpty
  ;
  : Implementor ME_47CD609F0273 // IevEditorFieldWithTree
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_47CD7B3301BA_ME_47CD609F0273 FindButton
 
 : ME_47CD7B46001C_ME_47CD609F0273
@@ -2787,6 +2918,7 @@ ref; // ME_47CD7B3301BA_ME_47CD609F0273 FindButton
  ;
  : Implementor ME_47CD609F0273 // IevEditorFieldWithTree
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_47CD7B46001C_ME_47CD609F0273 ClearText
 
 : ME_47CD7B5401A4_ME_47CD609F0273
@@ -2796,6 +2928,7 @@ ref; // ME_47CD7B46001C_ME_47CD609F0273 ClearText
  ;
  : Implementor ME_47CD609F0273 // IevEditorFieldWithTree
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_47CD7B5401A4_ME_47CD609F0273 SelectAllOnFocus
 
 : ME_47CD7B6E0380_ME_47CD609F0273
@@ -2805,6 +2938,7 @@ ref; // ME_47CD7B5401A4_ME_47CD609F0273 SelectAllOnFocus
  ;
  : Implementor ME_47CD609F0273 // IevEditorFieldWithTree
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" false
 ref; // ME_47CD7B6E0380_ME_47CD609F0273 Text
 
@@ -2815,6 +2949,7 @@ ref; // ME_47CD7B6E0380_ME_47CD609F0273 Text
  ;
  : Implementor ME_47CD609F0273 // IevEditorFieldWithTree
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" false
 ref; // ME_47CD7C1F03E3_ME_47CD609F0273 ErrorColor
 
@@ -2825,6 +2960,7 @@ ref; // ME_47CD7C1F03E3_ME_47CD609F0273 ErrorColor
  ;
  : Implementor ME_47CD609F0273 // IevEditorFieldWithTree
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" false
 ref; // ME_47CD7C2E00E2_ME_47CD609F0273 Valid
 
@@ -2835,6 +2971,7 @@ ref; // ME_47CD7C2E00E2_ME_47CD609F0273 Valid
  ;
  : Implementor ME_47CD609F0273 // IevEditorFieldWithTree
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" false
 ref; // ME_47CD9B8E0009_ME_47CD609F0273 Caption
 
@@ -2845,6 +2982,7 @@ ref; // ME_47CD9B8E0009_ME_47CD609F0273 Caption
  ;
  : Implementor ME_47CD609F0273 // IevEditorFieldWithTree
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" false
 ref; // ME_47CEBBC50272_ME_47CD609F0273 ChildList
 
@@ -2855,6 +2993,7 @@ ref; // ME_47CEBBC50272_ME_47CD609F0273 ChildList
  ;
  : Implementor ME_47CD609F0273 // IevEditorFieldWithTree
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_4E9308B7007B_ME_47CD609F0273 SynchronizeSelectedValueWithText
 
 : ME_501685F70342_ME_47CD609F0273
@@ -2864,6 +3003,7 @@ ref; // ME_4E9308B7007B_ME_47CD609F0273 SynchronizeSelectedValueWithText
  ;
  : Implementor ME_47CD609F0273 // IevEditorFieldWithTree
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_501685F70342_ME_47CD609F0273 HasOtherField
 
 : ME_47CD609F0273
@@ -2878,11 +3018,11 @@ ref; // ME_501685F70342_ME_47CD609F0273 HasOtherField
  : Parent ME_47CD5C7602CD // evQueryCardInt
  ;
  : Inherits
-   @ ( ME_47CD608201FA // IevEditorControlField
- ) .SequenceCode.It
+   Seq: ( ME_47CD608201FA // IevEditorControlField
+ )
  ; // Inherits
  : Attributes
-   @ ( ME_47CD7C8200EF // Value
+   Seq: ( ME_47CD7C8200EF // Value
  ME_47CD7C9601D6 // IsAsterisk
  ME_47CD7CA301A9 // DefaultNode
  ME_47CD7CB7026F // Asterisk
@@ -2892,19 +3032,19 @@ ref; // ME_501685F70342_ME_47CD609F0273 HasOtherField
  ME_47CD7CFB0250 // LogicalState
  ME_47CD7D0700F5 // Down
  ME_50F01D1902E4 // IsLogicalStateButtonEnabled
- ) .SequenceCode.It
+ )
  ; // Attributes
  : Operations
-   @ ( ME_47CD7C460280 // SetNodeByIndex
+   Seq: ( ME_47CD7C460280 // SetNodeByIndex
  ME_47CD7C53028D // GetNodeIndex
  ME_47CD7C6C0211 // ShowNode
  ME_47CD9A1B00EC // CheckTextVersusValue
  ME_486C75F002CD // NeedClearOnEscape
  ME_54E2F4B6034D // SetMaskText
- ) .SequenceCode.It
+ )
  ; // Operations
  : Implemented
-   @ ( ME_47CD5D46015B_ME_47CD609F0273 // Para
+   Seq: ( ME_47CD5D46015B_ME_47CD609F0273 // Para
  ME_47CD5E7A027B_ME_47CD609F0273 // IsMultiline
  ME_47CD5E9B031F_ME_47CD609F0273 // GetControlIterator
  ME_47CD5EB4005D_ME_47CD609F0273 // InitBoolProperty
@@ -2940,8 +3080,14 @@ ref; // ME_501685F70342_ME_47CD609F0273 HasOtherField
  ME_47CEBBC50272_ME_47CD609F0273 // ChildList
  ME_4E9308B7007B_ME_47CD609F0273 // SynchronizeSelectedValueWithText
  ME_501685F70342_ME_47CD609F0273 // HasOtherField
- ) .SequenceCode.It
+ )
  ; // Implemented
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest\qf'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'EditorFieldWithTree'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_47CD609F0273 IevEditorFieldWithTree
 
@@ -3030,8 +3176,8 @@ ref; // ME_47CD6E8E0357 Index
  : Target ME_47CD608201FA // IevEditorControlField
  ;
  : Attributes
-   @ ( ME_47CD6E8E0357 // Index
- ) .SequenceCode.It
+   Seq: ( ME_47CD6E8E0357 // Index
+ )
  ; // Attributes
  CONST "pm" false
 
@@ -3090,8 +3236,8 @@ ref; // ME_47CD66680282 aCmd
  : Parent ME_47CD6644026F // IevReq
  ;
  : Parameters
-   @ ( ME_47CD66680282 // aCmd
- ) .SequenceCode.It
+   Seq: ( ME_47CD66680282 // aCmd
+ )
  ; // Parameters
 
 ref; // ME_47CD666202DD KeyAction
@@ -3127,9 +3273,9 @@ ref; // ME_47CD66780282 aRslt
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
  : Parameters
-   @ ( ME_47CD6678025F // aValue
+   Seq: ( ME_47CD6678025F // aValue
  ME_47CD66780282 // aRslt
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_47CD666F01DC AnalyzeString
@@ -3154,8 +3300,8 @@ ref; // ME_480347ED0384 aView
  : Parent ME_47CD6644026F // IevReq
  ;
  : Parameters
-   @ ( ME_480347ED0384 // aView
- ) .SequenceCode.It
+   Seq: ( ME_480347ED0384 // aView
+ )
  ; // Parameters
 
 ref; // ME_47CD668303E2 TextChange
@@ -3180,8 +3326,8 @@ ref; // ME_47CD669C004E aControl
  : Parent ME_47CD6644026F // IevReq
  ;
  : Parameters
-   @ ( ME_47CD669C004E // aControl
- ) .SequenceCode.It
+   Seq: ( ME_47CD669C004E // aControl
+ )
  ; // Parameters
 
 ref; // ME_47CD669103DE RememberState
@@ -3228,10 +3374,10 @@ ref; // ME_47CD66B70263 anIsLastField
  : Target ME_47CD601B0048 // IevEditorControl
  ;
  : Parameters
-   @ ( ME_47CD66B7020F // aControl
+   Seq: ( ME_47CD66B7020F // aControl
  ME_47CD66B70239 // OnlyFields
  ME_47CD66B70263 // anIsLastField
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_47CD66A6009A GetNextVisible
@@ -3258,8 +3404,8 @@ ref; // ME_47CD66C80098 OnlyFields
  : Target ME_47CD601B0048 // IevEditorControl
  ;
  : Parameters
-   @ ( ME_47CD66C80098 // OnlyFields
- ) .SequenceCode.It
+   Seq: ( ME_47CD66C80098 // OnlyFields
+ )
  ; // Parameters
 
 ref; // ME_47CD66C1034C GetFirstVisible
@@ -3306,10 +3452,10 @@ ref; // ME_47CD66E2003C anIsFirstField
  : Target ME_47CD601B0048 // IevEditorControl
  ;
  : Parameters
-   @ ( ME_47CD66E103BF // aControl
+   Seq: ( ME_47CD66E103BF // aControl
  ME_47CD66E20009 // OnlyFields
  ME_47CD66E2003C // anIsFirstField
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_47CD66D00085 GetPrevVisible
@@ -3336,8 +3482,8 @@ ref; // ME_47CD66EE01B2 OnlyFields
  : Target ME_47CD601B0048 // IevEditorControl
  ;
  : Parameters
-   @ ( ME_47CD66EE01B2 // OnlyFields
- ) .SequenceCode.It
+   Seq: ( ME_47CD66EE01B2 // OnlyFields
+ )
  ; // Parameters
 
 ref; // ME_47CD66E90124 GetLastVisible
@@ -3374,9 +3520,9 @@ ref; // ME_47CD6703035A aControl
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
  : Parameters
-   @ ( ME_47CD67030321 // aValue
+   Seq: ( ME_47CD67030321 // aValue
  ME_47CD6703035A // aControl
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_47CD66F50173 GetHint
@@ -3463,10 +3609,10 @@ ref; // ME_48034CF80293 aBtnType
  : Parent ME_47CD6644026F // IevReq
  ;
  : Parameters
-   @ ( ME_48034CF8009F // aView
+   Seq: ( ME_48034CF8009F // aView
  ME_48034CF8019A // aControl
  ME_48034CF80293 // aBtnType
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_47CD674100FC ButtonPressed
@@ -3490,8 +3636,8 @@ ref; // ME_47CD67570182 aField
  : Parent ME_47CD6644026F // IevReq
  ;
  : Parameters
-   @ ( ME_47CD67570182 // aField
- ) .SequenceCode.It
+   Seq: ( ME_47CD67570182 // aField
+ )
  ; // Parameters
 
 ref; // ME_47CD675402F3 AfterSetText
@@ -3516,6 +3662,7 @@ ref; // ME_480349440031 aView
  CONST Value false
  : ValueType WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
+ CONST extprop:pas:Value false
 
 ref; // ME_480349440131 NeedSetFocus
 
@@ -3531,9 +3678,9 @@ ref; // ME_480349440131 NeedSetFocus
  : Target ME_47CD608201FA // IevEditorControlField
  ;
  : Parameters
-   @ ( ME_480349440031 // aView
+   Seq: ( ME_480349440031 // aView
  ME_480349440131 // NeedSetFocus
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_47CD677302C2 AddField
@@ -3570,9 +3717,9 @@ ref; // ME_47CD6796002A aImages
  : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
  ;
  : Parameters
-   @ ( ME_47CD679503C8 // Index
+   Seq: ( ME_47CD679503C8 // Index
  ME_47CD6796002A // aImages
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_47CD67820275 GetItemImage
@@ -3597,6 +3744,7 @@ ref; // ME_48034C830011 aView
  CONST Value 'nil'
  : ValueType ME_47CD608201FA // IevEditorControlField
  ;
+ CONST extprop:pas:Value 'nil'
 
 ref; // ME_48034C83010B aControl
 
@@ -3610,6 +3758,7 @@ ref; // ME_48034C83010B aControl
  CONST Value false
  : ValueType WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
+ CONST extprop:pas:Value false
 
 ref; // ME_48034C830204 NeedFocus
 
@@ -3623,10 +3772,10 @@ ref; // ME_48034C830204 NeedFocus
  : Parent ME_47CD6644026F // IevReq
  ;
  : Parameters
-   @ ( ME_48034C830011 // aView
+   Seq: ( ME_48034C830011 // aView
  ME_48034C83010B // aControl
  ME_48034C830204 // NeedFocus
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_47CD679F00D4 DeleteField
@@ -3671,6 +3820,7 @@ ref; // ME_48034EF5034A aChild
  CONST Value false
  : ValueType WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
+ CONST extprop:pas:Value false
 
 ref; // ME_48034EF60068 NeedFocus
 
@@ -3684,6 +3834,7 @@ ref; // ME_48034EF60068 NeedFocus
  CONST Value false
  : ValueType WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
+ CONST extprop:pas:Value false
 
 ref; // ME_48034EF6016D anAdd
 
@@ -3697,12 +3848,12 @@ ref; // ME_48034EF6016D anAdd
  : Parent ME_47CD6644026F // IevReq
  ;
  : Parameters
-   @ ( ME_48034EF5014C // aView
+   Seq: ( ME_48034EF5014C // aView
  ME_48034EF5024B // aControl
  ME_48034EF5034A // aChild
  ME_48034EF60068 // NeedFocus
  ME_48034EF6016D // anAdd
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_47CD69A301F3 InsertToModel
@@ -3737,6 +3888,7 @@ ref; // ME_48034E4201EE aControl
  CONST Value false
  : ValueType WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
+ CONST extprop:pas:Value false
 
 ref; // ME_48034E4202EF NeedFocus
 
@@ -3750,10 +3902,10 @@ ref; // ME_48034E4202EF NeedFocus
  : Parent ME_47CD6644026F // IevReq
  ;
  : Parameters
-   @ ( ME_48034E4200ED // aView
+   Seq: ( ME_48034E4200ED // aView
  ME_48034E4201EE // aControl
  ME_48034E4202EF // NeedFocus
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_47CD69CD0294 DeleteFromModel
@@ -3808,11 +3960,11 @@ ref; // ME_47CD6E1903D2 anIndexCtrl
  : Parent ME_47CD6644026F // IevReq
  ;
  : Parameters
-   @ ( ME_47CD6E1902C6 // aTag
+   Seq: ( ME_47CD6E1902C6 // aTag
  ME_47CD6E19031E // AddValues
  ME_47CD6E190378 // anIndexField
  ME_47CD6E1903D2 // anIndexCtrl
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_47CD6E090090 InitModel
@@ -3839,8 +3991,8 @@ ref; // ME_47CD6E2D0375 aField
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
  : Parameters
-   @ ( ME_47CD6E2D0375 // aField
- ) .SequenceCode.It
+   Seq: ( ME_47CD6E2D0375 // aField
+ )
  ; // Parameters
 
 ref; // ME_47CD6E2403C9 CheckEdit
@@ -3875,9 +4027,9 @@ ref; // ME_47CD6E460094 anOp
  : Parent ME_47CD6644026F // IevReq
  ;
  : Parameters
-   @ ( ME_47CD6E460032 // aField
+   Seq: ( ME_47CD6E460032 // aField
  ME_47CD6E460094 // anOp
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_47CD6E3401B9 UpdateState
@@ -3902,6 +4054,7 @@ ref; // ME_47CD6EF0029D aField
  CONST Value false
  : ValueType WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
+ CONST extprop:pas:Value false
 
 ref; // ME_47CD6EF00307 aAtEnd
 
@@ -3915,9 +4068,9 @@ ref; // ME_47CD6EF00307 aAtEnd
  : Parent ME_47CD6644026F // IevReq
  ;
  : Parameters
-   @ ( ME_47CD6EF0029D // aField
+   Seq: ( ME_47CD6EF0029D // aField
  ME_47CD6EF00307 // aAtEnd
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_47CD6EE402F8 SetFocus
@@ -3957,6 +4110,7 @@ ref; // ME_47CD6F0502BD LastField
  ;
  : Implementor ME_47CD6644026F // IevReq
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" false
 ref; // ME_47CD5D46015B_ME_47CD6644026F Para
 
@@ -3972,20 +4126,20 @@ ref; // ME_47CD5D46015B_ME_47CD6644026F Para
  : Parent ME_47CD5C7602CD // evQueryCardInt
  ;
  : Inherits
-   @ ( ME_47CD5D2C00F9 // IevCustomParaTool
- ) .SequenceCode.It
+   Seq: ( ME_47CD5D2C00F9 // IevCustomParaTool
+ )
  ; // Inherits
  : Attributes
-   @ ( ME_47CD6EB4017D // ReqName
+   Seq: ( ME_47CD6EB4017D // ReqName
  ME_47CD6EC502B1 // ReqCaption
  ME_47CD6E5E00F6 // ModelListener
  ME_47CD6E870081 // Fields
  ME_47CD6F3B0317 // Group
  ME_47CD6F770022 // QueryCard
- ) .SequenceCode.It
+ )
  ; // Attributes
  : Operations
-   @ ( ME_47CD666202DD // KeyAction
+   Seq: ( ME_47CD666202DD // KeyAction
  ME_47CD666F01DC // AnalyzeString
  ME_47CD668303E2 // TextChange
  ME_47CD669103DE // RememberState
@@ -4010,17 +4164,23 @@ ref; // ME_47CD5D46015B_ME_47CD6644026F Para
  ME_47CD6EE402F8 // SetFocus
  ME_47CD6EF701E4 // FirstField
  ME_47CD6F0502BD // LastField
- ) .SequenceCode.It
+ )
  ; // Operations
  : Implemented
-   @ ( ME_47CD5D46015B_ME_47CD6644026F // Para
- ) .SequenceCode.It
+   Seq: ( ME_47CD5D46015B_ME_47CD6644026F // Para
+ )
  ; // Implemented
  : Forwarded
-   @ ( ME_47CD6F2902DC // IevQueryGroup
+   Seq: ( ME_47CD6F2902DC // IevQueryGroup
  ME_47CD6F6D031D // IevQueryCard
- ) .SequenceCode.It
+ )
  ; // Forwarded
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest\qf'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'Req'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_47CD6644026F IevReq
 
@@ -4122,8 +4282,8 @@ ref; // ME_47CD80FD01D3 Index
  : Target ME_47CD6644026F // IevReq
  ;
  : Attributes
-   @ ( ME_47CD80FD01D3 // Index
- ) .SequenceCode.It
+   Seq: ( ME_47CD80FD01D3 // Index
+ )
  ; // Attributes
  CONST "pm" false
 
@@ -4159,8 +4319,8 @@ ref; // ME_47CD815B0382 Index
  : Target ME_47CD5DC20075 // IevDescriptionReq
  ;
  : Attributes
-   @ ( ME_47CD815B0382 // Index
- ) .SequenceCode.It
+   Seq: ( ME_47CD815B0382 // Index
+ )
  ; // Attributes
  CONST "pm" false
 
@@ -4281,12 +4441,12 @@ ref; // ME_47CD80100144 aMap
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
  : Parameters
-   @ ( ME_47CD80100083 // aView
+   Seq: ( ME_47CD80100083 // aView
  ME_49D9B7AE0090 // aTextPara
  ME_47CD801000E2 // aPt
  ME_47CD80100112 // Keys
  ME_47CD80100144 // aMap
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_47CD7FF40330 LMouseBtnDown
@@ -4342,11 +4502,11 @@ ref; // ME_47CD804503BE Keys
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
  : Parameters
-   @ ( ME_47CD8045031F // aView
+   Seq: ( ME_47CD8045031F // aView
  ME_49D9B7B1035A // aTextPara
  ME_47CD80450389 // aPt
  ME_47CD804503BE // Keys
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_47CD802F02AE LMouseBtnUp
@@ -4373,8 +4533,8 @@ ref; // ME_47CD8074008F aReqName
  : Target ME_47CD5DC20075 // IevDescriptionReq
  ;
  : Parameters
-   @ ( ME_47CD8074008F // aReqName
- ) .SequenceCode.It
+   Seq: ( ME_47CD8074008F // aReqName
+ )
  ; // Parameters
 
 ref; // ME_47CD806B02F2 FindDescriptionReq
@@ -4399,8 +4559,8 @@ ref; // ME_47CD8083027E aTag
  : Parent ME_47CD6F2902DC // IevQueryGroup
  ;
  : Parameters
-   @ ( ME_47CD8083027E // aTag
- ) .SequenceCode.It
+   Seq: ( ME_47CD8083027E // aTag
+ )
  ; // Parameters
 
 ref; // ME_47CD807D0057 InitModel
@@ -4455,8 +4615,8 @@ ref; // ME_47CD80AF0260 aReq
  : Target ME_47CD6644026F // IevReq
  ;
  : Parameters
-   @ ( ME_47CD80AF0260 // aReq
- ) .SequenceCode.It
+   Seq: ( ME_47CD80AF0260 // aReq
+ )
  ; // Parameters
 
 ref; // ME_47CD80A80368 GetNextReq
@@ -4483,8 +4643,8 @@ ref; // ME_47CD80E3007D aReq
  : Target ME_47CD6644026F // IevReq
  ;
  : Parameters
-   @ ( ME_47CD80E3007D // aReq
- ) .SequenceCode.It
+   Seq: ( ME_47CD80E3007D // aReq
+ )
  ; // Parameters
 
 ref; // ME_47CD80D8028A GetPrevReq
@@ -4496,6 +4656,7 @@ ref; // ME_47CD80D8028A GetPrevReq
  ;
  : Implementor ME_47CD6F2902DC // IevQueryGroup
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" false
 ref; // ME_47CD5D46015B_ME_47CD6F2902DC Para
 
@@ -4506,6 +4667,7 @@ ref; // ME_47CD5D46015B_ME_47CD6F2902DC Para
  ;
  : Implementor ME_47CD6F2902DC // IevQueryGroup
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_47CD5E7A027B_ME_47CD6F2902DC IsMultiline
 
 : ME_47CD5E9B031F_ME_47CD6F2902DC
@@ -4515,6 +4677,7 @@ ref; // ME_47CD5E7A027B_ME_47CD6F2902DC IsMultiline
  ;
  : Implementor ME_47CD6F2902DC // IevQueryGroup
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_47CD5E9B031F_ME_47CD6F2902DC GetControlIterator
 
 : ME_47CD5EB4005D_ME_47CD6F2902DC
@@ -4524,6 +4687,7 @@ ref; // ME_47CD5E9B031F_ME_47CD6F2902DC GetControlIterator
  ;
  : Implementor ME_47CD6F2902DC // IevQueryGroup
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_47CD5EB4005D_ME_47CD6F2902DC InitBoolProperty
 
 : ME_47CD5EC10294_ME_47CD6F2902DC
@@ -4533,6 +4697,7 @@ ref; // ME_47CD5EB4005D_ME_47CD6F2902DC InitBoolProperty
  ;
  : Implementor ME_47CD6F2902DC // IevQueryGroup
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_47CD5EC10294_ME_47CD6F2902DC UpperChange
 
 : ME_47CD5EE900F7_ME_47CD6F2902DC
@@ -4542,6 +4707,7 @@ ref; // ME_47CD5EC10294_ME_47CD6F2902DC UpperChange
  ;
  : Implementor ME_47CD6F2902DC // IevQueryGroup
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" false
 ref; // ME_47CD5EE900F7_ME_47CD6F2902DC ControlName
 
@@ -4552,6 +4718,7 @@ ref; // ME_47CD5EE900F7_ME_47CD6F2902DC ControlName
  ;
  : Implementor ME_47CD6F2902DC // IevQueryGroup
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" false
 ref; // ME_47CD5F19011F_ME_47CD6F2902DC ControlType
 
@@ -4562,6 +4729,7 @@ ref; // ME_47CD5F19011F_ME_47CD6F2902DC ControlType
  ;
  : Implementor ME_47CD6F2902DC // IevQueryGroup
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" false
 ref; // ME_47CD5F3B03CA_ME_47CD6F2902DC Visible
 
@@ -4572,6 +4740,7 @@ ref; // ME_47CD5F3B03CA_ME_47CD6F2902DC Visible
  ;
  : Implementor ME_47CD6F2902DC // IevQueryGroup
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" false
 ref; // ME_47CD5F4F015B_ME_47CD6F2902DC Upper
 
@@ -4587,21 +4756,21 @@ ref; // ME_47CD5F4F015B_ME_47CD6F2902DC Upper
  : Parent ME_47CD5C7602CD // evQueryCardInt
  ;
  : Inherits
-   @ ( ME_47CD5E5300D5 // IevCustomEditorControl
- ) .SequenceCode.It
+   Seq: ( ME_47CD5E5300D5 // IevCustomEditorControl
+ )
  ; // Inherits
  : Attributes
-   @ ( ME_47CD810E0258 // ReqCount
+   Seq: ( ME_47CD810E0258 // ReqCount
  ME_47CD817001B4 // DescriptionReqCount
  ME_47CD8184009F // GroupName
  ME_47CD819D0144 // Expanded
  ME_47CD80EB0376 // Req
  ME_47CD814902F1 // DescriptionReq
  ME_47CD81C7029A // QueryCard
- ) .SequenceCode.It
+ )
  ; // Attributes
  : Operations
-   @ ( ME_47CD7F53034B // ClickOnDisabledLabel
+   Seq: ( ME_47CD7F53034B // ClickOnDisabledLabel
  ME_47CD7F8D00E8 // AfterCollapsed
  ME_47CD7F9F006A // CanCollapsed
  ME_47CD7FF40330 // LMouseBtnDown
@@ -4612,10 +4781,10 @@ ref; // ME_47CD5F4F015B_ME_47CD6F2902DC Upper
  ME_47CD8097030D // FirstReq
  ME_47CD80A80368 // GetNextReq
  ME_47CD80D8028A // GetPrevReq
- ) .SequenceCode.It
+ )
  ; // Operations
  : Implemented
-   @ ( ME_47CD5D46015B_ME_47CD6F2902DC // Para
+   Seq: ( ME_47CD5D46015B_ME_47CD6F2902DC // Para
  ME_47CD5E7A027B_ME_47CD6F2902DC // IsMultiline
  ME_47CD5E9B031F_ME_47CD6F2902DC // GetControlIterator
  ME_47CD5EB4005D_ME_47CD6F2902DC // InitBoolProperty
@@ -4624,8 +4793,14 @@ ref; // ME_47CD5F4F015B_ME_47CD6F2902DC Upper
  ME_47CD5F19011F_ME_47CD6F2902DC // ControlType
  ME_47CD5F3B03CA_ME_47CD6F2902DC // Visible
  ME_47CD5F4F015B_ME_47CD6F2902DC // Upper
- ) .SequenceCode.It
+ )
  ; // Implemented
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest\qf'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'QueryGroup'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_47CD6F2902DC IevQueryGroup
 
@@ -4710,8 +4885,8 @@ ref; // ME_47CD9235035D anIndex
  : Target ME_47CD6F2902DC // IevQueryGroup
  ;
  : Attributes
-   @ ( ME_47CD9235035D // anIndex
- ) .SequenceCode.It
+   Seq: ( ME_47CD9235035D // anIndex
+ )
  ; // Attributes
  CONST "pm" false
 
@@ -4754,8 +4929,8 @@ ref; // ME_47CD828603D9 aCurPara
  : Parent ME_47CD6F6D031D // IevQueryCard
  ;
  : Parameters
-   @ ( ME_47CD828603D9 // aCurPara
- ) .SequenceCode.It
+   Seq: ( ME_47CD828603D9 // aCurPara
+ )
  ; // Parameters
 
 ref; // ME_47CD827F00FC ChangePara
@@ -4779,8 +4954,8 @@ ref; // ME_47CD82A00216 aCurPara
  : Parent ME_47CD6F6D031D // IevQueryCard
  ;
  : Parameters
-   @ ( ME_47CD82A00216 // aCurPara
- ) .SequenceCode.It
+   Seq: ( ME_47CD82A00216 // aCurPara
+ )
  ; // Parameters
 
 ref; // ME_47CD829A0262 SetCurrPara
@@ -4819,8 +4994,8 @@ ref; // ME_47CD82C102F8 aValue
  : Parent ME_47CD6F6D031D // IevQueryCard
  ;
  : Parameters
-   @ ( ME_47CD82C102F8 // aValue
- ) .SequenceCode.It
+   Seq: ( ME_47CD82C102F8 // aValue
+ )
  ; // Parameters
 
 ref; // ME_47CD82BA01D2 RememberFocusControl
@@ -4869,8 +5044,8 @@ ref; // ME_47CD82E60245 aButton
  : Parent ME_47CD6F6D031D // IevQueryCard
  ;
  : Parameters
-   @ ( ME_47CD82E60245 // aButton
- ) .SequenceCode.It
+   Seq: ( ME_47CD82E60245 // aButton
+ )
  ; // Parameters
 
 ref; // ME_47CD82DD0015 UpperChange
@@ -4897,8 +5072,8 @@ ref; // ME_47CD82F500E1 anIndex
  : Target WL 'ME_476BF1FA032A' '4678209200A6.pas.ms.script' // InevSimpleNode
  ;
  : Parameters
-   @ ( ME_47CD82F500E1 // anIndex
- ) .SequenceCode.It
+   Seq: ( ME_47CD82F500E1 // anIndex
+ )
  ; // Parameters
 
 ref; // ME_47CD82ED006B GetNode
@@ -4959,8 +5134,8 @@ ref; // ME_47CD834601C8 anExpand
  : Parent ME_47CD6F6D031D // IevQueryCard
  ;
  : Parameters
-   @ ( ME_47CD834601C8 // anExpand
- ) .SequenceCode.It
+   Seq: ( ME_47CD834601C8 // anExpand
+ )
  ; // Parameters
 
 ref; // ME_47CD83410138 ChangeStateAll
@@ -4984,8 +5159,8 @@ ref; // ME_47CD8354010F aGroup
  : Parent ME_47CD6F6D031D // IevQueryCard
  ;
  : Parameters
-   @ ( ME_47CD8354010F // aGroup
- ) .SequenceCode.It
+   Seq: ( ME_47CD8354010F // aGroup
+ )
  ; // Parameters
 
 ref; // ME_47CD835002FB AfterCollapsed
@@ -5010,8 +5185,8 @@ ref; // ME_47CD838B03B0 aControl
  : Parent ME_47CD6F6D031D // IevQueryCard
  ;
  : Parameters
-   @ ( ME_47CD838B03B0 // aControl
- ) .SequenceCode.It
+   Seq: ( ME_47CD838B03B0 // aControl
+ )
  ; // Parameters
 
 ref; // ME_47CD83830353 LimitCharsReached
@@ -5036,8 +5211,8 @@ ref; // ME_47CD839A0347 aControl
  : Parent ME_47CD6F6D031D // IevQueryCard
  ;
  : Parameters
-   @ ( ME_47CD839A0347 // aControl
- ) .SequenceCode.It
+   Seq: ( ME_47CD839A0347 // aControl
+ )
  ; // Parameters
 
 ref; // ME_47CD839201D4 RememberState
@@ -5078,8 +5253,8 @@ ref; // ME_47CD83C0002D aCurPara
  : Target ME_47CD601B0048 // IevEditorControl
  ;
  : Parameters
-   @ ( ME_47CD83C0002D // aCurPara
- ) .SequenceCode.It
+   Seq: ( ME_47CD83C0002D // aCurPara
+ )
  ; // Parameters
 
 ref; // ME_47CD83B10329 GetFocusedControl
@@ -5104,8 +5279,8 @@ ref; // ME_47CD83D002E2 aQueryContainer
  : Parent ME_47CD6F6D031D // IevQueryCard
  ;
  : Parameters
-   @ ( ME_47CD83D002E2 // aQueryContainer
- ) .SequenceCode.It
+   Seq: ( ME_47CD83D002E2 // aQueryContainer
+ )
  ; // Parameters
 
 ref; // ME_47CD83C8037F LinkView
@@ -5130,8 +5305,8 @@ ref; // ME_54ED967D016F aListener
  : Parent ME_47CD6F6D031D // IevQueryCard
  ;
  : Parameters
-   @ ( ME_54ED967D016F // aListener
- ) .SequenceCode.It
+   Seq: ( ME_54ED967D016F // aListener
+ )
  ; // Parameters
 
 ref; // ME_47CD83DC0133 LinkListener
@@ -5183,8 +5358,8 @@ ref; // ME_47CD842A02B7 aReqName
  : Target ME_47CD5DC20075 // IevDescriptionReq
  ;
  : Parameters
-   @ ( ME_47CD842A02B7 // aReqName
- ) .SequenceCode.It
+   Seq: ( ME_47CD842A02B7 // aReqName
+ )
  ; // Parameters
 
 ref; // ME_47CD842102B4 FindDescriptionReq
@@ -5222,8 +5397,8 @@ ref; // ME_48B7F8CA0150 aCurrentControl
  : Target ME_47CD5E9201B2 // IevControlIterator
  ;
  : Parameters
-   @ ( ME_48B7F8CA0150 // aCurrentControl
- ) .SequenceCode.It
+   Seq: ( ME_48B7F8CA0150 // aCurrentControl
+ )
  ; // Parameters
 
 ref; // ME_48B7F005003D GetControlIterator
@@ -5240,15 +5415,15 @@ ref; // ME_48B7F005003D GetControlIterator
  : Parent ME_47CD5C7602CD // evQueryCardInt
  ;
  : Attributes
-   @ ( ME_47CD8478024F // GroupCount
+   Seq: ( ME_47CD8478024F // GroupCount
  ME_47CD84BB0044 // InsertRowMode
  ME_47CD84CC027E // CardType
  ME_47CD84520292 // QueryGroup
  ME_47CD84A1019A // Editor
- ) .SequenceCode.It
+ )
  ; // Attributes
  : Operations
-   @ ( ME_47CD827F00FC // ChangePara
+   Seq: ( ME_47CD827F00FC // ChangePara
  ME_47CD829A0262 // SetCurrPara
  ME_47CD82A70217 // GetDocumentContainer
  ME_47CD82BA01D2 // RememberFocusControl
@@ -5272,8 +5447,14 @@ ref; // ME_48B7F005003D GetControlIterator
  ME_47CD842102B4 // FindDescriptionReq
  ME_47CD843F005D // StartSetFocus
  ME_48B7F005003D // GetControlIterator
- ) .SequenceCode.It
+ )
  ; // Operations
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest\qf'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'QueryCard'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_47CD6F6D031D IevQueryCard
 
@@ -5325,10 +5506,16 @@ ref; // ME_47CD76C40235 EndDate
  : Parent ME_47CD5C7602CD // evQueryCardInt
  ;
  : Attributes
-   @ ( ME_47CD76B60268 // StartDate
+   Seq: ( ME_47CD76B60268 // StartDate
  ME_47CD76C40235 // EndDate
- ) .SequenceCode.It
+ )
  ; // Attributes
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest\qf'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'DatesReq'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_47CD76A80186 IevDatesReq
 
@@ -5378,10 +5565,16 @@ ref; // ME_47CD76E9008F Number
  : Parent ME_47CD5C7602CD // evQueryCardInt
  ;
  : Attributes
-   @ ( ME_47CD76DE0101 // Code
+   Seq: ( ME_47CD76DE0101 // Code
  ME_47CD76E9008F // Number
- ) .SequenceCode.It
+ )
  ; // Attributes
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest\qf'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'PhoneReq'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_47CD76D40316 IevPhoneReq
 
@@ -5405,6 +5598,7 @@ ref; // ME_47CD79C903AF GetButtonType
  ;
  : Implementor ME_47CD79B700DB // IevEditorControlButton
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" false
 ref; // ME_47CD5D46015B_ME_47CD79B700DB Para
 
@@ -5415,6 +5609,7 @@ ref; // ME_47CD5D46015B_ME_47CD79B700DB Para
  ;
  : Implementor ME_47CD79B700DB // IevEditorControlButton
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_47CD5E7A027B_ME_47CD79B700DB IsMultiline
 
 : ME_47CD5E9B031F_ME_47CD79B700DB
@@ -5424,6 +5619,7 @@ ref; // ME_47CD5E7A027B_ME_47CD79B700DB IsMultiline
  ;
  : Implementor ME_47CD79B700DB // IevEditorControlButton
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_47CD5E9B031F_ME_47CD79B700DB GetControlIterator
 
 : ME_47CD5EB4005D_ME_47CD79B700DB
@@ -5433,6 +5629,7 @@ ref; // ME_47CD5E9B031F_ME_47CD79B700DB GetControlIterator
  ;
  : Implementor ME_47CD79B700DB // IevEditorControlButton
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_47CD5EB4005D_ME_47CD79B700DB InitBoolProperty
 
 : ME_47CD5EC10294_ME_47CD79B700DB
@@ -5442,6 +5639,7 @@ ref; // ME_47CD5EB4005D_ME_47CD79B700DB InitBoolProperty
  ;
  : Implementor ME_47CD79B700DB // IevEditorControlButton
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_47CD5EC10294_ME_47CD79B700DB UpperChange
 
 : ME_47CD5EE900F7_ME_47CD79B700DB
@@ -5451,6 +5649,7 @@ ref; // ME_47CD5EC10294_ME_47CD79B700DB UpperChange
  ;
  : Implementor ME_47CD79B700DB // IevEditorControlButton
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" false
 ref; // ME_47CD5EE900F7_ME_47CD79B700DB ControlName
 
@@ -5461,6 +5660,7 @@ ref; // ME_47CD5EE900F7_ME_47CD79B700DB ControlName
  ;
  : Implementor ME_47CD79B700DB // IevEditorControlButton
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" false
 ref; // ME_47CD5F19011F_ME_47CD79B700DB ControlType
 
@@ -5471,6 +5671,7 @@ ref; // ME_47CD5F19011F_ME_47CD79B700DB ControlType
  ;
  : Implementor ME_47CD79B700DB // IevEditorControlButton
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" false
 ref; // ME_47CD5F3B03CA_ME_47CD79B700DB Visible
 
@@ -5481,6 +5682,7 @@ ref; // ME_47CD5F3B03CA_ME_47CD79B700DB Visible
  ;
  : Implementor ME_47CD79B700DB // IevEditorControlButton
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" false
 ref; // ME_47CD5F4F015B_ME_47CD79B700DB Upper
 
@@ -5491,6 +5693,7 @@ ref; // ME_47CD5F4F015B_ME_47CD79B700DB Upper
  ;
  : Implementor ME_47CD79B700DB // IevEditorControlButton
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_47CD77D60195_ME_47CD79B700DB LMouseBtnUp
 
 : ME_47CD78150291_ME_47CD79B700DB
@@ -5500,6 +5703,7 @@ ref; // ME_47CD77D60195_ME_47CD79B700DB LMouseBtnUp
  ;
  : Implementor ME_47CD79B700DB // IevEditorControlButton
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_47CD78150291_ME_47CD79B700DB LMouseBtnDown
 
 : ME_47CD784A00E0_ME_47CD79B700DB
@@ -5509,6 +5713,7 @@ ref; // ME_47CD78150291_ME_47CD79B700DB LMouseBtnDown
  ;
  : Implementor ME_47CD79B700DB // IevEditorControlButton
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_47CD784A00E0_ME_47CD79B700DB KeyCommand
 
 : ME_47CD785F0300_ME_47CD79B700DB
@@ -5518,6 +5723,7 @@ ref; // ME_47CD784A00E0_ME_47CD79B700DB KeyCommand
  ;
  : Implementor ME_47CD79B700DB // IevEditorControlButton
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_47CD785F0300_ME_47CD79B700DB RememberState
 
 : ME_47CD786D0183_ME_47CD79B700DB
@@ -5527,6 +5733,7 @@ ref; // ME_47CD785F0300_ME_47CD79B700DB RememberState
  ;
  : Implementor ME_47CD79B700DB // IevEditorControlButton
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_47CD786D0183_ME_47CD79B700DB TextChange
 
 : ME_47CD788D010B_ME_47CD79B700DB
@@ -5536,6 +5743,7 @@ ref; // ME_47CD786D0183_ME_47CD79B700DB TextChange
  ;
  : Implementor ME_47CD79B700DB // IevEditorControlButton
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_47CD788D010B_ME_47CD79B700DB GetHint
 
 : ME_47CD78A001D0_ME_47CD79B700DB
@@ -5545,6 +5753,7 @@ ref; // ME_47CD788D010B_ME_47CD79B700DB GetHint
  ;
  : Implementor ME_47CD79B700DB // IevEditorControlButton
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_47CD78A001D0_ME_47CD79B700DB InsertRow
 
 : ME_47CD78AD0097_ME_47CD79B700DB
@@ -5554,6 +5763,7 @@ ref; // ME_47CD78A001D0_ME_47CD79B700DB InsertRow
  ;
  : Implementor ME_47CD79B700DB // IevEditorControlButton
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_47CD78AD0097_ME_47CD79B700DB SetFocus
 
 : ME_47CD78CB0304_ME_47CD79B700DB
@@ -5563,6 +5773,7 @@ ref; // ME_47CD78AD0097_ME_47CD79B700DB SetFocus
  ;
  : Implementor ME_47CD79B700DB // IevEditorControlButton
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" false
 ref; // ME_47CD78CB0304_ME_47CD79B700DB Field
 
@@ -5573,6 +5784,7 @@ ref; // ME_47CD78CB0304_ME_47CD79B700DB Field
  ;
  : Implementor ME_47CD79B700DB // IevEditorControlButton
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" false
 ref; // ME_47CD78FE0254_ME_47CD79B700DB Req
 
@@ -5583,6 +5795,7 @@ ref; // ME_47CD78FE0254_ME_47CD79B700DB Req
  ;
  : Implementor ME_47CD79B700DB // IevEditorControlButton
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" false
 ref; // ME_47CD791D025D_ME_47CD79B700DB Enabled
 
@@ -5593,6 +5806,7 @@ ref; // ME_47CD791D025D_ME_47CD79B700DB Enabled
  ;
  : Implementor ME_47CD79B700DB // IevEditorControlButton
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" false
 ref; // ME_47CD792F0026_ME_47CD79B700DB MaxLength
 
@@ -5603,6 +5817,7 @@ ref; // ME_47CD792F0026_ME_47CD79B700DB MaxLength
  ;
  : Implementor ME_47CD79B700DB // IevEditorControlButton
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" false
 ref; // ME_47CD9B8E0009_ME_47CD79B700DB Caption
 
@@ -5619,15 +5834,15 @@ ref; // ME_47CD9B8E0009_ME_47CD79B700DB Caption
  : Parent ME_47CD5C7602CD // evQueryCardInt
  ;
  : Inherits
-   @ ( ME_47CD601B0048 // IevEditorControl
- ) .SequenceCode.It
+   Seq: ( ME_47CD601B0048 // IevEditorControl
+ )
  ; // Inherits
  : Operations
-   @ ( ME_47CD79C903AF // GetButtonType
- ) .SequenceCode.It
+   Seq: ( ME_47CD79C903AF // GetButtonType
+ )
  ; // Operations
  : Implemented
-   @ ( ME_47CD5D46015B_ME_47CD79B700DB // Para
+   Seq: ( ME_47CD5D46015B_ME_47CD79B700DB // Para
  ME_47CD5E7A027B_ME_47CD79B700DB // IsMultiline
  ME_47CD5E9B031F_ME_47CD79B700DB // GetControlIterator
  ME_47CD5EB4005D_ME_47CD79B700DB // InitBoolProperty
@@ -5649,8 +5864,14 @@ ref; // ME_47CD9B8E0009_ME_47CD79B700DB Caption
  ME_47CD791D025D_ME_47CD79B700DB // Enabled
  ME_47CD792F0026_ME_47CD79B700DB // MaxLength
  ME_47CD9B8E0009_ME_47CD79B700DB // Caption
- ) .SequenceCode.It
+ )
  ; // Implemented
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest\qf'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'EditorControlButton'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_47CD79B700DB IevEditorControlButton
 
@@ -5688,8 +5909,8 @@ ref; // ME_47CEBEC9017C aList
  : Parent ME_47CEBB8802BE // IevEditorControlList
  ;
  : Parameters
-   @ ( ME_47CEBEC9017C // aList
- ) .SequenceCode.It
+   Seq: ( ME_47CEBEC9017C // aList
+ )
  ; // Parameters
 
 ref; // ME_47CEBEBB010D AssignList
@@ -5701,6 +5922,7 @@ ref; // ME_47CEBEBB010D AssignList
  ;
  : Implementor ME_47CEBB8802BE // IevEditorControlList
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" true
 ref; // ME_47D8233603DD_ME_47CEBB8802BE First
 
@@ -5711,6 +5933,7 @@ ref; // ME_47D8233603DD_ME_47CEBB8802BE First
  ;
  : Implementor ME_47CEBB8802BE // IevEditorControlList
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" true
 ref; // ME_47D823570315_ME_47CEBB8802BE Last
 
@@ -5721,6 +5944,7 @@ ref; // ME_47D823570315_ME_47CEBB8802BE Last
  ;
  : Implementor ME_47CEBB8802BE // IevEditorControlList
  ;
+ CONST OpKind opkind_Implemented
  CONST "is default" true
  CONST "pm" true
 ref; // ME_47D8248802AD_ME_47CEBB8802BE Items
@@ -5732,6 +5956,7 @@ ref; // ME_47D8248802AD_ME_47CEBB8802BE Items
  ;
  : Implementor ME_47CEBB8802BE // IevEditorControlList
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" true
 ref; // ME_47E381E203D2_ME_47CEBB8802BE Empty
 
@@ -5742,6 +5967,7 @@ ref; // ME_47E381E203D2_ME_47CEBB8802BE Empty
  ;
  : Implementor ME_47CEBB8802BE // IevEditorControlList
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" true
 ref; // ME_4BB08B8902F2_ME_47CEBB8802BE Count
 
@@ -5757,25 +5983,31 @@ ref; // ME_4BB08B8902F2_ME_47CEBB8802BE Count
  : Parent ME_47CD5C7602CD // evQueryCardInt
  ;
  : Implements
-   @ ( WL 'ME_47D821AE00EF' '47D810610398.pas.ms.script' // Ml3List
- ) .SequenceCode.It
+   Seq: ( WL 'ME_47D821AE00EF' '47D810610398.pas.ms.script' // Ml3List
+ )
  ; // Implements
  : Attributes
-   @ ( ME_47DE6EC60148 // ItemType
- ) .SequenceCode.It
+   Seq: ( ME_47DE6EC60148 // ItemType
+ )
  ; // Attributes
  : Operations
-   @ ( ME_47CEBEBB010D // AssignList
- ) .SequenceCode.It
+   Seq: ( ME_47CEBEBB010D // AssignList
+ )
  ; // Operations
  : Implemented
-   @ ( ME_47D8233603DD_ME_47CEBB8802BE // First
+   Seq: ( ME_47D8233603DD_ME_47CEBB8802BE // First
  ME_47D823570315_ME_47CEBB8802BE // Last
  ME_47D8248802AD_ME_47CEBB8802BE // Items
  ME_47E381E203D2_ME_47CEBB8802BE // Empty
  ME_4BB08B8902F2_ME_47CEBB8802BE // Count
- ) .SequenceCode.It
+ )
  ; // Implemented
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest\qf'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'EditorControlList'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_47CEBB8802BE IevEditorControlList
 
@@ -5845,8 +6077,8 @@ ref; // ME_47CD74D400E8 aField
  : Parent ME_47CD74AD0343 // IevComboReq
  ;
  : Parameters
-   @ ( ME_47CD74D400E8 // aField
- ) .SequenceCode.It
+   Seq: ( ME_47CD74D400E8 // aField
+ )
  ; // Parameters
 
 ref; // ME_47CD74C203DC EscPressed
@@ -5941,8 +6173,8 @@ ref; // ME_47CD75B3007E anIndex
  : Target WL 'ME_476BF1FA032A' '4678209200A6.pas.ms.script' // InevSimpleNode
  ;
  : Parameters
-   @ ( ME_47CD75B3007E // anIndex
- ) .SequenceCode.It
+   Seq: ( ME_47CD75B3007E // anIndex
+ )
  ; // Parameters
 
 ref; // ME_47CD75A9029C GetNode
@@ -5983,12 +6215,12 @@ ref; // ME_4885BB8A005E NotifyContextWrong
  : Parent ME_47CD5C7602CD // evQueryCardInt
  ;
  : Attributes
-   @ ( ME_47CD75890059 // DefStateIndex
+   Seq: ( ME_47CD75890059 // DefStateIndex
  ME_47CD75C30157 // HistoryList
- ) .SequenceCode.It
+ )
  ; // Attributes
  : Operations
-   @ ( ME_47CD74B90340 // ClearLogicValue
+   Seq: ( ME_47CD74B90340 // ClearLogicValue
  ME_47CD74C203DC // EscPressed
  ME_47CD74D802DF // NeedAsterisk
  ME_47CD74ED0166 // GetTreeFromAdapter
@@ -5998,8 +6230,14 @@ ref; // ME_4885BB8A005E NotifyContextWrong
  ME_47CD75A9029C // GetNode
  ME_486C76EE0211 // GetPromptTreeFromAdapter
  ME_4885BB8A005E // NotifyContextWrong
- ) .SequenceCode.It
+ )
  ; // Operations
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest\qf'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'ComboReq'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_47CD74AD0343 IevComboReq
 
@@ -6077,6 +6315,7 @@ ref; // ME_47CDA4CB026C GetStateIndex
  ;
  : Implementor ME_47CD79D8006C // IevEditorStateButton
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" false
 ref; // ME_47CD5D46015B_ME_47CD79D8006C Para
 
@@ -6087,6 +6326,7 @@ ref; // ME_47CD5D46015B_ME_47CD79D8006C Para
  ;
  : Implementor ME_47CD79D8006C // IevEditorStateButton
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_47CD5E7A027B_ME_47CD79D8006C IsMultiline
 
 : ME_47CD5E9B031F_ME_47CD79D8006C
@@ -6096,6 +6336,7 @@ ref; // ME_47CD5E7A027B_ME_47CD79D8006C IsMultiline
  ;
  : Implementor ME_47CD79D8006C // IevEditorStateButton
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_47CD5E9B031F_ME_47CD79D8006C GetControlIterator
 
 : ME_47CD5EB4005D_ME_47CD79D8006C
@@ -6105,6 +6346,7 @@ ref; // ME_47CD5E9B031F_ME_47CD79D8006C GetControlIterator
  ;
  : Implementor ME_47CD79D8006C // IevEditorStateButton
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_47CD5EB4005D_ME_47CD79D8006C InitBoolProperty
 
 : ME_47CD5EC10294_ME_47CD79D8006C
@@ -6114,6 +6356,7 @@ ref; // ME_47CD5EB4005D_ME_47CD79D8006C InitBoolProperty
  ;
  : Implementor ME_47CD79D8006C // IevEditorStateButton
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_47CD5EC10294_ME_47CD79D8006C UpperChange
 
 : ME_47CD5EE900F7_ME_47CD79D8006C
@@ -6123,6 +6366,7 @@ ref; // ME_47CD5EC10294_ME_47CD79D8006C UpperChange
  ;
  : Implementor ME_47CD79D8006C // IevEditorStateButton
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" false
 ref; // ME_47CD5EE900F7_ME_47CD79D8006C ControlName
 
@@ -6133,6 +6377,7 @@ ref; // ME_47CD5EE900F7_ME_47CD79D8006C ControlName
  ;
  : Implementor ME_47CD79D8006C // IevEditorStateButton
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" false
 ref; // ME_47CD5F19011F_ME_47CD79D8006C ControlType
 
@@ -6143,6 +6388,7 @@ ref; // ME_47CD5F19011F_ME_47CD79D8006C ControlType
  ;
  : Implementor ME_47CD79D8006C // IevEditorStateButton
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" false
 ref; // ME_47CD5F3B03CA_ME_47CD79D8006C Visible
 
@@ -6153,6 +6399,7 @@ ref; // ME_47CD5F3B03CA_ME_47CD79D8006C Visible
  ;
  : Implementor ME_47CD79D8006C // IevEditorStateButton
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" false
 ref; // ME_47CD5F4F015B_ME_47CD79D8006C Upper
 
@@ -6163,6 +6410,7 @@ ref; // ME_47CD5F4F015B_ME_47CD79D8006C Upper
  ;
  : Implementor ME_47CD79D8006C // IevEditorStateButton
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_47CD77D60195_ME_47CD79D8006C LMouseBtnUp
 
 : ME_47CD78150291_ME_47CD79D8006C
@@ -6172,6 +6420,7 @@ ref; // ME_47CD77D60195_ME_47CD79D8006C LMouseBtnUp
  ;
  : Implementor ME_47CD79D8006C // IevEditorStateButton
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_47CD78150291_ME_47CD79D8006C LMouseBtnDown
 
 : ME_47CD784A00E0_ME_47CD79D8006C
@@ -6181,6 +6430,7 @@ ref; // ME_47CD78150291_ME_47CD79D8006C LMouseBtnDown
  ;
  : Implementor ME_47CD79D8006C // IevEditorStateButton
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_47CD784A00E0_ME_47CD79D8006C KeyCommand
 
 : ME_47CD785F0300_ME_47CD79D8006C
@@ -6190,6 +6440,7 @@ ref; // ME_47CD784A00E0_ME_47CD79D8006C KeyCommand
  ;
  : Implementor ME_47CD79D8006C // IevEditorStateButton
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_47CD785F0300_ME_47CD79D8006C RememberState
 
 : ME_47CD786D0183_ME_47CD79D8006C
@@ -6199,6 +6450,7 @@ ref; // ME_47CD785F0300_ME_47CD79D8006C RememberState
  ;
  : Implementor ME_47CD79D8006C // IevEditorStateButton
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_47CD786D0183_ME_47CD79D8006C TextChange
 
 : ME_47CD788D010B_ME_47CD79D8006C
@@ -6208,6 +6460,7 @@ ref; // ME_47CD786D0183_ME_47CD79D8006C TextChange
  ;
  : Implementor ME_47CD79D8006C // IevEditorStateButton
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_47CD788D010B_ME_47CD79D8006C GetHint
 
 : ME_47CD78A001D0_ME_47CD79D8006C
@@ -6217,6 +6470,7 @@ ref; // ME_47CD788D010B_ME_47CD79D8006C GetHint
  ;
  : Implementor ME_47CD79D8006C // IevEditorStateButton
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_47CD78A001D0_ME_47CD79D8006C InsertRow
 
 : ME_47CD78AD0097_ME_47CD79D8006C
@@ -6226,6 +6480,7 @@ ref; // ME_47CD78A001D0_ME_47CD79D8006C InsertRow
  ;
  : Implementor ME_47CD79D8006C // IevEditorStateButton
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_47CD78AD0097_ME_47CD79D8006C SetFocus
 
 : ME_47CD78CB0304_ME_47CD79D8006C
@@ -6235,6 +6490,7 @@ ref; // ME_47CD78AD0097_ME_47CD79D8006C SetFocus
  ;
  : Implementor ME_47CD79D8006C // IevEditorStateButton
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" false
 ref; // ME_47CD78CB0304_ME_47CD79D8006C Field
 
@@ -6245,6 +6501,7 @@ ref; // ME_47CD78CB0304_ME_47CD79D8006C Field
  ;
  : Implementor ME_47CD79D8006C // IevEditorStateButton
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" false
 ref; // ME_47CD78FE0254_ME_47CD79D8006C Req
 
@@ -6255,6 +6512,7 @@ ref; // ME_47CD78FE0254_ME_47CD79D8006C Req
  ;
  : Implementor ME_47CD79D8006C // IevEditorStateButton
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" false
 ref; // ME_47CD791D025D_ME_47CD79D8006C Enabled
 
@@ -6265,6 +6523,7 @@ ref; // ME_47CD791D025D_ME_47CD79D8006C Enabled
  ;
  : Implementor ME_47CD79D8006C // IevEditorStateButton
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" false
 ref; // ME_47CD792F0026_ME_47CD79D8006C MaxLength
 
@@ -6275,6 +6534,7 @@ ref; // ME_47CD792F0026_ME_47CD79D8006C MaxLength
  ;
  : Implementor ME_47CD79D8006C // IevEditorStateButton
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_47CD79C903AF_ME_47CD79D8006C GetButtonType
 
 : ME_47CD9B8E0009_ME_47CD79D8006C
@@ -6284,6 +6544,7 @@ ref; // ME_47CD79C903AF_ME_47CD79D8006C GetButtonType
  ;
  : Implementor ME_47CD79D8006C // IevEditorStateButton
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" false
 ref; // ME_47CD9B8E0009_ME_47CD79D8006C Caption
 
@@ -6300,21 +6561,21 @@ ref; // ME_47CD9B8E0009_ME_47CD79D8006C Caption
  : Parent ME_47CD5C7602CD // evQueryCardInt
  ;
  : Inherits
-   @ ( ME_47CD79B700DB // IevEditorControlButton
- ) .SequenceCode.It
+   Seq: ( ME_47CD79B700DB // IevEditorControlButton
+ )
  ; // Inherits
  : Attributes
-   @ ( ME_47CD79ED01CC // StateCount
+   Seq: ( ME_47CD79ED01CC // StateCount
  ME_47CD79FA004E // CurrentIndex
  ME_47CD7A0A03DD // ImageIndex
- ) .SequenceCode.It
+ )
  ; // Attributes
  : Operations
-   @ ( ME_47CDA4CB026C // GetStateIndex
- ) .SequenceCode.It
+   Seq: ( ME_47CDA4CB026C // GetStateIndex
+ )
  ; // Operations
  : Implemented
-   @ ( ME_47CD5D46015B_ME_47CD79D8006C // Para
+   Seq: ( ME_47CD5D46015B_ME_47CD79D8006C // Para
  ME_47CD5E7A027B_ME_47CD79D8006C // IsMultiline
  ME_47CD5E9B031F_ME_47CD79D8006C // GetControlIterator
  ME_47CD5EB4005D_ME_47CD79D8006C // InitBoolProperty
@@ -6337,8 +6598,14 @@ ref; // ME_47CD9B8E0009_ME_47CD79D8006C Caption
  ME_47CD792F0026_ME_47CD79D8006C // MaxLength
  ME_47CD79C903AF_ME_47CD79D8006C // GetButtonType
  ME_47CD9B8E0009_ME_47CD79D8006C // Caption
- ) .SequenceCode.It
+ )
  ; // Implemented
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest\qf'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'EditorStateButton'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_47CD79D8006C IevEditorStateButton
 
@@ -6434,6 +6701,7 @@ ref; // ME_47CD7ECC0365 GetOtherField
  ;
  : Implementor ME_47CD7D2A013E // IevEditorCalendarField
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" false
 ref; // ME_47CD5D46015B_ME_47CD7D2A013E Para
 
@@ -6444,6 +6712,7 @@ ref; // ME_47CD5D46015B_ME_47CD7D2A013E Para
  ;
  : Implementor ME_47CD7D2A013E // IevEditorCalendarField
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_47CD5E7A027B_ME_47CD7D2A013E IsMultiline
 
 : ME_47CD5E9B031F_ME_47CD7D2A013E
@@ -6453,6 +6722,7 @@ ref; // ME_47CD5E7A027B_ME_47CD7D2A013E IsMultiline
  ;
  : Implementor ME_47CD7D2A013E // IevEditorCalendarField
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_47CD5E9B031F_ME_47CD7D2A013E GetControlIterator
 
 : ME_47CD5EB4005D_ME_47CD7D2A013E
@@ -6462,6 +6732,7 @@ ref; // ME_47CD5E9B031F_ME_47CD7D2A013E GetControlIterator
  ;
  : Implementor ME_47CD7D2A013E // IevEditorCalendarField
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_47CD5EB4005D_ME_47CD7D2A013E InitBoolProperty
 
 : ME_47CD5EC10294_ME_47CD7D2A013E
@@ -6471,6 +6742,7 @@ ref; // ME_47CD5EB4005D_ME_47CD7D2A013E InitBoolProperty
  ;
  : Implementor ME_47CD7D2A013E // IevEditorCalendarField
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_47CD5EC10294_ME_47CD7D2A013E UpperChange
 
 : ME_47CD5EE900F7_ME_47CD7D2A013E
@@ -6480,6 +6752,7 @@ ref; // ME_47CD5EC10294_ME_47CD7D2A013E UpperChange
  ;
  : Implementor ME_47CD7D2A013E // IevEditorCalendarField
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" false
 ref; // ME_47CD5EE900F7_ME_47CD7D2A013E ControlName
 
@@ -6490,6 +6763,7 @@ ref; // ME_47CD5EE900F7_ME_47CD7D2A013E ControlName
  ;
  : Implementor ME_47CD7D2A013E // IevEditorCalendarField
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" false
 ref; // ME_47CD5F19011F_ME_47CD7D2A013E ControlType
 
@@ -6500,6 +6774,7 @@ ref; // ME_47CD5F19011F_ME_47CD7D2A013E ControlType
  ;
  : Implementor ME_47CD7D2A013E // IevEditorCalendarField
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" false
 ref; // ME_47CD5F3B03CA_ME_47CD7D2A013E Visible
 
@@ -6510,6 +6785,7 @@ ref; // ME_47CD5F3B03CA_ME_47CD7D2A013E Visible
  ;
  : Implementor ME_47CD7D2A013E // IevEditorCalendarField
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" false
 ref; // ME_47CD5F4F015B_ME_47CD7D2A013E Upper
 
@@ -6520,6 +6796,7 @@ ref; // ME_47CD5F4F015B_ME_47CD7D2A013E Upper
  ;
  : Implementor ME_47CD7D2A013E // IevEditorCalendarField
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_47CD77D60195_ME_47CD7D2A013E LMouseBtnUp
 
 : ME_47CD78150291_ME_47CD7D2A013E
@@ -6529,6 +6806,7 @@ ref; // ME_47CD77D60195_ME_47CD7D2A013E LMouseBtnUp
  ;
  : Implementor ME_47CD7D2A013E // IevEditorCalendarField
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_47CD78150291_ME_47CD7D2A013E LMouseBtnDown
 
 : ME_47CD784A00E0_ME_47CD7D2A013E
@@ -6538,6 +6816,7 @@ ref; // ME_47CD78150291_ME_47CD7D2A013E LMouseBtnDown
  ;
  : Implementor ME_47CD7D2A013E // IevEditorCalendarField
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_47CD784A00E0_ME_47CD7D2A013E KeyCommand
 
 : ME_47CD785F0300_ME_47CD7D2A013E
@@ -6547,6 +6826,7 @@ ref; // ME_47CD784A00E0_ME_47CD7D2A013E KeyCommand
  ;
  : Implementor ME_47CD7D2A013E // IevEditorCalendarField
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_47CD785F0300_ME_47CD7D2A013E RememberState
 
 : ME_47CD786D0183_ME_47CD7D2A013E
@@ -6556,6 +6836,7 @@ ref; // ME_47CD785F0300_ME_47CD7D2A013E RememberState
  ;
  : Implementor ME_47CD7D2A013E // IevEditorCalendarField
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_47CD786D0183_ME_47CD7D2A013E TextChange
 
 : ME_47CD788D010B_ME_47CD7D2A013E
@@ -6565,6 +6846,7 @@ ref; // ME_47CD786D0183_ME_47CD7D2A013E TextChange
  ;
  : Implementor ME_47CD7D2A013E // IevEditorCalendarField
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_47CD788D010B_ME_47CD7D2A013E GetHint
 
 : ME_47CD78A001D0_ME_47CD7D2A013E
@@ -6574,6 +6856,7 @@ ref; // ME_47CD788D010B_ME_47CD7D2A013E GetHint
  ;
  : Implementor ME_47CD7D2A013E // IevEditorCalendarField
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_47CD78A001D0_ME_47CD7D2A013E InsertRow
 
 : ME_47CD78AD0097_ME_47CD7D2A013E
@@ -6583,6 +6866,7 @@ ref; // ME_47CD78A001D0_ME_47CD7D2A013E InsertRow
  ;
  : Implementor ME_47CD7D2A013E // IevEditorCalendarField
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_47CD78AD0097_ME_47CD7D2A013E SetFocus
 
 : ME_47CD78CB0304_ME_47CD7D2A013E
@@ -6592,6 +6876,7 @@ ref; // ME_47CD78AD0097_ME_47CD7D2A013E SetFocus
  ;
  : Implementor ME_47CD7D2A013E // IevEditorCalendarField
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" false
 ref; // ME_47CD78CB0304_ME_47CD7D2A013E Field
 
@@ -6602,6 +6887,7 @@ ref; // ME_47CD78CB0304_ME_47CD7D2A013E Field
  ;
  : Implementor ME_47CD7D2A013E // IevEditorCalendarField
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" false
 ref; // ME_47CD78FE0254_ME_47CD7D2A013E Req
 
@@ -6612,6 +6898,7 @@ ref; // ME_47CD78FE0254_ME_47CD7D2A013E Req
  ;
  : Implementor ME_47CD7D2A013E // IevEditorCalendarField
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" false
 ref; // ME_47CD791D025D_ME_47CD7D2A013E Enabled
 
@@ -6622,6 +6909,7 @@ ref; // ME_47CD791D025D_ME_47CD7D2A013E Enabled
  ;
  : Implementor ME_47CD7D2A013E // IevEditorCalendarField
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" false
 ref; // ME_47CD792F0026_ME_47CD7D2A013E MaxLength
 
@@ -6632,6 +6920,7 @@ ref; // ME_47CD792F0026_ME_47CD7D2A013E MaxLength
  ;
  : Implementor ME_47CD7D2A013E // IevEditorCalendarField
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_47CD7AC60335_ME_47CD7D2A013E CheckDataText
 
 : ME_47CD7AD60335_ME_47CD7D2A013E
@@ -6641,6 +6930,7 @@ ref; // ME_47CD7AC60335_ME_47CD7D2A013E CheckDataText
  ;
  : Implementor ME_47CD7D2A013E // IevEditorCalendarField
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_47CD7AD60335_ME_47CD7D2A013E AnalyzeString
 
 : ME_47CD7AFA0334_ME_47CD7D2A013E
@@ -6650,6 +6940,7 @@ ref; // ME_47CD7AD60335_ME_47CD7D2A013E AnalyzeString
  ;
  : Implementor ME_47CD7D2A013E // IevEditorCalendarField
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_47CD7AFA0334_ME_47CD7D2A013E IsClear
 
 : ME_47CD7B0F0260_ME_47CD7D2A013E
@@ -6659,6 +6950,7 @@ ref; // ME_47CD7AFA0334_ME_47CD7D2A013E IsClear
  ;
  : Implementor ME_47CD7D2A013E // IevEditorCalendarField
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_47CD7B0F0260_ME_47CD7D2A013E InitOtherField
 
 : ME_47CD7B23002F_ME_47CD7D2A013E
@@ -6668,6 +6960,7 @@ ref; // ME_47CD7B0F0260_ME_47CD7D2A013E InitOtherField
  ;
  : Implementor ME_47CD7D2A013E // IevEditorCalendarField
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_47CD7B23002F_ME_47CD7D2A013E IsFieldEmpty
 
 : ME_47CD7B3301BA_ME_47CD7D2A013E
@@ -6677,6 +6970,7 @@ ref; // ME_47CD7B23002F_ME_47CD7D2A013E IsFieldEmpty
  ;
  : Implementor ME_47CD7D2A013E // IevEditorCalendarField
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_47CD7B3301BA_ME_47CD7D2A013E FindButton
 
 : ME_47CD7B46001C_ME_47CD7D2A013E
@@ -6686,6 +6980,7 @@ ref; // ME_47CD7B3301BA_ME_47CD7D2A013E FindButton
  ;
  : Implementor ME_47CD7D2A013E // IevEditorCalendarField
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_47CD7B46001C_ME_47CD7D2A013E ClearText
 
 : ME_47CD7B5401A4_ME_47CD7D2A013E
@@ -6695,6 +6990,7 @@ ref; // ME_47CD7B46001C_ME_47CD7D2A013E ClearText
  ;
  : Implementor ME_47CD7D2A013E // IevEditorCalendarField
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_47CD7B5401A4_ME_47CD7D2A013E SelectAllOnFocus
 
 : ME_47CD7B6E0380_ME_47CD7D2A013E
@@ -6704,6 +7000,7 @@ ref; // ME_47CD7B5401A4_ME_47CD7D2A013E SelectAllOnFocus
  ;
  : Implementor ME_47CD7D2A013E // IevEditorCalendarField
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" false
 ref; // ME_47CD7B6E0380_ME_47CD7D2A013E Text
 
@@ -6714,6 +7011,7 @@ ref; // ME_47CD7B6E0380_ME_47CD7D2A013E Text
  ;
  : Implementor ME_47CD7D2A013E // IevEditorCalendarField
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" false
 ref; // ME_47CD7C1F03E3_ME_47CD7D2A013E ErrorColor
 
@@ -6724,6 +7022,7 @@ ref; // ME_47CD7C1F03E3_ME_47CD7D2A013E ErrorColor
  ;
  : Implementor ME_47CD7D2A013E // IevEditorCalendarField
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" false
 ref; // ME_47CD7C2E00E2_ME_47CD7D2A013E Valid
 
@@ -6734,6 +7033,7 @@ ref; // ME_47CD7C2E00E2_ME_47CD7D2A013E Valid
  ;
  : Implementor ME_47CD7D2A013E // IevEditorCalendarField
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" false
 ref; // ME_47CD9B8E0009_ME_47CD7D2A013E Caption
 
@@ -6744,6 +7044,7 @@ ref; // ME_47CD9B8E0009_ME_47CD7D2A013E Caption
  ;
  : Implementor ME_47CD7D2A013E // IevEditorCalendarField
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" false
 ref; // ME_47CEBBC50272_ME_47CD7D2A013E ChildList
 
@@ -6754,6 +7055,7 @@ ref; // ME_47CEBBC50272_ME_47CD7D2A013E ChildList
  ;
  : Implementor ME_47CD7D2A013E // IevEditorCalendarField
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_4E9308B7007B_ME_47CD7D2A013E SynchronizeSelectedValueWithText
 
 : ME_501685F70342_ME_47CD7D2A013E
@@ -6763,6 +7065,7 @@ ref; // ME_4E9308B7007B_ME_47CD7D2A013E SynchronizeSelectedValueWithText
  ;
  : Implementor ME_47CD7D2A013E // IevEditorCalendarField
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_501685F70342_ME_47CD7D2A013E HasOtherField
 
 : ME_47CD7D2A013E
@@ -6777,23 +7080,23 @@ ref; // ME_501685F70342_ME_47CD7D2A013E HasOtherField
  : Parent ME_47CD5C7602CD // evQueryCardInt
  ;
  : Inherits
-   @ ( ME_47CD608201FA // IevEditorControlField
- ) .SequenceCode.It
+   Seq: ( ME_47CD608201FA // IevEditorControlField
+ )
  ; // Inherits
  : Attributes
-   @ ( ME_47CD7EDC00BA // aDate
- ) .SequenceCode.It
+   Seq: ( ME_47CD7EDC00BA // aDate
+ )
  ; // Attributes
  : Operations
-   @ ( ME_47CD7E9202C3 // AnalyzeText
+   Seq: ( ME_47CD7E9202C3 // AnalyzeText
  ME_47CD7EA10137 // IsBlank
  ME_47CD7EB10267 // ClearField
  ME_47CD7EBD03AD // IsStart
  ME_47CD7ECC0365 // GetOtherField
- ) .SequenceCode.It
+ )
  ; // Operations
  : Implemented
-   @ ( ME_47CD5D46015B_ME_47CD7D2A013E // Para
+   Seq: ( ME_47CD5D46015B_ME_47CD7D2A013E // Para
  ME_47CD5E7A027B_ME_47CD7D2A013E // IsMultiline
  ME_47CD5E9B031F_ME_47CD7D2A013E // GetControlIterator
  ME_47CD5EB4005D_ME_47CD7D2A013E // InitBoolProperty
@@ -6829,8 +7132,14 @@ ref; // ME_501685F70342_ME_47CD7D2A013E HasOtherField
  ME_47CEBBC50272_ME_47CD7D2A013E // ChildList
  ME_4E9308B7007B_ME_47CD7D2A013E // SynchronizeSelectedValueWithText
  ME_501685F70342_ME_47CD7D2A013E // HasOtherField
- ) .SequenceCode.It
+ )
  ; // Implemented
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest\qf'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'EditorCalendarField'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_47CD7D2A013E IevEditorCalendarField
 
@@ -6871,6 +7180,7 @@ ref; // ME_47CD7F300065 GetOtherField
  ;
  : Implementor ME_47CD7F08020E // IevEditorPhoneField
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" false
 ref; // ME_47CD5D46015B_ME_47CD7F08020E Para
 
@@ -6881,6 +7191,7 @@ ref; // ME_47CD5D46015B_ME_47CD7F08020E Para
  ;
  : Implementor ME_47CD7F08020E // IevEditorPhoneField
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_47CD5E7A027B_ME_47CD7F08020E IsMultiline
 
 : ME_47CD5E9B031F_ME_47CD7F08020E
@@ -6890,6 +7201,7 @@ ref; // ME_47CD5E7A027B_ME_47CD7F08020E IsMultiline
  ;
  : Implementor ME_47CD7F08020E // IevEditorPhoneField
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_47CD5E9B031F_ME_47CD7F08020E GetControlIterator
 
 : ME_47CD5EB4005D_ME_47CD7F08020E
@@ -6899,6 +7211,7 @@ ref; // ME_47CD5E9B031F_ME_47CD7F08020E GetControlIterator
  ;
  : Implementor ME_47CD7F08020E // IevEditorPhoneField
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_47CD5EB4005D_ME_47CD7F08020E InitBoolProperty
 
 : ME_47CD5EC10294_ME_47CD7F08020E
@@ -6908,6 +7221,7 @@ ref; // ME_47CD5EB4005D_ME_47CD7F08020E InitBoolProperty
  ;
  : Implementor ME_47CD7F08020E // IevEditorPhoneField
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_47CD5EC10294_ME_47CD7F08020E UpperChange
 
 : ME_47CD5EE900F7_ME_47CD7F08020E
@@ -6917,6 +7231,7 @@ ref; // ME_47CD5EC10294_ME_47CD7F08020E UpperChange
  ;
  : Implementor ME_47CD7F08020E // IevEditorPhoneField
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" false
 ref; // ME_47CD5EE900F7_ME_47CD7F08020E ControlName
 
@@ -6927,6 +7242,7 @@ ref; // ME_47CD5EE900F7_ME_47CD7F08020E ControlName
  ;
  : Implementor ME_47CD7F08020E // IevEditorPhoneField
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" false
 ref; // ME_47CD5F19011F_ME_47CD7F08020E ControlType
 
@@ -6937,6 +7253,7 @@ ref; // ME_47CD5F19011F_ME_47CD7F08020E ControlType
  ;
  : Implementor ME_47CD7F08020E // IevEditorPhoneField
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" false
 ref; // ME_47CD5F3B03CA_ME_47CD7F08020E Visible
 
@@ -6947,6 +7264,7 @@ ref; // ME_47CD5F3B03CA_ME_47CD7F08020E Visible
  ;
  : Implementor ME_47CD7F08020E // IevEditorPhoneField
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" false
 ref; // ME_47CD5F4F015B_ME_47CD7F08020E Upper
 
@@ -6957,6 +7275,7 @@ ref; // ME_47CD5F4F015B_ME_47CD7F08020E Upper
  ;
  : Implementor ME_47CD7F08020E // IevEditorPhoneField
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_47CD77D60195_ME_47CD7F08020E LMouseBtnUp
 
 : ME_47CD78150291_ME_47CD7F08020E
@@ -6966,6 +7285,7 @@ ref; // ME_47CD77D60195_ME_47CD7F08020E LMouseBtnUp
  ;
  : Implementor ME_47CD7F08020E // IevEditorPhoneField
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_47CD78150291_ME_47CD7F08020E LMouseBtnDown
 
 : ME_47CD784A00E0_ME_47CD7F08020E
@@ -6975,6 +7295,7 @@ ref; // ME_47CD78150291_ME_47CD7F08020E LMouseBtnDown
  ;
  : Implementor ME_47CD7F08020E // IevEditorPhoneField
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_47CD784A00E0_ME_47CD7F08020E KeyCommand
 
 : ME_47CD785F0300_ME_47CD7F08020E
@@ -6984,6 +7305,7 @@ ref; // ME_47CD784A00E0_ME_47CD7F08020E KeyCommand
  ;
  : Implementor ME_47CD7F08020E // IevEditorPhoneField
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_47CD785F0300_ME_47CD7F08020E RememberState
 
 : ME_47CD786D0183_ME_47CD7F08020E
@@ -6993,6 +7315,7 @@ ref; // ME_47CD785F0300_ME_47CD7F08020E RememberState
  ;
  : Implementor ME_47CD7F08020E // IevEditorPhoneField
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_47CD786D0183_ME_47CD7F08020E TextChange
 
 : ME_47CD788D010B_ME_47CD7F08020E
@@ -7002,6 +7325,7 @@ ref; // ME_47CD786D0183_ME_47CD7F08020E TextChange
  ;
  : Implementor ME_47CD7F08020E // IevEditorPhoneField
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_47CD788D010B_ME_47CD7F08020E GetHint
 
 : ME_47CD78A001D0_ME_47CD7F08020E
@@ -7011,6 +7335,7 @@ ref; // ME_47CD788D010B_ME_47CD7F08020E GetHint
  ;
  : Implementor ME_47CD7F08020E // IevEditorPhoneField
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_47CD78A001D0_ME_47CD7F08020E InsertRow
 
 : ME_47CD78AD0097_ME_47CD7F08020E
@@ -7020,6 +7345,7 @@ ref; // ME_47CD78A001D0_ME_47CD7F08020E InsertRow
  ;
  : Implementor ME_47CD7F08020E // IevEditorPhoneField
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_47CD78AD0097_ME_47CD7F08020E SetFocus
 
 : ME_47CD78CB0304_ME_47CD7F08020E
@@ -7029,6 +7355,7 @@ ref; // ME_47CD78AD0097_ME_47CD7F08020E SetFocus
  ;
  : Implementor ME_47CD7F08020E // IevEditorPhoneField
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" false
 ref; // ME_47CD78CB0304_ME_47CD7F08020E Field
 
@@ -7039,6 +7366,7 @@ ref; // ME_47CD78CB0304_ME_47CD7F08020E Field
  ;
  : Implementor ME_47CD7F08020E // IevEditorPhoneField
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" false
 ref; // ME_47CD78FE0254_ME_47CD7F08020E Req
 
@@ -7049,6 +7377,7 @@ ref; // ME_47CD78FE0254_ME_47CD7F08020E Req
  ;
  : Implementor ME_47CD7F08020E // IevEditorPhoneField
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" false
 ref; // ME_47CD791D025D_ME_47CD7F08020E Enabled
 
@@ -7059,6 +7388,7 @@ ref; // ME_47CD791D025D_ME_47CD7F08020E Enabled
  ;
  : Implementor ME_47CD7F08020E // IevEditorPhoneField
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" false
 ref; // ME_47CD792F0026_ME_47CD7F08020E MaxLength
 
@@ -7069,6 +7399,7 @@ ref; // ME_47CD792F0026_ME_47CD7F08020E MaxLength
  ;
  : Implementor ME_47CD7F08020E // IevEditorPhoneField
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_47CD7AC60335_ME_47CD7F08020E CheckDataText
 
 : ME_47CD7AD60335_ME_47CD7F08020E
@@ -7078,6 +7409,7 @@ ref; // ME_47CD7AC60335_ME_47CD7F08020E CheckDataText
  ;
  : Implementor ME_47CD7F08020E // IevEditorPhoneField
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_47CD7AD60335_ME_47CD7F08020E AnalyzeString
 
 : ME_47CD7AFA0334_ME_47CD7F08020E
@@ -7087,6 +7419,7 @@ ref; // ME_47CD7AD60335_ME_47CD7F08020E AnalyzeString
  ;
  : Implementor ME_47CD7F08020E // IevEditorPhoneField
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_47CD7AFA0334_ME_47CD7F08020E IsClear
 
 : ME_47CD7B0F0260_ME_47CD7F08020E
@@ -7096,6 +7429,7 @@ ref; // ME_47CD7AFA0334_ME_47CD7F08020E IsClear
  ;
  : Implementor ME_47CD7F08020E // IevEditorPhoneField
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_47CD7B0F0260_ME_47CD7F08020E InitOtherField
 
 : ME_47CD7B23002F_ME_47CD7F08020E
@@ -7105,6 +7439,7 @@ ref; // ME_47CD7B0F0260_ME_47CD7F08020E InitOtherField
  ;
  : Implementor ME_47CD7F08020E // IevEditorPhoneField
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_47CD7B23002F_ME_47CD7F08020E IsFieldEmpty
 
 : ME_47CD7B3301BA_ME_47CD7F08020E
@@ -7114,6 +7449,7 @@ ref; // ME_47CD7B23002F_ME_47CD7F08020E IsFieldEmpty
  ;
  : Implementor ME_47CD7F08020E // IevEditorPhoneField
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_47CD7B3301BA_ME_47CD7F08020E FindButton
 
 : ME_47CD7B46001C_ME_47CD7F08020E
@@ -7123,6 +7459,7 @@ ref; // ME_47CD7B3301BA_ME_47CD7F08020E FindButton
  ;
  : Implementor ME_47CD7F08020E // IevEditorPhoneField
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_47CD7B46001C_ME_47CD7F08020E ClearText
 
 : ME_47CD7B5401A4_ME_47CD7F08020E
@@ -7132,6 +7469,7 @@ ref; // ME_47CD7B46001C_ME_47CD7F08020E ClearText
  ;
  : Implementor ME_47CD7F08020E // IevEditorPhoneField
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_47CD7B5401A4_ME_47CD7F08020E SelectAllOnFocus
 
 : ME_47CD7B6E0380_ME_47CD7F08020E
@@ -7141,6 +7479,7 @@ ref; // ME_47CD7B5401A4_ME_47CD7F08020E SelectAllOnFocus
  ;
  : Implementor ME_47CD7F08020E // IevEditorPhoneField
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" false
 ref; // ME_47CD7B6E0380_ME_47CD7F08020E Text
 
@@ -7151,6 +7490,7 @@ ref; // ME_47CD7B6E0380_ME_47CD7F08020E Text
  ;
  : Implementor ME_47CD7F08020E // IevEditorPhoneField
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" false
 ref; // ME_47CD7C1F03E3_ME_47CD7F08020E ErrorColor
 
@@ -7161,6 +7501,7 @@ ref; // ME_47CD7C1F03E3_ME_47CD7F08020E ErrorColor
  ;
  : Implementor ME_47CD7F08020E // IevEditorPhoneField
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" false
 ref; // ME_47CD7C2E00E2_ME_47CD7F08020E Valid
 
@@ -7171,6 +7512,7 @@ ref; // ME_47CD7C2E00E2_ME_47CD7F08020E Valid
  ;
  : Implementor ME_47CD7F08020E // IevEditorPhoneField
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" false
 ref; // ME_47CD9B8E0009_ME_47CD7F08020E Caption
 
@@ -7181,6 +7523,7 @@ ref; // ME_47CD9B8E0009_ME_47CD7F08020E Caption
  ;
  : Implementor ME_47CD7F08020E // IevEditorPhoneField
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" false
 ref; // ME_47CEBBC50272_ME_47CD7F08020E ChildList
 
@@ -7191,6 +7534,7 @@ ref; // ME_47CEBBC50272_ME_47CD7F08020E ChildList
  ;
  : Implementor ME_47CD7F08020E // IevEditorPhoneField
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_4E9308B7007B_ME_47CD7F08020E SynchronizeSelectedValueWithText
 
 : ME_501685F70342_ME_47CD7F08020E
@@ -7200,6 +7544,7 @@ ref; // ME_4E9308B7007B_ME_47CD7F08020E SynchronizeSelectedValueWithText
  ;
  : Implementor ME_47CD7F08020E // IevEditorPhoneField
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_501685F70342_ME_47CD7F08020E HasOtherField
 
 : ME_47CD7F08020E
@@ -7214,16 +7559,16 @@ ref; // ME_501685F70342_ME_47CD7F08020E HasOtherField
  : Parent ME_47CD5C7602CD // evQueryCardInt
  ;
  : Inherits
-   @ ( ME_47CD608201FA // IevEditorControlField
- ) .SequenceCode.It
+   Seq: ( ME_47CD608201FA // IevEditorControlField
+ )
  ; // Inherits
  : Operations
-   @ ( ME_47CD7F220315 // IsStart
+   Seq: ( ME_47CD7F220315 // IsStart
  ME_47CD7F300065 // GetOtherField
- ) .SequenceCode.It
+ )
  ; // Operations
  : Implemented
-   @ ( ME_47CD5D46015B_ME_47CD7F08020E // Para
+   Seq: ( ME_47CD5D46015B_ME_47CD7F08020E // Para
  ME_47CD5E7A027B_ME_47CD7F08020E // IsMultiline
  ME_47CD5E9B031F_ME_47CD7F08020E // GetControlIterator
  ME_47CD5EB4005D_ME_47CD7F08020E // InitBoolProperty
@@ -7259,8 +7604,14 @@ ref; // ME_501685F70342_ME_47CD7F08020E HasOtherField
  ME_47CEBBC50272_ME_47CD7F08020E // ChildList
  ME_4E9308B7007B_ME_47CD7F08020E // SynchronizeSelectedValueWithText
  ME_501685F70342_ME_47CD7F08020E // HasOtherField
- ) .SequenceCode.It
+ )
  ; // Implemented
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest\qf'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'EditorPhoneField'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_47CD7F08020E IevEditorPhoneField
 
@@ -7287,6 +7638,7 @@ ref; // ME_47CD77350118 GetControl
  ;
  : Implementor ME_47CD7700029C // IevControlFriend
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_47612ACF0081_ME_47CD7700029C Box
 
 : ME_476133660285_ME_47CD7700029C
@@ -7296,6 +7648,7 @@ ref; // ME_47612ACF0081_ME_47CD7700029C Box
  ;
  : Implementor ME_47CD7700029C // IevControlFriend
  ;
+ CONST OpKind opkind_Implemented
  CONST "is default" true
  CONST "pm" true
 ref; // ME_476133660285_ME_47CD7700029C Attr
@@ -7307,6 +7660,7 @@ ref; // ME_476133660285_ME_47CD7700029C Attr
  ;
  : Implementor ME_47CD7700029C // IevControlFriend
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" true
 ref; // ME_4761365402FF_ME_47CD7700029C BoolA
 
@@ -7317,6 +7671,7 @@ ref; // ME_4761365402FF_ME_47CD7700029C BoolA
  ;
  : Implementor ME_47CD7700029C // IevControlFriend
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" true
 ref; // ME_4761368701AB_ME_47CD7700029C IntA
 
@@ -7327,6 +7682,7 @@ ref; // ME_4761368701AB_ME_47CD7700029C IntA
  ;
  : Implementor ME_47CD7700029C // IevControlFriend
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" true
 ref; // ME_4761370F0048_ME_47CD7700029C StrA
 
@@ -7337,6 +7693,7 @@ ref; // ME_4761370F0048_ME_47CD7700029C StrA
  ;
  : Implementor ME_47CD7700029C // IevControlFriend
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" true
 ref; // ME_47613B8303CC_ME_47CD7700029C Child
 
@@ -7347,6 +7704,7 @@ ref; // ME_47613B8303CC_ME_47CD7700029C Child
  ;
  : Implementor ME_47CD7700029C // IevControlFriend
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" true
 ref; // ME_47613C0F02F4_ME_47CD7700029C BoolW
 
@@ -7357,6 +7715,7 @@ ref; // ME_47613C0F02F4_ME_47CD7700029C BoolW
  ;
  : Implementor ME_47CD7700029C // IevControlFriend
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" true
 ref; // ME_47613C6A001F_ME_47CD7700029C IntW
 
@@ -7367,6 +7726,7 @@ ref; // ME_47613C6A001F_ME_47CD7700029C IntW
  ;
  : Implementor ME_47CD7700029C // IevControlFriend
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" true
 ref; // ME_47613D4E02B3_ME_47CD7700029C StrW
 
@@ -7377,6 +7737,7 @@ ref; // ME_47613D4E02B3_ME_47CD7700029C StrW
  ;
  : Implementor ME_47CD7700029C // IevControlFriend
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" true
 ref; // ME_47613DB001A3_ME_47CD7700029C PCharLenA
 
@@ -7387,6 +7748,7 @@ ref; // ME_47613DB001A3_ME_47CD7700029C PCharLenA
  ;
  : Implementor ME_47CD7700029C // IevControlFriend
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" true
 ref; // ME_47613E120125_ME_47CD7700029C PCharLenW
 
@@ -7397,6 +7759,7 @@ ref; // ME_47613E120125_ME_47CD7700029C PCharLenW
  ;
  : Implementor ME_47CD7700029C // IevControlFriend
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_4761446F0081_ME_47CD7700029C Fire
 
 : ME_476144C702AA_ME_47CD7700029C
@@ -7406,6 +7769,7 @@ ref; // ME_4761446F0081_ME_47CD7700029C Fire
  ;
  : Implementor ME_47CD7700029C // IevControlFriend
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_476144C702AA_ME_47CD7700029C ExcludeEvents
 
 : ME_476145AF00A8_ME_47CD7700029C
@@ -7415,6 +7779,7 @@ ref; // ME_476144C702AA_ME_47CD7700029C ExcludeEvents
  ;
  : Implementor ME_47CD7700029C // IevControlFriend
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" true
 ref; // ME_476145AF00A8_ME_47CD7700029C ParentTool
 
@@ -7425,6 +7790,7 @@ ref; // ME_476145AF00A8_ME_47CD7700029C ParentTool
  ;
  : Implementor ME_47CD7700029C // IevControlFriend
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_47C698710396_ME_47CD7700029C Range
 
 : ME_47C698A301FE_ME_47CD7700029C
@@ -7434,6 +7800,7 @@ ref; // ME_47C698710396_ME_47CD7700029C Range
  ;
  : Implementor ME_47CD7700029C // IevControlFriend
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_47C698A301FE_ME_47CD7700029C SubRange
 
 : ME_47C698BA017B_ME_47CD7700029C
@@ -7443,6 +7810,7 @@ ref; // ME_47C698A301FE_ME_47CD7700029C SubRange
  ;
  : Implementor ME_47CD7700029C // IevControlFriend
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_47C698BA017B_ME_47CD7700029C MakePoint
 
 : ME_47C698CF0004_ME_47CD7700029C
@@ -7452,6 +7820,7 @@ ref; // ME_47C698BA017B_ME_47CD7700029C MakePoint
  ;
  : Implementor ME_47CD7700029C // IevControlFriend
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_47C698CF0004_ME_47CD7700029C CloneObj
 
 : ME_47C698D801BE_ME_47CD7700029C
@@ -7461,6 +7830,7 @@ ref; // ME_47C698CF0004_ME_47CD7700029C CloneObj
  ;
  : Implementor ME_47CD7700029C // IevControlFriend
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_47C698D801BE_ME_47CD7700029C OwnerObj
 
 : ME_47C698EB028A_ME_47CD7700029C
@@ -7470,6 +7840,7 @@ ref; // ME_47C698D801BE_ME_47CD7700029C OwnerObj
  ;
  : Implementor ME_47CD7700029C // IevControlFriend
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_47C698EB028A_ME_47CD7700029C IsPara
 
 : ME_47C698F503AE_ME_47CD7700029C
@@ -7479,6 +7850,7 @@ ref; // ME_47C698EB028A_ME_47CD7700029C IsPara
  ;
  : Implementor ME_47CD7700029C // IevControlFriend
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_47C698F503AE_ME_47CD7700029C AsPara
 
 : ME_47C699320128_ME_47CD7700029C
@@ -7488,6 +7860,7 @@ ref; // ME_47C698F503AE_ME_47CD7700029C AsPara
  ;
  : Implementor ME_47CD7700029C // IevControlFriend
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_47C699320128_ME_47CD7700029C ToList
 
 : ME_47C6994400E7_ME_47CD7700029C
@@ -7497,6 +7870,7 @@ ref; // ME_47C699320128_ME_47CD7700029C ToList
  ;
  : Implementor ME_47CD7700029C // IevControlFriend
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_47C6994400E7_ME_47CD7700029C MakeAnchor
 
 : ME_47C6997B0362_ME_47CD7700029C
@@ -7506,6 +7880,7 @@ ref; // ME_47C6994400E7_ME_47CD7700029C MakeAnchor
  ;
  : Implementor ME_47CD7700029C // IevControlFriend
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_47C6997B0362_ME_47CD7700029C Edit
 
 : ME_47C699DF01D3_ME_47CD7700029C
@@ -7515,6 +7890,7 @@ ref; // ME_47C6997B0362_ME_47CD7700029C Edit
  ;
  : Implementor ME_47CD7700029C // IevControlFriend
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" true
 ref; // ME_47C699DF01D3_ME_47CD7700029C Holder
 
@@ -7525,6 +7901,7 @@ ref; // ME_47C699DF01D3_ME_47CD7700029C Holder
  ;
  : Implementor ME_47CD7700029C // IevControlFriend
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" true
 ref; // ME_47C699EF00DB_ME_47CD7700029C IsEmpty
 
@@ -7535,6 +7912,7 @@ ref; // ME_47C699EF00DB_ME_47CD7700029C IsEmpty
  ;
  : Implementor ME_47CD7700029C // IevControlFriend
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" true
 ref; // ME_47C69A1B02C8_ME_47CD7700029C AnchorID
 
@@ -7545,6 +7923,7 @@ ref; // ME_47C69A1B02C8_ME_47CD7700029C AnchorID
  ;
  : Implementor ME_47CD7700029C // IevControlFriend
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_47C6A62A0257_ME_47CD7700029C OwnerTag
 
 : ME_47C6A66F0255_ME_47CD7700029C
@@ -7554,6 +7933,7 @@ ref; // ME_47C6A62A0257_ME_47CD7700029C OwnerTag
  ;
  : Implementor ME_47CD7700029C // IevControlFriend
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_47C6A66F0255_ME_47CD7700029C OwnerPara
 
 : ME_47C6A6DA0233_ME_47CD7700029C
@@ -7563,6 +7943,7 @@ ref; // ME_47C6A66F0255_ME_47CD7700029C OwnerPara
  ;
  : Implementor ME_47CD7700029C // IevControlFriend
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_47C6A6DA0233_ME_47CD7700029C AsList
 
 : ME_47C6A6F20262_ME_47CD7700029C
@@ -7572,6 +7953,7 @@ ref; // ME_47C6A6DA0233_ME_47CD7700029C AsList
  ;
  : Implementor ME_47CD7700029C // IevControlFriend
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_47C6A6F20262_ME_47CD7700029C IsComment
 
 : ME_47C6A7010307_ME_47CD7700029C
@@ -7581,6 +7963,7 @@ ref; // ME_47C6A6F20262_ME_47CD7700029C IsComment
  ;
  : Implementor ME_47CD7700029C // IevControlFriend
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" true
 ref; // ME_47C6A7010307_ME_47CD7700029C DocumentContainer
 
@@ -7591,6 +7974,7 @@ ref; // ME_47C6A7010307_ME_47CD7700029C DocumentContainer
  ;
  : Implementor ME_47CD7700029C // IevControlFriend
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" true
 ref; // ME_47C6A725004C_ME_47CD7700029C Prev
 
@@ -7601,6 +7985,7 @@ ref; // ME_47C6A725004C_ME_47CD7700029C Prev
  ;
  : Implementor ME_47CD7700029C // IevControlFriend
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" true
 ref; // ME_47C6A73700F5_ME_47CD7700029C Next
 
@@ -7611,6 +7996,7 @@ ref; // ME_47C6A73700F5_ME_47CD7700029C Next
  ;
  : Implementor ME_47CD7700029C // IevControlFriend
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" true
 ref; // ME_47C6A7AC000D_ME_47CD7700029C MainSubList
 
@@ -7621,6 +8007,7 @@ ref; // ME_47C6A7AC000D_ME_47CD7700029C MainSubList
  ;
  : Implementor ME_47CD7700029C // IevControlFriend
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" true
 ref; // ME_47C6AB1D02C0_ME_47CD7700029C Text
 
@@ -7631,6 +8018,7 @@ ref; // ME_47C6AB1D02C0_ME_47CD7700029C Text
  ;
  : Implementor ME_47CD7700029C // IevControlFriend
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" true
 ref; // ME_47C6AB2A0082_ME_47CD7700029C TabStops
 
@@ -7641,6 +8029,7 @@ ref; // ME_47C6AB2A0082_ME_47CD7700029C TabStops
  ;
  : Implementor ME_47CD7700029C // IevControlFriend
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" false
 ref; // ME_47C7CDC802F0_ME_47CD7700029C Enabled
 
@@ -7651,6 +8040,7 @@ ref; // ME_47C7CDC802F0_ME_47CD7700029C Enabled
  ;
  : Implementor ME_47CD7700029C // IevControlFriend
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" false
 ref; // ME_47C7CDD80342_ME_47CD7700029C Checked
 
@@ -7661,6 +8051,7 @@ ref; // ME_47C7CDD80342_ME_47CD7700029C Checked
  ;
  : Implementor ME_47CD7700029C // IevControlFriend
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" false
 ref; // ME_47C7CDE7036F_ME_47CD7700029C Flat
 
@@ -7671,6 +8062,7 @@ ref; // ME_47C7CDE7036F_ME_47CD7700029C Flat
  ;
  : Implementor ME_47CD7700029C // IevControlFriend
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" false
 ref; // ME_47C7CE080350_ME_47CD7700029C Name
 
@@ -7681,6 +8073,7 @@ ref; // ME_47C7CE080350_ME_47CD7700029C Name
  ;
  : Implementor ME_47CD7700029C // IevControlFriend
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" false
 ref; // ME_47C7CE18022D_ME_47CD7700029C Text
 
@@ -7691,6 +8084,7 @@ ref; // ME_47C7CE18022D_ME_47CD7700029C Text
  ;
  : Implementor ME_47CD7700029C // IevControlFriend
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" false
 ref; // ME_47C7CE270211_ME_47CD7700029C ControlType
 
@@ -7701,6 +8095,7 @@ ref; // ME_47C7CE270211_ME_47CD7700029C ControlType
  ;
  : Implementor ME_47CD7700029C // IevControlFriend
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" false
 ref; // ME_47C7CE3500E1_ME_47CD7700029C Upper
 
@@ -7711,6 +8106,7 @@ ref; // ME_47C7CE3500E1_ME_47CD7700029C Upper
  ;
  : Implementor ME_47CD7700029C // IevControlFriend
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" true
 ref; // ME_47C7CEFB0205_ME_47CD7700029C Collapsed
 
@@ -7721,6 +8117,7 @@ ref; // ME_47C7CEFB0205_ME_47CD7700029C Collapsed
  ;
  : Implementor ME_47CD7700029C // IevControlFriend
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" true
 ref; // ME_48E0CBBD0016_ME_47CD7700029C BackColor
 
@@ -7731,6 +8128,7 @@ ref; // ME_48E0CBBD0016_ME_47CD7700029C BackColor
  ;
  : Implementor ME_47CD7700029C // IevControlFriend
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_49D0BB6B0066_ME_47CD7700029C AppliesToMaxWidth
 
 : ME_49D0BBEE0383_ME_47CD7700029C
@@ -7740,6 +8138,7 @@ ref; // ME_49D0BB6B0066_ME_47CD7700029C AppliesToMaxWidth
  ;
  : Implementor ME_47CD7700029C // IevControlFriend
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_49D0BBEE0383_ME_47CD7700029C IsHiddenPrim
 
 : ME_49D0C441019B_ME_47CD7700029C
@@ -7749,6 +8148,7 @@ ref; // ME_49D0BBEE0383_ME_47CD7700029C IsHiddenPrim
  ;
  : Implementor ME_47CD7700029C // IevControlFriend
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" true
 ref; // ME_49D0C441019B_ME_47CD7700029C OffsetX
 
@@ -7759,6 +8159,7 @@ ref; // ME_49D0C441019B_ME_47CD7700029C OffsetX
  ;
  : Implementor ME_47CD7700029C // IevControlFriend
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_49D0CBFC02D9_ME_47CD7700029C Invalidate
 
 : ME_49D0E3CE00F5_ME_47CD7700029C
@@ -7768,6 +8169,7 @@ ref; // ME_49D0CBFC02D9_ME_47CD7700029C Invalidate
  ;
  : Implementor ME_47CD7700029C // IevControlFriend
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_49D0E3CE00F5_ME_47CD7700029C IsList
 
 : ME_49D0E4E7009C_ME_47CD7700029C
@@ -7777,6 +8179,7 @@ ref; // ME_49D0E3CE00F5_ME_47CD7700029C IsList
  ;
  : Implementor ME_47CD7700029C // IevControlFriend
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" true
 ref; // ME_49D0E4E7009C_ME_47CD7700029C PID
 
@@ -7787,6 +8190,7 @@ ref; // ME_49D0E4E7009C_ME_47CD7700029C PID
  ;
  : Implementor ME_47CD7700029C // IevControlFriend
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" true
 ref; // ME_49D0E75F00E4_ME_47CD7700029C IsVertical
 
@@ -7797,6 +8201,7 @@ ref; // ME_49D0E75F00E4_ME_47CD7700029C IsVertical
  ;
  : Implementor ME_47CD7700029C // IevControlFriend
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" false
 ref; // ME_49D104BB01AF_ME_47CD7700029C OverlapType
 
@@ -7807,6 +8212,7 @@ ref; // ME_49D104BB01AF_ME_47CD7700029C OverlapType
  ;
  : Implementor ME_47CD7700029C // IevControlFriend
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_49D105D10274_ME_47CD7700029C NeedIncludeHeight
 
 : ME_4A42149A01FE_ME_47CD7700029C
@@ -7816,6 +8222,7 @@ ref; // ME_49D105D10274_ME_47CD7700029C NeedIncludeHeight
  ;
  : Implementor ME_47CD7700029C // IevControlFriend
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" true
 ref; // ME_4A42149A01FE_ME_47CD7700029C AsString
 
@@ -7826,6 +8233,7 @@ ref; // ME_4A42149A01FE_ME_47CD7700029C AsString
  ;
  : Implementor ME_47CD7700029C // IevControlFriend
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" true
 ref; // ME_4A4216790331_ME_47CD7700029C AsWStr
 
@@ -7836,6 +8244,7 @@ ref; // ME_4A4216790331_ME_47CD7700029C AsWStr
  ;
  : Implementor ME_47CD7700029C // IevControlFriend
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_4A42195A0244_ME_47CD7700029C AsBool
 
 : ME_4A42196201B8_ME_47CD7700029C
@@ -7845,6 +8254,7 @@ ref; // ME_4A42195A0244_ME_47CD7700029C AsBool
  ;
  : Implementor ME_47CD7700029C // IevControlFriend
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_4A42196201B8_ME_47CD7700029C AsLong
 
 : ME_4A42196C01CE_ME_47CD7700029C
@@ -7854,6 +8264,7 @@ ref; // ME_4A42196201B8_ME_47CD7700029C AsLong
  ;
  : Implementor ME_47CD7700029C // IevControlFriend
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_4A42196C01CE_ME_47CD7700029C AsObject
 
 : ME_4A421BE201A9_ME_47CD7700029C
@@ -7863,6 +8274,7 @@ ref; // ME_4A42196C01CE_ME_47CD7700029C AsObject
  ;
  : Implementor ME_47CD7700029C // IevControlFriend
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_4A421BE201A9_ME_47CD7700029C IsOrd
 
 : ME_4A421BED00FF_ME_47CD7700029C
@@ -7872,6 +8284,7 @@ ref; // ME_4A421BE201A9_ME_47CD7700029C IsOrd
  ;
  : Implementor ME_47CD7700029C // IevControlFriend
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_4A421BED00FF_ME_47CD7700029C IsKindOf
 
 : ME_4A421BF200BF_ME_47CD7700029C
@@ -7881,6 +8294,7 @@ ref; // ME_4A421BED00FF_ME_47CD7700029C IsKindOf
  ;
  : Implementor ME_47CD7700029C // IevControlFriend
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_4A421BF200BF_ME_47CD7700029C IsKindOf
 
 : ME_4A421C12034A_ME_47CD7700029C
@@ -7890,6 +8304,7 @@ ref; // ME_4A421BF200BF_ME_47CD7700029C IsKindOf
  ;
  : Implementor ME_47CD7700029C // IevControlFriend
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_4A421C12034A_ME_47CD7700029C IsKindOf
 
 : ME_4A422C1D00FE_ME_47CD7700029C
@@ -7899,6 +8314,7 @@ ref; // ME_4A421C12034A_ME_47CD7700029C IsKindOf
  ;
  : Implementor ME_47CD7700029C // IevControlFriend
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_4A422C1D00FE_ME_47CD7700029C AddChild
 
 : ME_4A42356B0022_ME_47CD7700029C
@@ -7908,6 +8324,7 @@ ref; // ME_4A422C1D00FE_ME_47CD7700029C AddChild
  ;
  : Implementor ME_47CD7700029C // IevControlFriend
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" false
 ref; // ME_4A42356B0022_ME_47CD7700029C ChildrenCount
 
@@ -7918,6 +8335,7 @@ ref; // ME_4A42356B0022_ME_47CD7700029C ChildrenCount
  ;
  : Implementor ME_47CD7700029C // IevControlFriend
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_4A423C670156_ME_47CD7700029C SetRef
 
 : ME_4A423EC900C2_ME_47CD7700029C
@@ -7927,6 +8345,7 @@ ref; // ME_4A423C670156_ME_47CD7700029C SetRef
  ;
  : Implementor ME_47CD7700029C // IevControlFriend
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_4A423EC900C2_ME_47CD7700029C DeleteChild
 
 : ME_4A423ECE03A6_ME_47CD7700029C
@@ -7936,6 +8355,7 @@ ref; // ME_4A423EC900C2_ME_47CD7700029C DeleteChild
  ;
  : Implementor ME_47CD7700029C // IevControlFriend
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_4A423ECE03A6_ME_47CD7700029C DeleteChild
 
 : ME_4A423F0002E2_ME_47CD7700029C
@@ -7945,6 +8365,7 @@ ref; // ME_4A423ECE03A6_ME_47CD7700029C DeleteChild
  ;
  : Implementor ME_47CD7700029C // IevControlFriend
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_4A423F0002E2_ME_47CD7700029C DeleteChild
 
 : ME_4A42489800D0_ME_47CD7700029C
@@ -7954,6 +8375,7 @@ ref; // ME_4A423F0002E2_ME_47CD7700029C DeleteChild
  ;
  : Implementor ME_47CD7700029C // IevControlFriend
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_4A42489800D0_ME_47CD7700029C DoLoad
 
 : ME_4A4248A501C8_ME_47CD7700029C
@@ -7963,6 +8385,7 @@ ref; // ME_4A42489800D0_ME_47CD7700029C DoLoad
  ;
  : Implementor ME_47CD7700029C // IevControlFriend
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_4A4248A501C8_ME_47CD7700029C ForceStore
 
 : ME_4A4248C902F1_ME_47CD7700029C
@@ -7972,6 +8395,7 @@ ref; // ME_4A4248A501C8_ME_47CD7700029C ForceStore
  ;
  : Implementor ME_47CD7700029C // IevControlFriend
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_4A4248C902F1_ME_47CD7700029C MarkModified
 
 : ME_4A6039AA0172_ME_47CD7700029C
@@ -7981,6 +8405,7 @@ ref; // ME_4A4248C902F1_ME_47CD7700029C MarkModified
  ;
  : Implementor ME_47CD7700029C // IevControlFriend
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" false
 ref; // ME_4A6039AA0172_ME_47CD7700029C ChildrenCapacity
 
@@ -7991,6 +8416,7 @@ ref; // ME_4A6039AA0172_ME_47CD7700029C ChildrenCapacity
  ;
  : Implementor ME_47CD7700029C // IevControlFriend
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" false
 ref; // ME_4A6475C4026D_ME_47CD7700029C Owner
 
@@ -8001,6 +8427,7 @@ ref; // ME_4A6475C4026D_ME_47CD7700029C Owner
  ;
  : Implementor ME_47CD7700029C // IevControlFriend
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_4B7BDCA502F7_ME_47CD7700029C IsLegalComment
 
 : ME_4BB21F9D022F_ME_47CD7700029C
@@ -8010,6 +8437,7 @@ ref; // ME_4B7BDCA502F7_ME_47CD7700029C IsLegalComment
  ;
  : Implementor ME_47CD7700029C // IevControlFriend
  ;
+ CONST OpKind opkind_Implemented
  CONST "needs index" true
  CONST "needs result" true
 ref; // ME_4BB21F9D022F_ME_47CD7700029C IterateChildrenF
@@ -8021,6 +8449,7 @@ ref; // ME_4BB21F9D022F_ME_47CD7700029C IterateChildrenF
  ;
  : Implementor ME_47CD7700029C // IevControlFriend
  ;
+ CONST OpKind opkind_Implemented
  CONST "needs index" true
  CONST "needs result" true
 ref; // ME_4BBF49EB0260_ME_47CD7700029C IterateChildrenBack
@@ -8032,6 +8461,7 @@ ref; // ME_4BBF49EB0260_ME_47CD7700029C IterateChildrenBack
  ;
  : Implementor ME_47CD7700029C // IevControlFriend
  ;
+ CONST OpKind opkind_Implemented
  CONST "needs index" true
  CONST "needs result" false
 ref; // ME_4BC31A730293_ME_47CD7700029C IterateProperties
@@ -8043,6 +8473,7 @@ ref; // ME_4BC31A730293_ME_47CD7700029C IterateProperties
  ;
  : Implementor ME_47CD7700029C // IevControlFriend
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_4BC71B0A028C_ME_47CD7700029C rLong
 
 : ME_4BC843A5011F_ME_47CD7700029C
@@ -8052,6 +8483,7 @@ ref; // ME_4BC71B0A028C_ME_47CD7700029C rLong
  ;
  : Implementor ME_47CD7700029C // IevControlFriend
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_4BC843A5011F_ME_47CD7700029C rAtomEx
 
 : ME_4BC843C80301_ME_47CD7700029C
@@ -8061,6 +8493,7 @@ ref; // ME_4BC843A5011F_ME_47CD7700029C rAtomEx
  ;
  : Implementor ME_47CD7700029C // IevControlFriend
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_4BC843C80301_ME_47CD7700029C cAtom
 
 : ME_4BC843CE00EF_ME_47CD7700029C
@@ -8070,6 +8503,7 @@ ref; // ME_4BC843C80301_ME_47CD7700029C cAtom
  ;
  : Implementor ME_47CD7700029C // IevControlFriend
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_4BC843CE00EF_ME_47CD7700029C cAtomEx
 
 : ME_4BC8441500B7_ME_47CD7700029C
@@ -8079,6 +8513,7 @@ ref; // ME_4BC843CE00EF_ME_47CD7700029C cAtomEx
  ;
  : Implementor ME_47CD7700029C // IevControlFriend
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_4BC8441500B7_ME_47CD7700029C HasSubAtom
 
 : ME_4BC8446D010E_ME_47CD7700029C
@@ -8088,6 +8523,7 @@ ref; // ME_4BC8441500B7_ME_47CD7700029C HasSubAtom
  ;
  : Implementor ME_47CD7700029C // IevControlFriend
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_4BC8446D010E_ME_47CD7700029C IsNull
 
 : ME_4BC8447200B0_ME_47CD7700029C
@@ -8097,6 +8533,7 @@ ref; // ME_4BC8446D010E_ME_47CD7700029C IsNull
  ;
  : Implementor ME_47CD7700029C // IevControlFriend
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_4BC8447200B0_ME_47CD7700029C IsValid
 
 : ME_4BC8447501CB_ME_47CD7700029C
@@ -8106,6 +8543,7 @@ ref; // ME_4BC8447200B0_ME_47CD7700029C IsValid
  ;
  : Implementor ME_47CD7700029C // IevControlFriend
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_4BC8447501CB_ME_47CD7700029C IsTransparent
 
 : ME_4BC8447A0046_ME_47CD7700029C
@@ -8115,6 +8553,7 @@ ref; // ME_4BC8447501CB_ME_47CD7700029C IsTransparent
  ;
  : Implementor ME_47CD7700029C // IevControlFriend
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_4BC8447A0046_ME_47CD7700029C IsStream
 
 : ME_4BC84CA1035B_ME_47CD7700029C
@@ -8124,6 +8563,7 @@ ref; // ME_4BC8447A0046_ME_47CD7700029C IsStream
  ;
  : Implementor ME_47CD7700029C // IevControlFriend
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_4BC84CA1035B_ME_47CD7700029C QT
 
 : ME_4BC84CEE0329_ME_47CD7700029C
@@ -8133,6 +8573,7 @@ ref; // ME_4BC84CA1035B_ME_47CD7700029C QT
  ;
  : Implementor ME_47CD7700029C // IevControlFriend
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_4BC84CEE0329_ME_47CD7700029C GetOwnInterface
 
 : ME_4D5A42F502E3_ME_47CD7700029C
@@ -8142,6 +8583,7 @@ ref; // ME_4BC84CEE0329_ME_47CD7700029C GetOwnInterface
  ;
  : Implementor ME_47CD7700029C // IevControlFriend
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_4D5A42F502E3_ME_47CD7700029C IsCollapsed
 
 : ME_4DDBD42C0191_ME_47CD7700029C
@@ -8151,6 +8593,7 @@ ref; // ME_4D5A42F502E3_ME_47CD7700029C IsCollapsed
  ;
  : Implementor ME_47CD7700029C // IevControlFriend
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_4DDBD42C0191_ME_47CD7700029C BaseLine4Anchor
 
 : ME_4DDBD45E0100_ME_47CD7700029C
@@ -8160,6 +8603,7 @@ ref; // ME_4DDBD42C0191_ME_47CD7700029C BaseLine4Anchor
  ;
  : Implementor ME_47CD7700029C // IevControlFriend
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_4DDBD45E0100_ME_47CD7700029C BaseLine4Print
 
 : ME_4E1AFECA025B_ME_47CD7700029C
@@ -8169,6 +8613,7 @@ ref; // ME_4DDBD45E0100_ME_47CD7700029C BaseLine4Print
  ;
  : Implementor ME_47CD7700029C // IevControlFriend
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_4E1AFECA025B_ME_47CD7700029C IsDecorationElement
 
 : ME_4E243EF60356_ME_47CD7700029C
@@ -8178,6 +8623,7 @@ ref; // ME_4E1AFECA025B_ME_47CD7700029C IsDecorationElement
  ;
  : Implementor ME_47CD7700029C // IevControlFriend
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_4E243EF60356_ME_47CD7700029C DecorObj
 
 : ME_4E2EA8B10353_ME_47CD7700029C
@@ -8187,6 +8633,7 @@ ref; // ME_4E243EF60356_ME_47CD7700029C DecorObj
  ;
  : Implementor ME_47CD7700029C // IevControlFriend
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" false
 ref; // ME_4E2EA8B10353_ME_47CD7700029C Int64A
 
@@ -8197,6 +8644,7 @@ ref; // ME_4E2EA8B10353_ME_47CD7700029C Int64A
  ;
  : Implementor ME_47CD7700029C // IevControlFriend
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" false
 ref; // ME_4E2EA93E029A_ME_47CD7700029C Int64W
 
@@ -8207,6 +8655,7 @@ ref; // ME_4E2EA93E029A_ME_47CD7700029C Int64W
  ;
  : Implementor ME_47CD7700029C // IevControlFriend
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" false
 ref; // ME_4E5E1CB9007D_ME_47CD7700029C HolderPrim
 
@@ -8217,6 +8666,7 @@ ref; // ME_4E5E1CB9007D_ME_47CD7700029C HolderPrim
  ;
  : Implementor ME_47CD7700029C // IevControlFriend
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" false
 ref; // ME_4E6F7B7902C4_ME_47CD7700029C TreatCollapsedAsHidden
 
@@ -8227,6 +8677,7 @@ ref; // ME_4E6F7B7902C4_ME_47CD7700029C TreatCollapsedAsHidden
  ;
  : Implementor ME_47CD7700029C // IevControlFriend
  ;
+ CONST OpKind opkind_Implemented
  CONST "force overload" true
 ref; // ME_532C4B8E00CC_ME_47CD7700029C IsSame
 
@@ -8237,6 +8688,7 @@ ref; // ME_532C4B8E00CC_ME_47CD7700029C IsSame
  ;
  : Implementor ME_47CD7700029C // IevControlFriend
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" true
 ref; // ME_533195830003_ME_47CD7700029C AttrW
 
@@ -8247,6 +8699,7 @@ ref; // ME_533195830003_ME_47CD7700029C AttrW
  ;
  : Implementor ME_47CD7700029C // IevControlFriend
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" true
 ref; // ME_533413FC02FC_ME_47CD7700029C TagType
 
@@ -8257,6 +8710,7 @@ ref; // ME_533413FC02FC_ME_47CD7700029C TagType
  ;
  : Implementor ME_47CD7700029C // IevControlFriend
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" false
 ref; // ME_53B444D80378_ME_47CD7700029C DateTimeA
 
@@ -8267,6 +8721,7 @@ ref; // ME_53B444D80378_ME_47CD7700029C DateTimeA
  ;
  : Implementor ME_47CD7700029C // IevControlFriend
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" false
 ref; // ME_53B52B130172_ME_47CD7700029C DateTimeW
 
@@ -8282,15 +8737,15 @@ ref; // ME_53B52B130172_ME_47CD7700029C DateTimeW
  : Parent ME_47CD5C7602CD // evQueryCardInt
  ;
  : Inherits
-   @ ( WL 'ME_47C6AFC8021F' '47C5207602D1.pas.ms.script' // IevCommonControl
- ) .SequenceCode.It
+   Seq: ( WL 'ME_47C6AFC8021F' '47C5207602D1.pas.ms.script' // IevCommonControl
+ )
  ; // Inherits
  : Operations
-   @ ( ME_47CD77350118 // GetControl
- ) .SequenceCode.It
+   Seq: ( ME_47CD77350118 // GetControl
+ )
  ; // Operations
  : Implemented
-   @ ( ME_47612ACF0081_ME_47CD7700029C // Box
+   Seq: ( ME_47612ACF0081_ME_47CD7700029C // Box
  ME_476133660285_ME_47CD7700029C // Attr
  ME_4761365402FF_ME_47CD7700029C // BoolA
  ME_4761368701AB_ME_47CD7700029C // IntA
@@ -8394,8 +8849,14 @@ ref; // ME_53B52B130172_ME_47CD7700029C DateTimeW
  ME_533413FC02FC_ME_47CD7700029C // TagType
  ME_53B444D80378_ME_47CD7700029C // DateTimeA
  ME_53B52B130172_ME_47CD7700029C // DateTimeW
- ) .SequenceCode.It
+ )
  ; // Implemented
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest\qf'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'ControlFriend'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_47CD7700029C IevControlFriend
 
@@ -8437,6 +8898,7 @@ ref; // ME_47CD795A0169 RestoreCaption
  ;
  : Implementor ME_47CD794701C5 // IevEditorControlLabel
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" false
 ref; // ME_47CD5D46015B_ME_47CD794701C5 Para
 
@@ -8447,6 +8909,7 @@ ref; // ME_47CD5D46015B_ME_47CD794701C5 Para
  ;
  : Implementor ME_47CD794701C5 // IevEditorControlLabel
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_47CD5E7A027B_ME_47CD794701C5 IsMultiline
 
 : ME_47CD5E9B031F_ME_47CD794701C5
@@ -8456,6 +8919,7 @@ ref; // ME_47CD5E7A027B_ME_47CD794701C5 IsMultiline
  ;
  : Implementor ME_47CD794701C5 // IevEditorControlLabel
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_47CD5E9B031F_ME_47CD794701C5 GetControlIterator
 
 : ME_47CD5EB4005D_ME_47CD794701C5
@@ -8465,6 +8929,7 @@ ref; // ME_47CD5E9B031F_ME_47CD794701C5 GetControlIterator
  ;
  : Implementor ME_47CD794701C5 // IevEditorControlLabel
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_47CD5EB4005D_ME_47CD794701C5 InitBoolProperty
 
 : ME_47CD5EC10294_ME_47CD794701C5
@@ -8474,6 +8939,7 @@ ref; // ME_47CD5EB4005D_ME_47CD794701C5 InitBoolProperty
  ;
  : Implementor ME_47CD794701C5 // IevEditorControlLabel
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_47CD5EC10294_ME_47CD794701C5 UpperChange
 
 : ME_47CD5EE900F7_ME_47CD794701C5
@@ -8483,6 +8949,7 @@ ref; // ME_47CD5EC10294_ME_47CD794701C5 UpperChange
  ;
  : Implementor ME_47CD794701C5 // IevEditorControlLabel
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" false
 ref; // ME_47CD5EE900F7_ME_47CD794701C5 ControlName
 
@@ -8493,6 +8960,7 @@ ref; // ME_47CD5EE900F7_ME_47CD794701C5 ControlName
  ;
  : Implementor ME_47CD794701C5 // IevEditorControlLabel
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" false
 ref; // ME_47CD5F19011F_ME_47CD794701C5 ControlType
 
@@ -8503,6 +8971,7 @@ ref; // ME_47CD5F19011F_ME_47CD794701C5 ControlType
  ;
  : Implementor ME_47CD794701C5 // IevEditorControlLabel
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" false
 ref; // ME_47CD5F3B03CA_ME_47CD794701C5 Visible
 
@@ -8513,6 +8982,7 @@ ref; // ME_47CD5F3B03CA_ME_47CD794701C5 Visible
  ;
  : Implementor ME_47CD794701C5 // IevEditorControlLabel
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" false
 ref; // ME_47CD5F4F015B_ME_47CD794701C5 Upper
 
@@ -8523,6 +8993,7 @@ ref; // ME_47CD5F4F015B_ME_47CD794701C5 Upper
  ;
  : Implementor ME_47CD794701C5 // IevEditorControlLabel
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_47CD77D60195_ME_47CD794701C5 LMouseBtnUp
 
 : ME_47CD78150291_ME_47CD794701C5
@@ -8532,6 +9003,7 @@ ref; // ME_47CD77D60195_ME_47CD794701C5 LMouseBtnUp
  ;
  : Implementor ME_47CD794701C5 // IevEditorControlLabel
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_47CD78150291_ME_47CD794701C5 LMouseBtnDown
 
 : ME_47CD784A00E0_ME_47CD794701C5
@@ -8541,6 +9013,7 @@ ref; // ME_47CD78150291_ME_47CD794701C5 LMouseBtnDown
  ;
  : Implementor ME_47CD794701C5 // IevEditorControlLabel
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_47CD784A00E0_ME_47CD794701C5 KeyCommand
 
 : ME_47CD785F0300_ME_47CD794701C5
@@ -8550,6 +9023,7 @@ ref; // ME_47CD784A00E0_ME_47CD794701C5 KeyCommand
  ;
  : Implementor ME_47CD794701C5 // IevEditorControlLabel
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_47CD785F0300_ME_47CD794701C5 RememberState
 
 : ME_47CD786D0183_ME_47CD794701C5
@@ -8559,6 +9033,7 @@ ref; // ME_47CD785F0300_ME_47CD794701C5 RememberState
  ;
  : Implementor ME_47CD794701C5 // IevEditorControlLabel
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_47CD786D0183_ME_47CD794701C5 TextChange
 
 : ME_47CD788D010B_ME_47CD794701C5
@@ -8568,6 +9043,7 @@ ref; // ME_47CD786D0183_ME_47CD794701C5 TextChange
  ;
  : Implementor ME_47CD794701C5 // IevEditorControlLabel
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_47CD788D010B_ME_47CD794701C5 GetHint
 
 : ME_47CD78A001D0_ME_47CD794701C5
@@ -8577,6 +9053,7 @@ ref; // ME_47CD788D010B_ME_47CD794701C5 GetHint
  ;
  : Implementor ME_47CD794701C5 // IevEditorControlLabel
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_47CD78A001D0_ME_47CD794701C5 InsertRow
 
 : ME_47CD78AD0097_ME_47CD794701C5
@@ -8586,6 +9063,7 @@ ref; // ME_47CD78A001D0_ME_47CD794701C5 InsertRow
  ;
  : Implementor ME_47CD794701C5 // IevEditorControlLabel
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_47CD78AD0097_ME_47CD794701C5 SetFocus
 
 : ME_47CD78CB0304_ME_47CD794701C5
@@ -8595,6 +9073,7 @@ ref; // ME_47CD78AD0097_ME_47CD794701C5 SetFocus
  ;
  : Implementor ME_47CD794701C5 // IevEditorControlLabel
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" false
 ref; // ME_47CD78CB0304_ME_47CD794701C5 Field
 
@@ -8605,6 +9084,7 @@ ref; // ME_47CD78CB0304_ME_47CD794701C5 Field
  ;
  : Implementor ME_47CD794701C5 // IevEditorControlLabel
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" false
 ref; // ME_47CD78FE0254_ME_47CD794701C5 Req
 
@@ -8615,6 +9095,7 @@ ref; // ME_47CD78FE0254_ME_47CD794701C5 Req
  ;
  : Implementor ME_47CD794701C5 // IevEditorControlLabel
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" false
 ref; // ME_47CD791D025D_ME_47CD794701C5 Enabled
 
@@ -8625,6 +9106,7 @@ ref; // ME_47CD791D025D_ME_47CD794701C5 Enabled
  ;
  : Implementor ME_47CD794701C5 // IevEditorControlLabel
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" false
 ref; // ME_47CD792F0026_ME_47CD794701C5 MaxLength
 
@@ -8635,6 +9117,7 @@ ref; // ME_47CD792F0026_ME_47CD794701C5 MaxLength
  ;
  : Implementor ME_47CD794701C5 // IevEditorControlLabel
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" false
 ref; // ME_47CD9B8E0009_ME_47CD794701C5 Caption
 
@@ -8651,19 +9134,19 @@ ref; // ME_47CD9B8E0009_ME_47CD794701C5 Caption
  : Parent ME_47CD5C7602CD // evQueryCardInt
  ;
  : Inherits
-   @ ( ME_47CD601B0048 // IevEditorControl
- ) .SequenceCode.It
+   Seq: ( ME_47CD601B0048 // IevEditorControl
+ )
  ; // Inherits
  : Attributes
-   @ ( ME_47CD79710152 // Caption
- ) .SequenceCode.It
+   Seq: ( ME_47CD79710152 // Caption
+ )
  ; // Attributes
  : Operations
-   @ ( ME_47CD795A0169 // RestoreCaption
- ) .SequenceCode.It
+   Seq: ( ME_47CD795A0169 // RestoreCaption
+ )
  ; // Operations
  : Implemented
-   @ ( ME_47CD5D46015B_ME_47CD794701C5 // Para
+   Seq: ( ME_47CD5D46015B_ME_47CD794701C5 // Para
  ME_47CD5E7A027B_ME_47CD794701C5 // IsMultiline
  ME_47CD5E9B031F_ME_47CD794701C5 // GetControlIterator
  ME_47CD5EB4005D_ME_47CD794701C5 // InitBoolProperty
@@ -8685,8 +9168,14 @@ ref; // ME_47CD9B8E0009_ME_47CD794701C5 Caption
  ME_47CD791D025D_ME_47CD794701C5 // Enabled
  ME_47CD792F0026_ME_47CD794701C5 // MaxLength
  ME_47CD9B8E0009_ME_47CD794701C5 // Caption
- ) .SequenceCode.It
+ )
  ; // Implemented
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest\qf'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'EditorControlLabel'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_47CD794701C5 IevEditorControlLabel
 
@@ -8732,10 +9221,10 @@ ref; // ME_48D3B97703A3 aNeedClear
  : Parent ME_48D3AE7703DD // IevQueryCardEditor
  ;
  : Parameters
-   @ ( ME_48D3B97702C4 // aPara
+   Seq: ( ME_48D3B97702C4 // aPara
  ME_48D3B9770330 // bAtEnd
  ME_48D3B97703A3 // aNeedClear
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_48D3B965002C SetCursorToPara
@@ -8812,14 +9301,20 @@ ref; // ME_48D3B9B403E5 SignalDisableUnselectAfterDrop
  : Parent ME_47CD5C7602CD // evQueryCardInt
  ;
  : Operations
-   @ ( ME_48D3B965002C // SetCursorToPara
+   Seq: ( ME_48D3B965002C // SetCursorToPara
  ME_48D3B97F01A9 // NotifyEmptySpace
  ME_48D3B9900141 // GetCurrPara
  ME_48D3B99B0241 // ClearCardCache
  ME_48D3B9A701AF // DroppingData
  ME_48D3B9B403E5 // SignalDisableUnselectAfterDrop
- ) .SequenceCode.It
+ )
  ; // Operations
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest\qf'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'QueryCardEditor'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_48D3AE7703DD IevQueryCardEditor
 
@@ -8854,9 +9349,15 @@ ref; // ME_4CD0181A0355 Modified
  : Parent ME_47CD5C7602CD // evQueryCardInt
  ;
  : Attributes
-   @ ( ME_4CD0181A0355 // Modified
- ) .SequenceCode.It
+   Seq: ( ME_4CD0181A0355 // Modified
+ )
  ; // Attributes
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest\qf'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'qaReqPrim'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_4CD017E001C0 IqaReqPrim
 
@@ -8867,6 +9368,7 @@ FORWARD ME_CA3DDEAD7C24
 : ME_E1030E920659
  CONST UID 'E1030E920659'
  CONST Name 'anItem'
+ CONST IsSummoned true
  CONST Class class_Parameter
  : Stereotype st_in ;
  : Target ME_47CD6644026F // IevReq
@@ -8877,6 +9379,7 @@ ref; // ME_E1030E920659 anItem
 : ME_580B64CF7449
  CONST UID '580B64CF7449'
  CONST Name 'DoIt'
+ CONST IsSummoned true
  CONST Class class_Operation
  %SUMMARY 'Тип подитеративной функции для IevReqIterator.DoReq' ;
  CONST Visibility PublicAccess
@@ -8886,8 +9389,8 @@ ref; // ME_E1030E920659 anItem
  : Target WL 'ME_3DBFFE100240' '3DBFDB23006E.pas.ms.script' // boolean
  ;
  : Parameters
-   @ ( ME_E1030E920659 // anItem
- ) .SequenceCode.It
+   Seq: ( ME_E1030E920659 // anItem
+ )
  ; // Parameters
 
 ref; // ME_580B64CF7449 DoIt
@@ -8895,6 +9398,7 @@ ref; // ME_580B64CF7449 DoIt
 : ME_CA3DDEAD7C24
  CONST UID 'CA3DDEAD7C24'
  CONST Name 'IevReqIterator_DoReq_Action'
+ CONST IsSummoned true
  CONST Class class_Class
  : Stereotype st_Function ;
  CONST Kind kind_NormalClass
@@ -8904,10 +9408,14 @@ ref; // ME_580B64CF7449 DoIt
  : Parent ME_4E81A28E00E5 // IevReqIterator
  ;
  : Operations
-   @ ( ME_580B64CF7449 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_580B64CF7449 // DoIt
+ )
  ; // Operations
  CONST "of object" false
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest\qf'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_CA3DDEAD7C24 IevReqIterator_DoReq_Action
 
@@ -8929,6 +9437,7 @@ ref; // ME_4E82BAF50019
 
 : ME_426F27EE2CAB
  CONST UID '426F27EE2CAB'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_4E81A119033D // DoReq
@@ -8949,12 +9458,12 @@ ref; // ME_426F27EE2CAB
  : Parent ME_4E81A28E00E5 // IevReqIterator
  ;
  : Attributes
-   @ ( ME_4E82BAF50019 // 
- ) .SequenceCode.It
+   Seq: ( ME_4E82BAF50019 // 
+ )
  ; // Attributes
  : Dependencies
-   @ ( ME_426F27EE2CAB // 
- ) .SequenceCode.It
+   Seq: ( ME_426F27EE2CAB // 
+ )
  ; // Dependencies
  CONST "needs index" false
  CONST "needs result" true
@@ -8965,6 +9474,7 @@ ref; // ME_4E81A119033D DoReq
 : ME_1441DC2C49B7
  CONST UID '1441DC2C49B7'
  CONST Name 'anAction'
+ CONST IsSummoned true
  CONST Class class_Parameter
  : Stereotype st_in ;
  : Target WL 'ME_3ECB343C024C' '3DBFDB23006E.pas.ms.script' // pointer
@@ -8975,6 +9485,7 @@ ref; // ME_1441DC2C49B7 anAction
 : ME_EFEE8C98D8FB
  CONST UID 'EFEE8C98D8FB'
  CONST Name 'L2_IevReqIterator_DoReq_Action'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_static::Operation ;
  %SUMMARY 'Функция формирования заглушки для ЛОКАЛЬНОЙ подитеративной функции для IevReqIterator.DoReq' ;
@@ -8985,9 +9496,12 @@ ref; // ME_1441DC2C49B7 anAction
  : Target ME_CA3DDEAD7C24 // IevReqIterator_DoReq_Action
  ;
  : Parameters
-   @ ( ME_1441DC2C49B7 // anAction
- ) .SequenceCode.It
+   Seq: ( ME_1441DC2C49B7 // anAction
+ )
  ; // Parameters
+ CONST extprop:isGlobal true
+ CONST extprop:isAsm true
+ CONST extprop:pas:Value 'nil'
 
 ref; // ME_EFEE8C98D8FB L2_IevReqIterator_DoReq_Action
 
@@ -9003,14 +9517,20 @@ ref; // ME_EFEE8C98D8FB L2_IevReqIterator_DoReq_Action
  : Parent ME_47CD5C7602CD // evQueryCardInt
  ;
  : Operations
-   @ ( ME_4E81A119033D // DoReq
+   Seq: ( ME_4E81A119033D // DoReq
  ME_EFEE8C98D8FB // L2_IevReqIterator_DoReq_Action
- ) .SequenceCode.It
+ )
  ; // Operations
  : Children
-   @ ( ME_CA3DDEAD7C24 // IevReqIterator_DoReq_Action
- ) .SequenceCode.It
+   Seq: ( ME_CA3DDEAD7C24 // IevReqIterator_DoReq_Action
+ )
  ; // Children
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest\qf'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'ReqIterator'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_4E81A28E00E5 IevReqIterator
 
@@ -9025,7 +9545,7 @@ ref; // ME_4E81A28E00E5 IevReqIterator
  : Parent WL 'ME_4797632D0273' '4797632D0273.pas.ms.script' // Everest
  ;
  : Children
-   @ ( ME_47CD5CD80103 // InevBase
+   Seq: ( ME_47CD5CD80103 // InevBase
  ME_47CD5CEE0318 // TevButtonType
  ME_47CD5D0C02FD // TevComboStyle
  ME_47CD5D2C00F9 // IevCustomParaTool
@@ -9054,32 +9574,29 @@ ref; // ME_4E81A28E00E5 IevReqIterator
  ME_48D3AE7703DD // IevQueryCardEditor
  ME_4CD017E001C0 // IqaReqPrim
  ME_4E81A28E00E5 // IevReqIterator
- ) .SequenceCode.It
+ )
  ; // Children
  : Depends
-   @ ( WL 'ME_4677FBA70343' '4677FBA70343.pas.ms.script' // l3Interfaces
+   Seq: ( WL 'ME_4677FBA70343' '4677FBA70343.pas.ms.script' // l3Interfaces
  WL 'ME_4678209200A6' '4678209200A6.pas.ms.script' // nevBase
  WL 'ME_469D0AC7005E' '469D0AC7005E.pas.ms.script' // Types
  WL 'ME_47913B47006E' '47913B47006E.pas.ms.script' // l3CoreObjects
  WL 'ME_47C5207602D1' '47C5207602D1.pas.ms.script' // nevTools
  WL 'ME_47D810610398' '47D810610398.pas.ms.script' // l3PureMixIns
  WL 'ME_4AB0C3C60310' '4AB0C3C60310.pas.ms.script' // Sys
- ) .SequenceCode.It
+ )
  ; // Depends
  CONST "author" 'Люлин А.В.'
  CONST "is namespace" true
  CONST "no hands" true
  CONST "path prefix" '/qf'
  CONST "started" '28.09.1999 10:18'
- : Generators
- @ (
- gen_intf.pas
- gen_pas.script
- gen_pas.script.runner
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest'
  CONST intf.pas:Path 'common\components\gui\Garant\Everest\qf\evQueryCardInt.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest\qf'
  CONST pas.script:Path 'shared\models\NewSchool\Scripts\47CD5C7602CD.pas.ms.script'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
  CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\47CD5C7602CD.pas.ms.script.runner'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_47CD5C7602CD evQueryCardInt

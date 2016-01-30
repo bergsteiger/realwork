@@ -8,6 +8,7 @@ FORWARD ME_4D6BE7A702E7
 
 : ME_A3ECC92EA40B
  CONST UID 'A3ECC92EA40B'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_4D6BE7A702E7 // K254944075
@@ -24,6 +25,7 @@ ref; // ME_A3ECC92EA40B
  ;
  : Implementor ME_4D6BE7A702E7 // K254944075
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4C937013031D_ME_4D6BE7A702E7 GetFolder
 
 : ME_4DAED6F60146_ME_4D6BE7A702E7
@@ -33,6 +35,7 @@ ref; // ME_4C937013031D_ME_4D6BE7A702E7 GetFolder
  ;
  : Implementor ME_4D6BE7A702E7 // K254944075
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4DAED6F60146_ME_4D6BE7A702E7 GetModelElementGUID
 
 : ME_4D6BE7A702E7
@@ -47,17 +50,17 @@ ref; // ME_4DAED6F60146_ME_4D6BE7A702E7 GetModelElementGUID
  : Parent ME_4D6BE7850038 // 7.7 Lulin
  ;
  : Inherits
-   @ ( WL 'ME_4D6BE6F801DF' '4D6BE6160152.pas.ms.script' // WikiToEVDWriterTest
- ) .SequenceCode.It
+   Seq: ( WL 'ME_4D6BE6F801DF' '4D6BE6160152.pas.ms.script' // WikiToEVDWriterTest
+ )
  ; // Inherits
  : Overridden
-   @ ( ME_4C937013031D_ME_4D6BE7A702E7 // GetFolder
+   Seq: ( ME_4C937013031D_ME_4D6BE7A702E7 // GetFolder
  ME_4DAED6F60146_ME_4D6BE7A702E7 // GetModelElementGUID
- ) .SequenceCode.It
+ )
  ; // Overridden
  : Dependencies
-   @ ( ME_A3ECC92EA40B // 
- ) .SequenceCode.It
+   Seq: ( ME_A3ECC92EA40B // 
+ )
  ; // Dependencies
  CONST "author" 'Ëþëèí À.Â.'
  CONST "needs InstanceR" 'undefined'
@@ -66,12 +69,19 @@ ref; // ME_4DAED6F60146_ME_4D6BE7A702E7 GetModelElementGUID
  CONST "register in scripts" 'undefined'
  CONST "started" '28.02.2011 21:21'
  : Generators
- @ (
+ Seq: (
  gen_intf.pas
- ) .SequenceCode.It
+ )
  ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\Daily'
  CONST intf.pas:Path 'common\components\rtl\Garant\Daily\K254944075.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\Daily'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\common\components\rtl\Garant\Daily'
  CONST extprop:pas:TypeName 'TK254944075'
+ CONST extprop:rc:SelfName 'K254944075'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_4D6BE7A702E7 K254944075
 
@@ -79,6 +89,7 @@ FORWARD ME_4D909FCA01A2
 
 : ME_15C86C293152
  CONST UID '15C86C293152'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_4D909FCA01A2 // K255966779
@@ -95,6 +106,7 @@ ref; // ME_15C86C293152
  ;
  : Implementor ME_4D909FCA01A2 // K255966779
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4C937013031D_ME_4D909FCA01A2 GetFolder
 
 : ME_4DAED6F60146_ME_4D909FCA01A2
@@ -104,6 +116,7 @@ ref; // ME_4C937013031D_ME_4D909FCA01A2 GetFolder
  ;
  : Implementor ME_4D909FCA01A2 // K255966779
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4DAED6F60146_ME_4D909FCA01A2 GetModelElementGUID
 
 : ME_4D909FCA01A2
@@ -118,17 +131,17 @@ ref; // ME_4DAED6F60146_ME_4D909FCA01A2 GetModelElementGUID
  : Parent ME_4D6BE7850038 // 7.7 Lulin
  ;
  : Inherits
-   @ ( WL 'ME_4D909F2701A6' '4C07B59F0382.pas.ms.script' // EVDtoEVDBlockNameAdderTest
- ) .SequenceCode.It
+   Seq: ( WL 'ME_4D909F2701A6' '4C07B59F0382.pas.ms.script' // EVDtoEVDBlockNameAdderTest
+ )
  ; // Inherits
  : Overridden
-   @ ( ME_4C937013031D_ME_4D909FCA01A2 // GetFolder
+   Seq: ( ME_4C937013031D_ME_4D909FCA01A2 // GetFolder
  ME_4DAED6F60146_ME_4D909FCA01A2 // GetModelElementGUID
- ) .SequenceCode.It
+ )
  ; // Overridden
  : Dependencies
-   @ ( ME_15C86C293152 // 
- ) .SequenceCode.It
+   Seq: ( ME_15C86C293152 // 
+ )
  ; // Dependencies
  CONST "author" 'Ëþëèí À.Â.'
  CONST "needs InstanceR" 'undefined'
@@ -137,12 +150,19 @@ ref; // ME_4DAED6F60146_ME_4D909FCA01A2 GetModelElementGUID
  CONST "register in scripts" 'undefined'
  CONST "started" '28.03.2011 18:49'
  : Generators
- @ (
+ Seq: (
  gen_intf.pas
- ) .SequenceCode.It
+ )
  ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\Daily'
  CONST intf.pas:Path 'common\components\rtl\Garant\Daily\K255966779.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\Daily'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\common\components\rtl\Garant\Daily'
  CONST extprop:pas:TypeName 'TK255966779'
+ CONST extprop:rc:SelfName 'K255966779'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_4D909FCA01A2 K255966779
 
@@ -150,6 +170,7 @@ FORWARD ME_4DF781FF03B3
 
 : ME_6C8DB76C19AF
  CONST UID '6C8DB76C19AF'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_4DF781FF03B3 // K269066487
@@ -166,6 +187,7 @@ ref; // ME_6C8DB76C19AF
  ;
  : Implementor ME_4DF781FF03B3 // K269066487
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4C4FE56300FB_ME_4DF781FF03B3 Navigate
 
 : ME_4C937013031D_ME_4DF781FF03B3
@@ -175,6 +197,7 @@ ref; // ME_4C4FE56300FB_ME_4DF781FF03B3 Navigate
  ;
  : Implementor ME_4DF781FF03B3 // K269066487
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4C937013031D_ME_4DF781FF03B3 GetFolder
 
 : ME_4DAED6F60146_ME_4DF781FF03B3
@@ -184,6 +207,7 @@ ref; // ME_4C937013031D_ME_4DF781FF03B3 GetFolder
  ;
  : Implementor ME_4DF781FF03B3 // K269066487
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4DAED6F60146_ME_4DF781FF03B3 GetModelElementGUID
 
 : ME_4DF781CB0217_ME_4DF781FF03B3
@@ -193,6 +217,7 @@ ref; // ME_4DAED6F60146_ME_4DF781FF03B3 GetModelElementGUID
  ;
  : Implementor ME_4DF781FF03B3 // K269066487
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4DF781CB0217_ME_4DF781FF03B3 CharCount
 
 : ME_4DF781FF03B3
@@ -207,19 +232,19 @@ ref; // ME_4DF781CB0217_ME_4DF781FF03B3 CharCount
  : Parent ME_4D6BE7850038 // 7.7 Lulin
  ;
  : Inherits
-   @ ( WL 'ME_4CA30546032E' '4C4FDBF703DB.pas.ms.script' // TDeleteCharTest
- ) .SequenceCode.It
+   Seq: ( WL 'ME_4CA30546032E' '4C4FDBF703DB.pas.ms.script' // TDeleteCharTest
+ )
  ; // Inherits
  : Overridden
-   @ ( ME_4C4FE56300FB_ME_4DF781FF03B3 // Navigate
+   Seq: ( ME_4C4FE56300FB_ME_4DF781FF03B3 // Navigate
  ME_4C937013031D_ME_4DF781FF03B3 // GetFolder
  ME_4DAED6F60146_ME_4DF781FF03B3 // GetModelElementGUID
  ME_4DF781CB0217_ME_4DF781FF03B3 // CharCount
- ) .SequenceCode.It
+ )
  ; // Overridden
  : Dependencies
-   @ ( ME_6C8DB76C19AF // 
- ) .SequenceCode.It
+   Seq: ( ME_6C8DB76C19AF // 
+ )
  ; // Dependencies
  CONST "author" 'Ëþëèí À.Â.'
  CONST "needs InstanceR" 'undefined'
@@ -228,12 +253,19 @@ ref; // ME_4DF781CB0217_ME_4DF781FF03B3 CharCount
  CONST "register in scripts" 'undefined'
  CONST "started" '14.06.2011 19:45'
  : Generators
- @ (
+ Seq: (
  gen_intf.pas
- ) .SequenceCode.It
+ )
  ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\Daily'
  CONST intf.pas:Path 'common\components\rtl\Garant\Daily\K269066487.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\Daily'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\common\components\rtl\Garant\Daily'
  CONST extprop:pas:TypeName 'TK269066487'
+ CONST extprop:rc:SelfName 'K269066487'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_4DF781FF03B3 K269066487
 
@@ -241,6 +273,7 @@ FORWARD ME_4E396B1F03D0
 
 : ME_A63034742FFB
  CONST UID 'A63034742FFB'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_4E396B1F03D0 // K278136024
@@ -257,6 +290,7 @@ ref; // ME_A63034742FFB
  ;
  : Implementor ME_4E396B1F03D0 // K278136024
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4C937013031D_ME_4E396B1F03D0 GetFolder
 
 : ME_4DAED6F60146_ME_4E396B1F03D0
@@ -266,6 +300,7 @@ ref; // ME_4C937013031D_ME_4E396B1F03D0 GetFolder
  ;
  : Implementor ME_4E396B1F03D0 // K278136024
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4DAED6F60146_ME_4E396B1F03D0 GetModelElementGUID
 
 : ME_4E396B1F03D0
@@ -280,17 +315,17 @@ ref; // ME_4DAED6F60146_ME_4E396B1F03D0 GetModelElementGUID
  : Parent ME_4D6BE7850038 // 7.7 Lulin
  ;
  : Inherits
-   @ ( WL 'ME_4D6BE6F801DF' '4D6BE6160152.pas.ms.script' // WikiToEVDWriterTest
- ) .SequenceCode.It
+   Seq: ( WL 'ME_4D6BE6F801DF' '4D6BE6160152.pas.ms.script' // WikiToEVDWriterTest
+ )
  ; // Inherits
  : Overridden
-   @ ( ME_4C937013031D_ME_4E396B1F03D0 // GetFolder
+   Seq: ( ME_4C937013031D_ME_4E396B1F03D0 // GetFolder
  ME_4DAED6F60146_ME_4E396B1F03D0 // GetModelElementGUID
- ) .SequenceCode.It
+ )
  ; // Overridden
  : Dependencies
-   @ ( ME_A63034742FFB // 
- ) .SequenceCode.It
+   Seq: ( ME_A63034742FFB // 
+ )
  ; // Dependencies
  CONST "author" 'Ëþëèí À.Â.'
  CONST "needs InstanceR" 'undefined'
@@ -299,12 +334,19 @@ ref; // ME_4DAED6F60146_ME_4E396B1F03D0 GetModelElementGUID
  CONST "register in scripts" 'undefined'
  CONST "started" '03.08.2011 19:40'
  : Generators
- @ (
+ Seq: (
  gen_intf.pas
- ) .SequenceCode.It
+ )
  ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\Daily'
  CONST intf.pas:Path 'common\components\rtl\Garant\Daily\K278136024.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\Daily'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\common\components\rtl\Garant\Daily'
  CONST extprop:pas:TypeName 'TK278136024'
+ CONST extprop:rc:SelfName 'K278136024'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_4E396B1F03D0 K278136024
 
@@ -312,6 +354,7 @@ FORWARD ME_4E5CF4110320
 
 : ME_BC4BAE06CEAF
  CONST UID 'BC4BAE06CEAF'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_4E5CF4110320 // K280006084
@@ -328,6 +371,7 @@ ref; // ME_BC4BAE06CEAF
  ;
  : Implementor ME_4E5CF4110320 // K280006084
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4C937013031D_ME_4E5CF4110320 GetFolder
 
 : ME_4DAED6F60146_ME_4E5CF4110320
@@ -337,6 +381,7 @@ ref; // ME_4C937013031D_ME_4E5CF4110320 GetFolder
  ;
  : Implementor ME_4E5CF4110320 // K280006084
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4DAED6F60146_ME_4E5CF4110320 GetModelElementGUID
 
 : ME_4E5CF4110320
@@ -351,17 +396,17 @@ ref; // ME_4DAED6F60146_ME_4E5CF4110320 GetModelElementGUID
  : Parent ME_4D6BE7850038 // 7.7 Lulin
  ;
  : Inherits
-   @ ( WL 'ME_4E5BD013008D' '4B30C89F035F.pas.ms.script' // TPreviewTest
- ) .SequenceCode.It
+   Seq: ( WL 'ME_4E5BD013008D' '4B30C89F035F.pas.ms.script' // TPreviewTest
+ )
  ; // Inherits
  : Overridden
-   @ ( ME_4C937013031D_ME_4E5CF4110320 // GetFolder
+   Seq: ( ME_4C937013031D_ME_4E5CF4110320 // GetFolder
  ME_4DAED6F60146_ME_4E5CF4110320 // GetModelElementGUID
- ) .SequenceCode.It
+ )
  ; // Overridden
  : Dependencies
-   @ ( ME_BC4BAE06CEAF // 
- ) .SequenceCode.It
+   Seq: ( ME_BC4BAE06CEAF // 
+ )
  ; // Dependencies
  CONST "author" 'Ëþëèí À.Â.'
  CONST "needs InstanceR" 'undefined'
@@ -370,12 +415,19 @@ ref; // ME_4DAED6F60146_ME_4E5CF4110320 GetModelElementGUID
  CONST "register in scripts" 'undefined'
  CONST "started" '30.08.2011 18:31'
  : Generators
- @ (
+ Seq: (
  gen_intf.pas
- ) .SequenceCode.It
+ )
  ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\Daily'
  CONST intf.pas:Path 'common\components\rtl\Garant\Daily\K280006084.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\Daily'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\common\components\rtl\Garant\Daily'
  CONST extprop:pas:TypeName 'TK280006084'
+ CONST extprop:rc:SelfName 'K280006084'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_4E5CF4110320 K280006084
 
@@ -383,6 +435,7 @@ FORWARD ME_4E8304550222
 
 : ME_3C7D09CEEADF
  CONST UID '3C7D09CEEADF'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_4E8304550222 // K288010443
@@ -399,6 +452,7 @@ ref; // ME_3C7D09CEEADF
  ;
  : Implementor ME_4E8304550222 // K288010443
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4C937013031D_ME_4E8304550222 GetFolder
 
 : ME_4DAED6F60146_ME_4E8304550222
@@ -408,6 +462,7 @@ ref; // ME_4C937013031D_ME_4E8304550222 GetFolder
  ;
  : Implementor ME_4E8304550222 // K288010443
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4DAED6F60146_ME_4E8304550222 GetModelElementGUID
 
 : ME_4E8317EF02C7_ME_4E8304550222
@@ -417,6 +472,7 @@ ref; // ME_4DAED6F60146_ME_4E8304550222 GetModelElementGUID
  ;
  : Implementor ME_4E8304550222 // K288010443
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4E8317EF02C7_ME_4E8304550222 AcceptBadPictureFormat
 
 : ME_4E8304550222
@@ -431,18 +487,18 @@ ref; // ME_4E8317EF02C7_ME_4E8304550222 AcceptBadPictureFormat
  : Parent ME_4D6BE7850038 // 7.7 Lulin
  ;
  : Inherits
-   @ ( WL 'ME_4B853E7501DF' '4B4F68D4033F.pas.ms.script' // TEVDtoNSRCPlusWriterTest
- ) .SequenceCode.It
+   Seq: ( WL 'ME_4B853E7501DF' '4B4F68D4033F.pas.ms.script' // TEVDtoNSRCPlusWriterTest
+ )
  ; // Inherits
  : Overridden
-   @ ( ME_4C937013031D_ME_4E8304550222 // GetFolder
+   Seq: ( ME_4C937013031D_ME_4E8304550222 // GetFolder
  ME_4DAED6F60146_ME_4E8304550222 // GetModelElementGUID
  ME_4E8317EF02C7_ME_4E8304550222 // AcceptBadPictureFormat
- ) .SequenceCode.It
+ )
  ; // Overridden
  : Dependencies
-   @ ( ME_3C7D09CEEADF // 
- ) .SequenceCode.It
+   Seq: ( ME_3C7D09CEEADF // 
+ )
  ; // Dependencies
  CONST "author" 'Ëþëèí À.Â.'
  CONST "needs InstanceR" 'undefined'
@@ -451,12 +507,19 @@ ref; // ME_4E8317EF02C7_ME_4E8304550222 AcceptBadPictureFormat
  CONST "register in scripts" 'undefined'
  CONST "started" '28.09.2011 15:26'
  : Generators
- @ (
+ Seq: (
  gen_intf.pas
- ) .SequenceCode.It
+ )
  ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\Daily'
  CONST intf.pas:Path 'common\components\rtl\Garant\Daily\K288010443.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\Daily'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\common\components\rtl\Garant\Daily'
  CONST extprop:pas:TypeName 'TK288010443'
+ CONST extprop:rc:SelfName 'K288010443'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_4E8304550222 K288010443
 
@@ -464,6 +527,7 @@ FORWARD ME_4E847F620320
 
 : ME_4F4FF4ED2043
  CONST UID '4F4FF4ED2043'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_4E847F620320 // K288788279
@@ -480,6 +544,7 @@ ref; // ME_4F4FF4ED2043
  ;
  : Implementor ME_4E847F620320 // K288788279
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4C937013031D_ME_4E847F620320 GetFolder
 
 : ME_4DAED6F60146_ME_4E847F620320
@@ -489,6 +554,7 @@ ref; // ME_4C937013031D_ME_4E847F620320 GetFolder
  ;
  : Implementor ME_4E847F620320 // K288788279
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4DAED6F60146_ME_4E847F620320 GetModelElementGUID
 
 : ME_4E847F620320
@@ -503,17 +569,17 @@ ref; // ME_4DAED6F60146_ME_4E847F620320 GetModelElementGUID
  : Parent ME_4D6BE7850038 // 7.7 Lulin
  ;
  : Inherits
-   @ ( WL 'ME_4E847E770184' '4E847D6D002B.pas.ms.script' // HTMLtoEVDTest
- ) .SequenceCode.It
+   Seq: ( WL 'ME_4E847E770184' '4E847D6D002B.pas.ms.script' // HTMLtoEVDTest
+ )
  ; // Inherits
  : Overridden
-   @ ( ME_4C937013031D_ME_4E847F620320 // GetFolder
+   Seq: ( ME_4C937013031D_ME_4E847F620320 // GetFolder
  ME_4DAED6F60146_ME_4E847F620320 // GetModelElementGUID
- ) .SequenceCode.It
+ )
  ; // Overridden
  : Dependencies
-   @ ( ME_4F4FF4ED2043 // 
- ) .SequenceCode.It
+   Seq: ( ME_4F4FF4ED2043 // 
+ )
  ; // Dependencies
  CONST "author" 'Ëþëèí À.Â.'
  CONST "needs InstanceR" 'undefined'
@@ -522,12 +588,19 @@ ref; // ME_4DAED6F60146_ME_4E847F620320 GetModelElementGUID
  CONST "register in scripts" 'undefined'
  CONST "started" '29.09.2011 18:23'
  : Generators
- @ (
+ Seq: (
  gen_intf.pas
- ) .SequenceCode.It
+ )
  ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\Daily'
  CONST intf.pas:Path 'common\components\rtl\Garant\Daily\K288788279.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\Daily'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\common\components\rtl\Garant\Daily'
  CONST extprop:pas:TypeName 'TK288788279'
+ CONST extprop:rc:SelfName 'K288788279'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_4E847F620320 K288788279
 
@@ -535,6 +608,7 @@ FORWARD ME_4E84927503A3
 
 : ME_3CA44B9F7791
  CONST UID '3CA44B9F7791'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_4E84927503A3 // K274825304
@@ -551,6 +625,7 @@ ref; // ME_3CA44B9F7791
  ;
  : Implementor ME_4E84927503A3 // K274825304
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4C937013031D_ME_4E84927503A3 GetFolder
 
 : ME_4DAED6F60146_ME_4E84927503A3
@@ -560,6 +635,7 @@ ref; // ME_4C937013031D_ME_4E84927503A3 GetFolder
  ;
  : Implementor ME_4E84927503A3 // K274825304
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4DAED6F60146_ME_4E84927503A3 GetModelElementGUID
 
 : ME_4E84927503A3
@@ -574,17 +650,17 @@ ref; // ME_4DAED6F60146_ME_4E84927503A3 GetModelElementGUID
  : Parent ME_4D6BE7850038 // 7.7 Lulin
  ;
  : Inherits
-   @ ( WL 'ME_4BACF173038C' '4BACDED003CE.pas.ms.script' // EVDtoRTFWriterTest
- ) .SequenceCode.It
+   Seq: ( WL 'ME_4BACF173038C' '4BACDED003CE.pas.ms.script' // EVDtoRTFWriterTest
+ )
  ; // Inherits
  : Overridden
-   @ ( ME_4C937013031D_ME_4E84927503A3 // GetFolder
+   Seq: ( ME_4C937013031D_ME_4E84927503A3 // GetFolder
  ME_4DAED6F60146_ME_4E84927503A3 // GetModelElementGUID
- ) .SequenceCode.It
+ )
  ; // Overridden
  : Dependencies
-   @ ( ME_3CA44B9F7791 // 
- ) .SequenceCode.It
+   Seq: ( ME_3CA44B9F7791 // 
+ )
  ; // Dependencies
  CONST "author" 'Ëþëèí À.Â.'
  CONST "needs InstanceR" 'undefined'
@@ -593,12 +669,19 @@ ref; // ME_4DAED6F60146_ME_4E84927503A3 GetModelElementGUID
  CONST "register in scripts" 'undefined'
  CONST "started" '29.09.2011 19:45'
  : Generators
- @ (
+ Seq: (
  gen_intf.pas
- ) .SequenceCode.It
+ )
  ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\Daily'
  CONST intf.pas:Path 'common\components\rtl\Garant\Daily\K274825304.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\Daily'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\common\components\rtl\Garant\Daily'
  CONST extprop:pas:TypeName 'TK274825304'
+ CONST extprop:rc:SelfName 'K274825304'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_4E84927503A3 K274825304
 
@@ -652,6 +735,7 @@ ref; // ME_4E8C64C70128
 
 : ME_116B44CE6BE9
  CONST UID '116B44CE6BE9'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_4E8C5F6502AA // K289933137
@@ -668,6 +752,7 @@ ref; // ME_116B44CE6BE9
  ;
  : Implementor ME_4E8C5F6502AA // K289933137
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4C937013031D_ME_4E8C5F6502AA GetFolder
 
 : ME_4DAED6F60146_ME_4E8C5F6502AA
@@ -677,6 +762,7 @@ ref; // ME_4C937013031D_ME_4E8C5F6502AA GetFolder
  ;
  : Implementor ME_4E8C5F6502AA // K289933137
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4DAED6F60146_ME_4E8C5F6502AA GetModelElementGUID
 
 : ME_4E8C5F6502AA
@@ -691,24 +777,24 @@ ref; // ME_4DAED6F60146_ME_4E8C5F6502AA GetModelElementGUID
  : Parent ME_4D6BE7850038 // 7.7 Lulin
  ;
  : Inherits
-   @ ( WL 'ME_4B2A11BC0255' '4B2A112B011A.pas.ms.script' // TBaseTest
- ) .SequenceCode.It
+   Seq: ( WL 'ME_4B2A11BC0255' '4B2A112B011A.pas.ms.script' // TBaseTest
+ )
  ; // Inherits
  : Operations
-   @ ( ME_4E8C5F96027B // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_4E8C5F96027B // DoIt
+ )
  ; // Operations
  : Overridden
-   @ ( ME_4C937013031D_ME_4E8C5F6502AA // GetFolder
+   Seq: ( ME_4C937013031D_ME_4E8C5F6502AA // GetFolder
  ME_4DAED6F60146_ME_4E8C5F6502AA // GetModelElementGUID
- ) .SequenceCode.It
+ )
  ; // Overridden
  : Dependencies
-   @ ( ME_4E8C5FB50163 // 
+   Seq: ( ME_4E8C5FB50163 // 
  ME_4E8C5FDA0198 // 
  ME_4E8C64C70128 // 
  ME_116B44CE6BE9 // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  CONST "author" 'Ëþëèí À.Â.'
  CONST "needs InstanceR" 'undefined'
@@ -717,12 +803,19 @@ ref; // ME_4DAED6F60146_ME_4E8C5F6502AA GetModelElementGUID
  CONST "register in scripts" 'undefined'
  CONST "started" '05.10.2011 17:45'
  : Generators
- @ (
+ Seq: (
  gen_intf.pas
- ) .SequenceCode.It
+ )
  ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\Daily'
  CONST intf.pas:Path 'common\components\rtl\Garant\Daily\K289933137.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\Daily'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\common\components\rtl\Garant\Daily'
  CONST extprop:pas:TypeName 'TK289933137'
+ CONST extprop:rc:SelfName 'K289933137'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_4E8C5F6502AA K289933137
 
@@ -741,6 +834,7 @@ ref; // ME_4E96F5150395
 
 : ME_120579939AFD
  CONST UID '120579939AFD'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_4E96F20A02AD // K259890927
@@ -757,6 +851,7 @@ ref; // ME_120579939AFD
  ;
  : Implementor ME_4E96F20A02AD // K259890927
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4C07BCBE01F2_ME_4E96F20A02AD SetFilters
 
 : ME_4C937013031D_ME_4E96F20A02AD
@@ -766,6 +861,7 @@ ref; // ME_4C07BCBE01F2_ME_4E96F20A02AD SetFilters
  ;
  : Implementor ME_4E96F20A02AD // K259890927
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4C937013031D_ME_4E96F20A02AD GetFolder
 
 : ME_4DAED6F60146_ME_4E96F20A02AD
@@ -775,6 +871,7 @@ ref; // ME_4C937013031D_ME_4E96F20A02AD GetFolder
  ;
  : Implementor ME_4E96F20A02AD // K259890927
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4DAED6F60146_ME_4E96F20A02AD GetModelElementGUID
 
 : ME_4E96F20A02AD
@@ -789,19 +886,19 @@ ref; // ME_4DAED6F60146_ME_4E96F20A02AD GetModelElementGUID
  : Parent ME_4D6BE7850038 // 7.7 Lulin
  ;
  : Inherits
-   @ ( WL 'ME_4C07B5E300F2' '4C07B59F0382.pas.ms.script' // EVDtoEVDWriterTest
- ) .SequenceCode.It
+   Seq: ( WL 'ME_4C07B5E300F2' '4C07B59F0382.pas.ms.script' // EVDtoEVDWriterTest
+ )
  ; // Inherits
  : Overridden
-   @ ( ME_4C07BCBE01F2_ME_4E96F20A02AD // SetFilters
+   Seq: ( ME_4C07BCBE01F2_ME_4E96F20A02AD // SetFilters
  ME_4C937013031D_ME_4E96F20A02AD // GetFolder
  ME_4DAED6F60146_ME_4E96F20A02AD // GetModelElementGUID
- ) .SequenceCode.It
+ )
  ; // Overridden
  : Dependencies
-   @ ( ME_4E96F5150395 // 
+   Seq: ( ME_4E96F5150395 // 
  ME_120579939AFD // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  CONST "author" 'Ëþëèí À.Â.'
  CONST "needs InstanceR" 'undefined'
@@ -810,12 +907,19 @@ ref; // ME_4DAED6F60146_ME_4E96F20A02AD GetModelElementGUID
  CONST "register in scripts" 'undefined'
  CONST "started" '13.10.2011 18:13'
  : Generators
- @ (
+ Seq: (
  gen_intf.pas
- ) .SequenceCode.It
+ )
  ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\Daily'
  CONST intf.pas:Path 'common\components\rtl\Garant\Daily\K259890927.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\Daily'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\common\components\rtl\Garant\Daily'
  CONST extprop:pas:TypeName 'TK259890927'
+ CONST extprop:rc:SelfName 'K259890927'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_4E96F20A02AD K259890927
 
@@ -889,18 +993,19 @@ ref; // ME_4E9831CE00F4
  : Parent ME_4E982F1802E7 // K293280527
  ;
  : Dependencies
-   @ ( ME_4E982F6202D1 // 
+   Seq: ( ME_4E982F6202D1 // 
  ME_4E982F930385 // 
  ME_4E982F9B027D // 
  ME_4E982FB7000B // 
  ME_4E9831CE00F4 // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
 
 ref; // ME_4E982F43023D DoIt
 
 : ME_4AF84CC7E817
  CONST UID '4AF84CC7E817'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_4E982F1802E7 // K293280527
@@ -917,6 +1022,7 @@ ref; // ME_4AF84CC7E817
  ;
  : Implementor ME_4E982F1802E7 // K293280527
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4C937013031D_ME_4E982F1802E7 GetFolder
 
 : ME_4DAED6F60146_ME_4E982F1802E7
@@ -926,6 +1032,7 @@ ref; // ME_4C937013031D_ME_4E982F1802E7 GetFolder
  ;
  : Implementor ME_4E982F1802E7 // K293280527
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4DAED6F60146_ME_4E982F1802E7 GetModelElementGUID
 
 : ME_4E982F1802E7
@@ -940,21 +1047,21 @@ ref; // ME_4DAED6F60146_ME_4E982F1802E7 GetModelElementGUID
  : Parent ME_4D6BE7850038 // 7.7 Lulin
  ;
  : Inherits
-   @ ( WL 'ME_4B2A11BC0255' '4B2A112B011A.pas.ms.script' // TBaseTest
- ) .SequenceCode.It
+   Seq: ( WL 'ME_4B2A11BC0255' '4B2A112B011A.pas.ms.script' // TBaseTest
+ )
  ; // Inherits
  : Operations
-   @ ( ME_4E982F43023D // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_4E982F43023D // DoIt
+ )
  ; // Operations
  : Overridden
-   @ ( ME_4C937013031D_ME_4E982F1802E7 // GetFolder
+   Seq: ( ME_4C937013031D_ME_4E982F1802E7 // GetFolder
  ME_4DAED6F60146_ME_4E982F1802E7 // GetModelElementGUID
- ) .SequenceCode.It
+ )
  ; // Overridden
  : Dependencies
-   @ ( ME_4AF84CC7E817 // 
- ) .SequenceCode.It
+   Seq: ( ME_4AF84CC7E817 // 
+ )
  ; // Dependencies
  CONST "author" 'Ëþëèí À.Â.'
  CONST "needs InstanceR" 'undefined'
@@ -963,12 +1070,19 @@ ref; // ME_4DAED6F60146_ME_4E982F1802E7 GetModelElementGUID
  CONST "register in scripts" 'undefined'
  CONST "started" '14.10.2011 16:46'
  : Generators
- @ (
+ Seq: (
  gen_intf.pas
- ) .SequenceCode.It
+ )
  ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\Daily'
  CONST intf.pas:Path 'common\components\rtl\Garant\Daily\K293280527.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\Daily'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\common\components\rtl\Garant\Daily'
  CONST extprop:pas:TypeName 'TK293280527'
+ CONST extprop:rc:SelfName 'K293280527'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_4E982F1802E7 K293280527
 
@@ -1020,6 +1134,7 @@ ref; // ME_4EB119E902C5
 
 : ME_45AF7B113F9E
  CONST UID '45AF7B113F9E'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_4EB1018F0204 // K271188165
@@ -1036,6 +1151,7 @@ ref; // ME_45AF7B113F9E
  ;
  : Implementor ME_4EB1018F0204 // K271188165
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_4D80BB670151_ME_4EB1018F0204 GetScrollCount
 
 : ME_4C08CF4300BE_ME_4EB1018F0204
@@ -1045,6 +1161,7 @@ ref; // ME_4D80BB670151_ME_4EB1018F0204 GetScrollCount
  ;
  : Implementor ME_4EB1018F0204 // K271188165
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4C08CF4300BE_ME_4EB1018F0204 WebStyle
 
 : ME_4C08CF700318_ME_4EB1018F0204
@@ -1054,6 +1171,7 @@ ref; // ME_4C08CF4300BE_ME_4EB1018F0204 WebStyle
  ;
  : Implementor ME_4EB1018F0204 // K271188165
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4C08CF700318_ME_4EB1018F0204 FormExtent
 
 : ME_4C937013031D_ME_4EB1018F0204
@@ -1063,6 +1181,7 @@ ref; // ME_4C08CF700318_ME_4EB1018F0204 FormExtent
  ;
  : Implementor ME_4EB1018F0204 // K271188165
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4C937013031D_ME_4EB1018F0204 GetFolder
 
 : ME_4CA0947C03CE_ME_4EB1018F0204
@@ -1072,6 +1191,7 @@ ref; // ME_4C937013031D_ME_4EB1018F0204 GetFolder
  ;
  : Implementor ME_4EB1018F0204 // K271188165
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4CA0947C03CE_ME_4EB1018F0204 QFLike
 
 : ME_4CAC45AE011E_ME_4EB1018F0204
@@ -1081,6 +1201,7 @@ ref; // ME_4CA0947C03CE_ME_4EB1018F0204 QFLike
  ;
  : Implementor ME_4EB1018F0204 // K271188165
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4CAC45AE011E_ME_4EB1018F0204 DoBeforeDrawing
 
 : ME_4DAED6F60146_ME_4EB1018F0204
@@ -1090,6 +1211,7 @@ ref; // ME_4CAC45AE011E_ME_4EB1018F0204 DoBeforeDrawing
  ;
  : Implementor ME_4EB1018F0204 // K271188165
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4DAED6F60146_ME_4EB1018F0204 GetModelElementGUID
 
 : ME_4EB100CE0160_ME_4EB1018F0204
@@ -1099,6 +1221,7 @@ ref; // ME_4DAED6F60146_ME_4EB1018F0204 GetModelElementGUID
  ;
  : Implementor ME_4EB1018F0204 // K271188165
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4EB100CE0160_ME_4EB1018F0204 DoRepaint
 
 : ME_4EB1018F0204
@@ -1113,30 +1236,30 @@ ref; // ME_4EB100CE0160_ME_4EB1018F0204 DoRepaint
  : Parent ME_4D6BE7850038 // 7.7 Lulin
  ;
  : Inherits
-   @ ( WL 'ME_4D80B9060123' '4C4FDBF703DB.pas.ms.script' // TScrollByArrowAndCheckShapesTest
- ) .SequenceCode.It
+   Seq: ( WL 'ME_4D80B9060123' '4C4FDBF703DB.pas.ms.script' // TScrollByArrowAndCheckShapesTest
+ )
  ; // Inherits
  : Implemented
-   @ ( ME_4D80BB670151_ME_4EB1018F0204 // GetScrollCount
- ) .SequenceCode.It
+   Seq: ( ME_4D80BB670151_ME_4EB1018F0204 // GetScrollCount
+ )
  ; // Implemented
  : Overridden
-   @ ( ME_4C08CF4300BE_ME_4EB1018F0204 // WebStyle
+   Seq: ( ME_4C08CF4300BE_ME_4EB1018F0204 // WebStyle
  ME_4C08CF700318_ME_4EB1018F0204 // FormExtent
  ME_4C937013031D_ME_4EB1018F0204 // GetFolder
  ME_4CA0947C03CE_ME_4EB1018F0204 // QFLike
  ME_4CAC45AE011E_ME_4EB1018F0204 // DoBeforeDrawing
  ME_4DAED6F60146_ME_4EB1018F0204 // GetModelElementGUID
  ME_4EB100CE0160_ME_4EB1018F0204 // DoRepaint
- ) .SequenceCode.It
+ )
  ; // Overridden
  : Dependencies
-   @ ( ME_4EB104210252 // 
+   Seq: ( ME_4EB104210252 // 
  ME_4EB10BBF022C // 
  ME_4EB10C9A0026 // 
  ME_4EB119E902C5 // 
  ME_45AF7B113F9E // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  CONST "author" 'Ëþëèí À.Â.'
  CONST "needs InstanceR" 'undefined'
@@ -1145,12 +1268,19 @@ ref; // ME_4EB100CE0160_ME_4EB1018F0204 DoRepaint
  CONST "register in scripts" 'undefined'
  CONST "started" '02.11.2011 12:39'
  : Generators
- @ (
+ Seq: (
  gen_intf.pas
- ) .SequenceCode.It
+ )
  ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\Daily'
  CONST intf.pas:Path 'common\components\rtl\Garant\Daily\K271188165.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\Daily'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\common\components\rtl\Garant\Daily'
  CONST extprop:pas:TypeName 'TK271188165'
+ CONST extprop:rc:SelfName 'K271188165'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_4EB1018F0204 K271188165
 
@@ -1158,6 +1288,7 @@ FORWARD ME_4EEF59E700E3
 
 : ME_0732B7266280
  CONST UID '0732B7266280'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_4EEF59E700E3 // K282693895
@@ -1174,6 +1305,7 @@ ref; // ME_0732B7266280
  ;
  : Implementor ME_4EEF59E700E3 // K282693895
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4C937013031D_ME_4EEF59E700E3 GetFolder
 
 : ME_4DAED6F60146_ME_4EEF59E700E3
@@ -1183,6 +1315,7 @@ ref; // ME_4C937013031D_ME_4EEF59E700E3 GetFolder
  ;
  : Implementor ME_4EEF59E700E3 // K282693895
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4DAED6F60146_ME_4EEF59E700E3 GetModelElementGUID
 
 : ME_51AF49E5001B_ME_4EEF59E700E3
@@ -1192,6 +1325,7 @@ ref; // ME_4DAED6F60146_ME_4EEF59E700E3 GetModelElementGUID
  ;
  : Implementor ME_4EEF59E700E3 // K282693895
  ;
+ CONST OpKind opkind_Overridden
  CONST "ifdef" 'XE'
 ref; // ME_51AF49E5001B_ME_4EEF59E700E3 EtalonNeedsXE
 
@@ -1207,18 +1341,18 @@ ref; // ME_51AF49E5001B_ME_4EEF59E700E3 EtalonNeedsXE
  : Parent ME_4D6BE7850038 // 7.7 Lulin
  ;
  : Inherits
-   @ ( WL 'ME_4EEF59B40075' '4EEF599003AC.pas.ms.script' // TFormulaRender
- ) .SequenceCode.It
+   Seq: ( WL 'ME_4EEF59B40075' '4EEF599003AC.pas.ms.script' // TFormulaRender
+ )
  ; // Inherits
  : Overridden
-   @ ( ME_4C937013031D_ME_4EEF59E700E3 // GetFolder
+   Seq: ( ME_4C937013031D_ME_4EEF59E700E3 // GetFolder
  ME_4DAED6F60146_ME_4EEF59E700E3 // GetModelElementGUID
  ME_51AF49E5001B_ME_4EEF59E700E3 // EtalonNeedsXE
- ) .SequenceCode.It
+ )
  ; // Overridden
  : Dependencies
-   @ ( ME_0732B7266280 // 
- ) .SequenceCode.It
+   Seq: ( ME_0732B7266280 // 
+ )
  ; // Dependencies
  CONST "author" 'Ëþëèí À.Â.'
  CONST "needs InstanceR" 'undefined'
@@ -1227,12 +1361,19 @@ ref; // ME_51AF49E5001B_ME_4EEF59E700E3 EtalonNeedsXE
  CONST "register in scripts" 'undefined'
  CONST "started" '19.12.2011 19:36'
  : Generators
- @ (
+ Seq: (
  gen_intf.pas
- ) .SequenceCode.It
+ )
  ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\Daily'
  CONST intf.pas:Path 'common\components\rtl\Garant\Daily\K282693895.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\Daily'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\common\components\rtl\Garant\Daily'
  CONST extprop:pas:TypeName 'TK282693895'
+ CONST extprop:rc:SelfName 'K282693895'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_4EEF59E700E3 K282693895
 
@@ -1240,6 +1381,7 @@ FORWARD ME_4EF0A00F0280
 
 : ME_F0651E00CAEE
  CONST UID 'F0651E00CAEE'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_4EF0A00F0280 // K321983051
@@ -1256,6 +1398,7 @@ ref; // ME_F0651E00CAEE
  ;
  : Implementor ME_4EF0A00F0280 // K321983051
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4C937013031D_ME_4EF0A00F0280 GetFolder
 
 : ME_4DAED6F60146_ME_4EF0A00F0280
@@ -1265,6 +1408,7 @@ ref; // ME_4C937013031D_ME_4EF0A00F0280 GetFolder
  ;
  : Implementor ME_4EF0A00F0280 // K321983051
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4DAED6F60146_ME_4EF0A00F0280 GetModelElementGUID
 
 : ME_4EF0A04A0286_ME_4EF0A00F0280
@@ -1274,6 +1418,7 @@ ref; // ME_4DAED6F60146_ME_4EF0A00F0280 GetModelElementGUID
  ;
  : Implementor ME_4EF0A00F0280 // K321983051
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4EF0A04A0286_ME_4EF0A00F0280 GetZoom
 
 : ME_51AF49E5001B_ME_4EF0A00F0280
@@ -1283,6 +1428,7 @@ ref; // ME_4EF0A04A0286_ME_4EF0A00F0280 GetZoom
  ;
  : Implementor ME_4EF0A00F0280 // K321983051
  ;
+ CONST OpKind opkind_Overridden
  CONST "ifdef" 'XE'
 ref; // ME_51AF49E5001B_ME_4EF0A00F0280 EtalonNeedsXE
 
@@ -1298,19 +1444,19 @@ ref; // ME_51AF49E5001B_ME_4EF0A00F0280 EtalonNeedsXE
  : Parent ME_4D6BE7850038 // 7.7 Lulin
  ;
  : Inherits
-   @ ( WL 'ME_4EEF59B40075' '4EEF599003AC.pas.ms.script' // TFormulaRender
- ) .SequenceCode.It
+   Seq: ( WL 'ME_4EEF59B40075' '4EEF599003AC.pas.ms.script' // TFormulaRender
+ )
  ; // Inherits
  : Overridden
-   @ ( ME_4C937013031D_ME_4EF0A00F0280 // GetFolder
+   Seq: ( ME_4C937013031D_ME_4EF0A00F0280 // GetFolder
  ME_4DAED6F60146_ME_4EF0A00F0280 // GetModelElementGUID
  ME_4EF0A04A0286_ME_4EF0A00F0280 // GetZoom
  ME_51AF49E5001B_ME_4EF0A00F0280 // EtalonNeedsXE
- ) .SequenceCode.It
+ )
  ; // Overridden
  : Dependencies
-   @ ( ME_F0651E00CAEE // 
- ) .SequenceCode.It
+   Seq: ( ME_F0651E00CAEE // 
+ )
  ; // Dependencies
  CONST "author" 'Ëþëèí À.Â.'
  CONST "needs InstanceR" 'undefined'
@@ -1319,12 +1465,19 @@ ref; // ME_51AF49E5001B_ME_4EF0A00F0280 EtalonNeedsXE
  CONST "register in scripts" 'undefined'
  CONST "started" '20.12.2011 18:47'
  : Generators
- @ (
+ Seq: (
  gen_intf.pas
- ) .SequenceCode.It
+ )
  ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\Daily'
  CONST intf.pas:Path 'common\components\rtl\Garant\Daily\K321983051.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\Daily'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\common\components\rtl\Garant\Daily'
  CONST extprop:pas:TypeName 'TK321983051'
+ CONST extprop:rc:SelfName 'K321983051'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_4EF0A00F0280 K321983051
 
@@ -1332,6 +1485,7 @@ FORWARD ME_4F4CC311038D
 
 : ME_11673B03A836
  CONST UID '11673B03A836'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_4F4CC311038D // K336664105
@@ -1348,6 +1502,7 @@ ref; // ME_11673B03A836
  ;
  : Implementor ME_4F4CC311038D // K336664105
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4C937013031D_ME_4F4CC311038D GetFolder
 
 : ME_4DAED6F60146_ME_4F4CC311038D
@@ -1357,6 +1512,7 @@ ref; // ME_4C937013031D_ME_4F4CC311038D GetFolder
  ;
  : Implementor ME_4F4CC311038D // K336664105
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4DAED6F60146_ME_4F4CC311038D GetModelElementGUID
 
 : ME_4F4CC311038D
@@ -1371,29 +1527,36 @@ ref; // ME_4DAED6F60146_ME_4F4CC311038D GetModelElementGUID
  : Parent ME_4D6BE7850038 // 7.7 Lulin
  ;
  : Inherits
-   @ ( WL 'ME_4B8542C302E3' '4B4F68D4033F.pas.ms.script' // TEVDtoBothNSRCWriterTest
- ) .SequenceCode.It
+   Seq: ( WL 'ME_4B8542C302E3' '4B4F68D4033F.pas.ms.script' // TEVDtoBothNSRCWriterTest
+ )
  ; // Inherits
  : Overridden
-   @ ( ME_4C937013031D_ME_4F4CC311038D // GetFolder
+   Seq: ( ME_4C937013031D_ME_4F4CC311038D // GetFolder
  ME_4DAED6F60146_ME_4F4CC311038D // GetModelElementGUID
- ) .SequenceCode.It
+ )
  ; // Overridden
  : Dependencies
-   @ ( ME_11673B03A836 // 
- ) .SequenceCode.It
+   Seq: ( ME_11673B03A836 // 
+ )
  ; // Dependencies
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
  : Generators
- @ (
+ Seq: (
  gen_intf.pas
- ) .SequenceCode.It
+ )
  ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\Daily'
  CONST intf.pas:Path 'common\components\rtl\Garant\Daily\K336664105.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\Daily'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\common\components\rtl\Garant\Daily'
  CONST extprop:pas:TypeName 'TK336664105'
+ CONST extprop:rc:SelfName 'K336664105'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_4F4CC311038D K336664105
 
@@ -1401,6 +1564,7 @@ FORWARD ME_4F5C42640316
 
 : ME_A9AE790E1C59
  CONST UID 'A9AE790E1C59'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_4F5C42640316 // K336663851
@@ -1417,6 +1581,7 @@ ref; // ME_A9AE790E1C59
  ;
  : Implementor ME_4F5C42640316 // K336663851
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4C937013031D_ME_4F5C42640316 GetFolder
 
 : ME_4DAED6F60146_ME_4F5C42640316
@@ -1426,6 +1591,7 @@ ref; // ME_4C937013031D_ME_4F5C42640316 GetFolder
  ;
  : Implementor ME_4F5C42640316 // K336663851
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4DAED6F60146_ME_4F5C42640316 GetModelElementGUID
 
 : ME_4F5C42640316
@@ -1440,17 +1606,17 @@ ref; // ME_4DAED6F60146_ME_4F5C42640316 GetModelElementGUID
  : Parent ME_4D6BE7850038 // 7.7 Lulin
  ;
  : Inherits
-   @ ( WL 'ME_4E5BD013008D' '4B30C89F035F.pas.ms.script' // TPreviewTest
- ) .SequenceCode.It
+   Seq: ( WL 'ME_4E5BD013008D' '4B30C89F035F.pas.ms.script' // TPreviewTest
+ )
  ; // Inherits
  : Overridden
-   @ ( ME_4C937013031D_ME_4F5C42640316 // GetFolder
+   Seq: ( ME_4C937013031D_ME_4F5C42640316 // GetFolder
  ME_4DAED6F60146_ME_4F5C42640316 // GetModelElementGUID
- ) .SequenceCode.It
+ )
  ; // Overridden
  : Dependencies
-   @ ( ME_A9AE790E1C59 // 
- ) .SequenceCode.It
+   Seq: ( ME_A9AE790E1C59 // 
+ )
  ; // Dependencies
  CONST "author" 'Ëþëèí À.Â.'
  CONST "needs InstanceR" 'undefined'
@@ -1459,12 +1625,19 @@ ref; // ME_4DAED6F60146_ME_4F5C42640316 GetModelElementGUID
  CONST "register in scripts" 'undefined'
  CONST "started" '11.03.2012 10:13'
  : Generators
- @ (
+ Seq: (
  gen_intf.pas
- ) .SequenceCode.It
+ )
  ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\Daily'
  CONST intf.pas:Path 'common\components\rtl\Garant\Daily\K336663851.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\Daily'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\common\components\rtl\Garant\Daily'
  CONST extprop:pas:TypeName 'TK336663851'
+ CONST extprop:rc:SelfName 'K336663851'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_4F5C42640316 K336663851
 
@@ -1472,6 +1645,7 @@ FORWARD ME_4F60B8740219
 
 : ME_A3B61AFFBC60
  CONST UID 'A3B61AFFBC60'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_4F60B8740219 // K344139764
@@ -1488,6 +1662,7 @@ ref; // ME_A3B61AFFBC60
  ;
  : Implementor ME_4F60B8740219 // K344139764
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4C937013031D_ME_4F60B8740219 GetFolder
 
 : ME_4DAED6F60146_ME_4F60B8740219
@@ -1497,6 +1672,7 @@ ref; // ME_4C937013031D_ME_4F60B8740219 GetFolder
  ;
  : Implementor ME_4F60B8740219 // K344139764
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4DAED6F60146_ME_4F60B8740219 GetModelElementGUID
 
 : ME_4F60B8740219
@@ -1511,29 +1687,36 @@ ref; // ME_4DAED6F60146_ME_4F60B8740219 GetModelElementGUID
  : Parent ME_4D6BE7850038 // 7.7 Lulin
  ;
  : Inherits
-   @ ( WL 'ME_4E5BD013008D' '4B30C89F035F.pas.ms.script' // TPreviewTest
- ) .SequenceCode.It
+   Seq: ( WL 'ME_4E5BD013008D' '4B30C89F035F.pas.ms.script' // TPreviewTest
+ )
  ; // Inherits
  : Overridden
-   @ ( ME_4C937013031D_ME_4F60B8740219 // GetFolder
+   Seq: ( ME_4C937013031D_ME_4F60B8740219 // GetFolder
  ME_4DAED6F60146_ME_4F60B8740219 // GetModelElementGUID
- ) .SequenceCode.It
+ )
  ; // Overridden
  : Dependencies
-   @ ( ME_A3B61AFFBC60 // 
- ) .SequenceCode.It
+   Seq: ( ME_A3B61AFFBC60 // 
+ )
  ; // Dependencies
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
  : Generators
- @ (
+ Seq: (
  gen_intf.pas
- ) .SequenceCode.It
+ )
  ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\Daily'
  CONST intf.pas:Path 'common\components\rtl\Garant\Daily\K344139764.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\Daily'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\common\components\rtl\Garant\Daily'
  CONST extprop:pas:TypeName 'TK344139764'
+ CONST extprop:rc:SelfName 'K344139764'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_4F60B8740219 K344139764
 
@@ -1547,7 +1730,7 @@ ref; // ME_4F60B8740219 K344139764
  : Parent WL 'ME_4B2A15810261' '4B2A15810261.pas.ms.script' // DailyTest
  ;
  : Children
-   @ ( ME_4D6BE7A702E7 // K254944075
+   Seq: ( ME_4D6BE7A702E7 // K254944075
  ME_4D909FCA01A2 // K255966779
  ME_4DF781FF03B3 // K269066487
  ME_4E396B1F03D0 // K278136024
@@ -1564,10 +1747,10 @@ ref; // ME_4F60B8740219 K344139764
  ME_4F4CC311038D // K336664105
  ME_4F5C42640316 // K336663851
  ME_4F60B8740219 // K344139764
- ) .SequenceCode.It
+ )
  ; // Children
  : Depends
-   @ ( WL 'ME_4677FBA70343' '4677FBA70343.pas.ms.script' // l3Interfaces
+   Seq: ( WL 'ME_4677FBA70343' '4677FBA70343.pas.ms.script' // l3Interfaces
  WL 'ME_467C0CAA02AB' '467C0CAA02AB.pas.ms.script' // l3InternalInterfaces
  WL 'ME_476F78840219' '476F78840219.pas.ms.script' // Messages
  WL 'ME_4787B0A8007B' '4787B0A8007B.pas.ms.script' // l3Except
@@ -1588,15 +1771,20 @@ ref; // ME_4F60B8740219 K344139764
  WL 'ME_4E847D6D002B' '4E847D6D002B.pas.ms.script' // HTML
  WL 'ME_4EEF599003AC' '4EEF599003AC.pas.ms.script' // RenderEVD
  WL 'ME_54B90AC6014B' '54B90AC6014B.pas.ms.script' // StringUtils
- ) .SequenceCode.It
+ )
  ; // Depends
  : Generators
- @ (
+ Seq: (
  gen_pas.script
  gen_pas.script.runner
- ) .SequenceCode.It
+ )
  ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\Daily'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\Daily'
  CONST pas.script:Path 'shared\models\NewSchool\Scripts\4D6BE7850038.pas.ms.script'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
  CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\4D6BE7850038.pas.ms.script.runner'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\common\components\rtl\Garant\Daily'
 
 ref; // ME_4D6BE7850038 7.7 Lulin

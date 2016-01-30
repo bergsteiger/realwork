@@ -201,6 +201,7 @@ ref; // ME_55670FF801D4 Date
 : ME_D03897F9CD17
  CONST UID 'D03897F9CD17'
  CONST Name 'f_StartOfWeek'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY 'Поле для свойства StartOfWeek' ;
  CONST Visibility PrivateAccess
@@ -210,12 +211,14 @@ ref; // ME_55670FF801D4 Date
  ;
  : Target WL 'ME_554C8DC4028F' '47D0290B016D.pas.ms.script' // TStDayType
  ;
+ CONST extprop:clearViaProperty 'StartOfWeek'
 
 ref; // ME_D03897F9CD17 f_StartOfWeek
 
 : ME_F442AA6AA886
  CONST UID 'F442AA6AA886'
  CONST Name 'f_Weekends'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY 'Поле для свойства Weekends' ;
  CONST Visibility PrivateAccess
@@ -225,12 +228,14 @@ ref; // ME_D03897F9CD17 f_StartOfWeek
  ;
  : Target WL 'ME_554C8E0102AB' '47D0290B016D.pas.ms.script' // TDaysOfWeek
  ;
+ CONST extprop:clearViaProperty 'Weekends'
 
 ref; // ME_F442AA6AA886 f_Weekends
 
 : ME_92D3E92108FE
  CONST UID '92D3E92108FE'
  CONST Name 'f_WeekendColor'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY 'Поле для свойства WeekendColor' ;
  CONST Visibility PrivateAccess
@@ -240,12 +245,14 @@ ref; // ME_F442AA6AA886 f_Weekends
  ;
  : Target WL 'ME_46A44A2F01C7' '55C4AEC801CA.pas.ms.script' // TColor
  ;
+ CONST extprop:clearViaProperty 'WeekendColor'
 
 ref; // ME_92D3E92108FE f_WeekendColor
 
 : ME_B64AEEAD16D4
  CONST UID 'B64AEEAD16D4'
  CONST Name 'f_OnChange'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY 'Поле для свойства OnChange' ;
  CONST Visibility PrivateAccess
@@ -255,12 +262,14 @@ ref; // ME_92D3E92108FE f_WeekendColor
  ;
  : Target WL 'ME_47881B22005A' '4AB0997B00A2.pas.ms.script' // TNotifyEvent
  ;
+ CONST extprop:clearViaProperty 'OnChange'
 
 ref; // ME_B64AEEAD16D4 f_OnChange
 
 : ME_ED8E9E19EDD0
  CONST UID 'ED8E9E19EDD0'
  CONST Name 'f_OldDay'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY 'Поле для свойства OldDay' ;
  CONST Visibility PrivateAccess
@@ -270,6 +279,7 @@ ref; // ME_B64AEEAD16D4 f_OnChange
  ;
  : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
  ;
+ CONST extprop:clearViaProperty 'OldDay'
 
 ref; // ME_ED8E9E19EDD0 f_OldDay
 
@@ -296,8 +306,8 @@ ref; // ME_55670EFC0207 Pt
  : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
  ;
  : Parameters
-   @ ( ME_55670EFC0207 // Pt
- ) .SequenceCode.It
+   Seq: ( ME_55670EFC0207 // Pt
+ )
  ; // Parameters
 
 ref; // ME_55670EFA01AD DoIt
@@ -313,8 +323,8 @@ ref; // ME_55670EFA01AD DoIt
  : Parent ME_556709D10061 // TvtCustomCalendarPanel
  ;
  : Operations
-   @ ( ME_55670EFA01AD // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_55670EFA01AD // DoIt
+ )
  ; // Operations
 
 ref; // ME_55670EF101FF GetDayFromPoint
@@ -342,8 +352,8 @@ ref; // ME_55670F420033 aDay
  : Target WL 'ME_4728A7190065' '4728A7020026.pas.ms.script' // TRect
  ;
  : Parameters
-   @ ( ME_55670F420033 // aDay
- ) .SequenceCode.It
+   Seq: ( ME_55670F420033 // aDay
+ )
  ; // Parameters
 
 ref; // ME_55670F400015 DoIt
@@ -359,8 +369,8 @@ ref; // ME_55670F400015 DoIt
  : Parent ME_556709D10061 // TvtCustomCalendarPanel
  ;
  : Operations
-   @ ( ME_55670F400015 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_55670F400015 // DoIt
+ )
  ; // Operations
 
 ref; // ME_55670F3A02E0 GetDayRect
@@ -386,8 +396,8 @@ ref; // ME_55670F7B038D aPredDay
  : Parent ME_55670F7202CB // DrawFocusFrame
  ;
  : Parameters
-   @ ( ME_55670F7B038D // aPredDay
- ) .SequenceCode.It
+   Seq: ( ME_55670F7B038D // aPredDay
+ )
  ; // Parameters
 
 ref; // ME_55670F78005E DoIt
@@ -403,8 +413,8 @@ ref; // ME_55670F78005E DoIt
  : Parent ME_556709D10061 // TvtCustomCalendarPanel
  ;
  : Operations
-   @ ( ME_55670F78005E // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_55670F78005E // DoIt
+ )
  ; // Operations
 
 ref; // ME_55670F7202CB DrawFocusFrame
@@ -414,6 +424,7 @@ FORWARD ME_55670F9602CB
 : ME_99386AAAC6A6
  CONST UID '99386AAAC6A6'
  CONST Name 'DoIt'
+ CONST IsSummoned true
  CONST Class class_Operation
  %SUMMARY 'Сигнатура метода InvalidateDayArray' ;
  CONST Visibility PublicAccess
@@ -434,8 +445,8 @@ ref; // ME_99386AAAC6A6 DoIt
  : Parent ME_556709D10061 // TvtCustomCalendarPanel
  ;
  : Operations
-   @ ( ME_99386AAAC6A6 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_99386AAAC6A6 // DoIt
+ )
  ; // Operations
 
 ref; // ME_55670F9602CB InvalidateDayArray
@@ -445,6 +456,7 @@ FORWARD ME_55670FA502B8
 : ME_C5E17B33EFBA
  CONST UID 'C5E17B33EFBA'
  CONST Name 'DoIt'
+ CONST IsSummoned true
  CONST Class class_Operation
  %SUMMARY 'Сигнатура метода Change' ;
  CONST Visibility PublicAccess
@@ -465,8 +477,8 @@ ref; // ME_C5E17B33EFBA DoIt
  : Parent ME_556709D10061 // TvtCustomCalendarPanel
  ;
  : Operations
-   @ ( ME_C5E17B33EFBA // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_C5E17B33EFBA // DoIt
+ )
  ; // Operations
 
 ref; // ME_55670FA502B8 Change
@@ -476,6 +488,7 @@ FORWARD ME_55671071035C
 : ME_292B3ABAFBD4
  CONST UID '292B3ABAFBD4'
  CONST Name 'DoIt'
+ CONST IsSummoned true
  CONST Class class_Operation
  %SUMMARY 'Сигнатура метода NextDay' ;
  CONST Visibility PublicAccess
@@ -496,8 +509,8 @@ ref; // ME_292B3ABAFBD4 DoIt
  : Parent ME_556709D10061 // TvtCustomCalendarPanel
  ;
  : Operations
-   @ ( ME_292B3ABAFBD4 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_292B3ABAFBD4 // DoIt
+ )
  ; // Operations
 
 ref; // ME_55671071035C NextDay
@@ -507,6 +520,7 @@ FORWARD ME_5567107A01EF
 : ME_258DEACD52B5
  CONST UID '258DEACD52B5'
  CONST Name 'DoIt'
+ CONST IsSummoned true
  CONST Class class_Operation
  %SUMMARY 'Сигнатура метода PrevDay' ;
  CONST Visibility PublicAccess
@@ -527,8 +541,8 @@ ref; // ME_258DEACD52B5 DoIt
  : Parent ME_556709D10061 // TvtCustomCalendarPanel
  ;
  : Operations
-   @ ( ME_258DEACD52B5 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_258DEACD52B5 // DoIt
+ )
  ; // Operations
 
 ref; // ME_5567107A01EF PrevDay
@@ -538,6 +552,7 @@ FORWARD ME_55671084000E
 : ME_99A1D606B1BC
  CONST UID '99A1D606B1BC'
  CONST Name 'DoIt'
+ CONST IsSummoned true
  CONST Class class_Operation
  %SUMMARY 'Сигнатура метода NextWeek' ;
  CONST Visibility PublicAccess
@@ -558,8 +573,8 @@ ref; // ME_99A1D606B1BC DoIt
  : Parent ME_556709D10061 // TvtCustomCalendarPanel
  ;
  : Operations
-   @ ( ME_99A1D606B1BC // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_99A1D606B1BC // DoIt
+ )
  ; // Operations
 
 ref; // ME_55671084000E NextWeek
@@ -569,6 +584,7 @@ FORWARD ME_5567108F020C
 : ME_8C22A11C4905
  CONST UID '8C22A11C4905'
  CONST Name 'DoIt'
+ CONST IsSummoned true
  CONST Class class_Operation
  %SUMMARY 'Сигнатура метода PrevWeek' ;
  CONST Visibility PublicAccess
@@ -589,8 +605,8 @@ ref; // ME_8C22A11C4905 DoIt
  : Parent ME_556709D10061 // TvtCustomCalendarPanel
  ;
  : Operations
-   @ ( ME_8C22A11C4905 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_8C22A11C4905 // DoIt
+ )
  ; // Operations
 
 ref; // ME_5567108F020C PrevWeek
@@ -600,6 +616,7 @@ FORWARD ME_5567109A01A1
 : ME_B07E9EE931CA
  CONST UID 'B07E9EE931CA'
  CONST Name 'DoIt'
+ CONST IsSummoned true
  CONST Class class_Operation
  %SUMMARY 'Сигнатура метода NextMonth' ;
  CONST Visibility PublicAccess
@@ -620,8 +637,8 @@ ref; // ME_B07E9EE931CA DoIt
  : Parent ME_556709D10061 // TvtCustomCalendarPanel
  ;
  : Operations
-   @ ( ME_B07E9EE931CA // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_B07E9EE931CA // DoIt
+ )
  ; // Operations
 
 ref; // ME_5567109A01A1 NextMonth
@@ -631,6 +648,7 @@ FORWARD ME_556710A500BA
 : ME_26C626152604
  CONST UID '26C626152604'
  CONST Name 'DoIt'
+ CONST IsSummoned true
  CONST Class class_Operation
  %SUMMARY 'Сигнатура метода PrevMonth' ;
  CONST Visibility PublicAccess
@@ -651,8 +669,8 @@ ref; // ME_26C626152604 DoIt
  : Parent ME_556709D10061 // TvtCustomCalendarPanel
  ;
  : Operations
-   @ ( ME_26C626152604 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_26C626152604 // DoIt
+ )
  ; // Operations
 
 ref; // ME_556710A500BA PrevMonth
@@ -662,6 +680,7 @@ FORWARD ME_556710AF02F4
 : ME_86DF89ABCECC
  CONST UID '86DF89ABCECC'
  CONST Name 'DoIt'
+ CONST IsSummoned true
  CONST Class class_Operation
  %SUMMARY 'Сигнатура метода NextYear' ;
  CONST Visibility PublicAccess
@@ -682,8 +701,8 @@ ref; // ME_86DF89ABCECC DoIt
  : Parent ME_556709D10061 // TvtCustomCalendarPanel
  ;
  : Operations
-   @ ( ME_86DF89ABCECC // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_86DF89ABCECC // DoIt
+ )
  ; // Operations
 
 ref; // ME_556710AF02F4 NextYear
@@ -693,6 +712,7 @@ FORWARD ME_556710BA0108
 : ME_69FBBC978B7F
  CONST UID '69FBBC978B7F'
  CONST Name 'DoIt'
+ CONST IsSummoned true
  CONST Class class_Operation
  %SUMMARY 'Сигнатура метода PrevYear' ;
  CONST Visibility PublicAccess
@@ -713,8 +733,8 @@ ref; // ME_69FBBC978B7F DoIt
  : Parent ME_556709D10061 // TvtCustomCalendarPanel
  ;
  : Operations
-   @ ( ME_69FBBC978B7F // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_69FBBC978B7F // DoIt
+ )
  ; // Operations
 
 ref; // ME_556710BA0108 PrevYear
@@ -740,8 +760,8 @@ ref; // ME_556710DD0113 nDays
  : Parent ME_556710D300D7 // RelMoveDate
  ;
  : Parameters
-   @ ( ME_556710DD0113 // nDays
- ) .SequenceCode.It
+   Seq: ( ME_556710DD0113 // nDays
+ )
  ; // Parameters
 
 ref; // ME_556710DA016D DoIt
@@ -757,8 +777,8 @@ ref; // ME_556710DA016D DoIt
  : Parent ME_556709D10061 // TvtCustomCalendarPanel
  ;
  : Operations
-   @ ( ME_556710DA016D // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_556710DA016D // DoIt
+ )
  ; // Operations
 
 ref; // ME_556710D300D7 RelMoveDate
@@ -783,8 +803,8 @@ ref; // ME_5567116700F3 Msg
  : Parent ME_556709D10061 // TvtCustomCalendarPanel
  ;
  : Parameters
-   @ ( ME_5567116700F3 // Msg
- ) .SequenceCode.It
+   Seq: ( ME_5567116700F3 // Msg
+ )
  ; // Parameters
  CONST "Message ID" 'WM_GETDLGCODE'
 
@@ -810,8 +830,8 @@ ref; // ME_5567117900F2 Message
  : Parent ME_556709D10061 // TvtCustomCalendarPanel
  ;
  : Parameters
-   @ ( ME_5567117900F2 // Message
- ) .SequenceCode.It
+   Seq: ( ME_5567117900F2 // Message
+ )
  ; // Parameters
  CONST "Message ID" 'WM_LBUTTONDOWN'
 
@@ -837,8 +857,8 @@ ref; // ME_556711870062 Message
  : Parent ME_556709D10061 // TvtCustomCalendarPanel
  ;
  : Parameters
-   @ ( ME_556711870062 // Message
- ) .SequenceCode.It
+   Seq: ( ME_556711870062 // Message
+ )
  ; // Parameters
  CONST "Message ID" 'WM_LBUTTONUP'
 
@@ -864,8 +884,8 @@ ref; // ME_5567119402F4 Message
  : Parent ME_556709D10061 // TvtCustomCalendarPanel
  ;
  : Parameters
-   @ ( ME_5567119402F4 // Message
- ) .SequenceCode.It
+   Seq: ( ME_5567119402F4 // Message
+ )
  ; // Parameters
  CONST "Message ID" 'WM_MOUSEMOVE'
 
@@ -891,8 +911,8 @@ ref; // ME_556711A3024F Message
  : Parent ME_556709D10061 // TvtCustomCalendarPanel
  ;
  : Parameters
-   @ ( ME_556711A3024F // Message
- ) .SequenceCode.It
+   Seq: ( ME_556711A3024F // Message
+ )
  ; // Parameters
  CONST "Message ID" 'WM_SHOWWINDOW'
 
@@ -901,6 +921,7 @@ ref; // ME_5567119C03D0 WMShowWindow
 : ME_F038DE85DAD9
  CONST UID 'F038DE85DAD9'
  CONST Name 'Ini_Reg_Class'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Регистрация TvtCustomCalendarPanel' ;
@@ -914,6 +935,7 @@ ref; // ME_F038DE85DAD9 Ini_Reg_Class
 
 : ME_4E39F227D2A8
  CONST UID '4E39F227D2A8'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_556709D10061 // TvtCustomCalendarPanel
@@ -930,6 +952,7 @@ ref; // ME_4E39F227D2A8
  ;
  : Implementor ME_556709D10061 // TvtCustomCalendarPanel
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_47D1602000C6_ME_556709D10061 Create
 
 : ME_48C6C044025E_ME_556709D10061
@@ -939,6 +962,7 @@ ref; // ME_47D1602000C6_ME_556709D10061 Create
  ;
  : Implementor ME_556709D10061 // TvtCustomCalendarPanel
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_48C6C044025E_ME_556709D10061 Paint
 
 : ME_554CABC100AC_ME_556709D10061
@@ -948,6 +972,7 @@ ref; // ME_48C6C044025E_ME_556709D10061 Paint
  ;
  : Implementor ME_556709D10061 // TvtCustomCalendarPanel
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_554CABC100AC_ME_556709D10061 KeyDown
 
 : ME_556709D10061
@@ -961,11 +986,11 @@ ref; // ME_554CABC100AC_ME_556709D10061 KeyDown
  : Parent ME_5562DB5D0259 // TvtCalendarPanel
  ;
  : Inherits
-   @ ( WL 'ME_50FD1AE5027A' '4A7960CC03A4.pas.ms.script' // TvtCustomPanel
- ) .SequenceCode.It
+   Seq: ( WL 'ME_50FD1AE5027A' '4A7960CC03A4.pas.ms.script' // TvtCustomPanel
+ )
  ; // Inherits
  : Attributes
-   @ ( ME_55670CE402C0 // f_ForceRedraw
+   Seq: ( ME_55670CE402C0 // f_ForceRedraw
  ME_55670CF10085 // f_MouseDown
  ME_55670D67017B // f_MonthIndent
  ME_55670D7602EE // f_CurYear
@@ -982,10 +1007,10 @@ ref; // ME_554CABC100AC_ME_556709D10061 KeyDown
  ME_92D3E92108FE // f_WeekendColor
  ME_B64AEEAD16D4 // f_OnChange
  ME_ED8E9E19EDD0 // f_OldDay
- ) .SequenceCode.It
+ )
  ; // Attributes
  : Operations
-   @ ( ME_55670EF101FF // GetDayFromPoint
+   Seq: ( ME_55670EF101FF // GetDayFromPoint
  ME_55670F3A02E0 // GetDayRect
  ME_55670F7202CB // DrawFocusFrame
  ME_55670F9602CB // InvalidateDayArray
@@ -1005,23 +1030,29 @@ ref; // ME_554CABC100AC_ME_556709D10061 KeyDown
  ME_5567118E02EF // WMMouseMove
  ME_5567119C03D0 // WMShowWindow
  ME_F038DE85DAD9 // Ini_Reg_Class
- ) .SequenceCode.It
+ )
  ; // Operations
  : Overridden
-   @ ( ME_47D1602000C6_ME_556709D10061 // Create
+   Seq: ( ME_47D1602000C6_ME_556709D10061 // Create
  ME_48C6C044025E_ME_556709D10061 // Paint
  ME_554CABC100AC_ME_556709D10061 // KeyDown
- ) .SequenceCode.It
+ )
  ; // Overridden
  : Dependencies
-   @ ( ME_4E39F227D2A8 // 
- ) .SequenceCode.It
+   Seq: ( ME_4E39F227D2A8 // 
+ )
  ; // Dependencies
  CONST "base wnd class" 'CWnd'
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
+ CONST dfm:PathOnly '\common\components\gui\Garant\VT'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\VT'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'CalendarPanel'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_556709D10061 TvtCustomCalendarPanel
 
@@ -1040,6 +1071,7 @@ FORWARD ME_5567126103D0
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value 4
 
 ref; // ME_55671287013E BorderIndent
 
@@ -1056,6 +1088,7 @@ ref; // ME_55671287013E BorderIndent
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value 8
 
 ref; // ME_556712910077 SplitLineHeight
 
@@ -1070,17 +1103,22 @@ ref; // ME_556712910077 SplitLineHeight
  : Parent ME_5562DB5D0259 // TvtCalendarPanel
  ;
  : Attributes
-   @ ( ME_55671287013E // BorderIndent
+   Seq: ( ME_55671287013E // BorderIndent
  ME_556712910077 // SplitLineHeight
- ) .SequenceCode.It
+ )
  ; // Attributes
  CONST "spell names" false
+ CONST dfm:PathOnly '\common\components\gui\Garant\VT'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\VT'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_5567126103D0 Calendar Panel const
 
 : ME_CBA63B21344B
  CONST UID 'CBA63B21344B'
  CONST Name 'Ini_Reg_Class'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Регистрация TvtCalendarPanel' ;
@@ -1151,6 +1189,7 @@ ref; // ME_556844A10231
 
 : ME_7E3CB3F74E72
  CONST UID '7E3CB3F74E72'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_5562DB5D0259 // TvtCalendarPanel
@@ -1171,29 +1210,29 @@ ref; // ME_7E3CB3F74E72
  : Parent ME_4AC5DADB00C9 // DateEdit
  ;
  : Inherits
-   @ ( ME_556709D10061 // TvtCustomCalendarPanel
- ) .SequenceCode.It
+   Seq: ( ME_556709D10061 // TvtCustomCalendarPanel
+ )
  ; // Inherits
  : Operations
-   @ ( ME_CBA63B21344B // Ini_Reg_Class
- ) .SequenceCode.It
+   Seq: ( ME_CBA63B21344B // Ini_Reg_Class
+ )
  ; // Operations
  : Children
-   @ ( ME_556709D10061 // TvtCustomCalendarPanel
- ) .SequenceCode.It
+   Seq: ( ME_556709D10061 // TvtCustomCalendarPanel
+ )
  ; // Children
  : Constants
-   @ ( ME_5567126103D0 // Calendar Panel const
- ) .SequenceCode.It
+   Seq: ( ME_5567126103D0 // Calendar Panel const
+ )
  ; // Constants
  : Dependencies
-   @ ( ME_5567131F031A // 
+   Seq: ( ME_5567131F031A // 
  ME_5568449A02F5 // 
  ME_5568449D0199 // 
  ME_5568449F0208 // 
  ME_556844A10231 // 
  ME_7E3CB3F74E72 // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  CONST "base wnd class" 'CWnd'
  CONST "need UC" true
@@ -1201,12 +1240,14 @@ ref; // ME_7E3CB3F74E72
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\VT'
  CONST intf.pas:Path 'common\components\gui\Garant\VT\vtCalendarPanel.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\VT'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'CalendarPanel'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'vtCalendarPanel'
 
 ref; // ME_5562DB5D0259 TvtCalendarPanel
 
@@ -1225,6 +1266,7 @@ FORWARD ME_4B8E4B8202F8
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value '''Предыдущий год'''
 
 ref; // ME_4B8E4BDD0079 PrevYear
 
@@ -1241,6 +1283,7 @@ ref; // ME_4B8E4BDD0079 PrevYear
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value '''Предыдущий месяц'''
 
 ref; // ME_4B8E4C0F01B7 PrevMonth
 
@@ -1257,6 +1300,7 @@ ref; // ME_4B8E4C0F01B7 PrevMonth
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value '''Следующий месяц'''
 
 ref; // ME_4B8E4C380290 NextMonth
 
@@ -1273,6 +1317,7 @@ ref; // ME_4B8E4C380290 NextMonth
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value '''Следующий год'''
 
 ref; // ME_4B8E4C5703B2 NextYear
 
@@ -1287,16 +1332,20 @@ ref; // ME_4B8E4C5703B2 NextYear
  : Parent ME_4B8E4B58034D // vtDateEditRes
  ;
  : Attributes
-   @ ( ME_4B8E4BDD0079 // PrevYear
+   Seq: ( ME_4B8E4BDD0079 // PrevYear
  ME_4B8E4C0F01B7 // PrevMonth
  ME_4B8E4C380290 // NextMonth
  ME_4B8E4C5703B2 // NextYear
- ) .SequenceCode.It
+ )
  ; // Attributes
  CONST "Need map interface" false
  CONST "Need mapping support" false
  CONST "children prefix" 'vtStr'
  CONST "spell names" false
+ CONST dfm:PathOnly '\common\components\gui\Garant\VT'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\VT'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
  CONST extprop:pas:ElementPrefix 'vtStr'
 
 ref; // ME_4B8E4B8202F8 TvtDateEditHints
@@ -1316,6 +1365,7 @@ FORWARD ME_4B8E52AD03D7
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value '''Сегодня %s'''
 
 ref; // ME_4B8E52D50242 TodayLongLabel
 
@@ -1332,6 +1382,7 @@ ref; // ME_4B8E52D50242 TodayLongLabel
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value '''Нажмите для установки сегодняшней даты'''
 
 ref; // ME_4B8E530001BD TodayHint
 
@@ -1348,6 +1399,7 @@ ref; // ME_4B8E530001BD TodayHint
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value '''Отмена'''
 
 ref; // ME_4B8E5340007A Cancel
 
@@ -1364,6 +1416,7 @@ ref; // ME_4B8E5340007A Cancel
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value '''Сегодня'''
 
 ref; // ME_4B8E5367019B TodayShortLabel
 
@@ -1380,6 +1433,7 @@ ref; // ME_4B8E5367019B TodayShortLabel
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value '''Выбрать'''
 
 ref; // ME_4B8E539002E3 Choose
 
@@ -1394,17 +1448,21 @@ ref; // ME_4B8E539002E3 Choose
  : Parent ME_4B8E4B58034D // vtDateEditRes
  ;
  : Attributes
-   @ ( ME_4B8E52D50242 // TodayLongLabel
+   Seq: ( ME_4B8E52D50242 // TodayLongLabel
  ME_4B8E530001BD // TodayHint
  ME_4B8E5340007A // Cancel
  ME_4B8E5367019B // TodayShortLabel
  ME_4B8E539002E3 // Choose
- ) .SequenceCode.It
+ )
  ; // Attributes
  CONST "Need map interface" false
  CONST "Need mapping support" false
  CONST "children prefix" 'vt'
  CONST "spell names" false
+ CONST dfm:PathOnly '\common\components\gui\Garant\VT'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\VT'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
  CONST extprop:pas:ElementPrefix 'vt'
 
 ref; // ME_4B8E52AD03D7 TvtMiscMessages
@@ -1424,6 +1482,7 @@ FORWARD ME_4B8E582B011F
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value '''Январь'''
 
 ref; // ME_4B8E584903DF January
 
@@ -1440,6 +1499,7 @@ ref; // ME_4B8E584903DF January
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value '''Февраль'''
 
 ref; // ME_4B8E586A014B February
 
@@ -1456,6 +1516,7 @@ ref; // ME_4B8E586A014B February
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value '''Март'''
 
 ref; // ME_4B8E588D001A March
 
@@ -1472,6 +1533,7 @@ ref; // ME_4B8E588D001A March
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value '''Апрель'''
 
 ref; // ME_4B8E58A3027E April
 
@@ -1488,6 +1550,7 @@ ref; // ME_4B8E58A3027E April
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value '''Май'''
 
 ref; // ME_4B8E58B60228 May
 
@@ -1504,6 +1567,7 @@ ref; // ME_4B8E58B60228 May
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value '''Июнь'''
 
 ref; // ME_4B8E58C100B0 June
 
@@ -1520,6 +1584,7 @@ ref; // ME_4B8E58C100B0 June
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value '''Июль'''
 
 ref; // ME_4B8E58D001A0 July
 
@@ -1536,6 +1601,7 @@ ref; // ME_4B8E58D001A0 July
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value '''Август'''
 
 ref; // ME_4B8E58E40201 August
 
@@ -1552,6 +1618,7 @@ ref; // ME_4B8E58E40201 August
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value '''Сентябрь'''
 
 ref; // ME_4B8E58FF0266 September
 
@@ -1568,6 +1635,7 @@ ref; // ME_4B8E58FF0266 September
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value '''Октябрь'''
 
 ref; // ME_4B8E5912023A October
 
@@ -1584,6 +1652,7 @@ ref; // ME_4B8E5912023A October
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value '''Ноябрь'''
 
 ref; // ME_4B8E59210029 November
 
@@ -1600,6 +1669,7 @@ ref; // ME_4B8E59210029 November
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value '''Декабрь'''
 
 ref; // ME_4B8E593A0087 December
 
@@ -1615,7 +1685,7 @@ ref; // ME_4B8E593A0087 December
  : Parent ME_4B8E4B58034D // vtDateEditRes
  ;
  : Attributes
-   @ ( ME_4B8E584903DF // January
+   Seq: ( ME_4B8E584903DF // January
  ME_4B8E586A014B // February
  ME_4B8E588D001A // March
  ME_4B8E58A3027E // April
@@ -1627,12 +1697,16 @@ ref; // ME_4B8E593A0087 December
  ME_4B8E5912023A // October
  ME_4B8E59210029 // November
  ME_4B8E593A0087 // December
- ) .SequenceCode.It
+ )
  ; // Attributes
  CONST "Need map interface" false
  CONST "Need mapping support" false
  CONST "children prefix" 'vt'
  CONST "spell names" false
+ CONST dfm:PathOnly '\common\components\gui\Garant\VT'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\VT'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
  CONST extprop:pas:ElementPrefix 'vt'
 
 ref; // ME_4B8E582B011F Months
@@ -1652,6 +1726,7 @@ FORWARD ME_4B8E5E42023D
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value '''Вс'''
 
 ref; // ME_4B8E5E4E034B Sunday
 
@@ -1668,6 +1743,7 @@ ref; // ME_4B8E5E4E034B Sunday
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value '''Пн'''
 
 ref; // ME_4B8E5E6A0040 Monday
 
@@ -1684,6 +1760,7 @@ ref; // ME_4B8E5E6A0040 Monday
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value '''Вт'''
 
 ref; // ME_4B8E5E7A010D Tuesday
 
@@ -1700,6 +1777,7 @@ ref; // ME_4B8E5E7A010D Tuesday
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value '''Ср'''
 
 ref; // ME_4B8E5E870360 Wednesday
 
@@ -1716,6 +1794,7 @@ ref; // ME_4B8E5E870360 Wednesday
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value '''Чт'''
 
 ref; // ME_4B8E5EB30312 Thursday
 
@@ -1732,6 +1811,7 @@ ref; // ME_4B8E5EB30312 Thursday
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value '''Пт'''
 
 ref; // ME_4B8E5EBD022A Friday
 
@@ -1748,6 +1828,7 @@ ref; // ME_4B8E5EBD022A Friday
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value '''Сб'''
 
 ref; // ME_4B8E5ECE033A Saturday
 
@@ -1762,19 +1843,23 @@ ref; // ME_4B8E5ECE033A Saturday
  : Parent ME_4B8E4B58034D // vtDateEditRes
  ;
  : Attributes
-   @ ( ME_4B8E5E4E034B // Sunday
+   Seq: ( ME_4B8E5E4E034B // Sunday
  ME_4B8E5E6A0040 // Monday
  ME_4B8E5E7A010D // Tuesday
  ME_4B8E5E870360 // Wednesday
  ME_4B8E5EB30312 // Thursday
  ME_4B8E5EBD022A // Friday
  ME_4B8E5ECE033A // Saturday
- ) .SequenceCode.It
+ )
  ; // Attributes
  CONST "Need map interface" false
  CONST "Need mapping support" false
  CONST "children prefix" 'vt'
  CONST "spell names" false
+ CONST dfm:PathOnly '\common\components\gui\Garant\VT'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\VT'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
  CONST extprop:pas:ElementPrefix 'vt'
 
 ref; // ME_4B8E5E42023D TStDayType const
@@ -1791,6 +1876,7 @@ FORWARD ME_5562E27700D0
  : Parent ME_5562E27700D0 // sBtnGlyphs
  ;
  CONST Value '''VTPREV2'''
+ CONST extprop:pas:Value '''VTPREV2'''
 
 ref; // ME_5562E2C3039A 0
 
@@ -1804,6 +1890,7 @@ ref; // ME_5562E2C3039A 0
  : Parent ME_5562E27700D0 // sBtnGlyphs
  ;
  CONST Value '''VTPREV1'''
+ CONST extprop:pas:Value '''VTPREV1'''
 
 ref; // ME_5562E2CC00D2 1
 
@@ -1817,6 +1904,7 @@ ref; // ME_5562E2CC00D2 1
  : Parent ME_5562E27700D0 // sBtnGlyphs
  ;
  CONST Value '''VTNEXT1'''
+ CONST extprop:pas:Value '''VTNEXT1'''
 
 ref; // ME_5562E2D400DD 2
 
@@ -1830,6 +1918,7 @@ ref; // ME_5562E2D400DD 2
  : Parent ME_5562E27700D0 // sBtnGlyphs
  ;
  CONST Value '''VTNEXT2'''
+ CONST extprop:pas:Value '''VTNEXT2'''
 
 ref; // ME_5562E2DB008E 3
 
@@ -1844,18 +1933,22 @@ ref; // ME_5562E2DB008E 3
  : Parent ME_4B8E4B58034D // vtDateEditRes
  ;
  : Inherits
-   @ ( WL 'ME_4771179900D8' '4AB0C3C60310.pas.ms.script' // PChar
- ) .SequenceCode.It
+   Seq: ( WL 'ME_4771179900D8' '4AB0C3C60310.pas.ms.script' // PChar
+ )
  ; // Inherits
  : Attributes
-   @ ( ME_5562E2C3039A // 0
+   Seq: ( ME_5562E2C3039A // 0
  ME_5562E2CC00D2 // 1
  ME_5562E2D400DD // 2
  ME_5562E2DB008E // 3
- ) .SequenceCode.It
+ )
  ; // Attributes
  CONST "Need map interface" false
  CONST "Need mapping support" false
+ CONST dfm:PathOnly '\common\components\gui\Garant\VT'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\VT'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_5562E27700D0 sBtnGlyphs
 
@@ -1880,8 +1973,8 @@ ref; // ME_5562E13B01FF aDate
  : Parent ME_5562E125030D // TvtBeforeCorrectDate
  ;
  : Parameters
-   @ ( ME_5562E13B01FF // aDate
- ) .SequenceCode.It
+   Seq: ( ME_5562E13B01FF // aDate
+ )
  ; // Parameters
 
 ref; // ME_5562E13102EF DoIt
@@ -1897,10 +1990,14 @@ ref; // ME_5562E13102EF DoIt
  : Parent ME_4B8E4B58034D // vtDateEditRes
  ;
  : Operations
-   @ ( ME_5562E13102EF // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_5562E13102EF // DoIt
+ )
  ; // Operations
  CONST "of object" true
+ CONST dfm:PathOnly '\common\components\gui\Garant\VT'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\VT'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_5562E125030D TvtBeforeCorrectDate
 
@@ -1919,6 +2016,7 @@ FORWARD ME_55647F66020D
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value 1
 
 ref; // ME_55647F78031F 1
 
@@ -1935,6 +2033,7 @@ ref; // ME_55647F78031F 1
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value 12
 
 ref; // ME_55647F7D02C5 12
 
@@ -1950,11 +2049,15 @@ ref; // ME_55647F7D02C5 12
  : Parent ME_4B8E4B58034D // vtDateEditRes
  ;
  : Attributes
-   @ ( ME_55647F78031F // 1
+   Seq: ( ME_55647F78031F // 1
  ME_55647F7D02C5 // 12
- ) .SequenceCode.It
+ )
  ; // Attributes
  CONST "spell names" false
+ CONST dfm:PathOnly '\common\components\gui\Garant\VT'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\VT'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_55647F66020D TvtMonths
 
@@ -1963,6 +2066,7 @@ FORWARD ME_8C5337C7F5B9
 : ME_FAFD95A9058E
  CONST UID 'FAFD95A9058E'
  CONST Name 'PrevYear'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY '''Предыдущий год''' ;
  CONST Visibility PublicAccess
@@ -1978,12 +2082,14 @@ FORWARD ME_8C5337C7F5B9
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''vtStrPrevYear''; rValue : ''Предыдущий год'')'
 
 ref; // ME_FAFD95A9058E PrevYear
 
 : ME_874CC5898D07
  CONST UID '874CC5898D07'
  CONST Name 'PrevMonth'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY '''Предыдущий месяц''' ;
  CONST Visibility PublicAccess
@@ -1999,12 +2105,14 @@ ref; // ME_FAFD95A9058E PrevYear
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''vtStrPrevMonth''; rValue : ''Предыдущий месяц'')'
 
 ref; // ME_874CC5898D07 PrevMonth
 
 : ME_2DFFDE983715
  CONST UID '2DFFDE983715'
  CONST Name 'NextMonth'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY '''Следующий месяц''' ;
  CONST Visibility PublicAccess
@@ -2020,12 +2128,14 @@ ref; // ME_874CC5898D07 PrevMonth
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''vtStrNextMonth''; rValue : ''Следующий месяц'')'
 
 ref; // ME_2DFFDE983715 NextMonth
 
 : ME_40A01A7ED192
  CONST UID '40A01A7ED192'
  CONST Name 'NextYear'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY '''Следующий год''' ;
  CONST Visibility PublicAccess
@@ -2041,12 +2151,14 @@ ref; // ME_2DFFDE983715 NextMonth
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''vtStrNextYear''; rValue : ''Следующий год'')'
 
 ref; // ME_40A01A7ED192 NextYear
 
 : ME_8C5337C7F5B9
  CONST UID '8C5337C7F5B9'
  CONST Name 'LCImplTvtDateEditHints'
+ CONST IsSummoned true
  CONST Class class_Class
  : Stereotype st_Constants ;
  CONST Kind kind_NormalClass
@@ -2056,15 +2168,19 @@ ref; // ME_40A01A7ED192 NextYear
  : Parent ME_4B8E4B58034D // vtDateEditRes
  ;
  : Attributes
-   @ ( ME_FAFD95A9058E // PrevYear
+   Seq: ( ME_FAFD95A9058E // PrevYear
  ME_874CC5898D07 // PrevMonth
  ME_2DFFDE983715 // NextMonth
  ME_40A01A7ED192 // NextYear
- ) .SequenceCode.It
+ )
  ; // Attributes
  CONST "children prefix" 'vtStr'
  CONST "elements prefix" 'str'
  CONST "spell names" false
+ CONST dfm:PathOnly '\common\components\gui\Garant\VT'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\VT'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
  CONST extprop:pas:ElementPrefixBase 'str'
  CONST extprop:pas:ElementPrefix 'str_vtStr'
 
@@ -2075,6 +2191,7 @@ FORWARD ME_E4A182407C04
 : ME_35939942F534
  CONST UID '35939942F534'
  CONST Name 'TodayLongLabel'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY '''Сегодня %s''' ;
  CONST Visibility PublicAccess
@@ -2090,12 +2207,14 @@ FORWARD ME_E4A182407C04
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''vtTodayLongLabel''; rValue : ''Сегодня %s'')'
 
 ref; // ME_35939942F534 TodayLongLabel
 
 : ME_A05D4132E4AF
  CONST UID 'A05D4132E4AF'
  CONST Name 'TodayHint'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY '''Нажмите для установки сегодняшней даты''' ;
  CONST Visibility PublicAccess
@@ -2111,12 +2230,14 @@ ref; // ME_35939942F534 TodayLongLabel
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''vtTodayHint''; rValue : ''Нажмите для установки сегодняшней даты'')'
 
 ref; // ME_A05D4132E4AF TodayHint
 
 : ME_34683324F9E1
  CONST UID '34683324F9E1'
  CONST Name 'Cancel'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY '''Отмена''' ;
  CONST Visibility PublicAccess
@@ -2132,12 +2253,14 @@ ref; // ME_A05D4132E4AF TodayHint
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''vtCancel''; rValue : ''Отмена'')'
 
 ref; // ME_34683324F9E1 Cancel
 
 : ME_100E14E2F474
  CONST UID '100E14E2F474'
  CONST Name 'TodayShortLabel'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY '''Сегодня''' ;
  CONST Visibility PublicAccess
@@ -2153,12 +2276,14 @@ ref; // ME_34683324F9E1 Cancel
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''vtTodayShortLabel''; rValue : ''Сегодня'')'
 
 ref; // ME_100E14E2F474 TodayShortLabel
 
 : ME_26C69270F57E
  CONST UID '26C69270F57E'
  CONST Name 'Choose'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY '''Выбрать''' ;
  CONST Visibility PublicAccess
@@ -2174,12 +2299,14 @@ ref; // ME_100E14E2F474 TodayShortLabel
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''vtChoose''; rValue : ''Выбрать'')'
 
 ref; // ME_26C69270F57E Choose
 
 : ME_E4A182407C04
  CONST UID 'E4A182407C04'
  CONST Name 'LCImplTvtMiscMessages'
+ CONST IsSummoned true
  CONST Class class_Class
  : Stereotype st_Constants ;
  CONST Kind kind_NormalClass
@@ -2189,16 +2316,20 @@ ref; // ME_26C69270F57E Choose
  : Parent ME_4B8E4B58034D // vtDateEditRes
  ;
  : Attributes
-   @ ( ME_35939942F534 // TodayLongLabel
+   Seq: ( ME_35939942F534 // TodayLongLabel
  ME_A05D4132E4AF // TodayHint
  ME_34683324F9E1 // Cancel
  ME_100E14E2F474 // TodayShortLabel
  ME_26C69270F57E // Choose
- ) .SequenceCode.It
+ )
  ; // Attributes
  CONST "children prefix" 'vt'
  CONST "elements prefix" 'str'
  CONST "spell names" false
+ CONST dfm:PathOnly '\common\components\gui\Garant\VT'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\VT'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
  CONST extprop:pas:ElementPrefixBase 'str'
  CONST extprop:pas:ElementPrefix 'str_vt'
 
@@ -2209,6 +2340,7 @@ FORWARD ME_8408900CA96D
 : ME_501F288648E9
  CONST UID '501F288648E9'
  CONST Name 'January'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY '''Январь''' ;
  CONST Visibility PublicAccess
@@ -2224,12 +2356,14 @@ FORWARD ME_8408900CA96D
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''vtJanuary''; rValue : ''Январь'')'
 
 ref; // ME_501F288648E9 January
 
 : ME_9D1A5A26BEA2
  CONST UID '9D1A5A26BEA2'
  CONST Name 'February'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY '''Февраль''' ;
  CONST Visibility PublicAccess
@@ -2245,12 +2379,14 @@ ref; // ME_501F288648E9 January
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''vtFebruary''; rValue : ''Февраль'')'
 
 ref; // ME_9D1A5A26BEA2 February
 
 : ME_248AE4608DA7
  CONST UID '248AE4608DA7'
  CONST Name 'March'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY '''Март''' ;
  CONST Visibility PublicAccess
@@ -2266,12 +2402,14 @@ ref; // ME_9D1A5A26BEA2 February
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''vtMarch''; rValue : ''Март'')'
 
 ref; // ME_248AE4608DA7 March
 
 : ME_A49C7D36BB84
  CONST UID 'A49C7D36BB84'
  CONST Name 'April'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY '''Апрель''' ;
  CONST Visibility PublicAccess
@@ -2287,12 +2425,14 @@ ref; // ME_248AE4608DA7 March
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''vtApril''; rValue : ''Апрель'')'
 
 ref; // ME_A49C7D36BB84 April
 
 : ME_4966F38608C5
  CONST UID '4966F38608C5'
  CONST Name 'May'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY '''Май''' ;
  CONST Visibility PublicAccess
@@ -2308,12 +2448,14 @@ ref; // ME_A49C7D36BB84 April
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''vtMay''; rValue : ''Май'')'
 
 ref; // ME_4966F38608C5 May
 
 : ME_9ED5E0DACD76
  CONST UID '9ED5E0DACD76'
  CONST Name 'June'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY '''Июнь''' ;
  CONST Visibility PublicAccess
@@ -2329,12 +2471,14 @@ ref; // ME_4966F38608C5 May
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''vtJune''; rValue : ''Июнь'')'
 
 ref; // ME_9ED5E0DACD76 June
 
 : ME_B7B873E6618E
  CONST UID 'B7B873E6618E'
  CONST Name 'July'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY '''Июль''' ;
  CONST Visibility PublicAccess
@@ -2350,12 +2494,14 @@ ref; // ME_9ED5E0DACD76 June
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''vtJuly''; rValue : ''Июль'')'
 
 ref; // ME_B7B873E6618E July
 
 : ME_28B6CFF14955
  CONST UID '28B6CFF14955'
  CONST Name 'August'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY '''Август''' ;
  CONST Visibility PublicAccess
@@ -2371,12 +2517,14 @@ ref; // ME_B7B873E6618E July
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''vtAugust''; rValue : ''Август'')'
 
 ref; // ME_28B6CFF14955 August
 
 : ME_67255F36E2EC
  CONST UID '67255F36E2EC'
  CONST Name 'September'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY '''Сентябрь''' ;
  CONST Visibility PublicAccess
@@ -2392,12 +2540,14 @@ ref; // ME_28B6CFF14955 August
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''vtSeptember''; rValue : ''Сентябрь'')'
 
 ref; // ME_67255F36E2EC September
 
 : ME_4F181A6FB976
  CONST UID '4F181A6FB976'
  CONST Name 'October'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY '''Октябрь''' ;
  CONST Visibility PublicAccess
@@ -2413,12 +2563,14 @@ ref; // ME_67255F36E2EC September
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''vtOctober''; rValue : ''Октябрь'')'
 
 ref; // ME_4F181A6FB976 October
 
 : ME_D7231A584BBF
  CONST UID 'D7231A584BBF'
  CONST Name 'November'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY '''Ноябрь''' ;
  CONST Visibility PublicAccess
@@ -2434,12 +2586,14 @@ ref; // ME_4F181A6FB976 October
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''vtNovember''; rValue : ''Ноябрь'')'
 
 ref; // ME_D7231A584BBF November
 
 : ME_5E1CA1692C33
  CONST UID '5E1CA1692C33'
  CONST Name 'December'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY '''Декабрь''' ;
  CONST Visibility PublicAccess
@@ -2455,12 +2609,14 @@ ref; // ME_D7231A584BBF November
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''vtDecember''; rValue : ''Декабрь'')'
 
 ref; // ME_5E1CA1692C33 December
 
 : ME_8408900CA96D
  CONST UID '8408900CA96D'
  CONST Name 'LCImplMonths'
+ CONST IsSummoned true
  CONST Class class_Class
  : Stereotype st_Constants ;
  CONST Kind kind_NormalClass
@@ -2470,7 +2626,7 @@ ref; // ME_5E1CA1692C33 December
  : Parent ME_4B8E4B58034D // vtDateEditRes
  ;
  : Attributes
-   @ ( ME_501F288648E9 // January
+   Seq: ( ME_501F288648E9 // January
  ME_9D1A5A26BEA2 // February
  ME_248AE4608DA7 // March
  ME_A49C7D36BB84 // April
@@ -2482,11 +2638,15 @@ ref; // ME_5E1CA1692C33 December
  ME_4F181A6FB976 // October
  ME_D7231A584BBF // November
  ME_5E1CA1692C33 // December
- ) .SequenceCode.It
+ )
  ; // Attributes
  CONST "children prefix" 'vt'
  CONST "elements prefix" 'str'
  CONST "spell names" false
+ CONST dfm:PathOnly '\common\components\gui\Garant\VT'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\VT'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
  CONST extprop:pas:ElementPrefixBase 'str'
  CONST extprop:pas:ElementPrefix 'str_vt'
 
@@ -2497,6 +2657,7 @@ FORWARD ME_A3807658E0D3
 : ME_24EDA6B0B611
  CONST UID '24EDA6B0B611'
  CONST Name 'Sunday'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY '''Вс''' ;
  CONST Visibility PublicAccess
@@ -2512,12 +2673,14 @@ FORWARD ME_A3807658E0D3
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''vtSunday''; rValue : ''Вс'')'
 
 ref; // ME_24EDA6B0B611 Sunday
 
 : ME_0A0B34730FB9
  CONST UID '0A0B34730FB9'
  CONST Name 'Monday'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY '''Пн''' ;
  CONST Visibility PublicAccess
@@ -2533,12 +2696,14 @@ ref; // ME_24EDA6B0B611 Sunday
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''vtMonday''; rValue : ''Пн'')'
 
 ref; // ME_0A0B34730FB9 Monday
 
 : ME_4FBA8956BA03
  CONST UID '4FBA8956BA03'
  CONST Name 'Tuesday'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY '''Вт''' ;
  CONST Visibility PublicAccess
@@ -2554,12 +2719,14 @@ ref; // ME_0A0B34730FB9 Monday
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''vtTuesday''; rValue : ''Вт'')'
 
 ref; // ME_4FBA8956BA03 Tuesday
 
 : ME_F17D743DDD7B
  CONST UID 'F17D743DDD7B'
  CONST Name 'Wednesday'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY '''Ср''' ;
  CONST Visibility PublicAccess
@@ -2575,12 +2742,14 @@ ref; // ME_4FBA8956BA03 Tuesday
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''vtWednesday''; rValue : ''Ср'')'
 
 ref; // ME_F17D743DDD7B Wednesday
 
 : ME_D404BFDEA985
  CONST UID 'D404BFDEA985'
  CONST Name 'Thursday'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY '''Чт''' ;
  CONST Visibility PublicAccess
@@ -2596,12 +2765,14 @@ ref; // ME_F17D743DDD7B Wednesday
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''vtThursday''; rValue : ''Чт'')'
 
 ref; // ME_D404BFDEA985 Thursday
 
 : ME_9294654C0C22
  CONST UID '9294654C0C22'
  CONST Name 'Friday'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY '''Пт''' ;
  CONST Visibility PublicAccess
@@ -2617,12 +2788,14 @@ ref; // ME_D404BFDEA985 Thursday
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''vtFriday''; rValue : ''Пт'')'
 
 ref; // ME_9294654C0C22 Friday
 
 : ME_258DD3B2376E
  CONST UID '258DD3B2376E'
  CONST Name 'Saturday'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY '''Сб''' ;
  CONST Visibility PublicAccess
@@ -2638,12 +2811,14 @@ ref; // ME_9294654C0C22 Friday
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''vtSaturday''; rValue : ''Сб'')'
 
 ref; // ME_258DD3B2376E Saturday
 
 : ME_A3807658E0D3
  CONST UID 'A3807658E0D3'
  CONST Name 'LCImplTStDayType const'
+ CONST IsSummoned true
  CONST Class class_Class
  : Stereotype st_Constants ;
  CONST Kind kind_NormalClass
@@ -2653,18 +2828,22 @@ ref; // ME_258DD3B2376E Saturday
  : Parent ME_4B8E4B58034D // vtDateEditRes
  ;
  : Attributes
-   @ ( ME_24EDA6B0B611 // Sunday
+   Seq: ( ME_24EDA6B0B611 // Sunday
  ME_0A0B34730FB9 // Monday
  ME_4FBA8956BA03 // Tuesday
  ME_F17D743DDD7B // Wednesday
  ME_D404BFDEA985 // Thursday
  ME_9294654C0C22 // Friday
  ME_258DD3B2376E // Saturday
- ) .SequenceCode.It
+ )
  ; // Attributes
  CONST "children prefix" 'vt'
  CONST "elements prefix" 'str'
  CONST "spell names" false
+ CONST dfm:PathOnly '\common\components\gui\Garant\VT'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\VT'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
  CONST extprop:pas:ElementPrefixBase 'str'
  CONST extprop:pas:ElementPrefix 'str_vt'
 
@@ -2684,6 +2863,7 @@ ref; // ME_A3807658E0D3 LCImplTStDayType const
  CONST Value 'nil'
  : ValueType ME_5562E125030D // TvtBeforeCorrectDate
  ;
+ CONST extprop:pas:Value 'nil'
 
 ref; // ME_5562E15F0049 g_vtBeforeCorrectDate
 
@@ -2708,8 +2888,8 @@ ref; // ME_5562E30901C3 aFont
  : Parent ME_5562E2F802BD // FontSetDefault
  ;
  : Parameters
-   @ ( ME_5562E30901C3 // aFont
- ) .SequenceCode.It
+   Seq: ( ME_5562E30901C3 // aFont
+ )
  ; // Parameters
 
 ref; // ME_5562E30503C1 DoIt
@@ -2736,12 +2916,12 @@ ref; // ME_5562E33D02F0
  : Parent ME_4B8E4B58034D // vtDateEditRes
  ;
  : Operations
-   @ ( ME_5562E30503C1 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_5562E30503C1 // DoIt
+ )
  ; // Operations
  : Dependencies
-   @ ( ME_5562E33D02F0 // 
- ) .SequenceCode.It
+   Seq: ( ME_5562E33D02F0 // 
+ )
  ; // Dependencies
 
 ref; // ME_5562E2F802BD FontSetDefault
@@ -2769,8 +2949,8 @@ ref; // ME_5564719B0294 aMonth
  : Target WL 'ME_4B3B49B40262' '4F9BDEEE01BC.pas.ms.script' // Pl3StringIDEx
  ;
  : Parameters
-   @ ( ME_5564719B0294 // aMonth
- ) .SequenceCode.It
+   Seq: ( ME_5564719B0294 // aMonth
+ )
  ; // Parameters
 
 ref; // ME_5564718E00AB DoIt
@@ -2786,9 +2966,10 @@ ref; // ME_5564718E00AB DoIt
  : Parent ME_4B8E4B58034D // vtDateEditRes
  ;
  : Operations
-   @ ( ME_5564718E00AB // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_5564718E00AB // DoIt
+ )
  ; // Operations
+ CONST extprop:rc:SelfName 'MonthsCaptions'
 
 ref; // ME_55647167004A vtMonthsCaptions
 
@@ -2815,8 +2996,8 @@ ref; // ME_556713950189 aDay
  : Target WL 'ME_4B3B49B40262' '4F9BDEEE01BC.pas.ms.script' // Pl3StringIDEx
  ;
  : Parameters
-   @ ( ME_556713950189 // aDay
- ) .SequenceCode.It
+   Seq: ( ME_556713950189 // aDay
+ )
  ; // Parameters
 
 ref; // ME_55671387014D DoIt
@@ -2832,15 +3013,17 @@ ref; // ME_55671387014D DoIt
  : Parent ME_4B8E4B58034D // vtDateEditRes
  ;
  : Operations
-   @ ( ME_55671387014D // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_55671387014D // DoIt
+ )
  ; // Operations
+ CONST extprop:rc:SelfName 'WeekDaysCaptions'
 
 ref; // ME_5567136300AE vtWeekDaysCaptions
 
 : ME_E84A3FB8C19C
  CONST UID 'E84A3FB8C19C'
- CONST Name 'Init_PrevYear'
+ CONST Name 'Init_Str_PrevYear'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Инициализация str_vtStrPrevYear' ;
@@ -2848,12 +3031,17 @@ ref; // ME_5567136300AE vtWeekDaysCaptions
  CONST Abstraction at_final
  : Parent ME_4B8E4B58034D // vtDateEditRes
  ;
+ : Speller ME_4B8E4BDD0079 // PrevYear
+ ;
+ : SpelledFor ME_FAFD95A9058E // PrevYear
+ ;
 
-ref; // ME_E84A3FB8C19C Init_PrevYear
+ref; // ME_E84A3FB8C19C Init_Str_PrevYear
 
 : ME_DF0219868110
  CONST UID 'DF0219868110'
- CONST Name 'Init_PrevMonth'
+ CONST Name 'Init_Str_PrevMonth'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Инициализация str_vtStrPrevMonth' ;
@@ -2861,12 +3049,17 @@ ref; // ME_E84A3FB8C19C Init_PrevYear
  CONST Abstraction at_final
  : Parent ME_4B8E4B58034D // vtDateEditRes
  ;
+ : Speller ME_4B8E4C0F01B7 // PrevMonth
+ ;
+ : SpelledFor ME_874CC5898D07 // PrevMonth
+ ;
 
-ref; // ME_DF0219868110 Init_PrevMonth
+ref; // ME_DF0219868110 Init_Str_PrevMonth
 
 : ME_95454C085FC2
  CONST UID '95454C085FC2'
- CONST Name 'Init_NextMonth'
+ CONST Name 'Init_Str_NextMonth'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Инициализация str_vtStrNextMonth' ;
@@ -2874,12 +3067,17 @@ ref; // ME_DF0219868110 Init_PrevMonth
  CONST Abstraction at_final
  : Parent ME_4B8E4B58034D // vtDateEditRes
  ;
+ : Speller ME_4B8E4C380290 // NextMonth
+ ;
+ : SpelledFor ME_2DFFDE983715 // NextMonth
+ ;
 
-ref; // ME_95454C085FC2 Init_NextMonth
+ref; // ME_95454C085FC2 Init_Str_NextMonth
 
 : ME_A2D0796F15CB
  CONST UID 'A2D0796F15CB'
- CONST Name 'Init_NextYear'
+ CONST Name 'Init_Str_NextYear'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Инициализация str_vtStrNextYear' ;
@@ -2887,12 +3085,17 @@ ref; // ME_95454C085FC2 Init_NextMonth
  CONST Abstraction at_final
  : Parent ME_4B8E4B58034D // vtDateEditRes
  ;
+ : Speller ME_4B8E4C5703B2 // NextYear
+ ;
+ : SpelledFor ME_40A01A7ED192 // NextYear
+ ;
 
-ref; // ME_A2D0796F15CB Init_NextYear
+ref; // ME_A2D0796F15CB Init_Str_NextYear
 
 : ME_BAE37CC2C3F1
  CONST UID 'BAE37CC2C3F1'
- CONST Name 'Init_TodayLongLabel'
+ CONST Name 'Init_Str_TodayLongLabel'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Инициализация str_vtTodayLongLabel' ;
@@ -2900,12 +3103,17 @@ ref; // ME_A2D0796F15CB Init_NextYear
  CONST Abstraction at_final
  : Parent ME_4B8E4B58034D // vtDateEditRes
  ;
+ : Speller ME_4B8E52D50242 // TodayLongLabel
+ ;
+ : SpelledFor ME_35939942F534 // TodayLongLabel
+ ;
 
-ref; // ME_BAE37CC2C3F1 Init_TodayLongLabel
+ref; // ME_BAE37CC2C3F1 Init_Str_TodayLongLabel
 
 : ME_464F6964D578
  CONST UID '464F6964D578'
- CONST Name 'Init_TodayHint'
+ CONST Name 'Init_Str_TodayHint'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Инициализация str_vtTodayHint' ;
@@ -2913,12 +3121,17 @@ ref; // ME_BAE37CC2C3F1 Init_TodayLongLabel
  CONST Abstraction at_final
  : Parent ME_4B8E4B58034D // vtDateEditRes
  ;
+ : Speller ME_4B8E530001BD // TodayHint
+ ;
+ : SpelledFor ME_A05D4132E4AF // TodayHint
+ ;
 
-ref; // ME_464F6964D578 Init_TodayHint
+ref; // ME_464F6964D578 Init_Str_TodayHint
 
 : ME_8FA2A51D6FAE
  CONST UID '8FA2A51D6FAE'
- CONST Name 'Init_Cancel'
+ CONST Name 'Init_Str_Cancel'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Инициализация str_vtCancel' ;
@@ -2926,12 +3139,17 @@ ref; // ME_464F6964D578 Init_TodayHint
  CONST Abstraction at_final
  : Parent ME_4B8E4B58034D // vtDateEditRes
  ;
+ : Speller ME_4B8E5340007A // Cancel
+ ;
+ : SpelledFor ME_34683324F9E1 // Cancel
+ ;
 
-ref; // ME_8FA2A51D6FAE Init_Cancel
+ref; // ME_8FA2A51D6FAE Init_Str_Cancel
 
 : ME_AA6C6E47DAC1
  CONST UID 'AA6C6E47DAC1'
- CONST Name 'Init_TodayShortLabel'
+ CONST Name 'Init_Str_TodayShortLabel'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Инициализация str_vtTodayShortLabel' ;
@@ -2939,12 +3157,17 @@ ref; // ME_8FA2A51D6FAE Init_Cancel
  CONST Abstraction at_final
  : Parent ME_4B8E4B58034D // vtDateEditRes
  ;
+ : Speller ME_4B8E5367019B // TodayShortLabel
+ ;
+ : SpelledFor ME_100E14E2F474 // TodayShortLabel
+ ;
 
-ref; // ME_AA6C6E47DAC1 Init_TodayShortLabel
+ref; // ME_AA6C6E47DAC1 Init_Str_TodayShortLabel
 
 : ME_F3FB8070FC4C
  CONST UID 'F3FB8070FC4C'
- CONST Name 'Init_Choose'
+ CONST Name 'Init_Str_Choose'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Инициализация str_vtChoose' ;
@@ -2952,12 +3175,17 @@ ref; // ME_AA6C6E47DAC1 Init_TodayShortLabel
  CONST Abstraction at_final
  : Parent ME_4B8E4B58034D // vtDateEditRes
  ;
+ : Speller ME_4B8E539002E3 // Choose
+ ;
+ : SpelledFor ME_26C69270F57E // Choose
+ ;
 
-ref; // ME_F3FB8070FC4C Init_Choose
+ref; // ME_F3FB8070FC4C Init_Str_Choose
 
 : ME_9940C7537A31
  CONST UID '9940C7537A31'
- CONST Name 'Init_January'
+ CONST Name 'Init_Str_January'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Инициализация str_vtJanuary' ;
@@ -2965,12 +3193,17 @@ ref; // ME_F3FB8070FC4C Init_Choose
  CONST Abstraction at_final
  : Parent ME_4B8E4B58034D // vtDateEditRes
  ;
+ : Speller ME_4B8E584903DF // January
+ ;
+ : SpelledFor ME_501F288648E9 // January
+ ;
 
-ref; // ME_9940C7537A31 Init_January
+ref; // ME_9940C7537A31 Init_Str_January
 
 : ME_31C3733CB92C
  CONST UID '31C3733CB92C'
- CONST Name 'Init_February'
+ CONST Name 'Init_Str_February'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Инициализация str_vtFebruary' ;
@@ -2978,12 +3211,17 @@ ref; // ME_9940C7537A31 Init_January
  CONST Abstraction at_final
  : Parent ME_4B8E4B58034D // vtDateEditRes
  ;
+ : Speller ME_4B8E586A014B // February
+ ;
+ : SpelledFor ME_9D1A5A26BEA2 // February
+ ;
 
-ref; // ME_31C3733CB92C Init_February
+ref; // ME_31C3733CB92C Init_Str_February
 
 : ME_E0DD21333B56
  CONST UID 'E0DD21333B56'
- CONST Name 'Init_March'
+ CONST Name 'Init_Str_March'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Инициализация str_vtMarch' ;
@@ -2991,12 +3229,17 @@ ref; // ME_31C3733CB92C Init_February
  CONST Abstraction at_final
  : Parent ME_4B8E4B58034D // vtDateEditRes
  ;
+ : Speller ME_4B8E588D001A // March
+ ;
+ : SpelledFor ME_248AE4608DA7 // March
+ ;
 
-ref; // ME_E0DD21333B56 Init_March
+ref; // ME_E0DD21333B56 Init_Str_March
 
 : ME_954FFD7B4C98
  CONST UID '954FFD7B4C98'
- CONST Name 'Init_April'
+ CONST Name 'Init_Str_April'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Инициализация str_vtApril' ;
@@ -3004,12 +3247,17 @@ ref; // ME_E0DD21333B56 Init_March
  CONST Abstraction at_final
  : Parent ME_4B8E4B58034D // vtDateEditRes
  ;
+ : Speller ME_4B8E58A3027E // April
+ ;
+ : SpelledFor ME_A49C7D36BB84 // April
+ ;
 
-ref; // ME_954FFD7B4C98 Init_April
+ref; // ME_954FFD7B4C98 Init_Str_April
 
 : ME_C23AB8BDDE04
  CONST UID 'C23AB8BDDE04'
- CONST Name 'Init_May'
+ CONST Name 'Init_Str_May'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Инициализация str_vtMay' ;
@@ -3017,12 +3265,17 @@ ref; // ME_954FFD7B4C98 Init_April
  CONST Abstraction at_final
  : Parent ME_4B8E4B58034D // vtDateEditRes
  ;
+ : Speller ME_4B8E58B60228 // May
+ ;
+ : SpelledFor ME_4966F38608C5 // May
+ ;
 
-ref; // ME_C23AB8BDDE04 Init_May
+ref; // ME_C23AB8BDDE04 Init_Str_May
 
 : ME_42854D958F0C
  CONST UID '42854D958F0C'
- CONST Name 'Init_June'
+ CONST Name 'Init_Str_June'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Инициализация str_vtJune' ;
@@ -3030,12 +3283,17 @@ ref; // ME_C23AB8BDDE04 Init_May
  CONST Abstraction at_final
  : Parent ME_4B8E4B58034D // vtDateEditRes
  ;
+ : Speller ME_4B8E58C100B0 // June
+ ;
+ : SpelledFor ME_9ED5E0DACD76 // June
+ ;
 
-ref; // ME_42854D958F0C Init_June
+ref; // ME_42854D958F0C Init_Str_June
 
 : ME_F0D02DAFB564
  CONST UID 'F0D02DAFB564'
- CONST Name 'Init_July'
+ CONST Name 'Init_Str_July'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Инициализация str_vtJuly' ;
@@ -3043,12 +3301,17 @@ ref; // ME_42854D958F0C Init_June
  CONST Abstraction at_final
  : Parent ME_4B8E4B58034D // vtDateEditRes
  ;
+ : Speller ME_4B8E58D001A0 // July
+ ;
+ : SpelledFor ME_B7B873E6618E // July
+ ;
 
-ref; // ME_F0D02DAFB564 Init_July
+ref; // ME_F0D02DAFB564 Init_Str_July
 
 : ME_31AC933B2D77
  CONST UID '31AC933B2D77'
- CONST Name 'Init_August'
+ CONST Name 'Init_Str_August'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Инициализация str_vtAugust' ;
@@ -3056,12 +3319,17 @@ ref; // ME_F0D02DAFB564 Init_July
  CONST Abstraction at_final
  : Parent ME_4B8E4B58034D // vtDateEditRes
  ;
+ : Speller ME_4B8E58E40201 // August
+ ;
+ : SpelledFor ME_28B6CFF14955 // August
+ ;
 
-ref; // ME_31AC933B2D77 Init_August
+ref; // ME_31AC933B2D77 Init_Str_August
 
 : ME_FB2D8557DF46
  CONST UID 'FB2D8557DF46'
- CONST Name 'Init_September'
+ CONST Name 'Init_Str_September'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Инициализация str_vtSeptember' ;
@@ -3069,12 +3337,17 @@ ref; // ME_31AC933B2D77 Init_August
  CONST Abstraction at_final
  : Parent ME_4B8E4B58034D // vtDateEditRes
  ;
+ : Speller ME_4B8E58FF0266 // September
+ ;
+ : SpelledFor ME_67255F36E2EC // September
+ ;
 
-ref; // ME_FB2D8557DF46 Init_September
+ref; // ME_FB2D8557DF46 Init_Str_September
 
 : ME_355137D1386E
  CONST UID '355137D1386E'
- CONST Name 'Init_October'
+ CONST Name 'Init_Str_October'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Инициализация str_vtOctober' ;
@@ -3082,12 +3355,17 @@ ref; // ME_FB2D8557DF46 Init_September
  CONST Abstraction at_final
  : Parent ME_4B8E4B58034D // vtDateEditRes
  ;
+ : Speller ME_4B8E5912023A // October
+ ;
+ : SpelledFor ME_4F181A6FB976 // October
+ ;
 
-ref; // ME_355137D1386E Init_October
+ref; // ME_355137D1386E Init_Str_October
 
 : ME_4B3BD92B413C
  CONST UID '4B3BD92B413C'
- CONST Name 'Init_November'
+ CONST Name 'Init_Str_November'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Инициализация str_vtNovember' ;
@@ -3095,12 +3373,17 @@ ref; // ME_355137D1386E Init_October
  CONST Abstraction at_final
  : Parent ME_4B8E4B58034D // vtDateEditRes
  ;
+ : Speller ME_4B8E59210029 // November
+ ;
+ : SpelledFor ME_D7231A584BBF // November
+ ;
 
-ref; // ME_4B3BD92B413C Init_November
+ref; // ME_4B3BD92B413C Init_Str_November
 
 : ME_6264FEFA209C
  CONST UID '6264FEFA209C'
- CONST Name 'Init_December'
+ CONST Name 'Init_Str_December'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Инициализация str_vtDecember' ;
@@ -3108,12 +3391,17 @@ ref; // ME_4B3BD92B413C Init_November
  CONST Abstraction at_final
  : Parent ME_4B8E4B58034D // vtDateEditRes
  ;
+ : Speller ME_4B8E593A0087 // December
+ ;
+ : SpelledFor ME_5E1CA1692C33 // December
+ ;
 
-ref; // ME_6264FEFA209C Init_December
+ref; // ME_6264FEFA209C Init_Str_December
 
 : ME_423987DA27CA
  CONST UID '423987DA27CA'
- CONST Name 'Init_Sunday'
+ CONST Name 'Init_Str_Sunday'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Инициализация str_vtSunday' ;
@@ -3121,12 +3409,17 @@ ref; // ME_6264FEFA209C Init_December
  CONST Abstraction at_final
  : Parent ME_4B8E4B58034D // vtDateEditRes
  ;
+ : Speller ME_4B8E5E4E034B // Sunday
+ ;
+ : SpelledFor ME_24EDA6B0B611 // Sunday
+ ;
 
-ref; // ME_423987DA27CA Init_Sunday
+ref; // ME_423987DA27CA Init_Str_Sunday
 
 : ME_D80D14B30392
  CONST UID 'D80D14B30392'
- CONST Name 'Init_Monday'
+ CONST Name 'Init_Str_Monday'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Инициализация str_vtMonday' ;
@@ -3134,12 +3427,17 @@ ref; // ME_423987DA27CA Init_Sunday
  CONST Abstraction at_final
  : Parent ME_4B8E4B58034D // vtDateEditRes
  ;
+ : Speller ME_4B8E5E6A0040 // Monday
+ ;
+ : SpelledFor ME_0A0B34730FB9 // Monday
+ ;
 
-ref; // ME_D80D14B30392 Init_Monday
+ref; // ME_D80D14B30392 Init_Str_Monday
 
 : ME_EEC62E0F0C7A
  CONST UID 'EEC62E0F0C7A'
- CONST Name 'Init_Tuesday'
+ CONST Name 'Init_Str_Tuesday'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Инициализация str_vtTuesday' ;
@@ -3147,12 +3445,17 @@ ref; // ME_D80D14B30392 Init_Monday
  CONST Abstraction at_final
  : Parent ME_4B8E4B58034D // vtDateEditRes
  ;
+ : Speller ME_4B8E5E7A010D // Tuesday
+ ;
+ : SpelledFor ME_4FBA8956BA03 // Tuesday
+ ;
 
-ref; // ME_EEC62E0F0C7A Init_Tuesday
+ref; // ME_EEC62E0F0C7A Init_Str_Tuesday
 
 : ME_D8792EAD8ED2
  CONST UID 'D8792EAD8ED2'
- CONST Name 'Init_Wednesday'
+ CONST Name 'Init_Str_Wednesday'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Инициализация str_vtWednesday' ;
@@ -3160,12 +3463,17 @@ ref; // ME_EEC62E0F0C7A Init_Tuesday
  CONST Abstraction at_final
  : Parent ME_4B8E4B58034D // vtDateEditRes
  ;
+ : Speller ME_4B8E5E870360 // Wednesday
+ ;
+ : SpelledFor ME_F17D743DDD7B // Wednesday
+ ;
 
-ref; // ME_D8792EAD8ED2 Init_Wednesday
+ref; // ME_D8792EAD8ED2 Init_Str_Wednesday
 
 : ME_F34B17230FD6
  CONST UID 'F34B17230FD6'
- CONST Name 'Init_Thursday'
+ CONST Name 'Init_Str_Thursday'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Инициализация str_vtThursday' ;
@@ -3173,12 +3481,17 @@ ref; // ME_D8792EAD8ED2 Init_Wednesday
  CONST Abstraction at_final
  : Parent ME_4B8E4B58034D // vtDateEditRes
  ;
+ : Speller ME_4B8E5EB30312 // Thursday
+ ;
+ : SpelledFor ME_D404BFDEA985 // Thursday
+ ;
 
-ref; // ME_F34B17230FD6 Init_Thursday
+ref; // ME_F34B17230FD6 Init_Str_Thursday
 
 : ME_689169712053
  CONST UID '689169712053'
- CONST Name 'Init_Friday'
+ CONST Name 'Init_Str_Friday'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Инициализация str_vtFriday' ;
@@ -3186,12 +3499,17 @@ ref; // ME_F34B17230FD6 Init_Thursday
  CONST Abstraction at_final
  : Parent ME_4B8E4B58034D // vtDateEditRes
  ;
+ : Speller ME_4B8E5EBD022A // Friday
+ ;
+ : SpelledFor ME_9294654C0C22 // Friday
+ ;
 
-ref; // ME_689169712053 Init_Friday
+ref; // ME_689169712053 Init_Str_Friday
 
 : ME_EE8D5F90BD9D
  CONST UID 'EE8D5F90BD9D'
- CONST Name 'Init_Saturday'
+ CONST Name 'Init_Str_Saturday'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Инициализация str_vtSaturday' ;
@@ -3199,11 +3517,16 @@ ref; // ME_689169712053 Init_Friday
  CONST Abstraction at_final
  : Parent ME_4B8E4B58034D // vtDateEditRes
  ;
+ : Speller ME_4B8E5ECE033A // Saturday
+ ;
+ : SpelledFor ME_258DD3B2376E // Saturday
+ ;
 
-ref; // ME_EE8D5F90BD9D Init_Saturday
+ref; // ME_EE8D5F90BD9D Init_Str_Saturday
 
 : ME_5989435D80B7
  CONST UID '5989435D80B7'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_4B8E4B58034D // vtDateEditRes
@@ -3215,6 +3538,7 @@ ref; // ME_5989435D80B7
 
 : ME_D8A41FAD7723
  CONST UID 'D8A41FAD7723'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_4B8E4B58034D // vtDateEditRes
@@ -3235,50 +3559,50 @@ ref; // ME_D8A41FAD7723
  : Parent ME_4AC5DADB00C9 // DateEdit
  ;
  : Attributes
-   @ ( ME_5562E15F0049 // g_vtBeforeCorrectDate
- ) .SequenceCode.It
+   Seq: ( ME_5562E15F0049 // g_vtBeforeCorrectDate
+ )
  ; // Attributes
  : Operations
-   @ ( ME_5562E2F802BD // FontSetDefault
+   Seq: ( ME_5562E2F802BD // FontSetDefault
  ME_55647167004A // vtMonthsCaptions
  ME_5567136300AE // vtWeekDaysCaptions
- ME_E84A3FB8C19C // Init_PrevYear
- ME_DF0219868110 // Init_PrevMonth
- ME_95454C085FC2 // Init_NextMonth
- ME_A2D0796F15CB // Init_NextYear
- ME_BAE37CC2C3F1 // Init_TodayLongLabel
- ME_464F6964D578 // Init_TodayHint
- ME_8FA2A51D6FAE // Init_Cancel
- ME_AA6C6E47DAC1 // Init_TodayShortLabel
- ME_F3FB8070FC4C // Init_Choose
- ME_9940C7537A31 // Init_January
- ME_31C3733CB92C // Init_February
- ME_E0DD21333B56 // Init_March
- ME_954FFD7B4C98 // Init_April
- ME_C23AB8BDDE04 // Init_May
- ME_42854D958F0C // Init_June
- ME_F0D02DAFB564 // Init_July
- ME_31AC933B2D77 // Init_August
- ME_FB2D8557DF46 // Init_September
- ME_355137D1386E // Init_October
- ME_4B3BD92B413C // Init_November
- ME_6264FEFA209C // Init_December
- ME_423987DA27CA // Init_Sunday
- ME_D80D14B30392 // Init_Monday
- ME_EEC62E0F0C7A // Init_Tuesday
- ME_D8792EAD8ED2 // Init_Wednesday
- ME_F34B17230FD6 // Init_Thursday
- ME_689169712053 // Init_Friday
- ME_EE8D5F90BD9D // Init_Saturday
- ) .SequenceCode.It
+ ME_E84A3FB8C19C // Init_Str_PrevYear
+ ME_DF0219868110 // Init_Str_PrevMonth
+ ME_95454C085FC2 // Init_Str_NextMonth
+ ME_A2D0796F15CB // Init_Str_NextYear
+ ME_BAE37CC2C3F1 // Init_Str_TodayLongLabel
+ ME_464F6964D578 // Init_Str_TodayHint
+ ME_8FA2A51D6FAE // Init_Str_Cancel
+ ME_AA6C6E47DAC1 // Init_Str_TodayShortLabel
+ ME_F3FB8070FC4C // Init_Str_Choose
+ ME_9940C7537A31 // Init_Str_January
+ ME_31C3733CB92C // Init_Str_February
+ ME_E0DD21333B56 // Init_Str_March
+ ME_954FFD7B4C98 // Init_Str_April
+ ME_C23AB8BDDE04 // Init_Str_May
+ ME_42854D958F0C // Init_Str_June
+ ME_F0D02DAFB564 // Init_Str_July
+ ME_31AC933B2D77 // Init_Str_August
+ ME_FB2D8557DF46 // Init_Str_September
+ ME_355137D1386E // Init_Str_October
+ ME_4B3BD92B413C // Init_Str_November
+ ME_6264FEFA209C // Init_Str_December
+ ME_423987DA27CA // Init_Str_Sunday
+ ME_D80D14B30392 // Init_Str_Monday
+ ME_EEC62E0F0C7A // Init_Str_Tuesday
+ ME_D8792EAD8ED2 // Init_Str_Wednesday
+ ME_F34B17230FD6 // Init_Str_Thursday
+ ME_689169712053 // Init_Str_Friday
+ ME_EE8D5F90BD9D // Init_Str_Saturday
+ )
  ; // Operations
  : Children
-   @ ( ME_5562E125030D // TvtBeforeCorrectDate
+   Seq: ( ME_5562E125030D // TvtBeforeCorrectDate
  ME_55647F66020D // TvtMonths
- ) .SequenceCode.It
+ )
  ; // Children
  : Constants
-   @ ( ME_4B8E4B8202F8 // TvtDateEditHints
+   Seq: ( ME_4B8E4B8202F8 // TvtDateEditHints
  ME_4B8E52AD03D7 // TvtMiscMessages
  ME_4B8E582B011F // Months
  ME_4B8E5E42023D // TStDayType const
@@ -3287,22 +3611,22 @@ ref; // ME_D8A41FAD7723
  ME_E4A182407C04 // LCImplTvtMiscMessages
  ME_8408900CA96D // LCImplMonths
  ME_A3807658E0D3 // LCImplTStDayType const
- ) .SequenceCode.It
+ )
  ; // Constants
  : Dependencies
-   @ ( ME_5989435D80B7 // 
+   Seq: ( ME_5989435D80B7 // 
  ME_D8A41FAD7723 // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  CONST "author" 'Люлин А.В.'
  CONST "no hands" true
  CONST "started" '03.03.2010 14:43'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\VT'
  CONST intf.pas:Path 'common\components\gui\Garant\VT\vtDateEditRes.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\VT'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'DateEditRes'
 
 ref; // ME_4B8E4B58034D vtDateEditRes
 
@@ -3445,6 +3769,7 @@ ref; // ME_556837A7019B f_Calendar
 : ME_7EFECDD659EC
  CONST UID '7EFECDD659EC'
  CONST Name 'f_MenuOpen'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY 'Поле для свойства MenuOpen' ;
  CONST Visibility PrivateAccess
@@ -3454,6 +3779,7 @@ ref; // ME_556837A7019B f_Calendar
  ;
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
+ CONST extprop:clearViaProperty 'MenuOpen'
 
 ref; // ME_7EFECDD659EC f_MenuOpen
 
@@ -3518,12 +3844,12 @@ ref; // ME_5562DC0602CC Y
  : Parent ME_5562DBEF006B // CalendarMouseUp
  ;
  : Parameters
-   @ ( ME_5562DC060254 // Sender
+   Seq: ( ME_5562DC060254 // Sender
  ME_5562DC06026F // Button
  ME_5562DC06028A // Shift
  ME_5562DC0602A6 // X
  ME_5562DC0602CC // Y
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_5562DBF8031C DoIt
@@ -3539,8 +3865,8 @@ ref; // ME_5562DBF8031C DoIt
  : Parent ME_4F8D5553010A // TPopupCalendar
  ;
  : Operations
-   @ ( ME_5562DBF8031C // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_5562DBF8031C // DoIt
+ )
  ; // Operations
 
 ref; // ME_5562DBEF006B CalendarMouseUp
@@ -3550,6 +3876,7 @@ FORWARD ME_5562DC2B00A8
 : ME_8A162C7ACEE0
  CONST UID '8A162C7ACEE0'
  CONST Name 'Sender'
+ CONST IsSummoned true
  CONST Class class_Parameter
  : Stereotype st_in ;
  : Target WL 'ME_4807745602C8' '4AB0C3C60310.pas.ms.script' // TObject
@@ -3560,6 +3887,7 @@ ref; // ME_8A162C7ACEE0 Sender
 : ME_FFAC0D4BBEA4
  CONST UID 'FFAC0D4BBEA4'
  CONST Name 'DoIt'
+ CONST IsSummoned true
  CONST Class class_Operation
  %SUMMARY 'TNotifyEvent is used for events that do not require parameters.' ;
  CONST Visibility PrivateAccess
@@ -3567,8 +3895,8 @@ ref; // ME_8A162C7ACEE0 Sender
  : Parent ME_5562DC2B00A8 // PrevMonthBtnClick
  ;
  : Parameters
-   @ ( ME_8A162C7ACEE0 // Sender
- ) .SequenceCode.It
+   Seq: ( ME_8A162C7ACEE0 // Sender
+ )
  ; // Parameters
 
 ref; // ME_FFAC0D4BBEA4 DoIt
@@ -3584,12 +3912,12 @@ ref; // ME_FFAC0D4BBEA4 DoIt
  : Parent ME_4F8D5553010A // TPopupCalendar
  ;
  : Inherits
-   @ ( WL 'ME_47881B22005A' '4AB0997B00A2.pas.ms.script' // TNotifyEvent
- ) .SequenceCode.It
+   Seq: ( WL 'ME_47881B22005A' '4AB0997B00A2.pas.ms.script' // TNotifyEvent
+ )
  ; // Inherits
  : Operations
-   @ ( ME_FFAC0D4BBEA4 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_FFAC0D4BBEA4 // DoIt
+ )
  ; // Operations
 
 ref; // ME_5562DC2B00A8 PrevMonthBtnClick
@@ -3599,6 +3927,7 @@ FORWARD ME_5562DC4401F9
 : ME_7BBE6515A07D
  CONST UID '7BBE6515A07D'
  CONST Name 'Sender'
+ CONST IsSummoned true
  CONST Class class_Parameter
  : Stereotype st_in ;
  : Target WL 'ME_4807745602C8' '4AB0C3C60310.pas.ms.script' // TObject
@@ -3609,14 +3938,15 @@ ref; // ME_7BBE6515A07D Sender
 : ME_82D0F79FF048
  CONST UID '82D0F79FF048'
  CONST Name 'DoIt'
+ CONST IsSummoned true
  CONST Class class_Operation
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
  : Parent ME_5562DC4401F9 // NextMonthBtnClick
  ;
  : Parameters
-   @ ( ME_7BBE6515A07D // Sender
- ) .SequenceCode.It
+   Seq: ( ME_7BBE6515A07D // Sender
+ )
  ; // Parameters
 
 ref; // ME_82D0F79FF048 DoIt
@@ -3632,12 +3962,12 @@ ref; // ME_82D0F79FF048 DoIt
  : Parent ME_4F8D5553010A // TPopupCalendar
  ;
  : Inherits
-   @ ( ME_5562DC2B00A8 // PrevMonthBtnClick
- ) .SequenceCode.It
+   Seq: ( ME_5562DC2B00A8 // PrevMonthBtnClick
+ )
  ; // Inherits
  : Operations
-   @ ( ME_82D0F79FF048 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_82D0F79FF048 // DoIt
+ )
  ; // Operations
 
 ref; // ME_5562DC4401F9 NextMonthBtnClick
@@ -3647,6 +3977,7 @@ FORWARD ME_5562DC4E02D2
 : ME_CB885819129F
  CONST UID 'CB885819129F'
  CONST Name 'Sender'
+ CONST IsSummoned true
  CONST Class class_Parameter
  : Stereotype st_in ;
  : Target WL 'ME_4807745602C8' '4AB0C3C60310.pas.ms.script' // TObject
@@ -3657,14 +3988,15 @@ ref; // ME_CB885819129F Sender
 : ME_CADFF2E80441
  CONST UID 'CADFF2E80441'
  CONST Name 'DoIt'
+ CONST IsSummoned true
  CONST Class class_Operation
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
  : Parent ME_5562DC4E02D2 // PrevYearBtnClick
  ;
  : Parameters
-   @ ( ME_CB885819129F // Sender
- ) .SequenceCode.It
+   Seq: ( ME_CB885819129F // Sender
+ )
  ; // Parameters
 
 ref; // ME_CADFF2E80441 DoIt
@@ -3680,12 +4012,12 @@ ref; // ME_CADFF2E80441 DoIt
  : Parent ME_4F8D5553010A // TPopupCalendar
  ;
  : Inherits
-   @ ( ME_5562DC4401F9 // NextMonthBtnClick
- ) .SequenceCode.It
+   Seq: ( ME_5562DC4401F9 // NextMonthBtnClick
+ )
  ; // Inherits
  : Operations
-   @ ( ME_CADFF2E80441 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_CADFF2E80441 // DoIt
+ )
  ; // Operations
 
 ref; // ME_5562DC4E02D2 PrevYearBtnClick
@@ -3695,6 +4027,7 @@ FORWARD ME_5562DC56029A
 : ME_C4D975D619CD
  CONST UID 'C4D975D619CD'
  CONST Name 'Sender'
+ CONST IsSummoned true
  CONST Class class_Parameter
  : Stereotype st_in ;
  : Target WL 'ME_4807745602C8' '4AB0C3C60310.pas.ms.script' // TObject
@@ -3705,14 +4038,15 @@ ref; // ME_C4D975D619CD Sender
 : ME_066BEEDB0FAF
  CONST UID '066BEEDB0FAF'
  CONST Name 'DoIt'
+ CONST IsSummoned true
  CONST Class class_Operation
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
  : Parent ME_5562DC56029A // NextYearBtnClick
  ;
  : Parameters
-   @ ( ME_C4D975D619CD // Sender
- ) .SequenceCode.It
+   Seq: ( ME_C4D975D619CD // Sender
+ )
  ; // Parameters
 
 ref; // ME_066BEEDB0FAF DoIt
@@ -3728,12 +4062,12 @@ ref; // ME_066BEEDB0FAF DoIt
  : Parent ME_4F8D5553010A // TPopupCalendar
  ;
  : Inherits
-   @ ( ME_5562DC4E02D2 // PrevYearBtnClick
- ) .SequenceCode.It
+   Seq: ( ME_5562DC4E02D2 // PrevYearBtnClick
+ )
  ; // Inherits
  : Operations
-   @ ( ME_066BEEDB0FAF // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_066BEEDB0FAF // DoIt
+ )
  ; // Operations
 
 ref; // ME_5562DC56029A NextYearBtnClick
@@ -3743,6 +4077,7 @@ FORWARD ME_5562DC5D03D9
 : ME_D6BF832292DB
  CONST UID 'D6BF832292DB'
  CONST Name 'Sender'
+ CONST IsSummoned true
  CONST Class class_Parameter
  : Stereotype st_in ;
  : Target WL 'ME_4807745602C8' '4AB0C3C60310.pas.ms.script' // TObject
@@ -3753,14 +4088,15 @@ ref; // ME_D6BF832292DB Sender
 : ME_8EE6B684F142
  CONST UID '8EE6B684F142'
  CONST Name 'DoIt'
+ CONST IsSummoned true
  CONST Class class_Operation
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
  : Parent ME_5562DC5D03D9 // CalendarChange
  ;
  : Parameters
-   @ ( ME_D6BF832292DB // Sender
- ) .SequenceCode.It
+   Seq: ( ME_D6BF832292DB // Sender
+ )
  ; // Parameters
 
 ref; // ME_8EE6B684F142 DoIt
@@ -3776,12 +4112,12 @@ ref; // ME_8EE6B684F142 DoIt
  : Parent ME_4F8D5553010A // TPopupCalendar
  ;
  : Inherits
-   @ ( ME_5562DC56029A // NextYearBtnClick
- ) .SequenceCode.It
+   Seq: ( ME_5562DC56029A // NextYearBtnClick
+ )
  ; // Inherits
  : Operations
-   @ ( ME_8EE6B684F142 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_8EE6B684F142 // DoIt
+ )
  ; // Operations
 
 ref; // ME_5562DC5D03D9 CalendarChange
@@ -3791,6 +4127,7 @@ FORWARD ME_5562DC65011C
 : ME_779CDA2B0E1C
  CONST UID '779CDA2B0E1C'
  CONST Name 'Sender'
+ CONST IsSummoned true
  CONST Class class_Parameter
  : Stereotype st_in ;
  : Target WL 'ME_4807745602C8' '4AB0C3C60310.pas.ms.script' // TObject
@@ -3801,14 +4138,15 @@ ref; // ME_779CDA2B0E1C Sender
 : ME_B5AE73153C03
  CONST UID 'B5AE73153C03'
  CONST Name 'DoIt'
+ CONST IsSummoned true
  CONST Class class_Operation
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
  : Parent ME_5562DC65011C // TopPanelDblClick
  ;
  : Parameters
-   @ ( ME_779CDA2B0E1C // Sender
- ) .SequenceCode.It
+   Seq: ( ME_779CDA2B0E1C // Sender
+ )
  ; // Parameters
 
 ref; // ME_B5AE73153C03 DoIt
@@ -3824,12 +4162,12 @@ ref; // ME_B5AE73153C03 DoIt
  : Parent ME_4F8D5553010A // TPopupCalendar
  ;
  : Inherits
-   @ ( ME_5562DC5D03D9 // CalendarChange
- ) .SequenceCode.It
+   Seq: ( ME_5562DC5D03D9 // CalendarChange
+ )
  ; // Inherits
  : Operations
-   @ ( ME_B5AE73153C03 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_B5AE73153C03 // DoIt
+ )
  ; // Operations
 
 ref; // ME_5562DC65011C TopPanelDblClick
@@ -3839,6 +4177,7 @@ FORWARD ME_5562DC710040
 : ME_340BC7DB3AC0
  CONST UID '340BC7DB3AC0'
  CONST Name 'Sender'
+ CONST IsSummoned true
  CONST Class class_Parameter
  : Stereotype st_in ;
  : Target WL 'ME_4807745602C8' '4AB0C3C60310.pas.ms.script' // TObject
@@ -3849,14 +4188,15 @@ ref; // ME_340BC7DB3AC0 Sender
 : ME_9D4BC58F0463
  CONST UID '9D4BC58F0463'
  CONST Name 'DoIt'
+ CONST IsSummoned true
  CONST Class class_Operation
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
  : Parent ME_5562DC710040 // MonthClick
  ;
  : Parameters
-   @ ( ME_340BC7DB3AC0 // Sender
- ) .SequenceCode.It
+   Seq: ( ME_340BC7DB3AC0 // Sender
+ )
  ; // Parameters
 
 ref; // ME_9D4BC58F0463 DoIt
@@ -3872,12 +4212,12 @@ ref; // ME_9D4BC58F0463 DoIt
  : Parent ME_4F8D5553010A // TPopupCalendar
  ;
  : Inherits
-   @ ( ME_5562DC65011C // TopPanelDblClick
- ) .SequenceCode.It
+   Seq: ( ME_5562DC65011C // TopPanelDblClick
+ )
  ; // Inherits
  : Operations
-   @ ( ME_9D4BC58F0463 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_9D4BC58F0463 // DoIt
+ )
  ; // Operations
 
 ref; // ME_5562DC710040 MonthClick
@@ -3887,6 +4227,7 @@ FORWARD ME_5562DC9B004D
 : ME_B45671C3A6F2
  CONST UID 'B45671C3A6F2'
  CONST Name 'Sender'
+ CONST IsSummoned true
  CONST Class class_Parameter
  : Stereotype st_in ;
  : Target WL 'ME_4807745602C8' '4AB0C3C60310.pas.ms.script' // TObject
@@ -3897,14 +4238,15 @@ ref; // ME_B45671C3A6F2 Sender
 : ME_C3F1326E1B3B
  CONST UID 'C3F1326E1B3B'
  CONST Name 'DoIt'
+ CONST IsSummoned true
  CONST Class class_Operation
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
  : Parent ME_5562DC9B004D // MonthMenuSelect
  ;
  : Parameters
-   @ ( ME_B45671C3A6F2 // Sender
- ) .SequenceCode.It
+   Seq: ( ME_B45671C3A6F2 // Sender
+ )
  ; // Parameters
 
 ref; // ME_C3F1326E1B3B DoIt
@@ -3920,12 +4262,12 @@ ref; // ME_C3F1326E1B3B DoIt
  : Parent ME_4F8D5553010A // TPopupCalendar
  ;
  : Inherits
-   @ ( ME_5562DC710040 // MonthClick
- ) .SequenceCode.It
+   Seq: ( ME_5562DC710040 // MonthClick
+ )
  ; // Inherits
  : Operations
-   @ ( ME_C3F1326E1B3B // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_C3F1326E1B3B // DoIt
+ )
  ; // Operations
 
 ref; // ME_5562DC9B004D MonthMenuSelect
@@ -3935,6 +4277,7 @@ FORWARD ME_5562DCA501FA
 : ME_3D27FE2C7CA6
  CONST UID '3D27FE2C7CA6'
  CONST Name 'Sender'
+ CONST IsSummoned true
  CONST Class class_Parameter
  : Stereotype st_in ;
  : Target WL 'ME_4807745602C8' '4AB0C3C60310.pas.ms.script' // TObject
@@ -3945,14 +4288,15 @@ ref; // ME_3D27FE2C7CA6 Sender
 : ME_CF373535F7FA
  CONST UID 'CF373535F7FA'
  CONST Name 'DoIt'
+ CONST IsSummoned true
  CONST Class class_Operation
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
  : Parent ME_5562DCA501FA // YearClick
  ;
  : Parameters
-   @ ( ME_3D27FE2C7CA6 // Sender
- ) .SequenceCode.It
+   Seq: ( ME_3D27FE2C7CA6 // Sender
+ )
  ; // Parameters
 
 ref; // ME_CF373535F7FA DoIt
@@ -3968,12 +4312,12 @@ ref; // ME_CF373535F7FA DoIt
  : Parent ME_4F8D5553010A // TPopupCalendar
  ;
  : Inherits
-   @ ( ME_5562DC9B004D // MonthMenuSelect
- ) .SequenceCode.It
+   Seq: ( ME_5562DC9B004D // MonthMenuSelect
+ )
  ; // Inherits
  : Operations
-   @ ( ME_CF373535F7FA // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_CF373535F7FA // DoIt
+ )
  ; // Operations
 
 ref; // ME_5562DCA501FA YearClick
@@ -3983,6 +4327,7 @@ FORWARD ME_5562DCAD03A9
 : ME_CB5776CA4143
  CONST UID 'CB5776CA4143'
  CONST Name 'Sender'
+ CONST IsSummoned true
  CONST Class class_Parameter
  : Stereotype st_in ;
  : Target WL 'ME_4807745602C8' '4AB0C3C60310.pas.ms.script' // TObject
@@ -3993,14 +4338,15 @@ ref; // ME_CB5776CA4143 Sender
 : ME_E046A3EABFC0
  CONST UID 'E046A3EABFC0'
  CONST Name 'DoIt'
+ CONST IsSummoned true
  CONST Class class_Operation
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
  : Parent ME_5562DCAD03A9 // YearMenuSelect
  ;
  : Parameters
-   @ ( ME_CB5776CA4143 // Sender
- ) .SequenceCode.It
+   Seq: ( ME_CB5776CA4143 // Sender
+ )
  ; // Parameters
 
 ref; // ME_E046A3EABFC0 DoIt
@@ -4016,12 +4362,12 @@ ref; // ME_E046A3EABFC0 DoIt
  : Parent ME_4F8D5553010A // TPopupCalendar
  ;
  : Inherits
-   @ ( ME_5562DCA501FA // YearClick
- ) .SequenceCode.It
+   Seq: ( ME_5562DCA501FA // YearClick
+ )
  ; // Inherits
  : Operations
-   @ ( ME_E046A3EABFC0 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_E046A3EABFC0 // DoIt
+ )
  ; // Operations
 
 ref; // ME_5562DCAD03A9 YearMenuSelect
@@ -4031,6 +4377,7 @@ FORWARD ME_5562DCBF022F
 : ME_FF800C544256
  CONST UID 'FF800C544256'
  CONST Name 'Sender'
+ CONST IsSummoned true
  CONST Class class_Parameter
  : Stereotype st_in ;
  : Target WL 'ME_4807745602C8' '4AB0C3C60310.pas.ms.script' // TObject
@@ -4041,14 +4388,15 @@ ref; // ME_FF800C544256 Sender
 : ME_B4E1BFAC8117
  CONST UID 'B4E1BFAC8117'
  CONST Name 'DoIt'
+ CONST IsSummoned true
  CONST Class class_Operation
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
  : Parent ME_5562DCBF022F // CancelClick
  ;
  : Parameters
-   @ ( ME_FF800C544256 // Sender
- ) .SequenceCode.It
+   Seq: ( ME_FF800C544256 // Sender
+ )
  ; // Parameters
 
 ref; // ME_B4E1BFAC8117 DoIt
@@ -4064,12 +4412,12 @@ ref; // ME_B4E1BFAC8117 DoIt
  : Parent ME_4F8D5553010A // TPopupCalendar
  ;
  : Inherits
-   @ ( ME_5562DCAD03A9 // YearMenuSelect
- ) .SequenceCode.It
+   Seq: ( ME_5562DCAD03A9 // YearMenuSelect
+ )
  ; // Inherits
  : Operations
-   @ ( ME_B4E1BFAC8117 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_B4E1BFAC8117 // DoIt
+ )
  ; // Operations
 
 ref; // ME_5562DCBF022F CancelClick
@@ -4079,6 +4427,7 @@ FORWARD ME_5562DCCD00E0
 : ME_1BD84E150C69
  CONST UID '1BD84E150C69'
  CONST Name 'Sender'
+ CONST IsSummoned true
  CONST Class class_Parameter
  : Stereotype st_in ;
  : Target WL 'ME_4807745602C8' '4AB0C3C60310.pas.ms.script' // TObject
@@ -4089,14 +4438,15 @@ ref; // ME_1BD84E150C69 Sender
 : ME_FE771DC7987A
  CONST UID 'FE771DC7987A'
  CONST Name 'DoIt'
+ CONST IsSummoned true
  CONST Class class_Operation
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
  : Parent ME_5562DCCD00E0 // ClickToday
  ;
  : Parameters
-   @ ( ME_1BD84E150C69 // Sender
- ) .SequenceCode.It
+   Seq: ( ME_1BD84E150C69 // Sender
+ )
  ; // Parameters
 
 ref; // ME_FE771DC7987A DoIt
@@ -4112,12 +4462,12 @@ ref; // ME_FE771DC7987A DoIt
  : Parent ME_4F8D5553010A // TPopupCalendar
  ;
  : Inherits
-   @ ( ME_5562DCBF022F // CancelClick
- ) .SequenceCode.It
+   Seq: ( ME_5562DCBF022F // CancelClick
+ )
  ; // Inherits
  : Operations
-   @ ( ME_FE771DC7987A // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_FE771DC7987A // DoIt
+ )
  ; // Operations
 
 ref; // ME_5562DCCD00E0 ClickToday
@@ -4148,8 +4498,8 @@ ref; // ME_5562DDEA00E1 DoIt
  : Parent ME_4F8D5553010A // TPopupCalendar
  ;
  : Operations
-   @ ( ME_5562DDEA00E1 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_5562DDEA00E1 // DoIt
+ )
  ; // Operations
 
 ref; // ME_5562DDAF0285 CalcTodayPadWidth
@@ -4159,6 +4509,7 @@ FORWARD ME_5562DE3A02DF
 : ME_C39C8CDD63B8
  CONST UID 'C39C8CDD63B8'
  CONST Name 'DoIt'
+ CONST IsSummoned true
  CONST Class class_Operation
  %SUMMARY 'Сигнатура метода MakeTodayPad' ;
  CONST Visibility PublicAccess
@@ -4179,8 +4530,8 @@ ref; // ME_C39C8CDD63B8 DoIt
  : Parent ME_4F8D5553010A // TPopupCalendar
  ;
  : Operations
-   @ ( ME_C39C8CDD63B8 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_C39C8CDD63B8 // DoIt
+ )
  ; // Operations
 
 ref; // ME_5562DE3A02DF MakeTodayPad
@@ -4206,8 +4557,8 @@ ref; // ME_5562DE5C001D aLabel
  : Parent ME_5562DE4D0243 // AdjustTitleButtonFont
  ;
  : Parameters
-   @ ( ME_5562DE5C001D // aLabel
- ) .SequenceCode.It
+   Seq: ( ME_5562DE5C001D // aLabel
+ )
  ; // Parameters
 
 ref; // ME_5562DE58027F DoIt
@@ -4223,8 +4574,8 @@ ref; // ME_5562DE58027F DoIt
  : Parent ME_4F8D5553010A // TPopupCalendar
  ;
  : Operations
-   @ ( ME_5562DE58027F // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_5562DE58027F // DoIt
+ )
  ; // Operations
 
 ref; // ME_5562DE4D0243 AdjustTitleButtonFont
@@ -4260,9 +4611,9 @@ ref; // ME_556497AA0307 Shift
  : Parent ME_556486A5039E // DoKeyDown
  ;
  : Parameters
-   @ ( ME_556497AA02E9 // Key
+   Seq: ( ME_556497AA02E9 // Key
  ME_556497AA0307 // Shift
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_556497A70285 DoIt
@@ -4278,8 +4629,8 @@ ref; // ME_556497A70285 DoIt
  : Parent ME_4F8D5553010A // TPopupCalendar
  ;
  : Operations
-   @ ( ME_556497A70285 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_556497A70285 // DoIt
+ )
  ; // Operations
 
 ref; // ME_556486A5039E DoKeyDown
@@ -4287,6 +4638,7 @@ ref; // ME_556486A5039E DoKeyDown
 : ME_BDFA655C2F5D
  CONST UID 'BDFA655C2F5D'
  CONST Name 'Ini_Reg_Class'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Регистрация TPopupCalendar' ;
@@ -4300,6 +4652,7 @@ ref; // ME_BDFA655C2F5D Ini_Reg_Class
 
 : ME_FB07A1E54C96
  CONST UID 'FB07A1E54C96'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_4F8D5553010A // TPopupCalendar
@@ -4316,6 +4669,7 @@ ref; // ME_FB07A1E54C96
  ;
  : Implementor ME_4F8D5553010A // TPopupCalendar
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_47D1602000C6_ME_4F8D5553010A Create
 
 : ME_48C7925A02E5_ME_4F8D5553010A
@@ -4325,6 +4679,7 @@ ref; // ME_47D1602000C6_ME_4F8D5553010A Create
  ;
  : Implementor ME_4F8D5553010A // TPopupCalendar
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_48C7925A02E5_ME_4F8D5553010A CreateParams
 
 : ME_554CABC100AC_ME_4F8D5553010A
@@ -4334,6 +4689,7 @@ ref; // ME_48C7925A02E5_ME_4F8D5553010A CreateParams
  ;
  : Implementor ME_4F8D5553010A // TPopupCalendar
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_554CABC100AC_ME_4F8D5553010A KeyDown
 
 : ME_4F8D5553010A
@@ -4347,11 +4703,11 @@ ref; // ME_554CABC100AC_ME_4F8D5553010A KeyDown
  : Parent ME_4AA8AB7B038F // TvtDateEdit
  ;
  : Inherits
-   @ ( WL 'ME_4A7961A701CF' '4A7960CC03A4.pas.ms.script' // TvtPanel
- ) .SequenceCode.It
+   Seq: ( WL 'ME_4A7961A701CF' '4A7960CC03A4.pas.ms.script' // TvtPanel
+ )
  ; // Inherits
  : Attributes
-   @ ( ME_5562D993026E // f_TitlePanel
+   Seq: ( ME_5562D993026E // f_TitlePanel
  ME_5562D9D301EA // f_MonthLabel
  ME_5562D9DB02EE // f_YearLabel
  ME_5562DA9D00B0 // f_MonthMenu
@@ -4361,10 +4717,10 @@ ref; // ME_554CABC100AC_ME_4F8D5553010A KeyDown
  ME_5562DBA70371 // MenuOpen
  ME_556837A7019B // f_Calendar
  ME_7EFECDD659EC // f_MenuOpen
- ) .SequenceCode.It
+ )
  ; // Attributes
  : Operations
-   @ ( ME_5562DBEF006B // CalendarMouseUp
+   Seq: ( ME_5562DBEF006B // CalendarMouseUp
  ME_5562DC2B00A8 // PrevMonthBtnClick
  ME_5562DC4401F9 // NextMonthBtnClick
  ME_5562DC4E02D2 // PrevYearBtnClick
@@ -4382,23 +4738,29 @@ ref; // ME_554CABC100AC_ME_4F8D5553010A KeyDown
  ME_5562DE4D0243 // AdjustTitleButtonFont
  ME_556486A5039E // DoKeyDown
  ME_BDFA655C2F5D // Ini_Reg_Class
- ) .SequenceCode.It
+ )
  ; // Operations
  : Overridden
-   @ ( ME_47D1602000C6_ME_4F8D5553010A // Create
+   Seq: ( ME_47D1602000C6_ME_4F8D5553010A // Create
  ME_48C7925A02E5_ME_4F8D5553010A // CreateParams
  ME_554CABC100AC_ME_4F8D5553010A // KeyDown
- ) .SequenceCode.It
+ )
  ; // Overridden
  : Dependencies
-   @ ( ME_FB07A1E54C96 // 
- ) .SequenceCode.It
+   Seq: ( ME_FB07A1E54C96 // 
+ )
  ; // Dependencies
  CONST "finished" false
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
+ CONST dfm:PathOnly '\common\components\gui\Garant\VT'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\VT'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'PopupCalendar'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_4F8D5553010A TPopupCalendar
 
@@ -4435,9 +4797,9 @@ ref; // ME_554C8A2E031D aValue
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
  : Parameters
-   @ ( ME_554C8A2E0309 // aSender
+   Seq: ( ME_554C8A2E0309 // aSender
  ME_554C8A2E031D // aValue
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_554C8A280241 DoIt
@@ -4453,10 +4815,14 @@ ref; // ME_554C8A280241 DoIt
  : Parent ME_4AA8AB7B038F // TvtDateEdit
  ;
  : Operations
-   @ ( ME_554C8A280241 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_554C8A280241 // DoIt
+ )
  ; // Operations
  CONST "of object" true
+ CONST dfm:PathOnly '\common\components\gui\Garant\VT'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\VT'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_554C8A090247 TvtOnApplyDate
 
@@ -4491,9 +4857,9 @@ ref; // ME_554C8A3E00AD aValue
  : Parent ME_554C8A190075 // TvtOnAppliedDate
  ;
  : Parameters
-   @ ( ME_554C8A3E0071 // aSender
+   Seq: ( ME_554C8A3E0071 // aSender
  ME_554C8A3E00AD // aValue
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_554C8A3B01A7 DoIt
@@ -4509,10 +4875,14 @@ ref; // ME_554C8A3B01A7 DoIt
  : Parent ME_4AA8AB7B038F // TvtDateEdit
  ;
  : Operations
-   @ ( ME_554C8A3B01A7 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_554C8A3B01A7 // DoIt
+ )
  ; // Operations
  CONST "of object" true
+ CONST dfm:PathOnly '\common\components\gui\Garant\VT'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\VT'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_554C8A190075 TvtOnAppliedDate
 
@@ -4565,11 +4935,16 @@ ref; // ME_554C8F450013 dyTwo
  : Parent ME_4AA8AB7B038F // TvtDateEdit
  ;
  : Attributes
-   @ ( ME_554C8F3202FA // dyDefault
+   Seq: ( ME_554C8F3202FA // dyDefault
  ME_554C8F3D0340 // dyFour
  ME_554C8F450013 // dyTwo
- ) .SequenceCode.It
+ )
  ; // Attributes
+ CONST dfm:PathOnly '\common\components\gui\Garant\VT'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\VT'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_554C8F2B00A9 TYearDigits
 
@@ -4585,6 +4960,10 @@ FORWARD ME_52A9ACFF0183
  CONST Abstraction at_final
  : Parent ME_52A9ACFF0183 // TvtCustomDateEdit
  ;
+ CONST dfm:PathOnly '\common\components\gui\Garant\VT'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\VT'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_554C911D0364 SupportStDate
 
@@ -4897,6 +5276,7 @@ ref; // ME_554CA0640118 f_CalendarPanel
 : ME_DB804CB981AE
  CONST UID 'DB804CB981AE'
  CONST Name 'f_OnApplyDate'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY 'Поле для свойства OnApplyDate' ;
  CONST Visibility PrivateAccess
@@ -4906,12 +5286,14 @@ ref; // ME_554CA0640118 f_CalendarPanel
  ;
  : Target ME_554C8A090247 // TvtOnApplyDate
  ;
+ CONST extprop:clearViaProperty 'OnApplyDate'
 
 ref; // ME_DB804CB981AE f_OnApplyDate
 
 : ME_1F3286469CFD
  CONST UID '1F3286469CFD'
  CONST Name 'f_OnAppliedDate'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY 'Поле для свойства OnAppliedDate' ;
  CONST Visibility PrivateAccess
@@ -4921,12 +5303,14 @@ ref; // ME_DB804CB981AE f_OnApplyDate
  ;
  : Target ME_554C8A190075 // TvtOnAppliedDate
  ;
+ CONST extprop:clearViaProperty 'OnAppliedDate'
 
 ref; // ME_1F3286469CFD f_OnAppliedDate
 
 : ME_2571D7177A72
  CONST UID '2571D7177A72'
  CONST Name 'f_OnAutoCorrectDate'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY 'Поле для свойства OnAutoCorrectDate' ;
  CONST Visibility PrivateAccess
@@ -4936,12 +5320,14 @@ ref; // ME_1F3286469CFD f_OnAppliedDate
  ;
  : Target WL 'ME_47881B22005A' '4AB0997B00A2.pas.ms.script' // TNotifyEvent
  ;
+ CONST extprop:clearViaProperty 'OnAutoCorrectDate'
 
 ref; // ME_2571D7177A72 f_OnAutoCorrectDate
 
 : ME_F19DCA759C8F
  CONST UID 'F19DCA759C8F'
  CONST Name 'f_OnExecute'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY 'Поле для свойства OnExecute' ;
  CONST Visibility PrivateAccess
@@ -4951,12 +5337,14 @@ ref; // ME_2571D7177A72 f_OnAutoCorrectDate
  ;
  : Target WL 'ME_47881B22005A' '4AB0997B00A2.pas.ms.script' // TNotifyEvent
  ;
+ CONST extprop:clearViaProperty 'OnExecute'
 
 ref; // ME_F19DCA759C8F f_OnExecute
 
 : ME_EBD28B6C4B98
  CONST UID 'EBD28B6C4B98'
  CONST Name 'f_OnInvalidDate'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY 'Поле для свойства OnInvalidDate' ;
  CONST Visibility PrivateAccess
@@ -4966,12 +5354,14 @@ ref; // ME_F19DCA759C8F f_OnExecute
  ;
  : Target WL 'ME_47881B22005A' '4AB0997B00A2.pas.ms.script' // TNotifyEvent
  ;
+ CONST extprop:clearViaProperty 'OnInvalidDate'
 
 ref; // ME_EBD28B6C4B98 f_OnInvalidDate
 
 : ME_FDC69912F11A
  CONST UID 'FDC69912F11A'
  CONST Name 'f_RestrictInvalidDate'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY 'Поле для свойства RestrictInvalidDate' ;
  CONST Visibility PrivateAccess
@@ -4981,12 +5371,14 @@ ref; // ME_EBD28B6C4B98 f_OnInvalidDate
  ;
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
+ CONST extprop:clearViaProperty 'RestrictInvalidDate'
 
 ref; // ME_FDC69912F11A f_RestrictInvalidDate
 
 : ME_3FBE974CFC97
  CONST UID '3FBE974CFC97'
  CONST Name 'f_BlanksChar'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY 'Поле для свойства BlanksChar' ;
  CONST Visibility PrivateAccess
@@ -4996,12 +5388,14 @@ ref; // ME_FDC69912F11A f_RestrictInvalidDate
  ;
  : Target WL 'ME_482C48430205' '4AB0C3C60310.pas.ms.script' // Char
  ;
+ CONST extprop:clearViaProperty 'BlanksChar'
 
 ref; // ME_3FBE974CFC97 f_BlanksChar
 
 : ME_66DF83495627
  CONST UID '66DF83495627'
  CONST Name 'f_StartOfWeek'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY 'Поле для свойства StartOfWeek' ;
  CONST Visibility PrivateAccess
@@ -5011,12 +5405,14 @@ ref; // ME_3FBE974CFC97 f_BlanksChar
  ;
  : Target WL 'ME_554C8DC4028F' '47D0290B016D.pas.ms.script' // TStDayType
  ;
+ CONST extprop:clearViaProperty 'StartOfWeek'
 
 ref; // ME_66DF83495627 f_StartOfWeek
 
 : ME_6D66C09C6926
  CONST UID '6D66C09C6926'
  CONST Name 'f_Weekends'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY 'Поле для свойства Weekends' ;
  CONST Visibility PrivateAccess
@@ -5026,12 +5422,14 @@ ref; // ME_66DF83495627 f_StartOfWeek
  ;
  : Target WL 'ME_554C8E0102AB' '47D0290B016D.pas.ms.script' // TDaysOfWeek
  ;
+ CONST extprop:clearViaProperty 'Weekends'
 
 ref; // ME_6D66C09C6926 f_Weekends
 
 : ME_04AC9DE90237
  CONST UID '04AC9DE90237'
  CONST Name 'f_WeekendColor'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY 'Поле для свойства WeekendColor' ;
  CONST Visibility PrivateAccess
@@ -5041,12 +5439,14 @@ ref; // ME_6D66C09C6926 f_Weekends
  ;
  : Target WL 'ME_46A44A2F01C7' '55C4AEC801CA.pas.ms.script' // TColor
  ;
+ CONST extprop:clearViaProperty 'WeekendColor'
 
 ref; // ME_04AC9DE90237 f_WeekendColor
 
 : ME_12B1E77B9781
  CONST UID '12B1E77B9781'
  CONST Name 'f_YearDigits'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY 'Поле для свойства YearDigits' ;
  CONST Visibility PrivateAccess
@@ -5056,12 +5456,14 @@ ref; // ME_04AC9DE90237 f_WeekendColor
  ;
  : Target ME_554C8F2B00A9 // TYearDigits
  ;
+ CONST extprop:clearViaProperty 'YearDigits'
 
 ref; // ME_12B1E77B9781 f_YearDigits
 
 : ME_3998B939BAA4
  CONST UID '3998B939BAA4'
  CONST Name 'f_CheckOnExit'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY 'Поле для свойства CheckOnExit' ;
  CONST Visibility PrivateAccess
@@ -5071,12 +5473,14 @@ ref; // ME_12B1E77B9781 f_YearDigits
  ;
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
+ CONST extprop:clearViaProperty 'CheckOnExit'
 
 ref; // ME_3998B939BAA4 f_CheckOnExit
 
 : ME_36F0868582AF
  CONST UID '36F0868582AF'
  CONST Name 'f_Formatting'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY 'Поле для свойства Formatting' ;
  CONST Visibility PrivateAccess
@@ -5094,6 +5498,7 @@ FORWARD ME_52A9AF0F021B
 : ME_EC66472F354B
  CONST UID 'EC66472F354B'
  CONST Name 'DoIt'
+ CONST IsSummoned true
  CONST Class class_Operation
  %SUMMARY 'Сигнатура метода DoExecute' ;
  CONST Visibility PublicAccess
@@ -5114,8 +5519,8 @@ ref; // ME_EC66472F354B DoIt
  : Parent ME_52A9ACFF0183 // TvtCustomDateEdit
  ;
  : Operations
-   @ ( ME_EC66472F354B // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_EC66472F354B // DoIt
+ )
  ; // Operations
 
 ref; // ME_52A9AF0F021B DoExecute
@@ -5146,8 +5551,8 @@ ref; // ME_554C9CEF009F DoIt
  : Parent ME_52A9ACFF0183 // TvtCustomDateEdit
  ;
  : Operations
-   @ ( ME_554C9CEF009F // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_554C9CEF009F // DoIt
+ )
  ; // Operations
 
 ref; // ME_554C9CE10330 FourDigitYear
@@ -5175,8 +5580,8 @@ ref; // ME_554C9D730367 Message
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
  : Parameters
-   @ ( ME_554C9D730367 // Message
- ) .SequenceCode.It
+   Seq: ( ME_554C9D730367 // Message
+ )
  ; // Parameters
 
 ref; // ME_554C9D6F019B DoIt
@@ -5192,8 +5597,8 @@ ref; // ME_554C9D6F019B DoIt
  : Parent ME_52A9ACFF0183 // TvtCustomDateEdit
  ;
  : Operations
-   @ ( ME_554C9D6F019B // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_554C9D6F019B // DoIt
+ )
  ; // Operations
 
 ref; // ME_554C9D670390 FormatSettingsChange
@@ -5203,6 +5608,7 @@ FORWARD ME_554CA29100ED
 : ME_F5B911D8E711
  CONST UID 'F5B911D8E711'
  CONST Name 'DoIt'
+ CONST IsSummoned true
  CONST Class class_Operation
  %SUMMARY 'Сигнатура метода TriggerAutoCorrectDate' ;
  CONST Visibility PublicAccess
@@ -5224,8 +5630,8 @@ ref; // ME_F5B911D8E711 DoIt
  : Parent ME_52A9ACFF0183 // TvtCustomDateEdit
  ;
  : Operations
-   @ ( ME_F5B911D8E711 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_F5B911D8E711 // DoIt
+ )
  ; // Operations
 
 ref; // ME_554CA29100ED TriggerAutoCorrectDate
@@ -5257,8 +5663,8 @@ ref; // ME_554CA3160336 DoIt
  : Parent ME_52A9ACFF0183 // TvtCustomDateEdit
  ;
  : Operations
-   @ ( ME_554CA3160336 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_554CA3160336 // DoIt
+ )
  ; // Operations
 
 ref; // ME_554CA2C1020B TriggerOnInvalidDate
@@ -5268,6 +5674,7 @@ FORWARD ME_554CA3BF011D
 : ME_A139DBB04545
  CONST UID 'A139DBB04545'
  CONST Name 'DoIt'
+ CONST IsSummoned true
  CONST Class class_Operation
  %SUMMARY 'Сигнатура метода MakeCalendar' ;
  CONST Visibility PublicAccess
@@ -5288,8 +5695,8 @@ ref; // ME_A139DBB04545 DoIt
  : Parent ME_52A9ACFF0183 // TvtCustomDateEdit
  ;
  : Operations
-   @ ( ME_A139DBB04545 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_A139DBB04545 // DoIt
+ )
  ; // Operations
 
 ref; // ME_554CA3BF011D MakeCalendar
@@ -5320,8 +5727,8 @@ ref; // ME_554CA3F70305 DoIt
  : Parent ME_52A9ACFF0183 // TvtCustomDateEdit
  ;
  : Operations
-   @ ( ME_554CA3F70305 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_554CA3F70305 // DoIt
+ )
  ; // Operations
 
 ref; // ME_554CA3ED007F GetDateFormat
@@ -5347,8 +5754,8 @@ ref; // ME_554CA42C038B aValue
  : Parent ME_554CA41F01D7 // ApplyDate
  ;
  : Parameters
-   @ ( ME_554CA42C038B // aValue
- ) .SequenceCode.It
+   Seq: ( ME_554CA42C038B // aValue
+ )
  ; // Parameters
 
 ref; // ME_554CA427031E DoIt
@@ -5364,8 +5771,8 @@ ref; // ME_554CA427031E DoIt
  : Parent ME_52A9ACFF0183 // TvtCustomDateEdit
  ;
  : Operations
-   @ ( ME_554CA427031E // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_554CA427031E // DoIt
+ )
  ; // Operations
 
 ref; // ME_554CA41F01D7 ApplyDate
@@ -5375,6 +5782,7 @@ FORWARD ME_554CA47D03A0
 : ME_BC061CBFA347
  CONST UID 'BC061CBFA347'
  CONST Name 'DoIt'
+ CONST IsSummoned true
  CONST Class class_Operation
  %SUMMARY 'Сигнатура метода UpdateFormat' ;
  CONST Visibility PublicAccess
@@ -5395,8 +5803,8 @@ ref; // ME_BC061CBFA347 DoIt
  : Parent ME_52A9ACFF0183 // TvtCustomDateEdit
  ;
  : Operations
-   @ ( ME_BC061CBFA347 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_BC061CBFA347 // DoIt
+ )
  ; // Operations
 
 ref; // ME_554CA47D03A0 UpdateFormat
@@ -5406,6 +5814,7 @@ FORWARD ME_554CA5170329
 : ME_2D407508BF48
  CONST UID '2D407508BF48'
  CONST Name 'DoIt'
+ CONST IsSummoned true
  CONST Class class_Operation
  %SUMMARY 'Сигнатура метода CheckValidDate' ;
  CONST Visibility PublicAccess
@@ -5426,8 +5835,8 @@ ref; // ME_2D407508BF48 DoIt
  : Parent ME_52A9ACFF0183 // TvtCustomDateEdit
  ;
  : Operations
-   @ ( ME_2D407508BF48 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_2D407508BF48 // DoIt
+ )
  ; // Operations
 
 ref; // ME_554CA5170329 CheckValidDate
@@ -5458,8 +5867,8 @@ ref; // ME_554CA539004F DoIt
  : Parent ME_52A9ACFF0183 // TvtCustomDateEdit
  ;
  : Operations
-   @ ( ME_554CA539004F // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_554CA539004F // DoIt
+ )
  ; // Operations
 
 ref; // ME_554CA52902A3 GetDateMask
@@ -5469,6 +5878,7 @@ FORWARD ME_554CA555014B
 : ME_E5E56082E430
  CONST UID 'E5E56082E430'
  CONST Name 'DoIt'
+ CONST IsSummoned true
  CONST Class class_Operation
  %SUMMARY 'Сигнатура метода UpdateMask' ;
  CONST Visibility PublicAccess
@@ -5489,8 +5899,8 @@ ref; // ME_E5E56082E430 DoIt
  : Parent ME_52A9ACFF0183 // TvtCustomDateEdit
  ;
  : Operations
-   @ ( ME_E5E56082E430 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_E5E56082E430 // DoIt
+ )
  ; // Operations
 
 ref; // ME_554CA555014B UpdateMask
@@ -5500,6 +5910,7 @@ FORWARD ME_554CA5630382
 : ME_D4AC045C0117
  CONST UID 'D4AC045C0117'
  CONST Name 'DoIt'
+ CONST IsSummoned true
  CONST Class class_Operation
  %SUMMARY 'Сигнатура метода ClearDate' ;
  CONST Visibility PublicAccess
@@ -5520,8 +5931,8 @@ ref; // ME_D4AC045C0117 DoIt
  : Parent ME_52A9ACFF0183 // TvtCustomDateEdit
  ;
  : Operations
-   @ ( ME_D4AC045C0117 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_D4AC045C0117 // DoIt
+ )
  ; // Operations
 
 ref; // ME_554CA5630382 ClearDate
@@ -5553,8 +5964,8 @@ ref; // ME_554CA5990198 DoIt
  : Parent ME_52A9ACFF0183 // TvtCustomDateEdit
  ;
  : Operations
-   @ ( ME_554CA5990198 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_554CA5990198 // DoIt
+ )
  ; // Operations
 
 ref; // ME_554CA580013A IsValid
@@ -5564,6 +5975,7 @@ FORWARD ME_554CA652029E
 : ME_78B734B733F4
  CONST UID '78B734B733F4'
  CONST Name 'DoIt'
+ CONST IsSummoned true
  CONST Class class_Operation
  %SUMMARY 'введенная дата не является допустимой. '#13#10'Пустой бланк "__.__.____" тоже воспринимается как неверная дата.' ;
  CONST Visibility PrivateAccess
@@ -5587,12 +5999,12 @@ ref; // ME_78B734B733F4 DoIt
  : Parent ME_52A9ACFF0183 // TvtCustomDateEdit
  ;
  : Inherits
-   @ ( ME_554CA580013A // IsValid
- ) .SequenceCode.It
+   Seq: ( ME_554CA580013A // IsValid
+ )
  ; // Inherits
  : Operations
-   @ ( ME_78B734B733F4 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_78B734B733F4 // DoIt
+ )
  ; // Operations
 
 ref; // ME_554CA652029E IsEmpty
@@ -5602,6 +6014,7 @@ FORWARD ME_554CA67F0123
 : ME_398A40C48184
  CONST UID '398A40C48184'
  CONST Name 'DoIt'
+ CONST IsSummoned true
  CONST Class class_Operation
  %SUMMARY 'False, только когда введена верная дата.'#13#10'Пустой бланк "__.__.____" воспринимается как неверная дата.' ;
  CONST Visibility PrivateAccess
@@ -5625,12 +6038,12 @@ ref; // ME_398A40C48184 DoIt
  : Parent ME_52A9ACFF0183 // TvtCustomDateEdit
  ;
  : Inherits
-   @ ( ME_554CA652029E // IsEmpty
- ) .SequenceCode.It
+   Seq: ( ME_554CA652029E // IsEmpty
+ )
  ; // Inherits
  : Operations
-   @ ( ME_398A40C48184 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_398A40C48184 // DoIt
+ )
  ; // Operations
 
 ref; // ME_554CA67F0123 IsBlank
@@ -5640,6 +6053,7 @@ FORWARD ME_554CA6CB0191
 : ME_95024AD50FE6
  CONST UID '95024AD50FE6'
  CONST Name 'DoIt'
+ CONST IsSummoned true
  CONST Class class_Operation
  %SUMMARY 'Сигнатура метода AutoResize' ;
  CONST Visibility PublicAccess
@@ -5660,8 +6074,8 @@ ref; // ME_95024AD50FE6 DoIt
  : Parent ME_52A9ACFF0183 // TvtCustomDateEdit
  ;
  : Operations
-   @ ( ME_95024AD50FE6 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_95024AD50FE6 // DoIt
+ )
  ; // Operations
 
 ref; // ME_554CA6CB0191 AutoResize
@@ -5692,8 +6106,8 @@ ref; // ME_55630590009B DoIt
  : Parent ME_52A9ACFF0183 // TvtCustomDateEdit
  ;
  : Operations
-   @ ( ME_55630590009B // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_55630590009B // DoIt
+ )
  ; // Operations
 
 ref; // ME_556305870087 TextStored
@@ -5718,8 +6132,8 @@ ref; // ME_554C9FA1021C Message
  : Parent ME_52A9ACFF0183 // TvtCustomDateEdit
  ;
  : Parameters
-   @ ( ME_554C9FA1021C // Message
- ) .SequenceCode.It
+   Seq: ( ME_554C9FA1021C // Message
+ )
  ; // Parameters
  CONST "Message ID" 'CM_EXIT'
 
@@ -5745,8 +6159,8 @@ ref; // ME_554C9FB701A9 Message
  : Parent ME_52A9ACFF0183 // TvtCustomDateEdit
  ;
  : Parameters
-   @ ( ME_554C9FB701A9 // Message
- ) .SequenceCode.It
+   Seq: ( ME_554C9FB701A9 // Message
+ )
  ; // Parameters
  CONST "Message ID" 'CM_ENTER'
 
@@ -5772,8 +6186,8 @@ ref; // ME_554CA4DC0256 Message
  : Parent ME_52A9ACFF0183 // TvtCustomDateEdit
  ;
  : Parameters
-   @ ( ME_554CA4DC0256 // Message
- ) .SequenceCode.It
+   Seq: ( ME_554CA4DC0256 // Message
+ )
  ; // Parameters
  CONST "Message ID" 'WM_MOUSEWHEEL'
 
@@ -5799,8 +6213,8 @@ ref; // ME_554CA4F10182 Message
  : Parent ME_52A9ACFF0183 // TvtCustomDateEdit
  ;
  : Parameters
-   @ ( ME_554CA4F10182 // Message
- ) .SequenceCode.It
+   Seq: ( ME_554CA4F10182 // Message
+ )
  ; // Parameters
  CONST "Message ID" 'WM_PASTE'
 
@@ -5809,6 +6223,7 @@ ref; // ME_554CA4E801D4 WMPaste
 : ME_75C8140A89E2
  CONST UID '75C8140A89E2'
  CONST Name 'Ini_Reg_Class'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Регистрация TvtCustomDateEdit' ;
@@ -5822,6 +6237,7 @@ ref; // ME_75C8140A89E2 Ini_Reg_Class
 
 : ME_60232D683D43
  CONST UID '60232D683D43'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_52A9ACFF0183 // TvtCustomDateEdit
@@ -5838,6 +6254,7 @@ ref; // ME_60232D683D43
  ;
  : Implementor ME_52A9ACFF0183 // TvtCustomDateEdit
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_554CA8F903AE_ME_52A9ACFF0183 GetDropDownContainer
 
 : ME_479731C50290_ME_52A9ACFF0183
@@ -5847,6 +6264,7 @@ ref; // ME_554CA8F903AE_ME_52A9ACFF0183 GetDropDownContainer
  ;
  : Implementor ME_52A9ACFF0183 // TvtCustomDateEdit
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_479731C50290_ME_52A9ACFF0183 Cleanup
 
 : ME_47D1602000C6_ME_52A9ACFF0183
@@ -5856,6 +6274,7 @@ ref; // ME_479731C50290_ME_52A9ACFF0183 Cleanup
  ;
  : Implementor ME_52A9ACFF0183 // TvtCustomDateEdit
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_47D1602000C6_ME_52A9ACFF0183 Create
 
 : ME_482C4E0E01E4_ME_52A9ACFF0183
@@ -5865,6 +6284,7 @@ ref; // ME_47D1602000C6_ME_52A9ACFF0183 Create
  ;
  : Implementor ME_52A9ACFF0183 // TvtCustomDateEdit
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_482C4E0E01E4_ME_52A9ACFF0183 KeyPress
 
 : ME_48C67EB000EE_ME_52A9ACFF0183
@@ -5874,6 +6294,7 @@ ref; // ME_482C4E0E01E4_ME_52A9ACFF0183 KeyPress
  ;
  : Implementor ME_52A9ACFF0183 // TvtCustomDateEdit
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_48C67EB000EE_ME_52A9ACFF0183 CreateWindowHandle
 
 : ME_48C67EDF01C8_ME_52A9ACFF0183
@@ -5883,6 +6304,7 @@ ref; // ME_48C67EB000EE_ME_52A9ACFF0183 CreateWindowHandle
  ;
  : Implementor ME_52A9ACFF0183 // TvtCustomDateEdit
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_48C67EDF01C8_ME_52A9ACFF0183 DestroyWindowHandle
 
 : ME_52A9A8710199_ME_52A9ACFF0183
@@ -5892,6 +6314,7 @@ ref; // ME_48C67EDF01C8_ME_52A9ACFF0183 DestroyWindowHandle
  ;
  : Implementor ME_52A9ACFF0183 // TvtCustomDateEdit
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_52A9A8710199_ME_52A9ACFF0183 ActionChange
 
 : ME_554CA18500FB_ME_52A9ACFF0183
@@ -5901,6 +6324,7 @@ ref; // ME_52A9A8710199_ME_52A9ACFF0183 ActionChange
  ;
  : Implementor ME_52A9ACFF0183 // TvtCustomDateEdit
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_554CA18500FB_ME_52A9ACFF0183 ProcessCommand
 
 : ME_554CAA8400E5_ME_52A9ACFF0183
@@ -5910,6 +6334,7 @@ ref; // ME_554CA18500FB_ME_52A9ACFF0183 ProcessCommand
  ;
  : Implementor ME_52A9ACFF0183 // TvtCustomDateEdit
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_554CAA8400E5_ME_52A9ACFF0183 Change
 
 : ME_554CABC100AC_ME_52A9ACFF0183
@@ -5919,6 +6344,7 @@ ref; // ME_554CAA8400E5_ME_52A9ACFF0183 Change
  ;
  : Implementor ME_52A9ACFF0183 // TvtCustomDateEdit
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_554CABC100AC_ME_52A9ACFF0183 KeyDown
 
 : ME_554CBB4B0240_ME_52A9ACFF0183
@@ -5928,6 +6354,7 @@ ref; // ME_554CABC100AC_ME_52A9ACFF0183 KeyDown
  ;
  : Implementor ME_52A9ACFF0183 // TvtCustomDateEdit
  ;
+ CONST OpKind opkind_Overridden
  CONST "ifdef" 'l3HackedVCL'
  CONST "ifndef" 'DesignTimeLibrary'
 ref; // ME_554CBB4B0240_ME_52A9ACFF0183 TextFromClipboard
@@ -5939,6 +6366,7 @@ ref; // ME_554CBB4B0240_ME_52A9ACFF0183 TextFromClipboard
  ;
  : Implementor ME_52A9ACFF0183 // TvtCustomDateEdit
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_554CBC32006E_ME_52A9ACFF0183 DropDown
 
 : ME_554CBC4500ED_ME_52A9ACFF0183
@@ -5948,6 +6376,7 @@ ref; // ME_554CBC32006E_ME_52A9ACFF0183 DropDown
  ;
  : Implementor ME_52A9ACFF0183 // TvtCustomDateEdit
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_554CBC4500ED_ME_52A9ACFF0183 CloseUp
 
 : ME_52A9ACFF0183
@@ -5961,11 +6390,11 @@ ref; // ME_554CBC4500ED_ME_52A9ACFF0183 CloseUp
  : Parent ME_4AA8AB7B038F // TvtDateEdit
  ;
  : Inherits
-   @ ( WL 'ME_52A9AD500267' '4A83EE0E0002.pas.ms.script' // TvtCustomCombo
- ) .SequenceCode.It
+   Seq: ( WL 'ME_52A9AD500267' '4A83EE0E0002.pas.ms.script' // TvtCustomCombo
+ )
  ; // Inherits
  : Attributes
-   @ ( ME_554C89EF0046 // f_Hooked
+   Seq: ( ME_554C89EF0046 // f_Hooked
  ME_554C8A8200D7 // OnApplyDate
  ME_554C8AA4034D // OnAppliedDate
  ME_554C8B2B0323 // OnAutoCorrectDate
@@ -5996,10 +6425,10 @@ ref; // ME_554CBC4500ED_ME_52A9ACFF0183 CloseUp
  ME_12B1E77B9781 // f_YearDigits
  ME_3998B939BAA4 // f_CheckOnExit
  ME_36F0868582AF // f_Formatting
- ) .SequenceCode.It
+ )
  ; // Attributes
  : Operations
-   @ ( ME_52A9AF0F021B // DoExecute
+   Seq: ( ME_52A9AF0F021B // DoExecute
  ME_554C9CE10330 // FourDigitYear
  ME_554C9D670390 // FormatSettingsChange
  ME_554CA29100ED // TriggerAutoCorrectDate
@@ -6022,14 +6451,14 @@ ref; // ME_554CBC4500ED_ME_52A9ACFF0183 CloseUp
  ME_554CA4D40035 // WMMouseWheel
  ME_554CA4E801D4 // WMPaste
  ME_75C8140A89E2 // Ini_Reg_Class
- ) .SequenceCode.It
+ )
  ; // Operations
  : Implemented
-   @ ( ME_554CA8F903AE_ME_52A9ACFF0183 // GetDropDownContainer
- ) .SequenceCode.It
+   Seq: ( ME_554CA8F903AE_ME_52A9ACFF0183 // GetDropDownContainer
+ )
  ; // Implemented
  : Overridden
-   @ ( ME_479731C50290_ME_52A9ACFF0183 // Cleanup
+   Seq: ( ME_479731C50290_ME_52A9ACFF0183 // Cleanup
  ME_47D1602000C6_ME_52A9ACFF0183 // Create
  ME_482C4E0E01E4_ME_52A9ACFF0183 // KeyPress
  ME_48C67EB000EE_ME_52A9ACFF0183 // CreateWindowHandle
@@ -6041,21 +6470,27 @@ ref; // ME_554CBC4500ED_ME_52A9ACFF0183 CloseUp
  ME_554CBB4B0240_ME_52A9ACFF0183 // TextFromClipboard
  ME_554CBC32006E_ME_52A9ACFF0183 // DropDown
  ME_554CBC4500ED_ME_52A9ACFF0183 // CloseUp
- ) .SequenceCode.It
+ )
  ; // Overridden
  : Children
-   @ ( ME_554C911D0364 // SupportStDate
- ) .SequenceCode.It
+   Seq: ( ME_554C911D0364 // SupportStDate
+ )
  ; // Children
  : Dependencies
-   @ ( ME_60232D683D43 // 
- ) .SequenceCode.It
+   Seq: ( ME_60232D683D43 // 
+ )
  ; // Dependencies
  CONST "base wnd class" 'CWnd'
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
+ CONST dfm:PathOnly '\common\components\gui\Garant\VT'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\VT'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'DateEdit'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_52A9ACFF0183 TvtCustomDateEdit
 
@@ -6109,6 +6544,7 @@ ref; // ME_554CC0D002D0 DateText
 : ME_5BD04EFB928F
  CONST UID '5BD04EFB928F'
  CONST Name 'f_DateText'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY 'Поле для свойства DateText' ;
  CONST Visibility PrivateAccess
@@ -6118,12 +6554,14 @@ ref; // ME_554CC0D002D0 DateText
  ;
  : Target WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
  ;
+ CONST extprop:clearViaProperty 'DateText'
 
 ref; // ME_5BD04EFB928F f_DateText
 
 : ME_51405B3B23A4
  CONST UID '51405B3B23A4'
  CONST Name 'Ini_Reg_Class'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Регистрация TvtCalendarForm' ;
@@ -6137,6 +6575,7 @@ ref; // ME_51405B3B23A4 Ini_Reg_Class
 
 : ME_25918C4479CD
  CONST UID '25918C4479CD'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_554CBF5C01D8 // TvtCalendarForm
@@ -6153,6 +6592,7 @@ ref; // ME_25918C4479CD
  ;
  : Implementor ME_554CBF5C01D8 // TvtCalendarForm
  ;
+ CONST OpKind opkind_Overridden
  CONST "ifndef" 'DesignTimeLibrary'
 ref; // ME_47A042E100E2_ME_554CBF5C01D8 InitFields
 
@@ -6163,6 +6603,7 @@ ref; // ME_47A042E100E2_ME_554CBF5C01D8 InitFields
  ;
  : Implementor ME_554CBF5C01D8 // TvtCalendarForm
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_47E136A80191_ME_554CBF5C01D8 WndProc
 
 : ME_49F057120234_ME_554CBF5C01D8
@@ -6172,6 +6613,7 @@ ref; // ME_47E136A80191_ME_554CBF5C01D8 WndProc
  ;
  : Implementor ME_554CBF5C01D8 // TvtCalendarForm
  ;
+ CONST OpKind opkind_Overridden
  CONST "ifdef" 'DesignTimeLibrary'
 ref; // ME_49F057120234_ME_554CBF5C01D8 AfterConstruction
 
@@ -6186,34 +6628,40 @@ ref; // ME_49F057120234_ME_554CBF5C01D8 AfterConstruction
  : Parent ME_4AA8AB7B038F // TvtDateEdit
  ;
  : Inherits
-   @ ( WL 'ME_4F0C239A01E1' '47F485150151.pas.ms.script' // TvtForm
- ) .SequenceCode.It
+   Seq: ( WL 'ME_4F0C239A01E1' '47F485150151.pas.ms.script' // TvtForm
+ )
  ; // Inherits
  : Attributes
-   @ ( ME_554CC0890053 // f_Calendar
+   Seq: ( ME_554CC0890053 // f_Calendar
  ME_554CC0BC01D9 // f_DateFormat
  ME_554CC0D002D0 // DateText
  ME_5BD04EFB928F // f_DateText
- ) .SequenceCode.It
+ )
  ; // Attributes
  : Operations
-   @ ( ME_51405B3B23A4 // Ini_Reg_Class
- ) .SequenceCode.It
+   Seq: ( ME_51405B3B23A4 // Ini_Reg_Class
+ )
  ; // Operations
  : Overridden
-   @ ( ME_47A042E100E2_ME_554CBF5C01D8 // InitFields
+   Seq: ( ME_47A042E100E2_ME_554CBF5C01D8 // InitFields
  ME_47E136A80191_ME_554CBF5C01D8 // WndProc
  ME_49F057120234_ME_554CBF5C01D8 // AfterConstruction
- ) .SequenceCode.It
+ )
  ; // Overridden
  : Dependencies
-   @ ( ME_25918C4479CD // 
- ) .SequenceCode.It
+   Seq: ( ME_25918C4479CD // 
+ )
  ; // Dependencies
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
+ CONST dfm:PathOnly '\common\components\gui\Garant\VT'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\VT'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'CalendarForm'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_554CBF5C01D8 TvtCalendarForm
 
@@ -6224,6 +6672,7 @@ FORWARD ME_5562DEB2009F
 : ME_32D1CFEAEBAC
  CONST UID '32D1CFEAEBAC'
  CONST Name 'Sender'
+ CONST IsSummoned true
  CONST Class class_Parameter
  : Stereotype st_in ;
  : Target WL 'ME_4807745602C8' '4AB0C3C60310.pas.ms.script' // TObject
@@ -6234,6 +6683,7 @@ ref; // ME_32D1CFEAEBAC Sender
 : ME_65FAF40E11A9
  CONST UID '65FAF40E11A9'
  CONST Name 'DoIt'
+ CONST IsSummoned true
  CONST Class class_Operation
  %SUMMARY 'TNotifyEvent is used for events that do not require parameters.' ;
  CONST Visibility PrivateAccess
@@ -6241,8 +6691,8 @@ ref; // ME_32D1CFEAEBAC Sender
  : Parent ME_5562DEB2009F // OkClick
  ;
  : Parameters
-   @ ( ME_32D1CFEAEBAC // Sender
- ) .SequenceCode.It
+   Seq: ( ME_32D1CFEAEBAC // Sender
+ )
  ; // Parameters
 
 ref; // ME_65FAF40E11A9 DoIt
@@ -6258,12 +6708,12 @@ ref; // ME_65FAF40E11A9 DoIt
  : Parent ME_5562DE9702A4 // TDblClickPopupCalendar
  ;
  : Inherits
-   @ ( WL 'ME_47881B22005A' '4AB0997B00A2.pas.ms.script' // TNotifyEvent
- ) .SequenceCode.It
+   Seq: ( WL 'ME_47881B22005A' '4AB0997B00A2.pas.ms.script' // TNotifyEvent
+ )
  ; // Inherits
  : Operations
-   @ ( ME_65FAF40E11A9 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_65FAF40E11A9 // DoIt
+ )
  ; // Operations
 
 ref; // ME_5562DEB2009F OkClick
@@ -6271,6 +6721,7 @@ ref; // ME_5562DEB2009F OkClick
 : ME_B2A29A2C2E23
  CONST UID 'B2A29A2C2E23'
  CONST Name 'Ini_Reg_Class'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Регистрация TDblClickPopupCalendar' ;
@@ -6284,6 +6735,7 @@ ref; // ME_B2A29A2C2E23 Ini_Reg_Class
 
 : ME_9CBD86495BB1
  CONST UID '9CBD86495BB1'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_5562DE9702A4 // TDblClickPopupCalendar
@@ -6300,6 +6752,7 @@ ref; // ME_9CBD86495BB1
  ;
  : Implementor ME_5562DE9702A4 // TDblClickPopupCalendar
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_5562DBEF006B_ME_5562DE9702A4 CalendarMouseUp
 
 : ME_5562DDAF0285_ME_5562DE9702A4
@@ -6309,6 +6762,7 @@ ref; // ME_5562DBEF006B_ME_5562DE9702A4 CalendarMouseUp
  ;
  : Implementor ME_5562DE9702A4 // TDblClickPopupCalendar
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_5562DDAF0285_ME_5562DE9702A4 CalcTodayPadWidth
 
 : ME_5562DE3A02DF_ME_5562DE9702A4
@@ -6318,6 +6772,7 @@ ref; // ME_5562DDAF0285_ME_5562DE9702A4 CalcTodayPadWidth
  ;
  : Implementor ME_5562DE9702A4 // TDblClickPopupCalendar
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_5562DE3A02DF_ME_5562DE9702A4 MakeTodayPad
 
 : ME_5562DE4D0243_ME_5562DE9702A4
@@ -6327,6 +6782,7 @@ ref; // ME_5562DE3A02DF_ME_5562DE9702A4 MakeTodayPad
  ;
  : Implementor ME_5562DE9702A4 // TDblClickPopupCalendar
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_5562DE4D0243_ME_5562DE9702A4 AdjustTitleButtonFont
 
 : ME_5562DE9702A4
@@ -6340,29 +6796,35 @@ ref; // ME_5562DE4D0243_ME_5562DE9702A4 AdjustTitleButtonFont
  : Parent ME_4AA8AB7B038F // TvtDateEdit
  ;
  : Inherits
-   @ ( ME_4F8D5553010A // TPopupCalendar
- ) .SequenceCode.It
+   Seq: ( ME_4F8D5553010A // TPopupCalendar
+ )
  ; // Inherits
  : Operations
-   @ ( ME_5562DEB2009F // OkClick
+   Seq: ( ME_5562DEB2009F // OkClick
  ME_B2A29A2C2E23 // Ini_Reg_Class
- ) .SequenceCode.It
+ )
  ; // Operations
  : Overridden
-   @ ( ME_5562DBEF006B_ME_5562DE9702A4 // CalendarMouseUp
+   Seq: ( ME_5562DBEF006B_ME_5562DE9702A4 // CalendarMouseUp
  ME_5562DDAF0285_ME_5562DE9702A4 // CalcTodayPadWidth
  ME_5562DE3A02DF_ME_5562DE9702A4 // MakeTodayPad
  ME_5562DE4D0243_ME_5562DE9702A4 // AdjustTitleButtonFont
- ) .SequenceCode.It
+ )
  ; // Overridden
  : Dependencies
-   @ ( ME_9CBD86495BB1 // 
- ) .SequenceCode.It
+   Seq: ( ME_9CBD86495BB1 // 
+ )
  ; // Dependencies
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
+ CONST dfm:PathOnly '\common\components\gui\Garant\VT'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\VT'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'DblClickPopupCalendar'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_5562DE9702A4 TDblClickPopupCalendar
 
@@ -6376,6 +6838,10 @@ ref; // ME_5562DE9702A4 TDblClickPopupCalendar
  CONST Abstraction at_final
  : Parent ME_4AA8AB7B038F // TvtDateEdit
  ;
+ CONST dfm:PathOnly '\common\components\gui\Garant\VT'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\VT'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_5562E38F0396 TodayPadPresent
 
@@ -6391,9 +6857,15 @@ ref; // ME_5562E38F0396 TodayPadPresent
  : Parent ME_4AA8AB7B038F // TvtDateEdit
  ;
  : Inherits
-   @ ( WL 'ME_4AAE399802A2' '4E1447600037.pas.ms.script' // TvtStdResources
- ) .SequenceCode.It
+   Seq: ( WL 'ME_4AAE399802A2' '4E1447600037.pas.ms.script' // TvtStdResources
+ )
  ; // Inherits
+ CONST dfm:PathOnly '\common\components\gui\Garant\VT'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\VT'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'Foo'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_5564521702CC TFoo
 
@@ -6412,6 +6884,7 @@ FORWARD ME_556464A3026C
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value 95
 
 ref; // ME_556464CA0213 cButtonWidth
 
@@ -6428,6 +6901,7 @@ ref; // ME_556464CA0213 cButtonWidth
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value 20
 
 ref; // ME_556464D20231 cButtonHeight
 
@@ -6442,17 +6916,22 @@ ref; // ME_556464D20231 cButtonHeight
  : Parent ME_4AA8AB7B038F // TvtDateEdit
  ;
  : Attributes
-   @ ( ME_556464CA0213 // cButtonWidth
+   Seq: ( ME_556464CA0213 // cButtonWidth
  ME_556464D20231 // cButtonHeight
- ) .SequenceCode.It
+ )
  ; // Attributes
  CONST "spell names" false
+ CONST dfm:PathOnly '\common\components\gui\Garant\VT'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\VT'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_556464A3026C TDblClickPopupCalendar Const
 
 : ME_85C4A351AC4D
  CONST UID '85C4A351AC4D'
  CONST Name 'TvtCalendarPanelFriend'
+ CONST IsSummoned true
  CONST Class class_Class
  : Stereotype st_SimpleClass ;
  CONST Kind kind_NormalClass
@@ -6462,19 +6941,26 @@ ref; // ME_556464A3026C TDblClickPopupCalendar Const
  : Parent ME_4AA8AB7B038F // TvtDateEdit
  ;
  : Inherits
-   @ ( ME_5562DB5D0259 // TvtCalendarPanel
- ) .SequenceCode.It
+   Seq: ( ME_5562DB5D0259 // TvtCalendarPanel
+ )
  ; // Inherits
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" false
+ CONST dfm:PathOnly '\common\components\gui\Garant\VT'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\VT'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'CalendarPanelFriend'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_85C4A351AC4D TvtCalendarPanelFriend
 
 : ME_5DD22A2937F7
  CONST UID '5DD22A2937F7'
  CONST Name 'Ini_Reg_Class'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Регистрация TvtDateEdit' ;
@@ -6631,6 +7117,7 @@ ref; // ME_55670AFA0153
 
 : ME_97F7F93AE6C3
  CONST UID '97F7F93AE6C3'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_4AA8AB7B038F // TvtDateEdit
@@ -6651,15 +7138,15 @@ ref; // ME_97F7F93AE6C3
  : Parent ME_4AC5DADB00C9 // DateEdit
  ;
  : Inherits
-   @ ( ME_52A9ACFF0183 // TvtCustomDateEdit
- ) .SequenceCode.It
+   Seq: ( ME_52A9ACFF0183 // TvtCustomDateEdit
+ )
  ; // Inherits
  : Operations
-   @ ( ME_5DD22A2937F7 // Ini_Reg_Class
- ) .SequenceCode.It
+   Seq: ( ME_5DD22A2937F7 // Ini_Reg_Class
+ )
  ; // Operations
  : Children
-   @ ( ME_4F8D5553010A // TPopupCalendar
+   Seq: ( ME_4F8D5553010A // TPopupCalendar
  ME_554C8A090247 // TvtOnApplyDate
  ME_554C8A190075 // TvtOnAppliedDate
  ME_554C8F2B00A9 // TYearDigits
@@ -6669,14 +7156,14 @@ ref; // ME_97F7F93AE6C3
  ME_5562E38F0396 // TodayPadPresent
  ME_5564521702CC // TFoo
  ME_85C4A351AC4D // TvtCalendarPanelFriend
- ) .SequenceCode.It
+ )
  ; // Children
  : Constants
-   @ ( ME_556464A3026C // TDblClickPopupCalendar Const
- ) .SequenceCode.It
+   Seq: ( ME_556464A3026C // TDblClickPopupCalendar Const
+ )
  ; // Constants
  : Dependencies
-   @ ( ME_556452780136 // 
+   Seq: ( ME_556452780136 // 
  ME_5564528A0140 // 
  ME_556452F700F7 // 
  ME_556452F9038B // 
@@ -6690,7 +7177,7 @@ ref; // ME_97F7F93AE6C3
  ME_5564AC63031F // 
  ME_55670AFA0153 // 
  ME_97F7F93AE6C3 // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  CONST "base wnd class" 'CWnd'
  CONST "need UC" true
@@ -6698,12 +7185,14 @@ ref; // ME_97F7F93AE6C3
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\VT'
  CONST intf.pas:Path 'common\components\gui\Garant\VT\vtDateEdit.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\VT'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'DateEdit'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'vtDateEdit'
 
 ref; // ME_4AA8AB7B038F TvtDateEdit
 
@@ -6712,6 +7201,7 @@ FORWARD ME_4AC5DAE50246
 : ME_B98337B23551
  CONST UID 'B98337B23551'
  CONST Name 'Ini_Reg_Class'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Регистрация TvtDblClickDateEdit' ;
@@ -6725,6 +7215,7 @@ ref; // ME_B98337B23551 Ini_Reg_Class
 
 : ME_6167FDB02615
  CONST UID '6167FDB02615'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_4AC5DAE50246 // TvtDblClickDateEdit
@@ -6741,6 +7232,7 @@ ref; // ME_6167FDB02615
  ;
  : Implementor ME_4AC5DAE50246 // TvtDblClickDateEdit
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_554CA3BF011D_ME_4AC5DAE50246 MakeCalendar
 
 : ME_4AC5DAE50246
@@ -6754,32 +7246,34 @@ ref; // ME_554CA3BF011D_ME_4AC5DAE50246 MakeCalendar
  : Parent ME_4AC5DADB00C9 // DateEdit
  ;
  : Inherits
-   @ ( ME_4AA8AB7B038F // TvtDateEdit
- ) .SequenceCode.It
+   Seq: ( ME_4AA8AB7B038F // TvtDateEdit
+ )
  ; // Inherits
  : Operations
-   @ ( ME_B98337B23551 // Ini_Reg_Class
- ) .SequenceCode.It
+   Seq: ( ME_B98337B23551 // Ini_Reg_Class
+ )
  ; // Operations
  : Overridden
-   @ ( ME_554CA3BF011D_ME_4AC5DAE50246 // MakeCalendar
- ) .SequenceCode.It
+   Seq: ( ME_554CA3BF011D_ME_4AC5DAE50246 // MakeCalendar
+ )
  ; // Overridden
  : Dependencies
-   @ ( ME_6167FDB02615 // 
- ) .SequenceCode.It
+   Seq: ( ME_6167FDB02615 // 
+ )
  ; // Dependencies
  CONST "base wnd class" 'CWnd'
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\VT'
  CONST intf.pas:Path 'common\components\gui\Garant\VT\vtDblClickDateEdit.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\VT'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'DblClickDateEdit'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'vtDblClickDateEdit'
 
 ref; // ME_4AC5DAE50246 TvtDblClickDateEdit
 
@@ -6793,14 +7287,14 @@ ref; // ME_4AC5DAE50246 TvtDblClickDateEdit
  : Parent WL 'ME_467A75D90346' '467A75D90346.pas.ms.script' // VT
  ;
  : Children
-   @ ( ME_5562DB5D0259 // TvtCalendarPanel
+   Seq: ( ME_5562DB5D0259 // TvtCalendarPanel
  ME_4B8E4B58034D // vtDateEditRes
  ME_4AA8AB7B038F // TvtDateEdit
  ME_4AC5DAE50246 // TvtDblClickDateEdit
- ) .SequenceCode.It
+ )
  ; // Children
  : Depends
-   @ ( WL 'ME_472745450206' '472745450206.pas.ms.script' // l3Units
+   Seq: ( WL 'ME_472745450206' '472745450206.pas.ms.script' // l3Units
  WL 'ME_4728A7020026' '4728A7020026.pas.ms.script' // Types
  WL 'ME_476F78840219' '476F78840219.pas.ms.script' // Messages
  WL 'ME_4799D29F033F' '4799D29F033F.pas.ms.script' // Implementation
@@ -6820,15 +7314,13 @@ ref; // ME_4AC5DAE50246 TvtDblClickDateEdit
  WL 'ME_54B90AC6014B' '54B90AC6014B.pas.ms.script' // StringUtils
  WL 'ME_55C4AEC801CA' '55C4AEC801CA.pas.ms.script' // Graphics
  WL 'ME_561F9F7D02A7' '561F9F7D02A7.pas.ms.script' // ScriptEngine
- ) .SequenceCode.It
+ )
  ; // Depends
- : Generators
- @ (
- gen_pas.script
- gen_pas.script.runner
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\VT'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\VT'
  CONST pas.script:Path 'shared\models\NewSchool\Scripts\4AC5DADB00C9.pas.ms.script'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
  CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\4AC5DADB00C9.pas.ms.script.runner'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_4AC5DADB00C9 DateEdit

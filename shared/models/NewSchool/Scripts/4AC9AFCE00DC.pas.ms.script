@@ -15,6 +15,12 @@ FORWARD ME_4AC9AFCE00DC
  CONST Abstraction at_regular
  : Parent ME_4AC9AFCE00DC // nscInterfaces
  ;
+ CONST dfm:PathOnly '\common\components\gui\Garant\Nemesis'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Nemesis'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'ArrangeGrid'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_4AC9AFDC013C InscArrangeGrid
 
@@ -29,6 +35,12 @@ ref; // ME_4AC9AFDC013C InscArrangeGrid
  CONST Abstraction at_regular
  : Parent ME_4AC9AFCE00DC // nscInterfaces
  ;
+ CONST dfm:PathOnly '\common\components\gui\Garant\Nemesis'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Nemesis'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'TabTable'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_4AC9CB3003B4 InscTabTable
 
@@ -42,22 +54,19 @@ ref; // ME_4AC9CB3003B4 InscTabTable
  : Parent WL 'ME_490838AA02D0' '490838AA02D0.pas.ms.script' // Nemesis
  ;
  : Children
-   @ ( ME_4AC9AFDC013C // InscArrangeGrid
+   Seq: ( ME_4AC9AFDC013C // InscArrangeGrid
  ME_4AC9CB3003B4 // InscTabTable
- ) .SequenceCode.It
+ )
  ; // Children
  CONST "finished" false
  CONST "is namespace" true
  CONST "no hands" false
- : Generators
- @ (
- gen_intf.pas
- gen_pas.script
- gen_pas.script.runner
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\Nemesis'
  CONST intf.pas:Path 'common\components\gui\Garant\Nemesis\NOT_FINISHED_nscInterfaces.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Nemesis'
  CONST pas.script:Path 'shared\models\NewSchool\Scripts\4AC9AFCE00DC.pas.ms.script'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
  CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\4AC9AFCE00DC.pas.ms.script.runner'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_4AC9AFCE00DC nscInterfaces

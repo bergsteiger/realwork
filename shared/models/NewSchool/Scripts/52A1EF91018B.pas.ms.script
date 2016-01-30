@@ -12,8 +12,8 @@ INCLUDE 'ElementsRTTI.ms.dict'
  : Parent WL 'ME_49B1511700CA' '49B1511700CA.pas.ms.script' // Shared Delphi Core
  ;
  : Children
-   @ ( WL 'ME_52A1F00400CC' '52A1F00400CC.pas.ms.script' // Implementation
- ) .SequenceCode.It
+   Seq: ( WL 'ME_52A1F00400CC' '52A1F00400CC.pas.ms.script' // Implementation
+ )
  ; // Children
  CONST "exec mode" 'concluded'
  CONST "finished" false
@@ -21,17 +21,11 @@ INCLUDE 'ElementsRTTI.ms.dict'
  CONST "ifndef" 'XE'
  CONST "is namespace" true
  CONST "vendor" '/external/NotFinished/Borland/Delphi'
- : Generators
- @ (
- gen_forth_structure
- gen_intf.pas
- gen_pas.script
- gen_pas.script.runner
- ) .SequenceCode.It
- ; // Generators
- CONST forth_structure:Path 'shared\models\NewSchool\Shared Delphi Core\Toolsapi\Toolsapi.model.script'
- CONST intf.pas:Path 'common\components\rtl\external\NotFinished\Borland\Delphi\Toolsapi\Toolsapi_lib.info'
+ CONST dfm:PathOnly '\common\components\rtl\external\NotFinished\Borland\Delphi\Toolsapi'
+ CONST intf.pas:PathOnly '\common\components\rtl\external\NotFinished\Borland\Delphi\Toolsapi'
  CONST pas.script:Path 'shared\models\NewSchool\Scripts\52A1EF91018B.pas.ms.script'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
  CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\52A1EF91018B.pas.ms.script.runner'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_52A1EF91018B Toolsapi

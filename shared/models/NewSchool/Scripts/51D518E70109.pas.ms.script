@@ -56,9 +56,9 @@ ref; // ME_51D5199B00F4 Default
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
  : Parameters
-   @ ( ME_51D5199B00E4 // Alias
+   Seq: ( ME_51D5199B00E4 // Alias
  ME_51D5199B00F4 // Default
- ) .SequenceCode.It
+ )
  ; // Parameters
  CONST "calling conventions" 'stdcall'
 
@@ -95,9 +95,9 @@ ref; // ME_51D519B20017 Default
  : Target WL 'ME_47272C8B0128' '4AB0C3C60310.pas.ms.script' // TDateTime
  ;
  : Parameters
-   @ ( ME_51D519B103E0 // Alias
+   Seq: ( ME_51D519B103E0 // Alias
  ME_51D519B20017 // Default
- ) .SequenceCode.It
+ )
  ; // Parameters
  CONST "calling conventions" 'stdcall'
 
@@ -134,9 +134,9 @@ ref; // ME_51D519C902B2 Default
  : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
  ;
  : Parameters
-   @ ( ME_51D519C90292 // Alias
+   Seq: ( ME_51D519C90292 // Alias
  ME_51D519C902B2 // Default
- ) .SequenceCode.It
+ )
  ; // Parameters
  CONST "calling conventions" 'stdcall'
 
@@ -173,9 +173,9 @@ ref; // ME_51D519E2036F Default
  : Target WL 'ME_46780DA40383' '4677FBA70343.pas.ms.script' // Il3CString
  ;
  : Parameters
-   @ ( ME_51D519E2035F // Alias
+   Seq: ( ME_51D519E2035F // Alias
  ME_51D519E2036F // Default
- ) .SequenceCode.It
+ )
  ; // Parameters
  CONST "calling conventions" 'stdcall'
 
@@ -210,9 +210,9 @@ ref; // ME_51D51A03012F B
  : Parent ME_51D519310249 // IddConfigStorage
  ;
  : Parameters
-   @ ( ME_51D51A030110 // Alias
+   Seq: ( ME_51D51A030110 // Alias
  ME_51D51A03012F // B
- ) .SequenceCode.It
+ )
  ; // Parameters
  CONST "calling conventions" 'stdcall'
 
@@ -247,9 +247,9 @@ ref; // ME_51D51A1202DA DT
  : Parent ME_51D519310249 // IddConfigStorage
  ;
  : Parameters
-   @ ( ME_51D51A1202CA // Alias
+   Seq: ( ME_51D51A1202CA // Alias
  ME_51D51A1202DA // DT
- ) .SequenceCode.It
+ )
  ; // Parameters
  CONST "calling conventions" 'stdcall'
 
@@ -284,9 +284,9 @@ ref; // ME_51D51A25038C I
  : Parent ME_51D519310249 // IddConfigStorage
  ;
  : Parameters
-   @ ( ME_51D51A25037D // Alias
+   Seq: ( ME_51D51A25037D // Alias
  ME_51D51A25038C // I
- ) .SequenceCode.It
+ )
  ; // Parameters
  CONST "calling conventions" 'stdcall'
 
@@ -321,9 +321,9 @@ ref; // ME_51D51A370338 S
  : Parent ME_51D519310249 // IddConfigStorage
  ;
  : Parameters
-   @ ( ME_51D51A370318 // Alias
+   Seq: ( ME_51D51A370318 // Alias
  ME_51D51A370338 // S
- ) .SequenceCode.It
+ )
  ; // Parameters
  CONST "calling conventions" 'stdcall'
 
@@ -342,11 +342,11 @@ ref; // ME_51D51A3201BA WriteString
  : Parent ME_5214AEF201AE // ddConfigStorages
  ;
  : Attributes
-   @ ( ME_51D51A48025D // Section
- ) .SequenceCode.It
+   Seq: ( ME_51D51A48025D // Section
+ )
  ; // Attributes
  : Operations
-   @ ( ME_51D51983016F // ReadBool
+   Seq: ( ME_51D51983016F // ReadBool
  ME_51D519A40189 // ReadDateTime
  ME_51D519B403D0 // ReadInteger
  ME_51D519D00291 // ReadString
@@ -354,8 +354,14 @@ ref; // ME_51D51A3201BA WriteString
  ME_51D51A0D0133 // WriteDateTime
  ME_51D51A1E025E // WriteInteger
  ME_51D51A3201BA // WriteString
- ) .SequenceCode.It
+ )
  ; // Operations
+ CONST dfm:PathOnly '\common\components\rtl\Garant\dd'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\dd'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'ddConfigStorage'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_51D519310249 IddConfigStorage
 
@@ -370,16 +376,15 @@ ref; // ME_51D519310249 IddConfigStorage
  : Parent ME_51D518E70109 // ddConfigStorages
  ;
  : Children
-   @ ( ME_51D519310249 // IddConfigStorage
- ) .SequenceCode.It
+   Seq: ( ME_51D519310249 // IddConfigStorage
+ )
  ; // Children
  CONST "no hands" false
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\dd'
  CONST intf.pas:Path 'common\components\rtl\Garant\dd\ddConfigStorages.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\dd'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_5214AEF201AE ddConfigStorages
 
@@ -399,12 +404,14 @@ ref; // ME_5214AEF201AE ddConfigStorages
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\dd'
  CONST intf.pas:Path 'common\components\rtl\Garant\dd\NOT_FINISHED_ddIniStorage.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\dd'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'ddIniStorage'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'ddIniStorage'
 
 ref; // ME_5214AF4C01AF TddIniStorage
 
@@ -418,22 +425,20 @@ ref; // ME_5214AF4C01AF TddIniStorage
  : Parent WL 'ME_5214D28E024C' '5214D28E024C.pas.ms.script' // dd$AppConfig
  ;
  : Children
-   @ ( ME_5214AEF201AE // ddConfigStorages
+   Seq: ( ME_5214AEF201AE // ddConfigStorages
  ME_5214AF4C01AF // TddIniStorage
- ) .SequenceCode.It
+ )
  ; // Children
  : Depends
-   @ ( WL 'ME_4677FBA70343' '4677FBA70343.pas.ms.script' // l3Interfaces
+   Seq: ( WL 'ME_4677FBA70343' '4677FBA70343.pas.ms.script' // l3Interfaces
  WL 'ME_4AB0C3C60310' '4AB0C3C60310.pas.ms.script' // Sys
- ) .SequenceCode.It
+ )
  ; // Depends
- : Generators
- @ (
- gen_pas.script
- gen_pas.script.runner
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\dd'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\dd'
  CONST pas.script:Path 'shared\models\NewSchool\Scripts\51D518E70109.pas.ms.script'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
  CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\51D518E70109.pas.ms.script.runner'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_51D518E70109 ddConfigStorages

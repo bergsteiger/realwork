@@ -6,11 +6,14 @@ FORWARD ME_510134290310
 
 FORWARD ME_5101345E0143
 
+FORWARD ME_552FCA800230
+
 FORWARD ME_C357835C3D1B
 
 : ME_EA98B6BB8B0B
  CONST UID 'EA98B6BB8B0B'
  CONST Name 'aCtx'
+ CONST IsSummoned true
  CONST Class class_Parameter
  : Stereotype st_in ;
  : Target WL 'ME_4DB0091E033E' '4DAF19F600C5.pas.ms.script' // TtfwContext
@@ -21,6 +24,7 @@ ref; // ME_EA98B6BB8B0B aCtx
 : ME_EA98B6BB8B0C
  CONST UID 'EA98B6BB8B0C'
  CONST Name 'aTaskPanel'
+ CONST IsSummoned true
  CONST Class class_Parameter
  : Stereotype st_in ;
  : Target WL 'ME_4D3424C203C2' '4D3424960025.pas.ms.script' // TnscTasksPanelView
@@ -31,6 +35,7 @@ ref; // ME_EA98B6BB8B0C aTaskPanel
 : ME_EA98B6BB8B0D
  CONST UID 'EA98B6BB8B0D'
  CONST Name 'anIndex'
+ CONST IsSummoned true
  CONST Class class_Parameter
  : Stereotype st_in ;
  : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
@@ -41,6 +46,7 @@ ref; // ME_EA98B6BB8B0D anIndex
 : ME_E1A1A40AC939
  CONST UID 'E1A1A40AC939'
  CONST Name 'GetHideField'
+ CONST IsSummoned true
  CONST Class class_Operation
  %SUMMARY 'Реализация слова скрипта pop:TaskPanel:GetHideField' ;
  CONST Visibility PrivateAccess
@@ -50,10 +56,10 @@ ref; // ME_EA98B6BB8B0D anIndex
  : Target WL 'ME_508EBD7703BF' '4D3424960025.pas.ms.script' // TnscTasksPanelHideField
  ;
  : Parameters
-   @ ( ME_EA98B6BB8B0B // aCtx
+   Seq: ( ME_EA98B6BB8B0B // aCtx
  ME_EA98B6BB8B0C // aTaskPanel
  ME_EA98B6BB8B0D // anIndex
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_E1A1A40AC939 GetHideField
@@ -61,6 +67,7 @@ ref; // ME_E1A1A40AC939 GetHideField
 : ME_1CBA45EAA775
  CONST UID '1CBA45EAA775'
  CONST Name 'Ini_Reg'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Регистрация pop_TaskPanel_GetHideField' ;
@@ -73,6 +80,7 @@ ref; // ME_1CBA45EAA775 Ini_Reg
 
 : ME_9DF5DC8125BD
  CONST UID '9DF5DC8125BD'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_C357835C3D1B // pop_TaskPanel_GetHideField
@@ -84,6 +92,7 @@ ref; // ME_9DF5DC8125BD
 
 : ME_533313252BDB
  CONST UID '533313252BDB'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_C357835C3D1B // pop_TaskPanel_GetHideField
@@ -95,6 +104,7 @@ ref; // ME_533313252BDB
 
 : ME_6DFC4F559E29
  CONST UID '6DFC4F559E29'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_C357835C3D1B // pop_TaskPanel_GetHideField
@@ -111,6 +121,7 @@ ref; // ME_6DFC4F559E29
  ;
  : Implementor ME_C357835C3D1B // pop_TaskPanel_GetHideField
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_4DAEEDE10285_ME_C357835C3D1B DoDoIt
 
 : ME_4DB0614603C8_ME_C357835C3D1B
@@ -120,6 +131,7 @@ ref; // ME_4DAEEDE10285_ME_C357835C3D1B DoDoIt
  ;
  : Implementor ME_C357835C3D1B // pop_TaskPanel_GetHideField
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4DB0614603C8_ME_C357835C3D1B GetWordNameForRegister
 
 : ME_551544E2001A_ME_C357835C3D1B
@@ -129,6 +141,7 @@ ref; // ME_4DB0614603C8_ME_C357835C3D1B GetWordNameForRegister
  ;
  : Implementor ME_C357835C3D1B // pop_TaskPanel_GetHideField
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_551544E2001A_ME_C357835C3D1B GetResultTypeInfo
 
 : ME_559687E6025A_ME_C357835C3D1B
@@ -138,6 +151,7 @@ ref; // ME_551544E2001A_ME_C357835C3D1B GetResultTypeInfo
  ;
  : Implementor ME_C357835C3D1B // pop_TaskPanel_GetHideField
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_559687E6025A_ME_C357835C3D1B GetAllParamsCount
 
 : ME_5617F4D00243_ME_C357835C3D1B
@@ -147,11 +161,13 @@ ref; // ME_559687E6025A_ME_C357835C3D1B GetAllParamsCount
  ;
  : Implementor ME_C357835C3D1B // pop_TaskPanel_GetHideField
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_5617F4D00243_ME_C357835C3D1B ParamsTypes
 
 : ME_C357835C3D1B
  CONST UID 'C357835C3D1B'
  CONST Name 'pop_TaskPanel_GetHideField'
+ CONST IsSummoned true
  CONST Class class_Class
  : Stereotype st_ScriptKeyword ;
  CONST Kind kind_NormalClass
@@ -161,45 +177,56 @@ ref; // ME_5617F4D00243_ME_C357835C3D1B ParamsTypes
  : Parent ME_5101345E0143 // TaskPanelWords
  ;
  : Inherits
-   @ ( WL 'ME_55CCAE000335' '55CCADD2013D.pas.ms.script' // TtfwClassLike
- ) .SequenceCode.It
+   Seq: ( WL 'ME_55CCAE000335' '55CCADD2013D.pas.ms.script' // TtfwClassLike
+ )
  ; // Inherits
  : Operations
-   @ ( ME_E1A1A40AC939 // GetHideField
+   Seq: ( ME_E1A1A40AC939 // GetHideField
  ME_1CBA45EAA775 // Ini_Reg
- ) .SequenceCode.It
+ )
  ; // Operations
  : Implemented
-   @ ( ME_4DAEEDE10285_ME_C357835C3D1B // DoDoIt
- ) .SequenceCode.It
+   Seq: ( ME_4DAEEDE10285_ME_C357835C3D1B // DoDoIt
+ )
  ; // Implemented
  : Overridden
-   @ ( ME_4DB0614603C8_ME_C357835C3D1B // GetWordNameForRegister
+   Seq: ( ME_4DB0614603C8_ME_C357835C3D1B // GetWordNameForRegister
  ME_551544E2001A_ME_C357835C3D1B // GetResultTypeInfo
  ME_559687E6025A_ME_C357835C3D1B // GetAllParamsCount
  ME_5617F4D00243_ME_C357835C3D1B // ParamsTypes
- ) .SequenceCode.It
+ )
  ; // Overridden
  : Dependencies
-   @ ( ME_9DF5DC8125BD // 
+   Seq: ( ME_9DF5DC8125BD // 
  ME_533313252BDB // 
  ME_6DFC4F559E29 // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  CONST "NameForScript" 'pop:TaskPanel:GetHideField'
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
+ CONST dfm:PathOnly '\common\components\rtl\Garant\ScriptEngine'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\ScriptEngine'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
  CONST extprop:pas:TypeName 'TkwPopTaskPanelGetHideField'
+ CONST extprop:rc:SelfName 'PopTaskPanelGetHideField'
+ CONST extprop:rc:isAcceptableForScripts true
+ : SpelledFor ME_552FCA800230 // GetHideField
+ ;
 
 ref; // ME_C357835C3D1B pop_TaskPanel_GetHideField
+
+FORWARD ME_07788894315C
 
 FORWARD ME_C2B2EE13F5CE
 
 : ME_466588BECE08
  CONST UID '466588BECE08'
  CONST Name 'aCtx'
+ CONST IsSummoned true
  CONST Class class_Parameter
  : Stereotype st_in ;
  : Target WL 'ME_4DB0091E033E' '4DAF19F600C5.pas.ms.script' // TtfwContext
@@ -210,6 +237,7 @@ ref; // ME_466588BECE08 aCtx
 : ME_466588BECE09
  CONST UID '466588BECE09'
  CONST Name 'aTaskPanel'
+ CONST IsSummoned true
  CONST Class class_Parameter
  : Stereotype st_in ;
  : Target WL 'ME_4D3424C203C2' '4D3424960025.pas.ms.script' // TnscTasksPanelView
@@ -220,6 +248,7 @@ ref; // ME_466588BECE09 aTaskPanel
 : ME_6CDE88AB26F2
  CONST UID '6CDE88AB26F2'
  CONST Name 'Count'
+ CONST IsSummoned true
  CONST Class class_Operation
  %SUMMARY 'Реализация слова скрипта pop:TaskPanel:Count' ;
  CONST Visibility PrivateAccess
@@ -229,9 +258,9 @@ ref; // ME_466588BECE09 aTaskPanel
  : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
  ;
  : Parameters
-   @ ( ME_466588BECE08 // aCtx
+   Seq: ( ME_466588BECE08 // aCtx
  ME_466588BECE09 // aTaskPanel
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_6CDE88AB26F2 Count
@@ -239,6 +268,7 @@ ref; // ME_6CDE88AB26F2 Count
 : ME_466BF88B6F14
  CONST UID '466BF88B6F14'
  CONST Name 'Ini_Reg'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Регистрация pop_TaskPanel_Count' ;
@@ -251,6 +281,7 @@ ref; // ME_466BF88B6F14 Ini_Reg
 
 : ME_3E815F0DC4DD
  CONST UID '3E815F0DC4DD'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_C2B2EE13F5CE // pop_TaskPanel_Count
@@ -262,6 +293,7 @@ ref; // ME_3E815F0DC4DD
 
 : ME_039F99803703
  CONST UID '039F99803703'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_C2B2EE13F5CE // pop_TaskPanel_Count
@@ -273,6 +305,7 @@ ref; // ME_039F99803703
 
 : ME_E0566795DA3E
  CONST UID 'E0566795DA3E'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_C2B2EE13F5CE // pop_TaskPanel_Count
@@ -289,6 +322,7 @@ ref; // ME_E0566795DA3E
  ;
  : Implementor ME_C2B2EE13F5CE // pop_TaskPanel_Count
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_4DAEEDE10285_ME_C2B2EE13F5CE DoDoIt
 
 : ME_4DB0614603C8_ME_C2B2EE13F5CE
@@ -298,6 +332,7 @@ ref; // ME_4DAEEDE10285_ME_C2B2EE13F5CE DoDoIt
  ;
  : Implementor ME_C2B2EE13F5CE // pop_TaskPanel_Count
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4DB0614603C8_ME_C2B2EE13F5CE GetWordNameForRegister
 
 : ME_52D00B00031A_ME_C2B2EE13F5CE
@@ -307,6 +342,7 @@ ref; // ME_4DB0614603C8_ME_C2B2EE13F5CE GetWordNameForRegister
  ;
  : Implementor ME_C2B2EE13F5CE // pop_TaskPanel_Count
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_52D00B00031A_ME_C2B2EE13F5CE SetValuePrim
 
 : ME_551544E2001A_ME_C2B2EE13F5CE
@@ -316,6 +352,7 @@ ref; // ME_52D00B00031A_ME_C2B2EE13F5CE SetValuePrim
  ;
  : Implementor ME_C2B2EE13F5CE // pop_TaskPanel_Count
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_551544E2001A_ME_C2B2EE13F5CE GetResultTypeInfo
 
 : ME_559687E6025A_ME_C2B2EE13F5CE
@@ -325,6 +362,7 @@ ref; // ME_551544E2001A_ME_C2B2EE13F5CE GetResultTypeInfo
  ;
  : Implementor ME_C2B2EE13F5CE // pop_TaskPanel_Count
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_559687E6025A_ME_C2B2EE13F5CE GetAllParamsCount
 
 : ME_5617F4D00243_ME_C2B2EE13F5CE
@@ -334,11 +372,13 @@ ref; // ME_559687E6025A_ME_C2B2EE13F5CE GetAllParamsCount
  ;
  : Implementor ME_C2B2EE13F5CE // pop_TaskPanel_Count
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_5617F4D00243_ME_C2B2EE13F5CE ParamsTypes
 
 : ME_C2B2EE13F5CE
  CONST UID 'C2B2EE13F5CE'
  CONST Name 'pop_TaskPanel_Count'
+ CONST IsSummoned true
  CONST Class class_Class
  : Stereotype st_ScriptKeyword ;
  CONST Kind kind_NormalClass
@@ -348,38 +388,46 @@ ref; // ME_5617F4D00243_ME_C2B2EE13F5CE ParamsTypes
  : Parent ME_5101345E0143 // TaskPanelWords
  ;
  : Inherits
-   @ ( WL 'ME_5619169603BE' '55CCADD2013D.pas.ms.script' // TtfwPropertyLike
- ) .SequenceCode.It
+   Seq: ( WL 'ME_5619169603BE' '55CCADD2013D.pas.ms.script' // TtfwPropertyLike
+ )
  ; // Inherits
  : Operations
-   @ ( ME_6CDE88AB26F2 // Count
+   Seq: ( ME_6CDE88AB26F2 // Count
  ME_466BF88B6F14 // Ini_Reg
- ) .SequenceCode.It
+ )
  ; // Operations
  : Implemented
-   @ ( ME_4DAEEDE10285_ME_C2B2EE13F5CE // DoDoIt
- ) .SequenceCode.It
+   Seq: ( ME_4DAEEDE10285_ME_C2B2EE13F5CE // DoDoIt
+ )
  ; // Implemented
  : Overridden
-   @ ( ME_4DB0614603C8_ME_C2B2EE13F5CE // GetWordNameForRegister
+   Seq: ( ME_4DB0614603C8_ME_C2B2EE13F5CE // GetWordNameForRegister
  ME_52D00B00031A_ME_C2B2EE13F5CE // SetValuePrim
  ME_551544E2001A_ME_C2B2EE13F5CE // GetResultTypeInfo
  ME_559687E6025A_ME_C2B2EE13F5CE // GetAllParamsCount
  ME_5617F4D00243_ME_C2B2EE13F5CE // ParamsTypes
- ) .SequenceCode.It
+ )
  ; // Overridden
  : Dependencies
-   @ ( ME_3E815F0DC4DD // 
+   Seq: ( ME_3E815F0DC4DD // 
  ME_039F99803703 // 
  ME_E0566795DA3E // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  CONST "NameForScript" 'pop:TaskPanel:Count'
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
+ CONST dfm:PathOnly '\common\components\rtl\Garant\ScriptEngine'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\ScriptEngine'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
  CONST extprop:pas:TypeName 'TkwPopTaskPanelCount'
+ CONST extprop:rc:SelfName 'PopTaskPanelCount'
+ CONST extprop:rc:isAcceptableForScripts true
+ : SpelledFor ME_07788894315C // Count
+ ;
 
 ref; // ME_C2B2EE13F5CE pop_TaskPanel_Count
 
@@ -421,18 +469,21 @@ ref; // ME_552FCA9D02F3 anIndex
  : Target WL 'ME_508EBD7703BF' '4D3424960025.pas.ms.script' // TnscTasksPanelHideField
  ;
  : Parameters
-   @ ( ME_552FCA9D02F3 // anIndex
- ) .SequenceCode.It
+   Seq: ( ME_552FCA9D02F3 // anIndex
+ )
  ; // Parameters
  CONST "bind params" 'undefined'
  CONST "lvalue" 'undefined'
  CONST "mapped" 'undefined'
+ : Speller ME_C357835C3D1B // pop_TaskPanel_GetHideField
+ ;
 
 ref; // ME_552FCA800230 GetHideField
 
 : ME_07788894315C
  CONST UID '07788894315C'
  CONST Name 'Count'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_keyword::Operation ;
  CONST Visibility PublicAccess
@@ -444,12 +495,15 @@ ref; // ME_552FCA800230 GetHideField
  CONST "bind params" 'undefined'
  CONST "lvalue" 'undefined'
  CONST "mapped" true
+ : Speller ME_C2B2EE13F5CE // pop_TaskPanel_Count
+ ;
 
 ref; // ME_07788894315C Count
 
 : ME_CD97F8829110
  CONST UID 'CD97F8829110'
- CONST Name 'Reg_TtfwContext'
+ CONST Name 'Reg_Type_TtfwContext'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Регистрация типа TtfwContext' ;
@@ -457,12 +511,15 @@ ref; // ME_07788894315C Count
  CONST Abstraction at_final
  : Parent ME_5101345E0143 // TaskPanelWords
  ;
+ : SpelledFor WL 'ME_4DB0091E033E' '4DAF19F600C5.pas.ms.script' // TtfwContext
+ ;
 
-ref; // ME_CD97F8829110 Reg_TtfwContext
+ref; // ME_CD97F8829110 Reg_Type_TtfwContext
 
 : ME_D4306B70EAAA
  CONST UID 'D4306B70EAAA'
- CONST Name 'Reg_TnscTasksPanelView'
+ CONST Name 'Reg_Type_TnscTasksPanelView'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Регистрация типа TnscTasksPanelView' ;
@@ -470,12 +527,15 @@ ref; // ME_CD97F8829110 Reg_TtfwContext
  CONST Abstraction at_final
  : Parent ME_5101345E0143 // TaskPanelWords
  ;
+ : SpelledFor WL 'ME_4D3424C203C2' '4D3424960025.pas.ms.script' // TnscTasksPanelView
+ ;
 
-ref; // ME_D4306B70EAAA Reg_TnscTasksPanelView
+ref; // ME_D4306B70EAAA Reg_Type_TnscTasksPanelView
 
 : ME_059CF6E50D25
  CONST UID '059CF6E50D25'
- CONST Name 'Reg_Integer'
+ CONST Name 'Reg_Type_Integer'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Регистрация типа Integer' ;
@@ -483,12 +543,15 @@ ref; // ME_D4306B70EAAA Reg_TnscTasksPanelView
  CONST Abstraction at_final
  : Parent ME_5101345E0143 // TaskPanelWords
  ;
+ : SpelledFor WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
 
-ref; // ME_059CF6E50D25 Reg_Integer
+ref; // ME_059CF6E50D25 Reg_Type_Integer
 
 : ME_2772C8830739
  CONST UID '2772C8830739'
- CONST Name 'Reg_TnscTasksPanelHideField'
+ CONST Name 'Reg_Type_TnscTasksPanelHideField'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Регистрация типа TnscTasksPanelHideField' ;
@@ -496,11 +559,14 @@ ref; // ME_059CF6E50D25 Reg_Integer
  CONST Abstraction at_final
  : Parent ME_5101345E0143 // TaskPanelWords
  ;
+ : SpelledFor WL 'ME_508EBD7703BF' '4D3424960025.pas.ms.script' // TnscTasksPanelHideField
+ ;
 
-ref; // ME_2772C8830739 Reg_TnscTasksPanelHideField
+ref; // ME_2772C8830739 Reg_Type_TnscTasksPanelHideField
 
 : ME_C7843EE8F48A
  CONST UID 'C7843EE8F48A'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_5101345E0143 // TaskPanelWords
@@ -512,6 +578,7 @@ ref; // ME_C7843EE8F48A
 
 : ME_B4E85053313F
  CONST UID 'B4E85053313F'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_injects::Dependency ;
  : Parent ME_5101345E0143 // TaskPanelWords
@@ -523,6 +590,7 @@ ref; // ME_B4E85053313F
 
 : ME_D82F179A3504
  CONST UID 'D82F179A3504'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_5101345E0143 // TaskPanelWords
@@ -543,44 +611,43 @@ ref; // ME_D82F179A3504
  : Parent ME_510134290310 // TaskPanelWords
  ;
  : Inherits
-   @ ( WL 'ME_4D3424C203C2' '4D3424960025.pas.ms.script' // TnscTasksPanelView
- ) .SequenceCode.It
+   Seq: ( WL 'ME_4D3424C203C2' '4D3424960025.pas.ms.script' // TnscTasksPanelView
+ )
  ; // Inherits
  : Attributes
-   @ ( ME_552FCA4E006B // Count
- ) .SequenceCode.It
+   Seq: ( ME_552FCA4E006B // Count
+ )
  ; // Attributes
  : Operations
-   @ ( ME_552FCA800230 // GetHideField
+   Seq: ( ME_552FCA800230 // GetHideField
  ME_07788894315C // Count
- ME_CD97F8829110 // Reg_TtfwContext
- ME_D4306B70EAAA // Reg_TnscTasksPanelView
- ME_059CF6E50D25 // Reg_Integer
- ME_2772C8830739 // Reg_TnscTasksPanelHideField
- ) .SequenceCode.It
+ ME_CD97F8829110 // Reg_Type_TtfwContext
+ ME_D4306B70EAAA // Reg_Type_TnscTasksPanelView
+ ME_059CF6E50D25 // Reg_Type_Integer
+ ME_2772C8830739 // Reg_Type_TnscTasksPanelHideField
+ )
  ; // Operations
  : Children
-   @ ( ME_C357835C3D1B // pop_TaskPanel_GetHideField
+   Seq: ( ME_C357835C3D1B // pop_TaskPanel_GetHideField
  ME_C2B2EE13F5CE // pop_TaskPanel_Count
- ) .SequenceCode.It
+ )
  ; // Children
  : Dependencies
-   @ ( ME_C7843EE8F48A // 
+   Seq: ( ME_C7843EE8F48A // 
  ME_B4E85053313F // 
  ME_D82F179A3504 // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  CONST "ifndef" 'NoScripts'
  CONST "needs script" 'undefined'
  CONST "no class name" 'undefined'
  CONST "no hands" false
  CONST "no_pop" 'undefined'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\ScriptEngine'
  CONST intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\TaskPanelWords.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\ScriptEngine'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_5101345E0143 TaskPanelWords
 
@@ -594,11 +661,11 @@ ref; // ME_5101345E0143 TaskPanelWords
  : Parent WL 'ME_54DB83140023' '54DB83140023.pas.ms.script' // ScriptEngine$F1
  ;
  : Children
-   @ ( ME_5101345E0143 // TaskPanelWords
- ) .SequenceCode.It
+   Seq: ( ME_5101345E0143 // TaskPanelWords
+ )
  ; // Children
  : Depends
-   @ ( WL 'ME_4767743E00E5' '4767743E00E5.pas.ms.script' // TypInfo
+   Seq: ( WL 'ME_4767743E00E5' '4767743E00E5.pas.ms.script' // TypInfo
  WL 'ME_4AB0C3C60310' '4AB0C3C60310.pas.ms.script' // Sys
  WL 'ME_4D3424960025' '4D3424960025.pas.ms.script' // TasksPanel
  WL 'ME_4DAF19F600C5' '4DAF19F600C5.pas.ms.script' // tfwScriptingInterfaces
@@ -607,16 +674,14 @@ ref; // ME_5101345E0143 TaskPanelWords
  WL 'ME_5527F81C020E' '5527F81C020E.pas.ms.script' // TypesRegistration
  WL 'ME_55BA28CE0290' '55BA28CE0290.pas.ms.script' // tfwScriptingTypes
  WL 'ME_55CCADD2013D' '55CCADD2013D.pas.ms.script' // ClassLikeMapping
- ) .SequenceCode.It
+ )
  ; // Depends
  CONST "ifndef" 'NoVCM'
- : Generators
- @ (
- gen_pas.script
- gen_pas.script.runner
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\ScriptEngine'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\ScriptEngine'
  CONST pas.script:Path 'shared\models\NewSchool\Scripts\510134290310.pas.ms.script'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
  CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\510134290310.pas.ms.script.runner'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_510134290310 TaskPanelWords

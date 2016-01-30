@@ -19,6 +19,7 @@ FORWARD ME_521AFDE50046
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value 'ioUnknown'
 
 ref; // ME_521AFE0403B5 pictNONE
 
@@ -33,10 +34,14 @@ ref; // ME_521AFE0403B5 pictNONE
  : Parent ME_521AFDDA02E4 // ddConst
  ;
  : Attributes
-   @ ( ME_521AFE0403B5 // pictNONE
- ) .SequenceCode.It
+   Seq: ( ME_521AFE0403B5 // pictNONE
+ )
  ; // Attributes
  CONST "spell names" false
+ CONST dfm:PathOnly '\common\components\rtl\Garant\dd'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\dd'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_521AFDE50046 PictureFormat
 
@@ -50,21 +55,18 @@ ref; // ME_521AFDE50046 PictureFormat
  : Parent WL 'ME_4677E18600C2' '4677E18600C2.pas.ms.script' // dd
  ;
  : Constants
-   @ ( ME_521AFDE50046 // PictureFormat
- ) .SequenceCode.It
+   Seq: ( ME_521AFDE50046 // PictureFormat
+ )
  ; // Constants
  CONST "finished" false
  CONST "is namespace" true
  CONST "no hands" false
- : Generators
- @ (
- gen_intf.pas
- gen_pas.script
- gen_pas.script.runner
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\dd'
  CONST intf.pas:Path 'common\components\rtl\Garant\dd\NOT_FINISHED_ddConst.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\dd'
  CONST pas.script:Path 'shared\models\NewSchool\Scripts\521AFDDA02E4.pas.ms.script'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
  CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\521AFDDA02E4.pas.ms.script.runner'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_521AFDDA02E4 ddConst

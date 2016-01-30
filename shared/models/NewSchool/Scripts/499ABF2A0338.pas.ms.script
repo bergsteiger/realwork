@@ -21,6 +21,12 @@ FORWARD ME_499ABF3D031B
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
+ CONST dfm:PathOnly '\common\components\gui\Garant\Nemesis'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Nemesis'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'NavigatorPageControl'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_499AC82A0380 TnscNavigatorPageControl
 
@@ -31,6 +37,7 @@ ref; // ME_499AC82A0380 TnscNavigatorPageControl
  ;
  : Implementor ME_499ABF3D031B // TnscNavigator
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_53CF7DD00066_ME_499ABF3D031B MainFormChanged
 
 : ME_499ABF3D031B
@@ -44,16 +51,16 @@ ref; // ME_53CF7DD00066_ME_499ABF3D031B MainFormChanged
  : Parent ME_499ABF2A0338 // Navigator
  ;
  : Implements
-   @ ( WL 'ME_53CF7D800293' '467BAB7F021E.pas.ms.script' // IvcmMainFormDependent
- ) .SequenceCode.It
+   Seq: ( WL 'ME_53CF7D800293' '467BAB7F021E.pas.ms.script' // IvcmMainFormDependent
+ )
  ; // Implements
  : Implemented
-   @ ( ME_53CF7DD00066_ME_499ABF3D031B // MainFormChanged
- ) .SequenceCode.It
+   Seq: ( ME_53CF7DD00066_ME_499ABF3D031B // MainFormChanged
+ )
  ; // Implemented
  : Children
-   @ ( ME_499AC82A0380 // TnscNavigatorPageControl
- ) .SequenceCode.It
+   Seq: ( ME_499AC82A0380 // TnscNavigatorPageControl
+ )
  ; // Children
  CONST "base wnd class" 'CWnd'
  CONST "finished" false
@@ -61,12 +68,14 @@ ref; // ME_53CF7DD00066_ME_499ABF3D031B MainFormChanged
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\Nemesis'
  CONST intf.pas:Path 'common\components\gui\Garant\Nemesis\NOT_FINISHED_nscNavigator.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Nemesis'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'Navigator'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'nscNavigator'
 
 ref; // ME_499ABF3D031B TnscNavigator
 
@@ -80,21 +89,19 @@ ref; // ME_499ABF3D031B TnscNavigator
  : Parent WL 'ME_490838AA02D0' '490838AA02D0.pas.ms.script' // Nemesis
  ;
  : Children
-   @ ( ME_499ABF3D031B // TnscNavigator
- ) .SequenceCode.It
+   Seq: ( ME_499ABF3D031B // TnscNavigator
+ )
  ; // Children
  : Depends
-   @ ( WL 'ME_467BAB7F021E' '467BAB7F021E.pas.ms.script' // vcmExternalInterfaces
+   Seq: ( WL 'ME_467BAB7F021E' '467BAB7F021E.pas.ms.script' // vcmExternalInterfaces
  WL 'ME_4683F37902CF' '4683F37902CF.pas.ms.script' // vcmInterfaces
- ) .SequenceCode.It
+ )
  ; // Depends
- : Generators
- @ (
- gen_pas.script
- gen_pas.script.runner
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\Nemesis'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Nemesis'
  CONST pas.script:Path 'shared\models\NewSchool\Scripts\499ABF2A0338.pas.ms.script'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
  CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\499ABF2A0338.pas.ms.script.runner'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_499ABF2A0338 Navigator

@@ -62,22 +62,22 @@ ref; // ME_499AC95A016A ActivePage
  : Parent ME_499ABFC003E5 // Navigator
  ;
  : Inherits
-   @ ( WL 'ME_499AC82A0380' '499ABF2A0338.pas.ms.script' // TnscNavigatorPageControl
- ) .SequenceCode.It
+   Seq: ( WL 'ME_499AC82A0380' '499ABF2A0338.pas.ms.script' // TnscNavigatorPageControl
+ )
  ; // Inherits
  : Attributes
-   @ ( ME_499AC00E001F // TabIndex
+   Seq: ( ME_499AC00E001F // TabIndex
  ME_499AC95002D7 // TabPosition
  ME_499AC95A016A // ActivePage
- ) .SequenceCode.It
+ )
  ; // Attributes
  CONST "is friend" false
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\Nemesis'
  CONST intf.pas:Path 'common\components\gui\Garant\Nemesis\nscNavigatorPageControl_p.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Nemesis'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:pas:UnitName 'nscNavigatorPageControl_p'
 
 ref; // ME_499ABFF4003B TnscNavigatorPageControl
 
@@ -92,22 +92,20 @@ ref; // ME_499ABFF4003B TnscNavigatorPageControl
  : Parent WL 'ME_499ABFAA038C' '499ABFAA038C.pas.ms.script' // NemesisTest
  ;
  : Children
-   @ ( ME_499ABFF4003B // TnscNavigatorPageControl
- ) .SequenceCode.It
+   Seq: ( ME_499ABFF4003B // TnscNavigatorPageControl
+ )
  ; // Children
  : Depends
-   @ ( WL 'ME_499ABF2A0338' '499ABF2A0338.pas.ms.script' // Navigator
+   Seq: ( WL 'ME_499ABF2A0338' '499ABF2A0338.pas.ms.script' // Navigator
  WL 'ME_499ABF4F02A1' '499ABF4F02A1.pas.ms.script' // elClone
  WL 'ME_4AB0C3C60310' '4AB0C3C60310.pas.ms.script' // Sys
- ) .SequenceCode.It
+ )
  ; // Depends
- : Generators
- @ (
- gen_pas.script
- gen_pas.script.runner
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\Nemesis'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Nemesis'
  CONST pas.script:Path 'shared\models\NewSchool\Scripts\499ABFC003E5.pas.ms.script'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
  CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\499ABFC003E5.pas.ms.script.runner'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_499ABFC003E5 Navigator

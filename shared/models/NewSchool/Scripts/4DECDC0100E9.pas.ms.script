@@ -1,0 +1,36 @@
+// Meta 4DECDC0100E9 Library Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+: ME_4DECDC0100E9
+ CONST UID '4DECDC0100E9'
+ CONST Name 'Meta'
+ CONST Class class_Category
+ : Stereotype st_Library ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent WL 'ME_4DECDB4003E2' '4DECDB4003E2.pas.ms.script' // archi$common
+ ;
+ : Children
+   Seq: ( WL 'ME_4F697D3801F2' '4F697D3801F2.pas.ms.script' // Meta
+ )
+ ; // Children
+ CONST "exec mode" 'concluded'
+ CONST "gui" 'prj'
+ CONST "is namespace" true
+ CONST "vendor" 'none'
+ : Generators
+ Seq: (
+ gen_pas.script
+ gen_pas.script.runner
+ )
+ ; // Generators
+ CONST dfm:PathOnly '\archi\source\projects\Common\Meta'
+ CONST intf.pas:PathOnly '\archi\source\projects\Common\Meta'
+ CONST pas.script:Path 'shared\models\NewSchool\Scripts\4DECDC0100E9.pas.ms.script'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\4DECDC0100E9.pas.ms.script.runner'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\archi\source\projects\Common\Meta'
+
+ref; // ME_4DECDC0100E9 Meta

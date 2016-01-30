@@ -1,0 +1,3454 @@
+// Lists 52FA3DD30094 Unit Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_52FA3DD30094
+
+FORWARD ME_52FA3DE1003D
+
+: ME_52FA3E58024C
+ CONST UID '52FA3E58024C'
+ CONST Name 'ItemType'
+ CONST Class class_Attribute
+ : Stereotype st_impurity_value::Attribute ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_agr
+ : Parent ME_52FA3DE1003D // TalcuTaskListPrim
+ ;
+ : Target WL 'ME_52F8C2BF0110' '52F8C298005C.pas.ms.script' // TddProcessTask
+ ;
+
+ref; // ME_52FA3E58024C ItemType
+
+: ME_47B2C42A0163_ME_52FA3DE1003D
+ CONST UID '47B2C42A0163'
+ CONST Name 'AssignItem'
+ : Original WL 'ME_47B2C42A0163' '47913B47006E.pas.ms.script' // AssignItem
+ ;
+ : Implementor ME_52FA3DE1003D // TalcuTaskListPrim
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "ifdef" 'l3Items_NeedsAssignItem'
+ CONST "ifndef" 'l3Items_NoSort'
+ref; // ME_47B2C42A0163_ME_52FA3DE1003D AssignItem
+
+: ME_47B99D4503A2_ME_52FA3DE1003D
+ CONST UID '47B99D4503A2'
+ CONST Name 'CompareExistingItems'
+ : Original WL 'ME_47B99D4503A2' '47BB24D30205.pas.ms.script' // CompareExistingItems
+ ;
+ : Implementor ME_52FA3DE1003D // TalcuTaskListPrim
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_47B99D4503A2_ME_52FA3DE1003D CompareExistingItems
+
+: ME_52FA3DE1003D
+ CONST UID '52FA3DE1003D'
+ CONST Name 'TalcuTaskListPrim'
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_52FA3DD30094 // Lists
+ ;
+ : Inherits
+   Seq: ( WL 'ME_47B99E920196' '47913B47006E.pas.ms.script' // l3UncomparabeObjectRefList
+ WL 'ME_4A54DD4E036F' '47913B47006E.pas.ms.script' // Tl3ProtoDataContainer
+ )
+ ; // Inherits
+ : Attributes
+   Seq: ( ME_52FA3E58024C // ItemType
+ )
+ ; // Attributes
+ : Implemented
+   Seq: ( ME_47B2C42A0163_ME_52FA3DE1003D // AssignItem
+ ME_47B99D4503A2_ME_52FA3DE1003D // CompareExistingItems
+ )
+ ; // Implemented
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ : Generators
+ Seq: (
+ gen_intf.pas
+ )
+ ; // Generators
+ CONST dfm:PathOnly '\archi\source\projects\PipeInAuto\Tasks'
+ CONST intf.pas:Path 'archi\source\projects\PipeInAuto\Tasks\alcuTaskListPrim.pas'
+ CONST intf.pas:PathOnly '\archi\source\projects\PipeInAuto\Tasks'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\archi\source\projects\PipeInAuto\Tasks'
+ CONST extprop:rc:SelfName 'alcuTaskListPrim'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'alcuTaskListPrim'
+
+ref; // ME_52FA3DE1003D TalcuTaskListPrim
+
+FORWARD ME_5303549A038F
+
+FORWARD ME_530354C00376
+
+: ME_53E0D9150023_ME_530354C00376
+ CONST UID '53E0D9150023'
+ CONST Name 'TaskResult'
+ : Original WL 'ME_53E0D9150023' '52F8C298005C.pas.ms.script' // TaskResult
+ ;
+ : Implementor ME_530354C00376 // TalcuAutoClassTask
+ ;
+ CONST OpKind opkind_Overridden
+ CONST "pm" true
+ CONST "reads field" true
+ref; // ME_53E0D9150023_ME_530354C00376 TaskResult
+
+: ME_53E1CB0C03C9_ME_530354C00376
+ CONST UID '53E1CB0C03C9'
+ CONST Name 'GetTaskResultClass : TcsClassResultClass'
+ : Original WL 'ME_53E1CB0C03C9' '52F8C298005C.pas.ms.script' // GetTaskResultClass : TcsClassResultClass
+ ;
+ : Implementor ME_530354C00376 // TalcuAutoClassTask
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_53E1CB0C03C9_ME_530354C00376 GetTaskResultClass : TcsClassResultClass
+
+: ME_530354C00376
+ CONST UID '530354C00376'
+ CONST Name 'TalcuAutoClassTask'
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_5303549A038F // alcuAutoClassifier
+ ;
+ : Inherits
+   Seq: ( WL 'ME_53F46C710363' '52F8C298005C.pas.ms.script' // TcsAutoClassTask
+ )
+ ; // Inherits
+ : Overridden
+   Seq: ( ME_53E0D9150023_ME_530354C00376 // TaskResult
+ ME_53E1CB0C03C9_ME_530354C00376 // GetTaskResultClass : TcsClassResultClass
+ )
+ ; // Overridden
+ CONST "finished" false
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ CONST dfm:PathOnly '\archi\source\projects\PipeInAuto\Tasks'
+ CONST intf.pas:PathOnly '\archi\source\projects\PipeInAuto\Tasks'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\archi\source\projects\PipeInAuto\Tasks'
+ CONST extprop:rc:SelfName 'alcuAutoClassTask'
+ CONST extprop:rc:isAcceptableForScripts true
+
+ref; // ME_530354C00376 TalcuAutoClassTask
+
+FORWARD ME_53F472280036
+
+: ME_53F47244008E
+ CONST UID '53F47244008E'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_5303549A038F // alcuAutoClassifier
+ ;
+ : Target ME_53F472280036 // TalcuAutoClassTaskResult
+ ;
+
+ref; // ME_53F47244008E 
+
+: ME_5303549A038F
+ CONST UID '5303549A038F'
+ CONST Name 'alcuAutoClassifier'
+ CONST Class class_Class
+ : Stereotype st_UtilityPack ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_52FA3DD30094 // Lists
+ ;
+ : Children
+   Seq: ( ME_530354C00376 // TalcuAutoClassTask
+ )
+ ; // Children
+ : Dependencies
+   Seq: ( ME_53F47244008E // 
+ )
+ ; // Dependencies
+ CONST "finished" false
+ CONST "no hands" false
+ : Generators
+ Seq: (
+ gen_intf.pas
+ )
+ ; // Generators
+ CONST dfm:PathOnly '\archi\source\projects\PipeInAuto\Tasks'
+ CONST intf.pas:Path 'archi\source\projects\PipeInAuto\Tasks\NOT_FINISHED_alcuAutoClassifier.pas'
+ CONST intf.pas:PathOnly '\archi\source\projects\PipeInAuto\Tasks'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\archi\source\projects\PipeInAuto\Tasks'
+
+ref; // ME_5303549A038F alcuAutoClassifier
+
+FORWARD ME_530356D90066
+
+: ME_53059CC001ED
+ CONST UID '53059CC001ED'
+ CONST Name 'TalcuRelPublishTask'
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_530356D90066 // alcuRelCorrector
+ ;
+ : Inherits
+   Seq: ( WL 'ME_530356B20280' '52F8C298005C.pas.ms.script' // TcsImportTaskItem
+ )
+ ; // Inherits
+ CONST "finished" false
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ CONST dfm:PathOnly '\archi\source\projects\PipeInAuto\Tasks'
+ CONST intf.pas:PathOnly '\archi\source\projects\PipeInAuto\Tasks'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\archi\source\projects\PipeInAuto\Tasks'
+ CONST extprop:rc:SelfName 'alcuRelPublishTask'
+ CONST extprop:rc:isAcceptableForScripts true
+
+ref; // ME_53059CC001ED TalcuRelPublishTask
+
+FORWARD ME_53E328BF03DF
+
+: ME_53E328E10011
+ CONST UID '53E328E10011'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_530356D90066 // alcuRelCorrector
+ ;
+ : Target ME_53E328BF03DF // TalcuRelPublishTaskResult
+ ;
+
+ref; // ME_53E328E10011 
+
+: ME_530356D90066
+ CONST UID '530356D90066'
+ CONST Name 'alcuRelCorrector'
+ CONST Class class_Class
+ : Stereotype st_UtilityPack ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_52FA3DD30094 // Lists
+ ;
+ : Children
+   Seq: ( ME_53059CC001ED // TalcuRelPublishTask
+ )
+ ; // Children
+ : Dependencies
+   Seq: ( ME_53E328E10011 // 
+ )
+ ; // Dependencies
+ CONST "finished" false
+ CONST "no hands" false
+ : Generators
+ Seq: (
+ gen_intf.pas
+ )
+ ; // Generators
+ CONST dfm:PathOnly '\archi\source\projects\PipeInAuto\Tasks'
+ CONST intf.pas:Path 'archi\source\projects\PipeInAuto\Tasks\NOT_FINISHED_alcuRelCorrector.pas'
+ CONST intf.pas:PathOnly '\archi\source\projects\PipeInAuto\Tasks'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\archi\source\projects\PipeInAuto\Tasks'
+
+ref; // ME_530356D90066 alcuRelCorrector
+
+FORWARD ME_5305AFD5014D
+
+FORWARD ME_5305AFFB01F5
+
+: ME_53E1CB0C03C9_ME_5305AFFB01F5
+ CONST UID '53E1CB0C03C9'
+ CONST Name 'GetTaskResultClass : TcsClassResultClass'
+ : Original WL 'ME_53E1CB0C03C9' '52F8C298005C.pas.ms.script' // GetTaskResultClass : TcsClassResultClass
+ ;
+ : Implementor ME_5305AFFB01F5 // TalcuImport
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_53E1CB0C03C9_ME_5305AFFB01F5 GetTaskResultClass : TcsClassResultClass
+
+: ME_5305AFFB01F5
+ CONST UID '5305AFFB01F5'
+ CONST Name 'TalcuImport'
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_5305AFD5014D // alcuImport
+ ;
+ : Inherits
+   Seq: ( WL 'ME_530356B20280' '52F8C298005C.pas.ms.script' // TcsImportTaskItem
+ )
+ ; // Inherits
+ : Overridden
+   Seq: ( ME_53E1CB0C03C9_ME_5305AFFB01F5 // GetTaskResultClass : TcsClassResultClass
+ )
+ ; // Overridden
+ CONST "finished" false
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ CONST dfm:PathOnly '\archi\source\projects\PipeInAuto\Tasks'
+ CONST intf.pas:PathOnly '\archi\source\projects\PipeInAuto\Tasks'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\archi\source\projects\PipeInAuto\Tasks'
+ CONST extprop:rc:SelfName 'alcuImport'
+ CONST extprop:rc:isAcceptableForScripts true
+
+ref; // ME_5305AFFB01F5 TalcuImport
+
+FORWARD ME_53E1D0D00252
+
+: ME_53E1D0F10033
+ CONST UID '53E1D0F10033'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_5305AFD5014D // alcuImport
+ ;
+ : Target ME_53E1D0D00252 // TalcuImportTaskResult
+ ;
+
+ref; // ME_53E1D0F10033 
+
+: ME_5305AFD5014D
+ CONST UID '5305AFD5014D'
+ CONST Name 'alcuImport'
+ CONST Class class_Class
+ : Stereotype st_UtilityPack ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_52FA3DD30094 // Lists
+ ;
+ : Children
+   Seq: ( ME_5305AFFB01F5 // TalcuImport
+ )
+ ; // Children
+ : Dependencies
+   Seq: ( ME_53E1D0F10033 // 
+ )
+ ; // Dependencies
+ CONST "finished" false
+ CONST "no hands" false
+ : Generators
+ Seq: (
+ gen_intf.pas
+ )
+ ; // Generators
+ CONST dfm:PathOnly '\archi\source\projects\PipeInAuto\Tasks'
+ CONST intf.pas:Path 'archi\source\projects\PipeInAuto\Tasks\NOT_FINISHED_alcuImport.pas'
+ CONST intf.pas:PathOnly '\archi\source\projects\PipeInAuto\Tasks'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\archi\source\projects\PipeInAuto\Tasks'
+
+ref; // ME_5305AFD5014D alcuImport
+
+FORWARD ME_5305A7410332
+
+: ME_5305A7620125
+ CONST UID '5305A7620125'
+ CONST Name 'TddCaseCodeTask'
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_5305A7410332 // ddCaseCodeMaker
+ ;
+ : Inherits
+   Seq: ( WL 'ME_53BA6C3000F7' '52F8C298005C.pas.ms.script' // TddCaseCodeTaskPrim
+ )
+ ; // Inherits
+ CONST "finished" false
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ CONST dfm:PathOnly '\archi\source\projects\PipeInAuto\Tasks'
+ CONST intf.pas:PathOnly '\archi\source\projects\PipeInAuto\Tasks'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\archi\source\projects\PipeInAuto\Tasks'
+ CONST extprop:rc:SelfName 'ddCaseCodeTask'
+ CONST extprop:rc:isAcceptableForScripts true
+
+ref; // ME_5305A7620125 TddCaseCodeTask
+
+: ME_5305A7410332
+ CONST UID '5305A7410332'
+ CONST Name 'ddCaseCodeMaker'
+ CONST Class class_Class
+ : Stereotype st_UtilityPack ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_52FA3DD30094 // Lists
+ ;
+ : Children
+   Seq: ( ME_5305A7620125 // TddCaseCodeTask
+ )
+ ; // Children
+ CONST "finished" false
+ CONST "no hands" false
+ : Generators
+ Seq: (
+ gen_intf.pas
+ )
+ ; // Generators
+ CONST dfm:PathOnly '\archi\source\projects\PipeInAuto\Tasks'
+ CONST intf.pas:Path 'archi\source\projects\PipeInAuto\Tasks\NOT_FINISHED_ddCaseCodeMaker.pas'
+ CONST intf.pas:PathOnly '\archi\source\projects\PipeInAuto\Tasks'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\archi\source\projects\PipeInAuto\Tasks'
+
+ref; // ME_5305A7410332 ddCaseCodeMaker
+
+: ME_530355800106
+ CONST UID '530355800106'
+ CONST Name 'TalcuExport'
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_52FA3DD30094 // Lists
+ ;
+ : Inherits
+   Seq: ( WL 'ME_5303551501D6' '52F8C298005C.pas.ms.script' // TcsExport
+ )
+ ; // Inherits
+ CONST "finished" false
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ : Generators
+ Seq: (
+ gen_intf.pas
+ )
+ ; // Generators
+ CONST dfm:PathOnly '\archi\source\projects\PipeInAuto\Tasks'
+ CONST intf.pas:Path 'archi\source\projects\PipeInAuto\Tasks\NOT_FINISHED_alcuExport.pas'
+ CONST intf.pas:PathOnly '\archi\source\projects\PipeInAuto\Tasks'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\archi\source\projects\PipeInAuto\Tasks'
+ CONST extprop:rc:SelfName 'alcuExport'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'alcuExport'
+
+ref; // ME_530355800106 TalcuExport
+
+FORWARD ME_53DB5CFF017D
+
+: ME_B2413C941E50
+ CONST UID 'B2413C941E50'
+ CONST Name 'OnThursdayMode'
+ CONST IsSummoned true
+ CONST Class class_Attribute
+ : Stereotype st_property::Attribute ;
+ %SUMMARY 'Режим экспорта "по четвергам"' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_agr
+ : Parent ME_53DB5CFF017D // TalcuAnoncedExportPrim
+ ;
+ : Target WL 'ME_3DBFFE100240' '3DBFDB23006E.pas.ms.script' // boolean
+ ;
+ CONST "pm" true
+
+ref; // ME_B2413C941E50 OnThursdayMode
+
+: ME_52304882574A
+ CONST UID '52304882574A'
+ CONST Name 'NotifyEMailList'
+ CONST IsSummoned true
+ CONST Class class_Attribute
+ : Stereotype st_property::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_agr
+ : Parent ME_53DB5CFF017D // TalcuAnoncedExportPrim
+ ;
+ : Target WL 'ME_452257A0036F' '3DBFDB23006E.pas.ms.script' // a-string
+ ;
+ CONST "pm" true
+
+ref; // ME_52304882574A NotifyEMailList
+
+: ME_26C7061E1C18
+ CONST UID '26C7061E1C18'
+ CONST Name 'AnoncedDate'
+ CONST IsSummoned true
+ CONST Class class_Attribute
+ : Stereotype st_property::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_agr
+ : Parent ME_53DB5CFF017D // TalcuAnoncedExportPrim
+ ;
+ : Target WL 'ME_3DBFFD7002C2' '3DBFDB23006E.pas.ms.script' // long
+ ;
+ CONST "pm" true
+
+ref; // ME_26C7061E1C18 AnoncedDate
+
+: ME_40D14DD59824
+ CONST UID '40D14DD59824'
+ CONST Name 'AccGroupsIDList'
+ CONST IsSummoned true
+ CONST Class class_Attribute
+ : Stereotype st_readonly::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_agr
+ : Parent ME_53DB5CFF017D // TalcuAnoncedExportPrim
+ ;
+ : Target WL 'ME_53DB62BC03B2' '484A470100DD.pas.ms.script' // AccGroupsIDListHelper
+ ;
+ CONST "pm" true
+
+ref; // ME_40D14DD59824 AccGroupsIDList
+
+: ME_EC6B75396AAE
+ CONST UID 'EC6B75396AAE'
+ CONST IsSummoned true
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_53DB5CFF017D // TalcuAnoncedExportPrim
+ ;
+ : Target WL 'ME_53DB48550331' '484A470100DD.pas.ms.script' // AnoncedExportTask
+ ;
+
+ref; // ME_EC6B75396AAE 
+
+: ME_53AC03EE01FD_ME_53DB5CFF017D
+ CONST UID '53AC03EE01FD'
+ CONST Name 'GetTaggedDataType'
+ : Original WL 'ME_53AC03EE01FD' '53B24DFD01FF.pas.ms.script' // GetTaggedDataType
+ ;
+ : Implementor ME_53DB5CFF017D // TalcuAnoncedExportPrim
+ ;
+ CONST OpKind opkind_Overridden
+ CONST "is static" true
+ref; // ME_53AC03EE01FD_ME_53DB5CFF017D GetTaggedDataType
+
+: ME_53DB5CFF017D
+ CONST UID '53DB5CFF017D'
+ CONST Name 'TalcuAnoncedExportPrim'
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_52FA3DD30094 // Lists
+ ;
+ : Inherits
+   Seq: ( ME_530355800106 // TalcuExport
+ )
+ ; // Inherits
+ : Implements
+   Seq: ( WL 'ME_53DB48550331' '484A470100DD.pas.ms.script' // AnoncedExportTask
+ )
+ ; // Implements
+ : Attributes
+   Seq: ( ME_B2413C941E50 // OnThursdayMode
+ ME_52304882574A // NotifyEMailList
+ ME_26C7061E1C18 // AnoncedDate
+ ME_40D14DD59824 // AccGroupsIDList
+ )
+ ; // Attributes
+ : Overridden
+   Seq: ( ME_53AC03EE01FD_ME_53DB5CFF017D // GetTaggedDataType
+ )
+ ; // Overridden
+ : Dependencies
+   Seq: ( ME_EC6B75396AAE // 
+ )
+ ; // Dependencies
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ : Generators
+ Seq: (
+ gen_intf.pas
+ )
+ ; // Generators
+ CONST dfm:PathOnly '\archi\source\projects\PipeInAuto\Tasks'
+ CONST intf.pas:Path 'archi\source\projects\PipeInAuto\Tasks\alcuAnoncedExportPrim.pas'
+ CONST intf.pas:PathOnly '\archi\source\projects\PipeInAuto\Tasks'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\archi\source\projects\PipeInAuto\Tasks'
+ CONST extprop:rc:SelfName 'alcuAnoncedExportPrim'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'alcuAnoncedExportPrim'
+
+ref; // ME_53DB5CFF017D TalcuAnoncedExportPrim
+
+FORWARD ME_53DF6A58036D
+
+: ME_8DFB6B2EFBE3
+ CONST UID '8DFB6B2EFBE3'
+ CONST IsSummoned true
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_53DF6A58036D // TalcuHavanskyExportTaskPrim
+ ;
+ : Target WL 'ME_53DF66B20223' '484A470100DD.pas.ms.script' // HavanskyExportTask
+ ;
+
+ref; // ME_8DFB6B2EFBE3 
+
+: ME_53AC03EE01FD_ME_53DF6A58036D
+ CONST UID '53AC03EE01FD'
+ CONST Name 'GetTaggedDataType'
+ : Original WL 'ME_53AC03EE01FD' '53B24DFD01FF.pas.ms.script' // GetTaggedDataType
+ ;
+ : Implementor ME_53DF6A58036D // TalcuHavanskyExportTaskPrim
+ ;
+ CONST OpKind opkind_Overridden
+ CONST "is static" true
+ref; // ME_53AC03EE01FD_ME_53DF6A58036D GetTaggedDataType
+
+: ME_53DF6A58036D
+ CONST UID '53DF6A58036D'
+ CONST Name 'TalcuHavanskyExportTaskPrim'
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_52FA3DD30094 // Lists
+ ;
+ : Inherits
+   Seq: ( ME_530355800106 // TalcuExport
+ )
+ ; // Inherits
+ : Implements
+   Seq: ( WL 'ME_53DF66B20223' '484A470100DD.pas.ms.script' // HavanskyExportTask
+ )
+ ; // Implements
+ : Overridden
+   Seq: ( ME_53AC03EE01FD_ME_53DF6A58036D // GetTaggedDataType
+ )
+ ; // Overridden
+ : Dependencies
+   Seq: ( ME_8DFB6B2EFBE3 // 
+ )
+ ; // Dependencies
+ CONST "ifdef" 'HavanskyExport'
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ : Generators
+ Seq: (
+ gen_intf.pas
+ )
+ ; // Generators
+ CONST dfm:PathOnly '\archi\source\projects\PipeInAuto\Tasks'
+ CONST intf.pas:Path 'archi\source\projects\PipeInAuto\Tasks\alcuHavanskyExportTaskPrim.pas'
+ CONST intf.pas:PathOnly '\archi\source\projects\PipeInAuto\Tasks'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\archi\source\projects\PipeInAuto\Tasks'
+ CONST extprop:rc:SelfName 'alcuHavanskyExportTaskPrim'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'alcuHavanskyExportTaskPrim'
+
+ref; // ME_53DF6A58036D TalcuHavanskyExportTaskPrim
+
+: ME_AF613FEFED45
+ CONST UID 'AF613FEFED45'
+ CONST Name 'MailBody'
+ CONST IsSummoned true
+ CONST Class class_Attribute
+ : Stereotype st_property::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_agr
+ : Parent ME_53E1D0D00252 // TalcuImportTaskResult
+ ;
+ : Target WL 'ME_452257A0036F' '3DBFDB23006E.pas.ms.script' // a-string
+ ;
+ CONST "pm" true
+
+ref; // ME_AF613FEFED45 MailBody
+
+: ME_E9096F97F529
+ CONST UID 'E9096F97F529'
+ CONST Name 'ImportedDocList'
+ CONST IsSummoned true
+ CONST Class class_Attribute
+ : Stereotype st_readonly::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_agr
+ : Parent ME_53E1D0D00252 // TalcuImportTaskResult
+ ;
+ : Target WL 'ME_53E0CACC0298' '484A470100DD.pas.ms.script' // ImportedDocListHelper
+ ;
+ CONST "pm" true
+
+ref; // ME_E9096F97F529 ImportedDocList
+
+: ME_9D4CEB3DAD3D
+ CONST UID '9D4CEB3DAD3D'
+ CONST Name 'UserNotification'
+ CONST IsSummoned true
+ CONST Class class_Attribute
+ : Stereotype st_property::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_agr
+ : Parent ME_53E1D0D00252 // TalcuImportTaskResult
+ ;
+ : Target WL 'ME_452257A0036F' '3DBFDB23006E.pas.ms.script' // a-string
+ ;
+ CONST "pm" true
+
+ref; // ME_9D4CEB3DAD3D UserNotification
+
+: ME_C878B7965184
+ CONST UID 'C878B7965184'
+ CONST Name 'MailSubject'
+ CONST IsSummoned true
+ CONST Class class_Attribute
+ : Stereotype st_property::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_agr
+ : Parent ME_53E1D0D00252 // TalcuImportTaskResult
+ ;
+ : Target WL 'ME_452257A0036F' '3DBFDB23006E.pas.ms.script' // a-string
+ ;
+ CONST "pm" true
+
+ref; // ME_C878B7965184 MailSubject
+
+: ME_0434CD7FED8A
+ CONST UID '0434CD7FED8A'
+ CONST Name 'EMailSubject'
+ CONST IsSummoned true
+ CONST Class class_Attribute
+ : Stereotype st_property::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_agr
+ : Parent ME_53E1D0D00252 // TalcuImportTaskResult
+ ;
+ : Target WL 'ME_452257A0036F' '3DBFDB23006E.pas.ms.script' // a-string
+ ;
+ CONST "pm" true
+
+ref; // ME_0434CD7FED8A EMailSubject
+
+: ME_433F3911847F
+ CONST UID '433F3911847F'
+ CONST IsSummoned true
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_53E1D0D00252 // TalcuImportTaskResult
+ ;
+ : Target WL 'ME_53E0C96903D4' '484A470100DD.pas.ms.script' // ImportTaskResult
+ ;
+
+ref; // ME_433F3911847F 
+
+: ME_53AC03EE01FD_ME_53E1D0D00252
+ CONST UID '53AC03EE01FD'
+ CONST Name 'GetTaggedDataType'
+ : Original WL 'ME_53AC03EE01FD' '53B24DFD01FF.pas.ms.script' // GetTaggedDataType
+ ;
+ : Implementor ME_53E1D0D00252 // TalcuImportTaskResult
+ ;
+ CONST OpKind opkind_Overridden
+ CONST "is static" true
+ref; // ME_53AC03EE01FD_ME_53E1D0D00252 GetTaggedDataType
+
+: ME_53E1D0D00252
+ CONST UID '53E1D0D00252'
+ CONST Name 'TalcuImportTaskResult'
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_52FA3DD30094 // Lists
+ ;
+ : Inherits
+   Seq: ( WL 'ME_53E0D4F50178' '53C51B390355.pas.ms.script' // TcsTaskResult
+ )
+ ; // Inherits
+ : Implements
+   Seq: ( WL 'ME_53E0C96903D4' '484A470100DD.pas.ms.script' // ImportTaskResult
+ )
+ ; // Implements
+ : Attributes
+   Seq: ( ME_AF613FEFED45 // MailBody
+ ME_E9096F97F529 // ImportedDocList
+ ME_9D4CEB3DAD3D // UserNotification
+ ME_C878B7965184 // MailSubject
+ ME_0434CD7FED8A // EMailSubject
+ )
+ ; // Attributes
+ : Overridden
+   Seq: ( ME_53AC03EE01FD_ME_53E1D0D00252 // GetTaggedDataType
+ )
+ ; // Overridden
+ : Dependencies
+   Seq: ( ME_433F3911847F // 
+ )
+ ; // Dependencies
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ : Generators
+ Seq: (
+ gen_intf.pas
+ )
+ ; // Generators
+ CONST dfm:PathOnly '\archi\source\projects\PipeInAuto\Tasks'
+ CONST intf.pas:Path 'archi\source\projects\PipeInAuto\Tasks\alcuImportTaskResult.pas'
+ CONST intf.pas:PathOnly '\archi\source\projects\PipeInAuto\Tasks'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\archi\source\projects\PipeInAuto\Tasks'
+ CONST extprop:rc:SelfName 'alcuImportTaskResult'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'alcuImportTaskResult'
+
+ref; // ME_53E1D0D00252 TalcuImportTaskResult
+
+: ME_50F069887B07
+ CONST UID '50F069887B07'
+ CONST Name 'MailBody'
+ CONST IsSummoned true
+ CONST Class class_Attribute
+ : Stereotype st_property::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_agr
+ : Parent ME_53E328BF03DF // TalcuRelPublishTaskResult
+ ;
+ : Target WL 'ME_452257A0036F' '3DBFDB23006E.pas.ms.script' // a-string
+ ;
+ CONST "pm" true
+
+ref; // ME_50F069887B07 MailBody
+
+: ME_7A0D5E0B03BA
+ CONST UID '7A0D5E0B03BA'
+ CONST Name 'IsError'
+ CONST IsSummoned true
+ CONST Class class_Attribute
+ : Stereotype st_property::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_agr
+ : Parent ME_53E328BF03DF // TalcuRelPublishTaskResult
+ ;
+ : Target WL 'ME_3DBFFE100240' '3DBFDB23006E.pas.ms.script' // boolean
+ ;
+ CONST "pm" true
+
+ref; // ME_7A0D5E0B03BA IsError
+
+: ME_204D013FEF9F
+ CONST UID '204D013FEF9F'
+ CONST IsSummoned true
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_53E328BF03DF // TalcuRelPublishTaskResult
+ ;
+ : Target WL 'ME_53E325370145' '484A470100DD.pas.ms.script' // RelPublishTaskResult
+ ;
+
+ref; // ME_204D013FEF9F 
+
+: ME_53AC03EE01FD_ME_53E328BF03DF
+ CONST UID '53AC03EE01FD'
+ CONST Name 'GetTaggedDataType'
+ : Original WL 'ME_53AC03EE01FD' '53B24DFD01FF.pas.ms.script' // GetTaggedDataType
+ ;
+ : Implementor ME_53E328BF03DF // TalcuRelPublishTaskResult
+ ;
+ CONST OpKind opkind_Overridden
+ CONST "is static" true
+ref; // ME_53AC03EE01FD_ME_53E328BF03DF GetTaggedDataType
+
+: ME_53E328BF03DF
+ CONST UID '53E328BF03DF'
+ CONST Name 'TalcuRelPublishTaskResult'
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_52FA3DD30094 // Lists
+ ;
+ : Inherits
+   Seq: ( WL 'ME_53E0D4F50178' '53C51B390355.pas.ms.script' // TcsTaskResult
+ )
+ ; // Inherits
+ : Implements
+   Seq: ( WL 'ME_53E325370145' '484A470100DD.pas.ms.script' // RelPublishTaskResult
+ )
+ ; // Implements
+ : Attributes
+   Seq: ( ME_50F069887B07 // MailBody
+ ME_7A0D5E0B03BA // IsError
+ )
+ ; // Attributes
+ : Overridden
+   Seq: ( ME_53AC03EE01FD_ME_53E328BF03DF // GetTaggedDataType
+ )
+ ; // Overridden
+ : Dependencies
+   Seq: ( ME_204D013FEF9F // 
+ )
+ ; // Dependencies
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ : Generators
+ Seq: (
+ gen_intf.pas
+ )
+ ; // Generators
+ CONST dfm:PathOnly '\archi\source\projects\PipeInAuto\Tasks'
+ CONST intf.pas:Path 'archi\source\projects\PipeInAuto\Tasks\alcuRelPublishTaskResult.pas'
+ CONST intf.pas:PathOnly '\archi\source\projects\PipeInAuto\Tasks'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\archi\source\projects\PipeInAuto\Tasks'
+ CONST extprop:rc:SelfName 'alcuRelPublishTaskResult'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'alcuRelPublishTaskResult'
+
+ref; // ME_53E328BF03DF TalcuRelPublishTaskResult
+
+FORWARD ME_53E48B8D038E
+
+FORWARD ME_53EB0E6000D4
+
+: ME_53EB0E9403C8
+ CONST UID '53EB0E9403C8'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_53E48B8D038E // TalcuAACImport
+ ;
+ : Target ME_53EB0E6000D4 // TalcuAACImportTaskResult
+ ;
+
+ref; // ME_53EB0E9403C8 
+
+: ME_53E48B8D038E
+ CONST UID '53E48B8D038E'
+ CONST Name 'TalcuAACImport'
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_52FA3DD30094 // Lists
+ ;
+ : Inherits
+   Seq: ( WL 'ME_5317040F0257' '52F8C298005C.pas.ms.script' // TcsAACImport
+ )
+ ; // Inherits
+ : Dependencies
+   Seq: ( ME_53EB0E9403C8 // 
+ )
+ ; // Dependencies
+ CONST "finished" false
+ CONST "ifdef" 'AAC'
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ : Generators
+ Seq: (
+ gen_intf.pas
+ )
+ ; // Generators
+ CONST dfm:PathOnly '\archi\source\projects\PipeInAuto\Tasks'
+ CONST intf.pas:Path 'archi\source\projects\PipeInAuto\Tasks\NOT_FINISHED_alcuAACImport.pas'
+ CONST intf.pas:PathOnly '\archi\source\projects\PipeInAuto\Tasks'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\archi\source\projects\PipeInAuto\Tasks'
+ CONST extprop:rc:SelfName 'alcuAACImport'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'alcuAACImport'
+
+ref; // ME_53E48B8D038E TalcuAACImport
+
+: ME_4E05B4ABB248
+ CONST UID '4E05B4ABB248'
+ CONST Name 'IsSuccess'
+ CONST IsSummoned true
+ CONST Class class_Attribute
+ : Stereotype st_property::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_agr
+ : Parent ME_53EB0E6000D4 // TalcuAACImportTaskResult
+ ;
+ : Target WL 'ME_3DBFFE100240' '3DBFDB23006E.pas.ms.script' // boolean
+ ;
+ CONST "pm" true
+
+ref; // ME_4E05B4ABB248 IsSuccess
+
+: ME_7CBA534353E1
+ CONST UID '7CBA534353E1'
+ CONST Name 'AttachFileName'
+ CONST IsSummoned true
+ CONST Class class_Attribute
+ : Stereotype st_property::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_agr
+ : Parent ME_53EB0E6000D4 // TalcuAACImportTaskResult
+ ;
+ : Target WL 'ME_452257A0036F' '3DBFDB23006E.pas.ms.script' // a-string
+ ;
+ CONST "pm" true
+
+ref; // ME_7CBA534353E1 AttachFileName
+
+: ME_1BF7695AD611
+ CONST UID '1BF7695AD611'
+ CONST Name 'MailBody'
+ CONST IsSummoned true
+ CONST Class class_Attribute
+ : Stereotype st_property::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_agr
+ : Parent ME_53EB0E6000D4 // TalcuAACImportTaskResult
+ ;
+ : Target WL 'ME_452257A0036F' '3DBFDB23006E.pas.ms.script' // a-string
+ ;
+ CONST "pm" true
+
+ref; // ME_1BF7695AD611 MailBody
+
+: ME_4DCA9598791F
+ CONST UID '4DCA9598791F'
+ CONST Name 'NeedRestart'
+ CONST IsSummoned true
+ CONST Class class_Attribute
+ : Stereotype st_property::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_agr
+ : Parent ME_53EB0E6000D4 // TalcuAACImportTaskResult
+ ;
+ : Target WL 'ME_3DBFFE100240' '3DBFDB23006E.pas.ms.script' // boolean
+ ;
+ CONST "pm" true
+
+ref; // ME_4DCA9598791F NeedRestart
+
+: ME_C5F99E7A4512
+ CONST UID 'C5F99E7A4512'
+ CONST IsSummoned true
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_53EB0E6000D4 // TalcuAACImportTaskResult
+ ;
+ : Target WL 'ME_53EB0B5401DC' '484A470100DD.pas.ms.script' // AACImportTaskResult
+ ;
+
+ref; // ME_C5F99E7A4512 
+
+: ME_53AC03EE01FD_ME_53EB0E6000D4
+ CONST UID '53AC03EE01FD'
+ CONST Name 'GetTaggedDataType'
+ : Original WL 'ME_53AC03EE01FD' '53B24DFD01FF.pas.ms.script' // GetTaggedDataType
+ ;
+ : Implementor ME_53EB0E6000D4 // TalcuAACImportTaskResult
+ ;
+ CONST OpKind opkind_Overridden
+ CONST "is static" true
+ref; // ME_53AC03EE01FD_ME_53EB0E6000D4 GetTaggedDataType
+
+: ME_53EB0E6000D4
+ CONST UID '53EB0E6000D4'
+ CONST Name 'TalcuAACImportTaskResult'
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_52FA3DD30094 // Lists
+ ;
+ : Inherits
+   Seq: ( WL 'ME_53E0D4F50178' '53C51B390355.pas.ms.script' // TcsTaskResult
+ )
+ ; // Inherits
+ : Implements
+   Seq: ( WL 'ME_53EB0B5401DC' '484A470100DD.pas.ms.script' // AACImportTaskResult
+ )
+ ; // Implements
+ : Attributes
+   Seq: ( ME_4E05B4ABB248 // IsSuccess
+ ME_7CBA534353E1 // AttachFileName
+ ME_1BF7695AD611 // MailBody
+ ME_4DCA9598791F // NeedRestart
+ )
+ ; // Attributes
+ : Overridden
+   Seq: ( ME_53AC03EE01FD_ME_53EB0E6000D4 // GetTaggedDataType
+ )
+ ; // Overridden
+ : Dependencies
+   Seq: ( ME_C5F99E7A4512 // 
+ )
+ ; // Dependencies
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ : Generators
+ Seq: (
+ gen_intf.pas
+ )
+ ; // Generators
+ CONST dfm:PathOnly '\archi\source\projects\PipeInAuto\Tasks'
+ CONST intf.pas:Path 'archi\source\projects\PipeInAuto\Tasks\alcuAACImportTaskResult.pas'
+ CONST intf.pas:PathOnly '\archi\source\projects\PipeInAuto\Tasks'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\archi\source\projects\PipeInAuto\Tasks'
+ CONST extprop:rc:SelfName 'alcuAACImportTaskResult'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'alcuAACImportTaskResult'
+
+ref; // ME_53EB0E6000D4 TalcuAACImportTaskResult
+
+: ME_0632E6B8F326
+ CONST UID '0632E6B8F326'
+ CONST Name 'ReportMessage'
+ CONST IsSummoned true
+ CONST Class class_Attribute
+ : Stereotype st_property::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_agr
+ : Parent ME_53F472280036 // TalcuAutoClassTaskResult
+ ;
+ : Target WL 'ME_452257A0036F' '3DBFDB23006E.pas.ms.script' // a-string
+ ;
+ CONST "pm" true
+
+ref; // ME_0632E6B8F326 ReportMessage
+
+: ME_10D805489FFC
+ CONST UID '10D805489FFC'
+ CONST Name 'MissedDocsStr'
+ CONST IsSummoned true
+ CONST Class class_Attribute
+ : Stereotype st_property::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_agr
+ : Parent ME_53F472280036 // TalcuAutoClassTaskResult
+ ;
+ : Target WL 'ME_452257A0036F' '3DBFDB23006E.pas.ms.script' // a-string
+ ;
+ CONST "pm" true
+
+ref; // ME_10D805489FFC MissedDocsStr
+
+: ME_A47CDE8B8269
+ CONST UID 'A47CDE8B8269'
+ CONST Name 'DocumentIDList'
+ CONST IsSummoned true
+ CONST Class class_Attribute
+ : Stereotype st_readonly::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_agr
+ : Parent ME_53F472280036 // TalcuAutoClassTaskResult
+ ;
+ : Target WL 'ME_53BD2DEA02B3' '484A470100DD.pas.ms.script' // DocumentIDListHelper
+ ;
+ CONST "pm" true
+
+ref; // ME_A47CDE8B8269 DocumentIDList
+
+: ME_98278EEAAD02
+ CONST UID '98278EEAAD02'
+ CONST IsSummoned true
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_53F472280036 // TalcuAutoClassTaskResult
+ ;
+ : Target WL 'ME_53F465FA018E' '484A470100DD.pas.ms.script' // AutoClassTaskResult
+ ;
+
+ref; // ME_98278EEAAD02 
+
+: ME_53AC03EE01FD_ME_53F472280036
+ CONST UID '53AC03EE01FD'
+ CONST Name 'GetTaggedDataType'
+ : Original WL 'ME_53AC03EE01FD' '53B24DFD01FF.pas.ms.script' // GetTaggedDataType
+ ;
+ : Implementor ME_53F472280036 // TalcuAutoClassTaskResult
+ ;
+ CONST OpKind opkind_Overridden
+ CONST "is static" true
+ref; // ME_53AC03EE01FD_ME_53F472280036 GetTaggedDataType
+
+: ME_53F472280036
+ CONST UID '53F472280036'
+ CONST Name 'TalcuAutoClassTaskResult'
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_52FA3DD30094 // Lists
+ ;
+ : Inherits
+   Seq: ( WL 'ME_53E0D4F50178' '53C51B390355.pas.ms.script' // TcsTaskResult
+ )
+ ; // Inherits
+ : Implements
+   Seq: ( WL 'ME_53F465FA018E' '484A470100DD.pas.ms.script' // AutoClassTaskResult
+ )
+ ; // Implements
+ : Attributes
+   Seq: ( ME_0632E6B8F326 // ReportMessage
+ ME_10D805489FFC // MissedDocsStr
+ ME_A47CDE8B8269 // DocumentIDList
+ )
+ ; // Attributes
+ : Overridden
+   Seq: ( ME_53AC03EE01FD_ME_53F472280036 // GetTaggedDataType
+ )
+ ; // Overridden
+ : Dependencies
+   Seq: ( ME_98278EEAAD02 // 
+ )
+ ; // Dependencies
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ : Generators
+ Seq: (
+ gen_intf.pas
+ )
+ ; // Generators
+ CONST dfm:PathOnly '\archi\source\projects\PipeInAuto\Tasks'
+ CONST intf.pas:Path 'archi\source\projects\PipeInAuto\Tasks\alcuAutoClassTaskResult.pas'
+ CONST intf.pas:PathOnly '\archi\source\projects\PipeInAuto\Tasks'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\archi\source\projects\PipeInAuto\Tasks'
+ CONST extprop:rc:SelfName 'alcuAutoClassTaskResult'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'alcuAutoClassTaskResult'
+
+ref; // ME_53F472280036 TalcuAutoClassTaskResult
+
+: ME_5305ABFD00F1
+ CONST UID '5305ABFD00F1'
+ CONST Name 'TalcuAnoncedExport'
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_52FA3DD30094 // Lists
+ ;
+ : Inherits
+   Seq: ( ME_530355800106 // TalcuExport
+ ME_53DB5CFF017D // TalcuAnoncedExportPrim
+ )
+ ; // Inherits
+ CONST "finished" false
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ : Generators
+ Seq: (
+ gen_intf.pas
+ )
+ ; // Generators
+ CONST dfm:PathOnly '\archi\source\projects\PipeInAuto\Tasks'
+ CONST intf.pas:Path 'archi\source\projects\PipeInAuto\Tasks\NOT_FINISHED_alcuAnoncedExport.pas'
+ CONST intf.pas:PathOnly '\archi\source\projects\PipeInAuto\Tasks'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\archi\source\projects\PipeInAuto\Tasks'
+ CONST extprop:rc:SelfName 'alcuAnoncedExport'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'alcuAnoncedExport'
+
+ref; // ME_5305ABFD00F1 TalcuAnoncedExport
+
+FORWARD ME_53F59F27018A
+
+: ME_BBED2D3CA5F4
+ CONST UID 'BBED2D3CA5F4'
+ CONST Name 'StartDate'
+ CONST IsSummoned true
+ CONST Class class_Attribute
+ : Stereotype st_property::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_agr
+ : Parent ME_53F59F27018A // TalcuAutoAnnoExportTaskPrim
+ ;
+ : Target WL 'ME_47272C8B0128' '4AB0C3C60310.pas.ms.script' // TDateTime
+ ;
+ CONST "pm" true
+
+ref; // ME_BBED2D3CA5F4 StartDate
+
+: ME_24FC392D4AC8
+ CONST UID '24FC392D4AC8'
+ CONST Name 'EndDate'
+ CONST IsSummoned true
+ CONST Class class_Attribute
+ : Stereotype st_property::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_agr
+ : Parent ME_53F59F27018A // TalcuAutoAnnoExportTaskPrim
+ ;
+ : Target WL 'ME_47272C8B0128' '4AB0C3C60310.pas.ms.script' // TDateTime
+ ;
+ CONST "pm" true
+
+ref; // ME_24FC392D4AC8 EndDate
+
+: ME_04108A210D43
+ CONST UID '04108A210D43'
+ CONST Name 'BelongsIDList'
+ CONST IsSummoned true
+ CONST Class class_Attribute
+ : Stereotype st_readonly::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_agr
+ : Parent ME_53F59F27018A // TalcuAutoAnnoExportTaskPrim
+ ;
+ : Target WL 'ME_53F5A77B01B4' '484A470100DD.pas.ms.script' // BelongsIDListHelper
+ ;
+ CONST "pm" true
+
+ref; // ME_04108A210D43 BelongsIDList
+
+: ME_2E7A52589436
+ CONST UID '2E7A52589436'
+ CONST IsSummoned true
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_53F59F27018A // TalcuAutoAnnoExportTaskPrim
+ ;
+ : Target WL 'ME_53BA72FA0145' '484A470100DD.pas.ms.script' // AutoAnnoExportTask
+ ;
+
+ref; // ME_2E7A52589436 
+
+: ME_53AC03EE01FD_ME_53F59F27018A
+ CONST UID '53AC03EE01FD'
+ CONST Name 'GetTaggedDataType'
+ : Original WL 'ME_53AC03EE01FD' '53B24DFD01FF.pas.ms.script' // GetTaggedDataType
+ ;
+ : Implementor ME_53F59F27018A // TalcuAutoAnnoExportTaskPrim
+ ;
+ CONST OpKind opkind_Overridden
+ CONST "is static" true
+ref; // ME_53AC03EE01FD_ME_53F59F27018A GetTaggedDataType
+
+: ME_53FB28170339_ME_53F59F27018A
+ CONST UID '53FB28170339'
+ CONST Name 'GetDescription'
+ : Original WL 'ME_53FB28170339' '52FA49B901D3.pas.ms.script' // GetDescription
+ ;
+ : Implementor ME_53F59F27018A // TalcuAutoAnnoExportTaskPrim
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_53FB28170339_ME_53F59F27018A GetDescription
+
+: ME_53F59F27018A
+ CONST UID '53F59F27018A'
+ CONST Name 'TalcuAutoAnnoExportTaskPrim'
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_52FA3DD30094 // Lists
+ ;
+ : Inherits
+   Seq: ( ME_530355800106 // TalcuExport
+ )
+ ; // Inherits
+ : Implements
+   Seq: ( WL 'ME_53BA72FA0145' '484A470100DD.pas.ms.script' // AutoAnnoExportTask
+ )
+ ; // Implements
+ : Attributes
+   Seq: ( ME_BBED2D3CA5F4 // StartDate
+ ME_24FC392D4AC8 // EndDate
+ ME_04108A210D43 // BelongsIDList
+ )
+ ; // Attributes
+ : Overridden
+   Seq: ( ME_53AC03EE01FD_ME_53F59F27018A // GetTaggedDataType
+ ME_53FB28170339_ME_53F59F27018A // GetDescription
+ )
+ ; // Overridden
+ : Dependencies
+   Seq: ( ME_2E7A52589436 // 
+ )
+ ; // Dependencies
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ : Generators
+ Seq: (
+ gen_intf.pas
+ )
+ ; // Generators
+ CONST dfm:PathOnly '\archi\source\projects\PipeInAuto\Tasks'
+ CONST intf.pas:Path 'archi\source\projects\PipeInAuto\Tasks\alcuAutoAnnoExportTaskPrim.pas'
+ CONST intf.pas:PathOnly '\archi\source\projects\PipeInAuto\Tasks'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\archi\source\projects\PipeInAuto\Tasks'
+ CONST extprop:rc:SelfName 'alcuAutoAnnoExportTaskPrim'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'alcuAutoAnnoExportTaskPrim'
+
+ref; // ME_53F59F27018A TalcuAutoAnnoExportTaskPrim
+
+FORWARD ME_53F59F6F0341
+
+: ME_53FB28170339_ME_53F59F6F0341
+ CONST UID '53FB28170339'
+ CONST Name 'GetDescription'
+ : Original WL 'ME_53FB28170339' '52FA49B901D3.pas.ms.script' // GetDescription
+ ;
+ : Implementor ME_53F59F6F0341 // TalcuAutoAnnoExportTask
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_53FB28170339_ME_53F59F6F0341 GetDescription
+
+: ME_53F59F6F0341
+ CONST UID '53F59F6F0341'
+ CONST Name 'TalcuAutoAnnoExportTask'
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_52FA3DD30094 // Lists
+ ;
+ : Inherits
+   Seq: ( ME_53F59F27018A // TalcuAutoAnnoExportTaskPrim
+ )
+ ; // Inherits
+ : Overridden
+   Seq: ( ME_53FB28170339_ME_53F59F6F0341 // GetDescription
+ )
+ ; // Overridden
+ CONST "finished" false
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ : Generators
+ Seq: (
+ gen_intf.pas
+ )
+ ; // Generators
+ CONST dfm:PathOnly '\archi\source\projects\PipeInAuto\Tasks'
+ CONST intf.pas:Path 'archi\source\projects\PipeInAuto\Tasks\NOT_FINISHED_alcuAutoAnnoExportTask.pas'
+ CONST intf.pas:PathOnly '\archi\source\projects\PipeInAuto\Tasks'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\archi\source\projects\PipeInAuto\Tasks'
+ CONST extprop:rc:SelfName 'alcuAutoAnnoExportTask'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'alcuAutoAnnoExportTask'
+
+ref; // ME_53F59F6F0341 TalcuAutoAnnoExportTask
+
+: ME_530355CF0057
+ CONST UID '530355CF0057'
+ CONST Name 'TalcuHavanskyExportTask'
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_52FA3DD30094 // Lists
+ ;
+ : Inherits
+   Seq: ( ME_53DF6A58036D // TalcuHavanskyExportTaskPrim
+ )
+ ; // Inherits
+ CONST "finished" false
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ : Generators
+ Seq: (
+ gen_intf.pas
+ )
+ ; // Generators
+ CONST dfm:PathOnly '\archi\source\projects\PipeInAuto\Tasks'
+ CONST intf.pas:Path 'archi\source\projects\PipeInAuto\Tasks\NOT_FINISHED_alcuHavanskyExportTask.pas'
+ CONST intf.pas:PathOnly '\archi\source\projects\PipeInAuto\Tasks'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\archi\source\projects\PipeInAuto\Tasks'
+ CONST extprop:rc:SelfName 'alcuHavanskyExportTask'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'alcuHavanskyExportTask'
+
+ref; // ME_530355CF0057 TalcuHavanskyExportTask
+
+FORWARD ME_531705AC001C
+
+FORWARD ME_53F6EDF00042
+
+: ME_53F6EE1A0025
+ CONST UID '53F6EE1A0025'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_531705AC001C // TalcuAnnotationTask
+ ;
+ : Target ME_53F6EDF00042 // TalcuAnnotationTaskResult
+ ;
+
+ref; // ME_53F6EE1A0025 
+
+: ME_531705AC001C
+ CONST UID '531705AC001C'
+ CONST Name 'TalcuAnnotationTask'
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_52FA3DD30094 // Lists
+ ;
+ : Inherits
+   Seq: ( WL 'ME_53B6A4F300DE' '52F8C298005C.pas.ms.script' // TcsAnnotationTask
+ )
+ ; // Inherits
+ : Dependencies
+   Seq: ( ME_53F6EE1A0025 // 
+ )
+ ; // Dependencies
+ CONST "finished" false
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ : Generators
+ Seq: (
+ gen_intf.pas
+ )
+ ; // Generators
+ CONST dfm:PathOnly '\archi\source\projects\PipeInAuto\Tasks'
+ CONST intf.pas:Path 'archi\source\projects\PipeInAuto\Tasks\NOT_FINISHED_alcuAnnotationTask.pas'
+ CONST intf.pas:PathOnly '\archi\source\projects\PipeInAuto\Tasks'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\archi\source\projects\PipeInAuto\Tasks'
+ CONST extprop:rc:SelfName 'alcuAnnotationTask'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'alcuAnnotationTask'
+
+ref; // ME_531705AC001C TalcuAnnotationTask
+
+: ME_156110995BB9
+ CONST UID '156110995BB9'
+ CONST Name 'NeedReport'
+ CONST IsSummoned true
+ CONST Class class_Attribute
+ : Stereotype st_property::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_agr
+ : Parent ME_53F6EDF00042 // TalcuAnnotationTaskResult
+ ;
+ : Target WL 'ME_3DBFFE100240' '3DBFDB23006E.pas.ms.script' // boolean
+ ;
+ CONST "pm" true
+
+ref; // ME_156110995BB9 NeedReport
+
+: ME_7C0B1CBBB3D8
+ CONST UID '7C0B1CBBB3D8'
+ CONST Name 'IsSuccess'
+ CONST IsSummoned true
+ CONST Class class_Attribute
+ : Stereotype st_property::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_agr
+ : Parent ME_53F6EDF00042 // TalcuAnnotationTaskResult
+ ;
+ : Target WL 'ME_3DBFFE100240' '3DBFDB23006E.pas.ms.script' // boolean
+ ;
+ CONST "pm" true
+
+ref; // ME_7C0B1CBBB3D8 IsSuccess
+
+: ME_31A771BF25F3
+ CONST UID '31A771BF25F3'
+ CONST Name 'NextDate'
+ CONST IsSummoned true
+ CONST Class class_Attribute
+ : Stereotype st_property::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_agr
+ : Parent ME_53F6EDF00042 // TalcuAnnotationTaskResult
+ ;
+ : Target WL 'ME_47272C8B0128' '4AB0C3C60310.pas.ms.script' // TDateTime
+ ;
+ CONST "pm" true
+
+ref; // ME_31A771BF25F3 NextDate
+
+: ME_1F0D535E162C
+ CONST UID '1F0D535E162C'
+ CONST Name 'ReportMessage'
+ CONST IsSummoned true
+ CONST Class class_Attribute
+ : Stereotype st_property::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_agr
+ : Parent ME_53F6EDF00042 // TalcuAnnotationTaskResult
+ ;
+ : Target WL 'ME_452257A0036F' '3DBFDB23006E.pas.ms.script' // a-string
+ ;
+ CONST "pm" true
+
+ref; // ME_1F0D535E162C ReportMessage
+
+: ME_8B16BDD7D790
+ CONST UID '8B16BDD7D790'
+ CONST Name 'ReportSubject'
+ CONST IsSummoned true
+ CONST Class class_Attribute
+ : Stereotype st_property::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_agr
+ : Parent ME_53F6EDF00042 // TalcuAnnotationTaskResult
+ ;
+ : Target WL 'ME_452257A0036F' '3DBFDB23006E.pas.ms.script' // a-string
+ ;
+ CONST "pm" true
+
+ref; // ME_8B16BDD7D790 ReportSubject
+
+: ME_8E44E53AF039
+ CONST UID '8E44E53AF039'
+ CONST Name 'ReportAttach'
+ CONST IsSummoned true
+ CONST Class class_Attribute
+ : Stereotype st_property::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_agr
+ : Parent ME_53F6EDF00042 // TalcuAnnotationTaskResult
+ ;
+ : Target WL 'ME_452257A0036F' '3DBFDB23006E.pas.ms.script' // a-string
+ ;
+ CONST "pm" true
+
+ref; // ME_8E44E53AF039 ReportAttach
+
+: ME_216474BE6E34
+ CONST UID '216474BE6E34'
+ CONST Name 'NeedSendToRobot'
+ CONST IsSummoned true
+ CONST Class class_Attribute
+ : Stereotype st_property::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_agr
+ : Parent ME_53F6EDF00042 // TalcuAnnotationTaskResult
+ ;
+ : Target WL 'ME_3DBFFE100240' '3DBFDB23006E.pas.ms.script' // boolean
+ ;
+ CONST "pm" true
+
+ref; // ME_216474BE6E34 NeedSendToRobot
+
+: ME_9384C570A604
+ CONST UID '9384C570A604'
+ CONST Name 'RobotMessage'
+ CONST IsSummoned true
+ CONST Class class_Attribute
+ : Stereotype st_property::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_agr
+ : Parent ME_53F6EDF00042 // TalcuAnnotationTaskResult
+ ;
+ : Target WL 'ME_452257A0036F' '3DBFDB23006E.pas.ms.script' // a-string
+ ;
+ CONST "pm" true
+
+ref; // ME_9384C570A604 RobotMessage
+
+: ME_BBA3EEE1D19D
+ CONST UID 'BBA3EEE1D19D'
+ CONST Name 'RobotAttach'
+ CONST IsSummoned true
+ CONST Class class_Attribute
+ : Stereotype st_property::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_agr
+ : Parent ME_53F6EDF00042 // TalcuAnnotationTaskResult
+ ;
+ : Target WL 'ME_452257A0036F' '3DBFDB23006E.pas.ms.script' // a-string
+ ;
+ CONST "pm" true
+
+ref; // ME_BBA3EEE1D19D RobotAttach
+
+: ME_1417663BC417
+ CONST UID '1417663BC417'
+ CONST IsSummoned true
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_53F6EDF00042 // TalcuAnnotationTaskResult
+ ;
+ : Target WL 'ME_53F6EAC1000E' '484A470100DD.pas.ms.script' // AnnotationTaskResult
+ ;
+
+ref; // ME_1417663BC417 
+
+: ME_53AC03EE01FD_ME_53F6EDF00042
+ CONST UID '53AC03EE01FD'
+ CONST Name 'GetTaggedDataType'
+ : Original WL 'ME_53AC03EE01FD' '53B24DFD01FF.pas.ms.script' // GetTaggedDataType
+ ;
+ : Implementor ME_53F6EDF00042 // TalcuAnnotationTaskResult
+ ;
+ CONST OpKind opkind_Overridden
+ CONST "is static" true
+ref; // ME_53AC03EE01FD_ME_53F6EDF00042 GetTaggedDataType
+
+: ME_53F6EDF00042
+ CONST UID '53F6EDF00042'
+ CONST Name 'TalcuAnnotationTaskResult'
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_52FA3DD30094 // Lists
+ ;
+ : Inherits
+   Seq: ( WL 'ME_53E0D4F50178' '53C51B390355.pas.ms.script' // TcsTaskResult
+ )
+ ; // Inherits
+ : Implements
+   Seq: ( WL 'ME_53F6EAC1000E' '484A470100DD.pas.ms.script' // AnnotationTaskResult
+ )
+ ; // Implements
+ : Attributes
+   Seq: ( ME_156110995BB9 // NeedReport
+ ME_7C0B1CBBB3D8 // IsSuccess
+ ME_31A771BF25F3 // NextDate
+ ME_1F0D535E162C // ReportMessage
+ ME_8B16BDD7D790 // ReportSubject
+ ME_8E44E53AF039 // ReportAttach
+ ME_216474BE6E34 // NeedSendToRobot
+ ME_9384C570A604 // RobotMessage
+ ME_BBA3EEE1D19D // RobotAttach
+ )
+ ; // Attributes
+ : Overridden
+   Seq: ( ME_53AC03EE01FD_ME_53F6EDF00042 // GetTaggedDataType
+ )
+ ; // Overridden
+ : Dependencies
+   Seq: ( ME_1417663BC417 // 
+ )
+ ; // Dependencies
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ : Generators
+ Seq: (
+ gen_intf.pas
+ )
+ ; // Generators
+ CONST dfm:PathOnly '\archi\source\projects\PipeInAuto\Tasks'
+ CONST intf.pas:Path 'archi\source\projects\PipeInAuto\Tasks\alcuAnnotationTaskResult.pas'
+ CONST intf.pas:PathOnly '\archi\source\projects\PipeInAuto\Tasks'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\archi\source\projects\PipeInAuto\Tasks'
+ CONST extprop:rc:SelfName 'alcuAnnotationTaskResult'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'alcuAnnotationTaskResult'
+
+ref; // ME_53F6EDF00042 TalcuAnnotationTaskResult
+
+FORWARD ME_53FD813101B0
+
+: ME_74ED8BF941B6
+ CONST UID '74ED8BF941B6'
+ CONST Name 'ReportMessage'
+ CONST IsSummoned true
+ CONST Class class_Attribute
+ : Stereotype st_property::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_agr
+ : Parent ME_53FD813101B0 // TalcuAutoSpellTaskResult
+ ;
+ : Target WL 'ME_452257A0036F' '3DBFDB23006E.pas.ms.script' // a-string
+ ;
+ CONST "pm" true
+
+ref; // ME_74ED8BF941B6 ReportMessage
+
+: ME_37893D4ECBBB
+ CONST UID '37893D4ECBBB'
+ CONST Name 'ReportAttach'
+ CONST IsSummoned true
+ CONST Class class_Attribute
+ : Stereotype st_property::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_agr
+ : Parent ME_53FD813101B0 // TalcuAutoSpellTaskResult
+ ;
+ : Target WL 'ME_452257A0036F' '3DBFDB23006E.pas.ms.script' // a-string
+ ;
+ CONST "pm" true
+
+ref; // ME_37893D4ECBBB ReportAttach
+
+: ME_507AA733369F
+ CONST UID '507AA733369F'
+ CONST IsSummoned true
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_53FD813101B0 // TalcuAutoSpellTaskResult
+ ;
+ : Target WL 'ME_53FD7EBB0066' '484A470100DD.pas.ms.script' // AutoSpellTaskResult
+ ;
+
+ref; // ME_507AA733369F 
+
+: ME_53AC03EE01FD_ME_53FD813101B0
+ CONST UID '53AC03EE01FD'
+ CONST Name 'GetTaggedDataType'
+ : Original WL 'ME_53AC03EE01FD' '53B24DFD01FF.pas.ms.script' // GetTaggedDataType
+ ;
+ : Implementor ME_53FD813101B0 // TalcuAutoSpellTaskResult
+ ;
+ CONST OpKind opkind_Overridden
+ CONST "is static" true
+ref; // ME_53AC03EE01FD_ME_53FD813101B0 GetTaggedDataType
+
+: ME_53FD813101B0
+ CONST UID '53FD813101B0'
+ CONST Name 'TalcuAutoSpellTaskResult'
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_52FA3DD30094 // Lists
+ ;
+ : Inherits
+   Seq: ( WL 'ME_53E0D4F50178' '53C51B390355.pas.ms.script' // TcsTaskResult
+ )
+ ; // Inherits
+ : Implements
+   Seq: ( WL 'ME_53FD7EBB0066' '484A470100DD.pas.ms.script' // AutoSpellTaskResult
+ )
+ ; // Implements
+ : Attributes
+   Seq: ( ME_74ED8BF941B6 // ReportMessage
+ ME_37893D4ECBBB // ReportAttach
+ )
+ ; // Attributes
+ : Overridden
+   Seq: ( ME_53AC03EE01FD_ME_53FD813101B0 // GetTaggedDataType
+ )
+ ; // Overridden
+ : Dependencies
+   Seq: ( ME_507AA733369F // 
+ )
+ ; // Dependencies
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ : Generators
+ Seq: (
+ gen_intf.pas
+ )
+ ; // Generators
+ CONST dfm:PathOnly '\archi\source\projects\PipeInAuto\Tasks'
+ CONST intf.pas:Path 'archi\source\projects\PipeInAuto\Tasks\alcuAutoSpellTaskResult.pas'
+ CONST intf.pas:PathOnly '\archi\source\projects\PipeInAuto\Tasks'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\archi\source\projects\PipeInAuto\Tasks'
+ CONST extprop:rc:SelfName 'alcuAutoSpellTaskResult'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'alcuAutoSpellTaskResult'
+
+ref; // ME_53FD813101B0 TalcuAutoSpellTaskResult
+
+FORWARD ME_53FD8188018E
+
+: ME_53FD821B01FD
+ CONST UID '53FD821B01FD'
+ CONST Name 'TalcuAutoSpellTask'
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_53FD8188018E // alcuAutoSpell
+ ;
+ : Inherits
+   Seq: ( WL 'ME_531706390030' '52F8C298005C.pas.ms.script' // TcsAutoSpellTask
+ )
+ ; // Inherits
+ CONST "finished" false
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ CONST dfm:PathOnly '\archi\source\projects\PipeInAuto\Tasks'
+ CONST intf.pas:PathOnly '\archi\source\projects\PipeInAuto\Tasks'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\archi\source\projects\PipeInAuto\Tasks'
+ CONST extprop:rc:SelfName 'alcuAutoSpellTask'
+ CONST extprop:rc:isAcceptableForScripts true
+
+ref; // ME_53FD821B01FD TalcuAutoSpellTask
+
+: ME_53FD8203008E
+ CONST UID '53FD8203008E'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_53FD8188018E // alcuAutoSpell
+ ;
+ : Target ME_53FD813101B0 // TalcuAutoSpellTaskResult
+ ;
+
+ref; // ME_53FD8203008E 
+
+: ME_53FD8188018E
+ CONST UID '53FD8188018E'
+ CONST Name 'alcuAutoSpell'
+ CONST Class class_Class
+ : Stereotype st_UtilityPack ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_52FA3DD30094 // Lists
+ ;
+ : Children
+   Seq: ( ME_53FD821B01FD // TalcuAutoSpellTask
+ )
+ ; // Children
+ : Dependencies
+   Seq: ( ME_53FD8203008E // 
+ )
+ ; // Dependencies
+ CONST "finished" false
+ CONST "no hands" false
+ : Generators
+ Seq: (
+ gen_intf.pas
+ )
+ ; // Generators
+ CONST dfm:PathOnly '\archi\source\projects\PipeInAuto\Tasks'
+ CONST intf.pas:Path 'archi\source\projects\PipeInAuto\Tasks\NOT_FINISHED_alcuAutoSpell.pas'
+ CONST intf.pas:PathOnly '\archi\source\projects\PipeInAuto\Tasks'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\archi\source\projects\PipeInAuto\Tasks'
+
+ref; // ME_53FD8188018E alcuAutoSpell
+
+FORWARD ME_53B6A5FA0212
+
+: ME_72D12E8AD850
+ CONST UID '72D12E8AD850'
+ CONST Name 'Today'
+ CONST IsSummoned true
+ CONST Class class_Attribute
+ : Stereotype st_property::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_agr
+ : Parent ME_53B6A5FA0212 // TalcuAutoExportTaskPrim
+ ;
+ : Target WL 'ME_47272C8B0128' '4AB0C3C60310.pas.ms.script' // TDateTime
+ ;
+ CONST "pm" true
+
+ref; // ME_72D12E8AD850 Today
+
+: ME_ED9E24C9A590
+ CONST UID 'ED9E24C9A590'
+ CONST Name 'CompileDate'
+ CONST IsSummoned true
+ CONST Class class_Attribute
+ : Stereotype st_property::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_agr
+ : Parent ME_53B6A5FA0212 // TalcuAutoExportTaskPrim
+ ;
+ : Target WL 'ME_47272C8B0128' '4AB0C3C60310.pas.ms.script' // TDateTime
+ ;
+ CONST "pm" true
+
+ref; // ME_ED9E24C9A590 CompileDate
+
+: ME_6414746F7355
+ CONST UID '6414746F7355'
+ CONST Name 'VersionDate'
+ CONST IsSummoned true
+ CONST Class class_Attribute
+ : Stereotype st_property::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_agr
+ : Parent ME_53B6A5FA0212 // TalcuAutoExportTaskPrim
+ ;
+ : Target WL 'ME_47272C8B0128' '4AB0C3C60310.pas.ms.script' // TDateTime
+ ;
+ CONST "pm" true
+
+ref; // ME_6414746F7355 VersionDate
+
+: ME_94480B7D3AE9
+ CONST UID '94480B7D3AE9'
+ CONST Name 'OutFormat'
+ CONST IsSummoned true
+ CONST Class class_Attribute
+ : Stereotype st_property::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_agr
+ : Parent ME_53B6A5FA0212 // TalcuAutoExportTaskPrim
+ ;
+ : Target WL 'ME_51CBFE650178' '484A470100DD.pas.ms.script' // TepSupportFileType
+ ;
+ CONST "pm" true
+
+ref; // ME_94480B7D3AE9 OutFormat
+
+: ME_0F53694021EC
+ CONST UID '0F53694021EC'
+ CONST Name 'AnnoUseAccGroups'
+ CONST IsSummoned true
+ CONST Class class_Attribute
+ : Stereotype st_property::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_agr
+ : Parent ME_53B6A5FA0212 // TalcuAutoExportTaskPrim
+ ;
+ : Target WL 'ME_3DBFFE100240' '3DBFDB23006E.pas.ms.script' // boolean
+ ;
+ CONST "pm" true
+
+ref; // ME_0F53694021EC AnnoUseAccGroups
+
+: ME_67A11CF12F48
+ CONST UID '67A11CF12F48'
+ CONST Name 'DocumentsSource'
+ CONST IsSummoned true
+ CONST Class class_Attribute
+ : Stereotype st_property::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_agr
+ : Parent ME_53B6A5FA0212 // TalcuAutoExportTaskPrim
+ ;
+ : Target WL 'ME_53FEFB2A00FA' '484A470100DD.pas.ms.script' // TaeDocSource
+ ;
+ CONST "pm" true
+
+ref; // ME_67A11CF12F48 DocumentsSource
+
+: ME_1D3E1AFBB1AA
+ CONST UID '1D3E1AFBB1AA'
+ CONST Name 'WithEditions'
+ CONST IsSummoned true
+ CONST Class class_Attribute
+ : Stereotype st_property::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_agr
+ : Parent ME_53B6A5FA0212 // TalcuAutoExportTaskPrim
+ ;
+ : Target WL 'ME_3DBFFE100240' '3DBFDB23006E.pas.ms.script' // boolean
+ ;
+ CONST "pm" true
+
+ref; // ME_1D3E1AFBB1AA WithEditions
+
+: ME_2D53CAC91C0A
+ CONST UID '2D53CAC91C0A'
+ CONST Name 'AccGroupsIDList'
+ CONST IsSummoned true
+ CONST Class class_Attribute
+ : Stereotype st_readonly::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_agr
+ : Parent ME_53B6A5FA0212 // TalcuAutoExportTaskPrim
+ ;
+ : Target WL 'ME_53DB62BC03B2' '484A470100DD.pas.ms.script' // AccGroupsIDListHelper
+ ;
+ CONST "pm" true
+
+ref; // ME_2D53CAC91C0A AccGroupsIDList
+
+: ME_3F7021CCF760
+ CONST UID '3F7021CCF760'
+ CONST Name 'AnnoTemplate'
+ CONST IsSummoned true
+ CONST Class class_Attribute
+ : Stereotype st_property::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_agr
+ : Parent ME_53B6A5FA0212 // TalcuAutoExportTaskPrim
+ ;
+ : Target WL 'ME_452257A0036F' '3DBFDB23006E.pas.ms.script' // a-string
+ ;
+ CONST "ifndef" 'LUK,SGC'
+ CONST "pm" true
+
+ref; // ME_3F7021CCF760 AnnoTemplate
+
+: ME_BB2E4495415F
+ CONST UID 'BB2E4495415F'
+ CONST Name 'BasesIDList'
+ CONST IsSummoned true
+ CONST Class class_Attribute
+ : Stereotype st_readonly::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_agr
+ : Parent ME_53B6A5FA0212 // TalcuAutoExportTaskPrim
+ ;
+ : Target WL 'ME_53FF0C820388' '484A470100DD.pas.ms.script' // BasesIDListHelper
+ ;
+ CONST "ifndef" 'LUK,SGC'
+ CONST "pm" true
+
+ref; // ME_BB2E4495415F BasesIDList
+
+: ME_12A47F6A5A99
+ CONST UID '12A47F6A5A99'
+ CONST Name 'ChangedDocTemplate'
+ CONST IsSummoned true
+ CONST Class class_Attribute
+ : Stereotype st_property::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_agr
+ : Parent ME_53B6A5FA0212 // TalcuAutoExportTaskPrim
+ ;
+ : Target WL 'ME_452257A0036F' '3DBFDB23006E.pas.ms.script' // a-string
+ ;
+ CONST "ifndef" 'LUK,SGC'
+ CONST "pm" true
+
+ref; // ME_12A47F6A5A99 ChangedDocTemplate
+
+: ME_3299499C644F
+ CONST UID '3299499C644F'
+ CONST Name 'ChangedRelTempate'
+ CONST IsSummoned true
+ CONST Class class_Attribute
+ : Stereotype st_property::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_agr
+ : Parent ME_53B6A5FA0212 // TalcuAutoExportTaskPrim
+ ;
+ : Target WL 'ME_452257A0036F' '3DBFDB23006E.pas.ms.script' // a-string
+ ;
+ CONST "ifndef" 'LUK,SGC'
+ CONST "pm" true
+
+ref; // ME_3299499C644F ChangedRelTempate
+
+: ME_44ADF3DB2EBB
+ CONST UID '44ADF3DB2EBB'
+ CONST Name 'ExecName'
+ CONST IsSummoned true
+ CONST Class class_Attribute
+ : Stereotype st_property::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_agr
+ : Parent ME_53B6A5FA0212 // TalcuAutoExportTaskPrim
+ ;
+ : Target WL 'ME_452257A0036F' '3DBFDB23006E.pas.ms.script' // a-string
+ ;
+ CONST "pm" true
+
+ref; // ME_44ADF3DB2EBB ExecName
+
+: ME_47395ABF0BA8
+ CONST UID '47395ABF0BA8'
+ CONST Name 'ExecParams'
+ CONST IsSummoned true
+ CONST Class class_Attribute
+ : Stereotype st_property::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_agr
+ : Parent ME_53B6A5FA0212 // TalcuAutoExportTaskPrim
+ ;
+ : Target WL 'ME_452257A0036F' '3DBFDB23006E.pas.ms.script' // a-string
+ ;
+ CONST "pm" true
+
+ref; // ME_47395ABF0BA8 ExecParams
+
+: ME_7B8BD7B63B67
+ CONST UID '7B8BD7B63B67'
+ CONST Name 'DocQueryFileName'
+ CONST IsSummoned true
+ CONST Class class_Attribute
+ : Stereotype st_property::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_agr
+ : Parent ME_53B6A5FA0212 // TalcuAutoExportTaskPrim
+ ;
+ : Target WL 'ME_452257A0036F' '3DBFDB23006E.pas.ms.script' // a-string
+ ;
+ CONST "pm" true
+
+ref; // ME_7B8BD7B63B67 DocQueryFileName
+
+: ME_40D93B6F6285
+ CONST UID '40D93B6F6285'
+ CONST Name 'DoneFileName'
+ CONST IsSummoned true
+ CONST Class class_Attribute
+ : Stereotype st_property::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_agr
+ : Parent ME_53B6A5FA0212 // TalcuAutoExportTaskPrim
+ ;
+ : Target WL 'ME_452257A0036F' '3DBFDB23006E.pas.ms.script' // a-string
+ ;
+ CONST "ifndef" 'AEByBelongs'
+ CONST "pm" true
+
+ref; // ME_40D93B6F6285 DoneFileName
+
+: ME_414A329E3B08
+ CONST UID '414A329E3B08'
+ CONST Name 'ExportFolder'
+ CONST IsSummoned true
+ CONST Class class_Attribute
+ : Stereotype st_property::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_agr
+ : Parent ME_53B6A5FA0212 // TalcuAutoExportTaskPrim
+ ;
+ : Target WL 'ME_452257A0036F' '3DBFDB23006E.pas.ms.script' // a-string
+ ;
+ CONST "pm" true
+
+ref; // ME_414A329E3B08 ExportFolder
+
+: ME_E59BD98FD3D0
+ CONST UID 'E59BD98FD3D0'
+ CONST Name 'IncludedDocTemplate'
+ CONST IsSummoned true
+ CONST Class class_Attribute
+ : Stereotype st_property::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_agr
+ : Parent ME_53B6A5FA0212 // TalcuAutoExportTaskPrim
+ ;
+ : Target WL 'ME_452257A0036F' '3DBFDB23006E.pas.ms.script' // a-string
+ ;
+ CONST "ifndef" 'LUK,SGC'
+ CONST "pm" true
+
+ref; // ME_E59BD98FD3D0 IncludedDocTemplate
+
+: ME_9D45E4F9BEDA
+ CONST UID '9D45E4F9BEDA'
+ CONST Name 'IncludedRelTemplate'
+ CONST IsSummoned true
+ CONST Class class_Attribute
+ : Stereotype st_property::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_agr
+ : Parent ME_53B6A5FA0212 // TalcuAutoExportTaskPrim
+ ;
+ : Target WL 'ME_452257A0036F' '3DBFDB23006E.pas.ms.script' // a-string
+ ;
+ CONST "ifndef" 'LUK,SGC'
+ CONST "pm" true
+
+ref; // ME_9D45E4F9BEDA IncludedRelTemplate
+
+: ME_11DB597FB446
+ CONST UID '11DB597FB446'
+ CONST Name 'InfoDocTemplate'
+ CONST IsSummoned true
+ CONST Class class_Attribute
+ : Stereotype st_property::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_agr
+ : Parent ME_53B6A5FA0212 // TalcuAutoExportTaskPrim
+ ;
+ : Target WL 'ME_452257A0036F' '3DBFDB23006E.pas.ms.script' // a-string
+ ;
+ CONST "pm" true
+
+ref; // ME_11DB597FB446 InfoDocTemplate
+
+: ME_487C59BB0B60
+ CONST UID '487C59BB0B60'
+ CONST Name 'InfoIDList'
+ CONST IsSummoned true
+ CONST Class class_Attribute
+ : Stereotype st_readonly::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_agr
+ : Parent ME_53B6A5FA0212 // TalcuAutoExportTaskPrim
+ ;
+ : Target WL 'ME_53FF16320146' '484A470100DD.pas.ms.script' // InfoIDListHelper
+ ;
+ CONST "pm" true
+
+ref; // ME_487C59BB0B60 InfoIDList
+
+: ME_43C262E9E9D5
+ CONST UID '43C262E9E9D5'
+ CONST Name 'InfoRelTemplate'
+ CONST IsSummoned true
+ CONST Class class_Attribute
+ : Stereotype st_property::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_agr
+ : Parent ME_53B6A5FA0212 // TalcuAutoExportTaskPrim
+ ;
+ : Target WL 'ME_452257A0036F' '3DBFDB23006E.pas.ms.script' // a-string
+ ;
+ CONST "pm" true
+
+ref; // ME_43C262E9E9D5 InfoRelTemplate
+
+: ME_C66B62E66E49
+ CONST UID 'C66B62E66E49'
+ CONST Name 'NeedTopicList'
+ CONST IsSummoned true
+ CONST Class class_Attribute
+ : Stereotype st_property::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_agr
+ : Parent ME_53B6A5FA0212 // TalcuAutoExportTaskPrim
+ ;
+ : Target WL 'ME_3DBFFE100240' '3DBFDB23006E.pas.ms.script' // boolean
+ ;
+ CONST "pm" true
+
+ref; // ME_C66B62E66E49 NeedTopicList
+
+: ME_D36ED259C9F6
+ CONST UID 'D36ED259C9F6'
+ CONST Name 'eMailNotifyList'
+ CONST IsSummoned true
+ CONST Class class_Attribute
+ : Stereotype st_property::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_agr
+ : Parent ME_53B6A5FA0212 // TalcuAutoExportTaskPrim
+ ;
+ : Target WL 'ME_452257A0036F' '3DBFDB23006E.pas.ms.script' // a-string
+ ;
+ CONST "pm" true
+
+ref; // ME_D36ED259C9F6 eMailNotifyList
+
+: ME_902CB7528998
+ CONST UID '902CB7528998'
+ CONST Name 'SMSNotifyList'
+ CONST IsSummoned true
+ CONST Class class_Attribute
+ : Stereotype st_property::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_agr
+ : Parent ME_53B6A5FA0212 // TalcuAutoExportTaskPrim
+ ;
+ : Target WL 'ME_452257A0036F' '3DBFDB23006E.pas.ms.script' // a-string
+ ;
+ CONST "pm" true
+
+ref; // ME_902CB7528998 SMSNotifyList
+
+: ME_F0AD21388FA6
+ CONST UID 'F0AD21388FA6'
+ CONST Name 'PartSize'
+ CONST IsSummoned true
+ CONST Class class_Attribute
+ : Stereotype st_property::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_agr
+ : Parent ME_53B6A5FA0212 // TalcuAutoExportTaskPrim
+ ;
+ : Target WL 'ME_3DBFFD7002C2' '3DBFDB23006E.pas.ms.script' // long
+ ;
+ CONST "pm" true
+
+ref; // ME_F0AD21388FA6 PartSize
+
+: ME_E5B40FB406B9
+ CONST UID 'E5B40FB406B9'
+ CONST Name 'MaxExportCount'
+ CONST IsSummoned true
+ CONST Class class_Attribute
+ : Stereotype st_property::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_agr
+ : Parent ME_53B6A5FA0212 // TalcuAutoExportTaskPrim
+ ;
+ : Target WL 'ME_3DBFFD7002C2' '3DBFDB23006E.pas.ms.script' // long
+ ;
+ CONST "pm" true
+
+ref; // ME_E5B40FB406B9 MaxExportCount
+
+: ME_FC2A595BD750
+ CONST UID 'FC2A595BD750'
+ CONST Name 'Stages'
+ CONST IsSummoned true
+ CONST Class class_Attribute
+ : Stereotype st_property::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_agr
+ : Parent ME_53B6A5FA0212 // TalcuAutoExportTaskPrim
+ ;
+ : Target WL 'ME_53FED363011E' '484A470100DD.pas.ms.script' // TaeStagesSet
+ ;
+ CONST "pm" true
+
+ref; // ME_FC2A595BD750 Stages
+
+: ME_CBC40A3F22A1
+ CONST UID 'CBC40A3F22A1'
+ CONST Name 'ExpandEditions'
+ CONST IsSummoned true
+ CONST Class class_Attribute
+ : Stereotype st_property::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_agr
+ : Parent ME_53B6A5FA0212 // TalcuAutoExportTaskPrim
+ ;
+ : Target WL 'ME_3DBFFE100240' '3DBFDB23006E.pas.ms.script' // boolean
+ ;
+ CONST "pm" true
+
+ref; // ME_CBC40A3F22A1 ExpandEditions
+
+: ME_411E544E1ABC
+ CONST UID '411E544E1ABC'
+ CONST IsSummoned true
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_53B6A5FA0212 // TalcuAutoExportTaskPrim
+ ;
+ : Target WL 'ME_53B6A5C200FA' '484A470100DD.pas.ms.script' // AutoExportTask
+ ;
+
+ref; // ME_411E544E1ABC 
+
+: ME_53AC03EE01FD_ME_53B6A5FA0212
+ CONST UID '53AC03EE01FD'
+ CONST Name 'GetTaggedDataType'
+ : Original WL 'ME_53AC03EE01FD' '53B24DFD01FF.pas.ms.script' // GetTaggedDataType
+ ;
+ : Implementor ME_53B6A5FA0212 // TalcuAutoExportTaskPrim
+ ;
+ CONST OpKind opkind_Overridden
+ CONST "is static" true
+ref; // ME_53AC03EE01FD_ME_53B6A5FA0212 GetTaggedDataType
+
+: ME_53FB28170339_ME_53B6A5FA0212
+ CONST UID '53FB28170339'
+ CONST Name 'GetDescription'
+ : Original WL 'ME_53FB28170339' '52FA49B901D3.pas.ms.script' // GetDescription
+ ;
+ : Implementor ME_53B6A5FA0212 // TalcuAutoExportTaskPrim
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_53FB28170339_ME_53B6A5FA0212 GetDescription
+
+: ME_53B6A5FA0212
+ CONST UID '53B6A5FA0212'
+ CONST Name 'TalcuAutoExportTaskPrim'
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_52FA3DD30094 // Lists
+ ;
+ : Inherits
+   Seq: ( WL 'ME_52F8C2BF0110' '52F8C298005C.pas.ms.script' // TddProcessTask
+ )
+ ; // Inherits
+ : Implements
+   Seq: ( WL 'ME_53B6A5C200FA' '484A470100DD.pas.ms.script' // AutoExportTask
+ )
+ ; // Implements
+ : Attributes
+   Seq: ( ME_72D12E8AD850 // Today
+ ME_ED9E24C9A590 // CompileDate
+ ME_6414746F7355 // VersionDate
+ ME_94480B7D3AE9 // OutFormat
+ ME_0F53694021EC // AnnoUseAccGroups
+ ME_67A11CF12F48 // DocumentsSource
+ ME_1D3E1AFBB1AA // WithEditions
+ ME_2D53CAC91C0A // AccGroupsIDList
+ ME_3F7021CCF760 // AnnoTemplate
+ ME_BB2E4495415F // BasesIDList
+ ME_12A47F6A5A99 // ChangedDocTemplate
+ ME_3299499C644F // ChangedRelTempate
+ ME_44ADF3DB2EBB // ExecName
+ ME_47395ABF0BA8 // ExecParams
+ ME_7B8BD7B63B67 // DocQueryFileName
+ ME_40D93B6F6285 // DoneFileName
+ ME_414A329E3B08 // ExportFolder
+ ME_E59BD98FD3D0 // IncludedDocTemplate
+ ME_9D45E4F9BEDA // IncludedRelTemplate
+ ME_11DB597FB446 // InfoDocTemplate
+ ME_487C59BB0B60 // InfoIDList
+ ME_43C262E9E9D5 // InfoRelTemplate
+ ME_C66B62E66E49 // NeedTopicList
+ ME_D36ED259C9F6 // eMailNotifyList
+ ME_902CB7528998 // SMSNotifyList
+ ME_F0AD21388FA6 // PartSize
+ ME_E5B40FB406B9 // MaxExportCount
+ ME_FC2A595BD750 // Stages
+ ME_CBC40A3F22A1 // ExpandEditions
+ )
+ ; // Attributes
+ : Overridden
+   Seq: ( ME_53AC03EE01FD_ME_53B6A5FA0212 // GetTaggedDataType
+ ME_53FB28170339_ME_53B6A5FA0212 // GetDescription
+ )
+ ; // Overridden
+ : Dependencies
+   Seq: ( ME_411E544E1ABC // 
+ )
+ ; // Dependencies
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ : Generators
+ Seq: (
+ gen_intf.pas
+ )
+ ; // Generators
+ CONST dfm:PathOnly '\archi\source\projects\PipeInAuto\Tasks'
+ CONST intf.pas:Path 'archi\source\projects\PipeInAuto\Tasks\alcuAutoExportTaskPrim.pas'
+ CONST intf.pas:PathOnly '\archi\source\projects\PipeInAuto\Tasks'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\archi\source\projects\PipeInAuto\Tasks'
+ CONST extprop:rc:SelfName 'alcuAutoExportTaskPrim'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'alcuAutoExportTaskPrim'
+
+ref; // ME_53B6A5FA0212 TalcuAutoExportTaskPrim
+
+FORWARD ME_5317054100F1
+
+FORWARD ME_54001C560310
+
+: ME_54001C750042
+ CONST UID '54001C750042'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_5317054100F1 // TalcuAutoExportTask
+ ;
+ : Target ME_54001C560310 // TalcuAutoExportTaskResult
+ ;
+
+ref; // ME_54001C750042 
+
+: ME_5317054100F1
+ CONST UID '5317054100F1'
+ CONST Name 'TalcuAutoExportTask'
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_52FA3DD30094 // Lists
+ ;
+ : Inherits
+   Seq: ( ME_53B6A5FA0212 // TalcuAutoExportTaskPrim
+ )
+ ; // Inherits
+ : Dependencies
+   Seq: ( ME_54001C750042 // 
+ )
+ ; // Dependencies
+ CONST "finished" false
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ : Generators
+ Seq: (
+ gen_intf.pas
+ )
+ ; // Generators
+ CONST dfm:PathOnly '\archi\source\projects\PipeInAuto\Tasks'
+ CONST intf.pas:Path 'archi\source\projects\PipeInAuto\Tasks\NOT_FINISHED_alcuAutoExportTask.pas'
+ CONST intf.pas:PathOnly '\archi\source\projects\PipeInAuto\Tasks'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\archi\source\projects\PipeInAuto\Tasks'
+ CONST extprop:rc:SelfName 'alcuAutoExportTask'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'alcuAutoExportTask'
+
+ref; // ME_5317054100F1 TalcuAutoExportTask
+
+: ME_EB77B4B1C662
+ CONST UID 'EB77B4B1C662'
+ CONST Name 'ReportMessage'
+ CONST IsSummoned true
+ CONST Class class_Attribute
+ : Stereotype st_property::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_agr
+ : Parent ME_54001C560310 // TalcuAutoExportTaskResult
+ ;
+ : Target WL 'ME_452257A0036F' '3DBFDB23006E.pas.ms.script' // a-string
+ ;
+ CONST "pm" true
+
+ref; // ME_EB77B4B1C662 ReportMessage
+
+: ME_2004A146699E
+ CONST UID '2004A146699E'
+ CONST Name 'IsSuccess'
+ CONST IsSummoned true
+ CONST Class class_Attribute
+ : Stereotype st_property::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_agr
+ : Parent ME_54001C560310 // TalcuAutoExportTaskResult
+ ;
+ : Target WL 'ME_3DBFFE100240' '3DBFDB23006E.pas.ms.script' // boolean
+ ;
+ CONST "pm" true
+
+ref; // ME_2004A146699E IsSuccess
+
+: ME_1550C4156429
+ CONST UID '1550C4156429'
+ CONST IsSummoned true
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_54001C560310 // TalcuAutoExportTaskResult
+ ;
+ : Target WL 'ME_540018FF02F8' '484A470100DD.pas.ms.script' // AutoExportTaskResult
+ ;
+
+ref; // ME_1550C4156429 
+
+: ME_53AC03EE01FD_ME_54001C560310
+ CONST UID '53AC03EE01FD'
+ CONST Name 'GetTaggedDataType'
+ : Original WL 'ME_53AC03EE01FD' '53B24DFD01FF.pas.ms.script' // GetTaggedDataType
+ ;
+ : Implementor ME_54001C560310 // TalcuAutoExportTaskResult
+ ;
+ CONST OpKind opkind_Overridden
+ CONST "is static" true
+ref; // ME_53AC03EE01FD_ME_54001C560310 GetTaggedDataType
+
+: ME_54001C560310
+ CONST UID '54001C560310'
+ CONST Name 'TalcuAutoExportTaskResult'
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_52FA3DD30094 // Lists
+ ;
+ : Inherits
+   Seq: ( WL 'ME_53E0D4F50178' '53C51B390355.pas.ms.script' // TcsTaskResult
+ )
+ ; // Inherits
+ : Implements
+   Seq: ( WL 'ME_540018FF02F8' '484A470100DD.pas.ms.script' // AutoExportTaskResult
+ )
+ ; // Implements
+ : Attributes
+   Seq: ( ME_EB77B4B1C662 // ReportMessage
+ ME_2004A146699E // IsSuccess
+ )
+ ; // Attributes
+ : Overridden
+   Seq: ( ME_53AC03EE01FD_ME_54001C560310 // GetTaggedDataType
+ )
+ ; // Overridden
+ : Dependencies
+   Seq: ( ME_1550C4156429 // 
+ )
+ ; // Dependencies
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ : Generators
+ Seq: (
+ gen_intf.pas
+ )
+ ; // Generators
+ CONST dfm:PathOnly '\archi\source\projects\PipeInAuto\Tasks'
+ CONST intf.pas:Path 'archi\source\projects\PipeInAuto\Tasks\alcuAutoExportTaskResult.pas'
+ CONST intf.pas:PathOnly '\archi\source\projects\PipeInAuto\Tasks'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\archi\source\projects\PipeInAuto\Tasks'
+ CONST extprop:rc:SelfName 'alcuAutoExportTaskResult'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'alcuAutoExportTaskResult'
+
+ref; // ME_54001C560310 TalcuAutoExportTaskResult
+
+FORWARD ME_540466FA008B
+
+: ME_348B7F231B99
+ CONST UID '348B7F231B99'
+ CONST Name 'RegionIndex'
+ CONST IsSummoned true
+ CONST Class class_Attribute
+ : Stereotype st_property::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_agr
+ : Parent ME_540466FA008B // TalcuRegionAutoExportTaskPrim
+ ;
+ : Target WL 'ME_3DBFFD7002C2' '3DBFDB23006E.pas.ms.script' // long
+ ;
+ CONST "pm" true
+
+ref; // ME_348B7F231B99 RegionIndex
+
+: ME_E962DB912BF7
+ CONST UID 'E962DB912BF7'
+ CONST Name 'FTPParams'
+ CONST IsSummoned true
+ CONST Class class_Attribute
+ : Stereotype st_property::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_agr
+ : Parent ME_540466FA008B // TalcuRegionAutoExportTaskPrim
+ ;
+ : Target WL 'ME_534572370056' '47913B47006E.pas.ms.script' // Tl3Tag
+ ;
+ CONST "pm" true
+
+ref; // ME_E962DB912BF7 FTPParams
+
+: ME_91FF306EFAB4
+ CONST UID '91FF306EFAB4'
+ CONST Name 'FileNameMask'
+ CONST IsSummoned true
+ CONST Class class_Attribute
+ : Stereotype st_property::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_agr
+ : Parent ME_540466FA008B // TalcuRegionAutoExportTaskPrim
+ ;
+ : Target WL 'ME_452257A0036F' '3DBFDB23006E.pas.ms.script' // a-string
+ ;
+ CONST "pm" true
+
+ref; // ME_91FF306EFAB4 FileNameMask
+
+: ME_1E7A33327C44
+ CONST UID '1E7A33327C44'
+ CONST Name 'ResultWarehouse'
+ CONST IsSummoned true
+ CONST Class class_Attribute
+ : Stereotype st_property::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_agr
+ : Parent ME_540466FA008B // TalcuRegionAutoExportTaskPrim
+ ;
+ : Target WL 'ME_452257A0036F' '3DBFDB23006E.pas.ms.script' // a-string
+ ;
+ CONST "pm" true
+
+ref; // ME_1E7A33327C44 ResultWarehouse
+
+: ME_907BBB09881D
+ CONST UID '907BBB09881D'
+ CONST IsSummoned true
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_540466FA008B // TalcuRegionAutoExportTaskPrim
+ ;
+ : Target WL 'ME_5404620A011C' '484A470100DD.pas.ms.script' // RegionAutoExportTask
+ ;
+
+ref; // ME_907BBB09881D 
+
+: ME_53AC03EE01FD_ME_540466FA008B
+ CONST UID '53AC03EE01FD'
+ CONST Name 'GetTaggedDataType'
+ : Original WL 'ME_53AC03EE01FD' '53B24DFD01FF.pas.ms.script' // GetTaggedDataType
+ ;
+ : Implementor ME_540466FA008B // TalcuRegionAutoExportTaskPrim
+ ;
+ CONST OpKind opkind_Overridden
+ CONST "is static" true
+ref; // ME_53AC03EE01FD_ME_540466FA008B GetTaggedDataType
+
+: ME_540466FA008B
+ CONST UID '540466FA008B'
+ CONST Name 'TalcuRegionAutoExportTaskPrim'
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_52FA3DD30094 // Lists
+ ;
+ : Inherits
+   Seq: ( ME_5317054100F1 // TalcuAutoExportTask
+ )
+ ; // Inherits
+ : Implements
+   Seq: ( WL 'ME_5404620A011C' '484A470100DD.pas.ms.script' // RegionAutoExportTask
+ )
+ ; // Implements
+ : Attributes
+   Seq: ( ME_348B7F231B99 // RegionIndex
+ ME_E962DB912BF7 // FTPParams
+ ME_91FF306EFAB4 // FileNameMask
+ ME_1E7A33327C44 // ResultWarehouse
+ )
+ ; // Attributes
+ : Overridden
+   Seq: ( ME_53AC03EE01FD_ME_540466FA008B // GetTaggedDataType
+ )
+ ; // Overridden
+ : Dependencies
+   Seq: ( ME_907BBB09881D // 
+ )
+ ; // Dependencies
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ : Generators
+ Seq: (
+ gen_intf.pas
+ )
+ ; // Generators
+ CONST dfm:PathOnly '\archi\source\projects\PipeInAuto\Tasks'
+ CONST intf.pas:Path 'archi\source\projects\PipeInAuto\Tasks\alcuRegionAutoExportTaskPrim.pas'
+ CONST intf.pas:PathOnly '\archi\source\projects\PipeInAuto\Tasks'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\archi\source\projects\PipeInAuto\Tasks'
+ CONST extprop:rc:SelfName 'alcuRegionAutoExportTaskPrim'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'alcuRegionAutoExportTaskPrim'
+
+ref; // ME_540466FA008B TalcuRegionAutoExportTaskPrim
+
+FORWARD ME_5404675C01D2
+
+: ME_540571C00040
+ CONST UID '540571C00040'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_5404675C01D2 // TalcuRegionAutoExportTask
+ ;
+ : Target WL 'ME_54041EF10040' '54041E840266.pas.ms.script' // TalcuFTPBrowser
+ ;
+
+ref; // ME_540571C00040 
+
+: ME_540571C502F3
+ CONST UID '540571C502F3'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_5404675C01D2 // TalcuRegionAutoExportTask
+ ;
+ : Target WL 'ME_54041EBF03C6' '54041E840266.pas.ms.script' // TalcuFTPBrowserParams
+ ;
+
+ref; // ME_540571C502F3 
+
+: ME_5404675C01D2
+ CONST UID '5404675C01D2'
+ CONST Name 'TalcuRegionAutoExportTask'
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_52FA3DD30094 // Lists
+ ;
+ : Inherits
+   Seq: ( ME_540466FA008B // TalcuRegionAutoExportTaskPrim
+ )
+ ; // Inherits
+ : Dependencies
+   Seq: ( ME_540571C00040 // 
+ ME_540571C502F3 // 
+ )
+ ; // Dependencies
+ CONST "finished" false
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ : Generators
+ Seq: (
+ gen_intf.pas
+ )
+ ; // Generators
+ CONST dfm:PathOnly '\archi\source\projects\PipeInAuto\Tasks'
+ CONST intf.pas:Path 'archi\source\projects\PipeInAuto\Tasks\NOT_FINISHED_alcuRegionAutoExportTask.pas'
+ CONST intf.pas:PathOnly '\archi\source\projects\PipeInAuto\Tasks'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\archi\source\projects\PipeInAuto\Tasks'
+ CONST extprop:rc:SelfName 'alcuRegionAutoExportTask'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'alcuRegionAutoExportTask'
+
+ref; // ME_5404675C01D2 TalcuRegionAutoExportTask
+
+FORWARD ME_5408670901C0
+
+: ME_3915CE580102
+ CONST UID '3915CE580102'
+ CONST Name 'RegionIndex'
+ CONST IsSummoned true
+ CONST Class class_Attribute
+ : Stereotype st_property::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_agr
+ : Parent ME_5408670901C0 // TalcuRegionImportTaskPrim
+ ;
+ : Target WL 'ME_3DBFFD7002C2' '3DBFDB23006E.pas.ms.script' // long
+ ;
+ CONST "pm" true
+
+ref; // ME_3915CE580102 RegionIndex
+
+: ME_409C9CBD99AF
+ CONST UID '409C9CBD99AF'
+ CONST Name 'FTPParams'
+ CONST IsSummoned true
+ CONST Class class_Attribute
+ : Stereotype st_property::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_agr
+ : Parent ME_5408670901C0 // TalcuRegionImportTaskPrim
+ ;
+ : Target WL 'ME_534572370056' '47913B47006E.pas.ms.script' // Tl3Tag
+ ;
+ CONST "pm" true
+
+ref; // ME_409C9CBD99AF FTPParams
+
+: ME_29E6C621FC61
+ CONST UID '29E6C621FC61'
+ CONST Name 'FileNameMask'
+ CONST IsSummoned true
+ CONST Class class_Attribute
+ : Stereotype st_property::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_agr
+ : Parent ME_5408670901C0 // TalcuRegionImportTaskPrim
+ ;
+ : Target WL 'ME_452257A0036F' '3DBFDB23006E.pas.ms.script' // a-string
+ ;
+ CONST "pm" true
+
+ref; // ME_29E6C621FC61 FileNameMask
+
+: ME_82B0A5CFAC45
+ CONST UID '82B0A5CFAC45'
+ CONST Name 'SourceWarehouse'
+ CONST IsSummoned true
+ CONST Class class_Attribute
+ : Stereotype st_property::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_agr
+ : Parent ME_5408670901C0 // TalcuRegionImportTaskPrim
+ ;
+ : Target WL 'ME_452257A0036F' '3DBFDB23006E.pas.ms.script' // a-string
+ ;
+ CONST "pm" true
+
+ref; // ME_82B0A5CFAC45 SourceWarehouse
+
+: ME_F338BFA9635A
+ CONST UID 'F338BFA9635A'
+ CONST IsSummoned true
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_5408670901C0 // TalcuRegionImportTaskPrim
+ ;
+ : Target WL 'ME_5406C7740109' '484A470100DD.pas.ms.script' // RegionImportTask
+ ;
+
+ref; // ME_F338BFA9635A 
+
+: ME_53AC03EE01FD_ME_5408670901C0
+ CONST UID '53AC03EE01FD'
+ CONST Name 'GetTaggedDataType'
+ : Original WL 'ME_53AC03EE01FD' '53B24DFD01FF.pas.ms.script' // GetTaggedDataType
+ ;
+ : Implementor ME_5408670901C0 // TalcuRegionImportTaskPrim
+ ;
+ CONST OpKind opkind_Overridden
+ CONST "is static" true
+ref; // ME_53AC03EE01FD_ME_5408670901C0 GetTaggedDataType
+
+: ME_5408670901C0
+ CONST UID '5408670901C0'
+ CONST Name 'TalcuRegionImportTaskPrim'
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_52FA3DD30094 // Lists
+ ;
+ : Inherits
+   Seq: ( ME_5305AFFB01F5 // TalcuImport
+ )
+ ; // Inherits
+ : Implements
+   Seq: ( WL 'ME_5406C7740109' '484A470100DD.pas.ms.script' // RegionImportTask
+ )
+ ; // Implements
+ : Attributes
+   Seq: ( ME_3915CE580102 // RegionIndex
+ ME_409C9CBD99AF // FTPParams
+ ME_29E6C621FC61 // FileNameMask
+ ME_82B0A5CFAC45 // SourceWarehouse
+ )
+ ; // Attributes
+ : Overridden
+   Seq: ( ME_53AC03EE01FD_ME_5408670901C0 // GetTaggedDataType
+ )
+ ; // Overridden
+ : Dependencies
+   Seq: ( ME_F338BFA9635A // 
+ )
+ ; // Dependencies
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ : Generators
+ Seq: (
+ gen_intf.pas
+ )
+ ; // Generators
+ CONST dfm:PathOnly '\archi\source\projects\PipeInAuto\Tasks'
+ CONST intf.pas:Path 'archi\source\projects\PipeInAuto\Tasks\alcuRegionImportTaskPrim.pas'
+ CONST intf.pas:PathOnly '\archi\source\projects\PipeInAuto\Tasks'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\archi\source\projects\PipeInAuto\Tasks'
+ CONST extprop:rc:SelfName 'alcuRegionImportTaskPrim'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'alcuRegionImportTaskPrim'
+
+ref; // ME_5408670901C0 TalcuRegionImportTaskPrim
+
+FORWARD ME_540867560194
+
+FORWARD ME_540867800117
+
+: ME_540867AE00CE
+ CONST UID '540867AE00CE'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_540867560194 // TalcuRegionImportTask
+ ;
+ : Target ME_540867800117 // TalcuRegionImportTaskResult
+ ;
+
+ref; // ME_540867AE00CE 
+
+: ME_540867560194
+ CONST UID '540867560194'
+ CONST Name 'TalcuRegionImportTask'
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_52FA3DD30094 // Lists
+ ;
+ : Inherits
+   Seq: ( ME_5408670901C0 // TalcuRegionImportTaskPrim
+ )
+ ; // Inherits
+ : Dependencies
+   Seq: ( ME_540867AE00CE // 
+ )
+ ; // Dependencies
+ CONST "finished" false
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ : Generators
+ Seq: (
+ gen_intf.pas
+ )
+ ; // Generators
+ CONST dfm:PathOnly '\archi\source\projects\PipeInAuto\Tasks'
+ CONST intf.pas:Path 'archi\source\projects\PipeInAuto\Tasks\NOT_FINISHED_alcuRegionImportTask.pas'
+ CONST intf.pas:PathOnly '\archi\source\projects\PipeInAuto\Tasks'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\archi\source\projects\PipeInAuto\Tasks'
+ CONST extprop:rc:SelfName 'alcuRegionImportTask'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'alcuRegionImportTask'
+
+ref; // ME_540867560194 TalcuRegionImportTask
+
+: ME_21C8D96C6236
+ CONST UID '21C8D96C6236'
+ CONST Name 'HasMoreFilesToProcess'
+ CONST IsSummoned true
+ CONST Class class_Attribute
+ : Stereotype st_property::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_agr
+ : Parent ME_540867800117 // TalcuRegionImportTaskResult
+ ;
+ : Target WL 'ME_3DBFFE100240' '3DBFDB23006E.pas.ms.script' // boolean
+ ;
+ CONST "pm" true
+
+ref; // ME_21C8D96C6236 HasMoreFilesToProcess
+
+: ME_CED44E8441B9
+ CONST UID 'CED44E8441B9'
+ CONST IsSummoned true
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_540867800117 // TalcuRegionImportTaskResult
+ ;
+ : Target WL 'ME_5408637A0060' '484A470100DD.pas.ms.script' // RegionImportTaskResult
+ ;
+
+ref; // ME_CED44E8441B9 
+
+: ME_53AC03EE01FD_ME_540867800117
+ CONST UID '53AC03EE01FD'
+ CONST Name 'GetTaggedDataType'
+ : Original WL 'ME_53AC03EE01FD' '53B24DFD01FF.pas.ms.script' // GetTaggedDataType
+ ;
+ : Implementor ME_540867800117 // TalcuRegionImportTaskResult
+ ;
+ CONST OpKind opkind_Overridden
+ CONST "is static" true
+ref; // ME_53AC03EE01FD_ME_540867800117 GetTaggedDataType
+
+: ME_540867800117
+ CONST UID '540867800117'
+ CONST Name 'TalcuRegionImportTaskResult'
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_52FA3DD30094 // Lists
+ ;
+ : Inherits
+   Seq: ( ME_53E1D0D00252 // TalcuImportTaskResult
+ )
+ ; // Inherits
+ : Implements
+   Seq: ( WL 'ME_5408637A0060' '484A470100DD.pas.ms.script' // RegionImportTaskResult
+ )
+ ; // Implements
+ : Attributes
+   Seq: ( ME_21C8D96C6236 // HasMoreFilesToProcess
+ )
+ ; // Attributes
+ : Overridden
+   Seq: ( ME_53AC03EE01FD_ME_540867800117 // GetTaggedDataType
+ )
+ ; // Overridden
+ : Dependencies
+   Seq: ( ME_CED44E8441B9 // 
+ )
+ ; // Dependencies
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ : Generators
+ Seq: (
+ gen_intf.pas
+ )
+ ; // Generators
+ CONST dfm:PathOnly '\archi\source\projects\PipeInAuto\Tasks'
+ CONST intf.pas:Path 'archi\source\projects\PipeInAuto\Tasks\alcuRegionImportTaskResult.pas'
+ CONST intf.pas:PathOnly '\archi\source\projects\PipeInAuto\Tasks'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\archi\source\projects\PipeInAuto\Tasks'
+ CONST extprop:rc:SelfName 'alcuRegionImportTaskResult'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'alcuRegionImportTaskResult'
+
+ref; // ME_540867800117 TalcuRegionImportTaskResult
+
+: ME_55E978530295
+ CONST UID '55E978530295'
+ CONST Name 'TalcuMdpSyncDicts'
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_52FA3DD30094 // Lists
+ ;
+ : Inherits
+   Seq: ( WL 'ME_55E9759603C8' '52F8C298005C.pas.ms.script' // TcsMdpSyncDicts
+ )
+ ; // Inherits
+ CONST "finished" false
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ : Generators
+ Seq: (
+ gen_intf.pas
+ )
+ ; // Generators
+ CONST dfm:PathOnly '\archi\source\projects\PipeInAuto\Tasks'
+ CONST intf.pas:Path 'archi\source\projects\PipeInAuto\Tasks\NOT_FINISHED_alcuMdpSyncDicts.pas'
+ CONST intf.pas:PathOnly '\archi\source\projects\PipeInAuto\Tasks'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\archi\source\projects\PipeInAuto\Tasks'
+ CONST extprop:rc:SelfName 'alcuMdpSyncDicts'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'alcuMdpSyncDicts'
+
+ref; // ME_55E978530295 TalcuMdpSyncDicts
+
+: ME_55EEC72501BF
+ CONST UID '55EEC72501BF'
+ CONST Name 'TalcuMdpImportDocs'
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_52FA3DD30094 // Lists
+ ;
+ : Inherits
+   Seq: ( WL 'ME_55EEC220007F' '52F8C298005C.pas.ms.script' // TcsMdpImportDocs
+ )
+ ; // Inherits
+ CONST "finished" false
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ : Generators
+ Seq: (
+ gen_intf.pas
+ )
+ ; // Generators
+ CONST dfm:PathOnly '\archi\source\projects\PipeInAuto\Tasks'
+ CONST intf.pas:Path 'archi\source\projects\PipeInAuto\Tasks\NOT_FINISHED_alcuMdpImportDocs.pas'
+ CONST intf.pas:PathOnly '\archi\source\projects\PipeInAuto\Tasks'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\archi\source\projects\PipeInAuto\Tasks'
+ CONST extprop:rc:SelfName 'alcuMdpImportDocs'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'alcuMdpImportDocs'
+
+ref; // ME_55EEC72501BF TalcuMdpImportDocs
+
+: ME_52FA3DD30094
+ CONST UID '52FA3DD30094'
+ CONST Name 'Lists'
+ CONST Class class_Category
+ : Stereotype st_Unit ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent WL 'ME_52FA3D9502BD' '52FA3D9502BD.pas.ms.script' // Tasks
+ ;
+ : Children
+   Seq: ( ME_52FA3DE1003D // TalcuTaskListPrim
+ ME_5303549A038F // alcuAutoClassifier
+ ME_530356D90066 // alcuRelCorrector
+ ME_5305AFD5014D // alcuImport
+ ME_5305A7410332 // ddCaseCodeMaker
+ ME_530355800106 // TalcuExport
+ ME_53DB5CFF017D // TalcuAnoncedExportPrim
+ ME_53DF6A58036D // TalcuHavanskyExportTaskPrim
+ ME_53E1D0D00252 // TalcuImportTaskResult
+ ME_53E328BF03DF // TalcuRelPublishTaskResult
+ ME_53E48B8D038E // TalcuAACImport
+ ME_53EB0E6000D4 // TalcuAACImportTaskResult
+ ME_53F472280036 // TalcuAutoClassTaskResult
+ ME_5305ABFD00F1 // TalcuAnoncedExport
+ ME_53F59F27018A // TalcuAutoAnnoExportTaskPrim
+ ME_53F59F6F0341 // TalcuAutoAnnoExportTask
+ ME_530355CF0057 // TalcuHavanskyExportTask
+ ME_531705AC001C // TalcuAnnotationTask
+ ME_53F6EDF00042 // TalcuAnnotationTaskResult
+ ME_53FD813101B0 // TalcuAutoSpellTaskResult
+ ME_53FD8188018E // alcuAutoSpell
+ ME_53B6A5FA0212 // TalcuAutoExportTaskPrim
+ ME_5317054100F1 // TalcuAutoExportTask
+ ME_54001C560310 // TalcuAutoExportTaskResult
+ ME_540466FA008B // TalcuRegionAutoExportTaskPrim
+ ME_5404675C01D2 // TalcuRegionAutoExportTask
+ ME_5408670901C0 // TalcuRegionImportTaskPrim
+ ME_540867560194 // TalcuRegionImportTask
+ ME_540867800117 // TalcuRegionImportTaskResult
+ ME_55E978530295 // TalcuMdpSyncDicts
+ ME_55EEC72501BF // TalcuMdpImportDocs
+ )
+ ; // Children
+ : Depends
+   Seq: ( WL 'ME_47913B47006E' '47913B47006E.pas.ms.script' // l3CoreObjects
+ WL 'ME_4849284D0067' '4849284D0067.pas.ms.script' // Standard
+ WL 'ME_484A470100DD' '484A470100DD.pas.ms.script' // Standard
+ WL 'ME_4AB0C3C60310' '4AB0C3C60310.pas.ms.script' // Sys
+ WL 'ME_52F8C298005C' '52F8C298005C.pas.ms.script' // Tasks
+ WL 'ME_53C51B390355' '53C51B390355.pas.ms.script' // TasksTuning
+ WL 'ME_54041E840266' '54041E840266.pas.ms.script' // Process
+ )
+ ; // Depends
+ CONST "ifdef" 'ServerTasks'
+ : Generators
+ Seq: (
+ gen_pas.script
+ gen_pas.script.runner
+ )
+ ; // Generators
+ CONST dfm:PathOnly '\archi\source\projects\PipeInAuto\Tasks'
+ CONST intf.pas:PathOnly '\archi\source\projects\PipeInAuto\Tasks'
+ CONST pas.script:Path 'shared\models\NewSchool\Scripts\52FA3DD30094.pas.ms.script'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\52FA3DD30094.pas.ms.script.runner'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\archi\source\projects\PipeInAuto\Tasks'
+
+ref; // ME_52FA3DD30094 Lists

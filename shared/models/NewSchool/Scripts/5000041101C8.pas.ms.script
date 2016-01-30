@@ -30,8 +30,8 @@ ref; // ME_500004AD033A DoIt
  : Parent ME_500004240202 // vcmLayout
  ;
  : Operations
-   @ ( ME_500004AD033A // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_500004AD033A // DoIt
+ )
  ; // Operations
 
 ref; // ME_500004A60200 MakeControls
@@ -61,8 +61,8 @@ ref; // ME_5000106F02B3 DoIt
  : Parent ME_500004240202 // vcmLayout
  ;
  : Operations
-   @ ( ME_5000106F02B3 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_5000106F02B3 // DoIt
+ )
  ; // Operations
 
 ref; // ME_5000105E028C InitEntities
@@ -98,9 +98,9 @@ ref; // ME_500010B503CA aNew
  : Parent ME_5000109C01F9 // SignalDataSourceChanged
  ;
  : Parameters
-   @ ( ME_500010B50393 // anOld
+   Seq: ( ME_500010B50393 // anOld
  ME_500010B503CA // aNew
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_500010A903B1 DoIt
@@ -116,8 +116,8 @@ ref; // ME_500010A903B1 DoIt
  : Parent ME_500004240202 // vcmLayout
  ;
  : Operations
-   @ ( ME_500010A903B1 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_500010A903B1 // DoIt
+ )
  ; // Operations
 
 ref; // ME_5000109C01F9 SignalDataSourceChanged
@@ -148,8 +148,8 @@ ref; // ME_501174C30385 DoIt
  : Parent ME_500004240202 // vcmLayout
  ;
  : Operations
-   @ ( ME_501174C30385 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_501174C30385 // DoIt
+ )
  ; // Operations
 
 ref; // ME_501174B10018 GetIsMainObjectForm
@@ -220,9 +220,9 @@ ref; // ME_497469EF0354 aNew
  : Parent ME_500004240202 // vcmLayout
  ;
  : Parameters
-   @ ( ME_497469EF0306 // anOld
+   Seq: ( ME_497469EF0306 // anOld
  ME_497469EF0354 // aNew
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_497469C90140 NotifyDataSourceChanged
@@ -238,7 +238,7 @@ ref; // ME_497469C90140 NotifyDataSourceChanged
  : Parent ME_5000041101C8 // Layouts
  ;
  : Operations
-   @ ( ME_500004A60200 // MakeControls
+   Seq: ( ME_500004A60200 // MakeControls
  ME_5000105E028C // InitEntities
  ME_5000109C01F9 // SignalDataSourceChanged
  ME_501174B10018 // GetIsMainObjectForm
@@ -246,19 +246,19 @@ ref; // ME_497469C90140 NotifyDataSourceChanged
  ME_4AE1948900DE // EntitiesInited
  ME_4A8E8F2E0195 // InitControls
  ME_497469C90140 // NotifyDataSourceChanged
- ) .SequenceCode.It
+ )
  ; // Operations
  CONST "needs InstanceR" true
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\VCM\implementation\Visual'
  CONST intf.pas:Path 'common\components\gui\Garant\VCM\implementation\Visual\vcmLayout.imp.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\VCM\implementation\Visual'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
  CONST extprop:pas:TypeName '_vcmLayout_'
+ CONST extprop:pas:UnitName 'vcmLayout.imp'
 
 ref; // ME_500004240202 vcmLayout
 
@@ -272,23 +272,21 @@ ref; // ME_500004240202 vcmLayout
  : Parent WL 'ME_4E13416D0227' '4E13416D0227.pas.ms.script' // VCM$Visual
  ;
  : Children
-   @ ( ME_500004240202 // vcmLayout
- ) .SequenceCode.It
+   Seq: ( ME_500004240202 // vcmLayout
+ )
  ; // Children
  : Depends
-   @ ( WL 'ME_4683F37902CF' '4683F37902CF.pas.ms.script' // vcmInterfaces
+   Seq: ( WL 'ME_4683F37902CF' '4683F37902CF.pas.ms.script' // vcmInterfaces
  WL 'ME_4982BE090383' '4982BE090383.pas.ms.script' // vcmControllers
  WL 'ME_4AB0C3C60310' '4AB0C3C60310.pas.ms.script' // Sys
- ) .SequenceCode.It
+ )
  ; // Depends
  CONST "path prefix" '/implementation/Visual'
- : Generators
- @ (
- gen_pas.script
- gen_pas.script.runner
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\VCM\implementation\Visual'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\VCM\implementation\Visual'
  CONST pas.script:Path 'shared\models\NewSchool\Scripts\5000041101C8.pas.ms.script'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
  CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\5000041101C8.pas.ms.script.runner'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_5000041101C8 Layouts

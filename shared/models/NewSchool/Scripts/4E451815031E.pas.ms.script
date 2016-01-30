@@ -39,6 +39,7 @@ ref; // ME_49C22E20035A
  ;
  : Implementor ME_49C217110141 // TevEpsilonLongIntList
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_47B99D4503A2_ME_49C217110141 CompareExistingItems
 
 : ME_49C217110141
@@ -52,33 +53,35 @@ ref; // ME_47B99D4503A2_ME_49C217110141 CompareExistingItems
  : Parent ME_4E451815031E // CellUtils
  ;
  : Inherits
-   @ ( WL 'ME_4A54DD4E036F' '47913B47006E.pas.ms.script' // Tl3ProtoDataContainer
+   Seq: ( WL 'ME_4A54DD4E036F' '47913B47006E.pas.ms.script' // Tl3ProtoDataContainer
  WL 'ME_4B71611400B3' '47913B47006E.pas.ms.script' // l3AtomicListPrim
- ) .SequenceCode.It
+ )
  ; // Inherits
  : Attributes
-   @ ( ME_49C218DC01C1 // ItemType
- ) .SequenceCode.It
+   Seq: ( ME_49C218DC01C1 // ItemType
+ )
  ; // Attributes
  : Implemented
-   @ ( ME_47B99D4503A2_ME_49C217110141 // CompareExistingItems
- ) .SequenceCode.It
+   Seq: ( ME_47B99D4503A2_ME_49C217110141 // CompareExistingItems
+ )
  ; // Implemented
  : Dependencies
-   @ ( ME_49C22E20035A // 
- ) .SequenceCode.It
+   Seq: ( ME_49C22E20035A // 
+ )
  ; // Dependencies
  CONST "author" 'Инишев Д.А.'
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest'
  CONST intf.pas:Path 'common\components\gui\Garant\Everest\evEpsilonLongIntList.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'EpsilonLongIntList'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'evEpsilonLongIntList'
 
 ref; // ME_49C217110141 TevEpsilonLongIntList
 
@@ -183,8 +186,8 @@ ref; // ME_4A562C43007D Clear
  : Parent ME_49CB6E880188 // TevCellsOffsets
  ;
  : Operations
-   @ ( ME_4A562C43007D // Clear
- ) .SequenceCode.It
+   Seq: ( ME_4A562C43007D // Clear
+ )
  ; // Operations
 
 ref; // ME_4A562C3A013E Clear
@@ -213,8 +216,8 @@ ref; // ME_4A562C5B026A AddCellWidth
  : Parent ME_49CB6E880188 // TevCellsOffsets
  ;
  : Operations
-   @ ( ME_4A562C5B026A // AddCellWidth
- ) .SequenceCode.It
+   Seq: ( ME_4A562C5B026A // AddCellWidth
+ )
  ; // Operations
 
 ref; // ME_4A562C5301A5 AddCellWidth
@@ -256,8 +259,8 @@ ref; // ME_4AB9F86501E4 aCheckWidth
  : Parent ME_4A562C6C00A6 // CheckOffset
  ;
  : Parameters
-   @ ( ME_4AB9F86501E4 // aCheckWidth
- ) .SequenceCode.It
+   Seq: ( ME_4AB9F86501E4 // aCheckWidth
+ )
  ; // Parameters
 
 ref; // ME_4A562C7203CF CheckOffset
@@ -273,12 +276,12 @@ ref; // ME_4A562C7203CF CheckOffset
  : Parent ME_49CB6E880188 // TevCellsOffsets
  ;
  : Attributes
-   @ ( ME_4A562DC200B5 // Index
- ) .SequenceCode.It
+   Seq: ( ME_4A562DC200B5 // Index
+ )
  ; // Attributes
  : Operations
-   @ ( ME_4A562C7203CF // CheckOffset
- ) .SequenceCode.It
+   Seq: ( ME_4A562C7203CF // CheckOffset
+ )
  ; // Operations
 
 ref; // ME_4A562C6C00A6 CheckOffset
@@ -336,16 +339,16 @@ ref; // ME_4A562D18037C
  : Parent ME_49CB6E880188 // TevCellsOffsets
  ;
  : Attributes
-   @ ( ME_4A562DD40048 // Index
- ) .SequenceCode.It
+   Seq: ( ME_4A562DD40048 // Index
+ )
  ; // Attributes
  : Operations
-   @ ( ME_4A562C8D016F // CheckParam
- ) .SequenceCode.It
+   Seq: ( ME_4A562C8D016F // CheckParam
+ )
  ; // Operations
  : Dependencies
-   @ ( ME_4A562D18037C // 
- ) .SequenceCode.It
+   Seq: ( ME_4A562D18037C // 
+ )
  ; // Dependencies
 
 ref; // ME_4A562C85014A CheckParam
@@ -374,8 +377,8 @@ ref; // ME_4A562CA0003F RecalcOffset
  : Parent ME_49CB6E880188 // TevCellsOffsets
  ;
  : Operations
-   @ ( ME_4A562CA0003F // RecalcOffset
- ) .SequenceCode.It
+   Seq: ( ME_4A562CA0003F // RecalcOffset
+ )
  ; // Operations
 
 ref; // ME_4A562C9902F5 RecalcOffset
@@ -404,8 +407,8 @@ ref; // ME_4A562CB00179 ClearOffset
  : Parent ME_49CB6E880188 // TevCellsOffsets
  ;
  : Operations
-   @ ( ME_4A562CB00179 // ClearOffset
- ) .SequenceCode.It
+   Seq: ( ME_4A562CB00179 // ClearOffset
+ )
  ; // Operations
 
 ref; // ME_4A562CA901FA ClearOffset
@@ -431,8 +434,8 @@ ref; // ME_4A562CCF01D5 aWidth
  : Parent ME_4A562CBD0279 // SetWidth
  ;
  : Parameters
-   @ ( ME_4A562CCF01D5 // aWidth
- ) .SequenceCode.It
+   Seq: ( ME_4A562CCF01D5 // aWidth
+ )
  ; // Parameters
 
 ref; // ME_4A562CCD0061 SetWidth
@@ -448,8 +451,8 @@ ref; // ME_4A562CCD0061 SetWidth
  : Parent ME_49CB6E880188 // TevCellsOffsets
  ;
  : Operations
-   @ ( ME_4A562CCD0061 // SetWidth
- ) .SequenceCode.It
+   Seq: ( ME_4A562CCD0061 // SetWidth
+ )
  ; // Operations
 
 ref; // ME_4A562CBD0279 SetWidth
@@ -472,6 +475,7 @@ ref; // ME_4A562DF002B1
  ;
  : Implementor ME_49CB6E880188 // TevCellsOffsets
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_479731C50290_ME_49CB6E880188 Cleanup
 
 : ME_49CB6E880188
@@ -486,34 +490,34 @@ ref; // ME_479731C50290_ME_49CB6E880188 Cleanup
  : Parent ME_4E451815031E // CellUtils
  ;
  : Inherits
-   @ ( WL 'ME_49E7754802A9' '47913B47006E.pas.ms.script' // Tl3ProtoObject
- ) .SequenceCode.It
+   Seq: ( WL 'ME_49E7754802A9' '47913B47006E.pas.ms.script' // Tl3ProtoObject
+ )
  ; // Inherits
  : Attributes
-   @ ( ME_4A56298F01F9 // f_Offsets
+   Seq: ( ME_4A56298F01F9 // f_Offsets
  ME_4A5629A30073 // f_Widths
  ME_4A562BD3021F // f_Width
  ME_4A562BDC03D7 // f_Offset
  ME_4A562BFC03B2 // f_CheckChildren
- ) .SequenceCode.It
+ )
  ; // Attributes
  : Operations
-   @ ( ME_4A562C3A013E // Clear
+   Seq: ( ME_4A562C3A013E // Clear
  ME_4A562C5301A5 // AddCellWidth
  ME_4A562C6C00A6 // CheckOffset
  ME_4A562C85014A // CheckParam
  ME_4A562C9902F5 // RecalcOffset
  ME_4A562CA901FA // ClearOffset
  ME_4A562CBD0279 // SetWidth
- ) .SequenceCode.It
+ )
  ; // Operations
  : Overridden
-   @ ( ME_479731C50290_ME_49CB6E880188 // Cleanup
- ) .SequenceCode.It
+   Seq: ( ME_479731C50290_ME_49CB6E880188 // Cleanup
+ )
  ; // Overridden
  : Dependencies
-   @ ( ME_4A562DF002B1 // 
- ) .SequenceCode.It
+   Seq: ( ME_4A562DF002B1 // 
+ )
  ; // Dependencies
  CONST "author" 'Инишев Д.А.'
  CONST "needs InstanceR" 'undefined'
@@ -521,12 +525,14 @@ ref; // ME_479731C50290_ME_49CB6E880188 Cleanup
  CONST "no hands" true
  CONST "register in scripts" 'undefined'
  CONST "started" '2009/03/26 13:34:50'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest'
  CONST intf.pas:Path 'common\components\gui\Garant\Everest\evCellsOffsets.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'CellsOffsets'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'evCellsOffsets'
 
 ref; // ME_49CB6E880188 TevCellsOffsets
 
@@ -565,6 +571,7 @@ ref; // ME_4F2F80DD009E
  ;
  : Implementor ME_4F2F68D80106 // TevOneCharLongIntList
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_47B99D4503A2_ME_4F2F68D80106 CompareExistingItems
 
 : ME_4F2F68D80106
@@ -578,33 +585,35 @@ ref; // ME_47B99D4503A2_ME_4F2F68D80106 CompareExistingItems
  : Parent ME_4E451815031E // CellUtils
  ;
  : Inherits
-   @ ( WL 'ME_4A54DD4E036F' '47913B47006E.pas.ms.script' // Tl3ProtoDataContainer
+   Seq: ( WL 'ME_4A54DD4E036F' '47913B47006E.pas.ms.script' // Tl3ProtoDataContainer
  WL 'ME_4B71611400B3' '47913B47006E.pas.ms.script' // l3AtomicListPrim
- ) .SequenceCode.It
+ )
  ; // Inherits
  : Attributes
-   @ ( ME_4F2F6AB00110 // ItemType
- ) .SequenceCode.It
+   Seq: ( ME_4F2F6AB00110 // ItemType
+ )
  ; // Attributes
  : Implemented
-   @ ( ME_47B99D4503A2_ME_4F2F68D80106 // CompareExistingItems
- ) .SequenceCode.It
+   Seq: ( ME_47B99D4503A2_ME_4F2F68D80106 // CompareExistingItems
+ )
  ; // Implemented
  : Dependencies
-   @ ( ME_4F2F80DD009E // 
- ) .SequenceCode.It
+   Seq: ( ME_4F2F80DD009E // 
+ )
  ; // Dependencies
  CONST "author" 'Инишев Д.А.'
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest'
  CONST intf.pas:Path 'common\components\gui\Garant\Everest\evOneCharLongIntList.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'OneCharLongIntList'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'evOneCharLongIntList'
 
 ref; // ME_4F2F68D80106 TevOneCharLongIntList
 
@@ -637,24 +646,26 @@ ref; // ME_5112063F01B9 ItemType
  : Parent ME_4E451815031E // CellUtils
  ;
  : Inherits
-   @ ( WL 'ME_47BC3A07027F' '47913B47006E.pas.ms.script' // Tl3SimpleDataContainer
+   Seq: ( WL 'ME_47BC3A07027F' '47913B47006E.pas.ms.script' // Tl3SimpleDataContainer
  WL 'ME_49142D7000F3' '47913B47006E.pas.ms.script' // l3EnumList
- ) .SequenceCode.It
+ )
  ; // Inherits
  : Attributes
-   @ ( ME_5112063F01B9 // ItemType
- ) .SequenceCode.It
+   Seq: ( ME_5112063F01B9 // ItemType
+ )
  ; // Attributes
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest'
  CONST intf.pas:Path 'common\components\gui\Garant\Everest\edCellTypesList.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'CellTypesList'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'edCellTypesList'
 
 ref; // ME_511205FA00E2 TedCellTypesList
 
@@ -772,8 +783,8 @@ ref; // ME_4F2F6D9B02FD DoIt
  : Parent ME_4F2F6CA40273 // TevCellsCharOffsets
  ;
  : Operations
-   @ ( ME_4F2F6D9B02FD // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_4F2F6D9B02FD // DoIt
+ )
  ; // Operations
 
 ref; // ME_4F2F6D94002E AddCellWidthAndRecalc
@@ -802,8 +813,8 @@ ref; // ME_4F2F6DB20214 DoIt
  : Parent ME_4F2F6CA40273 // TevCellsCharOffsets
  ;
  : Operations
-   @ ( ME_4F2F6DB20214 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_4F2F6DB20214 // DoIt
+ )
  ; // Operations
 
 ref; // ME_4F2F6DAB0114 Clear
@@ -841,9 +852,9 @@ ref; // ME_4F2F6DE90313 anIndex
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
  : Parameters
-   @ ( ME_4F2F6DE902F0 // aOffsetList
+   Seq: ( ME_4F2F6DE902F0 // aOffsetList
  ME_4F2F6DE90313 // anIndex
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_4F2F6DD901CF DoIt
@@ -859,8 +870,8 @@ ref; // ME_4F2F6DD901CF DoIt
  : Parent ME_4F2F6CA40273 // TevCellsCharOffsets
  ;
  : Operations
-   @ ( ME_4F2F6DD901CF // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_4F2F6DD901CF // DoIt
+ )
  ; // Operations
 
 ref; // ME_4F2F6DC40150 FindOffset
@@ -898,9 +909,9 @@ ref; // ME_4F2F6E1601EC anIndex
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
  : Parameters
-   @ ( ME_4F2F6E16019E // anOffset
+   Seq: ( ME_4F2F6E16019E // anOffset
  ME_4F2F6E1601EC // anIndex
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_4F2F6E0C026C DoIt
@@ -916,8 +927,8 @@ ref; // ME_4F2F6E0C026C DoIt
  : Parent ME_4F2F6CA40273 // TevCellsCharOffsets
  ;
  : Operations
-   @ ( ME_4F2F6E0C026C // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_4F2F6E0C026C // DoIt
+ )
  ; // Operations
 
 ref; // ME_4F2F6DEE0354 FindOffset$1
@@ -948,8 +959,8 @@ ref; // ME_4F2F6E30005B DoIt
  : Parent ME_4F2F6CA40273 // TevCellsCharOffsets
  ;
  : Operations
-   @ ( ME_4F2F6E30005B // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_4F2F6E30005B // DoIt
+ )
  ; // Operations
 
 ref; // ME_4F2F6E25013C LastWidth
@@ -980,8 +991,8 @@ ref; // ME_4F2F6E540109 DoIt
  : Parent ME_4F2F6CA40273 // TevCellsCharOffsets
  ;
  : Operations
-   @ ( ME_4F2F6E540109 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_4F2F6E540109 // DoIt
+ )
  ; // Operations
 
 ref; // ME_4F2F6E47025D PrevWidth
@@ -1012,8 +1023,8 @@ ref; // ME_4F2F6E6B03B5 DoIt
  : Parent ME_4F2F6CA40273 // TevCellsCharOffsets
  ;
  : Operations
-   @ ( ME_4F2F6E6B03B5 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_4F2F6E6B03B5 // DoIt
+ )
  ; // Operations
 
 ref; // ME_4F2F6E6301E4 GetNextOffset
@@ -1039,8 +1050,8 @@ ref; // ME_4F2F6EA202B6 anIndex
  : Parent ME_4F2F6E8500D5 // SetCurrent
  ;
  : Parameters
-   @ ( ME_4F2F6EA202B6 // anIndex
- ) .SequenceCode.It
+   Seq: ( ME_4F2F6EA202B6 // anIndex
+ )
  ; // Parameters
 
 ref; // ME_4F2F6E95010A DoIt
@@ -1056,8 +1067,8 @@ ref; // ME_4F2F6E95010A DoIt
  : Parent ME_4F2F6CA40273 // TevCellsCharOffsets
  ;
  : Operations
-   @ ( ME_4F2F6E95010A // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_4F2F6E95010A // DoIt
+ )
  ; // Operations
 
 ref; // ME_4F2F6E8500D5 SetCurrent
@@ -1088,8 +1099,8 @@ ref; // ME_4F2F6EB302C2 DoIt
  : Parent ME_4F2F6CA40273 // TevCellsCharOffsets
  ;
  : Operations
-   @ ( ME_4F2F6EB302C2 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_4F2F6EB302C2 // DoIt
+ )
  ; // Operations
 
 ref; // ME_4F2F6EAB0342 GetOffset
@@ -1115,8 +1126,8 @@ ref; // ME_4F2F6ED902C1 aWidth
  : Parent ME_4F2F6EC7021E // SetWidth
  ;
  : Parameters
-   @ ( ME_4F2F6ED902C1 // aWidth
- ) .SequenceCode.It
+   Seq: ( ME_4F2F6ED902C1 // aWidth
+ )
  ; // Parameters
 
 ref; // ME_4F2F6ED303A9 DoIt
@@ -1132,8 +1143,8 @@ ref; // ME_4F2F6ED303A9 DoIt
  : Parent ME_4F2F6CA40273 // TevCellsCharOffsets
  ;
  : Operations
-   @ ( ME_4F2F6ED303A9 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_4F2F6ED303A9 // DoIt
+ )
  ; // Operations
 
 ref; // ME_4F2F6EC7021E SetWidth
@@ -1164,8 +1175,8 @@ ref; // ME_4F2F6EEB0348 DoIt
  : Parent ME_4F2F6CA40273 // TevCellsCharOffsets
  ;
  : Operations
-   @ ( ME_4F2F6EEB0348 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_4F2F6EEB0348 // DoIt
+ )
  ; // Operations
 
 ref; // ME_4F2F6EE10292 GetWidth
@@ -1201,9 +1212,9 @@ ref; // ME_4F2F6F0C01BD aDelta
  : Parent ME_4F2F6EFA02E7 // UpdateWidth
  ;
  : Parameters
-   @ ( ME_4F2F6F0C018B // anIndex
+   Seq: ( ME_4F2F6F0C018B // anIndex
  ME_4F2F6F0C01BD // aDelta
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_4F2F6F070030 DoIt
@@ -1219,8 +1230,8 @@ ref; // ME_4F2F6F070030 DoIt
  : Parent ME_4F2F6CA40273 // TevCellsCharOffsets
  ;
  : Operations
-   @ ( ME_4F2F6F070030 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_4F2F6F070030 // DoIt
+ )
  ; // Operations
 
 ref; // ME_4F2F6EFA02E7 UpdateWidth
@@ -1248,8 +1259,8 @@ ref; // ME_4FC7629103AB anIterator
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
  : Parameters
-   @ ( ME_4FC7629103AB // anIterator
- ) .SequenceCode.It
+   Seq: ( ME_4FC7629103AB // anIterator
+ )
  ; // Parameters
 
 ref; // ME_4F2FC301014B DoIt
@@ -1265,8 +1276,8 @@ ref; // ME_4F2FC301014B DoIt
  : Parent ME_4F2F6CA40273 // TevCellsCharOffsets
  ;
  : Operations
-   @ ( ME_4F2FC301014B // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_4F2FC301014B // DoIt
+ )
  ; // Operations
 
 ref; // ME_4F2FC2F502F6 Equals
@@ -1302,9 +1313,9 @@ ref; // ME_4F30BE9D0269 anIterator
  : Parent ME_4F2FCECA004D // CopyData
  ;
  : Parameters
-   @ ( ME_4F30BE9D0255 // aData
+   Seq: ( ME_4F30BE9D0255 // aData
  ME_4F30BE9D0269 // anIterator
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_4F2FCEDB019A DoIt
@@ -1320,8 +1331,8 @@ ref; // ME_4F2FCEDB019A DoIt
  : Parent ME_4F2F6CA40273 // TevCellsCharOffsets
  ;
  : Operations
-   @ ( ME_4F2FCEDB019A // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_4F2FCEDB019A // DoIt
+ )
  ; // Operations
 
 ref; // ME_4F2FCECA004D CopyData
@@ -1350,8 +1361,8 @@ ref; // ME_4F2FD1EC02A2 DoIt
  : Parent ME_4F2F6CA40273 // TevCellsCharOffsets
  ;
  : Operations
-   @ ( ME_4F2FD1EC02A2 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_4F2FD1EC02A2 // DoIt
+ )
  ; // Operations
 
 ref; // ME_4F2FD1E202A4 CheckList
@@ -1382,8 +1393,8 @@ ref; // ME_4FAB833C02B3 DoIt
  : Parent ME_4F2F6CA40273 // TevCellsCharOffsets
  ;
  : Operations
-   @ ( ME_4FAB833C02B3 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_4FAB833C02B3 // DoIt
+ )
  ; // Operations
 
 ref; // ME_4FAB832701E6 GetRowWidth
@@ -1409,8 +1420,8 @@ ref; // ME_4FC7734D0017 aData
  : Parent ME_4FC773170099 // AlignByPrevious
  ;
  : Parameters
-   @ ( ME_4FC7734D0017 // aData
- ) .SequenceCode.It
+   Seq: ( ME_4FC7734D0017 // aData
+ )
  ; // Parameters
 
 ref; // ME_4FC7732201C7 DoIt
@@ -1426,8 +1437,8 @@ ref; // ME_4FC7732201C7 DoIt
  : Parent ME_4F2F6CA40273 // TevCellsCharOffsets
  ;
  : Operations
-   @ ( ME_4FC7732201C7 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_4FC7732201C7 // DoIt
+ )
  ; // Operations
 
 ref; // ME_4FC773170099 AlignByPrevious
@@ -1465,9 +1476,9 @@ ref; // ME_5093800C0128 aForTempate
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
  : Parameters
-   @ ( ME_5093800C0108 // anIterator
+   Seq: ( ME_5093800C0108 // anIterator
  ME_5093800C0128 // aForTempate
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_50937BDD0032 DoIt
@@ -1483,8 +1494,8 @@ ref; // ME_50937BDD0032 DoIt
  : Parent ME_4F2F6CA40273 // TevCellsCharOffsets
  ;
  : Operations
-   @ ( ME_50937BDD0032 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_50937BDD0032 // DoIt
+ )
  ; // Operations
 
 ref; // ME_50937BBB01BF Equals$1
@@ -1513,8 +1524,8 @@ ref; // ME_5093840A0025 DoIt
  : Parent ME_4F2F6CA40273 // TevCellsCharOffsets
  ;
  : Operations
-   @ ( ME_5093840A0025 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_5093840A0025 // DoIt
+ )
  ; // Operations
 
 ref; // ME_509383B202C4 IncUsingCount
@@ -1542,8 +1553,8 @@ ref; // ME_52F1ECA301F7 anIndex
  : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
  ;
  : Parameters
-   @ ( ME_52F1ECA301F7 // anIndex
- ) .SequenceCode.It
+   Seq: ( ME_52F1ECA301F7 // anIndex
+ )
  ; // Parameters
 
 ref; // ME_52F1EC9B03A9 DoIt
@@ -1559,8 +1570,8 @@ ref; // ME_52F1EC9B03A9 DoIt
  : Parent ME_4F2F6CA40273 // TevCellsCharOffsets
  ;
  : Operations
-   @ ( ME_52F1EC9B03A9 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_52F1EC9B03A9 // DoIt
+ )
  ; // Operations
 
 ref; // ME_52F1EC8D0285 GetWidthByIndex
@@ -1588,8 +1599,8 @@ ref; // ME_52F1ECDB00D5 anIndex
  : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
  ;
  : Parameters
-   @ ( ME_52F1ECDB00D5 // anIndex
- ) .SequenceCode.It
+   Seq: ( ME_52F1ECDB00D5 // anIndex
+ )
  ; // Parameters
 
 ref; // ME_52F1ECD003B4 DoIt
@@ -1605,8 +1616,8 @@ ref; // ME_52F1ECD003B4 DoIt
  : Parent ME_4F2F6CA40273 // TevCellsCharOffsets
  ;
  : Operations
-   @ ( ME_52F1ECD003B4 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_52F1ECD003B4 // DoIt
+ )
  ; // Operations
 
 ref; // ME_52F1ECC0021F GetOffsetByIndex
@@ -1637,8 +1648,8 @@ ref; // ME_52F1ECF50231 DoIt
  : Parent ME_4F2F6CA40273 // TevCellsCharOffsets
  ;
  : Operations
-   @ ( ME_52F1ECF50231 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_52F1ECF50231 // DoIt
+ )
  ; // Operations
 
 ref; // ME_52F1ECE3002C GetCount
@@ -1684,10 +1695,10 @@ ref; // ME_52F1ED5100ED aCellTypeList
  : Parent ME_52F1ED3803C8 // AlignByOffset
  ;
  : Parameters
-   @ ( ME_52F1ED5100CE // anOffset
+   Seq: ( ME_52F1ED5100CE // anOffset
  ME_52F1ED5100DE // anIndex
  ME_52F1ED5100ED // aCellTypeList
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_52F1ED480188 DoIt
@@ -1703,8 +1714,8 @@ ref; // ME_52F1ED480188 DoIt
  : Parent ME_4F2F6CA40273 // TevCellsCharOffsets
  ;
  : Operations
-   @ ( ME_52F1ED480188 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_52F1ED480188 // DoIt
+ )
  ; // Operations
 
 ref; // ME_52F1ED3803C8 AlignByOffset
@@ -1760,6 +1771,7 @@ ref; // ME_515427E103B5
  ;
  : Implementor ME_4F2F6CA40273 // TevCellsCharOffsets
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_479731C50290_ME_4F2F6CA40273 Cleanup
 
 : ME_4F2F6CA40273
@@ -1774,20 +1786,20 @@ ref; // ME_479731C50290_ME_4F2F6CA40273 Cleanup
  : Parent ME_4E451815031E // CellUtils
  ;
  : Inherits
-   @ ( WL 'ME_49E7754802A9' '47913B47006E.pas.ms.script' // Tl3ProtoObject
- ) .SequenceCode.It
+   Seq: ( WL 'ME_49E7754802A9' '47913B47006E.pas.ms.script' // Tl3ProtoObject
+ )
  ; // Inherits
  : Attributes
-   @ ( ME_4F2F6CDE01BB // f_Offsets
+   Seq: ( ME_4F2F6CDE01BB // f_Offsets
  ME_4F2F6CF20286 // f_Widths
  ME_4F2F6D4900BB // f_Width
  ME_4F2F6D600246 // f_Offset
  ME_4F2F6D6F007E // f_Index
  ME_5093831F0238 // f_UsingCount
- ) .SequenceCode.It
+ )
  ; // Attributes
  : Operations
-   @ ( ME_4F2F6D94002E // AddCellWidthAndRecalc
+   Seq: ( ME_4F2F6D94002E // AddCellWidthAndRecalc
  ME_4F2F6DAB0114 // Clear
  ME_4F2F6DC40150 // FindOffset
  ME_4F2F6DEE0354 // FindOffset$1
@@ -1810,30 +1822,32 @@ ref; // ME_479731C50290_ME_4F2F6CA40273 Cleanup
  ME_52F1ECC0021F // GetOffsetByIndex
  ME_52F1ECE3002C // GetCount
  ME_52F1ED3803C8 // AlignByOffset
- ) .SequenceCode.It
+ )
  ; // Operations
  : Overridden
-   @ ( ME_479731C50290_ME_4F2F6CA40273 // Cleanup
- ) .SequenceCode.It
+   Seq: ( ME_479731C50290_ME_4F2F6CA40273 // Cleanup
+ )
  ; // Overridden
  : Dependencies
-   @ ( ME_4F2F8391018D // 
+   Seq: ( ME_4F2F8391018D // 
  ME_4F2FC54603E7 // 
  ME_5114B83B0020 // 
  ME_515427E103B5 // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  CONST "author" 'Инишев Д.А.'
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest'
  CONST intf.pas:Path 'common\components\gui\Garant\Everest\evCellsCharOffsets.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'CellsCharOffsets'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'evCellsCharOffsets'
 
 ref; // ME_4F2F6CA40273 TevCellsCharOffsets
 
@@ -1888,11 +1902,16 @@ ref; // ME_4FC6289D006B ed_cpIgnoreLast
  : Parent ME_4F2F6F750263 // TevCellsOffsetsPair
  ;
  : Attributes
-   @ ( ME_4FC628830018 // ed_cpNone
+   Seq: ( ME_4FC628830018 // ed_cpNone
  ME_4FC6288E03E7 // ed_cpLast
  ME_4FC6289D006B // ed_cpIgnoreLast
- ) .SequenceCode.It
+ )
  ; // Attributes
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_4FC628290340 TedCellPosType
 
@@ -1980,6 +1999,7 @@ ref; // ME_5114D122029E RowType
 : ME_A354356F2814
  CONST UID 'A354356F2814'
  CONST Name 'f_CellsType'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY 'Поле для свойства CellsType' ;
  CONST Visibility PrivateAccess
@@ -1989,12 +2009,14 @@ ref; // ME_5114D122029E RowType
  ;
  : Target ME_511205FA00E2 // TedCellTypesList
  ;
+ CONST extprop:clearViaProperty 'CellsType'
 
 ref; // ME_A354356F2814 f_CellsType
 
 : ME_4B80DF8BB702
  CONST UID '4B80DF8BB702'
  CONST Name 'f_RowType'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY 'Поле для свойства RowType' ;
  CONST Visibility PrivateAccess
@@ -2004,6 +2026,7 @@ ref; // ME_A354356F2814 f_CellsType
  ;
  : Target WL 'ME_4FC5C77503C7' '48E3836D00C8.pas.ms.script' // TedRowType
  ;
+ CONST extprop:clearViaProperty 'RowType'
 
 ref; // ME_4B80DF8BB702 f_RowType
 
@@ -2031,8 +2054,8 @@ ref; // ME_4F2F703B0215 DoIt
  : Parent ME_4F2F6F750263 // TevCellsOffsetsPair
  ;
  : Operations
-   @ ( ME_4F2F703B0215 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_4F2F703B0215 // DoIt
+ )
  ; // Operations
 
 ref; // ME_4F2F7030001E Create
@@ -2061,8 +2084,8 @@ ref; // ME_4F2F7050020A DoIt
  : Parent ME_4F2F6F750263 // TevCellsOffsetsPair
  ;
  : Operations
-   @ ( ME_4F2F7050020A // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_4F2F7050020A // DoIt
+ )
  ; // Operations
 
 ref; // ME_4F2F704A01F8 Clear
@@ -2091,8 +2114,8 @@ ref; // ME_4F2F70740293 DoIt
  : Parent ME_4F2F6F750263 // TevCellsOffsetsPair
  ;
  : Operations
-   @ ( ME_4F2F70740293 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_4F2F70740293 // DoIt
+ )
  ; // Operations
 
 ref; // ME_4F2F70660228 AddCellWidthAndRecalc
@@ -2120,8 +2143,8 @@ ref; // ME_4F2F70A90371 aNew
  : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
  ;
  : Parameters
-   @ ( ME_4F2F70A90371 // aNew
- ) .SequenceCode.It
+   Seq: ( ME_4F2F70A90371 // aNew
+ )
  ; // Parameters
 
 ref; // ME_4F2F70A1005A DoIt
@@ -2137,8 +2160,8 @@ ref; // ME_4F2F70A1005A DoIt
  : Parent ME_4F2F6F750263 // TevCellsOffsetsPair
  ;
  : Operations
-   @ ( ME_4F2F70A1005A // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_4F2F70A1005A // DoIt
+ )
  ; // Operations
 
 ref; // ME_4F2F708E0299 GetOffset
@@ -2166,8 +2189,8 @@ ref; // ME_4F2F70E103AC aNew
  : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
  ;
  : Parameters
-   @ ( ME_4F2F70E103AC // aNew
- ) .SequenceCode.It
+   Seq: ( ME_4F2F70E103AC // aNew
+ )
  ; // Parameters
 
 ref; // ME_4F2F70D50001 DoIt
@@ -2183,8 +2206,8 @@ ref; // ME_4F2F70D50001 DoIt
  : Parent ME_4F2F6F750263 // TevCellsOffsetsPair
  ;
  : Operations
-   @ ( ME_4F2F70D50001 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_4F2F70D50001 // DoIt
+ )
  ; // Operations
 
 ref; // ME_4F2F70B6006A GetWidth
@@ -2215,8 +2238,8 @@ ref; // ME_4F2F70F4035A DoIt
  : Parent ME_4F2F6F750263 // TevCellsOffsetsPair
  ;
  : Operations
-   @ ( ME_4F2F70F4035A // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_4F2F70F4035A // DoIt
+ )
  ; // Operations
 
 ref; // ME_4F2F70EB0222 LastNewWidth
@@ -2247,8 +2270,8 @@ ref; // ME_4F2F7115025B DoIt
  : Parent ME_4F2F6F750263 // TevCellsOffsetsPair
  ;
  : Operations
-   @ ( ME_4F2F7115025B // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_4F2F7115025B // DoIt
+ )
  ; // Operations
 
 ref; // ME_4F2F710D00D6 PrevNewWidth
@@ -2284,9 +2307,9 @@ ref; // ME_4F2F716900FD aOldWidth
  : Parent ME_4F2F712F0179 // SetWidthPair
  ;
  : Parameters
-   @ ( ME_4F2F716900C1 // aNewWidth
+   Seq: ( ME_4F2F716900C1 // aNewWidth
  ME_4F2F716900FD // aOldWidth
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_4F2F71430041 DoIt
@@ -2302,8 +2325,8 @@ ref; // ME_4F2F71430041 DoIt
  : Parent ME_4F2F6F750263 // TevCellsOffsetsPair
  ;
  : Operations
-   @ ( ME_4F2F71430041 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_4F2F71430041 // DoIt
+ )
  ; // Operations
 
 ref; // ME_4F2F712F0179 SetWidthPair
@@ -2341,9 +2364,9 @@ ref; // ME_4F2F71B60043 l_Delta
  : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
  ;
  : Parameters
-   @ ( ME_4F2F71B60020 // aOffsetList
+   Seq: ( ME_4F2F71B60020 // aOffsetList
  ME_4F2F71B60043 // l_Delta
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_4F2F71A60111 DoIt
@@ -2359,8 +2382,8 @@ ref; // ME_4F2F71A60111 DoIt
  : Parent ME_4F2F6F750263 // TevCellsOffsetsPair
  ;
  : Operations
-   @ ( ME_4F2F71A60111 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_4F2F71A60111 // DoIt
+ )
  ; // Operations
 
 ref; // ME_4F2F719C01AF CompareWidth
@@ -2398,9 +2421,9 @@ ref; // ME_4F2F71E50268 l_Delta
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
  : Parameters
-   @ ( ME_4F2F71E5023F // aOffsetList
+   Seq: ( ME_4F2F71E5023F // aOffsetList
  ME_4F2F71E50268 // l_Delta
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_4F2F71D302BD DoIt
@@ -2416,8 +2439,8 @@ ref; // ME_4F2F71D302BD DoIt
  : Parent ME_4F2F6F750263 // TevCellsOffsetsPair
  ;
  : Operations
-   @ ( ME_4F2F71D302BD // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_4F2F71D302BD // DoIt
+ )
  ; // Operations
 
 ref; // ME_4F2F71C0015D FindUpper
@@ -2465,10 +2488,10 @@ ref; // ME_4F2F721401EC aDelta
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
  : Parameters
-   @ ( ME_4F2F721401C4 // aOffsetList
+   Seq: ( ME_4F2F721401C4 // aOffsetList
  ME_4F2F721401CE // anIndex
  ME_4F2F721401EC // aDelta
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_4F2F720702E1 DoIt
@@ -2484,8 +2507,8 @@ ref; // ME_4F2F720702E1 DoIt
  : Parent ME_4F2F6F750263 // TevCellsOffsetsPair
  ;
  : Operations
-   @ ( ME_4F2F720702E1 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_4F2F720702E1 // DoIt
+ )
  ; // Operations
 
 ref; // ME_4F2F71EF028D FindLower
@@ -2521,9 +2544,9 @@ ref; // ME_4F2F72490000 aDelta
  : Parent ME_4F2F7226039B // UpdateNewWidth
  ;
  : Parameters
-   @ ( ME_4F2F724803C9 // anIndex
+   Seq: ( ME_4F2F724803C9 // anIndex
  ME_4F2F72490000 // aDelta
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_4F2F723D0126 DoIt
@@ -2539,8 +2562,8 @@ ref; // ME_4F2F723D0126 DoIt
  : Parent ME_4F2F6F750263 // TevCellsOffsetsPair
  ;
  : Operations
-   @ ( ME_4F2F723D0126 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_4F2F723D0126 // DoIt
+ )
  ; // Operations
 
 ref; // ME_4F2F7226039B UpdateNewWidth
@@ -2568,8 +2591,8 @@ ref; // ME_4F2F727E03E3 aNew
  : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
  ;
  : Parameters
-   @ ( ME_4F2F727E03E3 // aNew
- ) .SequenceCode.It
+   Seq: ( ME_4F2F727E03E3 // aNew
+ )
  ; // Parameters
 
 ref; // ME_4F2F727700E9 DoIt
@@ -2585,8 +2608,8 @@ ref; // ME_4F2F727700E9 DoIt
  : Parent ME_4F2F6F750263 // TevCellsOffsetsPair
  ;
  : Operations
-   @ ( ME_4F2F727700E9 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_4F2F727700E9 // DoIt
+ )
  ; // Operations
 
 ref; // ME_4F2F7268015A GetNextOffset
@@ -2614,8 +2637,8 @@ ref; // ME_4FC762AD0247 anIterator
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
  : Parameters
-   @ ( ME_4FC762AD0247 // anIterator
- ) .SequenceCode.It
+   Seq: ( ME_4FC762AD0247 // anIterator
+ )
  ; // Parameters
 
 ref; // ME_4F2FABD7028C DoIt
@@ -2631,8 +2654,8 @@ ref; // ME_4F2FABD7028C DoIt
  : Parent ME_4F2F6F750263 // TevCellsOffsetsPair
  ;
  : Operations
-   @ ( ME_4F2FABD7028C // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_4F2FABD7028C // DoIt
+ )
  ; // Operations
 
 ref; // ME_4F2FABC40294 EqualCells
@@ -2660,8 +2683,8 @@ ref; // ME_4FC72A0502F7 aNew
  : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
  ;
  : Parameters
-   @ ( ME_4FC72A0502F7 // aNew
- ) .SequenceCode.It
+   Seq: ( ME_4FC72A0502F7 // aNew
+ )
  ; // Parameters
 
 ref; // ME_4FAB836403CB DoIt
@@ -2677,8 +2700,8 @@ ref; // ME_4FAB836403CB DoIt
  : Parent ME_4F2F6F750263 // TevCellsOffsetsPair
  ;
  : Operations
-   @ ( ME_4FAB836403CB // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_4FAB836403CB // DoIt
+ )
  ; // Operations
 
 ref; // ME_4FAB83530326 GetRowWidth
@@ -2754,13 +2777,13 @@ ref; // ME_4FC62EAF0243 aNeedBreak
  : Parent ME_4FC5F3CF0017 // CheckCurrentRow
  ;
  : Parameters
-   @ ( ME_4FC62EAF0192 // aList
+   Seq: ( ME_4FC62EAF0192 // aList
  ME_4FC62EAF01B0 // aNewWidth
  ME_4FC62EAF01D3 // anOldCellWidth
  ME_4FC62EAF01F6 // aPrevRowWidth
  ME_4FC62EAF0214 // aCelPosl
  ME_4FC62EAF0243 // aNeedBreak
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_4FC5F3FD00A2 DoIt
@@ -2776,8 +2799,8 @@ ref; // ME_4FC5F3FD00A2 DoIt
  : Parent ME_4F2F6F750263 // TevCellsOffsetsPair
  ;
  : Operations
-   @ ( ME_4FC5F3FD00A2 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_4FC5F3FD00A2 // DoIt
+ )
  ; // Operations
 
 ref; // ME_4FC5F3CF0017 CheckCurrentRow
@@ -2805,8 +2828,8 @@ ref; // ME_4F2F7187000A aOffsetList
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
  : Parameters
-   @ ( ME_4F2F7187000A // aOffsetList
- ) .SequenceCode.It
+   Seq: ( ME_4F2F7187000A // aOffsetList
+ )
  ; // Parameters
 
 ref; // ME_4F2F717C0043 DoIt
@@ -2822,8 +2845,8 @@ ref; // ME_4F2F717C0043 DoIt
  : Parent ME_4F2F6F750263 // TevCellsOffsetsPair
  ;
  : Operations
-   @ ( ME_4F2F717C0043 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_4F2F717C0043 // DoIt
+ )
  ; // Operations
 
 ref; // ME_4F2F716F0249 FindOffset
@@ -2850,8 +2873,8 @@ ref; // ME_4FC76FF6019A aData
  : Parent ME_4FC76FA7005D // AlignByPrevious
  ;
  : Parameters
-   @ ( ME_4FC76FF6019A // aData
- ) .SequenceCode.It
+   Seq: ( ME_4FC76FF6019A // aData
+ )
  ; // Parameters
 
 ref; // ME_4FC76FDB027E DoIt
@@ -2867,8 +2890,8 @@ ref; // ME_4FC76FDB027E DoIt
  : Parent ME_4F2F6F750263 // TevCellsOffsetsPair
  ;
  : Operations
-   @ ( ME_4FC76FDB027E // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_4FC76FDB027E // DoIt
+ )
  ; // Operations
 
 ref; // ME_4FC76FA7005D AlignByPrevious
@@ -2904,9 +2927,9 @@ ref; // ME_509260EA0076 anIterator
  : Parent ME_50925F0800F6 // CopyData
  ;
  : Parameters
-   @ ( ME_509260EA0057 // aData
+   Seq: ( ME_509260EA0057 // aData
  ME_509260EA0076 // anIterator
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_50925F560173 DoIt
@@ -2922,8 +2945,8 @@ ref; // ME_50925F560173 DoIt
  : Parent ME_4F2F6F750263 // TevCellsOffsetsPair
  ;
  : Operations
-   @ ( ME_50925F560173 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_50925F560173 // DoIt
+ )
  ; // Operations
 
 ref; // ME_50925F0800F6 CopyData
@@ -2959,9 +2982,9 @@ ref; // ME_528DED9E033B anIterator
  : Parent ME_528DED3F007E // CopyData$1
  ;
  : Parameters
-   @ ( ME_528DED9E031B // aData
+   Seq: ( ME_528DED9E031B // aData
  ME_528DED9E033B // anIterator
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_528DED5B01F5 DoIt
@@ -2977,8 +3000,8 @@ ref; // ME_528DED5B01F5 DoIt
  : Parent ME_4F2F6F750263 // TevCellsOffsetsPair
  ;
  : Operations
-   @ ( ME_528DED5B01F5 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_528DED5B01F5 // DoIt
+ )
  ; // Operations
 
 ref; // ME_528DED3F007E CopyData$1
@@ -3004,8 +3027,8 @@ ref; // ME_52F1F00F00EE aPrev
  : Parent ME_52F1EFF800A6 // CheckPrevAlignment
  ;
  : Parameters
-   @ ( ME_52F1F00F00EE // aPrev
- ) .SequenceCode.It
+   Seq: ( ME_52F1F00F00EE // aPrev
+ )
  ; // Parameters
 
 ref; // ME_52F1F0080195 DoIt
@@ -3021,8 +3044,8 @@ ref; // ME_52F1F0080195 DoIt
  : Parent ME_4F2F6F750263 // TevCellsOffsetsPair
  ;
  : Operations
-   @ ( ME_52F1F0080195 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_52F1F0080195 // DoIt
+ )
  ; // Operations
 
 ref; // ME_52F1EFF800A6 CheckPrevAlignment
@@ -3056,6 +3079,7 @@ ref; // ME_4F2F89540166
  ;
  : Implementor ME_4F2F6F750263 // TevCellsOffsetsPair
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_479731C50290_ME_4F2F6F750263 Cleanup
 
 : ME_4F2F6F750263
@@ -3069,21 +3093,21 @@ ref; // ME_479731C50290_ME_4F2F6F750263 Cleanup
  : Parent ME_4E451815031E // CellUtils
  ;
  : Inherits
-   @ ( WL 'ME_49E7754802A9' '47913B47006E.pas.ms.script' // Tl3ProtoObject
- ) .SequenceCode.It
+   Seq: ( WL 'ME_49E7754802A9' '47913B47006E.pas.ms.script' // Tl3ProtoObject
+ )
  ; // Inherits
  : Attributes
-   @ ( ME_4F2F6FC70101 // f_FoundUpper
+   Seq: ( ME_4F2F6FC70101 // f_FoundUpper
  ME_4F2F7FD40033 // f_OldOffset
  ME_4F2F7FE10238 // f_NewOffset
  ME_5112066A0268 // CellsType
  ME_5114D122029E // RowType
  ME_A354356F2814 // f_CellsType
  ME_4B80DF8BB702 // f_RowType
- ) .SequenceCode.It
+ )
  ; // Attributes
  : Operations
-   @ ( ME_4F2F7030001E // Create
+   Seq: ( ME_4F2F7030001E // Create
  ME_4F2F704A01F8 // Clear
  ME_4F2F70660228 // AddCellWidthAndRecalc
  ME_4F2F708E0299 // GetOffset
@@ -3104,32 +3128,34 @@ ref; // ME_479731C50290_ME_4F2F6F750263 Cleanup
  ME_50925F0800F6 // CopyData
  ME_528DED3F007E // CopyData$1
  ME_52F1EFF800A6 // CheckPrevAlignment
- ) .SequenceCode.It
+ )
  ; // Operations
  : Overridden
-   @ ( ME_479731C50290_ME_4F2F6F750263 // Cleanup
- ) .SequenceCode.It
+   Seq: ( ME_479731C50290_ME_4F2F6F750263 // Cleanup
+ )
  ; // Overridden
  : Children
-   @ ( ME_4FC628290340 // TedCellPosType
- ) .SequenceCode.It
+   Seq: ( ME_4FC628290340 // TedCellPosType
+ )
  ; // Children
  : Dependencies
-   @ ( ME_4F2F86AD0037 // 
+   Seq: ( ME_4F2F86AD0037 // 
  ME_4F2F89540166 // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  CONST "author" 'Инишев Д.А.'
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest'
  CONST intf.pas:Path 'common\components\gui\Garant\Everest\evCellsOffsetsPair.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'CellsOffsetsPair'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'evCellsOffsetsPair'
 
 ref; // ME_4F2F6F750263 TevCellsOffsetsPair
 
@@ -3176,8 +3202,8 @@ ref; // ME_4FC618BE03A0 DoIt
  : Parent ME_4F2F72A103AB // TevCellsOffsetsPairList
  ;
  : Operations
-   @ ( ME_4FC618BE03A0 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_4FC618BE03A0 // DoIt
+ )
  ; // Operations
 
 ref; // ME_4FC618A7012C PenultimateItem
@@ -3189,6 +3215,7 @@ ref; // ME_4FC618A7012C PenultimateItem
  ;
  : Implementor ME_4F2F72A103AB // TevCellsOffsetsPairList
  ;
+ CONST OpKind opkind_Implemented
  CONST "ifdef" 'l3Items_NeedsAssignItem'
  CONST "ifndef" 'l3Items_NoSort'
 ref; // ME_47B2C42A0163_ME_4F2F72A103AB AssignItem
@@ -3200,6 +3227,7 @@ ref; // ME_47B2C42A0163_ME_4F2F72A103AB AssignItem
  ;
  : Implementor ME_4F2F72A103AB // TevCellsOffsetsPairList
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_47B99D4503A2_ME_4F2F72A103AB CompareExistingItems
 
 : ME_4F2F72A103AB
@@ -3213,34 +3241,36 @@ ref; // ME_47B99D4503A2_ME_4F2F72A103AB CompareExistingItems
  : Parent ME_4E451815031E // CellUtils
  ;
  : Inherits
-   @ ( WL 'ME_47B99E920196' '47913B47006E.pas.ms.script' // l3UncomparabeObjectRefList
+   Seq: ( WL 'ME_47B99E920196' '47913B47006E.pas.ms.script' // l3UncomparabeObjectRefList
  WL 'ME_4A54DD4E036F' '47913B47006E.pas.ms.script' // Tl3ProtoDataContainer
- ) .SequenceCode.It
+ )
  ; // Inherits
  : Attributes
-   @ ( ME_4F2F77200063 // ItemType
- ) .SequenceCode.It
+   Seq: ( ME_4F2F77200063 // ItemType
+ )
  ; // Attributes
  : Operations
-   @ ( ME_4FC618A7012C // PenultimateItem
- ) .SequenceCode.It
+   Seq: ( ME_4FC618A7012C // PenultimateItem
+ )
  ; // Operations
  : Implemented
-   @ ( ME_47B2C42A0163_ME_4F2F72A103AB // AssignItem
+   Seq: ( ME_47B2C42A0163_ME_4F2F72A103AB // AssignItem
  ME_47B99D4503A2_ME_4F2F72A103AB // CompareExistingItems
- ) .SequenceCode.It
+ )
  ; // Implemented
  CONST "author" 'Инишев Д.А.'
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest'
  CONST intf.pas:Path 'common\components\gui\Garant\Everest\evCellsOffsetsPairList.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'CellsOffsetsPairList'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'evCellsOffsetsPairList'
 
 ref; // ME_4F2F72A103AB TevCellsOffsetsPairList
 
@@ -3280,8 +3310,8 @@ ref; // ME_4FC707FE01D0 aLogName
  : Parent ME_4FC7028201D4 // IevCellsWidthCorrecterLogger
  ;
  : Parameters
-   @ ( ME_4FC707FE01D0 // aLogName
- ) .SequenceCode.It
+   Seq: ( ME_4FC707FE01D0 // aLogName
+ )
  ; // Parameters
 
 ref; // ME_4FC707E401BA CloseLog
@@ -3298,10 +3328,16 @@ ref; // ME_4FC707E401BA CloseLog
  : Parent ME_4FC701EC00C0 // TevCellWidthCorrecterSpy
  ;
  : Operations
-   @ ( ME_4FC707D40199 // OpenLog
+   Seq: ( ME_4FC707D40199 // OpenLog
  ME_4FC707E401BA // CloseLog
- ) .SequenceCode.It
+ )
  ; // Operations
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'CellsWidthCorrecterLogger'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_4FC7028201D4 IevCellsWidthCorrecterLogger
 
@@ -3374,12 +3410,16 @@ ref; // ME_4FC7096303A4 rNewWidth
  : Parent ME_4FC701EC00C0 // TevCellWidthCorrecterSpy
  ;
  : Attributes
-   @ ( ME_4FC709290017 // rCellID
+   Seq: ( ME_4FC709290017 // rCellID
  ME_4FC7093A001D // rCellText
  ME_4FC709540014 // rOldWidth
  ME_4FC7096303A4 // rNewWidth
- ) .SequenceCode.It
+ )
  ; // Attributes
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_4FC7091601C8 TevCellLogData
 
@@ -3451,8 +3491,8 @@ ref; // ME_4FC704CE0228 DoIt
  : Parent ME_4FC701EC00C0 // TevCellWidthCorrecterSpy
  ;
  : Operations
-   @ ( ME_4FC704CE0228 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_4FC704CE0228 // DoIt
+ )
  ; // Operations
  CONST "is static" true
 
@@ -3479,8 +3519,8 @@ ref; // ME_4FC707B10215 aLogger
  : Parent ME_4FC7078600A7 // SetLogger
  ;
  : Parameters
-   @ ( ME_4FC707B10215 // aLogger
- ) .SequenceCode.It
+   Seq: ( ME_4FC707B10215 // aLogger
+ )
  ; // Parameters
 
 ref; // ME_4FC70796004D DoIt
@@ -3496,8 +3536,8 @@ ref; // ME_4FC70796004D DoIt
  : Parent ME_4FC701EC00C0 // TevCellWidthCorrecterSpy
  ;
  : Operations
-   @ ( ME_4FC70796004D // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_4FC70796004D // DoIt
+ )
  ; // Operations
 
 ref; // ME_4FC7078600A7 SetLogger
@@ -3523,8 +3563,8 @@ ref; // ME_4FC707CA032B aLogger
  : Parent ME_4FC707B501FD // RemoveLogger
  ;
  : Parameters
-   @ ( ME_4FC707CA032B // aLogger
- ) .SequenceCode.It
+   Seq: ( ME_4FC707CA032B // aLogger
+ )
  ; // Parameters
 
 ref; // ME_4FC707C0029B DoIt
@@ -3540,8 +3580,8 @@ ref; // ME_4FC707C0029B DoIt
  : Parent ME_4FC701EC00C0 // TevCellWidthCorrecterSpy
  ;
  : Operations
-   @ ( ME_4FC707C0029B // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_4FC707C0029B // DoIt
+ )
  ; // Operations
 
 ref; // ME_4FC707B501FD RemoveLogger
@@ -3570,8 +3610,8 @@ ref; // ME_4FC70852012B DoIt
  : Parent ME_4FC701EC00C0 // TevCellWidthCorrecterSpy
  ;
  : Operations
-   @ ( ME_4FC70852012B // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_4FC70852012B // DoIt
+ )
  ; // Operations
 
 ref; // ME_4FC708230066 StartSaveData
@@ -3600,8 +3640,8 @@ ref; // ME_4FC708680361 DoIt
  : Parent ME_4FC701EC00C0 // TevCellWidthCorrecterSpy
  ;
  : Operations
-   @ ( ME_4FC708680361 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_4FC708680361 // DoIt
+ )
  ; // Operations
 
 ref; // ME_4FC7085C00D7 EndSaveData
@@ -3627,8 +3667,8 @@ ref; // ME_4FC709A40398 aCellLogData
  : Parent ME_4FC708720012 // SaveAlignmentData
  ;
  : Parameters
-   @ ( ME_4FC709A40398 // aCellLogData
- ) .SequenceCode.It
+   Seq: ( ME_4FC709A40398 // aCellLogData
+ )
  ; // Parameters
 
 ref; // ME_4FC709910019 DoIt
@@ -3644,8 +3684,8 @@ ref; // ME_4FC709910019 DoIt
  : Parent ME_4FC701EC00C0 // TevCellWidthCorrecterSpy
  ;
  : Operations
-   @ ( ME_4FC709910019 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_4FC709910019 // DoIt
+ )
  ; // Operations
 
 ref; // ME_4FC708720012 SaveAlignmentData
@@ -3691,10 +3731,10 @@ ref; // ME_4FC70A00015C aNewRowWidth
  : Parent ME_4FC709AF00B7 // SaveRowData
  ;
  : Parameters
-   @ ( ME_4FC70A00011B // anIndex
+   Seq: ( ME_4FC70A00011B // anIndex
  ME_4FC70A00013B // aOldRowWidth
  ME_4FC70A00015C // aNewRowWidth
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_4FC709C7010D DoIt
@@ -3710,8 +3750,8 @@ ref; // ME_4FC709C7010D DoIt
  : Parent ME_4FC701EC00C0 // TevCellWidthCorrecterSpy
  ;
  : Operations
-   @ ( ME_4FC709C7010D // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_4FC709C7010D // DoIt
+ )
  ; // Operations
 
 ref; // ME_4FC709AF00B7 SaveRowData
@@ -3742,8 +3782,8 @@ ref; // ME_4FC7240A011E DoIt
  : Parent ME_4FC701EC00C0 // TevCellWidthCorrecterSpy
  ;
  : Operations
-   @ ( ME_4FC7240A011E // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_4FC7240A011E // DoIt
+ )
  ; // Operations
 
 ref; // ME_4FC723F7027F NeedLog
@@ -3810,6 +3850,7 @@ ref; // ME_529736C400F4
  ;
  : Implementor ME_4FC701EC00C0 // TevCellWidthCorrecterSpy
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_479731C50290_ME_4FC701EC00C0 Cleanup
 
 : ME_5000565C019C_ME_4FC701EC00C0
@@ -3819,6 +3860,7 @@ ref; // ME_479731C50290_ME_4FC701EC00C0 Cleanup
  ;
  : Implementor ME_4FC701EC00C0 // TevCellWidthCorrecterSpy
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_5000565C019C_ME_4FC701EC00C0 ClearFields
 
 : ME_4FC701EC00C0
@@ -3833,17 +3875,17 @@ ref; // ME_5000565C019C_ME_4FC701EC00C0 ClearFields
  : Parent ME_4E451815031E // CellUtils
  ;
  : Inherits
-   @ ( WL 'ME_49E7754802A9' '47913B47006E.pas.ms.script' // Tl3ProtoObject
- ) .SequenceCode.It
+   Seq: ( WL 'ME_49E7754802A9' '47913B47006E.pas.ms.script' // Tl3ProtoObject
+ )
  ; // Inherits
  : Attributes
-   @ ( ME_4FC702AA039E // f_Logger
+   Seq: ( ME_4FC702AA039E // f_Logger
  ME_4FC7030C0190 // f_Filer
  ME_4FC70DAD02DE // f_LogName
- ) .SequenceCode.It
+ )
  ; // Attributes
  : Operations
-   @ ( ME_4FC704C00038 // Exists
+   Seq: ( ME_4FC704C00038 // Exists
  ME_4FC7078600A7 // SetLogger
  ME_4FC707B501FD // RemoveLogger
  ME_4FC708230066 // StartSaveData
@@ -3851,37 +3893,39 @@ ref; // ME_5000565C019C_ME_4FC701EC00C0 ClearFields
  ME_4FC708720012 // SaveAlignmentData
  ME_4FC709AF00B7 // SaveRowData
  ME_4FC723F7027F // NeedLog
- ) .SequenceCode.It
+ )
  ; // Operations
  : Overridden
-   @ ( ME_479731C50290_ME_4FC701EC00C0 // Cleanup
+   Seq: ( ME_479731C50290_ME_4FC701EC00C0 // Cleanup
  ME_5000565C019C_ME_4FC701EC00C0 // ClearFields
- ) .SequenceCode.It
+ )
  ; // Overridden
  : Children
-   @ ( ME_4FC7028201D4 // IevCellsWidthCorrecterLogger
+   Seq: ( ME_4FC7028201D4 // IevCellsWidthCorrecterLogger
  ME_4FC7091601C8 // TevCellLogData
- ) .SequenceCode.It
+ )
  ; // Children
  : Dependencies
-   @ ( ME_4FC70D3F01AB // 
+   Seq: ( ME_4FC70D3F01AB // 
  ME_4FC70DA700FD // 
  ME_5295CFAD0057 // 
  ME_5295D001023C // 
  ME_529736C400F4 // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" true
  CONST "register in scripts" 'undefined'
  CONST "singleton" true
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest'
  CONST intf.pas:Path 'common\components\gui\Garant\Everest\evCellWidthCorrecterSpy.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'CellWidthCorrecterSpy'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'evCellWidthCorrecterSpy'
 
 ref; // ME_4FC701EC00C0 TevCellWidthCorrecterSpy
 
@@ -3909,6 +3953,7 @@ ref; // ME_5346B2F401B2 aRange
  CONST Value 'nil'
  : ValueType WL 'ME_4754205E002C' '4677FBA70343.pas.ms.script' // Il3Progress
  ;
+ CONST extprop:pas:Value 'nil'
 
 ref; // ME_5346B2F401F1 aProgress
 
@@ -3923,9 +3968,9 @@ ref; // ME_5346B2F401F1 aProgress
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
  : Parameters
-   @ ( ME_5346B2F401B2 // aRange
+   Seq: ( ME_5346B2F401B2 // aRange
  ME_5346B2F401F1 // aProgress
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_4F2B7E1F01C1 DoIt
@@ -4032,11 +4077,11 @@ ref; // ME_4F2BB56F0266
  : Parent ME_4F2B77C00327 // evTableTools
  ;
  : Operations
-   @ ( ME_4F2B7E1F01C1 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_4F2B7E1F01C1 // DoIt
+ )
  ; // Operations
  : Dependencies
-   @ ( ME_4F2BAECF02A3 // 
+   Seq: ( ME_4F2BAECF02A3 // 
  ME_4F2BAEF103BF // 
  ME_4F2BB4B6004C // 
  ME_4F2BB4D7017B // 
@@ -4044,9 +4089,10 @@ ref; // ME_4F2BB56F0266
  ME_4F2BB529017F // 
  ME_4F2BB541024F // 
  ME_4F2BB56F0266 // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  CONST "ifndef" 'Nemesis'
+ CONST extprop:rc:SelfName 'MakeTableRegular'
 
 ref; // ME_4F2B77FD0024 evMakeTableRegular
 
@@ -4072,6 +4118,7 @@ ref; // ME_5346B2EB00A2 aRange
  CONST Value 0
  : ValueType WL 'ME_4DE60F5E00A6' '4AB0C3C60310.pas.ms.script' // LongInt
  ;
+ CONST extprop:pas:Value 0
 
 ref; // ME_4F2B7E11023D aWidth
 
@@ -4086,9 +4133,9 @@ ref; // ME_4F2B7E11023D aWidth
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
  : Parameters
-   @ ( ME_5346B2EB00A2 // aRange
+   Seq: ( ME_5346B2EB00A2 // aRange
  ME_4F2B7E11023D // aWidth
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_4F2B7E02008E DoIt
@@ -4116,14 +4163,15 @@ ref; // ME_54C2192103AD
  : Parent ME_4F2B77C00327 // evTableTools
  ;
  : Operations
-   @ ( ME_4F2B7E02008E // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_4F2B7E02008E // DoIt
+ )
  ; // Operations
  : Dependencies
-   @ ( ME_54C2192103AD // 
- ) .SequenceCode.It
+   Seq: ( ME_54C2192103AD // 
+ )
  ; // Dependencies
  CONST "ifndef" 'Nemesis'
+ CONST extprop:rc:SelfName 'Table_FixNSRCWidth'
 
 ref; // ME_4F2B781C0164 evTable_FixNSRCWidth
 
@@ -4160,9 +4208,9 @@ ref; // ME_4F2BA318014E theWidth
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
  : Parameters
-   @ ( ME_52BD34E20176 // aColumn
+   Seq: ( ME_52BD34E20176 // aColumn
  ME_4F2BA318014E // theWidth
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_4F2BA2F301D0 DoIt
@@ -4234,18 +4282,19 @@ ref; // ME_4F2BB47401C5
  : Parent ME_4F2B77C00327 // evTableTools
  ;
  : Operations
-   @ ( ME_4F2BA2F301D0 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_4F2BA2F301D0 // DoIt
+ )
  ; // Operations
  : Dependencies
-   @ ( ME_4F2BAF9F020C // 
+   Seq: ( ME_4F2BAF9F020C // 
  ME_4F2BB0F6037A // 
  ME_4F2BB3FB011D // 
  ME_4F2BB4540199 // 
  ME_4F2BB47401C5 // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  CONST "ifndef" 'Nemesis'
+ CONST extprop:rc:SelfName 'Table_CalculateNSRCWidth'
 
 ref; // ME_4F2B7DD502A3 evTable_CalculateNSRCWidth
 
@@ -4270,8 +4319,8 @@ ref; // ME_52BD34DB0020 aTable
  : Parent ME_4F2BBCB400BF // evCheckTableRegular
  ;
  : Parameters
-   @ ( ME_52BD34DB0020 // aTable
- ) .SequenceCode.It
+   Seq: ( ME_52BD34DB0020 // aTable
+ )
  ; // Parameters
 
 ref; // ME_4F2BBCC7036D DoIt
@@ -4298,14 +4347,15 @@ ref; // ME_4F2BBF3A01DB
  : Parent ME_4F2B77C00327 // evTableTools
  ;
  : Operations
-   @ ( ME_4F2BBCC7036D // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_4F2BBCC7036D // DoIt
+ )
  ; // Operations
  : Dependencies
-   @ ( ME_4F2BBF3A01DB // 
- ) .SequenceCode.It
+   Seq: ( ME_4F2BBF3A01DB // 
+ )
  ; // Dependencies
  CONST "ifndef" 'Nemesis'
+ CONST extprop:rc:SelfName 'CheckTableRegular'
 
 ref; // ME_4F2BBCB400BF evCheckTableRegular
 
@@ -4331,6 +4381,7 @@ ref; // ME_5346B2E1013F aColumnsIterator
  CONST Value 0
  : ValueType WL 'ME_4DE60F5E00A6' '4AB0C3C60310.pas.ms.script' // LongInt
  ;
+ CONST extprop:pas:Value 0
 
 ref; // ME_4F2BBD82002B aWidth
 
@@ -4345,9 +4396,9 @@ ref; // ME_4F2BBD82002B aWidth
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
  : Parameters
-   @ ( ME_5346B2E1013F // aColumnsIterator
+   Seq: ( ME_5346B2E1013F // aColumnsIterator
  ME_4F2BBD82002B // aWidth
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_4F2BBD63036C DoIt
@@ -4363,10 +4414,11 @@ ref; // ME_4F2BBD63036C DoIt
  : Parent ME_4F2B77C00327 // evTableTools
  ;
  : Operations
-   @ ( ME_4F2BBD63036C // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_4F2BBD63036C // DoIt
+ )
  ; // Operations
  CONST "ifndef" 'Nemesis'
+ CONST extprop:rc:SelfName 'Table_FixNSRCWidth'
 
 ref; // ME_4F2BBD58017D evTable_FixNSRCWidth$1
 
@@ -4392,6 +4444,7 @@ ref; // ME_5346B2E402D1 aColumn
  CONST Value 0
  : ValueType WL 'ME_4DE60F5E00A6' '4AB0C3C60310.pas.ms.script' // LongInt
  ;
+ CONST extprop:pas:Value 0
 
 ref; // ME_4F2BBDD70292 aWidth
 
@@ -4406,9 +4459,9 @@ ref; // ME_4F2BBDD70292 aWidth
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
  : Parameters
-   @ ( ME_5346B2E402D1 // aColumn
+   Seq: ( ME_5346B2E402D1 // aColumn
  ME_4F2BBDD70292 // aWidth
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_4F2BBDD101F6 DoIt
@@ -4424,10 +4477,11 @@ ref; // ME_4F2BBDD101F6 DoIt
  : Parent ME_4F2B77C00327 // evTableTools
  ;
  : Operations
-   @ ( ME_4F2BBDD101F6 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_4F2BBDD101F6 // DoIt
+ )
  ; // Operations
  CONST "ifndef" 'Nemesis'
+ CONST extprop:rc:SelfName 'Table_FixNSRCWidth'
 
 ref; // ME_4F2BBD9400E2 evTable_FixNSRCWidth$2
 
@@ -4463,6 +4517,7 @@ ref; // ME_4F2BBFE303A3 aSeparateOp
  CONST Value 'nil'
  : ValueType WL 'ME_4754205E002C' '4677FBA70343.pas.ms.script' // Il3Progress
  ;
+ CONST extprop:pas:Value 'nil'
 
 ref; // ME_52BD34D30064 aProgress
 
@@ -4477,10 +4532,10 @@ ref; // ME_52BD34D30064 aProgress
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
  : Parameters
-   @ ( ME_52BD34D30039 // aTable
+   Seq: ( ME_52BD34D30039 // aTable
  ME_4F2BBFE303A3 // aSeparateOp
  ME_52BD34D30064 // aProgress
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_4F2BBFBB0011 DoIt
@@ -4496,10 +4551,11 @@ ref; // ME_4F2BBFBB0011 DoIt
  : Parent ME_4F2B77C00327 // evTableTools
  ;
  : Operations
-   @ ( ME_4F2BBFBB0011 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_4F2BBFBB0011 // DoIt
+ )
  ; // Operations
  CONST "ifndef" 'Nemesis'
+ CONST extprop:rc:SelfName 'MakeTableRegular'
 
 ref; // ME_4F2BBFAC0192 evMakeTableRegular$1
 
@@ -4546,10 +4602,10 @@ ref; // ME_4FC47A8C0175 anUp
  : Target WL 'ME_47C520D80305' '47C5207602D1.pas.ms.script' // InevPara
  ;
  : Parameters
-   @ ( ME_52BD34EE0293 // aView
+   Seq: ( ME_52BD34EE0293 // aView
  ME_52BD34F60321 // aCell
  ME_4FC47A8C0175 // anUp
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_4F2BC0510204 DoIt
@@ -4598,15 +4654,16 @@ ref; // ME_4FC47C190045
  : Parent ME_4F2B77C00327 // evTableTools
  ;
  : Operations
-   @ ( ME_4F2BC0510204 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_4F2BC0510204 // DoIt
+ )
  ; // Operations
  : Dependencies
-   @ ( ME_4FC47BA5033D // 
+   Seq: ( ME_4FC47BA5033D // 
  ME_4FC47BCB0225 // 
  ME_4FC47C190045 // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
+ CONST extprop:rc:SelfName 'Table_GetNeighbour'
 
 ref; // ME_4F2BC0450156 evTable_GetNeighbour
 
@@ -4644,7 +4701,7 @@ ref; // ME_5346B2B70361
  : Parent ME_4E451815031E // CellUtils
  ;
  : Operations
-   @ ( ME_4F2B77FD0024 // evMakeTableRegular
+   Seq: ( ME_4F2B77FD0024 // evMakeTableRegular
  ME_4F2B781C0164 // evTable_FixNSRCWidth
  ME_4F2B7DD502A3 // evTable_CalculateNSRCWidth
  ME_4F2BBCB400BF // evCheckTableRegular
@@ -4652,20 +4709,20 @@ ref; // ME_5346B2B70361
  ME_4F2BBD9400E2 // evTable_FixNSRCWidth$2
  ME_4F2BBFAC0192 // evMakeTableRegular$1
  ME_4F2BC0450156 // evTable_GetNeighbour
- ) .SequenceCode.It
+ )
  ; // Operations
  : Dependencies
-   @ ( ME_52BD34BE02FE // 
+   Seq: ( ME_52BD34BE02FE // 
  ME_5346B2B70361 // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  CONST "no hands" false
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest'
  CONST intf.pas:Path 'common\components\gui\Garant\Everest\evTableTools.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'TableTools'
 
 ref; // ME_4F2B77C00327 evTableTools
 
@@ -4707,8 +4764,8 @@ ref; // ME_50922CC10232 anIterator
  : Parent ME_50922CA3006F // Try2RemeberWidths
  ;
  : Parameters
-   @ ( ME_50922CC10232 // anIterator
- ) .SequenceCode.It
+   Seq: ( ME_50922CC10232 // anIterator
+ )
  ; // Parameters
 
 ref; // ME_50922CB40275 DoIt
@@ -4724,8 +4781,8 @@ ref; // ME_50922CB40275 DoIt
  : Parent ME_509228200297 // TevCellsOffsetsList
  ;
  : Operations
-   @ ( ME_50922CB40275 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_50922CB40275 // DoIt
+ )
  ; // Operations
 
 ref; // ME_50922CA3006F Try2RemeberWidths
@@ -4763,9 +4820,9 @@ ref; // ME_50937603005B aForTempate
  : Target ME_4F2F6CA40273 // TevCellsCharOffsets
  ;
  : Parameters
-   @ ( ME_50937603003C // anIterator
+   Seq: ( ME_50937603003C // anIterator
  ME_50937603005B // aForTempate
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_509375CA0284 DoIt
@@ -4781,8 +4838,8 @@ ref; // ME_509375CA0284 DoIt
  : Parent ME_509228200297 // TevCellsOffsetsList
  ;
  : Operations
-   @ ( ME_509375CA0284 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_509375CA0284 // DoIt
+ )
  ; // Operations
 
 ref; // ME_509375AF03C8 FindList
@@ -4794,6 +4851,7 @@ ref; // ME_509375AF03C8 FindList
  ;
  : Implementor ME_509228200297 // TevCellsOffsetsList
  ;
+ CONST OpKind opkind_Implemented
  CONST "ifdef" 'l3Items_NeedsAssignItem'
  CONST "ifndef" 'l3Items_NoSort'
 ref; // ME_47B2C42A0163_ME_509228200297 AssignItem
@@ -4805,6 +4863,7 @@ ref; // ME_47B2C42A0163_ME_509228200297 AssignItem
  ;
  : Implementor ME_509228200297 // TevCellsOffsetsList
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_47B99D4503A2_ME_509228200297 CompareExistingItems
 
 : ME_509228200297
@@ -4818,34 +4877,36 @@ ref; // ME_47B99D4503A2_ME_509228200297 CompareExistingItems
  : Parent ME_4E451815031E // CellUtils
  ;
  : Inherits
-   @ ( WL 'ME_47B99E920196' '47913B47006E.pas.ms.script' // l3UncomparabeObjectRefList
+   Seq: ( WL 'ME_47B99E920196' '47913B47006E.pas.ms.script' // l3UncomparabeObjectRefList
  WL 'ME_4A54DD4E036F' '47913B47006E.pas.ms.script' // Tl3ProtoDataContainer
- ) .SequenceCode.It
+ )
  ; // Inherits
  : Attributes
-   @ ( ME_50922ACE019F // ItemType
- ) .SequenceCode.It
+   Seq: ( ME_50922ACE019F // ItemType
+ )
  ; // Attributes
  : Operations
-   @ ( ME_50922CA3006F // Try2RemeberWidths
+   Seq: ( ME_50922CA3006F // Try2RemeberWidths
  ME_509375AF03C8 // FindList
- ) .SequenceCode.It
+ )
  ; // Operations
  : Implemented
-   @ ( ME_47B2C42A0163_ME_509228200297 // AssignItem
+   Seq: ( ME_47B2C42A0163_ME_509228200297 // AssignItem
  ME_47B99D4503A2_ME_509228200297 // CompareExistingItems
- ) .SequenceCode.It
+ )
  ; // Implemented
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest'
  CONST intf.pas:Path 'common\components\gui\Garant\Everest\evCellsOffsetsList.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'CellsOffsetsList'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'evCellsOffsetsList'
 
 ref; // ME_509228200297 TevCellsOffsetsList
 
@@ -4900,8 +4961,8 @@ ref; // ME_5355428B0300 anIterator
  : Parent ME_4F29052701FB // RememberRowWidth
  ;
  : Parameters
-   @ ( ME_5355428B0300 // anIterator
- ) .SequenceCode.It
+   Seq: ( ME_5355428B0300 // anIterator
+ )
  ; // Parameters
 
 ref; // ME_4F2905320292 DoIt
@@ -4917,8 +4978,8 @@ ref; // ME_4F2905320292 DoIt
  : Parent ME_4F28F7160399 // TevCopyTableCellWidth
  ;
  : Operations
-   @ ( ME_4F2905320292 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_4F2905320292 // DoIt
+ )
  ; // Operations
 
 ref; // ME_4F29052701FB RememberRowWidth
@@ -4942,8 +5003,8 @@ ref; // ME_5355424D018B aRange
  : Parent ME_4F28F7160399 // TevCopyTableCellWidth
  ;
  : Parameters
-   @ ( ME_5355424D018B // aRange
- ) .SequenceCode.It
+   Seq: ( ME_5355424D018B // aRange
+ )
  ; // Parameters
 
 ref; // ME_4F28FC7702ED RememberWidths
@@ -4968,6 +5029,7 @@ ref; // ME_5355425500EC aRange
  CONST Value 'nil'
  : ValueType WL 'ME_4754205E002C' '4677FBA70343.pas.ms.script' // Il3Progress
  ;
+ CONST extprop:pas:Value 'nil'
 
 ref; // ME_53554255011D aProgress
 
@@ -4980,9 +5042,9 @@ ref; // ME_53554255011D aProgress
  : Parent ME_4F28F7160399 // TevCopyTableCellWidth
  ;
  : Parameters
-   @ ( ME_5355425500EC // aRange
+   Seq: ( ME_5355425500EC // aRange
  ME_53554255011D // aProgress
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_4F28FC900076 ApplyWidths
@@ -5014,6 +5076,7 @@ ref; // ME_4F28FCDD00F8 Clear
 : ME_EC13559E8B86
  CONST UID 'EC13559E8B86'
  CONST Name 'Exists'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_static::Operation ;
  %SUMMARY 'Проверяет создан экземпляр синглетона или нет' ;
@@ -5023,6 +5086,7 @@ ref; // ME_4F28FCDD00F8 Clear
  ;
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
+ CONST extprop:pas:Value false
 
 ref; // ME_EC13559E8B86 Exists
 
@@ -5066,6 +5130,7 @@ ref; // ME_53554C780204
  ;
  : Implementor ME_4F28F7160399 // TevCopyTableCellWidth
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_479731C50290_ME_4F28F7160399 Cleanup
 
 : ME_4F28F7160399
@@ -5080,32 +5145,32 @@ ref; // ME_479731C50290_ME_4F28F7160399 Cleanup
  : Parent ME_4E451815031E // CellUtils
  ;
  : Inherits
-   @ ( WL 'ME_49E7754802A9' '47913B47006E.pas.ms.script' // Tl3ProtoObject
- ) .SequenceCode.It
+   Seq: ( WL 'ME_49E7754802A9' '47913B47006E.pas.ms.script' // Tl3ProtoObject
+ )
  ; // Inherits
  : Attributes
-   @ ( ME_50922CDE007D // f_TemplatesArray
+   Seq: ( ME_50922CDE007D // f_TemplatesArray
  ME_50ED21D502E1 // f_TableTag
- ) .SequenceCode.It
+ )
  ; // Attributes
  : Operations
-   @ ( ME_4F29052701FB // RememberRowWidth
+   Seq: ( ME_4F29052701FB // RememberRowWidth
  ME_4F28FC7702ED // RememberWidths
  ME_4F28FC900076 // ApplyWidths
  ME_4F28FCC703E7 // CanApply
  ME_4F28FCDD00F8 // Clear
  ME_EC13559E8B86 // Exists
- ) .SequenceCode.It
+ )
  ; // Operations
  : Overridden
-   @ ( ME_479731C50290_ME_4F28F7160399 // Cleanup
- ) .SequenceCode.It
+   Seq: ( ME_479731C50290_ME_4F28F7160399 // Cleanup
+ )
  ; // Overridden
  : Dependencies
-   @ ( ME_4F29062E001F // 
+   Seq: ( ME_4F29062E001F // 
  ME_50927325026C // 
  ME_53554C780204 // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  CONST "author" 'Инишев Д.А.'
  CONST "needs InstanceR" 'undefined'
@@ -5113,12 +5178,14 @@ ref; // ME_479731C50290_ME_4F28F7160399 Cleanup
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
  CONST "singleton" true
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest'
  CONST intf.pas:Path 'common\components\gui\Garant\Everest\evCopyTableCellWidth.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'CopyTableCellWidth'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'evCopyTableCellWidth'
 
 ref; // ME_4F28F7160399 TevCopyTableCellWidth
 
@@ -5165,6 +5232,7 @@ ref; // ME_51123FF703D5 CurrentRowType
 : ME_A9CC49571C08
  CONST UID 'A9CC49571C08'
  CONST Name 'f_TableStyle'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY 'Поле для свойства TableStyle' ;
  CONST Visibility PrivateAccess
@@ -5180,6 +5248,7 @@ ref; // ME_A9CC49571C08 f_TableStyle
 : ME_1FE32F7FE404
  CONST UID '1FE32F7FE404'
  CONST Name 'f_CurrentRowType'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY 'Поле для свойства CurrentRowType' ;
  CONST Visibility PrivateAccess
@@ -5216,8 +5285,8 @@ ref; // ME_5076B27F0382 DoIt
  : Parent ME_5112379700A6 // TevRowAndTableTypeSupport
  ;
  : Operations
-   @ ( ME_5076B27F0382 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_5076B27F0382 // DoIt
+ )
  ; // Operations
 
 ref; // ME_5076B24B0038 AnalizeTableStyle
@@ -5243,8 +5312,8 @@ ref; // ME_511240CA0361 aRow
  : Parent ME_511240880262 // AnalizeRowType
  ;
  : Parameters
-   @ ( ME_511240CA0361 // aRow
- ) .SequenceCode.It
+   Seq: ( ME_511240CA0361 // aRow
+ )
  ; // Parameters
 
 ref; // ME_511240BA0167 DoIt
@@ -5260,8 +5329,8 @@ ref; // ME_511240BA0167 DoIt
  : Parent ME_5112379700A6 // TevRowAndTableTypeSupport
  ;
  : Operations
-   @ ( ME_511240BA0167 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_511240BA0167 // DoIt
+ )
  ; // Operations
 
 ref; // ME_511240880262 AnalizeRowType
@@ -5287,8 +5356,8 @@ ref; // ME_5114D22F001D aPairList
  : Parent ME_51124284008E // SaveRowType
  ;
  : Parameters
-   @ ( ME_5114D22F001D // aPairList
- ) .SequenceCode.It
+   Seq: ( ME_5114D22F001D // aPairList
+ )
  ; // Parameters
 
 ref; // ME_5112428F0378 DoIt
@@ -5304,8 +5373,8 @@ ref; // ME_5112428F0378 DoIt
  : Parent ME_5112379700A6 // TevRowAndTableTypeSupport
  ;
  : Operations
-   @ ( ME_5112428F0378 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_5112428F0378 // DoIt
+ )
  ; // Operations
 
 ref; // ME_51124284008E SaveRowType
@@ -5336,8 +5405,8 @@ ref; // ME_5114D7700235 DoIt
  : Parent ME_5112379700A6 // TevRowAndTableTypeSupport
  ;
  : Operations
-   @ ( ME_5114D7700235 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_5114D7700235 // DoIt
+ )
  ; // Operations
 
 ref; // ME_5114D749037C GetPrevRowType
@@ -5364,8 +5433,8 @@ ref; // ME_5152D3960307 aRow
  : Parent ME_5152CEDE0255 // CheckRowType
  ;
  : Parameters
-   @ ( ME_5152D3960307 // aRow
- ) .SequenceCode.It
+   Seq: ( ME_5152D3960307 // aRow
+ )
  ; // Parameters
 
 ref; // ME_5152CF1602EB DoIt
@@ -5381,8 +5450,8 @@ ref; // ME_5152CF1602EB DoIt
  : Parent ME_5112379700A6 // TevRowAndTableTypeSupport
  ;
  : Operations
-   @ ( ME_5152CF1602EB // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_5152CF1602EB // DoIt
+ )
  ; // Operations
 
 ref; // ME_5152CEDE0255 CheckRowType
@@ -5414,8 +5483,8 @@ ref; // ME_5152D8E3025F DoIt
  : Parent ME_5112379700A6 // TevRowAndTableTypeSupport
  ;
  : Operations
-   @ ( ME_5152D8E3025F // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_5152D8E3025F // DoIt
+ )
  ; // Operations
 
 ref; // ME_5152D812036E GetCellsCountInPreviousRow
@@ -5427,6 +5496,7 @@ ref; // ME_5152D812036E GetCellsCountInPreviousRow
  ;
  : Implementor ME_5112379700A6 // TevRowAndTableTypeSupport
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_479731C50290_ME_5112379700A6 Cleanup
 
 : ME_47A042E100E2_ME_5112379700A6
@@ -5436,6 +5506,7 @@ ref; // ME_479731C50290_ME_5112379700A6 Cleanup
  ;
  : Implementor ME_5112379700A6 // TevRowAndTableTypeSupport
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_47A042E100E2_ME_5112379700A6 InitFields
 
 : ME_5112379700A6
@@ -5450,40 +5521,42 @@ ref; // ME_47A042E100E2_ME_5112379700A6 InitFields
  : Parent ME_4E451815031E // CellUtils
  ;
  : Inherits
-   @ ( WL 'ME_49E7754802A9' '47913B47006E.pas.ms.script' // Tl3ProtoObject
- ) .SequenceCode.It
+   Seq: ( WL 'ME_49E7754802A9' '47913B47006E.pas.ms.script' // Tl3ProtoObject
+ )
  ; // Inherits
  : Attributes
-   @ ( ME_511238650353 // TableStyle
+   Seq: ( ME_511238650353 // TableStyle
  ME_51123FF703D5 // CurrentRowType
  ME_A9CC49571C08 // f_TableStyle
  ME_1FE32F7FE404 // f_CurrentRowType
- ) .SequenceCode.It
+ )
  ; // Attributes
  : Operations
-   @ ( ME_5076B24B0038 // AnalizeTableStyle
+   Seq: ( ME_5076B24B0038 // AnalizeTableStyle
  ME_511240880262 // AnalizeRowType
  ME_51124284008E // SaveRowType
  ME_5114D749037C // GetPrevRowType
  ME_5152CEDE0255 // CheckRowType
  ME_5152D812036E // GetCellsCountInPreviousRow
- ) .SequenceCode.It
+ )
  ; // Operations
  : Overridden
-   @ ( ME_479731C50290_ME_5112379700A6 // Cleanup
+   Seq: ( ME_479731C50290_ME_5112379700A6 // Cleanup
  ME_47A042E100E2_ME_5112379700A6 // InitFields
- ) .SequenceCode.It
+ )
  ; // Overridden
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest'
  CONST intf.pas:Path 'common\components\gui\Garant\Everest\evRowAndTableTypeSupport.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'RowAndTableTypeSupport'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'evRowAndTableTypeSupport'
 
 ref; // ME_5112379700A6 TevRowAndTableTypeSupport
 
@@ -5536,11 +5609,16 @@ ref; // ME_511C73B302C3 ev_fstInList
  : Parent ME_4F2B767D015E // TevCellsWidthCorrecter
  ;
  : Attributes
-   @ ( ME_511C738F0392 // ev_fstNone
+   Seq: ( ME_511C738F0392 // ev_fstNone
  ME_511C73A40196 // ev_fstTemplate
  ME_511C73B302C3 // ev_fstInList
- ) .SequenceCode.It
+ )
  ; // Attributes
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_511C73740306 TevFoundSuitebleType
 
@@ -5749,10 +5827,10 @@ ref; // ME_5119E7F5003A aCellCount
  : Parent ME_4F2F734203C7 // ApplyChanges
  ;
  : Parameters
-   @ ( ME_5119E7F5000B // anOp
+   Seq: ( ME_5119E7F5000B // anOp
  ME_5119E7F5001B // anIterator
  ME_5119E7F5003A // aCellCount
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_4F2F73500321 DoIt
@@ -5768,8 +5846,8 @@ ref; // ME_4F2F73500321 DoIt
  : Parent ME_4F2B767D015E // TevCellsWidthCorrecter
  ;
  : Operations
-   @ ( ME_4F2F73500321 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_4F2F73500321 // DoIt
+ )
  ; // Operations
 
 ref; // ME_4F2F734203C7 ApplyChanges
@@ -5795,8 +5873,8 @@ ref; // ME_509239050276 aForegnTemplates
  : Parent ME_4F2F73CD01D1 // Create
  ;
  : Parameters
-   @ ( ME_509239050276 // aForegnTemplates
- ) .SequenceCode.It
+   Seq: ( ME_509239050276 // aForegnTemplates
+ )
  ; // Parameters
 
 ref; // ME_4F2F73D7018E DoIt
@@ -5812,8 +5890,8 @@ ref; // ME_4F2F73D7018E DoIt
  : Parent ME_4F2B767D015E // TevCellsWidthCorrecter
  ;
  : Operations
-   @ ( ME_4F2F73D7018E // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_4F2F73D7018E // DoIt
+ )
  ; // Operations
 
 ref; // ME_4F2F73CD01D1 Create
@@ -5844,8 +5922,8 @@ ref; // ME_4FA5051F0085 DoIt
  : Parent ME_4F2B767D015E // TevCellsWidthCorrecter
  ;
  : Operations
-   @ ( ME_4FA5051F0085 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_4FA5051F0085 // DoIt
+ )
  ; // Operations
 
 ref; // ME_4FA504FF0217 TryToCopyFromSuitableList
@@ -5876,8 +5954,8 @@ ref; // ME_4FA509760136 DoIt
  : Parent ME_4F2B767D015E // TevCellsWidthCorrecter
  ;
  : Operations
-   @ ( ME_4FA509760136 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_4FA509760136 // DoIt
+ )
  ; // Operations
 
 ref; // ME_4FA5095F01AE GetTemplate
@@ -5908,8 +5986,8 @@ ref; // ME_4FA520B1013D DoIt
  : Parent ME_4F2B767D015E // TevCellsWidthCorrecter
  ;
  : Operations
-   @ ( ME_4FA520B1013D // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_4FA520B1013D // DoIt
+ )
  ; // Operations
 
 ref; // ME_4FA5209302CC GetRowsWithSingleCell
@@ -5937,8 +6015,8 @@ ref; // ME_511214EE0235 aCellIterator
  : Target ME_4F2F6F750263 // TevCellsOffsetsPair
  ;
  : Parameters
-   @ ( ME_511214EE0235 // aCellIterator
- ) .SequenceCode.It
+   Seq: ( ME_511214EE0235 // aCellIterator
+ )
  ; // Parameters
 
 ref; // ME_4FA52CBF0270 DoIt
@@ -5954,8 +6032,8 @@ ref; // ME_4FA52CBF0270 DoIt
  : Parent ME_4F2B767D015E // TevCellsWidthCorrecter
  ;
  : Operations
-   @ ( ME_4FA52CBF0270 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_4FA52CBF0270 // DoIt
+ )
  ; // Operations
 
 ref; // ME_4FA52C7A027C AddevCellsOffsetsPair
@@ -5984,8 +6062,8 @@ ref; // ME_4FA5308F0063 DoIt
  : Parent ME_4F2B767D015E // TevCellsWidthCorrecter
  ;
  : Operations
-   @ ( ME_4FA5308F0063 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_4FA5308F0063 // DoIt
+ )
  ; // Operations
 
 ref; // ME_4FA530670256 CheckRowsWithSingleCell
@@ -6013,8 +6091,8 @@ ref; // ME_511C74280292 aFoundType
  : Target ME_4F2F6F750263 // TevCellsOffsetsPair
  ;
  : Parameters
-   @ ( ME_511C74280292 // aFoundType
- ) .SequenceCode.It
+   Seq: ( ME_511C74280292 // aFoundType
+ )
  ; // Parameters
 
 ref; // ME_4FC5D32D00EA DoIt
@@ -6030,8 +6108,8 @@ ref; // ME_4FC5D32D00EA DoIt
  : Parent ME_4F2B767D015E // TevCellsWidthCorrecter
  ;
  : Operations
-   @ ( ME_4FC5D32D00EA // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_4FC5D32D00EA // DoIt
+ )
  ; // Operations
 
 ref; // ME_4FC5D31C000E GetSuitableList
@@ -6067,9 +6145,9 @@ ref; // ME_511C744000F0 aFoundType
  : Parent ME_4FC5D4D2033A // CopyFromSuitableList
  ;
  : Parameters
-   @ ( ME_511C744000D1 // aList
+   Seq: ( ME_511C744000D1 // aList
  ME_511C744000F0 // aFoundType
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_4FC5D4F3022F DoIt
@@ -6085,8 +6163,8 @@ ref; // ME_4FC5D4F3022F DoIt
  : Parent ME_4F2B767D015E // TevCellsWidthCorrecter
  ;
  : Operations
-   @ ( ME_4FC5D4F3022F // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_4FC5D4F3022F // DoIt
+ )
  ; // Operations
 
 ref; // ME_4FC5D4D2033A CopyFromSuitableList
@@ -6117,8 +6195,8 @@ ref; // ME_4FC5EA80037B DoIt
  : Parent ME_4F2B767D015E // TevCellsWidthCorrecter
  ;
  : Operations
-   @ ( ME_4FC5EA80037B // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_4FC5EA80037B // DoIt
+ )
  ; // Operations
 
 ref; // ME_4FC5EA5B0165 GetIterator
@@ -6146,8 +6224,8 @@ ref; // ME_511C791E02D5 aFoundType
  : Target ME_4F2F6F750263 // TevCellsOffsetsPair
  ;
  : Parameters
-   @ ( ME_511C791E02D5 // aFoundType
- ) .SequenceCode.It
+   Seq: ( ME_511C791E02D5 // aFoundType
+ )
  ; // Parameters
 
 ref; // ME_4FC5FC3201EC DoIt
@@ -6164,8 +6242,8 @@ ref; // ME_4FC5FC3201EC DoIt
  : Parent ME_4F2B767D015E // TevCellsWidthCorrecter
  ;
  : Operations
-   @ ( ME_4FC5FC3201EC // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_4FC5FC3201EC // DoIt
+ )
  ; // Operations
 
 ref; // ME_4FC5FBF401A8 CheckPreparrePriorityTemplate
@@ -6194,8 +6272,8 @@ ref; // ME_4FC7270C025B DoIt
  : Parent ME_4F2B767D015E // TevCellsWidthCorrecter
  ;
  : Operations
-   @ ( ME_4FC7270C025B // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_4FC7270C025B // DoIt
+ )
  ; // Operations
 
 ref; // ME_4FC72703007E CheckLog
@@ -6226,8 +6304,8 @@ ref; // ME_4FC8657700AB DoIt
  : Parent ME_4F2B767D015E // TevCellsWidthCorrecter
  ;
  : Operations
-   @ ( ME_4FC8657700AB // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_4FC8657700AB // DoIt
+ )
  ; // Operations
 
 ref; // ME_4FC8655F01B4 FoundPriorityTemplate
@@ -6257,8 +6335,8 @@ ref; // ME_4FC86F4300B4 DoIt
  : Parent ME_4F2B767D015E // TevCellsWidthCorrecter
  ;
  : Operations
-   @ ( ME_4FC86F4300B4 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_4FC86F4300B4 // DoIt
+ )
  ; // Operations
 
 ref; // ME_4FC86F1E023D AlighHeader
@@ -6305,6 +6383,7 @@ ref; // ME_50923F94003F aSeparateOp
  CONST Value 'nil'
  : ValueType WL 'ME_4754205E002C' '4677FBA70343.pas.ms.script' // Il3Progress
  ;
+ CONST extprop:pas:Value 'nil'
 
 ref; // ME_50923F94006E aProgress
 
@@ -6319,11 +6398,11 @@ ref; // ME_50923F94006E aProgress
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
  : Parameters
-   @ ( ME_50923F9303CA // aTable
+   Seq: ( ME_50923F9303CA // aTable
  ME_50923F940020 // aForegnTemplates
  ME_50923F94003F // aSeparateOp
  ME_50923F94006E // aProgress
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_50923F06009C DoIt
@@ -6339,8 +6418,8 @@ ref; // ME_50923F06009C DoIt
  : Parent ME_4F2B767D015E // TevCellsWidthCorrecter
  ;
  : Operations
-   @ ( ME_50923F06009C // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_50923F06009C // DoIt
+ )
  ; // Operations
  CONST "is static" true
 
@@ -6372,8 +6451,8 @@ ref; // ME_509258A8039C DoIt
  : Parent ME_4F2B767D015E // TevCellsWidthCorrecter
  ;
  : Operations
-   @ ( ME_509258A8039C // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_509258A8039C // DoIt
+ )
  ; // Operations
 
 ref; // ME_5092588F021F TryToCopyForeignList
@@ -6411,9 +6490,9 @@ ref; // ME_511C74070154 aFoundType
  : Target ME_4F2F6F750263 // TevCellsOffsetsPair
  ;
  : Parameters
-   @ ( ME_511C74070144 // anIterator
+   Seq: ( ME_511C74070144 // anIterator
  ME_511C74070154 // aFoundType
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_4F2FA5470297 DoIt
@@ -6429,8 +6508,8 @@ ref; // ME_4F2FA5470297 DoIt
  : Parent ME_4F2B767D015E // TevCellsWidthCorrecter
  ;
  : Operations
-   @ ( ME_4F2FA5470297 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_4F2FA5470297 // DoIt
+ )
  ; // Operations
 
 ref; // ME_4F2FA52C00EC FindSuitableListInPrevious
@@ -6466,9 +6545,9 @@ ref; // ME_528DDDA9028C aCellOffsetPair
  : Parent ME_528DDD5B0275 // SaveCellsTypeList
  ;
  : Parameters
-   @ ( ME_528DDDA9027D // aCellIterator
+   Seq: ( ME_528DDDA9027D // aCellIterator
  ME_528DDDA9028C // aCellOffsetPair
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_528DDD6C01CF DoIt
@@ -6495,12 +6574,12 @@ ref; // ME_528DE0A301AD
  : Parent ME_4F2B767D015E // TevCellsWidthCorrecter
  ;
  : Operations
-   @ ( ME_528DDD6C01CF // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_528DDD6C01CF // DoIt
+ )
  ; // Operations
  : Dependencies
-   @ ( ME_528DE0A301AD // 
- ) .SequenceCode.It
+   Seq: ( ME_528DE0A301AD // 
+ )
  ; // Dependencies
 
 ref; // ME_528DDD5B0275 SaveCellsTypeList
@@ -6524,8 +6603,8 @@ ref; // ME_4FC5EBE50231 aRow
  : Parent ME_4F2B767D015E // TevCellsWidthCorrecter
  ;
  : Parameters
-   @ ( ME_4FC5EBE50231 // aRow
- ) .SequenceCode.It
+   Seq: ( ME_4FC5EBE50231 // aRow
+ )
  ; // Parameters
 
 ref; // ME_4F2BC62D00FE CorrectCells
@@ -6569,10 +6648,10 @@ ref; // ME_5119E7C10229 aFirst
  : Parent ME_4F2B767D015E // TevCellsWidthCorrecter
  ;
  : Parameters
-   @ ( ME_5119E7C101CB // anOp
+   Seq: ( ME_5119E7C101CB // anOp
  ME_5119E7C101FA // aRow
  ME_5119E7C10229 // aFirst
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_4F2BC6810005 ApplyChanges2Row
@@ -6683,6 +6762,7 @@ ref; // ME_50926414010C
  ;
  : Implementor ME_4F2B767D015E // TevCellsWidthCorrecter
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_5114D749037C_ME_4F2B767D015E GetPrevRowType
 
 : ME_5152D812036E_ME_4F2B767D015E
@@ -6692,6 +6772,7 @@ ref; // ME_5114D749037C_ME_4F2B767D015E GetPrevRowType
  ;
  : Implementor ME_4F2B767D015E // TevCellsWidthCorrecter
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_5152D812036E_ME_4F2B767D015E GetCellsCountInPreviousRow
 
 : ME_479731C50290_ME_4F2B767D015E
@@ -6701,6 +6782,7 @@ ref; // ME_5152D812036E_ME_4F2B767D015E GetCellsCountInPreviousRow
  ;
  : Implementor ME_4F2B767D015E // TevCellsWidthCorrecter
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_479731C50290_ME_4F2B767D015E Cleanup
 
 : ME_4F2B767D015E
@@ -6715,11 +6797,11 @@ ref; // ME_479731C50290_ME_4F2B767D015E Cleanup
  : Parent ME_4E451815031E // CellUtils
  ;
  : Inherits
-   @ ( ME_5112379700A6 // TevRowAndTableTypeSupport
- ) .SequenceCode.It
+   Seq: ( ME_5112379700A6 // TevRowAndTableTypeSupport
+ )
  ; // Inherits
  : Attributes
-   @ ( ME_4F2F8CE800EB // f_CellsOffsetPairList
+   Seq: ( ME_4F2F8CE800EB // f_CellsOffsetPairList
  ME_4F2F8CF6005D // f_Index
  ME_4F2F8D020078 // f_PrevRowWidth
  ME_4FA5033001F9 // f_PriorityTemplateRow
@@ -6730,10 +6812,10 @@ ref; // ME_479731C50290_ME_4F2B767D015E Cleanup
  ME_4FC8730E03CC // f_HeadAlignment
  ME_509233D502F0 // f_ForegnTemplates
  ME_51541B460391 // f_NumbericData
- ) .SequenceCode.It
+ )
  ; // Attributes
  : Operations
-   @ ( ME_4F2F734203C7 // ApplyChanges
+   Seq: ( ME_4F2F734203C7 // ApplyChanges
  ME_4F2F73CD01D1 // Create
  ME_4FA504FF0217 // TryToCopyFromSuitableList
  ME_4FA5095F01AE // GetTemplate
@@ -6753,23 +6835,23 @@ ref; // ME_479731C50290_ME_4F2B767D015E Cleanup
  ME_528DDD5B0275 // SaveCellsTypeList
  ME_4F2BC62D00FE // CorrectCells
  ME_4F2BC6810005 // ApplyChanges2Row
- ) .SequenceCode.It
+ )
  ; // Operations
  : Implemented
-   @ ( ME_5114D749037C_ME_4F2B767D015E // GetPrevRowType
+   Seq: ( ME_5114D749037C_ME_4F2B767D015E // GetPrevRowType
  ME_5152D812036E_ME_4F2B767D015E // GetCellsCountInPreviousRow
- ) .SequenceCode.It
+ )
  ; // Implemented
  : Overridden
-   @ ( ME_479731C50290_ME_4F2B767D015E // Cleanup
- ) .SequenceCode.It
+   Seq: ( ME_479731C50290_ME_4F2B767D015E // Cleanup
+ )
  ; // Overridden
  : Children
-   @ ( ME_511C73740306 // TevFoundSuitebleType
- ) .SequenceCode.It
+   Seq: ( ME_511C73740306 // TevFoundSuitebleType
+ )
  ; // Children
  : Dependencies
-   @ ( ME_4F2F8FC102CA // 
+   Seq: ( ME_4F2F8FC102CA // 
  ME_4F2F900B0223 // 
  ME_4F2FAFCC01C7 // 
  ME_50924A610219 // 
@@ -6778,19 +6860,21 @@ ref; // ME_479731C50290_ME_4F2B767D015E Cleanup
  ME_50924D77010E // 
  ME_509251A90344 // 
  ME_50926414010C // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  CONST "author" 'Инишев Д.А.'
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest'
  CONST intf.pas:Path 'common\components\gui\Garant\Everest\evCellsWidthCorrecter.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'CellsWidthCorrecter'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'evCellsWidthCorrecter'
 
 ref; // ME_4F2B767D015E TevCellsWidthCorrecter
 
@@ -6848,6 +6932,7 @@ ref; // ME_5342B848035C aProcessor
  CONST Value 'nil'
  : ValueType WL 'ME_47C5B50E0118' '47C5207602D1.pas.ms.script' // InevLocation
  ;
+ CONST extprop:pas:Value 'nil'
 
 ref; // ME_5342B84803B1 aLocation
 
@@ -6862,12 +6947,12 @@ ref; // ME_5342B84803B1 aLocation
  : Target WL 'ME_4BBC94B70059' '48E3836D00C8.pas.ms.script' // IedRow
  ;
  : Parameters
-   @ ( ME_5342B8480290 // aView
+   Seq: ( ME_5342B8480290 // aView
  ME_5342B84802EA // aTable
  ME_5342B8480326 // aTagWrap
  ME_5342B848035C // aProcessor
  ME_5342B84803B1 // aLocation
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_4FC49437020F DoIt
@@ -6883,8 +6968,8 @@ ref; // ME_4FC49437020F DoIt
  : Parent ME_4FC493C90289 // TevRow
  ;
  : Operations
-   @ ( ME_4FC49437020F // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_4FC49437020F // DoIt
+ )
  ; // Operations
  CONST "is static" true
 
@@ -6941,6 +7026,7 @@ ref; // ME_515AF4890335
  ;
  : Implementor ME_4FC493C90289 // TevRow
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" true
 ref; // ME_4BBC94CF038F_ME_4FC493C90289 Table
 
@@ -6951,6 +7037,7 @@ ref; // ME_4BBC94CF038F_ME_4FC493C90289 Table
  ;
  : Implementor ME_4FC493C90289 // TevRow
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" true
 ref; // ME_4BBC94F0016E_ME_4FC493C90289 CellsIterator
 
@@ -6961,6 +7048,7 @@ ref; // ME_4BBC94F0016E_ME_4FC493C90289 CellsIterator
  ;
  : Implementor ME_4FC493C90289 // TevRow
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_4FC49F620379_ME_4FC493C90289 AnalizeRowCells
 
 : ME_4FC493C90289
@@ -6974,41 +7062,43 @@ ref; // ME_4FC49F620379_ME_4FC493C90289 AnalizeRowCells
  : Parent ME_4E451815031E // CellUtils
  ;
  : Inherits
-   @ ( WL 'ME_4FA4F2AA0302' '47F1F38601A3.pas.ms.script' // TevTableChild
- ) .SequenceCode.It
+   Seq: ( WL 'ME_4FA4F2AA0302' '47F1F38601A3.pas.ms.script' // TevTableChild
+ )
  ; // Inherits
  : Implements
-   @ ( WL 'ME_4BBC94B70059' '48E3836D00C8.pas.ms.script' // IedRow
- ) .SequenceCode.It
+   Seq: ( WL 'ME_4BBC94B70059' '48E3836D00C8.pas.ms.script' // IedRow
+ )
  ; // Implements
  : Operations
-   @ ( ME_4FC4942400EF // Make
- ) .SequenceCode.It
+   Seq: ( ME_4FC4942400EF // Make
+ )
  ; // Operations
  : Implemented
-   @ ( ME_4BBC94CF038F_ME_4FC493C90289 // Table
+   Seq: ( ME_4BBC94CF038F_ME_4FC493C90289 // Table
  ME_4BBC94F0016E_ME_4FC493C90289 // CellsIterator
  ME_4FC49F620379_ME_4FC493C90289 // AnalizeRowCells
- ) .SequenceCode.It
+ )
  ; // Implemented
  : Dependencies
-   @ ( ME_4FC495EB0359 // 
+   Seq: ( ME_4FC495EB0359 // 
  ME_4FC49611022B // 
  ME_4FC5D86B03C1 // 
  ME_515AF4890335 // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  CONST "ifdef" 'evNeedEditableCursors'
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest'
  CONST intf.pas:Path 'common\components\gui\Garant\Everest\evRow.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'Row'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'evRow'
 
 ref; // ME_4FC493C90289 TevRow
 
@@ -7023,7 +7113,7 @@ ref; // ME_4FC493C90289 TevRow
  : Parent WL 'ME_4797632D0273' '4797632D0273.pas.ms.script' // Everest
  ;
  : Children
-   @ ( ME_49C217110141 // TevEpsilonLongIntList
+   Seq: ( ME_49C217110141 // TevEpsilonLongIntList
  ME_49CB6E880188 // TevCellsOffsets
  ME_4F2F68D80106 // TevOneCharLongIntList
  ME_511205FA00E2 // TedCellTypesList
@@ -7037,10 +7127,10 @@ ref; // ME_4FC493C90289 TevRow
  ME_5112379700A6 // TevRowAndTableTypeSupport
  ME_4F2B767D015E // TevCellsWidthCorrecter
  ME_4FC493C90289 // TevRow
- ) .SequenceCode.It
+ )
  ; // Children
  : Depends
-   @ ( WL 'ME_4677FBA70343' '4677FBA70343.pas.ms.script' // l3Interfaces
+   Seq: ( WL 'ME_4677FBA70343' '4677FBA70343.pas.ms.script' // l3Interfaces
  WL 'ME_4678137501EA' '4678137501EA.pas.ms.script' // k2Interfaces
  WL 'ME_4678193C009C' '4678193C009C.pas.ms.script' // l3Types
  WL 'ME_4678209200A6' '4678209200A6.pas.ms.script' // nevBase
@@ -7065,15 +7155,13 @@ ref; // ME_4FC493C90289 TevRow
  WL 'ME_4AB0C3C60310' '4AB0C3C60310.pas.ms.script' // Sys
  WL 'ME_537B83AD01F0' '537B83AD01F0.pas.ms.script' // l3Math
  WL 'ME_54B90AC6014B' '54B90AC6014B.pas.ms.script' // StringUtils
- ) .SequenceCode.It
+ )
  ; // Depends
- : Generators
- @ (
- gen_pas.script
- gen_pas.script.runner
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest'
  CONST pas.script:Path 'shared\models\NewSchool\Scripts\4E451815031E.pas.ms.script'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
  CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\4E451815031E.pas.ms.script.runner'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_4E451815031E CellUtils

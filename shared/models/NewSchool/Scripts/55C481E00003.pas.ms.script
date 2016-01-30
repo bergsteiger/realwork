@@ -27,8 +27,8 @@ ref; // ME_55C4927600E2 aStr
  : Parent ME_55C491FC025C // DoPrint
  ;
  : Parameters
-   @ ( ME_55C4927600E2 // aStr
- ) .SequenceCode.It
+   Seq: ( ME_55C4927600E2 // aStr
+ )
  ; // Parameters
 
 ref; // ME_55C4926D01BE DoIt
@@ -55,12 +55,12 @@ ref; // ME_55C4A5640321
  : Parent ME_55C482690029 // TtfwDefaultScriptCaller
  ;
  : Operations
-   @ ( ME_55C4926D01BE // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_55C4926D01BE // DoIt
+ )
  ; // Operations
  : Dependencies
-   @ ( ME_55C4A5640321 // 
- ) .SequenceCode.It
+   Seq: ( ME_55C4A5640321 // 
+ )
  ; // Dependencies
 
 ref; // ME_55C491FC025C DoPrint
@@ -89,8 +89,8 @@ ref; // ME_55C4A53202D3 DoIt
  : Parent ME_55C482690029 // TtfwDefaultScriptCaller
  ;
  : Operations
-   @ ( ME_55C4A53202D3 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_55C4A53202D3 // DoIt
+ )
  ; // Operations
 
 ref; // ME_55C4A52C01A0 Create
@@ -100,6 +100,7 @@ FORWARD ME_55C4A53D0305
 : ME_CDA83D765596
  CONST UID 'CDA83D765596'
  CONST Name 'DoIt'
+ CONST IsSummoned true
  CONST Class class_Operation
  %SUMMARY 'Сигнатура фабрики TtfwDefaultScriptCaller.Make' ;
  CONST Visibility PrivateAccess
@@ -122,16 +123,16 @@ ref; // ME_CDA83D765596 DoIt
  : Parent ME_55C482690029 // TtfwDefaultScriptCaller
  ;
  : Inherits
-   @ ( ME_55C4A52C01A0 // Create
- ) .SequenceCode.It
+   Seq: ( ME_55C4A52C01A0 // Create
+ )
  ; // Inherits
  : Implements
-   @ ( WL 'ME_4DAF1A1700F7' '4DAF19F600C5.pas.ms.script' // ItfwScriptCaller
- ) .SequenceCode.It
+   Seq: ( WL 'ME_4DAF1A1700F7' '4DAF19F600C5.pas.ms.script' // ItfwScriptCaller
+ )
  ; // Implements
  : Operations
-   @ ( ME_CDA83D765596 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_CDA83D765596 // DoIt
+ )
  ; // Operations
  CONST "check nil" false
  CONST "need AfterCreate" 'undefined'
@@ -166,8 +167,8 @@ ref; // ME_55CC868302A8 DoIt
  : Parent ME_55C482690029 // TtfwDefaultScriptCaller
  ;
  : Operations
-   @ ( ME_55CC868302A8 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_55CC868302A8 // DoIt
+ )
  ; // Operations
  CONST "is static" true
 
@@ -196,8 +197,8 @@ ref; // ME_55D34AFC0293 aFile
  : Target WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
  ;
  : Parameters
-   @ ( ME_55D34AFC0293 // aFile
- ) .SequenceCode.It
+   Seq: ( ME_55D34AFC0293 // aFile
+ )
  ; // Parameters
 
 ref; // ME_55D34AEA00A4 DoIt
@@ -213,8 +214,8 @@ ref; // ME_55D34AEA00A4 DoIt
  : Parent ME_55C482690029 // TtfwDefaultScriptCaller
  ;
  : Operations
-   @ ( ME_55D34AEA00A4 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_55D34AEA00A4 // DoIt
+ )
  ; // Operations
  CONST "is static" true
 
@@ -503,23 +504,23 @@ ref; // ME_536A15F901DA_ME_55C482690029 CheckPictureOnly
  : Parent ME_55C481E00003 // ScriptCallers
  ;
  : Inherits
-   @ ( WL 'ME_49E7754802A9' '47913B47006E.pas.ms.script' // Tl3ProtoObject
- ) .SequenceCode.It
+   Seq: ( WL 'ME_49E7754802A9' '47913B47006E.pas.ms.script' // Tl3ProtoObject
+ )
  ; // Inherits
  : Implements
-   @ ( WL 'ME_4DAF1A1700F7' '4DAF19F600C5.pas.ms.script' // ItfwScriptCaller
- ) .SequenceCode.It
+   Seq: ( WL 'ME_4DAF1A1700F7' '4DAF19F600C5.pas.ms.script' // ItfwScriptCaller
+ )
  ; // Implements
  : Operations
-   @ ( ME_55C491FC025C // DoPrint
+   Seq: ( ME_55C491FC025C // DoPrint
  ME_55C4A52C01A0 // Create
  ME_55C4A53D0305 // Make
  ME_55CC867301F7 // DictPath
  ME_55D34AD90105 // DoResolveIncludedFilePath
- ) .SequenceCode.It
+ )
  ; // Operations
  : Implemented
-   @ ( ME_4CAEDCF9006A_ME_55C482690029 // CheckOutputWithInput$1
+   Seq: ( ME_4CAEDCF9006A_ME_55C482690029 // CheckOutputWithInput$1
  ME_4DAF1A280116_ME_55C482690029 // Check
  ME_4DB173AA005A_ME_55C482690029 // Print
  ME_4DB1785F011A_ME_55C482690029 // Print
@@ -544,23 +545,25 @@ ref; // ME_536A15F901DA_ME_55C482690029 CheckPictureOnly
  ME_5138790002FF_ME_55C482690029 // GetEtalonSuffix
  ME_52EBC5BB0300_ME_55C482690029 // CompileOnly
  ME_536A15F901DA_ME_55C482690029 // CheckPictureOnly
- ) .SequenceCode.It
+ )
  ; // Implemented
  : Dependencies
-   @ ( ME_55C4A5B701B3 // 
+   Seq: ( ME_55C4A5B701B3 // 
  ME_55CC865B0317 // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\ScriptEngine'
  CONST intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\tfwDefaultScriptCaller.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\ScriptEngine'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'DefaultScriptCaller'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'tfwDefaultScriptCaller'
 
 ref; // ME_55C482690029 TtfwDefaultScriptCaller
 
@@ -620,29 +623,31 @@ ref; // ME_55CC867301F7_ME_55C48FCE03AB DictPath
  : Parent ME_55C481E00003 // ScriptCallers
  ;
  : Inherits
-   @ ( ME_55C482690029 // TtfwDefaultScriptCaller
- ) .SequenceCode.It
+   Seq: ( ME_55C482690029 // TtfwDefaultScriptCaller
+ )
  ; // Inherits
  : Overridden
-   @ ( ME_55C491FC025C_ME_55C48FCE03AB // DoPrint
+   Seq: ( ME_55C491FC025C_ME_55C48FCE03AB // DoPrint
  ME_55CC867301F7_ME_55C48FCE03AB // DictPath
- ) .SequenceCode.It
+ )
  ; // Overridden
  : Dependencies
-   @ ( ME_55C4A57800C7 // 
+   Seq: ( ME_55C4A57800C7 // 
  ME_55CC96DE0296 // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\ScriptEngine'
  CONST intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\tfwConsoleScriptCaller.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\ScriptEngine'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'ConsoleScriptCaller'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'tfwConsoleScriptCaller'
 
 ref; // ME_55C48FCE03AB TtfwConsoleScriptCaller
 
@@ -657,19 +662,21 @@ ref; // ME_55C48FCE03AB TtfwConsoleScriptCaller
  : Parent ME_55C481E00003 // ScriptCallers
  ;
  : Inherits
-   @ ( ME_55C482690029 // TtfwDefaultScriptCaller
- ) .SequenceCode.It
+   Seq: ( ME_55C482690029 // TtfwDefaultScriptCaller
+ )
  ; // Inherits
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\ScriptEngine'
  CONST intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\tfwHyperlinkScriptCaller.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\ScriptEngine'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'HyperlinkScriptCaller'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'tfwHyperlinkScriptCaller'
 
 ref; // ME_55D345A40226 TtfwHyperlinkScriptCaller
 
@@ -680,6 +687,7 @@ FORWARD ME_2601B8C0800A
 : ME_D0D5A4EAD080
  CONST UID 'D0D5A4EAD080'
  CONST Name 'RegAxiom'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Регистрация скриптованой аксиоматики' ;
@@ -704,6 +712,7 @@ ref; // ME_55B7A3AF0359_ME_2601B8C0800A ResName
 : ME_2601B8C0800A
  CONST UID '2601B8C0800A'
  CONST Name 'TtfwArchiHyperlinkScriptCallerResNameGetter'
+ CONST IsSummoned true
  CONST Class class_Class
  : Stereotype st_SimpleClass ;
  CONST Kind kind_NormalClass
@@ -713,22 +722,28 @@ ref; // ME_55B7A3AF0359_ME_2601B8C0800A ResName
  : Parent ME_55D34A7E0127 // TtfwArchiHyperlinkScriptCaller
  ;
  : Inherits
-   @ ( WL 'ME_55B7A33101AF' '55B7A3160128.pas.ms.script' // TtfwAxiomaticsResNameGetter
- ) .SequenceCode.It
+   Seq: ( WL 'ME_55B7A33101AF' '55B7A3160128.pas.ms.script' // TtfwAxiomaticsResNameGetter
+ )
  ; // Inherits
  : Operations
-   @ ( ME_D0D5A4EAD080 // RegAxiom
- ) .SequenceCode.It
+   Seq: ( ME_D0D5A4EAD080 // RegAxiom
+ )
  ; // Operations
  : Implemented
-   @ ( ME_55B7A3AF0359_ME_2601B8C0800A // ResName
- ) .SequenceCode.It
+   Seq: ( ME_55B7A3AF0359_ME_2601B8C0800A // ResName
+ )
  ; // Implemented
  CONST "need UC" true
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
+ CONST dfm:PathOnly '\common\components\rtl\Garant\ScriptEngine'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\ScriptEngine'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'ArchiHyperlinkScriptCallerResNameGetter'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_2601B8C0800A TtfwArchiHyperlinkScriptCallerResNameGetter
 
@@ -754,33 +769,29 @@ ref; // ME_55D34AD90105_ME_55D34A7E0127 DoResolveIncludedFilePath
  : Parent ME_55C481E00003 // ScriptCallers
  ;
  : Inherits
-   @ ( ME_55D345A40226 // TtfwHyperlinkScriptCaller
- ) .SequenceCode.It
+   Seq: ( ME_55D345A40226 // TtfwHyperlinkScriptCaller
+ )
  ; // Inherits
  : Overridden
-   @ ( ME_55D34AD90105_ME_55D34A7E0127 // DoResolveIncludedFilePath
- ) .SequenceCode.It
+   Seq: ( ME_55D34AD90105_ME_55D34A7E0127 // DoResolveIncludedFilePath
+ )
  ; // Overridden
  : Children
-   @ ( ME_2601B8C0800A // TtfwArchiHyperlinkScriptCallerResNameGetter
- ) .SequenceCode.It
+   Seq: ( ME_2601B8C0800A // TtfwArchiHyperlinkScriptCallerResNameGetter
+ )
  ; // Children
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" true
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
- : Generators
- @ (
- gen_intf.pas
- gen_rc.pas
- gen_rc.script.pas
- gen_res.cmd.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\ScriptEngine'
  CONST intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\tfwArchiHyperlinkScriptCaller.pas'
- CONST rc.pas:Path 'common\components\rtl\Garant\ScriptEngine\tfwArchiHyperlinkScriptCaller.rc'
- CONST rc.script.pas:Path 'common\components\rtl\Garant\ScriptEngine\tfwArchiHyperlinkScriptCaller.rc.script'
- CONST res.cmd.pas:Path 'common\components\rtl\Garant\ScriptEngine\tfwArchiHyperlinkScriptCaller.res.cmd'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\ScriptEngine'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'ArchiHyperlinkScriptCaller'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'tfwArchiHyperlinkScriptCaller'
 
 ref; // ME_55D34A7E0127 TtfwArchiHyperlinkScriptCaller
 
@@ -791,6 +802,7 @@ FORWARD ME_77DB2124A8AE
 : ME_4100BCBA3C15
  CONST UID '4100BCBA3C15'
  CONST Name 'RegAxiom'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Регистрация скриптованой аксиоматики' ;
@@ -815,6 +827,7 @@ ref; // ME_55B7A3AF0359_ME_77DB2124A8AE ResName
 : ME_77DB2124A8AE
  CONST UID '77DB2124A8AE'
  CONST Name 'TtfwF1HyperlinkScriptCallerResNameGetter'
+ CONST IsSummoned true
  CONST Class class_Class
  : Stereotype st_SimpleClass ;
  CONST Kind kind_NormalClass
@@ -824,22 +837,28 @@ ref; // ME_55B7A3AF0359_ME_77DB2124A8AE ResName
  : Parent ME_55D34A9B0067 // TtfwF1HyperlinkScriptCaller
  ;
  : Inherits
-   @ ( WL 'ME_55B7A33101AF' '55B7A3160128.pas.ms.script' // TtfwAxiomaticsResNameGetter
- ) .SequenceCode.It
+   Seq: ( WL 'ME_55B7A33101AF' '55B7A3160128.pas.ms.script' // TtfwAxiomaticsResNameGetter
+ )
  ; // Inherits
  : Operations
-   @ ( ME_4100BCBA3C15 // RegAxiom
- ) .SequenceCode.It
+   Seq: ( ME_4100BCBA3C15 // RegAxiom
+ )
  ; // Operations
  : Implemented
-   @ ( ME_55B7A3AF0359_ME_77DB2124A8AE // ResName
- ) .SequenceCode.It
+   Seq: ( ME_55B7A3AF0359_ME_77DB2124A8AE // ResName
+ )
  ; // Implemented
  CONST "need UC" true
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
+ CONST dfm:PathOnly '\common\components\rtl\Garant\ScriptEngine'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\ScriptEngine'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'F1HyperlinkScriptCallerResNameGetter'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_77DB2124A8AE TtfwF1HyperlinkScriptCallerResNameGetter
 
@@ -865,33 +884,29 @@ ref; // ME_55D34AD90105_ME_55D34A9B0067 DoResolveIncludedFilePath
  : Parent ME_55C481E00003 // ScriptCallers
  ;
  : Inherits
-   @ ( ME_55D345A40226 // TtfwHyperlinkScriptCaller
- ) .SequenceCode.It
+   Seq: ( ME_55D345A40226 // TtfwHyperlinkScriptCaller
+ )
  ; // Inherits
  : Overridden
-   @ ( ME_55D34AD90105_ME_55D34A9B0067 // DoResolveIncludedFilePath
- ) .SequenceCode.It
+   Seq: ( ME_55D34AD90105_ME_55D34A9B0067 // DoResolveIncludedFilePath
+ )
  ; // Overridden
  : Children
-   @ ( ME_77DB2124A8AE // TtfwF1HyperlinkScriptCallerResNameGetter
- ) .SequenceCode.It
+   Seq: ( ME_77DB2124A8AE // TtfwF1HyperlinkScriptCallerResNameGetter
+ )
  ; // Children
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" true
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
- : Generators
- @ (
- gen_intf.pas
- gen_rc.pas
- gen_rc.script.pas
- gen_res.cmd.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\ScriptEngine'
  CONST intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\tfwF1HyperlinkScriptCaller.pas'
- CONST rc.pas:Path 'common\components\rtl\Garant\ScriptEngine\tfwF1HyperlinkScriptCaller.rc'
- CONST rc.script.pas:Path 'common\components\rtl\Garant\ScriptEngine\tfwF1HyperlinkScriptCaller.rc.script'
- CONST res.cmd.pas:Path 'common\components\rtl\Garant\ScriptEngine\tfwF1HyperlinkScriptCaller.res.cmd'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\ScriptEngine'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'F1HyperlinkScriptCaller'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'tfwF1HyperlinkScriptCaller'
 
 ref; // ME_55D34A9B0067 TtfwF1HyperlinkScriptCaller
 
@@ -946,8 +961,8 @@ ref; // ME_564571370276 aFileName
  : Parent ME_5645710E0083 // Create
  ;
  : Parameters
-   @ ( ME_564571370276 // aFileName
- ) .SequenceCode.It
+   Seq: ( ME_564571370276 // aFileName
+ )
  ; // Parameters
 
 ref; // ME_5645712D01A1 DoIt
@@ -963,8 +978,8 @@ ref; // ME_5645712D01A1 DoIt
  : Parent ME_56456E3E01E4 // TtfwOutToFileScriptCaller
  ;
  : Operations
-   @ ( ME_5645712D01A1 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_5645712D01A1 // DoIt
+ )
  ; // Operations
 
 ref; // ME_5645710E0083 Create
@@ -974,6 +989,7 @@ FORWARD ME_5645713B035C
 : ME_FEEF855F5E99
  CONST UID 'FEEF855F5E99'
  CONST Name 'aFileName'
+ CONST IsSummoned true
  CONST Class class_Parameter
  : Stereotype st_in ;
  : Target WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
@@ -984,6 +1000,7 @@ ref; // ME_FEEF855F5E99 aFileName
 : ME_8874AB430B25
  CONST UID '8874AB430B25'
  CONST Name 'DoIt'
+ CONST IsSummoned true
  CONST Class class_Operation
  %SUMMARY 'Сигнатура фабрики TtfwOutToFileScriptCaller.Make' ;
  CONST Visibility PrivateAccess
@@ -993,8 +1010,8 @@ ref; // ME_FEEF855F5E99 aFileName
  : Target WL 'ME_4DAF1A1700F7' '4DAF19F600C5.pas.ms.script' // ItfwScriptCaller
  ;
  : Parameters
-   @ ( ME_FEEF855F5E99 // aFileName
- ) .SequenceCode.It
+   Seq: ( ME_FEEF855F5E99 // aFileName
+ )
  ; // Parameters
 
 ref; // ME_8874AB430B25 DoIt
@@ -1010,16 +1027,16 @@ ref; // ME_8874AB430B25 DoIt
  : Parent ME_56456E3E01E4 // TtfwOutToFileScriptCaller
  ;
  : Inherits
-   @ ( ME_5645710E0083 // Create
- ) .SequenceCode.It
+   Seq: ( ME_5645710E0083 // Create
+ )
  ; // Inherits
  : Implements
-   @ ( WL 'ME_4DAF1A1700F7' '4DAF19F600C5.pas.ms.script' // ItfwScriptCaller
- ) .SequenceCode.It
+   Seq: ( WL 'ME_4DAF1A1700F7' '4DAF19F600C5.pas.ms.script' // ItfwScriptCaller
+ )
  ; // Implements
  : Operations
-   @ ( ME_8874AB430B25 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_8874AB430B25 // DoIt
+ )
  ; // Operations
  CONST "check nil" false
  CONST "need AfterCreate" 'undefined'
@@ -1103,41 +1120,43 @@ ref; // ME_55C491FC025C_ME_56456E3E01E4 DoPrint
  : Parent ME_55C481E00003 // ScriptCallers
  ;
  : Inherits
-   @ ( ME_55C48FCE03AB // TtfwConsoleScriptCaller
- ) .SequenceCode.It
+   Seq: ( ME_55C48FCE03AB // TtfwConsoleScriptCaller
+ )
  ; // Inherits
  : Attributes
-   @ ( ME_56456E910302 // f_OutFiler
+   Seq: ( ME_56456E910302 // f_OutFiler
  ME_564571210221 // f_FileName
- ) .SequenceCode.It
+ )
  ; // Attributes
  : Operations
-   @ ( ME_5645710E0083 // Create
+   Seq: ( ME_5645710E0083 // Create
  ME_5645713B035C // Make
- ) .SequenceCode.It
+ )
  ; // Operations
  : Overridden
-   @ ( ME_479731C50290_ME_56456E3E01E4 // Cleanup
+   Seq: ( ME_479731C50290_ME_56456E3E01E4 // Cleanup
  ME_55C491FC025C_ME_56456E3E01E4 // DoPrint
- ) .SequenceCode.It
+ )
  ; // Overridden
  : Dependencies
-   @ ( ME_56456E760304 // 
+   Seq: ( ME_56456E760304 // 
  ME_56456EBF01AD // 
  ME_56456ECF02B3 // 
  ME_5645886600F0 // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\ScriptEngine'
  CONST intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\tfwOutToFileScriptCaller.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\ScriptEngine'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'OutToFileScriptCaller'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'tfwOutToFileScriptCaller'
 
 ref; // ME_56456E3E01E4 TtfwOutToFileScriptCaller
 
@@ -1151,30 +1170,28 @@ ref; // ME_56456E3E01E4 TtfwOutToFileScriptCaller
  : Parent WL 'ME_54CF97B10370' '54CF97B10370.pas.ms.script' // ScriptEngine$Core
  ;
  : Children
-   @ ( ME_55C482690029 // TtfwDefaultScriptCaller
+   Seq: ( ME_55C482690029 // TtfwDefaultScriptCaller
  ME_55C48FCE03AB // TtfwConsoleScriptCaller
  ME_55D345A40226 // TtfwHyperlinkScriptCaller
  ME_55D34A7E0127 // TtfwArchiHyperlinkScriptCaller
  ME_55D34A9B0067 // TtfwF1HyperlinkScriptCaller
  ME_56456E3E01E4 // TtfwOutToFileScriptCaller
- ) .SequenceCode.It
+ )
  ; // Children
  : Depends
-   @ ( WL 'ME_4677FBA70343' '4677FBA70343.pas.ms.script' // l3Interfaces
+   Seq: ( WL 'ME_4677FBA70343' '4677FBA70343.pas.ms.script' // l3Interfaces
  WL 'ME_4678193C009C' '4678193C009C.pas.ms.script' // l3Types
  WL 'ME_476BE98C01B8' '476BE98C01B8.pas.ms.script' // l3Chars
  WL 'ME_47913B47006E' '47913B47006E.pas.ms.script' // l3CoreObjects
  WL 'ME_47D0290B016D' '47D0290B016D.pas.ms.script' // l3Utils
  WL 'ME_4DAF19F600C5' '4DAF19F600C5.pas.ms.script' // tfwScriptingInterfaces
- ) .SequenceCode.It
+ )
  ; // Depends
- : Generators
- @ (
- gen_pas.script
- gen_pas.script.runner
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\ScriptEngine'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\ScriptEngine'
  CONST pas.script:Path 'shared\models\NewSchool\Scripts\55C481E00003.pas.ms.script'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
  CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\55C481E00003.pas.ms.script.runner'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_55C481E00003 ScriptCallers

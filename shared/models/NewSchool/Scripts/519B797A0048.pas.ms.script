@@ -11,6 +11,7 @@ FORWARD ME_52E8BA5101A7
 : ME_44D2D8443D9A
  CONST UID '44D2D8443D9A'
  CONST Name 'DoIt'
+ CONST IsSummoned true
  CONST Class class_Operation
  %SUMMARY 'Сигнатура метода LinkServer' ;
  CONST Visibility PublicAccess
@@ -31,8 +32,8 @@ ref; // ME_44D2D8443D9A DoIt
  : Parent ME_519B79940228 // dt_LinkServ
  ;
  : Operations
-   @ ( ME_44D2D8443D9A // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_44D2D8443D9A // DoIt
+ )
  ; // Operations
 
 ref; // ME_52E8BA5101A7 LinkServer
@@ -48,18 +49,17 @@ ref; // ME_52E8BA5101A7 LinkServer
  : Parent ME_519B797A0048 // Servers
  ;
  : Operations
-   @ ( ME_52E8BA5101A7 // LinkServer
- ) .SequenceCode.It
+   Seq: ( ME_52E8BA5101A7 // LinkServer
+ )
  ; // Operations
  CONST "finished" false
  CONST "ifdef" 'Archi'
  CONST "no hands" false
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\DT'
  CONST intf.pas:Path 'common\components\rtl\Garant\DT\NOT_FINISHED_dt_LinkServ.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\DT'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_519B79940228 dt_LinkServ
 
@@ -75,12 +75,11 @@ ref; // ME_519B79940228 dt_LinkServ
  ;
  CONST "finished" false
  CONST "no hands" false
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\DT'
  CONST intf.pas:Path 'common\components\rtl\Garant\DT\NOT_FINISHED_dt_Lock.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\DT'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_51B1B8BD018E dt_Lock
 
@@ -101,6 +100,12 @@ FORWARD ME_51B6C800005F
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
+ CONST dfm:PathOnly '\common\components\rtl\Garant\DT'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\DT'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'AbstractJournal'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_51B6C83A03E4 TAbstractJournal
 
@@ -114,6 +119,10 @@ ref; // ME_51B6C83A03E4 TAbstractJournal
  CONST Abstraction at_regular
  : Parent ME_51B6C800005F // dt_Jour
  ;
+ CONST dfm:PathOnly '\common\components\rtl\Garant\DT'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\DT'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_5281F3A90273 EdtBrokenFileLock
 
@@ -128,18 +137,17 @@ ref; // ME_5281F3A90273 EdtBrokenFileLock
  : Parent ME_519B797A0048 // Servers
  ;
  : Children
-   @ ( ME_51B6C83A03E4 // TAbstractJournal
+   Seq: ( ME_51B6C83A03E4 // TAbstractJournal
  ME_5281F3A90273 // EdtBrokenFileLock
- ) .SequenceCode.It
+ )
  ; // Children
  CONST "finished" false
  CONST "no hands" false
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\DT'
  CONST intf.pas:Path 'common\components\rtl\Garant\DT\NOT_FINISHED_dt_Jour.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\DT'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_51B6C800005F dt_Jour
 
@@ -155,12 +163,11 @@ ref; // ME_51B6C800005F dt_Jour
  ;
  CONST "finished" false
  CONST "no hands" false
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\DT'
  CONST intf.pas:Path 'common\components\rtl\Garant\DT\NOT_FINISHED_dt_Doc.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\DT'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_51B6CE6100D8 dt_Doc
 
@@ -176,12 +183,11 @@ ref; // ME_51B6CE6100D8 dt_Doc
  ;
  CONST "finished" false
  CONST "no hands" false
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\DT'
  CONST intf.pas:Path 'common\components\rtl\Garant\DT\NOT_FINISHED_dt_Serv.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\DT'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_5406A83E013E dt_Serv
 
@@ -202,6 +208,12 @@ FORWARD ME_5540E6D302BE
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
+ CONST dfm:PathOnly '\common\components\rtl\Garant\DT'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\DT'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'BigBrotherTbl'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_5549F31C03AC TBigBrotherTbl
 
@@ -216,17 +228,16 @@ ref; // ME_5549F31C03AC TBigBrotherTbl
  : Parent ME_519B797A0048 // Servers
  ;
  : Children
-   @ ( ME_5549F31C03AC // TBigBrotherTbl
- ) .SequenceCode.It
+   Seq: ( ME_5549F31C03AC // TBigBrotherTbl
+ )
  ; // Children
  CONST "finished" false
  CONST "no hands" false
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\DT'
  CONST intf.pas:Path 'common\components\rtl\Garant\DT\NOT_FINISHED_dt_BBLog.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\DT'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_5540E6D302BE dt_BBLog
 
@@ -240,21 +251,19 @@ ref; // ME_5540E6D302BE dt_BBLog
  : Parent WL 'ME_47BC4FCB0115' '47BC4FCB0115.pas.ms.script' // DT
  ;
  : Children
-   @ ( ME_519B79940228 // dt_LinkServ
+   Seq: ( ME_519B79940228 // dt_LinkServ
  ME_51B1B8BD018E // dt_Lock
  ME_51B6C800005F // dt_Jour
  ME_51B6CE6100D8 // dt_Doc
  ME_5406A83E013E // dt_Serv
  ME_5540E6D302BE // dt_BBLog
- ) .SequenceCode.It
+ )
  ; // Children
- : Generators
- @ (
- gen_pas.script
- gen_pas.script.runner
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\DT'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\DT'
  CONST pas.script:Path 'shared\models\NewSchool\Scripts\519B797A0048.pas.ms.script'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
  CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\519B797A0048.pas.ms.script.runner'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_519B797A0048 Servers

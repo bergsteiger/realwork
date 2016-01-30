@@ -30,14 +30,15 @@ ref; // ME_4B2A2CA702AF
  : Parent ME_4B2A1D3E0376 // TTestMMX
  ;
  : Dependencies
-   @ ( ME_4B2A2CA702AF // 
- ) .SequenceCode.It
+   Seq: ( ME_4B2A2CA702AF // 
+ )
  ; // Dependencies
 
 ref; // ME_4B2A1D6D001D DoMMX
 
 : ME_10E405AF5E40
  CONST UID '10E405AF5E40'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_4B2A1D3E0376 // TTestMMX
@@ -54,6 +55,7 @@ ref; // ME_10E405AF5E40
  ;
  : Implementor ME_4B2A1D3E0376 // TTestMMX
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4C937013031D_ME_4B2A1D3E0376 GetFolder
 
 : ME_4DAED6F60146_ME_4B2A1D3E0376
@@ -63,6 +65,7 @@ ref; // ME_4C937013031D_ME_4B2A1D3E0376 GetFolder
  ;
  : Implementor ME_4B2A1D3E0376 // TTestMMX
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4DAED6F60146_ME_4B2A1D3E0376 GetModelElementGUID
 
 : ME_4B2A1D3E0376
@@ -76,21 +79,21 @@ ref; // ME_4DAED6F60146_ME_4B2A1D3E0376 GetModelElementGUID
  : Parent ME_4B2A15A00031 // Core
  ;
  : Inherits
-   @ ( WL 'ME_4B2A11BC0255' '4B2A112B011A.pas.ms.script' // TBaseTest
- ) .SequenceCode.It
+   Seq: ( WL 'ME_4B2A11BC0255' '4B2A112B011A.pas.ms.script' // TBaseTest
+ )
  ; // Inherits
  : Operations
-   @ ( ME_4B2A1D6D001D // DoMMX
- ) .SequenceCode.It
+   Seq: ( ME_4B2A1D6D001D // DoMMX
+ )
  ; // Operations
  : Overridden
-   @ ( ME_4C937013031D_ME_4B2A1D3E0376 // GetFolder
+   Seq: ( ME_4C937013031D_ME_4B2A1D3E0376 // GetFolder
  ME_4DAED6F60146_ME_4B2A1D3E0376 // GetModelElementGUID
- ) .SequenceCode.It
+ )
  ; // Overridden
  : Dependencies
-   @ ( ME_10E405AF5E40 // 
- ) .SequenceCode.It
+   Seq: ( ME_10E405AF5E40 // 
+ )
  ; // Dependencies
  CONST "author" 'Ëþëèí À.Â.'
  CONST "needs InstanceR" 'undefined'
@@ -99,11 +102,19 @@ ref; // ME_4DAED6F60146_ME_4B2A1D3E0376 GetModelElementGUID
  CONST "register in scripts" 'undefined'
  CONST "started" '17.12.2009 15:00'
  : Generators
- @ (
+ Seq: (
  gen_intf.pas
- ) .SequenceCode.It
+ )
  ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\Daily'
  CONST intf.pas:Path 'common\components\rtl\Garant\Daily\TestMMX.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\Daily'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\common\components\rtl\Garant\Daily'
+ CONST extprop:rc:SelfName 'TestMMX'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'TestMMX'
 
 ref; // ME_4B2A1D3E0376 TTestMMX
 
@@ -135,8 +146,8 @@ ref; // ME_4B2F8E9002DE
  : Parent ME_4B2A51EA00EB // TTestFilerReadLn
  ;
  : Dependencies
-   @ ( ME_4B2F8E9002DE // 
- ) .SequenceCode.It
+   Seq: ( ME_4B2F8E9002DE // 
+ )
  ; // Dependencies
 
 ref; // ME_4B2A52480392 ReadViaDelphi
@@ -187,10 +198,10 @@ ref; // ME_4B2F8E9600DA
  : Parent ME_4B2A51EA00EB // TTestFilerReadLn
  ;
  : Dependencies
-   @ ( ME_4B2A527B02C2 // 
+   Seq: ( ME_4B2A527B02C2 // 
  ME_4B2A5353015C // 
  ME_4B2F8E9600DA // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
 
 ref; // ME_4B2A5250025B DoIt
@@ -216,8 +227,8 @@ ref; // ME_4B59C8E800B8 aName
  : Target WL 'ME_48FD996601CE' '4AB0C3C60310.pas.ms.script' // Longword
  ;
  : Parameters
-   @ ( ME_4B59C8E800B8 // aName
- ) .SequenceCode.It
+   Seq: ( ME_4B59C8E800B8 // aName
+ )
  ; // Parameters
 
 ref; // ME_4B2A580000F4 DoIt
@@ -233,8 +244,8 @@ ref; // ME_4B2A580000F4 DoIt
  : Parent ME_4B2A51EA00EB // TTestFilerReadLn
  ;
  : Operations
-   @ ( ME_4B2A580000F4 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_4B2A580000F4 // DoIt
+ )
  ; // Operations
 
 ref; // ME_4B2A57F40332 ReadViaDelphiPrim
@@ -264,8 +275,8 @@ ref; // ME_4B33796000B2
  : Parent ME_4B2A51EA00EB // TTestFilerReadLn
  ;
  : Dependencies
-   @ ( ME_4B33796000B2 // 
- ) .SequenceCode.It
+   Seq: ( ME_4B33796000B2 // 
+ )
  ; // Dependencies
 
 ref; // ME_4B336B0B0247 ReadLnBadText
@@ -295,8 +306,8 @@ ref; // ME_4B33796400BC
  : Parent ME_4B2A51EA00EB // TTestFilerReadLn
  ;
  : Dependencies
-   @ ( ME_4B33796400BC // 
- ) .SequenceCode.It
+   Seq: ( ME_4B33796400BC // 
+ )
  ; // Dependencies
 
 ref; // ME_4B336DFB0051 ReadLnBadUnicodeText
@@ -314,6 +325,7 @@ ref; // ME_4B2A51F60192
 
 : ME_D499EA0628EA
  CONST UID 'D499EA0628EA'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_4B2A51EA00EB // TTestFilerReadLn
@@ -330,6 +342,7 @@ ref; // ME_D499EA0628EA
  ;
  : Implementor ME_4B2A51EA00EB // TTestFilerReadLn
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4C937013031D_ME_4B2A51EA00EB GetFolder
 
 : ME_4DAED6F60146_ME_4B2A51EA00EB
@@ -339,6 +352,7 @@ ref; // ME_4C937013031D_ME_4B2A51EA00EB GetFolder
  ;
  : Implementor ME_4B2A51EA00EB // TTestFilerReadLn
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4DAED6F60146_ME_4B2A51EA00EB GetModelElementGUID
 
 : ME_4B2A51EA00EB
@@ -352,37 +366,45 @@ ref; // ME_4DAED6F60146_ME_4B2A51EA00EB GetModelElementGUID
  : Parent ME_4B2A15A00031 // Core
  ;
  : Inherits
-   @ ( WL 'ME_4B2A11BC0255' '4B2A112B011A.pas.ms.script' // TBaseTest
- ) .SequenceCode.It
+   Seq: ( WL 'ME_4B2A11BC0255' '4B2A112B011A.pas.ms.script' // TBaseTest
+ )
  ; // Inherits
  : Operations
-   @ ( ME_4B2A52480392 // ReadViaDelphi
+   Seq: ( ME_4B2A52480392 // ReadViaDelphi
  ME_4B2A5250025B // DoIt
  ME_4B2A57F40332 // ReadViaDelphiPrim
  ME_4B336B0B0247 // ReadLnBadText
  ME_4B336DFB0051 // ReadLnBadUnicodeText
- ) .SequenceCode.It
+ )
  ; // Operations
  : Overridden
-   @ ( ME_4C937013031D_ME_4B2A51EA00EB // GetFolder
+   Seq: ( ME_4C937013031D_ME_4B2A51EA00EB // GetFolder
  ME_4DAED6F60146_ME_4B2A51EA00EB // GetModelElementGUID
- ) .SequenceCode.It
+ )
  ; // Overridden
  : Dependencies
-   @ ( ME_4B2A51F60192 // 
+   Seq: ( ME_4B2A51F60192 // 
  ME_D499EA0628EA // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
  : Generators
- @ (
+ Seq: (
  gen_intf.pas
- ) .SequenceCode.It
+ )
  ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\Daily'
  CONST intf.pas:Path 'common\components\rtl\Garant\Daily\TestFilerReadLn.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\Daily'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\common\components\rtl\Garant\Daily'
+ CONST extprop:rc:SelfName 'TestFilerReadLn'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'TestFilerReadLn'
 
 ref; // ME_4B2A51EA00EB TTestFilerReadLn
 
@@ -446,11 +468,11 @@ ref; // ME_4B2A535C01B5
  : Parent ME_4B2A52070264 // TTestFilerCopyViaReadLn
  ;
  : Dependencies
-   @ ( ME_4B2A529703BB // 
+   Seq: ( ME_4B2A529703BB // 
  ME_4B2A52C203A4 // 
  ME_4B2A52D90236 // 
  ME_4B2A535C01B5 // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
 
 ref; // ME_4B2A528E03BB DoIt
@@ -482,6 +504,7 @@ ref; // ME_4B2A520C015B
 
 : ME_4E8FDC83E816
  CONST UID '4E8FDC83E816'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_4B2A52070264 // TTestFilerCopyViaReadLn
@@ -498,6 +521,7 @@ ref; // ME_4E8FDC83E816
  ;
  : Implementor ME_4B2A52070264 // TTestFilerCopyViaReadLn
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4C937013031D_ME_4B2A52070264 GetFolder
 
 : ME_4DAED6F60146_ME_4B2A52070264
@@ -507,6 +531,7 @@ ref; // ME_4C937013031D_ME_4B2A52070264 GetFolder
  ;
  : Implementor ME_4B2A52070264 // TTestFilerCopyViaReadLn
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4DAED6F60146_ME_4B2A52070264 GetModelElementGUID
 
 : ME_4B2A52070264
@@ -520,34 +545,42 @@ ref; // ME_4DAED6F60146_ME_4B2A52070264 GetModelElementGUID
  : Parent ME_4B2A15A00031 // Core
  ;
  : Inherits
-   @ ( WL 'ME_4B2A11BC0255' '4B2A112B011A.pas.ms.script' // TBaseTest
- ) .SequenceCode.It
+   Seq: ( WL 'ME_4B2A11BC0255' '4B2A112B011A.pas.ms.script' // TBaseTest
+ )
  ; // Inherits
  : Operations
-   @ ( ME_4B2A528E03BB // DoIt
+   Seq: ( ME_4B2A528E03BB // DoIt
  ME_4B337B58013E // CopyUnicode
- ) .SequenceCode.It
+ )
  ; // Operations
  : Overridden
-   @ ( ME_4C937013031D_ME_4B2A52070264 // GetFolder
+   Seq: ( ME_4C937013031D_ME_4B2A52070264 // GetFolder
  ME_4DAED6F60146_ME_4B2A52070264 // GetModelElementGUID
- ) .SequenceCode.It
+ )
  ; // Overridden
  : Dependencies
-   @ ( ME_4B2A520C015B // 
+   Seq: ( ME_4B2A520C015B // 
  ME_4E8FDC83E816 // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
  : Generators
- @ (
+ Seq: (
  gen_intf.pas
- ) .SequenceCode.It
+ )
  ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\Daily'
  CONST intf.pas:Path 'common\components\rtl\Garant\Daily\TestFilerCopyViaReadLn.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\Daily'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\common\components\rtl\Garant\Daily'
+ CONST extprop:rc:SelfName 'TestFilerCopyViaReadLn'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'TestFilerCopyViaReadLn'
 
 ref; // ME_4B2A52070264 TTestFilerCopyViaReadLn
 
@@ -561,27 +594,32 @@ ref; // ME_4B2A52070264 TTestFilerCopyViaReadLn
  : Parent WL 'ME_4B2A15810261' '4B2A15810261.pas.ms.script' // DailyTest
  ;
  : Children
-   @ ( ME_4B2A1D3E0376 // TTestMMX
+   Seq: ( ME_4B2A1D3E0376 // TTestMMX
  ME_4B2A51EA00EB // TTestFilerReadLn
  ME_4B2A52070264 // TTestFilerCopyViaReadLn
- ) .SequenceCode.It
+ )
  ; // Children
  : Depends
-   @ ( WL 'ME_4678193C009C' '4678193C009C.pas.ms.script' // l3Types
+   Seq: ( WL 'ME_4678193C009C' '4678193C009C.pas.ms.script' // l3Types
  WL 'ME_47913B47006E' '47913B47006E.pas.ms.script' // l3CoreObjects
  WL 'ME_4AB0C3C60310' '4AB0C3C60310.pas.ms.script' // Sys
  WL 'ME_4B2A0D6A0077' '4B2A0D6A0077.pas.ms.script' // Source
  WL 'ME_4B2A112B011A' '4B2A112B011A.pas.ms.script' // Source
  WL 'ME_4B2A4FFC0126' '4B2A4FFC0126.pas.ms.script' // Environment
- ) .SequenceCode.It
+ )
  ; // Depends
  : Generators
- @ (
+ Seq: (
  gen_pas.script
  gen_pas.script.runner
- ) .SequenceCode.It
+ )
  ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\Daily'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\Daily'
  CONST pas.script:Path 'shared\models\NewSchool\Scripts\4B2A15A00031.pas.ms.script'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
  CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\4B2A15A00031.pas.ms.script.runner'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\common\components\rtl\Garant\Daily'
 
 ref; // ME_4B2A15A00031 Core

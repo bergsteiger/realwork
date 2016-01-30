@@ -34,14 +34,19 @@ ref; // ME_4BB9D83702F4 rLocalized
  : Parent ME_4B3B36EC03B2 // l3StringIDEx
  ;
  : Inherits
-   @ ( WL 'ME_4B98CE990318' '4677FBA70343.pas.ms.script' // Tl3StringID
- ) .SequenceCode.It
+   Seq: ( WL 'ME_4B98CE990318' '4677FBA70343.pas.ms.script' // Tl3StringID
+ )
  ; // Inherits
  : Attributes
-   @ ( ME_4BB9D83702F4 // rLocalized
- ) .SequenceCode.It
+   Seq: ( ME_4BB9D83702F4 // rLocalized
+ )
  ; // Attributes
  CONST "not treat as record for XE4" true
+ CONST dfm:PathOnly '\common\components\rtl\Garant\L3'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\L3'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'StringIDExPrim'
 
 ref; // ME_500700DF0376 Tl3StringIDExPrim
 
@@ -108,9 +113,9 @@ ref; // ME_4BB9D88A03D3 anAlien
  : Parent ME_4BB9D8550292 // Localize
  ;
  : Parameters
-   @ ( ME_4BB9D88A0393 // aRus
+   Seq: ( ME_4BB9D88A0393 // aRus
  ME_4BB9D88A03D3 // anAlien
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_4BB9D8770230 DoIt
@@ -127,8 +132,8 @@ ref; // ME_4BB9D8770230 DoIt
  : Parent ME_4B3B3728004C // Tl3StringIDEx
  ;
  : Operations
-   @ ( ME_4BB9D8770230 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_4BB9D8770230 // DoIt
+ )
  ; // Operations
 
 ref; // ME_4BB9D8550292 Localize
@@ -159,8 +164,8 @@ ref; // ME_4CFE25BF0327 DoIt
  : Parent ME_4B3B3728004C // Tl3StringIDEx
  ;
  : Operations
-   @ ( ME_4CFE25BF0327 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_4CFE25BF0327 // DoIt
+ )
  ; // Operations
 
 ref; // ME_4CFE25B202FA AsWideString
@@ -191,8 +196,8 @@ ref; // ME_4D7258FD0146 DoIt
  : Parent ME_4B3B3728004C // Tl3StringIDEx
  ;
  : Operations
-   @ ( ME_4D7258FD0146 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_4D7258FD0146 // DoIt
+ )
  ; // Operations
 
 ref; // ME_4D7258F003D4 AsWStr
@@ -246,24 +251,29 @@ ref; // ME_4B3B4D0A0026 Init
  : Parent ME_4B3B36EC03B2 // l3StringIDEx
  ;
  : Inherits
-   @ ( ME_500700DF0376 // Tl3StringIDExPrim
- ) .SequenceCode.It
+   Seq: ( ME_500700DF0376 // Tl3StringIDExPrim
+ )
  ; // Inherits
  : Attributes
-   @ ( ME_561FDFF403DA // rKey
+   Seq: ( ME_561FDFF403DA // rKey
  ME_561FE0000148 // rValue
- ) .SequenceCode.It
+ )
  ; // Attributes
  : Operations
-   @ ( ME_4BB9D8550292 // Localize
+   Seq: ( ME_4BB9D8550292 // Localize
  ME_4CFE25B202FA // AsWideString
  ME_4D7258F003D4 // AsWStr
  ME_4B3B3B51012A // AsCStr
  ME_4B3B3F25003B // AsStr
  ME_4B3B4D0A0026 // Init
- ) .SequenceCode.It
+ )
  ; // Operations
  CONST "not treat as record for XE4" true
+ CONST dfm:PathOnly '\common\components\rtl\Garant\L3'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\L3'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'StringIDEx'
 
 ref; // ME_4B3B3728004C Tl3StringIDEx
 
@@ -278,10 +288,14 @@ ref; // ME_4B3B3728004C Tl3StringIDEx
  : Parent ME_4B3B36EC03B2 // l3StringIDEx
  ;
  : Inherits
-   @ ( ME_4B3B3728004C // Tl3StringIDEx
- ) .SequenceCode.It
+   Seq: ( ME_4B3B3728004C // Tl3StringIDEx
+ )
  ; // Inherits
  CONST "isPointer" true
+ CONST dfm:PathOnly '\common\components\rtl\Garant\L3'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\L3'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_4B3B49B40262 Pl3StringIDEx
 
@@ -297,6 +311,11 @@ FORWARD ME_4BA223D801B3
  CONST Abstraction at_final
  : Parent ME_4BA223D801B3 // Tl3ConstStringsPrim
  ;
+ CONST dfm:PathOnly '\common\components\rtl\Garant\L3'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\L3'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'Items_NoSort'
 
 ref; // ME_4BA22CD70162 l3Items_NoSort
 
@@ -368,30 +387,30 @@ ref; // ME_47A042E100E2_ME_4BA223D801B3 InitFields
  : Parent ME_4B3B36EC03B2 // l3StringIDEx
  ;
  : Inherits
-   @ ( WL 'ME_4A54DD4E036F' '47913B47006E.pas.ms.script' // Tl3ProtoDataContainer
+   Seq: ( WL 'ME_4A54DD4E036F' '47913B47006E.pas.ms.script' // Tl3ProtoDataContainer
  WL 'ME_4B71611400B3' '47913B47006E.pas.ms.script' // l3AtomicListPrim
- ) .SequenceCode.It
+ )
  ; // Inherits
  : Attributes
-   @ ( ME_4BA2240501D9 // ItemType
- ) .SequenceCode.It
+   Seq: ( ME_4BA2240501D9 // ItemType
+ )
  ; // Attributes
  : Implemented
-   @ ( ME_47B99D4503A2_ME_4BA223D801B3 // CompareExistingItems
- ) .SequenceCode.It
+   Seq: ( ME_47B99D4503A2_ME_4BA223D801B3 // CompareExistingItems
+ )
  ; // Implemented
  : Overridden
-   @ ( ME_47A042E100E2_ME_4BA223D801B3 // InitFields
- ) .SequenceCode.It
+   Seq: ( ME_47A042E100E2_ME_4BA223D801B3 // InitFields
+ )
  ; // Overridden
  : Children
-   @ ( ME_4BA22CD70162 // l3Items_NoSort
- ) .SequenceCode.It
+   Seq: ( ME_4BA22CD70162 // l3Items_NoSort
+ )
  ; // Children
  : Dependencies
-   @ ( ME_4BB9FBFE0053 // 
+   Seq: ( ME_4BB9FBFE0053 // 
  ME_4BB9FC5703C1 // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  CONST "author" 'Люлин А.В.'
  CONST "needs InstanceR" 'undefined'
@@ -399,6 +418,12 @@ ref; // ME_47A042E100E2_ME_4BA223D801B3 InitFields
  CONST "no hands" true
  CONST "register in scripts" 'undefined'
  CONST "started" '18.03.2010 16:00'
+ CONST dfm:PathOnly '\common\components\rtl\Garant\L3'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\L3'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'ConstStringsPrim'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_4BA223D801B3 Tl3ConstStringsPrim
 
@@ -409,6 +434,7 @@ FORWARD ME_38979385DFF9
 : ME_1F5BE5CABF73
  CONST UID '1F5BE5CABF73'
  CONST Name 'aStr'
+ CONST IsSummoned true
  CONST Class class_Parameter
  : Stereotype st_in ;
  : Target ME_4B3B3728004C // Tl3StringIDEx
@@ -419,6 +445,7 @@ ref; // ME_1F5BE5CABF73 aStr
 : ME_201B50E5979A
  CONST UID '201B50E5979A'
  CONST Name 'AsCStr'
+ CONST IsSummoned true
  CONST Class class_Operation
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
@@ -427,8 +454,8 @@ ref; // ME_1F5BE5CABF73 aStr
  : Target WL 'ME_46780DA40383' '4677FBA70343.pas.ms.script' // Il3CString
  ;
  : Parameters
-   @ ( ME_1F5BE5CABF73 // aStr
- ) .SequenceCode.It
+   Seq: ( ME_1F5BE5CABF73 // aStr
+ )
  ; // Parameters
 
 ref; // ME_201B50E5979A AsCStr
@@ -436,6 +463,7 @@ ref; // ME_201B50E5979A AsCStr
 : ME_3F7C7858DF60
  CONST UID '3F7C7858DF60'
  CONST Name 'aStr'
+ CONST IsSummoned true
  CONST Class class_Parameter
  : Stereotype st_in ;
  : Target ME_4B3B3728004C // Tl3StringIDEx
@@ -446,6 +474,7 @@ ref; // ME_3F7C7858DF60 aStr
 : ME_74E80608E1B4
  CONST UID '74E80608E1B4'
  CONST Name 'AsStr'
+ CONST IsSummoned true
  CONST Class class_Operation
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
@@ -454,8 +483,8 @@ ref; // ME_3F7C7858DF60 aStr
  : Target WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
  ;
  : Parameters
-   @ ( ME_3F7C7858DF60 // aStr
- ) .SequenceCode.It
+   Seq: ( ME_3F7C7858DF60 // aStr
+ )
  ; // Parameters
 
 ref; // ME_74E80608E1B4 AsStr
@@ -463,6 +492,7 @@ ref; // ME_74E80608E1B4 AsStr
 : ME_DCECFBB61D23
  CONST UID 'DCECFBB61D23'
  CONST Name 'theStr'
+ CONST IsSummoned true
  CONST Class class_Parameter
  : Stereotype st_inout ;
  : Target ME_4B3B3728004C // Tl3StringIDEx
@@ -473,14 +503,15 @@ ref; // ME_DCECFBB61D23 theStr
 : ME_071573E75439
  CONST UID '071573E75439'
  CONST Name 'Init'
+ CONST IsSummoned true
  CONST Class class_Operation
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
  : Parent ME_38979385DFF9 // Ml3StringIDExHelper
  ;
  : Parameters
-   @ ( ME_DCECFBB61D23 // theStr
- ) .SequenceCode.It
+   Seq: ( ME_DCECFBB61D23 // theStr
+ )
  ; // Parameters
 
 ref; // ME_071573E75439 Init
@@ -488,6 +519,7 @@ ref; // ME_071573E75439 Init
 : ME_38979385DFF9
  CONST UID '38979385DFF9'
  CONST Name 'Ml3StringIDExHelper'
+ CONST IsSummoned true
  CONST Class class_Class
  : Stereotype st_PureMixIn ;
  CONST Kind kind_NormalClass
@@ -497,11 +529,15 @@ ref; // ME_071573E75439 Init
  : Parent ME_4B98D6C201AD // Tl3StringIDExHelper
  ;
  : Operations
-   @ ( ME_201B50E5979A // AsCStr
+   Seq: ( ME_201B50E5979A // AsCStr
  ME_74E80608E1B4 // AsStr
  ME_071573E75439 // Init
- ) .SequenceCode.It
+ )
  ; // Operations
+ CONST dfm:PathOnly '\common\components\rtl\Garant\L3'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\L3'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_38979385DFF9 Ml3StringIDExHelper
 
@@ -541,6 +577,7 @@ ref; // ME_74E80608E1B4_ME_26AFA90E5B84 AsStr
  CONST UID '26AFA90E5B84'
  CONST GUID '8AB76DA9-7B40-4325-8F71-3EAA5DB9E047'
  CONST Name 'Il3StringIDExHelper'
+ CONST IsSummoned true
  CONST Class class_Class
  : Stereotype st_Facet ;
  CONST Kind kind_NormalClass
@@ -550,21 +587,28 @@ ref; // ME_74E80608E1B4_ME_26AFA90E5B84 AsStr
  : Parent ME_4B98D6C201AD // Tl3StringIDExHelper
  ;
  : Implements
-   @ ( ME_38979385DFF9 // Ml3StringIDExHelper
- ) .SequenceCode.It
+   Seq: ( ME_38979385DFF9 // Ml3StringIDExHelper
+ )
  ; // Implements
  : Implemented
-   @ ( ME_071573E75439_ME_26AFA90E5B84 // Init
+   Seq: ( ME_071573E75439_ME_26AFA90E5B84 // Init
  ME_201B50E5979A_ME_26AFA90E5B84 // AsCStr
  ME_74E80608E1B4_ME_26AFA90E5B84 // AsStr
- ) .SequenceCode.It
+ )
  ; // Implemented
+ CONST dfm:PathOnly '\common\components\rtl\Garant\L3'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\L3'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'StringIDExHelper'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_26AFA90E5B84 Il3StringIDExHelper
 
 : ME_05B3D469C519
  CONST UID '05B3D469C519'
  CONST Name 'Alien'
+ CONST IsSummoned true
  CONST Class class_Attribute
  : Stereotype st_writeonly::Attribute ;
  %SUMMARY 'Внешняя реализация сервиса Il3StringIDExHelper' ;
@@ -583,6 +627,7 @@ ref; // ME_05B3D469C519 Alien
 : ME_460532C55BB1
  CONST UID '460532C55BB1'
  CONST Name 'f_Alien'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY 'Поле для свойства Alien' ;
  CONST Visibility PrivateAccess
@@ -592,6 +637,7 @@ ref; // ME_05B3D469C519 Alien
  ;
  : Target ME_26AFA90E5B84 // Il3StringIDExHelper
  ;
+ CONST extprop:clearViaProperty 'Alien'
 
 ref; // ME_460532C55BB1 f_Alien
 
@@ -617,8 +663,8 @@ ref; // ME_4B98D79E0230 aStr
  : Target WL 'ME_46780DA40383' '4677FBA70343.pas.ms.script' // Il3CString
  ;
  : Parameters
-   @ ( ME_4B98D79E0230 // aStr
- ) .SequenceCode.It
+   Seq: ( ME_4B98D79E0230 // aStr
+ )
  ; // Parameters
 
 ref; // ME_4B98D78501E1 AsCStr
@@ -645,8 +691,8 @@ ref; // ME_4B98D7AD039F aStr
  : Target WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
  ;
  : Parameters
-   @ ( ME_4B98D7AD039F // aStr
- ) .SequenceCode.It
+   Seq: ( ME_4B98D7AD039F // aStr
+ )
  ; // Parameters
 
 ref; // ME_4B98D7A50160 AsStr
@@ -671,8 +717,8 @@ ref; // ME_4B98D7CB0329 theStr
  : Parent ME_4B98D6C201AD // Tl3StringIDExHelper
  ;
  : Parameters
-   @ ( ME_4B98D7CB0329 // theStr
- ) .SequenceCode.It
+   Seq: ( ME_4B98D7CB0329 // theStr
+ )
  ; // Parameters
 
 ref; // ME_4B98D7BA00C6 Init
@@ -680,6 +726,7 @@ ref; // ME_4B98D7BA00C6 Init
 : ME_EC9235189D85
  CONST UID 'EC9235189D85'
  CONST Name 'Exists'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_static::Operation ;
  %SUMMARY 'Проверяет создан экземпляр синглетона или нет' ;
@@ -689,6 +736,7 @@ ref; // ME_4B98D7BA00C6 Init
  ;
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
+ CONST extprop:pas:Value false
 
 ref; // ME_EC9235189D85 Exists
 
@@ -767,44 +815,44 @@ ref; // ME_5000565C019C_ME_4B98D6C201AD ClearFields
  : Parent ME_4B3B36EC03B2 // l3StringIDEx
  ;
  : Inherits
-   @ ( WL 'ME_49E7754802A9' '47913B47006E.pas.ms.script' // Tl3ProtoObject
- ) .SequenceCode.It
+   Seq: ( WL 'ME_49E7754802A9' '47913B47006E.pas.ms.script' // Tl3ProtoObject
+ )
  ; // Inherits
  : Implements
-   @ ( ME_38979385DFF9 // Ml3StringIDExHelper
- ) .SequenceCode.It
+   Seq: ( ME_38979385DFF9 // Ml3StringIDExHelper
+ )
  ; // Implements
  : Attributes
-   @ ( ME_05B3D469C519 // Alien
+   Seq: ( ME_05B3D469C519 // Alien
  ME_460532C55BB1 // f_Alien
- ) .SequenceCode.It
+ )
  ; // Attributes
  : Operations
-   @ ( ME_4B98D78501E1 // AsCStr
+   Seq: ( ME_4B98D78501E1 // AsCStr
  ME_4B98D7A50160 // AsStr
  ME_4B98D7BA00C6 // Init
  ME_EC9235189D85 // Exists
- ) .SequenceCode.It
+ )
  ; // Operations
  : Implemented
-   @ ( ME_071573E75439_ME_4B98D6C201AD // Init
+   Seq: ( ME_071573E75439_ME_4B98D6C201AD // Init
  ME_201B50E5979A_ME_4B98D6C201AD // AsCStr
  ME_74E80608E1B4_ME_4B98D6C201AD // AsStr
- ) .SequenceCode.It
+ )
  ; // Implemented
  : Overridden
-   @ ( ME_5000565C019C_ME_4B98D6C201AD // ClearFields
- ) .SequenceCode.It
+   Seq: ( ME_5000565C019C_ME_4B98D6C201AD // ClearFields
+ )
  ; // Overridden
  : Children
-   @ ( ME_38979385DFF9 // Ml3StringIDExHelper
+   Seq: ( ME_38979385DFF9 // Ml3StringIDExHelper
  ME_26AFA90E5B84 // Il3StringIDExHelper
- ) .SequenceCode.It
+ )
  ; // Children
  : Dependencies
-   @ ( ME_4B3B51E700BF // 
+   Seq: ( ME_4B3B51E700BF // 
  ME_4BB9C53201CA // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  CONST "author" 'Люлин А.В.'
  CONST "needs InstanceR" 'undefined'
@@ -813,6 +861,12 @@ ref; // ME_5000565C019C_ME_4B98D6C201AD ClearFields
  CONST "register in scripts" 'undefined'
  CONST "singleton" true
  CONST "started" '11.03.2010 14:41'
+ CONST dfm:PathOnly '\common\components\rtl\Garant\L3'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\L3'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'StringIDExHelper'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_4B98D6C201AD Tl3StringIDExHelper
 
@@ -828,22 +882,22 @@ ref; // ME_4B98D6C201AD Tl3StringIDExHelper
  : Parent ME_4F9BDEEE01BC // Поддержка локализованных сообщений
  ;
  : Children
-   @ ( ME_500700DF0376 // Tl3StringIDExPrim
+   Seq: ( ME_500700DF0376 // Tl3StringIDExPrim
  ME_4B3B3728004C // Tl3StringIDEx
  ME_4B3B49B40262 // Pl3StringIDEx
  ME_4BA223D801B3 // Tl3ConstStringsPrim
  ME_4B98D6C201AD // Tl3StringIDExHelper
- ) .SequenceCode.It
+ )
  ; // Children
  CONST "author" 'Люлин А.В.'
  CONST "no hands" true
  CONST "started" '30.12.2009 14:18'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\L3'
  CONST intf.pas:Path 'common\components\rtl\Garant\L3\l3StringIDEx.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\L3'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'StringIDEx'
 
 ref; // ME_4B3B36EC03B2 l3StringIDEx
 
@@ -885,28 +939,30 @@ ref; // ME_47B99D4503A2_ME_4F9BD2A103C7 CompareExistingItems
  : Parent ME_4F9BDEEE01BC // Поддержка локализованных сообщений
  ;
  : Inherits
-   @ ( WL 'ME_4A54DD4E036F' '47913B47006E.pas.ms.script' // Tl3ProtoDataContainer
+   Seq: ( WL 'ME_4A54DD4E036F' '47913B47006E.pas.ms.script' // Tl3ProtoDataContainer
  WL 'ME_4B71611400B3' '47913B47006E.pas.ms.script' // l3AtomicListPrim
- ) .SequenceCode.It
+ )
  ; // Inherits
  : Attributes
-   @ ( ME_4F9BD2D8032F // ItemType
- ) .SequenceCode.It
+   Seq: ( ME_4F9BD2D8032F // ItemType
+ )
  ; // Attributes
  : Implemented
-   @ ( ME_47B99D4503A2_ME_4F9BD2A103C7 // CompareExistingItems
- ) .SequenceCode.It
+   Seq: ( ME_47B99D4503A2_ME_4F9BD2A103C7 // CompareExistingItems
+ )
  ; // Implemented
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\L3'
  CONST intf.pas:Path 'common\components\rtl\Garant\L3\Pl3StringIDExList.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\L3'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'Pl3StringIDExList'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'Pl3StringIDExList'
 
 ref; // ME_4F9BD2A103C7 TPl3StringIDExList
 
@@ -950,28 +1006,30 @@ ref; // ME_47B99D4503A2_ME_4F9BCAD90297 CompareExistingItems
  : Parent ME_4F9BDEEE01BC // Поддержка локализованных сообщений
  ;
  : Inherits
-   @ ( WL 'ME_4A54DD4E036F' '47913B47006E.pas.ms.script' // Tl3ProtoDataContainer
+   Seq: ( WL 'ME_4A54DD4E036F' '47913B47006E.pas.ms.script' // Tl3ProtoDataContainer
  WL 'ME_4B71611400B3' '47913B47006E.pas.ms.script' // l3AtomicListPrim
- ) .SequenceCode.It
+ )
  ; // Inherits
  : Attributes
-   @ ( ME_4F9BCB4D0365 // ItemType
- ) .SequenceCode.It
+   Seq: ( ME_4F9BCB4D0365 // ItemType
+ )
  ; // Attributes
  : Implemented
-   @ ( ME_47B99D4503A2_ME_4F9BCAD90297 // CompareExistingItems
- ) .SequenceCode.It
+   Seq: ( ME_47B99D4503A2_ME_4F9BCAD90297 // CompareExistingItems
+ )
  ; // Implemented
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\L3'
  CONST intf.pas:Path 'common\components\rtl\Garant\L3\Pl3MessageIDListPrim.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\L3'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'Pl3MessageIDListPrim'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'Pl3MessageIDListPrim'
 
 ref; // ME_4F9BCAD90297 TPl3MessageIDListPrim
 
@@ -1001,8 +1059,8 @@ ref; // ME_4F9BCF6401AF DoIt
  : Parent ME_4F9BCB620208 // TPl3MessageIDList
  ;
  : Operations
-   @ ( ME_4F9BCF6401AF // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_4F9BCF6401AF // DoIt
+ )
  ; // Operations
 
 ref; // ME_4F9BCF5401F8 CleanupItems
@@ -1010,6 +1068,7 @@ ref; // ME_4F9BCF5401F8 CleanupItems
 : ME_21EF5F504708
  CONST UID '21EF5F504708'
  CONST Name 'Exists'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_static::Operation ;
  %SUMMARY 'Проверяет создан экземпляр синглетона или нет' ;
@@ -1019,6 +1078,7 @@ ref; // ME_4F9BCF5401F8 CleanupItems
  ;
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
+ CONST extprop:pas:Value false
 
 ref; // ME_21EF5F504708 Exists
 
@@ -1053,30 +1113,32 @@ ref; // ME_479F2AFB0397_ME_4F9BCB620208 Release
  : Parent ME_4F9BDEEE01BC // Поддержка локализованных сообщений
  ;
  : Inherits
-   @ ( ME_4F9BCAD90297 // TPl3MessageIDListPrim
- ) .SequenceCode.It
+   Seq: ( ME_4F9BCAD90297 // TPl3MessageIDListPrim
+ )
  ; // Inherits
  : Operations
-   @ ( ME_4F9BCF5401F8 // CleanupItems
+   Seq: ( ME_4F9BCF5401F8 // CleanupItems
  ME_21EF5F504708 // Exists
- ) .SequenceCode.It
+ )
  ; // Operations
  : Overridden
-   @ ( ME_479731C50290_ME_4F9BCB620208 // Cleanup
+   Seq: ( ME_479731C50290_ME_4F9BCB620208 // Cleanup
  ME_479F2AFB0397_ME_4F9BCB620208 // Release
- ) .SequenceCode.It
+ )
  ; // Overridden
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
  CONST "singleton" true
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\L3'
  CONST intf.pas:Path 'common\components\rtl\Garant\L3\Pl3MessageIDList.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\L3'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'Pl3MessageIDList'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'Pl3MessageIDList'
 
 ref; // ME_4F9BCB620208 TPl3MessageIDList
 
@@ -1324,7 +1386,7 @@ ref; // ME_4E08A2A703E2 rChoices
  : Parent ME_4E01D1980071 // l3MessageID
  ;
  : Attributes
-   @ ( ME_4E08A2D800A4 // rDlgType
+   Seq: ( ME_4E08A2D800A4 // rDlgType
  ME_4E08A2F1014B // rButtons
  ME_4E08A31500B1 // rNeedCheck
  ME_4E08A388020E // rDefaultButton
@@ -1340,9 +1402,14 @@ ref; // ME_4E08A2A703E2 rChoices
  ME_4F8E9EA60067 // rLongHint
  ME_4F8E9EB20086 // rSettingsCaption
  ME_4E08A2A703E2 // rChoices
- ) .SequenceCode.It
+ )
  ; // Attributes
  CONST "not treat as record for XE4" 'undefined'
+ CONST dfm:PathOnly '\common\components\rtl\Garant\L3'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\L3'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'MessageData'
 
 ref; // ME_4E08A27303DC Tl3MessageData
 
@@ -1413,8 +1480,8 @@ ref; // ME_4E09C91C0166 aNewMessage
  : Target ME_4E08A63701DB // Tl3Message
  ;
  : Parameters
-   @ ( ME_4E09C91C0166 // aNewMessage
- ) .SequenceCode.It
+   Seq: ( ME_4E09C91C0166 // aNewMessage
+ )
  ; // Parameters
 
 ref; // ME_4E09C915026C DoIt
@@ -1430,8 +1497,8 @@ ref; // ME_4E09C915026C DoIt
  : Parent ME_4E08A63701DB // Tl3Message
  ;
  : Operations
-   @ ( ME_4E09C915026C // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_4E09C915026C // DoIt
+ )
  ; // Operations
 
 ref; // ME_4E09C8E1001E ChangeMessage
@@ -1459,8 +1526,8 @@ ref; // ME_4E09FBC102A8 aNewMessage
  : Target ME_4E08A63701DB // Tl3Message
  ;
  : Parameters
-   @ ( ME_4E09FBC102A8 // aNewMessage
- ) .SequenceCode.It
+   Seq: ( ME_4E09FBC102A8 // aNewMessage
+ )
  ; // Parameters
 
 ref; // ME_4E09FBAB01B5 DoIt
@@ -1476,8 +1543,8 @@ ref; // ME_4E09FBAB01B5 DoIt
  : Parent ME_4E08A63701DB // Tl3Message
  ;
  : Operations
-   @ ( ME_4E09FBAB01B5 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_4E09FBAB01B5 // DoIt
+ )
  ; // Operations
 
 ref; // ME_4E09FB8101AB ChangeCheckCaption
@@ -1513,9 +1580,9 @@ ref; // ME_4E0A09BC0092 aType
  : Parent ME_4E0A09990038 // C$1
  ;
  : Parameters
-   @ ( ME_4E0A09BC006F // aString
+   Seq: ( ME_4E0A09BC006F // aString
  ME_4E0A09BC0092 // aType
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_4E0A09A102B2 DoIt
@@ -1531,8 +1598,8 @@ ref; // ME_4E0A09A102B2 DoIt
  : Parent ME_4E08A63701DB // Tl3Message
  ;
  : Operations
-   @ ( ME_4E0A09A102B2 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_4E0A09A102B2 // DoIt
+ )
  ; // Operations
  CONST "ifndef" 'NoVCL'
 
@@ -1579,10 +1646,10 @@ ref; // ME_4E0A10D80208 aType
  : Parent ME_4E0A10B2022E // C$2
  ;
  : Parameters
-   @ ( ME_4E0A10D80171 // aString
+   Seq: ( ME_4E0A10D80171 // aString
  ME_4E0A10D801BA // aKey
  ME_4E0A10D80208 // aType
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_4E0A10C80357 DoIt
@@ -1598,8 +1665,8 @@ ref; // ME_4E0A10C80357 DoIt
  : Parent ME_4E08A63701DB // Tl3Message
  ;
  : Operations
-   @ ( ME_4E0A10C80357 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_4E0A10C80357 // DoIt
+ )
  ; // Operations
  CONST "ifndef" 'NoVCL'
 
@@ -1656,11 +1723,11 @@ ref; // ME_4E0A1B3B026E aButtons
  : Parent ME_4E0A1B0E03A6 // C$3
  ;
  : Parameters
-   @ ( ME_4E0A1B230090 // aString
+   Seq: ( ME_4E0A1B230090 // aString
  ME_4E0A1B2300E2 // aKey
  ME_4E0A1B23012B // aType
  ME_4E0A1B3B026E // aButtons
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_4E0A1B1D0152 DoIt
@@ -1676,8 +1743,8 @@ ref; // ME_4E0A1B1D0152 DoIt
  : Parent ME_4E08A63701DB // Tl3Message
  ;
  : Operations
-   @ ( ME_4E0A1B1D0152 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_4E0A1B1D0152 // DoIt
+ )
  ; // Operations
  CONST "ifndef" 'NoVCL'
 
@@ -1724,10 +1791,10 @@ ref; // ME_4E0A1C7103B8 aButtons
  : Parent ME_4E0A1C590137 // C$4
  ;
  : Parameters
-   @ ( ME_4E0A1C710311 // aString
+   Seq: ( ME_4E0A1C710311 // aString
  ME_4E0A1C710391 // aType
  ME_4E0A1C7103B8 // aButtons
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_4E0A1C6402F7 DoIt
@@ -1743,8 +1810,8 @@ ref; // ME_4E0A1C6402F7 DoIt
  : Parent ME_4E08A63701DB // Tl3Message
  ;
  : Operations
-   @ ( ME_4E0A1C6402F7 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_4E0A1C6402F7 // DoIt
+ )
  ; // Operations
  CONST "ifndef" 'NoVCL'
 
@@ -1773,8 +1840,8 @@ ref; // ME_4E0B39E40040 aNewInfo
  : Target ME_4E08A63701DB // Tl3Message
  ;
  : Parameters
-   @ ( ME_4E0B39E40040 // aNewInfo
- ) .SequenceCode.It
+   Seq: ( ME_4E0B39E40040 // aNewInfo
+ )
  ; // Parameters
 
 ref; // ME_4E0B39DA028F DoIt
@@ -1790,8 +1857,8 @@ ref; // ME_4E0B39DA028F DoIt
  : Parent ME_4E08A63701DB // Tl3Message
  ;
  : Operations
-   @ ( ME_4E0B39DA028F // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_4E0B39DA028F // DoIt
+ )
  ; // Operations
 
 ref; // ME_4E0B39BC0383 ChangeFooterInfo
@@ -1822,8 +1889,8 @@ ref; // ME_4E7CACD2014F DoIt
  : Parent ME_4E08A63701DB // Tl3Message
  ;
  : Operations
-   @ ( ME_4E7CACD2014F // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_4E7CACD2014F // DoIt
+ )
  ; // Operations
 
 ref; // ME_4E7CACC301BC SettingsCaption
@@ -1854,8 +1921,8 @@ ref; // ME_4E7CACEC0317 DoIt
  : Parent ME_4E08A63701DB // Tl3Message
  ;
  : Operations
-   @ ( ME_4E7CACEC0317 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_4E7CACEC0317 // DoIt
+ )
  ; // Operations
 
 ref; // ME_4E7CACE1000D LongHint
@@ -1886,8 +1953,8 @@ ref; // ME_4F8EA28500C4 DoIt
  : Parent ME_4E08A63701DB // Tl3Message
  ;
  : Operations
-   @ ( ME_4F8EA28500C4 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_4F8EA28500C4 // DoIt
+ )
  ; // Operations
 
 ref; // ME_4F8EA27801A4 CheckCaption
@@ -1903,13 +1970,13 @@ ref; // ME_4F8EA27801A4 CheckCaption
  : Parent ME_4E01D1980071 // l3MessageID
  ;
  : Attributes
-   @ ( ME_4E08A64101C1 // rData
+   Seq: ( ME_4E08A64101C1 // rData
  ME_4E08A6B0026B // rMessage
  ME_4E08A66901C3 // rName
- ) .SequenceCode.It
+ )
  ; // Attributes
  : Operations
-   @ ( ME_4E09C8E1001E // ChangeMessage
+   Seq: ( ME_4E09C8E1001E // ChangeMessage
  ME_4E09FB8101AB // ChangeCheckCaption
  ME_4E0A09990038 // C$1
  ME_4E0A10B2022E // C$2
@@ -1919,9 +1986,14 @@ ref; // ME_4F8EA27801A4 CheckCaption
  ME_4E7CACC301BC // SettingsCaption
  ME_4E7CACE1000D // LongHint
  ME_4F8EA27801A4 // CheckCaption
- ) .SequenceCode.It
+ )
  ; // Operations
  CONST "not treat as record for XE4" 'undefined'
+ CONST dfm:PathOnly '\common\components\rtl\Garant\L3'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\L3'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'Message'
 
 ref; // ME_4E08A63701DB Tl3Message
 
@@ -1982,8 +2054,8 @@ ref; // ME_4E01D27B039D DoIt
  : Parent ME_4E01D1E002AE // Tl3MessageID
  ;
  : Operations
-   @ ( ME_4E01D27B039D // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_4E01D27B039D // DoIt
+ )
  ; // Operations
 
 ref; // ME_4E01D26702F9 DoInit
@@ -2009,8 +2081,8 @@ ref; // ME_4E09C6BB0030 aChoice
  : Parent ME_4E09C6930204 // AddChoice
  ;
  : Parameters
-   @ ( ME_4E09C6BB0030 // aChoice
- ) .SequenceCode.It
+   Seq: ( ME_4E09C6BB0030 // aChoice
+ )
  ; // Parameters
 
 ref; // ME_4E09C6AE0162 DoIt
@@ -2027,8 +2099,8 @@ ref; // ME_4E09C6AE0162 DoIt
  : Parent ME_4E01D1E002AE // Tl3MessageID
  ;
  : Operations
-   @ ( ME_4E09C6AE0162 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_4E09C6AE0162 // DoIt
+ )
  ; // Operations
 
 ref; // ME_4E09C6930204 AddChoice
@@ -2054,8 +2126,8 @@ ref; // ME_4E09D6ED03B2 aChoice
  : Parent ME_4E09D6DA034C // AddCustomChoice
  ;
  : Parameters
-   @ ( ME_4E09D6ED03B2 // aChoice
- ) .SequenceCode.It
+   Seq: ( ME_4E09D6ED03B2 // aChoice
+ )
  ; // Parameters
 
 ref; // ME_4E09D6EB024E DoIt
@@ -2093,13 +2165,13 @@ ref; // ME_4E09D8F10163
  : Parent ME_4E01D1E002AE // Tl3MessageID
  ;
  : Operations
-   @ ( ME_4E09D6EB024E // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_4E09D6EB024E // DoIt
+ )
  ; // Operations
  : Dependencies
-   @ ( ME_4E09D70500B5 // 
+   Seq: ( ME_4E09D70500B5 // 
  ME_4E09D8F10163 // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
 
 ref; // ME_4E09D6DA034C AddCustomChoice
@@ -2125,8 +2197,8 @@ ref; // ME_4E0A011B02C4 aChoice
  : Parent ME_4E0A010A0200 // AddDefaultChoice
  ;
  : Parameters
-   @ ( ME_4E0A011B02C4 // aChoice
- ) .SequenceCode.It
+   Seq: ( ME_4E0A011B02C4 // aChoice
+ )
  ; // Parameters
 
 ref; // ME_4E0A011801EE DoIt
@@ -2142,8 +2214,8 @@ ref; // ME_4E0A011801EE DoIt
  : Parent ME_4E01D1E002AE // Tl3MessageID
  ;
  : Operations
-   @ ( ME_4E0A011801EE // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_4E0A011801EE // DoIt
+ )
  ; // Operations
 
 ref; // ME_4E0A010A0200 AddDefaultChoice
@@ -2169,8 +2241,8 @@ ref; // ME_4E0A075E0151 aType
  : Parent ME_4E0A074B000E // SetDlgType
  ;
  : Parameters
-   @ ( ME_4E0A075E0151 // aType
- ) .SequenceCode.It
+   Seq: ( ME_4E0A075E0151 // aType
+ )
  ; // Parameters
 
 ref; // ME_4E0A07580255 DoIt
@@ -2186,8 +2258,8 @@ ref; // ME_4E0A07580255 DoIt
  : Parent ME_4E01D1E002AE // Tl3MessageID
  ;
  : Operations
-   @ ( ME_4E0A07580255 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_4E0A07580255 // DoIt
+ )
  ; // Operations
  CONST "ifndef" 'NoVCL'
 
@@ -2214,8 +2286,8 @@ ref; // ME_4E9E81E90313 aValue
  : Parent ME_4E9E81D40059 // SetCheckCaption
  ;
  : Parameters
-   @ ( ME_4E9E81E90313 // aValue
- ) .SequenceCode.It
+   Seq: ( ME_4E9E81E90313 // aValue
+ )
  ; // Parameters
 
 ref; // ME_4E9E81DF01D7 DoIt
@@ -2231,8 +2303,8 @@ ref; // ME_4E9E81DF01D7 DoIt
  : Parent ME_4E01D1E002AE // Tl3MessageID
  ;
  : Operations
-   @ ( ME_4E9E81DF01D7 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_4E9E81DF01D7 // DoIt
+ )
  ; // Operations
 
 ref; // ME_4E9E81D40059 SetCheckCaption
@@ -2258,8 +2330,8 @@ ref; // ME_4EB14BA40134 aValue
  : Parent ME_4EB14B8A010B // SetSettingsCaption
  ;
  : Parameters
-   @ ( ME_4EB14BA40134 // aValue
- ) .SequenceCode.It
+   Seq: ( ME_4EB14BA40134 // aValue
+ )
  ; // Parameters
 
 ref; // ME_4EB14B9B0167 DoIt
@@ -2275,8 +2347,8 @@ ref; // ME_4EB14B9B0167 DoIt
  : Parent ME_4E01D1E002AE // Tl3MessageID
  ;
  : Operations
-   @ ( ME_4EB14B9B0167 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_4EB14B9B0167 // DoIt
+ )
  ; // Operations
 
 ref; // ME_4EB14B8A010B SetSettingsCaption
@@ -2302,8 +2374,8 @@ ref; // ME_4EB14BBF00F2 aValue
  : Parent ME_4EB14BAB00E3 // SetLongHint
  ;
  : Parameters
-   @ ( ME_4EB14BBF00F2 // aValue
- ) .SequenceCode.It
+   Seq: ( ME_4EB14BBF00F2 // aValue
+ )
  ; // Parameters
 
 ref; // ME_4EB14BB7039A DoIt
@@ -2319,8 +2391,8 @@ ref; // ME_4EB14BB7039A DoIt
  : Parent ME_4E01D1E002AE // Tl3MessageID
  ;
  : Operations
-   @ ( ME_4EB14BB7039A // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_4EB14BB7039A // DoIt
+ )
  ; // Operations
 
 ref; // ME_4EB14BAB00E3 SetLongHint
@@ -2346,8 +2418,8 @@ ref; // ME_4EB1580301B7 aValue
  : Parent ME_4EB157EE021C // SetNeedCheck
  ;
  : Parameters
-   @ ( ME_4EB1580301B7 // aValue
- ) .SequenceCode.It
+   Seq: ( ME_4EB1580301B7 // aValue
+ )
  ; // Parameters
 
 ref; // ME_4EB157FA0177 DoIt
@@ -2363,8 +2435,8 @@ ref; // ME_4EB157FA0177 DoIt
  : Parent ME_4E01D1E002AE // Tl3MessageID
  ;
  : Operations
-   @ ( ME_4EB157FA0177 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_4EB157FA0177 // DoIt
+ )
  ; // Operations
 
 ref; // ME_4EB157EE021C SetNeedCheck
@@ -2393,8 +2465,8 @@ ref; // ME_4F9BCBD00044 DoIt
  : Parent ME_4E01D1E002AE // Tl3MessageID
  ;
  : Operations
-   @ ( ME_4F9BCBD00044 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_4F9BCBD00044 // DoIt
+ )
  ; // Operations
 
 ref; // ME_4F9BCBC101F7 Cleanup
@@ -2411,16 +2483,16 @@ ref; // ME_4F9BCBC101F7 Cleanup
  : Parent ME_4E01D1980071 // l3MessageID
  ;
  : Inherits
-   @ ( ME_4B3B3728004C // Tl3StringIDEx
- ) .SequenceCode.It
+   Seq: ( ME_4B3B3728004C // Tl3StringIDEx
+ )
  ; // Inherits
  : Attributes
-   @ ( ME_4E08A2820202 // rData
+   Seq: ( ME_4E08A2820202 // rData
  ME_4E0B01570024 // AsMessage
- ) .SequenceCode.It
+ )
  ; // Attributes
  : Operations
-   @ ( ME_4E01D26702F9 // DoInit
+   Seq: ( ME_4E01D26702F9 // DoInit
  ME_4E09C6930204 // AddChoice
  ME_4E09D6DA034C // AddCustomChoice
  ME_4E0A010A0200 // AddDefaultChoice
@@ -2430,9 +2502,14 @@ ref; // ME_4F9BCBC101F7 Cleanup
  ME_4EB14BAB00E3 // SetLongHint
  ME_4EB157EE021C // SetNeedCheck
  ME_4F9BCBC101F7 // Cleanup
- ) .SequenceCode.It
+ )
  ; // Operations
  CONST "not treat as record for XE4" true
+ CONST dfm:PathOnly '\common\components\rtl\Garant\L3'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\L3'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'MessageID'
 
 ref; // ME_4E01D1E002AE Tl3MessageID
 
@@ -2451,6 +2528,7 @@ FORWARD ME_4B8EA6A3016F
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value '''Запомнить выбор и больше не показывать это сообщение.'''
 
 ref; // ME_4B8EA6D900DC RememberChoice
 
@@ -2467,6 +2545,7 @@ ref; // ME_4B8EA6D900DC RememberChoice
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value '''Больше не показывать это сообщение.'''
 
 ref; // ME_4B8EA6E90245 NotShowDlg
 
@@ -2481,14 +2560,18 @@ ref; // ME_4B8EA6E90245 NotShowDlg
  : Parent ME_4E01D1980071 // l3MessageID
  ;
  : Attributes
-   @ ( ME_4B8EA6D900DC // RememberChoice
+   Seq: ( ME_4B8EA6D900DC // RememberChoice
  ME_4B8EA6E90245 // NotShowDlg
- ) .SequenceCode.It
+ )
  ; // Attributes
  CONST "Need map interface" false
  CONST "Need mapping support" false
  CONST "children prefix" 'vcm'
  CONST "spell names" false
+ CONST dfm:PathOnly '\common\components\rtl\Garant\L3'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\L3'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
  CONST extprop:pas:ElementPrefix 'vcm'
 
 ref; // ME_4B8EA6A3016F Local
@@ -2516,8 +2599,8 @@ ref; // ME_4E08A69A0235 anID
  : Parent ME_4E08A68B0019 // C
  ;
  : Parameters
-   @ ( ME_4E08A69A0235 // anID
- ) .SequenceCode.It
+   Seq: ( ME_4E08A69A0235 // anID
+ )
  ; // Parameters
 
 ref; // ME_4E08A69202B4 DoIt
@@ -2533,8 +2616,8 @@ ref; // ME_4E08A69202B4 DoIt
  : Parent ME_4E0B04C801EC // Tl3MessageC
  ;
  : Operations
-   @ ( ME_4E08A69202B4 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_4E08A69202B4 // DoIt
+ )
  ; // Operations
 
 ref; // ME_4E08A68B0019 C
@@ -2550,14 +2633,19 @@ ref; // ME_4E08A68B0019 C
  : Parent ME_4E01D1980071 // l3MessageID
  ;
  : Inherits
-   @ ( ME_4E08A63701DB // Tl3Message
- ) .SequenceCode.It
+   Seq: ( ME_4E08A63701DB // Tl3Message
+ )
  ; // Inherits
  : Operations
-   @ ( ME_4E08A68B0019 // C
- ) .SequenceCode.It
+   Seq: ( ME_4E08A68B0019 // C
+ )
  ; // Operations
  CONST "not treat as record for XE4" 'undefined'
+ CONST dfm:PathOnly '\common\components\rtl\Garant\L3'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\L3'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'MessageC'
 
 ref; // ME_4E0B04C801EC Tl3MessageC
 
@@ -2572,10 +2660,14 @@ ref; // ME_4E0B04C801EC Tl3MessageC
  : Parent ME_4E01D1980071 // l3MessageID
  ;
  : Inherits
-   @ ( ME_4E01D1E002AE // Tl3MessageID
- ) .SequenceCode.It
+   Seq: ( ME_4E01D1E002AE // Tl3MessageID
+ )
  ; // Inherits
  CONST "isPointer" true
+ CONST dfm:PathOnly '\common\components\rtl\Garant\L3'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\L3'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_4F9BC9DC0069 Pl3MessageID
 
@@ -2584,6 +2676,7 @@ FORWARD ME_43F39AEE5839
 : ME_171D5CEF1443
  CONST UID '171D5CEF1443'
  CONST Name 'RememberChoice'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY '''Запомнить выбор и больше не показывать это сообщение.''' ;
  CONST Visibility PublicAccess
@@ -2599,12 +2692,14 @@ FORWARD ME_43F39AEE5839
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''vcmRememberChoice''; rValue : ''Запомнить выбор и больше не показывать это сообщение.'')'
 
 ref; // ME_171D5CEF1443 RememberChoice
 
 : ME_E3E7214C80F3
  CONST UID 'E3E7214C80F3'
  CONST Name 'NotShowDlg'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY '''Больше не показывать это сообщение.''' ;
  CONST Visibility PublicAccess
@@ -2620,12 +2715,14 @@ ref; // ME_171D5CEF1443 RememberChoice
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''vcmNotShowDlg''; rValue : ''Больше не показывать это сообщение.'')'
 
 ref; // ME_E3E7214C80F3 NotShowDlg
 
 : ME_43F39AEE5839
  CONST UID '43F39AEE5839'
  CONST Name 'LCImplLocal'
+ CONST IsSummoned true
  CONST Class class_Class
  : Stereotype st_Constants ;
  CONST Kind kind_NormalClass
@@ -2635,13 +2732,17 @@ ref; // ME_E3E7214C80F3 NotShowDlg
  : Parent ME_4E01D1980071 // l3MessageID
  ;
  : Attributes
-   @ ( ME_171D5CEF1443 // RememberChoice
+   Seq: ( ME_171D5CEF1443 // RememberChoice
  ME_E3E7214C80F3 // NotShowDlg
- ) .SequenceCode.It
+ )
  ; // Attributes
  CONST "children prefix" 'vcm'
  CONST "elements prefix" 'str'
  CONST "spell names" false
+ CONST dfm:PathOnly '\common\components\rtl\Garant\L3'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\L3'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
  CONST extprop:pas:ElementPrefixBase 'str'
  CONST extprop:pas:ElementPrefix 'str_vcm'
 
@@ -2649,7 +2750,8 @@ ref; // ME_43F39AEE5839 LCImplLocal
 
 : ME_8ED502C26039
  CONST UID '8ED502C26039'
- CONST Name 'Init_RememberChoice'
+ CONST Name 'Init_Str_RememberChoice'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Инициализация str_vcmRememberChoice' ;
@@ -2657,12 +2759,17 @@ ref; // ME_43F39AEE5839 LCImplLocal
  CONST Abstraction at_final
  : Parent ME_4E01D1980071 // l3MessageID
  ;
+ : Speller ME_4B8EA6D900DC // RememberChoice
+ ;
+ : SpelledFor ME_171D5CEF1443 // RememberChoice
+ ;
 
-ref; // ME_8ED502C26039 Init_RememberChoice
+ref; // ME_8ED502C26039 Init_Str_RememberChoice
 
 : ME_B716D356463C
  CONST UID 'B716D356463C'
- CONST Name 'Init_NotShowDlg'
+ CONST Name 'Init_Str_NotShowDlg'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Инициализация str_vcmNotShowDlg' ;
@@ -2670,8 +2777,12 @@ ref; // ME_8ED502C26039 Init_RememberChoice
  CONST Abstraction at_final
  : Parent ME_4E01D1980071 // l3MessageID
  ;
+ : Speller ME_4B8EA6E90245 // NotShowDlg
+ ;
+ : SpelledFor ME_E3E7214C80F3 // NotShowDlg
+ ;
 
-ref; // ME_B716D356463C Init_NotShowDlg
+ref; // ME_B716D356463C Init_Str_NotShowDlg
 
 : ME_4E01D1C100D5
  CONST UID '4E01D1C100D5'
@@ -2697,6 +2808,7 @@ ref; // ME_4F9BCB79001C
 
 : ME_571B412D5456
  CONST UID '571B412D5456'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_4E01D1980071 // l3MessageID
@@ -2708,6 +2820,7 @@ ref; // ME_571B412D5456
 
 : ME_859AFD72C2A9
  CONST UID '859AFD72C2A9'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_4E01D1980071 // l3MessageID
@@ -2729,39 +2842,39 @@ ref; // ME_859AFD72C2A9
  : Parent ME_4F9BDEEE01BC // Поддержка локализованных сообщений
  ;
  : Operations
-   @ ( ME_8ED502C26039 // Init_RememberChoice
- ME_B716D356463C // Init_NotShowDlg
- ) .SequenceCode.It
+   Seq: ( ME_8ED502C26039 // Init_Str_RememberChoice
+ ME_B716D356463C // Init_Str_NotShowDlg
+ )
  ; // Operations
  : Children
-   @ ( ME_4E08A27303DC // Tl3MessageData
+   Seq: ( ME_4E08A27303DC // Tl3MessageData
  ME_4E08A63701DB // Tl3Message
  ME_4E01D1E002AE // Tl3MessageID
  ME_4E0B04C801EC // Tl3MessageC
  ME_4F9BC9DC0069 // Pl3MessageID
- ) .SequenceCode.It
+ )
  ; // Children
  : Constants
-   @ ( ME_4B8EA6A3016F // Local
+   Seq: ( ME_4B8EA6A3016F // Local
  ME_43F39AEE5839 // LCImplLocal
- ) .SequenceCode.It
+ )
  ; // Constants
  : Dependencies
-   @ ( ME_4E01D1C100D5 // 
+   Seq: ( ME_4E01D1C100D5 // 
  ME_4F9BCB79001C // 
  ME_571B412D5456 // 
  ME_859AFD72C2A9 // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  CONST "author" 'Люлин А.В.'
  CONST "no hands" true
  CONST "started" '22.06.2011 15:27'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\L3'
  CONST intf.pas:Path 'common\components\rtl\Garant\L3\l3MessageID.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\L3'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'MessageID'
 
 ref; // ME_4E01D1980071 l3MessageID
 
@@ -2846,31 +2959,31 @@ ref; // ME_47B9BAFD01F4_ME_4BB9C58B039B CompareItemWithData
  : Parent ME_4F9BDEEE01BC // Поддержка локализованных сообщений
  ;
  : Inherits
-   @ ( WL 'ME_47B47E230134' '47BB24D30205.pas.ms.script' // l3Searcher
+   Seq: ( WL 'ME_47B47E230134' '47BB24D30205.pas.ms.script' // l3Searcher
  ME_4BA223D801B3 // Tl3ConstStringsPrim
- ) .SequenceCode.It
+ )
  ; // Inherits
  : Implements
-   @ ( WL 'ME_4BB9BFED0089' '4677FBA70343.pas.ms.script' // Il3ApplicationL10NStrings
- ) .SequenceCode.It
+   Seq: ( WL 'ME_4BB9BFED0089' '4677FBA70343.pas.ms.script' // Il3ApplicationL10NStrings
+ )
  ; // Implements
  : Attributes
-   @ ( ME_4BB9D65B02CC // FindDataType
- ) .SequenceCode.It
+   Seq: ( ME_4BB9D65B02CC // FindDataType
+ )
  ; // Attributes
  : Implemented
-   @ ( ME_4BB9C06901AE_ME_4BB9C58B039B // Define
- ) .SequenceCode.It
+   Seq: ( ME_4BB9C06901AE_ME_4BB9C58B039B // Define
+ )
  ; // Implemented
  : Overridden
-   @ ( ME_47B9BAFD01F4_ME_4BB9C58B039B // CompareItemWithData
- ) .SequenceCode.It
+   Seq: ( ME_47B9BAFD01F4_ME_4BB9C58B039B // CompareItemWithData
+ )
  ; // Overridden
  : Dependencies
-   @ ( ME_4BB9D26A00A0 // 
+   Seq: ( ME_4BB9D26A00A0 // 
  ME_4BB9D819015B // 
  ME_4BB9E11501BC // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  CONST "author" 'Люлин А.В.'
  CONST "needs InstanceR" 'undefined'
@@ -2878,12 +2991,14 @@ ref; // ME_47B9BAFD01F4_ME_4BB9C58B039B CompareItemWithData
  CONST "no hands" true
  CONST "register in scripts" 'undefined'
  CONST "started" '05.04.2010 15:12'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\L3'
  CONST intf.pas:Path 'common\components\rtl\Garant\L3\l3ConstStrings1.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\L3'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'ConstStrings1'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'l3ConstStrings1'
 
 ref; // ME_4BB9C58B039B Tl3ConstStrings1
 
@@ -2902,6 +3017,7 @@ ref; // ME_4BB9C58B039B Tl3ConstStrings1
  CONST Value false
  : ValueType WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
+ CONST extprop:pas:Value false
 
 ref; // ME_4BA221B103C1 g_l3ConstStringsSealed
 
@@ -2931,8 +3047,8 @@ ref; // ME_4BA22761018F DoIt
  : Parent ME_4BA2214002EE // Tl3ConstStrings
  ;
  : Operations
-   @ ( ME_4BA22761018F // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_4BA22761018F // DoIt
+ )
  ; // Operations
  CONST "is static" true
 
@@ -2949,16 +3065,16 @@ ref; // ME_4BA227540063 Exists
  : Parent ME_4F9BDEEE01BC // Поддержка локализованных сообщений
  ;
  : Inherits
-   @ ( ME_4BB9C58B039B // Tl3ConstStrings1
- ) .SequenceCode.It
+   Seq: ( ME_4BB9C58B039B // Tl3ConstStrings1
+ )
  ; // Inherits
  : Attributes
-   @ ( ME_4BA221B103C1 // g_l3ConstStringsSealed
- ) .SequenceCode.It
+   Seq: ( ME_4BA221B103C1 // g_l3ConstStringsSealed
+ )
  ; // Attributes
  : Operations
-   @ ( ME_4BA227540063 // Exists
- ) .SequenceCode.It
+   Seq: ( ME_4BA227540063 // Exists
+ )
  ; // Operations
  CONST "author" 'Люлин А.В.'
  CONST "needs InstanceR" 'undefined'
@@ -2967,12 +3083,14 @@ ref; // ME_4BA227540063 Exists
  CONST "register in scripts" 'undefined'
  CONST "singleton" true
  CONST "started" '18.03.2010 15:49'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\L3'
  CONST intf.pas:Path 'common\components\rtl\Garant\L3\l3ConstStrings.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\L3'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'ConstStrings'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'l3ConstStrings'
 
 ref; // ME_4BA2214002EE Tl3ConstStrings
 
@@ -2986,30 +3104,28 @@ ref; // ME_4BA2214002EE Tl3ConstStrings
  : Parent WL 'ME_4790D09A0378' '4790D09A0378.pas.ms.script' // L3
  ;
  : Children
-   @ ( ME_4B3B36EC03B2 // l3StringIDEx
+   Seq: ( ME_4B3B36EC03B2 // l3StringIDEx
  ME_4F9BD2A103C7 // TPl3StringIDExList
  ME_4F9BCAD90297 // TPl3MessageIDListPrim
  ME_4F9BCB620208 // TPl3MessageIDList
  ME_4E01D1980071 // l3MessageID
  ME_4BB9C58B039B // Tl3ConstStrings1
  ME_4BA2214002EE // Tl3ConstStrings
- ) .SequenceCode.It
+ )
  ; // Children
  : Depends
-   @ ( WL 'ME_4677FBA70343' '4677FBA70343.pas.ms.script' // l3Interfaces
+   Seq: ( WL 'ME_4677FBA70343' '4677FBA70343.pas.ms.script' // l3Interfaces
  WL 'ME_47913B47006E' '47913B47006E.pas.ms.script' // l3CoreObjects
  WL 'ME_4799D29F033F' '4799D29F033F.pas.ms.script' // Implementation
  WL 'ME_4AB0C3C60310' '4AB0C3C60310.pas.ms.script' // Sys
  WL 'ME_54B90AC6014B' '54B90AC6014B.pas.ms.script' // StringUtils
- ) .SequenceCode.It
+ )
  ; // Depends
- : Generators
- @ (
- gen_pas.script
- gen_pas.script.runner
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\L3'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\L3'
  CONST pas.script:Path 'shared\models\NewSchool\Scripts\4F9BDEEE01BC.pas.ms.script'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
  CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\4F9BDEEE01BC.pas.ms.script.runner'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_4F9BDEEE01BC Поддержка локализованных сообщений

@@ -49,10 +49,10 @@ ref; // ME_50096EB7009E aSubUserType
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
  : Parameters
-   @ ( ME_50096EB70051 // aDataSource
+   Seq: ( ME_50096EB70051 // aDataSource
  ME_50096EB70081 // aNew
  ME_50096EB7009E // aSubUserType
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_50096E990182 DoIt
@@ -69,10 +69,14 @@ ref; // ME_50096E990182 DoIt
  : Parent ME_4FFC337003AF // TvcmFormSetFormsCollectionItemPrim
  ;
  : Operations
-   @ ( ME_50096E990182 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_50096E990182 // DoIt
+ )
  ; // Operations
  CONST "of object" true
+ CONST dfm:PathOnly '\common\components\gui\Garant\VCM\implementation\Visual'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\VCM\implementation\Visual'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_50096E800075 TvcmNeedMakeFormEvent
 
@@ -99,8 +103,8 @@ ref; // ME_50096EE90050 aWeight
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
  : Parameters
-   @ ( ME_50096EE90050 // aWeight
- ) .SequenceCode.It
+   Seq: ( ME_50096EE90050 // aWeight
+ )
  ; // Parameters
 
 ref; // ME_50096EE303C2 DoIt
@@ -117,10 +121,14 @@ ref; // ME_50096EE303C2 DoIt
  : Parent ME_4FFC337003AF // TvcmFormSetFormsCollectionItemPrim
  ;
  : Operations
-   @ ( ME_50096EE303C2 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_50096EE303C2 // DoIt
+ )
  ; // Operations
  CONST "of object" true
+ CONST dfm:PathOnly '\common\components\gui\Garant\VCM\implementation\Visual'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\VCM\implementation\Visual'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_50096ECC0087 TvcmOnFormWeight
 
@@ -155,9 +163,9 @@ ref; // ME_50096F200329 aCount
  : Parent ME_50096EFB034D // TvcmFormCountEvent
  ;
  : Parameters
-   @ ( ME_50096F2002FC // aDataSource
+   Seq: ( ME_50096F2002FC // aDataSource
  ME_50096F200329 // aCount
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_50096F120241 DoIt
@@ -174,10 +182,14 @@ ref; // ME_50096F120241 DoIt
  : Parent ME_4FFC337003AF // TvcmFormSetFormsCollectionItemPrim
  ;
  : Operations
-   @ ( ME_50096F120241 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_50096F120241 // DoIt
+ )
  ; // Operations
  CONST "of object" true
+ CONST dfm:PathOnly '\common\components\gui\Garant\VCM\implementation\Visual'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\VCM\implementation\Visual'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_50096EFB034D TvcmFormCountEvent
 
@@ -349,6 +361,7 @@ ref; // ME_500974790377 ZoneType
 : ME_8F5681E2F757
  CONST UID '8F5681E2F757'
  CONST Name 'f_FormDescriptor'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY 'Поле для свойства FormDescriptor' ;
  CONST Visibility PrivateAccess
@@ -358,12 +371,14 @@ ref; // ME_500974790377 ZoneType
  ;
  : Target WL 'ME_4FFC4B2B0154' '4683F37902CF.pas.ms.script' // PvcmFormDescriptor
  ;
+ CONST extprop:clearViaProperty 'FormDescriptor'
 
 ref; // ME_8F5681E2F757 f_FormDescriptor
 
 : ME_D2CB55570649
  CONST UID 'D2CB55570649'
  CONST Name 'f_Name'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY 'Поле для свойства Name' ;
  CONST Visibility PrivateAccess
@@ -373,12 +388,14 @@ ref; // ME_8F5681E2F757 f_FormDescriptor
  ;
  : Target WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
  ;
+ CONST extprop:clearViaProperty 'Name'
 
 ref; // ME_D2CB55570649 f_Name
 
 : ME_605C1F685EF9
  CONST UID '605C1F685EF9'
  CONST Name 'f_Caption'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY 'Поле для свойства Caption' ;
  CONST Visibility PrivateAccess
@@ -388,12 +405,14 @@ ref; // ME_D2CB55570649 f_Name
  ;
  : Target WL 'ME_46780DA40383' '4677FBA70343.pas.ms.script' // Il3CString
  ;
+ CONST extprop:clearViaProperty 'Caption'
 
 ref; // ME_605C1F685EF9 f_Caption
 
 : ME_20B7A66BA3F5
  CONST UID '20B7A66BA3F5'
  CONST Name 'f_OnFormCount'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY 'Поле для свойства OnFormCount' ;
  CONST Visibility PrivateAccess
@@ -403,12 +422,14 @@ ref; // ME_605C1F685EF9 f_Caption
  ;
  : Target ME_50096EFB034D // TvcmFormCountEvent
  ;
+ CONST extprop:clearViaProperty 'OnFormCount'
 
 ref; // ME_20B7A66BA3F5 f_OnFormCount
 
 : ME_B9BB20CD437B
  CONST UID 'B9BB20CD437B'
  CONST Name 'f_OnNeedMakeForm'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY 'Поле для свойства OnNeedMakeForm' ;
  CONST Visibility PrivateAccess
@@ -418,12 +439,14 @@ ref; // ME_20B7A66BA3F5 f_OnFormCount
  ;
  : Target ME_50096E800075 // TvcmNeedMakeFormEvent
  ;
+ CONST extprop:clearViaProperty 'OnNeedMakeForm'
 
 ref; // ME_B9BB20CD437B f_OnNeedMakeForm
 
 : ME_BE2E0CCCA785
  CONST UID 'BE2E0CCCA785'
  CONST Name 'f_OnFormWeight'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY 'Поле для свойства OnFormWeight' ;
  CONST Visibility PrivateAccess
@@ -433,12 +456,14 @@ ref; // ME_B9BB20CD437B f_OnNeedMakeForm
  ;
  : Target ME_50096ECC0087 // TvcmOnFormWeight
  ;
+ CONST extprop:clearViaProperty 'OnFormWeight'
 
 ref; // ME_BE2E0CCCA785 f_OnFormWeight
 
 : ME_8F0ABF73D340
  CONST UID '8F0ABF73D340'
  CONST Name 'f_UserType'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY 'Поле для свойства UserType' ;
  CONST Visibility PrivateAccess
@@ -448,12 +473,14 @@ ref; // ME_BE2E0CCCA785 f_OnFormWeight
  ;
  : Target WL 'ME_47F2534B010F' '499EAAE502A8.pas.ms.script' // TvcmUserType
  ;
+ CONST extprop:clearViaProperty 'UserType'
 
 ref; // ME_8F0ABF73D340 f_UserType
 
 : ME_C0A778D550C9
  CONST UID 'C0A778D550C9'
  CONST Name 'f_ActivateIfUpdate'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY 'Поле для свойства ActivateIfUpdate' ;
  CONST Visibility PrivateAccess
@@ -463,12 +490,14 @@ ref; // ME_8F0ABF73D340 f_UserType
  ;
  : Target WL 'ME_4683F515008D' '4683F37902CF.pas.ms.script' // TvcmActivateIfUpdate
  ;
+ CONST extprop:clearViaProperty 'ActivateIfUpdate'
 
 ref; // ME_C0A778D550C9 f_ActivateIfUpdate
 
 : ME_C3FF699992BB
  CONST UID 'C3FF699992BB'
  CONST Name 'f_ZoneType'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY 'Поле для свойства ZoneType' ;
  CONST Visibility PrivateAccess
@@ -478,6 +507,7 @@ ref; // ME_C0A778D550C9 f_ActivateIfUpdate
  ;
  : Target WL 'ME_4992F763038E' '4683F37902CF.pas.ms.script' // TvcmZoneType
  ;
+ CONST extprop:clearViaProperty 'ZoneType'
 
 ref; // ME_C3FF699992BB f_ZoneType
 
@@ -488,6 +518,7 @@ ref; // ME_C3FF699992BB f_ZoneType
  ;
  : Implementor ME_4FFC337003AF // TvcmFormSetFormsCollectionItemPrim
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_479731C50290_ME_4FFC337003AF Cleanup
 
 : ME_47A042E100E2_ME_4FFC337003AF
@@ -497,6 +528,7 @@ ref; // ME_479731C50290_ME_4FFC337003AF Cleanup
  ;
  : Implementor ME_4FFC337003AF // TvcmFormSetFormsCollectionItemPrim
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_47A042E100E2_ME_4FFC337003AF InitFields
 
 : ME_5000565C019C_ME_4FFC337003AF
@@ -506,6 +538,7 @@ ref; // ME_47A042E100E2_ME_4FFC337003AF InitFields
  ;
  : Implementor ME_4FFC337003AF // TvcmFormSetFormsCollectionItemPrim
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_5000565C019C_ME_4FFC337003AF ClearFields
 
 : ME_4FFC337003AF
@@ -519,11 +552,11 @@ ref; // ME_5000565C019C_ME_4FFC337003AF ClearFields
  : Parent ME_47B9727603BE // FormSets
  ;
  : Inherits
-   @ ( WL 'ME_49E7754802A9' '47913B47006E.pas.ms.script' // Tl3ProtoObject
- ) .SequenceCode.It
+   Seq: ( WL 'ME_49E7754802A9' '47913B47006E.pas.ms.script' // Tl3ProtoObject
+ )
  ; // Inherits
  : Attributes
-   @ ( ME_4FFC341E0063 // FormDescriptor
+   Seq: ( ME_4FFC341E0063 // FormDescriptor
  ME_4FFEC55E0088 // Name
  ME_4FFEC573031B // Caption
  ME_500972DC0394 // OnFormCount
@@ -541,30 +574,32 @@ ref; // ME_5000565C019C_ME_4FFC337003AF ClearFields
  ME_8F0ABF73D340 // f_UserType
  ME_C0A778D550C9 // f_ActivateIfUpdate
  ME_C3FF699992BB // f_ZoneType
- ) .SequenceCode.It
+ )
  ; // Attributes
  : Overridden
-   @ ( ME_479731C50290_ME_4FFC337003AF // Cleanup
+   Seq: ( ME_479731C50290_ME_4FFC337003AF // Cleanup
  ME_47A042E100E2_ME_4FFC337003AF // InitFields
  ME_5000565C019C_ME_4FFC337003AF // ClearFields
- ) .SequenceCode.It
+ )
  ; // Overridden
  : Children
-   @ ( ME_50096E800075 // TvcmNeedMakeFormEvent
+   Seq: ( ME_50096E800075 // TvcmNeedMakeFormEvent
  ME_50096ECC0087 // TvcmOnFormWeight
  ME_50096EFB034D // TvcmFormCountEvent
- ) .SequenceCode.It
+ )
  ; // Children
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\VCM\implementation\Visual'
  CONST intf.pas:Path 'common\components\gui\Garant\VCM\implementation\Visual\vcmFormSetFormsCollectionItemPrim.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\VCM\implementation\Visual'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'FormSetFormsCollectionItemPrim'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'vcmFormSetFormsCollectionItemPrim'
 
 ref; // ME_4FFC337003AF TvcmFormSetFormsCollectionItemPrim
 
@@ -592,6 +627,7 @@ ref; // ME_4FFEC231035F ItemType
  ;
  : Implementor ME_4FFC55AD02B3 // TvcmFormSetFormsCollectionPrimPrim
  ;
+ CONST OpKind opkind_Implemented
  CONST "ifdef" 'l3Items_NeedsAssignItem'
  CONST "ifndef" 'l3Items_NoSort'
 ref; // ME_47B2C42A0163_ME_4FFC55AD02B3 AssignItem
@@ -603,6 +639,7 @@ ref; // ME_47B2C42A0163_ME_4FFC55AD02B3 AssignItem
  ;
  : Implementor ME_4FFC55AD02B3 // TvcmFormSetFormsCollectionPrimPrim
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_47B99D4503A2_ME_4FFC55AD02B3 CompareExistingItems
 
 : ME_4FFC55AD02B3
@@ -616,29 +653,31 @@ ref; // ME_47B99D4503A2_ME_4FFC55AD02B3 CompareExistingItems
  : Parent ME_47B9727603BE // FormSets
  ;
  : Inherits
-   @ ( WL 'ME_47B99E920196' '47913B47006E.pas.ms.script' // l3UncomparabeObjectRefList
+   Seq: ( WL 'ME_47B99E920196' '47913B47006E.pas.ms.script' // l3UncomparabeObjectRefList
  WL 'ME_4A54DD4E036F' '47913B47006E.pas.ms.script' // Tl3ProtoDataContainer
- ) .SequenceCode.It
+ )
  ; // Inherits
  : Attributes
-   @ ( ME_4FFEC231035F // ItemType
- ) .SequenceCode.It
+   Seq: ( ME_4FFEC231035F // ItemType
+ )
  ; // Attributes
  : Implemented
-   @ ( ME_47B2C42A0163_ME_4FFC55AD02B3 // AssignItem
+   Seq: ( ME_47B2C42A0163_ME_4FFC55AD02B3 // AssignItem
  ME_47B99D4503A2_ME_4FFC55AD02B3 // CompareExistingItems
- ) .SequenceCode.It
+ )
  ; // Implemented
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\VCM\implementation\Visual'
  CONST intf.pas:Path 'common\components\gui\Garant\VCM\implementation\Visual\vcmFormSetFormsCollectionPrimPrim.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\VCM\implementation\Visual'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'FormSetFormsCollectionPrimPrim'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'vcmFormSetFormsCollectionPrimPrim'
 
 ref; // ME_4FFC55AD02B3 TvcmFormSetFormsCollectionPrimPrim
 
@@ -680,6 +719,7 @@ ref; // ME_511CD81E0167 Childs
 : ME_2644194DA701
  CONST UID '2644194DA701'
  CONST Name 'f_Childs'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY 'Поле для свойства Childs' ;
  CONST Visibility PrivateAccess
@@ -719,8 +759,8 @@ ref; // ME_511CD87703C7 DoIt
  : Parent ME_4FFC32AE0164 // TvcmFormSetFormsCollectionItem
  ;
  : Operations
-   @ ( ME_511CD87703C7 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_511CD87703C7 // DoIt
+ )
  ; // Operations
 
 ref; // ME_511CD84A009F MakeZoneType
@@ -748,8 +788,8 @@ ref; // ME_511CD8990163 aForm
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
  : Parameters
-   @ ( ME_511CD8990163 // aForm
- ) .SequenceCode.It
+   Seq: ( ME_511CD8990163 // aForm
+ )
  ; // Parameters
 
 ref; // ME_511CD89400B3 DoIt
@@ -765,8 +805,8 @@ ref; // ME_511CD89400B3 DoIt
  : Parent ME_4FFC32AE0164 // TvcmFormSetFormsCollectionItem
  ;
  : Operations
-   @ ( ME_511CD89400B3 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_511CD89400B3 // DoIt
+ )
  ; // Operations
 
 ref; // ME_511CD887038E IsSame
@@ -776,6 +816,7 @@ FORWARD ME_511CD8A30163
 : ME_38C6250D6EE1
  CONST UID '38C6250D6EE1'
  CONST Name 'DoIt'
+ CONST IsSummoned true
  CONST Class class_Operation
  %SUMMARY 'Сигнатура метода CheckChilds' ;
  CONST Visibility PublicAccess
@@ -796,8 +837,8 @@ ref; // ME_38C6250D6EE1 DoIt
  : Parent ME_4FFC32AE0164 // TvcmFormSetFormsCollectionItem
  ;
  : Operations
-   @ ( ME_38C6250D6EE1 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_38C6250D6EE1 // DoIt
+ )
  ; // Operations
 
 ref; // ME_511CD8A30163 CheckChilds
@@ -888,6 +929,7 @@ ref; // ME_528C9DD6014D
  ;
  : Implementor ME_4FFC32AE0164 // TvcmFormSetFormsCollectionItem
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_479731C50290_ME_4FFC32AE0164 Cleanup
 
 : ME_4FFC32AE0164
@@ -901,45 +943,47 @@ ref; // ME_479731C50290_ME_4FFC32AE0164 Cleanup
  : Parent ME_47B9727603BE // FormSets
  ;
  : Inherits
-   @ ( ME_4FFC337003AF // TvcmFormSetFormsCollectionItemPrim
- ) .SequenceCode.It
+   Seq: ( ME_4FFC337003AF // TvcmFormSetFormsCollectionItemPrim
+ )
  ; // Inherits
  : Attributes
-   @ ( ME_511CD7C201AC // FormId
+   Seq: ( ME_511CD7C201AC // FormId
  ME_511CD81E0167 // Childs
  ME_2644194DA701 // f_Childs
- ) .SequenceCode.It
+ )
  ; // Attributes
  : Operations
-   @ ( ME_511CD84A009F // MakeZoneType
+   Seq: ( ME_511CD84A009F // MakeZoneType
  ME_511CD887038E // IsSame
  ME_511CD8A30163 // CheckChilds
- ) .SequenceCode.It
+ )
  ; // Operations
  : Overridden
-   @ ( ME_479731C50290_ME_4FFC32AE0164 // Cleanup
- ) .SequenceCode.It
+   Seq: ( ME_479731C50290_ME_4FFC32AE0164 // Cleanup
+ )
  ; // Overridden
  : Dependencies
-   @ ( ME_511CD8E30294 // 
+   Seq: ( ME_511CD8E30294 // 
  ME_511CD8E700C1 // 
  ME_511CEC49019F // 
  ME_511CEC4C0259 // 
  ME_511CEC4F0103 // 
  ME_511CF00E03CE // 
  ME_528C9DD6014D // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\VCM\implementation\Visual'
  CONST intf.pas:Path 'common\components\gui\Garant\VCM\implementation\Visual\vcmFormSetFormsCollectionItem.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\VCM\implementation\Visual'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'FormSetFormsCollectionItem'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'vcmFormSetFormsCollectionItem'
 
 ref; // ME_4FFC32AE0164 TvcmFormSetFormsCollectionItem
 
@@ -965,6 +1009,7 @@ ref; // ME_528DB966026A FormList
 : ME_F613B68FAAB2
  CONST UID 'F613B68FAAB2'
  CONST Name 'f_FormList'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY 'Поле для свойства FormList' ;
  CONST Visibility PrivateAccess
@@ -974,6 +1019,7 @@ ref; // ME_528DB966026A FormList
  ;
  : Target WL 'ME_5289CD8F0001' '528C931303C3.pas.ms.script' // TvcmFormSetFormList
  ;
+ CONST extprop:clearViaProperty 'FormList'
 
 ref; // ME_F613B68FAAB2 f_FormList
 
@@ -1020,10 +1066,10 @@ ref; // ME_4FFC4EEC0367 aFormDescriptor
  : Target ME_4FFC4EA6004A // TvcmFormSetFormsCollectionItemModelPart
  ;
  : Parameters
-   @ ( ME_4FFC4EEC0312 // aName
+   Seq: ( ME_4FFC4EEC0312 // aName
  ME_4FFC4EEC0345 // aZoneType
  ME_4FFC4EEC0367 // aFormDescriptor
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_4FFC4EE8020C DoIt
@@ -1039,8 +1085,8 @@ ref; // ME_4FFC4EE8020C DoIt
  : Parent ME_4FFC4EA6004A // TvcmFormSetFormsCollectionItemModelPart
  ;
  : Operations
-   @ ( ME_4FFC4EE8020C // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_4FFC4EE8020C // DoIt
+ )
  ; // Operations
 
 ref; // ME_4FFC4EDE01B9 AddZone
@@ -1097,6 +1143,7 @@ ref; // ME_528DC15500D6 aUserType
  CONST Value 'vcm_nmNo'
  : ValueType WL 'ME_528D9F530036' '528C93040132.pas.ms.script' // TvcmNeedMakeDS
  ;
+ CONST extprop:pas:Value 'vcmBaseTypes.vcm_nmNo'
 
 ref; // ME_528DC15500DC aNeedMakeDS
 
@@ -1111,12 +1158,12 @@ ref; // ME_528DC15500DC aNeedMakeDS
  : Target ME_4FFC4EA6004A // TvcmFormSetFormsCollectionItemModelPart
  ;
  : Parameters
-   @ ( ME_528DC15500C3 // aName
+   Seq: ( ME_528DC15500C3 // aName
  ME_528DC15500C9 // aZoneType
  ME_528DC15500CF // aFormDescriptor
  ME_528DC15500D6 // aUserType
  ME_528DC15500DC // aNeedMakeDS
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_528DB9D10202 DoIt
@@ -1132,8 +1179,8 @@ ref; // ME_528DB9D10202 DoIt
  : Parent ME_4FFC4EA6004A // TvcmFormSetFormsCollectionItemModelPart
  ;
  : Operations
-   @ ( ME_528DB9D10202 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_528DB9D10202 // DoIt
+ )
  ; // Operations
 
 ref; // ME_528DB98D00C0 AddZone$1
@@ -1184,35 +1231,37 @@ ref; // ME_528DBA0500F2
  : Parent ME_47B9727603BE // FormSets
  ;
  : Inherits
-   @ ( ME_4FFC32AE0164 // TvcmFormSetFormsCollectionItem
- ) .SequenceCode.It
+   Seq: ( ME_4FFC32AE0164 // TvcmFormSetFormsCollectionItem
+ )
  ; // Inherits
  : Attributes
-   @ ( ME_528DB966026A // FormList
+   Seq: ( ME_528DB966026A // FormList
  ME_F613B68FAAB2 // f_FormList
- ) .SequenceCode.It
+ )
  ; // Attributes
  : Operations
-   @ ( ME_4FFC4EDE01B9 // AddZone
+   Seq: ( ME_4FFC4EDE01B9 // AddZone
  ME_528DB98D00C0 // AddZone$1
- ) .SequenceCode.It
+ )
  ; // Operations
  : Dependencies
-   @ ( ME_4FFC56C10356 // 
+   Seq: ( ME_4FFC56C10356 // 
  ME_528DB962028A // 
  ME_528DBA0500F2 // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\VCM\implementation\Visual'
  CONST intf.pas:Path 'common\components\gui\Garant\VCM\implementation\Visual\vcmFormSetFormsCollectionItemModelPart.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\VCM\implementation\Visual'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'FormSetFormsCollectionItemModelPart'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'vcmFormSetFormsCollectionItemModelPart'
 
 ref; // ME_4FFC4EA6004A TvcmFormSetFormsCollectionItemModelPart
 
@@ -1236,6 +1285,7 @@ ref; // ME_528DBAA4009A FormList
 : ME_315922AE2549
  CONST UID '315922AE2549'
  CONST Name 'f_FormList'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY 'Поле для свойства FormList' ;
  CONST Visibility PrivateAccess
@@ -1245,6 +1295,7 @@ ref; // ME_528DBAA4009A FormList
  ;
  : Target WL 'ME_5289CD8F0001' '528C931303C3.pas.ms.script' // TvcmFormSetFormList
  ;
+ CONST extprop:clearViaProperty 'FormList'
 
 ref; // ME_315922AE2549 f_FormList
 
@@ -1291,10 +1342,10 @@ ref; // ME_528B3CCB03AD aFormDescriptor
  : Target ME_4FFC4EA6004A // TvcmFormSetFormsCollectionItemModelPart
  ;
  : Parameters
-   @ ( ME_528B3CCB0386 // aName
+   Seq: ( ME_528B3CCB0386 // aName
  ME_528B3CCB0399 // aZoneType
  ME_528B3CCB03AD // aFormDescriptor
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_4FFC4D7A02B5 DoIt
@@ -1332,13 +1383,13 @@ ref; // ME_528B38E001D9
  : Parent ME_4FFC4CD30122 // TvcmFormSetFormsCollectionPrim
  ;
  : Operations
-   @ ( ME_4FFC4D7A02B5 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_4FFC4D7A02B5 // DoIt
+ )
  ; // Operations
  : Dependencies
-   @ ( ME_4FFEC45201D2 // 
+   Seq: ( ME_4FFEC45201D2 // 
  ME_528B38E001D9 // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
 
 ref; // ME_4FFC4D6E00E1 AddZone
@@ -1395,6 +1446,7 @@ ref; // ME_528DBA8C010A aUserType
  CONST Value 'vcm_nmNo'
  : ValueType WL 'ME_528D9F530036' '528C93040132.pas.ms.script' // TvcmNeedMakeDS
  ;
+ CONST extprop:pas:Value 'vcmBaseTypes.vcm_nmNo'
 
 ref; // ME_528DBA8C0140 aNeedMakeDS
 
@@ -1409,12 +1461,12 @@ ref; // ME_528DBA8C0140 aNeedMakeDS
  : Target ME_4FFC4EA6004A // TvcmFormSetFormsCollectionItemModelPart
  ;
  : Parameters
-   @ ( ME_528DBA8C00B7 // aName
+   Seq: ( ME_528DBA8C00B7 // aName
  ME_528DBA8C00CB // aZoneType
  ME_528DBA8C00DE // aFormDescriptor
  ME_528DBA8C010A // aUserType
  ME_528DBA8C0140 // aNeedMakeDS
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_528B3B3600D7 DoIt
@@ -1463,14 +1515,14 @@ ref; // ME_528B45600339
  : Parent ME_4FFC4CD30122 // TvcmFormSetFormsCollectionPrim
  ;
  : Operations
-   @ ( ME_528B3B3600D7 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_528B3B3600D7 // DoIt
+ )
  ; // Operations
  : Dependencies
-   @ ( ME_528B3BE301D9 // 
+   Seq: ( ME_528B3BE301D9 // 
  ME_528B3BEE0168 // 
  ME_528B45600339 // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
 
 ref; // ME_528B3B1702DF AddZone$1
@@ -1519,35 +1571,37 @@ ref; // ME_528DBAC40353
  : Parent ME_47B9727603BE // FormSets
  ;
  : Inherits
-   @ ( ME_4FFC55AD02B3 // TvcmFormSetFormsCollectionPrimPrim
- ) .SequenceCode.It
+   Seq: ( ME_4FFC55AD02B3 // TvcmFormSetFormsCollectionPrimPrim
+ )
  ; // Inherits
  : Attributes
-   @ ( ME_528DBAA4009A // FormList
+   Seq: ( ME_528DBAA4009A // FormList
  ME_315922AE2549 // f_FormList
- ) .SequenceCode.It
+ )
  ; // Attributes
  : Operations
-   @ ( ME_4FFC4D6E00E1 // AddZone
+   Seq: ( ME_4FFC4D6E00E1 // AddZone
  ME_528B3B1702DF // AddZone$1
- ) .SequenceCode.It
+ )
  ; // Operations
  : Dependencies
-   @ ( ME_4FFC4CE20367 // 
+   Seq: ( ME_4FFC4CE20367 // 
  ME_4FFC4EB502BA // 
  ME_528DBAC40353 // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\VCM\implementation\Visual'
  CONST intf.pas:Path 'common\components\gui\Garant\VCM\implementation\Visual\vcmFormSetFormsCollectionPrim.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\VCM\implementation\Visual'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'FormSetFormsCollectionPrim'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'vcmFormSetFormsCollectionPrim'
 
 ref; // ME_4FFC4CD30122 TvcmFormSetFormsCollectionPrim
 
@@ -1574,8 +1628,8 @@ ref; // ME_511CF0D4009A aForm
  : Target ME_4FFC337003AF // TvcmFormSetFormsCollectionItemPrim
  ;
  : Parameters
-   @ ( ME_511CF0D4009A // aForm
- ) .SequenceCode.It
+   Seq: ( ME_511CF0D4009A // aForm
+ )
  ; // Parameters
 
 ref; // ME_511CF0CB0355 DoIt
@@ -1592,8 +1646,8 @@ ref; // ME_511CF0CB0355 DoIt
  : Parent ME_4FFC32B60282 // TvcmFormSetFormsCollection
  ;
  : Operations
-   @ ( ME_511CF0CB0355 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_511CF0CB0355 // DoIt
+ )
  ; // Operations
 
 ref; // ME_511CF09301D0 FindItemByForm
@@ -1620,27 +1674,29 @@ ref; // ME_4FFC32C902F4
  : Parent ME_47B9727603BE // FormSets
  ;
  : Inherits
-   @ ( ME_4FFC4CD30122 // TvcmFormSetFormsCollectionPrim
- ) .SequenceCode.It
+   Seq: ( ME_4FFC4CD30122 // TvcmFormSetFormsCollectionPrim
+ )
  ; // Inherits
  : Operations
-   @ ( ME_511CF09301D0 // FindItemByForm
- ) .SequenceCode.It
+   Seq: ( ME_511CF09301D0 // FindItemByForm
+ )
  ; // Operations
  : Dependencies
-   @ ( ME_4FFC32C902F4 // 
- ) .SequenceCode.It
+   Seq: ( ME_4FFC32C902F4 // 
+ )
  ; // Dependencies
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\VCM\implementation\Visual'
  CONST intf.pas:Path 'common\components\gui\Garant\VCM\implementation\Visual\vcmFormSetFormsCollection.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\VCM\implementation\Visual'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'FormSetFormsCollection'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'vcmFormSetFormsCollection'
 
 ref; // ME_4FFC32B60282 TvcmFormSetFormsCollection
 
@@ -1667,6 +1723,7 @@ ref; // ME_4FFECB5E03C6 Caption
 : ME_CABEEC69C891
  CONST UID 'CABEEC69C891'
  CONST Name 'f_Caption'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY 'Поле для свойства Caption' ;
  CONST Visibility PrivateAccess
@@ -1676,6 +1733,7 @@ ref; // ME_4FFECB5E03C6 Caption
  ;
  : Target WL 'ME_46780DA40383' '4677FBA70343.pas.ms.script' // Il3CString
  ;
+ CONST extprop:clearViaProperty 'Caption'
 
 ref; // ME_CABEEC69C891 f_Caption
 
@@ -1716,12 +1774,12 @@ ref; // ME_4FFE8A7C02B3
  : Parent ME_4FFE84F00388 // TvcmFormSetFactoryPrim
  ;
  : Operations
-   @ ( ME_4FFE85570158 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_4FFE85570158 // DoIt
+ )
  ; // Operations
  : Dependencies
-   @ ( ME_4FFE8A7C02B3 // 
- ) .SequenceCode.It
+   Seq: ( ME_4FFE8A7C02B3 // 
+ )
  ; // Dependencies
  CONST "is static" true
 
@@ -1734,6 +1792,7 @@ ref; // ME_4FFE854A009B GetInstance
  ;
  : Implementor ME_4FFE84F00388 // TvcmFormSetFactoryPrim
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_479731C50290_ME_4FFE84F00388 Cleanup
 
 : ME_5000565C019C_ME_4FFE84F00388
@@ -1743,6 +1802,7 @@ ref; // ME_479731C50290_ME_4FFE84F00388 Cleanup
  ;
  : Implementor ME_4FFE84F00388 // TvcmFormSetFactoryPrim
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_5000565C019C_ME_4FFE84F00388 ClearFields
 
 : ME_4FFE84F00388
@@ -1756,33 +1816,35 @@ ref; // ME_5000565C019C_ME_4FFE84F00388 ClearFields
  : Parent ME_47B9727603BE // FormSets
  ;
  : Inherits
-   @ ( WL 'ME_49E7754802A9' '47913B47006E.pas.ms.script' // Tl3ProtoObject
- ) .SequenceCode.It
+   Seq: ( WL 'ME_49E7754802A9' '47913B47006E.pas.ms.script' // Tl3ProtoObject
+ )
  ; // Inherits
  : Attributes
-   @ ( ME_4FFECB5E03C6 // Caption
+   Seq: ( ME_4FFECB5E03C6 // Caption
  ME_CABEEC69C891 // f_Caption
- ) .SequenceCode.It
+ )
  ; // Attributes
  : Operations
-   @ ( ME_4FFE854A009B // GetInstance
- ) .SequenceCode.It
+   Seq: ( ME_4FFE854A009B // GetInstance
+ )
  ; // Operations
  : Overridden
-   @ ( ME_479731C50290_ME_4FFE84F00388 // Cleanup
+   Seq: ( ME_479731C50290_ME_4FFE84F00388 // Cleanup
  ME_5000565C019C_ME_4FFE84F00388 // ClearFields
- ) .SequenceCode.It
+ )
  ; // Overridden
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\VCM\implementation\Visual'
  CONST intf.pas:Path 'common\components\gui\Garant\VCM\implementation\Visual\vcmFormSetFactoryPrim.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\VCM\implementation\Visual'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'FormSetFactoryPrim'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'vcmFormSetFactoryPrim'
 
 ref; // ME_4FFE84F00388 TvcmFormSetFactoryPrim
 
@@ -1814,27 +1876,29 @@ ref; // ME_55C0965E0213 ItemType
  : Parent ME_47B9727603BE // FormSets
  ;
  : Inherits
-   @ ( WL 'ME_4A54DD4E036F' '47913B47006E.pas.ms.script' // Tl3ProtoDataContainer
- ) .SequenceCode.It
+   Seq: ( WL 'ME_4A54DD4E036F' '47913B47006E.pas.ms.script' // Tl3ProtoDataContainer
+ )
  ; // Inherits
  : Implements
-   @ ( WL 'ME_47B57D830369' '47913B47006E.pas.ms.script' // l3InterfaceRefList
- ) .SequenceCode.It
+   Seq: ( WL 'ME_47B57D830369' '47913B47006E.pas.ms.script' // l3InterfaceRefList
+ )
  ; // Implements
  : Attributes
-   @ ( ME_55C0965E0213 // ItemType
- ) .SequenceCode.It
+   Seq: ( ME_55C0965E0213 // ItemType
+ )
  ; // Attributes
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\VCM\implementation\Visual'
  CONST intf.pas:Path 'common\components\gui\Garant\VCM\implementation\Visual\vcmFormSetRefreshParamsList.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\VCM\implementation\Visual'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'FormSetRefreshParamsList'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'vcmFormSetRefreshParamsList'
 
 ref; // ME_55C095F90204 TvcmFormSetRefreshParamsList
 
@@ -1881,10 +1945,10 @@ ref; // ME_5003E387033B aCaption
  : Parent ME_5003E3560144 // TsfsOnGetMainCaption
  ;
  : Parameters
-   @ ( ME_5003E38702A3 // aSender
+   Seq: ( ME_5003E38702A3 // aSender
  ME_5003E38702E2 // aDataSource
  ME_5003E387033B // aCaption
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_5003E38101DF DoIt
@@ -1900,10 +1964,14 @@ ref; // ME_5003E38101DF DoIt
  : Parent ME_47B97312006D // TvcmFormSetFactory
  ;
  : Operations
-   @ ( ME_5003E38101DF // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_5003E38101DF // DoIt
+ )
  ; // Operations
  CONST "of object" true
+ CONST dfm:PathOnly '\common\components\gui\Garant\VCM\implementation\Visual'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\VCM\implementation\Visual'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_5003E3560144 TsfsOnGetMainCaption
 
@@ -1948,10 +2016,10 @@ ref; // ME_5003E3DB01B6 aImageIndex
  : Parent ME_5003E3C700F4 // TsfsOnGetMainImageIndex
  ;
  : Parameters
-   @ ( ME_5003E3DB0114 // aSender
+   Seq: ( ME_5003E3DB0114 // aSender
  ME_5003E3DB015C // aDataSource
  ME_5003E3DB01B6 // aImageIndex
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_5003E3D400C5 DoIt
@@ -1967,10 +2035,14 @@ ref; // ME_5003E3D400C5 DoIt
  : Parent ME_47B97312006D // TvcmFormSetFactory
  ;
  : Operations
-   @ ( ME_5003E3D400C5 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_5003E3D400C5 // DoIt
+ )
  ; // Operations
  CONST "of object" true
+ CONST dfm:PathOnly '\common\components\gui\Garant\VCM\implementation\Visual'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\VCM\implementation\Visual'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_5003E3C700F4 TsfsOnGetMainImageIndex
 
@@ -1985,10 +2057,15 @@ ref; // ME_5003E3C700F4 TsfsOnGetMainImageIndex
  : Parent ME_47B97312006D // TvcmFormSetFactory
  ;
  : Inherits
-   @ ( ME_47B97312006D // TvcmFormSetFactory
- ) .SequenceCode.It
+   Seq: ( ME_47B97312006D // TvcmFormSetFactory
+ )
  ; // Inherits
  CONST "isClassRef" true
+ CONST dfm:PathOnly '\common\components\gui\Garant\VCM\implementation\Visual'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\VCM\implementation\Visual'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_4AB250E60392 RvcmFormSetFactory
 
@@ -2196,6 +2273,7 @@ ref; // ME_528B48E401F1 FormList
 : ME_5DE4896186CF
  CONST UID '5DE4896186CF'
  CONST Name 'f_OwnerForm'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY 'Поле для свойства OwnerForm' ;
  CONST Visibility PrivateAccess
@@ -2205,12 +2283,14 @@ ref; // ME_528B48E401F1 FormList
  ;
  : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
  ;
+ CONST extprop:clearViaProperty 'OwnerForm'
 
 ref; // ME_5DE4896186CF f_OwnerForm
 
 : ME_0E04DF9EBC47
  CONST UID '0E04DF9EBC47'
  CONST Name 'f_OnGetMainImageIndex'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY 'Поле для свойства OnGetMainImageIndex' ;
  CONST Visibility PrivateAccess
@@ -2220,12 +2300,14 @@ ref; // ME_5DE4896186CF f_OwnerForm
  ;
  : Target ME_5003E3C700F4 // TsfsOnGetMainImageIndex
  ;
+ CONST extprop:clearViaProperty 'OnGetMainImageIndex'
 
 ref; // ME_0E04DF9EBC47 f_OnGetMainImageIndex
 
 : ME_F45C5D99E52E
  CONST UID 'F45C5D99E52E'
  CONST Name 'f_OnGetMainCaption'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY 'Поле для свойства OnGetMainCaption' ;
  CONST Visibility PrivateAccess
@@ -2235,12 +2317,14 @@ ref; // ME_0E04DF9EBC47 f_OnGetMainImageIndex
  ;
  : Target ME_5003E3560144 // TsfsOnGetMainCaption
  ;
+ CONST extprop:clearViaProperty 'OnGetMainCaption'
 
 ref; // ME_F45C5D99E52E f_OnGetMainCaption
 
 : ME_03697F7FFB98
  CONST UID '03697F7FFB98'
  CONST Name 'f_Forms'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY 'Поле для свойства Forms' ;
  CONST Visibility PrivateAccess
@@ -2256,6 +2340,7 @@ ref; // ME_03697F7FFB98 f_Forms
 : ME_25151ACCAB78
  CONST UID '25151ACCAB78'
  CONST Name 'f_FormList'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY 'Поле для свойства FormList' ;
  CONST Visibility PrivateAccess
@@ -2320,6 +2405,7 @@ ref; // ME_55D2E10502D2 aLockSetFocusToMainObjectForm
  CONST Value 'nil'
  : ValueType WL 'ME_491AF0FF01B6' '4683F37902CF.pas.ms.script' // IvcmFormSet
  ;
+ CONST extprop:pas:Value 'nil'
 
 ref; // ME_55D2E1050301 aFormSetToClone
 
@@ -2334,12 +2420,12 @@ ref; // ME_55D2E1050301 aFormSetToClone
  : Target WL 'ME_491AF0FF01B6' '4683F37902CF.pas.ms.script' // IvcmFormSet
  ;
  : Parameters
-   @ ( ME_55D2E1050227 // aDataSource
+   Seq: ( ME_55D2E1050227 // aDataSource
  ME_55D2E1050265 // aContainer
  ME_55D2E1050294 // aSaveToHistory
  ME_55D2E10502D2 // aLockSetFocusToMainObjectForm
  ME_55D2E1050301 // aFormSetToClone
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_508569E3023D DoIt
@@ -2356,8 +2442,8 @@ ref; // ME_508569E3023D DoIt
  : Parent ME_47B97312006D // TvcmFormSetFactory
  ;
  : Operations
-   @ ( ME_508569E3023D // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_508569E3023D // DoIt
+ )
  ; // Operations
 
 ref; // ME_508569C001A9 MakeFormSet
@@ -2385,8 +2471,8 @@ ref; // ME_50856A470092 aItem
  : Target ME_4FFC32AE0164 // TvcmFormSetFormsCollectionItem
  ;
  : Parameters
-   @ ( ME_50856A470092 // aItem
- ) .SequenceCode.It
+   Seq: ( ME_50856A470092 // aItem
+ )
  ; // Parameters
 
 ref; // ME_50856A430203 DoIt
@@ -2402,8 +2488,8 @@ ref; // ME_50856A430203 DoIt
  : Parent ME_47B97312006D // TvcmFormSetFactory
  ;
  : Operations
-   @ ( ME_50856A430203 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_50856A430203 // DoIt
+ )
  ; // Operations
 
 ref; // ME_50856A350071 FormSetItem
@@ -2431,8 +2517,8 @@ ref; // ME_50856A660102 aItem
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
  : Parameters
-   @ ( ME_50856A660102 // aItem
- ) .SequenceCode.It
+   Seq: ( ME_50856A660102 // aItem
+ )
  ; // Parameters
 
 ref; // ME_50856A5F039B DoIt
@@ -2449,8 +2535,8 @@ ref; // ME_50856A5F039B DoIt
  : Parent ME_47B97312006D // TvcmFormSetFactory
  ;
  : Operations
-   @ ( ME_50856A5F039B // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_50856A5F039B // DoIt
+ )
  ; // Operations
 
 ref; // ME_50856A5800E1 IsOwnerItem
@@ -2487,6 +2573,7 @@ ref; // ME_559E045B024B aItem
  CONST Value 'vcm_utAny'
  : ValueType WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
  ;
+ CONST extprop:pas:Value 'vcm_utAny'
 
 ref; // ME_559E045B026A aSubUserType
 
@@ -2500,10 +2587,10 @@ ref; // ME_559E045B026A aSubUserType
  : Parent ME_50856AA1034E // SaveToHistoryClosedForm
  ;
  : Parameters
-   @ ( ME_559E045B023B // aHistory
+   Seq: ( ME_559E045B023B // aHistory
  ME_559E045B024B // aItem
  ME_559E045B026A // aSubUserType
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_50856AB20328 DoIt
@@ -2520,8 +2607,8 @@ ref; // ME_50856AB20328 DoIt
  : Parent ME_47B97312006D // TvcmFormSetFactory
  ;
  : Operations
-   @ ( ME_50856AB20328 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_50856AB20328 // DoIt
+ )
  ; // Operations
 
 ref; // ME_50856AA1034E SaveToHistoryClosedForm
@@ -2559,9 +2646,9 @@ ref; // ME_50856B0102CA aContainer
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
  : Parameters
-   @ ( ME_50856B0102B0 // aDataSource
+   Seq: ( ME_50856B0102B0 // aDataSource
  ME_50856B0102CA // aContainer
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_50856AF001D4 DoIt
@@ -2578,8 +2665,8 @@ ref; // ME_50856AF001D4 DoIt
  : Parent ME_47B97312006D // TvcmFormSetFactory
  ;
  : Operations
-   @ ( ME_50856AF001D4 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_50856AF001D4 // DoIt
+ )
  ; // Operations
 
 ref; // ME_50856AE501F6 IsLikeFormSet
@@ -2617,9 +2704,9 @@ ref; // ME_50856C430099 aFormSet
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
  : Parameters
-   @ ( ME_50856C430080 // aContainer
+   Seq: ( ME_50856C430080 // aContainer
  ME_50856C430099 // aFormSet
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_50856C2F01D6 DoIt
@@ -2635,8 +2722,8 @@ ref; // ME_50856C2F01D6 DoIt
  : Parent ME_47B97312006D // TvcmFormSetFactory
  ;
  : Operations
-   @ ( ME_50856C2F01D6 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_50856C2F01D6 // DoIt
+ )
  ; // Operations
 
 ref; // ME_50856C290117 IsFormSetExists
@@ -2646,6 +2733,7 @@ FORWARD ME_50856C81008E
 : ME_1B82597ADBB9
  CONST UID '1B82597ADBB9'
  CONST Name 'DoIt'
+ CONST IsSummoned true
  CONST Class class_Operation
  %SUMMARY 'Сигнатура метода Create' ;
  CONST Visibility PublicAccess
@@ -2666,8 +2754,8 @@ ref; // ME_1B82597ADBB9 DoIt
  : Parent ME_47B97312006D // TvcmFormSetFactory
  ;
  : Operations
-   @ ( ME_1B82597ADBB9 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_1B82597ADBB9 // DoIt
+ )
  ; // Operations
 
 ref; // ME_50856C81008E Create
@@ -2698,8 +2786,8 @@ ref; // ME_50856CA9026F DoIt
  : Parent ME_47B97312006D // TvcmFormSetFactory
  ;
  : Operations
-   @ ( ME_50856CA9026F // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_50856CA9026F // DoIt
+ )
  ; // Operations
  CONST "is static" true
 
@@ -2737,6 +2825,7 @@ ref; // ME_50856D340145 aContainer
  CONST Value true
  : ValueType WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
+ CONST extprop:pas:Value true
 
 ref; // ME_50856D34015F aSaveToHistory
 
@@ -2750,6 +2839,7 @@ ref; // ME_50856D34015F aSaveToHistory
  CONST Value false
  : ValueType WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
+ CONST extprop:pas:Value false
 
 ref; // ME_5419780F0238 aLockSetFocusToMainObjectForm
 
@@ -2762,11 +2852,11 @@ ref; // ME_5419780F0238 aLockSetFocusToMainObjectForm
  : Parent ME_50856D0401EB // Make
  ;
  : Parameters
-   @ ( ME_50856D34012A // aDataSource
+   Seq: ( ME_50856D34012A // aDataSource
  ME_50856D340145 // aContainer
  ME_50856D34015F // aSaveToHistory
  ME_5419780F0238 // aLockSetFocusToMainObjectForm
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_50856D1B034D DoIt
@@ -2782,8 +2872,8 @@ ref; // ME_50856D1B034D DoIt
  : Parent ME_47B97312006D // TvcmFormSetFactory
  ;
  : Operations
-   @ ( ME_50856D1B034D // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_50856D1B034D // DoIt
+ )
  ; // Operations
  CONST "is static" true
 
@@ -2832,10 +2922,10 @@ ref; // ME_50857FF60026 aFormDescriptor
  : Target ME_4FFC4EA6004A // TvcmFormSetFormsCollectionItemModelPart
  ;
  : Parameters
-   @ ( ME_50857FF503DA // aName
+   Seq: ( ME_50857FF503DA // aName
  ME_50857FF6000B // aZoneType
  ME_50857FF60026 // aFormDescriptor
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_50857FE10356 DoIt
@@ -2851,8 +2941,8 @@ ref; // ME_50857FE10356 DoIt
  : Parent ME_47B97312006D // TvcmFormSetFactory
  ;
  : Operations
-   @ ( ME_50857FE10356 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_50857FE10356 // DoIt
+ )
  ; // Operations
 
 ref; // ME_50857FD0030B AddZone
@@ -2909,6 +2999,7 @@ ref; // ME_52A0576102E4 aUserType
  CONST Value 'vcm_nmNo'
  : ValueType WL 'ME_528D9F530036' '528C93040132.pas.ms.script' // TvcmNeedMakeDS
  ;
+ CONST extprop:pas:Value 'vcmBaseTypes.vcm_nmNo'
 
 ref; // ME_52A0576102FD aNeedMakeDS
 
@@ -2923,12 +3014,12 @@ ref; // ME_52A0576102FD aNeedMakeDS
  : Target ME_4FFC4EA6004A // TvcmFormSetFormsCollectionItemModelPart
  ;
  : Parameters
-   @ ( ME_52A057610299 // aName
+   Seq: ( ME_52A057610299 // aName
  ME_52A0576102B2 // aZoneType
  ME_52A0576102CB // aFormDescriptor
  ME_52A0576102E4 // aUserType
  ME_52A0576102FD // aNeedMakeDS
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_528B43EC02C6 DoIt
@@ -2944,8 +3035,8 @@ ref; // ME_528B43EC02C6 DoIt
  : Parent ME_47B97312006D // TvcmFormSetFactory
  ;
  : Operations
-   @ ( ME_528B43EC02C6 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_528B43EC02C6 // DoIt
+ )
  ; // Operations
 
 ref; // ME_528B43DA0126 AddZone$1
@@ -2977,8 +3068,8 @@ ref; // ME_52973FCE0056 DoIt
  : Parent ME_47B97312006D // TvcmFormSetFactory
  ;
  : Operations
-   @ ( ME_52973FCE0056 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_52973FCE0056 // DoIt
+ )
  ; // Operations
 
 ref; // ME_52973E60005E GetFormSetImplementation
@@ -3004,8 +3095,8 @@ ref; // ME_52EF77F703D1 aParams
  : Parent ME_52EA619F02FA // InitForms
  ;
  : Parameters
-   @ ( ME_52EF77F703D1 // aParams
- ) .SequenceCode.It
+   Seq: ( ME_52EF77F703D1 // aParams
+ )
  ; // Parameters
 
 ref; // ME_52EA61C80260 DoIt
@@ -3022,8 +3113,8 @@ ref; // ME_52EA61C80260 DoIt
  : Parent ME_47B97312006D // TvcmFormSetFactory
  ;
  : Operations
-   @ ( ME_52EA61C80260 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_52EA61C80260 // DoIt
+ )
  ; // Operations
 
 ref; // ME_52EA619F02FA InitForms
@@ -3051,8 +3142,8 @@ ref; // ME_54B352CD0312 aDataSource
  : Target WL 'ME_4683C9AC03AC' '467BAB7F021E.pas.ms.script' // IvcmCString
  ;
  : Parameters
-   @ ( ME_54B352CD0312 // aDataSource
- ) .SequenceCode.It
+   Seq: ( ME_54B352CD0312 // aDataSource
+ )
  ; // Parameters
 
 ref; // ME_54B352C00375 DoIt
@@ -3068,8 +3159,8 @@ ref; // ME_54B352C00375 DoIt
  : Parent ME_47B97312006D // TvcmFormSetFactory
  ;
  : Operations
-   @ ( ME_54B352C00375 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_54B352C00375 // DoIt
+ )
  ; // Operations
 
 ref; // ME_54B352A903E5 DoMakeFormSetCaption
@@ -3097,8 +3188,8 @@ ref; // ME_54B352F3032F aDataSource
  : Target WL 'ME_4683C9AC03AC' '467BAB7F021E.pas.ms.script' // IvcmCString
  ;
  : Parameters
-   @ ( ME_54B352F3032F // aDataSource
- ) .SequenceCode.It
+   Seq: ( ME_54B352F3032F // aDataSource
+ )
  ; // Parameters
 
 ref; // ME_54B352E402EF DoIt
@@ -3114,8 +3205,8 @@ ref; // ME_54B352E402EF DoIt
  : Parent ME_47B97312006D // TvcmFormSetFactory
  ;
  : Operations
-   @ ( ME_54B352E402EF // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_54B352E402EF // DoIt
+ )
  ; // Operations
 
 ref; // ME_54B352D401E5 DoMakeFormSetTabCaption
@@ -3143,8 +3234,8 @@ ref; // ME_54B35323027A aDataSource
  : Target WL 'ME_4683C9AC03AC' '467BAB7F021E.pas.ms.script' // IvcmCString
  ;
  : Parameters
-   @ ( ME_54B35323027A // aDataSource
- ) .SequenceCode.It
+   Seq: ( ME_54B35323027A // aDataSource
+ )
  ; // Parameters
 
 ref; // ME_54B3531701F5 DoIt
@@ -3160,8 +3251,8 @@ ref; // ME_54B3531701F5 DoIt
  : Parent ME_47B97312006D // TvcmFormSetFactory
  ;
  : Operations
-   @ ( ME_54B3531701F5 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_54B3531701F5 // DoIt
+ )
  ; // Operations
 
 ref; // ME_54B352FB03A1 DoMakeFormSetTabHint
@@ -3208,6 +3299,7 @@ ref; // ME_55D2FFC001FC aFormSet
  CONST Value true
  : ValueType WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
+ CONST extprop:pas:Value true
 
 ref; // ME_55D2FFC0022B aSaveToHistory
 
@@ -3221,6 +3313,7 @@ ref; // ME_55D2FFC0022B aSaveToHistory
  CONST Value false
  : ValueType WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
+ CONST extprop:pas:Value false
 
 ref; // ME_55D2FFC00269 aLockSetFocusToMainObjectForm
 
@@ -3234,6 +3327,7 @@ ref; // ME_55D2FFC00269 aLockSetFocusToMainObjectForm
  CONST Value 'nil'
  : ValueType WL 'ME_491AF0FF01B6' '4683F37902CF.pas.ms.script' // IvcmFormSet
  ;
+ CONST extprop:pas:Value 'nil'
 
 ref; // ME_55D2FFC00298 aFormSetToClone
 
@@ -3246,13 +3340,13 @@ ref; // ME_55D2FFC00298 aFormSetToClone
  : Parent ME_55A4F6E1037D // Make$1
  ;
  : Parameters
-   @ ( ME_55D2FFC0018F // aDataSource
+   Seq: ( ME_55D2FFC0018F // aDataSource
  ME_55D2FFC001CD // aContainer
  ME_55D2FFC001FC // aFormSet
  ME_55D2FFC0022B // aSaveToHistory
  ME_55D2FFC00269 // aLockSetFocusToMainObjectForm
  ME_55D2FFC00298 // aFormSetToClone
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_55A4F6FD0028 DoIt
@@ -3268,8 +3362,8 @@ ref; // ME_55A4F6FD0028 DoIt
  : Parent ME_47B97312006D // TvcmFormSetFactory
  ;
  : Operations
-   @ ( ME_55A4F6FD0028 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_55A4F6FD0028 // DoIt
+ )
  ; // Operations
  CONST "is static" true
 
@@ -3298,8 +3392,8 @@ ref; // ME_55E00AC300C3 aFormSet
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
  : Parameters
-   @ ( ME_55E00AC300C3 // aFormSet
- ) .SequenceCode.It
+   Seq: ( ME_55E00AC300C3 // aFormSet
+ )
  ; // Parameters
 
 ref; // ME_55E00ABC0214 DoIt
@@ -3315,8 +3409,8 @@ ref; // ME_55E00ABC0214 DoIt
  : Parent ME_47B97312006D // TvcmFormSetFactory
  ;
  : Operations
-   @ ( ME_55E00ABC0214 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_55E00ABC0214 // DoIt
+ )
  ; // Operations
 
 ref; // ME_55E00AAB006B DoGetCanCloneFormSet
@@ -3344,8 +3438,8 @@ ref; // ME_55E0208701E5 aFormSet
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
  : Parameters
-   @ ( ME_55E0208701E5 // aFormSet
- ) .SequenceCode.It
+   Seq: ( ME_55E0208701E5 // aFormSet
+ )
  ; // Parameters
 
 ref; // ME_55E0206C008A DoIt
@@ -3361,8 +3455,8 @@ ref; // ME_55E0206C008A DoIt
  : Parent ME_47B97312006D // TvcmFormSetFactory
  ;
  : Operations
-   @ ( ME_55E0206C008A // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_55E0206C008A // DoIt
+ )
  ; // Operations
 
 ref; // ME_55E020470097 DoGetCanSaveFormSetToHistory
@@ -3609,6 +3703,7 @@ ref; // ME_55F564FC00E4
  ;
  : Implementor ME_47B97312006D // TvcmFormSetFactory
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" true
 ref; // ME_499570D3028C_ME_47B97312006D FormSetId
 
@@ -3619,6 +3714,7 @@ ref; // ME_499570D3028C_ME_47B97312006D FormSetId
  ;
  : Implementor ME_47B97312006D // TvcmFormSetFactory
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_49957114002A_ME_47B97312006D Refresh
 
 : ME_499571240004_ME_47B97312006D
@@ -3628,6 +3724,7 @@ ref; // ME_49957114002A_ME_47B97312006D Refresh
  ;
  : Implementor ME_47B97312006D // TvcmFormSetFactory
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_499571240004_ME_47B97312006D SaveHistory
 
 : ME_4995712D0357_ME_47B97312006D
@@ -3637,6 +3734,7 @@ ref; // ME_499571240004_ME_47B97312006D SaveHistory
  ;
  : Implementor ME_47B97312006D // TvcmFormSetFactory
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_4995712D0357_ME_47B97312006D IsMainInFormSet
 
 : ME_4995714803CC_ME_47B97312006D
@@ -3646,6 +3744,7 @@ ref; // ME_4995712D0357_ME_47B97312006D IsMainInFormSet
  ;
  : Implementor ME_47B97312006D // TvcmFormSetFactory
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_4995714803CC_ME_47B97312006D IsDefaultStatusForm
 
 : ME_4995716A0078_ME_47B97312006D
@@ -3655,6 +3754,7 @@ ref; // ME_4995714803CC_ME_47B97312006D IsDefaultStatusForm
  ;
  : Implementor ME_47B97312006D // TvcmFormSetFactory
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_4995716A0078_ME_47B97312006D MakeMainCaption
 
 : ME_4995717E0290_ME_47B97312006D
@@ -3664,6 +3764,7 @@ ref; // ME_4995716A0078_ME_47B97312006D MakeMainCaption
  ;
  : Implementor ME_47B97312006D // TvcmFormSetFactory
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_4995717E0290_ME_47B97312006D MakeMainImageIndex
 
 : ME_54B351E90305_ME_47B97312006D
@@ -3673,6 +3774,7 @@ ref; // ME_4995717E0290_ME_47B97312006D MakeMainImageIndex
  ;
  : Implementor ME_47B97312006D // TvcmFormSetFactory
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_54B351E90305_ME_47B97312006D MakeFormSetCaption
 
 : ME_54B35214025D_ME_47B97312006D
@@ -3682,6 +3784,7 @@ ref; // ME_54B351E90305_ME_47B97312006D MakeFormSetCaption
  ;
  : Implementor ME_47B97312006D // TvcmFormSetFactory
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_54B35214025D_ME_47B97312006D MakeFormSetTabCaption
 
 : ME_54B3522300C6_ME_47B97312006D
@@ -3691,6 +3794,7 @@ ref; // ME_54B35214025D_ME_47B97312006D MakeFormSetTabCaption
  ;
  : Implementor ME_47B97312006D // TvcmFormSetFactory
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_54B3522300C6_ME_47B97312006D MakeFormSetTabHint
 
 : ME_555B2A72000F_ME_47B97312006D
@@ -3700,6 +3804,7 @@ ref; // ME_54B3522300C6_ME_47B97312006D MakeFormSetTabHint
  ;
  : Implementor ME_47B97312006D // TvcmFormSetFactory
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_555B2A72000F_ME_47B97312006D CloneFormSet
 
 : ME_55A64E200189_ME_47B97312006D
@@ -3709,6 +3814,7 @@ ref; // ME_555B2A72000F_ME_47B97312006D CloneFormSet
  ;
  : Implementor ME_47B97312006D // TvcmFormSetFactory
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_55A64E200189_ME_47B97312006D GetSimpleFactory
 
 : ME_55E002F30336_ME_47B97312006D
@@ -3718,6 +3824,7 @@ ref; // ME_55A64E200189_ME_47B97312006D GetSimpleFactory
  ;
  : Implementor ME_47B97312006D // TvcmFormSetFactory
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_55E002F30336_ME_47B97312006D CanCloneFormSet
 
 : ME_55E0134003AC_ME_47B97312006D
@@ -3727,6 +3834,7 @@ ref; // ME_55E002F30336_ME_47B97312006D CanCloneFormSet
  ;
  : Implementor ME_47B97312006D // TvcmFormSetFactory
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_55E0134003AC_ME_47B97312006D CanSaveFormSetToHistory
 
 : ME_479731C50290_ME_47B97312006D
@@ -3736,6 +3844,7 @@ ref; // ME_55E0134003AC_ME_47B97312006D CanSaveFormSetToHistory
  ;
  : Implementor ME_47B97312006D // TvcmFormSetFactory
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_479731C50290_ME_47B97312006D Cleanup
 
 : ME_47B97312006D
@@ -3749,15 +3858,15 @@ ref; // ME_479731C50290_ME_47B97312006D Cleanup
  : Parent ME_47B9727603BE // FormSets
  ;
  : Inherits
-   @ ( ME_4FFE84F00388 // TvcmFormSetFactoryPrim
- ) .SequenceCode.It
+   Seq: ( ME_4FFE84F00388 // TvcmFormSetFactoryPrim
+ )
  ; // Inherits
  : Implements
-   @ ( WL 'ME_4995708500BA' '4683F37902CF.pas.ms.script' // IvcmFormSetFactory
- ) .SequenceCode.It
+   Seq: ( WL 'ME_4995708500BA' '4683F37902CF.pas.ms.script' // IvcmFormSetFactory
+ )
  ; // Implements
  : Attributes
-   @ ( ME_508566A0011F // f_FormSetId
+   Seq: ( ME_508566A0011F // f_FormSetId
  ME_508566D70343 // OwnerForm
  ME_5085671102D0 // f_DefaultStatusForm
  ME_5085674601FE // f_MainCaption
@@ -3775,10 +3884,10 @@ ref; // ME_479731C50290_ME_47B97312006D Cleanup
  ME_F45C5D99E52E // f_OnGetMainCaption
  ME_03697F7FFB98 // f_Forms
  ME_25151ACCAB78 // f_FormList
- ) .SequenceCode.It
+ )
  ; // Attributes
  : Operations
-   @ ( ME_508569C001A9 // MakeFormSet
+   Seq: ( ME_508569C001A9 // MakeFormSet
  ME_50856A350071 // FormSetItem
  ME_50856A5800E1 // IsOwnerItem
  ME_50856AA1034E // SaveToHistoryClosedForm
@@ -3797,10 +3906,10 @@ ref; // ME_479731C50290_ME_47B97312006D Cleanup
  ME_55A4F6E1037D // Make$1
  ME_55E00AAB006B // DoGetCanCloneFormSet
  ME_55E020470097 // DoGetCanSaveFormSetToHistory
- ) .SequenceCode.It
+ )
  ; // Operations
  : Implemented
-   @ ( ME_499570D3028C_ME_47B97312006D // FormSetId
+   Seq: ( ME_499570D3028C_ME_47B97312006D // FormSetId
  ME_49957114002A_ME_47B97312006D // Refresh
  ME_499571240004_ME_47B97312006D // SaveHistory
  ME_4995712D0357_ME_47B97312006D // IsMainInFormSet
@@ -3814,20 +3923,20 @@ ref; // ME_479731C50290_ME_47B97312006D Cleanup
  ME_55A64E200189_ME_47B97312006D // GetSimpleFactory
  ME_55E002F30336_ME_47B97312006D // CanCloneFormSet
  ME_55E0134003AC_ME_47B97312006D // CanSaveFormSetToHistory
- ) .SequenceCode.It
+ )
  ; // Implemented
  : Overridden
-   @ ( ME_479731C50290_ME_47B97312006D // Cleanup
- ) .SequenceCode.It
+   Seq: ( ME_479731C50290_ME_47B97312006D // Cleanup
+ )
  ; // Overridden
  : Children
-   @ ( ME_5003E3560144 // TsfsOnGetMainCaption
+   Seq: ( ME_5003E3560144 // TsfsOnGetMainCaption
  ME_5003E3C700F4 // TsfsOnGetMainImageIndex
  ME_4AB250E60392 // RvcmFormSetFactory
- ) .SequenceCode.It
+ )
  ; // Children
  : Dependencies
-   @ ( ME_4FFC4D5001B5 // 
+   Seq: ( ME_4FFC4D5001B5 // 
  ME_5085705F036C // 
  ME_508579F00010 // 
  ME_508579F30208 // 
@@ -3848,19 +3957,21 @@ ref; // ME_479731C50290_ME_47B97312006D Cleanup
  ME_55A64E5103CA // 
  ME_55C09752037A // 
  ME_55F564FC00E4 // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  CONST "author" 'Морозов'
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\VCM\implementation\Visual'
  CONST intf.pas:Path 'common\components\gui\Garant\VCM\implementation\Visual\vcmFormSetFactory.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\VCM\implementation\Visual'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'FormSetFactory'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'vcmFormSetFactory'
 
 ref; // ME_47B97312006D TvcmFormSetFactory
 
@@ -3899,8 +4010,8 @@ ref; // ME_55A64577003E aFactoryClass
  : Parent ME_55A6455F016C // Create
  ;
  : Parameters
-   @ ( ME_55A64577003E // aFactoryClass
- ) .SequenceCode.It
+   Seq: ( ME_55A64577003E // aFactoryClass
+ )
  ; // Parameters
 
 ref; // ME_55A6456A0273 DoIt
@@ -3916,8 +4027,8 @@ ref; // ME_55A6456A0273 DoIt
  : Parent ME_55A6448A0302 // TvcmFormSetFactoryFacade
  ;
  : Operations
-   @ ( ME_55A6456A0273 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_55A6456A0273 // DoIt
+ )
  ; // Operations
 
 ref; // ME_55A6455F016C Create
@@ -3927,6 +4038,7 @@ FORWARD ME_55A64581012A
 : ME_9381FF9616A1
  CONST UID '9381FF9616A1'
  CONST Name 'aFactoryClass'
+ CONST IsSummoned true
  CONST Class class_Parameter
  : Stereotype st_in ;
  : Target ME_4AB250E60392 // RvcmFormSetFactory
@@ -3937,6 +4049,7 @@ ref; // ME_9381FF9616A1 aFactoryClass
 : ME_2FC53EADD23B
  CONST UID '2FC53EADD23B'
  CONST Name 'DoIt'
+ CONST IsSummoned true
  CONST Class class_Operation
  %SUMMARY 'Сигнатура фабрики TvcmFormSetFactoryFacade.Make' ;
  CONST Visibility PrivateAccess
@@ -3946,8 +4059,8 @@ ref; // ME_9381FF9616A1 aFactoryClass
  : Target WL 'ME_55A643FF008A' '4683F37902CF.pas.ms.script' // IvcmFormSetSimpleFactory
  ;
  : Parameters
-   @ ( ME_9381FF9616A1 // aFactoryClass
- ) .SequenceCode.It
+   Seq: ( ME_9381FF9616A1 // aFactoryClass
+ )
  ; // Parameters
 
 ref; // ME_2FC53EADD23B DoIt
@@ -3963,16 +4076,16 @@ ref; // ME_2FC53EADD23B DoIt
  : Parent ME_55A6448A0302 // TvcmFormSetFactoryFacade
  ;
  : Inherits
-   @ ( ME_55A6455F016C // Create
- ) .SequenceCode.It
+   Seq: ( ME_55A6455F016C // Create
+ )
  ; // Inherits
  : Implements
-   @ ( WL 'ME_55A643FF008A' '4683F37902CF.pas.ms.script' // IvcmFormSetSimpleFactory
- ) .SequenceCode.It
+   Seq: ( WL 'ME_55A643FF008A' '4683F37902CF.pas.ms.script' // IvcmFormSetSimpleFactory
+ )
  ; // Implements
  : Operations
-   @ ( ME_2FC53EADD23B // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_2FC53EADD23B // DoIt
+ )
  ; // Operations
  CONST "check nil" false
  CONST "need AfterCreate" 'undefined'
@@ -3999,6 +4112,7 @@ ref; // ME_55A644BD025E
  ;
  : Implementor ME_55A6448A0302 // TvcmFormSetFactoryFacade
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_55A6442E0050_ME_55A6448A0302 MakeFormset
 
 : ME_55A6448A0302
@@ -4012,40 +4126,42 @@ ref; // ME_55A6442E0050_ME_55A6448A0302 MakeFormset
  : Parent ME_47B9727603BE // FormSets
  ;
  : Inherits
-   @ ( WL 'ME_49E7754802A9' '47913B47006E.pas.ms.script' // Tl3ProtoObject
- ) .SequenceCode.It
+   Seq: ( WL 'ME_49E7754802A9' '47913B47006E.pas.ms.script' // Tl3ProtoObject
+ )
  ; // Inherits
  : Implements
-   @ ( WL 'ME_55A643FF008A' '4683F37902CF.pas.ms.script' // IvcmFormSetSimpleFactory
- ) .SequenceCode.It
+   Seq: ( WL 'ME_55A643FF008A' '4683F37902CF.pas.ms.script' // IvcmFormSetSimpleFactory
+ )
  ; // Implements
  : Attributes
-   @ ( ME_55A64555018B // f_FactoryClass
- ) .SequenceCode.It
+   Seq: ( ME_55A64555018B // f_FactoryClass
+ )
  ; // Attributes
  : Operations
-   @ ( ME_55A6455F016C // Create
+   Seq: ( ME_55A6455F016C // Create
  ME_55A64581012A // Make
- ) .SequenceCode.It
+ )
  ; // Operations
  : Implemented
-   @ ( ME_55A6442E0050_ME_55A6448A0302 // MakeFormset
- ) .SequenceCode.It
+   Seq: ( ME_55A6442E0050_ME_55A6448A0302 // MakeFormset
+ )
  ; // Implemented
  : Dependencies
-   @ ( ME_55A644BD025E // 
- ) .SequenceCode.It
+   Seq: ( ME_55A644BD025E // 
+ )
  ; // Dependencies
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\VCM\implementation\Visual'
  CONST intf.pas:Path 'common\components\gui\Garant\VCM\implementation\Visual\vcmFormSetFactoryFacade.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\VCM\implementation\Visual'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'FormSetFactoryFacade'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'vcmFormSetFactoryFacade'
 
 ref; // ME_55A6448A0302 TvcmFormSetFactoryFacade
 
@@ -4075,27 +4191,29 @@ ref; // ME_55C0974002FE ItemType
  : Parent ME_47B9727603BE // FormSets
  ;
  : Inherits
-   @ ( WL 'ME_4A54DD4E036F' '47913B47006E.pas.ms.script' // Tl3ProtoDataContainer
- ) .SequenceCode.It
+   Seq: ( WL 'ME_4A54DD4E036F' '47913B47006E.pas.ms.script' // Tl3ProtoDataContainer
+ )
  ; // Inherits
  : Implements
-   @ ( WL 'ME_47B57D830369' '47913B47006E.pas.ms.script' // l3InterfaceRefList
- ) .SequenceCode.It
+   Seq: ( WL 'ME_47B57D830369' '47913B47006E.pas.ms.script' // l3InterfaceRefList
+ )
  ; // Implements
  : Attributes
-   @ ( ME_55C0974002FE // ItemType
- ) .SequenceCode.It
+   Seq: ( ME_55C0974002FE // ItemType
+ )
  ; // Attributes
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\VCM\implementation\Visual'
  CONST intf.pas:Path 'common\components\gui\Garant\VCM\implementation\Visual\vcmFormDataSourceList.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\VCM\implementation\Visual'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'FormDataSourceList'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'vcmFormDataSourceList'
 
 ref; // ME_55C097250034 TvcmFormDataSourceList
 
@@ -4110,7 +4228,7 @@ ref; // ME_55C097250034 TvcmFormDataSourceList
  : Parent WL 'ME_4E13416D0227' '4E13416D0227.pas.ms.script' // VCM$Visual
  ;
  : Children
-   @ ( ME_4FFC337003AF // TvcmFormSetFormsCollectionItemPrim
+   Seq: ( ME_4FFC337003AF // TvcmFormSetFormsCollectionItemPrim
  ME_4FFC55AD02B3 // TvcmFormSetFormsCollectionPrimPrim
  ME_4FFC32AE0164 // TvcmFormSetFormsCollectionItem
  ME_4FFC4EA6004A // TvcmFormSetFormsCollectionItemModelPart
@@ -4121,10 +4239,10 @@ ref; // ME_55C097250034 TvcmFormDataSourceList
  ME_47B97312006D // TvcmFormSetFactory
  ME_55A6448A0302 // TvcmFormSetFactoryFacade
  ME_55C097250034 // TvcmFormDataSourceList
- ) .SequenceCode.It
+ )
  ; // Children
  : Depends
-   @ ( WL 'ME_4677FBA70343' '4677FBA70343.pas.ms.script' // l3Interfaces
+   Seq: ( WL 'ME_4677FBA70343' '4677FBA70343.pas.ms.script' // l3Interfaces
  WL 'ME_467BAB7F021E' '467BAB7F021E.pas.ms.script' // vcmExternalInterfaces
  WL 'ME_4683F37902CF' '4683F37902CF.pas.ms.script' // vcmInterfaces
  WL 'ME_47913B47006E' '47913B47006E.pas.ms.script' // l3CoreObjects
@@ -4141,16 +4259,14 @@ ref; // ME_55C097250034 TvcmFormDataSourceList
  WL 'ME_528C931303C3' '528C931303C3.pas.ms.script' // vcmFormSetSupport
  WL 'ME_55082F190334' '55082F190334.pas.ms.script' // Implementation
  WL 'ME_553893E60323' '553893E60323.pas.ms.script' // Services
- ) .SequenceCode.It
+ )
  ; // Depends
  CONST "path prefix" '/implementation/Visual'
- : Generators
- @ (
- gen_pas.script
- gen_pas.script.runner
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\VCM\implementation\Visual'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\VCM\implementation\Visual'
  CONST pas.script:Path 'shared\models\NewSchool\Scripts\47B9727603BE.pas.ms.script'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
  CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\47B9727603BE.pas.ms.script.runner'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_47B9727603BE FormSets

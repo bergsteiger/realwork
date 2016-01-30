@@ -9,6 +9,7 @@ FORWARD ME_4DB1A01E01F4
 : ME_FBCCC42388D6
  CONST UID 'FBCCC42388D6'
  CONST Name 'Ini_Reg'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Регистрация Key' ;
@@ -106,28 +107,28 @@ ref; // ME_4DB0614603C8_ME_4DB1A01E01F4 GetWordNameForRegister
  : Parent ME_5019517A022F // KeyBoardInput
  ;
  : Inherits
-   @ ( WL 'ME_53EDC0E701BC' '4F3E3F5F0160.pas.ms.script' // TtfwRegisterableWord
- ) .SequenceCode.It
+   Seq: ( WL 'ME_53EDC0E701BC' '4F3E3F5F0160.pas.ms.script' // TtfwRegisterableWord
+ )
  ; // Inherits
  : Operations
-   @ ( ME_FBCCC42388D6 // Ini_Reg
- ) .SequenceCode.It
+   Seq: ( ME_FBCCC42388D6 // Ini_Reg
+ )
  ; // Operations
  : Implemented
-   @ ( ME_4DAEEDE10285_ME_4DB1A01E01F4 // DoDoIt
- ) .SequenceCode.It
+   Seq: ( ME_4DAEEDE10285_ME_4DB1A01E01F4 // DoDoIt
+ )
  ; // Implemented
  : Overridden
-   @ ( ME_4DB0614603C8_ME_4DB1A01E01F4 // GetWordNameForRegister
- ) .SequenceCode.It
+   Seq: ( ME_4DB0614603C8_ME_4DB1A01E01F4 // GetWordNameForRegister
+ )
  ; // Overridden
  : Dependencies
-   @ ( ME_4DB1A0660303 // 
+   Seq: ( ME_4DB1A0660303 // 
  ME_4DB1A0900097 // 
  ME_4DB1A0EF0161 // 
  ME_4DB1BF440078 // 
  ME_5507EA22015B // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  CONST "NameForScript" 'key'
  CONST "author" 'Люлин А.В.'
@@ -136,13 +137,15 @@ ref; // ME_4DB0614603C8_ME_4DB1A01E01F4 GetWordNameForRegister
  CONST "no hands" true
  CONST "register in scripts" 'undefined'
  CONST "started" '22.04.2011 19:35'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\ScriptEngine'
  CONST intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\kwKey.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\ScriptEngine'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
  CONST extprop:pas:TypeName 'TkwKey'
+ CONST extprop:rc:SelfName 'Key'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'kwKey'
 
 ref; // ME_4DB1A01E01F4 Key
 
@@ -153,6 +156,7 @@ FORWARD ME_83D838C45464
 : ME_8BE6A6DAEBE2
  CONST UID '8BE6A6DAEBE2'
  CONST Name 'RegAxiom'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Регистрация скриптованой аксиоматики' ;
@@ -177,6 +181,7 @@ ref; // ME_55B7A3AF0359_ME_83D838C45464 ResName
 : ME_83D838C45464
  CONST UID '83D838C45464'
  CONST Name 'TKeyboardInputPackResNameGetter'
+ CONST IsSummoned true
  CONST Class class_Class
  : Stereotype st_SimpleClass ;
  CONST Kind kind_NormalClass
@@ -186,22 +191,28 @@ ref; // ME_55B7A3AF0359_ME_83D838C45464 ResName
  : Parent ME_50195665016F // KeyboardInputPack
  ;
  : Inherits
-   @ ( WL 'ME_55B7A33101AF' '55B7A3160128.pas.ms.script' // TtfwAxiomaticsResNameGetter
- ) .SequenceCode.It
+   Seq: ( WL 'ME_55B7A33101AF' '55B7A3160128.pas.ms.script' // TtfwAxiomaticsResNameGetter
+ )
  ; // Inherits
  : Operations
-   @ ( ME_8BE6A6DAEBE2 // RegAxiom
- ) .SequenceCode.It
+   Seq: ( ME_8BE6A6DAEBE2 // RegAxiom
+ )
  ; // Operations
  : Implemented
-   @ ( ME_55B7A3AF0359_ME_83D838C45464 // ResName
- ) .SequenceCode.It
+   Seq: ( ME_55B7A3AF0359_ME_83D838C45464 // ResName
+ )
  ; // Implemented
  CONST "need UC" true
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
+ CONST dfm:PathOnly '\common\components\rtl\Garant\ScriptEngine'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\ScriptEngine'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'KeyboardInputPackResNameGetter'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_83D838C45464 TKeyboardInputPackResNameGetter
 
@@ -257,6 +268,7 @@ ref; // ME_5220A4770079
 
 : ME_FCA0F7AE5C30
  CONST UID 'FCA0F7AE5C30'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_50195665016F // KeyboardInputPack
@@ -277,34 +289,27 @@ ref; // ME_FCA0F7AE5C30
  : Parent ME_5019517A022F // KeyBoardInput
  ;
  : Children
-   @ ( ME_83D838C45464 // TKeyboardInputPackResNameGetter
- ) .SequenceCode.It
+   Seq: ( ME_83D838C45464 // TKeyboardInputPackResNameGetter
+ )
  ; // Children
  : Dependencies
-   @ ( ME_501956770078 // 
+   Seq: ( ME_501956770078 // 
  ME_50195691015A // 
  ME_5220A473029B // 
  ME_5220A4770079 // 
  ME_FCA0F7AE5C30 // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  CONST "ifndef" 'NoScripts'
  CONST "needs script" true
  CONST "no class name" 'undefined'
  CONST "no hands" false
  CONST "no_pop" 'undefined'
- : Generators
- @ (
- gen_intf.pas
- gen_rc.pas
- gen_rc.script.pas
- gen_res.cmd.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\ScriptEngine'
  CONST intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\KeyboardInputPack.pas'
- CONST rc.pas:Path 'common\components\rtl\Garant\ScriptEngine\KeyboardInputPack.rc'
- CONST rc.script.pas:Path 'common\components\rtl\Garant\ScriptEngine\KeyboardInputPack.rc.script'
- CONST res.cmd.pas:Path 'common\components\rtl\Garant\ScriptEngine\KeyboardInputPack.res.cmd'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\ScriptEngine'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_50195665016F KeyboardInputPack
 
@@ -349,10 +354,14 @@ ref; // ME_50195C9401BC aHold
  : Parent ME_501956850225 // HardKey
  ;
  : Attributes
-   @ ( ME_50195C8702F3 // aKey
+   Seq: ( ME_50195C8702F3 // aKey
  ME_50195C9401BC // aHold
- ) .SequenceCode.It
+ )
  ; // Attributes
+ CONST dfm:PathOnly '\common\components\rtl\Garant\ScriptEngine'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\ScriptEngine'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_50195C750318 TInputKeyRecord
 
@@ -382,10 +391,14 @@ ref; // ME_501969110132
  : Parent ME_501956850225 // HardKey
  ;
  : Attributes
-   @ ( ME_501969110132 // 
- ) .SequenceCode.It
+   Seq: ( ME_501969110132 // 
+ )
  ; // Attributes
  CONST "array type" 'dynamic'
+ CONST dfm:PathOnly '\common\components\rtl\Garant\ScriptEngine'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\ScriptEngine'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_50195CA90222 TInputKeyRecordArray
 
@@ -415,16 +428,21 @@ ref; // ME_50196939001B
  : Parent ME_501956850225 // HardKey
  ;
  : Attributes
-   @ ( ME_50196939001B // 
- ) .SequenceCode.It
+   Seq: ( ME_50196939001B // 
+ )
  ; // Attributes
  CONST "array type" 'dynamic'
+ CONST dfm:PathOnly '\common\components\rtl\Garant\ScriptEngine'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\ScriptEngine'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_50195D48017A TInputArray
 
 : ME_C0AFEA11B8C0
  CONST UID 'C0AFEA11B8C0'
  CONST Name 'Ini_Reg'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Регистрация HardKey' ;
@@ -521,53 +539,56 @@ ref; // ME_4DB0614603C8_ME_501956850225 GetWordNameForRegister
  : Parent ME_5019517A022F // KeyBoardInput
  ;
  : Inherits
-   @ ( WL 'ME_53EDC0E701BC' '4F3E3F5F0160.pas.ms.script' // TtfwRegisterableWord
- ) .SequenceCode.It
+   Seq: ( WL 'ME_53EDC0E701BC' '4F3E3F5F0160.pas.ms.script' // TtfwRegisterableWord
+ )
  ; // Inherits
  : Operations
-   @ ( ME_C0AFEA11B8C0 // Ini_Reg
- ) .SequenceCode.It
+   Seq: ( ME_C0AFEA11B8C0 // Ini_Reg
+ )
  ; // Operations
  : Implemented
-   @ ( ME_4DAEEDE10285_ME_501956850225 // DoDoIt
- ) .SequenceCode.It
+   Seq: ( ME_4DAEEDE10285_ME_501956850225 // DoDoIt
+ )
  ; // Implemented
  : Overridden
-   @ ( ME_4DB0614603C8_ME_501956850225 // GetWordNameForRegister
- ) .SequenceCode.It
+   Seq: ( ME_4DB0614603C8_ME_501956850225 // GetWordNameForRegister
+ )
  ; // Overridden
  : Children
-   @ ( ME_50195C750318 // TInputKeyRecord
+   Seq: ( ME_50195C750318 // TInputKeyRecord
  ME_50195CA90222 // TInputKeyRecordArray
  ME_50195D48017A // TInputArray
- ) .SequenceCode.It
+ )
  ; // Children
  : Dependencies
-   @ ( ME_50195C3B00E5 // 
+   Seq: ( ME_50195C3B00E5 // 
  ME_50195C3F03E0 // 
  ME_50195DDC039F // 
  ME_50195F43020D // 
  ME_5507EA3D015C // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  CONST "ifndef" 'NoVCL'
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\ScriptEngine'
  CONST intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\kwHardKey.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\ScriptEngine'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
  CONST extprop:pas:TypeName 'TkwHardKey'
+ CONST extprop:rc:SelfName 'HardKey'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'kwHardKey'
 
 ref; // ME_501956850225 HardKey
 
 : ME_E907513A223A
  CONST UID 'E907513A223A'
  CONST Name 'Ini_Reg'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Регистрация KeyDown' ;
@@ -676,48 +697,51 @@ ref; // ME_4DB0614603C8_ME_5220A3ED0104 GetWordNameForRegister
  : Parent ME_5019517A022F // KeyBoardInput
  ;
  : Inherits
-   @ ( WL 'ME_53EDC0E701BC' '4F3E3F5F0160.pas.ms.script' // TtfwRegisterableWord
- ) .SequenceCode.It
+   Seq: ( WL 'ME_53EDC0E701BC' '4F3E3F5F0160.pas.ms.script' // TtfwRegisterableWord
+ )
  ; // Inherits
  : Operations
-   @ ( ME_E907513A223A // Ini_Reg
- ) .SequenceCode.It
+   Seq: ( ME_E907513A223A // Ini_Reg
+ )
  ; // Operations
  : Implemented
-   @ ( ME_4DAEEDE10285_ME_5220A3ED0104 // DoDoIt
- ) .SequenceCode.It
+   Seq: ( ME_4DAEEDE10285_ME_5220A3ED0104 // DoDoIt
+ )
  ; // Implemented
  : Overridden
-   @ ( ME_4DB0614603C8_ME_5220A3ED0104 // GetWordNameForRegister
- ) .SequenceCode.It
+   Seq: ( ME_4DB0614603C8_ME_5220A3ED0104 // GetWordNameForRegister
+ )
  ; // Overridden
  : Dependencies
-   @ ( ME_5220A4110125 // 
+   Seq: ( ME_5220A4110125 // 
  ME_5220A41300FA // 
  ME_5220A41500B6 // 
  ME_5220A4170023 // 
  ME_5220B6AF017E // 
  ME_5507EA4F03B4 // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  CONST "ifndef" 'NoVCL'
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\ScriptEngine'
  CONST intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\kwKeyDown.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\ScriptEngine'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
  CONST extprop:pas:TypeName 'TkwKeyDown'
+ CONST extprop:rc:SelfName 'KeyDown'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'kwKeyDown'
 
 ref; // ME_5220A3ED0104 KeyDown
 
 : ME_258BB62CF538
  CONST UID '258BB62CF538'
  CONST Name 'Ini_Reg'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Регистрация KeyUp' ;
@@ -826,42 +850,44 @@ ref; // ME_4DB0614603C8_ME_5220A3FC021A GetWordNameForRegister
  : Parent ME_5019517A022F // KeyBoardInput
  ;
  : Inherits
-   @ ( WL 'ME_53EDC0E701BC' '4F3E3F5F0160.pas.ms.script' // TtfwRegisterableWord
- ) .SequenceCode.It
+   Seq: ( WL 'ME_53EDC0E701BC' '4F3E3F5F0160.pas.ms.script' // TtfwRegisterableWord
+ )
  ; // Inherits
  : Operations
-   @ ( ME_258BB62CF538 // Ini_Reg
- ) .SequenceCode.It
+   Seq: ( ME_258BB62CF538 // Ini_Reg
+ )
  ; // Operations
  : Implemented
-   @ ( ME_4DAEEDE10285_ME_5220A3FC021A // DoDoIt
- ) .SequenceCode.It
+   Seq: ( ME_4DAEEDE10285_ME_5220A3FC021A // DoDoIt
+ )
  ; // Implemented
  : Overridden
-   @ ( ME_4DB0614603C8_ME_5220A3FC021A // GetWordNameForRegister
- ) .SequenceCode.It
+   Seq: ( ME_4DB0614603C8_ME_5220A3FC021A // GetWordNameForRegister
+ )
  ; // Overridden
  : Dependencies
-   @ ( ME_5220A458024E // 
+   Seq: ( ME_5220A458024E // 
  ME_5220A45A0041 // 
  ME_5220A45B02F1 // 
  ME_5220A45D01B0 // 
  ME_5220B6D601BA // 
  ME_5507EA6600A3 // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  CONST "ifndef" 'NoVCL'
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\ScriptEngine'
  CONST intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\kwKeyUp.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\ScriptEngine'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
  CONST extprop:pas:TypeName 'TkwKeyUp'
+ CONST extprop:rc:SelfName 'KeyUp'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'kwKeyUp'
 
 ref; // ME_5220A3FC021A KeyUp
 
@@ -875,15 +901,15 @@ ref; // ME_5220A3FC021A KeyUp
  : Parent WL 'ME_4E1F0EB100C4' '4E1F0EB100C4.pas.ms.script' // ScriptEngine
  ;
  : Children
-   @ ( ME_4DB1A01E01F4 // Key
+   Seq: ( ME_4DB1A01E01F4 // Key
  ME_50195665016F // KeyboardInputPack
  ME_501956850225 // HardKey
  ME_5220A3ED0104 // KeyDown
  ME_5220A3FC021A // KeyUp
- ) .SequenceCode.It
+ )
  ; // Children
  : Depends
-   @ ( WL 'ME_476F78840219' '476F78840219.pas.ms.script' // Messages
+   Seq: ( WL 'ME_476F78840219' '476F78840219.pas.ms.script' // Messages
  WL 'ME_4799D29F033F' '4799D29F033F.pas.ms.script' // Implementation
  WL 'ME_4AB0997B00A2' '4AB0997B00A2.pas.ms.script' // Common
  WL 'ME_4AB0C3C60310' '4AB0C3C60310.pas.ms.script' // Sys
@@ -893,16 +919,14 @@ ref; // ME_5220A3FC021A KeyUp
  WL 'ME_55B7A3160128' '55B7A3160128.pas.ms.script' // ScriptedAxiomatics
  WL 'ME_55BA28CE0290' '55BA28CE0290.pas.ms.script' // tfwScriptingTypes
  WL 'ME_55C4AF3F02EE' '55C4AF3F02EE.pas.ms.script' // Consts
- ) .SequenceCode.It
+ )
  ; // Depends
  CONST "ifndef" 'NoScripts,NoVCL'
- : Generators
- @ (
- gen_pas.script
- gen_pas.script.runner
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\ScriptEngine'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\ScriptEngine'
  CONST pas.script:Path 'shared\models\NewSchool\Scripts\5019517A022F.pas.ms.script'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
  CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\5019517A022F.pas.ms.script.runner'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_5019517A022F KeyBoardInput

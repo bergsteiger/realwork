@@ -1,0 +1,179 @@
+// Unicode 4869FBFC02A4 Unit Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4869FBFC02A4
+
+FORWARD ME_4869FC3401AE
+
+: ME_4869FCA503BD
+ CONST UID '4869FCA503BD'
+ CONST Name 'in'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_452257A0036F' '3DBFDB23006E.pas.ms.script' // a-string
+ ;
+
+ref; // ME_4869FCA503BD in
+
+: ME_4869FCA503BC
+ CONST UID '4869FCA503BC'
+ CONST Name 'cp_to_utf16'
+ CONST Class class_Operation
+ %SUMMARY 'переводит строку в UTF-16, использу€ текущую локаль' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_4869FC3401AE // Converters
+ ;
+ : Target WL 'ME_4869B190025F' '3DBFDB23006E.pas.ms.script' // a-wstring
+ ;
+ CONST TargetStereotype 'const'
+ : Parameters
+   Seq: ( ME_4869FCA503BD // in
+ )
+ ; // Parameters
+
+ref; // ME_4869FCA503BC cp_to_utf16
+
+: ME_486A17BA0061
+ CONST UID '486A17BA0061'
+ CONST Name 'in'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_4869B190025F' '3DBFDB23006E.pas.ms.script' // a-wstring
+ ;
+
+ref; // ME_486A17BA0061 in
+
+: ME_4869FCAA0279
+ CONST UID '4869FCAA0279'
+ CONST Name 'utf16_to_cp'
+ CONST Class class_Operation
+ %SUMMARY 'переводит строку в однобайтовую кодировку, использу€ текущую локаль' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_4869FC3401AE // Converters
+ ;
+ : Target WL 'ME_452257A0036F' '3DBFDB23006E.pas.ms.script' // a-string
+ ;
+ CONST TargetStereotype 'const'
+ : Parameters
+   Seq: ( ME_486A17BA0061 // in
+ )
+ ; // Parameters
+
+ref; // ME_4869FCAA0279 utf16_to_cp
+
+: ME_486B74250252
+ CONST UID '486B74250252'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4869FC3401AE // Converters
+ ;
+
+ref; // ME_486B74250252 
+
+: ME_4869FC3401AE
+ CONST UID '4869FC3401AE'
+ CONST Name 'Converters'
+ CONST Class class_Class
+ : Stereotype st_UtilityPack ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'методы конвертации строк' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_4869FBFC02A4 // Unicode
+ ;
+ : Operations
+   Seq: ( ME_4869FCA503BC // cp_to_utf16
+ ME_4869FCAA0279 // utf16_to_cp
+ )
+ ; // Operations
+ : Dependencies
+   Seq: ( ME_486B74250252 // 
+ )
+ ; // Dependencies
+ CONST "no hands" false
+ : Generators
+ Seq: (
+ gen_cpp
+ gen_h
+ gen_intf.pas
+ )
+ ; // Generators
+ CONST cpp:Path 'shared\GCI\Unicode\Converters.cpp'
+ CONST cpp:PathOnly '\shared\GCI\Unicode'
+ CONST dfm:PathOnly '\shared\GCI'
+ CONST dll.cpp:PathOnly '\shared\GCI'
+ CONST dll.h:PathOnly '\shared\GCI'
+ CONST fctr.cpp:PathOnly '\shared\GCI'
+ CONST fctr.h:PathOnly '\shared\GCI'
+ CONST h:Path 'shared\GCI\Unicode\Converters.h'
+ CONST h:PathOnly '\shared\GCI\Unicode'
+ CONST i.h:PathOnly '\shared\GCI\Unicode'
+ CONST idl:PathOnly '\shared'
+ CONST idl_ami:PathOnly '\shared'
+ CONST intf.pas:Path 'shared\tie\Garant\GCI\Converters.pas'
+ CONST intf.pas:PathOnly '\shared\tie\Garant\GCI'
+ CONST mpc:PathOnly '\shared\project'
+ CONST mpc.dll:PathOnly '\shared\project'
+ CONST mpc2:PathOnly '\shared\project'
+ CONST pas:PathOnly '\shared\GCI'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc:PathOnly '\shared\GCI'
+ CONST rc.script.pas:PathOnly '\shared\GCI'
+ CONST s.ini:PathOnly '\shared\project'
+ CONST s.reg:PathOnly '\shared\project'
+ CONST vi.rc:PathOnly '\shared'
+ CONST vi.rch:PathOnly '\shared'
+
+ref; // ME_4869FC3401AE Converters
+
+: ME_4869FBFC02A4
+ CONST UID '4869FBFC02A4'
+ CONST Name 'Unicode'
+ CONST Class class_Category
+ : Stereotype st_Unit ;
+ %SUMMARY 'методы работы с Unicode' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent WL 'ME_447878770121' '447878770121.pas.ms.script' // GCI
+ ;
+ : Children
+   Seq: ( ME_4869FC3401AE // Converters
+ )
+ ; // Children
+ : Generators
+ Seq: (
+ gen_pas.script
+ gen_pas.script.runner
+ )
+ ; // Generators
+ CONST cpp:PathOnly '\shared\GCI\Unicode'
+ CONST dfm:PathOnly '\shared\GCI'
+ CONST dll.cpp:PathOnly '\shared\GCI'
+ CONST dll.h:PathOnly '\shared\GCI'
+ CONST fctr.cpp:PathOnly '\shared\GCI'
+ CONST fctr.h:PathOnly '\shared\GCI'
+ CONST h:PathOnly '\shared\GCI\Unicode'
+ CONST i.h:PathOnly '\shared\GCI\Unicode'
+ CONST idl:PathOnly '\shared'
+ CONST idl_ami:PathOnly '\shared'
+ CONST intf.pas:PathOnly '\shared\tie\Garant\GCI'
+ CONST mpc:PathOnly '\shared\project'
+ CONST mpc.dll:PathOnly '\shared\project'
+ CONST mpc2:PathOnly '\shared\project'
+ CONST pas:PathOnly '\shared\GCI'
+ CONST pas.script:Path 'shared\models\NewSchool\Scripts\4869FBFC02A4.pas.ms.script'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\4869FBFC02A4.pas.ms.script.runner'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc:PathOnly '\shared\GCI'
+ CONST rc.script.pas:PathOnly '\shared\GCI'
+ CONST s.ini:PathOnly '\shared\project'
+ CONST s.reg:PathOnly '\shared\project'
+ CONST vi.rc:PathOnly '\shared'
+ CONST vi.rch:PathOnly '\shared'
+
+ref; // ME_4869FBFC02A4 Unicode

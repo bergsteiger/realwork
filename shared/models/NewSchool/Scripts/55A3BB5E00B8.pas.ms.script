@@ -1,0 +1,100 @@
+// List 55A3BB5E00B8 Unit Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_55A3BB5E00B8
+
+FORWARD ME_55A3BBAE01E2
+
+: ME_55A3BBC7002F
+ CONST UID '55A3BBC7002F'
+ CONST Name 'ItemType'
+ CONST Class class_Attribute
+ : Stereotype st_impurity_value::Attribute ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_agr
+ : Parent ME_55A3BBAE01E2 // TnsDeferredTreeList
+ ;
+ : Target WL 'ME_4911B284005F' '4990135D02F1.pas.ms.script' // InsDeferredTree
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_55A3BBC7002F ItemType
+
+: ME_55A3BBAE01E2
+ CONST UID '55A3BBAE01E2'
+ CONST Name 'TnsDeferredTreeList'
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_55A3BB5E00B8 // List
+ ;
+ : Inherits
+   Seq: ( WL 'ME_4A54DD4E036F' '47913B47006E.pas.ms.script' // Tl3ProtoDataContainer
+ )
+ ; // Inherits
+ : Implements
+   Seq: ( WL 'ME_47B57D830369' '47913B47006E.pas.ms.script' // l3InterfaceRefList
+ )
+ ; // Implements
+ : Attributes
+   Seq: ( ME_55A3BBC7002F // ItemType
+ )
+ ; // Attributes
+ CONST "UseNewGen" 'undefined'
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ : Generators
+ Seq: (
+ gen_intf.pas
+ )
+ ; // Generators
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Search'
+ CONST intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\Search\nsDeferredTreeList.pas'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Search'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\Search'
+ CONST extprop:pas:UnitName 'nsDeferredTreeList'
+
+ref; // ME_55A3BBAE01E2 TnsDeferredTreeList
+
+: ME_55A3BB5E00B8
+ CONST UID '55A3BB5E00B8'
+ CONST Name 'List'
+ CONST Class class_Category
+ : Stereotype st_Unit ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent WL 'ME_4A9FFD3F01AD' '4A9FFD3F01AD.pas.ms.script' // Search
+ ;
+ : Children
+   Seq: ( ME_55A3BBAE01E2 // TnsDeferredTreeList
+ )
+ ; // Children
+ : Depends
+   Seq: ( WL 'ME_47913B47006E' '47913B47006E.pas.ms.script' // l3CoreObjects
+ WL 'ME_4990135D02F1' '4990135D02F1.pas.ms.script' // FoldersDomainInterfaces
+ )
+ ; // Depends
+ CONST "UseNewGen" 'undefined'
+ : Generators
+ Seq: (
+ gen_pas.script
+ gen_pas.script.runner
+ )
+ ; // Generators
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Search'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Search'
+ CONST pas.script:Path 'shared\models\NewSchool\Scripts\55A3BB5E00B8.pas.ms.script'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\55A3BB5E00B8.pas.ms.script.runner'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\Search'
+
+ref; // ME_55A3BB5E00B8 List

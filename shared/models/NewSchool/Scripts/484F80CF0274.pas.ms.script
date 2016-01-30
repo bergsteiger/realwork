@@ -1,0 +1,213 @@
+// Встроенные продукты 484F80CF0274 UseCases Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_484F80CF0274
+
+: ME_484F849D017B
+ CONST UID '484F849D017B'
+ CONST Name 'Толковый словарь'
+ CONST Class class_Class
+ : Stereotype st_UseCase ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Функциональность толкового словаря' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_484F80CF0274 // Встроенные продукты
+ ;
+ CONST "UseNewGen" 'undefined'
+ CONST dfm:PathOnly '\garant6x\implementation\Garant'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant'
+
+ref; // ME_484F849D017B Толковый словарь
+
+FORWARD ME_4856410E0295
+
+: ME_4AC1CE96036C
+ CONST UID '4AC1CE96036C'
+ CONST Name 'Основное меню для Инфарм'
+ CONST Class class_Class
+ : Stereotype st_UseCase ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Упрощенный доступ к функциям Инфарм' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4856410E0295 // Инфарм
+ ;
+ CONST "UseNewGen" 'undefined'
+ CONST dfm:PathOnly '\garant6x\implementation\Garant'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant'
+
+ref; // ME_4AC1CE96036C Основное меню для Инфарм
+
+FORWARD ME_4F68A075031B
+
+: ME_4F68A11502E2
+ CONST UID '4F68A11502E2'
+ CONST Name 'По Alt+I должна открываться информация о документе (препарате)'
+ CONST Class class_Class
+ : Stereotype st_UseCaseRequirement ;
+ CONST Kind kind_NormalClass
+ %SUMMARY '{RequestLink:346756113}' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4F68A075031B // Работа со списком препаратов
+ ;
+ CONST "UseNewGen" 'undefined'
+ CONST dfm:PathOnly '\garant6x\implementation\Garant'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant'
+
+ref; // ME_4F68A11502E2 По Alt+I должна открываться информация о документе (препарате)
+
+: ME_4F68A075031B
+ CONST UID '4F68A075031B'
+ CONST Name 'Работа со списком препаратов'
+ CONST Class class_Class
+ : Stereotype st_UseCase ;
+ CONST Kind kind_NormalClass
+ %SUMMARY '[$13746#DrugList]' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4856410E0295 // Инфарм
+ ;
+ : Children
+   Seq: ( ME_4F68A11502E2 // По Alt+I должна открываться информация о документе (препарате)
+ )
+ ; // Children
+ CONST "UseNewGen" 'undefined'
+ CONST dfm:PathOnly '\garant6x\implementation\Garant'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant'
+
+ref; // ME_4F68A075031B Работа со списком препаратов
+
+: ME_4856410E0295
+ CONST UID '4856410E0295'
+ CONST Name 'Инфарм'
+ CONST Class class_Class
+ : Stereotype st_UseCase ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Функциональность Инфарм' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_484F80CF0274 // Встроенные продукты
+ ;
+ : Children
+   Seq: ( ME_4AC1CE96036C // Основное меню для Инфарм
+ ME_4F68A075031B // Работа со списком препаратов
+ )
+ ; // Children
+ CONST "UseNewGen" 'undefined'
+ CONST dfm:PathOnly '\garant6x\implementation\Garant'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant'
+
+ref; // ME_4856410E0295 Инфарм
+
+: ME_4860875601A8
+ CONST UID '4860875601A8'
+ CONST Name 'Интеграция с ЭНО'
+ CONST Class class_Class
+ : Stereotype st_UseCase ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Интеграция с продуктом Электронная налоговая отчетность' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_484F80CF0274 // Встроенные продукты
+ ;
+ CONST "UseNewGen" 'undefined'
+ CONST dfm:PathOnly '\garant6x\implementation\Garant'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant'
+
+ref; // ME_4860875601A8 Интеграция с ЭНО
+
+: ME_49EC560D03E0
+ CONST UID '49EC560D03E0'
+ CONST Name 'Совещание онлайн'
+ CONST Class class_Class
+ : Stereotype st_UseCase ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Обмен сообщениями для пользователей КС версии' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_484F80CF0274 // Встроенные продукты
+ ;
+ CONST "UseNewGen" 'undefined'
+ CONST dfm:PathOnly '\garant6x\implementation\Garant'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant'
+
+ref; // ME_49EC560D03E0 Совещание онлайн
+
+: ME_49FE7E780022
+ CONST UID '49FE7E780022'
+ CONST Name 'Новости онлайн'
+ CONST Class class_Class
+ : Stereotype st_UseCase ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Возможность загрузки и просмотра онлайн-контента, фактически встроенная в систему браузерная компонента.' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_484F80CF0274 // Встроенные продукты
+ ;
+ CONST "UseNewGen" 'undefined'
+ CONST dfm:PathOnly '\garant6x\implementation\Garant'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant'
+
+ref; // ME_49FE7E780022 Новости онлайн
+
+: ME_484F80CF0274
+ CONST UID '484F80CF0274'
+ CONST Name 'Встроенные продукты'
+ CONST Class class_Category
+ : Stereotype st_UseCases ;
+ %SUMMARY 'Продукты, интегрированные непосредственно в систему ГАРАНТ для облегчения работы с ними.' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent WL 'ME_481EF5C4020D' '481EF5C4020D.pas.ms.script' // Оболочка
+ ;
+ : Children
+   Seq: ( ME_484F849D017B // Толковый словарь
+ ME_4856410E0295 // Инфарм
+ ME_4860875601A8 // Интеграция с ЭНО
+ ME_49EC560D03E0 // Совещание онлайн
+ ME_49FE7E780022 // Новости онлайн
+ )
+ ; // Children
+ CONST "UseNewGen" 'undefined'
+ : Generators
+ Seq: (
+ gen_pas.script
+ gen_pas.script.runner
+ )
+ ; // Generators
+ CONST dfm:PathOnly '\garant6x\implementation\Garant'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant'
+ CONST pas.script:Path 'shared\models\NewSchool\Scripts\484F80CF0274.pas.ms.script'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\484F80CF0274.pas.ms.script.runner'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant'
+
+ref; // ME_484F80CF0274 Встроенные продукты

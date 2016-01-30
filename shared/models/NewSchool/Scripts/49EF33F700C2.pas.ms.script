@@ -45,8 +45,8 @@ ref; // ME_49EF3A040211 Msg
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
  : Parameters
-   @ ( ME_49EF3A040211 // Msg
- ) .SequenceCode.It
+   Seq: ( ME_49EF3A040211 // Msg
+ )
  ; // Parameters
 
 ref; // ME_49EF39FE00FF DoIt
@@ -85,17 +85,17 @@ ref; // ME_49EF389C023A
  : Parent ME_49EF346400A4 // afwShortcutsHandler
  ;
  : Attributes
-   @ ( ME_49EF3840010F // Controller
- ) .SequenceCode.It
+   Seq: ( ME_49EF3840010F // Controller
+ )
  ; // Attributes
  : Operations
-   @ ( ME_49EF39FE00FF // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_49EF39FE00FF // DoIt
+ )
  ; // Operations
  : Dependencies
-   @ ( ME_49EF382C0359 // 
+   Seq: ( ME_49EF382C0359 // 
  ME_49EF389C023A // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
 
 ref; // ME_49EF3805033D IsHandledShortcut
@@ -126,8 +126,8 @@ ref; // ME_4EBD2EFA0105 DoIt
  : Parent ME_49EF346400A4 // afwShortcutsHandler
  ;
  : Operations
-   @ ( ME_4EBD2EFA0105 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_4EBD2EFA0105 // DoIt
+ )
  ; // Operations
 
 ref; // ME_4EBD2EE8031A IsSomePopupWasClosed
@@ -153,8 +153,8 @@ ref; // ME_49EF38EF015D Message
  : Parent ME_49EF346400A4 // afwShortcutsHandler
  ;
  : Parameters
-   @ ( ME_49EF38EF015D // Message
- ) .SequenceCode.It
+   Seq: ( ME_49EF38EF015D // Message
+ )
  ; // Parameters
  CONST "is static" false
 
@@ -205,16 +205,16 @@ ref; // ME_4F2ABB6902B9
  : Parent ME_49EF33F700C2 // ControlsMixIns
  ;
  : Operations
-   @ ( ME_49EF3805033D // IsHandledShortcut
+   Seq: ( ME_49EF3805033D // IsHandledShortcut
  ME_4EBD2EE8031A // IsSomePopupWasClosed
  ME_49EF38CC0345 // WndProc
- ) .SequenceCode.It
+ )
  ; // Operations
  : Dependencies
-   @ ( ME_49EF392D0372 // 
+   Seq: ( ME_49EF392D0372 // 
  ME_49EF3BBF027E // 
  ME_4F2ABB6902B9 // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  CONST "author" 'Ëþëèí À.Â.'
  CONST "ifndef" 'DesignTimeLibrary'
@@ -223,13 +223,13 @@ ref; // ME_4F2ABB6902B9
  CONST "no hands" true
  CONST "register in scripts" 'undefined'
  CONST "started" '22.04.2009 19:15'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\AFW'
  CONST intf.pas:Path 'common\components\gui\Garant\AFW\implementation\afwShortcutsHandler.imp.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\AFW\implementation'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
  CONST extprop:pas:TypeName '_afwShortcutsHandler_'
+ CONST extprop:pas:UnitName 'afwShortcutsHandler.imp'
 
 ref; // ME_49EF346400A4 afwShortcutsHandler
 
@@ -244,26 +244,24 @@ ref; // ME_49EF346400A4 afwShortcutsHandler
  : Parent WL 'ME_4D5E61FC01F0' '4D5E61FC01F0.pas.ms.script' // AFW$Core
  ;
  : Children
-   @ ( ME_49EF346400A4 // afwShortcutsHandler
- ) .SequenceCode.It
+   Seq: ( ME_49EF346400A4 // afwShortcutsHandler
+ )
  ; // Children
  : Depends
-   @ ( WL 'ME_4754101B004F' '4754101B004F.pas.ms.script' // OvcBase
+   Seq: ( WL 'ME_4754101B004F' '4754101B004F.pas.ms.script' // OvcBase
  WL 'ME_476F78840219' '476F78840219.pas.ms.script' // Messages
  WL 'ME_4799D29F033F' '4799D29F033F.pas.ms.script' // Implementation
  WL 'ME_48D21909003A' '48D21909003A.pas.ms.script' // OvcConst
  WL 'ME_4AB0C3C60310' '4AB0C3C60310.pas.ms.script' // Sys
  WL 'ME_4AB0C3F60375' '4AB0C3F60375.pas.ms.script' // Win
- ) .SequenceCode.It
+ )
  ; // Depends
  CONST "path prefix" '/implementation'
- : Generators
- @ (
- gen_pas.script
- gen_pas.script.runner
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\AFW'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\AFW\implementation'
  CONST pas.script:Path 'shared\models\NewSchool\Scripts\49EF33F700C2.pas.ms.script'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
  CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\49EF33F700C2.pas.ms.script.runner'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_49EF33F700C2 ControlsMixIns

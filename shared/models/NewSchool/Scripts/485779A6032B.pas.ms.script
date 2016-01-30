@@ -1,0 +1,77 @@
+// Утилиты анализа данных 485779A6032B UseCases Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_485779A6032B
+
+: ME_48577A4800D1
+ CONST UID '48577A4800D1'
+ CONST Name 'Обработка словаря опечаток'
+ CONST Class class_Class
+ : Stereotype st_UseCase ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Простой и понятный графический интерфейс для работы экспертов по составлению словаря опечаток.' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_485779A6032B // Утилиты анализа данных
+ ;
+ CONST "UseNewGen" 'undefined'
+ CONST dfm:PathOnly '\garant6x\implementation\Garant'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant'
+
+ref; // ME_48577A4800D1 Обработка словаря опечаток
+
+: ME_49AD156A021C
+ CONST UID '49AD156A021C'
+ CONST Name 'Анализ Flash-топиков'
+ CONST Class class_Class
+ : Stereotype st_UseCase ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Утилита для проверки качества и правильности Flash-топиков от Консеко' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_485779A6032B // Утилиты анализа данных
+ ;
+ CONST "UseNewGen" 'undefined'
+ CONST dfm:PathOnly '\garant6x\implementation\Garant'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant'
+
+ref; // ME_49AD156A021C Анализ Flash-топиков
+
+: ME_485779A6032B
+ CONST UID '485779A6032B'
+ CONST Name 'Утилиты анализа данных'
+ CONST Class class_Category
+ : Stereotype st_UseCases ;
+ %SUMMARY 'Отдельные программы, созданные в помощь разработчикам данных (ЮО)' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent WL 'ME_48561E5A01F7' '48561E5A01F7.pas.ms.script' // Специальные версии и возможности
+ ;
+ : Children
+   Seq: ( ME_48577A4800D1 // Обработка словаря опечаток
+ ME_49AD156A021C // Анализ Flash-топиков
+ )
+ ; // Children
+ CONST "UseNewGen" 'undefined'
+ : Generators
+ Seq: (
+ gen_pas.script
+ gen_pas.script.runner
+ )
+ ; // Generators
+ CONST dfm:PathOnly '\garant6x\implementation\Garant'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant'
+ CONST pas.script:Path 'shared\models\NewSchool\Scripts\485779A6032B.pas.ms.script'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\485779A6032B.pas.ms.script.runner'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant'
+
+ref; // ME_485779A6032B Утилиты анализа данных

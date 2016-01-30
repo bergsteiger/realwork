@@ -32,14 +32,18 @@ ref; // ME_480DBEDB0202
  : Parent ME_480DBE6E01D0 // evResultFont
  ;
  : Inherits
-   @ ( WL 'ME_47C68D850105' '47AC75550330.pas.ms.script' // Tk2FontParam
- ) .SequenceCode.It
+   Seq: ( WL 'ME_47C68D850105' '47AC75550330.pas.ms.script' // Tk2FontParam
+ )
  ; // Inherits
  : Attributes
-   @ ( ME_480DBEDB0202 // 
- ) .SequenceCode.It
+   Seq: ( ME_480DBEDB0202 // 
+ )
  ; // Attributes
  CONST "array type" 'dynamic'
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_480DBEB7009D TevFontArray
 
@@ -54,6 +58,11 @@ ref; // ME_480DBEB7009D TevFontArray
  : Parent ME_480DBE6E01D0 // evResultFont
  ;
  CONST "not treat as record for XE4" 'undefined'
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'ResultFont'
 
 ref; // ME_50220F9C02E7 TevResultFont
 
@@ -68,10 +77,15 @@ ref; // ME_50220F9C02E7 TevResultFont
  : Parent ME_480DBE6E01D0 // evResultFont
  ;
  : Inherits
-   @ ( ME_50220F9C02E7 // TevResultFont
- ) .SequenceCode.It
+   Seq: ( ME_50220F9C02E7 // TevResultFont
+ )
  ; // Inherits
  CONST "not treat as record for XE4" 'undefined'
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'ResultFontEx'
 
 ref; // ME_4E54CF0802A3 TevResultFontEx
 
@@ -86,10 +100,14 @@ ref; // ME_4E54CF0802A3 TevResultFontEx
  : Parent ME_480DBE6E01D0 // evResultFont
  ;
  : Inherits
-   @ ( ME_4E54CF0802A3 // TevResultFontEx
- ) .SequenceCode.It
+   Seq: ( ME_4E54CF0802A3 // TevResultFontEx
+ )
  ; // Inherits
  CONST "isPointer" true
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_4E54CF180391 PevResultFontEx
 
@@ -104,22 +122,22 @@ ref; // ME_4E54CF180391 PevResultFontEx
  : Parent ME_4E56909E0240 // evResultFont
  ;
  : Children
-   @ ( ME_480DBEB7009D // TevFontArray
+   Seq: ( ME_480DBEB7009D // TevFontArray
  ME_50220F9C02E7 // TevResultFont
  ME_4E54CF0802A3 // TevResultFontEx
  ME_4E54CF180391 // PevResultFontEx
- ) .SequenceCode.It
+ )
  ; // Children
  CONST "author" 'Люлин А.В.'
  CONST "finished" false
  CONST "no hands" false
  CONST "started" '17.05.2005 12:52'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest'
  CONST intf.pas:Path 'common\components\gui\Garant\Everest\NOT_FINISHED_evResultFont.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'ResultFont'
 
 ref; // ME_480DBE6E01D0 evResultFont
 
@@ -185,9 +203,9 @@ ref; // ME_4E68E6A501D3 aCheckNew
  : Target WL 'ME_46A614A202CA' '4677FBA70343.pas.ms.script' // Il3Font
  ;
  : Parameters
-   @ ( ME_4E68E63B0245 // aCorrectItalic
+   Seq: ( ME_4E68E63B0245 // aCorrectItalic
  ME_4E68E6A501D3 // aCheckNew
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_4E68E62D01A6 AsFont
@@ -211,8 +229,8 @@ ref; // ME_4E68ECF5011D aTag
  : Parent ME_4E68E516025B // IevResultFont
  ;
  : Parameters
-   @ ( ME_4E68ECF5011D // aTag
- ) .SequenceCode.It
+   Seq: ( ME_4E68ECF5011D // aTag
+ )
  ; // Parameters
 
 ref; // ME_4E68ECE500E0 AddStyledTag
@@ -238,8 +256,8 @@ ref; // ME_4E68EF1E03BF anIndex
  : Target WL 'ME_47C6A43F01A1' '46A5E026007E.pas.ms.script' // PInteger
  ;
  : Parameters
-   @ ( ME_4E68EF1E03BF // anIndex
- ) .SequenceCode.It
+   Seq: ( ME_4E68EF1E03BF // anIndex
+ )
  ; // Parameters
 
 ref; // ME_4E68EF1101EB GetItem
@@ -273,9 +291,9 @@ ref; // ME_4E68F1340024 aValue
  : Parent ME_4E68E516025B // IevResultFont
  ;
  : Parameters
-   @ ( ME_4E68F1330330 // anIndex
+   Seq: ( ME_4E68F1330330 // anIndex
  ME_4E68F1340024 // aValue
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_4E68F1250350 SetItem
@@ -301,8 +319,8 @@ ref; // ME_4E68F2D100AF anIndex
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
  : Parameters
-   @ ( ME_4E68F2D100AF // anIndex
- ) .SequenceCode.It
+   Seq: ( ME_4E68F2D100AF // anIndex
+ )
  ; // Parameters
 
 ref; // ME_4E68F2C100C6 IsTransparent
@@ -326,8 +344,8 @@ ref; // ME_4E68F418005A aTag
  : Parent ME_4E68E516025B // IevResultFont
  ;
  : Parameters
-   @ ( ME_4E68F418005A // aTag
- ) .SequenceCode.It
+   Seq: ( ME_4E68F418005A // aTag
+ )
  ; // Parameters
 
 ref; // ME_4E68F40E0197 AddTag
@@ -351,8 +369,8 @@ ref; // ME_4E68F4F900C8 aFont
  : Parent ME_4E68E516025B // IevResultFont
  ;
  : Parameters
-   @ ( ME_4E68F4F900C8 // aFont
- ) .SequenceCode.It
+   Seq: ( ME_4E68F4F900C8 // aFont
+ )
  ; // Parameters
 
 ref; // ME_4E68F4EB016A AddFont
@@ -369,11 +387,11 @@ ref; // ME_4E68F4EB016A AddFont
  : Parent ME_4E68E4D40035 // evResultFontInterfaces
  ;
  : Attributes
-   @ ( ME_4E68E52102C7 // Font
- ) .SequenceCode.It
+   Seq: ( ME_4E68E52102C7 // Font
+ )
  ; // Attributes
  : Operations
-   @ ( ME_4E68E60C03BD // Clear
+   Seq: ( ME_4E68E60C03BD // Clear
  ME_4E68E62D01A6 // AsFont
  ME_4E68ECE500E0 // AddStyledTag
  ME_4E68EF1101EB // GetItem
@@ -381,8 +399,14 @@ ref; // ME_4E68F4EB016A AddFont
  ME_4E68F2C100C6 // IsTransparent
  ME_4E68F40E0197 // AddTag
  ME_4E68F4EB016A // AddFont
- ) .SequenceCode.It
+ )
  ; // Operations
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'ResultFont'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_4E68E516025B IevResultFont
 
@@ -397,18 +421,18 @@ ref; // ME_4E68E516025B IevResultFont
  : Parent ME_4E56909E0240 // evResultFont
  ;
  : Children
-   @ ( ME_4E68E516025B // IevResultFont
- ) .SequenceCode.It
+   Seq: ( ME_4E68E516025B // IevResultFont
+ )
  ; // Children
  CONST "author" 'Люлин А.В.'
  CONST "no hands" true
  CONST "started" '08.09.2011 19:53'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest'
  CONST intf.pas:Path 'common\components\gui\Garant\Everest\evResultFontInterfaces.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'ResultFontInterfaces'
 
 ref; // ME_4E68E4D40035 evResultFontInterfaces
 
@@ -452,8 +476,8 @@ ref; // ME_4E68E5BB02B8 DoIt
  : Parent ME_4E68E533026D // TevResultFontHolder
  ;
  : Operations
-   @ ( ME_4E68E5BB02B8 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_4E68E5BB02B8 // DoIt
+ )
  ; // Operations
 
 ref; // ME_4E68E5AB0093 Create
@@ -463,6 +487,7 @@ FORWARD ME_4E68E5C400EC
 : ME_943A990C53EE
  CONST UID '943A990C53EE'
  CONST Name 'DoIt'
+ CONST IsSummoned true
  CONST Class class_Operation
  %SUMMARY 'Сигнатура фабрики TevResultFontHolder.Make' ;
  CONST Visibility PrivateAccess
@@ -485,16 +510,16 @@ ref; // ME_943A990C53EE DoIt
  : Parent ME_4E68E533026D // TevResultFontHolder
  ;
  : Inherits
-   @ ( ME_4E68E5AB0093 // Create
- ) .SequenceCode.It
+   Seq: ( ME_4E68E5AB0093 // Create
+ )
  ; // Inherits
  : Implements
-   @ ( ME_4E68E516025B // IevResultFont
- ) .SequenceCode.It
+   Seq: ( ME_4E68E516025B // IevResultFont
+ )
  ; // Implements
  : Operations
-   @ ( ME_943A990C53EE // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_943A990C53EE // DoIt
+ )
  ; // Operations
  CONST "check nil" false
  CONST "need AfterCreate" 'undefined'
@@ -521,6 +546,7 @@ ref; // ME_4E68F2E60191
  ;
  : Implementor ME_4E68E533026D // TevResultFontHolder
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" false
 ref; // ME_4E68E52102C7_ME_4E68E533026D Font
 
@@ -531,6 +557,7 @@ ref; // ME_4E68E52102C7_ME_4E68E533026D Font
  ;
  : Implementor ME_4E68E533026D // TevResultFontHolder
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_4E68E60C03BD_ME_4E68E533026D Clear
 
 : ME_4E68E62D01A6_ME_4E68E533026D
@@ -540,6 +567,7 @@ ref; // ME_4E68E60C03BD_ME_4E68E533026D Clear
  ;
  : Implementor ME_4E68E533026D // TevResultFontHolder
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_4E68E62D01A6_ME_4E68E533026D AsFont
 
 : ME_4E68ECE500E0_ME_4E68E533026D
@@ -549,6 +577,7 @@ ref; // ME_4E68E62D01A6_ME_4E68E533026D AsFont
  ;
  : Implementor ME_4E68E533026D // TevResultFontHolder
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_4E68ECE500E0_ME_4E68E533026D AddStyledTag
 
 : ME_4E68EF1101EB_ME_4E68E533026D
@@ -558,6 +587,7 @@ ref; // ME_4E68ECE500E0_ME_4E68E533026D AddStyledTag
  ;
  : Implementor ME_4E68E533026D // TevResultFontHolder
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_4E68EF1101EB_ME_4E68E533026D GetItem
 
 : ME_4E68F1250350_ME_4E68E533026D
@@ -567,6 +597,7 @@ ref; // ME_4E68EF1101EB_ME_4E68E533026D GetItem
  ;
  : Implementor ME_4E68E533026D // TevResultFontHolder
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_4E68F1250350_ME_4E68E533026D SetItem
 
 : ME_4E68F2C100C6_ME_4E68E533026D
@@ -576,6 +607,7 @@ ref; // ME_4E68F1250350_ME_4E68E533026D SetItem
  ;
  : Implementor ME_4E68E533026D // TevResultFontHolder
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_4E68F2C100C6_ME_4E68E533026D IsTransparent
 
 : ME_4E68F40E0197_ME_4E68E533026D
@@ -585,6 +617,7 @@ ref; // ME_4E68F2C100C6_ME_4E68E533026D IsTransparent
  ;
  : Implementor ME_4E68E533026D // TevResultFontHolder
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_4E68F40E0197_ME_4E68E533026D AddTag
 
 : ME_4E68F4EB016A_ME_4E68E533026D
@@ -594,6 +627,7 @@ ref; // ME_4E68F40E0197_ME_4E68E533026D AddTag
  ;
  : Implementor ME_4E68E533026D // TevResultFontHolder
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_4E68F4EB016A_ME_4E68E533026D AddFont
 
 : ME_479731C50290_ME_4E68E533026D
@@ -603,6 +637,7 @@ ref; // ME_4E68F4EB016A_ME_4E68E533026D AddFont
  ;
  : Implementor ME_4E68E533026D // TevResultFontHolder
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_479731C50290_ME_4E68E533026D Cleanup
 
 : ME_47A042E100E2_ME_4E68E533026D
@@ -612,6 +647,7 @@ ref; // ME_479731C50290_ME_4E68E533026D Cleanup
  ;
  : Implementor ME_4E68E533026D // TevResultFontHolder
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_47A042E100E2_ME_4E68E533026D InitFields
 
 : ME_4E68E533026D
@@ -625,24 +661,24 @@ ref; // ME_47A042E100E2_ME_4E68E533026D InitFields
  : Parent ME_4E56909E0240 // evResultFont
  ;
  : Inherits
-   @ ( WL 'ME_4AE5CA2D0034' '47913B47006E.pas.ms.script' // Tl3CProtoObject
- ) .SequenceCode.It
+   Seq: ( WL 'ME_4AE5CA2D0034' '47913B47006E.pas.ms.script' // Tl3CProtoObject
+ )
  ; // Inherits
  : Implements
-   @ ( ME_4E68E516025B // IevResultFont
- ) .SequenceCode.It
+   Seq: ( ME_4E68E516025B // IevResultFont
+ )
  ; // Implements
  : Attributes
-   @ ( ME_4E68E56B017E // f_Font
- ) .SequenceCode.It
+   Seq: ( ME_4E68E56B017E // f_Font
+ )
  ; // Attributes
  : Operations
-   @ ( ME_4E68E5AB0093 // Create
+   Seq: ( ME_4E68E5AB0093 // Create
  ME_4E68E5C400EC // Make
- ) .SequenceCode.It
+ )
  ; // Operations
  : Implemented
-   @ ( ME_4E68E52102C7_ME_4E68E533026D // Font
+   Seq: ( ME_4E68E52102C7_ME_4E68E533026D // Font
  ME_4E68E60C03BD_ME_4E68E533026D // Clear
  ME_4E68E62D01A6_ME_4E68E533026D // AsFont
  ME_4E68ECE500E0_ME_4E68E533026D // AddStyledTag
@@ -651,16 +687,16 @@ ref; // ME_47A042E100E2_ME_4E68E533026D InitFields
  ME_4E68F2C100C6_ME_4E68E533026D // IsTransparent
  ME_4E68F40E0197_ME_4E68E533026D // AddTag
  ME_4E68F4EB016A_ME_4E68E533026D // AddFont
- ) .SequenceCode.It
+ )
  ; // Implemented
  : Overridden
-   @ ( ME_479731C50290_ME_4E68E533026D // Cleanup
+   Seq: ( ME_479731C50290_ME_4E68E533026D // Cleanup
  ME_47A042E100E2_ME_4E68E533026D // InitFields
- ) .SequenceCode.It
+ )
  ; // Overridden
  : Dependencies
-   @ ( ME_4E68F2E60191 // 
- ) .SequenceCode.It
+   Seq: ( ME_4E68F2E60191 // 
+ )
  ; // Dependencies
  CONST "author" 'Люлин А.В.'
  CONST "needs InstanceR" 'undefined'
@@ -668,12 +704,14 @@ ref; // ME_47A042E100E2_ME_4E68E533026D InitFields
  CONST "no hands" true
  CONST "register in scripts" 'undefined'
  CONST "started" '08.09.2011 19:54'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest'
  CONST intf.pas:Path 'common\components\gui\Garant\Everest\evResultFontHolder.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'ResultFontHolder'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'evResultFontHolder'
 
 ref; // ME_4E68E533026D TevResultFontHolder
 
@@ -687,28 +725,26 @@ ref; // ME_4E68E533026D TevResultFontHolder
  : Parent WL 'ME_4797632D0273' '4797632D0273.pas.ms.script' // Everest
  ;
  : Children
-   @ ( ME_480DBE6E01D0 // evResultFont
+   Seq: ( ME_480DBE6E01D0 // evResultFont
  ME_4E68E4D40035 // evResultFontInterfaces
  ME_4E68E533026D // TevResultFontHolder
- ) .SequenceCode.It
+ )
  ; // Children
  : Depends
-   @ ( WL 'ME_4677FBA70343' '4677FBA70343.pas.ms.script' // l3Interfaces
+   Seq: ( WL 'ME_4677FBA70343' '4677FBA70343.pas.ms.script' // l3Interfaces
  WL 'ME_4678137501EA' '4678137501EA.pas.ms.script' // k2Interfaces
  WL 'ME_46A5E026007E' '46A5E026007E.pas.ms.script' // l3Core
  WL 'ME_47913B47006E' '47913B47006E.pas.ms.script' // l3CoreObjects
  WL 'ME_47AC75550330' '47AC75550330.pas.ms.script' // k2Tags
  WL 'ME_47AC7B760263' '47AC7B760263.pas.ms.script' // k2Const
  WL 'ME_4AB0C3C60310' '4AB0C3C60310.pas.ms.script' // Sys
- ) .SequenceCode.It
+ )
  ; // Depends
- : Generators
- @ (
- gen_pas.script
- gen_pas.script.runner
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest'
  CONST pas.script:Path 'shared\models\NewSchool\Scripts\4E56909E0240.pas.ms.script'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
  CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\4E56909E0240.pas.ms.script.runner'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_4E56909E0240 evResultFont

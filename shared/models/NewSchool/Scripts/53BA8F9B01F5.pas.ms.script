@@ -1,0 +1,232 @@
+// TasksRegistering 53BA8F9B01F5 TestUnit Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_53BA8F9B01F5
+
+FORWARD ME_53BAA54900F6
+
+FORWARD ME_53BAA563023C
+
+: ME_53BAA56A030E
+ CONST UID '53BAA56A030E'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_53BAA563023C // DoIt
+ ;
+ : Target WL 'ME_5395B29D0177' '538DA26C020A.pas.ms.script' // TCsReplyProcedures
+ ;
+
+ref; // ME_53BAA56A030E 
+
+: ME_53BAA59100FC
+ CONST UID '53BAA59100FC'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_53BAA563023C // DoIt
+ ;
+ : Target WL 'ME_537F6306025B' '538DA26C020A.pas.ms.script' // TCsProcWithId
+ ;
+
+ref; // ME_53BAA59100FC 
+
+: ME_53BAA607031B
+ CONST UID '53BAA607031B'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_53BAA563023C // DoIt
+ ;
+ : Target WL 'ME_537F63760334' '52FBB2FC0386.pas.ms.script' // TCsQueryId
+ ;
+
+ref; // ME_53BAA607031B 
+
+: ME_53BAA6340183
+ CONST UID '53BAA6340183'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_53BAA563023C // DoIt
+ ;
+ : Target WL 'ME_478CF30500C1' '4AB0997B00A2.pas.ms.script' // Classes
+ ;
+
+ref; // ME_53BAA6340183 
+
+: ME_53BAA8C70239
+ CONST UID '53BAA8C70239'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_53BAA563023C // DoIt
+ ;
+ : Target WL 'ME_47A0679D00E4' '47913B47006E.pas.ms.script' // Tl3CustomFiler
+ ;
+
+ref; // ME_53BAA8C70239 
+
+: ME_53BAA8CA00A6
+ CONST UID '53BAA8CA00A6'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_53BAA563023C // DoIt
+ ;
+ : Target WL 'ME_4ADC58F703CF' '4AB0C3C60310.pas.ms.script' // FreeAndNil
+ ;
+
+ref; // ME_53BAA8CA00A6 
+
+: ME_53BAA919037E
+ CONST UID '53BAA919037E'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_53BAA563023C // DoIt
+ ;
+ : Target WL 'ME_4767748503B5' '4767743E00E5.pas.ms.script' // TTypeInfo
+ ;
+
+ref; // ME_53BAA919037E 
+
+: ME_53BAA563023C
+ CONST UID '53BAA563023C'
+ CONST Name 'DoIt'
+ CONST Class class_Class
+ : Stereotype st_Test ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_53BAA54900F6 // TRegisteredRepliesTest
+ ;
+ : Dependencies
+   Seq: ( ME_53BAA56A030E // 
+ ME_53BAA59100FC // 
+ ME_53BAA607031B // 
+ ME_53BAA6340183 // 
+ ME_53BAA8C70239 // 
+ ME_53BAA8CA00A6 // 
+ ME_53BAA919037E // 
+ )
+ ; // Dependencies
+
+ref; // ME_53BAA563023C DoIt
+
+: ME_4D3B7CBA4365
+ CONST UID '4D3B7CBA4365'
+ CONST IsSummoned true
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_53BAA54900F6 // TRegisteredRepliesTest
+ ;
+ : Target WL 'ME_4B2A0DCE03A9' '4B2A0D6A0077.pas.ms.script' // TestFrameWork
+ ;
+
+ref; // ME_4D3B7CBA4365 
+
+: ME_4C937013031D_ME_53BAA54900F6
+ CONST UID '4C937013031D'
+ CONST Name 'GetFolder'
+ : Original WL 'ME_4C937013031D' '4B2A0D6A0077.pas.ms.script' // GetFolder
+ ;
+ : Implementor ME_53BAA54900F6 // TRegisteredRepliesTest
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_4C937013031D_ME_53BAA54900F6 GetFolder
+
+: ME_4DAED6F60146_ME_53BAA54900F6
+ CONST UID '4DAED6F60146'
+ CONST Name 'GetModelElementGUID'
+ : Original WL 'ME_4DAED6F60146' '4B2A0D6A0077.pas.ms.script' // GetModelElementGUID
+ ;
+ : Implementor ME_53BAA54900F6 // TRegisteredRepliesTest
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_4DAED6F60146_ME_53BAA54900F6 GetModelElementGUID
+
+: ME_53BAA54900F6
+ CONST UID '53BAA54900F6'
+ CONST Name 'TRegisteredRepliesTest'
+ CONST Class class_Class
+ : Stereotype st_TestCase ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_53BA8F9B01F5 // TasksRegistering
+ ;
+ : Inherits
+   Seq: ( WL 'ME_4B2A11BC0255' '4B2A112B011A.pas.ms.script' // TBaseTest
+ )
+ ; // Inherits
+ : Operations
+   Seq: ( ME_53BAA563023C // DoIt
+ )
+ ; // Operations
+ : Overridden
+   Seq: ( ME_4C937013031D_ME_53BAA54900F6 // GetFolder
+ ME_4DAED6F60146_ME_53BAA54900F6 // GetModelElementGUID
+ )
+ ; // Overridden
+ : Dependencies
+   Seq: ( ME_4D3B7CBA4365 // 
+ )
+ ; // Dependencies
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ : Generators
+ Seq: (
+ gen_intf.pas
+ )
+ ; // Generators
+ CONST dfm:PathOnly '\archi\source\projects\PipeInAuto\Tests'
+ CONST intf.pas:Path 'archi\source\projects\PipeInAuto\Tests\RegisteredRepliesTest.pas'
+ CONST intf.pas:PathOnly '\archi\source\projects\PipeInAuto\Tests'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\archi\source\projects\PipeInAuto\Tests'
+ CONST extprop:rc:SelfName 'RegisteredRepliesTest'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'RegisteredRepliesTest'
+
+ref; // ME_53BAA54900F6 TRegisteredRepliesTest
+
+: ME_53BA8F9B01F5
+ CONST UID '53BA8F9B01F5'
+ CONST Name 'TasksRegistering'
+ CONST Class class_Category
+ : Stereotype st_TestUnit ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent WL 'ME_52F275D40238' '52F275D40238.pas.ms.script' // Low Level Tests
+ ;
+ : Children
+   Seq: ( ME_53BAA54900F6 // TRegisteredRepliesTest
+ )
+ ; // Children
+ : Depends
+   Seq: ( WL 'ME_4767743E00E5' '4767743E00E5.pas.ms.script' // TypInfo
+ WL 'ME_47913B47006E' '47913B47006E.pas.ms.script' // l3CoreObjects
+ WL 'ME_484A470100DD' '484A470100DD.pas.ms.script' // Standard
+ WL 'ME_49A58A1A03C4' '49A58A1A03C4.pas.ms.script' // k2PrimObjects
+ WL 'ME_4AB0997B00A2' '4AB0997B00A2.pas.ms.script' // Common
+ WL 'ME_4AB0C3C60310' '4AB0C3C60310.pas.ms.script' // Sys
+ WL 'ME_4B2A0D6A0077' '4B2A0D6A0077.pas.ms.script' // Source
+ WL 'ME_4B2A112B011A' '4B2A112B011A.pas.ms.script' // Source
+ WL 'ME_52FA49B901D3' '52FA49B901D3.pas.ms.script' // ArchiClientServer
+ WL 'ME_52FBB2FC0386' '52FBB2FC0386.pas.ms.script' // Core
+ WL 'ME_538DA26C020A' '538DA26C020A.pas.ms.script' // ServerSide
+ )
+ ; // Depends
+ : Generators
+ Seq: (
+ gen_pas.script
+ gen_pas.script.runner
+ )
+ ; // Generators
+ CONST dfm:PathOnly '\archi\source\projects\PipeInAuto\Tests'
+ CONST intf.pas:PathOnly '\archi\source\projects\PipeInAuto\Tests'
+ CONST pas.script:Path 'shared\models\NewSchool\Scripts\53BA8F9B01F5.pas.ms.script'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\53BA8F9B01F5.pas.ms.script.runner'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\archi\source\projects\PipeInAuto\Tests'
+
+ref; // ME_53BA8F9B01F5 TasksRegistering

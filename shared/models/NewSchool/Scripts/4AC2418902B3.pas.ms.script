@@ -1,0 +1,41 @@
+// Medic 4AC2418902B3 VCMControllers Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+: ME_4AC2418902B3
+ CONST UID '4AC2418902B3'
+ CONST Name 'Medic'
+ CONST Class class_Category
+ : Stereotype st_VCMControllers ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent WL 'ME_4A92C561015D' '4A92C561015D.pas.ms.script' // Common
+ ;
+ : Children
+   Seq: ( WL 'ME_4AC241AC01FC' '4AC241AC01FC.pas.ms.script' // InpharmInterfaces
+ )
+ ; // Children
+ : Depends
+   Seq: ( WL 'ME_4680C57D01E9' '4680C57D01E9.pas.ms.script' // Business
+ WL 'ME_4D1B64E70031' '4D1B64E70031.pas.ms.script' // BusinessInterfaces
+ )
+ ; // Depends
+ CONST "exec mode" 'concluded'
+ CONST "gui" 'prj'
+ CONST "is namespace" true
+ CONST "vendor" 'none'
+ : Generators
+ Seq: (
+ gen_pas.script
+ gen_pas.script.runner
+ )
+ ; // Generators
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Medic'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Medic'
+ CONST pas.script:Path 'shared\models\NewSchool\Scripts\4AC2418902B3.pas.ms.script'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\4AC2418902B3.pas.ms.script.runner'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\Medic'
+
+ref; // ME_4AC2418902B3 Medic

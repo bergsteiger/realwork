@@ -30,8 +30,8 @@ ref; // ME_4CA0DFAF0110 DoIt
  : Parent ME_4CA0D1B8017C // TGarORBInitializerImpl
  ;
  : Operations
-   @ ( ME_4CA0DFAF0110 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_4CA0DFAF0110 // DoIt
+ )
  ; // Operations
  CONST "is static" true
 
@@ -103,34 +103,36 @@ ref; // ME_4CA0D27000D5_ME_4CA0D1B8017C post__init
  : Parent ME_4CA0D18B0351 // IniAndFini
  ;
  : Inherits
-   @ ( WL 'ME_4CA0D1770172' '4CA0D13D017F.pas.ms.script' // TORBInitializer
- ) .SequenceCode.It
+   Seq: ( WL 'ME_4CA0D1770172' '4CA0D13D017F.pas.ms.script' // TORBInitializer
+ )
  ; // Inherits
  : Operations
-   @ ( ME_4CA0D2C203BE // Init
- ) .SequenceCode.It
+   Seq: ( ME_4CA0D2C203BE // Init
+ )
  ; // Operations
  : Implemented
-   @ ( ME_4CA0D24C02B9_ME_4CA0D1B8017C // pre__init
+   Seq: ( ME_4CA0D24C02B9_ME_4CA0D1B8017C // pre__init
  ME_4CA0D27000D5_ME_4CA0D1B8017C // post__init
- ) .SequenceCode.It
+ )
  ; // Implemented
  : Dependencies
-   @ ( ME_4CA0D4F001B1 // 
+   Seq: ( ME_4CA0D4F001B1 // 
  ME_4CA0D8C9011D // 
  ME_4CA354A800C5 // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\GarORB'
  CONST intf.pas:Path 'common\components\rtl\Garant\GarORB\GarORBInitializerImpl.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\GarORB'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'GarORBInitializerImpl'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'GarORBInitializerImpl'
 
 ref; // ME_4CA0D1B8017C TGarORBInitializerImpl
 
@@ -170,8 +172,8 @@ ref; // ME_4CA0D4EA004F info
  : Parent ME_4CA0D4D6026F // Create
  ;
  : Parameters
-   @ ( ME_4CA0D4EA004F // info
- ) .SequenceCode.It
+   Seq: ( ME_4CA0D4EA004F // info
+ )
  ; // Parameters
 
 ref; // ME_4CA0D4E301F5 DoIt
@@ -187,8 +189,8 @@ ref; // ME_4CA0D4E301F5 DoIt
  : Parent ME_4CA0D4C90266 // TGarClientSecurity
  ;
  : Operations
-   @ ( ME_4CA0D4E301F5 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_4CA0D4E301F5 // DoIt
+ )
  ; // Operations
 
 ref; // ME_4CA0D4D6026F Create
@@ -296,42 +298,44 @@ ref; // ME_4CA0D47C037F_ME_4CA0D4C90266 receive__other
  : Parent ME_4CA0D18B0351 // IniAndFini
  ;
  : Inherits
-   @ ( WL 'ME_4CA0D3070257' '4CA0D13D017F.pas.ms.script' // TClientRequestInterceptor
- ) .SequenceCode.It
+   Seq: ( WL 'ME_4CA0D3070257' '4CA0D13D017F.pas.ms.script' // TClientRequestInterceptor
+ )
  ; // Inherits
  : Attributes
-   @ ( ME_4CA0DD470280 // authorized_session
- ) .SequenceCode.It
+   Seq: ( ME_4CA0DD470280 // authorized_session
+ )
  ; // Attributes
  : Operations
-   @ ( ME_4CA0D4D6026F // Create
- ) .SequenceCode.It
+   Seq: ( ME_4CA0D4D6026F // Create
+ )
  ; // Operations
  : Implemented
-   @ ( ME_4CA0D39501A8_ME_4CA0D4C90266 // __destroy
+   Seq: ( ME_4CA0D39501A8_ME_4CA0D4C90266 // __destroy
  ME_4CA0D3AD017C_ME_4CA0D4C90266 // __get__name
  ME_4CA0D42302FC_ME_4CA0D4C90266 // send__request
  ME_4CA0D43401E5_ME_4CA0D4C90266 // send__poll
  ME_4CA0D44F0352_ME_4CA0D4C90266 // receive__reply
  ME_4CA0D46502E4_ME_4CA0D4C90266 // receive__exception
  ME_4CA0D47C037F_ME_4CA0D4C90266 // receive__other
- ) .SequenceCode.It
+ )
  ; // Implemented
  : Dependencies
-   @ ( ME_4CA0D580004D // 
+   Seq: ( ME_4CA0D580004D // 
  ME_4CA35896027E // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\GarORB'
  CONST intf.pas:Path 'common\components\rtl\Garant\GarORB\GarClientSecurity.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\GarORB'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'GarClientSecurity'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'GarClientSecurity'
 
 ref; // ME_4CA0D4C90266 TGarClientSecurity
 
@@ -345,12 +349,12 @@ ref; // ME_4CA0D4C90266 TGarClientSecurity
  : Parent WL 'ME_4CA0CE0F010F' '4CA0CE0F010F.pas.ms.script' // GarORB
  ;
  : Children
-   @ ( ME_4CA0D1B8017C // TGarORBInitializerImpl
+   Seq: ( ME_4CA0D1B8017C // TGarORBInitializerImpl
  ME_4CA0D4C90266 // TGarClientSecurity
- ) .SequenceCode.It
+ )
  ; // Children
  : Depends
-   @ ( WL 'ME_47913B47006E' '47913B47006E.pas.ms.script' // l3CoreObjects
+   Seq: ( WL 'ME_47913B47006E' '47913B47006E.pas.ms.script' // l3CoreObjects
  WL 'ME_4AB0C3C60310' '4AB0C3C60310.pas.ms.script' // Sys
  WL 'ME_4AB0C3F60375' '4AB0C3F60375.pas.ms.script' // Win
  WL 'ME_4CA0D13D017F' '4CA0D13D017F.pas.ms.script' // idl
@@ -358,15 +362,13 @@ ref; // ME_4CA0D4C90266 TGarClientSecurity
  WL 'ME_4CA0D33A02D6' '4CA0D33A02D6.pas.ms.script' // orb
  WL 'ME_4CA0D52900F5' '4CA0D52900F5.pas.ms.script' // orbtypes
  WL 'ME_4CA0DCFB017A' '4CA0DCFB017A.pas.ms.script' // build
- ) .SequenceCode.It
+ )
  ; // Depends
- : Generators
- @ (
- gen_pas.script
- gen_pas.script.runner
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\GarORB'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\GarORB'
  CONST pas.script:Path 'shared\models\NewSchool\Scripts\4CA0D18B0351.pas.ms.script'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
  CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\4CA0D18B0351.pas.ms.script.runner'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_4CA0D18B0351 IniAndFini

@@ -40,8 +40,8 @@ ref; // ME_547869B0000E aRect
  : Parent ME_547869730335 // TRectWrap
  ;
  : Parameters
-   @ ( ME_547869B0000E // aRect
- ) .SequenceCode.It
+   Seq: ( ME_547869B0000E // aRect
+ )
  ; // Parameters
 
 ref; // ME_547869A4035F Create
@@ -57,28 +57,30 @@ ref; // ME_547869A4035F Create
  : Parent ME_5477970600C6 // Wrap
  ;
  : Inherits
-   @ ( WL 'ME_478CF32A03B6' '4AB0997B00A2.pas.ms.script' // TPersistent
- ) .SequenceCode.It
+   Seq: ( WL 'ME_478CF32A03B6' '4AB0997B00A2.pas.ms.script' // TPersistent
+ )
  ; // Inherits
  : Attributes
-   @ ( ME_5478698F000A // f_Rect
- ) .SequenceCode.It
+   Seq: ( ME_5478698F000A // f_Rect
+ )
  ; // Attributes
  : Operations
-   @ ( ME_547869A4035F // Create
- ) .SequenceCode.It
+   Seq: ( ME_547869A4035F // Create
+ )
  ; // Operations
  CONST "need UC" true
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\VCM'
  CONST intf.pas:Path 'common\components\gui\Garant\VCM\RectWrap.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\VCM'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'RectWrap'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'RectWrap'
 
 ref; // ME_547869730335 TRectWrap
 
@@ -151,8 +153,8 @@ ref; // ME_5477A64D0105 anItem
  : Parent ME_5477971800CE // TvcmMenuForChromeLikeItemWrap
  ;
  : Parameters
-   @ ( ME_5477A64D0105 // anItem
- ) .SequenceCode.It
+   Seq: ( ME_5477A64D0105 // anItem
+ )
  ; // Parameters
 
 ref; // ME_5477A63901A9 Create
@@ -168,30 +170,32 @@ ref; // ME_5477A63901A9 Create
  : Parent ME_5477970600C6 // Wrap
  ;
  : Inherits
-   @ ( WL 'ME_478CF32A03B6' '4AB0997B00A2.pas.ms.script' // TPersistent
- ) .SequenceCode.It
+   Seq: ( WL 'ME_478CF32A03B6' '4AB0997B00A2.pas.ms.script' // TPersistent
+ )
  ; // Inherits
  : Attributes
-   @ ( ME_5477A62A0139 // f_Item
+   Seq: ( ME_5477A62A0139 // f_Item
  ME_5477ADBA02BC // rRectStub
  ME_5478712A0083 // rItemStub
- ) .SequenceCode.It
+ )
  ; // Attributes
  : Operations
-   @ ( ME_5477A63901A9 // Create
- ) .SequenceCode.It
+   Seq: ( ME_5477A63901A9 // Create
+ )
  ; // Operations
  CONST "need UC" true
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\VCM'
  CONST intf.pas:Path 'common\components\gui\Garant\VCM\vcmMenuForChromeLikeItemWrap.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\VCM'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'MenuForChromeLikeItemWrap'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'vcmMenuForChromeLikeItemWrap'
 
 ref; // ME_5477971800CE TvcmMenuForChromeLikeItemWrap
 
@@ -205,26 +209,24 @@ ref; // ME_5477971800CE TvcmMenuForChromeLikeItemWrap
  : Parent WL 'ME_499AA43A012F' '499AA43A012F.pas.ms.script' // VCMTest
  ;
  : Children
-   @ ( ME_547869730335 // TRectWrap
+   Seq: ( ME_547869730335 // TRectWrap
  ME_5477971800CE // TvcmMenuForChromeLikeItemWrap
- ) .SequenceCode.It
+ )
  ; // Children
  : Depends
-   @ ( WL 'ME_4728A7020026' '4728A7020026.pas.ms.script' // Types
+   Seq: ( WL 'ME_4728A7020026' '4728A7020026.pas.ms.script' // Types
  WL 'ME_4799D29F033F' '4799D29F033F.pas.ms.script' // Implementation
  WL 'ME_4AB0997B00A2' '4AB0997B00A2.pas.ms.script' // Common
  WL 'ME_533D53FF00C2' '533D53FF00C2.pas.ms.script' // Visual$ChromeLike
- ) .SequenceCode.It
+ )
  ; // Depends
  CONST "defines" 'vcmDefine.inc'
  CONST "ifndef" 'NoTabs'
- : Generators
- @ (
- gen_pas.script
- gen_pas.script.runner
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\VCM'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\VCM'
  CONST pas.script:Path 'shared\models\NewSchool\Scripts\5477970600C6.pas.ms.script'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
  CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\5477970600C6.pas.ms.script.runner'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_5477970600C6 Wrap

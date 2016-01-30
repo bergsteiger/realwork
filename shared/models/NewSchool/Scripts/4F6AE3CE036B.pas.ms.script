@@ -11,11 +11,11 @@ INCLUDE 'ElementsRTTI.ms.dict'
  CONST Visibility PublicAccess
  CONST Abstraction at_final
  : Children
-   @ ( WL 'ME_4F6AE4780149' '4F6AE4780149.pas.ms.script' // NewGen
- ) .SequenceCode.It
+   Seq: ( WL 'ME_4F6AE4780149' '4F6AE4780149.pas.ms.script' // NewGen
+ )
  ; // Children
  : Depends
-   @ ( WL 'ME_4677DDBD0193' '4677DDBD0193.pas.ms.script' // Shared Delphi
+   Seq: ( WL 'ME_4677DDBD0193' '4677DDBD0193.pas.ms.script' // Shared Delphi
  WL 'ME_4684F91300DD' '4684F91300DD.pas.ms.script' // Vcl
  WL 'ME_49B1511700CA' '49B1511700CA.pas.ms.script' // Shared Delphi Core
  WL 'ME_4A82FE48010A' '4A82FE48010A.pas.ms.script' // Shared Delphi Operations
@@ -24,7 +24,7 @@ INCLUDE 'ElementsRTTI.ms.dict'
  WL 'ME_4B63155B0328' '4B63155B0328.pas.ms.script' // MDProcess$ForDelphi
  WL 'ME_4F6CCC8800A0' '4F6CCC8800A0.pas.ms.script' // Shared Delphi F1 Like Application
  WL 'ME_562E251101C2' '562E251101C2.pas.ms.script' // Shared Delphi Rtl
- ) .SequenceCode.It
+ )
  ; // Depends
  CONST "Full MDP" false
  CONST "build share" 'Garant-MDP'
@@ -41,16 +41,17 @@ INCLUDE 'ElementsRTTI.ms.dict'
  CONST "space key" 'NGEN'
  CONST "space name" 'New Gen'
  : Generators
- @ (
- gen_forth_structure
- gen_intf.pas
+ Seq: (
  gen_pas.script
  gen_pas.script.runner
- ) .SequenceCode.It
+ )
  ; // Generators
- CONST forth_structure:Path 'shared\models\NewSchool\MDProcess$NewGen$Interface\MDProcess$NewGen$Interface.model.script'
- CONST intf.pas:Path 'MDProcess\NewGen\MDProcess$NewGen$Interface_prj.info'
+ CONST dfm:PathOnly '\MDProcess\NewGen'
+ CONST intf.pas:PathOnly '\MDProcess\NewGen'
  CONST pas.script:Path 'shared\models\NewSchool\Scripts\4F6AE3CE036B.pas.ms.script'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
  CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\4F6AE3CE036B.pas.ms.script.runner'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\MDProcess\NewGen'
 
 ref; // ME_4F6AE3CE036B MDProcess$NewGen$Interface

@@ -11,6 +11,7 @@ FORWARD ME_98311E435825
 : ME_21C4AD0A8117
  CONST UID '21C4AD0A8117'
  CONST Name 'RegAxiom'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Регистрация скриптованой аксиоматики' ;
@@ -28,12 +29,14 @@ ref; // ME_21C4AD0A8117 RegAxiom
  ;
  : Implementor ME_98311E435825 // TStatusBarWordsResNameGetter
  ;
+ CONST OpKind opkind_Implemented
  CONST "is static" true
 ref; // ME_55B7A3AF0359_ME_98311E435825 ResName
 
 : ME_98311E435825
  CONST UID '98311E435825'
  CONST Name 'TStatusBarWordsResNameGetter'
+ CONST IsSummoned true
  CONST Class class_Class
  : Stereotype st_SimpleClass ;
  CONST Kind kind_NormalClass
@@ -43,30 +46,39 @@ ref; // ME_55B7A3AF0359_ME_98311E435825 ResName
  : Parent ME_505C855C024A // StatusBarWords
  ;
  : Inherits
-   @ ( WL 'ME_55B7A33101AF' '55B7A3160128.pas.ms.script' // TtfwAxiomaticsResNameGetter
- ) .SequenceCode.It
+   Seq: ( WL 'ME_55B7A33101AF' '55B7A3160128.pas.ms.script' // TtfwAxiomaticsResNameGetter
+ )
  ; // Inherits
  : Operations
-   @ ( ME_21C4AD0A8117 // RegAxiom
- ) .SequenceCode.It
+   Seq: ( ME_21C4AD0A8117 // RegAxiom
+ )
  ; // Operations
  : Implemented
-   @ ( ME_55B7A3AF0359_ME_98311E435825 // ResName
- ) .SequenceCode.It
+   Seq: ( ME_55B7A3AF0359_ME_98311E435825 // ResName
+ )
  ; // Implemented
  CONST "need UC" true
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
+ CONST dfm:PathOnly '\common\components\rtl\Garant\ScriptEngine'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\ScriptEngine'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'StatusBarWordsResNameGetter'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_98311E435825 TStatusBarWordsResNameGetter
+
+FORWARD ME_552FC8E1023A
 
 FORWARD ME_6A3FD2C52DF9
 
 : ME_19B2B32EBF7D
  CONST UID '19B2B32EBF7D'
  CONST Name 'aCtx'
+ CONST IsSummoned true
  CONST Class class_Parameter
  : Stereotype st_in ;
  : Target WL 'ME_4DB0091E033E' '4DAF19F600C5.pas.ms.script' // TtfwContext
@@ -77,6 +89,7 @@ ref; // ME_19B2B32EBF7D aCtx
 : ME_19B2B32EBF7E
  CONST UID '19B2B32EBF7E'
  CONST Name 'aStatusBar'
+ CONST IsSummoned true
  CONST Class class_Parameter
  : Stereotype st_in ;
  : Target WL 'ME_4E15A08E030D' '49871D5103B9.pas.ms.script' // TnscStatusBar
@@ -87,6 +100,7 @@ ref; // ME_19B2B32EBF7E aStatusBar
 : ME_19B2B32EBF7F
  CONST UID '19B2B32EBF7F'
  CONST Name 'anIndex'
+ CONST IsSummoned true
  CONST Class class_Parameter
  : Stereotype st_in ;
  : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
@@ -97,6 +111,7 @@ ref; // ME_19B2B32EBF7F anIndex
 : ME_FE371E175914
  CONST UID 'FE371E175914'
  CONST Name 'OrderedControl'
+ CONST IsSummoned true
  CONST Class class_Operation
  %SUMMARY 'Реализация слова скрипта StatusBar:OrderedControl' ;
  CONST Visibility PrivateAccess
@@ -106,10 +121,10 @@ ref; // ME_19B2B32EBF7F anIndex
  : Target WL 'ME_47E1201703C3' '4799D29F033F.pas.ms.script' // TControl
  ;
  : Parameters
-   @ ( ME_19B2B32EBF7D // aCtx
+   Seq: ( ME_19B2B32EBF7D // aCtx
  ME_19B2B32EBF7E // aStatusBar
  ME_19B2B32EBF7F // anIndex
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_FE371E175914 OrderedControl
@@ -117,6 +132,7 @@ ref; // ME_FE371E175914 OrderedControl
 : ME_90C86D8B838E
  CONST UID '90C86D8B838E'
  CONST Name 'Ini_Reg'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Регистрация StatusBar_OrderedControl' ;
@@ -129,6 +145,7 @@ ref; // ME_90C86D8B838E Ini_Reg
 
 : ME_C5D70F4A5B22
  CONST UID 'C5D70F4A5B22'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_6A3FD2C52DF9 // StatusBar_OrderedControl
@@ -140,6 +157,7 @@ ref; // ME_C5D70F4A5B22
 
 : ME_1F1A785F47C4
  CONST UID '1F1A785F47C4'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_6A3FD2C52DF9 // StatusBar_OrderedControl
@@ -151,6 +169,7 @@ ref; // ME_1F1A785F47C4
 
 : ME_3C1060E29000
  CONST UID '3C1060E29000'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_6A3FD2C52DF9 // StatusBar_OrderedControl
@@ -167,6 +186,7 @@ ref; // ME_3C1060E29000
  ;
  : Implementor ME_6A3FD2C52DF9 // StatusBar_OrderedControl
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_4DAEEDE10285_ME_6A3FD2C52DF9 DoDoIt
 
 : ME_4DB0614603C8_ME_6A3FD2C52DF9
@@ -176,6 +196,7 @@ ref; // ME_4DAEEDE10285_ME_6A3FD2C52DF9 DoDoIt
  ;
  : Implementor ME_6A3FD2C52DF9 // StatusBar_OrderedControl
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4DB0614603C8_ME_6A3FD2C52DF9 GetWordNameForRegister
 
 : ME_551544E2001A_ME_6A3FD2C52DF9
@@ -185,6 +206,7 @@ ref; // ME_4DB0614603C8_ME_6A3FD2C52DF9 GetWordNameForRegister
  ;
  : Implementor ME_6A3FD2C52DF9 // StatusBar_OrderedControl
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_551544E2001A_ME_6A3FD2C52DF9 GetResultTypeInfo
 
 : ME_559687E6025A_ME_6A3FD2C52DF9
@@ -194,6 +216,7 @@ ref; // ME_551544E2001A_ME_6A3FD2C52DF9 GetResultTypeInfo
  ;
  : Implementor ME_6A3FD2C52DF9 // StatusBar_OrderedControl
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_559687E6025A_ME_6A3FD2C52DF9 GetAllParamsCount
 
 : ME_5617F4D00243_ME_6A3FD2C52DF9
@@ -203,11 +226,13 @@ ref; // ME_559687E6025A_ME_6A3FD2C52DF9 GetAllParamsCount
  ;
  : Implementor ME_6A3FD2C52DF9 // StatusBar_OrderedControl
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_5617F4D00243_ME_6A3FD2C52DF9 ParamsTypes
 
 : ME_6A3FD2C52DF9
  CONST UID '6A3FD2C52DF9'
  CONST Name 'StatusBar_OrderedControl'
+ CONST IsSummoned true
  CONST Class class_Class
  : Stereotype st_ScriptKeyword ;
  CONST Kind kind_NormalClass
@@ -217,45 +242,56 @@ ref; // ME_5617F4D00243_ME_6A3FD2C52DF9 ParamsTypes
  : Parent ME_505C855C024A // StatusBarWords
  ;
  : Inherits
-   @ ( WL 'ME_55CCAE000335' '55CCADD2013D.pas.ms.script' // TtfwClassLike
- ) .SequenceCode.It
+   Seq: ( WL 'ME_55CCAE000335' '55CCADD2013D.pas.ms.script' // TtfwClassLike
+ )
  ; // Inherits
  : Operations
-   @ ( ME_FE371E175914 // OrderedControl
+   Seq: ( ME_FE371E175914 // OrderedControl
  ME_90C86D8B838E // Ini_Reg
- ) .SequenceCode.It
+ )
  ; // Operations
  : Implemented
-   @ ( ME_4DAEEDE10285_ME_6A3FD2C52DF9 // DoDoIt
- ) .SequenceCode.It
+   Seq: ( ME_4DAEEDE10285_ME_6A3FD2C52DF9 // DoDoIt
+ )
  ; // Implemented
  : Overridden
-   @ ( ME_4DB0614603C8_ME_6A3FD2C52DF9 // GetWordNameForRegister
+   Seq: ( ME_4DB0614603C8_ME_6A3FD2C52DF9 // GetWordNameForRegister
  ME_551544E2001A_ME_6A3FD2C52DF9 // GetResultTypeInfo
  ME_559687E6025A_ME_6A3FD2C52DF9 // GetAllParamsCount
  ME_5617F4D00243_ME_6A3FD2C52DF9 // ParamsTypes
- ) .SequenceCode.It
+ )
  ; // Overridden
  : Dependencies
-   @ ( ME_C5D70F4A5B22 // 
+   Seq: ( ME_C5D70F4A5B22 // 
  ME_1F1A785F47C4 // 
  ME_3C1060E29000 // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  CONST "NameForScript" 'StatusBar:OrderedControl'
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
+ CONST dfm:PathOnly '\common\components\rtl\Garant\ScriptEngine'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\ScriptEngine'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
  CONST extprop:pas:TypeName 'TkwStatusBarOrderedControl'
+ CONST extprop:rc:SelfName 'StatusBarOrderedControl'
+ CONST extprop:rc:isAcceptableForScripts true
+ : SpelledFor ME_552FC8E1023A // OrderedControl
+ ;
 
 ref; // ME_6A3FD2C52DF9 StatusBar_OrderedControl
+
+FORWARD ME_552FC91301BD
 
 FORWARD ME_C8B065596342
 
 : ME_B9ECF6EA3051
  CONST UID 'B9ECF6EA3051'
  CONST Name 'aCtx'
+ CONST IsSummoned true
  CONST Class class_Parameter
  : Stereotype st_in ;
  : Target WL 'ME_4DB0091E033E' '4DAF19F600C5.pas.ms.script' // TtfwContext
@@ -266,6 +302,7 @@ ref; // ME_B9ECF6EA3051 aCtx
 : ME_B9ECF6EA3052
  CONST UID 'B9ECF6EA3052'
  CONST Name 'aStatusBar'
+ CONST IsSummoned true
  CONST Class class_Parameter
  : Stereotype st_in ;
  : Target WL 'ME_4E15A08E030D' '49871D5103B9.pas.ms.script' // TnscStatusBar
@@ -276,6 +313,7 @@ ref; // ME_B9ECF6EA3052 aStatusBar
 : ME_3F6B70526DE3
  CONST UID '3F6B70526DE3'
  CONST Name 'OrderedControlsCount'
+ CONST IsSummoned true
  CONST Class class_Operation
  %SUMMARY 'Реализация слова скрипта StatusBar:OrderedControlsCount' ;
  CONST Visibility PrivateAccess
@@ -285,9 +323,9 @@ ref; // ME_B9ECF6EA3052 aStatusBar
  : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
  ;
  : Parameters
-   @ ( ME_B9ECF6EA3051 // aCtx
+   Seq: ( ME_B9ECF6EA3051 // aCtx
  ME_B9ECF6EA3052 // aStatusBar
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_3F6B70526DE3 OrderedControlsCount
@@ -295,6 +333,7 @@ ref; // ME_3F6B70526DE3 OrderedControlsCount
 : ME_39C3A7025327
  CONST UID '39C3A7025327'
  CONST Name 'Ini_Reg'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Регистрация StatusBar_OrderedControlsCount' ;
@@ -307,6 +346,7 @@ ref; // ME_39C3A7025327 Ini_Reg
 
 : ME_3A491A412DDA
  CONST UID '3A491A412DDA'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_C8B065596342 // StatusBar_OrderedControlsCount
@@ -318,6 +358,7 @@ ref; // ME_3A491A412DDA
 
 : ME_AE4B33BEBB21
  CONST UID 'AE4B33BEBB21'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_C8B065596342 // StatusBar_OrderedControlsCount
@@ -329,6 +370,7 @@ ref; // ME_AE4B33BEBB21
 
 : ME_BBDC5BD7B52A
  CONST UID 'BBDC5BD7B52A'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_C8B065596342 // StatusBar_OrderedControlsCount
@@ -345,6 +387,7 @@ ref; // ME_BBDC5BD7B52A
  ;
  : Implementor ME_C8B065596342 // StatusBar_OrderedControlsCount
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_4DAEEDE10285_ME_C8B065596342 DoDoIt
 
 : ME_4DB0614603C8_ME_C8B065596342
@@ -354,6 +397,7 @@ ref; // ME_4DAEEDE10285_ME_C8B065596342 DoDoIt
  ;
  : Implementor ME_C8B065596342 // StatusBar_OrderedControlsCount
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4DB0614603C8_ME_C8B065596342 GetWordNameForRegister
 
 : ME_551544E2001A_ME_C8B065596342
@@ -363,6 +407,7 @@ ref; // ME_4DB0614603C8_ME_C8B065596342 GetWordNameForRegister
  ;
  : Implementor ME_C8B065596342 // StatusBar_OrderedControlsCount
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_551544E2001A_ME_C8B065596342 GetResultTypeInfo
 
 : ME_559687E6025A_ME_C8B065596342
@@ -372,6 +417,7 @@ ref; // ME_551544E2001A_ME_C8B065596342 GetResultTypeInfo
  ;
  : Implementor ME_C8B065596342 // StatusBar_OrderedControlsCount
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_559687E6025A_ME_C8B065596342 GetAllParamsCount
 
 : ME_5617F4D00243_ME_C8B065596342
@@ -381,11 +427,13 @@ ref; // ME_559687E6025A_ME_C8B065596342 GetAllParamsCount
  ;
  : Implementor ME_C8B065596342 // StatusBar_OrderedControlsCount
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_5617F4D00243_ME_C8B065596342 ParamsTypes
 
 : ME_C8B065596342
  CONST UID 'C8B065596342'
  CONST Name 'StatusBar_OrderedControlsCount'
+ CONST IsSummoned true
  CONST Class class_Class
  : Stereotype st_ScriptKeyword ;
  CONST Kind kind_NormalClass
@@ -395,45 +443,56 @@ ref; // ME_5617F4D00243_ME_C8B065596342 ParamsTypes
  : Parent ME_505C855C024A // StatusBarWords
  ;
  : Inherits
-   @ ( WL 'ME_55CCAE000335' '55CCADD2013D.pas.ms.script' // TtfwClassLike
- ) .SequenceCode.It
+   Seq: ( WL 'ME_55CCAE000335' '55CCADD2013D.pas.ms.script' // TtfwClassLike
+ )
  ; // Inherits
  : Operations
-   @ ( ME_3F6B70526DE3 // OrderedControlsCount
+   Seq: ( ME_3F6B70526DE3 // OrderedControlsCount
  ME_39C3A7025327 // Ini_Reg
- ) .SequenceCode.It
+ )
  ; // Operations
  : Implemented
-   @ ( ME_4DAEEDE10285_ME_C8B065596342 // DoDoIt
- ) .SequenceCode.It
+   Seq: ( ME_4DAEEDE10285_ME_C8B065596342 // DoDoIt
+ )
  ; // Implemented
  : Overridden
-   @ ( ME_4DB0614603C8_ME_C8B065596342 // GetWordNameForRegister
+   Seq: ( ME_4DB0614603C8_ME_C8B065596342 // GetWordNameForRegister
  ME_551544E2001A_ME_C8B065596342 // GetResultTypeInfo
  ME_559687E6025A_ME_C8B065596342 // GetAllParamsCount
  ME_5617F4D00243_ME_C8B065596342 // ParamsTypes
- ) .SequenceCode.It
+ )
  ; // Overridden
  : Dependencies
-   @ ( ME_3A491A412DDA // 
+   Seq: ( ME_3A491A412DDA // 
  ME_AE4B33BEBB21 // 
  ME_BBDC5BD7B52A // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  CONST "NameForScript" 'StatusBar:OrderedControlsCount'
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
+ CONST dfm:PathOnly '\common\components\rtl\Garant\ScriptEngine'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\ScriptEngine'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
  CONST extprop:pas:TypeName 'TkwStatusBarOrderedControlsCount'
+ CONST extprop:rc:SelfName 'StatusBarOrderedControlsCount'
+ CONST extprop:rc:isAcceptableForScripts true
+ : SpelledFor ME_552FC91301BD // OrderedControlsCount
+ ;
 
 ref; // ME_C8B065596342 StatusBar_OrderedControlsCount
+
+FORWARD ME_552FC94F0188
 
 FORWARD ME_F7D061E9FD6E
 
 : ME_747F50098545
  CONST UID '747F50098545'
  CONST Name 'aCtx'
+ CONST IsSummoned true
  CONST Class class_Parameter
  : Stereotype st_in ;
  : Target WL 'ME_4DB0091E033E' '4DAF19F600C5.pas.ms.script' // TtfwContext
@@ -444,6 +503,7 @@ ref; // ME_747F50098545 aCtx
 : ME_747F50098546
  CONST UID '747F50098546'
  CONST Name 'aStatusBar'
+ CONST IsSummoned true
  CONST Class class_Parameter
  : Stereotype st_in ;
  : Target WL 'ME_4E15A08E030D' '49871D5103B9.pas.ms.script' // TnscStatusBar
@@ -454,6 +514,7 @@ ref; // ME_747F50098546 aStatusBar
 : ME_747F50098547
  CONST UID '747F50098547'
  CONST Name 'aControl'
+ CONST IsSummoned true
  CONST Class class_Parameter
  : Stereotype st_in ;
  : Target WL 'ME_47E1201703C3' '4799D29F033F.pas.ms.script' // TControl
@@ -464,6 +525,7 @@ ref; // ME_747F50098547 aControl
 : ME_BD703176FDE6
  CONST UID 'BD703176FDE6'
  CONST Name 'OrderIndex'
+ CONST IsSummoned true
  CONST Class class_Operation
  %SUMMARY 'Реализация слова скрипта StatusBar:OrderIndex' ;
  CONST Visibility PrivateAccess
@@ -473,10 +535,10 @@ ref; // ME_747F50098547 aControl
  : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
  ;
  : Parameters
-   @ ( ME_747F50098545 // aCtx
+   Seq: ( ME_747F50098545 // aCtx
  ME_747F50098546 // aStatusBar
  ME_747F50098547 // aControl
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_BD703176FDE6 OrderIndex
@@ -484,6 +546,7 @@ ref; // ME_BD703176FDE6 OrderIndex
 : ME_8DEE472E1C40
  CONST UID '8DEE472E1C40'
  CONST Name 'Ini_Reg'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Регистрация StatusBar_OrderIndex' ;
@@ -496,6 +559,7 @@ ref; // ME_8DEE472E1C40 Ini_Reg
 
 : ME_7D8001BF37D8
  CONST UID '7D8001BF37D8'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_F7D061E9FD6E // StatusBar_OrderIndex
@@ -507,6 +571,7 @@ ref; // ME_7D8001BF37D8
 
 : ME_C4686EB4BF9A
  CONST UID 'C4686EB4BF9A'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_F7D061E9FD6E // StatusBar_OrderIndex
@@ -518,6 +583,7 @@ ref; // ME_C4686EB4BF9A
 
 : ME_C95E5DC84256
  CONST UID 'C95E5DC84256'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_F7D061E9FD6E // StatusBar_OrderIndex
@@ -534,6 +600,7 @@ ref; // ME_C95E5DC84256
  ;
  : Implementor ME_F7D061E9FD6E // StatusBar_OrderIndex
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_4DAEEDE10285_ME_F7D061E9FD6E DoDoIt
 
 : ME_4DB0614603C8_ME_F7D061E9FD6E
@@ -543,6 +610,7 @@ ref; // ME_4DAEEDE10285_ME_F7D061E9FD6E DoDoIt
  ;
  : Implementor ME_F7D061E9FD6E // StatusBar_OrderIndex
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4DB0614603C8_ME_F7D061E9FD6E GetWordNameForRegister
 
 : ME_551544E2001A_ME_F7D061E9FD6E
@@ -552,6 +620,7 @@ ref; // ME_4DB0614603C8_ME_F7D061E9FD6E GetWordNameForRegister
  ;
  : Implementor ME_F7D061E9FD6E // StatusBar_OrderIndex
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_551544E2001A_ME_F7D061E9FD6E GetResultTypeInfo
 
 : ME_559687E6025A_ME_F7D061E9FD6E
@@ -561,6 +630,7 @@ ref; // ME_551544E2001A_ME_F7D061E9FD6E GetResultTypeInfo
  ;
  : Implementor ME_F7D061E9FD6E // StatusBar_OrderIndex
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_559687E6025A_ME_F7D061E9FD6E GetAllParamsCount
 
 : ME_5617F4D00243_ME_F7D061E9FD6E
@@ -570,11 +640,13 @@ ref; // ME_559687E6025A_ME_F7D061E9FD6E GetAllParamsCount
  ;
  : Implementor ME_F7D061E9FD6E // StatusBar_OrderIndex
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_5617F4D00243_ME_F7D061E9FD6E ParamsTypes
 
 : ME_F7D061E9FD6E
  CONST UID 'F7D061E9FD6E'
  CONST Name 'StatusBar_OrderIndex'
+ CONST IsSummoned true
  CONST Class class_Class
  : Stereotype st_ScriptKeyword ;
  CONST Kind kind_NormalClass
@@ -584,37 +656,45 @@ ref; // ME_5617F4D00243_ME_F7D061E9FD6E ParamsTypes
  : Parent ME_505C855C024A // StatusBarWords
  ;
  : Inherits
-   @ ( WL 'ME_55CCAE000335' '55CCADD2013D.pas.ms.script' // TtfwClassLike
- ) .SequenceCode.It
+   Seq: ( WL 'ME_55CCAE000335' '55CCADD2013D.pas.ms.script' // TtfwClassLike
+ )
  ; // Inherits
  : Operations
-   @ ( ME_BD703176FDE6 // OrderIndex
+   Seq: ( ME_BD703176FDE6 // OrderIndex
  ME_8DEE472E1C40 // Ini_Reg
- ) .SequenceCode.It
+ )
  ; // Operations
  : Implemented
-   @ ( ME_4DAEEDE10285_ME_F7D061E9FD6E // DoDoIt
- ) .SequenceCode.It
+   Seq: ( ME_4DAEEDE10285_ME_F7D061E9FD6E // DoDoIt
+ )
  ; // Implemented
  : Overridden
-   @ ( ME_4DB0614603C8_ME_F7D061E9FD6E // GetWordNameForRegister
+   Seq: ( ME_4DB0614603C8_ME_F7D061E9FD6E // GetWordNameForRegister
  ME_551544E2001A_ME_F7D061E9FD6E // GetResultTypeInfo
  ME_559687E6025A_ME_F7D061E9FD6E // GetAllParamsCount
  ME_5617F4D00243_ME_F7D061E9FD6E // ParamsTypes
- ) .SequenceCode.It
+ )
  ; // Overridden
  : Dependencies
-   @ ( ME_7D8001BF37D8 // 
+   Seq: ( ME_7D8001BF37D8 // 
  ME_C4686EB4BF9A // 
  ME_C95E5DC84256 // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  CONST "NameForScript" 'StatusBar:OrderIndex'
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
+ CONST dfm:PathOnly '\common\components\rtl\Garant\ScriptEngine'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\ScriptEngine'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
  CONST extprop:pas:TypeName 'TkwStatusBarOrderIndex'
+ CONST extprop:rc:SelfName 'StatusBarOrderIndex'
+ CONST extprop:rc:isAcceptableForScripts true
+ : SpelledFor ME_552FC94F0188 // OrderIndex
+ ;
 
 ref; // ME_F7D061E9FD6E StatusBar_OrderIndex
 
@@ -640,12 +720,14 @@ ref; // ME_552FC9080065 anIndex
  : Target WL 'ME_47E1201703C3' '4799D29F033F.pas.ms.script' // TControl
  ;
  : Parameters
-   @ ( ME_552FC9080065 // anIndex
- ) .SequenceCode.It
+   Seq: ( ME_552FC9080065 // anIndex
+ )
  ; // Parameters
  CONST "bind params" 'undefined'
  CONST "lvalue" 'undefined'
  CONST "mapped" 'undefined'
+ : Speller ME_6A3FD2C52DF9 // StatusBar_OrderedControl
+ ;
 
 ref; // ME_552FC8E1023A OrderedControl
 
@@ -663,6 +745,8 @@ ref; // ME_552FC8E1023A OrderedControl
  CONST "bind params" 'undefined'
  CONST "lvalue" 'undefined'
  CONST "mapped" 'undefined'
+ : Speller ME_C8B065596342 // StatusBar_OrderedControlsCount
+ ;
 
 ref; // ME_552FC91301BD OrderedControlsCount
 
@@ -688,18 +772,21 @@ ref; // ME_552FC96B007C aControl
  : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
  ;
  : Parameters
-   @ ( ME_552FC96B007C // aControl
- ) .SequenceCode.It
+   Seq: ( ME_552FC96B007C // aControl
+ )
  ; // Parameters
  CONST "bind params" 'undefined'
  CONST "lvalue" 'undefined'
  CONST "mapped" 'undefined'
+ : Speller ME_F7D061E9FD6E // StatusBar_OrderIndex
+ ;
 
 ref; // ME_552FC94F0188 OrderIndex
 
 : ME_81374F32ABEB
  CONST UID '81374F32ABEB'
- CONST Name 'Reg_TtfwContext'
+ CONST Name 'Reg_Type_TtfwContext'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Регистрация типа TtfwContext' ;
@@ -707,12 +794,15 @@ ref; // ME_552FC94F0188 OrderIndex
  CONST Abstraction at_final
  : Parent ME_505C855C024A // StatusBarWords
  ;
+ : SpelledFor WL 'ME_4DB0091E033E' '4DAF19F600C5.pas.ms.script' // TtfwContext
+ ;
 
-ref; // ME_81374F32ABEB Reg_TtfwContext
+ref; // ME_81374F32ABEB Reg_Type_TtfwContext
 
 : ME_A18AF40200F8
  CONST UID 'A18AF40200F8'
- CONST Name 'Reg_TnscStatusBar'
+ CONST Name 'Reg_Type_TnscStatusBar'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Регистрация типа TnscStatusBar' ;
@@ -720,12 +810,15 @@ ref; // ME_81374F32ABEB Reg_TtfwContext
  CONST Abstraction at_final
  : Parent ME_505C855C024A // StatusBarWords
  ;
+ : SpelledFor WL 'ME_4E15A08E030D' '49871D5103B9.pas.ms.script' // TnscStatusBar
+ ;
 
-ref; // ME_A18AF40200F8 Reg_TnscStatusBar
+ref; // ME_A18AF40200F8 Reg_Type_TnscStatusBar
 
 : ME_C9ACA8ADB67D
  CONST UID 'C9ACA8ADB67D'
- CONST Name 'Reg_Integer'
+ CONST Name 'Reg_Type_Integer'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Регистрация типа Integer' ;
@@ -733,12 +826,15 @@ ref; // ME_A18AF40200F8 Reg_TnscStatusBar
  CONST Abstraction at_final
  : Parent ME_505C855C024A // StatusBarWords
  ;
+ : SpelledFor WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
 
-ref; // ME_C9ACA8ADB67D Reg_Integer
+ref; // ME_C9ACA8ADB67D Reg_Type_Integer
 
 : ME_B86293ABF7C0
  CONST UID 'B86293ABF7C0'
- CONST Name 'Reg_TControl'
+ CONST Name 'Reg_Type_TControl'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Регистрация типа TControl' ;
@@ -746,11 +842,14 @@ ref; // ME_C9ACA8ADB67D Reg_Integer
  CONST Abstraction at_final
  : Parent ME_505C855C024A // StatusBarWords
  ;
+ : SpelledFor WL 'ME_47E1201703C3' '4799D29F033F.pas.ms.script' // TControl
+ ;
 
-ref; // ME_B86293ABF7C0 Reg_TControl
+ref; // ME_B86293ABF7C0 Reg_Type_TControl
 
 : ME_9502050A7752
  CONST UID '9502050A7752'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_505C855C024A // StatusBarWords
@@ -762,6 +861,7 @@ ref; // ME_9502050A7752
 
 : ME_FD5784AF680E
  CONST UID 'FD5784AF680E'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_injects::Dependency ;
  : Parent ME_505C855C024A // StatusBarWords
@@ -773,6 +873,7 @@ ref; // ME_FD5784AF680E
 
 : ME_03C5AFE361B4
  CONST UID '03C5AFE361B4'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_505C855C024A // StatusBarWords
@@ -793,59 +894,55 @@ ref; // ME_03C5AFE361B4
  : Parent ME_505C848E02D6 // StatusBarWords
  ;
  : Inherits
-   @ ( WL 'ME_4E15A08E030D' '49871D5103B9.pas.ms.script' // TnscStatusBar
- ) .SequenceCode.It
+   Seq: ( WL 'ME_4E15A08E030D' '49871D5103B9.pas.ms.script' // TnscStatusBar
+ )
  ; // Inherits
  : Operations
-   @ ( ME_552FC8E1023A // OrderedControl
+   Seq: ( ME_552FC8E1023A // OrderedControl
  ME_552FC91301BD // OrderedControlsCount
  ME_552FC94F0188 // OrderIndex
- ME_81374F32ABEB // Reg_TtfwContext
- ME_A18AF40200F8 // Reg_TnscStatusBar
- ME_C9ACA8ADB67D // Reg_Integer
- ME_B86293ABF7C0 // Reg_TControl
- ) .SequenceCode.It
+ ME_81374F32ABEB // Reg_Type_TtfwContext
+ ME_A18AF40200F8 // Reg_Type_TnscStatusBar
+ ME_C9ACA8ADB67D // Reg_Type_Integer
+ ME_B86293ABF7C0 // Reg_Type_TControl
+ )
  ; // Operations
  : Children
-   @ ( ME_98311E435825 // TStatusBarWordsResNameGetter
+   Seq: ( ME_98311E435825 // TStatusBarWordsResNameGetter
  ME_6A3FD2C52DF9 // StatusBar_OrderedControl
  ME_C8B065596342 // StatusBar_OrderedControlsCount
  ME_F7D061E9FD6E // StatusBar_OrderIndex
- ) .SequenceCode.It
+ )
  ; // Children
  : Dependencies
-   @ ( ME_9502050A7752 // 
+   Seq: ( ME_9502050A7752 // 
  ME_FD5784AF680E // 
  ME_03C5AFE361B4 // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  CONST "ifndef" 'NoScripts'
  CONST "needs script" true
  CONST "no class name" false
  CONST "no hands" false
  CONST "no_pop" true
- : Generators
- @ (
- gen_intf.pas
- gen_rc.pas
- gen_rc.script.pas
- gen_res.cmd.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\ScriptEngine'
  CONST intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\StatusBarWords.pas'
- CONST rc.pas:Path 'common\components\rtl\Garant\ScriptEngine\StatusBarWords.rc'
- CONST rc.script.pas:Path 'common\components\rtl\Garant\ScriptEngine\StatusBarWords.rc.script'
- CONST res.cmd.pas:Path 'common\components\rtl\Garant\ScriptEngine\StatusBarWords.res.cmd'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\ScriptEngine'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_505C855C024A StatusBarWords
 
 FORWARD ME_54DB6FD1016A
+
+FORWARD ME_552FC9C10154
 
 FORWARD ME_33C559B72437
 
 : ME_7915B770EAE0
  CONST UID '7915B770EAE0'
  CONST Name 'aCtx'
+ CONST IsSummoned true
  CONST Class class_Parameter
  : Stereotype st_in ;
  : Target WL 'ME_4DB0091E033E' '4DAF19F600C5.pas.ms.script' // TtfwContext
@@ -856,6 +953,7 @@ ref; // ME_7915B770EAE0 aCtx
 : ME_7915B770EAE1
  CONST UID '7915B770EAE1'
  CONST Name 'aStatusBarButton'
+ CONST IsSummoned true
  CONST Class class_Parameter
  : Stereotype st_in ;
  : Target WL 'ME_503DE6F30027' '49871D5103B9.pas.ms.script' // TnscStatusBarButton
@@ -866,6 +964,7 @@ ref; // ME_7915B770EAE1 aStatusBarButton
 : ME_8D82AE1A2B57
  CONST UID '8D82AE1A2B57'
  CONST Name 'IsDown'
+ CONST IsSummoned true
  CONST Class class_Operation
  %SUMMARY 'Реализация слова скрипта pop:StatusBarButton:IsDown' ;
  CONST Visibility PrivateAccess
@@ -875,9 +974,9 @@ ref; // ME_7915B770EAE1 aStatusBarButton
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
  : Parameters
-   @ ( ME_7915B770EAE0 // aCtx
+   Seq: ( ME_7915B770EAE0 // aCtx
  ME_7915B770EAE1 // aStatusBarButton
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_8D82AE1A2B57 IsDown
@@ -885,6 +984,7 @@ ref; // ME_8D82AE1A2B57 IsDown
 : ME_0B82267804F1
  CONST UID '0B82267804F1'
  CONST Name 'Ini_Reg'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Регистрация pop_StatusBarButton_IsDown' ;
@@ -897,6 +997,7 @@ ref; // ME_0B82267804F1 Ini_Reg
 
 : ME_5101881AE63A
  CONST UID '5101881AE63A'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_33C559B72437 // pop_StatusBarButton_IsDown
@@ -908,6 +1009,7 @@ ref; // ME_5101881AE63A
 
 : ME_A3952975DB1E
  CONST UID 'A3952975DB1E'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_33C559B72437 // pop_StatusBarButton_IsDown
@@ -919,6 +1021,7 @@ ref; // ME_A3952975DB1E
 
 : ME_EA7BB3768809
  CONST UID 'EA7BB3768809'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_33C559B72437 // pop_StatusBarButton_IsDown
@@ -935,6 +1038,7 @@ ref; // ME_EA7BB3768809
  ;
  : Implementor ME_33C559B72437 // pop_StatusBarButton_IsDown
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_4DAEEDE10285_ME_33C559B72437 DoDoIt
 
 : ME_4DB0614603C8_ME_33C559B72437
@@ -944,6 +1048,7 @@ ref; // ME_4DAEEDE10285_ME_33C559B72437 DoDoIt
  ;
  : Implementor ME_33C559B72437 // pop_StatusBarButton_IsDown
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4DB0614603C8_ME_33C559B72437 GetWordNameForRegister
 
 : ME_551544E2001A_ME_33C559B72437
@@ -953,6 +1058,7 @@ ref; // ME_4DB0614603C8_ME_33C559B72437 GetWordNameForRegister
  ;
  : Implementor ME_33C559B72437 // pop_StatusBarButton_IsDown
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_551544E2001A_ME_33C559B72437 GetResultTypeInfo
 
 : ME_559687E6025A_ME_33C559B72437
@@ -962,6 +1068,7 @@ ref; // ME_551544E2001A_ME_33C559B72437 GetResultTypeInfo
  ;
  : Implementor ME_33C559B72437 // pop_StatusBarButton_IsDown
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_559687E6025A_ME_33C559B72437 GetAllParamsCount
 
 : ME_5617F4D00243_ME_33C559B72437
@@ -971,11 +1078,13 @@ ref; // ME_559687E6025A_ME_33C559B72437 GetAllParamsCount
  ;
  : Implementor ME_33C559B72437 // pop_StatusBarButton_IsDown
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_5617F4D00243_ME_33C559B72437 ParamsTypes
 
 : ME_33C559B72437
  CONST UID '33C559B72437'
  CONST Name 'pop_StatusBarButton_IsDown'
+ CONST IsSummoned true
  CONST Class class_Class
  : Stereotype st_ScriptKeyword ;
  CONST Kind kind_NormalClass
@@ -985,37 +1094,45 @@ ref; // ME_5617F4D00243_ME_33C559B72437 ParamsTypes
  : Parent ME_54DB6FD1016A // StatusBarButtonWords
  ;
  : Inherits
-   @ ( WL 'ME_55CCAE000335' '55CCADD2013D.pas.ms.script' // TtfwClassLike
- ) .SequenceCode.It
+   Seq: ( WL 'ME_55CCAE000335' '55CCADD2013D.pas.ms.script' // TtfwClassLike
+ )
  ; // Inherits
  : Operations
-   @ ( ME_8D82AE1A2B57 // IsDown
+   Seq: ( ME_8D82AE1A2B57 // IsDown
  ME_0B82267804F1 // Ini_Reg
- ) .SequenceCode.It
+ )
  ; // Operations
  : Implemented
-   @ ( ME_4DAEEDE10285_ME_33C559B72437 // DoDoIt
- ) .SequenceCode.It
+   Seq: ( ME_4DAEEDE10285_ME_33C559B72437 // DoDoIt
+ )
  ; // Implemented
  : Overridden
-   @ ( ME_4DB0614603C8_ME_33C559B72437 // GetWordNameForRegister
+   Seq: ( ME_4DB0614603C8_ME_33C559B72437 // GetWordNameForRegister
  ME_551544E2001A_ME_33C559B72437 // GetResultTypeInfo
  ME_559687E6025A_ME_33C559B72437 // GetAllParamsCount
  ME_5617F4D00243_ME_33C559B72437 // ParamsTypes
- ) .SequenceCode.It
+ )
  ; // Overridden
  : Dependencies
-   @ ( ME_5101881AE63A // 
+   Seq: ( ME_5101881AE63A // 
  ME_A3952975DB1E // 
  ME_EA7BB3768809 // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  CONST "NameForScript" 'pop:StatusBarButton:IsDown'
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
+ CONST dfm:PathOnly '\common\components\rtl\Garant\ScriptEngine'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\ScriptEngine'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
  CONST extprop:pas:TypeName 'TkwPopStatusBarButtonIsDown'
+ CONST extprop:rc:SelfName 'PopStatusBarButtonIsDown'
+ CONST extprop:rc:isAcceptableForScripts true
+ : SpelledFor ME_552FC9C10154 // IsDown
+ ;
 
 ref; // ME_33C559B72437 pop_StatusBarButton_IsDown
 
@@ -1033,12 +1150,15 @@ ref; // ME_33C559B72437 pop_StatusBarButton_IsDown
  CONST "bind params" 'undefined'
  CONST "lvalue" 'undefined'
  CONST "mapped" 'undefined'
+ : Speller ME_33C559B72437 // pop_StatusBarButton_IsDown
+ ;
 
 ref; // ME_552FC9C10154 IsDown
 
 : ME_4824BB52CEB1
  CONST UID '4824BB52CEB1'
- CONST Name 'Reg_TtfwContext'
+ CONST Name 'Reg_Type_TtfwContext'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Регистрация типа TtfwContext' ;
@@ -1046,12 +1166,15 @@ ref; // ME_552FC9C10154 IsDown
  CONST Abstraction at_final
  : Parent ME_54DB6FD1016A // StatusBarButtonWords
  ;
+ : SpelledFor WL 'ME_4DB0091E033E' '4DAF19F600C5.pas.ms.script' // TtfwContext
+ ;
 
-ref; // ME_4824BB52CEB1 Reg_TtfwContext
+ref; // ME_4824BB52CEB1 Reg_Type_TtfwContext
 
 : ME_918EE43C98B2
  CONST UID '918EE43C98B2'
- CONST Name 'Reg_TnscStatusBarButton'
+ CONST Name 'Reg_Type_TnscStatusBarButton'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Регистрация типа TnscStatusBarButton' ;
@@ -1059,12 +1182,15 @@ ref; // ME_4824BB52CEB1 Reg_TtfwContext
  CONST Abstraction at_final
  : Parent ME_54DB6FD1016A // StatusBarButtonWords
  ;
+ : SpelledFor WL 'ME_503DE6F30027' '49871D5103B9.pas.ms.script' // TnscStatusBarButton
+ ;
 
-ref; // ME_918EE43C98B2 Reg_TnscStatusBarButton
+ref; // ME_918EE43C98B2 Reg_Type_TnscStatusBarButton
 
 : ME_24DDEED42EFE
  CONST UID '24DDEED42EFE'
- CONST Name 'Reg_Boolean'
+ CONST Name 'Reg_Type_Boolean'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Регистрация типа Boolean' ;
@@ -1072,11 +1198,14 @@ ref; // ME_918EE43C98B2 Reg_TnscStatusBarButton
  CONST Abstraction at_final
  : Parent ME_54DB6FD1016A // StatusBarButtonWords
  ;
+ : SpelledFor WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
 
-ref; // ME_24DDEED42EFE Reg_Boolean
+ref; // ME_24DDEED42EFE Reg_Type_Boolean
 
 : ME_595F0372CF1E
  CONST UID '595F0372CF1E'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_54DB6FD1016A // StatusBarButtonWords
@@ -1088,6 +1217,7 @@ ref; // ME_595F0372CF1E
 
 : ME_95F5D3CF34CC
  CONST UID '95F5D3CF34CC'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_injects::Dependency ;
  : Parent ME_54DB6FD1016A // StatusBarButtonWords
@@ -1099,6 +1229,7 @@ ref; // ME_95F5D3CF34CC
 
 : ME_4087F844C682
  CONST UID '4087F844C682'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_54DB6FD1016A // StatusBarButtonWords
@@ -1119,37 +1250,36 @@ ref; // ME_4087F844C682
  : Parent ME_505C848E02D6 // StatusBarWords
  ;
  : Inherits
-   @ ( WL 'ME_503DE6F30027' '49871D5103B9.pas.ms.script' // TnscStatusBarButton
- ) .SequenceCode.It
+   Seq: ( WL 'ME_503DE6F30027' '49871D5103B9.pas.ms.script' // TnscStatusBarButton
+ )
  ; // Inherits
  : Operations
-   @ ( ME_552FC9C10154 // IsDown
- ME_4824BB52CEB1 // Reg_TtfwContext
- ME_918EE43C98B2 // Reg_TnscStatusBarButton
- ME_24DDEED42EFE // Reg_Boolean
- ) .SequenceCode.It
+   Seq: ( ME_552FC9C10154 // IsDown
+ ME_4824BB52CEB1 // Reg_Type_TtfwContext
+ ME_918EE43C98B2 // Reg_Type_TnscStatusBarButton
+ ME_24DDEED42EFE // Reg_Type_Boolean
+ )
  ; // Operations
  : Children
-   @ ( ME_33C559B72437 // pop_StatusBarButton_IsDown
- ) .SequenceCode.It
+   Seq: ( ME_33C559B72437 // pop_StatusBarButton_IsDown
+ )
  ; // Children
  : Dependencies
-   @ ( ME_595F0372CF1E // 
+   Seq: ( ME_595F0372CF1E // 
  ME_95F5D3CF34CC // 
  ME_4087F844C682 // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  CONST "ifndef" 'NoScripts'
  CONST "needs script" 'undefined'
  CONST "no class name" 'undefined'
  CONST "no hands" false
  CONST "no_pop" 'undefined'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\ScriptEngine'
  CONST intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\StatusBarButtonWords.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\ScriptEngine'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_54DB6FD1016A StatusBarButtonWords
 
@@ -1163,12 +1293,12 @@ ref; // ME_54DB6FD1016A StatusBarButtonWords
  : Parent WL 'ME_54DB83140023' '54DB83140023.pas.ms.script' // ScriptEngine$F1
  ;
  : Children
-   @ ( ME_505C855C024A // StatusBarWords
+   Seq: ( ME_505C855C024A // StatusBarWords
  ME_54DB6FD1016A // StatusBarButtonWords
- ) .SequenceCode.It
+ )
  ; // Children
  : Depends
-   @ ( WL 'ME_4767743E00E5' '4767743E00E5.pas.ms.script' // TypInfo
+   Seq: ( WL 'ME_4767743E00E5' '4767743E00E5.pas.ms.script' // TypInfo
  WL 'ME_4799D29F033F' '4799D29F033F.pas.ms.script' // Implementation
  WL 'ME_49871D5103B9' '49871D5103B9.pas.ms.script' // StatusBar
  WL 'ME_4AB0C3C60310' '4AB0C3C60310.pas.ms.script' // Sys
@@ -1178,17 +1308,15 @@ ref; // ME_54DB6FD1016A StatusBarButtonWords
  WL 'ME_55B7A3160128' '55B7A3160128.pas.ms.script' // ScriptedAxiomatics
  WL 'ME_55BA28CE0290' '55BA28CE0290.pas.ms.script' // tfwScriptingTypes
  WL 'ME_55CCADD2013D' '55CCADD2013D.pas.ms.script' // ClassLikeMapping
- ) .SequenceCode.It
+ )
  ; // Depends
  CONST "ifdef" 'Nemesis'
  CONST "ifndef" 'NoScripts'
- : Generators
- @ (
- gen_pas.script
- gen_pas.script.runner
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\ScriptEngine'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\ScriptEngine'
  CONST pas.script:Path 'shared\models\NewSchool\Scripts\505C848E02D6.pas.ms.script'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
  CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\505C848E02D6.pas.ms.script.runner'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_505C848E02D6 StatusBarWords

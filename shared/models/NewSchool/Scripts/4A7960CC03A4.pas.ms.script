@@ -20,12 +20,14 @@ FORWARD ME_4A7960CC03A4
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\VT'
  CONST intf.pas:Path 'common\components\gui\Garant\VT\NOT_FINISHED_vtSizeablePanel.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\VT'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'SizeablePanel'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'vtSizeablePanel'
 
 ref; // ME_4A7961300264 TvtSizeablePanel
 
@@ -145,6 +147,7 @@ ref; // ME_50FD1A480027 FullRepaint
 : ME_EC4C10C44C7C
  CONST UID 'EC4C10C44C7C'
  CONST Name 'f_BevelInner'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY 'Поле для свойства BevelInner' ;
  CONST Visibility PrivateAccess
@@ -154,12 +157,14 @@ ref; // ME_50FD1A480027 FullRepaint
  ;
  : Target WL 'ME_50FD17B50177' '4799D29F033F.pas.ms.script' // TPanelBevel
  ;
+ CONST extprop:clearViaProperty 'BevelInner'
 
 ref; // ME_EC4C10C44C7C f_BevelInner
 
 : ME_F51416D363A3
  CONST UID 'F51416D363A3'
  CONST Name 'f_BevelOuter'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY 'Поле для свойства BevelOuter' ;
  CONST Visibility PrivateAccess
@@ -169,12 +174,14 @@ ref; // ME_EC4C10C44C7C f_BevelInner
  ;
  : Target WL 'ME_50FD17B50177' '4799D29F033F.pas.ms.script' // TPanelBevel
  ;
+ CONST extprop:clearViaProperty 'BevelOuter'
 
 ref; // ME_F51416D363A3 f_BevelOuter
 
 : ME_D8625D7F0E1B
  CONST UID 'D8625D7F0E1B'
  CONST Name 'f_Alignment'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY 'Поле для свойства Alignment' ;
  CONST Visibility PrivateAccess
@@ -184,12 +191,14 @@ ref; // ME_F51416D363A3 f_BevelOuter
  ;
  : Target WL 'ME_4A840F5703AC' '4AB0997B00A2.pas.ms.script' // TAlignment
  ;
+ CONST extprop:clearViaProperty 'Alignment'
 
 ref; // ME_D8625D7F0E1B f_Alignment
 
 : ME_878336BEB415
  CONST UID '878336BEB415'
  CONST Name 'f_BevelWidth'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY 'Поле для свойства BevelWidth' ;
  CONST Visibility PrivateAccess
@@ -199,12 +208,14 @@ ref; // ME_D8625D7F0E1B f_Alignment
  ;
  : Target WL 'ME_50FD194A022A' '4799D29F033F.pas.ms.script' // TBevelWidth
  ;
+ CONST extprop:clearViaProperty 'BevelWidth'
 
 ref; // ME_878336BEB415 f_BevelWidth
 
 : ME_93C40A4B3830
  CONST UID '93C40A4B3830'
  CONST Name 'f_BorderWidth'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY 'Поле для свойства BorderWidth' ;
  CONST Visibility PrivateAccess
@@ -214,12 +225,14 @@ ref; // ME_878336BEB415 f_BevelWidth
  ;
  : Target WL 'ME_50FD196E008A' '4799D29F033F.pas.ms.script' // TBorderWidth
  ;
+ CONST extprop:clearViaProperty 'BorderWidth'
 
 ref; // ME_93C40A4B3830 f_BorderWidth
 
 : ME_729A0FF633D9
  CONST UID '729A0FF633D9'
  CONST Name 'f_FullRepaint'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY 'Поле для свойства FullRepaint' ;
  CONST Visibility PrivateAccess
@@ -229,12 +242,14 @@ ref; // ME_93C40A4B3830 f_BorderWidth
  ;
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
+ CONST extprop:clearViaProperty 'FullRepaint'
 
 ref; // ME_729A0FF633D9 f_FullRepaint
 
 : ME_CDFDE6F852B8
  CONST UID 'CDFDE6F852B8'
  CONST Name 'Ini_Reg_Class'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Регистрация TvtCustomPanelPrim' ;
@@ -248,6 +263,7 @@ ref; // ME_CDFDE6F852B8 Ini_Reg_Class
 
 : ME_3F098AE8CB8C
  CONST UID '3F098AE8CB8C'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_50FD3A9003A4 // TvtCustomPanelPrim
@@ -268,11 +284,11 @@ ref; // ME_3F098AE8CB8C
  : Parent ME_4A7961A701CF // TvtPanel
  ;
  : Inherits
-   @ ( WL 'ME_48BBF1470238' '467BA8C8017E.pas.ms.script' // TafwTextControl
- ) .SequenceCode.It
+   Seq: ( WL 'ME_48BBF1470238' '467BA8C8017E.pas.ms.script' // TafwTextControl
+ )
  ; // Inherits
  : Attributes
-   @ ( ME_50FD17EC01F0 // BevelInner
+   Seq: ( ME_50FD17EC01F0 // BevelInner
  ME_50FD1813022C // BevelOuter
  ME_50FD18B600A0 // Alignment
  ME_50FD19A80171 // BevelWidth
@@ -284,15 +300,15 @@ ref; // ME_3F098AE8CB8C
  ME_878336BEB415 // f_BevelWidth
  ME_93C40A4B3830 // f_BorderWidth
  ME_729A0FF633D9 // f_FullRepaint
- ) .SequenceCode.It
+ )
  ; // Attributes
  : Operations
-   @ ( ME_CDFDE6F852B8 // Ini_Reg_Class
- ) .SequenceCode.It
+   Seq: ( ME_CDFDE6F852B8 // Ini_Reg_Class
+ )
  ; // Operations
  : Dependencies
-   @ ( ME_3F098AE8CB8C // 
- ) .SequenceCode.It
+   Seq: ( ME_3F098AE8CB8C // 
+ )
  ; // Dependencies
  CONST "base wnd class" 'CWnd'
  CONST "need UC" true
@@ -300,6 +316,12 @@ ref; // ME_3F098AE8CB8C
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
+ CONST dfm:PathOnly '\common\components\gui\Garant\VT'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\VT'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'PanelPrim'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_50FD3A9003A4 TvtCustomPanelPrim
 
@@ -403,6 +425,7 @@ ref; // ME_5100C0AA02AC fakefakefakefakefake
 : ME_407D4ED104B0
  CONST UID '407D4ED104B0'
  CONST Name 'f_OnResize'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY 'Поле для свойства OnResize' ;
  CONST Visibility PrivateAccess
@@ -413,12 +436,14 @@ ref; // ME_5100C0AA02AC fakefakefakefakefake
  : Target WL 'ME_47881B22005A' '4AB0997B00A2.pas.ms.script' // TNotifyEvent
  ;
  CONST "ifndef" 'Delphi7'
+ CONST extprop:clearViaProperty 'OnResize'
 
 ref; // ME_407D4ED104B0 f_OnResize
 
 : ME_66FE139639E6
  CONST UID '66FE139639E6'
  CONST Name 'f_FixW2kWMSize'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY 'Поле для свойства FixW2kWMSize' ;
  CONST Visibility PrivateAccess
@@ -428,6 +453,7 @@ ref; // ME_407D4ED104B0 f_OnResize
  ;
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
+ CONST extprop:clearViaProperty 'FixW2kWMSize'
 
 ref; // ME_66FE139639E6 f_FixW2kWMSize
 
@@ -436,6 +462,7 @@ FORWARD ME_50FD3279019E
 : ME_246F80DD1B07
  CONST UID '246F80DD1B07'
  CONST Name 'DoIt'
+ CONST IsSummoned true
  CONST Class class_Operation
  %SUMMARY 'Сигнатура метода Resize' ;
  CONST Visibility PublicAccess
@@ -456,8 +483,8 @@ ref; // ME_246F80DD1B07 DoIt
  : Parent ME_50FD1AE5027A // TvtCustomPanel
  ;
  : Operations
-   @ ( ME_246F80DD1B07 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_246F80DD1B07 // DoIt
+ )
  ; // Operations
  CONST "ifndef" 'Delphi7'
 
@@ -494,9 +521,9 @@ ref; // ME_50FD3380030C Rect
  : Parent ME_50FD336F020B // DrawFrame
  ;
  : Parameters
-   @ ( ME_50FD338002F0 // CN
+   Seq: ( ME_50FD338002F0 // CN
  ME_50FD3380030C // Rect
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_50FD337900A3 DoIt
@@ -512,8 +539,8 @@ ref; // ME_50FD337900A3 DoIt
  : Parent ME_50FD1AE5027A // TvtCustomPanel
  ;
  : Operations
-   @ ( ME_50FD337900A3 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_50FD337900A3 // DoIt
+ )
  ; // Operations
 
 ref; // ME_50FD336F020B DrawFrame
@@ -538,8 +565,8 @@ ref; // ME_50FD356300C8 Message
  : Parent ME_50FD1AE5027A // TvtCustomPanel
  ;
  : Parameters
-   @ ( ME_50FD356300C8 // Message
- ) .SequenceCode.It
+   Seq: ( ME_50FD356300C8 // Message
+ )
  ; // Parameters
  CONST "Message ID" 'CM_TEXTCHANGED'
 
@@ -565,8 +592,8 @@ ref; // ME_50FD3579028E Message
  : Parent ME_50FD1AE5027A // TvtCustomPanel
  ;
  : Parameters
-   @ ( ME_50FD3579028E // Message
- ) .SequenceCode.It
+   Seq: ( ME_50FD3579028E // Message
+ )
  ; // Parameters
  CONST "Message ID" 'WM_SIZE'
 
@@ -592,8 +619,8 @@ ref; // ME_50FD358C010D Message
  : Parent ME_50FD1AE5027A // TvtCustomPanel
  ;
  : Parameters
-   @ ( ME_50FD358C010D // Message
- ) .SequenceCode.It
+   Seq: ( ME_50FD358C010D // Message
+ )
  ; // Parameters
  CONST "Message ID" 'WM_WINDOWPOSCHANGED'
 
@@ -619,8 +646,8 @@ ref; // ME_50FD359C02E9 Message
  : Parent ME_50FD1AE5027A // TvtCustomPanel
  ;
  : Parameters
-   @ ( ME_50FD359C02E9 // Message
- ) .SequenceCode.It
+   Seq: ( ME_50FD359C02E9 // Message
+ )
  ; // Parameters
  CONST "Message ID" 'WM_ERASEBKGND'
 
@@ -629,6 +656,7 @@ ref; // ME_50FD3594029E WMEraseBkgnd
 : ME_71D63B464597
  CONST UID '71D63B464597'
  CONST Name 'Ini_Reg_Class'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Регистрация TvtCustomPanel' ;
@@ -697,6 +725,7 @@ ref; // ME_50FE9EFE0042
 
 : ME_1B0577E51991
  CONST UID '1B0577E51991'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_50FD1AE5027A // TvtCustomPanel
@@ -713,6 +742,7 @@ ref; // ME_1B0577E51991
  ;
  : Implementor ME_50FD1AE5027A // TvtCustomPanel
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_47D1602000C6_ME_50FD1AE5027A Create
 
 : ME_48C6C044025E_ME_50FD1AE5027A
@@ -722,6 +752,7 @@ ref; // ME_47D1602000C6_ME_50FD1AE5027A Create
  ;
  : Implementor ME_50FD1AE5027A // TvtCustomPanel
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_48C6C044025E_ME_50FD1AE5027A Paint
 
 : ME_48C7925A02E5_ME_50FD1AE5027A
@@ -731,6 +762,7 @@ ref; // ME_48C6C044025E_ME_50FD1AE5027A Paint
  ;
  : Implementor ME_50FD1AE5027A // TvtCustomPanel
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_48C7925A02E5_ME_50FD1AE5027A CreateParams
 
 : ME_5028E66702B0_ME_50FD1AE5027A
@@ -740,6 +772,7 @@ ref; // ME_48C7925A02E5_ME_50FD1AE5027A CreateParams
  ;
  : Implementor ME_50FD1AE5027A // TvtCustomPanel
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_5028E66702B0_ME_50FD1AE5027A AlignControls
 
 : ME_50FD31EE009B_ME_50FD1AE5027A
@@ -749,6 +782,7 @@ ref; // ME_5028E66702B0_ME_50FD1AE5027A AlignControls
  ;
  : Implementor ME_50FD1AE5027A // TvtCustomPanel
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_50FD31EE009B_ME_50FD1AE5027A SetParentBackground
 
 : ME_50FD1AE5027A
@@ -762,12 +796,12 @@ ref; // ME_50FD31EE009B_ME_50FD1AE5027A SetParentBackground
  : Parent ME_4A7961A701CF // TvtPanel
  ;
  : Inherits
-   @ ( WL 'ME_49EF346400A4' '49EF33F700C2.pas.ms.script' // afwShortcutsHandler
+   Seq: ( WL 'ME_49EF346400A4' '49EF33F700C2.pas.ms.script' // afwShortcutsHandler
  ME_50FD3A9003A4 // TvtCustomPanelPrim
- ) .SequenceCode.It
+ )
  ; // Inherits
  : Attributes
-   @ ( ME_50FD1AC70323 // OnResize
+   Seq: ( ME_50FD1AC70323 // OnResize
  ME_50FD305F022B // FixW2kWMSize
  ME_50FD340201CD // f_ParentBackgroundSet
  ME_50FD3423013B // f_In64Hack
@@ -775,34 +809,34 @@ ref; // ME_50FD31EE009B_ME_50FD1AE5027A SetParentBackground
  ME_5100C0AA02AC // fakefakefakefakefake
  ME_407D4ED104B0 // f_OnResize
  ME_66FE139639E6 // f_FixW2kWMSize
- ) .SequenceCode.It
+ )
  ; // Attributes
  : Operations
-   @ ( ME_50FD3279019E // Resize
+   Seq: ( ME_50FD3279019E // Resize
  ME_50FD336F020B // DrawFrame
  ME_50FD355100B9 // CMTextChanged
  ME_50FD356F0225 // WMSize
  ME_50FD3584018B // WMWindowPosChanged
  ME_50FD3594029E // WMEraseBkgnd
  ME_71D63B464597 // Ini_Reg_Class
- ) .SequenceCode.It
+ )
  ; // Operations
  : Overridden
-   @ ( ME_47D1602000C6_ME_50FD1AE5027A // Create
+   Seq: ( ME_47D1602000C6_ME_50FD1AE5027A // Create
  ME_48C6C044025E_ME_50FD1AE5027A // Paint
  ME_48C7925A02E5_ME_50FD1AE5027A // CreateParams
  ME_5028E66702B0_ME_50FD1AE5027A // AlignControls
  ME_50FD31EE009B_ME_50FD1AE5027A // SetParentBackground
- ) .SequenceCode.It
+ )
  ; // Overridden
  : Dependencies
-   @ ( ME_50FE994E0078 // 
+   Seq: ( ME_50FE994E0078 // 
  ME_50FE9CE1009A // 
  ME_50FE9E44021F // 
  ME_50FE9EB402C7 // 
  ME_50FE9EFE0042 // 
  ME_1B0577E51991 // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  CONST "base wnd class" 'CWnd'
  CONST "need UC" true
@@ -810,12 +844,19 @@ ref; // ME_50FD31EE009B_ME_50FD1AE5027A SetParentBackground
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
+ CONST dfm:PathOnly '\common\components\gui\Garant\VT'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\VT'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'Panel'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_50FD1AE5027A TvtCustomPanel
 
 : ME_F6B746148AA5
  CONST UID 'F6B746148AA5'
  CONST Name 'Ini_Reg_Class'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Регистрация TvtPanel' ;
@@ -829,6 +870,7 @@ ref; // ME_F6B746148AA5 Ini_Reg_Class
 
 : ME_89E2FBBDF8E0
  CONST UID '89E2FBBDF8E0'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_4A7961A701CF // TvtPanel
@@ -849,21 +891,21 @@ ref; // ME_89E2FBBDF8E0
  : Parent ME_4A7960CC03A4 //  Panels
  ;
  : Inherits
-   @ ( ME_50FD1AE5027A // TvtCustomPanel
- ) .SequenceCode.It
+   Seq: ( ME_50FD1AE5027A // TvtCustomPanel
+ )
  ; // Inherits
  : Operations
-   @ ( ME_F6B746148AA5 // Ini_Reg_Class
- ) .SequenceCode.It
+   Seq: ( ME_F6B746148AA5 // Ini_Reg_Class
+ )
  ; // Operations
  : Children
-   @ ( ME_50FD3A9003A4 // TvtCustomPanelPrim
+   Seq: ( ME_50FD3A9003A4 // TvtCustomPanelPrim
  ME_50FD1AE5027A // TvtCustomPanel
- ) .SequenceCode.It
+ )
  ; // Children
  : Dependencies
-   @ ( ME_89E2FBBDF8E0 // 
- ) .SequenceCode.It
+   Seq: ( ME_89E2FBBDF8E0 // 
+ )
  ; // Dependencies
  CONST "base wnd class" 'CWnd'
  CONST "need UC" true
@@ -871,12 +913,14 @@ ref; // ME_89E2FBBDF8E0
  CONST "needs script" 'undefined'
  CONST "no hands" true
  CONST "register in scripts" 'undefined'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\VT'
  CONST intf.pas:Path 'common\components\gui\Garant\VT\vtPanel.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\VT'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'Panel'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'vtPanel'
 
 ref; // ME_4A7961A701CF TvtPanel
 
@@ -893,14 +937,20 @@ FORWARD ME_4A7AD11C028B
  : Parent ME_4A7AD11C028B // TvtProportionalPanel
  ;
  : Inherits
-   @ ( ME_4A7AD11C028B // TvtProportionalPanel
- ) .SequenceCode.It
+   Seq: ( ME_4A7AD11C028B // TvtProportionalPanel
+ )
  ; // Inherits
  CONST "base wnd class" 'CWnd'
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
+ CONST dfm:PathOnly '\common\components\gui\Garant\VT'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\VT'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'ProportionalCustomPanel'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_4F71F9080285 TvtProportionalCustomPanel
 
@@ -915,8 +965,8 @@ ref; // ME_4F71F9080285 TvtProportionalCustomPanel
  : Parent ME_4A7960CC03A4 //  Panels
  ;
  : Children
-   @ ( ME_4F71F9080285 // TvtProportionalCustomPanel
- ) .SequenceCode.It
+   Seq: ( ME_4F71F9080285 // TvtProportionalCustomPanel
+ )
  ; // Children
  CONST "base wnd class" 'CWnd'
  CONST "finished" false
@@ -924,12 +974,14 @@ ref; // ME_4F71F9080285 TvtProportionalCustomPanel
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\VT'
  CONST intf.pas:Path 'common\components\gui\Garant\VT\NOT_FINISHED_vtProportionalPanel.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\VT'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'ProportionalPanel'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'vtProportionalPanel'
 
 ref; // ME_4A7AD11C028B TvtProportionalPanel
 
@@ -938,6 +990,7 @@ FORWARD ME_4C2238D10107
 : ME_B535CFCF119D
  CONST UID 'B535CFCF119D'
  CONST Name 'Ini_Reg_Class'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Регистрация TvtCustomPreviewPanel' ;
@@ -951,6 +1004,7 @@ ref; // ME_B535CFCF119D Ini_Reg_Class
 
 : ME_B620CCF60AB7
  CONST UID 'B620CCF60AB7'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_4C2238D10107 // TvtCustomPreviewPanel
@@ -971,16 +1025,16 @@ ref; // ME_B620CCF60AB7
  : Parent ME_4A7960CC03A4 //  Panels
  ;
  : Inherits
-   @ ( WL 'ME_48BBE37E00A2' '467BA8C8017E.pas.ms.script' // TafwCustomCommonControl
- ) .SequenceCode.It
+   Seq: ( WL 'ME_48BBE37E00A2' '467BA8C8017E.pas.ms.script' // TafwCustomCommonControl
+ )
  ; // Inherits
  : Operations
-   @ ( ME_B535CFCF119D // Ini_Reg_Class
- ) .SequenceCode.It
+   Seq: ( ME_B535CFCF119D // Ini_Reg_Class
+ )
  ; // Operations
  : Dependencies
-   @ ( ME_B620CCF60AB7 // 
- ) .SequenceCode.It
+   Seq: ( ME_B620CCF60AB7 // 
+ )
  ; // Dependencies
  CONST "base wnd class" 'CWnd'
  CONST "finished" false
@@ -988,12 +1042,14 @@ ref; // ME_B620CCF60AB7
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\VT'
  CONST intf.pas:Path 'common\components\gui\Garant\VT\NOT_FINISHED_vtCustomPreviewPanel.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\VT'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'PreviewPanel'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'vtCustomPreviewPanel'
 
 ref; // ME_4C2238D10107 TvtCustomPreviewPanel
 
@@ -1002,6 +1058,7 @@ FORWARD ME_4C2238BC037D
 : ME_57BA4B02CA37
  CONST UID '57BA4B02CA37'
  CONST Name 'Ini_Reg_Class'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Регистрация TvtPreviewPanel' ;
@@ -1015,6 +1072,7 @@ ref; // ME_57BA4B02CA37 Ini_Reg_Class
 
 : ME_F8643F11B997
  CONST UID 'F8643F11B997'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_4C2238BC037D // TvtPreviewPanel
@@ -1035,16 +1093,16 @@ ref; // ME_F8643F11B997
  : Parent ME_4A7960CC03A4 //  Panels
  ;
  : Inherits
-   @ ( ME_4C2238D10107 // TvtCustomPreviewPanel
- ) .SequenceCode.It
+   Seq: ( ME_4C2238D10107 // TvtCustomPreviewPanel
+ )
  ; // Inherits
  : Operations
-   @ ( ME_57BA4B02CA37 // Ini_Reg_Class
- ) .SequenceCode.It
+   Seq: ( ME_57BA4B02CA37 // Ini_Reg_Class
+ )
  ; // Operations
  : Dependencies
-   @ ( ME_F8643F11B997 // 
- ) .SequenceCode.It
+   Seq: ( ME_F8643F11B997 // 
+ )
  ; // Dependencies
  CONST "base wnd class" 'CWnd'
  CONST "finished" false
@@ -1052,12 +1110,14 @@ ref; // ME_F8643F11B997
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\VT'
  CONST intf.pas:Path 'common\components\gui\Garant\VT\NOT_FINISHED_vtPreviewPanel.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\VT'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'PreviewPanel'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'vtPreviewPanel'
 
 ref; // ME_4C2238BC037D TvtPreviewPanel
 
@@ -1066,6 +1126,7 @@ FORWARD ME_52B99162037C
 : ME_4E1440C54E93
  CONST UID '4E1440C54E93'
  CONST Name 'Ini_Reg_Class'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Регистрация TvtCustomCommonPanel' ;
@@ -1079,6 +1140,7 @@ ref; // ME_4E1440C54E93 Ini_Reg_Class
 
 : ME_3AA6FF5FB622
  CONST UID '3AA6FF5FB622'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_52B99162037C // TvtCustomCommonPanel
@@ -1099,16 +1161,16 @@ ref; // ME_3AA6FF5FB622
  : Parent ME_4A7960CC03A4 //  Panels
  ;
  : Inherits
-   @ ( ME_4A7961A701CF // TvtPanel
- ) .SequenceCode.It
+   Seq: ( ME_4A7961A701CF // TvtPanel
+ )
  ; // Inherits
  : Operations
-   @ ( ME_4E1440C54E93 // Ini_Reg_Class
- ) .SequenceCode.It
+   Seq: ( ME_4E1440C54E93 // Ini_Reg_Class
+ )
  ; // Operations
  : Dependencies
-   @ ( ME_3AA6FF5FB622 // 
- ) .SequenceCode.It
+   Seq: ( ME_3AA6FF5FB622 // 
+ )
  ; // Dependencies
  CONST "base wnd class" 'CWnd'
  CONST "finished" false
@@ -1116,12 +1178,14 @@ ref; // ME_3AA6FF5FB622
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\VT'
  CONST intf.pas:Path 'common\components\gui\Garant\VT\NOT_FINISHED_vtCustomCommonPanel.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\VT'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'CommonPanel'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'vtCustomCommonPanel'
 
 ref; // ME_52B99162037C TvtCustomCommonPanel
 
@@ -1135,16 +1199,16 @@ ref; // ME_52B99162037C TvtCustomCommonPanel
  : Parent WL 'ME_547CC9D40158' '547CC9D40158.pas.ms.script' // VT$Panels
  ;
  : Children
-   @ ( ME_4A7961300264 // TvtSizeablePanel
+   Seq: ( ME_4A7961300264 // TvtSizeablePanel
  ME_4A7961A701CF // TvtPanel
  ME_4A7AD11C028B // TvtProportionalPanel
  ME_4C2238D10107 // TvtCustomPreviewPanel
  ME_4C2238BC037D // TvtPreviewPanel
  ME_52B99162037C // TvtCustomCommonPanel
- ) .SequenceCode.It
+ )
  ; // Children
  : Depends
-   @ ( WL 'ME_467BA8C8017E' '467BA8C8017E.pas.ms.script' // afwControl
+   Seq: ( WL 'ME_467BA8C8017E' '467BA8C8017E.pas.ms.script' // afwControl
  WL 'ME_467C0CAA02AB' '467C0CAA02AB.pas.ms.script' // l3InternalInterfaces
  WL 'ME_4728A7020026' '4728A7020026.pas.ms.script' // Types
  WL 'ME_476F78840219' '476F78840219.pas.ms.script' // Messages
@@ -1158,15 +1222,13 @@ ref; // ME_52B99162037C TvtCustomCommonPanel
  WL 'ME_54B90AC6014B' '54B90AC6014B.pas.ms.script' // StringUtils
  WL 'ME_55C4AEC801CA' '55C4AEC801CA.pas.ms.script' // Graphics
  WL 'ME_561F9F7D02A7' '561F9F7D02A7.pas.ms.script' // ScriptEngine
- ) .SequenceCode.It
+ )
  ; // Depends
- : Generators
- @ (
- gen_pas.script
- gen_pas.script.runner
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\VT'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\VT'
  CONST pas.script:Path 'shared\models\NewSchool\Scripts\4A7960CC03A4.pas.ms.script'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
  CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\4A7960CC03A4.pas.ms.script.runner'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_4A7960CC03A4  Panels

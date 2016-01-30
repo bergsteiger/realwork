@@ -66,19 +66,19 @@ ref; // ME_47B99D4503A2_ME_4E26F5230116 CompareExistingItems
  : Parent ME_473C3BEE0334 // l3Canvas
  ;
  : Inherits
-   @ ( WL 'ME_4A54DD4E036F' '47913B47006E.pas.ms.script' // Tl3ProtoDataContainer
+   Seq: ( WL 'ME_4A54DD4E036F' '47913B47006E.pas.ms.script' // Tl3ProtoDataContainer
  WL 'ME_4B223ADC02BF' '47913B47006E.pas.ms.script' // l3RecordListPrim
- ) .SequenceCode.It
+ )
  ; // Inherits
  : Attributes
-   @ ( ME_4E26F54C0368 // ItemType
- ) .SequenceCode.It
+   Seq: ( ME_4E26F54C0368 // ItemType
+ )
  ; // Attributes
  : Implemented
-   @ ( ME_47B07CF403D0_ME_4E26F5230116 // IsSameItems
+   Seq: ( ME_47B07CF403D0_ME_4E26F5230116 // IsSameItems
  ME_47B2C42A0163_ME_4E26F5230116 // AssignItem
  ME_47B99D4503A2_ME_4E26F5230116 // CompareExistingItems
- ) .SequenceCode.It
+ )
  ; // Implemented
  CONST "author" 'Люлин А.В.'
  CONST "needs InstanceR" 'undefined'
@@ -86,12 +86,14 @@ ref; // ME_47B99D4503A2_ME_4E26F5230116 CompareExistingItems
  CONST "no hands" true
  CONST "register in scripts" 'undefined'
  CONST "started" '20.07.2011 19:33'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\L3'
  CONST intf.pas:Path 'common\components\rtl\Garant\L3\l3RectList.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\L3'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'RectList'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'l3RectList'
 
 ref; // ME_4E26F5230116 Tl3RectList
 
@@ -146,11 +148,16 @@ ref; // ME_478E405801C3 l3_oprEndDoc
  : Parent ME_4A4CB79A02C6 // Tl3CanvasPrim
  ;
  : Attributes
-   @ ( ME_478E404B0158 // l3_oprNo
+   Seq: ( ME_478E404B0158 // l3_oprNo
  ME_478E405003A9 // l3_oprYes
  ME_478E405801C3 // l3_oprEndDoc
- ) .SequenceCode.It
+ )
  ; // Attributes
+ CONST dfm:PathOnly '\common\components\rtl\Garant\L3'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\L3'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_478E4042036E Tl3OpenPageResult
 
@@ -239,14 +246,19 @@ ref; // ME_4A4CBF5D03B8 ev_dfPrinted
  : Parent ME_4A4CB79A02C6 // Tl3CanvasPrim
  ;
  : Attributes
-   @ ( ME_4A4CBF4301A8 // ev_dfDrawCursor
+   Seq: ( ME_4A4CBF4301A8 // ev_dfDrawCursor
  ME_4A4CBF4801CB // ev_dfDrawRegion
  ME_4A4CBF4D01C1 // ev_dfDrawSpecial
  ME_4A4CBF540005 // ev_dfPrinting
  ME_4A4CBF58022F // ev_dfSelfStarted
  ME_4A4CBF5D03B8 // ev_dfPrinted
- ) .SequenceCode.It
+ )
  ; // Attributes
+ CONST dfm:PathOnly '\common\components\rtl\Garant\L3'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\L3'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_4A4CBF3A03C4 Tl3DrawFlag
 
@@ -261,9 +273,13 @@ ref; // ME_4A4CBF3A03C4 Tl3DrawFlag
  : Parent ME_4A4CB79A02C6 // Tl3CanvasPrim
  ;
  : Inherits
-   @ ( ME_4A4CBF3A03C4 // Tl3DrawFlag
- ) .SequenceCode.It
+   Seq: ( ME_4A4CBF3A03C4 // Tl3DrawFlag
+ )
  ; // Inherits
+ CONST dfm:PathOnly '\common\components\rtl\Garant\L3'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\L3'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_4A4CBF6F03E7 TevDrawFlags
 
@@ -329,12 +345,17 @@ ref; // ME_4A4CBFED01B9 ev_dcfLinked
  : Parent ME_4A4CB79A02C6 // Tl3CanvasPrim
  ;
  : Attributes
-   @ ( ME_4A4CBFE00101 // ev_dcfCanvas
+   Seq: ( ME_4A4CBFE00101 // ev_dcfCanvas
  ME_4A4CBFE40380 // ev_dcfGot
  ME_4A4CBFE90111 // ev_dcfCreated
  ME_4A4CBFED01B9 // ev_dcfLinked
- ) .SequenceCode.It
+ )
  ; // Attributes
+ CONST dfm:PathOnly '\common\components\rtl\Garant\L3'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\L3'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_4A4CBFCF02D5 TevDCFlag
 
@@ -478,7 +499,7 @@ ref; // ME_4A4CD57E0136 rIsAssigned
  : Parent ME_4A4CB79A02C6 // Tl3CanvasPrim
  ;
  : Attributes
-   @ ( ME_4A4CD51E028A // rLOGPIXELSX
+   Seq: ( ME_4A4CD51E028A // rLOGPIXELSX
  ME_4A4CD52A01A4 // rLOGPIXELSY
  ME_4A4CD53602E7 // rHORZRES
  ME_4A4CD541007E // rVERTRES
@@ -487,8 +508,12 @@ ref; // ME_4A4CD57E0136 rIsAssigned
  ME_4A4CD56102FC // rPHYSICALOFFSETX
  ME_4A4CD56C0365 // rPHYSICALOFFSETY
  ME_4A4CD57E0136 // rIsAssigned
- ) .SequenceCode.It
+ )
  ; // Attributes
+ CONST dfm:PathOnly '\common\components\rtl\Garant\L3'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\L3'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_4A4CD51000ED Tl3DeviceCaps
 
@@ -508,6 +533,7 @@ ref; // ME_4A4CD51000ED Tl3DeviceCaps
  : ValueType WL 'ME_4799ECBF00D6' '4799EC9300AF.pas.ms.script' // Defaults
  ;
  CONST "ifdef" 'nsTest'
+ CONST extprop:pas:Value 'def_PrintingLineSpacing'
 
 ref; // ME_4E5BD2E40301 g_PrintingLineSpacing
 
@@ -874,6 +900,7 @@ ref; // ME_4F2AC2C90385 f_InitialDCOffsetStored
 : ME_B6469CD3B8C3
  CONST UID 'B6469CD3B8C3'
  CONST Name 'f_Flags'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY 'Поле для свойства Flags' ;
  CONST Visibility PrivateAccess
@@ -883,12 +910,14 @@ ref; // ME_4F2AC2C90385 f_InitialDCOffsetStored
  ;
  : Target ME_4A4CBF6F03E7 // TevDrawFlags
  ;
+ CONST extprop:clearViaProperty 'Flags'
 
 ref; // ME_B6469CD3B8C3 f_Flags
 
 : ME_C11F8EC36A6D
  CONST UID 'C11F8EC36A6D'
  CONST Name 'f_OnDrawSub'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY 'Поле для свойства OnDrawSub' ;
  CONST Visibility PrivateAccess
@@ -898,12 +927,14 @@ ref; // ME_B6469CD3B8C3 f_Flags
  ;
  : Target WL 'ME_476F9BBD02F1' '467C0CAA02AB.pas.ms.script' // TevDrawSubEvent
  ;
+ CONST extprop:clearViaProperty 'OnDrawSub'
 
 ref; // ME_C11F8EC36A6D f_OnDrawSub
 
 : ME_BA5D4E0AF1E8
  CONST UID 'BA5D4E0AF1E8'
  CONST Name 'f_CanDrawSubs'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY 'Поле для свойства CanDrawSubs' ;
  CONST Visibility PrivateAccess
@@ -919,6 +950,7 @@ ref; // ME_BA5D4E0AF1E8 f_CanDrawSubs
 : ME_CBF4812359EF
  CONST UID 'CBF4812359EF'
  CONST Name 'f_PixelsPerInchX'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY 'Поле для свойства PixelsPerInchX' ;
  CONST Visibility PrivateAccess
@@ -934,6 +966,7 @@ ref; // ME_CBF4812359EF f_PixelsPerInchX
 : ME_22423B4D9BE0
  CONST UID '22423B4D9BE0'
  CONST Name 'f_PixelsPerInchY'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY 'Поле для свойства PixelsPerInchY' ;
  CONST Visibility PrivateAccess
@@ -994,13 +1027,13 @@ ref; // ME_4A4CC6E60233
  : Parent ME_4A4CB79A02C6 // Tl3CanvasPrim
  ;
  : Operations
-   @ ( ME_4A4CBD21006C // CalcPrintableArea
- ) .SequenceCode.It
+   Seq: ( ME_4A4CBD21006C // CalcPrintableArea
+ )
  ; // Operations
  : Dependencies
-   @ ( ME_4A4CBD5F0342 // 
+   Seq: ( ME_4A4CBD5F0342 // 
  ME_4A4CC6E60233 // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
 
 ref; // ME_4A4CBD130121 CalcPrintableArea
@@ -1056,11 +1089,11 @@ ref; // ME_4A4CC162000A aSub
  : Parent ME_4A4CC1410062 // DrawSub
  ;
  : Parameters
-   @ ( ME_4A4CC161038A // aSubTarget
+   Seq: ( ME_4A4CC161038A // aSubTarget
  ME_4A4CC16103B1 // R
  ME_4A4CC16103D1 // LayerHandle
  ME_4A4CC162000A // aSub
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_4A4CC14E009D DrawSub
@@ -1076,8 +1109,8 @@ ref; // ME_4A4CC14E009D DrawSub
  : Parent ME_4A4CB79A02C6 // Tl3CanvasPrim
  ;
  : Operations
-   @ ( ME_4A4CC14E009D // DrawSub
- ) .SequenceCode.It
+   Seq: ( ME_4A4CC14E009D // DrawSub
+ )
  ; // Operations
 
 ref; // ME_4A4CC1410062 DrawSub
@@ -1106,8 +1139,8 @@ ref; // ME_4A4CCE50024B DoIt
  : Parent ME_4A4CB79A02C6 // Tl3CanvasPrim
  ;
  : Operations
-   @ ( ME_4A4CCE50024B // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_4A4CCE50024B // DoIt
+ )
  ; // Operations
 
 ref; // ME_4A4CCE400004 UpdatePixelsPerInch
@@ -1138,8 +1171,8 @@ ref; // ME_4CB32D5A0083 DoIt
  : Parent ME_4A4CB79A02C6 // Tl3CanvasPrim
  ;
  : Operations
-   @ ( ME_4CB32D5A0083 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_4CB32D5A0083 // DoIt
+ )
  ; // Operations
 
 ref; // ME_4CB32D4C030E GetIsPagesCounter
@@ -1170,8 +1203,8 @@ ref; // ME_4E9852460097 DoIt
  : Parent ME_4A4CB79A02C6 // Tl3CanvasPrim
  ;
  : Operations
-   @ ( ME_4E9852460097 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_4E9852460097 // DoIt
+ )
  ; // Operations
 
 ref; // ME_4E98521202B5 GetGlobalClipRectWithZoom
@@ -1236,8 +1269,8 @@ ref; // ME_4A4CC713006E anIndex
  : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
  ;
  : Parameters
-   @ ( ME_4A4CC713006E // anIndex
- ) .SequenceCode.It
+   Seq: ( ME_4A4CC713006E // anIndex
+ )
  ; // Parameters
 
 ref; // ME_4A4CC70C03D2 DeviceCaps
@@ -1572,21 +1605,21 @@ ref; // ME_47A042E100E2_ME_4A4CB79A02C6 InitFields
  : Parent ME_473C3BEE0334 // l3Canvas
  ;
  : Inherits
-   @ ( WL 'ME_49E7754802A9' '47913B47006E.pas.ms.script' // Tl3ProtoObject
- ) .SequenceCode.It
+   Seq: ( WL 'ME_49E7754802A9' '47913B47006E.pas.ms.script' // Tl3ProtoObject
+ )
  ; // Inherits
  : Implements
-   @ ( WL 'ME_4728BEE10130' '4677FBA70343.pas.ms.script' // Il3PageSetup
+   Seq: ( WL 'ME_4728BEE10130' '4677FBA70343.pas.ms.script' // Il3PageSetup
  WL 'ME_4A4CE05603CC' '467C0CAA02AB.pas.ms.script' // Ml3UnitsConverter
  WL 'ME_4CB32CA1019D' '467C0CAA02AB.pas.ms.script' // Ml3PageInfo
  WL 'ME_4CB3352001F4' '467C0CAA02AB.pas.ms.script' // Ml3PageNumberInfo
  WL 'ME_4E007C88001D' '467C0CAA02AB.pas.ms.script' // Ml3WindowOrg
  WL 'ME_4E26F448017F' '467C0CAA02AB.pas.ms.script' // Ml3CanvasState
  WL 'ME_4E57A98E00A7' '467C0CAA02AB.pas.ms.script' // Ml3TextProperties
- ) .SequenceCode.It
+ )
  ; // Implements
  : Attributes
-   @ ( ME_4E5BD2E40301 // g_PrintingLineSpacing
+   Seq: ( ME_4E5BD2E40301 // g_PrintingLineSpacing
  ME_4A4CBCA702AD // f_Margins
  ME_4A4CBF0003DF // Printing
  ME_4A4CBF8200C8 // Flags
@@ -1615,10 +1648,10 @@ ref; // ME_47A042E100E2_ME_4A4CB79A02C6 InitFields
  ME_BA5D4E0AF1E8 // f_CanDrawSubs
  ME_CBF4812359EF // f_PixelsPerInchX
  ME_22423B4D9BE0 // f_PixelsPerInchY
- ) .SequenceCode.It
+ )
  ; // Attributes
  : Operations
-   @ ( ME_4A4CBD130121 // CalcPrintableArea
+   Seq: ( ME_4A4CBD130121 // CalcPrintableArea
  ME_4A4CC1410062 // DrawSub
  ME_4A4CCE400004 // UpdatePixelsPerInch
  ME_4CB32D4C030E // GetIsPagesCounter
@@ -1631,10 +1664,10 @@ ref; // ME_47A042E100E2_ME_4A4CB79A02C6 InitFields
  ME_4A4CCF9202D9 // AsIl3Canvas
  ME_4A4CE6BE005A // AssignDeviceCaps
  ME_4D1B61130223 // DoGetPaperWidth
- ) .SequenceCode.It
+ )
  ; // Operations
  : Implemented
-   @ ( ME_4728BE6A0392_ME_4A4CB79A02C6 // PageNumber
+   Seq: ( ME_4728BE6A0392_ME_4A4CB79A02C6 // PageNumber
  ME_4728BE830080_ME_4A4CB79A02C6 // PageWidthNumber
  ME_4A4CD82A0310_ME_4A4CB79A02C6 // Width
  ME_4A4CD82E025B_ME_4A4CB79A02C6 // Height
@@ -1652,28 +1685,28 @@ ref; // ME_47A042E100E2_ME_4A4CB79A02C6 InitFields
  ME_4E6894860139_ME_4A4CB79A02C6 // PushLineSpacing
  ME_4E68949A0121_ME_4A4CB79A02C6 // PopLineSpacing
  ME_4F2AC2020377_ME_4A4CB79A02C6 // InitialDCOffsetStored
- ) .SequenceCode.It
+ )
  ; // Implemented
  : Overridden
-   @ ( ME_479731C50290_ME_4A4CB79A02C6 // Cleanup
+   Seq: ( ME_479731C50290_ME_4A4CB79A02C6 // Cleanup
  ME_47A042E100E2_ME_4A4CB79A02C6 // InitFields
- ) .SequenceCode.It
+ )
  ; // Overridden
  : Children
-   @ ( ME_478E4042036E // Tl3OpenPageResult
+   Seq: ( ME_478E4042036E // Tl3OpenPageResult
  ME_4A4CBF3A03C4 // Tl3DrawFlag
  ME_4A4CBF6F03E7 // TevDrawFlags
  ME_4A4CBFCF02D5 // TevDCFlag
  ME_4A4CD51000ED // Tl3DeviceCaps
- ) .SequenceCode.It
+ )
  ; // Children
  : Dependencies
-   @ ( ME_4A4CCC11013D // 
+   Seq: ( ME_4A4CCC11013D // 
  ME_4A4CCC38006D // 
  ME_4A4CE533028D // 
  ME_4A4CE548009F // 
  ME_4E26F5B9014F // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  CONST "author" 'Люлин А.В.'
  CONST "needs InstanceR" 'undefined'
@@ -1681,12 +1714,14 @@ ref; // ME_47A042E100E2_ME_4A4CB79A02C6 InitFields
  CONST "no hands" true
  CONST "register in scripts" 'undefined'
  CONST "started" '02.06.2009 17:35'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\L3'
  CONST intf.pas:Path 'common\components\rtl\Garant\L3\l3CanvasPrim.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\L3'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'CanvasPrim'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'l3CanvasPrim'
 
 ref; // ME_4A4CB79A02C6 Tl3CanvasPrim
 
@@ -1697,6 +1732,7 @@ FORWARD ME_556EE661021E
 : ME_7BDA0E54BEA7
  CONST UID '7BDA0E54BEA7'
  CONST Name 'bind'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Регистрация Tl3ScreenServiceDef' ;
@@ -1710,6 +1746,7 @@ ref; // ME_7BDA0E54BEA7 bind
 : ME_29E8D59723C2
  CONST UID '29E8D59723C2'
  CONST Name 'Exists'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_static::Operation ;
  %SUMMARY 'Проверяет создан экземпляр синглетона или нет' ;
@@ -1719,6 +1756,7 @@ ref; // ME_7BDA0E54BEA7 bind
  ;
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
+ CONST extprop:pas:Value false
 
 ref; // ME_29E8D59723C2 Exists
 
@@ -1754,31 +1792,37 @@ ref; // ME_88066E5D0414_ME_556EE661021E IC
  : Parent ME_4799F84900DD // l3ScreenIC
  ;
  : Inherits
-   @ ( WL 'ME_49E7754802A9' '47913B47006E.pas.ms.script' // Tl3ProtoObject
- ) .SequenceCode.It
+   Seq: ( WL 'ME_49E7754802A9' '47913B47006E.pas.ms.script' // Tl3ProtoObject
+ )
  ; // Inherits
  : Implements
-   @ ( WL 'ME_6186CACBB9C1' '556EE5640169.pas.ms.script' // Il3ScreenService
- ) .SequenceCode.It
+   Seq: ( WL 'ME_6186CACBB9C1' '556EE5640169.pas.ms.script' // Il3ScreenService
+ )
  ; // Implements
  : Operations
-   @ ( ME_7BDA0E54BEA7 // bind
+   Seq: ( ME_7BDA0E54BEA7 // bind
  ME_29E8D59723C2 // Exists
- ) .SequenceCode.It
+ )
  ; // Operations
  : Implemented
-   @ ( ME_88066E5D0414_ME_556EE661021E // IC
- ) .SequenceCode.It
+   Seq: ( ME_88066E5D0414_ME_556EE661021E // IC
+ )
  ; // Implemented
  : Dependencies
-   @ ( ME_556EE66A0176 // 
- ) .SequenceCode.It
+   Seq: ( ME_556EE66A0176 // 
+ )
  ; // Dependencies
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
  CONST "singleton" true
+ CONST dfm:PathOnly '\common\components\rtl\Garant\L3'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\L3'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'ScreenServiceDef'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_556EE661021E Tl3ScreenServiceDef
 
@@ -1796,6 +1840,7 @@ ref; // ME_556EE661021E Tl3ScreenServiceDef
  CONST Value 'nil'
  : ValueType WL 'ME_46A608F00301' '4AB0C3C60310.pas.ms.script' // Pointer
  ;
+ CONST extprop:pas:Value 'nil'
 
 ref; // ME_4799F886030A f_CrtIC
 
@@ -1858,32 +1903,32 @@ ref; // ME_4799FAF80346
  : Parent ME_473C3BEE0334 // l3Canvas
  ;
  : Attributes
-   @ ( ME_4799F886030A // f_CrtIC
- ) .SequenceCode.It
+   Seq: ( ME_4799F886030A // f_CrtIC
+ )
  ; // Attributes
  : Operations
-   @ ( ME_4799F86A0356 // l3CrtIC
+   Seq: ( ME_4799F86A0356 // l3CrtIC
  ME_4799F8A402EA // FreeInfoCanvas
- ) .SequenceCode.It
+ )
  ; // Operations
  : Children
-   @ ( ME_556EE661021E // Tl3ScreenServiceDef
- ) .SequenceCode.It
+   Seq: ( ME_556EE661021E // Tl3ScreenServiceDef
+ )
  ; // Children
  : Dependencies
-   @ ( ME_4799F896039C // 
+   Seq: ( ME_4799F896039C // 
  ME_4799FAF80346 // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  CONST "author" 'Люлин А.В.'
  CONST "no hands" true
  CONST "started" '26.05.2005 16:12'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\L3'
  CONST intf.pas:Path 'common\components\rtl\Garant\L3\l3ScreenIC.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\L3'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'ScreenIC'
 
 ref; // ME_4799F84900DD l3ScreenIC
 
@@ -1923,8 +1968,8 @@ ref; // ME_47D14AF70335 aList
  : Parent ME_47D02E5F022F // Tl3ImageList
  ;
  : Parameters
-   @ ( ME_47D14AF70335 // aList
- ) .SequenceCode.It
+   Seq: ( ME_47D14AF70335 // aList
+ )
  ; // Parameters
 
 ref; // ME_47D14ADF03A0 Create
@@ -1951,8 +1996,8 @@ ref; // ME_47D14B040160 aList
  : Target WL 'ME_4728C6AC0070' '467C0CAA02AB.pas.ms.script' // Il3ImageList
  ;
  : Parameters
-   @ ( ME_47D14B040160 // aList
- ) .SequenceCode.It
+   Seq: ( ME_47D14B040160 // aList
+ )
  ; // Parameters
  CONST "check nil" false
  CONST "need AfterCreate" 'undefined'
@@ -1993,8 +2038,8 @@ ref; // ME_47D14E200098 aValue
  : Parent ME_47D02E5F022F // Tl3ImageList
  ;
  : Parameters
-   @ ( ME_47D14E200098 // aValue
- ) .SequenceCode.It
+   Seq: ( ME_47D14E200098 // aValue
+ )
  ; // Parameters
 
 ref; // ME_47D14E1A009A DoSetBigSize
@@ -2140,26 +2185,26 @@ ref; // ME_4728C7DC01EA_ME_47D02E5F022F BigSize
  : Parent ME_473C3BEE0334 // l3Canvas
  ;
  : Inherits
-   @ ( WL 'ME_4AE5CA2D0034' '47913B47006E.pas.ms.script' // Tl3CProtoObject
- ) .SequenceCode.It
+   Seq: ( WL 'ME_4AE5CA2D0034' '47913B47006E.pas.ms.script' // Tl3CProtoObject
+ )
  ; // Inherits
  : Implements
-   @ ( WL 'ME_4728C6AC0070' '467C0CAA02AB.pas.ms.script' // Il3ImageList
- ) .SequenceCode.It
+   Seq: ( WL 'ME_4728C6AC0070' '467C0CAA02AB.pas.ms.script' // Il3ImageList
+ )
  ; // Implements
  : Attributes
-   @ ( ME_47D149FA02C8 // f_List
- ) .SequenceCode.It
+   Seq: ( ME_47D149FA02C8 // f_List
+ )
  ; // Attributes
  : Operations
-   @ ( ME_47D14ADF03A0 // Create
+   Seq: ( ME_47D14ADF03A0 // Create
  ME_47D14B01003A // Make
  ME_47D14E0C0120 // DoGetBigSize
  ME_47D14E1A009A // DoSetBigSize
- ) .SequenceCode.It
+ )
  ; // Operations
  : Implemented
-   @ ( ME_4728C6D400FA_ME_47D02E5F022F // Draw
+   Seq: ( ME_4728C6D400FA_ME_47D02E5F022F // Draw
  ME_4728C6F401E6_ME_47D02E5F022F // Draw
  ME_4728C76E03C2_ME_47D02E5F022F // Draw
  ME_4728C79B0269_ME_47D02E5F022F // Hack
@@ -2168,13 +2213,13 @@ ref; // ME_4728C7DC01EA_ME_47D02E5F022F BigSize
  ME_4728C7C7006D_ME_47D02E5F022F // Count
  ME_4728C7D202A4_ME_47D02E5F022F // Handle
  ME_4728C7DC01EA_ME_47D02E5F022F // BigSize
- ) .SequenceCode.It
+ )
  ; // Implemented
  : Dependencies
-   @ ( ME_47D1506A01C9 // 
+   Seq: ( ME_47D1506A01C9 // 
  ME_47D151310194 // 
  ME_47D1528B00DD // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  CONST "author" 'Люлин А.В.'
  CONST "needs InstanceR" 'undefined'
@@ -2182,12 +2227,14 @@ ref; // ME_4728C7DC01EA_ME_47D02E5F022F BigSize
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
  CONST "started" '28.07.2005 15:50'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\L3'
  CONST intf.pas:Path 'common\components\rtl\Garant\L3\l3ImageList.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\L3'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'ImageList'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'l3ImageList'
 
 ref; // ME_47D02E5F022F Tl3ImageList
 
@@ -2227,6 +2274,7 @@ ref; // ME_478E407901A5 aDoc
  CONST Value false
  : ValueType WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
+ CONST extprop:pas:Value false
 
 ref; // ME_478E407901EA ByWidth
 
@@ -2241,9 +2289,9 @@ ref; // ME_478E407901EA ByWidth
  : Target ME_478E4042036E // Tl3OpenPageResult
  ;
  : Parameters
-   @ ( ME_478E407901A5 // aDoc
+   Seq: ( ME_478E407901A5 // aDoc
  ME_478E407901EA // ByWidth
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_478E406D004B NeedOpenRealPage
@@ -2290,9 +2338,9 @@ ref; // ME_478E41040193 Alien
  : Parent ME_473C3D830066 // Tl3Canvas
  ;
  : Parameters
-   @ ( ME_478E41040151 // Value
+   Seq: ( ME_478E41040151 // Value
  ME_478E41040193 // Alien
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_478E40F20207 SetCanvas
@@ -2365,8 +2413,8 @@ ref; // ME_47DFC915003B anObjectID
  : Parent ME_473C3D830066 // Tl3Canvas
  ;
  : Parameters
-   @ ( ME_47DFC915003B // anObjectID
- ) .SequenceCode.It
+   Seq: ( ME_47DFC915003B // anObjectID
+ )
  ; // Parameters
 
 ref; // ME_47DFC90A0366 DoStartObject
@@ -2401,8 +2449,8 @@ ref; // ME_47DFCAB602CF R
  : Parent ME_473C3D830066 // Tl3Canvas
  ;
  : Parameters
-   @ ( ME_47DFCAB602CF // R
- ) .SequenceCode.It
+   Seq: ( ME_47DFCAB602CF // R
+ )
  ; // Parameters
 
 ref; // ME_47DFCAAF0249 FillRectPrim
@@ -2426,8 +2474,8 @@ ref; // ME_47DFCAF40284 R
  : Parent ME_473C3D830066 // Tl3Canvas
  ;
  : Parameters
-   @ ( ME_47DFCAF40284 // R
- ) .SequenceCode.It
+   Seq: ( ME_47DFCAF40284 // R
+ )
  ; // Parameters
 
 ref; // ME_47DFCAEE0007 DoFillForeRect
@@ -2486,8 +2534,8 @@ ref; // ME_4FAE53320258 aDC
  : Parent ME_473C3D830066 // Tl3Canvas
  ;
  : Parameters
-   @ ( ME_4FAE53320258 // aDC
- ) .SequenceCode.It
+   Seq: ( ME_4FAE53320258 // aDC
+ )
  ; // Parameters
 
 ref; // ME_4FAE532B0348 FreeAlienDC
@@ -2524,8 +2572,8 @@ ref; // ME_54B4DE11020C aType
  : Parent ME_473C3D830066 // Tl3Canvas
  ;
  : Parameters
-   @ ( ME_54B4DE11020C // aType
- ) .SequenceCode.It
+   Seq: ( ME_54B4DE11020C // aType
+ )
  ; // Parameters
 
 ref; // ME_54B4DDF502DD DoStartDrawAAC
@@ -2549,8 +2597,8 @@ ref; // ME_54B4DE23039C R
  : Parent ME_473C3D830066 // Tl3Canvas
  ;
  : Parameters
-   @ ( ME_54B4DE23039C // R
- ) .SequenceCode.It
+   Seq: ( ME_54B4DE23039C // R
+ )
  ; // Parameters
 
 ref; // ME_54B4DE1700CA DoEndDrawAAC
@@ -4122,21 +4170,21 @@ ref; // ME_4E98521202B5_ME_473C3D830066 GetGlobalClipRectWithZoom
  : Parent ME_478E3C97021E // l3Canvas
  ;
  : Inherits
-   @ ( ME_4A4CB79A02C6 // Tl3CanvasPrim
- ) .SequenceCode.It
+   Seq: ( ME_4A4CB79A02C6 // Tl3CanvasPrim
+ )
  ; // Inherits
  : Implements
-   @ ( WL 'ME_46A614A202CA' '4677FBA70343.pas.ms.script' // Il3Font
+   Seq: ( WL 'ME_46A614A202CA' '4677FBA70343.pas.ms.script' // Il3Font
  WL 'ME_47274316023E' '467C0CAA02AB.pas.ms.script' // Il3InfoCanvas
  WL 'ME_4727449A00A2' '467C0CAA02AB.pas.ms.script' // Il3Canvas
- ) .SequenceCode.It
+ )
  ; // Implements
  : Attributes
-   @ ( ME_5229D8E30309 // f_AbortChecker
- ) .SequenceCode.It
+   Seq: ( ME_5229D8E30309 // f_AbortChecker
+ )
  ; // Attributes
  : Operations
-   @ ( ME_478E406D004B // NeedOpenRealPage
+   Seq: ( ME_478E406D004B // NeedOpenRealPage
  ME_478E40D30089 // IsPreview
  ME_478E40F20207 // SetCanvas
  ME_4797837E0112 // DoEndPaint
@@ -4154,10 +4202,10 @@ ref; // ME_4E98521202B5_ME_473C3D830066 GetGlobalClipRectWithZoom
  ME_4FAE533E035C // GetAlienDC
  ME_54B4DDF502DD // DoStartDrawAAC
  ME_54B4DE1700CA // DoEndDrawAAC
- ) .SequenceCode.It
+ )
  ; // Operations
  : Implemented
-   @ ( ME_46A60D7A02E4_ME_473C3D830066 // Size
+   Seq: ( ME_46A60D7A02E4_ME_473C3D830066 // Size
  ME_46A60E2802E4_ME_473C3D830066 // Name
  ME_46A60E58013F_ME_473C3D830066 // Bold
  ME_46A60E740045_ME_473C3D830066 // Italic
@@ -4303,21 +4351,27 @@ ref; // ME_4E98521202B5_ME_473C3D830066 GetGlobalClipRectWithZoom
  ME_54B4D9020149_ME_473C3D830066 // EndDrawAAC
  ME_55CC51AD0273_ME_473C3D830066 // BeginDarkColor
  ME_55CC51CE0059_ME_473C3D830066 // EndDarkColor
- ) .SequenceCode.It
+ )
  ; // Implemented
  : Overridden
-   @ ( ME_4E98521202B5_ME_473C3D830066 // GetGlobalClipRectWithZoom
- ) .SequenceCode.It
+   Seq: ( ME_4E98521202B5_ME_473C3D830066 // GetGlobalClipRectWithZoom
+ )
  ; // Overridden
  : Dependencies
-   @ ( ME_4B881269000B // 
+   Seq: ( ME_4B881269000B // 
  ME_4CC82A9B00C3 // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
+ CONST dfm:PathOnly '\common\components\rtl\Garant\L3'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\L3'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'Canvas'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_473C3D830066 Tl3Canvas
 
@@ -4333,13 +4387,19 @@ ref; // ME_473C3D830066 Tl3Canvas
  : Parent ME_478E3C97021E // l3Canvas
  ;
  : Inherits
-   @ ( ME_473C3D830066 // Tl3Canvas
- ) .SequenceCode.It
+   Seq: ( ME_473C3D830066 // Tl3Canvas
+ )
  ; // Inherits
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
+ CONST dfm:PathOnly '\common\components\rtl\Garant\L3'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\L3'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'OldMFCanvas'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_473C4E71009E Tl3OldMFCanvas
 
@@ -4355,20 +4415,20 @@ ref; // ME_473C4E71009E Tl3OldMFCanvas
  : Parent ME_473C3BEE0334 // l3Canvas
  ;
  : Children
-   @ ( ME_473C3D830066 // Tl3Canvas
+   Seq: ( ME_473C3D830066 // Tl3Canvas
  ME_473C4E71009E // Tl3OldMFCanvas
- ) .SequenceCode.It
+ )
  ; // Children
  CONST "author" 'Люлин А.В.'
  CONST "finished" false
  CONST "no hands" false
  CONST "started" '15.12.1996'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\L3'
  CONST intf.pas:Path 'common\components\rtl\Garant\L3\NOT_FINISHED_l3Canvas.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\L3'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'Canvas'
 
 ref; // ME_478E3C97021E l3Canvas
 
@@ -4401,17 +4461,23 @@ ref; // ME_4BE3C7B00113 FImage
  : Parent ME_47DFD79200BD // Tl3Metafile
  ;
  : Inherits
-   @ ( WL 'ME_47E12114038D' '55C4AEC801CA.pas.ms.script' // TGraphic
- ) .SequenceCode.It
+   Seq: ( WL 'ME_47E12114038D' '55C4AEC801CA.pas.ms.script' // TGraphic
+ )
  ; // Inherits
  : Attributes
-   @ ( ME_4BE3C7B00113 // FImage
- ) .SequenceCode.It
+   Seq: ( ME_4BE3C7B00113 // FImage
+ )
  ; // Attributes
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
+ CONST dfm:PathOnly '\common\components\rtl\Garant\L3'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\L3'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'HackMetafile'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_4BE3C7930262 THackMetafile
 
@@ -4426,13 +4492,19 @@ ref; // ME_4BE3C7930262 THackMetafile
  : Parent ME_47DFD79200BD // Tl3Metafile
  ;
  : Inherits
-   @ ( WL 'ME_4BE3CA8703CF' '55C4AEC801CA.pas.ms.script' // TSharedImage
- ) .SequenceCode.It
+   Seq: ( WL 'ME_4BE3CA8703CF' '55C4AEC801CA.pas.ms.script' // TSharedImage
+ )
  ; // Inherits
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
+ CONST dfm:PathOnly '\common\components\rtl\Garant\L3'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\L3'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'HackSharedImage'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_4BE3CA920356 THackSharedImage
 
@@ -4519,21 +4591,27 @@ ref; // ME_54BE0BE60150 FInch
  : Parent ME_47DFD79200BD // Tl3Metafile
  ;
  : Inherits
-   @ ( WL 'ME_4BE3CA8703CF' '55C4AEC801CA.pas.ms.script' // TSharedImage
- ) .SequenceCode.It
+   Seq: ( WL 'ME_4BE3CA8703CF' '55C4AEC801CA.pas.ms.script' // TSharedImage
+ )
  ; // Inherits
  : Attributes
-   @ ( ME_54BE0BA10354 // FHandle
+   Seq: ( ME_54BE0BA10354 // FHandle
  ME_54BE0BB9011B // FWidth
  ME_54BE0BCC01C8 // FHeight
  ME_54BE0BD901B3 // FPalette
  ME_54BE0BE60150 // FInch
- ) .SequenceCode.It
+ )
  ; // Attributes
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
+ CONST dfm:PathOnly '\common\components\rtl\Garant\L3'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\L3'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'HackImage'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_54BE0A5A0290 THackImage
 
@@ -4558,8 +4636,8 @@ ref; // ME_54BE0C6E00EF Stream
  : Parent ME_54BE0C4402DE // LoadWMFFromStream
  ;
  : Parameters
-   @ ( ME_54BE0C6E00EF // Stream
- ) .SequenceCode.It
+   Seq: ( ME_54BE0C6E00EF // Stream
+ )
  ; // Parameters
 
 ref; // ME_54BE0C620128 DoIt
@@ -4599,13 +4677,13 @@ ref; // ME_552637C002F7
  : Parent ME_47DFD79200BD // Tl3Metafile
  ;
  : Operations
-   @ ( ME_54BE0C620128 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_54BE0C620128 // DoIt
+ )
  ; // Operations
  : Dependencies
-   @ ( ME_54BE1AE8035C // 
+   Seq: ( ME_54BE1AE8035C // 
  ME_552637C002F7 // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  CONST "is static" false
 
@@ -4634,8 +4712,8 @@ ref; // ME_54BE14E40279 Stream
  : Target ME_47DFD79200BD // Tl3Metafile
  ;
  : Parameters
-   @ ( ME_54BE14E40279 // Stream
- ) .SequenceCode.It
+   Seq: ( ME_54BE14E40279 // Stream
+ )
  ; // Parameters
 
 ref; // ME_54BE14C2009D DoIt
@@ -4651,8 +4729,8 @@ ref; // ME_54BE14C2009D DoIt
  : Parent ME_47DFD79200BD // Tl3Metafile
  ;
  : Operations
-   @ ( ME_54BE14C2009D // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_54BE14C2009D // DoIt
+ )
  ; // Operations
  CONST "is static" true
 
@@ -4677,8 +4755,8 @@ ref; // ME_47E14DD70065 aStream
  : Parent ME_47DFD79200BD // Tl3Metafile
  ;
  : Parameters
-   @ ( ME_47E14DD70065 // aStream
- ) .SequenceCode.It
+   Seq: ( ME_47E14DD70065 // aStream
+ )
  ; // Parameters
 
 ref; // ME_47E14DD00013 LoadFromIStream
@@ -4702,8 +4780,8 @@ ref; // ME_47E14DEB00C2 aStream
  : Parent ME_47DFD79200BD // Tl3Metafile
  ;
  : Parameters
-   @ ( ME_47E14DEB00C2 // aStream
- ) .SequenceCode.It
+   Seq: ( ME_47E14DEB00C2 // aStream
+ )
  ; // Parameters
 
 ref; // ME_47E14DE302A3 SaveToIStream
@@ -4763,32 +4841,32 @@ ref; // ME_47A6FEE600FC_ME_47DFD79200BD IsCacheable
  : Parent ME_473C3BEE0334 // l3Canvas
  ;
  : Inherits
-   @ ( WL 'ME_47913F970159' '47913B47006E.pas.ms.script' // l3Unknown
+   Seq: ( WL 'ME_47913F970159' '47913B47006E.pas.ms.script' // l3Unknown
  WL 'ME_47E121B5039E' '55C4AEC801CA.pas.ms.script' // TMetafile
- ) .SequenceCode.It
+ )
  ; // Inherits
  : Operations
-   @ ( ME_54BE0C4402DE // LoadWMFFromStream
+   Seq: ( ME_54BE0C4402DE // LoadWMFFromStream
  ME_54BE147D004B // TryMakeFromStream
  ME_47E14DD00013 // LoadFromIStream
  ME_47E14DE302A3 // SaveToIStream
- ) .SequenceCode.It
+ )
  ; // Operations
  : Overridden
-   @ ( ME_479731C50290_ME_47DFD79200BD // Cleanup
+   Seq: ( ME_479731C50290_ME_47DFD79200BD // Cleanup
  ME_47A6FEE600FC_ME_47DFD79200BD // IsCacheable
- ) .SequenceCode.It
+ )
  ; // Overridden
  : Children
-   @ ( ME_4BE3C7930262 // THackMetafile
+   Seq: ( ME_4BE3C7930262 // THackMetafile
  ME_4BE3CA920356 // THackSharedImage
  ME_54BE0A5A0290 // THackImage
- ) .SequenceCode.It
+ )
  ; // Children
  : Dependencies
-   @ ( ME_47E14F2602B5 // 
+   Seq: ( ME_47E14F2602B5 // 
  ME_47E151440086 // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  CONST "author" 'Люлин А.В.'
  CONST "needs InstanceR" 'undefined'
@@ -4796,12 +4874,14 @@ ref; // ME_47A6FEE600FC_ME_47DFD79200BD IsCacheable
  CONST "no hands" true
  CONST "register in scripts" 'undefined'
  CONST "started" '22.10.2004 19:10'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\L3'
  CONST intf.pas:Path 'common\components\rtl\Garant\L3\l3Metafile.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\L3'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'Metafile'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'l3Metafile'
 
 ref; // ME_47DFD79200BD Tl3Metafile
 
@@ -4822,12 +4902,14 @@ ref; // ME_47DFD79200BD Tl3Metafile
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
  CONST "started" '28.07.2005 20:34'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\L3'
  CONST intf.pas:Path 'common\components\rtl\Garant\L3\NOT_FINISHED_l3SmartCanvas.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\L3'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'SmartCanvas'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'l3SmartCanvas'
 
 ref; // ME_4804AD9B033B Tl3SmartCanvas
 
@@ -4843,8 +4925,8 @@ ref; // ME_4804AD9B033B Tl3SmartCanvas
  : Parent ME_473C3BEE0334 // l3Canvas
  ;
  : Inherits
-   @ ( WL 'ME_47A8693601A1' '47913B47006E.pas.ms.script' // Tl3PrimString
- ) .SequenceCode.It
+   Seq: ( WL 'ME_47A8693601A1' '47913B47006E.pas.ms.script' // Tl3PrimString
+ )
  ; // Inherits
  CONST "author" 'Люлин А.В.'
  CONST "finished" false
@@ -4853,12 +4935,14 @@ ref; // ME_4804AD9B033B Tl3SmartCanvas
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
  CONST "started" '11.10.1999 14:27'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\L3'
  CONST intf.pas:Path 'common\components\rtl\Garant\L3\NOT_FINISHED_l3LogFont.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\L3'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'LogFont'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'l3LogFont'
 
 ref; // ME_484CE8FF0292 Tl3LogFont
 
@@ -4898,6 +4982,7 @@ ref; // ME_4FAE481300BA aControl
  CONST Value 'nil'
  : ValueType WL 'ME_4728CC880316' '4677FBA70343.pas.ms.script' // Il3Caret
  ;
+ CONST extprop:pas:Value 'nil'
 
 ref; // ME_4FAE481300FD aCaret
 
@@ -4911,9 +4996,9 @@ ref; // ME_4FAE481300FD aCaret
  : Parent ME_48C68AC60396 // Tl3ControlCanvas
  ;
  : Parameters
-   @ ( ME_4FAE481300BA // aControl
+   Seq: ( ME_4FAE481300BA // aControl
  ME_4FAE481300FD // aCaret
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_4FAE47E60126 Create
@@ -4969,23 +5054,23 @@ ref; // ME_4FAE4C740135_ME_48C68AC60396 DoGetClientRect
  : Parent ME_473C3BEE0334 // l3Canvas
  ;
  : Inherits
-   @ ( ME_473C3D830066 // Tl3Canvas
- ) .SequenceCode.It
+   Seq: ( ME_473C3D830066 // Tl3Canvas
+ )
  ; // Inherits
  : Attributes
-   @ ( ME_4FAE44B803B1 // f_Caret
- ) .SequenceCode.It
+   Seq: ( ME_4FAE44B803B1 // f_Caret
+ )
  ; // Attributes
  : Operations
-   @ ( ME_4FAE47E60126 // Create
- ) .SequenceCode.It
+   Seq: ( ME_4FAE47E60126 // Create
+ )
  ; // Operations
  : Overridden
-   @ ( ME_479731C50290_ME_48C68AC60396 // Cleanup
+   Seq: ( ME_479731C50290_ME_48C68AC60396 // Cleanup
  ME_47DFB3CE02C5_ME_48C68AC60396 // GetCaret
  ME_4FAE47320103_ME_48C68AC60396 // Invalidate
  ME_4FAE4C740135_ME_48C68AC60396 // DoGetClientRect
- ) .SequenceCode.It
+ )
  ; // Overridden
  CONST "author" 'Люлин А.В.'
  CONST "needs InstanceR" 'undefined'
@@ -4993,12 +5078,14 @@ ref; // ME_4FAE4C740135_ME_48C68AC60396 DoGetClientRect
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
  CONST "started" '26.05.2005 17:41'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\L3'
  CONST intf.pas:Path 'common\components\rtl\Garant\L3\l3ControlCanvas.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\L3'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'ControlCanvas'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'l3ControlCanvas'
 
 ref; // ME_48C68AC60396 Tl3ControlCanvas
 
@@ -5015,13 +5102,19 @@ FORWARD ME_48C68AA40296
  : Parent ME_48C68AA40296 // Tl3WinControlCanvas
  ;
  : Inherits
-   @ ( WL 'ME_47E124E90272' '4799D29F033F.pas.ms.script' // TWinControl
- ) .SequenceCode.It
+   Seq: ( WL 'ME_47E124E90272' '4799D29F033F.pas.ms.script' // TWinControl
+ )
  ; // Inherits
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
+ CONST dfm:PathOnly '\common\components\rtl\Garant\L3'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\L3'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'HackWinControl'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_4FAE622100F5 THackWinControl
 
@@ -5045,6 +5138,7 @@ ref; // ME_4FAE538D00AE aControl
  CONST Value 'nil'
  : ValueType WL 'ME_4728CC880316' '4677FBA70343.pas.ms.script' // Il3Caret
  ;
+ CONST extprop:pas:Value 'nil'
 
 ref; // ME_4FAE538D00E4 aCaret
 
@@ -5058,9 +5152,9 @@ ref; // ME_4FAE538D00E4 aCaret
  : Parent ME_48C68AA40296 // Tl3WinControlCanvas
  ;
  : Parameters
-   @ ( ME_4FAE538D00AE // aControl
+   Seq: ( ME_4FAE538D00AE // aControl
  ME_4FAE538D00E4 // aCaret
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_4FAE537C02FA Create
@@ -5128,27 +5222,27 @@ ref; // ME_4FAE533E035C_ME_48C68AA40296 GetAlienDC
  : Parent ME_473C3BEE0334 // l3Canvas
  ;
  : Inherits
-   @ ( ME_48C68AC60396 // Tl3ControlCanvas
- ) .SequenceCode.It
+   Seq: ( ME_48C68AC60396 // Tl3ControlCanvas
+ )
  ; // Inherits
  : Operations
-   @ ( ME_4FAE537C02FA // Create
- ) .SequenceCode.It
+   Seq: ( ME_4FAE537C02FA // Create
+ )
  ; // Operations
  : Overridden
-   @ ( ME_4FAE530D02C3_ME_48C68AA40296 // FireDCSetToNull
+   Seq: ( ME_4FAE530D02C3_ME_48C68AA40296 // FireDCSetToNull
  ME_4FAE532B0348_ME_48C68AA40296 // FreeAlienDC
  ME_4FAE533E035C_ME_48C68AA40296 // GetAlienDC
- ) .SequenceCode.It
+ )
  ; // Overridden
  : Children
-   @ ( ME_4FAE622100F5 // THackWinControl
- ) .SequenceCode.It
+   Seq: ( ME_4FAE622100F5 // THackWinControl
+ )
  ; // Children
  : Dependencies
-   @ ( ME_4FAE8B1C01AC // 
+   Seq: ( ME_4FAE8B1C01AC // 
  ME_4FAE8BC60167 // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  CONST "author" 'Люлин А.В.'
  CONST "needs InstanceR" 'undefined'
@@ -5156,12 +5250,14 @@ ref; // ME_4FAE533E035C_ME_48C68AA40296 GetAlienDC
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
  CONST "started" '26.05.2005 17:40'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\L3'
  CONST intf.pas:Path 'common\components\rtl\Garant\L3\l3WinControlCanvas.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\L3'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'WinControlCanvas'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'l3WinControlCanvas'
 
 ref; // ME_48C68AA40296 Tl3WinControlCanvas
 
@@ -5192,6 +5288,7 @@ ref; // ME_48CA55D5001D LineCoordinate
 : ME_89D55005F7B3
  CONST UID '89D55005F7B3'
  CONST Name 'f_LineCoordinate'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY 'Поле для свойства LineCoordinate' ;
  CONST Visibility PrivateAccess
@@ -5201,6 +5298,7 @@ ref; // ME_48CA55D5001D LineCoordinate
  ;
  : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
  ;
+ CONST extprop:clearViaProperty 'LineCoordinate'
 
 ref; // ME_89D55005F7B3 f_LineCoordinate
 
@@ -5234,9 +5332,9 @@ ref; // ME_48CA5711036E aDest
  : Parent ME_4BE2DE9A032D // Tl3FrameLinePrim
  ;
  : Parameters
-   @ ( ME_48CA57110343 // aSource
+   Seq: ( ME_48CA57110343 // aSource
  ME_48CA5711036E // aDest
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_48CA56FC0278 ChangeLine
@@ -5253,17 +5351,17 @@ ref; // ME_48CA56FC0278 ChangeLine
  : Parent ME_48CA546C01B0 // l3FrameLine
  ;
  : Inherits
-   @ ( WL 'ME_4AE5CA2D0034' '47913B47006E.pas.ms.script' // Tl3CProtoObject
- ) .SequenceCode.It
+   Seq: ( WL 'ME_4AE5CA2D0034' '47913B47006E.pas.ms.script' // Tl3CProtoObject
+ )
  ; // Inherits
  : Attributes
-   @ ( ME_48CA55D5001D // LineCoordinate
+   Seq: ( ME_48CA55D5001D // LineCoordinate
  ME_89D55005F7B3 // f_LineCoordinate
- ) .SequenceCode.It
+ )
  ; // Attributes
  : Operations
-   @ ( ME_48CA56FC0278 // ChangeLine
- ) .SequenceCode.It
+   Seq: ( ME_48CA56FC0278 // ChangeLine
+ )
  ; // Operations
  CONST "author" 'Люлин А.В.'
  CONST "needs InstanceR" 'undefined'
@@ -5271,6 +5369,12 @@ ref; // ME_48CA56FC0278 ChangeLine
  CONST "no hands" true
  CONST "register in scripts" 'undefined'
  CONST "started" '06.05.2010 19:23'
+ CONST dfm:PathOnly '\common\components\rtl\Garant\L3'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\L3'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'FrameLinePrim'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_4BE2DE9A032D Tl3FrameLinePrim
 
@@ -5361,17 +5465,22 @@ ref; // ME_4BE2E84C0134 EQ
  : Parent ME_48CA546C01B0 // l3FrameLine
  ;
  : Attributes
-   @ ( ME_48CA5572002B // rWasDrawn
+   Seq: ( ME_48CA5572002B // rWasDrawn
  ME_48CA54D301C7 // rStart
  ME_48CA54EC02E1 // rFinish
  ME_48CA556000D1 // rDrawType
- ) .SequenceCode.It
+ )
  ; // Attributes
  : Operations
-   @ ( ME_4BE2E84C0134 // EQ
- ) .SequenceCode.It
+   Seq: ( ME_4BE2E84C0134 // EQ
+ )
  ; // Operations
  CONST "not treat as record for XE4" 'undefined'
+ CONST dfm:PathOnly '\common\components\rtl\Garant\L3'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\L3'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'LinePart'
 
 ref; // ME_48CA54C5025F Tl3LinePart
 
@@ -5387,6 +5496,11 @@ FORWARD ME_48CA557F02FF
  CONST Abstraction at_final
  : Parent ME_48CA557F02FF // Tl3LineParts
  ;
+ CONST dfm:PathOnly '\common\components\rtl\Garant\L3'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\L3'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'Items_NoSort'
 
 ref; // ME_4BE2DF77010C l3Items_NoSort
 
@@ -5450,26 +5564,26 @@ ref; // ME_47A6FEE600FC_ME_48CA557F02FF IsCacheable
  : Parent ME_48CA546C01B0 // l3FrameLine
  ;
  : Inherits
-   @ ( WL 'ME_4A54DD4E036F' '47913B47006E.pas.ms.script' // Tl3ProtoDataContainer
+   Seq: ( WL 'ME_4A54DD4E036F' '47913B47006E.pas.ms.script' // Tl3ProtoDataContainer
  WL 'ME_4B223DB5024B' '47913B47006E.pas.ms.script' // l3RecordWithEQList
- ) .SequenceCode.It
+ )
  ; // Inherits
  : Attributes
-   @ ( ME_48CA558A006C // ItemType
- ) .SequenceCode.It
+   Seq: ( ME_48CA558A006C // ItemType
+ )
  ; // Attributes
  : Implemented
-   @ ( ME_47B2C42A0163_ME_48CA557F02FF // AssignItem
+   Seq: ( ME_47B2C42A0163_ME_48CA557F02FF // AssignItem
  ME_47B99D4503A2_ME_48CA557F02FF // CompareExistingItems
- ) .SequenceCode.It
+ )
  ; // Implemented
  : Overridden
-   @ ( ME_47A6FEE600FC_ME_48CA557F02FF // IsCacheable
- ) .SequenceCode.It
+   Seq: ( ME_47A6FEE600FC_ME_48CA557F02FF // IsCacheable
+ )
  ; // Overridden
  : Children
-   @ ( ME_4BE2DF77010C // l3Items_NoSort
- ) .SequenceCode.It
+   Seq: ( ME_4BE2DF77010C // l3Items_NoSort
+ )
  ; // Children
  CONST "author" 'Люлин А.В.'
  CONST "needs InstanceR" 'undefined'
@@ -5477,6 +5591,12 @@ ref; // ME_47A6FEE600FC_ME_48CA557F02FF IsCacheable
  CONST "no hands" true
  CONST "register in scripts" 'undefined'
  CONST "started" '06.05.2010 18:14'
+ CONST dfm:PathOnly '\common\components\rtl\Garant\L3'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\L3'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'LineParts'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_48CA557F02FF Tl3LineParts
 
@@ -5499,6 +5619,7 @@ FORWARD ME_48CA59A50360
  CONST "forced type" 'none'
  CONST "is define" false
  CONST "suffix expr" '- 1'
+ CONST extprop:pas:Value 'l3Const.l3ShapeNil - 1'
 
 ref; // ME_49BE5DD10119 cWaitAlignMean
 
@@ -5519,6 +5640,7 @@ ref; // ME_49BE5DD10119 cWaitAlignMean
  CONST "forced type" 'none'
  CONST "is define" false
  CONST "suffix expr" '- 2'
+ CONST extprop:pas:Value 'l3Const.l3ShapeNil - 2'
 
 ref; // ME_49BE5E0803A9 cAlingByBoundary
 
@@ -5534,11 +5656,15 @@ ref; // ME_49BE5E0803A9 cAlingByBoundary
  : Parent ME_48CA546C01B0 // l3FrameLine
  ;
  : Attributes
-   @ ( ME_49BE5DD10119 // cWaitAlignMean
+   Seq: ( ME_49BE5DD10119 // cWaitAlignMean
  ME_49BE5E0803A9 // cAlingByBoundary
- ) .SequenceCode.It
+ )
  ; // Attributes
  CONST "spell names" false
+ CONST dfm:PathOnly '\common\components\rtl\Garant\L3'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\L3'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_48CA59A50360 Constants
 
@@ -5579,8 +5705,8 @@ ref; // ME_48CA575703CB aValue
  : Parent ME_48CA54A000F7 // Tl3FrameLine
  ;
  : Parameters
-   @ ( ME_48CA575703CB // aValue
- ) .SequenceCode.It
+   Seq: ( ME_48CA575703CB // aValue
+ )
  ; // Parameters
 
 ref; // ME_48CA574603C2 AssignData
@@ -5635,11 +5761,11 @@ ref; // ME_4A9283BB023A aWidth
  : Parent ME_48CA54A000F7 // Tl3FrameLine
  ;
  : Parameters
-   @ ( ME_4A9283BB0105 // aCanvas
+   Seq: ( ME_4A9283BB0105 // aCanvas
  ME_4A9283BB016C // aColorArray
  ME_4A9283BB01D3 // aVert
  ME_4A9283BB023A // aWidth
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_48CA575E00E2 DrawLine
@@ -5694,11 +5820,11 @@ ref; // ME_4A9FC51500E8 aLinePartType
  : Parent ME_48CA54A000F7 // Tl3FrameLine
  ;
  : Parameters
-   @ ( ME_4A9FC51403A0 // aMinBound
+   Seq: ( ME_4A9FC51403A0 // aMinBound
  ME_4A9FC515001D // aMaxBound
  ME_4A9FC5150082 // aColor
  ME_4A9FC51500E8 // aLinePartType
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_48CA578300F4 AddBounds
@@ -5723,8 +5849,8 @@ ref; // ME_48CA57D401FD aLineCoordinate
  : Parent ME_48CA54A000F7 // Tl3FrameLine
  ;
  : Parameters
-   @ ( ME_48CA57D401FD // aLineCoordinate
- ) .SequenceCode.It
+   Seq: ( ME_48CA57D401FD // aLineCoordinate
+ )
  ; // Parameters
 
 ref; // ME_48CA57CF0049 Create
@@ -5759,9 +5885,9 @@ ref; // ME_49144988014C aMaxBound
  : Parent ME_48CA54A000F7 // Tl3FrameLine
  ;
  : Parameters
-   @ ( ME_4914498800EE // aMinBound
+   Seq: ( ME_4914498800EE // aMinBound
  ME_49144988014C // aMaxBound
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_491449690084 CheckCoordinate
@@ -5866,42 +5992,48 @@ ref; // ME_479731C50290_ME_48CA54A000F7 Cleanup
  : Parent ME_48CA546C01B0 // l3FrameLine
  ;
  : Inherits
-   @ ( ME_4BE2DE9A032D // Tl3FrameLinePrim
- ) .SequenceCode.It
+   Seq: ( ME_4BE2DE9A032D // Tl3FrameLinePrim
+ )
  ; // Inherits
  : Attributes
-   @ ( ME_48CA55B20290 // f_BoundsArray
- ) .SequenceCode.It
+   Seq: ( ME_48CA55B20290 // f_BoundsArray
+ )
  ; // Attributes
  : Operations
-   @ ( ME_48CA574603C2 // AssignData
+   Seq: ( ME_48CA574603C2 // AssignData
  ME_48CA575E00E2 // DrawLine
  ME_48CA578300F4 // AddBounds
  ME_48CA57CF0049 // Create
  ME_491449690084 // CheckCoordinate
  ME_4D00C0D90279 // GetBoundsArray
- ) .SequenceCode.It
+ )
  ; // Operations
  : Implemented
-   @ ( ME_48CA56FC0278_ME_48CA54A000F7 // ChangeLine
- ) .SequenceCode.It
+   Seq: ( ME_48CA56FC0278_ME_48CA54A000F7 // ChangeLine
+ )
  ; // Implemented
  : Overridden
-   @ ( ME_479731C50290_ME_48CA54A000F7 // Cleanup
- ) .SequenceCode.It
+   Seq: ( ME_479731C50290_ME_48CA54A000F7 // Cleanup
+ )
  ; // Overridden
  : Dependencies
-   @ ( ME_48CA58D500D7 // 
+   Seq: ( ME_48CA58D500D7 // 
  ME_48CA58FF00C8 // 
  ME_48CA599701A4 // 
  ME_4BE2DD05019C // 
  ME_4F2A44150085 // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
+ CONST dfm:PathOnly '\common\components\rtl\Garant\L3'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\L3'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'FrameLine'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_48CA54A000F7 Tl3FrameLine
 
@@ -5917,25 +6049,25 @@ ref; // ME_48CA54A000F7 Tl3FrameLine
  : Parent ME_473C3BEE0334 // l3Canvas
  ;
  : Children
-   @ ( ME_4BE2DE9A032D // Tl3FrameLinePrim
+   Seq: ( ME_4BE2DE9A032D // Tl3FrameLinePrim
  ME_48CA54C5025F // Tl3LinePart
  ME_48CA557F02FF // Tl3LineParts
  ME_48CA54A000F7 // Tl3FrameLine
- ) .SequenceCode.It
+ )
  ; // Children
  : Constants
-   @ ( ME_48CA59A50360 // Constants
- ) .SequenceCode.It
+   Seq: ( ME_48CA59A50360 // Constants
+ )
  ; // Constants
  CONST "author" 'Инишев Д.А.'
  CONST "no hands" true
  CONST "started" '02.10.06 16:27'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\L3'
  CONST intf.pas:Path 'common\components\rtl\Garant\L3\l3FrameLine.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\L3'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'FrameLine'
 
 ref; // ME_48CA546C01B0 l3FrameLine
 
@@ -6001,33 +6133,35 @@ ref; // ME_47A6FEE600FC_ME_48CA61B900B2 IsCacheable
  : Parent ME_473C3BEE0334 // l3Canvas
  ;
  : Inherits
-   @ ( WL 'ME_47B99E920196' '47913B47006E.pas.ms.script' // l3UncomparabeObjectRefList
+   Seq: ( WL 'ME_47B99E920196' '47913B47006E.pas.ms.script' // l3UncomparabeObjectRefList
  WL 'ME_4A54DD4E036F' '47913B47006E.pas.ms.script' // Tl3ProtoDataContainer
- ) .SequenceCode.It
+ )
  ; // Inherits
  : Attributes
-   @ ( ME_48CA61D20314 // ItemType
- ) .SequenceCode.It
+   Seq: ( ME_48CA61D20314 // ItemType
+ )
  ; // Attributes
  : Implemented
-   @ ( ME_47B2C42A0163_ME_48CA61B900B2 // AssignItem
+   Seq: ( ME_47B2C42A0163_ME_48CA61B900B2 // AssignItem
  ME_47B99D4503A2_ME_48CA61B900B2 // CompareExistingItems
- ) .SequenceCode.It
+ )
  ; // Implemented
  : Overridden
-   @ ( ME_47A6FEE600FC_ME_48CA61B900B2 // IsCacheable
- ) .SequenceCode.It
+   Seq: ( ME_47A6FEE600FC_ME_48CA61B900B2 // IsCacheable
+ )
  ; // Overridden
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\L3'
  CONST intf.pas:Path 'common\components\rtl\Garant\L3\l3FrameLineList.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\L3'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'FrameLineList'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'l3FrameLineList'
 
 ref; // ME_48CA61B900B2 Tl3FrameLineList
 
@@ -6113,8 +6247,8 @@ ref; // ME_48CA5D230150 anOrientation
  : Parent ME_48CA5CB001A3 // Tl3CoordinateMap
  ;
  : Parameters
-   @ ( ME_48CA5D230150 // anOrientation
- ) .SequenceCode.It
+   Seq: ( ME_48CA5D230150 // anOrientation
+ )
  ; // Parameters
 
 ref; // ME_48CA5D1F037A Create
@@ -6159,10 +6293,10 @@ ref; // ME_4A92841101C9 aWidth
  : Parent ME_48CA5CB001A3 // Tl3CoordinateMap
  ;
  : Parameters
-   @ ( ME_4A928411015A // aCanvas
+   Seq: ( ME_4A928411015A // aCanvas
  ME_4A9284110191 // aColorArray
  ME_4A92841101C9 // aWidth
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_48CA5D5101AE DrawLines
@@ -6209,10 +6343,10 @@ ref; // ME_4AB1D1180264 aToBuffer
  : Target ME_48CA54A000F7 // Tl3FrameLine
  ;
  : Parameters
-   @ ( ME_4AB1D11801EE // aMapValue
+   Seq: ( ME_4AB1D11801EE // aMapValue
  ME_4AB1D1180229 // aLine
  ME_4AB1D1180264 // aToBuffer
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_48CA5D78038C AddLine
@@ -6257,10 +6391,10 @@ ref; // ME_48CA5DB401D0 aDestList
  : Parent ME_48CA5CB001A3 // Tl3CoordinateMap
  ;
  : Parameters
-   @ ( ME_48CA5DB40172 // aStart
+   Seq: ( ME_48CA5DB40172 // aStart
  ME_48CA5DB401A1 // aFinish
  ME_48CA5DB401D0 // aDestList
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_48CA5D9D008E AlignBoundary
@@ -6295,9 +6429,9 @@ ref; // ME_491448300346 aDestList
  : Parent ME_48CA5CB001A3 // Tl3CoordinateMap
  ;
  : Parameters
-   @ ( ME_491448300307 // aValue
+   Seq: ( ME_491448300307 // aValue
  ME_491448300346 // aDestList
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_491448230196 AlignAllLines
@@ -6332,9 +6466,9 @@ ref; // ME_49BE60B10021 aMaxBound
  : Parent ME_48CA5CB001A3 // Tl3CoordinateMap
  ;
  : Parameters
-   @ ( ME_49BE60B003D0 // aMinBound
+   Seq: ( ME_49BE60B003D0 // aMinBound
  ME_49BE60B10021 // aMaxBound
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_49BE609800C6 CheckLine
@@ -6359,8 +6493,8 @@ ref; // ME_4C189AF0012E aClearAll
  : Parent ME_48CA5CB001A3 // Tl3CoordinateMap
  ;
  : Parameters
-   @ ( ME_4C189AF0012E // aClearAll
- ) .SequenceCode.It
+   Seq: ( ME_4C189AF0012E // aClearAll
+ )
  ; // Parameters
 
 ref; // ME_4AB1D0CF01E7 ClearPrev
@@ -6399,8 +6533,8 @@ ref; // ME_4CA9A563032F aData
  : Parent ME_48CA5CB001A3 // Tl3CoordinateMap
  ;
  : Parameters
-   @ ( ME_4CA9A563032F // aData
- ) .SequenceCode.It
+   Seq: ( ME_4CA9A563032F // aData
+ )
  ; // Parameters
 
 ref; // ME_4AB8775E017C SetAlignData
@@ -6541,18 +6675,18 @@ ref; // ME_479731C50290_ME_48CA5CB001A3 Cleanup
  : Parent ME_473C3BEE0334 // l3Canvas
  ;
  : Inherits
-   @ ( WL 'ME_4AE5CA2D0034' '47913B47006E.pas.ms.script' // Tl3CProtoObject
- ) .SequenceCode.It
+   Seq: ( WL 'ME_4AE5CA2D0034' '47913B47006E.pas.ms.script' // Tl3CProtoObject
+ )
  ; // Inherits
  : Attributes
-   @ ( ME_48CA5D030176 // f_IsVertical
+   Seq: ( ME_48CA5D030176 // f_IsVertical
  ME_4AB1D0780118 // f_PrevIndex
  ME_4C18985E0068 // f_VBuffer
  ME_48CA5CF40042 // f_Values
- ) .SequenceCode.It
+ )
  ; // Attributes
  : Operations
-   @ ( ME_48CA5D1F037A // Create
+   Seq: ( ME_48CA5D1F037A // Create
  ME_48CA5D5101AE // DrawLines
  ME_48CA5D78038C // AddLine
  ME_48CA5D9D008E // AlignBoundary
@@ -6564,21 +6698,21 @@ ref; // ME_479731C50290_ME_48CA5CB001A3 Cleanup
  ME_4C18991501FE // SavePrev
  ME_4C651ED702E4 // Clear
  ME_4D00BD46021B // GetValues
- ) .SequenceCode.It
+ )
  ; // Operations
  : Overridden
-   @ ( ME_479731C50290_ME_48CA5CB001A3 // Cleanup
- ) .SequenceCode.It
+   Seq: ( ME_479731C50290_ME_48CA5CB001A3 // Cleanup
+ )
  ; // Overridden
  : Dependencies
-   @ ( ME_48CA5D400320 // 
+   Seq: ( ME_48CA5D400320 // 
  ME_48CA5EFD0013 // 
  ME_48CA5FD80383 // 
  ME_4AB9D53C0149 // 
  ME_4CA9A84501D7 // 
  ME_4CA9A8B40170 // 
  ME_4F2A4445025A // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  CONST "author" 'Инишев Д.А.'
  CONST "needs InstanceR" 'undefined'
@@ -6586,12 +6720,14 @@ ref; // ME_479731C50290_ME_48CA5CB001A3 Cleanup
  CONST "no hands" true
  CONST "register in scripts" 'undefined'
  CONST "started" '02.10.06 16:27'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\L3'
  CONST intf.pas:Path 'common\components\rtl\Garant\L3\l3CoordinateMap.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\L3'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'CoordinateMap'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'l3CoordinateMap'
 
 ref; // ME_48CA5CB001A3 Tl3CoordinateMap
 
@@ -6751,6 +6887,7 @@ ref; // ME_48CA64B70191 f_HorisontalBtmBuffer
 : ME_7775C21737E4
  CONST UID '7775C21737E4'
  CONST Name 'f_FrameObjID'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY 'Поле для свойства FrameObjID' ;
  CONST Visibility PrivateAccess
@@ -6766,6 +6903,7 @@ ref; // ME_7775C21737E4 f_FrameObjID
 : ME_913CBE0434FD
  CONST UID '913CBE0434FD'
  CONST Name 'f_FinishedFO'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY 'Поле для свойства FinishedFO' ;
  CONST Visibility PrivateAccess
@@ -6775,12 +6913,14 @@ ref; // ME_7775C21737E4 f_FrameObjID
  ;
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
+ CONST extprop:clearViaProperty 'FinishedFO'
 
 ref; // ME_913CBE0434FD f_FinishedFO
 
 : ME_030E828CA493
  CONST UID '030E828CA493'
  CONST Name 'f_LineWidth'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY 'Поле для свойства LineWidth' ;
  CONST Visibility PrivateAccess
@@ -6796,6 +6936,7 @@ ref; // ME_030E828CA493 f_LineWidth
 : ME_E2EF2DC8F120
  CONST UID 'E2EF2DC8F120'
  CONST Name 'f_NeedLog'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY 'Поле для свойства NeedLog' ;
  CONST Visibility PrivateAccess
@@ -6806,6 +6947,7 @@ ref; // ME_030E828CA493 f_LineWidth
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
  CONST "ifdef" 'nsTest'
+ CONST extprop:clearViaProperty 'NeedLog'
 
 ref; // ME_E2EF2DC8F120 f_NeedLog
 
@@ -6839,9 +6981,9 @@ ref; // ME_48CA655B00FD aColorArray
  : Parent ME_48CA64150378 // Tl3FrameObject
  ;
  : Parameters
-   @ ( ME_48CA655B00D1 // aFrameID
+   Seq: ( ME_48CA655B00D1 // aFrameID
  ME_48CA655B00FD // aColorArray
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_48CA655400D8 Create
@@ -6886,10 +7028,10 @@ ref; // ME_4A8E9ABB039A anAnalizeType
  : Parent ME_48CA64150378 // Tl3FrameObject
  ;
  : Parameters
-   @ ( ME_4A8E9ABB0324 // aFrame
+   Seq: ( ME_4A8E9ABB0324 // aFrame
  ME_4A8E9ABB035F // aFrameRect
  ME_4A8E9ABB039A // anAnalizeType
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_48CA656F02B4 AddFrame
@@ -6924,9 +7066,9 @@ ref; // ME_4C189B7F01B3 anIsSingle
  : Parent ME_48CA64150378 // Tl3FrameObject
  ;
  : Parameters
-   @ ( ME_4C189B7F0172 // aFrame
+   Seq: ( ME_4C189B7F0172 // aFrame
  ME_4C189B7F01B3 // anIsSingle
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_48CA65890091 AlignBoundary
@@ -6951,8 +7093,8 @@ ref; // ME_4A49D87B0397 aAlignValue
  : Parent ME_48CA64150378 // Tl3FrameObject
  ;
  : Parameters
-   @ ( ME_4A49D87B0397 // aAlignValue
- ) .SequenceCode.It
+   Seq: ( ME_4A49D87B0397 // aAlignValue
+ )
  ; // Parameters
 
 ref; // ME_48CA65AD0380 FinishFrameObject
@@ -6977,8 +7119,8 @@ ref; // ME_48CA65E40216 aCanvas
  : Parent ME_48CA64150378 // Tl3FrameObject
  ;
  : Parameters
-   @ ( ME_48CA65E40216 // aCanvas
- ) .SequenceCode.It
+   Seq: ( ME_48CA65E40216 // aCanvas
+ )
  ; // Parameters
 
 ref; // ME_48CA65D00372 DrawLines
@@ -7017,8 +7159,8 @@ ref; // ME_4CA9A50601DF aData
  : Parent ME_48CA64150378 // Tl3FrameObject
  ;
  : Parameters
-   @ ( ME_4CA9A50601DF // aData
- ) .SequenceCode.It
+   Seq: ( ME_4CA9A50601DF // aData
+ )
  ; // Parameters
 
 ref; // ME_4AB8766F019E SetAlignData
@@ -7056,8 +7198,8 @@ ref; // ME_4D00D64C01B2 aVertical
  : Target ME_48CA5CB001A3 // Tl3CoordinateMap
  ;
  : Parameters
-   @ ( ME_4D00D64C01B2 // aVertical
- ) .SequenceCode.It
+   Seq: ( ME_4D00D64C01B2 // aVertical
+ )
  ; // Parameters
 
 ref; // ME_4D00D5D700A4 GetLines
@@ -7130,11 +7272,11 @@ ref; // ME_479731C50290_ME_48CA64150378 Cleanup
  : Parent ME_473C3BEE0334 // l3Canvas
  ;
  : Inherits
-   @ ( WL 'ME_4AE5CA2D0034' '47913B47006E.pas.ms.script' // Tl3CProtoObject
- ) .SequenceCode.It
+   Seq: ( WL 'ME_4AE5CA2D0034' '47913B47006E.pas.ms.script' // Tl3CProtoObject
+ )
  ; // Inherits
  : Attributes
-   @ ( ME_48CA64DA02EE // FrameObjID
+   Seq: ( ME_48CA64DA02EE // FrameObjID
  ME_49144626027D // f_LastBottom
  ME_4A8103B4000D // FinishedFO
  ME_4A92848703B5 // LineWidth
@@ -7147,10 +7289,10 @@ ref; // ME_479731C50290_ME_48CA64150378 Cleanup
  ME_913CBE0434FD // f_FinishedFO
  ME_030E828CA493 // f_LineWidth
  ME_E2EF2DC8F120 // f_NeedLog
- ) .SequenceCode.It
+ )
  ; // Attributes
  : Operations
-   @ ( ME_48CA655400D8 // Create
+   Seq: ( ME_48CA655400D8 // Create
  ME_48CA656F02B4 // AddFrame
  ME_48CA65890091 // AlignBoundary
  ME_48CA65AD0380 // FinishFrameObject
@@ -7160,17 +7302,17 @@ ref; // ME_479731C50290_ME_48CA64150378 Cleanup
  ME_4C651E890332 // Clear
  ME_4D00D5D700A4 // GetLines
  ME_4DA4374C01A2 // GetColorArray
- ) .SequenceCode.It
+ )
  ; // Operations
  : Overridden
-   @ ( ME_479731C50290_ME_48CA64150378 // Cleanup
- ) .SequenceCode.It
+   Seq: ( ME_479731C50290_ME_48CA64150378 // Cleanup
+ )
  ; // Overridden
  : Dependencies
-   @ ( ME_48CA66D0035F // 
+   Seq: ( ME_48CA66D0035F // 
  ME_48CA674B036B // 
  ME_4A49D9FD0319 // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  CONST "author" 'Инишев Д.А.'
  CONST "needs InstanceR" 'undefined'
@@ -7178,12 +7320,14 @@ ref; // ME_479731C50290_ME_48CA64150378 Cleanup
  CONST "no hands" true
  CONST "register in scripts" 'undefined'
  CONST "started" '02.10.06 16:27'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\L3'
  CONST intf.pas:Path 'common\components\rtl\Garant\L3\l3FrameObject.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\L3'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'FrameObject'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'l3FrameObject'
 
 ref; // ME_48CA64150378 Tl3FrameObject
 
@@ -7249,22 +7393,22 @@ ref; // ME_47A6FEE600FC_ME_48CA6C24020B IsCacheable
  : Parent ME_473C3BEE0334 // l3Canvas
  ;
  : Inherits
-   @ ( WL 'ME_47B99E920196' '47913B47006E.pas.ms.script' // l3UncomparabeObjectRefList
+   Seq: ( WL 'ME_47B99E920196' '47913B47006E.pas.ms.script' // l3UncomparabeObjectRefList
  WL 'ME_4A54DD4E036F' '47913B47006E.pas.ms.script' // Tl3ProtoDataContainer
- ) .SequenceCode.It
+ )
  ; // Inherits
  : Attributes
-   @ ( ME_48CA6C410235 // ItemType
- ) .SequenceCode.It
+   Seq: ( ME_48CA6C410235 // ItemType
+ )
  ; // Attributes
  : Implemented
-   @ ( ME_47B2C42A0163_ME_48CA6C24020B // AssignItem
+   Seq: ( ME_47B2C42A0163_ME_48CA6C24020B // AssignItem
  ME_47B99D4503A2_ME_48CA6C24020B // CompareExistingItems
- ) .SequenceCode.It
+ )
  ; // Implemented
  : Overridden
-   @ ( ME_47A6FEE600FC_ME_48CA6C24020B // IsCacheable
- ) .SequenceCode.It
+   Seq: ( ME_47A6FEE600FC_ME_48CA6C24020B // IsCacheable
+ )
  ; // Overridden
  CONST "author" 'Инишев Д.А.'
  CONST "needs InstanceR" 'undefined'
@@ -7272,12 +7416,14 @@ ref; // ME_47A6FEE600FC_ME_48CA6C24020B IsCacheable
  CONST "no hands" true
  CONST "register in scripts" 'undefined'
  CONST "started" '02.10.06 16:27'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\L3'
  CONST intf.pas:Path 'common\components\rtl\Garant\L3\l3FrameObjectList.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\L3'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'FrameObjectList'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'l3FrameObjectList'
 
 ref; // ME_48CA6C24020B Tl3FrameObjectList
 
@@ -7354,8 +7500,8 @@ ref; // ME_51B9629F00ED DoIt
  : Parent ME_48CA6E8201B8 // Tl3FrameLines
  ;
  : Operations
-   @ ( ME_51B9629F00ED // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_51B9629F00ED // DoIt
+ )
  ; // Operations
 
 ref; // ME_51B96284001B GetFrameObjects
@@ -7399,8 +7545,8 @@ ref; // ME_48CA70380217 anObjID
  : Target ME_48CA64150378 // Tl3FrameObject
  ;
  : Parameters
-   @ ( ME_48CA70380217 // anObjID
- ) .SequenceCode.It
+   Seq: ( ME_48CA70380217 // anObjID
+ )
  ; // Parameters
 
 ref; // ME_48CA703303A3 InternalFrameObject
@@ -7445,10 +7591,10 @@ ref; // ME_48CA7050019F aRect
  : Parent ME_48CA6E8201B8 // Tl3FrameLines
  ;
  : Parameters
-   @ ( ME_48CA70500146 // aCanvas
+   Seq: ( ME_48CA70500146 // aCanvas
  ME_48CA70500173 // aFrame
  ME_48CA7050019F // aRect
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_48CA70430236 UpdateFrameRect
@@ -7676,28 +7822,28 @@ ref; // ME_47A042E100E2_ME_48CA6E8201B8 InitFields
  : Parent ME_473C3BEE0334 // l3Canvas
  ;
  : Inherits
-   @ ( WL 'ME_4AE5CA2D0034' '47913B47006E.pas.ms.script' // Tl3CProtoObject
- ) .SequenceCode.It
+   Seq: ( WL 'ME_4AE5CA2D0034' '47913B47006E.pas.ms.script' // Tl3CProtoObject
+ )
  ; // Inherits
  : Implements
-   @ ( WL 'ME_475E5FCB018F' '467C0CAA02AB.pas.ms.script' // Il3FrameLines
- ) .SequenceCode.It
+   Seq: ( WL 'ME_475E5FCB018F' '467C0CAA02AB.pas.ms.script' // Il3FrameLines
+ )
  ; // Implements
  : Attributes
-   @ ( ME_4D01F1E60013 // f_LastFoundObjIndex
+   Seq: ( ME_4D01F1E60013 // f_LastFoundObjIndex
  ME_48CA6EE2008E // f_FrameObjects
  ME_51B9669500F6 // f_Behaviour
- ) .SequenceCode.It
+ )
  ; // Attributes
  : Operations
-   @ ( ME_51B96284001B // GetFrameObjects
+   Seq: ( ME_51B96284001B // GetFrameObjects
  ME_48CA6F0403D4 // Make
  ME_48CA703303A3 // InternalFrameObject
  ME_48CA70430236 // UpdateFrameRect
- ) .SequenceCode.It
+ )
  ; // Operations
  : Implemented
-   @ ( ME_4A4CB2B2031F_ME_48CA6E8201B8 // StartFrameObject
+   Seq: ( ME_4A4CB2B2031F_ME_48CA6E8201B8 // StartFrameObject
  ME_4A4CB2BE0134_ME_48CA6E8201B8 // FinishFrameObject
  ME_4A4CB2C300F6_ME_48CA6E8201B8 // AddFrame
  ME_4A4CB2D20019_ME_48CA6E8201B8 // AlignBoundary
@@ -7709,21 +7855,21 @@ ref; // ME_47A042E100E2_ME_48CA6E8201B8 InitFields
  ME_4AB8736B0062_ME_48CA6E8201B8 // WriteAlignData
  ME_4D01F080037C_ME_48CA6E8201B8 // SetNeedLogging
  ME_4E54CF2D00D3_ME_48CA6E8201B8 // ClearFrameObject
- ) .SequenceCode.It
+ )
  ; // Implemented
  : Overridden
-   @ ( ME_479731C50290_ME_48CA6E8201B8 // Cleanup
+   Seq: ( ME_479731C50290_ME_48CA6E8201B8 // Cleanup
  ME_47A042E100E2_ME_48CA6E8201B8 // InitFields
- ) .SequenceCode.It
+ )
  ; // Overridden
  : Dependencies
-   @ ( ME_48CA6FA4011B // 
+   Seq: ( ME_48CA6FA4011B // 
  ME_48CA710A0037 // 
  ME_48CA711A00D7 // 
  ME_48CA71AF0299 // 
  ME_48CA71BF020F // 
  ME_4D00F9A50085 // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  CONST "author" 'Инишев Д.А.'
  CONST "needs InstanceR" 'undefined'
@@ -7731,12 +7877,14 @@ ref; // ME_47A042E100E2_ME_48CA6E8201B8 InitFields
  CONST "no hands" true
  CONST "register in scripts" 'undefined'
  CONST "started" '02.10.06 16:27'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\L3'
  CONST intf.pas:Path 'common\components\rtl\Garant\L3\l3FrameLines.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\L3'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'FrameLines'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'l3FrameLines'
 
 ref; // ME_48CA6E8201B8 Tl3FrameLines
 
@@ -7849,15 +7997,15 @@ ref; // ME_476F71670396_ME_48DD2129027C InchHeight
  : Parent ME_48DD20E400C2 // l3GraphicContainer
  ;
  : Inherits
-   @ ( WL 'ME_47879856035F' '47913B47006E.pas.ms.script' // Tl3_Base
- ) .SequenceCode.It
+   Seq: ( WL 'ME_47879856035F' '47913B47006E.pas.ms.script' // Tl3_Base
+ )
  ; // Inherits
  : Implements
-   @ ( WL 'ME_476F70910097' '467C0CAA02AB.pas.ms.script' // Il3Bitmap
- ) .SequenceCode.It
+   Seq: ( WL 'ME_476F70910097' '467C0CAA02AB.pas.ms.script' // Il3Bitmap
+ )
  ; // Implements
  : Implemented
-   @ ( ME_476F70A4036F_ME_48DD2129027C // StretchDraw
+   Seq: ( ME_476F70A4036F_ME_48DD2129027C // StretchDraw
  ME_476F70D70190_ME_48DD2129027C // SaveToClipboardFormat
  ME_476F711D0027_ME_48DD2129027C // AssignTo
  ME_476F71240272_ME_48DD2129027C // Assign
@@ -7866,12 +8014,18 @@ ref; // ME_476F71670396_ME_48DD2129027C InchHeight
  ME_476F7149024D_ME_48DD2129027C // Height
  ME_476F71580018_ME_48DD2129027C // InchWidth
  ME_476F71670396_ME_48DD2129027C // InchHeight
- ) .SequenceCode.It
+ )
  ; // Implemented
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
+ CONST dfm:PathOnly '\common\components\rtl\Garant\L3'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\L3'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'PrimGraphicContainer'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_48DD2129027C Tl3PrimGraphicContainer
 
@@ -7886,13 +8040,19 @@ ref; // ME_48DD2129027C Tl3PrimGraphicContainer
  : Parent ME_48DD20E400C2 // l3GraphicContainer
  ;
  : Inherits
-   @ ( ME_48DD2129027C // Tl3PrimGraphicContainer
- ) .SequenceCode.It
+   Seq: ( ME_48DD2129027C // Tl3PrimGraphicContainer
+ )
  ; // Inherits
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
+ CONST dfm:PathOnly '\common\components\rtl\Garant\L3'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\L3'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'SizeableGraphicContainerPrim'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_48DD21170351 Tl3SizeableGraphicContainerPrim
 
@@ -7907,13 +8067,19 @@ ref; // ME_48DD21170351 Tl3SizeableGraphicContainerPrim
  : Parent ME_48DD20E400C2 // l3GraphicContainer
  ;
  : Inherits
-   @ ( ME_48DD21170351 // Tl3SizeableGraphicContainerPrim
- ) .SequenceCode.It
+   Seq: ( ME_48DD21170351 // Tl3SizeableGraphicContainerPrim
+ )
  ; // Inherits
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
+ CONST dfm:PathOnly '\common\components\rtl\Garant\L3'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\L3'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'SizeableGraphicContainer'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_48DD2169025C Tl3SizeableGraphicContainer
 
@@ -7943,17 +8109,23 @@ ref; // ME_4DD3CD2C0032
  : Parent ME_48DD20E400C2 // l3GraphicContainer
  ;
  : Inherits
-   @ ( ME_48DD21170351 // Tl3SizeableGraphicContainerPrim
- ) .SequenceCode.It
+   Seq: ( ME_48DD21170351 // Tl3SizeableGraphicContainerPrim
+ )
  ; // Inherits
  : Dependencies
-   @ ( ME_4DD3CD2C0032 // 
- ) .SequenceCode.It
+   Seq: ( ME_4DD3CD2C0032 // 
+ )
  ; // Dependencies
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
+ CONST dfm:PathOnly '\common\components\rtl\Garant\L3'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\L3'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'GraphicContainer'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_48DD2178012F Tl3GraphicContainer
 
@@ -7968,22 +8140,22 @@ ref; // ME_48DD2178012F Tl3GraphicContainer
  : Parent ME_473C3BEE0334 // l3Canvas
  ;
  : Children
-   @ ( ME_48DD2129027C // Tl3PrimGraphicContainer
+   Seq: ( ME_48DD2129027C // Tl3PrimGraphicContainer
  ME_48DD21170351 // Tl3SizeableGraphicContainerPrim
  ME_48DD2169025C // Tl3SizeableGraphicContainer
  ME_48DD2178012F // Tl3GraphicContainer
- ) .SequenceCode.It
+ )
  ; // Children
  CONST "author" 'Люлин А.В.'
  CONST "finished" false
  CONST "no hands" false
  CONST "started" '22.10.2007 15:11'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\L3'
  CONST intf.pas:Path 'common\components\rtl\Garant\L3\NOT_FINISHED_l3GraphicContainer.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\L3'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'GraphicContainer'
 
 ref; // ME_48DD20E400C2 l3GraphicContainer
 
@@ -8014,12 +8186,12 @@ ref; // ME_4DD3D0B40355
  : Parent ME_473C3BEE0334 // l3Canvas
  ;
  : Inherits
-   @ ( ME_48DD2129027C // Tl3PrimGraphicContainer
- ) .SequenceCode.It
+   Seq: ( ME_48DD2129027C // Tl3PrimGraphicContainer
+ )
  ; // Inherits
  : Dependencies
-   @ ( ME_4DD3D0B40355 // 
- ) .SequenceCode.It
+   Seq: ( ME_4DD3D0B40355 // 
+ )
  ; // Dependencies
  CONST "author" 'Люлин А.В.'
  CONST "finished" false
@@ -8028,12 +8200,14 @@ ref; // ME_4DD3D0B40355
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
  CONST "started" '26.07.2004 16:07 '
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\L3'
  CONST intf.pas:Path 'common\components\rtl\Garant\L3\NOT_FINISHED_l3IEBitmapContainer.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\L3'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'IEBitmapContainer'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'l3IEBitmapContainer'
 
 ref; // ME_48E6486F0123 Tl3IEBitmapContainer
 
@@ -8049,8 +8223,8 @@ ref; // ME_48E6486F0123 Tl3IEBitmapContainer
  : Parent ME_473C3BEE0334 // l3Canvas
  ;
  : Inherits
-   @ ( ME_473C3D830066 // Tl3Canvas
- ) .SequenceCode.It
+   Seq: ( ME_473C3D830066 // Tl3Canvas
+ )
  ; // Inherits
  CONST "author" 'Люлин А.В.'
  CONST "finished" false
@@ -8059,12 +8233,14 @@ ref; // ME_48E6486F0123 Tl3IEBitmapContainer
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
  CONST "started" '21.11.2005 08:38'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\L3'
  CONST intf.pas:Path 'common\components\rtl\Garant\L3\NOT_FINISHED_l3VirtualCanvas.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\L3'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'VirtualCanvas'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'l3VirtualCanvas'
 
 ref; // ME_473C4F1E01A1 Tl3VirtualCanvas
 
@@ -8080,6 +8256,11 @@ FORWARD ME_53147FD702AC
  CONST Abstraction at_final
  : Parent ME_53147FD702AC // Tl3FontManagerPrimPrim
  ;
+ CONST dfm:PathOnly '\common\components\rtl\Garant\L3'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\L3'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'Items_NoSort'
 
 ref; // ME_53148388028F l3Items_NoSort
 
@@ -8093,6 +8274,11 @@ ref; // ME_53148388028F l3Items_NoSort
  CONST Abstraction at_final
  : Parent ME_53147FD702AC // Tl3FontManagerPrimPrim
  ;
+ CONST dfm:PathOnly '\common\components\rtl\Garant\L3'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\L3'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'Items_CaseUnsensitive'
 
 ref; // ME_53148397004B l3Items_CaseUnsensitive
 
@@ -8166,39 +8352,41 @@ ref; // ME_47B99D4503A2_ME_53147FD702AC CompareExistingItems
  : Parent ME_473C3BEE0334 // l3Canvas
  ;
  : Inherits
-   @ ( WL 'ME_47B99E920196' '47913B47006E.pas.ms.script' // l3UncomparabeObjectRefList
+   Seq: ( WL 'ME_47B99E920196' '47913B47006E.pas.ms.script' // l3UncomparabeObjectRefList
  WL 'ME_4A54DD4E036F' '47913B47006E.pas.ms.script' // Tl3ProtoDataContainer
- ) .SequenceCode.It
+ )
  ; // Inherits
  : Attributes
-   @ ( ME_5314804E0154 // ItemType
- ) .SequenceCode.It
+   Seq: ( ME_5314804E0154 // ItemType
+ )
  ; // Attributes
  : Implemented
-   @ ( ME_47B2C42A0163_ME_53147FD702AC // AssignItem
+   Seq: ( ME_47B2C42A0163_ME_53147FD702AC // AssignItem
  ME_47B99D4503A2_ME_53147FD702AC // CompareExistingItems
- ) .SequenceCode.It
+ )
  ; // Implemented
  : Children
-   @ ( ME_53148388028F // l3Items_NoSort
+   Seq: ( ME_53148388028F // l3Items_NoSort
  ME_53148397004B // l3Items_CaseUnsensitive
- ) .SequenceCode.It
+ )
  ; // Children
  : Dependencies
-   @ ( ME_531480E600B2 // 
+   Seq: ( ME_531480E600B2 // 
  ME_5314814800BA // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\L3'
  CONST intf.pas:Path 'common\components\rtl\Garant\L3\l3FontManagerPrimPrim.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\L3'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'FontManagerPrimPrim'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'l3FontManagerPrimPrim'
 
 ref; // ME_53147FD702AC Tl3FontManagerPrimPrim
 
@@ -8213,20 +8401,22 @@ ref; // ME_53147FD702AC Tl3FontManagerPrimPrim
  : Parent ME_473C3BEE0334 // l3Canvas
  ;
  : Inherits
-   @ ( ME_48DD2178012F // Tl3GraphicContainer
- ) .SequenceCode.It
+   Seq: ( ME_48DD2178012F // Tl3GraphicContainer
+ )
  ; // Inherits
  CONST "finished" false
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\L3'
  CONST intf.pas:Path 'common\components\rtl\Garant\L3\NOT_FINISHED_l3BitmapContainer.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\L3'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'BitmapContainer'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'l3BitmapContainer'
 
 ref; // ME_4CBD730A0323 Tl3BitmapContainer
 
@@ -8241,8 +8431,8 @@ ref; // ME_4CBD730A0323 Tl3BitmapContainer
  : Parent ME_473C3BEE0334 // l3Canvas
  ;
  : Inherits
-   @ ( WL 'ME_49E7754802A9' '47913B47006E.pas.ms.script' // Tl3ProtoObject
- ) .SequenceCode.It
+   Seq: ( WL 'ME_49E7754802A9' '47913B47006E.pas.ms.script' // Tl3ProtoObject
+ )
  ; // Inherits
  CONST "author" 'Люлин А.В.'
  CONST "finished" false
@@ -8251,12 +8441,14 @@ ref; // ME_4CBD730A0323 Tl3BitmapContainer
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
  CONST "started" '2004/11/03 10:39:36'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\L3'
  CONST intf.pas:Path 'common\components\rtl\Garant\L3\NOT_FINISHED_l3Region.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\L3'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'Region'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'l3Region'
 
 ref; // ME_4CC82A7D0162 Tl3Region
 
@@ -8293,9 +8485,9 @@ ref; // ME_4D00F6D10388 aObjID
  : Target WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
  ;
  : Parameters
-   @ ( ME_4D00F6D10360 // aCanvas
+   Seq: ( ME_4D00F6D10360 // aCanvas
  ME_4D00F6D10388 // aObjID
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_4D00C91B03B2 OpenLinesLog
@@ -8319,8 +8511,8 @@ ref; // ME_4D00C94603B2 aLogName
  : Parent ME_4D00C63C03E2 // Il3FrameLinesLogger
  ;
  : Parameters
-   @ ( ME_4D00C94603B2 // aLogName
- ) .SequenceCode.It
+   Seq: ( ME_4D00C94603B2 // aLogName
+ )
  ; // Parameters
 
 ref; // ME_4D00C9410153 CloseLinesLog
@@ -8350,11 +8542,17 @@ ref; // ME_4FA3D5A500A9 GetPrecision
  : Parent ME_4D00B058024F // Tl3FrameLinesSpy
  ;
  : Operations
-   @ ( ME_4D00C91B03B2 // OpenLinesLog
+   Seq: ( ME_4D00C91B03B2 // OpenLinesLog
  ME_4D00C9410153 // CloseLinesLog
  ME_4FA3D5A500A9 // GetPrecision
- ) .SequenceCode.It
+ )
  ; // Operations
+ CONST dfm:PathOnly '\common\components\rtl\Garant\L3'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\L3'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'FrameLinesLogger'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_4D00C63C03E2 Il3FrameLinesLogger
 
@@ -8422,6 +8620,7 @@ ref; // ME_5270A1060242 NeedClear
 : ME_919C5183DF46
  CONST UID '919C5183DF46'
  CONST Name 'f_NeedClear'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY 'Поле для свойства NeedClear' ;
  CONST Visibility PrivateAccess
@@ -8431,6 +8630,7 @@ ref; // ME_5270A1060242 NeedClear
  ;
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
+ CONST extprop:clearViaProperty 'NeedClear'
 
 ref; // ME_919C5183DF46 f_NeedClear
 
@@ -8460,8 +8660,8 @@ ref; // ME_4D00B6F00280 DoIt
  : Parent ME_4D00B058024F // Tl3FrameLinesSpy
  ;
  : Operations
-   @ ( ME_4D00B6F00280 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_4D00B6F00280 // DoIt
+ )
  ; // Operations
  CONST "is static" true
 
@@ -8508,10 +8708,10 @@ ref; // ME_4D01F3590230 anIndex
  : Parent ME_4D00BAD501C9 // LogLines
  ;
  : Parameters
-   @ ( ME_4D01F35901F4 // aLines
+   Seq: ( ME_4D01F35901F4 // aLines
  ME_4D01F3590211 // aCanvas
  ME_4D01F3590230 // anIndex
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_4D00BB2A019B DoIt
@@ -8527,8 +8727,8 @@ ref; // ME_4D00BB2A019B DoIt
  : Parent ME_4D00B058024F // Tl3FrameLinesSpy
  ;
  : Operations
-   @ ( ME_4D00BB2A019B // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_4D00BB2A019B // DoIt
+ )
  ; // Operations
 
 ref; // ME_4D00BAD501C9 LogLines
@@ -8564,9 +8764,9 @@ ref; // ME_51B6F5E90073 aPrinting
  : Parent ME_4D00CCAB029E // SetLogger
  ;
  : Parameters
-   @ ( ME_51B6F5E9005F // aLogger
+   Seq: ( ME_51B6F5E9005F // aLogger
  ME_51B6F5E90073 // aPrinting
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_4D00CCBC011E DoIt
@@ -8582,8 +8782,8 @@ ref; // ME_4D00CCBC011E DoIt
  : Parent ME_4D00B058024F // Tl3FrameLinesSpy
  ;
  : Operations
-   @ ( ME_4D00CCBC011E // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_4D00CCBC011E // DoIt
+ )
  ; // Operations
 
 ref; // ME_4D00CCAB029E SetLogger
@@ -8609,8 +8809,8 @@ ref; // ME_4D00CD2901BD aLogger
  : Parent ME_4D00CCF000BC // RemoveLogger
  ;
  : Parameters
-   @ ( ME_4D00CD2901BD // aLogger
- ) .SequenceCode.It
+   Seq: ( ME_4D00CD2901BD // aLogger
+ )
  ; // Parameters
 
 ref; // ME_4D00CD0E0273 DoIt
@@ -8626,8 +8826,8 @@ ref; // ME_4D00CD0E0273 DoIt
  : Parent ME_4D00B058024F // Tl3FrameLinesSpy
  ;
  : Operations
-   @ ( ME_4D00CD0E0273 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_4D00CD0E0273 // DoIt
+ )
  ; // Operations
 
 ref; // ME_4D00CCF000BC RemoveLogger
@@ -8708,51 +8908,53 @@ ref; // ME_5000565C019C_ME_4D00B058024F ClearFields
  : Parent ME_473C3BEE0334 // l3Canvas
  ;
  : Inherits
-   @ ( WL 'ME_49E7754802A9' '47913B47006E.pas.ms.script' // Tl3ProtoObject
- ) .SequenceCode.It
+   Seq: ( WL 'ME_49E7754802A9' '47913B47006E.pas.ms.script' // Tl3ProtoObject
+ )
  ; // Inherits
  : Attributes
-   @ ( ME_4D00C79803BB // f_Logger
+   Seq: ( ME_4D00C79803BB // f_Logger
  ME_4D00C7FC0159 // f_Filer
  ME_51B6F72203A6 // f_Printing
  ME_5270A1060242 // NeedClear
  ME_919C5183DF46 // f_NeedClear
- ) .SequenceCode.It
+ )
  ; // Attributes
  : Operations
-   @ ( ME_4D00B6A50143 // Exists
+   Seq: ( ME_4D00B6A50143 // Exists
  ME_4D00BAD501C9 // LogLines
  ME_4D00CCAB029E // SetLogger
  ME_4D00CCF000BC // RemoveLogger
- ) .SequenceCode.It
+ )
  ; // Operations
  : Overridden
-   @ ( ME_479731C50290_ME_4D00B058024F // Cleanup
+   Seq: ( ME_479731C50290_ME_4D00B058024F // Cleanup
  ME_5000565C019C_ME_4D00B058024F // ClearFields
- ) .SequenceCode.It
+ )
  ; // Overridden
  : Children
-   @ ( ME_4D00C63C03E2 // Il3FrameLinesLogger
- ) .SequenceCode.It
+   Seq: ( ME_4D00C63C03E2 // Il3FrameLinesLogger
+ )
  ; // Children
  : Dependencies
-   @ ( ME_4D00BFE20327 // 
+   Seq: ( ME_4D00BFE20327 // 
  ME_4D00C33B009D // 
  ME_4D00CBB5035E // 
  ME_4D00CF9803D8 // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" true
  CONST "register in scripts" 'undefined'
  CONST "singleton" true
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\L3'
  CONST intf.pas:Path 'common\components\rtl\Garant\L3\l3FrameLinesSpy.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\L3'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'FrameLinesSpy'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'l3FrameLinesSpy'
 
 ref; // ME_4D00B058024F Tl3FrameLinesSpy
 
@@ -8782,8 +8984,8 @@ ref; // ME_4DD3CE73019D DoIt
  : Parent ME_4DD3CD0B0193 // Tl3GraphicContainerStack
  ;
  : Operations
-   @ ( ME_4DD3CE73019D // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_4DD3CE73019D // DoIt
+ )
  ; // Operations
  CONST "is static" true
 
@@ -8800,12 +9002,12 @@ ref; // ME_4DD3CE6A00B7 Exists
  : Parent ME_473C3BEE0334 // l3Canvas
  ;
  : Inherits
-   @ ( WL 'ME_4773DBBD000D' '47913B47006E.pas.ms.script' // Tl3ObjectList
- ) .SequenceCode.It
+   Seq: ( WL 'ME_4773DBBD000D' '47913B47006E.pas.ms.script' // Tl3ObjectList
+ )
  ; // Inherits
  : Operations
-   @ ( ME_4DD3CE6A00B7 // Exists
- ) .SequenceCode.It
+   Seq: ( ME_4DD3CE6A00B7 // Exists
+ )
  ; // Operations
  CONST "author" 'Люлин А.В.'
  CONST "needs InstanceR" 'undefined'
@@ -8814,12 +9016,14 @@ ref; // ME_4DD3CE6A00B7 Exists
  CONST "register in scripts" 'undefined'
  CONST "singleton" true
  CONST "started" '18.05.2011 17:43'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\L3'
  CONST intf.pas:Path 'common\components\rtl\Garant\L3\l3GraphicContainerStack.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\L3'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'GraphicContainerStack'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'l3GraphicContainerStack'
 
 ref; // ME_4DD3CD0B0193 Tl3GraphicContainerStack
 
@@ -8849,8 +9053,8 @@ ref; // ME_4DD3D0CA006D DoIt
  : Parent ME_4DD3D054004A // Tl3IEBitmapContainerStack
  ;
  : Operations
-   @ ( ME_4DD3D0CA006D // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_4DD3D0CA006D // DoIt
+ )
  ; // Operations
  CONST "is static" true
 
@@ -8867,12 +9071,12 @@ ref; // ME_4DD3D0BB03BD Exists
  : Parent ME_473C3BEE0334 // l3Canvas
  ;
  : Inherits
-   @ ( WL 'ME_4773DBBD000D' '47913B47006E.pas.ms.script' // Tl3ObjectList
- ) .SequenceCode.It
+   Seq: ( WL 'ME_4773DBBD000D' '47913B47006E.pas.ms.script' // Tl3ObjectList
+ )
  ; // Inherits
  : Operations
-   @ ( ME_4DD3D0BB03BD // Exists
- ) .SequenceCode.It
+   Seq: ( ME_4DD3D0BB03BD // Exists
+ )
  ; // Operations
  CONST "author" 'Люлин А.В.'
  CONST "needs InstanceR" 'undefined'
@@ -8881,12 +9085,14 @@ ref; // ME_4DD3D0BB03BD Exists
  CONST "register in scripts" 'undefined'
  CONST "singleton" true
  CONST "started" '18.05.2011 17:57'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\L3'
  CONST intf.pas:Path 'common\components\rtl\Garant\L3\l3IEBitmapContainerStack.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\L3'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'IEBitmapContainerStack'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'l3IEBitmapContainerStack'
 
 ref; // ME_4DD3D054004A Tl3IEBitmapContainerStack
 
@@ -8901,13 +9107,19 @@ ref; // ME_4DD3D054004A Tl3IEBitmapContainerStack
  : Parent ME_47D15062022A // Tl3Bitmap
  ;
  : Inherits
-   @ ( ME_473C3D830066 // Tl3Canvas
- ) .SequenceCode.It
+   Seq: ( ME_473C3D830066 // Tl3Canvas
+ )
  ; // Inherits
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
+ CONST dfm:PathOnly '\common\components\rtl\Garant\L3'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\L3'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'BitmapCanvas'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_47D158AC010F Tl3BitmapCanvas
 
@@ -8963,22 +9175,22 @@ ref; // ME_479731C50290_ME_47D15062022A Cleanup
  : Parent ME_473C3BEE0334 // l3Canvas
  ;
  : Inherits
-   @ ( WL 'ME_47913F970159' '47913B47006E.pas.ms.script' // l3Unknown
+   Seq: ( WL 'ME_47913F970159' '47913B47006E.pas.ms.script' // l3Unknown
  WL 'ME_47D15723038A' '55C4AEC801CA.pas.ms.script' // TBitmap
- ) .SequenceCode.It
+ )
  ; // Inherits
  : Attributes
-   @ ( ME_47D1585203D5 // f_Canvas
+   Seq: ( ME_47D1585203D5 // f_Canvas
  ME_47D1587401BD // CanvasEx
- ) .SequenceCode.It
+ )
  ; // Attributes
  : Overridden
-   @ ( ME_479731C50290_ME_47D15062022A // Cleanup
- ) .SequenceCode.It
+   Seq: ( ME_479731C50290_ME_47D15062022A // Cleanup
+ )
  ; // Overridden
  : Children
-   @ ( ME_47D158AC010F // Tl3BitmapCanvas
- ) .SequenceCode.It
+   Seq: ( ME_47D158AC010F // Tl3BitmapCanvas
+ )
  ; // Children
  CONST "author" 'Люлин А.В.'
  CONST "needs InstanceR" 'undefined'
@@ -8986,12 +9198,14 @@ ref; // ME_479731C50290_ME_47D15062022A Cleanup
  CONST "no hands" true
  CONST "register in scripts" 'undefined'
  CONST "started" '15.12.2006 14:01'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\L3'
  CONST intf.pas:Path 'common\components\rtl\Garant\L3\l3Bitmap.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\L3'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'Bitmap'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'l3Bitmap'
 
 ref; // ME_47D15062022A Tl3Bitmap
 
@@ -9006,20 +9220,22 @@ ref; // ME_47D15062022A Tl3Bitmap
  : Parent ME_473C3BEE0334 // l3Canvas
  ;
  : Inherits
-   @ ( ME_48C68AC60396 // Tl3ControlCanvas
- ) .SequenceCode.It
+   Seq: ( ME_48C68AC60396 // Tl3ControlCanvas
+ )
  ; // Inherits
  CONST "finished" false
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\L3'
  CONST intf.pas:Path 'common\components\rtl\Garant\L3\NOT_FINISHED_l3GraphicControlCanvas.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\L3'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'GraphicControlCanvas'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'l3GraphicControlCanvas'
 
 ref; // ME_4F29376B00C7 Tl3GraphicControlCanvas
 
@@ -9045,8 +9261,8 @@ ref; // ME_4FAE57A50373 aForm
  : Parent ME_4F916FD10199 // Tl3FormCanvas
  ;
  : Parameters
-   @ ( ME_4FAE57A50373 // aForm
- ) .SequenceCode.It
+   Seq: ( ME_4FAE57A50373 // aForm
+ )
  ; // Parameters
 
 ref; // ME_4FAE57980326 Create
@@ -9062,23 +9278,25 @@ ref; // ME_4FAE57980326 Create
  : Parent ME_473C3BEE0334 // l3Canvas
  ;
  : Inherits
-   @ ( ME_48C68AA40296 // Tl3WinControlCanvas
- ) .SequenceCode.It
+   Seq: ( ME_48C68AA40296 // Tl3WinControlCanvas
+ )
  ; // Inherits
  : Operations
-   @ ( ME_4FAE57980326 // Create
- ) .SequenceCode.It
+   Seq: ( ME_4FAE57980326 // Create
+ )
  ; // Operations
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\L3'
  CONST intf.pas:Path 'common\components\rtl\Garant\L3\l3FormCanvas.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\L3'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'FormCanvas'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'l3FormCanvas'
 
 ref; // ME_4F916FD10199 Tl3FormCanvas
 
@@ -9095,13 +9313,19 @@ FORWARD ME_4FAE801F00D4
  : Parent ME_4FAE801F00D4 // Tl3CustomControlCanvas
  ;
  : Inherits
-   @ ( WL 'ME_47E1388A03A7' '4799D29F033F.pas.ms.script' // TCustomControl
- ) .SequenceCode.It
+   Seq: ( WL 'ME_47E1388A03A7' '4799D29F033F.pas.ms.script' // TCustomControl
+ )
  ; // Inherits
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
+ CONST dfm:PathOnly '\common\components\rtl\Garant\L3'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\L3'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'HackControl'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_4FAE597F00BE THackControl
 
@@ -9125,6 +9349,7 @@ ref; // ME_4FAE804F00A3 aControl
  CONST Value 'nil'
  : ValueType WL 'ME_4728CC880316' '4677FBA70343.pas.ms.script' // Il3Caret
  ;
+ CONST extprop:pas:Value 'nil'
 
 ref; // ME_4FAE804F00CB aCaret
 
@@ -9138,9 +9363,9 @@ ref; // ME_4FAE804F00CB aCaret
  : Parent ME_4FAE801F00D4 // Tl3CustomControlCanvas
  ;
  : Parameters
-   @ ( ME_4FAE804F00A3 // aControl
+   Seq: ( ME_4FAE804F00A3 // aControl
  ME_4FAE804F00CB // aCaret
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_4FAE803503C7 Create
@@ -9156,27 +9381,29 @@ ref; // ME_4FAE803503C7 Create
  : Parent ME_473C3BEE0334 // l3Canvas
  ;
  : Inherits
-   @ ( ME_48C68AA40296 // Tl3WinControlCanvas
- ) .SequenceCode.It
+   Seq: ( ME_48C68AA40296 // Tl3WinControlCanvas
+ )
  ; // Inherits
  : Operations
-   @ ( ME_4FAE803503C7 // Create
- ) .SequenceCode.It
+   Seq: ( ME_4FAE803503C7 // Create
+ )
  ; // Operations
  : Children
-   @ ( ME_4FAE597F00BE // THackControl
- ) .SequenceCode.It
+   Seq: ( ME_4FAE597F00BE // THackControl
+ )
  ; // Children
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\L3'
  CONST intf.pas:Path 'common\components\rtl\Garant\L3\l3CustomControlCanvas.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\L3'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'ControlCanvas'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'l3CustomControlCanvas'
 
 ref; // ME_4FAE801F00D4 Tl3CustomControlCanvas
 
@@ -9191,20 +9418,22 @@ ref; // ME_4FAE801F00D4 Tl3CustomControlCanvas
  : Parent ME_473C3BEE0334 // l3Canvas
  ;
  : Inherits
-   @ ( WL 'ME_4CE521C80107' '4A6D65B9022A.pas.ms.script' // Tl3ProtoObjectRefList
- ) .SequenceCode.It
+   Seq: ( WL 'ME_4CE521C80107' '4A6D65B9022A.pas.ms.script' // Tl3ProtoObjectRefList
+ )
  ; // Inherits
  CONST "finished" false
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\L3'
  CONST intf.pas:Path 'common\components\rtl\Garant\L3\NOT_FINISHED_l3FormattedLines.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\L3'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'FormattedLines'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'l3FormattedLines'
 
 ref; // ME_50C61D8502E4 Tl3FormattedLines
 
@@ -9220,12 +9449,12 @@ ref; // ME_50C61D8502E4 Tl3FormattedLines
  ;
  CONST "finished" false
  CONST "no hands" false
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\L3'
  CONST intf.pas:Path 'common\components\rtl\Garant\L3\NOT_FINISHED_l3FontTools.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\L3'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'FontTools'
 
 ref; // ME_5158537A0290 l3FontTools
 
@@ -9267,28 +9496,30 @@ ref; // ME_5304D6C5002B_ME_5314807A0393 ItemToWStr
  : Parent ME_473C3BEE0334 // l3Canvas
  ;
  : Inherits
-   @ ( ME_53147FD702AC // Tl3FontManagerPrimPrim
+   Seq: ( ME_53147FD702AC // Tl3FontManagerPrimPrim
  WL 'ME_53148D6A00AE' '47913B47006E.pas.ms.script' // l3DictionaryPrimPrim
- ) .SequenceCode.It
+ )
  ; // Inherits
  : Attributes
-   @ ( ME_53149339029A // StringType
- ) .SequenceCode.It
+   Seq: ( ME_53149339029A // StringType
+ )
  ; // Attributes
  : Implemented
-   @ ( ME_5304D6C5002B_ME_5314807A0393 // ItemToWStr
- ) .SequenceCode.It
+   Seq: ( ME_5304D6C5002B_ME_5314807A0393 // ItemToWStr
+ )
  ; // Implemented
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\L3'
  CONST intf.pas:Path 'common\components\rtl\Garant\L3\l3FontManagerPrim.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\L3'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'FontManagerPrim'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'l3FontManagerPrim'
 
 ref; // ME_5314807A0393 Tl3FontManagerPrim
 
@@ -9299,6 +9530,7 @@ FORWARD ME_4B88F0F00211
 : ME_7D16761A0A99
  CONST UID '7D16761A0A99'
  CONST Name 'Exists'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_static::Operation ;
  %SUMMARY 'Проверяет создан экземпляр синглетона или нет' ;
@@ -9308,6 +9540,7 @@ FORWARD ME_4B88F0F00211
  ;
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
+ CONST extprop:pas:Value false
 
 ref; // ME_7D16761A0A99 Exists
 
@@ -9322,12 +9555,12 @@ ref; // ME_7D16761A0A99 Exists
  : Parent ME_473C3BEE0334 // l3Canvas
  ;
  : Inherits
-   @ ( ME_4B88F0E700A0 // Tl3FontManager
- ) .SequenceCode.It
+   Seq: ( ME_4B88F0E700A0 // Tl3FontManager
+ )
  ; // Inherits
  : Operations
-   @ ( ME_7D16761A0A99 // Exists
- ) .SequenceCode.It
+   Seq: ( ME_7D16761A0A99 // Exists
+ )
  ; // Operations
  CONST "author" 'Люлин А.В.'
  CONST "needs InstanceR" 'undefined'
@@ -9336,12 +9569,14 @@ ref; // ME_7D16761A0A99 Exists
  CONST "register in scripts" 'undefined'
  CONST "singleton" true
  CONST "started" '27.02.2010 13:16'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\L3'
  CONST intf.pas:Path 'common\components\rtl\Garant\L3\l3FontManagerEx.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\L3'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'FontManagerEx'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'l3FontManagerEx'
 
 ref; // ME_4B88F0F00211 Tl3FontManagerEx
 
@@ -9358,14 +9593,20 @@ FORWARD ME_484CE8BC01CC
  : Parent ME_484CE8BC01CC // l3FontManager
  ;
  : Inherits
-   @ ( ME_5314807A0393 // Tl3FontManagerPrim
- ) .SequenceCode.It
+   Seq: ( ME_5314807A0393 // Tl3FontManagerPrim
+ )
  ; // Inherits
  CONST "finished" false
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
+ CONST dfm:PathOnly '\common\components\rtl\Garant\L3'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\L3'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'FontManager'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_4B88F0E700A0 Tl3FontManager
 
@@ -9380,9 +9621,15 @@ ref; // ME_4B88F0E700A0 Tl3FontManager
  : Parent ME_484CE8BC01CC // l3FontManager
  ;
  : Inherits
-   @ ( ME_484CE8FF0292 // Tl3LogFont
- ) .SequenceCode.It
+   Seq: ( ME_484CE8FF0292 // Tl3LogFont
+ )
  ; // Inherits
+ CONST dfm:PathOnly '\common\components\rtl\Garant\L3'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\L3'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'LogFont'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_5314729A02D2 Tl3LogFont
 
@@ -9398,20 +9645,20 @@ ref; // ME_5314729A02D2 Tl3LogFont
  : Parent ME_473C3BEE0334 // l3Canvas
  ;
  : Children
-   @ ( ME_4B88F0E700A0 // Tl3FontManager
+   Seq: ( ME_4B88F0E700A0 // Tl3FontManager
  ME_5314729A02D2 // Tl3LogFont
- ) .SequenceCode.It
+ )
  ; // Children
  CONST "author" 'Люлин А.В.'
  CONST "finished" false
  CONST "no hands" false
  CONST "started" '11.10.1999 14:27'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\L3'
  CONST intf.pas:Path 'common\components\rtl\Garant\L3\NOT_FINISHED_l3FontManager.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\L3'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'FontManager'
 
 ref; // ME_484CE8BC01CC l3FontManager
 
@@ -9512,15 +9759,19 @@ ref; // ME_55262A1701B4 CheckSum
  : Parent ME_552616EE02DF // l3MetafileHeader
  ;
  : Attributes
-   @ ( ME_552617A90103 // Key
+   Seq: ( ME_552617A90103 // Key
  ME_55261C0F0389 // Handle
  ME_5526293301AA // Box
  ME_552629D900D1 // Inch
  ME_552629FB0164 // Reserved
  ME_55262A1701B4 // CheckSum
- ) .SequenceCode.It
+ )
  ; // Attributes
  CONST "packed" true
+ CONST dfm:PathOnly '\common\components\rtl\Garant\L3'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\L3'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_5526178702ED Tl3MetafileHeader
 
@@ -9535,10 +9786,14 @@ ref; // ME_5526178702ED Tl3MetafileHeader
  : Parent ME_552616EE02DF // l3MetafileHeader
  ;
  : Inherits
-   @ ( ME_5526178702ED // Tl3MetafileHeader
- ) .SequenceCode.It
+   Seq: ( ME_5526178702ED // Tl3MetafileHeader
+ )
  ; // Inherits
  CONST "isPointer" true
+ CONST dfm:PathOnly '\common\components\rtl\Garant\L3'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\L3'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_5526265F0234 Pl3MetafileHeader
 
@@ -9557,6 +9812,7 @@ FORWARD ME_552631E50278
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value 'Integer($9AC6CDD7)'
 
 ref; // ME_552631FA02BF c_WMFKey
 
@@ -9571,10 +9827,14 @@ ref; // ME_552631FA02BF c_WMFKey
  : Parent ME_552616EE02DF // l3MetafileHeader
  ;
  : Attributes
-   @ ( ME_552631FA02BF // c_WMFKey
- ) .SequenceCode.It
+   Seq: ( ME_552631FA02BF // c_WMFKey
+ )
  ; // Attributes
  CONST "spell names" false
+ CONST dfm:PathOnly '\common\components\rtl\Garant\L3'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\L3'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_552631E50278 WMF Constants
 
@@ -9601,8 +9861,8 @@ ref; // ME_5526353D03B2 aWMFHeader
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
  : Parameters
-   @ ( ME_5526353D03B2 // aWMFHeader
- ) .SequenceCode.It
+   Seq: ( ME_5526353D03B2 // aWMFHeader
+ )
  ; // Parameters
 
 ref; // ME_55262EEE0354 DoIt
@@ -9618,9 +9878,10 @@ ref; // ME_55262EEE0354 DoIt
  : Parent ME_552616EE02DF // l3MetafileHeader
  ;
  : Operations
-   @ ( ME_55262EEE0354 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_55262EEE0354 // DoIt
+ )
  ; // Operations
+ CONST extprop:rc:SelfName 'IsValidMetafileHeader'
 
 ref; // ME_55262EC601CF l3IsValidMetafileHeader
 
@@ -9647,8 +9908,8 @@ ref; // ME_55262F9202A9 theWMF
  : Target WL 'ME_476F71A701AB' '4AB0C3C60310.pas.ms.script' // Word
  ;
  : Parameters
-   @ ( ME_55262F9202A9 // theWMF
- ) .SequenceCode.It
+   Seq: ( ME_55262F9202A9 // theWMF
+ )
  ; // Parameters
 
 ref; // ME_55262F6E0374 DoIt
@@ -9664,9 +9925,10 @@ ref; // ME_55262F6E0374 DoIt
  : Parent ME_552616EE02DF // l3MetafileHeader
  ;
  : Operations
-   @ ( ME_55262F6E0374 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_55262F6E0374 // DoIt
+ )
  ; // Operations
+ CONST extprop:rc:SelfName 'ComputeAldusChecksum'
 
 ref; // ME_55262F470207 l3ComputeAldusChecksum
 
@@ -9692,30 +9954,30 @@ ref; // ME_552625FB01B7
  : Parent ME_473C3BEE0334 // l3Canvas
  ;
  : Operations
-   @ ( ME_55262EC601CF // l3IsValidMetafileHeader
+   Seq: ( ME_55262EC601CF // l3IsValidMetafileHeader
  ME_55262F470207 // l3ComputeAldusChecksum
- ) .SequenceCode.It
+ )
  ; // Operations
  : Children
-   @ ( ME_5526178702ED // Tl3MetafileHeader
+   Seq: ( ME_5526178702ED // Tl3MetafileHeader
  ME_5526265F0234 // Pl3MetafileHeader
- ) .SequenceCode.It
+ )
  ; // Children
  : Constants
-   @ ( ME_552631E50278 // WMF Constants
- ) .SequenceCode.It
+   Seq: ( ME_552631E50278 // WMF Constants
+ )
  ; // Constants
  : Dependencies
-   @ ( ME_552625FB01B7 // 
- ) .SequenceCode.It
+   Seq: ( ME_552625FB01B7 // 
+ )
  ; // Dependencies
  CONST "no hands" false
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\L3'
  CONST intf.pas:Path 'common\components\rtl\Garant\L3\l3MetafileHeader.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\L3'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'MetafileHeader'
 
 ref; // ME_552616EE02DF l3MetafileHeader
 
@@ -9730,7 +9992,7 @@ ref; // ME_552616EE02DF l3MetafileHeader
  : Parent WL 'ME_4790D09A0378' '4790D09A0378.pas.ms.script' // L3
  ;
  : Children
-   @ ( ME_4E26F5230116 // Tl3RectList
+   Seq: ( ME_4E26F5230116 // Tl3RectList
  ME_4A4CB79A02C6 // Tl3CanvasPrim
  ME_4799F84900DD // l3ScreenIC
  ME_47D02E5F022F // Tl3ImageList
@@ -9765,10 +10027,10 @@ ref; // ME_552616EE02DF l3MetafileHeader
  ME_4B88F0F00211 // Tl3FontManagerEx
  ME_484CE8BC01CC // l3FontManager
  ME_552616EE02DF // l3MetafileHeader
- ) .SequenceCode.It
+ )
  ; // Children
  : Depends
-   @ ( WL 'ME_4677FBA70343' '4677FBA70343.pas.ms.script' // l3Interfaces
+   Seq: ( WL 'ME_4677FBA70343' '4677FBA70343.pas.ms.script' // l3Interfaces
  WL 'ME_4678193C009C' '4678193C009C.pas.ms.script' // l3Types
  WL 'ME_467C0CAA02AB' '467C0CAA02AB.pas.ms.script' // l3InternalInterfaces
  WL 'ME_46A5E026007E' '46A5E026007E.pas.ms.script' // l3Core
@@ -9789,15 +10051,13 @@ ref; // ME_552616EE02DF l3MetafileHeader
  WL 'ME_556F09AA036E' '556F09AA036E.pas.ms.script' // l3PrinterInterfaces
  WL 'ME_55C4AEC801CA' '55C4AEC801CA.pas.ms.script' // Graphics
  WL 'ME_55C4AF3F02EE' '55C4AF3F02EE.pas.ms.script' // Consts
- ) .SequenceCode.It
+ )
  ; // Depends
- : Generators
- @ (
- gen_pas.script
- gen_pas.script.runner
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\L3'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\L3'
  CONST pas.script:Path 'shared\models\NewSchool\Scripts\473C3BEE0334.pas.ms.script'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
  CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\473C3BEE0334.pas.ms.script.runner'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_473C3BEE0334 l3Canvas

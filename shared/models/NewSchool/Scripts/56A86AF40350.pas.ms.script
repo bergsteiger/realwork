@@ -1,0 +1,850 @@
+// Provider 56A86AF40350 Unit Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_56A86AF40350
+
+FORWARD ME_56A86B450218
+
+: ME_CCB53E8D97C9
+ CONST UID 'CCB53E8D97C9'
+ CONST IsSummoned true
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_56A86B450218 // TcaDataProviderParams
+ ;
+ : Target WL 'ME_56A86C8401FD' '484A470100DD.pas.ms.script' // ComboAccessProviderParams
+ ;
+
+ref; // ME_CCB53E8D97C9 
+
+: ME_53AC03EE01FD_ME_56A86B450218
+ CONST UID '53AC03EE01FD'
+ CONST Name 'GetTaggedDataType'
+ : Original WL 'ME_53AC03EE01FD' '53B24DFD01FF.pas.ms.script' // GetTaggedDataType
+ ;
+ : Implementor ME_56A86B450218 // TcaDataProviderParams
+ ;
+ CONST OpKind opkind_Overridden
+ CONST "is static" true
+ref; // ME_53AC03EE01FD_ME_56A86B450218 GetTaggedDataType
+
+: ME_56A86B450218
+ CONST UID '56A86B450218'
+ CONST Name 'TcaDataProviderParams'
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_56A86AF40350 // Provider
+ ;
+ : Inherits
+   Seq: ( WL 'ME_54F9AF6B00DD' '54F9AF550087.pas.ms.script' // ThtDataProviderParams
+ )
+ ; // Inherits
+ : Implements
+   Seq: ( WL 'ME_56A86C8401FD' '484A470100DD.pas.ms.script' // ComboAccessProviderParams
+ )
+ ; // Implements
+ : Overridden
+   Seq: ( ME_53AC03EE01FD_ME_56A86B450218 // GetTaggedDataType
+ )
+ ; // Overridden
+ : Dependencies
+   Seq: ( ME_CCB53E8D97C9 // 
+ )
+ ; // Dependencies
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ CONST dfm:PathOnly '\common\components\rtl\Garant\ComboAccess'
+ CONST intf.pas:Path 'common\components\rtl\Garant\ComboAccess\caDataProviderParams.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\ComboAccess'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'caDataProviderParams'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'caDataProviderParams'
+
+ref; // ME_56A86B450218 TcaDataProviderParams
+
+FORWARD ME_56A86BCE01EE
+
+: ME_56A86BE9030C
+ CONST UID '56A86BE9030C'
+ CONST Name 'f_Params'
+ CONST Class class_Attribute
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_56A86BCE01EE // TcaDataProvider
+ ;
+ : Target ME_56A86B450218 // TcaDataProviderParams
+ ;
+
+ref; // ME_56A86BE9030C f_Params
+
+: ME_551A929E02D5_ME_56A86BCE01EE
+ CONST UID '551A929E02D5'
+ CONST Name 'UserID'
+ : Original WL 'ME_551A929E02D5' '5432518A0316.pas.ms.script' // UserID
+ ;
+ : Implementor ME_56A86BCE01EE // TcaDataProvider
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "pm" false
+ref; // ME_551A929E02D5_ME_56A86BCE01EE UserID
+
+: ME_551A933F02AE_ME_56A86BCE01EE
+ CONST UID '551A933F02AE'
+ CONST Name 'RegionID'
+ : Original WL 'ME_551A933F02AE' '5432518A0316.pas.ms.script' // RegionID
+ ;
+ : Implementor ME_56A86BCE01EE // TcaDataProvider
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "pm" false
+ref; // ME_551A933F02AE_ME_56A86BCE01EE RegionID
+
+: ME_551BE2D701DE_ME_56A86BCE01EE
+ CONST UID '551BE2D701DE'
+ CONST Name 'CheckLogin'
+ : Original WL 'ME_551BE2D701DE' '5432518A0316.pas.ms.script' // CheckLogin
+ ;
+ : Implementor ME_56A86BCE01EE // TcaDataProvider
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_551BE2D701DE_ME_56A86BCE01EE CheckLogin
+
+: ME_551D25D00024_ME_56A86BCE01EE
+ CONST UID '551D25D00024'
+ CONST Name 'InitRegionFromIni'
+ : Original WL 'ME_551D25D00024' '5432518A0316.pas.ms.script' // InitRegionFromIni
+ ;
+ : Implementor ME_56A86BCE01EE // TcaDataProvider
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_551D25D00024_ME_56A86BCE01EE InitRegionFromIni
+
+: ME_551D2C300060_ME_56A86BCE01EE
+ CONST UID '551D2C300060'
+ CONST Name 'IsRegionExists'
+ : Original WL 'ME_551D2C300060' '5432518A0316.pas.ms.script' // IsRegionExists
+ ;
+ : Implementor ME_56A86BCE01EE // TcaDataProvider
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_551D2C300060_ME_56A86BCE01EE IsRegionExists
+
+: ME_551D2C3603E0_ME_56A86BCE01EE
+ CONST UID '551D2C3603E0'
+ CONST Name 'GetRegionName'
+ : Original WL 'ME_551D2C3603E0' '5432518A0316.pas.ms.script' // GetRegionName
+ ;
+ : Implementor ME_56A86BCE01EE // TcaDataProvider
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_551D2C3603E0_ME_56A86BCE01EE GetRegionName
+
+: ME_551D35040362_ME_56A86BCE01EE
+ CONST UID '551D35040362'
+ CONST Name 'FillRegionDataList'
+ : Original WL 'ME_551D35040362' '5432518A0316.pas.ms.script' // FillRegionDataList
+ ;
+ : Implementor ME_56A86BCE01EE // TcaDataProvider
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_551D35040362_ME_56A86BCE01EE FillRegionDataList
+
+: ME_551E636F0314_ME_56A86BCE01EE
+ CONST UID '551E636F0314'
+ CONST Name 'BaseName'
+ : Original WL 'ME_551E636F0314' '5432518A0316.pas.ms.script' // BaseName
+ ;
+ : Implementor ME_56A86BCE01EE // TcaDataProvider
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "pm" false
+ref; // ME_551E636F0314_ME_56A86BCE01EE BaseName
+
+: ME_551E6389027F_ME_56A86BCE01EE
+ CONST UID '551E6389027F'
+ CONST Name 'AdminRights'
+ : Original WL 'ME_551E6389027F' '5432518A0316.pas.ms.script' // AdminRights
+ ;
+ : Implementor ME_56A86BCE01EE // TcaDataProvider
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "pm" false
+ref; // ME_551E6389027F_ME_56A86BCE01EE AdminRights
+
+: ME_551E63A1025A_ME_56A86BCE01EE
+ CONST UID '551E63A1025A'
+ CONST Name 'CurUserIsServer'
+ : Original WL 'ME_551E63A1025A' '5432518A0316.pas.ms.script' // CurUserIsServer
+ ;
+ : Implementor ME_56A86BCE01EE // TcaDataProvider
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "pm" false
+ref; // ME_551E63A1025A_ME_56A86BCE01EE CurUserIsServer
+
+: ME_551E63B5008C_ME_56A86BCE01EE
+ CONST UID '551E63B5008C'
+ CONST Name 'LoginAsServer'
+ : Original WL 'ME_551E63B5008C' '5432518A0316.pas.ms.script' // LoginAsServer
+ ;
+ : Implementor ME_56A86BCE01EE // TcaDataProvider
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_551E63B5008C_ME_56A86BCE01EE LoginAsServer
+
+: ME_551E7E1501D8_ME_56A86BCE01EE
+ CONST UID '551E7E1501D8'
+ CONST Name 'GetFreeExtObjID'
+ : Original WL 'ME_551E7E1501D8' '5432518A0316.pas.ms.script' // GetFreeExtObjID
+ ;
+ : Implementor ME_56A86BCE01EE // TcaDataProvider
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_551E7E1501D8_ME_56A86BCE01EE GetFreeExtObjID
+
+: ME_551E7E35030B_ME_56A86BCE01EE
+ CONST UID '551E7E35030B'
+ CONST Name 'GetFreeExtDocID'
+ : Original WL 'ME_551E7E35030B' '5432518A0316.pas.ms.script' // GetFreeExtDocID
+ ;
+ : Implementor ME_56A86BCE01EE // TcaDataProvider
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_551E7E35030B_ME_56A86BCE01EE GetFreeExtDocID
+
+: ME_5522326E0355_ME_56A86BCE01EE
+ CONST UID '5522326E0355'
+ CONST Name 'LockAll'
+ : Original WL 'ME_5522326E0355' '5432518A0316.pas.ms.script' // LockAll
+ ;
+ : Implementor ME_56A86BCE01EE // TcaDataProvider
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_5522326E0355_ME_56A86BCE01EE LockAll
+
+: ME_5522327B01D9_ME_56A86BCE01EE
+ CONST UID '5522327B01D9'
+ CONST Name 'UnlockAll'
+ : Original WL 'ME_5522327B01D9' '5432518A0316.pas.ms.script' // UnlockAll
+ ;
+ : Implementor ME_56A86BCE01EE // TcaDataProvider
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_5522327B01D9_ME_56A86BCE01EE UnlockAll
+
+: ME_5522496C00CD_ME_56A86BCE01EE
+ CONST UID '5522496C00CD'
+ CONST Name 'BaseLanguage'
+ : Original WL 'ME_5522496C00CD' '5432518A0316.pas.ms.script' // BaseLanguage
+ ;
+ : Implementor ME_56A86BCE01EE // TcaDataProvider
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "pm" false
+ref; // ME_5522496C00CD_ME_56A86BCE01EE BaseLanguage
+
+: ME_55226E4B01E0_ME_56A86BCE01EE
+ CONST UID '55226E4B01E0'
+ CONST Name 'TextBase'
+ : Original WL 'ME_55226E4B01E0' '5432518A0316.pas.ms.script' // TextBase
+ ;
+ : Implementor ME_56A86BCE01EE // TcaDataProvider
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "pm" false
+ref; // ME_55226E4B01E0_ME_56A86BCE01EE TextBase
+
+: ME_552391490184_ME_56A86BCE01EE
+ CONST UID '552391490184'
+ CONST Name 'GetHomePathName'
+ : Original WL 'ME_552391490184' '5432518A0316.pas.ms.script' // GetHomePathName
+ ;
+ : Implementor ME_56A86BCE01EE // TcaDataProvider
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_552391490184_ME_56A86BCE01EE GetHomePathName
+
+: ME_552391830231_ME_56A86BCE01EE
+ CONST UID '552391830231'
+ CONST Name 'GetHomePath'
+ : Original WL 'ME_552391830231' '5432518A0316.pas.ms.script' // GetHomePath
+ ;
+ : Implementor ME_56A86BCE01EE // TcaDataProvider
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_552391830231_ME_56A86BCE01EE GetHomePath
+
+: ME_5523983D0254_ME_56A86BCE01EE
+ CONST UID '5523983D0254'
+ CONST Name 'CurHomePath'
+ : Original WL 'ME_5523983D0254' '5432518A0316.pas.ms.script' // CurHomePath
+ ;
+ : Implementor ME_56A86BCE01EE // TcaDataProvider
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "pm" false
+ref; // ME_5523983D0254_ME_56A86BCE01EE CurHomePath
+
+: ME_5523984A0349_ME_56A86BCE01EE
+ CONST UID '5523984A0349'
+ CONST Name 'GlobalHomePath'
+ : Original WL 'ME_5523984A0349' '5432518A0316.pas.ms.script' // GlobalHomePath
+ ;
+ : Implementor ME_56A86BCE01EE // TcaDataProvider
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "pm" false
+ref; // ME_5523984A0349_ME_56A86BCE01EE GlobalHomePath
+
+: ME_5523BD100174_ME_56A86BCE01EE
+ CONST UID '5523BD100174'
+ CONST Name 'ConvertAliasPath'
+ : Original WL 'ME_5523BD100174' '5432518A0316.pas.ms.script' // ConvertAliasPath
+ ;
+ : Implementor ME_56A86BCE01EE // TcaDataProvider
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_5523BD100174_ME_56A86BCE01EE ConvertAliasPath
+
+: ME_5524D30D007F_ME_56A86BCE01EE
+ CONST UID '5524D30D007F'
+ CONST Name 'SubscribeLongProcess'
+ : Original WL 'ME_5524D30D007F' '5432518A0316.pas.ms.script' // SubscribeLongProcess
+ ;
+ : Implementor ME_56A86BCE01EE // TcaDataProvider
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_5524D30D007F_ME_56A86BCE01EE SubscribeLongProcess
+
+: ME_5524D33101AC_ME_56A86BCE01EE
+ CONST UID '5524D33101AC'
+ CONST Name 'UnSubscribeLongProcess'
+ : Original WL 'ME_5524D33101AC' '5432518A0316.pas.ms.script' // UnSubscribeLongProcess
+ ;
+ : Implementor ME_56A86BCE01EE // TcaDataProvider
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_5524D33101AC_ME_56A86BCE01EE UnSubscribeLongProcess
+
+: ME_552514320149_ME_56A86BCE01EE
+ CONST UID '552514320149'
+ CONST Name 'SubscribeProgress'
+ : Original WL 'ME_552514320149' '5432518A0316.pas.ms.script' // SubscribeProgress
+ ;
+ : Implementor ME_56A86BCE01EE // TcaDataProvider
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_552514320149_ME_56A86BCE01EE SubscribeProgress
+
+: ME_5525144701F3_ME_56A86BCE01EE
+ CONST UID '5525144701F3'
+ CONST Name 'UnSubscribeProgress'
+ : Original WL 'ME_5525144701F3' '5432518A0316.pas.ms.script' // UnSubscribeProgress
+ ;
+ : Implementor ME_56A86BCE01EE // TcaDataProvider
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_5525144701F3_ME_56A86BCE01EE UnSubscribeProgress
+
+: ME_5526537A00CE_ME_56A86BCE01EE
+ CONST UID '5526537A00CE'
+ CONST Name 'Start'
+ : Original WL 'ME_5526537A00CE' '5432518A0316.pas.ms.script' // Start
+ ;
+ : Implementor ME_56A86BCE01EE // TcaDataProvider
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_5526537A00CE_ME_56A86BCE01EE Start
+
+: ME_5526538202A5_ME_56A86BCE01EE
+ CONST UID '5526538202A5'
+ CONST Name 'Stop'
+ : Original WL 'ME_5526538202A5' '5432518A0316.pas.ms.script' // Stop
+ ;
+ : Implementor ME_56A86BCE01EE // TcaDataProvider
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_5526538202A5_ME_56A86BCE01EE Stop
+
+: ME_55409258013F_ME_56A86BCE01EE
+ CONST UID '55409258013F'
+ CONST Name 'Journal'
+ : Original WL 'ME_55409258013F' '5432518A0316.pas.ms.script' // Journal
+ ;
+ : Implementor ME_56A86BCE01EE // TcaDataProvider
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "pm" false
+ref; // ME_55409258013F_ME_56A86BCE01EE Journal
+
+: ME_554C7A3002BF_ME_56A86BCE01EE
+ CONST UID '554C7A3002BF'
+ CONST Name 'TableQueryFactory'
+ : Original WL 'ME_554C7A3002BF' '5432518A0316.pas.ms.script' // TableQueryFactory
+ ;
+ : Implementor ME_56A86BCE01EE // TcaDataProvider
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "pm" false
+ref; // ME_554C7A3002BF_ME_56A86BCE01EE TableQueryFactory
+
+: ME_555995CF0292_ME_56A86BCE01EE
+ CONST UID '555995CF0292'
+ CONST Name 'DataConverter'
+ : Original WL 'ME_555995CF0292' '5432518A0316.pas.ms.script' // DataConverter
+ ;
+ : Implementor ME_56A86BCE01EE // TcaDataProvider
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "pm" false
+ref; // ME_555995CF0292_ME_56A86BCE01EE DataConverter
+
+: ME_561795EA02BF_ME_56A86BCE01EE
+ CONST UID '561795EA02BF'
+ CONST Name 'ImpersonatedUserID'
+ : Original WL 'ME_561795EA02BF' '5432518A0316.pas.ms.script' // ImpersonatedUserID
+ ;
+ : Implementor ME_56A86BCE01EE // TcaDataProvider
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "pm" false
+ref; // ME_561795EA02BF_ME_56A86BCE01EE ImpersonatedUserID
+
+: ME_561796070253_ME_56A86BCE01EE
+ CONST UID '561796070253'
+ CONST Name 'BeginImpersonate'
+ : Original WL 'ME_561796070253' '5432518A0316.pas.ms.script' // BeginImpersonate
+ ;
+ : Implementor ME_56A86BCE01EE // TcaDataProvider
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_561796070253_ME_56A86BCE01EE BeginImpersonate
+
+: ME_5617961F0105_ME_56A86BCE01EE
+ CONST UID '5617961F0105'
+ CONST Name 'EndImpersonate'
+ : Original WL 'ME_5617961F0105' '5432518A0316.pas.ms.script' // EndImpersonate
+ ;
+ : Implementor ME_56A86BCE01EE // TcaDataProvider
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_5617961F0105_ME_56A86BCE01EE EndImpersonate
+
+: ME_5628D25600E6_ME_56A86BCE01EE
+ CONST UID '5628D25600E6'
+ CONST Name 'UserManager'
+ : Original WL 'ME_5628D25600E6' '5432518A0316.pas.ms.script' // UserManager
+ ;
+ : Implementor ME_56A86BCE01EE // TcaDataProvider
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "pm" false
+ref; // ME_5628D25600E6_ME_56A86BCE01EE UserManager
+
+: ME_56A86BCE01EE
+ CONST UID '56A86BCE01EE'
+ CONST Name 'TcaDataProvider'
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_56A86AF40350 // Provider
+ ;
+ : Inherits
+   Seq: ( WL 'ME_49E7754802A9' '47913B47006E.pas.ms.script' // Tl3ProtoObject
+ )
+ ; // Inherits
+ : Implements
+   Seq: ( WL 'ME_54EDC87C00B5' '5432518A0316.pas.ms.script' // IdaDataProvider
+ )
+ ; // Implements
+ : Attributes
+   Seq: ( ME_56A86BE9030C // f_Params
+ )
+ ; // Attributes
+ : Implemented
+   Seq: ( ME_551A929E02D5_ME_56A86BCE01EE // UserID
+ ME_551A933F02AE_ME_56A86BCE01EE // RegionID
+ ME_551BE2D701DE_ME_56A86BCE01EE // CheckLogin
+ ME_551D25D00024_ME_56A86BCE01EE // InitRegionFromIni
+ ME_551D2C300060_ME_56A86BCE01EE // IsRegionExists
+ ME_551D2C3603E0_ME_56A86BCE01EE // GetRegionName
+ ME_551D35040362_ME_56A86BCE01EE // FillRegionDataList
+ ME_551E636F0314_ME_56A86BCE01EE // BaseName
+ ME_551E6389027F_ME_56A86BCE01EE // AdminRights
+ ME_551E63A1025A_ME_56A86BCE01EE // CurUserIsServer
+ ME_551E63B5008C_ME_56A86BCE01EE // LoginAsServer
+ ME_551E7E1501D8_ME_56A86BCE01EE // GetFreeExtObjID
+ ME_551E7E35030B_ME_56A86BCE01EE // GetFreeExtDocID
+ ME_5522326E0355_ME_56A86BCE01EE // LockAll
+ ME_5522327B01D9_ME_56A86BCE01EE // UnlockAll
+ ME_5522496C00CD_ME_56A86BCE01EE // BaseLanguage
+ ME_55226E4B01E0_ME_56A86BCE01EE // TextBase
+ ME_552391490184_ME_56A86BCE01EE // GetHomePathName
+ ME_552391830231_ME_56A86BCE01EE // GetHomePath
+ ME_5523983D0254_ME_56A86BCE01EE // CurHomePath
+ ME_5523984A0349_ME_56A86BCE01EE // GlobalHomePath
+ ME_5523BD100174_ME_56A86BCE01EE // ConvertAliasPath
+ ME_5524D30D007F_ME_56A86BCE01EE // SubscribeLongProcess
+ ME_5524D33101AC_ME_56A86BCE01EE // UnSubscribeLongProcess
+ ME_552514320149_ME_56A86BCE01EE // SubscribeProgress
+ ME_5525144701F3_ME_56A86BCE01EE // UnSubscribeProgress
+ ME_5526537A00CE_ME_56A86BCE01EE // Start
+ ME_5526538202A5_ME_56A86BCE01EE // Stop
+ ME_55409258013F_ME_56A86BCE01EE // Journal
+ ME_554C7A3002BF_ME_56A86BCE01EE // TableQueryFactory
+ ME_555995CF0292_ME_56A86BCE01EE // DataConverter
+ ME_561795EA02BF_ME_56A86BCE01EE // ImpersonatedUserID
+ ME_561796070253_ME_56A86BCE01EE // BeginImpersonate
+ ME_5617961F0105_ME_56A86BCE01EE // EndImpersonate
+ ME_5628D25600E6_ME_56A86BCE01EE // UserManager
+ )
+ ; // Implemented
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ CONST dfm:PathOnly '\common\components\rtl\Garant\ComboAccess'
+ CONST intf.pas:Path 'common\components\rtl\Garant\ComboAccess\caDataProvider.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\ComboAccess'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'caDataProvider'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'caDataProvider'
+
+ref; // ME_56A86BCE01EE TcaDataProvider
+
+FORWARD ME_56A86C020121
+
+: ME_56AB24D501EA
+ CONST UID '56AB24D501EA'
+ CONST Name 'f_HTFactory'
+ CONST Class class_Attribute
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_56A86C020121 // TcaDataProviderFactory
+ ;
+ : Target WL 'ME_54FEAD4402AB' '54F9AF550087.pas.ms.script' // ThtDataProviderFactory
+ ;
+
+ref; // ME_56AB24D501EA f_HTFactory
+
+: ME_56AB24E00072
+ CONST UID '56AB24E00072'
+ CONST Name 'f_PGFactory'
+ CONST Class class_Attribute
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_56A86C020121 // TcaDataProviderFactory
+ ;
+ : Target WL 'ME_55D6E2FB025D' '55D6CF3B014B.pas.ms.script' // TpgDataProviderFactory
+ ;
+
+ref; // ME_56AB24E00072 f_PGFactory
+
+FORWARD ME_56AB24FB0037
+
+: ME_56AB39D20183
+ CONST UID '56AB39D20183'
+ CONST Name 'aHTFactory'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_54FEAD4402AB' '54F9AF550087.pas.ms.script' // ThtDataProviderFactory
+ ;
+
+ref; // ME_56AB39D20183 aHTFactory
+
+: ME_56AB39D20192
+ CONST UID '56AB39D20192'
+ CONST Name 'aPGFactory'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_55D6E2FB025D' '55D6CF3B014B.pas.ms.script' // TpgDataProviderFactory
+ ;
+
+ref; // ME_56AB39D20192 aPGFactory
+
+: ME_56AB2505018E
+ CONST UID '56AB2505018E'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_56AB24FB0037 // Create
+ ;
+ : Parameters
+   Seq: ( ME_56AB39D20183 // aHTFactory
+ ME_56AB39D20192 // aPGFactory
+ )
+ ; // Parameters
+
+ref; // ME_56AB2505018E DoIt
+
+: ME_56AB24FB0037
+ CONST UID '56AB24FB0037'
+ CONST Name 'Create'
+ CONST Class class_Class
+ : Stereotype st_Constructor ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_56A86C020121 // TcaDataProviderFactory
+ ;
+ : Operations
+   Seq: ( ME_56AB2505018E // DoIt
+ )
+ ; // Operations
+
+ref; // ME_56AB24FB0037 Create
+
+: ME_56A86C13005B
+ CONST UID '56A86C13005B'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_56A86C020121 // TcaDataProviderFactory
+ ;
+ : Target ME_56A86B450218 // TcaDataProviderParams
+ ;
+
+ref; // ME_56A86C13005B 
+
+: ME_56A86C1B0177
+ CONST UID '56A86C1B0177'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_56A86C020121 // TcaDataProviderFactory
+ ;
+ : Target ME_56A86BCE01EE // TcaDataProvider
+ ;
+
+ref; // ME_56A86C1B0177 
+
+: ME_56AB3E470177
+ CONST UID '56AB3E470177'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_56A86C020121 // TcaDataProviderFactory
+ ;
+ : Target WL 'ME_4ADC58F703CF' '4AB0C3C60310.pas.ms.script' // FreeAndNil
+ ;
+
+ref; // ME_56AB3E470177 
+
+: ME_54F8635B023E_ME_56A86C020121
+ CONST UID '54F8635B023E'
+ CONST Name 'Key'
+ : Original WL 'ME_54F8635B023E' '54F85B2500FB.pas.ms.script' // Key
+ ;
+ : Implementor ME_56A86C020121 // TcaDataProviderFactory
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_54F8635B023E_ME_56A86C020121 Key
+
+: ME_54FEB57302B0_ME_56A86C020121
+ CONST UID '54FEB57302B0'
+ CONST Name 'MakeFromConfig'
+ : Original WL 'ME_54FEB57302B0' '54F85B2500FB.pas.ms.script' // MakeFromConfig
+ ;
+ : Implementor ME_56A86C020121 // TcaDataProviderFactory
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_54FEB57302B0_ME_56A86C020121 MakeFromConfig
+
+: ME_550AAD0101F9_ME_56A86C020121
+ CONST UID '550AAD0101F9'
+ CONST Name 'SaveToConfig'
+ : Original WL 'ME_550AAD0101F9' '54F85B2500FB.pas.ms.script' // SaveToConfig
+ ;
+ : Implementor ME_56A86C020121 // TcaDataProviderFactory
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_550AAD0101F9_ME_56A86C020121 SaveToConfig
+
+: ME_550FD49301BF_ME_56A86C020121
+ CONST UID '550FD49301BF'
+ CONST Name 'ParamType'
+ : Original WL 'ME_550FD49301BF' '54F85B2500FB.pas.ms.script' // ParamType
+ ;
+ : Implementor ME_56A86C020121 // TcaDataProviderFactory
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_550FD49301BF_ME_56A86C020121 ParamType
+
+: ME_5512BAB20128_ME_56A86C020121
+ CONST UID '5512BAB20128'
+ CONST Name 'FillOutConfig'
+ : Original WL 'ME_5512BAB20128' '54F85B2500FB.pas.ms.script' // FillOutConfig
+ ;
+ : Implementor ME_56A86C020121 // TcaDataProviderFactory
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_5512BAB20128_ME_56A86C020121 FillOutConfig
+
+: ME_5512BB030346_ME_56A86C020121
+ CONST UID '5512BB030346'
+ CONST Name 'FillInConfig'
+ : Original WL 'ME_5512BB030346' '54F85B2500FB.pas.ms.script' // FillInConfig
+ ;
+ : Implementor ME_56A86C020121 // TcaDataProviderFactory
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_5512BB030346_ME_56A86C020121 FillInConfig
+
+: ME_5512BB1F023F_ME_56A86C020121
+ CONST UID '5512BB1F023F'
+ CONST Name 'BuildConfig'
+ : Original WL 'ME_5512BB1F023F' '54F85B2500FB.pas.ms.script' // BuildConfig
+ ;
+ : Implementor ME_56A86C020121 // TcaDataProviderFactory
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_5512BB1F023F_ME_56A86C020121 BuildConfig
+
+: ME_551904FC039A_ME_56A86C020121
+ CONST UID '551904FC039A'
+ CONST Name 'LoadDBVersion'
+ : Original WL 'ME_551904FC039A' '54F85B2500FB.pas.ms.script' // LoadDBVersion
+ ;
+ : Implementor ME_56A86C020121 // TcaDataProviderFactory
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_551904FC039A_ME_56A86C020121 LoadDBVersion
+
+: ME_551D06D402AF_ME_56A86C020121
+ CONST UID '551D06D402AF'
+ CONST Name 'DoMakeProvider'
+ : Original WL 'ME_551D06D402AF' '54F85B2500FB.pas.ms.script' // DoMakeProvider
+ ;
+ : Implementor ME_56A86C020121 // TcaDataProviderFactory
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_551D06D402AF_ME_56A86C020121 DoMakeProvider
+
+: ME_55D706D201C3_ME_56A86C020121
+ CONST UID '55D706D201C3'
+ CONST Name 'LoginCheckSucceed'
+ : Original WL 'ME_55D706D201C3' '54F85B2500FB.pas.ms.script' // LoginCheckSucceed
+ ;
+ : Implementor ME_56A86C020121 // TcaDataProviderFactory
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_55D706D201C3_ME_56A86C020121 LoginCheckSucceed
+
+: ME_479731C50290_ME_56A86C020121
+ CONST UID '479731C50290'
+ CONST Name 'Cleanup'
+ : Original WL 'ME_479731C50290' '51612EBB02F5.pas.ms.script' // Cleanup
+ ;
+ : Implementor ME_56A86C020121 // TcaDataProviderFactory
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_479731C50290_ME_56A86C020121 Cleanup
+
+: ME_56A86C020121
+ CONST UID '56A86C020121'
+ CONST Name 'TcaDataProviderFactory'
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_56A86AF40350 // Provider
+ ;
+ : Inherits
+   Seq: ( WL 'ME_54F85EE102D1' '54F85B2500FB.pas.ms.script' // TdaDataProviderFactory
+ )
+ ; // Inherits
+ : Attributes
+   Seq: ( ME_56AB24D501EA // f_HTFactory
+ ME_56AB24E00072 // f_PGFactory
+ )
+ ; // Attributes
+ : Operations
+   Seq: ( ME_56AB24FB0037 // Create
+ )
+ ; // Operations
+ : Implemented
+   Seq: ( ME_54F8635B023E_ME_56A86C020121 // Key
+ ME_54FEB57302B0_ME_56A86C020121 // MakeFromConfig
+ ME_550AAD0101F9_ME_56A86C020121 // SaveToConfig
+ ME_550FD49301BF_ME_56A86C020121 // ParamType
+ ME_5512BAB20128_ME_56A86C020121 // FillOutConfig
+ ME_5512BB030346_ME_56A86C020121 // FillInConfig
+ ME_5512BB1F023F_ME_56A86C020121 // BuildConfig
+ ME_551904FC039A_ME_56A86C020121 // LoadDBVersion
+ ME_551D06D402AF_ME_56A86C020121 // DoMakeProvider
+ ME_55D706D201C3_ME_56A86C020121 // LoginCheckSucceed
+ )
+ ; // Implemented
+ : Overridden
+   Seq: ( ME_479731C50290_ME_56A86C020121 // Cleanup
+ )
+ ; // Overridden
+ : Dependencies
+   Seq: ( ME_56A86C13005B // 
+ ME_56A86C1B0177 // 
+ ME_56AB3E470177 // 
+ )
+ ; // Dependencies
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ CONST dfm:PathOnly '\common\components\rtl\Garant\ComboAccess'
+ CONST intf.pas:Path 'common\components\rtl\Garant\ComboAccess\caDataProviderFactory.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\ComboAccess'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'caDataProviderFactory'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'caDataProviderFactory'
+
+ref; // ME_56A86C020121 TcaDataProviderFactory
+
+: ME_56A86AF40350
+ CONST UID '56A86AF40350'
+ CONST Name 'Provider'
+ CONST Class class_Category
+ : Stereotype st_Unit ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent WL 'ME_56A86AAF02D1' '56A86AAF02D1.pas.ms.script' // ComboAccess
+ ;
+ : Children
+   Seq: ( ME_56A86B450218 // TcaDataProviderParams
+ ME_56A86BCE01EE // TcaDataProvider
+ ME_56A86C020121 // TcaDataProviderFactory
+ )
+ ; // Children
+ : Depends
+   Seq: ( WL 'ME_47913B47006E' '47913B47006E.pas.ms.script' // l3CoreObjects
+ WL 'ME_4849284D0067' '4849284D0067.pas.ms.script' // Standard
+ WL 'ME_484A470100DD' '484A470100DD.pas.ms.script' // Standard
+ WL 'ME_4AB0C3C60310' '4AB0C3C60310.pas.ms.script' // Sys
+ WL 'ME_5432518A0316' '5432518A0316.pas.ms.script' // daInterfaces
+ WL 'ME_54F85B2500FB' '54F85B2500FB.pas.ms.script' // Provider
+ WL 'ME_54F9AF550087' '54F9AF550087.pas.ms.script' // Provider
+ WL 'ME_55D6CF3B014B' '55D6CF3B014B.pas.ms.script' // Provider
+ )
+ ; // Depends
+ CONST dfm:PathOnly '\common\components\rtl\Garant\ComboAccess'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\ComboAccess'
+ CONST pas.script:Path 'shared\models\NewSchool\Scripts\56A86AF40350.pas.ms.script'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\56A86AF40350.pas.ms.script.runner'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+
+ref; // ME_56A86AF40350 Provider

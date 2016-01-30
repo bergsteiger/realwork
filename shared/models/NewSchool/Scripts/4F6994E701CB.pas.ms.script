@@ -136,6 +136,7 @@ ref; // ME_54F0709603B4
 
 : ME_E3F0900DC58A
  CONST UID 'E3F0900DC58A'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_4F6995330222 // QueryCardProcessingPack
@@ -156,7 +157,7 @@ ref; // ME_E3F0900DC58A
  : Parent ME_4F6994E701CB // QueryCardProcessing
  ;
  : Dependencies
-   @ ( ME_4F69953B03AC // 
+   Seq: ( ME_4F69953B03AC // 
  ME_4F69954100C4 // 
  ME_4F6995B8013D // 
  ME_4F69A0F50088 // 
@@ -167,19 +168,18 @@ ref; // ME_E3F0900DC58A
  ME_512B378A00CC // 
  ME_54F0709603B4 // 
  ME_E3F0900DC58A // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  CONST "ifndef" 'NoScripts'
  CONST "needs script" 'undefined'
  CONST "no class name" 'undefined'
  CONST "no hands" false
  CONST "no_pop" 'undefined'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\ScriptEngine'
  CONST intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\QueryCardProcessingPack.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\ScriptEngine'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_4F6995330222 QueryCardProcessingPack
 
@@ -216,9 +216,9 @@ ref; // ME_4E808EAF0246 aCard
  : Parent ME_4E808E8B01BB // DoCard
  ;
  : Parameters
-   @ ( ME_4E8091560138 // aCtx
+   Seq: ( ME_4E8091560138 // aCtx
  ME_4E808EAF0246 // aCard
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_4E808E9802A5 DoIt
@@ -234,8 +234,8 @@ ref; // ME_4E808E9802A5 DoIt
  : Parent ME_4E808D48037D // TkwQueryCardFromStackWord
  ;
  : Operations
-   @ ( ME_4E808E9802A5 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_4E808E9802A5 // DoIt
+ )
  ; // Operations
 
 ref; // ME_4E808E8B01BB DoCard
@@ -243,6 +243,7 @@ ref; // ME_4E808E8B01BB DoCard
 : ME_8FA6FBF5379F
  CONST UID '8FA6FBF5379F'
  CONST Name 'Ini_Reg_Class'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Регистрация TkwQueryCardFromStackWord' ;
@@ -261,6 +262,7 @@ ref; // ME_8FA6FBF5379F Ini_Reg_Class
  ;
  : Implementor ME_4E808D48037D // TkwQueryCardFromStackWord
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_4F4CB81200CA_ME_4E808D48037D DoWithEditor
 
 : ME_4E808D48037D
@@ -275,17 +277,17 @@ ref; // ME_4F4CB81200CA_ME_4E808D48037D DoWithEditor
  : Parent ME_4F6994E701CB // QueryCardProcessing
  ;
  : Inherits
-   @ ( WL 'ME_4F4CB625027A' '4F4CB50403CC.pas.ms.script' // TkwEditorFromStackWord
- ) .SequenceCode.It
+   Seq: ( WL 'ME_4F4CB625027A' '4F4CB50403CC.pas.ms.script' // TkwEditorFromStackWord
+ )
  ; // Inherits
  : Operations
-   @ ( ME_4E808E8B01BB // DoCard
+   Seq: ( ME_4E808E8B01BB // DoCard
  ME_8FA6FBF5379F // Ini_Reg_Class
- ) .SequenceCode.It
+ )
  ; // Operations
  : Implemented
-   @ ( ME_4F4CB81200CA_ME_4E808D48037D // DoWithEditor
- ) .SequenceCode.It
+   Seq: ( ME_4F4CB81200CA_ME_4E808D48037D // DoWithEditor
+ )
  ; // Implemented
  CONST "author" 'Люлин А.В.'
  CONST "needs InstanceR" 'undefined'
@@ -293,12 +295,14 @@ ref; // ME_4F4CB81200CA_ME_4E808D48037D DoWithEditor
  CONST "no hands" true
  CONST "register in scripts" 'undefined'
  CONST "started" '26.09.2011 18:34'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\ScriptEngine'
  CONST intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\kwQueryCardFromStackWord.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\ScriptEngine'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'QueryCardFromStackWord'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'kwQueryCardFromStackWord'
 
 ref; // ME_4E808D48037D TkwQueryCardFromStackWord
 
@@ -370,6 +374,7 @@ FORWARD ME_6E7B54AC5B25
 : ME_441AC5B71293
  CONST UID '441AC5B71293'
  CONST Name 'anItem'
+ CONST IsSummoned true
  CONST Class class_Parameter
  : Stereotype st_in ;
  : Target WL 'ME_47CD6644026F' '47CD5C7602CD.pas.ms.script' // IevReq
@@ -380,6 +385,7 @@ ref; // ME_441AC5B71293 anItem
 : ME_C2DCF35628C7
  CONST UID 'C2DCF35628C7'
  CONST Name 'DoIt'
+ CONST IsSummoned true
  CONST Class class_Operation
  CONST Visibility PublicAccess
  CONST Abstraction at_final
@@ -388,8 +394,8 @@ ref; // ME_441AC5B71293 anItem
  : Target WL 'ME_3DBFFE100240' '3DBFDB23006E.pas.ms.script' // boolean
  ;
  : Parameters
-   @ ( ME_441AC5B71293 // anItem
- ) .SequenceCode.It
+   Seq: ( ME_441AC5B71293 // anItem
+ )
  ; // Parameters
 
 ref; // ME_C2DCF35628C7 DoIt
@@ -397,6 +403,7 @@ ref; // ME_C2DCF35628C7 DoIt
 : ME_6E7B54AC5B25
  CONST UID '6E7B54AC5B25'
  CONST Name 'DoIt'
+ CONST IsSummoned true
  CONST Class class_Class
  : Stereotype st_localmethod ;
  CONST Kind kind_NormalClass
@@ -406,8 +413,8 @@ ref; // ME_C2DCF35628C7 DoIt
  : Parent ME_4E81ADFF02AC // CallIterator
  ;
  : Operations
-   @ ( ME_C2DCF35628C7 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_C2DCF35628C7 // DoIt
+ )
  ; // Operations
 
 ref; // ME_6E7B54AC5B25 DoIt
@@ -427,6 +434,7 @@ ref; // ME_4E81AEFC00B8
 
 : ME_7E4EFC3FE96E
  CONST UID '7E4EFC3FE96E'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_4E81ADFF02AC // CallIterator
@@ -447,14 +455,14 @@ ref; // ME_7E4EFC3FE96E
  : Parent ME_4E81A3090197 // DoModelImpl
  ;
  : Operations
-   @ ( ME_4E81AE080008 // DoIt
+   Seq: ( ME_4E81AE080008 // DoIt
  ME_6E7B54AC5B25 // DoIt
- ) .SequenceCode.It
+ )
  ; // Operations
  : Dependencies
-   @ ( ME_4E81AEFC00B8 // 
+   Seq: ( ME_4E81AEFC00B8 // 
  ME_7E4EFC3FE96E // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
 
 ref; // ME_4E81ADFF02AC CallIterator
@@ -488,9 +496,9 @@ ref; // ME_4E81A32C0356 aCard
  : Parent ME_4E81A3090197 // DoModelImpl
  ;
  : Parameters
-   @ ( ME_4E81A32C030D // aCtx
+   Seq: ( ME_4E81A32C030D // aCtx
  ME_4E81A32C0356 // aCard
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_4E81A32A014F DoIt
@@ -517,19 +525,19 @@ ref; // ME_4E81B47D01DD
  : Parent ME_4E808E3E026E // pop_QueryCard_SetAttribute
  ;
  : Attributes
-   @ ( ME_55098BEE02F2 // Name
+   Seq: ( ME_55098BEE02F2 // Name
  ME_55098BFF022E // Value
  ME_55098C11010B // Op
- ) .SequenceCode.It
+ )
  ; // Attributes
  : Operations
-   @ ( ME_4E81ADFF02AC // CallIterator
+   Seq: ( ME_4E81ADFF02AC // CallIterator
  ME_4E81A32A014F // DoIt
- ) .SequenceCode.It
+ )
  ; // Operations
  : Dependencies
-   @ ( ME_4E81B47D01DD // 
- ) .SequenceCode.It
+   Seq: ( ME_4E81B47D01DD // 
+ )
  ; // Dependencies
 
 ref; // ME_4E81A3090197 DoModelImpl
@@ -537,6 +545,7 @@ ref; // ME_4E81A3090197 DoModelImpl
 : ME_DAB7299BF404
  CONST UID 'DAB7299BF404'
  CONST Name 'Ini_Reg'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Регистрация pop_QueryCard_SetAttribute' ;
@@ -609,6 +618,7 @@ ref; // ME_4E81A7110176
  ;
  : Implementor ME_4E808E3E026E // pop_QueryCard_SetAttribute
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_4E808E8B01BB_ME_4E808E3E026E DoCard
 
 : ME_4DB0614603C8_ME_4E808E3E026E
@@ -618,6 +628,7 @@ ref; // ME_4E808E8B01BB_ME_4E808E3E026E DoCard
  ;
  : Implementor ME_4E808E3E026E // pop_QueryCard_SetAttribute
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4DB0614603C8_ME_4E808E3E026E GetWordNameForRegister
 
 : ME_4E808E3E026E
@@ -632,29 +643,33 @@ ref; // ME_4DB0614603C8_ME_4E808E3E026E GetWordNameForRegister
  : Parent ME_4F6994E701CB // QueryCardProcessing
  ;
  : Inherits
-   @ ( ME_4E808D48037D // TkwQueryCardFromStackWord
- ) .SequenceCode.It
+   Seq: ( ME_4E808D48037D // TkwQueryCardFromStackWord
+ )
  ; // Inherits
+ : Implements
+   Seq: ( WL 'ME_4E82032103C9' '4E5CF70B01E2.pas.ms.script' // Карточки запроса должны уметь заполняться из скриптов
+ )
+ ; // Implements
  : Operations
-   @ ( ME_4E81A3090197 // DoModelImpl
+   Seq: ( ME_4E81A3090197 // DoModelImpl
  ME_DAB7299BF404 // Ini_Reg
- ) .SequenceCode.It
+ )
  ; // Operations
  : Implemented
-   @ ( ME_4E808E8B01BB_ME_4E808E3E026E // DoCard
- ) .SequenceCode.It
+   Seq: ( ME_4E808E8B01BB_ME_4E808E3E026E // DoCard
+ )
  ; // Implemented
  : Overridden
-   @ ( ME_4DB0614603C8_ME_4E808E3E026E // GetWordNameForRegister
- ) .SequenceCode.It
+   Seq: ( ME_4DB0614603C8_ME_4E808E3E026E // GetWordNameForRegister
+ )
  ; // Overridden
  : Dependencies
-   @ ( ME_4E819655000A // 
+   Seq: ( ME_4E819655000A // 
  ME_4E81967F03D1 // 
  ME_4E8196A3015D // 
  ME_4E81971001F0 // 
  ME_4E81A7110176 // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  CONST "author" 'Люлин А.В.'
  CONST "needs InstanceR" 'undefined'
@@ -662,13 +677,15 @@ ref; // ME_4DB0614603C8_ME_4E808E3E026E GetWordNameForRegister
  CONST "no hands" true
  CONST "register in scripts" 'undefined'
  CONST "started" '26.09.2011 18:38'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\ScriptEngine'
  CONST intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\kwPopQueryCardSetAttribute.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\ScriptEngine'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
  CONST extprop:pas:TypeName 'TkwPopQueryCardSetAttribute'
+ CONST extprop:rc:SelfName 'PopQueryCardSetAttribute'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'kwPopQueryCardSetAttribute'
 
 ref; // ME_4E808E3E026E pop_QueryCard_SetAttribute
 
@@ -756,6 +773,7 @@ FORWARD ME_64362B31BF0F
 : ME_9E6C44AB7C8D
  CONST UID '9E6C44AB7C8D'
  CONST Name 'anItem'
+ CONST IsSummoned true
  CONST Class class_Parameter
  : Stereotype st_in ;
  : Target WL 'ME_47CD6644026F' '47CD5C7602CD.pas.ms.script' // IevReq
@@ -766,6 +784,7 @@ ref; // ME_9E6C44AB7C8D anItem
 : ME_28DEC5D47872
  CONST UID '28DEC5D47872'
  CONST Name 'DoIt'
+ CONST IsSummoned true
  CONST Class class_Operation
  CONST Visibility PublicAccess
  CONST Abstraction at_final
@@ -774,8 +793,8 @@ ref; // ME_9E6C44AB7C8D anItem
  : Target WL 'ME_3DBFFE100240' '3DBFDB23006E.pas.ms.script' // boolean
  ;
  : Parameters
-   @ ( ME_9E6C44AB7C8D // anItem
- ) .SequenceCode.It
+   Seq: ( ME_9E6C44AB7C8D // anItem
+ )
  ; // Parameters
 
 ref; // ME_28DEC5D47872 DoIt
@@ -783,6 +802,7 @@ ref; // ME_28DEC5D47872 DoIt
 : ME_64362B31BF0F
  CONST UID '64362B31BF0F'
  CONST Name 'DoIt'
+ CONST IsSummoned true
  CONST Class class_Class
  : Stereotype st_localmethod ;
  CONST Kind kind_NormalClass
@@ -792,8 +812,8 @@ ref; // ME_28DEC5D47872 DoIt
  : Parent ME_4E82D5F601E2 // CallIterator
  ;
  : Operations
-   @ ( ME_28DEC5D47872 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_28DEC5D47872 // DoIt
+ )
  ; // Operations
 
 ref; // ME_64362B31BF0F DoIt
@@ -813,6 +833,7 @@ ref; // ME_4E82D600001C
 
 : ME_25114F488B75
  CONST UID '25114F488B75'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_4E82D5F601E2 // CallIterator
@@ -833,14 +854,14 @@ ref; // ME_25114F488B75
  : Parent ME_4E82D58E02D1 // DoModelImpl
  ;
  : Operations
-   @ ( ME_4E82D60401EA // DoIt
+   Seq: ( ME_4E82D60401EA // DoIt
  ME_64362B31BF0F // DoIt
- ) .SequenceCode.It
+ )
  ; // Operations
  : Dependencies
-   @ ( ME_4E82D600001C // 
+   Seq: ( ME_4E82D600001C // 
  ME_25114F488B75 // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
 
 ref; // ME_4E82D5F601E2 CallIterator
@@ -874,9 +895,9 @@ ref; // ME_4E82D59E0149 aCard
  : Parent ME_4E82D58E02D1 // DoModelImpl
  ;
  : Parameters
-   @ ( ME_4E82D59E0104 // aCtx
+   Seq: ( ME_4E82D59E0104 // aCtx
  ME_4E82D59E0149 // aCard
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_4E82D59C0202 DoIt
@@ -892,16 +913,16 @@ ref; // ME_4E82D59C0202 DoIt
  : Parent ME_4E82D4F60180 // pop_QueryCard_Attribute_SetWithLogicOperation
  ;
  : Attributes
-   @ ( ME_55098B5D00CC // Name
+   Seq: ( ME_55098B5D00CC // Name
  ME_55098B73000C // Value
  ME_55098B970282 // Op
  ME_55098BA9032B // LogicOp
- ) .SequenceCode.It
+ )
  ; // Attributes
  : Operations
-   @ ( ME_4E82D5F601E2 // CallIterator
+   Seq: ( ME_4E82D5F601E2 // CallIterator
  ME_4E82D59C0202 // DoIt
- ) .SequenceCode.It
+ )
  ; // Operations
 
 ref; // ME_4E82D58E02D1 DoModelImpl
@@ -909,6 +930,7 @@ ref; // ME_4E82D58E02D1 DoModelImpl
 : ME_EE18C55C3448
  CONST UID 'EE18C55C3448'
  CONST Name 'Ini_Reg'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Регистрация pop_QueryCard_Attribute_SetWithLogicOperation' ;
@@ -970,6 +992,7 @@ ref; // ME_4E82D57E0126
  ;
  : Implementor ME_4E82D4F60180 // pop_QueryCard_Attribute_SetWithLogicOperation
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_4E808E8B01BB_ME_4E82D4F60180 DoCard
 
 : ME_4DB0614603C8_ME_4E82D4F60180
@@ -979,6 +1002,7 @@ ref; // ME_4E808E8B01BB_ME_4E82D4F60180 DoCard
  ;
  : Implementor ME_4E82D4F60180 // pop_QueryCard_Attribute_SetWithLogicOperation
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4DB0614603C8_ME_4E82D4F60180 GetWordNameForRegister
 
 : ME_4E82D4F60180
@@ -993,28 +1017,32 @@ ref; // ME_4DB0614603C8_ME_4E82D4F60180 GetWordNameForRegister
  : Parent ME_4F6994E701CB // QueryCardProcessing
  ;
  : Inherits
-   @ ( ME_4E808D48037D // TkwQueryCardFromStackWord
- ) .SequenceCode.It
+   Seq: ( ME_4E808D48037D // TkwQueryCardFromStackWord
+ )
  ; // Inherits
+ : Implements
+   Seq: ( WL 'ME_4E82032103C9' '4E5CF70B01E2.pas.ms.script' // Карточки запроса должны уметь заполняться из скриптов
+ )
+ ; // Implements
  : Operations
-   @ ( ME_4E82D58E02D1 // DoModelImpl
+   Seq: ( ME_4E82D58E02D1 // DoModelImpl
  ME_EE18C55C3448 // Ini_Reg
- ) .SequenceCode.It
+ )
  ; // Operations
  : Implemented
-   @ ( ME_4E808E8B01BB_ME_4E82D4F60180 // DoCard
- ) .SequenceCode.It
+   Seq: ( ME_4E808E8B01BB_ME_4E82D4F60180 // DoCard
+ )
  ; // Implemented
  : Overridden
-   @ ( ME_4DB0614603C8_ME_4E82D4F60180 // GetWordNameForRegister
- ) .SequenceCode.It
+   Seq: ( ME_4DB0614603C8_ME_4E82D4F60180 // GetWordNameForRegister
+ )
  ; // Overridden
  : Dependencies
-   @ ( ME_4E82D54803A1 // 
+   Seq: ( ME_4E82D54803A1 // 
  ME_4E82D54C03A8 // 
  ME_4E82D55103D8 // 
  ME_4E82D57E0126 // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  CONST "author" 'Люлин А.В.'
  CONST "needs InstanceR" 'undefined'
@@ -1022,13 +1050,15 @@ ref; // ME_4DB0614603C8_ME_4E82D4F60180 GetWordNameForRegister
  CONST "no hands" true
  CONST "register in scripts" 'undefined'
  CONST "started" '28.09.2011 12:04'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\ScriptEngine'
  CONST intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\kwPopQueryCardAttributeSetWithLogicOperation.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\ScriptEngine'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
  CONST extprop:pas:TypeName 'TkwPopQueryCardAttributeSetWithLogicOperation'
+ CONST extprop:rc:SelfName 'PopQueryCardAttributeSetWithLogicOperation'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'kwPopQueryCardAttributeSetWithLogicOperation'
 
 ref; // ME_4E82D4F60180 pop_QueryCard_Attribute_SetWithLogicOperation
 
@@ -1100,6 +1130,7 @@ FORWARD ME_07D78AC0F47E
 : ME_685377C30170
  CONST UID '685377C30170'
  CONST Name 'anItem'
+ CONST IsSummoned true
  CONST Class class_Parameter
  : Stereotype st_in ;
  : Target WL 'ME_47CD6644026F' '47CD5C7602CD.pas.ms.script' // IevReq
@@ -1110,6 +1141,7 @@ ref; // ME_685377C30170 anItem
 : ME_EBE5D37B6B67
  CONST UID 'EBE5D37B6B67'
  CONST Name 'DoIt'
+ CONST IsSummoned true
  CONST Class class_Operation
  CONST Visibility PublicAccess
  CONST Abstraction at_final
@@ -1118,8 +1150,8 @@ ref; // ME_685377C30170 anItem
  : Target WL 'ME_3DBFFE100240' '3DBFDB23006E.pas.ms.script' // boolean
  ;
  : Parameters
-   @ ( ME_685377C30170 // anItem
- ) .SequenceCode.It
+   Seq: ( ME_685377C30170 // anItem
+ )
  ; // Parameters
 
 ref; // ME_EBE5D37B6B67 DoIt
@@ -1127,6 +1159,7 @@ ref; // ME_EBE5D37B6B67 DoIt
 : ME_07D78AC0F47E
  CONST UID '07D78AC0F47E'
  CONST Name 'DoIt'
+ CONST IsSummoned true
  CONST Class class_Class
  : Stereotype st_localmethod ;
  CONST Kind kind_NormalClass
@@ -1136,8 +1169,8 @@ ref; // ME_EBE5D37B6B67 DoIt
  : Parent ME_4F6996830081 // CallIterator
  ;
  : Operations
-   @ ( ME_EBE5D37B6B67 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_EBE5D37B6B67 // DoIt
+ )
  ; // Operations
 
 ref; // ME_07D78AC0F47E DoIt
@@ -1157,6 +1190,7 @@ ref; // ME_4F69969C0221
 
 : ME_0665C50A5E34
  CONST UID '0665C50A5E34'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_4F6996830081 // CallIterator
@@ -1177,14 +1211,14 @@ ref; // ME_0665C50A5E34
  : Parent ME_4F6995F7028A // DoModelImpl
  ;
  : Operations
-   @ ( ME_4F6996930285 // DoIt
+   Seq: ( ME_4F6996930285 // DoIt
  ME_07D78AC0F47E // DoIt
- ) .SequenceCode.It
+ )
  ; // Operations
  : Dependencies
-   @ ( ME_4F69969C0221 // 
+   Seq: ( ME_4F69969C0221 // 
  ME_0665C50A5E34 // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
 
 ref; // ME_4F6996830081 CallIterator
@@ -1218,9 +1252,9 @@ ref; // ME_4F69961501CB aCard
  : Parent ME_4F6995F7028A // DoModelImpl
  ;
  : Parameters
-   @ ( ME_4F6996150178 // aCtx
+   Seq: ( ME_4F6996150178 // aCtx
  ME_4F69961501CB // aCard
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_4F69961302C1 DoIt
@@ -1247,19 +1281,19 @@ ref; // ME_4F69966002FC
  : Parent ME_4F69959502BB // pop_QueryCard_Attribute_SetCollapsed
  ;
  : Attributes
-   @ ( ME_4F69961C0360 // Op
+   Seq: ( ME_4F69961C0360 // Op
  ME_4F69962D0397 // Name
  ME_4F69964A00B6 // Value
- ) .SequenceCode.It
+ )
  ; // Attributes
  : Operations
-   @ ( ME_4F6996830081 // CallIterator
+   Seq: ( ME_4F6996830081 // CallIterator
  ME_4F69961302C1 // DoIt
- ) .SequenceCode.It
+ )
  ; // Operations
  : Dependencies
-   @ ( ME_4F69966002FC // 
- ) .SequenceCode.It
+   Seq: ( ME_4F69966002FC // 
+ )
  ; // Dependencies
 
 ref; // ME_4F6995F7028A DoModelImpl
@@ -1267,6 +1301,7 @@ ref; // ME_4F6995F7028A DoModelImpl
 : ME_14C2D528E486
  CONST UID '14C2D528E486'
  CONST Name 'Ini_Reg'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Регистрация pop_QueryCard_Attribute_SetCollapsed' ;
@@ -1339,6 +1374,7 @@ ref; // ME_4F699AB4010C
  ;
  : Implementor ME_4F69959502BB // pop_QueryCard_Attribute_SetCollapsed
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_4E808E8B01BB_ME_4F69959502BB DoCard
 
 : ME_4DB0614603C8_ME_4F69959502BB
@@ -1348,6 +1384,7 @@ ref; // ME_4E808E8B01BB_ME_4F69959502BB DoCard
  ;
  : Implementor ME_4F69959502BB // pop_QueryCard_Attribute_SetCollapsed
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4DB0614603C8_ME_4F69959502BB GetWordNameForRegister
 
 : ME_4F69959502BB
@@ -1362,41 +1399,47 @@ ref; // ME_4DB0614603C8_ME_4F69959502BB GetWordNameForRegister
  : Parent ME_4F6994E701CB // QueryCardProcessing
  ;
  : Inherits
-   @ ( ME_4E808D48037D // TkwQueryCardFromStackWord
- ) .SequenceCode.It
+   Seq: ( ME_4E808D48037D // TkwQueryCardFromStackWord
+ )
  ; // Inherits
+ : Implements
+   Seq: ( WL 'ME_4F69A954039F' '4E5CF70B01E2.pas.ms.script' // Карточки запроса должны уметь сворачивать и разворачивать группы атрибутов из скриптов
+ )
+ ; // Implements
  : Operations
-   @ ( ME_4F6995F7028A // DoModelImpl
+   Seq: ( ME_4F6995F7028A // DoModelImpl
  ME_14C2D528E486 // Ini_Reg
- ) .SequenceCode.It
+ )
  ; // Operations
  : Implemented
-   @ ( ME_4E808E8B01BB_ME_4F69959502BB // DoCard
- ) .SequenceCode.It
+   Seq: ( ME_4E808E8B01BB_ME_4F69959502BB // DoCard
+ )
  ; // Implemented
  : Overridden
-   @ ( ME_4DB0614603C8_ME_4F69959502BB // GetWordNameForRegister
- ) .SequenceCode.It
+   Seq: ( ME_4DB0614603C8_ME_4F69959502BB // GetWordNameForRegister
+ )
  ; // Overridden
  : Dependencies
-   @ ( ME_4F6995CF02DC // 
+   Seq: ( ME_4F6995CF02DC // 
  ME_4F6995D602B3 // 
  ME_4F6995DD03DB // 
  ME_4F6995E201EC // 
  ME_4F699AB4010C // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\ScriptEngine'
  CONST intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\kwPopQueryCardAttributeSetCollapsed.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\ScriptEngine'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
  CONST extprop:pas:TypeName 'TkwPopQueryCardAttributeSetCollapsed'
+ CONST extprop:rc:SelfName 'PopQueryCardAttributeSetCollapsed'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'kwPopQueryCardAttributeSetCollapsed'
 
 ref; // ME_4F69959502BB pop_QueryCard_Attribute_SetCollapsed
 
@@ -1452,6 +1495,7 @@ FORWARD ME_68801C8A78FF
 : ME_4BE6B5AFD700
  CONST UID '4BE6B5AFD700'
  CONST Name 'anItem'
+ CONST IsSummoned true
  CONST Class class_Parameter
  : Stereotype st_in ;
  : Target WL 'ME_47CD6644026F' '47CD5C7602CD.pas.ms.script' // IevReq
@@ -1462,6 +1506,7 @@ ref; // ME_4BE6B5AFD700 anItem
 : ME_5389D3E050F5
  CONST UID '5389D3E050F5'
  CONST Name 'DoIt'
+ CONST IsSummoned true
  CONST Class class_Operation
  CONST Visibility PublicAccess
  CONST Abstraction at_final
@@ -1470,8 +1515,8 @@ ref; // ME_4BE6B5AFD700 anItem
  : Target WL 'ME_3DBFFE100240' '3DBFDB23006E.pas.ms.script' // boolean
  ;
  : Parameters
-   @ ( ME_4BE6B5AFD700 // anItem
- ) .SequenceCode.It
+   Seq: ( ME_4BE6B5AFD700 // anItem
+ )
  ; // Parameters
 
 ref; // ME_5389D3E050F5 DoIt
@@ -1479,6 +1524,7 @@ ref; // ME_5389D3E050F5 DoIt
 : ME_68801C8A78FF
  CONST UID '68801C8A78FF'
  CONST Name 'DoIt'
+ CONST IsSummoned true
  CONST Class class_Class
  : Stereotype st_localmethod ;
  CONST Kind kind_NormalClass
@@ -1488,8 +1534,8 @@ ref; // ME_5389D3E050F5 DoIt
  : Parent ME_4F69A17402A1 // CallIterator
  ;
  : Operations
-   @ ( ME_5389D3E050F5 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_5389D3E050F5 // DoIt
+ )
  ; // Operations
 
 ref; // ME_68801C8A78FF DoIt
@@ -1509,6 +1555,7 @@ ref; // ME_4F69A17B0071
 
 : ME_C423D5164537
  CONST UID 'C423D5164537'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_4F69A17402A1 // CallIterator
@@ -1529,14 +1576,14 @@ ref; // ME_C423D5164537
  : Parent ME_4F69A12C0199 // DoModelImpl
  ;
  : Operations
-   @ ( ME_4F69A17F0027 // DoIt
+   Seq: ( ME_4F69A17F0027 // DoIt
  ME_68801C8A78FF // DoIt
- ) .SequenceCode.It
+ )
  ; // Operations
  : Dependencies
-   @ ( ME_4F69A17B0071 // 
+   Seq: ( ME_4F69A17B0071 // 
  ME_C423D5164537 // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
 
 ref; // ME_4F69A17402A1 CallIterator
@@ -1570,9 +1617,9 @@ ref; // ME_4F69A13C0198 aCard
  : Parent ME_4F69A12C0199 // DoModelImpl
  ;
  : Parameters
-   @ ( ME_4F69A13C0145 // aCtx
+   Seq: ( ME_4F69A13C0145 // aCtx
  ME_4F69A13C0198 // aCard
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_4F69A13A023A DoIt
@@ -1599,18 +1646,18 @@ ref; // ME_4F69A15B0173
  : Parent ME_4F69A0DF02E0 // pop_QueryCard_Attribute_SetFocus
  ;
  : Attributes
-   @ ( ME_4F69A143007C // Name
+   Seq: ( ME_4F69A143007C // Name
  ME_4F69A14E012D // Op
- ) .SequenceCode.It
+ )
  ; // Attributes
  : Operations
-   @ ( ME_4F69A17402A1 // CallIterator
+   Seq: ( ME_4F69A17402A1 // CallIterator
  ME_4F69A13A023A // DoIt
- ) .SequenceCode.It
+ )
  ; // Operations
  : Dependencies
-   @ ( ME_4F69A15B0173 // 
- ) .SequenceCode.It
+   Seq: ( ME_4F69A15B0173 // 
+ )
  ; // Dependencies
 
 ref; // ME_4F69A12C0199 DoModelImpl
@@ -1618,6 +1665,7 @@ ref; // ME_4F69A12C0199 DoModelImpl
 : ME_42456A202B78
  CONST UID '42456A202B78'
  CONST Name 'Ini_Reg'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Регистрация pop_QueryCard_Attribute_SetFocus' ;
@@ -1690,6 +1738,7 @@ ref; // ME_4F69A11A0027
  ;
  : Implementor ME_4F69A0DF02E0 // pop_QueryCard_Attribute_SetFocus
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_4E808E8B01BB_ME_4F69A0DF02E0 DoCard
 
 : ME_4DB0614603C8_ME_4F69A0DF02E0
@@ -1699,6 +1748,7 @@ ref; // ME_4E808E8B01BB_ME_4F69A0DF02E0 DoCard
  ;
  : Implementor ME_4F69A0DF02E0 // pop_QueryCard_Attribute_SetFocus
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4DB0614603C8_ME_4F69A0DF02E0 GetWordNameForRegister
 
 : ME_4F69A0DF02E0
@@ -1712,47 +1762,54 @@ ref; // ME_4DB0614603C8_ME_4F69A0DF02E0 GetWordNameForRegister
  : Parent ME_4F6994E701CB // QueryCardProcessing
  ;
  : Inherits
-   @ ( ME_4E808D48037D // TkwQueryCardFromStackWord
- ) .SequenceCode.It
+   Seq: ( ME_4E808D48037D // TkwQueryCardFromStackWord
+ )
  ; // Inherits
+ : Implements
+   Seq: ( WL 'ME_4F69A97D02E2' '4E5CF70B01E2.pas.ms.script' // Карточки запросов должны уметь устанавливать фокус в требуемый атрибут из скриптов
+ )
+ ; // Implements
  : Operations
-   @ ( ME_4F69A12C0199 // DoModelImpl
+   Seq: ( ME_4F69A12C0199 // DoModelImpl
  ME_42456A202B78 // Ini_Reg
- ) .SequenceCode.It
+ )
  ; // Operations
  : Implemented
-   @ ( ME_4E808E8B01BB_ME_4F69A0DF02E0 // DoCard
- ) .SequenceCode.It
+   Seq: ( ME_4E808E8B01BB_ME_4F69A0DF02E0 // DoCard
+ )
  ; // Implemented
  : Overridden
-   @ ( ME_4DB0614603C8_ME_4F69A0DF02E0 // GetWordNameForRegister
- ) .SequenceCode.It
+   Seq: ( ME_4DB0614603C8_ME_4F69A0DF02E0 // GetWordNameForRegister
+ )
  ; // Overridden
  : Dependencies
-   @ ( ME_4F69A1070148 // 
+   Seq: ( ME_4F69A1070148 // 
  ME_4F69A10B00BF // 
  ME_4F69A111016F // 
  ME_4F69A115034F // 
  ME_4F69A11A0027 // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\ScriptEngine'
  CONST intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\kwPopQueryCardAttributeSetFocus.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\ScriptEngine'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
  CONST extprop:pas:TypeName 'TkwPopQueryCardAttributeSetFocus'
+ CONST extprop:rc:SelfName 'PopQueryCardAttributeSetFocus'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'kwPopQueryCardAttributeSetFocus'
 
 ref; // ME_4F69A0DF02E0 pop_QueryCard_Attribute_SetFocus
 
 : ME_4D9F04E666F7
  CONST UID '4D9F04E666F7'
  CONST Name 'Ini_Reg'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Регистрация pop_QueryCard_Attribute_GetFocus' ;
@@ -1792,6 +1849,7 @@ ref; // ME_4FFC394500CB
  ;
  : Implementor ME_4FEF234F01FB // pop_QueryCard_Attribute_GetFocus
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_4E808E8B01BB_ME_4FEF234F01FB DoCard
 
 : ME_4DB0614603C8_ME_4FEF234F01FB
@@ -1801,6 +1859,7 @@ ref; // ME_4E808E8B01BB_ME_4FEF234F01FB DoCard
  ;
  : Implementor ME_4FEF234F01FB // pop_QueryCard_Attribute_GetFocus
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4DB0614603C8_ME_4FEF234F01FB GetWordNameForRegister
 
 : ME_4FEF234F01FB
@@ -1814,43 +1873,46 @@ ref; // ME_4DB0614603C8_ME_4FEF234F01FB GetWordNameForRegister
  : Parent ME_4F6994E701CB // QueryCardProcessing
  ;
  : Inherits
-   @ ( ME_4E808D48037D // TkwQueryCardFromStackWord
- ) .SequenceCode.It
+   Seq: ( ME_4E808D48037D // TkwQueryCardFromStackWord
+ )
  ; // Inherits
  : Operations
-   @ ( ME_4D9F04E666F7 // Ini_Reg
- ) .SequenceCode.It
+   Seq: ( ME_4D9F04E666F7 // Ini_Reg
+ )
  ; // Operations
  : Implemented
-   @ ( ME_4E808E8B01BB_ME_4FEF234F01FB // DoCard
- ) .SequenceCode.It
+   Seq: ( ME_4E808E8B01BB_ME_4FEF234F01FB // DoCard
+ )
  ; // Implemented
  : Overridden
-   @ ( ME_4DB0614603C8_ME_4FEF234F01FB // GetWordNameForRegister
- ) .SequenceCode.It
+   Seq: ( ME_4DB0614603C8_ME_4FEF234F01FB // GetWordNameForRegister
+ )
  ; // Overridden
  : Dependencies
-   @ ( ME_4FFC39420060 // 
+   Seq: ( ME_4FFC39420060 // 
  ME_4FFC394500CB // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\ScriptEngine'
  CONST intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\kwPopQueryCardAttributeGetFocus.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\ScriptEngine'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
  CONST extprop:pas:TypeName 'TkwPopQueryCardAttributeGetFocus'
+ CONST extprop:rc:SelfName 'PopQueryCardAttributeGetFocus'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'kwPopQueryCardAttributeGetFocus'
 
 ref; // ME_4FEF234F01FB pop_QueryCard_Attribute_GetFocus
 
 : ME_F9390455B160
  CONST UID 'F9390455B160'
  CONST Name 'Ini_Reg'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Регистрация pop_QueryCard_Attribute_GetCollapsed' ;
@@ -1923,6 +1985,7 @@ ref; // ME_50BCE7080004
  ;
  : Implementor ME_4FEF23900010 // pop_QueryCard_Attribute_GetCollapsed
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_4E808E8B01BB_ME_4FEF23900010 DoCard
 
 : ME_4DB0614603C8_ME_4FEF23900010
@@ -1932,6 +1995,7 @@ ref; // ME_4E808E8B01BB_ME_4FEF23900010 DoCard
  ;
  : Implementor ME_4FEF23900010 // pop_QueryCard_Attribute_GetCollapsed
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4DB0614603C8_ME_4FEF23900010 GetWordNameForRegister
 
 : ME_4FEF23900010
@@ -1945,40 +2009,42 @@ ref; // ME_4DB0614603C8_ME_4FEF23900010 GetWordNameForRegister
  : Parent ME_4F6994E701CB // QueryCardProcessing
  ;
  : Inherits
-   @ ( ME_4E808D48037D // TkwQueryCardFromStackWord
- ) .SequenceCode.It
+   Seq: ( ME_4E808D48037D // TkwQueryCardFromStackWord
+ )
  ; // Inherits
  : Operations
-   @ ( ME_F9390455B160 // Ini_Reg
- ) .SequenceCode.It
+   Seq: ( ME_F9390455B160 // Ini_Reg
+ )
  ; // Operations
  : Implemented
-   @ ( ME_4E808E8B01BB_ME_4FEF23900010 // DoCard
- ) .SequenceCode.It
+   Seq: ( ME_4E808E8B01BB_ME_4FEF23900010 // DoCard
+ )
  ; // Implemented
  : Overridden
-   @ ( ME_4DB0614603C8_ME_4FEF23900010 // GetWordNameForRegister
- ) .SequenceCode.It
+   Seq: ( ME_4DB0614603C8_ME_4FEF23900010 // GetWordNameForRegister
+ )
  ; // Overridden
  : Dependencies
-   @ ( ME_500D69450199 // 
+   Seq: ( ME_500D69450199 // 
  ME_500D6993009F // 
  ME_500D6A270302 // 
  ME_500D6A86039D // 
  ME_50BCE7080004 // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\ScriptEngine'
  CONST intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\kwPopQueryCardAttributeGetCollapsed.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\ScriptEngine'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
  CONST extprop:pas:TypeName 'TkwPopQueryCardAttributeGetCollapsed'
+ CONST extprop:rc:SelfName 'PopQueryCardAttributeGetCollapsed'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'kwPopQueryCardAttributeGetCollapsed'
 
 ref; // ME_4FEF23900010 pop_QueryCard_Attribute_GetCollapsed
 
@@ -2039,6 +2105,7 @@ FORWARD ME_2B70B2B2422D
 : ME_331583B802C3
  CONST UID '331583B802C3'
  CONST Name 'anItem'
+ CONST IsSummoned true
  CONST Class class_Parameter
  : Stereotype st_in ;
  : Target WL 'ME_47CD6644026F' '47CD5C7602CD.pas.ms.script' // IevReq
@@ -2049,6 +2116,7 @@ ref; // ME_331583B802C3 anItem
 : ME_2F4A36DA7529
  CONST UID '2F4A36DA7529'
  CONST Name 'DoIt'
+ CONST IsSummoned true
  CONST Class class_Operation
  CONST Visibility PublicAccess
  CONST Abstraction at_final
@@ -2057,8 +2125,8 @@ ref; // ME_331583B802C3 anItem
  : Target WL 'ME_3DBFFE100240' '3DBFDB23006E.pas.ms.script' // boolean
  ;
  : Parameters
-   @ ( ME_331583B802C3 // anItem
- ) .SequenceCode.It
+   Seq: ( ME_331583B802C3 // anItem
+ )
  ; // Parameters
 
 ref; // ME_2F4A36DA7529 DoIt
@@ -2066,6 +2134,7 @@ ref; // ME_2F4A36DA7529 DoIt
 : ME_2B70B2B2422D
  CONST UID '2B70B2B2422D'
  CONST Name 'DoIt'
+ CONST IsSummoned true
  CONST Class class_Class
  : Stereotype st_localmethod ;
  CONST Kind kind_NormalClass
@@ -2075,8 +2144,8 @@ ref; // ME_2F4A36DA7529 DoIt
  : Parent ME_50EFE2330224 // CallIterator
  ;
  : Operations
-   @ ( ME_2F4A36DA7529 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_2F4A36DA7529 // DoIt
+ )
  ; // Operations
 
 ref; // ME_2B70B2B2422D DoIt
@@ -2084,6 +2153,7 @@ ref; // ME_2B70B2B2422D DoIt
 : ME_075AA5E24165
  CONST UID '075AA5E24165'
  CONST Name 'DoIt'
+ CONST IsSummoned true
  CONST Class class_Operation
  %SUMMARY 'Сигнатура метода CallIterator' ;
  CONST Visibility PublicAccess
@@ -2108,6 +2178,7 @@ ref; // ME_50EFE23F0098
 
 : ME_57944C243F37
  CONST UID '57944C243F37'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_50EFE2330224 // CallIterator
@@ -2128,14 +2199,14 @@ ref; // ME_57944C243F37
  : Parent ME_50EFE12701AD // DoModelImpl
  ;
  : Operations
-   @ ( ME_2B70B2B2422D // DoIt
+   Seq: ( ME_2B70B2B2422D // DoIt
  ME_075AA5E24165 // DoIt
- ) .SequenceCode.It
+ )
  ; // Operations
  : Dependencies
-   @ ( ME_50EFE23F0098 // 
+   Seq: ( ME_50EFE23F0098 // 
  ME_57944C243F37 // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
 
 ref; // ME_50EFE2330224 CallIterator
@@ -2169,9 +2240,9 @@ ref; // ME_50EFE13300E8 aCard
  : Parent ME_50EFE12701AD // DoModelImpl
  ;
  : Parameters
-   @ ( ME_50EFE13300CD // aCtx
+   Seq: ( ME_50EFE13300CD // aCtx
  ME_50EFE13300E8 // aCard
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_50EFE1310315 DoIt
@@ -2187,15 +2258,15 @@ ref; // ME_50EFE1310315 DoIt
  : Parent ME_50EFDD1802BC // pop_QueryCard_Attribute_GetLogicOperation
  ;
  : Attributes
-   @ ( ME_50EFE15F03A4 // Name
+   Seq: ( ME_50EFE15F03A4 // Name
  ME_50EFE18D0239 // Op
  ME_50EFE1990003 // LogicOp
- ) .SequenceCode.It
+ )
  ; // Attributes
  : Operations
-   @ ( ME_50EFE2330224 // CallIterator
+   Seq: ( ME_50EFE2330224 // CallIterator
  ME_50EFE1310315 // DoIt
- ) .SequenceCode.It
+ )
  ; // Operations
 
 ref; // ME_50EFE12701AD DoModelImpl
@@ -2203,6 +2274,7 @@ ref; // ME_50EFE12701AD DoModelImpl
 : ME_3AF1D339A8A4
  CONST UID '3AF1D339A8A4'
  CONST Name 'Ini_Reg'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Регистрация pop_QueryCard_Attribute_GetLogicOperation' ;
@@ -2264,6 +2336,7 @@ ref; // ME_50EFE078032B
  ;
  : Implementor ME_50EFDD1802BC // pop_QueryCard_Attribute_GetLogicOperation
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_4E808E8B01BB_ME_50EFDD1802BC DoCard
 
 : ME_4DB0614603C8_ME_50EFDD1802BC
@@ -2273,6 +2346,7 @@ ref; // ME_4E808E8B01BB_ME_50EFDD1802BC DoCard
  ;
  : Implementor ME_50EFDD1802BC // pop_QueryCard_Attribute_GetLogicOperation
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4DB0614603C8_ME_50EFDD1802BC GetWordNameForRegister
 
 : ME_50EFDD1802BC
@@ -2286,40 +2360,42 @@ ref; // ME_4DB0614603C8_ME_50EFDD1802BC GetWordNameForRegister
  : Parent ME_4F6994E701CB // QueryCardProcessing
  ;
  : Inherits
-   @ ( ME_4E808D48037D // TkwQueryCardFromStackWord
- ) .SequenceCode.It
+   Seq: ( ME_4E808D48037D // TkwQueryCardFromStackWord
+ )
  ; // Inherits
  : Operations
-   @ ( ME_50EFE12701AD // DoModelImpl
+   Seq: ( ME_50EFE12701AD // DoModelImpl
  ME_3AF1D339A8A4 // Ini_Reg
- ) .SequenceCode.It
+ )
  ; // Operations
  : Implemented
-   @ ( ME_4E808E8B01BB_ME_50EFDD1802BC // DoCard
- ) .SequenceCode.It
+   Seq: ( ME_4E808E8B01BB_ME_50EFDD1802BC // DoCard
+ )
  ; // Implemented
  : Overridden
-   @ ( ME_4DB0614603C8_ME_50EFDD1802BC // GetWordNameForRegister
- ) .SequenceCode.It
+   Seq: ( ME_4DB0614603C8_ME_50EFDD1802BC // GetWordNameForRegister
+ )
  ; // Overridden
  : Dependencies
-   @ ( ME_50EFE0710288 // 
+   Seq: ( ME_50EFE0710288 // 
  ME_50EFE07401B3 // 
  ME_50EFE0760238 // 
  ME_50EFE078032B // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\ScriptEngine'
  CONST intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\kwPopQueryCardAttributeGetLogicOperation.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\ScriptEngine'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
  CONST extprop:pas:TypeName 'TkwPopQueryCardAttributeGetLogicOperation'
+ CONST extprop:rc:SelfName 'PopQueryCardAttributeGetLogicOperation'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'kwPopQueryCardAttributeGetLogicOperation'
 
 ref; // ME_50EFDD1802BC pop_QueryCard_Attribute_GetLogicOperation
 
@@ -2380,6 +2456,7 @@ FORWARD ME_1E86D84EDB95
 : ME_B57806BFB487
  CONST UID 'B57806BFB487'
  CONST Name 'anItem'
+ CONST IsSummoned true
  CONST Class class_Parameter
  : Stereotype st_in ;
  : Target WL 'ME_47CD6644026F' '47CD5C7602CD.pas.ms.script' // IevReq
@@ -2390,6 +2467,7 @@ ref; // ME_B57806BFB487 anItem
 : ME_CEBF1AA3EE3F
  CONST UID 'CEBF1AA3EE3F'
  CONST Name 'DoIt'
+ CONST IsSummoned true
  CONST Class class_Operation
  CONST Visibility PublicAccess
  CONST Abstraction at_final
@@ -2398,8 +2476,8 @@ ref; // ME_B57806BFB487 anItem
  : Target WL 'ME_3DBFFE100240' '3DBFDB23006E.pas.ms.script' // boolean
  ;
  : Parameters
-   @ ( ME_B57806BFB487 // anItem
- ) .SequenceCode.It
+   Seq: ( ME_B57806BFB487 // anItem
+ )
  ; // Parameters
 
 ref; // ME_CEBF1AA3EE3F DoIt
@@ -2407,6 +2485,7 @@ ref; // ME_CEBF1AA3EE3F DoIt
 : ME_1E86D84EDB95
  CONST UID '1E86D84EDB95'
  CONST Name 'DoIt'
+ CONST IsSummoned true
  CONST Class class_Class
  : Stereotype st_localmethod ;
  CONST Kind kind_NormalClass
@@ -2416,8 +2495,8 @@ ref; // ME_CEBF1AA3EE3F DoIt
  : Parent ME_50F01237000C // CallIterator
  ;
  : Operations
-   @ ( ME_CEBF1AA3EE3F // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_CEBF1AA3EE3F // DoIt
+ )
  ; // Operations
 
 ref; // ME_1E86D84EDB95 DoIt
@@ -2425,6 +2504,7 @@ ref; // ME_1E86D84EDB95 DoIt
 : ME_2FFB440C5E34
  CONST UID '2FFB440C5E34'
  CONST Name 'DoIt'
+ CONST IsSummoned true
  CONST Class class_Operation
  %SUMMARY 'Сигнатура метода CallIterator' ;
  CONST Visibility PublicAccess
@@ -2449,6 +2529,7 @@ ref; // ME_50F012430175
 
 : ME_06D7D43D81B7
  CONST UID '06D7D43D81B7'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_50F01237000C // CallIterator
@@ -2469,14 +2550,14 @@ ref; // ME_06D7D43D81B7
  : Parent ME_50F011CD0374 // DoModelImpl
  ;
  : Operations
-   @ ( ME_1E86D84EDB95 // DoIt
+   Seq: ( ME_1E86D84EDB95 // DoIt
  ME_2FFB440C5E34 // DoIt
- ) .SequenceCode.It
+ )
  ; // Operations
  : Dependencies
-   @ ( ME_50F012430175 // 
+   Seq: ( ME_50F012430175 // 
  ME_06D7D43D81B7 // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
 
 ref; // ME_50F01237000C CallIterator
@@ -2510,9 +2591,9 @@ ref; // ME_50F011D80057 aCard
  : Parent ME_50F011CD0374 // DoModelImpl
  ;
  : Parameters
-   @ ( ME_50F011D8003A // aCtx
+   Seq: ( ME_50F011D8003A // aCtx
  ME_50F011D80057 // aCard
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_50F011D600DF DoIt
@@ -2528,15 +2609,15 @@ ref; // ME_50F011D600DF DoIt
  : Parent ME_50EFDD9B0123 // pop_QueryCard_Attribute_IsLogicOperationEnabled
  ;
  : Attributes
-   @ ( ME_50F011E50124 // Name
+   Seq: ( ME_50F011E50124 // Name
  ME_50F011F002ED // IsEnabled
  ME_50F02B3C025A // Op
- ) .SequenceCode.It
+ )
  ; // Attributes
  : Operations
-   @ ( ME_50F01237000C // CallIterator
+   Seq: ( ME_50F01237000C // CallIterator
  ME_50F011D600DF // DoIt
- ) .SequenceCode.It
+ )
  ; // Operations
 
 ref; // ME_50F011CD0374 DoModelImpl
@@ -2544,6 +2625,7 @@ ref; // ME_50F011CD0374 DoModelImpl
 : ME_21D6762C444D
  CONST UID '21D6762C444D'
  CONST Name 'Ini_Reg'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Регистрация pop_QueryCard_Attribute_IsLogicOperationEnabled' ;
@@ -2605,6 +2687,7 @@ ref; // ME_50F0114C0035
  ;
  : Implementor ME_50EFDD9B0123 // pop_QueryCard_Attribute_IsLogicOperationEnabled
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_4E808E8B01BB_ME_50EFDD9B0123 DoCard
 
 : ME_4DB0614603C8_ME_50EFDD9B0123
@@ -2614,6 +2697,7 @@ ref; // ME_4E808E8B01BB_ME_50EFDD9B0123 DoCard
  ;
  : Implementor ME_50EFDD9B0123 // pop_QueryCard_Attribute_IsLogicOperationEnabled
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4DB0614603C8_ME_50EFDD9B0123 GetWordNameForRegister
 
 : ME_50EFDD9B0123
@@ -2627,46 +2711,49 @@ ref; // ME_4DB0614603C8_ME_50EFDD9B0123 GetWordNameForRegister
  : Parent ME_4F6994E701CB // QueryCardProcessing
  ;
  : Inherits
-   @ ( ME_4E808D48037D // TkwQueryCardFromStackWord
- ) .SequenceCode.It
+   Seq: ( ME_4E808D48037D // TkwQueryCardFromStackWord
+ )
  ; // Inherits
  : Operations
-   @ ( ME_50F011CD0374 // DoModelImpl
+   Seq: ( ME_50F011CD0374 // DoModelImpl
  ME_21D6762C444D // Ini_Reg
- ) .SequenceCode.It
+ )
  ; // Operations
  : Implemented
-   @ ( ME_4E808E8B01BB_ME_50EFDD9B0123 // DoCard
- ) .SequenceCode.It
+   Seq: ( ME_4E808E8B01BB_ME_50EFDD9B0123 // DoCard
+ )
  ; // Implemented
  : Overridden
-   @ ( ME_4DB0614603C8_ME_50EFDD9B0123 // GetWordNameForRegister
- ) .SequenceCode.It
+   Seq: ( ME_4DB0614603C8_ME_50EFDD9B0123 // GetWordNameForRegister
+ )
  ; // Overridden
  : Dependencies
-   @ ( ME_50F0114501B6 // 
+   Seq: ( ME_50F0114501B6 // 
  ME_50F011480147 // 
  ME_50F0114A0121 // 
  ME_50F0114C0035 // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\ScriptEngine'
  CONST intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\kwPopQueryCardAttributeIsLogicOperationEnabled.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\ScriptEngine'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
  CONST extprop:pas:TypeName 'TkwPopQueryCardAttributeIsLogicOperationEnabled'
+ CONST extprop:rc:SelfName 'PopQueryCardAttributeIsLogicOperationEnabled'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'kwPopQueryCardAttributeIsLogicOperationEnabled'
 
 ref; // ME_50EFDD9B0123 pop_QueryCard_Attribute_IsLogicOperationEnabled
 
 : ME_7C59E2E36BFA
  CONST UID '7C59E2E36BFA'
  CONST Name 'Ini_Reg'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Регистрация pop_QueryCard_GetCurrentReqName' ;
@@ -2695,6 +2782,7 @@ ref; // ME_4FDB1DE60058
  ;
  : Implementor ME_4FDB10E9009A // pop_QueryCard_GetCurrentReqName
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_4E808E8B01BB_ME_4FDB10E9009A DoCard
 
 : ME_4DB0614603C8_ME_4FDB10E9009A
@@ -2704,6 +2792,7 @@ ref; // ME_4E808E8B01BB_ME_4FDB10E9009A DoCard
  ;
  : Implementor ME_4FDB10E9009A // pop_QueryCard_GetCurrentReqName
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4DB0614603C8_ME_4FDB10E9009A GetWordNameForRegister
 
 : ME_4FDB10E9009A
@@ -2717,36 +2806,38 @@ ref; // ME_4DB0614603C8_ME_4FDB10E9009A GetWordNameForRegister
  : Parent ME_4F6994E701CB // QueryCardProcessing
  ;
  : Inherits
-   @ ( ME_4E808D48037D // TkwQueryCardFromStackWord
- ) .SequenceCode.It
+   Seq: ( ME_4E808D48037D // TkwQueryCardFromStackWord
+ )
  ; // Inherits
  : Operations
-   @ ( ME_7C59E2E36BFA // Ini_Reg
- ) .SequenceCode.It
+   Seq: ( ME_7C59E2E36BFA // Ini_Reg
+ )
  ; // Operations
  : Implemented
-   @ ( ME_4E808E8B01BB_ME_4FDB10E9009A // DoCard
- ) .SequenceCode.It
+   Seq: ( ME_4E808E8B01BB_ME_4FDB10E9009A // DoCard
+ )
  ; // Implemented
  : Overridden
-   @ ( ME_4DB0614603C8_ME_4FDB10E9009A // GetWordNameForRegister
- ) .SequenceCode.It
+   Seq: ( ME_4DB0614603C8_ME_4FDB10E9009A // GetWordNameForRegister
+ )
  ; // Overridden
  : Dependencies
-   @ ( ME_4FDB1DE60058 // 
- ) .SequenceCode.It
+   Seq: ( ME_4FDB1DE60058 // 
+ )
  ; // Dependencies
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\ScriptEngine'
  CONST intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\kwPopQueryCardGetCurrentReqName.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\ScriptEngine'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
  CONST extprop:pas:TypeName 'TkwPopQueryCardGetCurrentReqName'
+ CONST extprop:rc:SelfName 'PopQueryCardGetCurrentReqName'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'kwPopQueryCardGetCurrentReqName'
 
 ref; // ME_4FDB10E9009A pop_QueryCard_GetCurrentReqName
 
@@ -2760,7 +2851,7 @@ ref; // ME_4FDB10E9009A pop_QueryCard_GetCurrentReqName
  : Parent WL 'ME_54ECA252008F' '54ECA252008F.pas.ms.script' // ScriptEngine$Everest
  ;
  : Children
-   @ ( ME_4F6995330222 // QueryCardProcessingPack
+   Seq: ( ME_4F6995330222 // QueryCardProcessingPack
  ME_4E808D48037D // TkwQueryCardFromStackWord
  ME_4E808E3E026E // pop_QueryCard_SetAttribute
  ME_4E82D4F60180 // pop_QueryCard_Attribute_SetWithLogicOperation
@@ -2771,30 +2862,29 @@ ref; // ME_4FDB10E9009A pop_QueryCard_GetCurrentReqName
  ME_50EFDD1802BC // pop_QueryCard_Attribute_GetLogicOperation
  ME_50EFDD9B0123 // pop_QueryCard_Attribute_IsLogicOperationEnabled
  ME_4FDB10E9009A // pop_QueryCard_GetCurrentReqName
- ) .SequenceCode.It
+ )
  ; // Children
  : Depends
-   @ ( WL 'ME_4677FBA70343' '4677FBA70343.pas.ms.script' // l3Interfaces
+   Seq: ( WL 'ME_4677FBA70343' '4677FBA70343.pas.ms.script' // l3Interfaces
  WL 'ME_4678209200A6' '4678209200A6.pas.ms.script' // nevBase
  WL 'ME_47913B47006E' '47913B47006E.pas.ms.script' // l3CoreObjects
  WL 'ME_47CD5C7602CD' '47CD5C7602CD.pas.ms.script' // evQueryCardInt
  WL 'ME_48E225F102A3' '48E225F102A3.pas.ms.script' // QueryCard
  WL 'ME_4AB0C3C60310' '4AB0C3C60310.pas.ms.script' // Sys
  WL 'ME_4DAF19F600C5' '4DAF19F600C5.pas.ms.script' // tfwScriptingInterfaces
+ WL 'ME_4E5CF70B01E2' '4E5CF70B01E2.pas.ms.script' // Требования к редактору Эверест
  WL 'ME_4E81F8D30392' '4E81F8D30392.pas.ms.script' // qfUtils
  WL 'ME_4F4CB50403CC' '4F4CB50403CC.pas.ms.script' // EditorFromStackKeyWords
  WL 'ME_54B90AC6014B' '54B90AC6014B.pas.ms.script' // StringUtils
  WL 'ME_55BA28CE0290' '55BA28CE0290.pas.ms.script' // tfwScriptingTypes
- ) .SequenceCode.It
+ )
  ; // Depends
  CONST "ifndef" 'NoScripts'
- : Generators
- @ (
- gen_pas.script
- gen_pas.script.runner
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\ScriptEngine'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\ScriptEngine'
  CONST pas.script:Path 'shared\models\NewSchool\Scripts\4F6994E701CB.pas.ms.script'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
  CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\4F6994E701CB.pas.ms.script.runner'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_4F6994E701CB QueryCardProcessing

@@ -1,0 +1,174 @@
+// TreeAttributeSelectSaveLoadRealization 54F83B9F01BB Unit Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_54F83B9F01BB
+
+FORWARD ME_54F83BC9036B
+
+: ME_54F83BEF0258
+ CONST UID '54F83BEF0258'
+ CONST Name 'new_ini_op'
+ CONST Class class_Operation
+ : Stereotype st_ini::Operation ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_54F83BC9036B // TtasSaveLoadRealization
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_54F83BEF0258 new_ini_op
+
+: ME_CE5251F8366F
+ CONST UID 'CE5251F8366F'
+ CONST Name 'Exists'
+ CONST IsSummoned true
+ CONST Class class_Operation
+ : Stereotype st_static::Operation ;
+ %SUMMARY 'Проверяет создан экземпляр синглетона или нет' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_54F83BC9036B // TtasSaveLoadRealization
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+ CONST "UseNewGen" 'undefined'
+ CONST extprop:pas:Value false
+
+ref; // ME_CE5251F8366F Exists
+
+: ME_54F83C2F0123
+ CONST UID '54F83C2F0123'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_54F83BC9036B // TtasSaveLoadRealization
+ ;
+ : Target WL 'ME_4AE864B801C5' '4EEA07CA0360.pas.ms.script' // nsQueryUtils
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_54F83C2F0123 
+
+: ME_54F839B602DC_ME_54F83BC9036B
+ CONST UID '54F839B602DC'
+ CONST Name 'LoadFromQuery'
+ : Original WL 'ME_54F839B602DC' '4A85282C0252.pas.ms.script' // LoadFromQuery
+ ;
+ : Implementor ME_54F83BC9036B // TtasSaveLoadRealization
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "UseNewGen" 'undefined'
+ref; // ME_54F839B602DC_ME_54F83BC9036B LoadFromQuery
+
+: ME_54F839D803D3_ME_54F83BC9036B
+ CONST UID '54F839D803D3'
+ CONST Name 'SaveToQuery'
+ : Original WL 'ME_54F839D803D3' '4A85282C0252.pas.ms.script' // SaveToQuery
+ ;
+ : Implementor ME_54F83BC9036B // TtasSaveLoadRealization
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "UseNewGen" 'undefined'
+ref; // ME_54F839D803D3_ME_54F83BC9036B SaveToQuery
+
+: ME_54F85E5A00B4_ME_54F83BC9036B
+ CONST UID '54F85E5A00B4'
+ CONST Name 'IsQuerySaved'
+ : Original WL 'ME_54F85E5A00B4' '4A85282C0252.pas.ms.script' // IsQuerySaved
+ ;
+ : Implementor ME_54F83BC9036B // TtasSaveLoadRealization
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "UseNewGen" 'undefined'
+ref; // ME_54F85E5A00B4_ME_54F83BC9036B IsQuerySaved
+
+: ME_54F83BC9036B
+ CONST UID '54F83BC9036B'
+ CONST Name 'TtasSaveLoadRealization'
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_54F83B9F01BB // TreeAttributeSelectSaveLoadRealization
+ ;
+ : Inherits
+   Seq: ( WL 'ME_4A54DD4E036F' '47913B47006E.pas.ms.script' // Tl3ProtoDataContainer
+ )
+ ; // Inherits
+ : Implements
+   Seq: ( WL 'ME_54F836540343' '4A85282C0252.pas.ms.script' // ItasSaveLoadProcessor
+ )
+ ; // Implements
+ : Operations
+   Seq: ( ME_54F83BEF0258 // new_ini_op
+ ME_CE5251F8366F // Exists
+ )
+ ; // Operations
+ : Implemented
+   Seq: ( ME_54F839B602DC_ME_54F83BC9036B // LoadFromQuery
+ ME_54F839D803D3_ME_54F83BC9036B // SaveToQuery
+ ME_54F85E5A00B4_ME_54F83BC9036B // IsQuerySaved
+ )
+ ; // Implemented
+ : Dependencies
+   Seq: ( ME_54F83C2F0123 // 
+ )
+ ; // Dependencies
+ CONST "UseNewGen" 'undefined'
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ CONST "singleton" true
+ : Generators
+ Seq: (
+ gen_intf.pas
+ )
+ ; // Generators
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View'
+ CONST intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\tasSaveLoadRealization.pas'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\View'
+ CONST extprop:pas:UnitName 'tasSaveLoadRealization'
+
+ref; // ME_54F83BC9036B TtasSaveLoadRealization
+
+: ME_54F83B9F01BB
+ CONST UID '54F83B9F01BB'
+ CONST Name 'TreeAttributeSelectSaveLoadRealization'
+ CONST Class class_Category
+ : Stereotype st_Unit ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent WL 'ME_5257E836001C' '5257E836001C.pas.ms.script' // View$Strange
+ ;
+ : Children
+   Seq: ( ME_54F83BC9036B // TtasSaveLoadRealization
+ )
+ ; // Children
+ : Depends
+   Seq: ( WL 'ME_47913B47006E' '47913B47006E.pas.ms.script' // l3CoreObjects
+ WL 'ME_4A85282C0252' '4A85282C0252.pas.ms.script' // LiteSearch
+ WL 'ME_4AB0C3C60310' '4AB0C3C60310.pas.ms.script' // Sys
+ WL 'ME_4EEA07CA0360' '4EEA07CA0360.pas.ms.script' // nsQueryAttributes
+ )
+ ; // Depends
+ CONST "UseNewGen" 'undefined'
+ : Generators
+ Seq: (
+ gen_pas.script
+ gen_pas.script.runner
+ )
+ ; // Generators
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View'
+ CONST pas.script:Path 'shared\models\NewSchool\Scripts\54F83B9F01BB.pas.ms.script'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\54F83B9F01BB.pas.ms.script.runner'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\View'
+
+ref; // ME_54F83B9F01BB TreeAttributeSelectSaveLoadRealization

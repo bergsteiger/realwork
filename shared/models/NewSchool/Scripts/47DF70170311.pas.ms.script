@@ -102,6 +102,7 @@ ref; // ME_47DF7197019C MakeI
  ;
  : Implementor ME_47DF707B01E2 // TvcmNodes
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" false
 ref; // ME_4683D67D025B_ME_47DF707B01E2 Current
 
@@ -112,6 +113,7 @@ ref; // ME_4683D67D025B_ME_47DF707B01E2 Current
  ;
  : Implementor ME_47DF707B01E2 // TvcmNodes
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" false
 ref; // ME_476948E60097_ME_47DF707B01E2 PlainLevel
 
@@ -122,6 +124,7 @@ ref; // ME_476948E60097_ME_47DF707B01E2 PlainLevel
  ;
  : Implementor ME_47DF707B01E2 // TvcmNodes
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" false
 ref; // ME_47694900005D_ME_47DF707B01E2 ShowRoot
 
@@ -132,6 +135,7 @@ ref; // ME_47694900005D_ME_47DF707B01E2 ShowRoot
  ;
  : Implementor ME_47DF707B01E2 // TvcmNodes
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" false
 ref; // ME_47F9C46D00CA_ME_47DF707B01E2 Tree
 
@@ -142,6 +146,7 @@ ref; // ME_47F9C46D00CA_ME_47DF707B01E2 Tree
  ;
  : Implementor ME_47DF707B01E2 // TvcmNodes
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" true
 ref; // ME_4BB08B8902F2_ME_47DF707B01E2 Count
 
@@ -152,6 +157,7 @@ ref; // ME_4BB08B8902F2_ME_47DF707B01E2 Count
  ;
  : Implementor ME_47DF707B01E2 // TvcmNodes
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_479731C50290_ME_47DF707B01E2 Cleanup
 
 : ME_47A042E100E2_ME_47DF707B01E2
@@ -161,6 +167,7 @@ ref; // ME_479731C50290_ME_47DF707B01E2 Cleanup
  ;
  : Implementor ME_47DF707B01E2 // TvcmNodes
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_47A042E100E2_ME_47DF707B01E2 InitFields
 
 : ME_47DF707B01E2
@@ -175,38 +182,38 @@ ref; // ME_47A042E100E2_ME_47DF707B01E2 InitFields
  : Parent ME_47DF70170311 // vcmCore
  ;
  : Inherits
-   @ ( WL 'ME_47B57D830369' '47913B47006E.pas.ms.script' // l3InterfaceRefList
+   Seq: ( WL 'ME_47B57D830369' '47913B47006E.pas.ms.script' // l3InterfaceRefList
  WL 'ME_4A54DD4E036F' '47913B47006E.pas.ms.script' // Tl3ProtoDataContainer
- ) .SequenceCode.It
+ )
  ; // Inherits
  : Implements
-   @ ( WL 'ME_4683D617036D' '467BAB7F021E.pas.ms.script' // IvcmNodes
- ) .SequenceCode.It
+   Seq: ( WL 'ME_4683D617036D' '467BAB7F021E.pas.ms.script' // IvcmNodes
+ )
  ; // Implements
  : Attributes
-   @ ( ME_47DF74E90103 // f_PlainLevel
+   Seq: ( ME_47DF74E90103 // f_PlainLevel
  ME_47DF74F701FD // f_ShowRoot
  ME_47F9D5800163 // f_Tree
  ME_47DF71250296 // ItemType
  ME_47DF7506023B // f_Current
- ) .SequenceCode.It
+ )
  ; // Attributes
  : Operations
-   @ ( ME_47DF7197019C // MakeI
- ) .SequenceCode.It
+   Seq: ( ME_47DF7197019C // MakeI
+ )
  ; // Operations
  : Implemented
-   @ ( ME_4683D67D025B_ME_47DF707B01E2 // Current
+   Seq: ( ME_4683D67D025B_ME_47DF707B01E2 // Current
  ME_476948E60097_ME_47DF707B01E2 // PlainLevel
  ME_47694900005D_ME_47DF707B01E2 // ShowRoot
  ME_47F9C46D00CA_ME_47DF707B01E2 // Tree
  ME_4BB08B8902F2_ME_47DF707B01E2 // Count
- ) .SequenceCode.It
+ )
  ; // Implemented
  : Overridden
-   @ ( ME_479731C50290_ME_47DF707B01E2 // Cleanup
+   Seq: ( ME_479731C50290_ME_47DF707B01E2 // Cleanup
  ME_47A042E100E2_ME_47DF707B01E2 // InitFields
- ) .SequenceCode.It
+ )
  ; // Overridden
  CONST "author" 'Ëþëèí À.Â.'
  CONST "needs InstanceR" 'undefined'
@@ -214,12 +221,14 @@ ref; // ME_47A042E100E2_ME_47DF707B01E2 InitFields
  CONST "no hands" true
  CONST "register in scripts" 'undefined'
  CONST "started" '15.01.2007 21:27'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\VCM\implementation'
  CONST intf.pas:Path 'common\components\gui\Garant\VCM\implementation\vcmNodes.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\VCM\implementation'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'Nodes'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'vcmNodes'
 
 ref; // ME_47DF707B01E2 TvcmNodes
 
@@ -251,27 +260,29 @@ ref; // ME_55F564CD0251 ItemType
  : Parent ME_47DF70170311 // vcmCore
  ;
  : Inherits
-   @ ( WL 'ME_4A54DD4E036F' '47913B47006E.pas.ms.script' // Tl3ProtoDataContainer
- ) .SequenceCode.It
+   Seq: ( WL 'ME_4A54DD4E036F' '47913B47006E.pas.ms.script' // Tl3ProtoDataContainer
+ )
  ; // Inherits
  : Implements
-   @ ( WL 'ME_49142D7000F3' '47913B47006E.pas.ms.script' // l3EnumList
- ) .SequenceCode.It
+   Seq: ( WL 'ME_49142D7000F3' '47913B47006E.pas.ms.script' // l3EnumList
+ )
  ; // Implements
  : Attributes
-   @ ( ME_55F564CD0251 // ItemType
- ) .SequenceCode.It
+   Seq: ( ME_55F564CD0251 // ItemType
+ )
  ; // Attributes
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\VCM\implementation'
  CONST intf.pas:Path 'common\components\gui\Garant\VCM\implementation\vcmZoneTypeList.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\VCM\implementation'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'ZoneTypeList'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'vcmZoneTypeList'
 
 ref; // ME_55F5644A029F TvcmZoneTypeList
 
@@ -303,27 +314,29 @@ ref; // ME_55F58175015E ItemType
  : Parent ME_47DF70170311 // vcmCore
  ;
  : Inherits
-   @ ( WL 'ME_4A54DD4E036F' '47913B47006E.pas.ms.script' // Tl3ProtoDataContainer
- ) .SequenceCode.It
+   Seq: ( WL 'ME_4A54DD4E036F' '47913B47006E.pas.ms.script' // Tl3ProtoDataContainer
+ )
  ; // Inherits
  : Implements
-   @ ( WL 'ME_47B57B7800A7' '47913B47006E.pas.ms.script' // l3ObjectPtrList
- ) .SequenceCode.It
+   Seq: ( WL 'ME_47B57B7800A7' '47913B47006E.pas.ms.script' // l3ObjectPtrList
+ )
  ; // Implements
  : Attributes
-   @ ( ME_55F58175015E // ItemType
- ) .SequenceCode.It
+   Seq: ( ME_55F58175015E // ItemType
+ )
  ; // Attributes
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\VCM\implementation'
  CONST intf.pas:Path 'common\components\gui\Garant\VCM\implementation\vcmControlList.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\VCM\implementation'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'ControlList'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'vcmControlList'
 
 ref; // ME_55F5814303D8 TvcmControlList
 
@@ -355,27 +368,29 @@ ref; // ME_55F9636B025D ItemType
  : Parent ME_47DF70170311 // vcmCore
  ;
  : Inherits
-   @ ( WL 'ME_4A54DD4E036F' '47913B47006E.pas.ms.script' // Tl3ProtoDataContainer
- ) .SequenceCode.It
+   Seq: ( WL 'ME_4A54DD4E036F' '47913B47006E.pas.ms.script' // Tl3ProtoDataContainer
+ )
  ; // Inherits
  : Implements
-   @ ( WL 'ME_47B57D630029' '47913B47006E.pas.ms.script' // l3InterfacePtrList
- ) .SequenceCode.It
+   Seq: ( WL 'ME_47B57D630029' '47913B47006E.pas.ms.script' // l3InterfacePtrList
+ )
  ; // Implements
  : Attributes
-   @ ( ME_55F9636B025D // ItemType
- ) .SequenceCode.It
+   Seq: ( ME_55F9636B025D // ItemType
+ )
  ; // Attributes
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\VCM\implementation'
  CONST intf.pas:Path 'common\components\gui\Garant\VCM\implementation\vcmDockManagerList.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\VCM\implementation'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'DockManagerList'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'vcmDockManagerList'
 
 ref; // ME_55F963150191 TvcmDockManagerList
 
@@ -407,27 +422,29 @@ ref; // ME_55F96DA9004C ItemType
  : Parent ME_47DF70170311 // vcmCore
  ;
  : Inherits
-   @ ( WL 'ME_4A54DD4E036F' '47913B47006E.pas.ms.script' // Tl3ProtoDataContainer
- ) .SequenceCode.It
+   Seq: ( WL 'ME_4A54DD4E036F' '47913B47006E.pas.ms.script' // Tl3ProtoDataContainer
+ )
  ; // Inherits
  : Implements
-   @ ( WL 'ME_47B57D630029' '47913B47006E.pas.ms.script' // l3InterfacePtrList
- ) .SequenceCode.It
+   Seq: ( WL 'ME_47B57D630029' '47913B47006E.pas.ms.script' // l3InterfacePtrList
+ )
  ; // Implements
  : Attributes
-   @ ( ME_55F96DA9004C // ItemType
- ) .SequenceCode.It
+   Seq: ( ME_55F96DA9004C // ItemType
+ )
  ; // Attributes
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\VCM\implementation'
  CONST intf.pas:Path 'common\components\gui\Garant\VCM\implementation\vcmLockListenerList.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\VCM\implementation'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'LockListenerList'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'vcmLockListenerList'
 
 ref; // ME_55F96D940088 TvcmLockListenerList
 
@@ -459,27 +476,29 @@ ref; // ME_55FA71D500E8 ItemType
  : Parent ME_47DF70170311 // vcmCore
  ;
  : Inherits
-   @ ( WL 'ME_4A54DD4E036F' '47913B47006E.pas.ms.script' // Tl3ProtoDataContainer
- ) .SequenceCode.It
+   Seq: ( WL 'ME_4A54DD4E036F' '47913B47006E.pas.ms.script' // Tl3ProtoDataContainer
+ )
  ; // Inherits
  : Implements
-   @ ( WL 'ME_47B57D630029' '47913B47006E.pas.ms.script' // l3InterfacePtrList
- ) .SequenceCode.It
+   Seq: ( WL 'ME_47B57D630029' '47913B47006E.pas.ms.script' // l3InterfacePtrList
+ )
  ; // Implements
  : Attributes
-   @ ( ME_55FA71D500E8 // ItemType
- ) .SequenceCode.It
+   Seq: ( ME_55FA71D500E8 // ItemType
+ )
  ; // Attributes
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\VCM\implementation'
  CONST intf.pas:Path 'common\components\gui\Garant\VCM\implementation\vcmFormDispatcherListenerList.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\VCM\implementation'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'FormDispatcherListenerList'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'vcmFormDispatcherListenerList'
 
 ref; // ME_55FA71C6007E TvcmFormDispatcherListenerList
 
@@ -494,32 +513,30 @@ ref; // ME_55FA71C6007E TvcmFormDispatcherListenerList
  : Parent WL 'ME_4790C3B8021E' '4790C3B8021E.pas.ms.script' // VCM
  ;
  : Children
-   @ ( ME_47DF707B01E2 // TvcmNodes
+   Seq: ( ME_47DF707B01E2 // TvcmNodes
  ME_55F5644A029F // TvcmZoneTypeList
  ME_55F5814303D8 // TvcmControlList
  ME_55F963150191 // TvcmDockManagerList
  ME_55F96D940088 // TvcmLockListenerList
  ME_55FA71C6007E // TvcmFormDispatcherListenerList
- ) .SequenceCode.It
+ )
  ; // Children
  : Depends
-   @ ( WL 'ME_467BAB7F021E' '467BAB7F021E.pas.ms.script' // vcmExternalInterfaces
+   Seq: ( WL 'ME_467BAB7F021E' '467BAB7F021E.pas.ms.script' // vcmExternalInterfaces
  WL 'ME_4683F37902CF' '4683F37902CF.pas.ms.script' // vcmInterfaces
  WL 'ME_47913B47006E' '47913B47006E.pas.ms.script' // l3CoreObjects
  WL 'ME_4799D29F033F' '4799D29F033F.pas.ms.script' // Implementation
  WL 'ME_499469840038' '499469840038.pas.ms.script' // vcmFormDispatcherInterfaces
  WL 'ME_4AB0C3C60310' '4AB0C3C60310.pas.ms.script' // Sys
  WL 'ME_528C93040132' '528C93040132.pas.ms.script' // vcmBaseTypes
- ) .SequenceCode.It
+ )
  ; // Depends
  CONST "path prefix" '/implementation'
- : Generators
- @ (
- gen_pas.script
- gen_pas.script.runner
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\VCM\implementation'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\VCM\implementation'
  CONST pas.script:Path 'shared\models\NewSchool\Scripts\47DF70170311.pas.ms.script'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
  CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\47DF70170311.pas.ms.script.runner'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_47DF70170311 vcmCore

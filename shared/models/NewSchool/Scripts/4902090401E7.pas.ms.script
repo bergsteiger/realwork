@@ -1,0 +1,2150 @@
+// Diction$Unit 4902090401E7 Unit Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4902090401E7
+
+FORWARD ME_49020B54001A
+
+: ME_49020C190138
+ CONST UID '49020C190138'
+ CONST Name 'f_Layer'
+ CONST Class class_Attribute
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_49020B54001A // TnsLayeredTreeFilters
+ ;
+ : Target WL 'ME_4902077602BA' '47ECAAF901F8.pas.ms.script' // InsLayerFilter
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_49020C190138 f_Layer
+
+: ME_49020BE9025B
+ CONST UID '49020BE9025B'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_49020B54001A // TnsLayeredTreeFilters
+ ;
+ : Target WL 'ME_47877EB202FB' '4AB0C3C60310.pas.ms.script' // SysUtils
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_49020BE9025B 
+
+FORWARD ME_49020B8C03BE
+
+: ME_49020C070058
+ CONST UID '49020C070058'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_49020B54001A // TnsLayeredTreeFilters
+ ;
+ : Target ME_49020B8C03BE // TnsLayerFilter
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_49020C070058 
+
+: ME_4902079D02D4_ME_49020B54001A
+ CONST UID '4902079D02D4'
+ CONST Name 'Layer'
+ : Original WL 'ME_4902079D02D4' '47ECAAF901F8.pas.ms.script' // Layer
+ ;
+ : Implementor ME_49020B54001A // TnsLayeredTreeFilters
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "UseNewGen" 'undefined'
+ CONST "pm" true
+ref; // ME_4902079D02D4_ME_49020B54001A Layer
+
+: ME_490207AB002D_ME_49020B54001A
+ CONST UID '490207AB002D'
+ CONST Name 'SetLayer'
+ : Original WL 'ME_490207AB002D' '47ECAAF901F8.pas.ms.script' // SetLayer
+ ;
+ : Implementor ME_49020B54001A // TnsLayeredTreeFilters
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "UseNewGen" 'undefined'
+ref; // ME_490207AB002D_ME_49020B54001A SetLayer
+
+: ME_479731C50290_ME_49020B54001A
+ CONST UID '479731C50290'
+ CONST Name 'Cleanup'
+ : Original WL 'ME_479731C50290' '51612EBB02F5.pas.ms.script' // Cleanup
+ ;
+ : Implementor ME_49020B54001A // TnsLayeredTreeFilters
+ ;
+ CONST OpKind opkind_Overridden
+ CONST "UseNewGen" 'undefined'
+ref; // ME_479731C50290_ME_49020B54001A Cleanup
+
+: ME_48FF4F47010F_ME_49020B54001A
+ CONST UID '48FF4F47010F'
+ CONST Name 'Create'
+ : Original WL 'ME_48FF4F47010F' '47E246C90144.pas.ms.script' // Create
+ ;
+ : Implementor ME_49020B54001A // TnsLayeredTreeFilters
+ ;
+ CONST OpKind opkind_Overridden
+ CONST "UseNewGen" 'undefined'
+ref; // ME_48FF4F47010F_ME_49020B54001A Create
+
+: ME_49020B54001A
+ CONST UID '49020B54001A'
+ CONST Name 'TnsLayeredTreeFilters'
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4902090401E7 // Diction$Unit
+ ;
+ : Inherits
+   Seq: ( WL 'ME_48FF4EC501F6' '47E246C90144.pas.ms.script' // Tl3TreeFilters
+ )
+ ; // Inherits
+ : Implements
+   Seq: ( WL 'ME_490207910151' '47ECAAF901F8.pas.ms.script' // InsLayeredTreeFilters
+ )
+ ; // Implements
+ : Attributes
+   Seq: ( ME_49020C190138 // f_Layer
+ )
+ ; // Attributes
+ : Implemented
+   Seq: ( ME_4902079D02D4_ME_49020B54001A // Layer
+ ME_490207AB002D_ME_49020B54001A // SetLayer
+ )
+ ; // Implemented
+ : Overridden
+   Seq: ( ME_479731C50290_ME_49020B54001A // Cleanup
+ ME_48FF4F47010F_ME_49020B54001A // Create
+ )
+ ; // Overridden
+ : Dependencies
+   Seq: ( ME_49020BE9025B // 
+ ME_49020C070058 // 
+ )
+ ; // Dependencies
+ CONST "UseNewGen" 'undefined'
+ CONST "author" 'Лукьянец Р.В.'
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" true
+ CONST "register in scripts" 'undefined'
+ CONST "started" '2007/03/23 14:18:10'
+ : Generators
+ Seq: (
+ gen_intf.pas
+ )
+ ; // Generators
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Diction'
+ CONST intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\Diction\nsLayeredTreeFilters.pas'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Diction'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\Diction'
+ CONST extprop:pas:UnitName 'nsLayeredTreeFilters'
+
+ref; // ME_49020B54001A TnsLayeredTreeFilters
+
+: ME_49020C500218
+ CONST UID '49020C500218'
+ CONST Name 'f_LayerID'
+ CONST Class class_Attribute
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_49020B8C03BE // TnsLayerFilter
+ ;
+ : Target WL 'ME_45EEC7EA01C5' '457450470167.pas.ms.script' // LayerId
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_49020C500218 f_LayerID
+
+: ME_49020D430395
+ CONST UID '49020D430395'
+ CONST Name 'aLayerID'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_45EEC7EA01C5' '457450470167.pas.ms.script' // LayerId
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_49020D430395 aLayerID
+
+: ME_49020C630037
+ CONST UID '49020C630037'
+ CONST Name 'Create'
+ CONST Class class_Operation
+ : Stereotype st_ctor::Operation ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_49020B8C03BE // TnsLayerFilter
+ ;
+ : Parameters
+   Seq: ( ME_49020D430395 // aLayerID
+ )
+ ; // Parameters
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_49020C630037 Create
+
+: ME_49020D48039A
+ CONST UID '49020D48039A'
+ CONST Name 'aLayerID'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_45EEC7EA01C5' '457450470167.pas.ms.script' // LayerId
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_49020D48039A aLayerID
+
+: ME_49020C75039D
+ CONST UID '49020C75039D'
+ CONST Name 'Make'
+ CONST Class class_Operation
+ : Stereotype st_factory::Operation ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_49020B8C03BE // TnsLayerFilter
+ ;
+ : Parameters
+   Seq: ( ME_49020D48039A // aLayerID
+ )
+ ; // Parameters
+ CONST "UseNewGen" 'undefined'
+ CONST "check nil" false
+ CONST "need AfterCreate" 'undefined'
+ CONST "need Aggregate" 'undefined'
+ CONST "need As" false
+
+ref; // ME_49020C75039D Make
+
+: ME_4902077E028F_ME_49020B8C03BE
+ CONST UID '4902077E028F'
+ CONST Name 'LayerID'
+ : Original WL 'ME_4902077E028F' '47ECAAF901F8.pas.ms.script' // LayerID
+ ;
+ : Implementor ME_49020B8C03BE // TnsLayerFilter
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "UseNewGen" 'undefined'
+ CONST "pm" true
+ref; // ME_4902077E028F_ME_49020B8C03BE LayerID
+
+: ME_49020B8C03BE
+ CONST UID '49020B8C03BE'
+ CONST Name 'TnsLayerFilter'
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4902090401E7 // Diction$Unit
+ ;
+ : Inherits
+   Seq: ( WL 'ME_46780E690001' '47913B47006E.pas.ms.script' // Tl3CacheableBase
+ )
+ ; // Inherits
+ : Implements
+   Seq: ( WL 'ME_4902077602BA' '47ECAAF901F8.pas.ms.script' // InsLayerFilter
+ )
+ ; // Implements
+ : Attributes
+   Seq: ( ME_49020C500218 // f_LayerID
+ )
+ ; // Attributes
+ : Operations
+   Seq: ( ME_49020C630037 // Create
+ ME_49020C75039D // Make
+ )
+ ; // Operations
+ : Implemented
+   Seq: ( ME_4902077E028F_ME_49020B8C03BE // LayerID
+ )
+ ; // Implemented
+ CONST "UseNewGen" 'undefined'
+ CONST "author" 'Лукьянец Р.В.'
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" true
+ CONST "register in scripts" 'undefined'
+ CONST "started" '2007/03/23 14:18:10 '
+ : Generators
+ Seq: (
+ gen_intf.pas
+ )
+ ; // Generators
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Diction'
+ CONST intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\Diction\nsLayerFilter.pas'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Diction'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\Diction'
+ CONST extprop:pas:UnitName 'nsLayerFilter'
+
+ref; // ME_49020B8C03BE TnsLayerFilter
+
+FORWARD ME_4914266C02BE
+
+: ME_4914274301EB
+ CONST UID '4914274301EB'
+ CONST Name 'ItemType'
+ CONST Class class_Attribute
+ : Stereotype st_impurity_value::Attribute ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_agr
+ : Parent ME_4914266C02BE // TnsLangList
+ ;
+ : Target WL 'ME_47EA082B021A' '47EA07FA02CE.pas.ms.script' // TbsLanguage
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_4914274301EB ItemType
+
+: ME_4914266C02BE
+ CONST UID '4914266C02BE'
+ CONST Name 'TnsLangList'
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4902090401E7 // Diction$Unit
+ ;
+ : Inherits
+   Seq: ( WL 'ME_47BC3A07027F' '47913B47006E.pas.ms.script' // Tl3SimpleDataContainer
+ WL 'ME_49142D7000F3' '47913B47006E.pas.ms.script' // l3EnumList
+ )
+ ; // Inherits
+ : Attributes
+   Seq: ( ME_4914274301EB // ItemType
+ )
+ ; // Attributes
+ CONST "UseNewGen" 'undefined'
+ CONST "author" 'Люлин А.В.'
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" true
+ CONST "register in scripts" 'undefined'
+ CONST "started" '07.11.2008 15:16'
+ : Generators
+ Seq: (
+ gen_intf.pas
+ )
+ ; // Generators
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Diction'
+ CONST intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\Diction\nsLangList.pas'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Diction'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\Diction'
+ CONST extprop:pas:UnitName 'nsLangList'
+
+ref; // ME_4914266C02BE TnsLangList
+
+FORWARD ME_46836BA203A1
+
+: ME_490823D301BE
+ CONST UID '490823D301BE'
+ CONST Name 'Language'
+ CONST Class class_Attribute
+ : Stereotype st_readonly::Attribute ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_46836BA203A1 // TnsDictionTree
+ ;
+ : Target WL 'ME_47EA082B021A' '47EA07FA02CE.pas.ms.script' // TbsLanguage
+ ;
+ CONST "UseNewGen" 'undefined'
+ CONST "needs field" false
+ CONST "pm" true
+
+ref; // ME_490823D301BE Language
+
+: ME_556C2C3C0198
+ CONST UID '556C2C3C0198'
+ CONST Name 'DictionKind'
+ CONST Class class_Attribute
+ : Stereotype st_readonly::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_agr
+ : Parent ME_46836BA203A1 // TnsDictionTree
+ ;
+ : Target WL 'ME_556C2C0602F8' '492540AF02CD.pas.ms.script' // TnsDictionKind
+ ;
+ CONST "UseNewGen" 'undefined'
+ CONST "pm" true
+ CONST "reads field" true
+
+ref; // ME_556C2C3C0198 DictionKind
+
+: ME_3614D3698508
+ CONST UID '3614D3698508'
+ CONST Name 'f_DictionKind'
+ CONST IsSummoned true
+ CONST Class class_Attribute
+ %SUMMARY 'Поле для свойства DictionKind' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_ref
+ : Parent ME_46836BA203A1 // TnsDictionTree
+ ;
+ : Target WL 'ME_556C2C0602F8' '492540AF02CD.pas.ms.script' // TnsDictionKind
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_3614D3698508 f_DictionKind
+
+FORWARD ME_556C49A400D8
+
+: ME_556C49BF00A2
+ CONST UID '556C49BF00A2'
+ CONST Name 'aKind'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_556C2C0602F8' '492540AF02CD.pas.ms.script' // TnsDictionKind
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_556C49BF00A2 aKind
+
+: ME_556C49B30076
+ CONST UID '556C49B30076'
+ CONST Name 'aRoot'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_45EEB95901C5' '457450470167.pas.ms.script' // NodeBase
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_556C49B30076 aRoot
+
+: ME_556C49B300A8
+ CONST UID '556C49B300A8'
+ CONST Name 'aShowRoot'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_556C49B300A8 aShowRoot
+
+: ME_556C49B300F8
+ CONST UID '556C49B300F8'
+ CONST Name 'aOneLevel'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+ CONST Value false
+ : ValueType WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+ CONST "UseNewGen" 'undefined'
+ CONST extprop:pas:Value false
+
+ref; // ME_556C49B300F8 aOneLevel
+
+: ME_556C49AC038A
+ CONST UID '556C49AC038A'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_556C49A400D8 // Create
+ ;
+ : Parameters
+   Seq: ( ME_556C49BF00A2 // aKind
+ ME_556C49B30076 // aRoot
+ ME_556C49B300A8 // aShowRoot
+ ME_556C49B300F8 // aOneLevel
+ )
+ ; // Parameters
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_556C49AC038A DoIt
+
+: ME_556C49A400D8
+ CONST UID '556C49A400D8'
+ CONST Name 'Create'
+ CONST Class class_Class
+ : Stereotype st_Constructor ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_46836BA203A1 // TnsDictionTree
+ ;
+ : Operations
+   Seq: ( ME_556C49AC038A // DoIt
+ )
+ ; // Operations
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_556C49A400D8 Create
+
+: ME_556C2C7002DF
+ CONST UID '556C2C7002DF'
+ CONST Name 'aKind'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_556C2C0602F8' '492540AF02CD.pas.ms.script' // TnsDictionKind
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_556C2C7002DF aKind
+
+: ME_490823B3037A
+ CONST UID '490823B3037A'
+ CONST Name 'aLang'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_47EA082B021A' '47EA07FA02CE.pas.ms.script' // TbsLanguage
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_490823B3037A aLang
+
+: ME_490823B303C5
+ CONST UID '490823B303C5'
+ CONST Name 'anActiveContext'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46780DA40383' '4677FBA70343.pas.ms.script' // Il3CString
+ ;
+ CONST Value 'nil'
+ : ValueType WL 'ME_46780DA40383' '4677FBA70343.pas.ms.script' // Il3CString
+ ;
+ CONST "UseNewGen" 'undefined'
+ CONST extprop:pas:Value 'nil'
+
+ref; // ME_490823B303C5 anActiveContext
+
+: ME_490823B40040
+ CONST UID '490823B40040'
+ CONST Name 'CalcPartialContext'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+ CONST Value false
+ : ValueType WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+ CONST "UseNewGen" 'undefined'
+ CONST extprop:pas:Value false
+
+ref; // ME_490823B40040 CalcPartialContext
+
+: ME_490823A102D3
+ CONST UID '490823A102D3'
+ CONST Name 'Make'
+ CONST Class class_Operation
+ : Stereotype st_static::Operation ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_46836BA203A1 // TnsDictionTree
+ ;
+ : Target WL 'ME_46825CC00249' '4682595B0268.pas.ms.script' // Il3SimpleTree
+ ;
+ : Parameters
+   Seq: ( ME_556C2C7002DF // aKind
+ ME_490823B3037A // aLang
+ ME_490823B303C5 // anActiveContext
+ ME_490823B40040 // CalcPartialContext
+ )
+ ; // Parameters
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_490823A102D3 Make
+
+: ME_4908241B0118
+ CONST UID '4908241B0118'
+ CONST Name 'DictFilters'
+ CONST Class class_Operation
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_final
+ : Parent ME_46836BA203A1 // TnsDictionTree
+ ;
+ : Target WL 'ME_490207910151' '47ECAAF901F8.pas.ms.script' // InsLayeredTreeFilters
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_4908241B0118 DictFilters
+
+FORWARD ME_46836BEC0307
+
+: ME_490823200312
+ CONST UID '490823200312'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_46836BA203A1 // TnsDictionTree
+ ;
+ : Target ME_46836BEC0307 // TnsDictListChild
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_490823200312 
+
+: ME_4908238B0242
+ CONST UID '4908238B0242'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_46836BA203A1 // TnsDictionTree
+ ;
+ : Target WL 'ME_47F9CF5500D1' '48F747EC0073.pas.ms.script' // bsConvert
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_4908238B0242 
+
+: ME_490828BB003E
+ CONST UID '490828BB003E'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_46836BA203A1 // TnsDictionTree
+ ;
+ : Target WL 'ME_47877EB202FB' '4AB0C3C60310.pas.ms.script' // SysUtils
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_490828BB003E 
+
+: ME_490829220161
+ CONST UID '490829220161'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_46836BA203A1 // TnsDictionTree
+ ;
+ : Target ME_49020B54001A // TnsLayeredTreeFilters
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_490829220161 
+
+: ME_4908295903AB
+ CONST UID '4908295903AB'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_46836BA203A1 // TnsDictionTree
+ ;
+ : Target WL 'ME_47FB50E4008E' '48F747EC0073.pas.ms.script' // nsConst
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_4908295903AB 
+
+: ME_49082B9F01D0
+ CONST UID '49082B9F01D0'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_46836BA203A1 // TnsDictionTree
+ ;
+ : Target ME_49020B8C03BE // TnsLayerFilter
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_49082B9F01D0 
+
+: ME_49082C90030C
+ CONST UID '49082C90030C'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_46836BA203A1 // TnsDictionTree
+ ;
+ : Target WL 'ME_47878E0E0191' '54B90AC6014B.pas.ms.script' // l3String
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_49082C90030C 
+
+FORWARD ME_556B32D900CD
+
+: ME_556B34C1028B
+ CONST UID '556B34C1028B'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_46836BA203A1 // TnsDictionTree
+ ;
+ : Target ME_556B32D900CD // TnsDictCache
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_556B34C1028B 
+
+FORWARD ME_556B331F03BE
+
+: ME_556B34CA0162
+ CONST UID '556B34CA0162'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_46836BA203A1 // TnsDictionTree
+ ;
+ : Target ME_556B331F03BE // TnsMedicDictCache
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_556B34CA0162 
+
+: ME_556D85DA00F8
+ CONST UID '556D85DA00F8'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_46836BA203A1 // TnsDictionTree
+ ;
+ : Target WL 'ME_468275E600B1' '48FD8B2702F6.pas.ms.script' // TnsINodeOneLevelWrap
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_556D85DA00F8 
+
+FORWARD ME_5571B3100338
+
+: ME_5571B31F00AC
+ CONST UID '5571B31F00AC'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_46836BA203A1 // TnsDictionTree
+ ;
+ : Target ME_5571B3100338 // TnsDayTipsDictCache
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_5571B31F00AC 
+
+: ME_48FF64F60078_ME_46836BA203A1
+ CONST UID '48FF64F60078'
+ CONST Name 'ReAqurieUnfilteredRoot'
+ : Original WL 'ME_48FF64F60078' '48FD8B2702F6.pas.ms.script' // ReAqurieUnfilteredRoot
+ ;
+ : Implementor ME_46836BA203A1 // TnsDictionTree
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "UseNewGen" 'undefined'
+ref; // ME_48FF64F60078_ME_46836BA203A1 ReAqurieUnfilteredRoot
+
+: ME_48FEE50002EB_ME_46836BA203A1
+ CONST UID '48FEE50002EB'
+ CONST Name 'MakeChildNode'
+ : Original WL 'ME_48FEE50002EB' '48FD8B2702F6.pas.ms.script' // MakeChildNode
+ ;
+ : Implementor ME_46836BA203A1 // TnsDictionTree
+ ;
+ CONST OpKind opkind_Overridden
+ CONST "UseNewGen" 'undefined'
+ref; // ME_48FEE50002EB_ME_46836BA203A1 MakeChildNode
+
+: ME_48FF458602EC_ME_46836BA203A1
+ CONST UID '48FF458602EC'
+ CONST Name 'CreateFiltered'
+ : Original WL 'ME_48FF458602EC' '48FD8B2702F6.pas.ms.script' // CreateFiltered
+ ;
+ : Implementor ME_46836BA203A1 // TnsDictionTree
+ ;
+ CONST OpKind opkind_Overridden
+ CONST "UseNewGen" 'undefined'
+ref; // ME_48FF458602EC_ME_46836BA203A1 CreateFiltered
+
+: ME_48FF4C25031E_ME_46836BA203A1
+ CONST UID '48FF4C25031E'
+ CONST Name 'MakeFilters'
+ : Original WL 'ME_48FF4C25031E' '48FD8B2702F6.pas.ms.script' // MakeFilters
+ ;
+ : Implementor ME_46836BA203A1 // TnsDictionTree
+ ;
+ CONST OpKind opkind_Overridden
+ CONST "UseNewGen" 'undefined'
+ref; // ME_48FF4C25031E_ME_46836BA203A1 MakeFilters
+
+: ME_48FF520E03A0_ME_46836BA203A1
+ CONST UID '48FF520E03A0'
+ CONST Name 'FillFilters'
+ : Original WL 'ME_48FF520E03A0' '48FD8B2702F6.pas.ms.script' // FillFilters
+ ;
+ : Implementor ME_46836BA203A1 // TnsDictionTree
+ ;
+ CONST OpKind opkind_Overridden
+ CONST "UseNewGen" 'undefined'
+ref; // ME_48FF520E03A0_ME_46836BA203A1 FillFilters
+
+: ME_48FF56D003E6_ME_46836BA203A1
+ CONST UID '48FF56D003E6'
+ CONST Name 'SettingsID'
+ : Original WL 'ME_48FF56D003E6' '48FD8B2702F6.pas.ms.script' // SettingsID
+ ;
+ : Implementor ME_46836BA203A1 // TnsDictionTree
+ ;
+ CONST OpKind opkind_Overridden
+ CONST "UseNewGen" 'undefined'
+ref; // ME_48FF56D003E6_ME_46836BA203A1 SettingsID
+
+: ME_48FF64E700E5_ME_46836BA203A1
+ CONST UID '48FF64E700E5'
+ CONST Name 'BeforeReset'
+ : Original WL 'ME_48FF64E700E5' '48FD8B2702F6.pas.ms.script' // BeforeReset
+ ;
+ : Implementor ME_46836BA203A1 // TnsDictionTree
+ ;
+ CONST OpKind opkind_Overridden
+ CONST "UseNewGen" 'undefined'
+ref; // ME_48FF64E700E5_ME_46836BA203A1 BeforeReset
+
+: ME_46836BA203A1
+ CONST UID '46836BA203A1'
+ CONST Name 'TnsDictionTree'
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Дерево толкового словаря.' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4902090401E7 // Diction$Unit
+ ;
+ : Inherits
+   Seq: ( WL 'ME_468361010204' '48FD8B2702F6.pas.ms.script' // TnsDataResetTreeStruct
+ )
+ ; // Inherits
+ : Attributes
+   Seq: ( ME_490823D301BE // Language
+ ME_556C2C3C0198 // DictionKind
+ ME_3614D3698508 // f_DictionKind
+ )
+ ; // Attributes
+ : Operations
+   Seq: ( ME_556C49A400D8 // Create
+ ME_490823A102D3 // Make
+ ME_4908241B0118 // DictFilters
+ )
+ ; // Operations
+ : Implemented
+   Seq: ( ME_48FF64F60078_ME_46836BA203A1 // ReAqurieUnfilteredRoot
+ )
+ ; // Implemented
+ : Overridden
+   Seq: ( ME_48FEE50002EB_ME_46836BA203A1 // MakeChildNode
+ ME_48FF458602EC_ME_46836BA203A1 // CreateFiltered
+ ME_48FF4C25031E_ME_46836BA203A1 // MakeFilters
+ ME_48FF520E03A0_ME_46836BA203A1 // FillFilters
+ ME_48FF56D003E6_ME_46836BA203A1 // SettingsID
+ ME_48FF64E700E5_ME_46836BA203A1 // BeforeReset
+ )
+ ; // Overridden
+ : Dependencies
+   Seq: ( ME_490823200312 // 
+ ME_4908238B0242 // 
+ ME_490828BB003E // 
+ ME_490829220161 // 
+ ME_4908295903AB // 
+ ME_49082B9F01D0 // 
+ ME_49082C90030C // 
+ ME_556B34C1028B // 
+ ME_556B34CA0162 // 
+ ME_556D85DA00F8 // 
+ ME_5571B31F00AC // 
+ )
+ ; // Dependencies
+ CONST "UseNewGen" 'undefined'
+ CONST "author" 'Тучнин Д.А.'
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" true
+ CONST "register in scripts" 'undefined'
+ CONST "started" '2004/02/20 08:36:17'
+ : Generators
+ Seq: (
+ gen_intf.pas
+ )
+ ; // Generators
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Diction'
+ CONST intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\Diction\nsDictionTree.pas'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Diction'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\Diction'
+ CONST extprop:pas:UnitName 'nsDictionTree'
+
+ref; // ME_46836BA203A1 TnsDictionTree
+
+: ME_490825C1006D
+ CONST UID '490825C1006D'
+ CONST Name 'f_Language'
+ CONST Class class_Attribute
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_46836BEC0307 // TnsDictListChild
+ ;
+ : Target WL 'ME_47EA082B021A' '47EA07FA02CE.pas.ms.script' // TbsLanguage
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_490825C1006D f_Language
+
+: ME_490826090358
+ CONST UID '490826090358'
+ CONST Name 'aNode'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_45EEB95901C5' '457450470167.pas.ms.script' // NodeBase
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_490826090358 aNode
+
+: ME_49082609039C
+ CONST UID '49082609039C'
+ CONST Name 'aLang'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_47EA082B021A' '47EA07FA02CE.pas.ms.script' // TbsLanguage
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_49082609039C aLang
+
+: ME_490825F40070
+ CONST UID '490825F40070'
+ CONST Name 'Create'
+ CONST Class class_Operation
+ : Stereotype st_ctor::Operation ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_46836BEC0307 // TnsDictListChild
+ ;
+ : Parameters
+   Seq: ( ME_490826090358 // aNode
+ ME_49082609039C // aLang
+ )
+ ; // Parameters
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_490825F40070 Create
+
+: ME_4908262A01D4
+ CONST UID '4908262A01D4'
+ CONST Name 'aNode'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_45EEB95901C5' '457450470167.pas.ms.script' // NodeBase
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_4908262A01D4 aNode
+
+: ME_4908262A021D
+ CONST UID '4908262A021D'
+ CONST Name 'aLang'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_47EA082B021A' '47EA07FA02CE.pas.ms.script' // TbsLanguage
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_4908262A021D aLang
+
+: ME_4908261E02F4
+ CONST UID '4908261E02F4'
+ CONST Name 'Make'
+ CONST Class class_Operation
+ : Stereotype st_factory::Operation ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_46836BEC0307 // TnsDictListChild
+ ;
+ : Target WL 'ME_468259900322' '4682595B0268.pas.ms.script' // Il3SimpleNode
+ ;
+ : Parameters
+   Seq: ( ME_4908262A01D4 // aNode
+ ME_4908262A021D // aLang
+ )
+ ; // Parameters
+ CONST "UseNewGen" 'undefined'
+ CONST "check nil" false
+ CONST "need AfterCreate" 'undefined'
+ CONST "need Aggregate" 'undefined'
+ CONST "need As" false
+
+ref; // ME_4908261E02F4 Make
+
+: ME_49082AC30307
+ CONST UID '49082AC30307'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_46836BEC0307 // TnsDictListChild
+ ;
+ : Target WL 'ME_456EB2F1034B' '456EA56002BF.pas.ms.script' // Languages
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_49082AC30307 
+
+: ME_49082B0F0014
+ CONST UID '49082B0F0014'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_46836BEC0307 // TnsDictListChild
+ ;
+ : Target WL 'ME_49082AE80393' '476BE98C01B8.pas.ms.script' // Code Pages
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_49082B0F0014 
+
+: ME_490825370178_ME_46836BEC0307
+ CONST UID '490825370178'
+ CONST Name 'DoGetText'
+ : Original WL 'ME_490825370178' '48FD8B2702F6.pas.ms.script' // DoGetText
+ ;
+ : Implementor ME_46836BEC0307 // TnsDictListChild
+ ;
+ CONST OpKind opkind_Overridden
+ CONST "UseNewGen" 'undefined'
+ref; // ME_490825370178_ME_46836BEC0307 DoGetText
+
+: ME_46836BEC0307
+ CONST UID '46836BEC0307'
+ CONST Name 'TnsDictListChild'
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4902090401E7 // Diction$Unit
+ ;
+ : Inherits
+   Seq: ( WL 'ME_468275E600B1' '48FD8B2702F6.pas.ms.script' // TnsINodeOneLevelWrap
+ )
+ ; // Inherits
+ : Attributes
+   Seq: ( ME_490825C1006D // f_Language
+ )
+ ; // Attributes
+ : Operations
+   Seq: ( ME_490825F40070 // Create
+ ME_4908261E02F4 // Make
+ )
+ ; // Operations
+ : Overridden
+   Seq: ( ME_490825370178_ME_46836BEC0307 // DoGetText
+ )
+ ; // Overridden
+ : Dependencies
+   Seq: ( ME_49082AC30307 // 
+ ME_49082B0F0014 // 
+ )
+ ; // Dependencies
+ CONST "UseNewGen" 'undefined'
+ CONST "author" 'Тучнин Д.А.'
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" true
+ CONST "register in scripts" 'undefined'
+ CONST "started" '2004/02/20 08:36:17'
+ : Generators
+ Seq: (
+ gen_intf.pas
+ )
+ ; // Generators
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Diction'
+ CONST intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\Diction\nsDictListChild.pas'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Diction'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\Diction'
+ CONST extprop:pas:UnitName 'nsDictListChild'
+
+ref; // ME_46836BEC0307 TnsDictListChild
+
+FORWARD ME_490837B901D4
+
+: ME_4908380F01F8
+ CONST UID '4908380F01F8'
+ CONST Name 'f_Langs'
+ CONST Class class_Attribute
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_490837B901D4 // TnsLangToContextMap
+ ;
+ : Target ME_4914266C02BE // TnsLangList
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_4908380F01F8 f_Langs
+
+: ME_4908381E0166
+ CONST UID '4908381E0166'
+ CONST Name 'f_Contexts'
+ CONST Class class_Attribute
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_490837B901D4 // TnsLangToContextMap
+ ;
+ : Target WL 'ME_49083E6F02D8' '49083E150027.pas.ms.script' // TInscContextFilterStateList
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_4908381E0166 f_Contexts
+
+: ME_4908438E01DE
+ CONST UID '4908438E01DE'
+ CONST Name 'f_NotifySource'
+ CONST Class class_Attribute
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_490837B901D4 // TnsLangToContextMap
+ ;
+ : Target WL 'ME_46A608F00301' '4AB0C3C60310.pas.ms.script' // Pointer
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_4908438E01DE f_NotifySource
+
+FORWARD ME_52D3E220005C
+
+: ME_52E8C499011E
+ CONST UID '52E8C499011E'
+ CONST Name 'aNotifySource'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_477251BA00B2' '4682595B0268.pas.ms.script' // Il3ContextFilterNotifySource
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_52E8C499011E aNotifySource
+
+: ME_52D3E256020A
+ CONST UID '52D3E256020A'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_52D3E220005C // Make
+ ;
+ : Target WL 'ME_52D3BD980262' '491D57C802CD.pas.ms.script' // InsLangToContextMap
+ ;
+ : Parameters
+   Seq: ( ME_52E8C499011E // aNotifySource
+ )
+ ; // Parameters
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_52D3E256020A DoIt
+
+: ME_52D3E23801DE
+ CONST UID '52D3E23801DE'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_52D3E220005C // Make
+ ;
+ : Target WL 'ME_4ADC58F703CF' '4AB0C3C60310.pas.ms.script' // FreeAndNil
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_52D3E23801DE 
+
+: ME_52D3E220005C
+ CONST UID '52D3E220005C'
+ CONST Name 'Make'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_490837B901D4 // TnsLangToContextMap
+ ;
+ : Operations
+   Seq: ( ME_52D3E256020A // DoIt
+ )
+ ; // Operations
+ : Dependencies
+   Seq: ( ME_52D3E23801DE // 
+ )
+ ; // Dependencies
+ CONST "UseNewGen" 'undefined'
+ CONST "is static" true
+
+ref; // ME_52D3E220005C Make
+
+: ME_490843AD0246
+ CONST UID '490843AD0246'
+ CONST Name 'aNotifySource'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_477251BA00B2' '4682595B0268.pas.ms.script' // Il3ContextFilterNotifySource
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_490843AD0246 aNotifySource
+
+: ME_490843AA003A
+ CONST UID '490843AA003A'
+ CONST Name 'Create'
+ CONST Class class_Operation
+ : Stereotype st_ctor::Operation ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_490837B901D4 // TnsLangToContextMap
+ ;
+ : Parameters
+   Seq: ( ME_490843AD0246 // aNotifySource
+ )
+ ; // Parameters
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_490843AA003A Create
+
+: ME_490844720309
+ CONST UID '490844720309'
+ CONST Name 'aLang'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_47EA082B021A' '47EA07FA02CE.pas.ms.script' // TbsLanguage
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_490844720309 aLang
+
+: ME_490844720345
+ CONST UID '490844720345'
+ CONST Name 'aContextState'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_4908393001C5' '490838E10313.pas.ms.script' // InscContextFilterState
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_490844720345 aContextState
+
+: ME_490844660228
+ CONST UID '490844660228'
+ CONST Name 'Add'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_490837B901D4 // TnsLangToContextMap
+ ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+ : Parameters
+   Seq: ( ME_490844720309 // aLang
+ ME_490844720345 // aContextState
+ )
+ ; // Parameters
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_490844660228 Add
+
+: ME_490845D10317
+ CONST UID '490845D10317'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_490837B901D4 // TnsLangToContextMap
+ ;
+ : Target WL 'ME_47877EB202FB' '4AB0C3C60310.pas.ms.script' // SysUtils
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_490845D10317 
+
+: ME_490846FD0154
+ CONST UID '490846FD0154'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_490837B901D4 // TnsLangToContextMap
+ ;
+ : Target WL 'ME_4908462903E0' '49083E150027.pas.ms.script' // TnscContextFilterState
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_490846FD0154 
+
+: ME_477250FC0040_ME_490837B901D4
+ CONST UID '477250FC0040'
+ CONST Name 'RequestReapply'
+ : Original WL 'ME_477250FC0040' '4682595B0268.pas.ms.script' // RequestReapply
+ ;
+ : Implementor ME_490837B901D4 // TnsLangToContextMap
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "UseNewGen" 'undefined'
+ref; // ME_477250FC0040_ME_490837B901D4 RequestReapply
+
+: ME_4772510D0043_ME_490837B901D4
+ CONST UID '4772510D0043'
+ CONST Name 'RequestClearAndTurnOff'
+ : Original WL 'ME_4772510D0043' '4682595B0268.pas.ms.script' // RequestClearAndTurnOff
+ ;
+ : Implementor ME_490837B901D4 // TnsLangToContextMap
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "UseNewGen" 'undefined'
+ref; // ME_4772510D0043_ME_490837B901D4 RequestClearAndTurnOff
+
+: ME_4772511D0316_ME_490837B901D4
+ CONST UID '4772511D0316'
+ CONST Name 'RequestCheckValid'
+ : Original WL 'ME_4772511D0316' '4682595B0268.pas.ms.script' // RequestCheckValid
+ ;
+ : Implementor ME_490837B901D4 // TnsLangToContextMap
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "UseNewGen" 'undefined'
+ref; // ME_4772511D0316_ME_490837B901D4 RequestCheckValid
+
+: ME_52D3BE04039D_ME_490837B901D4
+ CONST UID '52D3BE04039D'
+ CONST Name 'ByLang'
+ : Original WL 'ME_52D3BE04039D' '491D57C802CD.pas.ms.script' // ByLang
+ ;
+ : Implementor ME_490837B901D4 // TnsLangToContextMap
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "UseNewGen" 'undefined'
+ CONST "pm" true
+ref; // ME_52D3BE04039D_ME_490837B901D4 ByLang
+
+: ME_52D3D7D60242_ME_490837B901D4
+ CONST UID '52D3D7D60242'
+ CONST Name 'Subscribe'
+ : Original WL 'ME_52D3D7D60242' '491D57C802CD.pas.ms.script' // Subscribe
+ ;
+ : Implementor ME_490837B901D4 // TnsLangToContextMap
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "UseNewGen" 'undefined'
+ref; // ME_52D3D7D60242_ME_490837B901D4 Subscribe
+
+: ME_52D4E4D40318_ME_490837B901D4
+ CONST UID '52D4E4D40318'
+ CONST Name 'Unsubscribe'
+ : Original WL 'ME_52D4E4D40318' '491D57C802CD.pas.ms.script' // Unsubscribe
+ ;
+ : Implementor ME_490837B901D4 // TnsLangToContextMap
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "UseNewGen" 'undefined'
+ref; // ME_52D4E4D40318_ME_490837B901D4 Unsubscribe
+
+: ME_479731C50290_ME_490837B901D4
+ CONST UID '479731C50290'
+ CONST Name 'Cleanup'
+ : Original WL 'ME_479731C50290' '51612EBB02F5.pas.ms.script' // Cleanup
+ ;
+ : Implementor ME_490837B901D4 // TnsLangToContextMap
+ ;
+ CONST OpKind opkind_Overridden
+ CONST "UseNewGen" 'undefined'
+ref; // ME_479731C50290_ME_490837B901D4 Cleanup
+
+: ME_490837B901D4
+ CONST UID '490837B901D4'
+ CONST Name 'TnsLangToContextMap'
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4902090401E7 // Diction$Unit
+ ;
+ : Inherits
+   Seq: ( WL 'ME_4AE5CA2D0034' '47913B47006E.pas.ms.script' // Tl3CProtoObject
+ )
+ ; // Inherits
+ : Implements
+   Seq: ( WL 'ME_477250E7033C' '4682595B0268.pas.ms.script' // Il3ContextFilterNotifier
+ WL 'ME_52D3BD980262' '491D57C802CD.pas.ms.script' // InsLangToContextMap
+ )
+ ; // Implements
+ : Attributes
+   Seq: ( ME_4908380F01F8 // f_Langs
+ ME_4908381E0166 // f_Contexts
+ ME_4908438E01DE // f_NotifySource
+ )
+ ; // Attributes
+ : Operations
+   Seq: ( ME_52D3E220005C // Make
+ ME_490843AA003A // Create
+ ME_490844660228 // Add
+ )
+ ; // Operations
+ : Implemented
+   Seq: ( ME_477250FC0040_ME_490837B901D4 // RequestReapply
+ ME_4772510D0043_ME_490837B901D4 // RequestClearAndTurnOff
+ ME_4772511D0316_ME_490837B901D4 // RequestCheckValid
+ ME_52D3BE04039D_ME_490837B901D4 // ByLang
+ ME_52D3D7D60242_ME_490837B901D4 // Subscribe
+ ME_52D4E4D40318_ME_490837B901D4 // Unsubscribe
+ )
+ ; // Implemented
+ : Overridden
+   Seq: ( ME_479731C50290_ME_490837B901D4 // Cleanup
+ )
+ ; // Overridden
+ : Dependencies
+   Seq: ( ME_490845D10317 // 
+ ME_490846FD0154 // 
+ )
+ ; // Dependencies
+ CONST "UseNewGen" 'undefined'
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" true
+ CONST "register in scripts" 'undefined'
+ : Generators
+ Seq: (
+ gen_intf.pas
+ )
+ ; // Generators
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Diction'
+ CONST intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\Diction\nsLangToContextMap.pas'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Diction'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\Diction'
+ CONST extprop:pas:UnitName 'nsLangToContextMap'
+
+ref; // ME_490837B901D4 TnsLangToContextMap
+
+FORWARD ME_4908190C017C
+
+: ME_49081A1B0099
+ CONST UID '49081A1B0099'
+ CONST Name 'IsRootReceived'
+ CONST Class class_Attribute
+ : Stereotype st_property::Attribute ;
+ %SUMMARY 'определяет получали ли мы корень дерева толкования с адаптера. Для'#13#10'           случая, когда обновились на базу без толкового словаря и для кнопок'#13#10'           панели иснтрументов спрашиваем доступные языки, это позволит'#13#10'           избавится от большого количества серверных вызоов' ;
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_agr
+ : Parent ME_4908190C017C // TnsDictCachePrim
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+ CONST "UseNewGen" 'undefined'
+ CONST "needs field" true
+ CONST "pm" true
+ CONST "reads field" true
+ CONST "writes field" true
+
+ref; // ME_49081A1B0099 IsRootReceived
+
+: ME_490819AD0286
+ CONST UID '490819AD0286'
+ CONST Name 'f_AvailableLangs'
+ CONST Class class_Attribute
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_4908190C017C // TnsDictCachePrim
+ ;
+ : Target ME_4914266C02BE // TnsLangList
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_490819AD0286 f_AvailableLangs
+
+: ME_490819DA005E
+ CONST UID '490819DA005E'
+ CONST Name 'Root'
+ CONST Class class_Attribute
+ : Stereotype st_readonly::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_agr
+ : Parent ME_4908190C017C // TnsDictCachePrim
+ ;
+ : Target WL 'ME_45EEB95901C5' '457450470167.pas.ms.script' // NodeBase
+ ;
+ CONST "UseNewGen" 'undefined'
+ CONST "needs field" true
+ CONST "pm" true
+
+ref; // ME_490819DA005E Root
+
+: ME_BC0E1E7321A0
+ CONST UID 'BC0E1E7321A0'
+ CONST Name 'f_IsRootReceived'
+ CONST IsSummoned true
+ CONST Class class_Attribute
+ %SUMMARY 'Поле для свойства IsRootReceived' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_ref
+ : Parent ME_4908190C017C // TnsDictCachePrim
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+ CONST "UseNewGen" 'undefined'
+ CONST extprop:clearViaProperty 'IsRootReceived'
+
+ref; // ME_BC0E1E7321A0 f_IsRootReceived
+
+: ME_3861B8DF31A5
+ CONST UID '3861B8DF31A5'
+ CONST Name 'f_Root'
+ CONST IsSummoned true
+ CONST Class class_Attribute
+ %SUMMARY 'Поле для свойства Root' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_ref
+ : Parent ME_4908190C017C // TnsDictCachePrim
+ ;
+ : Target WL 'ME_45EEB95901C5' '457450470167.pas.ms.script' // NodeBase
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_3861B8DF31A5 f_Root
+
+FORWARD ME_5571C22C03A5
+
+: ME_5571C23C017B
+ CONST UID '5571C23C017B'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_5571C22C03A5 // DoGetRoot
+ ;
+ : Target WL 'ME_45EEB95901C5' '457450470167.pas.ms.script' // NodeBase
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_5571C23C017B DoIt
+
+: ME_5571C22C03A5
+ CONST UID '5571C22C03A5'
+ CONST Name 'DoGetRoot'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_abstract
+ : Parent ME_4908190C017C // TnsDictCachePrim
+ ;
+ : Operations
+   Seq: ( ME_5571C23C017B // DoIt
+ )
+ ; // Operations
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_5571C22C03A5 DoGetRoot
+
+: ME_49081A3A00AC
+ CONST UID '49081A3A00AC'
+ CONST Name 'ClearCache'
+ CONST Class class_Operation
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4908190C017C // TnsDictCachePrim
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_49081A3A00AC ClearCache
+
+: ME_49081A5B00DB
+ CONST UID '49081A5B00DB'
+ CONST Name 'aLang'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_47EA082B021A' '47EA07FA02CE.pas.ms.script' // TbsLanguage
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_49081A5B00DB aLang
+
+: ME_49081A4F001E
+ CONST UID '49081A4F001E'
+ CONST Name 'ContainsLang'
+ CONST Class class_Operation
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_4908190C017C // TnsDictCachePrim
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+ : Parameters
+   Seq: ( ME_49081A5B00DB // aLang
+ )
+ ; // Parameters
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_49081A4F001E ContainsLang
+
+: ME_49081BC80194
+ CONST UID '49081BC80194'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4908190C017C // TnsDictCachePrim
+ ;
+ : Target WL 'ME_47F9CF5500D1' '48F747EC0073.pas.ms.script' // bsConvert
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_49081BC80194 
+
+: ME_49081BEE0045
+ CONST UID '49081BEE0045'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4908190C017C // TnsDictCachePrim
+ ;
+ : Target WL 'ME_48FF556602BA' '48F747EC0073.pas.ms.script' // DataAdapter
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_49081BEE0045 
+
+: ME_49081C4E02EC
+ CONST UID '49081C4E02EC'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4908190C017C // TnsDictCachePrim
+ ;
+ : Target WL 'ME_48FF569700F6' '47F2170002B2.pas.ms.script' // StringRoutines
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_49081C4E02EC 
+
+: ME_556C256701F4
+ CONST UID '556C256701F4'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4908190C017C // TnsDictCachePrim
+ ;
+ : Target WL 'ME_4773D64E036C' '47913B47006E.pas.ms.script' // l3Base
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_556C256701F4 
+
+: ME_479731C50290_ME_4908190C017C
+ CONST UID '479731C50290'
+ CONST Name 'Cleanup'
+ : Original WL 'ME_479731C50290' '51612EBB02F5.pas.ms.script' // Cleanup
+ ;
+ : Implementor ME_4908190C017C // TnsDictCachePrim
+ ;
+ CONST OpKind opkind_Overridden
+ CONST "UseNewGen" 'undefined'
+ref; // ME_479731C50290_ME_4908190C017C Cleanup
+
+: ME_47EA4E9002C6_ME_4908190C017C
+ CONST UID '47EA4E9002C6'
+ CONST Name 'FinishDataUpdate'
+ : Original WL 'ME_47EA4E9002C6' '47EA4BB502F9.pas.ms.script' // FinishDataUpdate
+ ;
+ : Implementor ME_4908190C017C // TnsDictCachePrim
+ ;
+ CONST OpKind opkind_Overridden
+ CONST "UseNewGen" 'undefined'
+ref; // ME_47EA4E9002C6_ME_4908190C017C FinishDataUpdate
+
+: ME_5000565C019C_ME_4908190C017C
+ CONST UID '5000565C019C'
+ CONST Name 'ClearFields'
+ : Original WL 'ME_5000565C019C' '47913B47006E.pas.ms.script' // ClearFields
+ ;
+ : Implementor ME_4908190C017C // TnsDictCachePrim
+ ;
+ CONST OpKind opkind_Overridden
+ CONST "UseNewGen" 'undefined'
+ref; // ME_5000565C019C_ME_4908190C017C ClearFields
+
+: ME_4908190C017C
+ CONST UID '4908190C017C'
+ CONST Name 'TnsDictCachePrim'
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4902090401E7 // Diction$Unit
+ ;
+ : Inherits
+   Seq: ( WL 'ME_46780E690001' '47913B47006E.pas.ms.script' // Tl3CacheableBase
+ WL 'ME_47EA4BEF0140' '47EA4BB502F9.pas.ms.script' // afwApplicationDataUpdate
+ )
+ ; // Inherits
+ : Attributes
+   Seq: ( ME_49081A1B0099 // IsRootReceived
+ ME_490819AD0286 // f_AvailableLangs
+ ME_490819DA005E // Root
+ ME_BC0E1E7321A0 // f_IsRootReceived
+ ME_3861B8DF31A5 // f_Root
+ )
+ ; // Attributes
+ : Operations
+   Seq: ( ME_5571C22C03A5 // DoGetRoot
+ ME_49081A3A00AC // ClearCache
+ ME_49081A4F001E // ContainsLang
+ )
+ ; // Operations
+ : Overridden
+   Seq: ( ME_479731C50290_ME_4908190C017C // Cleanup
+ ME_47EA4E9002C6_ME_4908190C017C // FinishDataUpdate
+ ME_5000565C019C_ME_4908190C017C // ClearFields
+ )
+ ; // Overridden
+ : Dependencies
+   Seq: ( ME_49081BC80194 // 
+ ME_49081BEE0045 // 
+ ME_49081C4E02EC // 
+ ME_556C256701F4 // 
+ )
+ ; // Dependencies
+ CONST "UseNewGen" 'undefined'
+ CONST "author" 'Тучнин Д.А.'
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" true
+ CONST "register in scripts" 'undefined'
+ CONST "started" '2004/02/20 08:36:17'
+ : Generators
+ Seq: (
+ gen_intf.pas
+ )
+ ; // Generators
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Diction'
+ CONST intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\Diction\nsDictCachePrim.pas'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Diction'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\Diction'
+ CONST extprop:pas:UnitName 'nsDictCachePrim'
+
+ref; // ME_4908190C017C TnsDictCachePrim
+
+: ME_556B416E009A
+ CONST UID '556B416E009A'
+ CONST Name 'f_Root'
+ CONST Class class_Attribute
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_556B32D900CD // TnsDictCache
+ ;
+ : Target WL 'ME_45EEB95901C5' '457450470167.pas.ms.script' // NodeBase
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_556B416E009A f_Root
+
+: ME_B9604C225E3C
+ CONST UID 'B9604C225E3C'
+ CONST Name 'Exists'
+ CONST IsSummoned true
+ CONST Class class_Operation
+ : Stereotype st_static::Operation ;
+ %SUMMARY 'Проверяет создан экземпляр синглетона или нет' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_556B32D900CD // TnsDictCache
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+ CONST "UseNewGen" 'undefined'
+ CONST extprop:pas:Value false
+
+ref; // ME_B9604C225E3C Exists
+
+: ME_556B3306010C
+ CONST UID '556B3306010C'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_556B32D900CD // TnsDictCache
+ ;
+ : Target WL 'ME_48FF556602BA' '48F747EC0073.pas.ms.script' // DataAdapter
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_556B3306010C 
+
+: ME_556C253B038A
+ CONST UID '556C253B038A'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_556B32D900CD // TnsDictCache
+ ;
+ : Target WL 'ME_4A6854C70390' '47F2170002B2.pas.ms.script' // nsTypes
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_556C253B038A 
+
+: ME_5571C22C03A5_ME_556B32D900CD
+ CONST UID '5571C22C03A5'
+ CONST Name 'DoGetRoot'
+ : Original ME_5571C22C03A5 // DoGetRoot
+ ;
+ : Implementor ME_556B32D900CD // TnsDictCache
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "UseNewGen" 'undefined'
+ref; // ME_5571C22C03A5_ME_556B32D900CD DoGetRoot
+
+: ME_556B32D900CD
+ CONST UID '556B32D900CD'
+ CONST Name 'TnsDictCache'
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_4902090401E7 // Diction$Unit
+ ;
+ : Inherits
+   Seq: ( ME_4908190C017C // TnsDictCachePrim
+ )
+ ; // Inherits
+ : Attributes
+   Seq: ( ME_556B416E009A // f_Root
+ )
+ ; // Attributes
+ : Operations
+   Seq: ( ME_B9604C225E3C // Exists
+ )
+ ; // Operations
+ : Implemented
+   Seq: ( ME_5571C22C03A5_ME_556B32D900CD // DoGetRoot
+ )
+ ; // Implemented
+ : Dependencies
+   Seq: ( ME_556B3306010C // 
+ ME_556C253B038A // 
+ )
+ ; // Dependencies
+ CONST "UseNewGen" 'undefined'
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ CONST "singleton" true
+ : Generators
+ Seq: (
+ gen_intf.pas
+ )
+ ; // Generators
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Diction'
+ CONST intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\Diction\nsDictCache.pas'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Diction'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\Diction'
+ CONST extprop:pas:UnitName 'nsDictCache'
+
+ref; // ME_556B32D900CD TnsDictCache
+
+: ME_556B417703C0
+ CONST UID '556B417703C0'
+ CONST Name 'f_Root'
+ CONST Class class_Attribute
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_556B331F03BE // TnsMedicDictCache
+ ;
+ : Target WL 'ME_45EEB95901C5' '457450470167.pas.ms.script' // NodeBase
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_556B417703C0 f_Root
+
+: ME_41C29ACEC8D6
+ CONST UID '41C29ACEC8D6'
+ CONST Name 'Exists'
+ CONST IsSummoned true
+ CONST Class class_Operation
+ : Stereotype st_static::Operation ;
+ %SUMMARY 'Проверяет создан экземпляр синглетона или нет' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_556B331F03BE // TnsMedicDictCache
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+ CONST "UseNewGen" 'undefined'
+ CONST extprop:pas:Value false
+
+ref; // ME_41C29ACEC8D6 Exists
+
+: ME_556B33560384
+ CONST UID '556B33560384'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_556B331F03BE // TnsMedicDictCache
+ ;
+ : Target WL 'ME_48FF556602BA' '48F747EC0073.pas.ms.script' // DataAdapter
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_556B33560384 
+
+: ME_556C253401A2
+ CONST UID '556C253401A2'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_556B331F03BE // TnsMedicDictCache
+ ;
+ : Target WL 'ME_4A6854C70390' '47F2170002B2.pas.ms.script' // nsTypes
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_556C253401A2 
+
+: ME_5571C22C03A5_ME_556B331F03BE
+ CONST UID '5571C22C03A5'
+ CONST Name 'DoGetRoot'
+ : Original ME_5571C22C03A5 // DoGetRoot
+ ;
+ : Implementor ME_556B331F03BE // TnsMedicDictCache
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "UseNewGen" 'undefined'
+ref; // ME_5571C22C03A5_ME_556B331F03BE DoGetRoot
+
+: ME_556B331F03BE
+ CONST UID '556B331F03BE'
+ CONST Name 'TnsMedicDictCache'
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_4902090401E7 // Diction$Unit
+ ;
+ : Inherits
+   Seq: ( ME_4908190C017C // TnsDictCachePrim
+ )
+ ; // Inherits
+ : Attributes
+   Seq: ( ME_556B417703C0 // f_Root
+ )
+ ; // Attributes
+ : Operations
+   Seq: ( ME_41C29ACEC8D6 // Exists
+ )
+ ; // Operations
+ : Implemented
+   Seq: ( ME_5571C22C03A5_ME_556B331F03BE // DoGetRoot
+ )
+ ; // Implemented
+ : Dependencies
+   Seq: ( ME_556B33560384 // 
+ ME_556C253401A2 // 
+ )
+ ; // Dependencies
+ CONST "UseNewGen" 'undefined'
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ CONST "singleton" true
+ : Generators
+ Seq: (
+ gen_intf.pas
+ )
+ ; // Generators
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Diction'
+ CONST intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\Diction\nsMedicDictCache.pas'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Diction'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\Diction'
+ CONST extprop:pas:UnitName 'nsMedicDictCache'
+
+ref; // ME_556B331F03BE TnsMedicDictCache
+
+: ME_5571B35900A1
+ CONST UID '5571B35900A1'
+ CONST Name 'f_Root'
+ CONST Class class_Attribute
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_5571B3100338 // TnsDayTipsDictCache
+ ;
+ : Target WL 'ME_45EEB95901C5' '457450470167.pas.ms.script' // NodeBase
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_5571B35900A1 f_Root
+
+: ME_EF9F66434232
+ CONST UID 'EF9F66434232'
+ CONST Name 'Exists'
+ CONST IsSummoned true
+ CONST Class class_Operation
+ : Stereotype st_static::Operation ;
+ %SUMMARY 'Проверяет создан экземпляр синглетона или нет' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_5571B3100338 // TnsDayTipsDictCache
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+ CONST "UseNewGen" 'undefined'
+ CONST extprop:pas:Value false
+
+ref; // ME_EF9F66434232 Exists
+
+: ME_5571B35302DD
+ CONST UID '5571B35302DD'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_5571B3100338 // TnsDayTipsDictCache
+ ;
+ : Target WL 'ME_48FF556602BA' '48F747EC0073.pas.ms.script' // DataAdapter
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_5571B35302DD 
+
+: ME_5571B35602A9
+ CONST UID '5571B35602A9'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_5571B3100338 // TnsDayTipsDictCache
+ ;
+ : Target WL 'ME_4A6854C70390' '47F2170002B2.pas.ms.script' // nsTypes
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_5571B35602A9 
+
+: ME_5571C22C03A5_ME_5571B3100338
+ CONST UID '5571C22C03A5'
+ CONST Name 'DoGetRoot'
+ : Original ME_5571C22C03A5 // DoGetRoot
+ ;
+ : Implementor ME_5571B3100338 // TnsDayTipsDictCache
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "UseNewGen" 'undefined'
+ref; // ME_5571C22C03A5_ME_5571B3100338 DoGetRoot
+
+: ME_5571B3100338
+ CONST UID '5571B3100338'
+ CONST Name 'TnsDayTipsDictCache'
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4902090401E7 // Diction$Unit
+ ;
+ : Inherits
+   Seq: ( ME_4908190C017C // TnsDictCachePrim
+ )
+ ; // Inherits
+ : Attributes
+   Seq: ( ME_5571B35900A1 // f_Root
+ )
+ ; // Attributes
+ : Operations
+   Seq: ( ME_EF9F66434232 // Exists
+ )
+ ; // Operations
+ : Implemented
+   Seq: ( ME_5571C22C03A5_ME_5571B3100338 // DoGetRoot
+ )
+ ; // Implemented
+ : Dependencies
+   Seq: ( ME_5571B35302DD // 
+ ME_5571B35602A9 // 
+ )
+ ; // Dependencies
+ CONST "UseNewGen" 'undefined'
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ CONST "singleton" true
+ : Generators
+ Seq: (
+ gen_intf.pas
+ )
+ ; // Generators
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Diction'
+ CONST intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\Diction\nsDayTipsDictCache.pas'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Diction'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\Diction'
+ CONST extprop:pas:UnitName 'nsDayTipsDictCache'
+
+ref; // ME_5571B3100338 TnsDayTipsDictCache
+
+: ME_4902090401E7
+ CONST UID '4902090401E7'
+ CONST Name 'Diction'
+ CONST Class class_Category
+ : Stereotype st_Unit ;
+ %SUMMARY 'Структуры для толкового словаря' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent WL 'ME_4940F539014E' '4940F539014E.pas.ms.script' // Diction
+ ;
+ : Children
+   Seq: ( ME_49020B54001A // TnsLayeredTreeFilters
+ ME_49020B8C03BE // TnsLayerFilter
+ ME_4914266C02BE // TnsLangList
+ ME_46836BA203A1 // TnsDictionTree
+ ME_46836BEC0307 // TnsDictListChild
+ ME_490837B901D4 // TnsLangToContextMap
+ ME_4908190C017C // TnsDictCachePrim
+ ME_556B32D900CD // TnsDictCache
+ ME_556B331F03BE // TnsMedicDictCache
+ ME_5571B3100338 // TnsDayTipsDictCache
+ )
+ ; // Children
+ : Depends
+   Seq: ( WL 'ME_456EA56002BF' '456EA56002BF.pas.ms.script' // BaseTypes
+ WL 'ME_457450470167' '457450470167.pas.ms.script' // DynamicTree
+ WL 'ME_4677FBA70343' '4677FBA70343.pas.ms.script' // l3Interfaces
+ WL 'ME_4682595B0268' '4682595B0268.pas.ms.script' // l3TreeInterfaces
+ WL 'ME_476BE98C01B8' '476BE98C01B8.pas.ms.script' // l3Chars
+ WL 'ME_47913B47006E' '47913B47006E.pas.ms.script' // l3CoreObjects
+ WL 'ME_47E246C90144' '47E246C90144.pas.ms.script' // l3Trees
+ WL 'ME_47EA07FA02CE' '47EA07FA02CE.pas.ms.script' // bsTypes
+ WL 'ME_47EA4BB502F9' '47EA4BB502F9.pas.ms.script' // afwMixIns
+ WL 'ME_47ECAAF901F8' '47ECAAF901F8.pas.ms.script' // bsInterfaces
+ WL 'ME_47F2170002B2' '47F2170002B2.pas.ms.script' // nsTypes
+ WL 'ME_48F747EC0073' '48F747EC0073.pas.ms.script' // Common
+ WL 'ME_48FD8B2702F6' '48FD8B2702F6.pas.ms.script' // Tree
+ WL 'ME_490838E10313' '490838E10313.pas.ms.script' // nscNewInterfaces
+ WL 'ME_49083E150027' '49083E150027.pas.ms.script' // CoreObjects
+ WL 'ME_491D57C802CD' '491D57C802CD.pas.ms.script' // DictionInterfaces
+ WL 'ME_492540AF02CD' '492540AF02CD.pas.ms.script' // CommonDictionInterfaces
+ WL 'ME_4AB0C3C60310' '4AB0C3C60310.pas.ms.script' // Sys
+ WL 'ME_54B90AC6014B' '54B90AC6014B.pas.ms.script' // StringUtils
+ )
+ ; // Depends
+ CONST "UseNewGen" 'undefined'
+ : Generators
+ Seq: (
+ gen_pas.script
+ gen_pas.script.runner
+ )
+ ; // Generators
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Diction'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Diction'
+ CONST pas.script:Path 'shared\models\NewSchool\Scripts\4902090401E7.pas.ms.script'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\4902090401E7.pas.ms.script.runner'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\Diction'
+
+ref; // ME_4902090401E7 Diction$Unit

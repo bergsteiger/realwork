@@ -1,0 +1,433 @@
+// EverestArchiWords 5166AF3800B5 ScriptKeywords Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_5166AF3800B5
+
+FORWARD ME_5166AFC5017A
+
+FORWARD ME_517FA8840360
+
+: ME_517FA8AF0212
+ CONST UID '517FA8AF0212'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_5166AFC5017A // kwArchiEverestWordsPack
+ ;
+ : Target ME_517FA8840360 // DisableMergedCellFilter
+ ;
+
+ref; // ME_517FA8AF0212 
+
+FORWARD ME_533433C700C0
+
+: ME_533433FB0303
+ CONST UID '533433FB0303'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_5166AFC5017A // kwArchiEverestWordsPack
+ ;
+ : Target ME_533433C700C0 // ClearFindDialog
+ ;
+
+ref; // ME_533433FB0303 
+
+FORWARD ME_53CD0A6A03DF
+
+: ME_53CD0A9F0235
+ CONST UID '53CD0A9F0235'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_5166AFC5017A // kwArchiEverestWordsPack
+ ;
+ : Target ME_53CD0A6A03DF // AutoComplete_Clear
+ ;
+
+ref; // ME_53CD0A9F0235 
+
+: ME_2C67621528F9
+ CONST UID '2C67621528F9'
+ CONST IsSummoned true
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_5166AFC5017A // kwArchiEverestWordsPack
+ ;
+ : Target WL 'ME_55153C2C036F' '55BA28CE0290.pas.ms.script' // TypeInfoExt
+ ;
+
+ref; // ME_2C67621528F9 
+
+: ME_5166AFC5017A
+ CONST UID '5166AFC5017A'
+ CONST Name 'kwArchiEverestWordsPack'
+ CONST Class class_Class
+ : Stereotype st_ScriptKeywordsPack ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_5166AF3800B5 // EverestArchiWords
+ ;
+ : Dependencies
+   Seq: ( ME_517FA8AF0212 // 
+ ME_533433FB0303 // 
+ ME_53CD0A9F0235 // 
+ ME_2C67621528F9 // 
+ )
+ ; // Dependencies
+ CONST "ifndef" 'NoScripts'
+ CONST "needs script" 'undefined'
+ CONST "no class name" 'undefined'
+ CONST "no hands" false
+ CONST "no_pop" 'undefined'
+ : Generators
+ Seq: (
+ gen_intf.pas
+ )
+ ; // Generators
+ CONST dfm:PathOnly '\archi\source\projects\Archi\Archi_Insider_Test_Support'
+ CONST intf.pas:Path 'archi\source\projects\Archi\Archi_Insider_Test_Support\kwArchiEverestWordsPack.pas'
+ CONST intf.pas:PathOnly '\archi\source\projects\Archi\Archi_Insider_Test_Support'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\archi\source\projects\Archi\Archi_Insider_Test_Support'
+ CONST extprop:rc:SelfName 'ArchiEverestWordsPack'
+
+ref; // ME_5166AFC5017A kwArchiEverestWordsPack
+
+: ME_852C0F5C69A9
+ CONST UID '852C0F5C69A9'
+ CONST Name 'Ini_Reg'
+ CONST IsSummoned true
+ CONST Class class_Operation
+ : Stereotype st_ini::Operation ;
+ %SUMMARY 'Регистрация DisableMergedCellFilter' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_517FA8840360 // DisableMergedCellFilter
+ ;
+
+ref; // ME_852C0F5C69A9 Ini_Reg
+
+: ME_517FA8E20327
+ CONST UID '517FA8E20327'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_517FA8840360 // DisableMergedCellFilter
+ ;
+ : Target WL 'ME_4F5755FB0362' '4E4B99A60349.pas.ms.script' // evCommonUtils
+ ;
+
+ref; // ME_517FA8E20327 
+
+: ME_4DAEEDE10285_ME_517FA8840360
+ CONST UID '4DAEEDE10285'
+ CONST Name 'DoDoIt'
+ : Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.pas.ms.script' // DoDoIt
+ ;
+ : Implementor ME_517FA8840360 // DisableMergedCellFilter
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_4DAEEDE10285_ME_517FA8840360 DoDoIt
+
+: ME_4DB0614603C8_ME_517FA8840360
+ CONST UID '4DB0614603C8'
+ CONST Name 'GetWordNameForRegister'
+ : Original WL 'ME_4DB0614603C8' '4F3E3F5F0160.pas.ms.script' // GetWordNameForRegister
+ ;
+ : Implementor ME_517FA8840360 // DisableMergedCellFilter
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_4DB0614603C8_ME_517FA8840360 GetWordNameForRegister
+
+: ME_517FA8840360
+ CONST UID '517FA8840360'
+ CONST Name 'DisableMergedCellFilter'
+ CONST Class class_Class
+ : Stereotype st_ScriptKeyword ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_5166AF3800B5 // EverestArchiWords
+ ;
+ : Inherits
+   Seq: ( WL 'ME_53EDC0E701BC' '4F3E3F5F0160.pas.ms.script' // TtfwRegisterableWord
+ )
+ ; // Inherits
+ : Operations
+   Seq: ( ME_852C0F5C69A9 // Ini_Reg
+ )
+ ; // Operations
+ : Implemented
+   Seq: ( ME_4DAEEDE10285_ME_517FA8840360 // DoDoIt
+ )
+ ; // Implemented
+ : Overridden
+   Seq: ( ME_4DB0614603C8_ME_517FA8840360 // GetWordNameForRegister
+ )
+ ; // Overridden
+ : Dependencies
+   Seq: ( ME_517FA8E20327 // 
+ )
+ ; // Dependencies
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ : Generators
+ Seq: (
+ gen_intf.pas
+ )
+ ; // Generators
+ CONST dfm:PathOnly '\archi\source\projects\Archi\Archi_Insider_Test_Support'
+ CONST intf.pas:Path 'archi\source\projects\Archi\Archi_Insider_Test_Support\kwDisableMergedCellFilter.pas'
+ CONST intf.pas:PathOnly '\archi\source\projects\Archi\Archi_Insider_Test_Support'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\archi\source\projects\Archi\Archi_Insider_Test_Support'
+ CONST extprop:pas:TypeName 'TkwDisableMergedCellFilter'
+ CONST extprop:rc:SelfName 'DisableMergedCellFilter'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'kwDisableMergedCellFilter'
+
+ref; // ME_517FA8840360 DisableMergedCellFilter
+
+: ME_67BCC165E6EE
+ CONST UID '67BCC165E6EE'
+ CONST Name 'Ini_Reg'
+ CONST IsSummoned true
+ CONST Class class_Operation
+ : Stereotype st_ini::Operation ;
+ %SUMMARY 'Регистрация ClearFindDialog' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_533433C700C0 // ClearFindDialog
+ ;
+
+ref; // ME_67BCC165E6EE Ini_Reg
+
+: ME_53343429013B
+ CONST UID '53343429013B'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_533433C700C0 // ClearFindDialog
+ ;
+ : Target WL 'ME_4F8D618800E7' '4DFB501A00F4.pas.ms.script' // D_TxSrch
+ ;
+
+ref; // ME_53343429013B 
+
+: ME_4DAEEDE10285_ME_533433C700C0
+ CONST UID '4DAEEDE10285'
+ CONST Name 'DoDoIt'
+ : Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.pas.ms.script' // DoDoIt
+ ;
+ : Implementor ME_533433C700C0 // ClearFindDialog
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_4DAEEDE10285_ME_533433C700C0 DoDoIt
+
+: ME_4DB0614603C8_ME_533433C700C0
+ CONST UID '4DB0614603C8'
+ CONST Name 'GetWordNameForRegister'
+ : Original WL 'ME_4DB0614603C8' '4F3E3F5F0160.pas.ms.script' // GetWordNameForRegister
+ ;
+ : Implementor ME_533433C700C0 // ClearFindDialog
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_4DB0614603C8_ME_533433C700C0 GetWordNameForRegister
+
+: ME_533433C700C0
+ CONST UID '533433C700C0'
+ CONST Name 'ClearFindDialog'
+ CONST Class class_Class
+ : Stereotype st_ScriptKeyword ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Очищает диалог поиска (удаляет его объект).' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_5166AF3800B5 // EverestArchiWords
+ ;
+ : Inherits
+   Seq: ( WL 'ME_53EDC0E701BC' '4F3E3F5F0160.pas.ms.script' // TtfwRegisterableWord
+ )
+ ; // Inherits
+ : Operations
+   Seq: ( ME_67BCC165E6EE // Ini_Reg
+ )
+ ; // Operations
+ : Implemented
+   Seq: ( ME_4DAEEDE10285_ME_533433C700C0 // DoDoIt
+ )
+ ; // Implemented
+ : Overridden
+   Seq: ( ME_4DB0614603C8_ME_533433C700C0 // GetWordNameForRegister
+ )
+ ; // Overridden
+ : Dependencies
+   Seq: ( ME_53343429013B // 
+ )
+ ; // Dependencies
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ : Generators
+ Seq: (
+ gen_intf.pas
+ )
+ ; // Generators
+ CONST dfm:PathOnly '\archi\source\projects\Archi\Archi_Insider_Test_Support'
+ CONST intf.pas:Path 'archi\source\projects\Archi\Archi_Insider_Test_Support\kwClearFindDialog.pas'
+ CONST intf.pas:PathOnly '\archi\source\projects\Archi\Archi_Insider_Test_Support'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\archi\source\projects\Archi\Archi_Insider_Test_Support'
+ CONST extprop:pas:TypeName 'TkwClearFindDialog'
+ CONST extprop:rc:SelfName 'ClearFindDialog'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'kwClearFindDialog'
+
+ref; // ME_533433C700C0 ClearFindDialog
+
+: ME_96FE50464F67
+ CONST UID '96FE50464F67'
+ CONST Name 'Ini_Reg'
+ CONST IsSummoned true
+ CONST Class class_Operation
+ : Stereotype st_ini::Operation ;
+ %SUMMARY 'Регистрация AutoComplete_Clear' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_53CD0A6A03DF // AutoComplete_Clear
+ ;
+
+ref; // ME_96FE50464F67 Ini_Reg
+
+: ME_53CD0BF101DD
+ CONST UID '53CD0BF101DD'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_53CD0A6A03DF // AutoComplete_Clear
+ ;
+ : Target WL 'ME_53CD0B8200B8' '47F1F38601A3.pas.ms.script' // TevAutoComplete
+ ;
+
+ref; // ME_53CD0BF101DD 
+
+: ME_4DAEEDE10285_ME_53CD0A6A03DF
+ CONST UID '4DAEEDE10285'
+ CONST Name 'DoDoIt'
+ : Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.pas.ms.script' // DoDoIt
+ ;
+ : Implementor ME_53CD0A6A03DF // AutoComplete_Clear
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_4DAEEDE10285_ME_53CD0A6A03DF DoDoIt
+
+: ME_4DB0614603C8_ME_53CD0A6A03DF
+ CONST UID '4DB0614603C8'
+ CONST Name 'GetWordNameForRegister'
+ : Original WL 'ME_4DB0614603C8' '4F3E3F5F0160.pas.ms.script' // GetWordNameForRegister
+ ;
+ : Implementor ME_53CD0A6A03DF // AutoComplete_Clear
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_4DB0614603C8_ME_53CD0A6A03DF GetWordNameForRegister
+
+: ME_53CD0A6A03DF
+ CONST UID '53CD0A6A03DF'
+ CONST Name 'AutoComplete_Clear'
+ CONST Class class_Class
+ : Stereotype st_ScriptKeyword ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Очищает данные автозамены.' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_5166AF3800B5 // EverestArchiWords
+ ;
+ : Inherits
+   Seq: ( WL 'ME_53EDC0E701BC' '4F3E3F5F0160.pas.ms.script' // TtfwRegisterableWord
+ )
+ ; // Inherits
+ : Operations
+   Seq: ( ME_96FE50464F67 // Ini_Reg
+ )
+ ; // Operations
+ : Implemented
+   Seq: ( ME_4DAEEDE10285_ME_53CD0A6A03DF // DoDoIt
+ )
+ ; // Implemented
+ : Overridden
+   Seq: ( ME_4DB0614603C8_ME_53CD0A6A03DF // GetWordNameForRegister
+ )
+ ; // Overridden
+ : Dependencies
+   Seq: ( ME_53CD0BF101DD // 
+ )
+ ; // Dependencies
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ : Generators
+ Seq: (
+ gen_intf.pas
+ )
+ ; // Generators
+ CONST dfm:PathOnly '\archi\source\projects\Archi\Archi_Insider_Test_Support'
+ CONST intf.pas:Path 'archi\source\projects\Archi\Archi_Insider_Test_Support\kwAutoCompleteClear.pas'
+ CONST intf.pas:PathOnly '\archi\source\projects\Archi\Archi_Insider_Test_Support'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\archi\source\projects\Archi\Archi_Insider_Test_Support'
+ CONST extprop:pas:TypeName 'TkwAutoCompleteClear'
+ CONST extprop:rc:SelfName 'AutoCompleteClear'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'kwAutoCompleteClear'
+
+ref; // ME_53CD0A6A03DF AutoComplete_Clear
+
+: ME_5166AF3800B5
+ CONST UID '5166AF3800B5'
+ CONST Name 'EverestArchiWords'
+ CONST Class class_Category
+ : Stereotype st_ScriptKeywords ;
+ %SUMMARY 'Слова одинаковые для Эвереста и Арчи' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent WL 'ME_4DE7653F03E5' '4DE7653F03E5.pas.ms.script' // Archi Insider Test Support
+ ;
+ : Children
+   Seq: ( ME_5166AFC5017A // kwArchiEverestWordsPack
+ ME_517FA8840360 // DisableMergedCellFilter
+ ME_533433C700C0 // ClearFindDialog
+ ME_53CD0A6A03DF // AutoComplete_Clear
+ )
+ ; // Children
+ : Depends
+   Seq: ( WL 'ME_47F1F38601A3' '47F1F38601A3.pas.ms.script' // ParaUtils
+ WL 'ME_4DAEEA14018A' '4DAEEA14018A.pas.ms.script' // Scripting Axiomatics
+ WL 'ME_4DAF19F600C5' '4DAF19F600C5.pas.ms.script' // tfwScriptingInterfaces
+ WL 'ME_4DFB501A00F4' '4DFB501A00F4.pas.ms.script' // CommonDialogs
+ WL 'ME_4E4B99A60349' '4E4B99A60349.pas.ms.script' // Tools
+ WL 'ME_4F3E3F5F0160' '4F3E3F5F0160.pas.ms.script' // PrimitiveWords
+ WL 'ME_50741A080229' '50741A080229.pas.ms.script' // FormsProcessing
+ WL 'ME_55BA28CE0290' '55BA28CE0290.pas.ms.script' // tfwScriptingTypes
+ )
+ ; // Depends
+ CONST "ifndef" 'NoScripts'
+ : Generators
+ Seq: (
+ gen_pas.script
+ gen_pas.script.runner
+ )
+ ; // Generators
+ CONST dfm:PathOnly '\archi\source\projects\Archi\Archi_Insider_Test_Support'
+ CONST intf.pas:PathOnly '\archi\source\projects\Archi\Archi_Insider_Test_Support'
+ CONST pas.script:Path 'shared\models\NewSchool\Scripts\5166AF3800B5.pas.ms.script'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\5166AF3800B5.pas.ms.script.runner'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\archi\source\projects\Archi\Archi_Insider_Test_Support'
+
+ref; // ME_5166AF3800B5 EverestArchiWords

@@ -19,6 +19,7 @@ FORWARD ME_49944A6E02E2
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value 'vcm_otButton'
 
 ref; // ME_49944A7C0140 a
 
@@ -35,6 +36,7 @@ ref; // ME_49944A7C0140 a
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value 'vcm_otButtonCombo'
 
 ref; // ME_49944A84014E b
 
@@ -51,6 +53,7 @@ ref; // ME_49944A84014E b
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value 'vcm_otMenuButtonCombo'
 
 ref; // ME_49944A8E03CA c
 
@@ -67,6 +70,7 @@ ref; // ME_49944A8E03CA c
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value 'vcm_otButtonPopup'
 
 ref; // ME_49944A960061 d
 
@@ -83,6 +87,7 @@ ref; // ME_49944A960061 d
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value 'vcm_otTextButton'
 
 ref; // ME_49944B69022B e
 
@@ -99,6 +104,7 @@ ref; // ME_49944B69022B e
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value 'vcm_otCheck'
 
 ref; // ME_49944B73028C f
 
@@ -115,6 +121,7 @@ ref; // ME_49944B73028C f
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value 'vcm_otRadio'
 
 ref; // ME_49944B7F01E5 g
 
@@ -131,6 +138,7 @@ ref; // ME_49944B7F01E5 g
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value 'vcm_otEdit'
 
 ref; // ME_49944B880126 h
 
@@ -147,6 +155,7 @@ ref; // ME_49944B880126 h
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value 'vcm_otTyper'
 
 ref; // ME_49944B930120 i
 
@@ -163,6 +172,7 @@ ref; // ME_49944B930120 i
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value 'vcm_otCombo'
 
 ref; // ME_49944BB5022F j
 
@@ -179,6 +189,7 @@ ref; // ME_49944BB5022F j
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value 'vcm_otEditCombo'
 
 ref; // ME_49944BBC0388 k
 
@@ -195,6 +206,7 @@ ref; // ME_49944BBC0388 k
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value 'vcm_otDate'
 
 ref; // ME_49944BC5022D l
 
@@ -209,11 +221,11 @@ ref; // ME_49944BC5022D l
  : Parent ME_49944A1502FE // vcmInternalConst
  ;
  : Inherits
-   @ ( WL 'ME_4683CC350070' '467BAB7F021E.pas.ms.script' // TvcmOperationType
- ) .SequenceCode.It
+   Seq: ( WL 'ME_4683CC350070' '467BAB7F021E.pas.ms.script' // TvcmOperationType
+ )
  ; // Inherits
  : Attributes
-   @ ( ME_49944A7C0140 // a
+   Seq: ( ME_49944A7C0140 // a
  ME_49944A84014E // b
  ME_49944A8E03CA // c
  ME_49944A960061 // d
@@ -225,9 +237,14 @@ ref; // ME_49944BC5022D l
  ME_49944BB5022F // j
  ME_49944BBC0388 // k
  ME_49944BC5022D // l
- ) .SequenceCode.It
+ )
  ; // Attributes
  CONST "spell names" false
+ CONST dfm:PathOnly '\common\components\gui\Garant\VCM'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\VCM\implementation'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'ToolbarOpTypes'
 
 ref; // ME_49944A6E02E2 vcmToolbarOpTypes
 
@@ -242,10 +259,15 @@ ref; // ME_49944A6E02E2 vcmToolbarOpTypes
  : Parent ME_49944A1502FE // vcmInternalConst
  ;
  : Inherits
-   @ ( WL 'ME_4683F5BC0213' '499EAAE502A8.pas.ms.script' // TvcmOperationOption
- ) .SequenceCode.It
+   Seq: ( WL 'ME_4683F5BC0213' '499EAAE502A8.pas.ms.script' // TvcmOperationOption
+ )
  ; // Inherits
  CONST "spell names" false
+ CONST dfm:PathOnly '\common\components\gui\Garant\VCM'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\VCM\implementation'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName '_AllOperationOptions'
 
 ref; // ME_49944BD5012F vcm_AllOperationOptions
 
@@ -264,6 +286,7 @@ FORWARD ME_49944C620372
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value 'vcm_otButtonCombo'
 
 ref; // ME_49944C6E0186 a
 
@@ -280,6 +303,7 @@ ref; // ME_49944C6E0186 a
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value 'vcm_otMenuButtonCombo'
 
 ref; // ME_49944C78001E b
 
@@ -296,6 +320,7 @@ ref; // ME_49944C78001E b
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value 'vcm_otButtonPopup'
 
 ref; // ME_49944C800179 c
 
@@ -310,16 +335,21 @@ ref; // ME_49944C800179 c
  : Parent ME_49944A1502FE // vcmInternalConst
  ;
  : Inherits
-   @ ( WL 'ME_4683CC350070' '467BAB7F021E.pas.ms.script' // TvcmOperationType
- ) .SequenceCode.It
+   Seq: ( WL 'ME_4683CC350070' '467BAB7F021E.pas.ms.script' // TvcmOperationType
+ )
  ; // Inherits
  : Attributes
-   @ ( ME_49944C6E0186 // a
+   Seq: ( ME_49944C6E0186 // a
  ME_49944C78001E // b
  ME_49944C800179 // c
- ) .SequenceCode.It
+ )
  ; // Attributes
  CONST "spell names" false
+ CONST dfm:PathOnly '\common\components\gui\Garant\VCM'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\VCM\implementation'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName '_ComboOperations'
 
 ref; // ME_49944C620372 vcm_ComboOperations
 
@@ -338,6 +368,7 @@ FORWARD ME_49944C9400BA
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value 'vcm_otCombo'
 
 ref; // ME_49944C990135 a
 
@@ -354,6 +385,7 @@ ref; // ME_49944C990135 a
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value 'vcm_otEditCombo'
 
 ref; // ME_49944CAA0044 b
 
@@ -368,15 +400,20 @@ ref; // ME_49944CAA0044 b
  : Parent ME_49944A1502FE // vcmInternalConst
  ;
  : Inherits
-   @ ( WL 'ME_4683CC350070' '467BAB7F021E.pas.ms.script' // TvcmOperationType
- ) .SequenceCode.It
+   Seq: ( WL 'ME_4683CC350070' '467BAB7F021E.pas.ms.script' // TvcmOperationType
+ )
  ; // Inherits
  : Attributes
-   @ ( ME_49944C990135 // a
+   Seq: ( ME_49944C990135 // a
  ME_49944CAA0044 // b
- ) .SequenceCode.It
+ )
  ; // Attributes
  CONST "spell names" false
+ CONST dfm:PathOnly '\common\components\gui\Garant\VCM'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\VCM\implementation'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName '_ComboBoxOperations'
 
 ref; // ME_49944C9400BA vcm_ComboBoxOperations
 
@@ -395,6 +432,7 @@ FORWARD ME_49944CB60307
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value 'vcm_otButtonCombo'
 
 ref; // ME_49944CC90169 a
 
@@ -411,6 +449,7 @@ ref; // ME_49944CC90169 a
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value 'vcm_otMenuButtonCombo'
 
 ref; // ME_49944CD002F3 b
 
@@ -427,6 +466,7 @@ ref; // ME_49944CD002F3 b
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value 'vcm_otButtonPopup'
 
 ref; // ME_49944CDA0002 c
 
@@ -443,6 +483,7 @@ ref; // ME_49944CDA0002 c
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value 'vcm_otCombo'
 
 ref; // ME_49944CE0023C d
 
@@ -458,17 +499,22 @@ ref; // ME_49944CE0023C d
  : Parent ME_49944A1502FE // vcmInternalConst
  ;
  : Inherits
-   @ ( WL 'ME_4683CC350070' '467BAB7F021E.pas.ms.script' // TvcmOperationType
- ) .SequenceCode.It
+   Seq: ( WL 'ME_4683CC350070' '467BAB7F021E.pas.ms.script' // TvcmOperationType
+ )
  ; // Inherits
  : Attributes
-   @ ( ME_49944CC90169 // a
+   Seq: ( ME_49944CC90169 // a
  ME_49944CD002F3 // b
  ME_49944CDA0002 // c
  ME_49944CE0023C // d
- ) .SequenceCode.It
+ )
  ; // Attributes
  CONST "spell names" false
+ CONST dfm:PathOnly '\common\components\gui\Garant\VCM'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\VCM\implementation'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName '_UseCaptionFromOperation'
 
 ref; // ME_49944CB60307 vcm_UseCaptionFromOperation
 
@@ -487,6 +533,7 @@ FORWARD ME_49944CF20141
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value 'vcm_otButton'
 
 ref; // ME_49944D0D017A a
 
@@ -503,6 +550,7 @@ ref; // ME_49944D0D017A a
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value 'vcm_otCheck'
 
 ref; // ME_49944D1300CA b
 
@@ -519,6 +567,7 @@ ref; // ME_49944D1300CA b
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value 'vcm_otTextButton'
 
 ref; // ME_49944D1A02FD c
 
@@ -535,6 +584,7 @@ ref; // ME_49944D1A02FD c
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value 'vcm_otButtonPopup'
 
 ref; // ME_49944D24025F d
 
@@ -549,17 +599,22 @@ ref; // ME_49944D24025F d
  : Parent ME_49944A1502FE // vcmInternalConst
  ;
  : Inherits
-   @ ( WL 'ME_4683CC350070' '467BAB7F021E.pas.ms.script' // TvcmOperationType
- ) .SequenceCode.It
+   Seq: ( WL 'ME_4683CC350070' '467BAB7F021E.pas.ms.script' // TvcmOperationType
+ )
  ; // Inherits
  : Attributes
-   @ ( ME_49944D0D017A // a
+   Seq: ( ME_49944D0D017A // a
  ME_49944D1300CA // b
  ME_49944D1A02FD // c
  ME_49944D24025F // d
- ) .SequenceCode.It
+ )
  ; // Attributes
  CONST "spell names" false
+ CONST dfm:PathOnly '\common\components\gui\Garant\VCM'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\VCM\implementation'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'OperationsWithIcon'
 
 ref; // ME_49944CF20141 vcmOperationsWithIcon
 
@@ -578,6 +633,7 @@ FORWARD ME_49944D400260
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value 'vcm_otInternal'
 
 ref; // ME_49944D4C028C a
 
@@ -592,14 +648,19 @@ ref; // ME_49944D4C028C a
  : Parent ME_49944A1502FE // vcmInternalConst
  ;
  : Inherits
-   @ ( WL 'ME_4683CC350070' '467BAB7F021E.pas.ms.script' // TvcmOperationType
- ) .SequenceCode.It
+   Seq: ( WL 'ME_4683CC350070' '467BAB7F021E.pas.ms.script' // TvcmOperationType
+ )
  ; // Inherits
  : Attributes
-   @ ( ME_49944D4C028C // a
- ) .SequenceCode.It
+   Seq: ( ME_49944D4C028C // a
+ )
  ; // Attributes
  CONST "spell names" false
+ CONST dfm:PathOnly '\common\components\gui\Garant\VCM'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\VCM\implementation'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName '_InternalOperations'
 
 ref; // ME_49944D400260 vcm_InternalOperations
 
@@ -618,6 +679,7 @@ FORWARD ME_49944D720295
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value 'vcm_otHidden'
 
 ref; // ME_49944D7C0316 a
 
@@ -632,14 +694,19 @@ ref; // ME_49944D7C0316 a
  : Parent ME_49944A1502FE // vcmInternalConst
  ;
  : Inherits
-   @ ( ME_49944D400260 // vcm_InternalOperations
- ) .SequenceCode.It
+   Seq: ( ME_49944D400260 // vcm_InternalOperations
+ )
  ; // Inherits
  : Attributes
-   @ ( ME_49944D7C0316 // a
- ) .SequenceCode.It
+   Seq: ( ME_49944D7C0316 // a
+ )
  ; // Attributes
  CONST "spell names" false
+ CONST dfm:PathOnly '\common\components\gui\Garant\VCM'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\VCM\implementation'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName '_HiddenOperations'
 
 ref; // ME_49944D720295 vcm_HiddenOperations
 
@@ -658,6 +725,7 @@ FORWARD ME_4994505E0009
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value 'vcm_otEdit'
 
 ref; // ME_4994506800FB a
 
@@ -674,6 +742,7 @@ ref; // ME_4994506800FB a
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value 'vcm_otTyper'
 
 ref; // ME_4994506F011D b
 
@@ -690,6 +759,7 @@ ref; // ME_4994506F011D b
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value 'vcm_otFontName'
 
 ref; // ME_499450750211 c
 
@@ -706,6 +776,7 @@ ref; // ME_499450750211 c
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value 'vcm_otFontSize'
 
 ref; // ME_4994507E0304 d
 
@@ -722,6 +793,7 @@ ref; // ME_4994507E0304 d
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value 'vcm_otDate'
 
 ref; // ME_4994508700F9 e
 
@@ -736,18 +808,23 @@ ref; // ME_4994508700F9 e
  : Parent ME_49944A1502FE // vcmInternalConst
  ;
  : Inherits
-   @ ( WL 'ME_4683CC350070' '467BAB7F021E.pas.ms.script' // TvcmOperationType
- ) .SequenceCode.It
+   Seq: ( WL 'ME_4683CC350070' '467BAB7F021E.pas.ms.script' // TvcmOperationType
+ )
  ; // Inherits
  : Attributes
-   @ ( ME_4994506800FB // a
+   Seq: ( ME_4994506800FB // a
  ME_4994506F011D // b
  ME_499450750211 // c
  ME_4994507E0304 // d
  ME_4994508700F9 // e
- ) .SequenceCode.It
+ )
  ; // Attributes
  CONST "spell names" false
+ CONST dfm:PathOnly '\common\components\gui\Garant\VCM'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\VCM\implementation'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName '_SimpleOperations'
 
 ref; // ME_4994505E0009 vcm_SimpleOperations
 
@@ -766,6 +843,7 @@ FORWARD ME_4994509D0039
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value 'vcm_otButton'
 
 ref; // ME_499450A50383 a
 
@@ -782,6 +860,7 @@ ref; // ME_499450A50383 a
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value 'vcm_otCheck'
 
 ref; // ME_499450AE02A7 b
 
@@ -798,6 +877,7 @@ ref; // ME_499450AE02A7 b
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value 'vcm_otMenuButtonCombo'
 
 ref; // ME_499450B6006D c
 
@@ -814,6 +894,7 @@ ref; // ME_499450B6006D c
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value 'vcm_otButtonCombo'
 
 ref; // ME_499450C001E1 d
 
@@ -830,6 +911,7 @@ ref; // ME_499450C001E1 d
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value 'vcm_otTextButton'
 
 ref; // ME_499450CA028E e
 
@@ -846,6 +928,7 @@ ref; // ME_499450CA028E e
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value 'vcm_otCombo'
 
 ref; // ME_499450D400EC f
 
@@ -862,6 +945,7 @@ ref; // ME_499450D400EC f
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value 'vcm_otTyper'
 
 ref; // ME_499450DE0322 g
 
@@ -878,6 +962,7 @@ ref; // ME_499450DE0322 g
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value 'vcm_otEditCombo'
 
 ref; // ME_499450E8021F h
 
@@ -894,6 +979,7 @@ ref; // ME_499450E8021F h
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value 'vcm_otEdit'
 
 ref; // ME_499450F101CD i
 
@@ -910,6 +996,7 @@ ref; // ME_499450F101CD i
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value 'vcm_otDate'
 
 ref; // ME_499450FA01C9 j
 
@@ -926,6 +1013,7 @@ ref; // ME_499450FA01C9 j
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value 'vcm_otButtonPopup'
 
 ref; // ME_4994510301A3 k
 
@@ -940,11 +1028,11 @@ ref; // ME_4994510301A3 k
  : Parent ME_49944A1502FE // vcmInternalConst
  ;
  : Inherits
-   @ ( WL 'ME_4683CC350070' '467BAB7F021E.pas.ms.script' // TvcmOperationType
- ) .SequenceCode.It
+   Seq: ( WL 'ME_4683CC350070' '467BAB7F021E.pas.ms.script' // TvcmOperationType
+ )
  ; // Inherits
  : Attributes
-   @ ( ME_499450A50383 // a
+   Seq: ( ME_499450A50383 // a
  ME_499450AE02A7 // b
  ME_499450B6006D // c
  ME_499450C001E1 // d
@@ -955,9 +1043,14 @@ ref; // ME_4994510301A3 k
  ME_499450F101CD // i
  ME_499450FA01C9 // j
  ME_4994510301A3 // k
- ) .SequenceCode.It
+ )
  ; // Attributes
  CONST "spell names" false
+ CONST dfm:PathOnly '\common\components\gui\Garant\VCM'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\VCM\implementation'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'VisualOperations'
 
 ref; // ME_4994509D0039 vcmVisualOperations
 
@@ -976,6 +1069,7 @@ FORWARD ME_4994514401A7
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value 'Floating'
 
 ref; // ME_4994514E000F a
 
@@ -992,6 +1086,7 @@ ref; // ME_4994514E000F a
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value 'Modal'
 
 ref; // ME_499451540081 c
 
@@ -1008,6 +1103,7 @@ ref; // ME_499451540081 c
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value 'ManualModal'
 
 ref; // ME_49945159031E b
 
@@ -1024,6 +1120,7 @@ ref; // ME_49945159031E b
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value 'SimpleFloat'
 
 ref; // ME_4A8E3D12037B d
 
@@ -1038,17 +1135,22 @@ ref; // ME_4A8E3D12037B d
  : Parent ME_49944A1502FE // vcmInternalConst
  ;
  : Inherits
-   @ ( WL 'ME_528C93FD01EA' '528C93040132.pas.ms.script' // TvcmZoneType
- ) .SequenceCode.It
+   Seq: ( WL 'ME_528C93FD01EA' '528C93040132.pas.ms.script' // TvcmZoneType
+ )
  ; // Inherits
  : Attributes
-   @ ( ME_4994514E000F // a
+   Seq: ( ME_4994514E000F // a
  ME_499451540081 // c
  ME_49945159031E // b
  ME_4A8E3D12037B // d
- ) .SequenceCode.It
+ )
  ; // Attributes
  CONST "spell names" false
+ CONST dfm:PathOnly '\common\components\gui\Garant\VCM'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\VCM\implementation'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName '_NotContainedForm'
 
 ref; // ME_4994514401A7 vcm_NotContainedForm
 
@@ -1067,6 +1169,7 @@ FORWARD ME_499451920188
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value 'vcm_omExecute'
 
 ref; // ME_4994519F0357 a
 
@@ -1083,6 +1186,7 @@ ref; // ME_4994519F0357 a
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value 'vcm_omAggregateExecute'
 
 ref; // ME_499451A903AF b
 
@@ -1097,15 +1201,20 @@ ref; // ME_499451A903AF b
  : Parent ME_49944A1502FE // vcmInternalConst
  ;
  : Inherits
-   @ ( WL 'ME_4683F5860071' '499EAAE502A8.pas.ms.script' // TvcmOperationMode
- ) .SequenceCode.It
+   Seq: ( WL 'ME_4683F5860071' '499EAAE502A8.pas.ms.script' // TvcmOperationMode
+ )
  ; // Inherits
  : Attributes
-   @ ( ME_4994519F0357 // a
+   Seq: ( ME_4994519F0357 // a
  ME_499451A903AF // b
- ) .SequenceCode.It
+ )
  ; // Attributes
  CONST "spell names" false
+ CONST dfm:PathOnly '\common\components\gui\Garant\VCM'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\VCM\implementation'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName '_omExecutes'
 
 ref; // ME_499451920188 vcm_omExecutes
 
@@ -1128,6 +1237,7 @@ FORWARD ME_4992F65303E2
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value '(rName : ''''; rID : 0)'
 
 ref; // ME_4992F67C0113 fm_Any
 
@@ -1143,10 +1253,14 @@ ref; // ME_4992F67C0113 fm_Any
  : Parent ME_49944A1502FE // vcmInternalConst
  ;
  : Attributes
-   @ ( ME_4992F67C0113 // fm_Any
- ) .SequenceCode.It
+   Seq: ( ME_4992F67C0113 // fm_Any
+ )
  ; // Attributes
  CONST "spell names" false
+ CONST dfm:PathOnly '\common\components\gui\Garant\VCM'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\VCM\implementation'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_4992F65303E2 FormIDs
 
@@ -1161,7 +1275,7 @@ ref; // ME_4992F65303E2 FormIDs
  : Parent WL 'ME_4790C3B8021E' '4790C3B8021E.pas.ms.script' // VCM
  ;
  : Children
-   @ ( ME_49944A6E02E2 // vcmToolbarOpTypes
+   Seq: ( ME_49944A6E02E2 // vcmToolbarOpTypes
  ME_49944BD5012F // vcm_AllOperationOptions
  ME_49944C620372 // vcm_ComboOperations
  ME_49944C9400BA // vcm_ComboBoxOperations
@@ -1173,33 +1287,30 @@ ref; // ME_4992F65303E2 FormIDs
  ME_4994509D0039 // vcmVisualOperations
  ME_4994514401A7 // vcm_NotContainedForm
  ME_499451920188 // vcm_omExecutes
- ) .SequenceCode.It
+ )
  ; // Children
  : Constants
-   @ ( ME_4992F65303E2 // FormIDs
- ) .SequenceCode.It
+   Seq: ( ME_4992F65303E2 // FormIDs
+ )
  ; // Constants
  : Depends
-   @ ( WL 'ME_467BAB7F021E' '467BAB7F021E.pas.ms.script' // vcmExternalInterfaces
+   Seq: ( WL 'ME_467BAB7F021E' '467BAB7F021E.pas.ms.script' // vcmExternalInterfaces
  WL 'ME_4683F37902CF' '4683F37902CF.pas.ms.script' // vcmInterfaces
  WL 'ME_499EAAE502A8' '499EAAE502A8.pas.ms.script' // vcmUserControls
  WL 'ME_528C93040132' '528C93040132.pas.ms.script' // vcmBaseTypes
- ) .SequenceCode.It
+ )
  ; // Depends
  CONST "author" 'Ëþëèí À.Â.'
  CONST "is namespace" true
  CONST "no hands" true
  CONST "path prefix" '/implementation'
  CONST "started" '12.02.2009 19:11'
- : Generators
- @ (
- gen_intf.pas
- gen_pas.script
- gen_pas.script.runner
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\VCM'
  CONST intf.pas:Path 'common\components\gui\Garant\VCM\implementation\vcmInternalConst.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\VCM\implementation'
  CONST pas.script:Path 'shared\models\NewSchool\Scripts\49944A1502FE.pas.ms.script'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
  CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\49944A1502FE.pas.ms.script.runner'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_49944A1502FE vcmInternalConst

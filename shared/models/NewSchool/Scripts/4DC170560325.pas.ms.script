@@ -1,0 +1,49 @@
+// PrimListControllers 4DC170560325 VCMControllers Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+: ME_4DC170560325
+ CONST UID '4DC170560325'
+ CONST Name 'PrimListControllers'
+ CONST Class class_Category
+ : Stereotype st_VCMControllers ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent WL 'ME_4A7C095601DA' '4A7C095601DA.pas.ms.script' // Base Operations
+ ;
+ : Children
+   Seq: ( WL 'ME_4DC1708D032D' '4DC1708D032D.pas.ms.script' // PrimListControllersRealization
+ )
+ ; // Children
+ : Depends
+   Seq: ( WL 'ME_456EA3D2031C' '456EA3D2031C.pas.ms.script' // GblAdapterLib
+ WL 'ME_4677E16A022A' '4677E16A022A.pas.ms.script' // K2
+ WL 'ME_4677FF4B0036' '4677FF4B0036.pas.ms.script' // Data
+ WL 'ME_4790C3B8021E' '4790C3B8021E.pas.ms.script' // VCM
+ WL 'ME_4797632D0273' '4797632D0273.pas.ms.script' // Everest
+ WL 'ME_47E9EEC60260' '47E9EEC60260.pas.ms.script' // Model
+ WL 'ME_4A7C099B004F' '4A7C099B004F.pas.ms.script' // View
+ WL 'ME_4BA08E8D00CD' '4BA08E8D00CD.pas.ms.script' // UnderControl$Resetter
+ WL 'ME_4D1B64E70031' '4D1B64E70031.pas.ms.script' // BusinessInterfaces
+ WL 'ME_4ED757140004' '4ED757140004.pas.ms.script' // PrimListAndDocumentControllers
+ )
+ ; // Depends
+ CONST "exec mode" 'concluded'
+ CONST "gui" 'prj'
+ CONST "is namespace" true
+ CONST "vendor" 'none'
+ : Generators
+ Seq: (
+ gen_pas.script
+ gen_pas.script.runner
+ )
+ ; // Generators
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\PrimListControllers'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\PrimListControllers'
+ CONST pas.script:Path 'shared\models\NewSchool\Scripts\4DC170560325.pas.ms.script'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\4DC170560325.pas.ms.script.runner'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\PrimListControllers'
+
+ref; // ME_4DC170560325 PrimListControllers

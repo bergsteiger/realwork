@@ -13,6 +13,7 @@ FORWARD ME_BA6E3EC73E04
  ;
  : Implementor ME_BA6E3EC73E04 // ReleaseToK
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_4B7AB0B6016E_ME_BA6E3EC73E04 CommandLineKey
 
 : ME_4B7C0B43005B_ME_BA6E3EC73E04
@@ -22,6 +23,7 @@ ref; // ME_4B7AB0B6016E_ME_BA6E3EC73E04 CommandLineKey
  ;
  : Implementor ME_BA6E3EC73E04 // ReleaseToK
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_4B7C0B43005B_ME_BA6E3EC73E04 TimesPage
 
 : ME_4B7C0B670215_ME_BA6E3EC73E04
@@ -31,11 +33,13 @@ ref; // ME_4B7C0B43005B_ME_BA6E3EC73E04 TimesPage
  ;
  : Implementor ME_BA6E3EC73E04 // ReleaseToK
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_4B7C0B670215_ME_BA6E3EC73E04 ResultsPage
 
 : ME_BA6E3EC73E04
  CONST UID 'BA6E3EC73E04'
  CONST Name 'ReleaseToK'
+ CONST IsSummoned true
  CONST Class class_Class
  : Stereotype st_TestResults ;
  CONST Kind kind_NormalClass
@@ -45,14 +49,14 @@ ref; // ME_4B7C0B670215_ME_BA6E3EC73E04 ResultsPage
  : Parent ME_4114A74FDFBC // ReleaseSearch
  ;
  : Inherits
-   @ ( WL 'ME_4B7AAC7A031D' '4B2A112B011A.pas.ms.script' // TTestResultsPlace
- ) .SequenceCode.It
+   Seq: ( WL 'ME_4B7AAC7A031D' '4B2A112B011A.pas.ms.script' // TTestResultsPlace
+ )
  ; // Inherits
  : Implemented
-   @ ( ME_4B7AB0B6016E_ME_BA6E3EC73E04 // CommandLineKey
+   Seq: ( ME_4B7AB0B6016E_ME_BA6E3EC73E04 // CommandLineKey
  ME_4B7C0B43005B_ME_BA6E3EC73E04 // TimesPage
  ME_4B7C0B670215_ME_BA6E3EC73E04 // ResultsPage
- ) .SequenceCode.It
+ )
  ; // Implemented
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
@@ -60,12 +64,19 @@ ref; // ME_4B7C0B670215_ME_BA6E3EC73E04 ResultsPage
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
  : Generators
- @ (
+ Seq: (
  gen_intf.pas
- ) .SequenceCode.It
+ )
  ; // Generators
+ CONST dfm:PathOnly '\common\components'
  CONST intf.pas:Path 'common\components\SearchTest\ReleaseToK.pas'
+ CONST intf.pas:PathOnly '\common\components\SearchTest'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\common\components'
  CONST extprop:pas:TypeName 'TReleaseToK'
+ CONST extprop:rc:SelfName 'ReleaseToK'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_BA6E3EC73E04 ReleaseToK
 
@@ -78,6 +89,7 @@ FORWARD ME_CFD0344B37B4
  ;
  : Implementor ME_CFD0344B37B4 // ReleaseToK2
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_4B7AB0B6016E_ME_CFD0344B37B4 CommandLineKey
 
 : ME_4B7C0B43005B_ME_CFD0344B37B4
@@ -87,6 +99,7 @@ ref; // ME_4B7AB0B6016E_ME_CFD0344B37B4 CommandLineKey
  ;
  : Implementor ME_CFD0344B37B4 // ReleaseToK2
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_4B7C0B43005B_ME_CFD0344B37B4 TimesPage
 
 : ME_4B7C0B670215_ME_CFD0344B37B4
@@ -96,11 +109,13 @@ ref; // ME_4B7C0B43005B_ME_CFD0344B37B4 TimesPage
  ;
  : Implementor ME_CFD0344B37B4 // ReleaseToK2
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_4B7C0B670215_ME_CFD0344B37B4 ResultsPage
 
 : ME_CFD0344B37B4
  CONST UID 'CFD0344B37B4'
  CONST Name 'ReleaseToK2'
+ CONST IsSummoned true
  CONST Class class_Class
  : Stereotype st_TestResults ;
  CONST Kind kind_NormalClass
@@ -110,14 +125,14 @@ ref; // ME_4B7C0B670215_ME_CFD0344B37B4 ResultsPage
  : Parent ME_4114A74FDFBC // ReleaseSearch
  ;
  : Inherits
-   @ ( WL 'ME_4B7AAC7A031D' '4B2A112B011A.pas.ms.script' // TTestResultsPlace
- ) .SequenceCode.It
+   Seq: ( WL 'ME_4B7AAC7A031D' '4B2A112B011A.pas.ms.script' // TTestResultsPlace
+ )
  ; // Inherits
  : Implemented
-   @ ( ME_4B7AB0B6016E_ME_CFD0344B37B4 // CommandLineKey
+   Seq: ( ME_4B7AB0B6016E_ME_CFD0344B37B4 // CommandLineKey
  ME_4B7C0B43005B_ME_CFD0344B37B4 // TimesPage
  ME_4B7C0B670215_ME_CFD0344B37B4 // ResultsPage
- ) .SequenceCode.It
+ )
  ; // Implemented
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
@@ -125,12 +140,19 @@ ref; // ME_4B7C0B670215_ME_CFD0344B37B4 ResultsPage
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
  : Generators
- @ (
+ Seq: (
  gen_intf.pas
- ) .SequenceCode.It
+ )
  ; // Generators
+ CONST dfm:PathOnly '\common\components'
  CONST intf.pas:Path 'common\components\SearchTest\ReleaseToK2.pas'
+ CONST intf.pas:PathOnly '\common\components\SearchTest'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\common\components'
  CONST extprop:pas:TypeName 'TReleaseToK2'
+ CONST extprop:rc:SelfName 'ReleaseToK2'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_CFD0344B37B4 ReleaseToK2
 
@@ -143,6 +165,7 @@ FORWARD ME_3337505C7D4E
  ;
  : Implementor ME_3337505C7D4E // ReleaseToK3
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_4B7AB0B6016E_ME_3337505C7D4E CommandLineKey
 
 : ME_4B7C0B43005B_ME_3337505C7D4E
@@ -152,6 +175,7 @@ ref; // ME_4B7AB0B6016E_ME_3337505C7D4E CommandLineKey
  ;
  : Implementor ME_3337505C7D4E // ReleaseToK3
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_4B7C0B43005B_ME_3337505C7D4E TimesPage
 
 : ME_4B7C0B670215_ME_3337505C7D4E
@@ -161,11 +185,13 @@ ref; // ME_4B7C0B43005B_ME_3337505C7D4E TimesPage
  ;
  : Implementor ME_3337505C7D4E // ReleaseToK3
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_4B7C0B670215_ME_3337505C7D4E ResultsPage
 
 : ME_3337505C7D4E
  CONST UID '3337505C7D4E'
  CONST Name 'ReleaseToK3'
+ CONST IsSummoned true
  CONST Class class_Class
  : Stereotype st_TestResults ;
  CONST Kind kind_NormalClass
@@ -175,14 +201,14 @@ ref; // ME_4B7C0B670215_ME_3337505C7D4E ResultsPage
  : Parent ME_4114A74FDFBC // ReleaseSearch
  ;
  : Inherits
-   @ ( WL 'ME_4B7AAC7A031D' '4B2A112B011A.pas.ms.script' // TTestResultsPlace
- ) .SequenceCode.It
+   Seq: ( WL 'ME_4B7AAC7A031D' '4B2A112B011A.pas.ms.script' // TTestResultsPlace
+ )
  ; // Inherits
  : Implemented
-   @ ( ME_4B7AB0B6016E_ME_3337505C7D4E // CommandLineKey
+   Seq: ( ME_4B7AB0B6016E_ME_3337505C7D4E // CommandLineKey
  ME_4B7C0B43005B_ME_3337505C7D4E // TimesPage
  ME_4B7C0B670215_ME_3337505C7D4E // ResultsPage
- ) .SequenceCode.It
+ )
  ; // Implemented
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
@@ -190,18 +216,26 @@ ref; // ME_4B7C0B670215_ME_3337505C7D4E ResultsPage
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
  : Generators
- @ (
+ Seq: (
  gen_intf.pas
- ) .SequenceCode.It
+ )
  ; // Generators
+ CONST dfm:PathOnly '\common\components'
  CONST intf.pas:Path 'common\components\SearchTest\ReleaseToK3.pas'
+ CONST intf.pas:PathOnly '\common\components\SearchTest'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\common\components'
  CONST extprop:pas:TypeName 'TReleaseToK3'
+ CONST extprop:rc:SelfName 'ReleaseToK3'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_3337505C7D4E ReleaseToK3
 
 : ME_4114A74FDFBC
  CONST UID '4114A74FDFBC'
  CONST Name 'ReleaseSearch'
+ CONST IsSummoned true
  CONST Class class_Category
  : Stereotype st_TestTarget ;
  %SUMMARY 'Пускач для тестов поиска сервера F1 (Ромина тулза) (релизный вариант)' ;
@@ -210,13 +244,13 @@ ref; // ME_3337505C7D4E ReleaseToK3
  : Parent WL 'ME_511B938D010E' '511B938D010E.pas.ms.script' // Shared Delphi Search Tests
  ;
  : Children
-   @ ( ME_BA6E3EC73E04 // ReleaseToK
+   Seq: ( ME_BA6E3EC73E04 // ReleaseToK
  ME_CFD0344B37B4 // ReleaseToK2
  ME_3337505C7D4E // ReleaseToK3
- ) .SequenceCode.It
+ )
  ; // Children
  : Depends
-   @ ( WL 'ME_4773D64E036C' '47913B47006E.pas.ms.script' // l3Base
+   Seq: ( WL 'ME_4773D64E036C' '47913B47006E.pas.ms.script' // l3Base
  WL 'ME_4787A405013D' '4AB0C3C60310.pas.ms.script' // Exception
  WL 'ME_4B2A0D8A03A0' '4B2A0D6A0077.pas.ms.script' // TextTestRunner
  WL 'ME_4B2A0D9401CC' '4B2A0D6A0077.pas.ms.script' // GUITestRunner
@@ -227,7 +261,7 @@ ref; // ME_3337505C7D4E ReleaseToK3
  WL 'ME_4DAECE5D0060' '4B30FC850092.pas.ms.script' // TvcmInsiderTest
  WL 'ME_4DC24756009A' '5130776E01BE.pas.ms.script' // TAutoTestsSuite
  WL 'ME_4DEF306102FF' '4DEF302C0007.pas.ms.script' // TtfwScriptEngineEX
- ) .SequenceCode.It
+ )
  ; // Depends
  CONST "CONFIG_UC" false
  CONST "console" false
@@ -236,14 +270,20 @@ ref; // ME_3337505C7D4E ReleaseToK3
  CONST "no scripts" 'undefined'
  CONST "old format" false
  : Generators
- @ (
+ Seq: (
  gen_intf.pas
  gen_pas.script
  gen_pas.script.runner
- ) .SequenceCode.It
+ )
  ; // Generators
+ CONST dfm:PathOnly '\common\components'
  CONST intf.pas:Path 'common\components\SearchTest\ReleaseSearchTest.dpr'
+ CONST intf.pas:PathOnly '\common\components\SearchTest'
  CONST pas.script:Path 'shared\models\NewSchool\Scripts\4114A74FDFBC.pas.ms.script'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
  CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\4114A74FDFBC.pas.ms.script.runner'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\common\components'
+ CONST extprop:pas:UnitName 'ReleaseSearchTest'
 
 ref; // ME_4114A74FDFBC ReleaseSearch

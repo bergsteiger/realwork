@@ -56,10 +56,10 @@ ref; // ME_4C03EAB40015 AllowTranslateReturn
  : Parent ME_4A9B9BAA0207 // Labels
  ;
  : Operations
-   @ ( ME_4B61371503B9 // NeedUnderLine
+   Seq: ( ME_4B61371503B9 // NeedUnderLine
  ME_4C03EAA20362 // AllowClickByKeyBoard
  ME_4C03EAB40015 // AllowTranslateReturn
- ) .SequenceCode.It
+ )
  ; // Operations
  CONST "base wnd class" 'CWnd'
  CONST "finished" false
@@ -67,12 +67,14 @@ ref; // ME_4C03EAB40015 AllowTranslateReturn
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\VT'
  CONST intf.pas:Path 'common\components\gui\Garant\VT\NOT_FINISHED_vtFocusLabel.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\VT'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'FocusLabel'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'vtFocusLabel'
 
 ref; // ME_4A9B9BC00258 TvtFocusLabel
 
@@ -115,10 +117,15 @@ ref; // ME_4F2923FE001F ddVertical
  : Parent ME_4AE8541A01AE // TvtLabel
  ;
  : Attributes
-   @ ( ME_4F2923E3022B // ddHorizontal
+   Seq: ( ME_4F2923E3022B // ddHorizontal
  ME_4F2923FE001F // ddVertical
- ) .SequenceCode.It
+ )
  ; // Attributes
+ CONST dfm:PathOnly '\common\components\gui\Garant\VT'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\VT'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_4F2923CF0065 TvtDrawDirection
 
@@ -134,12 +141,17 @@ FORWARD ME_50253C0401F1
  CONST Abstraction at_final
  : Parent ME_50253C0401F1 // TvtCustomLabelPrim
  ;
+ CONST dfm:PathOnly '\common\components\gui\Garant\VT'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\VT'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_4F292A6A030D _UnknownIsComponent
 
 : ME_D3B9F500AA98
  CONST UID 'D3B9F500AA98'
  CONST Name 'Ini_Reg_Class'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Регистрация TvtCustomLabelPrim' ;
@@ -153,6 +165,7 @@ ref; // ME_D3B9F500AA98 Ini_Reg_Class
 
 : ME_5E155D84397E
  CONST UID '5E155D84397E'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_50253C0401F1 // TvtCustomLabelPrim
@@ -173,21 +186,21 @@ ref; // ME_5E155D84397E
  : Parent ME_4AE8541A01AE // TvtLabel
  ;
  : Inherits
-   @ ( WL 'ME_47913F970159' '47913B47006E.pas.ms.script' // l3Unknown
+   Seq: ( WL 'ME_47913F970159' '47913B47006E.pas.ms.script' // l3Unknown
  WL 'ME_4F29268F035C' '4799D29F033F.pas.ms.script' // TCustomLabel
- ) .SequenceCode.It
+ )
  ; // Inherits
  : Operations
-   @ ( ME_D3B9F500AA98 // Ini_Reg_Class
- ) .SequenceCode.It
+   Seq: ( ME_D3B9F500AA98 // Ini_Reg_Class
+ )
  ; // Operations
  : Children
-   @ ( ME_4F292A6A030D // _UnknownIsComponent
- ) .SequenceCode.It
+   Seq: ( ME_4F292A6A030D // _UnknownIsComponent
+ )
  ; // Children
  : Dependencies
-   @ ( ME_5E155D84397E // 
- ) .SequenceCode.It
+   Seq: ( ME_5E155D84397E // 
+ )
  ; // Dependencies
  CONST "base wnd class" 'CWnd'
  CONST "need UC" true
@@ -195,6 +208,12 @@ ref; // ME_5E155D84397E
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
+ CONST dfm:PathOnly '\common\components\gui\Garant\VT'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\VT'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'LabelPrim'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_50253C0401F1 TvtCustomLabelPrim
 
@@ -209,13 +228,19 @@ ref; // ME_50253C0401F1 TvtCustomLabelPrim
  : Parent ME_4AE8541A01AE // TvtLabel
  ;
  : Inherits
-   @ ( WL 'ME_48BBF59C024E' '4799D29F033F.pas.ms.script' // TControlActionLink
- ) .SequenceCode.It
+   Seq: ( WL 'ME_48BBF59C024E' '4799D29F033F.pas.ms.script' // TControlActionLink
+ )
  ; // Inherits
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
+ CONST dfm:PathOnly '\common\components\gui\Garant\VT'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\VT'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'HackLink'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_4F3001650077 THackLink
 
@@ -239,6 +264,7 @@ FORWARD ME_4F29240F0204
  CONST "needs field" true
  CONST "pm" true
  CONST "reads field" true
+ CONST extprop:pas:Value false
 
 ref; // ME_4F2A579F0395 EndEllipsis
 
@@ -347,6 +373,7 @@ ref; // ME_4F2A554F01F4 Caption
 : ME_23EF391DD6EB
  CONST UID '23EF391DD6EB'
  CONST Name 'f_EndEllipsis'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY 'Поле для свойства EndEllipsis' ;
  CONST Visibility PrivateAccess
@@ -356,12 +383,14 @@ ref; // ME_4F2A554F01F4 Caption
  ;
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
+ CONST extprop:clearViaProperty 'EndEllipsis'
 
 ref; // ME_23EF391DD6EB f_EndEllipsis
 
 : ME_F256A9B5CC45
  CONST UID 'F256A9B5CC45'
  CONST Name 'f_CCaption'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY 'Поле для свойства CCaption' ;
  CONST Visibility PrivateAccess
@@ -371,12 +400,14 @@ ref; // ME_23EF391DD6EB f_EndEllipsis
  ;
  : Target WL 'ME_46780DA40383' '4677FBA70343.pas.ms.script' // Il3CString
  ;
+ CONST extprop:clearViaProperty 'CCaption'
 
 ref; // ME_F256A9B5CC45 f_CCaption
 
 : ME_3F6E3825F544
  CONST UID '3F6E3825F544'
  CONST Name 'f_VerticalAligment'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY 'Поле для свойства VerticalAligment' ;
  CONST Visibility PrivateAccess
@@ -386,12 +417,14 @@ ref; // ME_F256A9B5CC45 f_CCaption
  ;
  : Target WL 'ME_467BC89800B9' '469D0AC7005E.pas.ms.script' // VerticalAligment
  ;
+ CONST extprop:clearViaProperty 'VerticalAligment'
 
 ref; // ME_3F6E3825F544 f_VerticalAligment
 
 : ME_FCE3934C4691
  CONST UID 'FCE3934C4691'
  CONST Name 'f_DrawDirection'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY 'Поле для свойства DrawDirection' ;
  CONST Visibility PrivateAccess
@@ -401,12 +434,14 @@ ref; // ME_3F6E3825F544 f_VerticalAligment
  ;
  : Target ME_4F2923CF0065 // TvtDrawDirection
  ;
+ CONST extprop:clearViaProperty 'DrawDirection'
 
 ref; // ME_FCE3934C4691 f_DrawDirection
 
 : ME_FC9E36998CD8
  CONST UID 'FC9E36998CD8'
  CONST Name 'f_Caption'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY 'Поле для свойства Caption' ;
  CONST Visibility PrivateAccess
@@ -416,6 +451,7 @@ ref; // ME_FCE3934C4691 f_DrawDirection
  ;
  : Target WL 'ME_46A616080197' '4677FBA70343.pas.ms.script' // Tl3DString
  ;
+ CONST extprop:clearViaProperty 'Caption'
 
 ref; // ME_FC9E36998CD8 f_Caption
 
@@ -439,8 +475,8 @@ ref; // ME_4F29330D01C2 Msg
  : Parent ME_4F29240F0204 // TvtCustomLabel
  ;
  : Parameters
-   @ ( ME_4F29330D01C2 // Msg
- ) .SequenceCode.It
+   Seq: ( ME_4F29330D01C2 // Msg
+ )
  ; // Parameters
  CONST "Message ID" 'WM_GetText'
 
@@ -466,8 +502,8 @@ ref; // ME_4F29332D0041 Msg
  : Parent ME_4F29240F0204 // TvtCustomLabel
  ;
  : Parameters
-   @ ( ME_4F29332D0041 // Msg
- ) .SequenceCode.It
+   Seq: ( ME_4F29332D0041 // Msg
+ )
  ; // Parameters
  CONST "Message ID" 'WM_GetTextLength'
 
@@ -493,8 +529,8 @@ ref; // ME_4F293E510080 Msg
  : Parent ME_4F29240F0204 // TvtCustomLabel
  ;
  : Parameters
-   @ ( ME_4F293E510080 // Msg
- ) .SequenceCode.It
+   Seq: ( ME_4F293E510080 // Msg
+ )
  ; // Parameters
  CONST "Message ID" 'WM_SetText'
 
@@ -521,8 +557,8 @@ ref; // ME_4F2A51A101EE aGUID
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
  : Parameters
-   @ ( ME_4F2A51A101EE // aGUID
- ) .SequenceCode.It
+   Seq: ( ME_4F2A51A101EE // aGUID
+ )
  ; // Parameters
  CONST "ifdef" 'DesignTimeLibrary'
 
@@ -531,6 +567,7 @@ ref; // ME_4F293EBE00D9 CheckStamp
 : ME_6B1BE297C357
  CONST UID '6B1BE297C357'
  CONST Name 'CaptionStored'
+ CONST IsSummoned true
  CONST Class class_Operation
  %SUMMARY '"Функция определяющая, что свойство Caption сохраняется"' ;
  CONST Visibility ProtectedAccess
@@ -545,6 +582,7 @@ ref; // ME_6B1BE297C357 CaptionStored
 : ME_BE61D0DC1925
  CONST UID 'BE61D0DC1925'
  CONST Name 'Ini_Reg_Class'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Регистрация TvtCustomLabel' ;
@@ -613,6 +651,7 @@ ref; // ME_4F30F698003A
 
 : ME_8FDA461E7121
  CONST UID '8FDA461E7121'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_4F29240F0204 // TvtCustomLabel
@@ -629,6 +668,7 @@ ref; // ME_8FDA461E7121
  ;
  : Implementor ME_4F29240F0204 // TvtCustomLabel
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" true
 ref; // ME_473DAC05025F_ME_4F29240F0204 CCaption
 
@@ -639,6 +679,7 @@ ref; // ME_473DAC05025F_ME_4F29240F0204 CCaption
  ;
  : Implementor ME_4F29240F0204 // TvtCustomLabel
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_479731C50290_ME_4F29240F0204 Cleanup
 
 : ME_47D1602000C6_ME_4F29240F0204
@@ -648,6 +689,7 @@ ref; // ME_479731C50290_ME_4F29240F0204 Cleanup
  ;
  : Implementor ME_4F29240F0204 // TvtCustomLabel
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_47D1602000C6_ME_4F29240F0204 Create
 
 : ME_4F2A44BC0297_ME_4F29240F0204
@@ -657,6 +699,7 @@ ref; // ME_47D1602000C6_ME_4F29240F0204 Create
  ;
  : Implementor ME_4F29240F0204 // TvtCustomLabel
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4F2A44BC0297_ME_4F29240F0204 AdjustBounds
 
 : ME_4F2A45C40091_ME_4F29240F0204
@@ -666,6 +709,7 @@ ref; // ME_4F2A44BC0297_ME_4F29240F0204 AdjustBounds
  ;
  : Implementor ME_4F29240F0204 // TvtCustomLabel
  ;
+ CONST OpKind opkind_Overridden
  CONST "ifdef" 'l3HackedVCL'
 ref; // ME_4F2A45C40091_ME_4F29240F0204 GetLabelText
 
@@ -676,6 +720,7 @@ ref; // ME_4F2A45C40091_ME_4F29240F0204 GetLabelText
  ;
  : Implementor ME_4F29240F0204 // TvtCustomLabel
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4F2A461702D8_ME_4F29240F0204 DoDrawText
 
 : ME_4F2A599E0283_ME_4F29240F0204
@@ -685,6 +730,7 @@ ref; // ME_4F2A461702D8_ME_4F29240F0204 DoDrawText
  ;
  : Implementor ME_4F29240F0204 // TvtCustomLabel
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4F2A599E0283_ME_4F29240F0204 SetBounds
 
 : ME_5000565C019C_ME_4F29240F0204
@@ -694,6 +740,7 @@ ref; // ME_4F2A599E0283_ME_4F29240F0204 SetBounds
  ;
  : Implementor ME_4F29240F0204 // TvtCustomLabel
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_5000565C019C_ME_4F29240F0204 ClearFields
 
 : ME_4F29240F0204
@@ -707,15 +754,15 @@ ref; // ME_5000565C019C_ME_4F29240F0204 ClearFields
  : Parent ME_4AE8541A01AE // TvtLabel
  ;
  : Inherits
-   @ ( ME_50253C0401F1 // TvtCustomLabelPrim
- ) .SequenceCode.It
+   Seq: ( ME_50253C0401F1 // TvtCustomLabelPrim
+ )
  ; // Inherits
  : Implements
-   @ ( WL 'ME_473DABFA029F' '467823B7002C.pas.ms.script' // IafwTextControl
- ) .SequenceCode.It
+   Seq: ( WL 'ME_473DABFA029F' '467823B7002C.pas.ms.script' // IafwTextControl
+ )
  ; // Implements
  : Attributes
-   @ ( ME_4F2A579F0395 // EndEllipsis
+   Seq: ( ME_4F2A579F0395 // EndEllipsis
  ME_4F292C0E0226 // CCaption
  ME_4F292C9602CF // VerticalAligment
  ME_4F29378D03C8 // f_Canvas
@@ -727,39 +774,39 @@ ref; // ME_5000565C019C_ME_4F29240F0204 ClearFields
  ME_3F6E3825F544 // f_VerticalAligment
  ME_FCE3934C4691 // f_DrawDirection
  ME_FC9E36998CD8 // f_Caption
- ) .SequenceCode.It
+ )
  ; // Attributes
  : Operations
-   @ ( ME_4F2932F103B5 // WMGetText
+   Seq: ( ME_4F2932F103B5 // WMGetText
  ME_4F2933200190 // WMGetTextLength
  ME_4F293E2A012A // WMSetText
  ME_4F293EBE00D9 // CheckStamp
  ME_6B1BE297C357 // CaptionStored
  ME_BE61D0DC1925 // Ini_Reg_Class
- ) .SequenceCode.It
+ )
  ; // Operations
  : Implemented
-   @ ( ME_473DAC05025F_ME_4F29240F0204 // CCaption
- ) .SequenceCode.It
+   Seq: ( ME_473DAC05025F_ME_4F29240F0204 // CCaption
+ )
  ; // Implemented
  : Overridden
-   @ ( ME_479731C50290_ME_4F29240F0204 // Cleanup
+   Seq: ( ME_479731C50290_ME_4F29240F0204 // Cleanup
  ME_47D1602000C6_ME_4F29240F0204 // Create
  ME_4F2A44BC0297_ME_4F29240F0204 // AdjustBounds
  ME_4F2A45C40091_ME_4F29240F0204 // GetLabelText
  ME_4F2A461702D8_ME_4F29240F0204 // DoDrawText
  ME_4F2A599E0283_ME_4F29240F0204 // SetBounds
  ME_5000565C019C_ME_4F29240F0204 // ClearFields
- ) .SequenceCode.It
+ )
  ; // Overridden
  : Dependencies
-   @ ( ME_4F2FF7FC03C8 // 
+   Seq: ( ME_4F2FF7FC03C8 // 
  ME_4F300668000C // 
  ME_4F300C5600DA // 
  ME_4F300CB30148 // 
  ME_4F30F698003A // 
  ME_8FDA461E7121 // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  CONST "base wnd class" 'CWnd'
  CONST "need UC" true
@@ -768,12 +815,19 @@ ref; // ME_5000565C019C_ME_4F29240F0204 ClearFields
  CONST "no hands" true
  CONST "register in scripts" 'undefined'
  CONST "started" '03.02.2012'
+ CONST dfm:PathOnly '\common\components\gui\Garant\VT'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\VT'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'Label'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_4F29240F0204 TvtCustomLabel
 
 : ME_375650FBCA42
  CONST UID '375650FBCA42'
  CONST Name 'Ini_Reg_Class'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Регистрация TvtLabel' ;
@@ -787,6 +841,7 @@ ref; // ME_375650FBCA42 Ini_Reg_Class
 
 : ME_D0ECDAD99280
  CONST UID 'D0ECDAD99280'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_4AE8541A01AE // TvtLabel
@@ -807,23 +862,23 @@ ref; // ME_D0ECDAD99280
  : Parent ME_4A9B9BAA0207 // Labels
  ;
  : Inherits
-   @ ( ME_4F29240F0204 // TvtCustomLabel
- ) .SequenceCode.It
+   Seq: ( ME_4F29240F0204 // TvtCustomLabel
+ )
  ; // Inherits
  : Operations
-   @ ( ME_375650FBCA42 // Ini_Reg_Class
- ) .SequenceCode.It
+   Seq: ( ME_375650FBCA42 // Ini_Reg_Class
+ )
  ; // Operations
  : Children
-   @ ( ME_4F2923CF0065 // TvtDrawDirection
+   Seq: ( ME_4F2923CF0065 // TvtDrawDirection
  ME_50253C0401F1 // TvtCustomLabelPrim
  ME_4F3001650077 // THackLink
  ME_4F29240F0204 // TvtCustomLabel
- ) .SequenceCode.It
+ )
  ; // Children
  : Dependencies
-   @ ( ME_D0ECDAD99280 // 
- ) .SequenceCode.It
+   Seq: ( ME_D0ECDAD99280 // 
+ )
  ; // Dependencies
  CONST "base wnd class" 'CWnd'
  CONST "need UC" true
@@ -832,12 +887,14 @@ ref; // ME_D0ECDAD99280
  CONST "no hands" true
  CONST "register in scripts" 'undefined'
  CONST "started" '03.02.2012'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\VT'
  CONST intf.pas:Path 'common\components\gui\Garant\VT\vtLabel.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\VT'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'Label'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'vtLabel'
 
 ref; // ME_4AE8541A01AE TvtLabel
 
@@ -852,12 +909,12 @@ ref; // ME_4AE8541A01AE TvtLabel
  : Parent WL 'ME_467A75D90346' '467A75D90346.pas.ms.script' // VT
  ;
  : Children
-   @ ( ME_4A9B9BC00258 // TvtFocusLabel
+   Seq: ( ME_4A9B9BC00258 // TvtFocusLabel
  ME_4AE8541A01AE // TvtLabel
- ) .SequenceCode.It
+ )
  ; // Children
  : Depends
-   @ ( WL 'ME_4677FBA70343' '4677FBA70343.pas.ms.script' // l3Interfaces
+   Seq: ( WL 'ME_4677FBA70343' '4677FBA70343.pas.ms.script' // l3Interfaces
  WL 'ME_4678193C009C' '4678193C009C.pas.ms.script' // l3Types
  WL 'ME_467823B7002C' '467823B7002C.pas.ms.script' // afwInterfaces
  WL 'ME_469D0AC7005E' '469D0AC7005E.pas.ms.script' // Types
@@ -871,15 +928,13 @@ ref; // ME_4AE8541A01AE TvtLabel
  WL 'ME_54B90AC6014B' '54B90AC6014B.pas.ms.script' // StringUtils
  WL 'ME_55C4AEC801CA' '55C4AEC801CA.pas.ms.script' // Graphics
  WL 'ME_561F9F7D02A7' '561F9F7D02A7.pas.ms.script' // ScriptEngine
- ) .SequenceCode.It
+ )
  ; // Depends
- : Generators
- @ (
- gen_pas.script
- gen_pas.script.runner
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\VT'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\VT'
  CONST pas.script:Path 'shared\models\NewSchool\Scripts\4A9B9BAA0207.pas.ms.script'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
  CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\4A9B9BAA0207.pas.ms.script.runner'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_4A9B9BAA0207 Labels

@@ -17,10 +17,16 @@ FORWARD ME_54F9A60200A8
  : Parent ME_54F9A60200A8 // TdaDataProviderParams
  ;
  : Inherits
-   @ ( ME_54F9A60200A8 // TdaDataProviderParams
- ) .SequenceCode.It
+   Seq: ( ME_54F9A60200A8 // TdaDataProviderParams
+ )
  ; // Inherits
  CONST "isClassRef" true
+ CONST dfm:PathOnly '\common\components\rtl\Garant\DA'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\DA'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'daDataProviderParamsClass'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_550FD4CC0309 TdaDataProviderParamsClass
 
@@ -79,6 +85,7 @@ ref; // ME_5649C1DA022A AliasesList
 : ME_9595EED0909C
  CONST UID '9595EED0909C'
  CONST Name 'f_UserID'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY 'Поле для свойства UserID' ;
  CONST Visibility PrivateAccess
@@ -88,12 +95,14 @@ ref; // ME_5649C1DA022A AliasesList
  ;
  : Target WL 'ME_543244A30197' '5432448401BC.pas.ms.script' // TdaUserID
  ;
+ CONST extprop:clearViaProperty 'UserID'
 
 ref; // ME_9595EED0909C f_UserID
 
 : ME_9688F2E8334D
  CONST UID '9688F2E8334D'
  CONST Name 'f_AliasesList'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY 'Поле для свойства AliasesList' ;
  CONST Visibility PrivateAccess
@@ -109,6 +118,7 @@ ref; // ME_9688F2E8334D f_AliasesList
 : ME_B0886B1AD02D
  CONST UID 'B0886B1AD02D'
  CONST Name 'Login'
+ CONST IsSummoned true
  CONST Class class_Attribute
  : Stereotype st_property::Attribute ;
  CONST Visibility PublicAccess
@@ -125,6 +135,7 @@ ref; // ME_B0886B1AD02D Login
 : ME_D5C03CDE39EF
  CONST UID 'D5C03CDE39EF'
  CONST Name 'Password'
+ CONST IsSummoned true
  CONST Class class_Attribute
  : Stereotype st_property::Attribute ;
  CONST Visibility PublicAccess
@@ -141,6 +152,7 @@ ref; // ME_D5C03CDE39EF Password
 : ME_831416B8EE51
  CONST UID '831416B8EE51'
  CONST Name 'DocStoragePath'
+ CONST IsSummoned true
  CONST Class class_Attribute
  : Stereotype st_property::Attribute ;
  CONST Visibility PublicAccess
@@ -157,6 +169,7 @@ ref; // ME_831416B8EE51 DocStoragePath
 : ME_C7D4E9D7D086
  CONST UID 'C7D4E9D7D086'
  CONST Name 'DocImagePath'
+ CONST IsSummoned true
  CONST Class class_Attribute
  : Stereotype st_property::Attribute ;
  CONST Visibility PublicAccess
@@ -173,6 +186,7 @@ ref; // ME_C7D4E9D7D086 DocImagePath
 : ME_07F578763A7C
  CONST UID '07F578763A7C'
  CONST Name 'HomeDirPath'
+ CONST IsSummoned true
  CONST Class class_Attribute
  : Stereotype st_property::Attribute ;
  CONST Visibility PublicAccess
@@ -189,6 +203,7 @@ ref; // ME_07F578763A7C HomeDirPath
 : ME_FE0DB1805C11
  CONST UID 'FE0DB1805C11'
  CONST Name 'DocBaseVersion'
+ CONST IsSummoned true
  CONST Class class_Attribute
  : Stereotype st_property::Attribute ;
  CONST Visibility PublicAccess
@@ -205,6 +220,7 @@ ref; // ME_FE0DB1805C11 DocBaseVersion
 : ME_F092404B3731
  CONST UID 'F092404B3731'
  CONST Name 'AdminBaseVersion'
+ CONST IsSummoned true
  CONST Class class_Attribute
  : Stereotype st_property::Attribute ;
  CONST Visibility PublicAccess
@@ -223,6 +239,7 @@ FORWARD ME_55194F830311
 : ME_5E7DFC97E7E9
  CONST UID '5E7DFC97E7E9'
  CONST Name 'DoIt'
+ CONST IsSummoned true
  CONST Class class_Operation
  %SUMMARY 'Сигнатура метода CorrectAfterSet' ;
  CONST Visibility PublicAccess
@@ -243,8 +260,8 @@ ref; // ME_5E7DFC97E7E9 DoIt
  : Parent ME_54F9A60200A8 // TdaDataProviderParams
  ;
  : Operations
-   @ ( ME_5E7DFC97E7E9 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_5E7DFC97E7E9 // DoIt
+ )
  ; // Operations
 
 ref; // ME_55194F830311 CorrectAfterSet
@@ -270,8 +287,8 @@ ref; // ME_55195B0900BF aPath
  : Parent ME_55195AE803E0 // ChangeBasePath
  ;
  : Parameters
-   @ ( ME_55195B0900BF // aPath
- ) .SequenceCode.It
+   Seq: ( ME_55195B0900BF // aPath
+ )
  ; // Parameters
 
 ref; // ME_55195AFB027A DoIt
@@ -287,8 +304,8 @@ ref; // ME_55195AFB027A DoIt
  : Parent ME_54F9A60200A8 // TdaDataProviderParams
  ;
  : Operations
-   @ ( ME_55195AFB027A // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_55195AFB027A // DoIt
+ )
  ; // Operations
 
 ref; // ME_55195AE803E0 ChangeBasePath
@@ -314,8 +331,8 @@ ref; // ME_553A38150085 aParams
  : Parent ME_553A37E902C9 // AssignParams
  ;
  : Parameters
-   @ ( ME_553A38150085 // aParams
- ) .SequenceCode.It
+   Seq: ( ME_553A38150085 // aParams
+ )
  ; // Parameters
 
 ref; // ME_553A37FF0059 DoIt
@@ -331,8 +348,8 @@ ref; // ME_553A37FF0059 DoIt
  : Parent ME_54F9A60200A8 // TdaDataProviderParams
  ;
  : Operations
-   @ ( ME_553A37FF0059 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_553A37FF0059 // DoIt
+ )
  ; // Operations
 
 ref; // ME_553A37E902C9 AssignParams
@@ -363,8 +380,8 @@ ref; // ME_55F7DD5C0214 DoIt
  : Parent ME_54F9A60200A8 // TdaDataProviderParams
  ;
  : Operations
-   @ ( ME_55F7DD5C0214 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_55F7DD5C0214 // DoIt
+ )
  ; // Operations
 
 ref; // ME_55F7DD1803E2 MakeBaseIni
@@ -409,6 +426,7 @@ ref; // ME_55C1F1B90126
 
 : ME_2D552A64622C
  CONST UID '2D552A64622C'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_54F9A60200A8 // TdaDataProviderParams
@@ -425,6 +443,7 @@ ref; // ME_2D552A64622C
  ;
  : Implementor ME_54F9A60200A8 // TdaDataProviderParams
  ;
+ CONST OpKind opkind_Implemented
  CONST "is static" true
 ref; // ME_53AC03EE01FD_ME_54F9A60200A8 GetTaggedDataType
 
@@ -435,6 +454,7 @@ ref; // ME_53AC03EE01FD_ME_54F9A60200A8 GetTaggedDataType
  ;
  : Implementor ME_54F9A60200A8 // TdaDataProviderParams
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_479731C50290_ME_54F9A60200A8 Cleanup
 
 : ME_47A042E100E2_ME_54F9A60200A8
@@ -444,6 +464,7 @@ ref; // ME_479731C50290_ME_54F9A60200A8 Cleanup
  ;
  : Implementor ME_54F9A60200A8 // TdaDataProviderParams
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_47A042E100E2_ME_54F9A60200A8 InitFields
 
 : ME_54F9A60200A8
@@ -457,16 +478,16 @@ ref; // ME_47A042E100E2_ME_54F9A60200A8 InitFields
  : Parent ME_54F85B2500FB // Provider
  ;
  : Inherits
-   @ ( WL 'ME_534572370056' '47913B47006E.pas.ms.script' // Tl3Tag
- ) .SequenceCode.It
+   Seq: ( WL 'ME_534572370056' '47913B47006E.pas.ms.script' // Tl3Tag
+ )
  ; // Inherits
  : Implements
-   @ ( WL 'ME_53AC01CD0335' '53B15D5603E3.pas.ms.script' // evdTagHolder
+   Seq: ( WL 'ME_53AC01CD0335' '53B15D5603E3.pas.ms.script' // evdTagHolder
  WL 'ME_54327F640135' '484A470100DD.pas.ms.script' // DataProviderParams
- ) .SequenceCode.It
+ )
  ; // Implements
  : Attributes
-   @ ( ME_55111BEE0301 // UserID
+   Seq: ( ME_55111BEE0301 // UserID
  ME_55C1ECC40309 // FullHomeDirPath
  ME_5649C1DA022A // AliasesList
  ME_9595EED0909C // f_UserID
@@ -478,45 +499,47 @@ ref; // ME_47A042E100E2_ME_54F9A60200A8 InitFields
  ME_07F578763A7C // HomeDirPath
  ME_FE0DB1805C11 // DocBaseVersion
  ME_F092404B3731 // AdminBaseVersion
- ) .SequenceCode.It
+ )
  ; // Attributes
  : Operations
-   @ ( ME_55194F830311 // CorrectAfterSet
+   Seq: ( ME_55194F830311 // CorrectAfterSet
  ME_55195AE803E0 // ChangeBasePath
  ME_553A37E902C9 // AssignParams
  ME_55F7DD1803E2 // MakeBaseIni
  ME_550AB45B0179 // ParamsKey
- ) .SequenceCode.It
+ )
  ; // Operations
  : Implemented
-   @ ( ME_53AC03EE01FD_ME_54F9A60200A8 // GetTaggedDataType
- ) .SequenceCode.It
+   Seq: ( ME_53AC03EE01FD_ME_54F9A60200A8 // GetTaggedDataType
+ )
  ; // Implemented
  : Overridden
-   @ ( ME_479731C50290_ME_54F9A60200A8 // Cleanup
+   Seq: ( ME_479731C50290_ME_54F9A60200A8 // Cleanup
  ME_47A042E100E2_ME_54F9A60200A8 // InitFields
- ) .SequenceCode.It
+ )
  ; // Overridden
  : Children
-   @ ( ME_550FD4CC0309 // TdaDataProviderParamsClass
- ) .SequenceCode.It
+   Seq: ( ME_550FD4CC0309 // TdaDataProviderParamsClass
+ )
  ; // Children
  : Dependencies
-   @ ( ME_5511760A001C // 
+   Seq: ( ME_5511760A001C // 
  ME_55C1F1B90126 // 
  ME_2D552A64622C // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\DA'
  CONST intf.pas:Path 'common\components\rtl\Garant\DA\daDataProviderParams.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\DA'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'daDataProviderParams'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'daDataProviderParams'
 
 ref; // ME_54F9A60200A8 TdaDataProviderParams
 
@@ -543,6 +566,7 @@ ref; // ME_550951E00169 ParamsStorage
 : ME_218A9EE1D873
  CONST UID '218A9EE1D873'
  CONST Name 'f_ParamsStorage'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY 'Поле для свойства ParamsStorage' ;
  CONST Visibility PrivateAccess
@@ -552,6 +576,7 @@ ref; // ME_550951E00169 ParamsStorage
  ;
  : Target WL 'ME_5507D90F00D2' '5432518A0316.pas.ms.script' // IdaParamsStorage
  ;
+ CONST extprop:clearViaProperty 'ParamsStorage'
 
 ref; // ME_218A9EE1D873 f_ParamsStorage
 
@@ -581,8 +606,8 @@ ref; // ME_54FEB586039B DoIt
  : Parent ME_54F85EE102D1 // TdaDataProviderFactory
  ;
  : Operations
-   @ ( ME_54FEB586039B // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_54FEB586039B // DoIt
+ )
  ; // Operations
 
 ref; // ME_54FEB57302B0 MakeFromConfig
@@ -608,8 +633,8 @@ ref; // ME_5502D0C20281 aParams
  : Parent ME_55001D8D038F // LoadCommonParams
  ;
  : Parameters
-   @ ( ME_5502D0C20281 // aParams
- ) .SequenceCode.It
+   Seq: ( ME_5502D0C20281 // aParams
+ )
  ; // Parameters
 
 ref; // ME_55001DB203E1 DoIt
@@ -625,8 +650,8 @@ ref; // ME_55001DB203E1 DoIt
  : Parent ME_54F85EE102D1 // TdaDataProviderFactory
  ;
  : Operations
-   @ ( ME_55001DB203E1 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_55001DB203E1 // DoIt
+ )
  ; // Operations
 
 ref; // ME_55001D8D038F LoadCommonParams
@@ -652,8 +677,8 @@ ref; // ME_550AACF0031E aParams
  : Parent ME_550AACDC0003 // SaveCommonParams
  ;
  : Parameters
-   @ ( ME_550AACF0031E // aParams
- ) .SequenceCode.It
+   Seq: ( ME_550AACF0031E // aParams
+ )
  ; // Parameters
 
 ref; // ME_550AACEC01FC DoIt
@@ -669,8 +694,8 @@ ref; // ME_550AACEC01FC DoIt
  : Parent ME_54F85EE102D1 // TdaDataProviderFactory
  ;
  : Operations
-   @ ( ME_550AACEC01FC // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_550AACEC01FC // DoIt
+ )
  ; // Operations
 
 ref; // ME_550AACDC0003 SaveCommonParams
@@ -696,8 +721,8 @@ ref; // ME_550AAD160032 aParams
  : Parent ME_550AAD0101F9 // SaveToConfig
  ;
  : Parameters
-   @ ( ME_550AAD160032 // aParams
- ) .SequenceCode.It
+   Seq: ( ME_550AAD160032 // aParams
+ )
  ; // Parameters
 
 ref; // ME_550AAD1201FD DoIt
@@ -713,8 +738,8 @@ ref; // ME_550AAD1201FD DoIt
  : Parent ME_54F85EE102D1 // TdaDataProviderFactory
  ;
  : Operations
-   @ ( ME_550AAD1201FD // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_550AAD1201FD // DoIt
+ )
  ; // Operations
 
 ref; // ME_550AAD0101F9 SaveToConfig
@@ -745,8 +770,8 @@ ref; // ME_550FD4A60114 DoIt
  : Parent ME_54F85EE102D1 // TdaDataProviderFactory
  ;
  : Operations
-   @ ( ME_550FD4A60114 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_550FD4A60114 // DoIt
+ )
  ; // Operations
 
 ref; // ME_550FD49301BF ParamType
@@ -772,8 +797,8 @@ ref; // ME_55110FD000E3 aParams
  : Parent ME_55110FBB00E5 // CorrectByClient
  ;
  : Parameters
-   @ ( ME_55110FD000E3 // aParams
- ) .SequenceCode.It
+   Seq: ( ME_55110FD000E3 // aParams
+ )
  ; // Parameters
 
 ref; // ME_55110FCD028D DoIt
@@ -789,8 +814,8 @@ ref; // ME_55110FCD028D DoIt
  : Parent ME_54F85EE102D1 // TdaDataProviderFactory
  ;
  : Operations
-   @ ( ME_55110FCD028D // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_55110FCD028D // DoIt
+ )
  ; // Operations
 
 ref; // ME_55110FBB00E5 CorrectByClient
@@ -817,6 +842,7 @@ ref; // ME_551CEB230293 aParams
  CONST Value false
  : ValueType WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
+ CONST extprop:pas:Value false
 
 ref; // ME_551CEB2302A3 Quiet
 
@@ -831,9 +857,9 @@ ref; // ME_551CEB2302A3 Quiet
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
  : Parameters
-   @ ( ME_551CEB230293 // aParams
+   Seq: ( ME_551CEB230293 // aParams
  ME_551CEB2302A3 // Quiet
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_551166C60087 DoIt
@@ -849,8 +875,8 @@ ref; // ME_551166C60087 DoIt
  : Parent ME_54F85EE102D1 // TdaDataProviderFactory
  ;
  : Operations
-   @ ( ME_551166C60087 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_551166C60087 // DoIt
+ )
  ; // Operations
 
 ref; // ME_551166B40046 IsParamsValid
@@ -896,10 +922,10 @@ ref; // ME_553A37CB01CB aParams
  : Parent ME_5512BAB20128 // FillOutConfig
  ;
  : Parameters
-   @ ( ME_553A37CB01BB // aConfig
+   Seq: ( ME_553A37CB01BB // aConfig
  ME_553A37CB01BC // aEtalon
  ME_553A37CB01CB // aParams
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_5512BAC1019D DoIt
@@ -915,8 +941,8 @@ ref; // ME_5512BAC1019D DoIt
  : Parent ME_54F85EE102D1 // TdaDataProviderFactory
  ;
  : Operations
-   @ ( ME_5512BAC1019D // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_5512BAC1019D // DoIt
+ )
  ; // Operations
 
 ref; // ME_5512BAB20128 FillOutConfig
@@ -953,6 +979,7 @@ ref; // ME_55C31B2F03D6 aParams
  CONST Value false
  : ValueType WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
+ CONST extprop:pas:Value false
 
 ref; // ME_55C31B2F03D7 ForInfoOnly
 
@@ -965,10 +992,10 @@ ref; // ME_55C31B2F03D7 ForInfoOnly
  : Parent ME_5512BB030346 // FillInConfig
  ;
  : Parameters
-   @ ( ME_55C31B2F03C7 // aConfig
+   Seq: ( ME_55C31B2F03C7 // aConfig
  ME_55C31B2F03D6 // aParams
  ME_55C31B2F03D7 // ForInfoOnly
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_5512BB160192 DoIt
@@ -984,8 +1011,8 @@ ref; // ME_5512BB160192 DoIt
  : Parent ME_54F85EE102D1 // TdaDataProviderFactory
  ;
  : Operations
-   @ ( ME_5512BB160192 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_5512BB160192 // DoIt
+ )
  ; // Operations
 
 ref; // ME_5512BB030346 FillInConfig
@@ -1012,6 +1039,7 @@ ref; // ME_55C33B0700E2 aConfig
  CONST Value ''''''
  : ValueType WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
  ;
+ CONST extprop:pas:Value ''''''
 
 ref; // ME_55C33B0700F2 aProviderKey
 
@@ -1025,6 +1053,7 @@ ref; // ME_55C33B0700F2 aProviderKey
  CONST Value false
  : ValueType WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
+ CONST extprop:pas:Value false
 
 ref; // ME_55C33B0700F3 ForInfoOnly
 
@@ -1037,10 +1066,10 @@ ref; // ME_55C33B0700F3 ForInfoOnly
  : Parent ME_5512BB1F023F // BuildConfig
  ;
  : Parameters
-   @ ( ME_55C33B0700E2 // aConfig
+   Seq: ( ME_55C33B0700E2 // aConfig
  ME_55C33B0700F2 // aProviderKey
  ME_55C33B0700F3 // ForInfoOnly
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_55150A75037B DoIt
@@ -1056,8 +1085,8 @@ ref; // ME_55150A75037B DoIt
  : Parent ME_54F85EE102D1 // TdaDataProviderFactory
  ;
  : Operations
-   @ ( ME_55150A75037B // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_55150A75037B // DoIt
+ )
  ; // Operations
 
 ref; // ME_5512BB1F023F BuildConfig
@@ -1095,9 +1124,9 @@ ref; // ME_556487AD02BB AllowClearLocks
  : Target WL 'ME_54EDC87C00B5' '5432518A0316.pas.ms.script' // IdaDataProvider
  ;
  : Parameters
-   @ ( ME_551544650059 // aParams
+   Seq: ( ME_551544650059 // aParams
  ME_556487AD02BB // AllowClearLocks
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_5515444E010A DoIt
@@ -1113,8 +1142,8 @@ ref; // ME_5515444E010A DoIt
  : Parent ME_54F85EE102D1 // TdaDataProviderFactory
  ;
  : Operations
-   @ ( ME_5515444E010A // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_5515444E010A // DoIt
+ )
  ; // Operations
 
 ref; // ME_5515443E027B MakeProvider
@@ -1140,8 +1169,8 @@ ref; // ME_5519051001E5 aParams
  : Parent ME_551904FC039A // LoadDBVersion
  ;
  : Parameters
-   @ ( ME_5519051001E5 // aParams
- ) .SequenceCode.It
+   Seq: ( ME_5519051001E5 // aParams
+ )
  ; // Parameters
 
 ref; // ME_5519050D0360 DoIt
@@ -1157,8 +1186,8 @@ ref; // ME_5519050D0360 DoIt
  : Parent ME_54F85EE102D1 // TdaDataProviderFactory
  ;
  : Operations
-   @ ( ME_5519050D0360 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_5519050D0360 // DoIt
+ )
  ; // Operations
 
 ref; // ME_551904FC039A LoadDBVersion
@@ -1216,11 +1245,11 @@ ref; // ME_5566FD160329 IsRequireAdminRights
  : Target WL 'ME_551BE28600E9' '5432448401BC.pas.ms.script' // TdaLoginError
  ;
  : Parameters
-   @ ( ME_5566FD16030A // aParams
+   Seq: ( ME_5566FD16030A // aParams
  ME_5566FD160319 // aLogin
  ME_5566FD16031A // aPassword
  ME_5566FD160329 // IsRequireAdminRights
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_551BE3630016 DoIt
@@ -1236,8 +1265,8 @@ ref; // ME_551BE3630016 DoIt
  : Parent ME_54F85EE102D1 // TdaDataProviderFactory
  ;
  : Operations
-   @ ( ME_551BE3630016 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_551BE3630016 // DoIt
+ )
  ; // Operations
 
 ref; // ME_551BE3520031 CheckLogin
@@ -1285,10 +1314,10 @@ ref; // ME_55648B2C0172 AllowClearLocks
  : Target WL 'ME_54EDC87C00B5' '5432518A0316.pas.ms.script' // IdaDataProvider
  ;
  : Parameters
-   @ ( ME_551D070A01AD // aParams
+   Seq: ( ME_551D070A01AD // aParams
  ME_551D070A01BC // ForCheckLogin
  ME_55648B2C0172 // AllowClearLocks
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_551D06E20160 DoIt
@@ -1304,8 +1333,8 @@ ref; // ME_551D06E20160 DoIt
  : Parent ME_54F85EE102D1 // TdaDataProviderFactory
  ;
  : Operations
-   @ ( ME_551D06E20160 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_551D06E20160 // DoIt
+ )
  ; // Operations
 
 ref; // ME_551D06D402AF DoMakeProvider
@@ -1331,8 +1360,8 @@ ref; // ME_55D70D4C035D aParams
  : Parent ME_55D706D201C3 // LoginCheckSucceed
  ;
  : Parameters
-   @ ( ME_55D70D4C035D // aParams
- ) .SequenceCode.It
+   Seq: ( ME_55D70D4C035D // aParams
+ )
  ; // Parameters
 
 ref; // ME_55D70D45024F DoIt
@@ -1348,8 +1377,8 @@ ref; // ME_55D70D45024F DoIt
  : Parent ME_54F85EE102D1 // TdaDataProviderFactory
  ;
  : Operations
-   @ ( ME_55D70D45024F // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_55D70D45024F // DoIt
+ )
  ; // Operations
 
 ref; // ME_55D706D201C3 LoginCheckSucceed
@@ -1399,6 +1428,7 @@ ref; // ME_55116BE1004F
  ;
  : Implementor ME_54F85EE102D1 // TdaDataProviderFactory
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_479731C50290_ME_54F85EE102D1 Cleanup
 
 : ME_5000565C019C_ME_54F85EE102D1
@@ -1408,6 +1438,7 @@ ref; // ME_479731C50290_ME_54F85EE102D1 Cleanup
  ;
  : Implementor ME_54F85EE102D1 // TdaDataProviderFactory
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_5000565C019C_ME_54F85EE102D1 ClearFields
 
 : ME_54F85EE102D1
@@ -1421,16 +1452,16 @@ ref; // ME_5000565C019C_ME_54F85EE102D1 ClearFields
  : Parent ME_54F85B2500FB // Provider
  ;
  : Inherits
-   @ ( WL 'ME_49E7754802A9' '47913B47006E.pas.ms.script' // Tl3ProtoObject
- ) .SequenceCode.It
+   Seq: ( WL 'ME_49E7754802A9' '47913B47006E.pas.ms.script' // Tl3ProtoObject
+ )
  ; // Inherits
  : Attributes
-   @ ( ME_550951E00169 // ParamsStorage
+   Seq: ( ME_550951E00169 // ParamsStorage
  ME_218A9EE1D873 // f_ParamsStorage
- ) .SequenceCode.It
+ )
  ; // Attributes
  : Operations
-   @ ( ME_54FEB57302B0 // MakeFromConfig
+   Seq: ( ME_54FEB57302B0 // MakeFromConfig
  ME_55001D8D038F // LoadCommonParams
  ME_550AACDC0003 // SaveCommonParams
  ME_550AAD0101F9 // SaveToConfig
@@ -1447,27 +1478,29 @@ ref; // ME_5000565C019C_ME_54F85EE102D1 ClearFields
  ME_55D706D201C3 // LoginCheckSucceed
  ME_54F8635B023E // Key
  ME_550A8AC30010 // ParamKey
- ) .SequenceCode.It
+ )
  ; // Operations
  : Overridden
-   @ ( ME_479731C50290_ME_54F85EE102D1 // Cleanup
+   Seq: ( ME_479731C50290_ME_54F85EE102D1 // Cleanup
  ME_5000565C019C_ME_54F85EE102D1 // ClearFields
- ) .SequenceCode.It
+ )
  ; // Overridden
  : Dependencies
-   @ ( ME_55116BE1004F // 
- ) .SequenceCode.It
+   Seq: ( ME_55116BE1004F // 
+ )
  ; // Dependencies
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\DA'
  CONST intf.pas:Path 'common\components\rtl\Garant\DA\daDataProviderFactory.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\DA'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'daDataProviderFactory'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'daDataProviderFactory'
 
 ref; // ME_54F85EE102D1 TdaDataProviderFactory
 
@@ -1495,6 +1528,7 @@ ref; // ME_54F98A770324 ItemType
  ;
  : Implementor ME_54F98A56030A // TdaDataProviderFactoryList
  ;
+ CONST OpKind opkind_Implemented
  CONST "ifdef" 'l3Items_NeedsAssignItem'
  CONST "ifndef" 'l3Items_NoSort'
 ref; // ME_47B2C42A0163_ME_54F98A56030A AssignItem
@@ -1506,6 +1540,7 @@ ref; // ME_47B2C42A0163_ME_54F98A56030A AssignItem
  ;
  : Implementor ME_54F98A56030A // TdaDataProviderFactoryList
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_47B99D4503A2_ME_54F98A56030A CompareExistingItems
 
 : ME_54F98A56030A
@@ -1519,32 +1554,34 @@ ref; // ME_47B99D4503A2_ME_54F98A56030A CompareExistingItems
  : Parent ME_54F85B2500FB // Provider
  ;
  : Inherits
-   @ ( WL 'ME_4A54DD4E036F' '47913B47006E.pas.ms.script' // Tl3ProtoDataContainer
- ) .SequenceCode.It
+   Seq: ( WL 'ME_4A54DD4E036F' '47913B47006E.pas.ms.script' // Tl3ProtoDataContainer
+ )
  ; // Inherits
  : Implements
-   @ ( WL 'ME_47B99E920196' '47913B47006E.pas.ms.script' // l3UncomparabeObjectRefList
- ) .SequenceCode.It
+   Seq: ( WL 'ME_47B99E920196' '47913B47006E.pas.ms.script' // l3UncomparabeObjectRefList
+ )
  ; // Implements
  : Attributes
-   @ ( ME_54F98A770324 // ItemType
- ) .SequenceCode.It
+   Seq: ( ME_54F98A770324 // ItemType
+ )
  ; // Attributes
  : Implemented
-   @ ( ME_47B2C42A0163_ME_54F98A56030A // AssignItem
+   Seq: ( ME_47B2C42A0163_ME_54F98A56030A // AssignItem
  ME_47B99D4503A2_ME_54F98A56030A // CompareExistingItems
- ) .SequenceCode.It
+ )
  ; // Implemented
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\DA'
  CONST intf.pas:Path 'common\components\rtl\Garant\DA\daDataProviderFactoryList.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\DA'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'daDataProviderFactoryList'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'daDataProviderFactoryList'
 
 ref; // ME_54F98A56030A TdaDataProviderFactoryList
 
@@ -1601,6 +1638,7 @@ ref; // ME_5507E77B021F ParamsStorage
 : ME_B2EFB83D9DF8
  CONST UID 'B2EFB83D9DF8'
  CONST Name 'f_DefaultFactory'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY 'Поле для свойства DefaultFactory' ;
  CONST Visibility PrivateAccess
@@ -1610,12 +1648,14 @@ ref; // ME_5507E77B021F ParamsStorage
  ;
  : Target ME_54F85EE102D1 // TdaDataProviderFactory
  ;
+ CONST extprop:clearViaProperty 'DefaultFactory'
 
 ref; // ME_B2EFB83D9DF8 f_DefaultFactory
 
 : ME_275522B8C781
  CONST UID '275522B8C781'
  CONST Name 'f_ParamsStorage'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY 'Поле для свойства ParamsStorage' ;
  CONST Visibility PrivateAccess
@@ -1625,6 +1665,7 @@ ref; // ME_B2EFB83D9DF8 f_DefaultFactory
  ;
  : Target WL 'ME_5507D90F00D2' '5432518A0316.pas.ms.script' // IdaParamsStorage
  ;
+ CONST extprop:clearViaProperty 'ParamsStorage'
 
 ref; // ME_275522B8C781 f_ParamsStorage
 
@@ -1651,8 +1692,8 @@ ref; // ME_550A8A5E037F aKey
  : Target ME_54F85EE102D1 // TdaDataProviderFactory
  ;
  : Parameters
-   @ ( ME_550A8A5E037F // aKey
- ) .SequenceCode.It
+   Seq: ( ME_550A8A5E037F // aKey
+ )
  ; // Parameters
 
 ref; // ME_550A8A5600FF DoIt
@@ -1668,8 +1709,8 @@ ref; // ME_550A8A5600FF DoIt
  : Parent ME_54F85B590251 // TdaDataProviderSuperFactory
  ;
  : Operations
-   @ ( ME_550A8A5600FF // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_550A8A5600FF // DoIt
+ )
  ; // Operations
 
 ref; // ME_550A8A38018C FindFactoryByKey
@@ -1697,8 +1738,8 @@ ref; // ME_550A8A84016A aKey
  : Target ME_54F85EE102D1 // TdaDataProviderFactory
  ;
  : Parameters
-   @ ( ME_550A8A84016A // aKey
- ) .SequenceCode.It
+   Seq: ( ME_550A8A84016A // aKey
+ )
  ; // Parameters
 
 ref; // ME_550A8A7F0122 DoIt
@@ -1714,8 +1755,8 @@ ref; // ME_550A8A7F0122 DoIt
  : Parent ME_54F85B590251 // TdaDataProviderSuperFactory
  ;
  : Operations
-   @ ( ME_550A8A7F0122 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_550A8A7F0122 // DoIt
+ )
  ; // Operations
 
 ref; // ME_550A8A6701F6 FindFactoryByParamType
@@ -1743,8 +1784,8 @@ ref; // ME_550FD18D01C0 aData
  : Target ME_54F9A60200A8 // TdaDataProviderParams
  ;
  : Parameters
-   @ ( ME_550FD18D01C0 // aData
- ) .SequenceCode.It
+   Seq: ( ME_550FD18D01C0 // aData
+ )
  ; // Parameters
 
 ref; // ME_550FD1840306 DoIt
@@ -1760,8 +1801,8 @@ ref; // ME_550FD1840306 DoIt
  : Parent ME_54F85B590251 // TdaDataProviderSuperFactory
  ;
  : Operations
-   @ ( ME_550FD1840306 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_550FD1840306 // DoIt
+ )
  ; // Operations
 
 ref; // ME_550FD1780368 MakeFromTaggedData
@@ -1787,8 +1828,8 @@ ref; // ME_55110F970092 aParams
  : Parent ME_55100AB20241 // CorrectByClient
  ;
  : Parameters
-   @ ( ME_55110F970092 // aParams
- ) .SequenceCode.It
+   Seq: ( ME_55110F970092 // aParams
+ )
  ; // Parameters
 
 ref; // ME_55100AC502ED DoIt
@@ -1804,8 +1845,8 @@ ref; // ME_55100AC502ED DoIt
  : Parent ME_54F85B590251 // TdaDataProviderSuperFactory
  ;
  : Operations
-   @ ( ME_55100AC502ED // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_55100AC502ED // DoIt
+ )
  ; // Operations
 
 ref; // ME_55100AB20241 CorrectByClient
@@ -1832,6 +1873,7 @@ ref; // ME_551CEB39007D aParams
  CONST Value false
  : ValueType WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
+ CONST extprop:pas:Value false
 
 ref; // ME_551CEB39007E Quiet
 
@@ -1846,9 +1888,9 @@ ref; // ME_551CEB39007E Quiet
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
  : Parameters
-   @ ( ME_551CEB39007D // aParams
+   Seq: ( ME_551CEB39007D // aParams
  ME_551CEB39007E // Quiet
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_5511667601D1 DoIt
@@ -1864,8 +1906,8 @@ ref; // ME_5511667601D1 DoIt
  : Parent ME_54F85B590251 // TdaDataProviderSuperFactory
  ;
  : Operations
-   @ ( ME_5511667601D1 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_5511667601D1 // DoIt
+ )
  ; // Operations
 
 ref; // ME_551166670371 IsParamsValid
@@ -1902,6 +1944,7 @@ ref; // ME_55C31B0D01AE aParams
  CONST Value false
  : ValueType WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
+ CONST extprop:pas:Value false
 
 ref; // ME_55C31B0D01AF ForInfoOnly
 
@@ -1914,10 +1957,10 @@ ref; // ME_55C31B0D01AF ForInfoOnly
  : Parent ME_5512BB5D0065 // FillInConfig
  ;
  : Parameters
-   @ ( ME_55C31B0D019F // aConfig
+   Seq: ( ME_55C31B0D019F // aConfig
  ME_55C31B0D01AE // aParams
  ME_55C31B0D01AF // ForInfoOnly
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_5512BB7402B0 DoIt
@@ -1933,8 +1976,8 @@ ref; // ME_5512BB7402B0 DoIt
  : Parent ME_54F85B590251 // TdaDataProviderSuperFactory
  ;
  : Operations
-   @ ( ME_5512BB7402B0 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_5512BB7402B0 // DoIt
+ )
  ; // Operations
 
 ref; // ME_5512BB5D0065 FillInConfig
@@ -1980,10 +2023,10 @@ ref; // ME_553A37D200F7 aParams
  : Parent ME_5512BB8103B4 // FillOutConfig
  ;
  : Parameters
-   @ ( ME_553A37D200D8 // aConfig
+   Seq: ( ME_553A37D200D8 // aConfig
  ME_553A37D200E8 // aEtalon
  ME_553A37D200F7 // aParams
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_5512BB8E03AF DoIt
@@ -1999,8 +2042,8 @@ ref; // ME_5512BB8E03AF DoIt
  : Parent ME_54F85B590251 // TdaDataProviderSuperFactory
  ;
  : Operations
-   @ ( ME_5512BB8E03AF // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_5512BB8E03AF // DoIt
+ )
  ; // Operations
 
 ref; // ME_5512BB8103B4 FillOutConfig
@@ -2010,6 +2053,7 @@ FORWARD ME_5512BB9801EA
 : ME_4A26C0C09AD0
  CONST UID '4A26C0C09AD0'
  CONST Name 'aConfig'
+ CONST IsSummoned true
  CONST Class class_Parameter
  : Stereotype st_in ;
  : Target WL 'ME_4B990F100126' '4B990EDE031A.pas.ms.script' // TddAppConfiguration
@@ -2020,6 +2064,7 @@ ref; // ME_4A26C0C09AD0 aConfig
 : ME_07BF009941CC
  CONST UID '07BF009941CC'
  CONST Name 'aProviderKey'
+ CONST IsSummoned true
  CONST Class class_Parameter
  : Stereotype st_in ;
  : Target WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
@@ -2027,12 +2072,14 @@ ref; // ME_4A26C0C09AD0 aConfig
  CONST Value ''''''
  : ValueType WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
  ;
+ CONST extprop:pas:Value ''''''
 
 ref; // ME_07BF009941CC aProviderKey
 
 : ME_80BA10B39444
  CONST UID '80BA10B39444'
  CONST Name 'ForInfoOnly'
+ CONST IsSummoned true
  CONST Class class_Parameter
  : Stereotype st_in ;
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
@@ -2040,22 +2087,24 @@ ref; // ME_07BF009941CC aProviderKey
  CONST Value false
  : ValueType WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
+ CONST extprop:pas:Value false
 
 ref; // ME_80BA10B39444 ForInfoOnly
 
 : ME_A5FFF42AB48B
  CONST UID 'A5FFF42AB48B'
  CONST Name 'DoIt'
+ CONST IsSummoned true
  CONST Class class_Operation
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
  : Parent ME_5512BB9801EA // BuildConfig
  ;
  : Parameters
-   @ ( ME_4A26C0C09AD0 // aConfig
+   Seq: ( ME_4A26C0C09AD0 // aConfig
  ME_07BF009941CC // aProviderKey
  ME_80BA10B39444 // ForInfoOnly
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_A5FFF42AB48B DoIt
@@ -2071,12 +2120,12 @@ ref; // ME_A5FFF42AB48B DoIt
  : Parent ME_54F85B590251 // TdaDataProviderSuperFactory
  ;
  : Inherits
-   @ ( WL 'ME_5513AC280059' '55963E9101B2.pas.ms.script' // TBuildConfigProc
- ) .SequenceCode.It
+   Seq: ( WL 'ME_5513AC280059' '55963E9101B2.pas.ms.script' // TBuildConfigProc
+ )
  ; // Inherits
  : Operations
-   @ ( ME_A5FFF42AB48B // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_A5FFF42AB48B // DoIt
+ )
  ; // Operations
 
 ref; // ME_5512BB9801EA BuildConfig
@@ -2104,8 +2153,8 @@ ref; // ME_5512C82100F7 aKey
  : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
  ;
  : Parameters
-   @ ( ME_5512C82100F7 // aKey
- ) .SequenceCode.It
+   Seq: ( ME_5512C82100F7 // aKey
+ )
  ; // Parameters
 
 ref; // ME_5512C81001FD DoIt
@@ -2121,8 +2170,8 @@ ref; // ME_5512C81001FD DoIt
  : Parent ME_54F85B590251 // TdaDataProviderSuperFactory
  ;
  : Operations
-   @ ( ME_5512C81001FD // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_5512C81001FD // DoIt
+ )
  ; // Operations
 
 ref; // ME_5512C7FE0342 IndexOfParamType
@@ -2160,9 +2209,9 @@ ref; // ME_5564877700AD AllowClearLocks
  : Target WL 'ME_54EDC87C00B5' '5432518A0316.pas.ms.script' // IdaDataProvider
  ;
  : Parameters
-   @ ( ME_5515442B02B8 // aParams
+   Seq: ( ME_5515442B02B8 // aParams
  ME_5564877700AD // AllowClearLocks
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_5515441700A9 DoIt
@@ -2178,8 +2227,8 @@ ref; // ME_5515441700A9 DoIt
  : Parent ME_54F85B590251 // TdaDataProviderSuperFactory
  ;
  : Operations
-   @ ( ME_5515441700A9 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_5515441700A9 // DoIt
+ )
  ; // Operations
 
 ref; // ME_551543F903C6 MakeProvider
@@ -2205,8 +2254,8 @@ ref; // ME_551904EB0174 aParams
  : Parent ME_551904D300A1 // LoadDBVersion
  ;
  : Parameters
-   @ ( ME_551904EB0174 // aParams
- ) .SequenceCode.It
+   Seq: ( ME_551904EB0174 // aParams
+ )
  ; // Parameters
 
 ref; // ME_551904E7039D DoIt
@@ -2222,8 +2271,8 @@ ref; // ME_551904E7039D DoIt
  : Parent ME_54F85B590251 // TdaDataProviderSuperFactory
  ;
  : Operations
-   @ ( ME_551904E7039D // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_551904E7039D // DoIt
+ )
  ; // Operations
 
 ref; // ME_551904D300A1 LoadDBVersion
@@ -2281,11 +2330,11 @@ ref; // ME_5566FD02027E IsRequireAdminRights
  : Target WL 'ME_551BE28600E9' '5432448401BC.pas.ms.script' // TdaLoginError
  ;
  : Parameters
-   @ ( ME_5566FD02025F // aParams
+   Seq: ( ME_5566FD02025F // aParams
  ME_5566FD020260 // aLogin
  ME_5566FD02026E // aPassword
  ME_5566FD02027E // IsRequireAdminRights
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_551BE38C00CE DoIt
@@ -2301,8 +2350,8 @@ ref; // ME_551BE38C00CE DoIt
  : Parent ME_54F85B590251 // TdaDataProviderSuperFactory
  ;
  : Operations
-   @ ( ME_551BE38C00CE // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_551BE38C00CE // DoIt
+ )
  ; // Operations
 
 ref; // ME_551BE37C0396 CheckLogin
@@ -2326,8 +2375,8 @@ ref; // ME_54F99F7B015D aFactory
  : Parent ME_54F85B590251 // TdaDataProviderSuperFactory
  ;
  : Parameters
-   @ ( ME_54F99F7B015D // aFactory
- ) .SequenceCode.It
+   Seq: ( ME_54F99F7B015D // aFactory
+ )
  ; // Parameters
 
 ref; // ME_54F85C450279 Register
@@ -2351,8 +2400,8 @@ ref; // ME_54F99F820171 aFactory
  : Parent ME_54F85B590251 // TdaDataProviderSuperFactory
  ;
  : Parameters
-   @ ( ME_54F99F820171 // aFactory
- ) .SequenceCode.It
+   Seq: ( ME_54F99F820171 // aFactory
+ )
  ; // Parameters
 
 ref; // ME_54F85C60022E UnRegister
@@ -2389,8 +2438,8 @@ ref; // ME_550A8A1C017A aParams
  : Parent ME_54F85B590251 // TdaDataProviderSuperFactory
  ;
  : Parameters
-   @ ( ME_550A8A1C017A // aParams
- ) .SequenceCode.It
+   Seq: ( ME_550A8A1C017A // aParams
+ )
  ; // Parameters
 
 ref; // ME_550A89DC03C4 SaveToConfig
@@ -2416,8 +2465,8 @@ ref; // ME_550FCA3D02FB aStream
  : Target ME_54F9A60200A8 // TdaDataProviderParams
  ;
  : Parameters
-   @ ( ME_550FCA3D02FB // aStream
- ) .SequenceCode.It
+   Seq: ( ME_550FCA3D02FB // aStream
+ )
  ; // Parameters
 
 ref; // ME_550FCA280214 MakeParamsFromEVD
@@ -2425,6 +2474,7 @@ ref; // ME_550FCA280214 MakeParamsFromEVD
 : ME_035C6A1ACD48
  CONST UID '035C6A1ACD48'
  CONST Name 'Exists'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_static::Operation ;
  %SUMMARY 'Проверяет создан экземпляр синглетона или нет' ;
@@ -2434,6 +2484,7 @@ ref; // ME_550FCA280214 MakeParamsFromEVD
  ;
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
+ CONST extprop:pas:Value false
 
 ref; // ME_035C6A1ACD48 Exists
 
@@ -2477,6 +2528,7 @@ ref; // ME_5512CB6F01FC
  ;
  : Implementor ME_54F85B590251 // TdaDataProviderSuperFactory
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_479731C50290_ME_54F85B590251 Cleanup
 
 : ME_47A042E100E2_ME_54F85B590251
@@ -2486,6 +2538,7 @@ ref; // ME_479731C50290_ME_54F85B590251 Cleanup
  ;
  : Implementor ME_54F85B590251 // TdaDataProviderSuperFactory
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_47A042E100E2_ME_54F85B590251 InitFields
 
 : ME_5000565C019C_ME_54F85B590251
@@ -2495,6 +2548,7 @@ ref; // ME_47A042E100E2_ME_54F85B590251 InitFields
  ;
  : Implementor ME_54F85B590251 // TdaDataProviderSuperFactory
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_5000565C019C_ME_54F85B590251 ClearFields
 
 : ME_54F85B590251
@@ -2508,19 +2562,19 @@ ref; // ME_5000565C019C_ME_54F85B590251 ClearFields
  : Parent ME_54F85B2500FB // Provider
  ;
  : Inherits
-   @ ( WL 'ME_49E7754802A9' '47913B47006E.pas.ms.script' // Tl3ProtoObject
- ) .SequenceCode.It
+   Seq: ( WL 'ME_49E7754802A9' '47913B47006E.pas.ms.script' // Tl3ProtoObject
+ )
  ; // Inherits
  : Attributes
-   @ ( ME_54F99D1A0219 // DefaultFactory
+   Seq: ( ME_54F99D1A0219 // DefaultFactory
  ME_54F98AAA0237 // f_List
  ME_5507E77B021F // ParamsStorage
  ME_B2EFB83D9DF8 // f_DefaultFactory
  ME_275522B8C781 // f_ParamsStorage
- ) .SequenceCode.It
+ )
  ; // Attributes
  : Operations
-   @ ( ME_550A8A38018C // FindFactoryByKey
+   Seq: ( ME_550A8A38018C // FindFactoryByKey
  ME_550A8A6701F6 // FindFactoryByParamType
  ME_550FD1780368 // MakeFromTaggedData
  ME_55100AB20241 // CorrectByClient
@@ -2538,31 +2592,33 @@ ref; // ME_5000565C019C_ME_54F85B590251 ClearFields
  ME_550A89DC03C4 // SaveToConfig
  ME_550FCA280214 // MakeParamsFromEVD
  ME_035C6A1ACD48 // Exists
- ) .SequenceCode.It
+ )
  ; // Operations
  : Overridden
-   @ ( ME_479731C50290_ME_54F85B590251 // Cleanup
+   Seq: ( ME_479731C50290_ME_54F85B590251 // Cleanup
  ME_47A042E100E2_ME_54F85B590251 // InitFields
  ME_5000565C019C_ME_54F85B590251 // ClearFields
- ) .SequenceCode.It
+ )
  ; // Overridden
  : Dependencies
-   @ ( ME_54F992A10219 // 
+   Seq: ( ME_54F992A10219 // 
  ME_54F9952C03CB // 
  ME_5512CB6F01FC // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
  CONST "singleton" true
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\DA'
  CONST intf.pas:Path 'common\components\rtl\Garant\DA\daDataProviderSuperFactory.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\DA'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'daDataProviderSuperFactory'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'daDataProviderSuperFactory'
 
 ref; // ME_54F85B590251 TdaDataProviderSuperFactory
 
@@ -2608,8 +2664,8 @@ ref; // ME_551A7DA7012B DoIt
  : Parent ME_551A7D7402B4 // daDataProvider
  ;
  : Operations
-   @ ( ME_551A7DA7012B // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_551A7DA7012B // DoIt
+ )
  ; // Operations
 
 ref; // ME_551A7D9602DC GlobalDataProvider
@@ -2635,8 +2691,8 @@ ref; // ME_551A7DD9002F aProvider
  : Parent ME_551A7DB8018C // SetGlobalDataProvider
  ;
  : Parameters
-   @ ( ME_551A7DD9002F // aProvider
- ) .SequenceCode.It
+   Seq: ( ME_551A7DD9002F // aProvider
+ )
  ; // Parameters
 
 ref; // ME_551A7DCB0110 DoIt
@@ -2652,8 +2708,8 @@ ref; // ME_551A7DCB0110 DoIt
  : Parent ME_551A7D7402B4 // daDataProvider
  ;
  : Operations
-   @ ( ME_551A7DCB0110 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_551A7DCB0110 // DoIt
+ )
  ; // Operations
 
 ref; // ME_551A7DB8018C SetGlobalDataProvider
@@ -2669,21 +2725,20 @@ ref; // ME_551A7DB8018C SetGlobalDataProvider
  : Parent ME_54F85B2500FB // Provider
  ;
  : Attributes
-   @ ( ME_551A7DF50234 // g_GlobalDataProvider
- ) .SequenceCode.It
+   Seq: ( ME_551A7DF50234 // g_GlobalDataProvider
+ )
  ; // Attributes
  : Operations
-   @ ( ME_551A7D9602DC // GlobalDataProvider
+   Seq: ( ME_551A7D9602DC // GlobalDataProvider
  ME_551A7DB8018C // SetGlobalDataProvider
- ) .SequenceCode.It
+ )
  ; // Operations
  CONST "no hands" false
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\DA'
  CONST intf.pas:Path 'common\components\rtl\Garant\DA\daDataProvider.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\DA'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_551A7D7402B4 daDataProvider
 
@@ -2709,6 +2764,7 @@ FORWARD ME_565DA60503D9
 : ME_042053B2D108
  CONST UID '042053B2D108'
  CONST Name 'aState'
+ CONST IsSummoned true
  CONST Class class_Parameter
  : Stereotype st_in ;
  : Target WL 'ME_5524CFE701C5' '5432448401BC.pas.ms.script' // TdaProcessState
@@ -2719,6 +2775,7 @@ ref; // ME_042053B2D108 aState
 : ME_C8548B19AD4D
  CONST UID 'C8548B19AD4D'
  CONST Name 'DoIt'
+ CONST IsSummoned true
  CONST Class class_Operation
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
@@ -2727,8 +2784,8 @@ ref; // ME_042053B2D108 aState
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
  : Parameters
-   @ ( ME_042053B2D108 // aState
- ) .SequenceCode.It
+   Seq: ( ME_042053B2D108 // aState
+ )
  ; // Parameters
 
 ref; // ME_C8548B19AD4D DoIt
@@ -2744,12 +2801,12 @@ ref; // ME_C8548B19AD4D DoIt
  : Parent ME_5524D27A00D3 // TdaLongProcessSubscriberList
  ;
  : Inherits
-   @ ( WL 'ME_5524D04900F4' '5432448401BC.pas.ms.script' // TdaOnLongProcessEvent
- ) .SequenceCode.It
+   Seq: ( WL 'ME_5524D04900F4' '5432448401BC.pas.ms.script' // TdaOnLongProcessEvent
+ )
  ; // Inherits
  : Operations
-   @ ( ME_C8548B19AD4D // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_C8548B19AD4D // DoIt
+ )
  ; // Operations
 
 ref; // ME_565DA60503D9 LongProcessNotify
@@ -2765,31 +2822,33 @@ ref; // ME_565DA60503D9 LongProcessNotify
  : Parent ME_54F85B2500FB // Provider
  ;
  : Inherits
-   @ ( WL 'ME_4A54DD4E036F' '47913B47006E.pas.ms.script' // Tl3ProtoDataContainer
- ) .SequenceCode.It
+   Seq: ( WL 'ME_4A54DD4E036F' '47913B47006E.pas.ms.script' // Tl3ProtoDataContainer
+ )
  ; // Inherits
  : Implements
-   @ ( WL 'ME_47B57D630029' '47913B47006E.pas.ms.script' // l3InterfacePtrList
- ) .SequenceCode.It
+   Seq: ( WL 'ME_47B57D630029' '47913B47006E.pas.ms.script' // l3InterfacePtrList
+ )
  ; // Implements
  : Attributes
-   @ ( ME_5524D2950370 // ItemType
- ) .SequenceCode.It
+   Seq: ( ME_5524D2950370 // ItemType
+ )
  ; // Attributes
  : Operations
-   @ ( ME_565DA60503D9 // LongProcessNotify
- ) .SequenceCode.It
+   Seq: ( ME_565DA60503D9 // LongProcessNotify
+ )
  ; // Operations
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\DA'
  CONST intf.pas:Path 'common\components\rtl\Garant\DA\daLongProcessSubscriberList.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\DA'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'daLongProcessSubscriberList'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'daLongProcessSubscriberList'
 
 ref; // ME_5524D27A00D3 TdaLongProcessSubscriberList
 
@@ -2821,27 +2880,29 @@ ref; // ME_5525151202E7 ItemType
  : Parent ME_54F85B2500FB // Provider
  ;
  : Inherits
-   @ ( WL 'ME_4A54DD4E036F' '47913B47006E.pas.ms.script' // Tl3ProtoDataContainer
- ) .SequenceCode.It
+   Seq: ( WL 'ME_4A54DD4E036F' '47913B47006E.pas.ms.script' // Tl3ProtoDataContainer
+ )
  ; // Inherits
  : Implements
-   @ ( WL 'ME_47B57D630029' '47913B47006E.pas.ms.script' // l3InterfacePtrList
- ) .SequenceCode.It
+   Seq: ( WL 'ME_47B57D630029' '47913B47006E.pas.ms.script' // l3InterfacePtrList
+ )
  ; // Implements
  : Attributes
-   @ ( ME_5525151202E7 // ItemType
- ) .SequenceCode.It
+   Seq: ( ME_5525151202E7 // ItemType
+ )
  ; // Attributes
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\DA'
  CONST intf.pas:Path 'common\components\rtl\Garant\DA\daProgressSubscriberList.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\DA'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'daProgressSubscriberList'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'daProgressSubscriberList'
 
 ref; // ME_552514FD0144 TdaProgressSubscriberList
 
@@ -2882,8 +2943,8 @@ ref; // ME_5525243B0196 aProc
  : Parent ME_552524220076 // Create
  ;
  : Parameters
-   @ ( ME_5525243B0196 // aProc
- ) .SequenceCode.It
+   Seq: ( ME_5525243B0196 // aProc
+ )
  ; // Parameters
 
 ref; // ME_5525242B0171 DoIt
@@ -2899,8 +2960,8 @@ ref; // ME_5525242B0171 DoIt
  : Parent ME_552523F2014F // TdaProgressProcHolder
  ;
  : Operations
-   @ ( ME_5525242B0171 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_5525242B0171 // DoIt
+ )
  ; // Operations
 
 ref; // ME_552524220076 Create
@@ -2910,6 +2971,7 @@ FORWARD ME_5525244202B3
 : ME_ECDB94D890FD
  CONST UID 'ECDB94D890FD'
  CONST Name 'aProc'
+ CONST IsSummoned true
  CONST Class class_Parameter
  : Stereotype st_in ;
  : Target WL 'ME_4F1922630272' '4678193C009C.pas.ms.script' // Tl3ProgressProc
@@ -2920,6 +2982,7 @@ ref; // ME_ECDB94D890FD aProc
 : ME_740B7FF4C61C
  CONST UID '740B7FF4C61C'
  CONST Name 'DoIt'
+ CONST IsSummoned true
  CONST Class class_Operation
  %SUMMARY 'Сигнатура фабрики TdaProgressProcHolder.Make' ;
  CONST Visibility PrivateAccess
@@ -2929,8 +2992,8 @@ ref; // ME_ECDB94D890FD aProc
  : Target WL 'ME_5525141A025A' '5432518A0316.pas.ms.script' // IdaProgressSubscriber
  ;
  : Parameters
-   @ ( ME_ECDB94D890FD // aProc
- ) .SequenceCode.It
+   Seq: ( ME_ECDB94D890FD // aProc
+ )
  ; // Parameters
 
 ref; // ME_740B7FF4C61C DoIt
@@ -2946,16 +3009,16 @@ ref; // ME_740B7FF4C61C DoIt
  : Parent ME_552523F2014F // TdaProgressProcHolder
  ;
  : Inherits
-   @ ( ME_552524220076 // Create
- ) .SequenceCode.It
+   Seq: ( ME_552524220076 // Create
+ )
  ; // Inherits
  : Implements
-   @ ( WL 'ME_5525141A025A' '5432518A0316.pas.ms.script' // IdaProgressSubscriber
- ) .SequenceCode.It
+   Seq: ( WL 'ME_5525141A025A' '5432518A0316.pas.ms.script' // IdaProgressSubscriber
+ )
  ; // Implements
  : Operations
-   @ ( ME_740B7FF4C61C // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_740B7FF4C61C // DoIt
+ )
  ; // Operations
  CONST "check nil" false
  CONST "need AfterCreate" 'undefined'
@@ -2971,6 +3034,7 @@ ref; // ME_5525244202B3 Make
  ;
  : Implementor ME_552523F2014F // TdaProgressProcHolder
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_552514570311_ME_552523F2014F DoProgressNotify
 
 : ME_552523F2014F
@@ -2984,36 +3048,38 @@ ref; // ME_552514570311_ME_552523F2014F DoProgressNotify
  : Parent ME_54F85B2500FB // Provider
  ;
  : Inherits
-   @ ( WL 'ME_49E7754802A9' '47913B47006E.pas.ms.script' // Tl3ProtoObject
- ) .SequenceCode.It
+   Seq: ( WL 'ME_49E7754802A9' '47913B47006E.pas.ms.script' // Tl3ProtoObject
+ )
  ; // Inherits
  : Implements
-   @ ( WL 'ME_5525141A025A' '5432518A0316.pas.ms.script' // IdaProgressSubscriber
- ) .SequenceCode.It
+   Seq: ( WL 'ME_5525141A025A' '5432518A0316.pas.ms.script' // IdaProgressSubscriber
+ )
  ; // Implements
  : Attributes
-   @ ( ME_552524710094 // f_Proc
- ) .SequenceCode.It
+   Seq: ( ME_552524710094 // f_Proc
+ )
  ; // Attributes
  : Operations
-   @ ( ME_552524220076 // Create
+   Seq: ( ME_552524220076 // Create
  ME_5525244202B3 // Make
- ) .SequenceCode.It
+ )
  ; // Operations
  : Implemented
-   @ ( ME_552514570311_ME_552523F2014F // DoProgressNotify
- ) .SequenceCode.It
+   Seq: ( ME_552514570311_ME_552523F2014F // DoProgressNotify
+ )
  ; // Implemented
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\DA'
  CONST intf.pas:Path 'common\components\rtl\Garant\DA\daProgressProcHolder.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\DA'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'daProgressProcHolder'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'daProgressProcHolder'
 
 ref; // ME_552523F2014F TdaProgressProcHolder
 
@@ -3038,6 +3104,7 @@ FORWARD ME_5549D23F016E
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value '-1'
 
 ref; // ME_5549D2510373 BlankSession
 
@@ -3052,10 +3119,14 @@ ref; // ME_5549D2510373 BlankSession
  : Parent ME_559A3BD901CC // TdaJournal
  ;
  : Attributes
-   @ ( ME_5549D2510373 // BlankSession
- ) .SequenceCode.It
+   Seq: ( ME_5549D2510373 // BlankSession
+ )
  ; // Attributes
  CONST "spell names" false
+ CONST dfm:PathOnly '\common\components\rtl\Garant\DA'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\DA'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_5549D23F016E SessionConst
 
@@ -3127,6 +3198,7 @@ ref; // ME_559B95D102EE CurSessionID
 : ME_B5565ECC28E3
  CONST UID 'B5565ECC28E3'
  CONST Name 'f_CurStatTree'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY 'Поле для свойства CurStatTree' ;
  CONST Visibility PrivateAccess
@@ -3142,6 +3214,7 @@ ref; // ME_B5565ECC28E3 f_CurStatTree
 : ME_E26CD10695C7
  CONST UID 'E26CD10695C7'
  CONST Name 'f_Factory'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY 'Поле для свойства Factory' ;
  CONST Visibility PrivateAccess
@@ -3157,6 +3230,7 @@ ref; // ME_E26CD10695C7 f_Factory
 : ME_C730CD764FA5
  CONST UID 'C730CD764FA5'
  CONST Name 'f_CurSessionID'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY 'Поле для свойства CurSessionID' ;
  CONST Visibility PrivateAccess
@@ -3190,8 +3264,8 @@ ref; // ME_559A4252017A aFactory
  : Parent ME_559A424301EE // Create
  ;
  : Parameters
-   @ ( ME_559A4252017A // aFactory
- ) .SequenceCode.It
+   Seq: ( ME_559A4252017A // aFactory
+ )
  ; // Parameters
 
 ref; // ME_559A424E0315 DoIt
@@ -3207,8 +3281,8 @@ ref; // ME_559A424E0315 DoIt
  : Parent ME_559A3BD901CC // TdaJournal
  ;
  : Operations
-   @ ( ME_559A424E0315 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_559A424E0315 // DoIt
+ )
  ; // Operations
 
 ref; // ME_559A424301EE Create
@@ -3264,11 +3338,11 @@ ref; // ME_5549F64503AD aData
  : Parent ME_5549F6220397 // LogEvent
  ;
  : Parameters
-   @ ( ME_5549F64502E2 // aOperation
+   Seq: ( ME_5549F64502E2 // aOperation
  ME_5549F6450321 // aFamilyID
  ME_5549F645035F // aExtID
  ME_5549F64503AD // aData
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_5549F6300101 DoIt
@@ -3284,8 +3358,8 @@ ref; // ME_5549F6300101 DoIt
  : Parent ME_559A3BD901CC // TdaJournal
  ;
  : Operations
-   @ ( ME_5549F6300101 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_5549F6300101 // DoIt
+ )
  ; // Operations
 
 ref; // ME_5549F6220397 LogEvent
@@ -3311,8 +3385,8 @@ ref; // ME_559BBFEF036A anUserID
  : Parent ME_559B6A290200 // CheckUser
  ;
  : Parameters
-   @ ( ME_559BBFEF036A // anUserID
- ) .SequenceCode.It
+   Seq: ( ME_559BBFEF036A // anUserID
+ )
  ; // Parameters
 
 ref; // ME_559BBFE200FE DoIt
@@ -3328,8 +3402,8 @@ ref; // ME_559BBFE200FE DoIt
  : Parent ME_559A3BD901CC // TdaJournal
  ;
  : Operations
-   @ ( ME_559BBFE200FE // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_559BBFE200FE // DoIt
+ )
  ; // Operations
 
 ref; // ME_559B6A290200 CheckUser
@@ -3355,8 +3429,8 @@ ref; // ME_559BC447038C anUserID
  : Parent ME_559B6A7C03AA // UserChanged
  ;
  : Parameters
-   @ ( ME_559BC447038C // anUserID
- ) .SequenceCode.It
+   Seq: ( ME_559BC447038C // anUserID
+ )
  ; // Parameters
 
 ref; // ME_559BC445012F DoIt
@@ -3372,8 +3446,8 @@ ref; // ME_559BC445012F DoIt
  : Parent ME_559A3BD901CC // TdaJournal
  ;
  : Operations
-   @ ( ME_559BC445012F // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_559BC445012F // DoIt
+ )
  ; // Operations
 
 ref; // ME_559B6A7C03AA UserChanged
@@ -3383,6 +3457,7 @@ FORWARD ME_559B6A8C0034
 : ME_4B0F1F49309B
  CONST UID '4B0F1F49309B'
  CONST Name 'DoIt'
+ CONST IsSummoned true
  CONST Class class_Operation
  %SUMMARY 'Сигнатура метода SessionChanged' ;
  CONST Visibility PublicAccess
@@ -3403,8 +3478,8 @@ ref; // ME_4B0F1F49309B DoIt
  : Parent ME_559A3BD901CC // TdaJournal
  ;
  : Operations
-   @ ( ME_4B0F1F49309B // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_4B0F1F49309B // DoIt
+ )
  ; // Operations
 
 ref; // ME_559B6A8C0034 SessionChanged
@@ -3435,8 +3510,8 @@ ref; // ME_5549F9EF0223 DoIt
  : Parent ME_559A3BD901CC // TdaJournal
  ;
  : Operations
-   @ ( ME_5549F9EF0223 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_5549F9EF0223 // DoIt
+ )
  ; // Operations
 
 ref; // ME_5549F9E70184 GetNewSessionID
@@ -3446,6 +3521,7 @@ FORWARD ME_559B889B030B
 : ME_C37C6B69BD0C
  CONST UID 'C37C6B69BD0C'
  CONST Name 'DoIt'
+ CONST IsSummoned true
  CONST Class class_Operation
  %SUMMARY 'Сигнатура метода DoStartCaching' ;
  CONST Visibility PublicAccess
@@ -3466,8 +3542,8 @@ ref; // ME_C37C6B69BD0C DoIt
  : Parent ME_559A3BD901CC // TdaJournal
  ;
  : Operations
-   @ ( ME_C37C6B69BD0C // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_C37C6B69BD0C // DoIt
+ )
  ; // Operations
 
 ref; // ME_559B889B030B DoStartCaching
@@ -3477,6 +3553,7 @@ FORWARD ME_559B88B00126
 : ME_4903CFABA491
  CONST UID '4903CFABA491'
  CONST Name 'DoIt'
+ CONST IsSummoned true
  CONST Class class_Operation
  %SUMMARY 'Сигнатура метода DoStopCaching' ;
  CONST Visibility PublicAccess
@@ -3497,8 +3574,8 @@ ref; // ME_4903CFABA491 DoIt
  : Parent ME_559A3BD901CC // TdaJournal
  ;
  : Operations
-   @ ( ME_4903CFABA491 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_4903CFABA491 // DoIt
+ )
  ; // Operations
 
 ref; // ME_559B88B00126 DoStopCaching
@@ -3524,8 +3601,8 @@ ref; // ME_5563293D03CE aLog
  : Parent ME_5563292201CF // AnalyseLog
  ;
  : Parameters
-   @ ( ME_5563293D03CE // aLog
- ) .SequenceCode.It
+   Seq: ( ME_5563293D03CE // aLog
+ )
  ; // Parameters
 
 ref; // ME_5563292F020C DoIt
@@ -3563,13 +3640,13 @@ ref; // ME_558C00780317
  : Parent ME_559A3BD901CC // TdaJournal
  ;
  : Operations
-   @ ( ME_5563292F020C // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_5563292F020C // DoIt
+ )
  ; // Operations
  : Dependencies
-   @ ( ME_558BED8C02A8 // 
+   Seq: ( ME_558BED8C02A8 // 
  ME_558C00780317 // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
 
 ref; // ME_5563292201CF AnalyseLog
@@ -3637,12 +3714,12 @@ ref; // ME_559E354501F7 UserGr
  : Target WL 'ME_558BDCD00086' '5432518A0316.pas.ms.script' // IdaResultSet
  ;
  : Parameters
-   @ ( ME_559E354501D8 // FromDate
+   Seq: ( ME_559E354501D8 // FromDate
  ME_559E354501D9 // ToDate
  ME_559E354501E8 // aDocID
  ME_559E354501E9 // UserOrGroupID
  ME_559E354501F7 // UserGr
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_559CF9DF005B DoIt
@@ -3658,8 +3735,8 @@ ref; // ME_559CF9DF005B DoIt
  : Parent ME_559A3BD901CC // TdaJournal
  ;
  : Operations
-   @ ( ME_559CF9DF005B // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_559CF9DF005B // DoIt
+ )
  ; // Operations
 
 ref; // ME_559CF9D300FA MakeResultSet
@@ -3695,9 +3772,9 @@ ref; // ME_559E2BE2032E ToDate
  : Parent ME_55657CD20360 // CorrectDates
  ;
  : Parameters
-   @ ( ME_559E2BE2032D // FromDate
+   Seq: ( ME_559E2BE2032D // FromDate
  ME_559E2BE2032E // ToDate
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_55657CED021D DoIt
@@ -3713,8 +3790,8 @@ ref; // ME_55657CED021D DoIt
  : Parent ME_559A3BD901CC // TdaJournal
  ;
  : Operations
-   @ ( ME_55657CED021D // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_55657CED021D // DoIt
+ )
  ; // Operations
 
 ref; // ME_55657CD20360 CorrectDates
@@ -3781,6 +3858,7 @@ ref; // ME_559BAEB102FD
  ;
  : Implementor ME_559A3BD901CC // TdaJournal
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" false
 ref; // ME_554092F701E2_ME_559A3BD901CC CurStatisticTreeRoot
 
@@ -3791,6 +3869,7 @@ ref; // ME_554092F701E2_ME_559A3BD901CC CurStatisticTreeRoot
  ;
  : Implementor ME_559A3BD901CC // TdaJournal
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_554093EC02FE_ME_559A3BD901CC CalcStatistics
 
 : ME_55409430035F_ME_559A3BD901CC
@@ -3800,6 +3879,7 @@ ref; // ME_554093EC02FE_ME_559A3BD901CC CalcStatistics
  ;
  : Implementor ME_559A3BD901CC // TdaJournal
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_55409430035F_ME_559A3BD901CC LogExport
 
 : ME_5540943F02DB_ME_559A3BD901CC
@@ -3809,6 +3889,7 @@ ref; // ME_55409430035F_ME_559A3BD901CC LogExport
  ;
  : Implementor ME_559A3BD901CC // TdaJournal
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_5540943F02DB_ME_559A3BD901CC LogImport
 
 : ME_5540945201E3_ME_559A3BD901CC
@@ -3818,6 +3899,7 @@ ref; // ME_5540943F02DB_ME_559A3BD901CC LogImport
  ;
  : Implementor ME_559A3BD901CC // TdaJournal
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_5540945201E3_ME_559A3BD901CC LogPause
 
 : ME_55409462014D_ME_559A3BD901CC
@@ -3827,6 +3909,7 @@ ref; // ME_5540945201E3_ME_559A3BD901CC LogPause
  ;
  : Implementor ME_559A3BD901CC // TdaJournal
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_55409462014D_ME_559A3BD901CC LogPrintDoc
 
 : ME_554094740288_ME_559A3BD901CC
@@ -3836,6 +3919,7 @@ ref; // ME_55409462014D_ME_559A3BD901CC LogPrintDoc
  ;
  : Implementor ME_559A3BD901CC // TdaJournal
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_554094740288_ME_559A3BD901CC LogSaveDoc
 
 : ME_554096B30178_ME_559A3BD901CC
@@ -3845,6 +3929,7 @@ ref; // ME_554094740288_ME_559A3BD901CC LogSaveDoc
  ;
  : Implementor ME_559A3BD901CC // TdaJournal
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_554096B30178_ME_559A3BD901CC LogEditDoc
 
 : ME_5540970E00EA_ME_559A3BD901CC
@@ -3854,6 +3939,7 @@ ref; // ME_554096B30178_ME_559A3BD901CC LogEditDoc
  ;
  : Implementor ME_559A3BD901CC // TdaJournal
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_5540970E00EA_ME_559A3BD901CC LogEditDoc
 
 : ME_554097C303BF_ME_559A3BD901CC
@@ -3863,6 +3949,7 @@ ref; // ME_5540970E00EA_ME_559A3BD901CC LogEditDoc
  ;
  : Implementor ME_559A3BD901CC // TdaJournal
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_554097C303BF_ME_559A3BD901CC LogDeleteDoc
 
 : ME_554097DC02FC_ME_559A3BD901CC
@@ -3872,6 +3959,7 @@ ref; // ME_554097C303BF_ME_559A3BD901CC LogDeleteDoc
  ;
  : Implementor ME_559A3BD901CC // TdaJournal
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_554097DC02FC_ME_559A3BD901CC LogEditDict
 
 : ME_554098710243_ME_559A3BD901CC
@@ -3881,6 +3969,7 @@ ref; // ME_554097DC02FC_ME_559A3BD901CC LogEditDict
  ;
  : Implementor ME_559A3BD901CC // TdaJournal
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_554098710243_ME_559A3BD901CC LogCreateDoc
 
 : ME_554098930337_ME_559A3BD901CC
@@ -3890,6 +3979,7 @@ ref; // ME_554098710243_ME_559A3BD901CC LogCreateDoc
  ;
  : Implementor ME_559A3BD901CC // TdaJournal
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_554098930337_ME_559A3BD901CC LogAutoClass
 
 : ME_554098A40242_ME_559A3BD901CC
@@ -3899,6 +3989,7 @@ ref; // ME_554098930337_ME_559A3BD901CC LogAutoClass
  ;
  : Implementor ME_559A3BD901CC // TdaJournal
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_554098A40242_ME_559A3BD901CC LogOpenDoc
 
 : ME_5541F3E6031F_ME_559A3BD901CC
@@ -3908,6 +3999,7 @@ ref; // ME_554098A40242_ME_559A3BD901CC LogOpenDoc
  ;
  : Implementor ME_559A3BD901CC // TdaJournal
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" false
 ref; // ME_5541F3E6031F_ME_559A3BD901CC UserID
 
@@ -3918,6 +4010,7 @@ ref; // ME_5541F3E6031F_ME_559A3BD901CC UserID
  ;
  : Implementor ME_559A3BD901CC // TdaJournal
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_5541F6EC00DE_ME_559A3BD901CC StartCaching
 
 : ME_5541F6FB0124_ME_559A3BD901CC
@@ -3927,6 +4020,7 @@ ref; // ME_5541F6EC00DE_ME_559A3BD901CC StartCaching
  ;
  : Implementor ME_559A3BD901CC // TdaJournal
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_5541F6FB0124_ME_559A3BD901CC StopCaching
 
 : ME_554A037B0325_ME_559A3BD901CC
@@ -3936,6 +4030,7 @@ ref; // ME_5541F6FB0124_ME_559A3BD901CC StopCaching
  ;
  : Implementor ME_559A3BD901CC // TdaJournal
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_554A037B0325_ME_559A3BD901CC SessionDone
 
 : ME_479731C50290_ME_559A3BD901CC
@@ -3945,6 +4040,7 @@ ref; // ME_554A037B0325_ME_559A3BD901CC SessionDone
  ;
  : Implementor ME_559A3BD901CC // TdaJournal
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_479731C50290_ME_559A3BD901CC Cleanup
 
 : ME_5000565C019C_ME_559A3BD901CC
@@ -3954,6 +4050,7 @@ ref; // ME_479731C50290_ME_559A3BD901CC Cleanup
  ;
  : Implementor ME_559A3BD901CC // TdaJournal
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_5000565C019C_ME_559A3BD901CC ClearFields
 
 : ME_559A3BD901CC
@@ -3967,25 +4064,25 @@ ref; // ME_5000565C019C_ME_559A3BD901CC ClearFields
  : Parent ME_54F85B2500FB // Provider
  ;
  : Inherits
-   @ ( WL 'ME_49E7754802A9' '47913B47006E.pas.ms.script' // Tl3ProtoObject
- ) .SequenceCode.It
+   Seq: ( WL 'ME_49E7754802A9' '47913B47006E.pas.ms.script' // Tl3ProtoObject
+ )
  ; // Inherits
  : Implements
-   @ ( WL 'ME_5540922C0376' '5432518A0316.pas.ms.script' // IdaJournal
- ) .SequenceCode.It
+   Seq: ( WL 'ME_5540922C0376' '5432518A0316.pas.ms.script' // IdaJournal
+ )
  ; // Implements
  : Attributes
-   @ ( ME_559A42120304 // CurStatTree
+   Seq: ( ME_559A42120304 // CurStatTree
  ME_559A426000F7 // Factory
  ME_559B6A15018C // f_CurUser
  ME_559B95D102EE // CurSessionID
  ME_B5565ECC28E3 // f_CurStatTree
  ME_E26CD10695C7 // f_Factory
  ME_C730CD764FA5 // f_CurSessionID
- ) .SequenceCode.It
+ )
  ; // Attributes
  : Operations
-   @ ( ME_559A424301EE // Create
+   Seq: ( ME_559A424301EE // Create
  ME_5549F6220397 // LogEvent
  ME_559B6A290200 // CheckUser
  ME_559B6A7C03AA // UserChanged
@@ -3996,10 +4093,10 @@ ref; // ME_5000565C019C_ME_559A3BD901CC ClearFields
  ME_5563292201CF // AnalyseLog
  ME_559CF9D300FA // MakeResultSet
  ME_55657CD20360 // CorrectDates
- ) .SequenceCode.It
+ )
  ; // Operations
  : Implemented
-   @ ( ME_554092F701E2_ME_559A3BD901CC // CurStatisticTreeRoot
+   Seq: ( ME_554092F701E2_ME_559A3BD901CC // CurStatisticTreeRoot
  ME_554093EC02FE_ME_559A3BD901CC // CalcStatistics
  ME_55409430035F_ME_559A3BD901CC // LogExport
  ME_5540943F02DB_ME_559A3BD901CC // LogImport
@@ -4017,35 +4114,37 @@ ref; // ME_5000565C019C_ME_559A3BD901CC ClearFields
  ME_5541F6EC00DE_ME_559A3BD901CC // StartCaching
  ME_5541F6FB0124_ME_559A3BD901CC // StopCaching
  ME_554A037B0325_ME_559A3BD901CC // SessionDone
- ) .SequenceCode.It
+ )
  ; // Implemented
  : Overridden
-   @ ( ME_479731C50290_ME_559A3BD901CC // Cleanup
+   Seq: ( ME_479731C50290_ME_559A3BD901CC // Cleanup
  ME_5000565C019C_ME_559A3BD901CC // ClearFields
- ) .SequenceCode.It
+ )
  ; // Overridden
  : Constants
-   @ ( ME_5549D23F016E // SessionConst
- ) .SequenceCode.It
+   Seq: ( ME_5549D23F016E // SessionConst
+ )
  ; // Constants
  : Dependencies
-   @ ( ME_559B638402DE // 
+   Seq: ( ME_559B638402DE // 
  ME_559B7B7701E2 // 
  ME_559B7B7B017E // 
  ME_559B8DF802FA // 
  ME_559BAEB102FD // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\DA'
  CONST intf.pas:Path 'common\components\rtl\Garant\DA\daJournal.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\DA'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'daJournal'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'daJournal'
 
 ref; // ME_559A3BD901CC TdaJournal
 
@@ -4077,27 +4176,29 @@ ref; // ME_559FB45B035D ItemType
  : Parent ME_54F85B2500FB // Provider
  ;
  : Inherits
-   @ ( WL 'ME_4A54DD4E036F' '47913B47006E.pas.ms.script' // Tl3ProtoDataContainer
- ) .SequenceCode.It
+   Seq: ( WL 'ME_4A54DD4E036F' '47913B47006E.pas.ms.script' // Tl3ProtoDataContainer
+ )
  ; // Inherits
  : Implements
-   @ ( WL 'ME_47B57D630029' '47913B47006E.pas.ms.script' // l3InterfacePtrList
- ) .SequenceCode.It
+   Seq: ( WL 'ME_47B57D630029' '47913B47006E.pas.ms.script' // l3InterfacePtrList
+ )
  ; // Implements
  : Attributes
-   @ ( ME_559FB45B035D // ItemType
- ) .SequenceCode.It
+   Seq: ( ME_559FB45B035D // ItemType
+ )
  ; // Attributes
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\DA'
  CONST intf.pas:Path 'common\components\rtl\Garant\DA\daFieldListPrim.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\DA'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'daFieldListPrim'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'daFieldListPrim'
 
 ref; // ME_559FB4490186 TdaFieldListPrim
 
@@ -4124,8 +4225,8 @@ ref; // ME_551E863301CC aUserID
  : Target WL 'ME_551E88DF0073' '5432448401BC.pas.ms.script' // TdaPathStr
  ;
  : Parameters
-   @ ( ME_551E863301CC // aUserID
- ) .SequenceCode.It
+   Seq: ( ME_551E863301CC // aUserID
+ )
  ; // Parameters
 
 ref; // ME_551E862A010F DoIt
@@ -4152,12 +4253,12 @@ ref; // ME_551E972403DF
  : Parent ME_5437B276039C // daUtils
  ;
  : Operations
-   @ ( ME_551E862A010F // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_551E862A010F // DoIt
+ )
  ; // Operations
  : Dependencies
-   @ ( ME_551E972403DF // 
- ) .SequenceCode.It
+   Seq: ( ME_551E972403DF // 
+ )
  ; // Dependencies
 
 ref; // ME_551E861C0377 GetHomePathCode
@@ -4193,9 +4294,9 @@ ref; // ME_55227D51038E AdminBaseVersion
  : Parent ME_552279710064 // CheckDbVersion
  ;
  : Parameters
-   @ ( ME_55227D51036F // DocBaseVersion
+   Seq: ( ME_55227D51036F // DocBaseVersion
  ME_55227D51038E // AdminBaseVersion
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_55227D4B0195 DoIt
@@ -4233,13 +4334,13 @@ ref; // ME_552279EA009C
  : Parent ME_5437B276039C // daUtils
  ;
  : Operations
-   @ ( ME_55227D4B0195 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_55227D4B0195 // DoIt
+ )
  ; // Operations
  : Dependencies
-   @ ( ME_552279CA0320 // 
+   Seq: ( ME_552279CA0320 // 
  ME_552279EA009C // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
 
 ref; // ME_552279710064 CheckDbVersion
@@ -4277,9 +4378,9 @@ ref; // ME_552288240273 aRegion
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
  : Parameters
-   @ ( ME_552288240254 // aUserID
+   Seq: ( ME_552288240254 // aUserID
  ME_552288240273 // aRegion
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_552288010384 DoIt
@@ -4295,8 +4396,8 @@ ref; // ME_552288010384 DoIt
  : Parent ME_5437B276039C // daUtils
  ;
  : Operations
-   @ ( ME_552288010384 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_552288010384 // DoIt
+ )
  ; // Operations
 
 ref; // ME_552287F70191 UserIDBelongsToRegion
@@ -4324,8 +4425,8 @@ ref; // ME_55228DC60087 aUserID
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
  : Parameters
-   @ ( ME_55228DC60087 // aUserID
- ) .SequenceCode.It
+   Seq: ( ME_55228DC60087 // aUserID
+ )
  ; // Parameters
 
 ref; // ME_55228DB30096 DoIt
@@ -4352,12 +4453,12 @@ ref; // ME_55229545002F
  : Parent ME_5437B276039C // daUtils
  ;
  : Operations
-   @ ( ME_55228DB30096 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_55228DB30096 // DoIt
+ )
  ; // Operations
  : Dependencies
-   @ ( ME_55229545002F // 
- ) .SequenceCode.It
+   Seq: ( ME_55229545002F // 
+ )
  ; // Dependencies
 
 ref; // ME_55228D9D03B2 UserIsService
@@ -4385,8 +4486,8 @@ ref; // ME_55228DCB039D aUserID
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
  : Parameters
-   @ ( ME_55228DCB039D // aUserID
- ) .SequenceCode.It
+   Seq: ( ME_55228DCB039D // aUserID
+ )
  ; // Parameters
 
 ref; // ME_55228DCA013E DoIt
@@ -4413,12 +4514,12 @@ ref; // ME_552293D501ED
  : Parent ME_5437B276039C // daUtils
  ;
  : Operations
-   @ ( ME_55228DCA013E // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_55228DCA013E // DoIt
+ )
  ; // Operations
  : Dependencies
-   @ ( ME_552293D501ED // 
- ) .SequenceCode.It
+   Seq: ( ME_552293D501ED // 
+ )
  ; // Dependencies
 
 ref; // ME_55228DAB0064 IsUserRequireReports
@@ -4434,20 +4535,19 @@ ref; // ME_55228DAB0064 IsUserRequireReports
  : Parent ME_54F85B2500FB // Provider
  ;
  : Operations
-   @ ( ME_551E861C0377 // GetHomePathCode
+   Seq: ( ME_551E861C0377 // GetHomePathCode
  ME_552279710064 // CheckDbVersion
  ME_552287F70191 // UserIDBelongsToRegion
  ME_55228D9D03B2 // UserIsService
  ME_55228DAB0064 // IsUserRequireReports
- ) .SequenceCode.It
+ )
  ; // Operations
  CONST "no hands" false
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\DA'
  CONST intf.pas:Path 'common\components\rtl\Garant\DA\daUtils.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\DA'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_5437B276039C daUtils
 
@@ -4527,6 +4627,7 @@ ref; // ME_5551F752016C aField
  CONST Value ''''''
  : ValueType WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
  ;
+ CONST extprop:pas:Value ''''''
 
 ref; // ME_5551F752018C anAlias
 
@@ -4539,10 +4640,10 @@ ref; // ME_5551F752018C anAlias
  : Parent ME_5551F6DC02D0 // Create
  ;
  : Parameters
-   @ ( ME_5551F752015D // aTableAlias
+   Seq: ( ME_5551F752015D // aTableAlias
  ME_5551F752016C // aField
  ME_5551F752018C // anAlias
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_5551F71900BC DoIt
@@ -4558,8 +4659,8 @@ ref; // ME_5551F71900BC DoIt
  : Parent ME_5551DCD200EE // TdaSelectField
  ;
  : Operations
-   @ ( ME_5551F71900BC // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_5551F71900BC // DoIt
+ )
  ; // Operations
 
 ref; // ME_5551F6DC02D0 Create
@@ -4569,6 +4670,7 @@ FORWARD ME_5551F6EC0008
 : ME_041E2A9E95D7
  CONST UID '041E2A9E95D7'
  CONST Name 'aTableAlias'
+ CONST IsSummoned true
  CONST Class class_Parameter
  : Stereotype st_in ;
  : Target WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
@@ -4579,6 +4681,7 @@ ref; // ME_041E2A9E95D7 aTableAlias
 : ME_7BC661B1C5C8
  CONST UID '7BC661B1C5C8'
  CONST Name 'aField'
+ CONST IsSummoned true
  CONST Class class_Parameter
  : Stereotype st_in ;
  : Target WL 'ME_55377C5F0162' '5432518A0316.pas.ms.script' // IdaFieldDescription
@@ -4589,6 +4692,7 @@ ref; // ME_7BC661B1C5C8 aField
 : ME_BCFA45CC0D6F
  CONST UID 'BCFA45CC0D6F'
  CONST Name 'anAlias'
+ CONST IsSummoned true
  CONST Class class_Parameter
  : Stereotype st_in ;
  : Target WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
@@ -4596,12 +4700,14 @@ ref; // ME_7BC661B1C5C8 aField
  CONST Value ''''''
  : ValueType WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
  ;
+ CONST extprop:pas:Value ''''''
 
 ref; // ME_BCFA45CC0D6F anAlias
 
 : ME_48078CDB71F4
  CONST UID '48078CDB71F4'
  CONST Name 'DoIt'
+ CONST IsSummoned true
  CONST Class class_Operation
  %SUMMARY 'Сигнатура фабрики TdaSelectField.Make' ;
  CONST Visibility PrivateAccess
@@ -4611,10 +4717,10 @@ ref; // ME_BCFA45CC0D6F anAlias
  : Target WL 'ME_5551DC0F012D' '5432518A0316.pas.ms.script' // IdaSelectField
  ;
  : Parameters
-   @ ( ME_041E2A9E95D7 // aTableAlias
+   Seq: ( ME_041E2A9E95D7 // aTableAlias
  ME_7BC661B1C5C8 // aField
  ME_BCFA45CC0D6F // anAlias
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_48078CDB71F4 DoIt
@@ -4630,16 +4736,16 @@ ref; // ME_48078CDB71F4 DoIt
  : Parent ME_5551DCD200EE // TdaSelectField
  ;
  : Inherits
-   @ ( ME_5551F6DC02D0 // Create
- ) .SequenceCode.It
+   Seq: ( ME_5551F6DC02D0 // Create
+ )
  ; // Inherits
  : Implements
-   @ ( WL 'ME_5551DC0F012D' '5432518A0316.pas.ms.script' // IdaSelectField
- ) .SequenceCode.It
+   Seq: ( WL 'ME_5551DC0F012D' '5432518A0316.pas.ms.script' // IdaSelectField
+ )
  ; // Implements
  : Operations
-   @ ( ME_48078CDB71F4 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_48078CDB71F4 // DoIt
+ )
  ; // Operations
  CONST "check nil" false
  CONST "need AfterCreate" 'undefined'
@@ -4655,6 +4761,7 @@ ref; // ME_5551F6EC0008 Make
  ;
  : Implementor ME_5551DCD200EE // TdaSelectField
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" false
 ref; // ME_555351D702B3_ME_5551DCD200EE TableAlias
 
@@ -4665,6 +4772,7 @@ ref; // ME_555351D702B3_ME_5551DCD200EE TableAlias
  ;
  : Implementor ME_5551DCD200EE // TdaSelectField
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" false
 ref; // ME_555351F500BC_ME_5551DCD200EE Field
 
@@ -4675,6 +4783,7 @@ ref; // ME_555351F500BC_ME_5551DCD200EE Field
  ;
  : Implementor ME_5551DCD200EE // TdaSelectField
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" false
 ref; // ME_555352070022_ME_5551DCD200EE Alias
 
@@ -4685,6 +4794,7 @@ ref; // ME_555352070022_ME_5551DCD200EE Alias
  ;
  : Implementor ME_5551DCD200EE // TdaSelectField
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_5608E5A4025F_ME_5551DCD200EE BuildSQLValue
 
 : ME_479731C50290_ME_5551DCD200EE
@@ -4694,6 +4804,7 @@ ref; // ME_5608E5A4025F_ME_5551DCD200EE BuildSQLValue
  ;
  : Implementor ME_5551DCD200EE // TdaSelectField
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_479731C50290_ME_5551DCD200EE Cleanup
 
 : ME_5551DCD200EE
@@ -4707,46 +4818,48 @@ ref; // ME_479731C50290_ME_5551DCD200EE Cleanup
  : Parent ME_54F85B2500FB // Provider
  ;
  : Inherits
-   @ ( WL 'ME_49E7754802A9' '47913B47006E.pas.ms.script' // Tl3ProtoObject
- ) .SequenceCode.It
+   Seq: ( WL 'ME_49E7754802A9' '47913B47006E.pas.ms.script' // Tl3ProtoObject
+ )
  ; // Inherits
  : Implements
-   @ ( WL 'ME_5551DC0F012D' '5432518A0316.pas.ms.script' // IdaSelectField
+   Seq: ( WL 'ME_5551DC0F012D' '5432518A0316.pas.ms.script' // IdaSelectField
  WL 'ME_555351BE026E' '5432518A0316.pas.ms.script' // IdaFieldFromTable
- ) .SequenceCode.It
+ )
  ; // Implements
  : Attributes
-   @ ( ME_55535D5000EC // f_Alias
+   Seq: ( ME_55535D5000EC // f_Alias
  ME_55535D5F029A // f_TableAlias
  ME_55535D960371 // f_Field
- ) .SequenceCode.It
+ )
  ; // Attributes
  : Operations
-   @ ( ME_5551F6DC02D0 // Create
+   Seq: ( ME_5551F6DC02D0 // Create
  ME_5551F6EC0008 // Make
- ) .SequenceCode.It
+ )
  ; // Operations
  : Implemented
-   @ ( ME_555351D702B3_ME_5551DCD200EE // TableAlias
+   Seq: ( ME_555351D702B3_ME_5551DCD200EE // TableAlias
  ME_555351F500BC_ME_5551DCD200EE // Field
  ME_555352070022_ME_5551DCD200EE // Alias
  ME_5608E5A4025F_ME_5551DCD200EE // BuildSQLValue
- ) .SequenceCode.It
+ )
  ; // Implemented
  : Overridden
-   @ ( ME_479731C50290_ME_5551DCD200EE // Cleanup
- ) .SequenceCode.It
+   Seq: ( ME_479731C50290_ME_5551DCD200EE // Cleanup
+ )
  ; // Overridden
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\DA'
  CONST intf.pas:Path 'common\components\rtl\Garant\DA\daSelectField.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\DA'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'daSelectField'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'daSelectField'
 
 ref; // ME_5551DCD200EE TdaSelectField
 
@@ -4774,6 +4887,7 @@ ref; // ME_5551E0CB035B ItemType
  ;
  : Implementor ME_5551E0B301DC // TdaSelectFieldListPrim
  ;
+ CONST OpKind opkind_Implemented
  CONST "ifndef" 'l3Items_IsAtomic'
 ref; // ME_47B07CF403D0_ME_5551E0B301DC IsSameItems
 
@@ -4784,6 +4898,7 @@ ref; // ME_47B07CF403D0_ME_5551E0B301DC IsSameItems
  ;
  : Implementor ME_5551E0B301DC // TdaSelectFieldListPrim
  ;
+ CONST OpKind opkind_Implemented
  CONST "ifdef" 'l3Items_NeedsAssignItem'
  CONST "ifndef" 'l3Items_NoSort'
 ref; // ME_47B2C42A0163_ME_5551E0B301DC AssignItem
@@ -4795,6 +4910,7 @@ ref; // ME_47B2C42A0163_ME_5551E0B301DC AssignItem
  ;
  : Implementor ME_5551E0B301DC // TdaSelectFieldListPrim
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_47B99D4503A2_ME_5551E0B301DC CompareExistingItems
 
 : ME_5551E0B301DC
@@ -4808,33 +4924,35 @@ ref; // ME_47B99D4503A2_ME_5551E0B301DC CompareExistingItems
  : Parent ME_54F85B2500FB // Provider
  ;
  : Inherits
-   @ ( WL 'ME_4A54DD4E036F' '47913B47006E.pas.ms.script' // Tl3ProtoDataContainer
- ) .SequenceCode.It
+   Seq: ( WL 'ME_4A54DD4E036F' '47913B47006E.pas.ms.script' // Tl3ProtoDataContainer
+ )
  ; // Inherits
  : Implements
-   @ ( WL 'ME_47B9AF6E0228' '47913B47006E.pas.ms.script' // l3InterfaceRefListPrim
- ) .SequenceCode.It
+   Seq: ( WL 'ME_47B9AF6E0228' '47913B47006E.pas.ms.script' // l3InterfaceRefListPrim
+ )
  ; // Implements
  : Attributes
-   @ ( ME_5551E0CB035B // ItemType
- ) .SequenceCode.It
+   Seq: ( ME_5551E0CB035B // ItemType
+ )
  ; // Attributes
  : Implemented
-   @ ( ME_47B07CF403D0_ME_5551E0B301DC // IsSameItems
+   Seq: ( ME_47B07CF403D0_ME_5551E0B301DC // IsSameItems
  ME_47B2C42A0163_ME_5551E0B301DC // AssignItem
  ME_47B99D4503A2_ME_5551E0B301DC // CompareExistingItems
- ) .SequenceCode.It
+ )
  ; // Implemented
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\DA'
  CONST intf.pas:Path 'common\components\rtl\Garant\DA\daSelectFieldListPrim.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\DA'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'daSelectFieldListPrim'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'daSelectFieldListPrim'
 
 ref; // ME_5551E0B301DC TdaSelectFieldListPrim
 
@@ -4873,6 +4991,7 @@ ref; // ME_55C857AC038E
  ;
  : Implementor ME_55C84D190010 // TdaSelectFieldList
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_47B9BAFD01F4_ME_55C84D190010 CompareItemWithData
 
 : ME_55C84D190010
@@ -4886,35 +5005,37 @@ ref; // ME_47B9BAFD01F4_ME_55C84D190010 CompareItemWithData
  : Parent ME_54F85B2500FB // Provider
  ;
  : Inherits
-   @ ( ME_5551E0B301DC // TdaSelectFieldListPrim
- ) .SequenceCode.It
+   Seq: ( ME_5551E0B301DC // TdaSelectFieldListPrim
+ )
  ; // Inherits
  : Implements
-   @ ( WL 'ME_47B47E230134' '47BB24D30205.pas.ms.script' // l3Searcher
- ) .SequenceCode.It
+   Seq: ( WL 'ME_47B47E230134' '47BB24D30205.pas.ms.script' // l3Searcher
+ )
  ; // Implements
  : Attributes
-   @ ( ME_55C84D2C0204 // FindDataType
- ) .SequenceCode.It
+   Seq: ( ME_55C84D2C0204 // FindDataType
+ )
  ; // Attributes
  : Overridden
-   @ ( ME_47B9BAFD01F4_ME_55C84D190010 // CompareItemWithData
- ) .SequenceCode.It
+   Seq: ( ME_47B9BAFD01F4_ME_55C84D190010 // CompareItemWithData
+ )
  ; // Overridden
  : Dependencies
-   @ ( ME_55C857AC038E // 
- ) .SequenceCode.It
+   Seq: ( ME_55C857AC038E // 
+ )
  ; // Dependencies
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\DA'
  CONST intf.pas:Path 'common\components\rtl\Garant\DA\daSelectFieldList.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\DA'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'daSelectFieldList'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'daSelectFieldList'
 
 ref; // ME_55C84D190010 TdaSelectFieldList
 
@@ -4943,8 +5064,8 @@ ref; // ME_56408EA1034F aHelper
  : Target WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
  ;
  : Parameters
-   @ ( ME_56408EA1034F // aHelper
- ) .SequenceCode.It
+   Seq: ( ME_56408EA1034F // aHelper
+ )
  ; // Parameters
 
 ref; // ME_56408E8F00BD DoIt
@@ -4960,8 +5081,8 @@ ref; // ME_56408E8F00BD DoIt
  : Parent ME_56408DB303B7 // TdaCondition
  ;
  : Operations
-   @ ( ME_56408E8F00BD // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_56408E8F00BD // DoIt
+ )
  ; // Operations
 
 ref; // ME_56408E7F01A1 DoBuildSQL
@@ -4973,6 +5094,7 @@ ref; // ME_56408E7F01A1 DoBuildSQL
  ;
  : Implementor ME_56408DB303B7 // TdaCondition
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_5608E5FE0355_ME_56408DB303B7 BuildSQLValue
 
 : ME_564089E3039B_ME_56408DB303B7
@@ -4982,6 +5104,7 @@ ref; // ME_5608E5FE0355_ME_56408DB303B7 BuildSQLValue
  ;
  : Implementor ME_56408DB303B7 // TdaCondition
  ;
+ CONST OpKind opkind_Implemented
  CONST "needs index" false
  CONST "needs result" false
 ref; // ME_564089E3039B_ME_56408DB303B7 Iterate
@@ -4997,32 +5120,34 @@ ref; // ME_564089E3039B_ME_56408DB303B7 Iterate
  : Parent ME_54F85B2500FB // Provider
  ;
  : Inherits
-   @ ( WL 'ME_49E7754802A9' '47913B47006E.pas.ms.script' // Tl3ProtoObject
- ) .SequenceCode.It
+   Seq: ( WL 'ME_49E7754802A9' '47913B47006E.pas.ms.script' // Tl3ProtoObject
+ )
  ; // Inherits
  : Implements
-   @ ( WL 'ME_5551DC5C020D' '5432518A0316.pas.ms.script' // IdaCondition
- ) .SequenceCode.It
+   Seq: ( WL 'ME_5551DC5C020D' '5432518A0316.pas.ms.script' // IdaCondition
+ )
  ; // Implements
  : Operations
-   @ ( ME_56408E7F01A1 // DoBuildSQL
- ) .SequenceCode.It
+   Seq: ( ME_56408E7F01A1 // DoBuildSQL
+ )
  ; // Operations
  : Implemented
-   @ ( ME_5608E5FE0355_ME_56408DB303B7 // BuildSQLValue
+   Seq: ( ME_5608E5FE0355_ME_56408DB303B7 // BuildSQLValue
  ME_564089E3039B_ME_56408DB303B7 // Iterate
- ) .SequenceCode.It
+ )
  ; // Implemented
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\DA'
  CONST intf.pas:Path 'common\components\rtl\Garant\DA\daCondition.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\DA'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'daCondition'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'daCondition'
 
 ref; // ME_56408DB303B7 TdaCondition
 
@@ -5070,51 +5195,27 @@ ref; // ME_5559AD090351 f_Converter
 
 ref; // ME_5559D0E302C0 f_Buffer
 
-: ME_56668266016E
- CONST UID '56668266016E'
- CONST Name 'f_ParamType'
- CONST Class class_Attribute
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_agr
- : Parent ME_5555AD2A0004 // TdaParam
- ;
- : Target WL 'ME_56667A4D00EA' '5432448401BC.pas.ms.script' // TdaParamType
- ;
-
-ref; // ME_56668266016E f_ParamType
-
 FORWARD ME_5555AD6F0065
 
-: ME_56668248019D
- CONST UID '56668248019D'
+: ME_5672669F025F
+ CONST UID '5672669F025F'
  CONST Name 'aConverter'
  CONST Class class_Parameter
  : Stereotype st_in ;
  : Target WL 'ME_5559950F0013' '5432518A0316.pas.ms.script' // IdaDataConverter
  ;
 
-ref; // ME_56668248019D aConverter
+ref; // ME_5672669F025F aConverter
 
-: ME_5666824801BC
- CONST UID '5666824801BC'
+: ME_5672669F026F
+ CONST UID '5672669F026F'
  CONST Name 'aDesc'
  CONST Class class_Parameter
  : Stereotype st_in ;
  : Target WL 'ME_5555ADD202AB' '5432518A0316.pas.ms.script' // IdaParamDescription
  ;
 
-ref; // ME_5666824801BC aDesc
-
-: ME_5666824801CC
- CONST UID '5666824801CC'
- CONST Name 'aParamType'
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_56667A4D00EA' '5432448401BC.pas.ms.script' // TdaParamType
- ;
-
-ref; // ME_5666824801CC aParamType
+ref; // ME_5672669F026F aDesc
 
 : ME_5555AD9002C2
  CONST UID '5555AD9002C2'
@@ -5125,10 +5226,9 @@ ref; // ME_5666824801CC aParamType
  : Parent ME_5555AD6F0065 // Create
  ;
  : Parameters
-   @ ( ME_56668248019D // aConverter
- ME_5666824801BC // aDesc
- ME_5666824801CC // aParamType
- ) .SequenceCode.It
+   Seq: ( ME_5672669F025F // aConverter
+ ME_5672669F026F // aDesc
+ )
  ; // Parameters
 
 ref; // ME_5555AD9002C2 DoIt
@@ -5144,47 +5244,40 @@ ref; // ME_5555AD9002C2 DoIt
  : Parent ME_5555AD2A0004 // TdaParam
  ;
  : Operations
-   @ ( ME_5555AD9002C2 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_5555AD9002C2 // DoIt
+ )
  ; // Operations
 
 ref; // ME_5555AD6F0065 Create
 
 FORWARD ME_5555AD9F03E4
 
-: ME_50EAD33201DC
- CONST UID '50EAD33201DC'
+: ME_AE600EF2F908
+ CONST UID 'AE600EF2F908'
  CONST Name 'aConverter'
+ CONST IsSummoned true
  CONST Class class_Parameter
  : Stereotype st_in ;
  : Target WL 'ME_5559950F0013' '5432518A0316.pas.ms.script' // IdaDataConverter
  ;
 
-ref; // ME_50EAD33201DC aConverter
+ref; // ME_AE600EF2F908 aConverter
 
-: ME_533D0EEE2B4D
- CONST UID '533D0EEE2B4D'
+: ME_D82128E9DE5B
+ CONST UID 'D82128E9DE5B'
  CONST Name 'aDesc'
+ CONST IsSummoned true
  CONST Class class_Parameter
  : Stereotype st_in ;
  : Target WL 'ME_5555ADD202AB' '5432518A0316.pas.ms.script' // IdaParamDescription
  ;
 
-ref; // ME_533D0EEE2B4D aDesc
-
-: ME_7EB52D1F5055
- CONST UID '7EB52D1F5055'
- CONST Name 'aParamType'
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_56667A4D00EA' '5432448401BC.pas.ms.script' // TdaParamType
- ;
-
-ref; // ME_7EB52D1F5055 aParamType
+ref; // ME_D82128E9DE5B aDesc
 
 : ME_39D87BF5FBCA
  CONST UID '39D87BF5FBCA'
  CONST Name 'DoIt'
+ CONST IsSummoned true
  CONST Class class_Operation
  %SUMMARY 'Сигнатура фабрики TdaParam.Make' ;
  CONST Visibility PrivateAccess
@@ -5194,10 +5287,9 @@ ref; // ME_7EB52D1F5055 aParamType
  : Target WL 'ME_55559D5700AC' '5432518A0316.pas.ms.script' // IdaParam
  ;
  : Parameters
-   @ ( ME_50EAD33201DC // aConverter
- ME_533D0EEE2B4D // aDesc
- ME_7EB52D1F5055 // aParamType
- ) .SequenceCode.It
+   Seq: ( ME_AE600EF2F908 // aConverter
+ ME_D82128E9DE5B // aDesc
+ )
  ; // Parameters
 
 ref; // ME_39D87BF5FBCA DoIt
@@ -5213,16 +5305,16 @@ ref; // ME_39D87BF5FBCA DoIt
  : Parent ME_5555AD2A0004 // TdaParam
  ;
  : Inherits
-   @ ( ME_5555AD6F0065 // Create
- ) .SequenceCode.It
+   Seq: ( ME_5555AD6F0065 // Create
+ )
  ; // Inherits
  : Implements
-   @ ( WL 'ME_55559D5700AC' '5432518A0316.pas.ms.script' // IdaParam
- ) .SequenceCode.It
+   Seq: ( WL 'ME_55559D5700AC' '5432518A0316.pas.ms.script' // IdaParam
+ )
  ; // Implements
  : Operations
-   @ ( ME_39D87BF5FBCA // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_39D87BF5FBCA // DoIt
+ )
  ; // Operations
  CONST "check nil" false
  CONST "need AfterCreate" 'undefined'
@@ -5238,6 +5330,7 @@ ref; // ME_5555AD9F03E4 Make
  ;
  : Implementor ME_5555AD2A0004 // TdaParam
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" false
 ref; // ME_5555CC750283_ME_5555AD2A0004 Name
 
@@ -5248,6 +5341,7 @@ ref; // ME_5555CC750283_ME_5555AD2A0004 Name
  ;
  : Implementor ME_5555AD2A0004 // TdaParam
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_5555D4F5030D_ME_5555AD2A0004 IsSameType
 
 : ME_5555E85C00B8_ME_5555AD2A0004
@@ -5257,6 +5351,7 @@ ref; // ME_5555D4F5030D_ME_5555AD2A0004 IsSameType
  ;
  : Implementor ME_5555AD2A0004 // TdaParam
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" false
 ref; // ME_5555E85C00B8_ME_5555AD2A0004 AsInteger
 
@@ -5267,6 +5362,7 @@ ref; // ME_5555E85C00B8_ME_5555AD2A0004 AsInteger
  ;
  : Implementor ME_5555AD2A0004 // TdaParam
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" false
 ref; // ME_555D928D00E0_ME_5555AD2A0004 DataBuffer
 
@@ -5277,6 +5373,7 @@ ref; // ME_555D928D00E0_ME_5555AD2A0004 DataBuffer
  ;
  : Implementor ME_5555AD2A0004 // TdaParam
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" false
 ref; // ME_55FA75FD01D3_ME_5555AD2A0004 AsLargeInt
 
@@ -5287,6 +5384,7 @@ ref; // ME_55FA75FD01D3_ME_5555AD2A0004 AsLargeInt
  ;
  : Implementor ME_5555AD2A0004 // TdaParam
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" false
 ref; // ME_560CEA210293_ME_5555AD2A0004 AsString
 
@@ -5297,6 +5395,7 @@ ref; // ME_560CEA210293_ME_5555AD2A0004 AsString
  ;
  : Implementor ME_5555AD2A0004 // TdaParam
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" false
 ref; // ME_563C8B50016A_ME_5555AD2A0004 AsStDate
 
@@ -5307,6 +5406,7 @@ ref; // ME_563C8B50016A_ME_5555AD2A0004 AsStDate
  ;
  : Implementor ME_5555AD2A0004 // TdaParam
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" false
 ref; // ME_564C37CF00C4_ME_5555AD2A0004 AsStTime
 
@@ -5317,6 +5417,7 @@ ref; // ME_564C37CF00C4_ME_5555AD2A0004 AsStTime
  ;
  : Implementor ME_5555AD2A0004 // TdaParam
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" false
 ref; // ME_5666822101CA_ME_5555AD2A0004 ParamType
 
@@ -5327,6 +5428,7 @@ ref; // ME_5666822101CA_ME_5555AD2A0004 ParamType
  ;
  : Implementor ME_5555AD2A0004 // TdaParam
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_479731C50290_ME_5555AD2A0004 Cleanup
 
 : ME_5555AD2A0004
@@ -5340,27 +5442,26 @@ ref; // ME_479731C50290_ME_5555AD2A0004 Cleanup
  : Parent ME_54F85B2500FB // Provider
  ;
  : Inherits
-   @ ( WL 'ME_49E7754802A9' '47913B47006E.pas.ms.script' // Tl3ProtoObject
- ) .SequenceCode.It
+   Seq: ( WL 'ME_49E7754802A9' '47913B47006E.pas.ms.script' // Tl3ProtoObject
+ )
  ; // Inherits
  : Implements
-   @ ( WL 'ME_55559D5700AC' '5432518A0316.pas.ms.script' // IdaParam
- ) .SequenceCode.It
+   Seq: ( WL 'ME_55559D5700AC' '5432518A0316.pas.ms.script' // IdaParam
+ )
  ; // Implements
  : Attributes
-   @ ( ME_5555ADEA0320 // f_Description
+   Seq: ( ME_5555ADEA0320 // f_Description
  ME_5559AD090351 // f_Converter
  ME_5559D0E302C0 // f_Buffer
- ME_56668266016E // f_ParamType
- ) .SequenceCode.It
+ )
  ; // Attributes
  : Operations
-   @ ( ME_5555AD6F0065 // Create
+   Seq: ( ME_5555AD6F0065 // Create
  ME_5555AD9F03E4 // Make
- ) .SequenceCode.It
+ )
  ; // Operations
  : Implemented
-   @ ( ME_5555CC750283_ME_5555AD2A0004 // Name
+   Seq: ( ME_5555CC750283_ME_5555AD2A0004 // Name
  ME_5555D4F5030D_ME_5555AD2A0004 // IsSameType
  ME_5555E85C00B8_ME_5555AD2A0004 // AsInteger
  ME_555D928D00E0_ME_5555AD2A0004 // DataBuffer
@@ -5369,22 +5470,24 @@ ref; // ME_479731C50290_ME_5555AD2A0004 Cleanup
  ME_563C8B50016A_ME_5555AD2A0004 // AsStDate
  ME_564C37CF00C4_ME_5555AD2A0004 // AsStTime
  ME_5666822101CA_ME_5555AD2A0004 // ParamType
- ) .SequenceCode.It
+ )
  ; // Implemented
  : Overridden
-   @ ( ME_479731C50290_ME_5555AD2A0004 // Cleanup
- ) .SequenceCode.It
+   Seq: ( ME_479731C50290_ME_5555AD2A0004 // Cleanup
+ )
  ; // Overridden
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\DA'
  CONST intf.pas:Path 'common\components\rtl\Garant\DA\daParam.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\DA'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'daParam'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'daParam'
 
 ref; // ME_5555AD2A0004 TdaParam
 
@@ -5423,6 +5526,7 @@ ref; // ME_5555CFC5009E
  ;
  : Implementor ME_5555A0950303 // TdaParamListPrim
  ;
+ CONST OpKind opkind_Implemented
  CONST "ifndef" 'l3Items_IsAtomic'
 ref; // ME_47B07CF403D0_ME_5555A0950303 IsSameItems
 
@@ -5433,6 +5537,7 @@ ref; // ME_47B07CF403D0_ME_5555A0950303 IsSameItems
  ;
  : Implementor ME_5555A0950303 // TdaParamListPrim
  ;
+ CONST OpKind opkind_Implemented
  CONST "ifdef" 'l3Items_NeedsAssignItem'
  CONST "ifndef" 'l3Items_NoSort'
 ref; // ME_47B2C42A0163_ME_5555A0950303 AssignItem
@@ -5444,6 +5549,7 @@ ref; // ME_47B2C42A0163_ME_5555A0950303 AssignItem
  ;
  : Implementor ME_5555A0950303 // TdaParamListPrim
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_47B99D4503A2_ME_5555A0950303 CompareExistingItems
 
 : ME_5555A0950303
@@ -5457,37 +5563,39 @@ ref; // ME_47B99D4503A2_ME_5555A0950303 CompareExistingItems
  : Parent ME_54F85B2500FB // Provider
  ;
  : Inherits
-   @ ( WL 'ME_4A54DD4E036F' '47913B47006E.pas.ms.script' // Tl3ProtoDataContainer
- ) .SequenceCode.It
+   Seq: ( WL 'ME_4A54DD4E036F' '47913B47006E.pas.ms.script' // Tl3ProtoDataContainer
+ )
  ; // Inherits
  : Implements
-   @ ( WL 'ME_47B9AF6E0228' '47913B47006E.pas.ms.script' // l3InterfaceRefListPrim
- ) .SequenceCode.It
+   Seq: ( WL 'ME_47B9AF6E0228' '47913B47006E.pas.ms.script' // l3InterfaceRefListPrim
+ )
  ; // Implements
  : Attributes
-   @ ( ME_5555A0B20141 // ItemType
- ) .SequenceCode.It
+   Seq: ( ME_5555A0B20141 // ItemType
+ )
  ; // Attributes
  : Implemented
-   @ ( ME_47B07CF403D0_ME_5555A0950303 // IsSameItems
+   Seq: ( ME_47B07CF403D0_ME_5555A0950303 // IsSameItems
  ME_47B2C42A0163_ME_5555A0950303 // AssignItem
  ME_47B99D4503A2_ME_5555A0950303 // CompareExistingItems
- ) .SequenceCode.It
+ )
  ; // Implemented
  : Dependencies
-   @ ( ME_5555CFC5009E // 
- ) .SequenceCode.It
+   Seq: ( ME_5555CFC5009E // 
+ )
  ; // Dependencies
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\DA'
  CONST intf.pas:Path 'common\components\rtl\Garant\DA\daParamListPrim.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\DA'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'daParamListPrim'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'daParamListPrim'
 
 ref; // ME_5555A0950303 TdaParamListPrim
 
@@ -5531,8 +5639,8 @@ ref; // ME_56091492014F anIndex
  : Target WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
  ;
  : Parameters
-   @ ( ME_56091492014F // anIndex
- ) .SequenceCode.It
+   Seq: ( ME_56091492014F // anIndex
+ )
  ; // Parameters
 
 ref; // ME_5608FEBE01E2 DoIt
@@ -5548,8 +5656,8 @@ ref; // ME_5608FEBE01E2 DoIt
  : Parent ME_5555C169038C // TdaParamList
  ;
  : Operations
-   @ ( ME_5608FEBE01E2 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_5608FEBE01E2 // DoIt
+ )
  ; // Operations
 
 ref; // ME_5608FE9002D6 DoGetParamName
@@ -5572,6 +5680,7 @@ ref; // ME_5555CFE3017C
  ;
  : Implementor ME_5555C169038C // TdaParamList
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_5608FDF0029C_ME_5555C169038C GetParamCode
 
 : ME_47B9BAFD01F4_ME_5555C169038C
@@ -5581,6 +5690,7 @@ ref; // ME_5608FDF0029C_ME_5555C169038C GetParamCode
  ;
  : Implementor ME_5555C169038C // TdaParamList
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_47B9BAFD01F4_ME_5555C169038C CompareItemWithData
 
 : ME_5555C169038C
@@ -5594,44 +5704,46 @@ ref; // ME_47B9BAFD01F4_ME_5555C169038C CompareItemWithData
  : Parent ME_54F85B2500FB // Provider
  ;
  : Inherits
-   @ ( ME_5555A0950303 // TdaParamListPrim
- ) .SequenceCode.It
+   Seq: ( ME_5555A0950303 // TdaParamListPrim
+ )
  ; // Inherits
  : Implements
-   @ ( WL 'ME_47B47E230134' '47BB24D30205.pas.ms.script' // l3Searcher
+   Seq: ( WL 'ME_47B47E230134' '47BB24D30205.pas.ms.script' // l3Searcher
  WL 'ME_5608FDE00371' '5432518A0316.pas.ms.script' // IdaParamListHelper
- ) .SequenceCode.It
+ )
  ; // Implements
  : Attributes
-   @ ( ME_5555B6E201E9 // FindDataType
- ) .SequenceCode.It
+   Seq: ( ME_5555B6E201E9 // FindDataType
+ )
  ; // Attributes
  : Operations
-   @ ( ME_5608FE9002D6 // DoGetParamName
- ) .SequenceCode.It
+   Seq: ( ME_5608FE9002D6 // DoGetParamName
+ )
  ; // Operations
  : Implemented
-   @ ( ME_5608FDF0029C_ME_5555C169038C // GetParamCode
- ) .SequenceCode.It
+   Seq: ( ME_5608FDF0029C_ME_5555C169038C // GetParamCode
+ )
  ; // Implemented
  : Overridden
-   @ ( ME_47B9BAFD01F4_ME_5555C169038C // CompareItemWithData
- ) .SequenceCode.It
+   Seq: ( ME_47B9BAFD01F4_ME_5555C169038C // CompareItemWithData
+ )
  ; // Overridden
  : Dependencies
-   @ ( ME_5555CFE3017C // 
- ) .SequenceCode.It
+   Seq: ( ME_5555CFE3017C // 
+ )
  ; // Dependencies
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\DA'
  CONST intf.pas:Path 'common\components\rtl\Garant\DA\daParamList.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\DA'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'daParamList'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'daParamList'
 
 ref; // ME_5555C169038C TdaParamList
 
@@ -5659,6 +5771,7 @@ ref; // ME_55530829001C ItemType
  ;
  : Implementor ME_5553080E0352 // TdaFromTableListPrim
  ;
+ CONST OpKind opkind_Implemented
  CONST "ifndef" 'l3Items_IsAtomic'
 ref; // ME_47B07CF403D0_ME_5553080E0352 IsSameItems
 
@@ -5669,6 +5782,7 @@ ref; // ME_47B07CF403D0_ME_5553080E0352 IsSameItems
  ;
  : Implementor ME_5553080E0352 // TdaFromTableListPrim
  ;
+ CONST OpKind opkind_Implemented
  CONST "ifdef" 'l3Items_NeedsAssignItem'
  CONST "ifndef" 'l3Items_NoSort'
 ref; // ME_47B2C42A0163_ME_5553080E0352 AssignItem
@@ -5680,6 +5794,7 @@ ref; // ME_47B2C42A0163_ME_5553080E0352 AssignItem
  ;
  : Implementor ME_5553080E0352 // TdaFromTableListPrim
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_47B99D4503A2_ME_5553080E0352 CompareExistingItems
 
 : ME_5553080E0352
@@ -5693,33 +5808,35 @@ ref; // ME_47B99D4503A2_ME_5553080E0352 CompareExistingItems
  : Parent ME_54F85B2500FB // Provider
  ;
  : Inherits
-   @ ( WL 'ME_4A54DD4E036F' '47913B47006E.pas.ms.script' // Tl3ProtoDataContainer
- ) .SequenceCode.It
+   Seq: ( WL 'ME_4A54DD4E036F' '47913B47006E.pas.ms.script' // Tl3ProtoDataContainer
+ )
  ; // Inherits
  : Implements
-   @ ( WL 'ME_47B9AF6E0228' '47913B47006E.pas.ms.script' // l3InterfaceRefListPrim
- ) .SequenceCode.It
+   Seq: ( WL 'ME_47B9AF6E0228' '47913B47006E.pas.ms.script' // l3InterfaceRefListPrim
+ )
  ; // Implements
  : Attributes
-   @ ( ME_55530829001C // ItemType
- ) .SequenceCode.It
+   Seq: ( ME_55530829001C // ItemType
+ )
  ; // Attributes
  : Implemented
-   @ ( ME_47B07CF403D0_ME_5553080E0352 // IsSameItems
+   Seq: ( ME_47B07CF403D0_ME_5553080E0352 // IsSameItems
  ME_47B2C42A0163_ME_5553080E0352 // AssignItem
  ME_47B99D4503A2_ME_5553080E0352 // CompareExistingItems
- ) .SequenceCode.It
+ )
  ; // Implemented
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\DA'
  CONST intf.pas:Path 'common\components\rtl\Garant\DA\daFromTableListPrim.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\DA'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'daFromTableListPrim'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'daFromTableListPrim'
 
 ref; // ME_5553080E0352 TdaFromTableListPrim
 
@@ -5758,6 +5875,7 @@ ref; // ME_555CABAF0159
  ;
  : Implementor ME_555CA6E80352 // TdaFromTableList
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_47B9BAFD01F4_ME_555CA6E80352 CompareItemWithData
 
 : ME_555CA6E80352
@@ -5771,35 +5889,37 @@ ref; // ME_47B9BAFD01F4_ME_555CA6E80352 CompareItemWithData
  : Parent ME_54F85B2500FB // Provider
  ;
  : Inherits
-   @ ( ME_5553080E0352 // TdaFromTableListPrim
- ) .SequenceCode.It
+   Seq: ( ME_5553080E0352 // TdaFromTableListPrim
+ )
  ; // Inherits
  : Implements
-   @ ( WL 'ME_47B47E230134' '47BB24D30205.pas.ms.script' // l3Searcher
- ) .SequenceCode.It
+   Seq: ( WL 'ME_47B47E230134' '47BB24D30205.pas.ms.script' // l3Searcher
+ )
  ; // Implements
  : Attributes
-   @ ( ME_555CA704025B // FindDataType
- ) .SequenceCode.It
+   Seq: ( ME_555CA704025B // FindDataType
+ )
  ; // Attributes
  : Overridden
-   @ ( ME_47B9BAFD01F4_ME_555CA6E80352 // CompareItemWithData
- ) .SequenceCode.It
+   Seq: ( ME_47B9BAFD01F4_ME_555CA6E80352 // CompareItemWithData
+ )
  ; // Overridden
  : Dependencies
-   @ ( ME_555CABAF0159 // 
- ) .SequenceCode.It
+   Seq: ( ME_555CABAF0159 // 
+ )
  ; // Dependencies
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\DA'
  CONST intf.pas:Path 'common\components\rtl\Garant\DA\daFromTableList.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\DA'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'daFromTableList'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'daFromTableList'
 
 ref; // ME_555CA6E80352 TdaFromTableList
 
@@ -5859,6 +5979,7 @@ ref; // ME_55FFB1C9001D TableAlias
 : ME_C0328CA3EFC4
  CONST UID 'C0328CA3EFC4'
  CONST Name 'f_Table'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY 'Поле для свойства Table' ;
  CONST Visibility PrivateAccess
@@ -5874,6 +5995,7 @@ ref; // ME_C0328CA3EFC4 f_Table
 : ME_02A0C8804919
  CONST UID '02A0C8804919'
  CONST Name 'f_Prepared'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY 'Поле для свойства Prepared' ;
  CONST Visibility PrivateAccess
@@ -5883,12 +6005,14 @@ ref; // ME_C0328CA3EFC4 f_Table
  ;
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
+ CONST extprop:clearViaProperty 'Prepared'
 
 ref; // ME_02A0C8804919 f_Prepared
 
 : ME_12EA8D4DD76E
  CONST UID '12EA8D4DD76E'
  CONST Name 'f_TableAlias'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY 'Поле для свойства TableAlias' ;
  CONST Visibility PrivateAccess
@@ -5923,6 +6047,7 @@ ref; // ME_55530C210307 aTable
  CONST Value ''''''
  : ValueType WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
  ;
+ CONST extprop:pas:Value ''''''
 
 ref; // ME_55530C210326 anAlias
 
@@ -5935,9 +6060,9 @@ ref; // ME_55530C210326 anAlias
  : Parent ME_55530BE50143 // Create
  ;
  : Parameters
-   @ ( ME_55530C210307 // aTable
+   Seq: ( ME_55530C210307 // aTable
  ME_55530C210326 // anAlias
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_55530C06020A DoIt
@@ -5953,8 +6078,8 @@ ref; // ME_55530C06020A DoIt
  : Parent ME_55FFB14A031C // TdaFromTable
  ;
  : Operations
-   @ ( ME_55530C06020A // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_55530C06020A // DoIt
+ )
  ; // Operations
 
 ref; // ME_55530BE50143 Create
@@ -5964,6 +6089,7 @@ FORWARD ME_55FFB2A603CD
 : ME_5B99518D2678
  CONST UID '5B99518D2678'
  CONST Name 'aTable'
+ CONST IsSummoned true
  CONST Class class_Parameter
  : Stereotype st_in ;
  : Target WL 'ME_552FADE50173' '5432518A0316.pas.ms.script' // IdaTableDescription
@@ -5974,6 +6100,7 @@ ref; // ME_5B99518D2678 aTable
 : ME_A6A9DE81FC7F
  CONST UID 'A6A9DE81FC7F'
  CONST Name 'anAlias'
+ CONST IsSummoned true
  CONST Class class_Parameter
  : Stereotype st_in ;
  : Target WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
@@ -5981,12 +6108,14 @@ ref; // ME_5B99518D2678 aTable
  CONST Value ''''''
  : ValueType WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
  ;
+ CONST extprop:pas:Value ''''''
 
 ref; // ME_A6A9DE81FC7F anAlias
 
 : ME_45CB5DE10974
  CONST UID '45CB5DE10974'
  CONST Name 'DoIt'
+ CONST IsSummoned true
  CONST Class class_Operation
  %SUMMARY 'Сигнатура фабрики TdaFromTable.Make' ;
  CONST Visibility PrivateAccess
@@ -5996,9 +6125,9 @@ ref; // ME_A6A9DE81FC7F anAlias
  : Target WL 'ME_555303840193' '5432518A0316.pas.ms.script' // IdaFromTable
  ;
  : Parameters
-   @ ( ME_5B99518D2678 // aTable
+   Seq: ( ME_5B99518D2678 // aTable
  ME_A6A9DE81FC7F // anAlias
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_45CB5DE10974 DoIt
@@ -6014,16 +6143,16 @@ ref; // ME_45CB5DE10974 DoIt
  : Parent ME_55FFB14A031C // TdaFromTable
  ;
  : Inherits
-   @ ( ME_55530BE50143 // Create
- ) .SequenceCode.It
+   Seq: ( ME_55530BE50143 // Create
+ )
  ; // Inherits
  : Implements
-   @ ( WL 'ME_555303840193' '5432518A0316.pas.ms.script' // IdaFromTable
- ) .SequenceCode.It
+   Seq: ( WL 'ME_555303840193' '5432518A0316.pas.ms.script' // IdaFromTable
+ )
  ; // Implements
  : Operations
-   @ ( ME_45CB5DE10974 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_45CB5DE10974 // DoIt
+ )
  ; // Operations
  CONST "check nil" false
  CONST "need AfterCreate" 'undefined'
@@ -6061,6 +6190,7 @@ ref; // ME_566583B503AF
  ;
  : Implementor ME_55FFB14A031C // TdaFromTable
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" false
 ref; // ME_5553634C0218_ME_55FFB14A031C TableAlias
 
@@ -6071,6 +6201,7 @@ ref; // ME_5553634C0218_ME_55FFB14A031C TableAlias
  ;
  : Implementor ME_55FFB14A031C // TdaFromTable
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" false
 ref; // ME_555363590242_ME_55FFB14A031C Table
 
@@ -6081,6 +6212,7 @@ ref; // ME_555363590242_ME_55FFB14A031C Table
  ;
  : Implementor ME_55FFB14A031C // TdaFromTable
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_5608E5F20118_ME_55FFB14A031C BuildSQLValue
 
 : ME_479731C50290_ME_55FFB14A031C
@@ -6090,6 +6222,7 @@ ref; // ME_5608E5F20118_ME_55FFB14A031C BuildSQLValue
  ;
  : Implementor ME_55FFB14A031C // TdaFromTable
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_479731C50290_ME_55FFB14A031C Cleanup
 
 : ME_55FFB14A031C
@@ -6103,83 +6236,102 @@ ref; // ME_479731C50290_ME_55FFB14A031C Cleanup
  : Parent ME_54F85B2500FB // Provider
  ;
  : Inherits
-   @ ( WL 'ME_49E7754802A9' '47913B47006E.pas.ms.script' // Tl3ProtoObject
- ) .SequenceCode.It
+   Seq: ( WL 'ME_49E7754802A9' '47913B47006E.pas.ms.script' // Tl3ProtoObject
+ )
  ; // Inherits
  : Implements
-   @ ( WL 'ME_555303840193' '5432518A0316.pas.ms.script' // IdaFromTable
- ) .SequenceCode.It
+   Seq: ( WL 'ME_555303840193' '5432518A0316.pas.ms.script' // IdaFromTable
+ )
  ; // Implements
  : Attributes
-   @ ( ME_55FFB1BC03BE // Table
+   Seq: ( ME_55FFB1BC03BE // Table
  ME_55FFB1C600AB // Prepared
  ME_55FFB1C9001D // TableAlias
  ME_C0328CA3EFC4 // f_Table
  ME_02A0C8804919 // f_Prepared
  ME_12EA8D4DD76E // f_TableAlias
- ) .SequenceCode.It
+ )
  ; // Attributes
  : Operations
-   @ ( ME_55530BE50143 // Create
+   Seq: ( ME_55530BE50143 // Create
  ME_55FFB2A603CD // Make
- ) .SequenceCode.It
+ )
  ; // Operations
  : Implemented
-   @ ( ME_5553634C0218_ME_55FFB14A031C // TableAlias
+   Seq: ( ME_5553634C0218_ME_55FFB14A031C // TableAlias
  ME_555363590242_ME_55FFB14A031C // Table
  ME_5608E5F20118_ME_55FFB14A031C // BuildSQLValue
- ) .SequenceCode.It
+ )
  ; // Implemented
  : Overridden
-   @ ( ME_479731C50290_ME_55FFB14A031C // Cleanup
- ) .SequenceCode.It
+   Seq: ( ME_479731C50290_ME_55FFB14A031C // Cleanup
+ )
  ; // Overridden
  : Dependencies
-   @ ( ME_566583A40273 // 
+   Seq: ( ME_566583A40273 // 
  ME_566583B503AF // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\DA'
  CONST intf.pas:Path 'common\components\rtl\Garant\DA\daFromTable.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\DA'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'daFromTable'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'daFromTable'
 
 ref; // ME_55FFB14A031C TdaFromTable
 
-FORWARD ME_5600FA2301B9
+FORWARD ME_566A7DCD0151
 
-: ME_5600FA840323
- CONST UID '5600FA840323'
+: ME_566A7E370320
+ CONST UID '566A7E370320'
  CONST Name 'DataConverter'
  CONST Class class_Attribute
  : Stereotype st_readonly::Attribute ;
  CONST Visibility ProtectedAccess
  CONST Abstraction at_regular
- CONST LinkType lt_agr
- : Parent ME_5600FA2301B9 // TdaTabledQuery
+ CONST LinkType lt_lnk
+ : Parent ME_566A7DCD0151 // TdaQuery
  ;
  : Target WL 'ME_5559950F0013' '5432518A0316.pas.ms.script' // IdaDataConverter
  ;
  CONST "pm" true
  CONST "reads field" true
 
-ref; // ME_5600FA840323 DataConverter
+ref; // ME_566A7E370320 DataConverter
 
-: ME_5600FA9B0216
- CONST UID '5600FA9B0216'
+: ME_566A7E450072
+ CONST UID '566A7E450072'
+ CONST Name 'Params'
+ CONST Class class_Attribute
+ : Stereotype st_readonly::Attribute ;
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_lnk
+ : Parent ME_566A7DCD0151 // TdaQuery
+ ;
+ : Target ME_5555C169038C // TdaParamList
+ ;
+ CONST "pm" true
+ CONST "reads field" true
+
+ref; // ME_566A7E450072 Params
+
+: ME_566A7E5B00E9
+ CONST UID '566A7E5B00E9'
  CONST Name 'Prepared'
  CONST Class class_Attribute
  : Stereotype st_property::Attribute ;
  CONST Visibility ProtectedAccess
  CONST Abstraction at_regular
- CONST LinkType lt_agr
- : Parent ME_5600FA2301B9 // TdaTabledQuery
+ CONST LinkType lt_lnk
+ : Parent ME_566A7DCD0151 // TdaQuery
  ;
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
@@ -6187,256 +6339,68 @@ ref; // ME_5600FA840323 DataConverter
  CONST "reads field" true
  CONST "writes field" true
 
-ref; // ME_5600FA9B0216 Prepared
+ref; // ME_566A7E5B00E9 Prepared
 
-: ME_5600FAAE01F9
- CONST UID '5600FAAE01F9'
- CONST Name 'SelectFields'
- CONST Class class_Attribute
- : Stereotype st_readonly::Attribute ;
- CONST Visibility ProtectedAccess
- CONST Abstraction at_regular
- CONST LinkType lt_agr
- : Parent ME_5600FA2301B9 // TdaTabledQuery
- ;
- : Target ME_55C84D190010 // TdaSelectFieldList
- ;
- CONST "pm" true
- CONST "reads field" true
-
-ref; // ME_5600FAAE01F9 SelectFields
-
-: ME_5600FAC103DE
- CONST UID '5600FAC103DE'
- CONST Name 'WhereCondition'
- CONST Class class_Attribute
- : Stereotype st_property::Attribute ;
- CONST Visibility ProtectedAccess
- CONST Abstraction at_regular
- CONST LinkType lt_agr
- : Parent ME_5600FA2301B9 // TdaTabledQuery
- ;
- : Target WL 'ME_5551DC5C020D' '5432518A0316.pas.ms.script' // IdaCondition
- ;
- CONST "pm" true
- CONST "reads field" true
-
-ref; // ME_5600FAC103DE WhereCondition
-
-: ME_5600FAE80038
- CONST UID '5600FAE80038'
- CONST Name 'Params'
- CONST Class class_Attribute
- : Stereotype st_readonly::Attribute ;
- CONST Visibility ProtectedAccess
- CONST Abstraction at_regular
- CONST LinkType lt_agr
- : Parent ME_5600FA2301B9 // TdaTabledQuery
- ;
- : Target ME_5555C169038C // TdaParamList
- ;
- CONST "pm" true
- CONST "reads field" true
-
-ref; // ME_5600FAE80038 Params
-
-: ME_5666B60F0331
- CONST UID '5666B60F0331'
- CONST Name 'Table'
- CONST Class class_Attribute
- : Stereotype st_readonly::Attribute ;
- CONST Visibility ProtectedAccess
- CONST Abstraction at_regular
- CONST LinkType lt_agr
- : Parent ME_5600FA2301B9 // TdaTabledQuery
- ;
- : Target WL 'ME_555303840193' '5432518A0316.pas.ms.script' // IdaFromTable
- ;
- CONST "pm" true
- CONST "reads field" true
-
-ref; // ME_5666B60F0331 Table
-
-: ME_D981AFCF7E2B
- CONST UID 'D981AFCF7E2B'
+: ME_1D14F7FF550A
+ CONST UID '1D14F7FF550A'
  CONST Name 'f_DataConverter'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY 'Поле для свойства DataConverter' ;
  CONST Visibility PrivateAccess
  CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_5600FA2301B9 // TdaTabledQuery
+ CONST LinkType lt_lnk
+ : Parent ME_566A7DCD0151 // TdaQuery
  ;
  : Target WL 'ME_5559950F0013' '5432518A0316.pas.ms.script' // IdaDataConverter
  ;
 
-ref; // ME_D981AFCF7E2B f_DataConverter
+ref; // ME_1D14F7FF550A f_DataConverter
 
-: ME_B73A664F908C
- CONST UID 'B73A664F908C'
- CONST Name 'f_Prepared'
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства Prepared' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_5600FA2301B9 // TdaTabledQuery
- ;
- : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
- ;
-
-ref; // ME_B73A664F908C f_Prepared
-
-: ME_F4E7C3436F24
- CONST UID 'F4E7C3436F24'
- CONST Name 'f_SelectFields'
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства SelectFields' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_5600FA2301B9 // TdaTabledQuery
- ;
- : Target ME_55C84D190010 // TdaSelectFieldList
- ;
-
-ref; // ME_F4E7C3436F24 f_SelectFields
-
-: ME_43BE3E02B4F1
- CONST UID '43BE3E02B4F1'
- CONST Name 'f_WhereCondition'
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства WhereCondition' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_5600FA2301B9 // TdaTabledQuery
- ;
- : Target WL 'ME_5551DC5C020D' '5432518A0316.pas.ms.script' // IdaCondition
- ;
-
-ref; // ME_43BE3E02B4F1 f_WhereCondition
-
-: ME_4FD99F1FBB20
- CONST UID '4FD99F1FBB20'
+: ME_4C4B93208FF8
+ CONST UID '4C4B93208FF8'
  CONST Name 'f_Params'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY 'Поле для свойства Params' ;
  CONST Visibility PrivateAccess
  CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_5600FA2301B9 // TdaTabledQuery
+ CONST LinkType lt_lnk
+ : Parent ME_566A7DCD0151 // TdaQuery
  ;
  : Target ME_5555C169038C // TdaParamList
  ;
 
-ref; // ME_4FD99F1FBB20 f_Params
+ref; // ME_4C4B93208FF8 f_Params
 
-: ME_26700023C4D0
- CONST UID '26700023C4D0'
- CONST Name 'f_Table'
+: ME_065AD501631B
+ CONST UID '065AD501631B'
+ CONST Name 'f_Prepared'
+ CONST IsSummoned true
  CONST Class class_Attribute
- %SUMMARY 'Поле для свойства Table' ;
+ %SUMMARY 'Поле для свойства Prepared' ;
  CONST Visibility PrivateAccess
  CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_5600FA2301B9 // TdaTabledQuery
+ CONST LinkType lt_lnk
+ : Parent ME_566A7DCD0151 // TdaQuery
  ;
- : Target WL 'ME_555303840193' '5432518A0316.pas.ms.script' // IdaFromTable
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
+ CONST extprop:clearViaProperty 'Prepared'
 
-ref; // ME_26700023C4D0 f_Table
-
-FORWARD ME_5600FB3903DE
-
-: ME_563B40C201B2
- CONST UID '563B40C201B2'
- CONST Name 'aDataConverter'
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_5559950F0013' '5432518A0316.pas.ms.script' // IdaDataConverter
- ;
-
-ref; // ME_563B40C201B2 aDataConverter
-
-: ME_563B40C201B3
- CONST UID '563B40C201B3'
- CONST Name 'aTable'
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_552FADE50173' '5432518A0316.pas.ms.script' // IdaTableDescription
- ;
-
-ref; // ME_563B40C201B3 aTable
-
-: ME_563B40C201C1
- CONST UID '563B40C201C1'
- CONST Name 'anAlias'
- CONST Class class_Parameter
- : Stereotype st_const ;
- : Target WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
- ;
- CONST Value ''''''
- : ValueType WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
- ;
-
-ref; // ME_563B40C201C1 anAlias
-
-: ME_5600FB45039D
- CONST UID '5600FB45039D'
- CONST Name 'DoIt'
- CONST Class class_Operation
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_5600FB3903DE // Create
- ;
- : Parameters
-   @ ( ME_563B40C201B2 // aDataConverter
- ME_563B40C201B3 // aTable
- ME_563B40C201C1 // anAlias
- ) .SequenceCode.It
- ; // Parameters
-
-ref; // ME_5600FB45039D DoIt
-
-: ME_5600FB3903DE
- CONST UID '5600FB3903DE'
- CONST Name 'Create'
- CONST Class class_Class
- : Stereotype st_Constructor ;
- CONST Kind kind_NormalClass
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_5600FA2301B9 // TdaTabledQuery
- ;
- : Operations
-   @ ( ME_5600FB45039D // DoIt
- ) .SequenceCode.It
- ; // Operations
-
-ref; // ME_5600FB3903DE Create
+ref; // ME_065AD501631B f_Prepared
 
 FORWARD ME_55FFDEC4037F
 
-: ME_566686F300A3
- CONST UID '566686F300A3'
+: ME_56726BAE0248
+ CONST UID '56726BAE0248'
  CONST Name 'aParamDesc'
  CONST Class class_Parameter
  : Stereotype st_in ;
  : Target WL 'ME_5555ADD202AB' '5432518A0316.pas.ms.script' // IdaParamDescription
  ;
 
-ref; // ME_566686F300A3 aParamDesc
-
-: ME_566686F300B2
- CONST UID '566686F300B2'
- CONST Name 'aParamType'
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_56667A4D00EA' '5432448401BC.pas.ms.script' // TdaParamType
- ;
-
-ref; // ME_566686F300B2 aParamType
+ref; // ME_56726BAE0248 aParamDesc
 
 : ME_55FFDECE0247
  CONST UID '55FFDECE0247'
@@ -6447,9 +6411,8 @@ ref; // ME_566686F300B2 aParamType
  : Parent ME_55FFDEC4037F // AddParam
  ;
  : Parameters
-   @ ( ME_566686F300A3 // aParamDesc
- ME_566686F300B2 // aParamType
- ) .SequenceCode.It
+   Seq: ( ME_56726BAE0248 // aParamDesc
+ )
  ; // Parameters
 
 ref; // ME_55FFDECE0247 DoIt
@@ -6471,188 +6434,84 @@ ref; // ME_55FFE2B60146
  CONST Class class_Class
  : Stereotype st_method ;
  CONST Kind kind_NormalClass
- CONST Visibility PrivateAccess
+ CONST Visibility ProtectedAccess
  CONST Abstraction at_final
- : Parent ME_5600FA2301B9 // TdaTabledQuery
+ : Parent ME_566A7DCD0151 // TdaQuery
  ;
  : Operations
-   @ ( ME_55FFDECE0247 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_55FFDECE0247 // DoIt
+ )
  ; // Operations
  : Dependencies
-   @ ( ME_55FFE2B60146 // 
- ) .SequenceCode.It
+   Seq: ( ME_55FFE2B60146 // 
+ )
  ; // Dependencies
 
 ref; // ME_55FFDEC4037F AddParam
-
-FORWARD ME_5600FFF80332
-
-: ME_563B40CF0249
- CONST UID '563B40CF0249'
- CONST Name 'aTable'
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_552FADE50173' '5432518A0316.pas.ms.script' // IdaTableDescription
- ;
-
-ref; // ME_563B40CF0249 aTable
-
-: ME_563B40CF024A
- CONST UID '563B40CF024A'
- CONST Name 'anAlias'
- CONST Class class_Parameter
- : Stereotype st_const ;
- : Target WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
- ;
- CONST Value ''''''
- : ValueType WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
- ;
-
-ref; // ME_563B40CF024A anAlias
-
-: ME_5601000B0269
- CONST UID '5601000B0269'
- CONST Name 'DoIt'
- CONST Class class_Operation
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_5600FFF80332 // MakeFromTable
- ;
- : Target WL 'ME_555303840193' '5432518A0316.pas.ms.script' // IdaFromTable
- ;
- : Parameters
-   @ ( ME_563B40CF0249 // aTable
- ME_563B40CF024A // anAlias
- ) .SequenceCode.It
- ; // Parameters
-
-ref; // ME_5601000B0269 DoIt
-
-: ME_5600FFF80332
- CONST UID '5600FFF80332'
- CONST Name 'MakeFromTable'
- CONST Class class_Class
- : Stereotype st_method ;
- CONST Kind kind_NormalClass
- CONST Visibility ProtectedAccess
- CONST Abstraction at_abstract
- : Parent ME_5600FA2301B9 // TdaTabledQuery
- ;
- : Operations
-   @ ( ME_5601000B0269 // DoIt
- ) .SequenceCode.It
- ; // Operations
-
-ref; // ME_5600FFF80332 MakeFromTable
-
-FORWARD ME_56010A7801F2
-
-: ME_56010AA8028F
- CONST UID '56010AA8028F'
- CONST Name 'Unidirectional'
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
- ;
-
-ref; // ME_56010AA8028F Unidirectional
-
-: ME_56010A9A01BB
- CONST UID '56010A9A01BB'
- CONST Name 'DoIt'
- CONST Class class_Operation
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_56010A7801F2 // MakeResultSet
- ;
- : Target WL 'ME_558BDCD00086' '5432518A0316.pas.ms.script' // IdaResultSet
- ;
- : Parameters
-   @ ( ME_56010AA8028F // Unidirectional
- ) .SequenceCode.It
- ; // Parameters
-
-ref; // ME_56010A9A01BB DoIt
-
-: ME_56010A7801F2
- CONST UID '56010A7801F2'
- CONST Name 'MakeResultSet'
- CONST Class class_Class
- : Stereotype st_method ;
- CONST Kind kind_NormalClass
- CONST Visibility ProtectedAccess
- CONST Abstraction at_abstract
- : Parent ME_5600FA2301B9 // TdaTabledQuery
- ;
- : Operations
-   @ ( ME_56010A9A01BB // DoIt
- ) .SequenceCode.It
- ; // Operations
-
-ref; // ME_56010A7801F2 MakeResultSet
 
 FORWARD ME_56010AB70258
 
 : ME_68CF33B605B1
  CONST UID '68CF33B605B1'
  CONST Name 'DoIt'
+ CONST IsSummoned true
  CONST Class class_Operation
- %SUMMARY 'Сигнатура метода PrepareTable' ;
+ %SUMMARY 'Сигнатура метода PrepareQuery' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_56010AB70258 // PrepareTable
+ : Parent ME_56010AB70258 // PrepareQuery
  ;
 
 ref; // ME_68CF33B605B1 DoIt
 
 : ME_56010AB70258
  CONST UID '56010AB70258'
- CONST Name 'PrepareTable'
+ CONST Name 'PrepareQuery'
  CONST Class class_Class
  : Stereotype st_method ;
  CONST Kind kind_NormalClass
  CONST Visibility ProtectedAccess
  CONST Abstraction at_abstract
- : Parent ME_5600FA2301B9 // TdaTabledQuery
+ : Parent ME_566A7DCD0151 // TdaQuery
  ;
  : Operations
-   @ ( ME_68CF33B605B1 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_68CF33B605B1 // DoIt
+ )
  ; // Operations
 
-ref; // ME_56010AB70258 PrepareTable
+ref; // ME_56010AB70258 PrepareQuery
 
 FORWARD ME_56010ACB00F0
 
 : ME_C35C83E5A758
  CONST UID 'C35C83E5A758'
  CONST Name 'DoIt'
+ CONST IsSummoned true
  CONST Class class_Operation
- %SUMMARY 'Сигнатура метода UnprepareTable' ;
+ %SUMMARY 'Сигнатура метода UnprepareQuery' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_56010ACB00F0 // UnprepareTable
+ : Parent ME_56010ACB00F0 // UnprepareQuery
  ;
 
 ref; // ME_C35C83E5A758 DoIt
 
 : ME_56010ACB00F0
  CONST UID '56010ACB00F0'
- CONST Name 'UnprepareTable'
+ CONST Name 'UnprepareQuery'
  CONST Class class_Class
  : Stereotype st_method ;
  CONST Kind kind_NormalClass
  CONST Visibility ProtectedAccess
  CONST Abstraction at_abstract
- : Parent ME_5600FA2301B9 // TdaTabledQuery
+ : Parent ME_566A7DCD0151 // TdaQuery
  ;
  : Operations
-   @ ( ME_C35C83E5A758 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_C35C83E5A758 // DoIt
+ )
  ; // Operations
 
-ref; // ME_56010ACB00F0 UnprepareTable
+ref; // ME_56010ACB00F0 UnprepareQuery
 
 FORWARD ME_560B861302E9
 
@@ -6677,252 +6536,247 @@ ref; // ME_560B8627025C DoIt
  CONST Kind kind_NormalClass
  CONST Visibility ProtectedAccess
  CONST Abstraction at_regular
- : Parent ME_5600FA2301B9 // TdaTabledQuery
+ : Parent ME_566A7DCD0151 // TdaQuery
  ;
  : Operations
-   @ ( ME_560B8627025C // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_560B8627025C // DoIt
+ )
  ; // Operations
 
 ref; // ME_560B861302E9 MakeParamList
 
-FORWARD ME_56050F450363
+FORWARD ME_56010A7801F2
 
-: ME_56050F6B0143
- CONST UID '56050F6B0143'
+: ME_56010AA8028F
+ CONST UID '56010AA8028F'
+ CONST Name 'Unidirectional'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+
+ref; // ME_56010AA8028F Unidirectional
+
+: ME_56010A9A01BB
+ CONST UID '56010A9A01BB'
  CONST Name 'DoIt'
  CONST Class class_Operation
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
- : Parent ME_56050F450363 // BuildFromClause
+ : Parent ME_56010A7801F2 // MakeResultSet
  ;
- : Target WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
+ : Target WL 'ME_558BDCD00086' '5432518A0316.pas.ms.script' // IdaResultSet
  ;
+ : Parameters
+   Seq: ( ME_56010AA8028F // Unidirectional
+ )
+ ; // Parameters
 
-ref; // ME_56050F6B0143 DoIt
+ref; // ME_56010A9A01BB DoIt
 
-: ME_56050F450363
- CONST UID '56050F450363'
- CONST Name 'BuildFromClause'
+: ME_56010A7801F2
+ CONST UID '56010A7801F2'
+ CONST Name 'MakeResultSet'
  CONST Class class_Class
  : Stereotype st_method ;
  CONST Kind kind_NormalClass
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_5600FA2301B9 // TdaTabledQuery
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_abstract
+ : Parent ME_566A7DCD0151 // TdaQuery
  ;
  : Operations
-   @ ( ME_56050F6B0143 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_56010A9A01BB // DoIt
+ )
  ; // Operations
 
-ref; // ME_56050F450363 BuildFromClause
+ref; // ME_56010A7801F2 MakeResultSet
 
-FORWARD ME_56050F3E0081
+FORWARD ME_566A7F3C01D9
 
-: ME_56050F640390
- CONST UID '56050F640390'
+: ME_566A7F4F00B2
+ CONST UID '566A7F4F00B2'
+ CONST Name 'aDataConverter'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_5559950F0013' '5432518A0316.pas.ms.script' // IdaDataConverter
+ ;
+
+ref; // ME_566A7F4F00B2 aDataConverter
+
+: ME_566A7F48033C
+ CONST UID '566A7F48033C'
  CONST Name 'DoIt'
  CONST Class class_Operation
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
- : Parent ME_56050F3E0081 // BuildSelectClause
+ : Parent ME_566A7F3C01D9 // Create
  ;
- : Target WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
- ;
+ : Parameters
+   Seq: ( ME_566A7F4F00B2 // aDataConverter
+ )
+ ; // Parameters
 
-ref; // ME_56050F640390 DoIt
+ref; // ME_566A7F48033C DoIt
 
-: ME_56050F3E0081
- CONST UID '56050F3E0081'
- CONST Name 'BuildSelectClause'
+: ME_566A7F3C01D9
+ CONST UID '566A7F3C01D9'
+ CONST Name 'Create'
  CONST Class class_Class
- : Stereotype st_method ;
+ : Stereotype st_Constructor ;
  CONST Kind kind_NormalClass
- CONST Visibility PrivateAccess
+ CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_5600FA2301B9 // TdaTabledQuery
+ : Parent ME_566A7DCD0151 // TdaQuery
  ;
  : Operations
-   @ ( ME_56050F640390 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_566A7F48033C // DoIt
+ )
  ; // Operations
 
-ref; // ME_56050F3E0081 BuildSelectClause
+ref; // ME_566A7F3C01D9 Create
 
-FORWARD ME_56050F510228
+FORWARD ME_566A850001E5
 
-: ME_564318F10214
- CONST UID '564318F10214'
+: ME_566A852601F7
+ CONST UID '566A852601F7'
  CONST Name 'aHelper'
  CONST Class class_Parameter
  : Stereotype st_in ;
  : Target WL 'ME_5608FDE00371' '5432518A0316.pas.ms.script' // IdaParamListHelper
  ;
 
-ref; // ME_564318F10214 aHelper
+ref; // ME_566A852601F7 aHelper
 
-: ME_56050F7102DF
- CONST UID '56050F7102DF'
+: ME_566A8510020A
+ CONST UID '566A8510020A'
  CONST Name 'DoIt'
  CONST Class class_Operation
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
- : Parent ME_56050F510228 // BuildWhereClause
+ : Parent ME_566A850001E5 // DoBuildSQLValue
  ;
  : Target WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
  ;
  : Parameters
-   @ ( ME_564318F10214 // aHelper
- ) .SequenceCode.It
+   Seq: ( ME_566A852601F7 // aHelper
+ )
  ; // Parameters
 
-ref; // ME_56050F7102DF DoIt
+ref; // ME_566A8510020A DoIt
 
-: ME_56050F510228
- CONST UID '56050F510228'
- CONST Name 'BuildWhereClause'
+: ME_566A850001E5
+ CONST UID '566A850001E5'
+ CONST Name 'DoBuildSQLValue'
  CONST Class class_Class
  : Stereotype st_method ;
  CONST Kind kind_NormalClass
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_5600FA2301B9 // TdaTabledQuery
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_abstract
+ : Parent ME_566A7DCD0151 // TdaQuery
  ;
  : Operations
-   @ ( ME_56050F7102DF // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_566A8510020A // DoIt
+ )
  ; // Operations
 
-ref; // ME_56050F510228 BuildWhereClause
+ref; // ME_566A850001E5 DoBuildSQLValue
 
-: ME_5600FFB50050
- CONST UID '5600FFB50050'
+: ME_566A93D603A6
+ CONST UID '566A93D603A6'
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_5600FA2301B9 // TdaTabledQuery
+ : Parent ME_566A7DCD0151 // TdaQuery
  ;
  : Target WL 'ME_4ADC58F703CF' '4AB0C3C60310.pas.ms.script' // FreeAndNil
  ;
 
-ref; // ME_5600FFB50050 
+ref; // ME_566A93D603A6 
 
-: ME_5600FFB901DF
- CONST UID '5600FFB901DF'
+: ME_566A93DA02A6
+ CONST UID '566A93DA02A6'
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_5600FA2301B9 // TdaTabledQuery
+ : Parent ME_566A7DCD0151 // TdaQuery
  ;
  : Target ME_5555AD2A0004 // TdaParam
  ;
 
-ref; // ME_5600FFB901DF 
+ref; // ME_566A93DA02A6 
 
-: ME_5549C42400DA_ME_5600FA2301B9
+: ME_5549C42400DA_ME_566A7DCD0151
  CONST UID '5549C42400DA'
  CONST Name 'OpenResultSet'
  : Original WL 'ME_5549C42400DA' '5432518A0316.pas.ms.script' // OpenResultSet
  ;
- : Implementor ME_5600FA2301B9 // TdaTabledQuery
+ : Implementor ME_566A7DCD0151 // TdaQuery
  ;
-ref; // ME_5549C42400DA_ME_5600FA2301B9 OpenResultSet
+ CONST OpKind opkind_Implemented
+ref; // ME_5549C42400DA_ME_566A7DCD0151 OpenResultSet
 
-: ME_5551BB340256_ME_5600FA2301B9
+: ME_5551BB340256_ME_566A7DCD0151
  CONST UID '5551BB340256'
  CONST Name 'Prepare'
  : Original WL 'ME_5551BB340256' '5432518A0316.pas.ms.script' // Prepare
  ;
- : Implementor ME_5600FA2301B9 // TdaTabledQuery
+ : Implementor ME_566A7DCD0151 // TdaQuery
  ;
-ref; // ME_5551BB340256_ME_5600FA2301B9 Prepare
+ CONST OpKind opkind_Implemented
+ref; // ME_5551BB340256_ME_566A7DCD0151 Prepare
 
-: ME_5551BEA500AE_ME_5600FA2301B9
+: ME_5551BEA500AE_ME_566A7DCD0151
  CONST UID '5551BEA500AE'
  CONST Name 'Param'
  : Original WL 'ME_5551BEA500AE' '5432518A0316.pas.ms.script' // Param
  ;
- : Implementor ME_5600FA2301B9 // TdaTabledQuery
+ : Implementor ME_566A7DCD0151 // TdaQuery
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" false
-ref; // ME_5551BEA500AE_ME_5600FA2301B9 Param
+ref; // ME_5551BEA500AE_ME_566A7DCD0151 Param
 
-: ME_5551DC42038C_ME_5600FA2301B9
- CONST UID '5551DC42038C'
- CONST Name 'AddSelectField'
- : Original WL 'ME_5551DC42038C' '5432518A0316.pas.ms.script' // AddSelectField
- ;
- : Implementor ME_5600FA2301B9 // TdaTabledQuery
- ;
-ref; // ME_5551DC42038C_ME_5600FA2301B9 AddSelectField
-
-: ME_555334DD023B_ME_5600FA2301B9
+: ME_555334DD023B_ME_566A7DCD0151
  CONST UID '555334DD023B'
  CONST Name 'UnPrepare'
  : Original WL 'ME_555334DD023B' '5432518A0316.pas.ms.script' // UnPrepare
  ;
- : Implementor ME_5600FA2301B9 // TdaTabledQuery
+ : Implementor ME_566A7DCD0151 // TdaQuery
  ;
-ref; // ME_555334DD023B_ME_5600FA2301B9 UnPrepare
+ CONST OpKind opkind_Implemented
+ref; // ME_555334DD023B_ME_566A7DCD0151 UnPrepare
 
-: ME_563B18FB0212_ME_5600FA2301B9
- CONST UID '563B18FB0212'
- CONST Name 'WhereCondition'
- : Original WL 'ME_563B18FB0212' '5432518A0316.pas.ms.script' // WhereCondition
- ;
- : Implementor ME_5600FA2301B9 // TdaTabledQuery
- ;
- CONST "pm" false
-ref; // ME_563B18FB0212_ME_5600FA2301B9 WhereCondition
-
-: ME_564318160268_ME_5600FA2301B9
+: ME_564318160268_ME_566A7DCD0151
  CONST UID '564318160268'
  CONST Name 'BuildSQLValue'
  : Original WL 'ME_564318160268' '5432518A0316.pas.ms.script' // BuildSQLValue
  ;
- : Implementor ME_5600FA2301B9 // TdaTabledQuery
+ : Implementor ME_566A7DCD0151 // TdaQuery
  ;
-ref; // ME_564318160268_ME_5600FA2301B9 BuildSQLValue
+ CONST OpKind opkind_Implemented
+ref; // ME_564318160268_ME_566A7DCD0151 BuildSQLValue
 
-: ME_5666B5E20108_ME_5600FA2301B9
- CONST UID '5666B5E20108'
- CONST Name 'Table'
- : Original WL 'ME_5666B5E20108' '5432518A0316.pas.ms.script' // Table
- ;
- : Implementor ME_5600FA2301B9 // TdaTabledQuery
- ;
- CONST "pm" false
-ref; // ME_5666B5E20108_ME_5600FA2301B9 Table
-
-: ME_479731C50290_ME_5600FA2301B9
+: ME_479731C50290_ME_566A7DCD0151
  CONST UID '479731C50290'
  CONST Name 'Cleanup'
  : Original WL 'ME_479731C50290' '51612EBB02F5.pas.ms.script' // Cleanup
  ;
- : Implementor ME_5600FA2301B9 // TdaTabledQuery
+ : Implementor ME_566A7DCD0151 // TdaQuery
  ;
-ref; // ME_479731C50290_ME_5600FA2301B9 Cleanup
+ CONST OpKind opkind_Overridden
+ref; // ME_479731C50290_ME_566A7DCD0151 Cleanup
 
-: ME_49BFC98902FF_ME_5600FA2301B9
+: ME_49BFC98902FF_ME_566A7DCD0151
  CONST UID '49BFC98902FF'
  CONST Name 'BeforeRelease'
  : Original WL 'ME_49BFC98902FF' '51612EBB02F5.pas.ms.script' // BeforeRelease
  ;
- : Implementor ME_5600FA2301B9 // TdaTabledQuery
+ : Implementor ME_566A7DCD0151 // TdaQuery
  ;
-ref; // ME_49BFC98902FF_ME_5600FA2301B9 BeforeRelease
+ CONST OpKind opkind_Overridden
+ref; // ME_49BFC98902FF_ME_566A7DCD0151 BeforeRelease
 
-: ME_5000565C019C_ME_5600FA2301B9
- CONST UID '5000565C019C'
- CONST Name 'ClearFields'
- : Original WL 'ME_5000565C019C' '47913B47006E.pas.ms.script' // ClearFields
- ;
- : Implementor ME_5600FA2301B9 // TdaTabledQuery
- ;
-ref; // ME_5000565C019C_ME_5600FA2301B9 ClearFields
-
-: ME_5600FA2301B9
- CONST UID '5600FA2301B9'
- CONST Name 'TdaTabledQuery'
+: ME_566A7DCD0151
+ CONST UID '566A7DCD0151'
+ CONST Name 'TdaQuery'
  CONST Class class_Class
  : Stereotype st_SimpleClass ;
  CONST Kind kind_NormalClass
@@ -6931,75 +6785,64 @@ ref; // ME_5000565C019C_ME_5600FA2301B9 ClearFields
  : Parent ME_54F85B2500FB // Provider
  ;
  : Inherits
-   @ ( WL 'ME_49E7754802A9' '47913B47006E.pas.ms.script' // Tl3ProtoObject
- ) .SequenceCode.It
+   Seq: ( WL 'ME_49E7754802A9' '47913B47006E.pas.ms.script' // Tl3ProtoObject
+ )
  ; // Inherits
  : Implements
-   @ ( WL 'ME_5549C4060117' '5432518A0316.pas.ms.script' // IdaTabledQuery
- ) .SequenceCode.It
+   Seq: ( WL 'ME_5666C55000A5' '5432518A0316.pas.ms.script' // IdaQuery
+ )
  ; // Implements
  : Attributes
-   @ ( ME_5600FA840323 // DataConverter
- ME_5600FA9B0216 // Prepared
- ME_5600FAAE01F9 // SelectFields
- ME_5600FAC103DE // WhereCondition
- ME_5600FAE80038 // Params
- ME_5666B60F0331 // Table
- ME_D981AFCF7E2B // f_DataConverter
- ME_B73A664F908C // f_Prepared
- ME_F4E7C3436F24 // f_SelectFields
- ME_43BE3E02B4F1 // f_WhereCondition
- ME_4FD99F1FBB20 // f_Params
- ME_26700023C4D0 // f_Table
- ) .SequenceCode.It
+   Seq: ( ME_566A7E370320 // DataConverter
+ ME_566A7E450072 // Params
+ ME_566A7E5B00E9 // Prepared
+ ME_1D14F7FF550A // f_DataConverter
+ ME_4C4B93208FF8 // f_Params
+ ME_065AD501631B // f_Prepared
+ )
  ; // Attributes
  : Operations
-   @ ( ME_5600FB3903DE // Create
- ME_55FFDEC4037F // AddParam
- ME_5600FFF80332 // MakeFromTable
- ME_56010A7801F2 // MakeResultSet
- ME_56010AB70258 // PrepareTable
- ME_56010ACB00F0 // UnprepareTable
+   Seq: ( ME_55FFDEC4037F // AddParam
+ ME_56010AB70258 // PrepareQuery
+ ME_56010ACB00F0 // UnprepareQuery
  ME_560B861302E9 // MakeParamList
- ME_56050F450363 // BuildFromClause
- ME_56050F3E0081 // BuildSelectClause
- ME_56050F510228 // BuildWhereClause
- ) .SequenceCode.It
+ ME_56010A7801F2 // MakeResultSet
+ ME_566A7F3C01D9 // Create
+ ME_566A850001E5 // DoBuildSQLValue
+ )
  ; // Operations
  : Implemented
-   @ ( ME_5549C42400DA_ME_5600FA2301B9 // OpenResultSet
- ME_5551BB340256_ME_5600FA2301B9 // Prepare
- ME_5551BEA500AE_ME_5600FA2301B9 // Param
- ME_5551DC42038C_ME_5600FA2301B9 // AddSelectField
- ME_555334DD023B_ME_5600FA2301B9 // UnPrepare
- ME_563B18FB0212_ME_5600FA2301B9 // WhereCondition
- ME_564318160268_ME_5600FA2301B9 // BuildSQLValue
- ME_5666B5E20108_ME_5600FA2301B9 // Table
- ) .SequenceCode.It
+   Seq: ( ME_5549C42400DA_ME_566A7DCD0151 // OpenResultSet
+ ME_5551BB340256_ME_566A7DCD0151 // Prepare
+ ME_5551BEA500AE_ME_566A7DCD0151 // Param
+ ME_555334DD023B_ME_566A7DCD0151 // UnPrepare
+ ME_564318160268_ME_566A7DCD0151 // BuildSQLValue
+ )
  ; // Implemented
  : Overridden
-   @ ( ME_479731C50290_ME_5600FA2301B9 // Cleanup
- ME_49BFC98902FF_ME_5600FA2301B9 // BeforeRelease
- ME_5000565C019C_ME_5600FA2301B9 // ClearFields
- ) .SequenceCode.It
+   Seq: ( ME_479731C50290_ME_566A7DCD0151 // Cleanup
+ ME_49BFC98902FF_ME_566A7DCD0151 // BeforeRelease
+ )
  ; // Overridden
  : Dependencies
-   @ ( ME_5600FFB50050 // 
- ME_5600FFB901DF // 
- ) .SequenceCode.It
+   Seq: ( ME_566A93D603A6 // 
+ ME_566A93DA02A6 // 
+ )
  ; // Dependencies
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
- CONST intf.pas:Path 'common\components\rtl\Garant\DA\daTabledQuery.pas'
+ CONST dfm:PathOnly '\common\components\rtl\Garant\DA'
+ CONST intf.pas:Path 'common\components\rtl\Garant\DA\daQuery.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\DA'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'daQuery'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'daQuery'
 
-ref; // ME_5600FA2301B9 TdaTabledQuery
+ref; // ME_566A7DCD0151 TdaQuery
 
 FORWARD ME_5637497102C9
 
@@ -7036,6 +6879,7 @@ ref; // ME_56374A3C00D8
  ;
  : Implementor ME_5637497102C9 // TdaFieldList
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_47B9BAFD01F4_ME_5637497102C9 CompareItemWithData
 
 : ME_5637497102C9
@@ -7049,35 +6893,37 @@ ref; // ME_47B9BAFD01F4_ME_5637497102C9 CompareItemWithData
  : Parent ME_54F85B2500FB // Provider
  ;
  : Inherits
-   @ ( ME_559FB4490186 // TdaFieldListPrim
- ) .SequenceCode.It
+   Seq: ( ME_559FB4490186 // TdaFieldListPrim
+ )
  ; // Inherits
  : Implements
-   @ ( WL 'ME_47B47E230134' '47BB24D30205.pas.ms.script' // l3Searcher
- ) .SequenceCode.It
+   Seq: ( WL 'ME_47B47E230134' '47BB24D30205.pas.ms.script' // l3Searcher
+ )
  ; // Implements
  : Attributes
-   @ ( ME_563749AC0115 // FindDataType
- ) .SequenceCode.It
+   Seq: ( ME_563749AC0115 // FindDataType
+ )
  ; // Attributes
  : Overridden
-   @ ( ME_47B9BAFD01F4_ME_5637497102C9 // CompareItemWithData
- ) .SequenceCode.It
+   Seq: ( ME_47B9BAFD01F4_ME_5637497102C9 // CompareItemWithData
+ )
  ; // Overridden
  : Dependencies
-   @ ( ME_56374A3C00D8 // 
- ) .SequenceCode.It
+   Seq: ( ME_56374A3C00D8 // 
+ )
  ; // Dependencies
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\DA'
  CONST intf.pas:Path 'common\components\rtl\Garant\DA\daFieldList.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\DA'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'daFieldList'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'daFieldList'
 
 ref; // ME_5637497102C9 TdaFieldList
 
@@ -7166,10 +7012,10 @@ ref; // ME_56405A2B035A aRight
  : Parent ME_564059E50042 // Create
  ;
  : Parameters
-   @ ( ME_56405A2B032B // aLeft
+   Seq: ( ME_56405A2B032B // aLeft
  ME_56405A2B033B // anOperation
  ME_56405A2B035A // aRight
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_564059EC03AC DoIt
@@ -7185,8 +7031,8 @@ ref; // ME_564059EC03AC DoIt
  : Parent ME_5640598000F0 // TdaLogicCondition
  ;
  : Operations
-   @ ( ME_564059EC03AC // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_564059EC03AC // DoIt
+ )
  ; // Operations
 
 ref; // ME_564059E50042 Create
@@ -7196,6 +7042,7 @@ FORWARD ME_56405A3D0253
 : ME_96D71291C33D
  CONST UID '96D71291C33D'
  CONST Name 'aLeft'
+ CONST IsSummoned true
  CONST Class class_Parameter
  : Stereotype st_in ;
  : Target WL 'ME_5551DC5C020D' '5432518A0316.pas.ms.script' // IdaCondition
@@ -7206,6 +7053,7 @@ ref; // ME_96D71291C33D aLeft
 : ME_448AC3355236
  CONST UID '448AC3355236'
  CONST Name 'anOperation'
+ CONST IsSummoned true
  CONST Class class_Parameter
  : Stereotype st_in ;
  : Target WL 'ME_56405001019D' '5432448401BC.pas.ms.script' // TdaLogicOperation
@@ -7216,6 +7064,7 @@ ref; // ME_448AC3355236 anOperation
 : ME_51BD03D664D4
  CONST UID '51BD03D664D4'
  CONST Name 'aRight'
+ CONST IsSummoned true
  CONST Class class_Parameter
  : Stereotype st_in ;
  : Target WL 'ME_5551DC5C020D' '5432518A0316.pas.ms.script' // IdaCondition
@@ -7226,6 +7075,7 @@ ref; // ME_51BD03D664D4 aRight
 : ME_127019C45D87
  CONST UID '127019C45D87'
  CONST Name 'DoIt'
+ CONST IsSummoned true
  CONST Class class_Operation
  %SUMMARY 'Сигнатура фабрики TdaLogicCondition.Make' ;
  CONST Visibility PrivateAccess
@@ -7235,10 +7085,10 @@ ref; // ME_51BD03D664D4 aRight
  : Target WL 'ME_5551DC5C020D' '5432518A0316.pas.ms.script' // IdaCondition
  ;
  : Parameters
-   @ ( ME_96D71291C33D // aLeft
+   Seq: ( ME_96D71291C33D // aLeft
  ME_448AC3355236 // anOperation
  ME_51BD03D664D4 // aRight
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_127019C45D87 DoIt
@@ -7254,16 +7104,16 @@ ref; // ME_127019C45D87 DoIt
  : Parent ME_5640598000F0 // TdaLogicCondition
  ;
  : Inherits
-   @ ( ME_564059E50042 // Create
- ) .SequenceCode.It
+   Seq: ( ME_564059E50042 // Create
+ )
  ; // Inherits
  : Implements
-   @ ( WL 'ME_5551DC5C020D' '5432518A0316.pas.ms.script' // IdaCondition
- ) .SequenceCode.It
+   Seq: ( WL 'ME_5551DC5C020D' '5432518A0316.pas.ms.script' // IdaCondition
+ )
  ; // Implements
  : Operations
-   @ ( ME_127019C45D87 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_127019C45D87 // DoIt
+ )
  ; // Operations
  CONST "check nil" false
  CONST "need AfterCreate" 'undefined'
@@ -7283,8 +7133,8 @@ ref; // ME_56405A3D0253 Make
  : Parent ME_5640598000F0 // TdaLogicCondition
  ;
  : Inherits
-   @ ( WL 'ME_564089E3039B' '5432518A0316.pas.ms.script' // Iterate
- ) .SequenceCode.It
+   Seq: ( WL 'ME_564089E3039B' '5432518A0316.pas.ms.script' // Iterate
+ )
  ; // Inherits
  CONST "needs index" true
  CONST "needs result" true
@@ -7309,6 +7159,7 @@ ref; // ME_56407C4D02E4
  ;
  : Implementor ME_5640598000F0 // TdaLogicCondition
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_56408E7F01A1_ME_5640598000F0 DoBuildSQL
 
 : ME_479731C50290_ME_5640598000F0
@@ -7318,6 +7169,7 @@ ref; // ME_56408E7F01A1_ME_5640598000F0 DoBuildSQL
  ;
  : Implementor ME_5640598000F0 // TdaLogicCondition
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_479731C50290_ME_5640598000F0 Cleanup
 
 : ME_5640598000F0
@@ -7331,47 +7183,49 @@ ref; // ME_479731C50290_ME_5640598000F0 Cleanup
  : Parent ME_54F85B2500FB // Provider
  ;
  : Inherits
-   @ ( ME_56408DB303B7 // TdaCondition
- ) .SequenceCode.It
+   Seq: ( ME_56408DB303B7 // TdaCondition
+ )
  ; // Inherits
  : Implements
-   @ ( WL 'ME_5551DC5C020D' '5432518A0316.pas.ms.script' // IdaCondition
- ) .SequenceCode.It
+   Seq: ( WL 'ME_5551DC5C020D' '5432518A0316.pas.ms.script' // IdaCondition
+ )
  ; // Implements
  : Attributes
-   @ ( ME_56405A73021E // f_Left
+   Seq: ( ME_56405A73021E // f_Left
  ME_56405A7B026F // f_Right
  ME_56405A83010B // f_Operation
- ) .SequenceCode.It
+ )
  ; // Attributes
  : Operations
-   @ ( ME_564059E50042 // Create
+   Seq: ( ME_564059E50042 // Create
  ME_56405A3D0253 // Make
  ME_5641CAC802C3 // IterateX
- ) .SequenceCode.It
+ )
  ; // Operations
  : Implemented
-   @ ( ME_56408E7F01A1_ME_5640598000F0 // DoBuildSQL
- ) .SequenceCode.It
+   Seq: ( ME_56408E7F01A1_ME_5640598000F0 // DoBuildSQL
+ )
  ; // Implemented
  : Overridden
-   @ ( ME_479731C50290_ME_5640598000F0 // Cleanup
- ) .SequenceCode.It
+   Seq: ( ME_479731C50290_ME_5640598000F0 // Cleanup
+ )
  ; // Overridden
  : Dependencies
-   @ ( ME_56407C4D02E4 // 
- ) .SequenceCode.It
+   Seq: ( ME_56407C4D02E4 // 
+ )
  ; // Dependencies
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\DA'
  CONST intf.pas:Path 'common\components\rtl\Garant\DA\daLogicCondition.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\DA'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'daLogicCondition'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'daLogicCondition'
 
 ref; // ME_5640598000F0 TdaLogicCondition
 
@@ -7484,11 +7338,11 @@ ref; // ME_5552FCBF006F aParamName
  : Parent ME_5552FC6E01D4 // Create
  ;
  : Parameters
-   @ ( ME_5552FCBF0021 // aTableAlias
+   Seq: ( ME_5552FCBF0021 // aTableAlias
  ME_5552FCBF0031 // aField
  ME_5552FCBF0040 // anOperation
  ME_5552FCBF006F // aParamName
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_5552FC98021D DoIt
@@ -7504,8 +7358,8 @@ ref; // ME_5552FC98021D DoIt
  : Parent ME_5551DD0F02A1 // TdaParamsCondition
  ;
  : Operations
-   @ ( ME_5552FC98021D // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_5552FC98021D // DoIt
+ )
  ; // Operations
 
 ref; // ME_5552FC6E01D4 Create
@@ -7515,6 +7369,7 @@ FORWARD ME_5552FC78009B
 : ME_40FB540B862F
  CONST UID '40FB540B862F'
  CONST Name 'aTableAlias'
+ CONST IsSummoned true
  CONST Class class_Parameter
  : Stereotype st_in ;
  : Target WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
@@ -7525,6 +7380,7 @@ ref; // ME_40FB540B862F aTableAlias
 : ME_16464F16C2CB
  CONST UID '16464F16C2CB'
  CONST Name 'aField'
+ CONST IsSummoned true
  CONST Class class_Parameter
  : Stereotype st_in ;
  : Target WL 'ME_55377C5F0162' '5432518A0316.pas.ms.script' // IdaFieldDescription
@@ -7535,6 +7391,7 @@ ref; // ME_16464F16C2CB aField
 : ME_AADA7202561B
  CONST UID 'AADA7202561B'
  CONST Name 'anOperation'
+ CONST IsSummoned true
  CONST Class class_Parameter
  : Stereotype st_in ;
  : Target WL 'ME_5552F87B029E' '5432448401BC.pas.ms.script' // TdaCompareOperation
@@ -7545,6 +7402,7 @@ ref; // ME_AADA7202561B anOperation
 : ME_86FB66B0E898
  CONST UID '86FB66B0E898'
  CONST Name 'aParamName'
+ CONST IsSummoned true
  CONST Class class_Parameter
  : Stereotype st_in ;
  : Target WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
@@ -7555,6 +7413,7 @@ ref; // ME_86FB66B0E898 aParamName
 : ME_86996D99DC3D
  CONST UID '86996D99DC3D'
  CONST Name 'DoIt'
+ CONST IsSummoned true
  CONST Class class_Operation
  %SUMMARY 'Сигнатура фабрики TdaParamsCondition.Make' ;
  CONST Visibility PrivateAccess
@@ -7564,11 +7423,11 @@ ref; // ME_86FB66B0E898 aParamName
  : Target WL 'ME_5551DC5C020D' '5432518A0316.pas.ms.script' // IdaCondition
  ;
  : Parameters
-   @ ( ME_40FB540B862F // aTableAlias
+   Seq: ( ME_40FB540B862F // aTableAlias
  ME_16464F16C2CB // aField
  ME_AADA7202561B // anOperation
  ME_86FB66B0E898 // aParamName
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_86996D99DC3D DoIt
@@ -7584,16 +7443,16 @@ ref; // ME_86996D99DC3D DoIt
  : Parent ME_5551DD0F02A1 // TdaParamsCondition
  ;
  : Inherits
-   @ ( ME_5552FC6E01D4 // Create
- ) .SequenceCode.It
+   Seq: ( ME_5552FC6E01D4 // Create
+ )
  ; // Inherits
  : Implements
-   @ ( WL 'ME_5551DC5C020D' '5432518A0316.pas.ms.script' // IdaCondition
- ) .SequenceCode.It
+   Seq: ( WL 'ME_5551DC5C020D' '5432518A0316.pas.ms.script' // IdaCondition
+ )
  ; // Implements
  : Operations
-   @ ( ME_86996D99DC3D // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_86996D99DC3D // DoIt
+ )
  ; // Operations
  CONST "check nil" false
  CONST "need AfterCreate" 'undefined'
@@ -7625,8 +7484,8 @@ ref; // ME_562DE5A202F6 aStr
  : Target WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
  ;
  : Parameters
-   @ ( ME_562DE5A202F6 // aStr
- ) .SequenceCode.It
+   Seq: ( ME_562DE5A202F6 // aStr
+ )
  ; // Parameters
 
 ref; // ME_562DE59C016A DoIt
@@ -7642,8 +7501,8 @@ ref; // ME_562DE59C016A DoIt
  : Parent ME_5551DD0F02A1 // TdaParamsCondition
  ;
  : Operations
-   @ ( ME_562DE59C016A // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_562DE59C016A // DoIt
+ )
  ; // Operations
 
 ref; // ME_562DE57001BE AddCaseInsensetive
@@ -7666,6 +7525,7 @@ ref; // ME_56094000015F
  ;
  : Implementor ME_5551DD0F02A1 // TdaParamsCondition
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" false
 ref; // ME_555351D702B3_ME_5551DD0F02A1 TableAlias
 
@@ -7676,6 +7536,7 @@ ref; // ME_555351D702B3_ME_5551DD0F02A1 TableAlias
  ;
  : Implementor ME_5551DD0F02A1 // TdaParamsCondition
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" false
 ref; // ME_555351F500BC_ME_5551DD0F02A1 Field
 
@@ -7686,6 +7547,7 @@ ref; // ME_555351F500BC_ME_5551DD0F02A1 Field
  ;
  : Implementor ME_5551DD0F02A1 // TdaParamsCondition
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" false
 ref; // ME_5555C5620242_ME_5551DD0F02A1 Name
 
@@ -7696,6 +7558,7 @@ ref; // ME_5555C5620242_ME_5551DD0F02A1 Name
  ;
  : Implementor ME_5551DD0F02A1 // TdaParamsCondition
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" false
 ref; // ME_5555C57C023A_ME_5551DD0F02A1 DataType
 
@@ -7706,6 +7569,7 @@ ref; // ME_5555C57C023A_ME_5551DD0F02A1 DataType
  ;
  : Implementor ME_5551DD0F02A1 // TdaParamsCondition
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" false
 ref; // ME_5555C5AB0144_ME_5551DD0F02A1 Size
 
@@ -7716,6 +7580,7 @@ ref; // ME_5555C5AB0144_ME_5551DD0F02A1 Size
  ;
  : Implementor ME_5551DD0F02A1 // TdaParamsCondition
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" false
 ref; // ME_555D9A290122_ME_5551DD0F02A1 Operation
 
@@ -7726,7 +7591,19 @@ ref; // ME_555D9A290122_ME_5551DD0F02A1 Operation
  ;
  : Implementor ME_5551DD0F02A1 // TdaParamsCondition
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_56408E7F01A1_ME_5551DD0F02A1 DoBuildSQL
+
+: ME_56725D45021B_ME_5551DD0F02A1
+ CONST UID '56725D45021B'
+ CONST Name 'ParamType'
+ : Original WL 'ME_56725D45021B' '5432518A0316.pas.ms.script' // ParamType
+ ;
+ : Implementor ME_5551DD0F02A1 // TdaParamsCondition
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "pm" false
+ref; // ME_56725D45021B_ME_5551DD0F02A1 ParamType
 
 : ME_479731C50290_ME_5551DD0F02A1
  CONST UID '479731C50290'
@@ -7735,6 +7612,7 @@ ref; // ME_56408E7F01A1_ME_5551DD0F02A1 DoBuildSQL
  ;
  : Implementor ME_5551DD0F02A1 // TdaParamsCondition
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_479731C50290_ME_5551DD0F02A1 Cleanup
 
 : ME_5551DD0F02A1
@@ -7748,56 +7626,59 @@ ref; // ME_479731C50290_ME_5551DD0F02A1 Cleanup
  : Parent ME_54F85B2500FB // Provider
  ;
  : Inherits
-   @ ( ME_56408DB303B7 // TdaCondition
- ) .SequenceCode.It
+   Seq: ( ME_56408DB303B7 // TdaCondition
+ )
  ; // Inherits
  : Implements
-   @ ( WL 'ME_555351BE026E' '5432518A0316.pas.ms.script' // IdaFieldFromTable
+   Seq: ( WL 'ME_555351BE026E' '5432518A0316.pas.ms.script' // IdaFieldFromTable
  WL 'ME_5555ADD202AB' '5432518A0316.pas.ms.script' // IdaParamDescription
  WL 'ME_563AF9F5022A' '5432518A0316.pas.ms.script' // IdaAtomicCondition
- ) .SequenceCode.It
+ )
  ; // Implements
  : Attributes
-   @ ( ME_555455C10098 // f_Field
+   Seq: ( ME_555455C10098 // f_Field
  ME_555455CD0297 // f_TableAlias
  ME_5555C84E01EB // f_ParamName
  ME_555DA0060140 // f_Operation
- ) .SequenceCode.It
+ )
  ; // Attributes
  : Operations
-   @ ( ME_5552FC6E01D4 // Create
+   Seq: ( ME_5552FC6E01D4 // Create
  ME_5552FC78009B // Make
  ME_562DE57001BE // AddCaseInsensetive
- ) .SequenceCode.It
+ )
  ; // Operations
  : Implemented
-   @ ( ME_555351D702B3_ME_5551DD0F02A1 // TableAlias
+   Seq: ( ME_555351D702B3_ME_5551DD0F02A1 // TableAlias
  ME_555351F500BC_ME_5551DD0F02A1 // Field
  ME_5555C5620242_ME_5551DD0F02A1 // Name
  ME_5555C57C023A_ME_5551DD0F02A1 // DataType
  ME_5555C5AB0144_ME_5551DD0F02A1 // Size
  ME_555D9A290122_ME_5551DD0F02A1 // Operation
  ME_56408E7F01A1_ME_5551DD0F02A1 // DoBuildSQL
- ) .SequenceCode.It
+ ME_56725D45021B_ME_5551DD0F02A1 // ParamType
+ )
  ; // Implemented
  : Overridden
-   @ ( ME_479731C50290_ME_5551DD0F02A1 // Cleanup
- ) .SequenceCode.It
+   Seq: ( ME_479731C50290_ME_5551DD0F02A1 // Cleanup
+ )
  ; // Overridden
  : Dependencies
-   @ ( ME_56094000015F // 
- ) .SequenceCode.It
+   Seq: ( ME_56094000015F // 
+ )
  ; // Dependencies
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\DA'
  CONST intf.pas:Path 'common\components\rtl\Garant\DA\daParamsCondition.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\DA'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'daParamsCondition'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'daParamsCondition'
 
 ref; // ME_5551DD0F02A1 TdaParamsCondition
 
@@ -7886,10 +7767,10 @@ ref; // ME_5641EDC5008E aQuery
  : Parent ME_5641ED7401B8 // Create
  ;
  : Parameters
-   @ ( ME_5641EDC5005F // aTableAlias
+   Seq: ( ME_5641EDC5005F // aTableAlias
  ME_5641EDC5006E // aField
  ME_5641EDC5008E // aQuery
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_5641ED8D0087 new_operation
@@ -7905,8 +7786,8 @@ ref; // ME_5641ED8D0087 new_operation
  : Parent ME_5641ED5A01D1 // TdaSubQueryCondition
  ;
  : Operations
-   @ ( ME_5641ED8D0087 // new_operation
- ) .SequenceCode.It
+   Seq: ( ME_5641ED8D0087 // new_operation
+ )
  ; // Operations
 
 ref; // ME_5641ED7401B8 Create
@@ -7916,6 +7797,7 @@ FORWARD ME_5641ED7C0238
 : ME_C1D7372D364F
  CONST UID 'C1D7372D364F'
  CONST Name 'aTableAlias'
+ CONST IsSummoned true
  CONST Class class_Parameter
  : Stereotype st_in ;
  : Target WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
@@ -7926,6 +7808,7 @@ ref; // ME_C1D7372D364F aTableAlias
 : ME_B544EC684339
  CONST UID 'B544EC684339'
  CONST Name 'aField'
+ CONST IsSummoned true
  CONST Class class_Parameter
  : Stereotype st_in ;
  : Target WL 'ME_55377C5F0162' '5432518A0316.pas.ms.script' // IdaFieldDescription
@@ -7936,6 +7819,7 @@ ref; // ME_B544EC684339 aField
 : ME_AEA5CD998DA3
  CONST UID 'AEA5CD998DA3'
  CONST Name 'aQuery'
+ CONST IsSummoned true
  CONST Class class_Parameter
  : Stereotype st_in ;
  : Target WL 'ME_5549C4060117' '5432518A0316.pas.ms.script' // IdaTabledQuery
@@ -7946,6 +7830,7 @@ ref; // ME_AEA5CD998DA3 aQuery
 : ME_3D6FB1A68E11
  CONST UID '3D6FB1A68E11'
  CONST Name 'new_operation'
+ CONST IsSummoned true
  CONST Class class_Operation
  %SUMMARY 'Сигнатура фабрики TdaSubQueryCondition.Make' ;
  CONST Visibility PrivateAccess
@@ -7955,10 +7840,10 @@ ref; // ME_AEA5CD998DA3 aQuery
  : Target WL 'ME_5551DC5C020D' '5432518A0316.pas.ms.script' // IdaCondition
  ;
  : Parameters
-   @ ( ME_C1D7372D364F // aTableAlias
+   Seq: ( ME_C1D7372D364F // aTableAlias
  ME_B544EC684339 // aField
  ME_AEA5CD998DA3 // aQuery
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_3D6FB1A68E11 new_operation
@@ -7974,16 +7859,16 @@ ref; // ME_3D6FB1A68E11 new_operation
  : Parent ME_5641ED5A01D1 // TdaSubQueryCondition
  ;
  : Inherits
-   @ ( ME_5641ED7401B8 // Create
- ) .SequenceCode.It
+   Seq: ( ME_5641ED7401B8 // Create
+ )
  ; // Inherits
  : Implements
-   @ ( WL 'ME_5551DC5C020D' '5432518A0316.pas.ms.script' // IdaCondition
- ) .SequenceCode.It
+   Seq: ( WL 'ME_5551DC5C020D' '5432518A0316.pas.ms.script' // IdaCondition
+ )
  ; // Implements
  : Operations
-   @ ( ME_3D6FB1A68E11 // new_operation
- ) .SequenceCode.It
+   Seq: ( ME_3D6FB1A68E11 // new_operation
+ )
  ; // Operations
  CONST "check nil" false
  CONST "need AfterCreate" 'undefined'
@@ -8010,6 +7895,7 @@ ref; // ME_5642FECE0340
  ;
  : Implementor ME_5641ED5A01D1 // TdaSubQueryCondition
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_56408E7F01A1_ME_5641ED5A01D1 DoBuildSQL
 
 : ME_479731C50290_ME_5641ED5A01D1
@@ -8019,6 +7905,7 @@ ref; // ME_56408E7F01A1_ME_5641ED5A01D1 DoBuildSQL
  ;
  : Implementor ME_5641ED5A01D1 // TdaSubQueryCondition
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_479731C50290_ME_5641ED5A01D1 Cleanup
 
 : ME_5641ED5A01D1
@@ -8032,44 +7919,1289 @@ ref; // ME_479731C50290_ME_5641ED5A01D1 Cleanup
  : Parent ME_54F85B2500FB // Provider
  ;
  : Inherits
-   @ ( ME_56408DB303B7 // TdaCondition
- ) .SequenceCode.It
+   Seq: ( ME_56408DB303B7 // TdaCondition
+ )
  ; // Inherits
  : Attributes
-   @ ( ME_5642FD2E0037 // f_TableAlias
+   Seq: ( ME_5642FD2E0037 // f_TableAlias
  ME_5642FD3800C4 // f_Field
  ME_5642FD4501C8 // f_SubQuery
- ) .SequenceCode.It
+ )
  ; // Attributes
  : Operations
-   @ ( ME_5641ED7401B8 // Create
+   Seq: ( ME_5641ED7401B8 // Create
  ME_5641ED7C0238 // Make
- ) .SequenceCode.It
+ )
  ; // Operations
  : Implemented
-   @ ( ME_56408E7F01A1_ME_5641ED5A01D1 // DoBuildSQL
- ) .SequenceCode.It
+   Seq: ( ME_56408E7F01A1_ME_5641ED5A01D1 // DoBuildSQL
+ )
  ; // Implemented
  : Overridden
-   @ ( ME_479731C50290_ME_5641ED5A01D1 // Cleanup
- ) .SequenceCode.It
+   Seq: ( ME_479731C50290_ME_5641ED5A01D1 // Cleanup
+ )
  ; // Overridden
  : Dependencies
-   @ ( ME_5642FECE0340 // 
- ) .SequenceCode.It
+   Seq: ( ME_5642FECE0340 // 
+ )
  ; // Dependencies
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\DA'
  CONST intf.pas:Path 'common\components\rtl\Garant\DA\daSubQueryCondition.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\DA'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'daSubQueryCondition'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'daSubQueryCondition'
 
 ref; // ME_5641ED5A01D1 TdaSubQueryCondition
+
+FORWARD ME_5680F609012D
+
+: ME_5680F62101A0
+ CONST UID '5680F62101A0'
+ CONST Name 'ItemType'
+ CONST Class class_Attribute
+ : Stereotype st_impurity_value::Attribute ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_agr
+ : Parent ME_5680F609012D // TdaSortFieldList
+ ;
+ : Target WL 'ME_5680EE9A00EC' '5432518A0316.pas.ms.script' // IdaSortField
+ ;
+
+ref; // ME_5680F62101A0 ItemType
+
+: ME_47B07CF403D0_ME_5680F609012D
+ CONST UID '47B07CF403D0'
+ CONST Name 'IsSameItems'
+ : Original WL 'ME_47B07CF403D0' '47913B47006E.pas.ms.script' // IsSameItems
+ ;
+ : Implementor ME_5680F609012D // TdaSortFieldList
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "ifndef" 'l3Items_IsAtomic'
+ref; // ME_47B07CF403D0_ME_5680F609012D IsSameItems
+
+: ME_47B2C42A0163_ME_5680F609012D
+ CONST UID '47B2C42A0163'
+ CONST Name 'AssignItem'
+ : Original WL 'ME_47B2C42A0163' '47913B47006E.pas.ms.script' // AssignItem
+ ;
+ : Implementor ME_5680F609012D // TdaSortFieldList
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "ifdef" 'l3Items_NeedsAssignItem'
+ CONST "ifndef" 'l3Items_NoSort'
+ref; // ME_47B2C42A0163_ME_5680F609012D AssignItem
+
+: ME_47B99D4503A2_ME_5680F609012D
+ CONST UID '47B99D4503A2'
+ CONST Name 'CompareExistingItems'
+ : Original WL 'ME_47B99D4503A2' '47BB24D30205.pas.ms.script' // CompareExistingItems
+ ;
+ : Implementor ME_5680F609012D // TdaSortFieldList
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_47B99D4503A2_ME_5680F609012D CompareExistingItems
+
+: ME_5680F609012D
+ CONST UID '5680F609012D'
+ CONST Name 'TdaSortFieldList'
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_54F85B2500FB // Provider
+ ;
+ : Inherits
+   Seq: ( WL 'ME_4A54DD4E036F' '47913B47006E.pas.ms.script' // Tl3ProtoDataContainer
+ )
+ ; // Inherits
+ : Implements
+   Seq: ( WL 'ME_47B9AF6E0228' '47913B47006E.pas.ms.script' // l3InterfaceRefListPrim
+ )
+ ; // Implements
+ : Attributes
+   Seq: ( ME_5680F62101A0 // ItemType
+ )
+ ; // Attributes
+ : Implemented
+   Seq: ( ME_47B07CF403D0_ME_5680F609012D // IsSameItems
+ ME_47B2C42A0163_ME_5680F609012D // AssignItem
+ ME_47B99D4503A2_ME_5680F609012D // CompareExistingItems
+ )
+ ; // Implemented
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ CONST dfm:PathOnly '\common\components\rtl\Garant\DA'
+ CONST intf.pas:Path 'common\components\rtl\Garant\DA\daSortFieldList.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\DA'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'daSortFieldList'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'daSortFieldList'
+
+ref; // ME_5680F609012D TdaSortFieldList
+
+FORWARD ME_566E71FA000F
+
+: ME_566E73940151
+ CONST UID '566E73940151'
+ CONST Name 'f_Description'
+ CONST Class class_Attribute
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_566E71FA000F // TdaFieldParamDescription
+ ;
+ : Target WL 'ME_55377C5F0162' '5432518A0316.pas.ms.script' // IdaFieldDescription
+ ;
+
+ref; // ME_566E73940151 f_Description
+
+FORWARD ME_566E721A02B9
+
+: ME_566E735C0295
+ CONST UID '566E735C0295'
+ CONST Name 'aFieldDescription'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_55377C5F0162' '5432518A0316.pas.ms.script' // IdaFieldDescription
+ ;
+
+ref; // ME_566E735C0295 aFieldDescription
+
+: ME_566E72240133
+ CONST UID '566E72240133'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_566E721A02B9 // Create
+ ;
+ : Parameters
+   Seq: ( ME_566E735C0295 // aFieldDescription
+ )
+ ; // Parameters
+
+ref; // ME_566E72240133 DoIt
+
+: ME_566E721A02B9
+ CONST UID '566E721A02B9'
+ CONST Name 'Create'
+ CONST Class class_Class
+ : Stereotype st_Constructor ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_566E71FA000F // TdaFieldParamDescription
+ ;
+ : Operations
+   Seq: ( ME_566E72240133 // DoIt
+ )
+ ; // Operations
+
+ref; // ME_566E721A02B9 Create
+
+FORWARD ME_566E73610319
+
+: ME_3AFCC5849714
+ CONST UID '3AFCC5849714'
+ CONST Name 'aFieldDescription'
+ CONST IsSummoned true
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_55377C5F0162' '5432518A0316.pas.ms.script' // IdaFieldDescription
+ ;
+
+ref; // ME_3AFCC5849714 aFieldDescription
+
+: ME_8C2B3BBA7ADD
+ CONST UID '8C2B3BBA7ADD'
+ CONST Name 'DoIt'
+ CONST IsSummoned true
+ CONST Class class_Operation
+ %SUMMARY 'Сигнатура фабрики TdaFieldParamDescription.Make' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_566E73610319 // Make
+ ;
+ : Target WL 'ME_5555ADD202AB' '5432518A0316.pas.ms.script' // IdaParamDescription
+ ;
+ : Parameters
+   Seq: ( ME_3AFCC5849714 // aFieldDescription
+ )
+ ; // Parameters
+
+ref; // ME_8C2B3BBA7ADD DoIt
+
+: ME_566E73610319
+ CONST UID '566E73610319'
+ CONST Name 'Make'
+ CONST Class class_Class
+ : Stereotype st_Factory ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_566E71FA000F // TdaFieldParamDescription
+ ;
+ : Inherits
+   Seq: ( ME_566E721A02B9 // Create
+ )
+ ; // Inherits
+ : Implements
+   Seq: ( WL 'ME_5555ADD202AB' '5432518A0316.pas.ms.script' // IdaParamDescription
+ )
+ ; // Implements
+ : Operations
+   Seq: ( ME_8C2B3BBA7ADD // DoIt
+ )
+ ; // Operations
+ CONST "check nil" false
+ CONST "need AfterCreate" 'undefined'
+ CONST "need Aggregate" 'undefined'
+ CONST "need As" false
+
+ref; // ME_566E73610319 Make
+
+: ME_5555C5620242_ME_566E71FA000F
+ CONST UID '5555C5620242'
+ CONST Name 'Name'
+ : Original WL 'ME_5555C5620242' '5432518A0316.pas.ms.script' // Name
+ ;
+ : Implementor ME_566E71FA000F // TdaFieldParamDescription
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "pm" false
+ref; // ME_5555C5620242_ME_566E71FA000F Name
+
+: ME_5555C57C023A_ME_566E71FA000F
+ CONST UID '5555C57C023A'
+ CONST Name 'DataType'
+ : Original WL 'ME_5555C57C023A' '5432518A0316.pas.ms.script' // DataType
+ ;
+ : Implementor ME_566E71FA000F // TdaFieldParamDescription
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "pm" false
+ref; // ME_5555C57C023A_ME_566E71FA000F DataType
+
+: ME_5555C5AB0144_ME_566E71FA000F
+ CONST UID '5555C5AB0144'
+ CONST Name 'Size'
+ : Original WL 'ME_5555C5AB0144' '5432518A0316.pas.ms.script' // Size
+ ;
+ : Implementor ME_566E71FA000F // TdaFieldParamDescription
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "pm" false
+ref; // ME_5555C5AB0144_ME_566E71FA000F Size
+
+: ME_56725D45021B_ME_566E71FA000F
+ CONST UID '56725D45021B'
+ CONST Name 'ParamType'
+ : Original WL 'ME_56725D45021B' '5432518A0316.pas.ms.script' // ParamType
+ ;
+ : Implementor ME_566E71FA000F // TdaFieldParamDescription
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "pm" false
+ref; // ME_56725D45021B_ME_566E71FA000F ParamType
+
+: ME_479731C50290_ME_566E71FA000F
+ CONST UID '479731C50290'
+ CONST Name 'Cleanup'
+ : Original WL 'ME_479731C50290' '51612EBB02F5.pas.ms.script' // Cleanup
+ ;
+ : Implementor ME_566E71FA000F // TdaFieldParamDescription
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_479731C50290_ME_566E71FA000F Cleanup
+
+: ME_566E71FA000F
+ CONST UID '566E71FA000F'
+ CONST Name 'TdaFieldParamDescription'
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_54F85B2500FB // Provider
+ ;
+ : Inherits
+   Seq: ( WL 'ME_49E7754802A9' '47913B47006E.pas.ms.script' // Tl3ProtoObject
+ )
+ ; // Inherits
+ : Implements
+   Seq: ( WL 'ME_5555ADD202AB' '5432518A0316.pas.ms.script' // IdaParamDescription
+ )
+ ; // Implements
+ : Attributes
+   Seq: ( ME_566E73940151 // f_Description
+ )
+ ; // Attributes
+ : Operations
+   Seq: ( ME_566E721A02B9 // Create
+ ME_566E73610319 // Make
+ )
+ ; // Operations
+ : Implemented
+   Seq: ( ME_5555C5620242_ME_566E71FA000F // Name
+ ME_5555C57C023A_ME_566E71FA000F // DataType
+ ME_5555C5AB0144_ME_566E71FA000F // Size
+ ME_56725D45021B_ME_566E71FA000F // ParamType
+ )
+ ; // Implemented
+ : Overridden
+   Seq: ( ME_479731C50290_ME_566E71FA000F // Cleanup
+ )
+ ; // Overridden
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ CONST dfm:PathOnly '\common\components\rtl\Garant\DA'
+ CONST intf.pas:Path 'common\components\rtl\Garant\DA\daFieldParamDescription.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\DA'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'daFieldParamDescription'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'daFieldParamDescription'
+
+ref; // ME_566E71FA000F TdaFieldParamDescription
+
+FORWARD ME_5680EF290107
+
+: ME_5680EFB301F6
+ CONST UID '5680EFB301F6'
+ CONST Name 'f_SelectField'
+ CONST Class class_Attribute
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_5680EF290107 // TdaSortField
+ ;
+ : Target WL 'ME_5551DC0F012D' '5432518A0316.pas.ms.script' // IdaSelectField
+ ;
+
+ref; // ME_5680EFB301F6 f_SelectField
+
+: ME_5680EFBF00EA
+ CONST UID '5680EFBF00EA'
+ CONST Name 'f_SortOrder'
+ CONST Class class_Attribute
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_5680EF290107 // TdaSortField
+ ;
+ : Target WL 'ME_567CF81B01BA' '5432448401BC.pas.ms.script' // TdaSortOrder
+ ;
+
+ref; // ME_5680EFBF00EA f_SortOrder
+
+FORWARD ME_5680EF4703D5
+
+: ME_568130210076
+ CONST UID '568130210076'
+ CONST Name 'aSelectField'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_5551DC0F012D' '5432518A0316.pas.ms.script' // IdaSelectField
+ ;
+
+ref; // ME_568130210076 aSelectField
+
+: ME_568130210085
+ CONST UID '568130210085'
+ CONST Name 'aSortOrder'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_567CF81B01BA' '5432448401BC.pas.ms.script' // TdaSortOrder
+ ;
+ CONST Value 'da_soAscending'
+ : ValueType WL 'ME_567CF81B01BA' '5432448401BC.pas.ms.script' // TdaSortOrder
+ ;
+ CONST extprop:pas:Value 'daTypes.da_soAscending'
+
+ref; // ME_568130210085 aSortOrder
+
+: ME_5680EF5003B8
+ CONST UID '5680EF5003B8'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_5680EF4703D5 // Create
+ ;
+ : Parameters
+   Seq: ( ME_568130210076 // aSelectField
+ ME_568130210085 // aSortOrder
+ )
+ ; // Parameters
+
+ref; // ME_5680EF5003B8 DoIt
+
+: ME_5680EF4703D5
+ CONST UID '5680EF4703D5'
+ CONST Name 'Create'
+ CONST Class class_Class
+ : Stereotype st_Constructor ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_5680EF290107 // TdaSortField
+ ;
+ : Operations
+   Seq: ( ME_5680EF5003B8 // DoIt
+ )
+ ; // Operations
+
+ref; // ME_5680EF4703D5 Create
+
+FORWARD ME_5680EF7D0314
+
+: ME_860672660EB3
+ CONST UID '860672660EB3'
+ CONST Name 'aSelectField'
+ CONST IsSummoned true
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_5551DC0F012D' '5432518A0316.pas.ms.script' // IdaSelectField
+ ;
+
+ref; // ME_860672660EB3 aSelectField
+
+: ME_9CE14A3602EA
+ CONST UID '9CE14A3602EA'
+ CONST Name 'aSortOrder'
+ CONST IsSummoned true
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_567CF81B01BA' '5432448401BC.pas.ms.script' // TdaSortOrder
+ ;
+ CONST Value 'da_soAscending'
+ : ValueType WL 'ME_567CF81B01BA' '5432448401BC.pas.ms.script' // TdaSortOrder
+ ;
+ CONST extprop:pas:Value 'daTypes.da_soAscending'
+
+ref; // ME_9CE14A3602EA aSortOrder
+
+: ME_306C983CBFA3
+ CONST UID '306C983CBFA3'
+ CONST Name 'DoIt'
+ CONST IsSummoned true
+ CONST Class class_Operation
+ %SUMMARY 'Сигнатура фабрики TdaSortField.Make' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_5680EF7D0314 // Make
+ ;
+ : Target WL 'ME_5680EE9A00EC' '5432518A0316.pas.ms.script' // IdaSortField
+ ;
+ : Parameters
+   Seq: ( ME_860672660EB3 // aSelectField
+ ME_9CE14A3602EA // aSortOrder
+ )
+ ; // Parameters
+
+ref; // ME_306C983CBFA3 DoIt
+
+: ME_5680EF7D0314
+ CONST UID '5680EF7D0314'
+ CONST Name 'Make'
+ CONST Class class_Class
+ : Stereotype st_Factory ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_5680EF290107 // TdaSortField
+ ;
+ : Inherits
+   Seq: ( ME_5680EF4703D5 // Create
+ )
+ ; // Inherits
+ : Implements
+   Seq: ( WL 'ME_5680EE9A00EC' '5432518A0316.pas.ms.script' // IdaSortField
+ )
+ ; // Implements
+ : Operations
+   Seq: ( ME_306C983CBFA3 // DoIt
+ )
+ ; // Operations
+ CONST "check nil" false
+ CONST "need AfterCreate" 'undefined'
+ CONST "need Aggregate" 'undefined'
+ CONST "need As" false
+
+ref; // ME_5680EF7D0314 Make
+
+: ME_5680EEB20163_ME_5680EF290107
+ CONST UID '5680EEB20163'
+ CONST Name 'SelectField'
+ : Original WL 'ME_5680EEB20163' '5432518A0316.pas.ms.script' // SelectField
+ ;
+ : Implementor ME_5680EF290107 // TdaSortField
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "pm" false
+ref; // ME_5680EEB20163_ME_5680EF290107 SelectField
+
+: ME_5680EEDA03E3_ME_5680EF290107
+ CONST UID '5680EEDA03E3'
+ CONST Name 'SortOrder'
+ : Original WL 'ME_5680EEDA03E3' '5432518A0316.pas.ms.script' // SortOrder
+ ;
+ : Implementor ME_5680EF290107 // TdaSortField
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "pm" false
+ref; // ME_5680EEDA03E3_ME_5680EF290107 SortOrder
+
+: ME_479731C50290_ME_5680EF290107
+ CONST UID '479731C50290'
+ CONST Name 'Cleanup'
+ : Original WL 'ME_479731C50290' '51612EBB02F5.pas.ms.script' // Cleanup
+ ;
+ : Implementor ME_5680EF290107 // TdaSortField
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_479731C50290_ME_5680EF290107 Cleanup
+
+: ME_5680EF290107
+ CONST UID '5680EF290107'
+ CONST Name 'TdaSortField'
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_54F85B2500FB // Provider
+ ;
+ : Inherits
+   Seq: ( WL 'ME_49E7754802A9' '47913B47006E.pas.ms.script' // Tl3ProtoObject
+ )
+ ; // Inherits
+ : Implements
+   Seq: ( WL 'ME_5680EE9A00EC' '5432518A0316.pas.ms.script' // IdaSortField
+ )
+ ; // Implements
+ : Attributes
+   Seq: ( ME_5680EFB301F6 // f_SelectField
+ ME_5680EFBF00EA // f_SortOrder
+ )
+ ; // Attributes
+ : Operations
+   Seq: ( ME_5680EF4703D5 // Create
+ ME_5680EF7D0314 // Make
+ )
+ ; // Operations
+ : Implemented
+   Seq: ( ME_5680EEB20163_ME_5680EF290107 // SelectField
+ ME_5680EEDA03E3_ME_5680EF290107 // SortOrder
+ )
+ ; // Implemented
+ : Overridden
+   Seq: ( ME_479731C50290_ME_5680EF290107 // Cleanup
+ )
+ ; // Overridden
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ CONST dfm:PathOnly '\common\components\rtl\Garant\DA'
+ CONST intf.pas:Path 'common\components\rtl\Garant\DA\daSortField.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\DA'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'daSortField'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'daSortField'
+
+ref; // ME_5680EF290107 TdaSortField
+
+FORWARD ME_5600FA2301B9
+
+: ME_5600FAAE01F9
+ CONST UID '5600FAAE01F9'
+ CONST Name 'SelectFields'
+ CONST Class class_Attribute
+ : Stereotype st_readonly::Attribute ;
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_5600FA2301B9 // TdaTabledQuery
+ ;
+ : Target ME_55C84D190010 // TdaSelectFieldList
+ ;
+ CONST "pm" true
+ CONST "reads field" true
+
+ref; // ME_5600FAAE01F9 SelectFields
+
+: ME_5600FAC103DE
+ CONST UID '5600FAC103DE'
+ CONST Name 'WhereCondition'
+ CONST Class class_Attribute
+ : Stereotype st_property::Attribute ;
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_5600FA2301B9 // TdaTabledQuery
+ ;
+ : Target WL 'ME_5551DC5C020D' '5432518A0316.pas.ms.script' // IdaCondition
+ ;
+ CONST "pm" true
+ CONST "reads field" true
+
+ref; // ME_5600FAC103DE WhereCondition
+
+: ME_5666B60F0331
+ CONST UID '5666B60F0331'
+ CONST Name 'Table'
+ CONST Class class_Attribute
+ : Stereotype st_readonly::Attribute ;
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_5600FA2301B9 // TdaTabledQuery
+ ;
+ : Target WL 'ME_555303840193' '5432518A0316.pas.ms.script' // IdaFromTable
+ ;
+ CONST "pm" true
+ CONST "reads field" true
+
+ref; // ME_5666B60F0331 Table
+
+: ME_567D049401A1
+ CONST UID '567D049401A1'
+ CONST Name 'OrderBy'
+ CONST Class class_Attribute
+ : Stereotype st_readonly::Attribute ;
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_5600FA2301B9 // TdaTabledQuery
+ ;
+ : Target ME_5680F609012D // TdaSortFieldList
+ ;
+ CONST "pm" true
+ CONST "reads field" true
+
+ref; // ME_567D049401A1 OrderBy
+
+: ME_F4E7C3436F24
+ CONST UID 'F4E7C3436F24'
+ CONST Name 'f_SelectFields'
+ CONST IsSummoned true
+ CONST Class class_Attribute
+ %SUMMARY 'Поле для свойства SelectFields' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_ref
+ : Parent ME_5600FA2301B9 // TdaTabledQuery
+ ;
+ : Target ME_55C84D190010 // TdaSelectFieldList
+ ;
+
+ref; // ME_F4E7C3436F24 f_SelectFields
+
+: ME_43BE3E02B4F1
+ CONST UID '43BE3E02B4F1'
+ CONST Name 'f_WhereCondition'
+ CONST IsSummoned true
+ CONST Class class_Attribute
+ %SUMMARY 'Поле для свойства WhereCondition' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_ref
+ : Parent ME_5600FA2301B9 // TdaTabledQuery
+ ;
+ : Target WL 'ME_5551DC5C020D' '5432518A0316.pas.ms.script' // IdaCondition
+ ;
+ CONST extprop:clearViaProperty 'WhereCondition'
+
+ref; // ME_43BE3E02B4F1 f_WhereCondition
+
+: ME_26700023C4D0
+ CONST UID '26700023C4D0'
+ CONST Name 'f_Table'
+ CONST IsSummoned true
+ CONST Class class_Attribute
+ %SUMMARY 'Поле для свойства Table' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_ref
+ : Parent ME_5600FA2301B9 // TdaTabledQuery
+ ;
+ : Target WL 'ME_555303840193' '5432518A0316.pas.ms.script' // IdaFromTable
+ ;
+
+ref; // ME_26700023C4D0 f_Table
+
+: ME_4325B78FC7A2
+ CONST UID '4325B78FC7A2'
+ CONST Name 'f_OrderBy'
+ CONST IsSummoned true
+ CONST Class class_Attribute
+ %SUMMARY 'Поле для свойства OrderBy' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_ref
+ : Parent ME_5600FA2301B9 // TdaTabledQuery
+ ;
+ : Target ME_5680F609012D // TdaSortFieldList
+ ;
+
+ref; // ME_4325B78FC7A2 f_OrderBy
+
+FORWARD ME_5600FB3903DE
+
+: ME_563B40C201B2
+ CONST UID '563B40C201B2'
+ CONST Name 'aDataConverter'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_5559950F0013' '5432518A0316.pas.ms.script' // IdaDataConverter
+ ;
+
+ref; // ME_563B40C201B2 aDataConverter
+
+: ME_563B40C201B3
+ CONST UID '563B40C201B3'
+ CONST Name 'aTable'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_552FADE50173' '5432518A0316.pas.ms.script' // IdaTableDescription
+ ;
+
+ref; // ME_563B40C201B3 aTable
+
+: ME_563B40C201C1
+ CONST UID '563B40C201C1'
+ CONST Name 'anAlias'
+ CONST Class class_Parameter
+ : Stereotype st_const ;
+ : Target WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
+ ;
+ CONST Value ''''''
+ : ValueType WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
+ ;
+ CONST extprop:pas:Value ''''''
+
+ref; // ME_563B40C201C1 anAlias
+
+: ME_5600FB45039D
+ CONST UID '5600FB45039D'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_5600FB3903DE // Create
+ ;
+ : Parameters
+   Seq: ( ME_563B40C201B2 // aDataConverter
+ ME_563B40C201B3 // aTable
+ ME_563B40C201C1 // anAlias
+ )
+ ; // Parameters
+
+ref; // ME_5600FB45039D DoIt
+
+: ME_5600FB3903DE
+ CONST UID '5600FB3903DE'
+ CONST Name 'Create'
+ CONST Class class_Class
+ : Stereotype st_Constructor ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_5600FA2301B9 // TdaTabledQuery
+ ;
+ : Operations
+   Seq: ( ME_5600FB45039D // DoIt
+ )
+ ; // Operations
+
+ref; // ME_5600FB3903DE Create
+
+FORWARD ME_56050F450363
+
+: ME_56050F6B0143
+ CONST UID '56050F6B0143'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_56050F450363 // BuildFromClause
+ ;
+ : Target WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
+ ;
+
+ref; // ME_56050F6B0143 DoIt
+
+: ME_56050F450363
+ CONST UID '56050F450363'
+ CONST Name 'BuildFromClause'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_5600FA2301B9 // TdaTabledQuery
+ ;
+ : Operations
+   Seq: ( ME_56050F6B0143 // DoIt
+ )
+ ; // Operations
+
+ref; // ME_56050F450363 BuildFromClause
+
+FORWARD ME_56050F3E0081
+
+: ME_56050F640390
+ CONST UID '56050F640390'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_56050F3E0081 // BuildSelectClause
+ ;
+ : Target WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
+ ;
+
+ref; // ME_56050F640390 DoIt
+
+: ME_56050F3E0081
+ CONST UID '56050F3E0081'
+ CONST Name 'BuildSelectClause'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_5600FA2301B9 // TdaTabledQuery
+ ;
+ : Operations
+   Seq: ( ME_56050F640390 // DoIt
+ )
+ ; // Operations
+
+ref; // ME_56050F3E0081 BuildSelectClause
+
+FORWARD ME_56050F510228
+
+: ME_564318F10214
+ CONST UID '564318F10214'
+ CONST Name 'aHelper'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_5608FDE00371' '5432518A0316.pas.ms.script' // IdaParamListHelper
+ ;
+
+ref; // ME_564318F10214 aHelper
+
+: ME_56050F7102DF
+ CONST UID '56050F7102DF'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_56050F510228 // BuildWhereClause
+ ;
+ : Target WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
+ ;
+ : Parameters
+   Seq: ( ME_564318F10214 // aHelper
+ )
+ ; // Parameters
+
+ref; // ME_56050F7102DF DoIt
+
+: ME_56050F510228
+ CONST UID '56050F510228'
+ CONST Name 'BuildWhereClause'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_5600FA2301B9 // TdaTabledQuery
+ ;
+ : Operations
+   Seq: ( ME_56050F7102DF // DoIt
+ )
+ ; // Operations
+
+ref; // ME_56050F510228 BuildWhereClause
+
+FORWARD ME_5600FFF80332
+
+: ME_563B40CF0249
+ CONST UID '563B40CF0249'
+ CONST Name 'aTable'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_552FADE50173' '5432518A0316.pas.ms.script' // IdaTableDescription
+ ;
+
+ref; // ME_563B40CF0249 aTable
+
+: ME_563B40CF024A
+ CONST UID '563B40CF024A'
+ CONST Name 'anAlias'
+ CONST Class class_Parameter
+ : Stereotype st_const ;
+ : Target WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
+ ;
+ CONST Value ''''''
+ : ValueType WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
+ ;
+ CONST extprop:pas:Value ''''''
+
+ref; // ME_563B40CF024A anAlias
+
+: ME_5601000B0269
+ CONST UID '5601000B0269'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_5600FFF80332 // MakeFromTable
+ ;
+ : Target WL 'ME_555303840193' '5432518A0316.pas.ms.script' // IdaFromTable
+ ;
+ : Parameters
+   Seq: ( ME_563B40CF0249 // aTable
+ ME_563B40CF024A // anAlias
+ )
+ ; // Parameters
+
+ref; // ME_5601000B0269 DoIt
+
+: ME_5600FFF80332
+ CONST UID '5600FFF80332'
+ CONST Name 'MakeFromTable'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_abstract
+ : Parent ME_5600FA2301B9 // TdaTabledQuery
+ ;
+ : Operations
+   Seq: ( ME_5601000B0269 // DoIt
+ )
+ ; // Operations
+
+ref; // ME_5600FFF80332 MakeFromTable
+
+FORWARD ME_566A892A0191
+
+: ME_E346FBFAAC40
+ CONST UID 'E346FBFAAC40'
+ CONST Name 'DoIt'
+ CONST IsSummoned true
+ CONST Class class_Operation
+ %SUMMARY 'Сигнатура метода PrepareTable' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_566A892A0191 // PrepareTable
+ ;
+
+ref; // ME_E346FBFAAC40 DoIt
+
+: ME_566A892A0191
+ CONST UID '566A892A0191'
+ CONST Name 'PrepareTable'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_abstract
+ : Parent ME_5600FA2301B9 // TdaTabledQuery
+ ;
+ : Operations
+   Seq: ( ME_E346FBFAAC40 // DoIt
+ )
+ ; // Operations
+
+ref; // ME_566A892A0191 PrepareTable
+
+FORWARD ME_566A893B03C7
+
+: ME_782EDA10912D
+ CONST UID '782EDA10912D'
+ CONST Name 'DoIt'
+ CONST IsSummoned true
+ CONST Class class_Operation
+ %SUMMARY 'Сигнатура метода UnPrepareTable' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_566A893B03C7 // UnPrepareTable
+ ;
+
+ref; // ME_782EDA10912D DoIt
+
+: ME_566A893B03C7
+ CONST UID '566A893B03C7'
+ CONST Name 'UnPrepareTable'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_abstract
+ : Parent ME_5600FA2301B9 // TdaTabledQuery
+ ;
+ : Operations
+   Seq: ( ME_782EDA10912D // DoIt
+ )
+ ; // Operations
+
+ref; // ME_566A893B03C7 UnPrepareTable
+
+FORWARD ME_5680E19E003D
+
+: ME_5680E1BA00BD
+ CONST UID '5680E1BA00BD'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_5680E19E003D // BuildOrderByClause
+ ;
+ : Target WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
+ ;
+
+ref; // ME_5680E1BA00BD DoIt
+
+: ME_5680E19E003D
+ CONST UID '5680E19E003D'
+ CONST Name 'BuildOrderByClause'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_5600FA2301B9 // TdaTabledQuery
+ ;
+ : Operations
+   Seq: ( ME_5680E1BA00BD // DoIt
+ )
+ ; // Operations
+
+ref; // ME_5680E19E003D BuildOrderByClause
+
+: ME_5600FFB50050
+ CONST UID '5600FFB50050'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_5600FA2301B9 // TdaTabledQuery
+ ;
+ : Target WL 'ME_4ADC58F703CF' '4AB0C3C60310.pas.ms.script' // FreeAndNil
+ ;
+
+ref; // ME_5600FFB50050 
+
+: ME_566AA117019D
+ CONST UID '566AA117019D'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_5600FA2301B9 // TdaTabledQuery
+ ;
+ : Target WL 'ME_56667A4D00EA' '5432448401BC.pas.ms.script' // TdaParamType
+ ;
+
+ref; // ME_566AA117019D 
+
+: ME_5551DC42038C_ME_5600FA2301B9
+ CONST UID '5551DC42038C'
+ CONST Name 'AddSelectField'
+ : Original WL 'ME_5551DC42038C' '5432518A0316.pas.ms.script' // AddSelectField
+ ;
+ : Implementor ME_5600FA2301B9 // TdaTabledQuery
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_5551DC42038C_ME_5600FA2301B9 AddSelectField
+
+: ME_56010A7801F2_ME_5600FA2301B9
+ CONST UID '56010A7801F2'
+ CONST Name 'MakeResultSet'
+ : Original ME_56010A7801F2 // MakeResultSet
+ ;
+ : Implementor ME_5600FA2301B9 // TdaTabledQuery
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_56010A7801F2_ME_5600FA2301B9 MakeResultSet
+
+: ME_56010AB70258_ME_5600FA2301B9
+ CONST UID '56010AB70258'
+ CONST Name 'PrepareQuery'
+ : Original ME_56010AB70258 // PrepareQuery
+ ;
+ : Implementor ME_5600FA2301B9 // TdaTabledQuery
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_56010AB70258_ME_5600FA2301B9 PrepareQuery
+
+: ME_56010ACB00F0_ME_5600FA2301B9
+ CONST UID '56010ACB00F0'
+ CONST Name 'UnprepareQuery'
+ : Original ME_56010ACB00F0 // UnprepareQuery
+ ;
+ : Implementor ME_5600FA2301B9 // TdaTabledQuery
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_56010ACB00F0_ME_5600FA2301B9 UnprepareQuery
+
+: ME_563B18FB0212_ME_5600FA2301B9
+ CONST UID '563B18FB0212'
+ CONST Name 'WhereCondition'
+ : Original WL 'ME_563B18FB0212' '5432518A0316.pas.ms.script' // WhereCondition
+ ;
+ : Implementor ME_5600FA2301B9 // TdaTabledQuery
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "pm" false
+ref; // ME_563B18FB0212_ME_5600FA2301B9 WhereCondition
+
+: ME_5666B5E20108_ME_5600FA2301B9
+ CONST UID '5666B5E20108'
+ CONST Name 'Table'
+ : Original WL 'ME_5666B5E20108' '5432518A0316.pas.ms.script' // Table
+ ;
+ : Implementor ME_5600FA2301B9 // TdaTabledQuery
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "pm" false
+ref; // ME_5666B5E20108_ME_5600FA2301B9 Table
+
+: ME_566A850001E5_ME_5600FA2301B9
+ CONST UID '566A850001E5'
+ CONST Name 'DoBuildSQLValue'
+ : Original ME_566A850001E5 // DoBuildSQLValue
+ ;
+ : Implementor ME_5600FA2301B9 // TdaTabledQuery
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_566A850001E5_ME_5600FA2301B9 DoBuildSQLValue
+
+: ME_567D12D00384_ME_5600FA2301B9
+ CONST UID '567D12D00384'
+ CONST Name 'AddOrderBy'
+ : Original WL 'ME_567D12D00384' '5432518A0316.pas.ms.script' // AddOrderBy
+ ;
+ : Implementor ME_5600FA2301B9 // TdaTabledQuery
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_567D12D00384_ME_5600FA2301B9 AddOrderBy
+
+: ME_479731C50290_ME_5600FA2301B9
+ CONST UID '479731C50290'
+ CONST Name 'Cleanup'
+ : Original WL 'ME_479731C50290' '51612EBB02F5.pas.ms.script' // Cleanup
+ ;
+ : Implementor ME_5600FA2301B9 // TdaTabledQuery
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_479731C50290_ME_5600FA2301B9 Cleanup
+
+: ME_5000565C019C_ME_5600FA2301B9
+ CONST UID '5000565C019C'
+ CONST Name 'ClearFields'
+ : Original WL 'ME_5000565C019C' '47913B47006E.pas.ms.script' // ClearFields
+ ;
+ : Implementor ME_5600FA2301B9 // TdaTabledQuery
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_5000565C019C_ME_5600FA2301B9 ClearFields
+
+: ME_5600FA2301B9
+ CONST UID '5600FA2301B9'
+ CONST Name 'TdaTabledQuery'
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_54F85B2500FB // Provider
+ ;
+ : Inherits
+   Seq: ( ME_566A7DCD0151 // TdaQuery
+ )
+ ; // Inherits
+ : Implements
+   Seq: ( WL 'ME_5549C4060117' '5432518A0316.pas.ms.script' // IdaTabledQuery
+ )
+ ; // Implements
+ : Attributes
+   Seq: ( ME_5600FAAE01F9 // SelectFields
+ ME_5600FAC103DE // WhereCondition
+ ME_5666B60F0331 // Table
+ ME_567D049401A1 // OrderBy
+ ME_F4E7C3436F24 // f_SelectFields
+ ME_43BE3E02B4F1 // f_WhereCondition
+ ME_26700023C4D0 // f_Table
+ ME_4325B78FC7A2 // f_OrderBy
+ )
+ ; // Attributes
+ : Operations
+   Seq: ( ME_5600FB3903DE // Create
+ ME_56050F450363 // BuildFromClause
+ ME_56050F3E0081 // BuildSelectClause
+ ME_56050F510228 // BuildWhereClause
+ ME_5600FFF80332 // MakeFromTable
+ ME_566A892A0191 // PrepareTable
+ ME_566A893B03C7 // UnPrepareTable
+ ME_5680E19E003D // BuildOrderByClause
+ )
+ ; // Operations
+ : Implemented
+   Seq: ( ME_5551DC42038C_ME_5600FA2301B9 // AddSelectField
+ ME_56010A7801F2_ME_5600FA2301B9 // MakeResultSet
+ ME_56010AB70258_ME_5600FA2301B9 // PrepareQuery
+ ME_56010ACB00F0_ME_5600FA2301B9 // UnprepareQuery
+ ME_563B18FB0212_ME_5600FA2301B9 // WhereCondition
+ ME_5666B5E20108_ME_5600FA2301B9 // Table
+ ME_566A850001E5_ME_5600FA2301B9 // DoBuildSQLValue
+ ME_567D12D00384_ME_5600FA2301B9 // AddOrderBy
+ )
+ ; // Implemented
+ : Overridden
+   Seq: ( ME_479731C50290_ME_5600FA2301B9 // Cleanup
+ ME_5000565C019C_ME_5600FA2301B9 // ClearFields
+ )
+ ; // Overridden
+ : Dependencies
+   Seq: ( ME_5600FFB50050 // 
+ ME_566AA117019D // 
+ )
+ ; // Dependencies
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ CONST dfm:PathOnly '\common\components\rtl\Garant\DA'
+ CONST intf.pas:Path 'common\components\rtl\Garant\DA\daTabledQuery.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\DA'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'daTabledQuery'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'daTabledQuery'
+
+ref; // ME_5600FA2301B9 TdaTabledQuery
 
 : ME_54F85B2500FB
  CONST UID '54F85B2500FB'
@@ -8081,7 +9213,7 @@ ref; // ME_5641ED5A01D1 TdaSubQueryCondition
  : Parent WL 'ME_543244050044' '543244050044.pas.ms.script' // DA
  ;
  : Children
-   @ ( ME_54F9A60200A8 // TdaDataProviderParams
+   Seq: ( ME_54F9A60200A8 // TdaDataProviderParams
  ME_54F85EE102D1 // TdaDataProviderFactory
  ME_54F98A56030A // TdaDataProviderFactoryList
  ME_54F85B590251 // TdaDataProviderSuperFactory
@@ -8102,15 +9234,19 @@ ref; // ME_5641ED5A01D1 TdaSubQueryCondition
  ME_5553080E0352 // TdaFromTableListPrim
  ME_555CA6E80352 // TdaFromTableList
  ME_55FFB14A031C // TdaFromTable
- ME_5600FA2301B9 // TdaTabledQuery
+ ME_566A7DCD0151 // TdaQuery
  ME_5637497102C9 // TdaFieldList
  ME_5640598000F0 // TdaLogicCondition
  ME_5551DD0F02A1 // TdaParamsCondition
  ME_5641ED5A01D1 // TdaSubQueryCondition
- ) .SequenceCode.It
+ ME_5680F609012D // TdaSortFieldList
+ ME_566E71FA000F // TdaFieldParamDescription
+ ME_5680EF290107 // TdaSortField
+ ME_5600FA2301B9 // TdaTabledQuery
+ )
  ; // Children
  : Depends
-   @ ( WL 'ME_4678193C009C' '4678193C009C.pas.ms.script' // l3Types
+   Seq: ( WL 'ME_4678193C009C' '4678193C009C.pas.ms.script' // l3Types
  WL 'ME_4682595B0268' '4682595B0268.pas.ms.script' // l3TreeInterfaces
  WL 'ME_4767743E00E5' '4767743E00E5.pas.ms.script' // TypInfo
  WL 'ME_476BF10A0280' '476BF10A0280.pas.ms.script' // l3Tree_TLB
@@ -8128,15 +9264,13 @@ ref; // ME_5641ED5A01D1 TdaSubQueryCondition
  WL 'ME_5432518A0316' '5432518A0316.pas.ms.script' // daInterfaces
  WL 'ME_552D07D0005E' '552D07D0005E.pas.ms.script' // DataScheme
  WL 'ME_55963E9101B2' '55963E9101B2.pas.ms.script' // daGUITypes
- ) .SequenceCode.It
+ )
  ; // Depends
- : Generators
- @ (
- gen_pas.script
- gen_pas.script.runner
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\DA'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\DA'
  CONST pas.script:Path 'shared\models\NewSchool\Scripts\54F85B2500FB.pas.ms.script'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
  CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\54F85B2500FB.pas.ms.script.runner'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_54F85B2500FB Provider

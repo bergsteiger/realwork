@@ -46,6 +46,7 @@ ref; // ME_4AB38B5E0320 ItemType
 : ME_9EE7090499DF
  CONST UID '9EE7090499DF'
  CONST Name 'f_ID'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY 'Поле для свойства ID' ;
  CONST Visibility PrivateAccess
@@ -79,8 +80,8 @@ ref; // ME_4AB385790382 anOther
  : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
  ;
  : Parameters
-   @ ( ME_4AB385790382 // anOther
- ) .SequenceCode.It
+   Seq: ( ME_4AB385790382 // anOther
+ )
  ; // Parameters
 
 ref; // ME_4AB3856602A8 Compare
@@ -105,8 +106,8 @@ ref; // ME_4ABA218F03B6 anID
  : Parent ME_4AB37C3E00BA // Tm4WordIDStr
  ;
  : Parameters
-   @ ( ME_4ABA218F03B6 // anID
- ) .SequenceCode.It
+   Seq: ( ME_4ABA218F03B6 // anID
+ )
  ; // Parameters
 
 ref; // ME_4AB38AF30255 Create
@@ -140,6 +141,7 @@ ref; // ME_4AB3884A02C6
  ;
  : Implementor ME_4AB37C3E00BA // Tm4WordIDStr
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_5000565C019C_ME_4AB37C3E00BA ClearFields
 
 : ME_4AB37C3E00BA
@@ -154,29 +156,29 @@ ref; // ME_5000565C019C_ME_4AB37C3E00BA ClearFields
  : Parent ME_4AB37BE502EA // Dict
  ;
  : Inherits
-   @ ( WL 'ME_47A1B04702C2' '47913B47006E.pas.ms.script' // l3AtomicList
+   Seq: ( WL 'ME_47A1B04702C2' '47913B47006E.pas.ms.script' // l3AtomicList
  WL 'ME_4A54DD4E036F' '47913B47006E.pas.ms.script' // Tl3ProtoDataContainer
- ) .SequenceCode.It
+ )
  ; // Inherits
  : Attributes
-   @ ( ME_4AB38ADC008B // ID
+   Seq: ( ME_4AB38ADC008B // ID
  ME_4AB38B5E0320 // ItemType
  ME_9EE7090499DF // f_ID
- ) .SequenceCode.It
+ )
  ; // Attributes
  : Operations
-   @ ( ME_4AB3856602A8 // Compare
+   Seq: ( ME_4AB3856602A8 // Compare
  ME_4AB38AF30255 // Create
- ) .SequenceCode.It
+ )
  ; // Operations
  : Overridden
-   @ ( ME_5000565C019C_ME_4AB37C3E00BA // ClearFields
- ) .SequenceCode.It
+   Seq: ( ME_5000565C019C_ME_4AB37C3E00BA // ClearFields
+ )
  ; // Overridden
  : Dependencies
-   @ ( ME_4AB3882501E1 // 
+   Seq: ( ME_4AB3882501E1 // 
  ME_4AB3884A02C6 // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  CONST "author" 'Люлин А.В.'
  CONST "needs InstanceR" 'undefined'
@@ -184,12 +186,14 @@ ref; // ME_5000565C019C_ME_4AB37C3E00BA ClearFields
  CONST "no hands" true
  CONST "register in scripts" 'undefined'
  CONST "started" '18.09.2009 16:36'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\m4'
  CONST intf.pas:Path 'common\components\rtl\Garant\m4\m4WordIDStr.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\m4'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'm4WordIDStr'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'm4WordIDStr'
 
 ref; // ME_4AB37C3E00BA Tm4WordIDStr
 
@@ -217,6 +221,7 @@ ref; // ME_4AB37D1D01CE ItemType
  ;
  : Implementor ME_4AB37CFD0365 // Tm4WordIDStrListPrim
  ;
+ CONST OpKind opkind_Implemented
  CONST "ifdef" 'l3Items_NeedsAssignItem'
  CONST "ifndef" 'l3Items_NoSort'
 ref; // ME_47B2C42A0163_ME_4AB37CFD0365 AssignItem
@@ -228,6 +233,7 @@ ref; // ME_47B2C42A0163_ME_4AB37CFD0365 AssignItem
  ;
  : Implementor ME_4AB37CFD0365 // Tm4WordIDStrListPrim
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_47B935AF0066_ME_4AB37CFD0365 FillItem
 
 : ME_47B94A5C006E_ME_4AB37CFD0365
@@ -237,6 +243,7 @@ ref; // ME_47B935AF0066_ME_4AB37CFD0365 FillItem
  ;
  : Implementor ME_4AB37CFD0365 // Tm4WordIDStrListPrim
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_47B94A5C006E_ME_4AB37CFD0365 FreeItem
 
 : ME_47B99D4503A2_ME_4AB37CFD0365
@@ -246,6 +253,7 @@ ref; // ME_47B94A5C006E_ME_4AB37CFD0365 FreeItem
  ;
  : Implementor ME_4AB37CFD0365 // Tm4WordIDStrListPrim
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_47B99D4503A2_ME_4AB37CFD0365 CompareExistingItems
 
 : ME_4AB37CFD0365
@@ -260,20 +268,20 @@ ref; // ME_47B99D4503A2_ME_4AB37CFD0365 CompareExistingItems
  : Parent ME_4AB37BE502EA // Dict
  ;
  : Inherits
-   @ ( WL 'ME_47B5A0AE03CC' '47913B47006E.pas.ms.script' // l3ObjectRefListPrim
+   Seq: ( WL 'ME_47B5A0AE03CC' '47913B47006E.pas.ms.script' // l3ObjectRefListPrim
  WL 'ME_4A54DD4E036F' '47913B47006E.pas.ms.script' // Tl3ProtoDataContainer
- ) .SequenceCode.It
+ )
  ; // Inherits
  : Attributes
-   @ ( ME_4AB37D1D01CE // ItemType
- ) .SequenceCode.It
+   Seq: ( ME_4AB37D1D01CE // ItemType
+ )
  ; // Attributes
  : Implemented
-   @ ( ME_47B2C42A0163_ME_4AB37CFD0365 // AssignItem
+   Seq: ( ME_47B2C42A0163_ME_4AB37CFD0365 // AssignItem
  ME_47B935AF0066_ME_4AB37CFD0365 // FillItem
  ME_47B94A5C006E_ME_4AB37CFD0365 // FreeItem
  ME_47B99D4503A2_ME_4AB37CFD0365 // CompareExistingItems
- ) .SequenceCode.It
+ )
  ; // Implemented
  CONST "author" 'Люлин А.В.'
  CONST "needs InstanceR" 'undefined'
@@ -281,12 +289,14 @@ ref; // ME_47B99D4503A2_ME_4AB37CFD0365 CompareExistingItems
  CONST "no hands" true
  CONST "register in scripts" 'undefined'
  CONST "started" '18.09.2009 16:36'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\m4'
  CONST intf.pas:Path 'common\components\rtl\Garant\m4\m4WordIDStrListPrim.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\m4'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'm4WordIDStrListPrim'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'm4WordIDStrListPrim'
 
 ref; // ME_4AB37CFD0365 Tm4WordIDStrListPrim
 
@@ -329,6 +339,7 @@ ref; // ME_4AB773690008 FirstWordIDStrID
 : ME_0FC8C0BDC2B5
  CONST UID '0FC8C0BDC2B5'
  CONST Name 'f_FirstWordIDStrID'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY 'Поле для свойства FirstWordIDStrID' ;
  CONST Visibility PrivateAccess
@@ -338,6 +349,7 @@ ref; // ME_4AB773690008 FirstWordIDStrID
  ;
  : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
  ;
+ CONST extprop:clearViaProperty 'FirstWordIDStrID'
 
 ref; // ME_0FC8C0BDC2B5 f_FirstWordIDStrID
 
@@ -371,9 +383,9 @@ ref; // ME_4AB3917D0200 anID
  : Parent ME_4AB37F0D0301 // Tm4Word
  ;
  : Parameters
-   @ ( ME_4AB37FCC0111 // aStr
+   Seq: ( ME_4AB37FCC0111 // aStr
  ME_4AB3917D0200 // anID
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_4AB37FB103D8 Create
@@ -385,6 +397,7 @@ ref; // ME_4AB37FB103D8 Create
  ;
  : Implementor ME_4AB37F0D0301 // Tm4Word
  ;
+ CONST OpKind opkind_Overridden
  CONST "needs field" false
  CONST "pm" true
 ref; // ME_47BC3BFD017F_ME_4AB37F0D0301 StringID
@@ -401,22 +414,22 @@ ref; // ME_47BC3BFD017F_ME_4AB37F0D0301 StringID
  : Parent ME_4AB37BE502EA // Dict
  ;
  : Inherits
-   @ ( WL 'ME_4773DED9004C' '47913B47006E.pas.ms.script' // Tl3_String
- ) .SequenceCode.It
+   Seq: ( WL 'ME_4773DED9004C' '47913B47006E.pas.ms.script' // Tl3_String
+ )
  ; // Inherits
  : Attributes
-   @ ( ME_4AB37F9903CA // f_ID
+   Seq: ( ME_4AB37F9903CA // f_ID
  ME_4AB773690008 // FirstWordIDStrID
  ME_0FC8C0BDC2B5 // f_FirstWordIDStrID
- ) .SequenceCode.It
+ )
  ; // Attributes
  : Operations
-   @ ( ME_4AB37FB103D8 // Create
- ) .SequenceCode.It
+   Seq: ( ME_4AB37FB103D8 // Create
+ )
  ; // Operations
  : Overridden
-   @ ( ME_47BC3BFD017F_ME_4AB37F0D0301 // StringID
- ) .SequenceCode.It
+   Seq: ( ME_47BC3BFD017F_ME_4AB37F0D0301 // StringID
+ )
  ; // Overridden
  CONST "author" 'Люлин А.В.'
  CONST "needs InstanceR" 'undefined'
@@ -424,12 +437,14 @@ ref; // ME_47BC3BFD017F_ME_4AB37F0D0301 StringID
  CONST "no hands" true
  CONST "register in scripts" 'undefined'
  CONST "started" '18.09.2009 12:57'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\m4'
  CONST intf.pas:Path 'common\components\rtl\Garant\m4\m4Word.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\m4'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'm4Word'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'm4Word'
 
 ref; // ME_4AB37F0D0301 Tm4Word
 
@@ -504,8 +519,8 @@ ref; // ME_4AB38FF400C3 aStr
  : Target ME_4AB38B45023C // Tm4WordID
  ;
  : Parameters
-   @ ( ME_4AB38FF400C3 // aStr
- ) .SequenceCode.It
+   Seq: ( ME_4AB38FF400C3 // aStr
+ )
  ; // Parameters
 
 ref; // ME_4AB38FEE0208 DoIt
@@ -532,17 +547,17 @@ ref; // ME_4AB392A300D3
  : Parent ME_4AB37F2003B6 // Tm4WordList
  ;
  : Attributes
-   @ ( ME_4AB38FFD027D // Item
+   Seq: ( ME_4AB38FFD027D // Item
  ME_4AB390A10104 // Index
- ) .SequenceCode.It
+ )
  ; // Attributes
  : Operations
-   @ ( ME_4AB38FEE0208 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_4AB38FEE0208 // DoIt
+ )
  ; // Operations
  : Dependencies
-   @ ( ME_4AB392A300D3 // 
- ) .SequenceCode.It
+   Seq: ( ME_4AB392A300D3 // 
+ )
  ; // Dependencies
 
 ref; // ME_4AB38FE40091 AddWord
@@ -588,6 +603,7 @@ ref; // ME_4AB73FA7010F
  ;
  : Implementor ME_4AB37F2003B6 // Tm4WordList
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_47A042E100E2_ME_4AB37F2003B6 InitFields
 
 : ME_4AB37F2003B6
@@ -602,26 +618,26 @@ ref; // ME_47A042E100E2_ME_4AB37F2003B6 InitFields
  : Parent ME_4AB37BE502EA // Dict
  ;
  : Inherits
-   @ ( WL 'ME_4773DCE302FF' '47913B47006E.pas.ms.script' // Tl3StringList
- ) .SequenceCode.It
+   Seq: ( WL 'ME_4773DCE302FF' '47913B47006E.pas.ms.script' // Tl3StringList
+ )
  ; // Inherits
  : Attributes
-   @ ( ME_4AB38F380358 // f_NextID
- ) .SequenceCode.It
+   Seq: ( ME_4AB38F380358 // f_NextID
+ )
  ; // Attributes
  : Operations
-   @ ( ME_4AB38FE40091 // AddWord
+   Seq: ( ME_4AB38FE40091 // AddWord
  ME_4AB38F9800B8 // Create
- ) .SequenceCode.It
+ )
  ; // Operations
  : Overridden
-   @ ( ME_47A042E100E2_ME_4AB37F2003B6 // InitFields
- ) .SequenceCode.It
+   Seq: ( ME_47A042E100E2_ME_4AB37F2003B6 // InitFields
+ )
  ; // Overridden
  : Dependencies
-   @ ( ME_4AB38F850355 // 
+   Seq: ( ME_4AB38F850355 // 
  ME_4AB73FA7010F // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  CONST "author" 'Люлин А.В.'
  CONST "needs InstanceR" 'undefined'
@@ -629,12 +645,14 @@ ref; // ME_47A042E100E2_ME_4AB37F2003B6 InitFields
  CONST "no hands" true
  CONST "register in scripts" 'undefined'
  CONST "started" '18.09.2009 12:57'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\m4'
  CONST intf.pas:Path 'common\components\rtl\Garant\m4\m4WordList.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\m4'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'm4WordList'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'm4WordList'
 
 ref; // ME_4AB37F2003B6 Tm4WordList
 
@@ -650,19 +668,21 @@ ref; // ME_4AB37F2003B6 Tm4WordList
  : Parent ME_4AB37BE502EA // Dict
  ;
  : Inherits
-   @ ( ME_4AB37CFD0365 // Tm4WordIDStrListPrim
- ) .SequenceCode.It
+   Seq: ( ME_4AB37CFD0365 // Tm4WordIDStrListPrim
+ )
  ; // Inherits
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\m4'
  CONST intf.pas:Path 'common\components\rtl\Garant\m4\m4WordIDStrList.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\m4'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'm4WordIDStrList'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'm4WordIDStrList'
 
 ref; // ME_4AB386100070 Tm4WordIDStrList
 
@@ -680,9 +700,14 @@ FORWARD ME_4AB38D7F0007
  : Parent ME_4AB38D7F0007 // m4DictTypes
  ;
  : Inherits
-   @ ( WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
- ) .SequenceCode.It
+   Seq: ( WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ )
  ; // Inherits
+ CONST dfm:PathOnly '\common\components\rtl\Garant\m4'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\m4'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_4AB38D9A0062 Tm4DictItemID
 
@@ -698,9 +723,14 @@ ref; // ME_4AB38D9A0062 Tm4DictItemID
  : Parent ME_4AB38D7F0007 // m4DictTypes
  ;
  : Inherits
-   @ ( WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
- ) .SequenceCode.It
+   Seq: ( WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ )
  ; // Inherits
+ CONST dfm:PathOnly '\common\components\rtl\Garant\m4'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\m4'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_4AB38B45023C Tm4WordID
 
@@ -755,14 +785,18 @@ ref; // ME_4ABA24E701F2 C
  : Parent ME_4AB38D7F0007 // m4DictTypes
  ;
  : Attributes
-   @ ( ME_4ABA24A103E6 // rID
+   Seq: ( ME_4ABA24A103E6 // rID
  ME_4ABA24AC017E // rDictionaryID
- ) .SequenceCode.It
+ )
  ; // Attributes
  : Operations
-   @ ( ME_4ABA24E701F2 // C
- ) .SequenceCode.It
+   Seq: ( ME_4ABA24E701F2 // C
+ )
  ; // Operations
+ CONST dfm:PathOnly '\common\components\rtl\Garant\m4'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\m4'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_4ABA246700B4 Tm4DictItemAddr
 
@@ -777,20 +811,19 @@ ref; // ME_4ABA246700B4 Tm4DictItemAddr
  : Parent ME_4AB37BE502EA // Dict
  ;
  : Children
-   @ ( ME_4AB38D9A0062 // Tm4DictItemID
+   Seq: ( ME_4AB38D9A0062 // Tm4DictItemID
  ME_4AB38B45023C // Tm4WordID
  ME_4ABA246700B4 // Tm4DictItemAddr
- ) .SequenceCode.It
+ )
  ; // Children
  CONST "author" 'Люлин А.В.'
  CONST "no hands" true
  CONST "started" '18.09.2009 17:40'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\m4'
  CONST intf.pas:Path 'common\components\rtl\Garant\m4\m4DictTypes.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\m4'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_4AB38D7F0007 m4DictTypes
 
@@ -809,12 +842,14 @@ ref; // ME_4AB38D7F0007 m4DictTypes
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\m4'
  CONST intf.pas:Path 'common\components\rtl\Garant\m4\NOT_FINISHED_m4DB.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\m4'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'm4DB'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'm4DB'
 
 ref; // ME_4F191E6C0189 Tm4DB
 
@@ -828,31 +863,29 @@ ref; // ME_4F191E6C0189 Tm4DB
  : Parent WL 'ME_476BBDC80314' '476BBDC80314.pas.ms.script' // m4
  ;
  : Children
-   @ ( ME_4AB37C3E00BA // Tm4WordIDStr
+   Seq: ( ME_4AB37C3E00BA // Tm4WordIDStr
  ME_4AB37CFD0365 // Tm4WordIDStrListPrim
  ME_4AB37F0D0301 // Tm4Word
  ME_4AB37F2003B6 // Tm4WordList
  ME_4AB386100070 // Tm4WordIDStrList
  ME_4AB38D7F0007 // m4DictTypes
  ME_4F191E6C0189 // Tm4DB
- ) .SequenceCode.It
+ )
  ; // Children
  : Depends
-   @ ( WL 'ME_4677FBA70343' '4677FBA70343.pas.ms.script' // l3Interfaces
+   Seq: ( WL 'ME_4677FBA70343' '4677FBA70343.pas.ms.script' // l3Interfaces
  WL 'ME_4678193C009C' '4678193C009C.pas.ms.script' // l3Types
  WL 'ME_47913B47006E' '47913B47006E.pas.ms.script' // l3CoreObjects
  WL 'ME_47BF042D029B' '47BF042D029B.pas.ms.script' // m2
  WL 'ME_4AB0C3C60310' '4AB0C3C60310.pas.ms.script' // Sys
  WL 'ME_537B83AD01F0' '537B83AD01F0.pas.ms.script' // l3Math
- ) .SequenceCode.It
+ )
  ; // Depends
- : Generators
- @ (
- gen_pas.script
- gen_pas.script.runner
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\m4'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\m4'
  CONST pas.script:Path 'shared\models\NewSchool\Scripts\4AB37BE502EA.pas.ms.script'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
  CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\4AB37BE502EA.pas.ms.script.runner'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_4AB37BE502EA Dict

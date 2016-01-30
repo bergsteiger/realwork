@@ -1,0 +1,190 @@
+// AutoreferatInterfaces 492F0586030C ControllerInterfaces Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_492F0586030C
+
+: ME_492FDE16013B
+ CONST UID '492FDE16013B'
+ CONST GUID '34D4F64F-ABFB-48BE-B04F-DD609BB32DAB'
+ CONST Name 'IdsNewsLine'
+ CONST Class class_Class
+ : Stereotype st_ViewAreaController ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Новостная лента' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_492F0586030C // AutoreferatInterfaces
+ ;
+ CONST "UseNewGen" 'undefined'
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Autoreferat'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Autoreferat'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\Autoreferat'
+
+ref; // ME_492FDE16013B IdsNewsLine
+
+FORWARD ME_492F071B02AC
+
+: ME_492F060800A2
+ CONST UID '492F060800A2'
+ CONST Name 'MakeNewsLineFakeDS'
+ CONST Class class_Attribute
+ : Stereotype st_area::Attribute ;
+ %SUMMARY 'Фиктивный бизнес объект новостной ленты' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_lnk
+ : Parent ME_492F071B02AC // IsdsAutoreferat
+ ;
+ : Target ME_492FDE16013B // IdsNewsLine
+ ;
+ CONST "Need Has" 'undefined'
+ CONST "UseNewGen" 'undefined'
+ CONST "pm" true
+ CONST "required" 'undefined'
+
+ref; // ME_492F060800A2 MakeNewsLineFakeDS
+
+: ME_4925978F00FA_ME_492F071B02AC
+ CONST UID '4925978F00FA'
+ CONST Name 'ChangeDocument'
+ : Original WL 'ME_4925978F00FA' '491B305A0096.pas.ms.script' // ChangeDocument
+ ;
+ : Implementor ME_492F071B02AC // IsdsAutoreferat
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "UseNewGen" 'undefined'
+ref; // ME_4925978F00FA_ME_492F071B02AC ChangeDocument
+
+: ME_492597A602F6_ME_492F071B02AC
+ CONST UID '492597A602F6'
+ CONST Name 'MakeGotoPointData'
+ : Original WL 'ME_492597A602F6' '491B305A0096.pas.ms.script' // MakeGotoPointData
+ ;
+ : Implementor ME_492F071B02AC // IsdsAutoreferat
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "UseNewGen" 'undefined'
+ref; // ME_492597A602F6_ME_492F071B02AC MakeGotoPointData
+
+: ME_4DF9D63B0360_ME_492F071B02AC
+ CONST UID '4DF9D63B0360'
+ CONST Name 'DocInfo'
+ : Original WL 'ME_4DF9D63B0360' '4B1FC2FF03CD.pas.ms.script' // DocInfo
+ ;
+ : Implementor ME_492F071B02AC // IsdsAutoreferat
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "UseNewGen" 'undefined'
+ CONST "pm" true
+ CONST "reflectable" true
+ref; // ME_4DF9D63B0360_ME_492F071B02AC DocInfo
+
+: ME_50002EC80001_ME_492F071B02AC
+ CONST UID '50002EC80001'
+ CONST Name 'dsDocument'
+ : Original WL 'ME_50002EC80001' '491B305A0096.pas.ms.script' // dsDocument
+ ;
+ : Implementor ME_492F071B02AC // IsdsAutoreferat
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "Need Has" 'undefined'
+ CONST "UseNewGen" 'undefined'
+ CONST "is reference" true
+ CONST "pm" true
+ CONST "required" 'undefined'
+ref; // ME_50002EC80001_ME_492F071B02AC dsDocument
+
+: ME_5111C2BAF24F_ME_492F071B02AC
+ CONST UID '5111C2BAF24F'
+ CONST Name 'HasDocument'
+ : Original WL 'ME_5111C2BAF24F' '491B305A0096.pas.ms.script' // HasDocument
+ ;
+ : Implementor ME_492F071B02AC // IsdsAutoreferat
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "UseNewGen" 'undefined'
+ CONST "pm" true
+ CONST "reflectable" 'undefined'
+ref; // ME_5111C2BAF24F_ME_492F071B02AC HasDocument
+
+: ME_492F071B02AC
+ CONST UID '492F071B02AC'
+ CONST GUID '22A93E6D-D6A0-4D95-BA27-C6A9CFBBF259'
+ CONST Name 'IsdsAutoreferat'
+ CONST Class class_Class
+ : Stereotype st_UseCaseController ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_492F0586030C // AutoreferatInterfaces
+ ;
+ : Inherits
+   Seq: ( WL 'ME_47EA0F8D010D' '491B305A0096.pas.ms.script' // IsdsBaseDocument
+ )
+ ; // Inherits
+ : Attributes
+   Seq: ( ME_492F060800A2 // MakeNewsLineFakeDS
+ )
+ ; // Attributes
+ : Implemented
+   Seq: ( ME_4925978F00FA_ME_492F071B02AC // ChangeDocument
+ ME_492597A602F6_ME_492F071B02AC // MakeGotoPointData
+ ME_4DF9D63B0360_ME_492F071B02AC // DocInfo
+ ME_50002EC80001_ME_492F071B02AC // dsDocument
+ ME_5111C2BAF24F_ME_492F071B02AC // HasDocument
+ )
+ ; // Implemented
+ CONST "UseNewGen" 'undefined'
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Autoreferat'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Autoreferat'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\Autoreferat'
+
+ref; // ME_492F071B02AC IsdsAutoreferat
+
+: ME_492F0586030C
+ CONST UID '492F0586030C'
+ CONST Name 'AutoreferatInterfaces'
+ CONST Class class_Category
+ : Stereotype st_ControllerInterfaces ;
+ %SUMMARY 'Интерфейсы для работы с новостной лентой' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent WL 'ME_49411E4001AB' '49411E4001AB.pas.ms.script' // Autoreferat
+ ;
+ : Children
+   Seq: ( ME_492FDE16013B // IdsNewsLine
+ ME_492F071B02AC // IsdsAutoreferat
+ )
+ ; // Children
+ : Depends
+   Seq: ( WL 'ME_491B305A0096' '491B305A0096.pas.ms.script' // DocumentAndListInterfaces
+ WL 'ME_491DAF4202EE' '491DAF4202EE.pas.ms.script' // SearchInterfaces
+ )
+ ; // Depends
+ CONST "UseNewGen" 'undefined'
+ CONST "author" 'Люлин А.В.'
+ CONST "is namespace" true
+ CONST "no hands" true
+ CONST "started" '27.11.2008 23:40'
+ : Generators
+ Seq: (
+ gen_intf.pas
+ gen_pas.script
+ gen_pas.script.runner
+ )
+ ; // Generators
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Autoreferat'
+ CONST intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\Autoreferat\AutoreferatInterfaces.pas'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Autoreferat'
+ CONST pas.script:Path 'shared\models\NewSchool\Scripts\492F0586030C.pas.ms.script'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\492F0586030C.pas.ms.script.runner'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\Autoreferat'
+
+ref; // ME_492F0586030C AutoreferatInterfaces

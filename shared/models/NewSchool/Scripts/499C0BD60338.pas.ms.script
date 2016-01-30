@@ -96,6 +96,7 @@ ref; // ME_499C204C003F
  ;
  : Implementor ME_499C0C1A009E // TeeTreeViewExport
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_46A5AA4B003C_ME_499C0C1A009E Invalidate
 
 : ME_477243870072_ME_499C0C1A009E
@@ -105,6 +106,7 @@ ref; // ME_46A5AA4B003C_ME_499C0C1A009E Invalidate
  ;
  : Implementor ME_499C0C1A009E // TeeTreeViewExport
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_477243870072_ME_499C0C1A009E RootChanged
 
 : ME_499C0C1A009E
@@ -118,33 +120,33 @@ ref; // ME_477243870072_ME_499C0C1A009E RootChanged
  : Parent ME_499C0BD60338 // Tree
  ;
  : Inherits
-   @ ( WL 'ME_499C0B7B012E' '494B947D0127.pas.ms.script' // TeeTreeViewExport
- ) .SequenceCode.It
+   Seq: ( WL 'ME_499C0B7B012E' '494B947D0127.pas.ms.script' // TeeTreeViewExport
+ )
  ; // Inherits
  : Attributes
-   @ ( ME_499C0C240318 // CurrentNodeLevel
+   Seq: ( ME_499C0C240318 // CurrentNodeLevel
  ME_499C0C3600B4 // CurrentNodeIndex
  ME_499C0C420199 // CurrentNodeExpanded
  ME_499C1DC600BD // IsCurrentOperationEnabled
- ) .SequenceCode.It
+ )
  ; // Attributes
  : Implemented
-   @ ( ME_46A5AA4B003C_ME_499C0C1A009E // Invalidate
+   Seq: ( ME_46A5AA4B003C_ME_499C0C1A009E // Invalidate
  ME_477243870072_ME_499C0C1A009E // RootChanged
- ) .SequenceCode.It
+ )
  ; // Implemented
  : Dependencies
-   @ ( ME_499C1E8801DF // 
+   Seq: ( ME_499C1E8801DF // 
  ME_499C204C003F // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  CONST "is friend" false
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\Nemesis'
  CONST intf.pas:Path 'common\components\gui\Garant\Nemesis\eeTreeViewExport_p.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Nemesis'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:pas:UnitName 'eeTreeViewExport_p'
 
 ref; // ME_499C0C1A009E TeeTreeViewExport
 
@@ -159,22 +161,20 @@ ref; // ME_499C0C1A009E TeeTreeViewExport
  : Parent WL 'ME_499ABFAA038C' '499ABFAA038C.pas.ms.script' // NemesisTest
  ;
  : Children
-   @ ( ME_499C0C1A009E // TeeTreeViewExport
- ) .SequenceCode.It
+   Seq: ( ME_499C0C1A009E // TeeTreeViewExport
+ )
  ; // Children
  : Depends
-   @ ( WL 'ME_494B947D0127' '494B947D0127.pas.ms.script' // Tree
+   Seq: ( WL 'ME_494B947D0127' '494B947D0127.pas.ms.script' // Tree
  WL 'ME_499C1A100121' '499C1A100121.pas.ms.script' // nscTaskPanelInterfaces
  WL 'ME_4AB0C3C60310' '4AB0C3C60310.pas.ms.script' // Sys
- ) .SequenceCode.It
+ )
  ; // Depends
- : Generators
- @ (
- gen_pas.script
- gen_pas.script.runner
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\Nemesis'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Nemesis'
  CONST pas.script:Path 'shared\models\NewSchool\Scripts\499C0BD60338.pas.ms.script'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
  CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\499C0BD60338.pas.ms.script.runner'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_499C0BD60338 Tree

@@ -11,6 +11,7 @@ FORWARD ME_7C0BFDDC64B7
 : ME_3AE9B21FDBC8
  CONST UID '3AE9B21FDBC8'
  CONST Name 'DoIt'
+ CONST IsSummoned true
  CONST Class class_Operation
  %SUMMARY 'Метод для получения значения настройки "Печать и экспорт"."Использовать для экспорта и печати размер шрифта, отображаемого на экране"' ;
  CONST Visibility PublicAccess
@@ -24,6 +25,7 @@ ref; // ME_3AE9B21FDBC8 DoIt
 
 : ME_E39FFA73CF46
  CONST UID 'E39FFA73CF46'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_7C0BFDDC64B7 // ListPrintAndExportDefaultSetting
@@ -36,6 +38,7 @@ ref; // ME_E39FFA73CF46
 : ME_7C0BFDDC64B7
  CONST UID '7C0BFDDC64B7'
  CONST Name 'ListPrintAndExportDefaultSetting'
+ CONST IsSummoned true
  CONST Class class_Class
  : Stereotype st_FactoryMethod ;
  CONST Kind kind_NormalClass
@@ -44,13 +47,17 @@ ref; // ME_E39FFA73CF46
  CONST Abstraction at_final
  : Parent ME_521DA6370197 // List
  ;
+ : Implements
+   Seq: ( WL 'ME_5214960C034B' '4E3160C802DA.pas.ms.script' // Печать и экспорт
+ )
+ ; // Implements
  : Operations
-   @ ( ME_3AE9B21FDBC8 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_3AE9B21FDBC8 // DoIt
+ )
  ; // Operations
  : Dependencies
-   @ ( ME_E39FFA73CF46 // 
- ) .SequenceCode.It
+   Seq: ( ME_E39FFA73CF46 // 
+ )
  ; // Dependencies
  CONST "is static" true
 
@@ -61,6 +68,7 @@ FORWARD ME_3BB8CB52B214
 : ME_377BAA7D93FE
  CONST UID '377BAA7D93FE'
  CONST Name 'DoIt'
+ CONST IsSummoned true
  CONST Class class_Operation
  %SUMMARY 'Метод для получения значения настройки "Печать и экспорт"."Использовать для экспорта и печати следующий размер шрифта"' ;
  CONST Visibility PublicAccess
@@ -74,6 +82,7 @@ ref; // ME_377BAA7D93FE DoIt
 
 : ME_A5EA0B24FC5E
  CONST UID 'A5EA0B24FC5E'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_3BB8CB52B214 // ListPrintAndExportCustomSetting
@@ -86,6 +95,7 @@ ref; // ME_A5EA0B24FC5E
 : ME_3BB8CB52B214
  CONST UID '3BB8CB52B214'
  CONST Name 'ListPrintAndExportCustomSetting'
+ CONST IsSummoned true
  CONST Class class_Class
  : Stereotype st_FactoryMethod ;
  CONST Kind kind_NormalClass
@@ -94,13 +104,17 @@ ref; // ME_A5EA0B24FC5E
  CONST Abstraction at_final
  : Parent ME_521DA6370197 // List
  ;
+ : Implements
+   Seq: ( WL 'ME_5214960C034B' '4E3160C802DA.pas.ms.script' // Печать и экспорт
+ )
+ ; // Implements
  : Operations
-   @ ( ME_377BAA7D93FE // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_377BAA7D93FE // DoIt
+ )
  ; // Operations
  : Dependencies
-   @ ( ME_A5EA0B24FC5E // 
- ) .SequenceCode.It
+   Seq: ( ME_A5EA0B24FC5E // 
+ )
  ; // Dependencies
  CONST "is static" true
 
@@ -111,6 +125,7 @@ FORWARD ME_1044DD7C8862
 : ME_E37B89F1ED2E
  CONST UID 'E37B89F1ED2E'
  CONST Name 'DoIt'
+ CONST IsSummoned true
  CONST Class class_Operation
  %SUMMARY 'Метод для получения значения настройки "Использовать для экспорта и печати следующий размер шрифта"' ;
  CONST Visibility PublicAccess
@@ -124,6 +139,7 @@ ref; // ME_E37B89F1ED2E DoIt
 
 : ME_B9CDAEF708C2
  CONST UID 'B9CDAEF708C2'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_1044DD7C8862 // ListPrintAndExportFontSizeSetting
@@ -136,6 +152,7 @@ ref; // ME_B9CDAEF708C2
 : ME_1044DD7C8862
  CONST UID '1044DD7C8862'
  CONST Name 'ListPrintAndExportFontSizeSetting'
+ CONST IsSummoned true
  CONST Class class_Class
  : Stereotype st_FactoryMethod ;
  CONST Kind kind_NormalClass
@@ -144,13 +161,17 @@ ref; // ME_B9CDAEF708C2
  CONST Abstraction at_final
  : Parent ME_521DA6370197 // List
  ;
+ : Implements
+   Seq: ( WL 'ME_4E314EC80391' '4E3160C802DA.pas.ms.script' // Использовать для экспорта и печати следующий размер шрифта
+ )
+ ; // Implements
  : Operations
-   @ ( ME_E37B89F1ED2E // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_E37B89F1ED2E // DoIt
+ )
  ; // Operations
  : Dependencies
-   @ ( ME_B9CDAEF708C2 // 
- ) .SequenceCode.It
+   Seq: ( ME_B9CDAEF708C2 // 
+ )
  ; // Dependencies
  CONST "is static" true
 
@@ -161,6 +182,7 @@ FORWARD ME_35644933EC2C
 : ME_0C7C0986F2A9
  CONST UID '0C7C0986F2A9'
  CONST Name 'aValue'
+ CONST IsSummoned true
  CONST Class class_Parameter
  : Stereotype st_in ;
  : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
@@ -171,6 +193,7 @@ ref; // ME_0C7C0986F2A9 aValue
 : ME_4F7A2ABB7EB4
  CONST UID '4F7A2ABB7EB4'
  CONST Name 'DoIt'
+ CONST IsSummoned true
  CONST Class class_Operation
  %SUMMARY 'Метод для записи значения настройки "Использовать для экспорта и печати следующий размер шрифта"' ;
  CONST Visibility PublicAccess
@@ -178,14 +201,15 @@ ref; // ME_0C7C0986F2A9 aValue
  : Parent ME_35644933EC2C // WriteListPrintAndExportFontSizeSetting
  ;
  : Parameters
-   @ ( ME_0C7C0986F2A9 // aValue
- ) .SequenceCode.It
+   Seq: ( ME_0C7C0986F2A9 // aValue
+ )
  ; // Parameters
 
 ref; // ME_4F7A2ABB7EB4 DoIt
 
 : ME_0B8B4E3A40F8
  CONST UID '0B8B4E3A40F8'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_35644933EC2C // WriteListPrintAndExportFontSizeSetting
@@ -198,6 +222,7 @@ ref; // ME_0B8B4E3A40F8
 : ME_35644933EC2C
  CONST UID '35644933EC2C'
  CONST Name 'WriteListPrintAndExportFontSizeSetting'
+ CONST IsSummoned true
  CONST Class class_Class
  : Stereotype st_FactoryMethod ;
  CONST Kind kind_NormalClass
@@ -206,13 +231,17 @@ ref; // ME_0B8B4E3A40F8
  CONST Abstraction at_final
  : Parent ME_521DA6370197 // List
  ;
+ : Implements
+   Seq: ( WL 'ME_4E314EC80391' '4E3160C802DA.pas.ms.script' // Использовать для экспорта и печати следующий размер шрифта
+ )
+ ; // Implements
  : Operations
-   @ ( ME_4F7A2ABB7EB4 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_4F7A2ABB7EB4 // DoIt
+ )
  ; // Operations
  : Dependencies
-   @ ( ME_0B8B4E3A40F8 // 
- ) .SequenceCode.It
+   Seq: ( ME_0B8B4E3A40F8 // 
+ )
  ; // Dependencies
  CONST "is static" true
 
@@ -222,6 +251,7 @@ FORWARD ME_1D9630212631
 
 : ME_4F63243A20B2
  CONST UID '4F63243A20B2'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_521DA6370197 // List
@@ -235,6 +265,7 @@ FORWARD ME_F803A929B344
 
 : ME_B5ED2607C5EC
  CONST UID 'B5ED2607C5EC'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_521DA6370197 // List
@@ -248,6 +279,7 @@ FORWARD ME_DC3F98FB9EF9
 
 : ME_A922FDF8DA91
  CONST UID 'A922FDF8DA91'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_521DA6370197 // List
@@ -269,29 +301,37 @@ ref; // ME_A922FDF8DA91
  : Parent ME_521DA60E0390 // List
  ;
  : Operations
-   @ ( ME_7C0BFDDC64B7 // ListPrintAndExportDefaultSetting
+   Seq: ( ME_7C0BFDDC64B7 // ListPrintAndExportDefaultSetting
  ME_3BB8CB52B214 // ListPrintAndExportCustomSetting
  ME_1044DD7C8862 // ListPrintAndExportFontSizeSetting
  ME_35644933EC2C // WriteListPrintAndExportFontSizeSetting
- ) .SequenceCode.It
+ )
  ; // Operations
  : Dependencies
-   @ ( ME_4F63243A20B2 // 
+   Seq: ( ME_4F63243A20B2 // 
  ME_B5ED2607C5EC // 
  ME_A922FDF8DA91 // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
  : Generators
- @ (
+ Seq: (
  gen_intf.pas
- ) .SequenceCode.It
+ )
  ; // Generators
+ CONST dfm:PathOnly '\common\components\SandBox\VCM\View\List'
  CONST intf.pas:Path 'common\components\SandBox\VCM\View\List\List_Module.pas'
+ CONST intf.pas:PathOnly '\common\components\SandBox\VCM\View\List'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\common\components\SandBox\VCM\View\List'
  CONST extprop:pas:TypeName 'TListModule'
+ CONST extprop:rc:SelfName 'ListModule'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'List_Module'
 
 ref; // ME_521DA6370197 List
 
@@ -300,6 +340,7 @@ FORWARD ME_8281E352CB32
 : ME_6897EE3335AD
  CONST UID '6897EE3335AD'
  CONST Name 'pi_List_PrintAndExport'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY 'Идентификатор настройки "Печать и экспорт"' ;
  CONST Visibility PublicAccess
@@ -311,12 +352,14 @@ FORWARD ME_8281E352CB32
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value '''Список/Печать и экспорт'''
 
 ref; // ME_6897EE3335AD pi_List_PrintAndExport
 
 : ME_BA9118513516
  CONST UID 'BA9118513516'
  CONST Name 'pi_List_PrintAndExport_Default'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY 'Идентификатор настройки "Печать и экспорт"."Использовать для экспорта и печати размер шрифта, отображаемого на экране"' ;
  CONST Visibility PublicAccess
@@ -328,12 +371,14 @@ ref; // ME_6897EE3335AD pi_List_PrintAndExport
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value '''Список/Печать и экспорт/Использовать для экспорта и печати размер шрифта, отображаемого на экране'''
 
 ref; // ME_BA9118513516 pi_List_PrintAndExport_Default
 
 : ME_ED089FFEF992
  CONST UID 'ED089FFEF992'
  CONST Name 'pi_List_PrintAndExport_Custom'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY 'Идентификатор настройки "Печать и экспорт"."Использовать для экспорта и печати следующий размер шрифта"' ;
  CONST Visibility PublicAccess
@@ -345,12 +390,14 @@ ref; // ME_BA9118513516 pi_List_PrintAndExport_Default
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value '''Список/Печать и экспорт/Использовать для экспорта и печати следующий размер шрифта'''
 
 ref; // ME_ED089FFEF992 pi_List_PrintAndExport_Custom
 
 : ME_8281E352CB32
  CONST UID '8281E352CB32'
  CONST Name 'PrintAndExportKey'
+ CONST IsSummoned true
  CONST Class class_Class
  : Stereotype st_Constants ;
  CONST Kind kind_NormalClass
@@ -359,12 +406,17 @@ ref; // ME_ED089FFEF992 pi_List_PrintAndExport_Custom
  : Parent ME_1D9630212631 // ListPrintAndExportSettingRes
  ;
  : Attributes
-   @ ( ME_6897EE3335AD // pi_List_PrintAndExport
+   Seq: ( ME_6897EE3335AD // pi_List_PrintAndExport
  ME_BA9118513516 // pi_List_PrintAndExport_Default
  ME_ED089FFEF992 // pi_List_PrintAndExport_Custom
- ) .SequenceCode.It
+ )
  ; // Attributes
  CONST "spell names" false
+ CONST dfm:PathOnly '\common\components\SandBox\VCM\View\List'
+ CONST intf.pas:PathOnly '\common\components\SandBox\VCM\View\List'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\common\components\SandBox\VCM\View\List'
 
 ref; // ME_8281E352CB32 PrintAndExportKey
 
@@ -373,6 +425,7 @@ FORWARD ME_36164CA1E5E4
 : ME_BAE9DBA7BB3C
  CONST UID 'BAE9DBA7BB3C'
  CONST Name 'PrintAndExport'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY 'Печать и экспорт' ;
  CONST Visibility PublicAccess
@@ -384,12 +437,14 @@ FORWARD ME_36164CA1E5E4
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value '''Печать и экспорт'''
 
 ref; // ME_BAE9DBA7BB3C PrintAndExport
 
 : ME_36164CA1E5E4
  CONST UID '36164CA1E5E4'
  CONST Name 'PrintAndExportName'
+ CONST IsSummoned true
  CONST Class class_Class
  : Stereotype st_LocalConst ;
  CONST Kind kind_NormalClass
@@ -399,12 +454,17 @@ ref; // ME_BAE9DBA7BB3C PrintAndExport
  : Parent ME_1D9630212631 // ListPrintAndExportSettingRes
  ;
  : Attributes
-   @ ( ME_BAE9DBA7BB3C // PrintAndExport
- ) .SequenceCode.It
+   Seq: ( ME_BAE9DBA7BB3C // PrintAndExport
+ )
  ; // Attributes
  CONST "Need map interface" false
  CONST "Need mapping support" false
  CONST "spell names" false
+ CONST dfm:PathOnly '\common\components\SandBox\VCM\View\List'
+ CONST intf.pas:PathOnly '\common\components\SandBox\VCM\View\List'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\common\components\SandBox\VCM\View\List'
 
 ref; // ME_36164CA1E5E4 PrintAndExportName
 
@@ -413,6 +473,7 @@ FORWARD ME_503C183D60AA
 : ME_8B070C86553A
  CONST UID '8B070C86553A'
  CONST Name 'Default'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY 'Использовать для экспорта и печати размер шрифта, отображаемого на экране' ;
  CONST Visibility PublicAccess
@@ -424,12 +485,14 @@ FORWARD ME_503C183D60AA
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value '''Использовать для экспорта и печати размер шрифта, отображаемого на экране'''
 
 ref; // ME_8B070C86553A Default
 
 : ME_55AF10D1419C
  CONST UID '55AF10D1419C'
  CONST Name 'Custom'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY 'Использовать для экспорта и печати следующий размер шрифта' ;
  CONST Visibility PublicAccess
@@ -441,12 +504,14 @@ ref; // ME_8B070C86553A Default
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value '''Использовать для экспорта и печати следующий размер шрифта'''
 
 ref; // ME_55AF10D1419C Custom
 
 : ME_503C183D60AA
  CONST UID '503C183D60AA'
  CONST Name 'PrintAndExportValues'
+ CONST IsSummoned true
  CONST Class class_Class
  : Stereotype st_LocalConst ;
  CONST Kind kind_NormalClass
@@ -456,14 +521,19 @@ ref; // ME_55AF10D1419C Custom
  : Parent ME_1D9630212631 // ListPrintAndExportSettingRes
  ;
  : Attributes
-   @ ( ME_8B070C86553A // Default
+   Seq: ( ME_8B070C86553A // Default
  ME_55AF10D1419C // Custom
- ) .SequenceCode.It
+ )
  ; // Attributes
  CONST "Need map interface" false
  CONST "Need mapping support" false
  CONST "elements prefix" 'PrintAndExport'
  CONST "spell names" false
+ CONST dfm:PathOnly '\common\components\SandBox\VCM\View\List'
+ CONST intf.pas:PathOnly '\common\components\SandBox\VCM\View\List'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\common\components\SandBox\VCM\View\List'
  CONST extprop:pas:ElementPrefixBase 'PrintAndExport'
  CONST extprop:pas:ElementPrefix 'PrintAndExport_'
 
@@ -474,6 +544,7 @@ FORWARD ME_6B6E0726AAE5
 : ME_21C9E7FF2FC0
  CONST UID '21C9E7FF2FC0'
  CONST Name 'PrintAndExport'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY 'Печать и экспорт' ;
  CONST Visibility PublicAccess
@@ -489,12 +560,14 @@ FORWARD ME_6B6E0726AAE5
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''PrintAndExport''; rValue : ''Печать и экспорт'')'
 
 ref; // ME_21C9E7FF2FC0 PrintAndExport
 
 : ME_6B6E0726AAE5
  CONST UID '6B6E0726AAE5'
  CONST Name 'LCImplPrintAndExportName'
+ CONST IsSummoned true
  CONST Class class_Class
  : Stereotype st_Constants ;
  CONST Kind kind_NormalClass
@@ -504,11 +577,16 @@ ref; // ME_21C9E7FF2FC0 PrintAndExport
  : Parent ME_1D9630212631 // ListPrintAndExportSettingRes
  ;
  : Attributes
-   @ ( ME_21C9E7FF2FC0 // PrintAndExport
- ) .SequenceCode.It
+   Seq: ( ME_21C9E7FF2FC0 // PrintAndExport
+ )
  ; // Attributes
  CONST "elements prefix" 'str'
  CONST "spell names" false
+ CONST dfm:PathOnly '\common\components\SandBox\VCM\View\List'
+ CONST intf.pas:PathOnly '\common\components\SandBox\VCM\View\List'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\common\components\SandBox\VCM\View\List'
  CONST extprop:pas:ElementPrefixBase 'str'
  CONST extprop:pas:ElementPrefix 'str_'
 
@@ -519,6 +597,7 @@ FORWARD ME_45BAC8CB372A
 : ME_F8B05246C5B1
  CONST UID 'F8B05246C5B1'
  CONST Name 'Default'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY 'Использовать для экспорта и печати размер шрифта, отображаемого на экране' ;
  CONST Visibility PublicAccess
@@ -534,12 +613,14 @@ FORWARD ME_45BAC8CB372A
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''PrintAndExport_Default''; rValue : ''Использовать для экспорта и печати размер шрифта, отображаемого на экране'')'
 
 ref; // ME_F8B05246C5B1 Default
 
 : ME_8EFEC959412E
  CONST UID '8EFEC959412E'
  CONST Name 'Custom'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY 'Использовать для экспорта и печати следующий размер шрифта' ;
  CONST Visibility PublicAccess
@@ -555,12 +636,14 @@ ref; // ME_F8B05246C5B1 Default
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''PrintAndExport_Custom''; rValue : ''Использовать для экспорта и печати следующий размер шрифта'')'
 
 ref; // ME_8EFEC959412E Custom
 
 : ME_45BAC8CB372A
  CONST UID '45BAC8CB372A'
  CONST Name 'LCImplPrintAndExportValues'
+ CONST IsSummoned true
  CONST Class class_Class
  : Stereotype st_Constants ;
  CONST Kind kind_NormalClass
@@ -570,12 +653,17 @@ ref; // ME_8EFEC959412E Custom
  : Parent ME_1D9630212631 // ListPrintAndExportSettingRes
  ;
  : Attributes
-   @ ( ME_F8B05246C5B1 // Default
+   Seq: ( ME_F8B05246C5B1 // Default
  ME_8EFEC959412E // Custom
- ) .SequenceCode.It
+ )
  ; // Attributes
  CONST "elements prefix" 'str_PrintAndExport'
  CONST "spell names" false
+ CONST dfm:PathOnly '\common\components\SandBox\VCM\View\List'
+ CONST intf.pas:PathOnly '\common\components\SandBox\VCM\View\List'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\common\components\SandBox\VCM\View\List'
  CONST extprop:pas:ElementPrefixBase 'str_PrintAndExport'
  CONST extprop:pas:ElementPrefix 'str_PrintAndExport_'
 
@@ -583,7 +671,8 @@ ref; // ME_45BAC8CB372A LCImplPrintAndExportValues
 
 : ME_358EA6058C74
  CONST UID '358EA6058C74'
- CONST Name 'Init_PrintAndExport'
+ CONST Name 'Init_Str_PrintAndExport'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Инициализация str_PrintAndExport' ;
@@ -591,12 +680,17 @@ ref; // ME_45BAC8CB372A LCImplPrintAndExportValues
  CONST Abstraction at_final
  : Parent ME_1D9630212631 // ListPrintAndExportSettingRes
  ;
+ : Speller ME_BAE9DBA7BB3C // PrintAndExport
+ ;
+ : SpelledFor ME_21C9E7FF2FC0 // PrintAndExport
+ ;
 
-ref; // ME_358EA6058C74 Init_PrintAndExport
+ref; // ME_358EA6058C74 Init_Str_PrintAndExport
 
 : ME_CBA796970B95
  CONST UID 'CBA796970B95'
- CONST Name 'Init_Default'
+ CONST Name 'Init_Str_Default'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Инициализация str_PrintAndExport_Default' ;
@@ -604,12 +698,17 @@ ref; // ME_358EA6058C74 Init_PrintAndExport
  CONST Abstraction at_final
  : Parent ME_1D9630212631 // ListPrintAndExportSettingRes
  ;
+ : Speller ME_8B070C86553A // Default
+ ;
+ : SpelledFor ME_F8B05246C5B1 // Default
+ ;
 
-ref; // ME_CBA796970B95 Init_Default
+ref; // ME_CBA796970B95 Init_Str_Default
 
 : ME_232AF7110713
  CONST UID '232AF7110713'
- CONST Name 'Init_Custom'
+ CONST Name 'Init_Str_Custom'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Инициализация str_PrintAndExport_Custom' ;
@@ -617,11 +716,16 @@ ref; // ME_CBA796970B95 Init_Default
  CONST Abstraction at_final
  : Parent ME_1D9630212631 // ListPrintAndExportSettingRes
  ;
+ : Speller ME_55AF10D1419C // Custom
+ ;
+ : SpelledFor ME_8EFEC959412E // Custom
+ ;
 
-ref; // ME_232AF7110713 Init_Custom
+ref; // ME_232AF7110713 Init_Str_Custom
 
 : ME_398327EFC6CF
  CONST UID '398327EFC6CF'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_1D9630212631 // ListPrintAndExportSettingRes
@@ -633,6 +737,7 @@ ref; // ME_398327EFC6CF
 
 : ME_01324FC43A46
  CONST UID '01324FC43A46'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_1D9630212631 // ListPrintAndExportSettingRes
@@ -645,6 +750,7 @@ ref; // ME_01324FC43A46
 : ME_1D9630212631
  CONST UID '1D9630212631'
  CONST Name 'ListPrintAndExportSettingRes'
+ CONST IsSummoned true
  CONST Class class_Class
  : Stereotype st_UtilityPack ;
  CONST Kind kind_NormalClass
@@ -653,32 +759,41 @@ ref; // ME_01324FC43A46
  CONST Abstraction at_final
  : Parent ME_521DA60E0390 // List
  ;
+ : Implements
+   Seq: ( WL 'ME_5214960C034B' '4E3160C802DA.pas.ms.script' // Печать и экспорт
+ )
+ ; // Implements
  : Operations
-   @ ( ME_358EA6058C74 // Init_PrintAndExport
- ME_CBA796970B95 // Init_Default
- ME_232AF7110713 // Init_Custom
- ) .SequenceCode.It
+   Seq: ( ME_358EA6058C74 // Init_Str_PrintAndExport
+ ME_CBA796970B95 // Init_Str_Default
+ ME_232AF7110713 // Init_Str_Custom
+ )
  ; // Operations
  : Constants
-   @ ( ME_8281E352CB32 // PrintAndExportKey
+   Seq: ( ME_8281E352CB32 // PrintAndExportKey
  ME_36164CA1E5E4 // PrintAndExportName
  ME_503C183D60AA // PrintAndExportValues
  ME_6B6E0726AAE5 // LCImplPrintAndExportName
  ME_45BAC8CB372A // LCImplPrintAndExportValues
- ) .SequenceCode.It
+ )
  ; // Constants
  : Dependencies
-   @ ( ME_398327EFC6CF // 
+   Seq: ( ME_398327EFC6CF // 
  ME_01324FC43A46 // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  CONST "no hands" false
  : Generators
- @ (
+ Seq: (
  gen_intf.pas
- ) .SequenceCode.It
+ )
  ; // Generators
+ CONST dfm:PathOnly '\common\components\SandBox\VCM\View\List'
  CONST intf.pas:Path 'common\components\SandBox\VCM\View\List\ListPrintAndExportSettingRes.pas'
+ CONST intf.pas:PathOnly '\common\components\SandBox\VCM\View\List'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\common\components\SandBox\VCM\View\List'
 
 ref; // ME_1D9630212631 ListPrintAndExportSettingRes
 
@@ -687,6 +802,7 @@ FORWARD ME_7010DE034F2E
 : ME_5A248BE364EB
  CONST UID '5A248BE364EB'
  CONST Name 'KEY_PrintAndExportFontSize_pef8'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY '8' ;
  CONST Visibility PublicAccess
@@ -700,6 +816,7 @@ ref; // ME_5A248BE364EB KEY_PrintAndExportFontSize_pef8
 : ME_438A7499924B
  CONST UID '438A7499924B'
  CONST Name 'KEY_PrintAndExportFontSize_pef9'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY '9' ;
  CONST Visibility PublicAccess
@@ -713,6 +830,7 @@ ref; // ME_438A7499924B KEY_PrintAndExportFontSize_pef9
 : ME_5D924B5CC4BB
  CONST UID '5D924B5CC4BB'
  CONST Name 'KEY_PrintAndExportFontSize_pef10'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY '10' ;
  CONST Visibility PublicAccess
@@ -726,6 +844,7 @@ ref; // ME_5D924B5CC4BB KEY_PrintAndExportFontSize_pef10
 : ME_36521DF2B9B0
  CONST UID '36521DF2B9B0'
  CONST Name 'KEY_PrintAndExportFontSize_pef11'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY '11' ;
  CONST Visibility PublicAccess
@@ -739,6 +858,7 @@ ref; // ME_36521DF2B9B0 KEY_PrintAndExportFontSize_pef11
 : ME_6C61AE4E535E
  CONST UID '6C61AE4E535E'
  CONST Name 'KEY_PrintAndExportFontSize_pef12'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY '12' ;
  CONST Visibility PublicAccess
@@ -752,6 +872,7 @@ ref; // ME_6C61AE4E535E KEY_PrintAndExportFontSize_pef12
 : ME_5FE3E4BD6BE0
  CONST UID '5FE3E4BD6BE0'
  CONST Name 'KEY_PrintAndExportFontSize_pef14'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY '14' ;
  CONST Visibility PublicAccess
@@ -765,6 +886,7 @@ ref; // ME_5FE3E4BD6BE0 KEY_PrintAndExportFontSize_pef14
 : ME_AEC6F6370070
  CONST UID 'AEC6F6370070'
  CONST Name 'KEY_PrintAndExportFontSize_pef16'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY '16' ;
  CONST Visibility PublicAccess
@@ -778,6 +900,7 @@ ref; // ME_AEC6F6370070 KEY_PrintAndExportFontSize_pef16
 : ME_7010DE034F2E
  CONST UID '7010DE034F2E'
  CONST Name 'PrintAndExportFontSizeEnum'
+ CONST IsSummoned true
  CONST Class class_Class
  : Stereotype st_Enum ;
  CONST Kind kind_NormalClass
@@ -787,15 +910,21 @@ ref; // ME_AEC6F6370070 KEY_PrintAndExportFontSize_pef16
  : Parent ME_F803A929B344 // ListPrintAndExportFontSizeSettingRes
  ;
  : Attributes
-   @ ( ME_5A248BE364EB // KEY_PrintAndExportFontSize_pef8
+   Seq: ( ME_5A248BE364EB // KEY_PrintAndExportFontSize_pef8
  ME_438A7499924B // KEY_PrintAndExportFontSize_pef9
  ME_5D924B5CC4BB // KEY_PrintAndExportFontSize_pef10
  ME_36521DF2B9B0 // KEY_PrintAndExportFontSize_pef11
  ME_6C61AE4E535E // KEY_PrintAndExportFontSize_pef12
  ME_5FE3E4BD6BE0 // KEY_PrintAndExportFontSize_pef14
  ME_AEC6F6370070 // KEY_PrintAndExportFontSize_pef16
- ) .SequenceCode.It
+ )
  ; // Attributes
+ CONST dfm:PathOnly '\common\components\SandBox\VCM\View\List'
+ CONST intf.pas:PathOnly '\common\components\SandBox\VCM\View\List'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\common\components\SandBox\VCM\View\List'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_7010DE034F2E PrintAndExportFontSizeEnum
 
@@ -804,6 +933,7 @@ FORWARD ME_1F04A277455E
 : ME_DA25769163B5
  CONST UID 'DA25769163B5'
  CONST Name 'pi_List_PrintAndExportFontSize'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY 'Идентификатор настройки "Использовать для экспорта и печати следующий размер шрифта"' ;
  CONST Visibility PublicAccess
@@ -815,12 +945,14 @@ FORWARD ME_1F04A277455E
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value '''Список/Использовать для экспорта и печати следующий размер шрифта'''
 
 ref; // ME_DA25769163B5 pi_List_PrintAndExportFontSize
 
 : ME_BFA9E4BD7A2F
  CONST UID 'BFA9E4BD7A2F'
  CONST Name 'dv_List_PrintAndExportFontSize'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY 'Значение по-умолчанию настройки "Использовать для экспорта и печати следующий размер шрифта"' ;
  CONST Visibility PublicAccess
@@ -832,12 +964,14 @@ ref; // ME_DA25769163B5 pi_List_PrintAndExportFontSize
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value 0
 
 ref; // ME_BFA9E4BD7A2F dv_List_PrintAndExportFontSize
 
 : ME_1F04A277455E
  CONST UID '1F04A277455E'
  CONST Name 'PrintAndExportFontSizeKey'
+ CONST IsSummoned true
  CONST Class class_Class
  : Stereotype st_Constants ;
  CONST Kind kind_NormalClass
@@ -846,11 +980,16 @@ ref; // ME_BFA9E4BD7A2F dv_List_PrintAndExportFontSize
  : Parent ME_F803A929B344 // ListPrintAndExportFontSizeSettingRes
  ;
  : Attributes
-   @ ( ME_DA25769163B5 // pi_List_PrintAndExportFontSize
+   Seq: ( ME_DA25769163B5 // pi_List_PrintAndExportFontSize
  ME_BFA9E4BD7A2F // dv_List_PrintAndExportFontSize
- ) .SequenceCode.It
+ )
  ; // Attributes
  CONST "spell names" false
+ CONST dfm:PathOnly '\common\components\SandBox\VCM\View\List'
+ CONST intf.pas:PathOnly '\common\components\SandBox\VCM\View\List'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\common\components\SandBox\VCM\View\List'
 
 ref; // ME_1F04A277455E PrintAndExportFontSizeKey
 
@@ -859,6 +998,7 @@ FORWARD ME_193F2AA9201D
 : ME_D665257C7AD6
  CONST UID 'D665257C7AD6'
  CONST Name 'PrintAndExportFontSize'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY 'Использовать для экспорта и печати следующий размер шрифта' ;
  CONST Visibility PublicAccess
@@ -870,12 +1010,14 @@ FORWARD ME_193F2AA9201D
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value '''Использовать для экспорта и печати следующий размер шрифта'''
 
 ref; // ME_D665257C7AD6 PrintAndExportFontSize
 
 : ME_193F2AA9201D
  CONST UID '193F2AA9201D'
  CONST Name 'PrintAndExportFontSizeName'
+ CONST IsSummoned true
  CONST Class class_Class
  : Stereotype st_LocalConst ;
  CONST Kind kind_NormalClass
@@ -885,12 +1027,17 @@ ref; // ME_D665257C7AD6 PrintAndExportFontSize
  : Parent ME_F803A929B344 // ListPrintAndExportFontSizeSettingRes
  ;
  : Attributes
-   @ ( ME_D665257C7AD6 // PrintAndExportFontSize
- ) .SequenceCode.It
+   Seq: ( ME_D665257C7AD6 // PrintAndExportFontSize
+ )
  ; // Attributes
  CONST "Need map interface" false
  CONST "Need mapping support" false
  CONST "spell names" false
+ CONST dfm:PathOnly '\common\components\SandBox\VCM\View\List'
+ CONST intf.pas:PathOnly '\common\components\SandBox\VCM\View\List'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\common\components\SandBox\VCM\View\List'
 
 ref; // ME_193F2AA9201D PrintAndExportFontSizeName
 
@@ -899,6 +1046,7 @@ FORWARD ME_2731C3165ADB
 : ME_1672DE828C9B
  CONST UID '1672DE828C9B'
  CONST Name 'pef8'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY '8' ;
  CONST Visibility PublicAccess
@@ -910,12 +1058,14 @@ FORWARD ME_2731C3165ADB
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value '''8'''
 
 ref; // ME_1672DE828C9B pef8
 
 : ME_38132936A565
  CONST UID '38132936A565'
  CONST Name 'pef9'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY '9' ;
  CONST Visibility PublicAccess
@@ -927,12 +1077,14 @@ ref; // ME_1672DE828C9B pef8
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value '''9'''
 
 ref; // ME_38132936A565 pef9
 
 : ME_A83F73C3A858
  CONST UID 'A83F73C3A858'
  CONST Name 'pef10'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY '10' ;
  CONST Visibility PublicAccess
@@ -944,12 +1096,14 @@ ref; // ME_38132936A565 pef9
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value '''10'''
 
 ref; // ME_A83F73C3A858 pef10
 
 : ME_F248DFC9B1FB
  CONST UID 'F248DFC9B1FB'
  CONST Name 'pef11'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY '11' ;
  CONST Visibility PublicAccess
@@ -961,12 +1115,14 @@ ref; // ME_A83F73C3A858 pef10
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value '''11'''
 
 ref; // ME_F248DFC9B1FB pef11
 
 : ME_C5934515C249
  CONST UID 'C5934515C249'
  CONST Name 'pef12'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY '12' ;
  CONST Visibility PublicAccess
@@ -978,12 +1134,14 @@ ref; // ME_F248DFC9B1FB pef11
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value '''12'''
 
 ref; // ME_C5934515C249 pef12
 
 : ME_A58C56E6B0F3
  CONST UID 'A58C56E6B0F3'
  CONST Name 'pef14'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY '14' ;
  CONST Visibility PublicAccess
@@ -995,12 +1153,14 @@ ref; // ME_C5934515C249 pef12
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value '''14'''
 
 ref; // ME_A58C56E6B0F3 pef14
 
 : ME_8B21E896E5B8
  CONST UID '8B21E896E5B8'
  CONST Name 'pef16'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY '16' ;
  CONST Visibility PublicAccess
@@ -1012,12 +1172,14 @@ ref; // ME_A58C56E6B0F3 pef14
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value '''16'''
 
 ref; // ME_8B21E896E5B8 pef16
 
 : ME_2731C3165ADB
  CONST UID '2731C3165ADB'
  CONST Name 'PrintAndExportFontSizeValues'
+ CONST IsSummoned true
  CONST Class class_Class
  : Stereotype st_LocalConst ;
  CONST Kind kind_NormalClass
@@ -1027,23 +1189,28 @@ ref; // ME_8B21E896E5B8 pef16
  : Parent ME_F803A929B344 // ListPrintAndExportFontSizeSettingRes
  ;
  : Inherits
-   @ ( ME_7010DE034F2E // PrintAndExportFontSizeEnum
- ) .SequenceCode.It
+   Seq: ( ME_7010DE034F2E // PrintAndExportFontSizeEnum
+ )
  ; // Inherits
  : Attributes
-   @ ( ME_1672DE828C9B // pef8
+   Seq: ( ME_1672DE828C9B // pef8
  ME_38132936A565 // pef9
  ME_A83F73C3A858 // pef10
  ME_F248DFC9B1FB // pef11
  ME_C5934515C249 // pef12
  ME_A58C56E6B0F3 // pef14
  ME_8B21E896E5B8 // pef16
- ) .SequenceCode.It
+ )
  ; // Attributes
  CONST "Need map interface" true
  CONST "Need mapping support" true
  CONST "elements prefix" 'PrintAndExportFontSize'
  CONST "spell names" false
+ CONST dfm:PathOnly '\common\components\SandBox\VCM\View\List'
+ CONST intf.pas:PathOnly '\common\components\SandBox\VCM\View\List'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\common\components\SandBox\VCM\View\List'
  CONST extprop:pas:ElementPrefixBase 'PrintAndExportFontSize'
  CONST extprop:pas:ElementPrefix 'PrintAndExportFontSize_'
 
@@ -1054,6 +1221,7 @@ FORWARD ME_B31EB61BCA12
 : ME_3CE116A7BB8F
  CONST UID '3CE116A7BB8F'
  CONST Name 'PrintAndExportFontSize'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY 'Использовать для экспорта и печати следующий размер шрифта' ;
  CONST Visibility PublicAccess
@@ -1069,12 +1237,14 @@ FORWARD ME_B31EB61BCA12
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''PrintAndExportFontSize''; rValue : ''Использовать для экспорта и печати следующий размер шрифта'')'
 
 ref; // ME_3CE116A7BB8F PrintAndExportFontSize
 
 : ME_B31EB61BCA12
  CONST UID 'B31EB61BCA12'
  CONST Name 'LCImplPrintAndExportFontSizeName'
+ CONST IsSummoned true
  CONST Class class_Class
  : Stereotype st_Constants ;
  CONST Kind kind_NormalClass
@@ -1084,11 +1254,16 @@ ref; // ME_3CE116A7BB8F PrintAndExportFontSize
  : Parent ME_F803A929B344 // ListPrintAndExportFontSizeSettingRes
  ;
  : Attributes
-   @ ( ME_3CE116A7BB8F // PrintAndExportFontSize
- ) .SequenceCode.It
+   Seq: ( ME_3CE116A7BB8F // PrintAndExportFontSize
+ )
  ; // Attributes
  CONST "elements prefix" 'str'
  CONST "spell names" false
+ CONST dfm:PathOnly '\common\components\SandBox\VCM\View\List'
+ CONST intf.pas:PathOnly '\common\components\SandBox\VCM\View\List'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\common\components\SandBox\VCM\View\List'
  CONST extprop:pas:ElementPrefixBase 'str'
  CONST extprop:pas:ElementPrefix 'str_'
 
@@ -1099,6 +1274,7 @@ FORWARD ME_6EC763C64039
 : ME_38EF4BB74238
  CONST UID '38EF4BB74238'
  CONST Name 'pef8'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY '8' ;
  CONST Visibility PublicAccess
@@ -1114,12 +1290,14 @@ FORWARD ME_6EC763C64039
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''PrintAndExportFontSize_pef8''; rValue : ''8'')'
 
 ref; // ME_38EF4BB74238 pef8
 
 : ME_010C5A6AB548
  CONST UID '010C5A6AB548'
  CONST Name 'pef9'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY '9' ;
  CONST Visibility PublicAccess
@@ -1135,12 +1313,14 @@ ref; // ME_38EF4BB74238 pef8
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''PrintAndExportFontSize_pef9''; rValue : ''9'')'
 
 ref; // ME_010C5A6AB548 pef9
 
 : ME_439CB799BDF5
  CONST UID '439CB799BDF5'
  CONST Name 'pef10'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY '10' ;
  CONST Visibility PublicAccess
@@ -1156,12 +1336,14 @@ ref; // ME_010C5A6AB548 pef9
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''PrintAndExportFontSize_pef10''; rValue : ''10'')'
 
 ref; // ME_439CB799BDF5 pef10
 
 : ME_0E56EAD1CB09
  CONST UID '0E56EAD1CB09'
  CONST Name 'pef11'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY '11' ;
  CONST Visibility PublicAccess
@@ -1177,12 +1359,14 @@ ref; // ME_439CB799BDF5 pef10
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''PrintAndExportFontSize_pef11''; rValue : ''11'')'
 
 ref; // ME_0E56EAD1CB09 pef11
 
 : ME_6E1C1422B812
  CONST UID '6E1C1422B812'
  CONST Name 'pef12'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY '12' ;
  CONST Visibility PublicAccess
@@ -1198,12 +1382,14 @@ ref; // ME_0E56EAD1CB09 pef11
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''PrintAndExportFontSize_pef12''; rValue : ''12'')'
 
 ref; // ME_6E1C1422B812 pef12
 
 : ME_C3BF9CFABD9F
  CONST UID 'C3BF9CFABD9F'
  CONST Name 'pef14'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY '14' ;
  CONST Visibility PublicAccess
@@ -1219,12 +1405,14 @@ ref; // ME_6E1C1422B812 pef12
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''PrintAndExportFontSize_pef14''; rValue : ''14'')'
 
 ref; // ME_C3BF9CFABD9F pef14
 
 : ME_10C252E6AA00
  CONST UID '10C252E6AA00'
  CONST Name 'pef16'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY '16' ;
  CONST Visibility PublicAccess
@@ -1240,12 +1428,14 @@ ref; // ME_C3BF9CFABD9F pef14
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''PrintAndExportFontSize_pef16''; rValue : ''16'')'
 
 ref; // ME_10C252E6AA00 pef16
 
 : ME_6EC763C64039
  CONST UID '6EC763C64039'
  CONST Name 'LCImplPrintAndExportFontSizeValues'
+ CONST IsSummoned true
  CONST Class class_Class
  : Stereotype st_Constants ;
  CONST Kind kind_NormalClass
@@ -1255,17 +1445,22 @@ ref; // ME_10C252E6AA00 pef16
  : Parent ME_F803A929B344 // ListPrintAndExportFontSizeSettingRes
  ;
  : Attributes
-   @ ( ME_38EF4BB74238 // pef8
+   Seq: ( ME_38EF4BB74238 // pef8
  ME_010C5A6AB548 // pef9
  ME_439CB799BDF5 // pef10
  ME_0E56EAD1CB09 // pef11
  ME_6E1C1422B812 // pef12
  ME_C3BF9CFABD9F // pef14
  ME_10C252E6AA00 // pef16
- ) .SequenceCode.It
+ )
  ; // Attributes
  CONST "elements prefix" 'str_PrintAndExportFontSize'
  CONST "spell names" false
+ CONST dfm:PathOnly '\common\components\SandBox\VCM\View\List'
+ CONST intf.pas:PathOnly '\common\components\SandBox\VCM\View\List'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\common\components\SandBox\VCM\View\List'
  CONST extprop:pas:ElementPrefixBase 'str_PrintAndExportFontSize'
  CONST extprop:pas:ElementPrefix 'str_PrintAndExportFontSize_'
 
@@ -1276,6 +1471,7 @@ FORWARD ME_65BD0BBC3865
 : ME_E4C0ED6ABCE5
  CONST UID 'E4C0ED6ABCE5'
  CONST Name 'pef8'
+ CONST IsSummoned true
  CONST Class class_Attribute
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
@@ -1287,12 +1483,14 @@ FORWARD ME_65BD0BBC3865
  CONST Value 'pef8'
  : ValueType ME_6EC763C64039 // LCImplPrintAndExportFontSizeValues
  ;
+ CONST extprop:pas:Value 'str_PrintAndExportFontSize_pef8'
 
 ref; // ME_E4C0ED6ABCE5 pef8
 
 : ME_D279DB78523F
  CONST UID 'D279DB78523F'
  CONST Name 'pef9'
+ CONST IsSummoned true
  CONST Class class_Attribute
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
@@ -1304,12 +1502,14 @@ ref; // ME_E4C0ED6ABCE5 pef8
  CONST Value 'pef9'
  : ValueType ME_6EC763C64039 // LCImplPrintAndExportFontSizeValues
  ;
+ CONST extprop:pas:Value 'str_PrintAndExportFontSize_pef9'
 
 ref; // ME_D279DB78523F pef9
 
 : ME_A415E1898DB2
  CONST UID 'A415E1898DB2'
  CONST Name 'pef10'
+ CONST IsSummoned true
  CONST Class class_Attribute
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
@@ -1321,12 +1521,14 @@ ref; // ME_D279DB78523F pef9
  CONST Value 'pef10'
  : ValueType ME_6EC763C64039 // LCImplPrintAndExportFontSizeValues
  ;
+ CONST extprop:pas:Value 'str_PrintAndExportFontSize_pef10'
 
 ref; // ME_A415E1898DB2 pef10
 
 : ME_45A7E50D3230
  CONST UID '45A7E50D3230'
  CONST Name 'pef11'
+ CONST IsSummoned true
  CONST Class class_Attribute
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
@@ -1338,12 +1540,14 @@ ref; // ME_A415E1898DB2 pef10
  CONST Value 'pef11'
  : ValueType ME_6EC763C64039 // LCImplPrintAndExportFontSizeValues
  ;
+ CONST extprop:pas:Value 'str_PrintAndExportFontSize_pef11'
 
 ref; // ME_45A7E50D3230 pef11
 
 : ME_1029DC442C7D
  CONST UID '1029DC442C7D'
  CONST Name 'pef12'
+ CONST IsSummoned true
  CONST Class class_Attribute
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
@@ -1355,12 +1559,14 @@ ref; // ME_45A7E50D3230 pef11
  CONST Value 'pef12'
  : ValueType ME_6EC763C64039 // LCImplPrintAndExportFontSizeValues
  ;
+ CONST extprop:pas:Value 'str_PrintAndExportFontSize_pef12'
 
 ref; // ME_1029DC442C7D pef12
 
 : ME_8CD2361CC177
  CONST UID '8CD2361CC177'
  CONST Name 'pef14'
+ CONST IsSummoned true
  CONST Class class_Attribute
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
@@ -1372,12 +1578,14 @@ ref; // ME_1029DC442C7D pef12
  CONST Value 'pef14'
  : ValueType ME_6EC763C64039 // LCImplPrintAndExportFontSizeValues
  ;
+ CONST extprop:pas:Value 'str_PrintAndExportFontSize_pef14'
 
 ref; // ME_8CD2361CC177 pef14
 
 : ME_F1A6F986FFB3
  CONST UID 'F1A6F986FFB3'
  CONST Name 'pef16'
+ CONST IsSummoned true
  CONST Class class_Attribute
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
@@ -1389,12 +1597,14 @@ ref; // ME_8CD2361CC177 pef14
  CONST Value 'pef16'
  : ValueType ME_6EC763C64039 // LCImplPrintAndExportFontSizeValues
  ;
+ CONST extprop:pas:Value 'str_PrintAndExportFontSize_pef16'
 
 ref; // ME_F1A6F986FFB3 pef16
 
 : ME_65BD0BBC3865
  CONST UID '65BD0BBC3865'
  CONST Name 'PrintAndExportFontSizeValuesMap'
+ CONST IsSummoned true
  CONST Class class_Class
  : Stereotype st_ConstantArray ;
  CONST Kind kind_NormalClass
@@ -1404,25 +1614,30 @@ ref; // ME_F1A6F986FFB3 pef16
  : Parent ME_F803A929B344 // ListPrintAndExportFontSizeSettingRes
  ;
  : Inherits
-   @ ( WL 'ME_4B3B49B40262' '4F9BDEEE01BC.pas.ms.script' // Pl3StringIDEx
- ) .SequenceCode.It
+   Seq: ( WL 'ME_4B3B49B40262' '4F9BDEEE01BC.pas.ms.script' // Pl3StringIDEx
+ )
  ; // Inherits
  : Implements
-   @ ( ME_7010DE034F2E // PrintAndExportFontSizeEnum
- ) .SequenceCode.It
+   Seq: ( ME_7010DE034F2E // PrintAndExportFontSizeEnum
+ )
  ; // Implements
  : Attributes
-   @ ( ME_E4C0ED6ABCE5 // pef8
+   Seq: ( ME_E4C0ED6ABCE5 // pef8
  ME_D279DB78523F // pef9
  ME_A415E1898DB2 // pef10
  ME_45A7E50D3230 // pef11
  ME_1029DC442C7D // pef12
  ME_8CD2361CC177 // pef14
  ME_F1A6F986FFB3 // pef16
- ) .SequenceCode.It
+ )
  ; // Attributes
  CONST "Need map interface" true
  CONST "Need mapping support" true
+ CONST dfm:PathOnly '\common\components\SandBox\VCM\View\List'
+ CONST intf.pas:PathOnly '\common\components\SandBox\VCM\View\List'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\common\components\SandBox\VCM\View\List'
 
 ref; // ME_65BD0BBC3865 PrintAndExportFontSizeValuesMap
 
@@ -1431,6 +1646,7 @@ FORWARD ME_A12037CD3A11
 : ME_046B53978FE5
  CONST UID '046B53978FE5'
  CONST Name 'aStrings'
+ CONST IsSummoned true
  CONST Class class_Parameter
  : Stereotype st_in ;
  : Target WL 'ME_4683CEE9034C' '467823B7002C.pas.ms.script' // IafwStrings
@@ -1441,6 +1657,7 @@ ref; // ME_046B53978FE5 aStrings
 : ME_60635A2BD1EF
  CONST UID '60635A2BD1EF'
  CONST Name 'FillStrings'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_static::Operation ;
  %SUMMARY 'Заполнение списка строк значениями' ;
@@ -1449,8 +1666,8 @@ ref; // ME_046B53978FE5 aStrings
  : Parent ME_A12037CD3A11 // PrintAndExportFontSizeValuesMapHelper
  ;
  : Parameters
-   @ ( ME_046B53978FE5 // aStrings
- ) .SequenceCode.It
+   Seq: ( ME_046B53978FE5 // aStrings
+ )
  ; // Parameters
 
 ref; // ME_60635A2BD1EF FillStrings
@@ -1458,6 +1675,7 @@ ref; // ME_60635A2BD1EF FillStrings
 : ME_A32B31079FD8
  CONST UID 'A32B31079FD8'
  CONST Name 'aDisplayName'
+ CONST IsSummoned true
  CONST Class class_Parameter
  : Stereotype st_in ;
  : Target WL 'ME_46780DA40383' '4677FBA70343.pas.ms.script' // Il3CString
@@ -1468,6 +1686,7 @@ ref; // ME_A32B31079FD8 aDisplayName
 : ME_08279D51EFDC
  CONST UID '08279D51EFDC'
  CONST Name 'DisplayNameToValue'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_static::Operation ;
  %SUMMARY 'Преобразование строкового значения к порядковому' ;
@@ -1478,8 +1697,8 @@ ref; // ME_A32B31079FD8 aDisplayName
  : Target ME_7010DE034F2E // PrintAndExportFontSizeEnum
  ;
  : Parameters
-   @ ( ME_A32B31079FD8 // aDisplayName
- ) .SequenceCode.It
+   Seq: ( ME_A32B31079FD8 // aDisplayName
+ )
  ; // Parameters
 
 ref; // ME_08279D51EFDC DisplayNameToValue
@@ -1487,6 +1706,7 @@ ref; // ME_08279D51EFDC DisplayNameToValue
 : ME_A12037CD3A11
  CONST UID 'A12037CD3A11'
  CONST Name 'PrintAndExportFontSizeValuesMapHelper'
+ CONST IsSummoned true
  CONST Class class_Class
  : Stereotype st_SimpleClass ;
  CONST Kind kind_NormalClass
@@ -1496,14 +1716,20 @@ ref; // ME_08279D51EFDC DisplayNameToValue
  : Parent ME_F803A929B344 // ListPrintAndExportFontSizeSettingRes
  ;
  : Operations
-   @ ( ME_60635A2BD1EF // FillStrings
+   Seq: ( ME_60635A2BD1EF // FillStrings
  ME_08279D51EFDC // DisplayNameToValue
- ) .SequenceCode.It
+ )
  ; // Operations
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
+ CONST dfm:PathOnly '\common\components\SandBox\VCM\View\List'
+ CONST intf.pas:PathOnly '\common\components\SandBox\VCM\View\List'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\common\components\SandBox\VCM\View\List'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_A12037CD3A11 PrintAndExportFontSizeValuesMapHelper
 
@@ -1512,6 +1738,7 @@ FORWARD ME_0762D70EBD49
 : ME_22CB6D896027
  CONST UID '22CB6D896027'
  CONST Name 'Make'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_factory::Operation ;
  %SUMMARY 'Фабричный метод для TPrintAndExportFontSizeValuesMapImplPrim' ;
@@ -1535,6 +1762,7 @@ ref; // ME_22CB6D896027 Make
  ;
  : Implementor ME_0762D70EBD49 // TPrintAndExportFontSizeValuesMapImplPrim
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" true
 ref; // ME_46A5EFE602DE_ME_0762D70EBD49 MapID
 
@@ -1545,6 +1773,7 @@ ref; // ME_46A5EFE602DE_ME_0762D70EBD49 MapID
  ;
  : Implementor ME_0762D70EBD49 // TPrintAndExportFontSizeValuesMapImplPrim
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_46A5F0130365_ME_0762D70EBD49 GetDisplayNames
 
 : ME_46A5F03800A2_ME_0762D70EBD49
@@ -1554,6 +1783,7 @@ ref; // ME_46A5F0130365_ME_0762D70EBD49 GetDisplayNames
  ;
  : Implementor ME_0762D70EBD49 // TPrintAndExportFontSizeValuesMapImplPrim
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_46A5F03800A2_ME_0762D70EBD49 MapSize
 
 : ME_46A5FCF900E0_ME_0762D70EBD49
@@ -1563,6 +1793,7 @@ ref; // ME_46A5F03800A2_ME_0762D70EBD49 MapSize
  ;
  : Implementor ME_0762D70EBD49 // TPrintAndExportFontSizeValuesMapImplPrim
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_46A5FCF900E0_ME_0762D70EBD49 DisplayNameToValue
 
 : ME_46A5FD1B000D_ME_0762D70EBD49
@@ -1572,11 +1803,13 @@ ref; // ME_46A5FCF900E0_ME_0762D70EBD49 DisplayNameToValue
  ;
  : Implementor ME_0762D70EBD49 // TPrintAndExportFontSizeValuesMapImplPrim
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_46A5FD1B000D_ME_0762D70EBD49 ValueToDisplayName
 
 : ME_0762D70EBD49
  CONST UID '0762D70EBD49'
  CONST Name 'TPrintAndExportFontSizeValuesMapImplPrim'
+ CONST IsSummoned true
  CONST Class class_Class
  : Stereotype st_SimpleClass ;
  CONST Kind kind_NormalClass
@@ -1586,29 +1819,36 @@ ref; // ME_46A5FD1B000D_ME_0762D70EBD49 ValueToDisplayName
  : Parent ME_F803A929B344 // ListPrintAndExportFontSizeSettingRes
  ;
  : Inherits
-   @ ( WL 'ME_4AE5CA2D0034' '47913B47006E.pas.ms.script' // Tl3CProtoObject
- ) .SequenceCode.It
+   Seq: ( WL 'ME_4AE5CA2D0034' '47913B47006E.pas.ms.script' // Tl3CProtoObject
+ )
  ; // Inherits
  : Implements
-   @ ( WL 'ME_46A5FCD303C1' '4677FBA70343.pas.ms.script' // Il3IntegerValueMap
- ) .SequenceCode.It
+   Seq: ( WL 'ME_46A5FCD303C1' '4677FBA70343.pas.ms.script' // Il3IntegerValueMap
+ )
  ; // Implements
  : Operations
-   @ ( ME_22CB6D896027 // Make
- ) .SequenceCode.It
+   Seq: ( ME_22CB6D896027 // Make
+ )
  ; // Operations
  : Implemented
-   @ ( ME_46A5EFE602DE_ME_0762D70EBD49 // MapID
+   Seq: ( ME_46A5EFE602DE_ME_0762D70EBD49 // MapID
  ME_46A5F0130365_ME_0762D70EBD49 // GetDisplayNames
  ME_46A5F03800A2_ME_0762D70EBD49 // MapSize
  ME_46A5FCF900E0_ME_0762D70EBD49 // DisplayNameToValue
  ME_46A5FD1B000D_ME_0762D70EBD49 // ValueToDisplayName
- ) .SequenceCode.It
+ )
  ; // Implemented
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
+ CONST dfm:PathOnly '\common\components\SandBox\VCM\View\List'
+ CONST intf.pas:PathOnly '\common\components\SandBox\VCM\View\List'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\common\components\SandBox\VCM\View\List'
+ CONST extprop:rc:SelfName 'PrintAndExportFontSizeValuesMapImplPrim'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_0762D70EBD49 TPrintAndExportFontSizeValuesMapImplPrim
 
@@ -1617,6 +1857,7 @@ FORWARD ME_9F77928A4477
 : ME_E8666180421B
  CONST UID 'E8666180421B'
  CONST Name 'Make'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_factory::Operation ;
  %SUMMARY 'Фабричный метод для TPrintAndExportFontSizeValuesMapImpl' ;
@@ -1636,6 +1877,7 @@ ref; // ME_E8666180421B Make
 : ME_34129C7CB22F
  CONST UID '34129C7CB22F'
  CONST Name 'Exists'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_static::Operation ;
  %SUMMARY 'Проверяет создан экземпляр синглетона или нет' ;
@@ -1645,12 +1887,14 @@ ref; // ME_E8666180421B Make
  ;
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
+ CONST extprop:pas:Value false
 
 ref; // ME_34129C7CB22F Exists
 
 : ME_9F77928A4477
  CONST UID '9F77928A4477'
  CONST Name 'TPrintAndExportFontSizeValuesMapImpl'
+ CONST IsSummoned true
  CONST Class class_Class
  : Stereotype st_SimpleClass ;
  CONST Kind kind_NormalClass
@@ -1660,25 +1904,33 @@ ref; // ME_34129C7CB22F Exists
  : Parent ME_F803A929B344 // ListPrintAndExportFontSizeSettingRes
  ;
  : Inherits
-   @ ( ME_0762D70EBD49 // TPrintAndExportFontSizeValuesMapImplPrim
- ) .SequenceCode.It
+   Seq: ( ME_0762D70EBD49 // TPrintAndExportFontSizeValuesMapImplPrim
+ )
  ; // Inherits
  : Operations
-   @ ( ME_E8666180421B // Make
+   Seq: ( ME_E8666180421B // Make
  ME_34129C7CB22F // Exists
- ) .SequenceCode.It
+ )
  ; // Operations
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
  CONST "singleton" true
+ CONST dfm:PathOnly '\common\components\SandBox\VCM\View\List'
+ CONST intf.pas:PathOnly '\common\components\SandBox\VCM\View\List'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\common\components\SandBox\VCM\View\List'
+ CONST extprop:rc:SelfName 'PrintAndExportFontSizeValuesMapImpl'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_9F77928A4477 TPrintAndExportFontSizeValuesMapImpl
 
 : ME_BEF169F22D6F
  CONST UID 'BEF169F22D6F'
- CONST Name 'Init_PrintAndExportFontSize'
+ CONST Name 'Init_Str_PrintAndExportFontSize'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Инициализация str_PrintAndExportFontSize' ;
@@ -1686,12 +1938,17 @@ ref; // ME_9F77928A4477 TPrintAndExportFontSizeValuesMapImpl
  CONST Abstraction at_final
  : Parent ME_F803A929B344 // ListPrintAndExportFontSizeSettingRes
  ;
+ : Speller ME_D665257C7AD6 // PrintAndExportFontSize
+ ;
+ : SpelledFor ME_3CE116A7BB8F // PrintAndExportFontSize
+ ;
 
-ref; // ME_BEF169F22D6F Init_PrintAndExportFontSize
+ref; // ME_BEF169F22D6F Init_Str_PrintAndExportFontSize
 
 : ME_E691610B6ACD
  CONST UID 'E691610B6ACD'
- CONST Name 'Init_pef8'
+ CONST Name 'Init_Str_pef8'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Инициализация str_PrintAndExportFontSize_pef8' ;
@@ -1699,12 +1956,17 @@ ref; // ME_BEF169F22D6F Init_PrintAndExportFontSize
  CONST Abstraction at_final
  : Parent ME_F803A929B344 // ListPrintAndExportFontSizeSettingRes
  ;
+ : Speller ME_1672DE828C9B // pef8
+ ;
+ : SpelledFor ME_38EF4BB74238 // pef8
+ ;
 
-ref; // ME_E691610B6ACD Init_pef8
+ref; // ME_E691610B6ACD Init_Str_pef8
 
 : ME_15F6A6EE6734
  CONST UID '15F6A6EE6734'
- CONST Name 'Init_pef9'
+ CONST Name 'Init_Str_pef9'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Инициализация str_PrintAndExportFontSize_pef9' ;
@@ -1712,12 +1974,17 @@ ref; // ME_E691610B6ACD Init_pef8
  CONST Abstraction at_final
  : Parent ME_F803A929B344 // ListPrintAndExportFontSizeSettingRes
  ;
+ : Speller ME_38132936A565 // pef9
+ ;
+ : SpelledFor ME_010C5A6AB548 // pef9
+ ;
 
-ref; // ME_15F6A6EE6734 Init_pef9
+ref; // ME_15F6A6EE6734 Init_Str_pef9
 
 : ME_FD28B1810C30
  CONST UID 'FD28B1810C30'
- CONST Name 'Init_pef10'
+ CONST Name 'Init_Str_pef10'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Инициализация str_PrintAndExportFontSize_pef10' ;
@@ -1725,12 +1992,17 @@ ref; // ME_15F6A6EE6734 Init_pef9
  CONST Abstraction at_final
  : Parent ME_F803A929B344 // ListPrintAndExportFontSizeSettingRes
  ;
+ : Speller ME_A83F73C3A858 // pef10
+ ;
+ : SpelledFor ME_439CB799BDF5 // pef10
+ ;
 
-ref; // ME_FD28B1810C30 Init_pef10
+ref; // ME_FD28B1810C30 Init_Str_pef10
 
 : ME_BC74862BB2BD
  CONST UID 'BC74862BB2BD'
- CONST Name 'Init_pef11'
+ CONST Name 'Init_Str_pef11'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Инициализация str_PrintAndExportFontSize_pef11' ;
@@ -1738,12 +2010,17 @@ ref; // ME_FD28B1810C30 Init_pef10
  CONST Abstraction at_final
  : Parent ME_F803A929B344 // ListPrintAndExportFontSizeSettingRes
  ;
+ : Speller ME_F248DFC9B1FB // pef11
+ ;
+ : SpelledFor ME_0E56EAD1CB09 // pef11
+ ;
 
-ref; // ME_BC74862BB2BD Init_pef11
+ref; // ME_BC74862BB2BD Init_Str_pef11
 
 : ME_AAF6F845C6F7
  CONST UID 'AAF6F845C6F7'
- CONST Name 'Init_pef12'
+ CONST Name 'Init_Str_pef12'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Инициализация str_PrintAndExportFontSize_pef12' ;
@@ -1751,12 +2028,17 @@ ref; // ME_BC74862BB2BD Init_pef11
  CONST Abstraction at_final
  : Parent ME_F803A929B344 // ListPrintAndExportFontSizeSettingRes
  ;
+ : Speller ME_C5934515C249 // pef12
+ ;
+ : SpelledFor ME_6E1C1422B812 // pef12
+ ;
 
-ref; // ME_AAF6F845C6F7 Init_pef12
+ref; // ME_AAF6F845C6F7 Init_Str_pef12
 
 : ME_9E4C8D0A0730
  CONST UID '9E4C8D0A0730'
- CONST Name 'Init_pef14'
+ CONST Name 'Init_Str_pef14'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Инициализация str_PrintAndExportFontSize_pef14' ;
@@ -1764,12 +2046,17 @@ ref; // ME_AAF6F845C6F7 Init_pef12
  CONST Abstraction at_final
  : Parent ME_F803A929B344 // ListPrintAndExportFontSizeSettingRes
  ;
+ : Speller ME_A58C56E6B0F3 // pef14
+ ;
+ : SpelledFor ME_C3BF9CFABD9F // pef14
+ ;
 
-ref; // ME_9E4C8D0A0730 Init_pef14
+ref; // ME_9E4C8D0A0730 Init_Str_pef14
 
 : ME_55EDDE6CBAB2
  CONST UID '55EDDE6CBAB2'
- CONST Name 'Init_pef16'
+ CONST Name 'Init_Str_pef16'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Инициализация str_PrintAndExportFontSize_pef16' ;
@@ -1777,11 +2064,16 @@ ref; // ME_9E4C8D0A0730 Init_pef14
  CONST Abstraction at_final
  : Parent ME_F803A929B344 // ListPrintAndExportFontSizeSettingRes
  ;
+ : Speller ME_8B21E896E5B8 // pef16
+ ;
+ : SpelledFor ME_10C252E6AA00 // pef16
+ ;
 
-ref; // ME_55EDDE6CBAB2 Init_pef16
+ref; // ME_55EDDE6CBAB2 Init_Str_pef16
 
 : ME_738F8AE5B90D
  CONST UID '738F8AE5B90D'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_F803A929B344 // ListPrintAndExportFontSizeSettingRes
@@ -1793,6 +2085,7 @@ ref; // ME_738F8AE5B90D
 
 : ME_C86F284702A9
  CONST UID 'C86F284702A9'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_F803A929B344 // ListPrintAndExportFontSizeSettingRes
@@ -1804,6 +2097,7 @@ ref; // ME_C86F284702A9
 
 : ME_C2C5F473CAD1
  CONST UID 'C2C5F473CAD1'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_F803A929B344 // ListPrintAndExportFontSizeSettingRes
@@ -1815,6 +2109,7 @@ ref; // ME_C2C5F473CAD1
 
 : ME_829096EA3253
  CONST UID '829096EA3253'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_F803A929B344 // ListPrintAndExportFontSizeSettingRes
@@ -1826,6 +2121,7 @@ ref; // ME_829096EA3253
 
 : ME_A404B61F6558
  CONST UID 'A404B61F6558'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_F803A929B344 // ListPrintAndExportFontSizeSettingRes
@@ -1838,6 +2134,7 @@ ref; // ME_A404B61F6558
 : ME_F803A929B344
  CONST UID 'F803A929B344'
  CONST Name 'ListPrintAndExportFontSizeSettingRes'
+ CONST IsSummoned true
  CONST Class class_Class
  : Stereotype st_UtilityPack ;
  CONST Kind kind_NormalClass
@@ -1846,54 +2143,64 @@ ref; // ME_A404B61F6558
  CONST Abstraction at_final
  : Parent ME_521DA60E0390 // List
  ;
+ : Implements
+   Seq: ( WL 'ME_4E314EC80391' '4E3160C802DA.pas.ms.script' // Использовать для экспорта и печати следующий размер шрифта
+ )
+ ; // Implements
  : Operations
-   @ ( ME_BEF169F22D6F // Init_PrintAndExportFontSize
- ME_E691610B6ACD // Init_pef8
- ME_15F6A6EE6734 // Init_pef9
- ME_FD28B1810C30 // Init_pef10
- ME_BC74862BB2BD // Init_pef11
- ME_AAF6F845C6F7 // Init_pef12
- ME_9E4C8D0A0730 // Init_pef14
- ME_55EDDE6CBAB2 // Init_pef16
- ) .SequenceCode.It
+   Seq: ( ME_BEF169F22D6F // Init_Str_PrintAndExportFontSize
+ ME_E691610B6ACD // Init_Str_pef8
+ ME_15F6A6EE6734 // Init_Str_pef9
+ ME_FD28B1810C30 // Init_Str_pef10
+ ME_BC74862BB2BD // Init_Str_pef11
+ ME_AAF6F845C6F7 // Init_Str_pef12
+ ME_9E4C8D0A0730 // Init_Str_pef14
+ ME_55EDDE6CBAB2 // Init_Str_pef16
+ )
  ; // Operations
  : Children
-   @ ( ME_7010DE034F2E // PrintAndExportFontSizeEnum
+   Seq: ( ME_7010DE034F2E // PrintAndExportFontSizeEnum
  ME_A12037CD3A11 // PrintAndExportFontSizeValuesMapHelper
  ME_0762D70EBD49 // TPrintAndExportFontSizeValuesMapImplPrim
  ME_9F77928A4477 // TPrintAndExportFontSizeValuesMapImpl
- ) .SequenceCode.It
+ )
  ; // Children
  : Constants
-   @ ( ME_1F04A277455E // PrintAndExportFontSizeKey
+   Seq: ( ME_1F04A277455E // PrintAndExportFontSizeKey
  ME_193F2AA9201D // PrintAndExportFontSizeName
  ME_2731C3165ADB // PrintAndExportFontSizeValues
  ME_B31EB61BCA12 // LCImplPrintAndExportFontSizeName
  ME_6EC763C64039 // LCImplPrintAndExportFontSizeValues
  ME_65BD0BBC3865 // PrintAndExportFontSizeValuesMap
- ) .SequenceCode.It
+ )
  ; // Constants
  : Dependencies
-   @ ( ME_738F8AE5B90D // 
+   Seq: ( ME_738F8AE5B90D // 
  ME_C86F284702A9 // 
  ME_C2C5F473CAD1 // 
  ME_829096EA3253 // 
  ME_A404B61F6558 // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  CONST "no hands" false
  : Generators
- @ (
+ Seq: (
  gen_intf.pas
- ) .SequenceCode.It
+ )
  ; // Generators
+ CONST dfm:PathOnly '\common\components\SandBox\VCM\View\List'
  CONST intf.pas:Path 'common\components\SandBox\VCM\View\List\ListPrintAndExportFontSizeSettingRes.pas'
+ CONST intf.pas:PathOnly '\common\components\SandBox\VCM\View\List'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\common\components\SandBox\VCM\View\List'
 
 ref; // ME_F803A929B344 ListPrintAndExportFontSizeSettingRes
 
 : ME_5164FDE51EDB
  CONST UID '5164FDE51EDB'
  CONST Name 'aMasterItem'
+ CONST IsSummoned true
  CONST Class class_Parameter
  : Stereotype st_in ;
  : Target WL 'ME_4E302F4201D5' '4B990EDE031A.pas.ms.script' // TddBaseConfigItem
@@ -1901,12 +2208,14 @@ ref; // ME_F803A929B344 ListPrintAndExportFontSizeSettingRes
  CONST Value 'nil'
  : ValueType WL 'ME_4E302F4201D5' '4B990EDE031A.pas.ms.script' // TddBaseConfigItem
  ;
+ CONST extprop:pas:Value 'nil'
 
 ref; // ME_5164FDE51EDB aMasterItem
 
 : ME_44A5BFA72568
  CONST UID '44A5BFA72568'
  CONST Name 'Create'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ctor::Operation ;
  CONST Visibility PublicAccess
@@ -1914,14 +2223,15 @@ ref; // ME_5164FDE51EDB aMasterItem
  : Parent ME_DC3F98FB9EF9 // TstListPrintAndExportFontSizeItem
  ;
  : Parameters
-   @ ( ME_5164FDE51EDB // aMasterItem
- ) .SequenceCode.It
+   Seq: ( ME_5164FDE51EDB // aMasterItem
+ )
  ; // Parameters
 
 ref; // ME_44A5BFA72568 Create
 
 : ME_BBF016547943
  CONST UID 'BBF016547943'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_DC3F98FB9EF9 // TstListPrintAndExportFontSizeItem
@@ -1933,6 +2243,7 @@ ref; // ME_BBF016547943
 
 : ME_1513BB43362D
  CONST UID '1513BB43362D'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_DC3F98FB9EF9 // TstListPrintAndExportFontSizeItem
@@ -1944,6 +2255,7 @@ ref; // ME_1513BB43362D
 
 : ME_409A6B373AE3
  CONST UID '409A6B373AE3'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_DC3F98FB9EF9 // TstListPrintAndExportFontSizeItem
@@ -1956,6 +2268,7 @@ ref; // ME_409A6B373AE3
 : ME_DC3F98FB9EF9
  CONST UID 'DC3F98FB9EF9'
  CONST Name 'TstListPrintAndExportFontSizeItem'
+ CONST IsSummoned true
  CONST Class class_Class
  : Stereotype st_SimpleClass ;
  CONST Kind kind_NormalClass
@@ -1965,29 +2278,41 @@ ref; // ME_409A6B373AE3
  : Parent ME_521DA60E0390 // List
  ;
  : Inherits
-   @ ( WL 'ME_522461B00212' '4B990EDE031A.pas.ms.script' // TddComboBoxConfigItem
- ) .SequenceCode.It
+   Seq: ( WL 'ME_522461B00212' '4B990EDE031A.pas.ms.script' // TddComboBoxConfigItem
+ )
  ; // Inherits
+ : Implements
+   Seq: ( WL 'ME_4E314EC80391' '4E3160C802DA.pas.ms.script' // Использовать для экспорта и печати следующий размер шрифта
+ )
+ ; // Implements
  : Operations
-   @ ( ME_44A5BFA72568 // Create
- ) .SequenceCode.It
+   Seq: ( ME_44A5BFA72568 // Create
+ )
  ; // Operations
  : Dependencies
-   @ ( ME_BBF016547943 // 
+   Seq: ( ME_BBF016547943 // 
  ME_1513BB43362D // 
  ME_409A6B373AE3 // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
  : Generators
- @ (
+ Seq: (
  gen_intf.pas
- ) .SequenceCode.It
+ )
  ; // Generators
+ CONST dfm:PathOnly '\common\components\SandBox\VCM\View\List'
  CONST intf.pas:Path 'common\components\SandBox\VCM\View\List\stListPrintAndExportFontSizeItem.pas'
+ CONST intf.pas:PathOnly '\common\components\SandBox\VCM\View\List'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\common\components\SandBox\VCM\View\List'
+ CONST extprop:rc:SelfName 'stListPrintAndExportFontSizeItem'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'stListPrintAndExportFontSizeItem'
 
 ref; // ME_DC3F98FB9EF9 TstListPrintAndExportFontSizeItem
 
@@ -2001,29 +2326,35 @@ ref; // ME_DC3F98FB9EF9 TstListPrintAndExportFontSizeItem
  : Parent WL 'ME_521DA5E10048' '521DA5E10048.pas.ms.script' // View
  ;
  : Children
-   @ ( ME_521DA6370197 // List
+   Seq: ( ME_521DA6370197 // List
  ME_1D9630212631 // ListPrintAndExportSettingRes
  ME_F803A929B344 // ListPrintAndExportFontSizeSettingRes
  ME_DC3F98FB9EF9 // TstListPrintAndExportFontSizeItem
- ) .SequenceCode.It
+ )
  ; // Children
  : Depends
-   @ ( WL 'ME_4677FBA70343' '4677FBA70343.pas.ms.script' // l3Interfaces
+   Seq: ( WL 'ME_4677FBA70343' '4677FBA70343.pas.ms.script' // l3Interfaces
  WL 'ME_467823B7002C' '467823B7002C.pas.ms.script' // afwInterfaces
  WL 'ME_47750CE700D0' '47750CE700D0.pas.ms.script' // afwFacade
  WL 'ME_47913B47006E' '47913B47006E.pas.ms.script' // l3CoreObjects
  WL 'ME_4AB0C3C60310' '4AB0C3C60310.pas.ms.script' // Sys
  WL 'ME_4B990EDE031A' '4B990EDE031A.pas.ms.script' // AppConfig
+ WL 'ME_4E3160C802DA' '4E3160C802DA.pas.ms.script' // Печать документа
  WL 'ME_54B90AC6014B' '54B90AC6014B.pas.ms.script' // StringUtils
- ) .SequenceCode.It
+ )
  ; // Depends
  : Generators
- @ (
+ Seq: (
  gen_pas.script
  gen_pas.script.runner
- ) .SequenceCode.It
+ )
  ; // Generators
+ CONST dfm:PathOnly '\common\components\SandBox\VCM\View\List'
+ CONST intf.pas:PathOnly '\common\components\SandBox\VCM\View\List'
  CONST pas.script:Path 'shared\models\NewSchool\Scripts\521DA60E0390.pas.ms.script'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
  CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\521DA60E0390.pas.ms.script.runner'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\common\components\SandBox\VCM\View\List'
 
 ref; // ME_521DA60E0390 List

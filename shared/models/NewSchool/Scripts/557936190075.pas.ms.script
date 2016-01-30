@@ -13,6 +13,7 @@ FORWARD ME_55793634010B
  ;
  : Implementor ME_55793634010B // TtestCConstDelphiString
  ;
+ CONST OpKind opkind_Overridden
  CONST "ifndef" 'DesignTimeLibrary'
 ref; // ME_47A6FEE600FC_ME_55793634010B IsCacheable
 
@@ -27,23 +28,31 @@ ref; // ME_47A6FEE600FC_ME_55793634010B IsCacheable
  : Parent ME_557936190075 // TestStrings
  ;
  : Inherits
-   @ ( WL 'ME_46780FF102AE' '47913B47006E.pas.ms.script' // Tl3CConstDelphiString
- ) .SequenceCode.It
+   Seq: ( WL 'ME_46780FF102AE' '47913B47006E.pas.ms.script' // Tl3CConstDelphiString
+ )
  ; // Inherits
  : Overridden
-   @ ( ME_47A6FEE600FC_ME_55793634010B // IsCacheable
- ) .SequenceCode.It
+   Seq: ( ME_47A6FEE600FC_ME_55793634010B // IsCacheable
+ )
  ; // Overridden
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
  : Generators
- @ (
+ Seq: (
  gen_intf.pas
- ) .SequenceCode.It
+ )
  ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\Daily'
  CONST intf.pas:Path 'common\components\rtl\Garant\Daily\testCConstDelphiString.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\Daily'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\common\components\rtl\Garant\Daily'
+ CONST extprop:rc:SelfName 'testCConstDelphiString'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'testCConstDelphiString'
 
 ref; // ME_55793634010B TtestCConstDelphiString
 
@@ -57,20 +66,25 @@ ref; // ME_55793634010B TtestCConstDelphiString
  : Parent WL 'ME_4B2A15810261' '4B2A15810261.pas.ms.script' // DailyTest
  ;
  : Children
-   @ ( ME_55793634010B // TtestCConstDelphiString
- ) .SequenceCode.It
+   Seq: ( ME_55793634010B // TtestCConstDelphiString
+ )
  ; // Children
  : Depends
-   @ ( WL 'ME_47913B47006E' '47913B47006E.pas.ms.script' // l3CoreObjects
- ) .SequenceCode.It
+   Seq: ( WL 'ME_47913B47006E' '47913B47006E.pas.ms.script' // l3CoreObjects
+ )
  ; // Depends
  : Generators
- @ (
+ Seq: (
  gen_pas.script
  gen_pas.script.runner
- ) .SequenceCode.It
+ )
  ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\Daily'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\Daily'
  CONST pas.script:Path 'shared\models\NewSchool\Scripts\557936190075.pas.ms.script'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
  CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\557936190075.pas.ms.script.runner'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\common\components\rtl\Garant\Daily'
 
 ref; // ME_557936190075 TestStrings

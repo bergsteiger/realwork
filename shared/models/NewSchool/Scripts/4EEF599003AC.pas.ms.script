@@ -74,8 +74,8 @@ ref; // ME_4EF0A0550139 DoIt
  : Parent ME_4EEF59B40075 // TFormulaRender
  ;
  : Operations
-   @ ( ME_4EF0A0550139 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_4EF0A0550139 // DoIt
+ )
  ; // Operations
 
 ref; // ME_4EF0A04A0286 GetZoom
@@ -269,6 +269,7 @@ ref; // ME_53BE9407037A
 
 : ME_71B61DEC4516
  CONST UID '71B61DEC4516'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_4EEF59B40075 // TFormulaRender
@@ -285,6 +286,7 @@ ref; // ME_71B61DEC4516
  ;
  : Implementor ME_4EEF59B40075 // TFormulaRender
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_4BE419AF0217_ME_4EEF59B40075 DoVisit
 
 : ME_4B4F588B0241_ME_4EEF59B40075
@@ -294,6 +296,7 @@ ref; // ME_4BE419AF0217_ME_4EEF59B40075 DoVisit
  ;
  : Implementor ME_4EEF59B40075 // TFormulaRender
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4B4F588B0241_ME_4EEF59B40075 FileForOutput
 
 : ME_4C937013031D_ME_4EEF59B40075
@@ -303,6 +306,7 @@ ref; // ME_4B4F588B0241_ME_4EEF59B40075 FileForOutput
  ;
  : Implementor ME_4EEF59B40075 // TFormulaRender
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4C937013031D_ME_4EEF59B40075 GetFolder
 
 : ME_4CA5DAD4014C_ME_4EEF59B40075
@@ -312,6 +316,7 @@ ref; // ME_4C937013031D_ME_4EEF59B40075 GetFolder
  ;
  : Implementor ME_4EEF59B40075 // TFormulaRender
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4CA5DAD4014C_ME_4EEF59B40075 RaiseIfEtalonCreated
 
 : ME_4DAED6F60146_ME_4EEF59B40075
@@ -321,6 +326,7 @@ ref; // ME_4CA5DAD4014C_ME_4EEF59B40075 RaiseIfEtalonCreated
  ;
  : Implementor ME_4EEF59B40075 // TFormulaRender
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4DAED6F60146_ME_4EEF59B40075 GetModelElementGUID
 
 : ME_51AF49E5001B_ME_4EEF59B40075
@@ -330,6 +336,7 @@ ref; // ME_4DAED6F60146_ME_4EEF59B40075 GetModelElementGUID
  ;
  : Implementor ME_4EEF59B40075 // TFormulaRender
  ;
+ CONST OpKind opkind_Overridden
  CONST "ifdef" 'XE'
 ref; // ME_51AF49E5001B_ME_4EEF59B40075 EtalonNeedsXE
 
@@ -344,33 +351,33 @@ ref; // ME_51AF49E5001B_ME_4EEF59B40075 EtalonNeedsXE
  : Parent ME_4EEF599003AC // RenderEVD
  ;
  : Inherits
-   @ ( WL 'ME_4BE425C70228' '4B30C89F035F.pas.ms.script' // TTextEditorVisitor
- ) .SequenceCode.It
+   Seq: ( WL 'ME_4BE425C70228' '4B30C89F035F.pas.ms.script' // TTextEditorVisitor
+ )
  ; // Inherits
  : Attributes
-   @ ( ME_53BE78E20253 // f_ParaNumber
+   Seq: ( ME_53BE78E20253 // f_ParaNumber
  ME_53BE78F10293 // f_FormulaNumber
  ME_53BE8D9402E6 // f_RenderTarget
- ) .SequenceCode.It
+ )
  ; // Attributes
  : Operations
-   @ ( ME_4EF0A04A0286 // GetZoom
- ) .SequenceCode.It
+   Seq: ( ME_4EF0A04A0286 // GetZoom
+ )
  ; // Operations
  : Implemented
-   @ ( ME_4BE419AF0217_ME_4EEF59B40075 // DoVisit
- ) .SequenceCode.It
+   Seq: ( ME_4BE419AF0217_ME_4EEF59B40075 // DoVisit
+ )
  ; // Implemented
  : Overridden
-   @ ( ME_4B4F588B0241_ME_4EEF59B40075 // FileForOutput
+   Seq: ( ME_4B4F588B0241_ME_4EEF59B40075 // FileForOutput
  ME_4C937013031D_ME_4EEF59B40075 // GetFolder
  ME_4CA5DAD4014C_ME_4EEF59B40075 // RaiseIfEtalonCreated
  ME_4DAED6F60146_ME_4EEF59B40075 // GetModelElementGUID
  ME_51AF49E5001B_ME_4EEF59B40075 // EtalonNeedsXE
- ) .SequenceCode.It
+ )
  ; // Overridden
  : Dependencies
-   @ ( ME_4EEF5A4A02A8 // 
+   Seq: ( ME_4EEF5A4A02A8 // 
  ME_4EEF5E1700E3 // 
  ME_4EEF5E200100 // 
  ME_4EEF5FAA03C1 // 
@@ -388,18 +395,26 @@ ref; // ME_51AF49E5001B_ME_4EEF59B40075 EtalonNeedsXE
  ME_53BE809900DD // 
  ME_53BE9407037A // 
  ME_71B61DEC4516 // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
  : Generators
- @ (
+ Seq: (
  gen_intf.pas
- ) .SequenceCode.It
+ )
  ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\Abstract_Tests'
  CONST intf.pas:Path 'common\components\rtl\Garant\Abstract_Tests\FormulaRender.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\Abstract_Tests'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\common\components\rtl\Garant\Abstract_Tests'
+ CONST extprop:rc:SelfName 'FormulaRender'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'FormulaRender'
 
 ref; // ME_4EEF59B40075 TFormulaRender
 
@@ -431,10 +446,15 @@ ref; // ME_54BF8D5502D7
  : Parent ME_52BAFC960080 // TEVDtoRTFRender
  ;
  : Attributes
-   @ ( ME_54BF8D5502D7 // 
- ) .SequenceCode.It
+   Seq: ( ME_54BF8D5502D7 // 
+ )
  ; // Attributes
  CONST "array type" 'dynamic'
+ CONST dfm:PathOnly '\common\components\rtl\Garant\Abstract_Tests'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\Abstract_Tests'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\common\components\rtl\Garant\Abstract_Tests'
 
 ref; // ME_54BF8C8F01BE THiddenStylesArray
 
@@ -477,8 +497,8 @@ ref; // ME_530C921A02F0 DoIt
  : Parent ME_52BAFC960080 // TEVDtoRTFRender
  ;
  : Operations
-   @ ( ME_530C921A02F0 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_530C921A02F0 // DoIt
+ )
  ; // Operations
 
 ref; // ME_530C91FB00BD NeedEliminateCommentDecorations
@@ -509,8 +529,8 @@ ref; // ME_53DA3E29030F DoIt
  : Parent ME_52BAFC960080 // TEVDtoRTFRender
  ;
  : Operations
-   @ ( ME_53DA3E29030F // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_53DA3E29030F // DoIt
+ )
  ; // Operations
 
 ref; // ME_53DA3E0C019A TreatExceptionAsSuccess
@@ -541,8 +561,8 @@ ref; // ME_54BF8A6200E4 DoIt
  : Parent ME_52BAFC960080 // TEVDtoRTFRender
  ;
  : Operations
-   @ ( ME_54BF8A6200E4 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_54BF8A6200E4 // DoIt
+ )
  ; // Operations
 
 ref; // ME_54BF8A5702E9 GetHiddenStylesLength
@@ -573,8 +593,8 @@ ref; // ME_54BF917101E3 DoIt
  : Parent ME_52BAFC960080 // TEVDtoRTFRender
  ;
  : Operations
-   @ ( ME_54BF917101E3 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_54BF917101E3 // DoIt
+ )
  ; // Operations
 
 ref; // ME_54BF91620371 GetHiddenStyles
@@ -669,6 +689,7 @@ ref; // ME_52BB11F9002B
 
 : ME_B4D7CF4327B0
  CONST UID 'B4D7CF4327B0'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_52BAFC960080 // TEVDtoRTFRender
@@ -685,6 +706,7 @@ ref; // ME_B4D7CF4327B0
  ;
  : Implementor ME_52BAFC960080 // TEVDtoRTFRender
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4B4F588B0241_ME_52BAFC960080 FileForOutput
 
 : ME_4C937013031D_ME_52BAFC960080
@@ -694,6 +716,7 @@ ref; // ME_4B4F588B0241_ME_52BAFC960080 FileForOutput
  ;
  : Implementor ME_52BAFC960080 // TEVDtoRTFRender
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4C937013031D_ME_52BAFC960080 GetFolder
 
 : ME_4DAED6F60146_ME_52BAFC960080
@@ -703,6 +726,7 @@ ref; // ME_4C937013031D_ME_52BAFC960080 GetFolder
  ;
  : Implementor ME_52BAFC960080 // TEVDtoRTFRender
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4DAED6F60146_ME_52BAFC960080 GetModelElementGUID
 
 : ME_52BAFC960080
@@ -716,29 +740,29 @@ ref; // ME_4DAED6F60146_ME_52BAFC960080 GetModelElementGUID
  : Parent ME_4EEF599003AC // RenderEVD
  ;
  : Inherits
-   @ ( WL 'ME_4B2A11BC0255' '4B2A112B011A.pas.ms.script' // TBaseTest
- ) .SequenceCode.It
+   Seq: ( WL 'ME_4B2A11BC0255' '4B2A112B011A.pas.ms.script' // TBaseTest
+ )
  ; // Inherits
  : Operations
-   @ ( ME_52BAFCD800D9 // DoIt
+   Seq: ( ME_52BAFCD800D9 // DoIt
  ME_530C91FB00BD // NeedEliminateCommentDecorations
  ME_53DA3E0C019A // TreatExceptionAsSuccess
  ME_54BF8A5702E9 // GetHiddenStylesLength
  ME_54BF91620371 // GetHiddenStyles
- ) .SequenceCode.It
+ )
  ; // Operations
  : Overridden
-   @ ( ME_4B4F588B0241_ME_52BAFC960080 // FileForOutput
+   Seq: ( ME_4B4F588B0241_ME_52BAFC960080 // FileForOutput
  ME_4C937013031D_ME_52BAFC960080 // GetFolder
  ME_4DAED6F60146_ME_52BAFC960080 // GetModelElementGUID
- ) .SequenceCode.It
+ )
  ; // Overridden
  : Children
-   @ ( ME_54BF8C8F01BE // THiddenStylesArray
- ) .SequenceCode.It
+   Seq: ( ME_54BF8C8F01BE // THiddenStylesArray
+ )
  ; // Children
  : Dependencies
-   @ ( ME_52BAFCC502A8 // 
+   Seq: ( ME_52BAFCC502A8 // 
  ME_52BB007A02D9 // 
  ME_52BB007D02EB // 
  ME_52BB0081010B // 
@@ -747,18 +771,26 @@ ref; // ME_4DAED6F60146_ME_52BAFC960080 GetModelElementGUID
  ME_52BB11C6011A // 
  ME_52BB11F9002B // 
  ME_B4D7CF4327B0 // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
  : Generators
- @ (
+ Seq: (
  gen_intf.pas
- ) .SequenceCode.It
+ )
  ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\Abstract_Tests'
  CONST intf.pas:Path 'common\components\rtl\Garant\Abstract_Tests\EVDtoRTFRender.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\Abstract_Tests'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\common\components\rtl\Garant\Abstract_Tests'
+ CONST extprop:rc:SelfName 'EVDtoRTFRender'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'EVDtoRTFRender'
 
 ref; // ME_52BAFC960080 TEVDtoRTFRender
 
@@ -772,12 +804,12 @@ ref; // ME_52BAFC960080 TEVDtoRTFRender
  : Parent WL 'ME_4D02561D01C8' '4D02561D01C8.pas.ms.script' // Abstract Tests
  ;
  : Children
-   @ ( ME_4EEF59B40075 // TFormulaRender
+   Seq: ( ME_4EEF59B40075 // TFormulaRender
  ME_52BAFC960080 // TEVDtoRTFRender
- ) .SequenceCode.It
+ )
  ; // Children
  : Depends
-   @ ( WL 'ME_4677FBA70343' '4677FBA70343.pas.ms.script' // l3Interfaces
+   Seq: ( WL 'ME_4677FBA70343' '4677FBA70343.pas.ms.script' // l3Interfaces
  WL 'ME_469D0AC7005E' '469D0AC7005E.pas.ms.script' // Types
  WL 'ME_47913B47006E' '47913B47006E.pas.ms.script' // l3CoreObjects
  WL 'ME_47AC75550330' '47AC75550330.pas.ms.script' // k2Tags
@@ -795,15 +827,20 @@ ref; // ME_52BAFC960080 TEVDtoRTFRender
  WL 'ME_4B2A112B011A' '4B2A112B011A.pas.ms.script' // Source
  WL 'ME_4B30C89F035F' '4B30C89F035F.pas.ms.script' // Everest
  WL 'ME_4B72B3FD02AE' '4B72B3FD02AE.pas.ms.script' // Implementation
- ) .SequenceCode.It
+ )
  ; // Depends
  : Generators
- @ (
+ Seq: (
  gen_pas.script
  gen_pas.script.runner
- ) .SequenceCode.It
+ )
  ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\Abstract_Tests'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\Abstract_Tests'
  CONST pas.script:Path 'shared\models\NewSchool\Scripts\4EEF599003AC.pas.ms.script'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
  CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\4EEF599003AC.pas.ms.script.runner'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\common\components\rtl\Garant\Abstract_Tests'
 
 ref; // ME_4EEF599003AC RenderEVD

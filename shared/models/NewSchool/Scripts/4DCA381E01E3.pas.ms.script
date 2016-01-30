@@ -64,6 +64,7 @@ ref; // ME_4FACE27702C7 TotalCellCount
 : ME_B56537633F5C
  CONST UID 'B56537633F5C'
  CONST Name 'f_CellAdjust'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY 'Поле для свойства CellAdjust' ;
  CONST Visibility PrivateAccess
@@ -73,12 +74,14 @@ ref; // ME_4FACE27702C7 TotalCellCount
  ;
  : Target WL 'ME_4E0D97220074' '4E0D98F50163.pas.ms.script' // TddAutoFitBehavior
  ;
+ CONST extprop:clearViaProperty 'CellAdjust'
 
 ref; // ME_B56537633F5C f_CellAdjust
 
 : ME_4A222FC0266E
  CONST UID '4A222FC0266E'
  CONST Name 'f_MaxWidth'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY 'Поле для свойства MaxWidth' ;
  CONST Visibility PrivateAccess
@@ -88,6 +91,7 @@ ref; // ME_B56537633F5C f_CellAdjust
  ;
  : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
  ;
+ CONST extprop:clearViaProperty 'MaxWidth'
 
 ref; // ME_4A222FC0266E f_MaxWidth
 
@@ -112,8 +116,8 @@ ref; // ME_4FACE2ED01E1 NewCellCount
  : Parent ME_4FACE2C8026A // Restructure
  ;
  : Parameters
-   @ ( ME_4FACE2ED01E1 // NewCellCount
- ) .SequenceCode.It
+   Seq: ( ME_4FACE2ED01E1 // NewCellCount
+ )
  ; // Parameters
 
 ref; // ME_4FACE2DE03B4 DoIt
@@ -129,8 +133,8 @@ ref; // ME_4FACE2DE03B4 DoIt
  : Parent ME_4F683CE400D6 // TddVirtualTable
  ;
  : Operations
-   @ ( ME_4FACE2DE03B4 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_4FACE2DE03B4 // DoIt
+ )
  ; // Operations
 
 ref; // ME_4FACE2C8026A Restructure
@@ -197,6 +201,7 @@ ref; // ME_5111FB46029A
  ;
  : Implementor ME_4F683CE400D6 // TddVirtualTable
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_51E91BA80051_ME_4F683CE400D6 Create
 
 : ME_4F683CE400D6
@@ -210,43 +215,45 @@ ref; // ME_51E91BA80051_ME_4F683CE400D6 Create
  : Parent ME_4DCA381E01E3 // Convertors
  ;
  : Inherits
-   @ ( WL 'ME_519B719F0019' '4F6843C101D1.pas.ms.script' // TddTable
- ) .SequenceCode.It
+   Seq: ( WL 'ME_519B719F0019' '4F6843C101D1.pas.ms.script' // TddTable
+ )
  ; // Inherits
  : Attributes
-   @ ( ME_4FACE1D103AB // CellAdjust
+   Seq: ( ME_4FACE1D103AB // CellAdjust
  ME_4FACE2230312 // MaxWidth
  ME_4FACE27702C7 // TotalCellCount
  ME_B56537633F5C // f_CellAdjust
  ME_4A222FC0266E // f_MaxWidth
- ) .SequenceCode.It
+ )
  ; // Attributes
  : Operations
-   @ ( ME_4FACE2C8026A // Restructure
- ) .SequenceCode.It
+   Seq: ( ME_4FACE2C8026A // Restructure
+ )
  ; // Operations
  : Overridden
-   @ ( ME_51E91BA80051_ME_4F683CE400D6 // Create
- ) .SequenceCode.It
+   Seq: ( ME_51E91BA80051_ME_4F683CE400D6 // Create
+ )
  ; // Overridden
  : Dependencies
-   @ ( ME_4FACF673020E // 
+   Seq: ( ME_4FACF673020E // 
  ME_4FACF6A402A1 // 
  ME_4FACF6C00162 // 
  ME_5111FA1A0051 // 
  ME_5111FB46029A // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" true
  CONST "register in scripts" 'undefined'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\dd'
  CONST intf.pas:Path 'common\components\rtl\Garant\dd\ddVirtualTable.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\dd'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'ddVirtualTable'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'ddVirtualTable'
 
 ref; // ME_4F683CE400D6 TddVirtualTable
 
@@ -445,6 +452,7 @@ ref; // ME_4FACFE3F03B4 f_Row
 : ME_DC0DFD1ACEAF
  CONST UID 'DC0DFD1ACEAF'
  CONST Name 'f_Lines'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY 'Поле для свойства Lines' ;
  CONST Visibility PrivateAccess
@@ -454,12 +462,14 @@ ref; // ME_4FACFE3F03B4 f_Row
  ;
  : Target WL 'ME_4773DCE302FF' '47913B47006E.pas.ms.script' // Tl3StringList
  ;
+ CONST extprop:clearViaProperty 'Lines'
 
 ref; // ME_DC0DFD1ACEAF f_Lines
 
 : ME_E3620CE3B33E
  CONST UID 'E3620CE3B33E'
  CONST Name 'f_AutoFit'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY 'Поле для свойства AutoFit' ;
  CONST Visibility PrivateAccess
@@ -469,12 +479,14 @@ ref; // ME_DC0DFD1ACEAF f_Lines
  ;
  : Target WL 'ME_4E0D97220074' '4E0D98F50163.pas.ms.script' // TddAutoFitBehavior
  ;
+ CONST extprop:clearViaProperty 'AutoFit'
 
 ref; // ME_E3620CE3B33E f_AutoFit
 
 : ME_DF1781EB324F
  CONST UID 'DF1781EB324F'
  CONST Name 'f_CellCount'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY 'Поле для свойства CellCount' ;
  CONST Visibility PrivateAccess
@@ -484,12 +496,14 @@ ref; // ME_E3620CE3B33E f_AutoFit
  ;
  : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
  ;
+ CONST extprop:clearViaProperty 'CellCount'
 
 ref; // ME_DF1781EB324F f_CellCount
 
 : ME_5B077BE8A32D
  CONST UID '5B077BE8A32D'
  CONST Name 'f_ComplexTable'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY 'Поле для свойства ComplexTable' ;
  CONST Visibility PrivateAccess
@@ -505,6 +519,7 @@ ref; // ME_5B077BE8A32D f_ComplexTable
 : ME_2DDB4E75FC57
  CONST UID '2DDB4E75FC57'
  CONST Name 'f_FormatBuffer'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY 'Поле для свойства FormatBuffer' ;
  CONST Visibility PrivateAccess
@@ -514,12 +529,14 @@ ref; // ME_5B077BE8A32D f_ComplexTable
  ;
  : Target WL 'ME_4FACDE8A00C0' '48F4BA770180.pas.ms.script' // TddDocument
  ;
+ CONST extprop:clearViaProperty 'FormatBuffer'
 
 ref; // ME_2DDB4E75FC57 f_FormatBuffer
 
 : ME_422F13160EA7
  CONST UID '422F13160EA7'
  CONST Name 'f_RowCount'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY 'Поле для свойства RowCount' ;
  CONST Visibility PrivateAccess
@@ -529,12 +546,14 @@ ref; // ME_2DDB4E75FC57 f_FormatBuffer
  ;
  : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
  ;
+ CONST extprop:clearViaProperty 'RowCount'
 
 ref; // ME_422F13160EA7 f_RowCount
 
 : ME_9781AE481697
  CONST UID '9781AE481697'
  CONST Name 'f_GlueLines'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY 'Поле для свойства GlueLines' ;
  CONST Visibility PrivateAccess
@@ -544,12 +563,14 @@ ref; // ME_422F13160EA7 f_RowCount
  ;
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
+ CONST extprop:clearViaProperty 'GlueLines'
 
 ref; // ME_9781AE481697 f_GlueLines
 
 : ME_2725E63E8B21
  CONST UID '2725E63E8B21'
  CONST Name 'f_TableWidth'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY 'Поле для свойства TableWidth' ;
  CONST Visibility PrivateAccess
@@ -559,6 +580,7 @@ ref; // ME_9781AE481697 f_GlueLines
  ;
  : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
  ;
+ CONST extprop:clearViaProperty 'TableWidth'
 
 ref; // ME_2725E63E8B21 f_TableWidth
 
@@ -574,6 +596,7 @@ FORWARD ME_4FACDFA2002E
  CONST Value 'afContent'
  : ValueType WL 'ME_4E0D97220074' '4E0D98F50163.pas.ms.script' // TddAutoFitBehavior
  ;
+ CONST extprop:pas:Value 'ddTableConvTypes.afContent'
 
 ref; // ME_4FACDFC6004A aAutoFit
 
@@ -586,8 +609,8 @@ ref; // ME_4FACDFC6004A aAutoFit
  : Parent ME_4FACDFA2002E // Analyze
  ;
  : Parameters
-   @ ( ME_4FACDFC6004A // aAutoFit
- ) .SequenceCode.It
+   Seq: ( ME_4FACDFC6004A // aAutoFit
+ )
  ; // Parameters
 
 ref; // ME_4FACDFB80332 DoIt
@@ -603,8 +626,8 @@ ref; // ME_4FACDFB80332 DoIt
  : Parent ME_4DCA38AF0022 // TddAbstractTable
  ;
  : Operations
-   @ ( ME_4FACDFB80332 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_4FACDFB80332 // DoIt
+ )
  ; // Operations
 
 ref; // ME_4FACDFA2002E Analyze
@@ -633,8 +656,8 @@ ref; // ME_4FACDFE60175 DoIt
  : Parent ME_4DCA38AF0022 // TddAbstractTable
  ;
  : Operations
-   @ ( ME_4FACDFE60175 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_4FACDFE60175 // DoIt
+ )
  ; // Operations
 
 ref; // ME_4FACDFDE03BB RecalcRows
@@ -660,8 +683,8 @@ ref; // ME_4FACE01700EF aTable
  : Parent ME_4FACE0030183 // CopyToVirtualTable
  ;
  : Parameters
-   @ ( ME_4FACE01700EF // aTable
- ) .SequenceCode.It
+   Seq: ( ME_4FACE01700EF // aTable
+ )
  ; // Parameters
 
 ref; // ME_4FACE01102DA DoIt
@@ -677,8 +700,8 @@ ref; // ME_4FACE01102DA DoIt
  : Parent ME_4DCA38AF0022 // TddAbstractTable
  ;
  : Operations
-   @ ( ME_4FACE01102DA // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_4FACE01102DA // DoIt
+ )
  ; // Operations
 
 ref; // ME_4FACE0030183 CopyToVirtualTable
@@ -716,9 +739,9 @@ ref; // ME_4FB242EB02ED aCellWidth
  : Target WL 'ME_4688D85301B2' '469D0AC7005E.pas.ms.script' // IndentType
  ;
  : Parameters
-   @ ( ME_4FB242EB02CE // aText
+   Seq: ( ME_4FB242EB02CE // aText
  ME_4FB242EB02ED // aCellWidth
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_4FACE6D00101 DoIt
@@ -756,13 +779,13 @@ ref; // ME_4FB0D1710208
  : Parent ME_4DCA38AF0022 // TddAbstractTable
  ;
  : Operations
-   @ ( ME_4FACE6D00101 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_4FACE6D00101 // DoIt
+ )
  ; // Operations
  : Dependencies
-   @ ( ME_4FB0D16C02D3 // 
+   Seq: ( ME_4FB0D16C02D3 // 
  ME_4FB0D1710208 // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
 
 ref; // ME_4FACE6BE00D9 CheckJustification
@@ -779,6 +802,7 @@ FORWARD ME_4FACE73000CE
  CONST Value 'nil'
  : ValueType WL 'ME_4773DF5703C9' '47913B47006E.pas.ms.script' // Tl3String
  ;
+ CONST extprop:pas:Value 'nil'
 
 ref; // ME_4FACE7480320 aText
 
@@ -792,6 +816,7 @@ ref; // ME_4FACE7480320 aText
  CONST Value 'nil'
  : ValueType WL 'ME_4FACE127032F' '4F6843C101D1.pas.ms.script' // TddTableCell
  ;
+ CONST extprop:pas:Value 'nil'
 
 ref; // ME_4FACE748034F aCell
 
@@ -804,9 +829,9 @@ ref; // ME_4FACE748034F aCell
  : Parent ME_4FACE73000CE // AddParagraph
  ;
  : Parameters
-   @ ( ME_4FACE7480320 // aText
+   Seq: ( ME_4FACE7480320 // aText
  ME_4FACE748034F // aCell
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_4FACE73F0127 DoIt
@@ -833,12 +858,12 @@ ref; // ME_4FAD001A0173
  : Parent ME_4DCA38AF0022 // TddAbstractTable
  ;
  : Operations
-   @ ( ME_4FACE73F0127 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_4FACE73F0127 // DoIt
+ )
  ; // Operations
  : Dependencies
-   @ ( ME_4FAD001A0173 // 
- ) .SequenceCode.It
+   Seq: ( ME_4FAD001A0173 // 
+ )
  ; // Dependencies
 
 ref; // ME_4FACE73000CE AddParagraph
@@ -874,9 +899,9 @@ ref; // ME_4FACE8DA0396 aText
  : Parent ME_4FACE8BC035B // AddText
  ;
  : Parameters
-   @ ( ME_4FACE8DA0378 // aCell
+   Seq: ( ME_4FACE8DA0378 // aCell
  ME_4FACE8DA0396 // aText
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_4FACE8CD02D9 DoIt
@@ -892,8 +917,8 @@ ref; // ME_4FACE8CD02D9 DoIt
  : Parent ME_4DCA38AF0022 // TddAbstractTable
  ;
  : Operations
-   @ ( ME_4FACE8CD02D9 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_4FACE8CD02D9 // DoIt
+ )
  ; // Operations
 
 ref; // ME_4FACE8BC035B AddText
@@ -949,11 +974,11 @@ ref; // ME_4FB0D354013C aLen
  : Parent ME_4FACE8DF0349 // AddText$1
  ;
  : Parameters
-   @ ( ME_4FB0D35400DD // aCell
+   Seq: ( ME_4FB0D35400DD // aCell
  ME_4FB0D35400F6 // aText
  ME_4FB0D3540119 // aStart
  ME_4FB0D354013C // aLen
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_4FACE8FB02CD DoIt
@@ -969,8 +994,8 @@ ref; // ME_4FACE8FB02CD DoIt
  : Parent ME_4DCA38AF0022 // TddAbstractTable
  ;
  : Operations
-   @ ( ME_4FACE8FB02CD // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_4FACE8FB02CD // DoIt
+ )
  ; // Operations
 
 ref; // ME_4FACE8DF0349 AddText$1
@@ -1008,9 +1033,9 @@ ref; // ME_4FACFEA301F1 aCell
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
  : Parameters
-   @ ( ME_4FACFEA301CE // aP
+   Seq: ( ME_4FACFEA301CE // aP
  ME_4FACFEA301F1 // aCell
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_4FACFE8C029D DoIt
@@ -1026,8 +1051,8 @@ ref; // ME_4FACFE8C029D DoIt
  : Parent ME_4DCA38AF0022 // TddAbstractTable
  ;
  : Operations
-   @ ( ME_4FACFE8C029D // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_4FACFE8C029D // DoIt
+ )
  ; // Operations
 
 ref; // ME_4FACFE6F02DF ApplyFormatting
@@ -1055,8 +1080,8 @@ ref; // ME_528CA28A00B0 aCell
  : Target WL 'ME_4FACE127032F' '4F6843C101D1.pas.ms.script' // TddTableCell
  ;
  : Parameters
-   @ ( ME_528CA28A00B0 // aCell
- ) .SequenceCode.It
+   Seq: ( ME_528CA28A00B0 // aCell
+ )
  ; // Parameters
 
 ref; // ME_528CA1900022 DoIt
@@ -1072,8 +1097,8 @@ ref; // ME_528CA1900022 DoIt
  : Parent ME_4DCA38AF0022 // TddAbstractTable
  ;
  : Operations
-   @ ( ME_528CA1900022 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_528CA1900022 // DoIt
+ )
  ; // Operations
 
 ref; // ME_528CA17D0210 GetPrevCell
@@ -1151,6 +1176,7 @@ ref; // ME_561E210300C3
  ;
  : Implementor ME_4DCA38AF0022 // TddAbstractTable
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_47914F960008_ME_4DCA38AF0022 Create
 
 : ME_479731C50290_ME_4DCA38AF0022
@@ -1160,6 +1186,7 @@ ref; // ME_47914F960008_ME_4DCA38AF0022 Create
  ;
  : Implementor ME_4DCA38AF0022 // TddAbstractTable
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_479731C50290_ME_4DCA38AF0022 Cleanup
 
 : ME_4DCA38AF0022
@@ -1173,11 +1200,11 @@ ref; // ME_479731C50290_ME_4DCA38AF0022 Cleanup
  : Parent ME_4DCA38890051 // ddTextToTableConverters
  ;
  : Inherits
-   @ ( WL 'ME_46780CCE037B' '47913B47006E.pas.ms.script' // Tl3Base
- ) .SequenceCode.It
+   Seq: ( WL 'ME_46780CCE037B' '47913B47006E.pas.ms.script' // Tl3Base
+ )
  ; // Inherits
  : Attributes
-   @ ( ME_4FACDCB300D7 // Lines
+   Seq: ( ME_4FACDCB300D7 // Lines
  ME_4FACDD0C02C4 // AutoFit
  ME_4FACDD520175 // CellCount
  ME_4FACDD7901DE // ComplexTable
@@ -1196,10 +1223,10 @@ ref; // ME_479731C50290_ME_4DCA38AF0022 Cleanup
  ME_422F13160EA7 // f_RowCount
  ME_9781AE481697 // f_GlueLines
  ME_2725E63E8B21 // f_TableWidth
- ) .SequenceCode.It
+ )
  ; // Attributes
  : Operations
-   @ ( ME_4FACDFA2002E // Analyze
+   Seq: ( ME_4FACDFA2002E // Analyze
  ME_4FACDFDE03BB // RecalcRows
  ME_4FACE0030183 // CopyToVirtualTable
  ME_4FACE6BE00D9 // CheckJustification
@@ -1208,26 +1235,32 @@ ref; // ME_479731C50290_ME_4DCA38AF0022 Cleanup
  ME_4FACE8DF0349 // AddText$1
  ME_4FACFE6F02DF // ApplyFormatting
  ME_528CA17D0210 // GetPrevCell
- ) .SequenceCode.It
+ )
  ; // Operations
  : Overridden
-   @ ( ME_47914F960008_ME_4DCA38AF0022 // Create
+   Seq: ( ME_47914F960008_ME_4DCA38AF0022 // Create
  ME_479731C50290_ME_4DCA38AF0022 // Cleanup
- ) .SequenceCode.It
+ )
  ; // Overridden
  : Dependencies
-   @ ( ME_5111FCCE0345 // 
+   Seq: ( ME_5111FCCE0345 // 
  ME_5111FCD80375 // 
  ME_5111FF100106 // 
  ME_5111FF3602A9 // 
  ME_528C9C1102F8 // 
  ME_561E210300C3 // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
+ CONST dfm:PathOnly '\common\components\rtl\Garant\dd'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\dd'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'ddAbstractTable'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_4DCA38AF0022 TddAbstractTable
 
@@ -1302,8 +1335,8 @@ ref; // ME_4FACEB70010B DoIt
  : Parent ME_4DCA38C7030D // TddGraphicTable
  ;
  : Operations
-   @ ( ME_4FACEB70010B // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_4FACEB70010B // DoIt
+ )
  ; // Operations
 
 ref; // ME_4FACEB5D0335 CheckRowEnd
@@ -1320,6 +1353,7 @@ FORWARD ME_4FACEBB6021F
  CONST Value false
  : ValueType WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
+ CONST extprop:pas:Value false
 
 ref; // ME_4FACEBCA01A4 OnlySpaces
 
@@ -1332,8 +1366,8 @@ ref; // ME_4FACEBCA01A4 OnlySpaces
  : Parent ME_4FACEBB6021F // CheckMixed
  ;
  : Parameters
-   @ ( ME_4FACEBCA01A4 // OnlySpaces
- ) .SequenceCode.It
+   Seq: ( ME_4FACEBCA01A4 // OnlySpaces
+ )
  ; // Parameters
 
 ref; // ME_4FACEBBD01C7 DoIt
@@ -1393,15 +1427,15 @@ ref; // ME_4FAD04080165
  : Parent ME_4DCA38C7030D // TddGraphicTable
  ;
  : Operations
-   @ ( ME_4FACEBBD01C7 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_4FACEBBD01C7 // DoIt
+ )
  ; // Operations
  : Dependencies
-   @ ( ME_4FAD032E0167 // 
+   Seq: ( ME_4FAD032E0167 // 
  ME_4FAD034C01C8 // 
  ME_4FAD0367023C // 
  ME_4FAD04080165 // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
 
 ref; // ME_4FACEBB6021F CheckMixed
@@ -1430,8 +1464,8 @@ ref; // ME_4FACEBF0022C DoIt
  : Parent ME_4DCA38C7030D // TddGraphicTable
  ;
  : Operations
-   @ ( ME_4FACEBF0022C // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_4FACEBF0022C // DoIt
+ )
  ; // Operations
 
 ref; // ME_4FACEBD701C8 CheckOnlyGraphic
@@ -1448,6 +1482,7 @@ FORWARD ME_4FACEC1B0129
  CONST Value false
  : ValueType WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
+ CONST extprop:pas:Value false
 
 ref; // ME_4FACEC3000B4 CloseTable
 
@@ -1460,8 +1495,8 @@ ref; // ME_4FACEC3000B4 CloseTable
  : Parent ME_4FACEC1B0129 // CheckGraphicAndSpace
  ;
  : Parameters
-   @ ( ME_4FACEC3000B4 // CloseTable
- ) .SequenceCode.It
+   Seq: ( ME_4FACEC3000B4 // CloseTable
+ )
  ; // Parameters
 
 ref; // ME_4FACEC2302DD DoIt
@@ -1477,8 +1512,8 @@ ref; // ME_4FACEC2302DD DoIt
  : Parent ME_4DCA38C7030D // TddGraphicTable
  ;
  : Operations
-   @ ( ME_4FACEC2302DD // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_4FACEC2302DD // DoIt
+ )
  ; // Operations
 
 ref; // ME_4FACEC1B0129 CheckGraphicAndSpace
@@ -1507,8 +1542,8 @@ ref; // ME_4FACEC4A0187 DoIt
  : Parent ME_4DCA38C7030D // TddGraphicTable
  ;
  : Operations
-   @ ( ME_4FACEC4A0187 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_4FACEC4A0187 // DoIt
+ )
  ; // Operations
 
 ref; // ME_4FACEC3C023E WriteRow
@@ -1537,8 +1572,8 @@ ref; // ME_4FACEC6502C9 DoIt
  : Parent ME_4DCA38C7030D // TddGraphicTable
  ;
  : Operations
-   @ ( ME_4FACEC6502C9 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_4FACEC6502C9 // DoIt
+ )
  ; // Operations
 
 ref; // ME_4FACEC5A00BB ScanForCols
@@ -1567,8 +1602,8 @@ ref; // ME_4FACEC7F0094 DoIt
  : Parent ME_4DCA38C7030D // TddGraphicTable
  ;
  : Operations
-   @ ( ME_4FACEC7F0094 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_4FACEC7F0094 // DoIt
+ )
  ; // Operations
 
 ref; // ME_4FACEC7801A0 CorrectRow
@@ -1596,8 +1631,8 @@ ref; // ME_4FACECA201C9 aBottomBorder
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
  : Parameters
-   @ ( ME_4FACECA201C9 // aBottomBorder
- ) .SequenceCode.It
+   Seq: ( ME_4FACECA201C9 // aBottomBorder
+ )
  ; // Parameters
 
 ref; // ME_4FACEC9700E5 DoIt
@@ -1613,8 +1648,8 @@ ref; // ME_4FACEC9700E5 DoIt
  : Parent ME_4DCA38C7030D // TddGraphicTable
  ;
  : Operations
-   @ ( ME_4FACEC9700E5 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_4FACEC9700E5 // DoIt
+ )
  ; // Operations
 
 ref; // ME_4FACEC8D03A8 ConvertCellToRow
@@ -1652,9 +1687,9 @@ ref; // ME_4FACECD40068 aNeedCheckVMerge
  : Target WL 'ME_4FACE127032F' '4F6843C101D1.pas.ms.script' // TddTableCell
  ;
  : Parameters
-   @ ( ME_4FACECD4002A // aPos
+   Seq: ( ME_4FACECD4002A // aPos
  ME_4FACECD40068 // aNeedCheckVMerge
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_4FACECB8000B DoIt
@@ -1670,8 +1705,8 @@ ref; // ME_4FACECB8000B DoIt
  : Parent ME_4DCA38C7030D // TddGraphicTable
  ;
  : Operations
-   @ ( ME_4FACECB8000B // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_4FACECB8000B // DoIt
+ )
  ; // Operations
 
 ref; // ME_4FACECAA0043 GetPrevVMergeCell
@@ -1705,6 +1740,7 @@ ref; // ME_52CFC81B01A4
  ;
  : Implementor ME_4DCA38C7030D // TddGraphicTable
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4FACDFA2002E_ME_4DCA38C7030D Analyze
 
 : ME_4FACDFDE03BB_ME_4DCA38C7030D
@@ -1714,6 +1750,7 @@ ref; // ME_4FACDFA2002E_ME_4DCA38C7030D Analyze
  ;
  : Implementor ME_4DCA38C7030D // TddGraphicTable
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4FACDFDE03BB_ME_4DCA38C7030D RecalcRows
 
 : ME_4DCA38C7030D
@@ -1727,17 +1764,17 @@ ref; // ME_4FACDFDE03BB_ME_4DCA38C7030D RecalcRows
  : Parent ME_4DCA38890051 // ddTextToTableConverters
  ;
  : Inherits
-   @ ( ME_4DCA38AF0022 // TddAbstractTable
- ) .SequenceCode.It
+   Seq: ( ME_4DCA38AF0022 // TddAbstractTable
+ )
  ; // Inherits
  : Attributes
-   @ ( ME_4FACEA4B02AA // f_LineParser
+   Seq: ( ME_4FACEA4B02AA // f_LineParser
  ME_4FACEB090199 // f_Text
  ME_4FACEB3E0161 // f_LogicalTable
- ) .SequenceCode.It
+ )
  ; // Attributes
  : Operations
-   @ ( ME_4FACEB5D0335 // CheckRowEnd
+   Seq: ( ME_4FACEB5D0335 // CheckRowEnd
  ME_4FACEBB6021F // CheckMixed
  ME_4FACEBD701C8 // CheckOnlyGraphic
  ME_4FACEC1B0129 // CheckGraphicAndSpace
@@ -1746,22 +1783,28 @@ ref; // ME_4FACDFDE03BB_ME_4DCA38C7030D RecalcRows
  ME_4FACEC7801A0 // CorrectRow
  ME_4FACEC8D03A8 // ConvertCellToRow
  ME_4FACECAA0043 // GetPrevVMergeCell
- ) .SequenceCode.It
+ )
  ; // Operations
  : Overridden
-   @ ( ME_4FACDFA2002E_ME_4DCA38C7030D // Analyze
+   Seq: ( ME_4FACDFA2002E_ME_4DCA38C7030D // Analyze
  ME_4FACDFDE03BB_ME_4DCA38C7030D // RecalcRows
- ) .SequenceCode.It
+ )
  ; // Overridden
  : Dependencies
-   @ ( ME_5111FE8401FC // 
+   Seq: ( ME_5111FE8401FC // 
  ME_52CFC81B01A4 // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
+ CONST dfm:PathOnly '\common\components\rtl\Garant\dd'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\dd'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'ddGraphicTable'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_4DCA38C7030D TddGraphicTable
 
@@ -1788,8 +1831,8 @@ ref; // ME_4FACED98015A aMap
  : Parent ME_4FACED7B0253 // Map2Row
  ;
  : Parameters
-   @ ( ME_4FACED98015A // aMap
- ) .SequenceCode.It
+   Seq: ( ME_4FACED98015A // aMap
+ )
  ; // Parameters
 
 ref; // ME_4FACED8B019C DoIt
@@ -1805,8 +1848,8 @@ ref; // ME_4FACED8B019C DoIt
  : Parent ME_4DCA38EB0022 // TddSpaceTable
  ;
  : Operations
-   @ ( ME_4FACED8B019C // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_4FACED8B019C // DoIt
+ )
  ; // Operations
 
 ref; // ME_4FACED7B0253 Map2Row
@@ -1829,6 +1872,7 @@ ref; // ME_4FAD09570252
  ;
  : Implementor ME_4DCA38EB0022 // TddSpaceTable
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4FACDFA2002E_ME_4DCA38EB0022 Analyze
 
 : ME_4DCA38EB0022
@@ -1842,25 +1886,31 @@ ref; // ME_4FACDFA2002E_ME_4DCA38EB0022 Analyze
  : Parent ME_4DCA38890051 // ddTextToTableConverters
  ;
  : Inherits
-   @ ( ME_4DCA38AF0022 // TddAbstractTable
- ) .SequenceCode.It
+   Seq: ( ME_4DCA38AF0022 // TddAbstractTable
+ )
  ; // Inherits
  : Operations
-   @ ( ME_4FACED7B0253 // Map2Row
- ) .SequenceCode.It
+   Seq: ( ME_4FACED7B0253 // Map2Row
+ )
  ; // Operations
  : Overridden
-   @ ( ME_4FACDFA2002E_ME_4DCA38EB0022 // Analyze
- ) .SequenceCode.It
+   Seq: ( ME_4FACDFA2002E_ME_4DCA38EB0022 // Analyze
+ )
  ; // Overridden
  : Dependencies
-   @ ( ME_4FAD09570252 // 
- ) .SequenceCode.It
+   Seq: ( ME_4FAD09570252 // 
+ )
  ; // Dependencies
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
+ CONST dfm:PathOnly '\common\components\rtl\Garant\dd'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\dd'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'ddSpaceTable'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_4DCA38EB0022 TddSpaceTable
 
@@ -1887,6 +1937,7 @@ ref; // ME_4FACEE7E0008 Separator
 : ME_F1254920435B
  CONST UID 'F1254920435B'
  CONST Name 'f_Separator'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY 'Поле для свойства Separator' ;
  CONST Visibility PrivateAccess
@@ -1896,6 +1947,7 @@ ref; // ME_4FACEE7E0008 Separator
  ;
  : Target WL 'ME_482C48430205' '4AB0C3C60310.pas.ms.script' // Char
  ;
+ CONST extprop:clearViaProperty 'Separator'
 
 ref; // ME_F1254920435B f_Separator
 
@@ -1920,8 +1972,8 @@ ref; // ME_4FACEE620380 aSeparator
  : Parent ME_4FACEE4703D3 // Create
  ;
  : Parameters
-   @ ( ME_4FACEE620380 // aSeparator
- ) .SequenceCode.It
+   Seq: ( ME_4FACEE620380 // aSeparator
+ )
  ; // Parameters
 
 ref; // ME_4FACEE52004D DoIt
@@ -1937,8 +1989,8 @@ ref; // ME_4FACEE52004D DoIt
  : Parent ME_4DCA38F901D7 // TddSeparatorTable
  ;
  : Operations
-   @ ( ME_4FACEE52004D // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_4FACEE52004D // DoIt
+ )
  ; // Operations
 
 ref; // ME_4FACEE4703D3 Create
@@ -1950,6 +2002,7 @@ ref; // ME_4FACEE4703D3 Create
  ;
  : Implementor ME_4DCA38F901D7 // TddSeparatorTable
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4FACDFA2002E_ME_4DCA38F901D7 Analyze
 
 : ME_4FACDFDE03BB_ME_4DCA38F901D7
@@ -1959,6 +2012,7 @@ ref; // ME_4FACDFA2002E_ME_4DCA38F901D7 Analyze
  ;
  : Implementor ME_4DCA38F901D7 // TddSeparatorTable
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4FACDFDE03BB_ME_4DCA38F901D7 RecalcRows
 
 : ME_4DCA38F901D7
@@ -1972,27 +2026,33 @@ ref; // ME_4FACDFDE03BB_ME_4DCA38F901D7 RecalcRows
  : Parent ME_4DCA38890051 // ddTextToTableConverters
  ;
  : Inherits
-   @ ( ME_4DCA38AF0022 // TddAbstractTable
- ) .SequenceCode.It
+   Seq: ( ME_4DCA38AF0022 // TddAbstractTable
+ )
  ; // Inherits
  : Attributes
-   @ ( ME_4FACEE7E0008 // Separator
+   Seq: ( ME_4FACEE7E0008 // Separator
  ME_F1254920435B // f_Separator
- ) .SequenceCode.It
+ )
  ; // Attributes
  : Operations
-   @ ( ME_4FACEE4703D3 // Create
- ) .SequenceCode.It
+   Seq: ( ME_4FACEE4703D3 // Create
+ )
  ; // Operations
  : Overridden
-   @ ( ME_4FACDFA2002E_ME_4DCA38F901D7 // Analyze
+   Seq: ( ME_4FACDFA2002E_ME_4DCA38F901D7 // Analyze
  ME_4FACDFDE03BB_ME_4DCA38F901D7 // RecalcRows
- ) .SequenceCode.It
+ )
  ; // Overridden
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
+ CONST dfm:PathOnly '\common\components\rtl\Garant\dd'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\dd'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'ddSeparatorTable'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_4DCA38F901D7 TddSeparatorTable
 
@@ -2021,8 +2081,8 @@ ref; // ME_4FACEEDD032D aText
  : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
  ;
  : Parameters
-   @ ( ME_4FACEEDD032D // aText
- ) .SequenceCode.It
+   Seq: ( ME_4FACEEDD032D // aText
+ )
  ; // Parameters
 
 ref; // ME_4FACEED003B5 DoIt
@@ -2038,8 +2098,8 @@ ref; // ME_4FACEED003B5 DoIt
  : Parent ME_4DCA391B015A // TddParagraphTable
  ;
  : Operations
-   @ ( ME_4FACEED003B5 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_4FACEED003B5 // DoIt
+ )
  ; // Operations
 
 ref; // ME_4FACEEC102E8 CalcTextLen
@@ -2051,6 +2111,7 @@ ref; // ME_4FACEEC102E8 CalcTextLen
  ;
  : Implementor ME_4DCA391B015A // TddParagraphTable
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4FACDFA2002E_ME_4DCA391B015A Analyze
 
 : ME_4DCA391B015A
@@ -2065,21 +2126,27 @@ ref; // ME_4FACDFA2002E_ME_4DCA391B015A Analyze
  : Parent ME_4DCA38890051 // ddTextToTableConverters
  ;
  : Inherits
-   @ ( ME_4DCA38AF0022 // TddAbstractTable
- ) .SequenceCode.It
+   Seq: ( ME_4DCA38AF0022 // TddAbstractTable
+ )
  ; // Inherits
  : Operations
-   @ ( ME_4FACEEC102E8 // CalcTextLen
- ) .SequenceCode.It
+   Seq: ( ME_4FACEEC102E8 // CalcTextLen
+ )
  ; // Operations
  : Overridden
-   @ ( ME_4FACDFA2002E_ME_4DCA391B015A // Analyze
- ) .SequenceCode.It
+   Seq: ( ME_4FACDFA2002E_ME_4DCA391B015A // Analyze
+ )
  ; // Overridden
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
+ CONST dfm:PathOnly '\common\components\rtl\Garant\dd'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\dd'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'ddParagraphTable'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_4DCA391B015A TddParagraphTable
 
@@ -2098,6 +2165,7 @@ FORWARD ME_4FACF19C0261
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value '''X'''
 
 ref; // ME_4FACF1C503C3 cc_CellChar
 
@@ -2114,6 +2182,7 @@ ref; // ME_4FACF1C503C3 cc_CellChar
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value '''|'''
 
 ref; // ME_4FACF1D903DA cc_BreakChar
 
@@ -2130,6 +2199,7 @@ ref; // ME_4FACF1D903DA cc_BreakChar
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value '[cc_RightCross, cc_LeftCross, cc_Cross, cc_UpCross, cc_TopLeft, cc_TopRight]'
 
 ref; // ME_4FACF1F40309 CellStartChars
 
@@ -2146,6 +2216,7 @@ ref; // ME_4FACF1F40309 CellStartChars
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value '[cc_RightCross, cc_Cross, cc_UpCross, cc_BottomRight, cc_TopRight]'
 
 ref; // ME_4FACF21701CC CellStopChars
 
@@ -2162,6 +2233,7 @@ ref; // ME_4FACF21701CC CellStopChars
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value '[cc_LeftCross, cc_RightCross]'
 
 ref; // ME_4FACF228037B CellBreakChars
 
@@ -2178,6 +2250,7 @@ ref; // ME_4FACF228037B CellBreakChars
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value '[cc_HLine]'
 
 ref; // ME_4FACF2490351 CellWhiteSpace
 
@@ -2194,6 +2267,7 @@ ref; // ME_4FACF2490351 CellWhiteSpace
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value 'CellStartChars + CellBreakChars'
 
 ref; // ME_4FACF259010C CellAdvStartChars
 
@@ -2210,6 +2284,7 @@ ref; // ME_4FACF259010C CellAdvStartChars
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value '[cc_Cross, cc_DownCross]'
 
 ref; // ME_4FACF265016F CellOverChars
 
@@ -2226,6 +2301,7 @@ ref; // ME_4FACF265016F CellOverChars
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value '[cc_BottomLeft, cc_BottomRight]'
 
 ref; // ME_4FACF26B01AE CellCLoseTable
 
@@ -2240,7 +2316,7 @@ ref; // ME_4FACF26B01AE CellCLoseTable
  : Parent ME_4DCA38890051 // ddTextToTableConverters
  ;
  : Attributes
-   @ ( ME_4FACF1C503C3 // cc_CellChar
+   Seq: ( ME_4FACF1C503C3 // cc_CellChar
  ME_4FACF1D903DA // cc_BreakChar
  ME_4FACF1F40309 // CellStartChars
  ME_4FACF21701CC // CellStopChars
@@ -2249,9 +2325,13 @@ ref; // ME_4FACF26B01AE CellCLoseTable
  ME_4FACF259010C // CellAdvStartChars
  ME_4FACF265016F // CellOverChars
  ME_4FACF26B01AE // CellCLoseTable
- ) .SequenceCode.It
+ )
  ; // Attributes
  CONST "spell names" false
+ CONST dfm:PathOnly '\common\components\rtl\Garant\dd'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\dd'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_4FACF19C0261 TextToTableConstants
 
@@ -2278,8 +2358,8 @@ ref; // ME_4FACF2AF02C9 aText
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
  : Parameters
-   @ ( ME_4FACF2AF02C9 // aText
- ) .SequenceCode.It
+   Seq: ( ME_4FACF2AF02C9 // aText
+ )
  ; // Parameters
 
 ref; // ME_4FACF2A800A5 DoIt
@@ -2307,12 +2387,12 @@ ref; // ME_4FACFC980155
  : Parent ME_4DCA38890051 // ddTextToTableConverters
  ;
  : Operations
-   @ ( ME_4FACF2A800A5 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_4FACF2A800A5 // DoIt
+ )
  ; // Operations
  : Dependencies
-   @ ( ME_4FACFC980155 // 
- ) .SequenceCode.It
+   Seq: ( ME_4FACFC980155 // 
+ )
  ; // Dependencies
 
 ref; // ME_4FACF2810235 OnlyGraphic
@@ -2340,8 +2420,8 @@ ref; // ME_4FACF2DB0320 aText
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
  : Parameters
-   @ ( ME_4FACF2DB0320 // aText
- ) .SequenceCode.It
+   Seq: ( ME_4FACF2DB0320 // aText
+ )
  ; // Parameters
 
 ref; // ME_4FACF2D000F4 DoIt
@@ -2357,8 +2437,8 @@ ref; // ME_4FACF2D000F4 DoIt
  : Parent ME_4DCA38890051 // ddTextToTableConverters
  ;
  : Operations
-   @ ( ME_4FACF2D000F4 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_4FACF2D000F4 // DoIt
+ )
  ; // Operations
 
 ref; // ME_4FACF2C700BE OnlyGraphicAndSpace
@@ -2394,9 +2474,9 @@ ref; // ME_4FACF305016D aPara
  : Parent ME_4FACF2E00126 // AdjustSegments
  ;
  : Parameters
-   @ ( ME_4FACF305014F // Index
+   Seq: ( ME_4FACF305014F // Index
  ME_4FACF305016D // aPara
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_4FACF2EF02EF DoIt
@@ -2423,12 +2503,12 @@ ref; // ME_5111FC8F03BA
  : Parent ME_4DCA38890051 // ddTextToTableConverters
  ;
  : Operations
-   @ ( ME_4FACF2EF02EF // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_4FACF2EF02EF // DoIt
+ )
  ; // Operations
  : Dependencies
-   @ ( ME_5111FC8F03BA // 
- ) .SequenceCode.It
+   Seq: ( ME_5111FC8F03BA // 
+ )
  ; // Dependencies
 
 ref; // ME_4FACF2E00126 AdjustSegments
@@ -2464,9 +2544,9 @@ ref; // ME_4FACF33A039A aText
  : Parent ME_4FACF3110346 // AdjustTrimAll
  ;
  : Parameters
-   @ ( ME_4FACF33A0381 // aPara
+   Seq: ( ME_4FACF33A0381 // aPara
  ME_4FACF33A039A // aText
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_4FACF32101D7 DoIt
@@ -2482,8 +2562,8 @@ ref; // ME_4FACF32101D7 DoIt
  : Parent ME_4DCA38890051 // ddTextToTableConverters
  ;
  : Operations
-   @ ( ME_4FACF32101D7 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_4FACF32101D7 // DoIt
+ )
  ; // Operations
 
 ref; // ME_4FACF3110346 AdjustTrimAll
@@ -2511,35 +2591,34 @@ ref; // ME_4FACF8F202D8
  : Parent ME_4DCA381E01E3 // Convertors
  ;
  : Operations
-   @ ( ME_4FACF2810235 // OnlyGraphic
+   Seq: ( ME_4FACF2810235 // OnlyGraphic
  ME_4FACF2C700BE // OnlyGraphicAndSpace
  ME_4FACF2E00126 // AdjustSegments
  ME_4FACF3110346 // AdjustTrimAll
- ) .SequenceCode.It
+ )
  ; // Operations
  : Children
-   @ ( ME_4DCA38AF0022 // TddAbstractTable
+   Seq: ( ME_4DCA38AF0022 // TddAbstractTable
  ME_4DCA38C7030D // TddGraphicTable
  ME_4DCA38EB0022 // TddSpaceTable
  ME_4DCA38F901D7 // TddSeparatorTable
  ME_4DCA391B015A // TddParagraphTable
- ) .SequenceCode.It
+ )
  ; // Children
  : Constants
-   @ ( ME_4FACF19C0261 // TextToTableConstants
- ) .SequenceCode.It
+   Seq: ( ME_4FACF19C0261 // TextToTableConstants
+ )
  ; // Constants
  : Dependencies
-   @ ( ME_4FACF8F202D8 // 
- ) .SequenceCode.It
+   Seq: ( ME_4FACF8F202D8 // 
+ )
  ; // Dependencies
  CONST "no hands" true
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\dd'
  CONST intf.pas:Path 'common\components\rtl\Garant\dd\ddTextToTableConverters.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\dd'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_4DCA38890051 ddTextToTableConverters
 
@@ -2553,12 +2632,12 @@ ref; // ME_4DCA38890051 ddTextToTableConverters
  : Parent WL 'ME_4677E18600C2' '4677E18600C2.pas.ms.script' // dd
  ;
  : Children
-   @ ( ME_4F683CE400D6 // TddVirtualTable
+   Seq: ( ME_4F683CE400D6 // TddVirtualTable
  ME_4DCA38890051 // ddTextToTableConverters
- ) .SequenceCode.It
+ )
  ; // Children
  : Depends
-   @ ( WL 'ME_4677FBA70343' '4677FBA70343.pas.ms.script' // l3Interfaces
+   Seq: ( WL 'ME_4677FBA70343' '4677FBA70343.pas.ms.script' // l3Interfaces
  WL 'ME_4678193C009C' '4678193C009C.pas.ms.script' // l3Types
  WL 'ME_469D0AC7005E' '469D0AC7005E.pas.ms.script' // Types
  WL 'ME_476BE98C01B8' '476BE98C01B8.pas.ms.script' // l3Chars
@@ -2571,16 +2650,14 @@ ref; // ME_4DCA38890051 ddTextToTableConverters
  WL 'ME_4F6843C101D1' '4F6843C101D1.pas.ms.script' // ddCommon
  WL 'ME_537B83AD01F0' '537B83AD01F0.pas.ms.script' // l3Math
  WL 'ME_54B90AC6014B' '54B90AC6014B.pas.ms.script' // StringUtils
- ) .SequenceCode.It
+ )
  ; // Depends
  CONST "defines" 'ddDefine.inc'
- : Generators
- @ (
- gen_pas.script
- gen_pas.script.runner
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\dd'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\dd'
  CONST pas.script:Path 'shared\models\NewSchool\Scripts\4DCA381E01E3.pas.ms.script'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
  CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\4DCA381E01E3.pas.ms.script.runner'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_4DCA381E01E3 Convertors

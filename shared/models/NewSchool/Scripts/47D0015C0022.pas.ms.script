@@ -19,6 +19,7 @@ FORWARD ME_47D0018D03D9
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value '[ev_ctCheckEdit, ev_ctRadioEdit]'
 
 ref; // ME_47D0019E00FF evCheckableControls
 
@@ -35,6 +36,7 @@ ref; // ME_47D0019E00FF evCheckableControls
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value '[ev_ctButton, ev_ctStateButton]'
 
 ref; // ME_47DE2DC30383 evFlatBTNControls
 
@@ -52,6 +54,7 @@ ref; // ME_47DE2DC30383 evFlatBTNControls
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value 'evFlatBTNControls + [ev_ctCollapsedPanel]'
 
 ref; // ME_47DE2DCD006D evButtonControls
 
@@ -68,6 +71,7 @@ ref; // ME_47DE2DCD006D evButtonControls
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value 'evButtonControls + evCheckableControls'
 
 ref; // ME_47DE2DE00062 evButtonStyleControls
 
@@ -84,6 +88,7 @@ ref; // ME_47DE2DE00062 evButtonStyleControls
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value '[ev_ctCombo, ev_ctEllipsesEdit, ev_ctSpinedit,ev_ctCalEdit]'
 
 ref; // ME_47DE2DE90249 evControlsWithButtons
 
@@ -100,6 +105,7 @@ ref; // ME_47DE2DE90249 evControlsWithButtons
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value '[ev_ctLabel, ev_ctTextParaLabel]'
 
 ref; // ME_47DE2DF90183 evTextLabel
 
@@ -116,6 +122,7 @@ ref; // ME_47DE2DF90183 evTextLabel
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value 'evTextLabel + [ev_ctPictureLabel]'
 
 ref; // ME_47DE2E01001E evLabelControls
 
@@ -132,6 +139,7 @@ ref; // ME_47DE2E01001E evLabelControls
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value 'evButtonStyleControls + evLabelControls'
 
 ref; // ME_47DE2E0800EB evNotEditableControls
 
@@ -148,6 +156,7 @@ ref; // ME_47DE2E0800EB evNotEditableControls
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value '[ev_ctEdit, ev_ctEmailEdit, ev_ctMemoEdit, ev_ctPhoneEdit]'
 
 ref; // ME_47DE2E1300CC evSimpleEditors
 
@@ -164,6 +173,7 @@ ref; // ME_47DE2E1300CC evSimpleEditors
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value 'evControlsWithButtons + evSimpleEditors'
 
 ref; // ME_47DE2E1F0269 evEditControls
 
@@ -180,6 +190,7 @@ ref; // ME_47DE2E1F0269 evEditControls
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value '[ev_ctCalEdit]'
 
 ref; // ME_47DE2E27022E evMaskedControls
 
@@ -196,6 +207,7 @@ ref; // ME_47DE2E27022E evMaskedControls
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value 'evEditControls + evLabelControls'
 
 ref; // ME_47DE2E2F00E4 evTextControls
 
@@ -210,7 +222,7 @@ ref; // ME_47DE2E2F00E4 evTextControls
  : Parent ME_47D0015C0022 // evControlParaConst
  ;
  : Attributes
-   @ ( ME_47D0019E00FF // evCheckableControls
+   Seq: ( ME_47D0019E00FF // evCheckableControls
  ME_47DE2DC30383 // evFlatBTNControls
  ME_47DE2DCD006D // evButtonControls
  ME_47DE2DE00062 // evButtonStyleControls
@@ -222,9 +234,13 @@ ref; // ME_47DE2E2F00E4 evTextControls
  ME_47DE2E1F0269 // evEditControls
  ME_47DE2E27022E // evMaskedControls
  ME_47DE2E2F00E4 // evTextControls
- ) .SequenceCode.It
+ )
  ; // Attributes
  CONST "spell names" false
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_47D0018D03D9 Control Types
 
@@ -243,6 +259,7 @@ FORWARD ME_47DE2D1B0386
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value 'l3Inch div 128'
 
 ref; // ME_47DE2D2B01FB BefSpace
 
@@ -259,6 +276,7 @@ ref; // ME_47DE2D2B01FB BefSpace
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value 'l3Inch div 64'
 
 ref; // ME_47DE2D3B0003 BefBtbSpase
 
@@ -275,6 +293,7 @@ ref; // ME_47DE2D3B0003 BefBtbSpase
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value 'l3Inch div 32'
 
 ref; // ME_47DE2D4B02ED BefUpSpase
 
@@ -291,6 +310,7 @@ ref; // ME_47DE2D4B02ED BefUpSpase
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value 'l3Inch div 32'
 
 ref; // ME_47DE2D5A0186 RightMemoSpase
 
@@ -307,6 +327,7 @@ ref; // ME_47DE2D5A0186 RightMemoSpase
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value 'l3Inch div 16'
 
 ref; // ME_47DE2D6800EC HalfBefSpace
 
@@ -323,6 +344,7 @@ ref; // ME_47DE2D6800EC HalfBefSpace
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value 'l3Inch div 8'
 
 ref; // ME_47DE2D7300CC ControlWidth
 
@@ -339,6 +361,7 @@ ref; // ME_47DE2D7300CC ControlWidth
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value 'l3Inch div 6'
 
 ref; // ME_47DE2D7F02C5 ComboBtnWidth
 
@@ -355,6 +378,7 @@ ref; // ME_47DE2D7F02C5 ComboBtnWidth
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value 'l3Inch div 4'
 
 ref; // ME_47DE2D8D01E2 BtnWidth
 
@@ -371,6 +395,7 @@ ref; // ME_47DE2D8D01E2 BtnWidth
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value 'l3Inch div 32'
 
 ref; // ME_47DE2D980092 AfterPictureLabel
 
@@ -387,6 +412,7 @@ ref; // ME_47DE2D980092 AfterPictureLabel
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value 'l3Inch div 2'
 
 ref; // ME_47DE2DAC03C0 BefPictureLabel
 
@@ -401,7 +427,7 @@ ref; // ME_47DE2DAC03C0 BefPictureLabel
  : Parent ME_47D0015C0022 // evControlParaConst
  ;
  : Attributes
-   @ ( ME_47DE2D2B01FB // BefSpace
+   Seq: ( ME_47DE2D2B01FB // BefSpace
  ME_47DE2D3B0003 // BefBtbSpase
  ME_47DE2D4B02ED // BefUpSpase
  ME_47DE2D5A0186 // RightMemoSpase
@@ -411,9 +437,13 @@ ref; // ME_47DE2DAC03C0 BefPictureLabel
  ME_47DE2D8D01E2 // BtnWidth
  ME_47DE2D980092 // AfterPictureLabel
  ME_47DE2DAC03C0 // BefPictureLabel
- ) .SequenceCode.It
+ )
  ; // Attributes
  CONST "spell names" false
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_47DE2D1B0386 Margins
 
@@ -432,6 +462,7 @@ FORWARD ME_47DE2E6302F5
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value '[VK_ESCAPE, VK_RETURN, VK_LEFT, VK_RIGHT, VK_UP, VK_DOWN,VK_HOME, VK_END]'
 
 ref; // ME_47DE2EB60072 evParaCtrlKeys
 
@@ -448,6 +479,7 @@ ref; // ME_47DE2EB60072 evParaCtrlKeys
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value '[Ord(''t''), Ord(''T''), Ord(''e''), Ord(''E'')]'
 
 ref; // ME_47DE2ECA0054 evCalParaCtrlKey
 
@@ -466,6 +498,7 @@ ref; // ME_47DE2ECA0054 evCalParaCtrlKey
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value 'Windows.VK_ESCAPE'
 
 ref; // ME_4AB0BFF2006B VK_ESCAPE
 
@@ -480,12 +513,16 @@ ref; // ME_4AB0BFF2006B VK_ESCAPE
  : Parent ME_47D0015C0022 // evControlParaConst
  ;
  : Attributes
-   @ ( ME_47DE2EB60072 // evParaCtrlKeys
+   Seq: ( ME_47DE2EB60072 // evParaCtrlKeys
  ME_47DE2ECA0054 // evCalParaCtrlKey
  ME_4AB0BFF2006B // VK_ESCAPE
- ) .SequenceCode.It
+ )
  ; // Attributes
  CONST "spell names" false
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_47DE2E6302F5 Keys
 
@@ -506,6 +543,7 @@ FORWARD ME_47DE2ED20119
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value 'Graphics.clRed'
 
 ref; // ME_47DE2EDF001A evErrorColor
 
@@ -522,6 +560,7 @@ ref; // ME_47DE2EDF001A evErrorColor
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value 'clWindowText'
 
 ref; // ME_47DE2EE501B4 evValidColor
 
@@ -536,11 +575,15 @@ ref; // ME_47DE2EE501B4 evValidColor
  : Parent ME_47D0015C0022 // evControlParaConst
  ;
  : Attributes
-   @ ( ME_47DE2EDF001A // evErrorColor
+   Seq: ( ME_47DE2EDF001A // evErrorColor
  ME_47DE2EE501B4 // evValidColor
- ) .SequenceCode.It
+ )
  ; // Attributes
  CONST "spell names" false
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_47DE2ED20119 Colors
 
@@ -559,6 +602,7 @@ FORWARD ME_47DE2EF00383
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value 5
 
 ref; // ME_47DE2EFE03B0 evMemoLineCount
 
@@ -576,6 +620,7 @@ ref; // ME_47DE2EFE03B0 evMemoLineCount
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value ''' '''
 
 ref; // ME_47DE2F0A0391 evLineSeparateChar
 
@@ -590,11 +635,15 @@ ref; // ME_47DE2F0A0391 evLineSeparateChar
  : Parent ME_47D0015C0022 // evControlParaConst
  ;
  : Attributes
-   @ ( ME_47DE2EFE03B0 // evMemoLineCount
+   Seq: ( ME_47DE2EFE03B0 // evMemoLineCount
  ME_47DE2F0A0391 // evLineSeparateChar
- ) .SequenceCode.It
+ )
  ; // Attributes
  CONST "spell names" false
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_47DE2EF00383 Other
 
@@ -608,33 +657,30 @@ ref; // ME_47DE2EF00383 Other
  : Parent WL 'ME_4797632D0273' '4797632D0273.pas.ms.script' // Everest
  ;
  : Constants
-   @ ( ME_47D0018D03D9 // Control Types
+   Seq: ( ME_47D0018D03D9 // Control Types
  ME_47DE2D1B0386 // Margins
  ME_47DE2E6302F5 // Keys
  ME_47DE2ED20119 // Colors
  ME_47DE2EF00383 // Other
- ) .SequenceCode.It
+ )
  ; // Constants
  : Depends
-   @ ( WL 'ME_469D0AC7005E' '469D0AC7005E.pas.ms.script' // Types
+   Seq: ( WL 'ME_469D0AC7005E' '469D0AC7005E.pas.ms.script' // Types
  WL 'ME_47A1D4C201E8' '47A1D4C201E8.pas.ms.script' // l3Const
  WL 'ME_4AB0C3F60375' '4AB0C3F60375.pas.ms.script' // Win
  WL 'ME_55C4AEC801CA' '55C4AEC801CA.pas.ms.script' // Graphics
- ) .SequenceCode.It
+ )
  ; // Depends
  CONST "author" 'Ëþëèí À.Â.'
  CONST "is namespace" true
  CONST "no hands" true
  CONST "started" '13.11.2004 13:23'
- : Generators
- @ (
- gen_intf.pas
- gen_pas.script
- gen_pas.script.runner
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest'
  CONST intf.pas:Path 'common\components\gui\Garant\Everest\evControlParaConst.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest'
  CONST pas.script:Path 'shared\models\NewSchool\Scripts\47D0015C0022.pas.ms.script'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
  CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\47D0015C0022.pas.ms.script.runner'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_47D0015C0022 evControlParaConst

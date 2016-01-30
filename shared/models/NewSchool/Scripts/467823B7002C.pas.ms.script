@@ -15,9 +15,13 @@ FORWARD ME_467823B7002C
  : Parent ME_467823B7002C // afwInterfaces
  ;
  : Inherits
-   @ ( WL 'ME_46A498630097' '4677FBA70343.pas.ms.script' // Tl3_Rect
- ) .SequenceCode.It
+   Seq: ( WL 'ME_46A498630097' '4677FBA70343.pas.ms.script' // Tl3_Rect
+ )
  ; // Inherits
+ CONST dfm:PathOnly '\common\components\gui\Garant\AFW'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\AFW'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_473D8F6802BF TafwRect
 
@@ -32,9 +36,15 @@ ref; // ME_473D8F6802BF TafwRect
  : Parent ME_467823B7002C // afwInterfaces
  ;
  : Inherits
-   @ ( WL 'ME_46780DA40383' '4677FBA70343.pas.ms.script' // Il3CString
- ) .SequenceCode.It
+   Seq: ( WL 'ME_46780DA40383' '4677FBA70343.pas.ms.script' // Il3CString
+ )
  ; // Inherits
+ CONST dfm:PathOnly '\common\components\gui\Garant\AFW'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\AFW'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'afwCString'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_4683C9110178 IafwCString
 
@@ -49,6 +59,12 @@ ref; // ME_4683C9110178 IafwCString
  CONST Abstraction at_regular
  : Parent ME_467823B7002C // afwInterfaces
  ;
+ CONST dfm:PathOnly '\common\components\gui\Garant\AFW'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\AFW'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'afwFontCache'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_467D2A5403B6 IafwFontCache
 
@@ -79,10 +95,16 @@ ref; // ME_467D2CB10135 StyleTableChanged
  : Parent ME_467823B7002C // afwInterfaces
  ;
  : Operations
-   @ ( ME_467D2CB10135 // StyleTableChanged
- ) .SequenceCode.It
+   Seq: ( ME_467D2CB10135 // StyleTableChanged
+ )
  ; // Operations
  CONST "ifndef" 'DesignTimeLibrary'
+ CONST dfm:PathOnly '\common\components\gui\Garant\AFW'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\AFW'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'afwStyleTableSpy'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_467D2C8F0172 IafwStyleTableSpy
 
@@ -113,9 +135,15 @@ ref; // ME_467FAE0C02F3 Signal
  : Parent ME_467823B7002C // afwInterfaces
  ;
  : Operations
-   @ ( ME_467FAE0C02F3 // Signal
- ) .SequenceCode.It
+   Seq: ( ME_467FAE0C02F3 // Signal
+ )
  ; // Operations
+ CONST dfm:PathOnly '\common\components\gui\Garant\AFW'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\AFW'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'afwScrollListener'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_467FADE802F2 IafwScrollListener
 
@@ -141,8 +169,8 @@ ref; // ME_473D825A0223 aPage
  : Parent ME_473C60E70003 // IafwPreviewPage
  ;
  : Parameters
-   @ ( ME_473D825A0223 // aPage
- ) .SequenceCode.It
+   Seq: ( ME_473D825A0223 // aPage
+ )
  ; // Parameters
 
 ref; // ME_473D824A0357 Add
@@ -167,8 +195,8 @@ ref; // ME_473D826C02B5 aCounter
  : Parent ME_473C60E70003 // IafwPreviewPage
  ;
  : Parameters
-   @ ( ME_473D826C02B5 // aCounter
- ) .SequenceCode.It
+   Seq: ( ME_473D826C02B5 // aCounter
+ )
  ; // Parameters
 
 ref; // ME_473D826601A8 Drop
@@ -213,10 +241,10 @@ ref; // ME_4CC6955E02F6 anOverallPageNumber
  : Parent ME_473C60E70003 // IafwPreviewPage
  ;
  : Parameters
-   @ ( ME_473D8282011D // aPageNumber
+   Seq: ( ME_473D8282011D // aPageNumber
  ME_473D83C7019C // aPageWidthNumber
  ME_4CC6955E02F6 // anOverallPageNumber
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_473D8274005E Finish
@@ -279,9 +307,9 @@ ref; // ME_473D83C10248 aBitmap
  : Parent ME_473C60E70003 // IafwPreviewPage
  ;
  : Parameters
-   @ ( ME_4774F6780056 // aRect
+   Seq: ( ME_4774F6780056 // aRect
  ME_473D83C10248 // aBitmap
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_473D82B5021A DrawTo
@@ -322,8 +350,8 @@ ref; // ME_473D82E80368 anIndex
  : Target ME_473C60E70003 // IafwPreviewPage
  ;
  : Parameters
-   @ ( ME_473D82E80368 // anIndex
- ) .SequenceCode.It
+   Seq: ( ME_473D82E80368 // anIndex
+ )
  ; // Parameters
 
 ref; // ME_473D82E20016 WidthPage
@@ -335,6 +363,7 @@ ref; // ME_473D82E20016 WidthPage
  ;
  : Implementor ME_473C60E70003 // IafwPreviewPage
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" true
 ref; // ME_4728BE6A0392_ME_473C60E70003 PageNumber
 
@@ -345,6 +374,7 @@ ref; // ME_4728BE6A0392_ME_473C60E70003 PageNumber
  ;
  : Implementor ME_473C60E70003 // IafwPreviewPage
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" true
 ref; // ME_4728BE830080_ME_473C60E70003 PageWidthNumber
 
@@ -355,6 +385,7 @@ ref; // ME_4728BE830080_ME_473C60E70003 PageWidthNumber
  ;
  : Implementor ME_473C60E70003 // IafwPreviewPage
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" false
 ref; // ME_4CC68B5D00CA_ME_473C60E70003 OverallPageNumber
 
@@ -371,11 +402,11 @@ ref; // ME_4CC68B5D00CA_ME_473C60E70003 OverallPageNumber
  : Parent ME_467823B7002C // afwInterfaces
  ;
  : Implements
-   @ ( WL 'ME_4CB3352001F4' '467C0CAA02AB.pas.ms.script' // Ml3PageNumberInfo
- ) .SequenceCode.It
+   Seq: ( WL 'ME_4CB3352001F4' '467C0CAA02AB.pas.ms.script' // Ml3PageNumberInfo
+ )
  ; // Implements
  : Operations
-   @ ( ME_473D824A0357 // Add
+   Seq: ( ME_473D824A0357 // Add
  ME_473D826601A8 // Drop
  ME_473D8274005E // Finish
  ME_473D828E03A5 // GetMMWidth
@@ -383,14 +414,20 @@ ref; // ME_4CC68B5D00CA_ME_473C60E70003 OverallPageNumber
  ME_473D82B5021A // DrawTo
  ME_473D82CD0066 // WidthCount
  ME_473D82E20016 // WidthPage
- ) .SequenceCode.It
+ )
  ; // Operations
  : Implemented
-   @ ( ME_4728BE6A0392_ME_473C60E70003 // PageNumber
+   Seq: ( ME_4728BE6A0392_ME_473C60E70003 // PageNumber
  ME_4728BE830080_ME_473C60E70003 // PageWidthNumber
  ME_4CC68B5D00CA_ME_473C60E70003 // OverallPageNumber
- ) .SequenceCode.It
+ )
  ; // Implemented
+ CONST dfm:PathOnly '\common\components\gui\Garant\AFW'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\AFW'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'afwPreviewPage'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_473C60E70003 IafwPreviewPage
 
@@ -406,9 +443,15 @@ ref; // ME_473C60E70003 IafwPreviewPage
  : Parent ME_467823B7002C // afwInterfaces
  ;
  : Inherits
-   @ ( WL 'ME_46A4756D00CC' '4677FBA70343.pas.ms.script' // Il3StringsEx
- ) .SequenceCode.It
+   Seq: ( WL 'ME_46A4756D00CC' '4677FBA70343.pas.ms.script' // Il3StringsEx
+ )
  ; // Inherits
+ CONST dfm:PathOnly '\common\components\gui\Garant\AFW'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\AFW'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'afwStrings'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_4683CEE9034C IafwStrings
 
@@ -433,8 +476,8 @@ ref; // ME_473DAA16027B aFont
  : Parent ME_4683D6A002DE // IafwFont
  ;
  : Parameters
-   @ ( ME_473DAA16027B // aFont
- ) .SequenceCode.It
+   Seq: ( ME_473DAA16027B // aFont
+ )
  ; // Parameters
 
 ref; // ME_473DAA0F01C7 Assign2Font
@@ -446,6 +489,7 @@ ref; // ME_473DAA0F01C7 Assign2Font
  ;
  : Implementor ME_4683D6A002DE // IafwFont
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" false
 ref; // ME_46A60D7A02E4_ME_4683D6A002DE Size
 
@@ -456,6 +500,7 @@ ref; // ME_46A60D7A02E4_ME_4683D6A002DE Size
  ;
  : Implementor ME_4683D6A002DE // IafwFont
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" false
 ref; // ME_46A60E2802E4_ME_4683D6A002DE Name
 
@@ -466,6 +511,7 @@ ref; // ME_46A60E2802E4_ME_4683D6A002DE Name
  ;
  : Implementor ME_4683D6A002DE // IafwFont
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" false
 ref; // ME_46A60E58013F_ME_4683D6A002DE Bold
 
@@ -476,6 +522,7 @@ ref; // ME_46A60E58013F_ME_4683D6A002DE Bold
  ;
  : Implementor ME_4683D6A002DE // IafwFont
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" false
 ref; // ME_46A60E740045_ME_4683D6A002DE Italic
 
@@ -486,6 +533,7 @@ ref; // ME_46A60E740045_ME_4683D6A002DE Italic
  ;
  : Implementor ME_4683D6A002DE // IafwFont
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" false
 ref; // ME_46A60EA6032C_ME_4683D6A002DE Underline
 
@@ -496,6 +544,7 @@ ref; // ME_46A60EA6032C_ME_4683D6A002DE Underline
  ;
  : Implementor ME_4683D6A002DE // IafwFont
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" false
 ref; // ME_46A60EBF03BE_ME_4683D6A002DE Strikeout
 
@@ -506,6 +555,7 @@ ref; // ME_46A60EBF03BE_ME_4683D6A002DE Strikeout
  ;
  : Implementor ME_4683D6A002DE // IafwFont
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" false
 ref; // ME_46A60ED90325_ME_4683D6A002DE ForeColor
 
@@ -516,6 +566,7 @@ ref; // ME_46A60ED90325_ME_4683D6A002DE ForeColor
  ;
  : Implementor ME_4683D6A002DE // IafwFont
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" false
 ref; // ME_46A60EF300C9_ME_4683D6A002DE BackColor
 
@@ -526,6 +577,7 @@ ref; // ME_46A60EF300C9_ME_4683D6A002DE BackColor
  ;
  : Implementor ME_4683D6A002DE // IafwFont
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" false
 ref; // ME_46A60F63035F_ME_4683D6A002DE Pitch
 
@@ -536,6 +588,7 @@ ref; // ME_46A60F63035F_ME_4683D6A002DE Pitch
  ;
  : Implementor ME_4683D6A002DE // IafwFont
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" false
 ref; // ME_46A60F89031E_ME_4683D6A002DE Index
 
@@ -546,6 +599,7 @@ ref; // ME_46A60F89031E_ME_4683D6A002DE Index
  ;
  : Implementor ME_4683D6A002DE // IafwFont
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" false
 ref; // ME_46A610780340_ME_4683D6A002DE ForeColor
 
@@ -556,6 +610,7 @@ ref; // ME_46A610780340_ME_4683D6A002DE ForeColor
  ;
  : Implementor ME_4683D6A002DE // IafwFont
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" false
 ref; // ME_46A6108E017F_ME_4683D6A002DE BackColor
 
@@ -566,6 +621,7 @@ ref; // ME_46A6108E017F_ME_4683D6A002DE BackColor
  ;
  : Implementor ME_4683D6A002DE // IafwFont
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" false
 ref; // ME_46A610AF012C_ME_4683D6A002DE Name
 
@@ -576,6 +632,7 @@ ref; // ME_46A610AF012C_ME_4683D6A002DE Name
  ;
  : Implementor ME_4683D6A002DE // IafwFont
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" false
 ref; // ME_46A610E10084_ME_4683D6A002DE Pitch
 
@@ -586,6 +643,7 @@ ref; // ME_46A610E10084_ME_4683D6A002DE Pitch
  ;
  : Implementor ME_4683D6A002DE // IafwFont
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" false
 ref; // ME_46A6111000F9_ME_4683D6A002DE Size
 
@@ -596,6 +654,7 @@ ref; // ME_46A6111000F9_ME_4683D6A002DE Size
  ;
  : Implementor ME_4683D6A002DE // IafwFont
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" false
 ref; // ME_46A61136020C_ME_4683D6A002DE Index
 
@@ -606,6 +665,7 @@ ref; // ME_46A61136020C_ME_4683D6A002DE Index
  ;
  : Implementor ME_4683D6A002DE // IafwFont
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" false
 ref; // ME_46A6127B0282_ME_4683D6A002DE Style
 
@@ -616,6 +676,7 @@ ref; // ME_46A6127B0282_ME_4683D6A002DE Style
  ;
  : Implementor ME_4683D6A002DE // IafwFont
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" false
 ref; // ME_46A6129101E3_ME_4683D6A002DE Bold
 
@@ -626,6 +687,7 @@ ref; // ME_46A6129101E3_ME_4683D6A002DE Bold
  ;
  : Implementor ME_4683D6A002DE // IafwFont
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" false
 ref; // ME_46A612AF0038_ME_4683D6A002DE Italic
 
@@ -636,6 +698,7 @@ ref; // ME_46A612AF0038_ME_4683D6A002DE Italic
  ;
  : Implementor ME_4683D6A002DE // IafwFont
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" false
 ref; // ME_46A612C302D6_ME_4683D6A002DE Underline
 
@@ -646,6 +709,7 @@ ref; // ME_46A612C302D6_ME_4683D6A002DE Underline
  ;
  : Implementor ME_4683D6A002DE // IafwFont
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" false
 ref; // ME_46A612DC01F5_ME_4683D6A002DE Strikeout
 
@@ -662,15 +726,15 @@ ref; // ME_46A612DC01F5_ME_4683D6A002DE Strikeout
  : Parent ME_467823B7002C // afwInterfaces
  ;
  : Inherits
-   @ ( WL 'ME_46A610530089' '4677FBA70343.pas.ms.script' // Il3FontPrim
- ) .SequenceCode.It
+   Seq: ( WL 'ME_46A610530089' '4677FBA70343.pas.ms.script' // Il3FontPrim
+ )
  ; // Inherits
  : Operations
-   @ ( ME_473DAA0F01C7 // Assign2Font
- ) .SequenceCode.It
+   Seq: ( ME_473DAA0F01C7 // Assign2Font
+ )
  ; // Operations
  : Implemented
-   @ ( ME_46A60D7A02E4_ME_4683D6A002DE // Size
+   Seq: ( ME_46A60D7A02E4_ME_4683D6A002DE // Size
  ME_46A60E2802E4_ME_4683D6A002DE // Name
  ME_46A60E58013F_ME_4683D6A002DE // Bold
  ME_46A60E740045_ME_4683D6A002DE // Italic
@@ -691,8 +755,14 @@ ref; // ME_46A612DC01F5_ME_4683D6A002DE Strikeout
  ME_46A612AF0038_ME_4683D6A002DE // Italic
  ME_46A612C302D6_ME_4683D6A002DE // Underline
  ME_46A612DC01F5_ME_4683D6A002DE // Strikeout
- ) .SequenceCode.It
+ )
  ; // Implemented
+ CONST dfm:PathOnly '\common\components\gui\Garant\AFW'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\AFW'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'afwFont'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_4683D6A002DE IafwFont
 
@@ -705,6 +775,7 @@ FORWARD ME_46A0E8F40360
  ;
  : Implementor ME_46A0E8F40360 // IafwBase
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_467813E40207_ME_46A0E8F40360 CheckStamp
 
 : ME_46A0E8F40360
@@ -720,14 +791,20 @@ ref; // ME_467813E40207_ME_46A0E8F40360 CheckStamp
  : Parent ME_467823B7002C // afwInterfaces
  ;
  : Inherits
-   @ ( WL 'ME_467813B3024D' '4677FBA70343.pas.ms.script' // Il3Base
- ) .SequenceCode.It
+   Seq: ( WL 'ME_467813B3024D' '4677FBA70343.pas.ms.script' // Il3Base
+ )
  ; // Inherits
  : Implemented
-   @ ( ME_467813E40207_ME_46A0E8F40360 // CheckStamp
- ) .SequenceCode.It
+   Seq: ( ME_467813E40207_ME_46A0E8F40360 // CheckStamp
+ )
  ; // Implemented
  CONST "is default ancestor" true
+ CONST dfm:PathOnly '\common\components\gui\Garant\AFW'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\AFW'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'afwBase'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_46A0E8F40360 IafwBase
 
@@ -834,19 +911,24 @@ ref; // ME_4CC6B8FE0293 Z
  : Parent ME_467823B7002C // afwInterfaces
  ;
  : Attributes
-   @ ( ME_4CC6A3FD0058 // rPagesCount
+   Seq: ( ME_4CC6A3FD0058 // rPagesCount
  ME_4CC6A4080087 // rOverallPagesCount
- ) .SequenceCode.It
+ )
  ; // Attributes
  : Operations
-   @ ( ME_4CC6AD9E0250 // E
+   Seq: ( ME_4CC6AD9E0250 // E
  ME_4CC6B0320014 // IsValid
  ME_4CC6B48F01FD // H
  ME_4CC6B588002A // Add
  ME_4CC6B8FE0293 // Z
- ) .SequenceCode.It
+ )
  ; // Operations
  CONST "not treat as record for XE4" 'undefined'
+ CONST dfm:PathOnly '\common\components\gui\Garant\AFW'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\AFW'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'afwPagesInfo'
 
 ref; // ME_4CC6A3D403D7 TafwPagesInfo
 
@@ -918,8 +1000,8 @@ ref; // ME_473C521A0376 aIndex
  : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
  ;
  : Parameters
-   @ ( ME_473C521A0376 // aIndex
- ) .SequenceCode.It
+   Seq: ( ME_473C521A0376 // aIndex
+ )
  ; // Parameters
 
 ref; // ME_473C52100001 GetPagesWidthCount
@@ -946,8 +1028,8 @@ ref; // ME_473C5241006F anObjectID
  : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
  ;
  : Parameters
-   @ ( ME_473C5241006F // anObjectID
- ) .SequenceCode.It
+   Seq: ( ME_473C5241006F // anObjectID
+ )
  ; // Parameters
 
 ref; // ME_473C52270357 GetPageByObject
@@ -984,9 +1066,9 @@ ref; // ME_473C525801D1 aWIndex
  : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
  ;
  : Parameters
-   @ ( ME_473C52580195 // aIndex
+   Seq: ( ME_473C52580195 // aIndex
  ME_473C525801D1 // aWIndex
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_473C524A00D6 GetMMPageWidth
@@ -1023,9 +1105,9 @@ ref; // ME_473C5275024B aWIndex
  : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
  ;
  : Parameters
-   @ ( ME_473C5275020E // aIndex
+   Seq: ( ME_473C5275020E // aIndex
  ME_473C5275024B // aWIndex
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_473C52670359 GetMMPageHeight
@@ -1080,11 +1162,11 @@ ref; // ME_473C529E0177 aBitmap
  : Parent ME_473C51AC0260 // IafwPreviewCanvas
  ;
  : Parameters
-   @ ( ME_473C529E00B9 // aIndex
+   Seq: ( ME_473C529E00B9 // aIndex
  ME_473C529E00F5 // aWIndex
  ME_473C529E0131 // aRect
  ME_473C529E0177 // aBitmap
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_473C5285001D DrawTo
@@ -1109,6 +1191,7 @@ ref; // ME_473C58500246 anInterval
  CONST Value 'nil'
  : ValueType WL 'ME_46A45D890221' '4677FBA70343.pas.ms.script' // Il3RangeManager
  ;
+ CONST extprop:pas:Value 'nil'
 
 ref; // ME_4767D051031A aRange
 
@@ -1124,9 +1207,9 @@ ref; // ME_4767D051031A aRange
  : Target WL 'ME_473C571F02A2' '473C569D0287.pas.ms.script' // TafwPrintPagesArray
  ;
  : Parameters
-   @ ( ME_473C58500246 // anInterval
+   Seq: ( ME_473C58500246 // anInterval
  ME_4767D051031A // aRange
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_473C583A0276 GetIntervalPages
@@ -1189,9 +1272,9 @@ ref; // ME_473C610502C3 aWIndex
  : Target ME_473C60E70003 // IafwPreviewPage
  ;
  : Parameters
-   @ ( ME_473C6105027D // aIndex
+   Seq: ( ME_473C6105027D // aIndex
  ME_473C610502C3 // aWIndex
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_473C60F60236 PreviewPage
@@ -1209,11 +1292,11 @@ ref; // ME_473C60F60236 PreviewPage
  : Parent ME_467823B7002C // afwInterfaces
  ;
  : Attributes
-   @ ( ME_4CC697810106 // PagesInfo
- ) .SequenceCode.It
+   Seq: ( ME_4CC697810106 // PagesInfo
+ )
  ; // Attributes
  : Operations
-   @ ( ME_473C51D1005A // IsMonochrome
+   Seq: ( ME_473C51D1005A // IsMonochrome
  ME_473C51EB02CE // GetPagesCount
  ME_473C52100001 // GetPagesWidthCount
  ME_473C52270357 // GetPageByObject
@@ -1224,8 +1307,14 @@ ref; // ME_473C60F60236 PreviewPage
  ME_473C60A402D8 // Drop
  ME_473C60BA033E // IsPagesCounter
  ME_473C60F60236 // PreviewPage
- ) .SequenceCode.It
+ )
  ; // Operations
+ CONST dfm:PathOnly '\common\components\gui\Garant\AFW'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\AFW'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'afwPreviewCanvas'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_473C51AC0260 IafwPreviewCanvas
 
@@ -1241,9 +1330,15 @@ ref; // ME_473C51AC0260 IafwPreviewCanvas
  : Parent ME_467823B7002C // afwInterfaces
  ;
  : Inherits
-   @ ( WL 'ME_46A4657201E7' '556F09AA036E.pas.ms.script' // Il3Printer
- ) .SequenceCode.It
+   Seq: ( WL 'ME_46A4657201E7' '556F09AA036E.pas.ms.script' // Il3Printer
+ )
  ; // Inherits
+ CONST dfm:PathOnly '\common\components\gui\Garant\AFW'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\AFW'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'afwPrinter'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_47750D8F0051 IafwPrinter
 
@@ -1274,9 +1369,15 @@ ref; // ME_473D8BEE007B ContentChanged
  : Parent ME_467823B7002C // afwInterfaces
  ;
  : Operations
-   @ ( ME_473D8BEE007B // ContentChanged
- ) .SequenceCode.It
+   Seq: ( ME_473D8BEE007B // ContentChanged
+ )
  ; // Operations
+ CONST dfm:PathOnly '\common\components\gui\Garant\AFW'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\AFW'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'afwPreviewNotifier'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_473D8BE101DA IafwPreviewNotifier
 
@@ -1329,13 +1430,18 @@ ref; // ME_473D8DE000D1 Selection
  : Parent ME_467823B7002C // afwInterfaces
  ;
  : Attributes
-   @ ( ME_473D8DD2038E // Document
+   Seq: ( ME_473D8DD2038E // Document
  ME_473D8DDA006E // Info
  ME_473D8DE000D1 // Selection
- ) .SequenceCode.It
+ )
  ; // Attributes
  CONST "children prefix" 'pck'
  CONST "elements prefix" 'afw'
+ CONST dfm:PathOnly '\common\components\gui\Garant\AFW'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\AFW'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:isAcceptableForScripts true
  CONST extprop:pas:ElementPrefixBase 'afw'
  CONST extprop:pas:ElementPrefix 'afw_pck'
 
@@ -1394,8 +1500,8 @@ ref; // ME_473D86B503DF aValue
  : Parent ME_473D869A0282 // IafwPreviewPanel
  ;
  : Parameters
-   @ ( ME_473D86B503DF // aValue
- ) .SequenceCode.It
+   Seq: ( ME_473D86B503DF // aValue
+ )
  ; // Parameters
 
 ref; // ME_473D86B20150 SetCurrentPage
@@ -1449,17 +1555,23 @@ ref; // ME_4DDE0F5C0097 ShouldStop
  : Parent ME_467823B7002C // afwInterfaces
  ;
  : Attributes
-   @ ( ME_473D86D60152 // PreviewCanvas
+   Seq: ( ME_473D86D60152 // PreviewCanvas
  ME_473D86E601F5 // Painted
- ) .SequenceCode.It
+ )
  ; // Attributes
  : Operations
-   @ ( ME_473D86B20150 // SetCurrentPage
+   Seq: ( ME_473D86B20150 // SetCurrentPage
  ME_473D86BD03D7 // Invalidate
  ME_473D86C60253 // Done
  ME_4DDE0F5C0097 // ShouldStop
- ) .SequenceCode.It
+ )
  ; // Operations
+ CONST dfm:PathOnly '\common\components\gui\Garant\AFW'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\AFW'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'afwPreviewPanel'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_473D869A0282 IafwPreviewPanel
 
@@ -1605,8 +1717,8 @@ ref; // ME_473D8CA90142 aPanel
  : Parent ME_467BB4640328 // IafwDocumentPreview
  ;
  : Parameters
-   @ ( ME_473D8CA90142 // aPanel
- ) .SequenceCode.It
+   Seq: ( ME_473D8CA90142 // aPanel
+ )
  ; // Parameters
 
 ref; // ME_473D8CA002D9 Update
@@ -1621,6 +1733,7 @@ ref; // ME_473D8CA002D9 Update
  CONST Value 'afw_piAll'
  : ValueType WL 'ME_473C573902F9' '473C569D0287.pas.ms.script' // TafwPagesInterval
  ;
+ CONST extprop:pas:Value 'afwTypes.afw_piAll'
 
 ref; // ME_4C2DB6AE0285 anInterval
 
@@ -1634,6 +1747,7 @@ ref; // ME_4C2DB6AE0285 anInterval
  CONST Value 'nil'
  : ValueType WL 'ME_46A45D890221' '4677FBA70343.pas.ms.script' // Il3RangeManager
  ;
+ CONST extprop:pas:Value 'nil'
 
 ref; // ME_4C2DB6AE02F2 aRange
 
@@ -1647,6 +1761,7 @@ ref; // ME_4C2DB6AE02F2 aRange
  CONST Value 1
  : ValueType WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
  ;
+ CONST extprop:pas:Value 1
 
 ref; // ME_4C2DB6AE035F aCopies
 
@@ -1660,6 +1775,7 @@ ref; // ME_4C2DB6AE035F aCopies
  CONST Value ''''''
  : ValueType WL 'ME_452257A0036F' '3DBFDB23006E.pas.ms.script' // a-string
  ;
+ CONST extprop:pas:Value ''''''
 
 ref; // ME_4C2DB6AE03CC aFileName
 
@@ -1673,6 +1789,7 @@ ref; // ME_4C2DB6AE03CC aFileName
  CONST Value true
  : ValueType WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
+ CONST extprop:pas:Value true
 
 ref; // ME_4C2DB6AF0042 aCollate
 
@@ -1686,12 +1803,12 @@ ref; // ME_4C2DB6AF0042 aCollate
  : Parent ME_467BB4640328 // IafwDocumentPreview
  ;
  : Parameters
-   @ ( ME_4C2DB6AE0285 // anInterval
+   Seq: ( ME_4C2DB6AE0285 // anInterval
  ME_4C2DB6AE02F2 // aRange
  ME_4C2DB6AE035F // aCopies
  ME_4C2DB6AE03CC // aFileName
  ME_4C2DB6AF0042 // aCollate
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_473D8CAF028B Print
@@ -1706,6 +1823,7 @@ ref; // ME_473D8CAF028B Print
  CONST Value 0
  : ValueType WL 'ME_477266BB000B' '46A5E026007E.pas.ms.script' // THandle
  ;
+ CONST extprop:pas:Value 0
 
 ref; // ME_473D8CF10055 aWnd
 
@@ -1719,8 +1837,8 @@ ref; // ME_473D8CF10055 aWnd
  : Parent ME_467BB4640328 // IafwDocumentPreview
  ;
  : Parameters
-   @ ( ME_473D8CF10055 // aWnd
- ) .SequenceCode.It
+   Seq: ( ME_473D8CF10055 // aWnd
+ )
  ; // Parameters
 
 ref; // ME_473D8CE9007C Stop
@@ -1787,8 +1905,8 @@ ref; // ME_4CC6A6D8023B aCursor
  : Parent ME_467BB4640328 // IafwDocumentPreview
  ;
  : Parameters
-   @ ( ME_4CC6A6D8023B // aCursor
- ) .SequenceCode.It
+   Seq: ( ME_4CC6A6D8023B // aCursor
+ )
  ; // Parameters
 
 ref; // ME_473D8D3800B1 SetCurrentPage
@@ -1813,8 +1931,8 @@ ref; // ME_473D8D53009C aParaID
  : Parent ME_467BB4640328 // IafwDocumentPreview
  ;
  : Parameters
-   @ ( ME_473D8D53009C // aParaID
- ) .SequenceCode.It
+   Seq: ( ME_473D8D53009C // aParaID
+ )
  ; // Parameters
 
 ref; // ME_473D8D4A019D SetCurrentPagePara
@@ -1839,8 +1957,8 @@ ref; // ME_473D8D6B015F aPageNumber
  : Parent ME_467BB4640328 // IafwDocumentPreview
  ;
  : Parameters
-   @ ( ME_473D8D6B015F // aPageNumber
- ) .SequenceCode.It
+   Seq: ( ME_473D8D6B015F // aPageNumber
+ )
  ; // Parameters
 
 ref; // ME_473D8D5D032B SetCurrentPageNumber
@@ -1885,13 +2003,13 @@ ref; // ME_473D8D830163 HasCurrentPage
  : Parent ME_467823B7002C // afwInterfaces
  ;
  : Attributes
-   @ ( ME_473D8D9500C9 // Printer
+   Seq: ( ME_473D8D9500C9 // Printer
  ME_473D8DB10141 // HasText
  ME_4CC6A6FF0362 // PagesInfo
- ) .SequenceCode.It
+ )
  ; // Attributes
  : Operations
-   @ ( ME_473D8C450198 // DocumentName
+   Seq: ( ME_473D8C450198 // DocumentName
  ME_473D8C5C0187 // InProcess
  ME_473D8C6C0266 // InPagesCounting
  ME_473D8C7C01B5 // InUpdate
@@ -1907,8 +2025,14 @@ ref; // ME_473D8D830163 HasCurrentPage
  ME_473D8D5D032B // SetCurrentPageNumber
  ME_473D8D72010F // CurrentPage
  ME_473D8D830163 // HasCurrentPage
- ) .SequenceCode.It
+ )
  ; // Operations
+ CONST dfm:PathOnly '\common\components\gui\Garant\AFW'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\AFW'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'afwDocumentPreview'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_467BB4640328 IafwDocumentPreview
 
@@ -1959,10 +2083,16 @@ ref; // ME_473D8F9202F2 Orientation
  : Parent ME_467823B7002C // afwInterfaces
  ;
  : Attributes
-   @ ( ME_473D8F8602AE // Margins
+   Seq: ( ME_473D8F8602AE // Margins
  ME_473D8F9202F2 // Orientation
- ) .SequenceCode.It
+ )
  ; // Attributes
+ CONST dfm:PathOnly '\common\components\gui\Garant\AFW'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\AFW'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'afwPageSetup'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_473D8F0C021D IafwPageSetup
 
@@ -1977,9 +2107,13 @@ ref; // ME_473D8F0C021D IafwPageSetup
  : Parent ME_467823B7002C // afwInterfaces
  ;
  : Inherits
-   @ ( WL 'ME_46A480790259' '4677FBA70343.pas.ms.script' // Tl3_Point
- ) .SequenceCode.It
+   Seq: ( WL 'ME_46A480790259' '4677FBA70343.pas.ms.script' // Tl3_Point
+ )
  ; // Inherits
+ CONST dfm:PathOnly '\common\components\gui\Garant\AFW'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\AFW'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_473D8F4C03CD TafwPoint
 
@@ -2029,10 +2163,16 @@ ref; // ME_473DA73100A9 Outer
  : Parent ME_467823B7002C // afwInterfaces
  ;
  : Attributes
-   @ ( ME_473DA7280074 // Bounds
+   Seq: ( ME_473DA7280074 // Bounds
  ME_473DA73100A9 // Outer
- ) .SequenceCode.It
+ )
  ; // Attributes
+ CONST dfm:PathOnly '\common\components\gui\Garant\AFW'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\AFW'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'afwShape'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_467823CC0018 IafwShape
 
@@ -2088,8 +2228,8 @@ ref; // ME_473D8FD3022D aPreview
  : Parent ME_473D8FA6017E // IafwPrintManager
  ;
  : Parameters
-   @ ( ME_473D8FD3022D // aPreview
- ) .SequenceCode.It
+   Seq: ( ME_473D8FD3022D // aPreview
+ )
  ; // Parameters
 
 ref; // ME_473D8FC5038B PrintDialog
@@ -2114,8 +2254,8 @@ ref; // ME_473D8FE70145 aPreview
  : Parent ME_473D8FA6017E // IafwPrintManager
  ;
  : Parameters
-   @ ( ME_473D8FE70145 // aPreview
- ) .SequenceCode.It
+   Seq: ( ME_473D8FE70145 // aPreview
+ )
  ; // Parameters
 
 ref; // ME_473D8FDC01EA ShowPreview
@@ -2133,15 +2273,21 @@ ref; // ME_473D8FDC01EA ShowPreview
  : Parent ME_467823B7002C // afwInterfaces
  ;
  : Attributes
-   @ ( ME_473D8FEE0222 // PageSetup
- ) .SequenceCode.It
+   Seq: ( ME_473D8FEE0222 // PageSetup
+ )
  ; // Attributes
  : Operations
-   @ ( ME_473D8FB70042 // CanPrint
+   Seq: ( ME_473D8FB70042 // CanPrint
  ME_473D8FC5038B // PrintDialog
  ME_473D8FDC01EA // ShowPreview
- ) .SequenceCode.It
+ )
  ; // Operations
+ CONST dfm:PathOnly '\common\components\gui\Garant\AFW'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\AFW'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'afwPrintManager'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_473D8FA6017E IafwPrintManager
 
@@ -2157,6 +2303,12 @@ ref; // ME_473D8FA6017E IafwPrintManager
  CONST Abstraction at_regular
  : Parent ME_467823B7002C // afwInterfaces
  ;
+ CONST dfm:PathOnly '\common\components\gui\Garant\AFW'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\AFW'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'afwDropDownWindow'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_473D8FFE01CB IafwDropDownWindow
 
@@ -2181,8 +2333,8 @@ ref; // ME_473D9330007C aStrings
  : Parent ME_473D93190033 // IafwStringsSource
  ;
  : Parameters
-   @ ( ME_473D9330007C // aStrings
- ) .SequenceCode.It
+   Seq: ( ME_473D9330007C // aStrings
+ )
  ; // Parameters
 
 ref; // ME_473D93290004 FillStrings
@@ -2199,9 +2351,15 @@ ref; // ME_473D93290004 FillStrings
  : Parent ME_467823B7002C // afwInterfaces
  ;
  : Operations
-   @ ( ME_473D93290004 // FillStrings
- ) .SequenceCode.It
+   Seq: ( ME_473D93290004 // FillStrings
+ )
  ; // Operations
+ CONST dfm:PathOnly '\common\components\gui\Garant\AFW'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\AFW'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'afwStringsSource'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_473D93190033 IafwStringsSource
 
@@ -2216,9 +2374,15 @@ ref; // ME_473D93190033 IafwStringsSource
  : Parent ME_467823B7002C // afwInterfaces
  ;
  : Inherits
-   @ ( WL 'ME_4BB9BFED0089' '4677FBA70343.pas.ms.script' // Il3ApplicationL10NStrings
- ) .SequenceCode.It
+   Seq: ( WL 'ME_4BB9BFED0089' '4677FBA70343.pas.ms.script' // Il3ApplicationL10NStrings
+ )
  ; // Inherits
+ CONST dfm:PathOnly '\common\components\gui\Garant\AFW'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\AFW'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'afwResources'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_473D93370113 IafwResources
 
@@ -2234,6 +2398,12 @@ ref; // ME_473D93370113 IafwResources
  CONST Abstraction at_regular
  : Parent ME_467823B7002C // afwInterfaces
  ;
+ CONST dfm:PathOnly '\common\components\gui\Garant\AFW'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\AFW'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'afwLongProcessVisualizer'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_473D936D035F IafwLongProcessVisualizer
 
@@ -2276,8 +2446,8 @@ ref; // ME_473D969B0323 aCaption
  : Parent ME_473D958E004C // IafwForm
  ;
  : Parameters
-   @ ( ME_473D969B0323 // aCaption
- ) .SequenceCode.It
+   Seq: ( ME_473D969B0323 // aCaption
+ )
  ; // Parameters
 
 ref; // ME_473D9692001D UpdateCaption
@@ -2295,13 +2465,19 @@ ref; // ME_473D9692001D UpdateCaption
  : Parent ME_467823B7002C // afwInterfaces
  ;
  : Attributes
-   @ ( ME_473D96AE014F // BoundsRect
- ) .SequenceCode.It
+   Seq: ( ME_473D96AE014F // BoundsRect
+ )
  ; // Attributes
  : Operations
-   @ ( ME_473D9692001D // UpdateCaption
- ) .SequenceCode.It
+   Seq: ( ME_473D9692001D // UpdateCaption
+ )
  ; // Operations
+ CONST dfm:PathOnly '\common\components\gui\Garant\AFW'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\AFW'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'afwForm'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_473D958E004C IafwForm
 
@@ -2316,9 +2492,13 @@ ref; // ME_473D958E004C IafwForm
  : Parent ME_467823B7002C // afwInterfaces
  ;
  : Inherits
-   @ ( WL 'ME_46A61D0B0256' '4677FBA70343.pas.ms.script' // Tl3CStringArray
- ) .SequenceCode.It
+   Seq: ( WL 'ME_46A61D0B0256' '4677FBA70343.pas.ms.script' // Tl3CStringArray
+ )
  ; // Inherits
+ CONST dfm:PathOnly '\common\components\gui\Garant\AFW'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\AFW'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_473D973D03DF TafwStringArray
 
@@ -2364,10 +2544,14 @@ ref; // ME_473D95F7030A rNeedProgress
  : Parent ME_467823B7002C // afwInterfaces
  ;
  : Attributes
-   @ ( ME_473D95ED03C3 // rStrings
+   Seq: ( ME_473D95ED03C3 // rStrings
  ME_473D95F7030A // rNeedProgress
- ) .SequenceCode.It
+ )
  ; // Attributes
+ CONST dfm:PathOnly '\common\components\gui\Garant\AFW'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\AFW'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_473D95DC03D3 TafwStatusInfo
 
@@ -2402,9 +2586,9 @@ ref; // ME_475E946F03E4 theNeedProgress
  : Parent ME_473D96390341 // IafwStatusElement
  ;
  : Parameters
-   @ ( ME_475E946F03BE // theString
+   Seq: ( ME_475E946F03BE // theString
  ME_475E946F03E4 // theNeedProgress
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_475E9466022A GetStatusInfo
@@ -2422,9 +2606,15 @@ ref; // ME_475E9466022A GetStatusInfo
  : Parent ME_467823B7002C // afwInterfaces
  ;
  : Operations
-   @ ( ME_475E9466022A // GetStatusInfo
- ) .SequenceCode.It
+   Seq: ( ME_475E9466022A // GetStatusInfo
+ )
  ; // Operations
+ CONST dfm:PathOnly '\common\components\gui\Garant\AFW'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\AFW'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'afwStatusElement'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_473D96390341 IafwStatusElement
 
@@ -2449,8 +2639,8 @@ ref; // ME_4F6C6D1800B1 anElement
  : Parent ME_473D9626039D // IafwStatus
  ;
  : Parameters
-   @ ( ME_4F6C6D1800B1 // anElement
- ) .SequenceCode.It
+   Seq: ( ME_4F6C6D1800B1 // anElement
+ )
  ; // Parameters
 
 ref; // ME_473D964C00F9 AddElement
@@ -2474,8 +2664,8 @@ ref; // ME_4F6C6D1B020D anElement
  : Parent ME_473D9626039D // IafwStatus
  ;
  : Parameters
-   @ ( ME_4F6C6D1B020D // anElement
- ) .SequenceCode.It
+   Seq: ( ME_4F6C6D1B020D // anElement
+ )
  ; // Parameters
 
 ref; // ME_473D96570159 RemoveElement
@@ -2510,8 +2700,8 @@ ref; // ME_473D966B0112 theStatus
  : Parent ME_473D9626039D // IafwStatus
  ;
  : Parameters
-   @ ( ME_473D966B0112 // theStatus
- ) .SequenceCode.It
+   Seq: ( ME_473D966B0112 // theStatus
+ )
  ; // Parameters
 
 ref; // ME_473D9669014B GetStatus
@@ -2529,12 +2719,18 @@ ref; // ME_473D9669014B GetStatus
  : Parent ME_467823B7002C // afwInterfaces
  ;
  : Operations
-   @ ( ME_473D964C00F9 // AddElement
+   Seq: ( ME_473D964C00F9 // AddElement
  ME_473D96570159 // RemoveElement
  ME_473D965F03DB // Update
  ME_473D9669014B // GetStatus
- ) .SequenceCode.It
+ )
  ; // Operations
+ CONST dfm:PathOnly '\common\components\gui\Garant\AFW'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\AFW'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'afwStatus'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_473D9626039D IafwStatus
 
@@ -2559,8 +2755,8 @@ ref; // ME_4774F6620081 aStrings
  : Parent ME_473D95A90159 // IafwStatusBar
  ;
  : Parameters
-   @ ( ME_4774F6620081 // aStrings
- ) .SequenceCode.It
+   Seq: ( ME_4774F6620081 // aStrings
+ )
  ; // Parameters
 
 ref; // ME_473D95CA02B5 UpdateStrings
@@ -2578,9 +2774,15 @@ ref; // ME_473D95CA02B5 UpdateStrings
  : Parent ME_467823B7002C // afwInterfaces
  ;
  : Operations
-   @ ( ME_473D95CA02B5 // UpdateStrings
- ) .SequenceCode.It
+   Seq: ( ME_473D95CA02B5 // UpdateStrings
+ )
  ; // Operations
+ CONST dfm:PathOnly '\common\components\gui\Garant\AFW'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\AFW'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'afwStatusBar'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_473D95A90159 IafwStatusBar
 
@@ -2608,8 +2810,8 @@ ref; // ME_473D96E302E5 aQuery
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
  : Parameters
-   @ ( ME_473D96E302E5 // aQuery
- ) .SequenceCode.It
+   Seq: ( ME_473D96E302E5 // aQuery
+ )
  ; // Parameters
 
 ref; // ME_473D96D30260 Ask
@@ -2627,9 +2829,15 @@ ref; // ME_473D96D30260 Ask
  : Parent ME_467823B7002C // afwInterfaces
  ;
  : Operations
-   @ ( ME_473D96D30260 // Ask
- ) .SequenceCode.It
+   Seq: ( ME_473D96D30260 // Ask
+ )
  ; // Operations
+ CONST dfm:PathOnly '\common\components\gui\Garant\AFW'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\AFW'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'afwUserQuery'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_473D96BF0031 IafwUserQuery
 
@@ -2676,6 +2884,7 @@ ref; // ME_473D968101D2 Status
  ;
  : Implementor ME_473D95780253 // IafwMainForm
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_473D9692001D_ME_473D95780253 UpdateCaption
 
 : ME_473D96AE014F_ME_473D95780253
@@ -2685,6 +2894,7 @@ ref; // ME_473D9692001D_ME_473D95780253 UpdateCaption
  ;
  : Implementor ME_473D95780253 // IafwMainForm
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" true
 ref; // ME_473D96AE014F_ME_473D95780253 BoundsRect
 
@@ -2701,19 +2911,25 @@ ref; // ME_473D96AE014F_ME_473D95780253 BoundsRect
  : Parent ME_467823B7002C // afwInterfaces
  ;
  : Inherits
-   @ ( ME_473D958E004C // IafwForm
- ) .SequenceCode.It
+   Seq: ( ME_473D958E004C // IafwForm
+ )
  ; // Inherits
  : Attributes
-   @ ( ME_473D96130328 // StatusBar
+   Seq: ( ME_473D96130328 // StatusBar
  ME_473D968101D2 // Status
- ) .SequenceCode.It
+ )
  ; // Attributes
  : Implemented
-   @ ( ME_473D9692001D_ME_473D95780253 // UpdateCaption
+   Seq: ( ME_473D9692001D_ME_473D95780253 // UpdateCaption
  ME_473D96AE014F_ME_473D95780253 // BoundsRect
- ) .SequenceCode.It
+ )
  ; // Implemented
+ CONST dfm:PathOnly '\common\components\gui\Garant\AFW'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\AFW'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'afwMainForm'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_473D95780253 IafwMainForm
 
@@ -2729,9 +2945,14 @@ ref; // ME_473D95780253 IafwMainForm
  : Parent ME_467823B7002C // afwInterfaces
  ;
  : Inherits
-   @ ( WL 'ME_452257A0036F' '3DBFDB23006E.pas.ms.script' // a-string
- ) .SequenceCode.It
+   Seq: ( WL 'ME_452257A0036F' '3DBFDB23006E.pas.ms.script' // a-string
+ )
  ; // Inherits
+ CONST dfm:PathOnly '\common\components\gui\Garant\AFW'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\AFW'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_473D9E950032 TafwSettingId
 
@@ -2775,10 +2996,15 @@ ref; // ME_48896A1F021E afw_ssSaveInAllSettings
  : Parent ME_467823B7002C // afwInterfaces
  ;
  : Attributes
-   @ ( ME_488969ED02EB // afw_ssNone
+   Seq: ( ME_488969ED02EB // afw_ssNone
  ME_48896A1F021E // afw_ssSaveInAllSettings
- ) .SequenceCode.It
+ )
  ; // Attributes
+ CONST dfm:PathOnly '\common\components\gui\Garant\AFW'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\AFW'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_488969BC03B6 TafwSettingsState
 
@@ -2804,6 +3030,7 @@ ref; // ME_4AD59EBE0053 aSettingId
  CONST Value 0
  : ValueType WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
  ;
+ CONST extprop:pas:Value 0
 
 ref; // ME_4AD59EBE0082 aDefault
 
@@ -2817,6 +3044,7 @@ ref; // ME_4AD59EBE0082 aDefault
  CONST Value false
  : ValueType WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
+ CONST extprop:pas:Value false
 
 ref; // ME_4AD59EBE00A1 aRestoreDefault
 
@@ -2831,10 +3059,10 @@ ref; // ME_4AD59EBE00A1 aRestoreDefault
  : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
  ;
  : Parameters
-   @ ( ME_4AD59EBE0053 // aSettingId
+   Seq: ( ME_4AD59EBE0053 // aSettingId
  ME_4AD59EBE0082 // aDefault
  ME_4AD59EBE00A1 // aRestoreDefault
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_4AD59EBE0044 LoadInteger
@@ -2896,12 +3124,12 @@ ref; // ME_4AD59EC3001C aRestoreDefault
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
  : Parameters
-   @ ( ME_4AD59EC20368 // aSettingId
+   Seq: ( ME_4AD59EC20368 // aSettingId
  ME_4AD59EC20388 // aType
  ME_4AD59EC203B6 // aValue
  ME_4AD59EC203D6 // aDefault
  ME_4AD59EC3001C // aRestoreDefault
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_4AD59EC20349 LoadParam
@@ -2926,6 +3154,7 @@ ref; // ME_4AD59EC6019E aSettingId
  CONST Value ''''''
  : ValueType WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
  ;
+ CONST extprop:pas:Value ''''''
 
 ref; // ME_4AD59EC601CC aDefault
 
@@ -2939,6 +3168,7 @@ ref; // ME_4AD59EC601CC aDefault
  CONST Value false
  : ValueType WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
+ CONST extprop:pas:Value false
 
 ref; // ME_4AD59EC601FB aRestoreDefault
 
@@ -2953,10 +3183,10 @@ ref; // ME_4AD59EC601FB aRestoreDefault
  : Target ME_4683C9110178 // IafwCString
  ;
  : Parameters
-   @ ( ME_4AD59EC6019E // aSettingId
+   Seq: ( ME_4AD59EC6019E // aSettingId
  ME_4AD59EC601CC // aDefault
  ME_4AD59EC601FB // aRestoreDefault
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_4AD59EC6017E LoadString
@@ -2991,6 +3221,7 @@ ref; // ME_4AD59ECB0270 aValue
  CONST Value false
  : ValueType WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
+ CONST extprop:pas:Value false
 
 ref; // ME_4AD59ECB029F aDefault
 
@@ -3004,6 +3235,7 @@ ref; // ME_4AD59ECB029F aDefault
  CONST Value false
  : ValueType WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
+ CONST extprop:pas:Value false
 
 ref; // ME_4AD59ECB02DD aSetAsDefault
 
@@ -3016,11 +3248,11 @@ ref; // ME_4AD59ECB02DD aSetAsDefault
  : Parent ME_4AD59E7E009A // afwSettingsPrim
  ;
  : Parameters
-   @ ( ME_4AD59ECB0241 // aSettingId
+   Seq: ( ME_4AD59ECB0241 // aSettingId
  ME_4AD59ECB0270 // aValue
  ME_4AD59ECB029F // aDefault
  ME_4AD59ECB02DD // aSetAsDefault
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_4AD59ECB0232 SaveBoolean
@@ -3055,6 +3287,7 @@ ref; // ME_4AD59ED1038F aValue
  CONST Value 0
  : ValueType WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
  ;
+ CONST extprop:pas:Value 0
 
 ref; // ME_4AD59ED103BE aDefault
 
@@ -3068,6 +3301,7 @@ ref; // ME_4AD59ED103BE aDefault
  CONST Value false
  : ValueType WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
+ CONST extprop:pas:Value false
 
 ref; // ME_4AD59ED20014 aSetAsDefault
 
@@ -3081,11 +3315,11 @@ ref; // ME_4AD59ED20014 aSetAsDefault
  : Parent ME_4AD59E7E009A // afwSettingsPrim
  ;
  : Parameters
-   @ ( ME_4AD59ED10350 // aSettingId
+   Seq: ( ME_4AD59ED10350 // aSettingId
  ME_4AD59ED1038F // aValue
  ME_4AD59ED103BE // aDefault
  ME_4AD59ED20014 // aSetAsDefault
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_4AD59ED10331 SaveInteger
@@ -3145,12 +3379,12 @@ ref; // ME_4AD59ED60230 aSetAsDefault
  : Parent ME_4AD59E7E009A // afwSettingsPrim
  ;
  : Parameters
-   @ ( ME_4AD59ED60146 // aSettingId
+   Seq: ( ME_4AD59ED60146 // aSettingId
  ME_4AD59ED60184 // aType
  ME_4AD59ED601C2 // aValue
  ME_4AD59ED601F1 // aDefault
  ME_4AD59ED60230 // aSetAsDefault
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_4AD59ED60126 SaveParam
@@ -3185,6 +3419,7 @@ ref; // ME_4AD59EDD02A1 aValue
  CONST Value ''''''
  : ValueType WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
  ;
+ CONST extprop:pas:Value ''''''
 
 ref; // ME_4AD59EDD02E0 aDefault
 
@@ -3198,6 +3433,7 @@ ref; // ME_4AD59EDD02E0 aDefault
  CONST Value false
  : ValueType WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
+ CONST extprop:pas:Value false
 
 ref; // ME_4AD59EDD031E aSetAsDefault
 
@@ -3210,11 +3446,11 @@ ref; // ME_4AD59EDD031E aSetAsDefault
  : Parent ME_4AD59E7E009A // afwSettingsPrim
  ;
  : Parameters
-   @ ( ME_4AD59EDD0263 // aSettingId
+   Seq: ( ME_4AD59EDD0263 // aSettingId
  ME_4AD59EDD02A1 // aValue
  ME_4AD59EDD02E0 // aDefault
  ME_4AD59EDD031E // aSetAsDefault
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_4AD59EDD0244 SaveString
@@ -3239,6 +3475,7 @@ ref; // ME_4AD5A0170378 aSettingId
  CONST Value false
  : ValueType WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
+ CONST extprop:pas:Value false
 
 ref; // ME_4AD5A01703D6 aDefault
 
@@ -3252,6 +3489,7 @@ ref; // ME_4AD5A01703D6 aDefault
  CONST Value false
  : ValueType WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
+ CONST extprop:pas:Value false
 
 ref; // ME_4AD5A018003C aRestoreDefault
 
@@ -3266,10 +3504,10 @@ ref; // ME_4AD5A018003C aRestoreDefault
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
  : Parameters
-   @ ( ME_4AD5A0170378 // aSettingId
+   Seq: ( ME_4AD5A0170378 // aSettingId
  ME_4AD5A01703D6 // aDefault
  ME_4AD5A018003C // aRestoreDefault
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_4AD5A017034A LoadBoolean
@@ -3294,6 +3532,7 @@ ref; // ME_4AD83CCF03AD aSettingId
  CONST Value false
  : ValueType WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
+ CONST extprop:pas:Value false
 
 ref; // ME_4AD83CD00023 aRestoreDefault
 
@@ -3308,9 +3547,9 @@ ref; // ME_4AD83CD00023 aRestoreDefault
  : Target ME_4683CEE9034C // IafwStrings
  ;
  : Parameters
-   @ ( ME_4AD83CCF03AD // aSettingId
+   Seq: ( ME_4AD83CCF03AD // aSettingId
  ME_4AD83CD00023 // aRestoreDefault
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_4AD83CCF036F LoadStrings
@@ -3345,6 +3584,7 @@ ref; // ME_4AD83CD80064 aValue
  CONST Value false
  : ValueType WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
+ CONST extprop:pas:Value false
 
 ref; // ME_4AD83CD800B2 aSetAsDefault
 
@@ -3357,10 +3597,10 @@ ref; // ME_4AD83CD800B2 aSetAsDefault
  : Parent ME_4AD59E7E009A // afwSettingsPrim
  ;
  : Parameters
-   @ ( ME_4AD83CD80016 // aSettingId
+   Seq: ( ME_4AD83CD80016 // aSettingId
  ME_4AD83CD80064 // aValue
  ME_4AD83CD800B2 // aSetAsDefault
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_4AD83CD703C0 SaveStrings
@@ -3376,7 +3616,7 @@ ref; // ME_4AD83CD703C0 SaveStrings
  : Parent ME_467823B7002C // afwInterfaces
  ;
  : Operations
-   @ ( ME_4AD59EBE0044 // LoadInteger
+   Seq: ( ME_4AD59EBE0044 // LoadInteger
  ME_4AD59EC20349 // LoadParam
  ME_4AD59EC6017E // LoadString
  ME_4AD59ECB0232 // SaveBoolean
@@ -3386,8 +3626,12 @@ ref; // ME_4AD83CD703C0 SaveStrings
  ME_4AD5A017034A // LoadBoolean
  ME_4AD83CCF036F // LoadStrings
  ME_4AD83CD703C0 // SaveStrings
- ) .SequenceCode.It
+ )
  ; // Operations
+ CONST dfm:PathOnly '\common\components\gui\Garant\AFW'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\AFW'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_4AD59E7E009A afwSettingsPrim
 
@@ -3403,9 +3647,15 @@ ref; // ME_4AD59E7E009A afwSettingsPrim
  : Parent ME_467823B7002C // afwInterfaces
  ;
  : Inherits
-   @ ( WL 'ME_46A44ACC0230' '4677FBA70343.pas.ms.script' // Il3LocaleInfo
- ) .SequenceCode.It
+   Seq: ( WL 'ME_46A44ACC0230' '4677FBA70343.pas.ms.script' // Il3LocaleInfo
+ )
  ; // Inherits
+ CONST dfm:PathOnly '\common\components\gui\Garant\AFW'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\AFW'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'afwLocaleInfo'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_473DA573008A IafwLocaleInfo
 
@@ -3425,6 +3675,7 @@ FORWARD ME_475E94F80379
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value 500
 
 ref; // ME_475E951202AC afw_lpwTimeout
 
@@ -3441,6 +3692,7 @@ ref; // ME_475E951202AC afw_lpwTimeout
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value 'ssCtrl'
 
 ref; // ME_475FE65B021F ssControl
 
@@ -3455,11 +3707,15 @@ ref; // ME_475FE65B021F ssControl
  : Parent ME_467823B7002C // afwInterfaces
  ;
  : Attributes
-   @ ( ME_475E951202AC // afw_lpwTimeout
+   Seq: ( ME_475E951202AC // afw_lpwTimeout
  ME_475FE65B021F // ssControl
- ) .SequenceCode.It
+ )
  ; // Attributes
  CONST "spell names" false
+ CONST dfm:PathOnly '\common\components\gui\Garant\AFW'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\AFW'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_475E94F80379 Common
 
@@ -3474,9 +3730,14 @@ ref; // ME_475E94F80379 Common
  : Parent ME_467823B7002C // afwInterfaces
  ;
  : Inherits
-   @ ( WL 'ME_4774F12803A9' '46A5E026007E.pas.ms.script' // TShiftState
- ) .SequenceCode.It
+   Seq: ( WL 'ME_4774F12803A9' '46A5E026007E.pas.ms.script' // TShiftState
+ )
  ; // Inherits
+ CONST dfm:PathOnly '\common\components\gui\Garant\AFW'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\AFW'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_473DA5D7026E TafwShiftState
 
@@ -3529,11 +3790,16 @@ ref; // ME_473DA60C0043 afw_ckTriple
  : Parent ME_467823B7002C // afwInterfaces
  ;
  : Attributes
-   @ ( ME_473DA5FE0383 // afw_ckSingle
+   Seq: ( ME_473DA5FE0383 // afw_ckSingle
  ME_473DA605004D // afw_ckDouble
  ME_473DA60C0043 // afw_ckTriple
- ) .SequenceCode.It
+ )
  ; // Attributes
+ CONST dfm:PathOnly '\common\components\gui\Garant\AFW'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\AFW'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_473DA5F40175 TafwClickKind
 
@@ -3587,11 +3853,16 @@ ref; // ME_473DA6680303 afw_stVert
  : Parent ME_467823B7002C // afwInterfaces
  ;
  : Attributes
-   @ ( ME_473DA65003DB // afw_stNone
+   Seq: ( ME_473DA65003DB // afw_stNone
  ME_473DA657007D // afw_stHorz
  ME_473DA6680303 // afw_stVert
- ) .SequenceCode.It
+ )
  ; // Attributes
+ CONST dfm:PathOnly '\common\components\gui\Garant\AFW'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\AFW'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_473DA64200F5 TafwStrobType
 
@@ -3678,13 +3949,17 @@ ref; // ME_473DA6B002A2 rInMove
  : Parent ME_467823B7002C // afwInterfaces
  ;
  : Attributes
-   @ ( ME_473DA68E02D5 // rInitialPoint
+   Seq: ( ME_473DA68E02D5 // rInitialPoint
  ME_473DA696013C // rPoint
  ME_473DA69D0327 // rKeys
  ME_473DA6A70231 // rInitialClick
  ME_473DA6B002A2 // rInMove
- ) .SequenceCode.It
+ )
  ; // Attributes
+ CONST dfm:PathOnly '\common\components\gui\Garant\AFW'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\AFW'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_473DA67900F4 TafwMouseState
 
@@ -3699,10 +3974,14 @@ ref; // ME_473DA67900F4 TafwMouseState
  : Parent ME_467823B7002C // afwInterfaces
  ;
  : Inherits
-   @ ( ME_473DA67900F4 // TafwMouseState
- ) .SequenceCode.It
+   Seq: ( ME_473DA67900F4 // TafwMouseState
+ )
  ; // Inherits
  CONST "newRTTI" true
+ CONST dfm:PathOnly '\common\components\gui\Garant\AFW'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\AFW'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_473DA6C302E6 TafwCursorState
 
@@ -3775,12 +4054,16 @@ ref; // ME_473DA6FD01E5 rExtendingSelection
  : Parent ME_467823B7002C // afwInterfaces
  ;
  : Attributes
-   @ ( ME_473DA6E60051 // rNeedAsyncLoop
+   Seq: ( ME_473DA6E60051 // rNeedAsyncLoop
  ME_473DA6ED030E // rStrob
  ME_473DA6F50233 // rAllowAutoSelect
  ME_473DA6FD01E5 // rExtendingSelection
- ) .SequenceCode.It
+ )
  ; // Attributes
+ CONST dfm:PathOnly '\common\components\gui\Garant\AFW'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\AFW'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_473DA6DC03D2 TafwMouseEffect
 
@@ -4195,7 +4478,7 @@ ref; // ME_494F609401F1 ev_csTimeMachineHand
  : Parent ME_467823B7002C // afwInterfaces
  ;
  : Attributes
-   @ ( ME_473DA9110135 // ev_csDefault
+   Seq: ( ME_473DA9110135 // ev_csDefault
  ME_473DA917008A // ev_csNone
  ME_473DA91D004C // ev_csArrow
  ME_473DA922002B // ev_csCross
@@ -4228,8 +4511,13 @@ ref; // ME_494F609401F1 ev_csTimeMachineHand
  ME_480598B3003E // ev_csPreactiveHand
  ME_489B017500DF // ev_csExternalEno
  ME_494F609401F1 // ev_csTimeMachineHand
- ) .SequenceCode.It
+ )
  ; // Attributes
+ CONST dfm:PathOnly '\common\components\gui\Garant\AFW'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\AFW'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_473DA8FB033C TafwCursorShape
 
@@ -4274,10 +4562,14 @@ ref; // ME_473DA9D20061 rHint
  : Parent ME_467823B7002C // afwInterfaces
  ;
  : Attributes
-   @ ( ME_473DA9C802AB // rCursor
+   Seq: ( ME_473DA9C802AB // rCursor
  ME_473DA9D20061 // rHint
- ) .SequenceCode.It
+ )
  ; // Attributes
+ CONST dfm:PathOnly '\common\components\gui\Garant\AFW'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\AFW'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_473DA9BF0280 TafwCursorInfo
 
@@ -4306,9 +4598,15 @@ ref; // ME_473DABEE0099 Abort
  : Parent ME_467823B7002C // afwInterfaces
  ;
  : Operations
-   @ ( ME_473DABEE0099 // Abort
- ) .SequenceCode.It
+   Seq: ( ME_473DABEE0099 // Abort
+ )
  ; // Operations
+ CONST dfm:PathOnly '\common\components\gui\Garant\AFW'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\AFW'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'afwAbortableProcess'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_473DABE2031D IafwAbortableProcess
 
@@ -4342,9 +4640,15 @@ ref; // ME_473DAC05025F CCaption
  : Parent ME_467823B7002C // afwInterfaces
  ;
  : Attributes
-   @ ( ME_473DAC05025F // CCaption
- ) .SequenceCode.It
+   Seq: ( ME_473DAC05025F // CCaption
+ )
  ; // Attributes
+ CONST dfm:PathOnly '\common\components\gui\Garant\AFW'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\AFW'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'afwTextControl'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_473DABFA029F IafwTextControl
 
@@ -4375,9 +4679,15 @@ ref; // ME_473DAC27033A WeightChanged
  : Parent ME_467823B7002C // afwInterfaces
  ;
  : Operations
-   @ ( ME_473DAC27033A // WeightChanged
- ) .SequenceCode.It
+   Seq: ( ME_473DAC27033A // WeightChanged
+ )
  ; // Operations
+ CONST dfm:PathOnly '\common\components\gui\Garant\AFW'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\AFW'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'afwWeightListener'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_473DAC1702B5 IafwWeightListener
 
@@ -4411,9 +4721,15 @@ ref; // ME_473DAC4601FE GUID
  : Parent ME_467823B7002C // afwInterfaces
  ;
  : Attributes
-   @ ( ME_473DAC4601FE // GUID
- ) .SequenceCode.It
+   Seq: ( ME_473DAC4601FE // GUID
+ )
  ; // Attributes
+ CONST dfm:PathOnly '\common\components\gui\Garant\AFW'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\AFW'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'afwGUIDHolder'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_473DAC3D001B IafwGUIDHolder
 
@@ -4473,14 +4789,20 @@ ref; // ME_473DB06A01A8 PageActive
  : Parent ME_467823B7002C // afwInterfaces
  ;
  : Attributes
-   @ ( ME_473DB083030D // Weight
- ) .SequenceCode.It
+   Seq: ( ME_473DB083030D // Weight
+ )
  ; // Attributes
  : Operations
-   @ ( ME_473DB05D033A // PageInactive
+   Seq: ( ME_473DB05D033A // PageInactive
  ME_473DB06A01A8 // PageActive
- ) .SequenceCode.It
+ )
  ; // Operations
+ CONST dfm:PathOnly '\common\components\gui\Garant\AFW'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\AFW'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'afwTabSheetControl'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_473DB04A0026 IafwTabSheetControl
 
@@ -4495,9 +4817,13 @@ ref; // ME_473DB04A0026 IafwTabSheetControl
  : Parent ME_467823B7002C // afwInterfaces
  ;
  : Inherits
-   @ ( WL 'ME_46A5EF660059' '4677FBA70343.pas.ms.script' // Tl3ValueMapID
- ) .SequenceCode.It
+   Seq: ( WL 'ME_46A5EF660059' '4677FBA70343.pas.ms.script' // Tl3ValueMapID
+ )
  ; // Inherits
+ CONST dfm:PathOnly '\common\components\gui\Garant\AFW'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\AFW'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_475E7D540159 TafwValueMapID
 
@@ -4512,9 +4838,15 @@ ref; // ME_475E7D540159 TafwValueMapID
  : Parent ME_467823B7002C // afwInterfaces
  ;
  : Inherits
-   @ ( WL 'ME_46A5EFC20052' '4677FBA70343.pas.ms.script' // Il3ValueMap
- ) .SequenceCode.It
+   Seq: ( WL 'ME_46A5EFC20052' '4677FBA70343.pas.ms.script' // Il3ValueMap
+ )
  ; // Inherits
+ CONST dfm:PathOnly '\common\components\gui\Garant\AFW'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\AFW'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'afwValueMap'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_475E7E080385 IafwValueMap
 
@@ -4529,9 +4861,15 @@ ref; // ME_475E7E080385 IafwValueMap
  : Parent ME_467823B7002C // afwInterfaces
  ;
  : Inherits
-   @ ( WL 'ME_46A5F1340216' '4677FBA70343.pas.ms.script' // Il3StringValueMap
- ) .SequenceCode.It
+   Seq: ( WL 'ME_46A5F1340216' '4677FBA70343.pas.ms.script' // Il3StringValueMap
+ )
  ; // Inherits
+ CONST dfm:PathOnly '\common\components\gui\Garant\AFW'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\AFW'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'afwStringValueMap'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_475E7E3203DE IafwStringValueMap
 
@@ -4546,9 +4884,15 @@ ref; // ME_475E7E3203DE IafwStringValueMap
  : Parent ME_467823B7002C // afwInterfaces
  ;
  : Inherits
-   @ ( WL 'ME_46A5F18B03D4' '4677FBA70343.pas.ms.script' // Il3StringValueMapFactory
- ) .SequenceCode.It
+   Seq: ( WL 'ME_46A5F18B03D4' '4677FBA70343.pas.ms.script' // Il3StringValueMapFactory
+ )
  ; // Inherits
+ CONST dfm:PathOnly '\common\components\gui\Garant\AFW'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\AFW'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'afwStringValueMapFactory'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_475E7E4B0357 IafwStringValueMapFactory
 
@@ -4563,9 +4907,15 @@ ref; // ME_475E7E4B0357 IafwStringValueMapFactory
  : Parent ME_467823B7002C // afwInterfaces
  ;
  : Inherits
-   @ ( WL 'ME_46A5F1C800ED' '4677FBA70343.pas.ms.script' // Il3StringValueMapManager
- ) .SequenceCode.It
+   Seq: ( WL 'ME_46A5F1C800ED' '4677FBA70343.pas.ms.script' // Il3StringValueMapManager
+ )
  ; // Inherits
+ CONST dfm:PathOnly '\common\components\gui\Garant\AFW'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\AFW'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'afwStringValueMapManager'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_475E7E670242 IafwStringValueMapManager
 
@@ -4580,9 +4930,15 @@ ref; // ME_475E7E670242 IafwStringValueMapManager
  : Parent ME_467823B7002C // afwInterfaces
  ;
  : Inherits
-   @ ( WL 'ME_46A5FCD303C1' '4677FBA70343.pas.ms.script' // Il3IntegerValueMap
- ) .SequenceCode.It
+   Seq: ( WL 'ME_46A5FCD303C1' '4677FBA70343.pas.ms.script' // Il3IntegerValueMap
+ )
  ; // Inherits
+ CONST dfm:PathOnly '\common\components\gui\Garant\AFW'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\AFW'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'afwIntegerValueMap'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_475E7EA30269 IafwIntegerValueMap
 
@@ -4597,9 +4953,15 @@ ref; // ME_475E7EA30269 IafwIntegerValueMap
  : Parent ME_467823B7002C // afwInterfaces
  ;
  : Inherits
-   @ ( WL 'ME_46A5FD330314' '4677FBA70343.pas.ms.script' // Il3IntegerValueMapFactory
- ) .SequenceCode.It
+   Seq: ( WL 'ME_46A5FD330314' '4677FBA70343.pas.ms.script' // Il3IntegerValueMapFactory
+ )
  ; // Inherits
+ CONST dfm:PathOnly '\common\components\gui\Garant\AFW'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\AFW'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'afwIntegerValueMapFactory'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_475E7EE10252 IafwIntegerValueMapFactory
 
@@ -4614,9 +4976,15 @@ ref; // ME_475E7EE10252 IafwIntegerValueMapFactory
  : Parent ME_467823B7002C // afwInterfaces
  ;
  : Inherits
-   @ ( WL 'ME_46A5FD6C008B' '4677FBA70343.pas.ms.script' // Il3IntegerValueMapManager
- ) .SequenceCode.It
+   Seq: ( WL 'ME_46A5FD6C008B' '4677FBA70343.pas.ms.script' // Il3IntegerValueMapManager
+ )
  ; // Inherits
+ CONST dfm:PathOnly '\common\components\gui\Garant\AFW'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\AFW'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'afwIntegerValueMapManager'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_475E7F100044 IafwIntegerValueMapManager
 
@@ -4641,8 +5009,8 @@ ref; // ME_475E828401F1 aNotifier
  : Parent ME_475E823D0144 // IafwPreviewNotificationSource
  ;
  : Parameters
-   @ ( ME_475E828401F1 // aNotifier
- ) .SequenceCode.It
+   Seq: ( ME_475E828401F1 // aNotifier
+ )
  ; // Parameters
 
 ref; // ME_475E827F01CB Subscribe
@@ -4666,8 +5034,8 @@ ref; // ME_475E828C0395 aNotifier
  : Parent ME_475E823D0144 // IafwPreviewNotificationSource
  ;
  : Parameters
-   @ ( ME_475E828C0395 // aNotifier
- ) .SequenceCode.It
+   Seq: ( ME_475E828C0395 // aNotifier
+ )
  ; // Parameters
 
 ref; // ME_475E828B0231 UnSubscribe
@@ -4685,10 +5053,16 @@ ref; // ME_475E828B0231 UnSubscribe
  : Parent ME_467823B7002C // afwInterfaces
  ;
  : Operations
-   @ ( ME_475E827F01CB // Subscribe
+   Seq: ( ME_475E827F01CB // Subscribe
  ME_475E828B0231 // UnSubscribe
- ) .SequenceCode.It
+ )
  ; // Operations
+ CONST dfm:PathOnly '\common\components\gui\Garant\AFW'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\AFW'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'afwPreviewNotificationSource'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_475E823D0144 IafwPreviewNotificationSource
 
@@ -4709,6 +5083,7 @@ FORWARD ME_475E88C10017
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value 'Controls.CM_TEXTCHANGED'
 
 ref; // ME_475E88DA0157 afw_CM_TEXTCHANGED
 
@@ -4723,11 +5098,15 @@ ref; // ME_475E88DA0157 afw_CM_TEXTCHANGED
  : Parent ME_467823B7002C // afwInterfaces
  ;
  : Attributes
-   @ ( ME_475E88DA0157 // afw_CM_TEXTCHANGED
- ) .SequenceCode.It
+   Seq: ( ME_475E88DA0157 // afw_CM_TEXTCHANGED
+ )
  ; // Attributes
  CONST "ifndef" 'NoVCL'
  CONST "spell names" false
+ CONST dfm:PathOnly '\common\components\gui\Garant\AFW'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\AFW'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_475E88C10017 Messages
 
@@ -4755,8 +5134,8 @@ ref; // ME_475E8C41031B aSettingId
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
  : Parameters
-   @ ( ME_475E8C41031B // aSettingId
- ) .SequenceCode.It
+   Seq: ( ME_475E8C41031B // aSettingId
+ )
  ; // Parameters
 
 ref; // ME_475E8C33036C SettingChanged
@@ -4774,9 +5153,15 @@ ref; // ME_475E8C33036C SettingChanged
  : Parent ME_467823B7002C // afwInterfaces
  ;
  : Operations
-   @ ( ME_475E8C33036C // SettingChanged
- ) .SequenceCode.It
+   Seq: ( ME_475E8C33036C // SettingChanged
+ )
  ; // Operations
+ CONST dfm:PathOnly '\common\components\gui\Garant\AFW'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\AFW'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'afwSettingListener'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_475E8C230253 IafwSettingListener
 
@@ -4819,10 +5204,16 @@ ref; // ME_475E8DA60031 Finish
  : Parent ME_467823B7002C // afwInterfaces
  ;
  : Operations
-   @ ( ME_475E8D96021D // Start
+   Seq: ( ME_475E8D96021D // Start
  ME_475E8DA60031 // Finish
- ) .SequenceCode.It
+ )
  ; // Operations
+ CONST dfm:PathOnly '\common\components\gui\Garant\AFW'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\AFW'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'afwSettingsReplaceListener'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_475E8CFA0204 IafwSettingsReplaceListener
 
@@ -4853,9 +5244,15 @@ ref; // ME_4768DD730235 UpdateFinished
  : Parent ME_467823B7002C // afwInterfaces
  ;
  : Operations
-   @ ( ME_4768DD730235 // UpdateFinished
- ) .SequenceCode.It
+   Seq: ( ME_4768DD730235 // UpdateFinished
+ )
  ; // Operations
+ CONST dfm:PathOnly '\common\components\gui\Garant\AFW'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\AFW'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'afwApplicationDataListener'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_4768DD490068 IafwApplicationDataListener
 
@@ -4874,6 +5271,7 @@ FORWARD ME_475EA8840080
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value '''ru'''
 
 ref; // ME_475EA8900092 Russian
 
@@ -4890,6 +5288,7 @@ ref; // ME_475EA8900092 Russian
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value '''en'''
 
 ref; // ME_475EA8970398 English
 
@@ -4904,13 +5303,17 @@ ref; // ME_475EA8970398 English
  : Parent ME_467823B7002C // afwInterfaces
  ;
  : Attributes
-   @ ( ME_475EA8900092 // Russian
+   Seq: ( ME_475EA8900092 // Russian
  ME_475EA8970398 // English
- ) .SequenceCode.It
+ )
  ; // Attributes
  CONST "children prefix" 'lng'
  CONST "elements prefix" 'afw'
  CONST "spell names" false
+ CONST dfm:PathOnly '\common\components\gui\Garant\AFW'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\AFW'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
  CONST extprop:pas:ElementPrefixBase 'afw'
  CONST extprop:pas:ElementPrefix 'afw_lng'
 
@@ -4938,8 +5341,8 @@ ref; // ME_4F6C6D2101C9 aListener
  : Parent ME_4768DD910094 // IafwApplicationDataNotify
  ;
  : Parameters
-   @ ( ME_4F6C6D2101C9 // aListener
- ) .SequenceCode.It
+   Seq: ( ME_4F6C6D2101C9 // aListener
+ )
  ; // Parameters
 
 ref; // ME_4768DDA60257 AddListener
@@ -4964,8 +5367,8 @@ ref; // ME_4F6C6D24018D aListener
  : Parent ME_4768DD910094 // IafwApplicationDataNotify
  ;
  : Parameters
-   @ ( ME_4F6C6D24018D // aListener
- ) .SequenceCode.It
+   Seq: ( ME_4F6C6D24018D // aListener
+ )
  ; // Parameters
 
 ref; // ME_4768DDBD00BF RemoveListener
@@ -4983,10 +5386,16 @@ ref; // ME_4768DDBD00BF RemoveListener
  : Parent ME_467823B7002C // afwInterfaces
  ;
  : Operations
-   @ ( ME_4768DDA60257 // AddListener
+   Seq: ( ME_4768DDA60257 // AddListener
  ME_4768DDBD00BF // RemoveListener
- ) .SequenceCode.It
+ )
  ; // Operations
+ CONST dfm:PathOnly '\common\components\gui\Garant\AFW'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\AFW'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'afwApplicationDataNotify'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_4768DD910094 IafwApplicationDataNotify
 
@@ -5050,14 +5459,20 @@ ref; // ME_48B6866000B5 FinishUpdate
  : Parent ME_467823B7002C // afwInterfaces
  ;
  : Attributes
-   @ ( ME_4768DDF10088 // Notify
+   Seq: ( ME_4768DDF10088 // Notify
  ME_4BF4DD510124 // InUpdate
- ) .SequenceCode.It
+ )
  ; // Attributes
  : Operations
-   @ ( ME_48B6866000B5 // FinishUpdate
- ) .SequenceCode.It
+   Seq: ( ME_48B6866000B5 // FinishUpdate
+ )
  ; // Operations
+ CONST dfm:PathOnly '\common\components\gui\Garant\AFW'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\AFW'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'afwApplicationData'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_4768DDDC016E IafwApplicationData
 
@@ -5073,10 +5488,16 @@ ref; // ME_4768DDDC016E IafwApplicationData
  : Parent ME_467823B7002C // afwInterfaces
  ;
  : Inherits
-   @ ( WL 'ME_473DA2AF0168' '4799D29F033F.pas.ms.script' // TCustomImageList
- ) .SequenceCode.It
+   Seq: ( WL 'ME_473DA2AF0168' '4799D29F033F.pas.ms.script' // TCustomImageList
+ )
  ; // Inherits
  CONST "ifndef" 'NoVCL'
+ CONST dfm:PathOnly '\common\components\gui\Garant\AFW'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\AFW'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'afwCustomImageList'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_47978736001E TafwCustomImageList
 
@@ -5144,8 +5565,8 @@ ref; // ME_473D8E4C0217 aDocument
  : Parent ME_473D8DF50230 // IafwComplexDocumentPreview
  ;
  : Parameters
-   @ ( ME_473D8E4C0217 // aDocument
- ) .SequenceCode.It
+   Seq: ( ME_473D8E4C0217 // aDocument
+ )
  ; // Parameters
 
 ref; // ME_473D8E480102 SetDocument
@@ -5182,8 +5603,8 @@ ref; // ME_473D8E6300B1 aSelection
  : Parent ME_473D8DF50230 // IafwComplexDocumentPreview
  ;
  : Parameters
-   @ ( ME_473D8E6300B1 // aSelection
- ) .SequenceCode.It
+   Seq: ( ME_473D8E6300B1 // aSelection
+ )
  ; // Parameters
 
 ref; // ME_473D8E5F03B8 SetSelection
@@ -5220,8 +5641,8 @@ ref; // ME_473D8E7C01EE anInfo
  : Parent ME_473D8DF50230 // IafwComplexDocumentPreview
  ;
  : Parameters
-   @ ( ME_473D8E7C01EE // anInfo
- ) .SequenceCode.It
+   Seq: ( ME_473D8E7C01EE // anInfo
+ )
  ; // Parameters
 
 ref; // ME_473D8E750356 SetInfo
@@ -5233,6 +5654,7 @@ ref; // ME_473D8E750356 SetInfo
  ;
  : Implementor ME_473D8DF50230 // IafwComplexDocumentPreview
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_473D8C450198_ME_473D8DF50230 DocumentName
 
 : ME_473D8C5C0187_ME_473D8DF50230
@@ -5242,6 +5664,7 @@ ref; // ME_473D8C450198_ME_473D8DF50230 DocumentName
  ;
  : Implementor ME_473D8DF50230 // IafwComplexDocumentPreview
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_473D8C5C0187_ME_473D8DF50230 InProcess
 
 : ME_473D8C6C0266_ME_473D8DF50230
@@ -5251,6 +5674,7 @@ ref; // ME_473D8C5C0187_ME_473D8DF50230 InProcess
  ;
  : Implementor ME_473D8DF50230 // IafwComplexDocumentPreview
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_473D8C6C0266_ME_473D8DF50230 InPagesCounting
 
 : ME_473D8C7C01B5_ME_473D8DF50230
@@ -5260,6 +5684,7 @@ ref; // ME_473D8C6C0266_ME_473D8DF50230 InPagesCounting
  ;
  : Implementor ME_473D8DF50230 // IafwComplexDocumentPreview
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_473D8C7C01B5_ME_473D8DF50230 InUpdate
 
 : ME_473D8C90022C_ME_473D8DF50230
@@ -5269,6 +5694,7 @@ ref; // ME_473D8C7C01B5_ME_473D8DF50230 InUpdate
  ;
  : Implementor ME_473D8DF50230 // IafwComplexDocumentPreview
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_473D8C90022C_ME_473D8DF50230 InPrinting
 
 : ME_473D8CA002D9_ME_473D8DF50230
@@ -5278,6 +5704,7 @@ ref; // ME_473D8C90022C_ME_473D8DF50230 InPrinting
  ;
  : Implementor ME_473D8DF50230 // IafwComplexDocumentPreview
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_473D8CA002D9_ME_473D8DF50230 Update
 
 : ME_473D8CAF028B_ME_473D8DF50230
@@ -5287,6 +5714,7 @@ ref; // ME_473D8CA002D9_ME_473D8DF50230 Update
  ;
  : Implementor ME_473D8DF50230 // IafwComplexDocumentPreview
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_473D8CAF028B_ME_473D8DF50230 Print
 
 : ME_473D8CE9007C_ME_473D8DF50230
@@ -5296,6 +5724,7 @@ ref; // ME_473D8CAF028B_ME_473D8DF50230 Print
  ;
  : Implementor ME_473D8DF50230 // IafwComplexDocumentPreview
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_473D8CE9007C_ME_473D8DF50230 Stop
 
 : ME_473D8CF80037_ME_473D8DF50230
@@ -5305,6 +5734,7 @@ ref; // ME_473D8CE9007C_ME_473D8DF50230 Stop
  ;
  : Implementor ME_473D8DF50230 // IafwComplexDocumentPreview
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_473D8CF80037_ME_473D8DF50230 Stopped
 
 : ME_473D8D0A01D7_ME_473D8DF50230
@@ -5314,6 +5744,7 @@ ref; // ME_473D8CF80037_ME_473D8DF50230 Stopped
  ;
  : Implementor ME_473D8DF50230 // IafwComplexDocumentPreview
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_473D8D0A01D7_ME_473D8DF50230 CloseRequested
 
 : ME_473D8D1E01B8_ME_473D8DF50230
@@ -5323,6 +5754,7 @@ ref; // ME_473D8D0A01D7_ME_473D8DF50230 CloseRequested
  ;
  : Implementor ME_473D8DF50230 // IafwComplexDocumentPreview
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_473D8D1E01B8_ME_473D8DF50230 PreviewResetting
 
 : ME_473D8D3800B1_ME_473D8DF50230
@@ -5332,6 +5764,7 @@ ref; // ME_473D8D1E01B8_ME_473D8DF50230 PreviewResetting
  ;
  : Implementor ME_473D8DF50230 // IafwComplexDocumentPreview
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_473D8D3800B1_ME_473D8DF50230 SetCurrentPage
 
 : ME_473D8D4A019D_ME_473D8DF50230
@@ -5341,6 +5774,7 @@ ref; // ME_473D8D3800B1_ME_473D8DF50230 SetCurrentPage
  ;
  : Implementor ME_473D8DF50230 // IafwComplexDocumentPreview
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_473D8D4A019D_ME_473D8DF50230 SetCurrentPagePara
 
 : ME_473D8D5D032B_ME_473D8DF50230
@@ -5350,6 +5784,7 @@ ref; // ME_473D8D4A019D_ME_473D8DF50230 SetCurrentPagePara
  ;
  : Implementor ME_473D8DF50230 // IafwComplexDocumentPreview
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_473D8D5D032B_ME_473D8DF50230 SetCurrentPageNumber
 
 : ME_473D8D72010F_ME_473D8DF50230
@@ -5359,6 +5794,7 @@ ref; // ME_473D8D5D032B_ME_473D8DF50230 SetCurrentPageNumber
  ;
  : Implementor ME_473D8DF50230 // IafwComplexDocumentPreview
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_473D8D72010F_ME_473D8DF50230 CurrentPage
 
 : ME_473D8D830163_ME_473D8DF50230
@@ -5368,6 +5804,7 @@ ref; // ME_473D8D72010F_ME_473D8DF50230 CurrentPage
  ;
  : Implementor ME_473D8DF50230 // IafwComplexDocumentPreview
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_473D8D830163_ME_473D8DF50230 HasCurrentPage
 
 : ME_473D8D9500C9_ME_473D8DF50230
@@ -5377,6 +5814,7 @@ ref; // ME_473D8D830163_ME_473D8DF50230 HasCurrentPage
  ;
  : Implementor ME_473D8DF50230 // IafwComplexDocumentPreview
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" true
 ref; // ME_473D8D9500C9_ME_473D8DF50230 Printer
 
@@ -5387,6 +5825,7 @@ ref; // ME_473D8D9500C9_ME_473D8DF50230 Printer
  ;
  : Implementor ME_473D8DF50230 // IafwComplexDocumentPreview
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" true
 ref; // ME_473D8DB10141_ME_473D8DF50230 HasText
 
@@ -5397,6 +5836,7 @@ ref; // ME_473D8DB10141_ME_473D8DF50230 HasText
  ;
  : Implementor ME_473D8DF50230 // IafwComplexDocumentPreview
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" true
 ref; // ME_4CC6A6FF0362_ME_473D8DF50230 PagesInfo
 
@@ -5413,25 +5853,25 @@ ref; // ME_4CC6A6FF0362_ME_473D8DF50230 PagesInfo
  : Parent ME_467823B7002C // afwInterfaces
  ;
  : Inherits
-   @ ( ME_467BB4640328 // IafwDocumentPreview
- ) .SequenceCode.It
+   Seq: ( ME_467BB4640328 // IafwDocumentPreview
+ )
  ; // Inherits
  : Attributes
-   @ ( ME_473D8E0C01B0 // ContentKind
- ) .SequenceCode.It
+   Seq: ( ME_473D8E0C01B0 // ContentKind
+ )
  ; // Attributes
  : Operations
-   @ ( ME_473D8E3003B1 // Current
+   Seq: ( ME_473D8E3003B1 // Current
  ME_473D8E3D007A // Document
  ME_473D8E480102 // SetDocument
  ME_473D8E540132 // Selection
  ME_473D8E5F03B8 // SetSelection
  ME_473D8E6A0314 // Info
  ME_473D8E750356 // SetInfo
- ) .SequenceCode.It
+ )
  ; // Operations
  : Implemented
-   @ ( ME_473D8C450198_ME_473D8DF50230 // DocumentName
+   Seq: ( ME_473D8C450198_ME_473D8DF50230 // DocumentName
  ME_473D8C5C0187_ME_473D8DF50230 // InProcess
  ME_473D8C6C0266_ME_473D8DF50230 // InPagesCounting
  ME_473D8C7C01B5_ME_473D8DF50230 // InUpdate
@@ -5450,8 +5890,14 @@ ref; // ME_4CC6A6FF0362_ME_473D8DF50230 PagesInfo
  ME_473D8D9500C9_ME_473D8DF50230 // Printer
  ME_473D8DB10141_ME_473D8DF50230 // HasText
  ME_4CC6A6FF0362_ME_473D8DF50230 // PagesInfo
- ) .SequenceCode.It
+ )
  ; // Implemented
+ CONST dfm:PathOnly '\common\components\gui\Garant\AFW'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\AFW'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'afwComplexDocumentPreview'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_473D8DF50230 IafwComplexDocumentPreview
 
@@ -5467,9 +5913,14 @@ ref; // ME_473D8DF50230 IafwComplexDocumentPreview
  : Parent ME_467823B7002C // afwInterfaces
  ;
  : Inherits
-   @ ( WL 'ME_477266BB000B' '46A5E026007E.pas.ms.script' // THandle
- ) .SequenceCode.It
+   Seq: ( WL 'ME_477266BB000B' '46A5E026007E.pas.ms.script' // THandle
+ )
  ; // Inherits
+ CONST dfm:PathOnly '\common\components\gui\Garant\AFW'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\AFW'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_478806970243 THandle
 
@@ -5484,9 +5935,15 @@ ref; // ME_478806970243 THandle
  : Parent ME_467823B7002C // afwInterfaces
  ;
  : Inherits
-   @ ( WL 'ME_477516FE00DE' '46A5E026007E.pas.ms.script' // TPersistent
- ) .SequenceCode.It
+   Seq: ( WL 'ME_477516FE00DE' '46A5E026007E.pas.ms.script' // TPersistent
+ )
  ; // Inherits
+ CONST dfm:PathOnly '\common\components\gui\Garant\AFW'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\AFW'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'Persistent'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_4788074102A7 TPersistent
 
@@ -5501,9 +5958,15 @@ ref; // ME_4788074102A7 TPersistent
  : Parent ME_467823B7002C // afwInterfaces
  ;
  : Inherits
-   @ ( WL 'ME_4728CC880316' '4677FBA70343.pas.ms.script' // Il3Caret
- ) .SequenceCode.It
+   Seq: ( WL 'ME_4728CC880316' '4677FBA70343.pas.ms.script' // Il3Caret
+ )
  ; // Inherits
+ CONST dfm:PathOnly '\common\components\gui\Garant\AFW'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\AFW'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'afwCaret'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_478E4BF6002B IafwCaret
 
@@ -5518,9 +5981,15 @@ ref; // ME_478E4BF6002B IafwCaret
  : Parent ME_467823B7002C // afwInterfaces
  ;
  : Inherits
-   @ ( WL 'ME_4728CCF90355' '4677FBA70343.pas.ms.script' // Il3ScrollCaret
- ) .SequenceCode.It
+   Seq: ( WL 'ME_4728CCF90355' '4677FBA70343.pas.ms.script' // Il3ScrollCaret
+ )
  ; // Inherits
+ CONST dfm:PathOnly '\common\components\gui\Garant\AFW'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\AFW'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'afwScrollCaret'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_478E4C070069 IafwScrollCaret
 
@@ -5535,9 +6004,13 @@ ref; // ME_478E4C070069 IafwScrollCaret
  : Parent ME_467823B7002C // afwInterfaces
  ;
  : Inherits
-   @ ( WL 'ME_46A4988D03E1' '4677FBA70343.pas.ms.script' // Tl3_SPoint
- ) .SequenceCode.It
+   Seq: ( WL 'ME_46A4988D03E1' '4677FBA70343.pas.ms.script' // Tl3_SPoint
+ )
  ; // Inherits
+ CONST dfm:PathOnly '\common\components\gui\Garant\AFW'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\AFW'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_478E59910054 TafwSPoint
 
@@ -5550,6 +6023,7 @@ FORWARD ME_4AB728CB025C
  ;
  : Implementor ME_4AB728CB025C // IafwSettingsPrim
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_4AD59EBE0044_ME_4AB728CB025C LoadInteger
 
 : ME_4AD59EC20349_ME_4AB728CB025C
@@ -5559,6 +6033,7 @@ ref; // ME_4AD59EBE0044_ME_4AB728CB025C LoadInteger
  ;
  : Implementor ME_4AB728CB025C // IafwSettingsPrim
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_4AD59EC20349_ME_4AB728CB025C LoadParam
 
 : ME_4AD59EC6017E_ME_4AB728CB025C
@@ -5568,6 +6043,7 @@ ref; // ME_4AD59EC20349_ME_4AB728CB025C LoadParam
  ;
  : Implementor ME_4AB728CB025C // IafwSettingsPrim
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_4AD59EC6017E_ME_4AB728CB025C LoadString
 
 : ME_4AD59ECB0232_ME_4AB728CB025C
@@ -5577,6 +6053,7 @@ ref; // ME_4AD59EC6017E_ME_4AB728CB025C LoadString
  ;
  : Implementor ME_4AB728CB025C // IafwSettingsPrim
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_4AD59ECB0232_ME_4AB728CB025C SaveBoolean
 
 : ME_4AD59ED10331_ME_4AB728CB025C
@@ -5586,6 +6063,7 @@ ref; // ME_4AD59ECB0232_ME_4AB728CB025C SaveBoolean
  ;
  : Implementor ME_4AB728CB025C // IafwSettingsPrim
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_4AD59ED10331_ME_4AB728CB025C SaveInteger
 
 : ME_4AD59ED60126_ME_4AB728CB025C
@@ -5595,6 +6073,7 @@ ref; // ME_4AD59ED10331_ME_4AB728CB025C SaveInteger
  ;
  : Implementor ME_4AB728CB025C // IafwSettingsPrim
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_4AD59ED60126_ME_4AB728CB025C SaveParam
 
 : ME_4AD59EDD0244_ME_4AB728CB025C
@@ -5604,6 +6083,7 @@ ref; // ME_4AD59ED60126_ME_4AB728CB025C SaveParam
  ;
  : Implementor ME_4AB728CB025C // IafwSettingsPrim
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_4AD59EDD0244_ME_4AB728CB025C SaveString
 
 : ME_4AD5A017034A_ME_4AB728CB025C
@@ -5613,6 +6093,7 @@ ref; // ME_4AD59EDD0244_ME_4AB728CB025C SaveString
  ;
  : Implementor ME_4AB728CB025C // IafwSettingsPrim
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_4AD5A017034A_ME_4AB728CB025C LoadBoolean
 
 : ME_4AD83CCF036F_ME_4AB728CB025C
@@ -5622,6 +6103,7 @@ ref; // ME_4AD5A017034A_ME_4AB728CB025C LoadBoolean
  ;
  : Implementor ME_4AB728CB025C // IafwSettingsPrim
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_4AD83CCF036F_ME_4AB728CB025C LoadStrings
 
 : ME_4AD83CD703C0_ME_4AB728CB025C
@@ -5631,6 +6113,7 @@ ref; // ME_4AD83CCF036F_ME_4AB728CB025C LoadStrings
  ;
  : Implementor ME_4AB728CB025C // IafwSettingsPrim
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_4AD83CD703C0_ME_4AB728CB025C SaveStrings
 
 : ME_4AB728CB025C
@@ -5645,11 +6128,11 @@ ref; // ME_4AD83CD703C0_ME_4AB728CB025C SaveStrings
  : Parent ME_467823B7002C // afwInterfaces
  ;
  : Implements
-   @ ( ME_4AD59E7E009A // afwSettingsPrim
- ) .SequenceCode.It
+   Seq: ( ME_4AD59E7E009A // afwSettingsPrim
+ )
  ; // Implements
  : Implemented
-   @ ( ME_4AD59EBE0044_ME_4AB728CB025C // LoadInteger
+   Seq: ( ME_4AD59EBE0044_ME_4AB728CB025C // LoadInteger
  ME_4AD59EC20349_ME_4AB728CB025C // LoadParam
  ME_4AD59EC6017E_ME_4AB728CB025C // LoadString
  ME_4AD59ECB0232_ME_4AB728CB025C // SaveBoolean
@@ -5659,8 +6142,14 @@ ref; // ME_4AD83CD703C0_ME_4AB728CB025C SaveStrings
  ME_4AD5A017034A_ME_4AB728CB025C // LoadBoolean
  ME_4AD83CCF036F_ME_4AB728CB025C // LoadStrings
  ME_4AD83CD703C0_ME_4AB728CB025C // SaveStrings
- ) .SequenceCode.It
+ )
  ; // Implemented
+ CONST dfm:PathOnly '\common\components\gui\Garant\AFW'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\AFW'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'afwSettingsPrim'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_4AB728CB025C IafwSettingsPrim
 
@@ -5702,10 +6191,15 @@ ref; // ME_46A10214005C afw_sbVert
  : Parent ME_467823B7002C // afwInterfaces
  ;
  : Attributes
-   @ ( ME_46A1020802EA // afw_sbHorz
+   Seq: ( ME_46A1020802EA // afw_sbHorz
  ME_46A10214005C // afw_sbVert
- ) .SequenceCode.It
+ )
  ; // Attributes
+ CONST dfm:PathOnly '\common\components\gui\Garant\AFW'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\AFW'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_46A101F802A1 TafwScrollBarType
 
@@ -5721,9 +6215,13 @@ ref; // ME_46A101F802A1 TafwScrollBarType
  : Parent ME_467823B7002C // afwInterfaces
  ;
  : Inherits
-   @ ( ME_46A101F802A1 // TafwScrollBarType
- ) .SequenceCode.It
+   Seq: ( ME_46A101F802A1 // TafwScrollBarType
+ )
  ; // Inherits
+ CONST dfm:PathOnly '\common\components\gui\Garant\AFW'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\AFW'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_46A1022002A8 TafwScrollBars
 
@@ -5738,10 +6236,14 @@ ref; // ME_46A1022002A8 TafwScrollBars
  : Parent ME_467823B7002C // afwInterfaces
  ;
  : Inherits
-   @ ( ME_46A1022002A8 // TafwScrollBars
- ) .SequenceCode.It
+   Seq: ( ME_46A1022002A8 // TafwScrollBars
+ )
  ; // Inherits
  CONST "spell names" false
+ CONST dfm:PathOnly '\common\components\gui\Garant\AFW'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\AFW'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_46A1023F02D5 afw_sbBoth
 
@@ -5757,6 +6259,7 @@ FORWARD ME_47D64DC70132
  CONST Value 'afw_sbBoth'
  : ValueType ME_46A1022002A8 // TafwScrollBars
  ;
+ CONST extprop:pas:Value 'afw_sbBoth'
 
 ref; // ME_47D64DFD0256 WhatUpdate
 
@@ -5769,8 +6272,8 @@ ref; // ME_47D64DFD0256 WhatUpdate
  : Parent ME_47D64DC70132 // IafwControl
  ;
  : Parameters
-   @ ( ME_47D64DFD0256 // WhatUpdate
- ) .SequenceCode.It
+   Seq: ( ME_47D64DFD0256 // WhatUpdate
+ )
  ; // Parameters
 
 ref; // ME_47D64DFA00B3 UpdateScrollRange
@@ -5796,8 +6299,8 @@ ref; // ME_4CADED090094 anObj
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
  : Parameters
-   @ ( ME_4CADED090094 // anObj
- ) .SequenceCode.It
+   Seq: ( ME_4CADED090094 // anObj
+ )
  ; // Parameters
 
 ref; // ME_4CADECFB0114 IsA
@@ -5815,10 +6318,16 @@ ref; // ME_4CADECFB0114 IsA
  : Parent ME_467823B7002C // afwInterfaces
  ;
  : Operations
-   @ ( ME_47D64DFA00B3 // UpdateScrollRange
+   Seq: ( ME_47D64DFA00B3 // UpdateScrollRange
  ME_4CADECFB0114 // IsA
- ) .SequenceCode.It
+ )
  ; // Operations
+ CONST dfm:PathOnly '\common\components\gui\Garant\AFW'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\AFW'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'afwControl'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_47D64DC70132 IafwControl
 
@@ -5834,6 +6343,12 @@ ref; // ME_47D64DC70132 IafwControl
  CONST Abstraction at_regular
  : Parent ME_467823B7002C // afwInterfaces
  ;
+ CONST dfm:PathOnly '\common\components\gui\Garant\AFW'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\AFW'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'afwAlwaysOnTopControl'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_47D67714034A IafwAlwaysOnTopControl
 
@@ -5848,9 +6363,15 @@ ref; // ME_47D67714034A IafwAlwaysOnTopControl
  : Parent ME_467823B7002C // afwInterfaces
  ;
  : Inherits
-   @ ( WL 'ME_46A5B0360153' '4677FBA70343.pas.ms.script' // Il3TempStream
- ) .SequenceCode.It
+   Seq: ( WL 'ME_46A5B0360153' '4677FBA70343.pas.ms.script' // Il3TempStream
+ )
  ; // Inherits
+ CONST dfm:PathOnly '\common\components\gui\Garant\AFW'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\AFW'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'afwTempStream'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_47E0BF55002A IafwTempStream
 
@@ -5866,9 +6387,14 @@ ref; // ME_47E0BF55002A IafwTempStream
  : Parent ME_467823B7002C // afwInterfaces
  ;
  : Inherits
-   @ ( WL 'ME_46A44A9E0112' '4677FBA70343.pas.ms.script' // Tl3Color
- ) .SequenceCode.It
+   Seq: ( WL 'ME_46A44A9E0112' '4677FBA70343.pas.ms.script' // Tl3Color
+ )
  ; // Inherits
+ CONST dfm:PathOnly '\common\components\gui\Garant\AFW'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\AFW'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_47E15924014F TafwColor
 
@@ -5883,9 +6409,14 @@ ref; // ME_47E15924014F TafwColor
  : Parent ME_467823B7002C // afwInterfaces
  ;
  : Inherits
-   @ ( WL 'ME_46851BB502D6' '4677FBA70343.pas.ms.script' // Tl3FontIndex
- ) .SequenceCode.It
+   Seq: ( WL 'ME_46851BB502D6' '4677FBA70343.pas.ms.script' // Tl3FontIndex
+ )
  ; // Inherits
+ CONST dfm:PathOnly '\common\components\gui\Garant\AFW'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\AFW'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_47E1596B03DA TafwFontIndex
 
@@ -5900,9 +6431,15 @@ ref; // ME_47E1596B03DA TafwFontIndex
  : Parent ME_467823B7002C // afwInterfaces
  ;
  : Inherits
-   @ ( WL 'ME_4728C0FF02A2' '467C0CAA02AB.pas.ms.script' // Il3HAFPainter
- ) .SequenceCode.It
+   Seq: ( WL 'ME_4728C0FF02A2' '467C0CAA02AB.pas.ms.script' // Il3HAFPainter
+ )
  ; // Inherits
+ CONST dfm:PathOnly '\common\components\gui\Garant\AFW'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\AFW'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'afwHAFPainter'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_47EA99B10005 IafwHAFPainter
 
@@ -5944,8 +6481,8 @@ ref; // ME_47FB2974010F aDocument
  : Parent ME_47F9FD13007A // IafwMultiDocumentPreview
  ;
  : Parameters
-   @ ( ME_47FB2974010F // aDocument
- ) .SequenceCode.It
+   Seq: ( ME_47FB2974010F // aDocument
+ )
  ; // Parameters
 
 ref; // ME_47FB296803AD AddDocument
@@ -5957,6 +6494,7 @@ ref; // ME_47FB296803AD AddDocument
  ;
  : Implementor ME_47F9FD13007A // IafwMultiDocumentPreview
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_473D8C450198_ME_47F9FD13007A DocumentName
 
 : ME_473D8C5C0187_ME_47F9FD13007A
@@ -5966,6 +6504,7 @@ ref; // ME_473D8C450198_ME_47F9FD13007A DocumentName
  ;
  : Implementor ME_47F9FD13007A // IafwMultiDocumentPreview
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_473D8C5C0187_ME_47F9FD13007A InProcess
 
 : ME_473D8C6C0266_ME_47F9FD13007A
@@ -5975,6 +6514,7 @@ ref; // ME_473D8C5C0187_ME_47F9FD13007A InProcess
  ;
  : Implementor ME_47F9FD13007A // IafwMultiDocumentPreview
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_473D8C6C0266_ME_47F9FD13007A InPagesCounting
 
 : ME_473D8C7C01B5_ME_47F9FD13007A
@@ -5984,6 +6524,7 @@ ref; // ME_473D8C6C0266_ME_47F9FD13007A InPagesCounting
  ;
  : Implementor ME_47F9FD13007A // IafwMultiDocumentPreview
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_473D8C7C01B5_ME_47F9FD13007A InUpdate
 
 : ME_473D8C90022C_ME_47F9FD13007A
@@ -5993,6 +6534,7 @@ ref; // ME_473D8C7C01B5_ME_47F9FD13007A InUpdate
  ;
  : Implementor ME_47F9FD13007A // IafwMultiDocumentPreview
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_473D8C90022C_ME_47F9FD13007A InPrinting
 
 : ME_473D8CA002D9_ME_47F9FD13007A
@@ -6002,6 +6544,7 @@ ref; // ME_473D8C90022C_ME_47F9FD13007A InPrinting
  ;
  : Implementor ME_47F9FD13007A // IafwMultiDocumentPreview
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_473D8CA002D9_ME_47F9FD13007A Update
 
 : ME_473D8CAF028B_ME_47F9FD13007A
@@ -6011,6 +6554,7 @@ ref; // ME_473D8CA002D9_ME_47F9FD13007A Update
  ;
  : Implementor ME_47F9FD13007A // IafwMultiDocumentPreview
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_473D8CAF028B_ME_47F9FD13007A Print
 
 : ME_473D8CE9007C_ME_47F9FD13007A
@@ -6020,6 +6564,7 @@ ref; // ME_473D8CAF028B_ME_47F9FD13007A Print
  ;
  : Implementor ME_47F9FD13007A // IafwMultiDocumentPreview
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_473D8CE9007C_ME_47F9FD13007A Stop
 
 : ME_473D8CF80037_ME_47F9FD13007A
@@ -6029,6 +6574,7 @@ ref; // ME_473D8CE9007C_ME_47F9FD13007A Stop
  ;
  : Implementor ME_47F9FD13007A // IafwMultiDocumentPreview
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_473D8CF80037_ME_47F9FD13007A Stopped
 
 : ME_473D8D0A01D7_ME_47F9FD13007A
@@ -6038,6 +6584,7 @@ ref; // ME_473D8CF80037_ME_47F9FD13007A Stopped
  ;
  : Implementor ME_47F9FD13007A // IafwMultiDocumentPreview
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_473D8D0A01D7_ME_47F9FD13007A CloseRequested
 
 : ME_473D8D1E01B8_ME_47F9FD13007A
@@ -6047,6 +6594,7 @@ ref; // ME_473D8D0A01D7_ME_47F9FD13007A CloseRequested
  ;
  : Implementor ME_47F9FD13007A // IafwMultiDocumentPreview
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_473D8D1E01B8_ME_47F9FD13007A PreviewResetting
 
 : ME_473D8D3800B1_ME_47F9FD13007A
@@ -6056,6 +6604,7 @@ ref; // ME_473D8D1E01B8_ME_47F9FD13007A PreviewResetting
  ;
  : Implementor ME_47F9FD13007A // IafwMultiDocumentPreview
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_473D8D3800B1_ME_47F9FD13007A SetCurrentPage
 
 : ME_473D8D4A019D_ME_47F9FD13007A
@@ -6065,6 +6614,7 @@ ref; // ME_473D8D3800B1_ME_47F9FD13007A SetCurrentPage
  ;
  : Implementor ME_47F9FD13007A // IafwMultiDocumentPreview
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_473D8D4A019D_ME_47F9FD13007A SetCurrentPagePara
 
 : ME_473D8D5D032B_ME_47F9FD13007A
@@ -6074,6 +6624,7 @@ ref; // ME_473D8D4A019D_ME_47F9FD13007A SetCurrentPagePara
  ;
  : Implementor ME_47F9FD13007A // IafwMultiDocumentPreview
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_473D8D5D032B_ME_47F9FD13007A SetCurrentPageNumber
 
 : ME_473D8D72010F_ME_47F9FD13007A
@@ -6083,6 +6634,7 @@ ref; // ME_473D8D5D032B_ME_47F9FD13007A SetCurrentPageNumber
  ;
  : Implementor ME_47F9FD13007A // IafwMultiDocumentPreview
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_473D8D72010F_ME_47F9FD13007A CurrentPage
 
 : ME_473D8D830163_ME_47F9FD13007A
@@ -6092,6 +6644,7 @@ ref; // ME_473D8D72010F_ME_47F9FD13007A CurrentPage
  ;
  : Implementor ME_47F9FD13007A // IafwMultiDocumentPreview
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_473D8D830163_ME_47F9FD13007A HasCurrentPage
 
 : ME_473D8D9500C9_ME_47F9FD13007A
@@ -6101,6 +6654,7 @@ ref; // ME_473D8D830163_ME_47F9FD13007A HasCurrentPage
  ;
  : Implementor ME_47F9FD13007A // IafwMultiDocumentPreview
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" true
 ref; // ME_473D8D9500C9_ME_47F9FD13007A Printer
 
@@ -6111,6 +6665,7 @@ ref; // ME_473D8D9500C9_ME_47F9FD13007A Printer
  ;
  : Implementor ME_47F9FD13007A // IafwMultiDocumentPreview
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" true
 ref; // ME_473D8DB10141_ME_47F9FD13007A HasText
 
@@ -6121,6 +6676,7 @@ ref; // ME_473D8DB10141_ME_47F9FD13007A HasText
  ;
  : Implementor ME_47F9FD13007A // IafwMultiDocumentPreview
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" true
 ref; // ME_4CC6A6FF0362_ME_47F9FD13007A PagesInfo
 
@@ -6137,19 +6693,19 @@ ref; // ME_4CC6A6FF0362_ME_47F9FD13007A PagesInfo
  : Parent ME_467823B7002C // afwInterfaces
  ;
  : Inherits
-   @ ( ME_467BB4640328 // IafwDocumentPreview
- ) .SequenceCode.It
+   Seq: ( ME_467BB4640328 // IafwDocumentPreview
+ )
  ; // Inherits
  : Attributes
-   @ ( ME_48902EA0010E // DocCount
- ) .SequenceCode.It
+   Seq: ( ME_48902EA0010E // DocCount
+ )
  ; // Attributes
  : Operations
-   @ ( ME_47FB296803AD // AddDocument
- ) .SequenceCode.It
+   Seq: ( ME_47FB296803AD // AddDocument
+ )
  ; // Operations
  : Implemented
-   @ ( ME_473D8C450198_ME_47F9FD13007A // DocumentName
+   Seq: ( ME_473D8C450198_ME_47F9FD13007A // DocumentName
  ME_473D8C5C0187_ME_47F9FD13007A // InProcess
  ME_473D8C6C0266_ME_47F9FD13007A // InPagesCounting
  ME_473D8C7C01B5_ME_47F9FD13007A // InUpdate
@@ -6168,8 +6724,14 @@ ref; // ME_4CC6A6FF0362_ME_47F9FD13007A PagesInfo
  ME_473D8D9500C9_ME_47F9FD13007A // Printer
  ME_473D8DB10141_ME_47F9FD13007A // HasText
  ME_4CC6A6FF0362_ME_47F9FD13007A // PagesInfo
- ) .SequenceCode.It
+ )
  ; // Implemented
+ CONST dfm:PathOnly '\common\components\gui\Garant\AFW'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\AFW'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'afwMultiDocumentPreview'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_47F9FD13007A IafwMultiDocumentPreview
 
@@ -6212,6 +6774,7 @@ ref; // ME_4AB729980078 aSettingId
  CONST Value 0
  : ValueType WL 'ME_475EA27A0131' '4AB0C3C60310.pas.ms.script' // Double
  ;
+ CONST extprop:pas:Value 0
 
 ref; // ME_4AB7299800A7 aDefault
 
@@ -6225,6 +6788,7 @@ ref; // ME_4AB7299800A7 aDefault
  CONST Value false
  : ValueType WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
+ CONST extprop:pas:Value false
 
 ref; // ME_4AB7299800D6 aRestoreDefault
 
@@ -6239,10 +6803,10 @@ ref; // ME_4AB7299800D6 aRestoreDefault
  : Target WL 'ME_475EA27A0131' '4AB0C3C60310.pas.ms.script' // Double
  ;
  : Parameters
-   @ ( ME_4AB729980078 // aSettingId
+   Seq: ( ME_4AB729980078 // aSettingId
  ME_4AB7299800A7 // aDefault
  ME_4AB7299800D6 // aRestoreDefault
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_4AB729980069 LoadDouble
@@ -6277,6 +6841,7 @@ ref; // ME_4AB729A702F0 aValue
  CONST Value 0
  : ValueType WL 'ME_475EA27A0131' '4AB0C3C60310.pas.ms.script' // Double
  ;
+ CONST extprop:pas:Value 0
 
 ref; // ME_4AB729A7031E aDefault
 
@@ -6290,6 +6855,7 @@ ref; // ME_4AB729A7031E aDefault
  CONST Value false
  : ValueType WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
+ CONST extprop:pas:Value false
 
 ref; // ME_4AB729A7034D aSetAsDefault
 
@@ -6302,11 +6868,11 @@ ref; // ME_4AB729A7034D aSetAsDefault
  : Parent ME_473D9EF10387 // IafwSettings
  ;
  : Parameters
-   @ ( ME_4AB729A702B1 // aSettingId
+   Seq: ( ME_4AB729A702B1 // aSettingId
  ME_4AB729A702F0 // aValue
  ME_4AB729A7031E // aDefault
  ME_4AB729A7034D // aSetAsDefault
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_4AB729A702A2 SaveDouble
@@ -6318,6 +6884,7 @@ ref; // ME_4AB729A702A2 SaveDouble
  ;
  : Implementor ME_473D9EF10387 // IafwSettings
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_4AD59EBE0044_ME_473D9EF10387 LoadInteger
 
 : ME_4AD59EC20349_ME_473D9EF10387
@@ -6327,6 +6894,7 @@ ref; // ME_4AD59EBE0044_ME_473D9EF10387 LoadInteger
  ;
  : Implementor ME_473D9EF10387 // IafwSettings
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_4AD59EC20349_ME_473D9EF10387 LoadParam
 
 : ME_4AD59EC6017E_ME_473D9EF10387
@@ -6336,6 +6904,7 @@ ref; // ME_4AD59EC20349_ME_473D9EF10387 LoadParam
  ;
  : Implementor ME_473D9EF10387 // IafwSettings
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_4AD59EC6017E_ME_473D9EF10387 LoadString
 
 : ME_4AD59ECB0232_ME_473D9EF10387
@@ -6345,6 +6914,7 @@ ref; // ME_4AD59EC6017E_ME_473D9EF10387 LoadString
  ;
  : Implementor ME_473D9EF10387 // IafwSettings
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_4AD59ECB0232_ME_473D9EF10387 SaveBoolean
 
 : ME_4AD59ED10331_ME_473D9EF10387
@@ -6354,6 +6924,7 @@ ref; // ME_4AD59ECB0232_ME_473D9EF10387 SaveBoolean
  ;
  : Implementor ME_473D9EF10387 // IafwSettings
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_4AD59ED10331_ME_473D9EF10387 SaveInteger
 
 : ME_4AD59ED60126_ME_473D9EF10387
@@ -6363,6 +6934,7 @@ ref; // ME_4AD59ED10331_ME_473D9EF10387 SaveInteger
  ;
  : Implementor ME_473D9EF10387 // IafwSettings
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_4AD59ED60126_ME_473D9EF10387 SaveParam
 
 : ME_4AD59EDD0244_ME_473D9EF10387
@@ -6372,6 +6944,7 @@ ref; // ME_4AD59ED60126_ME_473D9EF10387 SaveParam
  ;
  : Implementor ME_473D9EF10387 // IafwSettings
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_4AD59EDD0244_ME_473D9EF10387 SaveString
 
 : ME_4AD5A017034A_ME_473D9EF10387
@@ -6381,6 +6954,7 @@ ref; // ME_4AD59EDD0244_ME_473D9EF10387 SaveString
  ;
  : Implementor ME_473D9EF10387 // IafwSettings
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_4AD5A017034A_ME_473D9EF10387 LoadBoolean
 
 : ME_4AD83CCF036F_ME_473D9EF10387
@@ -6390,6 +6964,7 @@ ref; // ME_4AD5A017034A_ME_473D9EF10387 LoadBoolean
  ;
  : Implementor ME_473D9EF10387 // IafwSettings
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_4AD83CCF036F_ME_473D9EF10387 LoadStrings
 
 : ME_4AD83CD703C0_ME_473D9EF10387
@@ -6399,6 +6974,7 @@ ref; // ME_4AD83CCF036F_ME_473D9EF10387 LoadStrings
  ;
  : Implementor ME_473D9EF10387 // IafwSettings
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_4AD83CD703C0_ME_473D9EF10387 SaveStrings
 
 : ME_473D9EF10387
@@ -6414,20 +6990,20 @@ ref; // ME_4AD83CD703C0_ME_473D9EF10387 SaveStrings
  : Parent ME_467823B7002C // afwInterfaces
  ;
  : Inherits
-   @ ( ME_4AB728CB025C // IafwSettingsPrim
- ) .SequenceCode.It
+   Seq: ( ME_4AB728CB025C // IafwSettingsPrim
+ )
  ; // Inherits
  : Attributes
-   @ ( ME_48896A7B0311 // State
- ) .SequenceCode.It
+   Seq: ( ME_48896A7B0311 // State
+ )
  ; // Attributes
  : Operations
-   @ ( ME_4AB729980069 // LoadDouble
+   Seq: ( ME_4AB729980069 // LoadDouble
  ME_4AB729A702A2 // SaveDouble
- ) .SequenceCode.It
+ )
  ; // Operations
  : Implemented
-   @ ( ME_4AD59EBE0044_ME_473D9EF10387 // LoadInteger
+   Seq: ( ME_4AD59EBE0044_ME_473D9EF10387 // LoadInteger
  ME_4AD59EC20349_ME_473D9EF10387 // LoadParam
  ME_4AD59EC6017E_ME_473D9EF10387 // LoadString
  ME_4AD59ECB0232_ME_473D9EF10387 // SaveBoolean
@@ -6437,8 +7013,14 @@ ref; // ME_4AD83CD703C0_ME_473D9EF10387 SaveStrings
  ME_4AD5A017034A_ME_473D9EF10387 // LoadBoolean
  ME_4AD83CCF036F_ME_473D9EF10387 // LoadStrings
  ME_4AD83CD703C0_ME_473D9EF10387 // SaveStrings
- ) .SequenceCode.It
+ )
  ; // Implemented
+ CONST dfm:PathOnly '\common\components\gui\Garant\AFW'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\AFW'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'afwSettings'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_473D9EF10387 IafwSettings
 
@@ -6515,15 +7097,20 @@ ref; // ME_53BFF3F00111 Chronology
  : Parent ME_467823B7002C // afwInterfaces
  ;
  : Attributes
-   @ ( ME_494F747303C9 // Main
+   Seq: ( ME_494F747303C9 // Main
  ME_494F748501C8 // Reference
  ME_494F748F0293 // Annotation
  ME_494F749901D7 // Translation
  ME_53BFF3F00111 // Chronology
- ) .SequenceCode.It
+ )
  ; // Attributes
  CONST "children prefix" 'pca'
  CONST "elements prefix" 'afw'
+ CONST dfm:PathOnly '\common\components\gui\Garant\AFW'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\AFW'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:isAcceptableForScripts true
  CONST extprop:pas:ElementPrefixBase 'afw'
  CONST extprop:pas:ElementPrefix 'afw_pca'
 
@@ -6540,9 +7127,15 @@ ref; // ME_494F741D008B TafwPreviewCaleeArea
  : Parent ME_467823B7002C // afwInterfaces
  ;
  : Inherits
-   @ ( WL 'ME_49539CF5018B' '467C0CAA02AB.pas.ms.script' // Il3HAFMacroReplacer
- ) .SequenceCode.It
+   Seq: ( WL 'ME_49539CF5018B' '467C0CAA02AB.pas.ms.script' // Il3HAFMacroReplacer
+ )
  ; // Inherits
+ CONST dfm:PathOnly '\common\components\gui\Garant\AFW'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\AFW'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'afwHAFMacroReplacer'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_4954A76E0274 IafwHAFMacroReplacer
 
@@ -6573,9 +7166,15 @@ ref; // ME_49C2512903A2 NotifyLoaded
  : Parent ME_467823B7002C // afwInterfaces
  ;
  : Operations
-   @ ( ME_49C2512903A2 // NotifyLoaded
- ) .SequenceCode.It
+   Seq: ( ME_49C2512903A2 // NotifyLoaded
+ )
  ; // Operations
+ CONST dfm:PathOnly '\common\components\gui\Garant\AFW'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\AFW'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'afwProportionalControl'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_49C250CE02FB IafwProportionalControl
 
@@ -6630,11 +7229,16 @@ ref; // ME_53AA5595027D afw_jteRequestNoActivate
  : Parent ME_467823B7002C // afwInterfaces
  ;
  : Attributes
-   @ ( ME_49DC7BBF02D0 // afw_jteRequestNewWindow
+   Seq: ( ME_49DC7BBF02D0 // afw_jteRequestNewWindow
  ME_53A8168B0306 // afw_jteRequestNewTab
  ME_53AA5595027D // afw_jteRequestNoActivate
- ) .SequenceCode.It
+ )
  ; // Attributes
+ CONST dfm:PathOnly '\common\components\gui\Garant\AFW'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\AFW'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_49DC7B6802DE TafwJumpToEffect
 
@@ -6650,9 +7254,13 @@ ref; // ME_49DC7B6802DE TafwJumpToEffect
  : Parent ME_467823B7002C // afwInterfaces
  ;
  : Inherits
-   @ ( ME_49DC7B6802DE // TafwJumpToEffect
- ) .SequenceCode.It
+   Seq: ( ME_49DC7B6802DE // TafwJumpToEffect
+ )
  ; // Inherits
+ CONST dfm:PathOnly '\common\components\gui\Garant\AFW'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\AFW'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_49DC7BDE0398 TafwJumpToEffects
 
@@ -6667,9 +7275,13 @@ ref; // ME_49DC7BDE0398 TafwJumpToEffects
  : Parent ME_467823B7002C // afwInterfaces
  ;
  : Inherits
-   @ ( WL 'ME_4C986CAD0117' '467C0CAA02AB.pas.ms.script' // Tl3AskClearClipboardProc
- ) .SequenceCode.It
+   Seq: ( WL 'ME_4C986CAD0117' '467C0CAA02AB.pas.ms.script' // Tl3AskClearClipboardProc
+ )
  ; // Inherits
+ CONST dfm:PathOnly '\common\components\gui\Garant\AFW'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\AFW'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_4C9872E9038C TafwAskClearClipboardProc
 
@@ -6698,9 +7310,15 @@ ref; // ME_4B052245037A MenuUnlockedFixUp
  : Parent ME_467823B7002C // afwInterfaces
  ;
  : Operations
-   @ ( ME_4B052245037A // MenuUnlockedFixUp
- ) .SequenceCode.It
+   Seq: ( ME_4B052245037A // MenuUnlockedFixUp
+ )
  ; // Operations
+ CONST dfm:PathOnly '\common\components\gui\Garant\AFW'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\AFW'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'afwMenuUnlockedPostBuild'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_4B05222202F7 IafwMenuUnlockedPostBuild
 
@@ -6756,11 +7374,16 @@ ref; // ME_54EFFCD501F1 afw_titTabsDisabled
  : Parent ME_467823B7002C // afwInterfaces
  ;
  : Attributes
-   @ ( ME_54EFFCB8027B // afw_titNoTabs
+   Seq: ( ME_54EFFCB8027B // afw_titNoTabs
  ME_54EFFCCD0061 // afw_titTabs
  ME_54EFFCD501F1 // afw_titTabsDisabled
- ) .SequenceCode.It
+ )
  ; // Attributes
+ CONST dfm:PathOnly '\common\components\gui\Garant\AFW'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\AFW'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_54EFFC7602E3 TafwTabInterfaceType
 
@@ -6794,9 +7417,13 @@ ref; // ME_473D8EE00011 anIndex
  ;
  : Target ME_473D8DF50230 // IafwComplexDocumentPreview
  ;
+ : CanRaise
+   Seq: ( WL 'ME_479F1C5600EA' '4AB0997B00A2.pas.ms.script' // EListError
+ )
+ ; // CanRaise
  : Attributes
-   @ ( ME_473D8EE00011 // anIndex
- ) .SequenceCode.It
+   Seq: ( ME_473D8EE00011 // anIndex
+ )
  ; // Attributes
  CONST "pm" true
 
@@ -6847,8 +7474,8 @@ ref; // ME_473D8ECE02F0 ResetInfo
  : Parent ME_473D8E9D026D // IafwComplexDocumentPreviewFactory
  ;
  : Parameters
-   @ ( ME_473D8ECE02F0 // ResetInfo
- ) .SequenceCode.It
+   Seq: ( ME_473D8ECE02F0 // ResetInfo
+ )
  ; // Parameters
 
 ref; // ME_473D8ECB001A ResetCache
@@ -6866,15 +7493,21 @@ ref; // ME_473D8ECB001A ResetCache
  : Parent ME_467823B7002C // afwInterfaces
  ;
  : Attributes
-   @ ( ME_473D8ED80268 // Item
- ) .SequenceCode.It
+   Seq: ( ME_473D8ED80268 // Item
+ )
  ; // Attributes
  : Operations
-   @ ( ME_473D8EAF022D // Make
+   Seq: ( ME_473D8EAF022D // Make
  ME_473D8EBB0035 // Count
  ME_473D8ECB001A // ResetCache
- ) .SequenceCode.It
+ )
  ; // Operations
+ CONST dfm:PathOnly '\common\components\gui\Garant\AFW'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\AFW'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'afwComplexDocumentPreviewFactory'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_473D8E9D026D IafwComplexDocumentPreviewFactory
 
@@ -6911,9 +7544,9 @@ ref; // ME_4F155AAF031C aForceLoadData
  : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
  ;
  : Parameters
-   @ ( ME_4DC2C11202BD // theWidth
+   Seq: ( ME_4DC2C11202BD // theWidth
  ME_4F155AAF031C // aForceLoadData
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_4D8CA46002BE CalculateHeightByWidth
@@ -6937,8 +7570,8 @@ ref; // ME_4D8CA49E01F9 aColor
  : Parent ME_4D8CA42500D2 // IafwFormView
  ;
  : Parameters
-   @ ( ME_4D8CA49E01F9 // aColor
- ) .SequenceCode.It
+   Seq: ( ME_4D8CA49E01F9 // aColor
+ )
  ; // Parameters
 
 ref; // ME_4D8CA47B0343 SetBackColor
@@ -6956,10 +7589,16 @@ ref; // ME_4D8CA47B0343 SetBackColor
  : Parent ME_467823B7002C // afwInterfaces
  ;
  : Operations
-   @ ( ME_4D8CA46002BE // CalculateHeightByWidth
+   Seq: ( ME_4D8CA46002BE // CalculateHeightByWidth
  ME_4D8CA47B0343 // SetBackColor
- ) .SequenceCode.It
+ )
  ; // Operations
+ CONST dfm:PathOnly '\common\components\gui\Garant\AFW'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\AFW'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'afwFormView'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_4D8CA42500D2 IafwFormView
 
@@ -6998,11 +7637,21 @@ ref; // ME_4E7A0D9401F6 DisableReactivate
  CONST Abstraction at_regular
  : Parent ME_467823B7002C // afwInterfaces
  ;
+ : Implements
+   Seq: ( WL 'ME_4E79FAE60370' '4E79FA920283.pas.ms.script' // Плавающее окно должно уметь прятаться, а не только закрываться
+ )
+ ; // Implements
  : Operations
-   @ ( ME_4E79FED900C6 // DisableClose
+   Seq: ( ME_4E79FED900C6 // DisableClose
  ME_4E7A0D9401F6 // DisableReactivate
- ) .SequenceCode.It
+ )
  ; // Operations
+ CONST dfm:PathOnly '\common\components\gui\Garant\AFW'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\AFW'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'afwFloatingWindow'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_4E79FEC0019E IafwFloatingWindow
 
@@ -7055,10 +7704,16 @@ ref; // ME_473DA15800E2 BaseId
  : Parent ME_467823B7002C // afwInterfaces
  ;
  : Attributes
-   @ ( ME_473DA149020D // Settings
+   Seq: ( ME_473DA149020D // Settings
  ME_473DA15800E2 // BaseId
- ) .SequenceCode.It
+ )
  ; // Attributes
+ CONST dfm:PathOnly '\common\components\gui\Garant\AFW'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\AFW'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'afwSettingsSource'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_473DA12B02A0 IafwSettingsSource
 
@@ -7083,8 +7738,8 @@ ref; // ME_475E8E46035D aListener
  : Parent ME_5243000F03A2 // MafwSettingsNotify
  ;
  : Parameters
-   @ ( ME_475E8E46035D // aListener
- ) .SequenceCode.It
+   Seq: ( ME_475E8E46035D // aListener
+ )
  ; // Parameters
 
 ref; // ME_475E8E410197 AddListener
@@ -7108,8 +7763,8 @@ ref; // ME_475E8E6D030A aListener
  : Parent ME_5243000F03A2 // MafwSettingsNotify
  ;
  : Parameters
-   @ ( ME_475E8E6D030A // aListener
- ) .SequenceCode.It
+   Seq: ( ME_475E8E6D030A // aListener
+ )
  ; // Parameters
 
 ref; // ME_475E8E5E0286 AddListener
@@ -7133,8 +7788,8 @@ ref; // ME_475E8E5403AC aListener
  : Parent ME_5243000F03A2 // MafwSettingsNotify
  ;
  : Parameters
-   @ ( ME_475E8E5403AC // aListener
- ) .SequenceCode.It
+   Seq: ( ME_475E8E5403AC // aListener
+ )
  ; // Parameters
 
 ref; // ME_475E8E4D03E4 RemoveListener
@@ -7158,8 +7813,8 @@ ref; // ME_475E8E840074 aListener
  : Parent ME_5243000F03A2 // MafwSettingsNotify
  ;
  : Parameters
-   @ ( ME_475E8E840074 // aListener
- ) .SequenceCode.It
+   Seq: ( ME_475E8E840074 // aListener
+ )
  ; // Parameters
 
 ref; // ME_475E8E7900A3 RemoveListener
@@ -7175,12 +7830,16 @@ ref; // ME_475E8E7900A3 RemoveListener
  : Parent ME_467823B7002C // afwInterfaces
  ;
  : Operations
-   @ ( ME_475E8E410197 // AddListener
+   Seq: ( ME_475E8E410197 // AddListener
  ME_475E8E5E0286 // AddListener
  ME_475E8E4D03E4 // RemoveListener
  ME_475E8E7900A3 // RemoveListener
- ) .SequenceCode.It
+ )
  ; // Operations
+ CONST dfm:PathOnly '\common\components\gui\Garant\AFW'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\AFW'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_5243000F03A2 MafwSettingsNotify
 
@@ -7195,10 +7854,16 @@ ref; // ME_5243000F03A2 MafwSettingsNotify
  : Parent ME_467823B7002C // afwInterfaces
  ;
  : Inherits
-   @ ( WL 'ME_484529DC0276' '4799D29F033F.pas.ms.script' // TCustomForm
- ) .SequenceCode.It
+   Seq: ( WL 'ME_484529DC0276' '4799D29F033F.pas.ms.script' // TCustomForm
+ )
  ; // Inherits
  CONST "ifndef" 'NoVCL'
+ CONST dfm:PathOnly '\common\components\gui\Garant\AFW'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\AFW'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'afwCustomForm'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_534F88090053 TafwCustomForm
 
@@ -7240,8 +7905,8 @@ ref; // ME_537C733D03AC aForm
  : Parent ME_534F88A500E2 // IafwMainFormContainer
  ;
  : Parameters
-   @ ( ME_537C733D03AC // aForm
- ) .SequenceCode.It
+   Seq: ( ME_537C733D03AC // aForm
+ )
  ; // Parameters
 
 ref; // ME_537C731D00B3 UpdateFormCaption
@@ -7258,14 +7923,20 @@ ref; // ME_537C731D00B3 UpdateFormCaption
  : Parent ME_467823B7002C // afwInterfaces
  ;
  : Attributes
-   @ ( ME_534F88D7028A // CurrentMainForm
- ) .SequenceCode.It
+   Seq: ( ME_534F88D7028A // CurrentMainForm
+ )
  ; // Attributes
  : Operations
-   @ ( ME_537C731D00B3 // UpdateFormCaption
- ) .SequenceCode.It
+   Seq: ( ME_537C731D00B3 // UpdateFormCaption
+ )
  ; // Operations
  CONST "ifndef" 'NoVCL'
+ CONST dfm:PathOnly '\common\components\gui\Garant\AFW'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\AFW'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'afwMainFormContainer'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_534F88A500E2 IafwMainFormContainer
 
@@ -7280,6 +7951,12 @@ ref; // ME_534F88A500E2 IafwMainFormContainer
  CONST Abstraction at_regular
  : Parent ME_467823B7002C // afwInterfaces
  ;
+ CONST dfm:PathOnly '\common\components\gui\Garant\AFW'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\AFW'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'afwMainFormProvider'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_5461997A03A1 IafwMainFormProvider
 
@@ -7307,6 +7984,7 @@ ref; // ME_49E85D4A004B aCaption
  CONST Value 0
  : ValueType WL 'ME_477266BB000B' '46A5E026007E.pas.ms.script' // THandle
  ;
+ CONST extprop:pas:Value 0
 
 ref; // ME_49E85D4A007C anAttachWnd
 
@@ -7320,6 +7998,7 @@ ref; // ME_49E85D4A007C anAttachWnd
  CONST Value 'afw_lpwTimeout'
  : ValueType ME_475E94F80379 // Common
  ;
+ CONST extprop:pas:Value 'afw_lpwTimeout'
 
 ref; // ME_49E85D4A00C6 anInitialTimeout
 
@@ -7333,6 +8012,7 @@ ref; // ME_49E85D4A00C6 anInitialTimeout
  CONST Value 'nil'
  : ValueType ME_47978736001E // TafwCustomImageList
  ;
+ CONST extprop:pas:Value 'nil'
 
 ref; // ME_49E85D4A0152 anImageList
 
@@ -7346,6 +8026,7 @@ ref; // ME_49E85D4A0152 anImageList
  CONST Value '-1'
  : ValueType WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
  ;
+ CONST extprop:pas:Value '-1'
 
 ref; // ME_49E85D4A01DB anImageIndex
 
@@ -7360,12 +8041,12 @@ ref; // ME_49E85D4A01DB anImageIndex
  : Target ME_473D936D035F // IafwLongProcessVisualizer
  ;
  : Parameters
-   @ ( ME_49E85D4A004B // aCaption
+   Seq: ( ME_49E85D4A004B // aCaption
  ME_49E85D4A007C // anAttachWnd
  ME_49E85D4A00C6 // anInitialTimeout
  ME_49E85D4A0152 // anImageList
  ME_49E85D4A01DB // anImageIndex
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_49E85D4A0016 MakeLongProcessVisualizer
@@ -7381,10 +8062,14 @@ ref; // ME_49E85D4A0016 MakeLongProcessVisualizer
  : Parent ME_473DA1A00014 // IafwApplication
  ;
  : Operations
-   @ ( ME_49E85D4A0016 // MakeLongProcessVisualizer
- ) .SequenceCode.It
+   Seq: ( ME_49E85D4A0016 // MakeLongProcessVisualizer
+ )
  ; // Operations
  CONST "ifndef" 'NoVCL'
+ CONST dfm:PathOnly '\common\components\gui\Garant\AFW'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\AFW'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_49E85D2102CD MafwVisualizater
 
@@ -7565,8 +8250,8 @@ ref; // ME_5232DF4502E2 DoIt
  : Parent ME_473DA1A00014 // IafwApplication
  ;
  : Operations
-   @ ( ME_5232DF4502E2 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_5232DF4502E2 // DoIt
+ )
  ; // Operations
 
 ref; // ME_5232DF2E0192 IsTrialMode
@@ -7590,8 +8275,8 @@ ref; // ME_473DA1BB00A9 aTarget
  : Parent ME_473DA1A00014 // IafwApplication
  ;
  : Parameters
-   @ ( ME_473DA1BB00A9 // aTarget
- ) .SequenceCode.It
+   Seq: ( ME_473DA1BB00A9 // aTarget
+ )
  ; // Parameters
 
 ref; // ME_473DA1B10131 ApplyActiveLanguage
@@ -7638,6 +8323,7 @@ ref; // ME_4C9873450385 AskClearClipboardProc
  ;
  : Implementor ME_473DA1A00014 // IafwApplication
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_49E85D4A0016_ME_473DA1A00014 MakeLongProcessVisualizer
 
 : ME_473DA1A00014
@@ -7653,11 +8339,11 @@ ref; // ME_49E85D4A0016_ME_473DA1A00014 MakeLongProcessVisualizer
  : Parent ME_467823B7002C // afwInterfaces
  ;
  : Implements
-   @ ( ME_49E85D2102CD // MafwVisualizater
- ) .SequenceCode.It
+   Seq: ( ME_49E85D2102CD // MafwVisualizater
+ )
  ; // Implements
  : Attributes
-   @ ( ME_473DA22A0383 // CurrentMainForm
+   Seq: ( ME_473DA22A0383 // CurrentMainForm
  ME_473DA23B0085 // Settings
  ME_473DA24E0353 // PrintManager
  ME_473DA53603AD // UserQuery
@@ -7666,24 +8352,30 @@ ref; // ME_49E85D4A0016_ME_473DA1A00014 MakeLongProcessVisualizer
  ME_4768DE18030F // Data
  ME_4AB72A090253 // PermanentSettings
  ME_54F0063B0015 // TabInterfaceType
- ) .SequenceCode.It
+ )
  ; // Attributes
  : Operations
-   @ ( ME_5232DF2E0192 // IsTrialMode
+   Seq: ( ME_5232DF2E0192 // IsTrialMode
  ME_473DA1B10131 // ApplyActiveLanguage
  ME_4BFE5ED5019D // LockKeyBoard
  ME_4BFE5EE60134 // UnlockKeyBoard
  ME_4C9873450385 // AskClearClipboardProc
- ) .SequenceCode.It
+ )
  ; // Operations
  : Implemented
-   @ ( ME_49E85D4A0016_ME_473DA1A00014 // MakeLongProcessVisualizer
- ) .SequenceCode.It
+   Seq: ( ME_49E85D4A0016_ME_473DA1A00014 // MakeLongProcessVisualizer
+ )
  ; // Implemented
  : Children
-   @ ( ME_49E85D2102CD // MafwVisualizater
- ) .SequenceCode.It
+   Seq: ( ME_49E85D2102CD // MafwVisualizater
+ )
  ; // Children
+ CONST dfm:PathOnly '\common\components\gui\Garant\AFW'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\AFW'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'afwApplication'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_473DA1A00014 IafwApplication
 
@@ -7698,7 +8390,7 @@ ref; // ME_473DA1A00014 IafwApplication
  : Parent WL 'ME_4790B4F00236' '4790B4F00236.pas.ms.script' // AFW
  ;
  : Children
-   @ ( ME_473D8F6802BF // TafwRect
+   Seq: ( ME_473D8F6802BF // TafwRect
  ME_4683C9110178 // IafwCString
  ME_467D2A5403B6 // IafwFontCache
  ME_467D2C8F0172 // IafwStyleTableSpy
@@ -7797,39 +8489,37 @@ ref; // ME_473DA1A00014 IafwApplication
  ME_534F88A500E2 // IafwMainFormContainer
  ME_5461997A03A1 // IafwMainFormProvider
  ME_473DA1A00014 // IafwApplication
- ) .SequenceCode.It
+ )
  ; // Children
  : Constants
-   @ ( ME_475E94F80379 // Common
+   Seq: ( ME_475E94F80379 // Common
  ME_475E88C10017 // Messages
  ME_475EA8840080 // Locale
- ) .SequenceCode.It
+ )
  ; // Constants
  : Depends
-   @ ( WL 'ME_4677FBA70343' '4677FBA70343.pas.ms.script' // l3Interfaces
+   Seq: ( WL 'ME_4677FBA70343' '4677FBA70343.pas.ms.script' // l3Interfaces
  WL 'ME_467C0CAA02AB' '467C0CAA02AB.pas.ms.script' // l3InternalInterfaces
  WL 'ME_46A5E026007E' '46A5E026007E.pas.ms.script' // l3Core
  WL 'ME_473C569D0287' '473C569D0287.pas.ms.script' // afwTypes
  WL 'ME_4799D29F033F' '4799D29F033F.pas.ms.script' // Implementation
  WL 'ME_4AB0997B00A2' '4AB0997B00A2.pas.ms.script' // Common
  WL 'ME_4AB0C3C60310' '4AB0C3C60310.pas.ms.script' // Sys
+ WL 'ME_4E79FA920283' '4E79FA920283.pas.ms.script' // Плавающие окна
  WL 'ME_556F09AA036E' '556F09AA036E.pas.ms.script' // l3PrinterInterfaces
- ) .SequenceCode.It
+ )
  ; // Depends
  CONST "author" 'Люлин А.В.'
  CONST "is namespace" true
  CONST "no hands" true
  CONST "started" '20.12.2004 15:50'
  CONST "weak" true
- : Generators
- @ (
- gen_intf.pas
- gen_pas.script
- gen_pas.script.runner
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\AFW'
  CONST intf.pas:Path 'common\components\gui\Garant\AFW\afwInterfaces.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\AFW'
  CONST pas.script:Path 'shared\models\NewSchool\Scripts\467823B7002C.pas.ms.script'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
  CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\467823B7002C.pas.ms.script.runner'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_467823B7002C afwInterfaces

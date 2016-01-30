@@ -13,7 +13,7 @@ INCLUDE 'ElementsRTTI.ms.dict'
  : Parent WL 'ME_562E251101C2' '562E251101C2.pas.ms.script' // Shared Delphi Rtl
  ;
  : Children
-   @ ( WL 'ME_4AB0C3C60310' '4AB0C3C60310.pas.ms.script' // Sys
+   Seq: ( WL 'ME_4AB0C3C60310' '4AB0C3C60310.pas.ms.script' // Sys
  WL 'ME_4728A7020026' '4728A7020026.pas.ms.script' // Types
  WL 'ME_4767743E00E5' '4767743E00E5.pas.ms.script' // TypInfo
  WL 'ME_476F78840219' '476F78840219.pas.ms.script' // Messages
@@ -21,28 +21,25 @@ INCLUDE 'ElementsRTTI.ms.dict'
  WL 'ME_4AB0C3F60375' '4AB0C3F60375.pas.ms.script' // Win
  WL 'ME_46A0E6C5023A' '46A0E6C5023A.pas.ms.script' // ActiveX
  WL 'ME_4AB0997B00A2' '4AB0997B00A2.pas.ms.script' // Common
- ) .SequenceCode.It
+ )
  ; // Children
  : Depends
-   @ ( WL 'ME_561F9F7D02A7' '561F9F7D02A7.pas.ms.script' // ScriptEngine
- ) .SequenceCode.It
+   Seq: ( WL 'ME_561F9F7D02A7' '561F9F7D02A7.pas.ms.script' // ScriptEngine
+ )
  ; // Depends
  CONST "exec mode" 'concluded'
  CONST "finished" false
  CONST "gui" false
  CONST "is namespace" true
  CONST "vendor" '/external/NotFinished/Borland/Delphi'
- : Generators
- @ (
- gen_forth_structure
- gen_intf.pas
- gen_pas.script
- gen_pas.script.runner
- ) .SequenceCode.It
- ; // Generators
- CONST forth_structure:Path 'shared\models\NewSchool\Shared Delphi Rtl\Rtl\Rtl.model.script'
- CONST intf.pas:Path 'common\components\rtl\external\NotFinished\Borland\Delphi\Rtl\Rtl_lib.info'
+ CONST dfm:PathOnly '\common\components\rtl\external\NotFinished\Borland\Delphi\Rtl'
+ CONST intf.pas:PathOnly '\common\components\rtl\external\NotFinished\Borland\Delphi\Rtl'
+ CONST mda:PathOnly '\Shared Delphi Rtl'
+ CONST mda.inc:PathOnly '\Shared Delphi Rtl'
  CONST pas.script:Path 'shared\models\NewSchool\Scripts\469F3E37025A.pas.ms.script'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
  CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\469F3E37025A.pas.ms.script.runner'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST tpi.script:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_469F3E37025A Rtl

@@ -1,0 +1,579 @@
+// WorkJournalImpl 4A825D760190 Unit Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4A825D760190
+
+FORWARD ME_4A83AC9D0128
+
+: ME_4A83ACC6021F
+ CONST UID '4A83ACC6021F'
+ CONST Name 'ItemType'
+ CONST Class class_Attribute
+ : Stereotype st_impurity_value::Attribute ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_ref
+ : Parent ME_4A83AC9D0128 // TnsWorkJournalListeners
+ ;
+ : Target WL 'ME_4A83AA5202C1' '4D7A05A000C1.pas.ms.script' // InsWorkJournalListener
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_4A83ACC6021F ItemType
+
+: ME_4A83AC9D0128
+ CONST UID '4A83AC9D0128'
+ CONST Name 'TnsWorkJournalListeners'
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4A825D760190 // WorkJournalImpl
+ ;
+ : Inherits
+   Seq: ( WL 'ME_47B57D630029' '47913B47006E.pas.ms.script' // l3InterfacePtrList
+ WL 'ME_47BC3A07027F' '47913B47006E.pas.ms.script' // Tl3SimpleDataContainer
+ )
+ ; // Inherits
+ : Attributes
+   Seq: ( ME_4A83ACC6021F // ItemType
+ )
+ ; // Attributes
+ CONST "UseNewGen" 'undefined'
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ : Generators
+ Seq: (
+ gen_intf.pas
+ )
+ ; // Generators
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\WorkJournal'
+ CONST intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\WorkJournal\nsWorkJournalListeners.pas'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\WorkJournal'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\WorkJournal'
+ CONST extprop:pas:UnitName 'nsWorkJournalListeners'
+
+ref; // ME_4A83AC9D0128 TnsWorkJournalListeners
+
+FORWARD ME_4A825E02010E
+
+: ME_4A83ACF4003F
+ CONST UID '4A83ACF4003F'
+ CONST Name 'f_Listeners'
+ CONST Class class_Attribute
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_4A825E02010E // TbsWorkJournalPrim
+ ;
+ : Target ME_4A83AC9D0128 // TnsWorkJournalListeners
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_4A83ACF4003F f_Listeners
+
+: ME_4A82940E0297
+ CONST UID '4A82940E0297'
+ CONST Name 'Make'
+ CONST Class class_Operation
+ : Stereotype st_factory::Operation ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_4A825E02010E // TbsWorkJournalPrim
+ ;
+ CONST "UseNewGen" 'undefined'
+ CONST "check nil" false
+ CONST "need AfterCreate" 'undefined'
+ CONST "need Aggregate" 'undefined'
+ CONST "need As" false
+
+ref; // ME_4A82940E0297 Make
+
+: ME_4A83AD2D030F
+ CONST UID '4A83AD2D030F'
+ CONST Name 'Create'
+ CONST Class class_Operation
+ : Stereotype st_ctor::Operation ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_4A825E02010E // TbsWorkJournalPrim
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_4A83AD2D030F Create
+
+FORWARD ME_4A8260EC0099
+
+: ME_4A82611D0318
+ CONST UID '4A82611D0318'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4A825E02010E // TbsWorkJournalPrim
+ ;
+ : Target ME_4A8260EC0099 // TnsJournalTreeStruct
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_4A82611D0318 
+
+: ME_4A82767A0145
+ CONST UID '4A82767A0145'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4A825E02010E // TbsWorkJournalPrim
+ ;
+ : Target WL 'ME_48FF556602BA' '48F747EC0073.pas.ms.script' // DataAdapter
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_4A82767A0145 
+
+: ME_4A8287C0019F
+ CONST UID '4A8287C0019F'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4A825E02010E // TbsWorkJournalPrim
+ ;
+ : Target WL 'ME_45EEB95901C5' '457450470167.pas.ms.script' // NodeBase
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_4A8287C0019F 
+
+: ME_4A828C270010
+ CONST UID '4A828C270010'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4A825E02010E // TbsWorkJournalPrim
+ ;
+ : Target WL 'ME_4A7FFAFA023A' '4A7FF5F301B2.pas.ms.script' // JournalObjectType
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_4A828C270010 
+
+: ME_4A828C2A0078
+ CONST UID '4A828C2A0078'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4A825E02010E // TbsWorkJournalPrim
+ ;
+ : Target WL 'ME_4A8001010232' '4A7FF5F301B2.pas.ms.script' // BookmarkJournalType
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_4A828C2A0078 
+
+: ME_4A828FCC0091
+ CONST UID '4A828FCC0091'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4A825E02010E // TbsWorkJournalPrim
+ ;
+ : Target WL 'ME_47877EB202FB' '4AB0C3C60310.pas.ms.script' // SysUtils
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_4A828FCC0091 
+
+: ME_4A82C5DC0363
+ CONST UID '4A82C5DC0363'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4A825E02010E // TbsWorkJournalPrim
+ ;
+ : Target WL 'ME_47F260EC02C7' '521C9DA50125.pas.ms.script' // StdRes
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_4A82C5DC0363 
+
+: ME_4A825DBE0310_ME_4A825E02010E
+ CONST UID '4A825DBE0310'
+ CONST Name 'MakeTree'
+ : Original WL 'ME_4A825DBE0310' '4A825D5D0235.pas.ms.script' // MakeTree
+ ;
+ : Implementor ME_4A825E02010E // TbsWorkJournalPrim
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "UseNewGen" 'undefined'
+ref; // ME_4A825DBE0310_ME_4A825E02010E MakeTree
+
+: ME_4A825E760100_ME_4A825E02010E
+ CONST UID '4A825E760100'
+ CONST Name 'Clear'
+ : Original WL 'ME_4A825E760100' '4A825D5D0235.pas.ms.script' // Clear
+ ;
+ : Implementor ME_4A825E02010E // TbsWorkJournalPrim
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "UseNewGen" 'undefined'
+ref; // ME_4A825E760100_ME_4A825E02010E Clear
+
+: ME_4A82602103A2_ME_4A825E02010E
+ CONST UID '4A82602103A2'
+ CONST Name 'AddQuery'
+ : Original WL 'ME_4A82602103A2' '4A825D5D0235.pas.ms.script' // AddQuery
+ ;
+ : Implementor ME_4A825E02010E // TbsWorkJournalPrim
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "UseNewGen" 'undefined'
+ref; // ME_4A82602103A2_ME_4A825E02010E AddQuery
+
+: ME_4A826038019A_ME_4A825E02010E
+ CONST UID '4A826038019A'
+ CONST Name 'AddBookMark'
+ : Original WL 'ME_4A826038019A' '4A825D5D0235.pas.ms.script' // AddBookMark
+ ;
+ : Implementor ME_4A825E02010E // TbsWorkJournalPrim
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "UseNewGen" 'undefined'
+ref; // ME_4A826038019A_ME_4A825E02010E AddBookMark
+
+: ME_4A8261F2003D_ME_4A825E02010E
+ CONST UID '4A8261F2003D'
+ CONST Name 'MakeQueryHistory'
+ : Original WL 'ME_4A8261F2003D' '4A825D5D0235.pas.ms.script' // MakeQueryHistory
+ ;
+ : Implementor ME_4A825E02010E // TbsWorkJournalPrim
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "UseNewGen" 'undefined'
+ref; // ME_4A8261F2003D_ME_4A825E02010E MakeQueryHistory
+
+: ME_4A82623302E1_ME_4A825E02010E
+ CONST UID '4A82623302E1'
+ CONST Name 'MakeBookMarkHistory'
+ : Original WL 'ME_4A82623302E1' '4A825D5D0235.pas.ms.script' // MakeBookMarkHistory
+ ;
+ : Implementor ME_4A825E02010E // TbsWorkJournalPrim
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "UseNewGen" 'undefined'
+ref; // ME_4A82623302E1_ME_4A825E02010E MakeBookMarkHistory
+
+: ME_4A8277980075_ME_4A825E02010E
+ CONST UID '4A8277980075'
+ CONST Name 'Delete'
+ : Original WL 'ME_4A8277980075' '4A825D5D0235.pas.ms.script' // Delete
+ ;
+ : Implementor ME_4A825E02010E // TbsWorkJournalPrim
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "UseNewGen" 'undefined'
+ref; // ME_4A8277980075_ME_4A825E02010E Delete
+
+: ME_4A83AD4402AC_ME_4A825E02010E
+ CONST UID '4A83AD4402AC'
+ CONST Name 'RegisterListener'
+ : Original WL 'ME_4A83AD4402AC' '4A825D5D0235.pas.ms.script' // RegisterListener
+ ;
+ : Implementor ME_4A825E02010E // TbsWorkJournalPrim
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "UseNewGen" 'undefined'
+ref; // ME_4A83AD4402AC_ME_4A825E02010E RegisterListener
+
+: ME_4A83AD6D02B9_ME_4A825E02010E
+ CONST UID '4A83AD6D02B9'
+ CONST Name 'UnRegisterListener'
+ : Original WL 'ME_4A83AD6D02B9' '4A825D5D0235.pas.ms.script' // UnRegisterListener
+ ;
+ : Implementor ME_4A825E02010E // TbsWorkJournalPrim
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "UseNewGen" 'undefined'
+ref; // ME_4A83AD6D02B9_ME_4A825E02010E UnRegisterListener
+
+: ME_4A83ADA701C0_ME_4A825E02010E
+ CONST UID '4A83ADA701C0'
+ CONST Name 'NotifyJournalShrinked'
+ : Original WL 'ME_4A83ADA701C0' '4A825D5D0235.pas.ms.script' // NotifyJournalShrinked
+ ;
+ : Implementor ME_4A825E02010E // TbsWorkJournalPrim
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "UseNewGen" 'undefined'
+ref; // ME_4A83ADA701C0_ME_4A825E02010E NotifyJournalShrinked
+
+: ME_479731C50290_ME_4A825E02010E
+ CONST UID '479731C50290'
+ CONST Name 'Cleanup'
+ : Original WL 'ME_479731C50290' '51612EBB02F5.pas.ms.script' // Cleanup
+ ;
+ : Implementor ME_4A825E02010E // TbsWorkJournalPrim
+ ;
+ CONST OpKind opkind_Overridden
+ CONST "UseNewGen" 'undefined'
+ref; // ME_479731C50290_ME_4A825E02010E Cleanup
+
+: ME_4A825E02010E
+ CONST UID '4A825E02010E'
+ CONST Name 'TbsWorkJournalPrim'
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4A825D760190 // WorkJournalImpl
+ ;
+ : Inherits
+   Seq: ( WL 'ME_47BC391D0259' '47913B47006E.pas.ms.script' // Tl3SimpleObject
+ )
+ ; // Inherits
+ : Implements
+   Seq: ( WL 'ME_4A825D920164' '4A825D5D0235.pas.ms.script' // IbsWorkJournal
+ )
+ ; // Implements
+ : Attributes
+   Seq: ( ME_4A83ACF4003F // f_Listeners
+ )
+ ; // Attributes
+ : Operations
+   Seq: ( ME_4A82940E0297 // Make
+ ME_4A83AD2D030F // Create
+ )
+ ; // Operations
+ : Implemented
+   Seq: ( ME_4A825DBE0310_ME_4A825E02010E // MakeTree
+ ME_4A825E760100_ME_4A825E02010E // Clear
+ ME_4A82602103A2_ME_4A825E02010E // AddQuery
+ ME_4A826038019A_ME_4A825E02010E // AddBookMark
+ ME_4A8261F2003D_ME_4A825E02010E // MakeQueryHistory
+ ME_4A82623302E1_ME_4A825E02010E // MakeBookMarkHistory
+ ME_4A8277980075_ME_4A825E02010E // Delete
+ ME_4A83AD4402AC_ME_4A825E02010E // RegisterListener
+ ME_4A83AD6D02B9_ME_4A825E02010E // UnRegisterListener
+ ME_4A83ADA701C0_ME_4A825E02010E // NotifyJournalShrinked
+ )
+ ; // Implemented
+ : Overridden
+   Seq: ( ME_479731C50290_ME_4A825E02010E // Cleanup
+ )
+ ; // Overridden
+ : Dependencies
+   Seq: ( ME_4A82611D0318 // 
+ ME_4A82767A0145 // 
+ ME_4A8287C0019F // 
+ ME_4A828C270010 // 
+ ME_4A828C2A0078 // 
+ ME_4A828FCC0091 // 
+ ME_4A82C5DC0363 // 
+ )
+ ; // Dependencies
+ CONST "UseNewGen" 'undefined'
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ : Generators
+ Seq: (
+ gen_intf.pas
+ )
+ ; // Generators
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\WorkJournal'
+ CONST intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\WorkJournal\bsWorkJournalPrim.pas'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\WorkJournal'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\WorkJournal'
+ CONST extprop:pas:UnitName 'bsWorkJournalPrim'
+
+ref; // ME_4A825E02010E TbsWorkJournalPrim
+
+: ME_4A8274F500E6
+ CONST UID '4A8274F500E6'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4A8260EC0099 // TnsJournalTreeStruct
+ ;
+ : Target WL 'ME_48FF556602BA' '48F747EC0073.pas.ms.script' // DataAdapter
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_4A8274F500E6 
+
+: ME_48FF64F60078_ME_4A8260EC0099
+ CONST UID '48FF64F60078'
+ CONST Name 'ReAqurieUnfilteredRoot'
+ : Original WL 'ME_48FF64F60078' '48FD8B2702F6.pas.ms.script' // ReAqurieUnfilteredRoot
+ ;
+ : Implementor ME_4A8260EC0099 // TnsJournalTreeStruct
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "UseNewGen" 'undefined'
+ref; // ME_48FF64F60078_ME_4A8260EC0099 ReAqurieUnfilteredRoot
+
+: ME_4A8260EC0099
+ CONST UID '4A8260EC0099'
+ CONST Name 'TnsJournalTreeStruct'
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4A825D760190 // WorkJournalImpl
+ ;
+ : Inherits
+   Seq: ( WL 'ME_468361010204' '48FD8B2702F6.pas.ms.script' // TnsDataResetTreeStruct
+ )
+ ; // Inherits
+ : Implemented
+   Seq: ( ME_48FF64F60078_ME_4A8260EC0099 // ReAqurieUnfilteredRoot
+ )
+ ; // Implemented
+ : Dependencies
+   Seq: ( ME_4A8274F500E6 // 
+ )
+ ; // Dependencies
+ CONST "UseNewGen" 'undefined'
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ : Generators
+ Seq: (
+ gen_intf.pas
+ )
+ ; // Generators
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\WorkJournal'
+ CONST intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\WorkJournal\nsJournalTreeStruct.pas'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\WorkJournal'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\WorkJournal'
+ CONST extprop:pas:UnitName 'nsJournalTreeStruct'
+
+ref; // ME_4A8260EC0099 TnsJournalTreeStruct
+
+FORWARD ME_4A825E1200F4
+
+: ME_4A82922D028D
+ CONST UID '4A82922D028D'
+ CONST Name 'Make'
+ CONST Class class_Operation
+ : Stereotype st_factory::Operation ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_4A825E1200F4 // TbsWorkJournal
+ ;
+ : Target WL 'ME_4A825D920164' '4A825D5D0235.pas.ms.script' // IbsWorkJournal
+ ;
+ CONST "UseNewGen" 'undefined'
+ CONST "check nil" false
+ CONST "need AfterCreate" 'undefined'
+ CONST "need Aggregate" 'undefined'
+ CONST "need As" false
+
+ref; // ME_4A82922D028D Make
+
+: ME_AF6A3311B63D
+ CONST UID 'AF6A3311B63D'
+ CONST Name 'Exists'
+ CONST IsSummoned true
+ CONST Class class_Operation
+ : Stereotype st_static::Operation ;
+ %SUMMARY 'Проверяет создан экземпляр синглетона или нет' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_4A825E1200F4 // TbsWorkJournal
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+ CONST "UseNewGen" 'undefined'
+ CONST extprop:pas:Value false
+
+ref; // ME_AF6A3311B63D Exists
+
+: ME_4A825E1200F4
+ CONST UID '4A825E1200F4'
+ CONST Name 'TbsWorkJournal'
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4A825D760190 // WorkJournalImpl
+ ;
+ : Inherits
+   Seq: ( ME_4A825E02010E // TbsWorkJournalPrim
+ )
+ ; // Inherits
+ : Operations
+   Seq: ( ME_4A82922D028D // Make
+ ME_AF6A3311B63D // Exists
+ )
+ ; // Operations
+ CONST "UseNewGen" 'undefined'
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ CONST "singleton" true
+ : Generators
+ Seq: (
+ gen_intf.pas
+ )
+ ; // Generators
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\WorkJournal'
+ CONST intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\WorkJournal\bsWorkJournal.pas'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\WorkJournal'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\WorkJournal'
+ CONST extprop:pas:UnitName 'bsWorkJournal'
+
+ref; // ME_4A825E1200F4 TbsWorkJournal
+
+: ME_4A825D760190
+ CONST UID '4A825D760190'
+ CONST Name 'WorkJournalImpl'
+ CONST Class class_Category
+ : Stereotype st_Unit ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent WL 'ME_4A825D4902F1' '4A825D4902F1.pas.ms.script' // WorkJournal
+ ;
+ : Children
+   Seq: ( ME_4A83AC9D0128 // TnsWorkJournalListeners
+ ME_4A825E02010E // TbsWorkJournalPrim
+ ME_4A8260EC0099 // TnsJournalTreeStruct
+ ME_4A825E1200F4 // TbsWorkJournal
+ )
+ ; // Children
+ : Depends
+   Seq: ( WL 'ME_457450470167' '457450470167.pas.ms.script' // DynamicTree
+ WL 'ME_47913B47006E' '47913B47006E.pas.ms.script' // l3CoreObjects
+ WL 'ME_48F747EC0073' '48F747EC0073.pas.ms.script' // Common
+ WL 'ME_48FD8B2702F6' '48FD8B2702F6.pas.ms.script' // Tree
+ WL 'ME_4A7FF5F301B2' '4A7FF5F301B2.pas.ms.script' // UserJournal
+ WL 'ME_4A825D5D0235' '4A825D5D0235.pas.ms.script' // WorkJournalInterfaces
+ WL 'ME_4AB0C3C60310' '4AB0C3C60310.pas.ms.script' // Sys
+ WL 'ME_4D7A05A000C1' '4D7A05A000C1.pas.ms.script' // PrimWorkJournalInterfaces
+ WL 'ME_521C9DA50125' '521C9DA50125.pas.ms.script' // Application Resources
+ )
+ ; // Depends
+ CONST "UseNewGen" 'undefined'
+ : Generators
+ Seq: (
+ gen_pas.script
+ gen_pas.script.runner
+ )
+ ; // Generators
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\WorkJournal'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\WorkJournal'
+ CONST pas.script:Path 'shared\models\NewSchool\Scripts\4A825D760190.pas.ms.script'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\4A825D760190.pas.ms.script.runner'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\WorkJournal'
+
+ref; // ME_4A825D760190 WorkJournalImpl

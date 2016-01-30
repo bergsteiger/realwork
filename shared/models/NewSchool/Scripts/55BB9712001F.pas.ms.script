@@ -15,9 +15,13 @@ FORWARD ME_55BB9712001F
  : Parent ME_55BB9712001F // tfwScriptingExceptions
  ;
  : Inherits
-   @ ( WL 'ME_4787A405013D' '4AB0C3C60310.pas.ms.script' // Exception
- ) .SequenceCode.It
+   Seq: ( WL 'ME_4787A405013D' '4AB0C3C60310.pas.ms.script' // Exception
+ )
  ; // Inherits
+ CONST dfm:PathOnly '\common\components\rtl\Garant\ScriptEngine'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\ScriptEngine'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_54F994E10154 EtfwException
 
@@ -54,9 +58,9 @@ ref; // ME_54F874490191 aMessage
  : Parent ME_54F8741B021E // IsTrue
  ;
  : Parameters
-   @ ( ME_54F874490155 // aCondition
+   Seq: ( ME_54F874490155 // aCondition
  ME_54F874490191 // aMessage
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_54F874340321 DoIt
@@ -72,8 +76,8 @@ ref; // ME_54F874340321 DoIt
  : Parent ME_54F873F5009A // EtfwCheckPrim
  ;
  : Operations
-   @ ( ME_54F874340321 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_54F874340321 // DoIt
+ )
  ; // Operations
  CONST "is static" true
 
@@ -100,8 +104,8 @@ ref; // ME_550C433E026F aMessage
  : Parent ME_550C432A0223 // Fail
  ;
  : Parameters
-   @ ( ME_550C433E026F // aMessage
- ) .SequenceCode.It
+   Seq: ( ME_550C433E026F // aMessage
+ )
  ; // Parameters
 
 ref; // ME_550C433A0188 DoIt
@@ -117,8 +121,8 @@ ref; // ME_550C433A0188 DoIt
  : Parent ME_54F873F5009A // EtfwCheckPrim
  ;
  : Operations
-   @ ( ME_550C433A0188 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_550C433A0188 // DoIt
+ )
  ; // Operations
  CONST "is static" true
 
@@ -135,18 +139,23 @@ ref; // ME_550C432A0223 Fail
  : Parent ME_55BB9712001F // tfwScriptingExceptions
  ;
  : Inherits
-   @ ( ME_54F994E10154 // EtfwException
- ) .SequenceCode.It
+   Seq: ( ME_54F994E10154 // EtfwException
+ )
  ; // Inherits
  : Operations
-   @ ( ME_54F8741B021E // IsTrue
+   Seq: ( ME_54F8741B021E // IsTrue
  ME_550C432A0223 // Fail
- ) .SequenceCode.It
+ )
  ; // Operations
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
+ CONST dfm:PathOnly '\common\components\rtl\Garant\ScriptEngine'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\ScriptEngine'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_54F873F5009A EtfwCheckPrim
 
@@ -161,9 +170,13 @@ ref; // ME_54F873F5009A EtfwCheckPrim
  : Parent ME_55BB9712001F // tfwScriptingExceptions
  ;
  : Inherits
-   @ ( ME_54F873F5009A // EtfwCheckPrim
- ) .SequenceCode.It
+   Seq: ( ME_54F873F5009A // EtfwCheckPrim
+ )
  ; // Inherits
+ CONST dfm:PathOnly '\common\components\rtl\Garant\ScriptEngine'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\ScriptEngine'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_54F99536034A EtfwCheck
 
@@ -177,22 +190,19 @@ ref; // ME_54F99536034A EtfwCheck
  : Parent WL 'ME_54CF97B10370' '54CF97B10370.pas.ms.script' // ScriptEngine$Core
  ;
  : Children
-   @ ( ME_54F994E10154 // EtfwException
+   Seq: ( ME_54F994E10154 // EtfwException
  ME_54F873F5009A // EtfwCheckPrim
  ME_54F99536034A // EtfwCheck
- ) .SequenceCode.It
+ )
  ; // Children
  CONST "is namespace" true
  CONST "no hands" false
- : Generators
- @ (
- gen_intf.pas
- gen_pas.script
- gen_pas.script.runner
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\ScriptEngine'
  CONST intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\tfwScriptingExceptions.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\ScriptEngine'
  CONST pas.script:Path 'shared\models\NewSchool\Scripts\55BB9712001F.pas.ms.script'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
  CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\55BB9712001F.pas.ms.script.runner'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_55BB9712001F tfwScriptingExceptions

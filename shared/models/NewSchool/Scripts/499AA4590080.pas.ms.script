@@ -35,8 +35,8 @@ ref; // ME_499AA4D102C1 ProfilerID
  : Target WL 'ME_499AA4AD0036' '47D0E1500033.pas.ms.script' // TvcmProfiler
  ;
  : Attributes
-   @ ( ME_499AA4D102C1 // ProfilerID
- ) .SequenceCode.It
+   Seq: ( ME_499AA4D102C1 // ProfilerID
+ )
  ; // Attributes
 
 ref; // ME_499AA4C50300 Profiler
@@ -52,20 +52,20 @@ ref; // ME_499AA4C50300 Profiler
  : Parent ME_499AA4590080 // Profilers
  ;
  : Inherits
-   @ ( WL 'ME_499AA39D0014' '47D0E1500033.pas.ms.script' // TvcmProfilersCollection
- ) .SequenceCode.It
+   Seq: ( WL 'ME_499AA39D0014' '47D0E1500033.pas.ms.script' // TvcmProfilersCollection
+ )
  ; // Inherits
  : Attributes
-   @ ( ME_499AA4C50300 // Profiler
- ) .SequenceCode.It
+   Seq: ( ME_499AA4C50300 // Profiler
+ )
  ; // Attributes
  CONST "is friend" false
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\VCM'
  CONST intf.pas:Path 'common\components\gui\Garant\VCM\vcmProfilersCollection_p.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\VCM'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:pas:UnitName 'vcmProfilersCollection_p'
 
 ref; // ME_499AA4880244 TvcmProfilersCollection
 
@@ -80,21 +80,19 @@ ref; // ME_499AA4880244 TvcmProfilersCollection
  : Parent WL 'ME_499AA43A012F' '499AA43A012F.pas.ms.script' // VCMTest
  ;
  : Children
-   @ ( ME_499AA4880244 // TvcmProfilersCollection
- ) .SequenceCode.It
+   Seq: ( ME_499AA4880244 // TvcmProfilersCollection
+ )
  ; // Children
  : Depends
-   @ ( WL 'ME_47D0E1500033' '47D0E1500033.pas.ms.script' // Implementation
+   Seq: ( WL 'ME_47D0E1500033' '47D0E1500033.pas.ms.script' // Implementation
  WL 'ME_4AB0C3C60310' '4AB0C3C60310.pas.ms.script' // Sys
- ) .SequenceCode.It
+ )
  ; // Depends
- : Generators
- @ (
- gen_pas.script
- gen_pas.script.runner
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\VCM'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\VCM'
  CONST pas.script:Path 'shared\models\NewSchool\Scripts\499AA4590080.pas.ms.script'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
  CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\499AA4590080.pas.ms.script.runner'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_499AA4590080 Profilers

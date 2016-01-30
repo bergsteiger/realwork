@@ -11,6 +11,7 @@ FORWARD ME_4B570AFF0023
 : ME_0BBC772581B2
  CONST UID '0BBC772581B2'
  CONST Name 'DoIt'
+ CONST IsSummoned true
  CONST Class class_Operation
  %SUMMARY 'Сигнатура метода AnsiReplaceStr' ;
  CONST Visibility PublicAccess
@@ -31,8 +32,8 @@ ref; // ME_0BBC772581B2 DoIt
  : Parent ME_483C378301CB // StrUtils
  ;
  : Operations
-   @ ( ME_0BBC772581B2 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_0BBC772581B2 // DoIt
+ )
  ; // Operations
 
 ref; // ME_4B570AFF0023 AnsiReplaceStr
@@ -42,6 +43,7 @@ FORWARD ME_4B853D8301E9
 : ME_449889BC49E1
  CONST UID '449889BC49E1'
  CONST Name 'DoIt'
+ CONST IsSummoned true
  CONST Class class_Operation
  %SUMMARY 'Сигнатура метода AnsiStartsStr' ;
  CONST Visibility PublicAccess
@@ -62,8 +64,8 @@ ref; // ME_449889BC49E1 DoIt
  : Parent ME_483C378301CB // StrUtils
  ;
  : Operations
-   @ ( ME_449889BC49E1 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_449889BC49E1 // DoIt
+ )
  ; // Operations
 
 ref; // ME_4B853D8301E9 AnsiStartsStr
@@ -73,6 +75,7 @@ FORWARD ME_4BB3609E0331
 : ME_AFD2504AEF67
  CONST UID 'AFD2504AEF67'
  CONST Name 'DoIt'
+ CONST IsSummoned true
  CONST Class class_Operation
  %SUMMARY 'Сигнатура метода AnsiStartsText' ;
  CONST Visibility PublicAccess
@@ -93,8 +96,8 @@ ref; // ME_AFD2504AEF67 DoIt
  : Parent ME_483C378301CB // StrUtils
  ;
  : Operations
-   @ ( ME_AFD2504AEF67 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_AFD2504AEF67 // DoIt
+ )
  ; // Operations
 
 ref; // ME_4BB3609E0331 AnsiStartsText
@@ -104,6 +107,7 @@ FORWARD ME_4F26C8EA0067
 : ME_634A605F30CB
  CONST UID '634A605F30CB'
  CONST Name 'DoIt'
+ CONST IsSummoned true
  CONST Class class_Operation
  %SUMMARY 'Сигнатура метода AnsiEndsStr' ;
  CONST Visibility PublicAccess
@@ -124,8 +128,8 @@ ref; // ME_634A605F30CB DoIt
  : Parent ME_483C378301CB // StrUtils
  ;
  : Operations
-   @ ( ME_634A605F30CB // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_634A605F30CB // DoIt
+ )
  ; // Operations
 
 ref; // ME_4F26C8EA0067 AnsiEndsStr
@@ -135,6 +139,7 @@ FORWARD ME_519C72F902E4
 : ME_274A8AB89658
  CONST UID '274A8AB89658'
  CONST Name 'DoIt'
+ CONST IsSummoned true
  CONST Class class_Operation
  %SUMMARY 'Сигнатура метода PosEx' ;
  CONST Visibility PublicAccess
@@ -155,8 +160,8 @@ ref; // ME_274A8AB89658 DoIt
  : Parent ME_483C378301CB // StrUtils
  ;
  : Operations
-   @ ( ME_274A8AB89658 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_274A8AB89658 // DoIt
+ )
  ; // Operations
 
 ref; // ME_519C72F902E4 PosEx
@@ -166,6 +171,7 @@ FORWARD ME_51D299B4032E
 : ME_61289E0B24E8
  CONST UID '61289E0B24E8'
  CONST Name 'DoIt'
+ CONST IsSummoned true
  CONST Class class_Operation
  %SUMMARY 'Сигнатура метода AnsiContainsText' ;
  CONST Visibility PublicAccess
@@ -186,8 +192,8 @@ ref; // ME_61289E0B24E8 DoIt
  : Parent ME_483C378301CB // StrUtils
  ;
  : Operations
-   @ ( ME_61289E0B24E8 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_61289E0B24E8 // DoIt
+ )
  ; // Operations
 
 ref; // ME_51D299B4032E AnsiContainsText
@@ -197,6 +203,7 @@ FORWARD ME_55097F16032A
 : ME_02ADBD0399BE
  CONST UID '02ADBD0399BE'
  CONST Name 'DoIt'
+ CONST IsSummoned true
  CONST Class class_Operation
  %SUMMARY 'Сигнатура метода IfThen' ;
  CONST Visibility PublicAccess
@@ -217,8 +224,8 @@ ref; // ME_02ADBD0399BE DoIt
  : Parent ME_483C378301CB // StrUtils
  ;
  : Operations
-   @ ( ME_02ADBD0399BE // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_02ADBD0399BE // DoIt
+ )
  ; // Operations
  CONST "finished" false
 
@@ -256,9 +263,9 @@ ref; // ME_483C37AE02A5 ACount
  : Target WL 'ME_483C2FA400B1' '4AB0C3C60310.pas.ms.script' // AnsiString
  ;
  : Parameters
-   @ ( ME_483C37AE0257 // AText
+   Seq: ( ME_483C37AE0257 // AText
  ME_483C37AE02A5 // ACount
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_483C379A00C1 LeftStr
@@ -274,7 +281,7 @@ ref; // ME_483C379A00C1 LeftStr
  : Parent ME_4AB0997B00A2 // Common
  ;
  : Operations
-   @ ( ME_4B570AFF0023 // AnsiReplaceStr
+   Seq: ( ME_4B570AFF0023 // AnsiReplaceStr
  ME_4B853D8301E9 // AnsiStartsStr
  ME_4BB3609E0331 // AnsiStartsText
  ME_4F26C8EA0067 // AnsiEndsStr
@@ -282,15 +289,17 @@ ref; // ME_483C379A00C1 LeftStr
  ME_51D299B4032E // AnsiContainsText
  ME_55097F16032A // IfThen
  ME_483C379A00C1 // LeftStr
- ) .SequenceCode.It
+ )
  ; // Operations
  CONST "no hands" false
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\external\NotFinished\Borland\Delphi\Rtl\Common'
  CONST intf.pas:Path 'common\components\rtl\external\NotFinished\Borland\Delphi\Rtl\Common\StrUtils.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\external\NotFinished\Borland\Delphi\Rtl\Common'
+ CONST mda:PathOnly '\Shared Delphi Rtl'
+ CONST mda.inc:PathOnly '\Shared Delphi Rtl'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST tpi.script:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_483C378301CB StrUtils
 
@@ -307,13 +316,22 @@ FORWARD ME_478CF30500C1
  : Parent ME_478CF30500C1 // Classes
  ;
  : Inherits
-   @ ( WL 'ME_4807745602C8' '4AB0C3C60310.pas.ms.script' // TObject
- ) .SequenceCode.It
+   Seq: ( WL 'ME_4807745602C8' '4AB0C3C60310.pas.ms.script' // TObject
+ )
  ; // Inherits
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
+ CONST dfm:PathOnly '\common\components\rtl\external\NotFinished\Borland\Delphi\Rtl\Common'
+ CONST intf.pas:PathOnly '\common\components\rtl\external\NotFinished\Borland\Delphi\Rtl\Common'
+ CONST mda:PathOnly '\Shared Delphi Rtl'
+ CONST mda.inc:PathOnly '\Shared Delphi Rtl'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST tpi.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'Filer'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_4FD09D790377 TFiler
 
@@ -340,8 +358,8 @@ ref; // ME_4FD08F05029E Filer
  : Parent ME_4FD08EF002D0 // DefineProperties
  ;
  : Parameters
-   @ ( ME_4FD08F05029E // Filer
- ) .SequenceCode.It
+   Seq: ( ME_4FD08F05029E // Filer
+ )
  ; // Parameters
 
 ref; // ME_4FD08EFD03B9 DoIt
@@ -357,8 +375,8 @@ ref; // ME_4FD08EFD03B9 DoIt
  : Parent ME_478CF32A03B6 // TPersistent
  ;
  : Operations
-   @ ( ME_4FD08EFD03B9 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_4FD08EFD03B9 // DoIt
+ )
  ; // Operations
 
 ref; // ME_4FD08EF002D0 DefineProperties
@@ -389,8 +407,8 @@ ref; // ME_55CCBC190384 DoIt
  : Parent ME_478CF32A03B6 // TPersistent
  ;
  : Operations
-   @ ( ME_55CCBC190384 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_55CCBC190384 // DoIt
+ )
  ; // Operations
 
 ref; // ME_55CCBC12038F GetNamePath
@@ -414,8 +432,8 @@ ref; // ME_478CF3540243 Source
  : Parent ME_478CF32A03B6 // TPersistent
  ;
  : Parameters
-   @ ( ME_478CF3540243 // Source
- ) .SequenceCode.It
+   Seq: ( ME_478CF3540243 // Source
+ )
  ; // Parameters
 
 ref; // ME_478CF34E02CE Assign
@@ -439,8 +457,8 @@ ref; // ME_478CF37902DD Dest
  : Parent ME_478CF32A03B6 // TPersistent
  ;
  : Parameters
-   @ ( ME_478CF37902DD // Dest
- ) .SequenceCode.It
+   Seq: ( ME_478CF37902DD // Dest
+ )
  ; // Parameters
 
 ref; // ME_478CF372010B AssignTo
@@ -469,21 +487,30 @@ ref; // ME_480DD1890221 GetOwner
  : Parent ME_478CF30500C1 // Classes
  ;
  : Inherits
-   @ ( WL 'ME_4807745602C8' '4AB0C3C60310.pas.ms.script' // TObject
- ) .SequenceCode.It
+   Seq: ( WL 'ME_4807745602C8' '4AB0C3C60310.pas.ms.script' // TObject
+ )
  ; // Inherits
  : Operations
-   @ ( ME_4FD08EF002D0 // DefineProperties
+   Seq: ( ME_4FD08EF002D0 // DefineProperties
  ME_55CCBC12038F // GetNamePath
  ME_478CF34E02CE // Assign
  ME_478CF372010B // AssignTo
  ME_480DD1890221 // GetOwner
- ) .SequenceCode.It
+ )
  ; // Operations
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
+ CONST dfm:PathOnly '\common\components\rtl\external\NotFinished\Borland\Delphi\Rtl\Common'
+ CONST intf.pas:PathOnly '\common\components\rtl\external\NotFinished\Borland\Delphi\Rtl\Common'
+ CONST mda:PathOnly '\Shared Delphi Rtl'
+ CONST mda.inc:PathOnly '\Shared Delphi Rtl'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST tpi.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'Persistent'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_478CF32A03B6 TPersistent
 
@@ -497,6 +524,13 @@ ref; // ME_478CF32A03B6 TPersistent
  CONST Abstraction at_regular
  : Parent ME_478CF30500C1 // Classes
  ;
+ CONST dfm:PathOnly '\common\components\rtl\external\NotFinished\Borland\Delphi\Rtl\Common'
+ CONST intf.pas:PathOnly '\common\components\rtl\external\NotFinished\Borland\Delphi\Rtl\Common'
+ CONST mda:PathOnly '\Shared Delphi Rtl'
+ CONST mda.inc:PathOnly '\Shared Delphi Rtl'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST tpi.script:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_4D5418F5009C TComponentName
 
@@ -521,8 +555,8 @@ ref; // ME_47E124A40381 Message
  : Parent ME_47E124920022 // TWndMethod
  ;
  : Parameters
-   @ ( ME_47E124A40381 // Message
- ) .SequenceCode.It
+   Seq: ( ME_47E124A40381 // Message
+ )
  ; // Parameters
 
 ref; // ME_47E124A0038F DoIt
@@ -538,10 +572,17 @@ ref; // ME_47E124A0038F DoIt
  : Parent ME_478CF30500C1 // Classes
  ;
  : Operations
-   @ ( ME_47E124A0038F // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_47E124A0038F // DoIt
+ )
  ; // Operations
  CONST "of object" true
+ CONST dfm:PathOnly '\common\components\rtl\external\NotFinished\Borland\Delphi\Rtl\Common'
+ CONST intf.pas:PathOnly '\common\components\rtl\external\NotFinished\Borland\Delphi\Rtl\Common'
+ CONST mda:PathOnly '\Shared Delphi Rtl'
+ CONST mda.inc:PathOnly '\Shared Delphi Rtl'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST tpi.script:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_47E124920022 TWndMethod
 
@@ -555,6 +596,14 @@ ref; // ME_47E124920022 TWndMethod
  CONST Abstraction at_regular
  : Parent ME_478CF30500C1 // Classes
  ;
+ CONST dfm:PathOnly '\common\components\rtl\external\NotFinished\Borland\Delphi\Rtl\Common'
+ CONST intf.pas:PathOnly '\common\components\rtl\external\NotFinished\Borland\Delphi\Rtl\Common'
+ CONST mda:PathOnly '\Shared Delphi Rtl'
+ CONST mda.inc:PathOnly '\Shared Delphi Rtl'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST tpi.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_47E12513030E TBiDiMode
 
@@ -608,11 +657,19 @@ ref; // ME_48F47C94033C soEnd
  : Parent ME_478CF30500C1 // Classes
  ;
  : Attributes
-   @ ( ME_48F47C8B017F // soBeginning
+   Seq: ( ME_48F47C8B017F // soBeginning
  ME_48F47C9000A3 // soCurrent
  ME_48F47C94033C // soEnd
- ) .SequenceCode.It
+ )
  ; // Attributes
+ CONST dfm:PathOnly '\common\components\rtl\external\NotFinished\Borland\Delphi\Rtl\Common'
+ CONST intf.pas:PathOnly '\common\components\rtl\external\NotFinished\Borland\Delphi\Rtl\Common'
+ CONST mda:PathOnly '\Shared Delphi Rtl'
+ CONST mda.inc:PathOnly '\Shared Delphi Rtl'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST tpi.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_48F47C8001FF TSeekOrigin
 
@@ -658,9 +715,9 @@ ref; // ME_47E21ADF004E S
  : Parent ME_47E21A8A0324 // TStrings
  ;
  : Parameters
-   @ ( ME_47E21ADF0033 // Index
+   Seq: ( ME_47E21ADF0033 // Index
  ME_47E21ADF004E // S
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_47E21AD40366 Insert
@@ -686,8 +743,8 @@ ref; // ME_47E21AF900BA Index
  : Target WL 'ME_51546CAE03B7' '4AB0C3C60310.pas.ms.script' // String$XE
  ;
  : Parameters
-   @ ( ME_47E21AF900BA // Index
- ) .SequenceCode.It
+   Seq: ( ME_47E21AF900BA // Index
+ )
  ; // Parameters
 
 ref; // ME_47E21AF20186 Get
@@ -721,9 +778,9 @@ ref; // ME_47E21B16010D S
  : Parent ME_47E21A8A0324 // TStrings
  ;
  : Parameters
-   @ ( ME_47E21B1600EC // Index
+   Seq: ( ME_47E21B1600EC // Index
  ME_47E21B16010D // S
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_47E21B0A0167 Put
@@ -762,8 +819,8 @@ ref; // ME_47E21BB0029A Index
  : Target WL 'ME_4807745602C8' '4AB0C3C60310.pas.ms.script' // TObject
  ;
  : Parameters
-   @ ( ME_47E21BB0029A // Index
- ) .SequenceCode.It
+   Seq: ( ME_47E21BB0029A // Index
+ )
  ; // Parameters
 
 ref; // ME_47E21BAA029A GetObject
@@ -797,9 +854,9 @@ ref; // ME_47E21BD403C7 AObject
  : Parent ME_47E21A8A0324 // TStrings
  ;
  : Parameters
-   @ ( ME_47E21BD4039E // Index
+   Seq: ( ME_47E21BD4039E // Index
  ME_47E21BD403C7 // AObject
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_47E21BC40258 PutObject
@@ -816,23 +873,32 @@ ref; // ME_47E21BC40258 PutObject
  : Parent ME_478CF30500C1 // Classes
  ;
  : Inherits
-   @ ( ME_478CF32A03B6 // TPersistent
- ) .SequenceCode.It
+   Seq: ( ME_478CF32A03B6 // TPersistent
+ )
  ; // Inherits
  : Operations
-   @ ( ME_47E21AB50104 // Clear
+   Seq: ( ME_47E21AB50104 // Clear
  ME_47E21AD40366 // Insert
  ME_47E21AF20186 // Get
  ME_47E21B0A0167 // Put
  ME_47E21B2403D5 // GetCount
  ME_47E21BAA029A // GetObject
  ME_47E21BC40258 // PutObject
- ) .SequenceCode.It
+ )
  ; // Operations
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
+ CONST dfm:PathOnly '\common\components\rtl\external\NotFinished\Borland\Delphi\Rtl\Common'
+ CONST intf.pas:PathOnly '\common\components\rtl\external\NotFinished\Borland\Delphi\Rtl\Common'
+ CONST mda:PathOnly '\Shared Delphi Rtl'
+ CONST mda.inc:PathOnly '\Shared Delphi Rtl'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST tpi.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'Strings'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_47E21A8A0324 TStrings
 
@@ -873,10 +939,18 @@ ref; // ME_4D5510B100E3 opRemove
  : Parent ME_478CF30500C1 // Classes
  ;
  : Attributes
-   @ ( ME_4D5510A80181 // opInsert
+   Seq: ( ME_4D5510A80181 // opInsert
  ME_4D5510B100E3 // opRemove
- ) .SequenceCode.It
+ )
  ; // Attributes
+ CONST dfm:PathOnly '\common\components\rtl\external\NotFinished\Borland\Delphi\Rtl\Common'
+ CONST intf.pas:PathOnly '\common\components\rtl\external\NotFinished\Borland\Delphi\Rtl\Common'
+ CONST mda:PathOnly '\Shared Delphi Rtl'
+ CONST mda.inc:PathOnly '\Shared Delphi Rtl'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST tpi.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_4D55109C0309 TOperation
 
@@ -892,13 +966,22 @@ ref; // ME_4D55109C0309 TOperation
  : Parent ME_478CF30500C1 // Classes
  ;
  : Inherits
-   @ ( WL 'ME_4807745602C8' '4AB0C3C60310.pas.ms.script' // TObject
- ) .SequenceCode.It
+   Seq: ( WL 'ME_4807745602C8' '4AB0C3C60310.pas.ms.script' // TObject
+ )
  ; // Inherits
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
+ CONST dfm:PathOnly '\common\components\rtl\external\NotFinished\Borland\Delphi\Rtl\Common'
+ CONST intf.pas:PathOnly '\common\components\rtl\external\NotFinished\Borland\Delphi\Rtl\Common'
+ CONST mda:PathOnly '\Shared Delphi Rtl'
+ CONST mda.inc:PathOnly '\Shared Delphi Rtl'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST tpi.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'List'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_480768DD00F0 TList
 
@@ -966,21 +1049,30 @@ ref; // ME_47E21B2403D5_ME_4807756101FE GetCount
  : Parent ME_478CF30500C1 // Classes
  ;
  : Inherits
-   @ ( ME_47E21A8A0324 // TStrings
- ) .SequenceCode.It
+   Seq: ( ME_47E21A8A0324 // TStrings
+ )
  ; // Inherits
  : Implemented
-   @ ( ME_47E21AB50104_ME_4807756101FE // Clear
+   Seq: ( ME_47E21AB50104_ME_4807756101FE // Clear
  ME_47E21AD40366_ME_4807756101FE // Insert
  ME_47E21AF20186_ME_4807756101FE // Get
  ME_47E21B0A0167_ME_4807756101FE // Put
  ME_47E21B2403D5_ME_4807756101FE // GetCount
- ) .SequenceCode.It
+ )
  ; // Implemented
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
+ CONST dfm:PathOnly '\common\components\rtl\external\NotFinished\Borland\Delphi\Rtl\Common'
+ CONST intf.pas:PathOnly '\common\components\rtl\external\NotFinished\Borland\Delphi\Rtl\Common'
+ CONST mda:PathOnly '\Shared Delphi Rtl'
+ CONST mda.inc:PathOnly '\Shared Delphi Rtl'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST tpi.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'StringList'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_4807756101FE TStringList
 
@@ -996,13 +1088,22 @@ ref; // ME_4807756101FE TStringList
  : Parent ME_478CF30500C1 // Classes
  ;
  : Inherits
-   @ ( WL 'ME_48077FF80141' '4AB0C3C60310.pas.ms.script' // TInterfacedObject
- ) .SequenceCode.It
+   Seq: ( WL 'ME_48077FF80141' '4AB0C3C60310.pas.ms.script' // TInterfacedObject
+ )
  ; // Inherits
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
+ CONST dfm:PathOnly '\common\components\rtl\external\NotFinished\Borland\Delphi\Rtl\Common'
+ CONST intf.pas:PathOnly '\common\components\rtl\external\NotFinished\Borland\Delphi\Rtl\Common'
+ CONST mda:PathOnly '\Shared Delphi Rtl'
+ CONST mda.inc:PathOnly '\Shared Delphi Rtl'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST tpi.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'InterfaceList'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_4807825A006E TInterfaceList
 
@@ -1055,11 +1156,19 @@ ref; // ME_4808965301C3 dupError
  : Parent ME_478CF30500C1 // Classes
  ;
  : Attributes
-   @ ( ME_480896440047 // dupIgnore
+   Seq: ( ME_480896440047 // dupIgnore
  ME_4808964B0173 // dupAccept
  ME_4808965301C3 // dupError
- ) .SequenceCode.It
+ )
  ; // Attributes
+ CONST dfm:PathOnly '\common\components\rtl\external\NotFinished\Borland\Delphi\Rtl\Common'
+ CONST intf.pas:PathOnly '\common\components\rtl\external\NotFinished\Borland\Delphi\Rtl\Common'
+ CONST mda:PathOnly '\Shared Delphi Rtl'
+ CONST mda.inc:PathOnly '\Shared Delphi Rtl'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST tpi.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_4808963302B7 TDuplicates
 
@@ -1075,17 +1184,26 @@ ref; // ME_4808963302B7 TDuplicates
  : Parent ME_478CF30500C1 // Classes
  ;
  : Inherits
-   @ ( WL 'ME_48077FF80141' '4AB0C3C60310.pas.ms.script' // TInterfacedObject
- ) .SequenceCode.It
+   Seq: ( WL 'ME_48077FF80141' '4AB0C3C60310.pas.ms.script' // TInterfacedObject
+ )
  ; // Inherits
  : Implements
-   @ ( WL 'ME_46A5AFF103CA' '46A0E6C5023A.pas.ms.script' // IStream
- ) .SequenceCode.It
+   Seq: ( WL 'ME_46A5AFF103CA' '46A0E6C5023A.pas.ms.script' // IStream
+ )
  ; // Implements
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
+ CONST dfm:PathOnly '\common\components\rtl\external\NotFinished\Borland\Delphi\Rtl\Common'
+ CONST intf.pas:PathOnly '\common\components\rtl\external\NotFinished\Borland\Delphi\Rtl\Common'
+ CONST mda:PathOnly '\Shared Delphi Rtl'
+ CONST mda.inc:PathOnly '\Shared Delphi Rtl'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST tpi.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'StreamAdapter'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_483FF49100F4 TStreamAdapter
 
@@ -1112,8 +1230,8 @@ ref; // ME_5481E1090269 NewSize
  : Parent ME_5481E0EE0096 // SetSize
  ;
  : Parameters
-   @ ( ME_5481E1090269 // NewSize
- ) .SequenceCode.It
+   Seq: ( ME_5481E1090269 // NewSize
+ )
  ; // Parameters
 
 ref; // ME_5481E1040103 DoIt
@@ -1129,8 +1247,8 @@ ref; // ME_5481E1040103 DoIt
  : Parent ME_47E150FF028A // TStream
  ;
  : Operations
-   @ ( ME_5481E1040103 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_5481E1040103 // DoIt
+ )
  ; // Operations
 
 ref; // ME_5481E0EE0096 SetSize
@@ -1164,9 +1282,9 @@ ref; // ME_49BE65820077 Count
  : Target WL 'ME_3DBFFD7002C2' '3DBFDB23006E.pas.ms.script' // long
  ;
  : Parameters
-   @ ( ME_49BE65820041 // Buffer
+   Seq: ( ME_49BE65820041 // Buffer
  ME_49BE65820077 // Count
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_49BE656C006E Read
@@ -1200,9 +1318,9 @@ ref; // ME_49BE65A10187 Count
  : Target WL 'ME_3DBFFD7002C2' '3DBFDB23006E.pas.ms.script' // long
  ;
  : Parameters
-   @ ( ME_49BE65A10150 // Buffer
+   Seq: ( ME_49BE65A10150 // Buffer
  ME_49BE65A10187 // Count
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_49BE658C0261 Write
@@ -1238,9 +1356,9 @@ ref; // ME_49BE65DA035E Origin
  : Target WL 'ME_3DBFFD7002C2' '3DBFDB23006E.pas.ms.script' // long
  ;
  : Parameters
-   @ ( ME_49BE65DA0328 // Offset
+   Seq: ( ME_49BE65DA0328 // Offset
  ME_49BE65DA035E // Origin
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_49BE65B10224 Seek
@@ -1276,9 +1394,9 @@ ref; // ME_49BE65ED02AA Origin
  : Target WL 'ME_47208C70028B' '4AB0C3C60310.pas.ms.script' // Int64
  ;
  : Parameters
-   @ ( ME_49BE65ED0270 // Offset
+   Seq: ( ME_49BE65ED0270 // Offset
  ME_49BE65ED02AA // Origin
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_49BE65E80020 Seek
@@ -1295,21 +1413,30 @@ ref; // ME_49BE65E80020 Seek
  : Parent ME_478CF30500C1 // Classes
  ;
  : Inherits
-   @ ( WL 'ME_4807745602C8' '4AB0C3C60310.pas.ms.script' // TObject
- ) .SequenceCode.It
+   Seq: ( WL 'ME_4807745602C8' '4AB0C3C60310.pas.ms.script' // TObject
+ )
  ; // Inherits
  : Operations
-   @ ( ME_5481E0EE0096 // SetSize
+   Seq: ( ME_5481E0EE0096 // SetSize
  ME_49BE656C006E // Read
  ME_49BE658C0261 // Write
  ME_49BE65B10224 // Seek
  ME_49BE65E80020 // Seek
- ) .SequenceCode.It
+ )
  ; // Operations
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
+ CONST dfm:PathOnly '\common\components\rtl\external\NotFinished\Borland\Delphi\Rtl\Common'
+ CONST intf.pas:PathOnly '\common\components\rtl\external\NotFinished\Borland\Delphi\Rtl\Common'
+ CONST mda:PathOnly '\Shared Delphi Rtl'
+ CONST mda.inc:PathOnly '\Shared Delphi Rtl'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST tpi.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'Stream'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_47E150FF028A TStream
 
@@ -1347,18 +1474,27 @@ ref; // ME_49BE658C0261_ME_483FF4CA0307 Write
  : Parent ME_478CF30500C1 // Classes
  ;
  : Inherits
-   @ ( ME_47E150FF028A // TStream
- ) .SequenceCode.It
+   Seq: ( ME_47E150FF028A // TStream
+ )
  ; // Inherits
  : Implemented
-   @ ( ME_49BE656C006E_ME_483FF4CA0307 // Read
+   Seq: ( ME_49BE656C006E_ME_483FF4CA0307 // Read
  ME_49BE658C0261_ME_483FF4CA0307 // Write
- ) .SequenceCode.It
+ )
  ; // Implemented
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
+ CONST dfm:PathOnly '\common\components\rtl\external\NotFinished\Borland\Delphi\Rtl\Common'
+ CONST intf.pas:PathOnly '\common\components\rtl\external\NotFinished\Borland\Delphi\Rtl\Common'
+ CONST mda:PathOnly '\Shared Delphi Rtl'
+ CONST mda.inc:PathOnly '\Shared Delphi Rtl'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST tpi.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'MemoryStream'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_483FF4CA0307 TCustomMemoryStream
 
@@ -1373,13 +1509,22 @@ ref; // ME_483FF4CA0307 TCustomMemoryStream
  : Parent ME_478CF30500C1 // Classes
  ;
  : Inherits
-   @ ( WL 'ME_4807745602C8' '4AB0C3C60310.pas.ms.script' // TObject
- ) .SequenceCode.It
+   Seq: ( WL 'ME_4807745602C8' '4AB0C3C60310.pas.ms.script' // TObject
+ )
  ; // Inherits
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
+ CONST dfm:PathOnly '\common\components\rtl\external\NotFinished\Borland\Delphi\Rtl\Common'
+ CONST intf.pas:PathOnly '\common\components\rtl\external\NotFinished\Borland\Delphi\Rtl\Common'
+ CONST mda:PathOnly '\Shared Delphi Rtl'
+ CONST mda.inc:PathOnly '\Shared Delphi Rtl'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST tpi.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'Writer'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_4FD09DA800F9 TWriter
 
@@ -1395,9 +1540,18 @@ ref; // ME_4FD09DA800F9 TWriter
  : Parent ME_478CF30500C1 // Classes
  ;
  : Inherits
-   @ ( WL 'ME_469F8577004B' '4AB0C3C60310.pas.ms.script' // TObject$Stub
- ) .SequenceCode.It
+   Seq: ( WL 'ME_469F8577004B' '4AB0C3C60310.pas.ms.script' // TObject$Stub
+ )
  ; // Inherits
+ CONST dfm:PathOnly '\common\components\rtl\external\NotFinished\Borland\Delphi\Rtl\Common'
+ CONST intf.pas:PathOnly '\common\components\rtl\external\NotFinished\Borland\Delphi\Rtl\Common'
+ CONST mda:PathOnly '\Shared Delphi Rtl'
+ CONST mda.inc:PathOnly '\Shared Delphi Rtl'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST tpi.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'Stream'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_469F85A900E3 TStream$Stub
 
@@ -1412,9 +1566,18 @@ ref; // ME_469F85A900E3 TStream$Stub
  : Parent ME_478CF30500C1 // Classes
  ;
  : Inherits
-   @ ( WL 'ME_469F8577004B' '4AB0C3C60310.pas.ms.script' // TObject$Stub
- ) .SequenceCode.It
+   Seq: ( WL 'ME_469F8577004B' '4AB0C3C60310.pas.ms.script' // TObject$Stub
+ )
  ; // Inherits
+ CONST dfm:PathOnly '\common\components\rtl\external\NotFinished\Borland\Delphi\Rtl\Common'
+ CONST intf.pas:PathOnly '\common\components\rtl\external\NotFinished\Borland\Delphi\Rtl\Common'
+ CONST mda:PathOnly '\Shared Delphi Rtl'
+ CONST mda.inc:PathOnly '\Shared Delphi Rtl'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST tpi.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'Persistent'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_476F72030260 TPersistent$Stub
 
@@ -1429,9 +1592,18 @@ ref; // ME_476F72030260 TPersistent$Stub
  : Parent ME_478CF30500C1 // Classes
  ;
  : Inherits
-   @ ( ME_476F72030260 // TPersistent$Stub
- ) .SequenceCode.It
+   Seq: ( ME_476F72030260 // TPersistent$Stub
+ )
  ; // Inherits
+ CONST dfm:PathOnly '\common\components\rtl\external\NotFinished\Borland\Delphi\Rtl\Common'
+ CONST intf.pas:PathOnly '\common\components\rtl\external\NotFinished\Borland\Delphi\Rtl\Common'
+ CONST mda:PathOnly '\Shared Delphi Rtl'
+ CONST mda.inc:PathOnly '\Shared Delphi Rtl'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST tpi.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'Component'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_46A4B9AA00F0 TComponent$Stub
 
@@ -1447,9 +1619,18 @@ ref; // ME_46A4B9AA00F0 TComponent$Stub
  : Parent ME_478CF30500C1 // Classes
  ;
  : Inherits
-   @ ( ME_476F72030260 // TPersistent$Stub
- ) .SequenceCode.It
+   Seq: ( ME_476F72030260 // TPersistent$Stub
+ )
  ; // Inherits
+ CONST dfm:PathOnly '\common\components\rtl\external\NotFinished\Borland\Delphi\Rtl\Common'
+ CONST intf.pas:PathOnly '\common\components\rtl\external\NotFinished\Borland\Delphi\Rtl\Common'
+ CONST mda:PathOnly '\Shared Delphi Rtl'
+ CONST mda.inc:PathOnly '\Shared Delphi Rtl'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST tpi.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'Strings'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_46A464DB0262 TStrings$Stub
 
@@ -1465,9 +1646,18 @@ ref; // ME_46A464DB0262 TStrings$Stub
  : Parent ME_478CF30500C1 // Classes
  ;
  : Inherits
-   @ ( ME_476F72030260 // TPersistent$Stub
- ) .SequenceCode.It
+   Seq: ( ME_476F72030260 // TPersistent$Stub
+ )
  ; // Inherits
+ CONST dfm:PathOnly '\common\components\rtl\external\NotFinished\Borland\Delphi\Rtl\Common'
+ CONST intf.pas:PathOnly '\common\components\rtl\external\NotFinished\Borland\Delphi\Rtl\Common'
+ CONST mda:PathOnly '\Shared Delphi Rtl'
+ CONST mda.inc:PathOnly '\Shared Delphi Rtl'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST tpi.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'InterfacedPersistent'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_47880FB90325 TInterfacedPersistent$Stub
 
@@ -1496,13 +1686,22 @@ ref; // ME_499D3BE0004D Execute
  : Parent ME_478CF30500C1 // Classes
  ;
  : Inherits
-   @ ( WL 'ME_469F8577004B' '4AB0C3C60310.pas.ms.script' // TObject$Stub
- ) .SequenceCode.It
+   Seq: ( WL 'ME_469F8577004B' '4AB0C3C60310.pas.ms.script' // TObject$Stub
+ )
  ; // Inherits
  : Operations
-   @ ( ME_499D3BE0004D // Execute
- ) .SequenceCode.It
+   Seq: ( ME_499D3BE0004D // Execute
+ )
  ; // Operations
+ CONST dfm:PathOnly '\common\components\rtl\external\NotFinished\Borland\Delphi\Rtl\Common'
+ CONST intf.pas:PathOnly '\common\components\rtl\external\NotFinished\Borland\Delphi\Rtl\Common'
+ CONST mda:PathOnly '\Shared Delphi Rtl'
+ CONST mda.inc:PathOnly '\Shared Delphi Rtl'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST tpi.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'Thread'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_4787FD9103E6 TThread$Stub
 
@@ -1518,13 +1717,22 @@ ref; // ME_4787FD9103E6 TThread$Stub
  : Parent ME_478CF30500C1 // Classes
  ;
  : Inherits
-   @ ( ME_483FF4CA0307 // TCustomMemoryStream
- ) .SequenceCode.It
+   Seq: ( ME_483FF4CA0307 // TCustomMemoryStream
+ )
  ; // Inherits
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
+ CONST dfm:PathOnly '\common\components\rtl\external\NotFinished\Borland\Delphi\Rtl\Common'
+ CONST intf.pas:PathOnly '\common\components\rtl\external\NotFinished\Borland\Delphi\Rtl\Common'
+ CONST mda:PathOnly '\Shared Delphi Rtl'
+ CONST mda.inc:PathOnly '\Shared Delphi Rtl'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST tpi.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'MemoryStream'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_483FF50C00F4 TMemoryStream
 
@@ -1625,15 +1833,23 @@ ref; // ME_476F7241037F ssDouble
  : Parent ME_478CF30500C1 // Classes
  ;
  : Attributes
-   @ ( ME_476F7223012C // ssShift
+   Seq: ( ME_476F7223012C // ssShift
  ME_476F72280281 // ssAlt
  ME_476F722D031B // ssCtrl
  ME_476F723201F5 // ssLeft
  ME_476F723701ED // ssRight
  ME_476F723C01FC // ssMiddle
  ME_476F7241037F // ssDouble
- ) .SequenceCode.It
+ )
  ; // Attributes
+ CONST dfm:PathOnly '\common\components\rtl\external\NotFinished\Borland\Delphi\Rtl\Common'
+ CONST intf.pas:PathOnly '\common\components\rtl\external\NotFinished\Borland\Delphi\Rtl\Common'
+ CONST mda:PathOnly '\Shared Delphi Rtl'
+ CONST mda.inc:PathOnly '\Shared Delphi Rtl'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST tpi.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_4728CE680258 TShiftState
 
@@ -1648,10 +1864,17 @@ ref; // ME_4728CE680258 TShiftState
  : Parent ME_478CF30500C1 // Classes
  ;
  : Inherits
-   @ ( WL 'ME_476F71A701AB' '4AB0C3C60310.pas.ms.script' // Word
- ) .SequenceCode.It
+   Seq: ( WL 'ME_476F71A701AB' '4AB0C3C60310.pas.ms.script' // Word
+ )
  ; // Inherits
  CONST "spell names" false
+ CONST dfm:PathOnly '\common\components\rtl\external\NotFinished\Borland\Delphi\Rtl\Common'
+ CONST intf.pas:PathOnly '\common\components\rtl\external\NotFinished\Borland\Delphi\Rtl\Common'
+ CONST mda:PathOnly '\Shared Delphi Rtl'
+ CONST mda.inc:PathOnly '\Shared Delphi Rtl'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST tpi.script:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_499562B802E7 TShortCut
 
@@ -1665,6 +1888,14 @@ ref; // ME_499562B802E7 TShortCut
  CONST Abstraction at_regular
  : Parent ME_478CF30500C1 // Classes
  ;
+ CONST dfm:PathOnly '\common\components\rtl\external\NotFinished\Borland\Delphi\Rtl\Common'
+ CONST intf.pas:PathOnly '\common\components\rtl\external\NotFinished\Borland\Delphi\Rtl\Common'
+ CONST mda:PathOnly '\Shared Delphi Rtl'
+ CONST mda.inc:PathOnly '\Shared Delphi Rtl'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST tpi.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_4A840F5703AC TAlignment
 
@@ -1679,9 +1910,16 @@ ref; // ME_4A840F5703AC TAlignment
  : Parent ME_478CF30500C1 // Classes
  ;
  : Inherits
-   @ ( WL 'ME_4787A405013D' '4AB0C3C60310.pas.ms.script' // Exception
- ) .SequenceCode.It
+   Seq: ( WL 'ME_4787A405013D' '4AB0C3C60310.pas.ms.script' // Exception
+ )
  ; // Inherits
+ CONST dfm:PathOnly '\common\components\rtl\external\NotFinished\Borland\Delphi\Rtl\Common'
+ CONST intf.pas:PathOnly '\common\components\rtl\external\NotFinished\Borland\Delphi\Rtl\Common'
+ CONST mda:PathOnly '\Shared Delphi Rtl'
+ CONST mda.inc:PathOnly '\Shared Delphi Rtl'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST tpi.script:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_479F1C5600EA EListError
 
@@ -1707,8 +1945,8 @@ ref; // ME_47881B550350 Sender
  : Parent ME_47881B22005A // TNotifyEvent
  ;
  : Parameters
-   @ ( ME_47881B550350 // Sender
- ) .SequenceCode.It
+   Seq: ( ME_47881B550350 // Sender
+ )
  ; // Parameters
 
 ref; // ME_47881B4E000F DoIt
@@ -1725,10 +1963,17 @@ ref; // ME_47881B4E000F DoIt
  : Parent ME_478CF30500C1 // Classes
  ;
  : Operations
-   @ ( ME_47881B4E000F // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_47881B4E000F // DoIt
+ )
  ; // Operations
  CONST "of object" true
+ CONST dfm:PathOnly '\common\components\rtl\external\NotFinished\Borland\Delphi\Rtl\Common'
+ CONST intf.pas:PathOnly '\common\components\rtl\external\NotFinished\Borland\Delphi\Rtl\Common'
+ CONST mda:PathOnly '\Shared Delphi Rtl'
+ CONST mda.inc:PathOnly '\Shared Delphi Rtl'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST tpi.script:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_47881B22005A TNotifyEvent
 
@@ -1742,6 +1987,13 @@ ref; // ME_47881B22005A TNotifyEvent
  CONST Abstraction at_regular
  : Parent ME_478CF30500C1 // Classes
  ;
+ CONST dfm:PathOnly '\common\components\rtl\external\NotFinished\Borland\Delphi\Rtl\Common'
+ CONST intf.pas:PathOnly '\common\components\rtl\external\NotFinished\Borland\Delphi\Rtl\Common'
+ CONST mda:PathOnly '\Shared Delphi Rtl'
+ CONST mda.inc:PathOnly '\Shared Delphi Rtl'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST tpi.script:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_4952341C01BF EStreamError
 
@@ -1755,6 +2007,13 @@ ref; // ME_4952341C01BF EStreamError
  CONST Abstraction at_regular
  : Parent ME_478CF30500C1 // Classes
  ;
+ CONST dfm:PathOnly '\common\components\rtl\external\NotFinished\Borland\Delphi\Rtl\Common'
+ CONST intf.pas:PathOnly '\common\components\rtl\external\NotFinished\Borland\Delphi\Rtl\Common'
+ CONST mda:PathOnly '\Shared Delphi Rtl'
+ CONST mda.inc:PathOnly '\Shared Delphi Rtl'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST tpi.script:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_4C8778220341 EFCreateError
 
@@ -1791,9 +2050,9 @@ ref; // ME_4F8843AE011A Operation
  : Parent ME_4F884378016A // Notification
  ;
  : Parameters
-   @ ( ME_4F8843AE00F8 // AComponent
+   Seq: ( ME_4F8843AE00F8 // AComponent
  ME_4F8843AE011A // Operation
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_4F88439000C4 DoIt
@@ -1809,8 +2068,8 @@ ref; // ME_4F88439000C4 DoIt
  : Parent ME_479878FA0103 // TComponent
  ;
  : Operations
-   @ ( ME_4F88439000C4 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_4F88439000C4 // DoIt
+ )
  ; // Operations
 
 ref; // ME_4F884378016A Notification
@@ -1836,8 +2095,8 @@ ref; // ME_4FD092200341 Writer
  : Parent ME_4FD092040227 // WriteState
  ;
  : Parameters
-   @ ( ME_4FD092200341 // Writer
- ) .SequenceCode.It
+   Seq: ( ME_4FD092200341 // Writer
+ )
  ; // Parameters
 
 ref; // ME_4FD092170312 DoIt
@@ -1853,8 +2112,8 @@ ref; // ME_4FD092170312 DoIt
  : Parent ME_479878FA0103 // TComponent
  ;
  : Operations
-   @ ( ME_4FD092170312 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_4FD092170312 // DoIt
+ )
  ; // Operations
 
 ref; // ME_4FD092040227 WriteState
@@ -1880,8 +2139,8 @@ ref; // ME_52BD9CD702F4 aValue
  : Parent ME_52BC212F023F // SetName
  ;
  : Parameters
-   @ ( ME_52BD9CD702F4 // aValue
- ) .SequenceCode.It
+   Seq: ( ME_52BD9CD702F4 // aValue
+ )
  ; // Parameters
 
 ref; // ME_52BC21430213 DoIt
@@ -1897,8 +2156,8 @@ ref; // ME_52BC21430213 DoIt
  : Parent ME_479878FA0103 // TComponent
  ;
  : Operations
-   @ ( ME_52BC21430213 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_52BC21430213 // DoIt
+ )
  ; // Operations
 
 ref; // ME_52BC212F023F SetName
@@ -1923,8 +2182,8 @@ ref; // ME_47D1602A031A AOwner
  : Parent ME_479878FA0103 // TComponent
  ;
  : Parameters
-   @ ( ME_47D1602A031A // AOwner
- ) .SequenceCode.It
+   Seq: ( ME_47D1602A031A // AOwner
+ )
  ; // Parameters
 
 ref; // ME_47D1602000C6 Create
@@ -1958,9 +2217,9 @@ ref; // ME_47D1607601D2 Obj
  : Target WL 'ME_469F99BD026B' '4AB0C3C60310.pas.ms.script' // HResult
  ;
  : Parameters
-   @ ( ME_47D1607601A5 // IID
+   Seq: ( ME_47D1607601A5 // IID
  ME_47D1607601D2 // Obj
- ) .SequenceCode.It
+ )
  ; // Parameters
  CONST "calling conventions" 'stdcall'
 
@@ -1989,26 +2248,35 @@ ref; // ME_484516C00214 Loaded
  : Parent ME_478CF30500C1 // Classes
  ;
  : Inherits
-   @ ( ME_478CF32A03B6 // TPersistent
- ) .SequenceCode.It
+   Seq: ( ME_478CF32A03B6 // TPersistent
+ )
  ; // Inherits
  : Operations
-   @ ( ME_4F884378016A // Notification
+   Seq: ( ME_4F884378016A // Notification
  ME_4FD092040227 // WriteState
  ME_52BC212F023F // SetName
  ME_47D1602000C6 // Create
  ME_47D160620295 // QueryInterface
  ME_484516C00214 // Loaded
- ) .SequenceCode.It
+ )
  ; // Operations
  : Injected
-   @ ( WL 'ME_7EDD59639FC5' '54F452F40012.pas.ms.script' // 
- ) .SequenceCode.It
+   Seq: ( WL 'ME_7EDD59639FC5' '54F452F40012.pas.ms.script' // 
+ )
  ; // Injected
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
+ CONST dfm:PathOnly '\common\components\rtl\external\NotFinished\Borland\Delphi\Rtl\Common'
+ CONST intf.pas:PathOnly '\common\components\rtl\external\NotFinished\Borland\Delphi\Rtl\Common'
+ CONST mda:PathOnly '\Shared Delphi Rtl'
+ CONST mda.inc:PathOnly '\Shared Delphi Rtl'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST tpi.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'Component'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_479878FA0103 TComponent
 
@@ -2023,14 +2291,23 @@ ref; // ME_479878FA0103 TComponent
  : Parent ME_478CF30500C1 // Classes
  ;
  : Inherits
-   @ ( ME_479878FA0103 // TComponent
- ) .SequenceCode.It
+   Seq: ( ME_479878FA0103 // TComponent
+ )
  ; // Inherits
  CONST "finished" false
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
+ CONST dfm:PathOnly '\common\components\rtl\external\NotFinished\Borland\Delphi\Rtl\Common'
+ CONST intf.pas:PathOnly '\common\components\rtl\external\NotFinished\Borland\Delphi\Rtl\Common'
+ CONST mda:PathOnly '\Shared Delphi Rtl'
+ CONST mda.inc:PathOnly '\Shared Delphi Rtl'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST tpi.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'DataModule'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_4AAA214A0250 TDataModule
 
@@ -2059,8 +2336,8 @@ ref; // ME_4F8E7D4A02E9 Value
  : Parent ME_4F8E7D3303B9 // SetIndex
  ;
  : Parameters
-   @ ( ME_4F8E7D4A02E9 // Value
- ) .SequenceCode.It
+   Seq: ( ME_4F8E7D4A02E9 // Value
+ )
  ; // Parameters
 
 ref; // ME_4F8E7D410290 DoIt
@@ -2076,8 +2353,8 @@ ref; // ME_4F8E7D410290 DoIt
  : Parent ME_4D555B5B01E8 // TCollectionItem
  ;
  : Operations
-   @ ( ME_4F8E7D410290 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_4F8E7D410290 // DoIt
+ )
  ; // Operations
 
 ref; // ME_4F8E7D3303B9 SetIndex
@@ -2108,8 +2385,8 @@ ref; // ME_55CCBB6703AE DoIt
  : Parent ME_4D555B5B01E8 // TCollectionItem
  ;
  : Operations
-   @ ( ME_55CCBB6703AE // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_55CCBB6703AE // DoIt
+ )
  ; // Operations
 
 ref; // ME_55CCBB5A01E5 GetDisplayName
@@ -2134,8 +2411,8 @@ ref; // ME_4D555CFF0165 aCollection
  : Parent ME_4D555B5B01E8 // TCollectionItem
  ;
  : Parameters
-   @ ( ME_4D555CFF0165 // aCollection
- ) .SequenceCode.It
+   Seq: ( ME_4D555CFF0165 // aCollection
+ )
  ; // Parameters
 
 ref; // ME_4D555CF50027 Create
@@ -2143,6 +2420,7 @@ ref; // ME_4D555CF50027 Create
 : ME_17B429CD7D91
  CONST UID '17B429CD7D91'
  CONST Name 'Ini_Reg_Class'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Регистрация TCollectionItem' ;
@@ -2156,6 +2434,7 @@ ref; // ME_17B429CD7D91 Ini_Reg_Class
 
 : ME_43B81ABD844E
  CONST UID '43B81ABD844E'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_4D555B5B01E8 // TCollectionItem
@@ -2176,28 +2455,37 @@ ref; // ME_43B81ABD844E
  : Parent ME_478CF30500C1 // Classes
  ;
  : Inherits
-   @ ( ME_478CF32A03B6 // TPersistent
- ) .SequenceCode.It
+   Seq: ( ME_478CF32A03B6 // TPersistent
+ )
  ; // Inherits
  : Operations
-   @ ( ME_4F8E7D3303B9 // SetIndex
+   Seq: ( ME_4F8E7D3303B9 // SetIndex
  ME_55CCBB5A01E5 // GetDisplayName
  ME_4D555CF50027 // Create
  ME_17B429CD7D91 // Ini_Reg_Class
- ) .SequenceCode.It
+ )
  ; // Operations
  : Dependencies
-   @ ( ME_43B81ABD844E // 
- ) .SequenceCode.It
+   Seq: ( ME_43B81ABD844E // 
+ )
  ; // Dependencies
  : Forwarded
-   @ ( ME_4D555B78015F // TCollection
- ) .SequenceCode.It
+   Seq: ( ME_4D555B78015F // TCollection
+ )
  ; // Forwarded
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" true
+ CONST dfm:PathOnly '\common\components\rtl\external\NotFinished\Borland\Delphi\Rtl\Common'
+ CONST intf.pas:PathOnly '\common\components\rtl\external\NotFinished\Borland\Delphi\Rtl\Common'
+ CONST mda:PathOnly '\Shared Delphi Rtl'
+ CONST mda.inc:PathOnly '\Shared Delphi Rtl'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST tpi.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'CollectionItem'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_4D555B5B01E8 TCollectionItem
 
@@ -2211,6 +2499,14 @@ ref; // ME_4D555B5B01E8 TCollectionItem
  CONST Abstraction at_regular
  : Parent ME_4D555B78015F // TCollection
  ;
+ CONST dfm:PathOnly '\common\components\rtl\external\NotFinished\Borland\Delphi\Rtl\Common'
+ CONST intf.pas:PathOnly '\common\components\rtl\external\NotFinished\Borland\Delphi\Rtl\Common'
+ CONST mda:PathOnly '\Shared Delphi Rtl'
+ CONST mda.inc:PathOnly '\Shared Delphi Rtl'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST tpi.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_4F8E7AB5037E TCollectionNotification
 
@@ -2245,9 +2541,9 @@ ref; // ME_4F8E7AB002A4 Action
  : Parent ME_4F8E7A900279 // Notify
  ;
  : Parameters
-   @ ( ME_4F8E7AB00283 // Item
+   Seq: ( ME_4F8E7AB00283 // Item
  ME_4F8E7AB002A4 // Action
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_4F8E7AA00209 DoIt
@@ -2263,8 +2559,8 @@ ref; // ME_4F8E7AA00209 DoIt
  : Parent ME_4D555B78015F // TCollection
  ;
  : Operations
-   @ ( ME_4F8E7AA00209 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_4F8E7AA00209 // DoIt
+ )
  ; // Operations
 
 ref; // ME_4F8E7A900279 Notify
@@ -2295,8 +2591,8 @@ ref; // ME_560A9DAF0259 DoIt
  : Parent ME_4D555B78015F // TCollection
  ;
  : Operations
-   @ ( ME_560A9DAF0259 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_560A9DAF0259 // DoIt
+ )
  ; // Operations
 
 ref; // ME_560A9DA80335 GetAttrCount
@@ -2324,8 +2620,8 @@ ref; // ME_560A9DD80128 Index
  : Target WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
  ;
  : Parameters
-   @ ( ME_560A9DD80128 // Index
- ) .SequenceCode.It
+   Seq: ( ME_560A9DD80128 // Index
+ )
  ; // Parameters
 
 ref; // ME_560A9DD40326 DoIt
@@ -2341,8 +2637,8 @@ ref; // ME_560A9DD40326 DoIt
  : Parent ME_4D555B78015F // TCollection
  ;
  : Operations
-   @ ( ME_560A9DD40326 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_560A9DD40326 // DoIt
+ )
  ; // Operations
 
 ref; // ME_560A9DCD009D GetAttr
@@ -2380,9 +2676,9 @@ ref; // ME_560A9DF9031A ItemIndex
  : Target WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
  ;
  : Parameters
-   @ ( ME_560A9DF902FC // Index
+   Seq: ( ME_560A9DF902FC // Index
  ME_560A9DF9031A // ItemIndex
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_560A9DF00326 DoIt
@@ -2398,8 +2694,8 @@ ref; // ME_560A9DF00326 DoIt
  : Parent ME_4D555B78015F // TCollection
  ;
  : Operations
-   @ ( ME_560A9DF00326 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_560A9DF00326 // DoIt
+ )
  ; // Operations
 
 ref; // ME_560A9DEB0155 GetItemAttr
@@ -2407,6 +2703,7 @@ ref; // ME_560A9DEB0155 GetItemAttr
 : ME_0723FA770C06
  CONST UID '0723FA770C06'
  CONST Name 'Ini_Reg_Class'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Регистрация TCollection' ;
@@ -2420,6 +2717,7 @@ ref; // ME_0723FA770C06 Ini_Reg_Class
 
 : ME_A034B221F68B
  CONST UID 'A034B221F68B'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_4D555B78015F // TCollection
@@ -2440,29 +2738,38 @@ ref; // ME_A034B221F68B
  : Parent ME_478CF30500C1 // Classes
  ;
  : Inherits
-   @ ( ME_478CF32A03B6 // TPersistent
- ) .SequenceCode.It
+   Seq: ( ME_478CF32A03B6 // TPersistent
+ )
  ; // Inherits
  : Operations
-   @ ( ME_4F8E7A900279 // Notify
+   Seq: ( ME_4F8E7A900279 // Notify
  ME_560A9DA80335 // GetAttrCount
  ME_560A9DCD009D // GetAttr
  ME_560A9DEB0155 // GetItemAttr
  ME_0723FA770C06 // Ini_Reg_Class
- ) .SequenceCode.It
+ )
  ; // Operations
  : Children
-   @ ( ME_4F8E7AB5037E // TCollectionNotification
- ) .SequenceCode.It
+   Seq: ( ME_4F8E7AB5037E // TCollectionNotification
+ )
  ; // Children
  : Dependencies
-   @ ( ME_A034B221F68B // 
- ) .SequenceCode.It
+   Seq: ( ME_A034B221F68B // 
+ )
  ; // Dependencies
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" true
+ CONST dfm:PathOnly '\common\components\rtl\external\NotFinished\Borland\Delphi\Rtl\Common'
+ CONST intf.pas:PathOnly '\common\components\rtl\external\NotFinished\Borland\Delphi\Rtl\Common'
+ CONST mda:PathOnly '\Shared Delphi Rtl'
+ CONST mda.inc:PathOnly '\Shared Delphi Rtl'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST tpi.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'Collection'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_4D555B78015F TCollection
 
@@ -2477,10 +2784,19 @@ ref; // ME_4D555B78015F TCollection
  : Parent ME_478CF30500C1 // Classes
  ;
  : Inherits
-   @ ( ME_4D555B5B01E8 // TCollectionItem
- ) .SequenceCode.It
+   Seq: ( ME_4D555B5B01E8 // TCollectionItem
+ )
  ; // Inherits
  CONST "isClassRef" true
+ CONST dfm:PathOnly '\common\components\rtl\external\NotFinished\Borland\Delphi\Rtl\Common'
+ CONST intf.pas:PathOnly '\common\components\rtl\external\NotFinished\Borland\Delphi\Rtl\Common'
+ CONST mda:PathOnly '\Shared Delphi Rtl'
+ CONST mda.inc:PathOnly '\Shared Delphi Rtl'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST tpi.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'CollectionItemClass'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_4F8E7BED02DC TCollectionItemClass
 
@@ -2496,13 +2812,22 @@ ref; // ME_4F8E7BED02DC TCollectionItemClass
  : Parent ME_478CF30500C1 // Classes
  ;
  : Inherits
-   @ ( ME_478CF32A03B6 // TPersistent
- ) .SequenceCode.It
+   Seq: ( ME_478CF32A03B6 // TPersistent
+ )
  ; // Inherits
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
+ CONST dfm:PathOnly '\common\components\rtl\external\NotFinished\Borland\Delphi\Rtl\Common'
+ CONST intf.pas:PathOnly '\common\components\rtl\external\NotFinished\Borland\Delphi\Rtl\Common'
+ CONST mda:PathOnly '\Shared Delphi Rtl'
+ CONST mda.inc:PathOnly '\Shared Delphi Rtl'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST tpi.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'InterfacedPersistent'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_47E1214E00F2 TInterfacedPersistent
 
@@ -2517,13 +2842,22 @@ ref; // ME_47E1214E00F2 TInterfacedPersistent
  : Parent ME_478CF30500C1 // Classes
  ;
  : Inherits
-   @ ( ME_479878FA0103 // TComponent
- ) .SequenceCode.It
+   Seq: ( ME_479878FA0103 // TComponent
+ )
  ; // Inherits
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
+ CONST dfm:PathOnly '\common\components\rtl\external\NotFinished\Borland\Delphi\Rtl\Common'
+ CONST intf.pas:PathOnly '\common\components\rtl\external\NotFinished\Borland\Delphi\Rtl\Common'
+ CONST mda:PathOnly '\Shared Delphi Rtl'
+ CONST mda.inc:PathOnly '\Shared Delphi Rtl'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST tpi.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'BasicAction'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_47E762B6004C TBasicAction
 
@@ -2532,6 +2866,7 @@ FORWARD ME_4FFC4CA60156
 : ME_17018915422C
  CONST UID '17018915422C'
  CONST Name 'Ini_Reg_Class'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Регистрация TOwnedCollection' ;
@@ -2545,6 +2880,7 @@ ref; // ME_17018915422C Ini_Reg_Class
 
 : ME_DD3EBBCAE90F
  CONST UID 'DD3EBBCAE90F'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_4FFC4CA60156 // TOwnedCollection
@@ -2565,21 +2901,30 @@ ref; // ME_DD3EBBCAE90F
  : Parent ME_478CF30500C1 // Classes
  ;
  : Inherits
-   @ ( ME_4D555B78015F // TCollection
- ) .SequenceCode.It
+   Seq: ( ME_4D555B78015F // TCollection
+ )
  ; // Inherits
  : Operations
-   @ ( ME_17018915422C // Ini_Reg_Class
- ) .SequenceCode.It
+   Seq: ( ME_17018915422C // Ini_Reg_Class
+ )
  ; // Operations
  : Dependencies
-   @ ( ME_DD3EBBCAE90F // 
- ) .SequenceCode.It
+   Seq: ( ME_DD3EBBCAE90F // 
+ )
  ; // Dependencies
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
+ CONST dfm:PathOnly '\common\components\rtl\external\NotFinished\Borland\Delphi\Rtl\Common'
+ CONST intf.pas:PathOnly '\common\components\rtl\external\NotFinished\Borland\Delphi\Rtl\Common'
+ CONST mda:PathOnly '\Shared Delphi Rtl'
+ CONST mda.inc:PathOnly '\Shared Delphi Rtl'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST tpi.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'OwnedCollection'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_4FFC4CA60156 TOwnedCollection
 
@@ -2609,8 +2954,8 @@ ref; // ME_4FFFDF90030E DoIt
  : Parent ME_4FFFDF4601F9 // TThread
  ;
  : Operations
-   @ ( ME_4FFFDF90030E // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_4FFFDF90030E // DoIt
+ )
  ; // Operations
 
 ref; // ME_4FFFDF740099 Execute
@@ -2626,17 +2971,26 @@ ref; // ME_4FFFDF740099 Execute
  : Parent ME_478CF30500C1 // Classes
  ;
  : Inherits
-   @ ( WL 'ME_4807745602C8' '4AB0C3C60310.pas.ms.script' // TObject
- ) .SequenceCode.It
+   Seq: ( WL 'ME_4807745602C8' '4AB0C3C60310.pas.ms.script' // TObject
+ )
  ; // Inherits
  : Operations
-   @ ( ME_4FFFDF740099 // Execute
- ) .SequenceCode.It
+   Seq: ( ME_4FFFDF740099 // Execute
+ )
  ; // Operations
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
+ CONST dfm:PathOnly '\common\components\rtl\external\NotFinished\Borland\Delphi\Rtl\Common'
+ CONST intf.pas:PathOnly '\common\components\rtl\external\NotFinished\Borland\Delphi\Rtl\Common'
+ CONST mda:PathOnly '\Shared Delphi Rtl'
+ CONST mda.inc:PathOnly '\Shared Delphi Rtl'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST tpi.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'Thread'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_4FFFDF4601F9 TThread
 
@@ -2650,6 +3004,13 @@ ref; // ME_4FFFDF4601F9 TThread
  CONST Abstraction at_regular
  : Parent ME_478CF30500C1 // Classes
  ;
+ CONST dfm:PathOnly '\common\components\rtl\external\NotFinished\Borland\Delphi\Rtl\Common'
+ CONST intf.pas:PathOnly '\common\components\rtl\external\NotFinished\Borland\Delphi\Rtl\Common'
+ CONST mda:PathOnly '\Shared Delphi Rtl'
+ CONST mda.inc:PathOnly '\Shared Delphi Rtl'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST tpi.script:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_508FA905037C THelpContext
 
@@ -2663,6 +3024,13 @@ ref; // ME_508FA905037C THelpContext
  CONST Abstraction at_regular
  : Parent ME_478CF30500C1 // Classes
  ;
+ CONST dfm:PathOnly '\common\components\rtl\external\NotFinished\Borland\Delphi\Rtl\Common'
+ CONST intf.pas:PathOnly '\common\components\rtl\external\NotFinished\Borland\Delphi\Rtl\Common'
+ CONST mda:PathOnly '\Shared Delphi Rtl'
+ CONST mda.inc:PathOnly '\Shared Delphi Rtl'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST tpi.script:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_508FA9150190 THelpType
 
@@ -2689,8 +3057,8 @@ ref; // ME_5339369D017A AClient
  : Parent ME_5339368F0001 // AssignClient
  ;
  : Parameters
-   @ ( ME_5339369D017A // AClient
- ) .SequenceCode.It
+   Seq: ( ME_5339369D017A // AClient
+ )
  ; // Parameters
 
 ref; // ME_5339369A00EA DoIt
@@ -2706,8 +3074,8 @@ ref; // ME_5339369A00EA DoIt
  : Parent ME_52A088B20026 // TBasicActionLink
  ;
  : Operations
-   @ ( ME_5339369A00EA // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_5339369A00EA // DoIt
+ )
  ; // Operations
 
 ref; // ME_5339368F0001 AssignClient
@@ -2723,17 +3091,26 @@ ref; // ME_5339368F0001 AssignClient
  : Parent ME_478CF30500C1 // Classes
  ;
  : Inherits
-   @ ( WL 'ME_4807745602C8' '4AB0C3C60310.pas.ms.script' // TObject
- ) .SequenceCode.It
+   Seq: ( WL 'ME_4807745602C8' '4AB0C3C60310.pas.ms.script' // TObject
+ )
  ; // Inherits
  : Operations
-   @ ( ME_5339368F0001 // AssignClient
- ) .SequenceCode.It
+   Seq: ( ME_5339368F0001 // AssignClient
+ )
  ; // Operations
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
+ CONST dfm:PathOnly '\common\components\rtl\external\NotFinished\Borland\Delphi\Rtl\Common'
+ CONST intf.pas:PathOnly '\common\components\rtl\external\NotFinished\Borland\Delphi\Rtl\Common'
+ CONST mda:PathOnly '\Shared Delphi Rtl'
+ CONST mda.inc:PathOnly '\Shared Delphi Rtl'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST tpi.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'BasicActionLink'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_52A088B20026 TBasicActionLink
 
@@ -2747,6 +3124,13 @@ ref; // ME_52A088B20026 TBasicActionLink
  CONST Abstraction at_regular
  : Parent ME_478CF30500C1 // Classes
  ;
+ CONST dfm:PathOnly '\common\components\rtl\external\NotFinished\Borland\Delphi\Rtl\Common'
+ CONST intf.pas:PathOnly '\common\components\rtl\external\NotFinished\Borland\Delphi\Rtl\Common'
+ CONST mda:PathOnly '\Shared Delphi Rtl'
+ CONST mda.inc:PathOnly '\Shared Delphi Rtl'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST tpi.script:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_53A8571101A2 EParserError
 
@@ -2761,9 +3145,16 @@ ref; // ME_53A8571101A2 EParserError
  : Parent ME_478CF30500C1 // Classes
  ;
  : Inherits
-   @ ( WL 'ME_4787A405013D' '4AB0C3C60310.pas.ms.script' // Exception
- ) .SequenceCode.It
+   Seq: ( WL 'ME_4787A405013D' '4AB0C3C60310.pas.ms.script' // Exception
+ )
  ; // Inherits
+ CONST dfm:PathOnly '\common\components\rtl\external\NotFinished\Borland\Delphi\Rtl\Common'
+ CONST intf.pas:PathOnly '\common\components\rtl\external\NotFinished\Borland\Delphi\Rtl\Common'
+ CONST mda:PathOnly '\Shared Delphi Rtl'
+ CONST mda.inc:PathOnly '\Shared Delphi Rtl'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST tpi.script:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_546F14DC0358 EReadError
 
@@ -2772,6 +3163,7 @@ FORWARD ME_4CB722C101EB
 : ME_E059A6349420
  CONST UID 'E059A6349420'
  CONST Name 'DoIt'
+ CONST IsSummoned true
  CONST Class class_Operation
  %SUMMARY 'Сигнатура метода Rect' ;
  CONST Visibility PublicAccess
@@ -2792,8 +3184,8 @@ ref; // ME_E059A6349420 DoIt
  : Parent ME_478CF30500C1 // Classes
  ;
  : Operations
-   @ ( ME_E059A6349420 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_E059A6349420 // DoIt
+ )
  ; // Operations
 
 ref; // ME_4CB722C101EB Rect
@@ -2819,8 +3211,8 @@ ref; // ME_549BD0500215 Mathod
  : Parent ME_549BCFD20030 // AllocateHWnd
  ;
  : Parameters
-   @ ( ME_549BD0500215 // Mathod
- ) .SequenceCode.It
+   Seq: ( ME_549BD0500215 // Mathod
+ )
  ; // Parameters
 
 ref; // ME_549BD0340261 DoIt
@@ -2836,8 +3228,8 @@ ref; // ME_549BD0340261 DoIt
  : Parent ME_478CF30500C1 // Classes
  ;
  : Operations
-   @ ( ME_549BD0340261 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_549BD0340261 // DoIt
+ )
  ; // Operations
  CONST "finished" false
 
@@ -2855,12 +3247,12 @@ ref; // ME_549BCFD20030 AllocateHWnd
  : Parent ME_4AB0997B00A2 // Common
  ;
  : Operations
-   @ ( ME_4CB722C101EB // Rect
+   Seq: ( ME_4CB722C101EB // Rect
  ME_549BCFD20030 // AllocateHWnd
- ) .SequenceCode.It
+ )
  ; // Operations
  : Children
-   @ ( ME_4FD09D790377 // TFiler
+   Seq: ( ME_4FD09D790377 // TFiler
  ME_478CF32A03B6 // TPersistent
  ME_4D5418F5009C // TComponentName
  ME_47E124920022 // TWndMethod
@@ -2904,15 +3296,17 @@ ref; // ME_549BCFD20030 AllocateHWnd
  ME_52A088B20026 // TBasicActionLink
  ME_53A8571101A2 // EParserError
  ME_546F14DC0358 // EReadError
- ) .SequenceCode.It
+ )
  ; // Children
  CONST "no hands" false
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\external\NotFinished\Borland\Delphi\Rtl\Common'
  CONST intf.pas:Path 'common\components\rtl\external\NotFinished\Borland\Delphi\Rtl\Common\Classes.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\external\NotFinished\Borland\Delphi\Rtl\Common'
+ CONST mda:PathOnly '\Shared Delphi Rtl'
+ CONST mda.inc:PathOnly '\Shared Delphi Rtl'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST tpi.script:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_478CF30500C1 Classes
 
@@ -2933,6 +3327,15 @@ FORWARD ME_48078324039E
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
+ CONST dfm:PathOnly '\common\components\rtl\external\NotFinished\Borland\Delphi\Rtl\Common'
+ CONST intf.pas:PathOnly '\common\components\rtl\external\NotFinished\Borland\Delphi\Rtl\Common'
+ CONST mda:PathOnly '\Shared Delphi Rtl'
+ CONST mda.inc:PathOnly '\Shared Delphi Rtl'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST tpi.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'CriticalSection'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_4807833801D7 TCriticalSection
 
@@ -2951,6 +3354,15 @@ ref; // ME_4807833801D7 TCriticalSection
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
+ CONST dfm:PathOnly '\common\components\rtl\external\NotFinished\Borland\Delphi\Rtl\Common'
+ CONST intf.pas:PathOnly '\common\components\rtl\external\NotFinished\Borland\Delphi\Rtl\Common'
+ CONST mda:PathOnly '\Shared Delphi Rtl'
+ CONST mda.inc:PathOnly '\Shared Delphi Rtl'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST tpi.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'SimpleEvent'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_483BE09901F5 TSimpleEvent
 
@@ -2969,6 +3381,15 @@ ref; // ME_483BE09901F5 TSimpleEvent
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
+ CONST dfm:PathOnly '\common\components\rtl\external\NotFinished\Borland\Delphi\Rtl\Common'
+ CONST intf.pas:PathOnly '\common\components\rtl\external\NotFinished\Borland\Delphi\Rtl\Common'
+ CONST mda:PathOnly '\Shared Delphi Rtl'
+ CONST mda.inc:PathOnly '\Shared Delphi Rtl'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST tpi.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'Event'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_491D9DB8010F TEvent
 
@@ -2983,18 +3404,20 @@ ref; // ME_491D9DB8010F TEvent
  : Parent ME_4AB0997B00A2 // Common
  ;
  : Children
-   @ ( ME_4807833801D7 // TCriticalSection
+   Seq: ( ME_4807833801D7 // TCriticalSection
  ME_483BE09901F5 // TSimpleEvent
  ME_491D9DB8010F // TEvent
- ) .SequenceCode.It
+ )
  ; // Children
  CONST "no hands" false
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\external\NotFinished\Borland\Delphi\Rtl\Common'
  CONST intf.pas:Path 'common\components\rtl\external\NotFinished\Borland\Delphi\Rtl\Common\SyncObjs.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\external\NotFinished\Borland\Delphi\Rtl\Common'
+ CONST mda:PathOnly '\Shared Delphi Rtl'
+ CONST mda.inc:PathOnly '\Shared Delphi Rtl'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST tpi.script:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_48078324039E SyncObjs
 
@@ -3005,6 +3428,7 @@ FORWARD ME_4C341F8A008E
 : ME_61BE1754885E
  CONST UID '61BE1754885E'
  CONST Name 'DoIt'
+ CONST IsSummoned true
  CONST Class class_Operation
  %SUMMARY 'Сигнатура метода IfThen' ;
  CONST Visibility PublicAccess
@@ -3025,8 +3449,8 @@ ref; // ME_61BE1754885E DoIt
  : Parent ME_4808A20402DC // Math
  ;
  : Operations
-   @ ( ME_61BE1754885E // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_61BE1754885E // DoIt
+ )
  ; // Operations
 
 ref; // ME_4C341F8A008E IfThen
@@ -3036,6 +3460,7 @@ FORWARD ME_4E8C103D01B1
 : ME_DCBCF7DB4BF5
  CONST UID 'DCBCF7DB4BF5'
  CONST Name 'DoIt'
+ CONST IsSummoned true
  CONST Class class_Operation
  %SUMMARY 'Сигнатура метода Sign' ;
  CONST Visibility PublicAccess
@@ -3056,8 +3481,8 @@ ref; // ME_DCBCF7DB4BF5 DoIt
  : Parent ME_4808A20402DC // Math
  ;
  : Operations
-   @ ( ME_DCBCF7DB4BF5 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_DCBCF7DB4BF5 // DoIt
+ )
  ; // Operations
 
 ref; // ME_4E8C103D01B1 Sign
@@ -3067,6 +3492,7 @@ FORWARD ME_51909822025E
 : ME_5492F6BB84F0
  CONST UID '5492F6BB84F0'
  CONST Name 'DoIt'
+ CONST IsSummoned true
  CONST Class class_Operation
  %SUMMARY 'Сигнатура метода InRange' ;
  CONST Visibility PublicAccess
@@ -3087,8 +3513,8 @@ ref; // ME_5492F6BB84F0 DoIt
  : Parent ME_4808A20402DC // Math
  ;
  : Operations
-   @ ( ME_5492F6BB84F0 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_5492F6BB84F0 // DoIt
+ )
  ; // Operations
 
 ref; // ME_51909822025E InRange
@@ -3098,6 +3524,7 @@ FORWARD ME_5475911A0274
 : ME_2EBE65E656B9
  CONST UID '2EBE65E656B9'
  CONST Name 'DoIt'
+ CONST IsSummoned true
  CONST Class class_Operation
  %SUMMARY 'Сигнатура метода Min' ;
  CONST Visibility PublicAccess
@@ -3118,8 +3545,8 @@ ref; // ME_2EBE65E656B9 DoIt
  : Parent ME_4808A20402DC // Math
  ;
  : Operations
-   @ ( ME_2EBE65E656B9 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_2EBE65E656B9 // DoIt
+ )
  ; // Operations
 
 ref; // ME_5475911A0274 Min
@@ -3129,6 +3556,7 @@ FORWARD ME_56459FB100FF
 : ME_FE38241D4782
  CONST UID 'FE38241D4782'
  CONST Name 'DoIt'
+ CONST IsSummoned true
  CONST Class class_Operation
  %SUMMARY 'Сигнатура метода Max' ;
  CONST Visibility PublicAccess
@@ -3149,8 +3577,8 @@ ref; // ME_FE38241D4782 DoIt
  : Parent ME_4808A20402DC // Math
  ;
  : Operations
-   @ ( ME_FE38241D4782 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_FE38241D4782 // DoIt
+ )
  ; // Operations
 
 ref; // ME_56459FB100FF Max
@@ -3187,9 +3615,9 @@ ref; // ME_4808A23B00F5 aTo
  : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
  ;
  : Parameters
-   @ ( ME_4808A23B00E1 // aFrom
+   Seq: ( ME_4808A23B00E1 // aFrom
  ME_4808A23B00F5 // aTo
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_4808A21203A5 RandomRange
@@ -3205,21 +3633,23 @@ ref; // ME_4808A21203A5 RandomRange
  : Parent ME_4AB0997B00A2 // Common
  ;
  : Operations
-   @ ( ME_4C341F8A008E // IfThen
+   Seq: ( ME_4C341F8A008E // IfThen
  ME_4E8C103D01B1 // Sign
  ME_51909822025E // InRange
  ME_5475911A0274 // Min
  ME_56459FB100FF // Max
  ME_4808A21203A5 // RandomRange
- ) .SequenceCode.It
+ )
  ; // Operations
  CONST "no hands" false
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\external\NotFinished\Borland\Delphi\Rtl\Common'
  CONST intf.pas:Path 'common\components\rtl\external\NotFinished\Borland\Delphi\Rtl\Common\Math.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\external\NotFinished\Borland\Delphi\Rtl\Common'
+ CONST mda:PathOnly '\Shared Delphi Rtl'
+ CONST mda.inc:PathOnly '\Shared Delphi Rtl'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST tpi.script:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_4808A20402DC Math
 
@@ -3237,9 +3667,16 @@ FORWARD ME_4981AC0701C1
  : Parent ME_4981AC0701C1 // ComObj
  ;
  : Inherits
-   @ ( WL 'ME_4787A405013D' '4AB0C3C60310.pas.ms.script' // Exception
- ) .SequenceCode.It
+   Seq: ( WL 'ME_4787A405013D' '4AB0C3C60310.pas.ms.script' // Exception
+ )
  ; // Inherits
+ CONST dfm:PathOnly '\common\components\rtl\external\NotFinished\Borland\Delphi\Rtl\Common'
+ CONST intf.pas:PathOnly '\common\components\rtl\external\NotFinished\Borland\Delphi\Rtl\Common'
+ CONST mda:PathOnly '\Shared Delphi Rtl'
+ CONST mda.inc:PathOnly '\Shared Delphi Rtl'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST tpi.script:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_4981AC530096 EOleError
 
@@ -3255,9 +3692,16 @@ ref; // ME_4981AC530096 EOleError
  : Parent ME_4981AC0701C1 // ComObj
  ;
  : Inherits
-   @ ( ME_4981AC530096 // EOleError
- ) .SequenceCode.It
+   Seq: ( ME_4981AC530096 // EOleError
+ )
  ; // Inherits
+ CONST dfm:PathOnly '\common\components\rtl\external\NotFinished\Borland\Delphi\Rtl\Common'
+ CONST intf.pas:PathOnly '\common\components\rtl\external\NotFinished\Borland\Delphi\Rtl\Common'
+ CONST mda:PathOnly '\Shared Delphi Rtl'
+ CONST mda.inc:PathOnly '\Shared Delphi Rtl'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST tpi.script:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_4981AC2F0294 EOleSysError
 
@@ -3266,6 +3710,7 @@ FORWARD ME_4D186F8401C5
 : ME_4057BDD7AE22
  CONST UID '4057BDD7AE22'
  CONST Name 'DoIt'
+ CONST IsSummoned true
  CONST Class class_Operation
  %SUMMARY 'Сигнатура метода OleCheck' ;
  CONST Visibility PublicAccess
@@ -3286,8 +3731,8 @@ ref; // ME_4057BDD7AE22 DoIt
  : Parent ME_4981AC0701C1 // ComObj
  ;
  : Operations
-   @ ( ME_4057BDD7AE22 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_4057BDD7AE22 // DoIt
+ )
  ; // Operations
 
 ref; // ME_4D186F8401C5 OleCheck
@@ -3303,21 +3748,23 @@ ref; // ME_4D186F8401C5 OleCheck
  : Parent ME_4AB0997B00A2 // Common
  ;
  : Operations
-   @ ( ME_4D186F8401C5 // OleCheck
- ) .SequenceCode.It
+   Seq: ( ME_4D186F8401C5 // OleCheck
+ )
  ; // Operations
  : Children
-   @ ( ME_4981AC530096 // EOleError
+   Seq: ( ME_4981AC530096 // EOleError
  ME_4981AC2F0294 // EOleSysError
- ) .SequenceCode.It
+ )
  ; // Children
  CONST "no hands" false
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\external\NotFinished\Borland\Delphi\Rtl\Common'
  CONST intf.pas:Path 'common\components\rtl\external\NotFinished\Borland\Delphi\Rtl\Common\ComObj.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\external\NotFinished\Borland\Delphi\Rtl\Common'
+ CONST mda:PathOnly '\Shared Delphi Rtl'
+ CONST mda.inc:PathOnly '\Shared Delphi Rtl'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST tpi.script:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_4981AC0701C1 ComObj
 
@@ -3335,13 +3782,22 @@ FORWARD ME_4807687301D4
  : Parent ME_4807687301D4 // Contnrs
  ;
  : Inherits
-   @ ( ME_480768DD00F0 // TList
- ) .SequenceCode.It
+   Seq: ( ME_480768DD00F0 // TList
+ )
  ; // Inherits
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
+ CONST dfm:PathOnly '\common\components\rtl\external\NotFinished\Borland\Delphi\Rtl\Common'
+ CONST intf.pas:PathOnly '\common\components\rtl\external\NotFinished\Borland\Delphi\Rtl\Common'
+ CONST mda:PathOnly '\Shared Delphi Rtl'
+ CONST mda.inc:PathOnly '\Shared Delphi Rtl'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST tpi.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'ObjectList'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_4807688A0144 TObjectList
 
@@ -3357,13 +3813,22 @@ ref; // ME_4807688A0144 TObjectList
  : Parent ME_4807687301D4 // Contnrs
  ;
  : Inherits
-   @ ( WL 'ME_4807745602C8' '4AB0C3C60310.pas.ms.script' // TObject
- ) .SequenceCode.It
+   Seq: ( WL 'ME_4807745602C8' '4AB0C3C60310.pas.ms.script' // TObject
+ )
  ; // Inherits
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
+ CONST dfm:PathOnly '\common\components\rtl\external\NotFinished\Borland\Delphi\Rtl\Common'
+ CONST intf.pas:PathOnly '\common\components\rtl\external\NotFinished\Borland\Delphi\Rtl\Common'
+ CONST mda:PathOnly '\Shared Delphi Rtl'
+ CONST mda.inc:PathOnly '\Shared Delphi Rtl'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST tpi.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'OrderedList'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_502551760345 TOrderedList
 
@@ -3379,13 +3844,22 @@ ref; // ME_502551760345 TOrderedList
  : Parent ME_4807687301D4 // Contnrs
  ;
  : Inherits
-   @ ( ME_502551760345 // TOrderedList
- ) .SequenceCode.It
+   Seq: ( ME_502551760345 // TOrderedList
+ )
  ; // Inherits
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
+ CONST dfm:PathOnly '\common\components\rtl\external\NotFinished\Borland\Delphi\Rtl\Common'
+ CONST intf.pas:PathOnly '\common\components\rtl\external\NotFinished\Borland\Delphi\Rtl\Common'
+ CONST mda:PathOnly '\Shared Delphi Rtl'
+ CONST mda.inc:PathOnly '\Shared Delphi Rtl'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST tpi.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'Stack'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_502551840024 TStack
 
@@ -3401,13 +3875,22 @@ ref; // ME_502551840024 TStack
  : Parent ME_4807687301D4 // Contnrs
  ;
  : Inherits
-   @ ( WL 'ME_4807745602C8' '4AB0C3C60310.pas.ms.script' // TObject
- ) .SequenceCode.It
+   Seq: ( WL 'ME_4807745602C8' '4AB0C3C60310.pas.ms.script' // TObject
+ )
  ; // Inherits
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
+ CONST dfm:PathOnly '\common\components\rtl\external\NotFinished\Borland\Delphi\Rtl\Common'
+ CONST intf.pas:PathOnly '\common\components\rtl\external\NotFinished\Borland\Delphi\Rtl\Common'
+ CONST mda:PathOnly '\Shared Delphi Rtl'
+ CONST mda.inc:PathOnly '\Shared Delphi Rtl'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST tpi.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'BucketList'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_5048F91D0360 TBucketList
 
@@ -3422,19 +3905,21 @@ ref; // ME_5048F91D0360 TBucketList
  : Parent ME_4AB0997B00A2 // Common
  ;
  : Children
-   @ ( ME_4807688A0144 // TObjectList
+   Seq: ( ME_4807688A0144 // TObjectList
  ME_502551760345 // TOrderedList
  ME_502551840024 // TStack
  ME_5048F91D0360 // TBucketList
- ) .SequenceCode.It
+ )
  ; // Children
  CONST "no hands" false
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\external\NotFinished\Borland\Delphi\Rtl\Common'
  CONST intf.pas:Path 'common\components\rtl\external\NotFinished\Borland\Delphi\Rtl\Common\Contnrs.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\external\NotFinished\Borland\Delphi\Rtl\Common'
+ CONST mda:PathOnly '\Shared Delphi Rtl'
+ CONST mda.inc:PathOnly '\Shared Delphi Rtl'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST tpi.script:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_4807687301D4 Contnrs
 
@@ -3455,6 +3940,7 @@ FORWARD ME_4F575B9B000E
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value 12
 
 ref; // ME_4F575BCE028E MonthsPerYear
 
@@ -3469,10 +3955,17 @@ ref; // ME_4F575BCE028E MonthsPerYear
  : Parent ME_48D391C60190 // DateUtils
  ;
  : Attributes
-   @ ( ME_4F575BCE028E // MonthsPerYear
- ) .SequenceCode.It
+   Seq: ( ME_4F575BCE028E // MonthsPerYear
+ )
  ; // Attributes
  CONST "spell names" false
+ CONST dfm:PathOnly '\common\components\rtl\external\NotFinished\Borland\Delphi\Rtl\Common'
+ CONST intf.pas:PathOnly '\common\components\rtl\external\NotFinished\Borland\Delphi\Rtl\Common'
+ CONST mda:PathOnly '\Shared Delphi Rtl'
+ CONST mda.inc:PathOnly '\Shared Delphi Rtl'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST tpi.script:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_4F575B9B000E DateTimeConsts
 
@@ -3481,6 +3974,7 @@ FORWARD ME_54EC25F3023A
 : ME_52AFCA8F3D84
  CONST UID '52AFCA8F3D84'
  CONST Name 'DoIt'
+ CONST IsSummoned true
  CONST Class class_Operation
  %SUMMARY 'Сигнатура метода MillisecondsBetween' ;
  CONST Visibility PublicAccess
@@ -3501,8 +3995,8 @@ ref; // ME_52AFCA8F3D84 DoIt
  : Parent ME_48D391C60190 // DateUtils
  ;
  : Operations
-   @ ( ME_52AFCA8F3D84 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_52AFCA8F3D84 // DoIt
+ )
  ; // Operations
  CONST "finished" false
 
@@ -3513,6 +4007,7 @@ FORWARD ME_556703800280
 : ME_49C0FA41B87E
  CONST UID '49C0FA41B87E'
  CONST Name 'DoIt'
+ CONST IsSummoned true
  CONST Class class_Operation
  %SUMMARY 'Сигнатура метода IncDay' ;
  CONST Visibility PublicAccess
@@ -3533,8 +4028,8 @@ ref; // ME_49C0FA41B87E DoIt
  : Parent ME_48D391C60190 // DateUtils
  ;
  : Operations
-   @ ( ME_49C0FA41B87E // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_49C0FA41B87E // DoIt
+ )
  ; // Operations
  CONST "finished" false
 
@@ -3561,8 +4056,8 @@ ref; // ME_48D391E5028D AValue
  : Target WL 'ME_476F71A701AB' '4AB0C3C60310.pas.ms.script' // Word
  ;
  : Parameters
-   @ ( ME_48D391E5028D // AValue
- ) .SequenceCode.It
+   Seq: ( ME_48D391E5028D // AValue
+ )
  ; // Parameters
 
 ref; // ME_48D391E20282 YearOf
@@ -3578,22 +4073,24 @@ ref; // ME_48D391E20282 YearOf
  : Parent ME_4AB0997B00A2 // Common
  ;
  : Operations
-   @ ( ME_54EC25F3023A // MillisecondsBetween
+   Seq: ( ME_54EC25F3023A // MillisecondsBetween
  ME_556703800280 // IncDay
  ME_48D391E20282 // YearOf
- ) .SequenceCode.It
+ )
  ; // Operations
  : Constants
-   @ ( ME_4F575B9B000E // DateTimeConsts
- ) .SequenceCode.It
+   Seq: ( ME_4F575B9B000E // DateTimeConsts
+ )
  ; // Constants
  CONST "no hands" false
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\external\NotFinished\Borland\Delphi\Rtl\Common'
  CONST intf.pas:Path 'common\components\rtl\external\NotFinished\Borland\Delphi\Rtl\Common\DateUtils.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\external\NotFinished\Borland\Delphi\Rtl\Common'
+ CONST mda:PathOnly '\Shared Delphi Rtl'
+ CONST mda.inc:PathOnly '\Shared Delphi Rtl'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST tpi.script:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_48D391C60190 DateUtils
 
@@ -3608,9 +4105,16 @@ ref; // ME_48D391C60190 DateUtils
  : Parent ME_4AB0997B00A2 // Common
  ;
  : Inherits
-   @ ( ME_479878FA0103 // TComponent
- ) .SequenceCode.It
+   Seq: ( ME_479878FA0103 // TComponent
+ )
  ; // Inherits
+ CONST dfm:PathOnly '\common\components\rtl\external\NotFinished\Borland\Delphi\Rtl\Common'
+ CONST intf.pas:PathOnly '\common\components\rtl\external\NotFinished\Borland\Delphi\Rtl\Common'
+ CONST mda:PathOnly '\Shared Delphi Rtl'
+ CONST mda.inc:PathOnly '\Shared Delphi Rtl'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST tpi.script:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_4AAF7FCC0218 MComponent
 
@@ -3625,12 +4129,14 @@ ref; // ME_4AAF7FCC0218 MComponent
  : Parent ME_4AB0997B00A2 // Common
  ;
  CONST "no hands" false
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\external\NotFinished\Borland\Delphi\Rtl\Common'
  CONST intf.pas:Path 'common\components\rtl\external\NotFinished\Borland\Delphi\Rtl\Common\HelpIntfs.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\external\NotFinished\Borland\Delphi\Rtl\Common'
+ CONST mda:PathOnly '\Shared Delphi Rtl'
+ CONST mda.inc:PathOnly '\Shared Delphi Rtl'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST tpi.script:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_4F8BF87D0235 HelpIntfs
 
@@ -3647,9 +4153,16 @@ FORWARD ME_502549AF030B
  : Parent ME_502549AF030B // Masks
  ;
  : Inherits
-   @ ( WL 'ME_4787A405013D' '4AB0C3C60310.pas.ms.script' // Exception
- ) .SequenceCode.It
+   Seq: ( WL 'ME_4787A405013D' '4AB0C3C60310.pas.ms.script' // Exception
+ )
  ; // Inherits
+ CONST dfm:PathOnly '\common\components\rtl\external\NotFinished\Borland\Delphi\Rtl\Common'
+ CONST intf.pas:PathOnly '\common\components\rtl\external\NotFinished\Borland\Delphi\Rtl\Common'
+ CONST mda:PathOnly '\Shared Delphi Rtl'
+ CONST mda.inc:PathOnly '\Shared Delphi Rtl'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST tpi.script:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_502549BF02C2 EMaskException
 
@@ -3668,6 +4181,15 @@ ref; // ME_502549BF02C2 EMaskException
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
+ CONST dfm:PathOnly '\common\components\rtl\external\NotFinished\Borland\Delphi\Rtl\Common'
+ CONST intf.pas:PathOnly '\common\components\rtl\external\NotFinished\Borland\Delphi\Rtl\Common'
+ CONST mda:PathOnly '\Shared Delphi Rtl'
+ CONST mda.inc:PathOnly '\Shared Delphi Rtl'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST tpi.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'Mask'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_50254A0700F8 TMask
 
@@ -3703,9 +4225,9 @@ ref; // ME_50254AA70297 Mask
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
  : Parameters
-   @ ( ME_50254AA70268 // Filename
+   Seq: ( ME_50254AA70268 // Filename
  ME_50254AA70297 // Mask
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_50254A2603D3 MatchesMask
@@ -3721,21 +4243,23 @@ ref; // ME_50254A2603D3 MatchesMask
  : Parent ME_4AB0997B00A2 // Common
  ;
  : Operations
-   @ ( ME_50254A2603D3 // MatchesMask
- ) .SequenceCode.It
+   Seq: ( ME_50254A2603D3 // MatchesMask
+ )
  ; // Operations
  : Children
-   @ ( ME_502549BF02C2 // EMaskException
+   Seq: ( ME_502549BF02C2 // EMaskException
  ME_50254A0700F8 // TMask
- ) .SequenceCode.It
+ )
  ; // Children
  CONST "no hands" false
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\external\NotFinished\Borland\Delphi\Rtl\Common'
  CONST intf.pas:Path 'common\components\rtl\external\NotFinished\Borland\Delphi\Rtl\Common\Masks.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\external\NotFinished\Borland\Delphi\Rtl\Common'
+ CONST mda:PathOnly '\Shared Delphi Rtl'
+ CONST mda.inc:PathOnly '\Shared Delphi Rtl'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST tpi.script:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_502549AF030B Masks
 
@@ -3751,12 +4275,14 @@ ref; // ME_502549AF030B Masks
  ;
  CONST "finished" false
  CONST "no hands" false
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\external\NotFinished\Borland\Delphi\Rtl\Common'
  CONST intf.pas:Path 'common\components\rtl\external\NotFinished\Borland\Delphi\Rtl\Common\NOT_FINISHED_Registry.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\external\NotFinished\Borland\Delphi\Rtl\Common'
+ CONST mda:PathOnly '\Shared Delphi Rtl'
+ CONST mda.inc:PathOnly '\Shared Delphi Rtl'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST tpi.script:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_513747E00025 Registry
 
@@ -3771,12 +4297,14 @@ ref; // ME_513747E00025 Registry
  : Parent ME_4AB0997B00A2 // Common
  ;
  CONST "no hands" false
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\external\NotFinished\Borland\Delphi\Rtl\Common'
  CONST intf.pas:Path 'common\components\rtl\external\NotFinished\Borland\Delphi\Rtl\Common\MaskUtils.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\external\NotFinished\Borland\Delphi\Rtl\Common'
+ CONST mda:PathOnly '\Shared Delphi Rtl'
+ CONST mda.inc:PathOnly '\Shared Delphi Rtl'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST tpi.script:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_5564AC560225 MaskUtils
 
@@ -3796,6 +4324,15 @@ FORWARD ME_56210ACE0023
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
+ CONST dfm:PathOnly '\common\components\rtl\external\NotFinished\Borland\Delphi\Rtl\Common'
+ CONST intf.pas:PathOnly '\common\components\rtl\external\NotFinished\Borland\Delphi\Rtl\Common'
+ CONST mda:PathOnly '\Shared Delphi Rtl'
+ CONST mda.inc:PathOnly '\Shared Delphi Rtl'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST tpi.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'ShortCutList'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_56210AE80069 TCustomShortCutList
 
@@ -3810,18 +4347,20 @@ ref; // ME_56210AE80069 TCustomShortCutList
  : Parent ME_4AB0997B00A2 // Common
  ;
  : Children
-   @ ( ME_56210AE80069 // TCustomShortCutList
- ) .SequenceCode.It
+   Seq: ( ME_56210AE80069 // TCustomShortCutList
+ )
  ; // Children
  CONST "finished" false
  CONST "ifdef" 'XE'
  CONST "no hands" false
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\external\NotFinished\Borland\Delphi\Rtl\Common'
  CONST intf.pas:Path 'common\components\rtl\external\NotFinished\Borland\Delphi\Rtl\Common\NOT_FINISHED_Actions.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\external\NotFinished\Borland\Delphi\Rtl\Common'
+ CONST mda:PathOnly '\Shared Delphi Rtl'
+ CONST mda.inc:PathOnly '\Shared Delphi Rtl'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST tpi.script:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_56210ACE0023 Actions
 
@@ -3835,7 +4374,7 @@ ref; // ME_56210ACE0023 Actions
  : Parent WL 'ME_469F3E37025A' '469F3E37025A.pas.ms.script' // Rtl
  ;
  : Children
-   @ ( ME_483C378301CB // StrUtils
+   Seq: ( ME_483C378301CB // StrUtils
  ME_478CF30500C1 // Classes
  ME_48078324039E // SyncObjs
  ME_4808A20402DC // Math
@@ -3848,23 +4387,24 @@ ref; // ME_56210ACE0023 Actions
  ME_513747E00025 // Registry
  ME_5564AC560225 // MaskUtils
  ME_56210ACE0023 // Actions
- ) .SequenceCode.It
+ )
  ; // Children
  : Depends
-   @ ( WL 'ME_46A0E6C5023A' '46A0E6C5023A.pas.ms.script' // ActiveX
+   Seq: ( WL 'ME_46A0E6C5023A' '46A0E6C5023A.pas.ms.script' // ActiveX
  WL 'ME_476F78840219' '476F78840219.pas.ms.script' // Messages
  WL 'ME_4AB0C3C60310' '4AB0C3C60310.pas.ms.script' // Sys
  WL 'ME_561F9F7D02A7' '561F9F7D02A7.pas.ms.script' // ScriptEngine
- ) .SequenceCode.It
+ )
  ; // Depends
  CONST "path prefix" '/Common'
- : Generators
- @ (
- gen_pas.script
- gen_pas.script.runner
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\external\NotFinished\Borland\Delphi\Rtl\Common'
+ CONST intf.pas:PathOnly '\common\components\rtl\external\NotFinished\Borland\Delphi\Rtl\Common'
+ CONST mda:PathOnly '\Shared Delphi Rtl'
+ CONST mda.inc:PathOnly '\Shared Delphi Rtl'
  CONST pas.script:Path 'shared\models\NewSchool\Scripts\4AB0997B00A2.pas.ms.script'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
  CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\4AB0997B00A2.pas.ms.script.runner'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST tpi.script:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_4AB0997B00A2 Common

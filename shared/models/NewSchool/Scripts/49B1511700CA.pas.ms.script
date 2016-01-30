@@ -11,16 +11,16 @@ INCLUDE 'ElementsRTTI.ms.dict'
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
  : Children
-   @ ( WL 'ME_4684F91300DD' '4684F91300DD.pas.ms.script' // Vcl
+   Seq: ( WL 'ME_4684F91300DD' '4684F91300DD.pas.ms.script' // Vcl
  WL 'ME_483E96C10305' '483E96C10305.pas.ms.script' // Internet
  WL 'ME_5226F61C0109' '5226F61C0109.pas.ms.script' // Samples
  WL 'ME_52A1EF91018B' '52A1EF91018B.pas.ms.script' // Toolsapi
- ) .SequenceCode.It
+ )
  ; // Children
  : Depends
-   @ ( WL 'ME_4B63155B0328' '4B63155B0328.pas.ms.script' // MDProcess$ForDelphi
+   Seq: ( WL 'ME_4B63155B0328' '4B63155B0328.pas.ms.script' // MDProcess$ForDelphi
  WL 'ME_562E251101C2' '562E251101C2.pas.ms.script' // Shared Delphi Rtl
- ) .SequenceCode.It
+ )
  ; // Depends
  CONST "Full MDP" false
  CONST "create project" true
@@ -33,17 +33,11 @@ INCLUDE 'ElementsRTTI.ms.dict'
  CONST "root path suffix" '/components'
  CONST "space key" 'SHD'
  CONST "space name" 'Shared (delphi)'
- : Generators
- @ (
- gen_forth_structure
- gen_intf.pas
- gen_pas.script
- gen_pas.script.runner
- ) .SequenceCode.It
- ; // Generators
- CONST forth_structure:Path 'shared\models\NewSchool\Shared Delphi Core\Shared Delphi Core.model.script'
- CONST intf.pas:Path 'common\components\common Core_prj.info'
+ CONST dfm:PathOnly '\common\components'
+ CONST intf.pas:PathOnly '\common\components'
  CONST pas.script:Path 'shared\models\NewSchool\Scripts\49B1511700CA.pas.ms.script'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
  CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\49B1511700CA.pas.ms.script.runner'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_49B1511700CA Shared Delphi Core

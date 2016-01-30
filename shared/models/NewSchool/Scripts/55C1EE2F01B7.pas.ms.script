@@ -12,32 +12,26 @@ INCLUDE 'ElementsRTTI.ms.dict'
  : Parent WL 'ME_4ABCC25A0322' '4ABCC25A0322.pas.ms.script' // Shared Delphi Low Level
  ;
  : Children
-   @ ( WL 'ME_4F473F0902B2' '4F473F0902B2.pas.ms.script' // CString
+   Seq: ( WL 'ME_4F473F0902B2' '4F473F0902B2.pas.ms.script' // CString
  WL 'ME_52EF72190220' '52EF72190220.pas.ms.script' // tfwParserInterfaces
  WL 'ME_4F4734A40270' '4F4734A40270.pas.ms.script' // Parser
  WL 'ME_55C1F58400F6' '55C1F58400F6.pas.ms.script' // Tools
- ) .SequenceCode.It
+ )
  ; // Children
  : Depends
-   @ ( WL 'ME_4790D09A0378' '4790D09A0378.pas.ms.script' // L3
- ) .SequenceCode.It
+   Seq: ( WL 'ME_4790D09A0378' '4790D09A0378.pas.ms.script' // L3
+ )
  ; // Depends
  CONST "defines" 'seDefine.inc'
  CONST "exec mode" 'concluded'
  CONST "gui" 'rtl'
  CONST "is namespace" true
  CONST "vendor" '/Garant'
- : Generators
- @ (
- gen_forth_structure
- gen_intf.pas
- gen_pas.script
- gen_pas.script.runner
- ) .SequenceCode.It
- ; // Generators
- CONST forth_structure:Path 'shared\models\NewSchool\Shared Delphi Low Level\ScriptEngine$Parsing\ScriptEngine$Parsing.model.script'
- CONST intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\ScriptEngine$Parsing_lib.info'
+ CONST dfm:PathOnly '\common\components\rtl\Garant\ScriptEngine'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\ScriptEngine'
  CONST pas.script:Path 'shared\models\NewSchool\Scripts\55C1EE2F01B7.pas.ms.script'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
  CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\55C1EE2F01B7.pas.ms.script.runner'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_55C1EE2F01B7 ScriptEngine$Parsing

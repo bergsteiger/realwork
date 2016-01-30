@@ -37,9 +37,9 @@ ref; // ME_53300FDA02F4 aCtx
  : Parent ME_52D6471802DC // DoWithSubPanel
  ;
  : Parameters
-   @ ( ME_53300FDA02E4 // aControl
+   Seq: ( ME_53300FDA02E4 // aControl
  ME_53300FDA02F4 // aCtx
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_52D6472F006E DoIt
@@ -55,8 +55,8 @@ ref; // ME_52D6472F006E DoIt
  : Parent ME_52D646990049 // TkwSubPanelFromStackWord
  ;
  : Operations
-   @ ( ME_52D6472F006E // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_52D6472F006E // DoIt
+ )
  ; // Operations
 
 ref; // ME_52D6471802DC DoWithSubPanel
@@ -64,6 +64,7 @@ ref; // ME_52D6471802DC DoWithSubPanel
 : ME_C7D3EC551A0A
  CONST UID 'C7D3EC551A0A'
  CONST Name 'Ini_Reg_Class'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Регистрация TkwSubPanelFromStackWord' ;
@@ -82,6 +83,7 @@ ref; // ME_C7D3EC551A0A Ini_Reg_Class
  ;
  : Implementor ME_52D646990049 // TkwSubPanelFromStackWord
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_4F212C3A015A_ME_52D646990049 DoControl
 
 : ME_52D646990049
@@ -95,28 +97,30 @@ ref; // ME_4F212C3A015A_ME_52D646990049 DoControl
  : Parent ME_52D643A301A9 // SubPanelWords
  ;
  : Inherits
-   @ ( WL 'ME_4F212C120371' '54DB92D203C9.pas.ms.script' // kwControlFromStackWord
- ) .SequenceCode.It
+   Seq: ( WL 'ME_4F212C120371' '54DB92D203C9.pas.ms.script' // kwControlFromStackWord
+ )
  ; // Inherits
  : Operations
-   @ ( ME_52D6471802DC // DoWithSubPanel
+   Seq: ( ME_52D6471802DC // DoWithSubPanel
  ME_C7D3EC551A0A // Ini_Reg_Class
- ) .SequenceCode.It
+ )
  ; // Operations
  : Implemented
-   @ ( ME_4F212C3A015A_ME_52D646990049 // DoControl
- ) .SequenceCode.It
+   Seq: ( ME_4F212C3A015A_ME_52D646990049 // DoControl
+ )
  ; // Implemented
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\ScriptEngine'
  CONST intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\kwSubPanelFromStackWord.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\ScriptEngine'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'SubPanelFromStackWord'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'kwSubPanelFromStackWord'
 
 ref; // ME_52D646990049 TkwSubPanelFromStackWord
 
@@ -276,6 +280,7 @@ ref; // ME_54ECA21603BB
 
 : ME_59666CAB2B06
  CONST UID '59666CAB2B06'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_52D643FE004B // SubPanelWordsPack
@@ -296,7 +301,7 @@ ref; // ME_59666CAB2B06
  : Parent ME_52D643A301A9 // SubPanelWords
  ;
  : Dependencies
-   @ ( ME_52D6441600EA // 
+   Seq: ( ME_52D6441600EA // 
  ME_52D6600503A0 // 
  ME_52D6605B02B4 // 
  ME_52D660950006 // 
@@ -309,25 +314,25 @@ ref; // ME_59666CAB2B06
  ME_54ECA1BC02A5 // 
  ME_54ECA21603BB // 
  ME_59666CAB2B06 // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  CONST "ifndef" 'NoScripts'
  CONST "needs script" 'undefined'
  CONST "no class name" 'undefined'
  CONST "no hands" false
  CONST "no_pop" 'undefined'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\ScriptEngine'
  CONST intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\SubPanelWordsPack.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\ScriptEngine'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_52D643FE004B SubPanelWordsPack
 
 : ME_31E0B000F8C6
  CONST UID '31E0B000F8C6'
  CONST Name 'Ini_Reg'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Регистрация IterateSubDescriptors' ;
@@ -345,6 +350,7 @@ ref; // ME_31E0B000F8C6 Ini_Reg
  ;
  : Implementor ME_52D643C100A8 // IterateSubDescriptors
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_52D6471802DC_ME_52D643C100A8 DoWithSubPanel
 
 : ME_4DB0614603C8_ME_52D643C100A8
@@ -354,6 +360,7 @@ ref; // ME_52D6471802DC_ME_52D643C100A8 DoWithSubPanel
  ;
  : Implementor ME_52D643C100A8 // IterateSubDescriptors
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4DB0614603C8_ME_52D643C100A8 GetWordNameForRegister
 
 : ME_52D643C100A8
@@ -368,32 +375,34 @@ ref; // ME_4DB0614603C8_ME_52D643C100A8 GetWordNameForRegister
  : Parent ME_52D643A301A9 // SubPanelWords
  ;
  : Inherits
-   @ ( ME_52D646990049 // TkwSubPanelFromStackWord
- ) .SequenceCode.It
+   Seq: ( ME_52D646990049 // TkwSubPanelFromStackWord
+ )
  ; // Inherits
  : Operations
-   @ ( ME_31E0B000F8C6 // Ini_Reg
- ) .SequenceCode.It
+   Seq: ( ME_31E0B000F8C6 // Ini_Reg
+ )
  ; // Operations
  : Implemented
-   @ ( ME_52D6471802DC_ME_52D643C100A8 // DoWithSubPanel
- ) .SequenceCode.It
+   Seq: ( ME_52D6471802DC_ME_52D643C100A8 // DoWithSubPanel
+ )
  ; // Implemented
  : Overridden
-   @ ( ME_4DB0614603C8_ME_52D643C100A8 // GetWordNameForRegister
- ) .SequenceCode.It
+   Seq: ( ME_4DB0614603C8_ME_52D643C100A8 // GetWordNameForRegister
+ )
  ; // Overridden
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\ScriptEngine'
  CONST intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\kwIterateSubDescriptors.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\ScriptEngine'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
  CONST extprop:pas:TypeName 'TkwIterateSubDescriptors'
+ CONST extprop:rc:SelfName 'IterateSubDescriptors'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'kwIterateSubDescriptors'
 
 ref; // ME_52D643C100A8 IterateSubDescriptors
 
@@ -430,9 +439,9 @@ ref; // ME_5330169A031A aCtx
  : Parent ME_52D65E9502E1 // DoWithSubDescriptor
  ;
  : Parameters
-   @ ( ME_5330169A030B // aControl
+   Seq: ( ME_5330169A030B // aControl
  ME_5330169A031A // aCtx
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_52D65EB6003E DoIt
@@ -448,8 +457,8 @@ ref; // ME_52D65EB6003E DoIt
  : Parent ME_52D65E6902A8 // TkwSubDescriptorFromStackWord
  ;
  : Operations
-   @ ( ME_52D65EB6003E // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_52D65EB6003E // DoIt
+ )
  ; // Operations
 
 ref; // ME_52D65E9502E1 DoWithSubDescriptor
@@ -457,6 +466,7 @@ ref; // ME_52D65E9502E1 DoWithSubDescriptor
 : ME_883CED483DBA
  CONST UID '883CED483DBA'
  CONST Name 'Ini_Reg_Class'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Регистрация TkwSubDescriptorFromStackWord' ;
@@ -475,6 +485,7 @@ ref; // ME_883CED483DBA Ini_Reg_Class
  ;
  : Implementor ME_52D65E6902A8 // TkwSubDescriptorFromStackWord
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_4F212BD5010E_ME_52D65E6902A8 DoObject
 
 : ME_52D65E6902A8
@@ -488,34 +499,37 @@ ref; // ME_4F212BD5010E_ME_52D65E6902A8 DoObject
  : Parent ME_52D643A301A9 // SubPanelWords
  ;
  : Inherits
-   @ ( WL 'ME_4F212BA80137' '54DC9ACA0156.pas.ms.script' // TkwObjectFromStackWord
- ) .SequenceCode.It
+   Seq: ( WL 'ME_4F212BA80137' '54DC9ACA0156.pas.ms.script' // TkwObjectFromStackWord
+ )
  ; // Inherits
  : Operations
-   @ ( ME_52D65E9502E1 // DoWithSubDescriptor
+   Seq: ( ME_52D65E9502E1 // DoWithSubDescriptor
  ME_883CED483DBA // Ini_Reg_Class
- ) .SequenceCode.It
+ )
  ; // Operations
  : Implemented
-   @ ( ME_4F212BD5010E_ME_52D65E6902A8 // DoObject
- ) .SequenceCode.It
+   Seq: ( ME_4F212BD5010E_ME_52D65E6902A8 // DoObject
+ )
  ; // Implemented
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\ScriptEngine'
  CONST intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\kwSubDescriptorFromStackWord.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\ScriptEngine'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'SubDescriptorFromStackWord'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'kwSubDescriptorFromStackWord'
 
 ref; // ME_52D65E6902A8 TkwSubDescriptorFromStackWord
 
 : ME_78DE9B0D3B7E
  CONST UID '78DE9B0D3B7E'
  CONST Name 'Ini_Reg'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Регистрация subdescriptor_GetDrawType' ;
@@ -533,6 +547,7 @@ ref; // ME_78DE9B0D3B7E Ini_Reg
  ;
  : Implementor ME_52D65F690396 // subdescriptor_GetDrawType
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_52D65E9502E1_ME_52D65F690396 DoWithSubDescriptor
 
 : ME_4DB0614603C8_ME_52D65F690396
@@ -542,6 +557,7 @@ ref; // ME_52D65E9502E1_ME_52D65F690396 DoWithSubDescriptor
  ;
  : Implementor ME_52D65F690396 // subdescriptor_GetDrawType
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4DB0614603C8_ME_52D65F690396 GetWordNameForRegister
 
 : ME_52D65F690396
@@ -556,38 +572,41 @@ ref; // ME_4DB0614603C8_ME_52D65F690396 GetWordNameForRegister
  : Parent ME_52D643A301A9 // SubPanelWords
  ;
  : Inherits
-   @ ( ME_52D65E6902A8 // TkwSubDescriptorFromStackWord
- ) .SequenceCode.It
+   Seq: ( ME_52D65E6902A8 // TkwSubDescriptorFromStackWord
+ )
  ; // Inherits
  : Operations
-   @ ( ME_78DE9B0D3B7E // Ini_Reg
- ) .SequenceCode.It
+   Seq: ( ME_78DE9B0D3B7E // Ini_Reg
+ )
  ; // Operations
  : Implemented
-   @ ( ME_52D65E9502E1_ME_52D65F690396 // DoWithSubDescriptor
- ) .SequenceCode.It
+   Seq: ( ME_52D65E9502E1_ME_52D65F690396 // DoWithSubDescriptor
+ )
  ; // Implemented
  : Overridden
-   @ ( ME_4DB0614603C8_ME_52D65F690396 // GetWordNameForRegister
- ) .SequenceCode.It
+   Seq: ( ME_4DB0614603C8_ME_52D65F690396 // GetWordNameForRegister
+ )
  ; // Overridden
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\ScriptEngine'
  CONST intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\kwSubdescriptorGetDrawType.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\ScriptEngine'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
  CONST extprop:pas:TypeName 'TkwSubdescriptorGetDrawType'
+ CONST extprop:rc:SelfName 'SubdescriptorGetDrawType'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'kwSubdescriptorGetDrawType'
 
 ref; // ME_52D65F690396 subdescriptor_GetDrawType
 
 : ME_7501A9584F58
  CONST UID '7501A9584F58'
  CONST Name 'Ini_Reg'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Регистрация subdescriptor_GetBitmapIndex' ;
@@ -605,6 +624,7 @@ ref; // ME_7501A9584F58 Ini_Reg
  ;
  : Implementor ME_52D6601F031E // subdescriptor_GetBitmapIndex
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_52D65E9502E1_ME_52D6601F031E DoWithSubDescriptor
 
 : ME_4DB0614603C8_ME_52D6601F031E
@@ -614,6 +634,7 @@ ref; // ME_52D65E9502E1_ME_52D6601F031E DoWithSubDescriptor
  ;
  : Implementor ME_52D6601F031E // subdescriptor_GetBitmapIndex
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4DB0614603C8_ME_52D6601F031E GetWordNameForRegister
 
 : ME_52D6601F031E
@@ -628,38 +649,41 @@ ref; // ME_4DB0614603C8_ME_52D6601F031E GetWordNameForRegister
  : Parent ME_52D643A301A9 // SubPanelWords
  ;
  : Inherits
-   @ ( ME_52D65E6902A8 // TkwSubDescriptorFromStackWord
- ) .SequenceCode.It
+   Seq: ( ME_52D65E6902A8 // TkwSubDescriptorFromStackWord
+ )
  ; // Inherits
  : Operations
-   @ ( ME_7501A9584F58 // Ini_Reg
- ) .SequenceCode.It
+   Seq: ( ME_7501A9584F58 // Ini_Reg
+ )
  ; // Operations
  : Implemented
-   @ ( ME_52D65E9502E1_ME_52D6601F031E // DoWithSubDescriptor
- ) .SequenceCode.It
+   Seq: ( ME_52D65E9502E1_ME_52D6601F031E // DoWithSubDescriptor
+ )
  ; // Implemented
  : Overridden
-   @ ( ME_4DB0614603C8_ME_52D6601F031E // GetWordNameForRegister
- ) .SequenceCode.It
+   Seq: ( ME_4DB0614603C8_ME_52D6601F031E // GetWordNameForRegister
+ )
  ; // Overridden
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\ScriptEngine'
  CONST intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\kwSubdescriptorGetBitmapIndex.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\ScriptEngine'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
  CONST extprop:pas:TypeName 'TkwSubdescriptorGetBitmapIndex'
+ CONST extprop:rc:SelfName 'SubdescriptorGetBitmapIndex'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'kwSubdescriptorGetBitmapIndex'
 
 ref; // ME_52D6601F031E subdescriptor_GetBitmapIndex
 
 : ME_6A45DCD701F5
  CONST UID '6A45DCD701F5'
  CONST Name 'Ini_Reg'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Регистрация subdescriptor_GetBlockBitmapIndex' ;
@@ -677,6 +701,7 @@ ref; // ME_6A45DCD701F5 Ini_Reg
  ;
  : Implementor ME_52D660670205 // subdescriptor_GetBlockBitmapIndex
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_52D65E9502E1_ME_52D660670205 DoWithSubDescriptor
 
 : ME_4DB0614603C8_ME_52D660670205
@@ -686,6 +711,7 @@ ref; // ME_52D65E9502E1_ME_52D660670205 DoWithSubDescriptor
  ;
  : Implementor ME_52D660670205 // subdescriptor_GetBlockBitmapIndex
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4DB0614603C8_ME_52D660670205 GetWordNameForRegister
 
 : ME_52D660670205
@@ -700,38 +726,41 @@ ref; // ME_4DB0614603C8_ME_52D660670205 GetWordNameForRegister
  : Parent ME_52D643A301A9 // SubPanelWords
  ;
  : Inherits
-   @ ( ME_52D65E6902A8 // TkwSubDescriptorFromStackWord
- ) .SequenceCode.It
+   Seq: ( ME_52D65E6902A8 // TkwSubDescriptorFromStackWord
+ )
  ; // Inherits
  : Operations
-   @ ( ME_6A45DCD701F5 // Ini_Reg
- ) .SequenceCode.It
+   Seq: ( ME_6A45DCD701F5 // Ini_Reg
+ )
  ; // Operations
  : Implemented
-   @ ( ME_52D65E9502E1_ME_52D660670205 // DoWithSubDescriptor
- ) .SequenceCode.It
+   Seq: ( ME_52D65E9502E1_ME_52D660670205 // DoWithSubDescriptor
+ )
  ; // Implemented
  : Overridden
-   @ ( ME_4DB0614603C8_ME_52D660670205 // GetWordNameForRegister
- ) .SequenceCode.It
+   Seq: ( ME_4DB0614603C8_ME_52D660670205 // GetWordNameForRegister
+ )
  ; // Overridden
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\ScriptEngine'
  CONST intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\kwSubdescriptorGetBlockBitmapIndex.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\ScriptEngine'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
  CONST extprop:pas:TypeName 'TkwSubdescriptorGetBlockBitmapIndex'
+ CONST extprop:rc:SelfName 'SubdescriptorGetBlockBitmapIndex'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'kwSubdescriptorGetBlockBitmapIndex'
 
 ref; // ME_52D660670205 subdescriptor_GetBlockBitmapIndex
 
 : ME_3F6D89275E79
  CONST UID '3F6D89275E79'
  CONST Name 'Ini_Reg'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Регистрация subdescriptor_GetDocumentBitmapIndex' ;
@@ -749,6 +778,7 @@ ref; // ME_3F6D89275E79 Ini_Reg
  ;
  : Implementor ME_52D660C703AC // subdescriptor_GetDocumentBitmapIndex
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_52D65E9502E1_ME_52D660C703AC DoWithSubDescriptor
 
 : ME_4DB0614603C8_ME_52D660C703AC
@@ -758,6 +788,7 @@ ref; // ME_52D65E9502E1_ME_52D660C703AC DoWithSubDescriptor
  ;
  : Implementor ME_52D660C703AC // subdescriptor_GetDocumentBitmapIndex
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4DB0614603C8_ME_52D660C703AC GetWordNameForRegister
 
 : ME_52D660C703AC
@@ -772,38 +803,41 @@ ref; // ME_4DB0614603C8_ME_52D660C703AC GetWordNameForRegister
  : Parent ME_52D643A301A9 // SubPanelWords
  ;
  : Inherits
-   @ ( ME_52D65E6902A8 // TkwSubDescriptorFromStackWord
- ) .SequenceCode.It
+   Seq: ( ME_52D65E6902A8 // TkwSubDescriptorFromStackWord
+ )
  ; // Inherits
  : Operations
-   @ ( ME_3F6D89275E79 // Ini_Reg
- ) .SequenceCode.It
+   Seq: ( ME_3F6D89275E79 // Ini_Reg
+ )
  ; // Operations
  : Implemented
-   @ ( ME_52D65E9502E1_ME_52D660C703AC // DoWithSubDescriptor
- ) .SequenceCode.It
+   Seq: ( ME_52D65E9502E1_ME_52D660C703AC // DoWithSubDescriptor
+ )
  ; // Implemented
  : Overridden
-   @ ( ME_4DB0614603C8_ME_52D660C703AC // GetWordNameForRegister
- ) .SequenceCode.It
+   Seq: ( ME_4DB0614603C8_ME_52D660C703AC // GetWordNameForRegister
+ )
  ; // Overridden
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\ScriptEngine'
  CONST intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\kwSubdescriptorGetDocumentBitmapIndex.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\ScriptEngine'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
  CONST extprop:pas:TypeName 'TkwSubdescriptorGetDocumentBitmapIndex'
+ CONST extprop:rc:SelfName 'SubdescriptorGetDocumentBitmapIndex'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'kwSubdescriptorGetDocumentBitmapIndex'
 
 ref; // ME_52D660C703AC subdescriptor_GetDocumentBitmapIndex
 
 : ME_092BF23EFEC6
  CONST UID '092BF23EFEC6'
  CONST Name 'Ini_Reg'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Регистрация subdescriptor_GetVisible' ;
@@ -821,6 +855,7 @@ ref; // ME_092BF23EFEC6 Ini_Reg
  ;
  : Implementor ME_52D661D4008D // subdescriptor_GetVisible
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_52D65E9502E1_ME_52D661D4008D DoWithSubDescriptor
 
 : ME_4DB0614603C8_ME_52D661D4008D
@@ -830,6 +865,7 @@ ref; // ME_52D65E9502E1_ME_52D661D4008D DoWithSubDescriptor
  ;
  : Implementor ME_52D661D4008D // subdescriptor_GetVisible
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4DB0614603C8_ME_52D661D4008D GetWordNameForRegister
 
 : ME_52D661D4008D
@@ -844,38 +880,41 @@ ref; // ME_4DB0614603C8_ME_52D661D4008D GetWordNameForRegister
  : Parent ME_52D643A301A9 // SubPanelWords
  ;
  : Inherits
-   @ ( ME_52D65E6902A8 // TkwSubDescriptorFromStackWord
- ) .SequenceCode.It
+   Seq: ( ME_52D65E6902A8 // TkwSubDescriptorFromStackWord
+ )
  ; // Inherits
  : Operations
-   @ ( ME_092BF23EFEC6 // Ini_Reg
- ) .SequenceCode.It
+   Seq: ( ME_092BF23EFEC6 // Ini_Reg
+ )
  ; // Operations
  : Implemented
-   @ ( ME_52D65E9502E1_ME_52D661D4008D // DoWithSubDescriptor
- ) .SequenceCode.It
+   Seq: ( ME_52D65E9502E1_ME_52D661D4008D // DoWithSubDescriptor
+ )
  ; // Implemented
  : Overridden
-   @ ( ME_4DB0614603C8_ME_52D661D4008D // GetWordNameForRegister
- ) .SequenceCode.It
+   Seq: ( ME_4DB0614603C8_ME_52D661D4008D // GetWordNameForRegister
+ )
  ; // Overridden
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\ScriptEngine'
  CONST intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\kwSubdescriptorGetVisible.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\ScriptEngine'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
  CONST extprop:pas:TypeName 'TkwSubdescriptorGetVisible'
+ CONST extprop:rc:SelfName 'SubdescriptorGetVisible'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'kwSubdescriptorGetVisible'
 
 ref; // ME_52D661D4008D subdescriptor_GetVisible
 
 : ME_4BCB8C6A7C2B
  CONST UID '4BCB8C6A7C2B'
  CONST Name 'Ini_Reg'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Регистрация subdescriptor_GetColumn' ;
@@ -893,6 +932,7 @@ ref; // ME_4BCB8C6A7C2B Ini_Reg
  ;
  : Implementor ME_52D6622F0148 // subdescriptor_GetColumn
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_52D65E9502E1_ME_52D6622F0148 DoWithSubDescriptor
 
 : ME_4DB0614603C8_ME_52D6622F0148
@@ -902,6 +942,7 @@ ref; // ME_52D65E9502E1_ME_52D6622F0148 DoWithSubDescriptor
  ;
  : Implementor ME_52D6622F0148 // subdescriptor_GetColumn
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4DB0614603C8_ME_52D6622F0148 GetWordNameForRegister
 
 : ME_52D6622F0148
@@ -916,32 +957,34 @@ ref; // ME_4DB0614603C8_ME_52D6622F0148 GetWordNameForRegister
  : Parent ME_52D643A301A9 // SubPanelWords
  ;
  : Inherits
-   @ ( ME_52D65E6902A8 // TkwSubDescriptorFromStackWord
- ) .SequenceCode.It
+   Seq: ( ME_52D65E6902A8 // TkwSubDescriptorFromStackWord
+ )
  ; // Inherits
  : Operations
-   @ ( ME_4BCB8C6A7C2B // Ini_Reg
- ) .SequenceCode.It
+   Seq: ( ME_4BCB8C6A7C2B // Ini_Reg
+ )
  ; // Operations
  : Implemented
-   @ ( ME_52D65E9502E1_ME_52D6622F0148 // DoWithSubDescriptor
- ) .SequenceCode.It
+   Seq: ( ME_52D65E9502E1_ME_52D6622F0148 // DoWithSubDescriptor
+ )
  ; // Implemented
  : Overridden
-   @ ( ME_4DB0614603C8_ME_52D6622F0148 // GetWordNameForRegister
- ) .SequenceCode.It
+   Seq: ( ME_4DB0614603C8_ME_52D6622F0148 // GetWordNameForRegister
+ )
  ; // Overridden
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\ScriptEngine'
  CONST intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\kwSubdescriptorGetColumn.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\ScriptEngine'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
  CONST extprop:pas:TypeName 'TkwSubdescriptorGetColumn'
+ CONST extprop:rc:SelfName 'SubdescriptorGetColumn'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'kwSubdescriptorGetColumn'
 
 ref; // ME_52D6622F0148 subdescriptor_GetColumn
 
@@ -986,10 +1029,10 @@ ref; // ME_53EE063E0105 aSubPanelSub
  : Parent ME_53EDFA0401B8 // PushObjData
  ;
  : Parameters
-   @ ( ME_53EE063E00D6 // aCtx
+   Seq: ( ME_53EE063E00D6 // aCtx
  ME_53EE063E00E6 // aSubDescription
  ME_53EE063E0105 // aSubPanelSub
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_53EDFA2802F5 DoIt
@@ -1005,8 +1048,8 @@ ref; // ME_53EDFA2802F5 DoIt
  : Parent ME_52D78486017B // IterateSubDecriptorsOnSubPanel
  ;
  : Operations
-   @ ( ME_53EDFA2802F5 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_53EDFA2802F5 // DoIt
+ )
  ; // Operations
 
 ref; // ME_53EDFA0401B8 PushObjData
@@ -1014,6 +1057,7 @@ ref; // ME_53EDFA0401B8 PushObjData
 : ME_AFA5B69F17DC
  CONST UID 'AFA5B69F17DC'
  CONST Name 'Ini_Reg'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Регистрация IterateSubDecriptorsOnSubPanel' ;
@@ -1053,6 +1097,7 @@ ref; // ME_52D7903E034C
  ;
  : Implementor ME_52D78486017B // IterateSubDecriptorsOnSubPanel
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_52D6471802DC_ME_52D78486017B DoWithSubPanel
 
 : ME_4DB0614603C8_ME_52D78486017B
@@ -1062,6 +1107,7 @@ ref; // ME_52D6471802DC_ME_52D78486017B DoWithSubPanel
  ;
  : Implementor ME_52D78486017B // IterateSubDecriptorsOnSubPanel
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4DB0614603C8_ME_52D78486017B GetWordNameForRegister
 
 : ME_52D78486017B
@@ -1076,44 +1122,47 @@ ref; // ME_4DB0614603C8_ME_52D78486017B GetWordNameForRegister
  : Parent ME_52D643A301A9 // SubPanelWords
  ;
  : Inherits
-   @ ( ME_52D646990049 // TkwSubPanelFromStackWord
- ) .SequenceCode.It
+   Seq: ( ME_52D646990049 // TkwSubPanelFromStackWord
+ )
  ; // Inherits
  : Operations
-   @ ( ME_53EDFA0401B8 // PushObjData
+   Seq: ( ME_53EDFA0401B8 // PushObjData
  ME_AFA5B69F17DC // Ini_Reg
- ) .SequenceCode.It
+ )
  ; // Operations
  : Implemented
-   @ ( ME_52D6471802DC_ME_52D78486017B // DoWithSubPanel
- ) .SequenceCode.It
+   Seq: ( ME_52D6471802DC_ME_52D78486017B // DoWithSubPanel
+ )
  ; // Implemented
  : Overridden
-   @ ( ME_4DB0614603C8_ME_52D78486017B // GetWordNameForRegister
- ) .SequenceCode.It
+   Seq: ( ME_4DB0614603C8_ME_52D78486017B // GetWordNameForRegister
+ )
  ; // Overridden
  : Dependencies
-   @ ( ME_52D78CB90285 // 
+   Seq: ( ME_52D78CB90285 // 
  ME_52D7903E034C // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\ScriptEngine'
  CONST intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\kwIterateSubDecriptorsOnSubPanel.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\ScriptEngine'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
  CONST extprop:pas:TypeName 'TkwIterateSubDecriptorsOnSubPanel'
+ CONST extprop:rc:SelfName 'IterateSubDecriptorsOnSubPanel'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'kwIterateSubDecriptorsOnSubPanel'
 
 ref; // ME_52D78486017B IterateSubDecriptorsOnSubPanel
 
 : ME_30C0D9E97E7C
  CONST UID '30C0D9E97E7C'
  CONST Name 'Ini_Reg'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Регистрация IterateSubDecriptorsOnSubPanelEX' ;
@@ -1153,6 +1202,7 @@ ref; // ME_53EDF1DE0101
  ;
  : Implementor ME_53EDF0A20129 // IterateSubDecriptorsOnSubPanelEX
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4DB0614603C8_ME_53EDF0A20129 GetWordNameForRegister
 
 : ME_53EDFA0401B8_ME_53EDF0A20129
@@ -1162,6 +1212,7 @@ ref; // ME_4DB0614603C8_ME_53EDF0A20129 GetWordNameForRegister
  ;
  : Implementor ME_53EDF0A20129 // IterateSubDecriptorsOnSubPanelEX
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_53EDFA0401B8_ME_53EDF0A20129 PushObjData
 
 : ME_53EDF0A20129
@@ -1176,40 +1227,43 @@ ref; // ME_53EDFA0401B8_ME_53EDF0A20129 PushObjData
  : Parent ME_52D643A301A9 // SubPanelWords
  ;
  : Inherits
-   @ ( ME_52D78486017B // IterateSubDecriptorsOnSubPanel
- ) .SequenceCode.It
+   Seq: ( ME_52D78486017B // IterateSubDecriptorsOnSubPanel
+ )
  ; // Inherits
  : Operations
-   @ ( ME_30C0D9E97E7C // Ini_Reg
- ) .SequenceCode.It
+   Seq: ( ME_30C0D9E97E7C // Ini_Reg
+ )
  ; // Operations
  : Overridden
-   @ ( ME_4DB0614603C8_ME_53EDF0A20129 // GetWordNameForRegister
+   Seq: ( ME_4DB0614603C8_ME_53EDF0A20129 // GetWordNameForRegister
  ME_53EDFA0401B8_ME_53EDF0A20129 // PushObjData
- ) .SequenceCode.It
+ )
  ; // Overridden
  : Dependencies
-   @ ( ME_53EDF1D903D7 // 
+   Seq: ( ME_53EDF1D903D7 // 
  ME_53EDF1DE0101 // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\ScriptEngine'
  CONST intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\kwIterateSubDecriptorsOnSubPanelEX.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\ScriptEngine'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
  CONST extprop:pas:TypeName 'TkwIterateSubDecriptorsOnSubPanelEX'
+ CONST extprop:rc:SelfName 'IterateSubDecriptorsOnSubPanelEX'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'kwIterateSubDecriptorsOnSubPanelEX'
 
 ref; // ME_53EDF0A20129 IterateSubDecriptorsOnSubPanelEX
 
 : ME_E50180327B82
  CONST UID 'E50180327B82'
  CONST Name 'Ini_Reg'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Регистрация SubPanel_GetPopupMenuForSub' ;
@@ -1282,6 +1336,7 @@ ref; // ME_550039F002FE
  ;
  : Implementor ME_53EE014B03AC // SubPanel_GetPopupMenuForSub
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_52D6471802DC_ME_53EE014B03AC DoWithSubPanel
 
 : ME_4DB0614603C8_ME_53EE014B03AC
@@ -1291,6 +1346,7 @@ ref; // ME_52D6471802DC_ME_53EE014B03AC DoWithSubPanel
  ;
  : Implementor ME_53EE014B03AC // SubPanel_GetPopupMenuForSub
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4DB0614603C8_ME_53EE014B03AC GetWordNameForRegister
 
 : ME_53EE014B03AC
@@ -1305,40 +1361,42 @@ ref; // ME_4DB0614603C8_ME_53EE014B03AC GetWordNameForRegister
  : Parent ME_52D643A301A9 // SubPanelWords
  ;
  : Inherits
-   @ ( ME_52D646990049 // TkwSubPanelFromStackWord
- ) .SequenceCode.It
+   Seq: ( ME_52D646990049 // TkwSubPanelFromStackWord
+ )
  ; // Inherits
  : Operations
-   @ ( ME_E50180327B82 // Ini_Reg
- ) .SequenceCode.It
+   Seq: ( ME_E50180327B82 // Ini_Reg
+ )
  ; // Operations
  : Implemented
-   @ ( ME_52D6471802DC_ME_53EE014B03AC // DoWithSubPanel
- ) .SequenceCode.It
+   Seq: ( ME_52D6471802DC_ME_53EE014B03AC // DoWithSubPanel
+ )
  ; // Implemented
  : Overridden
-   @ ( ME_4DB0614603C8_ME_53EE014B03AC // GetWordNameForRegister
- ) .SequenceCode.It
+   Seq: ( ME_4DB0614603C8_ME_53EE014B03AC // GetWordNameForRegister
+ )
  ; // Overridden
  : Dependencies
-   @ ( ME_53F1A9530216 // 
+   Seq: ( ME_53F1A9530216 // 
  ME_53F1B168028A // 
  ME_53F1C2B401FD // 
  ME_54ECAF5600EE // 
  ME_550039F002FE // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\ScriptEngine'
  CONST intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\kwSubPanelGetPopupMenuForSub.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\ScriptEngine'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
  CONST extprop:pas:TypeName 'TkwSubPanelGetPopupMenuForSub'
+ CONST extprop:rc:SelfName 'SubPanelGetPopupMenuForSub'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'kwSubPanelGetPopupMenuForSub'
 
 ref; // ME_53EE014B03AC SubPanel_GetPopupMenuForSub
 
@@ -1352,7 +1410,7 @@ ref; // ME_53EE014B03AC SubPanel_GetPopupMenuForSub
  : Parent WL 'ME_54ECA252008F' '54ECA252008F.pas.ms.script' // ScriptEngine$Everest
  ;
  : Children
-   @ ( ME_52D646990049 // TkwSubPanelFromStackWord
+   Seq: ( ME_52D646990049 // TkwSubPanelFromStackWord
  ME_52D643FE004B // SubPanelWordsPack
  ME_52D643C100A8 // IterateSubDescriptors
  ME_52D65E6902A8 // TkwSubDescriptorFromStackWord
@@ -1365,10 +1423,10 @@ ref; // ME_53EE014B03AC SubPanel_GetPopupMenuForSub
  ME_52D78486017B // IterateSubDecriptorsOnSubPanel
  ME_53EDF0A20129 // IterateSubDecriptorsOnSubPanelEX
  ME_53EE014B03AC // SubPanel_GetPopupMenuForSub
- ) .SequenceCode.It
+ )
  ; // Children
  : Depends
-   @ ( WL 'ME_4677FBA70343' '4677FBA70343.pas.ms.script' // l3Interfaces
+   Seq: ( WL 'ME_4677FBA70343' '4677FBA70343.pas.ms.script' // l3Interfaces
  WL 'ME_4728A7020026' '4728A7020026.pas.ms.script' // Types
  WL 'ME_47C52679006D' '47C52679006D.pas.ms.script' // nevUtils
  WL 'ME_4B87B5720153' '4B87B5720153.pas.ms.script' // SubPanel
@@ -1378,16 +1436,14 @@ ref; // ME_53EE014B03AC SubPanel_GetPopupMenuForSub
  WL 'ME_54DC9ACA0156' '54DC9ACA0156.pas.ms.script' // RTL bindings
  WL 'ME_55001317029B' '55001317029B.pas.ms.script' // VCLHelpers
  WL 'ME_55BA28CE0290' '55BA28CE0290.pas.ms.script' // tfwScriptingTypes
- ) .SequenceCode.It
+ )
  ; // Depends
  CONST "ifndef" 'NoScripts'
- : Generators
- @ (
- gen_pas.script
- gen_pas.script.runner
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\ScriptEngine'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\ScriptEngine'
  CONST pas.script:Path 'shared\models\NewSchool\Scripts\52D643A301A9.pas.ms.script'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
  CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\52D643A301A9.pas.ms.script.runner'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_52D643A301A9 SubPanelWords

@@ -21,6 +21,7 @@ FORWARD ME_4F193A4F034C
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value '''bserv001'''
 
 ref; // ME_4F193A660008 cFileName
 
@@ -37,6 +38,7 @@ ref; // ME_4F193A660008 cFileName
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value '''bserv001.idx'''
 
 ref; // ME_4FC3795D015E cIndexFileName
 
@@ -51,11 +53,16 @@ ref; // ME_4FC3795D015E cIndexFileName
  : Parent ME_4F193294011F // TStgIndexTest
  ;
  : Attributes
-   @ ( ME_4F193A660008 // cFileName
+   Seq: ( ME_4F193A660008 // cFileName
  ME_4FC3795D015E // cIndexFileName
- ) .SequenceCode.It
+ )
  ; // Attributes
  CONST "spell names" false
+ CONST dfm:PathOnly '\common\components\rtl\Garant\Abstract_Archi_Tests'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\Abstract_Archi_Tests'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\common\components\rtl\Garant\Abstract_Archi_Tests'
 
 ref; // ME_4F193A4F034C DBNames
 
@@ -185,7 +192,7 @@ ref; // ME_4FCC6A1C0092
  : Parent ME_4F193294011F // TStgIndexTest
  ;
  : Dependencies
-   @ ( ME_4F19337C00A3 // 
+   Seq: ( ME_4F19337C00A3 // 
  ME_4F197313019C // 
  ME_4F197D720153 // 
  ME_4FBF783100B0 // 
@@ -194,7 +201,7 @@ ref; // ME_4FCC6A1C0092
  ME_4FBF9B4901E6 // 
  ME_4FCC678C0037 // 
  ME_4FCC6A1C0092 // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
 
 ref; // ME_4F19335D01E9 DoIt
@@ -212,6 +219,7 @@ ref; // ME_540F2BDE01F0
 
 : ME_D94FE8D69D3F
  CONST UID 'D94FE8D69D3F'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_4F193294011F // TStgIndexTest
@@ -228,6 +236,7 @@ ref; // ME_D94FE8D69D3F
  ;
  : Implementor ME_4F193294011F // TStgIndexTest
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4B4F588B0241_ME_4F193294011F FileForOutput
 
 : ME_4C937013031D_ME_4F193294011F
@@ -237,6 +246,7 @@ ref; // ME_4B4F588B0241_ME_4F193294011F FileForOutput
  ;
  : Implementor ME_4F193294011F // TStgIndexTest
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4C937013031D_ME_4F193294011F GetFolder
 
 : ME_4DAED6F60146_ME_4F193294011F
@@ -246,6 +256,7 @@ ref; // ME_4C937013031D_ME_4F193294011F GetFolder
  ;
  : Implementor ME_4F193294011F // TStgIndexTest
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4DAED6F60146_ME_4F193294011F GetModelElementGUID
 
 : ME_4DCA41A20364_ME_4F193294011F
@@ -255,6 +266,7 @@ ref; // ME_4DAED6F60146_ME_4F193294011F GetModelElementGUID
  ;
  : Implementor ME_4F193294011F // TStgIndexTest
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4DCA41A20364_ME_4F193294011F FileNameForOutput
 
 : ME_4F193294011F
@@ -268,43 +280,51 @@ ref; // ME_4DCA41A20364_ME_4F193294011F FileNameForOutput
  : Parent ME_4F19320901A0 // DataBase
  ;
  : Inherits
-   @ ( WL 'ME_4B2A11BC0255' '4B2A112B011A.pas.ms.script' // TBaseTest
- ) .SequenceCode.It
+   Seq: ( WL 'ME_4B2A11BC0255' '4B2A112B011A.pas.ms.script' // TBaseTest
+ )
  ; // Inherits
  : Attributes
-   @ ( ME_4FCC617701AE // f_IndexFile
- ) .SequenceCode.It
+   Seq: ( ME_4FCC617701AE // f_IndexFile
+ )
  ; // Attributes
  : Operations
-   @ ( ME_4F19335D01E9 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_4F19335D01E9 // DoIt
+ )
  ; // Operations
  : Overridden
-   @ ( ME_4B4F588B0241_ME_4F193294011F // FileForOutput
+   Seq: ( ME_4B4F588B0241_ME_4F193294011F // FileForOutput
  ME_4C937013031D_ME_4F193294011F // GetFolder
  ME_4DAED6F60146_ME_4F193294011F // GetModelElementGUID
  ME_4DCA41A20364_ME_4F193294011F // FileNameForOutput
- ) .SequenceCode.It
+ )
  ; // Overridden
  : Constants
-   @ ( ME_4F193A4F034C // DBNames
- ) .SequenceCode.It
+   Seq: ( ME_4F193A4F034C // DBNames
+ )
  ; // Constants
  : Dependencies
-   @ ( ME_540F2BDE01F0 // 
+   Seq: ( ME_540F2BDE01F0 // 
  ME_D94FE8D69D3F // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
  : Generators
- @ (
+ Seq: (
  gen_intf.pas
- ) .SequenceCode.It
+ )
  ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\Abstract_Archi_Tests'
  CONST intf.pas:Path 'common\components\rtl\Garant\Abstract_Archi_Tests\StgIndexTest.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\Abstract_Archi_Tests'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\common\components\rtl\Garant\Abstract_Archi_Tests'
+ CONST extprop:rc:SelfName 'StgIndexTest'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'StgIndexTest'
 
 ref; // ME_4F193294011F TStgIndexTest
 
@@ -356,10 +376,10 @@ ref; // ME_542015B80053
  : Parent ME_54193E6A0023 // TMultyOperationTest
  ;
  : Dependencies
-   @ ( ME_541957C60009 // 
+   Seq: ( ME_541957C60009 // 
  ME_542012F10323 // 
  ME_542015B80053 // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
 
 ref; // ME_54193F6B00F8 DoIt()
@@ -385,8 +405,8 @@ ref; // ME_5420100F0266 aBasePath
  : Parent ME_54200FFA01D8 // ClearBase
  ;
  : Parameters
-   @ ( ME_5420100F0266 // aBasePath
- ) .SequenceCode.It
+   Seq: ( ME_5420100F0266 // aBasePath
+ )
  ; // Parameters
 
 ref; // ME_542010050087 DoIt
@@ -424,19 +444,20 @@ ref; // ME_542012C8003A
  : Parent ME_54193E6A0023 // TMultyOperationTest
  ;
  : Operations
-   @ ( ME_542010050087 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_542010050087 // DoIt
+ )
  ; // Operations
  : Dependencies
-   @ ( ME_542012A9013A // 
+   Seq: ( ME_542012A9013A // 
  ME_542012C8003A // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
 
 ref; // ME_54200FFA01D8 ClearBase
 
 : ME_BE62779516BB
  CONST UID 'BE62779516BB'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_54193E6A0023 // TMultyOperationTest
@@ -453,6 +474,7 @@ ref; // ME_BE62779516BB
  ;
  : Implementor ME_54193E6A0023 // TMultyOperationTest
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4C937013031D_ME_54193E6A0023 GetFolder
 
 : ME_4DAED6F60146_ME_54193E6A0023
@@ -462,6 +484,7 @@ ref; // ME_4C937013031D_ME_54193E6A0023 GetFolder
  ;
  : Implementor ME_54193E6A0023 // TMultyOperationTest
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4DAED6F60146_ME_54193E6A0023 GetModelElementGUID
 
 : ME_54193E6A0023
@@ -475,33 +498,41 @@ ref; // ME_4DAED6F60146_ME_54193E6A0023 GetModelElementGUID
  : Parent ME_4F19320901A0 // DataBase
  ;
  : Inherits
-   @ ( WL 'ME_4B2A11BC0255' '4B2A112B011A.pas.ms.script' // TBaseTest
- ) .SequenceCode.It
+   Seq: ( WL 'ME_4B2A11BC0255' '4B2A112B011A.pas.ms.script' // TBaseTest
+ )
  ; // Inherits
  : Operations
-   @ ( ME_54193F6B00F8 // DoIt()
+   Seq: ( ME_54193F6B00F8 // DoIt()
  ME_54200FFA01D8 // ClearBase
- ) .SequenceCode.It
+ )
  ; // Operations
  : Overridden
-   @ ( ME_4C937013031D_ME_54193E6A0023 // GetFolder
+   Seq: ( ME_4C937013031D_ME_54193E6A0023 // GetFolder
  ME_4DAED6F60146_ME_54193E6A0023 // GetModelElementGUID
- ) .SequenceCode.It
+ )
  ; // Overridden
  : Dependencies
-   @ ( ME_BE62779516BB // 
- ) .SequenceCode.It
+   Seq: ( ME_BE62779516BB // 
+ )
  ; // Dependencies
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
  : Generators
- @ (
+ Seq: (
  gen_intf.pas
- ) .SequenceCode.It
+ )
  ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\Abstract_Archi_Tests'
  CONST intf.pas:Path 'common\components\rtl\Garant\Abstract_Archi_Tests\MultyOperationTest.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\Abstract_Archi_Tests'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\common\components\rtl\Garant\Abstract_Archi_Tests'
+ CONST extprop:rc:SelfName 'MultyOperationTest'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'MultyOperationTest'
 
 ref; // ME_54193E6A0023 TMultyOperationTest
 
@@ -516,12 +547,12 @@ ref; // ME_54193E6A0023 TMultyOperationTest
  : Parent WL 'ME_4D53DDBE00EE' '4D53DDBE00EE.pas.ms.script' // Abstract Archi Tests
  ;
  : Children
-   @ ( ME_4F193294011F // TStgIndexTest
+   Seq: ( ME_4F193294011F // TStgIndexTest
  ME_54193E6A0023 // TMultyOperationTest
- ) .SequenceCode.It
+ )
  ; // Children
  : Depends
-   @ ( WL 'ME_4720831F012D' '4720831F012D.pas.ms.script' // m3DBInterfaces
+   Seq: ( WL 'ME_4720831F012D' '4720831F012D.pas.ms.script' // m3DBInterfaces
  WL 'ME_4742C9DB033A' '4742C9DB033A.pas.ms.script' // m3DB
  WL 'ME_476BBF330336' '476BBF330336.pas.ms.script' // m4DBInterfaces
  WL 'ME_47913B47006E' '47913B47006E.pas.ms.script' // l3CoreObjects
@@ -534,15 +565,20 @@ ref; // ME_54193E6A0023 TMultyOperationTest
  WL 'ME_4F19106E00E3' '4F19106E00E3.pas.ms.script' // m3TetsSupport
  WL 'ME_5419575202DB' '5419575202DB.pas.ms.script' // DataBaseTestUtils
  WL 'ME_5485B0D1026C' '5485B0D1026C.pas.ms.script' // Streams
- ) .SequenceCode.It
+ )
  ; // Depends
  : Generators
- @ (
+ Seq: (
  gen_pas.script
  gen_pas.script.runner
- ) .SequenceCode.It
+ )
  ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\Abstract_Archi_Tests'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\Abstract_Archi_Tests'
  CONST pas.script:Path 'shared\models\NewSchool\Scripts\4F19320901A0.pas.ms.script'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
  CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\4F19320901A0.pas.ms.script.runner'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\common\components\rtl\Garant\Abstract_Archi_Tests'
 
 ref; // ME_4F19320901A0 DataBase

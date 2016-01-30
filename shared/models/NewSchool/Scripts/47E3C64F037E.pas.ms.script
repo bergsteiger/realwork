@@ -29,8 +29,8 @@ ref; // ME_4DF785810093 anOp
  : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
  ;
  : Parameters
-   @ ( ME_4DF785810093 // anOp
- ) .SequenceCode.It
+   Seq: ( ME_4DF785810093 // anOp
+ )
  ; // Parameters
 
 ref; // ME_4DF78577001E DoIt
@@ -46,8 +46,8 @@ ref; // ME_4DF78577001E DoIt
  : Parent ME_47E3C7030369 // Tk2Op
  ;
  : Operations
-   @ ( ME_4DF78577001E // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_4DF78577001E // DoIt
+ )
  ; // Operations
 
 ref; // ME_4DF7856D027C CompareWith
@@ -73,8 +73,8 @@ ref; // ME_47F107CE008F anOperation
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
  : Parameters
-   @ ( ME_47F107CE008F // anOperation
- ) .SequenceCode.It
+   Seq: ( ME_47F107CE008F // anOperation
+ )
  ; // Parameters
 
 ref; // ME_47F107C80149 CanJoinWith
@@ -101,8 +101,8 @@ ref; // ME_47F107F2015F anOperation
  : Target ME_47E3C7030369 // Tk2Op
  ;
  : Parameters
-   @ ( ME_47F107F2015F // anOperation
- ) .SequenceCode.It
+   Seq: ( ME_47F107F2015F // anOperation
+ )
  ; // Parameters
 
 ref; // ME_47F107DF00E6 DoJoin
@@ -127,8 +127,8 @@ ref; // ME_47F1081A03CD Container
  : Parent ME_47E3C7030369 // Tk2Op
  ;
  : Parameters
-   @ ( ME_47F1081A03CD // Container
- ) .SequenceCode.It
+   Seq: ( ME_47F1081A03CD // Container
+ )
  ; // Parameters
 
 ref; // ME_47F1080F00E8 DoUndo
@@ -153,8 +153,8 @@ ref; // ME_47F108400113 Container
  : Parent ME_47E3C7030369 // Tk2Op
  ;
  : Parameters
-   @ ( ME_47F108400113 // Container
- ) .SequenceCode.It
+   Seq: ( ME_47F108400113 // Container
+ )
  ; // Parameters
 
 ref; // ME_47F1082B00D0 DoRedo
@@ -183,20 +183,20 @@ ref; // ME_4DD4F2D503B1
  : Parent ME_47E3C64F037E // Operations
  ;
  : Inherits
-   @ ( WL 'ME_46780E690001' '47913B47006E.pas.ms.script' // Tl3CacheableBase
- ) .SequenceCode.It
+   Seq: ( WL 'ME_46780E690001' '47913B47006E.pas.ms.script' // Tl3CacheableBase
+ )
  ; // Inherits
  : Operations
-   @ ( ME_4DF7856D027C // CompareWith
+   Seq: ( ME_4DF7856D027C // CompareWith
  ME_47F107C80149 // CanJoinWith
  ME_47F107DF00E6 // DoJoin
  ME_47F1080F00E8 // DoUndo
  ME_47F1082B00D0 // DoRedo
- ) .SequenceCode.It
+ )
  ; // Operations
  : Dependencies
-   @ ( ME_4DD4F2D503B1 // 
- ) .SequenceCode.It
+   Seq: ( ME_4DD4F2D503B1 // 
+ )
  ; // Dependencies
  CONST "author" 'Люлин А.В.'
  CONST "finished" false
@@ -205,12 +205,14 @@ ref; // ME_4DD4F2D503B1
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
  CONST "started" '07.12.1999 19:05'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\K2'
  CONST intf.pas:Path 'common\components\rtl\Garant\K2\NOT_FINISHED_k2Op.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\K2'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'Op'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'k2Op'
 
 ref; // ME_47E3C7030369 Tk2Op
 
@@ -238,6 +240,7 @@ ref; // ME_47E3C9F40243 ItemType
  ;
  : Implementor ME_47E3C9C8033B // Tk2OpRefList
  ;
+ CONST OpKind opkind_Implemented
  CONST "ifdef" 'l3Items_NeedsAssignItem'
  CONST "ifndef" 'l3Items_NoSort'
 ref; // ME_47B2C42A0163_ME_47E3C9C8033B AssignItem
@@ -249,6 +252,7 @@ ref; // ME_47B2C42A0163_ME_47E3C9C8033B AssignItem
  ;
  : Implementor ME_47E3C9C8033B // Tk2OpRefList
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_47B99D4503A2_ME_47E3C9C8033B CompareExistingItems
 
 : ME_47E3C9C8033B
@@ -263,30 +267,32 @@ ref; // ME_47B99D4503A2_ME_47E3C9C8033B CompareExistingItems
  : Parent ME_47E3C64F037E // Operations
  ;
  : Inherits
-   @ ( WL 'ME_47B99E920196' '47913B47006E.pas.ms.script' // l3UncomparabeObjectRefList
+   Seq: ( WL 'ME_47B99E920196' '47913B47006E.pas.ms.script' // l3UncomparabeObjectRefList
  WL 'ME_4A54DD4E036F' '47913B47006E.pas.ms.script' // Tl3ProtoDataContainer
- ) .SequenceCode.It
+ )
  ; // Inherits
  : Attributes
-   @ ( ME_47E3C9F40243 // ItemType
- ) .SequenceCode.It
+   Seq: ( ME_47E3C9F40243 // ItemType
+ )
  ; // Attributes
  : Implemented
-   @ ( ME_47B2C42A0163_ME_47E3C9C8033B // AssignItem
+   Seq: ( ME_47B2C42A0163_ME_47E3C9C8033B // AssignItem
  ME_47B99D4503A2_ME_47E3C9C8033B // CompareExistingItems
- ) .SequenceCode.It
+ )
  ; // Implemented
  CONST "need UC" true
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" true
  CONST "register in scripts" 'undefined'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\K2'
  CONST intf.pas:Path 'common\components\rtl\Garant\K2\k2OpRefList.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\K2'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'OpRefList'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'k2OpRefList'
 
 ref; // ME_47E3C9C8033B Tk2OpRefList
 
@@ -324,9 +330,9 @@ ref; // ME_4874FDB002F0 Modify
  : Parent ME_4874FD8F03E3 // Ik2OpPackInternal
  ;
  : Parameters
-   @ ( ME_4874FDB002CF // Op
+   Seq: ( ME_4874FDB002CF // Op
  ME_4874FDB002F0 // Modify
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_4874FDA50243 Put
@@ -344,9 +350,15 @@ ref; // ME_4874FDA50243 Put
  : Parent ME_47E3C78502FB // Tk2OperationContainer
  ;
  : Operations
-   @ ( ME_4874FDA50243 // Put
- ) .SequenceCode.It
+   Seq: ( ME_4874FDA50243 // Put
+ )
  ; // Operations
+ CONST dfm:PathOnly '\common\components\rtl\Garant\K2'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\K2'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'OpPackInternal'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_4874FD8F03E3 Ik2OpPackInternal
 
@@ -365,6 +377,7 @@ FORWARD ME_4BA203260193
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value '''Откат'''
 
 ref; // ME_4BA2033B03DD Undo
 
@@ -381,6 +394,7 @@ ref; // ME_4BA2033B03DD Undo
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value '''Возврат'''
 
 ref; // ME_4BA203470251 Redo
 
@@ -395,14 +409,18 @@ ref; // ME_4BA203470251 Redo
  : Parent ME_47E3C78502FB // Tk2OperationContainer
  ;
  : Attributes
-   @ ( ME_4BA2033B03DD // Undo
+   Seq: ( ME_4BA2033B03DD // Undo
  ME_4BA203470251 // Redo
- ) .SequenceCode.It
+ )
  ; // Attributes
  CONST "Need map interface" false
  CONST "Need mapping support" false
  CONST "children prefix" 'l3mm'
  CONST "spell names" false
+ CONST dfm:PathOnly '\common\components\rtl\Garant\K2'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\K2'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
  CONST extprop:pas:ElementPrefix 'l3mm'
 
 ref; // ME_4BA203260193 Local
@@ -412,6 +430,7 @@ FORWARD ME_C7F7FD13EE98
 : ME_4B988BF442FB
  CONST UID '4B988BF442FB'
  CONST Name 'Undo'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY '''Откат''' ;
  CONST Visibility PublicAccess
@@ -427,12 +446,14 @@ FORWARD ME_C7F7FD13EE98
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''l3mmUndo''; rValue : ''Откат'')'
 
 ref; // ME_4B988BF442FB Undo
 
 : ME_A10219615629
  CONST UID 'A10219615629'
  CONST Name 'Redo'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY '''Возврат''' ;
  CONST Visibility PublicAccess
@@ -448,12 +469,14 @@ ref; // ME_4B988BF442FB Undo
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''l3mmRedo''; rValue : ''Возврат'')'
 
 ref; // ME_A10219615629 Redo
 
 : ME_C7F7FD13EE98
  CONST UID 'C7F7FD13EE98'
  CONST Name 'LCImplLocal'
+ CONST IsSummoned true
  CONST Class class_Class
  : Stereotype st_Constants ;
  CONST Kind kind_NormalClass
@@ -463,13 +486,17 @@ ref; // ME_A10219615629 Redo
  : Parent ME_47E3C78502FB // Tk2OperationContainer
  ;
  : Attributes
-   @ ( ME_4B988BF442FB // Undo
+   Seq: ( ME_4B988BF442FB // Undo
  ME_A10219615629 // Redo
- ) .SequenceCode.It
+ )
  ; // Attributes
  CONST "children prefix" 'l3mm'
  CONST "elements prefix" 'str'
  CONST "spell names" false
+ CONST dfm:PathOnly '\common\components\rtl\Garant\K2'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\K2'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
  CONST extprop:pas:ElementPrefixBase 'str'
  CONST extprop:pas:ElementPrefix 'str_l3mm'
 
@@ -538,12 +565,14 @@ ref; // ME_4874FE290353 Code
  CONST Value false
  : ValueType WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
+ CONST extprop:pas:Value false
 
 ref; // ME_4C1A30DF0063 g_WasExceptionInFreeInOwner
 
 : ME_2EB0E992DBF2
  CONST UID '2EB0E992DBF2'
  CONST Name 'f_Code'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY 'Поле для свойства Code' ;
  CONST Visibility PrivateAccess
@@ -553,6 +582,7 @@ ref; // ME_4C1A30DF0063 g_WasExceptionInFreeInOwner
  ;
  : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
  ;
+ CONST extprop:clearViaProperty 'Code'
 
 ref; // ME_2EB0E992DBF2 f_Code
 
@@ -583,8 +613,8 @@ ref; // ME_4C1A315201D6 DoIt
  : Parent ME_47E3C78502FB // Tk2OperationContainer
  ;
  : Operations
-   @ ( ME_4C1A315201D6 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_4C1A315201D6 // DoIt
+ )
  ; // Operations
  CONST "is static" true
 
@@ -616,8 +646,8 @@ ref; // ME_4E7AF082015B DoIt
  : Parent ME_47E3C78502FB // Tk2OperationContainer
  ;
  : Operations
-   @ ( ME_4E7AF082015B // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_4E7AF082015B // DoIt
+ )
  ; // Operations
 
 ref; // ME_4E7AF07603D9 GetSaveUndo
@@ -648,8 +678,8 @@ ref; // ME_531075AC025C DoIt
  : Parent ME_47E3C78502FB // Tk2OperationContainer
  ;
  : Operations
-   @ ( ME_531075AC025C // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_531075AC025C // DoIt
+ )
  ; // Operations
 
 ref; // ME_531075A60396 GetNeedOptimize
@@ -675,8 +705,8 @@ ref; // ME_48AC2A850053 aProcessor
  : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
  ;
  : Parameters
-   @ ( ME_48AC2A850053 // aProcessor
- ) .SequenceCode.It
+   Seq: ( ME_48AC2A850053 // aProcessor
+ )
  ; // Parameters
 
 ref; // ME_48AC2A7C0229 DoUndo
@@ -702,8 +732,8 @@ ref; // ME_48AC2A910104 aProcessor
  : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
  ;
  : Parameters
-   @ ( ME_48AC2A910104 // aProcessor
- ) .SequenceCode.It
+   Seq: ( ME_48AC2A910104 // aProcessor
+ )
  ; // Parameters
 
 ref; // ME_48AC2A8C0035 DoRedo
@@ -738,8 +768,8 @@ ref; // ME_48B2C40400D8 anItem
  : Parent ME_47E3C78502FB // Tk2OperationContainer
  ;
  : Parameters
-   @ ( ME_48B2C40400D8 // anItem
- ) .SequenceCode.It
+   Seq: ( ME_48B2C40400D8 // anItem
+ )
  ; // Parameters
 
 ref; // ME_48B2C3ED01BB Add
@@ -764,8 +794,8 @@ ref; // ME_4DD3EB6700C2 anOwner
  : Parent ME_47E3C78502FB // Tk2OperationContainer
  ;
  : Parameters
-   @ ( ME_4DD3EB6700C2 // anOwner
- ) .SequenceCode.It
+   Seq: ( ME_4DD3EB6700C2 // anOwner
+ )
  ; // Parameters
 
 ref; // ME_4DD3EB5A01C3 Create
@@ -790,15 +820,16 @@ ref; // ME_4A60A2CF0359 Value
  : Parent ME_47E3C78502FB // Tk2OperationContainer
  ;
  : Parameters
-   @ ( ME_4A60A2CF0359 // Value
- ) .SequenceCode.It
+   Seq: ( ME_4A60A2CF0359 // Value
+ )
  ; // Parameters
 
 ref; // ME_4A60A2CF0329 DoSetOwner
 
 : ME_0DD10D1AEA63
  CONST UID '0DD10D1AEA63'
- CONST Name 'Init_Undo'
+ CONST Name 'Init_Str_Undo'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Инициализация str_l3mmUndo' ;
@@ -806,12 +837,17 @@ ref; // ME_4A60A2CF0329 DoSetOwner
  CONST Abstraction at_final
  : Parent ME_47E3C78502FB // Tk2OperationContainer
  ;
+ : Speller ME_4BA2033B03DD // Undo
+ ;
+ : SpelledFor ME_4B988BF442FB // Undo
+ ;
 
-ref; // ME_0DD10D1AEA63 Init_Undo
+ref; // ME_0DD10D1AEA63 Init_Str_Undo
 
 : ME_73D89AFC9B3B
  CONST UID '73D89AFC9B3B'
- CONST Name 'Init_Redo'
+ CONST Name 'Init_Str_Redo'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Инициализация str_l3mmRedo' ;
@@ -819,8 +855,12 @@ ref; // ME_0DD10D1AEA63 Init_Undo
  CONST Abstraction at_final
  : Parent ME_47E3C78502FB // Tk2OperationContainer
  ;
+ : Speller ME_4BA203470251 // Redo
+ ;
+ : SpelledFor ME_A10219615629 // Redo
+ ;
 
-ref; // ME_73D89AFC9B3B Init_Redo
+ref; // ME_73D89AFC9B3B Init_Str_Redo
 
 : ME_48AC2AAE0317
  CONST UID '48AC2AAE0317'
@@ -912,6 +952,7 @@ ref; // ME_4DD4FB680016
 
 : ME_AE3511336825
  CONST UID 'AE3511336825'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_47E3C78502FB // Tk2OperationContainer
@@ -923,6 +964,7 @@ ref; // ME_AE3511336825
 
 : ME_7517FE09276F
  CONST UID '7517FE09276F'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_47E3C78502FB // Tk2OperationContainer
@@ -939,6 +981,7 @@ ref; // ME_7517FE09276F
  ;
  : Implementor ME_47E3C78502FB // Tk2OperationContainer
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_46A5CE3E009A_ME_47E3C78502FB MarkModified
 
 : ME_46A5CE5C0057_ME_47E3C78502FB
@@ -948,6 +991,7 @@ ref; // ME_46A5CE3E009A_ME_47E3C78502FB MarkModified
  ;
  : Implementor ME_47E3C78502FB // Tk2OperationContainer
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_46A5CE5C0057_ME_47E3C78502FB InvertModified
 
 : ME_46A5CE6A00BB_ME_47E3C78502FB
@@ -957,6 +1001,7 @@ ref; // ME_46A5CE5C0057_ME_47E3C78502FB InvertModified
  ;
  : Implementor ME_47E3C78502FB // Tk2OperationContainer
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_46A5CE6A00BB_ME_47E3C78502FB GetModified
 
 : ME_46A5CE840343_ME_47E3C78502FB
@@ -966,6 +1011,7 @@ ref; // ME_46A5CE6A00BB_ME_47E3C78502FB GetModified
  ;
  : Implementor ME_47E3C78502FB // Tk2OperationContainer
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" false
 ref; // ME_46A5CE840343_ME_47E3C78502FB InUndo
 
@@ -976,6 +1022,7 @@ ref; // ME_46A5CE840343_ME_47E3C78502FB InUndo
  ;
  : Implementor ME_47E3C78502FB // Tk2OperationContainer
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" false
 ref; // ME_46A5CE9A03B3_ME_47E3C78502FB SaveUndo
 
@@ -986,6 +1033,7 @@ ref; // ME_46A5CE9A03B3_ME_47E3C78502FB SaveUndo
  ;
  : Implementor ME_47E3C78502FB // Tk2OperationContainer
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" true
 ref; // ME_46A5CEB0018E_ME_47E3C78502FB DeleteMapped
 
@@ -996,6 +1044,7 @@ ref; // ME_46A5CEB0018E_ME_47E3C78502FB DeleteMapped
  ;
  : Implementor ME_47E3C78502FB // Tk2OperationContainer
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" true
 ref; // ME_46A5CEC900F4_ME_47E3C78502FB Optimize
 
@@ -1006,6 +1055,7 @@ ref; // ME_46A5CEC900F4_ME_47E3C78502FB Optimize
  ;
  : Implementor ME_47E3C78502FB // Tk2OperationContainer
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" true
 ref; // ME_46A5CEF30267_ME_47E3C78502FB InIOProcess
 
@@ -1016,6 +1066,7 @@ ref; // ME_46A5CEF30267_ME_47E3C78502FB InIOProcess
  ;
  : Implementor ME_47E3C78502FB // Tk2OperationContainer
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" true
 ref; // ME_46A5CF0902C3_ME_47E3C78502FB Processor
 
@@ -1026,6 +1077,7 @@ ref; // ME_46A5CF0902C3_ME_47E3C78502FB Processor
  ;
  : Implementor ME_47E3C78502FB // Tk2OperationContainer
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_46A5D33D025C_ME_47E3C78502FB Undo
 
 : ME_46A5D37B0247_ME_47E3C78502FB
@@ -1035,6 +1087,7 @@ ref; // ME_46A5D33D025C_ME_47E3C78502FB Undo
  ;
  : Implementor ME_47E3C78502FB // Tk2OperationContainer
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_46A5D37B0247_ME_47E3C78502FB Redo
 
 : ME_46A5D3BC0041_ME_47E3C78502FB
@@ -1044,6 +1097,7 @@ ref; // ME_46A5D37B0247_ME_47E3C78502FB Redo
  ;
  : Implementor ME_47E3C78502FB // Tk2OperationContainer
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_46A5D3BC0041_ME_47E3C78502FB Lock
 
 : ME_46A5D3D101E6_ME_47E3C78502FB
@@ -1053,6 +1107,7 @@ ref; // ME_46A5D3BC0041_ME_47E3C78502FB Lock
  ;
  : Implementor ME_47E3C78502FB // Tk2OperationContainer
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_46A5D3D101E6_ME_47E3C78502FB Unlock
 
 : ME_4874FC1C01D2_ME_47E3C78502FB
@@ -1062,6 +1117,7 @@ ref; // ME_46A5D3D101E6_ME_47E3C78502FB Unlock
  ;
  : Implementor ME_47E3C78502FB // Tk2OperationContainer
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" false
 ref; // ME_4874FC1C01D2_ME_47E3C78502FB Code
 
@@ -1072,6 +1128,7 @@ ref; // ME_4874FC1C01D2_ME_47E3C78502FB Code
  ;
  : Implementor ME_47E3C78502FB // Tk2OperationContainer
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_4874FDA50243_ME_47E3C78502FB Put
 
 : ME_48A4297E0341_ME_47E3C78502FB
@@ -1081,6 +1138,7 @@ ref; // ME_4874FDA50243_ME_47E3C78502FB Put
  ;
  : Implementor ME_47E3C78502FB // Tk2OperationContainer
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_48A4297E0341_ME_47E3C78502FB CheckReadOnly
 
 : ME_48A564120005_ME_47E3C78502FB
@@ -1090,6 +1148,7 @@ ref; // ME_48A4297E0341_ME_47E3C78502FB CheckReadOnly
  ;
  : Implementor ME_47E3C78502FB // Tk2OperationContainer
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_48A564120005_ME_47E3C78502FB DisableReadonly
 
 : ME_48A564160056_ME_47E3C78502FB
@@ -1099,6 +1158,7 @@ ref; // ME_48A564120005_ME_47E3C78502FB DisableReadonly
  ;
  : Implementor ME_47E3C78502FB // Tk2OperationContainer
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_48A564160056_ME_47E3C78502FB EnableReadOnly
 
 : ME_48A570180217_ME_47E3C78502FB
@@ -1108,6 +1168,7 @@ ref; // ME_48A564160056_ME_47E3C78502FB EnableReadOnly
  ;
  : Implementor ME_47E3C78502FB // Tk2OperationContainer
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" true
 ref; // ME_48A570180217_ME_47E3C78502FB ReadOnly
 
@@ -1118,6 +1179,7 @@ ref; // ME_48A570180217_ME_47E3C78502FB ReadOnly
  ;
  : Implementor ME_47E3C78502FB // Tk2OperationContainer
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_4CEBD62101DA_ME_47E3C78502FB CheckOn
 
 : ME_4CEBD62D01E8_ME_47E3C78502FB
@@ -1127,6 +1189,7 @@ ref; // ME_4CEBD62101DA_ME_47E3C78502FB CheckOn
  ;
  : Implementor ME_47E3C78502FB // Tk2OperationContainer
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_4CEBD62D01E8_ME_47E3C78502FB CheckOff
 
 : ME_4CECE9470154_ME_47E3C78502FB
@@ -1136,6 +1199,7 @@ ref; // ME_4CEBD62D01E8_ME_47E3C78502FB CheckOff
  ;
  : Implementor ME_47E3C78502FB // Tk2OperationContainer
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_4CECE9470154_ME_47E3C78502FB IsCheckOff
 
 : ME_479731C50290_ME_47E3C78502FB
@@ -1145,6 +1209,7 @@ ref; // ME_4CECE9470154_ME_47E3C78502FB IsCheckOff
  ;
  : Implementor ME_47E3C78502FB // Tk2OperationContainer
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_479731C50290_ME_47E3C78502FB Cleanup
 
 : ME_47A042E100E2_ME_47E3C78502FB
@@ -1154,6 +1219,7 @@ ref; // ME_479731C50290_ME_47E3C78502FB Cleanup
  ;
  : Implementor ME_47E3C78502FB // Tk2OperationContainer
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_47A042E100E2_ME_47E3C78502FB InitFields
 
 : ME_48B2BE560115_ME_47E3C78502FB
@@ -1163,6 +1229,7 @@ ref; // ME_47A042E100E2_ME_47E3C78502FB InitFields
  ;
  : Implementor ME_47E3C78502FB // Tk2OperationContainer
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_48B2BE560115_ME_47E3C78502FB BeforeFree
 
 : ME_47E3C78502FB
@@ -1176,24 +1243,24 @@ ref; // ME_48B2BE560115_ME_47E3C78502FB BeforeFree
  : Parent ME_47E3C64F037E // Operations
  ;
  : Inherits
-   @ ( ME_47E3C9C8033B // Tk2OpRefList
- ) .SequenceCode.It
+   Seq: ( ME_47E3C9C8033B // Tk2OpRefList
+ )
  ; // Inherits
  : Implements
-   @ ( ME_4874FD8F03E3 // Ik2OpPackInternal
+   Seq: ( ME_4874FD8F03E3 // Ik2OpPackInternal
  WL 'ME_53317DDB0223' '4A4DE16302A2.pas.ms.script' // Il3OpPack
- ) .SequenceCode.It
+ )
  ; // Implements
  : Attributes
-   @ ( ME_4874FE0803D1 // f_Owner
+   Seq: ( ME_4874FE0803D1 // f_Owner
  ME_4874FE190090 // f_Mode
  ME_4874FE290353 // Code
  ME_4C1A30DF0063 // g_WasExceptionInFreeInOwner
  ME_2EB0E992DBF2 // f_Code
- ) .SequenceCode.It
+ )
  ; // Attributes
  : Operations
-   @ ( ME_4C1A312002E3 // CheckWasExceptionInFreeInOwner
+   Seq: ( ME_4C1A312002E3 // CheckWasExceptionInFreeInOwner
  ME_4E7AF07603D9 // GetSaveUndo
  ME_531075A60396 // GetNeedOptimize
  ME_48AC2A7C0229 // DoUndo
@@ -1202,12 +1269,12 @@ ref; // ME_48B2BE560115_ME_47E3C78502FB BeforeFree
  ME_48B2C3ED01BB // Add
  ME_4DD3EB5A01C3 // Create
  ME_4A60A2CF0329 // DoSetOwner
- ME_0DD10D1AEA63 // Init_Undo
- ME_73D89AFC9B3B // Init_Redo
- ) .SequenceCode.It
+ ME_0DD10D1AEA63 // Init_Str_Undo
+ ME_73D89AFC9B3B // Init_Str_Redo
+ )
  ; // Operations
  : Implemented
-   @ ( ME_46A5CE3E009A_ME_47E3C78502FB // MarkModified
+   Seq: ( ME_46A5CE3E009A_ME_47E3C78502FB // MarkModified
  ME_46A5CE5C0057_ME_47E3C78502FB // InvertModified
  ME_46A5CE6A00BB_ME_47E3C78502FB // GetModified
  ME_46A5CE840343_ME_47E3C78502FB // InUndo
@@ -1229,25 +1296,25 @@ ref; // ME_48B2BE560115_ME_47E3C78502FB BeforeFree
  ME_4CEBD62101DA_ME_47E3C78502FB // CheckOn
  ME_4CEBD62D01E8_ME_47E3C78502FB // CheckOff
  ME_4CECE9470154_ME_47E3C78502FB // IsCheckOff
- ) .SequenceCode.It
+ )
  ; // Implemented
  : Overridden
-   @ ( ME_479731C50290_ME_47E3C78502FB // Cleanup
+   Seq: ( ME_479731C50290_ME_47E3C78502FB // Cleanup
  ME_47A042E100E2_ME_47E3C78502FB // InitFields
  ME_48B2BE560115_ME_47E3C78502FB // BeforeFree
- ) .SequenceCode.It
+ )
  ; // Overridden
  : Children
-   @ ( ME_4874FD8F03E3 // Ik2OpPackInternal
- ) .SequenceCode.It
+   Seq: ( ME_4874FD8F03E3 // Ik2OpPackInternal
+ )
  ; // Children
  : Constants
-   @ ( ME_4BA203260193 // Local
+   Seq: ( ME_4BA203260193 // Local
  ME_C7F7FD13EE98 // LCImplLocal
- ) .SequenceCode.It
+ )
  ; // Constants
  : Dependencies
-   @ ( ME_48AC2AAE0317 // 
+   Seq: ( ME_48AC2AAE0317 // 
  ME_48AC2C090278 // 
  ME_48AC2CCD0114 // 
  ME_48AC2E4200C1 // 
@@ -1257,7 +1324,7 @@ ref; // ME_48B2BE560115_ME_47E3C78502FB BeforeFree
  ME_4DD4FB680016 // 
  ME_AE3511336825 // 
  ME_7517FE09276F // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  CONST "author" 'Люлин А.В.'
  CONST "needs InstanceR" 'undefined'
@@ -1265,12 +1332,14 @@ ref; // ME_48B2BE560115_ME_47E3C78502FB BeforeFree
  CONST "no hands" true
  CONST "register in scripts" 'undefined'
  CONST "started" '07.12.1999 19:05'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\K2'
  CONST intf.pas:Path 'common\components\rtl\Garant\K2\k2OperationContainer.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\K2'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'OperationContainer'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'k2OperationContainer'
 
 ref; // ME_47E3C78502FB Tk2OperationContainer
 
@@ -1298,6 +1367,7 @@ ref; // ME_47E3D0CA029B ItemType
  ;
  : Implementor ME_47E3D0820267 // Tk2OperationContainerRefList
  ;
+ CONST OpKind opkind_Implemented
  CONST "ifdef" 'l3Items_NeedsAssignItem'
  CONST "ifndef" 'l3Items_NoSort'
 ref; // ME_47B2C42A0163_ME_47E3D0820267 AssignItem
@@ -1309,6 +1379,7 @@ ref; // ME_47B2C42A0163_ME_47E3D0820267 AssignItem
  ;
  : Implementor ME_47E3D0820267 // Tk2OperationContainerRefList
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_47B99D4503A2_ME_47E3D0820267 CompareExistingItems
 
 : ME_47E3D0820267
@@ -1322,18 +1393,18 @@ ref; // ME_47B99D4503A2_ME_47E3D0820267 CompareExistingItems
  : Parent ME_47E3C64F037E // Operations
  ;
  : Inherits
-   @ ( WL 'ME_47B99E920196' '47913B47006E.pas.ms.script' // l3UncomparabeObjectRefList
+   Seq: ( WL 'ME_47B99E920196' '47913B47006E.pas.ms.script' // l3UncomparabeObjectRefList
  WL 'ME_47BC3A07027F' '47913B47006E.pas.ms.script' // Tl3SimpleDataContainer
- ) .SequenceCode.It
+ )
  ; // Inherits
  : Attributes
-   @ ( ME_47E3D0CA029B // ItemType
- ) .SequenceCode.It
+   Seq: ( ME_47E3D0CA029B // ItemType
+ )
  ; // Attributes
  : Implemented
-   @ ( ME_47B2C42A0163_ME_47E3D0820267 // AssignItem
+   Seq: ( ME_47B2C42A0163_ME_47E3D0820267 // AssignItem
  ME_47B99D4503A2_ME_47E3D0820267 // CompareExistingItems
- ) .SequenceCode.It
+ )
  ; // Implemented
  CONST "author" 'Люлин А.В.'
  CONST "needs InstanceR" 'undefined'
@@ -1341,12 +1412,14 @@ ref; // ME_47B99D4503A2_ME_47E3D0820267 CompareExistingItems
  CONST "no hands" true
  CONST "register in scripts" 'undefined'
  CONST "started" '21.03.2008 18:13'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\K2'
  CONST intf.pas:Path 'common\components\rtl\Garant\K2\k2OperationContainerRefList.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\K2'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'OperationContainerRefList'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'k2OperationContainerRefList'
 
 ref; // ME_47E3D0820267 Tk2OperationContainerRefList
 
@@ -1361,8 +1434,8 @@ ref; // ME_47E3D0820267 Tk2OperationContainerRefList
  : Parent ME_47E3C64F037E // Operations
  ;
  : Inherits
-   @ ( ME_47E3C78502FB // Tk2OperationContainer
- ) .SequenceCode.It
+   Seq: ( ME_47E3C78502FB // Tk2OperationContainer
+ )
  ; // Inherits
  CONST "author" 'Люлин А.В.'
  CONST "needs InstanceR" 'undefined'
@@ -1370,18 +1443,21 @@ ref; // ME_47E3D0820267 Tk2OperationContainerRefList
  CONST "no hands" true
  CONST "register in scripts" 'undefined'
  CONST "started" '16:18 07.05.201'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\K2'
  CONST intf.pas:Path 'common\components\rtl\Garant\K2\k2Context.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\K2'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'Context'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'k2Context'
 
 ref; // ME_4BE404E701DB Tk2Context
 
 : ME_8CB0A029C134
  CONST UID '8CB0A029C134'
  CONST Name 'Exists'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_static::Operation ;
  %SUMMARY 'Проверяет создан экземпляр синглетона или нет' ;
@@ -1391,6 +1467,7 @@ ref; // ME_4BE404E701DB Tk2Context
  ;
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
+ CONST extprop:pas:Value false
 
 ref; // ME_8CB0A029C134 Exists
 
@@ -1405,12 +1482,12 @@ ref; // ME_8CB0A029C134 Exists
  : Parent ME_47E3C64F037E // Operations
  ;
  : Inherits
-   @ ( ME_47E3C7030369 // Tk2Op
- ) .SequenceCode.It
+   Seq: ( ME_47E3C7030369 // Tk2Op
+ )
  ; // Inherits
  : Operations
-   @ ( ME_8CB0A029C134 // Exists
- ) .SequenceCode.It
+   Seq: ( ME_8CB0A029C134 // Exists
+ )
  ; // Operations
  CONST "author" 'Люлин А.В.'
  CONST "needs InstanceR" 'undefined'
@@ -1419,12 +1496,14 @@ ref; // ME_8CB0A029C134 Exists
  CONST "register in scripts" 'undefined'
  CONST "singleton" true
  CONST "started" '19.05.2011 14:36'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\K2'
  CONST intf.pas:Path 'common\components\rtl\Garant\K2\k2NilOp.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\K2'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'NilOp'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'k2NilOp'
 
 ref; // ME_4DD4F2B10308 Tk2NilOp
 
@@ -1454,8 +1533,8 @@ ref; // ME_5310791302E6 DoIt
  : Parent ME_531075C102DD // Tk2NonOptimizeContext
  ;
  : Operations
-   @ ( ME_5310791302E6 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_5310791302E6 // DoIt
+ )
  ; // Operations
 
 ref; // ME_5310790D00D9 Create
@@ -1463,6 +1542,7 @@ ref; // ME_5310790D00D9 Create
 : ME_07BAAACEC466
  CONST UID '07BAAACEC466'
  CONST Name 'Exists'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_static::Operation ;
  %SUMMARY 'Проверяет создан экземпляр синглетона или нет' ;
@@ -1472,6 +1552,7 @@ ref; // ME_5310790D00D9 Create
  ;
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
+ CONST extprop:pas:Value false
 
 ref; // ME_07BAAACEC466 Exists
 
@@ -1482,6 +1563,7 @@ ref; // ME_07BAAACEC466 Exists
  ;
  : Implementor ME_531075C102DD // Tk2NonOptimizeContext
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4E7AF07603D9_ME_531075C102DD GetSaveUndo
 
 : ME_531075A60396_ME_531075C102DD
@@ -1491,6 +1573,7 @@ ref; // ME_4E7AF07603D9_ME_531075C102DD GetSaveUndo
  ;
  : Implementor ME_531075C102DD // Tk2NonOptimizeContext
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_531075A60396_ME_531075C102DD GetNeedOptimize
 
 : ME_531075C102DD
@@ -1504,30 +1587,32 @@ ref; // ME_531075A60396_ME_531075C102DD GetNeedOptimize
  : Parent ME_47E3C64F037E // Operations
  ;
  : Inherits
-   @ ( ME_4BE404E701DB // Tk2Context
- ) .SequenceCode.It
+   Seq: ( ME_4BE404E701DB // Tk2Context
+ )
  ; // Inherits
  : Operations
-   @ ( ME_5310790D00D9 // Create
+   Seq: ( ME_5310790D00D9 // Create
  ME_07BAAACEC466 // Exists
- ) .SequenceCode.It
+ )
  ; // Operations
  : Overridden
-   @ ( ME_4E7AF07603D9_ME_531075C102DD // GetSaveUndo
+   Seq: ( ME_4E7AF07603D9_ME_531075C102DD // GetSaveUndo
  ME_531075A60396_ME_531075C102DD // GetNeedOptimize
- ) .SequenceCode.It
+ )
  ; // Overridden
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
  CONST "singleton" true
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\K2'
  CONST intf.pas:Path 'common\components\rtl\Garant\K2\k2NonOptimizeContext.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\K2'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'NonOptimizeContext'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'k2NonOptimizeContext'
 
 ref; // ME_531075C102DD Tk2NonOptimizeContext
 
@@ -1541,32 +1626,30 @@ ref; // ME_531075C102DD Tk2NonOptimizeContext
  : Parent WL 'ME_4677E16A022A' '4677E16A022A.pas.ms.script' // K2
  ;
  : Children
-   @ ( ME_47E3C7030369 // Tk2Op
+   Seq: ( ME_47E3C7030369 // Tk2Op
  ME_47E3C9C8033B // Tk2OpRefList
  ME_47E3C78502FB // Tk2OperationContainer
  ME_47E3D0820267 // Tk2OperationContainerRefList
  ME_4BE404E701DB // Tk2Context
  ME_4DD4F2B10308 // Tk2NilOp
  ME_531075C102DD // Tk2NonOptimizeContext
- ) .SequenceCode.It
+ )
  ; // Children
  : Depends
-   @ ( WL 'ME_4677FBA70343' '4677FBA70343.pas.ms.script' // l3Interfaces
+   Seq: ( WL 'ME_4677FBA70343' '4677FBA70343.pas.ms.script' // l3Interfaces
  WL 'ME_4678193C009C' '4678193C009C.pas.ms.script' // l3Types
  WL 'ME_47913B47006E' '47913B47006E.pas.ms.script' // l3CoreObjects
  WL 'ME_47A1D4C201E8' '47A1D4C201E8.pas.ms.script' // l3Const
  WL 'ME_47BB24D30205' '47BB24D30205.pas.ms.script' // Стандартные примеси
  WL 'ME_4A4DE16302A2' '4A4DE16302A2.pas.ms.script' // k2Core
  WL 'ME_4AB0C3C60310' '4AB0C3C60310.pas.ms.script' // Sys
- ) .SequenceCode.It
+ )
  ; // Depends
- : Generators
- @ (
- gen_pas.script
- gen_pas.script.runner
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\K2'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\K2'
  CONST pas.script:Path 'shared\models\NewSchool\Scripts\47E3C64F037E.pas.ms.script'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
  CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\47E3C64F037E.pas.ms.script.runner'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_47E3C64F037E Operations

@@ -1,0 +1,753 @@
+// Monitoring 45EEA87E0209 Interfaces Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_45EEA87E0209
+
+FORWARD ME_45EEC0FD01B1
+
+: ME_45EEC0FD01B4
+ CONST UID '45EEC0FD01B4'
+ CONST Name 'summary'
+ CONST Class class_Attribute
+ : Stereotype st_readonly::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_lnk
+ : Parent ME_45EEC0FD01B1 // MonitoringList
+ ;
+ : Target WL 'ME_45EEB6520191' '4570511E038A.pas.ms.script' // Document
+ ;
+ CONST "pm" false
+
+ref; // ME_45EEC0FD01B4 summary
+
+: ME_460117DC0251
+ CONST UID '460117DC0251'
+ CONST Name 'server_list'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+
+ref; // ME_460117DC0251 server_list
+
+: ME_460117DC02AF
+ CONST UID '460117DC02AF'
+ CONST Name 'document_count'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_3DBFFDE101CA' '3DBFDB23006E.pas.ms.script' // unsigned long
+ ;
+
+ref; // ME_460117DC02AF document_count
+
+: ME_460117B20232
+ CONST UID '460117B20232'
+ CONST Name 'make'
+ CONST Class class_Operation
+ : Stereotype st_factory::Operation ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_45EEC0FD01B1 // MonitoringList
+ ;
+ : Parameters
+   Seq: ( ME_460117DC0251 // server_list
+ ME_460117DC02AF // document_count
+ )
+ ; // Parameters
+ CONST "const_type" 'read-write'
+ CONST "dll export" false
+
+ref; // ME_460117B20232 make
+
+: ME_456EB3E10178_ME_45EEC0FD01B1
+ CONST UID '456EB3E10178'
+ CONST Name 'save_to'
+ : Original WL 'ME_456EB3E10178' '456EA56002BF.pas.ms.script' // save_to
+ ;
+ : Implementor ME_45EEC0FD01B1 // MonitoringList
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_456EB3E10178_ME_45EEC0FD01B1 save_to
+
+: ME_456EB3E1017A_ME_45EEC0FD01B1
+ CONST UID '456EB3E1017A'
+ CONST Name 'append_to'
+ : Original WL 'ME_456EB3E1017A' '456EA56002BF.pas.ms.script' // append_to
+ ;
+ : Implementor ME_45EEC0FD01B1 // MonitoringList
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_456EB3E1017A_ME_45EEC0FD01B1 append_to
+
+: ME_456EB3E1017C_ME_45EEC0FD01B1
+ CONST UID '456EB3E1017C'
+ CONST Name 'is_saved'
+ : Original WL 'ME_456EB3E1017C' '456EA56002BF.pas.ms.script' // is_saved
+ ;
+ : Implementor ME_45EEC0FD01B1 // MonitoringList
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "pm" false
+ref; // ME_456EB3E1017C_ME_45EEC0FD01B1 is_saved
+
+: ME_456EB3E1017D_ME_45EEC0FD01B1
+ CONST UID '456EB3E1017D'
+ CONST Name 'is_changed'
+ : Original WL 'ME_456EB3E1017D' '456EA56002BF.pas.ms.script' // is_changed
+ ;
+ : Implementor ME_45EEC0FD01B1 // MonitoringList
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "pm" false
+ref; // ME_456EB3E1017D_ME_45EEC0FD01B1 is_changed
+
+: ME_456ECA9603AA_ME_45EEC0FD01B1
+ CONST UID '456ECA9603AA'
+ CONST Name 'result_type'
+ : Original WL 'ME_456ECA9603AA' '456EA56002BF.pas.ms.script' // result_type
+ ;
+ : Implementor ME_45EEC0FD01B1 // MonitoringList
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "pm" false
+ref; // ME_456ECA9603AA_ME_45EEC0FD01B1 result_type
+
+: ME_456ECA9603AB_ME_45EEC0FD01B1
+ CONST UID '456ECA9603AB'
+ CONST Name 'document_count'
+ : Original WL 'ME_456ECA9603AB' '456EA56002BF.pas.ms.script' // document_count
+ ;
+ : Implementor ME_45EEC0FD01B1 // MonitoringList
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "pm" false
+ref; // ME_456ECA9603AB_ME_45EEC0FD01B1 document_count
+
+: ME_456EE084033C_ME_45EEC0FD01B1
+ CONST UID '456EE084033C'
+ CONST Name 'eid'
+ : Original WL 'ME_456EE084033C' '456EA56002BF.pas.ms.script' // eid
+ ;
+ : Implementor ME_45EEC0FD01B1 // MonitoringList
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "pm" false
+ref; // ME_456EE084033C_ME_45EEC0FD01B1 eid
+
+: ME_45EEB02C03AA_ME_45EEC0FD01B1
+ CONST UID '45EEB02C03AA'
+ CONST Name 'add_filter'
+ : Original WL 'ME_45EEB02C03AA' '45EEA48F011F.pas.ms.script' // add_filter
+ ;
+ : Implementor ME_45EEC0FD01B1 // MonitoringList
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_45EEB02C03AA_ME_45EEC0FD01B1 add_filter
+
+: ME_45EEB02C03AD_ME_45EEC0FD01B1
+ CONST UID '45EEB02C03AD'
+ CONST Name 'delete_filter'
+ : Original WL 'ME_45EEB02C03AD' '45EEA48F011F.pas.ms.script' // delete_filter
+ ;
+ : Implementor ME_45EEC0FD01B1 // MonitoringList
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_45EEB02C03AD_ME_45EEC0FD01B1 delete_filter
+
+: ME_45EEB02C03B0_ME_45EEC0FD01B1
+ CONST UID '45EEB02C03B0'
+ CONST Name 'clear_filters'
+ : Original WL 'ME_45EEB02C03B0' '45EEA48F011F.pas.ms.script' // clear_filters
+ ;
+ : Implementor ME_45EEC0FD01B1 // MonitoringList
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_45EEB02C03B0_ME_45EEC0FD01B1 clear_filters
+
+: ME_45EEB02C03B1_ME_45EEC0FD01B1
+ CONST UID '45EEB02C03B1'
+ CONST Name 'refresh_filters'
+ : Original WL 'ME_45EEB02C03B1' '45EEA48F011F.pas.ms.script' // refresh_filters
+ ;
+ : Implementor ME_45EEC0FD01B1 // MonitoringList
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_45EEB02C03B1_ME_45EEC0FD01B1 refresh_filters
+
+: ME_45EEB02C03B2_ME_45EEC0FD01B1
+ CONST UID '45EEB02C03B2'
+ CONST Name 'apply_filters'
+ : Original WL 'ME_45EEB02C03B2' '45EEA48F011F.pas.ms.script' // apply_filters
+ ;
+ : Implementor ME_45EEC0FD01B1 // MonitoringList
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_45EEB02C03B2_ME_45EEC0FD01B1 apply_filters
+
+: ME_45EEB02C03B4_ME_45EEC0FD01B1
+ CONST UID '45EEB02C03B4'
+ CONST Name 'has_active_filters'
+ : Original WL 'ME_45EEB02C03B4' '45EEA48F011F.pas.ms.script' // has_active_filters
+ ;
+ : Implementor ME_45EEC0FD01B1 // MonitoringList
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "pm" false
+ref; // ME_45EEB02C03B4_ME_45EEC0FD01B1 has_active_filters
+
+: ME_45EEB18401B0_ME_45EEC0FD01B1
+ CONST UID '45EEB18401B0'
+ CONST Name 'active_filters'
+ : Original WL 'ME_45EEB18401B0' '45EEA48F011F.pas.ms.script' // active_filters
+ ;
+ : Implementor ME_45EEC0FD01B1 // MonitoringList
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "pm" false
+ref; // ME_45EEB18401B0_ME_45EEC0FD01B1 active_filters
+
+: ME_45EEBA2C02C0_ME_45EEC0FD01B1
+ CONST UID '45EEBA2C02C0'
+ CONST Name 'clone'
+ : Original WL 'ME_45EEBA2C02C0' '457450470167.pas.ms.script' // clone
+ ;
+ : Implementor ME_45EEC0FD01B1 // MonitoringList
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_45EEBA2C02C0_ME_45EEC0FD01B1 clone
+
+: ME_45EEBA2C02C1_ME_45EEC0FD01B1
+ CONST UID '45EEBA2C02C1'
+ CONST Name 'get_node_by_path'
+ : Original WL 'ME_45EEBA2C02C1' '457450470167.pas.ms.script' // get_node_by_path
+ ;
+ : Implementor ME_45EEC0FD01B1 // MonitoringList
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_45EEBA2C02C1_ME_45EEC0FD01B1 get_node_by_path
+
+: ME_45EEBA2C02C3_ME_45EEC0FD01B1
+ CONST UID '45EEBA2C02C3'
+ CONST Name 'as_evd'
+ : Original WL 'ME_45EEBA2C02C3' '45700BFD0251.pas.ms.script' // as_evd
+ ;
+ : Implementor ME_45EEC0FD01B1 // MonitoringList
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_45EEBA2C02C3_ME_45EEC0FD01B1 as_evd
+
+: ME_45EEBA2C02C5_ME_45EEC0FD01B1
+ CONST UID '45EEBA2C02C5'
+ CONST Name 'intersect_tree'
+ : Original WL 'ME_45EEBA2C02C5' '457450470167.pas.ms.script' // intersect_tree
+ ;
+ : Implementor ME_45EEC0FD01B1 // MonitoringList
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_45EEBA2C02C5_ME_45EEC0FD01B1 intersect_tree
+
+: ME_45EEBA2C02C7_ME_45EEC0FD01B1
+ CONST UID '45EEBA2C02C7'
+ CONST Name 'merge_tree'
+ : Original WL 'ME_45EEBA2C02C7' '457450470167.pas.ms.script' // merge_tree
+ ;
+ : Implementor ME_45EEC0FD01B1 // MonitoringList
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_45EEBA2C02C7_ME_45EEC0FD01B1 merge_tree
+
+: ME_45EEBA2C02C9_ME_45EEC0FD01B1
+ CONST UID '45EEBA2C02C9'
+ CONST Name 'minus_tree'
+ : Original WL 'ME_45EEBA2C02C9' '457450470167.pas.ms.script' // minus_tree
+ ;
+ : Implementor ME_45EEC0FD01B1 // MonitoringList
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_45EEBA2C02C9_ME_45EEC0FD01B1 minus_tree
+
+: ME_45EEBA2C02CB_ME_45EEC0FD01B1
+ CONST UID '45EEBA2C02CB'
+ CONST Name 'create'
+ : Original WL 'ME_45EEBA2C02CB' '457450470167.pas.ms.script' // create
+ ;
+ : Implementor ME_45EEC0FD01B1 // MonitoringList
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_45EEBA2C02CB_ME_45EEC0FD01B1 create
+
+: ME_45EEBA2C02CD_ME_45EEC0FD01B1
+ CONST UID '45EEBA2C02CD'
+ CONST Name 'name'
+ : Original WL 'ME_45EEBA2C02CD' '457450470167.pas.ms.script' // name
+ ;
+ : Implementor ME_45EEC0FD01B1 // MonitoringList
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "pm" false
+ref; // ME_45EEBA2C02CD_ME_45EEC0FD01B1 name
+
+: ME_45EEDB730269_ME_45EEC0FD01B1
+ CONST UID '45EEDB730269'
+ CONST Name 'sort'
+ : Original WL 'ME_45EEDB730269' '45700BFD0251.pas.ms.script' // sort
+ ;
+ : Implementor ME_45EEC0FD01B1 // MonitoringList
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_45EEDB730269_ME_45EEC0FD01B1 sort
+
+: ME_45EEDB73026B_ME_45EEC0FD01B1
+ CONST UID '45EEDB73026B'
+ CONST Name 'set_context_filter'
+ : Original WL 'ME_45EEDB73026B' '45700BFD0251.pas.ms.script' // set_context_filter
+ ;
+ : Implementor ME_45EEC0FD01B1 // MonitoringList
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_45EEDB73026B_ME_45EEC0FD01B1 set_context_filter
+
+: ME_45EEDB73026D_ME_45EEC0FD01B1
+ CONST UID '45EEDB73026D'
+ CONST Name 'save_to_file'
+ : Original WL 'ME_45EEDB73026D' '45700BFD0251.pas.ms.script' // save_to_file
+ ;
+ : Implementor ME_45EEC0FD01B1 // MonitoringList
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_45EEDB73026D_ME_45EEC0FD01B1 save_to_file
+
+: ME_45EEDB730270_ME_45EEC0FD01B1
+ CONST UID '45EEDB730270'
+ CONST Name 'history'
+ : Original WL 'ME_45EEDB730270' '45700BFD0251.pas.ms.script' // history
+ ;
+ : Implementor ME_45EEC0FD01B1 // MonitoringList
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "pm" false
+ref; // ME_45EEDB730270_ME_45EEC0FD01B1 history
+
+: ME_45EEDB730271_ME_45EEC0FD01B1
+ CONST UID '45EEDB730271'
+ CONST Name 'is_filtered'
+ : Original WL 'ME_45EEDB730271' '45700BFD0251.pas.ms.script' // is_filtered
+ ;
+ : Implementor ME_45EEC0FD01B1 // MonitoringList
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "pm" false
+ref; // ME_45EEDB730271_ME_45EEC0FD01B1 is_filtered
+
+: ME_45EEDC7A0244_ME_45EEC0FD01B1
+ CONST UID '45EEDC7A0244'
+ CONST Name 'current_sort_params'
+ : Original WL 'ME_45EEDC7A0244' '45700BFD0251.pas.ms.script' // current_sort_params
+ ;
+ : Implementor ME_45EEC0FD01B1 // MonitoringList
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "pm" false
+ref; // ME_45EEDC7A0244_ME_45EEC0FD01B1 current_sort_params
+
+: ME_45EEDC910011_ME_45EEC0FD01B1
+ CONST UID '45EEDC910011'
+ CONST Name 'available_sort_types'
+ : Original WL 'ME_45EEDC910011' '45700BFD0251.pas.ms.script' // available_sort_types
+ ;
+ : Implementor ME_45EEC0FD01B1 // MonitoringList
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "pm" false
+ref; // ME_45EEDC910011_ME_45EEC0FD01B1 available_sort_types
+
+: ME_45F6906C03C8_ME_45EEC0FD01B1
+ CONST UID '45F6906C03C8'
+ CONST Name 'root'
+ : Original WL 'ME_45F6906C03C8' '457450470167.pas.ms.script' // root
+ ;
+ : Implementor ME_45EEC0FD01B1 // MonitoringList
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "pm" false
+ref; // ME_45F6906C03C8_ME_45EEC0FD01B1 root
+
+: ME_4602A0A801F4_ME_45EEC0FD01B1
+ CONST UID '4602A0A801F4'
+ CONST Name 'entry_count'
+ : Original WL 'ME_4602A0A801F4' '456EA56002BF.pas.ms.script' // entry_count
+ ;
+ : Implementor ME_45EEC0FD01B1 // MonitoringList
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "pm" false
+ref; // ME_4602A0A801F4_ME_45EEC0FD01B1 entry_count
+
+: ME_46286B3A029F_ME_45EEC0FD01B1
+ CONST UID '46286B3A029F'
+ CONST Name 'edition_count'
+ : Original WL 'ME_46286B3A029F' '456EA56002BF.pas.ms.script' // edition_count
+ ;
+ : Implementor ME_45EEC0FD01B1 // MonitoringList
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "pm" false
+ref; // ME_46286B3A029F_ME_45EEC0FD01B1 edition_count
+
+: ME_46F8B9280148_ME_45EEC0FD01B1
+ CONST UID '46F8B9280148'
+ CONST Name 'get_short_name'
+ : Original WL 'ME_46F8B9280148' '45700BFD0251.pas.ms.script' // get_short_name
+ ;
+ : Implementor ME_45EEC0FD01B1 // MonitoringList
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_46F8B9280148_ME_45EEC0FD01B1 get_short_name
+
+: ME_4763CDEB02F8_ME_45EEC0FD01B1
+ CONST UID '4763CDEB02F8'
+ CONST Name 'set_list_storage'
+ : Original WL 'ME_4763CDEB02F8' '45700BFD0251.pas.ms.script' // set_list_storage
+ ;
+ : Implementor ME_45EEC0FD01B1 // MonitoringList
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "dll export" false
+ref; // ME_4763CDEB02F8_ME_45EEC0FD01B1 set_list_storage
+
+: ME_47E229CE0249_ME_45EEC0FD01B1
+ CONST UID '47E229CE0249'
+ CONST Name 'content_type'
+ : Original WL 'ME_47E229CE0249' '45700BFD0251.pas.ms.script' // content_type
+ ;
+ : Implementor ME_45EEC0FD01B1 // MonitoringList
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "pm" false
+ref; // ME_47E229CE0249_ME_45EEC0FD01B1 content_type
+
+: ME_4A28BDFC00F4_ME_45EEC0FD01B1
+ CONST UID '4A28BDFC00F4'
+ CONST Name 'get_full_list'
+ : Original WL 'ME_4A28BDFC00F4' '45700BFD0251.pas.ms.script' // get_full_list
+ ;
+ : Implementor ME_45EEC0FD01B1 // MonitoringList
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_4A28BDFC00F4_ME_45EEC0FD01B1 get_full_list
+
+: ME_4A28BE1F015C_ME_45EEC0FD01B1
+ CONST UID '4A28BE1F015C'
+ CONST Name 'is_short'
+ : Original WL 'ME_4A28BE1F015C' '45700BFD0251.pas.ms.script' // is_short
+ ;
+ : Implementor ME_45EEC0FD01B1 // MonitoringList
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "pm" false
+ref; // ME_4A28BE1F015C_ME_45EEC0FD01B1 is_short
+
+: ME_4A77E72900BC_ME_45EEC0FD01B1
+ CONST UID '4A77E72900BC'
+ CONST Name 'is_snippet'
+ : Original WL 'ME_4A77E72900BC' '45700BFD0251.pas.ms.script' // is_snippet
+ ;
+ : Implementor ME_45EEC0FD01B1 // MonitoringList
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "pm" false
+ref; // ME_4A77E72900BC_ME_45EEC0FD01B1 is_snippet
+
+: ME_4A9F5D2A001F_ME_45EEC0FD01B1
+ CONST UID '4A9F5D2A001F'
+ CONST Name 'get_analysis_tree'
+ : Original WL 'ME_4A9F5D2A001F' '45700BFD0251.pas.ms.script' // get_analysis_tree
+ ;
+ : Implementor ME_45EEC0FD01B1 // MonitoringList
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_4A9F5D2A001F_ME_45EEC0FD01B1 get_analysis_tree
+
+: ME_4B55CF4102BF_ME_45EEC0FD01B1
+ CONST UID '4B55CF4102BF'
+ CONST Name 'get_full_list_size'
+ : Original WL 'ME_4B55CF4102BF' '45700BFD0251.pas.ms.script' // get_full_list_size
+ ;
+ : Implementor ME_45EEC0FD01B1 // MonitoringList
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_4B55CF4102BF_ME_45EEC0FD01B1 get_full_list_size
+
+: ME_45EEC0FD01B1
+ CONST UID '45EEC0FD01B1'
+ CONST GUID 'F6B6B6C2-1E10-41B3-8251-B37665DE05BB'
+ CONST Name 'MonitoringList'
+ CONST Class class_Class
+ : Stereotype st_Interface ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Интерфейс-врапер, для того что бы отдать Документ с мониторингом ввиде Списка из опроеации поиска. Сразу после получения MonitoringList необхождимо преобразовать его к документу, через метод summary' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_45EEA87E0209 // Monitoring
+ ;
+ : Inherits
+   Seq: ( WL 'ME_456ECA9603A9' '456EA56002BF.pas.ms.script' // SearchEntity
+ )
+ ; // Inherits
+ : Implements
+   Seq: ( WL 'ME_45EEDB730265' '45700BFD0251.pas.ms.script' // DynList
+ )
+ ; // Implements
+ : Attributes
+   Seq: ( ME_45EEC0FD01B4 // summary
+ )
+ ; // Attributes
+ : Operations
+   Seq: ( ME_460117B20232 // make
+ )
+ ; // Operations
+ : Implemented
+   Seq: ( ME_456EB3E10178_ME_45EEC0FD01B1 // save_to
+ ME_456EB3E1017A_ME_45EEC0FD01B1 // append_to
+ ME_456EB3E1017C_ME_45EEC0FD01B1 // is_saved
+ ME_456EB3E1017D_ME_45EEC0FD01B1 // is_changed
+ ME_456ECA9603AA_ME_45EEC0FD01B1 // result_type
+ ME_456ECA9603AB_ME_45EEC0FD01B1 // document_count
+ ME_456EE084033C_ME_45EEC0FD01B1 // eid
+ ME_45EEB02C03AA_ME_45EEC0FD01B1 // add_filter
+ ME_45EEB02C03AD_ME_45EEC0FD01B1 // delete_filter
+ ME_45EEB02C03B0_ME_45EEC0FD01B1 // clear_filters
+ ME_45EEB02C03B1_ME_45EEC0FD01B1 // refresh_filters
+ ME_45EEB02C03B2_ME_45EEC0FD01B1 // apply_filters
+ ME_45EEB02C03B4_ME_45EEC0FD01B1 // has_active_filters
+ ME_45EEB18401B0_ME_45EEC0FD01B1 // active_filters
+ ME_45EEBA2C02C0_ME_45EEC0FD01B1 // clone
+ ME_45EEBA2C02C1_ME_45EEC0FD01B1 // get_node_by_path
+ ME_45EEBA2C02C3_ME_45EEC0FD01B1 // as_evd
+ ME_45EEBA2C02C5_ME_45EEC0FD01B1 // intersect_tree
+ ME_45EEBA2C02C7_ME_45EEC0FD01B1 // merge_tree
+ ME_45EEBA2C02C9_ME_45EEC0FD01B1 // minus_tree
+ ME_45EEBA2C02CB_ME_45EEC0FD01B1 // create
+ ME_45EEBA2C02CD_ME_45EEC0FD01B1 // name
+ ME_45EEDB730269_ME_45EEC0FD01B1 // sort
+ ME_45EEDB73026B_ME_45EEC0FD01B1 // set_context_filter
+ ME_45EEDB73026D_ME_45EEC0FD01B1 // save_to_file
+ ME_45EEDB730270_ME_45EEC0FD01B1 // history
+ ME_45EEDB730271_ME_45EEC0FD01B1 // is_filtered
+ ME_45EEDC7A0244_ME_45EEC0FD01B1 // current_sort_params
+ ME_45EEDC910011_ME_45EEC0FD01B1 // available_sort_types
+ ME_45F6906C03C8_ME_45EEC0FD01B1 // root
+ ME_4602A0A801F4_ME_45EEC0FD01B1 // entry_count
+ ME_46286B3A029F_ME_45EEC0FD01B1 // edition_count
+ ME_46F8B9280148_ME_45EEC0FD01B1 // get_short_name
+ ME_4763CDEB02F8_ME_45EEC0FD01B1 // set_list_storage
+ ME_47E229CE0249_ME_45EEC0FD01B1 // content_type
+ ME_4A28BDFC00F4_ME_45EEC0FD01B1 // get_full_list
+ ME_4A28BE1F015C_ME_45EEC0FD01B1 // is_short
+ ME_4A77E72900BC_ME_45EEC0FD01B1 // is_snippet
+ ME_4A9F5D2A001F_ME_45EEC0FD01B1 // get_analysis_tree
+ ME_4B55CF4102BF_ME_45EEC0FD01B1 // get_full_list_size
+ )
+ ; // Implemented
+ CONST "single impl" false
+ CONST cpp:PathOnly '\garant6x\implementation\Garant\GblAdapterLib\Monitoring'
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GblAdapterLib'
+ CONST dll.cpp:PathOnly '\garant6x\implementation\Garant\GblAdapterLib\Monitoring'
+ CONST dll.h:PathOnly '\garant6x\implementation\Garant\GblAdapterLib\Monitoring'
+ CONST fctr.cpp:PathOnly '\garant6x\implementation\Garant\GblAdapterLib\Monitoring'
+ CONST fctr.h:PathOnly '\garant6x\implementation\Garant\GblAdapterLib\Monitoring'
+ CONST h:PathOnly '\garant6x\implementation\Garant\GblAdapterLib\Monitoring'
+ CONST i.h:PathOnly '\garant6x\implementation\Garant\GblAdapterLib\Monitoring'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\tie\Garant\GblAdapterLib'
+ CONST mpc:PathOnly '\garant6x\implementation\Garant\project'
+ CONST mpc2:PathOnly '\garant6x\implementation\Garant\project'
+ CONST pas:PathOnly '\garant6x\implementation\Garant\GblAdapterLib'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc:PathOnly '\garant6x\implementation\Garant\GblAdapterLib'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\GblAdapterLib'
+ CONST s.ini:PathOnly '\garant6x\implementation\Garant\project'
+ CONST s.reg:PathOnly '\garant6x\implementation\Garant\project'
+ CONST vi.rc:PathOnly '\garant6x\implementation\Garant'
+ CONST vi.rch:PathOnly '\garant6x\implementation\Garant'
+ CONST extprop:pas:TypeName 'IMonitoringList'
+ CONST extprop:rc:SelfName 'MonitoringList'
+ CONST extprop:rc:isAcceptableForScripts true
+
+ref; // ME_45EEC0FD01B1 MonitoringList
+
+FORWARD ME_45EEC103021E
+
+: ME_46023FE30057
+ CONST UID '46023FE30057'
+ CONST Name 'news_line_root'
+ CONST Class class_Attribute
+ : Stereotype st_readonly::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_lnk
+ : Parent ME_45EEC103021E // Monitoring
+ ;
+ : Target WL 'ME_45EEB95901C5' '457450470167.pas.ms.script' // NodeBase
+ ;
+ CONST "pm" false
+
+ref; // ME_46023FE30057 news_line_root
+
+: ME_45EEC103021F
+ CONST UID '45EEC103021F'
+ CONST Name 'is_news_line_defined'
+ CONST Class class_Operation
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_45EEC103021E // Monitoring
+ ;
+ : Target WL 'ME_3DBFFE100240' '3DBFDB23006E.pas.ms.script' // boolean
+ ;
+
+ref; // ME_45EEC103021F is_news_line_defined
+
+: ME_45EEC1030220
+ CONST UID '45EEC1030220'
+ CONST Name 'is_exist'
+ CONST Class class_Operation
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_45EEC103021E // Monitoring
+ ;
+ : Target WL 'ME_3DBFFE100240' '3DBFDB23006E.pas.ms.script' // boolean
+ ;
+
+ref; // ME_45EEC1030220 is_exist
+
+: ME_45EEC16B01A1
+ CONST UID '45EEC16B01A1'
+ CONST Name 'make'
+ CONST Class class_Operation
+ : Stereotype st_factory::Operation ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_45EEC103021E // Monitoring
+ ;
+ CONST "const_type" 'read-write'
+
+ref; // ME_45EEC16B01A1 make
+
+: ME_45EEC103021E
+ CONST UID '45EEC103021E'
+ CONST GUID 'FD231406-37D4-4C3C-A82F-592343031D3B'
+ CONST Name 'Monitoring'
+ CONST Class class_Class
+ : Stereotype st_Interface ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_45EEA87E0209 // Monitoring
+ ;
+ : Attributes
+   Seq: ( ME_46023FE30057 // news_line_root
+ )
+ ; // Attributes
+ : Operations
+   Seq: ( ME_45EEC103021F // is_news_line_defined
+ ME_45EEC1030220 // is_exist
+ ME_45EEC16B01A1 // make
+ )
+ ; // Operations
+ CONST "single impl" false
+ CONST cpp:PathOnly '\garant6x\implementation\Garant\GblAdapterLib\Monitoring'
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GblAdapterLib'
+ CONST dll.cpp:PathOnly '\garant6x\implementation\Garant\GblAdapterLib\Monitoring'
+ CONST dll.h:PathOnly '\garant6x\implementation\Garant\GblAdapterLib\Monitoring'
+ CONST fctr.cpp:PathOnly '\garant6x\implementation\Garant\GblAdapterLib\Monitoring'
+ CONST fctr.h:PathOnly '\garant6x\implementation\Garant\GblAdapterLib\Monitoring'
+ CONST h:PathOnly '\garant6x\implementation\Garant\GblAdapterLib\Monitoring'
+ CONST i.h:PathOnly '\garant6x\implementation\Garant\GblAdapterLib\Monitoring'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\tie\Garant\GblAdapterLib'
+ CONST mpc:PathOnly '\garant6x\implementation\Garant\project'
+ CONST mpc2:PathOnly '\garant6x\implementation\Garant\project'
+ CONST pas:PathOnly '\garant6x\implementation\Garant\GblAdapterLib'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc:PathOnly '\garant6x\implementation\Garant\GblAdapterLib'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\GblAdapterLib'
+ CONST s.ini:PathOnly '\garant6x\implementation\Garant\project'
+ CONST s.reg:PathOnly '\garant6x\implementation\Garant\project'
+ CONST vi.rc:PathOnly '\garant6x\implementation\Garant'
+ CONST vi.rch:PathOnly '\garant6x\implementation\Garant'
+ CONST extprop:pas:TypeName 'IMonitoring'
+ CONST extprop:rc:SelfName 'Monitoring'
+ CONST extprop:rc:isAcceptableForScripts true
+
+ref; // ME_45EEC103021E Monitoring
+
+: ME_45EEA87E0209
+ CONST UID '45EEA87E0209'
+ CONST Name 'Monitoring'
+ CONST Class class_Category
+ : Stereotype st_Interfaces ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent WL 'ME_456EA3D2031C' '456EA3D2031C.pas.ms.script' // GblAdapterLib
+ ;
+ : Children
+   Seq: ( ME_45EEC0FD01B1 // MonitoringList
+ ME_45EEC103021E // Monitoring
+ )
+ ; // Children
+ : Depends
+   Seq: ( WL 'ME_456EA56002BF' '456EA56002BF.pas.ms.script' // BaseTypes
+ WL 'ME_45700BFD0251' '45700BFD0251.pas.ms.script' // DynamicDocList
+ WL 'ME_4570511E038A' '4570511E038A.pas.ms.script' // Document
+ WL 'ME_457450470167' '457450470167.pas.ms.script' // DynamicTree
+ WL 'ME_45EEAA8E034E' '45EEAA8E034E.pas.ms.script' // Search
+ )
+ ; // Depends
+ CONST "no hands" false
+ : Generators
+ Seq: (
+ gen_cpp
+ gen_dll.cpp
+ gen_dll.h
+ gen_fctr.cpp
+ gen_fctr.h
+ gen_h
+ gen_intf.pas
+ gen_pas
+ gen_pas.script
+ gen_pas.script.runner
+ )
+ ; // Generators
+ CONST cpp:Path 'garant6x\implementation\Garant\GblAdapterLib\Monitoring\Monitoring.cpp'
+ CONST cpp:PathOnly '\garant6x\implementation\Garant\GblAdapterLib\Monitoring'
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GblAdapterLib'
+ CONST dll.cpp:Path 'garant6x\implementation\Garant\GblAdapterLib\Monitoring\Monitoring_tie.cpp'
+ CONST dll.cpp:PathOnly '\garant6x\implementation\Garant\GblAdapterLib\Monitoring'
+ CONST dll.h:Path 'garant6x\implementation\Garant\GblAdapterLib\Monitoring\Monitoring_tie.h'
+ CONST dll.h:PathOnly '\garant6x\implementation\Garant\GblAdapterLib\Monitoring'
+ CONST fctr.cpp:Path 'garant6x\implementation\Garant\GblAdapterLib\Monitoring\MonitoringFactories.cpp'
+ CONST fctr.cpp:PathOnly '\garant6x\implementation\Garant\GblAdapterLib\Monitoring'
+ CONST fctr.h:Path 'garant6x\implementation\Garant\GblAdapterLib\Monitoring\MonitoringFactories.h'
+ CONST fctr.h:PathOnly '\garant6x\implementation\Garant\GblAdapterLib\Monitoring'
+ CONST h:Path 'garant6x\implementation\Garant\GblAdapterLib\Monitoring\Monitoring.h'
+ CONST h:PathOnly '\garant6x\implementation\Garant\GblAdapterLib\Monitoring'
+ CONST i.h:PathOnly '\garant6x\implementation\Garant\GblAdapterLib\Monitoring'
+ CONST intf.pas:Path 'garant6x\implementation\Garant\tie\Garant\GblAdapterLib\MonitoringUnit.pas'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\tie\Garant\GblAdapterLib'
+ CONST mpc:PathOnly '\garant6x\implementation\Garant\project'
+ CONST mpc2:PathOnly '\garant6x\implementation\Garant\project'
+ CONST pas:Path 'garant6x\implementation\Garant\GblAdapterLib\MonitoringUnit.pas'
+ CONST pas:PathOnly '\garant6x\implementation\Garant\GblAdapterLib'
+ CONST pas.script:Path 'shared\models\NewSchool\Scripts\45EEA87E0209.pas.ms.script'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\45EEA87E0209.pas.ms.script.runner'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc:PathOnly '\garant6x\implementation\Garant\GblAdapterLib'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\GblAdapterLib'
+ CONST s.ini:PathOnly '\garant6x\implementation\Garant\project'
+ CONST s.reg:PathOnly '\garant6x\implementation\Garant\project'
+ CONST vi.rc:PathOnly '\garant6x\implementation\Garant'
+ CONST vi.rch:PathOnly '\garant6x\implementation\Garant'
+ CONST extprop:pas:UnitName 'MonitoringUnit'
+
+ref; // ME_45EEA87E0209 Monitoring

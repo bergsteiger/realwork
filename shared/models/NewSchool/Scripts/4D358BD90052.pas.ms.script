@@ -1,0 +1,180 @@
+// DocumentContainers 4D358BD90052 Unit Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4D358BD90052
+
+FORWARD ME_4CE662B803DA
+
+: ME_4CE663D10309
+ CONST UID '4CE663D10309'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4CE662B803DA // TnsDictionDocumentContainer
+ ;
+ : Target WL 'ME_4857B5260267' '48492FC0029D.pas.ms.script' // Document
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_4CE663D10309 
+
+: ME_4CE668E0000F
+ CONST UID '4CE668E0000F'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4CE662B803DA // TnsDictionDocumentContainer
+ ;
+ : Target WL 'ME_4857A87D0337' '48492FC0029D.pas.ms.script' // Block
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_4CE668E0000F 
+
+: ME_4CE669DA0170
+ CONST UID '4CE669DA0170'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4CE662B803DA // TnsDictionDocumentContainer
+ ;
+ : Target WL 'ME_47C69EBC00A8' '47AC75550330.pas.ms.script' // Tk2TagID
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_4CE669DA0170 
+
+: ME_4CE670F802AC
+ CONST UID '4CE670F802AC'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4CE662B803DA // TnsDictionDocumentContainer
+ ;
+ : Target WL 'ME_4C6A750F024E' '467FC9F80281.pas.ms.script' // TnsF1DocumentTagNode
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_4CE670F802AC 
+
+: ME_5065AB4B02F5
+ CONST UID '5065AB4B02F5'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4CE662B803DA // TnsDictionDocumentContainer
+ ;
+ : Target WL 'ME_4857CB7D0340' '48492FC0029D.pas.ms.script' // DictEntry
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_5065AB4B02F5 
+
+: ME_524A936B0153
+ CONST UID '524A936B0153'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4CE662B803DA // TnsDictionDocumentContainer
+ ;
+ : Target WL 'ME_456EB454018E' '456EA56002BF.pas.ms.script' // CanNotFindData
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_524A936B0153 
+
+: ME_47F27DA80172_ME_4CE662B803DA
+ CONST UID '47F27DA80172'
+ CONST Name 'GetDocument'
+ : Original WL 'ME_47F27DA80172' '47F086170200.pas.ms.script' // GetDocument
+ ;
+ : Implementor ME_4CE662B803DA // TnsDictionDocumentContainer
+ ;
+ CONST OpKind opkind_Overridden
+ CONST "UseNewGen" 'undefined'
+ref; // ME_47F27DA80172_ME_4CE662B803DA GetDocument
+
+: ME_4CE662B803DA
+ CONST UID '4CE662B803DA'
+ CONST Name 'TnsDictionDocumentContainer'
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Контейнер документа толкового словаря' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4D358BD90052 // DocumentContainers
+ ;
+ : Inherits
+   Seq: ( WL 'ME_4680E83D00C8' '4680E826036D.pas.ms.script' // TeeDocumentContainer
+ WL 'ME_4C6A955F00D6' '4C6A7BA001A5.pas.ms.script' // nsDocumentContainer
+ )
+ ; // Inherits
+ : Overridden
+   Seq: ( ME_47F27DA80172_ME_4CE662B803DA // GetDocument
+ )
+ ; // Overridden
+ : Dependencies
+   Seq: ( ME_4CE663D10309 // 
+ ME_4CE668E0000F // 
+ ME_4CE669DA0170 // 
+ ME_4CE670F802AC // 
+ ME_5065AB4B02F5 // 
+ ME_524A936B0153 // 
+ )
+ ; // Dependencies
+ CONST "UseNewGen" 'undefined'
+ CONST "author" 'Люлин А.В.'
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" true
+ CONST "register in scripts" 'undefined'
+ CONST "started" '19.11.2010 14:43'
+ : Generators
+ Seq: (
+ gen_intf.pas
+ )
+ ; // Generators
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\DictionLikeDocumentProcessing'
+ CONST intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\DictionLikeDocumentProcessing\nsDictionDocumentContainer.pas'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\DictionLikeDocumentProcessing'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\DictionLikeDocumentProcessing'
+ CONST extprop:pas:UnitName 'nsDictionDocumentContainer'
+
+ref; // ME_4CE662B803DA TnsDictionDocumentContainer
+
+: ME_4D358BD90052
+ CONST UID '4D358BD90052'
+ CONST Name 'DocumentContainers'
+ CONST Class class_Category
+ : Stereotype st_Unit ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent WL 'ME_4D358BAD038E' '4D358BAD038E.pas.ms.script' // DictionLikeDocumentProcessing
+ ;
+ : Children
+   Seq: ( ME_4CE662B803DA // TnsDictionDocumentContainer
+ )
+ ; // Children
+ : Depends
+   Seq: ( WL 'ME_456EA56002BF' '456EA56002BF.pas.ms.script' // BaseTypes
+ WL 'ME_467FC9F80281' '467FC9F80281.pas.ms.script' // DocumentTagNodes
+ WL 'ME_4680E826036D' '4680E826036D.pas.ms.script' // eeDocumentContainer
+ WL 'ME_47AC75550330' '47AC75550330.pas.ms.script' // k2Tags
+ WL 'ME_48492FC0029D' '48492FC0029D.pas.ms.script' // Standard
+ WL 'ME_4C6A7BA001A5' '4C6A7BA001A5.pas.ms.script' // F1DocumentContainers
+ )
+ ; // Depends
+ CONST "UseNewGen" 'undefined'
+ : Generators
+ Seq: (
+ gen_pas.script
+ gen_pas.script.runner
+ )
+ ; // Generators
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\DictionLikeDocumentProcessing'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\DictionLikeDocumentProcessing'
+ CONST pas.script:Path 'shared\models\NewSchool\Scripts\4D358BD90052.pas.ms.script'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\4D358BD90052.pas.ms.script.runner'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\DictionLikeDocumentProcessing'
+
+ref; // ME_4D358BD90052 DocumentContainers

@@ -143,13 +143,13 @@ ref; // ME_530C9AE3039B aNeedEliminateCommentDecor
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
  : Parameters
-   @ ( ME_530C9AE302ED // aEVD
+   Seq: ( ME_530C9AE302ED // aEVD
  ME_530C9AE30305 // aRTF
  ME_530C9AE3034F // Hidden
  ME_530C9AE30368 // HiddenCount
  ME_530C9AE30381 // aHost
  ME_530C9AE3039B // aNeedEliminateCommentDecor
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_4B72B47601D9 DoIt
@@ -296,19 +296,23 @@ ref; // ME_4F796D7B00A2
  CONST Abstraction at_final
  : Parent ME_4B72B41502F5 // eeEVDtoRTF
  ;
+ : Implements
+   Seq: ( WL 'ME_4E85A4EB02BD' '4E5CF70B01E2.pas.ms.script' // Информация из баллона об изменениях документа должна копироваться вместе со вступительной фразой
+ )
+ ; // Implements
  : Attributes
-   @ ( ME_4B72BA810390 // Reader
+   Seq: ( ME_4B72BA810390 // Reader
  ME_4B72BAC0031D // G
  ME_4B72BB600341 // Writer
  ME_4B72BC0E02DE // Styles
- ) .SequenceCode.It
+ )
  ; // Attributes
  : Operations
-   @ ( ME_4B72B47601D9 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_4B72B47601D9 // DoIt
+ )
  ; // Operations
  : Dependencies
-   @ ( ME_4B72BC7D0350 // 
+   Seq: ( ME_4B72BC7D0350 // 
  ME_4B72BE4F0388 // 
  ME_4B72BF150276 // 
  ME_4B72BF5100FD // 
@@ -320,7 +324,7 @@ ref; // ME_4F796D7B00A2
  ME_4D8B75BD0043 // 
  ME_4EFC4E7B0049 // 
  ME_4F796D7B00A2 // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  CONST "is static" false
 
@@ -389,12 +393,12 @@ ref; // ME_530C9A36019A aHost
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
  : Parameters
-   @ ( ME_530C9A3600F2 // aEVD
+   Seq: ( ME_530C9A3600F2 // aEVD
  ME_530C9A360108 // aRTF
  ME_530C9A36014E // Hidden
  ME_530C9A360166 // HiddenCount
  ME_530C9A36019A // aHost
- ) .SequenceCode.It
+ )
  ; // Parameters
  CONST "calling conventions" 'stdcall'
 
@@ -422,12 +426,12 @@ ref; // ME_530C9B530138
  : Parent ME_4B72B41502F5 // eeEVDtoRTF
  ;
  : Operations
-   @ ( ME_530C8ABF029E // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_530C8ABF029E // DoIt
+ )
  ; // Operations
  : Dependencies
-   @ ( ME_530C9B530138 // 
- ) .SequenceCode.It
+   Seq: ( ME_530C9B530138 // 
+ )
  ; // Dependencies
 
 ref; // ME_530C8AA4024F EVDtoRTFWithoutCommentDecor
@@ -495,12 +499,12 @@ ref; // ME_530C9AC801FA aHost
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
  : Parameters
-   @ ( ME_530C9AC8017C // aEVD
+   Seq: ( ME_530C9AC8017C // aEVD
  ME_530C9AC80191 // aRTF
  ME_530C9AC801CF // Hidden
  ME_530C9AC801E5 // HiddenCount
  ME_530C9AC801FA // aHost
- ) .SequenceCode.It
+ )
  ; // Parameters
  CONST "calling conventions" 'stdcall'
 
@@ -528,12 +532,12 @@ ref; // ME_530C9B5C02E8
  : Parent ME_4B72B41502F5 // eeEVDtoRTF
  ;
  : Operations
-   @ ( ME_530C9AC302AF // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_530C9AC302AF // DoIt
+ )
  ; // Operations
  : Dependencies
-   @ ( ME_530C9B5C02E8 // 
- ) .SequenceCode.It
+   Seq: ( ME_530C9B5C02E8 // 
+ )
  ; // Dependencies
 
 ref; // ME_530C9AB60327 EVDtoRTF
@@ -571,9 +575,9 @@ ref; // ME_53CD1FB002FC aStyleBufSize
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
  : Parameters
-   @ ( ME_53CD1FB002C3 // aStyleBuf
+   Seq: ( ME_53CD1FB002C3 // aStyleBuf
  ME_53CD1FB002FC // aStyleBufSize
- ) .SequenceCode.It
+ )
  ; // Parameters
  CONST "calling conventions" 'stdcall'
 
@@ -601,12 +605,12 @@ ref; // ME_53CD24DE01C9
  : Parent ME_4B72B41502F5 // eeEVDtoRTF
  ;
  : Operations
-   @ ( ME_53CD1FA60396 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_53CD1FA60396 // DoIt
+ )
  ; // Operations
  : Dependencies
-   @ ( ME_53CD24DE01C9 // 
- ) .SequenceCode.It
+   Seq: ( ME_53CD24DE01C9 // 
+ )
  ; // Dependencies
 
 ref; // ME_53CD1F8A0194 SetStyleTable
@@ -644,26 +648,31 @@ ref; // ME_4B72E30D02B5
  : Parent ME_4B72B3FD02AE // Implementation
  ;
  : Operations
-   @ ( ME_4B72B44A0392 // DoEVDtoRTF
+   Seq: ( ME_4B72B44A0392 // DoEVDtoRTF
  ME_530C8AA4024F // EVDtoRTFWithoutCommentDecor
  ME_530C9AB60327 // EVDtoRTF
  ME_53CD1F8A0194 // SetStyleTable
- ) .SequenceCode.It
+ )
  ; // Operations
  : Dependencies
-   @ ( ME_4B72DF180226 // 
+   Seq: ( ME_4B72DF180226 // 
  ME_4B72E30D02B5 // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  CONST "author" 'Люлин А.В.'
  CONST "no hands" true
  CONST "started" '19.01.2009 12:11'
  : Generators
- @ (
+ Seq: (
  gen_intf.pas
- ) .SequenceCode.It
+ )
  ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\RenderEVD'
  CONST intf.pas:Path 'common\components\rtl\Garant\RenderEVD\eeEVDtoRTF.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\RenderEVD'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\common\components\rtl\Garant\RenderEVD'
 
 ref; // ME_4B72B41502F5 eeEVDtoRTF
 
@@ -718,11 +727,17 @@ ref; // ME_53BEADB0032C ee_rtRawBMP
  : Parent ME_4B72DF7B0164 // eeRenderFormula
  ;
  : Attributes
-   @ ( ME_53BEAD9D023D // ee_rtPNG
+   Seq: ( ME_53BEAD9D023D // ee_rtPNG
  ME_53BEADA600F9 // ee_rtBMP
  ME_53BEADB0032C // ee_rtRawBMP
- ) .SequenceCode.It
+ )
  ; // Attributes
+ CONST dfm:PathOnly '\common\components\rtl\Garant\RenderEVD'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\RenderEVD'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\common\components\rtl\Garant\RenderEVD'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_53BEAD8B03B2 TeeRenderTarget
 
@@ -737,13 +752,20 @@ ref; // ME_53BEAD8B03B2 TeeRenderTarget
  : Parent ME_4B72DF7B0164 // eeRenderFormula
  ;
  : Inherits
-   @ ( WL 'ME_47F0870E0034' '47F086170200.pas.ms.script' // TnevDocumentContainer
- ) .SequenceCode.It
+   Seq: ( WL 'ME_47F0870E0034' '47F086170200.pas.ms.script' // TnevDocumentContainer
+ )
  ; // Inherits
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
+ CONST dfm:PathOnly '\common\components\rtl\Garant\RenderEVD'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\RenderEVD'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\common\components\rtl\Garant\RenderEVD'
+ CONST extprop:rc:SelfName 'DocumentContainerHack'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_4EF06C6C014A TnevDocumentContainerHack
 
@@ -790,10 +812,10 @@ ref; // ME_4EF0A2D00229 aZoom
  : Target WL 'ME_476F70910097' '467C0CAA02AB.pas.ms.script' // Il3Bitmap
  ;
  : Parameters
-   @ ( ME_4EF0A2D0018B // aText
+   Seq: ( ME_4EF0A2D0018B // aText
  ME_4EF0A2D001D7 // aFormula
  ME_4EF0A2D00229 // aZoom
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_4EF0A2C8007C DoIt
@@ -843,14 +865,14 @@ ref; // ME_4EF0A8330394
  : Parent ME_4B72DF7B0164 // eeRenderFormula
  ;
  : Operations
-   @ ( ME_4EF0A2C8007C // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_4EF0A2C8007C // DoIt
+ )
  ; // Operations
  : Dependencies
-   @ ( ME_4EF0A82E004C // 
+   Seq: ( ME_4EF0A82E004C // 
  ME_4EF0A830034C // 
  ME_4EF0A8330394 // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
 
 ref; // ME_4EF0A285035D DoRender
@@ -918,12 +940,12 @@ ref; // ME_53BE8DF30005 aPicture
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
  : Parameters
-   @ ( ME_53BE8DF20355 // aBuf
+   Seq: ( ME_53BE8DF20355 // aBuf
  ME_53BE8DF2037F // aSize
  ME_53BE8DF203A5 // aNumber
  ME_53BE8DF203CA // aZoom
  ME_53BE8DF30005 // aPicture
- ) .SequenceCode.It
+ )
  ; // Parameters
  CONST "calling conventions" 'stdcall'
 
@@ -940,8 +962,8 @@ ref; // ME_53BE8DEB01F2 DoIt
  : Parent ME_4B72DF7B0164 // eeRenderFormula
  ;
  : Operations
-   @ ( ME_53BE8DEB01F2 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_53BE8DEB01F2 // DoIt
+ )
  ; // Operations
 
 ref; // ME_53BE8DDD026E RenderFormula
@@ -1019,13 +1041,13 @@ ref; // ME_53BEADCD01B8 aTarget
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
  : Parameters
-   @ ( ME_4B72DFD700C7 // aBuf
+   Seq: ( ME_4B72DFD700C7 // aBuf
  ME_4B72DFD700FE // aSize
  ME_4B72DFD70121 // aNumber
  ME_4CBD727500B5 // aZoom
  ME_4B72DFD70141 // aPicture
  ME_53BEADCD01B8 // aTarget
- ) .SequenceCode.It
+ )
  ; // Parameters
  CONST "calling conventions" 'stdcall'
 
@@ -1349,12 +1371,17 @@ ref; // ME_53BEC3A001FC
  CONST Abstraction at_final
  : Parent ME_4B72DF7B0164 // eeRenderFormula
  ;
+ : Implements
+   Seq: ( WL 'ME_4EF09E0D007E' '4EF09DE80211.pas.ms.script' // Рендеринг формул в PNG
+ WL 'ME_4EF09E25025C' '4EF09DE80211.pas.ms.script' // При рендеренге должен учитываться Zoom
+ )
+ ; // Implements
  : Operations
-   @ ( ME_4B72DF9E00A6 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_4B72DF9E00A6 // DoIt
+ )
  ; // Operations
  : Dependencies
-   @ ( ME_4CBD726100C8 // 
+   Seq: ( ME_4CBD726100C8 // 
  ME_4CBD728B014D // 
  ME_4CBD72A30027 // 
  ME_4CBD72BF011A // 
@@ -1382,7 +1409,7 @@ ref; // ME_53BEC3A001FC
  ME_537B5038026B // 
  ME_53BE9F690115 // 
  ME_53BEC3A001FC // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
 
 ref; // ME_4B72DF930061 RenderFormulaPrim
@@ -1430,31 +1457,36 @@ ref; // ME_4B8CE4BE0169
  : Parent ME_4B72B3FD02AE // Implementation
  ;
  : Operations
-   @ ( ME_4EF0A285035D // DoRender
+   Seq: ( ME_4EF0A285035D // DoRender
  ME_53BE8DDD026E // RenderFormula
  ME_4B72DF930061 // RenderFormulaPrim
- ) .SequenceCode.It
+ )
  ; // Operations
  : Children
-   @ ( ME_53BEAD8B03B2 // TeeRenderTarget
+   Seq: ( ME_53BEAD8B03B2 // TeeRenderTarget
  ME_4EF06C6C014A // TnevDocumentContainerHack
- ) .SequenceCode.It
+ )
  ; // Children
  : Dependencies
-   @ ( ME_4B72E10C003A // 
+   Seq: ( ME_4B72E10C003A // 
  ME_4B72E31300B2 // 
  ME_4B8CE4BE0169 // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  CONST "author" 'Люлин А.В.'
  CONST "no hands" true
  CONST "started" '27.11.2007 15:32'
  : Generators
- @ (
+ Seq: (
  gen_intf.pas
- ) .SequenceCode.It
+ )
  ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\RenderEVD'
  CONST intf.pas:Path 'common\components\rtl\Garant\RenderEVD\eeRenderFormula.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\RenderEVD'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\common\components\rtl\Garant\RenderEVD'
 
 ref; // ME_4B72DF7B0164 eeRenderFormula
 
@@ -1469,12 +1501,12 @@ ref; // ME_4B72DF7B0164 eeRenderFormula
  : Parent WL 'ME_474AD18D0096' '474AD18D0096.pas.ms.script' // RenderEVD
  ;
  : Children
-   @ ( ME_4B72B41502F5 // eeEVDtoRTF
+   Seq: ( ME_4B72B41502F5 // eeEVDtoRTF
  ME_4B72DF7B0164 // eeRenderFormula
- ) .SequenceCode.It
+ )
  ; // Children
  : Depends
-   @ ( WL 'ME_4677FBA70343' '4677FBA70343.pas.ms.script' // l3Interfaces
+   Seq: ( WL 'ME_4677FBA70343' '4677FBA70343.pas.ms.script' // l3Interfaces
  WL 'ME_4678137501EA' '4678137501EA.pas.ms.script' // k2Interfaces
  WL 'ME_4678193C009C' '4678193C009C.pas.ms.script' // l3Types
  WL 'ME_4678209200A6' '4678209200A6.pas.ms.script' // nevBase
@@ -1507,17 +1539,24 @@ ref; // ME_4B72DF7B0164 eeRenderFormula
  WL 'ME_4B324F930103' '4B324F930103.pas.ms.script' // Filters
  WL 'ME_4B72BEC80036' '4B72BEC80036.pas.ms.script' // Windows
  WL 'ME_4C1B915E0261' '4C1B915E0261.pas.ms.script' // Version Info
+ WL 'ME_4E5CF70B01E2' '4E5CF70B01E2.pas.ms.script' // Требования к редактору Эверест
+ WL 'ME_4EF09DE80211' '4EF09DE80211.pas.ms.script' // Поддержка формул
  WL 'ME_537B83AD01F0' '537B83AD01F0.pas.ms.script' // l3Math
  WL 'ME_55C4AEC801CA' '55C4AEC801CA.pas.ms.script' // Graphics
- ) .SequenceCode.It
+ )
  ; // Depends
  : Generators
- @ (
+ Seq: (
  gen_pas.script
  gen_pas.script.runner
- ) .SequenceCode.It
+ )
  ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\RenderEVD'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\RenderEVD'
  CONST pas.script:Path 'shared\models\NewSchool\Scripts\4B72B3FD02AE.pas.ms.script'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
  CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\4B72B3FD02AE.pas.ms.script.runner'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\common\components\rtl\Garant\RenderEVD'
 
 ref; // ME_4B72B3FD02AE Implementation

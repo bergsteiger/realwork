@@ -67,12 +67,17 @@ ref; // ME_533D02290299 cbsPushed
  : Parent ME_533D01CB01B1 // TChromeLikeBaseWindowCaptionButton
  ;
  : Attributes
-   @ ( ME_533D02110359 // cbsDisabled
+   Seq: ( ME_533D02110359 // cbsDisabled
  ME_533D021A0311 // cbsHot
  ME_533D022102B8 // cbsNormal
  ME_533D02290299 // cbsPushed
- ) .SequenceCode.It
+ )
  ; // Attributes
+ CONST dfm:PathOnly '\common\components\gui\Garant\ChromeLikeControls'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\ChromeLikeControls'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_533D01FF01FB TChromeLikeWindowCaptionButtonState
 
@@ -87,10 +92,15 @@ ref; // ME_533D01FF01FB TChromeLikeWindowCaptionButtonState
  : Parent ME_533D01CB01B1 // TChromeLikeBaseWindowCaptionButton
  ;
  : Inherits
-   @ ( ME_533D01CB01B1 // TChromeLikeBaseWindowCaptionButton
- ) .SequenceCode.It
+   Seq: ( ME_533D01CB01B1 // TChromeLikeBaseWindowCaptionButton
+ )
  ; // Inherits
  CONST "isClassRef" true
+ CONST dfm:PathOnly '\common\components\gui\Garant\ChromeLikeControls'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\ChromeLikeControls'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_533D023A005A RChromeLikeWindowCaptionbuttonClass
 
@@ -167,6 +177,7 @@ ref; // ME_533EA4A70020 OnClick
 : ME_F95F6B92E039
  CONST UID 'F95F6B92E039'
  CONST Name 'f_State'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY 'Поле для свойства State' ;
  CONST Visibility PrivateAccess
@@ -176,12 +187,14 @@ ref; // ME_533EA4A70020 OnClick
  ;
  : Target ME_533D01FF01FB // TChromeLikeWindowCaptionButtonState
  ;
+ CONST extprop:clearViaProperty 'State'
 
 ref; // ME_F95F6B92E039 f_State
 
 : ME_07A8749EAE24
  CONST UID '07A8749EAE24'
  CONST Name 'f_Active'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY 'Поле для свойства Active' ;
  CONST Visibility PrivateAccess
@@ -191,12 +204,14 @@ ref; // ME_F95F6B92E039 f_State
  ;
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
+ CONST extprop:clearViaProperty 'Active'
 
 ref; // ME_07A8749EAE24 f_Active
 
 : ME_1C8EE88C3C6E
  CONST UID '1C8EE88C3C6E'
  CONST Name 'f_ParentForm'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY 'Поле для свойства ParentForm' ;
  CONST Visibility PrivateAccess
@@ -212,6 +227,7 @@ ref; // ME_1C8EE88C3C6E f_ParentForm
 : ME_4B443E1B0D5A
  CONST UID '4B443E1B0D5A'
  CONST Name 'f_OnClick'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY 'Поле для свойства OnClick' ;
  CONST Visibility PrivateAccess
@@ -221,6 +237,7 @@ ref; // ME_1C8EE88C3C6E f_ParentForm
  ;
  : Target WL 'ME_47881B22005A' '4AB0997B00A2.pas.ms.script' // TNotifyEvent
  ;
+ CONST extprop:clearViaProperty 'OnClick'
 
 ref; // ME_4B443E1B0D5A f_OnClick
 
@@ -248,8 +265,8 @@ ref; // ME_54744FDA0046 DoIt
  : Parent ME_533D01CB01B1 // TChromeLikeBaseWindowCaptionButton
  ;
  : Operations
-   @ ( ME_54744FDA0046 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_54744FDA0046 // DoIt
+ )
  ; // Operations
 
 ref; // ME_54744FB502AB NotifyFormResized
@@ -280,8 +297,8 @@ ref; // ME_54744FF900EF DoIt
  : Parent ME_533D01CB01B1 // TChromeLikeBaseWindowCaptionButton
  ;
  : Operations
-   @ ( ME_54744FF900EF // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_54744FF900EF // DoIt
+ )
  ; // Operations
 
 ref; // ME_54744FED0113 NeedUpdateHint
@@ -312,8 +329,8 @@ ref; // ME_5474510601D2 DoIt
  : Parent ME_533D01CB01B1 // TChromeLikeBaseWindowCaptionButton
  ;
  : Operations
-   @ ( ME_5474510601D2 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_5474510601D2 // DoIt
+ )
  ; // Operations
 
 ref; // ME_5474500600DA GetHintText
@@ -338,8 +355,8 @@ ref; // ME_533D039F0373 aMessage
  : Parent ME_533D01CB01B1 // TChromeLikeBaseWindowCaptionButton
  ;
  : Parameters
-   @ ( ME_533D039F0373 // aMessage
- ) .SequenceCode.It
+   Seq: ( ME_533D039F0373 // aMessage
+ )
  ; // Parameters
  CONST "Message ID" 'CM_MOUSEENTER'
 
@@ -365,8 +382,8 @@ ref; // ME_533D03B900F3 aMessage
  : Parent ME_533D01CB01B1 // TChromeLikeBaseWindowCaptionButton
  ;
  : Parameters
-   @ ( ME_533D03B900F3 // aMessage
- ) .SequenceCode.It
+   Seq: ( ME_533D03B900F3 // aMessage
+ )
  ; // Parameters
  CONST "Message ID" 'CM_MOUSELEAVE'
 
@@ -392,8 +409,8 @@ ref; // ME_533D03D80303 aMessage
  : Parent ME_533D01CB01B1 // TChromeLikeBaseWindowCaptionButton
  ;
  : Parameters
-   @ ( ME_533D03D80303 // aMessage
- ) .SequenceCode.It
+   Seq: ( ME_533D03D80303 // aMessage
+ )
  ; // Parameters
  CONST "Message ID" 'WM_ERASEBKGND'
 
@@ -419,8 +436,8 @@ ref; // ME_533D04B403AC aMessage
  : Parent ME_533D01CB01B1 // TChromeLikeBaseWindowCaptionButton
  ;
  : Parameters
-   @ ( ME_533D04B403AC // aMessage
- ) .SequenceCode.It
+   Seq: ( ME_533D04B403AC // aMessage
+ )
  ; // Parameters
  CONST "Message ID" 'CM_ENABLEDCHANGED'
 
@@ -429,6 +446,7 @@ ref; // ME_533D04A00242 CMEnabledChanged
 : ME_B1C576835061
  CONST UID 'B1C576835061'
  CONST Name 'Ini_Reg_Class'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Регистрация TChromeLikeBaseWindowCaptionButton' ;
@@ -530,6 +548,7 @@ ref; // ME_547450AB01FC
 
 : ME_6D3CAAF74687
  CONST UID '6D3CAAF74687'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_533D01CB01B1 // TChromeLikeBaseWindowCaptionButton
@@ -546,6 +565,7 @@ ref; // ME_6D3CAAF74687
  ;
  : Implementor ME_533D01CB01B1 // TChromeLikeBaseWindowCaptionButton
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_47D1602000C6_ME_533D01CB01B1 Create
 
 : ME_4A97E78202FC_ME_533D01CB01B1
@@ -555,6 +575,7 @@ ref; // ME_47D1602000C6_ME_533D01CB01B1 Create
  ;
  : Implementor ME_533D01CB01B1 // TChromeLikeBaseWindowCaptionButton
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4A97E78202FC_ME_533D01CB01B1 SetParent
 
 : ME_4E7896270076_ME_533D01CB01B1
@@ -564,6 +585,7 @@ ref; // ME_4A97E78202FC_ME_533D01CB01B1 SetParent
  ;
  : Implementor ME_533D01CB01B1 // TChromeLikeBaseWindowCaptionButton
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4E7896270076_ME_533D01CB01B1 MouseUp
 
 : ME_4F88469E0021_ME_533D01CB01B1
@@ -573,6 +595,7 @@ ref; // ME_4E7896270076_ME_533D01CB01B1 MouseUp
  ;
  : Implementor ME_533D01CB01B1 // TChromeLikeBaseWindowCaptionButton
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4F88469E0021_ME_533D01CB01B1 Click
 
 : ME_4F88473B03CD_ME_533D01CB01B1
@@ -582,6 +605,7 @@ ref; // ME_4F88469E0021_ME_533D01CB01B1 Click
  ;
  : Implementor ME_533D01CB01B1 // TChromeLikeBaseWindowCaptionButton
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4F88473B03CD_ME_533D01CB01B1 MouseDown
 
 : ME_533D01CB01B1
@@ -595,11 +619,11 @@ ref; // ME_4F88473B03CD_ME_533D01CB01B1 MouseDown
  : Parent ME_533D01A201A9 // ChromeLikeWindowCaptionButtons
  ;
  : Inherits
-   @ ( WL 'ME_47E1388A03A7' '4799D29F033F.pas.ms.script' // TCustomControl
- ) .SequenceCode.It
+   Seq: ( WL 'ME_47E1388A03A7' '4799D29F033F.pas.ms.script' // TCustomControl
+ )
  ; // Inherits
  : Attributes
-   @ ( ME_533D0269002B // State
+   Seq: ( ME_533D0269002B // State
  ME_533D02A3034C // Active
  ME_533D035E03BC // ParentForm
  ME_533EA4A70020 // OnClick
@@ -607,10 +631,10 @@ ref; // ME_4F88473B03CD_ME_533D01CB01B1 MouseDown
  ME_07A8749EAE24 // f_Active
  ME_1C8EE88C3C6E // f_ParentForm
  ME_4B443E1B0D5A // f_OnClick
- ) .SequenceCode.It
+ )
  ; // Attributes
  : Operations
-   @ ( ME_54744FB502AB // NotifyFormResized
+   Seq: ( ME_54744FB502AB // NotifyFormResized
  ME_54744FED0113 // NeedUpdateHint
  ME_5474500600DA // GetHintText
  ME_533D037C00E9 // CMMouseEnter
@@ -618,23 +642,23 @@ ref; // ME_4F88473B03CD_ME_533D01CB01B1 MouseDown
  ME_533D03BE0299 // WMEraseBkgnd
  ME_533D04A00242 // CMEnabledChanged
  ME_B1C576835061 // Ini_Reg_Class
- ) .SequenceCode.It
+ )
  ; // Operations
  : Overridden
-   @ ( ME_47D1602000C6_ME_533D01CB01B1 // Create
+   Seq: ( ME_47D1602000C6_ME_533D01CB01B1 // Create
  ME_4A97E78202FC_ME_533D01CB01B1 // SetParent
  ME_4E7896270076_ME_533D01CB01B1 // MouseUp
  ME_4F88469E0021_ME_533D01CB01B1 // Click
  ME_4F88473B03CD_ME_533D01CB01B1 // MouseDown
- ) .SequenceCode.It
+ )
  ; // Overridden
  : Children
-   @ ( ME_533D01FF01FB // TChromeLikeWindowCaptionButtonState
+   Seq: ( ME_533D01FF01FB // TChromeLikeWindowCaptionButtonState
  ME_533D023A005A // RChromeLikeWindowCaptionbuttonClass
- ) .SequenceCode.It
+ )
  ; // Children
  : Dependencies
-   @ ( ME_533D053901F4 // 
+   Seq: ( ME_533D053901F4 // 
  ME_533D056F02EB // 
  ME_533D064301AD // 
  ME_533D064700EC // 
@@ -643,7 +667,7 @@ ref; // ME_4F88473B03CD_ME_533D01CB01B1 MouseDown
  ME_5474505C0023 // 
  ME_547450AB01FC // 
  ME_6D3CAAF74687 // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  CONST "base wnd class" 'CWnd'
  CONST "ifndef" 'NoVGScene, NoVCM'
@@ -651,12 +675,14 @@ ref; // ME_4F88473B03CD_ME_533D01CB01B1 MouseDown
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\ChromeLikeControls'
  CONST intf.pas:Path 'common\components\gui\Garant\ChromeLikeControls\ChromeLikeBaseWindowCaptionButton.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\ChromeLikeControls'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'ChromeLikeBaseWindowCaptionButton'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'ChromeLikeBaseWindowCaptionButton'
 
 ref; // ME_533D01CB01B1 TChromeLikeBaseWindowCaptionButton
 
@@ -690,8 +716,8 @@ ref; // ME_533D11E200B4 DoIt
  : Parent ME_533D0BCB00A2 // TChromeLikeLegacyWindowCaptionButton
  ;
  : Operations
-   @ ( ME_533D11E200B4 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_533D11E200B4 // DoIt
+ )
  ; // Operations
 
 ref; // ME_533D11CA0022 GetButtonStateFlag
@@ -699,6 +725,7 @@ ref; // ME_533D11CA0022 GetButtonStateFlag
 : ME_33DA3B241619
  CONST UID '33DA3B241619'
  CONST Name 'Ini_Reg_Class'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Регистрация TChromeLikeLegacyWindowCaptionButton' ;
@@ -756,6 +783,7 @@ ref; // ME_533D120803A4
 
 : ME_3B056DD05F1C
  CONST UID '3B056DD05F1C'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_533D0BCB00A2 // TChromeLikeLegacyWindowCaptionButton
@@ -776,26 +804,32 @@ ref; // ME_3B056DD05F1C
  : Parent ME_533D14960061 // ChromeLikeLegacyWindowCaptionButtons
  ;
  : Inherits
-   @ ( ME_533D01CB01B1 // TChromeLikeBaseWindowCaptionButton
- ) .SequenceCode.It
+   Seq: ( ME_533D01CB01B1 // TChromeLikeBaseWindowCaptionButton
+ )
  ; // Inherits
  : Operations
-   @ ( ME_533D11CA0022 // GetButtonStateFlag
+   Seq: ( ME_533D11CA0022 // GetButtonStateFlag
  ME_33DA3B241619 // Ini_Reg_Class
- ) .SequenceCode.It
+ )
  ; // Operations
  : Dependencies
-   @ ( ME_533D0CE4012C // 
+   Seq: ( ME_533D0CE4012C // 
  ME_533D0CEB0074 // 
  ME_533D0CF102CC // 
  ME_533D120803A4 // 
  ME_3B056DD05F1C // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
+ CONST dfm:PathOnly '\common\components\gui\Garant\ChromeLikeControls'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\ChromeLikeControls'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'ChromeLikeLegacyWindowCaptionButton'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_533D0BCB00A2 TChromeLikeLegacyWindowCaptionButton
 
@@ -804,6 +838,7 @@ FORWARD ME_533D0C2F000A
 : ME_F39A63296FDD
  CONST UID 'F39A63296FDD'
  CONST Name 'Ini_Reg_Class'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Регистрация TChromeLikeLegacyMinimizeCaptionButton' ;
@@ -817,6 +852,7 @@ ref; // ME_F39A63296FDD Ini_Reg_Class
 
 : ME_A926BD4C27AC
  CONST UID 'A926BD4C27AC'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_533D0C2F000A // TChromeLikeLegacyMinimizeCaptionButton
@@ -833,6 +869,7 @@ ref; // ME_A926BD4C27AC
  ;
  : Implementor ME_533D0C2F000A // TChromeLikeLegacyMinimizeCaptionButton
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_5028A60300AD_ME_533D0C2F000A Paint
 
 : ME_5474500600DA_ME_533D0C2F000A
@@ -842,6 +879,7 @@ ref; // ME_5028A60300AD_ME_533D0C2F000A Paint
  ;
  : Implementor ME_533D0C2F000A // TChromeLikeLegacyMinimizeCaptionButton
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_5474500600DA_ME_533D0C2F000A GetHintText
 
 : ME_533D0C2F000A
@@ -855,26 +893,32 @@ ref; // ME_5474500600DA_ME_533D0C2F000A GetHintText
  : Parent ME_533D14960061 // ChromeLikeLegacyWindowCaptionButtons
  ;
  : Inherits
-   @ ( ME_533D0BCB00A2 // TChromeLikeLegacyWindowCaptionButton
- ) .SequenceCode.It
+   Seq: ( ME_533D0BCB00A2 // TChromeLikeLegacyWindowCaptionButton
+ )
  ; // Inherits
  : Operations
-   @ ( ME_F39A63296FDD // Ini_Reg_Class
- ) .SequenceCode.It
+   Seq: ( ME_F39A63296FDD // Ini_Reg_Class
+ )
  ; // Operations
  : Overridden
-   @ ( ME_5028A60300AD_ME_533D0C2F000A // Paint
+   Seq: ( ME_5028A60300AD_ME_533D0C2F000A // Paint
  ME_5474500600DA_ME_533D0C2F000A // GetHintText
- ) .SequenceCode.It
+ )
  ; // Overridden
  : Dependencies
-   @ ( ME_A926BD4C27AC // 
- ) .SequenceCode.It
+   Seq: ( ME_A926BD4C27AC // 
+ )
  ; // Dependencies
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
+ CONST dfm:PathOnly '\common\components\gui\Garant\ChromeLikeControls'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\ChromeLikeControls'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'ChromeLikeLegacyMinimizeCaptionButton'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_533D0C2F000A TChromeLikeLegacyMinimizeCaptionButton
 
@@ -883,6 +927,7 @@ FORWARD ME_533D0C3A0179
 : ME_89B313861DAE
  CONST UID '89B313861DAE'
  CONST Name 'Ini_Reg_Class'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Регистрация TChromeLikeLegacyMaximizeCaptionButton' ;
@@ -896,6 +941,7 @@ ref; // ME_89B313861DAE Ini_Reg_Class
 
 : ME_74C5DFA7089B
  CONST UID '74C5DFA7089B'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_533D0C3A0179 // TChromeLikeLegacyMaximizeCaptionButton
@@ -912,6 +958,7 @@ ref; // ME_74C5DFA7089B
  ;
  : Implementor ME_533D0C3A0179 // TChromeLikeLegacyMaximizeCaptionButton
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_5028A60300AD_ME_533D0C3A0179 Paint
 
 : ME_54744FED0113_ME_533D0C3A0179
@@ -921,6 +968,7 @@ ref; // ME_5028A60300AD_ME_533D0C3A0179 Paint
  ;
  : Implementor ME_533D0C3A0179 // TChromeLikeLegacyMaximizeCaptionButton
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_54744FED0113_ME_533D0C3A0179 NeedUpdateHint
 
 : ME_5474500600DA_ME_533D0C3A0179
@@ -930,6 +978,7 @@ ref; // ME_54744FED0113_ME_533D0C3A0179 NeedUpdateHint
  ;
  : Implementor ME_533D0C3A0179 // TChromeLikeLegacyMaximizeCaptionButton
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_5474500600DA_ME_533D0C3A0179 GetHintText
 
 : ME_533D0C3A0179
@@ -943,27 +992,33 @@ ref; // ME_5474500600DA_ME_533D0C3A0179 GetHintText
  : Parent ME_533D14960061 // ChromeLikeLegacyWindowCaptionButtons
  ;
  : Inherits
-   @ ( ME_533D0BCB00A2 // TChromeLikeLegacyWindowCaptionButton
- ) .SequenceCode.It
+   Seq: ( ME_533D0BCB00A2 // TChromeLikeLegacyWindowCaptionButton
+ )
  ; // Inherits
  : Operations
-   @ ( ME_89B313861DAE // Ini_Reg_Class
- ) .SequenceCode.It
+   Seq: ( ME_89B313861DAE // Ini_Reg_Class
+ )
  ; // Operations
  : Overridden
-   @ ( ME_5028A60300AD_ME_533D0C3A0179 // Paint
+   Seq: ( ME_5028A60300AD_ME_533D0C3A0179 // Paint
  ME_54744FED0113_ME_533D0C3A0179 // NeedUpdateHint
  ME_5474500600DA_ME_533D0C3A0179 // GetHintText
- ) .SequenceCode.It
+ )
  ; // Overridden
  : Dependencies
-   @ ( ME_74C5DFA7089B // 
- ) .SequenceCode.It
+   Seq: ( ME_74C5DFA7089B // 
+ )
  ; // Dependencies
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
+ CONST dfm:PathOnly '\common\components\gui\Garant\ChromeLikeControls'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\ChromeLikeControls'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'ChromeLikeLegacyMaximizeCaptionButton'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_533D0C3A0179 TChromeLikeLegacyMaximizeCaptionButton
 
@@ -972,6 +1027,7 @@ FORWARD ME_533D0C20013A
 : ME_C6172A57E9EB
  CONST UID 'C6172A57E9EB'
  CONST Name 'Ini_Reg_Class'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Регистрация TChromeLikeLegacyCloseCaptionButton' ;
@@ -996,6 +1052,7 @@ ref; // ME_533D0CFD024C
 
 : ME_74175627AE26
  CONST UID '74175627AE26'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_533D0C20013A // TChromeLikeLegacyCloseCaptionButton
@@ -1012,6 +1069,7 @@ ref; // ME_74175627AE26
  ;
  : Implementor ME_533D0C20013A // TChromeLikeLegacyCloseCaptionButton
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_5028A60300AD_ME_533D0C20013A Paint
 
 : ME_5474500600DA_ME_533D0C20013A
@@ -1021,6 +1079,7 @@ ref; // ME_5028A60300AD_ME_533D0C20013A Paint
  ;
  : Implementor ME_533D0C20013A // TChromeLikeLegacyCloseCaptionButton
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_5474500600DA_ME_533D0C20013A GetHintText
 
 : ME_533D0C20013A
@@ -1034,27 +1093,33 @@ ref; // ME_5474500600DA_ME_533D0C20013A GetHintText
  : Parent ME_533D14960061 // ChromeLikeLegacyWindowCaptionButtons
  ;
  : Inherits
-   @ ( ME_533D0BCB00A2 // TChromeLikeLegacyWindowCaptionButton
- ) .SequenceCode.It
+   Seq: ( ME_533D0BCB00A2 // TChromeLikeLegacyWindowCaptionButton
+ )
  ; // Inherits
  : Operations
-   @ ( ME_C6172A57E9EB // Ini_Reg_Class
- ) .SequenceCode.It
+   Seq: ( ME_C6172A57E9EB // Ini_Reg_Class
+ )
  ; // Operations
  : Overridden
-   @ ( ME_5028A60300AD_ME_533D0C20013A // Paint
+   Seq: ( ME_5028A60300AD_ME_533D0C20013A // Paint
  ME_5474500600DA_ME_533D0C20013A // GetHintText
- ) .SequenceCode.It
+ )
  ; // Overridden
  : Dependencies
-   @ ( ME_533D0CFD024C // 
+   Seq: ( ME_533D0CFD024C // 
  ME_74175627AE26 // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
+ CONST dfm:PathOnly '\common\components\gui\Garant\ChromeLikeControls'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\ChromeLikeControls'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'ChromeLikeLegacyCloseCaptionButton'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_533D0C20013A TChromeLikeLegacyCloseCaptionButton
 
@@ -1115,27 +1180,26 @@ ref; // ME_547463CD039A
  : Parent ME_533D01A201A9 // ChromeLikeWindowCaptionButtons
  ;
  : Children
-   @ ( ME_533D0BCB00A2 // TChromeLikeLegacyWindowCaptionButton
+   Seq: ( ME_533D0BCB00A2 // TChromeLikeLegacyWindowCaptionButton
  ME_533D0C2F000A // TChromeLikeLegacyMinimizeCaptionButton
  ME_533D0C3A0179 // TChromeLikeLegacyMaximizeCaptionButton
  ME_533D0C20013A // TChromeLikeLegacyCloseCaptionButton
- ) .SequenceCode.It
+ )
  ; // Children
  : Dependencies
-   @ ( ME_547453A803E3 // 
+   Seq: ( ME_547453A803E3 // 
  ME_547453AC0100 // 
  ME_547453AF007E // 
  ME_547463CD039A // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  CONST "ifndef" 'NoVGScene, NoVCM'
  CONST "no hands" false
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\ChromeLikeControls'
  CONST intf.pas:Path 'common\components\gui\Garant\ChromeLikeControls\ChromeLikeLegacyWindowCaptionButtons.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\ChromeLikeControls'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_533D14960061 ChromeLikeLegacyWindowCaptionButtons
 
@@ -1183,10 +1247,14 @@ ref; // ME_533D08C20067 rStateID
  : Parent ME_533D07A201C1 // TChromeLikeBaseThemedWindowCaptionButton
  ;
  : Attributes
-   @ ( ME_533D08B5038B // rPartID
+   Seq: ( ME_533D08B5038B // rPartID
  ME_533D08C20067 // rStateID
- ) .SequenceCode.It
+ )
  ; // Attributes
+ CONST dfm:PathOnly '\common\components\gui\Garant\ChromeLikeControls'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\ChromeLikeControls'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_533D08920033 TChromeLikeThemedWindowCaptionButtonPaintParams
 
@@ -1210,6 +1278,7 @@ ref; // ME_533D09010204 Theme
 : ME_832B69F8EF46
  CONST UID '832B69F8EF46'
  CONST Name 'f_Theme'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY 'Поле для свойства Theme' ;
  CONST Visibility PrivateAccess
@@ -1248,8 +1317,8 @@ ref; // ME_533D092C00AB DoIt
  : Parent ME_533D07A201C1 // TChromeLikeBaseThemedWindowCaptionButton
  ;
  : Operations
-   @ ( ME_533D092C00AB // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_533D092C00AB // DoIt
+ )
  ; // Operations
 
 ref; // ME_533D091902B8 GetPaintParams
@@ -1274,8 +1343,8 @@ ref; // ME_533D087000D3 aMessage
  : Parent ME_533D07A201C1 // TChromeLikeBaseThemedWindowCaptionButton
  ;
  : Parameters
-   @ ( ME_533D087000D3 // aMessage
- ) .SequenceCode.It
+   Seq: ( ME_533D087000D3 // aMessage
+ )
  ; // Parameters
  CONST "Message ID" 'WM_THEMECHANGED'
 
@@ -1284,6 +1353,7 @@ ref; // ME_533D08600262 WMThemeChanged
 : ME_08ADDE047A8E
  CONST UID '08ADDE047A8E'
  CONST Name 'Ini_Reg_Class'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Регистрация TChromeLikeBaseThemedWindowCaptionButton' ;
@@ -1363,6 +1433,7 @@ ref; // ME_533D1DE8005C
 
 : ME_2F793396E594
  CONST UID '2F793396E594'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_533D07A201C1 // TChromeLikeBaseThemedWindowCaptionButton
@@ -1379,6 +1450,7 @@ ref; // ME_2F793396E594
  ;
  : Implementor ME_533D07A201C1 // TChromeLikeBaseThemedWindowCaptionButton
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_47D1602000C6_ME_533D07A201C1 Create
 
 : ME_4CC841540158_ME_533D07A201C1
@@ -1388,6 +1460,7 @@ ref; // ME_47D1602000C6_ME_533D07A201C1 Create
  ;
  : Implementor ME_533D07A201C1 // TChromeLikeBaseThemedWindowCaptionButton
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4CC841540158_ME_533D07A201C1 DestroyWnd
 
 : ME_5028A60300AD_ME_533D07A201C1
@@ -1397,6 +1470,7 @@ ref; // ME_4CC841540158_ME_533D07A201C1 DestroyWnd
  ;
  : Implementor ME_533D07A201C1 // TChromeLikeBaseThemedWindowCaptionButton
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_5028A60300AD_ME_533D07A201C1 Paint
 
 : ME_533D07A201C1
@@ -1410,39 +1484,39 @@ ref; // ME_5028A60300AD_ME_533D07A201C1 Paint
  : Parent ME_533D01A201A9 // ChromeLikeWindowCaptionButtons
  ;
  : Inherits
-   @ ( ME_533D01CB01B1 // TChromeLikeBaseWindowCaptionButton
- ) .SequenceCode.It
+   Seq: ( ME_533D01CB01B1 // TChromeLikeBaseWindowCaptionButton
+ )
  ; // Inherits
  : Attributes
-   @ ( ME_533D09010204 // Theme
+   Seq: ( ME_533D09010204 // Theme
  ME_832B69F8EF46 // f_Theme
- ) .SequenceCode.It
+ )
  ; // Attributes
  : Operations
-   @ ( ME_533D091902B8 // GetPaintParams
+   Seq: ( ME_533D091902B8 // GetPaintParams
  ME_533D08600262 // WMThemeChanged
  ME_08ADDE047A8E // Ini_Reg_Class
- ) .SequenceCode.It
+ )
  ; // Operations
  : Overridden
-   @ ( ME_47D1602000C6_ME_533D07A201C1 // Create
+   Seq: ( ME_47D1602000C6_ME_533D07A201C1 // Create
  ME_4CC841540158_ME_533D07A201C1 // DestroyWnd
  ME_5028A60300AD_ME_533D07A201C1 // Paint
- ) .SequenceCode.It
+ )
  ; // Overridden
  : Children
-   @ ( ME_533D08920033 // TChromeLikeThemedWindowCaptionButtonPaintParams
- ) .SequenceCode.It
+   Seq: ( ME_533D08920033 // TChromeLikeThemedWindowCaptionButtonPaintParams
+ )
  ; // Children
  : Dependencies
-   @ ( ME_533D0A6F02A4 // 
+   Seq: ( ME_533D0A6F02A4 // 
  ME_533D0A810334 // 
  ME_533D0AAA032C // 
  ME_533D0AB402F4 // 
  ME_533D0AD900C4 // 
  ME_533D1DE8005C // 
  ME_2F793396E594 // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  CONST "base wnd class" 'CWnd'
  CONST "ifndef" 'NoVGScene, NoVCM'
@@ -1450,12 +1524,14 @@ ref; // ME_5028A60300AD_ME_533D07A201C1 Paint
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\ChromeLikeControls'
  CONST intf.pas:Path 'common\components\gui\Garant\ChromeLikeControls\ChromeLikeBaseThemedWindowCaptionButton.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\ChromeLikeControls'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'ChromeLikeBaseThemedWindowCaptionButton'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'ChromeLikeBaseThemedWindowCaptionButton'
 
 ref; // ME_533D07A201C1 TChromeLikeBaseThemedWindowCaptionButton
 
@@ -1466,6 +1542,7 @@ FORWARD ME_533D0B3A02F3
 : ME_9F7B2E35B3B6
  CONST UID '9F7B2E35B3B6'
  CONST Name 'Ini_Reg_Class'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Регистрация TChromeLikeThemedCloseCaptionButton' ;
@@ -1479,6 +1556,7 @@ ref; // ME_9F7B2E35B3B6 Ini_Reg_Class
 
 : ME_69B0995EF187
  CONST UID '69B0995EF187'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_533D0B3A02F3 // TChromeLikeThemedCloseCaptionButton
@@ -1495,6 +1573,7 @@ ref; // ME_69B0995EF187
  ;
  : Implementor ME_533D0B3A02F3 // TChromeLikeThemedCloseCaptionButton
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_533D091902B8_ME_533D0B3A02F3 GetPaintParams
 
 : ME_5474500600DA_ME_533D0B3A02F3
@@ -1504,6 +1583,7 @@ ref; // ME_533D091902B8_ME_533D0B3A02F3 GetPaintParams
  ;
  : Implementor ME_533D0B3A02F3 // TChromeLikeThemedCloseCaptionButton
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_5474500600DA_ME_533D0B3A02F3 GetHintText
 
 : ME_533D0B3A02F3
@@ -1517,26 +1597,32 @@ ref; // ME_5474500600DA_ME_533D0B3A02F3 GetHintText
  : Parent ME_533D1518032F // ChromeLikeThemedWindowCaptionButtons
  ;
  : Inherits
-   @ ( ME_533D07A201C1 // TChromeLikeBaseThemedWindowCaptionButton
- ) .SequenceCode.It
+   Seq: ( ME_533D07A201C1 // TChromeLikeBaseThemedWindowCaptionButton
+ )
  ; // Inherits
  : Operations
-   @ ( ME_9F7B2E35B3B6 // Ini_Reg_Class
- ) .SequenceCode.It
+   Seq: ( ME_9F7B2E35B3B6 // Ini_Reg_Class
+ )
  ; // Operations
  : Overridden
-   @ ( ME_533D091902B8_ME_533D0B3A02F3 // GetPaintParams
+   Seq: ( ME_533D091902B8_ME_533D0B3A02F3 // GetPaintParams
  ME_5474500600DA_ME_533D0B3A02F3 // GetHintText
- ) .SequenceCode.It
+ )
  ; // Overridden
  : Dependencies
-   @ ( ME_69B0995EF187 // 
- ) .SequenceCode.It
+   Seq: ( ME_69B0995EF187 // 
+ )
  ; // Dependencies
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
+ CONST dfm:PathOnly '\common\components\gui\Garant\ChromeLikeControls'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\ChromeLikeControls'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'ChromeLikeThemedCloseCaptionButton'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_533D0B3A02F3 TChromeLikeThemedCloseCaptionButton
 
@@ -1545,6 +1631,7 @@ FORWARD ME_533D0B640155
 : ME_D3020DBB9F2D
  CONST UID 'D3020DBB9F2D'
  CONST Name 'Ini_Reg_Class'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Регистрация TChromeLikeThemedMaximizeCaptionButton' ;
@@ -1558,6 +1645,7 @@ ref; // ME_D3020DBB9F2D Ini_Reg_Class
 
 : ME_90B7A72489AF
  CONST UID '90B7A72489AF'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_533D0B640155 // TChromeLikeThemedMaximizeCaptionButton
@@ -1574,6 +1662,7 @@ ref; // ME_90B7A72489AF
  ;
  : Implementor ME_533D0B640155 // TChromeLikeThemedMaximizeCaptionButton
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_533D091902B8_ME_533D0B640155 GetPaintParams
 
 : ME_54744FED0113_ME_533D0B640155
@@ -1583,6 +1672,7 @@ ref; // ME_533D091902B8_ME_533D0B640155 GetPaintParams
  ;
  : Implementor ME_533D0B640155 // TChromeLikeThemedMaximizeCaptionButton
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_54744FED0113_ME_533D0B640155 NeedUpdateHint
 
 : ME_5474500600DA_ME_533D0B640155
@@ -1592,6 +1682,7 @@ ref; // ME_54744FED0113_ME_533D0B640155 NeedUpdateHint
  ;
  : Implementor ME_533D0B640155 // TChromeLikeThemedMaximizeCaptionButton
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_5474500600DA_ME_533D0B640155 GetHintText
 
 : ME_533D0B640155
@@ -1605,27 +1696,33 @@ ref; // ME_5474500600DA_ME_533D0B640155 GetHintText
  : Parent ME_533D1518032F // ChromeLikeThemedWindowCaptionButtons
  ;
  : Inherits
-   @ ( ME_533D07A201C1 // TChromeLikeBaseThemedWindowCaptionButton
- ) .SequenceCode.It
+   Seq: ( ME_533D07A201C1 // TChromeLikeBaseThemedWindowCaptionButton
+ )
  ; // Inherits
  : Operations
-   @ ( ME_D3020DBB9F2D // Ini_Reg_Class
- ) .SequenceCode.It
+   Seq: ( ME_D3020DBB9F2D // Ini_Reg_Class
+ )
  ; // Operations
  : Overridden
-   @ ( ME_533D091902B8_ME_533D0B640155 // GetPaintParams
+   Seq: ( ME_533D091902B8_ME_533D0B640155 // GetPaintParams
  ME_54744FED0113_ME_533D0B640155 // NeedUpdateHint
  ME_5474500600DA_ME_533D0B640155 // GetHintText
- ) .SequenceCode.It
+ )
  ; // Overridden
  : Dependencies
-   @ ( ME_90B7A72489AF // 
- ) .SequenceCode.It
+   Seq: ( ME_90B7A72489AF // 
+ )
  ; // Dependencies
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
+ CONST dfm:PathOnly '\common\components\gui\Garant\ChromeLikeControls'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\ChromeLikeControls'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'ChromeLikeThemedMaximizeCaptionButton'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_533D0B640155 TChromeLikeThemedMaximizeCaptionButton
 
@@ -1634,6 +1731,7 @@ FORWARD ME_533D0B4B022A
 : ME_31528C6C8DCC
  CONST UID '31528C6C8DCC'
  CONST Name 'Ini_Reg_Class'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Регистрация TChromeLikeThemedMinimizeCaptionButton' ;
@@ -1647,6 +1745,7 @@ ref; // ME_31528C6C8DCC Ini_Reg_Class
 
 : ME_EB845020BE39
  CONST UID 'EB845020BE39'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_533D0B4B022A // TChromeLikeThemedMinimizeCaptionButton
@@ -1663,6 +1762,7 @@ ref; // ME_EB845020BE39
  ;
  : Implementor ME_533D0B4B022A // TChromeLikeThemedMinimizeCaptionButton
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_533D091902B8_ME_533D0B4B022A GetPaintParams
 
 : ME_5474500600DA_ME_533D0B4B022A
@@ -1672,6 +1772,7 @@ ref; // ME_533D091902B8_ME_533D0B4B022A GetPaintParams
  ;
  : Implementor ME_533D0B4B022A // TChromeLikeThemedMinimizeCaptionButton
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_5474500600DA_ME_533D0B4B022A GetHintText
 
 : ME_533D0B4B022A
@@ -1685,26 +1786,32 @@ ref; // ME_5474500600DA_ME_533D0B4B022A GetHintText
  : Parent ME_533D1518032F // ChromeLikeThemedWindowCaptionButtons
  ;
  : Inherits
-   @ ( ME_533D07A201C1 // TChromeLikeBaseThemedWindowCaptionButton
- ) .SequenceCode.It
+   Seq: ( ME_533D07A201C1 // TChromeLikeBaseThemedWindowCaptionButton
+ )
  ; // Inherits
  : Operations
-   @ ( ME_31528C6C8DCC // Ini_Reg_Class
- ) .SequenceCode.It
+   Seq: ( ME_31528C6C8DCC // Ini_Reg_Class
+ )
  ; // Operations
  : Overridden
-   @ ( ME_533D091902B8_ME_533D0B4B022A // GetPaintParams
+   Seq: ( ME_533D091902B8_ME_533D0B4B022A // GetPaintParams
  ME_5474500600DA_ME_533D0B4B022A // GetHintText
- ) .SequenceCode.It
+ )
  ; // Overridden
  : Dependencies
-   @ ( ME_EB845020BE39 // 
- ) .SequenceCode.It
+   Seq: ( ME_EB845020BE39 // 
+ )
  ; // Dependencies
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
+ CONST dfm:PathOnly '\common\components\gui\Garant\ChromeLikeControls'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\ChromeLikeControls'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'ChromeLikeThemedMinimizeCaptionButton'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_533D0B4B022A TChromeLikeThemedMinimizeCaptionButton
 
@@ -1763,26 +1870,25 @@ ref; // ME_54745227012C
  : Parent ME_533D01A201A9 // ChromeLikeWindowCaptionButtons
  ;
  : Children
-   @ ( ME_533D0B3A02F3 // TChromeLikeThemedCloseCaptionButton
+   Seq: ( ME_533D0B3A02F3 // TChromeLikeThemedCloseCaptionButton
  ME_533D0B640155 // TChromeLikeThemedMaximizeCaptionButton
  ME_533D0B4B022A // TChromeLikeThemedMinimizeCaptionButton
- ) .SequenceCode.It
+ )
  ; // Children
  : Dependencies
-   @ ( ME_533D202C017C // 
+   Seq: ( ME_533D202C017C // 
  ME_533EA91C02A0 // 
  ME_53424FB2005E // 
  ME_54745227012C // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  CONST "ifndef" 'NoVGScene, NoVCM'
  CONST "no hands" false
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\ChromeLikeControls'
  CONST intf.pas:Path 'common\components\gui\Garant\ChromeLikeControls\ChromeLikeThemedWindowCaptionButtons.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\ChromeLikeControls'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_533D1518032F ChromeLikeThemedWindowCaptionButtons
 
@@ -1809,8 +1915,8 @@ ref; // ME_53C4BFF7030A aHWnd
  : Parent ME_53C4BE5F0029 // UpdateWindowFrame
  ;
  : Parameters
-   @ ( ME_53C4BFF7030A // aHWnd
- ) .SequenceCode.It
+   Seq: ( ME_53C4BFF7030A // aHWnd
+ )
  ; // Parameters
 
 ref; // ME_53C4BFE30197 DoIt
@@ -1827,8 +1933,8 @@ ref; // ME_53C4BFE30197 DoIt
  : Parent ME_533D33DC0092 // ChromeLikeWinUtils
  ;
  : Operations
-   @ ( ME_53C4BFE30197 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_53C4BFE30197 // DoIt
+ )
  ; // Operations
 
 ref; // ME_53C4BE5F0029 UpdateWindowFrame
@@ -1908,13 +2014,13 @@ ref; // ME_53C4CEB802DD aDirection
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
  : Parameters
-   @ ( ME_53C4CEB801ED // aDC
+   Seq: ( ME_53C4CEB801ED // aDC
  ME_53C4CEB80214 // aRect
  ME_53C4CEB8023C // aColorCount
  ME_53C4CEB80264 // aStartColor
  ME_53C4CEB80297 // aEndColor
  ME_53C4CEB802DD // aDirection
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_53C4BFFA0361 DoIt
@@ -1930,8 +2036,8 @@ ref; // ME_53C4BFFA0361 DoIt
  : Parent ME_533D33DC0092 // ChromeLikeWinUtils
  ;
  : Operations
-   @ ( ME_53C4BFFA0361 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_53C4BFFA0361 // DoIt
+ )
  ; // Operations
 
 ref; // ME_53C4BE7000A3 FillGradient
@@ -1962,8 +2068,8 @@ ref; // ME_53C4C03401F9 DoIt
  : Parent ME_533D33DC0092 // ChromeLikeWinUtils
  ;
  : Operations
-   @ ( ME_53C4C03401F9 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_53C4C03401F9 // DoIt
+ )
  ; // Operations
 
 ref; // ME_53C4BE7C00E6 IsWindowsVistaOrLater
@@ -1994,8 +2100,8 @@ ref; // ME_53C4C03D0383 DoIt
  : Parent ME_533D33DC0092 // ChromeLikeWinUtils
  ;
  : Operations
-   @ ( ME_53C4C03D0383 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_53C4C03D0383 // DoIt
+ )
  ; // Operations
 
 ref; // ME_53C4BE8E00A8 IsWindowsXP
@@ -2025,8 +2131,8 @@ FORWARD ME_53C4BBCA026C
  : Target ME_53C4BBCA026C // TVistaWindowCaptionMetrics
  ;
  : Parameters
-   @ ( ME_53C4C059033D // aParentHWnd
- ) .SequenceCode.It
+   Seq: ( ME_53C4C059033D // aParentHWnd
+ )
  ; // Parameters
 
 ref; // ME_53C4C04C0300 DoIt
@@ -2043,8 +2149,8 @@ ref; // ME_53C4C04C0300 DoIt
  : Parent ME_533D33DC0092 // ChromeLikeWinUtils
  ;
  : Operations
-   @ ( ME_53C4C04C0300 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_53C4C04C0300 // DoIt
+ )
  ; // Operations
 
 ref; // ME_53C4BE9B03E2 GetVistaWindowCaptionMetrics
@@ -2074,8 +2180,8 @@ FORWARD ME_53C4BC31003C
  : Target ME_53C4BC31003C // TWindowZOrderInfo
  ;
  : Parameters
-   @ ( ME_53C4C06E0234 // aHWnd
- ) .SequenceCode.It
+   Seq: ( ME_53C4C06E0234 // aHWnd
+ )
  ; // Parameters
 
 ref; // ME_53C4C0620356 DoIt
@@ -2092,8 +2198,8 @@ ref; // ME_53C4C0620356 DoIt
  : Parent ME_533D33DC0092 // ChromeLikeWinUtils
  ;
  : Operations
-   @ ( ME_53C4C0620356 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_53C4C0620356 // DoIt
+ )
  ; // Operations
 
 ref; // ME_53C4BEB2027A GetWindowZOrderInfo
@@ -2129,9 +2235,9 @@ ref; // ME_53C4C08E0212 aZOrderInfo
  : Parent ME_53C4BEBD012C // SetWindowZOrderInfo
  ;
  : Parameters
-   @ ( ME_53C4C08E01EA // aHWnd
+   Seq: ( ME_53C4C08E01EA // aHWnd
  ME_53C4C08E0212 // aZOrderInfo
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_53C4C076027D DoIt
@@ -2148,8 +2254,8 @@ ref; // ME_53C4C076027D DoIt
  : Parent ME_533D33DC0092 // ChromeLikeWinUtils
  ;
  : Operations
-   @ ( ME_53C4C076027D // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_53C4C076027D // DoIt
+ )
  ; // Operations
 
 ref; // ME_53C4BEBD012C SetWindowZOrderInfo
@@ -2222,31 +2328,30 @@ ref; // ME_53C4BFD903C3
  : Parent ME_533D01A201A9 // ChromeLikeWindowCaptionButtons
  ;
  : Operations
-   @ ( ME_53C4BE5F0029 // UpdateWindowFrame
+   Seq: ( ME_53C4BE5F0029 // UpdateWindowFrame
  ME_53C4BE7000A3 // FillGradient
  ME_53C4BE7C00E6 // IsWindowsVistaOrLater
  ME_53C4BE8E00A8 // IsWindowsXP
  ME_53C4BE9B03E2 // GetVistaWindowCaptionMetrics
  ME_53C4BEB2027A // GetWindowZOrderInfo
  ME_53C4BEBD012C // SetWindowZOrderInfo
- ) .SequenceCode.It
+ )
  ; // Operations
  : Dependencies
-   @ ( ME_53C4BE370303 // 
+   Seq: ( ME_53C4BE370303 // 
  ME_53C4BFCF0072 // 
  ME_53C4BFD200CA // 
  ME_53C4BFD5035A // 
  ME_53C4BFD903C3 // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  CONST "ifndef" 'NoVGScene, NoVCM'
  CONST "no hands" false
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\ChromeLikeControls'
  CONST intf.pas:Path 'common\components\gui\Garant\ChromeLikeControls\ChromeLikeWinUtils.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\ChromeLikeControls'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_533D33DC0092 ChromeLikeWinUtils
 
@@ -2301,11 +2406,16 @@ ref; // ME_533D366C03CA cbkClose
  : Parent ME_533D343C02FF // TChromeLikeFormCaptionData
  ;
  : Attributes
-   @ ( ME_533D365103BF // cbkMinimize
+   Seq: ( ME_533D365103BF // cbkMinimize
  ME_533D366300DA // cbkMaximizeRestore
  ME_533D366C03CA // cbkClose
- ) .SequenceCode.It
+ )
  ; // Attributes
+ CONST dfm:PathOnly '\common\components\gui\Garant\ChromeLikeControls'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\ChromeLikeControls'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_533D363201D2 TChromeLikeFormCaptionButtonKind
 
@@ -2324,6 +2434,7 @@ FORWARD ME_533D36FB02E3
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value 2
 
 ref; // ME_533D370E0047 cWindowCaptionButtonPadding
 
@@ -2338,10 +2449,14 @@ ref; // ME_533D370E0047 cWindowCaptionButtonPadding
  : Parent ME_533D343C02FF // TChromeLikeFormCaptionData
  ;
  : Attributes
-   @ ( ME_533D370E0047 // cWindowCaptionButtonPadding
- ) .SequenceCode.It
+   Seq: ( ME_533D370E0047 // cWindowCaptionButtonPadding
+ )
  ; // Attributes
  CONST "spell names" false
+ CONST dfm:PathOnly '\common\components\gui\Garant\ChromeLikeControls'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\ChromeLikeControls'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_533D36FB02E3 WindowCaptionConsts
 
@@ -2438,9 +2553,9 @@ ref; // ME_533D358603AA aButtonRect
  : Target WL 'ME_4728A7190065' '4728A7020026.pas.ms.script' // TRect
  ;
  : Parameters
-   @ ( ME_533D35860395 // aWndRect
+   Seq: ( ME_533D35860395 // aWndRect
  ME_533D358603AA // aButtonRect
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_533D356E016C DoIt
@@ -2456,8 +2571,8 @@ ref; // ME_533D356E016C DoIt
  : Parent ME_533D343C02FF // TChromeLikeFormCaptionData
  ;
  : Operations
-   @ ( ME_533D356E016C // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_533D356E016C // DoIt
+ )
  ; // Operations
 
 ref; // ME_533D3553015B MakeRelativeRect
@@ -2486,8 +2601,8 @@ ref; // ME_533D35AD03E5 DoIt
  : Parent ME_533D343C02FF // TChromeLikeFormCaptionData
  ;
  : Operations
-   @ ( ME_533D35AD03E5 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_533D35AD03E5 // DoIt
+ )
  ; // Operations
 
 ref; // ME_533D358C033A InitTitleBarInfo
@@ -2513,8 +2628,8 @@ ref; // ME_533D35EC0374 aHwnd
  : Parent ME_533D35BB0292 // UpdateTitleBarInfo
  ;
  : Parameters
-   @ ( ME_533D35EC0374 // aHwnd
- ) .SequenceCode.It
+   Seq: ( ME_533D35EC0374 // aHwnd
+ )
  ; // Parameters
 
 ref; // ME_533D35CE0292 DoIt
@@ -2530,8 +2645,8 @@ ref; // ME_533D35CE0292 DoIt
  : Parent ME_533D343C02FF // TChromeLikeFormCaptionData
  ;
  : Operations
-   @ ( ME_533D35CE0292 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_533D35CE0292 // DoIt
+ )
  ; // Operations
 
 ref; // ME_533D35BB0292 UpdateTitleBarInfo
@@ -2569,9 +2684,9 @@ ref; // ME_533D36E9005A aButtonKind
  : Target WL 'ME_4728A7190065' '4728A7020026.pas.ms.script' // TRect
  ;
  : Parameters
-   @ ( ME_533D36E90044 // aRight
+   Seq: ( ME_533D36E90044 // aRight
  ME_533D36E9005A // aButtonKind
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_533D36C20019 DoIt
@@ -2587,8 +2702,8 @@ ref; // ME_533D36C20019 DoIt
  : Parent ME_533D343C02FF // TChromeLikeFormCaptionData
  ;
  : Operations
-   @ ( ME_533D36C20019 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_533D36C20019 // DoIt
+ )
  ; // Operations
 
 ref; // ME_533D3681003B MakeButtonRect
@@ -2644,6 +2759,7 @@ ref; // ME_53C4C8F2020B
  ;
  : Implementor ME_533D343C02FF // TChromeLikeFormCaptionData
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_47A042E100E2_ME_533D343C02FF InitFields
 
 : ME_533D343C02FF
@@ -2657,53 +2773,55 @@ ref; // ME_47A042E100E2_ME_533D343C02FF InitFields
  : Parent ME_533D01A201A9 // ChromeLikeWindowCaptionButtons
  ;
  : Inherits
-   @ ( WL 'ME_49E7754802A9' '47913B47006E.pas.ms.script' // Tl3ProtoObject
- ) .SequenceCode.It
+   Seq: ( WL 'ME_49E7754802A9' '47913B47006E.pas.ms.script' // Tl3ProtoObject
+ )
  ; // Inherits
  : Attributes
-   @ ( ME_533D34A40155 // f_CloseButtonRect
+   Seq: ( ME_533D34A40155 // f_CloseButtonRect
  ME_533D34BA0135 // f_MaximizeButtonRect
  ME_533D34C503D5 // f_MinimizeButtonRect
  ME_533D34EB02DD // f_WasPopulatedThemed
- ) .SequenceCode.It
+ )
  ; // Attributes
  : Operations
-   @ ( ME_533D3553015B // MakeRelativeRect
+   Seq: ( ME_533D3553015B // MakeRelativeRect
  ME_533D358C033A // InitTitleBarInfo
  ME_533D35BB0292 // UpdateTitleBarInfo
  ME_533D3681003B // MakeButtonRect
- ) .SequenceCode.It
+ )
  ; // Operations
  : Overridden
-   @ ( ME_47A042E100E2_ME_533D343C02FF // InitFields
- ) .SequenceCode.It
+   Seq: ( ME_47A042E100E2_ME_533D343C02FF // InitFields
+ )
  ; // Overridden
  : Children
-   @ ( ME_533D363201D2 // TChromeLikeFormCaptionButtonKind
- ) .SequenceCode.It
+   Seq: ( ME_533D363201D2 // TChromeLikeFormCaptionButtonKind
+ )
  ; // Children
  : Constants
-   @ ( ME_533D36FB02E3 // WindowCaptionConsts
- ) .SequenceCode.It
+   Seq: ( ME_533D36FB02E3 // WindowCaptionConsts
+ )
  ; // Constants
  : Dependencies
-   @ ( ME_533D37F5016C // 
+   Seq: ( ME_533D37F5016C // 
  ME_533D37FD0165 // 
  ME_533D3801012C // 
  ME_53C4C8F2020B // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  CONST "ifndef" 'NoVGScene, NoVCM'
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\ChromeLikeControls'
  CONST intf.pas:Path 'common\components\gui\Garant\ChromeLikeControls\ChromeLikeFormCaptionData.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\ChromeLikeControls'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'ChromeLikeFormCaptionData'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'ChromeLikeFormCaptionData'
 
 ref; // ME_533D343C02FF TChromeLikeFormCaptionData
 
@@ -2717,6 +2835,10 @@ ref; // ME_533D343C02FF TChromeLikeFormCaptionData
  CONST Abstraction at_regular
  : Parent ME_53C4BB200287 // ChromeLikeTypes
  ;
+ CONST dfm:PathOnly '\common\components\gui\Garant\ChromeLikeControls'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\ChromeLikeControls'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_53C4BB4A00D5 tagTitleBarInfoEx
 
@@ -2731,9 +2853,13 @@ ref; // ME_53C4BB4A00D5 tagTitleBarInfoEx
  : Parent ME_53C4BB200287 // ChromeLikeTypes
  ;
  : Inherits
-   @ ( ME_53C4BB4A00D5 // tagTitleBarInfoEx
- ) .SequenceCode.It
+   Seq: ( ME_53C4BB4A00D5 // tagTitleBarInfoEx
+ )
  ; // Inherits
+ CONST dfm:PathOnly '\common\components\gui\Garant\ChromeLikeControls'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\ChromeLikeControls'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_53C4BB760184 TITLEBARINFOEX
 
@@ -2748,9 +2874,13 @@ ref; // ME_53C4BB760184 TITLEBARINFOEX
  : Parent ME_53C4BB200287 // ChromeLikeTypes
  ;
  : Inherits
-   @ ( ME_53C4BB760184 // TITLEBARINFOEX
- ) .SequenceCode.It
+   Seq: ( ME_53C4BB760184 // TITLEBARINFOEX
+ )
  ; // Inherits
+ CONST dfm:PathOnly '\common\components\gui\Garant\ChromeLikeControls'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\ChromeLikeControls'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_53C4BB8E0144 TTitleBarInfoEx
 
@@ -2765,10 +2895,14 @@ ref; // ME_53C4BB8E0144 TTitleBarInfoEx
  : Parent ME_53C4BB200287 // ChromeLikeTypes
  ;
  : Inherits
-   @ ( ME_53C4BB8E0144 // TTitleBarInfoEx
- ) .SequenceCode.It
+   Seq: ( ME_53C4BB8E0144 // TTitleBarInfoEx
+ )
  ; // Inherits
  CONST "isPointer" true
+ CONST dfm:PathOnly '\common\components\gui\Garant\ChromeLikeControls'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\ChromeLikeControls'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_53C4BBA701EA PTitleBarInfoEx
 
@@ -2811,10 +2945,14 @@ ref; // ME_53C4BBEC026A rWindowRect
  : Parent ME_53C4BB200287 // ChromeLikeTypes
  ;
  : Attributes
-   @ ( ME_53C4BBDB00E5 // rTitleBarInfo
+   Seq: ( ME_53C4BBDB00E5 // rTitleBarInfo
  ME_53C4BBEC026A // rWindowRect
- ) .SequenceCode.It
+ )
  ; // Attributes
+ CONST dfm:PathOnly '\common\components\gui\Garant\ChromeLikeControls'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\ChromeLikeControls'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_53C4BBCA026C TVistaWindowCaptionMetrics
 
@@ -2853,10 +2991,15 @@ ref; // ME_53C4BC2103E7 gdHorizontal
  : Parent ME_53C4BB200287 // ChromeLikeTypes
  ;
  : Attributes
-   @ ( ME_53C4BC1A035B // gdVertical
+   Seq: ( ME_53C4BC1A035B // gdVertical
  ME_53C4BC2103E7 // gdHorizontal
- ) .SequenceCode.It
+ )
  ; // Attributes
+ CONST dfm:PathOnly '\common\components\gui\Garant\ChromeLikeControls'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\ChromeLikeControls'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_53C4BC0F0094 TGradientDirection
 
@@ -2899,10 +3042,14 @@ ref; // ME_53C4BC4E0285 rHWndForeground
  : Parent ME_53C4BB200287 // ChromeLikeTypes
  ;
  : Attributes
-   @ ( ME_53C4BC3F0288 // rHWndBackground
+   Seq: ( ME_53C4BC3F0288 // rHWndBackground
  ME_53C4BC4E0285 // rHWndForeground
- ) .SequenceCode.It
+ )
  ; // Attributes
+ CONST dfm:PathOnly '\common\components\gui\Garant\ChromeLikeControls'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\ChromeLikeControls'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_53C4BC31003C TWindowZOrderInfo
 
@@ -2921,6 +3068,7 @@ FORWARD ME_53C4BC65034D
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value '$033F'
 
 ref; // ME_53C4BC7800B1 WM_GETTITLEBARINFOEX
 
@@ -2937,6 +3085,7 @@ ref; // ME_53C4BC7800B1 WM_GETTITLEBARINFOEX
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value '$031E'
 
 ref; // ME_53C4BC8603D4 WM_DWMCOMPOSITIONCHANGED
 
@@ -2953,6 +3102,7 @@ ref; // ME_53C4BC8603D4 WM_DWMCOMPOSITIONCHANGED
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value 5
 
 ref; // ME_53C4BCAB01B4 BS_INACTIVE
 
@@ -2969,6 +3119,7 @@ ref; // ME_53C4BCAB01B4 BS_INACTIVE
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value '$8000'
 
 ref; // ME_53C4BCB6003B SWP_STATECHANGED
 
@@ -2983,13 +3134,17 @@ ref; // ME_53C4BCB6003B SWP_STATECHANGED
  : Parent ME_53C4BB200287 // ChromeLikeTypes
  ;
  : Attributes
-   @ ( ME_53C4BC7800B1 // WM_GETTITLEBARINFOEX
+   Seq: ( ME_53C4BC7800B1 // WM_GETTITLEBARINFOEX
  ME_53C4BC8603D4 // WM_DWMCOMPOSITIONCHANGED
  ME_53C4BCAB01B4 // BS_INACTIVE
  ME_53C4BCB6003B // SWP_STATECHANGED
- ) .SequenceCode.It
+ )
  ; // Attributes
  CONST "spell names" false
+ CONST dfm:PathOnly '\common\components\gui\Garant\ChromeLikeControls'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\ChromeLikeControls'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_53C4BC65034D ChromeLikeTypesConsts
 
@@ -3037,34 +3192,33 @@ ref; // ME_53C4BD3703B2
  : Parent ME_533D01A201A9 // ChromeLikeWindowCaptionButtons
  ;
  : Children
-   @ ( ME_53C4BB4A00D5 // tagTitleBarInfoEx
+   Seq: ( ME_53C4BB4A00D5 // tagTitleBarInfoEx
  ME_53C4BB760184 // TITLEBARINFOEX
  ME_53C4BB8E0144 // TTitleBarInfoEx
  ME_53C4BBA701EA // PTitleBarInfoEx
  ME_53C4BBCA026C // TVistaWindowCaptionMetrics
  ME_53C4BC0F0094 // TGradientDirection
  ME_53C4BC31003C // TWindowZOrderInfo
- ) .SequenceCode.It
+ )
  ; // Children
  : Constants
-   @ ( ME_53C4BC65034D // ChromeLikeTypesConsts
- ) .SequenceCode.It
+   Seq: ( ME_53C4BC65034D // ChromeLikeTypesConsts
+ )
  ; // Constants
  : Dependencies
-   @ ( ME_53C4BD2F0152 // 
+   Seq: ( ME_53C4BD2F0152 // 
  ME_53C4BD3302DB // 
  ME_53C4BD3703B2 // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  CONST "finished" false
  CONST "ifndef" 'NoVGScene, NoVCM'
  CONST "no hands" false
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\ChromeLikeControls'
  CONST intf.pas:Path 'common\components\gui\Garant\ChromeLikeControls\NOT_FINISHED_ChromeLikeTypes.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\ChromeLikeControls'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_53C4BB200287 ChromeLikeTypes
 
@@ -3145,15 +3299,19 @@ ref; // ME_545B53CE00AC Maximize
  : Parent ME_545B531C026F // ChromeLikeWindowCaptionButtonsRes
  ;
  : Attributes
-   @ ( ME_545B538C015A // Close
+   Seq: ( ME_545B538C015A // Close
  ME_545B53980065 // Minimize
  ME_545B53BE02C8 // Restore
  ME_545B53CE00AC // Maximize
- ) .SequenceCode.It
+ )
  ; // Attributes
  CONST "Need map interface" false
  CONST "Need mapping support" false
  CONST "spell names" false
+ CONST dfm:PathOnly '\common\components\gui\Garant\ChromeLikeControls'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\ChromeLikeControls'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_545B532F004D WindowCaptionButtonsHints
 
@@ -3162,6 +3320,7 @@ FORWARD ME_79F40AD895C2
 : ME_A1B3A3D999CC
  CONST UID 'A1B3A3D999CC'
  CONST Name 'Close'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY '''Закрыть''' ;
  CONST Visibility PublicAccess
@@ -3177,12 +3336,14 @@ FORWARD ME_79F40AD895C2
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''Close''; rValue : ''Закрыть'')'
 
 ref; // ME_A1B3A3D999CC Close
 
 : ME_8F8A11F935F4
  CONST UID '8F8A11F935F4'
  CONST Name 'Minimize'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY '''Свернуть''' ;
  CONST Visibility PublicAccess
@@ -3198,12 +3359,14 @@ ref; // ME_A1B3A3D999CC Close
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''Minimize''; rValue : ''Свернуть'')'
 
 ref; // ME_8F8A11F935F4 Minimize
 
 : ME_A4F08C321654
  CONST UID 'A4F08C321654'
  CONST Name 'Restore'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY '''Свернуть в окно''' ;
  CONST Visibility PublicAccess
@@ -3219,12 +3382,14 @@ ref; // ME_8F8A11F935F4 Minimize
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''Restore''; rValue : ''Свернуть в окно'')'
 
 ref; // ME_A4F08C321654 Restore
 
 : ME_5DE753C62B4A
  CONST UID '5DE753C62B4A'
  CONST Name 'Maximize'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY '''Развернуть''' ;
  CONST Visibility PublicAccess
@@ -3240,12 +3405,14 @@ ref; // ME_A4F08C321654 Restore
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''Maximize''; rValue : ''Развернуть'')'
 
 ref; // ME_5DE753C62B4A Maximize
 
 : ME_79F40AD895C2
  CONST UID '79F40AD895C2'
  CONST Name 'LCImplWindowCaptionButtonsHints'
+ CONST IsSummoned true
  CONST Class class_Class
  : Stereotype st_Constants ;
  CONST Kind kind_NormalClass
@@ -3255,14 +3422,18 @@ ref; // ME_5DE753C62B4A Maximize
  : Parent ME_545B531C026F // ChromeLikeWindowCaptionButtonsRes
  ;
  : Attributes
-   @ ( ME_A1B3A3D999CC // Close
+   Seq: ( ME_A1B3A3D999CC // Close
  ME_8F8A11F935F4 // Minimize
  ME_A4F08C321654 // Restore
  ME_5DE753C62B4A // Maximize
- ) .SequenceCode.It
+ )
  ; // Attributes
  CONST "elements prefix" 'str'
  CONST "spell names" false
+ CONST dfm:PathOnly '\common\components\gui\Garant\ChromeLikeControls'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\ChromeLikeControls'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
  CONST extprop:pas:ElementPrefixBase 'str'
  CONST extprop:pas:ElementPrefix 'str_'
 
@@ -3270,7 +3441,8 @@ ref; // ME_79F40AD895C2 LCImplWindowCaptionButtonsHints
 
 : ME_CC486CCA4777
  CONST UID 'CC486CCA4777'
- CONST Name 'Init_Close'
+ CONST Name 'Init_Str_Close'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Инициализация str_Close' ;
@@ -3278,12 +3450,17 @@ ref; // ME_79F40AD895C2 LCImplWindowCaptionButtonsHints
  CONST Abstraction at_final
  : Parent ME_545B531C026F // ChromeLikeWindowCaptionButtonsRes
  ;
+ : Speller ME_545B538C015A // Close
+ ;
+ : SpelledFor ME_A1B3A3D999CC // Close
+ ;
 
-ref; // ME_CC486CCA4777 Init_Close
+ref; // ME_CC486CCA4777 Init_Str_Close
 
 : ME_729FA40C2417
  CONST UID '729FA40C2417'
- CONST Name 'Init_Minimize'
+ CONST Name 'Init_Str_Minimize'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Инициализация str_Minimize' ;
@@ -3291,12 +3468,17 @@ ref; // ME_CC486CCA4777 Init_Close
  CONST Abstraction at_final
  : Parent ME_545B531C026F // ChromeLikeWindowCaptionButtonsRes
  ;
+ : Speller ME_545B53980065 // Minimize
+ ;
+ : SpelledFor ME_8F8A11F935F4 // Minimize
+ ;
 
-ref; // ME_729FA40C2417 Init_Minimize
+ref; // ME_729FA40C2417 Init_Str_Minimize
 
 : ME_A33FB1576ED0
  CONST UID 'A33FB1576ED0'
- CONST Name 'Init_Restore'
+ CONST Name 'Init_Str_Restore'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Инициализация str_Restore' ;
@@ -3304,12 +3486,17 @@ ref; // ME_729FA40C2417 Init_Minimize
  CONST Abstraction at_final
  : Parent ME_545B531C026F // ChromeLikeWindowCaptionButtonsRes
  ;
+ : Speller ME_545B53BE02C8 // Restore
+ ;
+ : SpelledFor ME_A4F08C321654 // Restore
+ ;
 
-ref; // ME_A33FB1576ED0 Init_Restore
+ref; // ME_A33FB1576ED0 Init_Str_Restore
 
 : ME_F6041E1A40D5
  CONST UID 'F6041E1A40D5'
- CONST Name 'Init_Maximize'
+ CONST Name 'Init_Str_Maximize'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Инициализация str_Maximize' ;
@@ -3317,11 +3504,16 @@ ref; // ME_A33FB1576ED0 Init_Restore
  CONST Abstraction at_final
  : Parent ME_545B531C026F // ChromeLikeWindowCaptionButtonsRes
  ;
+ : Speller ME_545B53CE00AC // Maximize
+ ;
+ : SpelledFor ME_5DE753C62B4A // Maximize
+ ;
 
-ref; // ME_F6041E1A40D5 Init_Maximize
+ref; // ME_F6041E1A40D5 Init_Str_Maximize
 
 : ME_2888368C3AB3
  CONST UID '2888368C3AB3'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_545B531C026F // ChromeLikeWindowCaptionButtonsRes
@@ -3333,6 +3525,7 @@ ref; // ME_2888368C3AB3
 
 : ME_36E0D7AE4EF0
  CONST UID '36E0D7AE4EF0'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_545B531C026F // ChromeLikeWindowCaptionButtonsRes
@@ -3353,29 +3546,28 @@ ref; // ME_36E0D7AE4EF0
  : Parent ME_533D01A201A9 // ChromeLikeWindowCaptionButtons
  ;
  : Operations
-   @ ( ME_CC486CCA4777 // Init_Close
- ME_729FA40C2417 // Init_Minimize
- ME_A33FB1576ED0 // Init_Restore
- ME_F6041E1A40D5 // Init_Maximize
- ) .SequenceCode.It
+   Seq: ( ME_CC486CCA4777 // Init_Str_Close
+ ME_729FA40C2417 // Init_Str_Minimize
+ ME_A33FB1576ED0 // Init_Str_Restore
+ ME_F6041E1A40D5 // Init_Str_Maximize
+ )
  ; // Operations
  : Constants
-   @ ( ME_545B532F004D // WindowCaptionButtonsHints
+   Seq: ( ME_545B532F004D // WindowCaptionButtonsHints
  ME_79F40AD895C2 // LCImplWindowCaptionButtonsHints
- ) .SequenceCode.It
+ )
  ; // Constants
  : Dependencies
-   @ ( ME_2888368C3AB3 // 
+   Seq: ( ME_2888368C3AB3 // 
  ME_36E0D7AE4EF0 // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  CONST "no hands" false
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\ChromeLikeControls'
  CONST intf.pas:Path 'common\components\gui\Garant\ChromeLikeControls\ChromeLikeWindowCaptionButtonsRes.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\ChromeLikeControls'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_545B531C026F ChromeLikeWindowCaptionButtonsRes
 
@@ -3389,7 +3581,7 @@ ref; // ME_545B531C026F ChromeLikeWindowCaptionButtonsRes
  : Parent WL 'ME_533D017702F1' '533D017702F1.pas.ms.script' // ChromeLikeControls
  ;
  : Children
-   @ ( ME_533D01CB01B1 // TChromeLikeBaseWindowCaptionButton
+   Seq: ( ME_533D01CB01B1 // TChromeLikeBaseWindowCaptionButton
  ME_533D14960061 // ChromeLikeLegacyWindowCaptionButtons
  ME_533D07A201C1 // TChromeLikeBaseThemedWindowCaptionButton
  ME_533D1518032F // ChromeLikeThemedWindowCaptionButtons
@@ -3397,10 +3589,10 @@ ref; // ME_545B531C026F ChromeLikeWindowCaptionButtonsRes
  ME_533D343C02FF // TChromeLikeFormCaptionData
  ME_53C4BB200287 // ChromeLikeTypes
  ME_545B531C026F // ChromeLikeWindowCaptionButtonsRes
- ) .SequenceCode.It
+ )
  ; // Children
  : Depends
-   @ ( WL 'ME_4677FBA70343' '4677FBA70343.pas.ms.script' // l3Interfaces
+   Seq: ( WL 'ME_4677FBA70343' '4677FBA70343.pas.ms.script' // l3Interfaces
  WL 'ME_4728A7020026' '4728A7020026.pas.ms.script' // Types
  WL 'ME_476F78840219' '476F78840219.pas.ms.script' // Messages
  WL 'ME_47913B47006E' '47913B47006E.pas.ms.script' // l3CoreObjects
@@ -3413,16 +3605,14 @@ ref; // ME_545B531C026F ChromeLikeWindowCaptionButtonsRes
  WL 'ME_54B90AC6014B' '54B90AC6014B.pas.ms.script' // StringUtils
  WL 'ME_55C4AEC801CA' '55C4AEC801CA.pas.ms.script' // Graphics
  WL 'ME_561F9F7D02A7' '561F9F7D02A7.pas.ms.script' // ScriptEngine
- ) .SequenceCode.It
+ )
  ; // Depends
  CONST "ifndef" 'NoVGScene, NoVCM'
- : Generators
- @ (
- gen_pas.script
- gen_pas.script.runner
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\ChromeLikeControls'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\ChromeLikeControls'
  CONST pas.script:Path 'shared\models\NewSchool\Scripts\533D01A201A9.pas.ms.script'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
  CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\533D01A201A9.pas.ms.script.runner'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_533D01A201A9 ChromeLikeWindowCaptionButtons

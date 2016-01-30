@@ -80,13 +80,13 @@ ref; // ME_55F2CD62012F
  : Parent ME_55F29BD60218 // TarchiDBTest
  ;
  : Operations
-   @ ( ME_5195F3990386 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_5195F3990386 // DoIt
+ )
  ; // Operations
  : Dependencies
-   @ ( ME_519C997A0093 // 
+   Seq: ( ME_519C997A0093 // 
  ME_55F2CD62012F // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
 
 ref; // ME_5195F36403BC UnpackDatabase
@@ -159,15 +159,15 @@ ref; // ME_55F2CDFA0286
  : Parent ME_55F29BD60218 // TarchiDBTest
  ;
  : Operations
-   @ ( ME_5195F5BE01EC // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_5195F5BE01EC // DoIt
+ )
  ; // Operations
  : Dependencies
-   @ ( ME_5199DD730333 // 
+   Seq: ( ME_5199DD730333 // 
  ME_519A120F010C // 
  ME_519A16A2030E // 
  ME_55F2CDFA0286 // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
 
 ref; // ME_5195F59C007D ConnectToDatabase
@@ -207,12 +207,12 @@ ref; // ME_5199D99A0090
  : Parent ME_55F29BD60218 // TarchiDBTest
  ;
  : Operations
-   @ ( ME_5195F6C2005C // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_5195F6C2005C // DoIt
+ )
  ; // Operations
  : Dependencies
-   @ ( ME_5199D99A0090 // 
- ) .SequenceCode.It
+   Seq: ( ME_5199D99A0090 // 
+ )
  ; // Dependencies
 
 ref; // ME_5195F6A9018D DeleteDatabase
@@ -285,15 +285,15 @@ ref; // ME_55F2E1110037
  : Parent ME_55F29BD60218 // TarchiDBTest
  ;
  : Operations
-   @ ( ME_5195F68B0362 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_5195F68B0362 // DoIt
+ )
  ; // Operations
  : Dependencies
-   @ ( ME_55F1390500C6 // 
+   Seq: ( ME_55F1390500C6 // 
  ME_55F13AAB00E8 // 
  ME_55F2E10D03A0 // 
  ME_55F2E1110037 // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
 
 ref; // ME_5195F68401A9 DisconnectFromDatabase
@@ -335,12 +335,12 @@ ref; // ME_5199D6A90090
  : Parent ME_55F29BD60218 // TarchiDBTest
  ;
  : Operations
-   @ ( ME_519615D702C7 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_519615D702C7 // DoIt
+ )
  ; // Operations
  : Dependencies
-   @ ( ME_5199D6A90090 // 
- ) .SequenceCode.It
+   Seq: ( ME_5199D6A90090 // 
+ )
  ; // Dependencies
 
 ref; // ME_519615B000D3 GetDatabasePath
@@ -357,32 +357,40 @@ ref; // ME_519615B000D3 GetDatabasePath
  : Parent ME_55F29BB0025D // ArchiDBTests
  ;
  : Inherits
-   @ ( WL 'ME_4B2A11BC0255' '4B2A112B011A.pas.ms.script' // TBaseTest
- ) .SequenceCode.It
+   Seq: ( WL 'ME_4B2A11BC0255' '4B2A112B011A.pas.ms.script' // TBaseTest
+ )
  ; // Inherits
  : Attributes
-   @ ( ME_55F2B795017E // f_SabFiller
+   Seq: ( ME_55F2B795017E // f_SabFiller
  ME_55F2B79A0087 // f_NumSab
- ) .SequenceCode.It
+ )
  ; // Attributes
  : Operations
-   @ ( ME_5195F36403BC // UnpackDatabase
+   Seq: ( ME_5195F36403BC // UnpackDatabase
  ME_5195F59C007D // ConnectToDatabase
  ME_5195F6A9018D // DeleteDatabase
  ME_5195F68401A9 // DisconnectFromDatabase
  ME_519615B000D3 // GetDatabasePath
- ) .SequenceCode.It
+ )
  ; // Operations
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
  : Generators
- @ (
+ Seq: (
  gen_intf.pas
- ) .SequenceCode.It
+ )
  ; // Generators
+ CONST dfm:PathOnly '\archi\source\projects\ImportExportTest\ArchiDBTests'
  CONST intf.pas:Path 'archi\source\projects\ImportExportTest\ArchiDBTests\archiDBTest.pas'
+ CONST intf.pas:PathOnly '\archi\source\projects\ImportExportTest\ArchiDBTests'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\archi\source\projects\ImportExportTest\ArchiDBTests'
+ CONST extprop:rc:SelfName 'archiDBTest'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'archiDBTest'
 
 ref; // ME_55F29BD60218 TarchiDBTest
 
@@ -396,12 +404,11 @@ ref; // ME_55F29BD60218 TarchiDBTest
  : Parent WL 'ME_55F29ABD02C2' '55F29ABD02C2.pas.ms.script' // ArchiDBTests
  ;
  : Children
-   @ ( ME_55F29BD60218 // TarchiDBTest
- ) .SequenceCode.It
+   Seq: ( ME_55F29BD60218 // TarchiDBTest
+ )
  ; // Children
  : Depends
-   @ ( WL 'ME_469F3E37025A' '469F3E37025A.pas.ms.script' // Rtl
- WL 'ME_47BC51FE018B' '47BC51FE018B.pas.ms.script' // dt_Types
+   Seq: ( WL 'ME_47BC51FE018B' '47BC51FE018B.pas.ms.script' // dt_Types
  WL 'ME_47D0290B016D' '47D0290B016D.pas.ms.script' // l3Utils
  WL 'ME_4AB0C3C60310' '4AB0C3C60310.pas.ms.script' // Sys
  WL 'ME_4B2A112B011A' '4B2A112B011A.pas.ms.script' // Source
@@ -412,15 +419,20 @@ ref; // ME_55F29BD60218 TarchiDBTest
  WL 'ME_538DA20300A7' '538DA20300A7.pas.ms.script' // ClientSide
  WL 'ME_5486E32B0191' '5486E32B0191.pas.ms.script' // StorageHolder
  WL 'ME_559D0BE101B4' '559D0BE101B4.pas.ms.script' // dtIntf
- ) .SequenceCode.It
+ )
  ; // Depends
  : Generators
- @ (
+ Seq: (
  gen_pas.script
  gen_pas.script.runner
- ) .SequenceCode.It
+ )
  ; // Generators
+ CONST dfm:PathOnly '\archi\source\projects\ImportExportTest\ArchiDBTests'
+ CONST intf.pas:PathOnly '\archi\source\projects\ImportExportTest\ArchiDBTests'
  CONST pas.script:Path 'shared\models\NewSchool\Scripts\55F29BB0025D.pas.ms.script'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
  CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\55F29BB0025D.pas.ms.script.runner'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\archi\source\projects\ImportExportTest\ArchiDBTests'
 
 ref; // ME_55F29BB0025D ArchiDBTests

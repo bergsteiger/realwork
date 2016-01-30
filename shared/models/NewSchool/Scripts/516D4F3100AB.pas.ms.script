@@ -15,20 +15,28 @@ FORWARD ME_516D4F3100AB
  : Parent ME_516D4F3100AB // Basic Interfaces
  ;
  : Inherits
-   @ ( WL 'ME_4807745602C8' '4AB0C3C60310.pas.ms.script' // TObject
+   Seq: ( WL 'ME_4807745602C8' '4AB0C3C60310.pas.ms.script' // TObject
  WL 'ME_516D4D45029C' '51612EBB02F5.pas.ms.script' // Unknown
- ) .SequenceCode.It
+ )
  ; // Inherits
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
  : Generators
- @ (
+ Seq: (
  gen_intf.pas
- ) .SequenceCode.It
+ )
  ; // Generators
+ CONST dfm:PathOnly '\common\components\SandBox'
  CONST intf.pas:Path 'common\components\SandBox\myInterfacedObject.pas'
+ CONST intf.pas:PathOnly '\common\components\SandBox'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\common\components\SandBox'
+ CONST extprop:rc:SelfName 'myInterfacedObject'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'myInterfacedObject'
 
 ref; // ME_516D4F4E0326 TmyInterfacedObject
 
@@ -62,9 +70,16 @@ ref; // ME_516D57C50277 GetRefCount
  : Parent ME_516D572B0131 // TmyReferenceCountGuard
  ;
  : Operations
-   @ ( ME_516D57C50277 // GetRefCount
- ) .SequenceCode.It
+   Seq: ( ME_516D57C50277 // GetRefCount
+ )
  ; // Operations
+ CONST dfm:PathOnly '\common\components\SandBox'
+ CONST intf.pas:PathOnly '\common\components\SandBox'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\common\components\SandBox'
+ CONST extprop:rc:SelfName 'myReferenceCountGuard'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_516D579302C5 ImyReferenceCountGuard
 
@@ -73,6 +88,7 @@ FORWARD ME_516D57E601E6
 : ME_30D9E07673CF
  CONST UID '30D9E07673CF'
  CONST Name 'DoIt'
+ CONST IsSummoned true
  CONST Class class_Operation
  %SUMMARY 'Сигнатура фабрики TmyReferenceCountGuard.Make' ;
  CONST Visibility PrivateAccess
@@ -95,16 +111,16 @@ ref; // ME_30D9E07673CF DoIt
  : Parent ME_516D572B0131 // TmyReferenceCountGuard
  ;
  : Inherits
-   @ ( WL 'ME_516D582B011F' '4AB0C3C60310.pas.ms.script' // Create
- ) .SequenceCode.It
+   Seq: ( WL 'ME_516D582B011F' '4AB0C3C60310.pas.ms.script' // Create
+ )
  ; // Inherits
  : Implements
-   @ ( ME_516D579302C5 // ImyReferenceCountGuard
- ) .SequenceCode.It
+   Seq: ( ME_516D579302C5 // ImyReferenceCountGuard
+ )
  ; // Implements
  : Operations
-   @ ( ME_30D9E07673CF // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_30D9E07673CF // DoIt
+ )
  ; // Operations
  CONST "check nil" false
  CONST "need AfterCreate" 'undefined'
@@ -120,6 +136,7 @@ ref; // ME_516D57E601E6 Make
  ;
  : Implementor ME_516D572B0131 // TmyReferenceCountGuard
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_516D57C50277_ME_516D572B0131 GetRefCount
 
 : ME_516D572B0131
@@ -134,35 +151,43 @@ ref; // ME_516D57C50277_ME_516D572B0131 GetRefCount
  : Parent ME_516D4F3100AB // Basic Interfaces
  ;
  : Inherits
-   @ ( ME_516D4F4E0326 // TmyInterfacedObject
- ) .SequenceCode.It
+   Seq: ( ME_516D4F4E0326 // TmyInterfacedObject
+ )
  ; // Inherits
  : Implements
-   @ ( ME_516D579302C5 // ImyReferenceCountGuard
- ) .SequenceCode.It
+   Seq: ( ME_516D579302C5 // ImyReferenceCountGuard
+ )
  ; // Implements
  : Operations
-   @ ( ME_516D57E601E6 // Make
- ) .SequenceCode.It
+   Seq: ( ME_516D57E601E6 // Make
+ )
  ; // Operations
  : Implemented
-   @ ( ME_516D57C50277_ME_516D572B0131 // GetRefCount
- ) .SequenceCode.It
+   Seq: ( ME_516D57C50277_ME_516D572B0131 // GetRefCount
+ )
  ; // Implemented
  : Children
-   @ ( ME_516D579302C5 // ImyReferenceCountGuard
- ) .SequenceCode.It
+   Seq: ( ME_516D579302C5 // ImyReferenceCountGuard
+ )
  ; // Children
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
  : Generators
- @ (
+ Seq: (
  gen_intf.pas
- ) .SequenceCode.It
+ )
  ; // Generators
+ CONST dfm:PathOnly '\common\components\SandBox'
  CONST intf.pas:Path 'common\components\SandBox\myReferenceCountGuard.pas'
+ CONST intf.pas:PathOnly '\common\components\SandBox'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\common\components\SandBox'
+ CONST extprop:rc:SelfName 'myReferenceCountGuard'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'myReferenceCountGuard'
 
 ref; // ME_516D572B0131 TmyReferenceCountGuard
 
@@ -176,22 +201,27 @@ ref; // ME_516D572B0131 TmyReferenceCountGuard
  : Parent WL 'ME_4861FFCA02CE' '4861FFCA02CE.pas.ms.script' // SandBox
  ;
  : Children
-   @ ( ME_516D4F4E0326 // TmyInterfacedObject
+   Seq: ( ME_516D4F4E0326 // TmyInterfacedObject
  ME_516D572B0131 // TmyReferenceCountGuard
- ) .SequenceCode.It
+ )
  ; // Children
  : Depends
-   @ ( WL 'ME_4AB0C3C60310' '4AB0C3C60310.pas.ms.script' // Sys
+   Seq: ( WL 'ME_4AB0C3C60310' '4AB0C3C60310.pas.ms.script' // Sys
  WL 'ME_51612EBB02F5' '51612EBB02F5.pas.ms.script' // Ref Counting
- ) .SequenceCode.It
+ )
  ; // Depends
  : Generators
- @ (
+ Seq: (
  gen_pas.script
  gen_pas.script.runner
- ) .SequenceCode.It
+ )
  ; // Generators
+ CONST dfm:PathOnly '\common\components\SandBox'
+ CONST intf.pas:PathOnly '\common\components\SandBox'
  CONST pas.script:Path 'shared\models\NewSchool\Scripts\516D4F3100AB.pas.ms.script'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
  CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\516D4F3100AB.pas.ms.script.runner'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\common\components\SandBox'
 
 ref; // ME_516D4F3100AB Basic Interfaces

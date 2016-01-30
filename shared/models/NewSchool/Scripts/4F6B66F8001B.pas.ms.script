@@ -11,6 +11,7 @@ FORWARD ME_9070E6134DC0
 : ME_0DA3262A4388
  CONST UID '0DA3262A4388'
  CONST Name 'fm_ChildForm'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY 'Идентификатор формы TChildForm' ;
  CONST Visibility PublicAccess
@@ -26,12 +27,14 @@ FORWARD ME_9070E6134DC0
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value '(rFormID : (rName : ''ChildForm''; rID : 0); rFactory : nil)'
 
 ref; // ME_0DA3262A4388 fm_ChildForm
 
 : ME_9070E6134DC0
  CONST UID '9070E6134DC0'
  CONST Name 'ChildIDs'
+ CONST IsSummoned true
  CONST Class class_Class
  : Stereotype st_Constants ;
  CONST Kind kind_NormalClass
@@ -40,10 +43,15 @@ ref; // ME_0DA3262A4388 fm_ChildForm
  : Parent ME_4F6B670E017C // Child
  ;
  : Attributes
-   @ ( ME_0DA3262A4388 // fm_ChildForm
- ) .SequenceCode.It
+   Seq: ( ME_0DA3262A4388 // fm_ChildForm
+ )
  ; // Attributes
  CONST "spell names" false
+ CONST dfm:PathOnly '\common\components\gui\Garant\VCM\View'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\VCM\View'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\common\components\gui\View'
 
 ref; // ME_9070E6134DC0 ChildIDs
 
@@ -59,10 +67,16 @@ ref; // ME_9070E6134DC0 ChildIDs
  : Parent ME_4F6B66F8001B // FormDefinitions
  ;
  : Constants
-   @ ( ME_9070E6134DC0 // ChildIDs
- ) .SequenceCode.It
+   Seq: ( ME_9070E6134DC0 // ChildIDs
+ )
  ; // Constants
+ CONST dfm:PathOnly '\common\components\gui\Garant\VCM\View'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\VCM\View'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\common\components\gui\View'
  CONST extprop:pas:TypeName 'ChildFormDef'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_4F6B670E017C Child
 
@@ -73,6 +87,7 @@ FORWARD ME_ABFE473370F1
 : ME_E90A73C09CA4
  CONST UID 'E90A73C09CA4'
  CONST Name 'fm_ParentForm'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY 'Идентификатор формы TParentForm' ;
  CONST Visibility PublicAccess
@@ -88,12 +103,14 @@ FORWARD ME_ABFE473370F1
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value '(rFormID : (rName : ''ParentForm''; rID : 0); rFactory : nil)'
 
 ref; // ME_E90A73C09CA4 fm_ParentForm
 
 : ME_ABFE473370F1
  CONST UID 'ABFE473370F1'
  CONST Name 'ParentIDs'
+ CONST IsSummoned true
  CONST Class class_Class
  : Stereotype st_Constants ;
  CONST Kind kind_NormalClass
@@ -102,10 +119,15 @@ ref; // ME_E90A73C09CA4 fm_ParentForm
  : Parent ME_4F6B6714032D // Parent
  ;
  : Attributes
-   @ ( ME_E90A73C09CA4 // fm_ParentForm
- ) .SequenceCode.It
+   Seq: ( ME_E90A73C09CA4 // fm_ParentForm
+ )
  ; // Attributes
  CONST "spell names" false
+ CONST dfm:PathOnly '\common\components\gui\Garant\VCM\View'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\VCM\View'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\common\components\gui\View'
 
 ref; // ME_ABFE473370F1 ParentIDs
 
@@ -121,10 +143,16 @@ ref; // ME_ABFE473370F1 ParentIDs
  : Parent ME_4F6B66F8001B // FormDefinitions
  ;
  : Constants
-   @ ( ME_ABFE473370F1 // ParentIDs
- ) .SequenceCode.It
+   Seq: ( ME_ABFE473370F1 // ParentIDs
+ )
  ; // Constants
+ CONST dfm:PathOnly '\common\components\gui\Garant\VCM\View'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\VCM\View'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\common\components\gui\View'
  CONST extprop:pas:TypeName 'ParentFormDef'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_4F6B6714032D Parent
 
@@ -133,6 +161,7 @@ FORWARD ME_BBEB9821B6DA
 : ME_584E5BC3E8D4
  CONST UID '584E5BC3E8D4'
  CONST Name 'Ini_Reg'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Регистрация Tkw_Form_Child_ID' ;
@@ -150,6 +179,7 @@ ref; // ME_584E5BC3E8D4 Ini_Reg
  ;
  : Implementor ME_BBEB9821B6DA // Tkw_Form_Child_ID
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4DB0614603C8_ME_BBEB9821B6DA GetWordNameForRegister
 
 : ME_4DDFD2EA0116_ME_BBEB9821B6DA
@@ -159,11 +189,13 @@ ref; // ME_4DB0614603C8_ME_BBEB9821B6DA GetWordNameForRegister
  ;
  : Implementor ME_BBEB9821B6DA // Tkw_Form_Child_ID
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4DDFD2EA0116_ME_BBEB9821B6DA GetString
 
 : ME_BBEB9821B6DA
  CONST UID 'BBEB9821B6DA'
  CONST Name 'Tkw_Form_Child_ID'
+ CONST IsSummoned true
  CONST Class class_Class
  : Stereotype st_ScriptKeyword ;
  CONST Kind kind_NormalClass
@@ -173,17 +205,17 @@ ref; // ME_4DDFD2EA0116_ME_BBEB9821B6DA GetString
  : Parent ME_4F6B66F8001B // FormDefinitions
  ;
  : Inherits
-   @ ( WL 'ME_4DDFD1430390' '4F3E3F5F0160.pas.ms.script' // TtfwString
- ) .SequenceCode.It
+   Seq: ( WL 'ME_4DDFD1430390' '4F3E3F5F0160.pas.ms.script' // TtfwString
+ )
  ; // Inherits
  : Operations
-   @ ( ME_584E5BC3E8D4 // Ini_Reg
- ) .SequenceCode.It
+   Seq: ( ME_584E5BC3E8D4 // Ini_Reg
+ )
  ; // Operations
  : Overridden
-   @ ( ME_4DB0614603C8_ME_BBEB9821B6DA // GetWordNameForRegister
+   Seq: ( ME_4DB0614603C8_ME_BBEB9821B6DA // GetWordNameForRegister
  ME_4DDFD2EA0116_ME_BBEB9821B6DA // GetString
- ) .SequenceCode.It
+ )
  ; // Overridden
  CONST "NameForScript" 'форма::Child'
  CONST "ifndef" 'NoScripts'
@@ -191,6 +223,13 @@ ref; // ME_4DDFD2EA0116_ME_BBEB9821B6DA GetString
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
+ CONST dfm:PathOnly '\common\components\gui\Garant\VCM\View'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\VCM\View'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\common\components\gui\View'
+ CONST extprop:rc:SelfName '_Form_Child_ID'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_BBEB9821B6DA Tkw_Form_Child_ID
 
@@ -199,6 +238,7 @@ FORWARD ME_4D2D1B64FF3F
 : ME_6BF361D23EF3
  CONST UID '6BF361D23EF3'
  CONST Name 'Ini_Reg'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Регистрация Tkw_Form_Parent_ID' ;
@@ -216,6 +256,7 @@ ref; // ME_6BF361D23EF3 Ini_Reg
  ;
  : Implementor ME_4D2D1B64FF3F // Tkw_Form_Parent_ID
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4DB0614603C8_ME_4D2D1B64FF3F GetWordNameForRegister
 
 : ME_4DDFD2EA0116_ME_4D2D1B64FF3F
@@ -225,11 +266,13 @@ ref; // ME_4DB0614603C8_ME_4D2D1B64FF3F GetWordNameForRegister
  ;
  : Implementor ME_4D2D1B64FF3F // Tkw_Form_Parent_ID
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4DDFD2EA0116_ME_4D2D1B64FF3F GetString
 
 : ME_4D2D1B64FF3F
  CONST UID '4D2D1B64FF3F'
  CONST Name 'Tkw_Form_Parent_ID'
+ CONST IsSummoned true
  CONST Class class_Class
  : Stereotype st_ScriptKeyword ;
  CONST Kind kind_NormalClass
@@ -239,17 +282,17 @@ ref; // ME_4DDFD2EA0116_ME_4D2D1B64FF3F GetString
  : Parent ME_4F6B66F8001B // FormDefinitions
  ;
  : Inherits
-   @ ( WL 'ME_4DDFD1430390' '4F3E3F5F0160.pas.ms.script' // TtfwString
- ) .SequenceCode.It
+   Seq: ( WL 'ME_4DDFD1430390' '4F3E3F5F0160.pas.ms.script' // TtfwString
+ )
  ; // Inherits
  : Operations
-   @ ( ME_6BF361D23EF3 // Ini_Reg
- ) .SequenceCode.It
+   Seq: ( ME_6BF361D23EF3 // Ini_Reg
+ )
  ; // Operations
  : Overridden
-   @ ( ME_4DB0614603C8_ME_4D2D1B64FF3F // GetWordNameForRegister
+   Seq: ( ME_4DB0614603C8_ME_4D2D1B64FF3F // GetWordNameForRegister
  ME_4DDFD2EA0116_ME_4D2D1B64FF3F // GetString
- ) .SequenceCode.It
+ )
  ; // Overridden
  CONST "NameForScript" 'форма::Parent'
  CONST "ifndef" 'NoScripts'
@@ -257,6 +300,13 @@ ref; // ME_4DDFD2EA0116_ME_4D2D1B64FF3F GetString
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
+ CONST dfm:PathOnly '\common\components\gui\Garant\VCM\View'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\VCM\View'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\common\components\gui\View'
+ CONST extprop:rc:SelfName '_Form_Parent_ID'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_4D2D1B64FF3F Tkw_Form_Parent_ID
 
@@ -270,28 +320,34 @@ ref; // ME_4D2D1B64FF3F Tkw_Form_Parent_ID
  : Parent WL 'ME_4F6B660100D5' '4F6B660100D5.pas.ms.script' // View
  ;
  : Children
-   @ ( ME_4F6B670E017C // Child
+   Seq: ( ME_4F6B670E017C // Child
  ME_4F6B6714032D // Parent
  ME_BBEB9821B6DA // Tkw_Form_Child_ID
  ME_4D2D1B64FF3F // Tkw_Form_Parent_ID
- ) .SequenceCode.It
+ )
  ; // Children
  : Depends
-   @ ( WL 'ME_4683F37902CF' '4683F37902CF.pas.ms.script' // vcmInterfaces
+   Seq: ( WL 'ME_4683F37902CF' '4683F37902CF.pas.ms.script' // vcmInterfaces
  WL 'ME_4F3E3F5F0160' '4F3E3F5F0160.pas.ms.script' // PrimitiveWords
- ) .SequenceCode.It
+ )
  ; // Depends
  CONST "is namespace" true
  CONST "no hands" false
  : Generators
- @ (
+ Seq: (
  gen_intf.pas
  gen_pas.script
  gen_pas.script.runner
- ) .SequenceCode.It
+ )
  ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\VCM\View'
  CONST intf.pas:Path 'common\components\gui\Garant\VCM\View\F1Like_FormDefinitions_Controls.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\VCM\View'
  CONST pas.script:Path 'shared\models\NewSchool\Scripts\4F6B66F8001B.pas.ms.script'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
  CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\4F6B66F8001B.pas.ms.script.runner'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\common\components\gui\View'
+ CONST extprop:pas:UnitName 'F1Like_FormDefinitions_Controls'
 
 ref; // ME_4F6B66F8001B FormDefinitions

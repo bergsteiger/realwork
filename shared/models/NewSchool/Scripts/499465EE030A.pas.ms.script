@@ -31,13 +31,19 @@ ref; // ME_4992FC5700E5 BeforeCustomize
  : Parent ME_499465EE030A // vcmToolbarsInterfaces
  ;
  : Inherits
-   @ ( WL 'ME_4683CEAD00CF' '467BAB7F021E.pas.ms.script' // IvcmBase
- ) .SequenceCode.It
+   Seq: ( WL 'ME_4683CEAD00CF' '467BAB7F021E.pas.ms.script' // IvcmBase
+ )
  ; // Inherits
  : Operations
-   @ ( ME_4992FC5700E5 // BeforeCustomize
- ) .SequenceCode.It
+   Seq: ( ME_4992FC5700E5 // BeforeCustomize
+ )
  ; // Operations
+ CONST dfm:PathOnly '\common\components\gui\Garant\VCM'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\VCM'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'ToolbarsCustomizeListener'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_49525BCE0355 IvcmToolbarsCustomizeListener
 
@@ -62,8 +68,8 @@ ref; // ME_4992FC7D0152 aListener
  : Parent ME_4992FC6D03E1 // IvcmToolbarsCustomizeNotify
  ;
  : Parameters
-   @ ( ME_4992FC7D0152 // aListener
- ) .SequenceCode.It
+   Seq: ( ME_4992FC7D0152 // aListener
+ )
  ; // Parameters
 
 ref; // ME_4992FC7A0212 AddListener
@@ -87,8 +93,8 @@ ref; // ME_4992FC8C0020 aListener
  : Parent ME_4992FC6D03E1 // IvcmToolbarsCustomizeNotify
  ;
  : Parameters
-   @ ( ME_4992FC8C0020 // aListener
- ) .SequenceCode.It
+   Seq: ( ME_4992FC8C0020 // aListener
+ )
  ; // Parameters
 
 ref; // ME_4992FC8900E1 RemoveListener
@@ -106,14 +112,20 @@ ref; // ME_4992FC8900E1 RemoveListener
  : Parent ME_499465EE030A // vcmToolbarsInterfaces
  ;
  : Inherits
-   @ ( WL 'ME_4683CEAD00CF' '467BAB7F021E.pas.ms.script' // IvcmBase
- ) .SequenceCode.It
+   Seq: ( WL 'ME_4683CEAD00CF' '467BAB7F021E.pas.ms.script' // IvcmBase
+ )
  ; // Inherits
  : Operations
-   @ ( ME_4992FC7A0212 // AddListener
+   Seq: ( ME_4992FC7A0212 // AddListener
  ME_4992FC8900E1 // RemoveListener
- ) .SequenceCode.It
+ )
  ; // Operations
+ CONST dfm:PathOnly '\common\components\gui\Garant\VCM'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\VCM'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'ToolbarsCustomizeNotify'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_4992FC6D03E1 IvcmToolbarsCustomizeNotify
 
@@ -148,13 +160,19 @@ ref; // ME_4992FCAD02D1 Notify
  : Parent ME_499465EE030A // vcmToolbarsInterfaces
  ;
  : Inherits
-   @ ( WL 'ME_4683CEAD00CF' '467BAB7F021E.pas.ms.script' // IvcmBase
- ) .SequenceCode.It
+   Seq: ( WL 'ME_4683CEAD00CF' '467BAB7F021E.pas.ms.script' // IvcmBase
+ )
  ; // Inherits
  : Attributes
-   @ ( ME_4992FCAD02D1 // Notify
- ) .SequenceCode.It
+   Seq: ( ME_4992FCAD02D1 // Notify
+ )
  ; // Attributes
+ CONST dfm:PathOnly '\common\components\gui\Garant\VCM'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\VCM'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'ToolbarsCustomize'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_4992FC9F029B IvcmToolbarsCustomize
 
@@ -169,28 +187,25 @@ ref; // ME_4992FC9F029B IvcmToolbarsCustomize
  : Parent WL 'ME_4790C3B8021E' '4790C3B8021E.pas.ms.script' // VCM
  ;
  : Children
-   @ ( ME_49525BCE0355 // IvcmToolbarsCustomizeListener
+   Seq: ( ME_49525BCE0355 // IvcmToolbarsCustomizeListener
  ME_4992FC6D03E1 // IvcmToolbarsCustomizeNotify
  ME_4992FC9F029B // IvcmToolbarsCustomize
- ) .SequenceCode.It
+ )
  ; // Children
  : Depends
-   @ ( WL 'ME_467BAB7F021E' '467BAB7F021E.pas.ms.script' // vcmExternalInterfaces
- ) .SequenceCode.It
+   Seq: ( WL 'ME_467BAB7F021E' '467BAB7F021E.pas.ms.script' // vcmExternalInterfaces
+ )
  ; // Depends
  CONST "author" 'Ëþëèí À.Â.'
  CONST "is namespace" true
  CONST "no hands" true
  CONST "started" '12.02.2008 21:10'
- : Generators
- @ (
- gen_intf.pas
- gen_pas.script
- gen_pas.script.runner
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\VCM'
  CONST intf.pas:Path 'common\components\gui\Garant\VCM\vcmToolbarsInterfaces.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\VCM'
  CONST pas.script:Path 'shared\models\NewSchool\Scripts\499465EE030A.pas.ms.script'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
  CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\499465EE030A.pas.ms.script.runner'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_499465EE030A vcmToolbarsInterfaces

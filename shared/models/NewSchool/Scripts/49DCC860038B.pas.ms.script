@@ -17,6 +17,10 @@ FORWARD ME_49DB5FEF01D8
  CONST Abstraction at_final
  : Parent ME_49DB5FEF01D8 // TevParaListPainter
  ;
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_4D496E920367 ParaPainter_IsParaListPainter
 
@@ -71,21 +75,21 @@ ref; // ME_53D780420372
  : Parent ME_49DCC860038B // ParaList Painters
  ;
  : Inherits
-   @ ( WL 'ME_481D6C300084' '49DCBC09029B.pas.ms.script' // evParaListPainter
- ) .SequenceCode.It
+   Seq: ( WL 'ME_481D6C300084' '49DCBC09029B.pas.ms.script' // evParaListPainter
+ )
  ; // Inherits
  : Attributes
-   @ ( ME_49DB52D102F5 // X
- ) .SequenceCode.It
+   Seq: ( ME_49DB52D102F5 // X
+ )
  ; // Attributes
  : Children
-   @ ( ME_4D496E920367 // ParaPainter_IsParaListPainter
- ) .SequenceCode.It
+   Seq: ( ME_4D496E920367 // ParaPainter_IsParaListPainter
+ )
  ; // Children
  : Dependencies
-   @ ( ME_4DD67B0802E0 // 
+   Seq: ( ME_4DD67B0802E0 // 
  ME_53D780420372 // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  CONST "author" 'Люлин А.В.'
  CONST "needs InstanceR" 'undefined'
@@ -93,12 +97,14 @@ ref; // ME_53D780420372
  CONST "no hands" true
  CONST "register in scripts" 'undefined'
  CONST "started" '07.04.2009 18:15'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest'
  CONST intf.pas:Path 'common\components\gui\Garant\Everest\evParaListPainter.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'ParaListPainter'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'evParaListPainter'
 
 ref; // ME_49DB5FEF01D8 TevParaListPainter
 
@@ -182,6 +188,7 @@ ref; // ME_53D26E190193
  ;
  : Implementor ME_49DA417B010F // TevDocumentPainter
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4804BC2401C2_ME_49DA417B010F DoDraw
 
 : ME_4804C35B00B2_ME_49DA417B010F
@@ -191,6 +198,7 @@ ref; // ME_4804BC2401C2_ME_49DA417B010F DoDraw
  ;
  : Implementor ME_49DA417B010F // TevDocumentPainter
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4804C35B00B2_ME_49DA417B010F DoDrawFrameText
 
 : ME_49DA417B010F
@@ -205,25 +213,29 @@ ref; // ME_4804C35B00B2_ME_49DA417B010F DoDrawFrameText
  : Parent ME_49DCC860038B // ParaList Painters
  ;
  : Inherits
-   @ ( ME_49DB5FEF01D8 // TevParaListPainter
- ) .SequenceCode.It
+   Seq: ( ME_49DB5FEF01D8 // TevParaListPainter
+ )
  ; // Inherits
+ : Implements
+   Seq: ( WL 'ME_4E6A1C160365' '4E5CF70B01E2.pas.ms.script' // Отображение шапки документа
+ )
+ ; // Implements
  : Attributes
-   @ ( ME_5098F71901D0 // f_ArrowWasDrawn
- ) .SequenceCode.It
+   Seq: ( ME_5098F71901D0 // f_ArrowWasDrawn
+ )
  ; // Attributes
  : Overridden
-   @ ( ME_4804BC2401C2_ME_49DA417B010F // DoDraw
+   Seq: ( ME_4804BC2401C2_ME_49DA417B010F // DoDraw
  ME_4804C35B00B2_ME_49DA417B010F // DoDrawFrameText
- ) .SequenceCode.It
+ )
  ; // Overridden
  : Dependencies
-   @ ( ME_4DD67B9502B0 // 
+   Seq: ( ME_4DD67B9502B0 // 
  ME_4E6E12B80383 // 
  ME_4E6F53940255 // 
  ME_5098EB5501BF // 
  ME_53D26E190193 // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  CONST "author" 'Люлин А.В.'
  CONST "needs InstanceR" 'undefined'
@@ -231,12 +243,14 @@ ref; // ME_4804C35B00B2_ME_49DA417B010F DoDrawFrameText
  CONST "no hands" true
  CONST "register in scripts" 'undefined'
  CONST "started" '10.11.97 12:18'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest'
  CONST intf.pas:Path 'common\components\gui\Garant\Everest\evDocumentPainter.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'DocumentPainter'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'evDocumentPainter'
 
 ref; // ME_49DA417B010F TevDocumentPainter
 
@@ -277,8 +291,8 @@ ref; // ME_4B3B2F63033D l_Height
  : Parent ME_4B3B2F3C01B2 // CheckHeight
  ;
  : Parameters
-   @ ( ME_4B3B2F63033D // l_Height
- ) .SequenceCode.It
+   Seq: ( ME_4B3B2F63033D // l_Height
+ )
  ; // Parameters
 
 ref; // ME_4B3B2F5803C6 CheckHeight
@@ -294,8 +308,8 @@ ref; // ME_4B3B2F5803C6 CheckHeight
  : Parent ME_48C7E98600AB // TevTableRowPainter
  ;
  : Operations
-   @ ( ME_4B3B2F5803C6 // CheckHeight
- ) .SequenceCode.It
+   Seq: ( ME_4B3B2F5803C6 // CheckHeight
+ )
  ; // Operations
 
 ref; // ME_4B3B2F3C01B2 CheckHeight
@@ -333,9 +347,9 @@ ref; // ME_5579555B02A1 aRealPoint
  : Target WL 'ME_47C5B57E0390' '47C5207602D1.pas.ms.script' // InevBasePoint
  ;
  : Parameters
-   @ ( ME_5579555B0292 // aMaxIndex
+   Seq: ( ME_5579555B0292 // aMaxIndex
  ME_5579555B02A1 // aRealPoint
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_508FA9610359 DoIt
@@ -351,56 +365,11 @@ ref; // ME_508FA9610359 DoIt
  : Parent ME_48C7E98600AB // TevTableRowPainter
  ;
  : Operations
-   @ ( ME_508FA9610359 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_508FA9610359 // DoIt
+ )
  ; // Operations
 
 ref; // ME_508FA94102B2 GetRowPoint
-
-FORWARD ME_50D3F47002CA
-
-: ME_50D3F54100FB
- CONST UID '50D3F54100FB'
- CONST Name 'aDelta'
- CONST Class class_Parameter
- : Stereotype st_inout ;
- : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
- ;
-
-ref; // ME_50D3F54100FB aDelta
-
-: ME_50D3F5320029
- CONST UID '50D3F5320029'
- CONST Name 'DoIt'
- CONST Class class_Operation
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_50D3F47002CA // CorrectRowHeightByTopSpace
- ;
- : Parameters
-   @ ( ME_50D3F54100FB // aDelta
- ) .SequenceCode.It
- ; // Parameters
-
-ref; // ME_50D3F5320029 DoIt
-
-: ME_50D3F47002CA
- CONST UID '50D3F47002CA'
- CONST Name 'CorrectRowHeightByTopSpace'
- CONST Class class_Class
- : Stereotype st_method ;
- CONST Kind kind_NormalClass
- %SUMMARY 'Добавить величину отступа верхней границы блока для КЗ.' ;
- CONST Visibility ProtectedAccess
- CONST Abstraction at_regular
- : Parent ME_48C7E98600AB // TevTableRowPainter
- ;
- : Operations
-   @ ( ME_50D3F5320029 // DoIt
- ) .SequenceCode.It
- ; // Operations
-
-ref; // ME_50D3F47002CA CorrectRowHeightByTopSpace
 
 : ME_48C7EBB30324
  CONST UID '48C7EBB30324'
@@ -598,6 +567,7 @@ ref; // ME_53D675E8030C
  ;
  : Implementor ME_48C7E98600AB // TevTableRowPainter
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_4C774E7D01CD_ME_48C7E98600AB CheckChildren
 
 : ME_4D9AF0D00093_ME_48C7E98600AB
@@ -607,6 +577,7 @@ ref; // ME_4C774E7D01CD_ME_48C7E98600AB CheckChildren
  ;
  : Implementor ME_48C7E98600AB // TevTableRowPainter
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_4D9AF0D00093_ME_48C7E98600AB CorrectTopDelta
 
 : ME_4D9AFB1202F9_ME_48C7E98600AB
@@ -616,6 +587,7 @@ ref; // ME_4D9AF0D00093_ME_48C7E98600AB CorrectTopDelta
  ;
  : Implementor ME_48C7E98600AB // TevTableRowPainter
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_4D9AFB1202F9_ME_48C7E98600AB IsTopAnchorAtStart
 
 : ME_50A2210D0105_ME_48C7E98600AB
@@ -625,6 +597,7 @@ ref; // ME_4D9AFB1202F9_ME_48C7E98600AB IsTopAnchorAtStart
  ;
  : Implementor ME_48C7E98600AB // TevTableRowPainter
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_50A2210D0105_ME_48C7E98600AB GetTopAnchor4Row
 
 : ME_479731C50290_ME_48C7E98600AB
@@ -634,6 +607,7 @@ ref; // ME_50A2210D0105_ME_48C7E98600AB GetTopAnchor4Row
  ;
  : Implementor ME_48C7E98600AB // TevTableRowPainter
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_479731C50290_ME_48C7E98600AB Cleanup
 
 : ME_4804B86403BE_ME_48C7E98600AB
@@ -643,6 +617,7 @@ ref; // ME_479731C50290_ME_48C7E98600AB Cleanup
  ;
  : Implementor ME_48C7E98600AB // TevTableRowPainter
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4804B86403BE_ME_48C7E98600AB DoFillSelection
 
 : ME_4804B8890228_ME_48C7E98600AB
@@ -652,6 +627,7 @@ ref; // ME_4804B86403BE_ME_48C7E98600AB DoFillSelection
  ;
  : Implementor ME_48C7E98600AB // TevTableRowPainter
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4804B8890228_ME_48C7E98600AB CheckAlignment
 
 : ME_4804B9BB0383_ME_48C7E98600AB
@@ -661,6 +637,7 @@ ref; // ME_4804B8890228_ME_48C7E98600AB CheckAlignment
  ;
  : Implementor ME_48C7E98600AB // TevTableRowPainter
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4804B9BB0383_ME_48C7E98600AB GetFramePartPrim
 
 : ME_4804BC2401C2_ME_48C7E98600AB
@@ -670,6 +647,7 @@ ref; // ME_4804B9BB0383_ME_48C7E98600AB GetFramePartPrim
  ;
  : Implementor ME_48C7E98600AB // TevTableRowPainter
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4804BC2401C2_ME_48C7E98600AB DoDraw
 
 : ME_4804BC800172_ME_48C7E98600AB
@@ -679,6 +657,7 @@ ref; // ME_4804BC2401C2_ME_48C7E98600AB DoDraw
  ;
  : Implementor ME_48C7E98600AB // TevTableRowPainter
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4804BC800172_ME_48C7E98600AB InitBottom
 
 : ME_481D6CB00337_ME_48C7E98600AB
@@ -688,6 +667,7 @@ ref; // ME_4804BC800172_ME_48C7E98600AB InitBottom
  ;
  : Implementor ME_48C7E98600AB // TevTableRowPainter
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_481D6CB00337_ME_48C7E98600AB ChildInSelection
 
 : ME_49D30810030E_ME_48C7E98600AB
@@ -697,6 +677,7 @@ ref; // ME_481D6CB00337_ME_48C7E98600AB ChildInSelection
  ;
  : Implementor ME_48C7E98600AB // TevTableRowPainter
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_49D30810030E_ME_48C7E98600AB CheckChild
 
 : ME_4C4570AE0113_ME_48C7E98600AB
@@ -706,6 +687,7 @@ ref; // ME_49D30810030E_ME_48C7E98600AB CheckChild
  ;
  : Implementor ME_48C7E98600AB // TevTableRowPainter
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4C4570AE0113_ME_48C7E98600AB InitInnerBottom
 
 : ME_4C77512E00AD_ME_48C7E98600AB
@@ -715,6 +697,7 @@ ref; // ME_4C4570AE0113_ME_48C7E98600AB InitInnerBottom
  ;
  : Implementor ME_48C7E98600AB // TevTableRowPainter
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4C77512E00AD_ME_48C7E98600AB GetTableRowPainter
 
 : ME_4CAF3D530327_ME_48C7E98600AB
@@ -724,6 +707,7 @@ ref; // ME_4C77512E00AD_ME_48C7E98600AB GetTableRowPainter
  ;
  : Implementor ME_48C7E98600AB // TevTableRowPainter
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4CAF3D530327_ME_48C7E98600AB NeedsHackK235870994
 
 : ME_4CB4024B010A_ME_48C7E98600AB
@@ -733,6 +717,7 @@ ref; // ME_4CAF3D530327_ME_48C7E98600AB NeedsHackK235870994
  ;
  : Implementor ME_48C7E98600AB // TevTableRowPainter
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4CB4024B010A_ME_48C7E98600AB NeedPrintingChild
 
 : ME_4FD97F890377_ME_48C7E98600AB
@@ -742,6 +727,7 @@ ref; // ME_4CB4024B010A_ME_48C7E98600AB NeedPrintingChild
  ;
  : Implementor ME_48C7E98600AB // TevTableRowPainter
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4FD97F890377_ME_48C7E98600AB CheckNeedLaterFilling
 
 : ME_48C7E98600AB
@@ -756,32 +742,31 @@ ref; // ME_4FD97F890377_ME_48C7E98600AB CheckNeedLaterFilling
  : Parent ME_49DCC860038B // ParaList Painters
  ;
  : Inherits
-   @ ( ME_49DB5FEF01D8 // TevParaListPainter
- ) .SequenceCode.It
+   Seq: ( ME_49DB5FEF01D8 // TevParaListPainter
+ )
  ; // Inherits
  : Implements
-   @ ( WL 'ME_4C774E380004' '49D2080D020C.pas.ms.script' // IevTableRowPainter
- ) .SequenceCode.It
+   Seq: ( WL 'ME_4C774E380004' '49D2080D020C.pas.ms.script' // IevTableRowPainter
+ )
  ; // Implements
  : Attributes
-   @ ( ME_50A234810143 // f_DrawView
- ) .SequenceCode.It
+   Seq: ( ME_50A234810143 // f_DrawView
+ )
  ; // Attributes
  : Operations
-   @ ( ME_4B3B2F3C01B2 // CheckHeight
+   Seq: ( ME_4B3B2F3C01B2 // CheckHeight
  ME_508FA94102B2 // GetRowPoint
- ME_50D3F47002CA // CorrectRowHeightByTopSpace
- ) .SequenceCode.It
+ )
  ; // Operations
  : Implemented
-   @ ( ME_4C774E7D01CD_ME_48C7E98600AB // CheckChildren
+   Seq: ( ME_4C774E7D01CD_ME_48C7E98600AB // CheckChildren
  ME_4D9AF0D00093_ME_48C7E98600AB // CorrectTopDelta
  ME_4D9AFB1202F9_ME_48C7E98600AB // IsTopAnchorAtStart
  ME_50A2210D0105_ME_48C7E98600AB // GetTopAnchor4Row
- ) .SequenceCode.It
+ )
  ; // Implemented
  : Overridden
-   @ ( ME_479731C50290_ME_48C7E98600AB // Cleanup
+   Seq: ( ME_479731C50290_ME_48C7E98600AB // Cleanup
  ME_4804B86403BE_ME_48C7E98600AB // DoFillSelection
  ME_4804B8890228_ME_48C7E98600AB // CheckAlignment
  ME_4804B9BB0383_ME_48C7E98600AB // GetFramePartPrim
@@ -794,10 +779,10 @@ ref; // ME_4FD97F890377_ME_48C7E98600AB CheckNeedLaterFilling
  ME_4CAF3D530327_ME_48C7E98600AB // NeedsHackK235870994
  ME_4CB4024B010A_ME_48C7E98600AB // NeedPrintingChild
  ME_4FD97F890377_ME_48C7E98600AB // CheckNeedLaterFilling
- ) .SequenceCode.It
+ )
  ; // Overridden
  : Dependencies
-   @ ( ME_48C7EBB30324 // 
+   Seq: ( ME_48C7EBB30324 // 
  ME_48C7ED0D0248 // 
  ME_48DC9DC10193 // 
  ME_48DC9EBB00A1 // 
@@ -814,7 +799,7 @@ ref; // ME_4FD97F890377_ME_48C7E98600AB CheckNeedLaterFilling
  ME_4FD99FD603C1 // 
  ME_5033725E03B1 // 
  ME_53D675E8030C // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  CONST "author" 'Люлин А.В.'
  CONST "needs InstanceR" 'undefined'
@@ -822,12 +807,14 @@ ref; // ME_4FD97F890377_ME_48C7E98600AB CheckNeedLaterFilling
  CONST "no hands" true
  CONST "register in scripts" 'undefined'
  CONST "started" '06.06.2007 11:44'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest'
  CONST intf.pas:Path 'common\components\gui\Garant\Everest\evTableRowPainter.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'TableRowPainter'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'evTableRowPainter'
 
 ref; // ME_48C7E98600AB TevTableRowPainter
 
@@ -874,8 +861,8 @@ ref; // ME_52B3CE61004B DoIt
  : Parent ME_481D6D3F003F // TevTableCellPainter
  ;
  : Operations
-   @ ( ME_52B3CE61004B // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_52B3CE61004B // DoIt
+ )
  ; // Operations
 
 ref; // ME_52B3CE5501D4 GetTablePainter
@@ -977,6 +964,7 @@ ref; // ME_53D2442501A7
  ;
  : Implementor ME_481D6D3F003F // TevTableCellPainter
  ;
+ CONST OpKind opkind_Overridden
  CONST "needs field" false
  CONST "pm" true
 ref; // ME_4804AA7A003A_ME_481D6D3F003F VerticalAlignmentMargin
@@ -988,6 +976,7 @@ ref; // ME_4804AA7A003A_ME_481D6D3F003F VerticalAlignmentMargin
  ;
  : Implementor ME_481D6D3F003F // TevTableCellPainter
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4804B86403BE_ME_481D6D3F003F DoFillSelection
 
 : ME_4804B9BB0383_ME_481D6D3F003F
@@ -997,6 +986,7 @@ ref; // ME_4804B86403BE_ME_481D6D3F003F DoFillSelection
  ;
  : Implementor ME_481D6D3F003F // TevTableCellPainter
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4804B9BB0383_ME_481D6D3F003F GetFramePartPrim
 
 : ME_4804BC2401C2_ME_481D6D3F003F
@@ -1006,6 +996,7 @@ ref; // ME_4804B9BB0383_ME_481D6D3F003F GetFramePartPrim
  ;
  : Implementor ME_481D6D3F003F // TevTableCellPainter
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4804BC2401C2_ME_481D6D3F003F DoDraw
 
 : ME_4804BC800172_ME_481D6D3F003F
@@ -1015,6 +1006,7 @@ ref; // ME_4804BC2401C2_ME_481D6D3F003F DoDraw
  ;
  : Implementor ME_481D6D3F003F // TevTableCellPainter
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4804BC800172_ME_481D6D3F003F InitBottom
 
 : ME_481D6C56033A_ME_481D6D3F003F
@@ -1024,6 +1016,7 @@ ref; // ME_4804BC800172_ME_481D6D3F003F InitBottom
  ;
  : Implementor ME_481D6D3F003F // TevTableCellPainter
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_481D6C56033A_ME_481D6D3F003F BeforeDrawChild
 
 : ME_481D6CFA0047_ME_481D6D3F003F
@@ -1033,6 +1026,7 @@ ref; // ME_481D6C56033A_ME_481D6D3F003F BeforeDrawChild
  ;
  : Implementor ME_481D6D3F003F // TevTableCellPainter
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_481D6CFA0047_ME_481D6D3F003F CheckCompleate
 
 : ME_49182FE60081_ME_481D6D3F003F
@@ -1042,6 +1036,7 @@ ref; // ME_481D6CFA0047_ME_481D6D3F003F CheckCompleate
  ;
  : Implementor ME_481D6D3F003F // TevTableCellPainter
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_49182FE60081_ME_481D6D3F003F DoDrawFramePrim
 
 : ME_4BC5CECF025B_ME_481D6D3F003F
@@ -1051,6 +1046,7 @@ ref; // ME_49182FE60081_ME_481D6D3F003F DoDrawFramePrim
  ;
  : Implementor ME_481D6D3F003F // TevTableCellPainter
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4BC5CECF025B_ME_481D6D3F003F UseSelRange
 
 : ME_4CAF3D530327_ME_481D6D3F003F
@@ -1060,6 +1056,7 @@ ref; // ME_4BC5CECF025B_ME_481D6D3F003F UseSelRange
  ;
  : Implementor ME_481D6D3F003F // TevTableCellPainter
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4CAF3D530327_ME_481D6D3F003F NeedsHackK235870994
 
 : ME_4D9AF3680146_ME_481D6D3F003F
@@ -1069,6 +1066,7 @@ ref; // ME_4CAF3D530327_ME_481D6D3F003F NeedsHackK235870994
  ;
  : Implementor ME_481D6D3F003F // TevTableCellPainter
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4D9AF3680146_ME_481D6D3F003F IsTopAnchorAtStart
 
 : ME_481D6D3F003F
@@ -1083,19 +1081,19 @@ ref; // ME_4D9AF3680146_ME_481D6D3F003F IsTopAnchorAtStart
  : Parent ME_49DCC860038B // ParaList Painters
  ;
  : Inherits
-   @ ( WL 'ME_481D6C300084' '49DCBC09029B.pas.ms.script' // evParaListPainter
- ) .SequenceCode.It
+   Seq: ( WL 'ME_481D6C300084' '49DCBC09029B.pas.ms.script' // evParaListPainter
+ )
  ; // Inherits
  : Attributes
-   @ ( ME_49DB60B30278 // X
- ) .SequenceCode.It
+   Seq: ( ME_49DB60B30278 // X
+ )
  ; // Attributes
  : Operations
-   @ ( ME_52B3CE5501D4 // GetTablePainter
- ) .SequenceCode.It
+   Seq: ( ME_52B3CE5501D4 // GetTablePainter
+ )
  ; // Operations
  : Overridden
-   @ ( ME_4804AA7A003A_ME_481D6D3F003F // VerticalAlignmentMargin
+   Seq: ( ME_4804AA7A003A_ME_481D6D3F003F // VerticalAlignmentMargin
  ME_4804B86403BE_ME_481D6D3F003F // DoFillSelection
  ME_4804B9BB0383_ME_481D6D3F003F // GetFramePartPrim
  ME_4804BC2401C2_ME_481D6D3F003F // DoDraw
@@ -1106,10 +1104,10 @@ ref; // ME_4D9AF3680146_ME_481D6D3F003F IsTopAnchorAtStart
  ME_4BC5CECF025B_ME_481D6D3F003F // UseSelRange
  ME_4CAF3D530327_ME_481D6D3F003F // NeedsHackK235870994
  ME_4D9AF3680146_ME_481D6D3F003F // IsTopAnchorAtStart
- ) .SequenceCode.It
+ )
  ; // Overridden
  : Dependencies
-   @ ( ME_481D6F36022C // 
+   Seq: ( ME_481D6F36022C // 
  ME_481D6F980067 // 
  ME_481D6FA100CD // 
  ME_48C907B502BC // 
@@ -1117,7 +1115,7 @@ ref; // ME_4D9AF3680146_ME_481D6D3F003F IsTopAnchorAtStart
  ME_49D0B5930204 // 
  ME_4DD67B1F037F // 
  ME_53D2442501A7 // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  CONST "author" 'Люлин А.В.'
  CONST "needs InstanceR" 'undefined'
@@ -1125,12 +1123,14 @@ ref; // ME_4D9AF3680146_ME_481D6D3F003F IsTopAnchorAtStart
  CONST "no hands" true
  CONST "register in scripts" 'undefined'
  CONST "started" '06.06.2007 11:44'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest'
  CONST intf.pas:Path 'common\components\gui\Garant\Everest\evTableCellPainter.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'TableCellPainter'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'evTableCellPainter'
 
 ref; // ME_481D6D3F003F TevTableCellPainter
 
@@ -1167,6 +1167,7 @@ ref; // ME_53D0D11800CC
  ;
  : Implementor ME_49DA43AA01B9 // TevSBSCellPainter
  ;
+ CONST OpKind opkind_Overridden
  CONST "needs field" false
  CONST "pm" true
 ref; // ME_4804A83F030B_ME_49DA43AA01B9 InvisibleFrameColor
@@ -1178,6 +1179,7 @@ ref; // ME_4804A83F030B_ME_49DA43AA01B9 InvisibleFrameColor
  ;
  : Implementor ME_49DA43AA01B9 // TevSBSCellPainter
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4CAF3D530327_ME_49DA43AA01B9 NeedsHackK235870994
 
 : ME_49DA43AA01B9
@@ -1192,18 +1194,18 @@ ref; // ME_4CAF3D530327_ME_49DA43AA01B9 NeedsHackK235870994
  : Parent ME_49DCC860038B // ParaList Painters
  ;
  : Inherits
-   @ ( ME_481D6D3F003F // TevTableCellPainter
- ) .SequenceCode.It
+   Seq: ( ME_481D6D3F003F // TevTableCellPainter
+ )
  ; // Inherits
  : Overridden
-   @ ( ME_4804A83F030B_ME_49DA43AA01B9 // InvisibleFrameColor
+   Seq: ( ME_4804A83F030B_ME_49DA43AA01B9 // InvisibleFrameColor
  ME_4CAF3D530327_ME_49DA43AA01B9 // NeedsHackK235870994
- ) .SequenceCode.It
+ )
  ; // Overridden
  : Dependencies
-   @ ( ME_4DD67B33029F // 
+   Seq: ( ME_4DD67B33029F // 
  ME_53D0D11800CC // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  CONST "author" 'Люлин А.В.'
  CONST "needs InstanceR" 'undefined'
@@ -1211,12 +1213,14 @@ ref; // ME_4CAF3D530327_ME_49DA43AA01B9 NeedsHackK235870994
  CONST "no hands" true
  CONST "register in scripts" 'undefined'
  CONST "started" '30.01.2006 15:22'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest'
  CONST intf.pas:Path 'common\components\gui\Garant\Everest\evSBSCellPainter.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'SBSCellPainter'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'evSBSCellPainter'
 
 ref; // ME_49DA43AA01B9 TevSBSCellPainter
 
@@ -1237,6 +1241,7 @@ FORWARD ME_4EB9310D007D
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value 1
 
 ref; // ME_4EB931610087 cPlusFrameWidth
 
@@ -1253,6 +1258,7 @@ ref; // ME_4EB931610087 cPlusFrameWidth
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value 10
 
 ref; // ME_4EB931830150 cPlusSize
 
@@ -1269,6 +1275,7 @@ ref; // ME_4EB931830150 cPlusSize
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value 5
 
 ref; // ME_4EB93198007D cHalfPlusSize
 
@@ -1286,6 +1293,7 @@ ref; // ME_4EB93198007D cHalfPlusSize
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value 'cHalfPlusSize + cPlusFrameWidth'
 
 ref; // ME_4EB931AC00A2 cDeltaPlus
 
@@ -1303,6 +1311,7 @@ ref; // ME_4EB931AC00A2 cDeltaPlus
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value 'cPlusSize + cPlusFrameWidth'
 
 ref; // ME_4EB931D801F7 cDeltaText
 
@@ -1318,14 +1327,18 @@ ref; // ME_4EB931D801F7 cDeltaText
  : Parent ME_49DB1B70013F // TevDocumentPartPainter
  ;
  : Attributes
-   @ ( ME_4EB931610087 // cPlusFrameWidth
+   Seq: ( ME_4EB931610087 // cPlusFrameWidth
  ME_4EB931830150 // cPlusSize
  ME_4EB93198007D // cHalfPlusSize
  ME_4EB931AC00A2 // cDeltaPlus
  ME_4EB931D801F7 // cDeltaText
- ) .SequenceCode.It
+ )
  ; // Attributes
  CONST "spell names" false
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_4EB9310D007D PlusPictureConsts
 
@@ -1353,8 +1366,8 @@ ref; // ME_4EB92D680190 DoIt
  : Parent ME_49DB1B70013F // TevDocumentPartPainter
  ;
  : Operations
-   @ ( ME_4EB92D680190 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_4EB92D680190 // DoIt
+ )
  ; // Operations
 
 ref; // ME_4EB92D5A0249 CorrectFrameBounds
@@ -1382,8 +1395,8 @@ ref; // ME_4EB92E2E0126 aDrawText
  : Target WL 'ME_4727456300E7' '472745450206.pas.ms.script' // Tl3Point
  ;
  : Parameters
-   @ ( ME_4EB92E2E0126 // aDrawText
- ) .SequenceCode.It
+   Seq: ( ME_4EB92E2E0126 // aDrawText
+ )
  ; // Parameters
 
 ref; // ME_4EB92E1403E5 DoIt
@@ -1399,8 +1412,8 @@ ref; // ME_4EB92E1403E5 DoIt
  : Parent ME_49DB1B70013F // TevDocumentPartPainter
  ;
  : Operations
-   @ ( ME_4EB92E1403E5 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_4EB92E1403E5 // DoIt
+ )
  ; // Operations
 
 ref; // ME_4EB92D990307 DoWithFrameName
@@ -1431,8 +1444,8 @@ ref; // ME_55150DD1025F DoIt
  : Parent ME_49DB1B70013F // TevDocumentPartPainter
  ;
  : Operations
-   @ ( ME_55150DD1025F // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_55150DD1025F // DoIt
+ )
  ; // Operations
 
 ref; // ME_55150D6300DE FirstParaAsHeader
@@ -1461,8 +1474,8 @@ ref; // ME_561792BB00F1 DoIt
  : Parent ME_49DB1B70013F // TevDocumentPartPainter
  ;
  : Operations
-   @ ( ME_561792BB00F1 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_561792BB00F1 // DoIt
+ )
  ; // Operations
 
 ref; // ME_5617929E0312 CheckColor4ExpandedText
@@ -1733,6 +1746,7 @@ ref; // ME_5617927F00A5
  ;
  : Implementor ME_49DB1B70013F // TevDocumentPartPainter
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_5062C0650076_ME_49DB1B70013F NeedCalcSpace
 
 : ME_51FF6BC10266_ME_49DB1B70013F
@@ -1742,6 +1756,7 @@ ref; // ME_5062C0650076_ME_49DB1B70013F NeedCalcSpace
  ;
  : Implementor ME_49DB1B70013F // TevDocumentPartPainter
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_51FF6BC10266_ME_49DB1B70013F HeaderOwnSpace
 
 : ME_5208B63400C1_ME_49DB1B70013F
@@ -1751,6 +1766,7 @@ ref; // ME_51FF6BC10266_ME_49DB1B70013F HeaderOwnSpace
  ;
  : Implementor ME_49DB1B70013F // TevDocumentPartPainter
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_5208B63400C1_ME_49DB1B70013F GetSpaceTop
 
 : ME_4804B5FC02A3_ME_49DB1B70013F
@@ -1760,6 +1776,7 @@ ref; // ME_5208B63400C1_ME_49DB1B70013F GetSpaceTop
  ;
  : Implementor ME_49DB1B70013F // TevDocumentPartPainter
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4804B5FC02A3_ME_49DB1B70013F DoInitAlignObjects
 
 : ME_4804B76803D5_ME_49DB1B70013F
@@ -1769,6 +1786,7 @@ ref; // ME_4804B5FC02A3_ME_49DB1B70013F DoInitAlignObjects
  ;
  : Implementor ME_49DB1B70013F // TevDocumentPartPainter
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4804B76803D5_ME_49DB1B70013F DrawFrame
 
 : ME_4804B78B0397_ME_49DB1B70013F
@@ -1778,6 +1796,7 @@ ref; // ME_4804B76803D5_ME_49DB1B70013F DrawFrame
  ;
  : Implementor ME_49DB1B70013F // TevDocumentPartPainter
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4804B78B0397_ME_49DB1B70013F InfiniteFrame
 
 : ME_4804B9BB0383_ME_49DB1B70013F
@@ -1787,6 +1806,7 @@ ref; // ME_4804B78B0397_ME_49DB1B70013F InfiniteFrame
  ;
  : Implementor ME_49DB1B70013F // TevDocumentPartPainter
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4804B9BB0383_ME_49DB1B70013F GetFramePartPrim
 
 : ME_4804C35B00B2_ME_49DB1B70013F
@@ -1796,6 +1816,7 @@ ref; // ME_4804B9BB0383_ME_49DB1B70013F GetFramePartPrim
  ;
  : Implementor ME_49DB1B70013F // TevDocumentPartPainter
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4804C35B00B2_ME_49DB1B70013F DoDrawFrameText
 
 : ME_481D6C56033A_ME_49DB1B70013F
@@ -1805,6 +1826,7 @@ ref; // ME_4804C35B00B2_ME_49DB1B70013F DoDrawFrameText
  ;
  : Implementor ME_49DB1B70013F // TevDocumentPartPainter
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_481D6C56033A_ME_49DB1B70013F BeforeDrawChild
 
 : ME_4E2702FE01EA_ME_49DB1B70013F
@@ -1814,6 +1836,7 @@ ref; // ME_481D6C56033A_ME_49DB1B70013F BeforeDrawChild
  ;
  : Implementor ME_49DB1B70013F // TevDocumentPartPainter
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4E2702FE01EA_ME_49DB1B70013F FillUnfilled
 
 : ME_5062C3470289_ME_49DB1B70013F
@@ -1823,6 +1846,7 @@ ref; // ME_4E2702FE01EA_ME_49DB1B70013F FillUnfilled
  ;
  : Implementor ME_49DB1B70013F // TevDocumentPartPainter
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_5062C3470289_ME_49DB1B70013F CorrectByTextHeight
 
 : ME_49DB1B70013F
@@ -1837,27 +1861,27 @@ ref; // ME_5062C3470289_ME_49DB1B70013F CorrectByTextHeight
  : Parent ME_49DCC860038B // ParaList Painters
  ;
  : Inherits
-   @ ( ME_49DB5FEF01D8 // TevParaListPainter
+   Seq: ( ME_49DB5FEF01D8 // TevParaListPainter
  WL 'ME_5062BFDB025E' '49DCBC09029B.pas.ms.script' // AACSpaceDrawing
- ) .SequenceCode.It
+ )
  ; // Inherits
  : Operations
-   @ ( ME_4EB92D5A0249 // CorrectFrameBounds
+   Seq: ( ME_4EB92D5A0249 // CorrectFrameBounds
  ME_4EB92D990307 // DoWithFrameName
  ME_55150D6300DE // FirstParaAsHeader
  ME_5617929E0312 // CheckColor4ExpandedText
  ME_49DB1B9E0191 // DrawFrameName
  ME_49DB1BF30312 // NeedDrawPlus
- ) .SequenceCode.It
+ )
  ; // Operations
  : Implemented
-   @ ( ME_5062C0650076_ME_49DB1B70013F // NeedCalcSpace
+   Seq: ( ME_5062C0650076_ME_49DB1B70013F // NeedCalcSpace
  ME_51FF6BC10266_ME_49DB1B70013F // HeaderOwnSpace
  ME_5208B63400C1_ME_49DB1B70013F // GetSpaceTop
- ) .SequenceCode.It
+ )
  ; // Implemented
  : Overridden
-   @ ( ME_4804B5FC02A3_ME_49DB1B70013F // DoInitAlignObjects
+   Seq: ( ME_4804B5FC02A3_ME_49DB1B70013F // DoInitAlignObjects
  ME_4804B76803D5_ME_49DB1B70013F // DrawFrame
  ME_4804B78B0397_ME_49DB1B70013F // InfiniteFrame
  ME_4804B9BB0383_ME_49DB1B70013F // GetFramePartPrim
@@ -1865,14 +1889,14 @@ ref; // ME_5062C3470289_ME_49DB1B70013F CorrectByTextHeight
  ME_481D6C56033A_ME_49DB1B70013F // BeforeDrawChild
  ME_4E2702FE01EA_ME_49DB1B70013F // FillUnfilled
  ME_5062C3470289_ME_49DB1B70013F // CorrectByTextHeight
- ) .SequenceCode.It
+ )
  ; // Overridden
  : Constants
-   @ ( ME_4EB9310D007D // PlusPictureConsts
- ) .SequenceCode.It
+   Seq: ( ME_4EB9310D007D // PlusPictureConsts
+ )
  ; // Constants
  : Dependencies
-   @ ( ME_49DB1D6600D6 // 
+   Seq: ( ME_49DB1D6600D6 // 
  ME_49DB1D8B02A0 // 
  ME_49DB1DA501BC // 
  ME_49DB1DB50214 // 
@@ -1893,7 +1917,7 @@ ref; // ME_5062C3470289_ME_49DB1B70013F CorrectByTextHeight
  ME_54B4ED3601F5 // 
  ME_551512CD02D4 // 
  ME_5617927F00A5 // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  CONST "author" 'Люлин А.В.'
  CONST "needs InstanceR" 'undefined'
@@ -1901,12 +1925,14 @@ ref; // ME_5062C3470289_ME_49DB1B70013F CorrectByTextHeight
  CONST "no hands" true
  CONST "register in scripts" 'undefined'
  CONST "started" '15.12.96 01:55'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest'
  CONST intf.pas:Path 'common\components\gui\Garant\Everest\evDocumentPartPainter.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'DocumentPartPainter'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'evDocumentPartPainter'
 
 ref; // ME_49DB1B70013F TevDocumentPartPainter
 
@@ -2053,6 +2079,7 @@ ref; // ME_53D247C80021
  ;
  : Implementor ME_49DB2E390053 // TevCommentParaPainter
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4804B78B0397_ME_49DB2E390053 InfiniteFrame
 
 : ME_4804B9BB0383_ME_49DB2E390053
@@ -2062,6 +2089,7 @@ ref; // ME_4804B78B0397_ME_49DB2E390053 InfiniteFrame
  ;
  : Implementor ME_49DB2E390053 // TevCommentParaPainter
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4804B9BB0383_ME_49DB2E390053 GetFramePartPrim
 
 : ME_4804C35B00B2_ME_49DB2E390053
@@ -2071,6 +2099,7 @@ ref; // ME_4804B9BB0383_ME_49DB2E390053 GetFramePartPrim
  ;
  : Implementor ME_49DB2E390053 // TevCommentParaPainter
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4804C35B00B2_ME_49DB2E390053 DoDrawFrameText
 
 : ME_49DB1B9E0191_ME_49DB2E390053
@@ -2080,6 +2109,7 @@ ref; // ME_4804C35B00B2_ME_49DB2E390053 DoDrawFrameText
  ;
  : Implementor ME_49DB2E390053 // TevCommentParaPainter
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_49DB1B9E0191_ME_49DB2E390053 DrawFrameName
 
 : ME_49DB1BF30312_ME_49DB2E390053
@@ -2089,6 +2119,7 @@ ref; // ME_49DB1B9E0191_ME_49DB2E390053 DrawFrameName
  ;
  : Implementor ME_49DB2E390053 // TevCommentParaPainter
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_49DB1BF30312_ME_49DB2E390053 NeedDrawPlus
 
 : ME_49DB2E390053
@@ -2103,19 +2134,19 @@ ref; // ME_49DB1BF30312_ME_49DB2E390053 NeedDrawPlus
  : Parent ME_49DCC860038B // ParaList Painters
  ;
  : Inherits
-   @ ( ME_49DB1B70013F // TevDocumentPartPainter
- ) .SequenceCode.It
+   Seq: ( ME_49DB1B70013F // TevDocumentPartPainter
+ )
  ; // Inherits
  : Overridden
-   @ ( ME_4804B78B0397_ME_49DB2E390053 // InfiniteFrame
+   Seq: ( ME_4804B78B0397_ME_49DB2E390053 // InfiniteFrame
  ME_4804B9BB0383_ME_49DB2E390053 // GetFramePartPrim
  ME_4804C35B00B2_ME_49DB2E390053 // DoDrawFrameText
  ME_49DB1B9E0191_ME_49DB2E390053 // DrawFrameName
  ME_49DB1BF30312_ME_49DB2E390053 // NeedDrawPlus
- ) .SequenceCode.It
+ )
  ; // Overridden
  : Dependencies
-   @ ( ME_49DB300A016F // 
+   Seq: ( ME_49DB300A016F // 
  ME_49DB302401AE // 
  ME_49DB30360095 // 
  ME_49DB30400136 // 
@@ -2127,7 +2158,7 @@ ref; // ME_49DB1BF30312_ME_49DB2E390053 NeedDrawPlus
  ME_49DB406002DB // 
  ME_4DD67AD7018C // 
  ME_53D247C80021 // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  CONST "author" 'Люлин А.В.'
  CONST "needs InstanceR" 'undefined'
@@ -2135,12 +2166,14 @@ ref; // ME_49DB1BF30312_ME_49DB2E390053 NeedDrawPlus
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
  CONST "started" '10.11.2004 19:56'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest'
  CONST intf.pas:Path 'common\components\gui\Garant\Everest\evCommentParaPainter.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'CommentParaPainter'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'evCommentParaPainter'
 
 ref; // ME_49DB2E390053 TevCommentParaPainter
 
@@ -2419,6 +2452,7 @@ ref; // ME_53D6367E008F
  ;
  : Implementor ME_49DB469F01B8 // TevControlsBlockPainter
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4804B78B0397_ME_49DB469F01B8 InfiniteFrame
 
 : ME_4804B9BB0383_ME_49DB469F01B8
@@ -2428,6 +2462,7 @@ ref; // ME_4804B78B0397_ME_49DB469F01B8 InfiniteFrame
  ;
  : Implementor ME_49DB469F01B8 // TevControlsBlockPainter
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4804B9BB0383_ME_49DB469F01B8 GetFramePartPrim
 
 : ME_4804C35B00B2_ME_49DB469F01B8
@@ -2437,6 +2472,7 @@ ref; // ME_4804B9BB0383_ME_49DB469F01B8 GetFramePartPrim
  ;
  : Implementor ME_49DB469F01B8 // TevControlsBlockPainter
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4804C35B00B2_ME_49DB469F01B8 DoDrawFrameText
 
 : ME_481D6CCF016D_ME_49DB469F01B8
@@ -2446,6 +2482,7 @@ ref; // ME_4804C35B00B2_ME_49DB469F01B8 DoDrawFrameText
  ;
  : Implementor ME_49DB469F01B8 // TevControlsBlockPainter
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_481D6CCF016D_ME_49DB469F01B8 NeedCheckTopAnchor
 
 : ME_49DB1B9E0191_ME_49DB469F01B8
@@ -2455,6 +2492,7 @@ ref; // ME_481D6CCF016D_ME_49DB469F01B8 NeedCheckTopAnchor
  ;
  : Implementor ME_49DB469F01B8 // TevControlsBlockPainter
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_49DB1B9E0191_ME_49DB469F01B8 DrawFrameName
 
 : ME_4D9AF3680146_ME_49DB469F01B8
@@ -2464,6 +2502,7 @@ ref; // ME_49DB1B9E0191_ME_49DB469F01B8 DrawFrameName
  ;
  : Implementor ME_49DB469F01B8 // TevControlsBlockPainter
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4D9AF3680146_ME_49DB469F01B8 IsTopAnchorAtStart
 
 : ME_49DB469F01B8
@@ -2478,20 +2517,24 @@ ref; // ME_4D9AF3680146_ME_49DB469F01B8 IsTopAnchorAtStart
  : Parent ME_49DCC860038B // ParaList Painters
  ;
  : Inherits
-   @ ( ME_49DB1B70013F // TevDocumentPartPainter
- ) .SequenceCode.It
+   Seq: ( ME_49DB1B70013F // TevDocumentPartPainter
+ )
  ; // Inherits
+ : Implements
+   Seq: ( WL 'ME_4E85C86300AC' '4E5CF70B01E2.pas.ms.script' // Если не задан тег ShortName то не надо рисовать заголовок группы контролов
+ )
+ ; // Implements
  : Overridden
-   @ ( ME_4804B78B0397_ME_49DB469F01B8 // InfiniteFrame
+   Seq: ( ME_4804B78B0397_ME_49DB469F01B8 // InfiniteFrame
  ME_4804B9BB0383_ME_49DB469F01B8 // GetFramePartPrim
  ME_4804C35B00B2_ME_49DB469F01B8 // DoDrawFrameText
  ME_481D6CCF016D_ME_49DB469F01B8 // NeedCheckTopAnchor
  ME_49DB1B9E0191_ME_49DB469F01B8 // DrawFrameName
  ME_4D9AF3680146_ME_49DB469F01B8 // IsTopAnchorAtStart
- ) .SequenceCode.It
+ )
  ; // Overridden
  : Dependencies
-   @ ( ME_49DB48C000CD // 
+   Seq: ( ME_49DB48C000CD // 
  ME_49DB48CF0004 // 
  ME_49DB48D90066 // 
  ME_49DB48EF017C // 
@@ -2515,18 +2558,20 @@ ref; // ME_4D9AF3680146_ME_49DB469F01B8 IsTopAnchorAtStart
  ME_4ED4DDE00036 // 
  ME_4ED4DE09012A // 
  ME_53D6367E008F // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" true
  CONST "register in scripts" 'undefined'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest'
  CONST intf.pas:Path 'common\components\gui\Garant\Everest\evControlsBlockPainter.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'ControlsBlockPainter'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'evControlsBlockPainter'
 
 ref; // ME_49DB469F01B8 TevControlsBlockPainter
 
@@ -2601,12 +2646,16 @@ ref; // ME_49DCB3DE0296 rWindowOrg
  : Parent ME_48C911C702A4 // TevSelectedParts
  ;
  : Attributes
-   @ ( ME_48C914380253 // rRowIndex
+   Seq: ( ME_48C914380253 // rRowIndex
  ME_48C9144101BB // rWidth
  ME_4FD8731A039E // rSelection
  ME_49DCB3DE0296 // rWindowOrg
- ) .SequenceCode.It
+ )
  ; // Attributes
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_48C91428029E TevSelectedPart
 
@@ -2632,6 +2681,7 @@ ref; // ME_48C9181101C3 ItemType
  ;
  : Implementor ME_48C911C702A4 // TevSelectedParts
  ;
+ CONST OpKind opkind_Implemented
  CONST "ifndef" 'l3Items_IsAtomic'
 ref; // ME_47B07CF403D0_ME_48C911C702A4 IsSameItems
 
@@ -2642,6 +2692,7 @@ ref; // ME_47B07CF403D0_ME_48C911C702A4 IsSameItems
  ;
  : Implementor ME_48C911C702A4 // TevSelectedParts
  ;
+ CONST OpKind opkind_Implemented
  CONST "ifdef" 'l3Items_NeedsAssignItem'
  CONST "ifndef" 'l3Items_NoSort'
 ref; // ME_47B2C42A0163_ME_48C911C702A4 AssignItem
@@ -2653,6 +2704,7 @@ ref; // ME_47B2C42A0163_ME_48C911C702A4 AssignItem
  ;
  : Implementor ME_48C911C702A4 // TevSelectedParts
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_47B99D4503A2_ME_48C911C702A4 CompareExistingItems
 
 : ME_48C911C702A4
@@ -2667,23 +2719,23 @@ ref; // ME_47B99D4503A2_ME_48C911C702A4 CompareExistingItems
  : Parent ME_49DCC860038B // ParaList Painters
  ;
  : Inherits
-   @ ( WL 'ME_4A54DD4E036F' '47913B47006E.pas.ms.script' // Tl3ProtoDataContainer
+   Seq: ( WL 'ME_4A54DD4E036F' '47913B47006E.pas.ms.script' // Tl3ProtoDataContainer
  WL 'ME_4B223ADC02BF' '47913B47006E.pas.ms.script' // l3RecordListPrim
- ) .SequenceCode.It
+ )
  ; // Inherits
  : Attributes
-   @ ( ME_48C9181101C3 // ItemType
- ) .SequenceCode.It
+   Seq: ( ME_48C9181101C3 // ItemType
+ )
  ; // Attributes
  : Implemented
-   @ ( ME_47B07CF403D0_ME_48C911C702A4 // IsSameItems
+   Seq: ( ME_47B07CF403D0_ME_48C911C702A4 // IsSameItems
  ME_47B2C42A0163_ME_48C911C702A4 // AssignItem
  ME_47B99D4503A2_ME_48C911C702A4 // CompareExistingItems
- ) .SequenceCode.It
+ )
  ; // Implemented
  : Children
-   @ ( ME_48C91428029E // TevSelectedPart
- ) .SequenceCode.It
+   Seq: ( ME_48C91428029E // TevSelectedPart
+ )
  ; // Children
  CONST "author" 'Люлин А.В.'
  CONST "needs InstanceR" 'undefined'
@@ -2691,12 +2743,14 @@ ref; // ME_47B99D4503A2_ME_48C911C702A4 CompareExistingItems
  CONST "no hands" true
  CONST "register in scripts" 'undefined'
  CONST "started" '11.09.2008 14:39'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest'
  CONST intf.pas:Path 'common\components\gui\Garant\Everest\evSelectedParts.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'SelectedParts'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'evSelectedParts'
 
 ref; // ME_48C911C702A4 TevSelectedParts
 
@@ -2825,6 +2879,7 @@ ref; // ME_4D6F3F9E0228
  ;
  : Implementor ME_48C928EE0282 // evDelayedPainters
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_47C7DE3200E4_ME_48C928EE0282 RemeberSelPart
 
 : ME_47C7DE42020F_ME_48C928EE0282
@@ -2834,6 +2889,7 @@ ref; // ME_47C7DE3200E4_ME_48C928EE0282 RemeberSelPart
  ;
  : Implementor ME_48C928EE0282 // evDelayedPainters
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_47C7DE42020F_ME_48C928EE0282 SetHeight
 
 : ME_48C928EE0282
@@ -2847,31 +2903,31 @@ ref; // ME_47C7DE42020F_ME_48C928EE0282 SetHeight
  : Parent ME_49DCC860038B // ParaList Painters
  ;
  : Implements
-   @ ( WL 'ME_47C7DE24022A' '49D2080D020C.pas.ms.script' // InevPaintersHolder
- ) .SequenceCode.It
+   Seq: ( WL 'ME_47C7DE24022A' '49D2080D020C.pas.ms.script' // InevPaintersHolder
+ )
  ; // Implements
  : Attributes
-   @ ( ME_48C9291B03C6 // f_SelectedList
+   Seq: ( ME_48C9291B03C6 // f_SelectedList
  ME_48C929410274 // f_RowHeights
- ) .SequenceCode.It
+ )
  ; // Attributes
  : Operations
-   @ ( ME_48C9294D0370 // GetRowHeights
+   Seq: ( ME_48C9294D0370 // GetRowHeights
  ME_48C929A40284 // PaintSelectionParts
  ME_4A56234C0060 // Release
  ME_4A56235D01C9 // BeforeAddToCache
- ) .SequenceCode.It
+ )
  ; // Operations
  : Implemented
-   @ ( ME_47C7DE3200E4_ME_48C928EE0282 // RemeberSelPart
+   Seq: ( ME_47C7DE3200E4_ME_48C928EE0282 // RemeberSelPart
  ME_47C7DE42020F_ME_48C928EE0282 // SetHeight
- ) .SequenceCode.It
+ )
  ; // Implemented
  : Dependencies
-   @ ( ME_48C92A90037B // 
+   Seq: ( ME_48C92A90037B // 
  ME_48C92B8F0121 // 
  ME_4D6F3F9E0228 // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  CONST "author" 'Инишев Д.А.'
  CONST "needs InstanceR" 'undefined'
@@ -2879,13 +2935,13 @@ ref; // ME_47C7DE42020F_ME_48C928EE0282 SetHeight
  CONST "no hands" true
  CONST "register in scripts" 'undefined'
  CONST "started" '06.06.2007 11:44'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest'
  CONST intf.pas:Path 'common\components\gui\Garant\Everest\evDelayedPainters.imp.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
  CONST extprop:pas:TypeName '_evDelayedPainters_'
+ CONST extprop:pas:UnitName 'evDelayedPainters.imp'
 
 ref; // ME_48C928EE0282 evDelayedPainters
 
@@ -2917,8 +2973,8 @@ ref; // ME_51B96E860363 DoIt
  : Parent ME_48C9300A02EF // TevFramedParaListPainter
  ;
  : Operations
-   @ ( ME_51B96E860363 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_51B96E860363 // DoIt
+ )
  ; // Operations
 
 ref; // ME_51B96E5A0285 GetFameObjectBehaviur
@@ -3002,6 +3058,7 @@ ref; // ME_52BD340C0308
  ;
  : Implementor ME_48C9300A02EF // TevFramedParaListPainter
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4804B5FC02A3_ME_48C9300A02EF DoInitAlignObjects
 
 : ME_4804B60E033E_ME_48C9300A02EF
@@ -3011,6 +3068,7 @@ ref; // ME_4804B5FC02A3_ME_48C9300A02EF DoInitAlignObjects
  ;
  : Implementor ME_48C9300A02EF // TevFramedParaListPainter
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4804B60E033E_ME_48C9300A02EF DoFinisAlignObjects
 
 : ME_4804B86403BE_ME_48C9300A02EF
@@ -3020,6 +3078,7 @@ ref; // ME_4804B60E033E_ME_48C9300A02EF DoFinisAlignObjects
  ;
  : Implementor ME_48C9300A02EF // TevFramedParaListPainter
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4804B86403BE_ME_48C9300A02EF DoFillSelection
 
 : ME_4804BC2401C2_ME_48C9300A02EF
@@ -3029,6 +3088,7 @@ ref; // ME_4804B86403BE_ME_48C9300A02EF DoFillSelection
  ;
  : Implementor ME_48C9300A02EF // TevFramedParaListPainter
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4804BC2401C2_ME_48C9300A02EF DoDraw
 
 : ME_49DB948303B9_ME_48C9300A02EF
@@ -3038,6 +3098,7 @@ ref; // ME_4804BC2401C2_ME_48C9300A02EF DoDraw
  ;
  : Implementor ME_48C9300A02EF // TevFramedParaListPainter
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_49DB948303B9_ME_48C9300A02EF GetPaintersHolder
 
 : ME_48C9300A02EF
@@ -3052,30 +3113,30 @@ ref; // ME_49DB948303B9_ME_48C9300A02EF GetPaintersHolder
  : Parent ME_49DCC860038B // ParaList Painters
  ;
  : Inherits
-   @ ( ME_48C928EE0282 // evDelayedPainters
+   Seq: ( ME_48C928EE0282 // evDelayedPainters
  ME_49DB5FEF01D8 // TevParaListPainter
- ) .SequenceCode.It
+ )
  ; // Inherits
  : Operations
-   @ ( ME_51B96E5A0285 // GetFameObjectBehaviur
+   Seq: ( ME_51B96E5A0285 // GetFameObjectBehaviur
  ME_48C9339E0013 // GetColorArray
  ME_4D0203AA016F // NeedLog
- ) .SequenceCode.It
+ )
  ; // Operations
  : Overridden
-   @ ( ME_4804B5FC02A3_ME_48C9300A02EF // DoInitAlignObjects
+   Seq: ( ME_4804B5FC02A3_ME_48C9300A02EF // DoInitAlignObjects
  ME_4804B60E033E_ME_48C9300A02EF // DoFinisAlignObjects
  ME_4804B86403BE_ME_48C9300A02EF // DoFillSelection
  ME_4804BC2401C2_ME_48C9300A02EF // DoDraw
  ME_49DB948303B9_ME_48C9300A02EF // GetPaintersHolder
- ) .SequenceCode.It
+ )
  ; // Overridden
  : Dependencies
-   @ ( ME_48C9335D0133 // 
+   Seq: ( ME_48C9335D0133 // 
  ME_48C934420187 // 
  ME_527A46A402F2 // 
  ME_52BD340C0308 // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  CONST "author" 'Люлин А.В.'
  CONST "needs InstanceR" 'undefined'
@@ -3083,12 +3144,14 @@ ref; // ME_49DB948303B9_ME_48C9300A02EF GetPaintersHolder
  CONST "no hands" true
  CONST "register in scripts" 'undefined'
  CONST "started" '20.02.2008 10:18'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest'
  CONST intf.pas:Path 'common\components\gui\Garant\Everest\evFramedParaListPainter.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'FramedParaListPainter'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'evFramedParaListPainter'
 
 ref; // ME_48C9300A02EF TevFramedParaListPainter
 
@@ -3196,6 +3259,7 @@ ref; // ME_53D6744000AF
  ;
  : Implementor ME_48C9377502A0 // TevTablePainter
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_49CB6BE30032_ME_48C9377502A0 CheckCell
 
 : ME_49CB6C1A02DF_ME_48C9377502A0
@@ -3205,6 +3269,7 @@ ref; // ME_49CB6BE30032_ME_48C9377502A0 CheckCell
  ;
  : Implementor ME_48C9377502A0 // TevTablePainter
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_49CB6C1A02DF_ME_48C9377502A0 CalcOffset
 
 : ME_49CB6C2E02E2_ME_48C9377502A0
@@ -3214,6 +3279,7 @@ ref; // ME_49CB6C1A02DF_ME_48C9377502A0 CalcOffset
  ;
  : Implementor ME_48C9377502A0 // TevTablePainter
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_49CB6C2E02E2_ME_48C9377502A0 WasPainted
 
 : ME_4D0203AA016F_ME_48C9377502A0
@@ -3223,6 +3289,7 @@ ref; // ME_49CB6C2E02E2_ME_48C9377502A0 WasPainted
  ;
  : Implementor ME_48C9377502A0 // TevTablePainter
  ;
+ CONST OpKind opkind_Implemented
  CONST "ifdef" 'nsTest'
 ref; // ME_4D0203AA016F_ME_48C9377502A0 NeedLog
 
@@ -3233,6 +3300,7 @@ ref; // ME_4D0203AA016F_ME_48C9377502A0 NeedLog
  ;
  : Implementor ME_48C9377502A0 // TevTablePainter
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_52B2EF99032C_ME_48C9377502A0 HasOwnStyle
 
 : ME_479731C50290_ME_48C9377502A0
@@ -3242,6 +3310,7 @@ ref; // ME_52B2EF99032C_ME_48C9377502A0 HasOwnStyle
  ;
  : Implementor ME_48C9377502A0 // TevTablePainter
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_479731C50290_ME_48C9377502A0 Cleanup
 
 : ME_4804BC2401C2_ME_48C9377502A0
@@ -3251,6 +3320,7 @@ ref; // ME_479731C50290_ME_48C9377502A0 Cleanup
  ;
  : Implementor ME_48C9377502A0 // TevTablePainter
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4804BC2401C2_ME_48C9377502A0 DoDraw
 
 : ME_4804BC800172_ME_48C9377502A0
@@ -3260,6 +3330,7 @@ ref; // ME_4804BC2401C2_ME_48C9377502A0 DoDraw
  ;
  : Implementor ME_48C9377502A0 // TevTablePainter
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4804BC800172_ME_48C9377502A0 InitBottom
 
 : ME_481D6C56033A_ME_48C9377502A0
@@ -3269,6 +3340,7 @@ ref; // ME_4804BC800172_ME_48C9377502A0 InitBottom
  ;
  : Implementor ME_48C9377502A0 // TevTablePainter
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_481D6C56033A_ME_48C9377502A0 BeforeDrawChild
 
 : ME_49DCA7F3011C_ME_48C9377502A0
@@ -3278,6 +3350,7 @@ ref; // ME_481D6C56033A_ME_48C9377502A0 BeforeDrawChild
  ;
  : Implementor ME_48C9377502A0 // TevTablePainter
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_49DCA7F3011C_ME_48C9377502A0 GetTablePainter
 
 : ME_4C4570AE0113_ME_48C9377502A0
@@ -3287,6 +3360,7 @@ ref; // ME_49DCA7F3011C_ME_48C9377502A0 GetTablePainter
  ;
  : Implementor ME_48C9377502A0 // TevTablePainter
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4C4570AE0113_ME_48C9377502A0 InitInnerBottom
 
 : ME_4CAF3D530327_ME_48C9377502A0
@@ -3296,6 +3370,7 @@ ref; // ME_4C4570AE0113_ME_48C9377502A0 InitInnerBottom
  ;
  : Implementor ME_48C9377502A0 // TevTablePainter
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4CAF3D530327_ME_48C9377502A0 NeedsHackK235870994
 
 : ME_4D63E3490015_ME_48C9377502A0
@@ -3305,6 +3380,7 @@ ref; // ME_4CAF3D530327_ME_48C9377502A0 NeedsHackK235870994
  ;
  : Implementor ME_48C9377502A0 // TevTablePainter
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4D63E3490015_ME_48C9377502A0 AfterDrawChild
 
 : ME_48C9377502A0
@@ -3319,31 +3395,31 @@ ref; // ME_4D63E3490015_ME_48C9377502A0 AfterDrawChild
  : Parent ME_49DCC860038B // ParaList Painters
  ;
  : Inherits
-   @ ( ME_48C9300A02EF // TevFramedParaListPainter
- ) .SequenceCode.It
+   Seq: ( ME_48C9300A02EF // TevFramedParaListPainter
+ )
  ; // Inherits
  : Implements
-   @ ( WL 'ME_49CB6B81028D' '49D2080D020C.pas.ms.script' // IevTablePainter
- ) .SequenceCode.It
+   Seq: ( WL 'ME_49CB6B81028D' '49D2080D020C.pas.ms.script' // IevTablePainter
+ )
  ; // Implements
  : Attributes
-   @ ( ME_4A562822030E // f_CellsOffsets
- ) .SequenceCode.It
+   Seq: ( ME_4A562822030E // f_CellsOffsets
+ )
  ; // Attributes
  : Operations
-   @ ( ME_49CB6F2D03C8 // CellsOffsets
- ) .SequenceCode.It
+   Seq: ( ME_49CB6F2D03C8 // CellsOffsets
+ )
  ; // Operations
  : Implemented
-   @ ( ME_49CB6BE30032_ME_48C9377502A0 // CheckCell
+   Seq: ( ME_49CB6BE30032_ME_48C9377502A0 // CheckCell
  ME_49CB6C1A02DF_ME_48C9377502A0 // CalcOffset
  ME_49CB6C2E02E2_ME_48C9377502A0 // WasPainted
  ME_4D0203AA016F_ME_48C9377502A0 // NeedLog
  ME_52B2EF99032C_ME_48C9377502A0 // HasOwnStyle
- ) .SequenceCode.It
+ )
  ; // Implemented
  : Overridden
-   @ ( ME_479731C50290_ME_48C9377502A0 // Cleanup
+   Seq: ( ME_479731C50290_ME_48C9377502A0 // Cleanup
  ME_4804BC2401C2_ME_48C9377502A0 // DoDraw
  ME_4804BC800172_ME_48C9377502A0 // InitBottom
  ME_481D6C56033A_ME_48C9377502A0 // BeforeDrawChild
@@ -3351,16 +3427,16 @@ ref; // ME_4D63E3490015_ME_48C9377502A0 AfterDrawChild
  ME_4C4570AE0113_ME_48C9377502A0 // InitInnerBottom
  ME_4CAF3D530327_ME_48C9377502A0 // NeedsHackK235870994
  ME_4D63E3490015_ME_48C9377502A0 // AfterDrawChild
- ) .SequenceCode.It
+ )
  ; // Overridden
  : Dependencies
-   @ ( ME_49CB7EA80281 // 
+   Seq: ( ME_49CB7EA80281 // 
  ME_49CB7F1E0073 // 
  ME_49CB808701F0 // 
  ME_4DD67A8D02FF // 
  ME_52B158D20205 // 
  ME_53D6744000AF // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  CONST "author" 'Люлин А.В.'
  CONST "needs InstanceR" 'undefined'
@@ -3368,12 +3444,14 @@ ref; // ME_4D63E3490015_ME_48C9377502A0 AfterDrawChild
  CONST "no hands" true
  CONST "register in scripts" 'undefined'
  CONST "started" '06.06.2007 11:44'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest'
  CONST intf.pas:Path 'common\components\gui\Garant\Everest\evTablePainter.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'TablePainter'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'evTablePainter'
 
 ref; // ME_48C9377502A0 TevTablePainter
 
@@ -3410,6 +3488,7 @@ ref; // ME_53D0D88801FF
  ;
  : Implementor ME_48C9390D0155 // TevSBSPainter
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_48C9339E0013_ME_48C9390D0155 GetColorArray
 
 : ME_4CAF3D530327_ME_48C9390D0155
@@ -3419,6 +3498,7 @@ ref; // ME_48C9339E0013_ME_48C9390D0155 GetColorArray
  ;
  : Implementor ME_48C9390D0155 // TevSBSPainter
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4CAF3D530327_ME_48C9390D0155 NeedsHackK235870994
 
 : ME_4D0203AA016F_ME_48C9390D0155
@@ -3428,6 +3508,7 @@ ref; // ME_4CAF3D530327_ME_48C9390D0155 NeedsHackK235870994
  ;
  : Implementor ME_48C9390D0155 // TevSBSPainter
  ;
+ CONST OpKind opkind_Overridden
  CONST "ifdef" 'nsTest'
 ref; // ME_4D0203AA016F_ME_48C9390D0155 NeedLog
 
@@ -3438,6 +3519,7 @@ ref; // ME_4D0203AA016F_ME_48C9390D0155 NeedLog
  ;
  : Implementor ME_48C9390D0155 // TevSBSPainter
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_51B96E5A0285_ME_48C9390D0155 GetFameObjectBehaviur
 
 : ME_48C9390D0155
@@ -3452,20 +3534,20 @@ ref; // ME_51B96E5A0285_ME_48C9390D0155 GetFameObjectBehaviur
  : Parent ME_49DCC860038B // ParaList Painters
  ;
  : Inherits
-   @ ( ME_48C9377502A0 // TevTablePainter
- ) .SequenceCode.It
+   Seq: ( ME_48C9377502A0 // TevTablePainter
+ )
  ; // Inherits
  : Overridden
-   @ ( ME_48C9339E0013_ME_48C9390D0155 // GetColorArray
+   Seq: ( ME_48C9339E0013_ME_48C9390D0155 // GetColorArray
  ME_4CAF3D530327_ME_48C9390D0155 // NeedsHackK235870994
  ME_4D0203AA016F_ME_48C9390D0155 // NeedLog
  ME_51B96E5A0285_ME_48C9390D0155 // GetFameObjectBehaviur
- ) .SequenceCode.It
+ )
  ; // Overridden
  : Dependencies
-   @ ( ME_53D0D8400038 // 
+   Seq: ( ME_53D0D8400038 // 
  ME_53D0D88801FF // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  CONST "author" 'Люлин А.В.'
  CONST "needs InstanceR" 'undefined'
@@ -3473,12 +3555,14 @@ ref; // ME_51B96E5A0285_ME_48C9390D0155 GetFameObjectBehaviur
  CONST "no hands" true
  CONST "register in scripts" 'undefined'
  CONST "started" '03.07.2001 14:48'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest'
  CONST intf.pas:Path 'common\components\gui\Garant\Everest\evSBSPainter.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'SBSPainter'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'evSBSPainter'
 
 ref; // ME_48C9390D0155 TevSBSPainter
 
@@ -3570,6 +3654,7 @@ ref; // ME_53CE5F570291
  ;
  : Implementor ME_4D63C57601A4 // TevReqGroupPainter
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4804BC2401C2_ME_4D63C57601A4 DoDraw
 
 : ME_4D63E3490015_ME_4D63C57601A4
@@ -3579,6 +3664,7 @@ ref; // ME_4804BC2401C2_ME_4D63C57601A4 DoDraw
  ;
  : Implementor ME_4D63C57601A4 // TevReqGroupPainter
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4D63E3490015_ME_4D63C57601A4 AfterDrawChild
 
 : ME_4D63C57601A4
@@ -3592,23 +3678,23 @@ ref; // ME_4D63E3490015_ME_4D63C57601A4 AfterDrawChild
  : Parent ME_49DCC860038B // ParaList Painters
  ;
  : Inherits
-   @ ( ME_48C9377502A0 // TevTablePainter
- ) .SequenceCode.It
+   Seq: ( ME_48C9377502A0 // TevTablePainter
+ )
  ; // Inherits
  : Overridden
-   @ ( ME_4804BC2401C2_ME_4D63C57601A4 // DoDraw
+   Seq: ( ME_4804BC2401C2_ME_4D63C57601A4 // DoDraw
  ME_4D63E3490015_ME_4D63C57601A4 // AfterDrawChild
- ) .SequenceCode.It
+ )
  ; // Overridden
  : Dependencies
-   @ ( ME_4D63E88B0318 // 
+   Seq: ( ME_4D63E88B0318 // 
  ME_4D63E8A00145 // 
  ME_4D63E8B40056 // 
  ME_4D63FAB5015E // 
  ME_4D66458F019A // 
  ME_53CE5F4E0122 // 
  ME_53CE5F570291 // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  CONST "author" 'Люлин А.В.'
  CONST "ifdef" 'evReqGroupNeedsRadio'
@@ -3617,12 +3703,14 @@ ref; // ME_4D63E3490015_ME_4D63C57601A4 AfterDrawChild
  CONST "no hands" true
  CONST "register in scripts" 'undefined'
  CONST "started" '22.02.2011 21:17'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest'
  CONST intf.pas:Path 'common\components\gui\Garant\Everest\evReqGroupPainter.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'ReqGroupPainter'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'evReqGroupPainter'
 
 ref; // ME_4D63C57601A4 TevReqGroupPainter
 
@@ -3660,8 +3748,8 @@ ref; // ME_4D6F66CE0320 aLogName
  : Parent ME_4D6F41500130 // IevDelayedPainterLogger
  ;
  : Parameters
-   @ ( ME_4D6F66CE0320 // aLogName
- ) .SequenceCode.It
+   Seq: ( ME_4D6F66CE0320 // aLogName
+ )
  ; // Parameters
 
 ref; // ME_4D6F669C0185 CloseSelectionLog
@@ -3678,10 +3766,16 @@ ref; // ME_4D6F669C0185 CloseSelectionLog
  : Parent ME_4D6F3F42007C // TevDelayedPaintersSpy
  ;
  : Operations
-   @ ( ME_4D6F66820158 // OpenSelectionLog
+   Seq: ( ME_4D6F66820158 // OpenSelectionLog
  ME_4D6F669C0185 // CloseSelectionLog
- ) .SequenceCode.It
+ )
  ; // Operations
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'DelayedPainterLogger'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_4D6F41500130 IevDelayedPainterLogger
 
@@ -3734,8 +3828,8 @@ ref; // ME_4D6F43B90124 aLogger
  : Parent ME_4D6F41880325 // SetLogger
  ;
  : Parameters
-   @ ( ME_4D6F43B90124 // aLogger
- ) .SequenceCode.It
+   Seq: ( ME_4D6F43B90124 // aLogger
+ )
  ; // Parameters
 
 ref; // ME_4D6F43740076 DoIt
@@ -3751,8 +3845,8 @@ ref; // ME_4D6F43740076 DoIt
  : Parent ME_4D6F3F42007C // TevDelayedPaintersSpy
  ;
  : Operations
-   @ ( ME_4D6F43740076 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_4D6F43740076 // DoIt
+ )
  ; // Operations
 
 ref; // ME_4D6F41880325 SetLogger
@@ -3778,8 +3872,8 @@ ref; // ME_4D6F43F00304 aLogger
  : Parent ME_4D6F43CA0257 // RemoveLogger
  ;
  : Parameters
-   @ ( ME_4D6F43F00304 // aLogger
- ) .SequenceCode.It
+   Seq: ( ME_4D6F43F00304 // aLogger
+ )
  ; // Parameters
 
 ref; // ME_4D6F43DA0200 DoIt
@@ -3795,8 +3889,8 @@ ref; // ME_4D6F43DA0200 DoIt
  : Parent ME_4D6F3F42007C // TevDelayedPaintersSpy
  ;
  : Operations
-   @ ( ME_4D6F43DA0200 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_4D6F43DA0200 // DoIt
+ )
  ; // Operations
 
 ref; // ME_4D6F43CA0257 RemoveLogger
@@ -3827,8 +3921,8 @@ ref; // ME_4D6F4424024D DoIt
  : Parent ME_4D6F3F42007C // TevDelayedPaintersSpy
  ;
  : Operations
-   @ ( ME_4D6F4424024D // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_4D6F4424024D // DoIt
+ )
  ; // Operations
  CONST "is static" true
 
@@ -3865,9 +3959,9 @@ ref; // ME_4D6F6CE7025C aRowHeights
  : Parent ME_4D6F4C1700DC // LogSelections
  ;
  : Parameters
-   @ ( ME_4D6F6CE7022E // aSelParts
+   Seq: ( ME_4D6F6CE7022E // aSelParts
  ME_4D6F6CE7025C // aRowHeights
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_4D6F4C3B0360 DoIt
@@ -3883,8 +3977,8 @@ ref; // ME_4D6F4C3B0360 DoIt
  : Parent ME_4D6F3F42007C // TevDelayedPaintersSpy
  ;
  : Operations
-   @ ( ME_4D6F4C3B0360 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_4D6F4C3B0360 // DoIt
+ )
  ; // Operations
 
 ref; // ME_4D6F4C1700DC LogSelections
@@ -3918,6 +4012,7 @@ ref; // ME_4D6F7AB200D9
  ;
  : Implementor ME_4D6F3F42007C // TevDelayedPaintersSpy
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_479731C50290_ME_4D6F3F42007C Cleanup
 
 : ME_5000565C019C_ME_4D6F3F42007C
@@ -3927,6 +4022,7 @@ ref; // ME_479731C50290_ME_4D6F3F42007C Cleanup
  ;
  : Implementor ME_4D6F3F42007C // TevDelayedPaintersSpy
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_5000565C019C_ME_4D6F3F42007C ClearFields
 
 : ME_4D6F3F42007C
@@ -3940,34 +4036,34 @@ ref; // ME_5000565C019C_ME_4D6F3F42007C ClearFields
  : Parent ME_49DCC860038B // ParaList Painters
  ;
  : Inherits
-   @ ( WL 'ME_49E7754802A9' '47913B47006E.pas.ms.script' // Tl3ProtoObject
- ) .SequenceCode.It
+   Seq: ( WL 'ME_49E7754802A9' '47913B47006E.pas.ms.script' // Tl3ProtoObject
+ )
  ; // Inherits
  : Attributes
-   @ ( ME_4D6F4B510332 // f_Logger
+   Seq: ( ME_4D6F4B510332 // f_Logger
  ME_4D6F4B7700AB // f_Filer
- ) .SequenceCode.It
+ )
  ; // Attributes
  : Operations
-   @ ( ME_4D6F41880325 // SetLogger
+   Seq: ( ME_4D6F41880325 // SetLogger
  ME_4D6F43CA0257 // RemoveLogger
  ME_4D6F440500EE // Exists
  ME_4D6F4C1700DC // LogSelections
- ) .SequenceCode.It
+ )
  ; // Operations
  : Overridden
-   @ ( ME_479731C50290_ME_4D6F3F42007C // Cleanup
+   Seq: ( ME_479731C50290_ME_4D6F3F42007C // Cleanup
  ME_5000565C019C_ME_4D6F3F42007C // ClearFields
- ) .SequenceCode.It
+ )
  ; // Overridden
  : Children
-   @ ( ME_4D6F41500130 // IevDelayedPainterLogger
- ) .SequenceCode.It
+   Seq: ( ME_4D6F41500130 // IevDelayedPainterLogger
+ )
  ; // Children
  : Dependencies
-   @ ( ME_4D6F5B22038F // 
+   Seq: ( ME_4D6F5B22038F // 
  ME_4D6F7AB200D9 // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  CONST "author" 'Инишев Д.А.'
  CONST "needs InstanceR" 'undefined'
@@ -3975,12 +4071,14 @@ ref; // ME_5000565C019C_ME_4D6F3F42007C ClearFields
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
  CONST "singleton" true
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest'
  CONST intf.pas:Path 'common\components\gui\Garant\Everest\evDelayedPaintersSpy.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'DelayedPaintersSpy'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'evDelayedPaintersSpy'
 
 ref; // ME_4D6F3F42007C TevDelayedPaintersSpy
 
@@ -4021,24 +4119,26 @@ ref; // ME_53D668150164
  : Parent ME_49DCC860038B // ParaList Painters
  ;
  : Inherits
-   @ ( ME_48C7E98600AB // TevTableRowPainter
- ) .SequenceCode.It
+   Seq: ( ME_48C7E98600AB // TevTableRowPainter
+ )
  ; // Inherits
  : Dependencies
-   @ ( ME_53D667F403CC // 
+   Seq: ( ME_53D667F403CC // 
  ME_53D668150164 // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest'
  CONST intf.pas:Path 'common\components\gui\Garant\Everest\evReqRowPainter.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'ReqRowPainter'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'evReqRowPainter'
 
 ref; // ME_50D3F54E00A8 TevReqRowPainter
 
@@ -4053,7 +4153,7 @@ ref; // ME_50D3F54E00A8 TevReqRowPainter
  : Parent WL 'ME_4797632D0273' '4797632D0273.pas.ms.script' // Everest
  ;
  : Children
-   @ ( ME_49DB5FEF01D8 // TevParaListPainter
+   Seq: ( ME_49DB5FEF01D8 // TevParaListPainter
  ME_49DA417B010F // TevDocumentPainter
  ME_48C7E98600AB // TevTableRowPainter
  ME_481D6D3F003F // TevTableCellPainter
@@ -4069,10 +4169,10 @@ ref; // ME_50D3F54E00A8 TevReqRowPainter
  ME_4D63C57601A4 // TevReqGroupPainter
  ME_4D6F3F42007C // TevDelayedPaintersSpy
  ME_50D3F54E00A8 // TevReqRowPainter
- ) .SequenceCode.It
+ )
  ; // Children
  : Depends
-   @ ( WL 'ME_4677FBA70343' '4677FBA70343.pas.ms.script' // l3Interfaces
+   Seq: ( WL 'ME_4677FBA70343' '4677FBA70343.pas.ms.script' // l3Interfaces
  WL 'ME_4678193C009C' '4678193C009C.pas.ms.script' // l3Types
  WL 'ME_4678209200A6' '4678209200A6.pas.ms.script' // nevBase
  WL 'ME_467C0CAA02AB' '467C0CAA02AB.pas.ms.script' // l3InternalInterfaces
@@ -4103,20 +4203,19 @@ ref; // ME_50D3F54E00A8 TevReqRowPainter
  WL 'ME_4AB0997B00A2' '4AB0997B00A2.pas.ms.script' // Common
  WL 'ME_4AB0C3C60310' '4AB0C3C60310.pas.ms.script' // Sys
  WL 'ME_4E451815031E' '4E451815031E.pas.ms.script' // CellUtils
+ WL 'ME_4E5CF70B01E2' '4E5CF70B01E2.pas.ms.script' // Требования к редактору Эверест
  WL 'ME_537B83AD01F0' '537B83AD01F0.pas.ms.script' // l3Math
  WL 'ME_53D258F1004F' '53D258F1004F.pas.ms.script' // InterfaceFactories
  WL 'ME_54B90AC6014B' '54B90AC6014B.pas.ms.script' // StringUtils
  WL 'ME_55C4AEC801CA' '55C4AEC801CA.pas.ms.script' // Graphics
- ) .SequenceCode.It
+ )
  ; // Depends
  CONST "ifdef" 'evNeedPainters'
- : Generators
- @ (
- gen_pas.script
- gen_pas.script.runner
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest'
  CONST pas.script:Path 'shared\models\NewSchool\Scripts\49DCC860038B.pas.ms.script'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
  CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\49DCC860038B.pas.ms.script.runner'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_49DCC860038B ParaList Painters

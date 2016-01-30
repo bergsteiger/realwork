@@ -9,6 +9,7 @@ FORWARD ME_4A8A6DD700CC
 : ME_EF5D8E935964
  CONST UID 'EF5D8E935964'
  CONST Name 'Ini_Reg_Class'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Регистрация TevCustomChatMemo' ;
@@ -44,6 +45,7 @@ ref; // ME_4B3096BD01AE
 
 : ME_33AE9F91DE84
  CONST UID '33AE9F91DE84'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_4A8A6DD700CC // TevCustomChatMemo
@@ -60,6 +62,7 @@ ref; // ME_33AE9F91DE84
  ;
  : Implementor ME_4A8A6DD700CC // TevCustomChatMemo
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_47A042E100E2_ME_4A8A6DD700CC InitFields
 
 : ME_4A8A6D4701CC_ME_4A8A6DD700CC
@@ -69,6 +72,7 @@ ref; // ME_47A042E100E2_ME_4A8A6DD700CC InitFields
  ;
  : Implementor ME_4A8A6DD700CC // TevCustomChatMemo
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4A8A6D4701CC_ME_4A8A6DD700CC KeepParaFormattingTag
 
 : ME_4B28D6780001_ME_4A8A6DD700CC
@@ -78,6 +82,7 @@ ref; // ME_4A8A6D4701CC_ME_4A8A6DD700CC KeepParaFormattingTag
  ;
  : Implementor ME_4A8A6DD700CC // TevCustomChatMemo
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4B28D6780001_ME_4A8A6DD700CC WantSoftEnter
 
 : ME_4B309684022A_ME_4A8A6DD700CC
@@ -87,6 +92,7 @@ ref; // ME_4B28D6780001_ME_4A8A6DD700CC WantSoftEnter
  ;
  : Implementor ME_4A8A6DD700CC // TevCustomChatMemo
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4B309684022A_ME_4A8A6DD700CC IsCommandPublished
 
 : ME_4A8A6DD700CC
@@ -101,25 +107,25 @@ ref; // ME_4B309684022A_ME_4A8A6DD700CC IsCommandPublished
  : Parent ME_4A8A6D020382 // Memos
  ;
  : Inherits
-   @ ( WL 'ME_4829D81D02E5' '4829D7D50156.pas.ms.script' // TevCustomMemo
- ) .SequenceCode.It
+   Seq: ( WL 'ME_4829D81D02E5' '4829D7D50156.pas.ms.script' // TevCustomMemo
+ )
  ; // Inherits
  : Operations
-   @ ( ME_EF5D8E935964 // Ini_Reg_Class
- ) .SequenceCode.It
+   Seq: ( ME_EF5D8E935964 // Ini_Reg_Class
+ )
  ; // Operations
  : Overridden
-   @ ( ME_47A042E100E2_ME_4A8A6DD700CC // InitFields
+   Seq: ( ME_47A042E100E2_ME_4A8A6DD700CC // InitFields
  ME_4A8A6D4701CC_ME_4A8A6DD700CC // KeepParaFormattingTag
  ME_4B28D6780001_ME_4A8A6DD700CC // WantSoftEnter
  ME_4B309684022A_ME_4A8A6DD700CC // IsCommandPublished
- ) .SequenceCode.It
+ )
  ; // Overridden
  : Dependencies
-   @ ( ME_4A8A84C2001E // 
+   Seq: ( ME_4A8A84C2001E // 
  ME_4B3096BD01AE // 
  ME_33AE9F91DE84 // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  CONST "author" 'Люлин А.В.'
  CONST "base wnd class" 'CWnd'
@@ -128,12 +134,14 @@ ref; // ME_4B309684022A_ME_4A8A6DD700CC IsCommandPublished
  CONST "no hands" true
  CONST "register in scripts" 'undefined'
  CONST "started" '18.08.2009 14:48'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest'
  CONST intf.pas:Path 'common\components\gui\Garant\Everest\evCustomChatMemo.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'ChatMemo'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'evCustomChatMemo'
 
 ref; // ME_4A8A6DD700CC TevCustomChatMemo
 
@@ -148,23 +156,21 @@ ref; // ME_4A8A6DD700CC TevCustomChatMemo
  : Parent WL 'ME_4797632D0273' '4797632D0273.pas.ms.script' // Everest
  ;
  : Children
-   @ ( ME_4A8A6DD700CC // TevCustomChatMemo
- ) .SequenceCode.It
+   Seq: ( ME_4A8A6DD700CC // TevCustomChatMemo
+ )
  ; // Children
  : Depends
-   @ ( WL 'ME_47AC75550330' '47AC75550330.pas.ms.script' // k2Tags
+   Seq: ( WL 'ME_47AC75550330' '47AC75550330.pas.ms.script' // k2Tags
  WL 'ME_4829D7D50156' '4829D7D50156.pas.ms.script' // Editors
  WL 'ME_48453A40017C' '48453A40017C.pas.ms.script' // evOp
  WL 'ME_561F9F7D02A7' '561F9F7D02A7.pas.ms.script' // ScriptEngine
- ) .SequenceCode.It
+ )
  ; // Depends
- : Generators
- @ (
- gen_pas.script
- gen_pas.script.runner
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest'
  CONST pas.script:Path 'shared\models\NewSchool\Scripts\4A8A6D020382.pas.ms.script'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
  CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\4A8A6D020382.pas.ms.script.runner'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_4A8A6D020382 Memos

@@ -138,9 +138,9 @@ ref; // ME_499302850321 aFinishCount
  : Parent ME_49930249037D // IvcmProfiler
  ;
  : Parameters
-   @ ( ME_4993028502E3 // aDisplayName
+   Seq: ( ME_4993028502E3 // aDisplayName
  ME_499302850321 // aFinishCount
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_4993027B0003 Init
@@ -182,24 +182,30 @@ ref; // ME_4993029801AF Finish
  : Parent ME_499425E50365 // vcmProfilerInterfaces
  ;
  : Inherits
-   @ ( WL 'ME_4683CEAD00CF' '467BAB7F021E.pas.ms.script' // IvcmBase
- ) .SequenceCode.It
+   Seq: ( WL 'ME_4683CEAD00CF' '467BAB7F021E.pas.ms.script' // IvcmBase
+ )
  ; // Inherits
  : Attributes
-   @ ( ME_499302A6031B // Id
+   Seq: ( ME_499302A6031B // Id
  ME_499302B70057 // HasFinished
  ME_499302C50196 // ExecuteTime
  ME_499302D900EF // ExecuteCount
  ME_499302E902E2 // AverageExecuteTime
  ME_499302FB0094 // DisplayName
- ) .SequenceCode.It
+ )
  ; // Attributes
  : Operations
-   @ ( ME_4993027B0003 // Init
+   Seq: ( ME_4993027B0003 // Init
  ME_4993028A0316 // Start
  ME_4993029801AF // Finish
- ) .SequenceCode.It
+ )
  ; // Operations
+ CONST dfm:PathOnly '\common\components\gui\Garant\VCM'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\VCM'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'Profiler'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_49930249037D IvcmProfiler
 
@@ -245,10 +251,10 @@ ref; // ME_49930227027B aFinishCount
  : Parent ME_499302090191 // IvcmProfilersCollection
  ;
  : Parameters
-   @ ( ME_4993022701FD // aDisplayName
+   Seq: ( ME_4993022701FD // aDisplayName
  ME_49930227023D // anId
  ME_49930227027B // aFinishCount
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_499302160046 StartProfile
@@ -273,8 +279,8 @@ ref; // ME_499302380150 anId
  : Parent ME_499302090191 // IvcmProfilersCollection
  ;
  : Parameters
-   @ ( ME_499302380150 // anId
- ) .SequenceCode.It
+   Seq: ( ME_499302380150 // anId
+ )
  ; // Parameters
 
 ref; // ME_4993022F032D FinishProfile
@@ -301,8 +307,8 @@ ref; // ME_4993026202FD anId
  : Target ME_49930249037D // IvcmProfiler
  ;
  : Parameters
-   @ ( ME_4993026202FD // anId
- ) .SequenceCode.It
+   Seq: ( ME_4993026202FD // anId
+ )
  ; // Parameters
 
 ref; // ME_49930258016F FindById
@@ -320,15 +326,21 @@ ref; // ME_49930258016F FindById
  : Parent ME_499425E50365 // vcmProfilerInterfaces
  ;
  : Inherits
-   @ ( WL 'ME_4683CEAD00CF' '467BAB7F021E.pas.ms.script' // IvcmBase
- ) .SequenceCode.It
+   Seq: ( WL 'ME_4683CEAD00CF' '467BAB7F021E.pas.ms.script' // IvcmBase
+ )
  ; // Inherits
  : Operations
-   @ ( ME_499302160046 // StartProfile
+   Seq: ( ME_499302160046 // StartProfile
  ME_4993022F032D // FinishProfile
  ME_49930258016F // FindById
- ) .SequenceCode.It
+ )
  ; // Operations
+ CONST dfm:PathOnly '\common\components\gui\Garant\VCM'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\VCM'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'ProfilersCollection'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_499302090191 IvcmProfilersCollection
 
@@ -344,9 +356,13 @@ ref; // ME_499302090191 IvcmProfilersCollection
  : Parent ME_499425E50365 // vcmProfilerInterfaces
  ;
  : Inherits
-   @ ( WL 'ME_4787A405013D' '4AB0C3C60310.pas.ms.script' // Exception
- ) .SequenceCode.It
+   Seq: ( WL 'ME_4787A405013D' '4AB0C3C60310.pas.ms.script' // Exception
+ )
  ; // Inherits
+ CONST dfm:PathOnly '\common\components\gui\Garant\VCM'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\VCM'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_499301DF026E EvcmProfilerWasNotStarted
 
@@ -361,29 +377,26 @@ ref; // ME_499301DF026E EvcmProfilerWasNotStarted
  : Parent WL 'ME_4790C3B8021E' '4790C3B8021E.pas.ms.script' // VCM
  ;
  : Children
-   @ ( ME_49930249037D // IvcmProfiler
+   Seq: ( ME_49930249037D // IvcmProfiler
  ME_499302090191 // IvcmProfilersCollection
  ME_499301DF026E // EvcmProfilerWasNotStarted
- ) .SequenceCode.It
+ )
  ; // Children
  : Depends
-   @ ( WL 'ME_467BAB7F021E' '467BAB7F021E.pas.ms.script' // vcmExternalInterfaces
+   Seq: ( WL 'ME_467BAB7F021E' '467BAB7F021E.pas.ms.script' // vcmExternalInterfaces
  WL 'ME_4AB0C3C60310' '4AB0C3C60310.pas.ms.script' // Sys
- ) .SequenceCode.It
+ )
  ; // Depends
  CONST "author" 'Ëþëèí À.Â.'
  CONST "is namespace" true
  CONST "no hands" true
  CONST "started" '12.02.2009 16:27'
- : Generators
- @ (
- gen_intf.pas
- gen_pas.script
- gen_pas.script.runner
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\VCM'
  CONST intf.pas:Path 'common\components\gui\Garant\VCM\vcmProfilerInterfaces.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\VCM'
  CONST pas.script:Path 'shared\models\NewSchool\Scripts\499425E50365.pas.ms.script'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
  CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\499425E50365.pas.ms.script.runner'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_499425E50365 vcmProfilerInterfaces

@@ -30,17 +30,16 @@ ref; // ME_53FF361402C8
  : Parent ME_5485BB9703CE // Indexer
  ;
  : Dependencies
-   @ ( ME_53FF361402C8 // 
- ) .SequenceCode.It
+   Seq: ( ME_53FF361402C8 // 
+ )
  ; // Dependencies
  CONST "finished" false
  CONST "no hands" false
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\m3'
  CONST intf.pas:Path 'common\components\rtl\Garant\m3\NOT_FINISHED_m3IdxCla.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\m3'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_53FF3607026E m3IdxCla
 
@@ -56,6 +55,10 @@ ref; // ME_53FF3607026E m3IdxCla
  ;
  CONST "need UC" true
  CONST "packed" true
+ CONST dfm:PathOnly '\common\components\rtl\Garant\m3'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\m3'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_53FF324503AD Tm3HashInfoStreamHeader
 
@@ -103,6 +106,7 @@ ref; // ME_53FF368B02C8
  ;
  : Implementor ME_53FF322603A8 // Tm3BaseHashInfoStream
  ;
+ CONST OpKind opkind_Implemented
  CONST "is static" true
 ref; // ME_53FDFAF900ED_ME_53FF322603A8 HeaderID
 
@@ -113,6 +117,7 @@ ref; // ME_53FDFAF900ED_ME_53FF322603A8 HeaderID
  ;
  : Implementor ME_53FF322603A8 // Tm3BaseHashInfoStream
  ;
+ CONST OpKind opkind_Implemented
  CONST "is static" true
 ref; // ME_53FF37DC003A_ME_53FF322603A8 DefaultHeaderValue
 
@@ -127,37 +132,39 @@ ref; // ME_53FF37DC003A_ME_53FF322603A8 DefaultHeaderValue
  : Parent ME_5485BB9703CE // Indexer
  ;
  : Inherits
-   @ ( WL 'ME_53FDCEC40006' '5485C15F0072.pas.ms.script' // m3CustomHeaderStream
- ) .SequenceCode.It
+   Seq: ( WL 'ME_53FDCEC40006' '5485C15F0072.pas.ms.script' // m3CustomHeaderStream
+ )
  ; // Inherits
  : Attributes
-   @ ( ME_53FF59120160 // HeaderType
- ) .SequenceCode.It
+   Seq: ( ME_53FF59120160 // HeaderType
+ )
  ; // Attributes
  : Implemented
-   @ ( ME_53FDFAF900ED_ME_53FF322603A8 // HeaderID
+   Seq: ( ME_53FDFAF900ED_ME_53FF322603A8 // HeaderID
  ME_53FF37DC003A_ME_53FF322603A8 // DefaultHeaderValue
- ) .SequenceCode.It
+ )
  ; // Implemented
  : Children
-   @ ( ME_53FF324503AD // Tm3HashInfoStreamHeader
- ) .SequenceCode.It
+   Seq: ( ME_53FF324503AD // Tm3HashInfoStreamHeader
+ )
  ; // Children
  : Dependencies
-   @ ( ME_53FF361C02F8 // 
+   Seq: ( ME_53FF361C02F8 // 
  ME_53FF368B02C8 // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\m3'
  CONST intf.pas:Path 'common\components\rtl\Garant\m3\m3BaseHashInfoStream.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\m3'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'm3BaseHashInfoStream'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'm3BaseHashInfoStream'
 
 ref; // ME_53FF322603A8 Tm3BaseHashInfoStream
 
@@ -171,24 +178,22 @@ ref; // ME_53FF322603A8 Tm3BaseHashInfoStream
  : Parent WL 'ME_472082480337' '472082480337.pas.ms.script' // m3
  ;
  : Children
-   @ ( ME_53FF3607026E // m3IdxCla
+   Seq: ( ME_53FF3607026E // m3IdxCla
  ME_53FF322603A8 // Tm3BaseHashInfoStream
- ) .SequenceCode.It
+ )
  ; // Children
  : Depends
-   @ ( WL 'ME_47BF042D029B' '47BF042D029B.pas.ms.script' // m2
+   Seq: ( WL 'ME_47BF042D029B' '47BF042D029B.pas.ms.script' // m2
  WL 'ME_48294AA903A6' '48294AA903A6.pas.ms.script' // m3CoreObjects
  WL 'ME_5485B0D1026C' '5485B0D1026C.pas.ms.script' // Streams
  WL 'ME_5485C15F0072' '5485C15F0072.pas.ms.script' // HeaderStream
- ) .SequenceCode.It
+ )
  ; // Depends
- : Generators
- @ (
- gen_pas.script
- gen_pas.script.runner
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\m3'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\m3'
  CONST pas.script:Path 'shared\models\NewSchool\Scripts\5485BB9703CE.pas.ms.script'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
  CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\5485BB9703CE.pas.ms.script.runner'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_5485BB9703CE Indexer

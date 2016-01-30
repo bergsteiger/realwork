@@ -1,0 +1,49 @@
+// F1 Проблемы и решения 4E78CD64017F Project Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+: ME_4E78CD64017F
+ CONST UID '4E78CD64017F'
+ CONST Name 'F1 Проблемы и решения'
+ CONST Class class_Category
+ : Stereotype st_Project ;
+ %SUMMARY 'Описание решаемых проблем и способов их решения' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Children
+   Seq: ( WL 'ME_4E7C6DD6025E' '4E7C6DD6025E.pas.ms.script' // Проблемы
+ WL 'ME_4E7C6F7902DB' '4E7C6F7902DB.pas.ms.script' // Решения
+ )
+ ; // Children
+ : Depends
+   Seq: ( WL 'ME_4E5BC2810343' '4E5BC2810343.pas.ms.script' // Shared Delphi Требования для F1
+ WL 'ME_4E5BC50E02E1' '4E5BC50E02E1.pas.ms.script' // Shared Delphi Требования к низкоуровневым библиотекам
+ WL 'ME_4E78C3EC018D' '4E78C3EC018D.pas.ms.script' // Shared Delphi Требования
+ )
+ ; // Depends
+ CONST "Full MDP" false
+ CONST "create project" true
+ CONST "defines" 'nsDefine.inc'
+ CONST "fix version" 0
+ CONST "full constraint" false
+ CONST "major version" 7
+ CONST "minor version" 12
+ CONST "package prefix" 'ru.garant'
+ CONST "root path suffix" '/implementation/Garant'
+ CONST "space key" 'NMS'
+ CONST "space name" 'Nemesis'
+ : Generators
+ Seq: (
+ gen_pas.script
+ gen_pas.script.runner
+ )
+ ; // Generators
+ CONST dfm:PathOnly '\garant6x\implementation\Garant'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant'
+ CONST pas.script:Path 'shared\models\NewSchool\Scripts\4E78CD64017F.pas.ms.script'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\4E78CD64017F.pas.ms.script.runner'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant'
+
+ref; // ME_4E78CD64017F F1 Проблемы и решения

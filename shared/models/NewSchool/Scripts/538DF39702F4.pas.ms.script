@@ -67,12 +67,12 @@ ref; // ME_538DF48702A2 aReplyProcedures
  : Parent ME_538DF4250167 // ExecuteQuery
  ;
  : Parameters
-   @ ( ME_538DF44D005E // aQueryId
+   Seq: ( ME_538DF44D005E // aQueryId
  ME_538DF44D0076 // aClientID
  ME_538DF44D008C // aPipe
  ME_538DF44D00A4 // aQueryProc
  ME_538DF48702A2 // aReplyProcedures
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_538DF43B0314 DoIt
@@ -88,8 +88,8 @@ ref; // ME_538DF43B0314 DoIt
  : Parent ME_538DF3CC00C8 // TcsLoopBack
  ;
  : Operations
-   @ ( ME_538DF43B0314 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_538DF43B0314 // DoIt
+ )
  ; // Operations
  CONST "is static" true
 
@@ -118,8 +118,8 @@ ref; // ME_538DF4C201C6 aQueryId
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
  : Parameters
-   @ ( ME_538DF4C201C6 // aQueryId
- ) .SequenceCode.It
+   Seq: ( ME_538DF4C201C6 // aQueryId
+ )
  ; // Parameters
 
 ref; // ME_538DF4BD0251 DoIt
@@ -135,8 +135,8 @@ ref; // ME_538DF4BD0251 DoIt
  : Parent ME_538DF3CC00C8 // TcsLoopBack
  ;
  : Operations
-   @ ( ME_538DF4BD0251 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_538DF4BD0251 // DoIt
+ )
  ; // Operations
  CONST "is static" true
 
@@ -175,25 +175,27 @@ ref; // ME_538DF3E203A3
  : Parent ME_538DF39702F4 // LoopBack
  ;
  : Operations
-   @ ( ME_538DF4250167 // ExecuteQuery
+   Seq: ( ME_538DF4250167 // ExecuteQuery
  ME_538DF4A80189 // ProcessInternal
- ) .SequenceCode.It
+ )
  ; // Operations
  : Dependencies
-   @ ( ME_538DF3DB00F4 // 
+   Seq: ( ME_538DF3DB00F4 // 
  ME_538DF3E203A3 // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\cs'
  CONST intf.pas:Path 'common\components\rtl\Garant\cs\csLoopBack.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\cs'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'csLoopBack'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'csLoopBack'
 
 ref; // ME_538DF3CC00C8 TcsLoopBack
 
@@ -207,23 +209,21 @@ ref; // ME_538DF3CC00C8 TcsLoopBack
  : Parent WL 'ME_52F8C27F01AB' '52F8C27F01AB.pas.ms.script' // cs
  ;
  : Children
-   @ ( ME_538DF3CC00C8 // TcsLoopBack
- ) .SequenceCode.It
+   Seq: ( ME_538DF3CC00C8 // TcsLoopBack
+ )
  ; // Children
  : Depends
-   @ ( WL 'ME_4AB0C3C60310' '4AB0C3C60310.pas.ms.script' // Sys
+   Seq: ( WL 'ME_4AB0C3C60310' '4AB0C3C60310.pas.ms.script' // Sys
  WL 'ME_52FBB2FC0386' '52FBB2FC0386.pas.ms.script' // Core
  WL 'ME_538DA20300A7' '538DA20300A7.pas.ms.script' // ClientSide
  WL 'ME_538DA26C020A' '538DA26C020A.pas.ms.script' // ServerSide
- ) .SequenceCode.It
+ )
  ; // Depends
- : Generators
- @ (
- gen_pas.script
- gen_pas.script.runner
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\cs'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\cs'
  CONST pas.script:Path 'shared\models\NewSchool\Scripts\538DF39702F4.pas.ms.script'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
  CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\538DF39702F4.pas.ms.script.runner'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_538DF39702F4 LoopBack

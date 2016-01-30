@@ -19,12 +19,14 @@ FORWARD ME_49871D5103B9
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\Nemesis'
  CONST intf.pas:Path 'common\components\gui\Garant\Nemesis\NOT_FINISHED_nscStatusBarOperationDefsList.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Nemesis'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'StatusBarOperationDefsList'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'nscStatusBarOperationDefsList'
 
 ref; // ME_49871E3F01D0 TnscStatusBarOperationDefsList
 
@@ -83,6 +85,7 @@ ref; // ME_503DECB70334 f_Provider
 : ME_87B9BAB425B8
  CONST UID '87B9BAB425B8'
  CONST Name 'f_Def'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY 'Поле для свойства Def' ;
  CONST Visibility PrivateAccess
@@ -126,9 +129,9 @@ ref; // ME_503DFE4901FA aProvider
  : Parent ME_503DFE350045 // Create
  ;
  : Parameters
-   @ ( ME_503DFE4901D4 // aDef
+   Seq: ( ME_503DFE4901D4 // aDef
  ME_503DFE4901FA // aProvider
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_503DFE3D024E DoIt
@@ -144,8 +147,8 @@ ref; // ME_503DFE3D024E DoIt
  : Parent ME_503DEB310216 // TOperationInternalDef
  ;
  : Operations
-   @ ( ME_503DFE3D024E // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_503DFE3D024E // DoIt
+ )
  ; // Operations
 
 ref; // ME_503DFE350045 Create
@@ -157,6 +160,7 @@ ref; // ME_503DFE350045 Create
  ;
  : Implementor ME_503DEB310216 // TOperationInternalDef
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_479731C50290_ME_503DEB310216 Cleanup
 
 : ME_5000565C019C_ME_503DEB310216
@@ -166,6 +170,7 @@ ref; // ME_479731C50290_ME_503DEB310216 Cleanup
  ;
  : Implementor ME_503DEB310216 // TOperationInternalDef
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_5000565C019C_ME_503DEB310216 ClearFields
 
 : ME_503DEB310216
@@ -179,29 +184,35 @@ ref; // ME_5000565C019C_ME_503DEB310216 ClearFields
  : Parent ME_4E15A08E030D // TnscStatusBar
  ;
  : Inherits
-   @ ( WL 'ME_49E7754802A9' '47913B47006E.pas.ms.script' // Tl3ProtoObject
- ) .SequenceCode.It
+   Seq: ( WL 'ME_49E7754802A9' '47913B47006E.pas.ms.script' // Tl3ProtoObject
+ )
  ; // Inherits
  : Attributes
-   @ ( ME_503DEC330219 // Def
+   Seq: ( ME_503DEC330219 // Def
  ME_503DEC5200A9 // Provider
  ME_503DECB70334 // f_Provider
  ME_87B9BAB425B8 // f_Def
- ) .SequenceCode.It
+ )
  ; // Attributes
  : Operations
-   @ ( ME_503DFE350045 // Create
- ) .SequenceCode.It
+   Seq: ( ME_503DFE350045 // Create
+ )
  ; // Operations
  : Overridden
-   @ ( ME_479731C50290_ME_503DEB310216 // Cleanup
+   Seq: ( ME_479731C50290_ME_503DEB310216 // Cleanup
  ME_5000565C019C_ME_503DEB310216 // ClearFields
- ) .SequenceCode.It
+ )
  ; // Overridden
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
+ CONST dfm:PathOnly '\common\components\gui\Garant\Nemesis'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Nemesis'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'OperationInternalDef'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_503DEB310216 TOperationInternalDef
 
@@ -210,6 +221,7 @@ FORWARD ME_503DE730029F
 : ME_FE6A44C8A31C
  CONST UID 'FE6A44C8A31C'
  CONST Name 'Ini_Reg_Class'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Регистрация TnscStatusBarDock' ;
@@ -223,6 +235,7 @@ ref; // ME_FE6A44C8A31C Ini_Reg_Class
 
 : ME_8BE1D88E9B44
  CONST UID '8BE1D88E9B44'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_503DE730029F // TnscStatusBarDock
@@ -243,26 +256,32 @@ ref; // ME_8BE1D88E9B44
  : Parent ME_4E15A08E030D // TnscStatusBar
  ;
  : Inherits
-   @ ( WL 'ME_5028DD12007F' '5028898902A2.pas.ms.script' // TDock97
- ) .SequenceCode.It
+   Seq: ( WL 'ME_5028DD12007F' '5028898902A2.pas.ms.script' // TDock97
+ )
  ; // Inherits
  : Implements
-   @ ( WL 'ME_47D67714034A' '467823B7002C.pas.ms.script' // IafwAlwaysOnTopControl
- ) .SequenceCode.It
+   Seq: ( WL 'ME_47D67714034A' '467823B7002C.pas.ms.script' // IafwAlwaysOnTopControl
+ )
  ; // Implements
  : Operations
-   @ ( ME_FE6A44C8A31C // Ini_Reg_Class
- ) .SequenceCode.It
+   Seq: ( ME_FE6A44C8A31C // Ini_Reg_Class
+ )
  ; // Operations
  : Dependencies
-   @ ( ME_8BE1D88E9B44 // 
- ) .SequenceCode.It
+   Seq: ( ME_8BE1D88E9B44 // 
+ )
  ; // Dependencies
  CONST "base wnd class" 'CWnd'
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
+ CONST dfm:PathOnly '\common\components\gui\Garant\Nemesis'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Nemesis'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'StatusBarDock'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_503DE730029F TnscStatusBarDock
 
@@ -398,6 +417,7 @@ FORWARD ME_503DE99801D3
 : ME_B0F55654BC38
  CONST UID 'B0F55654BC38'
  CONST Name 'DoIt'
+ CONST IsSummoned true
  CONST Class class_Operation
  %SUMMARY 'Сигнатура метода SetLink' ;
  CONST Visibility PublicAccess
@@ -418,8 +438,8 @@ ref; // ME_B0F55654BC38 DoIt
  : Parent ME_4E15A08E030D // TnscStatusBar
  ;
  : Operations
-   @ ( ME_B0F55654BC38 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_B0F55654BC38 // DoIt
+ )
  ; // Operations
 
 ref; // ME_503DE99801D3 SetLink
@@ -429,6 +449,7 @@ FORWARD ME_503DE9AA03AD
 : ME_417EE60869AD
  CONST UID '417EE60869AD'
  CONST Name 'DoIt'
+ CONST IsSummoned true
  CONST Class class_Operation
  %SUMMARY 'Сигнатура метода ReleaseLink' ;
  CONST Visibility PublicAccess
@@ -449,8 +470,8 @@ ref; // ME_417EE60869AD DoIt
  : Parent ME_4E15A08E030D // TnscStatusBar
  ;
  : Operations
-   @ ( ME_417EE60869AD // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_417EE60869AD // DoIt
+ )
  ; // Operations
 
 ref; // ME_503DE9AA03AD ReleaseLink
@@ -496,10 +517,10 @@ ref; // ME_5049B6F60100 aDelayed
  : Parent ME_503DE9C60211 // DoUpdateStrings
  ;
  : Parameters
-   @ ( ME_5044A4050272 // aStrings
+   Seq: ( ME_5044A4050272 // aStrings
  ME_5044A405029C // aCheckActions
  ME_5049B6F60100 // aDelayed
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_503DE9CF0309 DoIt
@@ -515,8 +536,8 @@ ref; // ME_503DE9CF0309 DoIt
  : Parent ME_4E15A08E030D // TnscStatusBar
  ;
  : Operations
-   @ ( ME_503DE9CF0309 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_503DE9CF0309 // DoIt
+ )
  ; // Operations
 
 ref; // ME_503DE9C60211 DoUpdateStrings
@@ -526,6 +547,7 @@ FORWARD ME_503DEA120182
 : ME_D261787E3567
  CONST UID 'D261787E3567'
  CONST Name 'Sender'
+ CONST IsSummoned true
  CONST Class class_Parameter
  : Stereotype st_in ;
  : Target WL 'ME_4807745602C8' '4AB0C3C60310.pas.ms.script' // TObject
@@ -536,6 +558,7 @@ ref; // ME_D261787E3567 Sender
 : ME_3C98A8704C0E
  CONST UID '3C98A8704C0E'
  CONST Name 'DoIt'
+ CONST IsSummoned true
  CONST Class class_Operation
  %SUMMARY 'TNotifyEvent is used for events that do not require parameters.' ;
  CONST Visibility PrivateAccess
@@ -543,8 +566,8 @@ ref; // ME_D261787E3567 Sender
  : Parent ME_503DEA120182 // TimerProc
  ;
  : Parameters
-   @ ( ME_D261787E3567 // Sender
- ) .SequenceCode.It
+   Seq: ( ME_D261787E3567 // Sender
+ )
  ; // Parameters
 
 ref; // ME_3C98A8704C0E DoIt
@@ -560,12 +583,12 @@ ref; // ME_3C98A8704C0E DoIt
  : Parent ME_4E15A08E030D // TnscStatusBar
  ;
  : Inherits
-   @ ( WL 'ME_47881B22005A' '4AB0997B00A2.pas.ms.script' // TNotifyEvent
- ) .SequenceCode.It
+   Seq: ( WL 'ME_47881B22005A' '4AB0997B00A2.pas.ms.script' // TNotifyEvent
+ )
  ; // Inherits
  : Operations
-   @ ( ME_3C98A8704C0E // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_3C98A8704C0E // DoIt
+ )
  ; // Operations
 
 ref; // ME_503DEA120182 TimerProc
@@ -575,6 +598,7 @@ FORWARD ME_5049B3BE0205
 : ME_E817DDA8A51D
  CONST UID 'E817DDA8A51D'
  CONST Name 'DoIt'
+ CONST IsSummoned true
  CONST Class class_Operation
  %SUMMARY 'Сигнатура метода FireUpUpdateStringsTimer' ;
  CONST Visibility PublicAccess
@@ -595,8 +619,8 @@ ref; // ME_E817DDA8A51D DoIt
  : Parent ME_4E15A08E030D // TnscStatusBar
  ;
  : Operations
-   @ ( ME_E817DDA8A51D // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_E817DDA8A51D // DoIt
+ )
  ; // Operations
 
 ref; // ME_5049B3BE0205 FireUpUpdateStringsTimer
@@ -606,6 +630,7 @@ FORWARD ME_5049B3DB0227
 : ME_E4920E477922
  CONST UID 'E4920E477922'
  CONST Name 'Sender'
+ CONST IsSummoned true
  CONST Class class_Parameter
  : Stereotype st_in ;
  : Target WL 'ME_4807745602C8' '4AB0C3C60310.pas.ms.script' // TObject
@@ -616,6 +641,7 @@ ref; // ME_E4920E477922 Sender
 : ME_325BABDD2741
  CONST UID '325BABDD2741'
  CONST Name 'DoIt'
+ CONST IsSummoned true
  CONST Class class_Operation
  %SUMMARY 'TNotifyEvent is used for events that do not require parameters.' ;
  CONST Visibility PrivateAccess
@@ -623,8 +649,8 @@ ref; // ME_E4920E477922 Sender
  : Parent ME_5049B3DB0227 // UpdateStringsTimerProc
  ;
  : Parameters
-   @ ( ME_E4920E477922 // Sender
- ) .SequenceCode.It
+   Seq: ( ME_E4920E477922 // Sender
+ )
  ; // Parameters
 
 ref; // ME_325BABDD2741 DoIt
@@ -640,12 +666,12 @@ ref; // ME_325BABDD2741 DoIt
  : Parent ME_4E15A08E030D // TnscStatusBar
  ;
  : Inherits
-   @ ( WL 'ME_47881B22005A' '4AB0997B00A2.pas.ms.script' // TNotifyEvent
- ) .SequenceCode.It
+   Seq: ( WL 'ME_47881B22005A' '4AB0997B00A2.pas.ms.script' // TNotifyEvent
+ )
  ; // Inherits
  : Operations
-   @ ( ME_325BABDD2741 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_325BABDD2741 // DoIt
+ )
  ; // Operations
 
 ref; // ME_5049B3DB0227 UpdateStringsTimerProc
@@ -676,8 +702,8 @@ ref; // ME_504F30F40351 DoIt
  : Parent ME_4E15A08E030D // TnscStatusBar
  ;
  : Operations
-   @ ( ME_504F30F40351 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_504F30F40351 // DoIt
+ )
  ; // Operations
 
 ref; // ME_504F30D900F7 AllVisiblePanelsText
@@ -702,8 +728,8 @@ ref; // ME_504F1E040200 Msg
  : Parent ME_4E15A08E030D // TnscStatusBar
  ;
  : Parameters
-   @ ( ME_504F1E040200 // Msg
- ) .SequenceCode.It
+   Seq: ( ME_504F1E040200 // Msg
+ )
  ; // Parameters
  CONST "Message ID" 'WM_GETTEXT'
 
@@ -729,8 +755,8 @@ ref; // ME_504F1E340367 Msg
  : Parent ME_4E15A08E030D // TnscStatusBar
  ;
  : Parameters
-   @ ( ME_504F1E340367 // Msg
- ) .SequenceCode.It
+   Seq: ( ME_504F1E340367 // Msg
+ )
  ; // Parameters
  CONST "Message ID" 'WM_GETTEXTLENGTH'
 
@@ -739,6 +765,7 @@ ref; // ME_504F1E0F03AE WMGetTextLength
 : ME_B749442CE8C6
  CONST UID 'B749442CE8C6'
  CONST Name 'Ini_Reg_Class'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Регистрация TnscStatusBar' ;
@@ -969,6 +996,7 @@ ref; // ME_50603CD901CF
 
 : ME_5D713AB381FA
  CONST UID '5D713AB381FA'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_4E15A08E030D // TnscStatusBar
@@ -985,6 +1013,7 @@ ref; // ME_5D713AB381FA
  ;
  : Implementor ME_4E15A08E030D // TnscStatusBar
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_473D95CA02B5_ME_4E15A08E030D UpdateStrings
 
 : ME_498036D4036F_ME_4E15A08E030D
@@ -994,6 +1023,7 @@ ref; // ME_473D95CA02B5_ME_4E15A08E030D UpdateStrings
  ;
  : Implementor ME_4E15A08E030D // TnscStatusBar
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_498036D4036F_ME_4E15A08E030D RegisterProvider
 
 : ME_498036E00030_ME_4E15A08E030D
@@ -1003,6 +1033,7 @@ ref; // ME_498036D4036F_ME_4E15A08E030D RegisterProvider
  ;
  : Implementor ME_4E15A08E030D // TnscStatusBar
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_498036E00030_ME_4E15A08E030D UnregisterProvider
 
 : ME_479731C50290_ME_4E15A08E030D
@@ -1012,6 +1043,7 @@ ref; // ME_498036E00030_ME_4E15A08E030D UnregisterProvider
  ;
  : Implementor ME_4E15A08E030D // TnscStatusBar
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_479731C50290_ME_4E15A08E030D Cleanup
 
 : ME_47D1602000C6_ME_4E15A08E030D
@@ -1021,6 +1053,7 @@ ref; // ME_479731C50290_ME_4E15A08E030D Cleanup
  ;
  : Implementor ME_4E15A08E030D // TnscStatusBar
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_47D1602000C6_ME_4E15A08E030D Create
 
 : ME_4A97E78202FC_ME_4E15A08E030D
@@ -1030,6 +1063,7 @@ ref; // ME_47D1602000C6_ME_4E15A08E030D Create
  ;
  : Implementor ME_4E15A08E030D // TnscStatusBar
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4A97E78202FC_ME_4E15A08E030D SetParent
 
 : ME_4F2A599E0283_ME_4E15A08E030D
@@ -1039,6 +1073,7 @@ ref; // ME_4A97E78202FC_ME_4E15A08E030D SetParent
  ;
  : Implementor ME_4E15A08E030D // TnscStatusBar
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4F2A599E0283_ME_4E15A08E030D SetBounds
 
 : ME_503DE79F02BA_ME_4E15A08E030D
@@ -1048,6 +1083,7 @@ ref; // ME_4F2A599E0283_ME_4E15A08E030D SetBounds
  ;
  : Implementor ME_4E15A08E030D // TnscStatusBar
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_503DE79F02BA_ME_4E15A08E030D IsGToolbarSizeNeeded
 
 : ME_5058B29A007C_ME_4E15A08E030D
@@ -1057,6 +1093,7 @@ ref; // ME_503DE79F02BA_ME_4E15A08E030D IsGToolbarSizeNeeded
  ;
  : Implementor ME_4E15A08E030D // TnscStatusBar
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_5058B29A007C_ME_4E15A08E030D AdjustSizeForPanels
 
 : ME_4E15A08E030D
@@ -1070,16 +1107,16 @@ ref; // ME_5058B29A007C_ME_4E15A08E030D AdjustSizeForPanels
  : Parent ME_49871D5103B9 // StatusBar
  ;
  : Inherits
-   @ ( WL 'ME_502888EA0114' '5028887002FD.pas.ms.script' // TCustomToolbar97
- ) .SequenceCode.It
+   Seq: ( WL 'ME_502888EA0114' '5028887002FD.pas.ms.script' // TCustomToolbar97
+ )
  ; // Inherits
  : Implements
-   @ ( WL 'ME_473D95A90159' '467823B7002C.pas.ms.script' // IafwStatusBar
+   Seq: ( WL 'ME_473D95A90159' '467823B7002C.pas.ms.script' // IafwStatusBar
  WL 'ME_498036CB01D2' '490838E10313.pas.ms.script' // InscStatusBarItemsVisualizer
- ) .SequenceCode.It
+ )
  ; // Implements
  : Attributes
-   @ ( ME_503DE89502B5 // f_Dock
+   Seq: ( ME_503DE89502B5 // f_Dock
  ME_503DE8E000AA // f_Strings
  ME_503DE909017D // f_Visible
  ME_503DE91F01DC // f_Timer
@@ -1088,10 +1125,10 @@ ref; // ME_5058B29A007C_ME_4E15A08E030D AdjustSizeForPanels
  ME_50477A7203DB // f_InAdjustSizeForPanels
  ME_5049B38503C0 // f_UpdateStringsTimer
  ME_505C55130356 // f_GroupIndex
- ) .SequenceCode.It
+ )
  ; // Attributes
  : Operations
-   @ ( ME_503DE99801D3 // SetLink
+   Seq: ( ME_503DE99801D3 // SetLink
  ME_503DE9AA03AD // ReleaseLink
  ME_503DE9C60211 // DoUpdateStrings
  ME_503DEA120182 // TimerProc
@@ -1101,30 +1138,30 @@ ref; // ME_5058B29A007C_ME_4E15A08E030D AdjustSizeForPanels
  ME_504F1A870252 // WMGetText
  ME_504F1E0F03AE // WMGetTextLength
  ME_B749442CE8C6 // Ini_Reg_Class
- ) .SequenceCode.It
+ )
  ; // Operations
  : Implemented
-   @ ( ME_473D95CA02B5_ME_4E15A08E030D // UpdateStrings
+   Seq: ( ME_473D95CA02B5_ME_4E15A08E030D // UpdateStrings
  ME_498036D4036F_ME_4E15A08E030D // RegisterProvider
  ME_498036E00030_ME_4E15A08E030D // UnregisterProvider
- ) .SequenceCode.It
+ )
  ; // Implemented
  : Overridden
-   @ ( ME_479731C50290_ME_4E15A08E030D // Cleanup
+   Seq: ( ME_479731C50290_ME_4E15A08E030D // Cleanup
  ME_47D1602000C6_ME_4E15A08E030D // Create
  ME_4A97E78202FC_ME_4E15A08E030D // SetParent
  ME_4F2A599E0283_ME_4E15A08E030D // SetBounds
  ME_503DE79F02BA_ME_4E15A08E030D // IsGToolbarSizeNeeded
  ME_5058B29A007C_ME_4E15A08E030D // AdjustSizeForPanels
- ) .SequenceCode.It
+ )
  ; // Overridden
  : Children
-   @ ( ME_503DEB310216 // TOperationInternalDef
+   Seq: ( ME_503DEB310216 // TOperationInternalDef
  ME_503DE730029F // TnscStatusBarDock
- ) .SequenceCode.It
+ )
  ; // Children
  : Dependencies
-   @ ( ME_503DF8F0018A // 
+   Seq: ( ME_503DF8F0018A // 
  ME_503DF9900351 // 
  ME_503DFA0D0169 // 
  ME_503DFAD80384 // 
@@ -1144,11 +1181,11 @@ ref; // ME_5058B29A007C_ME_4E15A08E030D AdjustSizeForPanels
  ME_50602F78001B // 
  ME_50603CD901CF // 
  ME_5D713AB381FA // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  : Injected
-   @ ( WL 'ME_FD5784AF680E' '505C848E02D6.pas.ms.script' // 
- ) .SequenceCode.It
+   Seq: ( WL 'ME_FD5784AF680E' '505C848E02D6.pas.ms.script' // 
+ )
  ; // Injected
  CONST "author" 'Костицын М.Ю.'
  CONST "base wnd class" 'CWnd'
@@ -1157,12 +1194,14 @@ ref; // ME_5058B29A007C_ME_4E15A08E030D AdjustSizeForPanels
  CONST "no hands" false
  CONST "register in scripts" true
  CONST "started" '14.08.12'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\Nemesis'
  CONST intf.pas:Path 'common\components\gui\Garant\Nemesis\nscStatusBar.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Nemesis'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'StatusBar'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'nscStatusBar'
 
 ref; // ME_4E15A08E030D TnscStatusBar
 
@@ -1351,13 +1390,13 @@ ref; // ME_4FEC5C8502D6 aToolTipKind
  : Parent ME_4FEC3D23013F // Create
  ;
  : Parameters
-   @ ( ME_4FEC3D520137 // aShowCaption
+   Seq: ( ME_4FEC3D520137 // aShowCaption
  ME_4FEC5B380390 // aCaption
  ME_4FEC3F7C0075 // aUseTooltip
  ME_4FEC3FA800A7 // aRequireAutoPopup
  ME_4FEC3D520241 // anAutoPopupTimeout
  ME_4FEC5C8502D6 // aToolTipKind
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_4FEC3D2C02B2 DoIt
@@ -1373,8 +1412,8 @@ ref; // ME_4FEC3D2C02B2 DoIt
  : Parent ME_4FEC3C34003F // TnscStatusBarItemDef
  ;
  : Operations
-   @ ( ME_4FEC3D2C02B2 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_4FEC3D2C02B2 // DoIt
+ )
  ; // Operations
 
 ref; // ME_4FEC3D23013F Create
@@ -1384,6 +1423,7 @@ FORWARD ME_4FEC3D9A0253
 : ME_FA70F6EF6A61
  CONST UID 'FA70F6EF6A61'
  CONST Name 'aShowCaption'
+ CONST IsSummoned true
  CONST Class class_Parameter
  : Stereotype st_in ;
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
@@ -1394,6 +1434,7 @@ ref; // ME_FA70F6EF6A61 aShowCaption
 : ME_4F0B187C88EA
  CONST UID '4F0B187C88EA'
  CONST Name 'aCaption'
+ CONST IsSummoned true
  CONST Class class_Parameter
  : Stereotype st_in ;
  : Target WL 'ME_46780DA40383' '4677FBA70343.pas.ms.script' // Il3CString
@@ -1404,6 +1445,7 @@ ref; // ME_4F0B187C88EA aCaption
 : ME_383AF6B55CE7
  CONST UID '383AF6B55CE7'
  CONST Name 'aUseTooltip'
+ CONST IsSummoned true
  CONST Class class_Parameter
  : Stereotype st_in ;
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
@@ -1414,6 +1456,7 @@ ref; // ME_383AF6B55CE7 aUseTooltip
 : ME_095E19E361C3
  CONST UID '095E19E361C3'
  CONST Name 'aRequireAutoPopup'
+ CONST IsSummoned true
  CONST Class class_Parameter
  : Stereotype st_in ;
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
@@ -1424,6 +1467,7 @@ ref; // ME_095E19E361C3 aRequireAutoPopup
 : ME_ADDB75ACC591
  CONST UID 'ADDB75ACC591'
  CONST Name 'anAutoPopupTimeout'
+ CONST IsSummoned true
  CONST Class class_Parameter
  : Stereotype st_in ;
  : Target WL 'ME_46A618AF0053' '4AB0C3C60310.pas.ms.script' // Cardinal
@@ -1434,6 +1478,7 @@ ref; // ME_ADDB75ACC591 anAutoPopupTimeout
 : ME_C6E4F3700C32
  CONST UID 'C6E4F3700C32'
  CONST Name 'aToolTipKind'
+ CONST IsSummoned true
  CONST Class class_Parameter
  : Stereotype st_in ;
  : Target WL 'ME_498035FA00E9' '490838E10313.pas.ms.script' // TnscToolTipKind
@@ -1444,6 +1489,7 @@ ref; // ME_C6E4F3700C32 aToolTipKind
 : ME_B0EB86FF6CE2
  CONST UID 'B0EB86FF6CE2'
  CONST Name 'DoIt'
+ CONST IsSummoned true
  CONST Class class_Operation
  %SUMMARY 'Сигнатура фабрики TnscStatusBarItemDef.Make' ;
  CONST Visibility PrivateAccess
@@ -1451,13 +1497,13 @@ ref; // ME_C6E4F3700C32 aToolTipKind
  : Parent ME_4FEC3D9A0253 // Make
  ;
  : Parameters
-   @ ( ME_FA70F6EF6A61 // aShowCaption
+   Seq: ( ME_FA70F6EF6A61 // aShowCaption
  ME_4F0B187C88EA // aCaption
  ME_383AF6B55CE7 // aUseTooltip
  ME_095E19E361C3 // aRequireAutoPopup
  ME_ADDB75ACC591 // anAutoPopupTimeout
  ME_C6E4F3700C32 // aToolTipKind
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_B0EB86FF6CE2 DoIt
@@ -1473,12 +1519,12 @@ ref; // ME_B0EB86FF6CE2 DoIt
  : Parent ME_4FEC3C34003F // TnscStatusBarItemDef
  ;
  : Inherits
-   @ ( ME_4FEC3D23013F // Create
- ) .SequenceCode.It
+   Seq: ( ME_4FEC3D23013F // Create
+ )
  ; // Inherits
  : Operations
-   @ ( ME_B0EB86FF6CE2 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_B0EB86FF6CE2 // DoIt
+ )
  ; // Operations
  CONST "check nil" false
  CONST "need AfterCreate" 'undefined'
@@ -1505,6 +1551,7 @@ ref; // ME_506039230134
  ;
  : Implementor ME_4FEC3C34003F // TnscStatusBarItemDef
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" false
 ref; // ME_4980370D001D_ME_4FEC3C34003F Caption
 
@@ -1515,6 +1562,7 @@ ref; // ME_4980370D001D_ME_4FEC3C34003F Caption
  ;
  : Implementor ME_4FEC3C34003F // TnscStatusBarItemDef
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" false
 ref; // ME_4980371E0167_ME_4FEC3C34003F UseToolTip
 
@@ -1525,6 +1573,7 @@ ref; // ME_4980371E0167_ME_4FEC3C34003F UseToolTip
  ;
  : Implementor ME_4FEC3C34003F // TnscStatusBarItemDef
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" false
 ref; // ME_4980372D0191_ME_4FEC3C34003F RequireAutoPopup
 
@@ -1535,6 +1584,7 @@ ref; // ME_4980372D0191_ME_4FEC3C34003F RequireAutoPopup
  ;
  : Implementor ME_4FEC3C34003F // TnscStatusBarItemDef
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" false
 ref; // ME_4980373B02B6_ME_4FEC3C34003F AutoPopupTimeout
 
@@ -1545,6 +1595,7 @@ ref; // ME_4980373B02B6_ME_4FEC3C34003F AutoPopupTimeout
  ;
  : Implementor ME_4FEC3C34003F // TnscStatusBarItemDef
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" false
 ref; // ME_4980374B0266_ME_4FEC3C34003F TootTipKind
 
@@ -1555,6 +1606,7 @@ ref; // ME_4980374B0266_ME_4FEC3C34003F TootTipKind
  ;
  : Implementor ME_4FEC3C34003F // TnscStatusBarItemDef
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" false
 ref; // ME_4ADC59C6003B_ME_4FEC3C34003F ShowCaption
 
@@ -1565,6 +1617,7 @@ ref; // ME_4ADC59C6003B_ME_4FEC3C34003F ShowCaption
  ;
  : Implementor ME_4FEC3C34003F // TnscStatusBarItemDef
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" false
 ref; // ME_4BCEAF1A00EE_ME_4FEC3C34003F Enabled
 
@@ -1575,6 +1628,7 @@ ref; // ME_4BCEAF1A00EE_ME_4FEC3C34003F Enabled
  ;
  : Implementor ME_4FEC3C34003F // TnscStatusBarItemDef
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" false
 ref; // ME_5060385E0190_ME_4FEC3C34003F SubscribedList
 
@@ -1585,6 +1639,7 @@ ref; // ME_5060385E0190_ME_4FEC3C34003F SubscribedList
  ;
  : Implementor ME_4FEC3C34003F // TnscStatusBarItemDef
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_5060388903AB_ME_4FEC3C34003F SubscribeOnNotification
 
 : ME_479731C50290_ME_4FEC3C34003F
@@ -1594,6 +1649,7 @@ ref; // ME_5060388903AB_ME_4FEC3C34003F SubscribeOnNotification
  ;
  : Implementor ME_4FEC3C34003F // TnscStatusBarItemDef
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_479731C50290_ME_4FEC3C34003F Cleanup
 
 : ME_4FEC3C34003F
@@ -1607,15 +1663,15 @@ ref; // ME_479731C50290_ME_4FEC3C34003F Cleanup
  : Parent ME_49871D5103B9 // StatusBar
  ;
  : Inherits
-   @ ( WL 'ME_46780E690001' '47913B47006E.pas.ms.script' // Tl3CacheableBase
- ) .SequenceCode.It
+   Seq: ( WL 'ME_46780E690001' '47913B47006E.pas.ms.script' // Tl3CacheableBase
+ )
  ; // Inherits
  : Implements
-   @ ( WL 'ME_4980350B00FA' '490838E10313.pas.ms.script' // InscStatusBarItemDef
- ) .SequenceCode.It
+   Seq: ( WL 'ME_4980350B00FA' '490838E10313.pas.ms.script' // InscStatusBarItemDef
+ )
  ; // Implements
  : Attributes
-   @ ( ME_4FEC3F0F0322 // f_ShowCaption
+   Seq: ( ME_4FEC3F0F0322 // f_ShowCaption
  ME_4FEC3F4A0347 // f_Caption
  ME_4FEC3F64008C // f_UseTooltip
  ME_4FEC3F860101 // f_RequireAutoPopup
@@ -1623,15 +1679,15 @@ ref; // ME_479731C50290_ME_4FEC3C34003F Cleanup
  ME_4FEC400A012F // f_ToolTipKind
  ME_4FEC54210207 // f_Enabled
  ME_506038EB01CD // f_SubscribedList
- ) .SequenceCode.It
+ )
  ; // Attributes
  : Operations
-   @ ( ME_4FEC3D23013F // Create
+   Seq: ( ME_4FEC3D23013F // Create
  ME_4FEC3D9A0253 // Make
- ) .SequenceCode.It
+ )
  ; // Operations
  : Implemented
-   @ ( ME_4980370D001D_ME_4FEC3C34003F // Caption
+   Seq: ( ME_4980370D001D_ME_4FEC3C34003F // Caption
  ME_4980371E0167_ME_4FEC3C34003F // UseToolTip
  ME_4980372D0191_ME_4FEC3C34003F // RequireAutoPopup
  ME_4980373B02B6_ME_4FEC3C34003F // AutoPopupTimeout
@@ -1640,26 +1696,28 @@ ref; // ME_479731C50290_ME_4FEC3C34003F Cleanup
  ME_4BCEAF1A00EE_ME_4FEC3C34003F // Enabled
  ME_5060385E0190_ME_4FEC3C34003F // SubscribedList
  ME_5060388903AB_ME_4FEC3C34003F // SubscribeOnNotification
- ) .SequenceCode.It
+ )
  ; // Implemented
  : Overridden
-   @ ( ME_479731C50290_ME_4FEC3C34003F // Cleanup
- ) .SequenceCode.It
+   Seq: ( ME_479731C50290_ME_4FEC3C34003F // Cleanup
+ )
  ; // Overridden
  : Dependencies
-   @ ( ME_506039230134 // 
- ) .SequenceCode.It
+   Seq: ( ME_506039230134 // 
+ )
  ; // Dependencies
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" true
  CONST "register in scripts" 'undefined'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\Nemesis'
  CONST intf.pas:Path 'common\components\gui\Garant\Nemesis\nscStatusBarItemDef.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Nemesis'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'StatusBarItemDef'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'nscStatusBarItemDef'
 
 ref; // ME_4FEC3C34003F TnscStatusBarItemDef
 
@@ -1729,6 +1787,7 @@ ref; // ME_4FF31C50019B aSeparatorVisible
  CONST Value 'spMiddle'
  : ValueType WL 'ME_4FF314BE007F' '490838E10313.pas.ms.script' // TsbdSeparatorPos
  ;
+ CONST extprop:pas:Value 'nscNewInterfaces.spMiddle'
 
 ref; // ME_4FF324EC0321 aSeparatorPos
 
@@ -1742,6 +1801,7 @@ ref; // ME_4FF324EC0321 aSeparatorPos
  CONST Value 0
  : ValueType WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
  ;
+ CONST extprop:pas:Value 0
 
 ref; // ME_4FF324EC0390 aWidth
 
@@ -1754,10 +1814,10 @@ ref; // ME_4FF324EC0390 aWidth
  : Parent ME_4FEC49660337 // Create
  ;
  : Parameters
-   @ ( ME_4FF31C50019B // aSeparatorVisible
+   Seq: ( ME_4FF31C50019B // aSeparatorVisible
  ME_4FF324EC0321 // aSeparatorPos
  ME_4FF324EC0390 // aWidth
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_4FEC497001EF DoIt
@@ -1773,8 +1833,8 @@ ref; // ME_4FEC497001EF DoIt
  : Parent ME_4FEC3C5B007C // TnscStatusBarDelimiterDef
  ;
  : Operations
-   @ ( ME_4FEC497001EF // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_4FEC497001EF // DoIt
+ )
  ; // Operations
 
 ref; // ME_4FEC49660337 Create
@@ -1784,6 +1844,7 @@ FORWARD ME_4FEC4982036E
 : ME_93885D090E3C
  CONST UID '93885D090E3C'
  CONST Name 'aSeparatorVisible'
+ CONST IsSummoned true
  CONST Class class_Parameter
  : Stereotype st_in ;
  : Target WL 'ME_3DBFFE100240' '3DBFDB23006E.pas.ms.script' // boolean
@@ -1794,6 +1855,7 @@ ref; // ME_93885D090E3C aSeparatorVisible
 : ME_C7299739BEDE
  CONST UID 'C7299739BEDE'
  CONST Name 'aSeparatorPos'
+ CONST IsSummoned true
  CONST Class class_Parameter
  : Stereotype st_in ;
  : Target WL 'ME_4FF314BE007F' '490838E10313.pas.ms.script' // TsbdSeparatorPos
@@ -1801,12 +1863,14 @@ ref; // ME_93885D090E3C aSeparatorVisible
  CONST Value 'spMiddle'
  : ValueType WL 'ME_4FF314BE007F' '490838E10313.pas.ms.script' // TsbdSeparatorPos
  ;
+ CONST extprop:pas:Value 'nscNewInterfaces.spMiddle'
 
 ref; // ME_C7299739BEDE aSeparatorPos
 
 : ME_AA3FDCB8D33E
  CONST UID 'AA3FDCB8D33E'
  CONST Name 'aWidth'
+ CONST IsSummoned true
  CONST Class class_Parameter
  : Stereotype st_in ;
  : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
@@ -1814,12 +1878,14 @@ ref; // ME_C7299739BEDE aSeparatorPos
  CONST Value 0
  : ValueType WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
  ;
+ CONST extprop:pas:Value 0
 
 ref; // ME_AA3FDCB8D33E aWidth
 
 : ME_D2026D5AB932
  CONST UID 'D2026D5AB932'
  CONST Name 'DoIt'
+ CONST IsSummoned true
  CONST Class class_Operation
  %SUMMARY 'Сигнатура фабрики TnscStatusBarDelimiterDef.Make' ;
  CONST Visibility PrivateAccess
@@ -1827,10 +1893,10 @@ ref; // ME_AA3FDCB8D33E aWidth
  : Parent ME_4FEC4982036E // Make
  ;
  : Parameters
-   @ ( ME_93885D090E3C // aSeparatorVisible
+   Seq: ( ME_93885D090E3C // aSeparatorVisible
  ME_C7299739BEDE // aSeparatorPos
  ME_AA3FDCB8D33E // aWidth
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_D2026D5AB932 DoIt
@@ -1846,12 +1912,12 @@ ref; // ME_D2026D5AB932 DoIt
  : Parent ME_4FEC3C5B007C // TnscStatusBarDelimiterDef
  ;
  : Inherits
-   @ ( ME_4FEC49660337 // Create
- ) .SequenceCode.It
+   Seq: ( ME_4FEC49660337 // Create
+ )
  ; // Inherits
  : Operations
-   @ ( ME_D2026D5AB932 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_D2026D5AB932 // DoIt
+ )
  ; // Operations
  CONST "check nil" false
  CONST "need AfterCreate" 'undefined'
@@ -1867,6 +1933,7 @@ ref; // ME_4FEC4982036E Make
  ;
  : Implementor ME_4FEC3C5B007C // TnscStatusBarDelimiterDef
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" false
 ref; // ME_4FF315450358_ME_4FEC3C5B007C SeparatorPos
 
@@ -1877,6 +1944,7 @@ ref; // ME_4FF315450358_ME_4FEC3C5B007C SeparatorPos
  ;
  : Implementor ME_4FEC3C5B007C // TnscStatusBarDelimiterDef
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" false
 ref; // ME_4FF3157D0385_ME_4FEC3C5B007C IsSeparatorVisible
 
@@ -1887,6 +1955,7 @@ ref; // ME_4FF3157D0385_ME_4FEC3C5B007C IsSeparatorVisible
  ;
  : Implementor ME_4FEC3C5B007C // TnscStatusBarDelimiterDef
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" false
 ref; // ME_4FF3159402B4_ME_4FEC3C5B007C Width
 
@@ -1901,40 +1970,42 @@ ref; // ME_4FF3159402B4_ME_4FEC3C5B007C Width
  : Parent ME_49871D5103B9 // StatusBar
  ;
  : Inherits
-   @ ( ME_4FEC3C34003F // TnscStatusBarItemDef
- ) .SequenceCode.It
+   Seq: ( ME_4FEC3C34003F // TnscStatusBarItemDef
+ )
  ; // Inherits
  : Implements
-   @ ( WL 'ME_4FEC3BB5027F' '490838E10313.pas.ms.script' // InscStatusBarDelimiterDef
- ) .SequenceCode.It
+   Seq: ( WL 'ME_4FEC3BB5027F' '490838E10313.pas.ms.script' // InscStatusBarDelimiterDef
+ )
  ; // Implements
  : Attributes
-   @ ( ME_4FF3275E0226 // f_SeparatorPos
+   Seq: ( ME_4FF3275E0226 // f_SeparatorPos
  ME_4FF3277C03D5 // f_SeparatorVisible
  ME_4FF3279603BB // f_Width
- ) .SequenceCode.It
+ )
  ; // Attributes
  : Operations
-   @ ( ME_4FEC49660337 // Create
+   Seq: ( ME_4FEC49660337 // Create
  ME_4FEC4982036E // Make
- ) .SequenceCode.It
+ )
  ; // Operations
  : Implemented
-   @ ( ME_4FF315450358_ME_4FEC3C5B007C // SeparatorPos
+   Seq: ( ME_4FF315450358_ME_4FEC3C5B007C // SeparatorPos
  ME_4FF3157D0385_ME_4FEC3C5B007C // IsSeparatorVisible
  ME_4FF3159402B4_ME_4FEC3C5B007C // Width
- ) .SequenceCode.It
+ )
  ; // Implemented
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" true
  CONST "register in scripts" 'undefined'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\Nemesis'
  CONST intf.pas:Path 'common\components\gui\Garant\Nemesis\nscStatusBarDelimiterDef.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Nemesis'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'StatusBarDelimiterDef'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'nscStatusBarDelimiterDef'
 
 ref; // ME_4FEC3C5B007C TnscStatusBarDelimiterDef
 
@@ -2035,14 +2106,14 @@ ref; // ME_4FEC5C7002A9 aToolTipKind
  : Parent ME_4FEC4A26030E // Create
  ;
  : Parameters
-   @ ( ME_4FEC64C10123 // anOperation
+   Seq: ( ME_4FEC64C10123 // anOperation
  ME_4FEC4A460157 // aShowCaption
  ME_4FF59DCB00B8 // aCaption
  ME_4FEC4A5F0105 // aUseToolTip
  ME_4FEC4A5F0161 // aRequireAutoPopup
  ME_4FEC4A46025E // anAutoPopupTimeout
  ME_4FEC5C7002A9 // aToolTipKind
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_4FEC4A3F0164 DoIt
@@ -2058,8 +2129,8 @@ ref; // ME_4FEC4A3F0164 DoIt
  : Parent ME_49871E4F01AF // TnscStatusBarOperationDef
  ;
  : Operations
-   @ ( ME_4FEC4A3F0164 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_4FEC4A3F0164 // DoIt
+ )
  ; // Operations
 
 ref; // ME_4FEC4A26030E Create
@@ -2069,6 +2140,7 @@ FORWARD ME_4FEC4A6C02E8
 : ME_1E92904850C2
  CONST UID '1E92904850C2'
  CONST Name 'anOperation'
+ CONST IsSummoned true
  CONST Class class_Parameter
  : Stereotype st_in ;
  : Target WL 'ME_4683D016009C' '467BAB7F021E.pas.ms.script' // TvcmOpSelector
@@ -2079,6 +2151,7 @@ ref; // ME_1E92904850C2 anOperation
 : ME_A15D5CFA93BC
  CONST UID 'A15D5CFA93BC'
  CONST Name 'aShowCaption'
+ CONST IsSummoned true
  CONST Class class_Parameter
  : Stereotype st_in ;
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
@@ -2089,6 +2162,7 @@ ref; // ME_A15D5CFA93BC aShowCaption
 : ME_375ED80F940E
  CONST UID '375ED80F940E'
  CONST Name 'aCaption'
+ CONST IsSummoned true
  CONST Class class_Parameter
  : Stereotype st_in ;
  : Target WL 'ME_46780DA40383' '4677FBA70343.pas.ms.script' // Il3CString
@@ -2099,6 +2173,7 @@ ref; // ME_375ED80F940E aCaption
 : ME_637723AD3C38
  CONST UID '637723AD3C38'
  CONST Name 'aUseToolTip'
+ CONST IsSummoned true
  CONST Class class_Parameter
  : Stereotype st_in ;
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
@@ -2109,6 +2184,7 @@ ref; // ME_637723AD3C38 aUseToolTip
 : ME_EFB1659D7D7B
  CONST UID 'EFB1659D7D7B'
  CONST Name 'aRequireAutoPopup'
+ CONST IsSummoned true
  CONST Class class_Parameter
  : Stereotype st_in ;
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
@@ -2119,6 +2195,7 @@ ref; // ME_EFB1659D7D7B aRequireAutoPopup
 : ME_092B6155F778
  CONST UID '092B6155F778'
  CONST Name 'anAutoPopupTimeout'
+ CONST IsSummoned true
  CONST Class class_Parameter
  : Stereotype st_in ;
  : Target WL 'ME_46A618AF0053' '4AB0C3C60310.pas.ms.script' // Cardinal
@@ -2129,6 +2206,7 @@ ref; // ME_092B6155F778 anAutoPopupTimeout
 : ME_AAE01886E4FC
  CONST UID 'AAE01886E4FC'
  CONST Name 'aToolTipKind'
+ CONST IsSummoned true
  CONST Class class_Parameter
  : Stereotype st_in ;
  : Target WL 'ME_498035FA00E9' '490838E10313.pas.ms.script' // TnscToolTipKind
@@ -2139,6 +2217,7 @@ ref; // ME_AAE01886E4FC aToolTipKind
 : ME_7D26097B4332
  CONST UID '7D26097B4332'
  CONST Name 'DoIt'
+ CONST IsSummoned true
  CONST Class class_Operation
  %SUMMARY 'Сигнатура фабрики TnscStatusBarOperationDef.Make' ;
  CONST Visibility PrivateAccess
@@ -2146,14 +2225,14 @@ ref; // ME_AAE01886E4FC aToolTipKind
  : Parent ME_4FEC4A6C02E8 // Make
  ;
  : Parameters
-   @ ( ME_1E92904850C2 // anOperation
+   Seq: ( ME_1E92904850C2 // anOperation
  ME_A15D5CFA93BC // aShowCaption
  ME_375ED80F940E // aCaption
  ME_637723AD3C38 // aUseToolTip
  ME_EFB1659D7D7B // aRequireAutoPopup
  ME_092B6155F778 // anAutoPopupTimeout
  ME_AAE01886E4FC // aToolTipKind
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_7D26097B4332 DoIt
@@ -2169,12 +2248,12 @@ ref; // ME_7D26097B4332 DoIt
  : Parent ME_49871E4F01AF // TnscStatusBarOperationDef
  ;
  : Inherits
-   @ ( ME_4FEC4A26030E // Create
- ) .SequenceCode.It
+   Seq: ( ME_4FEC4A26030E // Create
+ )
  ; // Inherits
  : Operations
-   @ ( ME_7D26097B4332 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_7D26097B4332 // DoIt
+ )
  ; // Operations
  CONST "check nil" false
  CONST "need AfterCreate" 'undefined'
@@ -2266,14 +2345,14 @@ ref; // ME_4FEC6E2D00F3 aToolTipKind
  : Target WL 'ME_4FE9F428027C' '490838E10313.pas.ms.script' // InscStatusBarOperationDef
  ;
  : Parameters
-   @ ( ME_4FEC5F360324 // anOperation
+   Seq: ( ME_4FEC5F360324 // anOperation
  ME_4FEC60EA0174 // aShowCaption
  ME_4FEC60EA019B // aCaption
  ME_4FEC6E2D008D // aUseToolTip
  ME_4FEC60EA01EA // aRequireAutoPopup
  ME_4FEC60EA0212 // anAutoPopupTimeout
  ME_4FEC6E2D00F3 // aToolTipKind
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_4FEC5BBA0070 DoIt
@@ -2289,8 +2368,8 @@ ref; // ME_4FEC5BBA0070 DoIt
  : Parent ME_49871E4F01AF // TnscStatusBarOperationDef
  ;
  : Operations
-   @ ( ME_4FEC5BBA0070 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_4FEC5BBA0070 // DoIt
+ )
  ; // Operations
  CONST "is static" true
 
@@ -2359,12 +2438,12 @@ ref; // ME_4FF59E2F02BB aToolTipKind
  : Target WL 'ME_4FE9F428027C' '490838E10313.pas.ms.script' // InscStatusBarOperationDef
  ;
  : Parameters
-   @ ( ME_4FF59E2F01CE // anOperation
+   Seq: ( ME_4FF59E2F01CE // anOperation
  ME_4FF59E2F0241 // aUseToolTip
  ME_4FF59E2F0268 // aRequireAutoPopup
  ME_4FF59E2F0292 // anAutoPopupTimeout
  ME_4FF59E2F02BB // aToolTipKind
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_4FF59E2D0301 DoIt
@@ -2380,8 +2459,8 @@ ref; // ME_4FF59E2D0301 DoIt
  : Parent ME_49871E4F01AF // TnscStatusBarOperationDef
  ;
  : Operations
-   @ ( ME_4FF59E2D0301 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_4FF59E2D0301 // DoIt
+ )
  ; // Operations
  CONST "is static" true
 
@@ -2450,12 +2529,12 @@ ref; // ME_4FFAFB2202B5 aToolTipKind
  : Target WL 'ME_4FE9F428027C' '490838E10313.pas.ms.script' // InscStatusBarOperationDef
  ;
  : Parameters
-   @ ( ME_4FFAFB22021E // anOperation
+   Seq: ( ME_4FFAFB22021E // anOperation
  ME_4FFAFB220243 // aUseToolTip
  ME_4FFAFB220268 // aRequireAutoPopup
  ME_4FFAFB22028E // anAutoPopupTimeout
  ME_4FFAFB2202B5 // aToolTipKind
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_4FFAFB1F038C DoIt
@@ -2471,8 +2550,8 @@ ref; // ME_4FFAFB1F038C DoIt
  : Parent ME_49871E4F01AF // TnscStatusBarOperationDef
  ;
  : Operations
-   @ ( ME_4FFAFB1F038C // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_4FFAFB1F038C // DoIt
+ )
  ; // Operations
  CONST "is static" true
 
@@ -2496,6 +2575,7 @@ ref; // ME_4FEC6C0702BD
  ;
  : Implementor ME_49871E4F01AF // TnscStatusBarOperationDef
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" false
 ref; // ME_4FE9F49C0299_ME_49871E4F01AF Operation
 
@@ -2510,49 +2590,52 @@ ref; // ME_4FE9F49C0299_ME_49871E4F01AF Operation
  : Parent ME_49871D5103B9 // StatusBar
  ;
  : Inherits
-   @ ( ME_4FEC3C34003F // TnscStatusBarItemDef
- ) .SequenceCode.It
+   Seq: ( ME_4FEC3C34003F // TnscStatusBarItemDef
+ )
  ; // Inherits
  : Implements
-   @ ( WL 'ME_4FE9F428027C' '490838E10313.pas.ms.script' // InscStatusBarOperationDef
- ) .SequenceCode.It
+   Seq: ( WL 'ME_4FE9F428027C' '490838E10313.pas.ms.script' // InscStatusBarOperationDef
+ )
  ; // Implements
  : Attributes
-   @ ( ME_4FEC4A090334 // f_Operation
- ) .SequenceCode.It
+   Seq: ( ME_4FEC4A090334 // f_Operation
+ )
  ; // Attributes
  : Operations
-   @ ( ME_4FEC4A26030E // Create
+   Seq: ( ME_4FEC4A26030E // Create
  ME_4FEC4A6C02E8 // Make
  ME_4FEC5B7B00CE // MakeS
  ME_4FF59E080381 // MakeSDefaultCaption
  ME_4FFAFB0B03CC // MakeSNoCaption
- ) .SequenceCode.It
+ )
  ; // Operations
  : Implemented
-   @ ( ME_4FE9F49C0299_ME_49871E4F01AF // Operation
- ) .SequenceCode.It
+   Seq: ( ME_4FE9F49C0299_ME_49871E4F01AF // Operation
+ )
  ; // Implemented
  : Dependencies
-   @ ( ME_4FEC6C0702BD // 
- ) .SequenceCode.It
+   Seq: ( ME_4FEC6C0702BD // 
+ )
  ; // Dependencies
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" true
  CONST "register in scripts" 'undefined'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\Nemesis'
  CONST intf.pas:Path 'common\components\gui\Garant\Nemesis\nscStatusBarOperationDef.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Nemesis'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'StatusBarOperationDef'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'nscStatusBarOperationDef'
 
 ref; // ME_49871E4F01AF TnscStatusBarOperationDef
 
 : ME_F48DF6D30E2B
  CONST UID 'F48DF6D30E2B'
  CONST Name 'Ini_Reg_Class'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Регистрация TnscSizeGripPanel' ;
@@ -2566,6 +2649,7 @@ ref; // ME_F48DF6D30E2B Ini_Reg_Class
 
 : ME_001016A79D20
  CONST UID '001016A79D20'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_5058B67D0085 // TnscSizeGripPanel
@@ -2582,6 +2666,7 @@ ref; // ME_001016A79D20
  ;
  : Implementor ME_5058B67D0085 // TnscSizeGripPanel
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_53CE39CD0045_ME_5058B67D0085 GetFormToResize
 
 : ME_5058B67D0085
@@ -2595,39 +2680,42 @@ ref; // ME_53CE39CD0045_ME_5058B67D0085 GetFormToResize
  : Parent ME_49871D5103B9 // StatusBar
  ;
  : Inherits
-   @ ( WL 'ME_5058B6600074' '4C43E8750153.pas.ms.script' // TSizeGripPanel
+   Seq: ( WL 'ME_5058B6600074' '4C43E8750153.pas.ms.script' // TSizeGripPanel
  WL 'ME_505DA5E7038D' '505DA8FC03CF.pas.ms.script' // nscStatusBarItemNotification
- ) .SequenceCode.It
+ )
  ; // Inherits
  : Operations
-   @ ( ME_F48DF6D30E2B // Ini_Reg_Class
- ) .SequenceCode.It
+   Seq: ( ME_F48DF6D30E2B // Ini_Reg_Class
+ )
  ; // Operations
  : Overridden
-   @ ( ME_53CE39CD0045_ME_5058B67D0085 // GetFormToResize
- ) .SequenceCode.It
+   Seq: ( ME_53CE39CD0045_ME_5058B67D0085 // GetFormToResize
+ )
  ; // Overridden
  : Dependencies
-   @ ( ME_001016A79D20 // 
- ) .SequenceCode.It
+   Seq: ( ME_001016A79D20 // 
+ )
  ; // Dependencies
  CONST "base wnd class" 'CWnd'
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" true
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\Nemesis'
  CONST intf.pas:Path 'common\components\gui\Garant\Nemesis\nscSizeGripPanel.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Nemesis'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'SizeGripPanel'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'nscSizeGripPanel'
 
 ref; // ME_5058B67D0085 TnscSizeGripPanel
 
 : ME_223F98A8DA79
  CONST UID '223F98A8DA79'
  CONST Name 'Ini_Reg_Class'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Регистрация TnscStatusBarButton' ;
@@ -2652,6 +2740,7 @@ ref; // ME_506028E800FD
 
 : ME_267EE990926A
  CONST UID '267EE990926A'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_503DE6F30027 // TnscStatusBarButton
@@ -2668,6 +2757,7 @@ ref; // ME_267EE990926A
  ;
  : Implementor ME_503DE6F30027 // TnscStatusBarButton
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_503DE82B0311_ME_503DE6F30027 IsGtbToolbarButtonSizeNeeded
 
 : ME_503E27CA010E_ME_503DE6F30027
@@ -2677,6 +2767,7 @@ ref; // ME_503DE82B0311_ME_503DE6F30027 IsGtbToolbarButtonSizeNeeded
  ;
  : Implementor ME_503DE6F30027 // TnscStatusBarButton
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_503E27CA010E_ME_503DE6F30027 GetIsAutoCenter
 
 : ME_504779E00385_ME_503DE6F30027
@@ -2686,6 +2777,7 @@ ref; // ME_503E27CA010E_ME_503DE6F30027 GetIsAutoCenter
  ;
  : Implementor ME_503DE6F30027 // TnscStatusBarButton
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_504779E00385_ME_503DE6F30027 CalcSize
 
 : ME_50477A430157_ME_503DE6F30027
@@ -2695,6 +2787,7 @@ ref; // ME_504779E00385_ME_503DE6F30027 CalcSize
  ;
  : Implementor ME_503DE6F30027 // TnscStatusBarButton
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_50477A430157_ME_503DE6F30027 NeedAutoDown
 
 : ME_503DE6F30027
@@ -2708,29 +2801,29 @@ ref; // ME_50477A430157_ME_503DE6F30027 NeedAutoDown
  : Parent ME_49871D5103B9 // StatusBar
  ;
  : Inherits
-   @ ( WL 'ME_4F69EF8C027C' '4C43E8750153.pas.ms.script' // TCustomToolbarButton97
+   Seq: ( WL 'ME_4F69EF8C027C' '4C43E8750153.pas.ms.script' // TCustomToolbarButton97
  WL 'ME_505DA5E7038D' '505DA8FC03CF.pas.ms.script' // nscStatusBarItemNotification
- ) .SequenceCode.It
+ )
  ; // Inherits
  : Operations
-   @ ( ME_223F98A8DA79 // Ini_Reg_Class
- ) .SequenceCode.It
+   Seq: ( ME_223F98A8DA79 // Ini_Reg_Class
+ )
  ; // Operations
  : Overridden
-   @ ( ME_503DE82B0311_ME_503DE6F30027 // IsGtbToolbarButtonSizeNeeded
+   Seq: ( ME_503DE82B0311_ME_503DE6F30027 // IsGtbToolbarButtonSizeNeeded
  ME_503E27CA010E_ME_503DE6F30027 // GetIsAutoCenter
  ME_504779E00385_ME_503DE6F30027 // CalcSize
  ME_50477A430157_ME_503DE6F30027 // NeedAutoDown
- ) .SequenceCode.It
+ )
  ; // Overridden
  : Dependencies
-   @ ( ME_506028E800FD // 
+   Seq: ( ME_506028E800FD // 
  ME_267EE990926A // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  : Injected
-   @ ( WL 'ME_95F5D3CF34CC' '505C848E02D6.pas.ms.script' // 
- ) .SequenceCode.It
+   Seq: ( WL 'ME_95F5D3CF34CC' '505C848E02D6.pas.ms.script' // 
+ )
  ; // Injected
  CONST "base wnd class" 'CWnd'
  CONST "need UC" true
@@ -2738,18 +2831,21 @@ ref; // ME_50477A430157_ME_503DE6F30027 NeedAutoDown
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" true
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\Nemesis'
  CONST intf.pas:Path 'common\components\gui\Garant\Nemesis\nscStatusBarButton.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Nemesis'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'StatusBarButton'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'nscStatusBarButton'
 
 ref; // ME_503DE6F30027 TnscStatusBarButton
 
 : ME_A6AAB635D05F
  CONST UID 'A6AAB635D05F'
  CONST Name 'Ini_Reg_Class'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Регистрация TnscStatusBarPanel' ;
@@ -2763,6 +2859,7 @@ ref; // ME_A6AAB635D05F Ini_Reg_Class
 
 : ME_37D41B14F846
  CONST UID '37D41B14F846'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_503DEACA03BB // TnscStatusBarPanel
@@ -2783,17 +2880,17 @@ ref; // ME_37D41B14F846
  : Parent ME_49871D5103B9 // StatusBar
  ;
  : Inherits
-   @ ( WL 'ME_503DEAA102E9' '4C43E8750153.pas.ms.script' // TCustomToolbarPanel97
+   Seq: ( WL 'ME_503DEAA102E9' '4C43E8750153.pas.ms.script' // TCustomToolbarPanel97
  WL 'ME_505DA5E7038D' '505DA8FC03CF.pas.ms.script' // nscStatusBarItemNotification
- ) .SequenceCode.It
+ )
  ; // Inherits
  : Operations
-   @ ( ME_A6AAB635D05F // Ini_Reg_Class
- ) .SequenceCode.It
+   Seq: ( ME_A6AAB635D05F // Ini_Reg_Class
+ )
  ; // Operations
  : Dependencies
-   @ ( ME_37D41B14F846 // 
- ) .SequenceCode.It
+   Seq: ( ME_37D41B14F846 // 
+ )
  ; // Dependencies
  CONST "base wnd class" 'CWnd'
  CONST "need UC" true
@@ -2801,18 +2898,21 @@ ref; // ME_37D41B14F846
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" true
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\Nemesis'
  CONST intf.pas:Path 'common\components\gui\Garant\Nemesis\nscStatusBarPanel.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Nemesis'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'StatusBarPanel'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'nscStatusBarPanel'
 
 ref; // ME_503DEACA03BB TnscStatusBarPanel
 
 : ME_17B951BE1BDF
  CONST UID '17B951BE1BDF'
  CONST Name 'Ini_Reg_Class'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Регистрация TnscStatusBarSep' ;
@@ -2826,6 +2926,7 @@ ref; // ME_17B951BE1BDF Ini_Reg_Class
 
 : ME_B994E13048DB
  CONST UID 'B994E13048DB'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_5058B74F01A1 // TnscStatusBarSep
@@ -2846,29 +2947,31 @@ ref; // ME_B994E13048DB
  : Parent ME_49871D5103B9 // StatusBar
  ;
  : Inherits
-   @ ( WL 'ME_5028A2FC03A5' '5028887002FD.pas.ms.script' // TToolbarSep97
+   Seq: ( WL 'ME_5028A2FC03A5' '5028887002FD.pas.ms.script' // TToolbarSep97
  WL 'ME_505DA5E7038D' '505DA8FC03CF.pas.ms.script' // nscStatusBarItemNotification
- ) .SequenceCode.It
+ )
  ; // Inherits
  : Operations
-   @ ( ME_17B951BE1BDF // Ini_Reg_Class
- ) .SequenceCode.It
+   Seq: ( ME_17B951BE1BDF // Ini_Reg_Class
+ )
  ; // Operations
  : Dependencies
-   @ ( ME_B994E13048DB // 
- ) .SequenceCode.It
+   Seq: ( ME_B994E13048DB // 
+ )
  ; // Dependencies
  CONST "base wnd class" 'CWnd'
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" true
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\Nemesis'
  CONST intf.pas:Path 'common\components\gui\Garant\Nemesis\nscStatusBarSep.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Nemesis'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'StatusBarSep'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'nscStatusBarSep'
 
 ref; // ME_5058B74F01A1 TnscStatusBarSep
 
@@ -2883,7 +2986,7 @@ ref; // ME_5058B74F01A1 TnscStatusBarSep
  : Parent WL 'ME_490838AA02D0' '490838AA02D0.pas.ms.script' // Nemesis
  ;
  : Children
-   @ ( ME_49871E3F01D0 // TnscStatusBarOperationDefsList
+   Seq: ( ME_49871E3F01D0 // TnscStatusBarOperationDefsList
  ME_4E15A08E030D // TnscStatusBar
  ME_4FEC3C34003F // TnscStatusBarItemDef
  ME_4FEC3C5B007C // TnscStatusBarDelimiterDef
@@ -2892,10 +2995,10 @@ ref; // ME_5058B74F01A1 TnscStatusBarSep
  ME_503DE6F30027 // TnscStatusBarButton
  ME_503DEACA03BB // TnscStatusBarPanel
  ME_5058B74F01A1 // TnscStatusBarSep
- ) .SequenceCode.It
+ )
  ; // Children
  : Depends
-   @ ( WL 'ME_4677FBA70343' '4677FBA70343.pas.ms.script' // l3Interfaces
+   Seq: ( WL 'ME_4677FBA70343' '4677FBA70343.pas.ms.script' // l3Interfaces
  WL 'ME_467823B7002C' '467823B7002C.pas.ms.script' // afwInterfaces
  WL 'ME_467BAB7F021E' '467BAB7F021E.pas.ms.script' // vcmExternalInterfaces
  WL 'ME_4683F37902CF' '4683F37902CF.pas.ms.script' // vcmInterfaces
@@ -2921,15 +3024,13 @@ ref; // ME_5058B74F01A1 TnscStatusBarSep
  WL 'ME_54B90AC6014B' '54B90AC6014B.pas.ms.script' // StringUtils
  WL 'ME_55C4AEC801CA' '55C4AEC801CA.pas.ms.script' // Graphics
  WL 'ME_561F9F7D02A7' '561F9F7D02A7.pas.ms.script' // ScriptEngine
- ) .SequenceCode.It
+ )
  ; // Depends
- : Generators
- @ (
- gen_pas.script
- gen_pas.script.runner
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\Nemesis'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Nemesis'
  CONST pas.script:Path 'shared\models\NewSchool\Scripts\49871D5103B9.pas.ms.script'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
  CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\49871D5103B9.pas.ms.script.runner'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_49871D5103B9 StatusBar

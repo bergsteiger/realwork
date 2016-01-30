@@ -30,6 +30,7 @@ ref; // ME_47BC528601A2 Handle
  ;
  : Implementor ME_47BC507501AB // TdtCustomDictItem
  ;
+ CONST OpKind opkind_Overridden
  CONST "needs field" false
  CONST "pm" true
 ref; // ME_47BC3BFD017F_ME_47BC507501AB StringID
@@ -46,27 +47,29 @@ ref; // ME_47BC3BFD017F_ME_47BC507501AB StringID
  : Parent ME_47BC50280350 // Dictionary
  ;
  : Inherits
-   @ ( WL 'ME_47BC50F5038E' '47913B47006E.pas.ms.script' // Tl3NCString
- ) .SequenceCode.It
+   Seq: ( WL 'ME_47BC50F5038E' '47913B47006E.pas.ms.script' // Tl3NCString
+ )
  ; // Inherits
  : Attributes
-   @ ( ME_47BC528601A2 // Handle
- ) .SequenceCode.It
+   Seq: ( ME_47BC528601A2 // Handle
+ )
  ; // Attributes
  : Overridden
-   @ ( ME_47BC3BFD017F_ME_47BC507501AB // StringID
- ) .SequenceCode.It
+   Seq: ( ME_47BC3BFD017F_ME_47BC507501AB // StringID
+ )
  ; // Overridden
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\DT'
  CONST intf.pas:Path 'common\components\rtl\Garant\DT\dtCustomDictItem.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\DT'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'dtCustomDictItem'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'dtCustomDictItem'
 
 ref; // ME_47BC507501AB TdtCustomDictItem
 
@@ -94,6 +97,7 @@ ref; // ME_47BC5421007E ItemType
  ;
  : Implementor ME_47BC53EE023A // TdtDictItemsPrim
  ;
+ CONST OpKind opkind_Implemented
  CONST "ifdef" 'l3Items_NeedsAssignItem'
  CONST "ifndef" 'l3Items_NoSort'
 ref; // ME_47B2C42A0163_ME_47BC53EE023A AssignItem
@@ -105,6 +109,7 @@ ref; // ME_47B2C42A0163_ME_47BC53EE023A AssignItem
  ;
  : Implementor ME_47BC53EE023A // TdtDictItemsPrim
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_47B99D4503A2_ME_47BC53EE023A CompareExistingItems
 
 : ME_47BC53EE023A
@@ -119,29 +124,31 @@ ref; // ME_47B99D4503A2_ME_47BC53EE023A CompareExistingItems
  : Parent ME_47BC50280350 // Dictionary
  ;
  : Inherits
-   @ ( WL 'ME_47B99E920196' '47913B47006E.pas.ms.script' // l3UncomparabeObjectRefList
+   Seq: ( WL 'ME_47B99E920196' '47913B47006E.pas.ms.script' // l3UncomparabeObjectRefList
  WL 'ME_47BC3A07027F' '47913B47006E.pas.ms.script' // Tl3SimpleDataContainer
- ) .SequenceCode.It
+ )
  ; // Inherits
  : Attributes
-   @ ( ME_47BC5421007E // ItemType
- ) .SequenceCode.It
+   Seq: ( ME_47BC5421007E // ItemType
+ )
  ; // Attributes
  : Implemented
-   @ ( ME_47B2C42A0163_ME_47BC53EE023A // AssignItem
+   Seq: ( ME_47B2C42A0163_ME_47BC53EE023A // AssignItem
  ME_47B99D4503A2_ME_47BC53EE023A // CompareExistingItems
- ) .SequenceCode.It
+ )
  ; // Implemented
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\DT'
  CONST intf.pas:Path 'common\components\rtl\Garant\DT\dtDictItemsPrim.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\DT'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'dtDictItemsPrim'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'dtDictItemsPrim'
 
 ref; // ME_47BC53EE023A TdtDictItemsPrim
 
@@ -169,6 +176,7 @@ ref; // ME_47BC55F90059 FindDataType
  ;
  : Implementor ME_47BC55C00240 // TdtDictItems
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_47B9BAFD01F4_ME_47BC55C00240 CompareItemWithData
 
 : ME_47BC55C00240
@@ -183,28 +191,30 @@ ref; // ME_47B9BAFD01F4_ME_47BC55C00240 CompareItemWithData
  : Parent ME_47BC50280350 // Dictionary
  ;
  : Inherits
-   @ ( WL 'ME_47B47E230134' '47BB24D30205.pas.ms.script' // l3Searcher
+   Seq: ( WL 'ME_47B47E230134' '47BB24D30205.pas.ms.script' // l3Searcher
  ME_47BC53EE023A // TdtDictItemsPrim
- ) .SequenceCode.It
+ )
  ; // Inherits
  : Attributes
-   @ ( ME_47BC55F90059 // FindDataType
- ) .SequenceCode.It
+   Seq: ( ME_47BC55F90059 // FindDataType
+ )
  ; // Attributes
  : Overridden
-   @ ( ME_47B9BAFD01F4_ME_47BC55C00240 // CompareItemWithData
- ) .SequenceCode.It
+   Seq: ( ME_47B9BAFD01F4_ME_47BC55C00240 // CompareItemWithData
+ )
  ; // Overridden
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\DT'
  CONST intf.pas:Path 'common\components\rtl\Garant\DT\dtDictItems.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\DT'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'dtDictItems'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'dtDictItems'
 
 ref; // ME_47BC55C00240 TdtDictItems
 
@@ -233,8 +243,8 @@ ref; // ME_4E2530AD00AB aDictID
  : Target WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
  ;
  : Parameters
-   @ ( ME_4E2530AD00AB // aDictID
- ) .SequenceCode.It
+   Seq: ( ME_4E2530AD00AB // aDictID
+ )
  ; // Parameters
 
 ref; // ME_4E25309D027D DoIt
@@ -250,8 +260,8 @@ ref; // ME_4E25309D027D DoIt
  : Parent ME_4E25307E022D // DictsSup
  ;
  : Operations
-   @ ( ME_4E25309D027D // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_4E25309D027D // DoIt
+ )
  ; // Operations
 
 ref; // ME_4E253095034C GetDictName
@@ -267,17 +277,16 @@ ref; // ME_4E253095034C GetDictName
  : Parent ME_47BC50280350 // Dictionary
  ;
  : Operations
-   @ ( ME_4E253095034C // GetDictName
- ) .SequenceCode.It
+   Seq: ( ME_4E253095034C // GetDictName
+ )
  ; // Operations
  CONST "finished" false
  CONST "no hands" false
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\DT'
  CONST intf.pas:Path 'common\components\rtl\Garant\DT\NOT_FINISHED_DictsSup.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\DT'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_4E25307E022D DictsSup
 
@@ -294,6 +303,10 @@ FORWARD ME_55E6B6330367
  : Parent ME_55E6B6330367 // dt_DictTypes
  ;
  CONST "finished" false
+ CONST dfm:PathOnly '\common\components\rtl\Garant\DT'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\DT'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_55E6B69701C1 TDictMessageRec
 
@@ -318,8 +331,8 @@ ref; // ME_55E6B6890215 Info
  : Parent ME_55E6B64E030E // IDictChangeNotifyRecipient
  ;
  : Parameters
-   @ ( ME_55E6B6890215 // Info
- ) .SequenceCode.It
+   Seq: ( ME_55E6B6890215 // Info
+ )
  ; // Parameters
 
 ref; // ME_55E6B66A036E dcn__DictionaryChange
@@ -336,9 +349,15 @@ ref; // ME_55E6B66A036E dcn__DictionaryChange
  : Parent ME_55E6B6330367 // dt_DictTypes
  ;
  : Operations
-   @ ( ME_55E6B66A036E // dcn__DictionaryChange
- ) .SequenceCode.It
+   Seq: ( ME_55E6B66A036E // dcn__DictionaryChange
+ )
  ; // Operations
+ CONST dfm:PathOnly '\common\components\rtl\Garant\DT'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\DT'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'DictChangeNotifyRecipient'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_55E6B64E030E IDictChangeNotifyRecipient
 
@@ -353,18 +372,17 @@ ref; // ME_55E6B64E030E IDictChangeNotifyRecipient
  : Parent ME_47BC50280350 // Dictionary
  ;
  : Children
-   @ ( ME_55E6B69701C1 // TDictMessageRec
+   Seq: ( ME_55E6B69701C1 // TDictMessageRec
  ME_55E6B64E030E // IDictChangeNotifyRecipient
- ) .SequenceCode.It
+ )
  ; // Children
  CONST "finished" false
  CONST "no hands" false
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\DT'
  CONST intf.pas:Path 'common\components\rtl\Garant\DT\NOT_FINISHED_dt_DictTypes.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\DT'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_55E6B6330367 dt_DictTypes
 
@@ -385,6 +403,12 @@ FORWARD ME_55E6DBED01B3
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
+ CONST dfm:PathOnly '\common\components\rtl\Garant\DT'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\DT'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'DictionaryServer'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_55E6DC5C02C0 TDictionaryServer
 
@@ -411,8 +435,8 @@ ref; // ME_55E6DC4C0134 aFamily
  : Target ME_55E6DC5C02C0 // TDictionaryServer
  ;
  : Parameters
-   @ ( ME_55E6DC4C0134 // aFamily
- ) .SequenceCode.It
+   Seq: ( ME_55E6DC4C0134 // aFamily
+ )
  ; // Parameters
 
 ref; // ME_55E6DC37006A DoIt
@@ -428,8 +452,8 @@ ref; // ME_55E6DC37006A DoIt
  : Parent ME_55E6DBED01B3 // dt_Dict
  ;
  : Operations
-   @ ( ME_55E6DC37006A // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_55E6DC37006A // DoIt
+ )
  ; // Operations
  CONST "finished" false
 
@@ -446,21 +470,20 @@ ref; // ME_55E6DC0802A7 DictServer
  : Parent ME_47BC50280350 // Dictionary
  ;
  : Operations
-   @ ( ME_55E6DC0802A7 // DictServer
- ) .SequenceCode.It
+   Seq: ( ME_55E6DC0802A7 // DictServer
+ )
  ; // Operations
  : Children
-   @ ( ME_55E6DC5C02C0 // TDictionaryServer
- ) .SequenceCode.It
+   Seq: ( ME_55E6DC5C02C0 // TDictionaryServer
+ )
  ; // Children
  CONST "finished" false
  CONST "no hands" false
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\DT'
  CONST intf.pas:Path 'common\components\rtl\Garant\DT\NOT_FINISHED_dt_Dict.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\DT'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_55E6DBED01B3 dt_Dict
 
@@ -481,6 +504,7 @@ FORWARD ME_55E94F580288
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value 30
 
 ref; // ME_55E94F65037D cPublInNumLen
 
@@ -497,6 +521,7 @@ ref; // ME_55E94F65037D cPublInNumLen
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value 200
 
 ref; // ME_55E94F8E02C6 cSourceNameLen
 
@@ -513,6 +538,7 @@ ref; // ME_55E94F8E02C6 cSourceNameLen
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value 70
 
 ref; // ME_55E94FA40006 cSourceShortNameLen
 
@@ -529,6 +555,7 @@ ref; // ME_55E94FA40006 cSourceShortNameLen
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value 800
 
 ref; // ME_55E94FB2010A cSourceSynonimsLen
 
@@ -543,13 +570,17 @@ ref; // ME_55E94FB2010A cSourceSynonimsLen
  : Parent ME_55E7042003D3 // dt_DictConst
  ;
  : Attributes
-   @ ( ME_55E94F65037D // cPublInNumLen
+   Seq: ( ME_55E94F65037D // cPublInNumLen
  ME_55E94F8E02C6 // cSourceNameLen
  ME_55E94FA40006 // cSourceShortNameLen
  ME_55E94FB2010A // cSourceSynonimsLen
- ) .SequenceCode.It
+ )
  ; // Attributes
  CONST "spell names" false
+ CONST dfm:PathOnly '\common\components\rtl\Garant\DT'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\DT'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_55E94F580288 cLengths
 
@@ -564,17 +595,16 @@ ref; // ME_55E94F580288 cLengths
  : Parent ME_47BC50280350 // Dictionary
  ;
  : Constants
-   @ ( ME_55E94F580288 // cLengths
- ) .SequenceCode.It
+   Seq: ( ME_55E94F580288 // cLengths
+ )
  ; // Constants
  CONST "finished" false
  CONST "no hands" false
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\DT'
  CONST intf.pas:Path 'common\components\rtl\Garant\DT\NOT_FINISHED_dt_DictConst.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\DT'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_55E7042003D3 dt_DictConst
 
@@ -589,31 +619,29 @@ ref; // ME_55E7042003D3 dt_DictConst
  : Parent WL 'ME_47BC4FCB0115' '47BC4FCB0115.pas.ms.script' // DT
  ;
  : Children
-   @ ( ME_47BC507501AB // TdtCustomDictItem
+   Seq: ( ME_47BC507501AB // TdtCustomDictItem
  ME_47BC53EE023A // TdtDictItemsPrim
  ME_47BC55C00240 // TdtDictItems
  ME_4E25307E022D // DictsSup
  ME_55E6B6330367 // dt_DictTypes
  ME_55E6DBED01B3 // dt_Dict
  ME_55E7042003D3 // dt_DictConst
- ) .SequenceCode.It
+ )
  ; // Children
  : Depends
-   @ ( WL 'ME_47913B47006E' '47913B47006E.pas.ms.script' // l3CoreObjects
+   Seq: ( WL 'ME_47913B47006E' '47913B47006E.pas.ms.script' // l3CoreObjects
  WL 'ME_47BB24D30205' '47BB24D30205.pas.ms.script' // Стандартные примеси
  WL 'ME_47BC51FE018B' '47BC51FE018B.pas.ms.script' // dt_Types
  WL 'ME_4AB0C3C60310' '4AB0C3C60310.pas.ms.script' // Sys
  WL 'ME_4C9CD07701E6' '4C9CD07701E6.pas.ms.script' // AttrSchema
  WL 'ME_5432448401BC' '5432448401BC.pas.ms.script' // daTypes
- ) .SequenceCode.It
+ )
  ; // Depends
- : Generators
- @ (
- gen_pas.script
- gen_pas.script.runner
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\DT'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\DT'
  CONST pas.script:Path 'shared\models\NewSchool\Scripts\47BC50280350.pas.ms.script'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
  CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\47BC50280350.pas.ms.script.runner'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_47BC50280350 Dictionary

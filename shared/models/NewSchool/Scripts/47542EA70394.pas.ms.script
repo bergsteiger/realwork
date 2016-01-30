@@ -37,9 +37,9 @@ ref; // ME_51C1A4B1012F aMade
  : Parent ME_51C1A49003E5 // TeeMakeDocumentContainerEvent
  ;
  : Parameters
-   @ ( ME_51C1A4B10115 // Sender
+   Seq: ( ME_51C1A4B10115 // Sender
  ME_51C1A4B1012F // aMade
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_51C1A4A501A6 DoIt
@@ -55,10 +55,14 @@ ref; // ME_51C1A4A501A6 DoIt
  : Parent ME_47542EDE038A // TeeTextSourceExport
  ;
  : Operations
-   @ ( ME_51C1A4A501A6 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_51C1A4A501A6 // DoIt
+ )
  ; // Operations
  CONST "of object" true
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest_Engine'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest_Engine'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_51C1A49003E5 TeeMakeDocumentContainerEvent
 
@@ -69,6 +73,7 @@ ref; // ME_51C1A49003E5 TeeMakeDocumentContainerEvent
  ;
  : Implementor ME_47542EDE038A // TeeTextSourceExport
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_4683E75B01D8_ME_47542EDE038A SaveState
 
 : ME_4683E79D0331_ME_47542EDE038A
@@ -78,6 +83,7 @@ ref; // ME_4683E75B01D8_ME_47542EDE038A SaveState
  ;
  : Implementor ME_47542EDE038A // TeeTextSourceExport
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_4683E79D0331_ME_47542EDE038A LoadState
 
 : ME_47542EDE038A
@@ -91,29 +97,31 @@ ref; // ME_4683E79D0331_ME_47542EDE038A LoadState
  : Parent ME_47542EA70394 // eeTextSource
  ;
  : Implements
-   @ ( WL 'ME_467C166B007B' '467BAB7F021E.pas.ms.script' // IvcmState
- ) .SequenceCode.It
+   Seq: ( WL 'ME_467C166B007B' '467BAB7F021E.pas.ms.script' // IvcmState
+ )
  ; // Implements
  : Implemented
-   @ ( ME_4683E75B01D8_ME_47542EDE038A // SaveState
+   Seq: ( ME_4683E75B01D8_ME_47542EDE038A // SaveState
  ME_4683E79D0331_ME_47542EDE038A // LoadState
- ) .SequenceCode.It
+ )
  ; // Implemented
  : Children
-   @ ( ME_51C1A49003E5 // TeeMakeDocumentContainerEvent
- ) .SequenceCode.It
+   Seq: ( ME_51C1A49003E5 // TeeMakeDocumentContainerEvent
+ )
  ; // Children
  CONST "finished" false
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest_Engine'
  CONST intf.pas:Path 'common\components\gui\Garant\Everest_Engine\NOT_FINISHED_eeTextSourceExport.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest_Engine'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'eeTextSourceExport'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'eeTextSourceExport'
 
 ref; // ME_47542EDE038A TeeTextSourceExport
 
@@ -128,20 +136,22 @@ ref; // ME_47542EDE038A TeeTextSourceExport
  : Parent ME_47542EA70394 // eeTextSource
  ;
  : Inherits
-   @ ( ME_47542EDE038A // TeeTextSourceExport
- ) .SequenceCode.It
+   Seq: ( ME_47542EDE038A // TeeTextSourceExport
+ )
  ; // Inherits
  CONST "finished" false
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest_Engine'
  CONST intf.pas:Path 'common\components\gui\Garant\Everest_Engine\NOT_FINISHED_eeTextSource.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest_Engine'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'eeTextSource'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'eeTextSource'
 
 ref; // ME_47542F360372 TeeTextSource
 
@@ -155,24 +165,22 @@ ref; // ME_47542F360372 TeeTextSource
  : Parent WL 'ME_4680E7D50168' '4680E7D50168.pas.ms.script' // Everest Engine
  ;
  : Children
-   @ ( ME_47542EDE038A // TeeTextSourceExport
+   Seq: ( ME_47542EDE038A // TeeTextSourceExport
  ME_47542F360372 // TeeTextSource
- ) .SequenceCode.It
+ )
  ; // Children
  : Depends
-   @ ( WL 'ME_467BAB7F021E' '467BAB7F021E.pas.ms.script' // vcmExternalInterfaces
+   Seq: ( WL 'ME_467BAB7F021E' '467BAB7F021E.pas.ms.script' // vcmExternalInterfaces
  WL 'ME_47C5207602D1' '47C5207602D1.pas.ms.script' // nevTools
  WL 'ME_4AB0C3C60310' '4AB0C3C60310.pas.ms.script' // Sys
- ) .SequenceCode.It
+ )
  ; // Depends
  CONST "ifdef" 'Nemesis'
- : Generators
- @ (
- gen_pas.script
- gen_pas.script.runner
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest_Engine'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest_Engine'
  CONST pas.script:Path 'shared\models\NewSchool\Scripts\47542EA70394.pas.ms.script'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
  CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\47542EA70394.pas.ms.script.runner'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_47542EA70394 eeTextSource

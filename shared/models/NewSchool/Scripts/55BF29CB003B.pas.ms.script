@@ -16,6 +16,11 @@ FORWARD ME_55BF2A400180
  CONST Abstraction at_final
  : Parent ME_55BF2A400180 // TtfwTypeInfoListPrim
  ;
+ CONST dfm:PathOnly '\common\components\rtl\Garant\ScriptEngine'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\ScriptEngine'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'Items_Uncomparable'
 
 ref; // ME_55BF369C0390 l3Items_Uncomparable
 
@@ -78,37 +83,39 @@ ref; // ME_47B99D4503A2_ME_55BF2A400180 CompareExistingItems
  : Parent ME_55BF29CB003B // TypeInfoCache
  ;
  : Inherits
-   @ ( WL 'ME_4A54DD4E036F' '47913B47006E.pas.ms.script' // Tl3ProtoDataContainer
- ) .SequenceCode.It
+   Seq: ( WL 'ME_4A54DD4E036F' '47913B47006E.pas.ms.script' // Tl3ProtoDataContainer
+ )
  ; // Inherits
  : Implements
-   @ ( WL 'ME_4B223ADC02BF' '47913B47006E.pas.ms.script' // l3RecordListPrim
- ) .SequenceCode.It
+   Seq: ( WL 'ME_4B223ADC02BF' '47913B47006E.pas.ms.script' // l3RecordListPrim
+ )
  ; // Implements
  : Attributes
-   @ ( ME_55BF2A52006C // ItemType
- ) .SequenceCode.It
+   Seq: ( ME_55BF2A52006C // ItemType
+ )
  ; // Attributes
  : Implemented
-   @ ( ME_47B07CF403D0_ME_55BF2A400180 // IsSameItems
+   Seq: ( ME_47B07CF403D0_ME_55BF2A400180 // IsSameItems
  ME_47B2C42A0163_ME_55BF2A400180 // AssignItem
  ME_47B99D4503A2_ME_55BF2A400180 // CompareExistingItems
- ) .SequenceCode.It
+ )
  ; // Implemented
  : Children
-   @ ( ME_55BF369C0390 // l3Items_Uncomparable
- ) .SequenceCode.It
+   Seq: ( ME_55BF369C0390 // l3Items_Uncomparable
+ )
  ; // Children
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\ScriptEngine'
  CONST intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\tfwTypeInfoListPrim.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\ScriptEngine'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'TypeInfoListPrim'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'tfwTypeInfoListPrim'
 
 ref; // ME_55BF2A400180 TtfwTypeInfoListPrim
 
@@ -123,19 +130,21 @@ ref; // ME_55BF2A400180 TtfwTypeInfoListPrim
  : Parent ME_55BF29CB003B // TypeInfoCache
  ;
  : Inherits
-   @ ( ME_55BF2A400180 // TtfwTypeInfoListPrim
- ) .SequenceCode.It
+   Seq: ( ME_55BF2A400180 // TtfwTypeInfoListPrim
+ )
  ; // Inherits
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\ScriptEngine'
  CONST intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\tfwTypeInfoList.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\ScriptEngine'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'TypeInfoList'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'tfwTypeInfoList'
 
 ref; // ME_55BF2A720281 TtfwTypeInfoList
 
@@ -190,11 +199,16 @@ ref; // ME_560D01BE0197 tfw_vtaMaybe
  : Parent ME_55BF2B000047 // TtfwValueTypes
  ;
  : Attributes
-   @ ( ME_560D01AA038F // tfw_vtaNo
+   Seq: ( ME_560D01AA038F // tfw_vtaNo
  ME_560D01B70274 // tfw_vtaYes
  ME_560D01BE0197 // tfw_vtaMaybe
- ) .SequenceCode.It
+ )
  ; // Attributes
+ CONST dfm:PathOnly '\common\components\rtl\Garant\ScriptEngine'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\ScriptEngine'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_560D019703E6 TtfwValueTypesAccepts
 
@@ -235,8 +249,8 @@ ref; // ME_55BF36FC00E5 aType
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
  : Parameters
-   @ ( ME_55BF36FC00E5 // aType
- ) .SequenceCode.It
+   Seq: ( ME_55BF36FC00E5 // aType
+ )
  ; // Parameters
 
 ref; // ME_55BF36EE012C DoIt
@@ -252,8 +266,8 @@ ref; // ME_55BF36EE012C DoIt
  : Parent ME_55BF2B000047 // TtfwValueTypes
  ;
  : Operations
-   @ ( ME_55BF36EE012C // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_55BF36EE012C // DoIt
+ )
  ; // Operations
 
 ref; // ME_55BF36E60133 Has
@@ -299,10 +313,10 @@ ref; // ME_55CDF4F60136 aCustomName
  : Parent ME_55BF370A0309 // Create
  ;
  : Parameters
-   @ ( ME_55BF37240211 // anOther
+   Seq: ( ME_55BF37240211 // anOther
  ME_55BF37240243 // aType
  ME_55CDF4F60136 // aCustomName
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_55BF371102C1 DoIt
@@ -318,8 +332,8 @@ ref; // ME_55BF371102C1 DoIt
  : Parent ME_55BF2B000047 // TtfwValueTypes
  ;
  : Operations
-   @ ( ME_55BF371102C1 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_55BF371102C1 // DoIt
+ )
  ; // Operations
 
 ref; // ME_55BF370A0309 Create
@@ -347,8 +361,8 @@ ref; // ME_55BF375D0328 aType
  : Target ME_55BF2B000047 // TtfwValueTypes
  ;
  : Parameters
-   @ ( ME_55BF375D0328 // aType
- ) .SequenceCode.It
+   Seq: ( ME_55BF375D0328 // aType
+ )
  ; // Parameters
 
 ref; // ME_55BF3759006B DoIt
@@ -375,12 +389,12 @@ ref; // ME_55BF434E0336
  : Parent ME_55BF2B000047 // TtfwValueTypes
  ;
  : Operations
-   @ ( ME_55BF3759006B // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_55BF3759006B // DoIt
+ )
  ; // Operations
  : Dependencies
-   @ ( ME_55BF434E0336 // 
- ) .SequenceCode.It
+   Seq: ( ME_55BF434E0336 // 
+ )
  ; // Dependencies
 
 ref; // ME_55BF3734022E Add
@@ -408,8 +422,8 @@ ref; // ME_55BF441201FE aType
  : Target ME_55BF2B000047 // TtfwValueTypes
  ;
  : Parameters
-   @ ( ME_55BF441201FE // aType
- ) .SequenceCode.It
+   Seq: ( ME_55BF441201FE // aType
+ )
  ; // Parameters
 
 ref; // ME_55BF43FF001B DoIt
@@ -425,8 +439,8 @@ ref; // ME_55BF43FF001B DoIt
  : Parent ME_55BF2B000047 // TtfwValueTypes
  ;
  : Operations
-   @ ( ME_55BF43FF001B // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_55BF43FF001B // DoIt
+ )
  ; // Operations
  CONST "is static" true
 
@@ -480,13 +494,13 @@ ref; // ME_55BF73A90394
  : Parent ME_55BF2B000047 // TtfwValueTypes
  ;
  : Operations
-   @ ( ME_55BF5E550154 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_55BF5E550154 // DoIt
+ )
  ; // Operations
  : Dependencies
-   @ ( ME_55BF737500EC // 
+   Seq: ( ME_55BF737500EC // 
  ME_55BF73A90394 // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
 
 ref; // ME_55BF5E4D02CE Name
@@ -514,8 +528,8 @@ ref; // ME_55C0F62D03D7 aValue
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
  : Parameters
-   @ ( ME_55C0F62D03D7 // aValue
- ) .SequenceCode.It
+   Seq: ( ME_55C0F62D03D7 // aValue
+ )
  ; // Parameters
 
 ref; // ME_55BF5E990373 DoIt
@@ -531,8 +545,8 @@ ref; // ME_55BF5E990373 DoIt
  : Parent ME_55BF2B000047 // TtfwValueTypes
  ;
  : Operations
-   @ ( ME_55BF5E990373 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_55BF5E990373 // DoIt
+ )
  ; // Operations
 
 ref; // ME_55BF5E8A0099 AcceptsValue
@@ -560,8 +574,8 @@ ref; // ME_55BF74800292 anOther
  : Target ME_55BF2B000047 // TtfwValueTypes
  ;
  : Parameters
-   @ ( ME_55BF74800292 // anOther
- ) .SequenceCode.It
+   Seq: ( ME_55BF74800292 // anOther
+ )
  ; // Parameters
 
 ref; // ME_55BF625700B3 DoIt
@@ -577,8 +591,8 @@ ref; // ME_55BF625700B3 DoIt
  : Parent ME_55BF2B000047 // TtfwValueTypes
  ;
  : Operations
-   @ ( ME_55BF625700B3 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_55BF625700B3 // DoIt
+ )
  ; // Operations
 
 ref; // ME_55BF624D0018 Add$1
@@ -606,8 +620,8 @@ ref; // ME_55C0A5580016 aType
  : Target ME_55BF2B000047 // TtfwValueTypes
  ;
  : Parameters
-   @ ( ME_55C0A5580016 // aType
- ) .SequenceCode.It
+   Seq: ( ME_55C0A5580016 // aType
+ )
  ; // Parameters
 
 ref; // ME_55C0A5500031 DoIt
@@ -623,8 +637,8 @@ ref; // ME_55C0A5500031 DoIt
  : Parent ME_55BF2B000047 // TtfwValueTypes
  ;
  : Operations
-   @ ( ME_55C0A5500031 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_55C0A5500031 // DoIt
+ )
  ; // Operations
  CONST "is static" true
 
@@ -653,8 +667,8 @@ ref; // ME_55C0BC2400AB aType
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
  : Parameters
-   @ ( ME_55C0BC2400AB // aType
- ) .SequenceCode.It
+   Seq: ( ME_55C0BC2400AB // aType
+ )
  ; // Parameters
 
 ref; // ME_55C0BC210270 DoIt
@@ -670,8 +684,8 @@ ref; // ME_55C0BC210270 DoIt
  : Parent ME_55BF2B000047 // TtfwValueTypes
  ;
  : Operations
-   @ ( ME_55C0BC210270 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_55C0BC210270 // DoIt
+ )
  ; // Operations
 
 ref; // ME_55C0BC14032A Has$1
@@ -699,8 +713,8 @@ ref; // ME_55C0C93D03DE anOther
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
  : Parameters
-   @ ( ME_55C0C93D03DE // anOther
- ) .SequenceCode.It
+   Seq: ( ME_55C0C93D03DE // anOther
+ )
  ; // Parameters
 
 ref; // ME_55C0C9330382 DoIt
@@ -716,8 +730,8 @@ ref; // ME_55C0C9330382 DoIt
  : Parent ME_55BF2B000047 // TtfwValueTypes
  ;
  : Operations
-   @ ( ME_55C0C9330382 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_55C0C9330382 // DoIt
+ )
  ; // Operations
 
 ref; // ME_55C0C92B01DF EQ
@@ -748,8 +762,8 @@ ref; // ME_55C0C99A01DD DoIt
  : Parent ME_55BF2B000047 // TtfwValueTypes
  ;
  : Operations
-   @ ( ME_55C0C99A01DD // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_55C0C99A01DD // DoIt
+ )
  ; // Operations
 
 ref; // ME_55C0C98B0347 DefaultValue
@@ -777,8 +791,8 @@ ref; // ME_55C0FBD10357 aType
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
  : Parameters
-   @ ( ME_55C0FBD10357 // aType
- ) .SequenceCode.It
+   Seq: ( ME_55C0FBD10357 // aType
+ )
  ; // Parameters
 
 ref; // ME_55B76494025F DoIt
@@ -794,8 +808,8 @@ ref; // ME_55B76494025F DoIt
  : Parent ME_55BF2B000047 // TtfwValueTypes
  ;
  : Operations
-   @ ( ME_55B76494025F // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_55B76494025F // DoIt
+ )
  ; // Operations
 
 ref; // ME_55B7648501B7 EQ$1
@@ -823,8 +837,8 @@ ref; // ME_55C1E29002FB anOther
  : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
  ;
  : Parameters
-   @ ( ME_55C1E29002FB // anOther
- ) .SequenceCode.It
+   Seq: ( ME_55C1E29002FB // anOther
+ )
  ; // Parameters
 
 ref; // ME_55C1E28F0060 DoIt
@@ -840,8 +854,8 @@ ref; // ME_55C1E28F0060 DoIt
  : Parent ME_55BF2B000047 // TtfwValueTypes
  ;
  : Operations
-   @ ( ME_55C1E28F0060 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_55C1E28F0060 // DoIt
+ )
  ; // Operations
 
 ref; // ME_55C1E28200A0 Compare$1
@@ -869,8 +883,8 @@ ref; // ME_55CDF4AB033B aName
  : Target ME_55BF2B000047 // TtfwValueTypes
  ;
  : Parameters
-   @ ( ME_55CDF4AB033B // aName
- ) .SequenceCode.It
+   Seq: ( ME_55CDF4AB033B // aName
+ )
  ; // Parameters
 
 ref; // ME_55CDF49B0271 DoIt
@@ -886,8 +900,8 @@ ref; // ME_55CDF49B0271 DoIt
  : Parent ME_55BF2B000047 // TtfwValueTypes
  ;
  : Operations
-   @ ( ME_55CDF49B0271 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_55CDF49B0271 // DoIt
+ )
  ; // Operations
 
 ref; // ME_55CDF48F01D6 MakeCustomName
@@ -915,8 +929,8 @@ ref; // ME_560D01910060 anOther
  : Target ME_560D019703E6 // TtfwValueTypesAccepts
  ;
  : Parameters
-   @ ( ME_560D01910060 // anOther
- ) .SequenceCode.It
+   Seq: ( ME_560D01910060 // anOther
+ )
  ; // Parameters
 
 ref; // ME_560D018601FF DoIt
@@ -932,8 +946,8 @@ ref; // ME_560D018601FF DoIt
  : Parent ME_55BF2B000047 // TtfwValueTypes
  ;
  : Operations
-   @ ( ME_560D018601FF // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_560D018601FF // DoIt
+ )
  ; // Operations
 
 ref; // ME_560D01780176 Accepts
@@ -961,8 +975,8 @@ ref; // ME_55BF2B710159 anOther
  : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
  ;
  : Parameters
-   @ ( ME_55BF2B710159 // anOther
- ) .SequenceCode.It
+   Seq: ( ME_55BF2B710159 // anOther
+ )
  ; // Parameters
 
 ref; // ME_55BF2B67032E DoIt
@@ -978,8 +992,8 @@ ref; // ME_55BF2B67032E DoIt
  : Parent ME_55BF2B000047 // TtfwValueTypes
  ;
  : Operations
-   @ ( ME_55BF2B67032E // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_55BF2B67032E // DoIt
+ )
  ; // Operations
 
 ref; // ME_55BF2B5E0045 Compare
@@ -1007,8 +1021,8 @@ ref; // ME_5618F9510129 aType
  : Target ME_560D019703E6 // TtfwValueTypesAccepts
  ;
  : Parameters
-   @ ( ME_5618F9510129 // aType
- ) .SequenceCode.It
+   Seq: ( ME_5618F9510129 // aType
+ )
  ; // Parameters
 
 ref; // ME_5618F94C02F4 DoIt
@@ -1024,8 +1038,8 @@ ref; // ME_5618F94C02F4 DoIt
  : Parent ME_55BF2B000047 // TtfwValueTypes
  ;
  : Operations
-   @ ( ME_5618F94C02F4 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_5618F94C02F4 // DoIt
+ )
  ; // Operations
 
 ref; // ME_5618F93200F2 AcceptableBy
@@ -1085,15 +1099,15 @@ ref; // ME_5000565C019C_ME_55BF2B000047 ClearFields
  : Parent ME_55BF29CB003B // TypeInfoCache
  ;
  : Inherits
-   @ ( ME_55BF2A720281 // TtfwTypeInfoList
- ) .SequenceCode.It
+   Seq: ( ME_55BF2A720281 // TtfwTypeInfoList
+ )
  ; // Inherits
  : Attributes
-   @ ( ME_55CDF4600182 // f_CustomName
- ) .SequenceCode.It
+   Seq: ( ME_55CDF4600182 // f_CustomName
+ )
  ; // Attributes
  : Operations
-   @ ( ME_55BF36E60133 // Has
+   Seq: ( ME_55BF36E60133 // Has
  ME_55BF370A0309 // Create
  ME_55BF3734022E // Add
  ME_55BF43E80361 // Make
@@ -1110,38 +1124,40 @@ ref; // ME_5000565C019C_ME_55BF2B000047 ClearFields
  ME_560D01780176 // Accepts
  ME_55BF2B5E0045 // Compare
  ME_5618F93200F2 // AcceptableBy
- ) .SequenceCode.It
+ )
  ; // Operations
  : Overridden
-   @ ( ME_47A042E100E2_ME_55BF2B000047 // InitFields
+   Seq: ( ME_47A042E100E2_ME_55BF2B000047 // InitFields
  ME_47A6FEE600FC_ME_55BF2B000047 // IsCacheable
  ME_5000565C019C_ME_55BF2B000047 // ClearFields
- ) .SequenceCode.It
+ )
  ; // Overridden
  : Children
-   @ ( ME_560D019703E6 // TtfwValueTypesAccepts
- ) .SequenceCode.It
+   Seq: ( ME_560D019703E6 // TtfwValueTypesAccepts
+ )
  ; // Children
  : Dependencies
-   @ ( ME_55BF37BB0083 // 
- ) .SequenceCode.It
+   Seq: ( ME_55BF37BB0083 // 
+ )
  ; // Dependencies
  : Injected
-   @ ( WL 'ME_55C0D3770138' '4DAF19F600C5.pas.ms.script' // 
+   Seq: ( WL 'ME_55C0D3770138' '4DAF19F600C5.pas.ms.script' // 
  WL 'ME_560D259303CC' '55BA28CE0290.pas.ms.script' // 
  WL 'ME_E2A70F0AE114' '4F37B7E60283.pas.ms.script' // 
- ) .SequenceCode.It
+ )
  ; // Injected
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\ScriptEngine'
  CONST intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\tfwValueTypes.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\ScriptEngine'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'ValueTypes'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'tfwValueTypes'
 
 ref; // ME_55BF2B000047 TtfwValueTypes
 
@@ -1195,32 +1211,34 @@ ref; // ME_47B99D4503A2_ME_55BF376C001D CompareExistingItems
  : Parent ME_55BF29CB003B // TypeInfoCache
  ;
  : Inherits
-   @ ( WL 'ME_4A54DD4E036F' '47913B47006E.pas.ms.script' // Tl3ProtoDataContainer
- ) .SequenceCode.It
+   Seq: ( WL 'ME_4A54DD4E036F' '47913B47006E.pas.ms.script' // Tl3ProtoDataContainer
+ )
  ; // Inherits
  : Implements
-   @ ( WL 'ME_47B99E920196' '47913B47006E.pas.ms.script' // l3UncomparabeObjectRefList
- ) .SequenceCode.It
+   Seq: ( WL 'ME_47B99E920196' '47913B47006E.pas.ms.script' // l3UncomparabeObjectRefList
+ )
  ; // Implements
  : Attributes
-   @ ( ME_55BF379C0075 // ItemType
- ) .SequenceCode.It
+   Seq: ( ME_55BF379C0075 // ItemType
+ )
  ; // Attributes
  : Implemented
-   @ ( ME_47B2C42A0163_ME_55BF376C001D // AssignItem
+   Seq: ( ME_47B2C42A0163_ME_55BF376C001D // AssignItem
  ME_47B99D4503A2_ME_55BF376C001D // CompareExistingItems
- ) .SequenceCode.It
+ )
  ; // Implemented
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\ScriptEngine'
  CONST intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\tfwValueTypesListPrim.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\ScriptEngine'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'ValueTypesListPrim'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'tfwValueTypesListPrim'
 
 ref; // ME_55BF376C001D TtfwValueTypesListPrim
 
@@ -1262,31 +1280,33 @@ ref; // ME_47B9BAFD01F4_ME_55BF43BA0204 CompareItemWithData
  : Parent ME_55BF29CB003B // TypeInfoCache
  ;
  : Inherits
-   @ ( ME_55BF376C001D // TtfwValueTypesListPrim
- ) .SequenceCode.It
+   Seq: ( ME_55BF376C001D // TtfwValueTypesListPrim
+ )
  ; // Inherits
  : Implements
-   @ ( WL 'ME_47B47E230134' '47BB24D30205.pas.ms.script' // l3Searcher
- ) .SequenceCode.It
+   Seq: ( WL 'ME_47B47E230134' '47BB24D30205.pas.ms.script' // l3Searcher
+ )
  ; // Implements
  : Attributes
-   @ ( ME_55C1E2E90356 // FindDataType
- ) .SequenceCode.It
+   Seq: ( ME_55C1E2E90356 // FindDataType
+ )
  ; // Attributes
  : Overridden
-   @ ( ME_47B9BAFD01F4_ME_55BF43BA0204 // CompareItemWithData
- ) .SequenceCode.It
+   Seq: ( ME_47B9BAFD01F4_ME_55BF43BA0204 // CompareItemWithData
+ )
  ; // Overridden
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\ScriptEngine'
  CONST intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\tfwValueTypesList.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\ScriptEngine'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'ValueTypesList'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'tfwValueTypesList'
 
 ref; // ME_55BF43BA0204 TtfwValueTypesList
 
@@ -1313,8 +1333,8 @@ ref; // ME_55C0A4140396 aValue
  : Target ME_55BF2B000047 // TtfwValueTypes
  ;
  : Parameters
-   @ ( ME_55C0A4140396 // aValue
- ) .SequenceCode.It
+   Seq: ( ME_55C0A4140396 // aValue
+ )
  ; // Parameters
 
 ref; // ME_55C0A40C0291 DoIt
@@ -1330,8 +1350,8 @@ ref; // ME_55C0A40C0291 DoIt
  : Parent ME_55BF37AB038D // TtfwValueTypesCache
  ;
  : Operations
-   @ ( ME_55C0A40C0291 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_55C0A40C0291 // DoIt
+ )
  ; // Operations
 
 ref; // ME_55C0A4040157 CheckList
@@ -1339,6 +1359,7 @@ ref; // ME_55C0A4040157 CheckList
 : ME_6B7D51D711D8
  CONST UID '6B7D51D711D8'
  CONST Name 'Exists'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_static::Operation ;
  %SUMMARY 'Проверяет создан экземпляр синглетона или нет' ;
@@ -1348,6 +1369,7 @@ ref; // ME_55C0A4040157 CheckList
  ;
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
+ CONST extprop:pas:Value false
 
 ref; // ME_6B7D51D711D8 Exists
 
@@ -1372,29 +1394,31 @@ ref; // ME_47A042E100E2_ME_55BF37AB038D InitFields
  : Parent ME_55BF29CB003B // TypeInfoCache
  ;
  : Inherits
-   @ ( ME_55BF43BA0204 // TtfwValueTypesList
- ) .SequenceCode.It
+   Seq: ( ME_55BF43BA0204 // TtfwValueTypesList
+ )
  ; // Inherits
  : Operations
-   @ ( ME_55C0A4040157 // CheckList
+   Seq: ( ME_55C0A4040157 // CheckList
  ME_6B7D51D711D8 // Exists
- ) .SequenceCode.It
+ )
  ; // Operations
  : Overridden
-   @ ( ME_47A042E100E2_ME_55BF37AB038D // InitFields
- ) .SequenceCode.It
+   Seq: ( ME_47A042E100E2_ME_55BF37AB038D // InitFields
+ )
  ; // Overridden
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
  CONST "singleton" true
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\ScriptEngine'
  CONST intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\tfwValueTypesCache.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\ScriptEngine'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'ValueTypesCache'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'tfwValueTypesCache'
 
 ref; // ME_55BF37AB038D TtfwValueTypesCache
 
@@ -1408,29 +1432,27 @@ ref; // ME_55BF37AB038D TtfwValueTypesCache
  : Parent WL 'ME_54CF97B10370' '54CF97B10370.pas.ms.script' // ScriptEngine$Core
  ;
  : Children
-   @ ( ME_55BF2A400180 // TtfwTypeInfoListPrim
+   Seq: ( ME_55BF2A400180 // TtfwTypeInfoListPrim
  ME_55BF2A720281 // TtfwTypeInfoList
  ME_55BF2B000047 // TtfwValueTypes
  ME_55BF376C001D // TtfwValueTypesListPrim
  ME_55BF43BA0204 // TtfwValueTypesList
  ME_55BF37AB038D // TtfwValueTypesCache
- ) .SequenceCode.It
+ )
  ; // Children
  : Depends
-   @ ( WL 'ME_47913B47006E' '47913B47006E.pas.ms.script' // l3CoreObjects
+   Seq: ( WL 'ME_47913B47006E' '47913B47006E.pas.ms.script' // l3CoreObjects
  WL 'ME_47BB24D30205' '47BB24D30205.pas.ms.script' // Стандартные примеси
  WL 'ME_4F473F0902B2' '4F473F0902B2.pas.ms.script' // CString
  WL 'ME_54B90AC6014B' '54B90AC6014B.pas.ms.script' // StringUtils
  WL 'ME_55BF153300A4' '55BF153300A4.pas.ms.script' // tfwTypeInfo
- ) .SequenceCode.It
+ )
  ; // Depends
- : Generators
- @ (
- gen_pas.script
- gen_pas.script.runner
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\ScriptEngine'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\ScriptEngine'
  CONST pas.script:Path 'shared\models\NewSchool\Scripts\55BF29CB003B.pas.ms.script'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
  CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\55BF29CB003B.pas.ms.script.runner'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_55BF29CB003B TypeInfoCache

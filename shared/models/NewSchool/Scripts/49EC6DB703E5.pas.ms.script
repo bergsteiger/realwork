@@ -1,0 +1,288 @@
+// InternetAgent 49EC6DB703E5 ControllerUnit Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_49EC6DB703E5
+
+FORWARD ME_49ECA984005F
+
+: ME_49EDE4C30059
+ CONST UID '49EDE4C30059'
+ CONST Name 'InitDataType'
+ CONST Class class_Attribute
+ : Stereotype st_impurity_value::Attribute ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_agr
+ : Parent ME_49ECA984005F // TsdsInternetAgent
+ ;
+ : Target WL 'ME_46780DA40383' '4677FBA70343.pas.ms.script' // Il3CString
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_49EDE4C30059 InitDataType
+
+: ME_503DF0BD93FC
+ CONST UID '503DF0BD93FC'
+ CONST Name 'SetType'
+ CONST IsSummoned true
+ CONST Class class_Attribute
+ : Stereotype st_impurity_value::Attribute ;
+ %SUMMARY 'Реальный интерфейс контроллера прецедента для TsdsInternetAgent' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_lnk
+ : Parent ME_49ECA984005F // TsdsInternetAgent
+ ;
+ : Target WL 'ME_49EC6E2B0118' '49EC6D9000EE.pas.ms.script' // IsdsInternetAgent
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_503DF0BD93FC SetType
+
+: ME_984DB1509F4C
+ CONST UID '984DB1509F4C'
+ CONST Name 'f_MainViewArea'
+ CONST IsSummoned true
+ CONST Class class_Attribute
+ %SUMMARY 'Поле для области вывода MainViewArea' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_ref
+ : Parent ME_49ECA984005F // TsdsInternetAgent
+ ;
+ : Target WL 'ME_4982B4D00032' '4982BE090383.pas.ms.script' // IvcmViewAreaControllerRef
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_984DB1509F4C f_MainViewArea
+
+FORWARD ME_49ECA9AA0000
+
+: ME_49ECA9CC01EF
+ CONST UID '49ECA9CC01EF'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_49ECA984005F // TsdsInternetAgent
+ ;
+ : Target ME_49ECA9AA0000 // TdsInternetAgent
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_49ECA9CC01EF 
+
+: ME_4A37A70E01DE_ME_49ECA984005F
+ CONST UID '4A37A70E01DE'
+ CONST Name 'MainViewArea'
+ : Original WL 'ME_4A37A70E01DE' '49EC6D9000EE.pas.ms.script' // MainViewArea
+ ;
+ : Implementor ME_49ECA984005F // TsdsInternetAgent
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "Need Has" 'undefined'
+ CONST "UseNewGen" 'undefined'
+ CONST "is reference" 'undefined'
+ CONST "pm" true
+ CONST "required" 'undefined'
+ref; // ME_4A37A70E01DE_ME_49ECA984005F MainViewArea
+
+: ME_4938F7E702B7_ME_49ECA984005F
+ CONST UID '4938F7E702B7'
+ CONST Name 'ClearAreas'
+ : Original WL 'ME_4938F7E702B7' '47D0E1500033.pas.ms.script' // ClearAreas
+ ;
+ : Implementor ME_49ECA984005F // TsdsInternetAgent
+ ;
+ CONST OpKind opkind_Overridden
+ CONST "UseNewGen" 'undefined'
+ref; // ME_4938F7E702B7_ME_49ECA984005F ClearAreas
+
+: ME_49ECA984005F
+ CONST UID '49ECA984005F'
+ CONST Name 'TsdsInternetAgent'
+ CONST Class class_Class
+ : Stereotype st_UseCaseControllerImp ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Реализация прецедента Интернет-агента' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_49EC6DB703E5 // InternetAgent
+ ;
+ : Inherits
+   Seq: ( WL 'ME_49415C640079' '47D0E1500033.pas.ms.script' // vcmFormSetDataSourceWithoutData
+ )
+ ; // Inherits
+ : Implements
+   Seq: ( WL 'ME_49EC6E2B0118' '49EC6D9000EE.pas.ms.script' // IsdsInternetAgent
+ )
+ ; // Implements
+ : Attributes
+   Seq: ( ME_49EDE4C30059 // InitDataType
+ ME_503DF0BD93FC // SetType
+ ME_984DB1509F4C // f_MainViewArea
+ )
+ ; // Attributes
+ : Implemented
+   Seq: ( ME_4A37A70E01DE_ME_49ECA984005F // MainViewArea
+ )
+ ; // Implemented
+ : Overridden
+   Seq: ( ME_4938F7E702B7_ME_49ECA984005F // ClearAreas
+ )
+ ; // Overridden
+ : Dependencies
+   Seq: ( ME_49ECA9CC01EF // 
+ )
+ ; // Dependencies
+ CONST "UseNewGen" 'undefined'
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ : Generators
+ Seq: (
+ gen_intf.pas
+ )
+ ; // Generators
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\InternetAgent'
+ CONST intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\InternetAgent\sdsInternetAgent.pas'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\InternetAgent'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\InternetAgent'
+ CONST extprop:pas:UnitName 'sdsInternetAgent'
+
+ref; // ME_49ECA984005F TsdsInternetAgent
+
+: ME_49ECB02E0088
+ CONST UID '49ECB02E0088'
+ CONST Name 'InitDataType'
+ CONST Class class_Attribute
+ : Stereotype st_impurity_value::Attribute ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_agr
+ : Parent ME_49ECA9AA0000 // TdsInternetAgent
+ ;
+ : Target WL 'ME_46780DA40383' '4677FBA70343.pas.ms.script' // Il3CString
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_49ECB02E0088 InitDataType
+
+: ME_49EDE54203D9
+ CONST UID '49EDE54203D9'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_49ECA9AA0000 // TdsInternetAgent
+ ;
+ : Target WL 'ME_47878E0E0191' '54B90AC6014B.pas.ms.script' // l3String
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_49EDE54203D9 
+
+: ME_49EDE45A02EB_ME_49ECA9AA0000
+ CONST UID '49EDE45A02EB'
+ CONST Name 'URL'
+ : Original WL 'ME_49EDE45A02EB' '49EC6D9000EE.pas.ms.script' // URL
+ ;
+ : Implementor ME_49ECA9AA0000 // TdsInternetAgent
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "UseNewGen" 'undefined'
+ CONST "pm" false
+ref; // ME_49EDE45A02EB_ME_49ECA9AA0000 URL
+
+: ME_49ECA9AA0000
+ CONST UID '49ECA9AA0000'
+ CONST Name 'TdsInternetAgent'
+ CONST Class class_Class
+ : Stereotype st_ViewAreaControllerImp ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Реализация области вывода Интернет-агента' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_49EC6DB703E5 // InternetAgent
+ ;
+ : Inherits
+   Seq: ( WL 'ME_492ACB4100B2' '47D0E1500033.pas.ms.script' // vcmFormDataSource
+ )
+ ; // Inherits
+ : Implements
+   Seq: ( WL 'ME_49EC6E080148' '49EC6D9000EE.pas.ms.script' // IdsInternetAgent
+ )
+ ; // Implements
+ : Attributes
+   Seq: ( ME_49ECB02E0088 // InitDataType
+ )
+ ; // Attributes
+ : Implemented
+   Seq: ( ME_49EDE45A02EB_ME_49ECA9AA0000 // URL
+ )
+ ; // Implemented
+ : Dependencies
+   Seq: ( ME_49EDE54203D9 // 
+ )
+ ; // Dependencies
+ CONST "UseNewGen" 'undefined'
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ : Generators
+ Seq: (
+ gen_intf.pas
+ )
+ ; // Generators
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\InternetAgent'
+ CONST intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\InternetAgent\dsInternetAgent.pas'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\InternetAgent'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\InternetAgent'
+ CONST extprop:pas:UnitName 'dsInternetAgent'
+
+ref; // ME_49ECA9AA0000 TdsInternetAgent
+
+: ME_49EC6DB703E5
+ CONST UID '49EC6DB703E5'
+ CONST Name 'InternetAgent'
+ CONST Class class_Category
+ : Stereotype st_ControllerUnit ;
+ %SUMMARY 'Реализация [Интернет-агента|$124453728]' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent WL 'ME_49EC6D0903DD' '49EC6D0903DD.pas.ms.script' // InternetAgent
+ ;
+ : Children
+   Seq: ( ME_49ECA984005F // TsdsInternetAgent
+ ME_49ECA9AA0000 // TdsInternetAgent
+ )
+ ; // Children
+ : Depends
+   Seq: ( WL 'ME_4677FBA70343' '4677FBA70343.pas.ms.script' // l3Interfaces
+ WL 'ME_476BE98C01B8' '476BE98C01B8.pas.ms.script' // l3Chars
+ WL 'ME_47913B47006E' '47913B47006E.pas.ms.script' // l3CoreObjects
+ WL 'ME_47D0E1500033' '47D0E1500033.pas.ms.script' // Implementation
+ WL 'ME_4982BE090383' '4982BE090383.pas.ms.script' // vcmControllers
+ WL 'ME_49EC6D9000EE' '49EC6D9000EE.pas.ms.script' // InternetAgentInterfaces
+ WL 'ME_54B90AC6014B' '54B90AC6014B.pas.ms.script' // StringUtils
+ )
+ ; // Depends
+ CONST "UseNewGen" 'undefined'
+ : Generators
+ Seq: (
+ gen_pas.script
+ gen_pas.script.runner
+ )
+ ; // Generators
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\InternetAgent'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\InternetAgent'
+ CONST pas.script:Path 'shared\models\NewSchool\Scripts\49EC6DB703E5.pas.ms.script'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\49EC6DB703E5.pas.ms.script.runner'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\InternetAgent'
+
+ref; // ME_49EC6DB703E5 InternetAgent

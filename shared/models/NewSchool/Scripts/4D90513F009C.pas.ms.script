@@ -67,12 +67,17 @@ ref; // ME_4F86D92E026D vtTailRight
  : Parent ME_4D90583503C2 // TvtPopupForm
  ;
  : Attributes
-   @ ( ME_4F86D9100103 // vtTailTop
+   Seq: ( ME_4F86D9100103 // vtTailTop
  ME_4F86D91D00A4 // vtTailLeft
  ME_4F86D92800EE // vtTailBottom
  ME_4F86D92E026D // vtTailRight
- ) .SequenceCode.It
+ )
  ; // Attributes
+ CONST dfm:PathOnly '\common\components\gui\Garant\VT'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\VT'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_4F86D90400CD TvtTailPosition
 
@@ -102,14 +107,18 @@ ref; // ME_4FC76E1C0380
  : Parent ME_4D90583503C2 // TvtPopupForm
  ;
  : Inherits
-   @ ( ME_4F86D90400CD // TvtTailPosition
- ) .SequenceCode.It
+   Seq: ( ME_4F86D90400CD // TvtTailPosition
+ )
  ; // Inherits
  : Attributes
-   @ ( ME_4FC76E1C0380 // 
- ) .SequenceCode.It
+   Seq: ( ME_4FC76E1C0380 // 
+ )
  ; // Attributes
  CONST "array type" 'dynamic'
+ CONST dfm:PathOnly '\common\components\gui\Garant\VT'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\VT'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_4FC76B5B0371 TvtCurrentBounds
 
@@ -124,13 +133,19 @@ ref; // ME_4FC76B5B0371 TvtCurrentBounds
  : Parent ME_4D90583503C2 // TvtPopupForm
  ;
  : Inherits
-   @ ( WL 'ME_47E124E90272' '4799D29F033F.pas.ms.script' // TWinControl
- ) .SequenceCode.It
+   Seq: ( WL 'ME_47E124E90272' '4799D29F033F.pas.ms.script' // TWinControl
+ )
  ; // Inherits
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
+ CONST dfm:PathOnly '\common\components\gui\Garant\VT'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\VT'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'HackWinControl'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_4FC772F5013E THackWinControl
 
@@ -150,6 +165,7 @@ FORWARD ME_4FC7733B0224
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value '0.2'
 
 ref; // ME_4FC773620315 cIndentHMul
 
@@ -167,6 +183,7 @@ ref; // ME_4FC773620315 cIndentHMul
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value '1.0'
 
 ref; // ME_4FC7739E01CB cIndentTopMul
 
@@ -184,6 +201,7 @@ ref; // ME_4FC7739E01CB cIndentTopMul
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value '1.0'
 
 ref; // ME_4FC773B8016F cIndentBottomMul
 
@@ -201,6 +219,7 @@ ref; // ME_4FC773B8016F cIndentBottomMul
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value '1.5'
 
 ref; // ME_4FC773D301AE cTailMul
 
@@ -218,6 +237,7 @@ ref; // ME_4FC773D301AE cTailMul
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value '1.4'
 
 ref; // ME_4FC773FF0266 cBtnWidthMul
 
@@ -235,6 +255,7 @@ ref; // ME_4FC773FF0266 cBtnWidthMul
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value '0.5'
 
 ref; // ME_4FC7741D02D0 cBtnIndentMul
 
@@ -249,15 +270,19 @@ ref; // ME_4FC7741D02D0 cBtnIndentMul
  : Parent ME_4D90583503C2 // TvtPopupForm
  ;
  : Attributes
-   @ ( ME_4FC773620315 // cIndentHMul
+   Seq: ( ME_4FC773620315 // cIndentHMul
  ME_4FC7739E01CB // cIndentTopMul
  ME_4FC773B8016F // cIndentBottomMul
  ME_4FC773D301AE // cTailMul
  ME_4FC773FF0266 // cBtnWidthMul
  ME_4FC7741D02D0 // cBtnIndentMul
- ) .SequenceCode.It
+ )
  ; // Attributes
  CONST "spell names" false
+ CONST dfm:PathOnly '\common\components\gui\Garant\VT'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\VT'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_4FC7733B0224 TvtPopupForm_Constants
 
@@ -400,6 +425,7 @@ ref; // ME_4FC76E2700B2 f_CurrentBounds
 : ME_E1F6DDE6E417
  CONST UID 'E1F6DDE6E417'
  CONST Name 'f_AfterBaloonHidden'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY 'Поле для свойства AfterBaloonHidden' ;
  CONST Visibility PrivateAccess
@@ -409,12 +435,14 @@ ref; // ME_4FC76E2700B2 f_CurrentBounds
  ;
  : Target WL 'ME_47881B22005A' '4AB0997B00A2.pas.ms.script' // TNotifyEvent
  ;
+ CONST extprop:clearViaProperty 'AfterBaloonHidden'
 
 ref; // ME_E1F6DDE6E417 f_AfterBaloonHidden
 
 : ME_4718669325BE
  CONST UID '4718669325BE'
  CONST Name 'f_TailPosition'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY 'Поле для свойства TailPosition' ;
  CONST Visibility PrivateAccess
@@ -424,12 +452,14 @@ ref; // ME_E1F6DDE6E417 f_AfterBaloonHidden
  ;
  : Target ME_4F86D90400CD // TvtTailPosition
  ;
+ CONST extprop:clearViaProperty 'TailPosition'
 
 ref; // ME_4718669325BE f_TailPosition
 
 : ME_E510F732C8EB
  CONST UID 'E510F732C8EB'
  CONST Name 'f_Panel'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY 'Поле для свойства Panel' ;
  CONST Visibility PrivateAccess
@@ -513,13 +543,13 @@ ref; // ME_4FC87A2B001B a_HeightOut
  : Parent ME_4FC7711F014B // AdjustBalloonSize
  ;
  : Parameters
-   @ ( ME_4FC7719B009E // a_TailPosition
+   Seq: ( ME_4FC7719B009E // a_TailPosition
  ME_4FC7719B00FA // a_FontSize
  ME_4FC7719B0168 // a_WidthIn
  ME_4FC7719B01D0 // a_HeightIn
  ME_4FC7719B0247 // a_WidthOut
  ME_4FC87A2B001B // a_HeightOut
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_4FC7716A0107 Do
@@ -536,8 +566,8 @@ ref; // ME_4FC7716A0107 Do
  : Parent ME_4D90583503C2 // TvtPopupForm
  ;
  : Operations
-   @ ( ME_4FC7716A0107 // Do
- ) .SequenceCode.It
+   Seq: ( ME_4FC7716A0107 // Do
+ )
  ; // Operations
  CONST "is static" true
 
@@ -604,12 +634,12 @@ ref; // ME_4FC87DAC039E CanDock
  : Parent ME_4FC87D8002D6 // PanelGetSiteInfo
  ;
  : Parameters
-   @ ( ME_4FC87DAC020A // Sender
+   Seq: ( ME_4FC87DAC020A // Sender
  ME_4FC87DAC0266 // DockClient
  ME_4FC87DAC02D4 // InfluenceRect
  ME_4FC87DAC0339 // MousePos
  ME_4FC87DAC039E // CanDock
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_4FC87DA5011D Do
@@ -625,8 +655,8 @@ ref; // ME_4FC87DA5011D Do
  : Parent ME_4D90583503C2 // TvtPopupForm
  ;
  : Operations
-   @ ( ME_4FC87DA5011D // Do
- ) .SequenceCode.It
+   Seq: ( ME_4FC87DA5011D // Do
+ )
  ; // Operations
 
 ref; // ME_4FC87D8002D6 PanelGetSiteInfo
@@ -651,8 +681,8 @@ ref; // ME_4FC7697603E6 Message
  : Parent ME_4D90583503C2 // TvtPopupForm
  ;
  : Parameters
-   @ ( ME_4FC7697603E6 // Message
- ) .SequenceCode.It
+   Seq: ( ME_4FC7697603E6 // Message
+ )
  ; // Parameters
  CONST "Message ID" 'CM_VISIBLECHANGED'
 
@@ -661,6 +691,7 @@ ref; // ME_4FC7694303B7 CMVisibleChanged
 : ME_B7812D154C35
  CONST UID 'B7812D154C35'
  CONST Name 'Ini_Reg_Class'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Регистрация TvtPopupForm' ;
@@ -784,6 +815,7 @@ ref; // ME_4FC7850403D5
 
 : ME_B817DD29C744
  CONST UID 'B817DD29C744'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_4D90583503C2 // TvtPopupForm
@@ -800,6 +832,7 @@ ref; // ME_B817DD29C744
  ;
  : Implementor ME_4D90583503C2 // TvtPopupForm
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_48C7925A02E5_ME_4D90583503C2 CreateParams
 
 : ME_4F2A599E0283_ME_4D90583503C2
@@ -809,6 +842,7 @@ ref; // ME_48C7925A02E5_ME_4D90583503C2 CreateParams
  ;
  : Implementor ME_4D90583503C2 // TvtPopupForm
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4F2A599E0283_ME_4D90583503C2 SetBounds
 
 : ME_4F9007B20376_ME_4D90583503C2
@@ -818,6 +852,7 @@ ref; // ME_4F2A599E0283_ME_4D90583503C2 SetBounds
  ;
  : Implementor ME_4D90583503C2 // TvtPopupForm
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4F9007B20376_ME_4D90583503C2 CreateNew
 
 : ME_4D90583503C2
@@ -831,11 +866,11 @@ ref; // ME_4F9007B20376_ME_4D90583503C2 CreateNew
  : Parent ME_4D90513F009C // Reminders
  ;
  : Inherits
-   @ ( WL 'ME_484529DC0276' '4799D29F033F.pas.ms.script' // TCustomForm
- ) .SequenceCode.It
+   Seq: ( WL 'ME_484529DC0276' '4799D29F033F.pas.ms.script' // TCustomForm
+ )
  ; // Inherits
  : Attributes
-   @ ( ME_4FC761C303D5 // f_Scene
+   Seq: ( ME_4FC761C303D5 // f_Scene
  ME_4FC763F500F9 // f_Background
  ME_4FC764F300FC // f_CalloutPanel
  ME_4FC7650D00D4 // f_CloseButton
@@ -847,33 +882,33 @@ ref; // ME_4F9007B20376_ME_4D90583503C2 CreateNew
  ME_E1F6DDE6E417 // f_AfterBaloonHidden
  ME_4718669325BE // f_TailPosition
  ME_E510F732C8EB // f_Panel
- ) .SequenceCode.It
+ )
  ; // Attributes
  : Operations
-   @ ( ME_4FC7711F014B // AdjustBalloonSize
+   Seq: ( ME_4FC7711F014B // AdjustBalloonSize
  ME_4FC87D8002D6 // PanelGetSiteInfo
  ME_4FC7694303B7 // CMVisibleChanged
  ME_B7812D154C35 // Ini_Reg_Class
- ) .SequenceCode.It
+ )
  ; // Operations
  : Overridden
-   @ ( ME_48C7925A02E5_ME_4D90583503C2 // CreateParams
+   Seq: ( ME_48C7925A02E5_ME_4D90583503C2 // CreateParams
  ME_4F2A599E0283_ME_4D90583503C2 // SetBounds
  ME_4F9007B20376_ME_4D90583503C2 // CreateNew
- ) .SequenceCode.It
+ )
  ; // Overridden
  : Children
-   @ ( ME_4F86D90400CD // TvtTailPosition
+   Seq: ( ME_4F86D90400CD // TvtTailPosition
  ME_4FC76B5B0371 // TvtCurrentBounds
  ME_4FC772F5013E // THackWinControl
- ) .SequenceCode.It
+ )
  ; // Children
  : Constants
-   @ ( ME_4FC7733B0224 // TvtPopupForm_Constants
- ) .SequenceCode.It
+   Seq: ( ME_4FC7733B0224 // TvtPopupForm_Constants
+ )
  ; // Constants
  : Dependencies
-   @ ( ME_4FC767AE01D9 // 
+   Seq: ( ME_4FC767AE01D9 // 
  ME_4FC767B20157 // 
  ME_4FC767B5030B // 
  ME_4FC772A10353 // 
@@ -884,7 +919,7 @@ ref; // ME_4F9007B20376_ME_4D90583503C2 CreateNew
  ME_4FC77F3102DD // 
  ME_4FC7850403D5 // 
  ME_B817DD29C744 // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  CONST "base wnd class" 'CWnd'
  CONST "ifndef" 'NoVGScene'
@@ -892,12 +927,14 @@ ref; // ME_4F9007B20376_ME_4D90583503C2 CreateNew
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\VT'
  CONST intf.pas:Path 'common\components\gui\Garant\VT\vtPopupForm.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\VT'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'PopupForm'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'vtPopupForm'
 
 ref; // ME_4D90583503C2 TvtPopupForm
 
@@ -929,15 +966,19 @@ ref; // ME_4F86DBD6005C
  : Parent ME_4D9058880214 // TvtPopupFormModelPart
  ;
  : Inherits
-   @ ( ME_4F86D90400CD // TvtTailPosition
- ) .SequenceCode.It
+   Seq: ( ME_4F86D90400CD // TvtTailPosition
+ )
  ; // Inherits
  : Attributes
-   @ ( ME_4F86DBD6005C // 
- ) .SequenceCode.It
+   Seq: ( ME_4F86DBD6005C // 
+ )
  ; // Attributes
  CONST "array type" 'dynamic'
  CONST "ifndef" 'NoVGScene'
+ CONST dfm:PathOnly '\common\components\gui\Garant\VT'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\VT'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_4F86D8A903E2 TTailRects
 
@@ -982,17 +1023,22 @@ ref; // ME_4F86D824037D rV
  : Parent ME_4D9058880214 // TvtPopupFormModelPart
  ;
  : Attributes
-   @ ( ME_4F86D80B00C1 // rInited
+   Seq: ( ME_4F86D80B00C1 // rInited
  ME_4F86D824037D // rV
- ) .SequenceCode.It
+ )
  ; // Attributes
  CONST "ifndef" 'NoVGScene'
+ CONST dfm:PathOnly '\common\components\gui\Garant\VT'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\VT'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_4F86D7E8030F TPopupFormBoundsRects
 
 : ME_BD3B1D5DC6E5
  CONST UID 'BD3B1D5DC6E5'
  CONST Name 'Ini_Reg_Class'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Регистрация TvtPopupFormModelPart' ;
@@ -1017,6 +1063,7 @@ ref; // ME_4D905C2A0349
 
 : ME_666A69AC9576
  CONST UID '666A69AC9576'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_4D9058880214 // TvtPopupFormModelPart
@@ -1033,6 +1080,7 @@ ref; // ME_666A69AC9576
  ;
  : Implementor ME_4D9058880214 // TvtPopupFormModelPart
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_4D905A2A00D6_ME_4D9058880214 DataSourceChanged
 
 : ME_4D9058880214
@@ -1046,30 +1094,30 @@ ref; // ME_4D905A2A00D6_ME_4D9058880214 DataSourceChanged
  : Parent ME_4D90513F009C // Reminders
  ;
  : Inherits
-   @ ( ME_4D90583503C2 // TvtPopupForm
- ) .SequenceCode.It
+   Seq: ( ME_4D90583503C2 // TvtPopupForm
+ )
  ; // Inherits
  : Implements
-   @ ( WL 'ME_4D905A0F0316' '467BAB7F021E.pas.ms.script' // IvcmDatasourceChangeListener
- ) .SequenceCode.It
+   Seq: ( WL 'ME_4D905A0F0316' '467BAB7F021E.pas.ms.script' // IvcmDatasourceChangeListener
+ )
  ; // Implements
  : Operations
-   @ ( ME_BD3B1D5DC6E5 // Ini_Reg_Class
- ) .SequenceCode.It
+   Seq: ( ME_BD3B1D5DC6E5 // Ini_Reg_Class
+ )
  ; // Operations
  : Implemented
-   @ ( ME_4D905A2A00D6_ME_4D9058880214 // DataSourceChanged
- ) .SequenceCode.It
+   Seq: ( ME_4D905A2A00D6_ME_4D9058880214 // DataSourceChanged
+ )
  ; // Implemented
  : Children
-   @ ( ME_4F86D8A903E2 // TTailRects
+   Seq: ( ME_4F86D8A903E2 // TTailRects
  ME_4F86D7E8030F // TPopupFormBoundsRects
- ) .SequenceCode.It
+ )
  ; // Children
  : Dependencies
-   @ ( ME_4D905C2A0349 // 
+   Seq: ( ME_4D905C2A0349 // 
  ME_666A69AC9576 // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  CONST "author" 'Люлин А.В.'
  CONST "base wnd class" 'CWnd'
@@ -1079,12 +1127,14 @@ ref; // ME_4D905A2A00D6_ME_4D9058880214 DataSourceChanged
  CONST "no hands" true
  CONST "register in scripts" 'undefined'
  CONST "started" '28.03.2011 13:45'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\VT'
  CONST intf.pas:Path 'common\components\gui\Garant\VT\vtPopupFormModelPart.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\VT'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'PopupFormModelPart'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'vtPopupFormModelPart'
 
 ref; // ME_4D9058880214 TvtPopupFormModelPart
 
@@ -1098,12 +1148,12 @@ ref; // ME_4D9058880214 TvtPopupFormModelPart
  : Parent WL 'ME_4F91817500AC' '4F91817500AC.pas.ms.script' // VT$Rem
  ;
  : Children
-   @ ( ME_4D90583503C2 // TvtPopupForm
+   Seq: ( ME_4D90583503C2 // TvtPopupForm
  ME_4D9058880214 // TvtPopupFormModelPart
- ) .SequenceCode.It
+ )
  ; // Children
  : Depends
-   @ ( WL 'ME_467823B7002C' '467823B7002C.pas.ms.script' // afwInterfaces
+   Seq: ( WL 'ME_467823B7002C' '467823B7002C.pas.ms.script' // afwInterfaces
  WL 'ME_467BA8C8017E' '467BA8C8017E.pas.ms.script' // afwControl
  WL 'ME_467BAB7F021E' '467BAB7F021E.pas.ms.script' // vcmExternalInterfaces
  WL 'ME_472745450206' '472745450206.pas.ms.script' // l3Units
@@ -1130,15 +1180,13 @@ ref; // ME_4D9058880214 TvtPopupFormModelPart
  WL 'ME_4F8BEB580354' '4F8BEB580354.pas.ms.script' // vtInterfaces
  WL 'ME_4FD078FF017D' '4FD078FF017D.pas.ms.script' // vtImgLists
  WL 'ME_561F9F7D02A7' '561F9F7D02A7.pas.ms.script' // ScriptEngine
- ) .SequenceCode.It
+ )
  ; // Depends
- : Generators
- @ (
- gen_pas.script
- gen_pas.script.runner
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\VT'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\VT'
  CONST pas.script:Path 'shared\models\NewSchool\Scripts\4D90513F009C.pas.ms.script'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
  CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\4D90513F009C.pas.ms.script.runner'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_4D90513F009C Reminders

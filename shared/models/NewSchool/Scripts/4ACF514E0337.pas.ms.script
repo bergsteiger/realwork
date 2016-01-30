@@ -1,0 +1,570 @@
+// NavigationInterfaces 4ACF514E0337 Interfaces Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4ACF514E0337
+
+FORWARD ME_53A91FD901F3
+
+: ME_53A91FF600E3
+ CONST UID '53A91FF600E3'
+ CONST Name 'phbInSameContainer'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_53A91FD901F3 // TbsProcessHyperLinkBehaviour
+ ;
+
+ref; // ME_53A91FF600E3 phbInSameContainer
+
+: ME_53A9202D007A
+ CONST UID '53A9202D007A'
+ CONST Name 'phbInNewTabNoActivate'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_53A91FD901F3 // TbsProcessHyperLinkBehaviour
+ ;
+
+ref; // ME_53A9202D007A phbInNewTabNoActivate
+
+: ME_53A9203702A1
+ CONST UID '53A9203702A1'
+ CONST Name 'phbInNewTabActivate'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_53A91FD901F3 // TbsProcessHyperLinkBehaviour
+ ;
+
+ref; // ME_53A9203702A1 phbInNewTabActivate
+
+: ME_53AA56440108
+ CONST UID '53AA56440108'
+ CONST Name 'phbInNewWindow'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_53A91FD901F3 // TbsProcessHyperLinkBehaviour
+ ;
+
+ref; // ME_53AA56440108 phbInNewWindow
+
+: ME_53A91FD901F3
+ CONST UID '53A91FD901F3'
+ CONST Name 'TbsProcessHyperLinkBehaviour'
+ CONST Class class_Class
+ : Stereotype st_Enum ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4ACF514E0337 // NavigationInterfaces
+ ;
+ : Attributes
+   Seq: ( ME_53A91FF600E3 // phbInSameContainer
+ ME_53A9202D007A // phbInNewTabNoActivate
+ ME_53A9203702A1 // phbInNewTabActivate
+ ME_53AA56440108 // phbInNewWindow
+ )
+ ; // Attributes
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\View'
+ CONST extprop:rc:isAcceptableForScripts true
+
+ref; // ME_53A91FD901F3 TbsProcessHyperLinkBehaviour
+
+FORWARD ME_4AE760410074
+
+: ME_4AE760B500BD
+ CONST UID '4AE760B500BD'
+ CONST Name 'DocID'
+ CONST Class class_Attribute
+ : Stereotype st_property::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_lnk
+ : Parent ME_4AE760410074 // InsOpenDocOnNumberData
+ ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+ CONST "pm" false
+
+ref; // ME_4AE760B500BD DocID
+
+: ME_4AE760C90313
+ CONST UID '4AE760C90313'
+ CONST Name 'PosID'
+ CONST Class class_Attribute
+ : Stereotype st_property::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_lnk
+ : Parent ME_4AE760410074 // InsOpenDocOnNumberData
+ ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+ CONST "pm" false
+
+ref; // ME_4AE760C90313 PosID
+
+: ME_4AE760D30088
+ CONST UID '4AE760D30088'
+ CONST Name 'Internal'
+ CONST Class class_Attribute
+ : Stereotype st_property::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_lnk
+ : Parent ME_4AE760410074 // InsOpenDocOnNumberData
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+ CONST "pm" false
+
+ref; // ME_4AE760D30088 Internal
+
+: ME_4AE760DB01E2
+ CONST UID '4AE760DB01E2'
+ CONST Name 'History'
+ CONST Class class_Attribute
+ : Stereotype st_property::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_lnk
+ : Parent ME_4AE760410074 // InsOpenDocOnNumberData
+ ;
+ : Target WL 'ME_46780DA40383' '4677FBA70343.pas.ms.script' // Il3CString
+ ;
+ CONST "pm" false
+
+ref; // ME_4AE760DB01E2 History
+
+: ME_4AE81AD9019D
+ CONST UID '4AE81AD9019D'
+ CONST Name 'Done'
+ CONST Class class_Attribute
+ : Stereotype st_property::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_lnk
+ : Parent ME_4AE760410074 // InsOpenDocOnNumberData
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+ CONST "pm" false
+
+ref; // ME_4AE81AD9019D Done
+
+: ME_4CC90CCA0027
+ CONST UID '4CC90CCA0027'
+ CONST Name 'PosType'
+ CONST Class class_Attribute
+ : Stereotype st_property::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_lnk
+ : Parent ME_4AE760410074 // InsOpenDocOnNumberData
+ ;
+ : Target WL 'ME_491B32C1015D' '47F2170002B2.pas.ms.script' // TDocumentPositionType
+ ;
+ CONST "pm" false
+
+ref; // ME_4CC90CCA0027 PosType
+
+: ME_4AE760410074
+ CONST UID '4AE760410074'
+ CONST GUID '2892E567-2A20-435A-92CB-E234BAF0E258'
+ CONST Name 'InsOpenDocOnNumberData'
+ CONST Class class_Class
+ : Stereotype st_Facet ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Данные для открытия документа по номеру' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4ACF514E0337 // NavigationInterfaces
+ ;
+ : Attributes
+   Seq: ( ME_4AE760B500BD // DocID
+ ME_4AE760C90313 // PosID
+ ME_4AE760D30088 // Internal
+ ME_4AE760DB01E2 // History
+ ME_4AE81AD9019D // Done
+ ME_4CC90CCA0027 // PosType
+ )
+ ; // Attributes
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\View'
+ CONST extprop:rc:SelfName 'OpenDocOnNumberData'
+ CONST extprop:rc:isAcceptableForScripts true
+
+ref; // ME_4AE760410074 InsOpenDocOnNumberData
+
+FORWARD ME_4A76879B032D
+
+: ME_4A7687C702C8
+ CONST UID '4A7687C702C8'
+ CONST Name 'MakeContainer'
+ CONST Class class_Operation
+ %SUMMARY 'Создать параметры на которых будут делаться вызовы операций' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_4A76879B032D // IbsHyperLinkProcessorHelper
+ ;
+ : Target WL 'ME_49525C400141' '4683F37902CF.pas.ms.script' // IvcmContainer
+ ;
+
+ref; // ME_4A7687C702C8 MakeContainer
+
+: ME_4A7687F0016D
+ CONST UID '4A7687F0016D'
+ CONST Name 'MakeNewMainWindow'
+ CONST Class class_Operation
+ %SUMMARY 'Открыть новое главное окно и вернуть параметры для него' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_4A76879B032D // IbsHyperLinkProcessorHelper
+ ;
+ : Target WL 'ME_49525C400141' '4683F37902CF.pas.ms.script' // IvcmContainer
+ ;
+
+ref; // ME_4A7687F0016D MakeNewMainWindow
+
+: ME_4A76CE160082
+ CONST UID '4A76CE160082'
+ CONST Name 'anOperation'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_45EEAEA10295' '45EEA4890342.pas.ms.script' // ExternalOperation
+ ;
+
+ref; // ME_4A76CE160082 anOperation
+
+: ME_4A76CDFA014B
+ CONST UID '4A76CDFA014B'
+ CONST Name 'ProcessExternalOperation'
+ CONST Class class_Operation
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_4A76879B032D // IbsHyperLinkProcessorHelper
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+ : Parameters
+   Seq: ( ME_4A76CE160082 // anOperation
+ )
+ ; // Parameters
+
+ref; // ME_4A76CDFA014B ProcessExternalOperation
+
+: ME_4A780ECF021A
+ CONST UID '4A780ECF021A'
+ CONST Name 'aLink'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_49E5FCDB02E9' '4A251D6E00BD.pas.ms.script' // IevHyperlink
+ ;
+
+ref; // ME_4A780ECF021A aLink
+
+: ME_4A780EBF00CD
+ CONST UID '4A780EBF00CD'
+ CONST Name 'CheckLinkInfo'
+ CONST Class class_Operation
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_4A76879B032D // IbsHyperLinkProcessorHelper
+ ;
+ : Parameters
+   Seq: ( ME_4A780ECF021A // aLink
+ )
+ ; // Parameters
+
+ref; // ME_4A780EBF00CD CheckLinkInfo
+
+: ME_4A7927CE01FD
+ CONST UID '4A7927CE01FD'
+ CONST Name 'aDocument'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_45EEB6520191' '4570511E038A.pas.ms.script' // Document
+ ;
+
+ref; // ME_4A7927CE01FD aDocument
+
+: ME_4A7927CE023C
+ CONST UID '4A7927CE023C'
+ CONST Name 'aPointType'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_491B32C1015D' '47F2170002B2.pas.ms.script' // TDocumentPositionType
+ ;
+
+ref; // ME_4A7927CE023C aPointType
+
+: ME_4A7927CE027A
+ CONST UID '4A7927CE027A'
+ CONST Name 'aSub'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46A618AF0053' '4AB0C3C60310.pas.ms.script' // Cardinal
+ ;
+
+ref; // ME_4A7927CE027A aSub
+
+: ME_4A79216102C6
+ CONST UID '4A79216102C6'
+ CONST Name 'MakeLinkDocInfo'
+ CONST Class class_Operation
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_4A76879B032D // IbsHyperLinkProcessorHelper
+ ;
+ : Target WL 'ME_47EA0784000D' '4B1FC2FF03CD.pas.ms.script' // IdeDocInfo
+ ;
+ : Parameters
+   Seq: ( ME_4A7927CE01FD // aDocument
+ ME_4A7927CE023C // aPointType
+ ME_4A7927CE027A // aSub
+ )
+ ; // Parameters
+
+ref; // ME_4A79216102C6 MakeLinkDocInfo
+
+: ME_5444A14F01F2
+ CONST UID '5444A14F01F2'
+ CONST Name 'aDocument'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_45EEB6520191' '4570511E038A.pas.ms.script' // Document
+ ;
+
+ref; // ME_5444A14F01F2 aDocument
+
+: ME_5444A14F024F
+ CONST UID '5444A14F024F'
+ CONST Name 'aPointType'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_491B32C1015D' '47F2170002B2.pas.ms.script' // TDocumentPositionType
+ ;
+
+ref; // ME_5444A14F024F aPointType
+
+: ME_5444A14F02BC
+ CONST UID '5444A14F02BC'
+ CONST Name 'aSub'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46A618AF0053' '4AB0C3C60310.pas.ms.script' // Cardinal
+ ;
+
+ref; // ME_5444A14F02BC aSub
+
+: ME_5444A14F032A
+ CONST UID '5444A14F032A'
+ CONST Name 'aBehaviour'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target ME_53A91FD901F3 // TbsProcessHyperLinkBehaviour
+ ;
+
+ref; // ME_5444A14F032A aBehaviour
+
+: ME_4A7928E80375
+ CONST UID '4A7928E80375'
+ CONST Name 'ProcessLocalLink'
+ CONST Class class_Operation
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_4A76879B032D // IbsHyperLinkProcessorHelper
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+ : Parameters
+   Seq: ( ME_5444A14F01F2 // aDocument
+ ME_5444A14F024F // aPointType
+ ME_5444A14F02BC // aSub
+ ME_5444A14F032A // aBehaviour
+ )
+ ; // Parameters
+
+ref; // ME_4A7928E80375 ProcessLocalLink
+
+: ME_53A2EF3A0391
+ CONST UID '53A2EF3A0391'
+ CONST Name 'aDocument'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_45EEB6520191' '4570511E038A.pas.ms.script' // Document
+ ;
+
+ref; // ME_53A2EF3A0391 aDocument
+
+: ME_53A2EF3A03C4
+ CONST UID '53A2EF3A03C4'
+ CONST Name 'aPointType'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_491B32C1015D' '47F2170002B2.pas.ms.script' // TDocumentPositionType
+ ;
+
+ref; // ME_53A2EF3A03C4 aPointType
+
+: ME_53A2EF3B000E
+ CONST UID '53A2EF3B000E'
+ CONST Name 'aSub'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46A618AF0053' '4AB0C3C60310.pas.ms.script' // Cardinal
+ ;
+
+ref; // ME_53A2EF3B000E aSub
+
+: ME_5491595E01B6
+ CONST UID '5491595E01B6'
+ CONST Name 'aBehaviour'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target ME_53A91FD901F3 // TbsProcessHyperLinkBehaviour
+ ;
+
+ref; // ME_5491595E01B6 aBehaviour
+
+: ME_53A2EF1B036C
+ CONST UID '53A2EF1B036C'
+ CONST Name 'ProcessGlobalLink'
+ CONST Class class_Operation
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_4A76879B032D // IbsHyperLinkProcessorHelper
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+ : Parameters
+   Seq: ( ME_53A2EF3A0391 // aDocument
+ ME_53A2EF3A03C4 // aPointType
+ ME_53A2EF3B000E // aSub
+ ME_5491595E01B6 // aBehaviour
+ )
+ ; // Parameters
+
+ref; // ME_53A2EF1B036C ProcessGlobalLink
+
+: ME_53AA5063020B
+ CONST UID '53AA5063020B'
+ CONST Name 'aNeedActivate'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+
+ref; // ME_53AA5063020B aNeedActivate
+
+: ME_53A812BE013E
+ CONST UID '53A812BE013E'
+ CONST Name 'MakeTabbedContainer'
+ CONST Class class_Operation
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_4A76879B032D // IbsHyperLinkProcessorHelper
+ ;
+ : Target WL 'ME_49525C400141' '4683F37902CF.pas.ms.script' // IvcmContainer
+ ;
+ : Parameters
+   Seq: ( ME_53AA5063020B // aNeedActivate
+ )
+ ; // Parameters
+
+ref; // ME_53A812BE013E MakeTabbedContainer
+
+: ME_4A76879B032D
+ CONST UID '4A76879B032D'
+ CONST GUID '61BEA4A9-16C3-4533-93D0-67B0AD286DCF'
+ CONST Name 'IbsHyperLinkProcessorHelper'
+ CONST Class class_Class
+ : Stereotype st_Facet ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4ACF514E0337 // NavigationInterfaces
+ ;
+ : Operations
+   Seq: ( ME_4A7687C702C8 // MakeContainer
+ ME_4A7687F0016D // MakeNewMainWindow
+ ME_4A76CDFA014B // ProcessExternalOperation
+ ME_4A780EBF00CD // CheckLinkInfo
+ ME_4A79216102C6 // MakeLinkDocInfo
+ ME_4A7928E80375 // ProcessLocalLink
+ ME_53A2EF1B036C // ProcessGlobalLink
+ ME_53A812BE013E // MakeTabbedContainer
+ )
+ ; // Operations
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\View'
+ CONST extprop:rc:SelfName 'bsHyperLinkProcessorHelper'
+ CONST extprop:rc:isAcceptableForScripts true
+
+ref; // ME_4A76879B032D IbsHyperLinkProcessorHelper
+
+: ME_4ACF514E0337
+ CONST UID '4ACF514E0337'
+ CONST Name 'NavigationInterfaces'
+ CONST Class class_Category
+ : Stereotype st_Interfaces ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent WL 'ME_4A7C099B004F' '4A7C099B004F.pas.ms.script' // View
+ ;
+ : Children
+   Seq: ( ME_53A91FD901F3 // TbsProcessHyperLinkBehaviour
+ ME_4AE760410074 // InsOpenDocOnNumberData
+ ME_4A76879B032D // IbsHyperLinkProcessorHelper
+ )
+ ; // Children
+ : Depends
+   Seq: ( WL 'ME_4570511E038A' '4570511E038A.pas.ms.script' // Document
+ WL 'ME_45EEA4890342' '45EEA4890342.pas.ms.script' // ExternalOperation
+ WL 'ME_4677FBA70343' '4677FBA70343.pas.ms.script' // l3Interfaces
+ WL 'ME_4683F37902CF' '4683F37902CF.pas.ms.script' // vcmInterfaces
+ WL 'ME_47EA07FA02CE' '47EA07FA02CE.pas.ms.script' // bsTypes
+ WL 'ME_47F2170002B2' '47F2170002B2.pas.ms.script' // nsTypes
+ WL 'ME_491B305A0096' '491B305A0096.pas.ms.script' // DocumentAndListInterfaces
+ WL 'ME_4A251D6E00BD' '4A251D6E00BD.pas.ms.script' // nevNavigation
+ WL 'ME_4AB0C3C60310' '4AB0C3C60310.pas.ms.script' // Sys
+ WL 'ME_4B1FC2FF03CD' '4B1FC2FF03CD.pas.ms.script' // DocumentInterfaces
+ )
+ ; // Depends
+ CONST "author" 'Люлин А.В.'
+ CONST "is namespace" true
+ CONST "no hands" true
+ CONST "started" '09.10.2009 19:06'
+ : Generators
+ Seq: (
+ gen_intf.pas
+ gen_pas.script
+ gen_pas.script.runner
+ )
+ ; // Generators
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View'
+ CONST intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\NavigationInterfaces.pas'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View'
+ CONST pas.script:Path 'shared\models\NewSchool\Scripts\4ACF514E0337.pas.ms.script'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\4ACF514E0337.pas.ms.script.runner'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\View'
+
+ref; // ME_4ACF514E0337 NavigationInterfaces

@@ -1,0 +1,117 @@
+// EverestLiteInsiderTest 512DAFB70392 Unit Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_512DAFB70392
+
+FORWARD ME_512DB031030F
+
+: ME_512DB0670276
+ CONST UID '512DB0670276'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_512DB031030F // TEverestLiteTestSuite
+ ;
+ : Target WL 'ME_512D9BE30122' '512D9BBE0307.pas.ms.script' // EverestLiteKeyWords
+ ;
+
+ref; // ME_512DB0670276 
+
+: ME_512DFDDE03D4
+ CONST UID '512DFDDE03D4'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_512DB031030F // TEverestLiteTestSuite
+ ;
+ : Target WL 'ME_4F5DA0BF025A' '4F5DA07B02CD.pas.ms.script' // kwEditorKeyWordsPack
+ ;
+
+ref; // ME_512DFDDE03D4 
+
+: ME_5166B28E0215
+ CONST UID '5166B28E0215'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_512DB031030F // TEverestLiteTestSuite
+ ;
+ : Target WL 'ME_5166AFC5017A' '5166AF3800B5.pas.ms.script' // kwArchiEverestWordsPack
+ ;
+
+ref; // ME_5166B28E0215 
+
+: ME_512DB031030F
+ CONST UID '512DB031030F'
+ CONST Name 'TEverestLiteTestSuite'
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_512DAFB70392 // EverestLiteInsiderTest
+ ;
+ : Inherits
+   Seq: ( WL 'ME_4DE342FA0300' '4DE3425B01DA.pas.ms.script' // TArchiAutoTestSuite
+ )
+ ; // Inherits
+ : Dependencies
+   Seq: ( ME_512DB0670276 // 
+ ME_512DFDDE03D4 // 
+ ME_5166B28E0215 // 
+ )
+ ; // Dependencies
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ : Generators
+ Seq: (
+ gen_intf.pas
+ )
+ ; // Generators
+ CONST dfm:PathOnly '\archi\source\projects\Everest\Lite\7.0\Express\EverestInsiderTests'
+ CONST intf.pas:Path 'archi\source\projects\Everest\Lite\7.0\Express\EverestInsiderTests\EverestLiteTestSuite.pas'
+ CONST intf.pas:PathOnly '\archi\source\projects\Everest\Lite\7.0\Express\EverestInsiderTests'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\archi\source\projects\Everest\Lite\7.0\Express\EverestInsiderTests'
+ CONST extprop:rc:SelfName 'EverestLiteTestSuite'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'EverestLiteTestSuite'
+
+ref; // ME_512DB031030F TEverestLiteTestSuite
+
+: ME_512DAFB70392
+ CONST UID '512DAFB70392'
+ CONST Name 'EverestLiteInsiderTest'
+ CONST Class class_Category
+ : Stereotype st_Unit ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent WL 'ME_512DAF9001E3' '512DAF9001E3.pas.ms.script' // EverestInsiderTests
+ ;
+ : Children
+   Seq: ( ME_512DB031030F // TEverestLiteTestSuite
+ )
+ ; // Children
+ : Depends
+   Seq: ( WL 'ME_4DE3425B01DA' '4DE3425B01DA.pas.ms.script' // ArchiScriptSupport
+ WL 'ME_4F5DA07B02CD' '4F5DA07B02CD.pas.ms.script' // EditorKeyWords
+ WL 'ME_512D9BBE0307' '512D9BBE0307.pas.ms.script' // EverestLiteKeyWords
+ WL 'ME_5166AF3800B5' '5166AF3800B5.pas.ms.script' // EverestArchiWords
+ )
+ ; // Depends
+ : Generators
+ Seq: (
+ gen_pas.script
+ gen_pas.script.runner
+ )
+ ; // Generators
+ CONST dfm:PathOnly '\archi\source\projects\Everest\Lite\7.0\Express\EverestInsiderTests'
+ CONST intf.pas:PathOnly '\archi\source\projects\Everest\Lite\7.0\Express\EverestInsiderTests'
+ CONST pas.script:Path 'shared\models\NewSchool\Scripts\512DAFB70392.pas.ms.script'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\512DAFB70392.pas.ms.script.runner'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\archi\source\projects\Everest\Lite\7.0\Express\EverestInsiderTests'
+
+ref; // ME_512DAFB70392 EverestLiteInsiderTest

@@ -11,6 +11,7 @@ FORWARD ME_5369F9EA011C
 : ME_E02F7B57E21C
  CONST UID 'E02F7B57E21C'
  CONST Name 'DoIt'
+ CONST IsSummoned true
  CONST Class class_Operation
  %SUMMARY 'Сигнатура метода ScreenShot' ;
  CONST Visibility PublicAccess
@@ -31,8 +32,8 @@ ref; // ME_E02F7B57E21C DoIt
  : Parent ME_5369F9C90151 // JclGraphics
  ;
  : Operations
-   @ ( ME_E02F7B57E21C // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_E02F7B57E21C // DoIt
+ )
  ; // Operations
 
 ref; // ME_5369F9EA011C ScreenShot
@@ -48,17 +49,16 @@ ref; // ME_5369F9EA011C ScreenShot
  : Parent ME_5369F98501F2 // VCL
  ;
  : Operations
-   @ ( ME_5369F9EA011C // ScreenShot
- ) .SequenceCode.It
+   Seq: ( ME_5369F9EA011C // ScreenShot
+ )
  ; // Operations
  CONST "finished" false
  CONST "no hands" false
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\external\JEDI\source\vcl'
  CONST intf.pas:Path 'common\components\rtl\external\JEDI\source\vcl\NOT_FINISHED_JclGraphics.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\external\JEDI\source\vcl'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_5369F9C90151 JclGraphics
 
@@ -72,17 +72,15 @@ ref; // ME_5369F9C90151 JclGraphics
  : Parent WL 'ME_4B4DCCBF034F' '4B4DCCBF034F.pas.ms.script' // JEDI
  ;
  : Children
-   @ ( ME_5369F9C90151 // JclGraphics
- ) .SequenceCode.It
+   Seq: ( ME_5369F9C90151 // JclGraphics
+ )
  ; // Children
  CONST "path prefix" '/source/vcl'
- : Generators
- @ (
- gen_pas.script
- gen_pas.script.runner
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\external\JEDI\source\vcl'
+ CONST intf.pas:PathOnly '\common\components\rtl\external\JEDI\source\vcl'
  CONST pas.script:Path 'shared\models\NewSchool\Scripts\5369F98501F2.pas.ms.script'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
  CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\5369F98501F2.pas.ms.script.runner'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_5369F98501F2 VCL

@@ -1,0 +1,293 @@
+// Scripting Support 4E5C7E800347 Unit Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4E5C7E800347
+
+FORWARD ME_4E5C7F4402E8
+
+FORWARD ME_4E5C7EA10197
+
+: ME_4E5C806901A6
+ CONST UID '4E5C806901A6'
+ CONST Name 'anURL'
+ CONST Class class_Parameter
+ : Stereotype st_const ;
+ : Target WL 'ME_46780D0003AF' '4677FBA70343.pas.ms.script' // Tl3WString
+ ;
+
+ref; // ME_4E5C806901A6 anURL
+
+: ME_4E5C805800FC
+ CONST UID '4E5C805800FC'
+ CONST Name 'OpenURL'
+ CONST Class class_Operation
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_regular
+ : Parent ME_4E5C7EA10197 // TarHyperLinkProcessor
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+ : Parameters
+   Seq: ( ME_4E5C806901A6 // anURL
+ )
+ ; // Parameters
+
+ref; // ME_4E5C805800FC OpenURL
+
+: ME_4E5C807D017F
+ CONST UID '4E5C807D017F'
+ CONST Name 'aScript'
+ CONST Class class_Parameter
+ : Stereotype st_const ;
+ : Target WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
+ ;
+
+ref; // ME_4E5C807D017F aScript
+
+: ME_4E5C806F0361
+ CONST UID '4E5C806F0361'
+ CONST Name 'ExecuteScript'
+ CONST Class class_Operation
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_regular
+ : Parent ME_4E5C7EA10197 // TarHyperLinkProcessor
+ ;
+ : Parameters
+   Seq: ( ME_4E5C807D017F // aScript
+ )
+ ; // Parameters
+
+ref; // ME_4E5C806F0361 ExecuteScript
+
+: ME_4E5C91070151
+ CONST UID '4E5C91070151'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4E5C7EA10197 // TarHyperLinkProcessor
+ ;
+ : Target WL 'ME_4ADF0823017C' '54B90AC6014B.pas.ms.script' // l3IsNil
+ ;
+
+ref; // ME_4E5C91070151 
+
+: ME_4E5C917901CF
+ CONST UID '4E5C917901CF'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4E5C7EA10197 // TarHyperLinkProcessor
+ ;
+ : Target WL 'ME_4AA7888B0076' '47913B47006E.pas.ms.script' // l3CStr
+ ;
+
+ref; // ME_4E5C917901CF 
+
+: ME_4EF2FBF80183
+ CONST UID '4EF2FBF80183'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4E5C7EA10197 // TarHyperLinkProcessor
+ ;
+ : Target WL 'ME_4DDA4CFE00E8' '4AB0C3C60310.pas.ms.script' // ExtractFilePath
+ ;
+
+ref; // ME_4EF2FBF80183 
+
+: ME_4F740CC00044
+ CONST UID '4F740CC00044'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4E5C7EA10197 // TarHyperLinkProcessor
+ ;
+ : Target WL 'ME_4DAEEA9E0049' '4DAEEA14018A.pas.ms.script' // TtfwScriptEngine
+ ;
+
+ref; // ME_4F740CC00044 
+
+: ME_509BB18802E0
+ CONST UID '509BB18802E0'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4E5C7EA10197 // TarHyperLinkProcessor
+ ;
+ : Target WL 'ME_484529DC0276' '4799D29F033F.pas.ms.script' // TCustomForm
+ ;
+
+ref; // ME_509BB18802E0 
+
+: ME_55D34FC40339
+ CONST UID '55D34FC40339'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4E5C7EA10197 // TarHyperLinkProcessor
+ ;
+ : Target WL 'ME_55D34A7E0127' '55C481E00003.pas.ms.script' // TtfwArchiHyperlinkScriptCaller
+ ;
+
+ref; // ME_55D34FC40339 
+
+: ME_4E5C7EA10197
+ CONST UID '4E5C7EA10197'
+ CONST Name 'TarHyperLinkProcessor'
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Обработка ссылок со скриптами' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ : Parent ME_4E5C7F4402E8 // arHyperLinkProcessor
+ ;
+ : Inherits
+   Seq: ( WL 'ME_49E7754802A9' '47913B47006E.pas.ms.script' // Tl3ProtoObject
+ )
+ ; // Inherits
+ : Operations
+   Seq: ( ME_4E5C805800FC // OpenURL
+ ME_4E5C806F0361 // ExecuteScript
+ )
+ ; // Operations
+ : Dependencies
+   Seq: ( ME_4E5C91070151 // 
+ ME_4E5C917901CF // 
+ ME_4EF2FBF80183 // 
+ ME_4F740CC00044 // 
+ ME_509BB18802E0 // 
+ ME_55D34FC40339 // 
+ )
+ ; // Dependencies
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ CONST dfm:PathOnly '\archi\source\projects\Archi\Editor'
+ CONST intf.pas:PathOnly '\archi\source\projects\Archi\Editor'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\archi\source\projects\Archi\Editor'
+ CONST extprop:rc:SelfName 'arHyperLinkProcessor'
+ CONST extprop:rc:isAcceptableForScripts true
+
+ref; // ME_4E5C7EA10197 TarHyperLinkProcessor
+
+FORWARD ME_4E5C7FB10117
+
+: ME_4E5C863701F8
+ CONST UID '4E5C863701F8'
+ CONST Name 'aHyperLink'
+ CONST Class class_Parameter
+ : Stereotype st_const ;
+ : Target WL 'ME_49E5FCDB02E9' '4A251D6E00BD.pas.ms.script' // IevHyperlink
+ ;
+
+ref; // ME_4E5C863701F8 aHyperLink
+
+: ME_4E5C80ED00BC
+ CONST UID '4E5C80ED00BC'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_4E5C7FB10117 // arOpenHyperLink
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+ : Parameters
+   Seq: ( ME_4E5C863701F8 // aHyperLink
+ )
+ ; // Parameters
+
+ref; // ME_4E5C80ED00BC DoIt
+
+: ME_4E5C7FB10117
+ CONST UID '4E5C7FB10117'
+ CONST Name 'arOpenHyperLink'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Открыть ссылку' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_4E5C7F4402E8 // arHyperLinkProcessor
+ ;
+ : Operations
+   Seq: ( ME_4E5C80ED00BC // DoIt
+ )
+ ; // Operations
+
+ref; // ME_4E5C7FB10117 arOpenHyperLink
+
+: ME_4E5C7F4402E8
+ CONST UID '4E5C7F4402E8'
+ CONST Name 'arHyperLinkProcessor'
+ CONST Class class_Class
+ : Stereotype st_UtilityPack ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Открытие ссылки со скриптом.' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_4E5C7E800347 // Scripting Support
+ ;
+ : Operations
+   Seq: ( ME_4E5C7FB10117 // arOpenHyperLink
+ )
+ ; // Operations
+ : Children
+   Seq: ( ME_4E5C7EA10197 // TarHyperLinkProcessor
+ )
+ ; // Children
+ CONST "no hands" false
+ : Generators
+ Seq: (
+ gen_intf.pas
+ )
+ ; // Generators
+ CONST dfm:PathOnly '\archi\source\projects\Archi\Editor'
+ CONST intf.pas:Path 'archi\source\projects\Archi\Editor\arHyperLinkProcessor.pas'
+ CONST intf.pas:PathOnly '\archi\source\projects\Archi\Editor'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\archi\source\projects\Archi\Editor'
+
+ref; // ME_4E5C7F4402E8 arHyperLinkProcessor
+
+: ME_4E5C7E800347
+ CONST UID '4E5C7E800347'
+ CONST Name 'Scripting Support'
+ CONST Class class_Category
+ : Stereotype st_Unit ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent WL 'ME_4E004D0B033A' '4E004D0B033A.pas.ms.script' // Editor
+ ;
+ : Children
+   Seq: ( ME_4E5C7F4402E8 // arHyperLinkProcessor
+ )
+ ; // Children
+ : Depends
+   Seq: ( WL 'ME_4677FBA70343' '4677FBA70343.pas.ms.script' // l3Interfaces
+ WL 'ME_47913B47006E' '47913B47006E.pas.ms.script' // l3CoreObjects
+ WL 'ME_4799D29F033F' '4799D29F033F.pas.ms.script' // Implementation
+ WL 'ME_4A251D6E00BD' '4A251D6E00BD.pas.ms.script' // nevNavigation
+ WL 'ME_4AB0C3C60310' '4AB0C3C60310.pas.ms.script' // Sys
+ WL 'ME_4DAEEA14018A' '4DAEEA14018A.pas.ms.script' // Scripting Axiomatics
+ WL 'ME_4DAF19F600C5' '4DAF19F600C5.pas.ms.script' // tfwScriptingInterfaces
+ WL 'ME_4E4B99A60349' '4E4B99A60349.pas.ms.script' // Tools
+ WL 'ME_54B90AC6014B' '54B90AC6014B.pas.ms.script' // StringUtils
+ WL 'ME_55C481E00003' '55C481E00003.pas.ms.script' // ScriptCallers
+ )
+ ; // Depends
+ : Generators
+ Seq: (
+ gen_pas.script
+ gen_pas.script.runner
+ )
+ ; // Generators
+ CONST dfm:PathOnly '\archi\source\projects\Archi\Editor'
+ CONST intf.pas:PathOnly '\archi\source\projects\Archi\Editor'
+ CONST pas.script:Path 'shared\models\NewSchool\Scripts\4E5C7E800347.pas.ms.script'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\4E5C7E800347.pas.ms.script.runner'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\archi\source\projects\Archi\Editor'
+
+ref; // ME_4E5C7E800347 Scripting Support

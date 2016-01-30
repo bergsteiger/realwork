@@ -25,6 +25,10 @@ FORWARD ME_4C8A309F03AE
  CONST "is FormActivate" false
  CONST "is query" false
  CONST "no prefix" false
+ CONST dfm:PathOnly '\common\components\gui\Garant\VCM\UserInteraction'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\VCM\UserInteraction'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_4C8A30B60087 OpenNewWindowByUser
 
@@ -47,6 +51,10 @@ ref; // ME_4C8A30B60087 OpenNewWindowByUser
  CONST "is FormActivate" false
  CONST "is query" false
  CONST "no prefix" false
+ CONST dfm:PathOnly '\common\components\gui\Garant\VCM\UserInteraction'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\VCM\UserInteraction'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_4C8A30DB001D GetWindowList
 
@@ -69,6 +77,10 @@ ref; // ME_4C8A30DB001D GetWindowList
  CONST "is FormActivate" false
  CONST "is query" false
  CONST "no prefix" false
+ CONST dfm:PathOnly '\common\components\gui\Garant\VCM\UserInteraction'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\VCM\UserInteraction'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_4C8A30F30115 CascadeWindows
 
@@ -91,6 +103,10 @@ ref; // ME_4C8A30F30115 CascadeWindows
  CONST "is FormActivate" false
  CONST "is query" false
  CONST "no prefix" false
+ CONST dfm:PathOnly '\common\components\gui\Garant\VCM\UserInteraction'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\VCM\UserInteraction'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_4C8A3114001E TileWindowsHorizontal
 
@@ -113,6 +129,10 @@ ref; // ME_4C8A3114001E TileWindowsHorizontal
  CONST "is FormActivate" false
  CONST "is query" false
  CONST "no prefix" false
+ CONST dfm:PathOnly '\common\components\gui\Garant\VCM\UserInteraction'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\VCM\UserInteraction'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_4C8A312F018D TileWindowsVertical
 
@@ -135,6 +155,10 @@ ref; // ME_4C8A312F018D TileWindowsVertical
  CONST "is FormActivate" false
  CONST "is query" false
  CONST "no prefix" false
+ CONST dfm:PathOnly '\common\components\gui\Garant\VCM\UserInteraction'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\VCM\UserInteraction'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_4C8A31770143 CloseAllWindows
 
@@ -149,14 +173,18 @@ ref; // ME_4C8A31770143 CloseAllWindows
  : Parent ME_4F6B439D0095 // System
  ;
  : Children
-   @ ( ME_4C8A30B60087 // OpenNewWindowByUser
+   Seq: ( ME_4C8A30B60087 // OpenNewWindowByUser
  ME_4C8A30DB001D // GetWindowList
  ME_4C8A30F30115 // CascadeWindows
  ME_4C8A3114001E // TileWindowsHorizontal
  ME_4C8A312F018D // TileWindowsVertical
  ME_4C8A31770143 // CloseAllWindows
- ) .SequenceCode.It
+ )
  ; // Children
+ CONST dfm:PathOnly '\common\components\gui\Garant\VCM\UserInteraction'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\VCM\UserInteraction'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_4C8A309F03AE Common$UI
 
@@ -170,20 +198,18 @@ ref; // ME_4C8A309F03AE Common$UI
  : Parent WL 'ME_4954C0500033' '4954C0500033.pas.ms.script' // UserInteraction
  ;
  : Children
-   @ ( ME_4C8A309F03AE // Common$UI
- ) .SequenceCode.It
+   Seq: ( ME_4C8A309F03AE // Common$UI
+ )
  ; // Children
  CONST "is namespace" true
  CONST "no hands" false
- : Generators
- @ (
- gen_intf.pas
- gen_pas.script
- gen_pas.script.runner
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\VCM\UserInteraction'
  CONST intf.pas:Path 'common\components\gui\Garant\VCM\UserInteraction\OfficeLike_System_Controls.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\VCM\UserInteraction'
  CONST pas.script:Path 'shared\models\NewSchool\Scripts\4F6B439D0095.pas.ms.script'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
  CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\4F6B439D0095.pas.ms.script.runner'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:pas:UnitName 'OfficeLike_System_Controls'
 
 ref; // ME_4F6B439D0095 System

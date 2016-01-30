@@ -1,0 +1,320 @@
+// LoggingWrapperInterfaces 55B75E6E034C Interfaces Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_55B75E6E034C
+
+FORWARD ME_55B75F160131
+
+: ME_55B75F7E01A5
+ CONST UID '55B75F7E01A5'
+ CONST Name 'aData'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_456EA6F00109' '456EA56002BF.pas.ms.script' // Date
+ ;
+
+ref; // ME_55B75F7E01A5 aData
+
+: ME_55B75F7202BE
+ CONST UID '55B75F7202BE'
+ CONST Name 'AddDate'
+ CONST Class class_Operation
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_55B75F160131 // InsLogEventData
+ ;
+ : Parameters
+   Seq: ( ME_55B75F7E01A5 // aData
+ )
+ ; // Parameters
+
+ref; // ME_55B75F7202BE AddDate
+
+: ME_55B75FA70163
+ CONST UID '55B75FA70163'
+ CONST Name 'aData'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46A451250363' '4AB0C3C60310.pas.ms.script' // IUnknown
+ ;
+
+ref; // ME_55B75FA70163 aData
+
+: ME_55B75FA00176
+ CONST UID '55B75FA00176'
+ CONST Name 'AddObject'
+ CONST Class class_Operation
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_55B75F160131 // InsLogEventData
+ ;
+ : Parameters
+   Seq: ( ME_55B75FA70163 // aData
+ )
+ ; // Parameters
+
+ref; // ME_55B75FA00176 AddObject
+
+: ME_55B75FC500F7
+ CONST UID '55B75FC500F7'
+ CONST Name 'aData'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_54B6A0D8000C' '4AB0C3C60310.pas.ms.script' // PAnsiChar
+ ;
+
+ref; // ME_55B75FC500F7 aData
+
+: ME_55B75FBE02BE
+ CONST UID '55B75FBE02BE'
+ CONST Name 'AddString'
+ CONST Class class_Operation
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_55B75F160131 // InsLogEventData
+ ;
+ : Parameters
+   Seq: ( ME_55B75FC500F7 // aData
+ )
+ ; // Parameters
+
+ref; // ME_55B75FBE02BE AddString
+
+: ME_55B75FDC0256
+ CONST UID '55B75FDC0256'
+ CONST Name 'aData'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_48FD996601CE' '4AB0C3C60310.pas.ms.script' // Longword
+ ;
+
+ref; // ME_55B75FDC0256 aData
+
+: ME_55B75FD7031E
+ CONST UID '55B75FD7031E'
+ CONST Name 'AddULong'
+ CONST Class class_Operation
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_55B75F160131 // InsLogEventData
+ ;
+ : Parameters
+   Seq: ( ME_55B75FDC0256 // aData
+ )
+ ; // Parameters
+
+ref; // ME_55B75FD7031E AddULong
+
+: ME_55BA030300BA
+ CONST UID '55BA030300BA'
+ CONST Name 'AsString'
+ CONST Class class_Operation
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_55B75F160131 // InsLogEventData
+ ;
+ : Target WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
+ ;
+
+ref; // ME_55BA030300BA AsString
+
+: ME_55B76037036D
+ CONST UID '55B76037036D'
+ CONST Name 'AsLogEventData'
+ CONST Class class_Operation
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_55B75F160131 // InsLogEventData
+ ;
+ : Target WL 'ME_45ED59730069' '45ED58CF03E6.pas.ms.script' // LogEventData
+ ;
+
+ref; // ME_55B76037036D AsLogEventData
+
+: ME_55B75F160131
+ CONST UID '55B75F160131'
+ CONST GUID '05D8F7D5-49AA-498E-8183-FC025550B703'
+ CONST Name 'InsLogEventData'
+ CONST Class class_Class
+ : Stereotype st_Facet ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_55B75E6E034C // LoggingWrapperInterfaces
+ ;
+ : Operations
+   Seq: ( ME_55B75F7202BE // AddDate
+ ME_55B75FA00176 // AddObject
+ ME_55B75FBE02BE // AddString
+ ME_55B75FD7031E // AddULong
+ ME_55BA030300BA // AsString
+ ME_55B76037036D // AsLogEventData
+ )
+ ; // Operations
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Logging'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Logging'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\Logging'
+ CONST extprop:rc:SelfName 'LogEventData'
+ CONST extprop:rc:isAcceptableForScripts true
+
+ref; // ME_55B75F160131 InsLogEventData
+
+FORWARD ME_55B75FED02BC
+
+: ME_55B7607F011C
+ CONST UID '55B7607F011C'
+ CONST Name 'aLogEvent'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_45ED58FF0201' '45ED58CF03E6.pas.ms.script' // LogEvent
+ ;
+
+ref; // ME_55B7607F011C aLogEvent
+
+: ME_55B7607F0130
+ CONST UID '55B7607F0130'
+ CONST Name 'aData'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target ME_55B75F160131 // InsLogEventData
+ ;
+
+ref; // ME_55B7607F0130 aData
+
+: ME_55B760550256
+ CONST UID '55B760550256'
+ CONST Name 'AddEvent'
+ CONST Class class_Operation
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_55B75FED02BC // InsLogManager
+ ;
+ : Parameters
+   Seq: ( ME_55B7607F011C // aLogEvent
+ ME_55B7607F0130 // aData
+ )
+ ; // Parameters
+
+ref; // ME_55B760550256 AddEvent
+
+: ME_55B75FED02BC
+ CONST UID '55B75FED02BC'
+ CONST GUID '966DBDBB-C728-4A76-9AA5-6CF45837D11F'
+ CONST Name 'InsLogManager'
+ CONST Class class_Class
+ : Stereotype st_Facet ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_55B75E6E034C // LoggingWrapperInterfaces
+ ;
+ : Operations
+   Seq: ( ME_55B760550256 // AddEvent
+ )
+ ; // Operations
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Logging'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Logging'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\Logging'
+ CONST extprop:rc:SelfName 'LogManager'
+ CONST extprop:rc:isAcceptableForScripts true
+
+ref; // ME_55B75FED02BC InsLogManager
+
+FORWARD ME_566AEC770091
+
+: ME_566AEC8F0144
+ CONST UID '566AEC8F0144'
+ CONST Name 'aString'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
+ ;
+
+ref; // ME_566AEC8F0144 aString
+
+: ME_566AEC8A0092
+ CONST UID '566AEC8A0092'
+ CONST Name 'AddLogString'
+ CONST Class class_Operation
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_566AEC770091 // InsLoggingTestService
+ ;
+ : Parameters
+   Seq: ( ME_566AEC8F0144 // aString
+ )
+ ; // Parameters
+
+ref; // ME_566AEC8A0092 AddLogString
+
+: ME_566AEC770091
+ CONST UID '566AEC770091'
+ CONST GUID 'BEAE7BA4-756B-405A-8CA5-39CEEEE025E2'
+ CONST Name 'InsLoggingTestService'
+ CONST Class class_Class
+ : Stereotype st_Facet ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_55B75E6E034C // LoggingWrapperInterfaces
+ ;
+ : Operations
+   Seq: ( ME_566AEC8A0092 // AddLogString
+ )
+ ; // Operations
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Logging'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Logging'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\Logging'
+ CONST extprop:rc:SelfName 'LoggingTestService'
+ CONST extprop:rc:isAcceptableForScripts true
+
+ref; // ME_566AEC770091 InsLoggingTestService
+
+: ME_55B75E6E034C
+ CONST UID '55B75E6E034C'
+ CONST Name 'LoggingWrapperInterfaces'
+ CONST Class class_Category
+ : Stereotype st_Interfaces ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent WL 'ME_55B62380030A' '55B62380030A.pas.ms.script' // Logging
+ ;
+ : Children
+   Seq: ( ME_55B75F160131 // InsLogEventData
+ ME_55B75FED02BC // InsLogManager
+ ME_566AEC770091 // InsLoggingTestService
+ )
+ ; // Children
+ : Depends
+   Seq: ( WL 'ME_456EA56002BF' '456EA56002BF.pas.ms.script' // BaseTypes
+ WL 'ME_45ED58CF03E6' '45ED58CF03E6.pas.ms.script' // Logging
+ WL 'ME_4AB0C3C60310' '4AB0C3C60310.pas.ms.script' // Sys
+ )
+ ; // Depends
+ CONST "author" 'Костицын'
+ CONST "is namespace" true
+ CONST "no hands" false
+ : Generators
+ Seq: (
+ gen_intf.pas
+ gen_pas.script
+ gen_pas.script.runner
+ )
+ ; // Generators
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Logging'
+ CONST intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\Logging\LoggingWrapperInterfaces.pas'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Logging'
+ CONST pas.script:Path 'shared\models\NewSchool\Scripts\55B75E6E034C.pas.ms.script'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\55B75E6E034C.pas.ms.script.runner'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\Logging'
+
+ref; // ME_55B75E6E034C LoggingWrapperInterfaces

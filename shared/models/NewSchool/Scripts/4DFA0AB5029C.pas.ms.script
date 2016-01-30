@@ -67,9 +67,9 @@ ref; // ME_48B7FD0800B5 aQueryCard
  : Parent ME_48B7FA9403B1 // TevControlIterator
  ;
  : Parameters
-   @ ( ME_48B7FD080071 // aControl
+   Seq: ( ME_48B7FD080071 // aControl
  ME_48B7FD0800B5 // aQueryCard
- ) .SequenceCode.It
+ )
  ; // Parameters
  CONST "check nil" false
  CONST "need AfterCreate" 'undefined'
@@ -108,9 +108,9 @@ ref; // ME_48B7FD1200BE aQueryCard
  : Parent ME_48B7FA9403B1 // TevControlIterator
  ;
  : Parameters
-   @ ( ME_48B7FD120075 // aControl
+   Seq: ( ME_48B7FD120075 // aControl
  ME_48B7FD1200BE // aQueryCard
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_48B7FB0A0266 Create
@@ -133,6 +133,7 @@ ref; // ME_48DB975303B0
  ;
  : Implementor ME_48B7FA9403B1 // TevControlIterator
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_47CD77A200FE_ME_48B7FA9403B1 GetNextVisible
 
 : ME_47CD77B1038D_ME_48B7FA9403B1
@@ -142,6 +143,7 @@ ref; // ME_47CD77A200FE_ME_48B7FA9403B1 GetNextVisible
  ;
  : Implementor ME_48B7FA9403B1 // TevControlIterator
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_47CD77B1038D_ME_48B7FA9403B1 GetPrevVisible
 
 : ME_479731C50290_ME_48B7FA9403B1
@@ -151,6 +153,7 @@ ref; // ME_47CD77B1038D_ME_48B7FA9403B1 GetPrevVisible
  ;
  : Implementor ME_48B7FA9403B1 // TevControlIterator
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_479731C50290_ME_48B7FA9403B1 Cleanup
 
 : ME_47A6FEE600FC_ME_48B7FA9403B1
@@ -160,6 +163,7 @@ ref; // ME_479731C50290_ME_48B7FA9403B1 Cleanup
  ;
  : Implementor ME_48B7FA9403B1 // TevControlIterator
  ;
+ CONST OpKind opkind_Overridden
  CONST "ifndef" 'DesignTimeLibrary'
 ref; // ME_47A6FEE600FC_ME_48B7FA9403B1 IsCacheable
 
@@ -174,41 +178,47 @@ ref; // ME_47A6FEE600FC_ME_48B7FA9403B1 IsCacheable
  : Parent ME_47CFEE9E02E1 // TevControlContainer
  ;
  : Inherits
-   @ ( WL 'ME_4AE5CA2D0034' '47913B47006E.pas.ms.script' // Tl3CProtoObject
- ) .SequenceCode.It
+   Seq: ( WL 'ME_4AE5CA2D0034' '47913B47006E.pas.ms.script' // Tl3CProtoObject
+ )
  ; // Inherits
  : Implements
-   @ ( WL 'ME_47CD5E9201B2' '47CD5C7602CD.pas.ms.script' // IevControlIterator
- ) .SequenceCode.It
+   Seq: ( WL 'ME_47CD5E9201B2' '47CD5C7602CD.pas.ms.script' // IevControlIterator
+ )
  ; // Implements
  : Attributes
-   @ ( ME_48B7FACF03AE // f_CurrentControl
+   Seq: ( ME_48B7FACF03AE // f_CurrentControl
  ME_48B7FCE3013B // f_QueryCard
- ) .SequenceCode.It
+ )
  ; // Attributes
  : Operations
-   @ ( ME_48B7FAF1038E // Make
+   Seq: ( ME_48B7FAF1038E // Make
  ME_48B7FB0A0266 // Create
- ) .SequenceCode.It
+ )
  ; // Operations
  : Implemented
-   @ ( ME_47CD77A200FE_ME_48B7FA9403B1 // GetNextVisible
+   Seq: ( ME_47CD77A200FE_ME_48B7FA9403B1 // GetNextVisible
  ME_47CD77B1038D_ME_48B7FA9403B1 // GetPrevVisible
- ) .SequenceCode.It
+ )
  ; // Implemented
  : Overridden
-   @ ( ME_479731C50290_ME_48B7FA9403B1 // Cleanup
+   Seq: ( ME_479731C50290_ME_48B7FA9403B1 // Cleanup
  ME_47A6FEE600FC_ME_48B7FA9403B1 // IsCacheable
- ) .SequenceCode.It
+ )
  ; // Overridden
  : Dependencies
-   @ ( ME_48DB975303B0 // 
- ) .SequenceCode.It
+   Seq: ( ME_48DB975303B0 // 
+ )
  ; // Dependencies
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest\qf'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest\qf'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'ControlIterator'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_48B7FA9403B1 TevControlIterator
 
@@ -399,8 +409,8 @@ ref; // ME_47CFF39201B7 CanSetFocus
  : Parent ME_47CFEE9E02E1 // TevControlContainer
  ;
  : Parameters
-   @ ( ME_47CFF39201B7 // CanSetFocus
- ) .SequenceCode.It
+   Seq: ( ME_47CFF39201B7 // CanSetFocus
+ )
  ; // Parameters
 
 ref; // ME_47CFF38902E1 DoHideDroppedControl
@@ -426,8 +436,8 @@ ref; // ME_47CFF3BD015F aDown
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
  : Parameters
-   @ ( ME_47CFF3BD015F // aDown
- ) .SequenceCode.It
+   Seq: ( ME_47CFF3BD015F // aDown
+ )
  ; // Parameters
 
 ref; // ME_47CFF3B803B0 DoMouseWheel
@@ -485,10 +495,10 @@ ref; // ME_47D004620178 anExpanedeOnly
  : Target WL 'ME_47CD5E5300D5' '47CD5C7602CD.pas.ms.script' // IevCustomEditorControl
  ;
  : Parameters
-   @ ( ME_47D0046200E5 // aGroup
+   Seq: ( ME_47D0046200E5 // aGroup
  ME_47D00462012D // anOnlyFields
  ME_47D004620178 // anExpanedeOnly
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_47D0045001C3 GetFirstVisible
@@ -534,10 +544,10 @@ ref; // ME_47D0049F01A1 anExpanedeOnly
  : Target WL 'ME_47CD5E5300D5' '47CD5C7602CD.pas.ms.script' // IevCustomEditorControl
  ;
  : Parameters
-   @ ( ME_47D0049F0105 // aGroup
+   Seq: ( ME_47D0049F0105 // aGroup
  ME_47D0049F0152 // anOnlyFields
  ME_47D0049F01A1 // anExpanedeOnly
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_47D0048E01F2 GetLastVisible
@@ -573,9 +583,9 @@ ref; // ME_47D0075503A2 anOnlyFields
  : Target WL 'ME_47CD5E5300D5' '47CD5C7602CD.pas.ms.script' // IevCustomEditorControl
  ;
  : Parameters
-   @ ( ME_47D007550351 // aReq
+   Seq: ( ME_47D007550351 // aReq
  ME_47D0075503A2 // anOnlyFields
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_47D0074B0107 GetFirstControl
@@ -611,9 +621,9 @@ ref; // ME_47D0077103E5 anOnlyFields
  : Target WL 'ME_47CD5E5300D5' '47CD5C7602CD.pas.ms.script' // IevCustomEditorControl
  ;
  : Parameters
-   @ ( ME_47D00771038E // aReq
+   Seq: ( ME_47D00771038E // aReq
  ME_47D0077103E5 // anOnlyFields
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_47D0075D03DF GetLastControl
@@ -660,10 +670,10 @@ ref; // ME_47D009E50049 aFirstReq
  : Target WL 'ME_47CD6644026F' '47CD5C7602CD.pas.ms.script' // IevReq
  ;
  : Parameters
-   @ ( ME_47D009E4036F // aReq
+   Seq: ( ME_47D009E4036F // aReq
  ME_47D009E403D4 // anExpandedOnly
  ME_47D009E50049 // aFirstReq
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_47D009D1009A GetNextReq
@@ -710,10 +720,10 @@ ref; // ME_47D00A4A0103 aLastReq
  : Target WL 'ME_47CD6644026F' '47CD5C7602CD.pas.ms.script' // IevReq
  ;
  : Parameters
-   @ ( ME_47D00A4A0040 // aReq
+   Seq: ( ME_47D00A4A0040 // aReq
  ME_47D00A4A00A2 // anExpandedOnly
  ME_47D00A4A0103 // aLastReq
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_47D00A370286 GetPrevReq
@@ -739,8 +749,8 @@ ref; // ME_47D010DE0068 anIndex
  : Target WL 'ME_476BF1FA032A' '4678209200A6.pas.ms.script' // InevSimpleNode
  ;
  : Parameters
-   @ ( ME_47D010DE0068 // anIndex
- ) .SequenceCode.It
+   Seq: ( ME_47D010DE0068 // anIndex
+ )
  ; // Parameters
 
 ref; // ME_47D010D10193 DoGetNode
@@ -764,8 +774,8 @@ ref; // ME_47D0111C0194 aTag
  : Parent ME_47CFEE9E02E1 // TevControlContainer
  ;
  : Parameters
-   @ ( ME_47D0111C0194 // aTag
- ) .SequenceCode.It
+   Seq: ( ME_47D0111C0194 // aTag
+ )
  ; // Parameters
 
 ref; // ME_47D0111400DC DoDeleteOnUndo
@@ -789,8 +799,8 @@ ref; // ME_47D0118E02F3 aCurPara
  : Parent ME_47CFEE9E02E1 // TevControlContainer
  ;
  : Parameters
-   @ ( ME_47D0118E02F3 // aCurPara
- ) .SequenceCode.It
+   Seq: ( ME_47D0118E02F3 // aCurPara
+ )
  ; // Parameters
 
 ref; // ME_47D011870105 DoChangePara
@@ -837,10 +847,10 @@ ref; // ME_4803562001E0 aCurPara
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
  : Parameters
-   @ ( ME_4803562000F3 // aView
+   Seq: ( ME_4803562000F3 // aView
  ME_48035620016B // Msg
  ME_4803562001E0 // aCurPara
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_47D0135901AC DoKeyDown
@@ -973,6 +983,7 @@ ref; // ME_49AE7A4E00BC
  ;
  : Implementor ME_47CFEE9E02E1 // TevControlContainer
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_47C6BE3B027A_ME_47CFEE9E02E1 CanInsertPara
 
 : ME_47C7C8EE0193_ME_47CFEE9E02E1
@@ -982,6 +993,7 @@ ref; // ME_47C6BE3B027A_ME_47CFEE9E02E1 CanInsertPara
  ;
  : Implementor ME_47CFEE9E02E1 // TevControlContainer
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_47C7C8EE0193_ME_47CFEE9E02E1 InsertOnUndo
 
 : ME_47C7C9070379_ME_47CFEE9E02E1
@@ -991,6 +1003,7 @@ ref; // ME_47C7C8EE0193_ME_47CFEE9E02E1 InsertOnUndo
  ;
  : Implementor ME_47CFEE9E02E1 // TevControlContainer
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_47C7C9070379_ME_47CFEE9E02E1 DeleteOnUndo
 
 : ME_47C7C91E0277_ME_47CFEE9E02E1
@@ -1000,6 +1013,7 @@ ref; // ME_47C7C9070379_ME_47CFEE9E02E1 DeleteOnUndo
  ;
  : Implementor ME_47CFEE9E02E1 // TevControlContainer
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_47C7C91E0277_ME_47CFEE9E02E1 HideDroppedControl
 
 : ME_47C7C9A4014C_ME_47CFEE9E02E1
@@ -1009,6 +1023,7 @@ ref; // ME_47C7C91E0277_ME_47CFEE9E02E1 HideDroppedControl
  ;
  : Implementor ME_47CFEE9E02E1 // TevControlContainer
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_47C7C9A4014C_ME_47CFEE9E02E1 MouseWheel
 
 : ME_47C7CA230160_ME_47CFEE9E02E1
@@ -1018,6 +1033,7 @@ ref; // ME_47C7C9A4014C_ME_47CFEE9E02E1 MouseWheel
  ;
  : Implementor ME_47CFEE9E02E1 // TevControlContainer
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_47C7CA230160_ME_47CFEE9E02E1 KeyDown
 
 : ME_47C7CA350361_ME_47CFEE9E02E1
@@ -1027,6 +1043,7 @@ ref; // ME_47C7CA230160_ME_47CFEE9E02E1 KeyDown
  ;
  : Implementor ME_47CFEE9E02E1 // TevControlContainer
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_47C7CA350361_ME_47CFEE9E02E1 ChangePara
 
 : ME_47C7CA4500E7_ME_47CFEE9E02E1
@@ -1036,6 +1053,7 @@ ref; // ME_47C7CA350361_ME_47CFEE9E02E1 ChangePara
  ;
  : Implementor ME_47CFEE9E02E1 // TevControlContainer
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_47C7CA4500E7_ME_47CFEE9E02E1 BeforeRMouseClick
 
 : ME_47C7CA5402D0_ME_47CFEE9E02E1
@@ -1045,6 +1063,7 @@ ref; // ME_47C7CA4500E7_ME_47CFEE9E02E1 BeforeRMouseClick
  ;
  : Implementor ME_47CFEE9E02E1 // TevControlContainer
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_47C7CA5402D0_ME_47CFEE9E02E1 ClearUpper
 
 : ME_47C7CA670121_ME_47CFEE9E02E1
@@ -1054,6 +1073,7 @@ ref; // ME_47C7CA5402D0_ME_47CFEE9E02E1 ClearUpper
  ;
  : Implementor ME_47CFEE9E02E1 // TevControlContainer
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_47C7CA670121_ME_47CFEE9E02E1 NeedKey
 
 : ME_47C7CB490100_ME_47CFEE9E02E1
@@ -1063,6 +1083,7 @@ ref; // ME_47C7CA670121_ME_47CFEE9E02E1 NeedKey
  ;
  : Implementor ME_47CFEE9E02E1 // TevControlContainer
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_47C7CB490100_ME_47CFEE9E02E1 CursorCreate
 
 : ME_47C7CB5403D4_ME_47CFEE9E02E1
@@ -1072,6 +1093,7 @@ ref; // ME_47C7CB490100_ME_47CFEE9E02E1 CursorCreate
  ;
  : Implementor ME_47CFEE9E02E1 // TevControlContainer
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_47C7CB5403D4_ME_47CFEE9E02E1 UpdateState
 
 : ME_47C7CB5D0311_ME_47CFEE9E02E1
@@ -1081,6 +1103,7 @@ ref; // ME_47C7CB5403D4_ME_47CFEE9E02E1 UpdateState
  ;
  : Implementor ME_47CFEE9E02E1 // TevControlContainer
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_47C7CB5D0311_ME_47CFEE9E02E1 IsLastField
 
 : ME_47C7CBC903AE_ME_47CFEE9E02E1
@@ -1090,6 +1113,7 @@ ref; // ME_47C7CB5D0311_ME_47CFEE9E02E1 IsLastField
  ;
  : Implementor ME_47CFEE9E02E1 // TevControlContainer
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_47C7CBC903AE_ME_47CFEE9E02E1 IsFirstField
 
 : ME_47C7CBDE0030_ME_47CFEE9E02E1
@@ -1099,6 +1123,7 @@ ref; // ME_47C7CBC903AE_ME_47CFEE9E02E1 IsFirstField
  ;
  : Implementor ME_47CFEE9E02E1 // TevControlContainer
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_47C7CBDE0030_ME_47CFEE9E02E1 StartPaste
 
 : ME_47C7CBEA02E3_ME_47CFEE9E02E1
@@ -1108,6 +1133,7 @@ ref; // ME_47C7CBDE0030_ME_47CFEE9E02E1 StartPaste
  ;
  : Implementor ME_47CFEE9E02E1 // TevControlContainer
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_47C7CBEA02E3_ME_47CFEE9E02E1 FinishPaste
 
 : ME_47C7CBF803D7_ME_47CFEE9E02E1
@@ -1117,6 +1143,7 @@ ref; // ME_47C7CBEA02E3_ME_47CFEE9E02E1 FinishPaste
  ;
  : Implementor ME_47CFEE9E02E1 // TevControlContainer
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_47C7CBF803D7_ME_47CFEE9E02E1 IsPasting
 
 : ME_47C7CC09021A_ME_47CFEE9E02E1
@@ -1126,6 +1153,7 @@ ref; // ME_47C7CBF803D7_ME_47CFEE9E02E1 IsPasting
  ;
  : Implementor ME_47CFEE9E02E1 // TevControlContainer
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_47C7CC09021A_ME_47CFEE9E02E1 GetFirstPara
 
 : ME_47C7CC480009_ME_47CFEE9E02E1
@@ -1135,6 +1163,7 @@ ref; // ME_47C7CC09021A_ME_47CFEE9E02E1 GetFirstPara
  ;
  : Implementor ME_47CFEE9E02E1 // TevControlContainer
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_47C7CC480009_ME_47CFEE9E02E1 GetLastPara
 
 : ME_47CD829A0262_ME_47CFEE9E02E1
@@ -1144,6 +1173,7 @@ ref; // ME_47C7CC480009_ME_47CFEE9E02E1 GetLastPara
  ;
  : Implementor ME_47CFEE9E02E1 // TevControlContainer
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_47CD829A0262_ME_47CFEE9E02E1 SetCurrPara
 
 : ME_47CD82A70217_ME_47CFEE9E02E1
@@ -1153,6 +1183,7 @@ ref; // ME_47CD829A0262_ME_47CFEE9E02E1 SetCurrPara
  ;
  : Implementor ME_47CFEE9E02E1 // TevControlContainer
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_47CD82A70217_ME_47CFEE9E02E1 GetDocumentContainer
 
 : ME_47CD82BA01D2_ME_47CFEE9E02E1
@@ -1162,6 +1193,7 @@ ref; // ME_47CD82A70217_ME_47CFEE9E02E1 GetDocumentContainer
  ;
  : Implementor ME_47CFEE9E02E1 // TevControlContainer
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_47CD82BA01D2_ME_47CFEE9E02E1 RememberFocusControl
 
 : ME_47CD82C800FB_ME_47CFEE9E02E1
@@ -1171,6 +1203,7 @@ ref; // ME_47CD82BA01D2_ME_47CFEE9E02E1 RememberFocusControl
  ;
  : Implementor ME_47CFEE9E02E1 // TevControlContainer
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_47CD82C800FB_ME_47CFEE9E02E1 BeforeDelete
 
 : ME_47CD82DD0015_ME_47CFEE9E02E1
@@ -1180,6 +1213,7 @@ ref; // ME_47CD82C800FB_ME_47CFEE9E02E1 BeforeDelete
  ;
  : Implementor ME_47CFEE9E02E1 // TevControlContainer
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_47CD82DD0015_ME_47CFEE9E02E1 UpperChange
 
 : ME_47CD82ED006B_ME_47CFEE9E02E1
@@ -1189,6 +1223,7 @@ ref; // ME_47CD82DD0015_ME_47CFEE9E02E1 UpperChange
  ;
  : Implementor ME_47CFEE9E02E1 // TevControlContainer
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_47CD82ED006B_ME_47CFEE9E02E1 GetNode
 
 : ME_47CD82FE0071_ME_47CFEE9E02E1
@@ -1198,6 +1233,7 @@ ref; // ME_47CD82ED006B_ME_47CFEE9E02E1 GetNode
  ;
  : Implementor ME_47CFEE9E02E1 // TevControlContainer
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_47CD82FE0071_ME_47CFEE9E02E1 CardClear
 
 : ME_47CD830E0357_ME_47CFEE9E02E1
@@ -1207,6 +1243,7 @@ ref; // ME_47CD82FE0071_ME_47CFEE9E02E1 CardClear
  ;
  : Implementor ME_47CFEE9E02E1 // TevControlContainer
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_47CD830E0357_ME_47CFEE9E02E1 StartLongOperation
 
 : ME_47CD831A0092_ME_47CFEE9E02E1
@@ -1216,6 +1253,7 @@ ref; // ME_47CD830E0357_ME_47CFEE9E02E1 StartLongOperation
  ;
  : Implementor ME_47CFEE9E02E1 // TevControlContainer
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_47CD831A0092_ME_47CFEE9E02E1 EndLongOperation
 
 : ME_47CD83410138_ME_47CFEE9E02E1
@@ -1225,6 +1263,7 @@ ref; // ME_47CD831A0092_ME_47CFEE9E02E1 EndLongOperation
  ;
  : Implementor ME_47CFEE9E02E1 // TevControlContainer
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_47CD83410138_ME_47CFEE9E02E1 ChangeStateAll
 
 : ME_47CD835002FB_ME_47CFEE9E02E1
@@ -1234,6 +1273,7 @@ ref; // ME_47CD83410138_ME_47CFEE9E02E1 ChangeStateAll
  ;
  : Implementor ME_47CFEE9E02E1 // TevControlContainer
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_47CD835002FB_ME_47CFEE9E02E1 AfterCollapsed
 
 : ME_47CD83830353_ME_47CFEE9E02E1
@@ -1243,6 +1283,7 @@ ref; // ME_47CD835002FB_ME_47CFEE9E02E1 AfterCollapsed
  ;
  : Implementor ME_47CFEE9E02E1 // TevControlContainer
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_47CD83830353_ME_47CFEE9E02E1 LimitCharsReached
 
 : ME_47CD839201D4_ME_47CFEE9E02E1
@@ -1252,6 +1293,7 @@ ref; // ME_47CD83830353_ME_47CFEE9E02E1 LimitCharsReached
  ;
  : Implementor ME_47CFEE9E02E1 // TevControlContainer
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_47CD839201D4_ME_47CFEE9E02E1 RememberState
 
 : ME_47CD83A1034C_ME_47CFEE9E02E1
@@ -1261,6 +1303,7 @@ ref; // ME_47CD839201D4_ME_47CFEE9E02E1 RememberState
  ;
  : Implementor ME_47CFEE9E02E1 // TevControlContainer
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_47CD83A1034C_ME_47CFEE9E02E1 GetStateControl
 
 : ME_47CD83B10329_ME_47CFEE9E02E1
@@ -1270,6 +1313,7 @@ ref; // ME_47CD83A1034C_ME_47CFEE9E02E1 GetStateControl
  ;
  : Implementor ME_47CFEE9E02E1 // TevControlContainer
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_47CD83B10329_ME_47CFEE9E02E1 GetFocusedControl
 
 : ME_47CD83C8037F_ME_47CFEE9E02E1
@@ -1279,6 +1323,7 @@ ref; // ME_47CD83B10329_ME_47CFEE9E02E1 GetFocusedControl
  ;
  : Implementor ME_47CFEE9E02E1 // TevControlContainer
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_47CD83C8037F_ME_47CFEE9E02E1 LinkView
 
 : ME_47CD83DC0133_ME_47CFEE9E02E1
@@ -1288,6 +1333,7 @@ ref; // ME_47CD83C8037F_ME_47CFEE9E02E1 LinkView
  ;
  : Implementor ME_47CFEE9E02E1 // TevControlContainer
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_47CD83DC0133_ME_47CFEE9E02E1 LinkListener
 
 : ME_47CD83EE0268_ME_47CFEE9E02E1
@@ -1297,6 +1343,7 @@ ref; // ME_47CD83DC0133_ME_47CFEE9E02E1 LinkListener
  ;
  : Implementor ME_47CFEE9E02E1 // TevControlContainer
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_47CD83EE0268_ME_47CFEE9E02E1 AdapterModel
 
 : ME_47CD840002F7_ME_47CFEE9E02E1
@@ -1306,6 +1353,7 @@ ref; // ME_47CD83EE0268_ME_47CFEE9E02E1 AdapterModel
  ;
  : Implementor ME_47CFEE9E02E1 // TevControlContainer
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_47CD840002F7_ME_47CFEE9E02E1 ReleaseListeners
 
 : ME_47CD842102B4_ME_47CFEE9E02E1
@@ -1315,6 +1363,7 @@ ref; // ME_47CD840002F7_ME_47CFEE9E02E1 ReleaseListeners
  ;
  : Implementor ME_47CFEE9E02E1 // TevControlContainer
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_47CD842102B4_ME_47CFEE9E02E1 FindDescriptionReq
 
 : ME_47CD843F005D_ME_47CFEE9E02E1
@@ -1324,6 +1373,7 @@ ref; // ME_47CD842102B4_ME_47CFEE9E02E1 FindDescriptionReq
  ;
  : Implementor ME_47CFEE9E02E1 // TevControlContainer
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_47CD843F005D_ME_47CFEE9E02E1 StartSetFocus
 
 : ME_47CD84520292_ME_47CFEE9E02E1
@@ -1333,6 +1383,7 @@ ref; // ME_47CD843F005D_ME_47CFEE9E02E1 StartSetFocus
  ;
  : Implementor ME_47CFEE9E02E1 // TevControlContainer
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" false
 ref; // ME_47CD84520292_ME_47CFEE9E02E1 QueryGroup
 
@@ -1343,6 +1394,7 @@ ref; // ME_47CD84520292_ME_47CFEE9E02E1 QueryGroup
  ;
  : Implementor ME_47CFEE9E02E1 // TevControlContainer
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" false
 ref; // ME_47CD8478024F_ME_47CFEE9E02E1 GroupCount
 
@@ -1353,6 +1405,7 @@ ref; // ME_47CD8478024F_ME_47CFEE9E02E1 GroupCount
  ;
  : Implementor ME_47CFEE9E02E1 // TevControlContainer
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" true
 ref; // ME_47CD84A1019A_ME_47CFEE9E02E1 Editor
 
@@ -1363,6 +1416,7 @@ ref; // ME_47CD84A1019A_ME_47CFEE9E02E1 Editor
  ;
  : Implementor ME_47CFEE9E02E1 // TevControlContainer
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" false
 ref; // ME_47CD84BB0044_ME_47CFEE9E02E1 InsertRowMode
 
@@ -1373,6 +1427,7 @@ ref; // ME_47CD84BB0044_ME_47CFEE9E02E1 InsertRowMode
  ;
  : Implementor ME_47CFEE9E02E1 // TevControlContainer
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" true
 ref; // ME_47CD84CC027E_ME_47CFEE9E02E1 CardType
 
@@ -1383,6 +1438,7 @@ ref; // ME_47CD84CC027E_ME_47CFEE9E02E1 CardType
  ;
  : Implementor ME_47CFEE9E02E1 // TevControlContainer
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_48B7F005003D_ME_47CFEE9E02E1 GetControlIterator
 
 : ME_479731C50290_ME_47CFEE9E02E1
@@ -1392,6 +1448,7 @@ ref; // ME_48B7F005003D_ME_47CFEE9E02E1 GetControlIterator
  ;
  : Implementor ME_47CFEE9E02E1 // TevControlContainer
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_479731C50290_ME_47CFEE9E02E1 Cleanup
 
 : ME_47CFEE9E02E1
@@ -1405,16 +1462,16 @@ ref; // ME_479731C50290_ME_47CFEE9E02E1 Cleanup
  : Parent ME_4DFA0AB5029C // QueryCardControlContainers
  ;
  : Inherits
-   @ ( WL 'ME_47CFDFAB0197' '47CEBC900123.pas.ms.script' // TevCustomControlTool
- ) .SequenceCode.It
+   Seq: ( WL 'ME_47CFDFAB0197' '47CEBC900123.pas.ms.script' // TevCustomControlTool
+ )
  ; // Inherits
  : Implements
-   @ ( WL 'ME_47C6BE290256' '47C5207602D1.pas.ms.script' // InevControlListener
+   Seq: ( WL 'ME_47C6BE290256' '47C5207602D1.pas.ms.script' // InevControlListener
  WL 'ME_47CD6F6D031D' '47CD5C7602CD.pas.ms.script' // IevQueryCard
- ) .SequenceCode.It
+ )
  ; // Implements
  : Attributes
-   @ ( ME_47CFF17901D2 // f_InsertRowMode
+   Seq: ( ME_47CFF17901D2 // f_InsertRowMode
  ME_47CFF19300CC // f_PasteOperation
  ME_47CFF1A20227 // f_LimitErrorControl
  ME_47CFF233007C // f_GroupList
@@ -1424,10 +1481,10 @@ ref; // ME_479731C50290_ME_47CFEE9E02E1 Cleanup
  ME_47CFF2F10209 // f_StateControl
  ME_47CFF3010237 // f_UpperButtons
  ME_47CFF31501D5 // f_StartFocusControl
- ) .SequenceCode.It
+ )
  ; // Attributes
  : Operations
-   @ ( ME_47CFEF1D034B // Make
+   Seq: ( ME_47CFEF1D034B // Make
  ME_47CFF38902E1 // DoHideDroppedControl
  ME_47CFF3B803B0 // DoMouseWheel
  ME_47CFF63F02B6 // Create
@@ -1441,10 +1498,10 @@ ref; // ME_479731C50290_ME_47CFEE9E02E1 Cleanup
  ME_47D0111400DC // DoDeleteOnUndo
  ME_47D011870105 // DoChangePara
  ME_47D0135901AC // DoKeyDown
- ) .SequenceCode.It
+ )
  ; // Operations
  : Implemented
-   @ ( ME_47C6BE3B027A_ME_47CFEE9E02E1 // CanInsertPara
+   Seq: ( ME_47C6BE3B027A_ME_47CFEE9E02E1 // CanInsertPara
  ME_47C7C8EE0193_ME_47CFEE9E02E1 // InsertOnUndo
  ME_47C7C9070379_ME_47CFEE9E02E1 // DeleteOnUndo
  ME_47C7C91E0277_ME_47CFEE9E02E1 // HideDroppedControl
@@ -1490,18 +1547,18 @@ ref; // ME_479731C50290_ME_47CFEE9E02E1 Cleanup
  ME_47CD84BB0044_ME_47CFEE9E02E1 // InsertRowMode
  ME_47CD84CC027E_ME_47CFEE9E02E1 // CardType
  ME_48B7F005003D_ME_47CFEE9E02E1 // GetControlIterator
- ) .SequenceCode.It
+ )
  ; // Implemented
  : Overridden
-   @ ( ME_479731C50290_ME_47CFEE9E02E1 // Cleanup
- ) .SequenceCode.It
+   Seq: ( ME_479731C50290_ME_47CFEE9E02E1 // Cleanup
+ )
  ; // Overridden
  : Children
-   @ ( ME_48B7FA9403B1 // TevControlIterator
- ) .SequenceCode.It
+   Seq: ( ME_48B7FA9403B1 // TevControlIterator
+ )
  ; // Children
  : Dependencies
-   @ ( ME_47CFFC8803CC // 
+   Seq: ( ME_47CFFC8803CC // 
  ME_47CFFF7B00B8 // 
  ME_47D001B503B7 // 
  ME_47D002AF03E1 // 
@@ -1512,7 +1569,7 @@ ref; // ME_479731C50290_ME_47CFEE9E02E1 Cleanup
  ME_47D00D6D0153 // 
  ME_49AE7A45012F // 
  ME_49AE7A4E00BC // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  CONST "author" 'Люлин А.В.'
  CONST "needs InstanceR" 'undefined'
@@ -1520,12 +1577,14 @@ ref; // ME_479731C50290_ME_47CFEE9E02E1 Cleanup
  CONST "no hands" true
  CONST "register in scripts" 'undefined'
  CONST "started" '04.03.2008 22:57'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest\qf'
  CONST intf.pas:Path 'common\components\gui\Garant\Everest\qf\evControlContainer.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest\qf'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'ControlContainer'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'evControlContainer'
 
 ref; // ME_47CFEE9E02E1 TevControlContainer
 
@@ -1544,12 +1603,14 @@ ref; // ME_47CFEE9E02E1 TevControlContainer
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest\qf'
  CONST intf.pas:Path 'common\components\gui\Garant\Everest\qf\NOT_FINISHED_evDropCalendar.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest\qf'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'DropCalendar'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'evDropCalendar'
 
 ref; // ME_47D0219E00B2 TevDropCalendar
 
@@ -1693,8 +1754,8 @@ ref; // ME_47D027CA00B8 Message
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
  : Parameters
-   @ ( ME_47D027CA00B8 // Message
- ) .SequenceCode.It
+   Seq: ( ME_47D027CA00B8 // Message
+ )
  ; // Parameters
 
 ref; // ME_47D027C2002A FormatSettingsChange
@@ -1730,8 +1791,8 @@ ref; // ME_47D02C5F0055 Sender
  : Parent ME_47D01F9801D8 // TevControlContainerEX
  ;
  : Parameters
-   @ ( ME_47D02C5F0055 // Sender
- ) .SequenceCode.It
+   Seq: ( ME_47D02C5F0055 // Sender
+ )
  ; // Parameters
 
 ref; // ME_47D02C5A0219 NeedCloseTree
@@ -1756,8 +1817,8 @@ ref; // ME_47D02C870263 Sender
  : Parent ME_47D01F9801D8 // TevControlContainerEX
  ;
  : Parameters
-   @ ( ME_47D02C870263 // Sender
- ) .SequenceCode.It
+   Seq: ( ME_47D02C870263 // Sender
+ )
  ; // Parameters
 
 ref; // ME_47D02C810118 CancelDate
@@ -1803,10 +1864,10 @@ ref; // ME_47D02CA70178 aImages
  : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
  ;
  : Parameters
-   @ ( ME_47D02CA700EF // Sender
+   Seq: ( ME_47D02CA700EF // Sender
  ME_47D02CA70133 // Index
  ME_47D02CA70178 // aImages
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_47D02C970149 DoGetItemImage
@@ -1840,9 +1901,9 @@ ref; // ME_47D02CD901CF Value
  : Parent ME_47D01F9801D8 // TevControlContainerEX
  ;
  : Parameters
-   @ ( ME_47D02CD90185 // Sender
+   Seq: ( ME_47D02CD90185 // Sender
  ME_47D02CD901CF // Value
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_47D02CC80102 ChooseNode
@@ -1866,8 +1927,8 @@ ref; // ME_47D02D27027D Sender
  : Parent ME_47D01F9801D8 // TevControlContainerEX
  ;
  : Parameters
-   @ ( ME_47D02D27027D // Sender
- ) .SequenceCode.It
+   Seq: ( ME_47D02D27027D // Sender
+ )
  ; // Parameters
 
 ref; // ME_47D02D2500CF StartSize
@@ -1891,8 +1952,8 @@ ref; // ME_47D02D31037C Sender
  : Parent ME_47D01F9801D8 // TevControlContainerEX
  ;
  : Parameters
-   @ ( ME_47D02D31037C // Sender
- ) .SequenceCode.It
+   Seq: ( ME_47D02D31037C // Sender
+ )
  ; // Parameters
 
 ref; // ME_47D02D2E0026 EndSize
@@ -1949,10 +2010,10 @@ ref; // ME_4885C03902BF aOldCurrent
  : Parent ME_47D01F9801D8 // TevControlContainerEX
  ;
  : Parameters
-   @ ( ME_4885C0390213 // Sender
+   Seq: ( ME_4885C0390213 // Sender
  ME_4885C0390261 // aNewCurrent
  ME_4885C03902BF // aOldCurrent
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_4885BCF00275 TreeCurrentChanged
@@ -2151,6 +2212,7 @@ ref; // ME_4DFA01B70328
  ;
  : Implementor ME_47D01F9801D8 // TevControlContainerEX
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_47CEA1CB02E7_ME_47D01F9801D8 EditMask
 
 : ME_47CEA1DF0057_ME_47D01F9801D8
@@ -2160,6 +2222,7 @@ ref; // ME_47CEA1CB02E7_ME_47D01F9801D8 EditMask
  ;
  : Implementor ME_47D01F9801D8 // TevControlContainerEX
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_47CEA1DF0057_ME_47D01F9801D8 DateFormat
 
 : ME_47CEA2040056_ME_47D01F9801D8
@@ -2169,6 +2232,7 @@ ref; // ME_47CEA1DF0057_ME_47D01F9801D8 DateFormat
  ;
  : Implementor ME_47D01F9801D8 // TevControlContainerEX
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_47CEA2040056_ME_47D01F9801D8 SetDropTree
 
 : ME_47CEA2170217_ME_47D01F9801D8
@@ -2178,6 +2242,7 @@ ref; // ME_47CEA2040056_ME_47D01F9801D8 SetDropTree
  ;
  : Implementor ME_47D01F9801D8 // TevControlContainerEX
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_47CEA2170217_ME_47D01F9801D8 IsDropTreeVisible
 
 : ME_47CEA22403D8_ME_47D01F9801D8
@@ -2187,6 +2252,7 @@ ref; // ME_47CEA2170217_ME_47D01F9801D8 IsDropTreeVisible
  ;
  : Implementor ME_47D01F9801D8 // TevControlContainerEX
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_47CEA22403D8_ME_47D01F9801D8 ApplyDate
 
 : ME_47CEA2330343_ME_47D01F9801D8
@@ -2196,6 +2262,7 @@ ref; // ME_47CEA22403D8_ME_47D01F9801D8 ApplyDate
  ;
  : Implementor ME_47D01F9801D8 // TevControlContainerEX
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_47CEA2330343_ME_47D01F9801D8 ChooseDate
 
 : ME_47CEA244025F_ME_47D01F9801D8
@@ -2205,6 +2272,7 @@ ref; // ME_47CEA2330343_ME_47D01F9801D8 ChooseDate
  ;
  : Implementor ME_47D01F9801D8 // TevControlContainerEX
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_47CEA244025F_ME_47D01F9801D8 DoDrop
 
 : ME_47CEA2640232_ME_47D01F9801D8
@@ -2214,6 +2282,7 @@ ref; // ME_47CEA244025F_ME_47D01F9801D8 DoDrop
  ;
  : Implementor ME_47D01F9801D8 // TevControlContainerEX
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_47CEA2640232_ME_47D01F9801D8 ShowControl
 
 : ME_47CEA29002BE_ME_47D01F9801D8
@@ -2223,6 +2292,7 @@ ref; // ME_47CEA2640232_ME_47D01F9801D8 ShowControl
  ;
  : Implementor ME_47D01F9801D8 // TevControlContainerEX
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_47CEA29002BE_ME_47D01F9801D8 DropControlHeigth
 
 : ME_47CEA2A102E2_ME_47D01F9801D8
@@ -2232,6 +2302,7 @@ ref; // ME_47CEA29002BE_ME_47D01F9801D8 DropControlHeigth
  ;
  : Implementor ME_47D01F9801D8 // TevControlContainerEX
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_47CEA2A102E2_ME_47D01F9801D8 HideControl
 
 : ME_47CEA2B20111_ME_47D01F9801D8
@@ -2241,6 +2312,7 @@ ref; // ME_47CEA2A102E2_ME_47D01F9801D8 HideControl
  ;
  : Implementor ME_47D01F9801D8 // TevControlContainerEX
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_47CEA2B20111_ME_47D01F9801D8 GetDropTreeNode
 
 : ME_47CEA2C30018_ME_47D01F9801D8
@@ -2250,6 +2322,7 @@ ref; // ME_47CEA2B20111_ME_47D01F9801D8 GetDropTreeNode
  ;
  : Implementor ME_47D01F9801D8 // TevControlContainerEX
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_47CEA2C30018_ME_47D01F9801D8 CheckControl
 
 : ME_47CEA2D50381_ME_47D01F9801D8
@@ -2259,6 +2332,7 @@ ref; // ME_47CEA2C30018_ME_47D01F9801D8 CheckControl
  ;
  : Implementor ME_47D01F9801D8 // TevControlContainerEX
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_47CEA2D50381_ME_47D01F9801D8 GetControl
 
 : ME_47CEA320015D_ME_47D01F9801D8
@@ -2268,6 +2342,7 @@ ref; // ME_47CEA2D50381_ME_47D01F9801D8 GetControl
  ;
  : Implementor ME_47D01F9801D8 // TevControlContainerEX
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" false
 ref; // ME_47CEA320015D_ME_47D01F9801D8 Tree
 
@@ -2278,6 +2353,7 @@ ref; // ME_47CEA320015D_ME_47D01F9801D8 Tree
  ;
  : Implementor ME_47D01F9801D8 // TevControlContainerEX
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" false
 ref; // ME_47CEA337008E_ME_47D01F9801D8 Current
 
@@ -2288,6 +2364,7 @@ ref; // ME_47CEA337008E_ME_47D01F9801D8 Current
  ;
  : Implementor ME_47D01F9801D8 // TevControlContainerEX
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_47CEA34501A1_ME_47D01F9801D8 IsSameTreeRoot
 
 : ME_47CEA381035A_ME_47D01F9801D8
@@ -2297,6 +2374,7 @@ ref; // ME_47CEA34501A1_ME_47D01F9801D8 IsSameTreeRoot
  ;
  : Implementor ME_47D01F9801D8 // TevControlContainerEX
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_47CEA381035A_ME_47D01F9801D8 DropControlChanging
 
 : ME_47CEA38803AE_ME_47D01F9801D8
@@ -2306,6 +2384,7 @@ ref; // ME_47CEA381035A_ME_47D01F9801D8 DropControlChanging
  ;
  : Implementor ME_47D01F9801D8 // TevControlContainerEX
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_47CEA38803AE_ME_47D01F9801D8 DropControlChanged
 
 : ME_47CEA39402F8_ME_47D01F9801D8
@@ -2315,6 +2394,7 @@ ref; // ME_47CEA38803AE_ME_47D01F9801D8 DropControlChanged
  ;
  : Implementor ME_47D01F9801D8 // TevControlContainerEX
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_47CEA39402F8_ME_47D01F9801D8 GetCurrentNode
 
 : ME_47CEA3A2030D_ME_47D01F9801D8
@@ -2324,6 +2404,7 @@ ref; // ME_47CEA39402F8_ME_47D01F9801D8 GetCurrentNode
  ;
  : Implementor ME_47D01F9801D8 // TevControlContainerEX
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_47CEA3A2030D_ME_47D01F9801D8 IsSimpleTree
 
 : ME_47CEA3AC032E_ME_47D01F9801D8
@@ -2333,6 +2414,7 @@ ref; // ME_47CEA3A2030D_ME_47D01F9801D8 IsSimpleTree
  ;
  : Implementor ME_47D01F9801D8 // TevControlContainerEX
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" false
 ref; // ME_47CEA3AC032E_ME_47D01F9801D8 ESCPressed
 
@@ -2343,6 +2425,7 @@ ref; // ME_47CEA3AC032E_ME_47D01F9801D8 ESCPressed
  ;
  : Implementor ME_47D01F9801D8 // TevControlContainerEX
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_47CFF38902E1_ME_47D01F9801D8 DoHideDroppedControl
 
 : ME_47CFF3B803B0_ME_47D01F9801D8
@@ -2352,6 +2435,7 @@ ref; // ME_47CFF38902E1_ME_47D01F9801D8 DoHideDroppedControl
  ;
  : Implementor ME_47D01F9801D8 // TevControlContainerEX
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_47CFF3B803B0_ME_47D01F9801D8 DoMouseWheel
 
 : ME_486CAA020214_ME_47D01F9801D8
@@ -2361,6 +2445,7 @@ ref; // ME_47CFF3B803B0_ME_47D01F9801D8 DoMouseWheel
  ;
  : Implementor ME_47D01F9801D8 // TevControlContainerEX
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" false
 ref; // ME_486CAA020214_ME_47D01F9801D8 DropTextStyle
 
@@ -2371,6 +2456,7 @@ ref; // ME_486CAA020214_ME_47D01F9801D8 DropTextStyle
  ;
  : Implementor ME_47D01F9801D8 // TevControlContainerEX
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" false
 ref; // ME_4884573F021D_ME_47D01F9801D8 AllowEmptyCurrent
 
@@ -2381,6 +2467,7 @@ ref; // ME_4884573F021D_ME_47D01F9801D8 AllowEmptyCurrent
  ;
  : Implementor ME_47D01F9801D8 // TevControlContainerEX
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_479731C50290_ME_47D01F9801D8 Cleanup
 
 : ME_47CFF63F02B6_ME_47D01F9801D8
@@ -2390,6 +2477,7 @@ ref; // ME_479731C50290_ME_47D01F9801D8 Cleanup
  ;
  : Implementor ME_47D01F9801D8 // TevControlContainerEX
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_47CFF63F02B6_ME_47D01F9801D8 Create
 
 : ME_47D010D10193_ME_47D01F9801D8
@@ -2399,6 +2487,7 @@ ref; // ME_47CFF63F02B6_ME_47D01F9801D8 Create
  ;
  : Implementor ME_47D01F9801D8 // TevControlContainerEX
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_47D010D10193_ME_47D01F9801D8 DoGetNode
 
 : ME_47D0111400DC_ME_47D01F9801D8
@@ -2408,6 +2497,7 @@ ref; // ME_47D010D10193_ME_47D01F9801D8 DoGetNode
  ;
  : Implementor ME_47D01F9801D8 // TevControlContainerEX
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_47D0111400DC_ME_47D01F9801D8 DoDeleteOnUndo
 
 : ME_47D011870105_ME_47D01F9801D8
@@ -2417,6 +2507,7 @@ ref; // ME_47D0111400DC_ME_47D01F9801D8 DoDeleteOnUndo
  ;
  : Implementor ME_47D01F9801D8 // TevControlContainerEX
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_47D011870105_ME_47D01F9801D8 DoChangePara
 
 : ME_47D0135901AC_ME_47D01F9801D8
@@ -2426,6 +2517,7 @@ ref; // ME_47D011870105_ME_47D01F9801D8 DoChangePara
  ;
  : Implementor ME_47D01F9801D8 // TevControlContainerEX
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_47D0135901AC_ME_47D01F9801D8 DoKeyDown
 
 : ME_47D01F9801D8
@@ -2439,25 +2531,25 @@ ref; // ME_47D0135901AC_ME_47D01F9801D8 DoKeyDown
  : Parent ME_4DFA0AB5029C // QueryCardControlContainers
  ;
  : Inherits
-   @ ( ME_47CFEE9E02E1 // TevControlContainer
- ) .SequenceCode.It
+   Seq: ( ME_47CFEE9E02E1 // TevControlContainer
+ )
  ; // Inherits
  : Implements
-   @ ( WL 'ME_47CEA1BD002F' '47CE9D27036D.pas.ms.script' // IevDropContainer
- ) .SequenceCode.It
+   Seq: ( WL 'ME_47CEA1BD002F' '47CE9D27036D.pas.ms.script' // IevDropContainer
+ )
  ; // Implements
  : Attributes
-   @ ( ME_47D0203E01C0 // f_DateFormat
+   Seq: ( ME_47D0203E01C0 // f_DateFormat
  ME_47D0204C0197 // f_EditMask
  ME_47D020AB00B5 // f_StartSize
  ME_47D020BE006C // f_DropTree
  ME_47D020ED0391 // f_ESCPressed
  ME_47D021AE0331 // f_Calendar
  ME_47D0216803A1 // f_SubTree
- ) .SequenceCode.It
+ )
  ; // Attributes
  : Operations
-   @ ( ME_47D027090375 // UpdateMask
+   Seq: ( ME_47D027090375 // UpdateMask
  ME_47D027C2002A // FormatSettingsChange
  ME_47D028510174 // UpdateFormat
  ME_47D02C5A0219 // NeedCloseTree
@@ -2468,10 +2560,10 @@ ref; // ME_47D0135901AC_ME_47D01F9801D8 DoKeyDown
  ME_47D02D2E0026 // EndSize
  ME_47D02D4C037A // OwnerAssigned
  ME_4885BCF00275 // TreeCurrentChanged
- ) .SequenceCode.It
+ )
  ; // Operations
  : Implemented
-   @ ( ME_47CEA1CB02E7_ME_47D01F9801D8 // EditMask
+   Seq: ( ME_47CEA1CB02E7_ME_47D01F9801D8 // EditMask
  ME_47CEA1DF0057_ME_47D01F9801D8 // DateFormat
  ME_47CEA2040056_ME_47D01F9801D8 // SetDropTree
  ME_47CEA2170217_ME_47D01F9801D8 // IsDropTreeVisible
@@ -2496,19 +2588,19 @@ ref; // ME_47D0135901AC_ME_47D01F9801D8 DoKeyDown
  ME_47CFF3B803B0_ME_47D01F9801D8 // DoMouseWheel
  ME_486CAA020214_ME_47D01F9801D8 // DropTextStyle
  ME_4884573F021D_ME_47D01F9801D8 // AllowEmptyCurrent
- ) .SequenceCode.It
+ )
  ; // Implemented
  : Overridden
-   @ ( ME_479731C50290_ME_47D01F9801D8 // Cleanup
+   Seq: ( ME_479731C50290_ME_47D01F9801D8 // Cleanup
  ME_47CFF63F02B6_ME_47D01F9801D8 // Create
  ME_47D010D10193_ME_47D01F9801D8 // DoGetNode
  ME_47D0111400DC_ME_47D01F9801D8 // DoDeleteOnUndo
  ME_47D011870105_ME_47D01F9801D8 // DoChangePara
  ME_47D0135901AC_ME_47D01F9801D8 // DoKeyDown
- ) .SequenceCode.It
+ )
  ; // Overridden
  : Dependencies
-   @ ( ME_47D029680286 // 
+   Seq: ( ME_47D029680286 // 
  ME_47D02ADB0399 // 
  ME_47D02C3501E7 // 
  ME_47D02ED20237 // 
@@ -2525,7 +2617,7 @@ ref; // ME_47D0135901AC_ME_47D01F9801D8 DoKeyDown
  ME_4DFA016D01C5 // 
  ME_4DFA018D029B // 
  ME_4DFA01B70328 // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  CONST "author" 'Инишев Д.А.'
  CONST "needs InstanceR" 'undefined'
@@ -2533,12 +2625,14 @@ ref; // ME_47D0135901AC_ME_47D01F9801D8 DoKeyDown
  CONST "no hands" true
  CONST "register in scripts" 'undefined'
  CONST "started" '28.09.1999'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest\qf'
  CONST intf.pas:Path 'common\components\gui\Garant\Everest\qf\evControlContainerEX.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest\qf'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'ControlContainerEX'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'evControlContainerEX'
 
 ref; // ME_47D01F9801D8 TevControlContainerEX
 
@@ -2552,13 +2646,13 @@ ref; // ME_47D01F9801D8 TevControlContainerEX
  : Parent WL 'ME_4DFA0A8A0307' '4DFA0A8A0307.pas.ms.script' // Everest$Extensions
  ;
  : Children
-   @ ( ME_47CFEE9E02E1 // TevControlContainer
+   Seq: ( ME_47CFEE9E02E1 // TevControlContainer
  ME_47D0219E00B2 // TevDropCalendar
  ME_47D01F9801D8 // TevControlContainerEX
- ) .SequenceCode.It
+ )
  ; // Children
  : Depends
-   @ ( WL 'ME_4678209200A6' '4678209200A6.pas.ms.script' // nevBase
+   Seq: ( WL 'ME_4678209200A6' '4678209200A6.pas.ms.script' // nevBase
  WL 'ME_469D0AC7005E' '469D0AC7005E.pas.ms.script' // Types
  WL 'ME_46A5E026007E' '46A5E026007E.pas.ms.script' // l3Core
  WL 'ME_473C3BEE0334' '473C3BEE0334.pas.ms.script' // l3Canvas
@@ -2584,16 +2678,14 @@ ref; // ME_47D01F9801D8 TevControlContainerEX
  WL 'ME_52999D370284' '52999D370284.pas.ms.script' // QueryCardControlContainers$View
  WL 'ME_54B90AC6014B' '54B90AC6014B.pas.ms.script' // StringUtils
  WL 'ME_55C4AEC801CA' '55C4AEC801CA.pas.ms.script' // Graphics
- ) .SequenceCode.It
+ )
  ; // Depends
  CONST "path prefix" '/qf'
- : Generators
- @ (
- gen_pas.script
- gen_pas.script.runner
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest\qf'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest\qf'
  CONST pas.script:Path 'shared\models\NewSchool\Scripts\4DFA0AB5029C.pas.ms.script'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
  CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\4DFA0AB5029C.pas.ms.script.runner'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_4DFA0AB5029C QueryCardControlContainers

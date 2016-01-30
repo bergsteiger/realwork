@@ -1,0 +1,911 @@
+// Tree 47F282AE0082 ControllerUnit Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_47F282AE0082
+
+FORWARD ME_47F0C1410011
+
+FORWARD ME_4921543D025B
+
+: ME_4921544B0190
+ CONST UID '4921544B0190'
+ CONST Name 'ns_UpdateTime'
+ CONST Class class_Attribute
+ %SUMMARY 'время с момента обновления текущего после которого можно снова обновлять связанное представление' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_4921543D025B // Times
+ ;
+ CONST Value 100
+ CONST "AutoInc" false
+ CONST "forced type" 'none'
+ CONST "is define" false
+ CONST extprop:pas:Value 100
+
+ref; // ME_4921544B0190 ns_UpdateTime
+
+: ME_4921543D025B
+ CONST UID '4921543D025B'
+ CONST Name 'Times'
+ CONST Class class_Class
+ : Stereotype st_Constants ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ : Parent ME_47F0C1410011 // dsSimpleTree
+ ;
+ : Attributes
+   Seq: ( ME_4921544B0190 // ns_UpdateTime
+ )
+ ; // Attributes
+ CONST "spell names" false
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Tree'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Tree'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\Tree'
+
+ref; // ME_4921543D025B Times
+
+: ME_49213F16029F
+ CONST UID '49213F16029F'
+ CONST Name 'f_SimpleTree'
+ CONST Class class_Attribute
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_47F0C1410011 // dsSimpleTree
+ ;
+ : Target WL 'ME_46825CC00249' '4682595B0268.pas.ms.script' // Il3SimpleTree
+ ;
+
+ref; // ME_49213F16029F f_SimpleTree
+
+: ME_49213F3B016B
+ CONST UID '49213F3B016B'
+ CONST Name 'IsFirstMake'
+ CONST Class class_Attribute
+ : Stereotype st_readonly::Attribute ;
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_agr
+ : Parent ME_47F0C1410011 // dsSimpleTree
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+ CONST "needs field" true
+ CONST "pm" true
+ CONST "reads field" true
+
+ref; // ME_49213F3B016B IsFirstMake
+
+: ME_4921515002F6
+ CONST UID '4921515002F6'
+ CONST Name 'MovingCurrent'
+ CONST Class class_Attribute
+ : Stereotype st_property::Attribute ;
+ %SUMMARY 'текущий перемещаемый в дереве, которым ещё не было обновлено связанное'#13#10'           представление' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_agr
+ : Parent ME_47F0C1410011 // dsSimpleTree
+ ;
+ : Target WL 'ME_468259900322' '4682595B0268.pas.ms.script' // Il3SimpleNode
+ ;
+ CONST "needs field" true
+ CONST "pm" true
+ CONST "reads field" true
+ CONST "writes field" true
+
+ref; // ME_4921515002F6 MovingCurrent
+
+: ME_4921518E034B
+ CONST UID '4921518E034B'
+ CONST Name 'PrevMovingCurrent'
+ CONST Class class_Attribute
+ : Stereotype st_property::Attribute ;
+ %SUMMARY 'предыдущий текущий узел в дереве, используется для определения конца'#13#10'          перемещения' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_agr
+ : Parent ME_47F0C1410011 // dsSimpleTree
+ ;
+ : Target WL 'ME_468259900322' '4682595B0268.pas.ms.script' // Il3SimpleNode
+ ;
+ CONST "needs field" true
+ CONST "pm" true
+ CONST "reads field" true
+ CONST "writes field" true
+
+ref; // ME_4921518E034B PrevMovingCurrent
+
+: ME_492151D003A5
+ CONST UID '492151D003A5'
+ CONST Name 'ChangeCurrentTime'
+ CONST Class class_Attribute
+ : Stereotype st_property::Attribute ;
+ %SUMMARY 'время последнего обновления текущего' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_agr
+ : Parent ME_47F0C1410011 // dsSimpleTree
+ ;
+ : Target WL 'ME_46A618AF0053' '4AB0C3C60310.pas.ms.script' // Cardinal
+ ;
+ CONST "needs field" true
+ CONST "pm" true
+ CONST "reads field" true
+ CONST "writes field" true
+
+ref; // ME_492151D003A5 ChangeCurrentTime
+
+: ME_492152570031
+ CONST UID '492152570031'
+ CONST Name 'UpdateCurrentTimer'
+ CONST Class class_Attribute
+ : Stereotype st_readonly::Attribute ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_agr
+ : Parent ME_47F0C1410011 // dsSimpleTree
+ ;
+ : Target WL 'ME_48C7C96E0135' '4799D29F033F.pas.ms.script' // TTimer
+ ;
+ CONST "needs field" true
+ CONST "pm" true
+ CONST "writes field" true
+
+ref; // ME_492152570031 UpdateCurrentTimer
+
+: ME_492155A70263
+ CONST UID '492155A70263'
+ CONST Name 'Current'
+ CONST Class class_Attribute
+ : Stereotype st_property::Attribute ;
+ %SUMMARY 'текущий узел, данные которого показываются в связанном представлении'#13#10'           (например список и зона синхронного просмотра)' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_agr
+ : Parent ME_47F0C1410011 // dsSimpleTree
+ ;
+ : Target WL 'ME_468259900322' '4682595B0268.pas.ms.script' // Il3SimpleNode
+ ;
+ CONST "needs field" true
+ CONST "pm" true
+ CONST "reads field" true
+ CONST "writes field" true
+
+ref; // ME_492155A70263 Current
+
+: ME_76C96E16F9AE
+ CONST UID '76C96E16F9AE'
+ CONST Name 'f_IsFirstMake'
+ CONST IsSummoned true
+ CONST Class class_Attribute
+ %SUMMARY 'Поле для свойства IsFirstMake' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_ref
+ : Parent ME_47F0C1410011 // dsSimpleTree
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+
+ref; // ME_76C96E16F9AE f_IsFirstMake
+
+: ME_6092E5FD1D1B
+ CONST UID '6092E5FD1D1B'
+ CONST Name 'f_MovingCurrent'
+ CONST IsSummoned true
+ CONST Class class_Attribute
+ %SUMMARY 'Поле для свойства MovingCurrent' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_ref
+ : Parent ME_47F0C1410011 // dsSimpleTree
+ ;
+ : Target WL 'ME_468259900322' '4682595B0268.pas.ms.script' // Il3SimpleNode
+ ;
+ CONST extprop:clearViaProperty 'MovingCurrent'
+
+ref; // ME_6092E5FD1D1B f_MovingCurrent
+
+: ME_8F8EDD7BEDF2
+ CONST UID '8F8EDD7BEDF2'
+ CONST Name 'f_PrevMovingCurrent'
+ CONST IsSummoned true
+ CONST Class class_Attribute
+ %SUMMARY 'Поле для свойства PrevMovingCurrent' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_ref
+ : Parent ME_47F0C1410011 // dsSimpleTree
+ ;
+ : Target WL 'ME_468259900322' '4682595B0268.pas.ms.script' // Il3SimpleNode
+ ;
+ CONST extprop:clearViaProperty 'PrevMovingCurrent'
+
+ref; // ME_8F8EDD7BEDF2 f_PrevMovingCurrent
+
+: ME_595F4F25F8BA
+ CONST UID '595F4F25F8BA'
+ CONST Name 'f_ChangeCurrentTime'
+ CONST IsSummoned true
+ CONST Class class_Attribute
+ %SUMMARY 'Поле для свойства ChangeCurrentTime' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_ref
+ : Parent ME_47F0C1410011 // dsSimpleTree
+ ;
+ : Target WL 'ME_46A618AF0053' '4AB0C3C60310.pas.ms.script' // Cardinal
+ ;
+ CONST extprop:clearViaProperty 'ChangeCurrentTime'
+
+ref; // ME_595F4F25F8BA f_ChangeCurrentTime
+
+: ME_3FD724E7BD28
+ CONST UID '3FD724E7BD28'
+ CONST Name 'f_UpdateCurrentTimer'
+ CONST IsSummoned true
+ CONST Class class_Attribute
+ %SUMMARY 'Поле для свойства UpdateCurrentTimer' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_ref
+ : Parent ME_47F0C1410011 // dsSimpleTree
+ ;
+ : Target WL 'ME_48C7C96E0135' '4799D29F033F.pas.ms.script' // TTimer
+ ;
+
+ref; // ME_3FD724E7BD28 f_UpdateCurrentTimer
+
+: ME_007199D6BEFC
+ CONST UID '007199D6BEFC'
+ CONST Name 'f_Current'
+ CONST IsSummoned true
+ CONST Class class_Attribute
+ %SUMMARY 'Поле для свойства Current' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_ref
+ : Parent ME_47F0C1410011 // dsSimpleTree
+ ;
+ : Target WL 'ME_468259900322' '4682595B0268.pas.ms.script' // Il3SimpleNode
+ ;
+ CONST extprop:clearViaProperty 'Current'
+
+ref; // ME_007199D6BEFC f_Current
+
+: ME_492D5B7903AC
+ CONST UID '492D5B7903AC'
+ CONST Name 'aNode'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_468259900322' '4682595B0268.pas.ms.script' // Il3SimpleNode
+ ;
+
+ref; // ME_492D5B7903AC aNode
+
+: ME_47F0C1BF0314
+ CONST UID '47F0C1BF0314'
+ CONST Name 'DoCurrentChanged'
+ CONST Class class_Operation
+ %SUMMARY 'сменился текущий.' ;
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_regular
+ : Parent ME_47F0C1410011 // dsSimpleTree
+ ;
+ : Parameters
+   Seq: ( ME_492D5B7903AC // aNode
+ )
+ ; // Parameters
+
+ref; // ME_47F0C1BF0314 DoCurrentChanged
+
+: ME_47F465F80149
+ CONST UID '47F465F80149'
+ CONST Name 'MakeImageList'
+ CONST Class class_Operation
+ %SUMMARY '- создать иконки дерева.' ;
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_regular
+ : Parent ME_47F0C1410011 // dsSimpleTree
+ ;
+ : Target WL 'ME_4728C6AC0070' '467C0CAA02AB.pas.ms.script' // Il3ImageList
+ ;
+
+ref; // ME_47F465F80149 MakeImageList
+
+: ME_47F4C2B9014A
+ CONST UID '47F4C2B9014A'
+ CONST Name 'MakeSimpleTree'
+ CONST Class class_Operation
+ %SUMMARY 'Создать данные дерева' ;
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_abstract
+ : Parent ME_47F0C1410011 // dsSimpleTree
+ ;
+ : Target WL 'ME_46825CC00249' '4682595B0268.pas.ms.script' // Il3SimpleTree
+ ;
+
+ref; // ME_47F4C2B9014A MakeSimpleTree
+
+: ME_492D5B7300F4
+ CONST UID '492D5B7300F4'
+ CONST Name 'aOld'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46825CC00249' '4682595B0268.pas.ms.script' // Il3SimpleTree
+ ;
+
+ref; // ME_492D5B7300F4 aOld
+
+: ME_47FC72AF006B
+ CONST UID '47FC72AF006B'
+ CONST Name 'aNew'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46825CC00249' '4682595B0268.pas.ms.script' // Il3SimpleTree
+ ;
+
+ref; // ME_47FC72AF006B aNew
+
+: ME_47FC718400FA
+ CONST UID '47FC718400FA'
+ CONST Name 'UpdateSimpleTree'
+ CONST Class class_Operation
+ %SUMMARY '- обновить данные дерева.' ;
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_regular
+ : Parent ME_47F0C1410011 // dsSimpleTree
+ ;
+ : Parameters
+   Seq: ( ME_492D5B7300F4 // aOld
+ ME_47FC72AF006B // aNew
+ )
+ ; // Parameters
+
+ref; // ME_47FC718400FA UpdateSimpleTree
+
+: ME_4921408502B7
+ CONST UID '4921408502B7'
+ CONST Name 'aSender'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_4807745602C8' '4AB0C3C60310.pas.ms.script' // TObject
+ ;
+
+ref; // ME_4921408502B7 aSender
+
+: ME_492140830112
+ CONST UID '492140830112'
+ CONST Name 'OnUpdateCurrent'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_47F0C1410011 // dsSimpleTree
+ ;
+ : Parameters
+   Seq: ( ME_4921408502B7 // aSender
+ )
+ ; // Parameters
+
+ref; // ME_492140830112 OnUpdateCurrent
+
+: ME_49214097027A
+ CONST UID '49214097027A'
+ CONST Name 'MovingFinished'
+ CONST Class class_Operation
+ %SUMMARY 'перемещение закончено' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_47F0C1410011 // dsSimpleTree
+ ;
+
+ref; // ME_49214097027A MovingFinished
+
+: ME_49215CE702B9
+ CONST UID '49215CE702B9'
+ CONST Name 'DoDataDropped'
+ CONST Class class_Operation
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_regular
+ : Parent ME_47F0C1410011 // dsSimpleTree
+ ;
+
+ref; // ME_49215CE702B9 DoDataDropped
+
+: ME_4978163E03A0
+ CONST UID '4978163E03A0'
+ CONST Name 'RefreshSimpleTree'
+ CONST Class class_Operation
+ %SUMMARY 'обнуляет SimpleTree и получает его заново' ;
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_final
+ : Parent ME_47F0C1410011 // dsSimpleTree
+ ;
+ : Target WL 'ME_46825CC00249' '4682595B0268.pas.ms.script' // Il3SimpleTree
+ ;
+
+ref; // ME_4978163E03A0 RefreshSimpleTree
+
+: ME_49213D2F022C
+ CONST UID '49213D2F022C'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_47F0C1410011 // dsSimpleTree
+ ;
+ : Target WL 'ME_47877EB202FB' '4AB0C3C60310.pas.ms.script' // SysUtils
+ ;
+
+ref; // ME_49213D2F022C 
+
+: ME_49213D43000B
+ CONST UID '49213D43000B'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_47F0C1410011 // dsSimpleTree
+ ;
+ : Target WL 'ME_4773D64E036C' '47913B47006E.pas.ms.script' // l3Base
+ ;
+
+ref; // ME_49213D43000B 
+
+: ME_49213DF003D2
+ CONST UID '49213DF003D2'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_47F0C1410011 // dsSimpleTree
+ ;
+ : Target WL 'ME_47F4853203E7' '47F485150151.pas.ms.script' // vtUtils
+ ;
+
+ref; // ME_49213DF003D2 
+
+: ME_49213E4B014A
+ CONST UID '49213E4B014A'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_47F0C1410011 // dsSimpleTree
+ ;
+ : Target WL 'ME_49213DFA02CB' '4E1447600037.pas.ms.script' // vtStdRes
+ ;
+
+ref; // ME_49213E4B014A 
+
+: ME_49213F660021
+ CONST UID '49213F660021'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_47F0C1410011 // dsSimpleTree
+ ;
+ : Target WL 'ME_45EEB95901C5' '457450470167.pas.ms.script' // NodeBase
+ ;
+
+ref; // ME_49213F660021 
+
+: ME_49213F8900AA
+ CONST UID '49213F8900AA'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_47F0C1410011 // dsSimpleTree
+ ;
+ : Target WL 'ME_490AF9B0039B' '4908A8A20107.pas.ms.script' // TnsNewCachableNode
+ ;
+
+ref; // ME_49213F8900AA 
+
+: ME_49214101032A
+ CONST UID '49214101032A'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_47F0C1410011 // dsSimpleTree
+ ;
+ : Target WL 'ME_46782E7F0307' '4677FBA70343.pas.ms.script' // Il3ChangeNotifier
+ ;
+
+ref; // ME_49214101032A 
+
+: ME_4921556703C9
+ CONST UID '4921556703C9'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_47F0C1410011 // dsSimpleTree
+ ;
+ : Target WL 'ME_48A41FF10094' '4AB0C3F60375.pas.ms.script' // Windows
+ ;
+
+ref; // ME_4921556703C9 
+
+: ME_48FEE96D03AD_ME_47F0C1410011
+ CONST UID '48FEE96D03AD'
+ CONST Name 'DataDropped'
+ : Original WL 'ME_48FEE96D03AD' '47ECAAF901F8.pas.ms.script' // DataDropped
+ ;
+ : Implementor ME_47F0C1410011 // dsSimpleTree
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_48FEE96D03AD_ME_47F0C1410011 DataDropped
+
+: ME_491DD57603A3_ME_47F0C1410011
+ CONST UID '491DD57603A3'
+ CONST Name 'ImageList'
+ : Original WL 'ME_491DD57603A3' '491DD2830110.pas.ms.script' // ImageList
+ ;
+ : Implementor ME_47F0C1410011 // dsSimpleTree
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "pm" true
+ref; // ME_491DD57603A3_ME_47F0C1410011 ImageList
+
+: ME_491DD5A10199_ME_47F0C1410011
+ CONST UID '491DD5A10199'
+ CONST Name 'SimpleTree'
+ : Original WL 'ME_491DD5A10199' '491DD2830110.pas.ms.script' // SimpleTree
+ ;
+ : Implementor ME_47F0C1410011 // dsSimpleTree
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "pm" true
+ref; // ME_491DD5A10199_ME_47F0C1410011 SimpleTree
+
+: ME_491DD5C90095_ME_47F0C1410011
+ CONST UID '491DD5C90095'
+ CONST Name 'CurrentChanged'
+ : Original WL 'ME_491DD5C90095' '491DD2830110.pas.ms.script' // CurrentChanged
+ ;
+ : Implementor ME_47F0C1410011 // dsSimpleTree
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_491DD5C90095_ME_47F0C1410011 CurrentChanged
+
+: ME_479731C50290_ME_47F0C1410011
+ CONST UID '479731C50290'
+ CONST Name 'Cleanup'
+ : Original WL 'ME_479731C50290' '51612EBB02F5.pas.ms.script' // Cleanup
+ ;
+ : Implementor ME_47F0C1410011 // dsSimpleTree
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_479731C50290_ME_47F0C1410011 Cleanup
+
+: ME_491476B001D3_ME_47F0C1410011
+ CONST UID '491476B001D3'
+ CONST Name 'MakeDisplayName'
+ : Original WL 'ME_491476B001D3' '47D0E1500033.pas.ms.script' // MakeDisplayName
+ ;
+ : Implementor ME_47F0C1410011 // dsSimpleTree
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_491476B001D3_ME_47F0C1410011 MakeDisplayName
+
+: ME_492BF7900310_ME_47F0C1410011
+ CONST UID '492BF7900310'
+ CONST Name 'DoInit'
+ : Original WL 'ME_492BF7900310' '47D0E1500033.pas.ms.script' // DoInit
+ ;
+ : Implementor ME_47F0C1410011 // dsSimpleTree
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_492BF7900310_ME_47F0C1410011 DoInit
+
+: ME_5000565C019C_ME_47F0C1410011
+ CONST UID '5000565C019C'
+ CONST Name 'ClearFields'
+ : Original WL 'ME_5000565C019C' '47913B47006E.pas.ms.script' // ClearFields
+ ;
+ : Implementor ME_47F0C1410011 // dsSimpleTree
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_5000565C019C_ME_47F0C1410011 ClearFields
+
+: ME_47F0C1410011
+ CONST UID '47F0C1410011'
+ CONST Name 'dsSimpleTree'
+ CONST Class class_Class
+ : Stereotype st_ViewAreaControllerImp ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Бизнес объект формы с деревом' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_47F282AE0082 // Tree
+ ;
+ : Inherits
+   Seq: ( WL 'ME_492ACB4100B2' '47D0E1500033.pas.ms.script' // vcmFormDataSource
+ )
+ ; // Inherits
+ : Implements
+   Seq: ( WL 'ME_47E9F96B035A' '491DD2830110.pas.ms.script' // IdsSimpleTree
+ WL 'ME_48FEE95F0124' '47ECAAF901F8.pas.ms.script' // InsDropListener
+ )
+ ; // Implements
+ : Attributes
+   Seq: ( ME_49213F16029F // f_SimpleTree
+ ME_49213F3B016B // IsFirstMake
+ ME_4921515002F6 // MovingCurrent
+ ME_4921518E034B // PrevMovingCurrent
+ ME_492151D003A5 // ChangeCurrentTime
+ ME_492152570031 // UpdateCurrentTimer
+ ME_492155A70263 // Current
+ ME_76C96E16F9AE // f_IsFirstMake
+ ME_6092E5FD1D1B // f_MovingCurrent
+ ME_8F8EDD7BEDF2 // f_PrevMovingCurrent
+ ME_595F4F25F8BA // f_ChangeCurrentTime
+ ME_3FD724E7BD28 // f_UpdateCurrentTimer
+ ME_007199D6BEFC // f_Current
+ )
+ ; // Attributes
+ : Operations
+   Seq: ( ME_47F0C1BF0314 // DoCurrentChanged
+ ME_47F465F80149 // MakeImageList
+ ME_47F4C2B9014A // MakeSimpleTree
+ ME_47FC718400FA // UpdateSimpleTree
+ ME_492140830112 // OnUpdateCurrent
+ ME_49214097027A // MovingFinished
+ ME_49215CE702B9 // DoDataDropped
+ ME_4978163E03A0 // RefreshSimpleTree
+ )
+ ; // Operations
+ : Implemented
+   Seq: ( ME_48FEE96D03AD_ME_47F0C1410011 // DataDropped
+ ME_491DD57603A3_ME_47F0C1410011 // ImageList
+ ME_491DD5A10199_ME_47F0C1410011 // SimpleTree
+ ME_491DD5C90095_ME_47F0C1410011 // CurrentChanged
+ )
+ ; // Implemented
+ : Overridden
+   Seq: ( ME_479731C50290_ME_47F0C1410011 // Cleanup
+ ME_491476B001D3_ME_47F0C1410011 // MakeDisplayName
+ ME_492BF7900310_ME_47F0C1410011 // DoInit
+ ME_5000565C019C_ME_47F0C1410011 // ClearFields
+ )
+ ; // Overridden
+ : Constants
+   Seq: ( ME_4921543D025B // Times
+ )
+ ; // Constants
+ : Dependencies
+   Seq: ( ME_49213D2F022C // 
+ ME_49213D43000B // 
+ ME_49213DF003D2 // 
+ ME_49213E4B014A // 
+ ME_49213F660021 // 
+ ME_49213F8900AA // 
+ ME_49214101032A // 
+ ME_4921556703C9 // 
+ )
+ ; // Dependencies
+ CONST "author" 'Морозов М.А.'
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" true
+ CONST "register in scripts" 'undefined'
+ CONST "started" '2005/8/3 13:49:6'
+ : Generators
+ Seq: (
+ gen_intf.pas
+ )
+ ; // Generators
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Tree'
+ CONST intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\Tree\dsSimpleTree.imp.pas'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Tree'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\Tree'
+ CONST extprop:pas:TypeName '_dsSimpleTree_'
+ CONST extprop:pas:UnitName 'dsSimpleTree.imp'
+
+ref; // ME_47F0C1410011 dsSimpleTree
+
+FORWARD ME_492D91B7037E
+
+: ME_492D9200028F
+ CONST UID '492D9200028F'
+ CONST Name 'f_CurrentContextFilter'
+ CONST Class class_Attribute
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_492D91B7037E // nsContextFilter
+ ;
+ : Target WL 'ME_4908393001C5' '490838E10313.pas.ms.script' // InscContextFilterState
+ ;
+
+ref; // ME_492D9200028F f_CurrentContextFilter
+
+: ME_492D92370149
+ CONST UID '492D92370149'
+ CONST Name 'Cleanup'
+ CONST Class class_Operation
+ : Stereotype st_override::Operation ;
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_regular
+ : Parent ME_492D91B7037E // nsContextFilter
+ ;
+ CONST "is static" false
+
+ref; // ME_492D92370149 Cleanup
+
+: ME_492D93380239
+ CONST UID '492D93380239'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_492D91B7037E // nsContextFilter
+ ;
+ : Target WL 'ME_4908462903E0' '49083E150027.pas.ms.script' // TnscContextFilterState
+ ;
+
+ref; // ME_492D93380239 
+
+: ME_492D9071038D_ME_492D91B7037E
+ CONST UID '492D9071038D'
+ CONST Name 'CurrentContextFilter'
+ : Original WL 'ME_492D9071038D' '491DD2830110.pas.ms.script' // CurrentContextFilter
+ ;
+ : Implementor ME_492D91B7037E // nsContextFilter
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "pm" true
+ref; // ME_492D9071038D_ME_492D91B7037E CurrentContextFilter
+
+: ME_492D90AA0118_ME_492D91B7037E
+ CONST UID '492D90AA0118'
+ CONST Name 'FiltrateByContext'
+ : Original WL 'ME_492D90AA0118' '491DD2830110.pas.ms.script' // FiltrateByContext
+ ;
+ : Implementor ME_492D91B7037E // nsContextFilter
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_492D90AA0118_ME_492D91B7037E FiltrateByContext
+
+: ME_492D91B7037E
+ CONST UID '492D91B7037E'
+ CONST Name 'nsContextFilter'
+ CONST Class class_Class
+ : Stereotype st_Impurity ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Контекстный фильтр' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_47F282AE0082 // Tree
+ ;
+ : Implements
+   Seq: ( WL 'ME_492D901E03E1' '491DD2830110.pas.ms.script' // InsContextFilter
+ )
+ ; // Implements
+ : Attributes
+   Seq: ( ME_492D9200028F // f_CurrentContextFilter
+ )
+ ; // Attributes
+ : Operations
+   Seq: ( ME_492D92370149 // Cleanup
+ )
+ ; // Operations
+ : Implemented
+   Seq: ( ME_492D9071038D_ME_492D91B7037E // CurrentContextFilter
+ ME_492D90AA0118_ME_492D91B7037E // FiltrateByContext
+ )
+ ; // Implemented
+ : Dependencies
+   Seq: ( ME_492D93380239 // 
+ )
+ ; // Dependencies
+ CONST "author" 'Люлин А.В.'
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" true
+ CONST "register in scripts" 'undefined'
+ CONST "started" '26.11.2008 21:13'
+ : Generators
+ Seq: (
+ gen_intf.pas
+ )
+ ; // Generators
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Tree'
+ CONST intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\Tree\nsContextFilter.imp.pas'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Tree'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\Tree'
+ CONST extprop:pas:TypeName '_nsContextFilter_'
+ CONST extprop:pas:UnitName 'nsContextFilter.imp'
+
+ref; // ME_492D91B7037E nsContextFilter
+
+FORWARD ME_49243E5C035C
+
+: ME_49243E6B0354
+ CONST UID '49243E6B0354'
+ CONST Name 'GetOperationIterator'
+ CONST Class class_Operation
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_49243E5C035C // nsLogicOperationToFlags
+ ;
+
+ref; // ME_49243E6B0354 GetOperationIterator
+
+: ME_49243E5C035C
+ CONST UID '49243E5C035C'
+ CONST Name 'nsLogicOperationToFlags'
+ CONST Class class_Class
+ : Stereotype st_UtilityPack ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_47F282AE0082 // Tree
+ ;
+ : Operations
+   Seq: ( ME_49243E6B0354 // GetOperationIterator
+ )
+ ; // Operations
+ CONST "finished" false
+ CONST "no hands" false
+ : Generators
+ Seq: (
+ gen_intf.pas
+ )
+ ; // Generators
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Tree'
+ CONST intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\Tree\NOT_FINISHED_nsLogicOperationToFlags.pas'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Tree'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\Tree'
+ CONST extprop:rc:SelfName 'LogicOperationToFlags'
+
+ref; // ME_49243E5C035C nsLogicOperationToFlags
+
+: ME_47F282AE0082
+ CONST UID '47F282AE0082'
+ CONST Name 'Tree'
+ CONST Class class_Category
+ : Stereotype st_ControllerUnit ;
+ %SUMMARY 'Пакет работы с деревом.' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent WL 'ME_493FAECB025F' '493FAECB025F.pas.ms.script' // Tree
+ ;
+ : Children
+   Seq: ( ME_47F0C1410011 // dsSimpleTree
+ ME_492D91B7037E // nsContextFilter
+ ME_49243E5C035C // nsLogicOperationToFlags
+ )
+ ; // Children
+ : Depends
+   Seq: ( WL 'ME_457450470167' '457450470167.pas.ms.script' // DynamicTree
+ WL 'ME_4677FBA70343' '4677FBA70343.pas.ms.script' // l3Interfaces
+ WL 'ME_467C0CAA02AB' '467C0CAA02AB.pas.ms.script' // l3InternalInterfaces
+ WL 'ME_4682595B0268' '4682595B0268.pas.ms.script' // l3TreeInterfaces
+ WL 'ME_47913B47006E' '47913B47006E.pas.ms.script' // l3CoreObjects
+ WL 'ME_4799D29F033F' '4799D29F033F.pas.ms.script' // Implementation
+ WL 'ME_47D0E1500033' '47D0E1500033.pas.ms.script' // Implementation
+ WL 'ME_47ECAAF901F8' '47ECAAF901F8.pas.ms.script' // bsInterfaces
+ WL 'ME_47F485150151' '47F485150151.pas.ms.script' // vtCommon
+ WL 'ME_490838E10313' '490838E10313.pas.ms.script' // nscNewInterfaces
+ WL 'ME_49083E150027' '49083E150027.pas.ms.script' // CoreObjects
+ WL 'ME_4908A8A20107' '4908A8A20107.pas.ms.script' // OldTree
+ WL 'ME_491DD2830110' '491DD2830110.pas.ms.script' // TreeInterfaces
+ WL 'ME_4AB0C3C60310' '4AB0C3C60310.pas.ms.script' // Sys
+ WL 'ME_4AB0C3F60375' '4AB0C3F60375.pas.ms.script' // Win
+ WL 'ME_4E1447600037' '4E1447600037.pas.ms.script' // Common
+ )
+ ; // Depends
+ : Generators
+ Seq: (
+ gen_pas.script
+ gen_pas.script.runner
+ )
+ ; // Generators
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Tree'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Tree'
+ CONST pas.script:Path 'shared\models\NewSchool\Scripts\47F282AE0082.pas.ms.script'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\47F282AE0082.pas.ms.script.runner'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\Tree'
+
+ref; // ME_47F282AE0082 Tree

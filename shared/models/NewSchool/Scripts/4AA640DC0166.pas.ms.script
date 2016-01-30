@@ -1,0 +1,125 @@
+// Search 4AA640DC0166 VCMUseCase Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4AA640DC0166
+
+FORWARD ME_4AA641D100B7
+
+: ME_4CC98C1A01FC
+ CONST UID '4CC98C1A01FC'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4AA641D100B7 // Search$UC
+ ;
+ : Target WL 'ME_484407B70220' '484407720166.pas.ms.script' // Базовый поиск
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_4CC98C1A01FC 
+
+: ME_4AA641D100B7
+ CONST UID '4AA641D100B7'
+ CONST Name 'Search'
+ CONST Class class_Class
+ : Stereotype st_VCMUseCaseRealization ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Поиск' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_4AA640DC0166 // Search
+ ;
+ : Inherits
+   Seq: ( WL 'ME_4AA641A3036C' '4AA6418F02AD.pas.ms.script' // Search
+ )
+ ; // Inherits
+ : Implements
+   Seq: ( WL 'ME_484CE381033D' '484407720166.pas.ms.script' // Параметрический поиск
+ )
+ ; // Implements
+ : Dependencies
+   Seq: ( ME_4CC98C1A01FC // 
+ )
+ ; // Dependencies
+ CONST "UseNewGen" 'undefined'
+ CONST "author" 'Тучнин Д.А.'
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" true
+ CONST "register in scripts" 'undefined'
+ CONST "started" '2003/07/21 16:33:57'
+ : Generators
+ Seq: (
+ gen_intf.pas
+ )
+ ; // Generators
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View'
+ CONST intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\moSearch.pas'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant'
+ CONST extprop:pas:TypeName 'Tmo_Search'
+ CONST extprop:pas:UnitName 'moSearch'
+
+ref; // ME_4AA641D100B7 Search$UC
+
+: ME_4AA640DC0166
+ CONST UID '4AA640DC0166'
+ CONST Name 'Search'
+ CONST Class class_Category
+ : Stereotype st_VCMUseCase ;
+ %SUMMARY '[$58459247]' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent WL 'ME_4F7E92C400AF' '4F7E92C400AF.pas.ms.script' // F1 Основные прецеденты
+ ;
+ : Children
+   Seq: ( ME_4AA641D100B7 // Search$UC
+ WL 'ME_4AA6416E00B4' '4AA6416E00B4.pas.ms.script' // View
+ )
+ ; // Children
+ : Depends
+   Seq: ( WL 'ME_456EA3D2031C' '456EA3D2031C.pas.ms.script' // GblAdapterLib
+ WL 'ME_467A75D90346' '467A75D90346.pas.ms.script' // VT
+ WL 'ME_4684F91300DD' '4684F91300DD.pas.ms.script' // Vcl
+ WL 'ME_4790B4F00236' '4790B4F00236.pas.ms.script' // AFW
+ WL 'ME_4790C3B8021E' '4790C3B8021E.pas.ms.script' // VCM
+ WL 'ME_4790D09A0378' '4790D09A0378.pas.ms.script' // L3
+ WL 'ME_481EF5C4020D' '481EF5C4020D.pas.ms.script' // Оболочка
+ WL 'ME_484407720166' '484407720166.pas.ms.script' // Поиск
+ WL 'ME_490838AA02D0' '490838AA02D0.pas.ms.script' // Nemesis
+ WL 'ME_49549627008C' '49549627008C.pas.ms.script' // LegalDomain
+ WL 'ME_4954C00703D0' '4954C00703D0.pas.ms.script' // OfficeLike
+ WL 'ME_4A78010000B7' '4A78010000B7.pas.ms.script' // Search
+ WL 'ME_4A7C095601DA' '4A7C095601DA.pas.ms.script' // Base Operations
+ WL 'ME_4A8567F2039C' '4A8567F2039C.pas.ms.script' // SearchLite
+ WL 'ME_4A92C561015D' '4A92C561015D.pas.ms.script' // Common
+ WL 'ME_4B63155B0328' '4B63155B0328.pas.ms.script' // MDProcess$ForDelphi
+ WL 'ME_4CC7FE0401B5' '4CC7FE0401B5.pas.ms.script' // NewInterface2010
+ WL 'ME_4E13416D0227' '4E13416D0227.pas.ms.script' // VCM$Visual
+ WL 'ME_4E200FC9003B' '4E200FC9003B.pas.ms.script' // VCM$Scripting
+ WL 'ME_4E2F0E1B03BB' '4E2F0E1B03BB.pas.ms.script' // L3$Domain
+ WL 'ME_547CC9D40158' '547CC9D40158.pas.ms.script' // VT$Panels
+ WL 'ME_54CF97B10370' '54CF97B10370.pas.ms.script' // ScriptEngine$Core
+ WL 'ME_54DB92A80279' '54DB92A80279.pas.ms.script' // ScriptEngine$RTLandVCL
+ WL 'ME_550012C403C4' '550012C403C4.pas.ms.script' // L3$AFW
+ WL 'ME_562E251101C2' '562E251101C2.pas.ms.script' // Shared Delphi Rtl
+ )
+ ; // Depends
+ CONST "UseNewGen" 'undefined'
+ : Generators
+ Seq: (
+ gen_pas.script
+ gen_pas.script.runner
+ )
+ ; // Generators
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis'
+ CONST pas.script:Path 'shared\models\NewSchool\Scripts\4AA640DC0166.pas.ms.script'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\4AA640DC0166.pas.ms.script.runner'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant'
+
+ref; // ME_4AA640DC0166 Search

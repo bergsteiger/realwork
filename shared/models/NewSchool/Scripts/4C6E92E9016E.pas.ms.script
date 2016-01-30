@@ -1,0 +1,1384 @@
+// F1TagDataProviderInterface 4C6E92E9016E Interfaces Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4C6E92E9016E
+
+FORWARD ME_4C6EA058009D
+
+: ME_4C6EA2B000F6
+ CONST UID '4C6EA2B000F6'
+ CONST Name 'Caption'
+ CONST Class class_Attribute
+ : Stereotype st_readonly::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_lnk
+ : Parent ME_4C6EA058009D // Mf1SimpleTagDataProvider
+ ;
+ : Target WL 'ME_431841610361' '4423F94903C8.pas.ms.script' // String
+ ;
+ CONST "pm" false
+
+ref; // ME_4C6EA2B000F6 Caption
+
+: ME_4C6EA2D1023E
+ CONST UID '4C6EA2D1023E'
+ CONST Name 'Style'
+ CONST Class class_Attribute
+ : Stereotype st_readonly::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_lnk
+ : Parent ME_4C6EA058009D // Mf1SimpleTagDataProvider
+ ;
+ : Target WL 'ME_46A5B0060013' '4677FBA70343.pas.ms.script' // IStream
+ ;
+ CONST "pm" false
+
+ref; // ME_4C6EA2D1023E Style
+
+: ME_4C6EA2F700DA
+ CONST UID '4C6EA2F700DA'
+ CONST Name 'ExternalID'
+ CONST Class class_Attribute
+ : Stereotype st_readonly::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_lnk
+ : Parent ME_4C6EA058009D // Mf1SimpleTagDataProvider
+ ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+ CONST "pm" false
+
+ref; // ME_4C6EA2F700DA ExternalID
+
+: ME_4C6EA8390114
+ CONST UID '4C6EA8390114'
+ CONST Name 'TypeID'
+ CONST Class class_Attribute
+ : Stereotype st_readonly::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_lnk
+ : Parent ME_4C6EA058009D // Mf1SimpleTagDataProvider
+ ;
+ : Target WL 'ME_47AC723D02DC' '49A58A1A03C4.pas.ms.script' // Tk2Type
+ ;
+ CONST "pm" false
+
+ref; // ME_4C6EA8390114 TypeID
+
+: ME_4C99D2C600BC
+ CONST UID '4C99D2C600BC'
+ CONST Name 'AsDocumentTextProvider'
+ CONST Class class_Attribute
+ : Stereotype st_readonly::Attribute ;
+ %SUMMARY 'Приведение к IDocumentTextProvider' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_lnk
+ : Parent ME_4C6EA058009D // Mf1SimpleTagDataProvider
+ ;
+ : Target WL 'ME_4C5AA5CA02DF' '4570511E038A.pas.ms.script' // DocumentTextProvider
+ ;
+ CONST "pm" false
+
+ref; // ME_4C99D2C600BC AsDocumentTextProvider
+
+: ME_4D6E5C270068
+ CONST UID '4D6E5C270068'
+ CONST Name 'IsProviderGot'
+ CONST Class class_Attribute
+ : Stereotype st_readonly::Attribute ;
+ %SUMMARY 'Провайдер данных уже был получен. Можно всё смело вычитывать' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_lnk
+ : Parent ME_4C6EA058009D // Mf1SimpleTagDataProvider
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+ CONST "pm" false
+
+ref; // ME_4D6E5C270068 IsProviderGot
+
+: ME_4C6EA058009D
+ CONST UID '4C6EA058009D'
+ CONST Name 'Mf1SimpleTagDataProvider'
+ CONST Class class_Class
+ : Stereotype st_PureMixIn ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Источник данных для "простого" тега' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4C6E92E9016E // F1TagDataProviderInterface
+ ;
+ : Attributes
+   Seq: ( ME_4C6EA2B000F6 // Caption
+ ME_4C6EA2D1023E // Style
+ ME_4C6EA2F700DA // ExternalID
+ ME_4C6EA8390114 // TypeID
+ ME_4C99D2C600BC // AsDocumentTextProvider
+ ME_4D6E5C270068 // IsProviderGot
+ )
+ ; // Attributes
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\f1DocumentTagsImplementation'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\f1DocumentTagsImplementation'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\f1DocumentTagsImplementation'
+
+ref; // ME_4C6EA058009D Mf1SimpleTagDataProvider
+
+FORWARD ME_4C6EAB310274
+
+: ME_4C6EAB57003B
+ CONST UID '4C6EAB57003B'
+ CONST Name 'wStyle'
+ CONST Class class_Attribute
+ : Stereotype st_writeonly::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_lnk
+ : Parent ME_4C6EAB310274 // Mf1CommentTagDataProvider
+ ;
+ : Target WL 'ME_46A5B0060013' '4677FBA70343.pas.ms.script' // IStream
+ ;
+ CONST "pm" false
+
+ref; // ME_4C6EAB57003B wStyle
+
+: ME_4C6EAB310274
+ CONST UID '4C6EAB310274'
+ CONST Name 'Mf1CommentTagDataProvider'
+ CONST Class class_Class
+ : Stereotype st_PureMixIn ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4C6E92E9016E // F1TagDataProviderInterface
+ ;
+ : Attributes
+   Seq: ( ME_4C6EAB57003B // wStyle
+ )
+ ; // Attributes
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\f1DocumentTagsImplementation'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\f1DocumentTagsImplementation'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\f1DocumentTagsImplementation'
+
+ref; // ME_4C6EAB310274 Mf1CommentTagDataProvider
+
+FORWARD ME_4C6D1B070024
+
+: ME_4C6D1B1702E1
+ CONST UID '4C6D1B1702E1'
+ CONST Name 'StyleParsed'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_4C6D1B070024 // TnsNodeState
+ ;
+
+ref; // ME_4C6D1B1702E1 StyleParsed
+
+: ME_4C6D1B2400CB
+ CONST UID '4C6D1B2400CB'
+ CONST Name 'SubsBuilt'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_4C6D1B070024 // TnsNodeState
+ ;
+
+ref; // ME_4C6D1B2400CB SubsBuilt
+
+: ME_4C6D1B3802FC
+ CONST UID '4C6D1B3802FC'
+ CONST Name 'InParse'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_4C6D1B070024 // TnsNodeState
+ ;
+
+ref; // ME_4C6D1B3802FC InParse
+
+: ME_4C6D1B410118
+ CONST UID '4C6D1B410118'
+ CONST Name 'NotNeedSynchronizeWithTree'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_4C6D1B070024 // TnsNodeState
+ ;
+
+ref; // ME_4C6D1B410118 NotNeedSynchronizeWithTree
+
+: ME_4C6D1B5101E1
+ CONST UID '4C6D1B5101E1'
+ CONST Name 'Changed'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_4C6D1B070024 // TnsNodeState
+ ;
+
+ref; // ME_4C6D1B5101E1 Changed
+
+: ME_4C6D1B070024
+ CONST UID '4C6D1B070024'
+ CONST Name 'TnsNodeState'
+ CONST Class class_Class
+ : Stereotype st_Enum ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4C6E92E9016E // F1TagDataProviderInterface
+ ;
+ : Attributes
+   Seq: ( ME_4C6D1B1702E1 // StyleParsed
+ ME_4C6D1B2400CB // SubsBuilt
+ ME_4C6D1B3802FC // InParse
+ ME_4C6D1B410118 // NotNeedSynchronizeWithTree
+ ME_4C6D1B5101E1 // Changed
+ )
+ ; // Attributes
+ CONST "children prefix" 'ns'
+ CONST "elements prefix" 'ns'
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\f1DocumentTagsImplementation'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\f1DocumentTagsImplementation'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\f1DocumentTagsImplementation'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:ElementPrefixBase 'ns'
+ CONST extprop:pas:ElementPrefix 'ns_ns'
+
+ref; // ME_4C6D1B070024 TnsNodeState
+
+: ME_4C6D1B8E023F
+ CONST UID '4C6D1B8E023F'
+ CONST Name 'TnsNodeStates'
+ CONST Class class_Class
+ : Stereotype st_SetOf ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4C6E92E9016E // F1TagDataProviderInterface
+ ;
+ : Inherits
+   Seq: ( ME_4C6D1B070024 // TnsNodeState
+ )
+ ; // Inherits
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\f1DocumentTagsImplementation'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\f1DocumentTagsImplementation'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\f1DocumentTagsImplementation'
+
+ref; // ME_4C6D1B8E023F TnsNodeStates
+
+FORWARD ME_4CEBCD7701EF
+
+: ME_4CEBCD9B00D2
+ CONST UID '4CEBCD9B00D2'
+ CONST Name 'Tag'
+ CONST Class class_Attribute
+ : Stereotype st_readonly::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_lnk
+ : Parent ME_4CEBCD7701EF // If1TagWrap
+ ;
+ : Target WL 'ME_534572370056' '47913B47006E.pas.ms.script' // Tl3Tag
+ ;
+ CONST "pm" false
+
+ref; // ME_4CEBCD9B00D2 Tag
+
+: ME_4CEBCD7701EF
+ CONST UID '4CEBCD7701EF'
+ CONST GUID '0494E06B-231B-4338-BC12-F49E8BA1643A'
+ CONST Name 'If1TagWrap'
+ CONST Class class_Class
+ : Stereotype st_Facet ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4C6E92E9016E // F1TagDataProviderInterface
+ ;
+ : Attributes
+   Seq: ( ME_4CEBCD9B00D2 // Tag
+ )
+ ; // Attributes
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\f1DocumentTagsImplementation'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\f1DocumentTagsImplementation'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\f1DocumentTagsImplementation'
+ CONST extprop:rc:SelfName 'f1TagWrap'
+ CONST extprop:rc:isAcceptableForScripts true
+
+ref; // ME_4CEBCD7701EF If1TagWrap
+
+FORWARD ME_4C6E935500EF
+
+FORWARD ME_4CEBB7550046
+
+FORWARD ME_4C6EB40900C0
+
+: ME_4C6EB42D017A
+ CONST UID '4C6EB42D017A'
+ CONST Name 'AllParaChildrenCount'
+ CONST Class class_Attribute
+ : Stereotype st_readonly::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_lnk
+ : Parent ME_4C6EB40900C0 // Mf1ListTagDataProvider
+ ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+ CONST "pm" false
+
+ref; // ME_4C6EB42D017A AllParaChildrenCount
+
+: ME_4C6EB4470246
+ CONST UID '4C6EB4470246'
+ CONST Name 'ChildrenCount'
+ CONST Class class_Attribute
+ : Stereotype st_readonly::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_lnk
+ : Parent ME_4C6EB40900C0 // Mf1ListTagDataProvider
+ ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+ CONST "pm" false
+
+ref; // ME_4C6EB4470246 ChildrenCount
+
+: ME_4C6EB4E70277
+ CONST UID '4C6EB4E70277'
+ CONST Name 'FirstChild'
+ CONST Class class_Attribute
+ : Stereotype st_readonly::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_lnk
+ : Parent ME_4C6EB40900C0 // Mf1ListTagDataProvider
+ ;
+ : Target ME_4C6E935500EF // If1TagDataProvider
+ ;
+ CONST "pm" false
+
+ref; // ME_4C6EB4E70277 FirstChild
+
+FORWARD ME_4C723CF1024D
+
+: ME_4C723CFA01E9
+ CONST UID '4C723CFA01E9'
+ CONST Name 'anIndex'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_4C723CF1024D // SiblingByIndex
+ ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+
+ref; // ME_4C723CFA01E9 anIndex
+
+: ME_4C723CF1024D
+ CONST UID '4C723CF1024D'
+ CONST Name 'SiblingByIndex'
+ CONST Class class_Attribute
+ : Stereotype st_readonly::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_lnk
+ : Parent ME_4C6EB40900C0 // Mf1ListTagDataProvider
+ ;
+ : Target ME_4C6E935500EF // If1TagDataProvider
+ ;
+ : Attributes
+   Seq: ( ME_4C723CFA01E9 // anIndex
+ )
+ ; // Attributes
+ CONST "pm" false
+
+ref; // ME_4C723CF1024D SiblingByIndex
+
+: ME_4C7240410220
+ CONST UID '4C7240410220'
+ CONST Name 'Next'
+ CONST Class class_Attribute
+ : Stereotype st_readonly::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_lnk
+ : Parent ME_4C6EB40900C0 // Mf1ListTagDataProvider
+ ;
+ : Target ME_4C6E935500EF // If1TagDataProvider
+ ;
+ CONST "pm" false
+
+ref; // ME_4C7240410220 Next
+
+: ME_4CEBCC790083
+ CONST UID '4CEBCC790083'
+ CONST Name 'theIndex'
+ CONST Class class_Parameter
+ : Stereotype st_inout ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+
+ref; // ME_4CEBCC790083 theIndex
+
+: ME_4CEBB71A02A9
+ CONST UID '4CEBB71A02A9'
+ CONST Name 'theNode'
+ CONST Class class_Parameter
+ : Stereotype st_inout ;
+ : Target WL 'ME_534572370056' '47913B47006E.pas.ms.script' // Tl3Tag
+ ;
+
+ref; // ME_4CEBB71A02A9 theNode
+
+: ME_4CEBB7A70387
+ CONST UID '4CEBB7A70387'
+ CONST Name 'aMaker'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target ME_4CEBB7550046 // If1ChildMaker
+ ;
+
+ref; // ME_4CEBB7A70387 aMaker
+
+: ME_4CEBD1D601FB
+ CONST UID '4CEBD1D601FB'
+ CONST Name 'anOp'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_476BEF7B0378' '4678209200A6.pas.ms.script' // InevOp
+ ;
+
+ref; // ME_4CEBD1D601FB anOp
+
+: ME_4C6EB48D0004
+ CONST UID '4C6EB48D0004'
+ CONST Name 'CreateNewNode'
+ CONST Class class_Operation
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_4C6EB40900C0 // Mf1ListTagDataProvider
+ ;
+ : Parameters
+   Seq: ( ME_4CEBCC790083 // theIndex
+ ME_4CEBB71A02A9 // theNode
+ ME_4CEBB7A70387 // aMaker
+ ME_4CEBD1D601FB // anOp
+ )
+ ; // Parameters
+
+ref; // ME_4C6EB48D0004 CreateNewNode
+
+: ME_4C6EB40900C0
+ CONST UID '4C6EB40900C0'
+ CONST Name 'Mf1ListTagDataProvider'
+ CONST Class class_Class
+ : Stereotype st_PureMixIn ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4C6E92E9016E // F1TagDataProviderInterface
+ ;
+ : Attributes
+   Seq: ( ME_4C6EB42D017A // AllParaChildrenCount
+ ME_4C6EB4470246 // ChildrenCount
+ ME_4C6EB4E70277 // FirstChild
+ ME_4C723CF1024D // SiblingByIndex
+ ME_4C7240410220 // Next
+ )
+ ; // Attributes
+ : Operations
+   Seq: ( ME_4C6EB48D0004 // CreateNewNode
+ )
+ ; // Operations
+ : Forwarded
+   Seq: ( ME_4C6E935500EF // If1TagDataProvider
+ ME_4CEBB7550046 // If1ChildMaker
+ )
+ ; // Forwarded
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\f1DocumentTagsImplementation'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\f1DocumentTagsImplementation'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\f1DocumentTagsImplementation'
+
+ref; // ME_4C6EB40900C0 Mf1ListTagDataProvider
+
+FORWARD ME_4C722E000103
+
+FORWARD ME_4C6EB52B02E0
+
+: ME_4CEFAFB700D1
+ CONST UID '4CEFAFB700D1'
+ CONST Name 'Comment'
+ CONST Class class_Attribute
+ : Stereotype st_readonly::Attribute ;
+ %SUMMARY 'Комментарий к параграфу' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_lnk
+ : Parent ME_4C6EB52B02E0 // Mf1LeafTagDataProvider
+ ;
+ : Target WL 'ME_46A5B0060013' '4677FBA70343.pas.ms.script' // IStream
+ ;
+ CONST "pm" false
+
+ref; // ME_4CEFAFB700D1 Comment
+
+: ME_4D0F4C9E0379
+ CONST UID '4D0F4C9E0379'
+ CONST Name 'TechComment'
+ CONST Class class_Attribute
+ : Stereotype st_readonly::Attribute ;
+ %SUMMARY 'Технический комментарий' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_lnk
+ : Parent ME_4C6EB52B02E0 // Mf1LeafTagDataProvider
+ ;
+ : Target WL 'ME_431841610361' '4423F94903C8.pas.ms.script' // String
+ ;
+ CONST "pm" false
+
+ref; // ME_4D0F4C9E0379 TechComment
+
+: ME_4C722FE601D3
+ CONST UID '4C722FE601D3'
+ CONST Name 'aProp'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_47AC6F6A00FA' '49A58A1A03C4.pas.ms.script' // Tk2CustomProperty
+ ;
+
+ref; // ME_4C722FE601D3 aProp
+
+: ME_4C722FE6020F
+ CONST UID '4C722FE6020F'
+ CONST Name 'aChecker'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target ME_4C722E000103 // If1AtomChecker
+ ;
+
+ref; // ME_4C722FE6020F aChecker
+
+: ME_4C722FCA0397
+ CONST UID '4C722FCA0397'
+ CONST Name 'BuildSubs'
+ CONST Class class_Operation
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_4C6EB52B02E0 // Mf1LeafTagDataProvider
+ ;
+ : Parameters
+   Seq: ( ME_4C722FE601D3 // aProp
+ ME_4C722FE6020F // aChecker
+ )
+ ; // Parameters
+
+ref; // ME_4C722FCA0397 BuildSubs
+
+: ME_4C6EB52B02E0
+ CONST UID '4C6EB52B02E0'
+ CONST Name 'Mf1LeafTagDataProvider'
+ CONST Class class_Class
+ : Stereotype st_PureMixIn ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4C6E92E9016E // F1TagDataProviderInterface
+ ;
+ : Attributes
+   Seq: ( ME_4CEFAFB700D1 // Comment
+ ME_4D0F4C9E0379 // TechComment
+ )
+ ; // Attributes
+ : Operations
+   Seq: ( ME_4C722FCA0397 // BuildSubs
+ )
+ ; // Operations
+ : Forwarded
+   Seq: ( ME_4C722E000103 // If1AtomChecker
+ )
+ ; // Forwarded
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\f1DocumentTagsImplementation'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\f1DocumentTagsImplementation'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\f1DocumentTagsImplementation'
+
+ref; // ME_4C6EB52B02E0 Mf1LeafTagDataProvider
+
+: ME_4C6EA2B000F6_ME_4C6E935500EF
+ CONST UID '4C6EA2B000F6'
+ CONST Name 'Caption'
+ : Original ME_4C6EA2B000F6 // Caption
+ ;
+ : Implementor ME_4C6E935500EF // If1TagDataProvider
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "pm" false
+ref; // ME_4C6EA2B000F6_ME_4C6E935500EF Caption
+
+: ME_4C6EA2D1023E_ME_4C6E935500EF
+ CONST UID '4C6EA2D1023E'
+ CONST Name 'Style'
+ : Original ME_4C6EA2D1023E // Style
+ ;
+ : Implementor ME_4C6E935500EF // If1TagDataProvider
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "pm" false
+ref; // ME_4C6EA2D1023E_ME_4C6E935500EF Style
+
+: ME_4C6EA2F700DA_ME_4C6E935500EF
+ CONST UID '4C6EA2F700DA'
+ CONST Name 'ExternalID'
+ : Original ME_4C6EA2F700DA // ExternalID
+ ;
+ : Implementor ME_4C6E935500EF // If1TagDataProvider
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "pm" false
+ref; // ME_4C6EA2F700DA_ME_4C6E935500EF ExternalID
+
+: ME_4C6EA8390114_ME_4C6E935500EF
+ CONST UID '4C6EA8390114'
+ CONST Name 'TypeID'
+ : Original ME_4C6EA8390114 // TypeID
+ ;
+ : Implementor ME_4C6E935500EF // If1TagDataProvider
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "pm" false
+ref; // ME_4C6EA8390114_ME_4C6E935500EF TypeID
+
+: ME_4C6EAB57003B_ME_4C6E935500EF
+ CONST UID '4C6EAB57003B'
+ CONST Name 'wStyle'
+ : Original ME_4C6EAB57003B // wStyle
+ ;
+ : Implementor ME_4C6E935500EF // If1TagDataProvider
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "pm" false
+ref; // ME_4C6EAB57003B_ME_4C6E935500EF wStyle
+
+: ME_4C6EB42D017A_ME_4C6E935500EF
+ CONST UID '4C6EB42D017A'
+ CONST Name 'AllParaChildrenCount'
+ : Original ME_4C6EB42D017A // AllParaChildrenCount
+ ;
+ : Implementor ME_4C6E935500EF // If1TagDataProvider
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "pm" false
+ref; // ME_4C6EB42D017A_ME_4C6E935500EF AllParaChildrenCount
+
+: ME_4C6EB4470246_ME_4C6E935500EF
+ CONST UID '4C6EB4470246'
+ CONST Name 'ChildrenCount'
+ : Original ME_4C6EB4470246 // ChildrenCount
+ ;
+ : Implementor ME_4C6E935500EF // If1TagDataProvider
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "pm" false
+ref; // ME_4C6EB4470246_ME_4C6E935500EF ChildrenCount
+
+: ME_4C6EB48D0004_ME_4C6E935500EF
+ CONST UID '4C6EB48D0004'
+ CONST Name 'CreateNewNode'
+ : Original ME_4C6EB48D0004 // CreateNewNode
+ ;
+ : Implementor ME_4C6E935500EF // If1TagDataProvider
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_4C6EB48D0004_ME_4C6E935500EF CreateNewNode
+
+: ME_4C6EB4E70277_ME_4C6E935500EF
+ CONST UID '4C6EB4E70277'
+ CONST Name 'FirstChild'
+ : Original ME_4C6EB4E70277 // FirstChild
+ ;
+ : Implementor ME_4C6E935500EF // If1TagDataProvider
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "pm" false
+ref; // ME_4C6EB4E70277_ME_4C6E935500EF FirstChild
+
+: ME_4C722FCA0397_ME_4C6E935500EF
+ CONST UID '4C722FCA0397'
+ CONST Name 'BuildSubs'
+ : Original ME_4C722FCA0397 // BuildSubs
+ ;
+ : Implementor ME_4C6E935500EF // If1TagDataProvider
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_4C722FCA0397_ME_4C6E935500EF BuildSubs
+
+: ME_4C723CF1024D_ME_4C6E935500EF
+ CONST UID '4C723CF1024D'
+ CONST Name 'SiblingByIndex'
+ : Original ME_4C723CF1024D // SiblingByIndex
+ ;
+ : Implementor ME_4C6E935500EF // If1TagDataProvider
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "pm" false
+ref; // ME_4C723CF1024D_ME_4C6E935500EF SiblingByIndex
+
+: ME_4C7240410220_ME_4C6E935500EF
+ CONST UID '4C7240410220'
+ CONST Name 'Next'
+ : Original ME_4C7240410220 // Next
+ ;
+ : Implementor ME_4C6E935500EF // If1TagDataProvider
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "pm" false
+ref; // ME_4C7240410220_ME_4C6E935500EF Next
+
+: ME_4C99D2C600BC_ME_4C6E935500EF
+ CONST UID '4C99D2C600BC'
+ CONST Name 'AsDocumentTextProvider'
+ : Original ME_4C99D2C600BC // AsDocumentTextProvider
+ ;
+ : Implementor ME_4C6E935500EF // If1TagDataProvider
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "pm" false
+ref; // ME_4C99D2C600BC_ME_4C6E935500EF AsDocumentTextProvider
+
+: ME_4CEFAFB700D1_ME_4C6E935500EF
+ CONST UID '4CEFAFB700D1'
+ CONST Name 'Comment'
+ : Original ME_4CEFAFB700D1 // Comment
+ ;
+ : Implementor ME_4C6E935500EF // If1TagDataProvider
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "pm" false
+ref; // ME_4CEFAFB700D1_ME_4C6E935500EF Comment
+
+: ME_4D0F4C9E0379_ME_4C6E935500EF
+ CONST UID '4D0F4C9E0379'
+ CONST Name 'TechComment'
+ : Original ME_4D0F4C9E0379 // TechComment
+ ;
+ : Implementor ME_4C6E935500EF // If1TagDataProvider
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "pm" false
+ref; // ME_4D0F4C9E0379_ME_4C6E935500EF TechComment
+
+: ME_4D6E5C270068_ME_4C6E935500EF
+ CONST UID '4D6E5C270068'
+ CONST Name 'IsProviderGot'
+ : Original ME_4D6E5C270068 // IsProviderGot
+ ;
+ : Implementor ME_4C6E935500EF // If1TagDataProvider
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "pm" false
+ref; // ME_4D6E5C270068_ME_4C6E935500EF IsProviderGot
+
+: ME_4C6E935500EF
+ CONST UID '4C6E935500EF'
+ CONST GUID '7ABEBCFD-8A7D-4696-904D-39744685C71A'
+ CONST Name 'If1TagDataProvider'
+ CONST Class class_Class
+ : Stereotype st_Facet ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Источник данных тега' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4C6E92E9016E // F1TagDataProviderInterface
+ ;
+ : Implements
+   Seq: ( ME_4C6EA058009D // Mf1SimpleTagDataProvider
+ ME_4C6EAB310274 // Mf1CommentTagDataProvider
+ ME_4C6EB40900C0 // Mf1ListTagDataProvider
+ ME_4C6EB52B02E0 // Mf1LeafTagDataProvider
+ )
+ ; // Implements
+ : Implemented
+   Seq: ( ME_4C6EA2B000F6_ME_4C6E935500EF // Caption
+ ME_4C6EA2D1023E_ME_4C6E935500EF // Style
+ ME_4C6EA2F700DA_ME_4C6E935500EF // ExternalID
+ ME_4C6EA8390114_ME_4C6E935500EF // TypeID
+ ME_4C6EAB57003B_ME_4C6E935500EF // wStyle
+ ME_4C6EB42D017A_ME_4C6E935500EF // AllParaChildrenCount
+ ME_4C6EB4470246_ME_4C6E935500EF // ChildrenCount
+ ME_4C6EB48D0004_ME_4C6E935500EF // CreateNewNode
+ ME_4C6EB4E70277_ME_4C6E935500EF // FirstChild
+ ME_4C722FCA0397_ME_4C6E935500EF // BuildSubs
+ ME_4C723CF1024D_ME_4C6E935500EF // SiblingByIndex
+ ME_4C7240410220_ME_4C6E935500EF // Next
+ ME_4C99D2C600BC_ME_4C6E935500EF // AsDocumentTextProvider
+ ME_4CEFAFB700D1_ME_4C6E935500EF // Comment
+ ME_4D0F4C9E0379_ME_4C6E935500EF // TechComment
+ ME_4D6E5C270068_ME_4C6E935500EF // IsProviderGot
+ )
+ ; // Implemented
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\f1DocumentTagsImplementation'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\f1DocumentTagsImplementation'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\f1DocumentTagsImplementation'
+ CONST extprop:rc:SelfName 'f1TagDataProvider'
+ CONST extprop:rc:isAcceptableForScripts true
+
+ref; // ME_4C6E935500EF If1TagDataProvider
+
+: ME_4C722E2C02D3
+ CONST UID '4C722E2C02D3'
+ CONST Name 'aProp'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_47AC6F6A00FA' '49A58A1A03C4.pas.ms.script' // Tk2CustomProperty
+ ;
+
+ref; // ME_4C722E2C02D3 aProp
+
+: ME_4C722E2901C7
+ CONST UID '4C722E2901C7'
+ CONST Name 'CheckAtom'
+ CONST Class class_Operation
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_4C722E000103 // If1AtomChecker
+ ;
+ : Target WL 'ME_534572370056' '47913B47006E.pas.ms.script' // Tl3Tag
+ ;
+ : Parameters
+   Seq: ( ME_4C722E2C02D3 // aProp
+ )
+ ; // Parameters
+
+ref; // ME_4C722E2901C7 CheckAtom
+
+: ME_4C726F2B0330
+ CONST UID '4C726F2B0330'
+ CONST Name 'aProvider'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target ME_4C6E935500EF // If1TagDataProvider
+ ;
+
+ref; // ME_4C726F2B0330 aProvider
+
+: ME_4C726EF902D9
+ CONST UID '4C726EF902D9'
+ CONST Name 'MakeSubTag'
+ CONST Class class_Operation
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_4C722E000103 // If1AtomChecker
+ ;
+ : Target WL 'ME_5346BD53015A' '47913B47006E.pas.ms.script' // Il3TagRef
+ ;
+ : Parameters
+   Seq: ( ME_4C726F2B0330 // aProvider
+ )
+ ; // Parameters
+
+ref; // ME_4C726EF902D9 MakeSubTag
+
+: ME_4CEBCD9B00D2_ME_4C722E000103
+ CONST UID '4CEBCD9B00D2'
+ CONST Name 'Tag'
+ : Original ME_4CEBCD9B00D2 // Tag
+ ;
+ : Implementor ME_4C722E000103 // If1AtomChecker
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "pm" false
+ref; // ME_4CEBCD9B00D2_ME_4C722E000103 Tag
+
+: ME_4C722E000103
+ CONST UID '4C722E000103'
+ CONST GUID 'FBFABCD3-5D71-4724-BB38-022917F1DC06'
+ CONST Name 'If1AtomChecker'
+ CONST Class class_Class
+ : Stereotype st_Facet ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4C6E92E9016E // F1TagDataProviderInterface
+ ;
+ : Inherits
+   Seq: ( ME_4CEBCD7701EF // If1TagWrap
+ )
+ ; // Inherits
+ : Operations
+   Seq: ( ME_4C722E2901C7 // CheckAtom
+ ME_4C726EF902D9 // MakeSubTag
+ )
+ ; // Operations
+ : Implemented
+   Seq: ( ME_4CEBCD9B00D2_ME_4C722E000103 // Tag
+ )
+ ; // Implemented
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\f1DocumentTagsImplementation'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\f1DocumentTagsImplementation'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\f1DocumentTagsImplementation'
+ CONST extprop:rc:SelfName 'f1AtomChecker'
+ CONST extprop:rc:isAcceptableForScripts true
+
+ref; // ME_4C722E000103 If1AtomChecker
+
+: ME_4CEBB7990168
+ CONST UID '4CEBB7990168'
+ CONST Name 'aNode'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target ME_4C6E935500EF // If1TagDataProvider
+ ;
+
+ref; // ME_4CEBB7990168 aNode
+
+: ME_4CEBB7990185
+ CONST UID '4CEBB7990185'
+ CONST Name 'aState'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target ME_4C6D1B8E023F // TnsNodeStates
+ ;
+
+ref; // ME_4CEBB7990185 aState
+
+: ME_4CEBB765029D
+ CONST UID '4CEBB765029D'
+ CONST Name 'MakeChildTag'
+ CONST Class class_Operation
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_4CEBB7550046 // If1ChildMaker
+ ;
+ : Target WL 'ME_5346BD53015A' '47913B47006E.pas.ms.script' // Il3TagRef
+ ;
+ : Parameters
+   Seq: ( ME_4CEBB7990168 // aNode
+ ME_4CEBB7990185 // aState
+ )
+ ; // Parameters
+
+ref; // ME_4CEBB765029D MakeChildTag
+
+: ME_4CEBCD9B00D2_ME_4CEBB7550046
+ CONST UID '4CEBCD9B00D2'
+ CONST Name 'Tag'
+ : Original ME_4CEBCD9B00D2 // Tag
+ ;
+ : Implementor ME_4CEBB7550046 // If1ChildMaker
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "pm" false
+ref; // ME_4CEBCD9B00D2_ME_4CEBB7550046 Tag
+
+: ME_4CEBB7550046
+ CONST UID '4CEBB7550046'
+ CONST GUID 'FF5212F0-41B4-4735-978C-A1A83F959065'
+ CONST Name 'If1ChildMaker'
+ CONST Class class_Class
+ : Stereotype st_Facet ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4C6E92E9016E // F1TagDataProviderInterface
+ ;
+ : Inherits
+   Seq: ( ME_4CEBCD7701EF // If1TagWrap
+ )
+ ; // Inherits
+ : Operations
+   Seq: ( ME_4CEBB765029D // MakeChildTag
+ )
+ ; // Operations
+ : Implemented
+   Seq: ( ME_4CEBCD9B00D2_ME_4CEBB7550046 // Tag
+ )
+ ; // Implemented
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\f1DocumentTagsImplementation'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\f1DocumentTagsImplementation'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\f1DocumentTagsImplementation'
+ CONST extprop:rc:SelfName 'f1ChildMaker'
+ CONST extprop:rc:isAcceptableForScripts true
+
+ref; // ME_4CEBB7550046 If1ChildMaker
+
+FORWARD ME_4CEE380000F1
+
+: ME_4CEE47100163
+ CONST UID '4CEE47100163'
+ CONST Name 'IEVDStream'
+ CONST Class class_Class
+ : Stereotype st_Typedef ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4CEE380000F1 // If1CommentSink
+ ;
+ : Inherits
+   Seq: ( WL 'ME_46A5B0060013' '4677FBA70343.pas.ms.script' // IStream
+ )
+ ; // Inherits
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\f1DocumentTagsImplementation'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\f1DocumentTagsImplementation'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\f1DocumentTagsImplementation'
+ CONST extprop:rc:SelfName 'EVDStream'
+ CONST extprop:rc:isAcceptableForScripts true
+
+ref; // ME_4CEE47100163 IEVDStream
+
+: ME_4CEE38DA0365
+ CONST UID '4CEE38DA0365'
+ CONST Name 'State'
+ CONST Class class_Attribute
+ : Stereotype st_property::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_lnk
+ : Parent ME_4CEE380000F1 // If1CommentSink
+ ;
+ : Target ME_4C6D1B8E023F // TnsNodeStates
+ ;
+ CONST "pm" false
+
+ref; // ME_4CEE38DA0365 State
+
+: ME_4CEE39170059
+ CONST UID '4CEE39170059'
+ CONST Name 'aStream'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target ME_4CEE47100163 // IEVDStream
+ ;
+
+ref; // ME_4CEE39170059 aStream
+
+: ME_4CEE3904013D
+ CONST UID '4CEE3904013D'
+ CONST Name 'Store'
+ CONST Class class_Operation
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_4CEE380000F1 // If1CommentSink
+ ;
+ : Parameters
+   Seq: ( ME_4CEE39170059 // aStream
+ )
+ ; // Parameters
+
+ref; // ME_4CEE3904013D Store
+
+: ME_4CEE380000F1
+ CONST UID '4CEE380000F1'
+ CONST GUID '60FAA2EE-026E-40DE-B4F8-1E1A779081C4'
+ CONST Name 'If1CommentSink'
+ CONST Class class_Class
+ : Stereotype st_Facet ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4C6E92E9016E // F1TagDataProviderInterface
+ ;
+ : Attributes
+   Seq: ( ME_4CEE38DA0365 // State
+ )
+ ; // Attributes
+ : Operations
+   Seq: ( ME_4CEE3904013D // Store
+ )
+ ; // Operations
+ : Children
+   Seq: ( ME_4CEE47100163 // IEVDStream
+ )
+ ; // Children
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\f1DocumentTagsImplementation'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\f1DocumentTagsImplementation'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\f1DocumentTagsImplementation'
+ CONST extprop:rc:SelfName 'f1CommentSink'
+ CONST extprop:rc:isAcceptableForScripts true
+
+ref; // ME_4CEE380000F1 If1CommentSink
+
+FORWARD ME_4D2F119D004F
+
+: ME_4D2F11DC0208
+ CONST UID '4D2F11DC0208'
+ CONST Name 'Bookmarks'
+ CONST Class class_Attribute
+ : Stereotype st_readonly::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_lnk
+ : Parent ME_4D2F119D004F // InsDocumentAdornments
+ ;
+ : Target WL 'ME_4C5ABD7603D1' '4570511E038A.pas.ms.script' // BookmarkList
+ ;
+ CONST "pm" false
+
+ref; // ME_4D2F11DC0208 Bookmarks
+
+: ME_4D2F11EA019F
+ CONST UID '4D2F11EA019F'
+ CONST Name 'Comments'
+ CONST Class class_Attribute
+ : Stereotype st_readonly::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_lnk
+ : Parent ME_4D2F119D004F // InsDocumentAdornments
+ ;
+ : Target WL 'ME_4D147CA200AE' '4570511E038A.pas.ms.script' // CommentsParaList
+ ;
+ CONST "pm" false
+
+ref; // ME_4D2F11EA019F Comments
+
+: ME_4D2F11FA00E6
+ CONST UID '4D2F11FA00E6'
+ CONST Name 'ExternalObjects'
+ CONST Class class_Attribute
+ : Stereotype st_readonly::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_lnk
+ : Parent ME_4D2F119D004F // InsDocumentAdornments
+ ;
+ : Target WL 'ME_4D14813D02BB' '4570511E038A.pas.ms.script' // ExternalObjectDataList
+ ;
+ CONST "pm" false
+
+ref; // ME_4D2F11FA00E6 ExternalObjects
+
+: ME_4D3086B1037F_ME_4D2F119D004F
+ CONST UID '4D3086B1037F'
+ CONST Name 'GetCommentTextByParaID'
+ : Original WL 'ME_4D3086B1037F' '47C5207602D1.pas.ms.script' // GetCommentTextByParaID
+ ;
+ : Implementor ME_4D2F119D004F // InsDocumentAdornments
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_4D3086B1037F_ME_4D2F119D004F GetCommentTextByParaID
+
+: ME_4D36F3960377_ME_4D2F119D004F
+ CONST UID '4D36F3960377'
+ CONST Name 'DeleteCommentByParaID'
+ : Original WL 'ME_4D36F3960377' '47C5207602D1.pas.ms.script' // DeleteCommentByParaID
+ ;
+ : Implementor ME_4D2F119D004F // InsDocumentAdornments
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_4D36F3960377_ME_4D2F119D004F DeleteCommentByParaID
+
+: ME_4D2F119D004F
+ CONST UID '4D2F119D004F'
+ CONST GUID '880FD72B-19C6-4FFB-8F08-BC9E3B71A21E'
+ CONST Name 'InsDocumentAdornments'
+ CONST Class class_Class
+ : Stereotype st_Facet ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4C6E92E9016E // F1TagDataProviderInterface
+ ;
+ : Implements
+   Seq: ( WL 'ME_4D30869702E4' '47C5207602D1.pas.ms.script' // InevCommentTextProvider
+ )
+ ; // Implements
+ : Attributes
+   Seq: ( ME_4D2F11DC0208 // Bookmarks
+ ME_4D2F11EA019F // Comments
+ ME_4D2F11FA00E6 // ExternalObjects
+ )
+ ; // Attributes
+ : Implemented
+   Seq: ( ME_4D3086B1037F_ME_4D2F119D004F // GetCommentTextByParaID
+ ME_4D36F3960377_ME_4D2F119D004F // DeleteCommentByParaID
+ )
+ ; // Implemented
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\f1DocumentTagsImplementation'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\f1DocumentTagsImplementation'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\f1DocumentTagsImplementation'
+ CONST extprop:rc:SelfName 'DocumentAdornments'
+ CONST extprop:rc:isAcceptableForScripts true
+
+ref; // ME_4D2F119D004F InsDocumentAdornments
+
+FORWARD ME_4E898AA2012C
+
+FORWARD ME_4E898AC40207
+
+: ME_4E898AED03D0
+ CONST UID '4E898AED03D0'
+ CONST Name 'aTag'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_534572370056' '47913B47006E.pas.ms.script' // Tl3Tag
+ ;
+
+ref; // ME_4E898AED03D0 aTag
+
+: ME_4E898AE602B2
+ CONST UID '4E898AE602B2'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_4E898AC40207 // CollapsedTagDefaultValueForPara
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+ : Parameters
+   Seq: ( ME_4E898AED03D0 // aTag
+ )
+ ; // Parameters
+
+ref; // ME_4E898AE602B2 DoIt
+
+: ME_4E898AC40207
+ CONST UID '4E898AC40207'
+ CONST Name 'CollapsedTagDefaultValueForPara'
+ CONST Class class_Class
+ : Stereotype st_facetmethod ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_4E898AA2012C // If1EditionDocumentContainer
+ ;
+ : Operations
+   Seq: ( ME_4E898AE602B2 // DoIt
+ )
+ ; // Operations
+
+ref; // ME_4E898AC40207 CollapsedTagDefaultValueForPara
+
+: ME_4E898AA2012C
+ CONST UID '4E898AA2012C'
+ CONST GUID '1DBC85CB-1521-46AD-88F5-31AD7C115EE9'
+ CONST Name 'If1EditionDocumentContainer'
+ CONST Class class_Class
+ : Stereotype st_Facet ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4C6E92E9016E // F1TagDataProviderInterface
+ ;
+ : Implements
+   Seq: ( WL 'ME_4E8990A00159' '484900780017.pas.ms.script' // Области с перечнем дат в сравнении редакций должны быть раскрыты
+ )
+ ; // Implements
+ : Operations
+   Seq: ( ME_4E898AC40207 // CollapsedTagDefaultValueForPara
+ )
+ ; // Operations
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\f1DocumentTagsImplementation'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\f1DocumentTagsImplementation'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\f1DocumentTagsImplementation'
+ CONST extprop:rc:SelfName 'f1EditionDocumentContainer'
+ CONST extprop:rc:isAcceptableForScripts true
+
+ref; // ME_4E898AA2012C If1EditionDocumentContainer
+
+: ME_4C6E92E9016E
+ CONST UID '4C6E92E9016E'
+ CONST Name 'F1TagDataProviderInterface'
+ CONST Class class_Category
+ : Stereotype st_Interfaces ;
+ %SUMMARY 'Интерфейс для получения данных тега' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent WL 'ME_4CEBA36A00AA' '4CEBA36A00AA.pas.ms.script' // f1DocumentTagsImplementation
+ ;
+ : Children
+   Seq: ( ME_4C6EA058009D // Mf1SimpleTagDataProvider
+ ME_4C6EAB310274 // Mf1CommentTagDataProvider
+ ME_4C6D1B070024 // TnsNodeState
+ ME_4C6D1B8E023F // TnsNodeStates
+ ME_4CEBCD7701EF // If1TagWrap
+ ME_4C6EB40900C0 // Mf1ListTagDataProvider
+ ME_4C6EB52B02E0 // Mf1LeafTagDataProvider
+ ME_4C6E935500EF // If1TagDataProvider
+ ME_4C722E000103 // If1AtomChecker
+ ME_4CEBB7550046 // If1ChildMaker
+ ME_4CEE380000F1 // If1CommentSink
+ ME_4D2F119D004F // InsDocumentAdornments
+ ME_4E898AA2012C // If1EditionDocumentContainer
+ )
+ ; // Children
+ : Depends
+   Seq: ( WL 'ME_4423F94903C8' '4423F94903C8.pas.ms.script' // IO
+ WL 'ME_4570511E038A' '4570511E038A.pas.ms.script' // Document
+ WL 'ME_457450470167' '457450470167.pas.ms.script' // DynamicTree
+ WL 'ME_45EEB07902AE' '45EEB07902AE.pas.ms.script' // DocTree
+ WL 'ME_4677FBA70343' '4677FBA70343.pas.ms.script' // l3Interfaces
+ WL 'ME_4678137501EA' '4678137501EA.pas.ms.script' // k2Interfaces
+ WL 'ME_4678209200A6' '4678209200A6.pas.ms.script' // nevBase
+ WL 'ME_47913B47006E' '47913B47006E.pas.ms.script' // l3CoreObjects
+ WL 'ME_47C5207602D1' '47C5207602D1.pas.ms.script' // nevTools
+ WL 'ME_484900780017' '484900780017.pas.ms.script' // Работа с документом
+ WL 'ME_49A58A1A03C4' '49A58A1A03C4.pas.ms.script' // k2PrimObjects
+ WL 'ME_4AB0C3C60310' '4AB0C3C60310.pas.ms.script' // Sys
+ )
+ ; // Depends
+ CONST "author" 'Люлин А.В.'
+ CONST "is namespace" true
+ CONST "no hands" true
+ CONST "started" '20.08.2010 18:36'
+ : Generators
+ Seq: (
+ gen_intf.pas
+ gen_pas.script
+ gen_pas.script.runner
+ )
+ ; // Generators
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\f1DocumentTagsImplementation'
+ CONST intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\f1DocumentTagsImplementation\F1TagDataProviderInterface.pas'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\f1DocumentTagsImplementation'
+ CONST pas.script:Path 'shared\models\NewSchool\Scripts\4C6E92E9016E.pas.ms.script'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\4C6E92E9016E.pas.ms.script.runner'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\f1DocumentTagsImplementation'
+
+ref; // ME_4C6E92E9016E F1TagDataProviderInterface

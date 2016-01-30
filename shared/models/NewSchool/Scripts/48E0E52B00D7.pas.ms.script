@@ -38,6 +38,7 @@ ref; // ME_48E0EC470308 f_InPaint
  CONST "needs field" true
  CONST "pm" true
  CONST "reads field" true
+ CONST extprop:pas:Value false
 
 ref; // ME_48E0EDB700C0 WebStyle
 
@@ -88,6 +89,7 @@ ref; // ME_48E0EF650325 f_HiddenStyles
  CONST "needs field" true
  CONST "pm" true
  CONST "reads field" true
+ CONST extprop:pas:Value 0
 
 ref; // ME_48E1F7EA014E RMargin
 
@@ -123,6 +125,7 @@ ref; // ME_4AEAECAC00B7 f_ExcludeSuper
  CONST "needs field" true
  CONST "pm" true
  CONST "reads field" true
+ CONST extprop:pas:Value 'nevBase.nev_rtmNone'
 
 ref; // ME_4BED74E4005A AllowRubberTables
 
@@ -181,6 +184,7 @@ ref; // ME_4B59AA4700E5 ForceDrawFocusRectPrim
 : ME_4352C7324706
  CONST UID '4352C7324706'
  CONST Name 'f_WebStyle'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY 'Поле для свойства WebStyle' ;
  CONST Visibility PrivateAccess
@@ -190,12 +194,14 @@ ref; // ME_4B59AA4700E5 ForceDrawFocusRectPrim
  ;
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
+ CONST extprop:clearViaProperty 'WebStyle'
 
 ref; // ME_4352C7324706 f_WebStyle
 
 : ME_6129FA3DA1F9
  CONST UID '6129FA3DA1F9'
  CONST Name 'f_RMargin'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY 'Поле для свойства RMargin' ;
  CONST Visibility PrivateAccess
@@ -205,12 +211,14 @@ ref; // ME_4352C7324706 f_WebStyle
  ;
  : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
  ;
+ CONST extprop:clearViaProperty 'RMargin'
 
 ref; // ME_6129FA3DA1F9 f_RMargin
 
 : ME_83752601740B
  CONST UID '83752601740B'
  CONST Name 'f_AllowRubberTables'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY 'Поле для свойства AllowRubberTables' ;
  CONST Visibility PrivateAccess
@@ -220,12 +228,14 @@ ref; // ME_6129FA3DA1F9 f_RMargin
  ;
  : Target WL 'ME_4DFF70B60031' '4678209200A6.pas.ms.script' // TnevRubberTablesMode
  ;
+ CONST extprop:clearViaProperty 'AllowRubberTables'
 
 ref; // ME_83752601740B f_AllowRubberTables
 
 : ME_15DDDB58DDD6
  CONST UID '15DDDB58DDD6'
  CONST Name 'f_AACLike'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY 'Поле для свойства AACLike' ;
  CONST Visibility PrivateAccess
@@ -235,6 +245,7 @@ ref; // ME_83752601740B f_AllowRubberTables
  ;
  : Target WL 'ME_50222A54016C' '4678209200A6.pas.ms.script' // TnevAACLikeMode
  ;
+ CONST extprop:clearViaProperty 'AACLike'
 
 ref; // ME_15DDDB58DDD6 f_AACLike
 
@@ -284,8 +295,8 @@ ref; // ME_48E1F0DD0104 aPlace
  : Parent ME_48E0E5C1032A // TnevControl
  ;
  : Parameters
-   @ ( ME_48E1F0DD0104 // aPlace
- ) .SequenceCode.It
+   Seq: ( ME_48E1F0DD0104 // aPlace
+ )
  ; // Parameters
 
 ref; // ME_48E1F0CB0136 DoChanged
@@ -319,9 +330,9 @@ ref; // ME_48E1F13E017D aNeedVert
  : Parent ME_48E0E5C1032A // TnevControl
  ;
  : Parameters
-   @ ( ME_48E1F13E014C // aDeltaY
+   Seq: ( ME_48E1F13E014C // aDeltaY
  ME_48E1F13E017D // aNeedVert
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_48E1F13202FB DoSignalScroll
@@ -369,8 +380,8 @@ ref; // ME_48E1F1F8014E aFlag
  : Parent ME_48E0E5C1032A // TnevControl
  ;
  : Parameters
-   @ ( ME_48E1F1F8014E // aFlag
- ) .SequenceCode.It
+   Seq: ( ME_48E1F1F8014E // aFlag
+ )
  ; // Parameters
 
 ref; // ME_48E1F1F30170 DoSetFlag
@@ -500,8 +511,8 @@ ref; // ME_48E1F7940203 aPt
  : Target WL 'ME_4727456300E7' '472745450206.pas.ms.script' // Tl3Point
  ;
  : Parameters
-   @ ( ME_48E1F7940203 // aPt
- ) .SequenceCode.It
+   Seq: ( ME_48E1F7940203 // aPt
+ )
  ; // Parameters
 
 ref; // ME_48E1F78F024B GetMousePos
@@ -526,6 +537,7 @@ ref; // ME_48E1F7B9000E aPoint
  CONST Value false
  : ValueType WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
+ CONST extprop:pas:Value false
 
 ref; // ME_48E1F7B90071 fromScreen
 
@@ -540,9 +552,9 @@ ref; // ME_48E1F7B90071 fromScreen
  : Target WL 'ME_4727456300E7' '472745450206.pas.ms.script' // Tl3Point
  ;
  : Parameters
-   @ ( ME_48E1F7B9000E // aPoint
+   Seq: ( ME_48E1F7B9000E // aPoint
  ME_48E1F7B90071 // fromScreen
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_48E1F7A9003B DP2LP
@@ -597,6 +609,7 @@ ref; // ME_4F3CE6EF01D8 GetInClose
 : ME_BFE06025F368
  CONST UID 'BFE06025F368'
  CONST Name 'Ini_Reg_Class'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Регистрация TnevControl' ;
@@ -720,6 +733,7 @@ ref; // ME_4EF080CC003C
 
 : ME_D4BC1D30CC53
  CONST UID 'D4BC1D30CC53'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_48E0E5C1032A // TnevControl
@@ -736,6 +750,7 @@ ref; // ME_D4BC1D30CC53
  ;
  : Implementor ME_48E0E5C1032A // TnevControl
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" true
 ref; // ME_476BFB3C007A_ME_48E0E5C1032A LimitWidth
 
@@ -746,6 +761,7 @@ ref; // ME_476BFB3C007A_ME_48E0E5C1032A LimitWidth
  ;
  : Implementor ME_48E0E5C1032A // TnevControl
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" true
 ref; // ME_476BFBE10164_ME_48E0E5C1032A InfoCanvas
 
@@ -756,6 +772,7 @@ ref; // ME_476BFBE10164_ME_48E0E5C1032A InfoCanvas
  ;
  : Implementor ME_48E0E5C1032A // TnevControl
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" true
 ref; // ME_476BFC120188_ME_48E0E5C1032A IsWebStyle
 
@@ -766,6 +783,7 @@ ref; // ME_476BFC120188_ME_48E0E5C1032A IsWebStyle
  ;
  : Implementor ME_48E0E5C1032A // TnevControl
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" true
 ref; // ME_476BFC2101FB_ME_48E0E5C1032A ShowDocumentParts
 
@@ -776,6 +794,7 @@ ref; // ME_476BFC2101FB_ME_48E0E5C1032A ShowDocumentParts
  ;
  : Implementor ME_48E0E5C1032A // TnevControl
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" true
 ref; // ME_476BFC34010B_ME_48E0E5C1032A ShowSpecial
 
@@ -786,6 +805,7 @@ ref; // ME_476BFC34010B_ME_48E0E5C1032A ShowSpecial
  ;
  : Implementor ME_48E0E5C1032A // TnevControl
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" true
 ref; // ME_476BFC420000_ME_48E0E5C1032A HiddenStyles
 
@@ -796,6 +816,7 @@ ref; // ME_476BFC420000_ME_48E0E5C1032A HiddenStyles
  ;
  : Implementor ME_48E0E5C1032A // TnevControl
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_47C5BD960201_ME_48E0E5C1032A InvalidateRect
 
 : ME_47C5BDB9011B_ME_48E0E5C1032A
@@ -805,6 +826,7 @@ ref; // ME_47C5BD960201_ME_48E0E5C1032A InvalidateRect
  ;
  : Implementor ME_48E0E5C1032A // TnevControl
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_47C5BDB9011B_ME_48E0E5C1032A SignalScroll
 
 : ME_47C5BDCD016E_ME_48E0E5C1032A
@@ -814,6 +836,7 @@ ref; // ME_47C5BDB9011B_ME_48E0E5C1032A SignalScroll
  ;
  : Implementor ME_48E0E5C1032A // TnevControl
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_47C5BDCD016E_ME_48E0E5C1032A GetDelphiControl
 
 : ME_47C5BDD701CB_ME_48E0E5C1032A
@@ -823,6 +846,7 @@ ref; // ME_47C5BDCD016E_ME_48E0E5C1032A GetDelphiControl
  ;
  : Implementor ME_48E0E5C1032A // TnevControl
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_47C5BDD701CB_ME_48E0E5C1032A CloseQuery
 
 : ME_47C5BFFB02EC_ME_48E0E5C1032A
@@ -832,6 +856,7 @@ ref; // ME_47C5BDD701CB_ME_48E0E5C1032A CloseQuery
  ;
  : Implementor ME_48E0E5C1032A // TnevControl
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_47C5BFFB02EC_ME_48E0E5C1032A LP2DP
 
 : ME_47C5C00E0398_ME_48E0E5C1032A
@@ -841,6 +866,7 @@ ref; // ME_47C5BFFB02EC_ME_48E0E5C1032A LP2DP
  ;
  : Implementor ME_48E0E5C1032A // TnevControl
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_47C5C00E0398_ME_48E0E5C1032A CursorChanged
 
 : ME_47C5C0190391_ME_48E0E5C1032A
@@ -850,6 +876,7 @@ ref; // ME_47C5C00E0398_ME_48E0E5C1032A CursorChanged
  ;
  : Implementor ME_48E0E5C1032A // TnevControl
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_47C5C0190391_ME_48E0E5C1032A CanScroll
 
 : ME_47C5C0260203_ME_48E0E5C1032A
@@ -859,6 +886,7 @@ ref; // ME_47C5C0190391_ME_48E0E5C1032A CanScroll
  ;
  : Implementor ME_48E0E5C1032A // TnevControl
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_47C5C0260203_ME_48E0E5C1032A SetFlag
 
 : ME_47C5C0380010_ME_48E0E5C1032A
@@ -868,6 +896,7 @@ ref; // ME_47C5C0260203_ME_48E0E5C1032A SetFlag
  ;
  : Implementor ME_48E0E5C1032A // TnevControl
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_47C5C0380010_ME_48E0E5C1032A UpdateCaretAndInvalidate
 
 : ME_47C5C04801EB_ME_48E0E5C1032A
@@ -877,6 +906,7 @@ ref; // ME_47C5C0380010_ME_48E0E5C1032A UpdateCaretAndInvalidate
  ;
  : Implementor ME_48E0E5C1032A // TnevControl
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" true
 ref; // ME_47C5C04801EB_ME_48E0E5C1032A Data
 
@@ -887,6 +917,7 @@ ref; // ME_47C5C04801EB_ME_48E0E5C1032A Data
  ;
  : Implementor ME_48E0E5C1032A // TnevControl
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" false
 ref; // ME_47C5C0590083_ME_48E0E5C1032A Processor
 
@@ -897,6 +928,7 @@ ref; // ME_47C5C0590083_ME_48E0E5C1032A Processor
  ;
  : Implementor ME_48E0E5C1032A // TnevControl
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" true
 ref; // ME_47C5C0950329_ME_48E0E5C1032A WindowExtent
 
@@ -907,6 +939,7 @@ ref; // ME_47C5C0950329_ME_48E0E5C1032A WindowExtent
  ;
  : Implementor ME_48E0E5C1032A // TnevControl
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" true
 ref; // ME_47C5C11801AF_ME_48E0E5C1032A Metrics
 
@@ -917,6 +950,7 @@ ref; // ME_47C5C11801AF_ME_48E0E5C1032A Metrics
  ;
  : Implementor ME_48E0E5C1032A // TnevControl
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" true
 ref; // ME_47C5C1270314_ME_48E0E5C1032A DrawCanvas
 
@@ -927,6 +961,7 @@ ref; // ME_47C5C1270314_ME_48E0E5C1032A DrawCanvas
  ;
  : Implementor ME_48E0E5C1032A // TnevControl
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" true
 ref; // ME_47C5C13E0215_ME_48E0E5C1032A MousePos
 
@@ -937,6 +972,7 @@ ref; // ME_47C5C13E0215_ME_48E0E5C1032A MousePos
  ;
  : Implementor ME_48E0E5C1032A // TnevControl
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" true
 ref; // ME_47C5C15B00FC_ME_48E0E5C1032A Selection
 
@@ -947,6 +983,7 @@ ref; // ME_47C5C15B00FC_ME_48E0E5C1032A Selection
  ;
  : Implementor ME_48E0E5C1032A // TnevControl
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" true
 ref; // ME_47C5C1710096_ME_48E0E5C1032A CommandProcessor
 
@@ -957,6 +994,7 @@ ref; // ME_47C5C1710096_ME_48E0E5C1032A CommandProcessor
  ;
  : Implementor ME_48E0E5C1032A // TnevControl
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" true
 ref; // ME_47C5C17E0206_ME_48E0E5C1032A LMargin
 
@@ -967,6 +1005,7 @@ ref; // ME_47C5C17E0206_ME_48E0E5C1032A LMargin
  ;
  : Implementor ME_48E0E5C1032A // TnevControl
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" true
 ref; // ME_47C5C18B00B2_ME_48E0E5C1032A AllowMultiSelect
 
@@ -977,6 +1016,7 @@ ref; // ME_47C5C18B00B2_ME_48E0E5C1032A AllowMultiSelect
  ;
  : Implementor ME_48E0E5C1032A // TnevControl
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" true
 ref; // ME_47C5C19602BF_ME_48E0E5C1032A ViewArea
 
@@ -987,6 +1027,7 @@ ref; // ME_47C5C19602BF_ME_48E0E5C1032A ViewArea
  ;
  : Implementor ME_48E0E5C1032A // TnevControl
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" true
 ref; // ME_47FC82400383_ME_48E0E5C1032A View
 
@@ -997,6 +1038,7 @@ ref; // ME_47FC82400383_ME_48E0E5C1032A View
  ;
  : Implementor ME_48E0E5C1032A // TnevControl
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" true
 ref; // ME_486D2C6702FA_ME_48E0E5C1032A Extent
 
@@ -1007,6 +1049,7 @@ ref; // ME_486D2C6702FA_ME_48E0E5C1032A Extent
  ;
  : Implementor ME_48E0E5C1032A // TnevControl
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_48E3672A03B2_ME_48E0E5C1032A ParaChanged
 
 : ME_4A27CEB10364_ME_48E0E5C1032A
@@ -1016,6 +1059,7 @@ ref; // ME_48E3672A03B2_ME_48E0E5C1032A ParaChanged
  ;
  : Implementor ME_48E0E5C1032A // TnevControl
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" false
 ref; // ME_4A27CEB10364_ME_48E0E5C1032A ActiveElement
 
@@ -1026,6 +1070,7 @@ ref; // ME_4A27CEB10364_ME_48E0E5C1032A ActiveElement
  ;
  : Implementor ME_48E0E5C1032A // TnevControl
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_4A485B710126_ME_48E0E5C1032A DoStyleTableChanged
 
 : ME_4AEAE49B024D_ME_48E0E5C1032A
@@ -1035,6 +1080,7 @@ ref; // ME_4A485B710126_ME_48E0E5C1032A DoStyleTableChanged
  ;
  : Implementor ME_48E0E5C1032A // TnevControl
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" false
 ref; // ME_4AEAE49B024D_ME_48E0E5C1032A ExcludeSuper
 
@@ -1045,6 +1091,7 @@ ref; // ME_4AEAE49B024D_ME_48E0E5C1032A ExcludeSuper
  ;
  : Implementor ME_48E0E5C1032A // TnevControl
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" false
 ref; // ME_4B59A96702D9_ME_48E0E5C1032A ForceDrawFocusRect
 
@@ -1055,6 +1102,7 @@ ref; // ME_4B59A96702D9_ME_48E0E5C1032A ForceDrawFocusRect
  ;
  : Implementor ME_48E0E5C1032A // TnevControl
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" false
 ref; // ME_4B7E744702C0_ME_48E0E5C1032A FormatCanvas
 
@@ -1065,6 +1113,7 @@ ref; // ME_4B7E744702C0_ME_48E0E5C1032A FormatCanvas
  ;
  : Implementor ME_48E0E5C1032A // TnevControl
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_4BCC30EC0284_ME_48E0E5C1032A ForceRepaint
 
 : ME_4BED6E9300FD_ME_48E0E5C1032A
@@ -1074,6 +1123,7 @@ ref; // ME_4BCC30EC0284_ME_48E0E5C1032A ForceRepaint
  ;
  : Implementor ME_48E0E5C1032A // TnevControl
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" false
 ref; // ME_4BED6E9300FD_ME_48E0E5C1032A AllowRubberTables
 
@@ -1084,6 +1134,7 @@ ref; // ME_4BED6E9300FD_ME_48E0E5C1032A AllowRubberTables
  ;
  : Implementor ME_48E0E5C1032A // TnevControl
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_4D5A80DC029D_ME_48E0E5C1032A IsTagCollapsed
 
 : ME_4E5E285C0166_ME_48E0E5C1032A
@@ -1093,6 +1144,7 @@ ref; // ME_4D5A80DC029D_ME_48E0E5C1032A IsTagCollapsed
  ;
  : Implementor ME_48E0E5C1032A // TnevControl
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" false
 ref; // ME_4E5E285C0166_ME_48E0E5C1032A Data
 
@@ -1103,6 +1155,7 @@ ref; // ME_4E5E285C0166_ME_48E0E5C1032A Data
  ;
  : Implementor ME_48E0E5C1032A // TnevControl
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_4F33E2A30116_ME_48E0E5C1032A AllowsThisDecor
 
 : ME_4F3CE6140329_ME_48E0E5C1032A
@@ -1112,6 +1165,7 @@ ref; // ME_4F33E2A30116_ME_48E0E5C1032A AllowsThisDecor
  ;
  : Implementor ME_48E0E5C1032A // TnevControl
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_4F3CE6140329_ME_48E0E5C1032A InClose
 
 : ME_501F96A80050_ME_48E0E5C1032A
@@ -1121,6 +1175,7 @@ ref; // ME_4F3CE6140329_ME_48E0E5C1032A InClose
  ;
  : Implementor ME_48E0E5C1032A // TnevControl
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" false
 ref; // ME_501F96A80050_ME_48E0E5C1032A AACLike
 
@@ -1131,6 +1186,7 @@ ref; // ME_501F96A80050_ME_48E0E5C1032A AACLike
  ;
  : Implementor ME_48E0E5C1032A // TnevControl
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_565F03C80029_ME_48E0E5C1032A NeedTotalRecalc
 
 : ME_48E0E5C1032A
@@ -1144,17 +1200,17 @@ ref; // ME_565F03C80029_ME_48E0E5C1032A NeedTotalRecalc
  : Parent ME_48E0E52B00D7 // CoreControls
  ;
  : Inherits
-   @ ( WL 'ME_467BA96E003C' '467BA8C8017E.pas.ms.script' // TafwControl
+   Seq: ( WL 'ME_467BA96E003C' '467BA8C8017E.pas.ms.script' // TafwControl
  WL 'ME_480DA68701CE' '47ECB2870309.pas.ms.script' // evStyleTableListener
- ) .SequenceCode.It
+ )
  ; // Inherits
  : Implements
-   @ ( WL 'ME_467821CA019F' '4678209200A6.pas.ms.script' // InevViewMetrics
+   Seq: ( WL 'ME_467821CA019F' '4678209200A6.pas.ms.script' // InevViewMetrics
  WL 'ME_47C5BD7C0329' '47C5207602D1.pas.ms.script' // InevControl
- ) .SequenceCode.It
+ )
  ; // Implements
  : Attributes
-   @ ( ME_48E0EC470308 // f_InPaint
+   Seq: ( ME_48E0EC470308 // f_InPaint
  ME_48E0EDB700C0 // WebStyle
  ME_48E0EF3B013C // f_ShowDocumentParts
  ME_48E0EF650325 // f_HiddenStyles
@@ -1168,10 +1224,10 @@ ref; // ME_565F03C80029_ME_48E0E5C1032A NeedTotalRecalc
  ME_6129FA3DA1F9 // f_RMargin
  ME_83752601740B // f_AllowRubberTables
  ME_15DDDB58DDD6 // f_AACLike
- ) .SequenceCode.It
+ )
  ; // Attributes
  : Operations
-   @ ( ME_48E0EC2C0286 // GetInfoCanvas
+   Seq: ( ME_48E0EC2C0286 // GetInfoCanvas
  ME_48E0EEAC0254 // GetLimitWidth
  ME_48E1F0CB0136 // DoChanged
  ME_48E1F13202FB // DoSignalScroll
@@ -1193,10 +1249,10 @@ ref; // ME_565F03C80029_ME_48E0E5C1032A NeedTotalRecalc
  ME_4BCC315901D3 // DoForceRepaint
  ME_4F3CE6EF01D8 // GetInClose
  ME_BFE06025F368 // Ini_Reg_Class
- ) .SequenceCode.It
+ )
  ; // Operations
  : Implemented
-   @ ( ME_476BFB3C007A_ME_48E0E5C1032A // LimitWidth
+   Seq: ( ME_476BFB3C007A_ME_48E0E5C1032A // LimitWidth
  ME_476BFBE10164_ME_48E0E5C1032A // InfoCanvas
  ME_476BFC120188_ME_48E0E5C1032A // IsWebStyle
  ME_476BFC2101FB_ME_48E0E5C1032A // ShowDocumentParts
@@ -1238,10 +1294,10 @@ ref; // ME_565F03C80029_ME_48E0E5C1032A NeedTotalRecalc
  ME_4F3CE6140329_ME_48E0E5C1032A // InClose
  ME_501F96A80050_ME_48E0E5C1032A // AACLike
  ME_565F03C80029_ME_48E0E5C1032A // NeedTotalRecalc
- ) .SequenceCode.It
+ )
  ; // Implemented
  : Dependencies
-   @ ( ME_48E0EA05033C // 
+   Seq: ( ME_48E0EA05033C // 
  ME_48E0EA2300A8 // 
  ME_48E0ED790304 // 
  ME_48E0EE40001B // 
@@ -1252,7 +1308,7 @@ ref; // ME_565F03C80029_ME_48E0E5C1032A NeedTotalRecalc
  ME_4E57B4E602E3 // 
  ME_4EF080CC003C // 
  ME_D4BC1D30CC53 // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  CONST "author" 'Люлин А.В.'
  CONST "base wnd class" 'CWnd'
@@ -1261,12 +1317,14 @@ ref; // ME_565F03C80029_ME_48E0E5C1032A NeedTotalRecalc
  CONST "no hands" true
  CONST "register in scripts" 'undefined'
  CONST "started" '29.09.2008 17:04'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest'
  CONST intf.pas:Path 'common\components\gui\Garant\Everest\nevControl.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'Control'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'nevControl'
 
 ref; // ME_48E0E5C1032A TnevControl
 
@@ -1281,11 +1339,11 @@ ref; // ME_48E0E5C1032A TnevControl
  : Parent WL 'ME_4797632D0273' '4797632D0273.pas.ms.script' // Everest
  ;
  : Children
-   @ ( ME_48E0E5C1032A // TnevControl
- ) .SequenceCode.It
+   Seq: ( ME_48E0E5C1032A // TnevControl
+ )
  ; // Children
  : Depends
-   @ ( WL 'ME_4678209200A6' '4678209200A6.pas.ms.script' // nevBase
+   Seq: ( WL 'ME_4678209200A6' '4678209200A6.pas.ms.script' // nevBase
  WL 'ME_467823B7002C' '467823B7002C.pas.ms.script' // afwInterfaces
  WL 'ME_467BA8C8017E' '467BA8C8017E.pas.ms.script' // afwControl
  WL 'ME_467C0CAA02AB' '467C0CAA02AB.pas.ms.script' // l3InternalInterfaces
@@ -1305,15 +1363,13 @@ ref; // ME_48E0E5C1032A TnevControl
  WL 'ME_4AB0C3C60310' '4AB0C3C60310.pas.ms.script' // Sys
  WL 'ME_537B83AD01F0' '537B83AD01F0.pas.ms.script' // l3Math
  WL 'ME_561F9F7D02A7' '561F9F7D02A7.pas.ms.script' // ScriptEngine
- ) .SequenceCode.It
+ )
  ; // Depends
- : Generators
- @ (
- gen_pas.script
- gen_pas.script.runner
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest'
  CONST pas.script:Path 'shared\models\NewSchool\Scripts\48E0E52B00D7.pas.ms.script'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
  CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\48E0E52B00D7.pas.ms.script.runner'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_48E0E52B00D7 CoreControls

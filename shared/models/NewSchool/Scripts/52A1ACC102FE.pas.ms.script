@@ -15,24 +15,26 @@ FORWARD ME_52A1ACC102FE
  : Parent ME_52A1ACC102FE // PopupMenu
  ;
  : Inherits
-   @ ( WL 'ME_49A5750A01E8' '4799D29F033F.pas.ms.script' // TPopupMenu
- ) .SequenceCode.It
+   Seq: ( WL 'ME_49A5750A01E8' '4799D29F033F.pas.ms.script' // TPopupMenu
+ )
  ; // Inherits
  : Implements
-   @ ( WL 'ME_47913F970159' '47913B47006E.pas.ms.script' // l3Unknown
- ) .SequenceCode.It
+   Seq: ( WL 'ME_47913F970159' '47913B47006E.pas.ms.script' // l3Unknown
+ )
  ; // Implements
  CONST "finished" false
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\VCM'
  CONST intf.pas:Path 'common\components\gui\Garant\VCM\NOT_FINISHED_vcmPopupMenuPrim.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\VCM'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'PopupMenuPrim'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'vcmPopupMenuPrim'
 
 ref; // ME_4C8E3AC40306 TvcmPopupMenuPrim
 
@@ -46,21 +48,19 @@ ref; // ME_4C8E3AC40306 TvcmPopupMenuPrim
  : Parent WL 'ME_4E13416D0227' '4E13416D0227.pas.ms.script' // VCM$Visual
  ;
  : Children
-   @ ( ME_4C8E3AC40306 // TvcmPopupMenuPrim
- ) .SequenceCode.It
+   Seq: ( ME_4C8E3AC40306 // TvcmPopupMenuPrim
+ )
  ; // Children
  : Depends
-   @ ( WL 'ME_47913B47006E' '47913B47006E.pas.ms.script' // l3CoreObjects
+   Seq: ( WL 'ME_47913B47006E' '47913B47006E.pas.ms.script' // l3CoreObjects
  WL 'ME_4799D29F033F' '4799D29F033F.pas.ms.script' // Implementation
- ) .SequenceCode.It
+ )
  ; // Depends
- : Generators
- @ (
- gen_pas.script
- gen_pas.script.runner
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\VCM'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\VCM'
  CONST pas.script:Path 'shared\models\NewSchool\Scripts\52A1ACC102FE.pas.ms.script'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
  CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\52A1ACC102FE.pas.ms.script.runner'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_52A1ACC102FE PopupMenu

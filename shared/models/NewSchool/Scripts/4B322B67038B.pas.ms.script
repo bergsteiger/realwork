@@ -17,14 +17,20 @@ FORWARD ME_4B322B8C02A7
  : Parent ME_4B322B8C02A7 // evLoadDocumentManager
  ;
  : Inherits
-   @ ( WL 'ME_47541E17024E' '47913B47006E.pas.ms.script' // Tl3InterfacedComponent
- ) .SequenceCode.It
+   Seq: ( WL 'ME_47541E17024E' '47913B47006E.pas.ms.script' // Tl3InterfacedComponent
+ )
  ; // Inherits
  CONST "finished" false
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest\ext'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest\ext'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'LoadDocumentManager'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_4B322BA8016F TevCustomLoadDocumentManager
 
@@ -39,14 +45,20 @@ ref; // ME_4B322BA8016F TevCustomLoadDocumentManager
  : Parent ME_4B322B8C02A7 // evLoadDocumentManager
  ;
  : Inherits
-   @ ( ME_4B322BA8016F // TevCustomLoadDocumentManager
- ) .SequenceCode.It
+   Seq: ( ME_4B322BA8016F // TevCustomLoadDocumentManager
+ )
  ; // Inherits
  CONST "finished" false
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest\ext'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest\ext'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'LoadDocumentManager'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_4B322B9C0326 TevLoadDocumentManager
 
@@ -61,18 +73,18 @@ ref; // ME_4B322B9C0326 TevLoadDocumentManager
  : Parent ME_4B322B67038B // ext
  ;
  : Children
-   @ ( ME_4B322BA8016F // TevCustomLoadDocumentManager
+   Seq: ( ME_4B322BA8016F // TevCustomLoadDocumentManager
  ME_4B322B9C0326 // TevLoadDocumentManager
- ) .SequenceCode.It
+ )
  ; // Children
  CONST "finished" false
  CONST "no hands" false
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest\ext'
  CONST intf.pas:Path 'common\components\gui\Garant\Everest\ext\NOT_FINISHED_evLoadDocumentManager.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest\ext'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'LoadDocumentManager'
 
 ref; // ME_4B322B8C02A7 evLoadDocumentManager
 
@@ -85,6 +97,7 @@ FORWARD ME_5023BA2B011B
 : ME_A0970856CACC
  CONST UID 'A0970856CACC'
  CONST Name 'DoIt'
+ CONST IsSummoned true
  CONST Class class_Operation
  %SUMMARY 'Сигнатура метода _ReplaceConfirm' ;
  CONST Visibility PublicAccess
@@ -105,8 +118,8 @@ ref; // ME_A0970856CACC DoIt
  : Parent ME_5023BA0B00E4 // TddBlockStructureReplacer
  ;
  : Operations
-   @ ( ME_A0970856CACC // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_A0970856CACC // DoIt
+ )
  ; // Operations
 
 ref; // ME_5023BA2B011B _ReplaceConfirm
@@ -122,14 +135,20 @@ ref; // ME_5023BA2B011B _ReplaceConfirm
  : Parent ME_4D02519C01C2 // evAutoBlock
  ;
  : Operations
-   @ ( ME_5023BA2B011B // _ReplaceConfirm
- ) .SequenceCode.It
+   Seq: ( ME_5023BA2B011B // _ReplaceConfirm
+ )
  ; // Operations
  CONST "finished" false
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest\ext'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest\ext'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'ddBlockStructureReplacer'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_5023BA0B00E4 TddBlockStructureReplacer
 
@@ -138,6 +157,7 @@ FORWARD ME_4D0251B70350
 : ME_6AD12224CCE2
  CONST UID '6AD12224CCE2'
  CONST Name 'DoIt'
+ CONST IsSummoned true
  CONST Class class_Operation
  %SUMMARY 'Сигнатура метода CreateBlockStructure' ;
  CONST Visibility PublicAccess
@@ -158,8 +178,8 @@ ref; // ME_6AD12224CCE2 DoIt
  : Parent ME_4D02519C01C2 // evAutoBlock
  ;
  : Operations
-   @ ( ME_6AD12224CCE2 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_6AD12224CCE2 // DoIt
+ )
  ; // Operations
 
 ref; // ME_4D0251B70350 CreateBlockStructure
@@ -175,21 +195,21 @@ ref; // ME_4D0251B70350 CreateBlockStructure
  : Parent ME_4B322B67038B // ext
  ;
  : Operations
-   @ ( ME_4D0251B70350 // CreateBlockStructure
- ) .SequenceCode.It
+   Seq: ( ME_4D0251B70350 // CreateBlockStructure
+ )
  ; // Operations
  : Children
-   @ ( ME_5023BA0B00E4 // TddBlockStructureReplacer
- ) .SequenceCode.It
+   Seq: ( ME_5023BA0B00E4 // TddBlockStructureReplacer
+ )
  ; // Children
  CONST "finished" false
  CONST "no hands" false
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest\ext'
  CONST intf.pas:Path 'common\components\gui\Garant\Everest\ext\NOT_FINISHED_evAutoBlock.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest\ext'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'AutoBlock'
 
 ref; // ME_4D02519C01C2 evAutoBlock
 
@@ -200,6 +220,7 @@ FORWARD ME_4F35353B00EE
 : ME_6BFD031D5E25
  CONST UID '6BFD031D5E25'
  CONST Name 'DoIt'
+ CONST IsSummoned true
  CONST Class class_Operation
  %SUMMARY 'Сигнатура метода GetWriter' ;
  CONST Visibility PublicAccess
@@ -230,13 +251,17 @@ ref; // ME_5549BC8500CC
  CONST Abstraction at_final
  : Parent ME_4D514CA600C2 // evExtFormat
  ;
+ : Implements
+   Seq: ( WL 'ME_4F352A3B036A' '4E5CF70B01E2.pas.ms.script' // В RTF не должны экспортироваться скриптовые ссылки
+ )
+ ; // Implements
  : Operations
-   @ ( ME_6BFD031D5E25 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_6BFD031D5E25 // DoIt
+ )
  ; // Operations
  : Dependencies
-   @ ( ME_5549BC8500CC // 
- ) .SequenceCode.It
+   Seq: ( ME_5549BC8500CC // 
+ )
  ; // Dependencies
 
 ref; // ME_4F35353B00EE GetWriter
@@ -264,21 +289,21 @@ ref; // ME_4F352B670298
  : Parent ME_4B322B67038B // ext
  ;
  : Operations
-   @ ( ME_4F35353B00EE // GetWriter
- ) .SequenceCode.It
+   Seq: ( ME_4F35353B00EE // GetWriter
+ )
  ; // Operations
  : Dependencies
-   @ ( ME_4F352B670298 // 
- ) .SequenceCode.It
+   Seq: ( ME_4F352B670298 // 
+ )
  ; // Dependencies
  CONST "finished" false
  CONST "no hands" false
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest\ext'
  CONST intf.pas:Path 'common\components\gui\Garant\Everest\ext\NOT_FINISHED_evExtFormat.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest\ext'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'ExtFormat'
 
 ref; // ME_4D514CA600C2 evExtFormat
 
@@ -299,6 +324,12 @@ FORWARD ME_4F13F6EE0046
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest\ext'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest\ext'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'ddDocumentVersionForm'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_4F13F70A03B1 TddDocumentVersionForm
 
@@ -307,6 +338,7 @@ FORWARD ME_4F13F73300B2
 : ME_CB1EBA2070EA
  CONST UID 'CB1EBA2070EA'
  CONST Name 'DoIt'
+ CONST IsSummoned true
  CONST Class class_Operation
  %SUMMARY 'Сигнатура метода ReplaceVersionInEditor' ;
  CONST Visibility PublicAccess
@@ -327,8 +359,8 @@ ref; // ME_CB1EBA2070EA DoIt
  : Parent ME_4F13F6EE0046 // evPrevVersion
  ;
  : Operations
-   @ ( ME_CB1EBA2070EA // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_CB1EBA2070EA // DoIt
+ )
  ; // Operations
 
 ref; // ME_4F13F73300B2 ReplaceVersionInEditor
@@ -345,21 +377,21 @@ ref; // ME_4F13F73300B2 ReplaceVersionInEditor
  : Parent ME_4B322B67038B // ext
  ;
  : Operations
-   @ ( ME_4F13F73300B2 // ReplaceVersionInEditor
- ) .SequenceCode.It
+   Seq: ( ME_4F13F73300B2 // ReplaceVersionInEditor
+ )
  ; // Operations
  : Children
-   @ ( ME_4F13F70A03B1 // TddDocumentVersionForm
- ) .SequenceCode.It
+   Seq: ( ME_4F13F70A03B1 // TddDocumentVersionForm
+ )
  ; // Children
  CONST "finished" false
  CONST "no hands" false
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest\ext'
  CONST intf.pas:Path 'common\components\gui\Garant\Everest\ext\NOT_FINISHED_evPrevVersion.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest\ext'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'PrevVersion'
 
 ref; // ME_4F13F6EE0046 evPrevVersion
 
@@ -373,29 +405,28 @@ ref; // ME_4F13F6EE0046 evPrevVersion
  : Parent WL 'ME_4797632D0273' '4797632D0273.pas.ms.script' // Everest
  ;
  : Children
-   @ ( ME_4B322B8C02A7 // evLoadDocumentManager
+   Seq: ( ME_4B322B8C02A7 // evLoadDocumentManager
  ME_4D02519C01C2 // evAutoBlock
  ME_4D514CA600C2 // evExtFormat
  ME_4F13F6EE0046 // evPrevVersion
- ) .SequenceCode.It
+ )
  ; // Children
  : Depends
-   @ ( WL 'ME_47541DF90101' '47541DF90101.pas.ms.script' // l3InterfacedComponent
+   Seq: ( WL 'ME_47541DF90101' '47541DF90101.pas.ms.script' // l3InterfacedComponent
  WL 'ME_47913B47006E' '47913B47006E.pas.ms.script' // l3CoreObjects
  WL 'ME_47EA968D0155' '47EA968D0155.pas.ms.script' // Printing
  WL 'ME_47ECACA70141' '47ECACA70141.pas.ms.script' // Generators
  WL 'ME_47ECB8BD00A8' '47ECB8BD00A8.pas.ms.script' // Generators
  WL 'ME_4829D7D50156' '4829D7D50156.pas.ms.script' // Editors
- ) .SequenceCode.It
+ WL 'ME_4E5CF70B01E2' '4E5CF70B01E2.pas.ms.script' // Требования к редактору Эверест
+ )
  ; // Depends
  CONST "path prefix" '/ext'
- : Generators
- @ (
- gen_pas.script
- gen_pas.script.runner
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest\ext'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest\ext'
  CONST pas.script:Path 'shared\models\NewSchool\Scripts\4B322B67038B.pas.ms.script'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
  CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\4B322B67038B.pas.ms.script.runner'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_4B322B67038B ext

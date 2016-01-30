@@ -1,0 +1,3197 @@
+// ChangesBetweenEditons 4DDBAF0A0029 VCMModule Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4DDBAF0A0029
+
+FORWARD ME_4DDCD636016C
+
+FORWARD ME_4DDCDE8F01B8
+
+FORWARD ME_88F3599F15C4
+
+: ME_C73369CF628F
+ CONST UID 'C73369CF628F'
+ CONST Name 'DocumentChangesName'
+ CONST IsSummoned true
+ CONST Class class_Attribute
+ %SUMMARY 'Строковый идентификатор пользовательского типа "Изменения в документе"' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_88F3599F15C4 // DocumentChangesConstants
+ ;
+ CONST Value '''DocumentChanges'''
+ CONST "AutoInc" false
+ CONST "UseNewGen" 'undefined'
+ CONST "forced type" 'none'
+ CONST "is define" false
+ CONST extprop:pas:Value '''DocumentChanges'''
+
+ref; // ME_C73369CF628F DocumentChangesName
+
+: ME_58D6C174964C
+ CONST UID '58D6C174964C'
+ CONST Name 'DocumentChanges'
+ CONST IsSummoned true
+ CONST Class class_Attribute
+ %SUMMARY 'Изменения в документе' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_88F3599F15C4 // DocumentChangesConstants
+ ;
+ : Target WL 'ME_47F2534B010F' '499EAAE502A8.pas.ms.script' // TvcmUserType
+ ;
+ CONST Value 0
+ : ValueType WL 'ME_47F2534B010F' '499EAAE502A8.pas.ms.script' // TvcmUserType
+ ;
+ CONST "AutoInc" false
+ CONST "UseNewGen" 'undefined'
+ CONST "forced type" 'none'
+ CONST "is define" true
+ CONST extprop:pas:Value 'TvcmUserType(0)'
+
+ref; // ME_58D6C174964C DocumentChanges
+
+: ME_88F3599F15C4
+ CONST UID '88F3599F15C4'
+ CONST Name 'DocumentChangesConstants'
+ CONST IsSummoned true
+ CONST Class class_Class
+ : Stereotype st_Constants ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Константы для типа формы DocumentChanges' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4DDCDE8F01B8 // DocumentChanges
+ ;
+ : Attributes
+   Seq: ( ME_C73369CF628F // DocumentChangesName
+ ME_58D6C174964C // DocumentChanges
+ )
+ ; // Attributes
+ CONST "UseNewGen" 'undefined'
+ CONST "spell names" false
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View\ChangesBetweenEditons\Forms'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View\ChangesBetweenEditons\Forms'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\View\ChangesBetweenEditons'
+
+ref; // ME_88F3599F15C4 DocumentChangesConstants
+
+FORWARD ME_E2A92BF2B601
+
+: ME_5ABC1DB0AE5F
+ CONST UID '5ABC1DB0AE5F'
+ CONST Name 'Ini_Reg'
+ CONST IsSummoned true
+ CONST Class class_Operation
+ : Stereotype st_ini::Operation ;
+ %SUMMARY 'Регистрация Tkw_FormUserType_DocumentChanges' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_E2A92BF2B601 // Tkw_FormUserType_DocumentChanges
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_5ABC1DB0AE5F Ini_Reg
+
+: ME_4DB0614603C8_ME_E2A92BF2B601
+ CONST UID '4DB0614603C8'
+ CONST Name 'GetWordNameForRegister'
+ : Original WL 'ME_4DB0614603C8' '4F3E3F5F0160.pas.ms.script' // GetWordNameForRegister
+ ;
+ : Implementor ME_E2A92BF2B601 // Tkw_FormUserType_DocumentChanges
+ ;
+ CONST OpKind opkind_Overridden
+ CONST "UseNewGen" 'undefined'
+ref; // ME_4DB0614603C8_ME_E2A92BF2B601 GetWordNameForRegister
+
+: ME_4EE1DC8903BB_ME_E2A92BF2B601
+ CONST UID '4EE1DC8903BB'
+ CONST Name 'GetInteger'
+ : Original WL 'ME_4EE1DC8903BB' '4F3E3F5F0160.pas.ms.script' // GetInteger
+ ;
+ : Implementor ME_E2A92BF2B601 // Tkw_FormUserType_DocumentChanges
+ ;
+ CONST OpKind opkind_Overridden
+ CONST "UseNewGen" 'undefined'
+ref; // ME_4EE1DC8903BB_ME_E2A92BF2B601 GetInteger
+
+: ME_E2A92BF2B601
+ CONST UID 'E2A92BF2B601'
+ CONST Name 'Tkw_FormUserType_DocumentChanges'
+ CONST IsSummoned true
+ CONST Class class_Class
+ : Stereotype st_ScriptKeyword ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Слово словаря для типа формы DocumentChanges' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_4DDCDE8F01B8 // DocumentChanges
+ ;
+ : Inherits
+   Seq: ( WL 'ME_4EE1DBBB013C' '4F3E3F5F0160.pas.ms.script' // TtfwInteger
+ )
+ ; // Inherits
+ : Operations
+   Seq: ( ME_5ABC1DB0AE5F // Ini_Reg
+ )
+ ; // Operations
+ : Overridden
+   Seq: ( ME_4DB0614603C8_ME_E2A92BF2B601 // GetWordNameForRegister
+ ME_4EE1DC8903BB_ME_E2A92BF2B601 // GetInteger
+ )
+ ; // Overridden
+ CONST "NameForScript" 'тип_формы::DocumentChanges'
+ CONST "UseNewGen" 'undefined'
+ CONST "ifndef" 'NoScripts'
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View\ChangesBetweenEditons\Forms'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View\ChangesBetweenEditons\Forms'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\View\ChangesBetweenEditons'
+
+ref; // ME_E2A92BF2B601 Tkw_FormUserType_DocumentChanges
+
+: ME_4DDCDE8F01B8
+ CONST UID '4DDCDE8F01B8'
+ CONST Name 'DocumentChanges'
+ CONST Class class_Class
+ : Stereotype st_UserType ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Изменения в документе' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_4DDCD636016C // PrimChangesBetweenEditons
+ ;
+ : Children
+   Seq: ( ME_E2A92BF2B601 // Tkw_FormUserType_DocumentChanges
+ )
+ ; // Children
+ : Constants
+   Seq: ( ME_88F3599F15C4 // DocumentChangesConstants
+ )
+ ; // Constants
+ CONST "CanClose" 'undefined'
+ CONST "CanHaveToolbars" 'undefined'
+ CONST "ImageIndex" '-1'
+ CONST "NeedOnQueryClose" false
+ CONST "NeedOnQueryMaximized" false
+ CONST "NeedOnQueryOpen" false
+ CONST "UseNewGen" 'undefined'
+ CONST "VisibleToUser" true
+ CONST "Weight" '-1'
+ : Generators
+ Seq: (
+ gen_intf.pas
+ )
+ ; // Generators
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View\ChangesBetweenEditons\Forms'
+ CONST intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\ChangesBetweenEditons\Forms\PrimChangesBetweenEditons_DocumentChanges_UserType.pas'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View\ChangesBetweenEditons\Forms'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\View\ChangesBetweenEditons'
+ CONST extprop:pas:UnitName 'PrimChangesBetweenEditons_DocumentChanges_UserType'
+
+ref; // ME_4DDCDE8F01B8 DocumentChanges
+
+FORWARD ME_4E8C3BA30178
+
+: ME_4E8C3BAB0068
+ CONST UID '4E8C3BAB0068'
+ CONST Name 'CompareRedactionOperationCaption'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_4E8C3BA30178 // Local
+ ;
+ CONST Value '''Сравнить полные тексты редакций'''
+ CONST "AutoInc" false
+ CONST "UseNewGen" 'undefined'
+ CONST "forced type" 'none'
+ CONST "is define" false
+ CONST extprop:pas:Value '''Сравнить полные тексты редакций'''
+
+ref; // ME_4E8C3BAB0068 CompareRedactionOperationCaption
+
+: ME_4E8C3BD80039
+ CONST UID '4E8C3BD80039'
+ CONST Name 'ReturnToDocumentOperationCaption'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_4E8C3BA30178 // Local
+ ;
+ CONST Value '''Вернуться в текст документа'''
+ CONST "AutoInc" false
+ CONST "UseNewGen" 'undefined'
+ CONST "forced type" 'none'
+ CONST "is define" false
+ CONST extprop:pas:Value '''Вернуться в текст документа'''
+
+ref; // ME_4E8C3BD80039 ReturnToDocumentOperationCaption
+
+: ME_4E8C3BA30178
+ CONST UID '4E8C3BA30178'
+ CONST Name 'Local'
+ CONST Class class_Class
+ : Stereotype st_LocalConst ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_4DDCD636016C // PrimChangesBetweenEditons
+ ;
+ : Attributes
+   Seq: ( ME_4E8C3BAB0068 // CompareRedactionOperationCaption
+ ME_4E8C3BD80039 // ReturnToDocumentOperationCaption
+ )
+ ; // Attributes
+ CONST "Need map interface" false
+ CONST "Need mapping support" false
+ CONST "UseNewGen" 'undefined'
+ CONST "spell names" false
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View\ChangesBetweenEditons\Forms'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View\ChangesBetweenEditons\Forms'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\View\ChangesBetweenEditons'
+
+ref; // ME_4E8C3BA30178 Local
+
+FORWARD ME_D981CE8A183F
+
+: ME_0A1BDB1831FA
+ CONST UID '0A1BDB1831FA'
+ CONST Name 'DocumentChangesCaption'
+ CONST IsSummoned true
+ CONST Class class_Attribute
+ %SUMMARY 'Заголовок пользовательского типа "Изменения в документе"' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_D981CE8A183F // DocumentChangesLocalConstants
+ ;
+ CONST Value '''Изменения в документе'''
+ CONST "AutoInc" false
+ CONST "UseNewGen" 'undefined'
+ CONST "forced type" 'none'
+ CONST "is define" false
+ CONST extprop:pas:Value '''Изменения в документе'''
+
+ref; // ME_0A1BDB1831FA DocumentChangesCaption
+
+: ME_D981CE8A183F
+ CONST UID 'D981CE8A183F'
+ CONST Name 'DocumentChangesLocalConstants'
+ CONST IsSummoned true
+ CONST Class class_Class
+ : Stereotype st_LocalConst ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Локализуемые константы для типа формы DocumentChanges' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_4DDCD636016C // PrimChangesBetweenEditons
+ ;
+ : Attributes
+   Seq: ( ME_0A1BDB1831FA // DocumentChangesCaption
+ )
+ ; // Attributes
+ CONST "Need map interface" false
+ CONST "Need mapping support" false
+ CONST "UseNewGen" 'undefined'
+ CONST "spell names" false
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View\ChangesBetweenEditons\Forms'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View\ChangesBetweenEditons\Forms'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\View\ChangesBetweenEditons'
+
+ref; // ME_D981CE8A183F DocumentChangesLocalConstants
+
+FORWARD ME_EB67C8BA791E
+
+: ME_1CD84484A326
+ CONST UID '1CD84484A326'
+ CONST Name 'DocumentChangesCaption'
+ CONST IsSummoned true
+ CONST Class class_Attribute
+ %SUMMARY 'Заголовок пользовательского типа "Изменения в документе"' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_EB67C8BA791E // LCImplDocumentChangesLocalConstants
+ ;
+ : Target WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
+ ;
+ CONST Value '(rS : -1; rLocalized : false; rKey : ''DocumentChangesCaption''; rValue : ''Изменения в документе'')'
+ : ValueType WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
+ ;
+ CONST "AutoInc" false
+ CONST "UseNewGen" 'undefined'
+ CONST "forced type" 'none'
+ CONST "is define" false
+ CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''DocumentChangesCaption''; rValue : ''Изменения в документе'')'
+
+ref; // ME_1CD84484A326 DocumentChangesCaption
+
+: ME_EB67C8BA791E
+ CONST UID 'EB67C8BA791E'
+ CONST Name 'LCImplDocumentChangesLocalConstants'
+ CONST IsSummoned true
+ CONST Class class_Class
+ : Stereotype st_Constants ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Локализуемые строки DocumentChangesLocalConstants' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ : Parent ME_4DDCD636016C // PrimChangesBetweenEditons
+ ;
+ : Attributes
+   Seq: ( ME_1CD84484A326 // DocumentChangesCaption
+ )
+ ; // Attributes
+ CONST "UseNewGen" 'undefined'
+ CONST "elements prefix" 'str'
+ CONST "spell names" false
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View\ChangesBetweenEditons\Forms'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View\ChangesBetweenEditons\Forms'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\View\ChangesBetweenEditons'
+ CONST extprop:pas:ElementPrefixBase 'str'
+ CONST extprop:pas:ElementPrefix 'str_'
+
+ref; // ME_EB67C8BA791E LCImplDocumentChangesLocalConstants
+
+FORWARD ME_4B8307ADDBE6
+
+: ME_CFEECC98C257
+ CONST UID 'CFEECC98C257'
+ CONST Name 'CompareRedactionOperationCaption'
+ CONST IsSummoned true
+ CONST Class class_Attribute
+ %SUMMARY '''Сравнить полные тексты редакций''' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_4B8307ADDBE6 // LCImplLocal
+ ;
+ : Target WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
+ ;
+ CONST Value '(rS : -1; rLocalized : false; rKey : ''CompareRedactionOperationCaption''; rValue : ''Сравнить полные тексты редакций'')'
+ : ValueType WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
+ ;
+ CONST "AutoInc" false
+ CONST "UseNewGen" 'undefined'
+ CONST "forced type" 'none'
+ CONST "is define" false
+ CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''CompareRedactionOperationCaption''; rValue : ''Сравнить полные тексты редакций'')'
+
+ref; // ME_CFEECC98C257 CompareRedactionOperationCaption
+
+: ME_EE0CBBB005FE
+ CONST UID 'EE0CBBB005FE'
+ CONST Name 'ReturnToDocumentOperationCaption'
+ CONST IsSummoned true
+ CONST Class class_Attribute
+ %SUMMARY '''Вернуться в текст документа''' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_4B8307ADDBE6 // LCImplLocal
+ ;
+ : Target WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
+ ;
+ CONST Value '(rS : -1; rLocalized : false; rKey : ''ReturnToDocumentOperationCaption''; rValue : ''Вернуться в текст документа'')'
+ : ValueType WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
+ ;
+ CONST "AutoInc" false
+ CONST "UseNewGen" 'undefined'
+ CONST "forced type" 'none'
+ CONST "is define" false
+ CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''ReturnToDocumentOperationCaption''; rValue : ''Вернуться в текст документа'')'
+
+ref; // ME_EE0CBBB005FE ReturnToDocumentOperationCaption
+
+: ME_4B8307ADDBE6
+ CONST UID '4B8307ADDBE6'
+ CONST Name 'LCImplLocal'
+ CONST IsSummoned true
+ CONST Class class_Class
+ : Stereotype st_Constants ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Локализуемые строки Local' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ : Parent ME_4DDCD636016C // PrimChangesBetweenEditons
+ ;
+ : Attributes
+   Seq: ( ME_CFEECC98C257 // CompareRedactionOperationCaption
+ ME_EE0CBBB005FE // ReturnToDocumentOperationCaption
+ )
+ ; // Attributes
+ CONST "UseNewGen" 'undefined'
+ CONST "elements prefix" 'str'
+ CONST "spell names" false
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View\ChangesBetweenEditons\Forms'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View\ChangesBetweenEditons\Forms'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\View\ChangesBetweenEditons'
+ CONST extprop:pas:ElementPrefixBase 'str'
+ CONST extprop:pas:ElementPrefix 'str_'
+
+ref; // ME_4B8307ADDBE6 LCImplLocal
+
+: ME_4DDCDE5A0058
+ CONST UID '4DDCDE5A0058'
+ CONST Name 'ViewArea'
+ CONST Class class_Attribute
+ : Stereotype st_ViewArea::Attribute ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_lnk
+ : Parent ME_4DDCD636016C // PrimChangesBetweenEditons
+ ;
+ : Target WL 'ME_4DDCD7420084' '4DDCD71E027C.pas.ms.script' // IdsChangesBetweenEditions
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_4DDCDE5A0058 ViewArea
+
+FORWARD ME_4DDD07AA02FD
+
+: ME_4DDD07C60172
+ CONST UID '4DDD07C60172'
+ CONST Name 'aSender'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_4807745602C8' '4AB0C3C60310.pas.ms.script' // TObject
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_4DDD07C60172 aSender
+
+: ME_4DDD07C601F6
+ CONST UID '4DDD07C601F6'
+ CONST Name 'aMade'
+ CONST Class class_Parameter
+ : Stereotype st_inout ;
+ : Target WL 'ME_47C6A603009D' '47C5207602D1.pas.ms.script' // InevDocumentContainer
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_4DDD07C601F6 aMade
+
+: ME_4DDD07AF0283
+ CONST UID '4DDD07AF0283'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_4DDD07AA02FD // MakeDocumentContainer
+ ;
+ : Parameters
+   Seq: ( ME_4DDD07C60172 // aSender
+ ME_4DDD07C601F6 // aMade
+ )
+ ; // Parameters
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_4DDD07AF0283 DoIt
+
+: ME_4DDD07AA02FD
+ CONST UID '4DDD07AA02FD'
+ CONST Name 'MakeDocumentContainer'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_4DDCD636016C // PrimChangesBetweenEditons
+ ;
+ : Operations
+   Seq: ( ME_4DDD07AF0283 // DoIt
+ )
+ ; // Operations
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_4DDD07AA02FD MakeDocumentContainer
+
+FORWARD ME_4E8B2F9B02AF
+
+: ME_4E8B2FAE0265
+ CONST UID '4E8B2FAE0265'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_4E8B2F9B02AF // Document
+ ;
+ : Target WL 'ME_45EEB6520191' '4570511E038A.pas.ms.script' // Document
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_4E8B2FAE0265 DoIt
+
+: ME_4E8B2F9B02AF
+ CONST UID '4E8B2F9B02AF'
+ CONST Name 'Document'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_final
+ : Parent ME_4DDCD636016C // PrimChangesBetweenEditons
+ ;
+ : Implements
+   Seq: ( WL 'ME_4E8B2A6701A5' '484900780017.pas.ms.script' // Из просмотра изменений документа должна быть возможность переключится в сравнение редакций
+ )
+ ; // Implements
+ : Operations
+   Seq: ( ME_4E8B2FAE0265 // DoIt
+ )
+ ; // Operations
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_4E8B2F9B02AF Document
+
+FORWARD ME_5228246A01D9
+
+: ME_5228247D0204
+ CONST UID '5228247D0204'
+ CONST Name 'aSender'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_4807745602C8' '4AB0C3C60310.pas.ms.script' // TObject
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_5228247D0204 aSender
+
+: ME_5228247D021D
+ CONST UID '5228247D021D'
+ CONST Name 'anOldDocument'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_534572370056' '47913B47006E.pas.ms.script' // Tl3Tag
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_5228247D021D anOldDocument
+
+: ME_5228247D0235
+ CONST UID '5228247D0235'
+ CONST Name 'aNewDocument'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_534572370056' '47913B47006E.pas.ms.script' // Tl3Tag
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_5228247D0235 aNewDocument
+
+: ME_5228247B003C
+ CONST UID '5228247B003C'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_5228246A01D9 // TextSourceDocumentChanged
+ ;
+ : Parameters
+   Seq: ( ME_5228247D0204 // aSender
+ ME_5228247D021D // anOldDocument
+ ME_5228247D0235 // aNewDocument
+ )
+ ; // Parameters
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_5228247B003C DoIt
+
+: ME_5228246A01D9
+ CONST UID '5228246A01D9'
+ CONST Name 'TextSourceDocumentChanged'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_4DDCD636016C // PrimChangesBetweenEditons
+ ;
+ : Operations
+   Seq: ( ME_5228247B003C // DoIt
+ )
+ ; // Operations
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_5228246A01D9 TextSourceDocumentChanged
+
+: ME_EEED52456CD6
+ CONST UID 'EEED52456CD6'
+ CONST Name 'Init_Str_DocumentChangesCaption'
+ CONST IsSummoned true
+ CONST Class class_Operation
+ : Stereotype st_ini::Operation ;
+ %SUMMARY 'Инициализация str_DocumentChangesCaption' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_4DDCD636016C // PrimChangesBetweenEditons
+ ;
+ CONST "UseNewGen" 'undefined'
+ : Speller ME_0A1BDB1831FA // DocumentChangesCaption
+ ;
+ : SpelledFor ME_1CD84484A326 // DocumentChangesCaption
+ ;
+
+ref; // ME_EEED52456CD6 Init_Str_DocumentChangesCaption
+
+: ME_A8784BB5646C
+ CONST UID 'A8784BB5646C'
+ CONST Name 'Init_Str_CompareRedactionOperationCaption'
+ CONST IsSummoned true
+ CONST Class class_Operation
+ : Stereotype st_ini::Operation ;
+ %SUMMARY 'Инициализация str_CompareRedactionOperationCaption' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_4DDCD636016C // PrimChangesBetweenEditons
+ ;
+ CONST "UseNewGen" 'undefined'
+ : Speller ME_4E8C3BAB0068 // CompareRedactionOperationCaption
+ ;
+ : SpelledFor ME_CFEECC98C257 // CompareRedactionOperationCaption
+ ;
+
+ref; // ME_A8784BB5646C Init_Str_CompareRedactionOperationCaption
+
+: ME_DD07270100BD
+ CONST UID 'DD07270100BD'
+ CONST Name 'Init_Str_ReturnToDocumentOperationCaption'
+ CONST IsSummoned true
+ CONST Class class_Operation
+ : Stereotype st_ini::Operation ;
+ %SUMMARY 'Инициализация str_ReturnToDocumentOperationCaption' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_4DDCD636016C // PrimChangesBetweenEditons
+ ;
+ CONST "UseNewGen" 'undefined'
+ : Speller ME_4E8C3BD80039 // ReturnToDocumentOperationCaption
+ ;
+ : SpelledFor ME_EE0CBBB005FE // ReturnToDocumentOperationCaption
+ ;
+
+ref; // ME_DD07270100BD Init_Str_ReturnToDocumentOperationCaption
+
+: ME_CB6B788823FB
+ CONST UID 'CB6B788823FB'
+ CONST Name 'Ini_Reg_Class'
+ CONST IsSummoned true
+ CONST Class class_Operation
+ : Stereotype st_ini::Operation ;
+ %SUMMARY 'Регистрация PrimChangesBetweenEditons' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_4DDCD636016C // PrimChangesBetweenEditons
+ ;
+ CONST "UseNewGen" 'undefined'
+ CONST "ifndef" 'NoScripts'
+
+ref; // ME_CB6B788823FB Ini_Reg_Class
+
+: ME_4DDD078A02D5
+ CONST UID '4DDD078A02D5'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4DDCD636016C // PrimChangesBetweenEditons
+ ;
+ : Target WL 'ME_47E12539018D' '4799D29F033F.pas.ms.script' // TAlign
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_4DDD078A02D5 
+
+: ME_4DFF7B930147
+ CONST UID '4DFF7B930147'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4DDCD636016C // PrimChangesBetweenEditons
+ ;
+ : Target WL 'ME_4DFF70B60031' '4678209200A6.pas.ms.script' // TnevRubberTablesMode
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_4DFF7B930147 
+
+: ME_4E8C3B400161
+ CONST UID '4E8C3B400161'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4DDCD636016C // PrimChangesBetweenEditons
+ ;
+ : Target WL 'ME_49871E4F01AF' '49871D5103B9.pas.ms.script' // TnscStatusBarOperationDef
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_4E8C3B400161 
+
+: ME_4E8C42740279
+ CONST UID '4E8C42740279'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4DDCD636016C // PrimChangesBetweenEditons
+ ;
+ : Target WL 'ME_4E8C3C6C0244' '4A77058200BA.pas.ms.script' // Edition
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_4E8C42740279 
+
+: ME_522824D10324
+ CONST UID '522824D10324'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4DDCD636016C // PrimChangesBetweenEditons
+ ;
+ : Target WL 'ME_467817DD0200' '47913B47006E.pas.ms.script' // Ik2Tag
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_522824D10324 
+
+: ME_5416BD1403BA
+ CONST UID '5416BD1403BA'
+ CONST Class class_Dependency
+ : Stereotype st_ContextMenuWeight::Dependency ;
+ : Parent ME_4DDCD636016C // PrimChangesBetweenEditons
+ ;
+ : Target WL 'ME_4C3C757901C3' '4A9807DB01A5.pas.ms.script' // HyperLink
+ ;
+ CONST "UseNewGen" 'undefined'
+ CONST "Value" '-5'
+
+ref; // ME_5416BD1403BA 
+
+: ME_5416C06C0387
+ CONST UID '5416C06C0387'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4DDCD636016C // PrimChangesBetweenEditons
+ ;
+ : Target WL 'ME_4C3C757901C3' '4A9807DB01A5.pas.ms.script' // HyperLink
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_5416C06C0387 
+
+: ME_4A79B9830470
+ CONST UID '4A79B9830470'
+ CONST IsSummoned true
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4DDCD636016C // PrimChangesBetweenEditons
+ ;
+ : Target WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_4A79B9830470 
+
+: ME_0263564F91A7
+ CONST UID '0263564F91A7'
+ CONST IsSummoned true
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4DDCD636016C // PrimChangesBetweenEditons
+ ;
+ : Target WL 'ME_4E01D1E002AE' '4F9BDEEE01BC.pas.ms.script' // Tl3MessageID
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_0263564F91A7 
+
+: ME_3EBD1F39B17B
+ CONST UID '3EBD1F39B17B'
+ CONST IsSummoned true
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4DDCD636016C // PrimChangesBetweenEditons
+ ;
+ : Target WL 'ME_561F9F9400BC' '561F9F7D02A7.pas.ms.script' // TtfwClassRef
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_3EBD1F39B17B 
+
+: ME_496B4C41023E_ME_4DDCD636016C
+ CONST UID '496B4C41023E'
+ CONST Name 'WindowRequired'
+ : Original WL 'ME_496B4C41023E' '4A9F98B901A5.pas.ms.script' // WindowRequired
+ ;
+ : Implementor ME_4DDCD636016C // PrimChangesBetweenEditons
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "UseNewGen" 'undefined'
+ref; // ME_496B4C41023E_ME_4DDCD636016C WindowRequired
+
+: ME_496B4C500246_ME_4DDCD636016C
+ CONST UID '496B4C500246'
+ CONST Name 'WindowCloseable'
+ : Original WL 'ME_496B4C500246' '4A9F98B901A5.pas.ms.script' // WindowCloseable
+ ;
+ : Implementor ME_4DDCD636016C // PrimChangesBetweenEditons
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "UseNewGen" 'undefined'
+ref; // ME_496B4C500246_ME_4DDCD636016C WindowCloseable
+
+: ME_496B4CA000B6_ME_4DDCD636016C
+ CONST UID '496B4CA000B6'
+ CONST Name 'CanCloseWindow'
+ : Original WL 'ME_496B4CA000B6' '4A9F98B901A5.pas.ms.script' // CanCloseWindow
+ ;
+ : Implementor ME_4DDCD636016C // PrimChangesBetweenEditons
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "UseNewGen" 'undefined'
+ref; // ME_496B4CA000B6_ME_4DDCD636016C CanCloseWindow
+
+: ME_496B4CD9005F_ME_4DDCD636016C
+ CONST UID '496B4CD9005F'
+ CONST Name 'IsQueryCard'
+ : Original WL 'ME_496B4CD9005F' '4A9F98B901A5.pas.ms.script' // IsQueryCard
+ ;
+ : Implementor ME_4DDCD636016C // PrimChangesBetweenEditons
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "UseNewGen" 'undefined'
+ref; // ME_496B4CD9005F_ME_4DDCD636016C IsQueryCard
+
+: ME_496B4CE30132_ME_4DDCD636016C
+ CONST UID '496B4CE30132'
+ CONST Name 'TreatSuccessSearchAsManualOpen'
+ : Original WL 'ME_496B4CE30132' '4A9F98B901A5.pas.ms.script' // TreatSuccessSearchAsManualOpen
+ ;
+ : Implementor ME_4DDCD636016C // PrimChangesBetweenEditons
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "UseNewGen" 'undefined'
+ref; // ME_496B4CE30132_ME_4DDCD636016C TreatSuccessSearchAsManualOpen
+
+: ME_496B4CED0306_ME_4DDCD636016C
+ CONST UID '496B4CED0306'
+ CONST Name 'AutoActivateWindow'
+ : Original WL 'ME_496B4CED0306' '4A9F98B901A5.pas.ms.script' // AutoActivateWindow
+ ;
+ : Implementor ME_4DDCD636016C // PrimChangesBetweenEditons
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "UseNewGen" 'undefined'
+ref; // ME_496B4CED0306_ME_4DDCD636016C AutoActivateWindow
+
+: ME_4A7C0E1A005C_ME_4DDCD636016C
+ CONST UID '4A7C0E1A005C'
+ CONST Name 'DocumentIsValid'
+ : Original WL 'ME_4A7C0E1A005C' '4A7C0BB70162.pas.ms.script' // DocumentIsValid
+ ;
+ : Implementor ME_4DDCD636016C // PrimChangesBetweenEditons
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "UseNewGen" 'undefined'
+ref; // ME_4A7C0E1A005C_ME_4DDCD636016C DocumentIsValid
+
+: ME_4A7FCEA9025D_ME_4DDCD636016C
+ CONST UID '4A7FCEA9025D'
+ CONST Name 'RedactionCurrentPara'
+ : Original WL 'ME_4A7FCEA9025D' '4A7C0BB70162.pas.ms.script' // RedactionCurrentPara
+ ;
+ : Implementor ME_4DDCD636016C // PrimChangesBetweenEditons
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "UseNewGen" 'undefined'
+ref; // ME_4A7FCEA9025D_ME_4DDCD636016C RedactionCurrentPara
+
+: ME_4A8164E801AE_ME_4DDCD636016C
+ CONST UID '4A8164E801AE'
+ CONST Name 'GotoPoint'
+ : Original WL 'ME_4A8164E801AE' '4A815BFF0168.pas.ms.script' // GotoPoint
+ ;
+ : Implementor ME_4DDCD636016C // PrimChangesBetweenEditons
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "UseNewGen" 'undefined'
+ref; // ME_4A8164E801AE_ME_4DDCD636016C GotoPoint
+
+: ME_4A8168BB0217_ME_4DDCD636016C
+ CONST UID '4A8168BB0217'
+ CONST Name 'HyperlinkDocument'
+ : Original WL 'ME_4A8168BB0217' '4A815BFF0168.pas.ms.script' // HyperlinkDocument
+ ;
+ : Implementor ME_4DDCD636016C // PrimChangesBetweenEditons
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "UseNewGen" 'undefined'
+ref; // ME_4A8168BB0217_ME_4DDCD636016C HyperlinkDocument
+
+: ME_4A82BC390036_ME_4DDCD636016C
+ CONST UID '4A82BC390036'
+ CONST Name 'HyperlinkText'
+ : Original WL 'ME_4A82BC390036' '4A815BFF0168.pas.ms.script' // HyperlinkText
+ ;
+ : Implementor ME_4DDCD636016C // PrimChangesBetweenEditons
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "UseNewGen" 'undefined'
+ CONST "needs field" false
+ CONST "pm" true
+ref; // ME_4A82BC390036_ME_4DDCD636016C HyperlinkText
+
+: ME_4A8931130363_ME_4DDCD636016C
+ CONST UID '4A8931130363'
+ CONST Name 'CanBeChanged'
+ : Original WL 'ME_4A8931130363' '4A7C0BB70162.pas.ms.script' // CanBeChanged
+ ;
+ : Implementor ME_4DDCD636016C // PrimChangesBetweenEditons
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "UseNewGen" 'undefined'
+ref; // ME_4A8931130363_ME_4DDCD636016C CanBeChanged
+
+: ME_4A8A9DB0001A_ME_4DDCD636016C
+ CONST UID '4A8A9DB0001A'
+ CONST Name 'IsFloating'
+ : Original WL 'ME_4A8A9DB0001A' '4A815BFF0168.pas.ms.script' // IsFloating
+ ;
+ : Implementor ME_4DDCD636016C // PrimChangesBetweenEditons
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "UseNewGen" 'undefined'
+ref; // ME_4A8A9DB0001A_ME_4DDCD636016C IsFloating
+
+: ME_4A8AAD450084_ME_4DDCD636016C
+ CONST UID '4A8AAD450084'
+ CONST Name 'TextWithComments'
+ : Original WL 'ME_4A8AAD450084' '4A7C0BB70162.pas.ms.script' // TextWithComments
+ ;
+ : Implementor ME_4DDCD636016C // PrimChangesBetweenEditons
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "UseNewGen" 'undefined'
+ CONST "needs field" false
+ CONST "pm" true
+ref; // ME_4A8AAD450084_ME_4DDCD636016C TextWithComments
+
+: ME_4A8E5E4702C6_ME_4DDCD636016C
+ CONST UID '4A8E5E4702C6'
+ CONST Name 'FillList'
+ : Original WL 'ME_4A8E5E4702C6' '4A8E5B58037D.pas.ms.script' // FillList
+ ;
+ : Implementor ME_4DDCD636016C // PrimChangesBetweenEditons
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "UseNewGen" 'undefined'
+ref; // ME_4A8E5E4702C6_ME_4DDCD636016C FillList
+
+: ME_4ACA195801CB_ME_4DDCD636016C
+ CONST UID '4ACA195801CB'
+ CONST Name 'ContainerForBaseSearch'
+ : Original WL 'ME_4ACA195801CB' '4A9F98B901A5.pas.ms.script' // ContainerForBaseSearch
+ ;
+ : Implementor ME_4DDCD636016C // PrimChangesBetweenEditons
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "UseNewGen" 'undefined'
+ CONST "pm" false
+ref; // ME_4ACA195801CB_ME_4DDCD636016C ContainerForBaseSearch
+
+: ME_4AD6EAA3034A_ME_4DDCD636016C
+ CONST UID '4AD6EAA3034A'
+ CONST Name 'ContextSearcher'
+ : Original WL 'ME_4AD6EAA3034A' '4A9F98B901A5.pas.ms.script' // ContextSearcher
+ ;
+ : Implementor ME_4DDCD636016C // PrimChangesBetweenEditons
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "UseNewGen" 'undefined'
+ CONST "pm" false
+ref; // ME_4AD6EAA3034A_ME_4DDCD636016C ContextSearcher
+
+: ME_4AE1B48A0120_ME_4DDCD636016C
+ CONST UID '4AE1B48A0120'
+ CONST Name 'DocumentForExport'
+ : Original WL 'ME_4AE1B48A0120' '4A7C0BB70162.pas.ms.script' // DocumentForExport
+ ;
+ : Implementor ME_4DDCD636016C // PrimChangesBetweenEditons
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "UseNewGen" 'undefined'
+ref; // ME_4AE1B48A0120_ME_4DDCD636016C DocumentForExport
+
+: ME_4AE1C7A8016C_ME_4DDCD636016C
+ CONST UID '4AE1C7A8016C'
+ CONST Name 'HasDoc'
+ : Original WL 'ME_4AE1C7A8016C' '4A7C0BB70162.pas.ms.script' // HasDoc
+ ;
+ : Implementor ME_4DDCD636016C // PrimChangesBetweenEditons
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "UseNewGen" 'undefined'
+ CONST "needs field" false
+ CONST "pm" true
+ref; // ME_4AE1C7A8016C_ME_4DDCD636016C HasDoc
+
+: ME_4AE1C9890311_ME_4DDCD636016C
+ CONST UID '4AE1C9890311'
+ CONST Name 'IsDrug'
+ : Original WL 'ME_4AE1C9890311' '4A7C0BB70162.pas.ms.script' // IsDrug
+ ;
+ : Implementor ME_4DDCD636016C // PrimChangesBetweenEditons
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "UseNewGen" 'undefined'
+ref; // ME_4AE1C9890311_ME_4DDCD636016C IsDrug
+
+: ME_4AE9D38A02DA_ME_4DDCD636016C
+ CONST UID '4AE9D38A02DA'
+ CONST Name 'SetPosition'
+ : Original WL 'ME_4AE9D38A02DA' '4A77058200BA.pas.ms.script' // SetPosition
+ ;
+ : Implementor ME_4DDCD636016C // PrimChangesBetweenEditons
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "AutoFocus" false
+ CONST "AutoLock" false
+ CONST "LongProcess" false
+ CONST "Needs Broadcast" false
+ CONST "UseNewGen" 'undefined'
+ CONST "has states" false
+ CONST "is FormActivate" false
+ CONST "is query" true
+ CONST "no prefix" false
+ref; // ME_4AE9D38A02DA_ME_4DDCD636016C SetPosition
+
+: ME_4B1E37CE00C1_ME_4DDCD636016C
+ CONST UID '4B1E37CE00C1'
+ CONST Name 'ReturnToDocument'
+ : Original WL 'ME_4B1E37CE00C1' '4A77058200BA.pas.ms.script' // ReturnToDocument
+ ;
+ : Implementor ME_4DDCD636016C // PrimChangesBetweenEditons
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "AutoFocus" false
+ CONST "AutoLock" false
+ CONST "LongProcess" false
+ CONST "ShowInContextMenu" 'undefined'
+ CONST "ShowInToolbar" 'undefined'
+ CONST "UseNewGen" 'undefined'
+ CONST "has states" false
+ CONST "is FormActivate" false
+ CONST "is query" false
+ CONST "no prefix" false
+ref; // ME_4B1E37CE00C1_ME_4DDCD636016C ReturnToDocument
+
+: ME_4B4EF0A200BD_ME_4DDCD636016C
+ CONST UID '4B4EF0A200BD'
+ CONST Name 'DocumentForSearch'
+ : Original WL 'ME_4B4EF0A200BD' '4A7C0BB70162.pas.ms.script' // DocumentForSearch
+ ;
+ : Implementor ME_4DDCD636016C // PrimChangesBetweenEditons
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "UseNewGen" 'undefined'
+ref; // ME_4B4EF0A200BD_ME_4DDCD636016C DocumentForSearch
+
+: ME_4B506F4D0196_ME_4DDCD636016C
+ CONST UID '4B506F4D0196'
+ CONST Name 'GetParaForPositionning'
+ : Original WL 'ME_4B506F4D0196' '4A77058200BA.pas.ms.script' // GetParaForPositionning
+ ;
+ : Implementor ME_4DDCD636016C // PrimChangesBetweenEditons
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "AutoFocus" false
+ CONST "AutoLock" false
+ CONST "LongProcess" false
+ CONST "Needs Broadcast" false
+ CONST "UseNewGen" 'undefined'
+ CONST "has states" false
+ CONST "is FormActivate" false
+ CONST "is query" false
+ CONST "no prefix" false
+ref; // ME_4B506F4D0196_ME_4DDCD636016C GetParaForPositionning
+
+: ME_4F1D607E0027_ME_4DDCD636016C
+ CONST UID '4F1D607E0027'
+ CONST Name 'NeedSaveActiveClassBeforeSearch'
+ : Original WL 'ME_4F1D607E0027' '4A9F98B901A5.pas.ms.script' // NeedSaveActiveClassBeforeSearch
+ ;
+ : Implementor ME_4DDCD636016C // PrimChangesBetweenEditons
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "UseNewGen" 'undefined'
+ CONST "pm" false
+ref; // ME_4F1D607E0027_ME_4DDCD636016C NeedSaveActiveClassBeforeSearch
+
+: ME_53A303BE03A8_ME_4DDCD636016C
+ CONST UID '53A303BE03A8'
+ CONST Name 'OpenRedactionGlobalLink'
+ : Original WL 'ME_53A303BE03A8' '4A815BFF0168.pas.ms.script' // OpenRedactionGlobalLink
+ ;
+ : Implementor ME_4DDCD636016C // PrimChangesBetweenEditons
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "UseNewGen" 'undefined'
+ref; // ME_53A303BE03A8_ME_4DDCD636016C OpenRedactionGlobalLink
+
+: ME_49521D8E0295_ME_4DDCD636016C
+ CONST UID '49521D8E0295'
+ CONST Name 'Print'
+ : Original WL 'ME_49521D8E0295' '494F898C013E.pas.ms.script' // Print
+ ;
+ : Implementor ME_4DDCD636016C // PrimChangesBetweenEditons
+ ;
+ CONST OpKind opkind_Overridden
+ CONST "AutoFocus" false
+ CONST "AutoLock" false
+ CONST "LongProcess" false
+ CONST "ShowInContextMenu" false
+ CONST "ShowInToolbar" 'undefined'
+ CONST "UseNewGen" 'undefined'
+ CONST "has states" false
+ CONST "is FormActivate" false
+ CONST "is query" false
+ CONST "no prefix" false
+ref; // ME_49521D8E0295_ME_4DDCD636016C Print
+
+: ME_495220DE0298_ME_4DDCD636016C
+ CONST UID '495220DE0298'
+ CONST Name 'PrintDialog'
+ : Original WL 'ME_495220DE0298' '494F898C013E.pas.ms.script' // PrintDialog
+ ;
+ : Implementor ME_4DDCD636016C // PrimChangesBetweenEditons
+ ;
+ CONST OpKind opkind_Overridden
+ CONST "AutoFocus" false
+ CONST "AutoLock" false
+ CONST "LongProcess" false
+ CONST "ShowInContextMenu" true
+ CONST "ShowInToolbar" 'undefined'
+ CONST "UseNewGen" 'undefined'
+ CONST "has states" false
+ CONST "is FormActivate" false
+ CONST "is query" false
+ CONST "no prefix" false
+ref; // ME_495220DE0298_ME_4DDCD636016C PrintDialog
+
+: ME_4A8E8F2E0195_ME_4DDCD636016C
+ CONST UID '4A8E8F2E0195'
+ CONST Name 'InitControls'
+ : Original WL 'ME_4A8E8F2E0195' '5000041101C8.pas.ms.script' // InitControls
+ ;
+ : Implementor ME_4DDCD636016C // PrimChangesBetweenEditons
+ ;
+ CONST OpKind opkind_Overridden
+ CONST "UseNewGen" 'undefined'
+ref; // ME_4A8E8F2E0195_ME_4DDCD636016C InitControls
+
+: ME_4B4EF0D2016A_ME_4DDCD636016C
+ CONST UID '4B4EF0D2016A'
+ CONST Name 'ContinueSearchInWholeBase'
+ : Original WL 'ME_4B4EF0D2016A' '4A7C0BB70162.pas.ms.script' // ContinueSearchInWholeBase
+ ;
+ : Implementor ME_4DDCD636016C // PrimChangesBetweenEditons
+ ;
+ CONST OpKind opkind_Overridden
+ CONST "UseNewGen" 'undefined'
+ref; // ME_4B4EF0D2016A_ME_4DDCD636016C ContinueSearchInWholeBase
+
+: ME_4F2BEF740060_ME_4DDCD636016C
+ CONST UID '4F2BEF740060'
+ CONST Name 'GetRedactionOnLeftEdition'
+ : Original WL 'ME_4F2BEF740060' '4A7C0BB70162.pas.ms.script' // GetRedactionOnLeftEdition
+ ;
+ : Implementor ME_4DDCD636016C // PrimChangesBetweenEditons
+ ;
+ CONST OpKind opkind_Overridden
+ CONST "UseNewGen" 'undefined'
+ref; // ME_4F2BEF740060_ME_4DDCD636016C GetRedactionOnLeftEdition
+
+: ME_4DDCD636016C
+ CONST UID '4DDCD636016C'
+ CONST Name 'PrimChangesBetweenEditons'
+ CONST Class class_Class
+ : Stereotype st_VCMForm ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Изменения в документе' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4DDBAF0A0029 // ChangesBetweenEditons
+ ;
+ : Inherits
+   Seq: ( WL 'ME_49525B34022A' '4AADF9450143.pas.ms.script' // TvcmEntityForm
+ )
+ ; // Inherits
+ : Implements
+   Seq: ( WL 'ME_496B4C2700D5' '4A9F98B901A5.pas.ms.script' // InsBaseSearchPresentation
+ WL 'ME_4A7B03ED01E3' '4A7C0BB70162.pas.ms.script' // WorkWithRedactions
+ WL 'ME_4A7C0BF5008B' '4A7C0BB70162.pas.ms.script' // DocumentPresentation
+ WL 'ME_4A8AACAE0356' '4A7C0BB70162.pas.ms.script' // TextWithComments
+ WL 'ME_4A8AC2DB0210' '4A815BFF0168.pas.ms.script' // HyperlinkProcessorWithOwnLocalLink
+ WL 'ME_4A8E5BBF0391' '4A8E5B58037D.pas.ms.script' // StatusBarItems
+ WL 'ME_4AD5E6A60262' '4A7C0BB70162.pas.ms.script' // BaseSearchPresentation
+ WL 'ME_4AE1A69E0156' '4A7C0BB70162.pas.ms.script' // BaseTextOperations
+ WL 'ME_4B4DB88E01B6' '4A7C0BB70162.pas.ms.script' // DocumentBaseSearcher
+ WL 'ME_4E8B2A6701A5' '484900780017.pas.ms.script' // Из просмотра изменений документа должна быть возможность переключится в сравнение редакций
+ WL 'ME_4E8B360E006C' '4A77058200BA.pas.ms.script' // Document$SetPosition
+ WL 'ME_4E8C3C6C0244' '4A77058200BA.pas.ms.script' // Edition
+ WL 'ME_4E8C3CFE029A' '484900780017.pas.ms.script' // В статусной строке должна быть операция "Сравнить полные тексты редакций"
+ WL 'ME_4E8C3D3202B1' '484900780017.pas.ms.script' // В статусной строке должна быть операция "Вернуться в текст документа"
+ WL 'ME_4E9C33A802C8' '4A815BFF0168.pas.ms.script' // HyperlinkProcessorForDocumentCompare
+ WL 'ME_4ED8D48C0329' '4EDCC335011E.pas.ms.script' // EditionsListCaller
+ WL 'ME_4F10411202FB' '484900780017.pas.ms.script' // Должна быть навигация по ссылкам с клавиатуры
+ WL 'ME_4F1044DD0281' '4A815BFF0168.pas.ms.script' // HyperlinkOperations
+ WL 'ME_4F991E420079' '4A77058200BA.pas.ms.script' // Document$GetParaForPositioning
+ )
+ ; // Implements
+ : Attributes
+   Seq: ( ME_4DDCDE5A0058 // ViewArea
+ )
+ ; // Attributes
+ : Operations
+   Seq: ( ME_4DDD07AA02FD // MakeDocumentContainer
+ ME_4E8B2F9B02AF // Document
+ ME_5228246A01D9 // TextSourceDocumentChanged
+ ME_EEED52456CD6 // Init_Str_DocumentChangesCaption
+ ME_A8784BB5646C // Init_Str_CompareRedactionOperationCaption
+ ME_DD07270100BD // Init_Str_ReturnToDocumentOperationCaption
+ ME_CB6B788823FB // Ini_Reg_Class
+ )
+ ; // Operations
+ : Implemented
+   Seq: ( ME_496B4C41023E_ME_4DDCD636016C // WindowRequired
+ ME_496B4C500246_ME_4DDCD636016C // WindowCloseable
+ ME_496B4CA000B6_ME_4DDCD636016C // CanCloseWindow
+ ME_496B4CD9005F_ME_4DDCD636016C // IsQueryCard
+ ME_496B4CE30132_ME_4DDCD636016C // TreatSuccessSearchAsManualOpen
+ ME_496B4CED0306_ME_4DDCD636016C // AutoActivateWindow
+ ME_4A7C0E1A005C_ME_4DDCD636016C // DocumentIsValid
+ ME_4A7FCEA9025D_ME_4DDCD636016C // RedactionCurrentPara
+ ME_4A8164E801AE_ME_4DDCD636016C // GotoPoint
+ ME_4A8168BB0217_ME_4DDCD636016C // HyperlinkDocument
+ ME_4A82BC390036_ME_4DDCD636016C // HyperlinkText
+ ME_4A8931130363_ME_4DDCD636016C // CanBeChanged
+ ME_4A8A9DB0001A_ME_4DDCD636016C // IsFloating
+ ME_4A8AAD450084_ME_4DDCD636016C // TextWithComments
+ ME_4A8E5E4702C6_ME_4DDCD636016C // FillList
+ ME_4ACA195801CB_ME_4DDCD636016C // ContainerForBaseSearch
+ ME_4AD6EAA3034A_ME_4DDCD636016C // ContextSearcher
+ ME_4AE1B48A0120_ME_4DDCD636016C // DocumentForExport
+ ME_4AE1C7A8016C_ME_4DDCD636016C // HasDoc
+ ME_4AE1C9890311_ME_4DDCD636016C // IsDrug
+ ME_4AE9D38A02DA_ME_4DDCD636016C // SetPosition
+ ME_4B1E37CE00C1_ME_4DDCD636016C // ReturnToDocument
+ ME_4B4EF0A200BD_ME_4DDCD636016C // DocumentForSearch
+ ME_4B506F4D0196_ME_4DDCD636016C // GetParaForPositionning
+ ME_4F1D607E0027_ME_4DDCD636016C // NeedSaveActiveClassBeforeSearch
+ ME_53A303BE03A8_ME_4DDCD636016C // OpenRedactionGlobalLink
+ )
+ ; // Implemented
+ : Overridden
+   Seq: ( ME_49521D8E0295_ME_4DDCD636016C // Print
+ ME_495220DE0298_ME_4DDCD636016C // PrintDialog
+ ME_4A8E8F2E0195_ME_4DDCD636016C // InitControls
+ ME_4B4EF0D2016A_ME_4DDCD636016C // ContinueSearchInWholeBase
+ ME_4F2BEF740060_ME_4DDCD636016C // GetRedactionOnLeftEdition
+ )
+ ; // Overridden
+ : Children
+   Seq: ( ME_4DDCDE8F01B8 // DocumentChanges
+ )
+ ; // Children
+ : Constants
+   Seq: ( ME_4E8C3BA30178 // Local
+ ME_D981CE8A183F // DocumentChangesLocalConstants
+ ME_EB67C8BA791E // LCImplDocumentChangesLocalConstants
+ ME_4B8307ADDBE6 // LCImplLocal
+ )
+ ; // Constants
+ : Dependencies
+   Seq: ( ME_4DDD078A02D5 // 
+ ME_4DFF7B930147 // 
+ ME_4E8C3B400161 // 
+ ME_4E8C42740279 // 
+ ME_522824D10324 // 
+ ME_5416BD1403BA // 
+ ME_5416C06C0387 // 
+ ME_4A79B9830470 // 
+ ME_0263564F91A7 // 
+ ME_3EBD1F39B17B // 
+ )
+ ; // Dependencies
+ CONST "NeedsHackRef" true
+ CONST "UseNewGen" 'undefined'
+ CONST "ZoneType" 'Any'
+ CONST "author" 'Люлин А.В.'
+ CONST "base wnd class" 'CWnd'
+ CONST "finished dfm" true
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" true
+ CONST "register in scripts" 'undefined'
+ CONST "resizeable" false
+ CONST "restrict form def" 'undefined'
+ CONST "started" '25.05.2011 14:13'
+ : Generators
+ Seq: (
+ gen_intf.pas
+ )
+ ; // Generators
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View\ChangesBetweenEditons\Forms'
+ CONST intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\ChangesBetweenEditons\Forms\PrimChangesBetweenEditons_Form.pas'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View\ChangesBetweenEditons\Forms'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\View\ChangesBetweenEditons'
+ CONST extprop:pas:TypeName 'TPrimChangesBetweenEditonsForm'
+ CONST extprop:pas:UnitName 'PrimChangesBetweenEditons_Form'
+
+ref; // ME_4DDCD636016C PrimChangesBetweenEditons
+
+FORWARD ME_4DDBAF2B0028
+
+FORWARD ME_4DDCD6800267
+
+FORWARD ME_18DFDA8DC53A
+
+FORWARD ME_91CE610EF569
+
+: ME_21336EFDC452
+ CONST UID '21336EFDC452'
+ CONST Name 'fm_ChangesBetweenEditonsForm'
+ CONST IsSummoned true
+ CONST Class class_Attribute
+ %SUMMARY 'Идентификатор формы TChangesBetweenEditonsForm' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_91CE610EF569 // ChangesBetweenEditonsIDs
+ ;
+ : Target WL 'ME_4FFC30A800DF' '4683F37902CF.pas.ms.script' // TvcmFormDescriptor
+ ;
+ CONST Value '(rFormID : (rName : ''ChangesBetweenEditonsForm''; rID : 0); rFactory : nil)'
+ : ValueType WL 'ME_4FFC30A800DF' '4683F37902CF.pas.ms.script' // TvcmFormDescriptor
+ ;
+ CONST "AutoInc" false
+ CONST "UseNewGen" 'undefined'
+ CONST "forced type" 'none'
+ CONST "is define" false
+ CONST extprop:pas:Value '(rFormID : (rName : ''ChangesBetweenEditonsForm''; rID : 0); rFactory : nil)'
+
+ref; // ME_21336EFDC452 fm_ChangesBetweenEditonsForm
+
+: ME_91CE610EF569
+ CONST UID '91CE610EF569'
+ CONST Name 'ChangesBetweenEditonsIDs'
+ CONST IsSummoned true
+ CONST Class class_Class
+ : Stereotype st_Constants ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_18DFDA8DC53A // ChangesBetweenEditons$Def
+ ;
+ : Attributes
+   Seq: ( ME_21336EFDC452 // fm_ChangesBetweenEditonsForm
+ )
+ ; // Attributes
+ CONST "UseNewGen" 'undefined'
+ CONST "spell names" false
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View\ChangesBetweenEditons\Forms'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View\ChangesBetweenEditons\Forms'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\View\ChangesBetweenEditons'
+
+ref; // ME_91CE610EF569 ChangesBetweenEditonsIDs
+
+: ME_18DFDA8DC53A
+ CONST UID '18DFDA8DC53A'
+ CONST GUID 'E8402096-B641-4FAE-B341-69369D1BB399'
+ CONST Name 'ChangesBetweenEditons'
+ CONST IsSummoned true
+ CONST Class class_Class
+ : Stereotype st_VCMFormDefinition ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Идентификатор формы ChangesBetweenEditons' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4DDCD6800267 // ChangesBetweenEditons
+ ;
+ : Constants
+   Seq: ( ME_91CE610EF569 // ChangesBetweenEditonsIDs
+ )
+ ; // Constants
+ CONST "UseNewGen" 'undefined'
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View\ChangesBetweenEditons\Forms'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View\ChangesBetweenEditons\Forms'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\View\ChangesBetweenEditons'
+ CONST extprop:pas:TypeName 'ChangesBetweenEditonsFormDef'
+
+ref; // ME_18DFDA8DC53A ChangesBetweenEditons$Def
+
+: ME_486BBBAEA4FA
+ CONST UID '486BBBAEA4FA'
+ CONST Name 'Ini_Reg_Class'
+ CONST IsSummoned true
+ CONST Class class_Operation
+ : Stereotype st_ini::Operation ;
+ %SUMMARY 'Регистрация ChangesBetweenEditons' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_4DDCD6800267 // ChangesBetweenEditons
+ ;
+ CONST "UseNewGen" 'undefined'
+ CONST "ifndef" 'NoScripts'
+
+ref; // ME_486BBBAEA4FA Ini_Reg_Class
+
+: ME_19E5A3901F50
+ CONST UID '19E5A3901F50'
+ CONST Name 'Ini_FormFactory_ChangesBetweenEditons'
+ CONST IsSummoned true
+ CONST Class class_Operation
+ : Stereotype st_ini::Operation ;
+ %SUMMARY 'Регистрация фабрики формы ChangesBetweenEditons' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_4DDCD6800267 // ChangesBetweenEditons
+ ;
+ CONST "UseNewGen" 'undefined'
+ : SpelledFor ME_4DDCD6800267 // ChangesBetweenEditons
+ ;
+
+ref; // ME_19E5A3901F50 Ini_FormFactory_ChangesBetweenEditons$Def
+
+: ME_772CD6C7D2B4
+ CONST UID '772CD6C7D2B4'
+ CONST IsSummoned true
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4DDCD6800267 // ChangesBetweenEditons
+ ;
+ : Target WL 'ME_561F9F9400BC' '561F9F7D02A7.pas.ms.script' // TtfwClassRef
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_772CD6C7D2B4 
+
+FORWARD ME_BA1D17802EA3
+
+: ME_4DDCD6800267
+ CONST UID '4DDCD6800267'
+ CONST Name 'ChangesBetweenEditons'
+ CONST Class class_Class
+ : Stereotype st_VCMFinalForm ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Изменения в документе' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_4DDBAF2B0028 // ChangesBetweenEditions
+ ;
+ : Inherits
+   Seq: ( ME_4DDCD636016C // PrimChangesBetweenEditons
+ )
+ ; // Inherits
+ : Implements
+   Seq: ( ME_18DFDA8DC53A // ChangesBetweenEditons$Def
+ )
+ ; // Implements
+ : Operations
+   Seq: ( ME_486BBBAEA4FA // Ini_Reg_Class
+ ME_19E5A3901F50 // Ini_FormFactory_ChangesBetweenEditons$Def
+ )
+ ; // Operations
+ : Children
+   Seq: ( ME_18DFDA8DC53A // ChangesBetweenEditons$Def
+ )
+ ; // Children
+ : Dependencies
+   Seq: ( ME_772CD6C7D2B4 // 
+ )
+ ; // Dependencies
+ : Injected
+   Seq: ( ME_BA1D17802EA3 // 
+ )
+ ; // Injected
+ CONST "NeedsHackRef" true
+ CONST "UseNewGen" 'undefined'
+ CONST "ZoneType" 'Any'
+ CONST "author" 'Люлин А.В.'
+ CONST "base wnd class" 'CWnd'
+ CONST "finished dfm" true
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" true
+ CONST "register in scripts" 'undefined'
+ CONST "resizeable" false
+ CONST "restrict form def" 'undefined'
+ CONST "started" '25.05.2011 14:14'
+ : Generators
+ Seq: (
+ gen_dfm
+ gen_intf.pas
+ )
+ ; // Generators
+ CONST dfm:Path 'garant6x\implementation\Garant\GbaNemesis\View\ChangesBetweenEditons\Forms\ChangesBetweenEditons_Form.dfm'
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View\ChangesBetweenEditons\Forms'
+ CONST intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\ChangesBetweenEditons\Forms\ChangesBetweenEditons_Form.pas'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View\ChangesBetweenEditons\Forms'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\View\ChangesBetweenEditons'
+ CONST extprop:pas:TypeName 'TChangesBetweenEditonsForm'
+ CONST extprop:pas:UnitName 'ChangesBetweenEditons_Form'
+
+ref; // ME_4DDCD6800267 ChangesBetweenEditons
+
+FORWARD ME_4DDCBC5C0211
+
+FORWARD ME_4DDCD6BB0231
+
+: ME_BB4E7F470CF2
+ CONST UID 'BB4E7F470CF2'
+ CONST IsSummoned true
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4DDCD6BB0231 // Parent
+ ;
+ : Target ME_18DFDA8DC53A // ChangesBetweenEditons$Def
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_BB4E7F470CF2 
+
+: ME_4DDCE9110130_ME_4DDCD6BB0231
+ CONST UID '4DDCE9110130'
+ CONST Name 'RightEdition'
+ : Original WL 'ME_4DDCE9110130' '4DDCD71E027C.pas.ms.script' // RightEdition
+ ;
+ : Implementor ME_4DDCD6BB0231 // Parent
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "UseNewGen" 'undefined'
+ CONST "pm" false
+ref; // ME_4DDCE9110130_ME_4DDCD6BB0231 RightEdition
+
+: ME_4DDD0C170344_ME_4DDCD6BB0231
+ CONST UID '4DDD0C170344'
+ CONST Name 'DocumentContainer'
+ : Original WL 'ME_4DDD0C170344' '4DDCD71E027C.pas.ms.script' // DocumentContainer
+ ;
+ : Implementor ME_4DDCD6BB0231 // Parent
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "UseNewGen" 'undefined'
+ CONST "pm" false
+ref; // ME_4DDD0C170344_ME_4DDCD6BB0231 DocumentContainer
+
+: ME_4DF9D63B0360_ME_4DDCD6BB0231
+ CONST UID '4DF9D63B0360'
+ CONST Name 'DocInfo'
+ : Original WL 'ME_4DF9D63B0360' '4B1FC2FF03CD.pas.ms.script' // DocInfo
+ ;
+ : Implementor ME_4DDCD6BB0231 // Parent
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "UseNewGen" 'undefined'
+ CONST "pm" true
+ CONST "reflectable" true
+ref; // ME_4DF9D63B0360_ME_4DDCD6BB0231 DocInfo
+
+: ME_4F2BF187026F_ME_4DDCD6BB0231
+ CONST UID '4F2BF187026F'
+ CONST Name 'LeftEdition'
+ : Original WL 'ME_4F2BF187026F' '4DDCD71E027C.pas.ms.script' // LeftEdition
+ ;
+ : Implementor ME_4DDCD6BB0231 // Parent
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "UseNewGen" 'undefined'
+ CONST "pm" false
+ref; // ME_4F2BF187026F_ME_4DDCD6BB0231 LeftEdition
+
+: ME_4DDCD6BB0231
+ CONST UID '4DDCD6BB0231'
+ CONST Name 'Parent'
+ CONST Class class_Class
+ : Stereotype st_VCMZone ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4DDCBC5C0211 // ViewChangedFragments$FSF
+ ;
+ : Inherits
+   Seq: ( ME_4DDCD6800267 // ChangesBetweenEditons
+ ME_4DDCDE8F01B8 // DocumentChanges
+ )
+ ; // Inherits
+ : Implements
+   Seq: ( WL 'ME_4DDCD7520351' '4DDCD71E027C.pas.ms.script' // Changes
+ )
+ ; // Implements
+ : Implemented
+   Seq: ( ME_4DDCE9110130_ME_4DDCD6BB0231 // RightEdition
+ ME_4DDD0C170344_ME_4DDCD6BB0231 // DocumentContainer
+ ME_4DF9D63B0360_ME_4DDCD6BB0231 // DocInfo
+ ME_4F2BF187026F_ME_4DDCD6BB0231 // LeftEdition
+ )
+ ; // Implemented
+ : Dependencies
+   Seq: ( ME_BB4E7F470CF2 // 
+ )
+ ; // Dependencies
+ CONST "ActivateIfUpdate" 'None'
+ CONST "Need GetFormCount" false
+ CONST "Need OnFormWeight" 'undefined'
+ CONST "Need UC" 'undefined'
+ CONST "UseNewGen" 'undefined'
+ CONST "ZoneType" 'Parent'
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View\ChangesBetweenEditons'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View\ChangesBetweenEditons'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\View\ChangesBetweenEditons'
+
+ref; // ME_4DDCD6BB0231 Parent
+
+FORWARD ME_9C7EE9D70E75
+
+: ME_E376AAB91B5B
+ CONST UID 'E376AAB91B5B'
+ CONST Name 'aDataSource'
+ CONST IsSummoned true
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_47F252870299' '4683F37902CF.pas.ms.script' // IvcmFormSetDataSource
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_E376AAB91B5B aDataSource
+
+: ME_FD8CBC17F7A0
+ CONST UID 'FD8CBC17F7A0'
+ CONST Name 'aNew'
+ CONST IsSummoned true
+ CONST Class class_Parameter
+ : Stereotype st_out ;
+ : Target WL 'ME_47EB900B0216' '4683F37902CF.pas.ms.script' // IvcmFormDataSource
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_FD8CBC17F7A0 aNew
+
+: ME_433923F7EDEE
+ CONST UID '433923F7EDEE'
+ CONST Name 'aSubUserType'
+ CONST IsSummoned true
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_47F2534B010F' '499EAAE502A8.pas.ms.script' // TvcmUserType
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_433923F7EDEE aSubUserType
+
+: ME_0F8081D2C19F
+ CONST UID '0F8081D2C19F'
+ CONST Name 'DoIt'
+ CONST IsSummoned true
+ CONST Class class_Operation
+ %SUMMARY 'данные необходимые для создания формы' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_9C7EE9D70E75 // Parent_Parent_DocumentChanges_NeedMakeForm
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+ : Parameters
+   Seq: ( ME_E376AAB91B5B // aDataSource
+ ME_FD8CBC17F7A0 // aNew
+ ME_433923F7EDEE // aSubUserType
+ )
+ ; // Parameters
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_0F8081D2C19F DoIt
+
+: ME_9C7EE9D70E75
+ CONST UID '9C7EE9D70E75'
+ CONST Name 'Parent_Parent_DocumentChanges_NeedMakeForm'
+ CONST IsSummoned true
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Обработчик OnNeedMakeForm для Parent' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_4DDCBC5C0211 // ViewChangedFragments$FSF
+ ;
+ : Inherits
+   Seq: ( WL 'ME_50096E800075' '47B9727603BE.pas.ms.script' // TvcmNeedMakeFormEvent
+ )
+ ; // Inherits
+ : Operations
+   Seq: ( ME_0F8081D2C19F // DoIt
+ )
+ ; // Operations
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_9C7EE9D70E75 Parent_Parent_DocumentChanges_NeedMakeForm
+
+: ME_7F883B9274DE
+ CONST UID '7F883B9274DE'
+ CONST Name 'Exists'
+ CONST IsSummoned true
+ CONST Class class_Operation
+ : Stereotype st_static::Operation ;
+ %SUMMARY 'Проверяет создан экземпляр синглетона или нет' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_4DDCBC5C0211 // ViewChangedFragments$FSF
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+ CONST "UseNewGen" 'undefined'
+ CONST extprop:pas:Value false
+
+ref; // ME_7F883B9274DE Exists
+
+: ME_47A042E100E2_ME_4DDCBC5C0211
+ CONST UID '47A042E100E2'
+ CONST Name 'InitFields'
+ : Original WL 'ME_47A042E100E2' '47913B47006E.pas.ms.script' // InitFields
+ ;
+ : Implementor ME_4DDCBC5C0211 // ViewChangedFragments$FSF
+ ;
+ CONST OpKind opkind_Overridden
+ CONST "UseNewGen" 'undefined'
+ref; // ME_47A042E100E2_ME_4DDCBC5C0211 InitFields
+
+: ME_4FFE854A009B_ME_4DDCBC5C0211
+ CONST UID '4FFE854A009B'
+ CONST Name 'GetInstance'
+ : Original WL 'ME_4FFE854A009B' '47B9727603BE.pas.ms.script' // GetInstance
+ ;
+ : Implementor ME_4DDCBC5C0211 // ViewChangedFragments$FSF
+ ;
+ CONST OpKind opkind_Overridden
+ CONST "UseNewGen" 'undefined'
+ CONST "is static" true
+ref; // ME_4FFE854A009B_ME_4DDCBC5C0211 GetInstance
+
+: ME_4DDCBC5C0211
+ CONST UID '4DDCBC5C0211'
+ CONST Name 'ViewChangedFragments'
+ CONST Class class_Class
+ : Stereotype st_VCMFormSetFactory ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_4DDBAF2B0028 // ChangesBetweenEditions
+ ;
+ : Inherits
+   Seq: ( WL 'ME_47B97312006D' '47B9727603BE.pas.ms.script' // TvcmFormSetFactory
+ )
+ ; // Inherits
+ : Operations
+   Seq: ( ME_9C7EE9D70E75 // Parent_Parent_DocumentChanges_NeedMakeForm
+ ME_7F883B9274DE // Exists
+ )
+ ; // Operations
+ : Overridden
+   Seq: ( ME_47A042E100E2_ME_4DDCBC5C0211 // InitFields
+ ME_4FFE854A009B_ME_4DDCBC5C0211 // GetInstance
+ )
+ ; // Overridden
+ : Children
+   Seq: ( ME_4DDCD6BB0231 // Parent
+ )
+ ; // Children
+ CONST "DefaultStatusForm" '-1'
+ CONST "Need GetMainCaption" false
+ CONST "Need GetMainImageIndex" false
+ CONST "UseNewGen" 'undefined'
+ CONST "finished dfm" true
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ CONST "singleton" true
+ : Generators
+ Seq: (
+ gen_intf.pas
+ )
+ ; // Generators
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View\ChangesBetweenEditons'
+ CONST intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\ChangesBetweenEditons\fsViewChangedFragments.pas'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View\ChangesBetweenEditons'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\View\ChangesBetweenEditons'
+ CONST extprop:pas:TypeName 'Tfs_ViewChangedFragments'
+ CONST extprop:pas:UnitName 'fsViewChangedFragments'
+
+ref; // ME_4DDCBC5C0211 ViewChangedFragments$FSF
+
+FORWARD ME_4EDE291E00DA
+
+: ME_4EDE292F00CC
+ CONST UID '4EDE292F00CC'
+ CONST Name 'CannotShowChanges'
+ CONST Class class_Class
+ : Stereotype st_Message ;
+ CONST Kind kind_NormalClass
+ %SUMMARY '''Изменения не могут быть отображены в сводном обзоре''' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4EDE291E00DA // Local
+ ;
+ CONST "AutoInc" false
+ CONST "DlgType" 'Warning'
+ CONST "NeedCheck" false
+ CONST "UseNewGen" 'undefined'
+ CONST "forced type" 'none'
+ CONST "is define" false
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View\ChangesBetweenEditons'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View\ChangesBetweenEditons'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\View\ChangesBetweenEditons'
+
+ref; // ME_4EDE292F00CC CannotShowChanges
+
+: ME_4EDE291E00DA
+ CONST UID '4EDE291E00DA'
+ CONST Name 'Local'
+ CONST Class class_Class
+ : Stereotype st_LocalConst ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_4DDBAF2B0028 // ChangesBetweenEditions
+ ;
+ : Children
+   Seq: ( ME_4EDE292F00CC // CannotShowChanges
+ )
+ ; // Children
+ CONST "Need map interface" false
+ CONST "Need mapping support" false
+ CONST "UseNewGen" 'undefined'
+ CONST "spell names" false
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View\ChangesBetweenEditons'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View\ChangesBetweenEditons'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\View\ChangesBetweenEditons'
+
+ref; // ME_4EDE291E00DA Local
+
+FORWARD ME_B796AE5D8508
+
+FORWARD ME_67948A4EBDB0
+
+: ME_B1B4478BFCF5
+ CONST UID 'B1B4478BFCF5'
+ CONST Name 'Ini_Reg'
+ CONST IsSummoned true
+ CONST Class class_Operation
+ : Stereotype st_ini::Operation ;
+ %SUMMARY 'Регистрация Tkw_Form_ChangesBetweenEditons' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_67948A4EBDB0 // Tkw_Form_ChangesBetweenEditons
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_B1B4478BFCF5 Ini_Reg
+
+: ME_4DB0614603C8_ME_67948A4EBDB0
+ CONST UID '4DB0614603C8'
+ CONST Name 'GetWordNameForRegister'
+ : Original WL 'ME_4DB0614603C8' '4F3E3F5F0160.pas.ms.script' // GetWordNameForRegister
+ ;
+ : Implementor ME_67948A4EBDB0 // Tkw_Form_ChangesBetweenEditons
+ ;
+ CONST OpKind opkind_Overridden
+ CONST "UseNewGen" 'undefined'
+ref; // ME_4DB0614603C8_ME_67948A4EBDB0 GetWordNameForRegister
+
+: ME_4DDFD2EA0116_ME_67948A4EBDB0
+ CONST UID '4DDFD2EA0116'
+ CONST Name 'GetString'
+ : Original WL 'ME_4DDFD2EA0116' '4F3E3F5F0160.pas.ms.script' // GetString
+ ;
+ : Implementor ME_67948A4EBDB0 // Tkw_Form_ChangesBetweenEditons
+ ;
+ CONST OpKind opkind_Overridden
+ CONST "UseNewGen" 'undefined'
+ref; // ME_4DDFD2EA0116_ME_67948A4EBDB0 GetString
+
+: ME_67948A4EBDB0
+ CONST UID '67948A4EBDB0'
+ CONST Name 'Tkw_Form_ChangesBetweenEditons'
+ CONST IsSummoned true
+ CONST Class class_Class
+ : Stereotype st_ScriptKeyword ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Слово словаря для идентификатора формы ChangesBetweenEditons'#13#10'----'#13#10'*Пример использования*:'#13#10'{code}'#13#10'''aControl'' форма::ChangesBetweenEditons TryFocus ASSERT'#13#10'{code}' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_B796AE5D8508 // ChangesBetweenEditonsKeywordsPack
+ ;
+ : Inherits
+   Seq: ( WL 'ME_508527F30183' '54DB92D203C9.pas.ms.script' // TtfwControlString
+ )
+ ; // Inherits
+ : Operations
+   Seq: ( ME_B1B4478BFCF5 // Ini_Reg
+ )
+ ; // Operations
+ : Overridden
+   Seq: ( ME_4DB0614603C8_ME_67948A4EBDB0 // GetWordNameForRegister
+ ME_4DDFD2EA0116_ME_67948A4EBDB0 // GetString
+ )
+ ; // Overridden
+ CONST "NameForScript" 'форма::ChangesBetweenEditons'
+ CONST "UseNewGen" 'undefined'
+ CONST "ifndef" 'NoScripts'
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View\ChangesBetweenEditons'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View\ChangesBetweenEditons'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\View\ChangesBetweenEditons'
+
+ref; // ME_67948A4EBDB0 Tkw_Form_ChangesBetweenEditons
+
+FORWARD ME_1BA38271BDB3
+
+: ME_EC22236C7B24
+ CONST UID 'EC22236C7B24'
+ CONST Name 'Ini_Reg'
+ CONST IsSummoned true
+ CONST Class class_Operation
+ : Stereotype st_ini::Operation ;
+ %SUMMARY 'Регистрация Tkw_ChangesBetweenEditons_Control_Text' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_1BA38271BDB3 // Tkw_ChangesBetweenEditons_Control_Text
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_EC22236C7B24 Ini_Reg
+
+: ME_F4CC88AAE3F6
+ CONST UID 'F4CC88AAE3F6'
+ CONST IsSummoned true
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_1BA38271BDB3 // Tkw_ChangesBetweenEditons_Control_Text
+ ;
+ : Target WL 'ME_495119C4011A' '495119A901CE.pas.ms.script' // TnscEditor
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_F4CC88AAE3F6 
+
+: ME_CF0A935582D8
+ CONST UID 'CF0A935582D8'
+ CONST IsSummoned true
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_1BA38271BDB3 // Tkw_ChangesBetweenEditons_Control_Text
+ ;
+ : Target WL 'ME_561F9F9400BC' '561F9F7D02A7.pas.ms.script' // TtfwClassRef
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_CF0A935582D8 
+
+: ME_4DB0614603C8_ME_1BA38271BDB3
+ CONST UID '4DB0614603C8'
+ CONST Name 'GetWordNameForRegister'
+ : Original WL 'ME_4DB0614603C8' '4F3E3F5F0160.pas.ms.script' // GetWordNameForRegister
+ ;
+ : Implementor ME_1BA38271BDB3 // Tkw_ChangesBetweenEditons_Control_Text
+ ;
+ CONST OpKind opkind_Overridden
+ CONST "UseNewGen" 'undefined'
+ref; // ME_4DB0614603C8_ME_1BA38271BDB3 GetWordNameForRegister
+
+: ME_4DDFD2EA0116_ME_1BA38271BDB3
+ CONST UID '4DDFD2EA0116'
+ CONST Name 'GetString'
+ : Original WL 'ME_4DDFD2EA0116' '4F3E3F5F0160.pas.ms.script' // GetString
+ ;
+ : Implementor ME_1BA38271BDB3 // Tkw_ChangesBetweenEditons_Control_Text
+ ;
+ CONST OpKind opkind_Overridden
+ CONST "UseNewGen" 'undefined'
+ref; // ME_4DDFD2EA0116_ME_1BA38271BDB3 GetString
+
+: ME_52A086150180_ME_1BA38271BDB3
+ CONST UID '52A086150180'
+ CONST Name 'RegisterInEngine'
+ : Original WL 'ME_52A086150180' '4F3E3F5F0160.pas.ms.script' // RegisterInEngine
+ ;
+ : Implementor ME_1BA38271BDB3 // Tkw_ChangesBetweenEditons_Control_Text
+ ;
+ CONST OpKind opkind_Overridden
+ CONST "UseNewGen" 'undefined'
+ CONST "is static" true
+ref; // ME_52A086150180_ME_1BA38271BDB3 RegisterInEngine
+
+: ME_1BA38271BDB3
+ CONST UID '1BA38271BDB3'
+ CONST Name 'Tkw_ChangesBetweenEditons_Control_Text'
+ CONST IsSummoned true
+ CONST Class class_Class
+ : Stereotype st_ScriptKeyword ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Слово словаря для идентификатора контрола Text'#13#10'----'#13#10'*Пример использования*:'#13#10'{code}'#13#10'контрол::Text TryFocus ASSERT'#13#10'{code}' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_B796AE5D8508 // ChangesBetweenEditonsKeywordsPack
+ ;
+ : Inherits
+   Seq: ( WL 'ME_508527F30183' '54DB92D203C9.pas.ms.script' // TtfwControlString
+ )
+ ; // Inherits
+ : Operations
+   Seq: ( ME_EC22236C7B24 // Ini_Reg
+ )
+ ; // Operations
+ : Overridden
+   Seq: ( ME_4DB0614603C8_ME_1BA38271BDB3 // GetWordNameForRegister
+ ME_4DDFD2EA0116_ME_1BA38271BDB3 // GetString
+ ME_52A086150180_ME_1BA38271BDB3 // RegisterInEngine
+ )
+ ; // Overridden
+ : Dependencies
+   Seq: ( ME_F4CC88AAE3F6 // 
+ ME_CF0A935582D8 // 
+ )
+ ; // Dependencies
+ CONST "NameForScript" 'контрол::Text'
+ CONST "UseNewGen" 'undefined'
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View\ChangesBetweenEditons'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View\ChangesBetweenEditons'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\View\ChangesBetweenEditons'
+
+ref; // ME_1BA38271BDB3 Tkw_ChangesBetweenEditons_Control_Text
+
+FORWARD ME_94A27C77E601
+
+: ME_15394ADD1596
+ CONST UID '15394ADD1596'
+ CONST Name 'Ini_Reg'
+ CONST IsSummoned true
+ CONST Class class_Operation
+ : Stereotype st_ini::Operation ;
+ %SUMMARY 'Регистрация Tkw_ChangesBetweenEditons_Control_Text_Push' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_94A27C77E601 // Tkw_ChangesBetweenEditons_Control_Text_Push
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_15394ADD1596 Ini_Reg
+
+: ME_2983BFBAE719
+ CONST UID '2983BFBAE719'
+ CONST IsSummoned true
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_94A27C77E601 // Tkw_ChangesBetweenEditons_Control_Text_Push
+ ;
+ : Target WL 'ME_4DB0091E033E' '4DAF19F600C5.pas.ms.script' // TtfwContext
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_2983BFBAE719 
+
+: ME_4DAEEDE10285_ME_94A27C77E601
+ CONST UID '4DAEEDE10285'
+ CONST Name 'DoDoIt'
+ : Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.pas.ms.script' // DoDoIt
+ ;
+ : Implementor ME_94A27C77E601 // Tkw_ChangesBetweenEditons_Control_Text_Push
+ ;
+ CONST OpKind opkind_Overridden
+ CONST "UseNewGen" 'undefined'
+ref; // ME_4DAEEDE10285_ME_94A27C77E601 DoDoIt
+
+: ME_4DB0614603C8_ME_94A27C77E601
+ CONST UID '4DB0614603C8'
+ CONST Name 'GetWordNameForRegister'
+ : Original WL 'ME_4DB0614603C8' '4F3E3F5F0160.pas.ms.script' // GetWordNameForRegister
+ ;
+ : Implementor ME_94A27C77E601 // Tkw_ChangesBetweenEditons_Control_Text_Push
+ ;
+ CONST OpKind opkind_Overridden
+ CONST "UseNewGen" 'undefined'
+ref; // ME_4DB0614603C8_ME_94A27C77E601 GetWordNameForRegister
+
+: ME_94A27C77E601
+ CONST UID '94A27C77E601'
+ CONST Name 'Tkw_ChangesBetweenEditons_Control_Text_Push'
+ CONST IsSummoned true
+ CONST Class class_Class
+ : Stereotype st_ScriptKeyword ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Слово словаря для контрола Text'#13#10'----'#13#10'*Пример использования*:'#13#10'{code}'#13#10'контрол::Text:push pop:control:SetFocus ASSERT'#13#10'{code}' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_B796AE5D8508 // ChangesBetweenEditonsKeywordsPack
+ ;
+ : Inherits
+   Seq: ( WL 'ME_4F2141AD0203' '4F69DF560034.pas.ms.script' // byname_control_push
+ )
+ ; // Inherits
+ : Operations
+   Seq: ( ME_15394ADD1596 // Ini_Reg
+ )
+ ; // Operations
+ : Overridden
+   Seq: ( ME_4DAEEDE10285_ME_94A27C77E601 // DoDoIt
+ ME_4DB0614603C8_ME_94A27C77E601 // GetWordNameForRegister
+ )
+ ; // Overridden
+ : Dependencies
+   Seq: ( ME_2983BFBAE719 // 
+ )
+ ; // Dependencies
+ CONST "NameForScript" 'контрол::Text:push'
+ CONST "UseNewGen" 'undefined'
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View\ChangesBetweenEditons'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View\ChangesBetweenEditons'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\View\ChangesBetweenEditons'
+
+ref; // ME_94A27C77E601 Tkw_ChangesBetweenEditons_Control_Text_Push
+
+FORWARD ME_213CB8D54D9D
+
+: ME_4A1B107F7093
+ CONST UID '4A1B107F7093'
+ CONST Name 'Ini_Reg'
+ CONST IsSummoned true
+ CONST Class class_Operation
+ : Stereotype st_ini::Operation ;
+ %SUMMARY 'Регистрация Tkw_ChangesBetweenEditons_Component_TextSource' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_213CB8D54D9D // Tkw_ChangesBetweenEditons_Component_TextSource
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_4A1B107F7093 Ini_Reg
+
+: ME_B3854CBF794F
+ CONST UID 'B3854CBF794F'
+ CONST IsSummoned true
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_213CB8D54D9D // Tkw_ChangesBetweenEditons_Component_TextSource
+ ;
+ : Target WL 'ME_49512B040003' '495119A901CE.pas.ms.script' // TnscTextSource
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_B3854CBF794F 
+
+: ME_A1E132F84C00
+ CONST UID 'A1E132F84C00'
+ CONST IsSummoned true
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_213CB8D54D9D // Tkw_ChangesBetweenEditons_Component_TextSource
+ ;
+ : Target WL 'ME_561F9F9400BC' '561F9F7D02A7.pas.ms.script' // TtfwClassRef
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_A1E132F84C00 
+
+: ME_4DB0614603C8_ME_213CB8D54D9D
+ CONST UID '4DB0614603C8'
+ CONST Name 'GetWordNameForRegister'
+ : Original WL 'ME_4DB0614603C8' '4F3E3F5F0160.pas.ms.script' // GetWordNameForRegister
+ ;
+ : Implementor ME_213CB8D54D9D // Tkw_ChangesBetweenEditons_Component_TextSource
+ ;
+ CONST OpKind opkind_Overridden
+ CONST "UseNewGen" 'undefined'
+ref; // ME_4DB0614603C8_ME_213CB8D54D9D GetWordNameForRegister
+
+: ME_4DDFD2EA0116_ME_213CB8D54D9D
+ CONST UID '4DDFD2EA0116'
+ CONST Name 'GetString'
+ : Original WL 'ME_4DDFD2EA0116' '4F3E3F5F0160.pas.ms.script' // GetString
+ ;
+ : Implementor ME_213CB8D54D9D // Tkw_ChangesBetweenEditons_Component_TextSource
+ ;
+ CONST OpKind opkind_Overridden
+ CONST "UseNewGen" 'undefined'
+ref; // ME_4DDFD2EA0116_ME_213CB8D54D9D GetString
+
+: ME_52A086150180_ME_213CB8D54D9D
+ CONST UID '52A086150180'
+ CONST Name 'RegisterInEngine'
+ : Original WL 'ME_52A086150180' '4F3E3F5F0160.pas.ms.script' // RegisterInEngine
+ ;
+ : Implementor ME_213CB8D54D9D // Tkw_ChangesBetweenEditons_Component_TextSource
+ ;
+ CONST OpKind opkind_Overridden
+ CONST "UseNewGen" 'undefined'
+ CONST "is static" true
+ref; // ME_52A086150180_ME_213CB8D54D9D RegisterInEngine
+
+: ME_213CB8D54D9D
+ CONST UID '213CB8D54D9D'
+ CONST Name 'Tkw_ChangesBetweenEditons_Component_TextSource'
+ CONST IsSummoned true
+ CONST Class class_Class
+ : Stereotype st_ScriptKeyword ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Слово словаря для идентификатора контрола TextSource'#13#10'----'#13#10'*Пример использования*:'#13#10'{code}'#13#10'компонент::TextSource TryFocus ASSERT'#13#10'{code}' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_B796AE5D8508 // ChangesBetweenEditonsKeywordsPack
+ ;
+ : Inherits
+   Seq: ( WL 'ME_508527F30183' '54DB92D203C9.pas.ms.script' // TtfwControlString
+ )
+ ; // Inherits
+ : Operations
+   Seq: ( ME_4A1B107F7093 // Ini_Reg
+ )
+ ; // Operations
+ : Overridden
+   Seq: ( ME_4DB0614603C8_ME_213CB8D54D9D // GetWordNameForRegister
+ ME_4DDFD2EA0116_ME_213CB8D54D9D // GetString
+ ME_52A086150180_ME_213CB8D54D9D // RegisterInEngine
+ )
+ ; // Overridden
+ : Dependencies
+   Seq: ( ME_B3854CBF794F // 
+ ME_A1E132F84C00 // 
+ )
+ ; // Dependencies
+ CONST "NameForScript" 'компонент::TextSource'
+ CONST "UseNewGen" 'undefined'
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View\ChangesBetweenEditons'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View\ChangesBetweenEditons'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\View\ChangesBetweenEditons'
+
+ref; // ME_213CB8D54D9D Tkw_ChangesBetweenEditons_Component_TextSource
+
+FORWARD ME_1945ED3EEC31
+
+: ME_D5CEAED9B305
+ CONST UID 'D5CEAED9B305'
+ CONST Name 'aCtx'
+ CONST IsSummoned true
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_4DB0091E033E' '4DAF19F600C5.pas.ms.script' // TtfwContext
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_D5CEAED9B305 aCtx
+
+: ME_D5CEAED9B306
+ CONST UID 'D5CEAED9B306'
+ CONST Name 'aChangesBetweenEditonsForm'
+ CONST IsSummoned true
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target ME_4DDCD6800267 // ChangesBetweenEditons
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_D5CEAED9B306 aChangesBetweenEditonsForm
+
+: ME_5B130D443290
+ CONST UID '5B130D443290'
+ CONST Name 'Text'
+ CONST IsSummoned true
+ CONST Class class_Operation
+ %SUMMARY 'Реализация слова скрипта .TChangesBetweenEditonsForm.Text' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_1945ED3EEC31 // ChangesBetweenEditonsForm_Text
+ ;
+ : Target WL 'ME_495119C4011A' '495119A901CE.pas.ms.script' // TnscEditor
+ ;
+ : Parameters
+   Seq: ( ME_D5CEAED9B305 // aCtx
+ ME_D5CEAED9B306 // aChangesBetweenEditonsForm
+ )
+ ; // Parameters
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_5B130D443290 Text
+
+: ME_8E50B66FF1EE
+ CONST UID '8E50B66FF1EE'
+ CONST Name 'Ini_Reg'
+ CONST IsSummoned true
+ CONST Class class_Operation
+ : Stereotype st_ini::Operation ;
+ %SUMMARY 'Регистрация ChangesBetweenEditonsForm_Text' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_1945ED3EEC31 // ChangesBetweenEditonsForm_Text
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_8E50B66FF1EE Ini_Reg
+
+: ME_B9E9D66AE5E4
+ CONST UID 'B9E9D66AE5E4'
+ CONST IsSummoned true
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_1945ED3EEC31 // ChangesBetweenEditonsForm_Text
+ ;
+ : Target WL 'ME_4DB0091E033E' '4DAF19F600C5.pas.ms.script' // TtfwContext
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_B9E9D66AE5E4 
+
+: ME_25CD6B318D8A
+ CONST UID '25CD6B318D8A'
+ CONST IsSummoned true
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_1945ED3EEC31 // ChangesBetweenEditonsForm_Text
+ ;
+ : Target WL 'ME_4767748503B5' '4767743E00E5.pas.ms.script' // TTypeInfo
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_25CD6B318D8A 
+
+: ME_033FC3386DFB
+ CONST UID '033FC3386DFB'
+ CONST IsSummoned true
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_1945ED3EEC31 // ChangesBetweenEditonsForm_Text
+ ;
+ : Target WL 'ME_47877EB202FB' '4AB0C3C60310.pas.ms.script' // SysUtils
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_033FC3386DFB 
+
+: ME_4DAEEDE10285_ME_1945ED3EEC31
+ CONST UID '4DAEEDE10285'
+ CONST Name 'DoDoIt'
+ : Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.pas.ms.script' // DoDoIt
+ ;
+ : Implementor ME_1945ED3EEC31 // ChangesBetweenEditonsForm_Text
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "UseNewGen" 'undefined'
+ref; // ME_4DAEEDE10285_ME_1945ED3EEC31 DoDoIt
+
+: ME_4DB0614603C8_ME_1945ED3EEC31
+ CONST UID '4DB0614603C8'
+ CONST Name 'GetWordNameForRegister'
+ : Original WL 'ME_4DB0614603C8' '4F3E3F5F0160.pas.ms.script' // GetWordNameForRegister
+ ;
+ : Implementor ME_1945ED3EEC31 // ChangesBetweenEditonsForm_Text
+ ;
+ CONST OpKind opkind_Overridden
+ CONST "UseNewGen" 'undefined'
+ref; // ME_4DB0614603C8_ME_1945ED3EEC31 GetWordNameForRegister
+
+: ME_52D00B00031A_ME_1945ED3EEC31
+ CONST UID '52D00B00031A'
+ CONST Name 'SetValuePrim'
+ : Original WL 'ME_52D00B00031A' '4DAF19F600C5.pas.ms.script' // SetValuePrim
+ ;
+ : Implementor ME_1945ED3EEC31 // ChangesBetweenEditonsForm_Text
+ ;
+ CONST OpKind opkind_Overridden
+ CONST "UseNewGen" 'undefined'
+ref; // ME_52D00B00031A_ME_1945ED3EEC31 SetValuePrim
+
+: ME_551544E2001A_ME_1945ED3EEC31
+ CONST UID '551544E2001A'
+ CONST Name 'GetResultTypeInfo'
+ : Original WL 'ME_551544E2001A' '4DAF19F600C5.pas.ms.script' // GetResultTypeInfo
+ ;
+ : Implementor ME_1945ED3EEC31 // ChangesBetweenEditonsForm_Text
+ ;
+ CONST OpKind opkind_Overridden
+ CONST "UseNewGen" 'undefined'
+ref; // ME_551544E2001A_ME_1945ED3EEC31 GetResultTypeInfo
+
+: ME_559687E6025A_ME_1945ED3EEC31
+ CONST UID '559687E6025A'
+ CONST Name 'GetAllParamsCount'
+ : Original WL 'ME_559687E6025A' '4DAF19F600C5.pas.ms.script' // GetAllParamsCount
+ ;
+ : Implementor ME_1945ED3EEC31 // ChangesBetweenEditonsForm_Text
+ ;
+ CONST OpKind opkind_Overridden
+ CONST "UseNewGen" 'undefined'
+ref; // ME_559687E6025A_ME_1945ED3EEC31 GetAllParamsCount
+
+: ME_5617F4D00243_ME_1945ED3EEC31
+ CONST UID '5617F4D00243'
+ CONST Name 'ParamsTypes'
+ : Original WL 'ME_5617F4D00243' '4DAF19F600C5.pas.ms.script' // ParamsTypes
+ ;
+ : Implementor ME_1945ED3EEC31 // ChangesBetweenEditonsForm_Text
+ ;
+ CONST OpKind opkind_Overridden
+ CONST "UseNewGen" 'undefined'
+ref; // ME_5617F4D00243_ME_1945ED3EEC31 ParamsTypes
+
+: ME_1945ED3EEC31
+ CONST UID '1945ED3EEC31'
+ CONST Name 'ChangesBetweenEditonsForm_Text'
+ CONST IsSummoned true
+ CONST Class class_Class
+ : Stereotype st_ScriptKeyword ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Слово скрипта .TChangesBetweenEditonsForm.Text'#13#10'{panel}Контрол Text формы TChangesBetweenEditonsForm{panel}'#13#10'*Тип результата:* TnscEditor'#13#10'*Пример:*'#13#10'{code}'#13#10'OBJECT VAR l_TnscEditor'#13#10' aChangesBetweenEditonsForm .TChangesBetweenEditonsForm.Text >>> l_TnscEditor'#13#10'{code} ' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_B796AE5D8508 // ChangesBetweenEditonsKeywordsPack
+ ;
+ : Inherits
+   Seq: ( WL 'ME_5619169603BE' '55CCADD2013D.pas.ms.script' // TtfwPropertyLike
+ )
+ ; // Inherits
+ : Operations
+   Seq: ( ME_5B130D443290 // Text
+ ME_8E50B66FF1EE // Ini_Reg
+ )
+ ; // Operations
+ : Implemented
+   Seq: ( ME_4DAEEDE10285_ME_1945ED3EEC31 // DoDoIt
+ )
+ ; // Implemented
+ : Overridden
+   Seq: ( ME_4DB0614603C8_ME_1945ED3EEC31 // GetWordNameForRegister
+ ME_52D00B00031A_ME_1945ED3EEC31 // SetValuePrim
+ ME_551544E2001A_ME_1945ED3EEC31 // GetResultTypeInfo
+ ME_559687E6025A_ME_1945ED3EEC31 // GetAllParamsCount
+ ME_5617F4D00243_ME_1945ED3EEC31 // ParamsTypes
+ )
+ ; // Overridden
+ : Dependencies
+   Seq: ( ME_B9E9D66AE5E4 // 
+ ME_25CD6B318D8A // 
+ ME_033FC3386DFB // 
+ )
+ ; // Dependencies
+ CONST "NameForScript" '.TChangesBetweenEditonsForm.Text'
+ CONST "UseNewGen" 'undefined'
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View\ChangesBetweenEditons'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View\ChangesBetweenEditons'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\View\ChangesBetweenEditons'
+ CONST extprop:pas:TypeName 'TkwChangesBetweenEditonsFormText'
+
+ref; // ME_1945ED3EEC31 ChangesBetweenEditonsForm_Text
+
+: ME_78EBCD7D46D2
+ CONST UID '78EBCD7D46D2'
+ CONST Name 'Text'
+ CONST IsSummoned true
+ CONST Class class_Attribute
+ : Stereotype st_readonly::Attribute ;
+ %SUMMARY 'Контрол Text формы TChangesBetweenEditonsForm' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_agr
+ : Parent ME_B796AE5D8508 // ChangesBetweenEditonsKeywordsPack
+ ;
+ : Target WL 'ME_495119C4011A' '495119A901CE.pas.ms.script' // TnscEditor
+ ;
+ CONST "NameForScript" '.TChangesBetweenEditonsForm.Text'
+ CONST "UseNewGen" 'undefined'
+ CONST "mapped" true
+
+ref; // ME_78EBCD7D46D2 Text
+
+: ME_3E547098F908
+ CONST UID '3E547098F908'
+ CONST Name 'Text'
+ CONST IsSummoned true
+ CONST Class class_Operation
+ : Stereotype st_keyword::Operation ;
+ %SUMMARY 'Контрол Text формы TChangesBetweenEditonsForm' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_B796AE5D8508 // ChangesBetweenEditonsKeywordsPack
+ ;
+ : Target WL 'ME_495119C4011A' '495119A901CE.pas.ms.script' // TnscEditor
+ ;
+ CONST "NameForScript" '.TChangesBetweenEditonsForm.Text'
+ CONST "UseNewGen" 'undefined'
+ CONST "bind params" 'undefined'
+ CONST "lvalue" 'undefined'
+ CONST "mapped" true
+
+ref; // ME_3E547098F908 Text
+
+: ME_59928ECF7B31
+ CONST UID '59928ECF7B31'
+ CONST Name 'Reg_Type_TtfwContext'
+ CONST IsSummoned true
+ CONST Class class_Operation
+ : Stereotype st_ini::Operation ;
+ %SUMMARY 'Регистрация типа TtfwContext' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_B796AE5D8508 // ChangesBetweenEditonsKeywordsPack
+ ;
+ CONST "UseNewGen" 'undefined'
+ : SpelledFor WL 'ME_4DB0091E033E' '4DAF19F600C5.pas.ms.script' // TtfwContext
+ ;
+
+ref; // ME_59928ECF7B31 Reg_Type_TtfwContext
+
+: ME_7658DB9273A0
+ CONST UID '7658DB9273A0'
+ CONST Name 'Reg_Type_ChangesBetweenEditons'
+ CONST IsSummoned true
+ CONST Class class_Operation
+ : Stereotype st_ini::Operation ;
+ %SUMMARY 'Регистрация типа ChangesBetweenEditons' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_B796AE5D8508 // ChangesBetweenEditonsKeywordsPack
+ ;
+ CONST "UseNewGen" 'undefined'
+ : SpelledFor ME_4DDCD6800267 // ChangesBetweenEditons
+ ;
+
+ref; // ME_7658DB9273A0 Reg_Type_ChangesBetweenEditons
+
+: ME_4FAF8EF01A0B
+ CONST UID '4FAF8EF01A0B'
+ CONST Name 'Reg_Type_TnscEditor'
+ CONST IsSummoned true
+ CONST Class class_Operation
+ : Stereotype st_ini::Operation ;
+ %SUMMARY 'Регистрация типа TnscEditor' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_B796AE5D8508 // ChangesBetweenEditonsKeywordsPack
+ ;
+ CONST "UseNewGen" 'undefined'
+ : SpelledFor WL 'ME_495119C4011A' '495119A901CE.pas.ms.script' // TnscEditor
+ ;
+
+ref; // ME_4FAF8EF01A0B Reg_Type_TnscEditor
+
+: ME_5806A554854D
+ CONST UID '5806A554854D'
+ CONST IsSummoned true
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_B796AE5D8508 // ChangesBetweenEditonsKeywordsPack
+ ;
+ : Target WL 'ME_55153C2C036F' '55BA28CE0290.pas.ms.script' // TypeInfoExt
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_5806A554854D 
+
+: ME_BA1D17802EA3
+ CONST UID 'BA1D17802EA3'
+ CONST IsSummoned true
+ CONST Class class_Dependency
+ : Stereotype st_injects::Dependency ;
+ : Parent ME_B796AE5D8508 // ChangesBetweenEditonsKeywordsPack
+ ;
+ : Target ME_4DDCD6800267 // ChangesBetweenEditons
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_BA1D17802EA3 
+
+: ME_882C3EEF8B93
+ CONST UID '882C3EEF8B93'
+ CONST IsSummoned true
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_B796AE5D8508 // ChangesBetweenEditonsKeywordsPack
+ ;
+ : Target WL 'ME_5527F8330362' '5527F81C020E.pas.ms.script' // TtfwTypeRegistrator
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_882C3EEF8B93 
+
+: ME_B796AE5D8508
+ CONST UID 'B796AE5D8508'
+ CONST Name 'ChangesBetweenEditonsKeywordsPack'
+ CONST IsSummoned true
+ CONST Class class_Class
+ : Stereotype st_ScriptKeywordsPack ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Набор слов словаря для доступа к экземплярам контролов формы ChangesBetweenEditons' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_4DDBAF2B0028 // ChangesBetweenEditions
+ ;
+ : Inherits
+   Seq: ( ME_4DDCD6800267 // ChangesBetweenEditons
+ )
+ ; // Inherits
+ : Attributes
+   Seq: ( ME_78EBCD7D46D2 // Text
+ )
+ ; // Attributes
+ : Operations
+   Seq: ( ME_3E547098F908 // Text
+ ME_59928ECF7B31 // Reg_Type_TtfwContext
+ ME_7658DB9273A0 // Reg_Type_ChangesBetweenEditons
+ ME_4FAF8EF01A0B // Reg_Type_TnscEditor
+ )
+ ; // Operations
+ : Children
+   Seq: ( ME_67948A4EBDB0 // Tkw_Form_ChangesBetweenEditons
+ ME_1BA38271BDB3 // Tkw_ChangesBetweenEditons_Control_Text
+ ME_94A27C77E601 // Tkw_ChangesBetweenEditons_Control_Text_Push
+ ME_213CB8D54D9D // Tkw_ChangesBetweenEditons_Component_TextSource
+ ME_1945ED3EEC31 // ChangesBetweenEditonsForm_Text
+ )
+ ; // Children
+ : Dependencies
+   Seq: ( ME_5806A554854D // 
+ ME_BA1D17802EA3 // 
+ ME_882C3EEF8B93 // 
+ )
+ ; // Dependencies
+ CONST "UseNewGen" 'undefined'
+ CONST "ifndef" 'NoScripts'
+ CONST "needs script" 'undefined'
+ CONST "no class name" 'undefined'
+ CONST "no hands" false
+ CONST "no_pop" true
+ : Generators
+ Seq: (
+ gen_intf.pas
+ )
+ ; // Generators
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View\ChangesBetweenEditons'
+ CONST intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\ChangesBetweenEditons\ChangesBetweenEditonsKeywordsPack.pas'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View\ChangesBetweenEditons'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\View\ChangesBetweenEditons'
+
+ref; // ME_B796AE5D8508 ChangesBetweenEditonsKeywordsPack
+
+FORWARD ME_299FA6782B55
+
+: ME_769400C62905
+ CONST UID '769400C62905'
+ CONST Name 'CannotShowChanges'
+ CONST IsSummoned true
+ CONST Class class_Attribute
+ %SUMMARY '''Изменения не могут быть отображены в сводном обзоре''' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_299FA6782B55 // LCImplLocal
+ ;
+ : Target WL 'ME_4E01D1E002AE' '4F9BDEEE01BC.pas.ms.script' // Tl3MessageID
+ ;
+ CONST Value '(rS : -1; rLocalized : false; rKey : ''CannotShowChanges''; rValue : ''Изменения не могут быть отображены в сводном обзоре'')'
+ : ValueType WL 'ME_4E01D1E002AE' '4F9BDEEE01BC.pas.ms.script' // Tl3MessageID
+ ;
+ CONST "AutoInc" false
+ CONST "UseNewGen" 'undefined'
+ CONST "forced type" 'none'
+ CONST "is define" false
+ CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''CannotShowChanges''; rValue : ''Изменения не могут быть отображены в сводном обзоре'')'
+
+ref; // ME_769400C62905 CannotShowChanges
+
+: ME_299FA6782B55
+ CONST UID '299FA6782B55'
+ CONST Name 'LCImplLocal'
+ CONST IsSummoned true
+ CONST Class class_Class
+ : Stereotype st_Constants ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Локализуемые строки Local' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ : Parent ME_4DDBAF2B0028 // ChangesBetweenEditions
+ ;
+ : Attributes
+   Seq: ( ME_769400C62905 // CannotShowChanges
+ )
+ ; // Attributes
+ CONST "UseNewGen" 'undefined'
+ CONST "elements prefix" 'str'
+ CONST "spell names" false
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View\ChangesBetweenEditons'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View\ChangesBetweenEditons'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\View\ChangesBetweenEditons'
+ CONST extprop:pas:ElementPrefixBase 'str'
+ CONST extprop:pas:ElementPrefix 'str_'
+
+ref; // ME_299FA6782B55 LCImplLocal
+
+FORWARD ME_4DDCBB5D0298
+
+: ME_4DDCBB760297
+ CONST UID '4DDCBB760297'
+ CONST Name 'aLeft'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_45EEB6520191' '4570511E038A.pas.ms.script' // Document
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_4DDCBB760297 aLeft
+
+: ME_4DDCBB7602C4
+ CONST UID '4DDCBB7602C4'
+ CONST Name 'aRight'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_45EEB6520191' '4570511E038A.pas.ms.script' // Document
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_4DDCBB7602C4 aRight
+
+: ME_4DDCBB690314
+ CONST UID '4DDCBB690314'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_4DDCBB5D0298 // ViewChangedFragments
+ ;
+ : Parameters
+   Seq: ( ME_4DDCBB760297 // aLeft
+ ME_4DDCBB7602C4 // aRight
+ )
+ ; // Parameters
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_4DDCBB690314 DoIt
+
+: ME_4DDCBBE902D0
+ CONST UID '4DDCBBE902D0'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4DDCBB5D0298 // ViewChangedFragments
+ ;
+ : Target WL 'ME_4B1E8FAE0380' '48F747EC0073.pas.ms.script' // DefDataAdapter
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_4DDCBBE902D0 
+
+: ME_4DDCC5670027
+ CONST UID '4DDCC5670027'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4DDCBB5D0298 // ViewChangedFragments
+ ;
+ : Target WL 'ME_4D78D8200190' '4570511E038A.pas.ms.script' // DiffDocDataProvider
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_4DDCC5670027 
+
+: ME_4DDCDA4C0222
+ CONST UID '4DDCDA4C0222'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4DDCBB5D0298 // ViewChangedFragments
+ ;
+ : Target WL 'ME_4DDCD7D0002E' '4DDCD7B600D5.pas.ms.script' // TsdsChangesBetweenEditions
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_4DDCDA4C0222 
+
+: ME_4DDCDA5003A9
+ CONST UID '4DDCDA5003A9'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4DDCBB5D0298 // ViewChangedFragments
+ ;
+ : Target WL 'ME_4DDCD9670300' '4DDCD7B600D5.pas.ms.script' // TnsChangesBetweenEditionsInfo
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_4DDCDA5003A9 
+
+: ME_4DDCDE1A0235
+ CONST UID '4DDCDE1A0235'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4DDCBB5D0298 // ViewChangedFragments
+ ;
+ : Target ME_4DDCBC5C0211 // ViewChangedFragments$FSF
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_4DDCDE1A0235 
+
+: ME_4EDE2967009B
+ CONST UID '4EDE2967009B'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4DDCBB5D0298 // ViewChangedFragments
+ ;
+ : Target WL 'ME_4ED7B9ED0009' '4570511E038A.pas.ms.script' // AllChangesInTables
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_4EDE2967009B 
+
+: ME_4EDE2AF5035C
+ CONST UID '4EDE2AF5035C'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4DDCBB5D0298 // ViewChangedFragments
+ ;
+ : Target WL 'ME_4E01D696020C' '4AADF9450143.pas.ms.script' // vcmMessagesSupport
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_4EDE2AF5035C 
+
+: ME_4DDCBB5D0298
+ CONST UID '4DDCBB5D0298'
+ CONST Name 'ViewChangedFragments'
+ CONST Class class_Class
+ : Stereotype st_FormSetFactory ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_4DDBAF2B0028 // ChangesBetweenEditions
+ ;
+ : Operations
+   Seq: ( ME_4DDCBB690314 // DoIt
+ )
+ ; // Operations
+ : Dependencies
+   Seq: ( ME_4DDCBBE902D0 // 
+ ME_4DDCC5670027 // 
+ ME_4DDCDA4C0222 // 
+ ME_4DDCDA5003A9 // 
+ ME_4DDCDE1A0235 // 
+ ME_4EDE2967009B // 
+ ME_4EDE2AF5035C // 
+ )
+ ; // Dependencies
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_4DDCBB5D0298 ViewChangedFragments
+
+FORWARD ME_4DE513C202B3
+
+: ME_4DE513FC01A9
+ CONST UID '4DE513FC01A9'
+ CONST Name 'aDocument'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_45EEB6520191' '4570511E038A.pas.ms.script' // Document
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_4DE513FC01A9 aDocument
+
+: ME_4DE513F30186
+ CONST UID '4DE513F30186'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_4DE513C202B3 // ViewChangedFragmentsForPrevEdition
+ ;
+ : Parameters
+   Seq: ( ME_4DE513FC01A9 // aDocument
+ )
+ ; // Parameters
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_4DE513F30186 DoIt
+
+: ME_4DE513C202B3
+ CONST UID '4DE513C202B3'
+ CONST Name 'ViewChangedFragmentsForPrevEdition'
+ CONST Class class_Class
+ : Stereotype st_FormSetFactory ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Просмотр изменёных фрагментов в сравнении с предыдущей редакцией' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_4DDBAF2B0028 // ChangesBetweenEditions
+ ;
+ : Operations
+   Seq: ( ME_4DE513F30186 // DoIt
+ )
+ ; // Operations
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_4DE513C202B3 ViewChangedFragmentsForPrevEdition
+
+: ME_C6EB40842F5A
+ CONST UID 'C6EB40842F5A'
+ CONST Name 'Init_Str_CannotShowChanges'
+ CONST IsSummoned true
+ CONST Class class_Operation
+ : Stereotype st_ini::Operation ;
+ %SUMMARY 'Инициализация str_CannotShowChanges' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_4DDBAF2B0028 // ChangesBetweenEditions
+ ;
+ CONST "UseNewGen" 'undefined'
+ : Speller ME_4EDE292F00CC // CannotShowChanges
+ ;
+ : SpelledFor ME_769400C62905 // CannotShowChanges
+ ;
+
+ref; // ME_C6EB40842F5A Init_Str_CannotShowChanges
+
+: ME_FA6F5BF63928
+ CONST UID 'FA6F5BF63928'
+ CONST IsSummoned true
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4DDBAF2B0028 // ChangesBetweenEditions
+ ;
+ : Target WL 'ME_47F25BC801DB' '47D0E1500033.pas.ms.script' // vcmBase
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_FA6F5BF63928 
+
+: ME_E66E4065A5EC
+ CONST UID 'E66E4065A5EC'
+ CONST IsSummoned true
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4DDBAF2B0028 // ChangesBetweenEditions
+ ;
+ : Target WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_E66E4065A5EC 
+
+: ME_CD0CBEFDB4E4
+ CONST UID 'CD0CBEFDB4E4'
+ CONST IsSummoned true
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4DDBAF2B0028 // ChangesBetweenEditions
+ ;
+ : Target WL 'ME_4E01D1E002AE' '4F9BDEEE01BC.pas.ms.script' // Tl3MessageID
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_CD0CBEFDB4E4 
+
+: ME_18B16C5B48A6
+ CONST UID '18B16C5B48A6'
+ CONST IsSummoned true
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4DDBAF2B0028 // ChangesBetweenEditions
+ ;
+ : Target WL 'ME_4AB0EE02004E' '4799D29F033F.pas.ms.script' // Dialogs
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_18B16C5B48A6 
+
+: ME_4DDBAF2B0028
+ CONST UID '4DDBAF2B0028'
+ CONST Name 'ChangesBetweenEditions'
+ CONST Class class_Class
+ : Stereotype st_VCMFormsPack ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Просмотр только измененных фрагментов' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4DDBAF0A0029 // ChangesBetweenEditons
+ ;
+ : Operations
+   Seq: ( ME_4DDCBB5D0298 // ViewChangedFragments
+ ME_4DE513C202B3 // ViewChangedFragmentsForPrevEdition
+ ME_C6EB40842F5A // Init_Str_CannotShowChanges
+ )
+ ; // Operations
+ : Children
+   Seq: ( ME_4DDCD6800267 // ChangesBetweenEditons
+ ME_4DDCBC5C0211 // ViewChangedFragments$FSF
+ ME_B796AE5D8508 // ChangesBetweenEditonsKeywordsPack
+ )
+ ; // Children
+ : Constants
+   Seq: ( ME_4EDE291E00DA // Local
+ ME_299FA6782B55 // LCImplLocal
+ )
+ ; // Constants
+ : Dependencies
+   Seq: ( ME_FA6F5BF63928 // 
+ ME_E66E4065A5EC // 
+ ME_CD0CBEFDB4E4 // 
+ ME_18B16C5B48A6 // 
+ )
+ ; // Dependencies
+ CONST "UseNewGen" 'undefined'
+ CONST "author" 'Люлин А.В.'
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" true
+ CONST "register in scripts" 'undefined'
+ CONST "started" '24.05.2011 17:14'
+ : Generators
+ Seq: (
+ gen_intf.pas
+ )
+ ; // Generators
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View\ChangesBetweenEditons'
+ CONST intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\ChangesBetweenEditons\ChangesBetweenEditions_Module.pas'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View\ChangesBetweenEditons'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\View\ChangesBetweenEditons'
+ CONST extprop:pas:TypeName 'TChangesBetweenEditionsModule'
+ CONST extprop:pas:UnitName 'ChangesBetweenEditions_Module'
+
+ref; // ME_4DDBAF2B0028 ChangesBetweenEditions
+
+: ME_4DDBAF0A0029
+ CONST UID '4DDBAF0A0029'
+ CONST Name 'ChangesBetweenEditons'
+ CONST Class class_Category
+ : Stereotype st_VCMModule ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent WL 'ME_4DDBAEFE0183' '4DDBAEFE0183.pas.ms.script' // View
+ ;
+ : Children
+   Seq: ( ME_4DDCD636016C // PrimChangesBetweenEditons
+ ME_4DDBAF2B0028 // ChangesBetweenEditions
+ )
+ ; // Children
+ : Depends
+   Seq: ( WL 'ME_4570511E038A' '4570511E038A.pas.ms.script' // Document
+ WL 'ME_4678137501EA' '4678137501EA.pas.ms.script' // k2Interfaces
+ WL 'ME_4678209200A6' '4678209200A6.pas.ms.script' // nevBase
+ WL 'ME_4683F37902CF' '4683F37902CF.pas.ms.script' // vcmInterfaces
+ WL 'ME_4767743E00E5' '4767743E00E5.pas.ms.script' // TypInfo
+ WL 'ME_47913B47006E' '47913B47006E.pas.ms.script' // l3CoreObjects
+ WL 'ME_4799D29F033F' '4799D29F033F.pas.ms.script' // Implementation
+ WL 'ME_47B9727603BE' '47B9727603BE.pas.ms.script' // FormSets
+ WL 'ME_47C5207602D1' '47C5207602D1.pas.ms.script' // nevTools
+ WL 'ME_47D0E1500033' '47D0E1500033.pas.ms.script' // Implementation
+ WL 'ME_484900780017' '484900780017.pas.ms.script' // Работа с документом
+ WL 'ME_48F747EC0073' '48F747EC0073.pas.ms.script' // Common
+ WL 'ME_495119A901CE' '495119A901CE.pas.ms.script' // Editor
+ WL 'ME_49871D5103B9' '49871D5103B9.pas.ms.script' // StatusBar
+ WL 'ME_499EAAE502A8' '499EAAE502A8.pas.ms.script' // vcmUserControls
+ WL 'ME_4A77058200BA' '4A77058200BA.pas.ms.script' // Editions
+ WL 'ME_4A7C0BB70162' '4A7C0BB70162.pas.ms.script' // Base Forms
+ WL 'ME_4A815BFF0168' '4A815BFF0168.pas.ms.script' // Navigation
+ WL 'ME_4A8E5B58037D' '4A8E5B58037D.pas.ms.script' // StatusBar
+ WL 'ME_4A9807DB01A5' '4A9807DB01A5.pas.ms.script' // Strange
+ WL 'ME_4A9F98B901A5' '4A9F98B901A5.pas.ms.script' // BaseSearchInterfaces
+ WL 'ME_4AADF9450143' '4AADF9450143.pas.ms.script' // Visual
+ WL 'ME_4AB0C3C60310' '4AB0C3C60310.pas.ms.script' // Sys
+ WL 'ME_4DAF19F600C5' '4DAF19F600C5.pas.ms.script' // tfwScriptingInterfaces
+ WL 'ME_4DDCD71E027C' '4DDCD71E027C.pas.ms.script' // ChangesBetweenEditionsInterfaces
+ WL 'ME_4DDCD7B600D5' '4DDCD7B600D5.pas.ms.script' // ChangesBetweenEditionsImplementation
+ WL 'ME_4EDCC335011E' '4EDCC335011E.pas.ms.script' // Editions$Forms
+ WL 'ME_4F3E3F5F0160' '4F3E3F5F0160.pas.ms.script' // PrimitiveWords
+ WL 'ME_4F546F810266' '4F546F810266.pas.ms.script' // HAF
+ WL 'ME_4F69DF560034' '4F69DF560034.pas.ms.script' // ControlsProcessing
+ WL 'ME_54DB92D203C9' '54DB92D203C9.pas.ms.script' // VCL bindings
+ WL 'ME_5527F81C020E' '5527F81C020E.pas.ms.script' // TypesRegistration
+ WL 'ME_55BA28CE0290' '55BA28CE0290.pas.ms.script' // tfwScriptingTypes
+ WL 'ME_55CCADD2013D' '55CCADD2013D.pas.ms.script' // ClassLikeMapping
+ WL 'ME_561F9F7D02A7' '561F9F7D02A7.pas.ms.script' // ScriptEngine
+ )
+ ; // Depends
+ CONST "UseNewGen" 'undefined'
+ : Generators
+ Seq: (
+ gen_pas.script
+ gen_pas.script.runner
+ )
+ ; // Generators
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View\ChangesBetweenEditons'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View\ChangesBetweenEditons'
+ CONST pas.script:Path 'shared\models\NewSchool\Scripts\4DDBAF0A0029.pas.ms.script'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\4DDBAF0A0029.pas.ms.script.runner'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\View\ChangesBetweenEditons'
+
+ref; // ME_4DDBAF0A0029 ChangesBetweenEditons

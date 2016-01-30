@@ -64,15 +64,16 @@ ref; // ME_4D46E45F0100 aFileName
  : Parent ME_4D46B552013B // OutlinerTest
  ;
  : Parameters
-   @ ( ME_4D46E45F00C8 // aForm
+   Seq: ( ME_4D46E45F00C8 // aForm
  ME_4D46E45F0100 // aFileName
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_4D46E22801EB Load
 
 : ME_9A22A372C751
  CONST UID '9A22A372C751'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_4D46B552013B // OutlinerTest
@@ -89,6 +90,7 @@ ref; // ME_9A22A372C751
  ;
  : Implementor ME_4D46B552013B // OutlinerTest
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4C937013031D_ME_4D46B552013B GetFolder
 
 : ME_4DAED6F60146_ME_4D46B552013B
@@ -98,6 +100,7 @@ ref; // ME_4C937013031D_ME_4D46B552013B GetFolder
  ;
  : Implementor ME_4D46B552013B // OutlinerTest
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4DAED6F60146_ME_4D46B552013B GetModelElementGUID
 
 : ME_4D46B552013B
@@ -111,42 +114,49 @@ ref; // ME_4DAED6F60146_ME_4D46B552013B GetModelElementGUID
  : Parent ME_4D46B4E403E0 // OutlinerTests
  ;
  : Inherits
-   @ ( WL 'ME_4B2A11BC0255' '4B2A112B011A.pas.ms.script' // TBaseTest
- ) .SequenceCode.It
+   Seq: ( WL 'ME_4B2A11BC0255' '4B2A112B011A.pas.ms.script' // TBaseTest
+ )
  ; // Inherits
  : Implements
-   @ ( WL 'ME_4BCE9EF8033F' '4BCE9EA0028A.pas.ms.script' // FormProducer
- ) .SequenceCode.It
+   Seq: ( WL 'ME_4BCE9EF8033F' '4BCE9EA0028A.pas.ms.script' // FormProducer
+ )
  ; // Implements
  : Attributes
-   @ ( ME_4D46B809022C // FormClass
- ) .SequenceCode.It
+   Seq: ( ME_4D46B809022C // FormClass
+ )
  ; // Attributes
  : Operations
-   @ ( ME_4D46C7AE01E3 // DoIt()
+   Seq: ( ME_4D46C7AE01E3 // DoIt()
  ME_4D46E22801EB // Load
- ) .SequenceCode.It
+ )
  ; // Operations
  : Overridden
-   @ ( ME_4C937013031D_ME_4D46B552013B // GetFolder
+   Seq: ( ME_4C937013031D_ME_4D46B552013B // GetFolder
  ME_4DAED6F60146_ME_4D46B552013B // GetModelElementGUID
- ) .SequenceCode.It
+ )
  ; // Overridden
  : Dependencies
-   @ ( ME_9A22A372C751 // 
- ) .SequenceCode.It
+   Seq: ( ME_9A22A372C751 // 
+ )
  ; // Dependencies
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
  : Generators
- @ (
+ Seq: (
  gen_intf.pas
- ) .SequenceCode.It
+ )
  ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\Daily'
  CONST intf.pas:Path 'common\components\gui\Garant\Daily\OutlinerTest.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Daily'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\common\components\gui\Garant\Daily'
  CONST extprop:pas:TypeName 'TOutlinerTest'
+ CONST extprop:rc:SelfName 'OutlinerTest'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_4D46B552013B OutlinerTest
 
@@ -160,25 +170,30 @@ ref; // ME_4D46B552013B OutlinerTest
  : Parent WL 'ME_4B30C5FF0172' '4B30C5FF0172.pas.ms.script' // TestFormsTest
  ;
  : Children
-   @ ( ME_4D46B552013B // OutlinerTest
- ) .SequenceCode.It
+   Seq: ( ME_4D46B552013B // OutlinerTest
+ )
  ; // Children
  : Depends
-   @ ( WL 'ME_4AB0C3C60310' '4AB0C3C60310.pas.ms.script' // Sys
+   Seq: ( WL 'ME_4AB0C3C60310' '4AB0C3C60310.pas.ms.script' // Sys
  WL 'ME_4B2A0D6A0077' '4B2A0D6A0077.pas.ms.script' // Source
  WL 'ME_4B2A112B011A' '4B2A112B011A.pas.ms.script' // Source
  WL 'ME_4B30C6E3023C' '4B30C6E3023C.pas.ms.script' // Forms
  WL 'ME_4BCE9EA0028A' '4BCE9EA0028A.pas.ms.script' // MixIns
  WL 'ME_4D469729019F' '4D469729019F.pas.ms.script' // Outliner
- ) .SequenceCode.It
+ )
  ; // Depends
  : Generators
- @ (
+ Seq: (
  gen_pas.script
  gen_pas.script.runner
- ) .SequenceCode.It
+ )
  ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\Daily'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Daily'
  CONST pas.script:Path 'shared\models\NewSchool\Scripts\4D46B4E403E0.pas.ms.script'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
  CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\4D46B4E403E0.pas.ms.script.runner'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\common\components\gui\Garant\Daily'
 
 ref; // ME_4D46B4E403E0 OutlinerTests

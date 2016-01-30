@@ -13,6 +13,7 @@ FORWARD ME_4CA0B4860072
  ;
  : Implementor ME_4CA0B4860072 // ItsLAW
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_4B7AB0B6016E_ME_4CA0B4860072 CommandLineKey
 
 : ME_4B7C0B43005B_ME_4CA0B4860072
@@ -22,6 +23,7 @@ ref; // ME_4B7AB0B6016E_ME_4CA0B4860072 CommandLineKey
  ;
  : Implementor ME_4CA0B4860072 // ItsLAW
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_4B7C0B43005B_ME_4CA0B4860072 TimesPage
 
 : ME_4B7C0B670215_ME_4CA0B4860072
@@ -31,6 +33,7 @@ ref; // ME_4B7C0B43005B_ME_4CA0B4860072 TimesPage
  ;
  : Implementor ME_4CA0B4860072 // ItsLAW
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_4B7C0B670215_ME_4CA0B4860072 ResultsPage
 
 : ME_4C35A6DA02E9_ME_4CA0B4860072
@@ -40,6 +43,7 @@ ref; // ME_4B7C0B670215_ME_4CA0B4860072 ResultsPage
  ;
  : Implementor ME_4CA0B4860072 // ItsLAW
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4C35A6DA02E9_ME_4CA0B4860072 IsLAW
 
 : ME_4CA0B4860072
@@ -53,18 +57,18 @@ ref; // ME_4C35A6DA02E9_ME_4CA0B4860072 IsLAW
  : Parent ME_4CA0B21F0130 // TFW
  ;
  : Inherits
-   @ ( WL 'ME_4B7AAC7A031D' '4B2A112B011A.pas.ms.script' // TTestResultsPlace
- ) .SequenceCode.It
+   Seq: ( WL 'ME_4B7AAC7A031D' '4B2A112B011A.pas.ms.script' // TTestResultsPlace
+ )
  ; // Inherits
  : Implemented
-   @ ( ME_4B7AB0B6016E_ME_4CA0B4860072 // CommandLineKey
+   Seq: ( ME_4B7AB0B6016E_ME_4CA0B4860072 // CommandLineKey
  ME_4B7C0B43005B_ME_4CA0B4860072 // TimesPage
  ME_4B7C0B670215_ME_4CA0B4860072 // ResultsPage
- ) .SequenceCode.It
+ )
  ; // Implemented
  : Overridden
-   @ ( ME_4C35A6DA02E9_ME_4CA0B4860072 // IsLAW
- ) .SequenceCode.It
+   Seq: ( ME_4C35A6DA02E9_ME_4CA0B4860072 // IsLAW
+ )
  ; // Overridden
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
@@ -72,12 +76,19 @@ ref; // ME_4C35A6DA02E9_ME_4CA0B4860072 IsLAW
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
  : Generators
- @ (
+ Seq: (
  gen_intf.pas
- ) .SequenceCode.It
+ )
  ; // Generators
+ CONST dfm:PathOnly '\common\components'
  CONST intf.pas:Path 'common\components\TFWTest\ItsLAW.pas'
+ CONST intf.pas:PathOnly '\common\components\TFWTest'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\common\components'
  CONST extprop:pas:TypeName 'TItsLAW'
+ CONST extprop:rc:SelfName 'ItsLAW'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_4CA0B4860072 ItsLAW
 
@@ -92,11 +103,11 @@ ref; // ME_4CA0B4860072 ItsLAW
  : Parent WL 'ME_49B923B60333' '49B923B60333.pas.ms.script' // Shared Delphi Tests
  ;
  : Children
-   @ ( ME_4CA0B4860072 // ItsLAW
- ) .SequenceCode.It
+   Seq: ( ME_4CA0B4860072 // ItsLAW
+ )
  ; // Children
  : Depends
-   @ ( WL 'ME_4773D64E036C' '47913B47006E.pas.ms.script' // l3Base
+   Seq: ( WL 'ME_4773D64E036C' '47913B47006E.pas.ms.script' // l3Base
  WL 'ME_4787A405013D' '4AB0C3C60310.pas.ms.script' // Exception
  WL 'ME_4B2A0D8A03A0' '4B2A0D6A0077.pas.ms.script' // TextTestRunner
  WL 'ME_4B2A0D9401CC' '4B2A0D6A0077.pas.ms.script' // GUITestRunner
@@ -108,7 +119,7 @@ ref; // ME_4CA0B4860072 ItsLAW
  WL 'ME_4DAECE5D0060' '4B30FC850092.pas.ms.script' // TvcmInsiderTest
  WL 'ME_4DC24756009A' '5130776E01BE.pas.ms.script' // TAutoTestsSuite
  WL 'ME_4DEF306102FF' '4DEF302C0007.pas.ms.script' // TtfwScriptEngineEX
- ) .SequenceCode.It
+ )
  ; // Depends
  CONST "CONFIG_UC" false
  CONST "console" false
@@ -117,14 +128,20 @@ ref; // ME_4CA0B4860072 ItsLAW
  CONST "no scripts" 'undefined'
  CONST "old format" false
  : Generators
- @ (
+ Seq: (
  gen_intf.pas
  gen_pas.script
  gen_pas.script.runner
- ) .SequenceCode.It
+ )
  ; // Generators
+ CONST dfm:PathOnly '\common\components'
  CONST intf.pas:Path 'common\components\TFWTest\TFWTest.dpr'
+ CONST intf.pas:PathOnly '\common\components\TFWTest'
  CONST pas.script:Path 'shared\models\NewSchool\Scripts\4CA0B21F0130.pas.ms.script'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
  CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\4CA0B21F0130.pas.ms.script.runner'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\common\components'
+ CONST extprop:pas:UnitName 'TFWTest'
 
 ref; // ME_4CA0B21F0130 TFW

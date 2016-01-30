@@ -19,6 +19,7 @@ FORWARD ME_47A1D4ED01D2
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value '''Выполняется длительная операция...'''
 
 ref; // ME_47A1D4F903A3 rs_LongOperation
 
@@ -33,10 +34,14 @@ ref; // ME_47A1D4F903A3 rs_LongOperation
  : Parent ME_47A1D4C201E8 // l3Const
  ;
  : Attributes
-   @ ( ME_47A1D4F903A3 // rs_LongOperation
- ) .SequenceCode.It
+   Seq: ( ME_47A1D4F903A3 // rs_LongOperation
+ )
  ; // Attributes
  CONST "spell names" false
+ CONST dfm:PathOnly '\common\components\rtl\Garant\L3'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\L3'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_47A1D4ED01D2 Messages
 
@@ -56,6 +61,7 @@ FORWARD ME_47AC7CF90230
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value 'High(Longint)'
 
 ref; // ME_47AC7D1002C7 l3NilLong
 
@@ -73,6 +79,7 @@ ref; // ME_47AC7D1002C7 l3NilLong
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value 1440
 
 ref; // ME_47AC7D3E0187 l3Inch
 
@@ -90,6 +97,7 @@ ref; // ME_47AC7D3E0187 l3Inch
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value 254
 
 ref; // ME_47AC7D480392 l3mmInInch
 
@@ -106,6 +114,7 @@ ref; // ME_47AC7D480392 l3mmInInch
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value 'l3Inch div 16'
 
 ref; // ME_47AC7D550200 l3FontIndexDelta
 
@@ -123,6 +132,7 @@ ref; // ME_47AC7D550200 l3FontIndexDelta
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value 'l3Inch div 120'
 
 ref; // ME_47AC7D5B03E0 l3Epsilon
 
@@ -140,6 +150,7 @@ ref; // ME_47AC7D5B03E0 l3Epsilon
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value 'l3Epsilon * 4'
 
 ref; // ME_4AB9D25D0397 l3AlingDelta
 
@@ -157,6 +168,7 @@ ref; // ME_4AB9D25D0397 l3AlingDelta
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value 'Low(Longint) div 2'
 
 ref; // ME_4ABA205E0233 l3ShapeNil
 
@@ -171,16 +183,20 @@ ref; // ME_4ABA205E0233 l3ShapeNil
  : Parent ME_47A1D4C201E8 // l3Const
  ;
  : Attributes
-   @ ( ME_47AC7D1002C7 // l3NilLong
+   Seq: ( ME_47AC7D1002C7 // l3NilLong
  ME_47AC7D3E0187 // l3Inch
  ME_47AC7D480392 // l3mmInInch
  ME_47AC7D550200 // l3FontIndexDelta
  ME_47AC7D5B03E0 // l3Epsilon
  ME_4AB9D25D0397 // l3AlingDelta
  ME_4ABA205E0233 // l3ShapeNil
- ) .SequenceCode.It
+ )
  ; // Attributes
  CONST "spell names" false
+ CONST dfm:PathOnly '\common\components\rtl\Garant\L3'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\L3'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_47AC7CF90230 L3 Core Consts
 
@@ -199,6 +215,7 @@ FORWARD ME_49A6A0110126
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value '''<NULL>'''
 
 ref; // ME_49A6A02C0001 l3NULLStr
 
@@ -213,10 +230,14 @@ ref; // ME_49A6A02C0001 l3NULLStr
  : Parent ME_47A1D4C201E8 // l3Const
  ;
  : Attributes
-   @ ( ME_49A6A02C0001 // l3NULLStr
- ) .SequenceCode.It
+   Seq: ( ME_49A6A02C0001 // l3NULLStr
+ )
  ; // Attributes
  CONST "spell names" false
+ CONST dfm:PathOnly '\common\components\rtl\Garant\L3'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\L3'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_49A6A0110126 Strings
 
@@ -231,25 +252,22 @@ ref; // ME_49A6A0110126 Strings
  : Parent WL 'ME_4E2F0E1B03BB' '4E2F0E1B03BB.pas.ms.script' // L3$Domain
  ;
  : Constants
-   @ ( ME_47A1D4ED01D2 // Messages
+   Seq: ( ME_47A1D4ED01D2 // Messages
  ME_47AC7CF90230 // L3 Core Consts
  ME_49A6A0110126 // Strings
- ) .SequenceCode.It
+ )
  ; // Constants
  CONST "author" 'Люлин А.В.'
  CONST "finished" false
  CONST "is namespace" true
  CONST "no hands" false
  CONST "started" '13.04.1998 14:05'
- : Generators
- @ (
- gen_intf.pas
- gen_pas.script
- gen_pas.script.runner
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\L3'
  CONST intf.pas:Path 'common\components\rtl\Garant\L3\NOT_FINISHED_l3Const.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\L3'
  CONST pas.script:Path 'shared\models\NewSchool\Scripts\47A1D4C201E8.pas.ms.script'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
  CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\47A1D4C201E8.pas.ms.script.runner'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_47A1D4C201E8 l3Const

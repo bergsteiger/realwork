@@ -12,29 +12,23 @@ INCLUDE 'ElementsRTTI.ms.dict'
  : Parent WL 'ME_4677DDBD0193' '4677DDBD0193.pas.ms.script' // Shared Delphi
  ;
  : Children
-   @ ( WL 'ME_4ACDBC26003C' '4ACDBC26003C.pas.ms.script' // Source
- ) .SequenceCode.It
+   Seq: ( WL 'ME_4ACDBC26003C' '4ACDBC26003C.pas.ms.script' // Source
+ )
  ; // Children
  : Depends
-   @ ( WL 'ME_561F9F7D02A7' '561F9F7D02A7.pas.ms.script' // ScriptEngine
- ) .SequenceCode.It
+   Seq: ( WL 'ME_561F9F7D02A7' '561F9F7D02A7.pas.ms.script' // ScriptEngine
+ )
  ; // Depends
  CONST "exec mode" 'concluded'
  CONST "gui" 'rtl'
  CONST "ifndef" 'NoImageEn'
  CONST "is namespace" true
  CONST "vendor" '/external'
- : Generators
- @ (
- gen_forth_structure
- gen_intf.pas
- gen_pas.script
- gen_pas.script.runner
- ) .SequenceCode.It
- ; // Generators
- CONST forth_structure:Path 'shared\models\NewSchool\Shared Delphi\ImageEn\ImageEn.model.script'
- CONST intf.pas:Path 'common\components\rtl\external\ImageEn\ImageEn_lib.info'
+ CONST dfm:PathOnly '\common\components\rtl\external\ImageEn'
+ CONST intf.pas:PathOnly '\common\components\rtl\external\ImageEn'
  CONST pas.script:Path 'shared\models\NewSchool\Scripts\4ACDBBED0241.pas.ms.script'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
  CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\4ACDBBED0241.pas.ms.script.runner'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_4ACDBBED0241 ImageEn

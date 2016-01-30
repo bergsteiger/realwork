@@ -1,0 +1,170 @@
+// MainWindowInterfaces 4DC00FC302B7 ControllerInterfaces Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4DC00FC302B7
+
+FORWARD ME_4DC0100200B7
+
+FORWARD ME_4DC010300124
+
+: ME_492186B0008F_ME_4DC010300124
+ CONST UID '492186B0008F'
+ CONST Name 'GenerateWarning'
+ : Original WL 'ME_492186B0008F' '491B305A0096.pas.ms.script' // GenerateWarning
+ ;
+ : Implementor ME_4DC010300124 // dsBaloonWarning
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_492186B0008F_ME_4DC010300124 GenerateWarning
+
+: ME_492186D101E0_ME_4DC010300124
+ CONST UID '492186D101E0'
+ CONST Name 'WarningContent'
+ : Original WL 'ME_492186D101E0' '491B305A0096.pas.ms.script' // WarningContent
+ ;
+ : Implementor ME_4DC010300124 // dsBaloonWarning
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "pm" true
+ref; // ME_492186D101E0_ME_4DC010300124 WarningContent
+
+: ME_4DF9D63B0360_ME_4DC010300124
+ CONST UID '4DF9D63B0360'
+ CONST Name 'DocInfo'
+ : Original WL 'ME_4DF9D63B0360' '4B1FC2FF03CD.pas.ms.script' // DocInfo
+ ;
+ : Implementor ME_4DC010300124 // dsBaloonWarning
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "pm" true
+ CONST "reflectable" true
+ref; // ME_4DF9D63B0360_ME_4DC010300124 DocInfo
+
+: ME_4EFC5A31016E_ME_4DC010300124
+ CONST UID '4EFC5A31016E'
+ CONST Name 'ForSynchroView'
+ : Original WL 'ME_4EFC5A31016E' '491B305A0096.pas.ms.script' // ForSynchroView
+ ;
+ : Implementor ME_4DC010300124 // dsBaloonWarning
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "pm" false
+ref; // ME_4EFC5A31016E_ME_4DC010300124 ForSynchroView
+
+: ME_4DC010300124
+ CONST UID '4DC010300124'
+ CONST Name 'dsBaloonWarning'
+ CONST Class class_Class
+ : Stereotype st_Area ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_4DC0100200B7 // IsdsMainWindow
+ ;
+ : Inherits
+   Seq: ( WL 'ME_4921869901CF' '491B305A0096.pas.ms.script' // IdsWarning
+ )
+ ; // Inherits
+ : Implemented
+   Seq: ( ME_492186B0008F_ME_4DC010300124 // GenerateWarning
+ ME_492186D101E0_ME_4DC010300124 // WarningContent
+ ME_4DF9D63B0360_ME_4DC010300124 // DocInfo
+ ME_4EFC5A31016E_ME_4DC010300124 // ForSynchroView
+ )
+ ; // Implemented
+ CONST "Need Has" 'undefined'
+ CONST "is reference" 'undefined'
+ CONST "pm" true
+ CONST "required" 'undefined'
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\MainWindowControllers'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\MainWindowControllers'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\MainWindowControllers'
+
+ref; // ME_4DC010300124 dsBaloonWarning
+
+: ME_493E4F7E039B_ME_4DC0100200B7
+ CONST UID '493E4F7E039B'
+ CONST Name 'Generate'
+ : Original WL 'ME_493E4F7E039B' '491B305A0096.pas.ms.script' // Generate
+ ;
+ : Implementor ME_4DC0100200B7 // IsdsMainWindow
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_493E4F7E039B_ME_4DC0100200B7 Generate
+
+: ME_4DC0100200B7
+ CONST UID '4DC0100200B7'
+ CONST GUID '4BABE209-5CE4-4408-B307-6EF460A071E8'
+ CONST Name 'IsdsMainWindow'
+ CONST Class class_Class
+ : Stereotype st_UseCaseController ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Основное окно' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4DC00FC302B7 // MainWindowInterfaces
+ ;
+ : Implements
+   Seq: ( WL 'ME_49218BD80300' '491B305A0096.pas.ms.script' // InsWarningGenerator
+ )
+ ; // Implements
+ : Attributes
+   Seq: ( ME_4DC010300124 // dsBaloonWarning
+ )
+ ; // Attributes
+ : Implemented
+   Seq: ( ME_493E4F7E039B_ME_4DC0100200B7 // Generate
+ )
+ ; // Implemented
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\MainWindowControllers'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\MainWindowControllers'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\MainWindowControllers'
+ CONST extprop:rc:SelfName 'sdsMainWindow'
+ CONST extprop:rc:isAcceptableForScripts true
+
+ref; // ME_4DC0100200B7 IsdsMainWindow
+
+: ME_4DC00FC302B7
+ CONST UID '4DC00FC302B7'
+ CONST Name 'MainWindowInterfaces'
+ CONST Class class_Category
+ : Stereotype st_ControllerInterfaces ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent WL 'ME_4DC01054023C' '4DC01054023C.pas.ms.script' // MainWindowControllers
+ ;
+ : Children
+   Seq: ( ME_4DC0100200B7 // IsdsMainWindow
+ )
+ ; // Children
+ : Depends
+   Seq: ( WL 'ME_491B305A0096' '491B305A0096.pas.ms.script' // DocumentAndListInterfaces
+ WL 'ME_4A9F98B901A5' '4A9F98B901A5.pas.ms.script' // BaseSearchInterfaces
+ )
+ ; // Depends
+ CONST "author" 'Люлин А.В.'
+ CONST "is namespace" true
+ CONST "no hands" true
+ CONST "started" '03.05.2011 18:23'
+ : Generators
+ Seq: (
+ gen_intf.pas
+ gen_pas.script
+ gen_pas.script.runner
+ )
+ ; // Generators
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\MainWindowControllers'
+ CONST intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\MainWindowControllers\MainWindowInterfaces.pas'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\MainWindowControllers'
+ CONST pas.script:Path 'shared\models\NewSchool\Scripts\4DC00FC302B7.pas.ms.script'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\4DC00FC302B7.pas.ms.script.runner'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\MainWindowControllers'
+
+ref; // ME_4DC00FC302B7 MainWindowInterfaces

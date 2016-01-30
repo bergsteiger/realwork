@@ -78,30 +78,36 @@ ref; // ME_48077504027E_ME_4FFFDE6C016C Destroy
  : Parent ME_50BF047001FA // seThreadSupport
  ;
  : Inherits
-   @ ( WL 'ME_4FFFDF4601F9' '4AB0997B00A2.pas.ms.script' // TThread
- ) .SequenceCode.It
+   Seq: ( WL 'ME_4FFFDF4601F9' '4AB0997B00A2.pas.ms.script' // TThread
+ )
  ; // Inherits
  : Attributes
-   @ ( ME_4FFFF64D01AE // f_Context
+   Seq: ( ME_4FFFF64D01AE // f_Context
  ME_4FFFF887007C // f_Word
- ) .SequenceCode.It
+ )
  ; // Attributes
  : Implemented
-   @ ( ME_4FFFDF740099_ME_4FFFDE6C016C // Execute
- ) .SequenceCode.It
+   Seq: ( ME_4FFFDF740099_ME_4FFFDE6C016C // Execute
+ )
  ; // Implemented
  : Overridden
-   @ ( ME_48077504027E_ME_4FFFDE6C016C // Destroy
- ) .SequenceCode.It
+   Seq: ( ME_48077504027E_ME_4FFFDE6C016C // Destroy
+ )
  ; // Overridden
  : Dependencies
-   @ ( ME_500003150010 // 
- ) .SequenceCode.It
+   Seq: ( ME_500003150010 // 
+ )
  ; // Dependencies
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
+ CONST dfm:PathOnly '\common\components\rtl\Garant\ScriptEngine'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\ScriptEngine'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'WordThread'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_4FFFDE6C016C TWordThread
 
@@ -146,8 +152,8 @@ ref; // ME_50BF1C800223 DoIt
  : Parent ME_50BF049002DB // TseWorkThreadList
  ;
  : Operations
-   @ ( ME_50BF1C800223 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_50BF1C800223 // DoIt
+ )
  ; // Operations
 
 ref; // ME_50BF1C6D0267 WaitForAllThreads
@@ -183,9 +189,9 @@ ref; // ME_50BF1EFF019E aWord
  : Parent ME_50BF1E9C001F // AddAndResumeThread
  ;
  : Parameters
-   @ ( ME_50BF1EFF017E // aContext
+   Seq: ( ME_50BF1EFF017E // aContext
  ME_50BF1EFF019E // aWord
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_50BF1ED30035 DoIt
@@ -201,8 +207,8 @@ ref; // ME_50BF1ED30035 DoIt
  : Parent ME_50BF049002DB // TseWorkThreadList
  ;
  : Operations
-   @ ( ME_50BF1ED30035 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_50BF1ED30035 // DoIt
+ )
  ; // Operations
 
 ref; // ME_50BF1E9C001F AddAndResumeThread
@@ -210,6 +216,7 @@ ref; // ME_50BF1E9C001F AddAndResumeThread
 : ME_622D329D6051
  CONST UID '622D329D6051'
  CONST Name 'Exists'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_static::Operation ;
  %SUMMARY 'Проверяет создан экземпляр синглетона или нет' ;
@@ -219,6 +226,7 @@ ref; // ME_50BF1E9C001F AddAndResumeThread
  ;
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
+ CONST extprop:pas:Value false
 
 ref; // ME_622D329D6051 Exists
 
@@ -233,25 +241,31 @@ ref; // ME_622D329D6051 Exists
  : Parent ME_50BF047001FA // seThreadSupport
  ;
  : Inherits
-   @ ( WL 'ME_47B57B7800A7' '47913B47006E.pas.ms.script' // l3ObjectPtrList
+   Seq: ( WL 'ME_47B57B7800A7' '47913B47006E.pas.ms.script' // l3ObjectPtrList
  WL 'ME_4A54DD4E036F' '47913B47006E.pas.ms.script' // Tl3ProtoDataContainer
- ) .SequenceCode.It
+ )
  ; // Inherits
  : Attributes
-   @ ( ME_50BF07020290 // ItemType
- ) .SequenceCode.It
+   Seq: ( ME_50BF07020290 // ItemType
+ )
  ; // Attributes
  : Operations
-   @ ( ME_50BF1C6D0267 // WaitForAllThreads
+   Seq: ( ME_50BF1C6D0267 // WaitForAllThreads
  ME_50BF1E9C001F // AddAndResumeThread
  ME_622D329D6051 // Exists
- ) .SequenceCode.It
+ )
  ; // Operations
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
  CONST "singleton" true
+ CONST dfm:PathOnly '\common\components\rtl\Garant\ScriptEngine'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\ScriptEngine'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'seWorkThreadList'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_50BF049002DB TseWorkThreadList
 
@@ -266,17 +280,16 @@ ref; // ME_50BF049002DB TseWorkThreadList
  : Parent ME_50C065860332 // CodeFlowSupport
  ;
  : Children
-   @ ( ME_4FFFDE6C016C // TWordThread
+   Seq: ( ME_4FFFDE6C016C // TWordThread
  ME_50BF049002DB // TseWorkThreadList
- ) .SequenceCode.It
+ )
  ; // Children
  CONST "no hands" false
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\ScriptEngine'
  CONST intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\seThreadSupport.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\ScriptEngine'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_50BF047001FA seThreadSupport
 
@@ -290,21 +303,19 @@ ref; // ME_50BF047001FA seThreadSupport
  : Parent WL 'ME_54CF97B10370' '54CF97B10370.pas.ms.script' // ScriptEngine$Core
  ;
  : Children
-   @ ( ME_50BF047001FA // seThreadSupport
- ) .SequenceCode.It
+   Seq: ( ME_50BF047001FA // seThreadSupport
+ )
  ; // Children
  : Depends
-   @ ( WL 'ME_47913B47006E' '47913B47006E.pas.ms.script' // l3CoreObjects
+   Seq: ( WL 'ME_47913B47006E' '47913B47006E.pas.ms.script' // l3CoreObjects
  WL 'ME_4DAF19F600C5' '4DAF19F600C5.pas.ms.script' // tfwScriptingInterfaces
- ) .SequenceCode.It
+ )
  ; // Depends
- : Generators
- @ (
- gen_pas.script
- gen_pas.script.runner
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\ScriptEngine'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\ScriptEngine'
  CONST pas.script:Path 'shared\models\NewSchool\Scripts\50C065860332.pas.ms.script'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
  CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\50C065860332.pas.ms.script.runner'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_50C065860332 CodeFlowSupport

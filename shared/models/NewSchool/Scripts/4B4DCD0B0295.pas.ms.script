@@ -11,6 +11,7 @@ FORWARD ME_4B4DCDA1023B
 : ME_4609FBFEBBA2
  CONST UID '4609FBFEBBA2'
  CONST Name 'DoIt'
+ CONST IsSummoned true
  CONST Class class_Operation
  %SUMMARY 'Сигнатура метода CPUID' ;
  CONST Visibility PublicAccess
@@ -31,8 +32,8 @@ ref; // ME_4609FBFEBBA2 DoIt
  : Parent ME_4B4DCD220000 // JclSysInfo
  ;
  : Operations
-   @ ( ME_4609FBFEBBA2 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_4609FBFEBBA2 // DoIt
+ )
  ; // Operations
 
 ref; // ME_4B4DCDA1023B CPUID
@@ -48,17 +49,16 @@ ref; // ME_4B4DCDA1023B CPUID
  : Parent ME_4B4DCD0B0295 // Common
  ;
  : Operations
-   @ ( ME_4B4DCDA1023B // CPUID
- ) .SequenceCode.It
+   Seq: ( ME_4B4DCDA1023B // CPUID
+ )
  ; // Operations
  CONST "finished" false
  CONST "no hands" false
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\external\JEDI\source\common'
  CONST intf.pas:Path 'common\components\rtl\external\JEDI\source\common\NOT_FINISHED_JclSysInfo.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\external\JEDI\source\common'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_4B4DCD220000 JclSysInfo
 
@@ -74,12 +74,11 @@ ref; // ME_4B4DCD220000 JclSysInfo
  ;
  CONST "finished" false
  CONST "no hands" false
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\external\JEDI\source\common'
  CONST intf.pas:Path 'common\components\rtl\external\JEDI\source\common\NOT_FINISHED_zlibh.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\external\JEDI\source\common'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_546F146A0008 zlibh
 
@@ -93,18 +92,16 @@ ref; // ME_546F146A0008 zlibh
  : Parent WL 'ME_4B4DCCBF034F' '4B4DCCBF034F.pas.ms.script' // JEDI
  ;
  : Children
-   @ ( ME_4B4DCD220000 // JclSysInfo
+   Seq: ( ME_4B4DCD220000 // JclSysInfo
  ME_546F146A0008 // zlibh
- ) .SequenceCode.It
+ )
  ; // Children
  CONST "path prefix" '/source/common'
- : Generators
- @ (
- gen_pas.script
- gen_pas.script.runner
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\external\JEDI\source\common'
+ CONST intf.pas:PathOnly '\common\components\rtl\external\JEDI\source\common'
  CONST pas.script:Path 'shared\models\NewSchool\Scripts\4B4DCD0B0295.pas.ms.script'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
  CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\4B4DCD0B0295.pas.ms.script.runner'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_4B4DCD0B0295 Common

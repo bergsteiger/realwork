@@ -76,34 +76,36 @@ ref; // ME_47B99D4503A2_ME_4F473F4E01E5 CompareExistingItems
  : Parent ME_4F473F0902B2 // CString
  ;
  : Inherits
-   @ ( WL 'ME_47B9AF6E0228' '47913B47006E.pas.ms.script' // l3InterfaceRefListPrim
+   Seq: ( WL 'ME_47B9AF6E0228' '47913B47006E.pas.ms.script' // l3InterfaceRefListPrim
  WL 'ME_4A54DD4E036F' '47913B47006E.pas.ms.script' // Tl3ProtoDataContainer
- ) .SequenceCode.It
+ )
  ; // Inherits
  : Attributes
-   @ ( ME_4F473FD603DD // ItemType
- ) .SequenceCode.It
+   Seq: ( ME_4F473FD603DD // ItemType
+ )
  ; // Attributes
  : Implemented
-   @ ( ME_47B07CF403D0_ME_4F473F4E01E5 // IsSameItems
+   Seq: ( ME_47B07CF403D0_ME_4F473F4E01E5 // IsSameItems
  ME_47B2C42A0163_ME_4F473F4E01E5 // AssignItem
  ME_47B99D4503A2_ME_4F473F4E01E5 // CompareExistingItems
- ) .SequenceCode.It
+ )
  ; // Implemented
  : Dependencies
-   @ ( ME_4F4745DD0295 // 
- ) .SequenceCode.It
+   Seq: ( ME_4F4745DD0295 // 
+ )
  ; // Dependencies
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\ScriptEngine'
  CONST intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\tfwCStringListPrim.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\ScriptEngine'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'CStringListPrim'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'tfwCStringListPrim'
 
 ref; // ME_4F473F4E01E5 TtfwCStringListPrim
 
@@ -156,32 +158,34 @@ ref; // ME_47B9BAFD01F4_ME_4F473F370158 CompareItemWithData
  : Parent ME_4F473F0902B2 // CString
  ;
  : Inherits
-   @ ( WL 'ME_47B47E230134' '47BB24D30205.pas.ms.script' // l3Searcher
+   Seq: ( WL 'ME_47B47E230134' '47BB24D30205.pas.ms.script' // l3Searcher
  ME_4F473F4E01E5 // TtfwCStringListPrim
- ) .SequenceCode.It
+ )
  ; // Inherits
  : Attributes
-   @ ( ME_4F47400E03D2 // FindDataType
- ) .SequenceCode.It
+   Seq: ( ME_4F47400E03D2 // FindDataType
+ )
  ; // Attributes
  : Overridden
-   @ ( ME_47B9BAFD01F4_ME_4F473F370158 // CompareItemWithData
- ) .SequenceCode.It
+   Seq: ( ME_47B9BAFD01F4_ME_4F473F370158 // CompareItemWithData
+ )
  ; // Overridden
  : Dependencies
-   @ ( ME_4F4745B903B7 // 
- ) .SequenceCode.It
+   Seq: ( ME_4F4745B903B7 // 
+ )
  ; // Dependencies
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\ScriptEngine'
  CONST intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\tfwCStringList.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\ScriptEngine'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'CStringList'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'tfwCStringList'
 
 ref; // ME_4F473F370158 TtfwCStringList
 
@@ -202,6 +206,7 @@ FORWARD ME_4F47434A03C1
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value 200
 
 ref; // ME_4F4743540335 cLimit
 
@@ -216,10 +221,14 @@ ref; // ME_4F4743540335 cLimit
  : Parent ME_4F473F9402D8 // TtfwCStringFactory
  ;
  : Attributes
-   @ ( ME_4F4743540335 // cLimit
- ) .SequenceCode.It
+   Seq: ( ME_4F4743540335 // cLimit
+ )
  ; // Attributes
  CONST "spell names" false
+ CONST dfm:PathOnly '\common\components\rtl\Garant\ScriptEngine'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\ScriptEngine'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_4F47434A03C1 Local
 
@@ -246,8 +255,8 @@ ref; // ME_4F474078017C aString
  : Target WL 'ME_46780DA40383' '4677FBA70343.pas.ms.script' // Il3CString
  ;
  : Parameters
-   @ ( ME_4F474078017C // aString
- ) .SequenceCode.It
+   Seq: ( ME_4F474078017C // aString
+ )
  ; // Parameters
 
 ref; // ME_4F47406503B6 DoIt
@@ -263,8 +272,8 @@ ref; // ME_4F47406503B6 DoIt
  : Parent ME_4F473F9402D8 // TtfwCStringFactory
  ;
  : Operations
-   @ ( ME_4F47406503B6 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_4F47406503B6 // DoIt
+ )
  ; // Operations
  CONST "is static" true
 
@@ -293,8 +302,8 @@ ref; // ME_4F47409303C3 aString
  : Target WL 'ME_46780DA40383' '4677FBA70343.pas.ms.script' // Il3CString
  ;
  : Parameters
-   @ ( ME_4F47409303C3 // aString
- ) .SequenceCode.It
+   Seq: ( ME_4F47409303C3 // aString
+ )
  ; // Parameters
 
 ref; // ME_4F474088020E DoIt
@@ -310,8 +319,8 @@ ref; // ME_4F474088020E DoIt
  : Parent ME_4F473F9402D8 // TtfwCStringFactory
  ;
  : Operations
-   @ ( ME_4F474088020E // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_4F474088020E // DoIt
+ )
  ; // Operations
  CONST "is static" true
 
@@ -340,8 +349,8 @@ ref; // ME_4F4740D00188 aString
  : Target WL 'ME_46780DA40383' '4677FBA70343.pas.ms.script' // Il3CString
  ;
  : Parameters
-   @ ( ME_4F4740D00188 // aString
- ) .SequenceCode.It
+   Seq: ( ME_4F4740D00188 // aString
+ )
  ; // Parameters
 
 ref; // ME_4F4740B5022C DoIt
@@ -357,8 +366,8 @@ ref; // ME_4F4740B5022C DoIt
  : Parent ME_4F473F9402D8 // TtfwCStringFactory
  ;
  : Operations
-   @ ( ME_4F4740B5022C // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_4F4740B5022C // DoIt
+ )
  ; // Operations
  CONST "is static" true
 
@@ -387,8 +396,8 @@ ref; // ME_4F50783E00B4 aChar
  : Target WL 'ME_46780DA40383' '4677FBA70343.pas.ms.script' // Il3CString
  ;
  : Parameters
-   @ ( ME_4F50783E00B4 // aChar
- ) .SequenceCode.It
+   Seq: ( ME_4F50783E00B4 // aChar
+ )
  ; // Parameters
 
 ref; // ME_4F50783400E4 DoIt
@@ -404,8 +413,8 @@ ref; // ME_4F50783400E4 DoIt
  : Parent ME_4F473F9402D8 // TtfwCStringFactory
  ;
  : Operations
-   @ ( ME_4F50783400E4 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_4F50783400E4 // DoIt
+ )
  ; // Operations
  CONST "is static" true
 
@@ -435,8 +444,8 @@ ref; // ME_559F729C0034 aString
  : Target WL 'ME_46780DA40383' '4677FBA70343.pas.ms.script' // Il3CString
  ;
  : Parameters
-   @ ( ME_559F729C0034 // aString
- ) .SequenceCode.It
+   Seq: ( ME_559F729C0034 // aString
+ )
  ; // Parameters
 
 ref; // ME_559F72750031 DoIt
@@ -452,8 +461,8 @@ ref; // ME_559F72750031 DoIt
  : Parent ME_4F473F9402D8 // TtfwCStringFactory
  ;
  : Operations
-   @ ( ME_559F72750031 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_559F72750031 // DoIt
+ )
  ; // Operations
  CONST "is static" true
 
@@ -490,9 +499,9 @@ ref; // ME_56011AAC026A aString
  : Parent ME_56011A85035E // CacheString
  ;
  : Parameters
-   @ ( ME_56011AAC024C // theIndex
+   Seq: ( ME_56011AAC024C // theIndex
  ME_56011AAC026A // aString
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_56011A97015F DoIt
@@ -508,8 +517,8 @@ ref; // ME_56011A97015F DoIt
  : Parent ME_4F473F9402D8 // TtfwCStringFactory
  ;
  : Operations
-   @ ( ME_56011A97015F // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_56011A97015F // DoIt
+ )
  ; // Operations
 
 ref; // ME_56011A85035E CacheString
@@ -547,9 +556,9 @@ ref; // ME_56028D3103B8 aB
  : Target WL 'ME_46780DA40383' '4677FBA70343.pas.ms.script' // Il3CString
  ;
  : Parameters
-   @ ( ME_56028D31037C // aA
+   Seq: ( ME_56028D31037C // aA
  ME_56028D3103B8 // aB
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_56028D2500F8 DoIt
@@ -565,8 +574,8 @@ ref; // ME_56028D2500F8 DoIt
  : Parent ME_4F473F9402D8 // TtfwCStringFactory
  ;
  : Operations
-   @ ( ME_56028D2500F8 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_56028D2500F8 // DoIt
+ )
  ; // Operations
  CONST "is static" true
 
@@ -595,8 +604,8 @@ ref; // ME_56028DE00283 aStrings
  : Target WL 'ME_46780DA40383' '4677FBA70343.pas.ms.script' // Il3CString
  ;
  : Parameters
-   @ ( ME_56028DE00283 // aStrings
- ) .SequenceCode.It
+   Seq: ( ME_56028DE00283 // aStrings
+ )
  ; // Parameters
 
 ref; // ME_56028DD2010C DoIt
@@ -612,8 +621,8 @@ ref; // ME_56028DD2010C DoIt
  : Parent ME_4F473F9402D8 // TtfwCStringFactory
  ;
  : Operations
-   @ ( ME_56028DD2010C // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_56028DD2010C // DoIt
+ )
  ; // Operations
  CONST "is static" true
 
@@ -642,8 +651,8 @@ ref; // ME_5602977701B8 aString
  : Target WL 'ME_46780DA40383' '4677FBA70343.pas.ms.script' // Il3CString
  ;
  : Parameters
-   @ ( ME_5602977701B8 // aString
- ) .SequenceCode.It
+   Seq: ( ME_5602977701B8 // aString
+ )
  ; // Parameters
 
 ref; // ME_5602976402C9 DoIt
@@ -659,8 +668,8 @@ ref; // ME_5602976402C9 DoIt
  : Parent ME_4F473F9402D8 // TtfwCStringFactory
  ;
  : Operations
-   @ ( ME_5602976402C9 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_5602976402C9 // DoIt
+ )
  ; // Operations
  CONST "force overload" true
  CONST "is static" true
@@ -710,10 +719,10 @@ ref; // ME_5602A812030A aB
  : Target WL 'ME_46780DA40383' '4677FBA70343.pas.ms.script' // Il3CString
  ;
  : Parameters
-   @ ( ME_5602A812026A // aA
+   Seq: ( ME_5602A812026A // aA
  ME_5602A81202B0 // aSep
  ME_5602A812030A // aB
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_5602A80201BB DoIt
@@ -729,8 +738,8 @@ ref; // ME_5602A80201BB DoIt
  : Parent ME_4F473F9402D8 // TtfwCStringFactory
  ;
  : Operations
-   @ ( ME_5602A80201BB // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_5602A80201BB // DoIt
+ )
  ; // Operations
  CONST "is static" true
 
@@ -739,6 +748,7 @@ ref; // ME_5602A7F8015D CatSep
 : ME_6C9A40E5B7F2
  CONST UID '6C9A40E5B7F2'
  CONST Name 'Exists'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_static::Operation ;
  %SUMMARY 'Проверяет создан экземпляр синглетона или нет' ;
@@ -748,6 +758,7 @@ ref; // ME_5602A7F8015D CatSep
  ;
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
+ CONST extprop:pas:Value false
 
 ref; // ME_6C9A40E5B7F2 Exists
 
@@ -820,11 +831,11 @@ ref; // ME_47A042E100E2_ME_4F473F9402D8 InitFields
  : Parent ME_4F473F0902B2 // CString
  ;
  : Inherits
-   @ ( ME_4F473F370158 // TtfwCStringList
- ) .SequenceCode.It
+   Seq: ( ME_4F473F370158 // TtfwCStringList
+ )
  ; // Inherits
  : Operations
-   @ ( ME_4F47405B02FD // C$1
+   Seq: ( ME_4F47405B02FD // C$1
  ME_4F47407D0052 // C$2
  ME_4F4740A802A8 // C$3
  ME_4F50782700AA // C$Char
@@ -835,34 +846,36 @@ ref; // ME_47A042E100E2_ME_4F473F9402D8 InitFields
  ME_56029758029D // ViewOf
  ME_5602A7F8015D // CatSep
  ME_6C9A40E5B7F2 // Exists
- ) .SequenceCode.It
+ )
  ; // Operations
  : Overridden
-   @ ( ME_47A042E100E2_ME_4F473F9402D8 // InitFields
- ) .SequenceCode.It
+   Seq: ( ME_47A042E100E2_ME_4F473F9402D8 // InitFields
+ )
  ; // Overridden
  : Constants
-   @ ( ME_4F47434A03C1 // Local
- ) .SequenceCode.It
+   Seq: ( ME_4F47434A03C1 // Local
+ )
  ; // Constants
  : Dependencies
-   @ ( ME_4F47455900E4 // 
+   Seq: ( ME_4F47455900E4 // 
  ME_4F4D3884004D // 
  ME_4F4D42E70139 // 
  ME_4F4D435B01F0 // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
  CONST "singleton" true
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\ScriptEngine'
  CONST intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\tfwCStringFactory.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\ScriptEngine'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'CStringFactory'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'tfwCStringFactory'
 
 ref; // ME_4F473F9402D8 TtfwCStringFactory
 
@@ -894,30 +907,33 @@ ref; // ME_4F4D3E610203 ItemType
  : Parent ME_4F473F0902B2 // CString
  ;
  : Inherits
-   @ ( WL 'ME_4B86890E0307' '47913B47006E.pas.ms.script' // l3OpenArray
+   Seq: ( WL 'ME_4B86890E0307' '47913B47006E.pas.ms.script' // l3OpenArray
  ME_4F473F370158 // TtfwCStringList
- ) .SequenceCode.It
+ )
  ; // Inherits
  : Attributes
-   @ ( ME_4F4D3E610203 // ItemType
- ) .SequenceCode.It
+   Seq: ( ME_4F4D3E610203 // ItemType
+ )
  ; // Attributes
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\ScriptEngine'
  CONST intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\tfwCStringArray.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\ScriptEngine'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'CStringArray'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'tfwCStringArray'
 
 ref; // ME_4F4D384500A3 TtfwCStringArray
 
 : ME_FC2DA21A902B
  CONST UID 'FC2DA21A902B'
  CONST Name 'Exists'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_static::Operation ;
  %SUMMARY 'Проверяет создан экземпляр синглетона или нет' ;
@@ -927,6 +943,7 @@ ref; // ME_4F4D384500A3 TtfwCStringArray
  ;
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
+ CONST extprop:pas:Value false
 
 ref; // ME_FC2DA21A902B Exists
 
@@ -941,30 +958,33 @@ ref; // ME_FC2DA21A902B Exists
  : Parent ME_4F473F0902B2 // CString
  ;
  : Inherits
-   @ ( ME_4F4D384500A3 // TtfwCStringArray
- ) .SequenceCode.It
+   Seq: ( ME_4F4D384500A3 // TtfwCStringArray
+ )
  ; // Inherits
  : Operations
-   @ ( ME_FC2DA21A902B // Exists
- ) .SequenceCode.It
+   Seq: ( ME_FC2DA21A902B // Exists
+ )
  ; // Operations
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
  CONST "singleton" true
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\ScriptEngine'
  CONST intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\tfwCStringArraySing.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\ScriptEngine'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'CStringArraySing'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'tfwCStringArraySing'
 
 ref; // ME_4F4D38740342 TtfwCStringArraySing
 
 : ME_DF4B27867616
  CONST UID 'DF4B27867616'
  CONST Name 'Exists'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_static::Operation ;
  %SUMMARY 'Проверяет создан экземпляр синглетона или нет' ;
@@ -974,6 +994,7 @@ ref; // ME_4F4D38740342 TtfwCStringArraySing
  ;
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
+ CONST extprop:pas:Value false
 
 ref; // ME_DF4B27867616 Exists
 
@@ -988,24 +1009,26 @@ ref; // ME_DF4B27867616 Exists
  : Parent ME_4F473F0902B2 // CString
  ;
  : Inherits
-   @ ( ME_4F4D384500A3 // TtfwCStringArray
- ) .SequenceCode.It
+   Seq: ( ME_4F4D384500A3 // TtfwCStringArray
+ )
  ; // Inherits
  : Operations
-   @ ( ME_DF4B27867616 // Exists
- ) .SequenceCode.It
+   Seq: ( ME_DF4B27867616 // Exists
+ )
  ; // Operations
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
  CONST "singleton" true
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\ScriptEngine'
  CONST intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\tfwCStringArraySing2.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\ScriptEngine'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'CStringArraySing2'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'tfwCStringArraySing2'
 
 ref; // ME_4F4D42D9035C TtfwCStringArraySing2
 
@@ -1019,28 +1042,26 @@ ref; // ME_4F4D42D9035C TtfwCStringArraySing2
  : Parent WL 'ME_55C1EE2F01B7' '55C1EE2F01B7.pas.ms.script' // ScriptEngine$Parsing
  ;
  : Children
-   @ ( ME_4F473F4E01E5 // TtfwCStringListPrim
+   Seq: ( ME_4F473F4E01E5 // TtfwCStringListPrim
  ME_4F473F370158 // TtfwCStringList
  ME_4F473F9402D8 // TtfwCStringFactory
  ME_4F4D384500A3 // TtfwCStringArray
  ME_4F4D38740342 // TtfwCStringArraySing
  ME_4F4D42D9035C // TtfwCStringArraySing2
- ) .SequenceCode.It
+ )
  ; // Children
  : Depends
-   @ ( WL 'ME_4677FBA70343' '4677FBA70343.pas.ms.script' // l3Interfaces
+   Seq: ( WL 'ME_4677FBA70343' '4677FBA70343.pas.ms.script' // l3Interfaces
  WL 'ME_4678193C009C' '4678193C009C.pas.ms.script' // l3Types
  WL 'ME_47913B47006E' '47913B47006E.pas.ms.script' // l3CoreObjects
  WL 'ME_47BB24D30205' '47BB24D30205.pas.ms.script' // Стандартные примеси
- ) .SequenceCode.It
+ )
  ; // Depends
- : Generators
- @ (
- gen_pas.script
- gen_pas.script.runner
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\ScriptEngine'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\ScriptEngine'
  CONST pas.script:Path 'shared\models\NewSchool\Scripts\4F473F0902B2.pas.ms.script'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
  CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\4F473F0902B2.pas.ms.script.runner'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_4F473F0902B2 CString

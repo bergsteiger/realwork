@@ -1,0 +1,254 @@
+// DocumentDomainInterfaces 4991BD69025E Interfaces Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4991BD69025E
+
+FORWARD ME_4991BE7D0056
+
+: ME_4991BEEA038C
+ CONST UID '4991BEEA038C'
+ CONST Name 'ID'
+ CONST Class class_Attribute
+ : Stereotype st_readonly::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_lnk
+ : Parent ME_4991BE7D0056 // InsLinkedObjectDescription
+ ;
+ : Target WL 'ME_3DBFFD7002C2' '3DBFDB23006E.pas.ms.script' // long
+ ;
+ CONST "pm" true
+
+ref; // ME_4991BEEA038C ID
+
+: ME_4991BE96012A
+ CONST UID '4991BE96012A'
+ CONST Name 'Name'
+ CONST Class class_Attribute
+ : Stereotype st_readonly::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_lnk
+ : Parent ME_4991BE7D0056 // InsLinkedObjectDescription
+ ;
+ : Target WL 'ME_46780DA40383' '4677FBA70343.pas.ms.script' // Il3CString
+ ;
+ CONST "pm" true
+
+ref; // ME_4991BE96012A Name
+
+: ME_4991BEAB039E
+ CONST UID '4991BEAB039E'
+ CONST Name 'ShortName'
+ CONST Class class_Attribute
+ : Stereotype st_readonly::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_lnk
+ : Parent ME_4991BE7D0056 // InsLinkedObjectDescription
+ ;
+ : Target WL 'ME_46780DA40383' '4677FBA70343.pas.ms.script' // Il3CString
+ ;
+ CONST "pm" true
+
+ref; // ME_4991BEAB039E ShortName
+
+: ME_4991BE7D0056
+ CONST UID '4991BE7D0056'
+ CONST GUID '29FA1780-029B-4E08-B914-F0668C44ADEB'
+ CONST Name 'InsLinkedObjectDescription'
+ CONST Class class_Class
+ : Stereotype st_Facet ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Содержит информацию о картинке' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4991BD69025E // DocumentDomainInterfaces
+ ;
+ : Attributes
+   Seq: ( ME_4991BEEA038C // ID
+ ME_4991BE96012A // Name
+ ME_4991BEAB039E // ShortName
+ )
+ ; // Attributes
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Model'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Model'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\Model'
+ CONST extprop:rc:SelfName 'LinkedObjectDescription'
+ CONST extprop:rc:isAcceptableForScripts true
+
+ref; // ME_4991BE7D0056 InsLinkedObjectDescription
+
+FORWARD ME_4991BD9B031F
+
+: ME_4991BDCE0277
+ CONST UID '4991BDCE0277'
+ CONST Name 'IsPicture'
+ CONST Class class_Attribute
+ : Stereotype st_readonly::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_lnk
+ : Parent ME_4991BD9B031F // InsLinkedObjectData
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+ CONST "pm" false
+
+ref; // ME_4991BDCE0277 IsPicture
+
+: ME_4991BDDC0042
+ CONST UID '4991BDDC0042'
+ CONST Name 'ObjectTitle'
+ CONST Class class_Attribute
+ : Stereotype st_readonly::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_lnk
+ : Parent ME_4991BD9B031F // InsLinkedObjectData
+ ;
+ : Target WL 'ME_46780DA40383' '4677FBA70343.pas.ms.script' // Il3CString
+ ;
+ CONST "pm" true
+
+ref; // ME_4991BDDC0042 ObjectTitle
+
+: ME_4991BDF70368
+ CONST UID '4991BDF70368'
+ CONST Name 'WindowCaption'
+ CONST Class class_Attribute
+ : Stereotype st_readonly::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_lnk
+ : Parent ME_4991BD9B031F // InsLinkedObjectData
+ ;
+ : Target WL 'ME_46780DA40383' '4677FBA70343.pas.ms.script' // Il3CString
+ ;
+ CONST "pm" true
+
+ref; // ME_4991BDF70368 WindowCaption
+
+: ME_4991BE020277
+ CONST UID '4991BE020277'
+ CONST Name 'FileName'
+ CONST Class class_Attribute
+ : Stereotype st_readonly::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_lnk
+ : Parent ME_4991BD9B031F // InsLinkedObjectData
+ ;
+ : Target WL 'ME_46780DA40383' '4677FBA70343.pas.ms.script' // Il3CString
+ ;
+ CONST "pm" true
+
+ref; // ME_4991BE020277 FileName
+
+: ME_4991BE1E00A6
+ CONST UID '4991BE1E00A6'
+ CONST Name 'Data'
+ CONST Class class_Attribute
+ : Stereotype st_readonly::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_lnk
+ : Parent ME_4991BD9B031F // InsLinkedObjectData
+ ;
+ : Target WL 'ME_46A5B0060013' '4677FBA70343.pas.ms.script' // IStream
+ ;
+ CONST "pm" true
+
+ref; // ME_4991BE1E00A6 Data
+
+: ME_4991BF07038A
+ CONST UID '4991BF07038A'
+ CONST Name 'Description'
+ CONST Class class_Attribute
+ : Stereotype st_readonly::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_lnk
+ : Parent ME_4991BD9B031F // InsLinkedObjectData
+ ;
+ : Target ME_4991BE7D0056 // InsLinkedObjectDescription
+ ;
+ CONST "pm" true
+
+ref; // ME_4991BF07038A Description
+
+: ME_4991BD9B031F
+ CONST UID '4991BD9B031F'
+ CONST GUID '650645AC-163D-4C26-82DA-2D307EB68A9F'
+ CONST Name 'InsLinkedObjectData'
+ CONST Class class_Class
+ : Stereotype st_Facet ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Содержит информацию о картинке и ее данные' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4991BD69025E // DocumentDomainInterfaces
+ ;
+ : Attributes
+   Seq: ( ME_4991BDCE0277 // IsPicture
+ ME_4991BDDC0042 // ObjectTitle
+ ME_4991BDF70368 // WindowCaption
+ ME_4991BE020277 // FileName
+ ME_4991BE1E00A6 // Data
+ ME_4991BF07038A // Description
+ )
+ ; // Attributes
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Model'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Model'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\Model'
+ CONST extprop:rc:SelfName 'LinkedObjectData'
+ CONST extprop:rc:isAcceptableForScripts true
+
+ref; // ME_4991BD9B031F InsLinkedObjectData
+
+: ME_4991BD69025E
+ CONST UID '4991BD69025E'
+ CONST Name 'DocumentDomainInterfaces'
+ CONST Class class_Category
+ : Stereotype st_Interfaces ;
+ %SUMMARY 'Работа с документом' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent WL 'ME_47E9EEC60260' '47E9EEC60260.pas.ms.script' // Model
+ ;
+ : Children
+   Seq: ( ME_4991BE7D0056 // InsLinkedObjectDescription
+ ME_4991BD9B031F // InsLinkedObjectData
+ )
+ ; // Children
+ : Depends
+   Seq: ( WL 'ME_4677FBA70343' '4677FBA70343.pas.ms.script' // l3Interfaces
+ WL 'ME_4AB0C3C60310' '4AB0C3C60310.pas.ms.script' // Sys
+ )
+ ; // Depends
+ CONST "author" 'Люлин А.В.'
+ CONST "is namespace" true
+ CONST "no hands" true
+ CONST "started" '10.02.2009 20:45'
+ : Generators
+ Seq: (
+ gen_intf.pas
+ gen_pas.script
+ gen_pas.script.runner
+ )
+ ; // Generators
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Model'
+ CONST intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\Model\DocumentDomainInterfaces.pas'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Model'
+ CONST pas.script:Path 'shared\models\NewSchool\Scripts\4991BD69025E.pas.ms.script'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\4991BD69025E.pas.ms.script.runner'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\Model'
+
+ref; // ME_4991BD69025E DocumentDomainInterfaces

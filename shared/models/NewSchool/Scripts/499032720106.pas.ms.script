@@ -1,0 +1,273 @@
+// PrimeInterfaces 499032720106 Interfaces Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_499032720106
+
+FORWARD ME_49918CBB000C
+
+: ME_49918CC5036B
+ CONST UID '49918CC5036B'
+ CONST Name 'DataChanged'
+ CONST Class class_Operation
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_49918CBB000C // InsNewsLineNotifier
+ ;
+
+ref; // ME_49918CC5036B DataChanged
+
+: ME_49918CBB000C
+ CONST UID '49918CBB000C'
+ CONST GUID 'B884CC7A-B18D-411B-A6AB-FC6A9AAA665D'
+ CONST Name 'InsNewsLineNotifier'
+ CONST Class class_Class
+ : Stereotype st_Facet ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_499032720106 // PrimeInterfaces
+ ;
+ : Operations
+   Seq: ( ME_49918CC5036B // DataChanged
+ )
+ ; // Operations
+ CONST "ifndef" 'Monitorings'
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Common'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Common'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\Common'
+ CONST extprop:rc:SelfName 'NewsLineNotifier'
+ CONST extprop:rc:isAcceptableForScripts true
+
+ref; // ME_49918CBB000C InsNewsLineNotifier
+
+FORWARD ME_49918CD601C8
+
+: ME_49918D340382
+ CONST UID '49918D340382'
+ CONST Name 'ThemeList'
+ CONST Class class_Attribute
+ : Stereotype st_readonly::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_lnk
+ : Parent ME_49918CD601C8 // InsNewsLine
+ ;
+ : Target WL 'ME_4683CEE9034C' '467823B7002C.pas.ms.script' // IafwStrings
+ ;
+ CONST "pm" true
+
+ref; // ME_49918D340382 ThemeList
+
+: ME_49918D570335
+ CONST UID '49918D570335'
+ CONST Name 'CurrentTheme'
+ CONST Class class_Attribute
+ : Stereotype st_property::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_lnk
+ : Parent ME_49918CD601C8 // InsNewsLine
+ ;
+ : Target WL 'ME_46780DA40383' '4677FBA70343.pas.ms.script' // Il3CString
+ ;
+ CONST "pm" true
+
+ref; // ME_49918D570335 CurrentTheme
+
+: ME_49918CE0025D
+ CONST UID '49918CE0025D'
+ CONST Name 'SaveThemeToSettings'
+ CONST Class class_Operation
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_49918CD601C8 // InsNewsLine
+ ;
+
+ref; // ME_49918CE0025D SaveThemeToSettings
+
+: ME_49918CE900C9
+ CONST UID '49918CE900C9'
+ CONST Name 'LoadThemeFromSettings'
+ CONST Class class_Operation
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_49918CD601C8 // InsNewsLine
+ ;
+
+ref; // ME_49918CE900C9 LoadThemeFromSettings
+
+: ME_49918D010109
+ CONST UID '49918D010109'
+ CONST Name 'aNotifier'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target ME_49918CBB000C // InsNewsLineNotifier
+ ;
+
+ref; // ME_49918D010109 aNotifier
+
+: ME_49918CFD0326
+ CONST UID '49918CFD0326'
+ CONST Name 'Subscribe'
+ CONST Class class_Operation
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_49918CD601C8 // InsNewsLine
+ ;
+ : Parameters
+   Seq: ( ME_49918D010109 // aNotifier
+ )
+ ; // Parameters
+
+ref; // ME_49918CFD0326 Subscribe
+
+: ME_49918D0E037B
+ CONST UID '49918D0E037B'
+ CONST Name 'aNotifier'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target ME_49918CBB000C // InsNewsLineNotifier
+ ;
+
+ref; // ME_49918D0E037B aNotifier
+
+: ME_49918D0B03A3
+ CONST UID '49918D0B03A3'
+ CONST Name 'UnSubscribe'
+ CONST Class class_Operation
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_49918CD601C8 // InsNewsLine
+ ;
+ : Parameters
+   Seq: ( ME_49918D0E037B // aNotifier
+ )
+ ; // Parameters
+
+ref; // ME_49918D0B03A3 UnSubscribe
+
+: ME_49F7028D024F
+ CONST UID '49F7028D024F'
+ CONST Name 'MakeCurrentThemeTreeStruct'
+ CONST Class class_Operation
+ %SUMMARY 'Создать TreeStruct для текущей ленты' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_49918CD601C8 // InsNewsLine
+ ;
+ : Target WL 'ME_46825CC00249' '4682595B0268.pas.ms.script' // Il3SimpleTree
+ ;
+
+ref; // ME_49F7028D024F MakeCurrentThemeTreeStruct
+
+: ME_49F7F4FD0370
+ CONST UID '49F7F4FD0370'
+ CONST Name 'aNode'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_468259900322' '4682595B0268.pas.ms.script' // Il3SimpleNode
+ ;
+
+ref; // ME_49F7F4FD0370 aNode
+
+: ME_49F7F4E603A4
+ CONST UID '49F7F4E603A4'
+ CONST Name 'ExtractAutoreferat'
+ CONST Class class_Operation
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_49918CD601C8 // InsNewsLine
+ ;
+ : Target WL 'ME_45EEB6520191' '4570511E038A.pas.ms.script' // Document
+ ;
+ : Parameters
+   Seq: ( ME_49F7F4FD0370 // aNode
+ )
+ ; // Parameters
+
+ref; // ME_49F7F4E603A4 ExtractAutoreferat
+
+: ME_49918CD601C8
+ CONST UID '49918CD601C8'
+ CONST GUID 'CC1FD4A4-1733-4EDB-B696-92B5E74A634D'
+ CONST Name 'InsNewsLine'
+ CONST Class class_Class
+ : Stereotype st_Facet ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_499032720106 // PrimeInterfaces
+ ;
+ : Attributes
+   Seq: ( ME_49918D340382 // ThemeList
+ ME_49918D570335 // CurrentTheme
+ )
+ ; // Attributes
+ : Operations
+   Seq: ( ME_49918CE0025D // SaveThemeToSettings
+ ME_49918CE900C9 // LoadThemeFromSettings
+ ME_49918CFD0326 // Subscribe
+ ME_49918D0B03A3 // UnSubscribe
+ ME_49F7028D024F // MakeCurrentThemeTreeStruct
+ ME_49F7F4E603A4 // ExtractAutoreferat
+ )
+ ; // Operations
+ CONST "ifndef" 'Monitorings'
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Common'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Common'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\Common'
+ CONST extprop:rc:SelfName 'NewsLine'
+ CONST extprop:rc:isAcceptableForScripts true
+
+ref; // ME_49918CD601C8 InsNewsLine
+
+: ME_499032720106
+ CONST UID '499032720106'
+ CONST Name 'PrimeInterfaces'
+ CONST Class class_Category
+ : Stereotype st_Interfaces ;
+ %SUMMARY 'Интерфейсы для ПРАЙМа' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent WL 'ME_4ABB680E0218' '4ABB680E0218.pas.ms.script' // Common$Lib
+ ;
+ : Children
+   Seq: ( ME_49918CBB000C // InsNewsLineNotifier
+ ME_49918CD601C8 // InsNewsLine
+ )
+ ; // Children
+ : Depends
+   Seq: ( WL 'ME_4570511E038A' '4570511E038A.pas.ms.script' // Document
+ WL 'ME_4677FBA70343' '4677FBA70343.pas.ms.script' // l3Interfaces
+ WL 'ME_467823B7002C' '467823B7002C.pas.ms.script' // afwInterfaces
+ WL 'ME_4682595B0268' '4682595B0268.pas.ms.script' // l3TreeInterfaces
+ WL 'ME_47BECCB801BE' '47BECCB801BE.pas.ms.script' // Prime
+ )
+ ; // Depends
+ CONST "author" 'Люлин А.В.'
+ CONST "ifndef" 'Admin'
+ CONST "is namespace" true
+ CONST "no hands" true
+ CONST "started" '09.02.2009 16:41'
+ : Generators
+ Seq: (
+ gen_intf.pas
+ gen_pas.script
+ gen_pas.script.runner
+ )
+ ; // Generators
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Common'
+ CONST intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\Common\PrimeInterfaces.pas'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Common'
+ CONST pas.script:Path 'shared\models\NewSchool\Scripts\499032720106.pas.ms.script'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\499032720106.pas.ms.script.runner'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\Common'
+
+ref; // ME_499032720106 PrimeInterfaces

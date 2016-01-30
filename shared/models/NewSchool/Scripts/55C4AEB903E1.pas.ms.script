@@ -17,9 +17,13 @@ FORWARD ME_4799D2E6027B
  : Parent ME_4799D2E6027B // Printers
  ;
  : Inherits
-   @ ( WL 'ME_4787A405013D' '4AB0C3C60310.pas.ms.script' // Exception
- ) .SequenceCode.It
+   Seq: ( WL 'ME_4787A405013D' '4AB0C3C60310.pas.ms.script' // Exception
+ )
  ; // Inherits
+ CONST dfm:PathOnly '\common\components\rtl\external\NotFinished\Borland\Delphi\Vcl'
+ CONST intf.pas:PathOnly '\common\components\rtl\external\NotFinished\Borland\Delphi\Vcl'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_4799D3180344 EPrinter
 
@@ -35,13 +39,19 @@ ref; // ME_4799D3180344 EPrinter
  : Parent ME_4799D2E6027B // Printers
  ;
  : Inherits
-   @ ( WL 'ME_469F8577004B' '4AB0C3C60310.pas.ms.script' // TObject$Stub
- ) .SequenceCode.It
+   Seq: ( WL 'ME_469F8577004B' '4AB0C3C60310.pas.ms.script' // TObject$Stub
+ )
  ; // Inherits
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
+ CONST dfm:PathOnly '\common\components\rtl\external\NotFinished\Borland\Delphi\Vcl'
+ CONST intf.pas:PathOnly '\common\components\rtl\external\NotFinished\Borland\Delphi\Vcl'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'Printer'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_4799D345027F TPrinter
 
@@ -94,11 +104,16 @@ ref; // ME_4799E9C603E2 psHandleDC
  : Parent ME_4799D2E6027B // Printers
  ;
  : Attributes
-   @ ( ME_4799E9BB00AA // psNoHandle
+   Seq: ( ME_4799E9BB00AA // psNoHandle
  ME_4799E9C002F2 // psHandleIC
  ME_4799E9C603E2 // psHandleDC
- ) .SequenceCode.It
+ )
  ; // Attributes
+ CONST dfm:PathOnly '\common\components\rtl\external\NotFinished\Borland\Delphi\Vcl'
+ CONST intf.pas:PathOnly '\common\components\rtl\external\NotFinished\Borland\Delphi\Vcl'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_4799E9B3024C TPrinterState
 
@@ -139,10 +154,15 @@ ref; // ME_4799E9E500B4 poLandscape
  : Parent ME_4799D2E6027B // Printers
  ;
  : Attributes
-   @ ( ME_4799E9E00149 // poPortrait
+   Seq: ( ME_4799E9E00149 // poPortrait
  ME_4799E9E500B4 // poLandscape
- ) .SequenceCode.It
+ )
  ; // Attributes
+ CONST dfm:PathOnly '\common\components\rtl\external\NotFinished\Borland\Delphi\Vcl'
+ CONST intf.pas:PathOnly '\common\components\rtl\external\NotFinished\Borland\Delphi\Vcl'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_4799E9D90376 TPrinterOrientation
 
@@ -195,11 +215,16 @@ ref; // ME_4799EA12003E pcCollation
  : Parent ME_4799D2E6027B // Printers
  ;
  : Attributes
-   @ ( ME_4799EA0601F6 // pcCopies
+   Seq: ( ME_4799EA0601F6 // pcCopies
  ME_4799EA0C03D0 // pcOrientation
  ME_4799EA12003E // pcCollation
- ) .SequenceCode.It
+ )
  ; // Attributes
+ CONST dfm:PathOnly '\common\components\rtl\external\NotFinished\Borland\Delphi\Vcl'
+ CONST intf.pas:PathOnly '\common\components\rtl\external\NotFinished\Borland\Delphi\Vcl'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_4799E9EE0087 TPrinterCapability
 
@@ -214,9 +239,13 @@ ref; // ME_4799E9EE0087 TPrinterCapability
  : Parent ME_4799D2E6027B // Printers
  ;
  : Inherits
-   @ ( ME_4799E9EE0087 // TPrinterCapability
- ) .SequenceCode.It
+   Seq: ( ME_4799E9EE0087 // TPrinterCapability
+ )
  ; // Inherits
+ CONST dfm:PathOnly '\common\components\rtl\external\NotFinished\Borland\Delphi\Vcl'
+ CONST intf.pas:PathOnly '\common\components\rtl\external\NotFinished\Borland\Delphi\Vcl'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_4799EA1C0221 TPrinterCapabilities
 
@@ -225,6 +254,7 @@ FORWARD ME_4AE1D63601CB
 : ME_3CE0428068EA
  CONST UID '3CE0428068EA'
  CONST Name 'DoIt'
+ CONST IsSummoned true
  CONST Class class_Operation
  %SUMMARY 'Сигнатура метода Printer' ;
  CONST Visibility PublicAccess
@@ -245,8 +275,8 @@ ref; // ME_3CE0428068EA DoIt
  : Parent ME_4799D2E6027B // Printers
  ;
  : Operations
-   @ ( ME_3CE0428068EA // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_3CE0428068EA // DoIt
+ )
  ; // Operations
 
 ref; // ME_4AE1D63601CB Printer
@@ -285,8 +315,8 @@ ref; // ME_4799F748023A NewPrinter
  : Target ME_4799D345027F // TPrinter
  ;
  : Parameters
-   @ ( ME_4799F748023A // NewPrinter
- ) .SequenceCode.It
+   Seq: ( ME_4799F748023A // NewPrinter
+ )
  ; // Parameters
 
 ref; // ME_4799F74602BA SetPrinter
@@ -303,27 +333,26 @@ ref; // ME_4799F74602BA SetPrinter
  : Parent ME_55C4AEB903E1 // Printing
  ;
  : Operations
-   @ ( ME_4AE1D63601CB // Printer
+   Seq: ( ME_4AE1D63601CB // Printer
  ME_4799F731014C // Printer
  ME_4799F74602BA // SetPrinter
- ) .SequenceCode.It
+ )
  ; // Operations
  : Children
-   @ ( ME_4799D3180344 // EPrinter
+   Seq: ( ME_4799D3180344 // EPrinter
  ME_4799D345027F // TPrinter
  ME_4799E9B3024C // TPrinterState
  ME_4799E9D90376 // TPrinterOrientation
  ME_4799E9EE0087 // TPrinterCapability
  ME_4799EA1C0221 // TPrinterCapabilities
- ) .SequenceCode.It
+ )
  ; // Children
  CONST "no hands" false
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\external\NotFinished\Borland\Delphi\Vcl'
  CONST intf.pas:Path 'common\components\rtl\external\NotFinished\Borland\Delphi\Vcl\Printers.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\external\NotFinished\Borland\Delphi\Vcl'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_4799D2E6027B Printers
 
@@ -337,16 +366,14 @@ ref; // ME_4799D2E6027B Printers
  : Parent WL 'ME_4684F91300DD' '4684F91300DD.pas.ms.script' // Vcl
  ;
  : Children
-   @ ( ME_4799D2E6027B // Printers
- ) .SequenceCode.It
+   Seq: ( ME_4799D2E6027B // Printers
+ )
  ; // Children
- : Generators
- @ (
- gen_pas.script
- gen_pas.script.runner
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\external\NotFinished\Borland\Delphi\Vcl'
+ CONST intf.pas:PathOnly '\common\components\rtl\external\NotFinished\Borland\Delphi\Vcl'
  CONST pas.script:Path 'shared\models\NewSchool\Scripts\55C4AEB903E1.pas.ms.script'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
  CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\55C4AEB903E1.pas.ms.script.runner'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_55C4AEB903E1 Printing

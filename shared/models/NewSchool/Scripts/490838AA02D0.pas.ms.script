@@ -13,7 +13,7 @@ INCLUDE 'ElementsRTTI.ms.dict'
  : Parent WL 'ME_4AB1071F01B0' '4AB1071F01B0.pas.ms.script' // Shared Delphi For F1
  ;
  : Children
-   @ ( WL 'ME_490838E10313' '490838E10313.pas.ms.script' // nscNewInterfaces
+   Seq: ( WL 'ME_490838E10313' '490838E10313.pas.ms.script' // nscNewInterfaces
  WL 'ME_49083E150027' '49083E150027.pas.ms.script' // CoreObjects
  WL 'ME_557FE2750253' '557FE2750253.pas.ms.script' // Filters
  WL 'ME_505DA8FC03CF' '505DA8FC03CF.pas.ms.script' // StatusBarUtils
@@ -33,10 +33,10 @@ INCLUDE 'ElementsRTTI.ms.dict'
  WL 'ME_49871D5103B9' '49871D5103B9.pas.ms.script' // StatusBar
  WL 'ME_512388B6013B' '512388B6013B.pas.ms.script' // Outliner
  WL 'ME_495119A901CE' '495119A901CE.pas.ms.script' // Editor
- ) .SequenceCode.It
+ )
  ; // Children
  : Depends
-   @ ( WL 'ME_4677E16A022A' '4677E16A022A.pas.ms.script' // K2
+   Seq: ( WL 'ME_4677E16A022A' '4677E16A022A.pas.ms.script' // K2
  WL 'ME_467A75D90346' '467A75D90346.pas.ms.script' // VT
  WL 'ME_467A8734039C' '467A8734039C.pas.ms.script' // EVD
  WL 'ME_4680E7D50168' '4680E7D50168.pas.ms.script' // Everest Engine
@@ -62,7 +62,7 @@ INCLUDE 'ElementsRTTI.ms.dict'
  WL 'ME_54F5AAED0073' '54F5AAED0073.pas.ms.script' // L3$Visual
  WL 'ME_550012C403C4' '550012C403C4.pas.ms.script' // L3$AFW
  WL 'ME_561F9F7D02A7' '561F9F7D02A7.pas.ms.script' // ScriptEngine
- ) .SequenceCode.It
+ )
  ; // Depends
  CONST "defines" 'nscDefine.inc'
  CONST "exec mode" 'concluded'
@@ -70,17 +70,11 @@ INCLUDE 'ElementsRTTI.ms.dict'
  CONST "ifdef" 'Nemesis'
  CONST "is namespace" true
  CONST "vendor" '/Garant'
- : Generators
- @ (
- gen_forth_structure
- gen_intf.pas
- gen_pas.script
- gen_pas.script.runner
- ) .SequenceCode.It
- ; // Generators
- CONST forth_structure:Path 'shared\models\NewSchool\Shared Delphi For F1\Nemesis\Nemesis.model.script'
- CONST intf.pas:Path 'common\components\gui\Garant\Nemesis\Nemesis_lib.info'
+ CONST dfm:PathOnly '\common\components\gui\Garant\Nemesis'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Nemesis'
  CONST pas.script:Path 'shared\models\NewSchool\Scripts\490838AA02D0.pas.ms.script'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
  CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\490838AA02D0.pas.ms.script.runner'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_490838AA02D0 Nemesis

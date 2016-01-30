@@ -24,6 +24,7 @@ ref; // ME_511B995000AD
  ;
  : Implementor ME_4B7BFDB40015 // toK
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_4B7AB0B6016E_ME_4B7BFDB40015 CommandLineKey
 
 : ME_4B7C0B43005B_ME_4B7BFDB40015
@@ -33,6 +34,7 @@ ref; // ME_4B7AB0B6016E_ME_4B7BFDB40015 CommandLineKey
  ;
  : Implementor ME_4B7BFDB40015 // toK
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_4B7C0B43005B_ME_4B7BFDB40015 TimesPage
 
 : ME_4B7C0B670215_ME_4B7BFDB40015
@@ -42,6 +44,7 @@ ref; // ME_4B7C0B43005B_ME_4B7BFDB40015 TimesPage
  ;
  : Implementor ME_4B7BFDB40015 // toK
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_4B7C0B670215_ME_4B7BFDB40015 ResultsPage
 
 : ME_4BEA9969001B_ME_4B7BFDB40015
@@ -51,6 +54,7 @@ ref; // ME_4B7C0B670215_ME_4B7BFDB40015 ResultsPage
  ;
  : Implementor ME_4B7BFDB40015 // toK
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4BEA9969001B_ME_4B7BFDB40015 IsGK
 
 : ME_4B7BFDB40015
@@ -65,22 +69,22 @@ ref; // ME_4BEA9969001B_ME_4B7BFDB40015 IsGK
  : Parent ME_4B2A48AA03D4 // Daily$Test
  ;
  : Inherits
-   @ ( WL 'ME_4B7AAC7A031D' '4B2A112B011A.pas.ms.script' // TTestResultsPlace
- ) .SequenceCode.It
+   Seq: ( WL 'ME_4B7AAC7A031D' '4B2A112B011A.pas.ms.script' // TTestResultsPlace
+ )
  ; // Inherits
  : Implemented
-   @ ( ME_4B7AB0B6016E_ME_4B7BFDB40015 // CommandLineKey
+   Seq: ( ME_4B7AB0B6016E_ME_4B7BFDB40015 // CommandLineKey
  ME_4B7C0B43005B_ME_4B7BFDB40015 // TimesPage
  ME_4B7C0B670215_ME_4B7BFDB40015 // ResultsPage
- ) .SequenceCode.It
+ )
  ; // Implemented
  : Overridden
-   @ ( ME_4BEA9969001B_ME_4B7BFDB40015 // IsGK
- ) .SequenceCode.It
+   Seq: ( ME_4BEA9969001B_ME_4B7BFDB40015 // IsGK
+ )
  ; // Overridden
  : Dependencies
-   @ ( ME_511B995000AD // 
- ) .SequenceCode.It
+   Seq: ( ME_511B995000AD // 
+ )
  ; // Dependencies
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
@@ -88,12 +92,19 @@ ref; // ME_4BEA9969001B_ME_4B7BFDB40015 IsGK
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
  : Generators
- @ (
+ Seq: (
  gen_intf.pas
- ) .SequenceCode.It
+ )
  ; // Generators
+ CONST dfm:PathOnly '\common\components'
  CONST intf.pas:Path 'common\components\DailyTest\toK.pas'
+ CONST intf.pas:PathOnly '\common\components\DailyTest'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\common\components'
  CONST extprop:pas:TypeName 'TtoK'
+ CONST extprop:rc:SelfName 'toK'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_4B7BFDB40015 toK
 
@@ -106,6 +117,7 @@ FORWARD ME_4B7BFDCA01F9
  ;
  : Implementor ME_4B7BFDCA01F9 // ItsLAW
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_4B7AB0B6016E_ME_4B7BFDCA01F9 CommandLineKey
 
 : ME_4B7C0B43005B_ME_4B7BFDCA01F9
@@ -115,6 +127,7 @@ ref; // ME_4B7AB0B6016E_ME_4B7BFDCA01F9 CommandLineKey
  ;
  : Implementor ME_4B7BFDCA01F9 // ItsLAW
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_4B7C0B43005B_ME_4B7BFDCA01F9 TimesPage
 
 : ME_4B7C0B670215_ME_4B7BFDCA01F9
@@ -124,6 +137,7 @@ ref; // ME_4B7C0B43005B_ME_4B7BFDCA01F9 TimesPage
  ;
  : Implementor ME_4B7BFDCA01F9 // ItsLAW
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_4B7C0B670215_ME_4B7BFDCA01F9 ResultsPage
 
 : ME_4C35A6DA02E9_ME_4B7BFDCA01F9
@@ -133,6 +147,7 @@ ref; // ME_4B7C0B670215_ME_4B7BFDCA01F9 ResultsPage
  ;
  : Implementor ME_4B7BFDCA01F9 // ItsLAW
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4C35A6DA02E9_ME_4B7BFDCA01F9 IsLAW
 
 : ME_4B7BFDCA01F9
@@ -147,18 +162,18 @@ ref; // ME_4C35A6DA02E9_ME_4B7BFDCA01F9 IsLAW
  : Parent ME_4B2A48AA03D4 // Daily$Test
  ;
  : Inherits
-   @ ( WL 'ME_4B7AAC7A031D' '4B2A112B011A.pas.ms.script' // TTestResultsPlace
- ) .SequenceCode.It
+   Seq: ( WL 'ME_4B7AAC7A031D' '4B2A112B011A.pas.ms.script' // TTestResultsPlace
+ )
  ; // Inherits
  : Implemented
-   @ ( ME_4B7AB0B6016E_ME_4B7BFDCA01F9 // CommandLineKey
+   Seq: ( ME_4B7AB0B6016E_ME_4B7BFDCA01F9 // CommandLineKey
  ME_4B7C0B43005B_ME_4B7BFDCA01F9 // TimesPage
  ME_4B7C0B670215_ME_4B7BFDCA01F9 // ResultsPage
- ) .SequenceCode.It
+ )
  ; // Implemented
  : Overridden
-   @ ( ME_4C35A6DA02E9_ME_4B7BFDCA01F9 // IsLAW
- ) .SequenceCode.It
+   Seq: ( ME_4C35A6DA02E9_ME_4B7BFDCA01F9 // IsLAW
+ )
  ; // Overridden
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
@@ -166,12 +181,19 @@ ref; // ME_4C35A6DA02E9_ME_4B7BFDCA01F9 IsLAW
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
  : Generators
- @ (
+ Seq: (
  gen_intf.pas
- ) .SequenceCode.It
+ )
  ; // Generators
+ CONST dfm:PathOnly '\common\components'
  CONST intf.pas:Path 'common\components\DailyTest\ItsLAW.pas'
+ CONST intf.pas:PathOnly '\common\components\DailyTest'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\common\components'
  CONST extprop:pas:TypeName 'TItsLAW'
+ CONST extprop:rc:SelfName 'ItsLAW'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_4B7BFDCA01F9 ItsLAW
 
@@ -184,6 +206,7 @@ FORWARD ME_4C35A13B0201
  ;
  : Implementor ME_4C35A13B0201 // Archi2
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_4B7AB0B6016E_ME_4C35A13B0201 CommandLineKey
 
 : ME_4B7C0B43005B_ME_4C35A13B0201
@@ -193,6 +216,7 @@ ref; // ME_4B7AB0B6016E_ME_4C35A13B0201 CommandLineKey
  ;
  : Implementor ME_4C35A13B0201 // Archi2
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_4B7C0B43005B_ME_4C35A13B0201 TimesPage
 
 : ME_4B7C0B670215_ME_4C35A13B0201
@@ -202,6 +226,7 @@ ref; // ME_4B7C0B43005B_ME_4C35A13B0201 TimesPage
  ;
  : Implementor ME_4C35A13B0201 // Archi2
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_4B7C0B670215_ME_4C35A13B0201 ResultsPage
 
 : ME_4C35A13B0201
@@ -216,14 +241,14 @@ ref; // ME_4B7C0B670215_ME_4C35A13B0201 ResultsPage
  : Parent ME_4B2A48AA03D4 // Daily$Test
  ;
  : Inherits
-   @ ( WL 'ME_4B7AAC7A031D' '4B2A112B011A.pas.ms.script' // TTestResultsPlace
- ) .SequenceCode.It
+   Seq: ( WL 'ME_4B7AAC7A031D' '4B2A112B011A.pas.ms.script' // TTestResultsPlace
+ )
  ; // Inherits
  : Implemented
-   @ ( ME_4B7AB0B6016E_ME_4C35A13B0201 // CommandLineKey
+   Seq: ( ME_4B7AB0B6016E_ME_4C35A13B0201 // CommandLineKey
  ME_4B7C0B43005B_ME_4C35A13B0201 // TimesPage
  ME_4B7C0B670215_ME_4C35A13B0201 // ResultsPage
- ) .SequenceCode.It
+ )
  ; // Implemented
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
@@ -231,12 +256,19 @@ ref; // ME_4B7C0B670215_ME_4C35A13B0201 ResultsPage
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
  : Generators
- @ (
+ Seq: (
  gen_intf.pas
- ) .SequenceCode.It
+ )
  ; // Generators
+ CONST dfm:PathOnly '\common\components'
  CONST intf.pas:Path 'common\components\DailyTest\Archi2.pas'
+ CONST intf.pas:PathOnly '\common\components\DailyTest'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\common\components'
  CONST extprop:pas:TypeName 'TArchi2'
+ CONST extprop:rc:SelfName 'Archi2'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_4C35A13B0201 Archi2
 
@@ -249,6 +281,7 @@ FORWARD ME_4DB6B0DB0284
  ;
  : Implementor ME_4DB6B0DB0284 // toK64
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_4B7AB0B6016E_ME_4DB6B0DB0284 CommandLineKey
 
 : ME_4B7C0B43005B_ME_4DB6B0DB0284
@@ -258,6 +291,7 @@ ref; // ME_4B7AB0B6016E_ME_4DB6B0DB0284 CommandLineKey
  ;
  : Implementor ME_4DB6B0DB0284 // toK64
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_4B7C0B43005B_ME_4DB6B0DB0284 TimesPage
 
 : ME_4B7C0B670215_ME_4DB6B0DB0284
@@ -267,6 +301,7 @@ ref; // ME_4B7C0B43005B_ME_4DB6B0DB0284 TimesPage
  ;
  : Implementor ME_4DB6B0DB0284 // toK64
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_4B7C0B670215_ME_4DB6B0DB0284 ResultsPage
 
 : ME_4BEA9969001B_ME_4DB6B0DB0284
@@ -276,6 +311,7 @@ ref; // ME_4B7C0B670215_ME_4DB6B0DB0284 ResultsPage
  ;
  : Implementor ME_4DB6B0DB0284 // toK64
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4BEA9969001B_ME_4DB6B0DB0284 IsGK
 
 : ME_4DB6B0DB0284
@@ -289,18 +325,18 @@ ref; // ME_4BEA9969001B_ME_4DB6B0DB0284 IsGK
  : Parent ME_4B2A48AA03D4 // Daily$Test
  ;
  : Inherits
-   @ ( WL 'ME_4B7AAC7A031D' '4B2A112B011A.pas.ms.script' // TTestResultsPlace
- ) .SequenceCode.It
+   Seq: ( WL 'ME_4B7AAC7A031D' '4B2A112B011A.pas.ms.script' // TTestResultsPlace
+ )
  ; // Inherits
  : Implemented
-   @ ( ME_4B7AB0B6016E_ME_4DB6B0DB0284 // CommandLineKey
+   Seq: ( ME_4B7AB0B6016E_ME_4DB6B0DB0284 // CommandLineKey
  ME_4B7C0B43005B_ME_4DB6B0DB0284 // TimesPage
  ME_4B7C0B670215_ME_4DB6B0DB0284 // ResultsPage
- ) .SequenceCode.It
+ )
  ; // Implemented
  : Overridden
-   @ ( ME_4BEA9969001B_ME_4DB6B0DB0284 // IsGK
- ) .SequenceCode.It
+   Seq: ( ME_4BEA9969001B_ME_4DB6B0DB0284 // IsGK
+ )
  ; // Overridden
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
@@ -308,12 +344,19 @@ ref; // ME_4BEA9969001B_ME_4DB6B0DB0284 IsGK
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
  : Generators
- @ (
+ Seq: (
  gen_intf.pas
- ) .SequenceCode.It
+ )
  ; // Generators
+ CONST dfm:PathOnly '\common\components'
  CONST intf.pas:Path 'common\components\DailyTest\toK64.pas'
+ CONST intf.pas:PathOnly '\common\components\DailyTest'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\common\components'
  CONST extprop:pas:TypeName 'TtoK64'
+ CONST extprop:rc:SelfName 'toK64'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_4DB6B0DB0284 toK64
 
@@ -326,6 +369,7 @@ FORWARD ME_4E9EE76E003C
  ;
  : Implementor ME_4E9EE76E003C // toKT
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_4B7AB0B6016E_ME_4E9EE76E003C CommandLineKey
 
 : ME_4B7C0B43005B_ME_4E9EE76E003C
@@ -335,6 +379,7 @@ ref; // ME_4B7AB0B6016E_ME_4E9EE76E003C CommandLineKey
  ;
  : Implementor ME_4E9EE76E003C // toKT
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_4B7C0B43005B_ME_4E9EE76E003C TimesPage
 
 : ME_4B7C0B670215_ME_4E9EE76E003C
@@ -344,6 +389,7 @@ ref; // ME_4B7C0B43005B_ME_4E9EE76E003C TimesPage
  ;
  : Implementor ME_4E9EE76E003C // toKT
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_4B7C0B670215_ME_4E9EE76E003C ResultsPage
 
 : ME_4BEA9969001B_ME_4E9EE76E003C
@@ -353,6 +399,7 @@ ref; // ME_4B7C0B670215_ME_4E9EE76E003C ResultsPage
  ;
  : Implementor ME_4E9EE76E003C // toKT
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4BEA9969001B_ME_4E9EE76E003C IsGK
 
 : ME_4E9EE76E003C
@@ -367,18 +414,18 @@ ref; // ME_4BEA9969001B_ME_4E9EE76E003C IsGK
  : Parent ME_4B2A48AA03D4 // Daily$Test
  ;
  : Inherits
-   @ ( WL 'ME_4B7AAC7A031D' '4B2A112B011A.pas.ms.script' // TTestResultsPlace
- ) .SequenceCode.It
+   Seq: ( WL 'ME_4B7AAC7A031D' '4B2A112B011A.pas.ms.script' // TTestResultsPlace
+ )
  ; // Inherits
  : Implemented
-   @ ( ME_4B7AB0B6016E_ME_4E9EE76E003C // CommandLineKey
+   Seq: ( ME_4B7AB0B6016E_ME_4E9EE76E003C // CommandLineKey
  ME_4B7C0B43005B_ME_4E9EE76E003C // TimesPage
  ME_4B7C0B670215_ME_4E9EE76E003C // ResultsPage
- ) .SequenceCode.It
+ )
  ; // Implemented
  : Overridden
-   @ ( ME_4BEA9969001B_ME_4E9EE76E003C // IsGK
- ) .SequenceCode.It
+   Seq: ( ME_4BEA9969001B_ME_4E9EE76E003C // IsGK
+ )
  ; // Overridden
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
@@ -386,12 +433,19 @@ ref; // ME_4BEA9969001B_ME_4E9EE76E003C IsGK
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
  : Generators
- @ (
+ Seq: (
  gen_intf.pas
- ) .SequenceCode.It
+ )
  ; // Generators
+ CONST dfm:PathOnly '\common\components'
  CONST intf.pas:Path 'common\components\DailyTest\toKT.pas'
+ CONST intf.pas:PathOnly '\common\components\DailyTest'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\common\components'
  CONST extprop:pas:TypeName 'TtoKT'
+ CONST extprop:rc:SelfName 'toKT'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_4E9EE76E003C toKT
 
@@ -406,15 +460,15 @@ ref; // ME_4E9EE76E003C toKT
  : Parent WL 'ME_49B923B60333' '49B923B60333.pas.ms.script' // Shared Delphi Tests
  ;
  : Children
-   @ ( ME_4B7BFDB40015 // toK
+   Seq: ( ME_4B7BFDB40015 // toK
  ME_4B7BFDCA01F9 // ItsLAW
  ME_4C35A13B0201 // Archi2
  ME_4DB6B0DB0284 // toK64
  ME_4E9EE76E003C // toKT
- ) .SequenceCode.It
+ )
  ; // Children
  : Depends
-   @ ( WL 'ME_4773D64E036C' '47913B47006E.pas.ms.script' // l3Base
+   Seq: ( WL 'ME_4773D64E036C' '47913B47006E.pas.ms.script' // l3Base
  WL 'ME_4787A405013D' '4AB0C3C60310.pas.ms.script' // Exception
  WL 'ME_4B2A0D8A03A0' '4B2A0D6A0077.pas.ms.script' // TextTestRunner
  WL 'ME_4B2A0D9401CC' '4B2A0D6A0077.pas.ms.script' // GUITestRunner
@@ -432,7 +486,7 @@ ref; // ME_4E9EE76E003C toKT
  WL 'ME_4DC3B47F00B7' '4DC3B47F00B7.pas.ms.script' // ScriptSupport
  WL 'ME_4DEF306102FF' '4DEF302C0007.pas.ms.script' // TtfwScriptEngineEX
  WL 'ME_515D7B0B006F' '515D7B0B006F.pas.ms.script' // Containers
- ) .SequenceCode.It
+ )
  ; // Depends
  CONST "CONFIG_UC" false
  CONST "console" false
@@ -442,14 +496,20 @@ ref; // ME_4E9EE76E003C toKT
  CONST "no scripts" 'undefined'
  CONST "old format" false
  : Generators
- @ (
+ Seq: (
  gen_intf.pas
  gen_pas.script
  gen_pas.script.runner
- ) .SequenceCode.It
+ )
  ; // Generators
+ CONST dfm:PathOnly '\common\components'
  CONST intf.pas:Path 'common\components\DailyTest\DailyTest.dpr'
+ CONST intf.pas:PathOnly '\common\components\DailyTest'
  CONST pas.script:Path 'shared\models\NewSchool\Scripts\4B2A48AA03D4.pas.ms.script'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
  CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\4B2A48AA03D4.pas.ms.script.runner'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\common\components'
+ CONST extprop:pas:UnitName 'DailyTest'
 
 ref; // ME_4B2A48AA03D4 Daily$Test

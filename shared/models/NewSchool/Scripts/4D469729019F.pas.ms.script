@@ -13,6 +13,7 @@ FORWARD ME_7CD8D9AEF620
 : ME_C34D25F79F66
  CONST UID 'C34D25F79F66'
  CONST Name 'ut_OutlinerFormName'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY 'Строковый идентификатор пользовательского типа "Форма для тестирования списка"' ;
  CONST Visibility PublicAccess
@@ -24,12 +25,14 @@ FORWARD ME_7CD8D9AEF620
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value '''ut_OutlinerForm'''
 
 ref; // ME_C34D25F79F66 ut_OutlinerFormName
 
 : ME_931041DAB5D1
  CONST UID '931041DAB5D1'
  CONST Name 'ut_OutlinerForm'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY 'Форма для тестирования списка' ;
  CONST Visibility PublicAccess
@@ -45,12 +48,14 @@ ref; // ME_C34D25F79F66 ut_OutlinerFormName
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" true
+ CONST extprop:pas:Value 'TvcmUserType(0)'
 
 ref; // ME_931041DAB5D1 ut_OutlinerForm
 
 : ME_7CD8D9AEF620
  CONST UID '7CD8D9AEF620'
  CONST Name 'ut_OutlinerFormConstants'
+ CONST IsSummoned true
  CONST Class class_Class
  : Stereotype st_Constants ;
  CONST Kind kind_NormalClass
@@ -60,11 +65,16 @@ ref; // ME_931041DAB5D1 ut_OutlinerForm
  : Parent ME_2404FCE7338E // ut_OutlinerForm
  ;
  : Attributes
-   @ ( ME_C34D25F79F66 // ut_OutlinerFormName
+   Seq: ( ME_C34D25F79F66 // ut_OutlinerFormName
  ME_931041DAB5D1 // ut_OutlinerForm
- ) .SequenceCode.It
+ )
  ; // Attributes
  CONST "spell names" false
+ CONST dfm:PathOnly '\common\components\gui\Garant\Daily\Forms'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Daily\Forms'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\common\components\gui\Forms'
 
 ref; // ME_7CD8D9AEF620 ut_OutlinerFormConstants
 
@@ -73,6 +83,7 @@ FORWARD ME_DD7ED0CC7020
 : ME_FB03BF26B46F
  CONST UID 'FB03BF26B46F'
  CONST Name 'Ini_Reg'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Регистрация Tkw_FormUserType_ut_OutlinerForm' ;
@@ -90,6 +101,7 @@ ref; // ME_FB03BF26B46F Ini_Reg
  ;
  : Implementor ME_DD7ED0CC7020 // Tkw_FormUserType_ut_OutlinerForm
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4DB0614603C8_ME_DD7ED0CC7020 GetWordNameForRegister
 
 : ME_4EE1DC8903BB_ME_DD7ED0CC7020
@@ -99,11 +111,13 @@ ref; // ME_4DB0614603C8_ME_DD7ED0CC7020 GetWordNameForRegister
  ;
  : Implementor ME_DD7ED0CC7020 // Tkw_FormUserType_ut_OutlinerForm
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4EE1DC8903BB_ME_DD7ED0CC7020 GetInteger
 
 : ME_DD7ED0CC7020
  CONST UID 'DD7ED0CC7020'
  CONST Name 'Tkw_FormUserType_ut_OutlinerForm'
+ CONST IsSummoned true
  CONST Class class_Class
  : Stereotype st_ScriptKeyword ;
  CONST Kind kind_NormalClass
@@ -113,17 +127,17 @@ ref; // ME_4EE1DC8903BB_ME_DD7ED0CC7020 GetInteger
  : Parent ME_2404FCE7338E // ut_OutlinerForm
  ;
  : Inherits
-   @ ( WL 'ME_4EE1DBBB013C' '4F3E3F5F0160.pas.ms.script' // TtfwInteger
- ) .SequenceCode.It
+   Seq: ( WL 'ME_4EE1DBBB013C' '4F3E3F5F0160.pas.ms.script' // TtfwInteger
+ )
  ; // Inherits
  : Operations
-   @ ( ME_FB03BF26B46F // Ini_Reg
- ) .SequenceCode.It
+   Seq: ( ME_FB03BF26B46F // Ini_Reg
+ )
  ; // Operations
  : Overridden
-   @ ( ME_4DB0614603C8_ME_DD7ED0CC7020 // GetWordNameForRegister
+   Seq: ( ME_4DB0614603C8_ME_DD7ED0CC7020 // GetWordNameForRegister
  ME_4EE1DC8903BB_ME_DD7ED0CC7020 // GetInteger
- ) .SequenceCode.It
+ )
  ; // Overridden
  CONST "NameForScript" 'тип_формы::ut_OutlinerForm'
  CONST "ifndef" 'NoScripts'
@@ -131,12 +145,20 @@ ref; // ME_4EE1DC8903BB_ME_DD7ED0CC7020 GetInteger
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
+ CONST dfm:PathOnly '\common\components\gui\Garant\Daily\Forms'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Daily\Forms'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\common\components\gui\Forms'
+ CONST extprop:rc:SelfName '_FormUserType_ut_OutlinerForm'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_DD7ED0CC7020 Tkw_FormUserType_ut_OutlinerForm
 
 : ME_2404FCE7338E
  CONST UID '2404FCE7338E'
  CONST Name 'ut_OutlinerForm'
+ CONST IsSummoned true
  CONST Class class_Class
  : Stereotype st_UserType ;
  CONST Kind kind_NormalClass
@@ -146,12 +168,12 @@ ref; // ME_DD7ED0CC7020 Tkw_FormUserType_ut_OutlinerForm
  : Parent ME_4D4697F30281 // OutlinerForm
  ;
  : Children
-   @ ( ME_DD7ED0CC7020 // Tkw_FormUserType_ut_OutlinerForm
- ) .SequenceCode.It
+   Seq: ( ME_DD7ED0CC7020 // Tkw_FormUserType_ut_OutlinerForm
+ )
  ; // Children
  : Constants
-   @ ( ME_7CD8D9AEF620 // ut_OutlinerFormConstants
- ) .SequenceCode.It
+   Seq: ( ME_7CD8D9AEF620 // ut_OutlinerFormConstants
+ )
  ; // Constants
  CONST "CanClose" 'undefined'
  CONST "CanHaveToolbars" 'undefined'
@@ -162,11 +184,17 @@ ref; // ME_DD7ED0CC7020 Tkw_FormUserType_ut_OutlinerForm
  CONST "VisibleToUser" false
  CONST "Weight" '-1'
  : Generators
- @ (
+ Seq: (
  gen_intf.pas
- ) .SequenceCode.It
+ )
  ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\Daily\Forms'
  CONST intf.pas:Path 'common\components\gui\Garant\Daily\Forms\OutlinerForm_ut_OutlinerForm_UserType.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Daily\Forms'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\common\components\gui\Forms'
+ CONST extprop:pas:UnitName 'OutlinerForm_ut_OutlinerForm_UserType'
 
 ref; // ME_2404FCE7338E ut_OutlinerForm
 
@@ -177,6 +205,7 @@ FORWARD ME_F910C15A567C
 : ME_259D730085F5
  CONST UID '259D730085F5'
  CONST Name 'fm_OutlinerFormForm'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY 'Идентификатор формы TOutlinerFormForm' ;
  CONST Visibility PublicAccess
@@ -192,12 +221,14 @@ FORWARD ME_F910C15A567C
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value '(rFormID : (rName : ''OutlinerFormForm''; rID : 0); rFactory : nil)'
 
 ref; // ME_259D730085F5 fm_OutlinerFormForm
 
 : ME_F910C15A567C
  CONST UID 'F910C15A567C'
  CONST Name 'OutlinerFormIDs'
+ CONST IsSummoned true
  CONST Class class_Class
  : Stereotype st_Constants ;
  CONST Kind kind_NormalClass
@@ -206,10 +237,15 @@ ref; // ME_259D730085F5 fm_OutlinerFormForm
  : Parent ME_6CA6AB1D6951 // OutlinerForm$Def
  ;
  : Attributes
-   @ ( ME_259D730085F5 // fm_OutlinerFormForm
- ) .SequenceCode.It
+   Seq: ( ME_259D730085F5 // fm_OutlinerFormForm
+ )
  ; // Attributes
  CONST "spell names" false
+ CONST dfm:PathOnly '\common\components\gui\Garant\Daily\Forms'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Daily\Forms'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\common\components\gui\Forms'
 
 ref; // ME_F910C15A567C OutlinerFormIDs
 
@@ -217,6 +253,7 @@ ref; // ME_F910C15A567C OutlinerFormIDs
  CONST UID '6CA6AB1D6951'
  CONST GUID '0BC56D56-6AF0-47F9-9D0B-4AE7FEEE4483'
  CONST Name 'OutlinerForm'
+ CONST IsSummoned true
  CONST Class class_Class
  : Stereotype st_VCMFormDefinition ;
  CONST Kind kind_NormalClass
@@ -226,10 +263,16 @@ ref; // ME_F910C15A567C OutlinerFormIDs
  : Parent ME_4D4697F30281 // OutlinerForm
  ;
  : Constants
-   @ ( ME_F910C15A567C // OutlinerFormIDs
- ) .SequenceCode.It
+   Seq: ( ME_F910C15A567C // OutlinerFormIDs
+ )
  ; // Constants
+ CONST dfm:PathOnly '\common\components\gui\Garant\Daily\Forms'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Daily\Forms'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\common\components\gui\Forms'
  CONST extprop:pas:TypeName 'OutlinerFormFormDef'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_6CA6AB1D6951 OutlinerForm$Def
 
@@ -238,6 +281,7 @@ FORWARD ME_4C99C2688553
 : ME_22395E715F87
  CONST UID '22395E715F87'
  CONST Name 'ut_OutlinerFormCaption'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY 'Заголовок пользовательского типа "Форма для тестирования списка"' ;
  CONST Visibility PublicAccess
@@ -249,12 +293,14 @@ FORWARD ME_4C99C2688553
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value '''Форма для тестирования списка'''
 
 ref; // ME_22395E715F87 ut_OutlinerFormCaption
 
 : ME_4C99C2688553
  CONST UID '4C99C2688553'
  CONST Name 'ut_OutlinerFormLocalConstants'
+ CONST IsSummoned true
  CONST Class class_Class
  : Stereotype st_LocalConst ;
  CONST Kind kind_NormalClass
@@ -264,12 +310,17 @@ ref; // ME_22395E715F87 ut_OutlinerFormCaption
  : Parent ME_4D4697F30281 // OutlinerForm
  ;
  : Attributes
-   @ ( ME_22395E715F87 // ut_OutlinerFormCaption
- ) .SequenceCode.It
+   Seq: ( ME_22395E715F87 // ut_OutlinerFormCaption
+ )
  ; // Attributes
  CONST "Need map interface" false
  CONST "Need mapping support" false
  CONST "spell names" false
+ CONST dfm:PathOnly '\common\components\gui\Garant\Daily\Forms'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Daily\Forms'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\common\components\gui\Forms'
 
 ref; // ME_4C99C2688553 ut_OutlinerFormLocalConstants
 
@@ -278,6 +329,7 @@ FORWARD ME_4E813F56A930
 : ME_4FF1F5BCCD4D
  CONST UID '4FF1F5BCCD4D'
  CONST Name 'ut_OutlinerFormCaption'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY 'Заголовок пользовательского типа "Форма для тестирования списка"' ;
  CONST Visibility PublicAccess
@@ -293,12 +345,14 @@ FORWARD ME_4E813F56A930
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''ut_OutlinerFormCaption''; rValue : ''Форма для тестирования списка'')'
 
 ref; // ME_4FF1F5BCCD4D ut_OutlinerFormCaption
 
 : ME_4E813F56A930
  CONST UID '4E813F56A930'
  CONST Name 'LCImplut_OutlinerFormLocalConstants'
+ CONST IsSummoned true
  CONST Class class_Class
  : Stereotype st_Constants ;
  CONST Kind kind_NormalClass
@@ -308,11 +362,16 @@ ref; // ME_4FF1F5BCCD4D ut_OutlinerFormCaption
  : Parent ME_4D4697F30281 // OutlinerForm
  ;
  : Attributes
-   @ ( ME_4FF1F5BCCD4D // ut_OutlinerFormCaption
- ) .SequenceCode.It
+   Seq: ( ME_4FF1F5BCCD4D // ut_OutlinerFormCaption
+ )
  ; // Attributes
  CONST "elements prefix" 'str'
  CONST "spell names" false
+ CONST dfm:PathOnly '\common\components\gui\Garant\Daily\Forms'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Daily\Forms'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\common\components\gui\Forms'
  CONST extprop:pas:ElementPrefixBase 'str'
  CONST extprop:pas:ElementPrefix 'str_'
 
@@ -329,20 +388,26 @@ ref; // ME_4E813F56A930 LCImplut_OutlinerFormLocalConstants
  : Parent ME_4D4697F30281 // OutlinerForm
  ;
  : Inherits
-   @ ( WL 'ME_4D46A125003A' '4B97E7FD006C.pas.ms.script' // TvtOutlinerControl
- ) .SequenceCode.It
+   Seq: ( WL 'ME_4D46A125003A' '4B97E7FD006C.pas.ms.script' // TvtOutlinerControl
+ )
  ; // Inherits
  CONST "ControlClass" 'none'
  CONST "need Caption" 'undefined'
  CONST "needs field" true
  CONST "pm" true
  CONST "put to dfm" false
+ CONST dfm:PathOnly '\common\components\gui\Garant\Daily\Forms'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Daily\Forms'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\common\components\gui\Forms'
 
 ref; // ME_4D469966011E TreeControl
 
 : ME_AA5E1352163B
  CONST UID 'AA5E1352163B'
  CONST Name 'f_TreeControl'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY 'Поле для свойства TreeControl' ;
  CONST Visibility PrivateAccess
@@ -358,6 +423,7 @@ ref; // ME_AA5E1352163B f_TreeControl
 : ME_4726A74F4EC3
  CONST UID '4726A74F4EC3'
  CONST Name 'Ini_Reg_Class'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Регистрация OutlinerForm' ;
@@ -372,6 +438,7 @@ ref; // ME_4726A74F4EC3 Ini_Reg_Class
 : ME_C6BEE77081EA
  CONST UID 'C6BEE77081EA'
  CONST Name 'Ini_FormFactory_OutlinerForm'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Регистрация фабрики формы OutlinerForm' ;
@@ -379,12 +446,15 @@ ref; // ME_4726A74F4EC3 Ini_Reg_Class
  CONST Abstraction at_final
  : Parent ME_4D4697F30281 // OutlinerForm
  ;
+ : SpelledFor ME_4D4697F30281 // OutlinerForm
+ ;
 
 ref; // ME_C6BEE77081EA Ini_FormFactory_OutlinerForm$Def
 
 : ME_9C4BBAC5532C
  CONST UID '9C4BBAC5532C'
- CONST Name 'Init_ut_OutlinerFormCaption'
+ CONST Name 'Init_Str_ut_OutlinerFormCaption'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Инициализация str_ut_OutlinerFormCaption' ;
@@ -392,8 +462,12 @@ ref; // ME_C6BEE77081EA Ini_FormFactory_OutlinerForm$Def
  CONST Abstraction at_final
  : Parent ME_4D4697F30281 // OutlinerForm
  ;
+ : Speller ME_22395E715F87 // ut_OutlinerFormCaption
+ ;
+ : SpelledFor ME_4FF1F5BCCD4D // ut_OutlinerFormCaption
+ ;
 
-ref; // ME_9C4BBAC5532C Init_ut_OutlinerFormCaption
+ref; // ME_9C4BBAC5532C Init_Str_ut_OutlinerFormCaption
 
 : ME_4D47C399028D
  CONST UID '4D47C399028D'
@@ -408,6 +482,7 @@ ref; // ME_4D47C399028D
 
 : ME_05551F31A843
  CONST UID '05551F31A843'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_4D4697F30281 // OutlinerForm
@@ -419,6 +494,7 @@ ref; // ME_05551F31A843
 
 : ME_F9A353A98EF4
  CONST UID 'F9A353A98EF4'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_4D4697F30281 // OutlinerForm
@@ -430,6 +506,7 @@ ref; // ME_F9A353A98EF4
 
 : ME_5D319DCCB666
  CONST UID '5D319DCCB666'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_4D4697F30281 // OutlinerForm
@@ -446,6 +523,7 @@ ref; // ME_5D319DCCB666
  ;
  : Implementor ME_4D4697F30281 // OutlinerForm
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4A8E8F2E0195_ME_4D4697F30281 InitControls
 
 FORWARD ME_245F1A6BCEAD
@@ -462,48 +540,48 @@ FORWARD ME_245F1A6BCEAD
  : Parent ME_4D469729019F // Outliner
  ;
  : Inherits
-   @ ( WL 'ME_49525B34022A' '4AADF9450143.pas.ms.script' // TvcmEntityForm
- ) .SequenceCode.It
+   Seq: ( WL 'ME_49525B34022A' '4AADF9450143.pas.ms.script' // TvcmEntityForm
+ )
  ; // Inherits
  : Implements
-   @ ( ME_6CA6AB1D6951 // OutlinerForm$Def
- ) .SequenceCode.It
+   Seq: ( ME_6CA6AB1D6951 // OutlinerForm$Def
+ )
  ; // Implements
  : Attributes
-   @ ( ME_4D469966011E // TreeControl
+   Seq: ( ME_4D469966011E // TreeControl
  ME_AA5E1352163B // f_TreeControl
- ) .SequenceCode.It
+ )
  ; // Attributes
  : Operations
-   @ ( ME_4726A74F4EC3 // Ini_Reg_Class
+   Seq: ( ME_4726A74F4EC3 // Ini_Reg_Class
  ME_C6BEE77081EA // Ini_FormFactory_OutlinerForm$Def
- ME_9C4BBAC5532C // Init_ut_OutlinerFormCaption
- ) .SequenceCode.It
+ ME_9C4BBAC5532C // Init_Str_ut_OutlinerFormCaption
+ )
  ; // Operations
  : Overridden
-   @ ( ME_4A8E8F2E0195_ME_4D4697F30281 // InitControls
- ) .SequenceCode.It
+   Seq: ( ME_4A8E8F2E0195_ME_4D4697F30281 // InitControls
+ )
  ; // Overridden
  : Children
-   @ ( ME_2404FCE7338E // ut_OutlinerForm
+   Seq: ( ME_2404FCE7338E // ut_OutlinerForm
  ME_6CA6AB1D6951 // OutlinerForm$Def
- ) .SequenceCode.It
+ )
  ; // Children
  : Constants
-   @ ( ME_4C99C2688553 // ut_OutlinerFormLocalConstants
+   Seq: ( ME_4C99C2688553 // ut_OutlinerFormLocalConstants
  ME_4E813F56A930 // LCImplut_OutlinerFormLocalConstants
- ) .SequenceCode.It
+ )
  ; // Constants
  : Dependencies
-   @ ( ME_4D47C399028D // 
+   Seq: ( ME_4D47C399028D // 
  ME_05551F31A843 // 
  ME_F9A353A98EF4 // 
  ME_5D319DCCB666 // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  : Injected
-   @ ( ME_245F1A6BCEAD // 
- ) .SequenceCode.It
+   Seq: ( ME_245F1A6BCEAD // 
+ )
  ; // Injected
  CONST "NeedsHackRef" true
  CONST "ZoneType" 'Any'
@@ -517,14 +595,22 @@ FORWARD ME_245F1A6BCEAD
  CONST "resizeable" false
  CONST "restrict form def" 'undefined'
  : Generators
- @ (
+ Seq: (
  gen_dfm
  gen_intf.pas
- ) .SequenceCode.It
+ )
  ; // Generators
  CONST dfm:Path 'common\components\gui\Garant\Daily\Forms\Outliner_Form.dfm'
+ CONST dfm:PathOnly '\common\components\gui\Garant\Daily\Forms'
  CONST intf.pas:Path 'common\components\gui\Garant\Daily\Forms\Outliner_Form.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Daily\Forms'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\common\components\gui\Forms'
  CONST extprop:pas:TypeName 'TOutlinerFormForm'
+ CONST extprop:rc:SelfName 'OutlinerFormForm'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'Outliner_Form'
 
 ref; // ME_4D4697F30281 OutlinerForm
 
@@ -535,6 +621,7 @@ FORWARD ME_09DAEB2FD8D0
 : ME_35C2D1D6CF7C
  CONST UID '35C2D1D6CF7C'
  CONST Name 'Ini_Reg'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Регистрация Tkw_Form_OutlinerForm' ;
@@ -552,6 +639,7 @@ ref; // ME_35C2D1D6CF7C Ini_Reg
  ;
  : Implementor ME_09DAEB2FD8D0 // Tkw_Form_OutlinerForm
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4DB0614603C8_ME_09DAEB2FD8D0 GetWordNameForRegister
 
 : ME_4DDFD2EA0116_ME_09DAEB2FD8D0
@@ -561,11 +649,13 @@ ref; // ME_4DB0614603C8_ME_09DAEB2FD8D0 GetWordNameForRegister
  ;
  : Implementor ME_09DAEB2FD8D0 // Tkw_Form_OutlinerForm
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4DDFD2EA0116_ME_09DAEB2FD8D0 GetString
 
 : ME_09DAEB2FD8D0
  CONST UID '09DAEB2FD8D0'
  CONST Name 'Tkw_Form_OutlinerForm'
+ CONST IsSummoned true
  CONST Class class_Class
  : Stereotype st_ScriptKeyword ;
  CONST Kind kind_NormalClass
@@ -575,17 +665,17 @@ ref; // ME_4DDFD2EA0116_ME_09DAEB2FD8D0 GetString
  : Parent ME_AF4AF7ED74A4 // OutlinerFormKeywordsPack
  ;
  : Inherits
-   @ ( WL 'ME_508527F30183' '54DB92D203C9.pas.ms.script' // TtfwControlString
- ) .SequenceCode.It
+   Seq: ( WL 'ME_508527F30183' '54DB92D203C9.pas.ms.script' // TtfwControlString
+ )
  ; // Inherits
  : Operations
-   @ ( ME_35C2D1D6CF7C // Ini_Reg
- ) .SequenceCode.It
+   Seq: ( ME_35C2D1D6CF7C // Ini_Reg
+ )
  ; // Operations
  : Overridden
-   @ ( ME_4DB0614603C8_ME_09DAEB2FD8D0 // GetWordNameForRegister
+   Seq: ( ME_4DB0614603C8_ME_09DAEB2FD8D0 // GetWordNameForRegister
  ME_4DDFD2EA0116_ME_09DAEB2FD8D0 // GetString
- ) .SequenceCode.It
+ )
  ; // Overridden
  CONST "NameForScript" 'форма::OutlinerForm'
  CONST "ifndef" 'NoScripts'
@@ -593,6 +683,13 @@ ref; // ME_4DDFD2EA0116_ME_09DAEB2FD8D0 GetString
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
+ CONST dfm:PathOnly '\common\components\gui\Garant\Daily\Forms'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Daily\Forms'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\common\components\gui\Forms'
+ CONST extprop:rc:SelfName '_Form_OutlinerForm'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_09DAEB2FD8D0 Tkw_Form_OutlinerForm
 
@@ -601,6 +698,7 @@ FORWARD ME_C286239A9B7E
 : ME_E56755C0AD38
  CONST UID 'E56755C0AD38'
  CONST Name 'Ini_Reg'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Регистрация Tkw_OutlinerForm_Control_TreeControl' ;
@@ -613,6 +711,7 @@ ref; // ME_E56755C0AD38 Ini_Reg
 
 : ME_03D806115229
  CONST UID '03D806115229'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_C286239A9B7E // Tkw_OutlinerForm_Control_TreeControl
@@ -624,6 +723,7 @@ ref; // ME_03D806115229
 
 : ME_1992380AF2AD
  CONST UID '1992380AF2AD'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_C286239A9B7E // Tkw_OutlinerForm_Control_TreeControl
@@ -640,6 +740,7 @@ ref; // ME_1992380AF2AD
  ;
  : Implementor ME_C286239A9B7E // Tkw_OutlinerForm_Control_TreeControl
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4DB0614603C8_ME_C286239A9B7E GetWordNameForRegister
 
 : ME_4DDFD2EA0116_ME_C286239A9B7E
@@ -649,6 +750,7 @@ ref; // ME_4DB0614603C8_ME_C286239A9B7E GetWordNameForRegister
  ;
  : Implementor ME_C286239A9B7E // Tkw_OutlinerForm_Control_TreeControl
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4DDFD2EA0116_ME_C286239A9B7E GetString
 
 : ME_52A086150180_ME_C286239A9B7E
@@ -658,12 +760,14 @@ ref; // ME_4DDFD2EA0116_ME_C286239A9B7E GetString
  ;
  : Implementor ME_C286239A9B7E // Tkw_OutlinerForm_Control_TreeControl
  ;
+ CONST OpKind opkind_Overridden
  CONST "is static" true
 ref; // ME_52A086150180_ME_C286239A9B7E RegisterInEngine
 
 : ME_C286239A9B7E
  CONST UID 'C286239A9B7E'
  CONST Name 'Tkw_OutlinerForm_Control_TreeControl'
+ CONST IsSummoned true
  CONST Class class_Class
  : Stereotype st_ScriptKeyword ;
  CONST Kind kind_NormalClass
@@ -673,29 +777,36 @@ ref; // ME_52A086150180_ME_C286239A9B7E RegisterInEngine
  : Parent ME_AF4AF7ED74A4 // OutlinerFormKeywordsPack
  ;
  : Inherits
-   @ ( WL 'ME_508527F30183' '54DB92D203C9.pas.ms.script' // TtfwControlString
- ) .SequenceCode.It
+   Seq: ( WL 'ME_508527F30183' '54DB92D203C9.pas.ms.script' // TtfwControlString
+ )
  ; // Inherits
  : Operations
-   @ ( ME_E56755C0AD38 // Ini_Reg
- ) .SequenceCode.It
+   Seq: ( ME_E56755C0AD38 // Ini_Reg
+ )
  ; // Operations
  : Overridden
-   @ ( ME_4DB0614603C8_ME_C286239A9B7E // GetWordNameForRegister
+   Seq: ( ME_4DB0614603C8_ME_C286239A9B7E // GetWordNameForRegister
  ME_4DDFD2EA0116_ME_C286239A9B7E // GetString
  ME_52A086150180_ME_C286239A9B7E // RegisterInEngine
- ) .SequenceCode.It
+ )
  ; // Overridden
  : Dependencies
-   @ ( ME_03D806115229 // 
+   Seq: ( ME_03D806115229 // 
  ME_1992380AF2AD // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  CONST "NameForScript" 'контрол::TreeControl'
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
+ CONST dfm:PathOnly '\common\components\gui\Garant\Daily\Forms'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Daily\Forms'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\common\components\gui\Forms'
+ CONST extprop:rc:SelfName '_OutlinerForm_Control_TreeControl'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_C286239A9B7E Tkw_OutlinerForm_Control_TreeControl
 
@@ -704,6 +815,7 @@ FORWARD ME_B86AAC3D28B3
 : ME_4F837AC9D1BE
  CONST UID '4F837AC9D1BE'
  CONST Name 'Ini_Reg'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Регистрация Tkw_OutlinerForm_Control_TreeControl_Push' ;
@@ -716,6 +828,7 @@ ref; // ME_4F837AC9D1BE Ini_Reg
 
 : ME_350C297849BE
  CONST UID '350C297849BE'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_B86AAC3D28B3 // Tkw_OutlinerForm_Control_TreeControl_Push
@@ -732,6 +845,7 @@ ref; // ME_350C297849BE
  ;
  : Implementor ME_B86AAC3D28B3 // Tkw_OutlinerForm_Control_TreeControl_Push
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4DAEEDE10285_ME_B86AAC3D28B3 DoDoIt
 
 : ME_4DB0614603C8_ME_B86AAC3D28B3
@@ -741,11 +855,13 @@ ref; // ME_4DAEEDE10285_ME_B86AAC3D28B3 DoDoIt
  ;
  : Implementor ME_B86AAC3D28B3 // Tkw_OutlinerForm_Control_TreeControl_Push
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4DB0614603C8_ME_B86AAC3D28B3 GetWordNameForRegister
 
 : ME_B86AAC3D28B3
  CONST UID 'B86AAC3D28B3'
  CONST Name 'Tkw_OutlinerForm_Control_TreeControl_Push'
+ CONST IsSummoned true
  CONST Class class_Class
  : Stereotype st_ScriptKeyword ;
  CONST Kind kind_NormalClass
@@ -755,27 +871,34 @@ ref; // ME_4DB0614603C8_ME_B86AAC3D28B3 GetWordNameForRegister
  : Parent ME_AF4AF7ED74A4 // OutlinerFormKeywordsPack
  ;
  : Inherits
-   @ ( WL 'ME_4F2141AD0203' '4F69DF560034.pas.ms.script' // byname_control_push
- ) .SequenceCode.It
+   Seq: ( WL 'ME_4F2141AD0203' '4F69DF560034.pas.ms.script' // byname_control_push
+ )
  ; // Inherits
  : Operations
-   @ ( ME_4F837AC9D1BE // Ini_Reg
- ) .SequenceCode.It
+   Seq: ( ME_4F837AC9D1BE // Ini_Reg
+ )
  ; // Operations
  : Overridden
-   @ ( ME_4DAEEDE10285_ME_B86AAC3D28B3 // DoDoIt
+   Seq: ( ME_4DAEEDE10285_ME_B86AAC3D28B3 // DoDoIt
  ME_4DB0614603C8_ME_B86AAC3D28B3 // GetWordNameForRegister
- ) .SequenceCode.It
+ )
  ; // Overridden
  : Dependencies
-   @ ( ME_350C297849BE // 
- ) .SequenceCode.It
+   Seq: ( ME_350C297849BE // 
+ )
  ; // Dependencies
  CONST "NameForScript" 'контрол::TreeControl:push'
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
+ CONST dfm:PathOnly '\common\components\gui\Garant\Daily\Forms'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Daily\Forms'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\common\components\gui\Forms'
+ CONST extprop:rc:SelfName '_OutlinerForm_Control_TreeControl_Push'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_B86AAC3D28B3 Tkw_OutlinerForm_Control_TreeControl_Push
 
@@ -784,6 +907,7 @@ FORWARD ME_B10A49D0279E
 : ME_8528D1A6A8C7
  CONST UID '8528D1A6A8C7'
  CONST Name 'aCtx'
+ CONST IsSummoned true
  CONST Class class_Parameter
  : Stereotype st_in ;
  : Target WL 'ME_4DB0091E033E' '4DAF19F600C5.pas.ms.script' // TtfwContext
@@ -794,6 +918,7 @@ ref; // ME_8528D1A6A8C7 aCtx
 : ME_8528D1A6A8C8
  CONST UID '8528D1A6A8C8'
  CONST Name 'aOutlinerFormForm'
+ CONST IsSummoned true
  CONST Class class_Parameter
  : Stereotype st_in ;
  : Target ME_4D4697F30281 // OutlinerForm
@@ -804,6 +929,7 @@ ref; // ME_8528D1A6A8C8 aOutlinerFormForm
 : ME_F29E9001A722
  CONST UID 'F29E9001A722'
  CONST Name 'TreeControl'
+ CONST IsSummoned true
  CONST Class class_Operation
  %SUMMARY 'Реализация слова скрипта .TOutlinerFormForm.TreeControl' ;
  CONST Visibility PrivateAccess
@@ -813,9 +939,9 @@ ref; // ME_8528D1A6A8C8 aOutlinerFormForm
  : Target WL 'ME_4D46A125003A' '4B97E7FD006C.pas.ms.script' // TvtOutlinerControl
  ;
  : Parameters
-   @ ( ME_8528D1A6A8C7 // aCtx
+   Seq: ( ME_8528D1A6A8C7 // aCtx
  ME_8528D1A6A8C8 // aOutlinerFormForm
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_F29E9001A722 TreeControl
@@ -823,6 +949,7 @@ ref; // ME_F29E9001A722 TreeControl
 : ME_427210A35FC7
  CONST UID '427210A35FC7'
  CONST Name 'Ini_Reg'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Регистрация OutlinerFormForm_TreeControl' ;
@@ -835,6 +962,7 @@ ref; // ME_427210A35FC7 Ini_Reg
 
 : ME_36758783AFEA
  CONST UID '36758783AFEA'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_B10A49D0279E // OutlinerFormForm_TreeControl
@@ -846,6 +974,7 @@ ref; // ME_36758783AFEA
 
 : ME_FC305D97E3A1
  CONST UID 'FC305D97E3A1'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_B10A49D0279E // OutlinerFormForm_TreeControl
@@ -857,6 +986,7 @@ ref; // ME_FC305D97E3A1
 
 : ME_EBB544BBD6EF
  CONST UID 'EBB544BBD6EF'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_B10A49D0279E // OutlinerFormForm_TreeControl
@@ -873,6 +1003,7 @@ ref; // ME_EBB544BBD6EF
  ;
  : Implementor ME_B10A49D0279E // OutlinerFormForm_TreeControl
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_4DAEEDE10285_ME_B10A49D0279E DoDoIt
 
 : ME_4DB0614603C8_ME_B10A49D0279E
@@ -882,6 +1013,7 @@ ref; // ME_4DAEEDE10285_ME_B10A49D0279E DoDoIt
  ;
  : Implementor ME_B10A49D0279E // OutlinerFormForm_TreeControl
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4DB0614603C8_ME_B10A49D0279E GetWordNameForRegister
 
 : ME_52D00B00031A_ME_B10A49D0279E
@@ -891,6 +1023,7 @@ ref; // ME_4DB0614603C8_ME_B10A49D0279E GetWordNameForRegister
  ;
  : Implementor ME_B10A49D0279E // OutlinerFormForm_TreeControl
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_52D00B00031A_ME_B10A49D0279E SetValuePrim
 
 : ME_551544E2001A_ME_B10A49D0279E
@@ -900,6 +1033,7 @@ ref; // ME_52D00B00031A_ME_B10A49D0279E SetValuePrim
  ;
  : Implementor ME_B10A49D0279E // OutlinerFormForm_TreeControl
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_551544E2001A_ME_B10A49D0279E GetResultTypeInfo
 
 : ME_559687E6025A_ME_B10A49D0279E
@@ -909,6 +1043,7 @@ ref; // ME_551544E2001A_ME_B10A49D0279E GetResultTypeInfo
  ;
  : Implementor ME_B10A49D0279E // OutlinerFormForm_TreeControl
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_559687E6025A_ME_B10A49D0279E GetAllParamsCount
 
 : ME_5617F4D00243_ME_B10A49D0279E
@@ -918,11 +1053,13 @@ ref; // ME_559687E6025A_ME_B10A49D0279E GetAllParamsCount
  ;
  : Implementor ME_B10A49D0279E // OutlinerFormForm_TreeControl
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_5617F4D00243_ME_B10A49D0279E ParamsTypes
 
 : ME_B10A49D0279E
  CONST UID 'B10A49D0279E'
  CONST Name 'OutlinerFormForm_TreeControl'
+ CONST IsSummoned true
  CONST Class class_Class
  : Stereotype st_ScriptKeyword ;
  CONST Kind kind_NormalClass
@@ -932,44 +1069,52 @@ ref; // ME_5617F4D00243_ME_B10A49D0279E ParamsTypes
  : Parent ME_AF4AF7ED74A4 // OutlinerFormKeywordsPack
  ;
  : Inherits
-   @ ( WL 'ME_5619169603BE' '55CCADD2013D.pas.ms.script' // TtfwPropertyLike
- ) .SequenceCode.It
+   Seq: ( WL 'ME_5619169603BE' '55CCADD2013D.pas.ms.script' // TtfwPropertyLike
+ )
  ; // Inherits
  : Operations
-   @ ( ME_F29E9001A722 // TreeControl
+   Seq: ( ME_F29E9001A722 // TreeControl
  ME_427210A35FC7 // Ini_Reg
- ) .SequenceCode.It
+ )
  ; // Operations
  : Implemented
-   @ ( ME_4DAEEDE10285_ME_B10A49D0279E // DoDoIt
- ) .SequenceCode.It
+   Seq: ( ME_4DAEEDE10285_ME_B10A49D0279E // DoDoIt
+ )
  ; // Implemented
  : Overridden
-   @ ( ME_4DB0614603C8_ME_B10A49D0279E // GetWordNameForRegister
+   Seq: ( ME_4DB0614603C8_ME_B10A49D0279E // GetWordNameForRegister
  ME_52D00B00031A_ME_B10A49D0279E // SetValuePrim
  ME_551544E2001A_ME_B10A49D0279E // GetResultTypeInfo
  ME_559687E6025A_ME_B10A49D0279E // GetAllParamsCount
  ME_5617F4D00243_ME_B10A49D0279E // ParamsTypes
- ) .SequenceCode.It
+ )
  ; // Overridden
  : Dependencies
-   @ ( ME_36758783AFEA // 
+   Seq: ( ME_36758783AFEA // 
  ME_FC305D97E3A1 // 
  ME_EBB544BBD6EF // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  CONST "NameForScript" '.TOutlinerFormForm.TreeControl'
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
+ CONST dfm:PathOnly '\common\components\gui\Garant\Daily\Forms'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Daily\Forms'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\common\components\gui\Forms'
  CONST extprop:pas:TypeName 'TkwOutlinerFormFormTreeControl'
+ CONST extprop:rc:SelfName 'OutlinerFormFormTreeControl'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_B10A49D0279E OutlinerFormForm_TreeControl
 
 : ME_CFE47B957B4A
  CONST UID 'CFE47B957B4A'
  CONST Name 'TreeControl'
+ CONST IsSummoned true
  CONST Class class_Attribute
  : Stereotype st_readonly::Attribute ;
  %SUMMARY 'Контрол TreeControl формы TOutlinerFormForm' ;
@@ -988,6 +1133,7 @@ ref; // ME_CFE47B957B4A TreeControl
 : ME_368DD636FF20
  CONST UID '368DD636FF20'
  CONST Name 'TreeControl'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_keyword::Operation ;
  %SUMMARY 'Контрол TreeControl формы TOutlinerFormForm' ;
@@ -1006,7 +1152,8 @@ ref; // ME_368DD636FF20 TreeControl
 
 : ME_627546B91CF1
  CONST UID '627546B91CF1'
- CONST Name 'Reg_TtfwContext'
+ CONST Name 'Reg_Type_TtfwContext'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Регистрация типа TtfwContext' ;
@@ -1014,12 +1161,15 @@ ref; // ME_368DD636FF20 TreeControl
  CONST Abstraction at_final
  : Parent ME_AF4AF7ED74A4 // OutlinerFormKeywordsPack
  ;
+ : SpelledFor WL 'ME_4DB0091E033E' '4DAF19F600C5.pas.ms.script' // TtfwContext
+ ;
 
-ref; // ME_627546B91CF1 Reg_TtfwContext
+ref; // ME_627546B91CF1 Reg_Type_TtfwContext
 
 : ME_0FDABFB63CD1
  CONST UID '0FDABFB63CD1'
- CONST Name 'Reg_OutlinerForm'
+ CONST Name 'Reg_Type_OutlinerForm'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Регистрация типа OutlinerForm' ;
@@ -1027,12 +1177,15 @@ ref; // ME_627546B91CF1 Reg_TtfwContext
  CONST Abstraction at_final
  : Parent ME_AF4AF7ED74A4 // OutlinerFormKeywordsPack
  ;
+ : SpelledFor ME_4D4697F30281 // OutlinerForm
+ ;
 
-ref; // ME_0FDABFB63CD1 Reg_OutlinerForm
+ref; // ME_0FDABFB63CD1 Reg_Type_OutlinerForm
 
 : ME_0FFA84ED1888
  CONST UID '0FFA84ED1888'
- CONST Name 'Reg_TvtOutlinerControl'
+ CONST Name 'Reg_Type_TvtOutlinerControl'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Регистрация типа TvtOutlinerControl' ;
@@ -1040,11 +1193,14 @@ ref; // ME_0FDABFB63CD1 Reg_OutlinerForm
  CONST Abstraction at_final
  : Parent ME_AF4AF7ED74A4 // OutlinerFormKeywordsPack
  ;
+ : SpelledFor WL 'ME_4D46A125003A' '4B97E7FD006C.pas.ms.script' // TvtOutlinerControl
+ ;
 
-ref; // ME_0FFA84ED1888 Reg_TvtOutlinerControl
+ref; // ME_0FFA84ED1888 Reg_Type_TvtOutlinerControl
 
 : ME_45AE575272BA
  CONST UID '45AE575272BA'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_AF4AF7ED74A4 // OutlinerFormKeywordsPack
@@ -1056,6 +1212,7 @@ ref; // ME_45AE575272BA
 
 : ME_245F1A6BCEAD
  CONST UID '245F1A6BCEAD'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_injects::Dependency ;
  : Parent ME_AF4AF7ED74A4 // OutlinerFormKeywordsPack
@@ -1067,6 +1224,7 @@ ref; // ME_245F1A6BCEAD
 
 : ME_EA6716572A66
  CONST UID 'EA6716572A66'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_AF4AF7ED74A4 // OutlinerFormKeywordsPack
@@ -1079,6 +1237,7 @@ ref; // ME_EA6716572A66
 : ME_AF4AF7ED74A4
  CONST UID 'AF4AF7ED74A4'
  CONST Name 'OutlinerFormKeywordsPack'
+ CONST IsSummoned true
  CONST Class class_Class
  : Stereotype st_ScriptKeywordsPack ;
  CONST Kind kind_NormalClass
@@ -1088,32 +1247,32 @@ ref; // ME_EA6716572A66
  : Parent ME_4D469729019F // Outliner
  ;
  : Inherits
-   @ ( ME_4D4697F30281 // OutlinerForm
- ) .SequenceCode.It
+   Seq: ( ME_4D4697F30281 // OutlinerForm
+ )
  ; // Inherits
  : Attributes
-   @ ( ME_CFE47B957B4A // TreeControl
- ) .SequenceCode.It
+   Seq: ( ME_CFE47B957B4A // TreeControl
+ )
  ; // Attributes
  : Operations
-   @ ( ME_368DD636FF20 // TreeControl
- ME_627546B91CF1 // Reg_TtfwContext
- ME_0FDABFB63CD1 // Reg_OutlinerForm
- ME_0FFA84ED1888 // Reg_TvtOutlinerControl
- ) .SequenceCode.It
+   Seq: ( ME_368DD636FF20 // TreeControl
+ ME_627546B91CF1 // Reg_Type_TtfwContext
+ ME_0FDABFB63CD1 // Reg_Type_OutlinerForm
+ ME_0FFA84ED1888 // Reg_Type_TvtOutlinerControl
+ )
  ; // Operations
  : Children
-   @ ( ME_09DAEB2FD8D0 // Tkw_Form_OutlinerForm
+   Seq: ( ME_09DAEB2FD8D0 // Tkw_Form_OutlinerForm
  ME_C286239A9B7E // Tkw_OutlinerForm_Control_TreeControl
  ME_B86AAC3D28B3 // Tkw_OutlinerForm_Control_TreeControl_Push
  ME_B10A49D0279E // OutlinerFormForm_TreeControl
- ) .SequenceCode.It
+ )
  ; // Children
  : Dependencies
-   @ ( ME_45AE575272BA // 
+   Seq: ( ME_45AE575272BA // 
  ME_245F1A6BCEAD // 
  ME_EA6716572A66 // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  CONST "ifndef" 'NoScripts'
  CONST "needs script" 'undefined'
@@ -1121,11 +1280,16 @@ ref; // ME_EA6716572A66
  CONST "no hands" false
  CONST "no_pop" true
  : Generators
- @ (
+ Seq: (
  gen_intf.pas
- ) .SequenceCode.It
+ )
  ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\Daily\Forms'
  CONST intf.pas:Path 'common\components\gui\Garant\Daily\Forms\OutlinerFormKeywordsPack.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Daily\Forms'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\common\components\gui\Forms'
 
 ref; // ME_AF4AF7ED74A4 OutlinerFormKeywordsPack
 
@@ -1139,12 +1303,12 @@ ref; // ME_AF4AF7ED74A4 OutlinerFormKeywordsPack
  : Parent WL 'ME_4B30C6E3023C' '4B30C6E3023C.pas.ms.script' // Forms
  ;
  : Children
-   @ ( ME_4D4697F30281 // OutlinerForm
+   Seq: ( ME_4D4697F30281 // OutlinerForm
  ME_AF4AF7ED74A4 // OutlinerFormKeywordsPack
- ) .SequenceCode.It
+ )
  ; // Children
  : Depends
-   @ ( WL 'ME_4683F37902CF' '4683F37902CF.pas.ms.script' // vcmInterfaces
+   Seq: ( WL 'ME_4683F37902CF' '4683F37902CF.pas.ms.script' // vcmInterfaces
  WL 'ME_4767743E00E5' '4767743E00E5.pas.ms.script' // TypInfo
  WL 'ME_4799D29F033F' '4799D29F033F.pas.ms.script' // Implementation
  WL 'ME_499EAAE502A8' '499EAAE502A8.pas.ms.script' // vcmUserControls
@@ -1159,15 +1323,20 @@ ref; // ME_AF4AF7ED74A4 OutlinerFormKeywordsPack
  WL 'ME_55BA28CE0290' '55BA28CE0290.pas.ms.script' // tfwScriptingTypes
  WL 'ME_55CCADD2013D' '55CCADD2013D.pas.ms.script' // ClassLikeMapping
  WL 'ME_561F9F7D02A7' '561F9F7D02A7.pas.ms.script' // ScriptEngine
- ) .SequenceCode.It
+ )
  ; // Depends
  : Generators
- @ (
+ Seq: (
  gen_pas.script
  gen_pas.script.runner
- ) .SequenceCode.It
+ )
  ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\Daily\Forms'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Daily\Forms'
  CONST pas.script:Path 'shared\models\NewSchool\Scripts\4D469729019F.pas.ms.script'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
  CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\4D469729019F.pas.ms.script.runner'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\common\components\gui\Forms'
 
 ref; // ME_4D469729019F Outliner

@@ -11,6 +11,7 @@ FORWARD ME_4E15A01301E2
 : ME_5881F9C20CB1
  CONST UID '5881F9C20CB1'
  CONST Name 'Ini_Reg_Class'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Регистрация TvtCustomStatusBar' ;
@@ -24,6 +25,7 @@ ref; // ME_5881F9C20CB1 Ini_Reg_Class
 
 : ME_B1E4795AFC22
  CONST UID 'B1E4795AFC22'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_4E15A01301E2 // TvtCustomStatusBar
@@ -44,22 +46,28 @@ ref; // ME_B1E4795AFC22
  : Parent ME_4E15A00502A3 // TvtStatusBar
  ;
  : Inherits
-   @ ( WL 'ME_4E159FC602F5' '4799D29F033F.pas.ms.script' // TCustomStatusBar
- ) .SequenceCode.It
+   Seq: ( WL 'ME_4E159FC602F5' '4799D29F033F.pas.ms.script' // TCustomStatusBar
+ )
  ; // Inherits
  : Operations
-   @ ( ME_5881F9C20CB1 // Ini_Reg_Class
- ) .SequenceCode.It
+   Seq: ( ME_5881F9C20CB1 // Ini_Reg_Class
+ )
  ; // Operations
  : Dependencies
-   @ ( ME_B1E4795AFC22 // 
- ) .SequenceCode.It
+   Seq: ( ME_B1E4795AFC22 // 
+ )
  ; // Dependencies
  CONST "base wnd class" 'CWnd'
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" true
+ CONST dfm:PathOnly '\common\components\gui\Garant\VT'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\VT'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'StatusBar'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_4E15A01301E2 TvtCustomStatusBar
 
@@ -68,6 +76,7 @@ FORWARD ME_53F7021D0257
 : ME_948B50879DBB
  CONST UID '948B50879DBB'
  CONST Name 'Ini_Reg_Class'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Регистрация TvtStatusPanel' ;
@@ -81,6 +90,7 @@ ref; // ME_948B50879DBB Ini_Reg_Class
 
 : ME_29BB6FEA10F1
  CONST UID '29BB6FEA10F1'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_53F7021D0257 // TvtStatusPanel
@@ -101,27 +111,34 @@ ref; // ME_29BB6FEA10F1
  : Parent ME_4E15A00502A3 // TvtStatusBar
  ;
  : Operations
-   @ ( ME_948B50879DBB // Ini_Reg_Class
- ) .SequenceCode.It
+   Seq: ( ME_948B50879DBB // Ini_Reg_Class
+ )
  ; // Operations
  : Dependencies
-   @ ( ME_29BB6FEA10F1 // 
- ) .SequenceCode.It
+   Seq: ( ME_29BB6FEA10F1 // 
+ )
  ; // Dependencies
  : Injected
-   @ ( WL 'ME_677003967BFF' '4F6094D80196.pas.ms.script' // 
- ) .SequenceCode.It
+   Seq: ( WL 'ME_677003967BFF' '4F6094D80196.pas.ms.script' // 
+ )
  ; // Injected
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" true
+ CONST dfm:PathOnly '\common\components\gui\Garant\VT'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\VT'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'StatusPanel'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_53F7021D0257 TvtStatusPanel
 
 : ME_42682289E855
  CONST UID '42682289E855'
  CONST Name 'Ini_Reg_Class'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Регистрация TvtStatusBar' ;
@@ -146,6 +163,7 @@ ref; // ME_4E257A110115
 
 : ME_1F8D442B4D8C
  CONST UID '1F8D442B4D8C'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_4E15A00502A3 // TvtStatusBar
@@ -166,26 +184,26 @@ ref; // ME_1F8D442B4D8C
  : Parent ME_4E159FE900E2 // StatusBar
  ;
  : Inherits
-   @ ( ME_4E15A01301E2 // TvtCustomStatusBar
- ) .SequenceCode.It
+   Seq: ( ME_4E15A01301E2 // TvtCustomStatusBar
+ )
  ; // Inherits
  : Operations
-   @ ( ME_42682289E855 // Ini_Reg_Class
- ) .SequenceCode.It
+   Seq: ( ME_42682289E855 // Ini_Reg_Class
+ )
  ; // Operations
  : Children
-   @ ( ME_4E15A01301E2 // TvtCustomStatusBar
+   Seq: ( ME_4E15A01301E2 // TvtCustomStatusBar
  ME_53F7021D0257 // TvtStatusPanel
- ) .SequenceCode.It
+ )
  ; // Children
  : Dependencies
-   @ ( ME_4E257A110115 // 
+   Seq: ( ME_4E257A110115 // 
  ME_1F8D442B4D8C // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  : Injected
-   @ ( WL 'ME_2EAB3449D520' '4F6094D80196.pas.ms.script' // 
- ) .SequenceCode.It
+   Seq: ( WL 'ME_2EAB3449D520' '4F6094D80196.pas.ms.script' // 
+ )
  ; // Injected
  CONST "base wnd class" 'CWnd'
  CONST "finished" false
@@ -193,12 +211,14 @@ ref; // ME_1F8D442B4D8C
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\VT'
  CONST intf.pas:Path 'common\components\gui\Garant\VT\NOT_FINISHED_vtStatusBar.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\VT'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'StatusBar'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'vtStatusBar'
 
 ref; // ME_4E15A00502A3 TvtStatusBar
 
@@ -212,22 +232,20 @@ ref; // ME_4E15A00502A3 TvtStatusBar
  : Parent WL 'ME_467A75D90346' '467A75D90346.pas.ms.script' // VT
  ;
  : Children
-   @ ( ME_4E15A00502A3 // TvtStatusBar
- ) .SequenceCode.It
+   Seq: ( ME_4E15A00502A3 // TvtStatusBar
+ )
  ; // Children
  : Depends
-   @ ( WL 'ME_474144E20301' '474144E20301.pas.ms.script' // Draw
+   Seq: ( WL 'ME_474144E20301' '474144E20301.pas.ms.script' // Draw
  WL 'ME_4799D29F033F' '4799D29F033F.pas.ms.script' // Implementation
  WL 'ME_561F9F7D02A7' '561F9F7D02A7.pas.ms.script' // ScriptEngine
- ) .SequenceCode.It
+ )
  ; // Depends
- : Generators
- @ (
- gen_pas.script
- gen_pas.script.runner
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\VT'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\VT'
  CONST pas.script:Path 'shared\models\NewSchool\Scripts\4E159FE900E2.pas.ms.script'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
  CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\4E159FE900E2.pas.ms.script.runner'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_4E159FE900E2 StatusBar

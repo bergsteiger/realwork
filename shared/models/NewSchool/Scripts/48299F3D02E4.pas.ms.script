@@ -1,0 +1,129 @@
+// Редактор с выпадающим деревом 48299F3D02E4 UseCases Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_48299F3D02E4
+
+: ME_4829B7A6018F
+ CONST UID '4829B7A6018F'
+ CONST Name 'Раскраска введённой строки'
+ CONST Class class_Class
+ : Stereotype st_UseCase ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_48299F3D02E4 // Редактор с выпадающим деревом
+ ;
+ : Depends
+   Seq: ( WL 'ME_482ACC330173' '48342A280198.pas.ms.script' // TelCustomEdit
+ )
+ ; // Depends
+ CONST cpp:PathOnly '\common\components'
+ CONST dfm:PathOnly '\common\components'
+ CONST h:PathOnly '\common\components'
+ CONST intf.pas:PathOnly '\common\components'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+
+ref; // ME_4829B7A6018F Раскраска введённой строки
+
+: ME_482C1F4B0189
+ CONST UID '482C1F4B0189'
+ CONST Name 'Редактирование строки'
+ CONST Class class_Class
+ : Stereotype st_UseCase ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_48299F3D02E4 // Редактор с выпадающим деревом
+ ;
+ : Depends
+   Seq: ( WL 'ME_48315948025E' '48297E42011A.pas.ms.script' // TEditableBox
+ WL 'ME_487B5D8D00ED' '4829D7D50156.pas.ms.script' // TevBlockCursor
+ )
+ ; // Depends
+ CONST cpp:PathOnly '\common\components'
+ CONST dfm:PathOnly '\common\components'
+ CONST h:PathOnly '\common\components'
+ CONST intf.pas:PathOnly '\common\components'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+
+ref; // ME_482C1F4B0189 Редактирование строки
+
+: ME_4843B5A00287
+ CONST UID '4843B5A00287'
+ CONST Name 'Ввод символов'
+ CONST Class class_Class
+ : Stereotype st_UseCase ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_48299F3D02E4 // Редактор с выпадающим деревом
+ ;
+ : Depends
+   Seq: ( WL 'ME_482ACC330173' '48342A280198.pas.ms.script' // TelCustomEdit
+ WL 'ME_53317DB50257' '4A4DE16302A2.pas.ms.script' // Ik2Processor
+ )
+ ; // Depends
+ CONST cpp:PathOnly '\common\components'
+ CONST dfm:PathOnly '\common\components'
+ CONST h:PathOnly '\common\components'
+ CONST intf.pas:PathOnly '\common\components'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+
+ref; // ME_4843B5A00287 Ввод символов
+
+: ME_487CAAFC0279
+ CONST UID '487CAAFC0279'
+ CONST Name 'Выбор значений из дерева'
+ CONST Class class_Class
+ : Stereotype st_UseCase ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_48299F3D02E4 // Редактор с выпадающим деревом
+ ;
+ CONST cpp:PathOnly '\common\components'
+ CONST dfm:PathOnly '\common\components'
+ CONST h:PathOnly '\common\components'
+ CONST intf.pas:PathOnly '\common\components'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+
+ref; // ME_487CAAFC0279 Выбор значений из дерева
+
+: ME_48299F3D02E4
+ CONST UID '48299F3D02E4'
+ CONST Name 'Редактор с выпадающим деревом'
+ CONST Class class_Category
+ : Stereotype st_UseCases ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent WL 'ME_48299EAC014F' '48299EAC014F.pas.ms.script' // Компоненты для ввода данных
+ ;
+ : Children
+   Seq: ( ME_4829B7A6018F // Раскраска введённой строки
+ ME_482C1F4B0189 // Редактирование строки
+ ME_4843B5A00287 // Ввод символов
+ ME_487CAAFC0279 // Выбор значений из дерева
+ )
+ ; // Children
+ : Depends
+   Seq: ( WL 'ME_48297E42011A' '48297E42011A.pas.ms.script' // ComboTree
+ WL 'ME_4829D7D50156' '4829D7D50156.pas.ms.script' // Editors
+ WL 'ME_48342A280198' '48342A280198.pas.ms.script' // elClone
+ WL 'ME_4A4DE16302A2' '4A4DE16302A2.pas.ms.script' // k2Core
+ )
+ ; // Depends
+ CONST cpp:PathOnly '\common\components'
+ CONST dfm:PathOnly '\common\components'
+ CONST h:PathOnly '\common\components'
+ CONST intf.pas:PathOnly '\common\components'
+ CONST pas.script:Path 'shared\models\NewSchool\Scripts\48299F3D02E4.pas.ms.script'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\48299F3D02E4.pas.ms.script.runner'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+
+ref; // ME_48299F3D02E4 Редактор с выпадающим деревом

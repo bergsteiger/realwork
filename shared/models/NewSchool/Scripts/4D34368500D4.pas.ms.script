@@ -17,14 +17,20 @@ FORWARD ME_4D343693030A
  : Parent ME_4D343693030A // vcmTasksPanel
  ;
  : Inherits
-   @ ( WL 'ME_47F07B3E02E4' '47913B47006E.pas.ms.script' // l3Notifier
+   Seq: ( WL 'ME_47F07B3E02E4' '47913B47006E.pas.ms.script' // l3Notifier
  WL 'ME_47F25BEE0389' '47D0E1500033.pas.ms.script' // TvcmBase
- ) .SequenceCode.It
+ )
  ; // Inherits
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
+ CONST dfm:PathOnly '\common\components\gui\Garant\VCM\implementation'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\VCM\implementation'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'CustOpsNotifier'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_4D3436B2011A TvcmCustOpsNotifier
 
@@ -39,17 +45,17 @@ ref; // ME_4D3436B2011A TvcmCustOpsNotifier
  : Parent ME_4D34368500D4 // TasksPanel
  ;
  : Children
-   @ ( ME_4D3436B2011A // TvcmCustOpsNotifier
- ) .SequenceCode.It
+   Seq: ( ME_4D3436B2011A // TvcmCustOpsNotifier
+ )
  ; // Children
  CONST "finished" false
  CONST "no hands" false
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\VCM\implementation'
  CONST intf.pas:Path 'common\components\gui\Garant\VCM\implementation\NOT_FINISHED_vcmTasksPanel.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\VCM\implementation'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'TasksPanel'
 
 ref; // ME_4D343693030A vcmTasksPanel
 
@@ -63,22 +69,20 @@ ref; // ME_4D343693030A vcmTasksPanel
  : Parent WL 'ME_4790C3B8021E' '4790C3B8021E.pas.ms.script' // VCM
  ;
  : Children
-   @ ( ME_4D343693030A // vcmTasksPanel
- ) .SequenceCode.It
+   Seq: ( ME_4D343693030A // vcmTasksPanel
+ )
  ; // Children
  : Depends
-   @ ( WL 'ME_47913B47006E' '47913B47006E.pas.ms.script' // l3CoreObjects
+   Seq: ( WL 'ME_47913B47006E' '47913B47006E.pas.ms.script' // l3CoreObjects
  WL 'ME_47D0E1500033' '47D0E1500033.pas.ms.script' // Implementation
- ) .SequenceCode.It
+ )
  ; // Depends
  CONST "path prefix" '/implementation'
- : Generators
- @ (
- gen_pas.script
- gen_pas.script.runner
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\VCM\implementation'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\VCM\implementation'
  CONST pas.script:Path 'shared\models\NewSchool\Scripts\4D34368500D4.pas.ms.script'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
  CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\4D34368500D4.pas.ms.script.runner'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_4D34368500D4 TasksPanel

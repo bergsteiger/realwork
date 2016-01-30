@@ -14,6 +14,10 @@ FORWARD ME_54C13B1601FD
  CONST Abstraction at_regular
  : Parent ME_54C13B1601FD // eeExceptions
  ;
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest_Engine'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest_Engine'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_54C13B850149 EeeUserCommentsHidden
 
@@ -27,21 +31,18 @@ ref; // ME_54C13B850149 EeeUserCommentsHidden
  : Parent WL 'ME_4680E7D50168' '4680E7D50168.pas.ms.script' // Everest Engine
  ;
  : Children
-   @ ( ME_54C13B850149 // EeeUserCommentsHidden
- ) .SequenceCode.It
+   Seq: ( ME_54C13B850149 // EeeUserCommentsHidden
+ )
  ; // Children
  CONST "finished" false
  CONST "is namespace" true
  CONST "no hands" false
- : Generators
- @ (
- gen_intf.pas
- gen_pas.script
- gen_pas.script.runner
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest_Engine'
  CONST intf.pas:Path 'common\components\gui\Garant\Everest_Engine\NOT_FINISHED_eeExceptions.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest_Engine'
  CONST pas.script:Path 'shared\models\NewSchool\Scripts\54C13B1601FD.pas.ms.script'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
  CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\54C13B1601FD.pas.ms.script.runner'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_54C13B1601FD eeExceptions

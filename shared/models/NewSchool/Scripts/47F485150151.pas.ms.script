@@ -11,6 +11,7 @@ FORWARD ME_4A8AB028009E
 : ME_C2CC957930F8
  CONST UID 'C2CC957930F8'
  CONST Name 'DoIt'
+ CONST IsSummoned true
  CONST Class class_Operation
  %SUMMARY 'Сигнатура метода vtMakeImageListWrapper' ;
  CONST Visibility PublicAccess
@@ -31,9 +32,10 @@ ref; // ME_C2CC957930F8 DoIt
  : Parent ME_47F4853203E7 // vtUtils
  ;
  : Operations
-   @ ( ME_C2CC957930F8 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_C2CC957930F8 // DoIt
+ )
  ; // Operations
+ CONST extprop:rc:SelfName 'MakeImageListWrapper'
 
 ref; // ME_4A8AB028009E vtMakeImageListWrapper
 
@@ -61,18 +63,18 @@ ref; // ME_47F485480361 vtMakeImageListWrapper
  : Parent ME_47F485150151 // vtCommon
  ;
  : Operations
-   @ ( ME_4A8AB028009E // vtMakeImageListWrapper
+   Seq: ( ME_4A8AB028009E // vtMakeImageListWrapper
  ME_47F485480361 // vtMakeImageListWrapper
- ) .SequenceCode.It
+ )
  ; // Operations
  CONST "finished" false
  CONST "no hands" false
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\VT'
  CONST intf.pas:Path 'common\components\gui\Garant\VT\NOT_FINISHED_vtUtils.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\VT'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'Utils'
 
 ref; // ME_47F4853203E7 vtUtils
 
@@ -92,6 +94,12 @@ FORWARD ME_4AC0B2A102BE
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
+ CONST dfm:PathOnly '\common\components\gui\Garant\VT'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\VT'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'Splitter'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_5397086603C4 TvtSplitter
 
@@ -106,13 +114,19 @@ ref; // ME_5397086603C4 TvtSplitter
  : Parent ME_4AC0B2A102BE // vtCtrls
  ;
  : Inherits
-   @ ( WL 'ME_5049CD720050' '4799D29F033F.pas.ms.script' // TComboBox
- ) .SequenceCode.It
+   Seq: ( WL 'ME_5049CD720050' '4799D29F033F.pas.ms.script' // TComboBox
+ )
  ; // Inherits
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
+ CONST dfm:PathOnly '\common\components\gui\Garant\VT'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\VT'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'ComboBox'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_5523F3C403E6 TvtComboBox
 
@@ -121,6 +135,7 @@ FORWARD ME_4AC0B2B302FE
 : ME_35315E2E072C
  CONST UID '35315E2E072C'
  CONST Name 'DoIt'
+ CONST IsSummoned true
  CONST Class class_Operation
  %SUMMARY 'Сигнатура метода AdjustCtrl' ;
  CONST Visibility PublicAccess
@@ -141,8 +156,8 @@ ref; // ME_35315E2E072C DoIt
  : Parent ME_4AC0B2A102BE // vtCtrls
  ;
  : Operations
-   @ ( ME_35315E2E072C // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_35315E2E072C // DoIt
+ )
  ; // Operations
 
 ref; // ME_4AC0B2B302FE AdjustCtrl
@@ -158,22 +173,22 @@ ref; // ME_4AC0B2B302FE AdjustCtrl
  : Parent ME_47F485150151 // vtCommon
  ;
  : Operations
-   @ ( ME_4AC0B2B302FE // AdjustCtrl
- ) .SequenceCode.It
+   Seq: ( ME_4AC0B2B302FE // AdjustCtrl
+ )
  ; // Operations
  : Children
-   @ ( ME_5397086603C4 // TvtSplitter
+   Seq: ( ME_5397086603C4 // TvtSplitter
  ME_5523F3C403E6 // TvtComboBox
- ) .SequenceCode.It
+ )
  ; // Children
  CONST "finished" false
  CONST "no hands" false
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\VT'
  CONST intf.pas:Path 'common\components\gui\Garant\VT\NOT_FINISHED_vtCtrls.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\VT'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'Ctrls'
 
 ref; // ME_4AC0B2A102BE vtCtrls
 
@@ -228,11 +243,16 @@ ref; // ME_552FCD3200F5 dsPaused
  : Parent ME_4F0C0B6801C7 // DragData
  ;
  : Attributes
-   @ ( ME_552FCD1F01FB // dsPassive
+   Seq: ( ME_552FCD1F01FB // dsPassive
  ME_552FCD2B004D // dsActive
  ME_552FCD3200F5 // dsPaused
- ) .SequenceCode.It
+ )
  ; // Attributes
+ CONST dfm:PathOnly '\common\components\gui\Garant\VT'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\VT'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_552E443E0209 TDragDataState
 
@@ -259,8 +279,8 @@ ref; // ME_552FCE7D01CE DDType
  : Target WL 'ME_552FCED800E0' '4AB0C3F60375.pas.ms.script' // HCURSOR
  ;
  : Parameters
-   @ ( ME_552FCE7D01CE // DDType
- ) .SequenceCode.It
+   Seq: ( ME_552FCE7D01CE // DDType
+ )
  ; // Parameters
 
 ref; // ME_552FCE7903A4 DoIt
@@ -276,10 +296,14 @@ ref; // ME_552FCE7903A4 DoIt
  : Parent ME_4F0C0B6801C7 // DragData
  ;
  : Operations
-   @ ( ME_552FCE7903A4 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_552FCE7903A4 // DoIt
+ )
  ; // Operations
  CONST "of object" false
+ CONST dfm:PathOnly '\common\components\gui\Garant\VT'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\VT'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_552FCE6F0138 TGetCursorByType
 
@@ -300,6 +324,7 @@ FORWARD ME_552FCD410189
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value 'Messages.WM_USER + $100'
 
 ref; // ME_552FCD4C036B wm_DropAccept
 
@@ -318,6 +343,7 @@ ref; // ME_552FCD4C036B wm_DropAccept
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value 'Messages.WM_USER + $101'
 
 ref; // ME_552FCD5700EC wm_DropAccepted
 
@@ -334,6 +360,7 @@ ref; // ME_552FCD5700EC wm_DropAccepted
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value '[dsActive, dsPaused]'
 
 ref; // ME_552FCD5F0286 cnActiveState
 
@@ -348,12 +375,16 @@ ref; // ME_552FCD5F0286 cnActiveState
  : Parent ME_4F0C0B6801C7 // DragData
  ;
  : Attributes
-   @ ( ME_552FCD4C036B // wm_DropAccept
+   Seq: ( ME_552FCD4C036B // wm_DropAccept
  ME_552FCD5700EC // wm_DropAccepted
  ME_552FCD5F0286 // cnActiveState
- ) .SequenceCode.It
+ )
  ; // Attributes
  CONST "spell names" false
+ CONST dfm:PathOnly '\common\components\gui\Garant\VT'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\VT'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_552FCD410189 NewNestedConstants
 
@@ -382,17 +413,22 @@ ref; // ME_5530C7180149 Create
  : Parent ME_4F0C0B6801C7 // DragData
  ;
  : Inherits
-   @ ( WL 'ME_4787B1960023' '4787B0A8007B.pas.ms.script' // El3NoLoggedException
- ) .SequenceCode.It
+   Seq: ( WL 'ME_4787B1960023' '4787B0A8007B.pas.ms.script' // El3NoLoggedException
+ )
  ; // Inherits
  : Operations
-   @ ( ME_5530C7180149 // Create
- ) .SequenceCode.It
+   Seq: ( ME_5530C7180149 // Create
+ )
  ; // Operations
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
+ CONST dfm:PathOnly '\common\components\gui\Garant\VT'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\VT'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_552FCE4601AC EDragInProcess
 
@@ -600,6 +636,7 @@ ref; // ME_552FDEBE02A5 f_NeedStop
 : ME_50505DAD50DA
  CONST UID '50505DAD50DA'
  CONST Name 'f_DCursor'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY 'Поле для свойства DCursor' ;
  CONST Visibility PrivateAccess
@@ -609,12 +646,14 @@ ref; // ME_552FDEBE02A5 f_NeedStop
  ;
  : Target WL 'ME_552FCED800E0' '4AB0C3F60375.pas.ms.script' // HCURSOR
  ;
+ CONST extprop:clearViaProperty 'DCursor'
 
 ref; // ME_50505DAD50DA f_DCursor
 
 : ME_414C99C627BD
  CONST UID '414C99C627BD'
  CONST Name 'f_DragDataType'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY 'Поле для свойства DragDataType' ;
  CONST Visibility PrivateAccess
@@ -624,12 +663,14 @@ ref; // ME_50505DAD50DA f_DCursor
  ;
  : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
  ;
+ CONST extprop:clearViaProperty 'DragDataType'
 
 ref; // ME_414C99C627BD f_DragDataType
 
 : ME_1520650EF067
  CONST UID '1520650EF067'
  CONST Name 'f_DragData'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY 'Поле для свойства DragData' ;
  CONST Visibility PrivateAccess
@@ -639,12 +680,14 @@ ref; // ME_414C99C627BD f_DragDataType
  ;
  : Target WL 'ME_46A608F00301' '4AB0C3C60310.pas.ms.script' // Pointer
  ;
+ CONST extprop:clearViaProperty 'DragData'
 
 ref; // ME_1520650EF067 f_DragData
 
 : ME_85012D9DFBDA
  CONST UID '85012D9DFBDA'
  CONST Name 'f_AnswerData'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY 'Поле для свойства AnswerData' ;
  CONST Visibility PrivateAccess
@@ -654,12 +697,14 @@ ref; // ME_1520650EF067 f_DragData
  ;
  : Target WL 'ME_46A608F00301' '4AB0C3C60310.pas.ms.script' // Pointer
  ;
+ CONST extprop:clearViaProperty 'AnswerData'
 
 ref; // ME_85012D9DFBDA f_AnswerData
 
 : ME_A9ACD4B63835
  CONST UID 'A9ACD4B63835'
  CONST Name 'f_SourceControl'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY 'Поле для свойства SourceControl' ;
  CONST Visibility PrivateAccess
@@ -675,6 +720,7 @@ ref; // ME_A9ACD4B63835 f_SourceControl
 : ME_E1AC849CBF43
  CONST UID 'E1AC849CBF43'
  CONST Name 'f_DragState'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY 'Поле для свойства DragState' ;
  CONST Visibility PrivateAccess
@@ -690,6 +736,7 @@ ref; // ME_E1AC849CBF43 f_DragState
 : ME_BF2FCA293DC8
  CONST UID 'BF2FCA293DC8'
  CONST Name 'f_DragSuccess'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY 'Поле для свойства DragSuccess' ;
  CONST Visibility PrivateAccess
@@ -705,6 +752,7 @@ ref; // ME_BF2FCA293DC8 f_DragSuccess
 : ME_D206173B7FE3
  CONST UID 'D206173B7FE3'
  CONST Name 'f_OnDragStop'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY 'Поле для свойства OnDragStop' ;
  CONST Visibility PrivateAccess
@@ -714,12 +762,14 @@ ref; // ME_BF2FCA293DC8 f_DragSuccess
  ;
  : Target WL 'ME_47881B22005A' '4AB0997B00A2.pas.ms.script' // TNotifyEvent
  ;
+ CONST extprop:clearViaProperty 'OnDragStop'
 
 ref; // ME_D206173B7FE3 f_OnDragStop
 
 : ME_68C44F3DA337
  CONST UID '68C44F3DA337'
  CONST Name 'f_OnGetCursorByType'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY 'Поле для свойства OnGetCursorByType' ;
  CONST Visibility PrivateAccess
@@ -729,6 +779,7 @@ ref; // ME_D206173B7FE3 f_OnDragStop
  ;
  : Target ME_552FCE6F0138 // TGetCursorByType
  ;
+ CONST extprop:clearViaProperty 'OnGetCursorByType'
 
 ref; // ME_68C44F3DA337 f_OnGetCursorByType
 
@@ -737,6 +788,7 @@ FORWARD ME_552FDEE30376
 : ME_ACD05A28934A
  CONST UID 'ACD05A28934A'
  CONST Name 'DoIt'
+ CONST IsSummoned true
  CONST Class class_Operation
  %SUMMARY 'Сигнатура метода InitListeners' ;
  CONST Visibility PublicAccess
@@ -757,8 +809,8 @@ ref; // ME_ACD05A28934A DoIt
  : Parent ME_4F0C0B870141 // TDragDataSupport
  ;
  : Operations
-   @ ( ME_ACD05A28934A // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_ACD05A28934A // DoIt
+ )
  ; // Operations
 
 ref; // ME_552FDEE30376 InitListeners
@@ -768,6 +820,7 @@ FORWARD ME_552FDEFB010E
 : ME_19770FE91126
  CONST UID '19770FE91126'
  CONST Name 'DoIt'
+ CONST IsSummoned true
  CONST Class class_Operation
  %SUMMARY 'Сигнатура метода RemoveListeners' ;
  CONST Visibility PublicAccess
@@ -788,8 +841,8 @@ ref; // ME_19770FE91126 DoIt
  : Parent ME_4F0C0B870141 // TDragDataSupport
  ;
  : Operations
-   @ ( ME_19770FE91126 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_19770FE91126 // DoIt
+ )
  ; // Operations
 
 ref; // ME_552FDEFB010E RemoveListeners
@@ -806,6 +859,7 @@ FORWARD ME_552FDF3003B5
  CONST Value 'nil'
  : ValueType WL 'ME_47E1201703C3' '4799D29F033F.pas.ms.script' // TControl
  ;
+ CONST extprop:pas:Value 'nil'
 
 ref; // ME_552FDF400383 aDestControl
 
@@ -820,8 +874,8 @@ ref; // ME_552FDF400383 aDestControl
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
  : Parameters
-   @ ( ME_552FDF400383 // aDestControl
- ) .SequenceCode.It
+   Seq: ( ME_552FDF400383 // aDestControl
+ )
  ; // Parameters
 
 ref; // ME_552FDF3B03DB DoIt
@@ -837,8 +891,8 @@ ref; // ME_552FDF3B03DB DoIt
  : Parent ME_4F0C0B870141 // TDragDataSupport
  ;
  : Operations
-   @ ( ME_552FDF3B03DB // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_552FDF3B03DB // DoIt
+ )
  ; // Operations
 
 ref; // ME_552FDF3003B5 DoDrop
@@ -866,8 +920,8 @@ ref; // ME_552FDF6E009C SrcControl
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
  : Parameters
-   @ ( ME_552FDF6E009C // SrcControl
- ) .SequenceCode.It
+   Seq: ( ME_552FDF6E009C // SrcControl
+ )
  ; // Parameters
 
 ref; // ME_552FDF6B03BA DoIt
@@ -883,8 +937,8 @@ ref; // ME_552FDF6B03BA DoIt
  : Parent ME_4F0C0B870141 // TDragDataSupport
  ;
  : Operations
-   @ ( ME_552FDF6B03BA // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_552FDF6B03BA // DoIt
+ )
  ; // Operations
 
 ref; // ME_552FDF5D03B3 Execute
@@ -910,8 +964,8 @@ ref; // ME_552FDF98028E SrcControl
  : Parent ME_552FDF8E01C9 // RunDragData
  ;
  : Parameters
-   @ ( ME_552FDF98028E // SrcControl
- ) .SequenceCode.It
+   Seq: ( ME_552FDF98028E // SrcControl
+ )
  ; // Parameters
 
 ref; // ME_552FDF950216 DoIt
@@ -927,8 +981,8 @@ ref; // ME_552FDF950216 DoIt
  : Parent ME_4F0C0B870141 // TDragDataSupport
  ;
  : Operations
-   @ ( ME_552FDF950216 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_552FDF950216 // DoIt
+ )
  ; // Operations
 
 ref; // ME_552FDF8E01C9 RunDragData
@@ -954,8 +1008,8 @@ ref; // ME_552FDFFD0306 aSuccess
  : Parent ME_552FDFF10077 // Stop
  ;
  : Parameters
-   @ ( ME_552FDFFD0306 // aSuccess
- ) .SequenceCode.It
+   Seq: ( ME_552FDFFD0306 // aSuccess
+ )
  ; // Parameters
 
 ref; // ME_552FDFFB018A DoIt
@@ -971,8 +1025,8 @@ ref; // ME_552FDFFB018A DoIt
  : Parent ME_4F0C0B870141 // TDragDataSupport
  ;
  : Operations
-   @ ( ME_552FDFFB018A // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_552FDFFB018A // DoIt
+ )
  ; // Operations
 
 ref; // ME_552FDFF10077 Stop
@@ -982,6 +1036,7 @@ FORWARD ME_552FE00B02AA
 : ME_0DA1527EC3EF
  CONST UID '0DA1527EC3EF'
  CONST Name 'DoIt'
+ CONST IsSummoned true
  CONST Class class_Operation
  %SUMMARY 'Сигнатура метода Pause' ;
  CONST Visibility PublicAccess
@@ -1002,8 +1057,8 @@ ref; // ME_0DA1527EC3EF DoIt
  : Parent ME_4F0C0B870141 // TDragDataSupport
  ;
  : Operations
-   @ ( ME_0DA1527EC3EF // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_0DA1527EC3EF // DoIt
+ )
  ; // Operations
 
 ref; // ME_552FE00B02AA Pause
@@ -1013,6 +1068,7 @@ FORWARD ME_552FE0130188
 : ME_982796CA2815
  CONST UID '982796CA2815'
  CONST Name 'DoIt'
+ CONST IsSummoned true
  CONST Class class_Operation
  %SUMMARY 'Сигнатура метода Restore' ;
  CONST Visibility PublicAccess
@@ -1033,8 +1089,8 @@ ref; // ME_982796CA2815 DoIt
  : Parent ME_4F0C0B870141 // TDragDataSupport
  ;
  : Operations
-   @ ( ME_982796CA2815 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_982796CA2815 // DoIt
+ )
  ; // Operations
 
 ref; // ME_552FE0130188 Restore
@@ -1044,6 +1100,7 @@ FORWARD ME_552FE01A0138
 : ME_6278F689E72F
  CONST UID '6278F689E72F'
  CONST Name 'DoIt'
+ CONST IsSummoned true
  CONST Class class_Operation
  %SUMMARY 'Сигнатура метода CheckInProgress' ;
  CONST Visibility PublicAccess
@@ -1064,8 +1121,8 @@ ref; // ME_6278F689E72F DoIt
  : Parent ME_4F0C0B870141 // TDragDataSupport
  ;
  : Operations
-   @ ( ME_6278F689E72F // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_6278F689E72F // DoIt
+ )
  ; // Operations
 
 ref; // ME_552FE01A0138 CheckInProgress
@@ -1073,6 +1130,7 @@ ref; // ME_552FE01A0138 CheckInProgress
 : ME_14FB172E8673
  CONST UID '14FB172E8673'
  CONST Name 'Exists'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_static::Operation ;
  %SUMMARY 'Проверяет создан экземпляр синглетона или нет' ;
@@ -1082,6 +1140,7 @@ ref; // ME_552FE01A0138 CheckInProgress
  ;
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
+ CONST extprop:pas:Value false
 
 ref; // ME_14FB172E8673 Exists
 
@@ -1092,6 +1151,7 @@ ref; // ME_14FB172E8673 Exists
  ;
  : Implementor ME_4F0C0B870141 // TDragDataSupport
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_4F79CEDF005A_ME_4F0C0B870141 MouseListenerNotify
 
 : ME_4F79CF3400BB_ME_4F0C0B870141
@@ -1101,6 +1161,7 @@ ref; // ME_4F79CEDF005A_ME_4F0C0B870141 MouseListenerNotify
  ;
  : Implementor ME_4F0C0B870141 // TDragDataSupport
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_4F79CF3400BB_ME_4F0C0B870141 WndProcListenerNotify
 
 : ME_4F79CF9200A0_ME_4F0C0B870141
@@ -1110,6 +1171,7 @@ ref; // ME_4F79CF3400BB_ME_4F0C0B870141 WndProcListenerNotify
  ;
  : Implementor ME_4F0C0B870141 // TDragDataSupport
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_4F79CF9200A0_ME_4F0C0B870141 WndProcRetListenerNotify
 
 : ME_4F0C0B870141
@@ -1123,17 +1185,17 @@ ref; // ME_4F79CF9200A0_ME_4F0C0B870141 WndProcRetListenerNotify
  : Parent ME_4F0C0B6801C7 // DragData
  ;
  : Inherits
-   @ ( WL 'ME_46780CCE037B' '47913B47006E.pas.ms.script' // Tl3Base
- ) .SequenceCode.It
+   Seq: ( WL 'ME_46780CCE037B' '47913B47006E.pas.ms.script' // Tl3Base
+ )
  ; // Inherits
  : Implements
-   @ ( WL 'ME_46A5B4170363' '4677FBA70343.pas.ms.script' // Il3WndProcListener
+   Seq: ( WL 'ME_46A5B4170363' '4677FBA70343.pas.ms.script' // Il3WndProcListener
  WL 'ME_4F7321C602DF' '4677FBA70343.pas.ms.script' // Il3WndProcRetListener
  WL 'ME_4F741B37029A' '4677FBA70343.pas.ms.script' // Il3MouseListener
- ) .SequenceCode.It
+ )
  ; // Implements
  : Attributes
-   @ ( ME_552FD1E902A7 // DCursor
+   Seq: ( ME_552FD1E902A7 // DCursor
  ME_552FD2B903C5 // DragDataType
  ME_552FD48A0290 // DragData
  ME_552FD6240291 // AnswerData
@@ -1154,10 +1216,10 @@ ref; // ME_4F79CF9200A0_ME_4F0C0B870141 WndProcRetListenerNotify
  ME_BF2FCA293DC8 // f_DragSuccess
  ME_D206173B7FE3 // f_OnDragStop
  ME_68C44F3DA337 // f_OnGetCursorByType
- ) .SequenceCode.It
+ )
  ; // Attributes
  : Operations
-   @ ( ME_552FDEE30376 // InitListeners
+   Seq: ( ME_552FDEE30376 // InitListeners
  ME_552FDEFB010E // RemoveListeners
  ME_552FDF3003B5 // DoDrop
  ME_552FDF5D03B3 // Execute
@@ -1167,23 +1229,29 @@ ref; // ME_4F79CF9200A0_ME_4F0C0B870141 WndProcRetListenerNotify
  ME_552FE0130188 // Restore
  ME_552FE01A0138 // CheckInProgress
  ME_14FB172E8673 // Exists
- ) .SequenceCode.It
+ )
  ; // Operations
  : Implemented
-   @ ( ME_4F79CEDF005A_ME_4F0C0B870141 // MouseListenerNotify
+   Seq: ( ME_4F79CEDF005A_ME_4F0C0B870141 // MouseListenerNotify
  ME_4F79CF3400BB_ME_4F0C0B870141 // WndProcListenerNotify
  ME_4F79CF9200A0_ME_4F0C0B870141 // WndProcRetListenerNotify
- ) .SequenceCode.It
+ )
  ; // Implemented
  : Injected
-   @ ( WL 'ME_552E4473008D' '4F6094D80196.pas.ms.script' // 
- ) .SequenceCode.It
+   Seq: ( WL 'ME_552E4473008D' '4F6094D80196.pas.ms.script' // 
+ )
  ; // Injected
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
  CONST "singleton" true
+ CONST dfm:PathOnly '\common\components\gui\Garant\VT'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\VT'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'DragDataSupport'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_4F0C0B870141 TDragDataSupport
 
@@ -1231,29 +1299,28 @@ ref; // ME_5530D15B012E
  : Parent ME_47F485150151 // vtCommon
  ;
  : Children
-   @ ( ME_552E443E0209 // TDragDataState
+   Seq: ( ME_552E443E0209 // TDragDataState
  ME_552FCE6F0138 // TGetCursorByType
  ME_552FCE4601AC // EDragInProcess
  ME_4F0C0B870141 // TDragDataSupport
- ) .SequenceCode.It
+ )
  ; // Children
  : Constants
-   @ ( ME_552FCD410189 // NewNestedConstants
- ) .SequenceCode.It
+   Seq: ( ME_552FCD410189 // NewNestedConstants
+ )
  ; // Constants
  : Dependencies
-   @ ( ME_552FE0BB0088 // 
+   Seq: ( ME_552FE0BB0088 // 
  ME_5530D14D03C9 // 
  ME_5530D15B012E // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  CONST "no hands" false
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\VT'
  CONST intf.pas:Path 'common\components\gui\Garant\VT\DragData.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\VT'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_4F0C0B6801C7 DragData
 
@@ -1264,6 +1331,7 @@ FORWARD ME_4F0C239A01E1
 : ME_4F45CCF3596A
  CONST UID '4F45CCF3596A'
  CONST Name 'Ini_Reg_Class'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Регистрация TvtForm' ;
@@ -1277,6 +1345,7 @@ ref; // ME_4F45CCF3596A Ini_Reg_Class
 
 : ME_C20B8DE7380F
  CONST UID 'C20B8DE7380F'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_4F0C239A01E1 // TvtForm
@@ -1297,22 +1366,28 @@ ref; // ME_C20B8DE7380F
  : Parent ME_4F0C23870303 // vtForm
  ;
  : Inherits
-   @ ( WL 'ME_49525A0F034B' '495259B50283.pas.ms.script' // Tl3Form
- ) .SequenceCode.It
+   Seq: ( WL 'ME_49525A0F034B' '495259B50283.pas.ms.script' // Tl3Form
+ )
  ; // Inherits
  : Operations
-   @ ( ME_4F45CCF3596A // Ini_Reg_Class
- ) .SequenceCode.It
+   Seq: ( ME_4F45CCF3596A // Ini_Reg_Class
+ )
  ; // Operations
  : Dependencies
-   @ ( ME_C20B8DE7380F // 
- ) .SequenceCode.It
+   Seq: ( ME_C20B8DE7380F // 
+ )
  ; // Dependencies
  CONST "finished" false
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
+ CONST dfm:PathOnly '\common\components\gui\Garant\VT'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\VT'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'Form'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_4F0C239A01E1 TvtForm
 
@@ -1327,17 +1402,17 @@ ref; // ME_4F0C239A01E1 TvtForm
  : Parent ME_47F485150151 // vtCommon
  ;
  : Children
-   @ ( ME_4F0C239A01E1 // TvtForm
- ) .SequenceCode.It
+   Seq: ( ME_4F0C239A01E1 // TvtForm
+ )
  ; // Children
  CONST "finished" false
  CONST "no hands" false
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\VT'
  CONST intf.pas:Path 'common\components\gui\Garant\VT\NOT_FINISHED_vtForm.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\VT'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'Form'
 
 ref; // ME_4F0C23870303 vtForm
 
@@ -1352,14 +1427,14 @@ ref; // ME_4F0C23870303 vtForm
  : Parent WL 'ME_467A75D90346' '467A75D90346.pas.ms.script' // VT
  ;
  : Children
-   @ ( ME_47F4853203E7 // vtUtils
+   Seq: ( ME_47F4853203E7 // vtUtils
  ME_4AC0B2A102BE // vtCtrls
  ME_4F0C0B6801C7 // DragData
  ME_4F0C23870303 // vtForm
- ) .SequenceCode.It
+ )
  ; // Children
  : Depends
-   @ ( WL 'ME_4677FBA70343' '4677FBA70343.pas.ms.script' // l3Interfaces
+   Seq: ( WL 'ME_4677FBA70343' '4677FBA70343.pas.ms.script' // l3Interfaces
  WL 'ME_476F78840219' '476F78840219.pas.ms.script' // Messages
  WL 'ME_47750CE700D0' '47750CE700D0.pas.ms.script' // afwFacade
  WL 'ME_4787B0A8007B' '4787B0A8007B.pas.ms.script' // l3Except
@@ -1371,15 +1446,13 @@ ref; // ME_4F0C23870303 vtForm
  WL 'ME_4AB0C3F60375' '4AB0C3F60375.pas.ms.script' // Win
  WL 'ME_4F635E1901E5' '4F635E1901E5.pas.ms.script' // l3Listeners
  WL 'ME_561F9F7D02A7' '561F9F7D02A7.pas.ms.script' // ScriptEngine
- ) .SequenceCode.It
+ )
  ; // Depends
- : Generators
- @ (
- gen_pas.script
- gen_pas.script.runner
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\VT'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\VT'
  CONST pas.script:Path 'shared\models\NewSchool\Scripts\47F485150151.pas.ms.script'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
  CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\47F485150151.pas.ms.script.runner'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_47F485150151 vtCommon

@@ -16,20 +16,22 @@ FORWARD ME_467C182A01BE
  : Parent ME_467C182A01BE // k2TagTool
  ;
  : Inherits
-   @ ( WL 'ME_467C185C03E7' '49A58A1A03C4.pas.ms.script' // Tk2TagPointer
- ) .SequenceCode.It
+   Seq: ( WL 'ME_467C185C03E7' '49A58A1A03C4.pas.ms.script' // Tk2TagPointer
+ )
  ; // Inherits
  CONST "finished" false
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\K2'
  CONST intf.pas:Path 'common\components\rtl\Garant\K2\NOT_FINISHED_k2TagTool.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\K2'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'TagTool'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'k2TagTool'
 
 ref; // ME_467C18A303CB Tk2TagTool
 
@@ -55,6 +57,7 @@ ref; // ME_54BD169902EF Processor
 : ME_B269BE05A98F
  CONST UID 'B269BE05A98F'
  CONST Name 'f_Processor'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY 'Поле для свойства Processor' ;
  CONST Visibility PrivateAccess
@@ -98,9 +101,9 @@ ref; // ME_4BBF40EA0169 aProcessor
  : Parent ME_4BBF40C603BD // Create
  ;
  : Parameters
-   @ ( ME_4BBF40EA0117 // aTag
+   Seq: ( ME_4BBF40EA0117 // aTag
  ME_4BBF40EA0169 // aProcessor
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_4BBF40D0021D DoIt
@@ -116,8 +119,8 @@ ref; // ME_4BBF40D0021D DoIt
  : Parent ME_4BBF3D8B00CD // Tk2ProcessorTagTool
  ;
  : Operations
-   @ ( ME_4BBF40D0021D // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_4BBF40D0021D // DoIt
+ )
  ; // Operations
 
 ref; // ME_4BBF40C603BD Create
@@ -148,8 +151,8 @@ ref; // ME_54BD0F400339 DoIt
  : Parent ME_4BBF3D8B00CD // Tk2ProcessorTagTool
  ;
  : Operations
-   @ ( ME_54BD0F400339 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_54BD0F400339 // DoIt
+ )
  ; // Operations
 
 ref; // ME_54BD0F310322 GetProcessor
@@ -166,6 +169,7 @@ FORWARD ME_54BD16B6032F
  CONST Value 0
  : ValueType WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
  ;
+ CONST extprop:pas:Value 0
 
 ref; // ME_54BD16D7039A OpCode
 
@@ -179,6 +183,7 @@ ref; // ME_54BD16D7039A OpCode
  CONST Value true
  : ValueType WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
+ CONST extprop:pas:Value true
 
 ref; // ME_54BD16D703CC DoLock
 
@@ -193,9 +198,9 @@ ref; // ME_54BD16D703CC DoLock
  : Target WL 'ME_4A51CF380145' '4678137501EA.pas.ms.script' // Ik2Op
  ;
  : Parameters
-   @ ( ME_54BD16D7039A // OpCode
+   Seq: ( ME_54BD16D7039A // OpCode
  ME_54BD16D703CC // DoLock
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_54BD16CB00B2 DoIt
@@ -211,8 +216,8 @@ ref; // ME_54BD16CB00B2 DoIt
  : Parent ME_4BBF3D8B00CD // Tk2ProcessorTagTool
  ;
  : Operations
-   @ ( ME_54BD16CB00B2 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_54BD16CB00B2 // DoIt
+ )
  ; // Operations
 
 ref; // ME_54BD16B6032F StartOp
@@ -222,6 +227,7 @@ FORWARD ME_54BD284F0204
 : ME_E65660820D86
  CONST UID 'E65660820D86'
  CONST Name 'aTag'
+ CONST IsSummoned true
  CONST Class class_Parameter
  : Stereotype st_in ;
  : Target WL 'ME_532031160122' '47913B47006E.pas.ms.script' // Tl3Variant
@@ -232,6 +238,7 @@ ref; // ME_E65660820D86 aTag
 : ME_929756860143
  CONST UID '929756860143'
  CONST Name 'aProcessor'
+ CONST IsSummoned true
  CONST Class class_Parameter
  : Stereotype st_in ;
  : Target WL 'ME_4A51D59703DF' '4678137501EA.pas.ms.script' // Ik2Processor
@@ -242,6 +249,7 @@ ref; // ME_929756860143 aProcessor
 : ME_1203D15ACEB6
  CONST UID '1203D15ACEB6'
  CONST Name 'DoIt'
+ CONST IsSummoned true
  CONST Class class_Operation
  %SUMMARY 'Сигнатура фабрики Tk2ProcessorTagTool.Make' ;
  CONST Visibility PrivateAccess
@@ -251,9 +259,9 @@ ref; // ME_929756860143 aProcessor
  : Target WL 'ME_467818430333' '4678137501EA.pas.ms.script' // Ik2TagTool
  ;
  : Parameters
-   @ ( ME_E65660820D86 // aTag
+   Seq: ( ME_E65660820D86 // aTag
  ME_929756860143 // aProcessor
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_1203D15ACEB6 DoIt
@@ -269,16 +277,16 @@ ref; // ME_1203D15ACEB6 DoIt
  : Parent ME_4BBF3D8B00CD // Tk2ProcessorTagTool
  ;
  : Inherits
-   @ ( ME_4BBF40C603BD // Create
- ) .SequenceCode.It
+   Seq: ( ME_4BBF40C603BD // Create
+ )
  ; // Inherits
  : Implements
-   @ ( WL 'ME_467818430333' '4678137501EA.pas.ms.script' // Ik2TagTool
- ) .SequenceCode.It
+   Seq: ( WL 'ME_467818430333' '4678137501EA.pas.ms.script' // Ik2TagTool
+ )
  ; // Implements
  : Operations
-   @ ( ME_1203D15ACEB6 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_1203D15ACEB6 // DoIt
+ )
  ; // Operations
  CONST "check nil" false
  CONST "need AfterCreate" 'undefined'
@@ -294,6 +302,7 @@ ref; // ME_54BD284F0204 Make
  ;
  : Implementor ME_4BBF3D8B00CD // Tk2ProcessorTagTool
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" false
 ref; // ME_4BBF42BF004D_ME_4BBF3D8B00CD Processor
 
@@ -304,6 +313,7 @@ ref; // ME_4BBF42BF004D_ME_4BBF3D8B00CD Processor
  ;
  : Implementor ME_4BBF3D8B00CD // Tk2ProcessorTagTool
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_479731C50290_ME_4BBF3D8B00CD Cleanup
 
 : ME_48CF73CE00B5_ME_4BBF3D8B00CD
@@ -313,6 +323,7 @@ ref; // ME_479731C50290_ME_4BBF3D8B00CD Cleanup
  ;
  : Implementor ME_4BBF3D8B00CD // Tk2ProcessorTagTool
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_48CF73CE00B5_ME_4BBF3D8B00CD DoFire
 
 : ME_4A60B23E00C3_ME_4BBF3D8B00CD
@@ -322,6 +333,7 @@ ref; // ME_48CF73CE00B5_ME_4BBF3D8B00CD DoFire
  ;
  : Implementor ME_4BBF3D8B00CD // Tk2ProcessorTagTool
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4A60B23E00C3_ME_4BBF3D8B00CD COMQueryInterface
 
 : ME_5000565C019C_ME_4BBF3D8B00CD
@@ -331,6 +343,7 @@ ref; // ME_4A60B23E00C3_ME_4BBF3D8B00CD COMQueryInterface
  ;
  : Implementor ME_4BBF3D8B00CD // Tk2ProcessorTagTool
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_5000565C019C_ME_4BBF3D8B00CD ClearFields
 
 : ME_4BBF3D8B00CD
@@ -344,46 +357,48 @@ ref; // ME_5000565C019C_ME_4BBF3D8B00CD ClearFields
  : Parent ME_467C182A01BE // k2TagTool
  ;
  : Inherits
-   @ ( ME_467C18A303CB // Tk2TagTool
- ) .SequenceCode.It
+   Seq: ( ME_467C18A303CB // Tk2TagTool
+ )
  ; // Inherits
  : Implements
-   @ ( WL 'ME_4BBF4290001A' '4BC83B8301E5.pas.ms.script' // Mk2ProcessorHolder
- ) .SequenceCode.It
+   Seq: ( WL 'ME_4BBF4290001A' '4BC83B8301E5.pas.ms.script' // Mk2ProcessorHolder
+ )
  ; // Implements
  : Attributes
-   @ ( ME_54BD169902EF // Processor
+   Seq: ( ME_54BD169902EF // Processor
  ME_B269BE05A98F // f_Processor
- ) .SequenceCode.It
+ )
  ; // Attributes
  : Operations
-   @ ( ME_4BBF40C603BD // Create
+   Seq: ( ME_4BBF40C603BD // Create
  ME_54BD0F310322 // GetProcessor
  ME_54BD16B6032F // StartOp
  ME_54BD284F0204 // Make
- ) .SequenceCode.It
+ )
  ; // Operations
  : Implemented
-   @ ( ME_4BBF42BF004D_ME_4BBF3D8B00CD // Processor
- ) .SequenceCode.It
+   Seq: ( ME_4BBF42BF004D_ME_4BBF3D8B00CD // Processor
+ )
  ; // Implemented
  : Overridden
-   @ ( ME_479731C50290_ME_4BBF3D8B00CD // Cleanup
+   Seq: ( ME_479731C50290_ME_4BBF3D8B00CD // Cleanup
  ME_48CF73CE00B5_ME_4BBF3D8B00CD // DoFire
  ME_4A60B23E00C3_ME_4BBF3D8B00CD // COMQueryInterface
  ME_5000565C019C_ME_4BBF3D8B00CD // ClearFields
- ) .SequenceCode.It
+ )
  ; // Overridden
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\K2'
  CONST intf.pas:Path 'common\components\rtl\Garant\K2\k2ProcessorTagTool.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\K2'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'ProcessorTagTool'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'k2ProcessorTagTool'
 
 ref; // ME_4BBF3D8B00CD Tk2ProcessorTagTool
 
@@ -398,9 +413,13 @@ ref; // ME_4BBF3D8B00CD Tk2ProcessorTagTool
  : Parent ME_467C182A01BE // k2TagTool
  ;
  : Inherits
-   @ ( WL 'ME_467C185C03E7' '49A58A1A03C4.pas.ms.script' // Tk2TagPointer
- ) .SequenceCode.It
+   Seq: ( WL 'ME_467C185C03E7' '49A58A1A03C4.pas.ms.script' // Tk2TagPointer
+ )
  ; // Inherits
+ CONST dfm:PathOnly '\common\components\rtl\Garant\K2'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\K2'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_508ADEB001A2 Mk2TagPointer
 
@@ -416,19 +435,21 @@ ref; // ME_508ADEB001A2 Mk2TagPointer
  : Parent ME_467C182A01BE // k2TagTool
  ;
  : Inherits
-   @ ( ME_4BBF3D8B00CD // Tk2ProcessorTagTool
- ) .SequenceCode.It
+   Seq: ( ME_4BBF3D8B00CD // Tk2ProcessorTagTool
+ )
  ; // Inherits
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\K2'
  CONST intf.pas:Path 'common\components\rtl\Garant\K2\k2ProcTagTool.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\K2'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'ProcTagTool'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'k2ProcTagTool'
 
 ref; // ME_467C18BF0367 Tk2ProcTagTool
 
@@ -443,29 +464,27 @@ ref; // ME_467C18BF0367 Tk2ProcTagTool
  : Parent WL 'ME_4677E16A022A' '4677E16A022A.pas.ms.script' // K2
  ;
  : Children
-   @ ( ME_467C18A303CB // Tk2TagTool
+   Seq: ( ME_467C18A303CB // Tk2TagTool
  ME_4BBF3D8B00CD // Tk2ProcessorTagTool
  ME_508ADEB001A2 // Mk2TagPointer
  ME_467C18BF0367 // Tk2ProcTagTool
- ) .SequenceCode.It
+ )
  ; // Children
  : Depends
-   @ ( WL 'ME_4677FBA70343' '4677FBA70343.pas.ms.script' // l3Interfaces
+   Seq: ( WL 'ME_4677FBA70343' '4677FBA70343.pas.ms.script' // l3Interfaces
  WL 'ME_4678137501EA' '4678137501EA.pas.ms.script' // k2Interfaces
  WL 'ME_467FC43F01F9' '467FC43F01F9.pas.ms.script' // k2CoreObjects
  WL 'ME_47913B47006E' '47913B47006E.pas.ms.script' // l3CoreObjects
  WL 'ME_49A58A1A03C4' '49A58A1A03C4.pas.ms.script' // k2PrimObjects
  WL 'ME_4AB0C3C60310' '4AB0C3C60310.pas.ms.script' // Sys
  WL 'ME_4BC83B8301E5' '4BC83B8301E5.pas.ms.script' // k2PureMixIns
- ) .SequenceCode.It
+ )
  ; // Depends
- : Generators
- @ (
- gen_pas.script
- gen_pas.script.runner
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\K2'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\K2'
  CONST pas.script:Path 'shared\models\NewSchool\Scripts\467C182A01BE.pas.ms.script'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
  CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\467C182A01BE.pas.ms.script.runner'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_467C182A01BE k2TagTool

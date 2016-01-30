@@ -1,0 +1,91 @@
+// Meta 4F697D3801F2 Unit Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4F697D3801F2
+
+FORWARD ME_4F6989B90283
+
+: ME_4F697D540398
+ CONST UID '4F697D540398'
+ CONST Name 'TBaseDlg'
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4F6989B90283 // D_Base
+ ;
+ CONST "finished" false
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ CONST dfm:PathOnly '\archi\source\projects\Common\Meta'
+ CONST intf.pas:PathOnly '\archi\source\projects\Common\Meta'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\archi\source\projects\Common\Meta'
+ CONST extprop:rc:SelfName 'BaseDlg'
+ CONST extprop:rc:isAcceptableForScripts true
+
+ref; // ME_4F697D540398 TBaseDlg
+
+: ME_4F6989B90283
+ CONST UID '4F6989B90283'
+ CONST Name 'D_Base'
+ CONST Class class_Class
+ : Stereotype st_UtilityPack ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_4F697D3801F2 // Meta
+ ;
+ : Children
+   Seq: ( ME_4F697D540398 // TBaseDlg
+ )
+ ; // Children
+ CONST "finished" false
+ CONST "no hands" false
+ : Generators
+ Seq: (
+ gen_intf.pas
+ )
+ ; // Generators
+ CONST dfm:PathOnly '\archi\source\projects\Common\Meta'
+ CONST intf.pas:Path 'archi\source\projects\Common\Meta\NOT_FINISHED_D_Base.pas'
+ CONST intf.pas:PathOnly '\archi\source\projects\Common\Meta'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\archi\source\projects\Common\Meta'
+
+ref; // ME_4F6989B90283 D_Base
+
+: ME_4F697D3801F2
+ CONST UID '4F697D3801F2'
+ CONST Name 'Meta'
+ CONST Class class_Category
+ : Stereotype st_Unit ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent WL 'ME_4DECDC0100E9' '4DECDC0100E9.pas.ms.script' // Meta
+ ;
+ : Children
+   Seq: ( ME_4F6989B90283 // D_Base
+ )
+ ; // Children
+ : Generators
+ Seq: (
+ gen_pas.script
+ gen_pas.script.runner
+ )
+ ; // Generators
+ CONST dfm:PathOnly '\archi\source\projects\Common\Meta'
+ CONST intf.pas:PathOnly '\archi\source\projects\Common\Meta'
+ CONST pas.script:Path 'shared\models\NewSchool\Scripts\4F697D3801F2.pas.ms.script'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\4F697D3801F2.pas.ms.script.runner'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\archi\source\projects\Common\Meta'
+
+ref; // ME_4F697D3801F2 Meta

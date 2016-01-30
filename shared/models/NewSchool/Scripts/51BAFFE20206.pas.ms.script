@@ -13,6 +13,7 @@ FORWARD ME_51BB0020030A
  ;
  : Implementor ME_51BB0020030A // TK460275638Suite
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4EA50C04021B_ME_51BB0020030A GetExt
 
 : ME_51BB0020030A
@@ -26,23 +27,31 @@ ref; // ME_4EA50C04021B_ME_51BB0020030A GetExt
  : Parent ME_51BAFFE20206 // RegExpUtils
  ;
  : Inherits
-   @ ( WL 'ME_4EA515800122' '4EA5156C00C8.pas.ms.script' // TCustomFolderTestSuite
- ) .SequenceCode.It
+   Seq: ( WL 'ME_4EA515800122' '4EA5156C00C8.pas.ms.script' // TCustomFolderTestSuite
+ )
  ; // Inherits
  : Overridden
-   @ ( ME_4EA50C04021B_ME_51BB0020030A // GetExt
- ) .SequenceCode.It
+   Seq: ( ME_4EA50C04021B_ME_51BB0020030A // GetExt
+ )
  ; // Overridden
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
  : Generators
- @ (
+ Seq: (
  gen_intf.pas
- ) .SequenceCode.It
+ )
  ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\Daily'
  CONST intf.pas:Path 'common\components\rtl\Garant\Daily\K460275638Suite.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\Daily'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\common\components\rtl\Garant\Daily'
+ CONST extprop:rc:SelfName 'K460275638Suite'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'K460275638Suite'
 
 ref; // ME_51BB0020030A TK460275638Suite
 
@@ -56,20 +65,25 @@ ref; // ME_51BB0020030A TK460275638Suite
  : Parent WL 'ME_4B2A15810261' '4B2A15810261.pas.ms.script' // DailyTest
  ;
  : Children
-   @ ( ME_51BB0020030A // TK460275638Suite
- ) .SequenceCode.It
+   Seq: ( ME_51BB0020030A // TK460275638Suite
+ )
  ; // Children
  : Depends
-   @ ( WL 'ME_4EA5156C00C8' '4EA5156C00C8.pas.ms.script' // FolderTestSupport
- ) .SequenceCode.It
+   Seq: ( WL 'ME_4EA5156C00C8' '4EA5156C00C8.pas.ms.script' // FolderTestSupport
+ )
  ; // Depends
  : Generators
- @ (
+ Seq: (
  gen_pas.script
  gen_pas.script.runner
- ) .SequenceCode.It
+ )
  ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\Daily'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\Daily'
  CONST pas.script:Path 'shared\models\NewSchool\Scripts\51BAFFE20206.pas.ms.script'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
  CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\51BAFFE20206.pas.ms.script.runner'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\common\components\rtl\Garant\Daily'
 
 ref; // ME_51BAFFE20206 RegExpUtils

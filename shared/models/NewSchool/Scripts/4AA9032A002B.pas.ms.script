@@ -1,0 +1,5269 @@
+// Monitoring 4AA9032A002B VCMGUI Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4AA9032A002B
+
+FORWARD ME_4AA9038C0387
+
+FORWARD ME_4AA919040176
+
+FORWARD ME_4BD84E0603B5
+
+FORWARD ME_5E0D3F501471
+
+: ME_4D92BC475F10
+ CONST UID '4D92BC475F10'
+ CONST Name 'utEmptyMainWindowName'
+ CONST IsSummoned true
+ CONST Class class_Attribute
+ %SUMMARY 'Строковый идентификатор пользовательского типа "Главное окно"' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_5E0D3F501471 // utEmptyMainWindowConstants
+ ;
+ CONST Value '''utEmptyMainWindow'''
+ CONST "AutoInc" false
+ CONST "UseNewGen" 'undefined'
+ CONST "forced type" 'none'
+ CONST "is define" false
+ CONST extprop:pas:Value '''utEmptyMainWindow'''
+
+ref; // ME_4D92BC475F10 utEmptyMainWindowName
+
+: ME_48C19DB4F69E
+ CONST UID '48C19DB4F69E'
+ CONST Name 'utEmptyMainWindow'
+ CONST IsSummoned true
+ CONST Class class_Attribute
+ %SUMMARY 'Главное окно' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_5E0D3F501471 // utEmptyMainWindowConstants
+ ;
+ : Target WL 'ME_47F2534B010F' '499EAAE502A8.pas.ms.script' // TvcmUserType
+ ;
+ CONST Value 0
+ : ValueType WL 'ME_47F2534B010F' '499EAAE502A8.pas.ms.script' // TvcmUserType
+ ;
+ CONST "AutoInc" false
+ CONST "UseNewGen" 'undefined'
+ CONST "forced type" 'none'
+ CONST "is define" true
+ CONST extprop:pas:Value 'TvcmUserType(0)'
+
+ref; // ME_48C19DB4F69E utEmptyMainWindow
+
+: ME_5E0D3F501471
+ CONST UID '5E0D3F501471'
+ CONST Name 'utEmptyMainWindowConstants'
+ CONST IsSummoned true
+ CONST Class class_Class
+ : Stereotype st_Constants ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Константы для типа формы utEmptyMainWindow' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4BD84E0603B5 // utEmptyMainWindow
+ ;
+ : Attributes
+   Seq: ( ME_4D92BC475F10 // utEmptyMainWindowName
+ ME_48C19DB4F69E // utEmptyMainWindow
+ )
+ ; // Attributes
+ CONST "UseNewGen" 'undefined'
+ CONST "spell names" false
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant'
+
+ref; // ME_5E0D3F501471 utEmptyMainWindowConstants
+
+FORWARD ME_BD980C2F0BF3
+
+: ME_540AFDFB20AC
+ CONST UID '540AFDFB20AC'
+ CONST Name 'Ini_Reg'
+ CONST IsSummoned true
+ CONST Class class_Operation
+ : Stereotype st_ini::Operation ;
+ %SUMMARY 'Регистрация Tkw_FormUserType_utEmptyMainWindow' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_BD980C2F0BF3 // Tkw_FormUserType_utEmptyMainWindow
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_540AFDFB20AC Ini_Reg
+
+: ME_4DB0614603C8_ME_BD980C2F0BF3
+ CONST UID '4DB0614603C8'
+ CONST Name 'GetWordNameForRegister'
+ : Original WL 'ME_4DB0614603C8' '4F3E3F5F0160.pas.ms.script' // GetWordNameForRegister
+ ;
+ : Implementor ME_BD980C2F0BF3 // Tkw_FormUserType_utEmptyMainWindow
+ ;
+ CONST OpKind opkind_Overridden
+ CONST "UseNewGen" 'undefined'
+ref; // ME_4DB0614603C8_ME_BD980C2F0BF3 GetWordNameForRegister
+
+: ME_4EE1DC8903BB_ME_BD980C2F0BF3
+ CONST UID '4EE1DC8903BB'
+ CONST Name 'GetInteger'
+ : Original WL 'ME_4EE1DC8903BB' '4F3E3F5F0160.pas.ms.script' // GetInteger
+ ;
+ : Implementor ME_BD980C2F0BF3 // Tkw_FormUserType_utEmptyMainWindow
+ ;
+ CONST OpKind opkind_Overridden
+ CONST "UseNewGen" 'undefined'
+ref; // ME_4EE1DC8903BB_ME_BD980C2F0BF3 GetInteger
+
+: ME_BD980C2F0BF3
+ CONST UID 'BD980C2F0BF3'
+ CONST Name 'Tkw_FormUserType_utEmptyMainWindow'
+ CONST IsSummoned true
+ CONST Class class_Class
+ : Stereotype st_ScriptKeyword ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Слово словаря для типа формы utEmptyMainWindow' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_4BD84E0603B5 // utEmptyMainWindow
+ ;
+ : Inherits
+   Seq: ( WL 'ME_4EE1DBBB013C' '4F3E3F5F0160.pas.ms.script' // TtfwInteger
+ )
+ ; // Inherits
+ : Operations
+   Seq: ( ME_540AFDFB20AC // Ini_Reg
+ )
+ ; // Operations
+ : Overridden
+   Seq: ( ME_4DB0614603C8_ME_BD980C2F0BF3 // GetWordNameForRegister
+ ME_4EE1DC8903BB_ME_BD980C2F0BF3 // GetInteger
+ )
+ ; // Overridden
+ CONST "NameForScript" 'тип_формы::utEmptyMainWindow'
+ CONST "UseNewGen" 'undefined'
+ CONST "ifndef" 'NoScripts'
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant'
+
+ref; // ME_BD980C2F0BF3 Tkw_FormUserType_utEmptyMainWindow
+
+: ME_4BD84E0603B5
+ CONST UID '4BD84E0603B5'
+ CONST Name 'utEmptyMainWindow'
+ CONST Class class_Class
+ : Stereotype st_UserType ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Главное окно' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_4AA919040176 // PrimMonitoringsMain
+ ;
+ : Children
+   Seq: ( ME_BD980C2F0BF3 // Tkw_FormUserType_utEmptyMainWindow
+ )
+ ; // Children
+ : Constants
+   Seq: ( ME_5E0D3F501471 // utEmptyMainWindowConstants
+ )
+ ; // Constants
+ CONST "CanClose" 'undefined'
+ CONST "CanHaveToolbars" 'undefined'
+ CONST "ImageIndex" '-1'
+ CONST "NeedOnQueryClose" false
+ CONST "NeedOnQueryMaximized" false
+ CONST "NeedOnQueryOpen" false
+ CONST "SettingsCaption" 'Главная панель инструментов'
+ CONST "UseNewGen" 'undefined'
+ CONST "VisibleToUser" true
+ CONST "Weight" '-1'
+ : Generators
+ Seq: (
+ gen_intf.pas
+ )
+ ; // Generators
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis'
+ CONST intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\PrimMonitoringsMain_utEmptyMainWindow_UserType.pas'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant'
+ CONST extprop:pas:UnitName 'PrimMonitoringsMain_utEmptyMainWindow_UserType'
+
+ref; // ME_4BD84E0603B5 utEmptyMainWindow
+
+FORWARD ME_53CB6069EC1A
+
+: ME_2223A66B7E5C
+ CONST UID '2223A66B7E5C'
+ CONST Name 'utEmptyMainWindowCaption'
+ CONST IsSummoned true
+ CONST Class class_Attribute
+ %SUMMARY 'Заголовок пользовательского типа "Главное окно"' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_53CB6069EC1A // utEmptyMainWindowLocalConstants
+ ;
+ CONST Value '''Главное окно'''
+ CONST "AutoInc" false
+ CONST "UseNewGen" 'undefined'
+ CONST "forced type" 'none'
+ CONST "is define" false
+ CONST extprop:pas:Value '''Главное окно'''
+
+ref; // ME_2223A66B7E5C utEmptyMainWindowCaption
+
+: ME_D7F21C10DA6E
+ CONST UID 'D7F21C10DA6E'
+ CONST Name 'utEmptyMainWindowSettingsCaption'
+ CONST IsSummoned true
+ CONST Class class_Attribute
+ %SUMMARY 'Заголовок пользовательского типа "Главное окно" для настройки панелей инструментов' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_53CB6069EC1A // utEmptyMainWindowLocalConstants
+ ;
+ CONST Value '''Главная панель инструментов'''
+ CONST "AutoInc" false
+ CONST "UseNewGen" 'undefined'
+ CONST "forced type" 'none'
+ CONST "is define" false
+ CONST extprop:pas:Value '''Главная панель инструментов'''
+
+ref; // ME_D7F21C10DA6E utEmptyMainWindowSettingsCaption
+
+: ME_53CB6069EC1A
+ CONST UID '53CB6069EC1A'
+ CONST Name 'utEmptyMainWindowLocalConstants'
+ CONST IsSummoned true
+ CONST Class class_Class
+ : Stereotype st_LocalConst ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Локализуемые константы для типа формы utEmptyMainWindow' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_4AA919040176 // PrimMonitoringsMain
+ ;
+ : Attributes
+   Seq: ( ME_2223A66B7E5C // utEmptyMainWindowCaption
+ ME_D7F21C10DA6E // utEmptyMainWindowSettingsCaption
+ )
+ ; // Attributes
+ CONST "Need map interface" false
+ CONST "Need mapping support" false
+ CONST "UseNewGen" 'undefined'
+ CONST "spell names" false
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant'
+
+ref; // ME_53CB6069EC1A utEmptyMainWindowLocalConstants
+
+FORWARD ME_0C90E699281E
+
+: ME_21973BB13B8A
+ CONST UID '21973BB13B8A'
+ CONST Name 'utEmptyMainWindowCaption'
+ CONST IsSummoned true
+ CONST Class class_Attribute
+ %SUMMARY 'Заголовок пользовательского типа "Главное окно"' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_0C90E699281E // LCImplutEmptyMainWindowLocalConstants
+ ;
+ : Target WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
+ ;
+ CONST Value '(rS : -1; rLocalized : false; rKey : ''utEmptyMainWindowCaption''; rValue : ''Главное окно'')'
+ : ValueType WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
+ ;
+ CONST "AutoInc" false
+ CONST "UseNewGen" 'undefined'
+ CONST "forced type" 'none'
+ CONST "is define" false
+ CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''utEmptyMainWindowCaption''; rValue : ''Главное окно'')'
+
+ref; // ME_21973BB13B8A utEmptyMainWindowCaption
+
+: ME_9829DDD71BB4
+ CONST UID '9829DDD71BB4'
+ CONST Name 'utEmptyMainWindowSettingsCaption'
+ CONST IsSummoned true
+ CONST Class class_Attribute
+ %SUMMARY 'Заголовок пользовательского типа "Главное окно" для настройки панелей инструментов' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_0C90E699281E // LCImplutEmptyMainWindowLocalConstants
+ ;
+ : Target WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
+ ;
+ CONST Value '(rS : -1; rLocalized : false; rKey : ''utEmptyMainWindowSettingsCaption''; rValue : ''Главная панель инструментов'')'
+ : ValueType WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
+ ;
+ CONST "AutoInc" false
+ CONST "UseNewGen" 'undefined'
+ CONST "forced type" 'none'
+ CONST "is define" false
+ CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''utEmptyMainWindowSettingsCaption''; rValue : ''Главная панель инструментов'')'
+
+ref; // ME_9829DDD71BB4 utEmptyMainWindowSettingsCaption
+
+: ME_0C90E699281E
+ CONST UID '0C90E699281E'
+ CONST Name 'LCImplutEmptyMainWindowLocalConstants'
+ CONST IsSummoned true
+ CONST Class class_Class
+ : Stereotype st_Constants ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Локализуемые строки utEmptyMainWindowLocalConstants' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ : Parent ME_4AA919040176 // PrimMonitoringsMain
+ ;
+ : Attributes
+   Seq: ( ME_21973BB13B8A // utEmptyMainWindowCaption
+ ME_9829DDD71BB4 // utEmptyMainWindowSettingsCaption
+ )
+ ; // Attributes
+ CONST "UseNewGen" 'undefined'
+ CONST "elements prefix" 'str'
+ CONST "spell names" false
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant'
+ CONST extprop:pas:ElementPrefixBase 'str'
+ CONST extprop:pas:ElementPrefix 'str_'
+
+ref; // ME_0C90E699281E LCImplutEmptyMainWindowLocalConstants
+
+: ME_1CD1CD4A5A3A
+ CONST UID '1CD1CD4A5A3A'
+ CONST Name 'Init_Str_utEmptyMainWindowCaption'
+ CONST IsSummoned true
+ CONST Class class_Operation
+ : Stereotype st_ini::Operation ;
+ %SUMMARY 'Инициализация str_utEmptyMainWindowCaption' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_4AA919040176 // PrimMonitoringsMain
+ ;
+ CONST "UseNewGen" 'undefined'
+ : Speller ME_2223A66B7E5C // utEmptyMainWindowCaption
+ ;
+ : SpelledFor ME_21973BB13B8A // utEmptyMainWindowCaption
+ ;
+
+ref; // ME_1CD1CD4A5A3A Init_Str_utEmptyMainWindowCaption
+
+: ME_25C19092138D
+ CONST UID '25C19092138D'
+ CONST Name 'Init_Str_utEmptyMainWindowSettingsCaption'
+ CONST IsSummoned true
+ CONST Class class_Operation
+ : Stereotype st_ini::Operation ;
+ %SUMMARY 'Инициализация str_utEmptyMainWindowSettingsCaption' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_4AA919040176 // PrimMonitoringsMain
+ ;
+ CONST "UseNewGen" 'undefined'
+ : Speller ME_D7F21C10DA6E // utEmptyMainWindowSettingsCaption
+ ;
+ : SpelledFor ME_9829DDD71BB4 // utEmptyMainWindowSettingsCaption
+ ;
+
+ref; // ME_25C19092138D Init_Str_utEmptyMainWindowSettingsCaption
+
+: ME_0A22AE23AB3C
+ CONST UID '0A22AE23AB3C'
+ CONST Name 'Ini_Reg_Class'
+ CONST IsSummoned true
+ CONST Class class_Operation
+ : Stereotype st_ini::Operation ;
+ %SUMMARY 'Регистрация PrimMonitoringsMain' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_4AA919040176 // PrimMonitoringsMain
+ ;
+ CONST "UseNewGen" 'undefined'
+ CONST "ifndef" 'NoScripts'
+
+ref; // ME_0A22AE23AB3C Ini_Reg_Class
+
+: ME_BE3F24D0F58F
+ CONST UID 'BE3F24D0F58F'
+ CONST IsSummoned true
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4AA919040176 // PrimMonitoringsMain
+ ;
+ : Target WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_BE3F24D0F58F 
+
+: ME_B900EA68AB55
+ CONST UID 'B900EA68AB55'
+ CONST IsSummoned true
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4AA919040176 // PrimMonitoringsMain
+ ;
+ : Target WL 'ME_4E01D1E002AE' '4F9BDEEE01BC.pas.ms.script' // Tl3MessageID
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_B900EA68AB55 
+
+: ME_0AB8F0933CC1
+ CONST UID '0AB8F0933CC1'
+ CONST IsSummoned true
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4AA919040176 // PrimMonitoringsMain
+ ;
+ : Target WL 'ME_561F9F9400BC' '561F9F7D02A7.pas.ms.script' // TtfwClassRef
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_0AB8F0933CC1 
+
+: ME_49803F5503AA_ME_4AA919040176
+ CONST UID '49803F5503AA'
+ CONST Name 'DoInit'
+ : Original WL 'ME_49803F5503AA' '4AADF9450143.pas.ms.script' // DoInit
+ ;
+ : Implementor ME_4AA919040176 // PrimMonitoringsMain
+ ;
+ CONST OpKind opkind_Overridden
+ CONST "UseNewGen" 'undefined'
+ref; // ME_49803F5503AA_ME_4AA919040176 DoInit
+
+: ME_4AA919040176
+ CONST UID '4AA919040176'
+ CONST Name 'PrimMonitoringsMain'
+ CONST Class class_Class
+ : Stereotype st_VCMMainForm ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4AA9038C0387 // Monitorings
+ ;
+ : Inherits
+   Seq: ( WL 'ME_4AAA43F601F7' '4A78013D01CD.pas.ms.script' // ShellAndMonitoringsMain
+ )
+ ; // Inherits
+ : Implements
+   Seq: ( WL 'ME_4F7C1E96000A' '4F7C1E2803C5.pas.ms.script' // AdminAndMonitoringsMainForm
+ )
+ ; // Implements
+ : Operations
+   Seq: ( ME_1CD1CD4A5A3A // Init_Str_utEmptyMainWindowCaption
+ ME_25C19092138D // Init_Str_utEmptyMainWindowSettingsCaption
+ ME_0A22AE23AB3C // Ini_Reg_Class
+ )
+ ; // Operations
+ : Overridden
+   Seq: ( ME_49803F5503AA_ME_4AA919040176 // DoInit
+ )
+ ; // Overridden
+ : Children
+   Seq: ( ME_4BD84E0603B5 // utEmptyMainWindow
+ )
+ ; // Children
+ : Constants
+   Seq: ( ME_53CB6069EC1A // utEmptyMainWindowLocalConstants
+ ME_0C90E699281E // LCImplutEmptyMainWindowLocalConstants
+ )
+ ; // Constants
+ : Dependencies
+   Seq: ( ME_BE3F24D0F58F // 
+ ME_B900EA68AB55 // 
+ ME_0AB8F0933CC1 // 
+ )
+ ; // Dependencies
+ CONST "NeedsHackRef" true
+ CONST "UseNewGen" 'undefined'
+ CONST "ZoneType" 'Any'
+ CONST "author" 'Люлин А.В.'
+ CONST "base wnd class" 'CWnd'
+ CONST "finished dfm" true
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" true
+ CONST "register in scripts" 'undefined'
+ CONST "resizeable" false
+ CONST "restrict form def" 'undefined'
+ CONST "started" '10.09.2009 19:19'
+ : Generators
+ Seq: (
+ gen_intf.pas
+ )
+ ; // Generators
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis'
+ CONST intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\PrimMonitoringsMain_Form.pas'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant'
+ CONST extprop:pas:TypeName 'TPrimMonitoringsMainForm'
+ CONST extprop:pas:UnitName 'PrimMonitoringsMain_Form'
+
+ref; // ME_4AA919040176 PrimMonitoringsMain
+
+FORWARD ME_4F79AF74026A
+
+: ME_4F79AF7C02CC
+ CONST UID '4F79AF7C02CC'
+ CONST Name 'MonitoringTitle'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_4F79AF74026A // MonitoringTitle
+ ;
+ CONST Value '''ГАРАНТ аэро'''
+ CONST "AutoInc" false
+ CONST "UseNewGen" 'undefined'
+ CONST "forced type" 'none'
+ CONST "is define" false
+ CONST extprop:pas:Value '''ГАРАНТ аэро'''
+
+ref; // ME_4F79AF7C02CC MonitoringTitle
+
+: ME_4F79AF74026A
+ CONST UID '4F79AF74026A'
+ CONST Name 'MonitoringTitle'
+ CONST Class class_Class
+ : Stereotype st_LocalConst ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_4AA9038C0387 // Monitorings
+ ;
+ : Attributes
+   Seq: ( ME_4F79AF7C02CC // MonitoringTitle
+ )
+ ; // Attributes
+ CONST "Need map interface" false
+ CONST "Need mapping support" false
+ CONST "UseNewGen" 'undefined'
+ CONST "spell names" false
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant'
+
+ref; // ME_4F79AF74026A MonitoringTitle
+
+FORWARD ME_4F7C2E78015C
+
+FORWARD ME_C02C69F1F8D8
+
+FORWARD ME_AEDE99EEC64F
+
+: ME_A23ECB5FED28
+ CONST UID 'A23ECB5FED28'
+ CONST Name 'fm_MonitoringsMainForm'
+ CONST IsSummoned true
+ CONST Class class_Attribute
+ %SUMMARY 'Идентификатор формы TMonitoringsMainForm' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_AEDE99EEC64F // MonitoringsMainIDs
+ ;
+ : Target WL 'ME_4FFC30A800DF' '4683F37902CF.pas.ms.script' // TvcmFormDescriptor
+ ;
+ CONST Value '(rFormID : (rName : ''MonitoringsMainForm''; rID : 0); rFactory : nil)'
+ : ValueType WL 'ME_4FFC30A800DF' '4683F37902CF.pas.ms.script' // TvcmFormDescriptor
+ ;
+ CONST "AutoInc" false
+ CONST "UseNewGen" 'undefined'
+ CONST "forced type" 'none'
+ CONST "is define" false
+ CONST extprop:pas:Value '(rFormID : (rName : ''MonitoringsMainForm''; rID : 0); rFactory : nil)'
+
+ref; // ME_A23ECB5FED28 fm_MonitoringsMainForm
+
+: ME_AEDE99EEC64F
+ CONST UID 'AEDE99EEC64F'
+ CONST Name 'MonitoringsMainIDs'
+ CONST IsSummoned true
+ CONST Class class_Class
+ : Stereotype st_Constants ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_C02C69F1F8D8 // MonitoringsMain$Def
+ ;
+ : Attributes
+   Seq: ( ME_A23ECB5FED28 // fm_MonitoringsMainForm
+ )
+ ; // Attributes
+ CONST "UseNewGen" 'undefined'
+ CONST "spell names" false
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant'
+
+ref; // ME_AEDE99EEC64F MonitoringsMainIDs
+
+: ME_C02C69F1F8D8
+ CONST UID 'C02C69F1F8D8'
+ CONST GUID '302D255D-E242-47AD-ACB5-B3822A5E3F7F'
+ CONST Name 'MonitoringsMain'
+ CONST IsSummoned true
+ CONST Class class_Class
+ : Stereotype st_VCMFormDefinition ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Идентификатор формы MonitoringsMain' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4F7C2E78015C // MonitoringsMain
+ ;
+ : Constants
+   Seq: ( ME_AEDE99EEC64F // MonitoringsMainIDs
+ )
+ ; // Constants
+ CONST "UseNewGen" 'undefined'
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant'
+ CONST extprop:pas:TypeName 'MonitoringsMainFormDef'
+
+ref; // ME_C02C69F1F8D8 MonitoringsMain$Def
+
+: ME_7DE84C1ACFF7
+ CONST UID '7DE84C1ACFF7'
+ CONST Name 'Ini_Reg_Class'
+ CONST IsSummoned true
+ CONST Class class_Operation
+ : Stereotype st_ini::Operation ;
+ %SUMMARY 'Регистрация MonitoringsMain' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_4F7C2E78015C // MonitoringsMain
+ ;
+ CONST "UseNewGen" 'undefined'
+ CONST "ifndef" 'NoScripts'
+
+ref; // ME_7DE84C1ACFF7 Ini_Reg_Class
+
+: ME_14FDCD5D4A1E
+ CONST UID '14FDCD5D4A1E'
+ CONST Name 'Ini_FormFactory_MonitoringsMain'
+ CONST IsSummoned true
+ CONST Class class_Operation
+ : Stereotype st_ini::Operation ;
+ %SUMMARY 'Регистрация фабрики формы MonitoringsMain' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_4F7C2E78015C // MonitoringsMain
+ ;
+ CONST "UseNewGen" 'undefined'
+ : SpelledFor ME_4F7C2E78015C // MonitoringsMain
+ ;
+
+ref; // ME_14FDCD5D4A1E Ini_FormFactory_MonitoringsMain$Def
+
+: ME_2126BF9F8AFF
+ CONST UID '2126BF9F8AFF'
+ CONST IsSummoned true
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4F7C2E78015C // MonitoringsMain
+ ;
+ : Target WL 'ME_561F9F9400BC' '561F9F7D02A7.pas.ms.script' // TtfwClassRef
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_2126BF9F8AFF 
+
+FORWARD ME_A57CFBB4AD10
+
+: ME_4F7C2E78015C
+ CONST UID '4F7C2E78015C'
+ CONST Name 'MonitoringsMain'
+ CONST Class class_Class
+ : Stereotype st_VCMMainForm ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_4AA9038C0387 // Monitorings
+ ;
+ : Inherits
+   Seq: ( ME_4AA919040176 // PrimMonitoringsMain
+ )
+ ; // Inherits
+ : Implements
+   Seq: ( ME_C02C69F1F8D8 // MonitoringsMain$Def
+ )
+ ; // Implements
+ : Operations
+   Seq: ( ME_7DE84C1ACFF7 // Ini_Reg_Class
+ ME_14FDCD5D4A1E // Ini_FormFactory_MonitoringsMain$Def
+ )
+ ; // Operations
+ : Children
+   Seq: ( ME_C02C69F1F8D8 // MonitoringsMain$Def
+ )
+ ; // Children
+ : Dependencies
+   Seq: ( ME_2126BF9F8AFF // 
+ )
+ ; // Dependencies
+ : Injected
+   Seq: ( ME_A57CFBB4AD10 // 
+ )
+ ; // Injected
+ CONST "NeedsHackRef" true
+ CONST "UseNewGen" 'undefined'
+ CONST "ZoneType" 'Any'
+ CONST "base wnd class" 'CWnd'
+ CONST "finished dfm" true
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ CONST "resizeable" false
+ CONST "restrict form def" 'undefined'
+ : Generators
+ Seq: (
+ gen_dfm
+ gen_intf.pas
+ )
+ ; // Generators
+ CONST dfm:Path 'garant6x\implementation\Garant\GbaNemesis\MonitoringsMain_Form.dfm'
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis'
+ CONST intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\MonitoringsMain_Form.pas'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant'
+ CONST extprop:pas:TypeName 'TMonitoringsMainForm'
+ CONST extprop:pas:UnitName 'MonitoringsMain_Form'
+
+ref; // ME_4F7C2E78015C MonitoringsMain
+
+FORWARD ME_1CA0263DA7A0
+
+: ME_02B481441F7A
+ CONST UID '02B481441F7A'
+ CONST Name 'MonitoringTitle'
+ CONST IsSummoned true
+ CONST Class class_Attribute
+ %SUMMARY '''ГАРАНТ аэро''' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_1CA0263DA7A0 // LCImplMonitoringTitle
+ ;
+ : Target WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
+ ;
+ CONST Value '(rS : -1; rLocalized : false; rKey : ''MonitoringTitle''; rValue : ''ГАРАНТ аэро'')'
+ : ValueType WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
+ ;
+ CONST "AutoInc" false
+ CONST "UseNewGen" 'undefined'
+ CONST "forced type" 'none'
+ CONST "is define" false
+ CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''MonitoringTitle''; rValue : ''ГАРАНТ аэро'')'
+
+ref; // ME_02B481441F7A MonitoringTitle
+
+: ME_1CA0263DA7A0
+ CONST UID '1CA0263DA7A0'
+ CONST Name 'LCImplMonitoringTitle'
+ CONST IsSummoned true
+ CONST Class class_Class
+ : Stereotype st_Constants ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Локализуемые строки MonitoringTitle' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4AA9038C0387 // Monitorings
+ ;
+ : Attributes
+   Seq: ( ME_02B481441F7A // MonitoringTitle
+ )
+ ; // Attributes
+ CONST "UseNewGen" 'undefined'
+ CONST "elements prefix" 'str'
+ CONST "spell names" false
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant'
+ CONST extprop:pas:ElementPrefixBase 'str'
+ CONST extprop:pas:ElementPrefix 'str_'
+
+ref; // ME_1CA0263DA7A0 LCImplMonitoringTitle
+
+FORWARD ME_ED33546FFF82
+
+FORWARD ME_B0D3CFD6A5B0
+
+: ME_75B37732A064
+ CONST UID '75B37732A064'
+ CONST Name 'Ini_Reg'
+ CONST IsSummoned true
+ CONST Class class_Operation
+ : Stereotype st_ini::Operation ;
+ %SUMMARY 'Регистрация Tkw_Form_MonitoringsMain' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_B0D3CFD6A5B0 // Tkw_Form_MonitoringsMain
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_75B37732A064 Ini_Reg
+
+: ME_4DB0614603C8_ME_B0D3CFD6A5B0
+ CONST UID '4DB0614603C8'
+ CONST Name 'GetWordNameForRegister'
+ : Original WL 'ME_4DB0614603C8' '4F3E3F5F0160.pas.ms.script' // GetWordNameForRegister
+ ;
+ : Implementor ME_B0D3CFD6A5B0 // Tkw_Form_MonitoringsMain
+ ;
+ CONST OpKind opkind_Overridden
+ CONST "UseNewGen" 'undefined'
+ref; // ME_4DB0614603C8_ME_B0D3CFD6A5B0 GetWordNameForRegister
+
+: ME_4DDFD2EA0116_ME_B0D3CFD6A5B0
+ CONST UID '4DDFD2EA0116'
+ CONST Name 'GetString'
+ : Original WL 'ME_4DDFD2EA0116' '4F3E3F5F0160.pas.ms.script' // GetString
+ ;
+ : Implementor ME_B0D3CFD6A5B0 // Tkw_Form_MonitoringsMain
+ ;
+ CONST OpKind opkind_Overridden
+ CONST "UseNewGen" 'undefined'
+ref; // ME_4DDFD2EA0116_ME_B0D3CFD6A5B0 GetString
+
+: ME_B0D3CFD6A5B0
+ CONST UID 'B0D3CFD6A5B0'
+ CONST Name 'Tkw_Form_MonitoringsMain'
+ CONST IsSummoned true
+ CONST Class class_Class
+ : Stereotype st_ScriptKeyword ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Слово словаря для идентификатора формы MonitoringsMain'#13#10'----'#13#10'*Пример использования*:'#13#10'{code}'#13#10'''aControl'' форма::MonitoringsMain TryFocus ASSERT'#13#10'{code}' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_ED33546FFF82 // MonitoringsMainKeywordsPack
+ ;
+ : Inherits
+   Seq: ( WL 'ME_508527F30183' '54DB92D203C9.pas.ms.script' // TtfwControlString
+ )
+ ; // Inherits
+ : Operations
+   Seq: ( ME_75B37732A064 // Ini_Reg
+ )
+ ; // Operations
+ : Overridden
+   Seq: ( ME_4DB0614603C8_ME_B0D3CFD6A5B0 // GetWordNameForRegister
+ ME_4DDFD2EA0116_ME_B0D3CFD6A5B0 // GetString
+ )
+ ; // Overridden
+ CONST "NameForScript" 'форма::MonitoringsMain'
+ CONST "UseNewGen" 'undefined'
+ CONST "ifndef" 'NoScripts'
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant'
+
+ref; // ME_B0D3CFD6A5B0 Tkw_Form_MonitoringsMain
+
+FORWARD ME_316064C7D78A
+
+: ME_B432B8BDD3EE
+ CONST UID 'B432B8BDD3EE'
+ CONST Name 'Ini_Reg'
+ CONST IsSummoned true
+ CONST Class class_Operation
+ : Stereotype st_ini::Operation ;
+ %SUMMARY 'Регистрация Tkw_MonitoringsMain_Control_StatusBar' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_316064C7D78A // Tkw_MonitoringsMain_Control_StatusBar
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_B432B8BDD3EE Ini_Reg
+
+: ME_A4AE2FB39822
+ CONST UID 'A4AE2FB39822'
+ CONST IsSummoned true
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_316064C7D78A // Tkw_MonitoringsMain_Control_StatusBar
+ ;
+ : Target WL 'ME_4E15A08E030D' '49871D5103B9.pas.ms.script' // TnscStatusBar
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_A4AE2FB39822 
+
+: ME_655DCB02CB1E
+ CONST UID '655DCB02CB1E'
+ CONST IsSummoned true
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_316064C7D78A // Tkw_MonitoringsMain_Control_StatusBar
+ ;
+ : Target WL 'ME_561F9F9400BC' '561F9F7D02A7.pas.ms.script' // TtfwClassRef
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_655DCB02CB1E 
+
+: ME_4DB0614603C8_ME_316064C7D78A
+ CONST UID '4DB0614603C8'
+ CONST Name 'GetWordNameForRegister'
+ : Original WL 'ME_4DB0614603C8' '4F3E3F5F0160.pas.ms.script' // GetWordNameForRegister
+ ;
+ : Implementor ME_316064C7D78A // Tkw_MonitoringsMain_Control_StatusBar
+ ;
+ CONST OpKind opkind_Overridden
+ CONST "UseNewGen" 'undefined'
+ref; // ME_4DB0614603C8_ME_316064C7D78A GetWordNameForRegister
+
+: ME_4DDFD2EA0116_ME_316064C7D78A
+ CONST UID '4DDFD2EA0116'
+ CONST Name 'GetString'
+ : Original WL 'ME_4DDFD2EA0116' '4F3E3F5F0160.pas.ms.script' // GetString
+ ;
+ : Implementor ME_316064C7D78A // Tkw_MonitoringsMain_Control_StatusBar
+ ;
+ CONST OpKind opkind_Overridden
+ CONST "UseNewGen" 'undefined'
+ref; // ME_4DDFD2EA0116_ME_316064C7D78A GetString
+
+: ME_52A086150180_ME_316064C7D78A
+ CONST UID '52A086150180'
+ CONST Name 'RegisterInEngine'
+ : Original WL 'ME_52A086150180' '4F3E3F5F0160.pas.ms.script' // RegisterInEngine
+ ;
+ : Implementor ME_316064C7D78A // Tkw_MonitoringsMain_Control_StatusBar
+ ;
+ CONST OpKind opkind_Overridden
+ CONST "UseNewGen" 'undefined'
+ CONST "is static" true
+ref; // ME_52A086150180_ME_316064C7D78A RegisterInEngine
+
+: ME_316064C7D78A
+ CONST UID '316064C7D78A'
+ CONST Name 'Tkw_MonitoringsMain_Control_StatusBar'
+ CONST IsSummoned true
+ CONST Class class_Class
+ : Stereotype st_ScriptKeyword ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Слово словаря для идентификатора контрола StatusBar'#13#10'----'#13#10'*Пример использования*:'#13#10'{code}'#13#10'контрол::StatusBar TryFocus ASSERT'#13#10'{code}' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_ED33546FFF82 // MonitoringsMainKeywordsPack
+ ;
+ : Inherits
+   Seq: ( WL 'ME_508527F30183' '54DB92D203C9.pas.ms.script' // TtfwControlString
+ )
+ ; // Inherits
+ : Operations
+   Seq: ( ME_B432B8BDD3EE // Ini_Reg
+ )
+ ; // Operations
+ : Overridden
+   Seq: ( ME_4DB0614603C8_ME_316064C7D78A // GetWordNameForRegister
+ ME_4DDFD2EA0116_ME_316064C7D78A // GetString
+ ME_52A086150180_ME_316064C7D78A // RegisterInEngine
+ )
+ ; // Overridden
+ : Dependencies
+   Seq: ( ME_A4AE2FB39822 // 
+ ME_655DCB02CB1E // 
+ )
+ ; // Dependencies
+ CONST "NameForScript" 'контрол::StatusBar'
+ CONST "UseNewGen" 'undefined'
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant'
+
+ref; // ME_316064C7D78A Tkw_MonitoringsMain_Control_StatusBar
+
+FORWARD ME_4C036AED963F
+
+: ME_85814D586F7D
+ CONST UID '85814D586F7D'
+ CONST Name 'Ini_Reg'
+ CONST IsSummoned true
+ CONST Class class_Operation
+ : Stereotype st_ini::Operation ;
+ %SUMMARY 'Регистрация Tkw_MonitoringsMain_Control_StatusBar_Push' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_4C036AED963F // Tkw_MonitoringsMain_Control_StatusBar_Push
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_85814D586F7D Ini_Reg
+
+: ME_061E6F61C8E9
+ CONST UID '061E6F61C8E9'
+ CONST IsSummoned true
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4C036AED963F // Tkw_MonitoringsMain_Control_StatusBar_Push
+ ;
+ : Target WL 'ME_4DB0091E033E' '4DAF19F600C5.pas.ms.script' // TtfwContext
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_061E6F61C8E9 
+
+: ME_4DAEEDE10285_ME_4C036AED963F
+ CONST UID '4DAEEDE10285'
+ CONST Name 'DoDoIt'
+ : Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.pas.ms.script' // DoDoIt
+ ;
+ : Implementor ME_4C036AED963F // Tkw_MonitoringsMain_Control_StatusBar_Push
+ ;
+ CONST OpKind opkind_Overridden
+ CONST "UseNewGen" 'undefined'
+ref; // ME_4DAEEDE10285_ME_4C036AED963F DoDoIt
+
+: ME_4DB0614603C8_ME_4C036AED963F
+ CONST UID '4DB0614603C8'
+ CONST Name 'GetWordNameForRegister'
+ : Original WL 'ME_4DB0614603C8' '4F3E3F5F0160.pas.ms.script' // GetWordNameForRegister
+ ;
+ : Implementor ME_4C036AED963F // Tkw_MonitoringsMain_Control_StatusBar_Push
+ ;
+ CONST OpKind opkind_Overridden
+ CONST "UseNewGen" 'undefined'
+ref; // ME_4DB0614603C8_ME_4C036AED963F GetWordNameForRegister
+
+: ME_4C036AED963F
+ CONST UID '4C036AED963F'
+ CONST Name 'Tkw_MonitoringsMain_Control_StatusBar_Push'
+ CONST IsSummoned true
+ CONST Class class_Class
+ : Stereotype st_ScriptKeyword ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Слово словаря для контрола StatusBar'#13#10'----'#13#10'*Пример использования*:'#13#10'{code}'#13#10'контрол::StatusBar:push pop:control:SetFocus ASSERT'#13#10'{code}' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_ED33546FFF82 // MonitoringsMainKeywordsPack
+ ;
+ : Inherits
+   Seq: ( WL 'ME_4F2141AD0203' '4F69DF560034.pas.ms.script' // byname_control_push
+ )
+ ; // Inherits
+ : Operations
+   Seq: ( ME_85814D586F7D // Ini_Reg
+ )
+ ; // Operations
+ : Overridden
+   Seq: ( ME_4DAEEDE10285_ME_4C036AED963F // DoDoIt
+ ME_4DB0614603C8_ME_4C036AED963F // GetWordNameForRegister
+ )
+ ; // Overridden
+ : Dependencies
+   Seq: ( ME_061E6F61C8E9 // 
+ )
+ ; // Dependencies
+ CONST "NameForScript" 'контрол::StatusBar:push'
+ CONST "UseNewGen" 'undefined'
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant'
+
+ref; // ME_4C036AED963F Tkw_MonitoringsMain_Control_StatusBar_Push
+
+FORWARD ME_9EA55C0FD677
+
+: ME_38639607B500
+ CONST UID '38639607B500'
+ CONST Name 'Ini_Reg'
+ CONST IsSummoned true
+ CONST Class class_Operation
+ : Stereotype st_ini::Operation ;
+ %SUMMARY 'Регистрация Tkw_MonitoringsMain_Control_ClientZone' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_9EA55C0FD677 // Tkw_MonitoringsMain_Control_ClientZone
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_38639607B500 Ini_Reg
+
+: ME_20A0056A89D3
+ CONST UID '20A0056A89D3'
+ CONST IsSummoned true
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_9EA55C0FD677 // Tkw_MonitoringsMain_Control_ClientZone
+ ;
+ : Target WL 'ME_4A7961A701CF' '4A7960CC03A4.pas.ms.script' // TvtPanel
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_20A0056A89D3 
+
+: ME_5F22E05B5FEC
+ CONST UID '5F22E05B5FEC'
+ CONST IsSummoned true
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_9EA55C0FD677 // Tkw_MonitoringsMain_Control_ClientZone
+ ;
+ : Target WL 'ME_561F9F9400BC' '561F9F7D02A7.pas.ms.script' // TtfwClassRef
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_5F22E05B5FEC 
+
+: ME_4DB0614603C8_ME_9EA55C0FD677
+ CONST UID '4DB0614603C8'
+ CONST Name 'GetWordNameForRegister'
+ : Original WL 'ME_4DB0614603C8' '4F3E3F5F0160.pas.ms.script' // GetWordNameForRegister
+ ;
+ : Implementor ME_9EA55C0FD677 // Tkw_MonitoringsMain_Control_ClientZone
+ ;
+ CONST OpKind opkind_Overridden
+ CONST "UseNewGen" 'undefined'
+ref; // ME_4DB0614603C8_ME_9EA55C0FD677 GetWordNameForRegister
+
+: ME_4DDFD2EA0116_ME_9EA55C0FD677
+ CONST UID '4DDFD2EA0116'
+ CONST Name 'GetString'
+ : Original WL 'ME_4DDFD2EA0116' '4F3E3F5F0160.pas.ms.script' // GetString
+ ;
+ : Implementor ME_9EA55C0FD677 // Tkw_MonitoringsMain_Control_ClientZone
+ ;
+ CONST OpKind opkind_Overridden
+ CONST "UseNewGen" 'undefined'
+ref; // ME_4DDFD2EA0116_ME_9EA55C0FD677 GetString
+
+: ME_52A086150180_ME_9EA55C0FD677
+ CONST UID '52A086150180'
+ CONST Name 'RegisterInEngine'
+ : Original WL 'ME_52A086150180' '4F3E3F5F0160.pas.ms.script' // RegisterInEngine
+ ;
+ : Implementor ME_9EA55C0FD677 // Tkw_MonitoringsMain_Control_ClientZone
+ ;
+ CONST OpKind opkind_Overridden
+ CONST "UseNewGen" 'undefined'
+ CONST "is static" true
+ref; // ME_52A086150180_ME_9EA55C0FD677 RegisterInEngine
+
+: ME_9EA55C0FD677
+ CONST UID '9EA55C0FD677'
+ CONST Name 'Tkw_MonitoringsMain_Control_ClientZone'
+ CONST IsSummoned true
+ CONST Class class_Class
+ : Stereotype st_ScriptKeyword ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Слово словаря для идентификатора контрола ClientZone'#13#10'----'#13#10'*Пример использования*:'#13#10'{code}'#13#10'контрол::ClientZone TryFocus ASSERT'#13#10'{code}' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_ED33546FFF82 // MonitoringsMainKeywordsPack
+ ;
+ : Inherits
+   Seq: ( WL 'ME_508527F30183' '54DB92D203C9.pas.ms.script' // TtfwControlString
+ )
+ ; // Inherits
+ : Operations
+   Seq: ( ME_38639607B500 // Ini_Reg
+ )
+ ; // Operations
+ : Overridden
+   Seq: ( ME_4DB0614603C8_ME_9EA55C0FD677 // GetWordNameForRegister
+ ME_4DDFD2EA0116_ME_9EA55C0FD677 // GetString
+ ME_52A086150180_ME_9EA55C0FD677 // RegisterInEngine
+ )
+ ; // Overridden
+ : Dependencies
+   Seq: ( ME_20A0056A89D3 // 
+ ME_5F22E05B5FEC // 
+ )
+ ; // Dependencies
+ CONST "NameForScript" 'контрол::ClientZone'
+ CONST "UseNewGen" 'undefined'
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant'
+
+ref; // ME_9EA55C0FD677 Tkw_MonitoringsMain_Control_ClientZone
+
+FORWARD ME_8EA5A22D1155
+
+: ME_6B4E7CFA49E1
+ CONST UID '6B4E7CFA49E1'
+ CONST Name 'Ini_Reg'
+ CONST IsSummoned true
+ CONST Class class_Operation
+ : Stereotype st_ini::Operation ;
+ %SUMMARY 'Регистрация Tkw_MonitoringsMain_Control_ClientZone_Push' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_8EA5A22D1155 // Tkw_MonitoringsMain_Control_ClientZone_Push
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_6B4E7CFA49E1 Ini_Reg
+
+: ME_EF8B57F3F293
+ CONST UID 'EF8B57F3F293'
+ CONST IsSummoned true
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_8EA5A22D1155 // Tkw_MonitoringsMain_Control_ClientZone_Push
+ ;
+ : Target WL 'ME_4DB0091E033E' '4DAF19F600C5.pas.ms.script' // TtfwContext
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_EF8B57F3F293 
+
+: ME_4DAEEDE10285_ME_8EA5A22D1155
+ CONST UID '4DAEEDE10285'
+ CONST Name 'DoDoIt'
+ : Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.pas.ms.script' // DoDoIt
+ ;
+ : Implementor ME_8EA5A22D1155 // Tkw_MonitoringsMain_Control_ClientZone_Push
+ ;
+ CONST OpKind opkind_Overridden
+ CONST "UseNewGen" 'undefined'
+ref; // ME_4DAEEDE10285_ME_8EA5A22D1155 DoDoIt
+
+: ME_4DB0614603C8_ME_8EA5A22D1155
+ CONST UID '4DB0614603C8'
+ CONST Name 'GetWordNameForRegister'
+ : Original WL 'ME_4DB0614603C8' '4F3E3F5F0160.pas.ms.script' // GetWordNameForRegister
+ ;
+ : Implementor ME_8EA5A22D1155 // Tkw_MonitoringsMain_Control_ClientZone_Push
+ ;
+ CONST OpKind opkind_Overridden
+ CONST "UseNewGen" 'undefined'
+ref; // ME_4DB0614603C8_ME_8EA5A22D1155 GetWordNameForRegister
+
+: ME_8EA5A22D1155
+ CONST UID '8EA5A22D1155'
+ CONST Name 'Tkw_MonitoringsMain_Control_ClientZone_Push'
+ CONST IsSummoned true
+ CONST Class class_Class
+ : Stereotype st_ScriptKeyword ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Слово словаря для контрола ClientZone'#13#10'----'#13#10'*Пример использования*:'#13#10'{code}'#13#10'контрол::ClientZone:push pop:control:SetFocus ASSERT'#13#10'{code}' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_ED33546FFF82 // MonitoringsMainKeywordsPack
+ ;
+ : Inherits
+   Seq: ( WL 'ME_4F2141AD0203' '4F69DF560034.pas.ms.script' // byname_control_push
+ )
+ ; // Inherits
+ : Operations
+   Seq: ( ME_6B4E7CFA49E1 // Ini_Reg
+ )
+ ; // Operations
+ : Overridden
+   Seq: ( ME_4DAEEDE10285_ME_8EA5A22D1155 // DoDoIt
+ ME_4DB0614603C8_ME_8EA5A22D1155 // GetWordNameForRegister
+ )
+ ; // Overridden
+ : Dependencies
+   Seq: ( ME_EF8B57F3F293 // 
+ )
+ ; // Dependencies
+ CONST "NameForScript" 'контрол::ClientZone:push'
+ CONST "UseNewGen" 'undefined'
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant'
+
+ref; // ME_8EA5A22D1155 Tkw_MonitoringsMain_Control_ClientZone_Push
+
+FORWARD ME_765E81224A01
+
+: ME_BD26EC31101E
+ CONST UID 'BD26EC31101E'
+ CONST Name 'Ini_Reg'
+ CONST IsSummoned true
+ CONST Class class_Operation
+ : Stereotype st_ini::Operation ;
+ %SUMMARY 'Регистрация Tkw_MonitoringsMain_Control_MainZone' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_765E81224A01 // Tkw_MonitoringsMain_Control_MainZone
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_BD26EC31101E Ini_Reg
+
+: ME_0F35D28D8B53
+ CONST UID '0F35D28D8B53'
+ CONST IsSummoned true
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_765E81224A01 // Tkw_MonitoringsMain_Control_MainZone
+ ;
+ : Target WL 'ME_4A7AD11C028B' '4A7960CC03A4.pas.ms.script' // TvtProportionalPanel
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_0F35D28D8B53 
+
+: ME_5C0CE7103DA7
+ CONST UID '5C0CE7103DA7'
+ CONST IsSummoned true
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_765E81224A01 // Tkw_MonitoringsMain_Control_MainZone
+ ;
+ : Target WL 'ME_561F9F9400BC' '561F9F7D02A7.pas.ms.script' // TtfwClassRef
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_5C0CE7103DA7 
+
+: ME_4DB0614603C8_ME_765E81224A01
+ CONST UID '4DB0614603C8'
+ CONST Name 'GetWordNameForRegister'
+ : Original WL 'ME_4DB0614603C8' '4F3E3F5F0160.pas.ms.script' // GetWordNameForRegister
+ ;
+ : Implementor ME_765E81224A01 // Tkw_MonitoringsMain_Control_MainZone
+ ;
+ CONST OpKind opkind_Overridden
+ CONST "UseNewGen" 'undefined'
+ref; // ME_4DB0614603C8_ME_765E81224A01 GetWordNameForRegister
+
+: ME_4DDFD2EA0116_ME_765E81224A01
+ CONST UID '4DDFD2EA0116'
+ CONST Name 'GetString'
+ : Original WL 'ME_4DDFD2EA0116' '4F3E3F5F0160.pas.ms.script' // GetString
+ ;
+ : Implementor ME_765E81224A01 // Tkw_MonitoringsMain_Control_MainZone
+ ;
+ CONST OpKind opkind_Overridden
+ CONST "UseNewGen" 'undefined'
+ref; // ME_4DDFD2EA0116_ME_765E81224A01 GetString
+
+: ME_52A086150180_ME_765E81224A01
+ CONST UID '52A086150180'
+ CONST Name 'RegisterInEngine'
+ : Original WL 'ME_52A086150180' '4F3E3F5F0160.pas.ms.script' // RegisterInEngine
+ ;
+ : Implementor ME_765E81224A01 // Tkw_MonitoringsMain_Control_MainZone
+ ;
+ CONST OpKind opkind_Overridden
+ CONST "UseNewGen" 'undefined'
+ CONST "is static" true
+ref; // ME_52A086150180_ME_765E81224A01 RegisterInEngine
+
+: ME_765E81224A01
+ CONST UID '765E81224A01'
+ CONST Name 'Tkw_MonitoringsMain_Control_MainZone'
+ CONST IsSummoned true
+ CONST Class class_Class
+ : Stereotype st_ScriptKeyword ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Слово словаря для идентификатора контрола MainZone'#13#10'----'#13#10'*Пример использования*:'#13#10'{code}'#13#10'контрол::MainZone TryFocus ASSERT'#13#10'{code}' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_ED33546FFF82 // MonitoringsMainKeywordsPack
+ ;
+ : Inherits
+   Seq: ( WL 'ME_508527F30183' '54DB92D203C9.pas.ms.script' // TtfwControlString
+ )
+ ; // Inherits
+ : Operations
+   Seq: ( ME_BD26EC31101E // Ini_Reg
+ )
+ ; // Operations
+ : Overridden
+   Seq: ( ME_4DB0614603C8_ME_765E81224A01 // GetWordNameForRegister
+ ME_4DDFD2EA0116_ME_765E81224A01 // GetString
+ ME_52A086150180_ME_765E81224A01 // RegisterInEngine
+ )
+ ; // Overridden
+ : Dependencies
+   Seq: ( ME_0F35D28D8B53 // 
+ ME_5C0CE7103DA7 // 
+ )
+ ; // Dependencies
+ CONST "NameForScript" 'контрол::MainZone'
+ CONST "UseNewGen" 'undefined'
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant'
+
+ref; // ME_765E81224A01 Tkw_MonitoringsMain_Control_MainZone
+
+FORWARD ME_DA6B495B8E07
+
+: ME_2A6961DB501A
+ CONST UID '2A6961DB501A'
+ CONST Name 'Ini_Reg'
+ CONST IsSummoned true
+ CONST Class class_Operation
+ : Stereotype st_ini::Operation ;
+ %SUMMARY 'Регистрация Tkw_MonitoringsMain_Control_MainZone_Push' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_DA6B495B8E07 // Tkw_MonitoringsMain_Control_MainZone_Push
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_2A6961DB501A Ini_Reg
+
+: ME_04015D75B8A9
+ CONST UID '04015D75B8A9'
+ CONST IsSummoned true
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_DA6B495B8E07 // Tkw_MonitoringsMain_Control_MainZone_Push
+ ;
+ : Target WL 'ME_4DB0091E033E' '4DAF19F600C5.pas.ms.script' // TtfwContext
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_04015D75B8A9 
+
+: ME_4DAEEDE10285_ME_DA6B495B8E07
+ CONST UID '4DAEEDE10285'
+ CONST Name 'DoDoIt'
+ : Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.pas.ms.script' // DoDoIt
+ ;
+ : Implementor ME_DA6B495B8E07 // Tkw_MonitoringsMain_Control_MainZone_Push
+ ;
+ CONST OpKind opkind_Overridden
+ CONST "UseNewGen" 'undefined'
+ref; // ME_4DAEEDE10285_ME_DA6B495B8E07 DoDoIt
+
+: ME_4DB0614603C8_ME_DA6B495B8E07
+ CONST UID '4DB0614603C8'
+ CONST Name 'GetWordNameForRegister'
+ : Original WL 'ME_4DB0614603C8' '4F3E3F5F0160.pas.ms.script' // GetWordNameForRegister
+ ;
+ : Implementor ME_DA6B495B8E07 // Tkw_MonitoringsMain_Control_MainZone_Push
+ ;
+ CONST OpKind opkind_Overridden
+ CONST "UseNewGen" 'undefined'
+ref; // ME_4DB0614603C8_ME_DA6B495B8E07 GetWordNameForRegister
+
+: ME_DA6B495B8E07
+ CONST UID 'DA6B495B8E07'
+ CONST Name 'Tkw_MonitoringsMain_Control_MainZone_Push'
+ CONST IsSummoned true
+ CONST Class class_Class
+ : Stereotype st_ScriptKeyword ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Слово словаря для контрола MainZone'#13#10'----'#13#10'*Пример использования*:'#13#10'{code}'#13#10'контрол::MainZone:push pop:control:SetFocus ASSERT'#13#10'{code}' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_ED33546FFF82 // MonitoringsMainKeywordsPack
+ ;
+ : Inherits
+   Seq: ( WL 'ME_4F2141AD0203' '4F69DF560034.pas.ms.script' // byname_control_push
+ )
+ ; // Inherits
+ : Operations
+   Seq: ( ME_2A6961DB501A // Ini_Reg
+ )
+ ; // Operations
+ : Overridden
+   Seq: ( ME_4DAEEDE10285_ME_DA6B495B8E07 // DoDoIt
+ ME_4DB0614603C8_ME_DA6B495B8E07 // GetWordNameForRegister
+ )
+ ; // Overridden
+ : Dependencies
+   Seq: ( ME_04015D75B8A9 // 
+ )
+ ; // Dependencies
+ CONST "NameForScript" 'контрол::MainZone:push'
+ CONST "UseNewGen" 'undefined'
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant'
+
+ref; // ME_DA6B495B8E07 Tkw_MonitoringsMain_Control_MainZone_Push
+
+FORWARD ME_A3BCD85EFE5D
+
+: ME_F55FE67362B0
+ CONST UID 'F55FE67362B0'
+ CONST Name 'Ini_Reg'
+ CONST IsSummoned true
+ CONST Class class_Operation
+ : Stereotype st_ini::Operation ;
+ %SUMMARY 'Регистрация Tkw_MonitoringsMain_Control_ParentZonePanel' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_A3BCD85EFE5D // Tkw_MonitoringsMain_Control_ParentZonePanel
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_F55FE67362B0 Ini_Reg
+
+: ME_D1ED7042DD76
+ CONST UID 'D1ED7042DD76'
+ CONST IsSummoned true
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_A3BCD85EFE5D // Tkw_MonitoringsMain_Control_ParentZonePanel
+ ;
+ : Target WL 'ME_4A7961A701CF' '4A7960CC03A4.pas.ms.script' // TvtPanel
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_D1ED7042DD76 
+
+: ME_3686504FD3CE
+ CONST UID '3686504FD3CE'
+ CONST IsSummoned true
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_A3BCD85EFE5D // Tkw_MonitoringsMain_Control_ParentZonePanel
+ ;
+ : Target WL 'ME_561F9F9400BC' '561F9F7D02A7.pas.ms.script' // TtfwClassRef
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_3686504FD3CE 
+
+: ME_4DB0614603C8_ME_A3BCD85EFE5D
+ CONST UID '4DB0614603C8'
+ CONST Name 'GetWordNameForRegister'
+ : Original WL 'ME_4DB0614603C8' '4F3E3F5F0160.pas.ms.script' // GetWordNameForRegister
+ ;
+ : Implementor ME_A3BCD85EFE5D // Tkw_MonitoringsMain_Control_ParentZonePanel
+ ;
+ CONST OpKind opkind_Overridden
+ CONST "UseNewGen" 'undefined'
+ref; // ME_4DB0614603C8_ME_A3BCD85EFE5D GetWordNameForRegister
+
+: ME_4DDFD2EA0116_ME_A3BCD85EFE5D
+ CONST UID '4DDFD2EA0116'
+ CONST Name 'GetString'
+ : Original WL 'ME_4DDFD2EA0116' '4F3E3F5F0160.pas.ms.script' // GetString
+ ;
+ : Implementor ME_A3BCD85EFE5D // Tkw_MonitoringsMain_Control_ParentZonePanel
+ ;
+ CONST OpKind opkind_Overridden
+ CONST "UseNewGen" 'undefined'
+ref; // ME_4DDFD2EA0116_ME_A3BCD85EFE5D GetString
+
+: ME_52A086150180_ME_A3BCD85EFE5D
+ CONST UID '52A086150180'
+ CONST Name 'RegisterInEngine'
+ : Original WL 'ME_52A086150180' '4F3E3F5F0160.pas.ms.script' // RegisterInEngine
+ ;
+ : Implementor ME_A3BCD85EFE5D // Tkw_MonitoringsMain_Control_ParentZonePanel
+ ;
+ CONST OpKind opkind_Overridden
+ CONST "UseNewGen" 'undefined'
+ CONST "is static" true
+ref; // ME_52A086150180_ME_A3BCD85EFE5D RegisterInEngine
+
+: ME_A3BCD85EFE5D
+ CONST UID 'A3BCD85EFE5D'
+ CONST Name 'Tkw_MonitoringsMain_Control_ParentZonePanel'
+ CONST IsSummoned true
+ CONST Class class_Class
+ : Stereotype st_ScriptKeyword ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Слово словаря для идентификатора контрола ParentZonePanel'#13#10'----'#13#10'*Пример использования*:'#13#10'{code}'#13#10'контрол::ParentZonePanel TryFocus ASSERT'#13#10'{code}' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_ED33546FFF82 // MonitoringsMainKeywordsPack
+ ;
+ : Inherits
+   Seq: ( WL 'ME_508527F30183' '54DB92D203C9.pas.ms.script' // TtfwControlString
+ )
+ ; // Inherits
+ : Operations
+   Seq: ( ME_F55FE67362B0 // Ini_Reg
+ )
+ ; // Operations
+ : Overridden
+   Seq: ( ME_4DB0614603C8_ME_A3BCD85EFE5D // GetWordNameForRegister
+ ME_4DDFD2EA0116_ME_A3BCD85EFE5D // GetString
+ ME_52A086150180_ME_A3BCD85EFE5D // RegisterInEngine
+ )
+ ; // Overridden
+ : Dependencies
+   Seq: ( ME_D1ED7042DD76 // 
+ ME_3686504FD3CE // 
+ )
+ ; // Dependencies
+ CONST "NameForScript" 'контрол::ParentZonePanel'
+ CONST "UseNewGen" 'undefined'
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant'
+
+ref; // ME_A3BCD85EFE5D Tkw_MonitoringsMain_Control_ParentZonePanel
+
+FORWARD ME_470C255C1280
+
+: ME_7264A9748BD3
+ CONST UID '7264A9748BD3'
+ CONST Name 'Ini_Reg'
+ CONST IsSummoned true
+ CONST Class class_Operation
+ : Stereotype st_ini::Operation ;
+ %SUMMARY 'Регистрация Tkw_MonitoringsMain_Control_ParentZonePanel_Push' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_470C255C1280 // Tkw_MonitoringsMain_Control_ParentZonePanel_Push
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_7264A9748BD3 Ini_Reg
+
+: ME_41711FA85906
+ CONST UID '41711FA85906'
+ CONST IsSummoned true
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_470C255C1280 // Tkw_MonitoringsMain_Control_ParentZonePanel_Push
+ ;
+ : Target WL 'ME_4DB0091E033E' '4DAF19F600C5.pas.ms.script' // TtfwContext
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_41711FA85906 
+
+: ME_4DAEEDE10285_ME_470C255C1280
+ CONST UID '4DAEEDE10285'
+ CONST Name 'DoDoIt'
+ : Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.pas.ms.script' // DoDoIt
+ ;
+ : Implementor ME_470C255C1280 // Tkw_MonitoringsMain_Control_ParentZonePanel_Push
+ ;
+ CONST OpKind opkind_Overridden
+ CONST "UseNewGen" 'undefined'
+ref; // ME_4DAEEDE10285_ME_470C255C1280 DoDoIt
+
+: ME_4DB0614603C8_ME_470C255C1280
+ CONST UID '4DB0614603C8'
+ CONST Name 'GetWordNameForRegister'
+ : Original WL 'ME_4DB0614603C8' '4F3E3F5F0160.pas.ms.script' // GetWordNameForRegister
+ ;
+ : Implementor ME_470C255C1280 // Tkw_MonitoringsMain_Control_ParentZonePanel_Push
+ ;
+ CONST OpKind opkind_Overridden
+ CONST "UseNewGen" 'undefined'
+ref; // ME_4DB0614603C8_ME_470C255C1280 GetWordNameForRegister
+
+: ME_470C255C1280
+ CONST UID '470C255C1280'
+ CONST Name 'Tkw_MonitoringsMain_Control_ParentZonePanel_Push'
+ CONST IsSummoned true
+ CONST Class class_Class
+ : Stereotype st_ScriptKeyword ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Слово словаря для контрола ParentZonePanel'#13#10'----'#13#10'*Пример использования*:'#13#10'{code}'#13#10'контрол::ParentZonePanel:push pop:control:SetFocus ASSERT'#13#10'{code}' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_ED33546FFF82 // MonitoringsMainKeywordsPack
+ ;
+ : Inherits
+   Seq: ( WL 'ME_4F2141AD0203' '4F69DF560034.pas.ms.script' // byname_control_push
+ )
+ ; // Inherits
+ : Operations
+   Seq: ( ME_7264A9748BD3 // Ini_Reg
+ )
+ ; // Operations
+ : Overridden
+   Seq: ( ME_4DAEEDE10285_ME_470C255C1280 // DoDoIt
+ ME_4DB0614603C8_ME_470C255C1280 // GetWordNameForRegister
+ )
+ ; // Overridden
+ : Dependencies
+   Seq: ( ME_41711FA85906 // 
+ )
+ ; // Dependencies
+ CONST "NameForScript" 'контрол::ParentZonePanel:push'
+ CONST "UseNewGen" 'undefined'
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant'
+
+ref; // ME_470C255C1280 Tkw_MonitoringsMain_Control_ParentZonePanel_Push
+
+FORWARD ME_A6AB0E00A47C
+
+: ME_7B9ECD6D1A7A
+ CONST UID '7B9ECD6D1A7A'
+ CONST Name 'Ini_Reg'
+ CONST IsSummoned true
+ CONST Class class_Operation
+ : Stereotype st_ini::Operation ;
+ %SUMMARY 'Регистрация Tkw_MonitoringsMain_Control_ChildZonePanel' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_A6AB0E00A47C // Tkw_MonitoringsMain_Control_ChildZonePanel
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_7B9ECD6D1A7A Ini_Reg
+
+: ME_FA30251A0E46
+ CONST UID 'FA30251A0E46'
+ CONST IsSummoned true
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_A6AB0E00A47C // Tkw_MonitoringsMain_Control_ChildZonePanel
+ ;
+ : Target WL 'ME_4A7961300264' '4A7960CC03A4.pas.ms.script' // TvtSizeablePanel
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_FA30251A0E46 
+
+: ME_A58B372ED588
+ CONST UID 'A58B372ED588'
+ CONST IsSummoned true
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_A6AB0E00A47C // Tkw_MonitoringsMain_Control_ChildZonePanel
+ ;
+ : Target WL 'ME_561F9F9400BC' '561F9F7D02A7.pas.ms.script' // TtfwClassRef
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_A58B372ED588 
+
+: ME_4DB0614603C8_ME_A6AB0E00A47C
+ CONST UID '4DB0614603C8'
+ CONST Name 'GetWordNameForRegister'
+ : Original WL 'ME_4DB0614603C8' '4F3E3F5F0160.pas.ms.script' // GetWordNameForRegister
+ ;
+ : Implementor ME_A6AB0E00A47C // Tkw_MonitoringsMain_Control_ChildZonePanel
+ ;
+ CONST OpKind opkind_Overridden
+ CONST "UseNewGen" 'undefined'
+ref; // ME_4DB0614603C8_ME_A6AB0E00A47C GetWordNameForRegister
+
+: ME_4DDFD2EA0116_ME_A6AB0E00A47C
+ CONST UID '4DDFD2EA0116'
+ CONST Name 'GetString'
+ : Original WL 'ME_4DDFD2EA0116' '4F3E3F5F0160.pas.ms.script' // GetString
+ ;
+ : Implementor ME_A6AB0E00A47C // Tkw_MonitoringsMain_Control_ChildZonePanel
+ ;
+ CONST OpKind opkind_Overridden
+ CONST "UseNewGen" 'undefined'
+ref; // ME_4DDFD2EA0116_ME_A6AB0E00A47C GetString
+
+: ME_52A086150180_ME_A6AB0E00A47C
+ CONST UID '52A086150180'
+ CONST Name 'RegisterInEngine'
+ : Original WL 'ME_52A086150180' '4F3E3F5F0160.pas.ms.script' // RegisterInEngine
+ ;
+ : Implementor ME_A6AB0E00A47C // Tkw_MonitoringsMain_Control_ChildZonePanel
+ ;
+ CONST OpKind opkind_Overridden
+ CONST "UseNewGen" 'undefined'
+ CONST "is static" true
+ref; // ME_52A086150180_ME_A6AB0E00A47C RegisterInEngine
+
+: ME_A6AB0E00A47C
+ CONST UID 'A6AB0E00A47C'
+ CONST Name 'Tkw_MonitoringsMain_Control_ChildZonePanel'
+ CONST IsSummoned true
+ CONST Class class_Class
+ : Stereotype st_ScriptKeyword ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Слово словаря для идентификатора контрола ChildZonePanel'#13#10'----'#13#10'*Пример использования*:'#13#10'{code}'#13#10'контрол::ChildZonePanel TryFocus ASSERT'#13#10'{code}' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_ED33546FFF82 // MonitoringsMainKeywordsPack
+ ;
+ : Inherits
+   Seq: ( WL 'ME_508527F30183' '54DB92D203C9.pas.ms.script' // TtfwControlString
+ )
+ ; // Inherits
+ : Operations
+   Seq: ( ME_7B9ECD6D1A7A // Ini_Reg
+ )
+ ; // Operations
+ : Overridden
+   Seq: ( ME_4DB0614603C8_ME_A6AB0E00A47C // GetWordNameForRegister
+ ME_4DDFD2EA0116_ME_A6AB0E00A47C // GetString
+ ME_52A086150180_ME_A6AB0E00A47C // RegisterInEngine
+ )
+ ; // Overridden
+ : Dependencies
+   Seq: ( ME_FA30251A0E46 // 
+ ME_A58B372ED588 // 
+ )
+ ; // Dependencies
+ CONST "NameForScript" 'контрол::ChildZonePanel'
+ CONST "UseNewGen" 'undefined'
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant'
+
+ref; // ME_A6AB0E00A47C Tkw_MonitoringsMain_Control_ChildZonePanel
+
+FORWARD ME_65B854BE4D29
+
+: ME_01570BD5DCA0
+ CONST UID '01570BD5DCA0'
+ CONST Name 'Ini_Reg'
+ CONST IsSummoned true
+ CONST Class class_Operation
+ : Stereotype st_ini::Operation ;
+ %SUMMARY 'Регистрация Tkw_MonitoringsMain_Control_ChildZonePanel_Push' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_65B854BE4D29 // Tkw_MonitoringsMain_Control_ChildZonePanel_Push
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_01570BD5DCA0 Ini_Reg
+
+: ME_CE75C944E913
+ CONST UID 'CE75C944E913'
+ CONST IsSummoned true
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_65B854BE4D29 // Tkw_MonitoringsMain_Control_ChildZonePanel_Push
+ ;
+ : Target WL 'ME_4DB0091E033E' '4DAF19F600C5.pas.ms.script' // TtfwContext
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_CE75C944E913 
+
+: ME_4DAEEDE10285_ME_65B854BE4D29
+ CONST UID '4DAEEDE10285'
+ CONST Name 'DoDoIt'
+ : Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.pas.ms.script' // DoDoIt
+ ;
+ : Implementor ME_65B854BE4D29 // Tkw_MonitoringsMain_Control_ChildZonePanel_Push
+ ;
+ CONST OpKind opkind_Overridden
+ CONST "UseNewGen" 'undefined'
+ref; // ME_4DAEEDE10285_ME_65B854BE4D29 DoDoIt
+
+: ME_4DB0614603C8_ME_65B854BE4D29
+ CONST UID '4DB0614603C8'
+ CONST Name 'GetWordNameForRegister'
+ : Original WL 'ME_4DB0614603C8' '4F3E3F5F0160.pas.ms.script' // GetWordNameForRegister
+ ;
+ : Implementor ME_65B854BE4D29 // Tkw_MonitoringsMain_Control_ChildZonePanel_Push
+ ;
+ CONST OpKind opkind_Overridden
+ CONST "UseNewGen" 'undefined'
+ref; // ME_4DB0614603C8_ME_65B854BE4D29 GetWordNameForRegister
+
+: ME_65B854BE4D29
+ CONST UID '65B854BE4D29'
+ CONST Name 'Tkw_MonitoringsMain_Control_ChildZonePanel_Push'
+ CONST IsSummoned true
+ CONST Class class_Class
+ : Stereotype st_ScriptKeyword ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Слово словаря для контрола ChildZonePanel'#13#10'----'#13#10'*Пример использования*:'#13#10'{code}'#13#10'контрол::ChildZonePanel:push pop:control:SetFocus ASSERT'#13#10'{code}' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_ED33546FFF82 // MonitoringsMainKeywordsPack
+ ;
+ : Inherits
+   Seq: ( WL 'ME_4F2141AD0203' '4F69DF560034.pas.ms.script' // byname_control_push
+ )
+ ; // Inherits
+ : Operations
+   Seq: ( ME_01570BD5DCA0 // Ini_Reg
+ )
+ ; // Operations
+ : Overridden
+   Seq: ( ME_4DAEEDE10285_ME_65B854BE4D29 // DoDoIt
+ ME_4DB0614603C8_ME_65B854BE4D29 // GetWordNameForRegister
+ )
+ ; // Overridden
+ : Dependencies
+   Seq: ( ME_CE75C944E913 // 
+ )
+ ; // Dependencies
+ CONST "NameForScript" 'контрол::ChildZonePanel:push'
+ CONST "UseNewGen" 'undefined'
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant'
+
+ref; // ME_65B854BE4D29 Tkw_MonitoringsMain_Control_ChildZonePanel_Push
+
+FORWARD ME_A5889E612903
+
+: ME_BD899F48F162
+ CONST UID 'BD899F48F162'
+ CONST Name 'Ini_Reg'
+ CONST IsSummoned true
+ CONST Class class_Operation
+ : Stereotype st_ini::Operation ;
+ %SUMMARY 'Регистрация Tkw_MonitoringsMain_Control_BaseSearchPanel' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_A5889E612903 // Tkw_MonitoringsMain_Control_BaseSearchPanel
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_BD899F48F162 Ini_Reg
+
+: ME_393F0EB2AA5E
+ CONST UID '393F0EB2AA5E'
+ CONST IsSummoned true
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_A5889E612903 // Tkw_MonitoringsMain_Control_BaseSearchPanel
+ ;
+ : Target WL 'ME_4A7961A701CF' '4A7960CC03A4.pas.ms.script' // TvtPanel
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_393F0EB2AA5E 
+
+: ME_9AC2E151AED2
+ CONST UID '9AC2E151AED2'
+ CONST IsSummoned true
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_A5889E612903 // Tkw_MonitoringsMain_Control_BaseSearchPanel
+ ;
+ : Target WL 'ME_561F9F9400BC' '561F9F7D02A7.pas.ms.script' // TtfwClassRef
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_9AC2E151AED2 
+
+: ME_4DB0614603C8_ME_A5889E612903
+ CONST UID '4DB0614603C8'
+ CONST Name 'GetWordNameForRegister'
+ : Original WL 'ME_4DB0614603C8' '4F3E3F5F0160.pas.ms.script' // GetWordNameForRegister
+ ;
+ : Implementor ME_A5889E612903 // Tkw_MonitoringsMain_Control_BaseSearchPanel
+ ;
+ CONST OpKind opkind_Overridden
+ CONST "UseNewGen" 'undefined'
+ref; // ME_4DB0614603C8_ME_A5889E612903 GetWordNameForRegister
+
+: ME_4DDFD2EA0116_ME_A5889E612903
+ CONST UID '4DDFD2EA0116'
+ CONST Name 'GetString'
+ : Original WL 'ME_4DDFD2EA0116' '4F3E3F5F0160.pas.ms.script' // GetString
+ ;
+ : Implementor ME_A5889E612903 // Tkw_MonitoringsMain_Control_BaseSearchPanel
+ ;
+ CONST OpKind opkind_Overridden
+ CONST "UseNewGen" 'undefined'
+ref; // ME_4DDFD2EA0116_ME_A5889E612903 GetString
+
+: ME_52A086150180_ME_A5889E612903
+ CONST UID '52A086150180'
+ CONST Name 'RegisterInEngine'
+ : Original WL 'ME_52A086150180' '4F3E3F5F0160.pas.ms.script' // RegisterInEngine
+ ;
+ : Implementor ME_A5889E612903 // Tkw_MonitoringsMain_Control_BaseSearchPanel
+ ;
+ CONST OpKind opkind_Overridden
+ CONST "UseNewGen" 'undefined'
+ CONST "is static" true
+ref; // ME_52A086150180_ME_A5889E612903 RegisterInEngine
+
+: ME_A5889E612903
+ CONST UID 'A5889E612903'
+ CONST Name 'Tkw_MonitoringsMain_Control_BaseSearchPanel'
+ CONST IsSummoned true
+ CONST Class class_Class
+ : Stereotype st_ScriptKeyword ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Слово словаря для идентификатора контрола BaseSearchPanel'#13#10'----'#13#10'*Пример использования*:'#13#10'{code}'#13#10'контрол::BaseSearchPanel TryFocus ASSERT'#13#10'{code}' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_ED33546FFF82 // MonitoringsMainKeywordsPack
+ ;
+ : Inherits
+   Seq: ( WL 'ME_508527F30183' '54DB92D203C9.pas.ms.script' // TtfwControlString
+ )
+ ; // Inherits
+ : Operations
+   Seq: ( ME_BD899F48F162 // Ini_Reg
+ )
+ ; // Operations
+ : Overridden
+   Seq: ( ME_4DB0614603C8_ME_A5889E612903 // GetWordNameForRegister
+ ME_4DDFD2EA0116_ME_A5889E612903 // GetString
+ ME_52A086150180_ME_A5889E612903 // RegisterInEngine
+ )
+ ; // Overridden
+ : Dependencies
+   Seq: ( ME_393F0EB2AA5E // 
+ ME_9AC2E151AED2 // 
+ )
+ ; // Dependencies
+ CONST "NameForScript" 'контрол::BaseSearchPanel'
+ CONST "UseNewGen" 'undefined'
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant'
+
+ref; // ME_A5889E612903 Tkw_MonitoringsMain_Control_BaseSearchPanel
+
+FORWARD ME_897FF1B160A5
+
+: ME_F5E71ED11C22
+ CONST UID 'F5E71ED11C22'
+ CONST Name 'Ini_Reg'
+ CONST IsSummoned true
+ CONST Class class_Operation
+ : Stereotype st_ini::Operation ;
+ %SUMMARY 'Регистрация Tkw_MonitoringsMain_Control_BaseSearchPanel_Push' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_897FF1B160A5 // Tkw_MonitoringsMain_Control_BaseSearchPanel_Push
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_F5E71ED11C22 Ini_Reg
+
+: ME_8099D1B32804
+ CONST UID '8099D1B32804'
+ CONST IsSummoned true
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_897FF1B160A5 // Tkw_MonitoringsMain_Control_BaseSearchPanel_Push
+ ;
+ : Target WL 'ME_4DB0091E033E' '4DAF19F600C5.pas.ms.script' // TtfwContext
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_8099D1B32804 
+
+: ME_4DAEEDE10285_ME_897FF1B160A5
+ CONST UID '4DAEEDE10285'
+ CONST Name 'DoDoIt'
+ : Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.pas.ms.script' // DoDoIt
+ ;
+ : Implementor ME_897FF1B160A5 // Tkw_MonitoringsMain_Control_BaseSearchPanel_Push
+ ;
+ CONST OpKind opkind_Overridden
+ CONST "UseNewGen" 'undefined'
+ref; // ME_4DAEEDE10285_ME_897FF1B160A5 DoDoIt
+
+: ME_4DB0614603C8_ME_897FF1B160A5
+ CONST UID '4DB0614603C8'
+ CONST Name 'GetWordNameForRegister'
+ : Original WL 'ME_4DB0614603C8' '4F3E3F5F0160.pas.ms.script' // GetWordNameForRegister
+ ;
+ : Implementor ME_897FF1B160A5 // Tkw_MonitoringsMain_Control_BaseSearchPanel_Push
+ ;
+ CONST OpKind opkind_Overridden
+ CONST "UseNewGen" 'undefined'
+ref; // ME_4DB0614603C8_ME_897FF1B160A5 GetWordNameForRegister
+
+: ME_897FF1B160A5
+ CONST UID '897FF1B160A5'
+ CONST Name 'Tkw_MonitoringsMain_Control_BaseSearchPanel_Push'
+ CONST IsSummoned true
+ CONST Class class_Class
+ : Stereotype st_ScriptKeyword ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Слово словаря для контрола BaseSearchPanel'#13#10'----'#13#10'*Пример использования*:'#13#10'{code}'#13#10'контрол::BaseSearchPanel:push pop:control:SetFocus ASSERT'#13#10'{code}' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_ED33546FFF82 // MonitoringsMainKeywordsPack
+ ;
+ : Inherits
+   Seq: ( WL 'ME_4F2141AD0203' '4F69DF560034.pas.ms.script' // byname_control_push
+ )
+ ; // Inherits
+ : Operations
+   Seq: ( ME_F5E71ED11C22 // Ini_Reg
+ )
+ ; // Operations
+ : Overridden
+   Seq: ( ME_4DAEEDE10285_ME_897FF1B160A5 // DoDoIt
+ ME_4DB0614603C8_ME_897FF1B160A5 // GetWordNameForRegister
+ )
+ ; // Overridden
+ : Dependencies
+   Seq: ( ME_8099D1B32804 // 
+ )
+ ; // Dependencies
+ CONST "NameForScript" 'контрол::BaseSearchPanel:push'
+ CONST "UseNewGen" 'undefined'
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant'
+
+ref; // ME_897FF1B160A5 Tkw_MonitoringsMain_Control_BaseSearchPanel_Push
+
+FORWARD ME_4499FD73873B
+
+: ME_C8165FC95580
+ CONST UID 'C8165FC95580'
+ CONST Name 'Ini_Reg'
+ CONST IsSummoned true
+ CONST Class class_Operation
+ : Stereotype st_ini::Operation ;
+ %SUMMARY 'Регистрация Tkw_MonitoringsMain_Control_LeftNavigator' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_4499FD73873B // Tkw_MonitoringsMain_Control_LeftNavigator
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_C8165FC95580 Ini_Reg
+
+: ME_0CF546F6DAF6
+ CONST UID '0CF546F6DAF6'
+ CONST IsSummoned true
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4499FD73873B // Tkw_MonitoringsMain_Control_LeftNavigator
+ ;
+ : Target WL 'ME_499ABF3D031B' '499ABF2A0338.pas.ms.script' // TnscNavigator
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_0CF546F6DAF6 
+
+: ME_4D0D897093AC
+ CONST UID '4D0D897093AC'
+ CONST IsSummoned true
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4499FD73873B // Tkw_MonitoringsMain_Control_LeftNavigator
+ ;
+ : Target WL 'ME_561F9F9400BC' '561F9F7D02A7.pas.ms.script' // TtfwClassRef
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_4D0D897093AC 
+
+: ME_4DB0614603C8_ME_4499FD73873B
+ CONST UID '4DB0614603C8'
+ CONST Name 'GetWordNameForRegister'
+ : Original WL 'ME_4DB0614603C8' '4F3E3F5F0160.pas.ms.script' // GetWordNameForRegister
+ ;
+ : Implementor ME_4499FD73873B // Tkw_MonitoringsMain_Control_LeftNavigator
+ ;
+ CONST OpKind opkind_Overridden
+ CONST "UseNewGen" 'undefined'
+ref; // ME_4DB0614603C8_ME_4499FD73873B GetWordNameForRegister
+
+: ME_4DDFD2EA0116_ME_4499FD73873B
+ CONST UID '4DDFD2EA0116'
+ CONST Name 'GetString'
+ : Original WL 'ME_4DDFD2EA0116' '4F3E3F5F0160.pas.ms.script' // GetString
+ ;
+ : Implementor ME_4499FD73873B // Tkw_MonitoringsMain_Control_LeftNavigator
+ ;
+ CONST OpKind opkind_Overridden
+ CONST "UseNewGen" 'undefined'
+ref; // ME_4DDFD2EA0116_ME_4499FD73873B GetString
+
+: ME_52A086150180_ME_4499FD73873B
+ CONST UID '52A086150180'
+ CONST Name 'RegisterInEngine'
+ : Original WL 'ME_52A086150180' '4F3E3F5F0160.pas.ms.script' // RegisterInEngine
+ ;
+ : Implementor ME_4499FD73873B // Tkw_MonitoringsMain_Control_LeftNavigator
+ ;
+ CONST OpKind opkind_Overridden
+ CONST "UseNewGen" 'undefined'
+ CONST "is static" true
+ref; // ME_52A086150180_ME_4499FD73873B RegisterInEngine
+
+: ME_4499FD73873B
+ CONST UID '4499FD73873B'
+ CONST Name 'Tkw_MonitoringsMain_Control_LeftNavigator'
+ CONST IsSummoned true
+ CONST Class class_Class
+ : Stereotype st_ScriptKeyword ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Слово словаря для идентификатора контрола LeftNavigator'#13#10'----'#13#10'*Пример использования*:'#13#10'{code}'#13#10'контрол::LeftNavigator TryFocus ASSERT'#13#10'{code}' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_ED33546FFF82 // MonitoringsMainKeywordsPack
+ ;
+ : Inherits
+   Seq: ( WL 'ME_508527F30183' '54DB92D203C9.pas.ms.script' // TtfwControlString
+ )
+ ; // Inherits
+ : Operations
+   Seq: ( ME_C8165FC95580 // Ini_Reg
+ )
+ ; // Operations
+ : Overridden
+   Seq: ( ME_4DB0614603C8_ME_4499FD73873B // GetWordNameForRegister
+ ME_4DDFD2EA0116_ME_4499FD73873B // GetString
+ ME_52A086150180_ME_4499FD73873B // RegisterInEngine
+ )
+ ; // Overridden
+ : Dependencies
+   Seq: ( ME_0CF546F6DAF6 // 
+ ME_4D0D897093AC // 
+ )
+ ; // Dependencies
+ CONST "NameForScript" 'контрол::LeftNavigator'
+ CONST "UseNewGen" 'undefined'
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant'
+
+ref; // ME_4499FD73873B Tkw_MonitoringsMain_Control_LeftNavigator
+
+FORWARD ME_0F416FA0FB28
+
+: ME_D7CFC24720FF
+ CONST UID 'D7CFC24720FF'
+ CONST Name 'Ini_Reg'
+ CONST IsSummoned true
+ CONST Class class_Operation
+ : Stereotype st_ini::Operation ;
+ %SUMMARY 'Регистрация Tkw_MonitoringsMain_Control_LeftNavigator_Push' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_0F416FA0FB28 // Tkw_MonitoringsMain_Control_LeftNavigator_Push
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_D7CFC24720FF Ini_Reg
+
+: ME_C3F1541E9994
+ CONST UID 'C3F1541E9994'
+ CONST IsSummoned true
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_0F416FA0FB28 // Tkw_MonitoringsMain_Control_LeftNavigator_Push
+ ;
+ : Target WL 'ME_4DB0091E033E' '4DAF19F600C5.pas.ms.script' // TtfwContext
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_C3F1541E9994 
+
+: ME_4DAEEDE10285_ME_0F416FA0FB28
+ CONST UID '4DAEEDE10285'
+ CONST Name 'DoDoIt'
+ : Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.pas.ms.script' // DoDoIt
+ ;
+ : Implementor ME_0F416FA0FB28 // Tkw_MonitoringsMain_Control_LeftNavigator_Push
+ ;
+ CONST OpKind opkind_Overridden
+ CONST "UseNewGen" 'undefined'
+ref; // ME_4DAEEDE10285_ME_0F416FA0FB28 DoDoIt
+
+: ME_4DB0614603C8_ME_0F416FA0FB28
+ CONST UID '4DB0614603C8'
+ CONST Name 'GetWordNameForRegister'
+ : Original WL 'ME_4DB0614603C8' '4F3E3F5F0160.pas.ms.script' // GetWordNameForRegister
+ ;
+ : Implementor ME_0F416FA0FB28 // Tkw_MonitoringsMain_Control_LeftNavigator_Push
+ ;
+ CONST OpKind opkind_Overridden
+ CONST "UseNewGen" 'undefined'
+ref; // ME_4DB0614603C8_ME_0F416FA0FB28 GetWordNameForRegister
+
+: ME_0F416FA0FB28
+ CONST UID '0F416FA0FB28'
+ CONST Name 'Tkw_MonitoringsMain_Control_LeftNavigator_Push'
+ CONST IsSummoned true
+ CONST Class class_Class
+ : Stereotype st_ScriptKeyword ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Слово словаря для контрола LeftNavigator'#13#10'----'#13#10'*Пример использования*:'#13#10'{code}'#13#10'контрол::LeftNavigator:push pop:control:SetFocus ASSERT'#13#10'{code}' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_ED33546FFF82 // MonitoringsMainKeywordsPack
+ ;
+ : Inherits
+   Seq: ( WL 'ME_4F2141AD0203' '4F69DF560034.pas.ms.script' // byname_control_push
+ )
+ ; // Inherits
+ : Operations
+   Seq: ( ME_D7CFC24720FF // Ini_Reg
+ )
+ ; // Operations
+ : Overridden
+   Seq: ( ME_4DAEEDE10285_ME_0F416FA0FB28 // DoDoIt
+ ME_4DB0614603C8_ME_0F416FA0FB28 // GetWordNameForRegister
+ )
+ ; // Overridden
+ : Dependencies
+   Seq: ( ME_C3F1541E9994 // 
+ )
+ ; // Dependencies
+ CONST "NameForScript" 'контрол::LeftNavigator:push'
+ CONST "UseNewGen" 'undefined'
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant'
+
+ref; // ME_0F416FA0FB28 Tkw_MonitoringsMain_Control_LeftNavigator_Push
+
+FORWARD ME_87474E831116
+
+: ME_440C4A26759B
+ CONST UID '440C4A26759B'
+ CONST Name 'Ini_Reg'
+ CONST IsSummoned true
+ CONST Class class_Operation
+ : Stereotype st_ini::Operation ;
+ %SUMMARY 'Регистрация Tkw_MonitoringsMain_Control_RightNavigator' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_87474E831116 // Tkw_MonitoringsMain_Control_RightNavigator
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_440C4A26759B Ini_Reg
+
+: ME_D51BCA91DEB7
+ CONST UID 'D51BCA91DEB7'
+ CONST IsSummoned true
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_87474E831116 // Tkw_MonitoringsMain_Control_RightNavigator
+ ;
+ : Target WL 'ME_499ABF3D031B' '499ABF2A0338.pas.ms.script' // TnscNavigator
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_D51BCA91DEB7 
+
+: ME_66A5F66C4E5E
+ CONST UID '66A5F66C4E5E'
+ CONST IsSummoned true
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_87474E831116 // Tkw_MonitoringsMain_Control_RightNavigator
+ ;
+ : Target WL 'ME_561F9F9400BC' '561F9F7D02A7.pas.ms.script' // TtfwClassRef
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_66A5F66C4E5E 
+
+: ME_4DB0614603C8_ME_87474E831116
+ CONST UID '4DB0614603C8'
+ CONST Name 'GetWordNameForRegister'
+ : Original WL 'ME_4DB0614603C8' '4F3E3F5F0160.pas.ms.script' // GetWordNameForRegister
+ ;
+ : Implementor ME_87474E831116 // Tkw_MonitoringsMain_Control_RightNavigator
+ ;
+ CONST OpKind opkind_Overridden
+ CONST "UseNewGen" 'undefined'
+ref; // ME_4DB0614603C8_ME_87474E831116 GetWordNameForRegister
+
+: ME_4DDFD2EA0116_ME_87474E831116
+ CONST UID '4DDFD2EA0116'
+ CONST Name 'GetString'
+ : Original WL 'ME_4DDFD2EA0116' '4F3E3F5F0160.pas.ms.script' // GetString
+ ;
+ : Implementor ME_87474E831116 // Tkw_MonitoringsMain_Control_RightNavigator
+ ;
+ CONST OpKind opkind_Overridden
+ CONST "UseNewGen" 'undefined'
+ref; // ME_4DDFD2EA0116_ME_87474E831116 GetString
+
+: ME_52A086150180_ME_87474E831116
+ CONST UID '52A086150180'
+ CONST Name 'RegisterInEngine'
+ : Original WL 'ME_52A086150180' '4F3E3F5F0160.pas.ms.script' // RegisterInEngine
+ ;
+ : Implementor ME_87474E831116 // Tkw_MonitoringsMain_Control_RightNavigator
+ ;
+ CONST OpKind opkind_Overridden
+ CONST "UseNewGen" 'undefined'
+ CONST "is static" true
+ref; // ME_52A086150180_ME_87474E831116 RegisterInEngine
+
+: ME_87474E831116
+ CONST UID '87474E831116'
+ CONST Name 'Tkw_MonitoringsMain_Control_RightNavigator'
+ CONST IsSummoned true
+ CONST Class class_Class
+ : Stereotype st_ScriptKeyword ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Слово словаря для идентификатора контрола RightNavigator'#13#10'----'#13#10'*Пример использования*:'#13#10'{code}'#13#10'контрол::RightNavigator TryFocus ASSERT'#13#10'{code}' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_ED33546FFF82 // MonitoringsMainKeywordsPack
+ ;
+ : Inherits
+   Seq: ( WL 'ME_508527F30183' '54DB92D203C9.pas.ms.script' // TtfwControlString
+ )
+ ; // Inherits
+ : Operations
+   Seq: ( ME_440C4A26759B // Ini_Reg
+ )
+ ; // Operations
+ : Overridden
+   Seq: ( ME_4DB0614603C8_ME_87474E831116 // GetWordNameForRegister
+ ME_4DDFD2EA0116_ME_87474E831116 // GetString
+ ME_52A086150180_ME_87474E831116 // RegisterInEngine
+ )
+ ; // Overridden
+ : Dependencies
+   Seq: ( ME_D51BCA91DEB7 // 
+ ME_66A5F66C4E5E // 
+ )
+ ; // Dependencies
+ CONST "NameForScript" 'контрол::RightNavigator'
+ CONST "UseNewGen" 'undefined'
+ CONST "ifdef" 'HasRightNavigator'
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant'
+
+ref; // ME_87474E831116 Tkw_MonitoringsMain_Control_RightNavigator
+
+FORWARD ME_A63382FBE37E
+
+: ME_555A9CDDF3B6
+ CONST UID '555A9CDDF3B6'
+ CONST Name 'Ini_Reg'
+ CONST IsSummoned true
+ CONST Class class_Operation
+ : Stereotype st_ini::Operation ;
+ %SUMMARY 'Регистрация Tkw_MonitoringsMain_Control_RightNavigator_Push' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_A63382FBE37E // Tkw_MonitoringsMain_Control_RightNavigator_Push
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_555A9CDDF3B6 Ini_Reg
+
+: ME_58B96E25F562
+ CONST UID '58B96E25F562'
+ CONST IsSummoned true
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_A63382FBE37E // Tkw_MonitoringsMain_Control_RightNavigator_Push
+ ;
+ : Target WL 'ME_4DB0091E033E' '4DAF19F600C5.pas.ms.script' // TtfwContext
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_58B96E25F562 
+
+: ME_4DAEEDE10285_ME_A63382FBE37E
+ CONST UID '4DAEEDE10285'
+ CONST Name 'DoDoIt'
+ : Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.pas.ms.script' // DoDoIt
+ ;
+ : Implementor ME_A63382FBE37E // Tkw_MonitoringsMain_Control_RightNavigator_Push
+ ;
+ CONST OpKind opkind_Overridden
+ CONST "UseNewGen" 'undefined'
+ref; // ME_4DAEEDE10285_ME_A63382FBE37E DoDoIt
+
+: ME_4DB0614603C8_ME_A63382FBE37E
+ CONST UID '4DB0614603C8'
+ CONST Name 'GetWordNameForRegister'
+ : Original WL 'ME_4DB0614603C8' '4F3E3F5F0160.pas.ms.script' // GetWordNameForRegister
+ ;
+ : Implementor ME_A63382FBE37E // Tkw_MonitoringsMain_Control_RightNavigator_Push
+ ;
+ CONST OpKind opkind_Overridden
+ CONST "UseNewGen" 'undefined'
+ref; // ME_4DB0614603C8_ME_A63382FBE37E GetWordNameForRegister
+
+: ME_A63382FBE37E
+ CONST UID 'A63382FBE37E'
+ CONST Name 'Tkw_MonitoringsMain_Control_RightNavigator_Push'
+ CONST IsSummoned true
+ CONST Class class_Class
+ : Stereotype st_ScriptKeyword ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Слово словаря для контрола RightNavigator'#13#10'----'#13#10'*Пример использования*:'#13#10'{code}'#13#10'контрол::RightNavigator:push pop:control:SetFocus ASSERT'#13#10'{code}' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_ED33546FFF82 // MonitoringsMainKeywordsPack
+ ;
+ : Inherits
+   Seq: ( WL 'ME_4F2141AD0203' '4F69DF560034.pas.ms.script' // byname_control_push
+ )
+ ; // Inherits
+ : Operations
+   Seq: ( ME_555A9CDDF3B6 // Ini_Reg
+ )
+ ; // Operations
+ : Overridden
+   Seq: ( ME_4DAEEDE10285_ME_A63382FBE37E // DoDoIt
+ ME_4DB0614603C8_ME_A63382FBE37E // GetWordNameForRegister
+ )
+ ; // Overridden
+ : Dependencies
+   Seq: ( ME_58B96E25F562 // 
+ )
+ ; // Dependencies
+ CONST "NameForScript" 'контрол::RightNavigator:push'
+ CONST "UseNewGen" 'undefined'
+ CONST "ifdef" 'HasRightNavigator'
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant'
+
+ref; // ME_A63382FBE37E Tkw_MonitoringsMain_Control_RightNavigator_Push
+
+FORWARD ME_74561386DA27
+
+: ME_D3B5F227EDB2
+ CONST UID 'D3B5F227EDB2'
+ CONST Name 'aCtx'
+ CONST IsSummoned true
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_4DB0091E033E' '4DAF19F600C5.pas.ms.script' // TtfwContext
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_D3B5F227EDB2 aCtx
+
+: ME_D3B5F227EDB3
+ CONST UID 'D3B5F227EDB3'
+ CONST Name 'aMonitoringsMainForm'
+ CONST IsSummoned true
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target ME_4F7C2E78015C // MonitoringsMain
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_D3B5F227EDB3 aMonitoringsMainForm
+
+: ME_CD17D1A09864
+ CONST UID 'CD17D1A09864'
+ CONST Name 'StatusBar'
+ CONST IsSummoned true
+ CONST Class class_Operation
+ %SUMMARY 'Реализация слова скрипта .TMonitoringsMainForm.StatusBar' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_74561386DA27 // MonitoringsMainForm_StatusBar
+ ;
+ : Target WL 'ME_4E15A08E030D' '49871D5103B9.pas.ms.script' // TnscStatusBar
+ ;
+ : Parameters
+   Seq: ( ME_D3B5F227EDB2 // aCtx
+ ME_D3B5F227EDB3 // aMonitoringsMainForm
+ )
+ ; // Parameters
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_CD17D1A09864 StatusBar
+
+: ME_A61B89C18258
+ CONST UID 'A61B89C18258'
+ CONST Name 'Ini_Reg'
+ CONST IsSummoned true
+ CONST Class class_Operation
+ : Stereotype st_ini::Operation ;
+ %SUMMARY 'Регистрация MonitoringsMainForm_StatusBar' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_74561386DA27 // MonitoringsMainForm_StatusBar
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_A61B89C18258 Ini_Reg
+
+: ME_B2EAB7B36DED
+ CONST UID 'B2EAB7B36DED'
+ CONST IsSummoned true
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_74561386DA27 // MonitoringsMainForm_StatusBar
+ ;
+ : Target WL 'ME_4DB0091E033E' '4DAF19F600C5.pas.ms.script' // TtfwContext
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_B2EAB7B36DED 
+
+: ME_F7DE6A7795B2
+ CONST UID 'F7DE6A7795B2'
+ CONST IsSummoned true
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_74561386DA27 // MonitoringsMainForm_StatusBar
+ ;
+ : Target WL 'ME_4767748503B5' '4767743E00E5.pas.ms.script' // TTypeInfo
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_F7DE6A7795B2 
+
+: ME_628D6C13418E
+ CONST UID '628D6C13418E'
+ CONST IsSummoned true
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_74561386DA27 // MonitoringsMainForm_StatusBar
+ ;
+ : Target WL 'ME_47877EB202FB' '4AB0C3C60310.pas.ms.script' // SysUtils
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_628D6C13418E 
+
+: ME_4DAEEDE10285_ME_74561386DA27
+ CONST UID '4DAEEDE10285'
+ CONST Name 'DoDoIt'
+ : Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.pas.ms.script' // DoDoIt
+ ;
+ : Implementor ME_74561386DA27 // MonitoringsMainForm_StatusBar
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "UseNewGen" 'undefined'
+ref; // ME_4DAEEDE10285_ME_74561386DA27 DoDoIt
+
+: ME_4DB0614603C8_ME_74561386DA27
+ CONST UID '4DB0614603C8'
+ CONST Name 'GetWordNameForRegister'
+ : Original WL 'ME_4DB0614603C8' '4F3E3F5F0160.pas.ms.script' // GetWordNameForRegister
+ ;
+ : Implementor ME_74561386DA27 // MonitoringsMainForm_StatusBar
+ ;
+ CONST OpKind opkind_Overridden
+ CONST "UseNewGen" 'undefined'
+ref; // ME_4DB0614603C8_ME_74561386DA27 GetWordNameForRegister
+
+: ME_52D00B00031A_ME_74561386DA27
+ CONST UID '52D00B00031A'
+ CONST Name 'SetValuePrim'
+ : Original WL 'ME_52D00B00031A' '4DAF19F600C5.pas.ms.script' // SetValuePrim
+ ;
+ : Implementor ME_74561386DA27 // MonitoringsMainForm_StatusBar
+ ;
+ CONST OpKind opkind_Overridden
+ CONST "UseNewGen" 'undefined'
+ref; // ME_52D00B00031A_ME_74561386DA27 SetValuePrim
+
+: ME_551544E2001A_ME_74561386DA27
+ CONST UID '551544E2001A'
+ CONST Name 'GetResultTypeInfo'
+ : Original WL 'ME_551544E2001A' '4DAF19F600C5.pas.ms.script' // GetResultTypeInfo
+ ;
+ : Implementor ME_74561386DA27 // MonitoringsMainForm_StatusBar
+ ;
+ CONST OpKind opkind_Overridden
+ CONST "UseNewGen" 'undefined'
+ref; // ME_551544E2001A_ME_74561386DA27 GetResultTypeInfo
+
+: ME_559687E6025A_ME_74561386DA27
+ CONST UID '559687E6025A'
+ CONST Name 'GetAllParamsCount'
+ : Original WL 'ME_559687E6025A' '4DAF19F600C5.pas.ms.script' // GetAllParamsCount
+ ;
+ : Implementor ME_74561386DA27 // MonitoringsMainForm_StatusBar
+ ;
+ CONST OpKind opkind_Overridden
+ CONST "UseNewGen" 'undefined'
+ref; // ME_559687E6025A_ME_74561386DA27 GetAllParamsCount
+
+: ME_5617F4D00243_ME_74561386DA27
+ CONST UID '5617F4D00243'
+ CONST Name 'ParamsTypes'
+ : Original WL 'ME_5617F4D00243' '4DAF19F600C5.pas.ms.script' // ParamsTypes
+ ;
+ : Implementor ME_74561386DA27 // MonitoringsMainForm_StatusBar
+ ;
+ CONST OpKind opkind_Overridden
+ CONST "UseNewGen" 'undefined'
+ref; // ME_5617F4D00243_ME_74561386DA27 ParamsTypes
+
+: ME_74561386DA27
+ CONST UID '74561386DA27'
+ CONST Name 'MonitoringsMainForm_StatusBar'
+ CONST IsSummoned true
+ CONST Class class_Class
+ : Stereotype st_ScriptKeyword ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Слово скрипта .TMonitoringsMainForm.StatusBar'#13#10'{panel}Контрол StatusBar формы TMonitoringsMainForm{panel}'#13#10'*Тип результата:* TnscStatusBar'#13#10'*Пример:*'#13#10'{code}'#13#10'OBJECT VAR l_TnscStatusBar'#13#10' aMonitoringsMainForm .TMonitoringsMainForm.StatusBar >>> l_TnscStatusBar'#13#10'{code} ' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_ED33546FFF82 // MonitoringsMainKeywordsPack
+ ;
+ : Inherits
+   Seq: ( WL 'ME_5619169603BE' '55CCADD2013D.pas.ms.script' // TtfwPropertyLike
+ )
+ ; // Inherits
+ : Operations
+   Seq: ( ME_CD17D1A09864 // StatusBar
+ ME_A61B89C18258 // Ini_Reg
+ )
+ ; // Operations
+ : Implemented
+   Seq: ( ME_4DAEEDE10285_ME_74561386DA27 // DoDoIt
+ )
+ ; // Implemented
+ : Overridden
+   Seq: ( ME_4DB0614603C8_ME_74561386DA27 // GetWordNameForRegister
+ ME_52D00B00031A_ME_74561386DA27 // SetValuePrim
+ ME_551544E2001A_ME_74561386DA27 // GetResultTypeInfo
+ ME_559687E6025A_ME_74561386DA27 // GetAllParamsCount
+ ME_5617F4D00243_ME_74561386DA27 // ParamsTypes
+ )
+ ; // Overridden
+ : Dependencies
+   Seq: ( ME_B2EAB7B36DED // 
+ ME_F7DE6A7795B2 // 
+ ME_628D6C13418E // 
+ )
+ ; // Dependencies
+ CONST "NameForScript" '.TMonitoringsMainForm.StatusBar'
+ CONST "UseNewGen" 'undefined'
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant'
+ CONST extprop:pas:TypeName 'TkwMonitoringsMainFormStatusBar'
+
+ref; // ME_74561386DA27 MonitoringsMainForm_StatusBar
+
+FORWARD ME_67275B119336
+
+: ME_2DB6A31A02B3
+ CONST UID '2DB6A31A02B3'
+ CONST Name 'aCtx'
+ CONST IsSummoned true
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_4DB0091E033E' '4DAF19F600C5.pas.ms.script' // TtfwContext
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_2DB6A31A02B3 aCtx
+
+: ME_2DB6A31A02B4
+ CONST UID '2DB6A31A02B4'
+ CONST Name 'aMonitoringsMainForm'
+ CONST IsSummoned true
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target ME_4F7C2E78015C // MonitoringsMain
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_2DB6A31A02B4 aMonitoringsMainForm
+
+: ME_6FA7F60149FC
+ CONST UID '6FA7F60149FC'
+ CONST Name 'ClientZone'
+ CONST IsSummoned true
+ CONST Class class_Operation
+ %SUMMARY 'Реализация слова скрипта .TMonitoringsMainForm.ClientZone' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_67275B119336 // MonitoringsMainForm_ClientZone
+ ;
+ : Target WL 'ME_4A7961A701CF' '4A7960CC03A4.pas.ms.script' // TvtPanel
+ ;
+ : Parameters
+   Seq: ( ME_2DB6A31A02B3 // aCtx
+ ME_2DB6A31A02B4 // aMonitoringsMainForm
+ )
+ ; // Parameters
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_6FA7F60149FC ClientZone
+
+: ME_DA48CB37C6BD
+ CONST UID 'DA48CB37C6BD'
+ CONST Name 'Ini_Reg'
+ CONST IsSummoned true
+ CONST Class class_Operation
+ : Stereotype st_ini::Operation ;
+ %SUMMARY 'Регистрация MonitoringsMainForm_ClientZone' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_67275B119336 // MonitoringsMainForm_ClientZone
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_DA48CB37C6BD Ini_Reg
+
+: ME_6C09B5AE32F6
+ CONST UID '6C09B5AE32F6'
+ CONST IsSummoned true
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_67275B119336 // MonitoringsMainForm_ClientZone
+ ;
+ : Target WL 'ME_4DB0091E033E' '4DAF19F600C5.pas.ms.script' // TtfwContext
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_6C09B5AE32F6 
+
+: ME_0CD1AE4B532C
+ CONST UID '0CD1AE4B532C'
+ CONST IsSummoned true
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_67275B119336 // MonitoringsMainForm_ClientZone
+ ;
+ : Target WL 'ME_4767748503B5' '4767743E00E5.pas.ms.script' // TTypeInfo
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_0CD1AE4B532C 
+
+: ME_369A1967EC80
+ CONST UID '369A1967EC80'
+ CONST IsSummoned true
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_67275B119336 // MonitoringsMainForm_ClientZone
+ ;
+ : Target WL 'ME_47877EB202FB' '4AB0C3C60310.pas.ms.script' // SysUtils
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_369A1967EC80 
+
+: ME_4DAEEDE10285_ME_67275B119336
+ CONST UID '4DAEEDE10285'
+ CONST Name 'DoDoIt'
+ : Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.pas.ms.script' // DoDoIt
+ ;
+ : Implementor ME_67275B119336 // MonitoringsMainForm_ClientZone
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "UseNewGen" 'undefined'
+ref; // ME_4DAEEDE10285_ME_67275B119336 DoDoIt
+
+: ME_4DB0614603C8_ME_67275B119336
+ CONST UID '4DB0614603C8'
+ CONST Name 'GetWordNameForRegister'
+ : Original WL 'ME_4DB0614603C8' '4F3E3F5F0160.pas.ms.script' // GetWordNameForRegister
+ ;
+ : Implementor ME_67275B119336 // MonitoringsMainForm_ClientZone
+ ;
+ CONST OpKind opkind_Overridden
+ CONST "UseNewGen" 'undefined'
+ref; // ME_4DB0614603C8_ME_67275B119336 GetWordNameForRegister
+
+: ME_52D00B00031A_ME_67275B119336
+ CONST UID '52D00B00031A'
+ CONST Name 'SetValuePrim'
+ : Original WL 'ME_52D00B00031A' '4DAF19F600C5.pas.ms.script' // SetValuePrim
+ ;
+ : Implementor ME_67275B119336 // MonitoringsMainForm_ClientZone
+ ;
+ CONST OpKind opkind_Overridden
+ CONST "UseNewGen" 'undefined'
+ref; // ME_52D00B00031A_ME_67275B119336 SetValuePrim
+
+: ME_551544E2001A_ME_67275B119336
+ CONST UID '551544E2001A'
+ CONST Name 'GetResultTypeInfo'
+ : Original WL 'ME_551544E2001A' '4DAF19F600C5.pas.ms.script' // GetResultTypeInfo
+ ;
+ : Implementor ME_67275B119336 // MonitoringsMainForm_ClientZone
+ ;
+ CONST OpKind opkind_Overridden
+ CONST "UseNewGen" 'undefined'
+ref; // ME_551544E2001A_ME_67275B119336 GetResultTypeInfo
+
+: ME_559687E6025A_ME_67275B119336
+ CONST UID '559687E6025A'
+ CONST Name 'GetAllParamsCount'
+ : Original WL 'ME_559687E6025A' '4DAF19F600C5.pas.ms.script' // GetAllParamsCount
+ ;
+ : Implementor ME_67275B119336 // MonitoringsMainForm_ClientZone
+ ;
+ CONST OpKind opkind_Overridden
+ CONST "UseNewGen" 'undefined'
+ref; // ME_559687E6025A_ME_67275B119336 GetAllParamsCount
+
+: ME_5617F4D00243_ME_67275B119336
+ CONST UID '5617F4D00243'
+ CONST Name 'ParamsTypes'
+ : Original WL 'ME_5617F4D00243' '4DAF19F600C5.pas.ms.script' // ParamsTypes
+ ;
+ : Implementor ME_67275B119336 // MonitoringsMainForm_ClientZone
+ ;
+ CONST OpKind opkind_Overridden
+ CONST "UseNewGen" 'undefined'
+ref; // ME_5617F4D00243_ME_67275B119336 ParamsTypes
+
+: ME_67275B119336
+ CONST UID '67275B119336'
+ CONST Name 'MonitoringsMainForm_ClientZone'
+ CONST IsSummoned true
+ CONST Class class_Class
+ : Stereotype st_ScriptKeyword ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Слово скрипта .TMonitoringsMainForm.ClientZone'#13#10'{panel}Контрол ClientZone формы TMonitoringsMainForm{panel}'#13#10'*Тип результата:* TvtPanel'#13#10'*Пример:*'#13#10'{code}'#13#10'OBJECT VAR l_TvtPanel'#13#10' aMonitoringsMainForm .TMonitoringsMainForm.ClientZone >>> l_TvtPanel'#13#10'{code} ' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_ED33546FFF82 // MonitoringsMainKeywordsPack
+ ;
+ : Inherits
+   Seq: ( WL 'ME_5619169603BE' '55CCADD2013D.pas.ms.script' // TtfwPropertyLike
+ )
+ ; // Inherits
+ : Operations
+   Seq: ( ME_6FA7F60149FC // ClientZone
+ ME_DA48CB37C6BD // Ini_Reg
+ )
+ ; // Operations
+ : Implemented
+   Seq: ( ME_4DAEEDE10285_ME_67275B119336 // DoDoIt
+ )
+ ; // Implemented
+ : Overridden
+   Seq: ( ME_4DB0614603C8_ME_67275B119336 // GetWordNameForRegister
+ ME_52D00B00031A_ME_67275B119336 // SetValuePrim
+ ME_551544E2001A_ME_67275B119336 // GetResultTypeInfo
+ ME_559687E6025A_ME_67275B119336 // GetAllParamsCount
+ ME_5617F4D00243_ME_67275B119336 // ParamsTypes
+ )
+ ; // Overridden
+ : Dependencies
+   Seq: ( ME_6C09B5AE32F6 // 
+ ME_0CD1AE4B532C // 
+ ME_369A1967EC80 // 
+ )
+ ; // Dependencies
+ CONST "NameForScript" '.TMonitoringsMainForm.ClientZone'
+ CONST "UseNewGen" 'undefined'
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant'
+ CONST extprop:pas:TypeName 'TkwMonitoringsMainFormClientZone'
+
+ref; // ME_67275B119336 MonitoringsMainForm_ClientZone
+
+FORWARD ME_FB177BDCBB79
+
+: ME_7938711D8B03
+ CONST UID '7938711D8B03'
+ CONST Name 'aCtx'
+ CONST IsSummoned true
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_4DB0091E033E' '4DAF19F600C5.pas.ms.script' // TtfwContext
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_7938711D8B03 aCtx
+
+: ME_7938711D8B04
+ CONST UID '7938711D8B04'
+ CONST Name 'aMonitoringsMainForm'
+ CONST IsSummoned true
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target ME_4F7C2E78015C // MonitoringsMain
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_7938711D8B04 aMonitoringsMainForm
+
+: ME_F9F28A3E58E6
+ CONST UID 'F9F28A3E58E6'
+ CONST Name 'MainZone'
+ CONST IsSummoned true
+ CONST Class class_Operation
+ %SUMMARY 'Реализация слова скрипта .TMonitoringsMainForm.MainZone' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_FB177BDCBB79 // MonitoringsMainForm_MainZone
+ ;
+ : Target WL 'ME_4A7AD11C028B' '4A7960CC03A4.pas.ms.script' // TvtProportionalPanel
+ ;
+ : Parameters
+   Seq: ( ME_7938711D8B03 // aCtx
+ ME_7938711D8B04 // aMonitoringsMainForm
+ )
+ ; // Parameters
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_F9F28A3E58E6 MainZone
+
+: ME_270904124683
+ CONST UID '270904124683'
+ CONST Name 'Ini_Reg'
+ CONST IsSummoned true
+ CONST Class class_Operation
+ : Stereotype st_ini::Operation ;
+ %SUMMARY 'Регистрация MonitoringsMainForm_MainZone' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_FB177BDCBB79 // MonitoringsMainForm_MainZone
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_270904124683 Ini_Reg
+
+: ME_E44A94DFD1F2
+ CONST UID 'E44A94DFD1F2'
+ CONST IsSummoned true
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_FB177BDCBB79 // MonitoringsMainForm_MainZone
+ ;
+ : Target WL 'ME_4DB0091E033E' '4DAF19F600C5.pas.ms.script' // TtfwContext
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_E44A94DFD1F2 
+
+: ME_CAF79A339241
+ CONST UID 'CAF79A339241'
+ CONST IsSummoned true
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_FB177BDCBB79 // MonitoringsMainForm_MainZone
+ ;
+ : Target WL 'ME_4767748503B5' '4767743E00E5.pas.ms.script' // TTypeInfo
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_CAF79A339241 
+
+: ME_3B22830471FA
+ CONST UID '3B22830471FA'
+ CONST IsSummoned true
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_FB177BDCBB79 // MonitoringsMainForm_MainZone
+ ;
+ : Target WL 'ME_47877EB202FB' '4AB0C3C60310.pas.ms.script' // SysUtils
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_3B22830471FA 
+
+: ME_4DAEEDE10285_ME_FB177BDCBB79
+ CONST UID '4DAEEDE10285'
+ CONST Name 'DoDoIt'
+ : Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.pas.ms.script' // DoDoIt
+ ;
+ : Implementor ME_FB177BDCBB79 // MonitoringsMainForm_MainZone
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "UseNewGen" 'undefined'
+ref; // ME_4DAEEDE10285_ME_FB177BDCBB79 DoDoIt
+
+: ME_4DB0614603C8_ME_FB177BDCBB79
+ CONST UID '4DB0614603C8'
+ CONST Name 'GetWordNameForRegister'
+ : Original WL 'ME_4DB0614603C8' '4F3E3F5F0160.pas.ms.script' // GetWordNameForRegister
+ ;
+ : Implementor ME_FB177BDCBB79 // MonitoringsMainForm_MainZone
+ ;
+ CONST OpKind opkind_Overridden
+ CONST "UseNewGen" 'undefined'
+ref; // ME_4DB0614603C8_ME_FB177BDCBB79 GetWordNameForRegister
+
+: ME_52D00B00031A_ME_FB177BDCBB79
+ CONST UID '52D00B00031A'
+ CONST Name 'SetValuePrim'
+ : Original WL 'ME_52D00B00031A' '4DAF19F600C5.pas.ms.script' // SetValuePrim
+ ;
+ : Implementor ME_FB177BDCBB79 // MonitoringsMainForm_MainZone
+ ;
+ CONST OpKind opkind_Overridden
+ CONST "UseNewGen" 'undefined'
+ref; // ME_52D00B00031A_ME_FB177BDCBB79 SetValuePrim
+
+: ME_551544E2001A_ME_FB177BDCBB79
+ CONST UID '551544E2001A'
+ CONST Name 'GetResultTypeInfo'
+ : Original WL 'ME_551544E2001A' '4DAF19F600C5.pas.ms.script' // GetResultTypeInfo
+ ;
+ : Implementor ME_FB177BDCBB79 // MonitoringsMainForm_MainZone
+ ;
+ CONST OpKind opkind_Overridden
+ CONST "UseNewGen" 'undefined'
+ref; // ME_551544E2001A_ME_FB177BDCBB79 GetResultTypeInfo
+
+: ME_559687E6025A_ME_FB177BDCBB79
+ CONST UID '559687E6025A'
+ CONST Name 'GetAllParamsCount'
+ : Original WL 'ME_559687E6025A' '4DAF19F600C5.pas.ms.script' // GetAllParamsCount
+ ;
+ : Implementor ME_FB177BDCBB79 // MonitoringsMainForm_MainZone
+ ;
+ CONST OpKind opkind_Overridden
+ CONST "UseNewGen" 'undefined'
+ref; // ME_559687E6025A_ME_FB177BDCBB79 GetAllParamsCount
+
+: ME_5617F4D00243_ME_FB177BDCBB79
+ CONST UID '5617F4D00243'
+ CONST Name 'ParamsTypes'
+ : Original WL 'ME_5617F4D00243' '4DAF19F600C5.pas.ms.script' // ParamsTypes
+ ;
+ : Implementor ME_FB177BDCBB79 // MonitoringsMainForm_MainZone
+ ;
+ CONST OpKind opkind_Overridden
+ CONST "UseNewGen" 'undefined'
+ref; // ME_5617F4D00243_ME_FB177BDCBB79 ParamsTypes
+
+: ME_FB177BDCBB79
+ CONST UID 'FB177BDCBB79'
+ CONST Name 'MonitoringsMainForm_MainZone'
+ CONST IsSummoned true
+ CONST Class class_Class
+ : Stereotype st_ScriptKeyword ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Слово скрипта .TMonitoringsMainForm.MainZone'#13#10'{panel}Контрол MainZone формы TMonitoringsMainForm{panel}'#13#10'*Тип результата:* TvtProportionalPanel'#13#10'*Пример:*'#13#10'{code}'#13#10'OBJECT VAR l_TvtProportionalPanel'#13#10' aMonitoringsMainForm .TMonitoringsMainForm.MainZone >>> l_TvtProportionalPanel'#13#10'{code} ' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_ED33546FFF82 // MonitoringsMainKeywordsPack
+ ;
+ : Inherits
+   Seq: ( WL 'ME_5619169603BE' '55CCADD2013D.pas.ms.script' // TtfwPropertyLike
+ )
+ ; // Inherits
+ : Operations
+   Seq: ( ME_F9F28A3E58E6 // MainZone
+ ME_270904124683 // Ini_Reg
+ )
+ ; // Operations
+ : Implemented
+   Seq: ( ME_4DAEEDE10285_ME_FB177BDCBB79 // DoDoIt
+ )
+ ; // Implemented
+ : Overridden
+   Seq: ( ME_4DB0614603C8_ME_FB177BDCBB79 // GetWordNameForRegister
+ ME_52D00B00031A_ME_FB177BDCBB79 // SetValuePrim
+ ME_551544E2001A_ME_FB177BDCBB79 // GetResultTypeInfo
+ ME_559687E6025A_ME_FB177BDCBB79 // GetAllParamsCount
+ ME_5617F4D00243_ME_FB177BDCBB79 // ParamsTypes
+ )
+ ; // Overridden
+ : Dependencies
+   Seq: ( ME_E44A94DFD1F2 // 
+ ME_CAF79A339241 // 
+ ME_3B22830471FA // 
+ )
+ ; // Dependencies
+ CONST "NameForScript" '.TMonitoringsMainForm.MainZone'
+ CONST "UseNewGen" 'undefined'
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant'
+ CONST extprop:pas:TypeName 'TkwMonitoringsMainFormMainZone'
+
+ref; // ME_FB177BDCBB79 MonitoringsMainForm_MainZone
+
+FORWARD ME_F9BD5754D88D
+
+: ME_761C6210F64E
+ CONST UID '761C6210F64E'
+ CONST Name 'aCtx'
+ CONST IsSummoned true
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_4DB0091E033E' '4DAF19F600C5.pas.ms.script' // TtfwContext
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_761C6210F64E aCtx
+
+: ME_761C6210F64F
+ CONST UID '761C6210F64F'
+ CONST Name 'aMonitoringsMainForm'
+ CONST IsSummoned true
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target ME_4F7C2E78015C // MonitoringsMain
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_761C6210F64F aMonitoringsMainForm
+
+: ME_4F149155C44B
+ CONST UID '4F149155C44B'
+ CONST Name 'ParentZonePanel'
+ CONST IsSummoned true
+ CONST Class class_Operation
+ %SUMMARY 'Реализация слова скрипта .TMonitoringsMainForm.ParentZonePanel' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_F9BD5754D88D // MonitoringsMainForm_ParentZonePanel
+ ;
+ : Target WL 'ME_4A7961A701CF' '4A7960CC03A4.pas.ms.script' // TvtPanel
+ ;
+ : Parameters
+   Seq: ( ME_761C6210F64E // aCtx
+ ME_761C6210F64F // aMonitoringsMainForm
+ )
+ ; // Parameters
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_4F149155C44B ParentZonePanel
+
+: ME_0353D83FC0A1
+ CONST UID '0353D83FC0A1'
+ CONST Name 'Ini_Reg'
+ CONST IsSummoned true
+ CONST Class class_Operation
+ : Stereotype st_ini::Operation ;
+ %SUMMARY 'Регистрация MonitoringsMainForm_ParentZonePanel' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_F9BD5754D88D // MonitoringsMainForm_ParentZonePanel
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_0353D83FC0A1 Ini_Reg
+
+: ME_B2704FBFF8D5
+ CONST UID 'B2704FBFF8D5'
+ CONST IsSummoned true
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_F9BD5754D88D // MonitoringsMainForm_ParentZonePanel
+ ;
+ : Target WL 'ME_4DB0091E033E' '4DAF19F600C5.pas.ms.script' // TtfwContext
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_B2704FBFF8D5 
+
+: ME_455767124536
+ CONST UID '455767124536'
+ CONST IsSummoned true
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_F9BD5754D88D // MonitoringsMainForm_ParentZonePanel
+ ;
+ : Target WL 'ME_4767748503B5' '4767743E00E5.pas.ms.script' // TTypeInfo
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_455767124536 
+
+: ME_0F95B52C45CB
+ CONST UID '0F95B52C45CB'
+ CONST IsSummoned true
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_F9BD5754D88D // MonitoringsMainForm_ParentZonePanel
+ ;
+ : Target WL 'ME_47877EB202FB' '4AB0C3C60310.pas.ms.script' // SysUtils
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_0F95B52C45CB 
+
+: ME_4DAEEDE10285_ME_F9BD5754D88D
+ CONST UID '4DAEEDE10285'
+ CONST Name 'DoDoIt'
+ : Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.pas.ms.script' // DoDoIt
+ ;
+ : Implementor ME_F9BD5754D88D // MonitoringsMainForm_ParentZonePanel
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "UseNewGen" 'undefined'
+ref; // ME_4DAEEDE10285_ME_F9BD5754D88D DoDoIt
+
+: ME_4DB0614603C8_ME_F9BD5754D88D
+ CONST UID '4DB0614603C8'
+ CONST Name 'GetWordNameForRegister'
+ : Original WL 'ME_4DB0614603C8' '4F3E3F5F0160.pas.ms.script' // GetWordNameForRegister
+ ;
+ : Implementor ME_F9BD5754D88D // MonitoringsMainForm_ParentZonePanel
+ ;
+ CONST OpKind opkind_Overridden
+ CONST "UseNewGen" 'undefined'
+ref; // ME_4DB0614603C8_ME_F9BD5754D88D GetWordNameForRegister
+
+: ME_52D00B00031A_ME_F9BD5754D88D
+ CONST UID '52D00B00031A'
+ CONST Name 'SetValuePrim'
+ : Original WL 'ME_52D00B00031A' '4DAF19F600C5.pas.ms.script' // SetValuePrim
+ ;
+ : Implementor ME_F9BD5754D88D // MonitoringsMainForm_ParentZonePanel
+ ;
+ CONST OpKind opkind_Overridden
+ CONST "UseNewGen" 'undefined'
+ref; // ME_52D00B00031A_ME_F9BD5754D88D SetValuePrim
+
+: ME_551544E2001A_ME_F9BD5754D88D
+ CONST UID '551544E2001A'
+ CONST Name 'GetResultTypeInfo'
+ : Original WL 'ME_551544E2001A' '4DAF19F600C5.pas.ms.script' // GetResultTypeInfo
+ ;
+ : Implementor ME_F9BD5754D88D // MonitoringsMainForm_ParentZonePanel
+ ;
+ CONST OpKind opkind_Overridden
+ CONST "UseNewGen" 'undefined'
+ref; // ME_551544E2001A_ME_F9BD5754D88D GetResultTypeInfo
+
+: ME_559687E6025A_ME_F9BD5754D88D
+ CONST UID '559687E6025A'
+ CONST Name 'GetAllParamsCount'
+ : Original WL 'ME_559687E6025A' '4DAF19F600C5.pas.ms.script' // GetAllParamsCount
+ ;
+ : Implementor ME_F9BD5754D88D // MonitoringsMainForm_ParentZonePanel
+ ;
+ CONST OpKind opkind_Overridden
+ CONST "UseNewGen" 'undefined'
+ref; // ME_559687E6025A_ME_F9BD5754D88D GetAllParamsCount
+
+: ME_5617F4D00243_ME_F9BD5754D88D
+ CONST UID '5617F4D00243'
+ CONST Name 'ParamsTypes'
+ : Original WL 'ME_5617F4D00243' '4DAF19F600C5.pas.ms.script' // ParamsTypes
+ ;
+ : Implementor ME_F9BD5754D88D // MonitoringsMainForm_ParentZonePanel
+ ;
+ CONST OpKind opkind_Overridden
+ CONST "UseNewGen" 'undefined'
+ref; // ME_5617F4D00243_ME_F9BD5754D88D ParamsTypes
+
+: ME_F9BD5754D88D
+ CONST UID 'F9BD5754D88D'
+ CONST Name 'MonitoringsMainForm_ParentZonePanel'
+ CONST IsSummoned true
+ CONST Class class_Class
+ : Stereotype st_ScriptKeyword ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Слово скрипта .TMonitoringsMainForm.ParentZonePanel'#13#10'{panel}Контрол ParentZonePanel формы TMonitoringsMainForm{panel}'#13#10'*Тип результата:* TvtPanel'#13#10'*Пример:*'#13#10'{code}'#13#10'OBJECT VAR l_TvtPanel'#13#10' aMonitoringsMainForm .TMonitoringsMainForm.ParentZonePanel >>> l_TvtPanel'#13#10'{code} ' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_ED33546FFF82 // MonitoringsMainKeywordsPack
+ ;
+ : Inherits
+   Seq: ( WL 'ME_5619169603BE' '55CCADD2013D.pas.ms.script' // TtfwPropertyLike
+ )
+ ; // Inherits
+ : Operations
+   Seq: ( ME_4F149155C44B // ParentZonePanel
+ ME_0353D83FC0A1 // Ini_Reg
+ )
+ ; // Operations
+ : Implemented
+   Seq: ( ME_4DAEEDE10285_ME_F9BD5754D88D // DoDoIt
+ )
+ ; // Implemented
+ : Overridden
+   Seq: ( ME_4DB0614603C8_ME_F9BD5754D88D // GetWordNameForRegister
+ ME_52D00B00031A_ME_F9BD5754D88D // SetValuePrim
+ ME_551544E2001A_ME_F9BD5754D88D // GetResultTypeInfo
+ ME_559687E6025A_ME_F9BD5754D88D // GetAllParamsCount
+ ME_5617F4D00243_ME_F9BD5754D88D // ParamsTypes
+ )
+ ; // Overridden
+ : Dependencies
+   Seq: ( ME_B2704FBFF8D5 // 
+ ME_455767124536 // 
+ ME_0F95B52C45CB // 
+ )
+ ; // Dependencies
+ CONST "NameForScript" '.TMonitoringsMainForm.ParentZonePanel'
+ CONST "UseNewGen" 'undefined'
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant'
+ CONST extprop:pas:TypeName 'TkwMonitoringsMainFormParentZonePanel'
+
+ref; // ME_F9BD5754D88D MonitoringsMainForm_ParentZonePanel
+
+FORWARD ME_B530B36B6E25
+
+: ME_34F42F0A1EBE
+ CONST UID '34F42F0A1EBE'
+ CONST Name 'aCtx'
+ CONST IsSummoned true
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_4DB0091E033E' '4DAF19F600C5.pas.ms.script' // TtfwContext
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_34F42F0A1EBE aCtx
+
+: ME_34F42F0A1EBF
+ CONST UID '34F42F0A1EBF'
+ CONST Name 'aMonitoringsMainForm'
+ CONST IsSummoned true
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target ME_4F7C2E78015C // MonitoringsMain
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_34F42F0A1EBF aMonitoringsMainForm
+
+: ME_3831ABA283C2
+ CONST UID '3831ABA283C2'
+ CONST Name 'ChildZonePanel'
+ CONST IsSummoned true
+ CONST Class class_Operation
+ %SUMMARY 'Реализация слова скрипта .TMonitoringsMainForm.ChildZonePanel' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_B530B36B6E25 // MonitoringsMainForm_ChildZonePanel
+ ;
+ : Target WL 'ME_4A7961300264' '4A7960CC03A4.pas.ms.script' // TvtSizeablePanel
+ ;
+ : Parameters
+   Seq: ( ME_34F42F0A1EBE // aCtx
+ ME_34F42F0A1EBF // aMonitoringsMainForm
+ )
+ ; // Parameters
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_3831ABA283C2 ChildZonePanel
+
+: ME_80201F478842
+ CONST UID '80201F478842'
+ CONST Name 'Ini_Reg'
+ CONST IsSummoned true
+ CONST Class class_Operation
+ : Stereotype st_ini::Operation ;
+ %SUMMARY 'Регистрация MonitoringsMainForm_ChildZonePanel' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_B530B36B6E25 // MonitoringsMainForm_ChildZonePanel
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_80201F478842 Ini_Reg
+
+: ME_1D92B604D858
+ CONST UID '1D92B604D858'
+ CONST IsSummoned true
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_B530B36B6E25 // MonitoringsMainForm_ChildZonePanel
+ ;
+ : Target WL 'ME_4DB0091E033E' '4DAF19F600C5.pas.ms.script' // TtfwContext
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_1D92B604D858 
+
+: ME_6D8266AA2A41
+ CONST UID '6D8266AA2A41'
+ CONST IsSummoned true
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_B530B36B6E25 // MonitoringsMainForm_ChildZonePanel
+ ;
+ : Target WL 'ME_4767748503B5' '4767743E00E5.pas.ms.script' // TTypeInfo
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_6D8266AA2A41 
+
+: ME_9C73D3D861F5
+ CONST UID '9C73D3D861F5'
+ CONST IsSummoned true
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_B530B36B6E25 // MonitoringsMainForm_ChildZonePanel
+ ;
+ : Target WL 'ME_47877EB202FB' '4AB0C3C60310.pas.ms.script' // SysUtils
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_9C73D3D861F5 
+
+: ME_4DAEEDE10285_ME_B530B36B6E25
+ CONST UID '4DAEEDE10285'
+ CONST Name 'DoDoIt'
+ : Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.pas.ms.script' // DoDoIt
+ ;
+ : Implementor ME_B530B36B6E25 // MonitoringsMainForm_ChildZonePanel
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "UseNewGen" 'undefined'
+ref; // ME_4DAEEDE10285_ME_B530B36B6E25 DoDoIt
+
+: ME_4DB0614603C8_ME_B530B36B6E25
+ CONST UID '4DB0614603C8'
+ CONST Name 'GetWordNameForRegister'
+ : Original WL 'ME_4DB0614603C8' '4F3E3F5F0160.pas.ms.script' // GetWordNameForRegister
+ ;
+ : Implementor ME_B530B36B6E25 // MonitoringsMainForm_ChildZonePanel
+ ;
+ CONST OpKind opkind_Overridden
+ CONST "UseNewGen" 'undefined'
+ref; // ME_4DB0614603C8_ME_B530B36B6E25 GetWordNameForRegister
+
+: ME_52D00B00031A_ME_B530B36B6E25
+ CONST UID '52D00B00031A'
+ CONST Name 'SetValuePrim'
+ : Original WL 'ME_52D00B00031A' '4DAF19F600C5.pas.ms.script' // SetValuePrim
+ ;
+ : Implementor ME_B530B36B6E25 // MonitoringsMainForm_ChildZonePanel
+ ;
+ CONST OpKind opkind_Overridden
+ CONST "UseNewGen" 'undefined'
+ref; // ME_52D00B00031A_ME_B530B36B6E25 SetValuePrim
+
+: ME_551544E2001A_ME_B530B36B6E25
+ CONST UID '551544E2001A'
+ CONST Name 'GetResultTypeInfo'
+ : Original WL 'ME_551544E2001A' '4DAF19F600C5.pas.ms.script' // GetResultTypeInfo
+ ;
+ : Implementor ME_B530B36B6E25 // MonitoringsMainForm_ChildZonePanel
+ ;
+ CONST OpKind opkind_Overridden
+ CONST "UseNewGen" 'undefined'
+ref; // ME_551544E2001A_ME_B530B36B6E25 GetResultTypeInfo
+
+: ME_559687E6025A_ME_B530B36B6E25
+ CONST UID '559687E6025A'
+ CONST Name 'GetAllParamsCount'
+ : Original WL 'ME_559687E6025A' '4DAF19F600C5.pas.ms.script' // GetAllParamsCount
+ ;
+ : Implementor ME_B530B36B6E25 // MonitoringsMainForm_ChildZonePanel
+ ;
+ CONST OpKind opkind_Overridden
+ CONST "UseNewGen" 'undefined'
+ref; // ME_559687E6025A_ME_B530B36B6E25 GetAllParamsCount
+
+: ME_5617F4D00243_ME_B530B36B6E25
+ CONST UID '5617F4D00243'
+ CONST Name 'ParamsTypes'
+ : Original WL 'ME_5617F4D00243' '4DAF19F600C5.pas.ms.script' // ParamsTypes
+ ;
+ : Implementor ME_B530B36B6E25 // MonitoringsMainForm_ChildZonePanel
+ ;
+ CONST OpKind opkind_Overridden
+ CONST "UseNewGen" 'undefined'
+ref; // ME_5617F4D00243_ME_B530B36B6E25 ParamsTypes
+
+: ME_B530B36B6E25
+ CONST UID 'B530B36B6E25'
+ CONST Name 'MonitoringsMainForm_ChildZonePanel'
+ CONST IsSummoned true
+ CONST Class class_Class
+ : Stereotype st_ScriptKeyword ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Слово скрипта .TMonitoringsMainForm.ChildZonePanel'#13#10'{panel}Контрол ChildZonePanel формы TMonitoringsMainForm{panel}'#13#10'*Тип результата:* TvtSizeablePanel'#13#10'*Пример:*'#13#10'{code}'#13#10'OBJECT VAR l_TvtSizeablePanel'#13#10' aMonitoringsMainForm .TMonitoringsMainForm.ChildZonePanel >>> l_TvtSizeablePanel'#13#10'{code} ' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_ED33546FFF82 // MonitoringsMainKeywordsPack
+ ;
+ : Inherits
+   Seq: ( WL 'ME_5619169603BE' '55CCADD2013D.pas.ms.script' // TtfwPropertyLike
+ )
+ ; // Inherits
+ : Operations
+   Seq: ( ME_3831ABA283C2 // ChildZonePanel
+ ME_80201F478842 // Ini_Reg
+ )
+ ; // Operations
+ : Implemented
+   Seq: ( ME_4DAEEDE10285_ME_B530B36B6E25 // DoDoIt
+ )
+ ; // Implemented
+ : Overridden
+   Seq: ( ME_4DB0614603C8_ME_B530B36B6E25 // GetWordNameForRegister
+ ME_52D00B00031A_ME_B530B36B6E25 // SetValuePrim
+ ME_551544E2001A_ME_B530B36B6E25 // GetResultTypeInfo
+ ME_559687E6025A_ME_B530B36B6E25 // GetAllParamsCount
+ ME_5617F4D00243_ME_B530B36B6E25 // ParamsTypes
+ )
+ ; // Overridden
+ : Dependencies
+   Seq: ( ME_1D92B604D858 // 
+ ME_6D8266AA2A41 // 
+ ME_9C73D3D861F5 // 
+ )
+ ; // Dependencies
+ CONST "NameForScript" '.TMonitoringsMainForm.ChildZonePanel'
+ CONST "UseNewGen" 'undefined'
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant'
+ CONST extprop:pas:TypeName 'TkwMonitoringsMainFormChildZonePanel'
+
+ref; // ME_B530B36B6E25 MonitoringsMainForm_ChildZonePanel
+
+FORWARD ME_01806529867E
+
+: ME_CE8B7FDFBCFB
+ CONST UID 'CE8B7FDFBCFB'
+ CONST Name 'aCtx'
+ CONST IsSummoned true
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_4DB0091E033E' '4DAF19F600C5.pas.ms.script' // TtfwContext
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_CE8B7FDFBCFB aCtx
+
+: ME_CE8B7FDFBCFC
+ CONST UID 'CE8B7FDFBCFC'
+ CONST Name 'aMonitoringsMainForm'
+ CONST IsSummoned true
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target ME_4F7C2E78015C // MonitoringsMain
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_CE8B7FDFBCFC aMonitoringsMainForm
+
+: ME_72A41DCEECB1
+ CONST UID '72A41DCEECB1'
+ CONST Name 'BaseSearchPanel'
+ CONST IsSummoned true
+ CONST Class class_Operation
+ %SUMMARY 'Реализация слова скрипта .TMonitoringsMainForm.BaseSearchPanel' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_01806529867E // MonitoringsMainForm_BaseSearchPanel
+ ;
+ : Target WL 'ME_4A7961A701CF' '4A7960CC03A4.pas.ms.script' // TvtPanel
+ ;
+ : Parameters
+   Seq: ( ME_CE8B7FDFBCFB // aCtx
+ ME_CE8B7FDFBCFC // aMonitoringsMainForm
+ )
+ ; // Parameters
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_72A41DCEECB1 BaseSearchPanel
+
+: ME_6F177ECC6ED1
+ CONST UID '6F177ECC6ED1'
+ CONST Name 'Ini_Reg'
+ CONST IsSummoned true
+ CONST Class class_Operation
+ : Stereotype st_ini::Operation ;
+ %SUMMARY 'Регистрация MonitoringsMainForm_BaseSearchPanel' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_01806529867E // MonitoringsMainForm_BaseSearchPanel
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_6F177ECC6ED1 Ini_Reg
+
+: ME_213D8729BFAB
+ CONST UID '213D8729BFAB'
+ CONST IsSummoned true
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_01806529867E // MonitoringsMainForm_BaseSearchPanel
+ ;
+ : Target WL 'ME_4DB0091E033E' '4DAF19F600C5.pas.ms.script' // TtfwContext
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_213D8729BFAB 
+
+: ME_134E24138037
+ CONST UID '134E24138037'
+ CONST IsSummoned true
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_01806529867E // MonitoringsMainForm_BaseSearchPanel
+ ;
+ : Target WL 'ME_4767748503B5' '4767743E00E5.pas.ms.script' // TTypeInfo
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_134E24138037 
+
+: ME_1BF56628812D
+ CONST UID '1BF56628812D'
+ CONST IsSummoned true
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_01806529867E // MonitoringsMainForm_BaseSearchPanel
+ ;
+ : Target WL 'ME_47877EB202FB' '4AB0C3C60310.pas.ms.script' // SysUtils
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_1BF56628812D 
+
+: ME_4DAEEDE10285_ME_01806529867E
+ CONST UID '4DAEEDE10285'
+ CONST Name 'DoDoIt'
+ : Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.pas.ms.script' // DoDoIt
+ ;
+ : Implementor ME_01806529867E // MonitoringsMainForm_BaseSearchPanel
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "UseNewGen" 'undefined'
+ref; // ME_4DAEEDE10285_ME_01806529867E DoDoIt
+
+: ME_4DB0614603C8_ME_01806529867E
+ CONST UID '4DB0614603C8'
+ CONST Name 'GetWordNameForRegister'
+ : Original WL 'ME_4DB0614603C8' '4F3E3F5F0160.pas.ms.script' // GetWordNameForRegister
+ ;
+ : Implementor ME_01806529867E // MonitoringsMainForm_BaseSearchPanel
+ ;
+ CONST OpKind opkind_Overridden
+ CONST "UseNewGen" 'undefined'
+ref; // ME_4DB0614603C8_ME_01806529867E GetWordNameForRegister
+
+: ME_52D00B00031A_ME_01806529867E
+ CONST UID '52D00B00031A'
+ CONST Name 'SetValuePrim'
+ : Original WL 'ME_52D00B00031A' '4DAF19F600C5.pas.ms.script' // SetValuePrim
+ ;
+ : Implementor ME_01806529867E // MonitoringsMainForm_BaseSearchPanel
+ ;
+ CONST OpKind opkind_Overridden
+ CONST "UseNewGen" 'undefined'
+ref; // ME_52D00B00031A_ME_01806529867E SetValuePrim
+
+: ME_551544E2001A_ME_01806529867E
+ CONST UID '551544E2001A'
+ CONST Name 'GetResultTypeInfo'
+ : Original WL 'ME_551544E2001A' '4DAF19F600C5.pas.ms.script' // GetResultTypeInfo
+ ;
+ : Implementor ME_01806529867E // MonitoringsMainForm_BaseSearchPanel
+ ;
+ CONST OpKind opkind_Overridden
+ CONST "UseNewGen" 'undefined'
+ref; // ME_551544E2001A_ME_01806529867E GetResultTypeInfo
+
+: ME_559687E6025A_ME_01806529867E
+ CONST UID '559687E6025A'
+ CONST Name 'GetAllParamsCount'
+ : Original WL 'ME_559687E6025A' '4DAF19F600C5.pas.ms.script' // GetAllParamsCount
+ ;
+ : Implementor ME_01806529867E // MonitoringsMainForm_BaseSearchPanel
+ ;
+ CONST OpKind opkind_Overridden
+ CONST "UseNewGen" 'undefined'
+ref; // ME_559687E6025A_ME_01806529867E GetAllParamsCount
+
+: ME_5617F4D00243_ME_01806529867E
+ CONST UID '5617F4D00243'
+ CONST Name 'ParamsTypes'
+ : Original WL 'ME_5617F4D00243' '4DAF19F600C5.pas.ms.script' // ParamsTypes
+ ;
+ : Implementor ME_01806529867E // MonitoringsMainForm_BaseSearchPanel
+ ;
+ CONST OpKind opkind_Overridden
+ CONST "UseNewGen" 'undefined'
+ref; // ME_5617F4D00243_ME_01806529867E ParamsTypes
+
+: ME_01806529867E
+ CONST UID '01806529867E'
+ CONST Name 'MonitoringsMainForm_BaseSearchPanel'
+ CONST IsSummoned true
+ CONST Class class_Class
+ : Stereotype st_ScriptKeyword ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Слово скрипта .TMonitoringsMainForm.BaseSearchPanel'#13#10'{panel}Контрол BaseSearchPanel формы TMonitoringsMainForm{panel}'#13#10'*Тип результата:* TvtPanel'#13#10'*Пример:*'#13#10'{code}'#13#10'OBJECT VAR l_TvtPanel'#13#10' aMonitoringsMainForm .TMonitoringsMainForm.BaseSearchPanel >>> l_TvtPanel'#13#10'{code} ' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_ED33546FFF82 // MonitoringsMainKeywordsPack
+ ;
+ : Inherits
+   Seq: ( WL 'ME_5619169603BE' '55CCADD2013D.pas.ms.script' // TtfwPropertyLike
+ )
+ ; // Inherits
+ : Operations
+   Seq: ( ME_72A41DCEECB1 // BaseSearchPanel
+ ME_6F177ECC6ED1 // Ini_Reg
+ )
+ ; // Operations
+ : Implemented
+   Seq: ( ME_4DAEEDE10285_ME_01806529867E // DoDoIt
+ )
+ ; // Implemented
+ : Overridden
+   Seq: ( ME_4DB0614603C8_ME_01806529867E // GetWordNameForRegister
+ ME_52D00B00031A_ME_01806529867E // SetValuePrim
+ ME_551544E2001A_ME_01806529867E // GetResultTypeInfo
+ ME_559687E6025A_ME_01806529867E // GetAllParamsCount
+ ME_5617F4D00243_ME_01806529867E // ParamsTypes
+ )
+ ; // Overridden
+ : Dependencies
+   Seq: ( ME_213D8729BFAB // 
+ ME_134E24138037 // 
+ ME_1BF56628812D // 
+ )
+ ; // Dependencies
+ CONST "NameForScript" '.TMonitoringsMainForm.BaseSearchPanel'
+ CONST "UseNewGen" 'undefined'
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant'
+ CONST extprop:pas:TypeName 'TkwMonitoringsMainFormBaseSearchPanel'
+
+ref; // ME_01806529867E MonitoringsMainForm_BaseSearchPanel
+
+FORWARD ME_B2F985D76D09
+
+: ME_28DFEF89A082
+ CONST UID '28DFEF89A082'
+ CONST Name 'aCtx'
+ CONST IsSummoned true
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_4DB0091E033E' '4DAF19F600C5.pas.ms.script' // TtfwContext
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_28DFEF89A082 aCtx
+
+: ME_28DFEF89A083
+ CONST UID '28DFEF89A083'
+ CONST Name 'aMonitoringsMainForm'
+ CONST IsSummoned true
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target ME_4F7C2E78015C // MonitoringsMain
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_28DFEF89A083 aMonitoringsMainForm
+
+: ME_E6DE2A6C9CE6
+ CONST UID 'E6DE2A6C9CE6'
+ CONST Name 'LeftNavigator'
+ CONST IsSummoned true
+ CONST Class class_Operation
+ %SUMMARY 'Реализация слова скрипта .TMonitoringsMainForm.LeftNavigator' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_B2F985D76D09 // MonitoringsMainForm_LeftNavigator
+ ;
+ : Target WL 'ME_499ABF3D031B' '499ABF2A0338.pas.ms.script' // TnscNavigator
+ ;
+ : Parameters
+   Seq: ( ME_28DFEF89A082 // aCtx
+ ME_28DFEF89A083 // aMonitoringsMainForm
+ )
+ ; // Parameters
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_E6DE2A6C9CE6 LeftNavigator
+
+: ME_BF30A0F6629B
+ CONST UID 'BF30A0F6629B'
+ CONST Name 'Ini_Reg'
+ CONST IsSummoned true
+ CONST Class class_Operation
+ : Stereotype st_ini::Operation ;
+ %SUMMARY 'Регистрация MonitoringsMainForm_LeftNavigator' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_B2F985D76D09 // MonitoringsMainForm_LeftNavigator
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_BF30A0F6629B Ini_Reg
+
+: ME_C224CAE66821
+ CONST UID 'C224CAE66821'
+ CONST IsSummoned true
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_B2F985D76D09 // MonitoringsMainForm_LeftNavigator
+ ;
+ : Target WL 'ME_4DB0091E033E' '4DAF19F600C5.pas.ms.script' // TtfwContext
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_C224CAE66821 
+
+: ME_7C58ADA11C9C
+ CONST UID '7C58ADA11C9C'
+ CONST IsSummoned true
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_B2F985D76D09 // MonitoringsMainForm_LeftNavigator
+ ;
+ : Target WL 'ME_4767748503B5' '4767743E00E5.pas.ms.script' // TTypeInfo
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_7C58ADA11C9C 
+
+: ME_0A4A86F8D72C
+ CONST UID '0A4A86F8D72C'
+ CONST IsSummoned true
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_B2F985D76D09 // MonitoringsMainForm_LeftNavigator
+ ;
+ : Target WL 'ME_47877EB202FB' '4AB0C3C60310.pas.ms.script' // SysUtils
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_0A4A86F8D72C 
+
+: ME_4DAEEDE10285_ME_B2F985D76D09
+ CONST UID '4DAEEDE10285'
+ CONST Name 'DoDoIt'
+ : Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.pas.ms.script' // DoDoIt
+ ;
+ : Implementor ME_B2F985D76D09 // MonitoringsMainForm_LeftNavigator
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "UseNewGen" 'undefined'
+ref; // ME_4DAEEDE10285_ME_B2F985D76D09 DoDoIt
+
+: ME_4DB0614603C8_ME_B2F985D76D09
+ CONST UID '4DB0614603C8'
+ CONST Name 'GetWordNameForRegister'
+ : Original WL 'ME_4DB0614603C8' '4F3E3F5F0160.pas.ms.script' // GetWordNameForRegister
+ ;
+ : Implementor ME_B2F985D76D09 // MonitoringsMainForm_LeftNavigator
+ ;
+ CONST OpKind opkind_Overridden
+ CONST "UseNewGen" 'undefined'
+ref; // ME_4DB0614603C8_ME_B2F985D76D09 GetWordNameForRegister
+
+: ME_52D00B00031A_ME_B2F985D76D09
+ CONST UID '52D00B00031A'
+ CONST Name 'SetValuePrim'
+ : Original WL 'ME_52D00B00031A' '4DAF19F600C5.pas.ms.script' // SetValuePrim
+ ;
+ : Implementor ME_B2F985D76D09 // MonitoringsMainForm_LeftNavigator
+ ;
+ CONST OpKind opkind_Overridden
+ CONST "UseNewGen" 'undefined'
+ref; // ME_52D00B00031A_ME_B2F985D76D09 SetValuePrim
+
+: ME_551544E2001A_ME_B2F985D76D09
+ CONST UID '551544E2001A'
+ CONST Name 'GetResultTypeInfo'
+ : Original WL 'ME_551544E2001A' '4DAF19F600C5.pas.ms.script' // GetResultTypeInfo
+ ;
+ : Implementor ME_B2F985D76D09 // MonitoringsMainForm_LeftNavigator
+ ;
+ CONST OpKind opkind_Overridden
+ CONST "UseNewGen" 'undefined'
+ref; // ME_551544E2001A_ME_B2F985D76D09 GetResultTypeInfo
+
+: ME_559687E6025A_ME_B2F985D76D09
+ CONST UID '559687E6025A'
+ CONST Name 'GetAllParamsCount'
+ : Original WL 'ME_559687E6025A' '4DAF19F600C5.pas.ms.script' // GetAllParamsCount
+ ;
+ : Implementor ME_B2F985D76D09 // MonitoringsMainForm_LeftNavigator
+ ;
+ CONST OpKind opkind_Overridden
+ CONST "UseNewGen" 'undefined'
+ref; // ME_559687E6025A_ME_B2F985D76D09 GetAllParamsCount
+
+: ME_5617F4D00243_ME_B2F985D76D09
+ CONST UID '5617F4D00243'
+ CONST Name 'ParamsTypes'
+ : Original WL 'ME_5617F4D00243' '4DAF19F600C5.pas.ms.script' // ParamsTypes
+ ;
+ : Implementor ME_B2F985D76D09 // MonitoringsMainForm_LeftNavigator
+ ;
+ CONST OpKind opkind_Overridden
+ CONST "UseNewGen" 'undefined'
+ref; // ME_5617F4D00243_ME_B2F985D76D09 ParamsTypes
+
+: ME_B2F985D76D09
+ CONST UID 'B2F985D76D09'
+ CONST Name 'MonitoringsMainForm_LeftNavigator'
+ CONST IsSummoned true
+ CONST Class class_Class
+ : Stereotype st_ScriptKeyword ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Слово скрипта .TMonitoringsMainForm.LeftNavigator'#13#10'{panel}Контрол LeftNavigator формы TMonitoringsMainForm{panel}'#13#10'*Тип результата:* TnscNavigator'#13#10'*Пример:*'#13#10'{code}'#13#10'OBJECT VAR l_TnscNavigator'#13#10' aMonitoringsMainForm .TMonitoringsMainForm.LeftNavigator >>> l_TnscNavigator'#13#10'{code} ' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_ED33546FFF82 // MonitoringsMainKeywordsPack
+ ;
+ : Inherits
+   Seq: ( WL 'ME_5619169603BE' '55CCADD2013D.pas.ms.script' // TtfwPropertyLike
+ )
+ ; // Inherits
+ : Operations
+   Seq: ( ME_E6DE2A6C9CE6 // LeftNavigator
+ ME_BF30A0F6629B // Ini_Reg
+ )
+ ; // Operations
+ : Implemented
+   Seq: ( ME_4DAEEDE10285_ME_B2F985D76D09 // DoDoIt
+ )
+ ; // Implemented
+ : Overridden
+   Seq: ( ME_4DB0614603C8_ME_B2F985D76D09 // GetWordNameForRegister
+ ME_52D00B00031A_ME_B2F985D76D09 // SetValuePrim
+ ME_551544E2001A_ME_B2F985D76D09 // GetResultTypeInfo
+ ME_559687E6025A_ME_B2F985D76D09 // GetAllParamsCount
+ ME_5617F4D00243_ME_B2F985D76D09 // ParamsTypes
+ )
+ ; // Overridden
+ : Dependencies
+   Seq: ( ME_C224CAE66821 // 
+ ME_7C58ADA11C9C // 
+ ME_0A4A86F8D72C // 
+ )
+ ; // Dependencies
+ CONST "NameForScript" '.TMonitoringsMainForm.LeftNavigator'
+ CONST "UseNewGen" 'undefined'
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant'
+ CONST extprop:pas:TypeName 'TkwMonitoringsMainFormLeftNavigator'
+
+ref; // ME_B2F985D76D09 MonitoringsMainForm_LeftNavigator
+
+FORWARD ME_F9DA87AC99B7
+
+: ME_732565F9B63F
+ CONST UID '732565F9B63F'
+ CONST Name 'aCtx'
+ CONST IsSummoned true
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_4DB0091E033E' '4DAF19F600C5.pas.ms.script' // TtfwContext
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_732565F9B63F aCtx
+
+: ME_732565F9B640
+ CONST UID '732565F9B640'
+ CONST Name 'aMonitoringsMainForm'
+ CONST IsSummoned true
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target ME_4F7C2E78015C // MonitoringsMain
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_732565F9B640 aMonitoringsMainForm
+
+: ME_FCF0556B863F
+ CONST UID 'FCF0556B863F'
+ CONST Name 'RightNavigator'
+ CONST IsSummoned true
+ CONST Class class_Operation
+ %SUMMARY 'Реализация слова скрипта .TMonitoringsMainForm.RightNavigator' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_F9DA87AC99B7 // MonitoringsMainForm_RightNavigator
+ ;
+ : Target WL 'ME_499ABF3D031B' '499ABF2A0338.pas.ms.script' // TnscNavigator
+ ;
+ : Parameters
+   Seq: ( ME_732565F9B63F // aCtx
+ ME_732565F9B640 // aMonitoringsMainForm
+ )
+ ; // Parameters
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_FCF0556B863F RightNavigator
+
+: ME_0F82E0AC5C7D
+ CONST UID '0F82E0AC5C7D'
+ CONST Name 'Ini_Reg'
+ CONST IsSummoned true
+ CONST Class class_Operation
+ : Stereotype st_ini::Operation ;
+ %SUMMARY 'Регистрация MonitoringsMainForm_RightNavigator' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_F9DA87AC99B7 // MonitoringsMainForm_RightNavigator
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_0F82E0AC5C7D Ini_Reg
+
+: ME_D83B7E7A6556
+ CONST UID 'D83B7E7A6556'
+ CONST IsSummoned true
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_F9DA87AC99B7 // MonitoringsMainForm_RightNavigator
+ ;
+ : Target WL 'ME_4DB0091E033E' '4DAF19F600C5.pas.ms.script' // TtfwContext
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_D83B7E7A6556 
+
+: ME_B2765F91F5B4
+ CONST UID 'B2765F91F5B4'
+ CONST IsSummoned true
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_F9DA87AC99B7 // MonitoringsMainForm_RightNavigator
+ ;
+ : Target WL 'ME_4767748503B5' '4767743E00E5.pas.ms.script' // TTypeInfo
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_B2765F91F5B4 
+
+: ME_44E0E39ADF27
+ CONST UID '44E0E39ADF27'
+ CONST IsSummoned true
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_F9DA87AC99B7 // MonitoringsMainForm_RightNavigator
+ ;
+ : Target WL 'ME_47877EB202FB' '4AB0C3C60310.pas.ms.script' // SysUtils
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_44E0E39ADF27 
+
+: ME_4DAEEDE10285_ME_F9DA87AC99B7
+ CONST UID '4DAEEDE10285'
+ CONST Name 'DoDoIt'
+ : Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.pas.ms.script' // DoDoIt
+ ;
+ : Implementor ME_F9DA87AC99B7 // MonitoringsMainForm_RightNavigator
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "UseNewGen" 'undefined'
+ref; // ME_4DAEEDE10285_ME_F9DA87AC99B7 DoDoIt
+
+: ME_4DB0614603C8_ME_F9DA87AC99B7
+ CONST UID '4DB0614603C8'
+ CONST Name 'GetWordNameForRegister'
+ : Original WL 'ME_4DB0614603C8' '4F3E3F5F0160.pas.ms.script' // GetWordNameForRegister
+ ;
+ : Implementor ME_F9DA87AC99B7 // MonitoringsMainForm_RightNavigator
+ ;
+ CONST OpKind opkind_Overridden
+ CONST "UseNewGen" 'undefined'
+ref; // ME_4DB0614603C8_ME_F9DA87AC99B7 GetWordNameForRegister
+
+: ME_52D00B00031A_ME_F9DA87AC99B7
+ CONST UID '52D00B00031A'
+ CONST Name 'SetValuePrim'
+ : Original WL 'ME_52D00B00031A' '4DAF19F600C5.pas.ms.script' // SetValuePrim
+ ;
+ : Implementor ME_F9DA87AC99B7 // MonitoringsMainForm_RightNavigator
+ ;
+ CONST OpKind opkind_Overridden
+ CONST "UseNewGen" 'undefined'
+ref; // ME_52D00B00031A_ME_F9DA87AC99B7 SetValuePrim
+
+: ME_551544E2001A_ME_F9DA87AC99B7
+ CONST UID '551544E2001A'
+ CONST Name 'GetResultTypeInfo'
+ : Original WL 'ME_551544E2001A' '4DAF19F600C5.pas.ms.script' // GetResultTypeInfo
+ ;
+ : Implementor ME_F9DA87AC99B7 // MonitoringsMainForm_RightNavigator
+ ;
+ CONST OpKind opkind_Overridden
+ CONST "UseNewGen" 'undefined'
+ref; // ME_551544E2001A_ME_F9DA87AC99B7 GetResultTypeInfo
+
+: ME_559687E6025A_ME_F9DA87AC99B7
+ CONST UID '559687E6025A'
+ CONST Name 'GetAllParamsCount'
+ : Original WL 'ME_559687E6025A' '4DAF19F600C5.pas.ms.script' // GetAllParamsCount
+ ;
+ : Implementor ME_F9DA87AC99B7 // MonitoringsMainForm_RightNavigator
+ ;
+ CONST OpKind opkind_Overridden
+ CONST "UseNewGen" 'undefined'
+ref; // ME_559687E6025A_ME_F9DA87AC99B7 GetAllParamsCount
+
+: ME_5617F4D00243_ME_F9DA87AC99B7
+ CONST UID '5617F4D00243'
+ CONST Name 'ParamsTypes'
+ : Original WL 'ME_5617F4D00243' '4DAF19F600C5.pas.ms.script' // ParamsTypes
+ ;
+ : Implementor ME_F9DA87AC99B7 // MonitoringsMainForm_RightNavigator
+ ;
+ CONST OpKind opkind_Overridden
+ CONST "UseNewGen" 'undefined'
+ref; // ME_5617F4D00243_ME_F9DA87AC99B7 ParamsTypes
+
+: ME_F9DA87AC99B7
+ CONST UID 'F9DA87AC99B7'
+ CONST Name 'MonitoringsMainForm_RightNavigator'
+ CONST IsSummoned true
+ CONST Class class_Class
+ : Stereotype st_ScriptKeyword ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Слово скрипта .TMonitoringsMainForm.RightNavigator'#13#10'{panel}Контрол RightNavigator формы TMonitoringsMainForm{panel}'#13#10'*Тип результата:* TnscNavigator'#13#10'*Пример:*'#13#10'{code}'#13#10'OBJECT VAR l_TnscNavigator'#13#10' aMonitoringsMainForm .TMonitoringsMainForm.RightNavigator >>> l_TnscNavigator'#13#10'{code} ' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_ED33546FFF82 // MonitoringsMainKeywordsPack
+ ;
+ : Inherits
+   Seq: ( WL 'ME_5619169603BE' '55CCADD2013D.pas.ms.script' // TtfwPropertyLike
+ )
+ ; // Inherits
+ : Operations
+   Seq: ( ME_FCF0556B863F // RightNavigator
+ ME_0F82E0AC5C7D // Ini_Reg
+ )
+ ; // Operations
+ : Implemented
+   Seq: ( ME_4DAEEDE10285_ME_F9DA87AC99B7 // DoDoIt
+ )
+ ; // Implemented
+ : Overridden
+   Seq: ( ME_4DB0614603C8_ME_F9DA87AC99B7 // GetWordNameForRegister
+ ME_52D00B00031A_ME_F9DA87AC99B7 // SetValuePrim
+ ME_551544E2001A_ME_F9DA87AC99B7 // GetResultTypeInfo
+ ME_559687E6025A_ME_F9DA87AC99B7 // GetAllParamsCount
+ ME_5617F4D00243_ME_F9DA87AC99B7 // ParamsTypes
+ )
+ ; // Overridden
+ : Dependencies
+   Seq: ( ME_D83B7E7A6556 // 
+ ME_B2765F91F5B4 // 
+ ME_44E0E39ADF27 // 
+ )
+ ; // Dependencies
+ CONST "NameForScript" '.TMonitoringsMainForm.RightNavigator'
+ CONST "UseNewGen" 'undefined'
+ CONST "ifdef" 'HasRightNavigator'
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant'
+ CONST extprop:pas:TypeName 'TkwMonitoringsMainFormRightNavigator'
+
+ref; // ME_F9DA87AC99B7 MonitoringsMainForm_RightNavigator
+
+: ME_A9BD2CAAE508
+ CONST UID 'A9BD2CAAE508'
+ CONST Name 'StatusBar'
+ CONST IsSummoned true
+ CONST Class class_Attribute
+ : Stereotype st_readonly::Attribute ;
+ %SUMMARY 'Контрол StatusBar формы TMonitoringsMainForm' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_agr
+ : Parent ME_ED33546FFF82 // MonitoringsMainKeywordsPack
+ ;
+ : Target WL 'ME_4E15A08E030D' '49871D5103B9.pas.ms.script' // TnscStatusBar
+ ;
+ CONST "NameForScript" '.TMonitoringsMainForm.StatusBar'
+ CONST "UseNewGen" 'undefined'
+ CONST "mapped" true
+
+ref; // ME_A9BD2CAAE508 StatusBar
+
+: ME_C3F6FFBA5313
+ CONST UID 'C3F6FFBA5313'
+ CONST Name 'ClientZone'
+ CONST IsSummoned true
+ CONST Class class_Attribute
+ : Stereotype st_readonly::Attribute ;
+ %SUMMARY 'Контрол ClientZone формы TMonitoringsMainForm' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_agr
+ : Parent ME_ED33546FFF82 // MonitoringsMainKeywordsPack
+ ;
+ : Target WL 'ME_4A7961A701CF' '4A7960CC03A4.pas.ms.script' // TvtPanel
+ ;
+ CONST "NameForScript" '.TMonitoringsMainForm.ClientZone'
+ CONST "UseNewGen" 'undefined'
+ CONST "mapped" true
+
+ref; // ME_C3F6FFBA5313 ClientZone
+
+: ME_0FE4AB9BC788
+ CONST UID '0FE4AB9BC788'
+ CONST Name 'MainZone'
+ CONST IsSummoned true
+ CONST Class class_Attribute
+ : Stereotype st_readonly::Attribute ;
+ %SUMMARY 'Контрол MainZone формы TMonitoringsMainForm' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_agr
+ : Parent ME_ED33546FFF82 // MonitoringsMainKeywordsPack
+ ;
+ : Target WL 'ME_4A7AD11C028B' '4A7960CC03A4.pas.ms.script' // TvtProportionalPanel
+ ;
+ CONST "NameForScript" '.TMonitoringsMainForm.MainZone'
+ CONST "UseNewGen" 'undefined'
+ CONST "mapped" true
+
+ref; // ME_0FE4AB9BC788 MainZone
+
+: ME_0CCD851C3764
+ CONST UID '0CCD851C3764'
+ CONST Name 'ParentZonePanel'
+ CONST IsSummoned true
+ CONST Class class_Attribute
+ : Stereotype st_readonly::Attribute ;
+ %SUMMARY 'Контрол ParentZonePanel формы TMonitoringsMainForm' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_agr
+ : Parent ME_ED33546FFF82 // MonitoringsMainKeywordsPack
+ ;
+ : Target WL 'ME_4A7961A701CF' '4A7960CC03A4.pas.ms.script' // TvtPanel
+ ;
+ CONST "NameForScript" '.TMonitoringsMainForm.ParentZonePanel'
+ CONST "UseNewGen" 'undefined'
+ CONST "mapped" true
+
+ref; // ME_0CCD851C3764 ParentZonePanel
+
+: ME_01EC8C217163
+ CONST UID '01EC8C217163'
+ CONST Name 'ChildZonePanel'
+ CONST IsSummoned true
+ CONST Class class_Attribute
+ : Stereotype st_readonly::Attribute ;
+ %SUMMARY 'Контрол ChildZonePanel формы TMonitoringsMainForm' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_agr
+ : Parent ME_ED33546FFF82 // MonitoringsMainKeywordsPack
+ ;
+ : Target WL 'ME_4A7961300264' '4A7960CC03A4.pas.ms.script' // TvtSizeablePanel
+ ;
+ CONST "NameForScript" '.TMonitoringsMainForm.ChildZonePanel'
+ CONST "UseNewGen" 'undefined'
+ CONST "mapped" true
+
+ref; // ME_01EC8C217163 ChildZonePanel
+
+: ME_862840A41245
+ CONST UID '862840A41245'
+ CONST Name 'BaseSearchPanel'
+ CONST IsSummoned true
+ CONST Class class_Attribute
+ : Stereotype st_readonly::Attribute ;
+ %SUMMARY 'Контрол BaseSearchPanel формы TMonitoringsMainForm' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_agr
+ : Parent ME_ED33546FFF82 // MonitoringsMainKeywordsPack
+ ;
+ : Target WL 'ME_4A7961A701CF' '4A7960CC03A4.pas.ms.script' // TvtPanel
+ ;
+ CONST "NameForScript" '.TMonitoringsMainForm.BaseSearchPanel'
+ CONST "UseNewGen" 'undefined'
+ CONST "mapped" true
+
+ref; // ME_862840A41245 BaseSearchPanel
+
+: ME_39F076DC3F74
+ CONST UID '39F076DC3F74'
+ CONST Name 'LeftNavigator'
+ CONST IsSummoned true
+ CONST Class class_Attribute
+ : Stereotype st_readonly::Attribute ;
+ %SUMMARY 'Контрол LeftNavigator формы TMonitoringsMainForm' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_agr
+ : Parent ME_ED33546FFF82 // MonitoringsMainKeywordsPack
+ ;
+ : Target WL 'ME_499ABF3D031B' '499ABF2A0338.pas.ms.script' // TnscNavigator
+ ;
+ CONST "NameForScript" '.TMonitoringsMainForm.LeftNavigator'
+ CONST "UseNewGen" 'undefined'
+ CONST "mapped" true
+
+ref; // ME_39F076DC3F74 LeftNavigator
+
+: ME_CA42EF3F9C72
+ CONST UID 'CA42EF3F9C72'
+ CONST Name 'RightNavigator'
+ CONST IsSummoned true
+ CONST Class class_Attribute
+ : Stereotype st_readonly::Attribute ;
+ %SUMMARY 'Контрол RightNavigator формы TMonitoringsMainForm' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_agr
+ : Parent ME_ED33546FFF82 // MonitoringsMainKeywordsPack
+ ;
+ : Target WL 'ME_499ABF3D031B' '499ABF2A0338.pas.ms.script' // TnscNavigator
+ ;
+ CONST "NameForScript" '.TMonitoringsMainForm.RightNavigator'
+ CONST "UseNewGen" 'undefined'
+ CONST "ifdef" 'HasRightNavigator'
+ CONST "mapped" true
+
+ref; // ME_CA42EF3F9C72 RightNavigator
+
+: ME_D23D1A3F9267
+ CONST UID 'D23D1A3F9267'
+ CONST Name 'StatusBar'
+ CONST IsSummoned true
+ CONST Class class_Operation
+ : Stereotype st_keyword::Operation ;
+ %SUMMARY 'Контрол StatusBar формы TMonitoringsMainForm' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_ED33546FFF82 // MonitoringsMainKeywordsPack
+ ;
+ : Target WL 'ME_4E15A08E030D' '49871D5103B9.pas.ms.script' // TnscStatusBar
+ ;
+ CONST "NameForScript" '.TMonitoringsMainForm.StatusBar'
+ CONST "UseNewGen" 'undefined'
+ CONST "bind params" 'undefined'
+ CONST "lvalue" 'undefined'
+ CONST "mapped" true
+
+ref; // ME_D23D1A3F9267 StatusBar
+
+: ME_5F9FB58CFC74
+ CONST UID '5F9FB58CFC74'
+ CONST Name 'ClientZone'
+ CONST IsSummoned true
+ CONST Class class_Operation
+ : Stereotype st_keyword::Operation ;
+ %SUMMARY 'Контрол ClientZone формы TMonitoringsMainForm' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_ED33546FFF82 // MonitoringsMainKeywordsPack
+ ;
+ : Target WL 'ME_4A7961A701CF' '4A7960CC03A4.pas.ms.script' // TvtPanel
+ ;
+ CONST "NameForScript" '.TMonitoringsMainForm.ClientZone'
+ CONST "UseNewGen" 'undefined'
+ CONST "bind params" 'undefined'
+ CONST "lvalue" 'undefined'
+ CONST "mapped" true
+
+ref; // ME_5F9FB58CFC74 ClientZone
+
+: ME_D3654D12D66F
+ CONST UID 'D3654D12D66F'
+ CONST Name 'MainZone'
+ CONST IsSummoned true
+ CONST Class class_Operation
+ : Stereotype st_keyword::Operation ;
+ %SUMMARY 'Контрол MainZone формы TMonitoringsMainForm' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_ED33546FFF82 // MonitoringsMainKeywordsPack
+ ;
+ : Target WL 'ME_4A7AD11C028B' '4A7960CC03A4.pas.ms.script' // TvtProportionalPanel
+ ;
+ CONST "NameForScript" '.TMonitoringsMainForm.MainZone'
+ CONST "UseNewGen" 'undefined'
+ CONST "bind params" 'undefined'
+ CONST "lvalue" 'undefined'
+ CONST "mapped" true
+
+ref; // ME_D3654D12D66F MainZone
+
+: ME_8576B5D35339
+ CONST UID '8576B5D35339'
+ CONST Name 'ParentZonePanel'
+ CONST IsSummoned true
+ CONST Class class_Operation
+ : Stereotype st_keyword::Operation ;
+ %SUMMARY 'Контрол ParentZonePanel формы TMonitoringsMainForm' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_ED33546FFF82 // MonitoringsMainKeywordsPack
+ ;
+ : Target WL 'ME_4A7961A701CF' '4A7960CC03A4.pas.ms.script' // TvtPanel
+ ;
+ CONST "NameForScript" '.TMonitoringsMainForm.ParentZonePanel'
+ CONST "UseNewGen" 'undefined'
+ CONST "bind params" 'undefined'
+ CONST "lvalue" 'undefined'
+ CONST "mapped" true
+
+ref; // ME_8576B5D35339 ParentZonePanel
+
+: ME_52204492F41F
+ CONST UID '52204492F41F'
+ CONST Name 'ChildZonePanel'
+ CONST IsSummoned true
+ CONST Class class_Operation
+ : Stereotype st_keyword::Operation ;
+ %SUMMARY 'Контрол ChildZonePanel формы TMonitoringsMainForm' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_ED33546FFF82 // MonitoringsMainKeywordsPack
+ ;
+ : Target WL 'ME_4A7961300264' '4A7960CC03A4.pas.ms.script' // TvtSizeablePanel
+ ;
+ CONST "NameForScript" '.TMonitoringsMainForm.ChildZonePanel'
+ CONST "UseNewGen" 'undefined'
+ CONST "bind params" 'undefined'
+ CONST "lvalue" 'undefined'
+ CONST "mapped" true
+
+ref; // ME_52204492F41F ChildZonePanel
+
+: ME_AF1A97D657B8
+ CONST UID 'AF1A97D657B8'
+ CONST Name 'BaseSearchPanel'
+ CONST IsSummoned true
+ CONST Class class_Operation
+ : Stereotype st_keyword::Operation ;
+ %SUMMARY 'Контрол BaseSearchPanel формы TMonitoringsMainForm' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_ED33546FFF82 // MonitoringsMainKeywordsPack
+ ;
+ : Target WL 'ME_4A7961A701CF' '4A7960CC03A4.pas.ms.script' // TvtPanel
+ ;
+ CONST "NameForScript" '.TMonitoringsMainForm.BaseSearchPanel'
+ CONST "UseNewGen" 'undefined'
+ CONST "bind params" 'undefined'
+ CONST "lvalue" 'undefined'
+ CONST "mapped" true
+
+ref; // ME_AF1A97D657B8 BaseSearchPanel
+
+: ME_70690A84D1EB
+ CONST UID '70690A84D1EB'
+ CONST Name 'LeftNavigator'
+ CONST IsSummoned true
+ CONST Class class_Operation
+ : Stereotype st_keyword::Operation ;
+ %SUMMARY 'Контрол LeftNavigator формы TMonitoringsMainForm' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_ED33546FFF82 // MonitoringsMainKeywordsPack
+ ;
+ : Target WL 'ME_499ABF3D031B' '499ABF2A0338.pas.ms.script' // TnscNavigator
+ ;
+ CONST "NameForScript" '.TMonitoringsMainForm.LeftNavigator'
+ CONST "UseNewGen" 'undefined'
+ CONST "bind params" 'undefined'
+ CONST "lvalue" 'undefined'
+ CONST "mapped" true
+
+ref; // ME_70690A84D1EB LeftNavigator
+
+: ME_4EFAE2E58DA7
+ CONST UID '4EFAE2E58DA7'
+ CONST Name 'RightNavigator'
+ CONST IsSummoned true
+ CONST Class class_Operation
+ : Stereotype st_keyword::Operation ;
+ %SUMMARY 'Контрол RightNavigator формы TMonitoringsMainForm' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_ED33546FFF82 // MonitoringsMainKeywordsPack
+ ;
+ : Target WL 'ME_499ABF3D031B' '499ABF2A0338.pas.ms.script' // TnscNavigator
+ ;
+ CONST "NameForScript" '.TMonitoringsMainForm.RightNavigator'
+ CONST "UseNewGen" 'undefined'
+ CONST "bind params" 'undefined'
+ CONST "ifdef" 'HasRightNavigator'
+ CONST "lvalue" 'undefined'
+ CONST "mapped" true
+
+ref; // ME_4EFAE2E58DA7 RightNavigator
+
+: ME_591BA1F9DE8F
+ CONST UID '591BA1F9DE8F'
+ CONST Name 'Reg_Type_TtfwContext'
+ CONST IsSummoned true
+ CONST Class class_Operation
+ : Stereotype st_ini::Operation ;
+ %SUMMARY 'Регистрация типа TtfwContext' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_ED33546FFF82 // MonitoringsMainKeywordsPack
+ ;
+ CONST "UseNewGen" 'undefined'
+ : SpelledFor WL 'ME_4DB0091E033E' '4DAF19F600C5.pas.ms.script' // TtfwContext
+ ;
+
+ref; // ME_591BA1F9DE8F Reg_Type_TtfwContext
+
+: ME_7F9A72D78BAB
+ CONST UID '7F9A72D78BAB'
+ CONST Name 'Reg_Type_MonitoringsMain'
+ CONST IsSummoned true
+ CONST Class class_Operation
+ : Stereotype st_ini::Operation ;
+ %SUMMARY 'Регистрация типа MonitoringsMain' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_ED33546FFF82 // MonitoringsMainKeywordsPack
+ ;
+ CONST "UseNewGen" 'undefined'
+ : SpelledFor ME_4F7C2E78015C // MonitoringsMain
+ ;
+
+ref; // ME_7F9A72D78BAB Reg_Type_MonitoringsMain
+
+: ME_D57DAE5EBBB1
+ CONST UID 'D57DAE5EBBB1'
+ CONST Name 'Reg_Type_TnscStatusBar'
+ CONST IsSummoned true
+ CONST Class class_Operation
+ : Stereotype st_ini::Operation ;
+ %SUMMARY 'Регистрация типа TnscStatusBar' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_ED33546FFF82 // MonitoringsMainKeywordsPack
+ ;
+ CONST "UseNewGen" 'undefined'
+ : SpelledFor WL 'ME_4E15A08E030D' '49871D5103B9.pas.ms.script' // TnscStatusBar
+ ;
+
+ref; // ME_D57DAE5EBBB1 Reg_Type_TnscStatusBar
+
+: ME_BF0D8D3A5374
+ CONST UID 'BF0D8D3A5374'
+ CONST Name 'Reg_Type_TvtPanel'
+ CONST IsSummoned true
+ CONST Class class_Operation
+ : Stereotype st_ini::Operation ;
+ %SUMMARY 'Регистрация типа TvtPanel' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_ED33546FFF82 // MonitoringsMainKeywordsPack
+ ;
+ CONST "UseNewGen" 'undefined'
+ : SpelledFor WL 'ME_4A7961A701CF' '4A7960CC03A4.pas.ms.script' // TvtPanel
+ ;
+
+ref; // ME_BF0D8D3A5374 Reg_Type_TvtPanel
+
+: ME_AB2FA5857E08
+ CONST UID 'AB2FA5857E08'
+ CONST Name 'Reg_Type_TvtProportionalPanel'
+ CONST IsSummoned true
+ CONST Class class_Operation
+ : Stereotype st_ini::Operation ;
+ %SUMMARY 'Регистрация типа TvtProportionalPanel' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_ED33546FFF82 // MonitoringsMainKeywordsPack
+ ;
+ CONST "UseNewGen" 'undefined'
+ : SpelledFor WL 'ME_4A7AD11C028B' '4A7960CC03A4.pas.ms.script' // TvtProportionalPanel
+ ;
+
+ref; // ME_AB2FA5857E08 Reg_Type_TvtProportionalPanel
+
+: ME_716467C59F40
+ CONST UID '716467C59F40'
+ CONST Name 'Reg_Type_TvtSizeablePanel'
+ CONST IsSummoned true
+ CONST Class class_Operation
+ : Stereotype st_ini::Operation ;
+ %SUMMARY 'Регистрация типа TvtSizeablePanel' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_ED33546FFF82 // MonitoringsMainKeywordsPack
+ ;
+ CONST "UseNewGen" 'undefined'
+ : SpelledFor WL 'ME_4A7961300264' '4A7960CC03A4.pas.ms.script' // TvtSizeablePanel
+ ;
+
+ref; // ME_716467C59F40 Reg_Type_TvtSizeablePanel
+
+: ME_A0B5D0B7F269
+ CONST UID 'A0B5D0B7F269'
+ CONST Name 'Reg_Type_TnscNavigator'
+ CONST IsSummoned true
+ CONST Class class_Operation
+ : Stereotype st_ini::Operation ;
+ %SUMMARY 'Регистрация типа TnscNavigator' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_ED33546FFF82 // MonitoringsMainKeywordsPack
+ ;
+ CONST "UseNewGen" 'undefined'
+ : SpelledFor WL 'ME_499ABF3D031B' '499ABF2A0338.pas.ms.script' // TnscNavigator
+ ;
+
+ref; // ME_A0B5D0B7F269 Reg_Type_TnscNavigator
+
+: ME_E1F3B2ABF931
+ CONST UID 'E1F3B2ABF931'
+ CONST IsSummoned true
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_ED33546FFF82 // MonitoringsMainKeywordsPack
+ ;
+ : Target WL 'ME_55153C2C036F' '55BA28CE0290.pas.ms.script' // TypeInfoExt
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_E1F3B2ABF931 
+
+: ME_A57CFBB4AD10
+ CONST UID 'A57CFBB4AD10'
+ CONST IsSummoned true
+ CONST Class class_Dependency
+ : Stereotype st_injects::Dependency ;
+ : Parent ME_ED33546FFF82 // MonitoringsMainKeywordsPack
+ ;
+ : Target ME_4F7C2E78015C // MonitoringsMain
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_A57CFBB4AD10 
+
+: ME_F9DD98B86F1E
+ CONST UID 'F9DD98B86F1E'
+ CONST IsSummoned true
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_ED33546FFF82 // MonitoringsMainKeywordsPack
+ ;
+ : Target WL 'ME_5527F8330362' '5527F81C020E.pas.ms.script' // TtfwTypeRegistrator
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_F9DD98B86F1E 
+
+: ME_ED33546FFF82
+ CONST UID 'ED33546FFF82'
+ CONST Name 'MonitoringsMainKeywordsPack'
+ CONST IsSummoned true
+ CONST Class class_Class
+ : Stereotype st_ScriptKeywordsPack ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Набор слов словаря для доступа к экземплярам контролов формы MonitoringsMain' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_4AA9038C0387 // Monitorings
+ ;
+ : Inherits
+   Seq: ( ME_4F7C2E78015C // MonitoringsMain
+ )
+ ; // Inherits
+ : Attributes
+   Seq: ( ME_A9BD2CAAE508 // StatusBar
+ ME_C3F6FFBA5313 // ClientZone
+ ME_0FE4AB9BC788 // MainZone
+ ME_0CCD851C3764 // ParentZonePanel
+ ME_01EC8C217163 // ChildZonePanel
+ ME_862840A41245 // BaseSearchPanel
+ ME_39F076DC3F74 // LeftNavigator
+ ME_CA42EF3F9C72 // RightNavigator
+ )
+ ; // Attributes
+ : Operations
+   Seq: ( ME_D23D1A3F9267 // StatusBar
+ ME_5F9FB58CFC74 // ClientZone
+ ME_D3654D12D66F // MainZone
+ ME_8576B5D35339 // ParentZonePanel
+ ME_52204492F41F // ChildZonePanel
+ ME_AF1A97D657B8 // BaseSearchPanel
+ ME_70690A84D1EB // LeftNavigator
+ ME_4EFAE2E58DA7 // RightNavigator
+ ME_591BA1F9DE8F // Reg_Type_TtfwContext
+ ME_7F9A72D78BAB // Reg_Type_MonitoringsMain
+ ME_D57DAE5EBBB1 // Reg_Type_TnscStatusBar
+ ME_BF0D8D3A5374 // Reg_Type_TvtPanel
+ ME_AB2FA5857E08 // Reg_Type_TvtProportionalPanel
+ ME_716467C59F40 // Reg_Type_TvtSizeablePanel
+ ME_A0B5D0B7F269 // Reg_Type_TnscNavigator
+ )
+ ; // Operations
+ : Children
+   Seq: ( ME_B0D3CFD6A5B0 // Tkw_Form_MonitoringsMain
+ ME_316064C7D78A // Tkw_MonitoringsMain_Control_StatusBar
+ ME_4C036AED963F // Tkw_MonitoringsMain_Control_StatusBar_Push
+ ME_9EA55C0FD677 // Tkw_MonitoringsMain_Control_ClientZone
+ ME_8EA5A22D1155 // Tkw_MonitoringsMain_Control_ClientZone_Push
+ ME_765E81224A01 // Tkw_MonitoringsMain_Control_MainZone
+ ME_DA6B495B8E07 // Tkw_MonitoringsMain_Control_MainZone_Push
+ ME_A3BCD85EFE5D // Tkw_MonitoringsMain_Control_ParentZonePanel
+ ME_470C255C1280 // Tkw_MonitoringsMain_Control_ParentZonePanel_Push
+ ME_A6AB0E00A47C // Tkw_MonitoringsMain_Control_ChildZonePanel
+ ME_65B854BE4D29 // Tkw_MonitoringsMain_Control_ChildZonePanel_Push
+ ME_A5889E612903 // Tkw_MonitoringsMain_Control_BaseSearchPanel
+ ME_897FF1B160A5 // Tkw_MonitoringsMain_Control_BaseSearchPanel_Push
+ ME_4499FD73873B // Tkw_MonitoringsMain_Control_LeftNavigator
+ ME_0F416FA0FB28 // Tkw_MonitoringsMain_Control_LeftNavigator_Push
+ ME_87474E831116 // Tkw_MonitoringsMain_Control_RightNavigator
+ ME_A63382FBE37E // Tkw_MonitoringsMain_Control_RightNavigator_Push
+ ME_74561386DA27 // MonitoringsMainForm_StatusBar
+ ME_67275B119336 // MonitoringsMainForm_ClientZone
+ ME_FB177BDCBB79 // MonitoringsMainForm_MainZone
+ ME_F9BD5754D88D // MonitoringsMainForm_ParentZonePanel
+ ME_B530B36B6E25 // MonitoringsMainForm_ChildZonePanel
+ ME_01806529867E // MonitoringsMainForm_BaseSearchPanel
+ ME_B2F985D76D09 // MonitoringsMainForm_LeftNavigator
+ ME_F9DA87AC99B7 // MonitoringsMainForm_RightNavigator
+ )
+ ; // Children
+ : Dependencies
+   Seq: ( ME_E1F3B2ABF931 // 
+ ME_A57CFBB4AD10 // 
+ ME_F9DD98B86F1E // 
+ )
+ ; // Dependencies
+ CONST "UseNewGen" 'undefined'
+ CONST "ifndef" 'NoScripts'
+ CONST "needs script" 'undefined'
+ CONST "no class name" 'undefined'
+ CONST "no hands" false
+ CONST "no_pop" true
+ : Generators
+ Seq: (
+ gen_intf.pas
+ )
+ ; // Generators
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis'
+ CONST intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\MonitoringsMainKeywordsPack.pas'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant'
+
+ref; // ME_ED33546FFF82 MonitoringsMainKeywordsPack
+
+: ME_5F742ACC56BA
+ CONST UID '5F742ACC56BA'
+ CONST Name 'TvcmApplicationRef'
+ CONST IsSummoned true
+ CONST Class class_Class
+ : Stereotype st_Typedef ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Ссылка на приложение для DesignTime редакторов' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4AA9038C0387 // Monitorings
+ ;
+ : Inherits
+   Seq: ( ME_4AA9038C0387 // Monitorings
+ )
+ ; // Inherits
+ CONST "UseNewGen" 'undefined'
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant'
+
+ref; // ME_5F742ACC56BA TvcmApplicationRef
+
+: ME_DA5A0975D373
+ CONST UID 'DA5A0975D373'
+ CONST Name 'Init_Str_MonitoringTitle'
+ CONST IsSummoned true
+ CONST Class class_Operation
+ : Stereotype st_ini::Operation ;
+ %SUMMARY 'Инициализация str_MonitoringTitle' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_4AA9038C0387 // Monitorings
+ ;
+ CONST "UseNewGen" 'undefined'
+ : Speller ME_4F79AF7C02CC // MonitoringTitle
+ ;
+ : SpelledFor ME_02B481441F7A // MonitoringTitle
+ ;
+
+ref; // ME_DA5A0975D373 Init_Str_MonitoringTitle
+
+: ME_4AA919EF02D4
+ CONST UID '4AA919EF02D4'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4AA9038C0387 // Monitorings
+ ;
+ : Target WL 'ME_4AA919DA010C' '542015B5012C.pas.ms.script' // CommonPost
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_4AA919EF02D4 
+
+: ME_36D286A3861D
+ CONST UID '36D286A3861D'
+ CONST IsSummoned true
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4AA9038C0387 // Monitorings
+ ;
+ : Target WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_36D286A3861D 
+
+: ME_93C7CD5A16C3
+ CONST UID '93C7CD5A16C3'
+ CONST IsSummoned true
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4AA9038C0387 // Monitorings
+ ;
+ : Target WL 'ME_4E01D1E002AE' '4F9BDEEE01BC.pas.ms.script' // Tl3MessageID
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_93C7CD5A16C3 
+
+: ME_399C0DBAA7F9
+ CONST UID '399C0DBAA7F9'
+ CONST IsSummoned true
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4AA9038C0387 // Monitorings
+ ;
+ : Target WL 'ME_4D514CA600C2' '4B322B67038B.pas.ms.script' // evExtFormat
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_399C0DBAA7F9 
+
+: ME_102A8289E472
+ CONST UID '102A8289E472'
+ CONST IsSummoned true
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4AA9038C0387 // Monitorings
+ ;
+ : Target WL 'ME_47F260EC02C7' '521C9DA50125.pas.ms.script' // StdRes
+ ;
+ CONST "UseNewGen" 'undefined'
+
+ref; // ME_102A8289E472 
+
+: ME_4AA7E4DC0047_ME_4AA9038C0387
+ CONST UID '4AA7E4DC0047'
+ CONST Name 'DoRun'
+ : Original WL 'ME_4AA7E4DC0047' '4986ECDF01F4.pas.ms.script' // DoRun
+ ;
+ : Implementor ME_4AA9038C0387 // Monitorings
+ ;
+ CONST OpKind opkind_Overridden
+ CONST "UseNewGen" 'undefined'
+ref; // ME_4AA7E4DC0047_ME_4AA9038C0387 DoRun
+
+: ME_4AA9038C0387
+ CONST UID '4AA9038C0387'
+ CONST Name 'Monitorings'
+ CONST Class class_Class
+ : Stereotype st_VCMApplication ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Мониторинги' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_4AA9032A002B // Monitoring
+ ;
+ : Inherits
+   Seq: ( WL 'ME_4AAA42BF0267' '4A78013D01CD.pas.ms.script' // ShellAndMonitorings
+ )
+ ; // Inherits
+ : Operations
+   Seq: ( ME_DA5A0975D373 // Init_Str_MonitoringTitle
+ )
+ ; // Operations
+ : Overridden
+   Seq: ( ME_4AA7E4DC0047_ME_4AA9038C0387 // DoRun
+ )
+ ; // Overridden
+ : Children
+   Seq: ( ME_4AA919040176 // PrimMonitoringsMain
+ ME_4F7C2E78015C // MonitoringsMain
+ ME_ED33546FFF82 // MonitoringsMainKeywordsPack
+ ME_5F742ACC56BA // TvcmApplicationRef
+ )
+ ; // Children
+ : Constants
+   Seq: ( ME_4F79AF74026A // MonitoringTitle
+ ME_1CA0263DA7A0 // LCImplMonitoringTitle
+ )
+ ; // Constants
+ : Dependencies
+   Seq: ( ME_4AA919EF02D4 // 
+ ME_36D286A3861D // 
+ ME_93C7CD5A16C3 // 
+ ME_399C0DBAA7F9 // 
+ ME_102A8289E472 // 
+ )
+ ; // Dependencies
+ CONST "UseNewGen" 'undefined'
+ CONST "author" 'Люлин А.В.'
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" true
+ CONST "register in scripts" 'undefined'
+ CONST "started" '10.09.2009 17:48'
+ : Generators
+ Seq: (
+ gen_intf.pas
+ )
+ ; // Generators
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis'
+ CONST intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\MonitoringsRes.pas'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant'
+ CONST extprop:pas:TypeName 'TMonitoringsRes'
+ CONST extprop:pas:UnitName 'MonitoringsRes'
+
+ref; // ME_4AA9038C0387 Monitorings
+
+: ME_4AA9032A002B
+ CONST UID '4AA9032A002B'
+ CONST Name 'Monitoring'
+ CONST Class class_Category
+ : Stereotype st_VCMGUI ;
+ %SUMMARY 'Мониторинги' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent WL 'ME_4AA902A10064' '4AA902A10064.pas.ms.script' // F1 Утилита Прайм
+ ;
+ : Children
+   Seq: ( ME_4AA9038C0387 // Monitorings
+ )
+ ; // Children
+ : Depends
+   Seq: ( WL 'ME_447878770121' '447878770121.pas.ms.script' // GCI
+ WL 'ME_456EA3D2031C' '456EA3D2031C.pas.ms.script' // GblAdapterLib
+ WL 'ME_4683F37902CF' '4683F37902CF.pas.ms.script' // vcmInterfaces
+ WL 'ME_4684F91300DD' '4684F91300DD.pas.ms.script' // Vcl
+ WL 'ME_469F3E37025A' '469F3E37025A.pas.ms.script' // Rtl
+ WL 'ME_4767743E00E5' '4767743E00E5.pas.ms.script' // TypInfo
+ WL 'ME_4790C3B8021E' '4790C3B8021E.pas.ms.script' // VCM
+ WL 'ME_4790D09A0378' '4790D09A0378.pas.ms.script' // L3
+ WL 'ME_4797632D0273' '4797632D0273.pas.ms.script' // Everest
+ WL 'ME_490838AA02D0' '490838AA02D0.pas.ms.script' // Nemesis
+ WL 'ME_49549627008C' '49549627008C.pas.ms.script' // LegalDomain
+ WL 'ME_4986ECDF01F4' '4986ECDF01F4.pas.ms.script' // View
+ WL 'ME_49871D5103B9' '49871D5103B9.pas.ms.script' // StatusBar
+ WL 'ME_499ABF2A0338' '499ABF2A0338.pas.ms.script' // Navigator
+ WL 'ME_499AEC6A0372' '499AEC6A0372.pas.ms.script' // F1Test
+ WL 'ME_499EAAE502A8' '499EAAE502A8.pas.ms.script' // vcmUserControls
+ WL 'ME_4A78010000B7' '4A78010000B7.pas.ms.script' // Search
+ WL 'ME_4A78013D01CD' '4A78013D01CD.pas.ms.script' // View$For F1 and Monitorings
+ WL 'ME_4A7960CC03A4' '4A7960CC03A4.pas.ms.script' //  Panels
+ WL 'ME_4A8567F2039C' '4A8567F2039C.pas.ms.script' // SearchLite
+ WL 'ME_4A9FD48B02A5' '4A9FD48B02A5.pas.ms.script' // F1 Application Template
+ WL 'ME_4AB0C3C60310' '4AB0C3C60310.pas.ms.script' // Sys
+ WL 'ME_4B322B67038B' '4B322B67038B.pas.ms.script' // ext
+ WL 'ME_4B63155B0328' '4B63155B0328.pas.ms.script' // MDProcess$ForDelphi
+ WL 'ME_4DAF19F600C5' '4DAF19F600C5.pas.ms.script' // tfwScriptingInterfaces
+ WL 'ME_4E13416D0227' '4E13416D0227.pas.ms.script' // VCM$Visual
+ WL 'ME_4F3E3F5F0160' '4F3E3F5F0160.pas.ms.script' // PrimitiveWords
+ WL 'ME_4F69DF560034' '4F69DF560034.pas.ms.script' // ControlsProcessing
+ WL 'ME_4F7C1DF701C7' '4F7C1DF701C7.pas.ms.script' // View
+ WL 'ME_4F7C1E2803C5' '4F7C1E2803C5.pas.ms.script' // MainForm
+ WL 'ME_521C9DA50125' '521C9DA50125.pas.ms.script' // Application Resources
+ WL 'ME_542015B5012C' '542015B5012C.pas.ms.script' // PostingOrder
+ WL 'ME_547CC9D40158' '547CC9D40158.pas.ms.script' // VT$Panels
+ WL 'ME_54CF97B10370' '54CF97B10370.pas.ms.script' // ScriptEngine$Core
+ WL 'ME_54DB92A80279' '54DB92A80279.pas.ms.script' // ScriptEngine$RTLandVCL
+ WL 'ME_54DB92D203C9' '54DB92D203C9.pas.ms.script' // VCL bindings
+ WL 'ME_5527F81C020E' '5527F81C020E.pas.ms.script' // TypesRegistration
+ WL 'ME_55BA28CE0290' '55BA28CE0290.pas.ms.script' // tfwScriptingTypes
+ WL 'ME_55CCADD2013D' '55CCADD2013D.pas.ms.script' // ClassLikeMapping
+ WL 'ME_561F9F7D02A7' '561F9F7D02A7.pas.ms.script' // ScriptEngine
+ WL 'ME_562E251101C2' '562E251101C2.pas.ms.script' // Shared Delphi Rtl
+ )
+ ; // Depends
+ CONST "F1Like" 'undefined'
+ CONST "HelpFile" 'F1Prime'
+ CONST "UseNewGen" 'undefined'
+ CONST "needs second icon" true
+ : Generators
+ Seq: (
+ gen_intf.pas
+ gen_pas.script
+ gen_pas.script.runner
+ )
+ ; // Generators
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis'
+ CONST intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\Monitoring.dpr'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis'
+ CONST pas.script:Path 'shared\models\NewSchool\Scripts\4AA9032A002B.pas.ms.script'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\4AA9032A002B.pas.ms.script.runner'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant'
+
+ref; // ME_4AA9032A002B Monitoring

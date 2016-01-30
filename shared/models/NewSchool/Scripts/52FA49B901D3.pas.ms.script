@@ -29,8 +29,8 @@ ref; // ME_52FA5119002B P
  : Parent ME_52FA510700F0 // AssignFrom
  ;
  : Parameters
-   @ ( ME_52FA5119002B // P
- ) .SequenceCode.It
+   Seq: ( ME_52FA5119002B // P
+ )
  ; // Parameters
 
 ref; // ME_52FA511402C0 DoIt
@@ -46,8 +46,8 @@ ref; // ME_52FA511402C0 DoIt
  : Parent ME_52FA49DF00EF // TddTaskItem
  ;
  : Operations
-   @ ( ME_52FA511402C0 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_52FA511402C0 // DoIt
+ )
  ; // Operations
 
 ref; // ME_52FA510700F0 AssignFrom
@@ -73,8 +73,8 @@ ref; // ME_53B3D8E90286 aUserID
  : Parent ME_53B3D8A8011F // Create
  ;
  : Parameters
-   @ ( ME_53B3D8E90286 // aUserID
- ) .SequenceCode.It
+   Seq: ( ME_53B3D8E90286 // aUserID
+ )
  ; // Parameters
 
 ref; // ME_53B3D8B90342 DoIt
@@ -90,8 +90,8 @@ ref; // ME_53B3D8B90342 DoIt
  : Parent ME_52FA49DF00EF // TddTaskItem
  ;
  : Operations
-   @ ( ME_53B3D8B90342 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_53B3D8B90342 // DoIt
+ )
  ; // Operations
 
 ref; // ME_53B3D8A8011F Create
@@ -127,9 +127,9 @@ ref; // ME_53E481D90190 aIsPipe
  : Parent ME_53E481990243 // DoSaveTo
  ;
  : Parameters
-   @ ( ME_53E481D9017D // aStream
+   Seq: ( ME_53E481D9017D // aStream
  ME_53E481D90190 // aIsPipe
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_53E481B603E5 DoIt
@@ -145,8 +145,8 @@ ref; // ME_53E481B603E5 DoIt
  : Parent ME_52FA49DF00EF // TddTaskItem
  ;
  : Operations
-   @ ( ME_53E481B603E5 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_53E481B603E5 // DoIt
+ )
  ; // Operations
 
 ref; // ME_53E481990243 DoSaveTo
@@ -182,9 +182,9 @@ ref; // ME_53E481F000BE aIsPipe
  : Parent ME_53E481DF03D1 // DoLoadFrom
  ;
  : Parameters
-   @ ( ME_53E481F0008B // aStream
+   Seq: ( ME_53E481F0008B // aStream
  ME_53E481F000BE // aIsPipe
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_53E481ED0110 DoIt
@@ -200,8 +200,8 @@ ref; // ME_53E481ED0110 DoIt
  : Parent ME_52FA49DF00EF // TddTaskItem
  ;
  : Operations
-   @ ( ME_53E481ED0110 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_53E481ED0110 // DoIt
+ )
  ; // Operations
 
 ref; // ME_53E481DF03D1 DoLoadFrom
@@ -232,8 +232,8 @@ ref; // ME_53FB282502E5 DoIt
  : Parent ME_52FA49DF00EF // TddTaskItem
  ;
  : Operations
-   @ ( ME_53FB282502E5 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_53FB282502E5 // DoIt
+ )
  ; // Operations
 
 ref; // ME_53FB28170339 GetDescription
@@ -260,26 +260,32 @@ ref; // ME_5385C3D50087
  : Parent ME_52FA49C7022C // ddServerTask
  ;
  : Inherits
-   @ ( WL 'ME_53AC018900AE' '53C51B390355.pas.ms.script' // TddTaskItemPrim
- ) .SequenceCode.It
+   Seq: ( WL 'ME_53AC018900AE' '53C51B390355.pas.ms.script' // TddTaskItemPrim
+ )
  ; // Inherits
  : Operations
-   @ ( ME_52FA510700F0 // AssignFrom
+   Seq: ( ME_52FA510700F0 // AssignFrom
  ME_53B3D8A8011F // Create
  ME_53E481990243 // DoSaveTo
  ME_53E481DF03D1 // DoLoadFrom
  ME_53FB28170339 // GetDescription
- ) .SequenceCode.It
+ )
  ; // Operations
  : Dependencies
-   @ ( ME_5385C3D50087 // 
- ) .SequenceCode.It
+   Seq: ( ME_5385C3D50087 // 
+ )
  ; // Dependencies
  CONST "finished" false
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
+ CONST dfm:PathOnly '\common\components\rtl\Garant\cs'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\cs'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'ddTaskItem'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_52FA49DF00EF TddTaskItem
 
@@ -294,10 +300,16 @@ ref; // ME_52FA49DF00EF TddTaskItem
  : Parent ME_52FA49C7022C // ddServerTask
  ;
  : Inherits
-   @ ( ME_52FA49DF00EF // TddTaskItem
- ) .SequenceCode.It
+   Seq: ( ME_52FA49DF00EF // TddTaskItem
+ )
  ; // Inherits
  CONST "isClassRef" true
+ CONST dfm:PathOnly '\common\components\rtl\Garant\cs'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\cs'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'ddTaskClass'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_53170EB30071 TddTaskClass
 
@@ -306,6 +318,7 @@ FORWARD ME_53B3D9E702BA
 : ME_29B139F1A174
  CONST UID '29B139F1A174'
  CONST Name 'DoIt'
+ CONST IsSummoned true
  CONST Class class_Operation
  %SUMMARY 'Сигнатура метода RegisterTaskClass' ;
  CONST Visibility PublicAccess
@@ -326,8 +339,8 @@ ref; // ME_29B139F1A174 DoIt
  : Parent ME_52FA49C7022C // ddServerTask
  ;
  : Operations
-   @ ( ME_29B139F1A174 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_29B139F1A174 // DoIt
+ )
  ; // Operations
 
 ref; // ME_53B3D9E702BA RegisterTaskClass
@@ -356,26 +369,25 @@ ref; // ME_5384912F015B
  : Parent ME_52FA49B901D3 // ArchiClientServer
  ;
  : Operations
-   @ ( ME_53B3D9E702BA // RegisterTaskClass
- ) .SequenceCode.It
+   Seq: ( ME_53B3D9E702BA // RegisterTaskClass
+ )
  ; // Operations
  : Children
-   @ ( ME_52FA49DF00EF // TddTaskItem
+   Seq: ( ME_52FA49DF00EF // TddTaskItem
  ME_53170EB30071 // TddTaskClass
- ) .SequenceCode.It
+ )
  ; // Children
  : Dependencies
-   @ ( ME_5384912F015B // 
- ) .SequenceCode.It
+   Seq: ( ME_5384912F015B // 
+ )
  ; // Dependencies
  CONST "finished" false
  CONST "no hands" false
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\cs'
  CONST intf.pas:Path 'common\components\rtl\Garant\cs\NOT_FINISHED_ddServerTask.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\cs'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_52FA49C7022C ddServerTask
 
@@ -436,25 +448,27 @@ ref; // ME_53848EFC0066 Description
  : Parent ME_52FA49B901D3 // ArchiClientServer
  ;
  : Inherits
-   @ ( WL 'ME_49E7754802A9' '47913B47006E.pas.ms.script' // Tl3ProtoObject
- ) .SequenceCode.It
+   Seq: ( WL 'ME_49E7754802A9' '47913B47006E.pas.ms.script' // Tl3ProtoObject
+ )
  ; // Inherits
  : Attributes
-   @ ( ME_53848EB50145 // TaskType
+   Seq: ( ME_53848EB50145 // TaskType
  ME_53848EED02F5 // TaskClass
  ME_53848EFC0066 // Description
- ) .SequenceCode.It
+ )
  ; // Attributes
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\cs'
  CONST intf.pas:Path 'common\components\rtl\Garant\cs\ddTaskRecord.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\cs'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'ddTaskRecord'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'ddTaskRecord'
 
 ref; // ME_53848E1102DF TddTaskRecord
 
@@ -470,6 +484,11 @@ FORWARD ME_532046D302C2
  CONST Abstraction at_regular
  : Parent ME_532046D302C2 // csTaskTypes
  ;
+ CONST dfm:PathOnly '\common\components\rtl\Garant\cs'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\cs'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_532047060349 TcsTaskStatus
 
@@ -483,6 +502,11 @@ ref; // ME_532047060349 TcsTaskStatus
  CONST Abstraction at_regular
  : Parent ME_532046D302C2 // csTaskTypes
  ;
+ CONST dfm:PathOnly '\common\components\rtl\Garant\cs'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\cs'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_532047140237 TcsTaskType
 
@@ -496,6 +520,11 @@ ref; // ME_532047140237 TcsTaskType
  CONST Abstraction at_regular
  : Parent ME_532046D302C2 // csTaskTypes
  ;
+ CONST dfm:PathOnly '\common\components\rtl\Garant\cs'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\cs'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_532047210179 TcsFileRenameMode
 
@@ -510,9 +539,13 @@ ref; // ME_532047210179 TcsFileRenameMode
  : Parent ME_532046D302C2 // csTaskTypes
  ;
  : Inherits
-   @ ( ME_532047140237 // TcsTaskType
- ) .SequenceCode.It
+   Seq: ( ME_532047140237 // TcsTaskType
+ )
  ; // Inherits
+ CONST dfm:PathOnly '\common\components\rtl\Garant\cs'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\cs'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_532047380399 TcsTaskTypes
 
@@ -531,6 +564,7 @@ FORWARD ME_53C916400254
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value 0
 
 ref; // ME_53C9165900CE cs_arsSuccess
 
@@ -547,6 +581,7 @@ ref; // ME_53C9165900CE cs_arsSuccess
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value 1
 
 ref; // ME_53C91679014A cs_arsAborted
 
@@ -563,6 +598,7 @@ ref; // ME_53C91679014A cs_arsAborted
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value 2
 
 ref; // ME_53C916C10357 cs_arsGeneralError
 
@@ -580,6 +616,7 @@ ref; // ME_53C916C10357 cs_arsGeneralError
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value 3
 
 ref; // ME_53C916FC0126 cs_arsUtilityNotFound
 
@@ -596,6 +633,7 @@ ref; // ME_53C916FC0126 cs_arsUtilityNotFound
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value 4
 
 ref; // ME_53D770A201A1 cs_arsTaskUnregistered
 
@@ -610,14 +648,18 @@ ref; // ME_53D770A201A1 cs_arsTaskUnregistered
  : Parent ME_532046D302C2 // csTaskTypes
  ;
  : Attributes
-   @ ( ME_53C9165900CE // cs_arsSuccess
+   Seq: ( ME_53C9165900CE // cs_arsSuccess
  ME_53C91679014A // cs_arsAborted
  ME_53C916C10357 // cs_arsGeneralError
  ME_53C916FC0126 // cs_arsUtilityNotFound
  ME_53D770A201A1 // cs_arsTaskUnregistered
- ) .SequenceCode.It
+ )
  ; // Attributes
  CONST "spell names" false
+ CONST dfm:PathOnly '\common\components\rtl\Garant\cs'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\cs'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_53C916400254 TcsExecutionStatus
 
@@ -632,24 +674,23 @@ ref; // ME_53C916400254 TcsExecutionStatus
  : Parent ME_52FA49B901D3 // ArchiClientServer
  ;
  : Children
-   @ ( ME_532047060349 // TcsTaskStatus
+   Seq: ( ME_532047060349 // TcsTaskStatus
  ME_532047140237 // TcsTaskType
  ME_532047210179 // TcsFileRenameMode
  ME_532047380399 // TcsTaskTypes
- ) .SequenceCode.It
+ )
  ; // Children
  : Constants
-   @ ( ME_53C916400254 // TcsExecutionStatus
- ) .SequenceCode.It
+   Seq: ( ME_53C916400254 // TcsExecutionStatus
+ )
  ; // Constants
  CONST "finished" false
  CONST "no hands" false
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\cs'
  CONST intf.pas:Path 'common\components\rtl\Garant\cs\NOT_FINISHED_csTaskTypes.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\cs'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_532046D302C2 csTaskTypes
 
@@ -677,6 +718,7 @@ ref; // ME_53848F3B022B ItemType
  ;
  : Implementor ME_53848F0F027F // TddTaskRecordList
  ;
+ CONST OpKind opkind_Implemented
  CONST "ifdef" 'l3Items_NeedsAssignItem'
  CONST "ifndef" 'l3Items_NoSort'
 ref; // ME_47B2C42A0163_ME_53848F0F027F AssignItem
@@ -688,6 +730,7 @@ ref; // ME_47B2C42A0163_ME_53848F0F027F AssignItem
  ;
  : Implementor ME_53848F0F027F // TddTaskRecordList
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_47B99D4503A2_ME_53848F0F027F CompareExistingItems
 
 : ME_53848F0F027F
@@ -701,29 +744,31 @@ ref; // ME_47B99D4503A2_ME_53848F0F027F CompareExistingItems
  : Parent ME_52FA49B901D3 // ArchiClientServer
  ;
  : Inherits
-   @ ( WL 'ME_47B99E920196' '47913B47006E.pas.ms.script' // l3UncomparabeObjectRefList
+   Seq: ( WL 'ME_47B99E920196' '47913B47006E.pas.ms.script' // l3UncomparabeObjectRefList
  WL 'ME_4A54DD4E036F' '47913B47006E.pas.ms.script' // Tl3ProtoDataContainer
- ) .SequenceCode.It
+ )
  ; // Inherits
  : Attributes
-   @ ( ME_53848F3B022B // ItemType
- ) .SequenceCode.It
+   Seq: ( ME_53848F3B022B // ItemType
+ )
  ; // Attributes
  : Implemented
-   @ ( ME_47B2C42A0163_ME_53848F0F027F // AssignItem
+   Seq: ( ME_47B2C42A0163_ME_53848F0F027F // AssignItem
  ME_47B99D4503A2_ME_53848F0F027F // CompareExistingItems
- ) .SequenceCode.It
+ )
  ; // Implemented
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\cs'
  CONST intf.pas:Path 'common\components\rtl\Garant\cs\ddTaskRecordList.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\cs'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'ddTaskRecordList'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'ddTaskRecordList'
 
 ref; // ME_53848F0F027F TddTaskRecordList
 
@@ -774,9 +819,9 @@ ref; // ME_538490CB00DE aDescription
  : Target ME_53170EB30071 // TddTaskClass
  ;
  : Parameters
-   @ ( ME_538490CB00CC // aClassType
+   Seq: ( ME_538490CB00CC // aClassType
  ME_538490CB00DE // aDescription
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_538490B902AD DoIt
@@ -792,8 +837,8 @@ ref; // ME_538490B902AD DoIt
  : Parent ME_53848F4F00E4 // TddTaskClassManager
  ;
  : Operations
-   @ ( ME_538490B902AD // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_538490B902AD // DoIt
+ )
  ; // Operations
 
 ref; // ME_538490A701EF GetClass
@@ -839,10 +884,10 @@ ref; // ME_538491000022 aDescription
  : Parent ME_538490D80145 // RegisterClass
  ;
  : Parameters
-   @ ( ME_538490FF03E4 // aType
+   Seq: ( ME_538490FF03E4 // aType
  ME_53849100000F // aClass
  ME_538491000022 // aDescription
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_538490ED03DB DoIt
@@ -858,8 +903,8 @@ ref; // ME_538490ED03DB DoIt
  : Parent ME_53848F4F00E4 // TddTaskClassManager
  ;
  : Operations
-   @ ( ME_538490ED03DB // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_538490ED03DB // DoIt
+ )
  ; // Operations
 
 ref; // ME_538490D80145 RegisterClass
@@ -887,8 +932,8 @@ ref; // ME_5384912003D4 aTaskType
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
  : Parameters
-   @ ( ME_5384912003D4 // aTaskType
- ) .SequenceCode.It
+   Seq: ( ME_5384912003D4 // aTaskType
+ )
  ; // Parameters
 
 ref; // ME_5384911D006B DoIt
@@ -904,8 +949,8 @@ ref; // ME_5384911D006B DoIt
  : Parent ME_53848F4F00E4 // TddTaskClassManager
  ;
  : Operations
-   @ ( ME_5384911D006B // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_5384911D006B // DoIt
+ )
  ; // Operations
 
 ref; // ME_5384910E011E Registered
@@ -913,6 +958,7 @@ ref; // ME_5384910E011E Registered
 : ME_8489C2653986
  CONST UID '8489C2653986'
  CONST Name 'Exists'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_static::Operation ;
  %SUMMARY 'Проверяет создан экземпляр синглетона или нет' ;
@@ -922,6 +968,7 @@ ref; // ME_5384910E011E Registered
  ;
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
+ CONST extprop:pas:Value false
 
 ref; // ME_8489C2653986 Exists
 
@@ -954,6 +1001,7 @@ ref; // ME_5384915503CC
  ;
  : Implementor ME_53848F4F00E4 // TddTaskClassManager
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_479731C50290_ME_53848F4F00E4 Cleanup
 
 : ME_47A042E100E2_ME_53848F4F00E4
@@ -963,6 +1011,7 @@ ref; // ME_479731C50290_ME_53848F4F00E4 Cleanup
  ;
  : Implementor ME_53848F4F00E4 // TddTaskClassManager
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_47A042E100E2_ME_53848F4F00E4 InitFields
 
 : ME_53848F4F00E4
@@ -976,41 +1025,43 @@ ref; // ME_47A042E100E2_ME_53848F4F00E4 InitFields
  : Parent ME_52FA49B901D3 // ArchiClientServer
  ;
  : Inherits
-   @ ( WL 'ME_49E7754802A9' '47913B47006E.pas.ms.script' // Tl3ProtoObject
- ) .SequenceCode.It
+   Seq: ( WL 'ME_49E7754802A9' '47913B47006E.pas.ms.script' // Tl3ProtoObject
+ )
  ; // Inherits
  : Attributes
-   @ ( ME_53848F6802A9 // f_ClassList
- ) .SequenceCode.It
+   Seq: ( ME_53848F6802A9 // f_ClassList
+ )
  ; // Attributes
  : Operations
-   @ ( ME_538490A701EF // GetClass
+   Seq: ( ME_538490A701EF // GetClass
  ME_538490D80145 // RegisterClass
  ME_5384910E011E // Registered
  ME_8489C2653986 // Exists
- ) .SequenceCode.It
+ )
  ; // Operations
  : Overridden
-   @ ( ME_479731C50290_ME_53848F4F00E4 // Cleanup
+   Seq: ( ME_479731C50290_ME_53848F4F00E4 // Cleanup
  ME_47A042E100E2_ME_53848F4F00E4 // InitFields
- ) .SequenceCode.It
+ )
  ; // Overridden
  : Dependencies
-   @ ( ME_53848FAE0309 // 
+   Seq: ( ME_53848FAE0309 // 
  ME_5384915503CC // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
  CONST "singleton" true
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\cs'
  CONST intf.pas:Path 'common\components\rtl\Garant\cs\ddTaskClassManager.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\cs'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'ddTaskClassManager'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'ddTaskClassManager'
 
 ref; // ME_53848F4F00E4 TddTaskClassManager
 
@@ -1035,6 +1086,7 @@ FORWARD ME_54FE9A000180
 : ME_5E769E707226
  CONST UID '5E769E707226'
  CONST Name 'DoIt'
+ CONST IsSummoned true
  CONST Class class_Operation
  %SUMMARY 'Сигнатура метода InitClient' ;
  CONST Visibility PublicAccess
@@ -1099,6 +1151,17 @@ ref; // ME_552D0A100360
 
 ref; // ME_55D6E5E9028C 
 
+: ME_56A8841E0120
+ CONST UID '56A8841E0120'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_54FE9A000180 // InitClient
+ ;
+ : Target WL 'ME_56A86C020121' '56A86AF40350.pas.ms.script' // TcaDataProviderFactory
+ ;
+
+ref; // ME_56A8841E0120 
+
 : ME_54FE9A000180
  CONST UID '54FE9A000180'
  CONST Name 'InitClient'
@@ -1111,16 +1174,17 @@ ref; // ME_55D6E5E9028C
  : Parent ME_54FE99C90168 // TncsDataAccessServices
  ;
  : Operations
-   @ ( ME_5E769E707226 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_5E769E707226 // DoIt
+ )
  ; // Operations
  : Dependencies
-   @ ( ME_54FE9A14022C // 
+   Seq: ( ME_54FE9A14022C // 
  ME_54FE9A270134 // 
  ME_5507E74603BC // 
  ME_552D0A100360 // 
  ME_55D6E5E9028C // 
- ) .SequenceCode.It
+ ME_56A8841E0120 // 
+ )
  ; // Dependencies
 
 ref; // ME_54FE9A000180 InitClient
@@ -1130,6 +1194,7 @@ FORWARD ME_5502A9100004
 : ME_2583AE2A7D45
  CONST UID '2583AE2A7D45'
  CONST Name 'DoIt'
+ CONST IsSummoned true
  CONST Class class_Operation
  %SUMMARY 'Сигнатура метода InitServer' ;
  CONST Visibility PublicAccess
@@ -1183,14 +1248,14 @@ ref; // ME_552D0A15027E
  : Parent ME_54FE99C90168 // TncsDataAccessServices
  ;
  : Operations
-   @ ( ME_2583AE2A7D45 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_2583AE2A7D45 // DoIt
+ )
  ; // Operations
  : Dependencies
-   @ ( ME_5502A9200190 // 
+   Seq: ( ME_5502A9200190 // 
  ME_5507E7300391 // 
  ME_552D0A15027E // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
 
 ref; // ME_5502A9100004 InitServer
@@ -1198,6 +1263,7 @@ ref; // ME_5502A9100004 InitServer
 : ME_C4C1401D2A7C
  CONST UID 'C4C1401D2A7C'
  CONST Name 'Exists'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_static::Operation ;
  %SUMMARY 'Проверяет создан экземпляр синглетона или нет' ;
@@ -1207,6 +1273,7 @@ ref; // ME_5502A9100004 InitServer
  ;
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
+ CONST extprop:pas:Value false
 
 ref; // ME_C4C1401D2A7C Exists
 
@@ -1232,34 +1299,36 @@ ref; // ME_54FEA4AA0282
  : Parent ME_52FA49B901D3 // ArchiClientServer
  ;
  : Inherits
-   @ ( WL 'ME_49E7754802A9' '47913B47006E.pas.ms.script' // Tl3ProtoObject
- ) .SequenceCode.It
+   Seq: ( WL 'ME_49E7754802A9' '47913B47006E.pas.ms.script' // Tl3ProtoObject
+ )
  ; // Inherits
  : Attributes
-   @ ( ME_54FEA25D03B2 // f_InitCounter
- ) .SequenceCode.It
+   Seq: ( ME_54FEA25D03B2 // f_InitCounter
+ )
  ; // Attributes
  : Operations
-   @ ( ME_54FE9A000180 // InitClient
+   Seq: ( ME_54FE9A000180 // InitClient
  ME_5502A9100004 // InitServer
  ME_C4C1401D2A7C // Exists
- ) .SequenceCode.It
+ )
  ; // Operations
  : Dependencies
-   @ ( ME_54FEA4AA0282 // 
- ) .SequenceCode.It
+   Seq: ( ME_54FEA4AA0282 // 
+ )
  ; // Dependencies
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
  CONST "singleton" true
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\cs'
  CONST intf.pas:Path 'common\components\rtl\Garant\cs\ncsDataAccessServices.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\cs'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'ncsDataAccessServices'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'ncsDataAccessServices'
 
 ref; // ME_54FE99C90168 TncsDataAccessServices
 
@@ -1284,6 +1353,7 @@ FORWARD ME_551BB38C02D3
 : ME_9B220DD444F8
  CONST UID '9B220DD444F8'
  CONST Name 'DoIt'
+ CONST IsSummoned true
  CONST Class class_Operation
  %SUMMARY 'Сигнатура метода IntCreateProvider' ;
  CONST Visibility PublicAccess
@@ -1304,8 +1374,8 @@ ref; // ME_9B220DD444F8 DoIt
  : Parent ME_551BB2E70032 // TncsDefaultProviderHolder
  ;
  : Operations
-   @ ( ME_9B220DD444F8 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_9B220DD444F8 // DoIt
+ )
  ; // Operations
 
 ref; // ME_551BB38C02D3 IntCreateProvider
@@ -1315,6 +1385,7 @@ FORWARD ME_551BB3A3005E
 : ME_CEBA54852FFD
  CONST UID 'CEBA54852FFD'
  CONST Name 'DoIt'
+ CONST IsSummoned true
  CONST Class class_Operation
  %SUMMARY 'Сигнатура метода IntDoneProvider' ;
  CONST Visibility PublicAccess
@@ -1335,8 +1406,8 @@ ref; // ME_CEBA54852FFD DoIt
  : Parent ME_551BB2E70032 // TncsDefaultProviderHolder
  ;
  : Operations
-   @ ( ME_CEBA54852FFD // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_CEBA54852FFD // DoIt
+ )
  ; // Operations
 
 ref; // ME_551BB3A3005E IntDoneProvider
@@ -1368,6 +1439,7 @@ ref; // ME_551BB3440181 DoneProvider
 : ME_5FB8210EFE11
  CONST UID '5FB8210EFE11'
  CONST Name 'Exists'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_static::Operation ;
  %SUMMARY 'Проверяет создан экземпляр синглетона или нет' ;
@@ -1377,6 +1449,7 @@ ref; // ME_551BB3440181 DoneProvider
  ;
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
+ CONST extprop:pas:Value false
 
 ref; // ME_5FB8210EFE11 Exists
 
@@ -1431,6 +1504,7 @@ ref; // ME_551BCDD80338
  ;
  : Implementor ME_551BB2E70032 // TncsDefaultProviderHolder
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_479731C50290_ME_551BB2E70032 Cleanup
 
 : ME_47A042E100E2_ME_551BB2E70032
@@ -1440,6 +1514,7 @@ ref; // ME_479731C50290_ME_551BB2E70032 Cleanup
  ;
  : Implementor ME_551BB2E70032 // TncsDefaultProviderHolder
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_47A042E100E2_ME_551BB2E70032 InitFields
 
 : ME_551BB2E70032
@@ -1453,44 +1528,46 @@ ref; // ME_47A042E100E2_ME_551BB2E70032 InitFields
  : Parent ME_52FA49B901D3 // ArchiClientServer
  ;
  : Inherits
-   @ ( WL 'ME_49E7754802A9' '47913B47006E.pas.ms.script' // Tl3ProtoObject
- ) .SequenceCode.It
+   Seq: ( WL 'ME_49E7754802A9' '47913B47006E.pas.ms.script' // Tl3ProtoObject
+ )
  ; // Inherits
  : Attributes
-   @ ( ME_551BB37A02B1 // f_Provider
- ) .SequenceCode.It
+   Seq: ( ME_551BB37A02B1 // f_Provider
+ )
  ; // Attributes
  : Operations
-   @ ( ME_551BB38C02D3 // IntCreateProvider
+   Seq: ( ME_551BB38C02D3 // IntCreateProvider
  ME_551BB3A3005E // IntDoneProvider
  ME_551BB3090356 // CreateProvider
  ME_551BB3440181 // DoneProvider
  ME_5FB8210EFE11 // Exists
- ) .SequenceCode.It
+ )
  ; // Operations
  : Overridden
-   @ ( ME_479731C50290_ME_551BB2E70032 // Cleanup
+   Seq: ( ME_479731C50290_ME_551BB2E70032 // Cleanup
  ME_47A042E100E2_ME_551BB2E70032 // InitFields
- ) .SequenceCode.It
+ )
  ; // Overridden
  : Dependencies
-   @ ( ME_551BB3D80160 // 
+   Seq: ( ME_551BB3D80160 // 
  ME_551BB3E502A8 // 
  ME_551BB68E025F // 
  ME_551BCDD80338 // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
  CONST "singleton" true
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\cs'
  CONST intf.pas:Path 'common\components\rtl\Garant\cs\ncsDefaultProviderHolder.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\cs'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'ncsDefaultProviderHolder'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'ncsDefaultProviderHolder'
 
 ref; // ME_551BB2E70032 TncsDefaultProviderHolder
 
@@ -1504,17 +1581,17 @@ ref; // ME_551BB2E70032 TncsDefaultProviderHolder
  : Parent WL 'ME_52F8C27F01AB' '52F8C27F01AB.pas.ms.script' // cs
  ;
  : Children
-   @ ( ME_52FA49C7022C // ddServerTask
+   Seq: ( ME_52FA49C7022C // ddServerTask
  ME_53848E1102DF // TddTaskRecord
  ME_532046D302C2 // csTaskTypes
  ME_53848F0F027F // TddTaskRecordList
  ME_53848F4F00E4 // TddTaskClassManager
  ME_54FE99C90168 // TncsDataAccessServices
  ME_551BB2E70032 // TncsDefaultProviderHolder
- ) .SequenceCode.It
+ )
  ; // Children
  : Depends
-   @ ( WL 'ME_4678193C009C' '4678193C009C.pas.ms.script' // l3Types
+   Seq: ( WL 'ME_4678193C009C' '4678193C009C.pas.ms.script' // l3Types
  WL 'ME_47913B47006E' '47913B47006E.pas.ms.script' // l3CoreObjects
  WL 'ME_47BC51FE018B' '47BC51FE018B.pas.ms.script' // dt_Types
  WL 'ME_47ECB8BD00A8' '47ECB8BD00A8.pas.ms.script' // Generators
@@ -1531,15 +1608,14 @@ ref; // ME_551BB2E70032 TncsDefaultProviderHolder
  WL 'ME_54F9AF550087' '54F9AF550087.pas.ms.script' // Provider
  WL 'ME_552D07D0005E' '552D07D0005E.pas.ms.script' // DataScheme
  WL 'ME_55D6CF3B014B' '55D6CF3B014B.pas.ms.script' // Provider
- ) .SequenceCode.It
+ WL 'ME_56A86AF40350' '56A86AF40350.pas.ms.script' // Provider
+ )
  ; // Depends
- : Generators
- @ (
- gen_pas.script
- gen_pas.script.runner
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\cs'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\cs'
  CONST pas.script:Path 'shared\models\NewSchool\Scripts\52FA49B901D3.pas.ms.script'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
  CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\52FA49B901D3.pas.ms.script.runner'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_52FA49B901D3 ArchiClientServer

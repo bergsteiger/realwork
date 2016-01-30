@@ -1,0 +1,88 @@
+USES
+ params.ms.dict
+ axiom_push.ms.dict
+ core.ms.dict
+ ElementsRTTI.ms.dict
+ Generation.ms.dict
+;
+
+kind_NormalClass .
+
+STRING FUNCTION ValueToKey
+  ANY IN aValue
+ RULES
+  ( aValue IsString )
+   aValue
+  ( aValue IsArray )
+   ( 
+    aValue 
+    .map&gt; call.me
+    strings:Cat
+   )
+  (
+   ( aValue IsObj )
+   AND ( aValue Is class::TtfwWord )
+  ) 
+   ( 
+     VAR l_UID
+     aValue .UID &gt;&gt;&gt; l_UID
+     if ( l_UID IsNil ) then
+     begin
+      aValue pop:Word:Name 
+     end // ( l_UID Is Nil )
+     else
+      l_UID 
+   )
+  ( aValue IsIntf )
+   ERROR 'Невозможно построить ключ для интерфейса'
+  ( aValue IsObj )
+   ERROR 'Невозможно построить ключ для абстрактного объекта'
+  ( aValue IsBool )
+   ( aValue ToPrintable )
+  ( aValue IsInt )
+   ( aValue ToPrintable )  
+  ( aValue IsNil )
+   ''   
+  DEFAULT
+   ( aValue ToPrintable )
+ ; // RULES
+ &gt;&gt;&gt; Result
+; // ValueToKey
+
+: A
+ CONST UID 'xxxA'
+; // A
+
+: B
+ CONST UID 'xxxB'
+; // B
+
+: C
+; // C
+
+'a' ValueToKey .
+true ValueToKey .
+false ValueToKey .
+[ true ] ValueToKey .
+[ false ] ValueToKey .
+[ false true ] ValueToKey .
+[ true false ] ValueToKey .
+[ 'a' true false 'b' ] ValueToKey .
+@ A ValueToKey .
+@ B ValueToKey .
+[ @ A ] ValueToKey .
+[ @ B ] ValueToKey .
+[ @ A @ B ] ValueToKey .
+[ @ A [ @ B ] ] ValueToKey .
+[ [ @ A @ B ] ] ValueToKey .
+123 ValueToKey .
+kind_NormalClass ValueToKey .
+@ C ValueToKey .
+[empty] ValueToKey .
+[] ValueToKey .
+[ ] ValueToKey .
+@ () ValueToKey .
+@ ( ) ValueToKey .
+
+@ A .UID .
+@ B .UID .

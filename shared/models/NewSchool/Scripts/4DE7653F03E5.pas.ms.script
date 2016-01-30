@@ -1,0 +1,77 @@
+// Archi Insider Test Support 4DE7653F03E5 Library Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+: ME_4DE7653F03E5
+ CONST UID '4DE7653F03E5'
+ CONST Name 'Archi Insider Test Support'
+ CONST Class class_Category
+ : Stereotype st_Library ;
+ %SUMMARY 'Поддержка тестирования Архивариуса изнутри' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent WL 'ME_4E5B80A503AD' '4E5B80A503AD.pas.ms.script' // archi$TestSupport
+ ;
+ : Children
+   Seq: ( WL 'ME_4DE629810132' '4DE629810132.pas.ms.script' // Scripting
+ WL 'ME_5166AF3800B5' '5166AF3800B5.pas.ms.script' // EverestArchiWords
+ WL 'ME_4F5DA07B02CD' '4F5DA07B02CD.pas.ms.script' // EditorKeyWords
+ WL 'ME_4F6195640184' '4F6195640184.pas.ms.script' // CommonArchiWords
+ WL 'ME_4DE3425B01DA' '4DE3425B01DA.pas.ms.script' // ArchiScriptSupport
+ )
+ ; // Children
+ : Depends
+   Seq: ( WL 'ME_4677E16A022A' '4677E16A022A.pas.ms.script' // K2
+ WL 'ME_4677E18600C2' '4677E18600C2.pas.ms.script' // dd
+ WL 'ME_467A75D90346' '467A75D90346.pas.ms.script' // VT
+ WL 'ME_467A8734039C' '467A8734039C.pas.ms.script' // EVD
+ WL 'ME_4684F91300DD' '4684F91300DD.pas.ms.script' // Vcl
+ WL 'ME_469F3E37025A' '469F3E37025A.pas.ms.script' // Rtl
+ WL 'ME_472082480337' '472082480337.pas.ms.script' // m3
+ WL 'ME_4790B4F00236' '4790B4F00236.pas.ms.script' // AFW
+ WL 'ME_4790C3B8021E' '4790C3B8021E.pas.ms.script' // VCM
+ WL 'ME_4790D09A0378' '4790D09A0378.pas.ms.script' // L3
+ WL 'ME_4797632D0273' '4797632D0273.pas.ms.script' // Everest
+ WL 'ME_47BC4FCB0115' '47BC4FCB0115.pas.ms.script' // DT
+ WL 'ME_4ACDBBED0241' '4ACDBBED0241.pas.ms.script' // ImageEn
+ WL 'ME_4B2A0D4A006F' '4B2A0D4A006F.pas.ms.script' // DUnit
+ WL 'ME_4B2A10C40309' '4B2A10C40309.pas.ms.script' // DUnitTuning
+ WL 'ME_4DC3D1BC0060' '4DC3D1BC0060.pas.ms.script' // ScriptTestLibrary
+ WL 'ME_4DECDBE201FB' '4DECDBE201FB.pas.ms.script' // Dialogs
+ WL 'ME_4DFB490B0209' '4DFB490B0209.pas.ms.script' // Main
+ WL 'ME_4E13416D0227' '4E13416D0227.pas.ms.script' // VCM$Visual
+ WL 'ME_4E1F0EB100C4' '4E1F0EB100C4.pas.ms.script' // ScriptEngine
+ WL 'ME_4E25512D01C0' '4E25512D01C0.pas.ms.script' // Utils
+ WL 'ME_4E2EE37B0097' '4E2EE37B0097.pas.ms.script' // Everest$EditorUsers
+ WL 'ME_4E2F0E1B03BB' '4E2F0E1B03BB.pas.ms.script' // L3$Domain
+ WL 'ME_4F8D735200EE' '4F8D735200EE.pas.ms.script' // Frames
+ WL 'ME_5130499D0080' '5130499D0080.pas.ms.script' // DUnit Script Support
+ WL 'ME_528E3D990126' '528E3D990126.pas.ms.script' // L3$Component Info
+ WL 'ME_52F8C27F01AB' '52F8C27F01AB.pas.ms.script' // cs
+ WL 'ME_543244050044' '543244050044.pas.ms.script' // DA
+ WL 'ME_54CF97B10370' '54CF97B10370.pas.ms.script' // ScriptEngine$Core
+ WL 'ME_54DB92A80279' '54DB92A80279.pas.ms.script' // ScriptEngine$RTLandVCL
+ WL 'ME_54EC57FA0285' '54EC57FA0285.pas.ms.script' // ScriptEngine$VT
+ WL 'ME_54ECA252008F' '54ECA252008F.pas.ms.script' // ScriptEngine$Everest
+ )
+ ; // Depends
+ CONST "exec mode" 'concluded'
+ CONST "gui" 'prj'
+ CONST "ifndef" 'NoScripts'
+ CONST "is namespace" true
+ CONST "vendor" 'none'
+ : Generators
+ Seq: (
+ gen_pas.script
+ gen_pas.script.runner
+ )
+ ; // Generators
+ CONST dfm:PathOnly '\archi\source\projects\Archi\Archi_Insider_Test_Support'
+ CONST intf.pas:PathOnly '\archi\source\projects\Archi\Archi_Insider_Test_Support'
+ CONST pas.script:Path 'shared\models\NewSchool\Scripts\4DE7653F03E5.pas.ms.script'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\4DE7653F03E5.pas.ms.script.runner'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\archi\source\projects\Archi\Archi_Insider_Test_Support'
+
+ref; // ME_4DE7653F03E5 Archi Insider Test Support

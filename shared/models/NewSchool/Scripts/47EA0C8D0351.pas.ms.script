@@ -21,6 +21,7 @@ FORWARD ME_47EA0D5F0038
  CONST Value '''/'''
  : ValueType WL 'ME_4771179900D8' '4AB0C3C60310.pas.ms.script' // PChar
  ;
+ CONST extprop:pas:Value '''/'''
 
 ref; // ME_47EA0D860132 g_afwPathSep
 
@@ -35,19 +36,18 @@ ref; // ME_47EA0D860132 g_afwPathSep
  : Parent ME_47EA0C8D0351 // afwConsts
  ;
  : Attributes
-   @ ( ME_47EA0D860132 // g_afwPathSep
- ) .SequenceCode.It
+   Seq: ( ME_47EA0D860132 // g_afwPathSep
+ )
  ; // Attributes
  CONST "author" 'Морозов М.А.'
  CONST "no hands" true
  CONST "started" '23.06.2005 11:10'
  CONST "weak" true
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\AFW'
  CONST intf.pas:Path 'common\components\gui\Garant\AFW\afwConsts.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\AFW'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_47EA0D5F0038 afwConsts
 
@@ -61,21 +61,19 @@ ref; // ME_47EA0D5F0038 afwConsts
  : Parent WL 'ME_4790B4F00236' '4790B4F00236.pas.ms.script' // AFW
  ;
  : Children
-   @ ( ME_47EA0D5F0038 // afwConsts
- ) .SequenceCode.It
+   Seq: ( ME_47EA0D5F0038 // afwConsts
+ )
  ; // Children
  : Depends
-   @ ( WL 'ME_4AB0C3C60310' '4AB0C3C60310.pas.ms.script' // Sys
- ) .SequenceCode.It
+   Seq: ( WL 'ME_4AB0C3C60310' '4AB0C3C60310.pas.ms.script' // Sys
+ )
  ; // Depends
  CONST "is namespace" true
- : Generators
- @ (
- gen_pas.script
- gen_pas.script.runner
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\AFW'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\AFW'
  CONST pas.script:Path 'shared\models\NewSchool\Scripts\47EA0C8D0351.pas.ms.script'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
  CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\47EA0C8D0351.pas.ms.script.runner'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_47EA0C8D0351 afwConsts

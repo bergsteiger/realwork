@@ -1,0 +1,67 @@
+// GblAdapter 47397FF900B6 AdapterTargetUnion Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+: ME_47397FF900B6
+ CONST UID '47397FF900B6'
+ CONST Name 'GblAdapter'
+ CONST Class class_Category
+ : Stereotype st_AdapterTargetUnion ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent WL 'ME_442BEDF00290' '442BEDF00290.pas.ms.script' // garant6x
+ ;
+ : Depends
+   Seq: ( WL 'ME_47397F650051' '47397F650051.pas.ms.script' // GblAdapterServer
+ WL 'ME_4785DFB00230' '4785DFB00230.pas.ms.script' // GblAdapterClient
+ )
+ ; // Depends
+ CONST "CONFIG_UC" false
+ CONST "load strategy" 'static'
+ CONST "old format" false
+ : Generators
+ Seq: (
+ gen_cpp
+ gen_dll.h
+ gen_h
+ gen_intf.pas
+ gen_pas
+ gen_pas.script
+ gen_pas.script.runner
+ gen_s.reg
+ gen_vi.rc
+ gen_vi.rch
+ )
+ ; // Generators
+ CONST cpp:Path 'garant6x\implementation\Garant\GblAdapter\GblAdapter.cpp'
+ CONST cpp:PathOnly '\garant6x\implementation\Garant\GblAdapter'
+ CONST dfm:PathOnly '\garant6x\implementation\Garant'
+ CONST dll.cpp:PathOnly '\garant6x\implementation\Garant\GblAdapter'
+ CONST dll.h:Path 'garant6x\implementation\Garant\GblAdapter\GblAdapter_tie.h'
+ CONST dll.h:PathOnly '\garant6x\implementation\Garant\GblAdapter'
+ CONST fctr.cpp:PathOnly '\garant6x\implementation\Garant'
+ CONST fctr.h:PathOnly '\garant6x\implementation\Garant'
+ CONST h:Path 'garant6x\implementation\Garant\GblAdapter\GblAdapter.h'
+ CONST h:PathOnly '\garant6x\implementation\Garant\GblAdapter'
+ CONST i.h:PathOnly '\garant6x\implementation\Garant'
+ CONST intf.pas:Path 'garant6x\implementation\Garant\GblAdapter\GblAdapter.dpr'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GblAdapter'
+ CONST mpc:PathOnly '\garant6x\implementation\Garant\project'
+ CONST mpc2:PathOnly '\garant6x\implementation\Garant\project'
+ CONST pas:Path 'garant6x\implementation\Garant\GblAdapter\GblAdapter.pas'
+ CONST pas:PathOnly '\garant6x\implementation\Garant\GblAdapter'
+ CONST pas.script:Path 'shared\models\NewSchool\Scripts\47397FF900B6.pas.ms.script'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\47397FF900B6.pas.ms.script.runner'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc:PathOnly '\garant6x\implementation\Garant'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant'
+ CONST s.ini:PathOnly '\garant6x\implementation\Garant\project'
+ CONST s.reg:Path 'garant6x\implementation\Garant\project\GblAdapter_init_regestry.reg'
+ CONST s.reg:PathOnly '\garant6x\implementation\Garant\project'
+ CONST vi.rc:Path 'garant6x\implementation\Garant\GblAdapter\GblAdapter_vi.rc'
+ CONST vi.rc:PathOnly '\garant6x\implementation\Garant\GblAdapter'
+ CONST vi.rch:Path 'garant6x\implementation\Garant\GblAdapter\GblAdapter_vi.rch'
+ CONST vi.rch:PathOnly '\garant6x\implementation\Garant\GblAdapter'
+
+ref; // ME_47397FF900B6 GblAdapter

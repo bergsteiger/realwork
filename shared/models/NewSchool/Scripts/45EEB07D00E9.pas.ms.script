@@ -1,0 +1,487 @@
+// DocTree_i 45EEB07D00E9 Impl Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_45EEB07D00E9
+
+FORWARD ME_466016AA008C
+
+: ME_4660172402EE
+ CONST UID '4660172402EE'
+ CONST Name 'NodeType_'
+ CONST Class class_Attribute
+ : Stereotype st_template::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_lnk
+ : Parent ME_466016AA008C // PrefixTree
+ ;
+
+ref; // ME_4660172402EE NodeType_
+
+: ME_4660174101C5
+ CONST UID '4660174101C5'
+ CONST Name 'NodeDelegateType_'
+ CONST Class class_Attribute
+ : Stereotype st_template::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_lnk
+ : Parent ME_466016AA008C // PrefixTree
+ ;
+
+ref; // ME_4660174101C5 NodeDelegateType_
+
+: ME_4660176F02AF
+ CONST UID '4660176F02AF'
+ CONST Name 'tree'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+
+ref; // ME_4660176F02AF tree
+
+: ME_4660175E035B
+ CONST UID '4660175E035B'
+ CONST Name 'make'
+ CONST Class class_Operation
+ : Stereotype st_ctor::Operation ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_466016AA008C // PrefixTree
+ ;
+ : Parameters
+   Seq: ( ME_4660176F02AF // tree
+ )
+ ; // Parameters
+
+ref; // ME_4660175E035B make
+
+: ME_46FCE76902BF
+ CONST UID '46FCE76902BF'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_466016AA008C // PrefixTree
+ ;
+ : Target WL 'ME_460A6EF8024B' '460BAAA30119.pas.ms.script' // ApplicationHelper
+ ;
+
+ref; // ME_46FCE76902BF 
+
+: ME_4896EDD30285
+ CONST UID '4896EDD30285'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_466016AA008C // PrefixTree
+ ;
+
+ref; // ME_4896EDD30285 
+
+: ME_466016AA008C
+ CONST UID '466016AA008C'
+ CONST Name 'PrefixTree'
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ : Parent ME_45EEB07D00E9 // DocTree_i
+ ;
+ : Implements
+   Seq: ( WL 'ME_45F585F802AF' '45EEA4490239.pas.ms.script' // Tree
+ )
+ ; // Implements
+ : Attributes
+   Seq: ( ME_4660172402EE // NodeType_
+ ME_4660174101C5 // NodeDelegateType_
+ )
+ ; // Attributes
+ : Operations
+   Seq: ( ME_4660175E035B // make
+ )
+ ; // Operations
+ : Dependencies
+   Seq: ( ME_46FCE76902BF // 
+ ME_4896EDD30285 // 
+ )
+ ; // Dependencies
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ : Generators
+ Seq: (
+ gen_cpp
+ gen_h
+ gen_intf.pas
+ )
+ ; // Generators
+ CONST cpp:Path 'garant6x\implementation\Garant\GblAdapterLib\impl\DocTree_i\PrefixTree.cpp'
+ CONST cpp:PathOnly '\garant6x\implementation\Garant\GblAdapterLib\impl\DocTree_i'
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GblAdapterLib'
+ CONST dll.cpp:PathOnly '\garant6x\implementation\Garant\GblAdapterLib'
+ CONST dll.h:PathOnly '\garant6x\implementation\Garant\GblAdapterLib'
+ CONST fctr.cpp:PathOnly '\garant6x\implementation\Garant\GblAdapterLib\impl\DocTree_i'
+ CONST fctr.h:PathOnly '\garant6x\implementation\Garant\GblAdapterLib\impl\DocTree_i'
+ CONST h:Path 'garant6x\implementation\Garant\GblAdapterLib\impl\DocTree_i\PrefixTree.h'
+ CONST h:PathOnly '\garant6x\implementation\Garant\GblAdapterLib\impl\DocTree_i'
+ CONST i.h:PathOnly '\garant6x\implementation\Garant\GblAdapterLib\impl\DocTree_i'
+ CONST intf.pas:Path 'garant6x\implementation\Garant\tie\Garant\GblAdapterLib\PrefixTree.pas'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\tie\Garant\GblAdapterLib'
+ CONST mpc:PathOnly '\garant6x\implementation\Garant\project'
+ CONST mpc2:PathOnly '\garant6x\implementation\Garant\project'
+ CONST pas:PathOnly '\garant6x\implementation\Garant\GblAdapterLib'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc:PathOnly '\garant6x\implementation\Garant\GblAdapterLib'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\GblAdapterLib'
+ CONST s.ini:PathOnly '\garant6x\implementation\Garant\project'
+ CONST s.reg:PathOnly '\garant6x\implementation\Garant\project'
+ CONST vi.rc:PathOnly '\garant6x\implementation\Garant'
+ CONST vi.rch:PathOnly '\garant6x\implementation\Garant'
+ CONST extprop:rc:isAcceptableForScripts true
+
+ref; // ME_466016AA008C PrefixTree
+
+FORWARD ME_4C778A2900FB
+
+: ME_4C778A6800F6
+ CONST UID '4C778A6800F6'
+ CONST Name 'NodeType_'
+ CONST Class class_Attribute
+ : Stereotype st_template::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_lnk
+ : Parent ME_4C778A2900FB // ContentsTree
+ ;
+
+ref; // ME_4C778A6800F6 NodeType_
+
+: ME_4C778AB00320
+ CONST UID '4C778AB00320'
+ CONST Name 'NodeDelegateType_'
+ CONST Class class_Attribute
+ : Stereotype st_template::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_lnk
+ : Parent ME_4C778A2900FB // ContentsTree
+ ;
+
+ref; // ME_4C778AB00320 NodeDelegateType_
+
+: ME_4C778AFB01F5
+ CONST UID '4C778AFB01F5'
+ CONST Name 'tree'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+
+ref; // ME_4C778AFB01F5 tree
+
+: ME_4C778AE80242
+ CONST UID '4C778AE80242'
+ CONST Name 'make'
+ CONST Class class_Operation
+ : Stereotype st_ctor::Operation ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_4C778A2900FB // ContentsTree
+ ;
+ : Parameters
+   Seq: ( ME_4C778AFB01F5 // tree
+ )
+ ; // Parameters
+
+ref; // ME_4C778AE80242 make
+
+: ME_4C77D0E20141
+ CONST UID '4C77D0E20141'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4C778A2900FB // ContentsTree
+ ;
+
+ref; // ME_4C77D0E20141 
+
+: ME_4C9CA69F0357
+ CONST UID '4C9CA69F0357'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4C778A2900FB // ContentsTree
+ ;
+
+ref; // ME_4C9CA69F0357 
+
+FORWARD ME_4CA06D4A0272
+
+: ME_4CA06D610151
+ CONST UID '4CA06D610151'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4C778A2900FB // ContentsTree
+ ;
+ : Target ME_4CA06D4A0272 // ContentsView
+ ;
+
+ref; // ME_4CA06D610151 
+
+: ME_460127E400EA_ME_4C778A2900FB
+ CONST UID '460127E400EA'
+ CONST Name 'alloc_new_view'
+ : Original WL 'ME_460127E400EA' '45EEA4490239.pas.ms.script' // alloc_new_view
+ ;
+ : Implementor ME_4C778A2900FB // ContentsTree
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_460127E400EA_ME_4C778A2900FB alloc_new_view
+
+: ME_4C778A2900FB
+ CONST UID '4C778A2900FB'
+ CONST Name 'ContentsTree'
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_45EEB07D00E9 // DocTree_i
+ ;
+ : Implements
+   Seq: ( WL 'ME_45F585F802AF' '45EEA4490239.pas.ms.script' // Tree
+ )
+ ; // Implements
+ : Attributes
+   Seq: ( ME_4C778A6800F6 // NodeType_
+ ME_4C778AB00320 // NodeDelegateType_
+ )
+ ; // Attributes
+ : Operations
+   Seq: ( ME_4C778AE80242 // make
+ )
+ ; // Operations
+ : Overridden
+   Seq: ( ME_460127E400EA_ME_4C778A2900FB // alloc_new_view
+ )
+ ; // Overridden
+ : Dependencies
+   Seq: ( ME_4C77D0E20141 // 
+ ME_4C9CA69F0357 // 
+ ME_4CA06D610151 // 
+ )
+ ; // Dependencies
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ : Generators
+ Seq: (
+ gen_cpp
+ gen_h
+ gen_intf.pas
+ )
+ ; // Generators
+ CONST cpp:Path 'garant6x\implementation\Garant\GblAdapterLib\impl\DocTree_i\ContentsTree.cpp'
+ CONST cpp:PathOnly '\garant6x\implementation\Garant\GblAdapterLib\impl\DocTree_i'
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GblAdapterLib'
+ CONST dll.cpp:PathOnly '\garant6x\implementation\Garant\GblAdapterLib'
+ CONST dll.h:PathOnly '\garant6x\implementation\Garant\GblAdapterLib'
+ CONST fctr.cpp:PathOnly '\garant6x\implementation\Garant\GblAdapterLib\impl\DocTree_i'
+ CONST fctr.h:PathOnly '\garant6x\implementation\Garant\GblAdapterLib\impl\DocTree_i'
+ CONST h:Path 'garant6x\implementation\Garant\GblAdapterLib\impl\DocTree_i\ContentsTree.h'
+ CONST h:PathOnly '\garant6x\implementation\Garant\GblAdapterLib\impl\DocTree_i'
+ CONST i.h:PathOnly '\garant6x\implementation\Garant\GblAdapterLib\impl\DocTree_i'
+ CONST intf.pas:Path 'garant6x\implementation\Garant\tie\Garant\GblAdapterLib\ContentsTree.pas'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\tie\Garant\GblAdapterLib'
+ CONST mpc:PathOnly '\garant6x\implementation\Garant\project'
+ CONST mpc2:PathOnly '\garant6x\implementation\Garant\project'
+ CONST pas:PathOnly '\garant6x\implementation\Garant\GblAdapterLib'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc:PathOnly '\garant6x\implementation\Garant\GblAdapterLib'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\GblAdapterLib'
+ CONST s.ini:PathOnly '\garant6x\implementation\Garant\project'
+ CONST s.reg:PathOnly '\garant6x\implementation\Garant\project'
+ CONST vi.rc:PathOnly '\garant6x\implementation\Garant'
+ CONST vi.rch:PathOnly '\garant6x\implementation\Garant'
+ CONST extprop:rc:isAcceptableForScripts true
+
+ref; // ME_4C778A2900FB ContentsTree
+
+: ME_4CA06DBA018E
+ CONST UID '4CA06DBA018E'
+ CONST Name 'NodeDelegateType_'
+ CONST Class class_Attribute
+ : Stereotype st_template::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_lnk
+ : Parent ME_4CA06D4A0272 // ContentsView
+ ;
+
+ref; // ME_4CA06DBA018E NodeDelegateType_
+
+: ME_4CA06E69018C
+ CONST UID '4CA06E69018C'
+ CONST Name 'make'
+ CONST Class class_Operation
+ : Stereotype st_ctor::Operation ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_4CA06D4A0272 // ContentsView
+ ;
+
+ref; // ME_4CA06E69018C make
+
+: ME_4CA06D9B027B
+ CONST UID '4CA06D9B027B'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4CA06D4A0272 // ContentsView
+ ;
+
+ref; // ME_4CA06D9B027B 
+
+: ME_46011F130203_ME_4CA06D4A0272
+ CONST UID '46011F130203'
+ CONST Name 'add_notifier'
+ : Original WL 'ME_46011F130203' '45EEA4490239.pas.ms.script' // add_notifier
+ ;
+ : Implementor ME_4CA06D4A0272 // ContentsView
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_46011F130203_ME_4CA06D4A0272 add_notifier
+
+: ME_460127E400EA_ME_4CA06D4A0272
+ CONST UID '460127E400EA'
+ CONST Name 'alloc_new_view'
+ : Original WL 'ME_460127E400EA' '45EEA4490239.pas.ms.script' // alloc_new_view
+ ;
+ : Implementor ME_4CA06D4A0272 // ContentsView
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_460127E400EA_ME_4CA06D4A0272 alloc_new_view
+
+: ME_4CA06D4A0272
+ CONST UID '4CA06D4A0272'
+ CONST Name 'ContentsView'
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_45EEB07D00E9 // DocTree_i
+ ;
+ : Implements
+   Seq: ( WL 'ME_45F6583E001F' '45EEA4490239.pas.ms.script' // View
+ )
+ ; // Implements
+ : Attributes
+   Seq: ( ME_4CA06DBA018E // NodeDelegateType_
+ )
+ ; // Attributes
+ : Operations
+   Seq: ( ME_4CA06E69018C // make
+ )
+ ; // Operations
+ : Overridden
+   Seq: ( ME_46011F130203_ME_4CA06D4A0272 // add_notifier
+ ME_460127E400EA_ME_4CA06D4A0272 // alloc_new_view
+ )
+ ; // Overridden
+ : Dependencies
+   Seq: ( ME_4CA06D9B027B // 
+ )
+ ; // Dependencies
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ : Generators
+ Seq: (
+ gen_cpp
+ gen_h
+ gen_intf.pas
+ )
+ ; // Generators
+ CONST cpp:Path 'garant6x\implementation\Garant\GblAdapterLib\impl\DocTree_i\ContentsView.cpp'
+ CONST cpp:PathOnly '\garant6x\implementation\Garant\GblAdapterLib\impl\DocTree_i'
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GblAdapterLib'
+ CONST dll.cpp:PathOnly '\garant6x\implementation\Garant\GblAdapterLib'
+ CONST dll.h:PathOnly '\garant6x\implementation\Garant\GblAdapterLib'
+ CONST fctr.cpp:PathOnly '\garant6x\implementation\Garant\GblAdapterLib\impl\DocTree_i'
+ CONST fctr.h:PathOnly '\garant6x\implementation\Garant\GblAdapterLib\impl\DocTree_i'
+ CONST h:Path 'garant6x\implementation\Garant\GblAdapterLib\impl\DocTree_i\ContentsView.h'
+ CONST h:PathOnly '\garant6x\implementation\Garant\GblAdapterLib\impl\DocTree_i'
+ CONST i.h:PathOnly '\garant6x\implementation\Garant\GblAdapterLib\impl\DocTree_i'
+ CONST intf.pas:Path 'garant6x\implementation\Garant\tie\Garant\GblAdapterLib\ContentsView.pas'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\tie\Garant\GblAdapterLib'
+ CONST mpc:PathOnly '\garant6x\implementation\Garant\project'
+ CONST mpc2:PathOnly '\garant6x\implementation\Garant\project'
+ CONST pas:PathOnly '\garant6x\implementation\Garant\GblAdapterLib'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc:PathOnly '\garant6x\implementation\Garant\GblAdapterLib'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\GblAdapterLib'
+ CONST s.ini:PathOnly '\garant6x\implementation\Garant\project'
+ CONST s.reg:PathOnly '\garant6x\implementation\Garant\project'
+ CONST vi.rc:PathOnly '\garant6x\implementation\Garant'
+ CONST vi.rch:PathOnly '\garant6x\implementation\Garant'
+ CONST extprop:rc:isAcceptableForScripts true
+
+ref; // ME_4CA06D4A0272 ContentsView
+
+: ME_45EEB07D00E9
+ CONST UID '45EEB07D00E9'
+ CONST Name 'DocTree_i'
+ CONST Class class_Category
+ : Stereotype st_Impl ;
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_regular
+ : Parent WL 'ME_456EA3D2031C' '456EA3D2031C.pas.ms.script' // GblAdapterLib
+ ;
+ : Children
+   Seq: ( ME_466016AA008C // PrefixTree
+ ME_4C778A2900FB // ContentsTree
+ ME_4CA06D4A0272 // ContentsView
+ )
+ ; // Children
+ : Depends
+   Seq: ( WL 'ME_4423F94903C8' '4423F94903C8.pas.ms.script' // IO
+ WL 'ME_457450470167' '457450470167.pas.ms.script' // DynamicTree
+ WL 'ME_45ED922F00A4' '45ED922F00A4.pas.ms.script' // ExternalObject
+ WL 'ME_45EEA4490239' '45EEA4490239.pas.ms.script' // DynamicTree_i
+ WL 'ME_45EEB07902AE' '45EEB07902AE.pas.ms.script' // DocTree
+ WL 'ME_45F12104037C' '45F12104037C.pas.ms.script' // PrefixTree_i
+ WL 'ME_460B8FB00186' '460B8FB00186.pas.ms.script' // Convertors
+ WL 'ME_460BAAA30119' '460BAAA30119.pas.ms.script' // ApplicationHelper
+ )
+ ; // Depends
+ : Generators
+ Seq: (
+ gen_pas.script
+ gen_pas.script.runner
+ )
+ ; // Generators
+ CONST cpp:PathOnly '\garant6x\implementation\Garant\GblAdapterLib\impl\DocTree_i'
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GblAdapterLib'
+ CONST dll.cpp:PathOnly '\garant6x\implementation\Garant\GblAdapterLib'
+ CONST dll.h:PathOnly '\garant6x\implementation\Garant\GblAdapterLib'
+ CONST fctr.cpp:PathOnly '\garant6x\implementation\Garant\GblAdapterLib\impl\DocTree_i'
+ CONST fctr.h:PathOnly '\garant6x\implementation\Garant\GblAdapterLib\impl\DocTree_i'
+ CONST h:PathOnly '\garant6x\implementation\Garant\GblAdapterLib\impl\DocTree_i'
+ CONST i.h:PathOnly '\garant6x\implementation\Garant\GblAdapterLib\impl\DocTree_i'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\tie\Garant\GblAdapterLib'
+ CONST mpc:PathOnly '\garant6x\implementation\Garant\project'
+ CONST mpc2:PathOnly '\garant6x\implementation\Garant\project'
+ CONST pas:PathOnly '\garant6x\implementation\Garant\GblAdapterLib'
+ CONST pas.script:Path 'shared\models\NewSchool\Scripts\45EEB07D00E9.pas.ms.script'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\45EEB07D00E9.pas.ms.script.runner'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc:PathOnly '\garant6x\implementation\Garant\GblAdapterLib'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\GblAdapterLib'
+ CONST s.ini:PathOnly '\garant6x\implementation\Garant\project'
+ CONST s.reg:PathOnly '\garant6x\implementation\Garant\project'
+ CONST vi.rc:PathOnly '\garant6x\implementation\Garant'
+ CONST vi.rch:PathOnly '\garant6x\implementation\Garant'
+
+ref; // ME_45EEB07D00E9 DocTree_i

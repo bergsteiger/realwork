@@ -16,6 +16,11 @@ FORWARD ME_4DCC11A10187
  CONST Abstraction at_final
  : Parent ME_4DCC11A10187 // TtfwValueList
  ;
+ CONST dfm:PathOnly '\common\components\rtl\Garant\ScriptEngine'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\ScriptEngine'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'Items_NoSort'
 
 ref; // ME_4DCC124401A5 l3Items_NoSort
 
@@ -90,27 +95,27 @@ ref; // ME_47A6FEE600FC_ME_4DCC11A10187 IsCacheable
  : Parent ME_54F0A4A302FF // Array
  ;
  : Inherits
-   @ ( WL 'ME_4A54DD4E036F' '47913B47006E.pas.ms.script' // Tl3ProtoDataContainer
+   Seq: ( WL 'ME_4A54DD4E036F' '47913B47006E.pas.ms.script' // Tl3ProtoDataContainer
  WL 'ME_4B223ADC02BF' '47913B47006E.pas.ms.script' // l3RecordListPrim
- ) .SequenceCode.It
+ )
  ; // Inherits
  : Attributes
-   @ ( ME_4DCC11E10193 // ItemType
- ) .SequenceCode.It
+   Seq: ( ME_4DCC11E10193 // ItemType
+ )
  ; // Attributes
  : Implemented
-   @ ( ME_47B07CF403D0_ME_4DCC11A10187 // IsSameItems
+   Seq: ( ME_47B07CF403D0_ME_4DCC11A10187 // IsSameItems
  ME_47B2C42A0163_ME_4DCC11A10187 // AssignItem
  ME_47B99D4503A2_ME_4DCC11A10187 // CompareExistingItems
- ) .SequenceCode.It
+ )
  ; // Implemented
  : Overridden
-   @ ( ME_47A6FEE600FC_ME_4DCC11A10187 // IsCacheable
- ) .SequenceCode.It
+   Seq: ( ME_47A6FEE600FC_ME_4DCC11A10187 // IsCacheable
+ )
  ; // Overridden
  : Children
-   @ ( ME_4DCC124401A5 // l3Items_NoSort
- ) .SequenceCode.It
+   Seq: ( ME_4DCC124401A5 // l3Items_NoSort
+ )
  ; // Children
  CONST "author" 'Люлин А.В.'
  CONST "needs InstanceR" 'undefined'
@@ -118,12 +123,14 @@ ref; // ME_47A6FEE600FC_ME_4DCC11A10187 IsCacheable
  CONST "no hands" true
  CONST "register in scripts" 'undefined'
  CONST "started" '12.05.2011 20:58'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\ScriptEngine'
  CONST intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\tfwValueList.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\ScriptEngine'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'Array'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'tfwValueList'
 
 ref; // ME_4DCC11A10187 TtfwValueList
 
@@ -153,8 +160,8 @@ ref; // ME_4DCC1E660097 DoIt
  : Parent ME_4DCC173A026C // TtfwArray
  ;
  : Operations
-   @ ( ME_4DCC1E660097 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_4DCC1E660097 // DoIt
+ )
  ; // Operations
 
 ref; // ME_4DCC1E58031B Create
@@ -164,6 +171,7 @@ FORWARD ME_4DCC1E770077
 : ME_84DA5BC10C79
  CONST UID '84DA5BC10C79'
  CONST Name 'DoIt'
+ CONST IsSummoned true
  CONST Class class_Operation
  %SUMMARY 'Сигнатура фабрики TtfwArray.Make' ;
  CONST Visibility PrivateAccess
@@ -186,16 +194,16 @@ ref; // ME_84DA5BC10C79 DoIt
  : Parent ME_4DCC173A026C // TtfwArray
  ;
  : Inherits
-   @ ( ME_4DCC1E58031B // Create
- ) .SequenceCode.It
+   Seq: ( ME_4DCC1E58031B // Create
+ )
  ; // Inherits
  : Implements
-   @ ( WL 'ME_4DCC12FC0125' '4DAF19F600C5.pas.ms.script' // ItfwValueList
- ) .SequenceCode.It
+   Seq: ( WL 'ME_4DCC12FC0125' '4DAF19F600C5.pas.ms.script' // ItfwValueList
+ )
  ; // Implements
  : Operations
-   @ ( ME_84DA5BC10C79 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_84DA5BC10C79 // DoIt
+ )
  ; // Operations
  CONST "check nil" false
  CONST "need AfterCreate" 'undefined'
@@ -341,20 +349,20 @@ ref; // ME_55E849210175_ME_4DCC173A026C ItemsCountInSlice
  : Parent ME_54F0A4A302FF // Array
  ;
  : Inherits
-   @ ( ME_4DCC11A10187 // TtfwValueList
- ) .SequenceCode.It
+   Seq: ( ME_4DCC11A10187 // TtfwValueList
+ )
  ; // Inherits
  : Implements
-   @ ( WL 'ME_4DCC12FC0125' '4DAF19F600C5.pas.ms.script' // ItfwValueList
- ) .SequenceCode.It
+   Seq: ( WL 'ME_4DCC12FC0125' '4DAF19F600C5.pas.ms.script' // ItfwValueList
+ )
  ; // Implements
  : Operations
-   @ ( ME_4DCC1E58031B // Create
+   Seq: ( ME_4DCC1E58031B // Create
  ME_4DCC1E770077 // Make
- ) .SequenceCode.It
+ )
  ; // Operations
  : Implemented
-   @ ( ME_47D8233603DD_ME_4DCC173A026C // First
+   Seq: ( ME_47D8233603DD_ME_4DCC173A026C // First
  ME_47D823570315_ME_4DCC173A026C // Last
  ME_47D8248802AD_ME_4DCC173A026C // Items
  ME_47E381E203D2_ME_4DCC173A026C // Empty
@@ -366,7 +374,7 @@ ref; // ME_55E849210175_ME_4DCC173A026C ItemsCountInSlice
  ME_52E23BB102FA_ME_4DCC173A026C // ForEachBack
  ME_55CDF40C03D4_ME_4DCC173A026C // SetItem
  ME_55E849210175_ME_4DCC173A026C // ItemsCountInSlice
- ) .SequenceCode.It
+ )
  ; // Implemented
  CONST "author" 'Люлин А.В.'
  CONST "needs InstanceR" 'undefined'
@@ -374,12 +382,14 @@ ref; // ME_55E849210175_ME_4DCC173A026C ItemsCountInSlice
  CONST "no hands" true
  CONST "register in scripts" 'undefined'
  CONST "started" '12.05.2011 21:22'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\ScriptEngine'
  CONST intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\tfwArray.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\ScriptEngine'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'Array'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'tfwArray'
 
 ref; // ME_4DCC173A026C TtfwArray
 
@@ -508,20 +518,20 @@ ref; // ME_47A6FEE600FC_ME_52E29ED5016B IsCacheable
  : Parent ME_54F0A4A302FF // Array
  ;
  : Inherits
-   @ ( WL 'ME_49E7754802A9' '47913B47006E.pas.ms.script' // Tl3ProtoObject
- ) .SequenceCode.It
+   Seq: ( WL 'ME_49E7754802A9' '47913B47006E.pas.ms.script' // Tl3ProtoObject
+ )
  ; // Inherits
  : Implements
-   @ ( WL 'ME_482955720131' '47D810610398.pas.ms.script' // Ml3ListEx
+   Seq: ( WL 'ME_482955720131' '47D810610398.pas.ms.script' // Ml3ListEx
  WL 'ME_52E2755700CD' '4DAF19F600C5.pas.ms.script' // MtfwValueList
- ) .SequenceCode.It
+ )
  ; // Implements
  : Attributes
-   @ ( ME_52E62F9003B0 // ItemType
- ) .SequenceCode.It
+   Seq: ( ME_52E62F9003B0 // ItemType
+ )
  ; // Attributes
  : Implemented
-   @ ( ME_47D8233603DD_ME_52E29ED5016B // First
+   Seq: ( ME_47D8233603DD_ME_52E29ED5016B // First
  ME_47D823570315_ME_52E29ED5016B // Last
  ME_47D8248802AD_ME_52E29ED5016B // Items
  ME_47E381E203D2_ME_52E29ED5016B // Empty
@@ -529,22 +539,24 @@ ref; // ME_47A6FEE600FC_ME_52E29ED5016B IsCacheable
  ME_482958A203D0_ME_52E29ED5016B // Add
  ME_4BB08B8902F2_ME_52E29ED5016B // Count
  ME_4F62FF5D0327_ME_52E29ED5016B // Clear
- ) .SequenceCode.It
+ )
  ; // Implemented
  : Overridden
-   @ ( ME_47A6FEE600FC_ME_52E29ED5016B // IsCacheable
- ) .SequenceCode.It
+   Seq: ( ME_47A6FEE600FC_ME_52E29ED5016B // IsCacheable
+ )
  ; // Overridden
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\ScriptEngine'
  CONST intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\tfwIteratableParent.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\ScriptEngine'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'IteratableParent'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'tfwIteratableParent'
 
 ref; // ME_52E29ED5016B TtfwIteratableParent
 
@@ -559,9 +571,13 @@ ref; // ME_52E29ED5016B TtfwIteratableParent
  : Parent ME_54F0A4A302FF // Array
  ;
  : Inherits
-   @ ( ME_52E29ED5016B // TtfwIteratableParent
- ) .SequenceCode.It
+   Seq: ( ME_52E29ED5016B // TtfwIteratableParent
+ )
  ; // Inherits
+ CONST dfm:PathOnly '\common\components\rtl\Garant\ScriptEngine'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\ScriptEngine'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_55E9A65B0186 MtfwIteratableParent
 
@@ -575,24 +591,22 @@ ref; // ME_55E9A65B0186 MtfwIteratableParent
  : Parent WL 'ME_54CF97B10370' '54CF97B10370.pas.ms.script' // ScriptEngine$Core
  ;
  : Children
-   @ ( ME_4DCC11A10187 // TtfwValueList
+   Seq: ( ME_4DCC11A10187 // TtfwValueList
  ME_4DCC173A026C // TtfwArray
  ME_52E29ED5016B // TtfwIteratableParent
  ME_55E9A65B0186 // MtfwIteratableParent
- ) .SequenceCode.It
+ )
  ; // Children
  : Depends
-   @ ( WL 'ME_47913B47006E' '47913B47006E.pas.ms.script' // l3CoreObjects
+   Seq: ( WL 'ME_47913B47006E' '47913B47006E.pas.ms.script' // l3CoreObjects
  WL 'ME_4DAF19F600C5' '4DAF19F600C5.pas.ms.script' // tfwScriptingInterfaces
- ) .SequenceCode.It
+ )
  ; // Depends
- : Generators
- @ (
- gen_pas.script
- gen_pas.script.runner
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\ScriptEngine'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\ScriptEngine'
  CONST pas.script:Path 'shared\models\NewSchool\Scripts\54F0A4A302FF.pas.ms.script'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
  CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\54F0A4A302FF.pas.ms.script.runner'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_54F0A4A302FF Array

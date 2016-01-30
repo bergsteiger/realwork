@@ -17,10 +17,15 @@ FORWARD ME_55B7A33101AF
  : Parent ME_55B7A33101AF // TtfwAxiomaticsResNameGetter
  ;
  : Inherits
-   @ ( ME_55B7A33101AF // TtfwAxiomaticsResNameGetter
- ) .SequenceCode.It
+   Seq: ( ME_55B7A33101AF // TtfwAxiomaticsResNameGetter
+ )
  ; // Inherits
  CONST "isClassRef" true
+ CONST dfm:PathOnly '\common\components\rtl\Garant\ScriptEngine'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\ScriptEngine'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_55B7B2D2039D RtfwAxiomaticsResNameGetter
 
@@ -50,8 +55,8 @@ ref; // ME_55B7A3C7002A DoIt
  : Parent ME_55B7A33101AF // TtfwAxiomaticsResNameGetter
  ;
  : Operations
-   @ ( ME_55B7A3C7002A // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_55B7A3C7002A // DoIt
+ )
  ; // Operations
  CONST "is static" true
 
@@ -81,8 +86,8 @@ ref; // ME_55B8C68B0388 DoIt
  : Parent ME_55B7A33101AF // TtfwAxiomaticsResNameGetter
  ;
  : Operations
-   @ ( ME_55B8C68B0388 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_55B8C68B0388 // DoIt
+ )
  ; // Operations
  CONST "is static" true
 
@@ -112,28 +117,30 @@ ref; // ME_55B8C673004C
  : Parent ME_55B7A3160128 // ScriptedAxiomatics
  ;
  : Operations
-   @ ( ME_55B7A3AF0359 // ResName
+   Seq: ( ME_55B7A3AF0359 // ResName
  ME_55B8C6800184 // Register
- ) .SequenceCode.It
+ )
  ; // Operations
  : Children
-   @ ( ME_55B7B2D2039D // RtfwAxiomaticsResNameGetter
- ) .SequenceCode.It
+   Seq: ( ME_55B7B2D2039D // RtfwAxiomaticsResNameGetter
+ )
  ; // Children
  : Dependencies
-   @ ( ME_55B8C673004C // 
- ) .SequenceCode.It
+   Seq: ( ME_55B8C673004C // 
+ )
  ; // Dependencies
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\ScriptEngine'
  CONST intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\tfwAxiomaticsResNameGetter.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\ScriptEngine'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'AxiomaticsResNameGetter'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'tfwAxiomaticsResNameGetter'
 
 ref; // ME_55B7A33101AF TtfwAxiomaticsResNameGetter
 
@@ -175,34 +182,37 @@ ref; // ME_47B99D4503A2_ME_55B7A37F010E CompareExistingItems
  : Parent ME_55B7A3160128 // ScriptedAxiomatics
  ;
  : Inherits
-   @ ( WL 'ME_47B992F60244' '47913B47006E.pas.ms.script' // l3UnrefcountedList
+   Seq: ( WL 'ME_47B992F60244' '47913B47006E.pas.ms.script' // l3UnrefcountedList
  WL 'ME_4A54DD4E036F' '47913B47006E.pas.ms.script' // Tl3ProtoDataContainer
- ) .SequenceCode.It
+ )
  ; // Inherits
  : Attributes
-   @ ( ME_55B7A38E028C // ItemType
- ) .SequenceCode.It
+   Seq: ( ME_55B7A38E028C // ItemType
+ )
  ; // Attributes
  : Implemented
-   @ ( ME_47B99D4503A2_ME_55B7A37F010E // CompareExistingItems
- ) .SequenceCode.It
+   Seq: ( ME_47B99D4503A2_ME_55B7A37F010E // CompareExistingItems
+ )
  ; // Implemented
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\ScriptEngine'
  CONST intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\tfwAxiomaticsResNameGetterList.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\ScriptEngine'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'AxiomaticsResNameGetterList'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'tfwAxiomaticsResNameGetterList'
 
 ref; // ME_55B7A37F010E TtfwAxiomaticsResNameGetterList
 
 : ME_0F75CE939091
  CONST UID '0F75CE939091'
  CONST Name 'Exists'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_static::Operation ;
  %SUMMARY 'Проверяет создан экземпляр синглетона или нет' ;
@@ -212,6 +222,7 @@ ref; // ME_55B7A37F010E TtfwAxiomaticsResNameGetterList
  ;
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
+ CONST extprop:pas:Value false
 
 ref; // ME_0F75CE939091 Exists
 
@@ -226,24 +237,26 @@ ref; // ME_0F75CE939091 Exists
  : Parent ME_55B7A3160128 // ScriptedAxiomatics
  ;
  : Inherits
-   @ ( ME_55B7A37F010E // TtfwAxiomaticsResNameGetterList
- ) .SequenceCode.It
+   Seq: ( ME_55B7A37F010E // TtfwAxiomaticsResNameGetterList
+ )
  ; // Inherits
  : Operations
-   @ ( ME_0F75CE939091 // Exists
- ) .SequenceCode.It
+   Seq: ( ME_0F75CE939091 // Exists
+ )
  ; // Operations
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
  CONST "singleton" true
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\ScriptEngine'
  CONST intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\tfwAxiomaticsResNameGetters.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\ScriptEngine'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'AxiomaticsResNameGetters'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'tfwAxiomaticsResNameGetters'
 
 ref; // ME_55B7A39F0035 TtfwAxiomaticsResNameGetters
 
@@ -252,6 +265,7 @@ FORWARD ME_55BA0CA0035A
 : ME_8614BE8B34F0
  CONST UID '8614BE8B34F0'
  CONST Name 'Exists'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_static::Operation ;
  %SUMMARY 'Проверяет создан экземпляр синглетона или нет' ;
@@ -261,6 +275,7 @@ FORWARD ME_55BA0CA0035A
  ;
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
+ CONST extprop:pas:Value false
 
 ref; // ME_8614BE8B34F0 Exists
 
@@ -275,24 +290,26 @@ ref; // ME_8614BE8B34F0 Exists
  : Parent ME_55B7A3160128 // ScriptedAxiomatics
  ;
  : Inherits
-   @ ( WL 'ME_4773DCE302FF' '47913B47006E.pas.ms.script' // Tl3StringList
- ) .SequenceCode.It
+   Seq: ( WL 'ME_4773DCE302FF' '47913B47006E.pas.ms.script' // Tl3StringList
+ )
  ; // Inherits
  : Operations
-   @ ( ME_8614BE8B34F0 // Exists
- ) .SequenceCode.It
+   Seq: ( ME_8614BE8B34F0 // Exists
+ )
  ; // Operations
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
  CONST "singleton" true
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\ScriptEngine'
  CONST intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\tfwCompiledAxiomaticsRes.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\ScriptEngine'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'CompiledAxiomaticsRes'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'tfwCompiledAxiomaticsRes'
 
 ref; // ME_55BA0CA0035A TtfwCompiledAxiomaticsRes
 
@@ -307,23 +324,21 @@ ref; // ME_55BA0CA0035A TtfwCompiledAxiomaticsRes
  : Parent WL 'ME_54CF97B10370' '54CF97B10370.pas.ms.script' // ScriptEngine$Core
  ;
  : Children
-   @ ( ME_55B7A33101AF // TtfwAxiomaticsResNameGetter
+   Seq: ( ME_55B7A33101AF // TtfwAxiomaticsResNameGetter
  ME_55B7A37F010E // TtfwAxiomaticsResNameGetterList
  ME_55B7A39F0035 // TtfwAxiomaticsResNameGetters
  ME_55BA0CA0035A // TtfwCompiledAxiomaticsRes
- ) .SequenceCode.It
+ )
  ; // Children
  : Depends
-   @ ( WL 'ME_47913B47006E' '47913B47006E.pas.ms.script' // l3CoreObjects
- ) .SequenceCode.It
+   Seq: ( WL 'ME_47913B47006E' '47913B47006E.pas.ms.script' // l3CoreObjects
+ )
  ; // Depends
- : Generators
- @ (
- gen_pas.script
- gen_pas.script.runner
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\ScriptEngine'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\ScriptEngine'
  CONST pas.script:Path 'shared\models\NewSchool\Scripts\55B7A3160128.pas.ms.script'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
  CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\55B7A3160128.pas.ms.script.runner'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_55B7A3160128 ScriptedAxiomatics

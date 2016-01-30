@@ -17,9 +17,14 @@ FORWARD ME_515992DE031D
  : Parent ME_515992DE031D // StackTest
  ;
  : Inherits
-   @ ( WL 'ME_51545EC402A3' '51545DDC0252.pas.ms.script' // ItemsHolder
- ) .SequenceCode.It
+   Seq: ( WL 'ME_51545EC402A3' '51545DDC0252.pas.ms.script' // ItemsHolder
+ )
  ; // Inherits
+ CONST dfm:PathOnly '\common\components\SandBox'
+ CONST intf.pas:PathOnly '\common\components\SandBox'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\common\components\SandBox'
 
 ref; // ME_515992FB03D5 TEtalonData
 
@@ -33,6 +38,11 @@ ref; // ME_515992FB03D5 TEtalonData
  CONST Abstraction at_abstract
  : Parent ME_515992DE031D // StackTest
  ;
+ CONST dfm:PathOnly '\common\components\SandBox'
+ CONST intf.pas:PathOnly '\common\components\SandBox'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\common\components\SandBox'
  CONST extprop:pas:TypeName '_StackType_'
 
 ref; // ME_5159933D023B StackType
@@ -63,10 +73,15 @@ ref; // ME_51599BBD0105
  : Parent ME_515992DE031D // StackTest
  ;
  : Attributes
-   @ ( ME_51599BBD0105 // 
- ) .SequenceCode.It
+   Seq: ( ME_51599BBD0105 // 
+ )
  ; // Attributes
  CONST "array type" 'open'
+ CONST dfm:PathOnly '\common\components\SandBox'
+ CONST intf.pas:PathOnly '\common\components\SandBox'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\common\components\SandBox'
 
 ref; // ME_51599B6E0153 EtalonData
 
@@ -109,8 +124,8 @@ ref; // ME_515993910266 DoIt
  : Parent ME_515992DE031D // StackTest
  ;
  : Operations
-   @ ( ME_515993910266 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_515993910266 // DoIt
+ )
  ; // Operations
 
 ref; // ME_5159938101A2 DoDoIt
@@ -141,8 +156,8 @@ ref; // ME_515993BC02B4 DoIt
  : Parent ME_515992DE031D // StackTest
  ;
  : Operations
-   @ ( ME_515993BC02B4 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_515993BC02B4 // DoIt
+ )
  ; // Operations
 
 ref; // ME_515993A0015B GetEtalonData
@@ -170,8 +185,8 @@ ref; // ME_51599C0101DC aData
  : Target ME_515992FB03D5 // TEtalonData
  ;
  : Parameters
-   @ ( ME_51599C0101DC // aData
- ) .SequenceCode.It
+   Seq: ( ME_51599C0101DC // aData
+ )
  ; // Parameters
 
 ref; // ME_51599BF20334 DoIt
@@ -188,8 +203,8 @@ ref; // ME_51599BF20334 DoIt
  : Parent ME_515992DE031D // StackTest
  ;
  : Operations
-   @ ( ME_51599BF20334 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_51599BF20334 // DoIt
+ )
  ; // Operations
 
 ref; // ME_51599BD5015F ArrayToEtalon
@@ -220,6 +235,7 @@ ref; // ME_515993E30114
 
 : ME_0E2C23111EB6
  CONST UID '0E2C23111EB6'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_515992DE031D // StackTest
@@ -240,42 +256,49 @@ ref; // ME_0E2C23111EB6
  : Parent ME_5159929F0022 // ContainersTestsPrim
  ;
  : Inherits
-   @ ( WL 'ME_4B2A0DDE028B' '4B2A0D6A0077.pas.ms.script' // TTestCase
- ) .SequenceCode.It
+   Seq: ( WL 'ME_4B2A0DDE028B' '4B2A0D6A0077.pas.ms.script' // TTestCase
+ )
  ; // Inherits
  : Attributes
-   @ ( ME_5159936100DC // StackType
- ) .SequenceCode.It
+   Seq: ( ME_5159936100DC // StackType
+ )
  ; // Attributes
  : Operations
-   @ ( ME_5159938101A2 // DoDoIt
+   Seq: ( ME_5159938101A2 // DoDoIt
  ME_515993A0015B // GetEtalonData
  ME_51599BD5015F // ArrayToEtalon
  ME_515996DE014C // DoIt
- ) .SequenceCode.It
+ )
  ; // Operations
  : Children
-   @ ( ME_515992FB03D5 // TEtalonData
+   Seq: ( ME_515992FB03D5 // TEtalonData
  ME_5159933D023B // StackType
  ME_51599B6E0153 // EtalonData
- ) .SequenceCode.It
+ )
  ; // Children
  : Dependencies
-   @ ( ME_515993E30114 // 
+   Seq: ( ME_515993E30114 // 
  ME_0E2C23111EB6 // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  CONST "needs InstanceR" false
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
  : Generators
- @ (
+ Seq: (
  gen_intf.pas
- ) .SequenceCode.It
+ )
  ; // Generators
+ CONST dfm:PathOnly '\common\components\SandBox'
  CONST intf.pas:Path 'common\components\SandBox\StackTest.imp.pas'
+ CONST intf.pas:PathOnly '\common\components\SandBox'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\common\components\SandBox'
  CONST extprop:pas:TypeName '_StackTest_'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'StackTest.imp'
 
 ref; // ME_515992DE031D StackTest
 
@@ -289,23 +312,28 @@ ref; // ME_515992DE031D StackTest
  : Parent WL 'ME_5155865B01B6' '5155865B01B6.pas.ms.script' // SandBoxTest
  ;
  : Children
-   @ ( ME_515992DE031D // StackTest
- ) .SequenceCode.It
+   Seq: ( ME_515992DE031D // StackTest
+ )
  ; // Children
  : Depends
-   @ ( WL 'ME_4AB0C3C60310' '4AB0C3C60310.pas.ms.script' // Sys
+   Seq: ( WL 'ME_4AB0C3C60310' '4AB0C3C60310.pas.ms.script' // Sys
  WL 'ME_4B2A0D6A0077' '4B2A0D6A0077.pas.ms.script' // Source
  WL 'ME_4B2A112B011A' '4B2A112B011A.pas.ms.script' // Source
  WL 'ME_51545DDC0252' '51545DDC0252.pas.ms.script' // Containers
- ) .SequenceCode.It
+ )
  ; // Depends
  : Generators
- @ (
+ Seq: (
  gen_pas.script
  gen_pas.script.runner
- ) .SequenceCode.It
+ )
  ; // Generators
+ CONST dfm:PathOnly '\common\components\SandBox'
+ CONST intf.pas:PathOnly '\common\components\SandBox'
  CONST pas.script:Path 'shared\models\NewSchool\Scripts\5159929F0022.pas.ms.script'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
  CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\5159929F0022.pas.ms.script.runner'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\common\components\SandBox'
 
 ref; // ME_5159929F0022 ContainersTestsPrim

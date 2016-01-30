@@ -1,0 +1,94 @@
+// alcuDeliveryInterfaces 5475AF76000C Interfaces Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_5475AF76000C
+
+FORWARD ME_5475AF890358
+
+: ME_5475AFB000C5
+ CONST UID '5475AFB000C5'
+ CONST Name 'aTask'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_52F8C2BF0110' '52F8C298005C.pas.ms.script' // TddProcessTask
+ ;
+
+ref; // ME_5475AFB000C5 aTask
+
+: ME_5475AFAA017A
+ CONST UID '5475AFAA017A'
+ CONST Name 'TaskDone'
+ CONST Class class_Operation
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_5475AF890358 // IalcuTaskFinisher
+ ;
+ : Parameters
+   Seq: ( ME_5475AFB000C5 // aTask
+ )
+ ; // Parameters
+
+ref; // ME_5475AFAA017A TaskDone
+
+: ME_5475AF890358
+ CONST UID '5475AF890358'
+ CONST GUID 'EEC123D4-2A14-46DA-A4B0-03904BB8751C'
+ CONST Name 'IalcuTaskFinisher'
+ CONST Class class_Class
+ : Stereotype st_Facet ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_5475AF76000C // alcuDeliveryInterfaces
+ ;
+ : Operations
+   Seq: ( ME_5475AFAA017A // TaskDone
+ )
+ ; // Operations
+ CONST dfm:PathOnly '\archi\source\projects\PipeInAuto\Tasks'
+ CONST intf.pas:PathOnly '\archi\source\projects\PipeInAuto\Tasks'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\archi\source\projects\PipeInAuto\Tasks'
+ CONST extprop:rc:SelfName 'alcuTaskFinisher'
+ CONST extprop:rc:isAcceptableForScripts true
+
+ref; // ME_5475AF890358 IalcuTaskFinisher
+
+: ME_5475AF76000C
+ CONST UID '5475AF76000C'
+ CONST Name 'alcuDeliveryInterfaces'
+ CONST Class class_Category
+ : Stereotype st_Interfaces ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent WL 'ME_52FA3D9502BD' '52FA3D9502BD.pas.ms.script' // Tasks
+ ;
+ : Children
+   Seq: ( ME_5475AF890358 // IalcuTaskFinisher
+ )
+ ; // Children
+ : Depends
+   Seq: ( WL 'ME_52F8C298005C' '52F8C298005C.pas.ms.script' // Tasks
+ )
+ ; // Depends
+ CONST "is namespace" true
+ CONST "no hands" false
+ : Generators
+ Seq: (
+ gen_intf.pas
+ gen_pas.script
+ gen_pas.script.runner
+ )
+ ; // Generators
+ CONST dfm:PathOnly '\archi\source\projects\PipeInAuto\Tasks'
+ CONST intf.pas:Path 'archi\source\projects\PipeInAuto\Tasks\alcuDeliveryInterfaces.pas'
+ CONST intf.pas:PathOnly '\archi\source\projects\PipeInAuto\Tasks'
+ CONST pas.script:Path 'shared\models\NewSchool\Scripts\5475AF76000C.pas.ms.script'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\5475AF76000C.pas.ms.script.runner'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\archi\source\projects\PipeInAuto\Tasks'
+
+ref; // ME_5475AF76000C alcuDeliveryInterfaces

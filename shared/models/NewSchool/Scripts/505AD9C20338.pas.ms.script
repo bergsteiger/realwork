@@ -11,6 +11,7 @@ FORWARD ME_9EE368A1435D
 : ME_198613660F32
  CONST UID '198613660F32'
  CONST Name 'RegAxiom'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Регистрация скриптованой аксиоматики' ;
@@ -28,12 +29,14 @@ ref; // ME_198613660F32 RegAxiom
  ;
  : Implementor ME_9EE368A1435D // TkwFiltersAndGeneratorsPackResNameGetter
  ;
+ CONST OpKind opkind_Implemented
  CONST "is static" true
 ref; // ME_55B7A3AF0359_ME_9EE368A1435D ResName
 
 : ME_9EE368A1435D
  CONST UID '9EE368A1435D'
  CONST Name 'TkwFiltersAndGeneratorsPackResNameGetter'
+ CONST IsSummoned true
  CONST Class class_Class
  : Stereotype st_SimpleClass ;
  CONST Kind kind_NormalClass
@@ -43,30 +46,39 @@ ref; // ME_55B7A3AF0359_ME_9EE368A1435D ResName
  : Parent ME_505AFAF6026B // kwFiltersAndGeneratorsPack
  ;
  : Inherits
-   @ ( WL 'ME_55B7A33101AF' '55B7A3160128.pas.ms.script' // TtfwAxiomaticsResNameGetter
- ) .SequenceCode.It
+   Seq: ( WL 'ME_55B7A33101AF' '55B7A3160128.pas.ms.script' // TtfwAxiomaticsResNameGetter
+ )
  ; // Inherits
  : Operations
-   @ ( ME_198613660F32 // RegAxiom
- ) .SequenceCode.It
+   Seq: ( ME_198613660F32 // RegAxiom
+ )
  ; // Operations
  : Implemented
-   @ ( ME_55B7A3AF0359_ME_9EE368A1435D // ResName
- ) .SequenceCode.It
+   Seq: ( ME_55B7A3AF0359_ME_9EE368A1435D // ResName
+ )
  ; // Implemented
  CONST "need UC" true
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
+ CONST dfm:PathOnly '\common\components\rtl\Garant\ScriptEngine'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\ScriptEngine'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'FiltersAndGeneratorsPackResNameGetter'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_9EE368A1435D TkwFiltersAndGeneratorsPackResNameGetter
+
+FORWARD ME_552BD7AD0110
 
 FORWARD ME_825779F5AD08
 
 : ME_9E008A71D7E7
  CONST UID '9E008A71D7E7'
  CONST Name 'aCtx'
+ CONST IsSummoned true
  CONST Class class_Parameter
  : Stereotype st_in ;
  : Target WL 'ME_4DB0091E033E' '4DAF19F600C5.pas.ms.script' // TtfwContext
@@ -77,6 +89,7 @@ ref; // ME_9E008A71D7E7 aCtx
 : ME_9E008A71D7E8
  CONST UID '9E008A71D7E8'
  CONST Name 'aTagGenerator'
+ CONST IsSummoned true
  CONST Class class_Parameter
  : Stereotype st_in ;
  : Target WL 'ME_4678160E01BE' '47913B47006E.pas.ms.script' // Ik2TagGenerator
@@ -87,6 +100,7 @@ ref; // ME_9E008A71D7E8 aTagGenerator
 : ME_9E008A71D7E9
  CONST UID '9E008A71D7E9'
  CONST Name 'aFileName'
+ CONST IsSummoned true
  CONST Class class_Parameter
  : Stereotype st_in ;
  : Target WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
@@ -97,6 +111,7 @@ ref; // ME_9E008A71D7E9 aFileName
 : ME_51B232178794
  CONST UID '51B232178794'
  CONST Name 'generators_Execute'
+ CONST IsSummoned true
  CONST Class class_Operation
  %SUMMARY 'Реализация слова скрипта generators:Execute' ;
  CONST Visibility PrivateAccess
@@ -104,10 +119,10 @@ ref; // ME_9E008A71D7E9 aFileName
  : Parent ME_825779F5AD08 // generators_Execute
  ;
  : Parameters
-   @ ( ME_9E008A71D7E7 // aCtx
+   Seq: ( ME_9E008A71D7E7 // aCtx
  ME_9E008A71D7E8 // aTagGenerator
  ME_9E008A71D7E9 // aFileName
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_51B232178794 generators_Execute
@@ -115,6 +130,7 @@ ref; // ME_51B232178794 generators_Execute
 : ME_298E00627EDA
  CONST UID '298E00627EDA'
  CONST Name 'Ini_Reg'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Регистрация generators_Execute' ;
@@ -127,6 +143,7 @@ ref; // ME_298E00627EDA Ini_Reg
 
 : ME_B4770784E353
  CONST UID 'B4770784E353'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_825779F5AD08 // generators_Execute
@@ -138,6 +155,7 @@ ref; // ME_B4770784E353
 
 : ME_FEB4D26E3E0E
  CONST UID 'FEB4D26E3E0E'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_825779F5AD08 // generators_Execute
@@ -149,6 +167,7 @@ ref; // ME_FEB4D26E3E0E
 
 : ME_5081FC449269
  CONST UID '5081FC449269'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_825779F5AD08 // generators_Execute
@@ -165,6 +184,7 @@ ref; // ME_5081FC449269
  ;
  : Implementor ME_825779F5AD08 // generators_Execute
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_4DAEEDE10285_ME_825779F5AD08 DoDoIt
 
 : ME_4DB0614603C8_ME_825779F5AD08
@@ -174,6 +194,7 @@ ref; // ME_4DAEEDE10285_ME_825779F5AD08 DoDoIt
  ;
  : Implementor ME_825779F5AD08 // generators_Execute
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4DB0614603C8_ME_825779F5AD08 GetWordNameForRegister
 
 : ME_551544E2001A_ME_825779F5AD08
@@ -183,6 +204,7 @@ ref; // ME_4DB0614603C8_ME_825779F5AD08 GetWordNameForRegister
  ;
  : Implementor ME_825779F5AD08 // generators_Execute
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_551544E2001A_ME_825779F5AD08 GetResultTypeInfo
 
 : ME_559687E6025A_ME_825779F5AD08
@@ -192,6 +214,7 @@ ref; // ME_551544E2001A_ME_825779F5AD08 GetResultTypeInfo
  ;
  : Implementor ME_825779F5AD08 // generators_Execute
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_559687E6025A_ME_825779F5AD08 GetAllParamsCount
 
 : ME_5617F4D00243_ME_825779F5AD08
@@ -201,11 +224,13 @@ ref; // ME_559687E6025A_ME_825779F5AD08 GetAllParamsCount
  ;
  : Implementor ME_825779F5AD08 // generators_Execute
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_5617F4D00243_ME_825779F5AD08 ParamsTypes
 
 : ME_825779F5AD08
  CONST UID '825779F5AD08'
  CONST Name 'generators_Execute'
+ CONST IsSummoned true
  CONST Class class_Class
  : Stereotype st_ScriptKeyword ;
  CONST Kind kind_NormalClass
@@ -215,45 +240,56 @@ ref; // ME_5617F4D00243_ME_825779F5AD08 ParamsTypes
  : Parent ME_505AFAF6026B // kwFiltersAndGeneratorsPack
  ;
  : Inherits
-   @ ( WL 'ME_55CCAE000335' '55CCADD2013D.pas.ms.script' // TtfwClassLike
- ) .SequenceCode.It
+   Seq: ( WL 'ME_55CCAE000335' '55CCADD2013D.pas.ms.script' // TtfwClassLike
+ )
  ; // Inherits
  : Operations
-   @ ( ME_51B232178794 // generators_Execute
+   Seq: ( ME_51B232178794 // generators_Execute
  ME_298E00627EDA // Ini_Reg
- ) .SequenceCode.It
+ )
  ; // Operations
  : Implemented
-   @ ( ME_4DAEEDE10285_ME_825779F5AD08 // DoDoIt
- ) .SequenceCode.It
+   Seq: ( ME_4DAEEDE10285_ME_825779F5AD08 // DoDoIt
+ )
  ; // Implemented
  : Overridden
-   @ ( ME_4DB0614603C8_ME_825779F5AD08 // GetWordNameForRegister
+   Seq: ( ME_4DB0614603C8_ME_825779F5AD08 // GetWordNameForRegister
  ME_551544E2001A_ME_825779F5AD08 // GetResultTypeInfo
  ME_559687E6025A_ME_825779F5AD08 // GetAllParamsCount
  ME_5617F4D00243_ME_825779F5AD08 // ParamsTypes
- ) .SequenceCode.It
+ )
  ; // Overridden
  : Dependencies
-   @ ( ME_B4770784E353 // 
+   Seq: ( ME_B4770784E353 // 
  ME_FEB4D26E3E0E // 
  ME_5081FC449269 // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  CONST "NameForScript" 'generators:Execute'
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
+ CONST dfm:PathOnly '\common\components\rtl\Garant\ScriptEngine'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\ScriptEngine'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
  CONST extprop:pas:TypeName 'TkwGeneratorsExecute'
+ CONST extprop:rc:SelfName 'GeneratorsExecute'
+ CONST extprop:rc:isAcceptableForScripts true
+ : SpelledFor ME_552BD7AD0110 // generators_Execute
+ ;
 
 ref; // ME_825779F5AD08 generators_Execute
+
+FORWARD ME_552BD8F60043
 
 FORWARD ME_E6DB290D23D7
 
 : ME_962EB13D21A0
  CONST UID '962EB13D21A0'
  CONST Name 'aCtx'
+ CONST IsSummoned true
  CONST Class class_Parameter
  : Stereotype st_in ;
  : Target WL 'ME_4DB0091E033E' '4DAF19F600C5.pas.ms.script' // TtfwContext
@@ -264,6 +300,7 @@ ref; // ME_962EB13D21A0 aCtx
 : ME_962EB13D21A1
  CONST UID '962EB13D21A1'
  CONST Name 'aTagGenerator'
+ CONST IsSummoned true
  CONST Class class_Parameter
  : Stereotype st_in ;
  : Target WL 'ME_4678160E01BE' '47913B47006E.pas.ms.script' // Ik2TagGenerator
@@ -274,6 +311,7 @@ ref; // ME_962EB13D21A1 aTagGenerator
 : ME_962EB13D21A2
  CONST UID '962EB13D21A2'
  CONST Name 'aGenHead'
+ CONST IsSummoned true
  CONST Class class_Parameter
  : Stereotype st_in ;
  : Target WL 'ME_4678160E01BE' '47913B47006E.pas.ms.script' // Ik2TagGenerator
@@ -284,6 +322,7 @@ ref; // ME_962EB13D21A2 aGenHead
 : ME_C44F9D8AB364
  CONST UID 'C44F9D8AB364'
  CONST Name 'generators_Link'
+ CONST IsSummoned true
  CONST Class class_Operation
  %SUMMARY 'Реализация слова скрипта generators:Link' ;
  CONST Visibility PrivateAccess
@@ -293,10 +332,10 @@ ref; // ME_962EB13D21A2 aGenHead
  : Target WL 'ME_4678160E01BE' '47913B47006E.pas.ms.script' // Ik2TagGenerator
  ;
  : Parameters
-   @ ( ME_962EB13D21A0 // aCtx
+   Seq: ( ME_962EB13D21A0 // aCtx
  ME_962EB13D21A1 // aTagGenerator
  ME_962EB13D21A2 // aGenHead
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_C44F9D8AB364 generators_Link
@@ -304,6 +343,7 @@ ref; // ME_C44F9D8AB364 generators_Link
 : ME_F0F091121372
  CONST UID 'F0F091121372'
  CONST Name 'Ini_Reg'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Регистрация generators_Link' ;
@@ -316,6 +356,7 @@ ref; // ME_F0F091121372 Ini_Reg
 
 : ME_63DC7249DCC1
  CONST UID '63DC7249DCC1'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_E6DB290D23D7 // generators_Link
@@ -327,6 +368,7 @@ ref; // ME_63DC7249DCC1
 
 : ME_5D1B461D094E
  CONST UID '5D1B461D094E'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_E6DB290D23D7 // generators_Link
@@ -338,6 +380,7 @@ ref; // ME_5D1B461D094E
 
 : ME_F1EC809573CF
  CONST UID 'F1EC809573CF'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_E6DB290D23D7 // generators_Link
@@ -354,6 +397,7 @@ ref; // ME_F1EC809573CF
  ;
  : Implementor ME_E6DB290D23D7 // generators_Link
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_4DAEEDE10285_ME_E6DB290D23D7 DoDoIt
 
 : ME_4DB0614603C8_ME_E6DB290D23D7
@@ -363,6 +407,7 @@ ref; // ME_4DAEEDE10285_ME_E6DB290D23D7 DoDoIt
  ;
  : Implementor ME_E6DB290D23D7 // generators_Link
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4DB0614603C8_ME_E6DB290D23D7 GetWordNameForRegister
 
 : ME_551544E2001A_ME_E6DB290D23D7
@@ -372,6 +417,7 @@ ref; // ME_4DB0614603C8_ME_E6DB290D23D7 GetWordNameForRegister
  ;
  : Implementor ME_E6DB290D23D7 // generators_Link
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_551544E2001A_ME_E6DB290D23D7 GetResultTypeInfo
 
 : ME_559687E6025A_ME_E6DB290D23D7
@@ -381,6 +427,7 @@ ref; // ME_551544E2001A_ME_E6DB290D23D7 GetResultTypeInfo
  ;
  : Implementor ME_E6DB290D23D7 // generators_Link
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_559687E6025A_ME_E6DB290D23D7 GetAllParamsCount
 
 : ME_5617F4D00243_ME_E6DB290D23D7
@@ -390,11 +437,13 @@ ref; // ME_559687E6025A_ME_E6DB290D23D7 GetAllParamsCount
  ;
  : Implementor ME_E6DB290D23D7 // generators_Link
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_5617F4D00243_ME_E6DB290D23D7 ParamsTypes
 
 : ME_E6DB290D23D7
  CONST UID 'E6DB290D23D7'
  CONST Name 'generators_Link'
+ CONST IsSummoned true
  CONST Class class_Class
  : Stereotype st_ScriptKeyword ;
  CONST Kind kind_NormalClass
@@ -404,37 +453,45 @@ ref; // ME_5617F4D00243_ME_E6DB290D23D7 ParamsTypes
  : Parent ME_505AFAF6026B // kwFiltersAndGeneratorsPack
  ;
  : Inherits
-   @ ( WL 'ME_55CCAE000335' '55CCADD2013D.pas.ms.script' // TtfwClassLike
- ) .SequenceCode.It
+   Seq: ( WL 'ME_55CCAE000335' '55CCADD2013D.pas.ms.script' // TtfwClassLike
+ )
  ; // Inherits
  : Operations
-   @ ( ME_C44F9D8AB364 // generators_Link
+   Seq: ( ME_C44F9D8AB364 // generators_Link
  ME_F0F091121372 // Ini_Reg
- ) .SequenceCode.It
+ )
  ; // Operations
  : Implemented
-   @ ( ME_4DAEEDE10285_ME_E6DB290D23D7 // DoDoIt
- ) .SequenceCode.It
+   Seq: ( ME_4DAEEDE10285_ME_E6DB290D23D7 // DoDoIt
+ )
  ; // Implemented
  : Overridden
-   @ ( ME_4DB0614603C8_ME_E6DB290D23D7 // GetWordNameForRegister
+   Seq: ( ME_4DB0614603C8_ME_E6DB290D23D7 // GetWordNameForRegister
  ME_551544E2001A_ME_E6DB290D23D7 // GetResultTypeInfo
  ME_559687E6025A_ME_E6DB290D23D7 // GetAllParamsCount
  ME_5617F4D00243_ME_E6DB290D23D7 // ParamsTypes
- ) .SequenceCode.It
+ )
  ; // Overridden
  : Dependencies
-   @ ( ME_63DC7249DCC1 // 
+   Seq: ( ME_63DC7249DCC1 // 
  ME_5D1B461D094E // 
  ME_F1EC809573CF // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  CONST "NameForScript" 'generators:Link'
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
+ CONST dfm:PathOnly '\common\components\rtl\Garant\ScriptEngine'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\ScriptEngine'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
  CONST extprop:pas:TypeName 'TkwGeneratorsLink'
+ CONST extprop:rc:SelfName 'GeneratorsLink'
+ CONST extprop:rc:isAcceptableForScripts true
+ : SpelledFor ME_552BD8F60043 // generators_Link
+ ;
 
 ref; // ME_E6DB290D23D7 generators_Link
 
@@ -459,12 +516,14 @@ ref; // ME_552BD7FA0110 aFileName
  : Parent ME_505AFAF6026B // kwFiltersAndGeneratorsPack
  ;
  : Parameters
-   @ ( ME_552BD7FA0110 // aFileName
- ) .SequenceCode.It
+   Seq: ( ME_552BD7FA0110 // aFileName
+ )
  ; // Parameters
  CONST "bind params" 'undefined'
  CONST "lvalue" 'undefined'
  CONST "mapped" 'undefined'
+ : Speller ME_825779F5AD08 // generators_Execute
+ ;
 
 ref; // ME_552BD7AD0110 generators_Execute
 
@@ -491,18 +550,21 @@ ref; // ME_552BD9280319 aGenHead
  : Target WL 'ME_4678160E01BE' '47913B47006E.pas.ms.script' // Ik2TagGenerator
  ;
  : Parameters
-   @ ( ME_552BD9280319 // aGenHead
- ) .SequenceCode.It
+   Seq: ( ME_552BD9280319 // aGenHead
+ )
  ; // Parameters
  CONST "bind params" 'undefined'
  CONST "lvalue" 'undefined'
  CONST "mapped" 'undefined'
+ : Speller ME_E6DB290D23D7 // generators_Link
+ ;
 
 ref; // ME_552BD8F60043 generators_Link
 
 : ME_D4EEAD0BBD60
  CONST UID 'D4EEAD0BBD60'
- CONST Name 'Reg_TtfwContext'
+ CONST Name 'Reg_Type_TtfwContext'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Регистрация типа TtfwContext' ;
@@ -510,12 +572,15 @@ ref; // ME_552BD8F60043 generators_Link
  CONST Abstraction at_final
  : Parent ME_505AFAF6026B // kwFiltersAndGeneratorsPack
  ;
+ : SpelledFor WL 'ME_4DB0091E033E' '4DAF19F600C5.pas.ms.script' // TtfwContext
+ ;
 
-ref; // ME_D4EEAD0BBD60 Reg_TtfwContext
+ref; // ME_D4EEAD0BBD60 Reg_Type_TtfwContext
 
 : ME_487CDE5ED4FC
  CONST UID '487CDE5ED4FC'
- CONST Name 'Reg_Ik2TagGenerator'
+ CONST Name 'Reg_Type_Ik2TagGenerator'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Регистрация типа Ik2TagGenerator' ;
@@ -523,12 +588,15 @@ ref; // ME_D4EEAD0BBD60 Reg_TtfwContext
  CONST Abstraction at_final
  : Parent ME_505AFAF6026B // kwFiltersAndGeneratorsPack
  ;
+ : SpelledFor WL 'ME_4678160E01BE' '47913B47006E.pas.ms.script' // Ik2TagGenerator
+ ;
 
-ref; // ME_487CDE5ED4FC Reg_Ik2TagGenerator
+ref; // ME_487CDE5ED4FC Reg_Type_Ik2TagGenerator
 
 : ME_801FC7BB6B1A
  CONST UID '801FC7BB6B1A'
- CONST Name 'Reg_String'
+ CONST Name 'Reg_Type_String'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Регистрация типа String' ;
@@ -536,8 +604,10 @@ ref; // ME_487CDE5ED4FC Reg_Ik2TagGenerator
  CONST Abstraction at_final
  : Parent ME_505AFAF6026B // kwFiltersAndGeneratorsPack
  ;
+ : SpelledFor WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
+ ;
 
-ref; // ME_801FC7BB6B1A Reg_String
+ref; // ME_801FC7BB6B1A Reg_Type_String
 
 : ME_552BE8F800BE
  CONST UID '552BE8F800BE'
@@ -574,6 +644,7 @@ ref; // ME_55701B1B00EB
 
 : ME_BAA0882E222E
  CONST UID 'BAA0882E222E'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_505AFAF6026B // kwFiltersAndGeneratorsPack
@@ -585,6 +656,7 @@ ref; // ME_BAA0882E222E
 
 : ME_DBE5DE848520
  CONST UID 'DBE5DE848520'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_injects::Dependency ;
  : Parent ME_505AFAF6026B // kwFiltersAndGeneratorsPack
@@ -596,6 +668,7 @@ ref; // ME_DBE5DE848520
 
 : ME_DF061B2482FA
  CONST UID 'DF061B2482FA'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_505AFAF6026B // kwFiltersAndGeneratorsPack
@@ -612,6 +685,7 @@ ref; // ME_DF061B2482FA
  ;
  : Implementor ME_505AFAF6026B // kwFiltersAndGeneratorsPack
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_469F83C300B2_ME_505AFAF6026B AddStringAtom
 
 : ME_469F84BB0023_ME_505AFAF6026B
@@ -621,6 +695,7 @@ ref; // ME_469F83C300B2_ME_505AFAF6026B AddStringAtom
  ;
  : Implementor ME_505AFAF6026B // kwFiltersAndGeneratorsPack
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_469F84BB0023_ME_505AFAF6026B AddStringAtom
 
 : ME_469F870C01B6_ME_505AFAF6026B
@@ -630,6 +705,7 @@ ref; // ME_469F84BB0023_ME_505AFAF6026B AddStringAtom
  ;
  : Implementor ME_505AFAF6026B // kwFiltersAndGeneratorsPack
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_469F870C01B6_ME_505AFAF6026B AddStreamAtom
 
 : ME_469F872B0124_ME_505AFAF6026B
@@ -639,6 +715,7 @@ ref; // ME_469F870C01B6_ME_505AFAF6026B AddStreamAtom
  ;
  : Implementor ME_505AFAF6026B // kwFiltersAndGeneratorsPack
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_469F872B0124_ME_505AFAF6026B AddTransparentAtom
 
 : ME_469F87470084_ME_505AFAF6026B
@@ -648,6 +725,7 @@ ref; // ME_469F872B0124_ME_505AFAF6026B AddTransparentAtom
  ;
  : Implementor ME_505AFAF6026B // kwFiltersAndGeneratorsPack
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_469F87470084_ME_505AFAF6026B AddIntegerAtom
 
 : ME_469F87D4002D_ME_505AFAF6026B
@@ -657,6 +735,7 @@ ref; // ME_469F87470084_ME_505AFAF6026B AddIntegerAtom
  ;
  : Implementor ME_505AFAF6026B // kwFiltersAndGeneratorsPack
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_469F87D4002D_ME_505AFAF6026B AddBoolAtom
 
 : ME_469F8818037E_ME_505AFAF6026B
@@ -666,6 +745,7 @@ ref; // ME_469F87D4002D_ME_505AFAF6026B AddBoolAtom
  ;
  : Implementor ME_505AFAF6026B // kwFiltersAndGeneratorsPack
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_469F8818037E_ME_505AFAF6026B AddAtom
 
 : ME_469F8B580244_ME_505AFAF6026B
@@ -675,6 +755,7 @@ ref; // ME_469F8818037E_ME_505AFAF6026B AddAtom
  ;
  : Implementor ME_505AFAF6026B // kwFiltersAndGeneratorsPack
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_469F8B580244_ME_505AFAF6026B AddAtomEx
 
 : ME_469F8B9E02C7_ME_505AFAF6026B
@@ -684,6 +765,7 @@ ref; // ME_469F8B580244_ME_505AFAF6026B AddAtomEx
  ;
  : Implementor ME_505AFAF6026B // kwFiltersAndGeneratorsPack
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_469F8B9E02C7_ME_505AFAF6026B Start
 
 : ME_469F8BBA01EB_ME_505AFAF6026B
@@ -693,6 +775,7 @@ ref; // ME_469F8B9E02C7_ME_505AFAF6026B Start
  ;
  : Implementor ME_505AFAF6026B // kwFiltersAndGeneratorsPack
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_469F8BBA01EB_ME_505AFAF6026B StartChild
 
 : ME_469F8BCC02D7_ME_505AFAF6026B
@@ -702,6 +785,7 @@ ref; // ME_469F8BBA01EB_ME_505AFAF6026B StartChild
  ;
  : Implementor ME_505AFAF6026B // kwFiltersAndGeneratorsPack
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_469F8BCC02D7_ME_505AFAF6026B StartDefaultChild
 
 : ME_469F8BF00166_ME_505AFAF6026B
@@ -711,6 +795,7 @@ ref; // ME_469F8BCC02D7_ME_505AFAF6026B StartDefaultChild
  ;
  : Implementor ME_505AFAF6026B // kwFiltersAndGeneratorsPack
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_469F8BF00166_ME_505AFAF6026B StartTag
 
 : ME_469F8C0A031C_ME_505AFAF6026B
@@ -720,6 +805,7 @@ ref; // ME_469F8BF00166_ME_505AFAF6026B StartTag
  ;
  : Implementor ME_505AFAF6026B // kwFiltersAndGeneratorsPack
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_469F8C0A031C_ME_505AFAF6026B Finish
 
 : ME_469F8C450231_ME_505AFAF6026B
@@ -729,6 +815,7 @@ ref; // ME_469F8C0A031C_ME_505AFAF6026B Finish
  ;
  : Implementor ME_505AFAF6026B // kwFiltersAndGeneratorsPack
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" true
 ref; // ME_469F8C450231_ME_505AFAF6026B CharsInLine
 
@@ -739,6 +826,7 @@ ref; // ME_469F8C450231_ME_505AFAF6026B CharsInLine
  ;
  : Implementor ME_505AFAF6026B // kwFiltersAndGeneratorsPack
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" true
 ref; // ME_469F8C6D01B6_ME_505AFAF6026B NextGenerator
 
@@ -749,6 +837,7 @@ ref; // ME_469F8C6D01B6_ME_505AFAF6026B NextGenerator
  ;
  : Implementor ME_505AFAF6026B // kwFiltersAndGeneratorsPack
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" true
 ref; // ME_469F8C8C02FB_ME_505AFAF6026B CurrentStartLevel
 
@@ -759,6 +848,7 @@ ref; // ME_469F8C8C02FB_ME_505AFAF6026B CurrentStartLevel
  ;
  : Implementor ME_505AFAF6026B // kwFiltersAndGeneratorsPack
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_469F956E01A6_ME_505AFAF6026B Rollback
 
 : ME_469F9589032C_ME_505AFAF6026B
@@ -768,6 +858,7 @@ ref; // ME_469F956E01A6_ME_505AFAF6026B Rollback
  ;
  : Implementor ME_505AFAF6026B // kwFiltersAndGeneratorsPack
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_469F9589032C_ME_505AFAF6026B Pixel2Char
 
 : ME_4C1B7F810123_ME_505AFAF6026B
@@ -777,6 +868,7 @@ ref; // ME_469F9589032C_ME_505AFAF6026B Pixel2Char
  ;
  : Implementor ME_505AFAF6026B // kwFiltersAndGeneratorsPack
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" false
 ref; // ME_4C1B7F810123_ME_505AFAF6026B CurrentVersion
 
@@ -787,6 +879,7 @@ ref; // ME_4C1B7F810123_ME_505AFAF6026B CurrentVersion
  ;
  : Implementor ME_505AFAF6026B // kwFiltersAndGeneratorsPack
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_4E31464A0116_ME_505AFAF6026B AddInt64Atom
 
 : ME_532AD07903C5_ME_505AFAF6026B
@@ -796,6 +889,7 @@ ref; // ME_4E31464A0116_ME_505AFAF6026B AddInt64Atom
  ;
  : Implementor ME_505AFAF6026B // kwFiltersAndGeneratorsPack
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_532AD07903C5_ME_505AFAF6026B Char2Pixel
 
 : ME_533C0C71011C_ME_505AFAF6026B
@@ -805,6 +899,7 @@ ref; // ME_532AD07903C5_ME_505AFAF6026B Char2Pixel
  ;
  : Implementor ME_505AFAF6026B // kwFiltersAndGeneratorsPack
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" true
 ref; // ME_533C0C71011C_ME_505AFAF6026B Context
 
@@ -819,19 +914,19 @@ ref; // ME_533C0C71011C_ME_505AFAF6026B Context
  : Parent ME_505AD9C20338 // FiltersAndGenerators
  ;
  : Inherits
-   @ ( WL 'ME_4678160E01BE' '47913B47006E.pas.ms.script' // Ik2TagGenerator
- ) .SequenceCode.It
+   Seq: ( WL 'ME_4678160E01BE' '47913B47006E.pas.ms.script' // Ik2TagGenerator
+ )
  ; // Inherits
  : Operations
-   @ ( ME_552BD7AD0110 // generators_Execute
+   Seq: ( ME_552BD7AD0110 // generators_Execute
  ME_552BD8F60043 // generators_Link
- ME_D4EEAD0BBD60 // Reg_TtfwContext
- ME_487CDE5ED4FC // Reg_Ik2TagGenerator
- ME_801FC7BB6B1A // Reg_String
- ) .SequenceCode.It
+ ME_D4EEAD0BBD60 // Reg_Type_TtfwContext
+ ME_487CDE5ED4FC // Reg_Type_Ik2TagGenerator
+ ME_801FC7BB6B1A // Reg_Type_String
+ )
  ; // Operations
  : Implemented
-   @ ( ME_469F83C300B2_ME_505AFAF6026B // AddStringAtom
+   Seq: ( ME_469F83C300B2_ME_505AFAF6026B // AddStringAtom
  ME_469F84BB0023_ME_505AFAF6026B // AddStringAtom
  ME_469F870C01B6_ME_505AFAF6026B // AddStreamAtom
  ME_469F872B0124_ME_505AFAF6026B // AddTransparentAtom
@@ -853,40 +948,34 @@ ref; // ME_533C0C71011C_ME_505AFAF6026B Context
  ME_4E31464A0116_ME_505AFAF6026B // AddInt64Atom
  ME_532AD07903C5_ME_505AFAF6026B // Char2Pixel
  ME_533C0C71011C_ME_505AFAF6026B // Context
- ) .SequenceCode.It
+ )
  ; // Implemented
  : Children
-   @ ( ME_9EE368A1435D // TkwFiltersAndGeneratorsPackResNameGetter
+   Seq: ( ME_9EE368A1435D // TkwFiltersAndGeneratorsPackResNameGetter
  ME_825779F5AD08 // generators_Execute
  ME_E6DB290D23D7 // generators_Link
- ) .SequenceCode.It
+ )
  ; // Children
  : Dependencies
-   @ ( ME_552BE8F800BE // 
+   Seq: ( ME_552BE8F800BE // 
  ME_55701B120158 // 
  ME_55701B1B00EB // 
  ME_BAA0882E222E // 
  ME_DBE5DE848520 // 
  ME_DF061B2482FA // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  CONST "ifndef" 'NoScripts'
  CONST "needs script" true
  CONST "no class name" true
  CONST "no hands" false
  CONST "no_pop" true
- : Generators
- @ (
- gen_intf.pas
- gen_rc.pas
- gen_rc.script.pas
- gen_res.cmd.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\ScriptEngine'
  CONST intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\kwFiltersAndGeneratorsPack.pas'
- CONST rc.pas:Path 'common\components\rtl\Garant\ScriptEngine\kwFiltersAndGeneratorsPack.rc'
- CONST rc.script.pas:Path 'common\components\rtl\Garant\ScriptEngine\kwFiltersAndGeneratorsPack.rc.script'
- CONST res.cmd.pas:Path 'common\components\rtl\Garant\ScriptEngine\kwFiltersAndGeneratorsPack.res.cmd'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\ScriptEngine'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'FiltersAndGeneratorsPack'
 
 ref; // ME_505AFAF6026B kwFiltersAndGeneratorsPack
 
@@ -900,11 +989,11 @@ ref; // ME_505AFAF6026B kwFiltersAndGeneratorsPack
  : Parent WL 'ME_552D08860307' '552D08860307.pas.ms.script' // ScriptEngine$EVD
  ;
  : Children
-   @ ( ME_505AFAF6026B // kwFiltersAndGeneratorsPack
- ) .SequenceCode.It
+   Seq: ( ME_505AFAF6026B // kwFiltersAndGeneratorsPack
+ )
  ; // Children
  : Depends
-   @ ( WL 'ME_4767743E00E5' '4767743E00E5.pas.ms.script' // TypInfo
+   Seq: ( WL 'ME_4767743E00E5' '4767743E00E5.pas.ms.script' // TypInfo
  WL 'ME_47913B47006E' '47913B47006E.pas.ms.script' // l3CoreObjects
  WL 'ME_47ECA80B000D' '47ECA80B000D.pas.ms.script' // Generators
  WL 'ME_47ECB8BD00A8' '47ECB8BD00A8.pas.ms.script' // Generators
@@ -916,16 +1005,14 @@ ref; // ME_505AFAF6026B kwFiltersAndGeneratorsPack
  WL 'ME_55B7A3160128' '55B7A3160128.pas.ms.script' // ScriptedAxiomatics
  WL 'ME_55BA28CE0290' '55BA28CE0290.pas.ms.script' // tfwScriptingTypes
  WL 'ME_55CCADD2013D' '55CCADD2013D.pas.ms.script' // ClassLikeMapping
- ) .SequenceCode.It
+ )
  ; // Depends
  CONST "ifndef" 'NoScripts'
- : Generators
- @ (
- gen_pas.script
- gen_pas.script.runner
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\ScriptEngine'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\ScriptEngine'
  CONST pas.script:Path 'shared\models\NewSchool\Scripts\505AD9C20338.pas.ms.script'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
  CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\505AD9C20338.pas.ms.script.runner'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_505AD9C20338 FiltersAndGenerators

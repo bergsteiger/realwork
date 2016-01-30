@@ -29,8 +29,8 @@ ref; // ME_47710AB0028D Intf
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
  : Parameters
-   @ ( ME_47710AB0028D // Intf
- ) .SequenceCode.It
+   Seq: ( ME_47710AB0028D // Intf
+ )
  ; // Parameters
 
 ref; // ME_47710AA400C2 DoIt
@@ -47,14 +47,18 @@ ref; // ME_47710AA400C2 DoIt
  : Parent ME_476BF10A0280 // l3Tree_TLB
  ;
  : Operations
-   @ ( ME_47710AA400C2 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_47710AA400C2 // DoIt
+ )
  ; // Operations
  : Forwarded
-   @ ( ME_476BF22B03E1 // Il3Node
- ) .SequenceCode.It
+   Seq: ( ME_476BF22B03E1 // Il3Node
+ )
  ; // Forwarded
  CONST "of object" false
+ CONST dfm:PathOnly '\common\components\rtl\Garant\L3'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\L3'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_47710A96025A Tl3NodeAction
 
@@ -232,8 +236,8 @@ ref; // ME_47710BC4011B aNode
  : Target ME_476BF22B03E1 // Il3Node
  ;
  : Parameters
-   @ ( ME_47710BC4011B // aNode
- ) .SequenceCode.It
+   Seq: ( ME_47710BC4011B // aNode
+ )
  ; // Parameters
 
 ref; // ME_47710BBE0052 InsertChild
@@ -269,9 +273,9 @@ ref; // ME_47710BD801F8 aNode
  : Target ME_476BF22B03E1 // Il3Node
  ;
  : Parameters
-   @ ( ME_47710BD801D2 // aNextChild
+   Seq: ( ME_47710BD801D2 // aNextChild
  ME_47710BD801F8 // aNode
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_47710BCC0099 InsertChildBefore
@@ -297,8 +301,8 @@ ref; // ME_47710BF60306 aChild
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
  : Parameters
-   @ ( ME_47710BF60306 // aChild
- ) .SequenceCode.It
+   Seq: ( ME_47710BF60306 // aChild
+ )
  ; // Parameters
 
 ref; // ME_47710BF103B7 IsAcceptChild
@@ -325,8 +329,8 @@ ref; // ME_47710C060164 aNum
  : Target ME_476BF22B03E1 // Il3Node
  ;
  : Parameters
-   @ ( ME_47710C060164 // aNum
- ) .SequenceCode.It
+   Seq: ( ME_47710C060164 // aNum
+ )
  ; // Parameters
 
 ref; // ME_47710BFD00A6 GetChildByNumber
@@ -353,8 +357,8 @@ ref; // ME_47710C190118 aNum
  : Target ME_476BF22B03E1 // Il3Node
  ;
  : Parameters
-   @ ( ME_47710C190118 // aNum
- ) .SequenceCode.It
+   Seq: ( ME_47710C190118 // aNum
+ )
  ; // Parameters
 
 ref; // ME_47710C0E00D9 GetNodeByNumber
@@ -369,6 +373,7 @@ ref; // ME_47710C0E00D9 GetNodeByNumber
  CONST Value false
  : ValueType WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
+ CONST extprop:pas:Value false
 
 ref; // ME_47710C25039E aOnlyOneLevel
 
@@ -384,8 +389,8 @@ ref; // ME_47710C25039E aOnlyOneLevel
  : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
  ;
  : Parameters
-   @ ( ME_47710C25039E // aOnlyOneLevel
- ) .SequenceCode.It
+   Seq: ( ME_47710C25039E // aOnlyOneLevel
+ )
  ; // Parameters
 
 ref; // ME_47710C1F0389 GetNumInParent
@@ -420,9 +425,9 @@ ref; // ME_47710C5300B7 aNode
  : Parent ME_476BF22B03E1 // Il3Node
  ;
  : Parameters
-   @ ( ME_47710C53007A // aOperation
+   Seq: ( ME_47710C53007A // aOperation
  ME_47710C5300B7 // aNode
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_47710C4A017A Notify
@@ -446,8 +451,8 @@ ref; // ME_47710C5B0342 aInc
  : Parent ME_476BF22B03E1 // Il3Node
  ;
  : Parameters
-   @ ( ME_47710C5B0342 // aInc
- ) .SequenceCode.It
+   Seq: ( ME_47710C5B0342 // aInc
+ )
  ; // Parameters
 
 ref; // ME_47710C5B0032 IncAllChildrenCount
@@ -486,8 +491,8 @@ ref; // ME_47710C92019B aDirection
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
  : Parameters
-   @ ( ME_47710C92019B // aDirection
- ) .SequenceCode.It
+   Seq: ( ME_47710C92019B // aDirection
+ )
  ; // Parameters
 
 ref; // ME_47710C8C007B Move
@@ -512,6 +517,7 @@ ref; // ME_47710CB403C0 Action
  CONST Value 0
  : ValueType WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
  ;
+ CONST extprop:pas:Value 0
 
 ref; // ME_47710CB5001F IterMode
 
@@ -525,6 +531,7 @@ ref; // ME_47710CB5001F IterMode
  CONST Value 'nil'
  : ValueType ME_476BF22B03E1 // Il3Node
  ;
+ CONST extprop:pas:Value 'nil'
 
 ref; // ME_47710CB50066 aFromNode
 
@@ -540,10 +547,10 @@ ref; // ME_47710CB50066 aFromNode
  : Target ME_476BF22B03E1 // Il3Node
  ;
  : Parameters
-   @ ( ME_47710CB403C0 // Action
+   Seq: ( ME_47710CB403C0 // Action
  ME_47710CB5001F // IterMode
  ME_47710CB50066 // aFromNode
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_47710C9F001E Iterate
@@ -568,6 +575,7 @@ ref; // ME_47710CD70089 Action
  CONST Value 0
  : ValueType WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
  ;
+ CONST extprop:pas:Value 0
 
 ref; // ME_47710CD700D4 IterMode
 
@@ -581,6 +589,7 @@ ref; // ME_47710CD700D4 IterMode
  CONST Value 'nil'
  : ValueType ME_476BF22B03E1 // Il3Node
  ;
+ CONST extprop:pas:Value 'nil'
 
 ref; // ME_47710CD70120 aFromNode
 
@@ -596,10 +605,10 @@ ref; // ME_47710CD70120 aFromNode
  : Target ME_476BF22B03E1 // Il3Node
  ;
  : Parameters
-   @ ( ME_47710CD70089 // Action
+   Seq: ( ME_47710CD70089 // Action
  ME_47710CD700D4 // IterMode
  ME_47710CD70120 // aFromNode
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_47710CC30122 IterateF
@@ -648,9 +657,9 @@ ref; // ME_47710DDB0162 aChildrenNode2
  : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
  ;
  : Parameters
-   @ ( ME_47710DDB010D // aChildrenNode1
+   Seq: ( ME_47710DDB010D // aChildrenNode1
  ME_47710DDB0162 // aChildrenNode2
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_47710DC10100 CompareChild
@@ -665,6 +674,7 @@ ref; // ME_47710DC10100 CompareChild
  CONST Value 'nil'
  : ValueType ME_476BF22B03E1 // Il3Node
  ;
+ CONST extprop:pas:Value 'nil'
 
 ref; // ME_47710DF10025 aChild
 
@@ -678,8 +688,8 @@ ref; // ME_47710DF10025 aChild
  : Parent ME_476BF22B03E1 // Il3Node
  ;
  : Parameters
-   @ ( ME_47710DF10025 // aChild
- ) .SequenceCode.It
+   Seq: ( ME_47710DF10025 // aChild
+ )
  ; // Parameters
 
 ref; // ME_47710DE4027E SortChilds
@@ -968,15 +978,15 @@ ref; // ME_4A5CC00B03D5_ME_476BF22B03E1 Changed
  : Parent ME_476BF10A0280 // l3Tree_TLB
  ;
  : Inherits
-   @ ( WL 'ME_468259900322' '4682595B0268.pas.ms.script' // Il3SimpleNode
- ) .SequenceCode.It
+   Seq: ( WL 'ME_468259900322' '4682595B0268.pas.ms.script' // Il3SimpleNode
+ )
  ; // Inherits
  : Implements
-   @ ( WL 'ME_54D8B06301D2' '47D810610398.pas.ms.script' // Ml3ChangingChanged
- ) .SequenceCode.It
+   Seq: ( WL 'ME_54D8B06301D2' '47D810610398.pas.ms.script' // Ml3ChangingChanged
+ )
  ; // Implements
  : Attributes
-   @ ( ME_47710E730361 // AllChildrenCount
+   Seq: ( ME_47710E730361 // AllChildrenCount
  ME_47710E8D018C // ChildSorted
  ME_47710E9D0055 // ChildSortedFromParent
  ME_47710EAD0211 // Flags
@@ -985,10 +995,10 @@ ref; // ME_4A5CC00B03D5_ME_476BF22B03E1 Changed
  ME_477110580184 // PrevNode
  ME_4771108100D0 // ParentNode
  ME_477110A2026C // ChildNode
- ) .SequenceCode.It
+ )
  ; // Attributes
  : Operations
-   @ ( ME_47710BBE0052 // InsertChild
+   Seq: ( ME_47710BBE0052 // InsertChild
  ME_47710BCC0099 // InsertChildBefore
  ME_47710BF103B7 // IsAcceptChild
  ME_47710BFD00A6 // GetChildByNumber
@@ -1004,10 +1014,10 @@ ref; // ME_4A5CC00B03D5_ME_476BF22B03E1 Changed
  ME_47710DC10100 // CompareChild
  ME_47710DE4027E // SortChilds
  ME_47710DF70238 // Sort
- ) .SequenceCode.It
+ )
  ; // Operations
  : Implemented
-   @ ( ME_47723CDB00A4_ME_476BF22B03E1 // IsFirst
+   Seq: ( ME_47723CDB00A4_ME_476BF22B03E1 // IsFirst
  ME_47723CFF0148_ME_476BF22B03E1 // IsLast
  ME_47723D0F0392_ME_476BF22B03E1 // HasChild
  ME_47723D1D03D6_ME_476BF22B03E1 // MaybeChild
@@ -1032,12 +1042,18 @@ ref; // ME_4A5CC00B03D5_ME_476BF22B03E1 Changed
  ME_47B5759A03C0_ME_476BF22B03E1 // Prev
  ME_4A5CBFFE0157_ME_476BF22B03E1 // Changing
  ME_4A5CC00B03D5_ME_476BF22B03E1 // Changed
- ) .SequenceCode.It
+ )
  ; // Implemented
  : Injected
-   @ ( WL 'ME_BBCEC417C53C' '53B52E99013D.pas.ms.script' // 
- ) .SequenceCode.It
+   Seq: ( WL 'ME_BBCEC417C53C' '53B52E99013D.pas.ms.script' // 
+ )
  ; // Injected
+ CONST dfm:PathOnly '\common\components\rtl\Garant\L3'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\L3'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'Node'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_476BF22B03E1 Il3Node
 
@@ -1594,15 +1610,15 @@ ref; // ME_4A5CC00B03D5_ME_4771111001F9 Changed
  : Parent ME_476BF10A0280 // l3Tree_TLB
  ;
  : Inherits
-   @ ( ME_476BF22B03E1 // Il3Node
- ) .SequenceCode.It
+   Seq: ( ME_476BF22B03E1 // Il3Node
+ )
  ; // Inherits
  : Implements
-   @ ( WL 'ME_46782E7F0307' '4677FBA70343.pas.ms.script' // Il3ChangeNotifier
- ) .SequenceCode.It
+   Seq: ( WL 'ME_46782E7F0307' '4677FBA70343.pas.ms.script' // Il3ChangeNotifier
+ )
  ; // Implements
  : Implemented
-   @ ( ME_46A44F6B035E_ME_4771111001F9 // Subscribe
+   Seq: ( ME_46A44F6B035E_ME_4771111001F9 // Subscribe
  ME_46A44FFE0143_ME_4771111001F9 // Unsubscribe
  ME_47710BBE0052_ME_4771111001F9 // InsertChild
  ME_47710BCC0099_ME_4771111001F9 // InsertChildBefore
@@ -1654,8 +1670,14 @@ ref; // ME_4A5CC00B03D5_ME_4771111001F9 Changed
  ME_47B5759A03C0_ME_4771111001F9 // Prev
  ME_4A5CBFFE0157_ME_4771111001F9 // Changing
  ME_4A5CC00B03D5_ME_4771111001F9 // Changed
- ) .SequenceCode.It
+ )
  ; // Implemented
+ CONST dfm:PathOnly '\common\components\rtl\Garant\L3'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\L3'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'RootNode'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_4771111001F9 Il3RootNode
 
@@ -1740,8 +1762,8 @@ ref; // ME_477119120245 Index
  : Target ME_476BF22B03E1 // Il3Node
  ;
  : Attributes
-   @ ( ME_477119120245 // Index
- ) .SequenceCode.It
+   Seq: ( ME_477119120245 // Index
+ )
  ; // Attributes
  CONST "pm" false
 
@@ -1777,8 +1799,8 @@ ref; // ME_4771195C03CA Node
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
  : Attributes
-   @ ( ME_4771195C03CA // Node
- ) .SequenceCode.It
+   Seq: ( ME_4771195C03CA // Node
+ )
  ; // Attributes
  CONST "pm" false
 
@@ -1814,8 +1836,8 @@ ref; // ME_47711C290371 Node
  : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
  ;
  : Attributes
-   @ ( ME_47711C290371 // Node
- ) .SequenceCode.It
+   Seq: ( ME_47711C290371 // Node
+ )
  ; // Attributes
  CONST "pm" false
 
@@ -1868,8 +1890,8 @@ ref; // ME_47711D0A0201 anIndex
  : Target WL 'ME_4771179900D8' '4AB0C3C60310.pas.ms.script' // PChar
  ;
  : Attributes
-   @ ( ME_47711D0A0201 // anIndex
- ) .SequenceCode.It
+   Seq: ( ME_47711D0A0201 // anIndex
+ )
  ; // Attributes
  CONST "pm" false
 
@@ -1896,8 +1918,8 @@ ref; // ME_4771115F03A0 aAbsIndex
  : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
  ;
  : Parameters
-   @ ( ME_4771115F03A0 // aAbsIndex
- ) .SequenceCode.It
+   Seq: ( ME_4771115F03A0 // aAbsIndex
+ )
  ; // Parameters
 
 ref; // ME_4771115902AA GetFlagsByAbsIndex
@@ -1931,9 +1953,9 @@ ref; // ME_4771117402AA aValue
  : Parent ME_476BF13201C4 // Il3Tree
  ;
  : Parameters
-   @ ( ME_47711174028B // aAbsIndex
+   Seq: ( ME_47711174028B // aAbsIndex
  ME_4771117402AA // aValue
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_4771117201D7 SetFlagsByAbsIndex
@@ -1959,8 +1981,8 @@ ref; // ME_4771117C0183 aAbsIndex
  : Target ME_476BF22B03E1 // Il3Node
  ;
  : Parameters
-   @ ( ME_4771117C0183 // aAbsIndex
- ) .SequenceCode.It
+   Seq: ( ME_4771117C0183 // aAbsIndex
+ )
  ; // Parameters
 
 ref; // ME_4771117B0132 GetNodeByAbsIndex
@@ -1986,8 +2008,8 @@ ref; // ME_477111860363 aCurNode
  : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
  ;
  : Parameters
-   @ ( ME_477111860363 // aCurNode
- ) .SequenceCode.It
+   Seq: ( ME_477111860363 // aCurNode
+ )
  ; // Parameters
 
 ref; // ME_477111820195 GetAbsIndex
@@ -2022,9 +2044,9 @@ ref; // ME_4771119B0047 aNode
  : Parent ME_476BF13201C4 // Il3Tree
  ;
  : Parameters
-   @ ( ME_4771119B0021 // aOperation
+   Seq: ( ME_4771119B0021 // aOperation
  ME_4771119B0047 // aNode
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_4771118F0051 Notify
@@ -2059,6 +2081,7 @@ ref; // ME_477111BA0048 Mode
  CONST Value false
  : ValueType WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
+ CONST extprop:pas:Value false
 
 ref; // ME_477111BA0071 aForceMode
 
@@ -2073,10 +2096,10 @@ ref; // ME_477111BA0071 aForceMode
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
  : Parameters
-   @ ( ME_477111BA001E // RNode
+   Seq: ( ME_477111BA001E // RNode
  ME_477111BA0048 // Mode
  ME_477111BA0071 // aForceMode
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_477111A90203 ChangeExpand
@@ -2112,9 +2135,9 @@ ref; // ME_4771120F02D2 aFlagMask
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
  : Parameters
-   @ ( ME_4771120F02A4 // aNode
+   Seq: ( ME_4771120F02A4 // aNode
  ME_4771120F02D2 // aFlagMask
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_47711208036F TestFlagMask
@@ -2150,9 +2173,9 @@ ref; // ME_4771122202BD aFlagMask
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
  : Parameters
-   @ ( ME_47711222028B // aAbsIndex
+   Seq: ( ME_47711222028B // aAbsIndex
  ME_4771122202BD // aFlagMask
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_477112160055 TestFlagMask
@@ -2196,10 +2219,10 @@ ref; // ME_4771124802C4 aMode
  : Parent ME_476BF13201C4 // Il3Tree
  ;
  : Parameters
-   @ ( ME_47711248025C // aAbsIndex
+   Seq: ( ME_47711248025C // aAbsIndex
  ME_477112480290 // aFlagMask
  ME_4771124802C4 // aMode
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_4771123B00BD SetFlagMask
@@ -2243,10 +2266,10 @@ ref; // ME_4771126A0060 aMode
  : Parent ME_476BF13201C4 // Il3Tree
  ;
  : Parameters
-   @ ( ME_4771126903D5 // aRNode
+   Seq: ( ME_4771126903D5 // aRNode
  ME_4771126A0025 // aFlagMask
  ME_4771126A0060 // aMode
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_4771125F0015 SetFlagMask
@@ -2273,8 +2296,8 @@ ref; // ME_4771129D0365 aCurNode
  : Target ME_476BF22B03E1 // Il3Node
  ;
  : Parameters
-   @ ( ME_4771129D0365 // aCurNode
- ) .SequenceCode.It
+   Seq: ( ME_4771129D0365 // aCurNode
+ )
  ; // Parameters
 
 ref; // ME_4771128D013D GetPrev
@@ -2299,6 +2322,7 @@ ref; // ME_4771130D016E Action
  CONST Value 0
  : ValueType WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
  ;
+ CONST extprop:pas:Value 0
 
 ref; // ME_4771130D01AB IterMode
 
@@ -2312,6 +2336,7 @@ ref; // ME_4771130D01AB IterMode
  CONST Value 'nil'
  : ValueType ME_476BF22B03E1 // Il3Node
  ;
+ CONST extprop:pas:Value 'nil'
 
 ref; // ME_4771130D01EA aSubRootNode
 
@@ -2325,6 +2350,7 @@ ref; // ME_4771130D01EA aSubRootNode
  CONST Value 'nil'
  : ValueType ME_476BF22B03E1 // Il3Node
  ;
+ CONST extprop:pas:Value 'nil'
 
 ref; // ME_4771130D0229 aFromNode
 
@@ -2340,11 +2366,11 @@ ref; // ME_4771130D0229 aFromNode
  : Target ME_476BF22B03E1 // Il3Node
  ;
  : Parameters
-   @ ( ME_4771130D016E // Action
+   Seq: ( ME_4771130D016E // Action
  ME_4771130D01AB // IterMode
  ME_4771130D01EA // aSubRootNode
  ME_4771130D0229 // aFromNode
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_477112F70265 IterateF
@@ -2379,9 +2405,9 @@ ref; // ME_4771137602B8 aCountView
  : Parent ME_476BF13201C4 // Il3Tree
  ;
  : Parameters
-   @ ( ME_477113760275 // aNode
+   Seq: ( ME_477113760275 // aNode
  ME_4771137602B8 // aCountView
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_477113440266 SetRootAndCountView
@@ -2415,9 +2441,9 @@ ref; // ME_47711389004E aFlags
  : Parent ME_476BF13201C4 // Il3Tree
  ;
  : Parameters
-   @ ( ME_477113890008 // aMode
+   Seq: ( ME_477113890008 // aMode
  ME_47711389004E // aFlags
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_4771138300B3 SetAllFlag
@@ -2452,6 +2478,7 @@ ref; // ME_477113B8031D aWithNumber
  CONST Value 0
  : ValueType WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
  ;
+ CONST extprop:pas:Value 0
 
 ref; // ME_477113B80366 aIterMode
 
@@ -2465,6 +2492,7 @@ ref; // ME_477113B80366 aIterMode
  CONST Value ''' '''
  : ValueType WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
  ;
+ CONST extprop:pas:Value ''' '''
 
 ref; // ME_477113B803AE aLevelIndent
 
@@ -2477,11 +2505,11 @@ ref; // ME_477113B803AE aLevelIndent
  : Parent ME_476BF13201C4 // Il3Tree
  ;
  : Parameters
-   @ ( ME_477113B802D5 // aFileName
+   Seq: ( ME_477113B802D5 // aFileName
  ME_477113B8031D // aWithNumber
  ME_477113B80366 // aIterMode
  ME_477113B803AE // aLevelIndent
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_4771139800F2 PrintTreeList
@@ -2527,10 +2555,10 @@ ref; // ME_477117DD0051 aIterMode
  : Target ME_476BF22B03E1 // Il3Node
  ;
  : Parameters
-   @ ( ME_477117DC039E // aFirstNode
+   Seq: ( ME_477117DC039E // aFirstNode
  ME_477117DD0003 // aNameStr
  ME_477117DD0051 // aIterMode
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_477117C402D0 SearchByName
@@ -2576,10 +2604,10 @@ ref; // ME_4771181B00AA aIterMode
  : Target ME_476BF22B03E1 // Il3Node
  ;
  : Parameters
-   @ ( ME_4771181B0006 // Parent
+   Seq: ( ME_4771181B0006 // Parent
  ME_4771181B0058 // Param
  ME_4771181B00AA // aIterMode
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_47711814010D FindNodeByParam
@@ -2649,9 +2677,9 @@ ref; // ME_4771184E00C4 aFlag
  : Target ME_476BF22B03E1 // Il3Node
  ;
  : Parameters
-   @ ( ME_4771184E006A // aCurNode
+   Seq: ( ME_4771184E006A // aCurNode
  ME_4771184E00C4 // aFlag
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_4771183E037B GetNextSetFlag
@@ -2686,9 +2714,9 @@ ref; // ME_4771186901B6 NewTitle
  : Parent ME_476BF13201C4 // Il3Tree
  ;
  : Parameters
-   @ ( ME_47711869015A // aNode
+   Seq: ( ME_47711869015A // aNode
  ME_4771186901B6 // NewTitle
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_4771185B02D0 ChangeName
@@ -2725,9 +2753,9 @@ ref; // ME_4771188100CF aNode
  : Target ME_476BF22B03E1 // Il3Node
  ;
  : Parameters
-   @ ( ME_47711881006E // aParentNode
+   Seq: ( ME_47711881006E // aParentNode
  ME_4771188100CF // aNode
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_4771187100EF InsertNode
@@ -2764,9 +2792,9 @@ ref; // ME_477118990180 aNode
  : Target ME_476BF22B03E1 // Il3Node
  ;
  : Parameters
-   @ ( ME_47711899011C // aNextNode
+   Seq: ( ME_47711899011C // aNextNode
  ME_477118990180 // aNode
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_4771188A012C InsertNodeBefore
@@ -2790,8 +2818,8 @@ ref; // ME_477118A601AD aSt
  : Parent ME_476BF13201C4 // Il3Tree
  ;
  : Parameters
-   @ ( ME_477118A601AD // aSt
- ) .SequenceCode.It
+   Seq: ( ME_477118A601AD // aSt
+ )
  ; // Parameters
 
 ref; // ME_477118A00158 SetLevelSlash
@@ -2818,8 +2846,8 @@ ref; // ME_477118B60287 aNode
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
  : Parameters
-   @ ( ME_477118B60287 // aNode
- ) .SequenceCode.It
+   Seq: ( ME_477118B60287 // aNode
+ )
  ; // Parameters
 
 ref; // ME_477118AC0111 IsSelect
@@ -2845,8 +2873,8 @@ ref; // ME_477118C4001C aNode
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
  : Parameters
-   @ ( ME_477118C4001C // aNode
- ) .SequenceCode.It
+   Seq: ( ME_477118C4001C // aNode
+ )
  ; // Parameters
 
 ref; // ME_477118BE0229 IsChildSelect
@@ -2884,8 +2912,8 @@ ref; // ME_477118DA01D8 aDirection
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
  : Parameters
-   @ ( ME_477118DA01D8 // aDirection
- ) .SequenceCode.It
+   Seq: ( ME_477118DA01D8 // aDirection
+ )
  ; // Parameters
 
 ref; // ME_477118D20258 MoveSelectedNodes
@@ -2925,8 +2953,8 @@ ref; // ME_477192830372 aCurNode
  : Target ME_476BF22B03E1 // Il3Node
  ;
  : Parameters
-   @ ( ME_477192830372 // aCurNode
- ) .SequenceCode.It
+   Seq: ( ME_477192830372 // aCurNode
+ )
  ; // Parameters
 
 ref; // ME_4771927702DF GetNextSelect
@@ -3332,11 +3360,11 @@ ref; // ME_47BAD32501E2_ME_476BF13201C4 DropData
  : Parent ME_476BF10A0280 // l3Tree_TLB
  ;
  : Inherits
-   @ ( WL 'ME_46825CC00249' '4682595B0268.pas.ms.script' // Il3SimpleTree
- ) .SequenceCode.It
+   Seq: ( WL 'ME_46825CC00249' '4682595B0268.pas.ms.script' // Il3SimpleTree
+ )
  ; // Inherits
  : Attributes
-   @ ( ME_47711C510141 // CommonExpanded
+   Seq: ( ME_47711C510141 // CommonExpanded
  ME_47711C6C004D // SelModifiedCount
  ME_47711C7D02D5 // Modified
  ME_4771190501F8 // CNodes
@@ -3344,10 +3372,10 @@ ref; // ME_47BAD32501E2_ME_476BF13201C4 DropData
  ME_47711C11028E // NodeFlags
  ME_47711C3D01EA // CRootNode
  ME_47711CF10305 // Strings
- ) .SequenceCode.It
+ )
  ; // Attributes
  : Operations
-   @ ( ME_4771115902AA // GetFlagsByAbsIndex
+   Seq: ( ME_4771115902AA // GetFlagsByAbsIndex
  ME_4771117201D7 // SetFlagsByAbsIndex
  ME_4771117B0132 // GetNodeByAbsIndex
  ME_477111820195 // GetAbsIndex
@@ -3379,10 +3407,10 @@ ref; // ME_47BAD32501E2_ME_476BF13201C4 DropData
  ME_477118E303A3 // DeleteSelectedNodes
  ME_4771927702DF // GetNextSelect
  ME_4FDB205C023B // ClearSelected
- ) .SequenceCode.It
+ )
  ; // Operations
  : Implemented
-   @ ( ME_46825CAA0125_ME_476BF13201C4 // RootNode
+   Seq: ( ME_46825CAA0125_ME_476BF13201C4 // RootNode
  ME_46A44F6B035E_ME_476BF13201C4 // Subscribe
  ME_46A44FFE0143_ME_476BF13201C4 // Unsubscribe
  ME_4772448C01D2_ME_476BF13201C4 // CursorTop
@@ -3419,8 +3447,14 @@ ref; // ME_47BAD32501E2_ME_476BF13201C4 DropData
  ME_47A86EA80292_ME_476BF13201C4 // MakeDataObject
  ME_47BAD3080349_ME_476BF13201C4 // CanAcceptData
  ME_47BAD32501E2_ME_476BF13201C4 // DropData
- ) .SequenceCode.It
+ )
  ; // Implemented
+ CONST dfm:PathOnly '\common\components\rtl\Garant\L3'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\L3'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'Tree'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_476BF13201C4 Il3Tree
 
@@ -4025,18 +4059,18 @@ ref; // ME_4A5CC00B03D5_ME_477188280269 Changed
  : Parent ME_476BF10A0280 // l3Tree_TLB
  ;
  : Inherits
-   @ ( ME_476BF22B03E1 // Il3Node
- ) .SequenceCode.It
+   Seq: ( ME_476BF22B03E1 // Il3Node
+ )
  ; // Inherits
  : Attributes
-   @ ( ME_477188F90071 // ParentNode
+   Seq: ( ME_477188F90071 // ParentNode
  ME_4771892B00AD // ChildNode
  ME_477189550069 // NextNode
  ME_4771897F03DE // PrevNode
- ) .SequenceCode.It
+ )
  ; // Attributes
  : Implemented
-   @ ( ME_47710BBE0052_ME_477188280269 // InsertChild
+   Seq: ( ME_47710BBE0052_ME_477188280269 // InsertChild
  ME_47710BCC0099_ME_477188280269 // InsertChildBefore
  ME_47710BF103B7_ME_477188280269 // IsAcceptChild
  ME_47710BFD00A6_ME_477188280269 // GetChildByNumber
@@ -4086,8 +4120,14 @@ ref; // ME_4A5CC00B03D5_ME_477188280269 Changed
  ME_47B5759A03C0_ME_477188280269 // Prev
  ME_4A5CBFFE0157_ME_477188280269 // Changing
  ME_4A5CC00B03D5_ME_477188280269 // Changed
- ) .SequenceCode.It
+ )
  ; // Implemented
+ CONST dfm:PathOnly '\common\components\rtl\Garant\L3'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\L3'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'InternalNode'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_477188280269 Il3InternalNode
 
@@ -4098,6 +4138,7 @@ FORWARD ME_51A4D1810053
 : ME_DF66CC641C01
  CONST UID 'DF66CC641C01'
  CONST Name 'DoIt'
+ CONST IsSummoned true
  CONST Class class_Operation
  %SUMMARY 'Сигнатура метода LockRebuild' ;
  CONST Visibility PublicAccess
@@ -4118,8 +4159,8 @@ ref; // ME_DF66CC641C01 DoIt
  : Parent ME_51A4D14602F5 // Il3TreeWithLockRebuild
  ;
  : Operations
-   @ ( ME_DF66CC641C01 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_DF66CC641C01 // DoIt
+ )
  ; // Operations
 
 ref; // ME_51A4D1810053 LockRebuild
@@ -4129,6 +4170,7 @@ FORWARD ME_51A4D19100DD
 : ME_9A952ACFF175
  CONST UID '9A952ACFF175'
  CONST Name 'DoIt'
+ CONST IsSummoned true
  CONST Class class_Operation
  %SUMMARY 'Сигнатура метода UnlockRebuild' ;
  CONST Visibility PublicAccess
@@ -4149,8 +4191,8 @@ ref; // ME_9A952ACFF175 DoIt
  : Parent ME_51A4D14602F5 // Il3TreeWithLockRebuild
  ;
  : Operations
-   @ ( ME_9A952ACFF175 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_9A952ACFF175 // DoIt
+ )
  ; // Operations
 
 ref; // ME_51A4D19100DD UnlockRebuild
@@ -4181,8 +4223,8 @@ ref; // ME_51A4D1AB029B DoIt
  : Parent ME_51A4D14602F5 // Il3TreeWithLockRebuild
  ;
  : Operations
-   @ ( ME_51A4D1AB029B // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_51A4D1AB029B // DoIt
+ )
  ; // Operations
 
 ref; // ME_51A4D19E0149 IsRebuildLocked
@@ -4199,11 +4241,17 @@ ref; // ME_51A4D19E0149 IsRebuildLocked
  : Parent ME_476BF10A0280 // l3Tree_TLB
  ;
  : Operations
-   @ ( ME_51A4D1810053 // LockRebuild
+   Seq: ( ME_51A4D1810053 // LockRebuild
  ME_51A4D19100DD // UnlockRebuild
  ME_51A4D19E0149 // IsRebuildLocked
- ) .SequenceCode.It
+ )
  ; // Operations
+ CONST dfm:PathOnly '\common\components\rtl\Garant\L3'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\L3'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'TreeWithLockRebuild'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_51A4D14602F5 Il3TreeWithLockRebuild
 
@@ -4239,9 +4287,15 @@ ref; // ME_477187FD0168 Tree
  : Parent ME_476BF10A0280 // l3Tree_TLB
  ;
  : Attributes
-   @ ( ME_477187FD0168 // Tree
- ) .SequenceCode.It
+   Seq: ( ME_477187FD0168 // Tree
+ )
  ; // Attributes
+ CONST dfm:PathOnly '\common\components\rtl\Garant\L3'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\L3'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'TreeSource'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_477187CC0061 Il3TreeSource
 
@@ -4256,35 +4310,32 @@ ref; // ME_477187CC0061 Il3TreeSource
  : Parent WL 'ME_4790D09A0378' '4790D09A0378.pas.ms.script' // L3
  ;
  : Children
-   @ ( ME_47710A96025A // Tl3NodeAction
+   Seq: ( ME_47710A96025A // Tl3NodeAction
  ME_476BF22B03E1 // Il3Node
  ME_4771111001F9 // Il3RootNode
  ME_476BF13201C4 // Il3Tree
  ME_477188280269 // Il3InternalNode
  ME_51A4D14602F5 // Il3TreeWithLockRebuild
  ME_477187CC0061 // Il3TreeSource
- ) .SequenceCode.It
+ )
  ; // Children
  : Depends
-   @ ( WL 'ME_4677FBA70343' '4677FBA70343.pas.ms.script' // l3Interfaces
+   Seq: ( WL 'ME_4677FBA70343' '4677FBA70343.pas.ms.script' // l3Interfaces
  WL 'ME_4682595B0268' '4682595B0268.pas.ms.script' // l3TreeInterfaces
  WL 'ME_47D810610398' '47D810610398.pas.ms.script' // l3PureMixIns
  WL 'ME_4AB0C3C60310' '4AB0C3C60310.pas.ms.script' // Sys
- ) .SequenceCode.It
+ )
  ; // Depends
  CONST "author" 'Бабанин В.Б.'
  CONST "is namespace" true
  CONST "no hands" true
  CONST "started" '15.12.2000 15:19'
- : Generators
- @ (
- gen_intf.pas
- gen_pas.script
- gen_pas.script.runner
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\L3'
  CONST intf.pas:Path 'common\components\rtl\Garant\L3\l3Tree_TLB.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\L3'
  CONST pas.script:Path 'shared\models\NewSchool\Scripts\476BF10A0280.pas.ms.script'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
  CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\476BF10A0280.pas.ms.script.runner'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_476BF10A0280 l3Tree_TLB

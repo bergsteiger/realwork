@@ -1,0 +1,63 @@
+// HCAdapterLib 45E43D74036B Library Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+: ME_45E43D74036B
+ CONST UID '45E43D74036B'
+ CONST Name 'HCAdapterLib'
+ CONST Class class_Category
+ : Stereotype st_Library ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent WL 'ME_442BEDF00290' '442BEDF00290.pas.ms.script' // garant6x
+ ;
+ : Children
+   Seq: ( WL 'ME_442BEF93030D' '442BEF93030D.pas.ms.script' // HCInterfaces
+ WL 'ME_442CE247030D' '442CE247030D.pas.ms.script' // HCInterfaces_i
+ )
+ ; // Children
+ : Depends
+   Seq: ( WL 'ME_447878770121' '447878770121.pas.ms.script' // GCI
+ )
+ ; // Depends
+ CONST "exec mode" 'concluded'
+ CONST "gui" 'tie'
+ CONST "is namespace" true
+ CONST "need UC" true
+ CONST "vendor" '/Garant'
+ : Generators
+ Seq: (
+ gen_cpp
+ gen_h
+ gen_mpc
+ gen_pas.script
+ gen_pas.script.runner
+ )
+ ; // Generators
+ CONST cpp:Path 'garant6x\implementation\Garant\HCAdapterLib\LibHome.cpp'
+ CONST cpp:PathOnly '\garant6x\implementation\Garant\HCAdapterLib'
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\HCAdapterLib'
+ CONST dll.cpp:PathOnly '\garant6x\implementation\Garant\HCAdapterLib'
+ CONST dll.h:PathOnly '\garant6x\implementation\Garant\HCAdapterLib'
+ CONST fctr.cpp:PathOnly '\garant6x\implementation\Garant\HCAdapterLib'
+ CONST fctr.h:PathOnly '\garant6x\implementation\Garant\HCAdapterLib'
+ CONST h:Path 'garant6x\implementation\Garant\HCAdapterLib\LibHome.h'
+ CONST h:PathOnly '\garant6x\implementation\Garant\HCAdapterLib'
+ CONST i.h:PathOnly '\garant6x\implementation\Garant\HCAdapterLib'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\tie\Garant\HCAdapterLib'
+ CONST mpc:Path 'garant6x\implementation\Garant\project\HCAdapterLib.mpc'
+ CONST mpc:PathOnly '\garant6x\implementation\Garant\project'
+ CONST mpc2:PathOnly '\garant6x\implementation\Garant\project'
+ CONST pas:PathOnly '\garant6x\implementation\Garant\HCAdapterLib'
+ CONST pas.script:Path 'shared\models\NewSchool\Scripts\45E43D74036B.pas.ms.script'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\45E43D74036B.pas.ms.script.runner'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc:PathOnly '\garant6x\implementation\Garant\HCAdapterLib'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\HCAdapterLib'
+ CONST s.ini:PathOnly '\garant6x\implementation\Garant\project'
+ CONST s.reg:PathOnly '\garant6x\implementation\Garant\project'
+ CONST vi.rc:PathOnly '\garant6x\implementation\Garant'
+ CONST vi.rch:PathOnly '\garant6x\implementation\Garant'
+
+ref; // ME_45E43D74036B HCAdapterLib

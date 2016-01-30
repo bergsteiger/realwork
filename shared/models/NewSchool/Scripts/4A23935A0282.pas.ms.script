@@ -16,6 +16,12 @@ FORWARD ME_4A23935A0282
  CONST Abstraction at_regular
  : Parent ME_4A23935A0282 // afwNavigation
  ;
+ CONST dfm:PathOnly '\common\components\gui\Garant\AFW'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\AFW'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'Moniker'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_47C5BD35000A IevMoniker
 
@@ -51,13 +57,19 @@ ref; // ME_4A23BBBA02D6 URL
  : Parent ME_4A23935A0282 // afwNavigation
  ;
  : Inherits
-   @ ( ME_47C5BD35000A // IevMoniker
- ) .SequenceCode.It
+   Seq: ( ME_47C5BD35000A // IevMoniker
+ )
  ; // Inherits
  : Attributes
-   @ ( ME_4A23BBBA02D6 // URL
- ) .SequenceCode.It
+   Seq: ( ME_4A23BBBA02D6 // URL
+ )
  ; // Attributes
+ CONST dfm:PathOnly '\common\components\gui\Garant\AFW'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\AFW'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'URLMoniker'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_4A23BB9A02AC IevURLMoniker
 
@@ -93,13 +105,19 @@ ref; // ME_4A23BBF30230 ID
  : Parent ME_4A23935A0282 // afwNavigation
  ;
  : Inherits
-   @ ( ME_47C5BD35000A // IevMoniker
- ) .SequenceCode.It
+   Seq: ( ME_47C5BD35000A // IevMoniker
+ )
  ; // Inherits
  : Attributes
-   @ ( ME_4A23BBF30230 // ID
- ) .SequenceCode.It
+   Seq: ( ME_4A23BBF30230 // ID
+ )
  ; // Attributes
+ CONST dfm:PathOnly '\common\components\gui\Garant\AFW'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\AFW'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'IDMoniker'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_4A23BBD90274 IevIDMoniker
 
@@ -112,6 +130,7 @@ FORWARD ME_4A23BC0D0331
  ;
  : Implementor ME_4A23BC0D0331 // IevHyperlinkMoniker
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" true
 ref; // ME_4A23BBF30230_ME_4A23BC0D0331 ID
 
@@ -128,13 +147,19 @@ ref; // ME_4A23BBF30230_ME_4A23BC0D0331 ID
  : Parent ME_4A23935A0282 // afwNavigation
  ;
  : Inherits
-   @ ( ME_4A23BBD90274 // IevIDMoniker
- ) .SequenceCode.It
+   Seq: ( ME_4A23BBD90274 // IevIDMoniker
+ )
  ; // Inherits
  : Implemented
-   @ ( ME_4A23BBF30230_ME_4A23BC0D0331 // ID
- ) .SequenceCode.It
+   Seq: ( ME_4A23BBF30230_ME_4A23BC0D0331 // ID
+ )
  ; // Implemented
+ CONST dfm:PathOnly '\common\components\gui\Garant\AFW'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\AFW'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'HyperlinkMoniker'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_4A23BC0D0331 IevHyperlinkMoniker
 
@@ -149,9 +174,13 @@ ref; // ME_4A23BC0D0331 IevHyperlinkMoniker
  : Parent ME_4A23935A0282 // afwNavigation
  ;
  : Inherits
-   @ ( WL 'ME_48F4941A0249' '48F4E61C0060.pas.ms.script' // Address
- ) .SequenceCode.It
+   Seq: ( WL 'ME_48F4941A0249' '48F4E61C0060.pas.ms.script' // Address
+ )
  ; // Inherits
+ CONST dfm:PathOnly '\common\components\gui\Garant\AFW'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\AFW'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_4CDD38E601A5 TafwAddress
 
@@ -194,15 +223,20 @@ ref; // ME_49E604FE0347 C
  : Parent ME_4A23935A0282 // afwNavigation
  ;
  : Inherits
-   @ ( ME_4CDD38E601A5 // TafwAddress
- ) .SequenceCode.It
+   Seq: ( ME_4CDD38E601A5 // TafwAddress
+ )
  ; // Inherits
  : Operations
-   @ ( ME_49E6009D02ED // EQ
+   Seq: ( ME_49E6009D02ED // EQ
  ME_49E604FE0347 // C
- ) .SequenceCode.It
+ )
  ; // Operations
  CONST "not treat as record for XE4" 'undefined'
+ CONST dfm:PathOnly '\common\components\gui\Garant\AFW'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\AFW'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'Address'
 
 ref; // ME_48F4940C01C0 TevAddress
 
@@ -240,9 +274,9 @@ ref; // ME_49DC819202A2 aMoniker
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
  : Parameters
-   @ ( ME_49DC81920264 // anEffects
+   Seq: ( ME_49DC81920264 // anEffects
  ME_49DC819202A2 // aMoniker
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_47C5BD5B00AE JumpTo
@@ -260,9 +294,15 @@ ref; // ME_47C5BD5B00AE JumpTo
  : Parent ME_4A23935A0282 // afwNavigation
  ;
  : Operations
-   @ ( ME_47C5BD5B00AE // JumpTo
- ) .SequenceCode.It
+   Seq: ( ME_47C5BD5B00AE // JumpTo
+ )
  ; // Operations
+ CONST dfm:PathOnly '\common\components\gui\Garant\AFW'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\AFW'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'MonikerSink'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_47C5BD43008C IevMonikerSink
 
@@ -297,13 +337,19 @@ ref; // ME_4A23C92103C2 Address
  : Parent ME_4A23935A0282 // afwNavigation
  ;
  : Inherits
-   @ ( ME_47C5BD35000A // IevMoniker
- ) .SequenceCode.It
+   Seq: ( ME_47C5BD35000A // IevMoniker
+ )
  ; // Inherits
  : Attributes
-   @ ( ME_4A23C92103C2 // Address
- ) .SequenceCode.It
+   Seq: ( ME_4A23C92103C2 // Address
+ )
  ; // Attributes
+ CONST dfm:PathOnly '\common\components\gui\Garant\AFW'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\AFW'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'AddressMoniker'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_4A23C8F40181 IevAddressMoniker
 
@@ -318,7 +364,7 @@ ref; // ME_4A23C8F40181 IevAddressMoniker
  : Parent WL 'ME_4790B4F00236' '4790B4F00236.pas.ms.script' // AFW
  ;
  : Children
-   @ ( ME_47C5BD35000A // IevMoniker
+   Seq: ( ME_47C5BD35000A // IevMoniker
  ME_4A23BB9A02AC // IevURLMoniker
  ME_4A23BBD90274 // IevIDMoniker
  ME_4A23BC0D0331 // IevHyperlinkMoniker
@@ -326,28 +372,25 @@ ref; // ME_4A23C8F40181 IevAddressMoniker
  ME_48F4940C01C0 // TevAddress
  ME_47C5BD43008C // IevMonikerSink
  ME_4A23C8F40181 // IevAddressMoniker
- ) .SequenceCode.It
+ )
  ; // Children
  : Depends
-   @ ( WL 'ME_467823B7002C' '467823B7002C.pas.ms.script' // afwInterfaces
+   Seq: ( WL 'ME_467823B7002C' '467823B7002C.pas.ms.script' // afwInterfaces
  WL 'ME_469D0AC7005E' '469D0AC7005E.pas.ms.script' // Types
  WL 'ME_48F4E61C0060' '48F4E61C0060.pas.ms.script' // Interfaces
  WL 'ME_4AB0C3C60310' '4AB0C3C60310.pas.ms.script' // Sys
- ) .SequenceCode.It
+ )
  ; // Depends
  CONST "author" 'Ëþëèí À.Â.'
  CONST "is namespace" true
  CONST "no hands" true
  CONST "started" '01.06.2009 12:38'
- : Generators
- @ (
- gen_intf.pas
- gen_pas.script
- gen_pas.script.runner
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\AFW'
  CONST intf.pas:Path 'common\components\gui\Garant\AFW\afwNavigation.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\AFW'
  CONST pas.script:Path 'shared\models\NewSchool\Scripts\4A23935A0282.pas.ms.script'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
  CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\4A23935A0282.pas.ms.script.runner'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_4A23935A0282 afwNavigation

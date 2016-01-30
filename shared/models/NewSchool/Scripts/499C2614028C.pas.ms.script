@@ -52,10 +52,16 @@ ref; // ME_52DD07B301D9 Wrap
  : Parent ME_499C26240034 // TnscTreeView
  ;
  : Attributes
-   @ ( ME_52DD07A0013B // Aggregate
+   Seq: ( ME_52DD07A0013B // Aggregate
  ME_52DD07B301D9 // Wrap
- ) .SequenceCode.It
+ )
  ; // Attributes
+ CONST dfm:PathOnly '\common\components\gui\Garant\Nemesis'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Nemesis'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'TreeState'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_52DD074203B6 InscTreeState
 
@@ -120,9 +126,9 @@ ref; // ME_52DD084A038E aWrap
  : Parent ME_52DD083B0184 // Create
  ;
  : Parameters
-   @ ( ME_52DD084A0375 // aAggregate
+   Seq: ( ME_52DD084A0375 // aAggregate
  ME_52DD084A038E // aWrap
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_52DD084701FD DoIt
@@ -138,8 +144,8 @@ ref; // ME_52DD084701FD DoIt
  : Parent ME_52DD07CE001D // TnscTreeViewState
  ;
  : Operations
-   @ ( ME_52DD084701FD // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_52DD084701FD // DoIt
+ )
  ; // Operations
 
 ref; // ME_52DD083B0184 Create
@@ -149,6 +155,7 @@ FORWARD ME_52DD085202A3
 : ME_DDE5109F49D1
  CONST UID 'DDE5109F49D1'
  CONST Name 'aAggregate'
+ CONST IsSummoned true
  CONST Class class_Parameter
  : Stereotype st_in ;
  : Target WL 'ME_46A451250363' '4AB0C3C60310.pas.ms.script' // IUnknown
@@ -159,6 +166,7 @@ ref; // ME_DDE5109F49D1 aAggregate
 : ME_BD29FDF3431C
  CONST UID 'BD29FDF3431C'
  CONST Name 'aWrap'
+ CONST IsSummoned true
  CONST Class class_Parameter
  : Stereotype st_in ;
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
@@ -169,6 +177,7 @@ ref; // ME_BD29FDF3431C aWrap
 : ME_AC46F2F5F929
  CONST UID 'AC46F2F5F929'
  CONST Name 'DoIt'
+ CONST IsSummoned true
  CONST Class class_Operation
  %SUMMARY 'Сигнатура фабрики TnscTreeViewState.Make' ;
  CONST Visibility PrivateAccess
@@ -176,9 +185,9 @@ ref; // ME_BD29FDF3431C aWrap
  : Parent ME_52DD085202A3 // Make
  ;
  : Parameters
-   @ ( ME_DDE5109F49D1 // aAggregate
+   Seq: ( ME_DDE5109F49D1 // aAggregate
  ME_BD29FDF3431C // aWrap
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_AC46F2F5F929 DoIt
@@ -194,12 +203,12 @@ ref; // ME_AC46F2F5F929 DoIt
  : Parent ME_52DD07CE001D // TnscTreeViewState
  ;
  : Inherits
-   @ ( ME_52DD083B0184 // Create
- ) .SequenceCode.It
+   Seq: ( ME_52DD083B0184 // Create
+ )
  ; // Inherits
  : Operations
-   @ ( ME_AC46F2F5F929 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_AC46F2F5F929 // DoIt
+ )
  ; // Operations
  CONST "check nil" false
  CONST "need AfterCreate" 'undefined'
@@ -215,6 +224,7 @@ ref; // ME_52DD085202A3 Make
  ;
  : Implementor ME_52DD07CE001D // TnscTreeViewState
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" true
 ref; // ME_52DD07A0013B_ME_52DD07CE001D Aggregate
 
@@ -225,6 +235,7 @@ ref; // ME_52DD07A0013B_ME_52DD07CE001D Aggregate
  ;
  : Implementor ME_52DD07CE001D // TnscTreeViewState
  ;
+ CONST OpKind opkind_Implemented
  CONST "pm" true
 ref; // ME_52DD07B301D9_ME_52DD07CE001D Wrap
 
@@ -235,6 +246,7 @@ ref; // ME_52DD07B301D9_ME_52DD07CE001D Wrap
  ;
  : Implementor ME_52DD07CE001D // TnscTreeViewState
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_479731C50290_ME_52DD07CE001D Cleanup
 
 : ME_4A60B23E00C3_ME_52DD07CE001D
@@ -244,6 +256,7 @@ ref; // ME_479731C50290_ME_52DD07CE001D Cleanup
  ;
  : Implementor ME_52DD07CE001D // TnscTreeViewState
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4A60B23E00C3_ME_52DD07CE001D COMQueryInterface
 
 : ME_52DD07CE001D
@@ -257,37 +270,43 @@ ref; // ME_4A60B23E00C3_ME_52DD07CE001D COMQueryInterface
  : Parent ME_499C26240034 // TnscTreeView
  ;
  : Inherits
-   @ ( WL 'ME_46780E690001' '47913B47006E.pas.ms.script' // Tl3CacheableBase
- ) .SequenceCode.It
+   Seq: ( WL 'ME_46780E690001' '47913B47006E.pas.ms.script' // Tl3CacheableBase
+ )
  ; // Inherits
  : Implements
-   @ ( ME_52DD074203B6 // InscTreeState
- ) .SequenceCode.It
+   Seq: ( ME_52DD074203B6 // InscTreeState
+ )
  ; // Implements
  : Attributes
-   @ ( ME_52DD081E0124 // f_Wrap
+   Seq: ( ME_52DD081E0124 // f_Wrap
  ME_52DD0826005B // f_Aggregate
- ) .SequenceCode.It
+ )
  ; // Attributes
  : Operations
-   @ ( ME_52DD083B0184 // Create
+   Seq: ( ME_52DD083B0184 // Create
  ME_52DD085202A3 // Make
- ) .SequenceCode.It
+ )
  ; // Operations
  : Implemented
-   @ ( ME_52DD07A0013B_ME_52DD07CE001D // Aggregate
+   Seq: ( ME_52DD07A0013B_ME_52DD07CE001D // Aggregate
  ME_52DD07B301D9_ME_52DD07CE001D // Wrap
- ) .SequenceCode.It
+ )
  ; // Implemented
  : Overridden
-   @ ( ME_479731C50290_ME_52DD07CE001D // Cleanup
+   Seq: ( ME_479731C50290_ME_52DD07CE001D // Cleanup
  ME_4A60B23E00C3_ME_52DD07CE001D // COMQueryInterface
- ) .SequenceCode.It
+ )
  ; // Overridden
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
+ CONST dfm:PathOnly '\common\components\gui\Garant\Nemesis'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Nemesis'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'TreeViewState'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_52DD07CE001D TnscTreeViewState
 
@@ -308,6 +327,7 @@ FORWARD ME_52DD11500026
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value '''stWrap'''
 
 ref; // ME_52DD116A00A0 cstWrap
 
@@ -322,10 +342,15 @@ ref; // ME_52DD116A00A0 cstWrap
  : Parent ME_52DD0971008A // TnscTreeViewPrim
  ;
  : Attributes
-   @ ( ME_52DD116A00A0 // cstWrap
- ) .SequenceCode.It
+   Seq: ( ME_52DD116A00A0 // cstWrap
+ )
  ; // Attributes
  CONST "spell names" false
+ CONST dfm:PathOnly '\common\components\gui\Garant\Nemesis'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Nemesis'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'TreeView Const'
 
 ref; // ME_52DD11500026 nscTreeView Const
 
@@ -398,6 +423,7 @@ ref; // ME_52DD1C600008 f_Published
 : ME_8FFD05FB11B2
  CONST UID '8FFD05FB11B2'
  CONST Name 'f_SettingId'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY 'Поле для свойства SettingId' ;
  CONST Visibility PrivateAccess
@@ -407,12 +433,14 @@ ref; // ME_52DD1C600008 f_Published
  ;
  : Target WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
  ;
+ CONST extprop:clearViaProperty 'SettingId'
 
 ref; // ME_8FFD05FB11B2 f_SettingId
 
 : ME_CFB07B17773A
  CONST UID 'CFB07B17773A'
  CONST Name 'f_InterRowMultiplier'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY 'Поле для свойства InterRowMultiplier' ;
  CONST Visibility PrivateAccess
@@ -422,12 +450,14 @@ ref; // ME_8FFD05FB11B2 f_SettingId
  ;
  : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
  ;
+ CONST extprop:clearViaProperty 'InterRowMultiplier'
 
 ref; // ME_CFB07B17773A f_InterRowMultiplier
 
 : ME_C515BF8C00BB
  CONST UID 'C515BF8C00BB'
  CONST Name 'f_DisableDragAndDropSupport'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY 'Поле для свойства DisableDragAndDropSupport' ;
  CONST Visibility PrivateAccess
@@ -437,6 +467,7 @@ ref; // ME_CFB07B17773A f_InterRowMultiplier
  ;
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
+ CONST extprop:clearViaProperty 'DisableDragAndDropSupport'
 
 ref; // ME_C515BF8C00BB f_DisableDragAndDropSupport
 
@@ -463,8 +494,8 @@ ref; // ME_508F7FA403D5 Cmd
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
  : Parameters
-   @ ( ME_508F7FA403D5 // Cmd
- ) .SequenceCode.It
+   Seq: ( ME_508F7FA403D5 // Cmd
+ )
  ; // Parameters
 
 ref; // ME_508F7FA000A3 DoIt
@@ -480,8 +511,8 @@ ref; // ME_508F7FA000A3 DoIt
  : Parent ME_52DD0971008A // TnscTreeViewPrim
  ;
  : Operations
-   @ ( ME_508F7FA000A3 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_508F7FA000A3 // DoIt
+ )
  ; // Operations
 
 ref; // ME_508F7F930094 DoIsCommandPublished
@@ -512,8 +543,8 @@ ref; // ME_52DD0A810338 DoIt
  : Parent ME_52DD0971008A // TnscTreeViewPrim
  ;
  : Operations
-   @ ( ME_52DD0A810338 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_52DD0A810338 // DoIt
+ )
  ; // Operations
 
 ref; // ME_52DD0A7700AD IsEmpty
@@ -539,8 +570,8 @@ ref; // ME_52DD0ADD0175 aPublisher
  : Parent ME_52DD0ACE03DC // DoProvideOps
  ;
  : Parameters
-   @ ( ME_52DD0ADD0175 // aPublisher
- ) .SequenceCode.It
+   Seq: ( ME_52DD0ADD0175 // aPublisher
+ )
  ; // Parameters
 
 ref; // ME_52DD0AD90219 DoIt
@@ -556,8 +587,8 @@ ref; // ME_52DD0AD90219 DoIt
  : Parent ME_52DD0971008A // TnscTreeViewPrim
  ;
  : Operations
-   @ ( ME_52DD0AD90219 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_52DD0AD90219 // DoIt
+ )
  ; // Operations
 
 ref; // ME_52DD0ACE03DC DoProvideOps
@@ -585,8 +616,8 @@ ref; // ME_52DD0AFD0045 aSetting
  : Target WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
  ;
  : Parameters
-   @ ( ME_52DD0AFD0045 // aSetting
- ) .SequenceCode.It
+   Seq: ( ME_52DD0AFD0045 // aSetting
+ )
  ; // Parameters
 
 ref; // ME_52DD0AF9026D DoIt
@@ -602,8 +633,8 @@ ref; // ME_52DD0AF9026D DoIt
  : Parent ME_52DD0971008A // TnscTreeViewPrim
  ;
  : Operations
-   @ ( ME_52DD0AF9026D // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_52DD0AF9026D // DoIt
+ )
  ; // Operations
 
 ref; // ME_52DD0AF202C2 MakePath
@@ -611,6 +642,7 @@ ref; // ME_52DD0AF202C2 MakePath
 : ME_C519CB88C95F
  CONST UID 'C519CB88C95F'
  CONST Name 'Ini_Reg_Class'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Регистрация TnscTreeViewPrim' ;
@@ -624,6 +656,7 @@ ref; // ME_C519CB88C95F Ini_Reg_Class
 
 : ME_E1232FA3A41F
  CONST UID 'E1232FA3A41F'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_52DD0971008A // TnscTreeViewPrim
@@ -640,6 +673,7 @@ ref; // ME_E1232FA3A41F
  ;
  : Implementor ME_52DD0971008A // TnscTreeViewPrim
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_4769552100DD_ME_52DD0971008A ProvideOps
 
 : ME_476BFD420341_ME_52DD0971008A
@@ -649,6 +683,7 @@ ref; // ME_4769552100DD_ME_52DD0971008A ProvideOps
  ;
  : Implementor ME_52DD0971008A // TnscTreeViewPrim
  ;
+ CONST OpKind opkind_Implemented
 ref; // ME_476BFD420341_ME_52DD0971008A IsCommandPublished
 
 : ME_4951284902BD_ME_52DD0971008A
@@ -658,6 +693,7 @@ ref; // ME_476BFD420341_ME_52DD0971008A IsCommandPublished
  ;
  : Implementor ME_52DD0971008A // TnscTreeViewPrim
  ;
+ CONST OpKind opkind_Implemented
  CONST "AutoFocus" false
  CONST "AutoLock" false
  CONST "LongProcess" false
@@ -676,6 +712,7 @@ ref; // ME_4951284902BD_ME_52DD0971008A Copy
  ;
  : Implementor ME_52DD0971008A // TnscTreeViewPrim
  ;
+ CONST OpKind opkind_Implemented
  CONST "AutoFocus" false
  CONST "AutoLock" false
  CONST "LongProcess" false
@@ -694,6 +731,7 @@ ref; // ME_49EDFA3701B0_ME_52DD0971008A Paste
  ;
  : Implementor ME_52DD0971008A // TnscTreeViewPrim
  ;
+ CONST OpKind opkind_Implemented
  CONST "AutoFocus" false
  CONST "AutoLock" false
  CONST "LongProcess" false
@@ -712,6 +750,7 @@ ref; // ME_49EE01AA02BE_ME_52DD0971008A SelectAll
  ;
  : Implementor ME_52DD0971008A // TnscTreeViewPrim
  ;
+ CONST OpKind opkind_Implemented
  CONST "AutoFocus" false
  CONST "AutoLock" false
  CONST "LongProcess" false
@@ -730,6 +769,7 @@ ref; // ME_49EE01BC022E_ME_52DD0971008A Deselect
  ;
  : Implementor ME_52DD0971008A // TnscTreeViewPrim
  ;
+ CONST OpKind opkind_Implemented
  CONST "AutoFocus" false
  CONST "AutoLock" false
  CONST "LongProcess" false
@@ -748,6 +788,7 @@ ref; // ME_4BDAF7880236_ME_52DD0971008A ExpandAll
  ;
  : Implementor ME_52DD0971008A // TnscTreeViewPrim
  ;
+ CONST OpKind opkind_Implemented
  CONST "AutoFocus" false
  CONST "AutoLock" false
  CONST "LongProcess" false
@@ -766,6 +807,7 @@ ref; // ME_4BDAF7A2005C_ME_52DD0971008A CollapseAll
  ;
  : Implementor ME_52DD0971008A // TnscTreeViewPrim
  ;
+ CONST OpKind opkind_Implemented
  CONST "AutoFocus" false
  CONST "AutoLock" false
  CONST "LongProcess" false
@@ -784,6 +826,7 @@ ref; // ME_4BDAF7B803CF_ME_52DD0971008A Wrap
  ;
  : Implementor ME_52DD0971008A // TnscTreeViewPrim
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_47D1602000C6_ME_52DD0971008A Create
 
 : ME_48BFB75F01ED_ME_52DD0971008A
@@ -793,6 +836,7 @@ ref; // ME_47D1602000C6_ME_52DD0971008A Create
  ;
  : Implementor ME_52DD0971008A // TnscTreeViewPrim
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_48BFB75F01ED_ME_52DD0971008A DoKeys2Effect
 
 : ME_4F9A5C410274_ME_52DD0971008A
@@ -802,6 +846,7 @@ ref; // ME_48BFB75F01ED_ME_52DD0971008A DoKeys2Effect
  ;
  : Implementor ME_52DD0971008A // TnscTreeViewPrim
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4F9A5C410274_ME_52DD0971008A LoadSettings
 
 : ME_4F9A5C530398_ME_52DD0971008A
@@ -811,6 +856,7 @@ ref; // ME_4F9A5C410274_ME_52DD0971008A LoadSettings
  ;
  : Implementor ME_52DD0971008A // TnscTreeViewPrim
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4F9A5C530398_ME_52DD0971008A SaveSettings
 
 : ME_5152C16A028F_ME_52DD0971008A
@@ -820,6 +866,7 @@ ref; // ME_4F9A5C530398_ME_52DD0971008A SaveSettings
  ;
  : Implementor ME_52DD0971008A // TnscTreeViewPrim
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_5152C16A028F_ME_52DD0971008A GetDragAndDropSupported
 
 : ME_515584020214_ME_52DD0971008A
@@ -829,6 +876,7 @@ ref; // ME_5152C16A028F_ME_52DD0971008A GetDragAndDropSupported
  ;
  : Implementor ME_52DD0971008A // TnscTreeViewPrim
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_515584020214_ME_52DD0971008A CalcInterRowIndent
 
 : ME_52DD0F440276_ME_52DD0971008A
@@ -838,6 +886,7 @@ ref; // ME_515584020214_ME_52DD0971008A CalcInterRowIndent
  ;
  : Implementor ME_52DD0971008A // TnscTreeViewPrim
  ;
+ CONST OpKind opkind_Overridden
  CONST "ifndef" 'DesignTimeLibrary, NoVCM'
 ref; // ME_52DD0F440276_ME_52DD0971008A DoSaveState
 
@@ -848,6 +897,7 @@ ref; // ME_52DD0F440276_ME_52DD0971008A DoSaveState
  ;
  : Implementor ME_52DD0971008A // TnscTreeViewPrim
  ;
+ CONST OpKind opkind_Overridden
  CONST "ifndef" 'DesignTimeLibrary, NoVCM'
 ref; // ME_52DD0F6F0223_ME_52DD0971008A DoLoadState
 
@@ -862,37 +912,37 @@ ref; // ME_52DD0F6F0223_ME_52DD0971008A DoLoadState
  : Parent ME_499C26240034 // TnscTreeView
  ;
  : Inherits
-   @ ( WL 'ME_494B949E022B' '494B947D0127.pas.ms.script' // TeeTreeView
- ) .SequenceCode.It
+   Seq: ( WL 'ME_494B949E022B' '494B947D0127.pas.ms.script' // TeeTreeView
+ )
  ; // Inherits
  : Implements
-   @ ( WL 'ME_467BABAA00D5' '467BAB7F021E.pas.ms.script' // IvcmOperationsProvider
+   Seq: ( WL 'ME_467BABAA00D5' '467BAB7F021E.pas.ms.script' // IvcmOperationsProvider
  WL 'ME_476BFD340267' '467C0CAA02AB.pas.ms.script' // Il3CommandPublisherInfo
  WL 'ME_4951282D0269' '495127DD017C.pas.ms.script' // Edit
  WL 'ME_4BDAF7790158' '4BDAF7510113.pas.ms.script' // Tree
  WL 'ME_4F9A57620120' '53288DFA03A7.pas.ms.script' // nsUnknownComponent
- ) .SequenceCode.It
+ )
  ; // Implements
  : Attributes
-   @ ( ME_52DD08FC017B // SettingId
+   Seq: ( ME_52DD08FC017B // SettingId
  ME_52DD09210222 // InterRowMultiplier
  ME_52DD094203AE // DisableDragAndDropSupport
  ME_52DD1C600008 // f_Published
  ME_8FFD05FB11B2 // f_SettingId
  ME_CFB07B17773A // f_InterRowMultiplier
  ME_C515BF8C00BB // f_DisableDragAndDropSupport
- ) .SequenceCode.It
+ )
  ; // Attributes
  : Operations
-   @ ( ME_508F7F930094 // DoIsCommandPublished
+   Seq: ( ME_508F7F930094 // DoIsCommandPublished
  ME_52DD0A7700AD // IsEmpty
  ME_52DD0ACE03DC // DoProvideOps
  ME_52DD0AF202C2 // MakePath
  ME_C519CB88C95F // Ini_Reg_Class
- ) .SequenceCode.It
+ )
  ; // Operations
  : Implemented
-   @ ( ME_4769552100DD_ME_52DD0971008A // ProvideOps
+   Seq: ( ME_4769552100DD_ME_52DD0971008A // ProvideOps
  ME_476BFD420341_ME_52DD0971008A // IsCommandPublished
  ME_4951284902BD_ME_52DD0971008A // Copy
  ME_49EDFA3701B0_ME_52DD0971008A // Paste
@@ -901,10 +951,10 @@ ref; // ME_52DD0F6F0223_ME_52DD0971008A DoLoadState
  ME_4BDAF7880236_ME_52DD0971008A // ExpandAll
  ME_4BDAF7A2005C_ME_52DD0971008A // CollapseAll
  ME_4BDAF7B803CF_ME_52DD0971008A // Wrap
- ) .SequenceCode.It
+ )
  ; // Implemented
  : Overridden
-   @ ( ME_47D1602000C6_ME_52DD0971008A // Create
+   Seq: ( ME_47D1602000C6_ME_52DD0971008A // Create
  ME_48BFB75F01ED_ME_52DD0971008A // DoKeys2Effect
  ME_4F9A5C410274_ME_52DD0971008A // LoadSettings
  ME_4F9A5C530398_ME_52DD0971008A // SaveSettings
@@ -912,27 +962,34 @@ ref; // ME_52DD0F6F0223_ME_52DD0971008A DoLoadState
  ME_515584020214_ME_52DD0971008A // CalcInterRowIndent
  ME_52DD0F440276_ME_52DD0971008A // DoSaveState
  ME_52DD0F6F0223_ME_52DD0971008A // DoLoadState
- ) .SequenceCode.It
+ )
  ; // Overridden
  : Constants
-   @ ( ME_52DD11500026 // nscTreeView Const
- ) .SequenceCode.It
+   Seq: ( ME_52DD11500026 // nscTreeView Const
+ )
  ; // Constants
  : Dependencies
-   @ ( ME_E1232FA3A41F // 
- ) .SequenceCode.It
+   Seq: ( ME_E1232FA3A41F // 
+ )
  ; // Dependencies
  CONST "base wnd class" 'CWnd'
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
+ CONST dfm:PathOnly '\common\components\gui\Garant\Nemesis'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Nemesis'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'TreeViewPrim'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_52DD0971008A TnscTreeViewPrim
 
 : ME_1EE938ABD0CF
  CONST UID '1EE938ABD0CF'
  CONST Name 'Ini_Reg_Class'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Регистрация TnscTreeView' ;
@@ -1047,6 +1104,7 @@ ref; // ME_52DE2F1F00B0
 
 : ME_57FB499C6F2C
  CONST UID '57FB499C6F2C'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_499C26240034 // TnscTreeView
@@ -1067,21 +1125,21 @@ ref; // ME_57FB499C6F2C
  : Parent ME_499C2614028C // Tree
  ;
  : Inherits
-   @ ( ME_52DD0971008A // TnscTreeViewPrim
- ) .SequenceCode.It
+   Seq: ( ME_52DD0971008A // TnscTreeViewPrim
+ )
  ; // Inherits
  : Operations
-   @ ( ME_1EE938ABD0CF // Ini_Reg_Class
- ) .SequenceCode.It
+   Seq: ( ME_1EE938ABD0CF // Ini_Reg_Class
+ )
  ; // Operations
  : Children
-   @ ( ME_52DD074203B6 // InscTreeState
+   Seq: ( ME_52DD074203B6 // InscTreeState
  ME_52DD07CE001D // TnscTreeViewState
  ME_52DD0971008A // TnscTreeViewPrim
- ) .SequenceCode.It
+ )
  ; // Children
  : Dependencies
-   @ ( ME_4B97DC7F0263 // 
+   Seq: ( ME_4B97DC7F0263 // 
  ME_52DD18B601C6 // 
  ME_52DD67EA000B // 
  ME_52DD69010379 // 
@@ -1091,7 +1149,7 @@ ref; // ME_57FB499C6F2C
  ME_52DD697D01E4 // 
  ME_52DE2F1F00B0 // 
  ME_57FB499C6F2C // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  CONST "base wnd class" 'CWnd'
  CONST "need UC" true
@@ -1099,12 +1157,14 @@ ref; // ME_57FB499C6F2C
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\Nemesis'
  CONST intf.pas:Path 'common\components\gui\Garant\Nemesis\nscTreeView.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Nemesis'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'TreeView'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'nscTreeView'
 
 ref; // ME_499C26240034 TnscTreeView
 
@@ -1151,10 +1211,10 @@ ref; // ME_559BCDED03DD Allow
  : Parent ME_559BCDD6010D // TOnAllowHotTruck
  ;
  : Parameters
-   @ ( ME_559BCDED03AB // Sender
+   Seq: ( ME_559BCDED03AB // Sender
  ME_559BCDED03BF // anIndex
  ME_559BCDED03DD // Allow
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_559BCDE801B7 DoIt
@@ -1170,10 +1230,14 @@ ref; // ME_559BCDE801B7 DoIt
  : Parent ME_4B60346A022E // TnscTreeViewHotTruck
  ;
  : Operations
-   @ ( ME_559BCDE801B7 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_559BCDE801B7 // DoIt
+ )
  ; // Operations
  CONST "of object" true
+ CONST dfm:PathOnly '\common\components\gui\Garant\Nemesis'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Nemesis'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_559BCDD6010D TOnAllowHotTruck
 
@@ -1232,6 +1296,7 @@ ref; // ME_559BCE60027E HotTruckIndex
 : ME_17FC3522B761
  CONST UID '17FC3522B761'
  CONST Name 'f_OnAllowHotTruck'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY 'Поле для свойства OnAllowHotTruck' ;
  CONST Visibility PrivateAccess
@@ -1241,12 +1306,14 @@ ref; // ME_559BCE60027E HotTruckIndex
  ;
  : Target ME_559BCDD6010D // TOnAllowHotTruck
  ;
+ CONST extprop:clearViaProperty 'OnAllowHotTruck'
 
 ref; // ME_17FC3522B761 f_OnAllowHotTruck
 
 : ME_125ED7C721FA
  CONST UID '125ED7C721FA'
  CONST Name 'f_AllowTrucking'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY 'Поле для свойства AllowTrucking' ;
  CONST Visibility PrivateAccess
@@ -1256,12 +1323,14 @@ ref; // ME_17FC3522B761 f_OnAllowHotTruck
  ;
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
+ CONST extprop:clearViaProperty 'AllowTrucking'
 
 ref; // ME_125ED7C721FA f_AllowTrucking
 
 : ME_E2D86F1A6986
  CONST UID 'E2D86F1A6986'
  CONST Name 'f_HotTruckIndex'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY 'Поле для свойства HotTruckIndex' ;
  CONST Visibility PrivateAccess
@@ -1295,8 +1364,8 @@ ref; // ME_559BCE930009 aValue
  : Parent ME_559BCE89021B // SetHotTruckIndex
  ;
  : Parameters
-   @ ( ME_559BCE930009 // aValue
- ) .SequenceCode.It
+   Seq: ( ME_559BCE930009 // aValue
+ )
  ; // Parameters
 
 ref; // ME_559BCE900315 DoIt
@@ -1312,8 +1381,8 @@ ref; // ME_559BCE900315 DoIt
  : Parent ME_4B60346A022E // TnscTreeViewHotTruck
  ;
  : Operations
-   @ ( ME_559BCE900315 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_559BCE900315 // DoIt
+ )
  ; // Operations
 
 ref; // ME_559BCE89021B SetHotTruckIndex
@@ -1323,6 +1392,7 @@ FORWARD ME_559BCE9C0001
 : ME_50D79565E579
  CONST UID '50D79565E579'
  CONST Name 'DoIt'
+ CONST IsSummoned true
  CONST Class class_Operation
  %SUMMARY 'Сигнатура метода UpdateTruckFromCursor' ;
  CONST Visibility PublicAccess
@@ -1343,8 +1413,8 @@ ref; // ME_50D79565E579 DoIt
  : Parent ME_4B60346A022E // TnscTreeViewHotTruck
  ;
  : Operations
-   @ ( ME_50D79565E579 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_50D79565E579 // DoIt
+ )
  ; // Operations
 
 ref; // ME_559BCE9C0001 UpdateTruckFromCursor
@@ -1369,8 +1439,8 @@ ref; // ME_559BCEBB010C Message
  : Parent ME_4B60346A022E // TnscTreeViewHotTruck
  ;
  : Parameters
-   @ ( ME_559BCEBB010C // Message
- ) .SequenceCode.It
+   Seq: ( ME_559BCEBB010C // Message
+ )
  ; // Parameters
  CONST "Message ID" 'CM_MOUSELEAVE'
 
@@ -1379,6 +1449,7 @@ ref; // ME_559BCEAE01E8 CMMouseLeave
 : ME_7D3722F85D10
  CONST UID '7D3722F85D10'
  CONST Name 'Ini_Reg_Class'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Регистрация TnscTreeViewHotTruck' ;
@@ -1403,6 +1474,7 @@ ref; // ME_559BCF6801DE
 
 : ME_6D6E453651EE
  CONST UID '6D6E453651EE'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_4B60346A022E // TnscTreeViewHotTruck
@@ -1419,6 +1491,7 @@ ref; // ME_6D6E453651EE
  ;
  : Implementor ME_4B60346A022E // TnscTreeViewHotTruck
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_47D1602000C6_ME_4B60346A022E Create
 
 : ME_508F825303E4_ME_4B60346A022E
@@ -1428,6 +1501,7 @@ ref; // ME_47D1602000C6_ME_4B60346A022E Create
  ;
  : Implementor ME_4B60346A022E // TnscTreeViewHotTruck
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_508F825303E4_ME_4B60346A022E DoOnGetItemStyle
 
 : ME_5152C10E027B_ME_4B60346A022E
@@ -1437,6 +1511,7 @@ ref; // ME_508F825303E4_ME_4B60346A022E DoOnGetItemStyle
  ;
  : Implementor ME_4B60346A022E // TnscTreeViewHotTruck
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_5152C10E027B_ME_4B60346A022E SetCursorForItem
 
 : ME_4B60346A022E
@@ -1450,39 +1525,39 @@ ref; // ME_5152C10E027B_ME_4B60346A022E SetCursorForItem
  : Parent ME_499C2614028C // Tree
  ;
  : Inherits
-   @ ( ME_499C26240034 // TnscTreeView
- ) .SequenceCode.It
+   Seq: ( ME_499C26240034 // TnscTreeView
+ )
  ; // Inherits
  : Attributes
-   @ ( ME_559BCE1402D5 // OnAllowHotTruck
+   Seq: ( ME_559BCE1402D5 // OnAllowHotTruck
  ME_559BCE3F0233 // AllowTrucking
  ME_559BCE60027E // HotTruckIndex
  ME_17FC3522B761 // f_OnAllowHotTruck
  ME_125ED7C721FA // f_AllowTrucking
  ME_E2D86F1A6986 // f_HotTruckIndex
- ) .SequenceCode.It
+ )
  ; // Attributes
  : Operations
-   @ ( ME_559BCE89021B // SetHotTruckIndex
+   Seq: ( ME_559BCE89021B // SetHotTruckIndex
  ME_559BCE9C0001 // UpdateTruckFromCursor
  ME_559BCEAE01E8 // CMMouseLeave
  ME_7D3722F85D10 // Ini_Reg_Class
- ) .SequenceCode.It
+ )
  ; // Operations
  : Overridden
-   @ ( ME_47D1602000C6_ME_4B60346A022E // Create
+   Seq: ( ME_47D1602000C6_ME_4B60346A022E // Create
  ME_508F825303E4_ME_4B60346A022E // DoOnGetItemStyle
  ME_5152C10E027B_ME_4B60346A022E // SetCursorForItem
- ) .SequenceCode.It
+ )
  ; // Overridden
  : Children
-   @ ( ME_559BCDD6010D // TOnAllowHotTruck
- ) .SequenceCode.It
+   Seq: ( ME_559BCDD6010D // TOnAllowHotTruck
+ )
  ; // Children
  : Dependencies
-   @ ( ME_559BCF6801DE // 
+   Seq: ( ME_559BCF6801DE // 
  ME_6D6E453651EE // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  CONST "base wnd class" 'CWnd'
  CONST "ifdef" 'Nemesis'
@@ -1490,12 +1565,14 @@ ref; // ME_5152C10E027B_ME_4B60346A022E SetCursorForItem
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\Nemesis'
  CONST intf.pas:Path 'common\components\gui\Garant\Nemesis\nscTreeViewHotTruck.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Nemesis'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'TreeViewHotTruck'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'nscTreeViewHotTruck'
 
 ref; // ME_4B60346A022E TnscTreeViewHotTruck
 
@@ -1514,6 +1591,7 @@ FORWARD ME_4B97DC8A0190
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value '''Включить перенос по словам'''
 
 ref; // ME_4B97DCD00058 WrapHint
 
@@ -1530,6 +1608,7 @@ ref; // ME_4B97DCD00058 WrapHint
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value '''Выключить перенос по словам'''
 
 ref; // ME_4B97DCDB01D8 UnwrapHint
 
@@ -1544,18 +1623,23 @@ ref; // ME_4B97DCDB01D8 UnwrapHint
  : Parent ME_4B97DC630378 // nscTreeViewRes
  ;
  : Inherits
-   @ ( WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
- ) .SequenceCode.It
+   Seq: ( WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ )
  ; // Inherits
  : Attributes
-   @ ( ME_4B97DCD00058 // WrapHint
+   Seq: ( ME_4B97DCD00058 // WrapHint
  ME_4B97DCDB01D8 // UnwrapHint
- ) .SequenceCode.It
+ )
  ; // Attributes
  CONST "Need map interface" false
  CONST "Need mapping support" false
  CONST "children prefix" 'nsc_'
  CONST "spell names" false
+ CONST dfm:PathOnly '\common\components\gui\Garant\Nemesis'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Nemesis'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'MultiStroke'
  CONST extprop:pas:ElementPrefix 'nsc_'
 
 ref; // ME_4B97DC8A0190 nscMultiStroke
@@ -1565,6 +1649,7 @@ FORWARD ME_BB11CACEB07E
 : ME_20FA1D733F37
  CONST UID '20FA1D733F37'
  CONST Name 'WrapHint'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY '''Включить перенос по словам''' ;
  CONST Visibility PublicAccess
@@ -1580,12 +1665,14 @@ FORWARD ME_BB11CACEB07E
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''nsc_WrapHint''; rValue : ''Включить перенос по словам'')'
 
 ref; // ME_20FA1D733F37 WrapHint
 
 : ME_EFEABF47D2D0
  CONST UID 'EFEABF47D2D0'
  CONST Name 'UnwrapHint'
+ CONST IsSummoned true
  CONST Class class_Attribute
  %SUMMARY '''Выключить перенос по словам''' ;
  CONST Visibility PublicAccess
@@ -1601,12 +1688,14 @@ ref; // ME_20FA1D733F37 WrapHint
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''nsc_UnwrapHint''; rValue : ''Выключить перенос по словам'')'
 
 ref; // ME_EFEABF47D2D0 UnwrapHint
 
 : ME_BB11CACEB07E
  CONST UID 'BB11CACEB07E'
  CONST Name 'LCImplnscMultiStroke'
+ CONST IsSummoned true
  CONST Class class_Class
  : Stereotype st_Constants ;
  CONST Kind kind_NormalClass
@@ -1616,13 +1705,17 @@ ref; // ME_EFEABF47D2D0 UnwrapHint
  : Parent ME_4B97DC630378 // nscTreeViewRes
  ;
  : Attributes
-   @ ( ME_20FA1D733F37 // WrapHint
+   Seq: ( ME_20FA1D733F37 // WrapHint
  ME_EFEABF47D2D0 // UnwrapHint
- ) .SequenceCode.It
+ )
  ; // Attributes
  CONST "children prefix" 'nsc_'
  CONST "elements prefix" 'str'
  CONST "spell names" false
+ CONST dfm:PathOnly '\common\components\gui\Garant\Nemesis'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Nemesis'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
  CONST extprop:pas:ElementPrefixBase 'str'
  CONST extprop:pas:ElementPrefix 'str_nsc_'
 
@@ -1633,6 +1726,7 @@ FORWARD ME_3AFA6852B290
 : ME_1340DEFCB738
  CONST UID '1340DEFCB738'
  CONST Name 'WrapHint'
+ CONST IsSummoned true
  CONST Class class_Attribute
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
@@ -1644,12 +1738,14 @@ FORWARD ME_3AFA6852B290
  CONST Value 'WrapHint'
  : ValueType ME_BB11CACEB07E // LCImplnscMultiStroke
  ;
+ CONST extprop:pas:Value 'str_nsc_WrapHint'
 
 ref; // ME_1340DEFCB738 WrapHint
 
 : ME_5D8B78969DA3
  CONST UID '5D8B78969DA3'
  CONST Name 'UnwrapHint'
+ CONST IsSummoned true
  CONST Class class_Attribute
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
@@ -1661,12 +1757,14 @@ ref; // ME_1340DEFCB738 WrapHint
  CONST Value 'UnwrapHint'
  : ValueType ME_BB11CACEB07E // LCImplnscMultiStroke
  ;
+ CONST extprop:pas:Value 'str_nsc_UnwrapHint'
 
 ref; // ME_5D8B78969DA3 UnwrapHint
 
 : ME_3AFA6852B290
  CONST UID '3AFA6852B290'
  CONST Name 'nscMultiStrokeMap'
+ CONST IsSummoned true
  CONST Class class_Class
  : Stereotype st_ConstantArray ;
  CONST Kind kind_NormalClass
@@ -1676,26 +1774,32 @@ ref; // ME_5D8B78969DA3 UnwrapHint
  : Parent ME_4B97DC630378 // nscTreeViewRes
  ;
  : Inherits
-   @ ( WL 'ME_4B3B49B40262' '4F9BDEEE01BC.pas.ms.script' // Pl3StringIDEx
- ) .SequenceCode.It
+   Seq: ( WL 'ME_4B3B49B40262' '4F9BDEEE01BC.pas.ms.script' // Pl3StringIDEx
+ )
  ; // Inherits
  : Implements
-   @ ( WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
- ) .SequenceCode.It
+   Seq: ( WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ )
  ; // Implements
  : Attributes
-   @ ( ME_1340DEFCB738 // WrapHint
+   Seq: ( ME_1340DEFCB738 // WrapHint
  ME_5D8B78969DA3 // UnwrapHint
- ) .SequenceCode.It
+ )
  ; // Attributes
  CONST "Need map interface" false
  CONST "Need mapping support" false
+ CONST dfm:PathOnly '\common\components\gui\Garant\Nemesis'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Nemesis'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'MultiStrokeMap'
 
 ref; // ME_3AFA6852B290 nscMultiStrokeMap
 
 : ME_AF195BD1D582
  CONST UID 'AF195BD1D582'
- CONST Name 'Init_WrapHint'
+ CONST Name 'Init_Str_WrapHint'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Инициализация str_nsc_WrapHint' ;
@@ -1703,12 +1807,17 @@ ref; // ME_3AFA6852B290 nscMultiStrokeMap
  CONST Abstraction at_final
  : Parent ME_4B97DC630378 // nscTreeViewRes
  ;
+ : Speller ME_4B97DCD00058 // WrapHint
+ ;
+ : SpelledFor ME_20FA1D733F37 // WrapHint
+ ;
 
-ref; // ME_AF195BD1D582 Init_WrapHint
+ref; // ME_AF195BD1D582 Init_Str_WrapHint
 
 : ME_C3CB4B685778
  CONST UID 'C3CB4B685778'
- CONST Name 'Init_UnwrapHint'
+ CONST Name 'Init_Str_UnwrapHint'
+ CONST IsSummoned true
  CONST Class class_Operation
  : Stereotype st_ini::Operation ;
  %SUMMARY 'Инициализация str_nsc_UnwrapHint' ;
@@ -1716,11 +1825,16 @@ ref; // ME_AF195BD1D582 Init_WrapHint
  CONST Abstraction at_final
  : Parent ME_4B97DC630378 // nscTreeViewRes
  ;
+ : Speller ME_4B97DCDB01D8 // UnwrapHint
+ ;
+ : SpelledFor ME_EFEABF47D2D0 // UnwrapHint
+ ;
 
-ref; // ME_C3CB4B685778 Init_UnwrapHint
+ref; // ME_C3CB4B685778 Init_Str_UnwrapHint
 
 : ME_1652F411A00F
  CONST UID '1652F411A00F'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_4B97DC630378 // nscTreeViewRes
@@ -1732,6 +1846,7 @@ ref; // ME_1652F411A00F
 
 : ME_A539B2808C71
  CONST UID 'A539B2808C71'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_4B97DC630378 // nscTreeViewRes
@@ -1753,30 +1868,30 @@ ref; // ME_A539B2808C71
  : Parent ME_499C2614028C // Tree
  ;
  : Operations
-   @ ( ME_AF195BD1D582 // Init_WrapHint
- ME_C3CB4B685778 // Init_UnwrapHint
- ) .SequenceCode.It
+   Seq: ( ME_AF195BD1D582 // Init_Str_WrapHint
+ ME_C3CB4B685778 // Init_Str_UnwrapHint
+ )
  ; // Operations
  : Constants
-   @ ( ME_4B97DC8A0190 // nscMultiStroke
+   Seq: ( ME_4B97DC8A0190 // nscMultiStroke
  ME_BB11CACEB07E // LCImplnscMultiStroke
  ME_3AFA6852B290 // nscMultiStrokeMap
- ) .SequenceCode.It
+ )
  ; // Constants
  : Dependencies
-   @ ( ME_1652F411A00F // 
+   Seq: ( ME_1652F411A00F // 
  ME_A539B2808C71 // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  CONST "author" 'Люлин А.В.'
  CONST "no hands" true
  CONST "started" '10.03.2010 20:52'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\Nemesis'
  CONST intf.pas:Path 'common\components\gui\Garant\Nemesis\nscTreeViewRes.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Nemesis'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'TreeViewRes'
 
 ref; // ME_4B97DC630378 nscTreeViewRes
 
@@ -1791,13 +1906,13 @@ ref; // ME_4B97DC630378 nscTreeViewRes
  : Parent WL 'ME_490838AA02D0' '490838AA02D0.pas.ms.script' // Nemesis
  ;
  : Children
-   @ ( ME_499C26240034 // TnscTreeView
+   Seq: ( ME_499C26240034 // TnscTreeView
  ME_4B60346A022E // TnscTreeViewHotTruck
  ME_4B97DC630378 // nscTreeViewRes
- ) .SequenceCode.It
+ )
  ; // Children
  : Depends
-   @ ( WL 'ME_4677FBA70343' '4677FBA70343.pas.ms.script' // l3Interfaces
+   Seq: ( WL 'ME_4677FBA70343' '4677FBA70343.pas.ms.script' // l3Interfaces
  WL 'ME_467BAB7F021E' '467BAB7F021E.pas.ms.script' // vcmExternalInterfaces
  WL 'ME_467C0CAA02AB' '467C0CAA02AB.pas.ms.script' // l3InternalInterfaces
  WL 'ME_46A0E6C5023A' '46A0E6C5023A.pas.ms.script' // ActiveX
@@ -1815,15 +1930,13 @@ ref; // ME_4B97DC630378 nscTreeViewRes
  WL 'ME_52DD68B5034F' '52DD68B5034F.pas.ms.script' // vcmDefaultOperations
  WL 'ME_53288DFA03A7' '53288DFA03A7.pas.ms.script' // NewReminders
  WL 'ME_561F9F7D02A7' '561F9F7D02A7.pas.ms.script' // ScriptEngine
- ) .SequenceCode.It
+ )
  ; // Depends
- : Generators
- @ (
- gen_pas.script
- gen_pas.script.runner
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\Nemesis'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Nemesis'
  CONST pas.script:Path 'shared\models\NewSchool\Scripts\499C2614028C.pas.ms.script'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
  CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\499C2614028C.pas.ms.script.runner'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_499C2614028C Tree

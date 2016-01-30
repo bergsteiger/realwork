@@ -63,17 +63,18 @@ ref; // ME_4C74EECF000F
  : Parent ME_4C74EDA4008B // GZipTest
  ;
  : Dependencies
-   @ ( ME_4C74EDC70332 // 
+   Seq: ( ME_4C74EDC70332 // 
  ME_4C74EE420106 // 
  ME_4C74EEA90230 // 
  ME_4C74EECF000F // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
 
 ref; // ME_4C74EDE00008 DoIt
 
 : ME_4D0BD9F522A7
  CONST UID '4D0BD9F522A7'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_4C74EDA4008B // GZipTest
@@ -90,6 +91,7 @@ ref; // ME_4D0BD9F522A7
  ;
  : Implementor ME_4C74EDA4008B // GZipTest
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4C937013031D_ME_4C74EDA4008B GetFolder
 
 : ME_4DAED6F60146_ME_4C74EDA4008B
@@ -99,6 +101,7 @@ ref; // ME_4C937013031D_ME_4C74EDA4008B GetFolder
  ;
  : Implementor ME_4C74EDA4008B // GZipTest
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4DAED6F60146_ME_4C74EDA4008B GetModelElementGUID
 
 : ME_4C74EDA4008B
@@ -112,21 +115,21 @@ ref; // ME_4DAED6F60146_ME_4C74EDA4008B GetModelElementGUID
  : Parent ME_4C74ED8300A5 // GZip
  ;
  : Inherits
-   @ ( WL 'ME_4B2A11BC0255' '4B2A112B011A.pas.ms.script' // TBaseTest
- ) .SequenceCode.It
+   Seq: ( WL 'ME_4B2A11BC0255' '4B2A112B011A.pas.ms.script' // TBaseTest
+ )
  ; // Inherits
  : Operations
-   @ ( ME_4C74EDE00008 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_4C74EDE00008 // DoIt
+ )
  ; // Operations
  : Overridden
-   @ ( ME_4C937013031D_ME_4C74EDA4008B // GetFolder
+   Seq: ( ME_4C937013031D_ME_4C74EDA4008B // GetFolder
  ME_4DAED6F60146_ME_4C74EDA4008B // GetModelElementGUID
- ) .SequenceCode.It
+ )
  ; // Overridden
  : Dependencies
-   @ ( ME_4D0BD9F522A7 // 
- ) .SequenceCode.It
+   Seq: ( ME_4D0BD9F522A7 // 
+ )
  ; // Dependencies
  CONST "author" 'Ëþëèí À.Â.'
  CONST "needs InstanceR" 'undefined'
@@ -135,12 +138,19 @@ ref; // ME_4DAED6F60146_ME_4C74EDA4008B GetModelElementGUID
  CONST "register in scripts" 'undefined'
  CONST "started" '25.08.2010 14:17'
  : Generators
- @ (
+ Seq: (
  gen_intf.pas
- ) .SequenceCode.It
+ )
  ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\Daily'
  CONST intf.pas:Path 'common\components\rtl\Garant\Daily\GZipTest.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\Daily'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\common\components\rtl\Garant\Daily'
  CONST extprop:pas:TypeName 'TGZipTest'
+ CONST extprop:rc:SelfName 'GZipTest'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_4C74EDA4008B GZipTest
 
@@ -203,17 +213,18 @@ ref; // ME_4FFEA291024C
  : Parent ME_4FFD57940035 // GZipUnzipTest
  ;
  : Dependencies
-   @ ( ME_4FFD5B9D0245 // 
+   Seq: ( ME_4FFD5B9D0245 // 
  ME_4FFD5C2C034D // 
  ME_4FFD5C56034A // 
  ME_4FFEA291024C // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
 
 ref; // ME_4FFD57F600FA DoIt
 
 : ME_182E559E2760
  CONST UID '182E559E2760'
+ CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_4FFD57940035 // GZipUnzipTest
@@ -230,6 +241,7 @@ ref; // ME_182E559E2760
  ;
  : Implementor ME_4FFD57940035 // GZipUnzipTest
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4C937013031D_ME_4FFD57940035 GetFolder
 
 : ME_4DAED6F60146_ME_4FFD57940035
@@ -239,6 +251,7 @@ ref; // ME_4C937013031D_ME_4FFD57940035 GetFolder
  ;
  : Implementor ME_4FFD57940035 // GZipUnzipTest
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_4DAED6F60146_ME_4FFD57940035 GetModelElementGUID
 
 : ME_4FFD57940035
@@ -252,33 +265,40 @@ ref; // ME_4DAED6F60146_ME_4FFD57940035 GetModelElementGUID
  : Parent ME_4C74ED8300A5 // GZip
  ;
  : Inherits
-   @ ( WL 'ME_4B2A11BC0255' '4B2A112B011A.pas.ms.script' // TBaseTest
- ) .SequenceCode.It
+   Seq: ( WL 'ME_4B2A11BC0255' '4B2A112B011A.pas.ms.script' // TBaseTest
+ )
  ; // Inherits
  : Operations
-   @ ( ME_4FFD57F600FA // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_4FFD57F600FA // DoIt
+ )
  ; // Operations
  : Overridden
-   @ ( ME_4C937013031D_ME_4FFD57940035 // GetFolder
+   Seq: ( ME_4C937013031D_ME_4FFD57940035 // GetFolder
  ME_4DAED6F60146_ME_4FFD57940035 // GetModelElementGUID
- ) .SequenceCode.It
+ )
  ; // Overridden
  : Dependencies
-   @ ( ME_182E559E2760 // 
- ) .SequenceCode.It
+   Seq: ( ME_182E559E2760 // 
+ )
  ; // Dependencies
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
  : Generators
- @ (
+ Seq: (
  gen_intf.pas
- ) .SequenceCode.It
+ )
  ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\Daily'
  CONST intf.pas:Path 'common\components\rtl\Garant\Daily\GZipUnzipTest.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\Daily'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\common\components\rtl\Garant\Daily'
  CONST extprop:pas:TypeName 'TGZipUnzipTest'
+ CONST extprop:rc:SelfName 'GZipUnzipTest'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_4FFD57940035 GZipUnzipTest
 
@@ -292,26 +312,31 @@ ref; // ME_4FFD57940035 GZipUnzipTest
  : Parent WL 'ME_4B2A15810261' '4B2A15810261.pas.ms.script' // DailyTest
  ;
  : Children
-   @ ( ME_4C74EDA4008B // GZipTest
+   Seq: ( ME_4C74EDA4008B // GZipTest
  ME_4FFD57940035 // GZipUnzipTest
- ) .SequenceCode.It
+ )
  ; // Children
  : Depends
-   @ ( WL 'ME_4678193C009C' '4678193C009C.pas.ms.script' // l3Types
+   Seq: ( WL 'ME_4678193C009C' '4678193C009C.pas.ms.script' // l3Types
  WL 'ME_47913B47006E' '47913B47006E.pas.ms.script' // l3CoreObjects
  WL 'ME_4AB0C3C60310' '4AB0C3C60310.pas.ms.script' // Sys
  WL 'ME_4B2A0D6A0077' '4B2A0D6A0077.pas.ms.script' // Source
  WL 'ME_4B2A112B011A' '4B2A112B011A.pas.ms.script' // Source
  WL 'ME_4B893514021E' '4B893514021E.pas.ms.script' // Pretty Things
- ) .SequenceCode.It
+ )
  ; // Depends
  : Generators
- @ (
+ Seq: (
  gen_pas.script
  gen_pas.script.runner
- ) .SequenceCode.It
+ )
  ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\Daily'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\Daily'
  CONST pas.script:Path 'shared\models\NewSchool\Scripts\4C74ED8300A5.pas.ms.script'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
  CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\4C74ED8300A5.pas.ms.script.runner'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\common\components\rtl\Garant\Daily'
 
 ref; // ME_4C74ED8300A5 GZip

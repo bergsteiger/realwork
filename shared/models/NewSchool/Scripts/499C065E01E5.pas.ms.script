@@ -1,0 +1,51 @@
+// Splash 499C065E01E5 Library Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+: ME_499C065E01E5
+ CONST UID '499C065E01E5'
+ CONST Name 'Splash'
+ CONST Class class_Category
+ : Stereotype st_Library ;
+ %SUMMARY 'Показ сплеш-скрина в отцепленном процессе.'#13#10'Клиент - оболочка.'#13#10'Сервер - отдельный процесс, показывающий сплеш'#13#10'Данные передаются через файл проецируемый в память.' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent WL 'ME_4954BDE30347' '4954BDE30347.pas.ms.script' // Splash
+ ;
+ : Children
+   Seq: ( WL 'ME_499C07150302' '499C07150302.pas.ms.script' // SplashTypes
+ WL 'ME_499D0684023C' '499D0684023C.pas.ms.script' // SplashInterfaces
+ WL 'ME_499D06A201BE' '499D06A201BE.pas.ms.script' // SplashServerInterfaces
+ WL 'ME_499D247F0173' '499D247F0173.pas.ms.script' // SplashServer
+ WL 'ME_499D5F2203AD' '499D5F2203AD.pas.ms.script' // SplashClient
+ )
+ ; // Children
+ : Depends
+   Seq: ( WL 'ME_4677FBA70343' '4677FBA70343.pas.ms.script' // l3Interfaces
+ WL 'ME_4684F91300DD' '4684F91300DD.pas.ms.script' // Vcl
+ WL 'ME_469F3E37025A' '469F3E37025A.pas.ms.script' // Rtl
+ WL 'ME_4790B4F00236' '4790B4F00236.pas.ms.script' // AFW
+ WL 'ME_4790D09A0378' '4790D09A0378.pas.ms.script' // L3
+ WL 'ME_4E2F0E1B03BB' '4E2F0E1B03BB.pas.ms.script' // L3$Domain
+ WL 'ME_54B90AC6014B' '54B90AC6014B.pas.ms.script' // StringUtils
+ )
+ ; // Depends
+ CONST "exec mode" 'concluded'
+ CONST "gui" 'prj'
+ CONST "is namespace" true
+ CONST "vendor" 'none'
+ : Generators
+ Seq: (
+ gen_pas.script
+ gen_pas.script.runner
+ )
+ ; // Generators
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Splash'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Splash'
+ CONST pas.script:Path 'shared\models\NewSchool\Scripts\499C065E01E5.pas.ms.script'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\499C065E01E5.pas.ms.script.runner'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\Splash'
+
+ref; // ME_499C065E01E5 Splash

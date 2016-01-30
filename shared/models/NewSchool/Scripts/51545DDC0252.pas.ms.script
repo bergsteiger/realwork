@@ -16,6 +16,11 @@ FORWARD ME_51545DEA00FB
  CONST Abstraction at_abstract
  : Parent ME_51545DEA00FB // StackPrim
  ;
+ CONST dfm:PathOnly '\common\components\SandBox'
+ CONST intf.pas:PathOnly '\common\components\SandBox'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\common\components\SandBox'
  CONST extprop:pas:TypeName '_ItemType_'
 
 ref; // ME_51545E6A02A3 ItemType
@@ -46,10 +51,15 @@ ref; // ME_51545EE401B5
  : Parent ME_51545DEA00FB // StackPrim
  ;
  : Attributes
-   @ ( ME_51545EE401B5 // 
- ) .SequenceCode.It
+   Seq: ( ME_51545EE401B5 // 
+ )
  ; // Attributes
  CONST "array type" 'dynamic'
+ CONST dfm:PathOnly '\common\components\SandBox'
+ CONST intf.pas:PathOnly '\common\components\SandBox'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\common\components\SandBox'
 
 ref; // ME_51545EC402A3 ItemsHolder
 
@@ -101,8 +111,8 @@ ref; // ME_51545E9C035E anItem
  : Parent ME_51545DEA00FB // StackPrim
  ;
  : Parameters
-   @ ( ME_51545E9C035E // anItem
- ) .SequenceCode.It
+   Seq: ( ME_51545E9C035E // anItem
+ )
  ; // Parameters
 
 ref; // ME_51545E8E032C Push
@@ -131,31 +141,37 @@ ref; // ME_51545EB100A8 Pop
  : Parent ME_51545DDC0252 // Containers
  ;
  : Attributes
-   @ ( ME_51545E7A007E // ItemType
+   Seq: ( ME_51545E7A007E // ItemType
  ME_51545F0200C5 // f_Items
- ) .SequenceCode.It
+ )
  ; // Attributes
  : Operations
-   @ ( ME_51545E8E032C // Push
+   Seq: ( ME_51545E8E032C // Push
  ME_51545EB100A8 // Pop
- ) .SequenceCode.It
+ )
  ; // Operations
  : Children
-   @ ( ME_51545E6A02A3 // ItemType
+   Seq: ( ME_51545E6A02A3 // ItemType
  ME_51545EC402A3 // ItemsHolder
- ) .SequenceCode.It
+ )
  ; // Children
  CONST "needs InstanceR" false
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
  : Generators
- @ (
+ Seq: (
  gen_intf.pas
- ) .SequenceCode.It
+ )
  ; // Generators
+ CONST dfm:PathOnly '\common\components\SandBox'
  CONST intf.pas:Path 'common\components\SandBox\StackPrim.imp.pas'
+ CONST intf.pas:PathOnly '\common\components\SandBox'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\common\components\SandBox'
  CONST extprop:pas:TypeName '_StackPrim_'
+ CONST extprop:pas:UnitName 'StackPrim.imp'
 
 ref; // ME_51545DEA00FB StackPrim
 
@@ -170,21 +186,27 @@ ref; // ME_51545DEA00FB StackPrim
  : Parent ME_51545DDC0252 // Containers
  ;
  : Inherits
-   @ ( WL 'ME_4807745602C8' '4AB0C3C60310.pas.ms.script' // TObject
+   Seq: ( WL 'ME_4807745602C8' '4AB0C3C60310.pas.ms.script' // TObject
  ME_51545DEA00FB // StackPrim
- ) .SequenceCode.It
+ )
  ; // Inherits
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
  : Generators
- @ (
+ Seq: (
  gen_intf.pas
- ) .SequenceCode.It
+ )
  ; // Generators
+ CONST dfm:PathOnly '\common\components\SandBox'
  CONST intf.pas:Path 'common\components\SandBox\Stack.imp.pas'
+ CONST intf.pas:PathOnly '\common\components\SandBox'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\common\components\SandBox'
  CONST extprop:pas:TypeName '_Stack_'
+ CONST extprop:pas:UnitName 'Stack.imp'
 
 ref; // ME_5155849600E9 Stack
 
@@ -216,23 +238,31 @@ ref; // ME_51545E4E00C1 ItemType
  : Parent ME_51545DDC0252 // Containers
  ;
  : Inherits
-   @ ( ME_5155849600E9 // Stack
- ) .SequenceCode.It
+   Seq: ( ME_5155849600E9 // Stack
+ )
  ; // Inherits
  : Attributes
-   @ ( ME_51545E4E00C1 // ItemType
- ) .SequenceCode.It
+   Seq: ( ME_51545E4E00C1 // ItemType
+ )
  ; // Attributes
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
  : Generators
- @ (
+ Seq: (
  gen_intf.pas
- ) .SequenceCode.It
+ )
  ; // Generators
+ CONST dfm:PathOnly '\common\components\SandBox'
  CONST intf.pas:Path 'common\components\SandBox\StringStack.pas'
+ CONST intf.pas:PathOnly '\common\components\SandBox'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\common\components\SandBox'
+ CONST extprop:rc:SelfName 'StringStack'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'StringStack'
 
 ref; // ME_51545E400179 TStringStack
 
@@ -264,23 +294,31 @@ ref; // ME_51545E2D01FE ItemType
  : Parent ME_51545DDC0252 // Containers
  ;
  : Inherits
-   @ ( ME_5155849600E9 // Stack
- ) .SequenceCode.It
+   Seq: ( ME_5155849600E9 // Stack
+ )
  ; // Inherits
  : Attributes
-   @ ( ME_51545E2D01FE // ItemType
- ) .SequenceCode.It
+   Seq: ( ME_51545E2D01FE // ItemType
+ )
  ; // Attributes
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
  : Generators
- @ (
+ Seq: (
  gen_intf.pas
- ) .SequenceCode.It
+ )
  ; // Generators
+ CONST dfm:PathOnly '\common\components\SandBox'
  CONST intf.pas:Path 'common\components\SandBox\IntStack.pas'
+ CONST intf.pas:PathOnly '\common\components\SandBox'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\common\components\SandBox'
+ CONST extprop:rc:SelfName 'IntStack'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'IntStack'
 
 ref; // ME_51545E1E004A TIntStack
 
@@ -312,24 +350,32 @@ ref; // ME_5155850A0199 ItemType
  : Parent ME_51545DDC0252 // Containers
  ;
  : Inherits
-   @ ( WL 'ME_478CF32A03B6' '4AB0997B00A2.pas.ms.script' // TPersistent
+   Seq: ( WL 'ME_478CF32A03B6' '4AB0997B00A2.pas.ms.script' // TPersistent
  ME_51545DEA00FB // StackPrim
- ) .SequenceCode.It
+ )
  ; // Inherits
  : Attributes
-   @ ( ME_5155850A0199 // ItemType
- ) .SequenceCode.It
+   Seq: ( ME_5155850A0199 // ItemType
+ )
  ; // Attributes
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
  : Generators
- @ (
+ Seq: (
  gen_intf.pas
- ) .SequenceCode.It
+ )
  ; // Generators
+ CONST dfm:PathOnly '\common\components\SandBox'
  CONST intf.pas:Path 'common\components\SandBox\IntStackFromPersistent.pas'
+ CONST intf.pas:PathOnly '\common\components\SandBox'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\common\components\SandBox'
+ CONST extprop:rc:SelfName 'IntStackFromPersistent'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'IntStackFromPersistent'
 
 ref; // ME_515584EB0339 TIntStackFromPersistent
 
@@ -361,24 +407,32 @@ ref; // ME_515585470009 ItemType
  : Parent ME_51545DDC0252 // Containers
  ;
  : Inherits
-   @ ( WL 'ME_479878FA0103' '4AB0997B00A2.pas.ms.script' // TComponent
+   Seq: ( WL 'ME_479878FA0103' '4AB0997B00A2.pas.ms.script' // TComponent
  ME_51545DEA00FB // StackPrim
- ) .SequenceCode.It
+ )
  ; // Inherits
  : Attributes
-   @ ( ME_515585470009 // ItemType
- ) .SequenceCode.It
+   Seq: ( ME_515585470009 // ItemType
+ )
  ; // Attributes
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
  : Generators
- @ (
+ Seq: (
  gen_intf.pas
- ) .SequenceCode.It
+ )
  ; // Generators
+ CONST dfm:PathOnly '\common\components\SandBox'
  CONST intf.pas:Path 'common\components\SandBox\IntStackFromComponent.pas'
+ CONST intf.pas:PathOnly '\common\components\SandBox'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\common\components\SandBox'
+ CONST extprop:rc:SelfName 'IntStackFromComponent'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'IntStackFromComponent'
 
 ref; // ME_5155852403BB TIntStackFromComponent
 
@@ -392,26 +446,31 @@ ref; // ME_5155852403BB TIntStackFromComponent
  : Parent WL 'ME_4861FFCA02CE' '4861FFCA02CE.pas.ms.script' // SandBox
  ;
  : Children
-   @ ( ME_51545DEA00FB // StackPrim
+   Seq: ( ME_51545DEA00FB // StackPrim
  ME_5155849600E9 // Stack
  ME_51545E400179 // TStringStack
  ME_51545E1E004A // TIntStack
  ME_515584EB0339 // TIntStackFromPersistent
  ME_5155852403BB // TIntStackFromComponent
- ) .SequenceCode.It
+ )
  ; // Children
  : Depends
-   @ ( WL 'ME_4AB0997B00A2' '4AB0997B00A2.pas.ms.script' // Common
+   Seq: ( WL 'ME_4AB0997B00A2' '4AB0997B00A2.pas.ms.script' // Common
  WL 'ME_4AB0C3C60310' '4AB0C3C60310.pas.ms.script' // Sys
- ) .SequenceCode.It
+ )
  ; // Depends
  : Generators
- @ (
+ Seq: (
  gen_pas.script
  gen_pas.script.runner
- ) .SequenceCode.It
+ )
  ; // Generators
+ CONST dfm:PathOnly '\common\components\SandBox'
+ CONST intf.pas:PathOnly '\common\components\SandBox'
  CONST pas.script:Path 'shared\models\NewSchool\Scripts\51545DDC0252.pas.ms.script'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
  CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\51545DDC0252.pas.ms.script.runner'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\common\components\SandBox'
 
 ref; // ME_51545DDC0252 Containers

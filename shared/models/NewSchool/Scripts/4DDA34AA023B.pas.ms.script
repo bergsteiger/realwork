@@ -1,0 +1,1431 @@
+// Dialogs 4DDA34AA023B Unit Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4DDA34AA023B
+
+FORWARD ME_4AF32FBD00F5
+
+FORWARD ME_4DC936320385
+
+: ME_4DC9365D005C
+ CONST UID '4DC9365D005C'
+ CONST Name 'c_ListKinds'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_4DC936320385 // nsSaveDialog Constants
+ ;
+ CONST Value '[ns_sdkListInternal, ns_sdkList]'
+ CONST "AutoInc" false
+ CONST "forced type" 'none'
+ CONST "is define" false
+ CONST extprop:pas:Value '[ns_sdkListInternal, ns_sdkList]'
+
+ref; // ME_4DC9365D005C c_ListKinds
+
+: ME_4DC936320385
+ CONST UID '4DC936320385'
+ CONST Name 'nsSaveDialog Constants'
+ CONST Class class_Class
+ : Stereotype st_Constants ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ : Parent ME_4AF32FBD00F5 // TnsSaveDialog
+ ;
+ : Attributes
+   Seq: ( ME_4DC9365D005C // c_ListKinds
+ )
+ ; // Attributes
+ CONST "spell names" false
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Common'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Common'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\Common'
+ CONST extprop:rc:SelfName 'SaveDialog Constants'
+
+ref; // ME_4DC936320385 nsSaveDialog Constants
+
+: ME_4DCC2AE00306
+ CONST UID '4DCC2AE00306'
+ CONST Name 'THackWinControl'
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ : Parent ME_4AF32FBD00F5 // TnsSaveDialog
+ ;
+ : Inherits
+   Seq: ( WL 'ME_47E124E90272' '4799D29F033F.pas.ms.script' // TWinControl
+ )
+ ; // Inherits
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Common'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Common'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\Common'
+ CONST extprop:rc:SelfName 'HackWinControl'
+ CONST extprop:rc:isAcceptableForScripts true
+
+ref; // ME_4DCC2AE00306 THackWinControl
+
+: ME_4DBB11B8006A
+ CONST UID '4DBB11B8006A'
+ CONST Name 'SelectedOnlyEnabled'
+ CONST Class class_Attribute
+ : Stereotype st_property::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_agr
+ : Parent ME_4AF32FBD00F5 // TnsSaveDialog
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+ CONST "needs field" false
+ CONST "pm" true
+
+ref; // ME_4DBB11B8006A SelectedOnlyEnabled
+
+: ME_4DBB1205024C
+ CONST UID '4DBB1205024C'
+ CONST Name 'SaveListTarget'
+ CONST Class class_Attribute
+ : Stereotype st_property::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_agr
+ : Parent ME_4AF32FBD00F5 // TnsSaveDialog
+ ;
+ : Target WL 'ME_4990374602FC' '49804E310263.pas.ms.script' // TnsSaveDialogListTarget
+ ;
+ CONST "needs field" false
+ CONST "pm" true
+
+ref; // ME_4DBB1205024C SaveListTarget
+
+: ME_4DBB12460192
+ CONST UID '4DBB12460192'
+ CONST Name 'MergeChecked'
+ CONST Class class_Attribute
+ : Stereotype st_property::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_agr
+ : Parent ME_4AF32FBD00F5 // TnsSaveDialog
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+ CONST "needs field" false
+ CONST "pm" true
+
+ref; // ME_4DBB12460192 MergeChecked
+
+: ME_4DBB126F02FE
+ CONST UID '4DBB126F02FE'
+ CONST Name 'MergeEnabled'
+ CONST Class class_Attribute
+ : Stereotype st_readonly::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_agr
+ : Parent ME_4AF32FBD00F5 // TnsSaveDialog
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+ CONST "needs field" false
+ CONST "pm" true
+
+ref; // ME_4DBB126F02FE MergeEnabled
+
+: ME_4DBB129E010A
+ CONST UID '4DBB129E010A'
+ CONST Name 'SelectedFileFormat'
+ CONST Class class_Attribute
+ : Stereotype st_readonly::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_agr
+ : Parent ME_4AF32FBD00F5 // TnsSaveDialog
+ ;
+ : Target WL 'ME_47F21723038D' '47F2170002B2.pas.ms.script' // TnsFileFormat
+ ;
+ CONST "needs field" false
+ CONST "pm" true
+
+ref; // ME_4DBB129E010A SelectedFileFormat
+
+: ME_4DC924D60196
+ CONST UID '4DC924D60196'
+ CONST Name 'SelectedOnlyChecked'
+ CONST Class class_Attribute
+ : Stereotype st_property::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_agr
+ : Parent ME_4AF32FBD00F5 // TnsSaveDialog
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+ CONST "needs field" false
+ CONST "pm" true
+
+ref; // ME_4DC924D60196 SelectedOnlyChecked
+
+: ME_4DC985040315
+ CONST UID '4DC985040315'
+ CONST Name 'f_ListTargetGroup'
+ CONST Class class_Attribute
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_4AF32FBD00F5 // TnsSaveDialog
+ ;
+ : Target WL 'ME_4DC9890D009D' '4DC9884700CA.pas.ms.script' // TeeGroupBox
+ ;
+
+ref; // ME_4DC985040315 f_ListTargetGroup
+
+: ME_4DCA876C0345
+ CONST UID '4DCA876C0345'
+ CONST Name 'f_SelectedOnlyCheckBox'
+ CONST Class class_Attribute
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_4AF32FBD00F5 // TnsSaveDialog
+ ;
+ : Target WL 'ME_5179419B01DA' '4C43D64C0168.pas.ms.script' // TvtCheckBox
+ ;
+
+ref; // ME_4DCA876C0345 f_SelectedOnlyCheckBox
+
+: ME_4DB830A00114
+ CONST UID '4DB830A00114'
+ CONST Name 'f_ExtraPanel'
+ CONST Class class_Attribute
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_4AF32FBD00F5 // TnsSaveDialog
+ ;
+ : Target WL 'ME_4A7961A701CF' '4A7960CC03A4.pas.ms.script' // TvtPanel
+ ;
+
+ref; // ME_4DB830A00114 f_ExtraPanel
+
+: ME_4DB831620140
+ CONST UID '4DB831620140'
+ CONST Name 'f_MergeCheckBox'
+ CONST Class class_Attribute
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_4AF32FBD00F5 // TnsSaveDialog
+ ;
+ : Target WL 'ME_5179419B01DA' '4C43D64C0168.pas.ms.script' // TvtCheckBox
+ ;
+
+ref; // ME_4DB831620140 f_MergeCheckBox
+
+: ME_4DC15E1000A2
+ CONST UID '4DC15E1000A2'
+ CONST Name 'f_SaveFileName'
+ CONST Class class_Attribute
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_4AF32FBD00F5 // TnsSaveDialog
+ ;
+ : Target WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
+ ;
+
+ref; // ME_4DC15E1000A2 f_SaveFileName
+
+: ME_4DC2F34E0143
+ CONST UID '4DC2F34E0143'
+ CONST Name 'DialogKind'
+ CONST Class class_Attribute
+ : Stereotype st_property::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_agr
+ : Parent ME_4AF32FBD00F5 // TnsSaveDialog
+ ;
+ : Target WL 'ME_496B58F900AA' '49804E310263.pas.ms.script' // TnsSaveDialogKind
+ ;
+ CONST "needs field" true
+ CONST "pm" true
+ CONST "reads field" true
+
+ref; // ME_4DC2F34E0143 DialogKind
+
+: ME_4DC44788002C
+ CONST UID '4DC44788002C'
+ CONST Name 'f_TitlesRadio'
+ CONST Class class_Attribute
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_4AF32FBD00F5 // TnsSaveDialog
+ ;
+ : Target WL 'ME_517941E500BF' '4C43D64C0168.pas.ms.script' // TvtRadioButton
+ ;
+
+ref; // ME_4DC44788002C f_TitlesRadio
+
+: ME_4DC4479E01CE
+ CONST UID '4DC4479E01CE'
+ CONST Name 'f_ContentsRadio'
+ CONST Class class_Attribute
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_4AF32FBD00F5 // TnsSaveDialog
+ ;
+ : Target WL 'ME_517941E500BF' '4C43D64C0168.pas.ms.script' // TvtRadioButton
+ ;
+
+ref; // ME_4DC4479E01CE f_ContentsRadio
+
+: ME_4DC447BC010B
+ CONST UID '4DC447BC010B'
+ CONST Name 'f_NumbersRadio'
+ CONST Class class_Attribute
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_4AF32FBD00F5 // TnsSaveDialog
+ ;
+ : Target WL 'ME_517941E500BF' '4C43D64C0168.pas.ms.script' // TvtRadioButton
+ ;
+
+ref; // ME_4DC447BC010B f_NumbersRadio
+
+: ME_4DC4486A018F
+ CONST UID '4DC4486A018F'
+ CONST Name 'f_Executing'
+ CONST Class class_Attribute
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_4AF32FBD00F5 // TnsSaveDialog
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+
+ref; // ME_4DC4486A018F f_Executing
+
+: ME_0A44DB52E780
+ CONST UID '0A44DB52E780'
+ CONST Name 'f_DialogKind'
+ CONST IsSummoned true
+ CONST Class class_Attribute
+ %SUMMARY 'Поле для свойства DialogKind' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_ref
+ : Parent ME_4AF32FBD00F5 // TnsSaveDialog
+ ;
+ : Target WL 'ME_496B58F900AA' '49804E310263.pas.ms.script' // TnsSaveDialogKind
+ ;
+ CONST extprop:clearViaProperty 'DialogKind'
+
+ref; // ME_0A44DB52E780 f_DialogKind
+
+FORWARD ME_4DD269E001B6
+
+: ME_4DD26A100067
+ CONST UID '4DD26A100067'
+ CONST Name 'ForceEnable'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+ CONST Value false
+ : ValueType WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+ CONST extprop:pas:Value false
+
+ref; // ME_4DD26A100067 ForceEnable
+
+: ME_4DD26A000164
+ CONST UID '4DD26A000164'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_4DD269E001B6 // UpdateFileNameEditEnable
+ ;
+ : Parameters
+   Seq: ( ME_4DD26A100067 // ForceEnable
+ )
+ ; // Parameters
+
+ref; // ME_4DD26A000164 DoIt
+
+: ME_4DD269E001B6
+ CONST UID '4DD269E001B6'
+ CONST Name 'UpdateFileNameEditEnable'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_4AF32FBD00F5 // TnsSaveDialog
+ ;
+ : Operations
+   Seq: ( ME_4DD26A000164 // DoIt
+ )
+ ; // Operations
+
+ref; // ME_4DD269E001B6 UpdateFileNameEditEnable
+
+FORWARD ME_4DD26A2E0223
+
+: ME_4DD26A4D02A8
+ CONST UID '4DD26A4D02A8'
+ CONST Name 'Sender'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_4807745602C8' '4AB0C3C60310.pas.ms.script' // TObject
+ ;
+
+ref; // ME_4DD26A4D02A8 Sender
+
+: ME_4DD26A42010A
+ CONST UID '4DD26A42010A'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_4DD26A2E0223 // MergeClick
+ ;
+ : Parameters
+   Seq: ( ME_4DD26A4D02A8 // Sender
+ )
+ ; // Parameters
+
+ref; // ME_4DD26A42010A DoIt
+
+: ME_4DD26A2E0223
+ CONST UID '4DD26A2E0223'
+ CONST Name 'MergeClick'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_4AF32FBD00F5 // TnsSaveDialog
+ ;
+ : Operations
+   Seq: ( ME_4DD26A42010A // DoIt
+ )
+ ; // Operations
+
+ref; // ME_4DD26A2E0223 MergeClick
+
+FORWARD ME_4DD26A5D0253
+
+: ME_4DD26A7A03A6
+ CONST UID '4DD26A7A03A6'
+ CONST Name 'Sender'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_4807745602C8' '4AB0C3C60310.pas.ms.script' // TObject
+ ;
+
+ref; // ME_4DD26A7A03A6 Sender
+
+: ME_4DD26A7300E8
+ CONST UID '4DD26A7300E8'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_4DD26A5D0253 // ListTargetClick
+ ;
+ : Parameters
+   Seq: ( ME_4DD26A7A03A6 // Sender
+ )
+ ; // Parameters
+
+ref; // ME_4DD26A7300E8 DoIt
+
+: ME_4DD26A5D0253
+ CONST UID '4DD26A5D0253'
+ CONST Name 'ListTargetClick'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_4AF32FBD00F5 // TnsSaveDialog
+ ;
+ : Operations
+   Seq: ( ME_4DD26A7300E8 // DoIt
+ )
+ ; // Operations
+
+ref; // ME_4DD26A5D0253 ListTargetClick
+
+FORWARD ME_4DD26A8700A8
+
+: ME_4DD26A980082
+ CONST UID '4DD26A980082'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_4DD26A8700A8 // ClearControls
+ ;
+
+ref; // ME_4DD26A980082 DoIt
+
+: ME_4DD26A8700A8
+ CONST UID '4DD26A8700A8'
+ CONST Name 'ClearControls'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_4AF32FBD00F5 // TnsSaveDialog
+ ;
+ : Operations
+   Seq: ( ME_4DD26A980082 // DoIt
+ )
+ ; // Operations
+
+ref; // ME_4DD26A8700A8 ClearControls
+
+: ME_4DD0E65702A4
+ CONST UID '4DD0E65702A4'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4AF32FBD00F5 // TnsSaveDialog
+ ;
+ : Target WL 'ME_47F25BC801DB' '47D0E1500033.pas.ms.script' // vcmBase
+ ;
+
+ref; // ME_4DD0E65702A4 
+
+: ME_4DD0F0F9033A
+ CONST UID '4DD0F0F9033A'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4AF32FBD00F5 // TnsSaveDialog
+ ;
+ : Target WL 'ME_4C52BE8601C9' '4C43D64C0168.pas.ms.script' // TeeRadioButton
+ ;
+
+ref; // ME_4DD0F0F9033A 
+
+: ME_4DD0F35E0108
+ CONST UID '4DD0F35E0108'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4AF32FBD00F5 // TnsSaveDialog
+ ;
+ : Target WL 'ME_4DD0F321010A' '4C43D64C0168.pas.ms.script' // TeeButton
+ ;
+
+ref; // ME_4DD0F35E0108 
+
+: ME_4DD115C300EE
+ CONST UID '4DD115C300EE'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4AF32FBD00F5 // TnsSaveDialog
+ ;
+ : Target WL 'ME_4773D64E036C' '47913B47006E.pas.ms.script' // l3Base
+ ;
+
+ref; // ME_4DD115C300EE 
+
+: ME_4DD11AF003E4
+ CONST UID '4DD11AF003E4'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4AF32FBD00F5 // TnsSaveDialog
+ ;
+ : Target WL 'ME_4C2D9FF00326' '55C4AF3F02EE.pas.ms.script' // Consts
+ ;
+
+ref; // ME_4DD11AF003E4 
+
+: ME_4DD11B390145
+ CONST UID '4DD11B390145'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4AF32FBD00F5 // TnsSaveDialog
+ ;
+ : Target WL 'ME_47E13C6B0341' '4799D29F033F.pas.ms.script' // Forms
+ ;
+
+ref; // ME_4DD11B390145 
+
+: ME_4DD11BD2038B
+ CONST UID '4DD11BD2038B'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4AF32FBD00F5 // TnsSaveDialog
+ ;
+ : Target WL 'ME_4808A20402DC' '4AB0997B00A2.pas.ms.script' // Math
+ ;
+
+ref; // ME_4DD11BD2038B 
+
+: ME_4DD11BFE036D
+ CONST UID '4DD11BFE036D'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4AF32FBD00F5 // TnsSaveDialog
+ ;
+ : Target WL 'ME_47878E0E0191' '54B90AC6014B.pas.ms.script' // l3String
+ ;
+
+ref; // ME_4DD11BFE036D 
+
+: ME_4DD11C330236
+ CONST UID '4DD11C330236'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4AF32FBD00F5 // TnsSaveDialog
+ ;
+ : Target WL 'ME_47F260EC02C7' '521C9DA50125.pas.ms.script' // StdRes
+ ;
+
+ref; // ME_4DD11C330236 
+
+: ME_4DD11E66023A
+ CONST UID '4DD11E66023A'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4AF32FBD00F5 // TnsSaveDialog
+ ;
+ : Target WL 'ME_48A41FF10094' '4AB0C3F60375.pas.ms.script' // Windows
+ ;
+
+ref; // ME_4DD11E66023A 
+
+: ME_4DD11FE8032B
+ CONST UID '4DD11FE8032B'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4AF32FBD00F5 // TnsSaveDialog
+ ;
+ : Target WL 'ME_47877EB202FB' '4AB0C3C60310.pas.ms.script' // SysUtils
+ ;
+
+ref; // ME_4DD11FE8032B 
+
+: ME_4DD1201C03DB
+ CONST UID '4DD1201C03DB'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4AF32FBD00F5 // TnsSaveDialog
+ ;
+ : Target WL 'ME_48C78D5402A6' '4799D29F033F.pas.ms.script' // StdCtrls
+ ;
+
+ref; // ME_4DD1201C03DB 
+
+: ME_4DD1203A032D
+ CONST UID '4DD1203A032D'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4AF32FBD00F5 // TnsSaveDialog
+ ;
+ : Target WL 'ME_47D15712022D' '55C4AEC801CA.pas.ms.script' // Graphics
+ ;
+
+ref; // ME_4DD1203A032D 
+
+: ME_4DD1205A00DA
+ CONST UID '4DD1205A00DA'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4AF32FBD00F5 // TnsSaveDialog
+ ;
+ : Target WL 'ME_48C7C95C0221' '4799D29F033F.pas.ms.script' // ExtCtrls
+ ;
+
+ref; // ME_4DD1205A00DA 
+
+: ME_4DD1209B039E
+ CONST UID '4DD1209B039E'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4AF32FBD00F5 // TnsSaveDialog
+ ;
+ : Target WL 'ME_4CFF6D8701C9' '4799D29F033F.pas.ms.script' // Buttons
+ ;
+
+ref; // ME_4DD1209B039E 
+
+: ME_4DD120D20267
+ CONST UID '4DD120D20267'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4AF32FBD00F5 // TnsSaveDialog
+ ;
+ : Target WL 'ME_4AB0EE02004E' '4799D29F033F.pas.ms.script' // Dialogs
+ ;
+
+ref; // ME_4DD120D20267 
+
+: ME_4DD120F3021F
+ CONST UID '4DD120F3021F'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4AF32FBD00F5 // TnsSaveDialog
+ ;
+ : Target WL 'ME_4AC62798032A' '4799D29F033F.pas.ms.script' // ComCtrls
+ ;
+
+ref; // ME_4DD120F3021F 
+
+: ME_4DD124590336
+ CONST UID '4DD124590336'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4AF32FBD00F5 // TnsSaveDialog
+ ;
+ : Target WL 'ME_4DD1237B00AE' '4799D29F033F.pas.ms.script' // CommDlg
+ ;
+
+ref; // ME_4DD124590336 
+
+: ME_4DD4E2BB0236
+ CONST UID '4DD4E2BB0236'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4AF32FBD00F5 // TnsSaveDialog
+ ;
+ : Target WL 'ME_4683F4B103DC' '4683F37902CF.pas.ms.script' // TvcmStringID
+ ;
+
+ref; // ME_4DD4E2BB0236 
+
+: ME_4DD65B940290
+ CONST UID '4DD65B940290'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4AF32FBD00F5 // TnsSaveDialog
+ ;
+ : Target WL 'ME_4C37236E02A1' '4B8E675402AB.pas.ms.script' // TvtSaveDialog
+ ;
+
+ref; // ME_4DD65B940290 
+
+: ME_47D1602000C6_ME_4AF32FBD00F5
+ CONST UID '47D1602000C6'
+ CONST Name 'Create'
+ : Original WL 'ME_47D1602000C6' '4AB0997B00A2.pas.ms.script' // Create
+ ;
+ : Implementor ME_4AF32FBD00F5 // TnsSaveDialog
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_47D1602000C6_ME_4AF32FBD00F5 Create
+
+: ME_48077504027E_ME_4AF32FBD00F5
+ CONST UID '48077504027E'
+ CONST Name 'Destroy'
+ : Original WL 'ME_48077504027E' '4AB0C3C60310.pas.ms.script' // Destroy
+ ;
+ : Implementor ME_4AF32FBD00F5 // TnsSaveDialog
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_48077504027E_ME_4AF32FBD00F5 Destroy
+
+: ME_4DCAD2B2008F_ME_4AF32FBD00F5
+ CONST UID '4DCAD2B2008F'
+ CONST Name 'GetFileNameForAdjust'
+ : Original WL 'ME_4DCAD2B2008F' '4B8E675402AB.pas.ms.script' // GetFileNameForAdjust
+ ;
+ : Implementor ME_4AF32FBD00F5 // TnsSaveDialog
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_4DCAD2B2008F_ME_4AF32FBD00F5 GetFileNameForAdjust
+
+: ME_4DCAD9560008_ME_4AF32FBD00F5
+ CONST UID '4DCAD9560008'
+ CONST Name 'FirstCorrectFileName'
+ : Original WL 'ME_4DCAD9560008' '4B8E675402AB.pas.ms.script' // FirstCorrectFileName
+ ;
+ : Implementor ME_4AF32FBD00F5 // TnsSaveDialog
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_4DCAD9560008_ME_4AF32FBD00F5 FirstCorrectFileName
+
+: ME_4DCBC96000E3_ME_4AF32FBD00F5
+ CONST UID '4DCBC96000E3'
+ CONST Name 'SetAdjustedFileName'
+ : Original WL 'ME_4DCBC96000E3' '4B8E675402AB.pas.ms.script' // SetAdjustedFileName
+ ;
+ : Implementor ME_4AF32FBD00F5 // TnsSaveDialog
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_4DCBC96000E3_ME_4AF32FBD00F5 SetAdjustedFileName
+
+: ME_4DCC1EF50061_ME_4AF32FBD00F5
+ CONST UID '4DCC1EF50061'
+ CONST Name 'DoClose'
+ : Original WL 'ME_4DCC1EF50061' '4799D29F033F.pas.ms.script' // DoClose
+ ;
+ : Implementor ME_4AF32FBD00F5 // TnsSaveDialog
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_4DCC1EF50061_ME_4AF32FBD00F5 DoClose
+
+: ME_4DCC1FEE0352_ME_4AF32FBD00F5
+ CONST UID '4DCC1FEE0352'
+ CONST Name 'DoShow'
+ : Original WL 'ME_4DCC1FEE0352' '4799D29F033F.pas.ms.script' // DoShow
+ ;
+ : Implementor ME_4AF32FBD00F5 // TnsSaveDialog
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_4DCC1FEE0352_ME_4AF32FBD00F5 DoShow
+
+: ME_4DCC203E0199_ME_4AF32FBD00F5
+ CONST UID '4DCC203E0199'
+ CONST Name 'DoCanClose'
+ : Original WL 'ME_4DCC203E0199' '4799D29F033F.pas.ms.script' // DoCanClose
+ ;
+ : Implementor ME_4AF32FBD00F5 // TnsSaveDialog
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_4DCC203E0199_ME_4AF32FBD00F5 DoCanClose
+
+: ME_4DCC20C10116_ME_4AF32FBD00F5
+ CONST UID '4DCC20C10116'
+ CONST Name 'Execute'
+ : Original WL 'ME_4DCC20C10116' '4799D29F033F.pas.ms.script' // Execute
+ ;
+ : Implementor ME_4AF32FBD00F5 // TnsSaveDialog
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_4DCC20C10116_ME_4AF32FBD00F5 Execute
+
+: ME_4AF32FBD00F5
+ CONST UID '4AF32FBD00F5'
+ CONST Name 'TnsSaveDialog'
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4DDA34AA023B // Dialogs
+ ;
+ : Inherits
+   Seq: ( WL 'ME_4C37236E02A1' '4B8E675402AB.pas.ms.script' // TvtSaveDialog
+ )
+ ; // Inherits
+ : Attributes
+   Seq: ( ME_4DBB11B8006A // SelectedOnlyEnabled
+ ME_4DBB1205024C // SaveListTarget
+ ME_4DBB12460192 // MergeChecked
+ ME_4DBB126F02FE // MergeEnabled
+ ME_4DBB129E010A // SelectedFileFormat
+ ME_4DC924D60196 // SelectedOnlyChecked
+ ME_4DC985040315 // f_ListTargetGroup
+ ME_4DCA876C0345 // f_SelectedOnlyCheckBox
+ ME_4DB830A00114 // f_ExtraPanel
+ ME_4DB831620140 // f_MergeCheckBox
+ ME_4DC15E1000A2 // f_SaveFileName
+ ME_4DC2F34E0143 // DialogKind
+ ME_4DC44788002C // f_TitlesRadio
+ ME_4DC4479E01CE // f_ContentsRadio
+ ME_4DC447BC010B // f_NumbersRadio
+ ME_4DC4486A018F // f_Executing
+ ME_0A44DB52E780 // f_DialogKind
+ )
+ ; // Attributes
+ : Operations
+   Seq: ( ME_4DD269E001B6 // UpdateFileNameEditEnable
+ ME_4DD26A2E0223 // MergeClick
+ ME_4DD26A5D0253 // ListTargetClick
+ ME_4DD26A8700A8 // ClearControls
+ )
+ ; // Operations
+ : Overridden
+   Seq: ( ME_47D1602000C6_ME_4AF32FBD00F5 // Create
+ ME_48077504027E_ME_4AF32FBD00F5 // Destroy
+ ME_4DCAD2B2008F_ME_4AF32FBD00F5 // GetFileNameForAdjust
+ ME_4DCAD9560008_ME_4AF32FBD00F5 // FirstCorrectFileName
+ ME_4DCBC96000E3_ME_4AF32FBD00F5 // SetAdjustedFileName
+ ME_4DCC1EF50061_ME_4AF32FBD00F5 // DoClose
+ ME_4DCC1FEE0352_ME_4AF32FBD00F5 // DoShow
+ ME_4DCC203E0199_ME_4AF32FBD00F5 // DoCanClose
+ ME_4DCC20C10116_ME_4AF32FBD00F5 // Execute
+ )
+ ; // Overridden
+ : Children
+   Seq: ( ME_4DCC2AE00306 // THackWinControl
+ )
+ ; // Children
+ : Constants
+   Seq: ( ME_4DC936320385 // nsSaveDialog Constants
+ )
+ ; // Constants
+ : Dependencies
+   Seq: ( ME_4DD0E65702A4 // 
+ ME_4DD0F0F9033A // 
+ ME_4DD0F35E0108 // 
+ ME_4DD115C300EE // 
+ ME_4DD11AF003E4 // 
+ ME_4DD11B390145 // 
+ ME_4DD11BD2038B // 
+ ME_4DD11BFE036D // 
+ ME_4DD11C330236 // 
+ ME_4DD11E66023A // 
+ ME_4DD11FE8032B // 
+ ME_4DD1201C03DB // 
+ ME_4DD1203A032D // 
+ ME_4DD1205A00DA // 
+ ME_4DD1209B039E // 
+ ME_4DD120D20267 // 
+ ME_4DD120F3021F // 
+ ME_4DD124590336 // 
+ ME_4DD4E2BB0236 // 
+ ME_4DD65B940290 // 
+ )
+ ; // Dependencies
+ CONST "need UC" true
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ : Generators
+ Seq: (
+ gen_intf.pas
+ )
+ ; // Generators
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Common'
+ CONST intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\Common\nsSaveDialog.pas'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Common'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\Common'
+ CONST extprop:rc:SelfName 'SaveDialog'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'nsSaveDialog'
+
+ref; // ME_4AF32FBD00F5 TnsSaveDialog
+
+FORWARD ME_4DDD468D0131
+
+FORWARD ME_4DE4F71702C2
+
+: ME_4DE4F9E60057
+ CONST UID '4DE4F9E60057'
+ CONST Name 'OpenDialogInnerNumbers'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_4DE4F71702C2 // OpenDialog
+ ;
+ CONST Value '''Внутренний номер в базе'''
+ CONST "AutoInc" false
+ CONST "forced type" 'none'
+ CONST "is define" false
+ CONST extprop:pas:Value '''Внутренний номер в базе'''
+
+ref; // ME_4DE4F9E60057 OpenDialogInnerNumbers
+
+: ME_4DE4F71702C2
+ CONST UID '4DE4F71702C2'
+ CONST Name 'OpenDialog'
+ CONST Class class_Class
+ : Stereotype st_LocalConst ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_4DDD468D0131 // TnsOpenDialog
+ ;
+ : Attributes
+   Seq: ( ME_4DE4F9E60057 // OpenDialogInnerNumbers
+ )
+ ; // Attributes
+ CONST "Need map interface" false
+ CONST "Need mapping support" false
+ CONST "spell names" false
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Common'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Common'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\Common'
+
+ref; // ME_4DE4F71702C2 OpenDialog
+
+: ME_4DE6894F002B
+ CONST UID '4DE6894F002B'
+ CONST Name 'THackWinControl'
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ : Parent ME_4DDD468D0131 // TnsOpenDialog
+ ;
+ : Inherits
+   Seq: ( WL 'ME_47E124E90272' '4799D29F033F.pas.ms.script' // TWinControl
+ )
+ ; // Inherits
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Common'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Common'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\Common'
+ CONST extprop:rc:SelfName 'HackWinControl'
+ CONST extprop:rc:isAcceptableForScripts true
+
+ref; // ME_4DE6894F002B THackWinControl
+
+FORWARD ME_61D32F8A37C1
+
+: ME_D18B86E9AFAF
+ CONST UID 'D18B86E9AFAF'
+ CONST Name 'OpenDialogInnerNumbers'
+ CONST IsSummoned true
+ CONST Class class_Attribute
+ %SUMMARY '''Внутренний номер в базе''' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_61D32F8A37C1 // LCImplOpenDialog
+ ;
+ : Target WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
+ ;
+ CONST Value '(rS : -1; rLocalized : false; rKey : ''OpenDialogInnerNumbers''; rValue : ''Внутренний номер в базе'')'
+ : ValueType WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
+ ;
+ CONST "AutoInc" false
+ CONST "forced type" 'none'
+ CONST "is define" false
+ CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''OpenDialogInnerNumbers''; rValue : ''Внутренний номер в базе'')'
+
+ref; // ME_D18B86E9AFAF OpenDialogInnerNumbers
+
+: ME_61D32F8A37C1
+ CONST UID '61D32F8A37C1'
+ CONST Name 'LCImplOpenDialog'
+ CONST IsSummoned true
+ CONST Class class_Class
+ : Stereotype st_Constants ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Локализуемые строки OpenDialog' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ : Parent ME_4DDD468D0131 // TnsOpenDialog
+ ;
+ : Attributes
+   Seq: ( ME_D18B86E9AFAF // OpenDialogInnerNumbers
+ )
+ ; // Attributes
+ CONST "elements prefix" 'str'
+ CONST "spell names" false
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Common'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Common'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\Common'
+ CONST extprop:pas:ElementPrefixBase 'str'
+ CONST extprop:pas:ElementPrefix 'str_'
+
+ref; // ME_61D32F8A37C1 LCImplOpenDialog
+
+: ME_4DE67223009E
+ CONST UID '4DE67223009E'
+ CONST Name 'InnerNumbersEnabled'
+ CONST Class class_Attribute
+ : Stereotype st_property::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_agr
+ : Parent ME_4DDD468D0131 // TnsOpenDialog
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+ CONST "needs field" true
+ CONST "pm" true
+ CONST "reads field" true
+
+ref; // ME_4DE67223009E InnerNumbersEnabled
+
+: ME_4DE675B0034F
+ CONST UID '4DE675B0034F'
+ CONST Name 'InnerNumbersChecked'
+ CONST Class class_Attribute
+ : Stereotype st_property::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_agr
+ : Parent ME_4DDD468D0131 // TnsOpenDialog
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+ CONST "needs field" false
+ CONST "pm" true
+
+ref; // ME_4DE675B0034F InnerNumbersChecked
+
+: ME_4DE675F4015E
+ CONST UID '4DE675F4015E'
+ CONST Name 'f_ExtraPanel'
+ CONST Class class_Attribute
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_4DDD468D0131 // TnsOpenDialog
+ ;
+ : Target WL 'ME_4A7961A701CF' '4A7960CC03A4.pas.ms.script' // TvtPanel
+ ;
+
+ref; // ME_4DE675F4015E f_ExtraPanel
+
+: ME_4DE6769A00E4
+ CONST UID '4DE6769A00E4'
+ CONST Name 'f_InnerNumbersCheckBox'
+ CONST Class class_Attribute
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_4DDD468D0131 // TnsOpenDialog
+ ;
+ : Target WL 'ME_5179419B01DA' '4C43D64C0168.pas.ms.script' // TvtCheckBox
+ ;
+
+ref; // ME_4DE6769A00E4 f_InnerNumbersCheckBox
+
+: ME_5DDF99A89CEC
+ CONST UID '5DDF99A89CEC'
+ CONST Name 'f_InnerNumbersEnabled'
+ CONST IsSummoned true
+ CONST Class class_Attribute
+ %SUMMARY 'Поле для свойства InnerNumbersEnabled' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_ref
+ : Parent ME_4DDD468D0131 // TnsOpenDialog
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+ CONST extprop:clearViaProperty 'InnerNumbersEnabled'
+
+ref; // ME_5DDF99A89CEC f_InnerNumbersEnabled
+
+: ME_3AC526215EA5
+ CONST UID '3AC526215EA5'
+ CONST Name 'Init_Str_OpenDialogInnerNumbers'
+ CONST IsSummoned true
+ CONST Class class_Operation
+ : Stereotype st_ini::Operation ;
+ %SUMMARY 'Инициализация str_OpenDialogInnerNumbers' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_4DDD468D0131 // TnsOpenDialog
+ ;
+ : Speller ME_4DE4F9E60057 // OpenDialogInnerNumbers
+ ;
+ : SpelledFor ME_D18B86E9AFAF // OpenDialogInnerNumbers
+ ;
+
+ref; // ME_3AC526215EA5 Init_Str_OpenDialogInnerNumbers
+
+: ME_4DE685DD0340
+ CONST UID '4DE685DD0340'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4DDD468D0131 // TnsOpenDialog
+ ;
+ : Target WL 'ME_4A7961A701CF' '4A7960CC03A4.pas.ms.script' // TvtPanel
+ ;
+
+ref; // ME_4DE685DD0340 
+
+: ME_4DE6861D031D
+ CONST UID '4DE6861D031D'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4DDD468D0131 // TnsOpenDialog
+ ;
+ : Target WL 'ME_4AC5E484002C' '4C43D64C0168.pas.ms.script' // TeeCheckBox
+ ;
+
+ref; // ME_4DE6861D031D 
+
+: ME_4DE68C3801A4
+ CONST UID '4DE68C3801A4'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4DDD468D0131 // TnsOpenDialog
+ ;
+ : Target WL 'ME_47877EB202FB' '4AB0C3C60310.pas.ms.script' // SysUtils
+ ;
+
+ref; // ME_4DE68C3801A4 
+
+: ME_4DE68CBA0176
+ CONST UID '4DE68CBA0176'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4DDD468D0131 // TnsOpenDialog
+ ;
+ : Target WL 'ME_4773D64E036C' '47913B47006E.pas.ms.script' // l3Base
+ ;
+
+ref; // ME_4DE68CBA0176 
+
+: ME_4DE68E290304
+ CONST UID '4DE68E290304'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4DDD468D0131 // TnsOpenDialog
+ ;
+ : Target WL 'ME_48A41FF10094' '4AB0C3F60375.pas.ms.script' // Windows
+ ;
+
+ref; // ME_4DE68E290304 
+
+: ME_4DE68ECB0346
+ CONST UID '4DE68ECB0346'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4DDD468D0131 // TnsOpenDialog
+ ;
+ : Target WL 'ME_47E13C6B0341' '4799D29F033F.pas.ms.script' // Forms
+ ;
+
+ref; // ME_4DE68ECB0346 
+
+: ME_4DE68F2E018C
+ CONST UID '4DE68F2E018C'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4DDD468D0131 // TnsOpenDialog
+ ;
+ : Target WL 'ME_47F25BC801DB' '47D0E1500033.pas.ms.script' // vcmBase
+ ;
+
+ref; // ME_4DE68F2E018C 
+
+: ME_4DE692A00232
+ CONST UID '4DE692A00232'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4DDD468D0131 // TnsOpenDialog
+ ;
+ : Target WL 'ME_4DD1237B00AE' '4799D29F033F.pas.ms.script' // CommDlg
+ ;
+
+ref; // ME_4DE692A00232 
+
+: ME_346D82AE3231
+ CONST UID '346D82AE3231'
+ CONST IsSummoned true
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4DDD468D0131 // TnsOpenDialog
+ ;
+ : Target WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
+ ;
+
+ref; // ME_346D82AE3231 
+
+: ME_8CC0A1269AB2
+ CONST UID '8CC0A1269AB2'
+ CONST IsSummoned true
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4DDD468D0131 // TnsOpenDialog
+ ;
+ : Target WL 'ME_4E01D1E002AE' '4F9BDEEE01BC.pas.ms.script' // Tl3MessageID
+ ;
+
+ref; // ME_8CC0A1269AB2 
+
+: ME_47D1602000C6_ME_4DDD468D0131
+ CONST UID '47D1602000C6'
+ CONST Name 'Create'
+ : Original WL 'ME_47D1602000C6' '4AB0997B00A2.pas.ms.script' // Create
+ ;
+ : Implementor ME_4DDD468D0131 // TnsOpenDialog
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_47D1602000C6_ME_4DDD468D0131 Create
+
+: ME_48077504027E_ME_4DDD468D0131
+ CONST UID '48077504027E'
+ CONST Name 'Destroy'
+ : Original WL 'ME_48077504027E' '4AB0C3C60310.pas.ms.script' // Destroy
+ ;
+ : Implementor ME_4DDD468D0131 // TnsOpenDialog
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_48077504027E_ME_4DDD468D0131 Destroy
+
+: ME_4DCC1FEE0352_ME_4DDD468D0131
+ CONST UID '4DCC1FEE0352'
+ CONST Name 'DoShow'
+ : Original WL 'ME_4DCC1FEE0352' '4799D29F033F.pas.ms.script' // DoShow
+ ;
+ : Implementor ME_4DDD468D0131 // TnsOpenDialog
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_4DCC1FEE0352_ME_4DDD468D0131 DoShow
+
+: ME_4DCC20C10116_ME_4DDD468D0131
+ CONST UID '4DCC20C10116'
+ CONST Name 'Execute'
+ : Original WL 'ME_4DCC20C10116' '4799D29F033F.pas.ms.script' // Execute
+ ;
+ : Implementor ME_4DDD468D0131 // TnsOpenDialog
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_4DCC20C10116_ME_4DDD468D0131 Execute
+
+: ME_4DDD468D0131
+ CONST UID '4DDD468D0131'
+ CONST Name 'TnsOpenDialog'
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4DDA34AA023B // Dialogs
+ ;
+ : Inherits
+   Seq: ( ME_4AF32FBD00F5 // TnsSaveDialog
+ )
+ ; // Inherits
+ : Attributes
+   Seq: ( ME_4DE67223009E // InnerNumbersEnabled
+ ME_4DE675B0034F // InnerNumbersChecked
+ ME_4DE675F4015E // f_ExtraPanel
+ ME_4DE6769A00E4 // f_InnerNumbersCheckBox
+ ME_5DDF99A89CEC // f_InnerNumbersEnabled
+ )
+ ; // Attributes
+ : Operations
+   Seq: ( ME_3AC526215EA5 // Init_Str_OpenDialogInnerNumbers
+ )
+ ; // Operations
+ : Overridden
+   Seq: ( ME_47D1602000C6_ME_4DDD468D0131 // Create
+ ME_48077504027E_ME_4DDD468D0131 // Destroy
+ ME_4DCC1FEE0352_ME_4DDD468D0131 // DoShow
+ ME_4DCC20C10116_ME_4DDD468D0131 // Execute
+ )
+ ; // Overridden
+ : Children
+   Seq: ( ME_4DE6894F002B // THackWinControl
+ )
+ ; // Children
+ : Constants
+   Seq: ( ME_4DE4F71702C2 // OpenDialog
+ ME_61D32F8A37C1 // LCImplOpenDialog
+ )
+ ; // Constants
+ : Dependencies
+   Seq: ( ME_4DE685DD0340 // 
+ ME_4DE6861D031D // 
+ ME_4DE68C3801A4 // 
+ ME_4DE68CBA0176 // 
+ ME_4DE68E290304 // 
+ ME_4DE68ECB0346 // 
+ ME_4DE68F2E018C // 
+ ME_4DE692A00232 // 
+ ME_346D82AE3231 // 
+ ME_8CC0A1269AB2 // 
+ )
+ ; // Dependencies
+ CONST "need UC" true
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ : Generators
+ Seq: (
+ gen_intf.pas
+ )
+ ; // Generators
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Common'
+ CONST intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\Common\nsOpenDialog.pas'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Common'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\Common'
+ CONST extprop:rc:SelfName 'OpenDialog'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'nsOpenDialog'
+
+ref; // ME_4DDD468D0131 TnsOpenDialog
+
+: ME_4DDA34AA023B
+ CONST UID '4DDA34AA023B'
+ CONST Name 'Dialogs'
+ CONST Class class_Category
+ : Stereotype st_Unit ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent WL 'ME_4ABB680E0218' '4ABB680E0218.pas.ms.script' // Common$Lib
+ ;
+ : Children
+   Seq: ( ME_4AF32FBD00F5 // TnsSaveDialog
+ ME_4DDD468D0131 // TnsOpenDialog
+ )
+ ; // Children
+ : Depends
+   Seq: ( WL 'ME_4677FBA70343' '4677FBA70343.pas.ms.script' // l3Interfaces
+ WL 'ME_4683F37902CF' '4683F37902CF.pas.ms.script' // vcmInterfaces
+ WL 'ME_47913B47006E' '47913B47006E.pas.ms.script' // l3CoreObjects
+ WL 'ME_4799D29F033F' '4799D29F033F.pas.ms.script' // Implementation
+ WL 'ME_47D0E1500033' '47D0E1500033.pas.ms.script' // Implementation
+ WL 'ME_47F2170002B2' '47F2170002B2.pas.ms.script' // nsTypes
+ WL 'ME_48F747EC0073' '48F747EC0073.pas.ms.script' // Common
+ WL 'ME_49804E310263' '49804E310263.pas.ms.script' // PresentationInterfaces
+ WL 'ME_4A7960CC03A4' '4A7960CC03A4.pas.ms.script' //  Panels
+ WL 'ME_4AB0997B00A2' '4AB0997B00A2.pas.ms.script' // Common
+ WL 'ME_4AB0C3C60310' '4AB0C3C60310.pas.ms.script' // Sys
+ WL 'ME_4AB0C3F60375' '4AB0C3F60375.pas.ms.script' // Win
+ WL 'ME_4AC5E47900ED' '4AC5E47900ED.pas.ms.script' // CheckBox
+ WL 'ME_4B8E675402AB' '4B8E675402AB.pas.ms.script' // Dialogs
+ WL 'ME_4C43D64C0168' '4C43D64C0168.pas.ms.script' // Buttons
+ WL 'ME_4C52BE7401AB' '4C52BE7401AB.pas.ms.script' // Buttons
+ WL 'ME_4DC9884700CA' '4DC9884700CA.pas.ms.script' // GroupBox
+ WL 'ME_521C9DA50125' '521C9DA50125.pas.ms.script' // Application Resources
+ WL 'ME_54B90AC6014B' '54B90AC6014B.pas.ms.script' // StringUtils
+ WL 'ME_55C4AEC801CA' '55C4AEC801CA.pas.ms.script' // Graphics
+ WL 'ME_55C4AF3F02EE' '55C4AF3F02EE.pas.ms.script' // Consts
+ )
+ ; // Depends
+ : Generators
+ Seq: (
+ gen_pas.script
+ gen_pas.script.runner
+ )
+ ; // Generators
+ CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Common'
+ CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Common'
+ CONST pas.script:Path 'shared\models\NewSchool\Scripts\4DDA34AA023B.pas.ms.script'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\4DDA34AA023B.pas.ms.script.runner'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\Common'
+
+ref; // ME_4DDA34AA023B Dialogs

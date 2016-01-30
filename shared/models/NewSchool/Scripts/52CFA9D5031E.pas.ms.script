@@ -25,8 +25,8 @@ ref; // ME_52CFAAC803E1 Size
  : Parent ME_52CFAA4E0134 // TAddSizeEvent
  ;
  : Parameters
-   @ ( ME_52CFAAC803E1 // Size
- ) .SequenceCode.It
+   Seq: ( ME_52CFAAC803E1 // Size
+ )
  ; // Parameters
 
 ref; // ME_52CFAAB60179 DoIt
@@ -42,10 +42,14 @@ ref; // ME_52CFAAB60179 DoIt
  : Parent ME_52CFA9D5031E // ddTypes
  ;
  : Operations
-   @ ( ME_52CFAAB60179 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_52CFAAB60179 // DoIt
+ )
  ; // Operations
  CONST "of object" true
+ CONST dfm:PathOnly '\common\components\rtl\Garant\dd'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\dd'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_52CFAA4E0134 TAddSizeEvent
 
@@ -71,6 +75,7 @@ ref; // ME_52CFAB070363 aDescription
  CONST Value 0
  : ValueType WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
  ;
+ CONST extprop:pas:Value 0
 
 ref; // ME_52CFAB070373 aCategory
 
@@ -83,9 +88,9 @@ ref; // ME_52CFAB070373 aCategory
  : Parent ME_52CFAADD005C // TddErrorEvent
  ;
  : Parameters
-   @ ( ME_52CFAB070363 // aDescription
+   Seq: ( ME_52CFAB070363 // aDescription
  ME_52CFAB070373 // aCategory
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_52CFAAEA0203 DoIt
@@ -101,10 +106,14 @@ ref; // ME_52CFAAEA0203 DoIt
  : Parent ME_52CFA9D5031E // ddTypes
  ;
  : Operations
-   @ ( ME_52CFAAEA0203 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_52CFAAEA0203 // DoIt
+ )
  ; // Operations
  CONST "of object" true
+ CONST dfm:PathOnly '\common\components\rtl\Garant\dd'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\dd'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_52CFAADD005C TddErrorEvent
 
@@ -139,9 +148,9 @@ ref; // ME_52CFAB37032F Comment
  : Parent ME_52CFAB17019D // TddCommentWriteEvent
  ;
  : Parameters
-   @ ( ME_52CFAB37031F // TopicNo
+   Seq: ( ME_52CFAB37031F // TopicNo
  ME_52CFAB37032F // Comment
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_52CFAB1F00E6 DoIt
@@ -157,10 +166,14 @@ ref; // ME_52CFAB1F00E6 DoIt
  : Parent ME_52CFA9D5031E // ddTypes
  ;
  : Operations
-   @ ( ME_52CFAB1F00E6 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_52CFAB1F00E6 // DoIt
+ )
  ; // Operations
  CONST "of object" true
+ CONST dfm:PathOnly '\common\components\rtl\Garant\dd'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\dd'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_52CFAB17019D TddCommentWriteEvent
 
@@ -195,9 +208,15 @@ ref; // ME_52CFAC6A006B OnError
  : Parent ME_52CFA9D5031E // ddTypes
  ;
  : Attributes
-   @ ( ME_52CFAC6A006B // OnError
- ) .SequenceCode.It
+   Seq: ( ME_52CFAC6A006B // OnError
+ )
  ; // Attributes
+ CONST dfm:PathOnly '\common\components\rtl\Garant\dd'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\dd'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'ddErrorHandler'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_52CFAB5501FE IddErrorHandler
 
@@ -216,6 +235,7 @@ FORWARD ME_51DD5C720260
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value 'High(Integer)'
 
 ref; // ME_51DD5C7C00E6 propUndefined
 
@@ -232,6 +252,7 @@ ref; // ME_51DD5C7C00E6 propUndefined
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value 108
 
 ref; // ME_53A41C9102C1 ddDefaultPad
 
@@ -248,6 +269,7 @@ ref; // ME_53A41C9102C1 ddDefaultPad
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value '2 * ddDefaultPad'
 
 ref; // ME_53A41CDD0310 ddDefaultCellWidth
 
@@ -262,12 +284,16 @@ ref; // ME_53A41CDD0310 ddDefaultCellWidth
  : Parent ME_52CFA9D5031E // ddTypes
  ;
  : Attributes
-   @ ( ME_51DD5C7C00E6 // propUndefined
+   Seq: ( ME_51DD5C7C00E6 // propUndefined
  ME_53A41C9102C1 // ddDefaultPad
  ME_53A41CDD0310 // ddDefaultCellWidth
- ) .SequenceCode.It
+ )
  ; // Attributes
  CONST "spell names" false
+ CONST dfm:PathOnly '\common\components\rtl\Garant\dd'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\dd'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_51DD5C720260 Common
 
@@ -308,10 +334,15 @@ ref; // ME_525E6E86015D dd_cbClearFrame
  : Parent ME_52CFA9D5031E // ddTypes
  ;
  : Attributes
-   @ ( ME_525E6E79024C // dd_cbNeedFrame
+   Seq: ( ME_525E6E79024C // dd_cbNeedFrame
  ME_525E6E86015D // dd_cbClearFrame
- ) .SequenceCode.It
+ )
  ; // Attributes
+ CONST dfm:PathOnly '\common\components\rtl\Garant\dd'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\dd'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_525E6D880262 TddClearBoder
 
@@ -364,11 +395,16 @@ ref; // ME_52CF9BD902A4 cellBottom
  : Parent ME_52CFA9D5031E // ddTypes
  ;
  : Attributes
-   @ ( ME_52CF9BC7031D // cellTop
+   Seq: ( ME_52CF9BC7031D // cellTop
  ME_52CF9BD002F7 // cellCenter
  ME_52CF9BD902A4 // cellBottom
- ) .SequenceCode.It
+ )
  ; // Attributes
+ CONST dfm:PathOnly '\common\components\rtl\Garant\dd'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\dd'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_52CF9BB7016C TddCellJust
 
@@ -445,13 +481,18 @@ ref; // ME_51E8CC66039D boCell
  : Parent ME_52CFA9D5031E // ddTypes
  ;
  : Attributes
-   @ ( ME_51E8CC4503A3 // boNone
+   Seq: ( ME_51E8CC4503A3 // boNone
  ME_51E8CC4E0088 // boChar
  ME_51E8CC5503E7 // boPara
  ME_51E8CC5E03D8 // boRow
  ME_51E8CC66039D // boCell
- ) .SequenceCode.It
+ )
  ; // Attributes
+ CONST dfm:PathOnly '\common\components\rtl\Garant\dd'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\dd'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_518A1EC20043 TddBorderOwner
 
@@ -540,14 +581,19 @@ ref; // ME_51F0DB7F0107 justNotDefined
  : Parent ME_52CFA9D5031E // ddTypes
  ;
  : Attributes
-   @ ( ME_51F0DB530105 // justL
+   Seq: ( ME_51F0DB530105 // justL
  ME_51F0DB5F0089 // justR
  ME_51F0DB650306 // justC
  ME_51F0DB6E0000 // justF
  ME_51F0DB77016D // justP
  ME_51F0DB7F0107 // justNotDefined
- ) .SequenceCode.It
+ )
  ; // Attributes
+ CONST dfm:PathOnly '\common\components\rtl\Garant\dd'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\dd'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_51F0DB1A03C4 TJust
 
@@ -624,13 +670,18 @@ ref; // ME_52CFE0640225 tkNotDefined
  : Parent ME_52CFA9D5031E // ddTypes
  ;
  : Attributes
-   @ ( ME_52CFE03C014B // tkLeft
+   Seq: ( ME_52CFE03C014B // tkLeft
  ME_52CFE0490109 // tkRight
  ME_52CFE0520256 // tkCentered
  ME_52CFE05A0344 // tkDecimal
  ME_52CFE0640225 // tkNotDefined
- ) .SequenceCode.It
+ )
  ; // Attributes
+ CONST dfm:PathOnly '\common\components\rtl\Garant\dd'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\dd'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_52CFE034005A TTabKind
 
@@ -731,15 +782,20 @@ ref; // ME_52CFE0CD00E8 tlEqualSign
  : Parent ME_52CFA9D5031E // ddTypes
  ;
  : Attributes
-   @ ( ME_52CFE0880345 // tlNone
+   Seq: ( ME_52CFE0880345 // tlNone
  ME_52CFE0920167 // tlDots
  ME_52CFE09D0041 // tlMiddleDots
  ME_52CFE0A502EA // tlHyphens
  ME_52CFE0AD024E // tlUnderline
  ME_52CFE0C300CA // tlThickLine
  ME_52CFE0CD00E8 // tlEqualSign
- ) .SequenceCode.It
+ )
  ; // Attributes
+ CONST dfm:PathOnly '\common\components\rtl\Garant\dd'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\dd'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_52CFE07C0317 TTabLead
 
@@ -1044,7 +1100,7 @@ ref; // ME_52CFE512012B ddPrintFontSize
  : Parent ME_52CFA9D5031E // ddTypes
  ;
  : Attributes
-   @ ( ME_52CFE44902D0 // ddAnime
+   Seq: ( ME_52CFE44902D0 // ddAnime
  ME_52CFE4510086 // ddUnderline
  ME_52CFE4580136 // ddCaps
  ME_52CFE45F0139 // ddContour
@@ -1068,8 +1124,13 @@ ref; // ME_52CFE512012B ddPrintFontSize
  ME_52CFE50300F6 // ddStyle
  ME_52CFE50A0379 // ddEvdStyle
  ME_52CFE512012B // ddPrintFontSize
- ) .SequenceCode.It
+ )
  ; // Attributes
+ CONST dfm:PathOnly '\common\components\rtl\Garant\dd'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\dd'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_52CFE44103DA TddCharProperties
 
@@ -1110,10 +1171,15 @@ ref; // ME_526901A80164 ltUnordered
  : Parent ME_52CFA9D5031E // ddTypes
  ;
  : Attributes
-   @ ( ME_5269019D01F4 // ltOrdered
+   Seq: ( ME_5269019D01F4 // ltOrdered
  ME_526901A80164 // ltUnordered
- ) .SequenceCode.It
+ )
  ; // Attributes
+ CONST dfm:PathOnly '\common\components\rtl\Garant\dd'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\dd'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_526901870020 TddListType
 
@@ -1190,13 +1256,18 @@ ref; // ME_52690653035C otNumbers
  : Parent ME_52CFA9D5031E // ddTypes
  ;
  : Attributes
-   @ ( ME_5269062E038E // otCapitalLetters
+   Seq: ( ME_5269062E038E // otCapitalLetters
  ME_5269063703D0 // otSmallLetters
  ME_526906400299 // otLargeRoman
  ME_5269064903D5 // otSmallRoman
  ME_52690653035C // otNumbers
- ) .SequenceCode.It
+ )
  ; // Attributes
+ CONST dfm:PathOnly '\common\components\rtl\Garant\dd'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\dd'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_52690624035A TddOrderType
 
@@ -1273,13 +1344,18 @@ ref; // ME_53BA70B30142 dd_rtNestedAAC
  : Parent ME_52CFA9D5031E // ddTypes
  ;
  : Attributes
-   @ ( ME_53AD46890316 // dd_rtNone
+   Seq: ( ME_53AD46890316 // dd_rtNone
  ME_53AD469901A5 // dd_rtSBS
  ME_53AD46A201A6 // dd_rtNested
  ME_53AD46AA03AC // dd_rtAAC
  ME_53BA70B30142 // dd_rtNestedAAC
- ) .SequenceCode.It
+ )
  ; // Attributes
+ CONST dfm:PathOnly '\common\components\rtl\Garant\dd'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\dd'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_53AD467402F9 TddRowType
 
@@ -1304,8 +1380,8 @@ ref; // ME_54084CE7015A aFileName
  : Parent ME_54084CC102B0 // IddSaveObjectPath
  ;
  : Parameters
-   @ ( ME_54084CE7015A // aFileName
- ) .SequenceCode.It
+   Seq: ( ME_54084CE7015A // aFileName
+ )
  ; // Parameters
 
 ref; // ME_54084CD701CC SaveObjectPath
@@ -1322,9 +1398,15 @@ ref; // ME_54084CD701CC SaveObjectPath
  : Parent ME_52CFA9D5031E // ddTypes
  ;
  : Operations
-   @ ( ME_54084CD701CC // SaveObjectPath
- ) .SequenceCode.It
+   Seq: ( ME_54084CD701CC // SaveObjectPath
+ )
  ; // Operations
+ CONST dfm:PathOnly '\common\components\rtl\Garant\dd'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\dd'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'ddSaveObjectPath'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_54084CC102B0 IddSaveObjectPath
 
@@ -1353,9 +1435,15 @@ ref; // ME_54084D16006F NeedDeleteFileData
  : Parent ME_52CFA9D5031E // ddTypes
  ;
  : Operations
-   @ ( ME_54084D16006F // NeedDeleteFileData
- ) .SequenceCode.It
+   Seq: ( ME_54084D16006F // NeedDeleteFileData
+ )
  ; // Operations
+ CONST dfm:PathOnly '\common\components\rtl\Garant\dd'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\dd'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'ddDocumentListner'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_54084D0101DC IddDocumentListner
 
@@ -1437,13 +1525,18 @@ ref; // ME_54168D380058 dd_faacAlignCell
  : Parent ME_52CFA9D5031E // ddTypes
  ;
  : Attributes
-   @ ( ME_54168CC2035D // dd_faacNone
+   Seq: ( ME_54168CC2035D // dd_faacNone
  ME_54168CD9007D // dd_faacWhite
  ME_54168CEC0348 // dd_faacDefColor
  ME_54168D03009F // dd_faacDefColorWithoutLine
  ME_54168D380058 // dd_faacAlignCell
- ) .SequenceCode.It
+ )
  ; // Attributes
+ CONST dfm:PathOnly '\common\components\rtl\Garant\dd'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\dd'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_54168CB901A0 TddFillAAC
 
@@ -1497,11 +1590,16 @@ ref; // ME_54168E5301AA dd_rpLast
  : Parent ME_52CFA9D5031E // ddTypes
  ;
  : Attributes
-   @ ( ME_54168E3A0265 // dd_rpNone
+   Seq: ( ME_54168E3A0265 // dd_rpNone
  ME_54168E47037A // dd_rpFirst
  ME_54168E5301AA // dd_rpLast
- ) .SequenceCode.It
+ )
  ; // Attributes
+ CONST dfm:PathOnly '\common\components\rtl\Garant\dd'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\dd'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_54168DF802EB TddRowPosition
 
@@ -1538,9 +1636,9 @@ ref; // ME_543513DE0086 aPassword
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
  : Parameters
-   @ ( ME_543513DE0077 // aLogin
+   Seq: ( ME_543513DE0077 // aLogin
  ME_543513DE0086 // aPassword
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_543513A101B8 DoIt
@@ -1556,10 +1654,14 @@ ref; // ME_543513A101B8 DoIt
  : Parent ME_52CFA9D5031E // ddTypes
  ;
  : Operations
-   @ ( ME_543513A101B8 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_543513A101B8 // DoIt
+ )
  ; // Operations
  CONST "of object" false
+ CONST dfm:PathOnly '\common\components\rtl\Garant\dd'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\dd'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_54351392038F TGetLoginPasswordProc
 
@@ -1624,12 +1726,17 @@ ref; // ME_5616188A00B7 dd_wuTwips
  : Parent ME_52CFA9D5031E // ddTypes
  ;
  : Attributes
-   @ ( ME_561618440136 // dd_wuNull
+   Seq: ( ME_561618440136 // dd_wuNull
  ME_5616185600EB // dd_wuAuto
  ME_5616185F01D6 // dd_wuPercentage
  ME_5616188A00B7 // dd_wuTwips
- ) .SequenceCode.It
+ )
  ; // Attributes
+ CONST dfm:PathOnly '\common\components\rtl\Garant\dd'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\dd'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_5616180700EC TddRTFWidthUnits
 
@@ -1643,7 +1750,7 @@ ref; // ME_5616180700EC TddRTFWidthUnits
  : Parent WL 'ME_4677E18600C2' '4677E18600C2.pas.ms.script' // dd
  ;
  : Children
-   @ ( ME_52CFAA4E0134 // TAddSizeEvent
+   Seq: ( ME_52CFAA4E0134 // TAddSizeEvent
  ME_52CFAADD005C // TddErrorEvent
  ME_52CFAB17019D // TddCommentWriteEvent
  ME_52CFAB5501FE // IddErrorHandler
@@ -1663,28 +1770,25 @@ ref; // ME_5616180700EC TddRTFWidthUnits
  ME_54168DF802EB // TddRowPosition
  ME_54351392038F // TGetLoginPasswordProc
  ME_5616180700EC // TddRTFWidthUnits
- ) .SequenceCode.It
+ )
  ; // Children
  : Constants
-   @ ( ME_51DD5C720260 // Common
- ) .SequenceCode.It
+   Seq: ( ME_51DD5C720260 // Common
+ )
  ; // Constants
  : Depends
-   @ ( WL 'ME_47913B47006E' '47913B47006E.pas.ms.script' // l3CoreObjects
+   Seq: ( WL 'ME_47913B47006E' '47913B47006E.pas.ms.script' // l3CoreObjects
  WL 'ME_4AB0C3C60310' '4AB0C3C60310.pas.ms.script' // Sys
- ) .SequenceCode.It
+ )
  ; // Depends
  CONST "is namespace" true
  CONST "no hands" false
- : Generators
- @ (
- gen_intf.pas
- gen_pas.script
- gen_pas.script.runner
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\dd'
  CONST intf.pas:Path 'common\components\rtl\Garant\dd\ddTypes.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\dd'
  CONST pas.script:Path 'shared\models\NewSchool\Scripts\52CFA9D5031E.pas.ms.script'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
  CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\52CFA9D5031E.pas.ms.script.runner'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_52CFA9D5031E ddTypes

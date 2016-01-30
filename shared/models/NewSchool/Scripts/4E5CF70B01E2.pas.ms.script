@@ -1,0 +1,450 @@
+// Требования к редактору Эверест 4E5CF70B01E2 UseCases Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4E5CF70B01E2
+
+FORWARD ME_4E6A1BDA03DB
+
+FORWARD ME_4E5CFCBA026C
+
+: ME_4E5CFCBA026C
+ CONST UID '4E5CFCBA026C'
+ CONST Name 'Отображение баллонов внутри текста'
+ CONST Class class_Class
+ : Stereotype st_UseCase ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'http://mdp.garant.ru/pages/viewpage.action?pageId=254348440#%D0%98%D0%BD%D1%82%D0%B5%D1%80%D1%84%D0%B5%D0%B9%D1%81%D0%B4%D0%BE%D0%BA%D1%83%D0%BC%D0%B5%D0%BD%D1%82%D0%B0-%D0%98%D0%BD%D1%84%D0%BE%D1%80%D0%BC%D0%B0%D1%86%D0%B8%D1%8F%D0%BE%D0%B1%D0%B8%D0%B7%D0%BC%D0%B5%D0%BD%D1%8F%D1%8E%D1%89%D0%B8%D1%85%D0%B4%D0%BE%D0%BA%D1%83%D0%BC%D0%B5%D0%BD%D1%82%D0%B0%D1%85' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4E6A1BDA03DB // Отображение документа
+ ;
+ CONST dfm:PathOnly '\common\components'
+ CONST intf.pas:PathOnly '\common\components'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+
+ref; // ME_4E5CFCBA026C Отображение баллонов внутри текста
+
+FORWARD ME_4E5CF9ED03B7
+
+: ME_4E5CF72A00BC
+ CONST UID '4E5CF72A00BC'
+ CONST Name '"Шапка" комментариев должна отображаться целиком или не отображаться вовсе, если она не имеет собственной отдельной строки вывода'
+ CONST Class class_Class
+ : Stereotype st_UseCaseRequirement ;
+ CONST Kind kind_NormalClass
+ %SUMMARY '{RequestLink:280006084}' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4E5CF9ED03B7 // Отображение комментариев
+ ;
+ CONST dfm:PathOnly '\common\components'
+ CONST intf.pas:PathOnly '\common\components'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+
+ref; // ME_4E5CF72A00BC "Шапка" комментариев должна отображаться целиком или не отображаться вовсе, если она не имеет собственной отдельной строки вывода
+
+: ME_4E5CF9ED03B7
+ CONST UID '4E5CF9ED03B7'
+ CONST Name 'Отображение комментариев'
+ CONST Class class_Class
+ : Stereotype st_UseCase ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4E6A1BDA03DB // Отображение документа
+ ;
+ : Children
+   Seq: ( ME_4E5CF72A00BC // "Шапка" комментариев должна отображаться целиком или не отображаться вовсе, если она не имеет собственной отдельной строки вывода
+ )
+ ; // Children
+ CONST dfm:PathOnly '\common\components'
+ CONST intf.pas:PathOnly '\common\components'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+
+ref; // ME_4E5CF9ED03B7 Отображение комментариев
+
+FORWARD ME_4E6A1C160365
+
+: ME_4E6A1C160365
+ CONST UID '4E6A1C160365'
+ CONST Name 'Отображение шапки документа'
+ CONST Class class_Class
+ : Stereotype st_UseCase ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4E6A1BDA03DB // Отображение документа
+ ;
+ CONST dfm:PathOnly '\common\components'
+ CONST intf.pas:PathOnly '\common\components'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+
+ref; // ME_4E6A1C160365 Отображение шапки документа
+
+: ME_4E6A2DF3030F
+ CONST UID '4E6A2DF3030F'
+ CONST Name 'Отображение шапки параграфа'
+ CONST Class class_Class
+ : Stereotype st_UseCase ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4E6A1BDA03DB // Отображение документа
+ ;
+ CONST dfm:PathOnly '\common\components'
+ CONST intf.pas:PathOnly '\common\components'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+
+ref; // ME_4E6A2DF3030F Отображение шапки параграфа
+
+: ME_4E6A1BDA03DB
+ CONST UID '4E6A1BDA03DB'
+ CONST Name 'Отображение документа'
+ CONST Class class_Class
+ : Stereotype st_UseCase ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4E5CF70B01E2 // Требования к редактору Эверест
+ ;
+ : Children
+   Seq: ( ME_4E5CFCBA026C // Отображение баллонов внутри текста
+ ME_4E5CF9ED03B7 // Отображение комментариев
+ ME_4E6A1C160365 // Отображение шапки документа
+ ME_4E6A2DF3030F // Отображение шапки параграфа
+ )
+ ; // Children
+ CONST dfm:PathOnly '\common\components'
+ CONST intf.pas:PathOnly '\common\components'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+
+ref; // ME_4E6A1BDA03DB Отображение документа
+
+FORWARD ME_4E7B18D60286
+
+: ME_4E7B18D60286
+ CONST UID '4E7B18D60286'
+ CONST Name 'Скроллирование документа'
+ CONST Class class_Class
+ : Stereotype st_UseCase ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4E5CF70B01E2 // Требования к редактору Эверест
+ ;
+ CONST dfm:PathOnly '\common\components'
+ CONST intf.pas:PathOnly '\common\components'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+
+ref; // ME_4E7B18D60286 Скроллирование документа
+
+FORWARD ME_4E8202E900AD
+
+: ME_4E82032103C9
+ CONST UID '4E82032103C9'
+ CONST Name 'Карточки запроса должны уметь заполняться из скриптов'
+ CONST Class class_Class
+ : Stereotype st_UseCaseRequirement ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4E8202E900AD // Карточка запроса на основе EVD
+ ;
+ CONST dfm:PathOnly '\common\components'
+ CONST intf.pas:PathOnly '\common\components'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+
+ref; // ME_4E82032103C9 Карточки запроса должны уметь заполняться из скриптов
+
+: ME_4E85C86300AC
+ CONST UID '4E85C86300AC'
+ CONST Name 'Если не задан тег ShortName то не надо рисовать заголовок группы контролов'
+ CONST Class class_Class
+ : Stereotype st_UseCaseRequirement ;
+ CONST Kind kind_NormalClass
+ %SUMMARY '{RequestLink:278834134}' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4E8202E900AD // Карточка запроса на основе EVD
+ ;
+ CONST dfm:PathOnly '\common\components'
+ CONST intf.pas:PathOnly '\common\components'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+
+ref; // ME_4E85C86300AC Если не задан тег ShortName то не надо рисовать заголовок группы контролов
+
+: ME_4F69A954039F
+ CONST UID '4F69A954039F'
+ CONST Name 'Карточки запроса должны уметь сворачивать и разворачивать группы атрибутов из скриптов'
+ CONST Class class_Class
+ : Stereotype st_UseCaseRequirement ;
+ CONST Kind kind_NormalClass
+ %SUMMARY '{RequestLink:349114873}' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4E8202E900AD // Карточка запроса на основе EVD
+ ;
+ CONST dfm:PathOnly '\common\components'
+ CONST intf.pas:PathOnly '\common\components'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+
+ref; // ME_4F69A954039F Карточки запроса должны уметь сворачивать и разворачивать группы атрибутов из скриптов
+
+: ME_4F69A97D02E2
+ CONST UID '4F69A97D02E2'
+ CONST Name 'Карточки запросов должны уметь устанавливать фокус в требуемый атрибут из скриптов'
+ CONST Class class_Class
+ : Stereotype st_UseCaseRequirement ;
+ CONST Kind kind_NormalClass
+ %SUMMARY '{RequestLink:349114873}' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4E8202E900AD // Карточка запроса на основе EVD
+ ;
+ CONST dfm:PathOnly '\common\components'
+ CONST intf.pas:PathOnly '\common\components'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+
+ref; // ME_4F69A97D02E2 Карточки запросов должны уметь устанавливать фокус в требуемый атрибут из скриптов
+
+: ME_4E8202E900AD
+ CONST UID '4E8202E900AD'
+ CONST Name 'Карточка запроса на основе EVD'
+ CONST Class class_Class
+ : Stereotype st_UseCase ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4E5CF70B01E2 // Требования к редактору Эверест
+ ;
+ : Children
+   Seq: ( ME_4E82032103C9 // Карточки запроса должны уметь заполняться из скриптов
+ ME_4E85C86300AC // Если не задан тег ShortName то не надо рисовать заголовок группы контролов
+ ME_4F69A954039F // Карточки запроса должны уметь сворачивать и разворачивать группы атрибутов из скриптов
+ ME_4F69A97D02E2 // Карточки запросов должны уметь устанавливать фокус в требуемый атрибут из скриптов
+ )
+ ; // Children
+ CONST dfm:PathOnly '\common\components'
+ CONST intf.pas:PathOnly '\common\components'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+
+ref; // ME_4E8202E900AD Карточка запроса на основе EVD
+
+FORWARD ME_4E85A41002B5
+
+: ME_4E85A41002B5
+ CONST UID '4E85A41002B5'
+ CONST Name 'Просмотр документа'
+ CONST Class class_Class
+ : Stereotype st_UseCase ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4E5CF70B01E2 // Требования к редактору Эверест
+ ;
+ CONST dfm:PathOnly '\common\components'
+ CONST intf.pas:PathOnly '\common\components'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+
+ref; // ME_4E85A41002B5 Просмотр документа
+
+FORWARD ME_4E85A4280258
+
+: ME_4E85A4280258
+ CONST UID '4E85A4280258'
+ CONST Name 'Редактирование документа'
+ CONST Class class_Class
+ : Stereotype st_UseCase ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4E5CF70B01E2 // Требования к редактору Эверест
+ ;
+ CONST dfm:PathOnly '\common\components'
+ CONST intf.pas:PathOnly '\common\components'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+
+ref; // ME_4E85A4280258 Редактирование документа
+
+FORWARD ME_4E85A48D035E
+
+FORWARD ME_4E85A4EB02BD
+
+: ME_4E85AE2A017A
+ CONST UID '4E85AE2A017A'
+ CONST Name 'И в Архивариусе (с новым редактором) - тоже'
+ CONST Class class_Class
+ : Stereotype st_UseCaseRequirement ;
+ CONST Kind kind_NormalClass
+ %SUMMARY '[$289276100]' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4E85A4EB02BD // Информация из баллона об изменениях документа должна копироваться вместе со вступительной фразой
+ ;
+ CONST dfm:PathOnly '\common\components'
+ CONST intf.pas:PathOnly '\common\components'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+
+ref; // ME_4E85AE2A017A И в Архивариусе (с новым редактором) - тоже
+
+: ME_4E85A4EB02BD
+ CONST UID '4E85A4EB02BD'
+ CONST Name 'Информация из баллона об изменениях документа должна копироваться вместе со вступительной фразой'
+ CONST Class class_Class
+ : Stereotype st_UseCaseRequirement ;
+ CONST Kind kind_NormalClass
+ %SUMMARY '{RequestLink:278837126}' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4E85A48D035E // Экспорт документа в форматы отличные от EVD
+ ;
+ : Implements
+   Seq: ( ME_4E85AE2A017A // И в Архивариусе (с новым редактором) - тоже
+ )
+ ; // Implements
+ : Children
+   Seq: ( ME_4E85AE2A017A // И в Архивариусе (с новым редактором) - тоже
+ )
+ ; // Children
+ CONST dfm:PathOnly '\common\components'
+ CONST intf.pas:PathOnly '\common\components'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+
+ref; // ME_4E85A4EB02BD Информация из баллона об изменениях документа должна копироваться вместе со вступительной фразой
+
+: ME_4E85A48D035E
+ CONST UID '4E85A48D035E'
+ CONST Name 'Экспорт документа в форматы отличные от EVD'
+ CONST Class class_Class
+ : Stereotype st_UseCase ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4E5CF70B01E2 // Требования к редактору Эверест
+ ;
+ : Children
+   Seq: ( ME_4E85A4EB02BD // Информация из баллона об изменениях документа должна копироваться вместе со вступительной фразой
+ )
+ ; // Children
+ CONST dfm:PathOnly '\common\components'
+ CONST intf.pas:PathOnly '\common\components'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+
+ref; // ME_4E85A48D035E Экспорт документа в форматы отличные от EVD
+
+FORWARD ME_4E85A4A500A5
+
+: ME_4F352A3B036A
+ CONST UID '4F352A3B036A'
+ CONST Name 'В RTF не должны экспортироваться скриптовые ссылки'
+ CONST Class class_Class
+ : Stereotype st_UseCaseTagRequirement ;
+ CONST Kind kind_NormalClass
+ %SUMMARY '{RequestLink:329646242}' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4E85A4A500A5 // Экспорт документа в RTF
+ ;
+ CONST dfm:PathOnly '\common\components'
+ CONST intf.pas:PathOnly '\common\components'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+
+ref; // ME_4F352A3B036A В RTF не должны экспортироваться скриптовые ссылки
+
+: ME_4E85A4A500A5
+ CONST UID '4E85A4A500A5'
+ CONST Name 'Экспорт документа в RTF'
+ CONST Class class_Class
+ : Stereotype st_UseCase ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4E5CF70B01E2 // Требования к редактору Эверест
+ ;
+ : Inherits
+   Seq: ( ME_4E85A48D035E // Экспорт документа в форматы отличные от EVD
+ )
+ ; // Inherits
+ : Children
+   Seq: ( ME_4F352A3B036A // В RTF не должны экспортироваться скриптовые ссылки
+ )
+ ; // Children
+ CONST dfm:PathOnly '\common\components'
+ CONST intf.pas:PathOnly '\common\components'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+
+ref; // ME_4E85A4A500A5 Экспорт документа в RTF
+
+: ME_4E85A4BD01A5
+ CONST UID '4E85A4BD01A5'
+ CONST Name 'Экспорт документа в TXT'
+ CONST Class class_Class
+ : Stereotype st_UseCase ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4E5CF70B01E2 // Требования к редактору Эверест
+ ;
+ : Inherits
+   Seq: ( ME_4E85A48D035E // Экспорт документа в форматы отличные от EVD
+ )
+ ; // Inherits
+ CONST dfm:PathOnly '\common\components'
+ CONST intf.pas:PathOnly '\common\components'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+
+ref; // ME_4E85A4BD01A5 Экспорт документа в TXT
+
+: ME_4E5CF70B01E2
+ CONST UID '4E5CF70B01E2'
+ CONST Name 'Требования к редактору Эверест'
+ CONST Class class_Category
+ : Stereotype st_UseCases ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent WL 'ME_4E36644A0023' '4E36644A0023.pas.ms.script' // Стандартные компоненты
+ ;
+ : Children
+   Seq: ( ME_4E6A1BDA03DB // Отображение документа
+ ME_4E7B18D60286 // Скроллирование документа
+ ME_4E8202E900AD // Карточка запроса на основе EVD
+ ME_4E85A41002B5 // Просмотр документа
+ ME_4E85A4280258 // Редактирование документа
+ ME_4E85A48D035E // Экспорт документа в форматы отличные от EVD
+ ME_4E85A4A500A5 // Экспорт документа в RTF
+ ME_4E85A4BD01A5 // Экспорт документа в TXT
+ )
+ ; // Children
+ : Depends
+   Seq: ( WL 'ME_4E57B8C2010F' '4E57B8C2010F.pas.ms.script' // Требования к схеме документа EVD
+ )
+ ; // Depends
+ CONST dfm:PathOnly '\common\components'
+ CONST intf.pas:PathOnly '\common\components'
+ CONST pas.script:Path 'shared\models\NewSchool\Scripts\4E5CF70B01E2.pas.ms.script'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\4E5CF70B01E2.pas.ms.script.runner'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+
+ref; // ME_4E5CF70B01E2 Требования к редактору Эверест

@@ -19,6 +19,7 @@ FORWARD ME_47ECAB310336
  CONST "AutoInc" false
  CONST "forced type" 'none'
  CONST "is define" false
+ CONST extprop:pas:Value ''''''
 
 ref; // ME_53FF09590070 ev_msgLast
 
@@ -33,10 +34,14 @@ ref; // ME_53FF09590070 ev_msgLast
  : Parent ME_47ECAB0B0265 // evMsgCode
  ;
  : Attributes
-   @ ( ME_53FF09590070 // ev_msgLast
- ) .SequenceCode.It
+   Seq: ( ME_53FF09590070 // ev_msgLast
+ )
  ; // Attributes
  CONST "spell names" false
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_47ECAB310336 Msg Codes
 
@@ -51,23 +56,20 @@ ref; // ME_47ECAB310336 Msg Codes
  : Parent WL 'ME_4797632D0273' '4797632D0273.pas.ms.script' // Everest
  ;
  : Constants
-   @ ( ME_47ECAB310336 // Msg Codes
- ) .SequenceCode.It
+   Seq: ( ME_47ECAB310336 // Msg Codes
+ )
  ; // Constants
  CONST "author" 'Ëþëèí À.Â.'
  CONST "finished" false
  CONST "is namespace" true
  CONST "no hands" false
  CONST "started" '09.07.2002 17:09'
- : Generators
- @ (
- gen_intf.pas
- gen_pas.script
- gen_pas.script.runner
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\gui\Garant\Everest'
  CONST intf.pas:Path 'common\components\gui\Garant\Everest\NOT_FINISHED_evMsgCode.pas'
+ CONST intf.pas:PathOnly '\common\components\gui\Garant\Everest'
  CONST pas.script:Path 'shared\models\NewSchool\Scripts\47ECAB0B0265.pas.ms.script'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
  CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\47ECAB0B0265.pas.ms.script.runner'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_47ECAB0B0265 evMsgCode

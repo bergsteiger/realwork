@@ -77,8 +77,8 @@ ref; // ME_4CA1D3BB016D anID
  : Target WL 'ME_4CA1C00E03B3' '4CA1BFF9036D.pas.ms.script' // IServerGate_Contents_KPage
  ;
  : Attributes
-   @ ( ME_4CA1D3BB016D // anID
- ) .SequenceCode.It
+   Seq: ( ME_4CA1D3BB016D // anID
+ )
  ; // Attributes
  CONST "needs field" false
  CONST "pm" true
@@ -123,8 +123,8 @@ ref; // ME_4CA1E04E003F DoIt
  : Parent ME_4CA0BB8600CF // TKBridge
  ;
  : Operations
-   @ ( ME_4CA1E04E003F // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_4CA1E04E003F // DoIt
+ )
  ; // Operations
 
 ref; // ME_4CA1E04300B7 Logout
@@ -155,8 +155,8 @@ ref; // ME_4CA335F403D5 DoIt
  : Parent ME_4CA0BB8600CF // TKBridge
  ;
  : Operations
-   @ ( ME_4CA335F403D5 // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_4CA335F403D5 // DoIt
+ )
  ; // Operations
  CONST "is static" true
 
@@ -209,9 +209,9 @@ ref; // ME_4CAC9C7A01C8 aFile
  : Parent ME_4CAC9C6100E7 // AttachFile
  ;
  : Parameters
-   @ ( ME_4CAC9C7A0199 // aPage
+   Seq: ( ME_4CAC9C7A0199 // aPage
  ME_4CAC9C7A01C8 // aFile
- ) .SequenceCode.It
+ )
  ; // Parameters
 
 ref; // ME_4CAC9C6E004D DoIt
@@ -260,18 +260,18 @@ ref; // ME_4CAC9F75012D
  : Parent ME_4CA0BB8600CF // TKBridge
  ;
  : Attributes
-   @ ( ME_4CAC9F4C0250 // F
- ) .SequenceCode.It
+   Seq: ( ME_4CAC9F4C0250 // F
+ )
  ; // Attributes
  : Operations
-   @ ( ME_4CAC9C6E004D // DoIt
- ) .SequenceCode.It
+   Seq: ( ME_4CAC9C6E004D // DoIt
+ )
  ; // Operations
  : Dependencies
-   @ ( ME_4CAC9E220070 // 
+   Seq: ( ME_4CAC9E220070 // 
  ME_4CAC9F630325 // 
  ME_4CAC9F75012D // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
 
 ref; // ME_4CAC9C6100E7 AttachFile
@@ -426,6 +426,7 @@ ref; // ME_4DF79CD1004B
  ;
  : Implementor ME_4CA0BB8600CF // TKBridge
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_479731C50290_ME_4CA0BB8600CF Cleanup
 
 : ME_47A042E100E2_ME_4CA0BB8600CF
@@ -435,6 +436,7 @@ ref; // ME_479731C50290_ME_4CA0BB8600CF Cleanup
  ;
  : Implementor ME_4CA0BB8600CF // TKBridge
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_47A042E100E2_ME_4CA0BB8600CF InitFields
 
 : ME_5000565C019C_ME_4CA0BB8600CF
@@ -444,6 +446,7 @@ ref; // ME_47A042E100E2_ME_4CA0BB8600CF InitFields
  ;
  : Implementor ME_4CA0BB8600CF // TKBridge
  ;
+ CONST OpKind opkind_Overridden
 ref; // ME_5000565C019C_ME_4CA0BB8600CF ClearFields
 
 : ME_4CA0BB8600CF
@@ -458,31 +461,31 @@ ref; // ME_5000565C019C_ME_4CA0BB8600CF ClearFields
  : Parent ME_4CA0BB31027B // BridgeToKviaCORBA
  ;
  : Inherits
-   @ ( WL 'ME_49E7754802A9' '47913B47006E.pas.ms.script' // Tl3ProtoObject
- ) .SequenceCode.It
+   Seq: ( WL 'ME_49E7754802A9' '47913B47006E.pas.ms.script' // Tl3ProtoObject
+ )
  ; // Inherits
  : Attributes
-   @ ( ME_4CA1C49E0245 // f_orb
+   Seq: ( ME_4CA1C49E0245 // f_orb
  ME_4CA1C666017B // f_session
  ME_4CA1D39202C2 // f_NC
  ME_4CA1D3B10250 // Page
  ME_4CA1D4A00134 // f_KPageFactory
- ) .SequenceCode.It
+ )
  ; // Attributes
  : Operations
-   @ ( ME_4CA1E04300B7 // Logout
+   Seq: ( ME_4CA1E04300B7 // Logout
  ME_4CA335E50024 // Exists
  ME_4CAC9C6100E7 // AttachFile
- ) .SequenceCode.It
+ )
  ; // Operations
  : Overridden
-   @ ( ME_479731C50290_ME_4CA0BB8600CF // Cleanup
+   Seq: ( ME_479731C50290_ME_4CA0BB8600CF // Cleanup
  ME_47A042E100E2_ME_4CA0BB8600CF // InitFields
  ME_5000565C019C_ME_4CA0BB8600CF // ClearFields
- ) .SequenceCode.It
+ )
  ; // Overridden
  : Dependencies
-   @ ( ME_4CA0D5C802FD // 
+   Seq: ( ME_4CA0D5C802FD // 
  ME_4CA1C0B501D9 // 
  ME_4CA1C4DA0126 // 
  ME_4CA1C54300EE // 
@@ -495,7 +498,7 @@ ref; // ME_5000565C019C_ME_4CA0BB8600CF ClearFields
  ME_4CA1D11F0094 // 
  ME_4CA1D18A01C8 // 
  ME_4DF79CD1004B // 
- ) .SequenceCode.It
+ )
  ; // Dependencies
  CONST "author" 'Ëþëèí À.Â.'
  CONST "needs InstanceR" 'undefined'
@@ -504,12 +507,14 @@ ref; // ME_5000565C019C_ME_4CA0BB8600CF ClearFields
  CONST "register in scripts" 'undefined'
  CONST "singleton" true
  CONST "started" '27.09.2010 19:43'
- : Generators
- @ (
- gen_intf.pas
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\DUnitTuning'
  CONST intf.pas:Path 'common\components\rtl\Garant\DUnitTuning\KBridge.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\DUnitTuning'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'KBridge'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'KBridge'
 
 ref; // ME_4CA0BB8600CF TKBridge
 
@@ -524,11 +529,11 @@ ref; // ME_4CA0BB8600CF TKBridge
  : Parent WL 'ME_4B2A10C40309' '4B2A10C40309.pas.ms.script' // DUnitTuning
  ;
  : Children
-   @ ( ME_4CA0BB8600CF // TKBridge
- ) .SequenceCode.It
+   Seq: ( ME_4CA0BB8600CF // TKBridge
+ )
  ; // Children
  : Depends
-   @ ( WL 'ME_4678193C009C' '4678193C009C.pas.ms.script' // l3Types
+   Seq: ( WL 'ME_4678193C009C' '4678193C009C.pas.ms.script' // l3Types
  WL 'ME_47913B47006E' '47913B47006E.pas.ms.script' // l3CoreObjects
  WL 'ME_47D0290B016D' '47D0290B016D.pas.ms.script' // l3Utils
  WL 'ME_4AB0997B00A2' '4AB0997B00A2.pas.ms.script' // Common
@@ -541,16 +546,14 @@ ref; // ME_4CA0BB8600CF TKBridge
  WL 'ME_4CA1C4660358' '4CA1C4660358.pas.ms.script' // orb_int
  WL 'ME_4CA1D154012C' '4CA1D154012C.pas.ms.script' // Impl
  WL 'ME_4DF79C0F03A9' '4DF79C0F03A9.pas.ms.script' // tfwKConst
- ) .SequenceCode.It
+ )
  ; // Depends
  CONST "ifdef" 'MTDORB,NoKPageTool'
- : Generators
- @ (
- gen_pas.script
- gen_pas.script.runner
- ) .SequenceCode.It
- ; // Generators
+ CONST dfm:PathOnly '\common\components\rtl\Garant\DUnitTuning'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\DUnitTuning'
  CONST pas.script:Path 'shared\models\NewSchool\Scripts\4CA0BB31027B.pas.ms.script'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
  CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\4CA0BB31027B.pas.ms.script.runner'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_4CA0BB31027B BridgeToKviaCORBA
